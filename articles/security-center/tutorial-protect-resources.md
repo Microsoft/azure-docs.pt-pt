@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/3/2018
 ms.author: monhaber
-ms.openlocfilehash: 8662539257422289053e75beeadd07c63d8d3f4d
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: 6e8c10ecb85addf2ef6a995e3c0b8ac611343cfa
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56106637"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58110346"
 ---
 # <a name="tutorial-protect-your-resources-with-azure-security-center"></a>Tutorial: Proteger os seus recursos com o Centro de segurança do Azure
 O Centro de Segurança limita a exposição a ameaças ao utilizar controlos de acesso e aplicações para bloquear atividade maliciosa. Acesso de máquina virtual (VM) just-in-Time (JIT) reduz a exposição a ataques ao permitir a negação do acesso persistente a VMs. Em alternativa, o utilizador fornece acesso controlado e auditado a VMs apenas quando necessário. Os controlos de aplicações adaptáveis ajudam a proteger as VMs contra software maligno ao controlar as aplicações que podem ser executadas nas suas VMs. O Centro de Segurança utiliza machine learning para analisar os processos que estão a ser executados na VM e ajuda-o a aplicar regras de inclusão nas listas de permissões com base nessas informações.
@@ -43,30 +43,30 @@ As portas de gestão não precisam de estar abertas permanentemente. Apenas têm
 
 1. No menu principal do Centro de segurança, selecione **aceder a Just-in-Time VM** sob **defesa de CLOUD avançada**.
 
-  ![Acesso à VM just-in-time][1]
+   ![Acesso à VM just-in-time][1]
 
-  **O acesso à VM just-in-Time** fornece informações sobre o estado das suas VMs:
+   **O acesso à VM just-in-Time** fornece informações sobre o estado das suas VMs:
 
-  - **Configurado** - VMs que foram configuradas para suportar o acesso à VM just-in-time.
-  - **Recomendado** - VMs que conseguem suportar o acesso à VM just-in-time, mas não foram configuradas para tal.
-  - **Nenhuma recomendação** - As razões que podem fazer com que uma VM não seja recomendada são:
+   - **Configurado** - VMs que foram configuradas para suportar o acesso à VM just-in-time.
+   - **Recomendado** - VMs que conseguem suportar o acesso à VM just-in-time, mas não foram configuradas para tal.
+   - **Nenhuma recomendação** - As razões que podem fazer com que uma VM não seja recomendada são:
 
-    - NSG em falta - A solução just-in-time requer a existência de um NSG implementado.
-    - VM clássica - Atualmente, o acesso à VM just-in-time do Centro de Segurança suporta apenas VMs implementadas através do Azure Resource Manager.
-    - Outro - Uma VM está nesta categoria se a solução just-in-time estiver desativada na política de segurança da subscrição ou do grupo de recursos, ou se existir um IP público em falta na VM e não tiver um NSG implementado.
+     - NSG em falta - A solução just-in-time requer a existência de um NSG implementado.
+     - VM clássica - Atualmente, o acesso à VM just-in-time do Centro de Segurança suporta apenas VMs implementadas através do Azure Resource Manager.
+     - Outro - Uma VM está nesta categoria se a solução just-in-time estiver desativada na política de segurança da subscrição ou do grupo de recursos, ou se existir um IP público em falta na VM e não tiver um NSG implementado.
 
 2. Selecione uma VM recomendada e clique em **Ativar JIT em 1 VM** para configurar uma política just-in-time para essa VM:
 
-  Pode guardar as portas predefinidas recomendadas pelo Centro de Segurança ou pode adicionar e configurar uma porta nova na qual queira ativar a solução just-in-time. Neste tutorial, vamos adicionar uma porta ao selecionar **Adicionar**.
+   Pode guardar as portas predefinidas recomendadas pelo Centro de Segurança ou pode adicionar e configurar uma porta nova na qual queira ativar a solução just-in-time. Neste tutorial, vamos adicionar uma porta ao selecionar **Adicionar**.
 
-  ![Adicionar configuração da porta][2]
+   ![Adicionar configuração da porta][2]
 
 3. Em **Adicionar configuração da porta**, identifique:
 
-  - A porta
-  - O tipo de protocolo
-  - IPs de origem permitidos - os intervalos de IP autorizados a obter acesso após um pedido aprovado
-  - Tempo máximo do pedido - janela de tempo máximo em que pode ser aberta uma porta específica
+   - A porta
+   - O tipo de protocolo
+   - IPs de origem permitidos - os intervalos de IP autorizados a obter acesso após um pedido aprovado
+   - Tempo máximo do pedido - janela de tempo máximo em que pode ser aberta uma porta específica
 
 4. Selecione **OK** para guardar.
 
@@ -79,22 +79,22 @@ Esta funcionalidade só está disponível para máquinas Windows.
 
    ![Controlos de aplicações adaptáveis][3]
 
-  A secção **Grupos de recursos** contém três separadores:
+   A secção **Grupos de recursos** contém três separadores:
 
-  - **Configurado**: Lista de grupos de recursos que contém as VMs que foram configuradas com o controlo de aplicações.
-  - **Recomendado**: Lista de grupos de recursos para que aplicação de controlo é recomendado.
-  - **Nenhuma recomendação**: Lista de grupos de recursos que contém as VMs sem recomendações de controlo de aplicações. Por exemplo, VMs em que as aplicações estão sempre a ser alteradas e que não atingiram um estado estável.
+   - **Configurado**: Lista de grupos de recursos que contém as VMs que foram configuradas com o controlo de aplicações.
+   - **Recomendado**: Lista de grupos de recursos para que aplicação de controlo é recomendado.
+   - **Nenhuma recomendação**: Lista de grupos de recursos que contém as VMs sem recomendações de controlo de aplicações. Por exemplo, VMs em que as aplicações estão sempre a ser alteradas e que não atingiram um estado estável.
 
 2. Selecione o separador **Recomendados** para ver uma lista dos grupos de recursos com recomendações de controlo de aplicações.
 
-  ![Recomendações de controlo de aplicações][4]
+   ![Recomendações de controlo de aplicações][4]
 
 3. Selecione um grupo de recursos para abrir a opção **Criar regras de controlo de aplicações**. Em **Selecionar VMs**, reveja a lista de VMs recomendadas e desmarque aquelas às quais não pretende aplicar o controlo de aplicações. Em **Selecionar processos para regras de inclusão em listas de permissões**, reveja a lista de aplicações recomendadas e desmarque aquelas às quais não pretende aplicar. A lista inclui:
 
-  - **NOME**: O caminho completo da aplicação
-  - **PROCESSOS**: Quantas aplicações residem em cada caminho
-  - **COMUNS**: "Sim" indica que estes processos foram executados na maioria das VMs neste grupo de recursos
-  - **EXPLORÁVEIS**: Um ícone de aviso indica se as aplicações podem ser utilizadas por um atacante para ignorar as listas de permissões de aplicação. Recomenda-se que reveja estas aplicações antes da respetiva aprovação.
+   - **NOME**: O caminho completo da aplicação
+   - **PROCESSOS**: Quantas aplicações residem em cada caminho
+   - **COMUNS**: "Sim" indica que estes processos foram executados na maioria das VMs neste grupo de recursos
+   - **EXPLORÁVEIS**: Um ícone de aviso indica se as aplicações podem ser utilizadas por um atacante para ignorar as listas de permissões de aplicação. Recomenda-se que reveja estas aplicações antes da respetiva aprovação.
 
 4. Depois de concluir as suas seleções, selecione **Criar**.
 

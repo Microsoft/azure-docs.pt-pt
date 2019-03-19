@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 02/28/2019
-ms.openlocfilehash: bc3dd038a21786a75d6b519ef8523dc328829705
-ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
+ms.openlocfilehash: b1b5dffed0a82e3e3c91efd4024bafdc64f0d3d2
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57192893"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58119042"
 ---
 # <a name="server-logs-in-azure-database-for-mysql"></a>Registos do servidor na base de dados do Azure para MySQL
 Na base de dados do Azure para MySQL, o log de consulta lenta está disponível para os utilizadores. Acesso ao registo de transação não é suportado. O log de consulta lenta pode ser utilizado para identificar afunilamentos de desempenho para resolução de problemas. 
@@ -52,7 +52,7 @@ Base de dados do Azure para MySQL está integrado com os registos de diagnóstic
 A tabela seguinte descreve as novidades em cada registo. Dependendo do método de saída, os campos incluídos e a ordem em que aparecem podem variar.
 
 | **Propriedade** | **Descrição** |
-|---|---|---|
+|---|---|
 | TenantId | O ID de inquilino |
 | SourceSystem | `Azure` |
 | TimeGenerated [UTC] | Carimbo de hora quando o registo foi registado em UTC |

@@ -9,12 +9,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/01/2018
-ms.openlocfilehash: 0df548d6b3639ce2ce3c7c72695bb96cc6d0dc3d
-ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
+ms.openlocfilehash: 0c37ad6de867c4abe4ebf0e6c7a40b5cf27c4541
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53581033"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58079644"
 ---
 # <a name="use-mirrormaker-to-replicate-apache-kafka-topics-with-kafka-on-hdinsight"></a>Utilizar MirrorMaker para replicar tópicos do Apache Kafka com o Kafka no HDInsight
 
@@ -250,15 +250,15 @@ Embora pode criar uma rede virtual do Azure e clusters do Kafka manualmente, é 
 
     Os parâmetros utilizados neste exemplo são:
 
-    * **– consumer.config**: Especifica o ficheiro que contém as propriedades de consumidor. Essas propriedades são utilizadas para criar um consumidor que lê a partir da *origem* cluster do Kafka.
+    * **--consumer.config**: Especifica o ficheiro que contém as propriedades de consumidor. Essas propriedades são utilizadas para criar um consumidor que lê a partir da *origem* cluster do Kafka.
 
-    * **– producer.config**: Especifica o ficheiro que contém as propriedades de produtor. Essas propriedades são utilizadas para criar um produtor que escreve para o *destino* cluster do Kafka.
+    * **--producer.config**: Especifica o ficheiro que contém as propriedades de produtor. Essas propriedades são utilizadas para criar um produtor que escreve para o *destino* cluster do Kafka.
 
-    * **– a lista de permissões**: Uma lista de tópicos que MirrorMaker replica a partir do cluster de origem para o destino.
+    * **--whitelist**: Uma lista de tópicos que MirrorMaker replica a partir do cluster de origem para o destino.
 
-    * **– num.streams**: O número de threads de consumidor para criar.
+    * **--num.streams**: O número de threads de consumidor para criar.
 
- Na inicialização, MirrorMaker devolve informações semelhantes ao seguinte texto:
+   Na inicialização, MirrorMaker devolve informações semelhantes ao seguinte texto:
 
     ```json
     {metadata.broker.list=wn1-source.aazwc2onlofevkbof0cuixrp5h.gx.internal.cloudapp.net:9092,wn0-source.aazwc2onlofevkbof0cuixrp5h.gx.internal.cloudapp.net:9092, request.timeout.ms=30000, client.id=mirror-group-3, security.protocol=PLAINTEXT}{metadata.broker.list=wn1-source.aazwc2onlofevkbof0cuixrp5h.gx.internal.cloudapp.net:9092,wn0-source.aazwc2onlofevkbof0cuixrp5h.gx.internal.cloudapp.net:9092, request.timeout.ms=30000, client.id=mirror-group-0, security.protocol=PLAINTEXT}

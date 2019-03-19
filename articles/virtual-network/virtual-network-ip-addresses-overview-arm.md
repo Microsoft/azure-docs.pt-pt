@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/05/2019
 ms.author: jdial
-ms.openlocfilehash: 5240d6d4cd510eb4ea87392421fc00ae01b5e600
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 9185bfea8bddff52f6183ac3e5395cdbc0b73bb1
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57771968"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57860776"
 ---
 # <a name="ip-address-types-and-allocation-methods-in-azure"></a>Tipos de endereços IP e métodos de alocação no Azure
 
@@ -121,7 +121,7 @@ Um [Gateway de VPN do Azure](../vpn-gateway/vpn-gateway-about-vpngateways.md?toc
 
 ### <a name="application-gateways"></a>Gateways de aplicação
 
-Pode associar um endereço IP público a um [Gateway de Aplicação](../application-gateway/application-gateway-introduction.md?toc=%2fazure%2fvirtual-network%2ftoc.json) do Azure, ao atribuí-lo à configuração do **front-end** do gateway. Este endereço IP público funciona como um VIP com balanceamento de carga. Só pode atribuir um *dinâmica* endereço IP público básico para uma configuração de front-end de V1 do gateway de aplicação e apenas um estático, básico ou standard SKU endereço para uma configuração de front-end da V2.
+Pode associar um endereço IP público a um [Gateway de Aplicação](../application-gateway/application-gateway-introduction.md?toc=%2fazure%2fvirtual-network%2ftoc.json) do Azure, ao atribuí-lo à configuração do **front-end** do gateway. Este endereço IP público funciona como um VIP com balanceamento de carga. Só pode atribuir um *dinâmica* endereço IP público básico para uma configuração gateway de aplicação V1 front-end e apenas um *estático* endereços SKU padrão para uma configuração de front-end da V2.
 
 ### <a name="at-a-glance"></a>De relance
 A tabela seguinte mostra a propriedade específica através da qual os endereços IP públicos podem ser associados a recursos de nível superior e os métodos de alocação possíveis (dinâmico ou estático) que podem ser utilizados.

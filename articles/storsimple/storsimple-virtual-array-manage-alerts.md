@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 01/12/2018
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 0cd3f506205a3ee4f4435b16fd2185eeb20aef3c
-ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
+ms.openlocfilehash: bb6ef5a87c5610d90188471db961ef20dfb18835
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54447229"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57895469"
 ---
 # <a name="use-storsimple-device-manager-to-manage-alerts-for-the-storsimple-virtual-array"></a>Utilize o StorSimple Device Manager para gerir os alertas para a matriz Virtual StorSimple
 
@@ -39,7 +39,7 @@ Pode escolher se pretende ser notificado por e-mail as condições de alerta par
 > [!NOTE]
 > Pode introduzir um máximo de 20 endereços de e-mail por matriz virtual.
 
-Depois de ativar notificações por e-mail para uma matriz virtual, os membros da lista de notificação irão receber uma mensagem de e-mail sempre que ocorre de um alerta crítico. As mensagens serão enviadas *storsimple-alerts-noreply@mail.windowsazure.com* e descreve a condição do alerta. Os destinatários podem clicam **Unsubscribe** para remover da lista de notificação de e-mail.
+Depois de ativar notificações por e-mail para uma matriz virtual, os membros da lista de notificação irão receber uma mensagem de e-mail sempre que ocorre de um alerta crítico. As mensagens serão enviadas *storsimple-alertas-noreply\@mail.windowsazure.com* e descreve a condição do alerta. Os destinatários podem clicam **Unsubscribe** para remover da lista de notificação de e-mail.
 
 #### <a name="to-enable-email-notification-for-alerts"></a>Para ativar notificações por e-mail para alertas
 
@@ -53,7 +53,7 @@ Depois de ativar notificações por e-mail para uma matriz virtual, os membros d
    
    1. Na **ativar a notificação de e-mail** campo, selecione **Sim**.
    2. Na **E-mail aos administradores de serviço** campo, selecione **Sim** se pretender que o administrador de serviço e todos os colegas administradores recebam notificações de alerta.
-   3. Na **destinatários de e-mail adicionais** , insira os endereços de e-mail de todos os outros destinatários que devem receber notificações de alerta. Introduza os nomes no formato *someone@somewhere.com*. Utilize ponto e vírgula para separar os endereços de e-mail. Pode configurar um máximo de 20 endereços de e-mail por dispositivo virtual.
+   3. Na **destinatários de e-mail adicionais** , insira os endereços de e-mail de todos os outros destinatários que devem receber notificações de alerta. Introduza os nomes no formato *alguém\@somewhere.com*. Utilize ponto e vírgula para separar os endereços de e-mail. Pode configurar um máximo de 20 endereços de e-mail por dispositivo virtual.
       
        ![configuração de notificação de alertas](./media/storsimple-virtual-array-manage-alerts/alerts6.png)
    4. Para enviar uma notificação de e-mail de teste, clique em **enviar e-mail de teste**. O serviço StorSimple Device Manager irá apresentar mensagens de estado, como ele encaminha a notificação de teste.
@@ -147,6 +147,7 @@ As tabelas seguintes listam alguns dos alertas StorSimple que poderá encontrar,
 | Clone de <*nome do dispositivo* \> não foi possível concluir. |Falha da tarefa de clone. |Não foi possível criar um clone. Considere um dos seguintes:<ul><li>Sua lista de cópia de segurança pode não ser válida. Atualize a lista para verificar se que ele ainda é válido.</li><li>Problemas de conectividade podem estar a impedir a operação de clonagem conclusão com êxito. Certifique-se de que não existem não existem problemas de conectividade.</li><li>Atingiu o limite de armazenamento disponível. Para libertar espaço, considere a eliminar quaisquer cópias de segurança que já não são necessários.</li></ul>Resolva os problemas, limpe o alerta e repita a operação. |
 
 ### <a name="networking-alerts"></a>Alertas de sistema de rede
+
 | Texto de alerta | Evento | Obter mais informações / ações recomendadas |
 |:--- |:--- |:--- |
 | Não foi possível ligar ao serviço de autenticação. |Erro de DataPath |O URL que é utilizado para autenticar não está acessível. Certifique-se de que as regras da firewall incluem os padrões de URL especificados para o dispositivo StorSimple. Para obter mais informações sobre padrões de URL no portal do Azure, aceda a [StorSimple Virtual Array, requisitos de rede](storsimple-ova-system-requirements.md#url-patterns-for-firewall-rules).|

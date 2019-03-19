@@ -12,14 +12,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: java
 ms.topic: conceptual
-ms.date: 02/08/2019
+ms.date: 03/18/2019
 ms.author: juliako
-ms.openlocfilehash: 8220fe4410684f17ea817cd718d9ef1f58312b4c
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: a12d0e7d4382d1f8feac721c103d9231e54ad249
+ms.sourcegitcommit: f331186a967d21c302a128299f60402e89035a8d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57834725"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58189534"
 ---
 # <a name="get-started-with-the-java-client-sdk-for-azure-media-services"></a>Introdução ao SDK de cliente Java para os Serviços de Multimédia do Azure  
 

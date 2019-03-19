@@ -9,12 +9,12 @@ ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: peterpr
-ms.openlocfilehash: 0844737288abeb8d6ab1043b4c55ba5ef1c4883c
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 5df798f0f5f9588b1f2cd792e99d6409e565337e
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57780258"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58098081"
 ---
 # <a name="create-an-azure-iot-central-application"></a>Criar uma aplicação do Azure IoT Central
 
@@ -29,10 +29,10 @@ Para começar a criar uma nova aplicação do Azure IoT Central, selecione **New
 Para criar uma nova aplicação do Azure IoT Central:
 
 1. Escolha um plano de pagamento.
-    - As aplicações de **avaliação** são gratuitas durante sete dias, até que expiram. Podem ser convertidas em Pay As You Go a qualquer momento antes de expirarem.
-    - As aplicações **Pay As You Go** são cobradas por dispositivo, sendo os primeiros cinco gratuitos.
+   - As aplicações de **avaliação** são gratuitas durante sete dias, até que expiram. Podem ser convertidas em Pay As You Go a qualquer momento antes de expirarem.
+   - As aplicações **Pay As You Go** são cobradas por dispositivo, sendo os primeiros cinco gratuitos.
 
-    Saiba mais sobre os preços na [página de preços do Azure IoT Central](https://azure.microsoft.com/pricing/details/iot-central/).
+     Saiba mais sobre os preços na [página de preços do Azure IoT Central](https://azure.microsoft.com/pricing/details/iot-central/).
 
 1. Escolha um nome simpático para a aplicação, como **Contoso IoT**. O Azure IoT Central gera um prefixo de URL exclusivo para si. Pode alterar este prefixo de URL para algo mais memorável.
 
@@ -46,14 +46,14 @@ Para criar uma nova aplicação do Azure IoT Central:
 
 1. Se estiver a criar uma aplicação **Pay As You Go**, tem de selecionar o *Diretório*, a *Subscrição do Azure* e a *Região*. 
 
-    - *Diretório* é o Azure Active Directory (AD) para criar a sua aplicação. Contém identidades de utilizadores, credenciais e outras informações organizacionais. Se não tiver um Azure AD, é criada uma para quando cria uma subscrição do Azure.
+   - *Diretório* é o Azure Active Directory (AD) para criar a sua aplicação. Contém identidades de utilizadores, credenciais e outras informações organizacionais. Se não tiver um Azure AD, é criada uma para quando cria uma subscrição do Azure.
 
-    - A *Subscrição do Azure* permite-lhe criar instâncias de serviços do Azure. O IoT Central aprovisiona os recursos na sua subscrição. Se não tiver uma subscrição do Azure, pode criá-la na [página de inscrição do Azure](https://aka.ms/createazuresubscription). Depois de criar a subscrição, regresse à página **Create Application** (Criar Aplicação). A subscrição nova aparece no menu pendente **Azure Subscription** (Subscrição do Azure).
+   - A *Subscrição do Azure* permite-lhe criar instâncias de serviços do Azure. O IoT Central aprovisiona os recursos na sua subscrição. Se não tiver uma subscrição do Azure, pode criá-la na [página de inscrição do Azure](https://aka.ms/createazuresubscription). Depois de criar a subscrição, regresse à página **Create Application** (Criar Aplicação). A subscrição nova aparece no menu pendente **Azure Subscription** (Subscrição do Azure).
 
-    - A *região* é a localização física na qual pretende criar a aplicação. Por norma, deve escolher a região que está fisicamente mais perto dos dispositivos, de modo a obter um desempenho ideal. Pode ver as regiões em que o Azure IoT Central está disponível na página [Produtos disponíveis por região](https://azure.microsoft.com/regions/services/).
+   - A *região* é a localização física na qual pretende criar a aplicação. Por norma, deve escolher a região que está fisicamente mais perto dos dispositivos, de modo a obter um desempenho ideal. Pode ver as regiões em que o Azure IoT Central está disponível na página [Produtos disponíveis por região](https://azure.microsoft.com/regions/services/).
 
-    > [!Note]
-    > Depois de escolher a região, não pode mover a aplicação para outra posteriormente.
+     > [!Note]
+     > Depois de escolher a região, não pode mover a aplicação para outra posteriormente.
 
 1. Selecione **Criar**.
 

@@ -14,19 +14,19 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 11/07/2016
 ms.author: mandia
-ms.openlocfilehash: d47aab9e3d083cd7f51b1c3ba613f421fc1777a6
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 05327c05594d38caf5e3d54f8a13eaaaac3588ec
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57764103"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58097445"
 ---
 # <a name="create-biztalk-services-using-the-azure-portal"></a>Criar os BizTalk Services com o Portal do Azure
 
 > [!INCLUDE [BizTalk Services is being retired, and replaced with Azure Logic Apps](../../includes/biztalk-services-retirement.md)]
-
+> 
 > [!INCLUDE [Use APIs to manage MABS](../../includes/biztalk-services-retirement-azure-classic-portal.md)]
-
+> 
 > [!TIP]
 > Para iniciar sessão no Portal do Azure, deve ter uma conta e uma subscrição do Azure. Se não tiver uma conta, pode criar uma conta de avaliação gratuita em apenas alguns minutos. Veja [Avaliação Gratuita do Azure](https://go.microsoft.com/fwlink/p/?LinkID=239738).
 
@@ -167,7 +167,7 @@ As Ligações Híbridas são utilizadas para ligar um site do Azure ou um servi�
 ## <a name="next-steps"></a>Passos Seguintes
 Agora que é criado um BizTalk Service, familiarize-se com os diferentes [os serviços BizTalk: Separadores dashboard, monitorizar e dimensionar](biztalk-dashboard-monitor-scale-tabs.md). O BizTalk Service está pronto para as suas aplicações. Para começar a criar aplicações, veja [BizTalk Services do Azure](https://go.microsoft.com/fwlink/p/?LinkID=235197).
 
-## <a name="see-also"></a>Ver também
+## <a name="see-also"></a>Consulte também
 * [Serviços BizTalk: Gráfico de edições](biztalk-editions-feature-chart.md)<br/>
 * [Serviços BizTalk: Gráfico de estado](biztalk-service-state-chart.md)<br/>
 * [Serviços BizTalk: Cópia de segurança e restauro](biztalk-backup-restore.md)<br/>

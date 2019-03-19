@@ -10,12 +10,12 @@ ms.subservice: knowledge-exploration
 ms.topic: sample
 ms.date: 03/26/2016
 ms.author: paulhsu
-ms.openlocfilehash: ded681b8776343a778f3e9704fe05d43e8d74774
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: e2678200e2f8c55111e53ab0a341804fd17623a3
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57550533"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57994943"
 ---
 # <a name="get-started-with-the-knowledge-exploration-service"></a>Introdução ao Serviço de Exploração de Conhecimento
 
@@ -207,7 +207,7 @@ Depois de ter uma especificação de gramática XML, pode compilá-la numa gram�
 
 ## <a name="host-the-grammar-and-index-in-a-web-service"></a>Alojar a gramática e o índice num serviço Web
 
-Para criar um protótipo rápido, pode alojar a gramática e o índice num serviço Web no computador local com [`kes.exe host_service`](CommandLine.md#host_service-command). É possível aceder ao serviço através de [APIs Web](WebAPI.md) para validar a correção dos dados e a conceção da gramática. Neste exemplo, aloja o ficheiro de gramática *Academic.grammar* e o ficheiro de índice *Academic.index* em http://localhost:8000/. Utilize o seguinte comando:
+Para criar um protótipo rápido, pode alojar a gramática e o índice num serviço Web no computador local com [`kes.exe host_service`](CommandLine.md#host_service-command). É possível aceder ao serviço através de [APIs Web](WebAPI.md) para validar a correção dos dados e a conceção da gramática. Neste exemplo, aloja o ficheiro de gramática *Academic.grammar* e o ficheiro de índice *Academic.index* em `http://localhost:8000/`. Utilize o seguinte comando:
 
 `kes.exe host_service Academic.grammar Academic.index --port 8000`
 

@@ -9,16 +9,16 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: face-api
 ms.topic: article
-ms.date: 02/21/2019
+ms.date: 03/18/2019
 ms.author: diberry
-ms.openlocfilehash: 96040d6caeb1541eec78e57973dd9089b5a107ed
-ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
+ms.openlocfilehash: a52c5bf1a52a4d598986664c41e80273e0b26788
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56671850"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58014099"
 ---
-# <a name="install-and-run-containers"></a>Instalar e executar contentores
+# <a name="install-and-run-face-containers"></a>Instalar e executar contentores de rostos
 
 Face fornece um contentor de Linux padronizado para o Docker, rosto, que Deteta rostos humanos em imagens e identifica os atributos, incluindo pontos de referência do rosto (como noses e olhos), sexo, idade e outras funcionalidades faciais prever a máquina com o nome. Além de deteção, Face pode verificar se dois rostos na mesma imagem ou imagens diferentes são o mesmo com uma pontuação de confiança, ou comparam rostos em relação a uma base de dados para ver se um aspeto semelhante ou idêntica face já existe. Ele também pode organizar o rostos semelhantes em grupos, com as características de visual partilhadas.
 
@@ -117,7 +117,7 @@ Obter mais [exemplos](./face-resource-container-config.md#example-docker-run-com
 
 O contêiner fornece o ponto final de predição de consulta baseado em REST APIs. 
 
-Usar o host, https://localhost:5000, para o contentor APIs.
+Usar o host, `https://localhost:5000`, para o contentor APIs.
 
 ## <a name="stop-the-container"></a>Parar o contentor
 

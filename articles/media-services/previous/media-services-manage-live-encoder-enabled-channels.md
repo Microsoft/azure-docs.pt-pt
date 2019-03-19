@@ -12,14 +12,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/10/2019
+ms.date: 03/18/2019
 ms.author: juliako;anilmur
-ms.openlocfilehash: ecdb6d7a225d3a2f2c5bbf90a36b91367faf04b0
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: c168182f0b34329ed3e72e90ce86456dfbe210ca
+ms.sourcegitcommit: f331186a967d21c302a128299f60402e89035a8d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56003351"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58189857"
 ---
 # <a name="live-streaming-using-azure-media-services-to-create-multi-bitrate-streams"></a>Transmissão em fluxo em direto utilizando os Serviços de Multimédia do Azure para criar transmissões com velocidade de transmissão múltipla
 
@@ -31,7 +31,7 @@ No Azure Media Services (AMS), um **canal** representa um pipeline de processame
 
 * Um codificador em direto no local envia um fluxo de velocidade de transmissão única para o canal ativado para realizar live encoding com Media Services dos seguintes formatos: RTMP ou Smooth Streaming (MP4 fragmentado). O Canal, em seguida, realiza live encoding da transmissão em fluxo de velocidade de transmissão única de entrada para uma transmissão em fluxo de vídeo com várias velocidades (adaptável). Quando solicitado, os Media Services disponibilizam a transmissão em fluxo para os clientes.
 * Um codificador em direto no local envia uma velocidade de transmissão **RTMP** ou **Smooth Streaming** (MP4 fragmentado) para o canal que não está ativado para realizar live encoding com o AMS. As transmissões em fluxo passam-through **canal**s sem qualquer processamento adicional. Esse método é chamado **pass-through**. Pode utilizar os seguintes codificadores em direto que múltipla transmissão em fluxo uniforme de saída: MediaExcel, Ateme, Imagine Communications, Envivio, Cisco e Elemental. Os seguintes codificadores em direto transmitem RTMP: Codificadores Adobe Flash Media Live Encoder (FMLE), Telestream Wirecast, Haivision, Teradek e Tricaster.  Um codificador em direto pode também enviar uma transmissão em fluxo de velocidade de transmissão única para um canal, que não está ativado para live encoding, mas tal não é recomendado. Quando solicitado, os Media Services disponibilizam a transmissão em fluxo para os clientes.
-  
+
   > [!NOTE]
   > Usando um método pass-through é a forma mais económica para transmissão em direto.
   > 
@@ -50,7 +50,7 @@ Começando com o lançamento de 2.10 de serviços de multimédia, quando cria um
 > 
 
 ## <a name="billing-implications"></a>Implicações de faturação
-Um canal de codificação em direto começa assim que é transições de estado para "Em execução" através da API de faturação.   Também pode ver o estado no portal do Azure ou na ferramenta do Explorador de serviços de multimédia do Azure (http://aka.ms/amse).
+Um canal de codificação em direto começa assim que é transições de estado para "Em execução" através da API de faturação.   Também pode ver o estado no portal do Azure ou na ferramenta do Explorador de serviços de multimédia do Azure (https://aka.ms/amse).
 
 A tabela seguinte mostra como os Estados de um canal mapeiam para Estados de faturas no portal do Azure e de API. Os Estados são ligeiramente diferentes entre a API e o Portal de experiência do usuário. Assim que um canal está no estado "Em execução" através da API ou, no estado "Pronto" ou "Transmissão em fluxo" no portal do Azure, a faturação será Active Directory.
 Para parar o canal de faturação ainda mais, terá de parar o canal através da API ou no portal do Azure.
@@ -89,29 +89,27 @@ Os seguintes são passos gerais referentes à criação de aplicações comuns d
 
 > [!NOTE]
 > Atualmente, a duração máxima recomendada de um evento em direto é de 8 horas. Contacte a amslived@microsoft.com se tiver de executar um Canal durante períodos de tempo mais longos. Há um impacto de faturação para live encoding e deve se lembrar de que a sair de um canal de codificação em direto no estado "Em execução" irá incorrer em custos de faturas por hora.  Recomenda-se que parar imediatamente os seus canais em execução depois do evento de transmissão em fluxo em direto foi concluído para evitar custos adicionais por hora. 
-> 
-> 
 
 1. Ligue uma câmara de vídeo a um computador. Iniciar e configurar um codificador em direto no local, cuja saída pode ser um **único** transmissão em fluxo em um dos seguintes protocolos: RTMP ou Smooth Streaming. 
-   
+
     Este passo também pode ser realizado depois de criar o Canal.
 2. Crie e inicie um Canal. 
 3. Obtenha o URL de inserção do Canal. 
-   
+
     O URL de inserção é utilizado pelo codificador em direto para enviar a transmissão para o Canal.
 4. Obtenha o URL de pré-visualização do Canal. 
-   
+
     Utilize este URL para verificar se o canal está a receber corretamente a transmissão em fluxo em direto.
 5. Crie um programa. 
-   
+
     Ao utilizar o portal do Azure, a criação de um programa também cria um recurso. 
-   
+
     Ao utilizar o SDK do .NET ou REST terá de criar um elemento e especifique a utilização deste recurso ao criar um programa. 
 6. Publique o elemento associado ao programa.   
-   
+
     >[!NOTE]
     >Quando a sua conta AMS é criada, é adicionado um ponto final de transmissão em fluxo **predefinido** à sua conta no estado **Parado**. O ponto final de transmissão em fluxo a partir do qual quer transmitir conteúdo tem de estar no estado **Em execução**. 
-    
+
 7. Inicie o programa quando estiver pronto para começar a transmissão em fluxo e o arquivamento.
 8. Opcionalmente, o codificador em direto pode ser indicado para iniciar um anúncio. O anúncio é inserido na transmissão de saída.
 9. Pare o programa sempre que pretender interromper a transmissão e arquivar o evento.
@@ -217,6 +215,7 @@ Tenha em atenção que se precisar de configurações predefinidas personalizada
 **Default720p** irá codificar o vídeo para as camadas de 6 seguintes.
 
 #### <a name="output-video-stream"></a>Stream de vídeo de saída
+
 | BitRate | Largura | Altura | MaxFPS | Perfil | Nome do Stream de saída |
 | --- | --- | --- | --- | --- | --- |
 | 3500 |1280 |720 |30 |Elevado |Video_1280x720_3500kbps |
@@ -357,7 +356,7 @@ Rever os percursos de aprendizagem dos Serviços de Multimédia
 [Criar canais que realizam live encoding a partir de uma única de velocidade de transmissão em fluxo de velocidade de transmissão adaptável com o SDK do .NET](media-services-dotnet-creating-live-encoder-enabled-channel.md)
 
 [Gerir canais com a REST API](https://docs.microsoft.com/rest/api/media/operations/channel)
- 
+
 [Conceitos dos serviços de multimédia](media-services-concepts.md)
 
 [Especificação de ingestão de MP4 fragmentado em direto de serviços de multimédia do Azure](media-services-fmp4-live-ingest-overview.md)

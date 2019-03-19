@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 11/27/2017
 ms.author: mbullwin
-ms.openlocfilehash: a593e42ed87ab985d4f4584ed6b73109716120bf
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: 10b909fd5239546047aa4696a1f6a68a703778c0
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54028992"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58001224"
 ---
 # <a name="degradation-in-trace-severity-ratio-preview"></a>Degradação na proporção de gravidade de rastreio (pré-visualização)
 
@@ -26,7 +26,7 @@ Rastreios são amplamente utilizados nas aplicações, para contar a história d
 Esta funcionalidade não requer nenhuma configuração especial, além de configurar o registo de rastreio para a sua aplicação (veja como configurar um serviço de escuta de registo de rastreio para [.NET](https://docs.microsoft.com/azure/application-insights/app-insights-asp-net-trace-logs) ou [Java](https://docs.microsoft.com/azure/application-insights/app-insights-java-trace-logs)). Ele está ativo quando a sua aplicação gerar telemetria suficiente exceção.
 
 ## <a name="when-would-i-get-this-type-of-smart-detection-notification"></a>Quando é que eu teria este tipo de notificação de deteção inteligente?
-Poderá receber este tipo de notificação se a proporção entre rastreios "boas" (rastreios com sessão iniciados com um nível de *informações* ou *verboso*) e rastreios "bad" (rastreios com sessão iniciados com um nível de *aviso*, * Erro, ou *Fatal*) estar prejudicando num dia específico, em comparação comparado uma linha de base calculada ao longo de sete dias anteriores.
+Poderá receber este tipo de notificação se a proporção entre rastreios "boas" (rastreios com sessão iniciados com um nível de *informações* ou *verboso*) e rastreios "bad" (rastreios com sessão iniciados com um nível de *aviso*, *Erro*, ou *Fatal*) estar prejudicando num dia específico, em comparação comparado uma linha de base calculada ao longo de sete dias anteriores.
 
 ## <a name="does-my-app-definitely-have-a-problem"></a>O meu aplicativo tem definitivamente um problema?
 Não, uma notificação não significa que a aplicação tem definitivamente um problema. Embora uma degradação na razão entre "bom" e "bad" rastreios pode indicar um problema de aplicação, esta alteração na proporção poderá ser benigno. Por exemplo, o aumento pode ser devido a um novo fluxo no aplicativo emitindo rastreios "bad" mais do que os fluxos existentes).

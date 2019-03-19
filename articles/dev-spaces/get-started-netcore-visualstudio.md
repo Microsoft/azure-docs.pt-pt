@@ -11,12 +11,12 @@ ms.date: 07/09/2018
 ms.topic: tutorial
 description: Desenvolvimento rápido da Kubernetes com contentores e microsserviços no Azure
 keywords: Docker, o Kubernetes, o Azure, o AKS, o serviço Kubernetes do Azure, contentores, Helm, a malha de serviço, roteamento de malha do serviço, kubectl, k8s
-ms.openlocfilehash: 1a4f1a5f8dac4f202f641111105da3cdfb70c823
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 9b5f5d41a35b608ecec5e9ab2161a6c122e7aa82
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57775412"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57894160"
 ---
 # <a name="get-started-on-azure-dev-spaces-with-net-core-and-visual-studio"></a>Começar a trabalhar com espaços de desenvolvimento do Azure com .NET Core e o Visual Studio
 
@@ -36,15 +36,14 @@ Neste guia, vai aprender a:
 1. Inicie sessão no portal do Azure em https://portal.azure.com.
 1. Escolha **Criar um recurso** > procure **Kubernetes** > selecione **Serviço Kubernetes** > **Criar**.
 
-   Conclua os passos seguintes, descritos abaixo de cada um dos títulos do formulário para criar o cluster de AKS.
+   Conclua os seguintes passos em cada cabeçalho do *cluster de Kubernetes crie* formam e verifique se sua selecionado [suporta a região do Azure Dev espaços](https://docs.microsoft.com/azure/dev-spaces/#a-rapid,-iterative-kubernetes-development-experience-for-teams).
 
-    - **DETALHES DO PROJETO**: selecione uma subscrição do Azure e um grupo de recursos, novo ou existente, do Azure.
-    - **DETALHES DO CLUSTER**: introduza um nome, região (atualmente, tem de escolher EUALeste, EUALeste2, EUACentral, EuropaOcidental, EUAOcidental2, SudesteAsiático, CanadaCentral ou CanadaLeste), a versão e o prefixo de nome de DNS para o cluster do AKS.
-    - **DIMENSIONAMENTO**: selecione um tamanho da VM para os nós de agente do AKS e o número de nós. Se está a começar de utilizar os Espaços de Programador do Azure, basta um nó para explorar todas as funcionalidades. A contagem de nós pode ser facilmente ajustada em qualquer altura depois de o cluster ser implementado. Note que o tamanho da VM não pode ser alterado após a criação de um cluster de AKS. No entanto, depois de um cluster de AKS ser implementado, pode criar facilmente um novo cluster de AKS com VMs maiores e utilizar Espaços de Programador para voltar a implementar para esse cluster maior, se precisar de aumentar verticalmente.
-
-   Certifique-se de que escolhe a versão 1.9.6 ou posterior do Kubernetes.
+   - **Detalhes do PROJETO**: selecione uma subscrição do Azure e um grupo de recursos do Azure nova ou existente.
+   - **DETALHES DO CLUSTER**: introduza um nome, a região, a versão e o prefixo do nome DNS para o cluster de AKS.
+   - **DIMENSIONAMENTO**: selecione um tamanho da VM para os nós de agente do AKS e o número de nós. Se está a começar de utilizar os Espaços de Programador do Azure, basta um nó para explorar todas as funcionalidades. A contagem de nós pode ser facilmente ajustada em qualquer altura depois de o cluster ser implementado. Note que o tamanho da VM não pode ser alterado após a criação de um cluster de AKS. No entanto, depois de um cluster de AKS ser implementado, pode criar facilmente um novo cluster de AKS com VMs maiores e utilizar Espaços de Programador para voltar a implementar para esse cluster maior, se precisar de aumentar verticalmente.
 
    ![Definições de configuração do Kubernetes](media/common/Kubernetes-Create-Cluster-2.PNG)
+
 
    Selecione **seguinte: Autenticação** quando terminar.
 
@@ -62,7 +61,7 @@ Neste guia, vai aprender a:
 
 ## <a name="create-a-web-app-running-in-a-container"></a>Criar uma aplicação Web em execução num contentor
 
-Nesta secção, vai criar uma aplicação Web em ASP.NET Core e executá-la num contentor no Kubernetes.
+Nesta secção, irá criar uma aplicação web ASP.NET Core e executá-lo num contentor no Kubernetes.
 
 ### <a name="create-an-aspnet-web-app"></a>Criar uma aplicação Web ASP.NET
 

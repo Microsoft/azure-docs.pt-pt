@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 02/05/2019
 ms.author: jowargo
-ms.openlocfilehash: c4932bcb890770ac3914198e511c3890e29b26cb
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 2fe448f3ed91f2c6dd242c24aa378c3541eceecc
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57449925"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57857951"
 ---
 # <a name="tutorial-push-notifications-to-android-devices-by-using-azure-notification-hubs-and-google-firebase-cloud-messaging"></a>Tutorial: Notificações push para dispositivos Android com Notification Hubs do Azure e o Google Firebase Cloud Messaging
 
@@ -29,7 +29,7 @@ ms.locfileid: "57449925"
 
 Este tutorial mostra-lhe como utilizar Notification Hubs do Azure e Firebase Cloud Messaging (FCM) para enviar notificações push para uma aplicação Android. Neste tutorial, irá criar uma aplicação Android em branco que recebe notificações push através do Firebase Cloud Messaging (FCM).
 
-O código de conclusão para este tutorial pode ser transferido [aqui](https://github.com/Azure/azure-notificationhubs-samples/tree/master/Android/GetStartedFirebase) a partir do GitHub.
+O código de conclusão para este tutorial pode ser transferido [aqui](https://github.com/Azure/azure-notificationhubs-android/tree/master/samples/FCMTutorialApp) a partir do GitHub.
 
 Neste tutorial, siga os passos seguintes:
 
@@ -92,7 +92,7 @@ O hub de notificação está agora configurado para trabalhar com o Firebase Clo
 1. No `Build.Gradle` ficheiro da **aplicação**, adicione as seguintes linhas na secção de **dependências**.
 
     ```gradle
-    implementation 'com.microsoft.azure:notification-hubs-android-sdk:0.4@aar'
+    implementation 'com.microsoft.azure:notification-hubs-android-sdk:0.6@aar'
     implementation 'com.microsoft.azure:azure-notifications-handler:1.0.1@aar'
     ```
 
@@ -101,7 +101,7 @@ O hub de notificação está agora configurado para trabalhar com o Firebase Clo
     ```gradle
     repositories {
         maven {
-            url "http://dl.bintray.com/microsoftazuremobile/SDK"
+            url "https://dl.bintray.com/microsoftazuremobile/SDK"
         }
     }
     ```
@@ -111,7 +111,7 @@ O hub de notificação está agora configurado para trabalhar com o Firebase Clo
 1. Na `Build.Gradle` de ficheiros para o **aplicação**, adicione as seguintes linhas no **dependências** secção se já não existir. 
 
     ```gradle
-    implementation 'com.google.firebase:firebase-core:16.0.0'
+    implementation 'com.google.firebase:firebase-core:16.0.7'
     ```
 
 2. Adicione o plug-in do seguinte no final do ficheiro se ainda não exista. 
@@ -186,8 +186,8 @@ O hub de notificação está agora configurado para trabalhar com o Firebase Clo
         }
         ```
 
-    > [!IMPORTANT]
-    > Introduza o **name** e o **DefaultListenSharedAccessSignature** o hub de notificação antes de proceding adicionais. 
+     > [!IMPORTANT]
+     > Introduza o **name** e o **DefaultListenSharedAccessSignature** o hub de notificação antes de proceding adicionais. 
 2. Adicione outra classe com o nome `MyInstanceIDService`. Esta classe é a implementação do serviço de escuta de ID da Instância.
 
     O código para esta classe chama o `IntentService` para [atualizar o token do FCM](https://developers.google.com/instance-id/guides/android-implementation#refresh_tokens) em segundo plano.
@@ -554,7 +554,7 @@ Neste tutorial, utilizou o Firebase Cloud Messaging para enviar notificações p
 <!-- URLs. -->
 [Get started with push notifications in Mobile Services]: ../mobile-services-javascript-backend-android-get-started-push.md  
 [Mobile Services Android SDK]: https://go.microsoft.com/fwLink/?LinkID=280126&clcid=0x409
-[Referencing a library project]: http://go.microsoft.com/fwlink/?LinkId=389800
+[Referencing a library project]: https://go.microsoft.com/fwlink/?LinkId=389800
 [Notification Hubs Guidance]: notification-hubs-push-notification-overview.md
 [Use Notification Hubs to push notifications to users]: notification-hubs-aspnet-backend-gcm-android-push-to-user-google-notification.md
 [Use Notification Hubs to send breaking news]: notification-hubs-aspnet-backend-android-xplat-segmented-gcm-push-notification.md

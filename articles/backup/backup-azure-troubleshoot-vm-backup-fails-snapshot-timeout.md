@@ -9,18 +9,20 @@ ms.service: backup
 ms.topic: troubleshooting
 ms.date: 12/03/2018
 ms.author: genli
-ms.openlocfilehash: 3be2ab8bd4be56de945303bec9969f531be77864
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 85dca677238070ded13b59faf9a13081c2409987
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57535600"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57890870"
 ---
 # <a name="troubleshoot-azure-backup-failure-issues-with-the-agent-or-extension"></a>Resolver problemas de falhas de cópia de segurança do Azure: Problemas com o agente ou a extensão
 
 Este artigo fornece passos de resolução de problemas que podem ajudar a resolverem erros de cópia de segurança do Azure relacionados à comunicação com o agente da VM e a extensão.
 
 [!INCLUDE [support-disclaimer](../../includes/support-disclaimer.md)]
+
+
 
 ## <a name="UserErrorGuestAgentStatusUnavailable-vm-agent-unable-to-communicate-with-azure-backup"></a>UserErrorGuestAgentStatusUnavailable - agente VM não é possível comunicar com o Azure Backup
 
@@ -54,7 +56,7 @@ Depois de registar e agendar uma VM para o serviço de cópia de segurança do A
 Ação recomendada:<br>
 Para resolver este problema, remova o bloqueio do grupo de recursos da VM e repita a operação para acionar a limpeza.
 > [!NOTE]
-    > Serviço de cópia de segurança cria um grupo de recursos separado que o grupo de recursos da VM para armazenar a coleção de ponto de restauro. Os clientes são aconselhados não para bloquear o grupo de recursos criado para utilização pelo serviço de cópia de segurança. O formato de nomenclatura do grupo de recursos criado pelo serviço de cópia de segurança é: AzureBackupRG_`<Geo>`_`<number>` Eg: AzureBackupRG_northeurope_1
+> Serviço de cópia de segurança cria um grupo de recursos separado que o grupo de recursos da VM para armazenar a coleção de ponto de restauro. Os clientes são aconselhados não para bloquear o grupo de recursos criado para utilização pelo serviço de cópia de segurança. O formato de nomenclatura do grupo de recursos criado pelo serviço de cópia de segurança é: AzureBackupRG_`<Geo>`_`<number>` Eg: AzureBackupRG_northeurope_1
 
 **Passo 1: [Remova o bloqueio do grupo de recursos de ponto de restauro](#remove_lock_from_the_recovery_point_resource_group)** <br>
 **Passo 2: [Limpar a coleção de ponto de restauro](#clean_up_restore_point_collection)**<br>
@@ -64,7 +66,7 @@ Para resolver este problema, remova o bloqueio do grupo de recursos da VM e repi
 **Código de erro**: UserErrorKeyvaultPermissionsNotConfigured <br>
 **Mensagem de erro**: Cópia de segurança não tem permissões suficientes para o Cofre de chaves para cópia de segurança de VMs encriptadas. <br>
 
-Para a operação de cópia de segurança com êxito em VMs encriptadas, tem de ter permissões para aceder ao Cofre de chaves. Isso pode ser feito com o [portal do Azure](https://docs.microsoft.com/azure/backup/backup-azure-vms-encryption) ou através do [PowerShell](https://docs.microsoft.com/azure/backup/backup-azure-vms-automation#enable-protection)
+Para a operação de cópia de segurança com êxito em VMs encriptadas, tem de ter permissões para aceder ao Cofre de chaves. Isso pode ser feito com o [portal do Azure](https://docs.microsoft.com/azure/backup/backup-azure-vms-encryption) ou através de [PowerShell](https://docs.microsoft.com/azure/backup/backup-azure-vms-automation#enable-protection).
 
 ## <a name="ExtensionSnapshotFailedNoNetwork-snapshot-operation-failed-due-to-no-network-connectivity-on-the-virtual-machine"></a>ExtensionSnapshotFailedNoNetwork - operação de instantâneo falhou devido a nenhuma conectividade de rede na máquina virtual
 
@@ -126,12 +128,12 @@ Sua tarefa de cópia de segurança recente falhou porque existe uma tarefa de c�
 3. No menu do dashboard do cofre, clique em **tarefas de cópia de segurança** apresenta todas as tarefas de cópia de segurança.
 
     * Se uma tarefa de cópia de segurança está em curso, aguarde para concluir ou cancelar a tarefa de cópia de segurança.
-        * Para cancelar o contexto da tarefa de cópia de segurança na tarefa de cópia de segurança e clique em **Cancelar** ou utilize [PowerShell](https://docs.microsoft.com/powershell/module/azurerm.backup/stop-azurermbackupjob?view=azurermps-6.13.0&viewFallbackFrom=azurermps-6.12.0).
+        * Para cancelar o contexto da tarefa de cópia de segurança na tarefa de cópia de segurança e clique em **Cancelar** ou utilize [PowerShell](https://docs.microsoft.com/en-us/powershell/module/az.recoveryservices/stop-azrecoveryservicesbackupjob?view=azps-1.4.0).
     * Se o ter de reconfigurar a cópia de segurança num cofre diferente, em seguida, certifique-se não há nenhuma tarefa de cópia de segurança em execução no cofre antigo. Se existir, em seguida, cancele a tarefa de cópia de segurança.
-        * Para cancelar o contexto da tarefa de cópia de segurança na tarefa de cópia de segurança e clique em **Cancelar** ou utilize [PowerShell](https://docs.microsoft.com/powershell/module/azurerm.backup/stop-azurermbackupjob?view=azurermps-6.13.0&viewFallbackFrom=azurermps-6.12.0)
+        * Para cancelar o contexto da tarefa de cópia de segurança na tarefa de cópia de segurança e clique em **Cancelar** ou utilize [PowerShell](https://docs.microsoft.com/en-us/powershell/module/az.recoveryservices/stop-azrecoveryservicesbackupjob?view=azps-1.4.0)
 4. Repita a operação de cópia de segurança.
 
-Se a operação de cópia de segurança agendada está a demorar mais tempo em conflito com a seguinte configuração de cópia de segurança, em seguida, reveja os [melhores práticas](backup-azure-vms-introduction.md#best-practices), [desempenho de cópia de segurança](backup-azure-vms-introduction.md#backup-performance) e [restaurar consideração ](backup-azure-vms-introduction.md#restore-considerations).
+Se a operação de cópia de segurança agendada está a demorar mais tempo em conflito com a seguinte configuração de cópia de segurança, em seguida, reveja os [melhores práticas](backup-azure-vms-introduction.md#best-practices), [desempenho de cópia de segurança](backup-azure-vms-introduction.md#backup-performance) e [restaurar consideração ](backup-azure-vms-introduction.md#backup-and-restore-considerations).
 
 
 ## <a name="causes-and-solutions"></a>Causas e soluções
@@ -166,15 +168,15 @@ Mais relacionados com o agente ou relacionados com a extensão de falhas para VM
 
 1. Siga as instruções para [atualizar o agente da VM do Linux](../virtual-machines/linux/update-agent.md).
 
- > [!NOTE]
- > Estamos *altamente recomendável* que Atualize o agente apenas por meio de um repositório de distribuição. Não é recomendável baixar o código do agente diretamente a partir do GitHub e a atualizá-los. Se o agente mais recente para a sua distribuição não é suportada de distribuição disponíveis, contacte para obter instruções sobre como instalá-lo. Para verificar se o agente mais recente, vá para o [agente do Windows Azure Linux](https://github.com/Azure/WALinuxAgent/releases) página no repositório do GitHub.
+   > [!NOTE]
+   > Estamos *altamente recomendável* que Atualize o agente apenas por meio de um repositório de distribuição. Não é recomendável baixar o código do agente diretamente a partir do GitHub e a atualizá-los. Se o agente mais recente para a sua distribuição não é suportada de distribuição disponíveis, contacte para obter instruções sobre como instalá-lo. Para verificar se o agente mais recente, vá para o [agente do Windows Azure Linux](https://github.com/Azure/WALinuxAgent/releases) página no repositório do GitHub.
 
 2. Certifique-se de que o agente do Azure está em execução a VM ao executar o seguinte comando: `ps -e`
 
- Se o processo não está em execução, reinicie-o usando os seguintes comandos:
+   Se o processo não está em execução, reinicie-o usando os seguintes comandos:
 
- * Para o Ubuntu: `service walinuxagent start`
- * Para outras distribuições: `service waagent start`
+   * Para o Ubuntu: `service walinuxagent start`
+   * Para outras distribuições: `service waagent start`
 
 3. [Configurar o agente de reinício automático](https://github.com/Azure/WALinuxAgent/wiki/Known-Issues#mitigate_agent_crash).
 4. Execute uma nova cópia de segurança de teste. Se a falha persistir, recolha os seguintes registos da VM:
@@ -198,7 +200,7 @@ As seguintes condições poderão provocar a falha na tarefa de instantâneo:
 | Causa | Solução |
 | --- | --- |
 | O estado da VM é informado incorretamente, uma vez que a VM é encerrada no protocolo RDP (Remote Desktop). | Se encerrar a VM na RDP, consulte o portal para determinar se o estado da VM está correto. Se não estiver correto, encerre a VM no portal, utilizando o **encerramento** opção no dashboard de VM. |
-| A VM não é possível obter o endereço de anfitrião ou de recursos de infraestrutura do DHCP. | DHCP tem de estar ativado no computador convidado para a cópia de segurança de VM de IaaS para trabalhar. Se a VM não é possível obter o endereço de anfitrião ou de recursos de infraestrutura da resposta DHCP 245, não é possível transferir ou executar quaisquer extensões. Se precisar de um IP privado estático, estes devem ser configurado através da **Portal do Azure** ou **PowerShell** e certifique-se a opção de DHCP no interior da VM é ativada. Para obter mais informações, sobre como configurar um IP estático através do PowerShell, consulte [VM clássica](../virtual-network/virtual-networks-reserved-private-ip.md#how-to-add-a-static-internal-ip-to-an-existing-vm) e [VM do Resource Manager](../virtual-network/virtual-networks-static-private-ip-arm-ps.md#change-the-allocation-method-for-a-private-ip-address-assigned-to-a-network-interface).
+| A VM não é possível obter o endereço de anfitrião ou de recursos de infraestrutura do DHCP. | DHCP tem de estar ativado no computador convidado para a cópia de segurança de VM de IaaS para trabalhar. Se a VM não é possível obter o endereço de anfitrião ou de recursos de infraestrutura da resposta DHCP 245, não é possível transferir ou executar quaisquer extensões. Se precisar de um IP privado estático, estes devem ser configurado através da **Portal do Azure** ou **PowerShell** e certifique-se a opção de DHCP no interior da VM é ativada. [Saiba mais](../virtual-network/virtual-networks-static-private-ip-arm-ps.md#change-the-allocation-method-for-a-private-ip-address-assigned-to-a-network-interface) sobre como configurar um endereço IP estático com o PowerShell.
 
 ### <a name="the-backup-extension-fails-to-update-or-load"></a>A extensão de cópia de segurança não consegue atualizar ou de carga
 Se não é possível carregar extensões, a cópia de segurança falha porque não pode ser criado um instantâneo.
@@ -236,7 +238,7 @@ Depois de remover o bloqueio, os pontos de restauro têm ser limpos. Para limpar
 Depois de remover o bloqueio, acione uma cópia de segurança do ad hoc/manual. Isto irá garantir que os pontos de restauro são limpas automaticamente. Esperar que esta operação ad hoc/manual falhar pela primeira vez; No entanto, ele garantirá a limpeza automática em vez de eliminação manual de pontos de restauro. Após a limpeza deve ter êxito a cópia de segurança agendada seguinte.
 
 > [!NOTE]
-    > A limpeza automática irão ocorrer após algumas horas de acionar a cópia de segurança do ad hoc/manual. Se continuar a falhar a cópia de segurança agendada, em seguida, tente eliminar manualmente a coleção do ponto de restauro utilizando os passos listados [aqui](#clean-up-restore-point-collection-from-azure-portal).
+> A limpeza automática irão ocorrer após algumas horas de acionar a cópia de segurança do ad hoc/manual. Se continuar a falhar a cópia de segurança agendada, em seguida, tente eliminar manualmente a coleção do ponto de restauro utilizando os passos listados [aqui](#clean-up-restore-point-collection-from-azure-portal).
 
 #### <a name="clean-up-restore-point-collection-from-azure-portal"></a>Limpeza do wsu restauro do ponto de coleção a partir do portal do Azure <br>
 

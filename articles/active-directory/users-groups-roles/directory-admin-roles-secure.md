@@ -14,18 +14,18 @@ ms.subservice: users-groups-roles
 ms.custom: it-pro
 ms.reviewer: martincoetzer; MarkMorow
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d2d58ea2a7b25648dbecfefb882f71137096bff7
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: a01bd205ad26169ab0a21345a2246eb12dca6645
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56170011"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58180896"
 ---
 # <a name="securing-privileged-access-for-hybrid-and-cloud-deployments-in-azure-ad"></a>Proteger o acesso privilegiado para implementações híbridas e na cloud no Azure AD
 
 A segurança da maioria ou todos os ativos empresariais numa organização moderna depende da integridade das contas com privilégios que administram e gerem os sistemas de TI. Atores maliciosos, incluindo os ciberatacantes, muitas vezes, direcionar contas de administrador e outros elementos de acesso privilegiado à tentativa de forma a obter acesso a dados confidenciais e sistemas com ataques de roubo de credenciais. Para a cloud services, a prevenção e resposta são as responsabilidades conjuntas do fornecedor de serviços cloud e o cliente. Para obter mais informações sobre as ameaças mais recentes para os pontos finais e a nuvem, consulte a [Microsoft Security Intelligence Report](https://www.microsoft.com/security/operations/security-intelligence-report). Este artigo pode ajudá-lo a desenvolver um plano para fechar as lacunas entre seus planos atuais e as orientações descritas aqui.
 
-> [!NOTE] 
+> [!NOTE]
 > A Microsoft está comprometida com os mais altos níveis de confiança, transparência, conformidade com as normas e a conformidade a normas. Saiba mais sobre como a equipe de resposta a incidentes globais da Microsoft atenua os efeitos dos ataques lançados contra a serviços cloud e como a segurança é criada em produtos comerciais da Microsoft e serviços em nuvem da [Microsoft Trust Center - Security](https://www.microsoft.com/trustcenter/security)e os objetivos de conformidade da Microsoft na [Microsoft Trust Center - conformidade](https://www.microsoft.com/trustcenter/compliance).
 
 <!--## Risk management, incident response, and recovery preparation
@@ -101,7 +101,7 @@ A primeira pessoa a utilizar o Azure AD Privileged Identity Management no seu in
 
 #### <a name="identify-and-categorize-accounts-that-are-in-highly-privileged-roles"></a>Identificar e categorizar as contas que são em funções com privilégios elevados 
 
-Depois de ativar o Azure AD Privileged Identity Management, veja os utilizadores que estão no Administrador Global de funções de diretório, o administrador com função privilegiada, o administrador do Exchange Online e o administrador do SharePoint Online. Se não tiver o PIM do Azure AD no seu inquilino, pode utilizar o [PowerShell API](https://docs.microsoft.com/powershell/module/azuread/get-azureaddirectoryrolemember?view=azureadps-2.0). Iniciar com a função de administrador global, pois esta função é genérica: um utilizador a quem é atribuído esta função de administrador tem as mesmas permissões em todos os serviços de cloud para o qual a sua organização tem subscritas, independentemente de eles já foi atribuídos esta função no portal do Office 365 , o Azure portal, ou utilizando o módulo do Azure AD para o Microsoft PowerShell. 
+Depois de ativar o Azure AD Privileged Identity Management, veja os utilizadores que estão no Administrador Global de funções de diretório, o administrador com função privilegiada, o administrador do Exchange Online e o administrador do SharePoint Online. Se não tiver o PIM do Azure AD no seu inquilino, pode utilizar o [PowerShell API](https://docs.microsoft.com/powershell/module/azuread/get-azureaddirectoryrolemember?view=azureadps-2.0). Iniciar com a função de administrador global, pois esta função é genérica: um utilizador a quem é atribuído esta função de administrador tem as mesmas permissões em todos os serviços de cloud para o qual a sua organização tem subscritas, independentemente de eles já foi atribuídos esta função no Microsoft 365 Centro de administração do Azure portal, ou utilizando o módulo do Azure AD para o Microsoft PowerShell. 
 
 Remova as contas que já não são necessários nessas funções. Em seguida, categorize as contas restantes são atribuídas às funções de administrador:
 
@@ -138,7 +138,7 @@ Com o aumento no bring-your-own device (BYOD) e políticas de trabalho a partir 
 
 * Identificar os utilizadores que têm funções administrativas e os serviços onde pode gerir.
 * Utilize o PIM do Azure AD para saber quais os utilizadores na sua organização tenham acesso de administrador para o Azure AD, incluindo funções adicionais além daqueles listados na fase 1.
-* Além das funções definidas no Azure AD, o Office 365 é fornecido com um conjunto de funções de administrador pode atribuir aos utilizadores na sua organização. Cada função de administrador é mapeado para funções de negócios comuns e apresenta as pessoas em suas permissões de organização para efetuar tarefas específicas no Centro de administração do Office 365. Utilize o Centro de administração do Office para saber quais os utilizadores na sua organização têm acesso administrativo ao Office 365, incluindo através de funções não são geridas no Azure AD. Para obter mais informações, consulte [funções de administrador sobre o Office 365](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d) e [melhores práticas de segurança para o Office 365](https://support.office.com/article/Security-best-practices-for-Office-365-9295e396-e53d-49b9-ae9b-0b5828cdedc3).
+* Além das funções definidas no Azure AD, o Office 365 é fornecido com um conjunto de funções de administrador pode atribuir aos utilizadores na sua organização. Cada função de administrador é mapeado para funções de negócios comuns e, com as pessoas em suas permissões de organização para fazer tarefas específicas no [Centro de administração do Microsoft 365](https://admin.microsoft.com). Utilize o Centro de administração do Microsoft 365 para saber quais os utilizadores na sua organização têm acesso administrativo ao Office 365, incluindo através de funções não são geridas no Azure AD. Para obter mais informações, consulte [funções de administrador sobre o Office 365](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d) e [melhores práticas de segurança para o Office 365](https://support.office.com/article/Security-best-practices-for-Office-365-9295e396-e53d-49b9-ae9b-0b5828cdedc3).
 * Execute o inventário de outros serviços na que sua organização baseia-se, por exemplo, o Azure, o Intune ou o Dynamics 365.
 * Certifique-se de que as contas de administrador (contas que são utilizadas para fins de administração, não apenas contas diárias de utilizador) tem que trabalhar com os endereços de e-mail anexados e tenham registado para MFA do Azure ou utilizam a MFA no local.
 * Peça aos utilizadores para a justificação de negócio para acesso administrativo.
@@ -168,9 +168,7 @@ O Azure AD recomenda que exigem autenticação multifator (MFA) para todos os se
 
 Ative:
 
-* [MFA para contas de exposição de alta](../authentication/multi-factor-authentication-security-best-practices.md) , como as contas para os responsáveis de executivo de uma organização 
-* [MFA para cada conta de administrador associada um utilizador individual](../authentication/howto-mfa-userstates.md) para o outro ligado aplicações SaaS 
-* MFA para todos os administradores para aplicações SaaS da Microsoft, incluindo administradores em funções geridos no Exchange Online e o portal do Office
+* [MFA através de políticas de acesso condicional](../authentication/howto-mfa-getstarted.md) para todos os utilizadores na sua organização.
 
 Se utilizar o Windows Hello para empresas, o requisito de MFA pode ser atendido usando o Windows Hello início de sessão na experiência. Para obter mais informações, consulte [Hello do Windows](https://docs.microsoft.com/windows/uwp/security/microsoft-passport). 
 
@@ -186,10 +184,9 @@ Proteja a pontuação, descobre que serviços do Office 365 estiver a utilizar (
 
 O [plano de segurança e conformidade](https://support.office.com/article/Plan-for-security-and-compliance-in-Office-365-dc4f704c-6fcc-4cab-9a02-95a824e4fb57) traça a abordagem de como o cliente do Office 365 deve configurar o Office 365 e tirar partido de outras funcionalidades do EMS. Em seguida, reveja os passos 3 a 6 de como [proteger o acesso a dados e serviços do Office 365](https://support.office.com/article/Protect-access-to-data-and-services-in-Office-365-a6ef28a4-2447-4b43-aae2-f5af6d53c68e) e o guia para saber como [monitorizar a segurança e conformidade do Office 365](https://support.office.com/article/Monitor-security-and-compliance-in-Office-365-b62f1722-fd39-44eb-8361-da61d21509b6).
 
-
 #### <a name="configure-office-365-activity-monitoring-if-using-office-365"></a>Configurar a monitorização da atividade do Office 365 (se utilizar o Office 365)
 
-Pode monitorizar como as pessoas na sua organização estiver a utilizar serviços do Office 365, permitindo-lhe identificar os utilizadores que tenham uma conta de administrador e que não precisa do Office 365 acessem devido a não iniciar sessão nesses portais. Para obter mais informações, consulte [relatório de atividade no Centro de administração do Office 365](https://support.office.com/article/Activity-Reports-in-the-Office-365-admin-center-0d6dfb17-8582-4172-a9a9-aed798150263).
+Pode monitorizar como as pessoas na sua organização estiver a utilizar serviços do Office 365, permitindo-lhe identificar os utilizadores que tenham uma conta de administrador e que não precisa do Office 365 acessem devido a não iniciar sessão nesses portais. Para obter mais informações, consulte [relatórios de atividade no Centro de administração do Microsoft 365](https://support.office.com/article/Activity-Reports-in-the-Office-365-admin-center-0d6dfb17-8582-4172-a9a9-aed798150263).
 
 #### <a name="establish-incidentemergency-response-plan-owners"></a>Estabelecer os proprietários de plano de resposta de incidente/emergência
 

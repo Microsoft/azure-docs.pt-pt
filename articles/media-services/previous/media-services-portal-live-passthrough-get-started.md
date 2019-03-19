@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/10/2019
 ms.author: juliako
-ms.openlocfilehash: 4609c9d49cd2ed9aeb8d07c7fb27d290b6bd7771
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: c960ae10fc892a5f4bd044fff80a44a0628ea38e
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57765854"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57875911"
 ---
 # <a name="how-to-perform-live-streaming-with-on-premises-encoders-using-the-azure-portal"></a>Como realizar uma transmissão em fluxo em direto com codificadores no local através do Portal do Azure
 > [!div class="op_single_selector"]
@@ -36,7 +36,7 @@ O seguinte é necessário para concluir o tutorial:
 
 * Uma conta do Azure. Para obter mais detalhes, consulte [Avaliação Gratuita do Azure](https://azure.microsoft.com/pricing/free-trial/). 
 * Uma conta dos Media Services. Para criar uma conta dos Media Services, consulte [Como Criar uma Conta de Media Services](media-services-portal-create-account.md).
-* Uma câmara Web. Por exemplo, [codificador Telestream Wirecast](http://www.telestream.net/wirecast/overview.htm).
+* Uma câmara Web. Por exemplo, [codificador Telestream Wirecast](https://www.telestream.net/wirecast/overview.htm).
 
 É altamente recomendado rever os seguintes artigos:
 

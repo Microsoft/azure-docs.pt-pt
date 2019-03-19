@@ -1,18 +1,18 @@
 ---
 title: Pré-requisitos - Azure Disk Encryption para IaaS VMs | Documentos da Microsoft
 description: Este artigo fornece pré-requisitos para utilizar o Microsoft Azure Disk Encryption para VMs de IaaS.
-author: mestew
+author: msmbaldwin
 ms.service: security
 ms.topic: article
-ms.author: mstewart
-ms.date: 03/04/2019
+ms.author: mbaldwin
+ms.date: 03/12/2019
 ms.custom: seodec18
-ms.openlocfilehash: d10a73eae3546ea0bbf7b6cad86838063ec48520
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 495095df65a03dca573f38c93eb5e77176c16359
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57760255"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57895911"
 ---
 # <a name="azure-disk-encryption-prerequisites"></a>Pré-requisitos do Azure Disk Encryption
 
@@ -30,7 +30,7 @@ Antes de ativar o Azure Disk Encryption em VMs de IaaS do Azure para os cenário
 O Azure Disk Encryption tem suporte nos seguintes sistemas operativos:
 
 - Versões do Windows Server: Windows Server 2008 R2, Windows Server 2012, Windows Server 2012 R2 e Windows Server 2016.
-    - Para o Windows Server 2008 R2, tem de ter o .NET Framework 4.5 instalado antes de ativar a encriptação no Azure. Instale-o do Windows Update com a atualização opcional Microsoft .NET Framework 4.5.2 para sistemas baseados em x64 do Windows Server 2008 R2 ([KB2901983](https://support.microsoft.com/kb/2901983)).    
+  - Para o Windows Server 2008 R2, tem de ter o .NET Framework 4.5 instalado antes de ativar a encriptação no Azure. Instale-o do Windows Update com a atualização opcional Microsoft .NET Framework 4.5.2 para sistemas baseados em x64 do Windows Server 2008 R2 ([KB2901983](https://support.microsoft.com/kb/2901983)).    
 - Versões de cliente do Windows: Cliente Windows 8 e o cliente do Windows 10.
 - O Azure Disk Encryption é apenas suportado em específico galeria do Azure com base em distribuições de servidor Linux e versões. Para obter a lista de versões atualmente suportadas, consulte a [FAQ de encriptação de disco do Azure](azure-security-disk-encryption-faq.md#bkmk_LinuxOSSupport).
 - O Azure Disk Encryption requer que o Cofre de chaves e VMs residem na mesma região do Azure e subscrição. Configurar os recursos em regiões separadas faz com que uma falha na ativação da funcionalidade do Azure Disk Encryption.
@@ -38,11 +38,12 @@ O Azure Disk Encryption tem suporte nos seguintes sistemas operativos:
 ## <a name="bkmk_LinuxPrereq"></a> Pré-requisitos adicionais para VMs de IaaS Linux 
 
 - O Azure Disk Encryption para o Linux requer 7 GB de RAM na VM para ativar a encriptação de disco de SO no [suportadas imagens](azure-security-disk-encryption-faq.md#bkmk_LinuxOSSupport). Quando o processo de encriptação de disco do SO estiver concluído, a VM pode ser configurada para executar com menos memória.
+- O Azure Disk Encryption requer o módulo de vfat estar presente no sistema.  A remoção ou desativação este módulo a partir da imagem predefinida irá impedir que o sistema de conseguir ler o volume de chave e obter a chave necessária para desbloquear os discos nas reinicializações subseqüentes. Passos de proteção do sistema que remover o módulo de vfat do sistema não são compatíveis com o Azure Disk Encryption. 
 - Antes de ativar a encriptação, os discos de dados sejam encriptados tem de estar corretamente listado em /etc/fstab. Utilize um nome de dispositivo de bloco persistente para esta entrada, como nomes no formato "/ desenvolvimento/sdX" não podem ser confiados para ser associado com o mesmo disco em reinícios, particularmente depois de é aplicada a encriptação de dispositivo. Para obter mais detalhes sobre esse comportamento, consulte: [Resolver problemas relacionados com alterações de nome de dispositivo de VM do Linux](../virtual-machines/linux/troubleshoot-device-names-problems.md)
 - Certifique-se de que as definições de /etc/fstab. estão configuradas corretamente para a montagem. Para configurar estas definições, execute o comando mount - a ou reinicie a VM e acionar a remontagem dessa forma. Quando terminar, verifique a saída do comando lsblk para verificar que a unidade ainda está instalada. 
-    - Se o ficheiro de /etc/fstab. não montar a unidade corretamente antes de ativar a encriptação, Azure Disk Encryption não será capaz de montá-la corretamente.
-    - O processo de Azure Disk Encryption irá mover as informações de montagem fora /etc/fstab. e em seu próprio arquivo de configuração como parte do processo de encriptação. Não se assuste para ver a entrada em falta de /etc/fstab. depois de encriptação de unidade de dados é concluída.
-    -  Após a reinicialização, levará tempo para o processo de encriptação de disco do Azure montar os discos encriptados recentemente. Eles não estarão imediatamente disponíveis após um reinício. O processo tem tempo para iniciar, desbloquear e, em seguida, montar os discos encriptados antes de estarem disponíveis para outros processos aceder. Este processo pode demorar mais de um minuto após a reinicialização, dependendo das características do sistema.
+  - Se o ficheiro de /etc/fstab. não montar a unidade corretamente antes de ativar a encriptação, Azure Disk Encryption não será capaz de montá-la corretamente.
+  - O processo de Azure Disk Encryption irá mover as informações de montagem fora /etc/fstab. e em seu próprio arquivo de configuração como parte do processo de encriptação. Não se assuste para ver a entrada em falta de /etc/fstab. depois de encriptação de unidade de dados é concluída.
+  -  Após a reinicialização, levará tempo para o processo de encriptação de disco do Azure montar os discos encriptados recentemente. Eles não estarão imediatamente disponíveis após um reinício. O processo tem tempo para iniciar, desbloquear e, em seguida, montar os discos encriptados antes de estarem disponíveis para outros processos aceder. Este processo pode demorar mais de um minuto após a reinicialização, dependendo das características do sistema.
 
 Um exemplo de comandos que podem ser usados para montar os discos de dados e criar o necessário/etc/fstab entradas pode ser encontrado na [linhas 244-248 deste ficheiro de script](https://github.com/ejarvi/ade-cli-getting-started/blob/master/validate.sh#L244-L248). 
 
@@ -69,8 +70,8 @@ Um exemplo de comandos que podem ser usados para montar os discos de dados e cri
 
 ### <a name="install-azure-powershell-for-use-on-your-local-machine-optional"></a>Instale o Azure PowerShell para utilização no seu computador local (opcional): 
 1. Siga as instruções nas ligações para o seu sistema operativo, em seguida, continuar entanto o resto dos passos abaixo.      
-    - [Instalar e configurar o Azure PowerShell](/powershell/azure/install-az-ps). 
-        - Instalar o PowerShellGet, Azure PowerShell e carregar o módulo de Az. 
+   - [Instalar e configurar o Azure PowerShell](/powershell/azure/install-az-ps). 
+     - Instalar o PowerShellGet, Azure PowerShell e carregar o módulo de Az. 
 
 2. Verifique se as versões instaladas do módulo Az. Se for necessário, [atualizar o módulo Azure PowerShell](/powershell/azure/install-az-ps#update-the-azure-powershell-module).
     É recomendado utilizar a versão mais recente do módulo de Az.

@@ -9,12 +9,12 @@ ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: article
 ms.date: 11/16/2018
-ms.openlocfilehash: d77cdd7781f3a371d6089573a16ba642fb1c774c
-ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
+ms.openlocfilehash: 4a2b06f18e709f9a8479770d58f43928893281be
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55769873"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58117358"
 ---
 # <a name="limits-and-configuration-information-for-azure-logic-apps"></a>Limites e informações de configuração para o Azure Logic Apps
 
@@ -168,7 +168,7 @@ Aqui estão os limites dos conectores personalizados que pode criar a partir de 
 | ---- | ----- | 
 | Número de conectores personalizados | 1000 por subscrição do Azure | 
 | Número de pedidos por minuto para cada ligação criada por um conector personalizado | 500 pedidos por ligação |
-|||| 
+|||
 
 <a name="managed-identity"></a>
 

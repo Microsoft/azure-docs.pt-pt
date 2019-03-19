@@ -14,12 +14,12 @@ ms.workload: infrastructure
 ms.date: 09/10/2018
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 9fb81dd5bb94e09ba3583658a61e5c7cb8a74cf6
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: 392dd39e2b3b0e26e7b0ba645bf5a70231167ad5
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56882897"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58014395"
 ---
 # <a name="monitoring-and-troubleshooting-from-hana-side"></a>Monitorando e solucionando problemas do lado do HANA
 
@@ -65,7 +65,7 @@ O gráfico de carga poderá mostrar elevado consumo de CPU ou o alto consumo no 
 
 Um alerta acionado devido a alta utilização da CPU pode ser causado por vários motivos, incluindo, mas não limitado a: execução de determinadas transações, o carregamento de dados, o que de tarefas, de longa execução instruções SQL e o desempenho de consulta incorreta (por exemplo, com a BW em HANA cubos).
 
-Consulte o [SAP HANA de resolução de problemas: Soluções e CPU relacionados faz com que](http://help.sap.com/saphelp_hanaplatform/helpdata/en/4f/bc915462db406aa2fe92b708b95189/content.htm?frameset=/en/db/6ca50424714af8b370960c04ce667b/frameset.htm&amp;current_toc=/en/85/d132c3f05e40a2b20c25aa5fd6331b/plain.htm&amp;node_id=46&amp;show_children=false) para passos de resolução de problemas detalhada do site.
+Consulte o [SAP HANA de resolução de problemas: Soluções e CPU relacionados faz com que](https://help.sap.com/saphelp_hanaplatform/helpdata/en/4f/bc915462db406aa2fe92b708b95189/content.htm?frameset=/en/db/6ca50424714af8b370960c04ce667b/frameset.htm&amp;current_toc=/en/85/d132c3f05e40a2b20c25aa5fd6331b/plain.htm&amp;node_id=46&amp;show_children=false) para passos de resolução de problemas detalhada do site.
 
 ## <a name="operating-system"></a>Sistema Operativo
 
@@ -87,7 +87,7 @@ Pode observar que a quantidade de memória atribuída pela base de dados SAP HAN
 - Utilização da memória de armazenamento principal das tabelas de coluna Store (45 alerta)
 - Ficheiros de informação de tempo de execução (46 alerta)
 
-Consulte o [SAP HANA de resolução de problemas: Problemas de memória](http://help.sap.com/saphelp_hanaplatform/helpdata/en/db/6ca50424714af8b370960c04ce667b/content.htm?frameset=/en/59/5eaa513dde43758b51378ab3315ebb/frameset.htm&amp;current_toc=/en/85/d132c3f05e40a2b20c25aa5fd6331b/plain.htm&amp;node_id=26&amp;show_children=false) para passos de resolução de problemas detalhada do site.
+Consulte o [SAP HANA de resolução de problemas: Problemas de memória](https://help.sap.com/saphelp_hanaplatform/helpdata/en/db/6ca50424714af8b370960c04ce667b/content.htm?frameset=/en/59/5eaa513dde43758b51378ab3315ebb/frameset.htm&amp;current_toc=/en/85/d132c3f05e40a2b20c25aa5fd6331b/plain.htm&amp;node_id=26&amp;show_children=false) para passos de resolução de problemas detalhada do site.
 
 ## <a name="network"></a>Rede
 
@@ -104,7 +104,7 @@ Consulte a [2081065 no SAP Note # – resolução de problemas de rede do SAP HA
 
 Além disso, utilize o código-fonte aberto [IPERF](https://iperf.fr/) ferramenta (ou semelhante) para medir o desempenho de rede de aplicativo real.
 
-Consulte o [SAP HANA de resolução de problemas: Desempenho de rede e problemas de conectividade](http://help.sap.com/saphelp_hanaplatform/helpdata/en/a3/ccdff1aedc4720acb24ed8826938b6/content.htm?frameset=/en/dc/6ff98fa36541e997e4c719a632cbd8/frameset.htm&amp;current_toc=/en/85/d132c3f05e40a2b20c25aa5fd6331b/plain.htm&amp;node_id=142&amp;show_children=false) para passos de resolução de problemas detalhada do site.
+Consulte o [SAP HANA de resolução de problemas: Desempenho de rede e problemas de conectividade](https://help.sap.com/saphelp_hanaplatform/helpdata/en/a3/ccdff1aedc4720acb24ed8826938b6/content.htm?frameset=/en/dc/6ff98fa36541e997e4c719a632cbd8/frameset.htm&amp;current_toc=/en/85/d132c3f05e40a2b20c25aa5fd6331b/plain.htm&amp;node_id=142&amp;show_children=false) para passos de resolução de problemas detalhada do site.
 
 ## <a name="storage"></a>Armazenamento
 
@@ -116,7 +116,7 @@ Anexado volumes na parte inferior do ecrã pode ver detalhes dos volumes, como a
 
 ![Anexado volumes na parte inferior do ecrã pode ver detalhes dos volumes, como arquivos e as estatísticas de e/s](./media/troubleshooting-monitoring/image6-volumes-tab-b.png)
 
-Consulte o [SAP HANA de resolução de problemas: E/s relacionados com as principais causas e soluções](http://help.sap.com/saphelp_hanaplatform/helpdata/en/dc/6ff98fa36541e997e4c719a632cbd8/content.htm?frameset=/en/47/4cb08a715c42fe9f7cc5efdc599959/frameset.htm&amp;current_toc=/en/85/d132c3f05e40a2b20c25aa5fd6331b/plain.htm&amp;node_id=55&amp;show_children=false) e [SAP HANA de resolução de problemas: Relacionados causas e soluções de disco](http://help.sap.com/saphelp_hanaplatform/helpdata/en/47/4cb08a715c42fe9f7cc5efdc599959/content.htm?frameset=/en/44/3e1db4f73d42da859008df4f69e37a/frameset.htm&amp;current_toc=/en/85/d132c3f05e40a2b20c25aa5fd6331b/plain.htm&amp;node_id=53&amp;show_children=false) para passos de resolução de problemas detalhada do site.
+Consulte o [SAP HANA de resolução de problemas: E/s relacionados com as principais causas e soluções](https://help.sap.com/saphelp_hanaplatform/helpdata/en/dc/6ff98fa36541e997e4c719a632cbd8/content.htm?frameset=/en/47/4cb08a715c42fe9f7cc5efdc599959/frameset.htm&amp;current_toc=/en/85/d132c3f05e40a2b20c25aa5fd6331b/plain.htm&amp;node_id=55&amp;show_children=false) e [SAP HANA de resolução de problemas: Relacionados causas e soluções de disco](https://help.sap.com/saphelp_hanaplatform/helpdata/en/47/4cb08a715c42fe9f7cc5efdc599959/content.htm?frameset=/en/44/3e1db4f73d42da859008df4f69e37a/frameset.htm&amp;current_toc=/en/85/d132c3f05e40a2b20c25aa5fd6331b/plain.htm&amp;node_id=53&amp;show_children=false) para passos de resolução de problemas detalhada do site.
 
 ## <a name="diagnostic-tools"></a>Ferramentas de diagnóstico
 

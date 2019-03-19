@@ -8,12 +8,12 @@ manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
 ms.date: 08/24/2018
-ms.openlocfilehash: 1b2949aef14b3c8550cef90a18641a3df7d8cd41
-ms.sourcegitcommit: d89b679d20ad45d224fd7d010496c52345f10c96
+ms.openlocfilehash: 1176987ab318a97a7db6a12e619e7b7db06ad2da
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57791703"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58097894"
 ---
 # <a name="create-virtual-machine-scale-sets-in-azure-using-ansible"></a>Criar conjuntos de dimensionamento de máquinas virtuais no Azure utilizando o Ansible
 O Ansible permite-lhe automatizar a implementação e a configuração de recursos no seu ambiente. Pode utilizar o Ansible para gerir o seu conjunto de dimensionamento de máquinas virtuais (VMSS) no Azure, tal como faria em qualquer outro recurso do Azure. Este artigo mostra-lhe como utilizar o Ansible para criar e dimensionar um conjunto de dimensionamento de máquinas virtuais. 
@@ -276,5 +276,5 @@ O resultado da execução do comando no Cloud Shell mostra que existem agora tr�
 ## <a name="next-steps"></a>Passos Seguintes
 > [!div class="nextstepaction"] 
 > [Implementar aplicações em conjuntos de dimensionamento de máquina virtual com o Ansible](https://docs.microsoft.com/azure/ansible/ansible-deploy-app-vmss)
-
+> 
 > [Dimensionar automaticamente um conjunto de dimensionamento com o Ansible](https://docs.microsoft.com/azure/ansible/ansible-auto-scale-vmss)

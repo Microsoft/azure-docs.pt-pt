@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 02/28/2019
 ms.author: iainfou
-ms.openlocfilehash: d4293bf6a375f3e1a26c0c4fb50fcdc7bb5b8e8e
-ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.openlocfilehash: bf1ff4391e65fea68ac019be8fde8709fb4422b2
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/02/2019
-ms.locfileid: "57243861"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58181355"
 ---
 # <a name="kubernetes-core-concepts-for-azure-kubernetes-service-aks"></a>Conceitos do Kubernetes principal para o Azure Kubernetes Service (AKS)
 
@@ -28,7 +28,7 @@ Pode criar e executar aplicações modernas, portáteis, baseadas em microsservi
 
 Como uma plataforma aberta, o Kubernetes permite-lhe criar as suas aplicações com a sua linguagem de programação preferencial, SO, bibliotecas ou do barramento de mensagens. A integração contínua existente e as ferramentas de entrega contínua (CI/CD) podem integrar com o Kubernetes para agendar e implantar os lançamentos.
 
-O Azure Kubernetes Service (AKS) fornece um serviço de Kubernetes gerido que reduz a complexidade para implantação e principais tarefas de gestão, incluindo coordenar as atualizações. Os principais de cluster do AKS são geridos pela plataforma do Azure e paga apenas os nós do AKS que executem as suas aplicações. AKS se baseia no motor do serviço Kubernetes do código-fonte aberto do Azure (motor de aks).
+O Azure Kubernetes Service (AKS) fornece um serviço de Kubernetes gerido que reduz a complexidade para implantação e principais tarefas de gestão, incluindo coordenar as atualizações. Os principais de cluster do AKS são geridos pela plataforma do Azure e paga apenas os nós do AKS que executem as suas aplicações. AKS é criado sobre o motor do serviço Kubernetes do código-fonte aberto do Azure ([mecanismo de aks][aks-engine]).
 
 ## <a name="kubernetes-cluster-architecture"></a>Arquitetura de cluster do Kubernetes
 

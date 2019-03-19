@@ -11,12 +11,12 @@ ms.date: 07/09/2018
 ms.topic: tutorial
 description: Desenvolvimento rápido da Kubernetes com contentores e microsserviços no Azure
 keywords: 'Docker, o Kubernetes, o Azure, o AKS, o serviço Kubernetes do Azure, contentores, Helm, a malha de serviço, roteamento de malha do serviço, kubectl, k8s '
-ms.openlocfilehash: 5b3177e4918026871c336f831f6d03d707a43683
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: e302a4edc54b98f0dd731f65d0d45aa592cc72ca
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57761910"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58076773"
 ---
 # <a name="multi-service-development-with-azure-dev-spaces"></a>Desenvolvimento múltiplos serviço com os espaços de desenvolvimento do Azure
 
@@ -34,7 +34,7 @@ Para ser mais rápido, vamos transferir código de exemplo de um repositório do
 1. Abra o projeto `mywebapi` numa *janela separada do Visual Studio*.
 1. Selecione **Azure Dev Spaces** no menu pendente de definições de início, tal como fez anteriormente para o projeto `webfrontend`. Agora, em vez de criar um novo cluster do AKS, selecione o mesmo que já criou. Tal como antes, mantenha a predefinição `default` em Space (Espaço) e clique em **OK**. Na janela de saída, pode perceber é iniciado do Visual Studio para "entender" este novo serviço no seu espaço de desenvolvimento para acelerar as coisas quando iniciar a depuração.
 1. Prima F5 e aguarde que o serviço seja criado e implementado. Saberá que está pronto quando a barra de estado do Visual Studio ficar cor de laranja
-1. Anote o URL apresentado no ponto final da **espaços de desenvolvimento do Azure para o AKS** painel na **saída** janela. Terá um aspeto semelhante a http://localhost:\<portnumber\>. Poderá parecer que o contentor está a ser executado localmente. Contudo, na verdade, está a ser executado no espaço de programador no Azure.
+1. Anote o URL apresentado no ponto final da **espaços de desenvolvimento do Azure para o AKS** painel na **saída** janela. Terá um aspeto semelhante a `http://localhost:<portnumber>`. Poderá parecer que o contentor está a ser executado localmente. Contudo, na verdade, está a ser executado no espaço de programador no Azure.
 2. Quando o projeto `mywebapi` estiver pronto, abra o browser no endereço localhost e acrescente `/api/values` ao URL para invocar a API GET predefinida para `ValuesController`. 
 3. Se todos os passos tiverem sido concluídos com êxito, deverá conseguir ver uma resposta do serviço `mywebapi` com um aspeto semelhante ao seguinte.
 

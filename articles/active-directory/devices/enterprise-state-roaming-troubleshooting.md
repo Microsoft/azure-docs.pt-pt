@@ -19,12 +19,12 @@ ms.author: markvi
 ms.reviewer: tanning
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1bf7919a2dc69bc834a5834d10a5a297a2ad6949
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 9e2b99871cc1da2b1e8e136fc4d689e90dfad77a
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56170308"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58081241"
 ---
 # <a name="troubleshooting-enterprise-state-roaming-settings-in-azure-active-directory"></a>Resolução de problemas de definições de Roaming de estado empresarial no Azure Active Directory
 
@@ -47,7 +47,7 @@ Se não conseguir resolver o seu problema com as orientações abaixo, pode cont
 * **Utilizadores afetados** – está sincronizado trabalho/falhados para um utilizador ou de vários usuários? Quantos dispositivos estão envolvidos por utilizador? São todos eles não sincronizar ou são alguns deles, sincronização e alguns não sincronizar?
 * **Informações sobre o utilizador** – o que a identidade é o utilizador a utilizar para iniciar sessão no dispositivo? Como é o utilizador iniciar sessão no dispositivo? Eles são parte de um grupo de segurança selecionado permitido para sincronizar? 
 * **Informações sobre o dispositivo** – este dispositivo do Azure AD associado ou associado a um domínio? Que compilação o dispositivo está no? Quais são as atualizações mais recentes?
-- **Data / hora / fuso horário** – qual era o precisa data e hora que viu o erro (incluem o fuso horário)?
+* **Data / hora / fuso horário** – qual era o precisa data e hora que viu o erro (incluem o fuso horário)?
 
 Incluindo estas informações ajuda-na resolver o seu problema mais depressa possível.
 
@@ -59,8 +59,8 @@ Esta secção fornece sugestões sobre como solucionar problemas e diagnosticar 
 1. Depois de associar o seu PC com Windows 10 a um domínio que está configurado para permitir Roaming de estado empresarial, início de sessão com a sua conta profissional. Aceda a **definições** > **contas** > **definições de sincronização Your** e confirme que a sincronização e as definições individuais são e que a parte superior do página de definições indica que estão a ser sincronizados com a sua conta profissional. Confirmar a mesma conta também é utilizada como a sua conta de início de sessão no **configurações** > **contas** > **informações Your**. 
 1. Certifique-se de que a sincronização funciona em várias máquinas, fazendo algumas alterações no computador original, como mover a barra de tarefas para o lado direito ou superior do ecrã. Assista a alteração se propaguem para a segunda máquina dentro de cinco minutos. 
 
-  * Bloqueando e desbloqueando a tela (Win + L) pode ajudar a acionar a sincronização.
-  * Deve estar a iniciar com a mesma conta em ambos os PCs para sincronização se trabalhar – como o Roaming de estado empresarial é vinculado à conta de utilizador e não uma conta de computador.
+   * Bloqueando e desbloqueando a tela (Win + L) pode ajudar a acionar a sincronização.
+   * Deve estar a iniciar com a mesma conta em ambos os PCs para sincronização se trabalhar – como o Roaming de estado empresarial é vinculado à conta de utilizador e não uma conta de computador.
 
 **Problema em potencial**: Se os controles a **definições** página não estão disponíveis e verá a mensagem "o algumas funcionalidades do Windows só estão disponíveis se estiver a utilizar uma conta Microsoft ou a conta profissional". Este problema pode surgir para dispositivos que estão configurados para ser associado a um domínio e registado para o Azure AD, mas o dispositivo ainda não ainda com êxito foi autenticado com o Azure AD. Uma causa possível é que tem de ser aplicada a política de dispositivo, mas esta aplicação acontece de forma assíncrona e poderia ser atrasada por algumas horas. 
 

@@ -14,12 +14,12 @@ ms.devlang: Java
 ms.topic: article
 ms.date: 09/17/2018
 ms.author: aschhab
-ms.openlocfilehash: 1cdd0a3bd7e0d647e2f67d4c92b5a2167d5d21ad
-ms.sourcegitcommit: 7723b13601429fe8ce101395b7e47831043b970b
+ms.openlocfilehash: a8b9c4c6cf9671e114da6ef9fc1f2ad0a730fb61
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56585224"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57872624"
 ---
 # <a name="how-to-use-service-bus-topics-and-subscriptions-with-java"></a>Como utilizar os tópicos do Service Bus e as subscrições com Java
 
@@ -472,7 +472,7 @@ Message sending: Id = 9
 ## <a name="next-steps"></a>Passos Seguintes
 Para obter mais informações, consulte [filas do Service Bus, tópicos e subscrições][Service Bus queues, topics, and subscriptions].
 
-[Azure SDK for Java]: http://azure.microsoft.com/develop/java/
+[Azure SDK for Java]: https://azure.microsoft.com/develop/java/
 [Azure Toolkit for Eclipse]: ../azure-toolkit-for-eclipse.md
 [Service Bus queues, topics, and subscriptions]: service-bus-queues-topics-subscriptions.md
 [SqlFilter]: /dotnet/api/microsoft.azure.servicebus.sqlfilter

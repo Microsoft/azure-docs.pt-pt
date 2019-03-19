@@ -18,12 +18,12 @@ ms.author: celested
 ms.reviewer: elisol, bryanla
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5622c179b6eb767f4c608e8c36c2ba154aac0906
-ms.sourcegitcommit: a8948ddcbaaa22bccbb6f187b20720eba7a17edc
+ms.openlocfilehash: 4cda09a6b407621e595b0cb8ed9103b1fbbd5cc5
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56594700"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58097962"
 ---
 # <a name="how-to-list-your-application-in-the-azure-active-directory-application-gallery"></a>Como: Listar a aplicação na galeria de aplicações do Azure Active Directory
 
@@ -83,12 +83,12 @@ Para listar uma aplicação na Galeria de aplicações do Azure AD, tem primeiro
     * Se pretender adicionar a sua aplicação à lista na Galeria através do OpenID Connect, selecione **OpenID Connect e OAuth 2.0** como anteriormente.
     * Se tiver quaisquer problemas de acesso, entre em contato com o [equipa de integração do SSO do Azure AD](<mailto:SaaSApplicationIntegrations@service.microsoft.com>). 
 
-*   **SAML 2.0** ou **WS-Fed**: Se a sua aplicação suporta SAML 2.0, pode integrá-lo diretamente com um inquilino do Azure AD utilizando o [instruções para adicionar uma aplicação personalizada](../active-directory-saas-custom-apps.md).
+- **SAML 2.0** ou **WS-Fed**: Se a sua aplicação suporta SAML 2.0, pode integrá-lo diretamente com um inquilino do Azure AD utilizando o [instruções para adicionar uma aplicação personalizada](../active-directory-saas-custom-apps.md).
 
-    ![Linha cronológica de listagem aplicação SAML 2.0 ou WS-Fed na Galeria](./media/howto-app-gallery-listing/saml.png)
+  ![Linha cronológica de listagem aplicação SAML 2.0 ou WS-Fed na Galeria](./media/howto-app-gallery-listing/saml.png)
 
-    * Se pretende adicionar a sua aplicação à lista de sessão com a galeria **SAML 2.0** ou **WS-Fed**, selecione **SAMl 2.0/WS-Fed** como anteriormente.
-    * Se tiver quaisquer problemas de acesso, entre em contato com o [equipa de integração do SSO do Azure AD](<mailto:SaaSApplicationIntegrations@service.microsoft.com>).
+  * Se pretende adicionar a sua aplicação à lista de sessão com a galeria **SAML 2.0** ou **WS-Fed**, selecione **SAMl 2.0/WS-Fed** como anteriormente.
+  * Se tiver quaisquer problemas de acesso, entre em contato com o [equipa de integração do SSO do Azure AD](<mailto:SaaSApplicationIntegrations@service.microsoft.com>).
 
 ## <a name="implementing-sso-using-password-sso"></a>A implementação do SSO com palavra-passe SSO
 

@@ -8,17 +8,19 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 02/20/2019
 ms.author: sogup
-ms.openlocfilehash: 7d54e137cbfb35c84173c79e65a1070eabb52e78
-ms.sourcegitcommit: 1902adaa68c660bdaac46878ce2dec5473d29275
+ms.openlocfilehash: a618482b73e8e423bc00b7c9010c9282da69cd3d
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/11/2019
-ms.locfileid: "57731644"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57844723"
 ---
 # <a name="get-improved-backup-and-restore-performance-with-azure-backup-instant-restore-capability"></a>Obter o melhor de cópia de segurança e restaurar o desempenho com capacidade de Azure cópia de segurança instantâneas restaurar
 
 > [!NOTE]
 > Com base nos comentários dos utilizadores, podemos mudar o nome **pilha de cópia de segurança da VM V2** ao **restaurar instantâneas** para reduzir a confusão com a funcionalidade do Azure Stack.
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 O novo modelo para restaurar instantâneas fornece os seguintes aprimoramentos de recursos:
 
@@ -27,7 +29,6 @@ O novo modelo para restaurar instantâneas fornece os seguintes aprimoramentos d
 * Disco suporta tamanhos até 4 TB.
 * Suporta discos de Standard SSD.
 *   Capacidade de utilizar contas de armazenamento originais uma VM não gerida (por disco), ao restaurar. Esta capacidade existe mesmo quando a VM tem discos que são distribuídos em contas de armazenamento. Ela acelera as operações de restauro para uma grande variedade de configurações de VM
-
 
 
 ## <a name="whats-new-in-this-feature"></a>O que há de novo nesta funcionalidade
@@ -91,19 +92,19 @@ Se desejar Self-Service e atualize para restaurar instantânea, execute os segui
 1.  Inicie sessão sua conta do Azure:
 
     ```
-    PS C:> Connect-AzureRmAccount
+    PS C:> Connect-AzAccount
     ```
 
 2.  Selecione a subscrição que pretende registar:
 
     ```
-    PS C:>  Get-AzureRmSubscription –SubscriptionName "Subscription Name" | Select-AzureRmSubscription
+    PS C:>  Get-AzSubscription –SubscriptionName "Subscription Name" | Select-AzSubscription
     ```
 
 3.  Registe esta subscrição:
 
     ```
-    PS C:>  Register-AzureRmProviderFeature -FeatureName "InstantBackupandRecovery" –ProviderNamespace Microsoft.RecoveryServices
+    PS C:>  Register-AzProviderFeature -FeatureName "InstantBackupandRecovery" –ProviderNamespace Microsoft.RecoveryServices
     ```
 
 ## <a name="upgrade-to-instant-restore-using-cli"></a>Atualize para restaurar instantâneas com a CLI
@@ -134,7 +135,7 @@ Execute os seguintes comandos a partir de uma shell:
 A partir de um terminal do PowerShell elevada, execute o seguinte cmdlet:
 
 ```
-Get-AzureRmProviderFeature -FeatureName "InstantBackupandRecovery" -ProviderNamespace Microsoft.RecoveryServices
+Get-AzProviderFeature -FeatureName "InstantBackupandRecovery" -ProviderNamespace Microsoft.RecoveryServices
 ```
 
 ### <a name="cli"></a>CLI

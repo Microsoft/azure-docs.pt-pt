@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/14/2019
 ms.author: tomfitz
-ms.openlocfilehash: f49b8ed592422927288e24b164a04645e2e37744
-ms.sourcegitcommit: f863ed1ba25ef3ec32bd188c28153044124cacbc
+ms.openlocfilehash: bd574eb2d3537d3e5c0774f57e37283817cc7879
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56301388"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58112029"
 ---
 # <a name="deploy-resources-with-resource-manager-templates-and-resource-manager-rest-api"></a>Implementar recursos com modelos do Resource Manager e API REST do Resource Manager
 
@@ -38,32 +38,32 @@ Pode optar por incluir o modelo no corpo do pedido ou ligação para um ficheiro
 
 1. Se não tiver um grupo de recursos existente, crie um grupo de recursos. Forneça o ID da subscrição, o nome do novo grupo de recursos e localização que precisa para a sua solução. Para obter mais informações, consulte [criar um grupo de recursos](/rest/api/resources/resourcegroups/createorupdate).
 
-  ```HTTP
-  PUT https://management.azure.com/subscriptions/<YourSubscriptionId>/resourcegroups/<YourResourceGroupName>?api-version=2018-05-01
-  ```
+   ```HTTP
+   PUT https://management.azure.com/subscriptions/<YourSubscriptionId>/resourcegroups/<YourResourceGroupName>?api-version=2018-05-01
+   ```
 
-  Com um corpo de pedido, como:
-  ```json
-  {
+   Com um corpo de pedido, como:
+   ```json
+   {
     "location": "West US",
     "tags": {
       "tagname1": "tagvalue1"
     }
-  }
-  ```
+   }
+   ```
 
 1. Validar implementação antes de executá-lo ao executar o [validar uma implementação de modelo](/rest/api/resources/deployments/validate) operação. Ao testar a implementação, fornece os parâmetros exatamente como faria ao executar a implementação (mostrada na próxima etapa).
 
 1. Crie uma implementação. Forneça o seu ID de subscrição, o nome do grupo de recursos, o nome da implantação e uma ligação ao seu modelo. Para obter informações sobre o ficheiro de modelo, consulte [ficheiro de parâmetros](#parameter-file). Para obter mais informações sobre a API de REST para criar um grupo de recursos, consulte [criar uma implementação de modelo](/rest/api/resources/deployments/createorupdate). Observe que o **modo** está definida como **Incremental**. Para executar uma implantação completa, definida **modo** ao **concluída**. Tenha cuidado ao usar o modo de conclusão, como inadvertidamente pode eliminar recursos que não estão no seu modelo.
 
-  ```HTTP
-  PUT https://management.azure.com/subscriptions/<YourSubscriptionId>/resourcegroups/<YourResourceGroupName>/providers/Microsoft.Resources/deployments/<YourDeploymentName>?api-version=2018-05-01
-  ```
+   ```HTTP
+   PUT https://management.azure.com/subscriptions/<YourSubscriptionId>/resourcegroups/<YourResourceGroupName>/providers/Microsoft.Resources/deployments/<YourDeploymentName>?api-version=2018-05-01
+   ```
 
-  Com um corpo de pedido, como:
+   Com um corpo de pedido, como:
 
    ```json
-  {
+   {
     "properties": {
       "templateLink": {
         "uri": "http://mystorageaccount.blob.core.windows.net/templates/template.json",
@@ -75,13 +75,13 @@ Pode optar por incluir o modelo no corpo do pedido ou ligação para um ficheiro
         "contentVersion": "1.0.0.0"
       }
     }
-  }
-  ```
+   }
+   ```
 
     Se quiser iniciar conteúdo de resposta, o conteúdo do pedido ou ambos, inclua **debugSetting** no pedido.
 
-  ```json
-  {
+   ```json
+   {
     "properties": {
       "templateLink": {
         "uri": "http://mystorageaccount.blob.core.windows.net/templates/template.json",
@@ -96,15 +96,15 @@ Pode optar por incluir o modelo no corpo do pedido ou ligação para um ficheiro
         "detailLevel": "requestContent, responseContent"
       }
     }
-  }
-  ```
+   }
+   ```
 
     Pode configurar a sua conta de armazenamento para utilizar um token de assinatura (SAS) de acesso partilhado. Para obter mais informações, consulte [delegar acesso com uma assinatura de acesso partilhado](https://docs.microsoft.com/rest/api/storageservices/delegating-access-with-a-shared-access-signature).
 
 1. Em vez de uma ligação para ficheiros de modelo e parâmetros, pode incluí-los no corpo do pedido.
 
-  ```json
-  {
+   ```json
+   {
       "properties": {
       "mode": "Incremental",
       "template": {
@@ -161,14 +161,14 @@ Pode optar por incluir o modelo no corpo do pedido ou ligação para um ficheiro
         }
       }
     }
-  }
-  ```
+   }
+   ```
 
 5. Obtenha o estado da implementação do modelo. Para obter mais informações, consulte [obter informações sobre uma implementação de modelo](/rest/api/resources/deployments/get).
 
-  ```HTTP
-  GET https://management.azure.com/subscriptions/<YourSubscriptionId>/resourcegroups/<YourResourceGroupName>/providers/Microsoft.Resources/deployments/<YourDeploymentName>?api-version=2018-05-01
-  ```
+   ```HTTP
+   GET https://management.azure.com/subscriptions/<YourSubscriptionId>/resourcegroups/<YourResourceGroupName>/providers/Microsoft.Resources/deployments/<YourDeploymentName>?api-version=2018-05-01
+   ```
 
 ## <a name="redeploy-when-deployment-fails"></a>Implementar novamente quando ocorre uma falha de implementação
 

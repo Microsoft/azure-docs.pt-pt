@@ -13,15 +13,15 @@ ms.devlang: multiple
 ms.topic: overview
 ms.tgt_pltfrm: multiple
 ms.workload: media
-ms.date: 02/26/2019
+ms.date: 03/14/2019
 ms.author: juliako
 ms.custom: mvc
-ms.openlocfilehash: de1bd8599682baae860737401d02c7c1dec9e223
-ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
+ms.openlocfilehash: 018392db2ffb510d41385d8e0af19635c35678e6
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56960654"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58003414"
 ---
 # <a name="what-is-azure-media-services-v3"></a>O que são os Serviços de Multimédia do Azure v3?
 
@@ -49,9 +49,9 @@ Esta versão fornece as capacidades seguintes:
 
 * **Transformações** para ajudar a definir fluxos de trabalho de tarefas de análise ou de processamento de multimédia simples. A Transformação é uma receita para processar os ficheiros de áudio e de vídeo. Em seguida, pode aplicá-la repetidamente para processar todos os ficheiros na biblioteca de conteúdos, ao submeter as tarefas para Transformação.
 * **Tarefas** para processar (codificar ou analisar) os vídeos. Um conteúdo de entrada pode ser especificado numa tarefa com URLs HTTPS, URLs SAS ou caminhos de ficheiros localizados no Armazenamento de blobs do Azure. Atualmente, o AMS v3 não suporta a codificação de transferência segmentada através de URLs HTTPS.
-* **Notificações** que monitorizam o progresso ou os estados da tarefa ou eventos de erro ou de início/paragem do Canal em Direto. As notificações estão integradas no sistema de notificação do Azure Event Grid. Pode facilmente subscrever eventos em vários recursos nos Serviços de Multimédia do Azure. 
-* Os modelos da **Gestão de Recursos do Azure** podem ser utilizados para criar e implementar as Transformações, os Pontos Finais de Transmissão em Fluxo, os Canais e muito mais.
-* O **Controlo de acesso baseado em funções** pode ser definido ao nível do recurso e permite-lhe bloquear o acesso a recursos específicos como Transformações, Canais e muito mais.
+* **Notificações** que monitorizam o progresso da tarefa ou Estados ou eventos de erro e iniciar/parar eventos ao vivo. As notificações estão integradas no sistema de notificação do Azure Event Grid. Pode facilmente subscrever eventos em vários recursos nos Serviços de Multimédia do Azure. 
+* **Gestão de recursos do Azure** modelos podem ser utilizados para criar e implementar as transformações, pontos finais de transmissão em fluxo, os eventos em direto e muito mais.
+* **Controlo de acesso baseado em funções** pode ser definido ao nível do recurso, permitindo-lhe bloquear o acesso a recursos específicos, como as transformações, eventos ao vivo e muito mais.
 * **SDKs do Cliente** em várias linguagens: .NET, .NET core, Python, Go, Java e Node.js.
 
 ## <a name="naming-conventions"></a>Convenções de nomenclatura

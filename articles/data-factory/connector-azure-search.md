@@ -12,16 +12,16 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 02/07/2018
 ms.author: jingwang
-ms.openlocfilehash: aa6c6a35a66569d5db182e1871012b9697c2802c
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: 1c8cbcd2e5f137b1e8381dcce164ae9a4b87e804
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54023350"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57852859"
 ---
 # <a name="copy-data-to-an-azure-search-index-using-azure-data-factory"></a>Copiar dados para um índice da Azure Search utilizando o Azure Data Factory
 
-> [!div class="op_single_selector" title1="Selecione a versão do serviço Data Factory que você está usando:"]
+> [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
 > * [Versão 1](v1/data-factory-azure-search-connector.md)
 > * [Versão atual](connector-azure-search.md)
 
@@ -169,10 +169,10 @@ A seguinte tabela especifica se um tipo de dados do Azure Search é suportado ou
 
 | Tipo de dados do Azure Search | Suportado no Sink do Azure Search |
 | ---------------------- | ------------------------------ |
-| Cadeia | S |
+| String | S |
 | Int32 | S |
 | Int64 | S |
-| Valor de duplo | S |
+| Double | S |
 | Booleano | S |
 | DataTimeOffset | S |
 | Matriz de cadeia de caracteres | N |

@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/15/2019
 ms.author: spelluru
-ms.openlocfilehash: 85763a895b61d184db033c09a413cc897ef6eaa3
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 42b59c8da9e66b0f749d067e3df867911c7108e9
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57551607"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58106836"
 ---
 # <a name="add-an-artifact-repository-to-your-lab-in-devtest-labs"></a>Adicionar um repositório de artefactos para seu laboratório no DevTest Labs
 DevTest Labs permite-lhe especificar um artefacto a ser adicionados a uma VM no momento da criação da VM ou após a VM é criada. Este artefacto pode ser uma ferramenta ou uma aplicação que pretende instalar na VM. Artefactos são definidos num ficheiro JSON carregado de um repositório do GitHub ou o Git do VSTS. 
@@ -74,11 +74,11 @@ Esta secção fornece passos para adicionar um repositório de artefactos a um l
 
     ![Botão de repositório de adicionar](./media/devtest-lab-add-repo/devtestlab-add-repo.png)
 5. Sobre o **repositórios** , especifique as seguintes informações:
-  1. **Nome**. Introduza um nome para o repositório.
-  2. **Url de Clone de Git**. Introduza o URL de clone de Git HTTPS que copiou anteriormente partir do GitHub ou dos serviços de DevOps do Azure.
-  3. **Ramo**. Para obter as definições, introduza o ramo.
-  4. **Token de acesso pessoal**. Introduza o token de acesso pessoal que obteve anteriormente do GitHub ou dos serviços de DevOps do Azure.
-  5. **Caminhos de pastas**. Introduza pelo menos um caminho de pasta relativo para o URL do clone que contém o artefacto ou definições de modelo do Resource Manager. Quando especificar um subdiretório, certifique-se de que incluir a barra no caminho da pasta.
+   1. **Nome**. Introduza um nome para o repositório.
+   2. **Url de Clone de Git**. Introduza o URL de clone de Git HTTPS que copiou anteriormente partir do GitHub ou dos serviços de DevOps do Azure.
+   3. **Ramo**. Para obter as definições, introduza o ramo.
+   4. **Token de acesso pessoal**. Introduza o token de acesso pessoal que obteve anteriormente do GitHub ou dos serviços de DevOps do Azure.
+   5. **Caminhos de pastas**. Introduza pelo menos um caminho de pasta relativo para o URL do clone que contém o artefacto ou definições de modelo do Resource Manager. Quando especificar um subdiretório, certifique-se de que incluir a barra no caminho da pasta.
 
         ![Área de repositórios](./media/devtest-lab-add-repo/devtestlab-repo-blade.png)
 6. Selecione **Guardar**.

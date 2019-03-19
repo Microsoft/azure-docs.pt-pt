@@ -8,12 +8,12 @@ ms.reviewer: orspod
 ms.service: data-explorer
 ms.topic: quickstart
 ms.date: 1/14/2019
-ms.openlocfilehash: 4b5934123f5bb7fa9eaa2c67c212bcef2a5de0aa
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: 01115524ae3890c1d6a0220bcf89e86090d148cd
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54479458"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58078878"
 ---
 # <a name="quickstart-ingest-data-from-logstash-to-azure-data-explorer"></a>Início rápido: Ingestão de dados do Logstash para o Explorador de dados do Azure
 
@@ -108,7 +108,7 @@ output {
 ```
 
 | Nome do Parâmetro | Descrição |
-| --- | --- | --- |
+| --- | --- |
 | **path** | O plug-in do Logstash grava eventos em ficheiros temporários antes de os enviar para o Explorador de dados do Azure. Este parâmetro inclui um caminho onde os ficheiros devem ser escritos e uma expressão de tempo para a rotação de ficheiro acionar um carregamento para o serviço do Explorador de dados do Azure.|
 | **ingest_url** | O ponto final de Kusto para relacionados com a ingestão de comunicação.|
 | **app_id**,  **app_key**, and **app_tenant**| Credenciais necessárias para ligar ao Explorador de dados do Azure. Certifique-se de que usar um aplicativo com privilégios de ingestão. |

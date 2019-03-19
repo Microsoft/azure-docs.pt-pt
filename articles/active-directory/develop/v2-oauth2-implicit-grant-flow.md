@@ -18,12 +18,12 @@ ms.author: celested
 ms.reviewer: hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5a1ca6988158d1cd15b6c802a8dcda1c91850c91
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: cd0ce02a92c0a2e803866b6f070dba113c566f5d
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56883543"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58112216"
 ---
 # <a name="v20-protocols---spas-using-the-implicit-flow"></a>v2.0 protocolos - SPAs com o fluxo implícito
 
@@ -134,7 +134,7 @@ error=access_denied
 
 Não é suficiente para autenticar o usuário; apenas receber uma id_token Também tem de validar a assinatura o id_token e verifique se as afirmações no token com base nos requisitos da sua aplicação. Utiliza o ponto final v2.0 [JSON Web Tokens (JWTs)](https://self-issued.info/docs/draft-ietf-oauth-json-web-token.html) e criptografia de chave pública para assinar os tokens e certifique-se de que são válidas.
 
-Pode optar por validar a `id_token` num cliente de código, mas uma prática comum é enviar o `id_token` para um servidor de back-end e executar a validação lá. Assim que validar a assinatura do id_token, existem algumas declarações, que será necessário para verificar. Consulte a [ `id_token` referência](id-tokens.md) para obter mais informações, incluindo [tokens de validação](id-tokens.md#validating-an-idtoken) e [informações importantes sobre o rollover da chave de assinatura](active-directory-signing-key-rollover.md). Recomendamos que fazendo uso de uma biblioteca para análise e a validar tokens – há, pelo menos, um disponível para a maioria das linguagens e plataformas.
+Pode optar por validar a `id_token` num cliente de código, mas uma prática comum é enviar o `id_token` para um servidor de back-end e executar a validação lá. Assim que validar a assinatura do id_token, existem algumas declarações, que será necessário para verificar. Consulte a [ `id_token` referência](id-tokens.md) para obter mais informações, incluindo [tokens de validação](id-tokens.md#validating-an-id_token) e [informações importantes sobre o rollover da chave de assinatura](active-directory-signing-key-rollover.md). Recomendamos que fazendo uso de uma biblioteca para análise e a validar tokens – há, pelo menos, um disponível para a maioria das linguagens e plataformas.
 
 Também pode pretender validar afirmações adicionais, dependendo do seu cenário. Algumas validações comuns incluem:
 

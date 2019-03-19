@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/12/2019
 ms.author: juliako
-ms.openlocfilehash: 0cf0f196884cb39899c74cce396fa3a3930e8969
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 958d860252c7bfdb79d7ea59b8a3d230c839d296
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57766517"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57845244"
 ---
 # <a name="get-started-with-delivering-content-on-demand-by-using-the-azure-portal"></a>Introdução à entrega de conteúdos a pedido com o portal do Azure
 
@@ -151,7 +151,7 @@ São aplicáveis algumas considerações:
 
 * Para começar a transmissão em fluxo, inicie a execução do ponto final da transmissão em fluxo predefinido.
 * Confirme que o vídeo foi publicado.
-* O leitor de multimédia do portal do Azure reproduz a partir do ponto final da transmissão em fluxo predefinido. Se quiser reproduzir a partir de um ponto final da transmissão em fluxo não predefinido, selecione e copie o URL e cole-o noutro leitor. Por exemplo, pode testar o vídeo no [Leitor de Multimédia do Azure](http://amsplayer.azurewebsites.net/azuremediaplayer.html).
+* O leitor de multimédia do portal do Azure reproduz a partir do ponto final da transmissão em fluxo predefinido. Se quiser reproduzir a partir de um ponto final da transmissão em fluxo não predefinido, selecione e copie o URL e cole-o noutro leitor. Por exemplo, pode testar o vídeo no [Leitor de Multimédia do Azure](https://amsplayer.azurewebsites.net/azuremediaplayer.html).
 
 ## <a name="provide-feedback"></a>Enviar comentários
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]

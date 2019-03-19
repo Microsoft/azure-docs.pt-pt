@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 07/01/2016
 ms.author: dariagrigoriu
 ms.custom: seodec18
-ms.openlocfilehash: afdb082ef7d33d12d80b8edb273bea2c4c5b74a2
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: fc3749a9ebfbf0319a57b471b6fce9f62042ba27
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55882119"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57849789"
 ---
 # <a name="best-practices-for-azure-app-service"></a>Melhores Práticas do Serviço de Aplicações do Azure
 Este artigo resume as melhores práticas para utilizar [App Service do Azure](https://go.microsoft.com/fwlink/?LinkId=529714). 
@@ -52,7 +52,7 @@ Processar sempre o `http` resposta, mesmo se não fazer nada no manipulador. Se 
 Por exemplo, ao trabalhar com o `http` ou `https` pacote:
 
 ```javascript
-var request = https.request(options, function(response) {
+const request = https.request(options, function(response) {
     response.on('data', function() { /* do nothing */ });
 });
 ```

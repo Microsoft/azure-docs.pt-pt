@@ -8,14 +8,14 @@ ms.topic: include
 ms.date: 09/24/2018
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 972a538fab8a2aa84f6a12df48422abb40baac82
-ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
+ms.openlocfilehash: 3b596e5bad8202d88ea06c7eee114bec1063a35f
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56443293"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58051737"
 ---
-# <a name="enabling-azure-ultra-ssd"></a>Ativar SSD ultra do Azure
+# <a name="enabling-azure-ultra-ssds"></a>Ativar o SSDs ultra do Azure
 
 Azure ultra SSD fornecer alto débito e armazenamento de disco de baixa latência consistente IOPS elevado para VMs IaaS do Azure. Esta nova oferta fornece a parte superior do desempenho de linha nos níveis de disponibilidade mesmo como nossas ofertas de discos existentes. Vantagens adicionais de ultra SSD incluem a capacidade de alterar dinamicamente o desempenho do disco, juntamente com as suas cargas de trabalho sem a necessidade de reiniciar as máquinas virtuais. Ultra SSD são adequados para cargas de trabalho com uso intensivo de dados, como SAP HANA, bases de dados de escalão superior e cargas de trabalho pesado de transação.
 

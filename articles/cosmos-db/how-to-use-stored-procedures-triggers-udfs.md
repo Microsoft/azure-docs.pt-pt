@@ -6,16 +6,16 @@ ms.service: cosmos-db
 ms.topic: sample
 ms.date: 12/08/2018
 ms.author: mjbrown
-ms.openlocfilehash: 374bc040cf43f89899bbe1fc5b0835cff187ec9b
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: d3ab0f78cc59c94a95aac6c067ad185476502f6c
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54037604"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57998613"
 ---
 # <a name="how-to-register-and-use-stored-procedures-triggers-and-user-defined-functions-in-azure-cosmos-db"></a>Como registar e utilizar procedimentos armazenados, acionadores e funções definidas pelo utilizador no Azure Cosmos DB
 
-A API de SQL no Azure Cosmos DB suporta a registar e invocar procedimentos armazenados, acionadores e definido pelo utilizador funções (UDFs) escritas em JavaScript. Pode usar a API de SQL [.NET](sql-api-sdk-dotnet.md), [.NET Core](sql-api-sdk-dotnet-core.md), [Java](sql-api-sdk-java.md), [JavaScript](sql-api-sdk-node.md), [node. js](sql-api-sdk-node.md) ou [Python](sql-api-sdk-python.md) SDKs para se registrar e invocar os procedimentos armazenados. Depois de definir uma ou mais procedimentos armazenados, acionadores e funções definidas pelo utilizador, pode carregar e visualizá-los no [portal do Azure](https://portal.azure.com/) através do Explorador de dados.
+A API de SQL no Azure Cosmos DB suporta a registar e invocar procedimentos armazenados, acionadores e definido pelo utilizador funções (UDFs) escritas em JavaScript. Pode usar a API de SQL [.NET](sql-api-sdk-dotnet.md), [.NET Core](sql-api-sdk-dotnet-core.md), [Java](sql-api-sdk-java.md), [JavaScript](sql-api-sdk-node.md), [node. js](sql-api-sdk-node.md), ou [Python](sql-api-sdk-python.md) SDKs para se registrar e invocar os procedimentos armazenados. Depois de definir uma ou mais procedimentos armazenados, acionadores e funções definidas pelo utilizador, pode carregar e visualizá-los no [portal do Azure](https://portal.azure.com/) através do Explorador de dados.
 
 ## <a id="stored-procedures"></a>Como executar procedimentos armazenados
 
@@ -423,7 +423,7 @@ Os exemplos seguintes mostram como registar uma função definida pelo utilizado
 O código a seguir mostra como registrar uma função definida pelo utilizador utilizando o SDK .NET:
 
 ```csharp
-string udfId = "udfTax";
+string udfId = "Tax";
 var udfTax = new UserDefinedFunction
 {
     Id = udfId,
@@ -439,7 +439,7 @@ O código a seguir mostra como chamar uma função definida pelo utilizador util
 
 ```csharp
 Uri containerUri = UriFactory.CreateDocumentCollectionUri("myDatabase", "myContainer");
-var results = client.CreateDocumentQuery<dynamic>(containerUri, "SELECT * FROM Incomes t WHERE udf.tax(t.income) > 20000"));
+var results = client.CreateDocumentQuery<dynamic>(containerUri, "SELECT * FROM Incomes t WHERE udf.Tax(t.income) > 20000"));
 
 foreach (var result in results)
 {
@@ -453,7 +453,7 @@ O código a seguir mostra como registrar uma função definida pelo utilizador u
 
 ```java
 String containerLink = String.format("/dbs/%s/colls/%s", "myDatabase", "myContainer");
-String udfId = "udfTax";
+String udfId = "Tax";
 UserDefinedFunction udf = new UserDefinedFunction();
 udf.setId(udfId);
 udf.setBody(new String(Files.readAllBytes(Paths.get(String.format("..\\js\\%s.js", udfId)))));
@@ -465,7 +465,7 @@ O código a seguir mostra como chamar uma função definida pelo utilizador util
 
 ```java
 String containerLink = String.format("/dbs/%s/colls/%s", "myDatabase", "myContainer");
-Observable<FeedResponse<Document>> queryObservable = client.queryDocuments(containerLink, "SELECT * FROM Incomes t WHERE udf.tax(t.income) > 20000", new FeedOptions());
+Observable<FeedResponse<Document>> queryObservable = client.queryDocuments(containerLink, "SELECT * FROM Incomes t WHERE udf.Tax(t.income) > 20000", new FeedOptions());
 final CountDownLatch completionLatch = new CountDownLatch(1);
 queryObservable.subscribe(
         queryResultPage -> {
@@ -491,7 +491,7 @@ O código a seguir mostra como registrar uma função definida pelo utilizador a
 
 ```javascript
 const container = client.database("myDatabase").container("myContainer");
-const udfId = "udfTax";
+const udfId = "Tax";
 await container.userDefinedFunctions.create({
     id: udfId,
     body: require(`../js/${udfId}`)
@@ -501,7 +501,7 @@ O código a seguir mostra como chamar uma função definida pelo utilizador atra
 
 ```javascript
 const container = client.database("myDatabase").container("myContainer");
-const sql = "SELECT * FROM Incomes t WHERE udf.tax(t.income) > 20000";
+const sql = "SELECT * FROM Incomes t WHERE udf.Tax(t.income) > 20000";
 const {result} = await container.items.query(sql).toArray();
 ```
 
@@ -514,7 +514,7 @@ with open('../js/udfTax.js') as file:
     file_contents = file.read()
 container_link = 'dbs/myDatabase/colls/myContainer'
 udf_definition = {
-            'id': 'trgPostUpdateMetadata',
+            'id': 'Tax',
             'serverScript': file_contents,
         }
 udf = client.CreateUserDefinedFunction(container_link, udf_definition)
@@ -524,7 +524,7 @@ O código a seguir mostra como chamar uma função definida pelo utilizador util
 
 ```python
 container_link = 'dbs/myDatabase/colls/myContainer'
-results = list(client.QueryItems(container_link, 'SELECT * FROM Incomes t WHERE udf.tax(t.income) > 20000'))
+results = list(client.QueryItems(container_link, 'SELECT * FROM Incomes t WHERE udf.Tax(t.income) > 20000'))
 ```
 
 ## <a name="next-steps"></a>Passos Seguintes

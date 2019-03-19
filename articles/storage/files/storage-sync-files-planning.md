@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 2/7/2019
 ms.author: wgries
 ms.subservice: files
-ms.openlocfilehash: 97508c05ea26df1aaae7f41738835380767c81d2
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.openlocfilehash: c032961bf89ba470a38ebccfd846659b080f9fab
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57312720"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58013233"
 ---
 # <a name="planning-for-an-azure-file-sync-deployment"></a>Planear uma implementação da Sincronização de Ficheiros do Azure
 Utilize o Azure File Sync para centralizar as partilhas de ficheiros da sua organização nos ficheiros do Azure, mantendo a flexibilidade, desempenho e compatibilidade de um servidor de ficheiros no local. O Azure File Sync transforma o Windows Server numa cache rápida da sua partilha de ficheiros do Azure. Pode usar qualquer protocolo disponível no Windows Server para aceder aos seus dados localmente, incluindo SMB, NFS e FTPS. Pode ter o número de caches que precisar em todo o mundo.
@@ -132,6 +132,7 @@ Para exibir os resultados no CSV:
 - Um volume localmente anexado formatado com o sistema de ficheiros NTFS.
 
 ### <a name="file-system-features"></a>Recursos de sistema de arquivo
+
 | Funcionalidade | Estado do suporte | Notas |
 |---------|----------------|-------|
 | Listas de controlo de acesso (ACLs) | Totalmente suportado | ACLs do Windows são mantidas pelo Azure File Sync e são impostas pelo Windows Server em pontos finais do servidor. ACLs do Windows não estão (ainda) suportada pelo serviço ficheiros do Azure, se os ficheiros são acedidos diretamente na cloud. |
@@ -148,6 +149,7 @@ Para exibir os resultados no CSV:
 > São suportados apenas os volumes NTFS. O reFS, FAT, FAT32 e outros sistemas de ficheiros não são suportados.
 
 ### <a name="files-skipped"></a>Ficheiros ignorados
+
 | Ficheiro/pasta | Nota |
 |-|-|
 | Desktop.ini | Específica do sistema de ficheiros |

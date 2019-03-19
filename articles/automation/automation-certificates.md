@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 01/15/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 372df0bc6ea540b4b2c030ec71acc6889e7c7d19
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: 3a1fd81f890e304c6bda75fad609cc8c98cd634d
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56874091"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57880386"
 ---
 # <a name="certificate-assets-in-azure-automation"></a>Ativos de certificado na automatização do Azure
 
@@ -28,11 +28,12 @@ Para AzureRM, os cmdlets na tabela seguinte são utilizados para criar e gerir r
 
 |Cmdlets|Descrição|
 |:---|:---|
-|[Get-AzureRmAutomationCertificate](https://docs.microsoft.com/powershell/module/azurerm.automation/get-azurermautomationcertificate)|Obtém informação sobre um certificado a utilizar num runbook ou configuração DSC. O certificado propriamente dito apenas pode ser obtida na atividade de Get-AutomationCertificate.|
-|[New-AzureRmAutomationCertificate](https://docs.microsoft.com/powershell/module/azurerm.automation/new-azurermautomationcertificate)|Cria um novo certificado para a automatização do Azure.|
-[Remove-AzureRmAutomationCertificate](https://docs.microsoft.com/powershell/module/azurerm.automation/remove-azurermautomationcertificate)|Remove um certificado da automatização do Azure.|Cria um novo certificado para a automatização do Azure.
+|[Get-AzureRmAutomationCertificate](https://docs.microsoft.com/powershell/module/azurerm.automation/get-azurermautomationcertificate)|Obtém informação sobre um certificado a utilizar num runbook ou configuração DSC. O certificado propriamente dito apenas pode ser obtida na atividade de Get-AutomationCertificate.| 
+|[New-AzureRmAutomationCertificate](https://docs.microsoft.com/powershell/module/azurerm.automation/new-azurermautomationcertificate)|Cria um novo certificado para a automatização do Azure.| 
+[Remove-AzureRmAutomationCertificate](https://docs.microsoft.com/powershell/module/azurerm.automation/remove-azurermautomationcertificate)|Remove um certificado da automatização do Azure.|
 |[Set-AzureRmAutomationCertificate](https://docs.microsoft.com/powershell/module/azurerm.automation/set-azurermautomationcertificate)|Define as propriedades de um certificado existente, incluindo o carregamento do ficheiro de certificado e definir a palavra-passe para um ficheiro. pfx.|
 |[Add-AzureCertificate](https://msdn.microsoft.com/library/azure/dn495214.aspx)|Carrega um certificado de serviço para o serviço cloud especificado.|
+
 
 ## <a name="activities"></a>Atividades
 As atividades na tabela seguinte são utilizadas para aceder a certificados num runbook e configurações de DSC.
@@ -62,11 +63,11 @@ Quando cria um novo certificado, vai carregar um ficheiro. cer ou. pfx para auto
 ### <a name="to-create-a-new-certificate-with-the-azure-portal"></a>Para criar um novo certificado com o portal do Azure
 
 1. A partir da sua conta de automatização, clique nas **ativos** mosaico para abrir o **ativos** painel.
-1. Clique nas **certificados** mosaico para abrir o **certificados** painel.
-1. Clique em **adicionar um certificado** na parte superior do painel.
-1. Escreva um nome para o certificado no **nome** caixa.
-1. Procure um ficheiro. cer ou. pfx, clique em **selecionar um ficheiro** sob **carregar um ficheiro de certificado**. Se selecionar um ficheiro. pfx, especifique uma palavra-passe e se é permitido para ser exportada.
-1. Clique em **criar** para guardar o novo recurso do certificado.
+2. Clique nas **certificados** mosaico para abrir o **certificados** painel.
+3. Clique em **adicionar um certificado** na parte superior do painel.
+4. Escreva um nome para o certificado no **nome** caixa.
+5. Procure um ficheiro. cer ou. pfx, clique em **selecionar um ficheiro** sob **carregar um ficheiro de certificado**. Se selecionar um ficheiro. pfx, especifique uma palavra-passe e se é permitido para ser exportada.
+6. Clique em **criar** para guardar o novo recurso do certificado.
 
 ### <a name="to-create-a-new-certificate-with-windows-powershell"></a>Para criar um novo certificado com o Windows PowerShell
 

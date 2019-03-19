@@ -12,14 +12,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 02/08/2019
+ms.date: 03/14/2019
 ms.author: juliako;cenkdin;anilmur
-ms.openlocfilehash: df0dc1a8f574f8df23100528d822891178418b6c
-ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.openlocfilehash: 01bb628a6520488dcebf49a1e868213b955abc31
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/02/2019
-ms.locfileid: "57241362"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57895633"
 ---
 # <a name="use-the-fmle-encoder-to-send-a-single-bitrate-live-stream"></a>Utilizar o codificador FMLE para enviar um fluxo em direto com velocidade de transmissão única 
 > [!div class="op_single_selector"]
@@ -29,11 +29,11 @@ ms.locfileid: "57241362"
 >
 >
 
-Este artigo mostra como configurar o [Flash Media Live Encoder](http://www.adobe.com/products/flash-media-encoder.html) encoder (FMLE) para enviar um fluxo de velocidade de transmissão única para o AMS canais que estão ativados para live encoding. Para obter mais informações, consulte [Trabalhar com Canais Ativados para Realizar Live Encoding com Media Services do Azure](media-services-manage-live-encoder-enabled-channels.md).
+Este artigo mostra como configurar o [Flash Media Live Encoder](https://www.adobe.com/products/flash-media-encoder.html) encoder (FMLE) para enviar um fluxo de velocidade de transmissão única para o AMS canais que estão ativados para live encoding. Para obter mais informações, consulte [Trabalhar com Canais Ativados para Realizar Live Encoding com Media Services do Azure](media-services-manage-live-encoder-enabled-channels.md).
 
 Este tutorial mostra como gerir o Azure Media Services (AMS) com a ferramenta do Explorador de serviços de multimédia do Azure (AMSE). Essa ferramenta só é executado no PC do Windows. Se estiver no Mac ou Linux, utilize o portal do Azure para criar [canais](media-services-portal-creating-live-encoder-enabled-channel.md#create-a-channel) e [programas](media-services-portal-creating-live-encoder-enabled-channel.md).
 
-Este tutorial descreve AAC a utilizar. No entanto, FMLE não suporta AAC por predefinição. Terá de comprar um plug-in para a codificação de AAC como do MainConcept: [AAC plugin](http://www.mainconcept.com/products/plug-ins/plug-ins-for-adobe/aac-encoder-fmle.html)
+Este tutorial descreve AAC a utilizar. No entanto, FMLE não suporta AAC por predefinição. Terá de comprar um plug-in para a codificação de AAC como do MainConcept: [AAC plugin](https://www.mainconcept.com/products/plug-ins/plug-ins-for-adobe/aac-encoder-fmle.html)
 
 ## <a name="prerequisites"></a>Pré-requisitos
 * [Criar uma conta de Media Services do Azure](media-services-portal-create-account.md)

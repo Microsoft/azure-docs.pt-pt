@@ -9,12 +9,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 03/12/2019
-ms.openlocfilehash: a2cd0d213be778624ae862d35f99f7fe960f0755
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 0ba61dc266add48577c3a382465ecb2cec9d2a05
+ms.sourcegitcommit: f331186a967d21c302a128299f60402e89035a8d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 03/19/2019
-ms.locfileid: "58093859"
+ms.locfileid: "58188038"
 ---
 # <a name="use-apache-spark-to-read-and-write-apache-hbase-data"></a>Utilizar o Apache Spark para ler e escrever dados do Apache HBase
 
@@ -77,7 +77,7 @@ Copie o site de hbase do armazenamento local para a raiz do armazenamento de pre
 
 | Valor de sintaxe | Novo valor|
 |---|---|
-|[Esquema de URI](/hdinsight-hadoop-linux-information#URI-and-scheme.md) | Modificar para refletir o seu armazenamento.  A sintaxe abaixo é para armazenamento de Blobs com transferência segura ativada.|
+|[Esquema de URI](hdinsight-hadoop-linux-information.md#URI-and-scheme) | Modificar para refletir o seu armazenamento.  A sintaxe abaixo é para armazenamento de Blobs com transferência segura ativada.|
 |`SPARK_STORAGE_CONTAINER`|Substitua o nome de contentor de armazenamento predefinido utilizado para o cluster do Spark.|
 |`SPARK_STORAGE_ACCOUNT`|Substitua o nome de conta de armazenamento predefinida utilizado para o cluster do Spark.|
 

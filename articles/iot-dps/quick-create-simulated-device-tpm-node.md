@@ -9,12 +9,12 @@ ms.service: iot-dps
 services: iot-dps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: f6ae69c04d83e1ce1540267fb7932b80cca1013c
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: ef0a3d251679d7dd6760f1f928cbf0f0daf3db01
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53087217"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58099142"
 ---
 # <a name="create-and-provision-a-simulated-tpm-device-using-nodejs-device-sdk-for-iot-hub-device-provisioning-service"></a>Criar e aprovisionar um dispositivo TPM simulado com o SDK de dispositivo Node.js para o Serviço de Aprovisionamento de Dispositivos no Hub IoT
 
@@ -25,8 +25,8 @@ Estes passos mostram como criar um dispositivo simulado no seu computador de des
 Se não estiver familiarizado com o processo de aprovisionamento automático, reveja também [Conceitos de aprovisionamento automático](concepts-auto-provisioning.md). Certifique-se também de que executa os passos descritos em [Configurar o Serviço de Aprovisionamento de Dispositivos no Hub IoT com o portal do Azure](./quick-setup-auto-provision.md) antes de continuar. 
 
 O Serviço Aprovisionamento de Dispositivos no IoT do Azure suporta dois tipos de inscrição:
-- [Grupos de inscrição](concepts-service.md#enrollment-group): utilizados para inscrever vários dispositivos relacionados.
-- [Inscrições Individuais](concepts-service.md#individual-enrollment): utilizadas para inscrever um dispositivo individual.
+- [Grupos de inscrição](concepts-service.md#enrollment-group): Utilizado para inscrever vários dispositivos relacionados.
+- [Inscrições individuais](concepts-service.md#individual-enrollment): Utilizado para inscrever um dispositivo individual.
 
 Este artigo vai demonstrar as inscrições individuais.
 
@@ -72,25 +72,25 @@ Este artigo vai demonstrar as inscrições individuais.
 
 1. Instale os seguintes pacotes que contêm os componentes utilizados durante o registo:
 
-    - um cliente de segurança que funcione com TPM: `azure-iot-security-tpm`
-    - um transporte para o dispositivo se ligar ao Serviço de Aprovisionamento de Dispositivos: `azure-iot-provisioning-device-http` ou `azure-iot-provisioning-device-amqp`
-    - um cliente para utilizar o cliente de segurança e o transporte: `azure-iot-provisioning-device`
+   - um cliente de segurança que funcione com TPM: `azure-iot-security-tpm`
+   - um transporte para o dispositivo se ligar ao Serviço de Aprovisionamento de Dispositivos: `azure-iot-provisioning-device-http` ou `azure-iot-provisioning-device-amqp`
+   - um cliente para utilizar o cliente de segurança e o transporte: `azure-iot-provisioning-device`
 
-    Depois de o dispositivo ser registado, pode utilizar os pacotes do Cliente de Dispositivo de Hub IoT habituais para ligar o dispositivo com as credenciais fornecidas durante o registo. Irá precisar dos seguintes elementos:
+     Depois de o dispositivo ser registado, pode utilizar os pacotes do Cliente de Dispositivo de Hub IoT habituais para ligar o dispositivo com as credenciais fornecidas durante o registo. Irá precisar dos seguintes elementos:
 
-    - o cliente de dispositivo: `azure-iot-device`
-    - um transporte: `azure-iot-device-amqp`, `azure-iot-device-mqtt` ou `azure-iot-device-http`
-    - o cliente de segurança que já instalou: `azure-iot-security-tpm`
+   - o cliente de dispositivo: `azure-iot-device`
+   - um transporte: `azure-iot-device-amqp`, `azure-iot-device-mqtt` ou `azure-iot-device-http`
+   - o cliente de segurança que já instalou: `azure-iot-security-tpm`
 
-    > [!NOTE]
-    > Os exemplos abaixo utilizam os transportes `azure-iot-provisioning-device-http` e `azure-iot-device-mqtt`.
-    > 
+     > [!NOTE]
+     > Os exemplos abaixo utilizam os transportes `azure-iot-provisioning-device-http` e `azure-iot-device-mqtt`.
+     > 
 
-    Pode instalar todos estes pacotes em simultâneo com a execução do seguinte comando na sua linha de comandos na pasta **registerdevice**:
+     Pode instalar todos estes pacotes em simultâneo com a execução do seguinte comando na sua linha de comandos na pasta **registerdevice**:
 
-        ```cmd/sh
-        npm install --save azure-iot-device azure-iot-device-mqtt azure-iot-security-tpm azure-iot-provisioning-device-http azure-iot-provisioning-device
-        ```
+       ```cmd/sh
+       npm install --save azure-iot-device azure-iot-device-mqtt azure-iot-security-tpm azure-iot-provisioning-device-http azure-iot-provisioning-device
+       ```
 
 1. Com um editor de texto, crie um novo ficheiro **ExtractDevice.js** na pasta **registerdevice**.
 
@@ -141,15 +141,15 @@ Este artigo vai demonstrar as inscrições individuais.
 1. No painel de resumo do Serviço Aprovisionamento de Dispositivos, selecione **Gerir inscrições**. Selecione o separador **Inscrições Individuais** e clique no botão **Adicionar inscrição individual** na parte superior. 
 
 1. Em **Adicionar Inscrição**, introduza as seguintes informações:
-    - Selecione **TPM** como o *Mecanismo* de atestado de identidades.
-    - Introduza o *ID de Registo* e a *Chave de endossamento* do seu dispositivo TPM.
-    - Opcionalmente, pode fornecer as seguintes informações:
-        - Selecione um hub IoT ligado ao seu serviço de aprovisionamento.
-        - Introduza um ID de dispositivo exclusivo. Certifique-se de que evita dados confidenciais quando der o nome ao seu dispositivo.
-        - Atualize o **estado inicial do dispositivo duplo** com a configuração inicial pretendida para o dispositivo.
-    - Quando tiver terminado, clique no botão **Guardar**. 
+   - Selecione **TPM** como o *Mecanismo* de atestado de identidades.
+   - Introduza o *ID de Registo* e a *Chave de endossamento* do seu dispositivo TPM.
+   - Opcionalmente, pode fornecer as seguintes informações:
+       - Selecione um hub IoT ligado ao seu serviço de aprovisionamento.
+       - Introduza um ID de dispositivo exclusivo. Certifique-se de que evita dados confidenciais quando der o nome ao seu dispositivo.
+       - Atualize o **estado inicial do dispositivo duplo** com a configuração inicial pretendida para o dispositivo.
+   - Quando tiver terminado, clique no botão **Guardar**. 
 
-    ![Introduza as informações de inscrição de dispositivos no painel do portal](./media/quick-create-simulated-device/enter-device-enrollment.png)  
+     ![Introduza as informações de inscrição de dispositivos no painel do portal](./media/quick-create-simulated-device/enter-device-enrollment.png)  
 
    Após a instalação bem-sucedida, o *ID de Registo* do seu dispositivo aparece na lista, no separador *Inscrições Individuais*. 
 

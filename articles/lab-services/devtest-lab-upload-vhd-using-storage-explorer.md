@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/17/2018
 ms.author: spelluru
-ms.openlocfilehash: 55e8f536419f102f8f0fe69773ed486407c50cfb
-ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
+ms.openlocfilehash: 12a21f4fdfb279df154b4995b6191aa0ed54ab43
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/16/2019
-ms.locfileid: "56328865"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57894483"
 ---
 # <a name="upload-vhd-file-to-labs-storage-account-using-microsoft-azure-storage-explorer"></a>Carregar o ficheiro VHD para a conta de armazenamento do laboratório com o Explorador de armazenamento do Microsoft Azure
 
@@ -31,7 +31,7 @@ No Azure DevTest Labs, ficheiros VHD podem ser utilizados para criar imagens per
 
 Os seguintes passos guiá-lo por meio de carregar um ficheiro VHD para utilizar o DevTest Labs [Explorador de armazenamento do Microsoft Azure](../vs-azure-tools-storage-manage-with-storage-explorer.md).
 
-1. [Transfira e instale a versão mais recente do Microsoft Azure Storage Explorer](http://www.storageexplorer.com).
+1. [Transfira e instale a versão mais recente do Microsoft Azure Storage Explorer](https://www.storageexplorer.com).
 
 1. Obter o nome da conta de armazenamento do laboratório com o portal do Azure:
 

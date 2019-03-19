@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 09/24/2018
 ms.author: dech
 Customer intent: As a developer, I want to build a Node.js console application to access and manage SQL API account resources in Azure Cosmos DB, so that customers can better use the service.
-ms.openlocfilehash: 4441797eb41dc909a98be3c42931140e71e36f80
-ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
+ms.openlocfilehash: fe925ed408f64424de8da98f6e182a06a41bf015
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56270356"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58075054"
 ---
 # <a name="tutorial-build-a-nodejs-console-app-with-the-javascript-sdk-to-manage-azure-cosmos-db-sql-api-data"></a>Tutorial: Criar uma aplicação de consola node. js com o SDK de JavaScript para gerir os dados do Azure Cosmos DB SQL API
 
@@ -338,7 +338,7 @@ Agora que tem o código para inicializar o cliente do Azure Cosmos DB, vamos ver
 Em seguida crie um contentor na conta do Azure Cosmos DB, para que possa armazenar e consultar os dados. 
 
 > [!WARNING]
-Criar um contentor tem sobre os preços. Visite nosso [página de preços](https://azure.microsoft.com/pricing/details/cosmos-db/) para que saiba o que esperar.
+> Criar um contentor tem sobre os preços. Visite nosso [página de preços](https://azure.microsoft.com/pricing/details/cosmos-db/) para que saiba o que esperar.
 
 Um contentor pode ser criado utilizando o `createIfNotExists` ou criar a função a partir da **contentores** classe.  Os contentores consistem em itens (que, no caso da API SQL, são documentos JSON) e na lógica da aplicação JavaScript associada.
 
@@ -462,7 +462,7 @@ Um item pode ser criado através da função de criação do **itens** classe. Q
    /**
    * Create family item if it does not exist
    */
-  async function createFamilyItem(itemBody) {
+   async function createFamilyItem(itemBody) {
      try {
          // read the item to see if it exists
          const { item } = await client.database(databaseId).container(containerId).item(itemBody.id).read();
@@ -612,9 +612,9 @@ O Azure Cosmos DB suporta a eliminação de itens JSON.
 1. Copie e cole a função **deleteFamilyItem** por baixo da função **replaceFamilyItem**.
 
    ```javascript
-  /**
-  * Delete the item by ID.
-  */
+   /**
+   * Delete the item by ID.
+   */
    async function deleteFamilyItem(itemBody) {
       await client.database(databaseId).container(containerId).item(itemBody.id).delete(itemBody);
       console.log(`Deleted item:\n${itemBody.id}\n`);

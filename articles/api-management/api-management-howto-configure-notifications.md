@@ -13,19 +13,19 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/02/2018
 ms.author: apimpm
-ms.openlocfilehash: 16beaadae36dfc7445a88875d36786bd97889599
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.openlocfilehash: 2a959c9d131c6aa0bdc99450cf2b6f09a5d8bfa7
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52445084"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58102354"
 ---
 # <a name="how-to-configure-notifications-and-email-templates-in-azure-api-management"></a>Como configurar notificações e modelos de e-mail na API Management do Azure
 Gestão de API fornece a capacidade para configurar notificações para eventos específicos e para configurar os modelos de e-mail que são utilizados para comunicar com os administradores e desenvolvedores de uma instância de gestão de API. Este artigo mostra como configurar notificações para os eventos disponíveis e fornece uma descrição geral da configuração os modelos de e-mail utilizados para esses eventos.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Se não tiver uma instância de serviço de gestão de API, concluir o início rápido seguinte: [criar uma instância de gestão de API do Azure](get-started-create-service-instance.md).
+Se não tiver uma instância de serviço de gestão de API, conclua o início rápido seguinte: [Criar uma instância de gestão de API do Azure](get-started-create-service-instance.md).
 
 [!INCLUDE [premium-dev-standard-basic.md](../../includes/api-management-availability-premium-dev-standard-basic.md)]
 
@@ -38,15 +38,15 @@ Se não tiver uma instância de serviço de gestão de API, concluir o início r
 
     A lista seguinte de eventos pode ser configurada para notificações.
 
-    * **Pedidos de subscrição (o que requer aprovação)** -os destinatários de e-mail especificado e os utilizadores irão receber notificações por e-mail sobre pedidos de subscrição para os produtos de API que exigem a aprovação.
-    * **Novas subscrições** -os destinatários de e-mail especificado e os utilizadores irão receber notificações por e-mail sobre novas subscrições de produto de API.
-    * **Pedidos de Galeria de aplicações** -os destinatários de e-mail especificado e os utilizadores irão receber notificações por e-mail quando novos aplicativos são submetidos para a Galeria de aplicações.
-    * **BCC** -os destinatários de e-mail especificado e os utilizadores irão receber o e-mail cego emissões de carbono cópias de todos os e-mails enviados para os desenvolvedores.
-    * **Novo problema ou comentário** - os destinatários de e-mail especificado e os utilizadores irão receber notificações por e-mail quando um novo problema ou comentário é submetido no portal do programador.
-    * **Mensagem de fechar conta** -os destinatários de e-mail especificado e os utilizadores irão receber notificações por e-mail quando uma conta está fechada.
-    * **Limite de quota de subscrição aproximado** -os seguintes destinatários de e-mail e os utilizadores irão receber notificações por e-mail quando a utilização da subscrição chega perto de quota de utilização.
+   * **Pedidos de subscrição (o que requer aprovação)** -os destinatários de e-mail especificado e os utilizadores irão receber notificações por e-mail sobre pedidos de subscrição para os produtos de API que exigem a aprovação.
+   * **Novas subscrições** -os destinatários de e-mail especificado e os utilizadores irão receber notificações por e-mail sobre novas subscrições de produto de API.
+   * **Pedidos de Galeria de aplicações** -os destinatários de e-mail especificado e os utilizadores irão receber notificações por e-mail quando novos aplicativos são submetidos para a Galeria de aplicações.
+   * **BCC** -os destinatários de e-mail especificado e os utilizadores irão receber o e-mail cego emissões de carbono cópias de todos os e-mails enviados para os desenvolvedores.
+   * **Novo problema ou comentário** - os destinatários de e-mail especificado e os utilizadores irão receber notificações por e-mail quando um novo problema ou comentário é submetido no portal do programador.
+   * **Mensagem de fechar conta** -os destinatários de e-mail especificado e os utilizadores irão receber notificações por e-mail quando uma conta está fechada.
+   * **Limite de quota de subscrição aproximado** -os seguintes destinatários de e-mail e os utilizadores irão receber notificações por e-mail quando a utilização da subscrição chega perto de quota de utilização.
 
-    Para cada evento, pode especificar usando a caixa de texto de endereço de e-mail de destinatários de e-mail ou pode selecionar os utilizadores a partir de uma lista.
+     Para cada evento, pode especificar usando a caixa de texto de endereço de e-mail de destinatários de e-mail ou pode selecionar os utilizadores a partir de uma lista.
 
 3. Para especificar os endereços de e-mail para ser notificado, insira-os na caixa de texto de endereço de e-mail. Se tiver vários endereços de e-mail, separá-los com vírgulas.
 

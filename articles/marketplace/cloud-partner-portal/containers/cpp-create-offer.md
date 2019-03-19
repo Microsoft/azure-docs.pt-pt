@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 11/01/2018
 ms.author: pbutlerm
-ms.openlocfilehash: 71a69a8c299d4469c151102b0dbd5cdb70c296ec
-ms.sourcegitcommit: 1fc949dab883453ac960e02d882e613806fabe6f
+ms.openlocfilehash: 3b2a34a5ed2c6b57bfce0b9a4cf35cdf14cff9c9
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/03/2018
-ms.locfileid: "50979829"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57900085"
 ---
 # <a name="create-a-new-container-offer-with-the-cloud-partner-portal"></a>Criar uma nova oferta de contentor com o Portal de parceiro de Cloud
 
@@ -34,7 +34,7 @@ Este artigo descreve como criar e publicar uma entrada de oferta de contentor pa
 
 ## <a name="new-offer-form"></a>Novo formulário de oferta 
 
-Inicie sessão para o [Cloud Partner Portal](http://cloudpartner.azure.com/)e, em seguida, selecione **+ nova oferta** na barra de menu à esquerda. No novo oferecem menu, selecione **contentores** para apresentar o **nova oferta** formam e iniciar o processo de definição de ativos para uma nova oferta de contentor.
+Inicie sessão para o [Cloud Partner Portal](https://cloudpartner.azure.com/)e, em seguida, selecione **+ nova oferta** na barra de menu à esquerda. No novo oferecem menu, selecione **contentores** para apresentar o **nova oferta** formam e iniciar o processo de definição de ativos para uma nova oferta de contentor.
 
 ![Selecione a opção de contentores para a nova oferta](./media/azure-container-offer.png)
 

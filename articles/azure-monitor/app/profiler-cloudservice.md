@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.reviewer: mbullwin
 ms.date: 08/06/2018
 ms.author: cweining
-ms.openlocfilehash: 32604c06c6a4325f7ae6cb45930de902a1366480
-ms.sourcegitcommit: e88188bc015525d5bead239ed562067d3fae9822
+ms.openlocfilehash: 2e13f1f09fcdfb68a99e705511e3659f1632132e
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/24/2019
-ms.locfileid: "56750332"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57895486"
 ---
 # <a name="profile-live-azure-cloud-services-with-application-insights"></a>Perfil em direto serviços Cloud do Azure com o Application Insights
 
@@ -33,7 +33,7 @@ Application Insights Profiler é instalado com a extensão de diagnóstico do Az
 
 1. Adicione [serviços Cloud do Application Insights SDK para o Azure](../../azure-monitor/app/cloudservices.md?toc=/azure/azure-monitor/toc.json).
 
-  >**Há um bug no Criador de perfil que é fornecido na versão mais recente do WAD para serviços Cloud.** Para usar o criador de perfil com um serviço em nuvem, ela oferece suporte apenas SDK de ia para a versão 2.7.2. Se estiver a utilizar uma versão mais recente do SDK do IA, terá de voltar atrás e 2.7.2 para usar o criador de perfil.
+   >**Há um bug no Criador de perfil que é fornecido na versão mais recente do WAD para serviços Cloud.** Para usar o criador de perfil com um serviço em nuvem, ela oferece suporte apenas SDK de ia para a versão 2.7.2. Se estiver a utilizar uma versão mais recente do SDK do IA, terá de voltar atrás e 2.7.2 para usar o criador de perfil. Se utilizar o Visual Studio para mudar a versão do SDK de informações da aplicação, poderá receber um erro de redirecionamento de ligação em tempo de execução. Isto acontece porque o "newVersion" no ficheiro Web. config do applicationinsights deve ser definido para "2.7.2.0" depois de fazer downgrade o SDK de IA, mas não é atualizado automaticamente.
 
 1. Acompanhar pedidos com o Application Insights:
 

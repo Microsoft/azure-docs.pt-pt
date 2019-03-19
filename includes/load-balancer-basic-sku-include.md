@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 04/03/2018
 ms.author: kumud
 ms.custom: include file
-ms.openlocfilehash: 9d48e3c3fc54e6f019b64ecff727ba92a2f3f0cc
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 98a26d3771ca7bd7bd959a5904c9034ce867399f
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38940794"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58124748"
 ---
 > [!IMPORTANT]
-O Balanceador de Carga do Azure suporta dois tipos diferentes: Básico e Standard. Este artigo aborda o Balanceador de Carga Básico. Para obter mais informações sobre o Balanceador de carga Standard, veja [descrição geral do Balanceador de carga Standard](https://aka.ms/AzureLoadBalancerStandard).
+> O Balanceador de carga do Azure suporta dois tipos diferentes: Basic e Standard. Este artigo aborda o Balanceador de Carga Básico. Para obter mais informações sobre o Balanceador de carga Standard, veja [descrição geral do Balanceador de carga Standard](https://aka.ms/AzureLoadBalancerStandard).

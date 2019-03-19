@@ -16,12 +16,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/11/2018
 ms.author: banders
-ms.openlocfilehash: 19895ef706ab5a5ec0aa390465ce260e68d71d78
-ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
+ms.openlocfilehash: 2da6a5c93d4bf4fcf8763be47b9eb629b930e3b3
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54903116"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57843478"
 ---
 # <a name="why-is-my-azure-subscription-disabled-and-how-do-i-reactivate-it"></a>Por que motivo a minha subscrição do Azure está desativada e como posso reativá-la?
 
@@ -36,7 +36,7 @@ Quando se inscrever numa conta gratuita do Azure, obtém uma subscrição de ava
 Subscrições do Azure com o crédito como versão de avaliação gratuita e o Visual Studio Enterprise têm limites de gastos nas mesmas. Isso significa que só pode utilizar os serviços até o crédito incluído. Quando a utilização de atinge o limite de gastos, o Azure desativa a sua subscrição para o restante desse período de faturação. A subscrição está desativada para o proteger de incorrer em custos de utilização para lá do crédito incluído com a sua subscrição. Para remover o limite de gastos, consulte [remover o limite de gastos no Centro de contas](billing-spending-limit.md#remove).
 
 > [!NOTE] 
-> Se tiver uma subscrição de avaliação gratuita e remover o limite de gastos, converte a sua subscrição pay as you go no final da avaliação gratuita. Mantenha o seu crédito restante para todos os 30 dias depois de criado a subscrição. Também tem acesso a serviços durante 12 meses gratuitos.
+> Se tiver uma subscrição de avaliação gratuita e remover o limite de gastos, converte a sua subscrição pay as you go no final da avaliação gratuita. Mantenha o seu crédito restante para todos os 30 dias depois de criado a subscrição. Também tem acesso a serviços gratuitos durante 12 meses.
 
 Para monitorizar e gerir a faturação do Azure, veja [evitar custos inesperados com a faturação do Azure e a gestão de custos](billing-getting-started.md).
 
@@ -63,4 +63,4 @@ Para outros tipos de subscrição [contacte o suporte](https://portal.azure.com/
 
 ## <a name="need-help-contact-us"></a>Precisa de ajuda? Contacte-nos.
 
-Se tiver alguma dúvida ou precisar de ajuda, [criar um pedido de suporte](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).
+Se tiver alguma dúvida ou precisar de ajuda, [criar um pedido de suporte](https://go.microsoft.com/fwlink/?linkid=2083458).

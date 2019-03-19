@@ -8,12 +8,12 @@ ms.devlang: c
 ms.topic: conceptual
 ms.date: 02/14/2019
 ms.author: rangv
-ms.openlocfilehash: 562dc32f6dd40e6b0103fcc255ceafe829e2265d
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 4f092f2d290138e48068141113b184d8e856bee7
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57529655"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58103218"
 ---
 # <a name="connect-raspberry-pi-to-azure-iot-hub-c"></a>Ligar o Raspberry Pi a IoT Hub (C) do Azure
 
@@ -156,8 +156,8 @@ Ative o Pi usando o cabo USB do micro e a fonte de alimentação. Utilize o cabo
    **Mac e os utilizadores do Ubuntu**
    
    Utilize o cliente SSH incorporado no Ubuntu ou macOS. Poderá ter de executar `ssh pi@<ip address of pi>` para ligar o instalador de plataforma através de SSH.
-   > [!NOTE] 
-   O nome de utilizador predefinido é `pi` , e a palavra-passe é `raspberry`.
+   > [!NOTE]
+   > O nome de utilizador predefinido é `pi` , e a palavra-passe é `raspberry`.
 
 
 ### <a name="configure-the-sample-application"></a>Configurar a aplicação de exemplo

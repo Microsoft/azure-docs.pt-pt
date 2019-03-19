@@ -12,12 +12,12 @@ ms.author: sstein
 ms.reviewers: billgib,ayolubek
 manager: craigg
 ms.date: 01/25/2019
-ms.openlocfilehash: 39ff70670d628ca672022b84e59ed3cc8a17d925
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 9562d0cd1ad97a459c3630456a6070ac2b6e63f3
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57447042"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58096032"
 ---
 # <a name="cross-tenant-reporting-using-distributed-queries"></a>Consultas de distribuídas de relatórios usando entre inquilinos
 
@@ -27,7 +27,7 @@ Neste tutorial, executa consultas distribuídas em todo o conjunto de inquilino 
 Neste tutorial, ficará a saber:
 
 > [!div class="checklist"]
-
+> 
 > * Como implementar uma base de dados de relatórios
 > * Como executar consultas distribuídas em todas as bases de dados de inquilinos
 > * Como podem ativar a vistas globais em cada base de dados de uma consulta eficiente em inquilinos
@@ -181,7 +181,7 @@ Importante observar, é essa definição **distribuição = SHARDED(VenueId)** q
 Neste tutorial, ficou a saber como:
 
 > [!div class="checklist"]
-
+> 
 > * Executar consultas distribuídas em todas as bases de dados do inquilino
 > * Implementar uma base de dados de relatórios e definir o esquema necessário para executar consultas distribuídas.
 

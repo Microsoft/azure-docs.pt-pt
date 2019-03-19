@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.tgt_pltfrm: arduino
 ms.date: 4/11/2018
 ms.author: rangv
-ms.openlocfilehash: a55e77853a1c9466892f686f34d17a5e84b11ba7
-ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
+ms.openlocfilehash: 240895f4e8567426fec8e270b96b9e6528392a46
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/19/2019
-ms.locfileid: "54411290"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58103082"
 ---
 # <a name="visualize-real-time-sensor-data-from-azure-iot-hub-using-power-bi"></a>Visualizar dados de sensores em tempo real do IoT Hub com o Power BI
 
@@ -37,11 +37,11 @@ Saiba como visualizar dados de sensores em tempo real que recebe o seu hub IoT d
 
 ## <a name="what-you-need"></a>Do que precisa
 
- * Tutorial [configurar o seu dispositivo](iot-hub-raspberry-pi-kit-node-get-started.md) concluída que abrange os seguintes requisitos:
-
-   * Uma subscrição ativa do Azure.
-   * Um hub IoT do Azure com a sua subscrição.
-   * Uma aplicação de cliente que envia mensagens para o seu hub IoT do Azure.
+* Tutorial [configurar o seu dispositivo](iot-hub-raspberry-pi-kit-node-get-started.md) concluída que abrange os seguintes requisitos:
+  
+  * Uma subscrição ativa do Azure.
+  * Um hub IoT do Azure com a sua subscrição.
+  * Uma aplicação de cliente que envia mensagens para o seu hub IoT do Azure.
 
 * Uma conta do Power BI. ([Experimente o Power BI gratuitamente](https://powerbi.microsoft.com/))
 

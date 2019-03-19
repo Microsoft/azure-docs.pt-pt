@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/17/2018
 ms.author: spelluru
-ms.openlocfilehash: fe4134d322c87c199f24cbd7966a8d6fca7256d9
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 5d7665cbfdf855e194f61910f0c8ee2bce5469b1
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57538872"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57852496"
 ---
 # <a name="add-a-git-repository-to-store-custom-artifacts-and-resource-manager-templates"></a>Adicionar um repositório de Git para armazenar artefactos personalizados e modelos do Resource Manager
 
@@ -78,13 +78,13 @@ Para adicionar um repositório ao seu laboratório, primeiro, obtenha informaç�
 
     ![Botão de repositório de adicionar](./media/devtest-lab-add-repo/devtestlab-add-repo.png)
 5. No segundo **repositórios** , especifique as seguintes informações:
-  1. **Nome**. Introduza um nome para o repositório.
-  2. **Url de Clone de Git**. Introduza o URL de clone de Git HTTPS que copiou anteriormente partir do GitHub ou dos serviços de DevOps do Azure.
-  3. **Ramo**. Para obter as definições, introduza o ramo.
-  4. **Token de acesso pessoal**. Introduza o token de acesso pessoal que obteve anteriormente do GitHub ou dos serviços de DevOps do Azure.
-  5. **Caminhos de pastas**. Introduza pelo menos um caminho de pasta relativo para o URL do clone que contém o artefacto ou definições de modelo do Resource Manager. Quando especificar um subdiretório, certifique-se de que incluir a barra no caminho da pasta.
+   1. **Nome**. Introduza um nome para o repositório.
+   2. **Url de Clone de Git**. Introduza o URL de clone de Git HTTPS que copiou anteriormente partir do GitHub ou dos serviços de DevOps do Azure.
+   3. **Ramo**. Para obter as definições, introduza o ramo.
+   4. **Token de acesso pessoal**. Introduza o token de acesso pessoal que obteve anteriormente do GitHub ou dos serviços de DevOps do Azure.
+   5. **Caminhos de pastas**. Introduza pelo menos um caminho de pasta relativo para o URL do clone que contém o artefacto ou definições de modelo do Resource Manager. Quando especificar um subdiretório, certifique-se de que incluir a barra no caminho da pasta.
 
-     ![Área de repositórios](./media/devtest-lab-add-repo/devtestlab-repo-blade.png)
+      ![Área de repositórios](./media/devtest-lab-add-repo/devtestlab-repo-blade.png)
 6. Selecione **Guardar**.
 
 ### <a name="related-blog-posts"></a>Postagens de blogs relacionados

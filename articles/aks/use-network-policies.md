@@ -7,21 +7,23 @@ ms.service: container-service
 ms.topic: article
 ms.date: 02/12/2019
 ms.author: iainfou
-ms.openlocfilehash: 81b45a25c8040916b835ab333c5ce80ab6c1a788
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: a20dfcd9e2ef12252235b74455964d115d9aef9b
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57772318"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58181491"
 ---
-# <a name="secure-traffic-between-pods-by-using-network-policies-in-azure-kubernetes-service"></a>Proteger o tráfego entre pods ao utilizar políticas de rede no Azure Kubernetes Service
+# <a name="preview---secure-traffic-between-pods-using-network-policies-in-azure-kubernetes-service-aks"></a>Pré-visualização - proteger o tráfego entre pods através de políticas de rede no Azure Kubernetes Service (AKS)
 
 Ao executar aplicações modernas e baseadas em microsserviços no Kubernetes, muitas vezes deseja controlar quais componentes podem comunicar entre si. O princípio de privilégio mínimo deve ser aplicado a forma como o tráfego pode fluir entre pods num cluster do Azure Kubernetes Service (AKS). Digamos que é provável que deseja bloquear tráfego diretamente para aplicações de back-end. O *política de rede* funcionalidade no Kubernetes permite-lhe definir regras para o tráfego de entrada e saída entre pods num cluster.
 
 Calico, um sistema de rede do código-fonte aberto e solução de segurança de rede fundada por Tigera, oferece um mecanismo de políticas de rede que pode implementar as regras de política de rede do Kubernetes. Este artigo mostra-lhe como instalar o motor de política de rede Calico e criar políticas de rede do Kubernetes para controlar o fluxo de tráfego entre pods no AKS.
 
 > [!IMPORTANT]
-> Esta funcionalidade encontra-se em pré-visualização. As pré-visualizações ser-lhe-ão disponibilizadas na condição de concordar com os [termos suplementares de utilização][terms-of-use]. Alguns aspetos desta funcionalidade podem ser alteradas antes da disponibilidade geral (GA).
+> Funcionalidades de pré-visualização do AKS são self-service e participar. Pré-visualizações são fornecidas para recolher comentários e bugs de nossa Comunidade. No entanto, não são suportados pelo suporte técnico do Azure. Se cria um cluster ou adicionar esses recursos em clusters existentes, esse cluster não é suportado até que a funcionalidade não se encontra em pré-visualização e é formado para disponibilidade geral (GA).
+>
+> Se tiver problemas com funcionalidades de pré-visualização [abra um problema no repositório GitHub do AKS] [ aks-github] com o nome da funcionalidade de pré-visualização no título do bug.
 
 ## <a name="before-you-begin"></a>Antes de começar
 
@@ -451,6 +453,7 @@ Para saber mais sobre as políticas, veja [as políticas de rede do Kubernetes][
 [azure-cni]: https://github.com/Azure/azure-container-networking/blob/master/docs/cni.md
 [terms-of-use]: https://azure.microsoft.com/support/legal/preview-supplemental-terms/
 [policy-rules]: https://kubernetes.io/docs/concepts/services-networking/network-policies/#behavior-of-to-and-from-selectors
+[aks-github]: https://github.com/azure/aks/issues]
 
 <!-- LINKS - internal -->
 [install-azure-cli]: /cli/azure/install-azure-cli

@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 12/24/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c33bf12dfaa4d9c9bd927cd8e7f8d61a09a962d1
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 395d3887e35d6e9c043d4d947b605e71eb58bd6b
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57762641"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57897338"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-iprova"></a>Tutorial: Integração do Active Directory do Azure com iProva
 
@@ -221,7 +221,7 @@ Nesta secção, vai criar um utilizador de teste no portal do Azure com o nome E
 
     a. Na **Name** , introduza um nome como **BrittaSimon**.
   
-    b. Na **nome de utilizador** , introduza *yourname@yourcompanydomain.extension*. 
+    b. Na **nome de utilizador** , introduza *yourname\@yourcompanydomain.extension*. 
     Um exemplo é BrittaSimon@contoso.com.
 
     c. Selecione o **palavra-passe de Show** caixa de verificação e, em seguida, anote o valor que é apresentado na **palavra-passe** caixa.
@@ -266,19 +266,19 @@ Nesta secção, vai ativar Eduarda Almeida utilizar o Azure início de sessão �
 
 5. Selecione **Adicionar**.
 
-6. Na **nome de utilizador** , introduza *brittasimon@yourcompanydomain.extension*. 
+6. Na **nome de utilizador** , introduza *brittasimon\@yourcompanydomain.extension*. 
     Um exemplo é BrittaSimon@contoso.com.
 
 7. Na **FullName** , introduza um nome completo como **BrittaSimon**.
 
 8. Selecione o **nenhuma palavra-passe (utilização início de sessão único)** opção.
 
-9. Na **endereço de correio eletrónico** , introduza *yourname@yourcompanydomain.extension*. 
+9. Na **endereço de correio eletrónico** , introduza *yourname\@yourcompanydomain.extension*. 
    Um exemplo é BrittaSimon@contoso.com.
 
 10. Desloque para baixo até o final da página e selecione **concluir**.
 
-### <a name="test-single-sign-on"></a>Testar início de sessão único
+### <a name="test-single-sign-on"></a>Testar o início de sessão único
 
 Nesta secção, vai testar seu única início de sessão em configuração do Azure AD utilizando o painel de acesso.
 

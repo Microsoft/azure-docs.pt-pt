@@ -10,12 +10,12 @@ ms.topic: reference
 ms.date: 08/15/2018
 ms.reviewer: klam, LADocs
 ms.suite: integration
-ms.openlocfilehash: 71d97481b4d3bff1ef93839f57939875ac9268ff
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: e58d534811fc6d6ed2bb24486c149f217a7a28a3
+ms.sourcegitcommit: f331186a967d21c302a128299f60402e89035a8d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57450067"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58189908"
 ---
 # <a name="functions-reference-for-workflow-definition-language-in-azure-logic-apps"></a>Referência de funções para a linguagem de definição de fluxo de trabalho no Azure Logic Apps
 
@@ -2938,7 +2938,7 @@ range(<startIndex>, <count>)
 
 | Parâmetro | Necessário | Tipo | Descrição |
 | --------- | -------- | ---- | ----------- |
-| <*startIndex*> | Sim | Número inteiro | O valor de número inteiro que começa a matriz como o primeiro item |
+| <*startIndex*> | Sim | Número inteiro | Um valor inteiro que é iniciada a matriz, como o primeiro item |
 | <*count*> | Sim | Número inteiro | O número de números inteiros na matriz |
 |||||
 
@@ -3333,7 +3333,7 @@ substring('<text>', <startIndex>, <length>)
 | Parâmetro | Necessário | Tipo | Descrição |
 | --------- | -------- | ---- | ----------- |
 | <*text*> | Sim | String | A cadeia cujos carateres que pretende |
-| <*startIndex*> | Sim | Número inteiro | Um número positivo para a posição inicial ou o valor de índice |
+| <*startIndex*> | Sim | Número inteiro | Um número positivo igual ou superior a 0 que pretende utilizar como o valor de índice ou a posição inicial |
 | <*length*> | Sim | Número inteiro | Um número positivo de carateres que pretende na subcadeia |
 |||||
 

@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 08/09/2017
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 893113b5383cfc2904a053b49edee19cb39f443c
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: e82dd76c456f463666bc17bfda9664cf24012eed
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56166245"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58170212"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-intime"></a>Tutorial: Integração do Active Directory do Azure com InTime
 
@@ -169,7 +169,7 @@ O objetivo desta secção é criar um utilizador de teste no portal do Azure cha
 
     d. Clique em **Criar**.
  
-### <a name="create-a-intime-test-user"></a>Criar um utilizador de teste InTime
+### <a name="create-an-intime-test-user"></a>Criar um utilizador de teste InTime
 
 Nesta secção, vai criar um usuário chamado Eduarda Almeida no InTime. Trabalhar com [equipa de suporte InTime](mailto:hdollard@intimesoft.com) para adicionar os utilizadores na plataforma InTime. Os utilizadores tem de ser criados e ativados antes de utilizar o início de sessão único.
 

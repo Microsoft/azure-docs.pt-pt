@@ -7,13 +7,13 @@ ms.author: mamccrea
 ms.service: azure-databricks
 ms.workload: big-data
 ms.topic: conceptual
-ms.date: 08/27/2018
-ms.openlocfilehash: a42d2c75913b2c9fdfa0d2b7c3ec2742525a4c97
-ms.sourcegitcommit: 7f7c2fe58c6cd3ba4fd2280e79dfa4f235c55ac8
+ms.date: 03/13/2019
+ms.openlocfilehash: 354f6014e3230b65a0c4f1cd7507e58ca94474dd
+ms.sourcegitcommit: f331186a967d21c302a128299f60402e89035a8d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/25/2019
-ms.locfileid: "56806101"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58188106"
 ---
 # <a name="regional-disaster-recovery-for-azure-databricks-clusters"></a>Recuperação após desastre regional para clusters do Azure Databricks
 
@@ -263,9 +263,14 @@ Para criar seu próprio topologia de recuperação de desastre regional, siga es
 
 10. **Reconfigurar e volte a aplicar o controlo de acesso manualmente.**
 
-   Se a sua área de trabalho principal existente estiver configurada para utilizar o escalão Premium (SKU), é provável que também está a utilizar o [a funcionalidade de controlo de acesso](https://docs.azuredatabricks.net/administration-guide/admin-settings/index.html#manage-access-control).
+    Se a sua área de trabalho principal existente estiver configurada para utilizar o escalão Premium (SKU), é provável que também está a utilizar o [a funcionalidade de controlo de acesso](https://docs.azuredatabricks.net/administration-guide/admin-settings/index.html#manage-access-control).
 
-   Se utilizar a funcionalidade de controlo de acesso, reaplicar manualmente o controlo de acesso aos recursos (blocos de notas, Clusters, tarefas, tabelas).
+    Se utilizar a funcionalidade de controlo de acesso, reaplicar manualmente o controlo de acesso aos recursos (blocos de notas, Clusters, tarefas, tabelas).
+
+## <a name="disaster-recovery-for-your-azure-ecosystem"></a>Recuperação após desastre para o seu ecossistema do Azure
+
+Se estiver a utilizar outros serviços do Azure, certifique-se de que implementar práticas recomendadas de recuperação após desastre para os serviços, também. Por exemplo, se optar por utilizar uma instância de metastore Hive externa, deve considerar a recuperação após desastre para [servidor SQL do Azure](../sql-database/sql-database-disaster-recovery.md), [Azure HDInsight](../hdinsight/hdinsight-high-availability-linux.md), e/ou [base de dados do Azure para MySQL ](../mysql/concepts-business-continuity.md). Para obter informações gerais sobre a recuperação após desastre, veja [recuperação após desastre para aplicações do Azure](https://docs.microsoft.com/azure/architecture/resiliency/disaster-recovery-azure-applications).
 
 ## <a name="next-steps"></a>Passos Seguintes
+
 Para obter mais informações, consulte [documentação do Azure Databricks](https://docs.azuredatabricks.net/user-guide/index.html).

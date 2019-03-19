@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 03/15/2017
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: 5a160ef767909814e363dbb692e58c30783aaf6f
-ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
+ms.openlocfilehash: ac30888c9f54c5dc88cb72aeec0f3db81d5a99dc
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55746317"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58004948"
 ---
 # <a name="end-to-end-troubleshooting-using-azure-storage-metrics-and-logging-azcopy-and-message-analyzer"></a>Resolução de problemas de ponto a ponto com métricas de armazenamento do Azure e o Registro em log, o AzCopy e o analisador de mensagens
 [!INCLUDE [storage-selector-portal-e2e-troubleshooting](../../../includes/storage-selector-portal-e2e-troubleshooting.md)]
@@ -133,9 +133,9 @@ O registo do lado do cliente inclui informações detalhadas sobre como o client
 A biblioteca de cliente de armazenamento armazena dados de registo do lado do cliente na localização especificada no ficheiro de configuração do aplicativo (Web. config ou App. config).
 
 ### <a name="collect-a-network-trace"></a>Recolher um rastreio de rede
-Pode utilizar o analisador de mensagens para recolher um rastreio de rede HTTP/HTTPS, enquanto a aplicação cliente está em execução. Usos do analisador de mensagens [Fiddler](http://www.telerik.com/fiddler) no back-end. Antes de recolher o rastreio de rede, recomendamos que configure o Fiddler para registrar o tráfego HTTPS não criptografado:
+Pode utilizar o analisador de mensagens para recolher um rastreio de rede HTTP/HTTPS, enquanto a aplicação cliente está em execução. Usos do analisador de mensagens [Fiddler](https://www.telerik.com/fiddler) no back-end. Antes de recolher o rastreio de rede, recomendamos que configure o Fiddler para registrar o tráfego HTTPS não criptografado:
 
-1. Instale [Fiddler](http://www.telerik.com/download/fiddler).
+1. Instale [Fiddler](https://www.telerik.com/download/fiddler).
 2. Inicie o Fiddler.
 3. Selecione **ferramentas | Opções de fiddler**.
 4. Na caixa de diálogo Opções, certifique-se de que **capturar liga-se de HTTPS** e **desencriptar o tráfego HTTPS** são ambos selecionadas, conforme mostrado abaixo.

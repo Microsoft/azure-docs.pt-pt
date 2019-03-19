@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 01/09/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 780853644125c8fa6d5edcef642cfad724516ef2
-ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
+ms.openlocfilehash: 72fa9bf211139b971afa443af812d644c76062fc
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54188390"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58123475"
 ---
 # <a name="deploy"></a>Implementação
 
@@ -49,15 +49,15 @@ Este artigo faz parte de um tutorial de modelação em tabela que deve ser concl
   
 #### <a name="to-deploy-the-adventure-works-internet-sales"></a>Para implementar as Vendas na Internet Adventure Works
   
-1.  No **Explorador de Soluções**, clique com o botão direito do rato no projeto **Vendas na Internet AW** > **Criar**.  
+1. No **Explorador de Soluções**, clique com o botão direito do rato no projeto **Vendas na Internet AW** > **Criar**.  
 
-2.  Clique com botão direito do rato no projeto **Vendas na Internet AW** > **Implementar**.
+2. Clique com botão direito do rato no projeto **Vendas na Internet AW** > **Implementar**.
 
-    Ao implementar no Azure Analysis Services, pode ser-lhe solicitado que entre na sua conta. Entre na conta da sua organização e introduza a palavra-passe, por exemplo nancy@adventureworks.com. Esta conta tem de ser Administrador no servidor.
+   Ao implementar no Azure Analysis Services, pode ser-lhe solicitado que entre na sua conta. Entre na conta da sua organização e introduza a palavra-passe, por exemplo nancy@adventureworks.com. Esta conta tem de ser Administrador no servidor.
   
-    É apresentada a caixa de diálogo Implementar que exibe o estado da implementação dos metadados e cada tabela incluída no modelo.  
+   É apresentada a caixa de diálogo Implementar que exibe o estado da implementação dos metadados e cada tabela incluída no modelo.  
     
-    ![aas-lesson13-deploy-status](../tutorials/media/aas-lesson13-deploy-status.png)
+   ![aas-lesson13-deploy-status](../tutorials/media/aas-lesson13-deploy-status.png)
   
 3. Quando a implementação for concluída com êxito, avance e clique em **Fechar**.  
   

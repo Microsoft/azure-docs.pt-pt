@@ -10,12 +10,12 @@ ms.workload: big-data
 ms.topic: quickstart
 ms.custom: mvc
 ms.date: 11/12/2018
-ms.openlocfilehash: 179bb4586ce7d6b306decfcf4d312d541dc9232e
-ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
+ms.openlocfilehash: 549468cb28a73b6c6f4c066ddba9f3ffe6745e86
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/16/2019
-ms.locfileid: "56330482"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58087521"
 ---
 # <a name="quickstart-run-a-spark-job-on-azure-databricks-using-the-azure-resource-manager-template"></a>Início rápido: Executar uma tarefa do Spark no Azure Databricks com o modelo Azure Resource Manager
 
@@ -24,6 +24,10 @@ Este início rápido mostra como criar uma área de trabalho do Azure Databricks
 Neste início rápido, como parte da tarefa do Spark, analisa os dados de subscrição de um canal de rádio para obter informações acerca da utilização gratuita/paga com base nos dados demográficos.
 
 Se não tiver uma subscrição do Azure, [crie uma conta gratuita](https://azure.microsoft.com/free/) antes de começar.
+
+> [!Note]
+> Este tutorial não pode ser efetuado através de **subscrição de avaliação gratuita do Azure**.
+> Para utilizar uma conta gratuita para criar o cluster do Azure Databricks, antes de criar o cluster, aceda ao seu perfil e altere a subscrição para **pay as you go**. Para obter mais informações, veja [Conta gratuita do Azure](https://azure.microsoft.com/free/).
 
 ## <a name="create-an-azure-databricks-workspace"></a>Criar uma área de trabalho do Azure Databricks
 
@@ -115,7 +119,7 @@ Execute as tarefas seguintes para criar um bloco de notas no Databricks, configu
 
           spark.conf.set("fs.azure.account.key.{YOUR STORAGE ACCOUNT NAME}.blob.core.windows.net", "{YOUR STORAGE ACCOUNT ACCESS KEY}")
 
-    Para obter instruções sobre como obter a chave da conta de armazenamento, veja [Gerir as chaves de acesso ao armazenamento](../storage/common/storage-account-manage.md#access-keys).
+     Para obter instruções sobre como obter a chave da conta de armazenamento, veja [Gerir as chaves de acesso ao armazenamento](../storage/common/storage-account-manage.md#access-keys).
 
    > [!NOTE]
    > Também pode utilizar o Azure Data Lake Store com um cluster do Spark no Azure Databricks. Para obter instruções, veja [Utilizar o Data Lake Store com o Azure Databricks](https://go.microsoft.com/fwlink/?linkid=864084).

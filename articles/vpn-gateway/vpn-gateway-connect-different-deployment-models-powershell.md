@@ -7,12 +7,12 @@ ms.service: vpn-gateway
 ms.topic: conceptual
 ms.date: 10/17/2018
 ms.author: cherylmc
-ms.openlocfilehash: b569a021dab5e6008dc61af3af8168585c5edc1b
-ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
+ms.openlocfilehash: cf7726d017afd579b1eb227ec0fd3b9710395de6
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/19/2019
-ms.locfileid: "56416246"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58082267"
 ---
 # <a name="connect-virtual-networks-from-different-deployment-models-using-powershell"></a>Ligar redes virtuais a partir de modelos de implementação diferentes com o PowerShell
 
@@ -69,26 +69,26 @@ Configuração de endereçamento de IP do gateway = gwipconfig
 ### <a name="1-download-your-network-configuration-file"></a>1. Transfira o ficheiro de configuração de rede
 1. Inicie sessão na sua conta do Azure na consola do PowerShell com direitos elevados. O seguinte cmdlet pede-lhe as credenciais de início de sessão para a sua conta do Azure. Após iniciar sessão, são transferidas as definições da conta para que fiquem disponíveis para o Azure PowerShell. Os cmdlets de gestão de serviço (SM) do Azure PowerShell clássicos são utilizados nesta secção.
 
-  ```azurepowershell
-  Add-AzureAccount
-  ```
+   ```azurepowershell
+   Add-AzureAccount
+   ```
 
-  Obtenha a sua subscrição do Azure.
+   Obtenha a sua subscrição do Azure.
 
-  ```azurepowershell
-  Get-AzureSubscription
-  ```
+   ```azurepowershell
+   Get-AzureSubscription
+   ```
 
-  Se tiver mais do que uma subscrição, selecione a subscrição que pretende utilizar.
+   Se tiver mais do que uma subscrição, selecione a subscrição que pretende utilizar.
 
-  ```azurepowershell
-  Select-AzureSubscription -SubscriptionName "Name of subscription"
-  ```
+   ```azurepowershell
+   Select-AzureSubscription -SubscriptionName "Name of subscription"
+   ```
 2. Exporte o ficheiro de configuração de rede do Azure ao executar o comando seguinte. Pode alterar a localização do ficheiro a exportar para uma localização diferente, se necessário.
 
-  ```azurepowershell
-  Get-AzureVNetConfig -ExportToFile C:\AzureNet\NetworkConfig.xml
-  ```
+   ```azurepowershell
+   Get-AzureVNetConfig -ExportToFile C:\AzureNet\NetworkConfig.xml
+   ```
 3. Abra o ficheiro. XML que transferiu a editá-lo. Para obter um exemplo do ficheiro de configuração de rede, consulte a [esquema de configuração de rede](https://msdn.microsoft.com/library/jj157100.aspx).
 
 ### <a name="2-verify-the-gateway-subnet"></a>2. Certifique-se a sub-rede do gateway
@@ -171,42 +171,42 @@ Os pré-requisitos partem do princípio de que já criou uma VNet do RM. Neste p
 
 1. Inicie sessão na sua conta do Azure na consola do PowerShell. O seguinte cmdlet pede-lhe as credenciais de início de sessão para a sua conta do Azure. Depois de iniciar sessão, as definições da conta são transferidas para que fiquem disponíveis para o Azure PowerShell. Opcionalmente, pode utilizar a funcionalidade "Experimente-lo" para iniciar o Azure Cloud Shell no browser.
 
-  Se utilizar o Azure Cloud Shell, ignore o seguinte cmdlet:
+   Se utilizar o Azure Cloud Shell, ignore o seguinte cmdlet:
 
-  ```azurepowershell
-  Connect-AzAccount
-  ``` 
-  Para verificar que está a utilizar a subscrição correta, execute o seguinte cmdlet:  
+   ```azurepowershell
+   Connect-AzAccount
+   ``` 
+   Para verificar que está a utilizar a subscrição correta, execute o seguinte cmdlet:  
 
-  ```azurepowershell-interactive
-  Get-AzSubscription
-  ```
+   ```azurepowershell-interactive
+   Get-AzSubscription
+   ```
    
-  Se tiver mais de uma subscrição, especifique a subscrição que pretende utilizar.
+   Se tiver mais de uma subscrição, especifique a subscrição que pretende utilizar.
 
-  ```azurepowershell-interactive
-  Select-AzSubscription -SubscriptionName "Name of subscription"
-  ```
+   ```azurepowershell-interactive
+   Select-AzSubscription -SubscriptionName "Name of subscription"
+   ```
 2. Crie um gateway de rede local. Numa rede virtual, o gateway de rede local refere-se normalmente à sua localização no local. Neste caso, o gateway de rede local refere-se a sua VNet clássica. Atribua um nome pelo qual Azure pode fazer referência a ele e especificar também o prefixo de espaço de endereço. O Azure utiliza o prefixo do endereço IP que especificar para identificar o tráfego a enviar para a sua localização no local. Se precisar de ajustar as informações aqui mais tarde, antes de criar o gateway, pode modificar os valores e executar o exemplo novamente.
    
    **-Nome** é o nome que pretende atribuir a referir-se para o gateway de rede local.<br>
    **-AddressPrefix** é o espaço de endereços da vnet clássica.<br>
    **-GatewayIpAddress** é o endereço IP público do gateway da VNet clássica. Certifique-se de que alterar o texto de exemplo seguintes "n.n.n.n" para refletir o endereço IP correto.<br>
 
-  ```azurepowershell-interactive
-  New-AzLocalNetworkGateway -Name ClassicVNetLocal `
-  -Location "West US" -AddressPrefix "10.0.0.0/24" `
-  -GatewayIpAddress "n.n.n.n" -ResourceGroupName RG1
-  ```
+   ```azurepowershell-interactive
+   New-AzLocalNetworkGateway -Name ClassicVNetLocal `
+   -Location "West US" -AddressPrefix "10.0.0.0/24" `
+   -GatewayIpAddress "n.n.n.n" -ResourceGroupName RG1
+   ```
 3. Pedir um endereço IP público a ser alocada para o gateway de rede virtual na vnet do Resource Manager. Não é possível especificar o endereço IP que pretende utilizar. O endereço IP é dinamicamente atribuído ao gateway de rede virtual. No entanto, não significa que o endereço IP é alterado. O único momento em que as alterações de endereço IP de gateway de rede virtual é quando o gateway é eliminado e recriado. Não é alterado ao redimensionar, repor, ou outra manutenção/atualização interna do gateway.
 
-  Neste passo, iremos também definir uma variável que é utilizada num passo posterior.
+   Neste passo, iremos também definir uma variável que é utilizada num passo posterior.
 
-  ```azurepowershell-interactive
-  $ipaddress = New-AzPublicIpAddress -Name gwpip `
-  -ResourceGroupName RG1 -Location 'EastUS' `
-  -AllocationMethod Dynamic
-  ```
+   ```azurepowershell-interactive
+   $ipaddress = New-AzPublicIpAddress -Name gwpip `
+   -ResourceGroupName RG1 -Location 'EastUS' `
+   -AllocationMethod Dynamic
+   ```
 
 4. Certifique-se de que a rede virtual tem uma sub-rede de gateway. Não se existir nenhuma sub-rede de gateway, adicione um. Certifique-se de que a sub-rede do gateway com o nome *GatewaySubnet*.
 5. Obter a sub-rede utilizada para o gateway ao executar o comando seguinte. Neste passo, iremos também definir uma variável a ser utilizado no próximo passo.
@@ -214,33 +214,33 @@ Os pré-requisitos partem do princípio de que já criou uma VNet do RM. Neste p
    **-Nome** é o nome da sua VNet do Resource Manager.<br>
    **-ResourceGroupName** é o grupo de recursos que a VNet está associada. A sub-rede do gateway tem de existir para esta VNet e deve ser nomeada *GatewaySubnet* funcione corretamente.<br>
 
-  ```azurepowershell-interactive
-  $subnet = Get-AzVirtualNetworkSubnetConfig -Name GatewaySubnet `
-  -VirtualNetwork (Get-AzVirtualNetwork -Name RMVNet -ResourceGroupName RG1)
-  ``` 
+   ```azurepowershell-interactive
+   $subnet = Get-AzVirtualNetworkSubnetConfig -Name GatewaySubnet `
+   -VirtualNetwork (Get-AzVirtualNetwork -Name RMVNet -ResourceGroupName RG1)
+   ``` 
 
 6. Crie a configuração de endereçamento de IP de gateway. A configuração do gateway define a sub-rede e o endereço IP público a utilizar. Utilize o exemplo seguinte para criar a configuração do gateway.
 
-  Neste passo, o **- SubnetId** e **- PublicIpAddressId** parâmetros têm de ser transmitidos a propriedade de id de sub-rede bem como os objetos de endereço IP, respectivamente. Não é possível utilizar uma cadeia de caracteres simples. Estas variáveis são definidas no passo para pedir um IP público e o passo para recuperar a sub-rede.
+   Neste passo, o **- SubnetId** e **- PublicIpAddressId** parâmetros têm de ser transmitidos a propriedade de id de sub-rede bem como os objetos de endereço IP, respectivamente. Não é possível utilizar uma cadeia de caracteres simples. Estas variáveis são definidas no passo para pedir um IP público e o passo para recuperar a sub-rede.
 
-  ```azurepowershell-interactive
-  $gwipconfig = New-AzVirtualNetworkGatewayIpConfig `
-  -Name gwipconfig -SubnetId $subnet.id `
-  -PublicIpAddressId $ipaddress.id
-  ```
+   ```azurepowershell-interactive
+   $gwipconfig = New-AzVirtualNetworkGatewayIpConfig `
+   -Name gwipconfig -SubnetId $subnet.id `
+   -PublicIpAddressId $ipaddress.id
+   ```
 7. Crie o gateway de rede virtual do Resource Manager ao executar o comando seguinte. O `-VpnType` tem de ser *RouteBased*. Pode demorar 45 minutos ou mais para criar o gateway.
 
-  ```azurepowershell-interactive
-  New-AzVirtualNetworkGateway -Name RMGateway -ResourceGroupName RG1 `
-  -Location "EastUS" -GatewaySKU Standard -GatewayType Vpn `
-  -IpConfigurations $gwipconfig `
-  -EnableBgp $false -VpnType RouteBased
-  ```
+   ```azurepowershell-interactive
+   New-AzVirtualNetworkGateway -Name RMGateway -ResourceGroupName RG1 `
+   -Location "EastUS" -GatewaySKU Standard -GatewayType Vpn `
+   -IpConfigurations $gwipconfig `
+   -EnableBgp $false -VpnType RouteBased
+   ```
 8. Copie o endereço IP público depois de criado o gateway VPN. Usá-lo quando configurar as definições de rede local para a sua VNet clássica. Pode utilizar o cmdlet seguinte para obter o endereço IP público. O endereço IP público está listado no retorno como *IpAddress*.
 
-  ```azurepowershell-interactive
-  Get-AzPublicIpAddress -Name gwpip -ResourceGroupName RG1
-  ```
+   ```azurepowershell-interactive
+   Get-AzPublicIpAddress -Name gwpip -ResourceGroupName RG1
+   ```
 
 ## <a name="localsite"></a>Secção 3 - modifique as definições de local site VNet clássicas
 
@@ -248,46 +248,46 @@ Nesta secção, vai trabalhar com a VNet clássica. Substitua o endereço IP do 
 
 1. Exporte o ficheiro de configuração de rede.
 
-  ```azurepowershell
-  Get-AzureVNetConfig -ExportToFile C:\AzureNet\NetworkConfig.xml
-  ```
+   ```azurepowershell
+   Get-AzureVNetConfig -ExportToFile C:\AzureNet\NetworkConfig.xml
+   ```
 2. Com um editor de texto, modifique o valor para VPNGatewayAddress. Substitua o endereço IP do marcador de posição pelo endereço IP público do gateway do Resource Manager e, em seguida, guarde as alterações.
 
-  ```
-  <VPNGatewayAddress>13.68.210.16</VPNGatewayAddress>
-  ```
+   ```
+   <VPNGatewayAddress>13.68.210.16</VPNGatewayAddress>
+   ```
 3. Importe o ficheiro de configuração de rede modificado para o Azure.
 
-  ```azurepowershell
-  Set-AzureVNetConfig -ConfigurationPath C:\AzureNet\NetworkConfig.xml
-  ```
+   ```azurepowershell
+   Set-AzureVNetConfig -ConfigurationPath C:\AzureNet\NetworkConfig.xml
+   ```
 
 ## <a name="connect"></a>Secção 4 - criar uma ligação entre os gateways
 Criar uma ligação entre os gateways requer o PowerShell. Terá de adicionar a sua conta do Azure para utilizar a versão clássica dos cmdlets do PowerShell. Para tal, utilize **Add-AzureAccount**.
 
 1. Na consola do PowerShell, defina a chave partilhada. Antes de executar os cmdlets, consulte o ficheiro de configuração rede que transferiu para os nomes de exatos que o Azure espera ver. Ao especificar o nome de uma VNet que contenha espaços, utilize plicas à volta o valor.<br><br>No exemplo seguinte, **- VNetName** é o nome da VNet clássica e **- LocalNetworkSiteName** é o nome que especificou para o site de rede local. O **- SharedKey** é um valor que geram e especificar. No exemplo, utilizámos 'abc123', mas pode gerar e utilizar algo mais complexo. O importante é que o valor que especificar aqui tem de ser o mesmo valor que especificou no passo seguinte, quando criar a ligação. O retorno deve mostrar **Estado: Com êxito**.
 
-  ```azurepowershell
-  Set-AzureVNetGatewayKey -VNetName ClassicVNet `
-  -LocalNetworkSiteName RMVNetLocal -SharedKey abc123
-  ```
+   ```azurepowershell
+   Set-AzureVNetGatewayKey -VNetName ClassicVNet `
+   -LocalNetworkSiteName RMVNetLocal -SharedKey abc123
+   ```
 2. Crie a ligação VPN ao executar os seguintes comandos:
    
-  Defina as variáveis.
+   Defina as variáveis.
 
-  ```azurepowershell-interactive
-  $vnet01gateway = Get-AzLocalNetworkGateway -Name ClassicVNetLocal -ResourceGroupName RG1
-  $vnet02gateway = Get-AzVirtualNetworkGateway -Name RMGateway -ResourceGroupName RG1
-  ```
+   ```azurepowershell-interactive
+   $vnet01gateway = Get-AzLocalNetworkGateway -Name ClassicVNetLocal -ResourceGroupName RG1
+   $vnet02gateway = Get-AzVirtualNetworkGateway -Name RMGateway -ResourceGroupName RG1
+   ```
    
-  Crie a ligação. Tenha em atenção que o **- ConnectionType** é IPsec, não Vnet2Vnet.
+   Crie a ligação. Tenha em atenção que o **- ConnectionType** é IPsec, não Vnet2Vnet.
 
-  ```azurepowershell-interactive
-  New-AzVirtualNetworkGatewayConnection -Name RM-Classic -ResourceGroupName RG1 `
-  -Location "East US" -VirtualNetworkGateway1 `
-  $vnet02gateway -LocalNetworkGateway2 `
-  $vnet01gateway -ConnectionType IPsec -RoutingWeight 10 -SharedKey 'abc123'
-  ```
+   ```azurepowershell-interactive
+   New-AzVirtualNetworkGatewayConnection -Name RM-Classic -ResourceGroupName RG1 `
+   -Location "East US" -VirtualNetworkGateway1 `
+   $vnet02gateway -LocalNetworkGateway2 `
+   $vnet01gateway -ConnectionType IPsec -RoutingWeight 10 -SharedKey 'abc123'
+   ```
 
 ## <a name="verify"></a>Secção 5 - Verifique as suas ligações
 

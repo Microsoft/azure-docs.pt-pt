@@ -9,12 +9,12 @@ ms.devlang: java
 ms.topic: quickstart
 ms.date: 02/25/2019
 ms.author: spelluru
-ms.openlocfilehash: 338907585ade0a33f74ca3e6337f1dd5cf8cc211
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.openlocfilehash: b40cd130039f7d55b69198b4be4af908dedbe8b7
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56820366"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58076892"
 ---
 # <a name="quickstart-use-the-azure-cli-to-create-a-service-bus-queue"></a>Início rápido: Utilizar a CLI do Azure para criar uma fila do Service Bus
 
@@ -61,31 +61,31 @@ Depois da execução do último comando, copie e cole a cadeia de ligação e o 
 
 Depois de ter criado a fila e o espaço de nomes e se tiver as credenciais necessárias, está pronto para enviar e receber mensagens. Pode examinar o código nesta [pasta de exemplo do GitHub](https://github.com/Azure/azure-service-bus/tree/master/samples/Java/azure-servicebus/TopicFilters).
 
-2. Clone o [repositório do GitHub de barramento de serviço](https://github.com/Azure/azure-service-bus/) no seu computador emitindo o comando seguinte:
+1. Clone o [repositório do GitHub de barramento de serviço](https://github.com/Azure/azure-service-bus/) no seu computador emitindo o comando seguinte:
 
    ```bash
    git clone https://github.com/Azure/azure-service-bus.git
    ```
 
-2. Altere o diretório atual para a pasta de exemplo, utilizando barras como separadores de caminho:
+1. Altere o diretório atual para a pasta de exemplo, utilizando barras como separadores de caminho:
 
    ```bash
    cd azure-service-bus/samples/Java/azure-servicebus/QueuesGettingStarted
    ```
 
-3. Indique o seguinte comando para criar a aplicação:
+1. Indique o seguinte comando para criar a aplicação:
    
    ```bash
    mvn clean package -DskipTests
    ```
 
-4. Para executar o programa, emita o comando seguinte depois de substituir a cadeia de ligação com o valor que copiou anteriormente:
+1. Para executar o programa, emita o comando seguinte depois de substituir a cadeia de ligação com o valor que copiou anteriormente:
 
    ```bash
    java -jar ./target/queuesgettingstarted-1.0.0-jar-with-dependencies.jar -c "<SERVICE BUS NAMESPACE CONNECTION STRING>" 
    ```
 
-6. Observe 10 mensagens que estão a ser enviadas para a fila. Ordenação de mensagens não é garantida, mas pode ver as mensagens enviadas, em seguida, confirmados e recebido, juntamente com os dados de carga:
+1. Observe 10 mensagens que estão a ser enviadas para a fila. Ordenação de mensagens não é garantida, mas pode ver as mensagens enviadas, em seguida, confirmados e recebido, juntamente com os dados de carga:
 
     ```
     Message sending: Id = 0

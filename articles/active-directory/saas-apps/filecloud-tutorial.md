@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 02/12/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 31b0a23b3967b09b83e08a23c6e9072e4789b6ea
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 75c66a875dc3419e928da83811809bd0f6d5d054
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57766230"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57852513"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-filecloud"></a>Tutorial: Integração do Active Directory do Azure com FileCloud
 
@@ -172,7 +172,7 @@ O objetivo desta secção é criar um utilizador de teste no portal do Azure cha
 
     a. Na **Name** campo introduza **BrittaSimon**.
   
-    b. Na **nome de utilizador** tipo de campo **brittasimon@yourcompanydomain.extension**  
+    b. Na **nome de utilizador** tipo de campo **brittasimon\@yourcompanydomain.extension**  
     Por exemplo, BrittaSimon@contoso.com
 
     c. Selecione **palavra-passe de Show** caixa de verificação e, em seguida, anote o valor que é apresentado na caixa de palavra-passe.
@@ -212,7 +212,7 @@ Nesta secção, um usuário chamado Eduarda Almeida é criado na FileCloud. File
 >[!NOTE]
 >Se precisar de criar manualmente um utilizador, terá de contactar o [equipa de suporte de cliente FileCloud](mailto:support@codelathe.com).
 
-### <a name="test-single-sign-on"></a>Testar início de sessão único 
+### <a name="test-single-sign-on"></a>Testar o início de sessão único 
 
 Nesta secção, vai testar a configuração do Azure AD única início de sessão com o painel de acesso.
 

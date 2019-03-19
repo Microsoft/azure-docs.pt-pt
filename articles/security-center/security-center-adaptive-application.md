@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/21/2019
 ms.author: monhaber
-ms.openlocfilehash: d92d9c444985989cdec3e94840ff21f4a79fe3ad
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: cbda94b8ceeaf7a225117e1ca73445135a32a243
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56104929"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58089000"
 ---
 # <a name="adaptive-application-controls-in-azure-security-center"></a>Controlos de aplicações adaptáveis no Centro de Segurança do Azure
 Saiba como configurar o controlo de aplicações no Centro de Segurança do Azure com estas instruções.
@@ -60,33 +60,33 @@ A secção **Grupos de VMs** contém três separadores:
 ### <a name="configure-a-new-application-control-policy"></a>Configurar uma política de controlo de aplicações nova
 1. Clique no separador **Recomendados** para ver uma lista dos grupos com recomendações de controlo de aplicações:
 
-  ![Recomendado](./media/security-center-adaptive-application/security-center-adaptive-application-fig3.png)
+   ![Recomendado](./media/security-center-adaptive-application/security-center-adaptive-application-fig3.png)
 
-  A lista inclui:
+   A lista inclui:
 
-  - **NOME**: o nome do grupo e da subscrição
-  - **VMs**: o número de máquinas virtuais no grupo
-  - **ESTADO**: o estado das recomendações
-  - **GRAVIDADE**: o nível de gravidade das recomendações
+   - **NOME**: o nome do grupo e da subscrição
+   - **VMs**: o número de máquinas virtuais no grupo
+   - **ESTADO**: o estado das recomendações
+   - **GRAVIDADE**: o nível de gravidade das recomendações
 
 2. Clique num grupo para abrir o **criar regras de controlo de aplicação** opção.
 
-  ![Regras de controlo de aplicações](./media/security-center-adaptive-application/security-center-adaptive-application-fig4.png)
+   ![Regras de controlo de aplicações](./media/security-center-adaptive-application/security-center-adaptive-application-fig4.png)
 
 3. Na **selecionar VMs**, reveja a lista de VMs recomendadas e desmarque aquelas às não pretende aplicar uma política de lista de permissões de aplicações para. Em seguida, verá duas listas:
 
-  - **Aplicações recomendadas**: uma lista de aplicações que são frequentes nas VMs neste grupo e são recomendados para permissão para ser executada.
-  - **Mais aplicações**: uma lista de aplicativos que são menos frequentes nas VMs neste grupo ou que são conhecidas como exploráveis (ver mais abaixo) e recomendadas para revisão.
+   - **Aplicações recomendadas**: uma lista de aplicações que são frequentes nas VMs neste grupo e são recomendados para permissão para ser executada.
+   - **Mais aplicações**: uma lista de aplicativos que são menos frequentes nas VMs neste grupo ou que são conhecidas como exploráveis (ver mais abaixo) e recomendadas para revisão.
 
 4. Reveja as aplicações em cada lista e desmarque as que não pretende aplicar. Cada lista inclui:
 
-  - **NOME**: as informações do certificado ou o caminho completo de uma aplicação
-  - **TIPOS DE FICHEIRO**: o tipo de ficheiro da aplicação. Isso pode ser EXE, Script, MSI ou qualquer permuta desses tipos.
-  - **EXPLORÁVEIS**: um ícone de aviso indica se uma aplicação específica poderia ser usada por um atacante para ignorar uma solução de listas de permissões de aplicações. Recomenda-se que reveja estas aplicações antes da respetiva aprovação.
-  - **UTILIZADORES**: os utilizadores que são recomendados para permissão de execução de uma aplicação
+   - **NOME**: as informações do certificado ou o caminho completo de uma aplicação
+   - **TIPOS DE FICHEIRO**: o tipo de ficheiro da aplicação. Isso pode ser EXE, Script, MSI ou qualquer permuta desses tipos.
+   - **EXPLORÁVEIS**: um ícone de aviso indica se uma aplicação específica poderia ser usada por um atacante para ignorar uma solução de listas de permissões de aplicações. Recomenda-se que reveja estas aplicações antes da respetiva aprovação.
+   - **UTILIZADORES**: os utilizadores que são recomendados para permissão de execução de uma aplicação
 
 5. Depois de concluir as suas seleções, selecione **Criar**. <br>
-Depois de selecionar criar, o Centro de segurança do Azure cria automaticamente as regras adequadas sobre a solução de listas de permissões de aplicações incorporadas disponível nos servidores do Windows (AppLocker).
+   Depois de selecionar criar, o Centro de segurança do Azure cria automaticamente as regras adequadas sobre a solução de listas de permissões de aplicações incorporadas disponível nos servidores do Windows (AppLocker).
 
 > [!NOTE]
 > - O Centro de Segurança precisa de um mínimo de duas semanas de dados para criar uma linha de base e preencher as recomendações exclusivas por grupo de VMs. Os novos clientes do escalão standard do Centro de Segurança devem esperar um comportamento em que, primeiro, os grupos de VMs são apresentados no separador *nenhuma recomendação*.
@@ -98,23 +98,23 @@ Depois de selecionar criar, o Centro de segurança do Azure cria automaticamente
 
 1. Para editar e monitorizar um grupo configurado com uma política de lista de permissões de aplicação, volte para o **controlos de aplicação adaptável** página e selecione **configurado** sob **gruposdeVMs**:
 
-  ![Grupos](./media/security-center-adaptive-application/security-center-adaptive-application-fig5.png)
+   ![Grupos](./media/security-center-adaptive-application/security-center-adaptive-application-fig5.png)
 
-  A lista inclui:
+   A lista inclui:
 
-  - **Nome**: o nome da subscrição e grupo
-  - **VMs**: o número de máquinas virtuais no grupo
-  - **Modo**: Modo de auditoria vai registar as tentativas de executar aplicações de não-lista de permissões; Impor irá não permitir a execução de aplicativos não-lista de permissões
-  - **Alertas**: todas as violações atuais
+   - **Nome**: o nome da subscrição e grupo
+   - **VMs**: o número de máquinas virtuais no grupo
+   - **Modo**: Modo de auditoria vai registar as tentativas de executar aplicações de não-lista de permissões; Impor irá não permitir a execução de aplicativos não-lista de permissões
+   - **Alertas**: todas as violações atuais
 
 2. Clique num grupo para fazer alterações na **Editar política de controlo de aplicação** página.
 
-  ![Proteção](./media/security-center-adaptive-application/security-center-adaptive-application-fig6.png)
+   ![Proteção](./media/security-center-adaptive-application/security-center-adaptive-application-fig6.png)
 
 3. No **Modo de proteção**, tem a possibilidade de selecionar entre o seguinte:
 
-  - **Auditoria**: neste modo, a solução de controlo de aplicações não impõe as regras e realiza apenas a auditoria à atividade nas VMs protegidas. Esta opção é recomendada para cenários nos quais pretende primeiro observar o comportamento geral antes de bloquear uma aplicação para ser executada na VM de destino.
-  - **Impor**: neste modo, a solução de controlo de aplicações impõe as regras e certifica-se de que as aplicações que não têm autorização para ser executadas são bloqueadas.
+   - **Auditoria**: neste modo, a solução de controlo de aplicações não impõe as regras e realiza apenas a auditoria à atividade nas VMs protegidas. Esta opção é recomendada para cenários nos quais pretende primeiro observar o comportamento geral antes de bloquear uma aplicação para ser executada na VM de destino.
+   - **Impor**: neste modo, a solução de controlo de aplicações impõe as regras e certifica-se de que as aplicações que não têm autorização para ser executadas são bloqueadas.
 
    > [!NOTE]
    > -  **Impor** modo de proteção está desativado até indicações em contrário.
@@ -124,14 +124,14 @@ Depois de selecionar criar, o Centro de segurança do Azure cria automaticamente
 4. Sob **extensão de política**, adicionar qualquer caminho de aplicação que pretende permitir. Depois de adicionar estes caminhos, o Centro de segurança atualiza a política de lista de permissões de aplicações nas VMs dentro do grupo selecionado de VMS e cria as regras adequadas para estas aplicações, além das regras que já estão em vigor.
 
 5. Rever as violações atuais listadas na **alertas recentes** secção. Clique em cada linha ser redirecionado para o **alertas** página dentro do Centro de segurança do Azure e ver todos os alertas que foram detetados pelo centro de segurança do Azure nas VMs associadas.
-  - **Alertas**: todas as violações que foram registadas.
-  - **Não. de VMs**: o número de máquinas virtuais com este tipo de alerta.
+   - **Alertas**: todas as violações que foram registadas.
+   - **Não. de VMs**: o número de máquinas virtuais com este tipo de alerta.
 
 6. Sob **regras de inclusão do publicador**, **regras de inclusão do caminho**, e **regras de inclusão de Hash** pode ver quais permissões de aplicação regras estão atualmente configurado nas VMs dentro de um grupo, de acordo com o tipo de coleção de regra. Para cada regra, pode ver:
 
-  - **Regra**: Os parâmetros específicos de acordo com que um aplicativo é examinado pelo AppLocker para determinar se um aplicativo pode ser executada.
-  - **Tipo de ficheiro**: Os tipos de ficheiros que são abrangidos por uma regra específica. Isto pode ser qualquer um dos seguintes: EXE, Script, MSI ou qualquer permuta desses tipos de ficheiro.
-  - **Os utilizadores**: Nome ou número de utilizadores que têm permissão para executar um aplicativo que é abrangido por uma regra de lista de permissões de aplicação.
+   - **Regra**: Os parâmetros específicos de acordo com que um aplicativo é examinado pelo AppLocker para determinar se um aplicativo pode ser executada.
+   - **Tipo de ficheiro**: Os tipos de ficheiros que são abrangidos por uma regra específica. Isto pode ser qualquer um dos seguintes: EXE, Script, MSI ou qualquer permuta desses tipos de ficheiro.
+   - **Os utilizadores**: Nome ou número de utilizadores que têm permissão para executar um aplicativo que é abrangido por uma regra de lista de permissões de aplicação.
 
    ![Regras de inclusão em listas de permissões](./media/security-center-adaptive-application/security-center-adaptive-application-fig9.png)
 

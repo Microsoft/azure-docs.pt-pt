@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 11/19/2018
 ms.author: genli
-ms.openlocfilehash: c6918126c36e1940daf564ee7eae562e31b280c3
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: e6685a5e77d92bb9e05ab9578e48c99e80a64b74
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57449109"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57994633"
 ---
 # <a name="cannot-connect-remotely-to-a-windows-10-or-windows-server-2016-vm-in-azure-because-of-netvscsys"></a>Não é possível ligar remotamente a um Windows 10 ou VM do Windows Server 2016 no Azure, devido a netvsc.sys
 
@@ -28,7 +28,7 @@ Este artigo explica como solucionar um problema no qual não haja nenhuma ligaç
 
 É possível ligar a um Azure Windows 10 ou VM do Windows Server 2016 utilizando o protocolo RDP (Remote Desktop). Na [diagnósticos de arranque](boot-diagnostics.md), o ecrã mostra uma cruz vermelha sobre a placa de interface de rede (NIC). Isto indica que a VM não tem conectividade depois do sistema operacional está totalmente carregado.
 
-Normalmente, este problema ocorre no Windows [criar 14393](http://support.microsoft.com/help/4093120/) e [criar 15063](http://support.microsoft.com/help/4015583/). Se a versão do seu sistema operativo for posterior a essas versões, este artigo não é aplicável ao seu cenário. Para verificar a versão do sistema, abra uma sessão CMD na [a funcionalidade de consola de acesso de série](serial-console-windows.md)e, em seguida, execute **vidor**.
+Normalmente, este problema ocorre no Windows [criar 14393](https://support.microsoft.com/help/4093120/) e [criar 15063](https://support.microsoft.com/help/4015583/). Se a versão do seu sistema operativo for posterior a essas versões, este artigo não é aplicável ao seu cenário. Para verificar a versão do sistema, abra uma sessão CMD na [a funcionalidade de consola de acesso de série](serial-console-windows.md)e, em seguida, execute **vidor**.
 
 ## <a name="cause"></a>Causa
 
@@ -55,8 +55,8 @@ Ligar à [da consola de série, abra uma instância de PowerShell](serial-consol
 
 2. Transferir a atualização adequada para um disco de dados nova ou existente que está ligado a uma VM em funcionamento da mesma região:
 
-   - **10.0.14393.594**: [KB4073562](http://support.microsoft.com/help/4073562) ou uma atualização posterior
-   - **10.0.15063.0**: [KB4016240](http://support.microsoft.com/help/4016240) ou uma atualização posterior
+   - **10.0.14393.594**: [KB4073562](https://support.microsoft.com/help/4073562) ou uma atualização posterior
+   - **10.0.15063.0**: [KB4016240](https://support.microsoft.com/help/4016240) ou uma atualização posterior
 
 3. Desanexar o disco de utilitário a partir da VM em funcionamento e, em seguida, anexá-lo para a VM quebrada.
 
@@ -98,22 +98,22 @@ Ligar à [da consola de série, abra uma instância de PowerShell](serial-consol
 
 12. Transferir a atualização adequada:
 
-   - **10.0.14393.594**: [KB4073562](http://support.microsoft.com/help/4073562) ou uma atualização posterior
-   - **10.0.15063.0**: [KB4016240](http://support.microsoft.com/help/4016240) ou uma atualização posterior
+    - **10.0.14393.594**: [KB4073562](https://support.microsoft.com/help/4073562) ou uma atualização posterior
+    - **10.0.15063.0**: [KB4016240](https://support.microsoft.com/help/4016240) ou uma atualização posterior
 
 13. Anexe o disco do sistema como um disco de dados numa VM entra em ação no qual pode baixar a atualização.
 
 14. Execute o seguinte comando para instalar a atualização na VM:
 
-   ```
-   dism /image:<OS Disk letter>:\ /add-package /packagepath:c:\temp\<KB .msu or .cab>
-   ```
+    ```
+    dism /image:<OS Disk letter>:\ /add-package /packagepath:c:\temp\<KB .msu or .cab>
+    ```
 
 15. Execute o comando seguinte para desmontar o hives:
 
-   ```
-   reg unload HKLM\BROKENSYSTEM
-   ```
+    ```
+    reg unload HKLM\BROKENSYSTEM
+    ```
 
 16. [Desanexar o disco do sistema e volte a criar a VM](../windows/troubleshoot-recovery-disks-portal.md).
 

@@ -13,12 +13,12 @@ ms.author: ninarn
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 11/14/2018
-ms.openlocfilehash: 0377f192ea9bc6502065fa037704ec8461ce1447
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.openlocfilehash: 7d07b0a098aad472b1b4f0b9810e5b63ac3c48a2
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57311123"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58007456"
 ---
 # <a name="working-with-sql-database-connection-issues-and-transient-errors"></a>Trabalhando com problemas de ligação de base de dados SQL e erros transitórios
 
@@ -356,7 +356,7 @@ Seguem-se algumas ligações para informações sobre EntLib60:
 
 - Download gratuito do livro: [Guia do programador para o Microsoft Enterprise Library, 2ª edição](https://www.microsoft.com/download/details.aspx?id=41145).
 - Melhores práticas: [Repita a orientação geral](../best-practices-retry-general.md) tem uma excelente visão detalhada de lógica de repetição.
-- Download do NuGet: [A Enterprise Library - bloco de aplicativo de processamento de falhas transitórias 6.0](http://www.nuget.org/packages/EnterpriseLibrary.TransientFaultHandling/).
+- Download do NuGet: [A Enterprise Library - bloco de aplicativo de processamento de falhas transitórias 6.0](https://www.nuget.org/packages/EnterpriseLibrary.TransientFaultHandling/).
 
 <a id="entlib60-the-logging-block" name="entlib60-the-logging-block"></a>
 

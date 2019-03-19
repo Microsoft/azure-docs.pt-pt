@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 03/19/2018
 ms.author: mcollier
 ms.subservice: ''
-ms.openlocfilehash: 2ba0ea64aab67221aa1ee3a87ad35ce7d5516167
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.openlocfilehash: 12c0ee08435ca4b3077bc3a8c28b217ebaf70e08
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57310051"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57993324"
 ---
 # <a name="azure-monitoring-rest-api-walkthrough"></a>Instruções de API do REST de monitorização do Azure
 
@@ -98,7 +98,7 @@ Utilize o [definições de métrica de Monitor de Azure REST API](https://docs.m
 
 **Método**: GET
 
-**URI do pedido**: https://management.azure.com/subscriptions/ *{subscriptionId}*/resourceGroups/*{resourceGroupName}*/providers/*{resourceProviderNamespace}* / *{resourceType}*/*{resourceName}*/providers/microsoft.insights/metricDefinitions?api-version=*{apiVersion}*
+**URI do pedido**: https:\/\/management.azure.com/subscriptions/*{subscriptionId}*/resourceGroups/*{resourceGroupName}*/providers/*{resourceProviderNamespace}* / *{resourceType}*/*{resourceName}*/providers/microsoft.insights/metricDefinitions?api-version=*{ apiVersion}*
 
 Por exemplo, para obter as definições de métricas para uma conta de armazenamento do Azure, a solicitação seria a seguinte aparência:
 
@@ -242,7 +242,7 @@ Utilize nome "value" a métrica (não o ' localizedValue") para todos os pedidos
 
 **Método**: GET
 
-**URI do pedido**: https://management.azure.com/subscriptions/ *{subscrição-id}*/resourceGroups/*{nome de grupo de recursos}*/providers/*{resource-provider-namespace}* / *{tipo de recurso}*/*{nome do recurso}*/providers/microsoft.insights/metrics?metricnames=*{métrica}*& timespan =*{starttime/endtime}*& $filter =*{filtro}*& resultType = metadados e a api-version =*{apiVersion}*
+**URI do pedido**: https\://management.azure.com/subscriptions/*{subscrição-id}*/resourceGroups/*{nome de grupo de recursos}*/providers/*{ recurso-provedor-namespace}*/*{tipo de recurso}*/*{nome do recurso}*/providers/microsoft.insights/metrics? metricnames =*{métrica}*& timespan =*{starttime/endtime}*& $filter =*{filtro}*& resultType = metadados e a api-version = *{apiVersion}*
 
 Por exemplo, para obter a lista de valores de dimensão que foram emitidos para a "dimensão de nome da API" para a métrica "Transações", em que a dimensão de GeoType = 'Primary' durante o intervalo de tempo especificado, a solicitação seria da seguinte forma:
 
@@ -394,7 +394,7 @@ Utilize o [definições de métrica de Monitor de Azure REST API](https://msdn.m
 
 **Método**: GET
 
-**URI do pedido**: https://management.azure.com/subscriptions/ *{subscriptionId}*/resourceGroups/*{resourceGroupName}*/providers/*{resourceProviderNamespace}* / *{resourceType}*/*{resourceName}*/providers/microsoft.insights/metricDefinitions?api-version=*{apiVersion}*
+**URI do pedido**: https:\/\/management.azure.com/subscriptions/*{subscriptionId}*/resourceGroups/*{resourceGroupName}*/providers/*{resourceProviderNamespace}* / *{resourceType}*/*{resourceName}*/providers/microsoft.insights/metricDefinitions?api-version=*{ apiVersion}*
 
 Por exemplo, para obter as definições de métricas para uma aplicação de lógica do Azure, a solicitação seria a seguinte aparência:
 

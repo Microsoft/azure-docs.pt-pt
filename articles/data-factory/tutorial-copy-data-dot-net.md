@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.date: 02/20/2019
 ms.author: jingwang
-ms.openlocfilehash: e855c7c7f7c74ee9c8c30cd618260ad284b1c7f7
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 630b17a3467f372190004172b31b481dcb5af3ce
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57541745"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57863139"
 ---
 # <a name="copy-data-from-azure-blob-to-azure-sql-database-using-azure-data-factory"></a>Copiar dados do Blob do Azure para a Base de Dados SQL do Azure utilizando o Azure Data Factory
 Neste tutorial, vai criar um pipeline do Data Factory que copia dados do Armazenamento de Blobs do Azure para a Base de Dados SQL do Azure. O padrão de configuração neste tutorial aplica-se à cópia a partir de um arquivo de dados baseado em ficheiros para um arquivo de dados relacional. Para obter uma lista dos arquivos de dados suportados como origens e sinks, consulte [arquivos de dados suportados](copy-activity-overview.md#supported-data-stores-and-formats).
@@ -236,7 +236,7 @@ Defina um conjunto de dados que represente os dados de origem no Blob do Azure. 
 - A estrutura de dados, incluindo os tipos de dados e os nomes de coluna que, neste caso, são mapeados para a tabela SQL sink.
 
 ```csharp
-// Create a Azure Blob dataset
+// Create an Azure Blob dataset
 Console.WriteLine("Creating dataset " + blobDatasetName + "...");
 DatasetResource blobDataset = new DatasetResource(
     new AzureBlobDataset
@@ -274,7 +274,7 @@ Adicione o código seguinte ao método **Main** que cria um **conjunto de dados 
 Defina um conjunto de dados que representa os dados sink na Base de Dados SQL do Azure. Este conjunto de dados refere-se ao serviço ligado da Base de Dados SQL do Azure que criou no passo anterior. Também especifica a tabela SQL que contém os dados copiados. 
 
 ```csharp
-// Create a Azure SQL Database dataset
+// Create an Azure SQL Database dataset
 Console.WriteLine("Creating dataset " + sqlDatasetName + "...");
 DatasetResource sqlDataset = new DatasetResource(
     new AzureSqlTableDataset

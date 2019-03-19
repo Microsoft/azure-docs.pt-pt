@@ -8,17 +8,18 @@ services: site-recovery
 ms.topic: conceptual
 ms.date: 01/19/2019
 ms.author: mayg
-ms.openlocfilehash: a1b35d4c10246af7e4dab36585c2bb9b72fd0c01
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: f86ded99ef5280a4e6929c39a9fd323d1b61f6f0
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55216970"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57992332"
 ---
 # <a name="exclude-disks-from-replication"></a>Excluir discos da replicação
 Este artigo descreve como excluir discos da replicação. Esta exclusão pode otimizar a largura de banda de replicação consumida ou otimizar os recursos do lado do destino que esses discos utilizam.
 
 ## <a name="supported-scenarios"></a>Cenários suportados
+
 **Funcionalidade** | **VMware para o Azure** | **Hyper-V para o Azure** | **Azure para o Azure**| **Hyper-V para Hyper-V** 
 --|--|--|--|--
 Excluir o disco | Sim | Sim | Não | Não
@@ -72,7 +73,7 @@ Os discos na máquina virtual de origem são os seguintes:
 DB-Disk0-OS | DISK0 | C:\ | Disco do sistema operativo
 DB-Disk1| Disk1 | D:\ | Base de dados do sistema SQL e User Database1
 DB-Disk2 (disco excluído da proteção) | Disk2 | E:\ | Ficheiros temporários
-DB-Disk3 (disco excluído da proteção) | Disk3 | F:\ | Base de dados tempdb do SQL (caminho de pasta F:\MSSQL\Data\) </br /> </br />aponte o caminho da pasta antes da ativação pós-falha.
+DB-Disk3 (disco excluído da proteção) | Disk3 | F:\ | Base de dados tempdb do SQL (caminho da pasta (F:\MSSQL\Data\) <br /> <br />Anote o caminho da pasta antes da ativação pós-falha.
 DB-Disk4 | Disk4 |G:\ |User Database2
 
 Uma vez que as alterações a dados em dois discos da máquina virtual são temporárias, enquanto proteger a máquina virtual de SalesDB, exclua Disk2 e Disk3 da replicação. O Azure Site Recovery não irá replicar esses discos. Na ativação pós-falha, os discos não estarão presentes na máquina virtual de ativação pós-falha no Azure.
@@ -82,7 +83,7 @@ Os discos na máquina virtual do Azure após a ativação pós-falha são os seg
 **Sistema operativo convidado disco#** | **Letra da unidade** | **Tipo de dados no disco**
 --- | --- | ---
 DISK0 | C:\ | Disco do sistema operativo
-Disk1 | E:\ | Armazenamento temporário</br /> </br />o Azure adiciona este disco e atribui a primeira letra de unidade disponível.
+Disk1 | E:\ | Armazenamento temporário<br /> <br />O Azure adiciona este disco e atribui a primeira letra de unidade disponível.
 Disk2 | D:\ | Base de dados do sistema SQL e User Database1
 Disk3 | G:\ | User Database2
 
@@ -146,7 +147,7 @@ No exemplo anterior, a configuração de disco da máquina virtual do Azure é a
 **Sistema operativo convidado disco#** | **Letra da unidade** | **Tipo de dados no disco**
 --- | --- | ---
 DISK0 | C:\ | Disco do sistema operativo
-Disk1 | E:\ | Armazenamento temporário</br /> </br />o Azure adiciona este disco e atribui a primeira letra de unidade disponível.
+Disk1 | E:\ | Armazenamento temporário<br /> <br />O Azure adiciona este disco e atribui a primeira letra de unidade disponível.
 Disk2 | D:\ | Base de dados do sistema SQL e User Database1
 Disk3 | G:\ | User Database2
 
@@ -186,7 +187,7 @@ Após a ativação pós-falha da máquina virtual do Hyper-V para o Azure, os di
 **Nome do disco** | **Sistema operativo convidado disco#** | **Letra da unidade** | **Tipo de dados no disco**
 --- | --- | --- | ---
 DB-Disk0-OS | DISK0 | C:\ | Disco do sistema operativo
-DB-Disk1 | Disk1 | D:\ | Armazenamento temporário</br /> </br />pagefile.sys
+DB-Disk1 | Disk1 | D:\ | Armazenamento temporário<br /> <br />pagefile.sys
 DB-Disk2 | Disk2 | E:\ | User data 1
 DB-Disk3 | Disk3 | F:\ | User data 2
 
@@ -213,10 +214,10 @@ Seguem-se as definições de ficheiro de paginação na máquina virtual no loca
 
 Após a ativação pós-falha da máquina virtual do Hyper-V para o Azure, os discos na máquina virtual do Azure são os seguintes:
 
-**Nome do disco**| **Sistema operativo convidado disco#**| **Letra da unidade** | **Tipo de dados no disco**
+**Nome do disco** | **Sistema operativo convidado disco#** | **Letra da unidade** | **Tipo de dados no disco**
 --- | --- | --- | ---
 DB-Disk0-OS | DISK0  |C:\ |Disco do sistema operativo
-DB-Disk1 | Disk1 | D:\ | Armazenamento temporário</br /> </br />pagefile.sys
+DB-Disk1 | Disk1 | D:\ | Armazenamento temporário<br /> <br />pagefile.sys
 DB-Disk2 | Disk2 | E:\ | User data 1
 DB-Disk3 | Disk3 | F:\ | User data 2
 

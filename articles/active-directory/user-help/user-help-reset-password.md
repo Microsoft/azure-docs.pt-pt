@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 07/30/2018
 ms.author: lizross
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 170b96810130d33935e54c85529129e7e0267fe9
-ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
+ms.openlocfilehash: 0c0d0fdf4e7df0401692eb026d55fe1a7c9322f1
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56957781"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58106488"
 ---
 # <a name="reset-your-work-or-school-password"></a>Repor a palavra-passe profissional ou escolar
 
@@ -93,15 +93,15 @@ Se não conseguir aceder a sua conta do Azure Active Directory (Azure AD), é po
 
 - **Repor a palavra-passe através de um código da sua aplicação de autenticador.** Aceita um código aleatório fornecido pela sua aplicação de autenticação. Se o administrador tiver ativado a experiência de informações de segurança, pode encontrar mais informações sobre como configurar uma aplicação de autenticação para fornecer um código no [definir informações de segurança para utilizar uma aplicação de autenticação (pré-visualização)](security-info-setup-auth-app.md) artigo. Se ainda não estiver a utilizar as informações de segurança, pode encontrar mais informações sobre como configurar uma aplicação de autenticação para fornecer um código no [configurar a minha conta para verificação de dois passos](multi-factor-authentication-end-user-first-time.md) artigo.
 
-    1. Selecione **introduza um código da aplicação de autenticador**e, em seguida, selecione **Enviar notificação**.
+  1. Selecione **introduza um código da aplicação de autenticador**e, em seguida, selecione **Enviar notificação**.
 
-    2. Abra a sua aplicação de autenticador, digitar o código de verificação para a sua conta na caixa e, em seguida, selecione **seguinte**.
+  2. Abra a sua aplicação de autenticador, digitar o código de verificação para a sua conta na caixa e, em seguida, selecione **seguinte**.
 
-    3. Escreva e confirme a palavra-passe nova e, em seguida, selecione **concluir**.
+  3. Escreva e confirme a palavra-passe nova e, em seguida, selecione **concluir**.
 
-    4. Depois de obter a mensagem dizendo que a palavra-passe foi reposta, pode iniciar sessão sua conta com a sua nova palavra-passe.
+  4. Depois de obter a mensagem dizendo que a palavra-passe foi reposta, pode iniciar sessão sua conta com a sua nova palavra-passe.
         
-    Se ainda não é possível aceder à sua conta, deve contactar o administrador da organização para obter mais ajuda.
+     Se ainda não é possível aceder à sua conta, deve contactar o administrador da organização para obter mais ajuda.
 
 Depois de redefinir a palavra-passe, poderá receber um e-mail de confirmação proveniente de uma conta como, "Microsoft em nome de \< *your_organization*>." Se receber um e-mail semelhante, mas não recentemente repor a palavra-passe, tem de contactar o administrador da organização imediatamente.
 
@@ -113,7 +113,7 @@ Se quiser apenas alterar a palavra-passe, pode fazê-lo através do portal do Of
 
 Utilize este método se aceder, normalmente, as suas aplicações através do portal do Office:
 
-1. Inicie sessão no seu [conta do Office 365](https://www.office.com), usando a palavra-passe existente.
+1. Inicie sessão no seu [conta do Office 365](https://portal.office.com), usando a palavra-passe existente.
 
 2. Selecione o seu perfil no lado do canto superior direito e, em seguida, selecione **ver conta**.
 

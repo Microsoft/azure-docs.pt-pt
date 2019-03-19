@@ -11,15 +11,15 @@ ms.topic: article
 ms.date: 11/24/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 8d9e59a11957e8d108ae86ebba157a06129efa58
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: adbf3e4fbc0f9d49458dadaebcdd2a090030654e
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56111554"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57838889"
 ---
 # <a name="the-team-data-science-process-in-action-using-sql-data-warehouse"></a>O processo de ciência de dados de equipa em ação: utilizar o SQL Data Warehouse
-Neste tutorial, iremos guiá-lo através da criação e implementação de um modelo de aprendizagem automática com o SQL Data Warehouse (SQL DW) para um conjunto de dados publicamente disponível – a [NYC táxis viagens](http://www.andresmh.com/nyctaxitrips/) conjunto de dados. O modelo de classificação binária construído prevê se ou não uma dica é pago por uma viagem e modelos de classificação multiclasses e regressão também são discutidos que prever a distribuição para os valores de sugestão pagos.
+Neste tutorial, iremos guiá-lo através da criação e implementação de um modelo de aprendizagem automática com o SQL Data Warehouse (SQL DW) para um conjunto de dados publicamente disponível – a [NYC táxis viagens](https://www.andresmh.com/nyctaxitrips/) conjunto de dados. O modelo de classificação binária construído prevê se ou não uma dica é pago por uma viagem e modelos de classificação multiclasses e regressão também são discutidos que prever a distribuição para os valores de sugestão pagos.
 
 O procedimento segue a [Team Data Science Process (TDSP)](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/) fluxo de trabalho. Vamos mostrar como configurar um ambiente de ciência de dados, como carregar os dados no armazém de dados SQL e como utilizar o armazém de dados SQL ou um IPython Notebook para explorar os dados e o engenheiro de funcionalidades do modelo. Em seguida, mostramos como criar e implementar um modelo com o Azure Machine Learning.
 
@@ -881,7 +881,7 @@ Para recapitular o que fizemos neste tutorial passo a passo, criou um ambiente d
 Estas instruções de exemplo e que o acompanha scripts e o IPython notebook(s) são partilhadas pela Microsoft sob a licença do MIT. Verifique o ficheiro de LICENSE.txt no diretório do código de exemplo no GitHub para obter mais detalhes.
 
 ## <a name="references"></a>Referências
-• [Página de transferência de viagens de táxis de NYC Andrés Monroy](http://www.andresmh.com/nyctaxitrips/) • [táxis de FOILing NYC dados de viagens por Chris Whong](http://chriswhong.com/open-data/foil_nyc_taxi/) • [Comissão de táxis de NYC e Limousine pesquisa e as estatísticas](https://www1.nyc.gov/site/tlc/about/tlc-trip-record-data.page)
+• [Página de transferência de viagens de táxis de NYC Andrés Monroy](https://www.andresmh.com/nyctaxitrips/) • [táxis de FOILing NYC dados de viagens por Chris Whong](https://chriswhong.com/open-data/foil_nyc_taxi/) • [Comissão de táxis de NYC e Limousine pesquisa e as estatísticas](https://www1.nyc.gov/site/tlc/about/tlc-trip-record-data.page)
 
 [1]: ./media/sqldw-walkthrough/sql-walkthrough_26_1.png
 [2]: ./media/sqldw-walkthrough/sql-walkthrough_28_1.png

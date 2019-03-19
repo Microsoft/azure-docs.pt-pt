@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 02/17/2019
 ms.author: raynew
-ms.openlocfilehash: 16c7fe68e67094cef21d9efbffdccd614827ae6d
-ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
+ms.openlocfilehash: 2fe786d90612feff312983dbd25dc6d691be6e70
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56887476"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58089782"
 ---
 # <a name="back-up-an-azure-vm-from-the-vm-settings"></a>Criar cópias de segurança uma VM do Azure a partir das definições de VM
 
@@ -44,18 +44,18 @@ Para fazer uma cópia de segurança de VMs do Azure, o Azure Backup instala uma 
 3. Na lista de VMs, selecione a VM que pretende criar cópias de segurança.
 4. No menu da VM, clique em **cópia de segurança**. 
 5. Na **cofre dos serviços de recuperação**, efetue o seguinte procedimento:
-  - Se já tiver um cofre, clique em **selecionar existente**e selecione um cofre.
-  - Se não tiver um cofre, clique em **criar novo**. Especifique um nome para o cofre. Ele é criado no mesmo grupo região e recursos da VM. Não é possível modificar estas definições, quando ativa a cópia de segurança diretamente a partir das definições de VM.
+   - Se já tiver um cofre, clique em **selecionar existente**e selecione um cofre.
+   - Se não tiver um cofre, clique em **criar novo**. Especifique um nome para o cofre. Ele é criado no mesmo grupo região e recursos da VM. Não é possível modificar estas definições, quando ativa a cópia de segurança diretamente a partir das definições de VM.
 
-  ![Assistente para Ativar Cópia de Segurança](./media/backup-azure-vms-first-look-arm/vm-menu-enable-backup-small.png)
+   ![Assistente para Ativar Cópia de Segurança](./media/backup-azure-vms-first-look-arm/vm-menu-enable-backup-small.png)
 
 6. Na **escolher política de cópia de segurança**, efetue o seguinte procedimento:
 
-  - Deixe a política predefinida. Isso cria uma cópia de segurança da VM uma vez por dia ao período de tempo especificado e mantém cópias de segurança no cofre durante 30 dias.
-  - Se tiver uma, selecione uma política de cópia de segurança existente.
-  - Criar uma nova política e definir as definições de política.  
+   - Deixe a política predefinida. Isso cria uma cópia de segurança da VM uma vez por dia ao período de tempo especificado e mantém cópias de segurança no cofre durante 30 dias.
+   - Se tiver uma, selecione uma política de cópia de segurança existente.
+   - Criar uma nova política e definir as definições de política.  
 
-  ![Selecionar política de cópia de segurança](./media/backup-azure-vms-first-look-arm/set-backup-policy.png)
+   ![Selecionar política de cópia de segurança](./media/backup-azure-vms-first-look-arm/set-backup-policy.png)
 
 7. Clique em **ativar cópia de segurança**. Isso associa a política de cópia de segurança com a VM. 
 
@@ -64,7 +64,7 @@ Para fazer uma cópia de segurança de VMs do Azure, o Azure Backup instala uma 
 8. Pode controlar o progresso da configuração de notificações do portal.
 9. Depois da tarefa é concluída, no menu da VM, clique em **cópia de segurança**. A página mostra o estado da cópia de segurança para a VM, informações sobre pontos de recuperação, tarefas em execução e alertas emitidas.
 
-  ![Estado da cópia de segurança](./media/backup-azure-vms-first-look-arm/backup-item-view-update.png)
+   ![Estado da cópia de segurança](./media/backup-azure-vms-first-look-arm/backup-item-view-update.png)
 
 10. Depois de ativar a cópia de segurança, é executada uma cópia de segurança inicial. Pode iniciar a cópia de segurança inicial imediatamente ou aguarde até que ele é iniciado em conformidade com o agendamento de cópia de segurança.
     - Até que a cópia de segurança inicial estiver concluída, o **última cópia de segurança status** é apresentado como **aviso (backup inicial pendente)**.

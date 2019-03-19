@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 02/20/2019
 ms.author: jeedes
-ms.openlocfilehash: 18c6e75167851396909a5d6e49ab9bba0f0206da
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: d33ef63f142763d5d29c9cb1931fdd87bae5976e
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57764885"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57891023"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-netop-portal"></a>Tutorial: Integração do Active Directory do Azure com o Portal de Netop
 
@@ -106,7 +106,7 @@ Para configurar o Azure AD início de sessão único com o Portal de Netop, exec
 
 5. A aplicação de Netop Portal espera que as asserções SAML num formato específico, o que requer a adição de mapeamentos de atributos personalizado à sua configuração de atributos de token SAML. Captura de ecrã seguinte mostra a lista de atributos predefinidos. Clique em **editar** ícone para abrir a caixa de diálogo de atributos do utilizador.
 
-    ![imagem](common/edit-attribute.png)
+    ![image](common/edit-attribute.png)
 
 6. Além dos acima, o aplicativo de Netop Portal espera mais alguns atributos a serem passados na resposta SAML. No **afirmações de utilizador** secção sobre o **atributos de utilizador** caixa de diálogo, execute os seguintes passos para adicionar o atributo de token de SAML conforme mostrado na tabela a seguir:
 
@@ -122,9 +122,9 @@ Para configurar o Azure AD início de sessão único com o Portal de Netop, exec
 
     a. Clique em **Adicionar nova afirmação** para abrir o **afirmações de utilizador de gerir** caixa de diálogo.
 
-    ![imagem](common/new-save-attribute.png)
+    ![image](common/new-save-attribute.png)
 
-    ![imagem](common/new-attribute-details.png)
+    ![image](common/new-attribute-details.png)
 
     b. Na **nome** caixa de texto, escreva o nome de atributo apresentado para essa linha.
 
@@ -174,7 +174,7 @@ O objetivo desta secção é criar um utilizador de teste no portal do Azure cha
 
     a. Na **Name** , insira **BrittaSimon**.
   
-    b. Na **nome de utilizador** , digite **brittasimon@yourcompanydomain.extension**  
+    b. Na **nome de utilizador** , digite **brittasimon\@yourcompanydomain.extension**  
     Por exemplo, BrittaSimon@contoso.com
 
     c. Selecione **palavra-passe de Show** caixa de verificação e, em seguida, anote o valor que é apresentado na caixa de palavra-passe.
@@ -211,7 +211,7 @@ Nesta secção, vai ativar Eduarda Almeida utilizar o Azure início de sessão �
 
 Nesta secção, vai criar um usuário chamado Eduarda Almeida no Portal de Netop. Trabalhar com [equipa de suporte do Portal de Netop](mailto:casemanager@netop.com) para adicionar os utilizadores na plataforma do Portal de Netop. Os utilizadores tem de ser criados e ativados antes de utilizar o início de sessão único.
 
-### <a name="test-single-sign-on"></a>Testar início de sessão único
+### <a name="test-single-sign-on"></a>Testar o início de sessão único
 
 Nesta secção, vai testar a configuração do Azure AD única início de sessão com o painel de acesso.
 

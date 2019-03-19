@@ -15,15 +15,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/27/2018
 ms.author: szark
-ms.openlocfilehash: 81327c083b9517974780ac73284259b4408c2890
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 01acdf23c3113c3c4d185263b5cab75f3efd34a2
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51262221"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58001660"
 ---
 # <a name="prepare-a-red-hat-based-virtual-machine-for-azure"></a>Preparar uma máquina virtual baseada em Red Hat para o Azure
-Neste artigo, aprenderá a preparar uma máquina virtual do Red Hat Enterprise Linux (RHEL) para utilização no Azure. As versões do RHEL que são abordadas neste artigo são 6.7 + e 7.1 +. Os hipervisores de preparação que são abordados neste artigo são máquinas de virtuais de Hyper-V, com base em kernel (KVM) e VMware. Para obter mais informações sobre os requisitos de elegibilidade para participar no programa de acesso à nuvem da Red Hat, consulte [Web site do Red Hat Cloud Access](http://www.redhat.com/en/technologies/cloud-computing/cloud-access) e [RHEL em execução no Azure](https://access.redhat.com/ecosystem/ccsp/microsoft-azure).
+Neste artigo, aprenderá a preparar uma máquina virtual do Red Hat Enterprise Linux (RHEL) para utilização no Azure. As versões do RHEL que são abordadas neste artigo são 6.7 + e 7.1 +. Os hipervisores de preparação que são abordados neste artigo são máquinas de virtuais de Hyper-V, com base em kernel (KVM) e VMware. Para obter mais informações sobre os requisitos de elegibilidade para participar no programa de acesso à nuvem da Red Hat, consulte [Web site do Red Hat Cloud Access](https://www.redhat.com/en/technologies/cloud-computing/cloud-access) e [RHEL em execução no Azure](https://access.redhat.com/ecosystem/ccsp/microsoft-azure).
 
 ## <a name="prepare-a-red-hat-based-virtual-machine-from-hyper-v-manager"></a>Preparar uma máquina de virtual baseada em Red Hat a partir do Gestor de Hyper-V
 
@@ -517,7 +517,7 @@ Esta secção assume que já tiver obtido um arquivo ISO a partir do site da Red
 
 ## <a name="prepare-a-red-hat-based-virtual-machine-from-vmware"></a>Preparar uma máquina de virtual baseada em Red Hat do VMware
 ### <a name="prerequisites"></a>Pré-requisitos
-Esta secção assume que já instalou uma máquina virtual do RHEL no VMware. Para obter detalhes sobre como instalar um sistema operativo no VMware, consulte [guia de instalação do sistema operativo de convidado do VMware](http://partnerweb.vmware.com/GOSIG/home.html).
+Esta secção assume que já instalou uma máquina virtual do RHEL no VMware. Para obter detalhes sobre como instalar um sistema operativo no VMware, consulte [guia de instalação do sistema operativo de convidado do VMware](https://partnerweb.vmware.com/GOSIG/home.html).
 
 * Quando instala o sistema operativo Linux, recomendamos que utilize partições padrão em vez de LVM, que é muitas vezes o padrão para muitas instalações. Isso evitará LVM nome entra em conflito com a máquina virtual clonada, especialmente se o disco de sistema operativo já tem de ser ligado a outra máquina virtual para resolução de problemas. LVM ou RAID pode ser utilizada em discos de dados, se preferirem.
 * Não configure uma partição de troca no disco do sistema operativo. Pode configurar o agente do Linux para criar um ficheiro de troca no disco de recursos temporário. Pode encontrar mais informações sobre este nos passos que se seguem.

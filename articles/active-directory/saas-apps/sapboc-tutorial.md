@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 12/31/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7af211710d6b1cce2b06999f9d15882b163dbf60
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: c64fb2dc4c494252f0078b8d23e05b15f07ebe00
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57766382"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57894568"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-sap-business-object-cloud"></a>Tutorial: Integração do Active Directory do Azure com o SAP Cloud de objeto de negócio
 
@@ -106,12 +106,14 @@ Para configurar o Azure AD início de sessão único com o SAP Business objeto C
     ![URLs de domínio na Cloud do SAP Business objeto e únicas início de sessão em informações](common/sp-identifier.png)
 
     a. Na **iniciar sessão no URL** caixa de texto, escreva um URL com o seguinte padrão:
+
     | |
     |-|-|
     | `https://<sub-domain>.sapanalytics.cloud/` |
     | `https://<sub-domain>.sapbusinessobjects.cloud/` |
 
     b. Na **identificador (ID de entidade)** caixa de texto, escreva um URL com o seguinte padrão:
+    
     | |
     |-|-|
     | `<sub-domain>.sapbusinessobjects.cloud` |
@@ -178,7 +180,7 @@ O objetivo desta secção é criar um utilizador de teste no portal do Azure cha
 
     a. Na **Name** campo introduza **BrittaSimon**.
   
-    b. Na **nome de utilizador** tipo de campo **brittasimon@yourcompanydomain.extension**  
+    b. Na **nome de utilizador** tipo de campo **brittasimon\@yourcompanydomain.extension**  
     Por exemplo, BrittaSimon@contoso.com
 
     c. Selecione **palavra-passe de Show** caixa de verificação e, em seguida, anote o valor que é apresentado na caixa de palavra-passe.
@@ -237,7 +239,7 @@ Para Aprovisionar uma conta de utilizador:
 
     d. Na **nome a apresentar** , introduza o nome completo do utilizador, como **Eduarda Almeida**.
 
-    e. Na **email** , introduza o endereço de e-mail do utilizador, como **brittasimon@contoso.com**.
+    e. Na **email** , introduza o endereço de e-mail do utilizador, como **brittasimon\@contoso.com**.
 
     f. Sobre o **selecionar funções** página, selecione a função adequada para o utilizador e, em seguida, selecione **OK**.
 

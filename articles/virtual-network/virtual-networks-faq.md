@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/12/2019
 ms.author: jdial
-ms.openlocfilehash: 5689cdb2e9f8028f8e1e05a9b43cc00719701fce
-ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
+ms.openlocfilehash: 19fdf2e7e1c7c56b6bfe8ddbf7329d3722f4e8de
+ms.sourcegitcommit: f331186a967d21c302a128299f60402e89035a8d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57213913"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58188616"
 ---
 # <a name="azure-virtual-network-frequently-asked-questions-faq"></a>Rede Virtual do Azure perguntas mais frequentes (FAQ)
 
@@ -52,7 +52,7 @@ Pode utilizar as seguintes ferramentas para criar ou configurar uma VNet:
 * Um ficheiro de configuração de rede (netcfg - para VNets clássicas apenas). Consulte a [configurar uma VNet com um ficheiro de configuração de rede](virtual-networks-using-network-configuration-file.md) artigo.
 
 ### <a name="what-address-ranges-can-i-use-in-my-vnets"></a>Os intervalos de endereços pode usar nas minhas VNets?
-Qualquer intervalo de endereços IP definidos na [RFC 1918](http://tools.ietf.org/html/rfc1918). Por exemplo, 10.0.0.0/16. Não é possível adicionar os seguintes intervalos de endereços:
+Qualquer intervalo de endereços IP definidos na [RFC 1918](https://tools.ietf.org/html/rfc1918). Por exemplo, 10.0.0.0/16. Não é possível adicionar os seguintes intervalos de endereços:
 * 224.0.0.0/4 (Multicast)
 * 255.255.255.255/32 (difusão)
 * 127.0.0.0/8 (Loopback)
@@ -285,7 +285,7 @@ Não. VNet peering, sejam locais ou globais, não impõe quaisquer restrições 
 ## <a name="virtual-network-tap"></a>TAP de rede virtual
 
 ### <a name="which-azure-regions-are-available-for-virtual-network-tap"></a>Que regiões do Azure estão disponíveis para teste de rede virtual?
-Durante a pré-visualização de programador, a capacidade está disponível na região e.u.a. Centro-Oeste. As interfaces de rede monitorizado, o recurso TAP da rede virtual e a solução de recoletor ou análise tem de ser implementados na mesma região.
+Pré-visualização de TOQUE de rede virtual está disponível em todas as regiões do Azure. As interfaces de rede monitorizado, o recurso TAP da rede virtual e a solução de recoletor ou análise tem de ser implementados na mesma região.
 
 ### <a name="does-virtual-network-tap-support-any-filtering-capabilities-on-the-mirrored-packets"></a>O TAP da rede Virtual suporta qualquer capacidades de filtragem nos pacotes espelhados?
 Recursos de filtragem não são suportados com a pré-visualização TAP da rede virtual. Quando uma configuração de TOQUE é adicionada a uma interface de rede uma cópia em profundidade de todos os a entrada e o tráfego de saída na interface de rede é transmitido para o destino de TOQUE.
@@ -298,7 +298,7 @@ Sim. Da mesma rede virtual recursos de TOQUE pode ser utilizada para agregar tr�
 
 ### <a name="are-there-any-performance-considerations-on-production-traffic-if-i-enable-a-virtual-network-tap-configuration-on-a-network-interface"></a>Existem quaisquer considerações de desempenho no tráfego de produção se ativar a uma configuração de TAP da rede virtual numa interface de rede?
 
-Rede virtual TOQUE está em developer preview. Durante a pré-visualização, não existe nenhum contrato de nível de serviço. O recurso não deve ser utilizado para cargas de trabalho de produção. Quando uma interface de rede de máquina virtual é ativada com uma configuração de TOQUE, os mesmos recursos no anfitrião do azure atribuída à máquina virtual para enviar o tráfego de produção é utilizado para executar a função de espelhamento e enviar os pacotes espelhados. Selecione o correto [Linux](../virtual-machines/linux/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json) ou [Windows](../virtual-machines/linux/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json) tamanho da máquina virtual para se certificar de que recursos suficientes disponíveis para a máquina virtual enviar o tráfego de produção e o tráfego de espelho.
+Rede virtual TOQUE está em pré-visualização. Durante a pré-visualização, não existe nenhum contrato de nível de serviço. O recurso não deve ser utilizado para cargas de trabalho de produção. Quando uma interface de rede de máquina virtual é ativada com uma configuração de TOQUE, os mesmos recursos no anfitrião do azure atribuída à máquina virtual para enviar o tráfego de produção é utilizado para executar a função de espelhamento e enviar os pacotes espelhados. Selecione o correto [Linux](../virtual-machines/linux/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json) ou [Windows](../virtual-machines/linux/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json) tamanho da máquina virtual para se certificar de que recursos suficientes disponíveis para a máquina virtual enviar o tráfego de produção e o tráfego de espelho.
 
 ### <a name="is-accelerated-networking-for-linuxcreate-vm-accelerated-networking-climd-or-windowscreate-vm-accelerated-networking-powershellmd-supported-with-virtual-network-tap"></a>É accelerated networking para [Linux](create-vm-accelerated-networking-cli.md) ou [Windows](create-vm-accelerated-networking-powershell.md) suportado com o teste de rede virtual?
 
@@ -370,7 +370,7 @@ A eliminação da conta de serviço do Azure é uma operação independente e é
 Quando estão ativados pontos finais de serviço de rede virtual, os endereços IP de origem dos recursos na sub-rede da rede virtual muda de utilizar endereços IPV4 públicos para os endereços IP privados da rede virtual do Azure para o tráfego para o serviço do Azure. Tenha em atenção que isto pode causar específicas de firewall IP que estão definidas para o endereço IPV4 público anteriormente para efetuar a ativação de serviços do Azure. 
 
 ### <a name="does-service-endpoint-route-always-take-precedence"></a>Rota do ponto final de serviço sempre têm prioridade?
-Pontos finais de serviço, adicione uma rota de sistema que tem precedência sobre as rotas BGP e fornece encaminhamento ideal para o tráfego de ponto final de serviço. Pontos finais de serviço assumem sempre o tráfego de serviço diretamente a partir da sua rede virtual para o serviço na rede backbone do Microsoft Azure. Para obter mais informações sobre como o Azure seleciona uma rota, veja [Azure Virtual rede encaminhamento de tráfego] (virtual-redes-udr-overview.md).
+Pontos finais de serviço, adicione uma rota de sistema que tem precedência sobre as rotas BGP e fornece encaminhamento ideal para o tráfego de ponto final de serviço. Pontos finais de serviço assumem sempre o tráfego de serviço diretamente a partir da sua rede virtual para o serviço na rede backbone do Microsoft Azure. Para obter mais informações sobre como o Azure seleciona uma rota, consulte [encaminhamento de tráfego de rede Virtual do Azure](virtual-networks-udr-overview.md).
  
 ### <a name="how-does-nsg-on-a-subnet-work-with-service-endpoints"></a>Como funciona o NSG numa sub-rede com pontos finais de serviço?
 Para alcançar o serviço do Azure, os NSGs necessário permitir a conectividade de saída. Se seus NSGs estão abertas para todo tráfego de saída da Internet, o tráfego de ponto final de serviço deve funcionar. Também pode limitar o tráfego de saída ao serviço de IPs utilizando apenas as etiquetas de serviço.  

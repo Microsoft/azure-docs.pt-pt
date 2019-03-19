@@ -13,14 +13,14 @@ ms.topic: conceptual
 ms.custom: mvc
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 2/17/2019
+ms.date: 3/14/2019
 ms.author: monhaber
-ms.openlocfilehash: 7931caa985bc5dea98ca36bd15e0e634855ab2c5
-ms.sourcegitcommit: a4efc1d7fc4793bbff43b30ebb4275cd5c8fec77
+ms.openlocfilehash: 98fffbc7a3b287dd59cfc681beec2107a5fd4ed6
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56650636"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58085053"
 ---
 # <a name="working-with-security-policies"></a>Trabalhar com políticas de segurança
 
@@ -36,7 +36,7 @@ As políticas de segurança definem a configuração pretendida para as suas car
 
 As políticas de segurança orientar as recomendações de segurança, que obtém no Centro de segurança do Azure. Pode monitorizar a conformidade com os mesmos para o ajudar a identificar potenciais vulnerabilidades e a mitigar ameaças. Para obter mais informações sobre como determinar a opção adequada para si, consulte a lista de [políticas de segurança incorporadas](security-center-policy-definitions.md).
 
-Quando ativar o Centro de segurança, a política de segurança incorporada ao centro de segurança é refletida na política do Azure como uma iniciativa incorporada na categoria de centro de segurança. A iniciativa incorporada é atribuída automaticamente a todas as subscrições do Centro de segurança registado (escalões gratuito ou Standard). A iniciativa interna contém apenas as políticas de auditoria. 
+Quando ativar o Centro de segurança, a política de segurança incorporada ao centro de segurança é refletida na política do Azure como uma iniciativa incorporada na categoria de centro de segurança. A iniciativa incorporada é atribuída automaticamente a todas as subscrições do Centro de segurança registado (escalões gratuito ou Standard). A iniciativa interna contém apenas as políticas de auditoria.
 
 
 ### <a name="management-groups"></a>Grupos de gestão
@@ -68,25 +68,25 @@ Para ver as suas políticas de segurança no Centro de Segurança:
 
     ![O painel Gestão de Políticas](./media/security-center-policies/security-center-policy-mgt.png)
 
-  Na **gestão de políticas** tela, pode ver o número de grupos de gestão, subscrições e áreas de trabalho, bem como a estrutura de grupo de gestão.
+   Na **gestão de políticas** tela, pode ver o número de grupos de gestão, subscrições e áreas de trabalho, bem como a estrutura de grupo de gestão.
 
-  > [!NOTE]
-  > - Dashboard do Centro de segurança pode mostrar um número superior de assinaturas sob **abrangência da subscrição** que o número de subscrições apresentadas na **gestão de políticas**. Abrangência da subscrição mostra o número de subscrições Standard, Gratuitas e "não abrangidas". As subscrições "não abrangido" não é necessário o Centro de segurança ativado e não são apresentadas sob **gestão de políticas**.
-  >
+   > [!NOTE]
+   > - Dashboard do Centro de segurança pode mostrar um número superior de assinaturas sob **abrangência da subscrição** que o número de subscrições apresentadas na **gestão de políticas**. Abrangência da subscrição mostra o número de subscrições Standard, Gratuitas e "não abrangidas". As subscrições "não abrangido" não é necessário o Centro de segurança ativado e não são apresentadas sob **gestão de políticas**.
+   >
 
-  As colunas na tabela apresentam:
+   As colunas na tabela apresentam:
 
- - **Atribuição de iniciativa de política** – o Centro de segurança [as políticas incorporadas](security-center-policy-definitions.md) e iniciativas que são atribuídas a um grupo de gestão ou de subscrição.
- - **Cobertura** – identifica o escalão de preço, gratuito ou Standard, que o grupo de gestão, a subscrição ou a área de trabalho está a ser executada.  Veja [Preços](security-center-pricing.md) para saber mais sobre os escalões de preços do Centro de Segurança.
- - **As definições** – as subscrições têm a hiperligação **editar definições**. Selecionando **editar definições** permite que Atualize sua [definições do Centro de segurança](security-center-policies-overview.md) para cada grupo de gestão ou de subscrição.
- - **Pontuação segura** – a [pontuação segura](security-center-secure-score.md) fornece uma medida de quão segura postura de segurança de sua carga de trabalho e o ajuda a priorizar as recomendações para aprimoramento.
+   - **Atribuição de iniciativa de política** – o Centro de segurança [as políticas incorporadas](security-center-policy-definitions.md) e iniciativas que são atribuídas a um grupo de gestão ou de subscrição.
+   - **Cobertura** – identifica o escalão de preço, gratuito ou Standard, que o grupo de gestão, a subscrição ou a área de trabalho está a ser executada.  Veja [Preços](security-center-pricing.md) para saber mais sobre os escalões de preços do Centro de Segurança.
+   - **As definições** – as subscrições têm a hiperligação **editar definições**. Selecionando **editar definições** permite que Atualize sua [definições do Centro de segurança](security-center-policies-overview.md) para cada grupo de gestão ou de subscrição.
+   - **Pontuação segura** – a [pontuação segura](security-center-secure-score.md) fornece uma medida de quão segura postura de segurança de sua carga de trabalho e o ajuda a priorizar as recomendações para aprimoramento.
 
 2. Selecione o grupo de subscrição ou gestão cujas políticas que pretende visualizar.
 
-  - O **política de segurança** ecrã reflete a ação tomada pelas políticas atribuídas no grupo de gestão ou de subscrição que selecionou.
-  - Na parte superior, utilize as ligações fornecidas para abrir a cada política **atribuição** que aplica-se no grupo de subscrição ou gestão. Pode utilizar as ligações para aceder a atribuição e editar ou desativar a política. Por exemplo, se vir que uma atribuição de política específico com eficiência é negar a proteção de ponto de extremidade, pode utilizar a ligação para a política de acesso e editar ou desativá-la.
-  - Na lista de políticas, pode ver o aplicativo em vigor a partir da política na sua subscrição ou grupo de gestão. Isso significa que as definições de cada política que se aplicam ao âmbito são levadas em consideração e são fornecidos com o resultado cumulativo da ação que está a ser utilizada pela política. Por exemplo, se numa atribuição a política está desativada, mas em outro está definido como AuditIfNotExist, em seguida, o efeito cumulativo aplica AuditIfNotExist. O efeito mais ativo sempre tem precedência.
-  - Efeito de diretiva pode ser: Acrescentar, auditoria, AuditIfNotExists, negar, DeployIfNotExists, desativado. Para obter mais informações sobre como os efeitos são aplicados, consulte [efeitos de política de compreender](../governance/policy/concepts/effects.md).
+   - O **política de segurança** ecrã reflete a ação tomada pelas políticas atribuídas no grupo de gestão ou de subscrição que selecionou.
+   - Na parte superior, utilize as ligações fornecidas para abrir a cada política **atribuição** que aplica-se no grupo de subscrição ou gestão. Pode utilizar as ligações para aceder a atribuição e editar ou desativar a política. Por exemplo, se vir que uma atribuição de política específico com eficiência é negar a proteção de ponto de extremidade, pode utilizar a ligação para a política de acesso e editar ou desativá-la.
+   - Na lista de políticas, pode ver o aplicativo em vigor a partir da política na sua subscrição ou grupo de gestão. Isso significa que as definições de cada política que se aplicam ao âmbito são levadas em consideração e são fornecidos com o resultado cumulativo da ação que está a ser utilizada pela política. Por exemplo, se numa atribuição a política está desativada, mas em outro está definido como AuditIfNotExist, em seguida, o efeito cumulativo aplica AuditIfNotExist. O efeito mais ativo sempre tem precedência.
+   - Efeito de diretiva pode ser: Acrescentar, auditoria, AuditIfNotExists, negar, DeployIfNotExists, desativado. Para obter mais informações sobre como os efeitos são aplicados, consulte [efeitos de política de compreender](../governance/policy/concepts/effects.md).
 
    ![ecrã de política](./media/security-center-policies/policy-screen.png)
 
@@ -102,16 +102,25 @@ Pode editar as políticas de segurança através do portal do Azure Policy, por 
 
 
 ## <a name="disable-security-policies"></a>Desativar políticas de segurança
-Se a política de segurança predefinida está a gerar uma recomendação que não é relevante para o seu ambiente, pode impedi-lo ao desativar a definição de política que envia a recomendação. Isso é feito através do portal do Azure Policy (e não no portal do Centro de segurança), conforme explicado aqui.
-Para obter mais informações sobre as recomendações, veja [recomendações de segurança](security-center-recommendations.md). 
-1. Aceda à política do Azure e clique em **atribuições**.
-2. Na **ASC predefinido** linha, clique nas reticências e clique em **ver a definição**. O **definição de iniciativa** é aberta a página.
-   ![ver definição](./media/tutorial-security-policy/view-definition.png)
-3. Clique em **editar intitiative**. O **Editar definição de iniciativa** é aberta a página.
-   ![Editar iniciativa](./media/tutorial-security-policy/edit-initiative.png)
-4. Na **políticas e parâmetros** secção, a pesquisa para a política que invoca a recomendação de que pretende desativar e, na lista pendente, selecione **desativado**.
+Se a política de segurança predefinida está a gerar uma recomendação que não é relevante para o seu ambiente, pode impedi-lo ao desativar a definição de política que envia a recomendação.
+Para obter mais informações sobre as recomendações, veja [recomendações de segurança](security-center-recommendations.md).
+
+1. No Centro de segurança, do **política e conformidade** secção, clique em **política de segurança**.
+
+   ![Gestão de políticas](./media/tutorial-security-policy/policy-management.png)
+
+2. Clique a subscrição para o qual pretende desativar a recomendação.
+
+1. Clique em política atribuída.
+
+   ![Desativar política](./media/tutorial-security-policy/security-policy.png)
+
+1. Na **parâmetros** secção, a pesquisa para a política que invoca a recomendação de que pretende desativar e, na lista pendente, selecione **desativado**
+
    ![Desativar política](./media/tutorial-security-policy/disable-policy.png)
-1. Clique em **guardar** (localizado na parte inferior da página).
+1. Clique em **Guardar**.
+> [!Note]
+> As alterações de política de desactivação podem demorar até 12 horas para entrar em vigor.
 
 
 ### <a name="configure-a-security-policy-using-the-rest-api"></a>Configurar uma política de segurança com a API REST
@@ -173,38 +182,38 @@ Este exemplo mostra como atribuir a iniciativa de centro de segurança incorpora
 
 - Proteção de ponto final ("endpointProtectionMonitoringEffect") 
 
- 
-      PUT https://management.azure.com/{scope}/providers/Microsoft.Authorization/policyAssignments/{policyAssignmentName}?api-version=2018-05-01 
 
-      Request Body (JSON) 
-
-      { 
-
-        "properties":{ 
-
-      "displayName":"Enable Monitoring in Azure Security Center", 
-
-      "metadata":{ 
-
-      "assignedBy":"{Name}" 
-
-      }, 
-
-      "policyDefinitionId":"/providers/Microsoft.Authorization/policySetDefinitions/1f3afdf9-d0c9-4c3d-847f-89da613e70a8", 
-
-      "parameters":{ 
-
-      "systemUpdatesMonitoringEffect":{"value":"Disabled"}, 
-
-      "systemConfigurationsMonitoringEffect":{"value":"Disabled"}, 
-
-      "endpointProtectionMonitoringEffect":{"value":"Disabled"}, 
-
-      }, 
-
-       } 
-
-      } 
+    PUT https://management.azure.com/{scope}/providers/Microsoft.Authorization/policyAssignments/{policyAssignmentName}?api-version=2018-05-01 
+    
+    Corpo do pedido (JSON) 
+    
+    { 
+    
+      "properties":{ 
+    
+    "displayName": "Ativar monitorização no Centro de segurança do Azure", 
+    
+    "metadata":{ 
+    
+    "assignedBy": "{Name}" 
+    
+    }, 
+    
+    "policyDefinitionId":"/providers/Microsoft.Authorization/policySetDefinitions/1f3afdf9-d0c9-4c3d-847f-89da613e70a8", 
+    
+    "parameters":{ 
+    
+    "systemUpdatesMonitoringEffect":{"value":"Disabled"}, 
+    
+    "systemConfigurationsMonitoringEffect":{"value":"Disabled"}, 
+    
+    "endpointProtectionMonitoringEffect":{"value":"Disabled"}, 
+    
+    }, 
+    
+     } 
+    
+    } 
 
 Este exemplo mostra como remover uma atribuição:
 

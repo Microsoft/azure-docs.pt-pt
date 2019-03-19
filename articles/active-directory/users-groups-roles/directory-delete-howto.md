@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: elkuzmen
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3dffcfe7c4c892976a61272a2217226f512b70ed
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 1cb15f3e786313fca4ae9f0c224c68c96bac7836
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57542561"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58077722"
 ---
 # <a name="delete-an-azure-active-directory-tenant"></a>Eliminar um inquilino do Azure Active Directory
 Quando um inquilino é eliminado, também são eliminados todos os recursos que estão contidos no inquilino. Tem de preparar o inquilino ao minimizarem os seus recursos associados antes de eliminar. Apenas um administrador global do Azure Active Directory (Azure AD) pode eliminar um inquilino do Azure AD a partir do portal.
@@ -41,11 +41,11 @@ Não é possível eliminar um inquilino no Azure AD, até que ele passa diversas
 
 3. Comutador para o inquilino que pretende eliminar.
   
-  ![eliminar o botão de diretório](./media/directory-delete-howto/delete-directory-command.png)
+   ![eliminar o botão de diretório](./media/directory-delete-howto/delete-directory-command.png)
 
 4. Selecione **eliminar o diretório**.
   
-  ![eliminar o botão de diretório](./media/directory-delete-howto/delete-directory-list.png)
+   ![eliminar o botão de diretório](./media/directory-delete-howto/delete-directory-list.png)
 
 5. Se o seu inquilino não passar uma ou mais verificações, é apresentada uma ligação para obter mais informações sobre como passar. Depois de passar todas as verificações, selecione **eliminar** para concluir o processo.
 
@@ -57,10 +57,10 @@ Para o que esperar quando uma subscrição de avaliação do Office 365 expira (
 
 Estado da subscrição | Dados | Acesso a dados
 ----- | ----- | -----
-Active Directory (30 dias para avaliação)  | Dados acessíveis a todos    | <li>Os utilizadores têm acesso normal a ficheiros do Office 365, ou aplicações<li>Os administradores têm acesso normal para o Centro de administração do Office 365 e recursos 
-Expirada (30 dias)   | Dados acessíveis a todos    | <li>Os utilizadores têm acesso normal a ficheiros do Office 365, ou aplicações<li>Os administradores têm acesso normal para o Centro de administração do Office 365 e recursos
-Desativado (30 dias) | Dados acessíveis para apenas administradores  | <li>Os utilizadores não é possível aceder a aplicações ou ficheiros do Office 365<li>Os administradores podem aceder ao centro de administração do Office 365, mas não é possível atribuir licenças para ou atualizar utilizadores
-Desaprovisionada (30 dias após desativado) | Dados eliminados (eliminado automaticamente se não existem outros serviços estão em utilização) | <li>Os utilizadores não é possível aceder a aplicações ou ficheiros do Office 365<li>Os administradores podem acessar o Centro de administração do Office 365 para comprar e gerir outras subscrições 
+Active Directory (30 dias para avaliação)  | Dados acessíveis a todos    | <li>Os utilizadores têm acesso normal a ficheiros do Office 365, ou aplicações<li>Os administradores têm acesso normal para o Centro de administração do Microsoft 365 e recursos 
+Expirada (30 dias)   | Dados acessíveis a todos    | <li>Os utilizadores têm acesso normal a ficheiros do Office 365, ou aplicações<li>Os administradores têm acesso normal para o Centro de administração do Microsoft 365 e recursos
+Desativado (30 dias) | Dados acessíveis para apenas administradores  | <li>Os utilizadores não é possível aceder a aplicações ou ficheiros do Office 365<li>Os administradores podem aceder ao centro de administração do Microsoft 365, mas não é possível atribuir licenças para ou atualizar utilizadores
+Desaprovisionada (30 dias após desativado) | Dados eliminados (eliminado automaticamente se não existem outros serviços estão em utilização) | <li>Os utilizadores não é possível aceder a aplicações ou ficheiros do Office 365<li>Os administradores podem acessar o Centro de administração do Microsoft 365 para comprar e gerir outras subscrições 
 
 ## <a name="delete-a-subscription-in-the-microsoft-365-admin-center"></a>Eliminar uma subscrição no Centro de administração do Microsoft 365
 
@@ -70,17 +70,17 @@ Pode colocar uma subscrição para um **Deprovisoned** estado a eliminar dentro 
 
 2. Vá para o **faturação** separador e selecione **produtos e serviços**, em seguida, escolha a subscrição que pretende cancelar. Depois de clicar em **Cancelar**, atualize a página.
   
-  ![Eliminar a ligação para a eliminar subscrição](./media/directory-delete-howto/delete-command.png)
+   ![Eliminar a ligação para a eliminar subscrição](./media/directory-delete-howto/delete-command.png)
   
 3. Selecione **eliminar** para eliminar a subscrição e aceite os termos e condições. Todos os dados é eliminado permanentemente no prazo de três dias. Pode reativar a subscrição durante o período de três dias, se mudar de ideias.
   
-  ![termos e condições](./media/directory-delete-howto/delete-terms.png)
+   ![termos e condições](./media/directory-delete-howto/delete-terms.png)
 
 4. Agora, o estado da subscrição tiver sido alterado, a subscrição está marcada para eliminação. A subscrição introduz o **desaprovisionada** 72 horas depois de estado.
 
 5. Depois de ter eliminado uma subscrição no seu inquilino e decorridos 72 horas, pode iniciar sessão volta ao centro de administração do Azure AD novamente e lá deve ser nenhuma ação necessária e não existem subscrições bloquear a sua eliminação do inquilino. Deve ser capaz de excluir com êxito o seu inquilino do Azure AD.
   
-  ![passaram a verificação de subscrição no ecrã de eliminação](./media/directory-delete-howto/delete-checks-passed.png)
+   ![passaram a verificação de subscrição no ecrã de eliminação](./media/directory-delete-howto/delete-checks-passed.png)
 
 ## <a name="next-steps"></a>Passos Seguintes
 [Documentação do Azure Active Directory](https://docs.microsoft.com/azure/active-directory/)

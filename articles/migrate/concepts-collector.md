@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 03/04/2019
 ms.author: snehaa
 services: azure-migrate
-ms.openlocfilehash: 3d9106fb682a370e18fc78d35ca31662bae44524
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.openlocfilehash: 228d7b6994c67f9e14424624d264061634d80f27
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57310646"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58080070"
 ---
 # <a name="about-the-collector-appliance"></a>Sobre a aplicação Recoletora
 
@@ -85,22 +85,22 @@ O Recoletor tem de passar algumas verificações de pré-requisitos para garanti
 - Endereço de IP/FQDN do servidor Proxy deve especificado como *http://IPaddress* ou *http://FQDN*.
 - Apenas é suportado o proxy HTTP. Servidores proxy baseado em HTTPS não são suportados pelo Recoletor.
 - Se o servidor proxy é um proxy de interceção, tem de importar o certificado de proxy para a VM do Recoletor.
-    1. Na VM do recoletor, aceda a **Menu Iniciar** > **gerir certificados de computador**.
-    2. Na ferramenta de certificados, sob **certificados - Computador Local**, localize **fabricantes fidedignos** > **certificados**.
+  1. Na VM do recoletor, aceda a **Menu Iniciar** > **gerir certificados de computador**.
+  2. Na ferramenta de certificados, sob **certificados - Computador Local**, localize **fabricantes fidedignos** > **certificados**.
 
-        ![Ferramenta de certificados](./media/concepts-intercepting-proxy/certificates-tool.png)
+      ![Ferramenta de certificados](./media/concepts-intercepting-proxy/certificates-tool.png)
 
-    3. Copie o certificado de proxy para a VM do recoletor. Poderá ter de obtê-lo a partir do seu administrador de rede.
-    4. Clique duas vezes para abrir o certificado e clique em **instalar certificado**.
-    5. No Assistente para importar certificados > localização da Store, escolha **computador Local**.
+  3. Copie o certificado de proxy para a VM do recoletor. Poderá ter de obtê-lo a partir do seu administrador de rede.
+  4. Clique duas vezes para abrir o certificado e clique em **instalar certificado**.
+  5. No Assistente para importar certificados > localização da Store, escolha **computador Local**.
 
-    ![Localização do arquivo de certificados](./media/concepts-intercepting-proxy/certificate-store-location.png)
+     ![Localização do arquivo de certificados](./media/concepts-intercepting-proxy/certificate-store-location.png)
 
-    6. Selecione **colocar todos os certificados no seguinte arquivo** > **procurar** > **fabricantes fidedignos**. Clique em **concluir** para importar o certificado.
+  6. Selecione **colocar todos os certificados no seguinte arquivo** > **procurar** > **fabricantes fidedignos**. Clique em **concluir** para importar o certificado.
 
-    ![Arquivo de certificados](./media/concepts-intercepting-proxy/certificate-store.png)
+     ![Arquivo de certificados](./media/concepts-intercepting-proxy/certificate-store.png)
 
-    7. Verifique que o certificado é importado conforme esperado e verifique que a verificação de pré-requisitos a conectividade internet funcionar conforme esperado.
+  7. Verifique que o certificado é importado conforme esperado e verifique que a verificação de pré-requisitos a conectividade internet funcionar conforme esperado.
 
 
 ### <a name="urls-for-connectivity"></a>URLs para conectividade

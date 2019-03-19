@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 12/10/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 74c1465169ccbd2e6a6901566d8eb4fafb7d5c09
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 0264cad4177c5e1abbf3fb18220a6401615ccf69
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56182770"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57849164"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-zscaler"></a>Tutorial: Integração do Active Directory do Azure com o Zscaler
 
@@ -246,7 +246,7 @@ O objetivo desta secção é criar um utilizador de teste no portal do Azure cha
 
     a. Na **Name** , insira **BrittaSimon**.
   
-    b. Na **nome de utilizador** , digite **brittasimon@yourcompanydomain.extension**  
+    b. Na **nome de utilizador** , digite **brittasimon\@yourcompanydomain.extension**  
     Por exemplo, BrittaSimon@contoso.com
 
     c. Selecione **propriedades**, selecione a **palavra-passe de Show** caixa de verificação e, em seguida, anote o valor que é apresentado na caixa de palavra-passe.

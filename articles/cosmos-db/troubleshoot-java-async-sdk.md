@@ -9,12 +9,12 @@ ms.author: moderakh
 ms.devlang: java
 ms.subservice: cosmosdb-sql
 ms.reviewer: sngun
-ms.openlocfilehash: 86e5a0a0cf4c820efdcc65505d11e2fb0c198f0b
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: 0a2bbb33182fcdef3cc6ed7ff213557f90be4544
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54039848"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57880080"
 ---
 # <a name="troubleshoot-issues-when-you-use-the-java-async-sdk-with-azure-cosmos-db-sql-api-accounts"></a>Resolver problemas ao utilizar o SDK de Async Java com contas do Azure Cosmos DB SQL API
 Este artigo aborda problemas comuns, soluções alternativas, passos de diagnóstico e ferramentas, ao utilizar o [SDK do Java Async](sql-api-sdk-async-java.md) com contas de API de SQL do Azure Cosmos DB.
@@ -150,6 +150,40 @@ Esta falha é uma falha do lado do servidor. Ele indica que consumido débito ap
 ### <a name="failure-connecting-to-azure-cosmos-db-emulator"></a>Falha ao ligar ao emulador do Azure Cosmos DB
 
 O certificado do Azure Cosmos DB emulator HTTPS está autoassinado. Para o SDK trabalhar com o emulador, importe o certificado do emulador para um TrustStore de Java. Para obter mais informações, consulte [certificados de emulador do Azure Cosmos DB exportar](local-emulator-export-ssl-certificates.md).
+
+### <a name="dependency-conflict-issues"></a>Problemas de conflito de dependência
+
+```console
+Exception in thread "main" java.lang.NoSuchMethodError: rx.Observable.toSingle()Lrx/Single;
+```
+
+A exceção acima sugere que tem uma dependência numa versão mais antiga do RxJava lib (por exemplo, 1.2.2). O SDK depende RxJava 1.3.8 uma que tem APIs não disponíveis na versão anterior do RxJava. 
+
+A solução alternativa para tais issuses é identificar quais outras dependências traz RxJava 1.2.2 e excluir a dependência transitiva de RxJava 1.2.2 e permitir que o SDK do cosmos DB trazer a versão mais recente.
+
+Para identificar que biblioteca traz RxJava-1.2.2, execute o seguinte comando ao lado de seu arquivo de pom. XML do projeto:
+```bash
+mvn dependency:tree
+```
+Para obter mais informações, consulte a [guia de árvore de dependência maven](https://maven.apache.org/plugins/maven-dependency-plugin/examples/resolving-conflicts-using-the-dependency-tree.html).
+
+Depois de identificar RxJava 1.2.2 é transitiva dependência do que outras dependências do seu projeto, pode modificar a dependência no lib no ficheiro pom e exclusão de dependência de transitiva RxJava:
+
+```xml
+<dependency>
+  <groupId>${groupid-of-lib-which-brings-in-rxjava1.2.2}</groupId>
+  <artifactId>${artifactId-of-lib-which-brings-in-rxjava1.2.2}</artifactId>
+  <version>${version-of-lib-which-brings-in-rxjava1.2.2}</version>
+  <exclusions>
+    <exclusion>
+      <groupId>io.reactivex</groupId>
+      <artifactId>rxjava</artifactId>
+    </exclusion>
+  </exclusions>
+</dependency>
+```
+
+Para obter mais informações, consulte a [excluir o guia de dependência transitiva](https://maven.apache.org/guides/introduction/introduction-to-optional-and-excludes-dependencies.html).
 
 
 ## <a name="enable-client-sice-logging"></a>Ativar o registo do SDK de cliente

@@ -15,12 +15,12 @@ ms.date: 01/14/2019
 ms.author: mabrigg
 ms.custom: mvc
 ms.lastreviewed: 01/14/2019
-ms.openlocfilehash: b3fbd91ddf06d4515ee55d24ba9330d0af6dc124
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 84f9472618322111ad2f669ebb172258837620fd
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57540328"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58106071"
 ---
 # <a name="quickstart-create-a-linux-server-virtual-machine-by-using-azure-cli-in-azure-stack"></a>Início rápido: criar uma máquina de virtual de servidor do Linux com a CLI do Azure no Azure Stack
 
@@ -46,8 +46,8 @@ Pode criar uma máquina virtual do Ubuntu Server 16.04 LTS com a CLI do Azure. S
 
 Um grupo de recursos é um contentor lógico onde pode implementar e gerir recursos do Azure Stack. Do seu kit de desenvolvimento ou o Azure Stack integrado no sistema, execute o [criar grupo az](/cli/azure/group#az-group-create) comando para criar um grupo de recursos.
 
->[!NOTE]
- Os valores são atribuídos para todas as variáveis nos exemplos de código. No entanto, pode atribuir novos valores, se quiser.
+> [!NOTE]
+>  Os valores são atribuídos para todas as variáveis nos exemplos de código. No entanto, pode atribuir novos valores, se quiser.
 
 O exemplo seguinte cria um grupo de recursos com o nome myResourceGroup na localização local.
 
@@ -55,7 +55,7 @@ O exemplo seguinte cria um grupo de recursos com o nome myResourceGroup na local
 az group create --name myResourceGroup --location local
 ```
 
-## <a name="create-a-virtual-machine"></a>Crie uma máquina virtual
+## <a name="create-a-virtual-machine"></a>Criar uma máquina virtual
 
 Criar uma máquina virtual com o [az vm criar](/cli/azure/vm#az-vm-create) comando. O exemplo seguinte cria uma VM com o nome myVM. Este exemplo utiliza Demouser para um nome de utilizador administrativo e Demouser@123 como a palavra-passe do utilizador. Altere estes valores para algo que seja apropriado para seu ambiente.
 

@@ -11,12 +11,12 @@ ms.workload: na
 ms.topic: article
 ms.date: 02/12/2019
 ms.author: juliako
-ms.openlocfilehash: 8f549c20480e3866725717aa054af6653ab5a913
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
+ms.openlocfilehash: 236e4e7079da792d055a8de148d03852ca1012ab
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56344000"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57877365"
 ---
 # <a name="azure-media-services-v3-release-notes"></a>Notas de versão da v3 de serviços de multimédia do Azure
 
@@ -180,9 +180,9 @@ Se criou o ativos ou filtros de conta entre 09/28 e 10/12 com serviços de multi
 
 ## <a name="may-2018---preview"></a>Maio de 2018 - pré-visualização
 
-### <a name="net-sdk"></a>.Net SDK
+### <a name="net-sdk"></a>SDK .NET
 
-As seguintes funcionalidades estão presentes no .net SDK:
+As seguintes funcionalidades estão incluídas no SDK do .NET:
 
 * **Transforma** e **tarefas** codificar ou analisar o conteúdo de mídia. Para obter exemplos, consulte [Stream arquivos](stream-files-tutorial-with-api.md) e [Analyze](analyze-videos-tutorial-with-api.md).
 * **Os localizadores de transmissão em fluxo** para publicar e conteúdo para os dispositivos de utilizador final de transmissão em fluxo

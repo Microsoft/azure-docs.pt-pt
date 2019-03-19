@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 09/24/2018
 ms.author: robb
 ms.subservice: autoscale
-ms.openlocfilehash: ae1828210345eb35f9d22664285a0d348ea50d48
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: 05f20aec536ebdb702caea37051a65af9bbc659f
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54478336"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58085648"
 ---
 # <a name="overview-of-autoscale-in-microsoft-azure-virtual-machines-cloud-services-and-web-apps"></a>Descrição geral do dimensionamento automático em máquinas virtuais do Microsoft Azure, serviços Cloud e aplicações Web
 Este artigo descreve o dimensionamento automático do Microsoft Azure é, seus benefícios e como começar a usá-lo.  
@@ -36,7 +36,7 @@ Quando forem cumpridas condições de regra, uma ou mais ações de dimensioname
 
 A explicação seguinte aplica-se às partes do diagrama anterior.   
 
-## <a name="resource-metrics"></a>Métricas de recurso
+## <a name="resource-metrics"></a>Métricas de Recursos
 Recursos emitem métricas, estas métricas são processadas mais tarde. As métricas são fornecidos através de métodos diferentes.
 Conjuntos de dimensionamento de máquina virtual utilizam dados de telemetria dos agentes de diagnóstico do Azure, ao passo que vem de telemetria para aplicações Web e serviços Cloud diretamente a partir de infraestrutura do Azure. Algumas estatísticas usadas incluem a utilização da CPU, utilização da memória, contagens de thread, comprimento da fila e utilização do disco. Para obter uma lista dos dados de telemetria que pode utilizar, consulte [métricas comuns do dimensionamento automático](../../azure-monitor/platform/autoscale-common-metrics.md).
 
@@ -66,15 +66,15 @@ Dimensionamento automático utilize a seguinte terminologia e estrutura.
 
 - Uma **definição de dimensionamento automático** são lidos pelo mecanismo de dimensionamento automático para determinar se deve aumentar ou reduzir verticalmente. Ele contém um ou mais perfis, informações sobre o recurso de destino e as definições de notificação.
 
-    - Uma **perfil de dimensionamento automático** é uma combinação de r:
+  - Uma **perfil de dimensionamento automático** é uma combinação de r:
 
-        - **definição de capacidade**, que indica que o mínimo, máximo e valores predefinidos para o número de instâncias.
-        - **conjunto de regras**, cada um deles inclui um acionador (tempo ou métrica) e uma ação de dimensionamento (para cima ou para baixo).
-        - **periodicidade**, que indica quando o dimensionamento automático deve colocar este perfil em vigor.
+    - **definição de capacidade**, que indica que o mínimo, máximo e valores predefinidos para o número de instâncias.
+    - **conjunto de regras**, cada um deles inclui um acionador (tempo ou métrica) e uma ação de dimensionamento (para cima ou para baixo).
+    - **periodicidade**, que indica quando o dimensionamento automático deve colocar este perfil em vigor.
 
-        Pode ter vários perfis permitem-lhe lidar com diferentes requisitos sobrepostos. Pode ter perfis de dimensionamento automático diferentes para diferentes horas do dia ou dias da semana, por exemplo.
+      Pode ter vários perfis permitem-lhe lidar com diferentes requisitos sobrepostos. Pode ter perfis de dimensionamento automático diferentes para diferentes horas do dia ou dias da semana, por exemplo.
 
-    - R **definição de notificação** define que notificações devem ocorrer quando um evento de dimensionamento automático ocorre com base no que satisfaça os critérios de um dos perfis de definição de dimensionamento automático. Dimensionamento automático pode notificar um ou mais endereços de e-mail ou fazer chamadas para um ou mais webhooks.
+  - R **definição de notificação** define que notificações devem ocorrer quando um evento de dimensionamento automático ocorre com base no que satisfaça os critérios de um dos perfis de definição de dimensionamento automático. Dimensionamento automático pode notificar um ou mais endereços de e-mail ou fazer chamadas para um ou mais webhooks.
 
 
 ![Definição de dimensionamento automático do Azure, perfil e estrutura de regra](./media/autoscale-overview/AzureResourceManagerRuleStructure3.png)
@@ -110,7 +110,7 @@ Pode configurar o dimensionamento automático através de
 | Máquinas virtuais: Conjuntos de dimensionamento do Windows |[Conjuntos de dimensionamento de dimensionamento de máquinas virtuais no Windows](../../virtual-machine-scale-sets/tutorial-autoscale-powershell.md) |
 | Máquinas virtuais: Conjuntos de dimensionamento do Linux |[Conjuntos de dimensionamento de dimensionamento de máquinas virtuais no Linux](../../virtual-machine-scale-sets/tutorial-autoscale-cli.md) |
 | Máquinas virtuais: Exemplo do Windows |[Configuração avançada do dimensionamento automático com modelos do Resource Manager para conjuntos de dimensionamento de VM](../../azure-monitor/platform/autoscale-virtual-machine-scale-sets.md) |
-| Serviço da Gestão de API|[Dimensionar automaticamente uma instância de gestão de API do Azure](https://docs.microsoft.com/azure/api-management/api-management-howto-autoscale)
+| Serviço da Gestão de API|[Crie automaticamente uma instância de dimensionamento da Gestão de API do Azure](https://docs.microsoft.com/azure/api-management/api-management-howto-autoscale)
 
 ## <a name="next-steps"></a>Passos Seguintes
 Para saber mais sobre dimensionamento automático, utilize as instruções do dimensionamento automático listadas anteriormente, ou consulte os seguintes recursos:

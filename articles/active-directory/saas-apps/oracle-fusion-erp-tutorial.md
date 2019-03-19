@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 1/23/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7209c79c763726a32b4e7ec6bd214e9b532a2261
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 6ad7517765d824be600f019f76a1b067048b3a98
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57773679"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57855746"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-oracle-fusion-erp"></a>Tutorial: Integração do Active Directory do Azure com o Oracle Fusion ERP
 
@@ -148,7 +148,7 @@ O objetivo desta secção é criar um utilizador de teste no portal do Azure cha
 
     a. Na **Name** campo introduza **BrittaSimon**.
   
-    b. Na **nome de utilizador** tipo de campo **brittasimon@yourcompanydomain.extension**  
+    b. Na **nome de utilizador** tipo de campo **brittasimon\@yourcompanydomain.extension**  
     Por exemplo, BrittaSimon@contoso.com
 
     c. Selecione **palavra-passe de Show** caixa de verificação e, em seguida, anote o valor que é apresentado na caixa de palavra-passe.

@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/12/2018
 ms.author: szark
-ms.openlocfilehash: 8ecc29e9422c1d427dd76059f1a427f3d49da38f
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
+ms.openlocfilehash: 2b0c01ee4b1d1bc5ce83fc0afc309abfcf25f33e
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54262376"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57996686"
 ---
 # <a name="prepare-a-sles-or-opensuse-virtual-machine-for-azure"></a>Preparar uma máquina virtual SLES ou openSUSE para o Azure
 [!INCLUDE [learn-about-deployment-models](../../../includes/learn-about-deployment-models-both-include.md)]
@@ -114,7 +114,7 @@ Como alternativa à criação de seu próprio VHD, SUSE também as publica image
     Se o comando não devolve "Nenhum repositório definido...", em seguida, utilize os seguintes comandos para adicionar estes repositórios:
    
         # sudo zypper ar -f http://download.opensuse.org/repositories/Cloud:Tools/openSUSE_13.1 Cloud:Tools_13.1
-        # sudo zypper ar -f http://download.opensuse.org/distribution/13.1/repo/oss openSUSE_13.1_OSS
+        # sudo zypper ar -f https://download.opensuse.org/distribution/13.1/repo/oss openSUSE_13.1_OSS
         # sudo zypper ar -f http://download.opensuse.org/update/13.1 openSUSE_13.1_Updates
    
     Em seguida, pode verificar os repositórios foram adicionados ao executar o comando "`zypper lr`" novamente. No caso de um dos repositórios do atualização relevantes não estiver ativado, ative-o com o seguinte comando:

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 02/25/2019
 ms.author: jeedes
-ms.openlocfilehash: 2cd63069a584ccef05236f925f99c3740c6a3402
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 0f6b9c85fa3462486a32cf55b10cb06bb84b0072
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57759547"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57853057"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-moveit-transfer---azure-ad-integration"></a>Tutorial: Integração do Active Directory do Azure com transferência de MOVEit - integração do Azure AD
 
@@ -149,10 +149,10 @@ Para configurar o Azure AD início de sessão único com transferência de MOVEi
 
     ![URL de metadados do fornecedor de serviço](./media/moveittransfer-tutorial/tutorial_moveittransfer_002.png)
     
-    * Certifique-se **entityID** corresponde ao **identificador** no **configuração básica de SAML** secção.
-    * Certifique-se **AssertionConsumerService** corresponde a localização do URL **URL de resposta** no **configuração básica de SAML** secção.
+   * Certifique-se **entityID** corresponde ao **identificador** no **configuração básica de SAML** secção.
+   * Certifique-se **AssertionConsumerService** corresponde a localização do URL **URL de resposta** no **configuração básica de SAML** secção.
     
-    ![Configure o lado de início de sessão na aplicação única](./media/moveittransfer-tutorial/tutorial_moveittransfer_007.png)
+     ![Configure o lado de início de sessão na aplicação única](./media/moveittransfer-tutorial/tutorial_moveittransfer_007.png)
 
 5. Clique em **Add Identity Provider** botão para adicionar um novo fornecedor de identidade federada.
 
@@ -198,7 +198,7 @@ O objetivo desta secção é criar um utilizador de teste no portal do Azure cha
 
     a. Na **Name** campo introduza **BrittaSimon**.
   
-    b. Na **nome de utilizador** tipo de campo **brittasimon@yourcompanydomain.extension**  
+    b. Na **nome de utilizador** tipo de campo **brittasimon\@yourcompanydomain.extension**  
     Por exemplo, BrittaSimon@contoso.com
 
     c. Selecione **palavra-passe de Show** caixa de verificação e, em seguida, anote o valor que é apresentado na caixa de palavra-passe.

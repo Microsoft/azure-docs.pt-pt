@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.service: service-health
 ms.workload: Supportability
 ms.date: 3/27/2018
-ms.openlocfilehash: 898f2eca0b6cc115f56bcae195c58c6eef190694
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 69b142cd46c006e562218c949fb450864589a661
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55884873"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57838089"
 ---
 # <a name="configure-health-notifications-for-existing-problem-management-systems-using-a-webhook"></a>Configurar notificações de estado de funcionamento para sistemas de gestão existentes do problema através de um webhook
 
@@ -59,7 +59,7 @@ De gravidade mais baixa de gravidade mais elevada, o `level` propriedade no payl
 
 ## <a name="parsing-the-impacted-services-to-understand-the-full-scope-of-the-incident"></a>Analisar os serviços afetados para compreender todo o escopo do incidente
 Alertas de estado de funcionamento do serviço podem informar sobre problemas em várias regiões e serviços. Para obter os detalhes completos, terá de analisar o valor de `impactedServices`.
-É o conteúdo dentro de um [JSON escrito](http://json.org/) string, quando invalidada, contém outro objeto JSON que pode ser analisado regularmente.
+É o conteúdo dentro de um [JSON escrito](https://json.org/) string, quando invalidada, contém outro objeto JSON que pode ser analisado regularmente.
 
 ```json
 {"data.context.activityLog.properties.impactedServices": "[{\"ImpactedRegions\":[{\"RegionName\":\"Australia East\"},{\"RegionName\":\"Australia Southeast\"}],\"ServiceName\":\"Alerts & Metrics\"},{\"ImpactedRegions\":[{\"RegionName\":\"Australia Southeast\"}],\"ServiceName\":\"App Service\"}]"}

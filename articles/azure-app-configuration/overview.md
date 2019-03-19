@@ -13,18 +13,18 @@ ms.devlang: na
 ms.topic: overview
 ms.date: 02/24/2019
 ms.author: yegu
-ms.openlocfilehash: 0d78536173fd87e046a882314d6f94a92092fd9e
-ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
+ms.openlocfilehash: 3e96a1af4746c6344f9565d0f0de8ab2b2b8d8bc
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57215885"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58009387"
 ---
 # <a name="what-is-azure-app-configuration"></a>O que é a configuração de aplicações do Azure
 
 Configuração de aplicações do Azure fornece um serviço para gerir as definições da aplicação centralmente. Programas modernos, especialmente os que são executados numa nuvem, geralmente têm vários componentes que são distribuídos por natureza. Propagação de definições de configuração nesses componentes pode levar a erros de resolução de problemas é difícil durante a implementação de uma aplicação. Configuração de aplicações permite-lhe armazenar todas as definições para a sua aplicação e proteger seus acessos num único local.
 
-Serviço de configuração de aplicação está em **pré-visualização privada**. É gratuito para utilizar durante o período de pré-visualização. Tente [registar](https://aka.ms/azconfig/register) na pré-visualização, se estiver interessado em experimentá-lo.
+Serviço de configuração de aplicações está atualmente em **pré-visualização**. É gratuito para utilizar durante este período de pré-visualização. Embora não haja nenhum processo de aprovação especiais para aceder ao serviço, [registar](https://aka.ms/azconfig/register) connosco para que o pode informar sobre qualquer alteração importante com antecedência.
 
 ## <a name="why-use-app-configuration"></a>Por que usar a configuração de aplicações
 

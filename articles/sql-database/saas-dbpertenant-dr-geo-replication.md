@@ -12,12 +12,12 @@ ms.author: ayolubek
 ms.reviewer: sstein
 manager: craigg
 ms.date: 01/25/2019
-ms.openlocfilehash: b52e08485c5ce853f9c8eafaafd15f137aef10bb
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: b6f0d25f621768f79e8262f38617152e91692a23
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56873458"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57838855"
 ---
 # <a name="disaster-recovery-for-a-multi-tenant-saas-application-using-database-geo-replication"></a>Recuperação após desastre para uma aplicação de SaaS de multi-inquilino com georreplicação de base de dados
 
@@ -25,14 +25,14 @@ Neste tutorial, explorar um cenário de recuperação após desastre para uma ap
 
 Este tutorial explora os fluxos de trabalho de ativação pós-falha e reativação pós-falha. Vai aprender a:
 > [!div class="checklist"]
-
->* Base de dados de sincronização e informações de configuração do conjunto elástico para o catálogo de inquilino
->* Configurar um ambiente de recuperação numa região alternativo, que consiste em aplicativos, servidores e de agrupamentos
->* Uso _georreplicação_ para replicar as bases de dados do catálogo e de inquilino para a região de recuperação
->* Efetuar a ativação pós-falha da aplicação e as bases de dados de catálogo e de inquilino para a região de recuperação 
->* Mais tarde, efetuar a ativação pós-falha do aplicativo, as bases de dados do catálogo e de inquilino de volta para a região original após a falha for resolvida
->* Atualizar o catálogo, como cada base de dados do inquilino é foi efetuada para controlar a localização primária da base de dados de cada inquilino
->* Certifique-se de que a base de dados do inquilino de aplicação e principal sempre serão colocalizados na mesma região do Azure para reduzir a latência  
+> 
+> * Base de dados de sincronização e informações de configuração do conjunto elástico para o catálogo de inquilino
+> * Configurar um ambiente de recuperação numa região alternativo, que consiste em aplicativos, servidores e de agrupamentos
+> * Uso _georreplicação_ para replicar as bases de dados do catálogo e de inquilino para a região de recuperação
+> * Efetuar a ativação pós-falha da aplicação e as bases de dados de catálogo e de inquilino para a região de recuperação 
+> * Mais tarde, efetuar a ativação pós-falha do aplicativo, as bases de dados do catálogo e de inquilino de volta para a região original após a falha for resolvida
+> * Atualizar o catálogo, como cada base de dados do inquilino é foi efetuada para controlar a localização primária da base de dados de cada inquilino
+> * Certifique-se de que a base de dados do inquilino de aplicação e principal sempre serão colocalizados na mesma região do Azure para reduzir a latência  
  
 
 Antes de iniciar este tutorial, certifique-se de que os seguintes pré-requisitos foram concluídos:
@@ -106,7 +106,7 @@ Antes de começar o processo de recuperação, reveja o estado de bom estado de 
 Nesta tarefa, iniciar um processo que sincroniza a configuração de servidores, conjuntos elásticos e bases de dados para o catálogo de inquilino. O processo mantém estas informações atualizadas no catálogo.  O processo funciona com o catálogo do Active Directory, se na região original ou na região de recuperação. As informações de configuração são utilizadas como parte do processo de recuperação para garantir que o ambiente de recuperação é consistente com o ambiente original e, em seguida, mais tarde durante repatriation para garantir que a região original é tornada consistente com todas as alterações efetuadas a ambiente de recuperação. O catálogo também serve para controlar o estado de recuperação dos recursos de inquilino
 
 > [!IMPORTANT]
-> Para simplificar, o processo de sincronização e outros processos de recuperação e repatriation execução demorada são implementados nestes tutoriais como tarefas do Powershell locais ou sessões que são executados em seu início de sessão de utilizador do cliente. Os tokens de autenticação emitidos quando iniciar sessão vai expirar após várias horas e, em seguida, as tarefas falhará. Num cenário de produção, os processos de longa execução devem ser implementados como serviços do Azure fiáveis de algum tipo, um principal de serviço a ser executado. Ver [utilize o Azure PowerShell para criar um principal de serviço com um certificado](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-authenticate-service-principal).
+> Para simplificar, o processo de sincronização e outros processos de recuperação e repatriation execução demorada são implementados nestes tutoriais como tarefas do PowerShell locais ou sessões que são executados em seu início de sessão de utilizador do cliente. Os tokens de autenticação emitidos quando iniciar sessão vai expirar após várias horas e, em seguida, as tarefas falhará. Num cenário de produção, os processos de longa execução devem ser implementados como serviços do Azure fiáveis de algum tipo, um principal de serviço a ser executado. Ver [utilize o Azure PowerShell para criar um principal de serviço com um certificado](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-authenticate-service-principal).
 
 1. Na _ISE do PowerShell_, abra o ficheiro de Modules\UserConfig.psm1 ...\Learning. Substitua `<resourcegroup>` e `<user>` em linhas 10 e 11 com o valor que usou quando implementou a aplicação.  Guarde o ficheiro!
 
@@ -199,15 +199,15 @@ Agora imagine que houver uma falha na região em que a aplicação é implementa
 Embora o ponto final da aplicação está desabilitado no Gestor de tráfego, o aplicativo não está disponível. Depois do catálogo é a ativação pós-falha para a região de recuperação e todos os inquilinos marcada como offline, o aplicativo seja novamente colocado online. Embora o aplicativo estiver disponível, cada inquilino aparece offline no hub de eventos até que a respetiva base de dados é a ativação pós-falha. É importante projetar seu aplicativo para lidar com bases de dados do inquilino offline.
 
 1. Imediatamente depois da base de dados do catálogo foi recuperado, atualize o Hub de eventos de bilhetes Wingtip no seu browser.
-    * No rodapé, tenha em atenção que o nome do servidor de catálogo agora tem um _-recuperação_ sufixo e está localizado na região de recuperação.
-    * Tenha em atenção que os inquilinos que ainda não foram restaurados, são marcados como offline e não sejam selecionável.  
+   * No rodapé, tenha em atenção que o nome do servidor de catálogo agora tem um _-recuperação_ sufixo e está localizado na região de recuperação.
+   * Tenha em atenção que os inquilinos que ainda não foram restaurados, são marcados como offline e não sejam selecionável.  
 
-    > [!Note]
-    > Com apenas algumas bases de dados para recuperar, não poderá atualizar o browser antes de recuperação foi concluída, pelo que poderá não ver os inquilinos enquanto estão offline. 
+     > [!Note]
+     > Com apenas algumas bases de dados para recuperar, não poderá atualizar o browser antes de recuperação foi concluída, pelo que poderá não ver os inquilinos enquanto estão offline. 
  
-    ![Hub de eventos offline](media/saas-dbpertenant-dr-geo-replication/events-hub-offlinemode.png) 
+     ![Hub de eventos offline](media/saas-dbpertenant-dr-geo-replication/events-hub-offlinemode.png) 
 
-    * Se abrir a página de eventos de um inquilino offline diretamente, ele apresenta uma notificação de "inquilino offline". Por exemplo, se a Contoso Concert Hall estiver offline, tente abrir http://events.wingtip-dpt.&lt; usuário&gt;.trafficmanager.net/contosoconcerthall ![página Contoso Offline](media/saas-dbpertenant-dr-geo-replication/dr-in-progress-offline-contosoconcerthall.png) 
+   * Se abrir a página de eventos de um inquilino offline diretamente, ele apresenta uma notificação de "inquilino offline". Por exemplo, se a Contoso Concert Hall estiver offline, tente abrir http://events.wingtip-dpt.&lt; usuário&gt;.trafficmanager.net/contosoconcerthall ![página Contoso Offline](media/saas-dbpertenant-dr-geo-replication/dr-in-progress-offline-contosoconcerthall.png) 
 
 ### <a name="provision-a-new-tenant-in-the-recovery-region"></a>Aprovisionar um inquilino novo na região de recuperação
 Antes mesmo de todo os inquilino bases de dados existentes têm a ativação pós-falha, pode aprovisionar novos inquilinos na região de recuperação.  
@@ -236,12 +236,12 @@ Quando tiver concluído o processo de recuperação, a aplicação e todos os in
     * Tenha em atenção o grupo de recursos que implementou, além do grupo de recursos de recuperação, com o _-recuperação_ sufixo.  O grupo de recursos de recuperação contém todos os recursos criados durante o processo de recuperação, além de recursos novos criados durante o período de inatividade.  
 
 3. Abra o grupo de recursos de recuperação e tenha em atenção os seguintes itens:
-    * As versões de recuperação dos servidores de catálogo e tenants1, com _-recuperação_ sufixo.  Os catálogo e de inquilino bancos de dados restaurados nestes servidores todos os tem os nomes utilizados na região original.
+   * As versões de recuperação dos servidores de catálogo e tenants1, com _-recuperação_ sufixo.  Os catálogo e de inquilino bancos de dados restaurados nestes servidores todos os tem os nomes utilizados na região original.
 
-    * O _tenants2-dpt -&lt;usuário&gt;-recuperação_ do SQL server.  Este servidor é utilizado para aprovisionar novos inquilinos durante o período de inatividade.
-    *   O serviço de aplicações com o nome, _eventos-wingtip-dpt -&lt;recoveryregion&gt;-&lt;utilizador & gt_; que é a instância de recuperação da aplicação de eventos. 
+   * O _tenants2-dpt -&lt;usuário&gt;-recuperação_ do SQL server.  Este servidor é utilizado para aprovisionar novos inquilinos durante o período de inatividade.
+   * O serviço de aplicações com o nome, _eventos-wingtip-dpt -&lt;recoveryregion&gt;-&lt;utilizador & gt_; que é a instância de recuperação da aplicação de eventos. 
 
-    ![Recursos de recuperação do Azure](media/saas-dbpertenant-dr-geo-replication/resources-in-recovery-region.png) 
+     ![Recursos de recuperação do Azure](media/saas-dbpertenant-dr-geo-replication/resources-in-recovery-region.png) 
     
 4. Abra o _tenants2-dpt -&lt;usuário&gt;-recuperação_ do SQL server.  Observe que contém a base de dados _hawthornhall_ e o conjunto elástico, _Pool1_.  O _hawthornhall_ base de dados é configurada como uma base de dados elástica _Pool1_ conjunto elástico.
 
@@ -305,12 +305,12 @@ Bases de dados do inquilino podem estar espalhadas entre regiões originais e de
 
 Neste tutorial, ficou a saber como:
 > [!div class="checklist"]
-
->* Base de dados de sincronização e informações de configuração do conjunto elástico para o catálogo de inquilino
->* Configurar um ambiente de recuperação numa região alternativo, que consiste em aplicativos, servidores e de agrupamentos
->* Uso _georreplicação_ para replicar as bases de dados do catálogo e de inquilino para a região de recuperação
->* Efetuar a ativação pós-falha da aplicação e as bases de dados de catálogo e de inquilino para a região de recuperação 
->* A reativação pós-falha as bases de dados de aplicativos, catálogo e de inquilino para a região original após a falha for resolvida
+> 
+> * Base de dados de sincronização e informações de configuração do conjunto elástico para o catálogo de inquilino
+> * Configurar um ambiente de recuperação numa região alternativo, que consiste em aplicativos, servidores e de agrupamentos
+> * Uso _georreplicação_ para replicar as bases de dados do catálogo e de inquilino para a região de recuperação
+> * Efetuar a ativação pós-falha da aplicação e as bases de dados de catálogo e de inquilino para a região de recuperação 
+> * A reativação pós-falha as bases de dados de aplicativos, catálogo e de inquilino para a região original após a falha for resolvida
 
 Pode saber mais sobre as tecnologias de base de dados SQL do Azure fornece para permitir a continuidade do negócio no [descrição geral da continuidade de negócio](sql-database-business-continuity.md) documentação.
 

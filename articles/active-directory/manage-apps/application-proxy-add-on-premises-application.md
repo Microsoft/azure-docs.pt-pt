@@ -12,12 +12,12 @@ ms.date: 03/12/2019
 ms.author: celested
 ms.reviewer: japere
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4d03efe2f8f8c3cad9ab37ea100b050a6e13aafc
-ms.sourcegitcommit: d89b679d20ad45d224fd7d010496c52345f10c96
+ms.openlocfilehash: 5fb504e7c2f76f2edd0921cae0fb02ea0849ff4b
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57792128"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57878351"
 ---
 # <a name="tutorial-add-an-on-premises-application-for-remote-access-through-application-proxy-in-azure-active-directory"></a>Tutorial: Adicionar uma aplicação no local para acesso remoto através do Proxy de aplicações no Azure Active Directory
 
@@ -93,7 +93,7 @@ Permitir o acesso aos seguintes URLs:
 | --- | --- |
 | \*.msappproxy.net<br>\*.servicebus.windows.net | Comunicação entre o conector e o serviço de nuvem do Proxy de aplicações |
 | mscrl.microsoft.com:80<br>crl.microsoft.com:80<br>ocsp.msocsp.com:80<br>www.microsoft.com:80 | O Azure utiliza estes URLs para verificar os certificados |
-| login.windows.net<br>login.microsoftonline.com | O conector utiliza estes URLs durante o processo de registo. |
+| login.windows.net<br>login.microsoftonline.com<br>secure.aadcdn.microsoftonline-p.com  | O conector utiliza estes URLs durante o processo de registo. |
 
 Se a sua firewall ou proxy permite que listas de permissões de DNS, pode ligações de lista de permissões para \*. msappproxy.net e \*. servicebus.windows.net. Se não, precisa permitir o acesso para o [intervalos de IP de DataCenter do Azure](https://www.microsoft.com/download/details.aspx?id=41653). Os intervalos de IP são atualizados a cada semana.
 
@@ -149,7 +149,7 @@ Para confirmar o conector instalado e registado corretamente:
    - O **Conector do Proxy da Aplicação do Microsoft AAD** ativa a conectividade
    - **Atualizador de conector do Proxy de aplicação do Microsoft AAD** é um serviço de atualização automática. O atualizador verifica a existência de novas versões do conector e atualiza o conector conforme necessário.
 
-    ![Serviços do Conector do Proxy da Aplicação – captura de ecrã](./media/application-proxy-enable/app_proxy_services.png)
+     ![Serviços do Conector do Proxy da Aplicação – captura de ecrã](./media/application-proxy-enable/app_proxy_services.png)
 
 3. Se o estado para os serviços não estiver **em execução**, clique com o botão direito cada serviço e escolha **iniciar**. 
 
@@ -173,7 +173,7 @@ Agora que já preparou o seu ambiente e instalado um conector, está pronto para
     | Campo | Descrição |
     | :---- | :---------- |
     | **Nome** | O nome da aplicação que será apresentado no painel de acesso e no portal do Azure. |
-    | **URL interno** | O URL para aceder à aplicação a partir de dentro da rede privada. Pode fornecer um caminho específico no servidor de back-end para publicação, enquanto o resto do servidor não é publicado. Dessa forma, pode publicar sites diferentes no mesmo servidor que aplicações diferentes e atribuir cada uma de suas próprias regras de acesso e o nome.<br><br>Se publicar um caminho, certifique-se de que inclui todas as imagens, scripts e folhas de estilo necessários para a sua aplicação. Por exemplo, se seu aplicativo está em https://yourapp/app e utiliza as imagens localizadas em https://yourapp/media, em seguida, deve publicar https://yourapp/ como o caminho. Este URL interno não tem de ser os seus utilizadores verão a página de destino. Para obter mais informações, consulte [definir uma página inicial personalizada para aplicações publicadas](application-proxy-configure-custom-home-page.md). |
+    | **URL interno** | O URL para aceder à aplicação a partir de dentro da rede privada. Pode fornecer um caminho específico no servidor de back-end para publicação, enquanto o resto do servidor não é publicado. Dessa forma, pode publicar sites diferentes no mesmo servidor que aplicações diferentes e atribuir cada uma de suas próprias regras de acesso e o nome.<br><br>Se publicar um caminho, certifique-se de que inclui todas as imagens, scripts e folhas de estilo necessários para a sua aplicação. Por exemplo, se seu aplicativo está em <https://yourapp/app> e utiliza as imagens localizadas em <https://yourapp/media>, em seguida, deve publicar <https://yourapp/> como o caminho. Este URL interno não tem de ser os seus utilizadores verão a página de destino. Para obter mais informações, consulte [definir uma página inicial personalizada para aplicações publicadas](application-proxy-configure-custom-home-page.md). |
     | **URL externo** | O endereço que os utilizadores acedam a aplicação a partir de fora da rede. Se não pretender utilizar o domínio de Proxy de aplicações predefinido, ler sobre [domínios personalizados no Proxy de aplicações do Azure AD](application-proxy-configure-custom-domain.md).|
     | **Pré-autenticação** | Como o Proxy da aplicação verifica os utilizadores antes de conceder acesso à sua aplicação.<br><br>**O Azure Active Directory** -Proxy da aplicação redireciona os utilizadores iniciem sessão com o Azure AD, que autentica as respetivas permissões para o diretório e a aplicação. É recomendável manter esta opção como predefinição, para que possam tirar partido das funcionalidades de segurança do Azure AD como o acesso condicional e multi-factor Authentication. **O Azure Active Directory** é necessária para monitorizar a aplicação com a segurança de aplicações do Microsoft Cloud.<br><br>**Pass-through** -os utilizadores não têm a autenticação no Azure Active Directory para aceder à aplicação. Pode ainda configurar os requisitos de autenticação back-end. |
     | **Grupo do conector** | Conectores de processam o acesso remoto à sua aplicação e grupos de conectores ajudá-lo a organizar os conectores e aplicações por região, rede ou para fins. Se não tem quaisquer grupos de conector ainda criados, a sua aplicação é atribuída a **predefinido**.<br><br>Se a sua aplicação utilizar WebSockets para se ligar, todos os conectores do grupo tem de ser versão 1.5.612.0 ou posterior.|

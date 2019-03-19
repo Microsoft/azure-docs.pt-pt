@@ -10,12 +10,12 @@ ms.subservice: academic-knowledge
 ms.topic: conceptual
 ms.date: 03/27/2017
 ms.author: alch
-ms.openlocfilehash: 1e922f1c02876f09dcf51b192bc08c4f4fccac9e
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: a228c5b90e47c9c24c5da70484a1a28f9a3054b1
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55879025"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58100484"
 ---
 # <a name="calchistogram-method"></a>Método CalcHistogram
 
@@ -27,7 +27,7 @@ O **calchistogram** REST API é utilizada para calcular a distribuição dos val
 https:// westus.api.cognitive.microsoft.com/academic/v1.0/calchistogram?
 ``` 
 <br>
-  
+
 ## <a name="request-parameters"></a>Parâmetros do Pedido
 
 Name  |Value | Necessário?  |Descrição

@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/10/2018
 ms.author: cynthn
-ms.openlocfilehash: 662713a5ef350bd34f25558de69e3cbfd5fc80a3
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
+ms.openlocfilehash: 364dca8d7cab3698e501e74d0c2817aac1a36f88
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55982867"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58137982"
 ---
 # <a name="create-a-windows-vm-from-a-specialized-disk-by-using-powershell"></a>Criar uma VM do Windows a partir de um disco especializado ao utilizar o PowerShell
 
@@ -205,7 +205,7 @@ $snapShot = New-AzSnapshot `
 ```
 
 
-Para utilizar este instantâneo para criar uma VM que tem de ser de alto desempenho, adicione o parâmetro `-AccountType Premium_LRS` para o comando New-AzSnapshot. Este parâmetro cria o instantâneo para que ele é armazenado como disco gerido Premium. Premium Managed Disks são mais caros do que no plano padrão, por isso, certifique-se de que precisará Premium antes de utilizar este parâmetro.
+Para utilizar este instantâneo para criar uma VM que tem de ser de alto desempenho, adicione o parâmetro `-AccountType Premium_LRS` para o comando New-AzSnapshotConfig. Este parâmetro cria o instantâneo para que ele é armazenado como disco gerido Premium. Premium Managed Disks são mais caros do que no plano padrão, por isso, certifique-se de que precisará Premium antes de utilizar este parâmetro.
 
 ### <a name="create-a-new-disk-from-the-snapshot"></a>Criar um novo disco a partir do instantâneo
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/09/2018
 ms.author: genli
-ms.openlocfilehash: 26f60a6f1796b080df3294737ce93bfb43029bf1
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: c5f92d564a93823fd9c0f932fa95f20d4e827761
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57439127"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58108836"
 ---
 # <a name="troubleshoot-azure-load-balancer"></a>Resolver problemas do Balanceador de Carga do Azure
 
@@ -128,7 +128,7 @@ Se um balanceador de carga interno é configurado no interior de uma VNet e uma 
 Se optar por abrir um incidente de suporte, recolha as seguintes informações para uma resolução mais rápida. Escolha um back-end único VM para executar os seguintes testes:
 - Utilizar o Psping a partir de um back-end VMs dentro da VNet para testar a resposta de porta de sonda (exemplo: psping 10.0.0.4:3389) e registrar resultados. 
 - Se for recebida nenhuma resposta nesses testes de ping, execute um rastreio de Netsh simultâneo no VM de back-end e a VM de teste de VNet enquanto executar o PsPing, em seguida, pare o rastreio Netsh. 
-  
+  
 ## <a name="next-steps"></a>Passos Seguintes
 
 Se os passos anteriores não resolverem o problema, abra um [pedido de suporte](https://azure.microsoft.com/support/options/).

@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 12/31/2018
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: c01cc6bd6244bcaa8d33baead35ac2a1dadc3d7a
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.openlocfilehash: e3a2b45e2039c5cabaa7c507c85a045ca73add83
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53970802"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57993945"
 ---
 # <a name="run-a-disaster-recovery-drill-to-azure"></a>Executar um teste de recuperação após desastre para o Azure
 
@@ -23,10 +23,10 @@ Neste artigo, mostramos-lhe como executar um teste de recuperação após desast
 Este artigo é o quarto tutorial de uma série que lhe mostra como configurar a recuperação após desastre no Azure para VMs VMware ou Hyper-V no local.
 
 Este tutorial pressupõe que concluiu os três primeiros tutoriais:
-    - No [primeiro tutorial](tutorial-prepare-azure.md), configurámos os componentes do Azure necessários para a recuperação após desastre do VMware.
-    - No [segundo tutorial](vmware-azure-tutorial-prepare-on-premises.md), preparámos os componentes no local para a recuperação após desastre e revimos os pré-requisitos.
-    - No [terceiro tutorial](vmware-azure-tutorial.md), configurámos e ativámos a replicação para a nossa VM do VMware no local.
-    - Os tutoriais são concebidos para mostrar o **caminho de implementação mais simples num cenário**. Utilizam opções predefinidas sempre que possível e não mostram todas as definições e caminhos possíveis. Se pretender saber mais sobre os passos de ativação pós-falha de teste, leia o [Guia de Procedimentos](site-recovery-test-failover-to-azure.md).
+- No [primeiro tutorial](tutorial-prepare-azure.md), configurámos os componentes do Azure necessários para a recuperação após desastre do VMware.
+- No [segundo tutorial](vmware-azure-tutorial-prepare-on-premises.md), preparámos os componentes no local para a recuperação após desastre e revimos os pré-requisitos.
+- No [terceiro tutorial](vmware-azure-tutorial.md), configurámos e ativámos a replicação para a nossa VM do VMware no local.
+- Os tutoriais são concebidos para mostrar o **caminho de implementação mais simples num cenário**. Utilizam opções predefinidas sempre que possível e não mostram todas as definições e caminhos possíveis. Se pretender saber mais sobre os passos de ativação pós-falha de teste, leia o [Guia de Procedimentos](site-recovery-test-failover-to-azure.md).
 
 Neste tutorial, ficará a saber como:
 

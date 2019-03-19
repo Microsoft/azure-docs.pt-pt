@@ -8,12 +8,12 @@ ms.date: 09/12/2018
 ms.topic: conceptual
 ms.service: iot-accelerators
 services: iot-accelerators
-ms.openlocfilehash: 655d65ebfbb0141acd829a64414d9ba20dd2c697
-ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
+ms.openlocfilehash: 850d8bbb525763e0e7d0c0441173180b7c469dd8
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53633747"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58085155"
 ---
 # <a name="integrate-azure-time-series-insights-with-remote-monitoring"></a>Integrar o Azure Time Series Insights com a Monitorização Remota
 
@@ -57,7 +57,7 @@ Em seguida, implemente o Time Series Insights como um recurso adicional na sua s
 
 1. Para criar o seu ambiente do Time Series Insights, utilize os valores na tabela a seguir:
 
-    | Definição | Valor |
+    | Definição | Value |
     | ------- | ----- |
     | Nome do ambiente | Captura de ecrã seguinte utiliza o nome **contorosrmtsi**. Escolha o seu próprio nome exclusivo quando concluir este passo. |
     | Subscrição | Selecione a sua subscrição do Azure na lista pendente. |
@@ -86,17 +86,18 @@ Crie uma nova origem de evento para ligar ao seu hub IoT. Certifique-se de que u
 
 1. Para configurar o seu hub IoT como uma nova origem de evento, utilize os valores na tabela a seguir:
 
-    | Definição | Valor |
+    | Definição | Value |
     | ------- | ----- |
     | Nome da origem de evento | Captura de ecrã seguinte utiliza o nome **contosorm-iot-hub**. Utilize o seu próprio nome exclusivo quando concluir este passo. |
     | Origem | **Hub IoT** |
     | Opção de Importar | **Utilize o IoT Hub a partir de subscrições disponíveis** |
     | ID da subscrição | Selecione a sua subscrição do Azure na lista pendente. |
-    | Nome do hub IOT | **contosorma57a6**. Utilize o nome do hub IoT partir da sua solução de monitorização remota. |
-    | Nome de política do hub IOT | **iothubowner** Certifique-se de que a diretiva usada é uma política de proprietário. |
-    | Chave de política do hub IOT | Este campo é preenchido automaticamente. |
-    | Grupo de consumidores do hub IOT | **timeseriesinsights** |
-    | Formato de serialização de eventos | **JSON**     | Nome da propriedade Timestamp | Deixar em branco |
+    | Nome do hub IoT | **contosorma57a6**. Utilize o nome do hub IoT partir da sua solução de monitorização remota. |
+    | nome de política do hub IoT | **iothubowner** Certifique-se de que a diretiva usada é uma política de proprietário. |
+    | chave de política do hub IoT | Este campo é preenchido automaticamente. |
+    | Grupo de consumidores do hub IoT | **timeseriesinsights** |
+    | Formato de serialização de eventos | **JSON**     | 
+    | Nome da propriedade de carimbo de data/hora | Deixar em branco |
 
     ![Criar origem de evento](./media/iot-accelerators-remote-monitoring-integrate-time-series-insights/time-series-insights-event-source-create.png)
 

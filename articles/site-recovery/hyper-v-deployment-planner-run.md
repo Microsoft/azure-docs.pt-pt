@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: mayg
-ms.openlocfilehash: 16c37f5ccaed7c161ecaae65a07c5da7400aad3c
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: 776523bb001848e6ecc153f670a96e3143e2ac0d
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55815083"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58006345"
 ---
 # <a name="run-the-azure-site-recovery-deployment-planner-for-hyper-v-disaster-recovery-to-azure"></a>Executar o planeador de implementação do Azure Site Recovery para recuperação após desastre de Hyper-V para o Azure
 
@@ -34,6 +34,7 @@ A tabela seguinte contém a lista dos parâmetros obrigatórios e opcionais da f
 ```
 ASRDeploymentPlanner.exe -Operation GetVMList /?
 ```
+
 | Nome do parâmetro | Descrição |
 |---|---|
 | -Operation | GetVMList |
@@ -83,6 +84,7 @@ A tabela seguinte lista os parâmetros obrigatórios e opcionais da ferramenta p
 ```
 ASRDeploymentPlanner.exe -Operation StartProfiling /?
 ```
+
 | Nome do parâmetro | Descrição |
 |---|---|
 | -Operation | StartProfiling |
@@ -164,6 +166,7 @@ A tabela seguinte contém a lista dos parâmetros obrigatórios e opcionais da f
 ```
 ASRDeploymentPlanner.exe -Operation GenerateReport /?
 ```
+
 | Nome do parâmetro | Descrição |
 |---|---|
 | -Operation | GenerateReport |
@@ -271,6 +274,7 @@ Abra uma consola da linha de comandos e aceda à pasta da ferramenta de planeame
 ```
 ASRDeploymentPlanner.exe -Operation GetThroughput /?
 ```
+
  Nome do parâmetro | Descrição |
 |---|---|
 | -Operation | GetThroughput |

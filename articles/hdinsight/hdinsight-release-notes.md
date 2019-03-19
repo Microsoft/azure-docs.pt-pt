@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 01/02/2019
-ms.openlocfilehash: 8441f6793140bcb565b97776a0cd86c7319db9c1
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: e6a528ae7eda7e10ab06c6f338fd05d20332a9fd
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57448920"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58089017"
 ---
 # <a name="release-notes-for-azure-hdinsight"></a>Notas de versão do Azure HDInsight
 
@@ -1309,116 +1309,116 @@ Problemas de fixos representam selecionados problemas que foram anteriormente re
 
 ## <a name="known-issues"></a>Problemas conhecidos
 
--   **Integração do HDInsight com o ADLS Gen 2** há dois problemas em clusters do HDInsight ESP através do Azure Data Lake Storage Gen 2 com diretórios de usuário e permissões:
+- **Integração do HDInsight com o ADLS Gen 2** há dois problemas em clusters do HDInsight ESP através do Azure Data Lake Storage Gen 2 com diretórios de usuário e permissões:
    
-   1. Diretórios raiz para os utilizadores não são introdução criados no Head nó 1. Como solução, crie manualmente os diretórios e alterar a propriedade para o respetivo UPN dos utilizadores.
+  1. Diretórios raiz para os utilizadores não são introdução criados no Head nó 1. Como solução, crie manualmente os diretórios e alterar a propriedade para o respetivo UPN dos utilizadores.
    
-   2. Permissões no diretório de /hdp não está atualmente configurado para 751. Isso precisa ser definido como 
-      ```bash
-      chmod 751 /hdp 
-      chmod –R 755 /hdp/apps
-      ```
+  2. Permissões no diretório de /hdp não está atualmente configurado para 751. Isso precisa ser definido como 
+     ```bash
+     chmod 751 /hdp 
+     chmod –R 755 /hdp/apps
+     ```
 
--   **2.3 do Spark**
+- **2.3 do Spark**
 
-    -   \[[*SPARK-23523*](https://issues.apache.org/jira/browse/SPARK-23523)\]\[SQL\] resultado incorreto causado pela regra OptimizeMetadataOnlyQuery
+  -   \[[*SPARK-23523*](https://issues.apache.org/jira/browse/SPARK-23523)\]\[SQL\] resultado incorreto causado pela regra OptimizeMetadataOnlyQuery
 
-    -   \[[*SPARK-23406* ](https://issues.apache.org/jira/browse/SPARK-23406) \] Bugs no stream-stream associações automáticas
+  -   \[[*SPARK-23406* ](https://issues.apache.org/jira/browse/SPARK-23406) \] Bugs no stream-stream associações automáticas
 
-    -   Blocos de notas de exemplo de Spark não estão disponíveis quando o armazenamento do Azure Data Lake (Gen2) é o armazenamento predefinido do cluster.
+  -   Blocos de notas de exemplo de Spark não estão disponíveis quando o armazenamento do Azure Data Lake (Gen2) é o armazenamento predefinido do cluster.
 
--   **Enterprise Security Package**
+- **Enterprise Security Package**
 
-    - Servidor do Spark Thrift não aceita ligações de clientes ODBC.
-      Passos da solução:
-      1. Aguarde cerca de 15 minutos após a criação do cluster.
-      2. Veja o ranger da interface do Usuário a existência de hivesampletable_policy.
-      3. Reinicie o serviço do Spark.
-         Ligação do STS deve funcionar agora.
+  - Servidor do Spark Thrift não aceita ligações de clientes ODBC.
+    Passos da solução:
+    1. Aguarde cerca de 15 minutos após a criação do cluster.
+    2. Veja o ranger da interface do Usuário a existência de hivesampletable_policy.
+    3. Reinicie o serviço do Spark.
+       Ligação do STS deve funcionar agora.
 
--   **Solução alternativa para falha de verificação de serviço do Ranger**
+- **Solução alternativa para falha de verificação de serviço do Ranger**
 
-    -   [RANGER-1607](https://issues.apache.org/jira/browse/RANGER-1607): Solução para uma falha na verificação do serviço Ranger durante a atualização para o HDP 2.6.2 de versões anteriores do HDP.
+  -   [RANGER-1607](https://issues.apache.org/jira/browse/RANGER-1607): Solução para uma falha na verificação do serviço Ranger durante a atualização para o HDP 2.6.2 de versões anteriores do HDP.
 
-        > [!NOTE]  
-        > Quando Ranger é apenas SSL ativado. 
+      > [!NOTE]  
+      > Quando Ranger é apenas SSL ativado. 
      
-    Este problema surge quando tentar atualizar para o HDP 2.6.1 de versões anteriores do HDP através do Ambari. Ambari utiliza uma chamada de curl para efetuar uma verificação de serviço para serviço de Ranger do Ambari. Se a versão do JDK utilizada pelo Ambari JDK 1.7, a chamada de curl irá falhar com o erro abaixo:
+  Este problema surge quando tentar atualizar para o HDP 2.6.1 de versões anteriores do HDP através do Ambari. Ambari utiliza uma chamada de curl para efetuar uma verificação de serviço para serviço de Ranger do Ambari. Se a versão do JDK utilizada pelo Ambari JDK 1.7, a chamada de curl irá falhar com o erro abaixo:
     
-    `curl: (35) error:14077410:SSL routines:SSL23_GET_SERVER_HELLO:sslv3 alert handshake failure`
+  `curl: (35) error:14077410:SSL routines:SSL23_GET_SERVER_HELLO:sslv3 alert handshake failure`
     
-    O motivo para este erro é a versão do tomcat utilizada no Ranger é Tomcat 7.0.7\*. Usar o JDK 1.7 está em conflito com cifras predefinido fornecidas no Tomcat 7.0.7\*.
+  O motivo para este erro é a versão do tomcat utilizada no Ranger é Tomcat 7.0.7\*. Usar o JDK 1.7 está em conflito com cifras predefinido fornecidas no Tomcat 7.0.7\*.
     
-    Pode resolver este problema de duas formas:
+  Pode resolver este problema de duas formas:
     
-    -   Atualizar o JDK utilizado no Ambari do JDK 1.7 para o JDK 1.8 (consulte a secção [altere a versão do JDK](https://docs.hortonworks.com/HDPDocuments/Ambari-2.2.0.0/bk_ambari_reference_guide/content/ch_changing_the_jdk_version_on_an_existing_cluster.html) no guia de referência do Ambari).
+  -   Atualizar o JDK utilizado no Ambari do JDK 1.7 para o JDK 1.8 (consulte a secção [altere a versão do JDK](https://docs.hortonworks.com/HDPDocuments/Ambari-2.2.0.0/bk_ambari_reference_guide/content/ch_changing_the_jdk_version_on_an_existing_cluster.html) no guia de referência do Ambari).
     
-    -   Se pretender continuar a suportar um ambiente do JDK 1.7:
+  -   Se pretender continuar a suportar um ambiente do JDK 1.7:
     
-        1.  Adicionar a propriedade ranger.tomcat.ciphers na secção de site de administração de ranger na sua configuração de Ambari Ranger com o valor inferior:
+      1.  Adicionar a propriedade ranger.tomcat.ciphers na secção de site de administração de ranger na sua configuração de Ambari Ranger com o valor inferior:
             
-            SSL\_RSA\_WITH\_RC4\_128\_MD5, SSL\_RSA\_WITH\_RC4\_128\_SHA, TLS\_RSA\_WITH\_AES\_128\_CBC\_SHA, SSL\_RSA\_WITH\_3DES\_EDE\_CBC\_SHA
+          SSL\_RSA\_WITH\_RC4\_128\_MD5, SSL\_RSA\_WITH\_RC4\_128\_SHA, TLS\_RSA\_WITH\_AES\_128\_CBC\_SHA, SSL\_RSA\_WITH\_3DES\_EDE\_CBC\_SHA
         
-        2.  Se o seu ambiente estiver configurado para o Ranger KMS, adicione a propriedade ranger.tomcat.ciphers na secção de theranger local kms local na sua configuração de Ambari Ranger com o valor inferior:
+      2.  Se o seu ambiente estiver configurado para o Ranger KMS, adicione a propriedade ranger.tomcat.ciphers na secção de theranger local kms local na sua configuração de Ambari Ranger com o valor inferior:
             
-            SSL\_RSA\_WITH\_RC4\_128\_MD5, SSL\_RSA\_WITH\_RC4\_128\_SHA, TLS\_RSA\_WITH\_AES\_128\_CBC\_SHA, SSL\_RSA\_WITH\_3DES\_EDE\_CBC\_SHA
+          SSL\_RSA\_WITH\_RC4\_128\_MD5, SSL\_RSA\_WITH\_RC4\_128\_SHA, TLS\_RSA\_WITH\_AES\_128\_CBC\_SHA, SSL\_RSA\_WITH\_3DES\_EDE\_CBC\_SHA
     
-    >[!NOTE]  
-    >Os valores indicados trabalham exemplos e podem não ser indicativos do seu ambiente. Certifique-se de que corresponde à forma como definir essas propriedades como o seu ambiente estiver configurado.   
+  >[!NOTE]  
+  >Os valores indicados trabalham exemplos e podem não ser indicativos do seu ambiente. Certifique-se de que corresponde à forma como definir essas propriedades como o seu ambiente estiver configurado.   
 
--   **RangerUI: Escape de texto de condição de política introduzido no formulário da política**
+- **RangerUI: Escape de texto de condição de política introduzido no formulário da política**
     
-    **O componente afetado:** Ranger
+  **Componente afetado:** Ranger
     
-    **Descrição do problema**
+  **Descrição do problema**
     
-    Se um usuário deseja criar a política com as condições de política personalizada e o texto ou uma expressão contém carateres especiais, imposição de política não irá funcionar. Carateres especiais são convertidos em ASCII antes de guardar a política no banco de dados.
+  Se um usuário deseja criar a política com as condições de política personalizada e o texto ou uma expressão contém carateres especiais, imposição de política não irá funcionar. Carateres especiais são convertidos em ASCII antes de guardar a política no banco de dados.
     
-    **Carateres especiais:**   &  &lt; &gt; " \` '
+  **Carateres especiais:**  &  &lt; &gt; " \` '
     
-    Por exemplo, o tags.attributes de condição\['type'\]= "abc" seria convertida para o seguinte depois da política ser guardada.
+  Por exemplo, o tags.attributes de condição\['type'\]= "abc" seria convertida para o seguinte depois da política ser guardada.
     
-    tags.attds\[&\#x27;dsds&\#x27;\]=&\#x27;cssdfs&\#x27;
+  tags.attds\[&\#x27;dsds&\#x27;\]=&\#x27;cssdfs&\#x27;
     
-    Pode ver a condição de política com estes carateres ao abrir a política no modo de edição.
+  Pode ver a condição de política com estes carateres ao abrir a política no modo de edição.
     
-    **Solução**
+  **Solução**
     
-    - **Opção \#1: Criar/atualizar a política através da API de Rest do Ranger**
+  - **Opção \#1: Criar/atualizar a política através da API de Rest do Ranger**
         
-        URL de REST: http://&lt;anfitrião&gt;: 6080/service/plug-ins/políticas
+      URL de REST: http://&lt;anfitrião&gt;: 6080/service/plug-ins/políticas
         
-        **Criar política com a condição de política:**
+      **Criar política com a condição de política:**
         
-        O exemplo seguinte irá criar a política com etiquetas como \`etiquetas-teste\` e atribuí-lo ao \`público\` grupo com política condição astags.attr\['type'\]= = "abc" selecionando todos permissões de componente do Hive, como selecionar, atualizar, criar, remover, alter, indexar, bloqueio, tudo.
+      O exemplo seguinte irá criar a política com etiquetas como \`etiquetas-teste\` e atribuí-lo ao \`público\` grupo com política condição astags.attr\['type'\]= = "abc" selecionando todos permissões de componente do Hive, como selecionar, atualizar, criar, remover, alter, indexar, bloqueio, tudo.
         
-        **Exemplo:**
+      **Exemplo:**
         
-        `curl -H "Content-Type: application/json" -X POST http://localhost:6080/service/plugins/policies -u admin:admin -d '{"policyType":"0","name":"P100","isEnabled":true,"isAuditEnabled":true,"description":"","resources":{"tag":{"values":["tags-test"],"isRecursive":"","isExcludes":false}},"policyItems":[{"groups":["public"],"conditions":[{"type":"accessed-after-expiry","values":[]},{"type":"tag-expression","values":["tags.attr['type']=='abc'"]}],"accesses":[{"type":"hive:select","isAllowed":true},{"type":"hive:update","isAllowed":true},{"type":"hive:create","isAllowed":true},{"type":"hive:drop","isAllowed":true},{"type":"hive:alter","isAllowed":true},{"type":"hive:index","isAllowed":true},{"type":"hive:lock","isAllowed":true},{"type":"hive:all","isAllowed":true}]}],"denyPolicyItems":[],"allowExceptions":[],"denyExceptions":[],"service":"tagdev"}'`
+      `curl -H "Content-Type: application/json" -X POST http://localhost:6080/service/plugins/policies -u admin:admin -d '{"policyType":"0","name":"P100","isEnabled":true,"isAuditEnabled":true,"description":"","resources":{"tag":{"values":["tags-test"],"isRecursive":"","isExcludes":false}},"policyItems":[{"groups":["public"],"conditions":[{"type":"accessed-after-expiry","values":[]},{"type":"tag-expression","values":["tags.attr['type']=='abc'"]}],"accesses":[{"type":"hive:select","isAllowed":true},{"type":"hive:update","isAllowed":true},{"type":"hive:create","isAllowed":true},{"type":"hive:drop","isAllowed":true},{"type":"hive:alter","isAllowed":true},{"type":"hive:index","isAllowed":true},{"type":"hive:lock","isAllowed":true},{"type":"hive:all","isAllowed":true}]}],"denyPolicyItems":[],"allowExceptions":[],"denyExceptions":[],"service":"tagdev"}'`
         
-        **Atualize política existente com a condição de política:**
+      **Atualize política existente com a condição de política:**
         
-        O exemplo seguinte irá atualizar a política com etiquetas como \`etiquetas-teste\` e atribuí-lo ao \`público\` grupo com política condição astags.attr\['type'\]= = "abc" selecionando todos permissões de componente do Hive, como selecionar, atualizar, criar, remover, alter, indexar, bloqueio, tudo.
+      O exemplo seguinte irá atualizar a política com etiquetas como \`etiquetas-teste\` e atribuí-lo ao \`público\` grupo com política condição astags.attr\['type'\]= = "abc" selecionando todos permissões de componente do Hive, como selecionar, atualizar, criar, remover, alter, indexar, bloqueio, tudo.
         
-        URL de REST: http://&lt;nome de anfitrião&gt;: 6080/service/plug-ins/políticas/&lt;id de política&gt;
+      URL de REST: http://&lt;nome de anfitrião&gt;: 6080/service/plug-ins/políticas/&lt;id de política&gt;
         
-        **Exemplo:**
+      **Exemplo:**
         
-        `curl -H "Content-Type: application/json" -X PUT http://localhost:6080/service/plugins/policies/18 -u admin:admin -d '{"id":18,"guid":"ea78a5ed-07a5-447a-978d-e636b0490a54","isEnabled":true,"createdBy":"Admin","updatedBy":"Admin","createTime":1490802077000,"updateTime":1490802077000,"version":1,"service":"tagdev","name":"P0101","policyType":0,"description":"","resourceSignature":"e5fdb911a25aa7f77af5a9546938d9ed","isAuditEnabled":true,"resources":{"tag":{"values":["tags"],"isExcludes":false,"isRecursive":false}},"policyItems":[{"accesses":[{"type":"hive:select","isAllowed":true},{"type":"hive:update","isAllowed":true},{"type":"hive:create","isAllowed":true},{"type":"hive:drop","isAllowed":true},{"type":"hive:alter","isAllowed":true},{"type":"hive:index","isAllowed":true},{"type":"hive:lock","isAllowed":true},{"type":"hive:all","isAllowed":true}],"users":[],"groups":["public"],"conditions":[{"type":"ip-range","values":["tags.attributes['type']=abc"]}],"delegateAdmin":false}],"denyPolicyItems":[],"allowExceptions":[],"denyExceptions":[],"dataMaskPolicyItems":[],"rowFilterPolicyItems":[]}'`
+      `curl -H "Content-Type: application/json" -X PUT http://localhost:6080/service/plugins/policies/18 -u admin:admin -d '{"id":18,"guid":"ea78a5ed-07a5-447a-978d-e636b0490a54","isEnabled":true,"createdBy":"Admin","updatedBy":"Admin","createTime":1490802077000,"updateTime":1490802077000,"version":1,"service":"tagdev","name":"P0101","policyType":0,"description":"","resourceSignature":"e5fdb911a25aa7f77af5a9546938d9ed","isAuditEnabled":true,"resources":{"tag":{"values":["tags"],"isExcludes":false,"isRecursive":false}},"policyItems":[{"accesses":[{"type":"hive:select","isAllowed":true},{"type":"hive:update","isAllowed":true},{"type":"hive:create","isAllowed":true},{"type":"hive:drop","isAllowed":true},{"type":"hive:alter","isAllowed":true},{"type":"hive:index","isAllowed":true},{"type":"hive:lock","isAllowed":true},{"type":"hive:all","isAllowed":true}],"users":[],"groups":["public"],"conditions":[{"type":"ip-range","values":["tags.attributes['type']=abc"]}],"delegateAdmin":false}],"denyPolicyItems":[],"allowExceptions":[],"denyExceptions":[],"dataMaskPolicyItems":[],"rowFilterPolicyItems":[]}'`
         
-    - **Opção \#2: Aplicar alterações de Javascript**
+  - **Opção \#2: Aplicar alterações de Javascript**
         
-        Passos para atualizar o ficheiro JS:
+      Passos para atualizar o ficheiro JS:
         
-        1.  Descubra o arquivo de PermissionList.js sob /usr/hdp/current/ranger-admin
+      1.  Descubra o arquivo de PermissionList.js sob /usr/hdp/current/ranger-admin
         
-        2.  Descubra a definição da função de renderPolicyCondtion (linha não: 404).
+      2.  Descubra a definição da função de renderPolicyCondtion (linha não: 404).
         
-        3.  Remover seguindo a linha a partir desse como função em função de apresentação (linha não: 434)
+      3.  Remover seguindo a linha a partir desse como função em função de apresentação (linha não: 434)
             
-            VAL = \_.escape(val);//Line 460: não
+          VAL = \_.escape(val);//Line 460: não
             
-            Depois de remover a linha acima, a IU do Ranger permite-lhe criar políticas com a condição de política que pode conter carateres especiais e a política de avaliação será efetuada com êxito para a mesma política.
+          Depois de remover a linha acima, a IU do Ranger permite-lhe criar políticas com a condição de política que pode conter carateres especiais e a política de avaliação será efetuada com êxito para a mesma política.
 
 **Integração do HDInsight com o ADLS Gen 2: Problema de diretórios e permissões de utilizador com clusters do ESP**
     1.  Diretórios raiz para os utilizadores não são introdução criados no Head nó 1. Solução alternativa é criá-las manualmente e alterar a propriedade para o respetivo UPN dos utilizadores.

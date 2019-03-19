@@ -12,12 +12,12 @@ manager: daveba
 ms.reviewer: sahenry
 ms.custom: seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4af7c5721458e36a1efa27c9696feaa3dbf043e4
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 3621bbce0128fbd173120ae2a327065ee2e84e33
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56187003"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57878453"
 ---
 # <a name="troubleshoot-self-service-password-reset"></a>Resolver problemas de reposição de palavra-passe self-service
 
@@ -101,7 +101,7 @@ Está a ter um problema com a reposição de palavra-passe self-service (SSPR) d
 | Código | Nome ou mensagem | Descrição |
 | --- | --- | --- |
 | 6329 | BAIL: MMS(4924) 0x80230619: "Uma restrição impede que a palavra-passe a ser alterado para um serviço atual especificado." | Este evento ocorre quando o serviço de repetição de escrita de palavra-passe tenta definir uma palavra-passe no diretório no local que não cumpre a idade de palavra-passe, histórico, complexidade ou requisitos de filtragem do domínio. <br> <br> Se tiver uma antiguidade mínima da palavra-passe e tiver alterado recentemente a palavra-passe nessa janela de tempo, não pode alterar a palavra-passe novamente até atingir a idade especificada no seu domínio. Para fins de teste, a idade mínima deve ser definida como 0. <br> <br> Se tiver requisitos de histórico de palavras-passe ativados, tem de selecionar uma palavra-passe não foi utilizada nos últimos *N* vezes, onde *N* é a definição de histórico de palavras-passe. Se selecionar uma palavra-passe que foi utilizada nos últimos *N* exceder o tempo, em seguida, verá uma falha em vez disso. Para fins de teste, o histórico de palavras-passe deve ser definido como 0. <br> <br> Se tiver requisitos de complexidade de palavra-passe, todos eles são impostos quando o utilizador tentou alterar ou repor uma palavra-passe. <br> <br> Se tiver filtros de palavra-passe ativados e um usuário seleciona uma palavra-passe que não cumpre os critérios de filtragem, em seguida, a reposição ou falha da operação de alteração. |
-| 6329 | MMS(3040): admaexport.cpp(2837): O servidor não contém o controle de política de palavra-passe LDAP. | Este problema ocorre se o controlo LDAP_SERVER_POLICY_HINTS_OID (1.2.840.113556.1.4.2066) não está ativado nos DCs. Para utilizar a funcionalidade de repetição de escrita de palavra-passe, tem de ativar o controlo. Para fazer isso, os controladores de domínio tem de ser no Windows Server 2008 (com o SP mais recente) ou posterior. Se seus controladores de domínio são no 2008 (pré-R2), também tem de aplicar correção [KB2386717](https://support.microsoft.com/kb/2386717). |
+| 6329 | MMS(3040): admaexport.cpp(2837): O servidor não contém o controle de política de palavra-passe LDAP. | Este problema ocorre se o controlo LDAP_SERVER_POLICY_HINTS_OID (1.2.840.113556.1.4.2066) não está ativado nos DCs. Para utilizar a funcionalidade de repetição de escrita de palavra-passe, tem de ativar o controlo. Para fazer isso, os controladores de domínio tem de ser no Windows Server 2008 R2 ou posterior. |
 | HR 8023042 | Motor de sincronização devolveu um erro hr = 80230402, mensagem = uma tentativa de obter um objeto falhou porque existem entradas duplicadas com a mesma âncora. | Este erro ocorre quando o mesmo ID de utilizador está ativado em vários domínios. Um exemplo é se estiver a sincronizar as florestas de contas e recursos e ter o mesmo ID de utilizador presente e habilitado em cada floresta. <br> <br> Este erro também pode ocorrer se usar um atributo de âncora exclusivos, como um alias ou UPN e dois usuários compartilham esse mesmo atributo de âncora. <br> <br> Para resolver este problema, certifique-se de que não tem quaisquer utilizadores duplicados dentro dos domínios e que utiliza um atributo de âncora exclusivo para cada utilizador. |
 
 ### <a name="if-the-source-of-the-event-is-passwordresetservice"></a>Se a origem do evento é PasswordResetService
@@ -179,10 +179,10 @@ Para obter mais informações, reveja os pré-requisitos conectividade a [pré-r
 
 Para resolver problemas de conectividade ou outros problemas temporários com o serviço, reinicie o serviço do Azure AD Connect Sync:
 
-   1. Como administrador, selecione **iniciar** no servidor a executar o Azure AD Connect.
-   1. ENTER **Services. msc** no campo de pesquisa e selecione **Enter**.
-   1. Procure o **Microsoft Azure AD Sync** entrada.
-   1. A entrada de serviço com o botão direito, selecione **reiniciar**e, em seguida, aguarde a conclusão da operação.
+1. Como administrador, selecione **iniciar** no servidor a executar o Azure AD Connect.
+1. ENTER **Services. msc** no campo de pesquisa e selecione **Enter**.
+1. Procure o **Microsoft Azure AD Sync** entrada.
+1. A entrada de serviço com o botão direito, selecione **reiniciar**e, em seguida, aguarde a conclusão da operação.
 
    ![Reinicie o serviço do Azure AD Sync][Service restart]
 
@@ -272,13 +272,13 @@ Para o ajudar corretamente, pedimos que forneçam tantos detalhes quanto possív
 * **Descrição geral do erro**: O que é o erro? Qual era o comportamento que foi reparado? Como podemos reproduzir o erro? Fornece tantos detalhes quanto possível.
 * **Página**: Qual página estava quando notou que o erro? Inclua o URL, se pode e uma captura de ecrã da página.
 * **Suporte a código**: Qual era o código de suporte que foi gerado quando o usuário viu o erro?
-    * Para localizar este código, reproduzir o erro, em seguida, selecione o **suportar código** link na parte inferior do ecrã e enviar o engenheiro de suporte o GUID que resulta.
+  * Para localizar este código, reproduzir o erro, em seguida, selecione o **suportar código** link na parte inferior do ecrã e enviar o engenheiro de suporte o GUID que resulta.
 
     ![Encontrar o código de suporte na parte inferior do ecrã][Support code]
 
-    * Se estiver numa página sem um suporte de código na parte inferior, selecione a tecla F12 e procure o SID e CID e enviar esses dois resultados para o engenheiro de suporte.
+  * Se estiver numa página sem um suporte de código na parte inferior, selecione a tecla F12 e procure o SID e CID e enviar esses dois resultados para o engenheiro de suporte.
 * **Data, hora e fuso horário**: Incluir a precisa data e hora *com o fuso horário* que ocorreu o erro.
-* **ID de utilizador**: Quem foi o utilizador que viu o erro? Um exemplo é *user@contoso.com*.
+* **ID de utilizador**: Quem foi o utilizador que viu o erro? Um exemplo é *usuário\@contoso.com*.
     * Este é um utilizador federado?
     * Este é um utilizador de autenticação pass-through?
     * Este é um utilizador sincronizados de hash de palavra-passe?

@@ -13,12 +13,12 @@ ms.author: lizross
 ms.reviewer: vincesm
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e1a3204e70fdde162d953c9c2241e9d71877cf78
-ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
+ms.openlocfilehash: 26178066b2f5353cba99c5965bb2f3055556784c
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56428929"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57894279"
 ---
 # <a name="what-are-the-default-user-permissions-in-azure-active-directory"></a>Quais são as permissões de usuário padrão no Azure Active Directory?
 No Azure Active Directory (Azure AD), é concedido a todos os utilizadores um conjunto de permissões predefinidas. Acesso de um utilizador consiste o tipo de utilizador, seus [atribuições de funções](active-directory-users-assign-role-azure-portal.md)e a propriedade de objetos individual. Este artigo descreve essas permissões predefinidas e contém uma comparação entre as predefinições do utilizador membro e convidado. As permissões de utilizador padrão podem ser alteradas apenas nas definições de utilizador no Azure AD.
@@ -49,8 +49,8 @@ As permissões predefinidas para os utilizadores membros podem ser restringidas 
 
 Permissão | Explicação da definição
 ---------- | ------------
-Capacidade de criar grupos de segurança | Definir esta opção para Não impede que os utilizadores criem grupos de segurança. Os Administradores Globais e Administradores de Conta de Utilizador podem, ainda assim, criar grupos de segurança. Veja [Cmdlets do Azure Active Directory para configurar definições de grupo](../users-groups-roles/groups-settings-cmdlets.md) para saber como.
-Capacidade de criar grupos do Office 365 | Definir esta opção para Não impede que os utilizadores criem grupos do Office 365. Definir esta opção para Alguns permite que um conjunto selecionado de utilizadores crie grupos do Office 365. Os Administradores Globais e Administradores de Conta de Utilizador conseguirão, ainda assim, criar grupos do Office 365. Veja [Cmdlets do Azure Active Directory para configurar definições de grupo](../users-groups-roles/groups-settings-cmdlets.md) para saber como.
+Capacidade de criar grupos de segurança | Definir esta opção para Não impede que os utilizadores criem grupos de segurança. Os administradores globais e administradores de utilizador ainda podem criar grupos de segurança. Veja [Cmdlets do Azure Active Directory para configurar definições de grupo](../users-groups-roles/groups-settings-cmdlets.md) para saber como.
+Capacidade de criar grupos do Office 365 | Definir esta opção para Não impede que os utilizadores criem grupos do Office 365. Definir esta opção para Alguns permite que um conjunto selecionado de utilizadores crie grupos do Office 365. Os administradores globais e administradores de utilizador ainda poderá criar grupos do Office 365. Veja [Cmdlets do Azure Active Directory para configurar definições de grupo](../users-groups-roles/groups-settings-cmdlets.md) para saber como.
 Restringir o acesso ao portal de administração do Azure AD | Definir esta opção para não impede os utilizadores de aceder ao Azure Active Directory.
 Capacidade de ler outros utilizadores | Esta definição só está disponível no PowerShell. Definir isto como $false impede todos os utilizadores não administradores de lerem as informações de utilizador do diretório. Isto não impede a leitura das informações de utilizador nos outros serviços Microsoft, como o Exchange Online. Esta definição destina-se a circunstâncias especiais e definir isto para $false não é recomendado.
 
@@ -65,7 +65,7 @@ When a user adds a new enterprise application, they are automatically added as a
 
 ### <a name="group-owner-permissions"></a>Permissões de proprietário do grupo
 
-Quando um utilizador cria um grupo, é adicionado automaticamente como um proprietário desse grupo. Como proprietário, eles podem gerir propriedades do grupo, como o nome, bem como gerir a associação de grupo. Um proprietário também pode adicionar ou remover outros proprietários. Ao contrário dos Administradores Globais e Administradores de Conta de Utilizador, os proprietários só podem gerir os grupos que possuem. Para atribuir um proprietário de grupo, veja [Gerir os proprietários de um grupo](active-directory-accessmanagement-managing-group-owners.md).
+Quando um utilizador cria um grupo, é adicionado automaticamente como um proprietário desse grupo. Como proprietário, eles podem gerir propriedades do grupo, como o nome, bem como gerir a associação de grupo. Um proprietário também pode adicionar ou remover outros proprietários. Ao contrário dos administradores globais e administradores de utilizador, só podem gerir grupos seus proprietários. Para atribuir um proprietário de grupo, veja [Gerir os proprietários de um grupo](active-directory-accessmanagement-managing-group-owners.md).
 
 ## <a name="next-steps"></a>Passos Seguintes
 

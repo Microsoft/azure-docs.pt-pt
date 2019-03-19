@@ -15,16 +15,16 @@ ms.topic: conceptual
 ms.date: 02/22/2019
 ms.author: banders
 ms.custom: seodec18
-ms.openlocfilehash: 88d94492cb6ed3191e146f117a648293bc9e50f9
-ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.openlocfilehash: d4c64433089f14d845cea8be9adf0ef13675cfd1
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/02/2019
-ms.locfileid: "57243725"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57892477"
 ---
 # <a name="view-and-download-your-organizations-azure-pricing"></a>Veja e transfira os preços do Azure da sua organização
 
-Os clientes do Azure com um contrato Enterprise (EA) ou [contrato de cliente da Microsoft](#check-your-access-to-a-microsoft-customer-agreement) podem ver e transferir os respetivos preços do portal do Azure. Se tiver um contrato de cliente da Microsoft, consulte [modo de exibição e preços de transferência para o contrato do cliente Microsoft](#View-and-download-pricing-for-your-billing-profile).
+Os clientes do Azure com um contrato Enterprise (EA) ou [contrato de cliente da Microsoft](#check-your-access-to-a-microsoft-customer-agreement) podem ver e transferir os respetivos preços do portal do Azure. Se tiver um contrato de cliente da Microsoft, consulte o modo de exibição e preços de transferência para o contrato do cliente Microsoft.
 
 ## <a name="view-and-download-ea-pricing"></a>Veja e transfira a preços de EA
 

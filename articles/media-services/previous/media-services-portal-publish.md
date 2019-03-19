@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/09/2019
 ms.author: juliako
-ms.openlocfilehash: 884f9025f4152c391b4b59384bc94b2136daa916
-ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.openlocfilehash: 1f7e108b4410ba62060dd4411e4b28b896e93d58
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/02/2019
-ms.locfileid: "57240750"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57834426"
 ---
 # <a name="publish-content-in-the-azure-portal"></a>Publicar conteúdo no portal do Azure  
 > [!div class="op_single_selector"]
@@ -89,7 +89,7 @@ Selecione o vídeo e, em seguida, selecione **OK**.
 São aplicáveis algumas considerações:
 
 * Confirme que o vídeo foi publicado.
-* O leitor de multimédia do portal do Azure reproduz a partir do ponto final da transmissão em fluxo predefinido. Se quiser reproduzir a partir de um ponto final da transmissão em fluxo não predefinido, selecione e copie o URL e cole-o noutro leitor. Por exemplo, pode testar o vídeo no [Leitor de Multimédia do Azure](http://amsplayer.azurewebsites.net/azuremediaplayer.html).
+* O leitor de multimédia do portal do Azure reproduz a partir do ponto final da transmissão em fluxo predefinido. Se quiser reproduzir a partir de um ponto final da transmissão em fluxo não predefinido, selecione e copie o URL e cole-o noutro leitor. Por exemplo, pode testar o vídeo no [Leitor de Multimédia do Azure](https://amsplayer.azurewebsites.net/azuremediaplayer.html).
 * O ponto final de transmissão em fluxo do qual transmissão em fluxo tem de estar em execução.  
 
 ## <a name="provide-feedback"></a>Enviar comentários

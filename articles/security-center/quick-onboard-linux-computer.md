@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/02/2018
 ms.author: rkarlin
-ms.openlocfilehash: e6d2404e6f509c03d2d3965f34d8229de25df4b7
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: ee28bfebb6732c7bb3b689cf08b9b876adb74b1b
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56114627"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58104680"
 ---
 # <a name="quickstart-onboard-linux-computers-to-azure-security-center"></a>Início rápido: Introduzir computadores Linux ao centro de segurança do Azure
 Depois de carregar as subscrições do Azure, pode ativar o Centro de Segurança para os recursos Linux em execução fora do Azure, por exemplo, no local ou noutras clouds, ao aprovisionar o Agente para Linux.
@@ -37,7 +37,7 @@ Tem de estar no escalão de preço Standard do Centro de Segurança antes de com
 1. Inicie sessão no [Portal do Azure](https://azure.microsoft.com/features/azure-portal/).
 2. No menu **Microsoft Azure**, selecione **Centro de Segurança**. **Centro de Segurança - Descrição Geral** é aberto.
 
- ![Descrição geral do Centro de Segurança][2]
+   ![Descrição geral do Centro de Segurança][2]
 
 3. No menu principal do Centro de Segurança, selecione **Introdução**.
 4. Selecione o separador **Introdução**. ![Introdução][3]
@@ -46,16 +46,16 @@ Tem de estar no escalão de preço Standard do Centro de Segurança antes de com
 
     ![Adicionar computador não pertencente ao Azure](./media/quick-onboard-linux-computer/non-azure.png)
 
-6.  Na página **Agente Direto**, em **TRANSFERIR E CARREGAR AGENTE PARA LINUX**, selecione o botão **copiar** para copiar o comando *wget*.
+6. Na página **Agente Direto**, em **TRANSFERIR E CARREGAR AGENTE PARA LINUX**, selecione o botão **copiar** para copiar o comando *wget*.
 
-7.  Abra o Bloco de notas e cole este comando. Guarde este ficheiro numa localização acessível a partir do seu computador Linux.
+7. Abra o Bloco de notas e cole este comando. Guarde este ficheiro numa localização acessível a partir do seu computador Linux.
 
 ## <a name="install-the-agent"></a>Instalar o agente
 
-1.  No computador Linux, abra o ficheiro que foi guardado anteriormente. Selecione todo o conteúdo, copie, abra uma consola de terminal e cole o comando.
-2.  Depois de concluída a instalação, pode validar a instalação do *omsagent*, executando o comando *pgrep*. O comando irá devolver o PID (ID de processo) *omsagent*, conforme apresentado abaixo:
+1. No computador Linux, abra o ficheiro que foi guardado anteriormente. Selecione todo o conteúdo, copie, abra uma consola de terminal e cole o comando.
+2. Depois de concluída a instalação, pode validar a instalação do *omsagent*, executando o comando *pgrep*. O comando irá devolver o PID (ID de processo) *omsagent*, conforme apresentado abaixo:
 
-  ![Instalar o agente][5]
+   ![Instalar o agente][5]
 
 Os registos para o Agente do Centro de Segurança para Linux podem ser encontrados em: */var/opt/microsoft/omsagent/<workspace id>/log/*
 

@@ -5,15 +5,15 @@ author: mayurigupta13
 manager: rochakm
 ms.service: site-recovery
 services: site-recovery
-ms.date: 03/07/2019
+ms.date: 03/14/2019
 ms.topic: conceptual
 ms.author: mayg
-ms.openlocfilehash: 9e192c736235fcf8b8b5374787ad94aaf87427bf
-ms.sourcegitcommit: 235cd1c4f003a7f8459b9761a623f000dd9e50ef
+ms.openlocfilehash: 24682156cf0c50ccf69c39f83f59e9b867bbcf0f
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/11/2019
-ms.locfileid: "57727081"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57901853"
 ---
 # <a name="common-questions---vmware-to-azure-replication"></a>Perguntas comuns - VMware para replicação do Azure
 
@@ -39,7 +39,7 @@ Precisa de uma subscrição do Azure, um cofre dos serviços de recuperação, u
 Se for um administrador de subscrição, tem as permissões de replicação que precisa. Se não tiver, precisa de permissões para criar uma VM do Azure no grupo de recursos e especificar quando configurar a recuperação de sites e permissões para escrever na conta de armazenamento selecionada ou geridos com base em disco na sua configuração de rede virtual. [Saiba mais](site-recovery-role-based-linked-access-control.md#permissions-required-to-enable-replication-for-new-virtual-machines).
 
 ### <a name="can-i-use-guest-os-server-license-on-azure"></a>Pode utilizar a licença de servidor do SO convidado no Azure?
-Sim, podem utilizar os clientes do Microsoft Software Assurance [benefício híbrido do Azure](https://azure.microsoft.com/en-in/pricing/hybrid-benefit/) para reduzir os custos de licenciamento **máquinas do Windows Server** que são migradas para o Azure ou utilizar o Azure para recuperação após desastre.
+Sim, podem utilizar os clientes do Microsoft Software Assurance [benefício híbrido do Azure](https://azure.microsoft.com/pricing/hybrid-benefit/) para reduzir os custos de licenciamento **máquinas do Windows Server** que são migradas para o Azure ou utilizar o Azure para recuperação após desastre.
 
 ## <a name="pricing"></a>Preços
 
@@ -50,6 +50,27 @@ Consulte nossas FAQ de licenciamento [aqui](https://aka.ms/asr_pricing_FAQ) para
 ### <a name="how-can-i-calculate-approximate-charges-during-the-use-of-site-recovery"></a>Como calcular custos aproximados durante o uso do Site Recovery?
 
 Pode usar [Calculadora de preços](https://aka.ms/asr_pricing_calculator) de estimar os custos ao utilizar o Azure Site Recovery. Para obter estimativa detalhada nos custos, execute a ferramenta deployment planner (https://aka.ms/siterecovery_deployment_planner) e analisar os [relatório de estimativa de custos](https://aka.ms/asr_DP_costreport).
+
+### <a name="is-there-any-difference-in-cost-when-i-replicate-directly-to-managed-disk"></a>Existe alguma diferença no custo quando faço replicação diretamente para o disco gerido?
+
+Discos geridos são cobrados ligeiramente diferente de contas de armazenamento. Veja o exemplo abaixo para um disco de origem do tamanho de 100 GiB. O exemplo é específico para diferencial custo de armazenamento. Esse custo não inclui o custo de armazenamento de cache, instantâneos e as transações.
+
+* Conta de armazenamento Standard Vs. Disco gerido de HDD padrão
+
+    - **Disco de armazenamento aprovisionado para ASR**: S10
+    - **Conta de armazenamento Standard faturada à consumidos volume**: 5 $ por mês
+    - **Disco gerido Standard cobrado no volume aprovisionado**: 5.89 us $ por mês
+
+* Conta de armazenamento Premium Vs. Premium SSD Managed Disk 
+    - **Disco de armazenamento aprovisionado para ASR**: P10
+    - **Conta de armazenamento Premium é cobrada no volume aprovisionado**: 17.92 us $ por mês
+    - **Disco gerido Premium cobrado no volume aprovisionado**: 17.92 us $ por mês
+
+Obter mais informações sobre [detalhes de preços dos discos geridos](https://azure.microsoft.com/pricing/details/managed-disks/).
+
+### <a name="do-i-incur-additional-charges-for-cache-storage-account-with-managed-disks"></a>Existem custos adicionais para a conta de armazenamento de Cache com discos geridos?
+
+Não, que não incorra em custos adicionais para a cache. A cache sempre é parte do VMware para a arquitetura do Azure. Ao replicar a conta de armazenamento standard, este armazenamento de cache faz parte da mesma conta de armazenamento de destino.
 
 ### <a name="i-have-been-an-azure-site-recovery-user-for-over-a-month-do-i-still-get-the-first-31-days-free-for-every-protected-instance"></a>Sou utilizador do Azure Site Recovery há mais de um mês. Continuo a receber os primeiros 31 dias gratuitos para cada instância protegida?
 
@@ -125,6 +146,14 @@ Sim, o ExpressRoute pode ser utilizado para replicar VMs no Azure. O site Recove
 
 Terá de desativar e ativar a replicação atualizar ou mudar o tipo de conta de armazenamento.
 
+### <a name="can-i-replicate-to-storage-accounts-for-new-machine"></a>Pode replicar para contas de armazenamento para a nova máquina?
+
+Não, a partir do Mar "19, pode replicar para o managed disks no Azure no portal. A replicação para contas de armazenamento para uma nova máquina só está disponível por meio da REST API e Powershell. Utilize a versão 2016 a 08-10 ou 2018-01-10 de API para replicar a contas de armazenamento.
+
+### <a name="what-are-the-benefits-in-replicating-to-managed-disks"></a>Quais são os benefícios no replicar para o managed disks?
+
+Leia o artigo sobre como [do Azure Site Recovery simplifica a recuperação após desastre com discos geridos](https://azure.microsoft.com/blog/simplify-disaster-recovery-with-managed-disks-for-vmware-and-physical-servers/).
+
 ### <a name="how-can-i-change-managed-disk-type-after-machine-is-protected"></a>Como posso alterar o tipo de disco gerido depois do computador está protegido?
 
 Sim, pode facilmente alterar o tipo de disco gerido. [Saiba mais](https://docs.microsoft.com/azure/virtual-machines/windows/convert-disk-storage). No entanto, depois de alterar o tipo de disco gerido, certifique-se de que aguardar que os pontos de recuperação nova seja gerado se precisa testar ativação pós-falha ou ativação pós-falha publicar esta atividade.
@@ -135,7 +164,7 @@ Não, mudar de gerido para não gerenciado não é suportada.
 
 ### <a name="why-cant-i-replicate-over-vpn"></a>Por que não é possível replicar através de VPN?
 
-Ao replicar para o Azure, o tráfego de replicação atinge os pontos finais públicos de um armazenamento do Azure, assim, apenas pode replicar através da internet pública com o ExpressRoute (peering público) e VPN não funciona.
+Ao replicar para o Azure, o tráfego de replicação atinge os pontos finais públicos do armazenamento do Azure, assim, apenas pode replicar através da internet pública com o ExpressRoute (peering público) e VPN não funciona.
 
 ### <a name="what-are-the-replicated-vm-requirements"></a>Quais são os requisitos de VM replicados?
 
@@ -148,10 +177,10 @@ A replicação é contínua ao replicar VMs de VMware para Azure.
 Sim, pode manter o endereço IP na ativação pós-falha. Certifique-se de que mencionou o endereço IP de destino no painel "Computação e rede" antes da ativação pós-falha. Além disso, certifique-se para encerrar as máquinas no momento da ativação pós-falha para evitar conflitos IP no momento da reativação pós-falha.
 
 ### <a name="can-i-extend-replication"></a>Posso expandir a replicação?
-Não é suportada a replicação expandida ou em cadeia. Pedir esta funcionalidade no [fórum de comentários](http://feedback.azure.com/forums/256299-site-recovery/suggestions/6097959).
+Não é suportada a replicação expandida ou em cadeia. Pedir esta funcionalidade no [fórum de comentários](https://feedback.azure.com/forums/256299-site-recovery/suggestions/6097959).
 
 ### <a name="can-i-do-an-offline-initial-replication"></a>Posso fazer uma replicação inicial offline?
-Tal não é suportado. Pedir esta funcionalidade no [fórum de comentários](http://feedback.azure.com/forums/256299-site-recovery/suggestions/6227386-support-for-offline-replication-data-transfer-from).
+Tal não é suportado. Pedir esta funcionalidade no [fórum de comentários](https://feedback.azure.com/forums/256299-site-recovery/suggestions/6227386-support-for-offline-replication-data-transfer-from).
 
 ### <a name="can-i-exclude-disks"></a>Pode excluir discos?
 Sim, pode excluir discos da replicação.
@@ -208,9 +237,11 @@ Ainda que possível, a VM do Azure com o servidor de configuração têm de comu
 Recomendamos que faça cópias de segurança agendadas regulares do servidor de configuração. Para a reativação pós-falha concluída com êxito, a máquina virtual que está a ser realizarão a reativação pós-falha tem de existir na base de dados de servidor de configuração e o servidor de configuração tem de estar em execução e num estado ligado. Pode saber mais sobre tarefas de gestão de servidor de configuração comuns [aqui](vmware-azure-manage-configuration-server.md).
 
 ### <a name="when-im-setting-up-the-configuration-server-can-i-download-and-install-mysql-manually"></a>Quando eu estou configurar o servidor de configuração, posso transferir e instalar manualmente o MySQL?
+
 Sim. Transferir o MySQL e colocá-la a **C:\Temp\ASRSetup** pasta. Em seguida, instale manualmente. Quando configurar a VM do servidor de configuração e aceite os termos, MySQL será listada como **já instalado** na **transfira e instale**.
 
 ### <a name="can-i-avoid-downloading-mysql-but-let-site-recovery-install-it"></a>Pode evitar o download de MySQL mas permitir que o Site Recovery instalá-lo?
+
 Sim. Transferir o instalador do MySQL e colocá-la a **C:\Temp\ASRSetup** pasta.  Ao configurar a VM do servidor de configuração, aceite os termos e clique em **transferir e instalar**, o portal irá utilizar o instalador que adicionou ao instalar o MySQL.
  
 ### <a name="can-i-use-the-configuration-server-vm-for-anything-else"></a>Pode utilizar o servidor de configuração de VM para qualquer outra coisa?

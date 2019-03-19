@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: troubleshooting
 ms.date: 11/27/2018
 ms.author: bsiva
-ms.openlocfilehash: 7deea91a016616d9015004857ad9e5ae70e24111
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 5bbde2f1059982424c2557d6a767692b3491f6aa
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57432877"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58098479"
 ---
 # <a name="monitor-and-troubleshoot-site-recovery"></a>Monitorizar e resolver problemas de recuperação de sites
 
@@ -149,19 +149,19 @@ No dashboard de adição, pode monitorar máquinas na página de máquinas virtu
     ![Recuperação de site replicados a vista de lista de itens](./media/site-recovery-monitor-and-troubleshoot/site-recovery-virtual-machine-list-view.png)
 
 2. Sobre o **itens replicados** página, pode ver e filtrar informações. No menu de ação na parte superior, pode executar ações para uma máquina específica, incluindo a executar uma ativação pós-falha de teste ou ao visualizar os erros específicos.
-3.  Clique em **colunas** para mostrar colunas adicionais como, por exemplo, para mostrar o RPO, destino problemas de configuração e erros de replicação.
+3. Clique em **colunas** para mostrar colunas adicionais como, por exemplo, para mostrar o RPO, destino problemas de configuração e erros de replicação.
 4. Clique em **filtro** para ver informações com base nos parâmetros específicos, como o estado de funcionamento da replicação ou uma política de replicação específico.
 5. Com o botão direito uma máquina para iniciar a operações como a ativação pós-falha de teste para o mesmo ou para ver os detalhes de erro específico associados ao mesmo.
 6. Clique numa máquina para explorar mais detalhes para o mesmo. Os detalhes incluem:
-      - **Informações de replicação**: Estado atual e o estado de funcionamento da máquina.
-      - **RPO** (objetivo de ponto de recuperação): RPO atual para a máquina virtual e a hora em que o RPO pela última vez foi computado.
-      - **Pontos de recuperação**: Pontos de recuperação disponível mais recente para a máquina.
-      - **Preparação de ativação pós-falha**: Indica se uma ativação pós-falha de teste foi executada para a máquina, a versão do agente em execução no computador (para máquinas que executa o serviço de mobilidade) e problemas de configuração.
-      - **Erros**: Lista de sintomas de erro de replicação observada atualmente na máquina e ações/causas possíveis.
-      - **Eventos**: Uma lista cronológica dos eventos recentes que afetem a máquina. Detalhes do erro mostra os sintomas de erro atualmente observable, enquanto os eventos é um registo histórico de problemas que tenham afetado a máquina.
-      - **Vista de infraestrutura**: Mostra o estado da infraestrutura para o cenário de quando as máquinas estão a replicar para o Azure.
+   - **Informações de replicação**: Estado atual e o estado de funcionamento da máquina.
+   - **RPO** (objetivo de ponto de recuperação): RPO atual para a máquina virtual e a hora em que o RPO pela última vez foi computado.
+   - **Pontos de recuperação**: Pontos de recuperação disponível mais recente para a máquina.
+   - **Preparação de ativação pós-falha**: Indica se uma ativação pós-falha de teste foi executada para a máquina, a versão do agente em execução no computador (para máquinas que executa o serviço de mobilidade) e problemas de configuração.
+   - **Erros**: Lista de sintomas de erro de replicação observada atualmente na máquina e ações/causas possíveis.
+   - **Eventos**: Uma lista cronológica dos eventos recentes que afetem a máquina. Detalhes do erro mostra os sintomas de erro atualmente observable, enquanto os eventos é um registo histórico de problemas que tenham afetado a máquina.
+   - **Vista de infraestrutura**: Mostra o estado da infraestrutura para o cenário de quando as máquinas estão a replicar para o Azure.
 
-    ![Recuperação de site replicados item detalhes/descrição geral](./media/site-recovery-monitor-and-troubleshoot/site-recovery-virtual-machine-details.png)
+     ![Recuperação de site replicados item detalhes/descrição geral](./media/site-recovery-monitor-and-troubleshoot/site-recovery-virtual-machine-details.png)
 
 
 ### <a name="common-questions"></a>Perguntas comuns
@@ -191,7 +191,7 @@ Pode subscrever para receber notificações por e-mail para esses eventos críti
 Inscreva-se da seguinte forma:
 
 No cofre > **monitorização e relatórios** secção, clique em **eventos de recuperação de Site**.
-2. Clique em **notificações por E-Mail**.
-3. Na **notificação por E-Mail**, ativar notificações e especificar a quem enviar para. Pode enviar de todos os administradores da subscrição ser enviadas notificações e endereços de e-mail, opcionalmente, específico.
+1. Clique em **notificações por E-Mail**.
+1. Na **notificação por E-Mail**, ativar notificações e especificar a quem enviar para. Pode enviar de todos os administradores da subscrição ser enviadas notificações e endereços de e-mail, opcionalmente, específico.
 
     ![Notificações por e-mail](./media/site-recovery-monitor-and-troubleshoot/email.png)

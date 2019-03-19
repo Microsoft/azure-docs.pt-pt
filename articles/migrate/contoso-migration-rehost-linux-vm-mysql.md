@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 10/10/2018
 ms.author: raynew
-ms.openlocfilehash: 3cac893fcaafd4fe8d35aab2a10da92019d3ed42
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
+ms.openlocfilehash: 114f4ccccaa861928263eb59b4e43379989abcca
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55698974"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58077858"
 ---
 # <a name="contoso-migration-rehost-an-on-premises-linux-app-to-azure-vms-and-azure-mysql"></a>Migração de Contoso: Volte a alojar uma aplicação do Linux no local nas VMs do Azure e no MySQL do Azure
 
@@ -127,7 +127,7 @@ Eis como administradores de Contoso irão concluir a migração:
 > [!div class="checklist"]
 > * **Passo 1: Preparar o Azure para o Site Recovery**: Criação de uma conta de armazenamento do Azure para armazenar dados replicados e criar um cofre dos serviços de recuperação.
 > * **Passo 2: Preparar o VMware no local para o Site Recovery**: Preparar contas para instalação de deteção e o agente da VM e preparar a ligação para as VMs do Azure após a ativação pós-falha.
- * **Passo 3: Aprovisionar a base de dados]**: No Azure, que Aprovisiona uma instância da base de dados MySQL do Azure.
+>   * **Passo 3: Aprovisionar a base de dados]**: No Azure, que Aprovisiona uma instância da base de dados MySQL do Azure.
 > * **Passo 4: Replicar VMs**: Configurar o ambiente de origem e destino de recuperação de Site, configure uma política de replicação e iniciar a replicação de VMs para o armazenamento do Azure.
 > * **Passo 5: Migrar a base de dados**: Se configuraram a migração com ferramentas do MySQL.
 > * **Passo 6: Migrar as VMs com o Site Recovery**: Por último, eles executam uma ativação pós-falha de teste para se certificar de que está tudo a funcionar e, em seguida, execute uma ativação pós-falha completa para migrar as VMs para o Azure.
@@ -147,10 +147,10 @@ Os administradores de Contoso criar uma conta de armazenamento e cofre da seguin
 
 1. Eles criam uma conta de armazenamento (**contosovmsacc20180528**) na região E.U.A. Leste 2.
 
-    - A conta de armazenamento tem de estar na mesma região que o cofre dos Serviços de Recuperação.
-    - Se utilizarem uma conta de fins gerais, com o armazenamento standard e replicação LRS.
+   - A conta de armazenamento tem de estar na mesma região que o cofre dos Serviços de Recuperação.
+   - Se utilizarem uma conta de fins gerais, com o armazenamento standard e replicação LRS.
 
-    ![Armazenamento de recuperação de site](./media/contoso-migration-rehost-linux-vm-mysql/asr-storage.png)
+     ![Armazenamento de recuperação de site](./media/contoso-migration-rehost-linux-vm-mysql/asr-storage.png)
 
 3. Com a conta de armazenamento e de rede no local, que criar um cofre (ContosoMigrationVault) e colocá-la a **ContosoFailoverRG** grupo de recursos na região E.U.A. Leste 2 primária.
 

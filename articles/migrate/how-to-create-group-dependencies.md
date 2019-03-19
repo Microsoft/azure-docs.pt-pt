@@ -6,12 +6,12 @@ ms.service: azure-migrate
 ms.topic: article
 ms.date: 12/05/2018
 ms.author: raynew
-ms.openlocfilehash: 5d0b53590e901cfa1686a71c3f0dda7fb771b56b
-ms.sourcegitcommit: f7f4b83996640d6fa35aea889dbf9073ba4422f0
+ms.openlocfilehash: a3c0e94e213b861714bfc5f38e20e4d9a1de3a19
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56990310"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58107921"
 ---
 # <a name="refine-a-group-using-group-dependency-mapping"></a>Refinar um grupo com o mapeamento de grupo de dependência
 
@@ -94,18 +94,18 @@ Depois de instalar agentes em todas as máquinas do grupo, pode visualizar as de
 1. O Azure Migrate em projeto, **Manage**, clique em **grupos**e selecione o grupo.
 2. Na página de grupo, clique em **ver dependências**, para abrir o mapa de dependências de grupo.
 3. O mapa de dependência para o grupo mostra os seguintes detalhes:
-    - Entrada (clientes) e as ligações de saída (servidores) TCP de/para todas as máquinas que fazem parte do grupo
-        - As máquinas dependentes que não têm o agente MMA e de dependência instalado são agrupadas por números de porta
-        - As máquinas dependentes que têm o MMA e instalado o agente de dependência são apresentadas como caixas separadas
-    - Processos em execução no interior da máquina, pode expandir cada caixa de máquina para ver os processos
-    - Propriedades como nome de domínio completamente qualificado, sistema operativo, etc. do endereço MAC de cada máquina, pode clicar em cada caixa de máquina para ver estes detalhes
+   - Entrada (clientes) e as ligações de saída (servidores) TCP de/para todas as máquinas que fazem parte do grupo
+       - As máquinas dependentes que não têm o agente MMA e de dependência instalado são agrupadas por números de porta
+       - As máquinas dependentes que têm o MMA e instalado o agente de dependência são apresentadas como caixas separadas
+   - Processos em execução no interior da máquina, pode expandir cada caixa de máquina para ver os processos
+   - Propriedades como nome de domínio completamente qualificado, sistema operativo, etc. do endereço MAC de cada máquina, pode clicar em cada caixa de máquina para ver estes detalhes
 
      ![Ver dependências de grupo](./media/how-to-create-group-dependencies/view-group-dependencies.png)
 
 3. Para ver dependências mais granulares, clique no intervalo de tempo de modificá-lo. Por predefinição, o intervalo é uma hora. Pode modificar o intervalo de tempo ou especificar o início e datas de término e duração.
 
-    > [!NOTE]
-      Atualmente, a visualização de dependência da interface do Usuário não suporta a seleção de um intervalo de tempo mais de uma hora. Utilização do Azure Monitor regista [consultar os dados de dependência](https://docs.microsoft.com/azure/migrate/how-to-create-a-group) ao longo de um período mais longo.
+   > [!NOTE]
+   >    Atualmente, a visualização de dependência da interface do Usuário não suporta a seleção de um intervalo de tempo mais de uma hora. Utilização do Azure Monitor regista [consultar os dados de dependência](https://docs.microsoft.com/azure/migrate/how-to-create-a-group) ao longo de um período mais longo.
 
 4. Verifique se as máquinas dependentes, o processo em execução dentro de cada máquina e identificar as máquinas que devem ser adicionadas ou removidas do grupo.
 5. Utilize Ctrl + clique para selecionar máquinas no mapa para adicionar ou removê-los do grupo.

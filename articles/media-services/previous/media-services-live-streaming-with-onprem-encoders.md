@@ -12,16 +12,16 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 02/10/2019
+ms.date: 03/18/2019
 ms.author: cenkd;juliako
-ms.openlocfilehash: 7fa2dad124b5ef9e93402d6d4c03d956b00184af
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: da20e4601b75bcb22546d21f6ad218ac9ba2728b
+ms.sourcegitcommit: f331186a967d21c302a128299f60402e89035a8d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57442381"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58188361"
 ---
-# <a name="live-streaming-with-on-premises-encoders-that-create-multi-bitrate-streams"></a>A transmissão em fluxo em direto com codificadores no local que criam transmissões em fluxo
+# <a name="working-with-channels-that-receive-multi-bitrate-live-stream-from-on-premises-encoders"></a>Trabalhar com canais que recebem transmissões com velocidade de transmissão em fluxo em direto a partir de codificadores no local
 
 > [!NOTE]
 > A partir de 12 de Maio de 2018, os canais em direto será já não suporte o fluxo de transporte RTP/MPEG-2 protocolo de ingestão. Migre de RTP/MPEG-2 para RTMP ou MP4 fragmentado (Smooth Streaming) protocolos de ingestão.
@@ -146,7 +146,7 @@ Canais de fornecem um ponto de extremidade pré-visualização (URL de pré-visu
 
 Pode obter o URL de pré-visualização ao criar o canal. Para poder obter o URL, o canal não tem de estar no **em execução** estado. Depois do canal de inicia a ingestão de dados, pode visualizar a sua transmissão em fluxo.
 
-Atualmente, o fluxo de pré-visualização pode ser entregues apenas num MP4 fragmentado (Smooth Streaming) formato, independentemente do tipo de entrada especificado. Pode utilizar o [Monitor de estado de funcionamento de transmissão em fluxo uniforme](http://playready.directtaps.net/smoothstreaming/) player para testar a transmissão em fluxo uniforme. Também pode usar um leitor de que está alojado no portal do Azure para ver a sua transmissão em fluxo.
+Atualmente, o fluxo de pré-visualização pode ser entregues apenas num MP4 fragmentado (Smooth Streaming) formato, independentemente do tipo de entrada especificado. Pode utilizar o [Monitor de estado de funcionamento de transmissão em fluxo uniforme](https://playready.directtaps.net/smoothstreaming/) player para testar a transmissão em fluxo uniforme. Também pode usar um leitor de que está alojado no portal do Azure para ver a sua transmissão em fluxo.
 
 #### <a name="allowed-ip-addresses"></a>Endereços IP permitidos
 Pode definir os endereços IP que estão autorizados a ligar para o ponto final de pré-visualização. Se forem especificados não existem endereços IP, qualquer endereço IP é permitido. Um endereço IP permitido pode ser especificado como um dos seguintes:
@@ -185,7 +185,7 @@ Os valores possíveis para o estado atual de um canal incluem:
 A tabela seguinte mostra como os estados de um canal mapeiam para o modo de faturação.
 
 | Estado do canal | Indicadores IU do portal | Foi cobrado? |
-| --- | --- | --- | --- |
+| --- | --- | --- |
 | **A partir de** |**A partir de** |Não (estado transitório) |
 | **Em execução** |**Pronto** (nenhum programa em execução)<p><p>ou<p>**Transmissão em fluxo** (pelo menos um programa em execução) |Sim |
 | **A parar** |**A parar** |Não (estado transitório) |

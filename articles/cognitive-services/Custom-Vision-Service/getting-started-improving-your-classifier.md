@@ -10,12 +10,12 @@ ms.subservice: custom-vision
 ms.topic: conceptual
 ms.date: 02/08/2019
 ms.author: pafarley
-ms.openlocfilehash: 6e97001497ebdddebe9b5b726e0526a987b6c63c
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: f96b4bb75a22e51586820a2e7be08c09cf7b26dd
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56873326"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58104425"
 ---
 # <a name="how-to-improve-your-classifier"></a>Como melhorar o seu classificador
 
@@ -102,4 +102,4 @@ Para inspecionar as previsões de imagem, vá para o __imagens de formação__ s
 Neste guia, aprendeu várias técnicas para tornar o seu modelo de classificação de imagem personalizada mais precisas. Em seguida, saiba como testar imagens por meio de programação ao submetê-los para a API de predição.
 
 > [!div class="nextstepaction"]
-[Utilizar a API de predição](use-prediction-api.md)
+> [Utilizar a API de predição](use-prediction-api.md)

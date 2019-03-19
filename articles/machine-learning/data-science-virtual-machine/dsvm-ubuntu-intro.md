@@ -16,25 +16,25 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/16/2018
-ms.openlocfilehash: 206e50107e52d631cb33b7cb8dcc03474dd27e64
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 92f9fcc8a10f90c0886667f33f3c7d4dec09bc8e
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57456419"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57884681"
 ---
 # <a name="provision-the-data-science-virtual-machine-for-linux-ubuntu"></a>Aprovisionar a máquina de Virtual de ciência de dados para Linux (Ubuntu)
 
 A máquina de Virtual de ciência de dados para Linux é uma imagem de máquina virtual baseada em Ubuntu que torna mais fácil começar a utilizar com o machine learning, incluindo a aprendizagem profunda, no Azure. Ferramentas de aprendizagem profunda incluem:
 
-  * [Caffe](http://caffe.berkeleyvision.org/): Uma estrutura de aprendizagem profunda criada para a velocidade, a expressividade e a modularidade
+  * [Caffe](https://caffe.berkeleyvision.org/): Uma estrutura de aprendizagem profunda criada para a velocidade, a expressividade e a modularidade
   * [Caffe2](https://github.com/caffe2/caffe2): Uma versão de plataforma cruzada do Caffe
   * [Microsoft Cognitive Toolkit](https://github.com/Microsoft/CNTK): Uma Kit de ferramentas de software da Microsoft Research de aprendizagem profunda
   * [H2O](https://www.h2o.ai/): Uma plataforma de macrodados de código-fonte aberto e uma interface gráfica do usuário
   * [Keras](https://keras.io/): Uma rede neural alto nível API em Python para o TensorFlow, Cognitive Toolkit da Microsoft e Theano
-  * [MXNet](http://mxnet.io/): Uma biblioteca de aprendizagem profunda, flexível e eficiente com muitas associações de idioma
+  * [MXNet](https://mxnet.io/): Uma biblioteca de aprendizagem profunda, flexível e eficiente com muitas associações de idioma
   * [NVIDIA DÍGITOS](https://developer.nvidia.com/digits): Um sistema gráfico que simplifica tarefas comuns de aprendizagem profunda
-  * [PyTorch](http://pytorch.org/): Uma biblioteca de Python de alto nível com suporte para redes dinâmicos
+  * [PyTorch](https://pytorch.org/): Uma biblioteca de Python de alto nível com suporte para redes dinâmicos
   * [TensorFlow](https://www.tensorflow.org/): Uma biblioteca de código-fonte aberto para a inteligência da máquina do Google
   * [Theano](http://deeplearning.net/software/theano/): Uma biblioteca de Python para definir, otimizar e avaliar com eficiência matemáticas expressões que envolvem matrizes multidimensionais
   * [Maçarico](http://torch.ch/): Uma estrutura de computação científica, com amplo suporte para algoritmos de machine learning
@@ -120,7 +120,7 @@ Pode acessar a DSVM em Ubuntu com três métodos:
 
 ### <a name="ssh"></a>SSH
 
-Depois da VM é criada, pode iniciar sessão na mesma ao utilizar SSH. Utilize as credenciais da conta que criou no **Noções básicas** secção do passo 3 para a interface do shell de texto. No Windows, pode transferir uma ferramenta de cliente SSH, como o [Putty](http://www.putty.org). Se preferir um ambiente de trabalho gráfico (sistema de Windows X), pode utilizar o Putty de reencaminhamento de X11 ou instalar o cliente de X2Go.
+Depois da VM é criada, pode iniciar sessão na mesma ao utilizar SSH. Utilize as credenciais da conta que criou no **Noções básicas** secção do passo 3 para a interface do shell de texto. No Windows, pode transferir uma ferramenta de cliente SSH, como o [Putty](https://www.putty.org). Se preferir um ambiente de trabalho gráfico (sistema de Windows X), pode utilizar o Putty de reencaminhamento de X11 ou instalar o cliente de X2Go.
 
 > [!NOTE]
 > O cliente de X2Go executada melhor do que em testes de reencaminhamento de X11. Recomendamos que utilize o cliente de X2Go para uma interface gráfica de área de trabalho.
@@ -130,7 +130,7 @@ Depois da VM é criada, pode iniciar sessão na mesma ao utilizar SSH. Utilize a
 ### <a name="x2go"></a>X2Go
 A VM do Linux já está a ser aprovisionado com o servidor de X2Go e pronto para aceitar ligações de cliente. Para ligar-se na área de trabalho de gráfico de VM do Linux, execute o seguinte procedimento no cliente:
 
-1. Transferir e instalar o cliente de X2Go para a sua plataforma de cliente do [X2Go](http://wiki.x2go.org/doku.php/doc:installation:x2goclient).    
+1. Transferir e instalar o cliente de X2Go para a sua plataforma de cliente do [X2Go](https://wiki.x2go.org/doku.php/doc:installation:x2goclient).    
 1. Executar o cliente de X2Go e selecione **nova sessão**. Ele abre uma janela de configuração com vários separadores. Introduza os seguintes parâmetros de configuração:
    * **Separador de sessão**:
      * **Host**: O nome de anfitrião ou endereço IP da sua VM de ciência de dados do Linux.
@@ -205,7 +205,7 @@ R é uma das linguagens mais populares para análise de dados e o machine learni
 
 Para iniciar R da consola, basta digitar **R** no shell. Isto leva-o para um ambiente interativo. Para desenvolver o seu programa de R, normalmente, utilize um editor como Emacs ou vi e, em seguida, execute os scripts do R. Com o r Studio, tem um ambiente de IDE gráfico completas para desenvolver o seu programa de R.
 
-Também existe um script R para a instalação a [pacotes de R de 20 principais](http://www.kdnuggets.com/2015/06/top-20-r-packages.html) se desejar. Este script pode ser executado depois de se na interface interativa R, que pode ser introduzida (conforme mencionado), escrevendo **R** no shell.  
+Também existe um script R para a instalação a [pacotes de R de 20 principais](https://www.kdnuggets.com/2015/06/top-20-r-packages.html) se desejar. Este script pode ser executado depois de se na interface interativa R, que pode ser introduzida (conforme mencionado), escrevendo **R** no shell.  
 
 ### <a name="python"></a>Python
 Anaconda Python está instalado com o Python 2.7 e 3,5 ambientes. Denomina-se o ambiente de 2,7 _raiz_, e o ambiente de 3,5 é chamado _py35_. Essa distribuição contém o Python base juntamente com aproximadamente 300 dos pacotes de análises de dados, engenharia e matemática mais populares. 
@@ -276,7 +276,7 @@ Antes de executar no contexto do Spark no Microsoft R Server, terá de realizar 
 ### <a name="ides-and-editors"></a>IDEs e editores
 Tem uma opção de vários editores de códigos. Isto inclui vi/VIM, Emacs, PyCharm, RStudio e IntelliJ. IntelliJ, RStudio PyCharm são editores gráficas e tem de ser iniciada para uma área de trabalho gráfica para utilizá-los. Esses editores tem o ambiente de trabalho e a aplicação atalhos no menu para iniciá-los.
 
-**VIM** e **Emacs** são editores baseados em texto. No Emacs, podemos ter instalado um pacote adicional chamado Emacs participa como Palestrante estatísticas (eitos de acesso) que facilita o trabalho com R no editor de Emacs. Obter mais informações podem ser encontradas em [IMIR](http://ess.r-project.org/).
+**VIM** e **Emacs** são editores baseados em texto. No Emacs, podemos ter instalado um pacote adicional chamado Emacs participa como Palestrante estatísticas (eitos de acesso) que facilita o trabalho com R no editor de Emacs. Obter mais informações podem ser encontradas em [IMIR](https://ess.r-project.org/).
 
 **LaTex** é instalado através do pacote de texlive juntamente com um suplemento de Emacs [auctex](https://www.gnu.org/software/auctex/manual/auctex/auctex.html) pacote, que simplifica a criação de seus documentos LaTex dentro de Emacs.  
 

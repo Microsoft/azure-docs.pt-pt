@@ -10,12 +10,12 @@ ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 09/19/2018
 ms.author: kakampf
-ms.openlocfilehash: 7da765bda815e9112dac809d259fd417dc4d866e
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
+ms.openlocfilehash: 4b305087c0c755254d72811fb9275c509343c87e
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55981099"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57878402"
 ---
 # <a name="what-are-the-apache-hadoop-components-and-versions-available-with-hdinsight"></a>Quais são os componentes do Apache Hadoop e versões disponíveis com o HDInsight?
 
@@ -50,11 +50,14 @@ As versões de componente associadas a versões de cluster do HDInsight estão l
 | Apache Phoenix |5 |4.7.0 |4.7.0 |4.4.0 |4.4.0 |4.2.0 |4.0.0.2.1.7.0-2162 |-|
 | Apache Spark |2.3.1 |2.3.0, 2.2.0, 2.1.0 |1.6.2, 2.0 |1.6.0 |1.5.2 |1.3.1 (apenas Windows) |-|-|
 | Apache Livy |0,5 |0.4 |0.3 |0.3 |0.2 |-|-|-|
-| Apache Kafka | 1.1 |1.1, 1.0, 0.10.1 | 0.10.0 | 0.9.0 |-|-|-|-|
+| Apache Kafka | 1.1 |1.1, 1.0 * (ver nota abaixo) | 0.10.0 | 0.9.0 |-|-|-|-|
 | Apache Ambari | 2.7.0 |2.6.0 | 2.4.0 | 2.2.1 | 2.1.0 |-|-|-|
 | Apache Zeppelin | 0.8.0 |0.7.0 |-|-|-|-|-|-|
 | Mono |4.2.1 |4.2.1 |4.2.1 |3.2.8 |-|-|-|
 | Controlo de deslize do Apache |-| 0.92.0 |-|-|-|-|-|-|
+
+> [!NOTE]
+> Devido a considerações de desempenho do sistema, o suporte para o Kafka versão 0.10 expirou em Março de 2019.
 
 ## <a name="check-for-current-hadoop-component-version-information"></a>Verifique a existência de informações de versão do componente de Hadoop atuais
 
@@ -122,12 +125,12 @@ Segurança empresarial é um pacote opcional que pode adicionar no seu cluster d
 
 - Autorização para dados
 
-    - Integração com o Apache Ranger para autorização para Hive, o Spark SQL e o Yarn filas.
-    - Pode definir o controlo de acesso em ficheiros e pastas.
+  - Integração com o Apache Ranger para autorização para Hive, o Spark SQL e o Yarn filas.
+  - Pode definir o controlo de acesso em ficheiros e pastas.
 
     Para obter mais informações, consulte:
 
-    - [Configurar políticas de Apache Hive no HDInsight associado a um domínio](./domain-joined/apache-domain-joined-run-hive.md)
+  - [Configurar políticas de Apache Hive no HDInsight associado a um domínio](./domain-joined/apache-domain-joined-run-hive.md)
 
 - Ver os registos de auditoria para acessos de monitor e as políticas configuradas. 
 

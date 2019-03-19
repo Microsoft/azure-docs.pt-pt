@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 07/08/2017
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 301199667d2307bc81da7ef42f3e4f7daa750ee2
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 0c99bc4ef23ee2d8f4478bbaab591e7b36c7ea75
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56199709"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58109836"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-rightscale"></a>Tutorial: Integração do Active Directory do Azure com Rightscale
 
@@ -132,7 +132,7 @@ Nesta secção, pode ativar o Azure AD início de sessão único no portal do Az
 1. Sobre o **Rightscale configuração** secção, clique em **configurar Rightscale** para abrir **configurar início de sessão** janela. Cópia a **ID de entidade de SAML e SAML único início de sessão no URL do serviço** partir o **secção de referência rápida.**
 
     ![Configurar o início de sessão único](./media/rightscale-tutorial/tutorial_rightscale_configure.png) 
-<CS>
+   <CS>
 1. Para obter SSO configurado para a sua aplicação, terá de iniciar sessão com o seu inquilino RightScale como administrador.
 
     a. No menu na parte superior, clique nas **configurações** separador e selecione **Single Sign-On**.
@@ -164,10 +164,10 @@ Nesta secção, pode ativar o Azure AD início de sessão único no portal do Az
     ![Configurar o início de sessão único](./media/rightscale-tutorial/tutorial_rightscale_009.png)
 
     h. Clique em **Guardar**.
-<CE>
-> [!TIP]
-> Agora pode ler uma versão concisa destas instruções dentro do [portal do Azure](https://portal.azure.com), enquanto estiver a configurar a aplicação!  Depois de adicionar esta aplicação a partir da **do Active Directory > aplicações empresariais** secção, basta clicar o **Single Sign-On** separador e a documentação do embedded através de acesso a  **Configuração** seção na parte inferior. Pode ler mais sobre a funcionalidade de documentação do embedded aqui: [Documentação do Azure AD incorporado]( https://go.microsoft.com/fwlink/?linkid=845985)
-> 
+   <CE>
+   > [!TIP]
+   > Agora pode ler uma versão concisa destas instruções dentro do [portal do Azure](https://portal.azure.com), enquanto estiver a configurar a aplicação!  Depois de adicionar esta aplicação a partir da **do Active Directory > aplicações empresariais** secção, basta clicar o **Single Sign-On** separador e a documentação do embedded através de acesso a  **Configuração** seção na parte inferior. Pode ler mais sobre a funcionalidade de documentação do embedded aqui: [Documentação do Azure AD incorporado]( https://go.microsoft.com/fwlink/?linkid=845985)
+   > 
 
 ### <a name="creating-an-azure-ad-test-user"></a>Criar um utilizador de teste do Azure AD
 O objetivo desta secção é criar um utilizador de teste no portal do Azure chamado Eduarda Almeida.

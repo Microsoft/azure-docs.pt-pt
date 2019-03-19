@@ -10,12 +10,12 @@ ms.subservice: url-preview
 ms.topic: reference
 ms.date: 03/29/2018
 ms.author: rosh
-ms.openlocfilehash: da23d8037f37174826a2b9662c39bb507367a6ae
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 69db722295c9c81d45913bd078fe9cc5ab74c512
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57537818"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58104714"
 ---
 # <a name="project-url-preview-v7-reference"></a>Referência de v7 pré-visualização do URL do projeto
 
@@ -56,7 +56,7 @@ Para obter informações sobre o uso permitido e a exibição de resultados, con
 > Alguns cabeçalhos de pedido com significado para outras APIs de pesquisa não afetam a pré-visualização do URL
 > - Pragma – o chamador não tem controlo sobre se o URL de visualização utiliza a cache
 > - Agente do utilizador – por enquanto, Url da API de pré-visualização não fornece respostas diferentes para chamadas procedentes da PC, Laptop ou móveis.
-
+> 
 > Além disso, alguns parâmetros não são atualmente significativos para a API de pré-visualização do URL, mas podem ser utilizados no futuro para a globalização melhorada.
 
 ## <a name="headers"></a>Cabeçalhos
@@ -83,7 +83,7 @@ O pedido pode incluir os seguintes parâmetros de consulta. Consulte a coluna ne
 ## <a name="response-objects"></a>Objetos de resposta
 O esquema de resposta é qualquer um de uma [página Web] ou byl vrácen Prvek, tal como a API de pesquisa na Web. Se o pedido falhar, o objeto de nível superior é o [byl vrácen Prvek](#errorresponse) objeto.
 
-|Objeto|Descrição|
+|Object|Descrição|
 |------------|-----------------|
 |[WebPage](#webpage)|Principal ao nível objeto JSON que contém os atributos de pré-visualização.|
 
@@ -112,16 +112,16 @@ Define as informações sobre uma página da Web em pré-visualização.
 
 |Name|Value|Type|
 |----------|-----------|----------|
-|name|O título da página, não necessariamente o título do HTML|String|
+|nome|O título da página, não necessariamente o título do HTML|String|
 |url|O URL que, na verdade, foi pesquisado (pedido pode seguiu redirecionamentos)|String|
 |descrição|Breve descrição da página e conteúdo|String|
-|isFamilyFriendly|Mais precisos para itens no índice web; buscas em tempo real fazer esta deteção com base apenas no URL e não o conteúdo da página|booleano|
+|isFamilyFriendly|Mais precisos para itens no índice web; buscas em tempo real fazer esta deteção com base apenas no URL e não o conteúdo da página|boolean|
 |primaryImageOfPage/contentUrl|O URL para uma imagem representativo para incluir na pré-visualização|String|
 
 ### <a name="identifiable"></a>Identificação
 |Name|Value|Type|
 |-------------|-----------------|----------|
-|id|Um identificador de recurso|String|
+|ID|Um identificador de recurso|String|
 
 ## <a name="error-codes"></a>Códigos de erro
 

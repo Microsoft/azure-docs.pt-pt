@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/26/2019
 ms.author: vinigam
-ms.openlocfilehash: b46a89e331c63aadc76b856b56b7b40bbc626193
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 922e01c26a2cfe24c8b8a32bb8037d9b3b3384c6
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57453070"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58109125"
 ---
 # <a name="schema-and-data-aggregation-in-traffic-analytics"></a>Agregação de esquema e os dados na análise de tráfego
 
@@ -61,7 +61,7 @@ Abaixo encontram-se os campos no esquema e o que eles significar
 | DestIP_s | Endereço IP de destino | Estará em branco em caso de AzurePublic e ExternalPublic fluxos |
 | VMIP_s | IP da VM | Utilizado para os fluxos AzurePublic e ExternalPublic |
 | PublicIP_S | Endereços IP públicos | Utilizado para os fluxos AzurePublic e ExternalPublic |
-| DestPort_d | |Porta de destino| Porta em que o tráfego é recebido | 
+| DestPort_d | Porta de destino | Porta em que o tráfego é recebido | 
 | L4Protocol_s  | * T <br> * U  | Protocolo de transporte. T = TCP <br> U = UDP | 
 | L7Protocol_s  | Nome de protocolo | Derivado de porta de destino |
 | FlowDirection_s | * Posso = de entrada<br> * S = saída | Direção do fluxo de entrada/fora do NSG de acordo com o registo de fluxo | 
@@ -111,16 +111,16 @@ Abaixo encontram-se os campos no esquema e o que eles significar
 ### <a name="notes"></a>Notas
     
 1. Em caso de fluxos AzurePublic e ExternalPublic, o cliente propriedade que IP da VM do Azure é preenchida no campo de VMIP_s, enquanto os endereços IP públicos estão a ser preenchidos no campo PublicIPs_s. Para estes tipos de fluxo de dois, devemos usar VMIP_s e PublicIPs_s em vez de campos SrcIP_s e DestIP_s. Para endereços AzurePublic e ExternalPublicIP, podemos agregar ainda mais, para que o número de registos ingeridos a área de trabalho de análise de registo de cliente é mínimo. (Este campo vai ser preterido em breve e deve estar a utilizar SrcIP_ e DestIP_s dependendo se a VM do azure foi a origem ou o destino no fluxo) 
-2. Detalhes para tipos de fluxo: Com base nos endereços IP envolvidos no fluxo, vamos categorizar os fluxos para os seguintes tipos de fluxo: 
-* IntraVNet – os endereços IP no fluxo residirem na mesma rede Virtual do Azure. 
-* Inter-Vnet - endereços IP no fluxo de residir na duas diferentes redes virtuais do Azure. 
-* S2S – (Site a Site) de um dos endereços IP pertence a rede Virtual do Azure enquanto o outro endereço IP pertence a rede de cliente (Site), ligado à rede Virtual do Azure através do gateway VPN ou Expressroute. 
-* P2S - (ponto a Site) um dos endereços IP pertence a rede Virtual do Azure enquanto o outro endereço IP pertence a rede de cliente (Site) ligado à rede Virtual do Azure através do gateway VPN.
-* AzurePublic - um dos endereços IP pertence a rede Virtual do Azure enquanto o outro endereço IP pertence a endereços IP públicos interno do Azure pertencentes à Microsoft. Cliente pertence a endereços IP públicos não serão parte deste tipo de fluxo. Por exemplo, todos os clientes de dispositivos VM enviar o tráfego para um serviço do Azure (ponto final de armazenamento) poderia ser categorizada sob este tipo de fluxo. 
-* ExternalPublic - um dos endereços IP pertence a rede Virtual do Azure enquanto o outro endereço IP é um IP público que não se encontra no Azure, não é reportada como malicioso em feeds o ASC que consome de análise de tráfego para o intervalo de processamento entre " FlowIntervalStartTime_t"e"FlowIntervalEndTime_t". 
-* MaliciousFlow - um dos endereços IP pertencem à rede virtual do azure enquanto o outro endereço IP é um IP público que não se encontra no Azure e é comunicado como malicioso em feeds o ASC que consome de análise de tráfego para o intervalo de processamento entre" FlowIntervalStartTime_t"e"FlowIntervalEndTime_t". 
-* UnknownPrivate - um dos endereços IP pertence à rede Virtual do Azure enquanto o outro endereço IP pertence ao intervalo de IP privados, conforme definido na RFC 1918 e não foi possível mapear pela análise de tráfego para um cliente propriedade site ou a rede Virtual do Azure.
-* Desconhecido – não é possível mapear a qualquer um dos endereços IP nos fluxos com a topologia de cliente no Azure, bem como no local (site).
+1. Detalhes para tipos de fluxo: Com base nos endereços IP envolvidos no fluxo, vamos categorizar os fluxos para os seguintes tipos de fluxo: 
+1. IntraVNet – os endereços IP no fluxo residirem na mesma rede Virtual do Azure. 
+1. Inter-Vnet - endereços IP no fluxo de residir na duas diferentes redes virtuais do Azure. 
+1. S2S – (Site a Site) de um dos endereços IP pertence a rede Virtual do Azure enquanto o outro endereço IP pertence a rede de cliente (Site), ligado à rede Virtual do Azure através do gateway VPN ou Expressroute. 
+1. P2S - (ponto a Site) um dos endereços IP pertence a rede Virtual do Azure enquanto o outro endereço IP pertence a rede de cliente (Site) ligado à rede Virtual do Azure através do gateway VPN.
+1. AzurePublic - um dos endereços IP pertence a rede Virtual do Azure enquanto o outro endereço IP pertence a endereços IP públicos interno do Azure pertencentes à Microsoft. Cliente pertence a endereços IP públicos não serão parte deste tipo de fluxo. Por exemplo, todos os clientes de dispositivos VM enviar o tráfego para um serviço do Azure (ponto final de armazenamento) poderia ser categorizada sob este tipo de fluxo. 
+1. ExternalPublic - um dos endereços IP pertence a rede Virtual do Azure enquanto o outro endereço IP é um IP público que não se encontra no Azure, não é reportada como malicioso em feeds o ASC que consome de análise de tráfego para o intervalo de processamento entre " FlowIntervalStartTime_t"e"FlowIntervalEndTime_t". 
+1. MaliciousFlow - um dos endereços IP pertencem à rede virtual do azure enquanto o outro endereço IP é um IP público que não se encontra no Azure e é comunicado como malicioso em feeds o ASC que consome de análise de tráfego para o intervalo de processamento entre" FlowIntervalStartTime_t"e"FlowIntervalEndTime_t". 
+1. UnknownPrivate - um dos endereços IP pertence à rede Virtual do Azure enquanto o outro endereço IP pertence ao intervalo de IP privados, conforme definido na RFC 1918 e não foi possível mapear pela análise de tráfego para um cliente propriedade site ou a rede Virtual do Azure.
+1. Desconhecido – não é possível mapear a qualquer um dos endereços IP nos fluxos com a topologia de cliente no Azure, bem como no local (site).
 
 ### <a name="next-steps"></a>Próximos Passos
 Para obter respostas às perguntas mais frequentes, consulte [FAQ da análise de tráfego](traffic-analytics-faq.md) para ver detalhes sobre a funcionalidade, consulte [documentação da análise de tráfego](traffic-analytics.md)

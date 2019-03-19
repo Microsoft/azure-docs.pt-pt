@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: 3e9572906a18698c9798a01a782948606112440a
-ms.sourcegitcommit: 89b5e63945d0c325c1bf9e70ba3d9be6888da681
+ms.openlocfilehash: f04041234bbb7197e276a65b011d16bb15cee90e
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/08/2019
-ms.locfileid: "57588895"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58099506"
 ---
 # <a name="search-nearby-points-of-interest-using-azure-maps"></a>Procurar pontos de interesse nas proximidades com o Azure Maps
 
@@ -162,7 +162,7 @@ A API de Controlo de Mapas é uma biblioteca de cliente prática que lhe permite
    });
    ```
 
-  Este segmento de código, que um evento de carregamento é adicionado ao mapa, que serão acionados quando os recursos de mapa tenham sido totalmente carregados. No processador de eventos de carregamento do mapa, é criada uma origem de dados para armazenar os dados de resultado. É criada e anexada uma camada de símbolo à origem de dados. Esta camada especifica como os dados de resultado na origem de dados devem ser compostos, neste caso com um ícone de pino redondo azul escuro centrado sobre a coordenada de resultados e que permite que outros ícones se sobreponham. A camada de resultado é adicionada para as camadas de mapa.
+   Este segmento de código, que um evento de carregamento é adicionado ao mapa, que serão acionados quando os recursos de mapa tenham sido totalmente carregados. No processador de eventos de carregamento do mapa, é criada uma origem de dados para armazenar os dados de resultado. É criada e anexada uma camada de símbolo à origem de dados. Esta camada especifica como os dados de resultado na origem de dados devem ser compostos, neste caso com um ícone de pino redondo azul escuro centrado sobre a coordenada de resultados e que permite que outros ícones se sobreponham. A camada de resultado é adicionada para as camadas de mapa.
 
 <a id="usesearch"></a>
 

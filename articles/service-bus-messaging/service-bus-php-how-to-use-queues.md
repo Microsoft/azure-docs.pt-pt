@@ -14,12 +14,12 @@ ms.devlang: PHP
 ms.topic: article
 ms.date: 09/10/2018
 ms.author: aschhab
-ms.openlocfilehash: 996fcbe350f14bb22b8927d9d19f63636b1d7894
-ms.sourcegitcommit: 7723b13601429fe8ce101395b7e47831043b970b
+ms.openlocfilehash: 9915392f7bb12b31dce6e141383a48b69c6f70a9
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56585514"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57842775"
 ---
 # <a name="how-to-use-service-bus-queues-with-php"></a>Como utilizar filas do Service Bus com PHP
 [!INCLUDE [service-bus-selector-queues](../../includes/service-bus-selector-queues.md)]
@@ -34,7 +34,7 @@ Este guia mostra-lhe como utilizar as filas do Service Bus. Os exemplos são esc
 O único requisito para criar uma aplicação PHP que acede ao serviço de Blobs do Azure é a referência de classes no [Azure SDK para PHP](../php-download-sdk.md) de dentro de seu código. Pode utilizar quaisquer ferramentas de desenvolvimento para criar a sua aplicação ou o bloco de notas.
 
 > [!NOTE]
-> A instalação do PHP também tem de ter o [extensão de OpenSSL](http://php.net/openssl) instalado e ativado.
+> A instalação do PHP também tem de ter o [extensão de OpenSSL](https://php.net/openssl) instalado e ativado.
 > 
 > 
 
@@ -225,6 +225,6 @@ Para obter mais informações, visite também os [Centro de programadores PHP](h
 
 [BrokeredMessage]: /dotnet/api/microsoft.servicebus.messaging.brokeredmessage
 [Queues, topics, and subscriptions]: service-bus-queues-topics-subscriptions.md
-[require_once]: http://php.net/require_once
+[require_once]: https://php.net/require_once
 
 

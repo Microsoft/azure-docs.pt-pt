@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 10/17/2018
 ms.author: celested
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d2275d1ef3534e6d8e984595a816315b7b74a760
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: db9ac671b616e2b5af59c033d08768c9e572876f
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57439847"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58105374"
 ---
 # <a name="how-to-remove-a-users-access-to-an-application"></a>Como remover o acesso de um utilizador a uma aplicação
 
@@ -38,21 +38,21 @@ Para desativar todos os utilizadores inícios de sessão a uma aplicação, siga
 
 Para **eliminar uma aplicação**, siga estas instruções:
 
-1.  Abra o [ **portal do Azure** ](https://portal.azure.com/) e inicie sessão como um **Administrador Global** ou **Coadministrador.**
+1. Abra o [ **portal do Azure** ](https://portal.azure.com/) e inicie sessão como um **Administrador Global** ou **Coadministrador.**
 
-2.  Abra o **extensão do Active Directory do Azure** ao clicar em **todos os serviços** na parte superior do menu de navegação esquerdo principal.
+2. Abra o **extensão do Active Directory do Azure** ao clicar em **todos os serviços** na parte superior do menu de navegação esquerdo principal.
 
-3.  Escreva **"Azure Active Directory**" na caixa de pesquisa de filtro e selecione o **Azure Active Directory** item.
+3. Escreva **"Azure Active Directory**" na caixa de pesquisa de filtro e selecione o **Azure Active Directory** item.
 
-4.  Clique em **aplicações empresariais** no menu de navegação do lado esquerdo do Azure Active Directory.
+4. Clique em **aplicações empresariais** no menu de navegação do lado esquerdo do Azure Active Directory.
 
-5.  Clique em **todos os aplicativos** para ver uma lista de todas as suas aplicações.
+5. Clique em **todos os aplicativos** para ver uma lista de todas as suas aplicações.
 
    * Se não vir a aplicação que quer mostrar aqui, utilize o **filtro** na parte superior do **todas as listas de aplicações** e defina o **mostrar** a opção de **todos os Aplicações.**
 
-6.  Selecione a aplicação que pretende eliminar.
+6. Selecione a aplicação que pretende eliminar.
 
-7.  Assim que o aplicativo é carregado, clique em **elimine** ícone da aplicação superior **descrição geral** painel.
+7. Assim que o aplicativo é carregado, clique em **elimine** ícone da aplicação superior **descrição geral** painel.
 
 ## <a name="i-want-to-disable-all-future-user-consent-operations-to-any-application"></a>Quero desativar todas as operações de consentimento de utilizador futuras para qualquer aplicação
 

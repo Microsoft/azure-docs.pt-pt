@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 01/19/2019
 ms.author: chmutali
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 73c921df493eeda25c50047e861d3d30e6dc52a8
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 73e5b081e85726a1fc78d92996846faa18ce616a
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57456487"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57897627"
 ---
 # <a name="tutorial-configure-workday-for-automatic-user-provisioning"></a>Tutorial: Configurar o dia de trabalho para aprovisionamento automático de utilizadores
 
@@ -257,13 +257,13 @@ Neste passo, irá criar um grupo de segurança do sistema de integração restri
     ![Grupo de CreateSecurity](./media/workday-inbound-tutorial/wd_isu_03.png "CreateSecurity grupo")
 2. Concluir o **criar grupo de segurança** tarefas. 
 
-  * Existem dois tipos de grupos de segurança no Workday:
-    * **Restrita:** Todos os membros do grupo de segurança podem aceder a todas as instâncias de dados protegidas pelo grupo de segurança.
-    * **Restrita:** Todos os membros do grupo de segurança têm acesso contextual a um subconjunto de instâncias de dados (linhas) que o grupo de segurança pode aceder.
-  * Entre em contacto com seu parceiro de integração do Workday para selecionar o tipo de grupo de segurança adequados para a integração.
-  * Sabe o tipo de grupo, selecione **grupo de segurança de sistema de integração (Unconstrained)** ou **grupo de segurança de sistema de integração (Constrained)** partir o **tipo de inquilinos grupo de segurança**  lista pendente.
+   * Existem dois tipos de grupos de segurança no Workday:
+     * **Restrita:** Todos os membros do grupo de segurança podem aceder a todas as instâncias de dados protegidas pelo grupo de segurança.
+     * **Restrita:** Todos os membros do grupo de segurança têm acesso contextual a um subconjunto de instâncias de dados (linhas) que o grupo de segurança pode aceder.
+   * Entre em contacto com seu parceiro de integração do Workday para selecionar o tipo de grupo de segurança adequados para a integração.
+   * Sabe o tipo de grupo, selecione **grupo de segurança de sistema de integração (Unconstrained)** ou **grupo de segurança de sistema de integração (Constrained)** partir o **tipo de inquilinos grupo de segurança**  lista pendente.
 
-    ![Grupo de CreateSecurity](./media/workday-inbound-tutorial/wd_isu_04.png "CreateSecurity grupo")
+     ![Grupo de CreateSecurity](./media/workday-inbound-tutorial/wd_isu_04.png "CreateSecurity grupo")
 
 3. Após a criação do grupo de segurança com êxito, verá uma página onde a pode atribuir membros ao grupo de segurança. Adicione o novo utilizador de sistema de integração criado no passo anterior a este grupo de segurança. Se estiver a utilizar *restrita* grupo de segurança, também será necessário selecionar o âmbito da organização adequada.
 
@@ -286,11 +286,11 @@ Neste passo, terá de conceder permissões de política para os dados de trabalh
    * *Dados de trabalho: Informações de equipe atuais*
    * *Dados de trabalho: Título de negócios no perfil de trabalho*
 
-    ![As políticas de segurança do domínio](./media/workday-inbound-tutorial/wd_isu_07.png "políticas de segurança de domínio")  
+     ![As políticas de segurança do domínio](./media/workday-inbound-tutorial/wd_isu_07.png "políticas de segurança de domínio")  
 
-    ![As políticas de segurança do domínio](./media/workday-inbound-tutorial/wd_isu_08.png "políticas de segurança de domínio") 
+     ![As políticas de segurança do domínio](./media/workday-inbound-tutorial/wd_isu_08.png "políticas de segurança de domínio") 
 
-    Clique em **OK**.
+     Clique em **OK**.
 
 3. No relatório que aparece, selecione as reticências (...), que é apresentado junto a **aprovisionamento da conta externa** e clique na opção de menu **domínio -> Editar permissões de política de segurança**
 
@@ -428,7 +428,7 @@ Assim que tiver implementado 4.7.1+ de .NET, pode baixar o **[agente aprovisiona
 
 8. Concluir o **credenciais de administrador** secção da seguinte forma:
 
-   * **Nome de utilizador administrador** – introduza o nome de utilizador da conta de sistema de integração do Workday, com o nome de domínio de inquilino anexado. Deve ser algo semelhante: **username@tenant_name**
+   * **Nome de utilizador administrador** – introduza o nome de utilizador da conta de sistema de integração do Workday, com o nome de domínio de inquilino anexado. Ele deve ser algo semelhante: **nome de utilizador\@nome_do_inquilino**
 
    * **Palavra-passe de administrador –** introduza a palavra-passe da conta de sistema de integração do Workday
 
@@ -438,8 +438,8 @@ Assim que tiver implementado 4.7.1+ de .NET, pode baixar o **[agente aprovisiona
 
    * **Contentor do Active Directory -** introduzir o DN do contêiner em que o agente deve criar contas de utilizador por predefinição.
         Exemplo: *UO = usuários padrão, UO = Users, DC = contoso, DC = test*
-> [!NOTE]
-> Esta definição só entra em jogo para criação de contas de utilizador se o *parentDistinguishedName* atributo não é configurado nos mapeamentos de atributos. Esta definição não é utilizada para pesquisa de usuário ou atualizar operações. A árvore de sub-rotina de todo o domínio está no âmbito da operação de pesquisa.
+     > [!NOTE]
+     > Esta definição só entra em jogo para criação de contas de utilizador se o *parentDistinguishedName* atributo não é configurado nos mapeamentos de atributos. Esta definição não é utilizada para pesquisa de usuário ou atualizar operações. A árvore de sub-rotina de todo o domínio está no âmbito da operação de pesquisa.
 
    * **E-Mail de notificação –** introduza o seu endereço de e-mail e marque a caixa de verificação "enviar e-mail se ocorrer uma falha".
 
@@ -477,11 +477,11 @@ Nesta secção, irá configurar como os dados de utilizador fluem a partir do Wo
 > [!TIP]
 > Quando estiver a configurar a aplicação de aprovisionamento pela primeira vez, terá de testar e verificar seus mapeamentos de atributos e as expressões para se certificar de que ele está lhe dando o resultado desejado. A Microsoft recomenda utilizar o controlo de âmbito filtra sob **âmbito de objeto de origem** para testar seus mapeamentos com alguns utilizadores de teste do Workday. Uma vez que tiver verificado que os mapeamentos de trabalho, em seguida, pode remover o filtro ou gradualmente expandi-la para incluir mais usuários.
 
-3. Na **ações do objeto de destino** campo, globalmente pode filtrar quais ações são executadas no Active Directory. **Crie** e **atualização** são mais comuns.
+1. Na **ações do objeto de destino** campo, globalmente pode filtrar quais ações são executadas no Active Directory. **Crie** e **atualização** são mais comuns.
 
-4. Na **mapeamentos de atributo** secção, pode definir o dia de trabalho individual como atributos do mapa para atributos do Active Directory.
+1. Na **mapeamentos de atributo** secção, pode definir o dia de trabalho individual como atributos do mapa para atributos do Active Directory.
 
-5. Clique num mapeamento de atributo existente para atualizá-lo ou clique em **adicionar novo mapeamento** na parte inferior do ecrã, para adicionar novos mapeamentos. Um mapeamento do atributo individual suporta estas propriedades:
+1. Clique num mapeamento de atributo existente para atualizá-lo ou clique em **adicionar novo mapeamento** na parte inferior do ecrã, para adicionar novos mapeamentos. Um mapeamento do atributo individual suporta estas propriedades:
 
       * **Tipo de mapeamento**
 
@@ -508,7 +508,7 @@ Nesta secção, irá configurar como os dados de utilizador fluem a partir do Wo
 
          * **Apenas durante a criação** -aplicar este mapeamento apenas nas ações de criação do utilizador
 
-6. Para guardar os seus mapeamentos, clique em **guardar** na parte superior da seção de mapeamento do atributo.
+1. Para guardar os seus mapeamentos, clique em **guardar** na parte superior da seção de mapeamento do atributo.
 
    ![Portal do Azure](./media/workday-inbound-tutorial/wd_2.png)
 
@@ -524,8 +524,8 @@ Nesta secção, irá configurar como os dados de utilizador fluem a partir do Wo
 | ---------- | ---------- | ---------- | ---------- |
 | **WorkerID**  |  employeeID | **Sim** | Escrito na criação de apenas |
 | **PreferredNameData**    |  CN    |   |   Escrito na criação de apenas |
-| **SelectUniqueValue (associação ("@", Junte-se a (".", \[FirstName\], \[LastName\]), "contoso.com"), Junte-se a ("@", Junte-se a (".", Mid (\[FirstName\], 1, 1), \[LastName\]), "contoso.com"), Junte-se a ("@", Junte-se a (".", Mid (\[FirstName\], 1, 2), \[LastName\]), "contoso.com"))**   | userPrincipalName     |     | Escrito na criação de apenas 
-| **Replace(Mid(Replace(\[UserID\], , "(\[\\\\/\\\\\\\\\\\\\[\\\\\]\\\\:\\\\;\\\\|\\\\=\\\\,\\\\+\\\\\*\\\\?\\\\&lt;\\\\&gt;\])", , "", , ), 1, 20), , "([\\\\.)\*\$](file:///\\.)*$)", , "", , )**      |    sAMAccountName            |     |         Escrito na criação de apenas |
+| **SelectUniqueValue (associação ("\@", Junte-se a (".", \[FirstName\], \[LastName\]), "contoso.com"), Junte-se a ("\@", Junte-se a (".", Mid (\[FirstName\], 1, 1 (), \[LastName\]), "contoso.com"), Junte-se a ("\@", Junte-se a (".", Mid (\[FirstName\], 1, 2), \[LastName\]), "contoso.com"))**   | userPrincipalName     |     | Escrito na criação de apenas 
+| **Replace(Mid(Replace(\[UserID\], , "(\[\\\\/\\\\\\\\\\\\\[\\\\\]\\\\:\\\\;\\\\\|\\\\=\\\\,\\\\+\\\\\*\\\\?\\\\&lt;\\\\&gt;\])", , "", , ), 1, 20), , "([\\\\.)\*\$](file:///\\.)*$)", , "", , )**      |    sAMAccountName            |     |         Escrito na criação de apenas |
 | **Switch(\[Active\], , "0", "True", "1", "False")** |  accountDisabled      |     | Criar + atualizar |
 | **FirstName**   | givenName       |     |    Criar + atualizar |
 | **LastName**   |   sn   |     |  Criar + atualizar |
@@ -677,7 +677,7 @@ Siga estas instruções para configurar a repetição de escrita de endereços d
 
 8. Concluir o **credenciais de administrador** secção da seguinte forma:
 
-   * **Nome de utilizador administrador** – introduza o nome de utilizador da conta de sistema de integração do Workday, com o nome de domínio de inquilino anexado. Deve ser algo semelhante: *username@contoso4*
+   * **Nome de utilizador administrador** – introduza o nome de utilizador da conta de sistema de integração do Workday, com o nome de domínio de inquilino anexado. Deve ser algo semelhante: *nome de utilizador\@contoso4*
 
    * **Palavra-passe de administrador –** introduza a palavra-passe da conta de sistema de integração do Workday
 
@@ -1226,7 +1226,7 @@ Para fazer esta alteração, tem de utilizar [Workday Studio](https://community.
 
 7. Definir **operação** para **Get_Workers**
 
-8.  Clique em pequenos **configurar** link abaixo os painéis de solicitação/resposta para definir as suas credenciais do Workday. Verifique **autenticação**e, em seguida, introduza o nome de utilizador e palavra-passe para a sua conta de sistema de integração do Workday. Certifique-se de que formatar o nome de utilizador como name@tenante deixe o **WS-Security UsernameToken** opção selecionada.
+8.  Clique em pequenos **configurar** link abaixo os painéis de solicitação/resposta para definir as suas credenciais do Workday. Verifique **autenticação**e, em seguida, introduza o nome de utilizador e palavra-passe para a sua conta de sistema de integração do Workday. Certifique-se de que formatar o nome de utilizador como nome\@inquilino e deixe o **WS-Security UsernameToken** opção selecionada.
 
     ![Workday Studio](./media/workday-inbound-tutorial/wdstudio2.png)
 

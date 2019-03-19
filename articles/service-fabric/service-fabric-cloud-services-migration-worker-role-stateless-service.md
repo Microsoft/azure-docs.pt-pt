@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/02/2017
 ms.author: vturecek
-ms.openlocfilehash: 4eed3825d52fe52025077980e21f3763cc5751ac
-ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
+ms.openlocfilehash: f23f29d15c4c8f05551b20d42b92dda5632cde08
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44049954"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58078742"
 ---
 # <a name="guide-to-converting-web-and-worker-roles-to-service-fabric-stateless-services"></a>Guia de conversão de Web e funções de trabalho para serviços sem monitoração de estado do Service Fabric
 Este artigo descreve como migrar a sua Cloud dos serviços Web e funções de trabalho para serviços sem monitoração de estado do Service Fabric. Este é o mais simples caminho de migração dos serviços Cloud para o Service Fabric para aplicativos cuja arquitetura geral vai manter-se mais ou menos o mesmo.
@@ -43,7 +43,7 @@ Semelhante à função de trabalho, uma função da Web também representa uma c
 | --- | --- | --- |
 | Web Forms do ASP.NET |Não |Converter em MVC do ASP.NET Core 1 |
 | ASP.NET MVC |Com a migração |Atualização para o ASP.NET Core 1 MVC |
-| ASP.NET Web API |Com a migração |Utilizar o servidor de hospedagem interna ou ASP.NET Core 1 |
+| API Web ASP.NET |Com a migração |Utilizar o servidor de hospedagem interna ou ASP.NET Core 1 |
 | ASP.NET Core 1 |Sim |N/A |
 
 ## <a name="entry-point-api-and-lifecycle"></a>API de ponto de entrada e o ciclo de vida
@@ -51,7 +51,7 @@ Pontos de entrada de semelhante de oferta APIs do serviço de função de trabal
 
 | **Ponto de entrada** | **Função de trabalho** | **Serviço do Service Fabric** |
 | --- | --- | --- |
-| A processar |`Run()` |`RunAsync()` |
+| Em processamento |`Run()` |`RunAsync()` |
 | Iniciar VM |`OnStart()` |N/A |
 | Parar VM |`OnStop()` |N/A |
 | Serviço de escuta aberto para pedidos de cliente |N/A |<ul><li> `CreateServiceInstanceListener()` para sem monitoração de estado</li><li>`CreateServiceReplicaListener()` para com monitoração de estado</li></ul> |
@@ -110,8 +110,8 @@ Ambos têm uma substituição de "Executar" principal na qual pretende iniciar o
 
 Existem várias diferenças importantes entre o ciclo de vida e o tempo de vida dos serviços de funções de trabalho e o Service Fabric:
 
-* **Ciclo de vida:** a maior diferença é que uma função de trabalho é uma VM e por isso, o seu ciclo de vida é associado à VM, que inclui eventos para quando a VM é iniciada e interrompida. Um serviço do Service Fabric tem um ciclo de vida é diferente do ciclo de vida VM, para que ele não inclui eventos para quando o anfitrião, VM ou máquina é iniciado e para, à medida que eles não estão relacionados.
-* **Tempo de vida:** uma instância de função de trabalho haverá reciclagem se o `Run` sai do método. O `RunAsync` método num serviço do Service Fabric no entanto pode executar até à conclusão e a instância do serviço irá manter-se. 
+* **Ciclo de vida:** A maior diferença é que uma função de trabalho é uma VM e por isso, o seu ciclo de vida é associado à VM, que inclui eventos para quando a VM é iniciada e interrompida. Um serviço do Service Fabric tem um ciclo de vida é diferente do ciclo de vida VM, para que ele não inclui eventos para quando o anfitrião, VM ou máquina é iniciado e para, à medida que eles não estão relacionados.
+* **Tempo de vida:** Uma instância de função de trabalho haverá reciclagem se o `Run` sai do método. O `RunAsync` método num serviço do Service Fabric no entanto pode executar até à conclusão e a instância do serviço irá manter-se. 
 
 O Service Fabric fornece um ponto de entrada de configuração de comunicação opcional para os serviços de escuta de pedidos de cliente. O RunAsync e a comunicação de ponto de entrada são substituições opcionais em serviços do Service Fabric - seu serviço pode optar por apenas escutar para pedidos de cliente ou apenas executar um loop de processamento, ou ambos - razão pela qual o método RunAsync tem permissão para sair sem reiniciar a instância do serviço, porque ele pode continuar a escutar os pedidos de cliente.
 
@@ -209,10 +209,10 @@ private void CodePackageActivationContext_ConfigurationPackageModifiedEvent(obje
 Tarefas de arranque são ações que são executadas antes de iniciar uma aplicação. Uma tarefa de arranque é normalmente utilizada para executar scripts de configuração utilizando privilégios elevados. Os serviços Cloud e o Service Fabric suportam tarefas de arranque. A principal diferença é que nos serviços Cloud, uma tarefa de arranque está ligada a uma VM porque faz parte de uma instância de função, enquanto que no Service Fabric está associada uma tarefa de arranque para um serviço, que não está associado a qualquer VM específica.
 
 | Service Fabric | Serviços Cloud |
-| --- | --- | --- |
-| Localização de configuração |Servicedefinition. Csdef |
+| --- | --- |
+| Localização de configuração |ServiceDefinition.csdef |
 | Privilégios |"limitada" ou "elevado" |
-| Sequenciamento |"simples", "em segundo plano", "em primeiro plano" |
+| Sequenciamento |"simple", "background", "foreground" |
 
 ### <a name="cloud-services"></a>Serviços Cloud
 Nos serviços Cloud, um ponto de entrada de arranque está configurado por função no servicedefinition. Csdef. 

@@ -12,12 +12,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 07/22/2017
 ms.author: ningk
-ms.openlocfilehash: 2038ce62e252260dda73813df97a68ee4b3fff61
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 6220aebdef6970f3d5f7017e4ae48f6f409ae0ce
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57548903"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58111468"
 ---
 # <a name="deploy-azure-log-analytics-nozzle-for-cloud-foundry-system-monitoring"></a>Implementar Nozzle do Azure Log Analytics para o monitoramento de sistema do Cloud Foundry
 
@@ -73,10 +73,10 @@ Para obter mais informações, consulte [começar a utilizar com os registos do 
 #### <a name="to-create-the-log-analytics-workspace-through-the-monitoring-template-from-azure-market-place"></a>Para criar a área de trabalho do Log Analytics através do modelo de monitorização no lugar de mercado do Azure:
 
 1. Abra o portal do Azure.
-2. Clique no sinal "+" ou "Criar um recurso" no canto superior esquerdo.
-3. Escreva "Cloud Foundry" na janela de pesquisa, selecione "Cloud Foundry monitorização solução".
-4. O Cloud Foundry monitorização solução modelo front-página é carregada, clique em "Criar" para iniciar o painel de modelo.
-5. Introduza os parâmetros necessários:
+1. Clique no sinal "+" ou "Criar um recurso" no canto superior esquerdo.
+1. Escreva "Cloud Foundry" na janela de pesquisa, selecione "Cloud Foundry monitorização solução".
+1. O Cloud Foundry monitorização solução modelo front-página é carregada, clique em "Criar" para iniciar o painel de modelo.
+1. Introduza os parâmetros necessários:
     * **Subscrição**: Selecione uma subscrição do Azure para a área de trabalho do Log Analytics, normalmente, o mesmo com a implementação de Cloud Foundry.
     * **Grupo de recursos**: Selecione um grupo de recursos existente ou crie um novo para a área de trabalho do Log Analytics.
     * **Localização do grupo de recursos**: Selecione a localização do grupo de recursos.
@@ -84,7 +84,7 @@ Para obter mais informações, consulte [começar a utilizar com os registos do 
     * **OMS_Workspace_Region**: Selecione a localização para a área de trabalho.
     * **OMS_Workspace_Pricing_Tier**: Selecione a área de trabalho do Log Analytics SKU. Consulte a [preços orientações](https://azure.microsoft.com/pricing/details/log-analytics/) para referência.
     * **Termos legais**: Clique em termos legais e, em seguida, clique em "Criar" para aceitar o termo legal.
-- Depois de todos os parâmetros forem especificados, clique em "Criar" para implementar o modelo. Quando a implementação estiver concluída, o estado aparecerá no separador de notificação.
+1. Depois de todos os parâmetros forem especificados, clique em "Criar" para implementar o modelo. Quando a implementação estiver concluída, o estado aparecerá no separador de notificação.
 
 
 ## <a name="deploy-the-nozzle"></a>Implementar Nozzle do
@@ -205,7 +205,7 @@ Pode [criar os alertas](https://docs.microsoft.com/azure/log-analytics/log-analy
 | Type=CF_ValueMetric_CL Name_s=slowConsumerAlert                               | Número de resultados > 0   | Quando o Nozzle recebe um alerta de consumo lentos de loggregator, envia os **slowConsumerAlert** regista ValueMetric para o Azure Monitor. |
 | Type=CF_CounterEvent_CL Job_s=nozzle Name_s=eventsLost Delta_d>0              | Número de resultados > 0   | Se o número de delta de eventos perdidos atinge um limiar, significa que o Nozzle pode ter um problema ao executar. |
 
-## <a name="scale"></a>Escalabilidade
+## <a name="scale"></a>Escala
 
 Pode dimensionar o Nozzle do utilizador e a loggregator.
 

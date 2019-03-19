@@ -7,12 +7,12 @@ ms.topic: include
 ms.date: 03/04/2019
 ms.author: antchu
 ms.custom: include file
-ms.openlocfilehash: aa0ebc731469a2c54343e1ba6721fcda0fa8161f
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 73d4d4e1a5f148dce6099b2d747ee1c290bcf7c1
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57552932"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58052199"
 ---
 ## <a name="run-the-web-application"></a>Execute a aplicação Web
 
@@ -21,7 +21,7 @@ ms.locfileid: "57552932"
     > [!NOTE]
     > A origem do ficheiro HTML está localizada em [/docs/demo/chat-v2/index.html](https://github.com/Azure-Samples/signalr-service-quickstart-serverless-chat/blob/master/docs/demo/chat-v2/index.html).
 
-1. Quando lhe for pedido o URL base da aplicação de funções, introduza *http://localhost:7071*.
+1. Quando lhe for pedido para o URL base da aplicação de função, introduza `http://localhost:7071`.
 
 1. Introduza um nome de utilizador quando lhe for pedido.
 

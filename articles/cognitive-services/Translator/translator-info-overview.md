@@ -11,12 +11,12 @@ ms.topic: overview
 ms.date: 02/21/2019
 ms.author: erhopf
 ms.custom: seodec18
-ms.openlocfilehash: 80c9944628eaa828a34ea16eb9f79271d6cd5728
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: 79f0474950cf1f48f3552b1ae843a29b5d8dbb24
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56729224"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57883377"
 ---
 # <a name="what-is-translator-text-api"></a>O que é a API de Texto do Microsoft Translator?
 
@@ -28,7 +28,7 @@ A API de Texto do Microsoft Translator faz parte da coleção de [APIs dos Servi
 
 O Microsoft Translator é um serviço de tradução automática com base na cloud. No serviço de núcleo está a API de Texto do Microsoft Translator, que potencializa vários produtos e serviços da Microsoft, e é utilizada por milhares de empresas em todo o mundo nas suas aplicações e fluxos de trabalho, o que permite que o conteúdo alcance o público global.
 
-A tradução de voz, com tecnologia da API de Texto do Microsoft Translator, também está disponível através do [Serviço de Voz da Microsoft](https://docs.microsoft.com/azure/cognitive-services/speech-service/). Ela combina a funcionalidade da API de Voz do Microsoft Translator, a API de Voz do Bing e o Serviço de Voz Personalizada (pré-visualização) num serviço totalmente personalizável e unificado. O Serviço de Voz está a substituir a API de Voz do Microsoft Translator, que será desativada a 15 de Outubro de 2019.
+A tradução de voz, com tecnologia da API de Texto do Microsoft Translator, também está disponível através do [Serviço de Voz da Microsoft](https://docs.microsoft.com/azure/cognitive-services/speech-service/). Ele combina as funcionalidades da API de voz do Translator e o serviço de voz personalizada num serviço totalmente personalizável e unificado. O Serviço de Voz está a substituir a API de Voz do Microsoft Translator, que será desativada a 15 de Outubro de 2019.
 
 ## <a name="language-support"></a>Suporte de idiomas
 

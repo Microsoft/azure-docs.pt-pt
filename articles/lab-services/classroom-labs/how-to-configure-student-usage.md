@@ -11,14 +11,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/07/2019
+ms.date: 03/18/2019
 ms.author: spelluru
-ms.openlocfilehash: 834674eb63af75088434db0f614b11c7a36e7adf
-ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
+ms.openlocfilehash: eadbaacd4bb860cd09997775b8d77cbcf0ff17f2
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55964819"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58181627"
 ---
 # <a name="configure-usage-settings-and-policies"></a>Configurar as políticas e definições de utilização
 Este artigo descreve como adicionar utilizadores ao laboratório, obtê-los registado com o laboratório, controlar o número de horas que podem utilizar a VM e muito mais. 
@@ -38,9 +38,22 @@ Se tiver o **restringir o acesso** ativado, adicione utilizadores (endereços de
 
     ![Lista de utilizadores](../media/how-to-configure-student-usage/users-list-new.png)
 
-## <a name="send-registration-link-to-students"></a>Enviar a ligação de registo para os alunos
-O procedimento seguinte tem os passos para enviar uma ligação de registo para os utilizadores. Se o **restringir o acesso** está ativada para o laboratório, apenas os utilizadores da lista de utilizadores podem utilizar a ligação de registo se registrar para o laboratório. 
+## <a name="share-registration-link-with-students"></a>Ligação de registo da partilha com estudantes
+Para enviar a ligação de registo para estudantes, utilize um dos seguintes métodos. O primeiro método mostra-lhe como enviar e-mails para estudantes com a ligação de registo e uma mensagem opcional. O segundo método mostra como obter o link de registo que pode partilhar com outras pessoas como pretender. 
 
+Se o **restringir o acesso** está ativada para o laboratório, apenas os utilizadores da lista de utilizadores podem utilizar a ligação de registo se registrar para o laboratório. Esta opção está ativada por predefinição. 
+
+### <a name="send-email-to-users"></a>Enviar e-mail para utilizadores
+1. Mude para o **utilizadores** ver se ainda não está na página. 
+2. Na lista, selecione específicos ou todos os utilizadores. Para selecionar utilizadores específicos, marque as caixas de seleção na primeira coluna da lista. Para selecionar todos os utilizadores, selecione a caixa de verificação na frente o título da primeira coluna (**nome**) ou selecione todas as caixas de verificação para todos os utilizadores na lista.
+3. Selecione **Enviar convite** na barra de ferramentas. Também pode passar o mouse sobre um nome para estudantes na lista e enviar o ícone de e-mail. 
+
+    ![Enviar ligação de registo por e-mail](../media/tutorial-setup-classroom-lab/send-email.png)
+4. Sobre o **ligação de registo de enviar por e-mail** página, siga estes passos: 
+    1. Tipo de uma **mensagem opcional** que pretende enviar para os alunos. O e-mail inclui automaticamente a ligação de registo. 
+    2. Sobre o **ligação de registo de enviar por e-mail** página, selecione **enviar**. 
+
+## <a name="get-registration-link"></a>Obter ligação de registo
 1. Mude para o **usuários** vista ao selecionar **utilizadores** no menu da esquerda. 
 2. Selecione **obter a ligação de registo** mosaico.
 
@@ -49,11 +62,7 @@ O procedimento seguinte tem os passos para enviar uma ligação de registo para 
 
     ![Ligação de registo do aluno](../media/tutorial-setup-classroom-lab/registration-link.png)
 2. Na caixa de diálogo **Registo de utilizador**, selecione **Fechar**. 
-4. Partilhe a ligação de registo com um estudante, para que este possa registar-se na turma. Se tiver o **restringir a opção** definam enabled e tem uma lista de utilizadores na lista, fazer as seguintes ações:
-    1. Selecione o **endereço de e-mail** do utilizador na lista. 
-    2. Verá uma janela do seu programa de e-mail predefinida com o **TO** endereço preenchidos. 
-    3. Colar o **URL de registo** que copiou anteriormente. 
-    4. Enviar a **e-mail**. 
+4. Partilha a **ligação de registo** com um aluno, para que os estudantes podem registar para a classe. 
 
 ## <a name="view-users-registered-with-the-lab"></a>Ver utilizadores registados no laboratório
 

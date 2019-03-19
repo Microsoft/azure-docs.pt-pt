@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 05/18/2017
 ms.author: alkohli
-ms.openlocfilehash: 89ca7a5fa13696856bed108e4cbf7462b536b4bb
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 5f0be5d8378cd1640d3052f2e56c8161e2c0b203
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51246621"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58002786"
 ---
 # <a name="install-update-06-on-your-storsimple-virtual-array"></a>Instalar atualização 0.6 em sua matriz Virtual StorSimple
 
@@ -57,7 +57,7 @@ Execute os seguintes passos para transferir a atualização de software a partir
 
 #### <a name="to-download-the-update-or-the-hotfix"></a>Para transferir a atualização ou a correção
 
-1. Inicie o Internet Explorer e navegue para [ http://catalog.update.microsoft.com ](https://catalog.update.microsoft.com).
+1. Inicie o Internet Explorer e navegue para [ https://catalog.update.microsoft.com ](https://catalog.update.microsoft.com).
 
 2. Se estiver a utilizar o catálogo Microsoft Update pela primeira vez neste computador, clique em **instalar** quando lhe for pedido para instalar o suplemento do catálogo Microsoft Update.
 

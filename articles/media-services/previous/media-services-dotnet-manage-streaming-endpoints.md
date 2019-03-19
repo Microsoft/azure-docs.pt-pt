@@ -13,14 +13,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/08/2019
+ms.date: 03/18/2019
 ms.author: juliako
-ms.openlocfilehash: 7aa3bdeb40f5e6905f261fde78b4a6545e12bff4
-ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.openlocfilehash: 0222450e1b85c255f2028adff750b9257f109be7
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/02/2019
-ms.locfileid: "57246836"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58173792"
 ---
 # <a name="manage-streaming-endpoints-with-net-sdk"></a>Gerir pontos finais de transmissão em fluxo com o .NET SDK  
 

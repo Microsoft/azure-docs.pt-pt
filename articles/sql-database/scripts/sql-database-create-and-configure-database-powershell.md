@@ -11,13 +11,13 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
-ms.date: 03/07/2019
-ms.openlocfilehash: bfca5f778fc3aa23c6175f3be0eba135e40a48e5
-ms.sourcegitcommit: 30a0007f8e584692fe03c0023fe0337f842a7070
+ms.date: 03/12/2019
+ms.openlocfilehash: a326462a6735b5a91d1ef03de41bb4705fe452a4
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57575261"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57854217"
 ---
 # <a name="use-powershell-to-create-a-single-azure-sql-database-and-configure-a-sql-database-server-firewall-rule"></a>Utilizar o PowerShell para criar uma base de dados SQL do Azure e configurar uma regra de firewall do servidor de base de dados SQL
 

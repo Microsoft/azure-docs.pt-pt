@@ -17,12 +17,12 @@ ms.workload: infrastructure-services
 ms.date: 12/09/2016
 ms.author: goraco
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: b6f3b3216c279b8adb4fe02ccea94fa40ff30bf6
-ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
+ms.openlocfilehash: e7ff4f992d26217584f44cb7977cf7e766224564
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/16/2019
-ms.locfileid: "56326845"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58010974"
 ---
 # <a name="create-an-sap-netweaver-multi-sid-configuration"></a>Criar uma configuração de múltiplos SID SAP NetWeaver
 
@@ -157,7 +157,7 @@ ms.locfileid: "56326845"
 [deploy-template-portal]:../../../resource-group-template-deploy.md#deploy-with-the-preview-portal
 [deploy-template-powershell]:../../../resource-group-template-deploy.md#deploy-with-powershell
 
-[dr-guide-classic]:http://go.microsoft.com/fwlink/?LinkID=521971
+[dr-guide-classic]:https://go.microsoft.com/fwlink/?LinkID=521971
 
 [getting-started]:../../virtual-machines-windows-sap-get-started.md
 [getting-started-dbms]:../../virtual-machines-windows-sap-get-started.md#1343ffe1-8021-4ce6-a08d-3a1553a4db82
@@ -171,7 +171,7 @@ ms.locfileid: "56326845"
 [getting-started-windows-classic-ha-sios]:../../virtual-machines-windows-classic-sap-get-started.md#4bb7512c-0fa0-4227-9853-4004281b1037
 [getting-started-windows-classic-planning]:../../virtual-machines-windows-classic-sap-get-started.md#f2a5e9d8-49e4-419e-9900-af783173481c
 
-[ha-guide-classic]:http://go.microsoft.com/fwlink/?LinkId=613056
+[ha-guide-classic]:https://go.microsoft.com/fwlink/?LinkId=613056
 
 [ha-guide]:high-availability-guide.md
 
@@ -513,7 +513,7 @@ Pode instalar instâncias adicionais do SAP ASCS/SCS do cluster de WSFC existent
 Pode criar uma entrada DNS para o nome de anfitrião virtual de instância do ASCS/SCS utilizando os seguintes parâmetros:
 
 | Novo nome de anfitrião virtual SAP ASCS/SCS | Endereço IP associado |
-| --- | --- | --- |
+| --- | --- |
 |pr5-sap-cl |10.0.0.50 |
 
 O novo nome de anfitrião e endereço IP são apresentados no Gestor de DNS, conforme mostrado na captura de ecrã seguinte:

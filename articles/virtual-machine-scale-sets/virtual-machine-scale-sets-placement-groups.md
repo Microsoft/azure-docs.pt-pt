@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 11/9/2017
 ms.author: rajraj
-ms.openlocfilehash: 1ec1ec0fab6947f7f07b3c387f4c8af4a0f666cb
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 98032291d9b9d1b0885e7442b882a7f62f9ccd59
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57776347"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58123441"
 ---
 # <a name="working-with-large-virtual-machine-scale-sets"></a>Trabalhar com conjuntos de dimensionamento de máquinas virtuais de grande escala
 Agora, pode criar [conjuntos de dimensionamento de máquinas virtuais](/azure/virtual-machine-scale-sets/) do Azure com uma capacidade de até 1000 VMs. Neste documento, um _conjunto de dimensionamento de máquinas virtuais de grande escala_ está definido como um conjunto de dimensionamento com capacidade para dimensionar para mais do que 100 VMs. Esta capacidade é definida por uma propriedade de conjunto de dimensionamento (_singlePlacementGroup=False_). 
@@ -83,7 +83,7 @@ Para obter um exemplo completo de um modelo de conjunto de dimensionamento, veja
 ## <a name="converting-an-existing-scale-set-to-span-multiple-placement-groups"></a>Converter um conjunto de dimensionamento existente para abranger vários grupos de colocação
 Para que um conjunto de dimensionamento de máquina virtual existente seja capaz de dimensionar para mais de 100 VMs, é necessário alterar a propriedade _singlePlacementGroup_ para _falso_ no modelo do conjunto de dimensionamento. Pode testar a alteração desta propriedade com o [Explorador de Recursos do Azure](https://resources.azure.com/). Localize um conjunto de dimensionamento existente, selecione _Editar_ e altere a propriedade _singlePlacementGroup_. Se não visualizar esta propriedade, poderá estar a ver o conjunto de dimensionamento com uma versão anterior da API Microsoft.Compute.
 
->[!NOTE] 
-Pode alterar um conjunto de dimensionamento para que não suporte apenas um único grupo de colocação (o comportamento padrão), mas para que suporte vários grupos de colocação. No entanto, não pode fazer a conversão inversa. Por conseguinte, certifique-se de que compreende as propriedades dos conjuntos de dimensionamento de grande escala antes de converter.
+> [!NOTE]
+> Pode alterar um conjunto de dimensionamento para que não suporte apenas um único grupo de colocação (o comportamento padrão), mas para que suporte vários grupos de colocação. No entanto, não pode fazer a conversão inversa. Por conseguinte, certifique-se de que compreende as propriedades dos conjuntos de dimensionamento de grande escala antes de converter.
 
 

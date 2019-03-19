@@ -11,12 +11,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 11/23/2016
 ms.author: mbullwin
-ms.openlocfilehash: 6bd8d0cee01853547efd028feef0a97f9398024e
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: 692113257e483f67eaaee038c07d8702d95a7b31
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54015527"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58116814"
 ---
 # <a name="filter-telemetry-in-your-java-web-app"></a>Filtrar telemetria na sua aplicação web Java
 
@@ -186,12 +186,12 @@ Rastreios de registo de filtros (conectado usando [tracktrace ()](../../azure-mo
 ```
 
 * `FromSeverityLevel` Valores válidos são:
- *  DESATIVAR - filtrar todos os rastreios
- *  RASTREIO - nenhuma filtragem. é igual ao nível de rastreio
- *  INFO - filtrar o nível de rastreio
- *  AVISO - filtro de rastreio e informações
- *  Erro - filtrar o rastreio de aviso, informações,
- *  CRÍTICO - filtrar todas, CRÍTICOS
+  *  DESATIVAR - filtrar todos os rastreios
+  *  RASTREIO - nenhuma filtragem. é igual ao nível de rastreio
+  *  INFO - filtrar o nível de rastreio
+  *  AVISO - filtro de rastreio e informações
+  *  Erro - filtrar o rastreio de aviso, informações,
+  *  CRÍTICO - filtrar todas, CRÍTICOS
 
 
 ## <a name="custom-filters"></a>Filtros personalizados
@@ -237,7 +237,7 @@ Em seu código, criar uma classe que implementa `TelemetryProcessor`:
 
 ### <a name="2-invoke-your-filter-in-the-configuration-file"></a>2. Invocar o filtro no ficheiro de configuração
 
-No applicationinsights. XML:
+In ApplicationInsights.xml:
 
 ```XML
 

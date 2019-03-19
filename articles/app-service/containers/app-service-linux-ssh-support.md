@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 02/25/2019
 ms.author: msangapu
 ms.custom: seodec18
-ms.openlocfilehash: 3b3a4b6767855fa2f7ba595072b187b7a8bff400
-ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
+ms.openlocfilehash: a56c4b0bac61bd2039138ffed554130c6e520821
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57216004"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58167138"
 ---
 # <a name="ssh-support-for-azure-app-service-on-linux"></a>Suporte SSH para o serviço de aplicações do Azure no Linux
 
@@ -67,7 +67,7 @@ Essas etapas são mostradas no repositório do App Service do Azure, como [um ex
         && echo "root:Docker!" | chpasswd
     ```
 
-2. Adicionar uma [ `COPY` instrução](https://docs.docker.com/engine/reference/builder/#copy) para o Dockerfile para copiar uma [sshd_config](https://man.openbsd.org/sshd_config) o ficheiro para o */etc/ssh/* diretório. O ficheiro de configuração deve basear-se no ficheiro sshd_config no repositório do GitHub do serviço de aplicações do Azure [aqui](https://github.com/Azure-App-Service/node/blob/master/8.2.1/sshd_config).
+2. Adicionar uma [ `COPY` instrução](https://docs.docker.com/engine/reference/builder/#copy) para o Dockerfile para copiar uma [sshd_config](https://man.openbsd.org/sshd_config) o ficheiro para o */etc/ssh/* diretório. O ficheiro de configuração deve basear-se no ficheiro sshd_config no repositório do GitHub do serviço de aplicações do Azure [aqui](https://github.com/Azure-App-Service/node/blob/master/10.14/sshd_config).
 
     > [!NOTE]
     > O *sshd_config* ficheiro tem de incluir o seguinte procedimento ou a ligação falhar: 

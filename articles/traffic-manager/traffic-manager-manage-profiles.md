@@ -1,6 +1,6 @@
 ---
 title: Gerir perfis no Traffic Manager do Azure | Microsoft Docs
-description: Este artigo ajuda-o a criar, desativar, ativar e eliminar perfis do Gestor de Tráfego do Azure.
+description: Este artigo ajuda-o a criar, desativar, ativar e eliminar um perfil do Gestor de tráfego do Azure.
 services: traffic-manager
 documentationcenter: ''
 author: kumudd
@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/10/2017
 ms.author: kumud
-ms.openlocfilehash: 11e63f95067a9ad6bb61a91da56fe22dc4962ae5
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 7b52d07db076b62845465ee9f22a3d794c8cdf76
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57778473"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57839530"
 ---
 # <a name="manage-an-azure-traffic-manager-profile"></a>Gerir um perfil no Traffic Manager do Azure
 
@@ -29,7 +29,7 @@ Pode utilizar o portal do Azure para criar um perfil do Gestor de Tráfego. Depo
 
 ### <a name="to-create-a-traffic-manager-profile"></a>Para criar um perfil do Gestor de Tráfego
 
-1. Num browser, inicie sessão no [portal do Azure](http://portal.azure.com). Se ainda não tiver uma conta, pode inscrever-se para obter uma [avaliação gratuita durante um mês](https://azure.microsoft.com/free/). 
+1. Num browser, inicie sessão no [portal do Azure](https://portal.azure.com). Se ainda não tiver uma conta, pode inscrever-se para obter uma [avaliação gratuita durante um mês](https://azure.microsoft.com/free/). 
 2. Clique em **Criar um recurso** > **Rede** > **Perfil do Gestor de Tráfego** > **Criar**.
 4. No painel **Criar perfil do Gestor de Tráfego**, preencha o seguinte:
     1. Em **Nome**, indique um nome para o perfil. Este nome tem de ser exclusivo na zona trafficmanager.net e resultar no nome DNS <name>, trafficmanager.net, que é utilizado para aceder ao seu perfil do Gestor de Tráfego.
@@ -48,14 +48,14 @@ Pode desativar um perfil existente para que o Gestor de Tráfego não refira ped
 
 1. Se estiver a utilizar um nome de domínio personalizado, altere o registo CNAME no seu servidor DNS da Internet, para que já não aponte para o seu perfil do Gestor de Tráfego.
 2. O tráfego deixa de ser direcionado para os pontos finais através das definições de perfil do Gestor de Tráfego.
-3. Num browser, inicie sessão no [portal do Azure](http://portal.azure.com).
+3. Num browser, inicie sessão no [portal do Azure](https://portal.azure.com).
 2. Na barra de pesquisa do portal, procure o nome do **perfil do Gestor de Tráfego** que pretende modificar e, em seguida, clique no perfil do Gestor de Tráfego nos resultados apresentados.
 3. Clique em **Descrição geral** > **Desativar**.
 4. Confirme para desativar o perfil do Gestor de Tráfego.
 
 ### <a name="to-enable-a-profile"></a>Para ativar um perfil
 
-1. Num browser, inicie sessão no [portal do Azure](http://portal.azure.com).
+1. Num browser, inicie sessão no [portal do Azure](https://portal.azure.com).
 2. Na barra de pesquisa do portal, procure o nome do **perfil do Gestor de Tráfego** que pretende modificar e, em seguida, clique no perfil do Gestor de Tráfego nos resultados apresentados.
 3. Clique em **Descrição geral** > **Ativar**.
 1. Se estiver a utilizar um nome de domínio personalizado, crie um registo de recursos CNAME no seu servidor DNS da Internet, para que aponte para o nome de domínio do perfil do Gestor de Tráfego.

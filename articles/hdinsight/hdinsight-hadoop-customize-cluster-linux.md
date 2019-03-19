@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/06/2018
 ms.author: hrasheed
-ms.openlocfilehash: d325cfd679c2a8b878ae9a7b483431aba32b2a5a
-ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
+ms.openlocfilehash: 58fca4cfc4217c67be1a4e679d1a95f34ff5726f
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56313284"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58108176"
 ---
 # <a name="customize-linux-based-hdinsight-clusters-by-using-script-actions"></a>Personalizar clusters do HDInsight baseado em Linux utilizando as ações de script
 
@@ -410,9 +410,9 @@ Dois tipos de componentes de código aberto estão disponíveis no serviço HDIn
 
 * **Componentes internos**. Esses componentes são pré-instalado em clusters do HDInsight e fornecem a funcionalidade principal do cluster. Os seguintes componentes pertencem a essa categoria:
 
-    * [Apache Hadoop YARN](https://hadoop.apache.org/docs/current/hadoop-yarn/hadoop-yarn-site/YARN.html) ResourceManager.
-    * A linguagem de consulta do Hive [HiveQL](https://cwiki.apache.org/confluence/display/Hive/LanguageManual).
-    * [Apache Mahout](https://mahout.apache.org/). 
+  * [Apache Hadoop YARN](https://hadoop.apache.org/docs/current/hadoop-yarn/hadoop-yarn-site/YARN.html) ResourceManager.
+  * A linguagem de consulta do Hive [HiveQL](https://cwiki.apache.org/confluence/display/Hive/LanguageManual).
+  * [Apache Mahout](https://mahout.apache.org/). 
     
     Uma lista completa dos componentes de cluster está disponível no [quais são os componentes do Apache Hadoop e versões disponíveis com o HDInsight?](hdinsight-component-versioning.md)
 

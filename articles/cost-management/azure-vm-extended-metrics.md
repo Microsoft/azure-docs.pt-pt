@@ -6,16 +6,16 @@ keywords: ''
 author: bandersmsft
 manager: vitavor
 ms.author: banders
-ms.date: 12/06/2018
+ms.date: 03/14/2018
 ms.topic: conceptual
 ms.service: cost-management
 ms.custom: seodec18
-ms.openlocfilehash: dfe957ae67a8e154a62e443d2cc1769531dab77b
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: c7b5472c6a10e7a184d6db9d4c889b8fd37a9186
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57544789"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58000784"
 ---
 # <a name="add-extended-metrics-for-azure-virtual-machines"></a>Adicionar métricas expandidas para máquinas virtuais do Azure
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/28/2019
 ms.author: banders
-ms.openlocfilehash: 01d34ef722034ef5b56c842bab97a3415a02b0bb
-ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
+ms.openlocfilehash: be8c7fcebca224196d9eac7d22387989b1bdfd46
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57341872"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57890938"
 ---
 # <a name="get-billing-ownership-of-azure-subscriptions-from-other-users"></a>Obter a propriedade das subscrições do Azure com outros usuários de faturação
 
@@ -96,7 +96,8 @@ Este artigo aplica-se a uma conta de cobrança para um contrato de cliente da Mi
    |Cancelado|Qualquer pessoa com acesso para o pedido de transferência foi cancelada o pedido|
    |Recusada|O utilizador recusou o pedido de transferência|
 
-6. Selecione um pedido de transferência para ver os detalhes. A página de detalhes de transferência apresenta as seguintes informações: <!-- Todo - Add a screenshot -->
+6. Selecione um pedido de transferência para ver os detalhes. A página de detalhes de transferência apresenta as seguintes informações:
+   <!-- Todo - Add a screenshot -->
 
    |Coluna  |Definição|
    |---------|---------|
@@ -149,7 +150,7 @@ Subscrição de quaisquer tipos ou ofertas, exceto pelo CSP oferece pode ser tra
 
 ### <a name="cancel-a-transfer-request"></a>Cancelar um pedido de transferência
 
-Pode cancelar o pedido de transferência até que o pedido é aprovado ou recusado. Para cancelar o pedido de transferência [vá para a página de detalhes de transferência](#check-status-of-your-transfer-request-in-the-Azure-portal) e selecione Cancelar na parte inferior da página.
+Pode cancelar o pedido de transferência até que o pedido é aprovado ou recusado. Para cancelar o pedido de transferência, vá para a página de detalhes da transferência e selecione Cancelar na parte inferior da página.
 
 ### <a name="software-as-a-service-saas-transfer"></a>Software como uma transferência de serviço (SaaS)
 

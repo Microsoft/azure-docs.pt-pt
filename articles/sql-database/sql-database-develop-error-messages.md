@@ -13,12 +13,12 @@ ms.author: sstein
 ms.reviewer: ''
 manager: craigg
 ms.date: 03/06/2019
-ms.openlocfilehash: 4c01402932e35297e4284c09a35a14c304b4bf7c
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 2682f98628f3c1cf22a2c3767f52bedbc148fa62
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57550248"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57888575"
 ---
 # <a name="sql-error-codes-for-sql-database-client-applications-database-connection-errors-and-other-issues"></a>Códigos de erro SQL para aplicações de cliente da base de dados SQL: Erros de ligação de base de dados e outros problemas
 
@@ -30,7 +30,7 @@ A tabela seguinte abrange os códigos de erro SQL para erros de perda de ligaç�
 
 ### <a name="most-common-database-connection-errors-and-transient-fault-errors"></a>Erros de ligação de base de dados mais comuns e erros de falhas transitórias
 
-A infraestrutura do Azure tem a capacidade de reconfigurar os servidores dinamicamente quando surgem de cargas de trabalho pesadas no serviço de base de dados SQL.  Este comportamento dinâmico pode fazer com que o seu programa cliente perca a ligação à base de dados SQL. Esse tipo de condição de erro é chamado um *falhas transitórias*.
+A infraestrutura do Azure tem a capacidade de reconfigurar dinamicamente os serviços quando surgem cargas de trabalho pesadas no serviço Base de Dados SQL.  Este comportamento dinâmico poderá fazer com que o seu programa cliente perca a ligação à Base de Dados SQL. Esse tipo de condição de erro é chamado um *falhas transitórias*.
 
 É altamente recomendável que o seu programa cliente tem a lógica de repetição para que ele foi possível restabelecer uma ligação depois de fornecer o tempo de falhas transitórias para corrigir-se.  Recomendamos que atraso por 5 segundos antes de sua primeira repetição. Repetir após um atraso menor do que os riscos de 5 segundos sobrecarregar o serviço em nuvem. Para cada repetição posterior, o atraso deve aumentar exponencialmente, até um máximo de 60 segundos.
 
@@ -55,7 +55,7 @@ Os seguintes erros estão transitórios e devem ser repetidos na lógica do apli
 
 | Código de erro | Gravidade | Descrição |
 | ---:| ---:|:--- |
-| 4060 |16 |Não é possível abrir a base de dados "%.&#x2a;ls" pedida pelo início de sessão. O início de sessão falhou. |Para obter mais informações, consulte [erros 4000 para 4999](https://docs.microsoft.comsql/relational-databases/errors-events/database-engine-events-and-errors?view=sql-server-2017#errors-4000-to-4999)|
+| 4060 |16 |Não é possível abrir a base de dados "%.&#x2a;ls" pedida pelo início de sessão. O início de sessão falhou. Para obter mais informações, consulte [erros 4000 para 4999](https://docs.microsoft.com/sql/relational-databases/errors-events/database-engine-events-and-errors#errors-4000-to-4999)|
 | 40197 |17 |O serviço encontrou um erro ao processar o pedido. Tente novamente. Código de erro %d.<br/><br/>Recebe este erro quando o serviço está desativado devido a software ou atualizações de hardware, falhas de hardware ou outros problemas de ativação pós-falha. O código de erro (%d) incorporado na mensagem de erro 40197 fornece informações adicionais sobre o tipo de falha ou ativação pós-falha que ocorreu. Alguns exemplos do erro códigos são incorporados na mensagem de erro 40197 são 40020, 40143, 40166 e 40540.<br/><br/>Restabelecer ligação ao seu servidor de base de dados SQL automaticamente liga-o para uma cópia de bom estado de funcionamento da base de dados. A aplicação tem de capturar o registo de erros 40197, o código de erro embedded (%d) na mensagem de para resolução de problemas e tente voltar a ligar à base de dados SQL até que os recursos estão disponíveis e a ligação é estabelecida novamente. Para obter mais informações, consulte [erros transitórios](sql-database-connectivity-issues.md#transient-errors-transient-faults).|
 | 40501 |20 |O serviço está ocupado neste momento. Repita o pedido após 10 segundos. ID do incidente: %ls. Código: %d. Para obter mais informações, consulte: <br/>&bull; &nbsp;[Limites de recursos do servidor de base de dados](sql-database-resource-limits-database-server.md)<br/>&bull; &nbsp;[Limites baseados em DTU para bases de dados individuais](sql-database-service-tiers-dtu.md)<br/>&bull; &nbsp;[Limites baseados em DTU para conjuntos elásticos](sql-database-dtu-resource-limits-elastic-pools.md)<br/>&bull; &nbsp;[baseado em vCore limites para bases de dados individuais](sql-database-vcore-resource-limits-single-databases.md)<br/>&bull; &nbsp;[baseado em vCore limites para conjuntos elásticos](sql-database-vcore-resource-limits-elastic-pools.md)<br/>&bull; &nbsp;[Gerido limites de recursos de instância](sql-database-managed-instance-resource-limits.md).|
 | 40613 |17 |Base de dados '%.&#x2a;ls' no servidor '%.&#x2a;ls' não está atualmente disponível. Tente novamente a ligação mais tarde. Se o problema persistir, contacte o suporte ao cliente e forneça o ID de rastreio de sessão de '%.&#x2a;ls'.<br/><br/> Este erro pode ocorrer se já existir uma existente ligação de administrador dedicada (DAC) estabelecida para a base de dados. Para obter mais informações, consulte [erros transitórios](sql-database-connectivity-issues.md#transient-errors-transient-faults).|

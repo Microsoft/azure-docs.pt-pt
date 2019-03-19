@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 04/25/2018
 ms.author: roiyz
-ms.openlocfilehash: b8f343c2293df6a1dec808addf8881c27514fc06
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 19637a1fe49550d0ed7aea7e3a596f1f77f5984b
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57436660"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58082046"
 ---
 # <a name="use-the-azure-custom-script-extension-version-2-with-linux-virtual-machines"></a>Utilizar a versão 2 do Azure Custom Script extensão com máquinas virtuais do Linux
 A versão 2 do Custom Script extensão transfere e executa scripts em máquinas virtuais do Azure. Esta extensão é útil para configuração de pós-implementação, instalação de software ou qualquer outra tarefa de gestão de configuração /. Pode baixar scripts a partir do armazenamento do Azure ou noutra localização acessível da internet ou pode fornecê-los para o tempo de execução de extensão. 
@@ -124,7 +124,7 @@ Esses itens devem ser tratados como dados confidenciais e especificados na confi
 ### <a name="property-value-details"></a>Detalhes de valor de propriedade
 * `skipDos2Unix`: (opcional, booleano) ignorar conversão dos2unix de URLs de ficheiros baseado no script ou script.
 * `timestamp` Este campo só para acionar uma volte a executar o script alterando o valor deste campo utilização de (inteiro opcional, 32 bits).  Qualquer valor inteiro é aceitável; só tem de ser diferente do valor anterior.
- * `commandToExecute`: (**necessário** se o script não definido, cadeia de caracteres) o script do ponto de entrada para executar. Utilize este campo em vez disso, se o comando contém segredos como palavras-passe.
+  * `commandToExecute`: (**necessário** se o script não definido, cadeia de caracteres) o script do ponto de entrada para executar. Utilize este campo em vez disso, se o comando contém segredos como palavras-passe.
 * `script`: (**necessário** se commandToExecute não definido, cadeia de caracteres) um codificada em base64 (e, opcionalmente, gzip'ed) script foi executado pelo /bin/sh.
 * `fileUris`: (opcional, matriz de cadeia) as URLs para o ficheiro (s) a serem baixados.
 * `storageAccountName`: (opcional, cadeia de caracteres) o nome da conta de armazenamento. Se especificar credenciais de armazenamento, todas as `fileUris` tem de ser URLs para os Blobs do Azure.

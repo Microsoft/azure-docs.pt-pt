@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 04/16/2018
 ms.author: priyamo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 611a2deccffeb142dc9a76bd260c9a8a080eb8bb
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.openlocfilehash: 5159388996c562fac59a9ec1127f7d52ba0b30f2
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56816339"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58083084"
 ---
 # <a name="create-list-and-delete-a-user-assigned-managed-identity-using-azure-resource-manager"></a>Criar, listar e eliminar uma identidade gerida atribuído ao utilizador com o Azure Resource Manager
 
@@ -34,7 +34,7 @@ Não é possível listar e eliminar uma identidade gerida atribuído ao utilizad
 
 - [Lista atribuído ao utilizador com identidade gerida](how-to-manage-ua-identity-cli.md#list-user-assigned-managed-identities)
 - [Eliminar utilizador atribuído a identidade gerida](how-to-manage-ua-identity-cli.md#delete-a-user-assigned-managed-identity)
-## <a name="prerequisites"></a>Pré-requisitos
+  ## <a name="prerequisites"></a>Pré-requisitos
 
 - Se não estiver familiarizado com identidades geridas para recursos do Azure, veja a [secção Descrição geral](overview.md). **Certifique-se de que reveja os [diferença entre uma identidade gerida atribuído de sistema e atribuído ao utilizador](overview.md#how-does-it-work)**.
 - Se ainda não tiver uma conta do Azure, [inscreva-se numa conta gratuita](https://azure.microsoft.com/free/) antes de continuar.

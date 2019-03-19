@@ -11,13 +11,13 @@ author: aliceku
 ms.author: aliceku
 ms.reviewer: vanto
 manager: craigg
-ms.date: 03/07/2019
-ms.openlocfilehash: 6669be82877ae5d9465e23dad3c8b310cf24af89
-ms.sourcegitcommit: 30a0007f8e584692fe03c0023fe0337f842a7070
+ms.date: 03/12/2019
+ms.openlocfilehash: c42c6175512105de38a29be260c370851e152137
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57576774"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57871651"
 ---
 # <a name="powershell-and-cli-enable-transparent-data-encryption-with-customer-managed-key-from-azure-key-vault"></a>PowerShell e CLI: Ativar a encriptação de dados transparente com a chave gerida pelo cliente do Azure Key Vault
 
@@ -26,16 +26,18 @@ Este artigo explica como utilizar uma chave de Cofre de chaves do Azure para dad
 ## <a name="prerequisites-for-powershell"></a>Pré-requisitos para o PowerShell
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+> [!IMPORTANT]
+> O módulo do PowerShell do Azure Resource Manager ainda é suportado pelo SQL Database do Azure, mas todo o desenvolvimento futuro é para o módulo de Az.Sql. Para estes cmdlets, consulte [azurerm. SQL](https://docs.microsoft.com/powershell/module/AzureRM.Sql/). Os argumentos para os comandos no módulo Az e nos módulos AzureRm são substancialmente idênticos.
 
 - Tem de ter uma subscrição do Azure e de ser um administrador da subscrição.
 - [Recomendável, mas opcional] Ter um módulo de segurança de hardware (HSM) ou chave local armazenar para a criação de uma cópia local do material de chave de Protetor de TDE.
 - Tem de ter o Azure PowerShell instalada e em execução. 
 - Crie um cofre de chaves do Azure e a chave a utilizar para TDE.
-   - [Instruções do PowerShell do Key Vault](../key-vault/key-vault-overview.md)
-   - [Instruções para utilizar um módulo de segurança de hardware (HSM) e o Key Vault](../key-vault/key-vault-hsm-protected-keys.md)
- - O Cofre de chaves tem de ter a seguinte propriedade a ser utilizado para TDE:
-   - [soft-delete](../key-vault/key-vault-ovw-soft-delete.md)
-   - [Como utilizar a eliminação de forma recuperável do Key Vault com o PowerShell](../key-vault/key-vault-soft-delete-powershell.md) 
+  - [Instruções do PowerShell do Key Vault](../key-vault/key-vault-overview.md)
+  - [Instruções para utilizar um módulo de segurança de hardware (HSM) e o Key Vault](../key-vault/key-vault-hsm-protected-keys.md)
+    - O Cofre de chaves tem de ter a seguinte propriedade a ser utilizado para TDE:
+  - [soft-delete](../key-vault/key-vault-ovw-soft-delete.md)
+  - [Como utilizar a eliminação de forma recuperável do Key Vault com o PowerShell](../key-vault/key-vault-soft-delete-powershell.md) 
 - A chave tem de ter os seguintes atributos a ser utilizado para TDE:
    - Sem data de expiração
    - Não foi desativada
@@ -175,7 +177,7 @@ Utilize o [Get-AzSqlDatabaseTransparentDataEncryption](/powershell/module/az.sql
 ## <a name="troubleshooting"></a>Resolução de problemas
 
 Verifique o seguinte se ocorrer um problema:
-- Se não for encontrado o Cofre de chaves, certificar-se de que está na subscrição correta com o [Get-AzSubscription](/powershell/module/az.account/get-azsubscription) cmdlet.
+- Se não for encontrado o Cofre de chaves, certificar-se de que está na subscrição correta com o [Get-AzSubscription](/powershell/module/az.accounts/get-azsubscription) cmdlet.
 
    ```powershell
    Get-AzSubscription `
@@ -195,13 +197,13 @@ Verifique o seguinte se ocorrer um problema:
 
 - Tem de ter uma subscrição do Azure e de ser um administrador da subscrição.
 - [Recomendável, mas opcional] Ter um módulo de segurança de hardware (HSM) ou chave local armazenar para a criação de uma cópia local do material de chave de Protetor de TDE.
-- Interface de linha de comandos versão 2.0 ou posterior. Para instalar a versão mais recente e ligar à sua subscrição do Azure, veja [instalar e configurar a Interface de linha de comandos de várias plataformas do Azure 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest). 
+- Interface de linha de comandos versão 2.0 ou posterior. Para instalar a versão mais recente e ligar à sua subscrição do Azure, veja [instalar e configurar a Interface de linha de comandos de várias plataformas do Azure 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli). 
 - Crie um cofre de chaves do Azure e a chave a utilizar para TDE.
-   - [Gerir o Cofre de chaves com a CLI 2.0](../key-vault/key-vault-manage-with-cli2.md)
-   - [Instruções para utilizar um módulo de segurança de hardware (HSM) e o Key Vault](../key-vault/key-vault-hsm-protected-keys.md)
- - O Cofre de chaves tem de ter a seguinte propriedade a ser utilizado para TDE:
-   - [soft-delete](../key-vault/key-vault-ovw-soft-delete.md)
-   - [Como utilizar a eliminação de forma recuperável do Key Vault com a CLI](../key-vault/key-vault-soft-delete-cli.md) 
+  - [Gerir o Cofre de chaves com a CLI 2.0](../key-vault/key-vault-manage-with-cli2.md)
+  - [Instruções para utilizar um módulo de segurança de hardware (HSM) e o Key Vault](../key-vault/key-vault-hsm-protected-keys.md)
+    - O Cofre de chaves tem de ter a seguinte propriedade a ser utilizado para TDE:
+  - [soft-delete](../key-vault/key-vault-ovw-soft-delete.md)
+  - [Como utilizar a eliminação de forma recuperável do Key Vault com a CLI](../key-vault/key-vault-soft-delete-cli.md) 
 - A chave tem de ter os seguintes atributos a ser utilizado para TDE:
    - Sem data de expiração
    - Não foi desativada
@@ -263,11 +265,11 @@ Agora o armazém de dados ou base de dados tem o TDE ativado com uma chave de en
 
 ## <a name="sql-cli-references"></a>Referências de CLI de SQL
 
-https://docs.microsoft.com/cli/azure/sql?view=azure-cli-latest 
+https://docs.microsoft.com/cli/azure/sql 
 
-https://docs.microsoft.com/cli/azure/sql/server/key?view=azure-cli-latest 
+https://docs.microsoft.com/cli/azure/sql/server/key 
 
-https://docs.microsoft.com/cli/azure/sql/server/tde-key?view=azure-cli-latest 
+https://docs.microsoft.com/cli/azure/sql/server/tde-key 
 
-https://docs.microsoft.com/cli/azure/sql/db/tde?view=azure-cli-latest 
+https://docs.microsoft.com/cli/azure/sql/db/tde 
 

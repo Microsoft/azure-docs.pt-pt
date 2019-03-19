@@ -16,12 +16,12 @@ ms.workload: identity
 ms.date: 09/24/2018
 ms.author: andret
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: dcb235ab96ed8a85cbe44dd672dff004dd0a7310
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 73d762e5bb358964b439d1dc6027abc01332da21
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56185321"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58007621"
 ---
 # <a name="quickstart-add-sign-in-with-microsoft-to-an-aspnet-web-app"></a>Início rápido: Adicionar início de sessão com a Microsoft a uma aplicação web ASP.NET
 
@@ -146,7 +146,8 @@ No Visual Studio, crie uma nova vista para adicionar o botão de início de sess
 
     [!code-html[main](../../../WebApp-OpenIDConnect-DotNet/WebApp-OpenIDConnect-DotNet/Views/Home/Index.cshtml "Index.cshtml")]
 
-<!--start-collapse--> Esta página adiciona um botão de início de sessão no formato SVG com um fundo preto:<br/>![Iniciar sessão com a Microsoft](./media/quickstart-v1-aspnet-webapp/aspnetsigninbuttonsample.png)<br/> Para obter mais botões de início de sessão, aceda a [Diretrizes de imagem corporativa para aplicações](howto-add-branding-in-azure-ad-apps.md).
+<!--start-collapse-->
+Esta página adiciona um botão de início de sessão no formato SVG com um plano de fundo preto:<br/>![Iniciar sessão com a Microsoft](./media/quickstart-v1-aspnet-webapp/aspnetsigninbuttonsample.png)<br/> Para obter mais botões de início de sessão, aceda a [Diretrizes de imagem corporativa para aplicações](howto-add-branding-in-azure-ad-apps.md).
 <!--end-collapse-->
 
 ## <a name="step-7-display-users-claims-by-adding-a-controller"></a>Passo 7: Apresentar afirmações de utilizadores ao adicionar um controlador
@@ -300,7 +301,7 @@ Além disso, verá uma tabela que inclui todas as afirmações do utilizador inc
 
 Neste passo, vai testar o acesso ao controlador Afirmações como um utilizador anónimo:<br/>
 Selecione a ligação para terminar a sessão do utilizador e concluir o processo de fim de sessão.<br/>
-Agora no seu browser, escreva http://localhost:{port}/claims para aceder ao seu controlador, que está protegido pelo atributo `[Authorize]`
+Agora no seu browser, escreva `http://localhost:{port}/claims` para aceder ao seu controlador, que está protegido pelo atributo `[Authorize]`
 
 #### <a name="expected-results"></a>Resultados esperados
 

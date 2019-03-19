@@ -11,12 +11,12 @@ ms.workload: integration
 ms.topic: article
 ms.date: 12/14/2017
 ms.author: apimpm
-ms.openlocfilehash: cb7ccc665cdf9867232580fd8b687b344e43116d
-ms.sourcegitcommit: 7723b13601429fe8ce101395b7e47831043b970b
+ms.openlocfilehash: a771b437258046f937b97a9e37ffedbe0a17c1c1
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56587281"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58079800"
 ---
 # <a name="configure-a-custom-domain-name"></a>Configurar um nome de domínio personalizado 
 
@@ -45,22 +45,22 @@ Para efetuar os passos descritos neste artigo, tem de ter:
 1. Selecione **domínios personalizados e SSL**.
     
     Há uma série de pontos de extremidade ao qual pode atribuir um nome de domínio personalizado. Atualmente, os pontos finais seguintes estão disponíveis: 
-    + **Proxy** (a predefinição é: `<apim-service-name>.azure-api.net`), 
-    + **Portal** (a predefinição é: `<apim-service-name>.portal.azure-api.net`),     
-    + **Gerenciamento** (a predefinição é: `<apim-service-name>.management.azure-api.net`), 
-    + **SCM** (a predefinição é: `<apim-service-name>.scm.azure-api.net`).
+   + **Proxy** (a predefinição é: `<apim-service-name>.azure-api.net`), 
+   + **Portal** (a predefinição é: `<apim-service-name>.portal.azure-api.net`),     
+   + **Gerenciamento** (a predefinição é: `<apim-service-name>.management.azure-api.net`), 
+   + **SCM** (a predefinição é: `<apim-service-name>.scm.azure-api.net`).
 
-    >[!NOTE]
-    > Pode atualizar todos os pontos de extremidade ou alguns deles. Normalmente, os clientes atualizar **Proxy** (este URL é utilizado para chamar a API exposta por meio de gestão de API) e **Portal** (portal do programador URL). **Gerenciamento** e **SCM** pontos de extremidade são usados internamente por clientes APIM e, portanto, com menos frequência recebem um nome de domínio personalizado.
+     >[!NOTE]
+     > Pode atualizar todos os pontos de extremidade ou alguns deles. Normalmente, os clientes atualizar **Proxy** (este URL é utilizado para chamar a API exposta por meio de gestão de API) e **Portal** (portal do programador URL). **Gerenciamento** e **SCM** pontos de extremidade são usados internamente por clientes APIM e, portanto, com menos frequência recebem um nome de domínio personalizado.
 
 1. Selecione o ponto final que pretende atualizar. 
 1. Na janela à direita, clique em **personalizado**.
 
-    + Na **nome de domínio personalizado**, especifique o nome que pretende utilizar. Por exemplo, `api.contoso.com`. Nomes de domínio de caráter universal (por exemplo, *. domínio. com) também são suportados.
-    + Na **certificado**, selecione um certificado do Key Vault. Também pode carregar um válido. PFX de ficheiros e fornecer sua **palavra-passe**, se o certificado está protegido com uma palavra-passe.
+   + Na **nome de domínio personalizado**, especifique o nome que pretende utilizar. Por exemplo, `api.contoso.com`. Nomes de domínio de caráter universal (por exemplo, *. domínio. com) também são suportados.
+   + Na **certificado**, selecione um certificado do Key Vault. Também pode carregar um válido. PFX de ficheiros e fornecer sua **palavra-passe**, se o certificado está protegido com uma palavra-passe.
 
-    > [!TIP]
-    > Se utilizar o Azure Key Vault para gerir o certificado SSL de domínio personalizado, certifique-se do certificado é inserido no Key Vault [como uma *certificado*](https://docs.microsoft.com/rest/api/keyvault/CreateCertificate/CreateCertificate), e não um *segredo*. Se o certificado é definido como autorotate, gestão de API selecionará automaticamente a versão mais recente.
+     > [!TIP]
+     > Se utilizar o Azure Key Vault para gerir o certificado SSL de domínio personalizado, certifique-se do certificado é inserido no Key Vault [como uma *certificado*](https://docs.microsoft.com/rest/api/keyvault/CreateCertificate/CreateCertificate), e não um *segredo*. Se o certificado é definido como autorotate, gestão de API selecionará automaticamente a versão mais recente.
 
 1. Clique em aplicar.
 

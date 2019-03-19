@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/08/2019
 ms.author: juliako
-ms.openlocfilehash: f9f4dacc8aac2fc47002b65798c8367e354bb69c
-ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.openlocfilehash: d2651bc47f262a45a05217585eb00cbc721c01a1
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/02/2019
-ms.locfileid: "57240546"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58165782"
 ---
 # <a name="managing-assets-and-related-entities-with-media-services-net-sdk"></a>Gerenciamento de ativos e entidades relacionadas com os serviços de multimédia .NET SDK
 > [!div class="op_single_selector"]

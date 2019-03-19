@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 01/30/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 436d40bc2e83244f5624286c43dab6a63f8c6a47
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 5ca35e1c6966365fab1a53fe9674a8f361422eea
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57454175"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57861864"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-directions-on-microsoft"></a>Tutorial: Integração do Active Directory do Azure com as direções em Microsoft
 
@@ -106,12 +106,14 @@ Para configurar o Azure AD início de sessão único com as direções em Micros
     ![Direções nas Domain Microsoft informações e de URLs únicas início de sessão](common/sp-identifier.png)
 
     a. Na **iniciar sessão no URL** caixa de texto, escreva um URL com o seguinte padrão:
+
     |  |
     | --- |
     | `https://www.directionsonmicrosoft.com/user/login` |
     | `https://<subdomain>.devcloud.acquia-sites.com/<companyname>` |
 
     b. Na **identificador (ID de entidade)** caixa de texto, escreva um URL com o seguinte padrão:
+    
     |  |
     | --- |
     | `https://rhelmdirectionsonmicrosoftcomtest.devcloud.acquia-sites.com/simplesaml/<companyname>` |
@@ -159,7 +161,7 @@ O objetivo desta secção é criar um utilizador de teste no portal do Azure cha
 
     a. Na **Name** campo introduza **BrittaSimon**.
   
-    b. Na **nome de utilizador** tipo de campo **brittasimon@yourcompanydomain.extension**  
+    b. Na **nome de utilizador** tipo de campo **brittasimon\@yourcompanydomain.extension**  
     Por exemplo, BrittaSimon@contoso.com
 
     c. Selecione **palavra-passe de Show** caixa de verificação e, em seguida, anote o valor que é apresentado na caixa de palavra-passe.

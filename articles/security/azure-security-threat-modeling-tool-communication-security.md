@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/07/2017
 ms.author: jegeib
-ms.openlocfilehash: 3f4e87e5602b3c77178ab5bc842705cfedf64af2
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 8534f30c17208e77adfa47ea41506a3a61d3548d
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57448378"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57897304"
 ---
 # <a name="security-frame-communication-security--mitigations"></a>Quadro de segurança: Segurança da comunicação | Atenuações 
 | Produtos/serviços | Artigo |
@@ -146,7 +146,7 @@ Esta regra funciona, retornando um código de estado HTTP de 301 (redirecionamen
 | **Tecnologias aplicáveis** | Genérico |
 | **Atributos**              | N/A  |
 | **Referências**              | [Roteiro para segurança de transporte Strict do OWASP HTTP](https://www.owasp.org/index.php/HTTP_Strict_Transport_Security_Cheat_Sheet) |
-| **Passos** | <p>Segurança de transporte Strict da HTTP (HSTS) é um aprimoramento de segurança participação ativa especificado por um aplicativo web com o uso de um cabeçalho de resposta especial. Depois de um browser suportado recebe esse cabeçalho esse navegador impedirá que todas as comunicações sejam enviados através de HTTP para o domínio especificado e em vez disso, enviará todas as comunicações através de HTTPS. Ele também impede clique HTTPS através de pedidos em navegadores.</p><p>Para implementar HSTS, o seguinte cabeçalho de resposta deve ser configurado para um Web site globalmente, no código ou na configuração. Strict--segurança de transporte: idade máxima = 300; includeSubDomains HSTS lida com as seguintes ameaças:</p><ul><li>Indicadores de utilizador, ou manualmente tipos http://example.com e está sujeita a um invasor man-in-the-middle: HSTS redireciona automaticamente os pedidos de HTTP para HTTPS para o domínio de destino</li><li>Aplicação Web que se destina a ser puramente HTTPS inadvertidamente contém ligações HTTP ou serve conteúdo através de HTTP: HSTS redireciona automaticamente os pedidos de HTTP para HTTPS para o domínio de destino</li><li>Um invasor man-in-the-middle tenta interceptar o tráfego a partir de um utilizador da vítima a utilizar um certificado inválido e espera que o utilizador irá aceitar o certificado incorreto: HSTS não permite que um utilizador a ignorar a mensagem de certificado inválido</li></ul>|
+| **Passos** | <p>Segurança de transporte Strict da HTTP (HSTS) é um aprimoramento de segurança participação ativa especificado por um aplicativo web com o uso de um cabeçalho de resposta especial. Depois de um browser suportado recebe esse cabeçalho esse navegador impedirá que todas as comunicações sejam enviados através de HTTP para o domínio especificado e em vez disso, enviará todas as comunicações através de HTTPS. Ele também impede clique HTTPS através de pedidos em navegadores.</p><p>Para implementar HSTS, o seguinte cabeçalho de resposta deve ser configurado para um Web site globalmente, no código ou na configuração. Strict--segurança de transporte: idade máxima = 300; includeSubDomains HSTS lida com as seguintes ameaças:</p><ul><li>Indicadores de utilizador, ou manualmente tipos https://example.com e está sujeita a um invasor man-in-the-middle: HSTS redireciona automaticamente os pedidos de HTTP para HTTPS para o domínio de destino</li><li>Aplicação Web que se destina a ser puramente HTTPS inadvertidamente contém ligações HTTP ou serve conteúdo através de HTTP: HSTS redireciona automaticamente os pedidos de HTTP para HTTPS para o domínio de destino</li><li>Um invasor man-in-the-middle tenta interceptar o tráfego a partir de um utilizador da vítima a utilizar um certificado inválido e espera que o utilizador irá aceitar o certificado incorreto: HSTS não permite que um utilizador a ignorar a mensagem de certificado inválido</li></ul>|
 
 ## <a id="sqlserver-validation"></a>Certifique-se o SQL server certificado de encriptação e validação da ligação
 
@@ -339,7 +339,7 @@ string GetData(int value);
 | **Fase do SDL**               | Compilação |  
 | **Tecnologias aplicáveis** | MVC5, MVC6 |
 | **Atributos**              | N/A  |
-| **Referências**              | [Imposição de SSL num controlador da API Web](http://www.asp.net/web-api/overview/security/working-with-ssl-in-web-api) |
+| **Referências**              | [Imposição de SSL num controlador da API Web](https://www.asp.net/web-api/overview/security/working-with-ssl-in-web-api) |
 | **Passos** | Se um aplicativo tiver HTTPS e um enlace HTTP, os clientes podem ainda utilizar HTTP para aceder ao site. Para evitar esta situação, utilize um filtro de ação para garantir que os pedidos para APIs protegidos estão sempre através de HTTPS.|
 
 ### <a name="example"></a>Exemplo 

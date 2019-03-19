@@ -10,12 +10,12 @@ ms.subservice: conversation-learner
 ms.topic: article
 ms.date: 04/30/2018
 ms.author: v-jaswel
-ms.openlocfilehash: 82738d6d97dc2c14c83ed483c4a1d76604d0cd91
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 743b4d4888738579a023e879dc7b6e95cd23ccc7
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57545338"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57994362"
 ---
 # <a name="create-a-conversation-learner-model-using-nodejs"></a>Criar um modelo de aprendiz de conversação com node. js
 
@@ -78,35 +78,35 @@ Aprendiz de conversação do projeto é constituído por um SDK que adiciona ao 
 
     Isso é executado o bot vazio genérico em `cl-bot-01/src/app.ts`.
 
-3. Browser aberto para http://localhost:3978
+3. Browser aberto para `http://localhost:3978`
 
 Agora está a utilizar o aprendiz de conversação e pode criar e ensinar um modelo de aprendiz de conversação.  
 
 > [!NOTE]
-> No início, o aprendiz de conversação de projeto está disponível por convite.  Se http://localhost:3978/ui mostra um HTTP `403` erro, isso significa que sua conta não foi convidada.  Tente [pedir um convite](https://aka.ms/conversation-learner-request-invite).
+> No início, o aprendiz de conversação de projeto está disponível por convite.  Se `http://localhost:3978/ui` mostra um HTTP `403` erro, isso significa que sua conta não foi convidada.  Tente [pedir um convite](https://aka.ms/conversation-learner-request-invite).
 
 ## <a name="tutorials-demos-and-switching-between-bots"></a>Tutoriais, demonstrações e alternar entre bots
 
 As instruções acima a utilizar o bot vazio genérico.  Para executar um tutorial ou em vez disso, o bot de demonstração:
 
-1. Se tiver web Aprendiz de conversação, abra a interface do Usuário, regressar à lista de modelos em http://localhost:3978/ui/home.
+1. Se tiver web Aprendiz de conversação, abra a interface do Usuário, regressar à lista de modelos em `http://localhost:3978/ui/home`.
     
 2. Se estiver a executar outra bot (como `npm start` ou `npm run demo-pizza`), impedi-lo.  Não é necessário parar o processo de interface do Usuário ou fechar o navegador da web.
 
 3. Execute um bot de demonstração da linha de comando (etapa 2 acima).  Demonstrações incluem:
 
-  ```bash
-  npm run tutorial-general
-  npm run tutorial-entity-detection
-  npm run tutorial-session-callbacks
-  npm run tutorial-api-calls
-  npm run tutorial-hybrid
-  npm run demo-password
-  npm run demo-pizza
-  npm run demo-storage
-  ```
+   ```bash
+   npm run tutorial-general
+   npm run tutorial-entity-detection
+   npm run tutorial-session-callbacks
+   npm run tutorial-api-calls
+   npm run tutorial-hybrid
+   npm run demo-password
+   npm run demo-pizza
+   npm run demo-storage
+   ```
 
-4. Se não estiver já, mude para a web de aprendiz de conversação da interface do Usuário no Chrome carregando http://localhost:3978/ui/home. 
+4. Se não estiver já, mude para a web de aprendiz de conversação da interface do Usuário no Chrome carregando `http://localhost:3978/ui/home`. 
 
 5. Clique em "Tutoriais de importação" e selecione o modelo de demonstração na IU de aprendiz de conversação que corresponde à demonstração iniciou.
 
@@ -114,7 +114,7 @@ Ficheiros de origem para as demonstrações estão em `cl-bot-01/src/demos`
 
 ## <a name="create-a-bot-which-includes-back-end-code"></a>Criar um bot, que inclui o código de back-end
 
-1. Se tiver web Aprendiz de conversação, abra a interface do Usuário, regressar à lista de modelos em http://localhost:3978/ui/home.
+1. Se tiver web Aprendiz de conversação, abra a interface do Usuário, regressar à lista de modelos em `http://localhost:3978/ui/home`.
     
 2. Se estiver a executar um bot (como `npm run demo-pizza`), impedi-lo.  Não é necessário parar o processo de interface do Usuário ou fechar o navegador da web.
 
@@ -127,7 +127,7 @@ Ficheiros de origem para as demonstrações estão em `cl-bot-01/src/demos`
     npm start
     ```
 
-5. Se não estiver já, mude para a web de aprendiz de conversação da interface do Usuário no Chrome carregando http://localhost:3978/ui/home. 
+5. Se não estiver já, mude para a web de aprendiz de conversação da interface do Usuário no Chrome carregando `http://localhost:3978/ui/home`. 
 
 6. Criar um novo modelo de aprendiz de conversação na interface de Usuário e iniciar o ensino.
 

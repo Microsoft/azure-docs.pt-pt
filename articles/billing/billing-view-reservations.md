@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/03/2018
 ms.author: banders
-ms.openlocfilehash: 3a421e71cf93820716298fcfe4ccb1bcbe843bd1
-ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
+ms.openlocfilehash: a66547ed4bf089bb618dc8b98da7f260b6b5536a
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54904034"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57904308"
 ---
 # <a name="view-reservations-for-azure-in-the-azure-portal"></a>Reservas de vista para o Azure no portal do Azure
 
@@ -73,4 +73,4 @@ Para saber mais sobre as reservas do Azure, veja os artigos seguintes:
 
 ## <a name="need-help-contact-us"></a>Precisa de ajuda? Contacte-nos.
 
-Se tiver alguma dúvida ou precisar de ajuda, [criar um pedido de suporte](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).
+Se tiver alguma dúvida ou precisar de ajuda, [criar um pedido de suporte](https://go.microsoft.com/fwlink/?linkid=2083458).

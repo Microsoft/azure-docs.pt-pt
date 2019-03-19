@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 02/16/2017
 ms.author: mikeray
-ms.openlocfilehash: 43f2694f597d99edaf127a6afd64376cca33dad2
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 3b90ae3e9808b22b6d6c41e3ac11bec0293bd4bf
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57448157"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58107887"
 ---
 # <a name="configure-a-load-balancer-for-an-always-on-availability-group-in-azure"></a>Configurar um balanceador de carga para um grupo de disponibilidade Always On no Azure
 Este artigo explica como criar um balanceador de carga para um grupo de disponibilidade Always On do SQL Server em máquinas virtuais do Azure que estejam a executar com o Azure Resource Manager. Um grupo de disponibilidade necessita de um balanceador de carga quando são de instâncias do SQL Server em máquinas virtuais do Azure. O Balanceador de carga armazena o endereço IP para o serviço de escuta do grupo de disponibilidade. Se a um grupo de disponibilidade se estende por várias regiões, cada região tem um balanceador de carga.
@@ -235,18 +235,18 @@ Para adicionar um endereço IP a um balanceador de carga com o portal do Azure, 
 
 10. Configure a carga de nova regra de balanceamento utilizando as seguintes definições:
 
-   |Definição |Value
-   |:-----|:----
-   |**Nome** |Um nome para identificar a regra de balanceamento de carga. 
-   |**Endereço IP de front-end** |Selecione o endereço IP que criou. 
-   |**Protocolo** |TCP
-   |**Porta** |Utilize a porta que instâncias do SQL Server estiver a utilizar. Uma instância predefinida utiliza a porta 1433, a menos que tenha alterado. 
-   |**Porta de back-end** |Utilizar o mesmo valor que **porta**.
-   |**Conjunto back-end** |O conjunto que contém as máquinas virtuais com as instâncias do SQL Server. 
-   |**Sonda de estado de funcionamento** |Escolha a sonda que criou.
-   |**Persistência da sessão** |Nenhuma
-   |**Tempo limite de inatividade (minutos)** |Padrão (4)
-   |**Vírgula flutuante (devolução direta do servidor) de IP** | Ativado
+    |Definição |Value
+    |:-----|:----
+    |**Nome** |Um nome para identificar a regra de balanceamento de carga. 
+    |**Endereço IP de front-end** |Selecione o endereço IP que criou. 
+    |**Protocolo** |TCP
+    |**Porta** |Utilize a porta que instâncias do SQL Server estiver a utilizar. Uma instância predefinida utiliza a porta 1433, a menos que tenha alterado. 
+    |**Porta de back-end** |Utilizar o mesmo valor que **porta**.
+    |**Conjunto back-end** |O conjunto que contém as máquinas virtuais com as instâncias do SQL Server. 
+    |**Sonda de estado de funcionamento** |Escolha a sonda que criou.
+    |**Persistência da sessão** |Nenhuma
+    |**Tempo limite de inatividade (minutos)** |Padrão (4)
+    |**Vírgula flutuante (devolução direta do servidor) de IP** | Ativado
 
 ### <a name="configure-the-availability-group-to-use-the-new-ip-address"></a>Configurar o grupo de disponibilidade para utilizar o novo endereço IP
 

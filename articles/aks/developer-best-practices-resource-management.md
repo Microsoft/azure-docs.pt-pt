@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 11/26/2018
 ms.author: iainfou
-ms.openlocfilehash: 50f55ca3b05a6902841f1b1268cfbde742a9d589
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: b45c5abb66d927f247f62692f12bd9207958a3e3
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52428285"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58181287"
 ---
 # <a name="best-practices-for-application-developers-to-manage-resources-in-azure-kubernetes-service-aks"></a>Melhores práticas para os desenvolvedores de aplicativos gerir os recursos no Azure Kubernetes Service (AKS)
 
@@ -84,9 +84,9 @@ O [extensão do Visual Studio Code para Kubernetes] [ vscode-kubernetes] ajuda-o
 
 ## <a name="regularly-check-for-application-issues-with-kube-advisor"></a>Verificar regularmente a existência de problemas de aplicativos com o Assistente do kube
 
-**Melhores diretrizes de práticas** -regularmente executam a versão mais recente do `kube-advisor` para detetar problemas no seu cluster. Se aplicar quotas de recursos num cluster do AKS existente, execute `kube-advisor` primeiro para encontrar os pods que não têm pedidos de recursos e os limites definidos.
+**Melhores diretrizes de práticas** -regularmente executam a versão mais recente do `kube-advisor` ferramenta de código-fonte aberto para detetar problemas no seu cluster. Se aplicar quotas de recursos num cluster do AKS existente, execute `kube-advisor` primeiro para encontrar os pods que não têm pedidos de recursos e os limites definidos.
 
-O [kube advisor] [ kube-advisor] ferramenta examina um cluster de Kubernetes e relatórios sobre os problemas que encontrar. É uma verificação útil identificar os pods que não têm limites e pedidos de recursos no local.
+O [kube advisor] [ kube-advisor] ferramenta é um projeto de código-fonte aberto associado do AKS que verifica a existência de um cluster do Kubernetes, relatórios de problemas que encontrar. É uma verificação útil identificar os pods que não têm limites e pedidos de recursos no local.
 
 Num cluster do AKS que aloja muitas equipes de desenvolvimento e aplicações, pode ser difícil de controlar os pods sem esses recursos solicitam e nos limites do conjunto. Como melhor prática, executar regularmente `kube-advisor` nos seus clusters do AKS.
 
