@@ -11,12 +11,12 @@ author: msmimart
 ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: be337e0a49d88fad13b9bf9df4efb76ad6976866
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 7b9274652b7164a4aef71499912cb8b38ace29ff
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57453053"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57854454"
 ---
 # <a name="quickstart-add-a-guest-user-with-powershell"></a>Início rápido: Adicionar um utilizador convidado com o PowerShell
 
@@ -74,7 +74,7 @@ Quando lhe for pedido, introduza as suas credenciais.
 
 ## <a name="send-an-invitation"></a>Enviar um convite
 
-1. Para enviar um convite para a sua conta de e-mail de teste, execute o seguinte comando do PowerShell (substitua **"Sanda"** e **sanda@fabrikam.com** pelo nome da conta de e-mail de teste e endereço de e-mail): 
+1. Para enviar um convite para a sua conta de e-mail de teste, execute o seguinte comando do PowerShell (substitua **"Sanda"** e **sanda\@fabrikam.com** com seu teste e-mail conta nome e endereço de e-mail): 
 
    ```powershell
    New-AzureADMSInvitation -InvitedUserDisplayName "Sanda" -InvitedUserEmailAddress sanda@fabrikam.com -InviteRedirectURL https://myapps.azure.com -SendInvitationMessage $true
@@ -90,7 +90,7 @@ Quando lhe for pedido, introduza as suas credenciais.
    ```powershell
    Get-AzureADUser -Filter "UserType eq 'Guest'"
    ```
-3. Verifique o resultado para garantir que o utilizador que convidou está listado com um nome principal de utilizador (UPN) no formato *emailaddress*#EXT#@*domain*. Por exemplo, *sanda_fabrikam.com#EXT#@contoso.onmicrosoft.com*, onde a contoso.onmicrosoft.com é a organização a partir da qual envia os convites.
+3. Verificar a saída para se certificar de que o utilizador que convidou está listado, com um nome principal de utilizador (UPN), no formato *emailaddress*EXT de # #\@*domínio*. Por exemplo, *sanda_fabrikam.com#EXT#\@contoso.onmicrosoft.com*, em que contoso.onmicrosoft.com é a organização a partir do qual enviados os convites.
 
    ![Resultado do PowerShell que mostra o utilizador convidado adicionado](media/quickstart-invite-powershell/powershell-guest-user-added.png)
 

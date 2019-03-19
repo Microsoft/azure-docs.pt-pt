@@ -6,15 +6,15 @@ keywords: Clip; subclip; codificação; suporte de dados
 author: dbgeorge
 manager: jasonsue
 ms.author: dwgeo
-ms.date: 02/08/2019
+ms.date: 03/14/2019
 ms.topic: article
 ms.service: media-services
-ms.openlocfilehash: 6a6f6033fb52c54cf3f9987743fcd725e3539803
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: f0dc6879ccbb22dbebd57de98e4610cd593318db
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57453801"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58012135"
 ---
 # <a name="submit-clipping-jobs-from-azure-media-clipper"></a>Submeter tarefas de recorte de Azure Media Clipper 
 

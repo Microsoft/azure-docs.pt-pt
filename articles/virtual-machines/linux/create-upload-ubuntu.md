@@ -15,24 +15,24 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/12/2018
 ms.author: szark
-ms.openlocfilehash: 62d17670a068304e0764c85d49da0aa9a736c477
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 7776e0005facb57d223a1ba1e73d1efa30edec49
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57444443"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58004891"
 ---
 # <a name="prepare-an-ubuntu-virtual-machine-for-azure"></a>Preparar uma máquina virtual do Ubuntu para o Azure
 [!INCLUDE [learn-about-deployment-models](../../../includes/learn-about-deployment-models-both-include.md)]
 
 ## <a name="official-ubuntu-cloud-images"></a>Imagens de cloud oficiais do Ubuntu
-Ubuntu agora publica oficial VHDs do Azure para download em [ http://cloud-images.ubuntu.com/ ](http://cloud-images.ubuntu.com/). Se precisar de criar sua própria imagem de Ubuntu especializada para o Azure, em vez disso, que utilize o procedimento manual abaixo recomenda-se começar com estes conhecido VHDs de funcionar e ser personalizados conforme necessário. As versões de imagem mais recente sempre podem ser encontradas nas seguintes localizações:
+Ubuntu agora publica oficial VHDs do Azure para download em [ https://cloud-images.ubuntu.com/ ](https://cloud-images.ubuntu.com/). Se precisar de criar sua própria imagem de Ubuntu especializada para o Azure, em vez disso, que utilize o procedimento manual abaixo recomenda-se começar com estes conhecido VHDs de funcionar e ser personalizados conforme necessário. As versões de imagem mais recente sempre podem ser encontradas nas seguintes localizações:
 
 * Ubuntu 12.04/Precise: [ubuntu-12.04-server-cloudimg-amd64-disk1.vhd.zip](https://cloud-images.ubuntu.com/precise/current/precise-server-cloudimg-amd64-disk1.vhd.zip)
-* Ubuntu 14.04/Trusty: [ubuntu-14.04-server-cloudimg-amd64-disk1.vhd.zip](http://cloud-images.ubuntu.com/releases/trusty/release/ubuntu-14.04-server-cloudimg-amd64-disk1.vhd.zip)
-* Ubuntu 16.04/Xenial: [ubuntu-16.04-server-cloudimg-amd64-disk1.vhd.zip](http://cloud-images.ubuntu.com/releases/xenial/release/ubuntu-16.04-server-cloudimg-amd64-disk1.vhd.zip)
-* Ubuntu 18.04/Bionic: [bionic-server-cloudimg-amd64.vhd.zip](http://cloud-images.ubuntu.com/bionic/current/bionic-server-cloudimg-amd64.vhd.zip)
-* Ubuntu 18.10/Cosmic: [cosmic-server-cloudimg-amd64.vhd.zip](http://cloud-images.ubuntu.com/cosmic/current/cosmic-server-cloudimg-amd64.vhd.zip)
+* Ubuntu 14.04/Trusty: [ubuntu-14.04-server-cloudimg-amd64-disk1.vhd.zip](https://cloud-images.ubuntu.com/releases/trusty/release/ubuntu-14.04-server-cloudimg-amd64-disk1.vhd.zip)
+* Ubuntu 16.04/Xenial: [ubuntu-16.04-server-cloudimg-amd64-disk1.vhd.zip](https://cloud-images.ubuntu.com/releases/xenial/release/ubuntu-16.04-server-cloudimg-amd64-disk1.vhd.zip)
+* Ubuntu 18.04/Bionic: [bionic-server-cloudimg-amd64.vhd.zip](https://cloud-images.ubuntu.com/bionic/current/bionic-server-cloudimg-amd64.vhd.zip)
+* Ubuntu 18.10/Cosmic: [cosmic-server-cloudimg-amd64.vhd.zip](https://cloud-images.ubuntu.com/cosmic/current/cosmic-server-cloudimg-amd64.vhd.zip)
 
 ## <a name="prerequisites"></a>Pré-requisitos
 Este artigo pressupõe que já tem instalado um sistema de operativo Ubuntu Linux para um disco rígido virtual. Existem várias ferramentas para criar ficheiros. vhd, por exemplo uma solução de virtualização, como o Hyper-V. Para obter instruções, consulte [instalar a função Hyper-V e configurar uma Máquina Virtual](https://technet.microsoft.com/library/hh846766.aspx).
@@ -47,7 +47,7 @@ Este artigo pressupõe que já tem instalado um sistema de operativo Ubuntu Linu
 
 ## <a name="manual-steps"></a>Passos manuais
 > [!NOTE]
-> Antes de tentar criar a sua própria imagem personalizada do Ubuntu para o Azure,. considere utilizar as imagens previamente criadas e testadas partir [ http://cloud-images.ubuntu.com/ ](http://cloud-images.ubuntu.com/) em vez disso.
+> Antes de tentar criar a sua própria imagem personalizada do Ubuntu para o Azure,. considere utilizar as imagens previamente criadas e testadas partir [ https://cloud-images.ubuntu.com/ ](https://cloud-images.ubuntu.com/) em vez disso.
 > 
 > 
 
@@ -122,8 +122,8 @@ Este artigo pressupõe que já tem instalado um sistema de operativo Ubuntu Linu
         # sudo apt-get update
         # sudo apt-get install walinuxagent
 
-    >[!Note]
-    O `walinuxagent` poderá remover o pacote a `NetworkManager` e `NetworkManager-gnome` pacotes e, se estiverem instalados.
+   > [!Note]
+   >  O `walinuxagent` poderá remover o pacote a `NetworkManager` e `NetworkManager-gnome` pacotes e, se estiverem instalados.
 
 Para Ubuntu 18.04/18.10, atualizar a origem de dados do Azure, editá-lo: /etc/cloud/cloud.cfg.d/90-azure.cfg, adicione este código ao final do ficheiro:
 
@@ -135,13 +135,13 @@ datasource:
      agent_command: [service, walinuxagent, start]
 ```
 
-8. Execute os seguintes comandos para desaprovisionar a máquina virtual e prepará-lo para o aprovisionamento no Azure:
+1. Execute os seguintes comandos para desaprovisionar a máquina virtual e prepará-lo para o aprovisionamento no Azure:
    
         # sudo waagent -force -deprovision
         # export HISTSIZE=0
         # logout
 
-9. Clique em **ação -> encerrar baixo** no Gestor de Hyper-V. O VHD do Linux está agora pronto para ser carregado para o Azure.
+1. Clique em **ação -> encerrar baixo** no Gestor de Hyper-V. O VHD do Linux está agora pronto para ser carregado para o Azure.
 
 ## <a name="references"></a>Referências
 [Kernel de ativação (HWE) de hardware do Ubuntu](https://wiki.ubuntu.com/Kernel/LTSEnablementStack)

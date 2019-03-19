@@ -19,12 +19,12 @@ translation.priority.mt:
 - ru-ru
 - zh-cn
 - zh-tw
-ms.openlocfilehash: 1f1fbc49a42ec9b72ebe74a96ee099630d7416b1
-ms.sourcegitcommit: dd1a9f38c69954f15ff5c166e456fda37ae1cdf2
+ms.openlocfilehash: 06478cb3366054bd20239bf80f026562efd26232
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57570665"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58087402"
 ---
 # <a name="odata-expression-syntax-for-filters-and-order-by-clauses-in-azure-search"></a>Sintaxe da expressão OData para filtros e cláusulas de ordem no Azure Search
 
@@ -55,62 +55,62 @@ POST /indexes/hotels/docs/search?api-version=2017-11-11
 
 ### <a name="filter-operators"></a>Operadores de filtro  
 
--   Operadores lógicos (e, em alternativa, não).  
+- Operadores lógicos (e, em alternativa, não).  
 
--   Expressões de comparação (`eq, ne, gt, lt, ge, le`). As comparações de cadeias são sensíveis às maiúsculas e minúsculas.  
+- Expressões de comparação (`eq, ne, gt, lt, ge, le`). As comparações de cadeias são sensíveis às maiúsculas e minúsculas.  
 
--   Constantes suportadas [Entity Data Model](https://docs.microsoft.com/dotnet/framework/data/adonet/entity-data-model) tipos (EDM) (consulte [tipos de dados suportados &#40;Azure Search&#41; ](https://docs.microsoft.com/rest/api/searchservice/supported-data-types) para obter uma lista dos tipos suportados). Não são suportadas constantes de tipos de coleção.  
+- Constantes suportadas [Entity Data Model](https://docs.microsoft.com/dotnet/framework/data/adonet/entity-data-model) tipos (EDM) (consulte [tipos de dados suportados &#40;Azure Search&#41; ](https://docs.microsoft.com/rest/api/searchservice/supported-data-types) para obter uma lista dos tipos suportados). Não são suportadas constantes de tipos de coleção.  
 
--   Referências aos nomes de campos. Apenas `filterable` campos podem ser utilizados em expressões de filtro.  
+- Referências aos nomes de campos. Apenas `filterable` campos podem ser utilizados em expressões de filtro.  
 
--   `any` sem parâmetros. Esta ação testa se um campo do tipo `Collection(Edm.String)` contém elementos.  
+- `any` sem parâmetros. Esta ação testa se um campo do tipo `Collection(Edm.String)` contém elementos.  
 
--   `any` e `all` com suporte a expressões lambda limitado. 
+- `any` e `all` com suporte a expressões lambda limitado. 
     
-    -   `any/all` são suportadas nos campos do tipo `Collection(Edm.String)`. 
+  -   `any/all` são suportadas nos campos do tipo `Collection(Edm.String)`. 
     
-    -   `any` só pode ser utilizado com expressões de igualdade simples ou com um `search.in` função. Expressões simples consistem numa comparação entre um único campo e um valor literal, por exemplo, `Title eq 'Magna Carta'`.
+  -   `any` só pode ser utilizado com expressões de igualdade simples ou com um `search.in` função. Expressões simples consistem numa comparação entre um único campo e um valor literal, por exemplo, `Title eq 'Magna Carta'`.
     
-    -   `all` só pode ser utilizado com expressões de desigualdade simples ou com um `not search.in`.   
+  -   `all` só pode ser utilizado com expressões de desigualdade simples ou com um `not search.in`.   
 
--   Funções Geoespaciais `geo.distance` e `geo.intersects`. O `geo.distance` função retorna a distância em quilômetros entre dois pontos, sendo um um campo e outro que está a ser uma constante passados como parte do filtro. O `geo.intersects` função devolve VERDADEIRO se um determinado ponto estiver dentro de um polígono determinado, em que o ponto é um campo e o polígono é especificado como constante passada como parte do filtro.  
+- Funções Geoespaciais `geo.distance` e `geo.intersects`. O `geo.distance` função retorna a distância em quilômetros entre dois pontos, sendo um um campo e outro que está a ser uma constante passados como parte do filtro. O `geo.intersects` função devolve VERDADEIRO se um determinado ponto estiver dentro de um polígono determinado, em que o ponto é um campo e o polígono é especificado como constante passada como parte do filtro.  
 
-    O polígono é uma superfície bidimensional armazenada como uma seqüência de pontos de definir um delimitação de anel (veja o exemplo abaixo). O polígono tem de ser fechado, que significa que o primeiro e último ponto conjuntos têm de ser iguais. [Pontos de um polígono tem de ser por ordem para a esquerda](https://docs.microsoft.com/rest/api/searchservice/supported-data-types#Anchor_1).
+  O polígono é uma superfície bidimensional armazenada como uma seqüência de pontos de definir um delimitação de anel (veja o exemplo abaixo). O polígono tem de ser fechado, que significa que o primeiro e último ponto conjuntos têm de ser iguais. [Pontos de um polígono tem de ser por ordem para a esquerda](https://docs.microsoft.com/rest/api/searchservice/supported-data-types#Anchor_1).
 
-    `geo.distance` Devolve a distância em quilômetros no Azure Search. Isto é diferente de outros serviços que suportam operações de dados geoespaciais de OData, que normalmente é retornado distâncias em metros.  
+  `geo.distance` Devolve a distância em quilômetros no Azure Search. Isto é diferente de outros serviços que suportam operações de dados geoespaciais de OData, que normalmente é retornado distâncias em metros.  
 
-    > [!NOTE]  
-    >  Ao utilizar geo.distance num filtro, tem de comparar a distância devolvida pela função com uma utilização constante `lt`, `le`, `gt`, ou `ge`. Os operadores `eq` e `ne` não são suportadas ao comparar distâncias. Por exemplo, este é um uso correto de geo.distance: `$filter=geo.distance(location, geography'POINT(-122.131577 47.678581)') le 5`.  
+  > [!NOTE]  
+  >  Ao utilizar geo.distance num filtro, tem de comparar a distância devolvida pela função com uma utilização constante `lt`, `le`, `gt`, ou `ge`. Os operadores `eq` e `ne` não são suportadas ao comparar distâncias. Por exemplo, este é um uso correto de geo.distance: `$filter=geo.distance(location, geography'POINT(-122.131577 47.678581)') le 5`.  
 
--   O `search.in` função testa se um campo de determinada seqüência de caracteres é igual a uma determinada lista de valores. Também pode ser utilizado em qualquer ou todos os comparar um valor único de um campo de coleção de cadeia de caracteres com uma determinada lista de valores. Igualdade entre o campo e cada valor na lista é determinada de forma diferencia maiúsculas de minúsculas, da mesma forma como para o `eq` operador. Por conseguinte, como uma expressão `search.in(myfield, 'a, b, c')` é equivalente ao `myfield eq 'a' or myfield eq 'b' or myfield eq 'c'`, exceto pelo fato de `search.in` resulta num desempenho muito melhor. 
+- O `search.in` função testa se um campo de determinada seqüência de caracteres é igual a uma determinada lista de valores. Também pode ser utilizado em qualquer ou todos os comparar um valor único de um campo de coleção de cadeia de caracteres com uma determinada lista de valores. Igualdade entre o campo e cada valor na lista é determinada de forma diferencia maiúsculas de minúsculas, da mesma forma como para o `eq` operador. Por conseguinte, como uma expressão `search.in(myfield, 'a, b, c')` é equivalente ao `myfield eq 'a' or myfield eq 'b' or myfield eq 'c'`, exceto pelo fato de `search.in` resulta num desempenho muito melhor. 
 
-    O primeiro parâmetro para o `search.in` função é a referência de campo de cadeia de caracteres (ou uma variável de alcance ao longo de um campo de coleção de cadeia de caracteres no caso em que `search.in` é utilizado dentro de um `any` ou `all` expressão). O segundo parâmetro é uma cadeia de caracteres que contém a lista de valores, separados por espaços e/ou vírgulas. Se precisar de utilizar os separadores que não sejam espaços e vírgulas porque os valores incluem aqueles caracteres, pode especificar um terceiro parâmetro opcional para `search.in`. 
+  O primeiro parâmetro para o `search.in` função é a referência de campo de cadeia de caracteres (ou uma variável de alcance ao longo de um campo de coleção de cadeia de caracteres no caso em que `search.in` é utilizado dentro de um `any` ou `all` expressão). O segundo parâmetro é uma cadeia de caracteres que contém a lista de valores, separados por espaços e/ou vírgulas. Se precisar de utilizar os separadores que não sejam espaços e vírgulas porque os valores incluem aqueles caracteres, pode especificar um terceiro parâmetro opcional para `search.in`. 
 
-    Neste terceiro parâmetro é uma cadeia de caracteres em que cada caractere da cadeia de caracteres ou subconjunto da cadeia de caracteres é tratado como um separador ao analisar a lista de valores no segundo parâmetro.
+  Neste terceiro parâmetro é uma cadeia de caracteres em que cada caractere da cadeia de caracteres ou subconjunto da cadeia de caracteres é tratado como um separador ao analisar a lista de valores no segundo parâmetro.
 
-    > [!NOTE]   
-    > Alguns cenários requerem a comparar um campo em relação a um grande número de valores de constantes. Por exemplo, a implementação de remoção de segurança com filtros pode exigir comparando o campo de ID do documento numa lista de IDs para o qual o utilizador requerente é concedido acesso de leitura. Em cenários como isso é altamente recomendável usar o `search.in` função em vez de uma disjunção mais complicada de expressões de igualdade. Por exemplo, usar `search.in(Id, '123, 456, ...')` em vez de `Id eq 123 or Id eq 456 or ....`. 
-    >
-    > Se usar `search.in`, pode esperar quando o segundo parâmetro contém uma lista de centenas ou milhares de valores de tempo de resposta de frações de segundos. Tenha em atenção que não existe nenhum limite explícito sobre o número de itens, pode passar para `search.in`, apesar de ainda está limitado pelo tamanho máximo do pedido. No entanto, a latência aumentará à medida que aumenta o número de valores.
+  > [!NOTE]   
+  > Alguns cenários requerem a comparar um campo em relação a um grande número de valores de constantes. Por exemplo, a implementação de remoção de segurança com filtros pode exigir comparando o campo de ID do documento numa lista de IDs para o qual o utilizador requerente é concedido acesso de leitura. Em cenários como isso é altamente recomendável usar o `search.in` função em vez de uma disjunção mais complicada de expressões de igualdade. Por exemplo, usar `search.in(Id, '123, 456, ...')` em vez de `Id eq 123 or Id eq 456 or ....`. 
+  >
+  > Se usar `search.in`, pode esperar quando o segundo parâmetro contém uma lista de centenas ou milhares de valores de tempo de resposta de frações de segundos. Tenha em atenção que não existe nenhum limite explícito sobre o número de itens, pode passar para `search.in`, apesar de ainda está limitado pelo tamanho máximo do pedido. No entanto, a latência aumentará à medida que aumenta o número de valores.
 
--   O `search.ismatch` função avalia a consulta de pesquisa como parte de uma expressão de filtro. Os documentos que correspondam à consulta de pesquisa serão retornados no conjunto de resultados. As seguintes sobrecargas dessa função estão disponíveis:
-    - `search.ismatch(search)`
-    - `search.ismatch(search, searchFields)`
-    - `search.ismatch(search, searchFields, queryType, searchMode)`
+- O `search.ismatch` função avalia a consulta de pesquisa como parte de uma expressão de filtro. Os documentos que correspondam à consulta de pesquisa serão retornados no conjunto de resultados. As seguintes sobrecargas dessa função estão disponíveis:
+  - `search.ismatch(search)`
+  - `search.ismatch(search, searchFields)`
+  - `search.ismatch(search, searchFields, queryType, searchMode)`
 
-    Em que: 
+  Em que: 
   
-    - `search`: a consulta de pesquisa (em qualquer um [simples](query-simple-syntax.md) ou [completo](query-lucene-syntax.md) sintaxe de consulta). 
-    - `queryType`: "simples" ou "completa", está predefinida como "simples". Especifica qual linguagem de consulta foi utilizada no `search` parâmetro.
-    - `searchFields`: lista separada por vírgulas de campos pesquisáveis para pesquisar, está predefinida para todos os campos pesquisáveis no índice.    
-    - `searchMode`: "qualquer" ou "all", a predefinição é "qualquer". Indica se devem corresponder algum ou todos os termos de pesquisa para contar o documento como uma correspondência.
+  - `search`: a consulta de pesquisa (em qualquer um [simples](query-simple-syntax.md) ou [completo](query-lucene-syntax.md) sintaxe de consulta). 
+  - `queryType`: "simples" ou "completa", está predefinida como "simples". Especifica qual linguagem de consulta foi utilizada no `search` parâmetro.
+  - `searchFields`: lista separada por vírgulas de campos pesquisáveis para pesquisar, está predefinida para todos os campos pesquisáveis no índice.    
+  - `searchMode`: "qualquer" ou "all", a predefinição é "qualquer". Indica se devem corresponder algum ou todos os termos de pesquisa para contar o documento como uma correspondência.
 
-    Todos os parâmetros acima são equivalentes a correspondente [parâmetros de solicitação de pesquisa](https://docs.microsoft.com/rest/api/searchservice/search-documents).
+  Todos os parâmetros acima são equivalentes a correspondente [parâmetros de solicitação de pesquisa](https://docs.microsoft.com/rest/api/searchservice/search-documents).
 
--   O `search.ismatchscoring` funcione, como o `search.ismatch` de função, que retorna verdadeiro para documentos que correspondem a consulta de pesquisa transmitida como um parâmetro. A diferença entre eles é que a relevância pontuação de documentos que correspondam a `search.ismatchscoring` consulta irá contribuir para a classificação de documento geral, embora, no caso de `search.ismatch`, a pontuação de documento não ser alterada. As seguintes sobrecargas dessa função estão disponíveis com parâmetros idênticos do `search.ismatch`:
-    - `search.ismatchscoring(search)`
-    - `search.ismatchscoring(search, searchFields)`
-    - `search.ismatchscoring(search, searchFields, queryType, searchMode)`
+- O `search.ismatchscoring` funcione, como o `search.ismatch` de função, que retorna verdadeiro para documentos que correspondem a consulta de pesquisa transmitida como um parâmetro. A diferença entre eles é que a relevância pontuação de documentos que correspondam a `search.ismatchscoring` consulta irá contribuir para a classificação de documento geral, embora, no caso de `search.ismatch`, a pontuação de documento não ser alterada. As seguintes sobrecargas dessa função estão disponíveis com parâmetros idênticos do `search.ismatch`:
+  - `search.ismatchscoring(search)`
+  - `search.ismatchscoring(search, searchFields)`
+  - `search.ismatchscoring(search, searchFields, queryType, searchMode)`
 
   O `search.ismatch` e `search.ismatchscoring` as funções são totalmente ortogonal entre si e o restante de álgebra o filtro. Isso significa que ambas as funções podem ser utilizadas na mesma expressão de filtro. 
 

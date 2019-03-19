@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/08/2019
 ms.author: juliako;johndeu;anilmur
-ms.openlocfilehash: 7358f259d4c38157a203369e9eadae28710f4290
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: fb24c856138bb9e59d9cb3ea07c9182454e6463a
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55993712"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58080206"
 ---
 # <a name="create-advanced-encoding-workflows-with-workflow-designer"></a>Criar Fluxos de Trabalho de Codificação Avançados com o Estruturador de Fluxos de Trabalho  
 ## <a name="overview"></a>Descrição geral
@@ -37,8 +37,6 @@ Essa ferramenta também pode ser usada para modificar qualquer um dos nossos [pu
 
 > [!NOTE]
 > Para obter sua cópia da ferramenta de Designer de fluxo de trabalho, entre em contato com mepd@microsoft.com.
-> 
-> 
 
 Assim que for criado um ficheiro de fluxo de trabalho, ele pode ser carregado como um recurso e, em seguida, ser utilizado para ficheiros de multimédia de codificação. Para obter informações sobre como codificar com **Media Encoder Premium Workflow** usando **.NET**, consulte [codificação avançada com o Media Encoder Premium Workflow](media-services-encode-with-premium-workflow.md).
 

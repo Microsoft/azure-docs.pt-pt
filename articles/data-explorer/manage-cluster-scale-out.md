@@ -8,12 +8,12 @@ ms.service: data-explorer
 services: data-explorer
 ms.topic: conceptual
 ms.date: 02/18/2019
-ms.openlocfilehash: 7b99dcf621eac90d4b75d6827102b656f95aafbb
-ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
+ms.openlocfilehash: 8d369800bdc9817856eeb7039fe47e5b870735ba
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56958886"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58107377"
 ---
 # <a name="manage-cluster-scale-out-to-accommodate-changing-demand"></a>Gerir o cluster aumentar horizontalmente para acomodar a pedido de alteração
 
@@ -42,7 +42,7 @@ O gráfico seguinte mostra o fluxo de passos seguintes. Obter mais detalhes est�
     **Critérios**
 
     | Definição | Valor e descrição |
-    | --- | --- | --- |
+    | --- | --- |
     | **Agregação de tempo** | Selecione um critério de agregação, como **média**. |
     | **Nome da métrica** | Selecione a métrica que pretende que a operação de dimensionamento seja baseada no, tal como **utilização da Cache**. |
     | **Estatística de intervalo de agregação de tempo** | Escolha entre **médio**, **mínimo**, **máxima**, e **soma**. |
@@ -54,7 +54,7 @@ O gráfico seguinte mostra o fluxo de passos seguintes. Obter mais detalhes est�
     **Ação**
 
     | Definição | Valor e descrição |
-    | --- | --- | --- |
+    | --- | --- |
     | **Operação** | Escolha a opção adequada para reduzir horizontalmente ou aumentar horizontalmente. |
     | **Contagem de instâncias** | Escolha o número de nós ou instâncias que pretende adicionar ou remover quando for cumprida uma condição de métrica. |
     | **Repouso (minutos)** | Escolha um intervalo de tempo adequado a aguardar entre as operações de dimensionamento. Comece com o padrão de cinco minutos. |
@@ -65,7 +65,7 @@ O gráfico seguinte mostra o fluxo de passos seguintes. Obter mais detalhes est�
 1. Na **limites de instância** secção no lado esquerdo, fornecer valores para cada definição.
 
     | Definição | Valor e descrição |
-    | --- | --- | --- |
+    | --- | --- |
     | **Mínimo** | O número de instâncias que o cluster não serão dimensionados abaixo, independentemente da utilização. |
     | **Máximo** | O número de instâncias que o cluster não serão dimensionados acima, independentemente da utilização. |
     | **Predefinição** | O número predefinido de instâncias. Esta definição é utilizada se existirem problemas com as métricas de recurso de leitura. |

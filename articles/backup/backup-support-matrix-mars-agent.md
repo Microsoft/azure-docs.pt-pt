@@ -8,12 +8,12 @@ ms.date: 02/17/2019
 ms.topic: conceptual
 ms.author: raynew
 manager: carmonm
-ms.openlocfilehash: e12ca7561181412318fa594093b047cd95e4e6bc
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 3e2c6a550a9358656fd0870c7e785d131c5b6380
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57448043"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57894398"
 ---
 # <a name="support-matrix-for-backup-with-the-microsoft-azure-recovery-services-mars-agent"></a>Matriz de suporte para cópia de segurança com o agente dos serviços de recuperação do Azure (MARS) da Microsoft
 
@@ -26,9 +26,7 @@ Cópia de segurança do Azure utiliza o agente MARS para efetuar cópias de segu
 - Execute em VMs do Windows para que eles podem criar cópias de segurança diretamente para um cofre.
 - Execute no servidor de cópia de segurança do Azure (MABS) da Microsoft ou de um servidor do System Center Data Protection Manager (DPM). Neste cenário, máquinas e cargas de trabalho de cópia de segurança para o MABS ou para o servidor do DPM. O agente de MARS, em seguida, efetua cópias de segurança neste servidor para um cofre no Azure. 
 
-As opções de cópia de segurança dependem de onde o agente está instalado. Para obter mais informações, consulte [arquitetura de cópia de segurança do Azure com o agente de MARS](backup-architecture.md#architecture-direct-backup-of-on-premises-windows-machinesazure-vm-filesfolders). Para obter informações sobre a arquitetura de cópia de segurança do MABS e o DPM, consulte [cópia de segurança para DPM ou MABS](backup-architecture.md#architecture-back-up-to-dpmmabs). Consulte também [requisitos](backup-support-matrix-mabs-dpm.md) para a arquitetura de cópia de segurança.
-
-## <a name="supported-installations"></a>Instalações suportadas
+As opções de cópia de segurança dependem de onde o agente está instalado. Para obter mais informações, consulte [arquitetura de cópia de segurança do Azure com o agente de MARS](backup-architecture.md#architecture-direct-backup-of-on-premises-windows-server-machines-or-azure-vm-files-or-folders). Para obter informações sobre a arquitetura de cópia de segurança do MABS e o DPM, consulte [cópia de segurança para DPM ou MABS](backup-architecture.md#architecture-back-up-to-dpmmabs). Consulte também [requisitos](backup-support-matrix-mabs-dpm.md) para a arquitetura de cópia de segurança.
 
 **Instalação** | **Detalhes**
 --- | ---
@@ -139,14 +137,12 @@ O Azure Backup suporta *offline seeding* para transferir dados de cópia de segu
 
 Cópia de segurança offline não pode ser utilizada para os ficheiros de estado do sistema.
 
-
 ## <a name="support-for-data-restoration"></a>Suporte para o restauro de dados
 
 Ao utilizar o [restaurar instantâneas](backup-instant-restore-capability.md) funcionalidade de cópia de segurança do Azure, pode restaurar os dados antes que seja copiado para o cofre. A máquina está sendo feito backup tem de executar .NET Framework 4.5.2 ou superior.
 
 Não não possível restaurar cópias de segurança para uma máquina de destino que está a executar uma versão anterior do sistema operativo. Por exemplo, uma cópia de segurança obtida a partir de um computador que está a executar o Windows 7 pode ser restaurada no Windows 8 ou posterior. Mas uma cópia de segurança obtida a partir de um computador que está a executar o Windows 8 não é possível restaurar num computador que está a executar o Windows 7.
 
-
 ## <a name="next-steps"></a>Passos Seguintes
-- Saiba mais sobre [cópia de segurança de arquitetura que utiliza o agente de MARS](backup-architecture.md#architecture-direct-backup-of-on-premises-windows-machinesazure-vm-filesfolders).
+- Saiba mais sobre [cópia de segurança de arquitetura que utiliza o agente de MARS](backup-architecture.md#architecture-direct-backup-of-on-premises-windows-server-machines-or-azure-vm-files-or-folders).
 - Saiba o que tem suporte quando [execute o agente de MARS num servidor DPM ou MABS](backup-support-matrix-mabs-dpm.md).

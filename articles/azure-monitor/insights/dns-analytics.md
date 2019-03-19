@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 03/20/2018
 ms.author: magoedte
-ms.openlocfilehash: 6e3c456b3ee92f30b3b152a39faf3f1fe483013f
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: fdc3c42da7f3d2290806a8cd00d7c90d16f3b87d
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56876607"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58103932"
 ---
 # <a name="gather-insights-about-your-dns-infrastructure-with-the-dns-analytics-preview-solution"></a>Recolher informações sobre a infraestrutura DNS com a solução de análise de DNS pré-visualização
 
@@ -66,7 +66,7 @@ No dashboard de solução, clique em **configuração** para abrir a página de 
 
 - **Nomes de domínio na lista de permissões**. A solução não processa todas as consultas de pesquisa. Ele mantém uma lista de permissões de sufixos de nome de domínio. As consultas de pesquisa que resolver os nomes de domínio que correspondem aos sufixos de nome de domínio nesta lista de permissões não são processadas pela solução. Não processar nomes de domínio na lista de permissões ajuda a otimizar os dados enviados para o Azure Monitor. A lista de permissões predefinida inclui nomes de domínio públicos conhecidos, como www.google.com e www.facebook.com. Pode ver a lista completa ao deslocar.
 
- É possível modificar a lista para adicionar qualquer sufixo de nome de domínio que pretende ver informações de pesquisa para. Também pode remover qualquer sufixo de nome de domínio que não pretende ver informações de pesquisa para.
+  É possível modificar a lista para adicionar qualquer sufixo de nome de domínio que pretende ver informações de pesquisa para. Também pode remover qualquer sufixo de nome de domínio que não pretende ver informações de pesquisa para.
 
 - **Do cliente conversador**. Os clientes DNS que excedam o limiar para o número de pedidos de pesquisa está realçado na **clientes DNS** painel. O limiar predefinido é 1000. Pode editar o limiar.
 

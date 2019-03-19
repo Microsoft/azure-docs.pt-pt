@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.date: 07/03/2018
 ms.author: lahugh
 ms.custom: mvc
-ms.openlocfilehash: 4356ea57e73e063d18155611b8c11090aa11edb3
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: d478307ff4393d84a854fcd3b2ea0efd77de7135
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55471220"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58087844"
 ---
 # <a name="quickstart-run-your-first-batch-job-in-the-azure-portal"></a>Início rápido: Executar o seu primeiro trabalho do Batch no portal do Azure
 
@@ -34,7 +34,7 @@ Siga estes passos para criar uma conta do Batch de exemplo para fins de teste. T
 
 1. Selecione **Criar um recurso** > **Computação** > **Serviço do Batch**. 
 
-  ![Batch no Marketplace][marketplace_portal]
+   ![Batch no Marketplace][marketplace_portal]
 
 2. Introduza valores em **Nome da conta** e **Grupo de recursos**. O nome da conta tem de ser exclusivo dentro da **localização** do Azure selecionada, só pode ter carateres em minúsculas ou números e conter entre 3 e 24 carateres. 
 
@@ -42,7 +42,7 @@ Siga estes passos para criar uma conta do Batch de exemplo para fins de teste. T
 
 4. Nas definições restantes, mantenha as predefinições e selecione **Criar** para criar a conta.
 
-  ![Criar uma conta do Batch][account_portal]  
+   ![Criar uma conta do Batch][account_portal]  
 
 Quando for apresentada a mensagem **Implementação concluída com êxito**, vá para a conta do Batch no portal.
 
@@ -57,23 +57,23 @@ Agora que tem uma conta do Batch, crie um conjunto de exemplo de nós de computa
 
 3. Em **Sistema Operativo**, selecione as definições seguintes (pode explorar outras opções).
   
-  |Definição  |Value  |
-  |---------|---------|
-  |**Tipo de Imagem**|Marketplace (Linux/Windows)|
-  |**Publicador**     |MicrosoftWindowsServer|
-  |**Oferta**     |WindowsServer|
-  |**Sku**     |2012-R2-Datacenter-smalldisk|
+   |Definição  |Value  |
+   |---------|---------|
+   |**Tipo de Imagem**|Marketplace (Linux/Windows)|
+   |**Publicador**     |MicrosoftWindowsServer|
+   |**Oferta**     |WindowsServer|
+   |**Sku**     |2012-R2-Datacenter-smalldisk|
 
-  ![Selecionar um sistema operativo para o conjunto][pool_os] 
+   ![Selecionar um sistema operativo para o conjunto][pool_os] 
 
 4. Desloque-se para baixo para introduzir as definições de **Tamanho do Nó** e **Dimensionamento**. Neste exemplo rápido, o tamanho do nó sugerido oferece um bom equilíbrio de desempenho em comparação com o custo.
   
-  |Definição  |Value  |
-  |---------|---------|
-  |**Escalão de preço do nó**     |Standard_A1|
-  |**Nós dedicados de destino**     |2|
+   |Definição  |Value  |
+   |---------|---------|
+   |**Escalão de preço do nó**     |Standard_A1|
+   |**Nós dedicados de destino**     |2|
 
-  ![Selecionar um tamanho para o conjunto][pool_size] 
+   ![Selecionar um tamanho para o conjunto][pool_size] 
 
 5. Nas definições restantes, mantenha as predefinições e selecione **OK** para criar o conjunto.
 
@@ -91,7 +91,7 @@ Agora que tem um conjunto, crie um trabalho para ser executado no mesmo. Os trab
 
 2. Introduza um **ID de Trabalho** com o nome *myjob*. Em **Conjunto**, selecione *mypool*. Mantenha as predefinições nas restantes definições e selecione **OK**.
 
-  ![Criar uma tarefa][job_create]
+   ![Criar uma tarefa][job_create]
 
 Depois de o trabalho ser criado, é aberta a página **Tarefas**.
 
@@ -109,7 +109,7 @@ Para criar a primeira tarefa:
 
 3. Em **Linha de comandos**, introduza `cmd /c "set AZ_BATCH & timeout /t 90 > NUL"`. Mantenha as predefinições nas restantes definições e selecione **OK**.
 
-  ![Criar uma tarefa][task_create]
+   ![Criar uma tarefa][task_create]
 
 Depois de criar uma tarefa, o Batch coloca-a em fila para executá-la no conjunto. Assim que um nó estiver disponível para executá-la, a tarefa é executada.
 

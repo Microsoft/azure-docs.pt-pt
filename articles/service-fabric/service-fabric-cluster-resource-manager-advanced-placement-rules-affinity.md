@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/18/2017
 ms.author: masnider
-ms.openlocfilehash: b12328c8283c9a626a3dcfc45dfd682a5e628d07
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: 9c4af55a5ddb05335f8acfdd23711df2290e217b
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56728850"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58085699"
 ---
 # <a name="configuring-and-using-service-affinity-in-service-fabric"></a>Configurar e utilizar as afinidades de serviço no Service Fabric
 Afinidade é um controle que é fornecido principalmente para ajudar a facilitar a transição de aplicativos monolíticos maiores no mundo de nuvem e de microsserviços. Também é utilizado como uma otimização para melhorar o desempenho de serviços, embora se o fizer, pode ter efeitos colaterais.
@@ -59,6 +59,7 @@ await fabricClient.ServiceManager.CreateServiceAsync(serviceDescription);
 Afinidade é representada através de um dos vários esquemas de correlação e tem dois modos diferentes. O modo mais comum de afinidade é o que chamamos NonAlignedAffinity. NonAlignedAffinity, as réplicas ou instâncias dos serviços diferentes são colocadas em nós do mesmo. O outro modo é AlignedAffinity. Afinidade alinhada é útil apenas com os serviços com estado. Configurar serviços com monitoração de estado para alinhado afinidade garante que as cores primárias desses serviços são colocadas em nós do mesmo como entre si. Também faz com que cada par de bases de dados secundárias para os serviços sejam colocados em nós do mesmo. Também é possível (embora menos comum) configurar NonAlignedAffinity para serviços com estado. Para NonAlignedAffinity, as réplicas diferentes dos dois serviços com estado seriam executado em nós do mesmo, mas suas cores primárias poderiam acabar em nós diferentes.
 
 <center>
+
 ![Modos de afinidade e seus efeitos][Image1]
 </center>
 
@@ -69,6 +70,7 @@ Uma relação de afinidade é melhor esforço. Ele não fornece as garantias mes
 Hoje mesmo o Gestor de recursos de Cluster não é capaz de cadeias de modelo de relações de afinidade. O que significa que um serviço que é um filho numa relação de afinidade não pode ser um encarregado de educação na outra relação de afinidade. Se deseja modelar este tipo de relação, terá efetivamente modelá-lo como uma estrela, em vez de uma cadeia. Para mudar de uma cadeia para uma estrela, o subordinado na extremidade inferior seria ser pai de principal do primeiro subordinado em vez disso. Consoante a disposição dos seus serviços, poderá ter de fazer isso várias vezes. Se não houver nenhum serviço principal natural, poderá ter de criar um que serve como um marcador de posição. Dependendo dos requisitos, talvez também queira examinar [grupos de aplicações](service-fabric-cluster-resource-manager-application-groups.md).
 
 <center>
+
 ![Vs de cadeias. Estrelas no contexto de relações de afinidade][Image2]
 </center>
 

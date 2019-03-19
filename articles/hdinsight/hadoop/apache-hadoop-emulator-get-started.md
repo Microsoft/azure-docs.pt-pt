@@ -10,14 +10,14 @@ ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 12/11/2017
 ms.author: hrasheed
-ms.openlocfilehash: 074e2dd932cada5ae46ee0423dbc29fc8bc7495d
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
+ms.openlocfilehash: 1da676787eeee1eb75095a5e3a6b3f40056567ad
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53016781"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58005768"
 ---
-# <a name="get-started-with-a-apache-hadoop-sandbox-an-emulator-on-a-virtual-machine"></a>Começar com uma área de segurança do Apache Hadoop, um emulador numa máquina virtual
+# <a name="get-started-with-an-apache-hadoop-sandbox-an-emulator-on-a-virtual-machine"></a>Introdução à área de segurança do Apache Hadoop, um emulador numa máquina virtual
 
 Saiba como instalar o Apache Hadoop sandbox da Hortonworks numa máquina virtual para saber mais sobre o ecossistema Hadoop. A área de segurança fornece um ambiente de desenvolvimento local para saber mais sobre o Hadoop, Hadoop Distributed File System (HDFS) e submissão de tarefas. Depois de se familiarizar com o Hadoop, pode começar a utilizar o Hadoop no Azure através da criação de um cluster do HDInsight. Para obter mais informações sobre como começar, consulte [introdução ao Hadoop no HDInsight](apache-hadoop-linux-tutorial-get-started.md).
 
@@ -30,7 +30,7 @@ Saiba como instalar o Apache Hadoop sandbox da Hortonworks numa máquina virtual
 1. Navegue para o [Hortonworks downloads](https://hortonworks.com/downloads/#sandbox).
 
 2. Clique em **BAIXAR para VIRTUALBOX** para transferir a Sandbox da Hortonworks mais recente numa VM. São-lhe pedido para registar com a Hortonworks antes de inicia a transferência. Demora uma ou duas horas para transferir consoante a velocidade da rede.
-   
+
     ![Imagem de ligação para transferir a Sandbox da Hortonworks para VirtualBox](./media/apache-hadoop-emulator-get-started/download-sandbox.png)
 3. A partir da mesma página da web, clique nas **importar na caixa Virtual** ligação para transferir o PDF com as instruções de instalação para a máquina virtual.
 
@@ -44,36 +44,35 @@ Para transferir um sandbox de versão mais antiga do HDP, expanda o arquivo:
 1. Abra o Oracle VM VirtualBox.
 2. Do **arquivo** menu, clique em **importar aplicação**e, em seguida, especifique a imagem de Sandbox da Hortonworks.
 1. Selecione a Sandbox da Hortonworks, clique em **começar**e, em seguida **Normal iniciar**. Depois da máquina virtual tem de terminar o processo de inicialização, apresenta instruções de início de sessão.
-   
+
     ![Início normal](./media/apache-hadoop-emulator-get-started/normal-start.png)
-2. Abra um browser e navegue para o URL apresentado (normalmente http://127.0.0.1:8888).
+2. Abra um browser e navegue para o URL apresentado (normalmente `http://127.0.0.1:8888`).
 
 ## <a name="set-sandbox-passwords"></a>Definir palavras-passe de Sandbox
 
 1. Do **começar** passo da página de Sandbox da Hortonworks, selecione **opções avançadas de vista**. Utilize as informações desta página para iniciar sessão para a área de segurança através de SSH. Utilize o nome e a palavra-passe fornecida.
-   
+
    > [!NOTE]
    > Se não tiver um cliente SSH instalado, pode utilizar o SSH baseada na web, fornecido pela máquina virtual em **http://localhost:4200/**.
-   > 
-   
+
     Na primeira vez que se liga através de SSH, lhe for pedido para alterar a palavra-passe para a conta raiz. Introduza uma palavra-passe nova, o que utilizar quando iniciar sessão através de SSH.
 
 2. Depois de iniciar sessão, introduza o seguinte comando:
-   
+
         ambari-admin-password-reset
-   
+
     Quando lhe for pedido, forneça uma palavra-passe para a conta de administrador do Ambari. Isto é utilizado ao aceder à IU Web do Ambari.
 
 ## <a name="use-hive-commands"></a>Utilizar comandos do Hive
 
 1. A partir de uma ligação de SSH para a área de segurança, utilize o seguinte comando para iniciar a Hive shell:
-   
+
         hive
 2. Assim que tiver iniciado o shell, utilize o seguinte para ver as tabelas que são fornecidas com a área de segurança:
-   
+
         show tables;
 3. Utilize o seguinte para obter 10 linhas do `sample_07` tabela:
-   
+
         select * from sample_07 limit 10;
 
 ## <a name="next-steps"></a>Passos Seguintes

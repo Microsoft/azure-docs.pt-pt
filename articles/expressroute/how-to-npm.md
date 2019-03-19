@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 01/25/2019
 ms.author: cherylmc
 ms.custom: seodec18
-ms.openlocfilehash: fb9ee97726632b7eeccc923596c1f5527a7c95bd
-ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
+ms.openlocfilehash: 180075f13be2cc2507a78e3d10a67a49a0c0cb12
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56961621"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58118634"
 ---
 # <a name="configure-network-performance-monitor-for-expressroute"></a>Configurar o Monitor de Desempenho de Rede para o ExpressRoute
 
@@ -62,17 +62,17 @@ Crie uma área de trabalho na subscrição que tem a ligação de VNets a circui
 2. Na parte inferior da principal **Monitor de desempenho de rede** página, clique em **Create** para abrir **Monitor de desempenho de rede - criar nova solução** página. Clique em **registo de área de trabalho Analytics - Selecione uma área de trabalho** para abrir a página de áreas de trabalho. Clique em **+ criar nova área de trabalho** para abrir a página de área de trabalho.
 3. Sobre o **área de trabalho do Log Analytics** página, selecione **criar nova**, em seguida, configure as seguintes definições:
 
-  * Área de trabalho de análise de registo - escreva um nome para a área de trabalho.
-  * Subscrição - se tiver várias subscrições, selecione aquele que pretende associar a área de trabalho.
-  * Grupo de recursos - crie um grupo de recursos ou utilize um já existente.
-  * -Esta localização é utilizada para especificar a localização da conta de armazenamento que é utilizada para os registos de ligação do agente.
-  * Escalão de preço - selecione o escalão de preço.
+   * Área de trabalho de análise de registo - escreva um nome para a área de trabalho.
+   * Subscrição - se tiver várias subscrições, selecione aquele que pretende associar a área de trabalho.
+   * Grupo de recursos - crie um grupo de recursos ou utilize um já existente.
+   * -Esta localização é utilizada para especificar a localização da conta de armazenamento que é utilizada para os registos de ligação do agente.
+   * Escalão de preço - selecione o escalão de preço.
   
-    >[!NOTE]
-    >O circuito do ExpressRoute pode estar em qualquer lugar do mundo. Não tem de estar na mesma região que a área de trabalho.
-    >
+     >[!NOTE]
+     >O circuito do ExpressRoute pode estar em qualquer lugar do mundo. Não tem de estar na mesma região que a área de trabalho.
+     >
   
-    ![área de trabalho](./media/how-to-npm/4.png)<br><br>
+     ![área de trabalho](./media/how-to-npm/4.png)<br><br>
 4. Clique em **OK** para guardar e implementar o modelo de definições. Depois de valida o modelo, clique em **criar** para implementar a área de trabalho.
 5. Depois da área de trabalho ter sido implementada, navegue para o **NetworkMonitoring(name)** recurso que criou. Validar as definições, em seguida, clique em **solução requer configuração adicional**.
 
@@ -86,7 +86,7 @@ Crie uma área de trabalho na subscrição que tem a ligação de VNets a circui
 2. Em seguida, copie os **ID da área de trabalho** e **chave primária** ao bloco de notas.
 3. Partir do **configurar agentes do Log Analytics para monitorizar através do protocolo TCP** secção, transfira o Script do Powershell. O script do PowerShell ajuda-o a abrir a porta de firewall relevantes para as transações de TCP.
 
-  ![Script do PowerShell](./media/how-to-npm/7.png)
+   ![Script do PowerShell](./media/how-to-npm/7.png)
 
 ### <a name="installagent"></a>2.2: Instalar um agente de monitorização em cada servidor de monitorização (em cada VNET que pretende monitorizar)
 
@@ -102,15 +102,15 @@ Recomendamos que instale, pelo menos, dois agentes em cada lado da ligação do 
 4. Sobre o **pasta de destino** página, altere ou mantenha a pasta de instalação predefinida e, em seguida, clique em **próxima**.
 5. Sobre o **opções de configuração do agente** página, pode optar por ligar o agente para registos do Azure Monitor ou o Operations Manager. Em alternativa, pode deixar as escolhas em branco se pretender configurar o agente mais tarde. Depois de fazer sua selection(s), clique em **seguinte**.
 
-  * Se optar por ligar à **do Azure Log Analytics**, cole a **ID de área de trabalho** e **chave da área de trabalho** (chave primária) que copiou no bloco de notas na secção anterior. Clique depois em **Seguinte**.
+   * Se optar por ligar à **do Azure Log Analytics**, cole a **ID de área de trabalho** e **chave da área de trabalho** (chave primária) que copiou no bloco de notas na secção anterior. Clique depois em **Seguinte**.
 
-    ![ID e a chave](./media/how-to-npm/8.png)
-  * Se tiver escolhido estabelecer ligação ao **Operations Manager**, no **configuração do grupo de gestão** página, escreva o **nome do grupo de gestão**, **servidor de gestão** e o **porta do servidor de gestão**. Clique depois em **Seguinte**.
+     ![ID e a chave](./media/how-to-npm/8.png)
+   * Se tiver escolhido estabelecer ligação ao **Operations Manager**, no **configuração do grupo de gestão** página, escreva o **nome do grupo de gestão**, **servidor de gestão** e o **porta do servidor de gestão**. Clique depois em **Seguinte**.
 
-    ![Operations Manager](./media/how-to-npm/9.png)
-  * Sobre o **conta de ação do agente** página, escolha o o **Sistema Local** conta, ou **domínio ou conta de computador Local**. Clique depois em **Seguinte**.
+     ![Operations Manager](./media/how-to-npm/9.png)
+   * Sobre o **conta de ação do agente** página, escolha o o **Sistema Local** conta, ou **domínio ou conta de computador Local**. Clique depois em **Seguinte**.
 
-    ![Conta](./media/how-to-npm/10.png)
+     ![Conta](./media/how-to-npm/10.png)
 6. Sobre o **pronto para instalar** página, reveja as suas opções e, em seguida, clique em **instalar**.
 7. Na página **Configuração Concluída com Êxito**, clique em **Concluir**.
 8. Quando terminar, o Microsoft Monitoring Agent é apresentada no painel de controlo. Pode rever a configuração e certifique-se de que o agente está ligado aos registos do Azure Monitor. Quando estiver ligado, o agente apresenta uma mensagem que diz: **O Microsoft Monitoring Agent foi ligado com êxito para o serviço do Microsoft Operations Management Suite**.
@@ -128,7 +128,7 @@ Para configurar definições de proxy para o Microsoft Monitoring Agent com o pa
 3. Clique no separador **Definições de Proxy**.
 4. Selecione **utilizar um servidor proxy** e escreva o URL e o número de porta, se for necessária. Se o servidor proxy requer autenticação, escreva o nome de utilizador e a palavra-passe para aceder ao servidor proxy.
 
-  ![Proxy](./media/how-to-npm/11.png)
+   ![Proxy](./media/how-to-npm/11.png)
 
 ### <a name="verifyagent"></a>2.4: Verificar a conectividade de agente
 
@@ -139,7 +139,7 @@ Pode verificar facilmente se os agentes estão a comunicar.
 3. Clique nas **do Azure Log Analytics** separador.
 4. Na **estado** coluna, deverá ver que o agente ligado com êxito para os registos do Azure Monitor.
 
-  ![status](./media/how-to-npm/12.png)
+   ![status](./media/how-to-npm/12.png)
 
 ### <a name="firewall"></a>2.5: Abrir as portas de firewall nos servidores de agente de monitorização
 
@@ -172,16 +172,16 @@ Para obter mais informações sobre o NSG, consulte [grupos de segurança de red
 
 1. Navegue para o mosaico de descrição geral do Monitor de desempenho de rede ao aceder a **todos os recursos** página, em seguida, clique na lista de permissões NPM área de trabalho.
 
-  ![área de trabalho do npm](./media/how-to-npm/npm.png)
+   ![área de trabalho do npm](./media/how-to-npm/npm.png)
 2. Clique nas **Monitor de desempenho de rede** mosaico de descrição geral para apresentar o dashboard. O dashboard contém uma página do ExpressRoute, que mostra que o ExpressRoute é um "Estado não configurado". Clique em **configuração de funcionalidade** para abrir a página de configuração de Monitor de desempenho de rede.
 
-  ![configuração de funcionalidade](./media/how-to-npm/npm2.png)
+   ![configuração de funcionalidade](./media/how-to-npm/npm2.png)
 3. Na página de configuração, navegue até a guia "Peerings do ExpressRoute", localizada no painel do lado esquerdo. Em seguida, clique em **detetar agora**.
 
-  ![detetar](./media/how-to-npm/13.png)
+   ![detetar](./media/how-to-npm/13.png)
 4. Quando tiver concluído a deteção, verá uma lista que contém os seguintes itens:
-  * Todas as ligações de peering da Microsoft em circuitos de ExpressRoute que estão associados esta subscrição.
-  * Todas as ligações de peering privadas que ligar às VNets associada a esta subscrição.
+   * Todas as ligações de peering da Microsoft em circuitos de ExpressRoute que estão associados esta subscrição.
+   * Todas as ligações de peering privadas que ligar às VNets associada a esta subscrição.
             
 ## <a name="configmonitor"></a>Passo 5: Configurar monitores
 

@@ -6,12 +6,12 @@ ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 03/12/2019
-ms.openlocfilehash: 8cd4cf12390ff29754b55d2827ea4750e7123a27
-ms.sourcegitcommit: 1902adaa68c660bdaac46878ce2dec5473d29275
+ms.openlocfilehash: db62c1ec03ae9005f33a09010486b04ac6976742
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/11/2019
-ms.locfileid: "57730493"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58005903"
 ---
 # <a name="monitor-performance-with-the-query-store"></a>Monitorizar o desempenho com o Store de consulta
 
@@ -36,8 +36,8 @@ Consulta Store é um recurso opcional, para que ele não estará ativo por prede
 4. Defina o valor como `TOP` e **guardar**.
 
 Para ativar as estatísticas de espera no seu Store de consulta: 
-5. Procure o `pgms_wait_sampling.query_capture_mode` parâmetro.
-6. Defina o valor como `ALL` e **guardar**.
+1. Procure o `pgms_wait_sampling.query_capture_mode` parâmetro.
+1. Defina o valor como `ALL` e **guardar**.
 
 
 Em alternativa pode definir estes parâmetros com a CLI do Azure.
@@ -77,7 +77,7 @@ Tipos de eventos de espera combinam diferentes de espera eventos em buckets por 
 
 Aqui estão alguns exemplos de como pode obter mais informações sobre sua carga de trabalho com as estatísticas de espera no Query Store:
 
-| **Observação** | **ação** |
+| **Observação** | **Ação** |
 |---|---|
 |Esperas de bloqueio elevado | Verifique os textos de consulta para consultas afetadas e identificar as entidades de destino. Procure no Query Store outras consultas modificar a mesma entidade, o que é executada com frequência e/ou tem alta duração. Depois de identificar estas consultas, considere alterar a lógica do aplicativo para aprimorar a simultaneidade ou utilizar um nível de isolamento menos restritivo.|
 | Esperas de alto de memória intermédia de e/s | Determinar as consultas com um elevado número de leituras físicas na Store de consulta. Se coincidirem as consultas com alta esperas de e/s, considere a introdução de um índice na entidade subjacente, para fazer buscas em vez de análises. Isso seria minimizar a sobrecarga de e/s das consultas. Verifique os **recomendações de desempenho** para o seu servidor no portal para ver se existem recomendações de índice para este servidor que seria otimizar as consultas.|
@@ -87,6 +87,7 @@ Aqui estão alguns exemplos de como pode obter mais informações sobre sua carg
 Quando a consulta Store está ativada guarda os dados no windows de agregação de 15 minutos, até 500 consultas distintas por janela. 
 
 As seguintes opções estão disponíveis para configurar parâmetros de consulta Store.
+
 | **Parâmetro** | **Descrição** | **Predefinição** | **Range**|
 |---|---|---|---|
 | pg_qs.query_capture_mode | Define quais declarações são controladas. | nenhum | Nenhum, principais, tudo |
@@ -95,6 +96,7 @@ As seguintes opções estão disponíveis para configurar parâmetros de consult
 | pg_qs.track_utility | Define se são controlados comandos de utilitário | em | on, off |
 
 As opções seguintes aplicam-se especificamente a estatísticas de espera.
+
 | **Parâmetro** | **Descrição** | **Predefinição** | **Range**|
 |---|---|---|---|
 | pgms_wait_sampling.query_capture_mode | Conjuntos de declarações são controladas por estatísticas de espera. | nenhum | NONE, tudo|
@@ -162,7 +164,7 @@ Esta vista devolve os dados de eventos na consulta Store de espera. Há uma linh
 |query_id   |bigint     ||Código de hash interna, calculado a partir da árvore de análise a instrução|
 |event_type |texto       ||O tipo de evento para o qual está aguardando o back-end|
 |event  |texto       ||O nome do evento espera se back-end está atualmente a aguardar|
-|chamadas  |Número Inteiro        ||Número do mesmo evento capturado|
+|chamadas  |Número inteiro        ||Número do mesmo evento capturado|
 
 
 ### <a name="functions"></a>Funções

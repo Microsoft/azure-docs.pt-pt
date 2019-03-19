@@ -12,12 +12,12 @@ ms.author: carlrab
 ms.reviewer: sashan,moslake,josack
 manager: craigg
 ms.date: 03/01/2019
-ms.openlocfilehash: 801b7de4b82c37503f2a14619112cbf46ca60a43
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 5b11f9bc25cd0fcc8a83a2eeaf5cc1746a63200e
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57447086"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58093893"
 ---
 # <a name="sql-database-resource-limits-for-azure-sql-database-server"></a>Limites de recursos de base de dados SQL para o servidor de base de dados do Azure SQL
 
@@ -36,7 +36,7 @@ Este artigo fornece uma visão geral dos limites de recursos da base de dados SQ
 | DTU / quota de eDTU por servidor | 54,000 |  
 | quota de vCore por instância do servidor | 540 |
 | Conjuntos de máx. por servidor | Limitado pelo número de DTUs ou vCores. Por exemplo, se cada um dos conjuntos é 1000 DTUs, um servidor pode suportar 54 conjuntos.|
-||||
+|||
 
 > [!NOTE]
 > Para obter mais quota de /eDTU DTU, quota de vCore ou mais servidores que o valor predefinido, pode ser submetido um novo pedido de suporte no portal do Azure para a subscrição com o tipo de problema "Quota". As DTU / limite de quota e base de dados de eDTU por servidor restringe o número de conjuntos elásticos por servidor.
@@ -95,7 +95,7 @@ Formação de tráfego do registo taxa Governador é exibida por meio dos seguin
 | INSTANCE_LOG_RATE_GOVERNOR | Limitação de nível de instância |  
 | HADR_THROTTLE_LOG_RATE_SEND_RECV_QUEUE_SIZE | Controlo de comentários, replicação física do grupo de disponibilidade no Premium/críticas para a empresa não manter atualizado |  
 | HADR_THROTTLE_LOG_RATE_LOG_SIZE | Controlo de comentários, limitação de taxas para evitar um fora de condição de espaço de registo |
-||||
+|||
 
 Ao se deparar com um limite de taxa de registo é hampering escalabilidade desejada, considere as seguintes opções:
 - Aumentar verticalmente para um escalão superior, para que a velocidade máxima de log MB/s 48. 

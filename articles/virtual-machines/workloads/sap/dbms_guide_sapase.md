@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 07/1/2018
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 0b93c6ebdc29429920096245c74c71b7918c095c
-ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
+ms.openlocfilehash: 9c37c5339dedb3db68ed9bd23cd28e16a195bbde
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/16/2019
-ms.locfileid: "56330686"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58005777"
 ---
 # <a name="sap-ase-azure-virtual-machines-dbms-deployment-for-sap-workload"></a>Implementação de SAP ASE DBMS de máquinas virtuais do Azure para a carga de trabalho do SAP
 
@@ -158,7 +158,7 @@ ms.locfileid: "56330686"
 [deploy-template-portal]:../../../resource-group-template-deploy-portal.md
 [deploy-template-powershell]:../../../resource-group-template-deploy.md
 
-[dr-guide-classic]:http://go.microsoft.com/fwlink/?LinkID=521971
+[dr-guide-classic]:https://go.microsoft.com/fwlink/?LinkID=521971
 
 [getting-started]:get-started.md
 [getting-started-dbms]:get-started.md#1343ffe1-8021-4ce6-a08d-3a1553a4db82
@@ -172,7 +172,7 @@ ms.locfileid: "56330686"
 [getting-started-windows-classic-ha-sios]:../../virtual-machines-windows-classic-sap-get-started.md#4bb7512c-0fa0-4227-9853-4004281b1037
 [getting-started-windows-classic-planning]:../../virtual-machines-windows-classic-sap-get-started.md#f2a5e9d8-49e4-419e-9900-af783173481c
 
-[ha-guide-classic]:http://go.microsoft.com/fwlink/?LinkId=613056
+[ha-guide-classic]:https://go.microsoft.com/fwlink/?LinkId=613056
 
 [install-extension-cli]:virtual-machines-linux-enable-aem.md
 
@@ -401,8 +401,6 @@ Definir o parâmetro de perfil icm/host_name_full para o SAP para o nome DNS da 
 > https://mydomainlabel.westeurope.cloudapp.net:44300/sap/bc/webdynpro/sap/dba_cockpit
 > 
 > http://mydomainlabel.westeurope.cloudapp.net:8000/sap/bc/webdynpro/sap/dba_cockpit
-> 
-> 
 
 Neste caso, precisa certificar-se de que para:
 
@@ -467,7 +465,7 @@ A partir do Microsoft Azure, pode migrar facilmente as aplicações SAP ASE exis
 
 Para implementar VMs do Azure é importante saber os SLAs oficiais, que podem ser encontrados aqui: <https://azure.microsoft.com/support/legal/sla>
 
-Informações de tamanho do SAP e uma lista de SKUs de VM com certificação do SAP é fornecido na nota SAP [1928533]. SAP adicional documentos de dimensionamento de máquinas virtuais do Azure podem ser encontradas aqui <http://blogs.msdn.com/b/saponsqlserver/archive/2015/06/19/how-to-size-sap-systems-running-on-azure-vms.aspx> e aqui <http://blogs.msdn.com/b/saponsqlserver/archive/2015/12/01/new-white-paper-on-sizing-sap-solutions-on-azure-public-cloud.aspx>
+Informações de tamanho do SAP e uma lista de SKUs de VM com certificação do SAP é fornecido na nota SAP [1928533]. SAP adicional documentos de dimensionamento de máquinas virtuais do Azure podem ser encontradas aqui <https://blogs.msdn.com/b/saponsqlserver/archive/2015/06/19/how-to-size-sap-systems-running-on-azure-vms.aspx> e aqui <https://blogs.msdn.com/b/saponsqlserver/archive/2015/12/01/new-white-paper-on-sizing-sap-solutions-on-azure-public-cloud.aspx>
 
 Instruções e recomendações sobre a utilização de armazenamento do Azure, VMs de implementação de SAP ou SAP de monitorização aplicável a implementações do SAP ASE em conjunto com as aplicações SAP, conforme indicado em todo os quatro primeiros capítulos deste documento.
 
@@ -556,8 +554,6 @@ Definir o parâmetro de perfil icm/host_name_full para o SAP para o nome DNS da 
 > https://mydomainlabel.westeurope.cloudapp.net:44300/sap/bc/webdynpro/sap/dba_cockpit
 > 
 > http://mydomainlabel.westeurope.cloudapp.net:8000/sap/bc/webdynpro/sap/dba_cockpit
-> 
-> 
 
 Neste caso, precisa certificar-se de que para:
 

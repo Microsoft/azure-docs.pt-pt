@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/04/2018
 ms.author: kraigb
-ms.openlocfilehash: a160bc0247d2f80dda620b67c946805926d78006
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: f63851359a19455ab0f46f66a801a679ee2c3bfe
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57773968"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58079695"
 ---
 # <a name="quickstart-migrate-a-local-jupyter-notebook"></a>Início rápido: Migrar um bloco de notas Jupyter local
 
@@ -50,13 +50,13 @@ Este início rápido demonstra o processo de migração de um bloco de notas do 
 
    (Novamente, se seu bloco de notas estiver num repositório do GitHub, siga os passos no [início rápido: Clonar um bloco de notas](quickstart-clone-jupyter-notebook.md) em vez disso.)
 
-    - Se utilizar **de computador**, arraste e largue sua *.ipynb* ficheiros para o pop-up ou selecione o **escolher ficheiros**, em seguida, procure e selecione os ficheiros que pretende importar. Em seguida, selecione **carregar**. Os ficheiros carregados recebem o mesmo nome que os ficheiros locais. (Não precisa de carregar o conteúdo de qualquer *.ipynb_checkpoints* pastas.)
+   - Se utilizar **de computador**, arraste e largue sua *.ipynb* ficheiros para o pop-up ou selecione o **escolher ficheiros**, em seguida, procure e selecione os ficheiros que pretende importar. Em seguida, selecione **carregar**. Os ficheiros carregados recebem o mesmo nome que os ficheiros locais. (Não precisa de carregar o conteúdo de qualquer *.ipynb_checkpoints* pastas.)
 
-    ![Carregar a partir do pop-up de computador](media/quickstarts/upload-from-computer-popup.png)
+     ![Carregar a partir do pop-up de computador](media/quickstarts/upload-from-computer-popup.png)
 
-    - Se utilizar **de URL**, introduza o endereço de origem na **URL de ficheiro** campo e o nome de ficheiro para atribuir ao bloco de notas no seu projeto no **nome de ficheiro** campo. Em seguida, selecione **carregar**. Se tiver vários ficheiros com URLs separados, utilize o **+ adicionar ficheiro** comando para verificar o primeiro URL que introduziu, após o qual o pop-up fornece novos campos para outro ficheiro.
+   - Se utilizar **de URL**, introduza o endereço de origem na **URL de ficheiro** campo e o nome de ficheiro para atribuir ao bloco de notas no seu projeto no **nome de ficheiro** campo. Em seguida, selecione **carregar**. Se tiver vários ficheiros com URLs separados, utilize o **+ adicionar ficheiro** comando para verificar o primeiro URL que introduziu, após o qual o pop-up fornece novos campos para outro ficheiro.
 
-    ![Carregar a partir do pop-up de URL](media/quickstarts/upload-from-url-popup.png)
+     ![Carregar a partir do pop-up de URL](media/quickstarts/upload-from-url-popup.png)
 
 1. Abra e execute seu bloco de notas recém-carregada para verificar o seu conteúdo e a operação. Quando tiver terminado, selecione **arquivo** > **interrompido e fechar** para fechar o bloco de notas.
 

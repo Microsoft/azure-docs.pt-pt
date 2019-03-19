@@ -10,19 +10,19 @@ ms.topic: conceptual
 ms.date: 02/14/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 8cf65f0ed3ecd5c9a86d6adcdd5defd930522f85
-ms.sourcegitcommit: f863ed1ba25ef3ec32bd188c28153044124cacbc
+ms.openlocfilehash: ef29dafe32c3c5988cd33f59c8436eeef4b45886
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56301558"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57849283"
 ---
 # <a name="how-to-work-with-search-results-in-azure-search"></a>Como trabalhar com a pesquisa resulta no Azure Search
 Este artigo fornece orientações sobre como implementar elementos padrão de uma página de resultados de pesquisa, como contagens de totais, obtenção de documento, ordens de classificação e navegação. Opções relacionadas com a página que contribuem com dados ou informações para os resultados da pesquisa são especificadas através da [pesquisar no documento](https://docs.microsoft.com/rest/api/searchservice/Search-Documents) pedidos enviados para o serviço de pesquisa do Azure. 
 
 Na API do REST, pedidos de incluir um comando GET, caminho e os parâmetros de consulta que informam o serviço, o que está a ser requerido e como a formular a resposta. No SDK do .NET, é a API equivalente [DocumentSearchResult classe](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.documentsearchresult?view=azure-dotnet).
 
-Vários exemplos de código incluem uma interface de front-end da web, que pode ser encontrado aqui: [Aplicação de demonstração de tarefas da cidade de nova York](http://azjobsdemo.azurewebsites.net/) e [CognitiveSearchFrontEnd](https://github.com/LuisCabrer/CognitiveSearchFrontEnd).
+Vários exemplos de código incluem uma interface de front-end da web, que pode ser encontrado aqui: [Aplicação de demonstração de tarefas da cidade de nova York](https://azjobsdemo.azurewebsites.net/) e [CognitiveSearchFrontEnd](https://github.com/LuisCabrer/CognitiveSearchFrontEnd).
 
 > [!NOTE]
 > Um pedido válido inclui um número de elementos, como um URL do serviço e o caminho, verbo HTTP, `api-version`e assim por diante. Para fins de brevidade, podemos cortados os exemplos para realçar apenas a sintaxe que é relevante para paginação. Para obter mais informações sobre a sintaxe do pedido, consulte [API de REST do serviço do Azure Search](https://docs.microsoft.com/rest/api/searchservice). > 

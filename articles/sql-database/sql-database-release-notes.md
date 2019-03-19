@@ -10,12 +10,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 03/05/2019
 ms.author: carlrab
-ms.openlocfilehash: 9a461f84577997ff976956b7f2f50500e9b3d323
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 6600a578ba9c73c8a2c71466fd0b008f19058b80
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57548069"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57861299"
 ---
 # <a name="sql-database-release-notes"></a>Notas de versão da base de dados SQL
 
@@ -50,7 +50,7 @@ Este artigo lista os novos recursos e melhorias no serviço de base de dados SQL
 |Instância gerida de suporte para tabelas de rota melhorada| Para obter mais informações, consulte [requisitos de rede](sql-database-managed-instance-connectivity-architecture.md#network-requirements).|
 |Mudar o nome de base de dados suportado na instância gerida | Para obter mais detalhes, consulte a [ALTER DATABASE](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql?view=azuresqldb-mi-current) e [sp_rename](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-rename-transact-sql) sintaxe.|
 |Base de dados SQL como uma origem de dados de referência para o Stream Analytics. | Para obter mais informações, consulte [Stream Analytics](https://azure.microsoft.com/services/stream-analytics/).|
-|Assistência de migração de dados adiciona suporte para a instância gerida. |Para obter mais informações, consulte [o que há de novo no DMA](https://docs.microsoft.com/sql/dma/dma-whatsnew?view=sql-server-2017).|
+|Assistência de migração de dados adiciona suporte para a instância gerida. |Para obter mais informações, consulte [o que há de novo no DMA](https://docs.microsoft.com/sql/dma/dma-whatsnew).|
 |SQL Server Migration Assistant-adiciona suporte para avaliação de preparação do destino para a instância gerida. | Para obter mais informações, consulte [SQL Server Migration Assistant](https://docs.microsoft.com/sql/ssma/sql-server-migration-assistant).
 |Serviço de migração de dados suporta a migração do Amazon RDS para instância gerida | Para obter mais informações, consulte [Tutorial: Migrar o servidor de SQL de RDS para a base de dados do Azure SQL ou uma base de dados do Azure SQL instância gerida online com o DMS](../dms/tutorial-rds-sql-server-azure-sql-and-managed-instance-online.md).|
 | &nbsp; |
@@ -60,7 +60,7 @@ Este artigo lista os novos recursos e melhorias no serviço de base de dados SQL
 | Melhorias de documentação | Detalhes |
 | --- | --- |
 |Adicionar geridos esclarecimentos de opção de implementação de instância|Atualizar vários artigos para esclarecer a aplicabilidade da base de dados, o conjunto elástico e opções de implementação de instância gerida. |
-|Tamanhos de tempdb atualizado para o modelo de compra baseado em DTU | Para obter mais informações, consulte [base de dados Tempdb na base de dados SQL](https://docs.microsoft.com/sql/relational-databases/databases/tempdb-database?view=sql-server-2017#tempdb-database-in-sql-database).|
+|Tamanhos de tempdb atualizado para o modelo de compra baseado em DTU | Para obter mais informações, consulte [base de dados Tempdb na base de dados SQL](https://docs.microsoft.com/sql/relational-databases/databases/tempdb-database#tempdb-database-in-sql-database).|
 |Atualizada a importação e exportação com o ficheiro bacpac para o suporte de instância gerida| Para obter mais informações, consulte [importação de BACPAC](sql-database-import.md) e [exportar para BACPAC](sql-database-export.md). |
 | &nbsp; |
 
@@ -97,4 +97,4 @@ O conjunto de documentação do SQL do Azure é open source. Trabalhar no open o
 - Reveja os repositórios de código-fonte aberto para publicar os conteúdos mais úteis no nosso primeiro lançamento.
 - Atualização transparente de repositórios de código-fonte aberto no open para facilitar a melhorar continuamente o conteúdo.
 
-Para contribuir para o conteúdo de documentação do Azure SQL Database, consulte a [descrição geral do guia de contribuinte Microsoft Docs](https://docs.microsoft.com/en-us/contribute/). A experiência do utilizador num [docs.microsoft.com](https://docs.microsoft.com/) integra [GitHub](https://github.com/) fluxos de trabalho diretamente para facilitar ainda mais. Comece por [editando o documento que está a ver](https://docs.microsoft.com/en-us/contribute/#quick-edits-to-existing-documents). Ou, ajudar [rever novos tópicos](https://docs.microsoft.com/en-us/contribute/#review-open-prs), ou [criar problemas de qualidade](https://docs.microsoft.com/en-us/contribute/#create-quality-issues).
+Para contribuir para o conteúdo de documentação do Azure SQL Database, consulte a [descrição geral do guia de contribuinte Microsoft Docs](https://docs.microsoft.com/contribute/). A experiência do utilizador num [docs.microsoft.com](https://docs.microsoft.com/) integra [GitHub](https://github.com/) fluxos de trabalho diretamente para facilitar ainda mais. Comece por [editando o documento que está a ver](https://docs.microsoft.com/contribute/#quick-edits-to-existing-documents). Ou, ajudar [rever novos tópicos](https://docs.microsoft.com/contribute/#review-open-prs), ou [criar problemas de qualidade](https://docs.microsoft.com/contribute/#create-quality-issues).

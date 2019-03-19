@@ -1,6 +1,6 @@
 ---
 title: Utilizar o Apache Pig com o PowerShell no HDInsight - Azure
-description: Aprenda a submeter tarefas do Apache Pig para um cluster do Apache Hadoop no HDInsight com o Azure PowerShell.
+description: Aprenda a submeter tarefas do Apache Pig para clusters do Apache Hadoop no HDInsight com o Azure PowerShell.
 services: hdinsight
 author: hrasheed-msft
 ms.reviewer: jasonh
@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 05/09/2018
 ms.author: hrasheed
 ms.custom: H1Hack27Feb2017,hdinsightactive
-ms.openlocfilehash: 84780d7c432e818153f964522063f29d8540e0ec
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
+ms.openlocfilehash: 69a45a0c2c21ffafde8a4b366e1f3e90b7c8f59a
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53434312"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58012612"
 ---
 # <a name="use-azure-powershell-to-run-apache-pig-jobs-with-hdinsight"></a>Utilizar o Azure PowerShell para executar tarefas de Apache Pig com o HDInsight
 
@@ -41,9 +41,9 @@ O Azure PowerShell disponibiliza *cmdlets* que permitem executar remotamente tar
 Os cmdlets seguintes são utilizados quando executar tarefas do Pig num cluster do HDInsight remoto:
 
 * **Connect-AzureRmAccount**: Efetua a autenticação do Azure PowerShell para a sua subscrição do Azure.
-* **Novo AzureRmHDInsightPigJobDefinition**: Cria um *definição de tarefa* utilizando as instruções em Pig Latin especificadas.
+* **New-AzureRmHDInsightPigJobDefinition**: Cria um *definição de tarefa* utilizando as instruções em Pig Latin especificadas.
 * **Start-AzureRmHDInsightJob**: Envia a definição de tarefa ao HDInsight e inicia a tarefa. R *tarefa* objeto é devolvido.
-* **Espera-AzureRmHDInsightJob**: Usa o objeto de tarefa para verificar o estado da tarefa. Ele aguarda até que a tarefa for concluída, ou o tempo de espera foi excedido.
+* **Wait-AzureRmHDInsightJob**: Usa o objeto de tarefa para verificar o estado da tarefa. Ele aguarda até que a tarefa for concluída, ou o tempo de espera foi excedido.
 * **Get-AzureRmHDInsightJobOutput**: Usada para recuperar o resultado da tarefa.
 
 Os passos seguintes demonstram como utilizar estes cmdlets para executar uma tarefa no seu cluster do HDInsight.

@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: 72238db8322132f42e14656c106b82d8604af21f
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 376ee74732daf526b31129fa8c93cbaa32350eae
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57435104"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58107819"
 ---
 # <a name="understand-iot-edge-automatic-deployments-for-single-devices-or-at-scale"></a>Compreender as implementações automáticas do IoT Edge para dispositivos individuais ou em escala
 
@@ -32,7 +32,7 @@ Este artigo se concentra na configuração e monitorização fases para frotas d
 2. Comunica o serviço IoT Hub com todos os dispositivos direcionados para configurá-las com o número de módulos desejados. 
 3. O serviço IoT Hub obtém o estado dos dispositivos IoT Edge e disponibiliza-os para o operador.  Por exemplo, um operador pode ver quando um dispositivo do Edge não está configurado com êxito ou se um módulo falha durante o tempo de execução. 
 4. Em qualquer altura, os novos dispositivos de IoT Edge que satisfazem as condições de direcionamento estão configurados para a implementação. Por exemplo, uma implementação direcionada para todos os dispositivos do IoT Edge no Estado norte-americano de Washington automaticamente configura um novo dispositivo IoT Edge, uma vez que ele é aprovisionado e adicionado ao grupo de dispositivos de estado de Washington. 
- 
+ 
 Este artigo descreve cada componente envolvido durante a configuração e monitorização de uma implementação. Para obter instruções para criar e atualizar uma implementação, consulte [implementar e monitorizar os módulos do IoT Edge em escala](how-to-deploy-monitor.md).
 
 ## <a name="deployment"></a>Implementação

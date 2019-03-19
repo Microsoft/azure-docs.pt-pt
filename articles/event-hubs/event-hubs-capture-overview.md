@@ -15,17 +15,20 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/06/2018
 ms.author: shvija
-ms.openlocfilehash: f1fefb863770c4b71249e924162c543cc217c9d2
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: cc74bfe9bf9e5f33b7cf05ebb19b44ab8b3bea43
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57541473"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57864648"
 ---
 # <a name="capture-events-through-azure-event-hubs-in-azure-blob-storage-or-azure-data-lake-storage"></a>Capturar eventos através dos Hubs de eventos do Azure no armazenamento de Blobs do Azure ou de armazenamento do Azure Data Lake
-Os Hubs de eventos do Azure permite-lhe capturar automaticamente os dados de transmissão em fluxo nos Hubs de eventos num [armazenamento de Blobs do Azure](https://azure.microsoft.com/services/storage/blobs/) ou [o armazenamento do Azure Data Lake](https://azure.microsoft.com/services/data-lake-store/) à sua escolha, com a flexibilidade adicional do especificar um hora ou intervalo de tamanho. Configurar a captura é rápido, existem sem os custos administrativos para executá-lo e é escalado automaticamente com os Hubs de eventos [unidades de débito](event-hubs-features.md#capacity). Captura de Hubs de eventos é a forma mais fácil de carregar dados de transmissão em fluxo para o Azure e permite-lhe concentrar-se no processamento de dados em vez de captura de dados.
+Os Hubs de eventos do Azure permite-lhe capturar automaticamente os dados de transmissão em fluxo nos Hubs de eventos num [armazenamento de Blobs do Azure](https://azure.microsoft.com/services/storage/blobs/) ou [o armazenamento do Azure Data Lake](https://azure.microsoft.com/services/data-lake-store/) à sua escolha, com a flexibilidade adicional do especificar um hora ou intervalo de tamanho. Configurar a captura é rápido, existem sem os custos administrativos para executá-lo e é escalado automaticamente com os Hubs de eventos [unidades de débito](event-hubs-features.md#throughput-units). Captura de Hubs de eventos é a forma mais fácil de carregar dados de transmissão em fluxo para o Azure e permite-lhe concentrar-se no processamento de dados em vez de captura de dados.
 
 Captura de Hubs de eventos permite-lhe processar pipelines em tempo real e em lote no mesmo fluxo. Isso significa que pode criar soluções que aumentam com as suas necessidades ao longo do tempo. Se estiver a criar sistemas baseados em batch hoje em dia com um olho em direção futuro processamento em tempo real, ou que pretende adicionar um caminho típico eficiente para uma solução em tempo real, a captura de Hubs de eventos torna o trabalho com dados mais fácil de transmissão em fluxo.
+
+> [!NOTE]
+> Atualmente, a funcionalidade de captura de Hubs de eventos suporta apenas Gen 1 do Azure Data Lake Store, não a Gen 2. 
 
 ## <a name="how-event-hubs-capture-works"></a>Como funciona a captura de Hubs de eventos
 
@@ -51,7 +54,7 @@ https://mystorageaccount.blob.core.windows.net/mycontainer/mynamespace/myeventhu
 
 ### <a name="scaling-to-throughput-units"></a>Dimensionar para as unidades de débito
 
-Tráfego de Hubs de eventos é controlado pelas [unidades de débito](event-hubs-features.md#capacity). Uma única unidade de débito permite 1 MB por segundo ou 1000 eventos por segundo de entrada e de duas vezes essa quantidade de saída. Hubs de eventos Standard pode ser configurados com as unidades de débito de 1 a 20, e pode comprar mais com uma quota de aumentar [pedido de suporte][support request]. A utilização além das suas unidades de débito adquiridas é limitada. Captura de Hubs de eventos copia os dados diretamente a partir do armazenamento interno dos Hubs de eventos, ignorando as quotas de saída de unidade de débito e a guardar a saída para outros leitores de processamento, como o Stream Analytics ou do Spark.
+Tráfego de Hubs de eventos é controlado pelas [unidades de débito](event-hubs-features.md#throughput-units). Uma única unidade de débito permite 1 MB por segundo ou 1000 eventos por segundo de entrada e de duas vezes essa quantidade de saída. Hubs de eventos Standard pode ser configurados com as unidades de débito de 1 a 20, e pode comprar mais com uma quota de aumentar [pedido de suporte][support request]. A utilização além das suas unidades de débito adquiridas é limitada. Captura de Hubs de eventos copia os dados diretamente a partir do armazenamento interno dos Hubs de eventos, ignorando as quotas de saída de unidade de débito e a guardar a saída para outros leitores de processamento, como o Stream Analytics ou do Spark.
 
 Depois de configurada, a captura de Hubs de eventos é executada automaticamente quando enviar o seu primeiro evento e continua a ser executado. Para tornar mais fácil para o processamento a jusante saber se o processo está a funcionar, os Hubs de eventos escreve ficheiros vazios quando não houver dados. Este processo fornece uma cadência previsível e um marcador que pode alimentar os processadores do batch.
 

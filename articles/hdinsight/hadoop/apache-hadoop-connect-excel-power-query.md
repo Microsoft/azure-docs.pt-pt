@@ -9,12 +9,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/16/2018
-ms.openlocfilehash: f6d3fd32245c52d3fa3321dad8ef1545e9d2d84c
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
-ms.translationtype: MT
+ms.openlocfilehash: 2ed866a0406de2421c5c98fc09849d0dfabaa464
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57444825"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58094505"
 ---
 # <a name="connect-excel-to-apache-hadoop-by-using-power-query"></a>Ligar o Excel para Apache Hadoop com o Power Query
 Uma funcionalidade-chave da solução de grandes volumes de dados do Microsoft é a integração de componentes do Microsoft business intelligence (BI) com clusters do Apache Hadoop no HDInsight do Azure. Um exemplo principal é a capacidade de ligar o Excel à conta de armazenamento do Azure que contém os dados associados a seu cluster do Hadoop ao utilizar o Microsoft Power Query para o suplemento do Excel. Este artigo explica como configurar e utilizar o Power Query para consultar dados associados a um cluster de Hadoop gerido com o HDInsight.
@@ -40,21 +40,21 @@ O suplemento Power Query para Excel torna mais fácil importar dados do seu clus
 2. Crie uma nova pasta de trabalho em branco.
 3. Execute os passos seguintes com base na versão do Excel:
 
-    - Excel 2016
+   - Excel 2016
 
-        - Clique nas **dados** menu, clique em **obter dados** do **obter e transformar dados** Friso, clique em **de Azure**e, em seguida, clique em **Do Azure HDInsight(HDFS)**.
+     - Clique nas **dados** menu, clique em **obter dados** do **obter e transformar dados** Friso, clique em **de Azure**e, em seguida, clique em **Do Azure HDInsight(HDFS)**.
 
-        ![HDI.PowerQuery.SelectHdiSource](./media/apache-hadoop-connect-excel-power-query/hdi.powerquery.selecthdisource.excel2016.png)
+       ![HDI.PowerQuery.SelectHdiSource](./media/apache-hadoop-connect-excel-power-query/hdi.powerquery.selecthdisource.excel2016.png)
 
-    - Excel 2013/2010
+   - Excel 2013/2010
 
-        - Clique nas **Power Query** menu, clique em **do Azure**e, em seguida, clique em **do Microsoft Azure HDInsight**.
+     - Clique nas **Power Query** menu, clique em **do Azure**e, em seguida, clique em **do Microsoft Azure HDInsight**.
    
-        ![HDI.PowerQuery.SelectHdiSource][image-hdi-powerquery-hdi-source]
+       ![HDI.PowerQuery.SelectHdiSource][image-hdi-powerquery-hdi-source]
        
-        **Nota:** Se não vir a **Power Query** menu, aceda à **ficheiro** > **opções** > **suplementos**e selecione  **COM Add-ins** na lista suspensa **gerir** caixa na parte inferior da página. Selecione o **vá...**  botão e certifique-se de que a caixa para o Power Query para o suplemento do Excel foi verificada.
+       **Nota:** Se não vir a **Power Query** menu, aceda à **ficheiro** > **opções** > **suplementos**e selecione  **COM Add-ins** na lista suspensa **gerir** caixa na parte inferior da página. Selecione o **vá...**  botão e certifique-se de que a caixa para o Power Query para o suplemento do Excel foi verificada.
        
-        **Nota:** Power Query também permite que importe dados do HDFS clicando **de outras origens**.
+       **Nota:** Power Query também permite que importe dados do HDFS clicando **de outras origens**.
 4. Para **nome da conta**, introduza o nome da conta de armazenamento de Blobs do Azure associado com o seu cluster e, em seguida, clique em **OK**. Esta conta pode ser o [predefinido a conta de armazenamento](../hdinsight-administer-use-management-portal.md#find-the-default-storage-account) ou uma conta de armazenamento ligada.  O formato é *https://&lt;StorageAccountName >.blob.core.windows.net/*.
 5. Para **chave de conta**, introduza a chave para a conta de armazenamento de BLOBs e, em seguida, clique em **guardar**. (Tem de introduzir o tempo de informações apenas a primeira conta que aceder a esse armazenamento.)
 6. Na **navegador** painel à esquerda do Editor de consultas, faça duplo clique o nome de contentor de armazenamento de Blobs. Por predefinição, o nome do contentor é o mesmo nome que o nome do cluster.
