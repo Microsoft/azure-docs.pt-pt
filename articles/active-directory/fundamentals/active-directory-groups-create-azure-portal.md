@@ -13,12 +13,12 @@ ms.author: lizross
 ms.reviewer: krbain
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 19f912ce2989a11e1a27fd27e584159a70d026d4
-ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.openlocfilehash: 2887badb9a72cc94321263196d02dfab47229b7c
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/02/2019
-ms.locfileid: "57245765"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58078300"
 ---
 # <a name="create-a-basic-group-and-add-members-using-azure-active-directory"></a>Criar um grupo básico e adicionar membros com o Azure Active Directory
 Pode criar um grupo básico através do portal do Microsoft Azure Active Directory (Microsoft Azure AD). Para os fins deste artigo, um grupo básico é adicionado a um único recurso pelo proprietário do recurso (administrador) e inclui membros específicos (funcionários) que precisam de aceder a esse recurso. Para cenários mais complexos, incluindo associações dinâmicas e criação de regras, veja [Documentação da gestão de utilizadores do Azure Active Directory](../users-groups-roles/index.yml).
@@ -37,26 +37,26 @@ Pode criar um grupo básico e adicionar os membros ao mesmo tempo.
 
     ![Nova página de grupo, preenchida com informações de exemplo](media/active-directory-groups-create-azure-portal/new-group-blade.png)
 
-    - **Tipo de grupo (obrigatório).** Selecione um tipo de grupo predefinido. Isto inclui:
+   - **Tipo de grupo (obrigatório).** Selecione um tipo de grupo predefinido. Isto inclui:
         
-        - **Segurança**. Serve para gerir o acesso de membros e de computadores a recursos partilhados de um grupo de utilizadores. Por exemplo, pode criar um grupo de segurança para uma política de segurança específica. Ao fazê-lo desta maneira, pode dar um conjunto de permissões a todos os membros de uma só vez, em vez de precisar de adicionar permissões a cada membro individualmente. Para obter mais informações sobre a gestão de acesso a recursos, veja [Gerir o acesso a recursos com grupos do Azure Active Directory](active-directory-manage-groups.md).
+       - **Segurança**. Serve para gerir o acesso de membros e de computadores a recursos partilhados de um grupo de utilizadores. Por exemplo, pode criar um grupo de segurança para uma política de segurança específica. Ao fazê-lo desta maneira, pode dar um conjunto de permissões a todos os membros de uma só vez, em vez de precisar de adicionar permissões a cada membro individualmente. Para obter mais informações sobre a gestão de acesso a recursos, veja [Gerir o acesso a recursos com grupos do Azure Active Directory](active-directory-manage-groups.md).
         
-        - **Office 365**. Proporciona oportunidades de colaboração ao conceder aos membros o acesso a uma caixa de correio partilhada, calendário, ficheiros, site do SharePoint, entre outros. Esta opção também lhe permite conceder às pessoas fora da organização acesso ao grupo. Para obter mais informações sobre os Grupos do Office 365, veja [Saiba mais sobre os Grupos do Office 365](https://support.office.com/article/learn-about-office-365-groups-b565caa1-5c40-40ef-9915-60fdb2d97fa2).
+       - **Office 365**. Proporciona oportunidades de colaboração ao conceder aos membros o acesso a uma caixa de correio partilhada, calendário, ficheiros, site do SharePoint, entre outros. Esta opção também lhe permite conceder às pessoas fora da organização acesso ao grupo. Para obter mais informações sobre os Grupos do Office 365, veja [Saiba mais sobre os Grupos do Office 365](https://support.office.com/article/learn-about-office-365-groups-b565caa1-5c40-40ef-9915-60fdb2d97fa2).
 
-    - **Nome do grupo (obrigatório).** Adicione um nome ao grupo, algo fácil de lembrar e que faça sentido.
+   - **Nome do grupo (obrigatório).** Adicione um nome ao grupo, algo fácil de lembrar e que faça sentido.
 
-    - **Descrição do grupo.** Adicione uma descrição opcional ao grupo.
+   - **Descrição do grupo.** Adicione uma descrição opcional ao grupo.
 
-    - **Tipo de associação (obrigatório).** Selecione um tipo de associação predefinido. Isto inclui:
+   - **Tipo de associação (obrigatório).** Selecione um tipo de associação predefinido. Isto inclui:
 
-        - **Atribuído.** Permite-lhe adicionar utilizadores específicos para serem membros deste grupo e terem permissões exclusivas. Para os fins deste artigo, estamos a utilizar esta opção.
+     - **Atribuído.** Permite-lhe adicionar utilizadores específicos para serem membros deste grupo e terem permissões exclusivas. Para os fins deste artigo, estamos a utilizar esta opção.
 
-        - **Utilizador dinâmico.** Permite-lhe utilizar regras de associação dinâmica para adicionar e remover membros automaticamente. Se os atributos de um membro mudarem, o sistema analisará as regras de grupo dinâmicas do diretório para ver se o membro cumpre os requisitos da regra (é adicionado) ou se já não cumpre os requisitos das regras (é removido).
+     - **Utilizador dinâmico.** Permite-lhe utilizar regras de associação dinâmica para adicionar e remover membros automaticamente. Se os atributos de um membro mudarem, o sistema analisará as regras de grupo dinâmicas do diretório para ver se o membro cumpre os requisitos da regra (é adicionado) ou se já não cumpre os requisitos das regras (é removido).
 
-        - **Dispositivo dinâmico.** Permite-lhe utilizar regras de grupo dinâmicas para adicionar e remover dispositivos automaticamente. Se os atributos de um dispositivo mudarem, o sistema analisa as regras de grupo dinâmicas para o diretório para ver se o dispositivo cumpre os requisitos da regra (é adicionado) ou já não cumpre os requisitos das regras (é removido).
+     - **Dispositivo dinâmico.** Permite-lhe utilizar regras de grupo dinâmicas para adicionar e remover dispositivos automaticamente. Se os atributos de um dispositivo mudarem, o sistema analisa as regras de grupo dinâmicas para o diretório para ver se o dispositivo cumpre os requisitos da regra (é adicionado) ou já não cumpre os requisitos das regras (é removido).
 
-        >[!Important]
-        >Pode criar um grupo dinâmico para dispositivos ou utilizadores, mas não para ambos. Também não pode criar um grupo de dispositivos com base nos atributos dos proprietários de dispositivos. As regras de associação de dispositivos só podem referenciar atribuições de dispositivos. Para mais informações sobre como criar um grupo dinâmico para utilizadores e dispositivos, veja [criar um grupo dinâmico e verificar o estado](../users-groups-roles/groups-create-rule.md).
+       >[!Important]
+       >Pode criar um grupo dinâmico para dispositivos ou utilizadores, mas não para ambos. Também não pode criar um grupo de dispositivos com base nos atributos dos proprietários de dispositivos. As regras de associação de dispositivos só podem referenciar atribuições de dispositivos. Para mais informações sobre como criar um grupo dinâmico para utilizadores e dispositivos, veja [criar um grupo dinâmico e verificar o estado](../users-groups-roles/groups-create-rule.md).
 
 4. Selecione **Criar**.
 

@@ -12,12 +12,12 @@ ms.author: ayolubek
 ms.reviewer: sstein
 manager: craigg
 ms.date: 01/14/2019
-ms.openlocfilehash: 14c43fbc138d6d70b65f6afd1ef174488e066796
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
+ms.openlocfilehash: c96f2dc2b44ea2118d9f0dd6c988017efcba5800
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55567745"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58116780"
 ---
 # <a name="use-geo-restore-to-recover-a-multitenant-saas-application-from-database-backups"></a>Utilizar o restauro geográfico para recuperar uma aplicação SaaS multi-inquilino de cópias de segurança da base de dados
 
@@ -32,13 +32,13 @@ Georrestauro encontra-se a solução de recuperação após desastre de custo ma
 
 Este tutorial explora o restauro e repatriation fluxos de trabalho. Saiba como:
 > [!div class="checklist"]
-
->* Base de dados de sincronização e informações de configuração do conjunto elástico para o catálogo de inquilino.
->* Configure um ambiente de imagem espelhada numa região de recuperação que inclui aplicativos, servidores e de agrupamentos.   
->* Recupere bases de dados do catálogo e de inquilino, utilizando o restauro geográfico.
->* Utilize a georreplicação para repatriate o catálogo de inquilino e bases de dados do inquilino foi alterado após a falha for resolvida.
->* O catálogo de atualizações à medida que cada base de dados é restaurada (ou repatriated) para controlar a localização atual da cópia ativa do banco de dados de cada inquilino.
->* Certifique-se de que o aplicativo e a base de dados de inquilino são sempre localizados conjuntamente na mesma região do Azure para reduzir a latência. 
+> 
+> * Base de dados de sincronização e informações de configuração do conjunto elástico para o catálogo de inquilino.
+> * Configure um ambiente de imagem espelhada numa região de recuperação que inclui aplicativos, servidores e de agrupamentos.   
+> * Recupere bases de dados do catálogo e de inquilino, utilizando o restauro geográfico.
+> * Utilize a georreplicação para repatriate o catálogo de inquilino e bases de dados do inquilino foi alterado após a falha for resolvida.
+> * O catálogo de atualizações à medida que cada base de dados é restaurada (ou repatriated) para controlar a localização atual da cópia ativa do banco de dados de cada inquilino.
+> * Certifique-se de que o aplicativo e a base de dados de inquilino são sempre localizados conjuntamente na mesma região do Azure para reduzir a latência. 
  
 
 Antes de começar este tutorial, conclua os seguintes pré-requisitos:
@@ -194,13 +194,13 @@ Embora o ponto final da aplicação está desabilitado no Gestor de tráfego, o 
 
 * Depois que foi recuperado a base de dados do catálogo, mas antes dos inquilinos estão online novamente, atualize o hub de eventos da Wingtip Tickets no seu browser.
 
-    * No rodapé, tenha em atenção que agora tem o nome do servidor de catálogo sufixo - recuperação e está localizado na região de recuperação.
+  * No rodapé, tenha em atenção que agora tem o nome do servidor de catálogo sufixo - recuperação e está localizado na região de recuperação.
 
-    * Tenha em atenção que os inquilinos que ainda não foram restaurados estão marcados como offline e que não sejam selecionáveis.   
+  * Tenha em atenção que os inquilinos que ainda não foram restaurados estão marcados como offline e que não sejam selecionáveis.   
  
     ![Processo de recuperação](media/saas-dbpertenant-dr-geo-restore/events-hub-tenants-offline-in-recovery-region.png)    
 
-    * Se abrir a página de eventos de um inquilino diretamente enquanto o inquilino estiver offline, a página é apresentada uma notificação offline do inquilino. Por exemplo, se a Contoso Concert Hall estiver offline, tente abrir http://events.wingtip-dpt.&lt; utilizador&gt;.trafficmanager.net/contosoconcerthall.
+  * Se abrir a página de eventos de um inquilino diretamente enquanto o inquilino estiver offline, a página é apresentada uma notificação offline do inquilino. Por exemplo, se a Contoso Concert Hall estiver offline, tente abrir http://events.wingtip-dpt.&lt; utilizador&gt;.trafficmanager.net/contosoconcerthall.
 
     ![Processo de recuperação](media/saas-dbpertenant-dr-geo-restore/dr-in-progress-offline-contosoconcerthall.png)
 
@@ -245,13 +245,13 @@ Quando o processo de recuperação estiver concluída, a aplicação e todos os 
 
 4. Abra o grupo de recursos de recuperação e tenha em atenção os seguintes itens:
 
-    * As versões de recuperação dos servidores de catálogo e tenants1, com o - sufixo de recuperação. Os catálogo e de inquilino bancos de dados restaurados nestes servidores todos os tem os nomes utilizados na região original.
+   * As versões de recuperação dos servidores de catálogo e tenants1, com o - sufixo de recuperação. Os catálogo e de inquilino bancos de dados restaurados nestes servidores todos os tem os nomes utilizados na região original.
 
-    * O tenants2-dpt -&lt;utilizador&gt;-servidor de SQL de recuperação. Este servidor é utilizado para aprovisionar novos inquilinos durante o período de inatividade.
+   * O tenants2-dpt -&lt;utilizador&gt;-servidor de SQL de recuperação. Este servidor é utilizado para aprovisionar novos inquilinos durante o período de inatividade.
 
-    * O serviço de aplicações com o nome eventos-wingtip-dpt -&lt;recoveryregion&gt;-&lt;utilizador&gt;, que é a instância de recuperação da aplicação de eventos.
+   * O serviço de aplicações com o nome eventos-wingtip-dpt -&lt;recoveryregion&gt;-&lt;utilizador&gt;, que é a instância de recuperação da aplicação de eventos.
 
-    ![Recursos da Contoso na região de recuperação](media/saas-dbpertenant-dr-geo-restore/resources-in-recovery-region.png) 
+     ![Recursos da Contoso na região de recuperação](media/saas-dbpertenant-dr-geo-restore/resources-in-recovery-region.png) 
     
 5. Abra o tenants2-dpt -&lt;utilizador&gt;-servidor de SQL de recuperação. Tenha em atenção que contém o hawthornhall de base de dados e o conjunto elástico Pool1. A base de dados hawthornhall está configurado como uma base de dados elástica no conjunto elástico Pool1.
 
@@ -367,12 +367,12 @@ Bases de dados do inquilino podem estar distribuídos em recuperação e regiõe
 
 Neste tutorial, ficou a saber como:
 > [!div class="checklist"]
-
->* Utilize o catálogo de inquilino para conter as informações de configuração atualizados periodicamente, o que permite um ambiente de recuperação da imagem espelhada criar noutra região.
->* Recupere bases de dados SQL do Azure para a região de recuperação com o restauro geográfico.
->* Atualize o catálogo de inquilino para refletir as localizações de base de dados de inquilino restaurada. 
->* Utilize um alias de DNS para que uma aplicação ligar ao catálogo de inquilino ao longo sem reconfiguração.
->* Utilize a georreplicação para repatriate bases de dados recuperadas para sua região original após uma falha for resolvida.
+> 
+> * Utilize o catálogo de inquilino para conter as informações de configuração atualizados periodicamente, o que permite um ambiente de recuperação da imagem espelhada criar noutra região.
+> * Recupere bases de dados SQL do Azure para a região de recuperação com o restauro geográfico.
+> * Atualize o catálogo de inquilino para refletir as localizações de base de dados de inquilino restaurada. 
+> * Utilize um alias de DNS para que uma aplicação ligar ao catálogo de inquilino ao longo sem reconfiguração.
+> * Utilize a georreplicação para repatriate bases de dados recuperadas para sua região original após uma falha for resolvida.
 
 Experimente o [recuperação após desastre para uma aplicação SaaS multi-inquilino, utilizar a georreplicação de base de dados](saas-dbpertenant-dr-geo-replication.md) tutorial para saber como utilizar a georreplicação para reduzir drasticamente o tempo necessário para recuperar de uma aplicação multi-inquilino de larga escala.
 

@@ -12,12 +12,12 @@ ms.author: craigg
 ms.reviewer: ''
 manager: craigg
 ms.date: 02/12/2019
-ms.openlocfilehash: c456954c3bf68fd87e51162ea6aab1d0a54b86ad
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
+ms.openlocfilehash: e1cd0d8462c31c8b843f7962f923accc6b63ae00
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56237026"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58103405"
 ---
 # <a name="connect-excel-to-a-single-database-in-azure-sql-database-and-create-a-report"></a>Ligar o Excel para uma base de dados na base de dados SQL do Azure e criar um relatório
 
@@ -43,10 +43,10 @@ Irá também precisar de uma cópia do Excel. Este artigo utiliza o [Microsoft E
 
 4. Na **base de dados do SQL Server** caixa de diálogo, selecione **base de dados** à esquerda lado e, em seguida, introduza no seu **nome de utilizador** e **palavra-passe** para o Servidor de base de dados SQL que quer ligar. Selecione **Connect** para abrir o **navegador**. 
 
-  ![Escrever o nome do servidor e as credenciais de início de sessão](./media/sql-database-connect-excel/connect-to-server.png)
+   ![Escrever o nome do servidor e as credenciais de início de sessão](./media/sql-database-connect-excel/connect-to-server.png)
 
-  > [!TIP]
-  > Dependendo do ambiente de rede, poderá não conseguir ligar ou poderá perder a ligação se o servidor de base de dados SQL não permitir tráfego a partir do seu endereço IP de cliente. Aceda ao [portal do Azure](https://portal.azure.com/), clique em servidores SQL, clique no servidor, clique em firewall em definições e adicione o seu endereço IP de cliente. Consulte [Como configurar as definições da firewall](sql-database-configure-firewall-settings.md) para detalhes.
+   > [!TIP]
+   > Dependendo do ambiente de rede, poderá não conseguir ligar ou poderá perder a ligação se o servidor de base de dados SQL não permitir tráfego a partir do seu endereço IP de cliente. Aceda ao [portal do Azure](https://portal.azure.com/), clique em servidores SQL, clique no servidor, clique em firewall em definições e adicione o seu endereço IP de cliente. Consulte [Como configurar as definições da firewall](sql-database-configure-firewall-settings.md) para detalhes.
 
 5. Na **Navigator**, selecione a base de dados para trabalhar com na lista, selecione as tabelas ou vistas que pretende trabalhar com (que escolhemos **vGetAllCategories**) e, em seguida, selecione **carga**para mover os dados da sua base de dados para a folha de cálculo do Excel.
 
@@ -75,17 +75,17 @@ Agora que estabeleceu a ligação, tem várias opções diferentes com a forma d
 Para guardar os detalhes de ligação permanentemente, pode criar um ficheiro. odc e fazer essa conexão uma opção selecionável dentro do **ligações existentes** caixa de diálogo. 
 
 1. Na barra de menus na parte superior da página, selecione o **dados** separador e, em seguida, selecione **ligações existentes** para iniciar o **ligações existentes** caixa de diálogo. 
-    1. Selecione **procurar mais** para abrir o **selecionar origem de dados** caixa de diálogo.   
-    2. Selecione o **+NewSqlServerConnection.odc** do ficheiro e, em seguida, selecione **abrir** para abrir o **Assistente de ligação de dados**.
+   1. Selecione **procurar mais** para abrir o **selecionar origem de dados** caixa de diálogo.   
+   2. Selecione o **+NewSqlServerConnection.odc** do ficheiro e, em seguida, selecione **abrir** para abrir o **Assistente de ligação de dados**.
 
-    ![Nova Ligação](media/sql-database-connect-excel/new-connection.png)
+      ![Nova Ligação](media/sql-database-connect-excel/new-connection.png)
 
 2. Na **Assistente de ligação de dados**, escreva o nome do servidor e as credenciais da sua base de dados SQL. Selecione **Seguinte**. 
-    1. Selecione a base de dados que contém os dados da lista pendente. 
-    2. Selecione a tabela ou vista que está interessado. Escolhemos vGetAllCategories.
-    3. Selecione **Seguinte**. 
+   1. Selecione a base de dados que contém os dados da lista pendente. 
+   2. Selecione a tabela ou vista que está interessado. Escolhemos vGetAllCategories.
+   3. Selecione **Seguinte**. 
 
-    ![Assistente de ligação de dados](media/sql-database-connect-excel/data-connection-wizard.png) 
+      ![Assistente de ligação de dados](media/sql-database-connect-excel/data-connection-wizard.png) 
 
 3. Selecione a localização do ficheiro, o **nome de ficheiro**e o **nome amigável** no ecrã seguinte do Assistente de ligação de dados. Também pode optar por guardar a palavra-passe no ficheiro, embora isso pode potencialmente expor os seus dados para acesso indesejado. Selecione **concluir** quando pronto. 
 

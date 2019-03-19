@@ -10,12 +10,12 @@ ms.subservice: implement
 ms.date: 11/26/2018
 ms.author: rortloff
 ms.reviewer: igorstan
-ms.openlocfilehash: 529a9f3481ae8bd793ece5110fc0efbb63e127b0
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.openlocfilehash: 519eae012db30d772a388865380e4909d91b711a
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57315367"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57878147"
 ---
 # <a name="best-practices-for-azure-sql-data-warehouse"></a>Melhores práticas do Azure SQL Data Warehouse
 Este artigo é uma coleção de melhores práticas para ajudá-lo a alcançar um desempenho ideal do Azure SQL Data Warehouse.  Alguns dos conceitos neste artigo são básicos e fáceis de explicar, outros conceitos são mais avançados e apenas falamos por alto neste artigo.  O objetivo deste artigo é proporcionar alguma orientação básica e consciencialização de áreas de foco importantes ao criar o seu armazém de dados.  Cada secção apresenta um conceito e, em seguida, encaminha-o para artigos mais detalhados que abordam o conceito de forma mais aprofundada.
@@ -156,5 +156,5 @@ Por último, utilize a página [Comentários do Azure SQL Data Warehouse][Azure 
 [Selecting table distribution]: https://blogs.msdn.microsoft.com/sqlcat/20../../choosing-hash-distributed-table-vs-round-robin-distributed-table-in-azure-sql-dw-service/
 [Azure SQL Data Warehouse Feedback]: https://feedback.azure.com/forums/307516-sql-data-warehouse
 [Azure SQL Data Warehouse MSDN Forum]: https://social.msdn.microsoft.com/Forums/sqlserver/home?forum=AzureSQLDataWarehouse
-[Azure SQL Data Warehouse Stack Overflow Forum]:  http://stackoverflow.com/questions/tagged/azure-sqldw
-[Azure SQL Data Warehouse loading patterns and strategies]: http://blogs.msdn.microsoft.com/sqlcat/20../../azure-sql-data-warehouse-loading-patterns-and-strategies/
+[Azure SQL Data Warehouse Stack Overflow Forum]:  https://stackoverflow.com/questions/tagged/azure-sqldw
+[Azure SQL Data Warehouse loading patterns and strategies]: https://blogs.msdn.microsoft.com/sqlcat/20../../azure-sql-data-warehouse-loading-patterns-and-strategies/

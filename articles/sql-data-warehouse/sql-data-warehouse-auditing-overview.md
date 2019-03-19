@@ -10,12 +10,12 @@ ms.subservice: manage
 ms.date: 04/11/2018
 ms.author: kavithaj
 ms.reviewer: igorstan
-ms.openlocfilehash: d9a911dccf3d59bf1159cf8576b95d86ef26657b
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.openlocfilehash: 85693ec6aa67dc69cd65aae8e66e66e2118672ef
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57314250"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57898487"
 ---
 # <a name="auditing-in-azure-sql-data-warehouse"></a>Auditoria no armazém de dados SQL do Azure
 
@@ -135,7 +135,7 @@ Existem vários métodos que pode utilizar para ver os registos de auditoria de 
 
 * Utilize o Power BI. Pode ver e analisar dados de registo de auditoria no Power BI. Saiba mais sobre [Power BI e o acesso de um modelo que pode ser baixado](https://blogs.msdn.microsoft.com/azuresqldbsupport/20../../sql-azure-blob-auditing-basic-power-bi-dashboard/).
 
-* Transferir os ficheiros de registo do contentor de blob de armazenamento do Azure através do portal ou com uma ferramenta como [Explorador de armazenamento do Azure](http://storageexplorer.com/).
+* Transferir os ficheiros de registo do contentor de blob de armazenamento do Azure através do portal ou com uma ferramenta como [Explorador de armazenamento do Azure](https://storageexplorer.com/).
     * Depois de transferir um ficheiro de registo localmente, pode clicar duas vezes o arquivo para abrir, visualizar e analisar os registos no SSMS.
     * Também pode transferir vários arquivos simultaneamente através do Explorador de armazenamento do Azure. Uma subpasta específica com o botão direito e selecione **guardar como** salvar numa pasta local.
 
@@ -150,8 +150,9 @@ Existem vários métodos que pode utilizar para ver os registos de auditoria de 
 
 
 <br>
+
 ### <a name="database-level-policy-audit-logs"></a>Registos de auditoria de política ao nível da base de dados
-Registos de auditoria ao nível da base de dados são agregados numa coleção de tabelas do Store com um **SQLDBAuditLogs** prefixo na conta de armazenamento do Azure que escolheu durante a configuração. Pode ver ficheiros de registo utilizando uma ferramenta como [Explorador de armazenamento do Azure](http://azurestorageexplorer.codeplex.com).
+Registos de auditoria ao nível da base de dados são agregados numa coleção de tabelas do Store com um **SQLDBAuditLogs** prefixo na conta de armazenamento do Azure que escolheu durante a configuração. Pode ver ficheiros de registo utilizando uma ferramenta como [Explorador de armazenamento do Azure](https://azurestorageexplorer.codeplex.com).
 
 Um modelo de relatório de dashboard pré-configurada está disponível como um [planilha do Excel que pode ser baixada](https://go.microsoft.com/fwlink/?LinkId=403540) para o ajudar a analisar rapidamente os dados de registo. Para utilizar o modelo nos seus registos de auditoria, terá de Excel 2013 ou posterior e o Power Query, que pode [baixe aqui](https://www.microsoft.com/download/details.aspx?id=39379).
 
@@ -176,14 +177,19 @@ Também pode configurar a auditoria no Azure SQL Data Warehouse, utilizando as s
 
 * **Cmdlets do PowerShell**:
 
+<!-- None of the following links exist anymore 3-12-2019
    * [Get-AzSqlDatabaseAuditingPolicy](/powershell/module/az.sql/get-azsqldatabaseauditingpolicy)
    * [Get-AzSqlServerAuditingPolicy](/powershell/module/az.sql/Get-azSqlServerAuditingPolicy)
    * [Remove-AzSqlDatabaseAuditing](/powershell/module/az.sql/Remove-azSqlDatabaseAuditing)
    * [Remove-AzSqlServerAuditing](/powershell/module/az.sql/Remove-azSqlServerAuditing)
    * [Set-AzSqlDatabaseAuditingPolicy](/powershell/module/az.sql/Set-azSqlDatabaseAuditingPolicy)
    * [Set-AzSqlServerAuditingPolicy](/powershell/module/az.sql/Set-azSqlServerAuditingPolicy)
-   * [Use-AzSqlServerAuditingPolicy](/powershell/module/az.sql/Use-azSqlServerAuditingPolicy)
+   * [Use-AzSqlServerAuditingPolicy](/powershell/module/az.sql/Use-azSqlServerAuditingPolicy) -->
 
+   * [Get-AzSqlDatabaseAuditing](/powershell/module/az.sql/get-azsqldatabaseauditing)
+   * [Set-AzSqlDatabaseAuditing](/powershell/module/az.sql/set-azsqldatabaseauditing)
+   * [Get-AzSqlServerAuditing](/powershell/module/az.sql/get-azsqlserverauditing)
+   * [Set-AzSqlServerAuditing](/powershell/module/az.sql/set-azsqlserverauditing)
 
 ## <a name="downlevel-clients-support-for-auditing-and-dynamic-data-masking"></a>Suportam de clientes de nível inferior para máscara de dados de auditorias e dinâmicos
 Auditoria funcione com os clientes de SQL que suportem redirecionamento de TDS.

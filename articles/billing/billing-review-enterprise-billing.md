@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/06/2018
 ms.author: erikre
-ms.openlocfilehash: 5cb26b98f5969032bcff95e4408fcf685399d6da
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: 9a0b536426ab024d5af7b257e44a2d5e20f14def
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56114506"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57898708"
 ---
 # <a name="review-enterprise-enrollment-billing-using-rest-apis"></a>Reveja a faturação de inscrição de enterprise com as APIs REST
 
@@ -78,7 +78,7 @@ Código de estado 200 (OK) é devolvido para uma resposta com êxito, que conté
 }
 ```  
 
-Neste exemplo é abreviado; ver [obter detalhes de utilização para uma conta de cobrança](/rest/api/consumption/usagedetails/listbybillingaccount) para obter uma descrição completa de cada campo de resposta e o tratamento de erros.
+Neste exemplo é abreviado; ver [obter detalhes de utilização para uma conta de cobrança](/rest/api/consumption/usagedetails/list#billingaccountusagedetailslist) para obter uma descrição completa de cada campo de resposta e o tratamento de erros.
 
 ## <a name="department-billing"></a>Faturação do departamento 
 
@@ -134,7 +134,7 @@ O exemplo seguinte mostra a saída da API REST para o departamento `1234`.
 }
 ```  
 
-Neste exemplo é abreviado; ver [obter detalhes de utilização para um departamento](/rest/api/consumption/usagedetails/listbydepartment) para obter uma descrição completa de cada campo de resposta e o tratamento de erros.
+Neste exemplo é abreviado; ver [obter detalhes de utilização para um departamento](/rest/api/consumption/usagedetails/list#departmentusagedetailslist) para obter uma descrição completa de cada campo de resposta e o tratamento de erros.
 
 ## <a name="enrollment-account-billing"></a>Faturação da conta de inscrição
 
@@ -187,7 +187,7 @@ O exemplo seguinte mostra a saída da API REST para a inscrição de enterprise 
 }
 ``` 
 
-Neste exemplo é abreviado; ver [obter detalhes de utilização de uma conta de inscrição](/rest/api/consumption/usagedetails/listbyenrollmentaccount) para obter uma descrição completa de cada campo de resposta e o tratamento de erros.
+Neste exemplo é abreviado; ver [obter detalhes de utilização de uma conta de inscrição](/rest/api/consumption/usagedetails/list#enrollmentaccountusagedetailslist) para obter uma descrição completa de cada campo de resposta e o tratamento de erros.
 
 ## <a name="next-steps"></a>Passos Seguintes 
 - Revisão [Enterprise descrição geral dos relatórios](https://docs.microsoft.com/azure/billing/billing-enterprise-api)

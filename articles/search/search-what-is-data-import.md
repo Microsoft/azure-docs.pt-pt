@@ -9,14 +9,14 @@ ms.topic: conceptual
 ms.date: 02/26/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 85a2810e8ab8de5ad2967aaf17f421d871368063
-ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
+ms.openlocfilehash: 2c3da9470668fa2987195c26e98eee51f14027f7
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56958461"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58136349"
 ---
-# <a name="indexing-external-data-for-queries-in-azure-search"></a>Indexação de dados externos para consultas no Azure Search
+# <a name="data-import-overview---azure-search"></a>Importação de dados descrição geral - Azure Search
 
 No Azure Search, as consultas são executadas nos seus conteúdos carregados para e guardou numa [índice de pesquisa](search-what-is-an-index.md). Este artigo examina as duas abordagens básicas para preencher um índice: *push* seus dados para o índice programaticamente, ou ponto de um [indexador de Azure Search](search-indexer-overview.md) numa origem de dados suportada para  *Extração* nos dados.
 
@@ -36,7 +36,31 @@ Pode utilizar as APIs seguintes para carregar um ou múltiplos documentos para u
 
 Atualmente não existe qualquer suporte de ferramentas para o envio de dados através do portal.
 
-Para obter uma introdução a cada metodologia, veja [Importar dados com REST](search-import-data-rest-api.md) ou [Importar dados com .NET](search-import-data-dotnet.md).
+Para obter uma introdução a cada metodologia, veja [início rápido: Criar um índice da Azure Search com o PowerShell e a API REST](search-create-index-rest-api.md) ou [início rápido: Criar um índice da Azure Search no C# ](search-import-data-dotnet.md).
+
+<a name="indexing-actions"></a>
+
+### <a name="indexing-actions-upload-merge-uploadormerge-delete"></a>Ações de indexação: carregar, intercalar, uploadOrMerge, eliminar
+
+Ao utilizar a API REST, irá emitir pedidos de HTTP POST com corpos de pedido JSON para o URL de ponto final do seu índice de Pesquisa do Azure. O objeto JSON no corpo do pedido de HTTP irá conter uma única matriz JSON com o nome "valor", que contém objetos JSON que representam os documentos que pretende adicionar ao seu índice, atualizar ou eliminar.
+
+Cada objeto JSON na matriz "valor" representa um documento a ser indexado. Cada um destes objetos contém a chave do documento e especifica a ação de indexação pretendida (carregar, intercalar, eliminar). Dependendo das ações que escolher abaixo, apenas determinados campos tem de ser incluídos para cada documento:
+
+| @search.action | Descrição | Campos necessários para cada documento | Notas |
+| -------------- | ----------- | ---------------------------------- | ----- |
+| `upload` |Um ação `upload` é semelhante a um "upsert" onde o documento será inserido se for novo e atualizado/substituído se já existir. |chave, juntamente com quaisquer outros campos que pretende definir |Quando atualizar/substituir um documento existente, qualquer campo que não está especificado no pedido terá o respetivo campo definido como `null`. Isto ocorre mesmo quando o campo foi anteriormente definido para um valor não nulo. |
+| `merge` |Atualiza um documento existente com os campos especificados. Se o documento não existe no índice, a intercalação irá falhar. |chave, juntamente com quaisquer outros campos que pretende definir |Qualquer campo que especifique numa intercalação irá substituir o campo existente no documento. Isto inclui campos do tipo `Collection(Edm.String)`. Por exemplo, se o documento contém um campo `tags` com o valor `["budget"]` e executar uma intercalação com o valor `["economy", "pool"]` para `tags`, o valor final do campo `tags` será `["economy", "pool"]`. Não será `["budget", "economy", "pool"]`. |
+| `mergeOrUpload` |Esta ação tem o mesmo comportamento de `merge` caso um documento com a chave especificada já exista no índice. Se o documento não existir, tem um comportamento semelhante `upload` a um novo documento. |chave, juntamente com quaisquer outros campos que pretende definir |- |
+| `delete` |Remove o documento especificado do índice. |apenas chave |Quaisquer campos que especificar diferentes do campo de chave serão ignorados. Se pretender remover um campo individual de um documento, utilize `merge` em vez disso e simplesmente defina o campo explicitamente como nulo. |
+
+### <a name="formulate-your-query"></a>Formular a consulta
+Existem duas formas de [pesquisar o índice através da API REST](https://docs.microsoft.com/rest/api/searchservice/Search-Documents). Uma forma consiste em emitir um pedido de HTTP POST, em que os parâmetros da sua consulta são definidos num objeto JSON no corpo do pedido. A outra forma consiste em emitir um pedido de HTTP GET, em que os parâmetros da consulta são definidos no URL do pedido. O POST tem [limites mais flexíveis](https://docs.microsoft.com/rest/api/searchservice/Search-Documents) em relação ao tamanho dos parâmetros de consulta do que o GET. Por este motivo, recomendamos a utilização do POST, salvo se tiver circunstâncias especiais em que a utilização do GET seja mais conveniente.
+
+Para o POST e o GET, é necessário fornecer o *nome do serviço*, o *nome do índice* e a *versão de API* correta (no momento de publicação deste documento a versão de API atual é `2017-11-11`) no URL do pedido. No GET, os parâmetros de consulta são fornecidos na *cadeia de consulta* no final do URL. Veja a seguir o formato URL:
+
+    https://[service name].search.windows.net/indexes/[index name]/docs?[query string]&api-version=2017-11-11
+
+O formato para o POST é o mesmo, contudo, apenas com a versão de API nos parâmetros de cadeia de consulta.
 
 
 ## <a name="pulling-data-into-an-index"></a>Extrair dados para um índice

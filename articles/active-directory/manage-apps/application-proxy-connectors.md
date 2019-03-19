@@ -12,12 +12,12 @@ ms.date: 11/15/2018
 ms.author: celested
 ms.reviewer: japere
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 907511b7f20311479e7b11a30f3d5719daea3f87
-ms.sourcegitcommit: f863ed1ba25ef3ec32bd188c28153044124cacbc
+ms.openlocfilehash: 4f96a67fecead65af28a975267590ebb08c715d3
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56301473"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57853017"
 ---
 # <a name="understand-azure-ad-application-proxy-connectors"></a>Compreender os conectores de Proxy de aplicações do Azure AD
 
@@ -93,7 +93,8 @@ Para saber mais sobre os grupos de conector, veja [publicar aplicações em rede
 |4|16|320|1150|
 |8|32|270|1190|
 |16|64|245|1200*|
-\* Esta máquina usada uma definição personalizada para gerar alguns dos limites de conexão padrão, além do .net, as definições recomendadas. Recomendamos executar um teste com as predefinições antes de contactar o suporte para resolver este limite foi alterado para o seu inquilino.
+
+\* Esta máquina usada uma definição personalizada para gerar alguns dos limites de conexão padrão, além do .NET, as definições recomendadas. Recomendamos executar um teste com as predefinições antes de contactar o suporte para resolver este limite foi alterado para o seu inquilino.
  
 >[!NOTE]
 >Não há muita diferença nos TPS máximos entre 4, 8 e 16 máquinas de núcleo. É a principal diferença entre aqueles na latência esperada.  

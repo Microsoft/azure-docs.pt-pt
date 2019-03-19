@@ -10,12 +10,12 @@ ms.reviewer: jonfan, estfan, LADocs
 ms.topic: article
 ms.assetid: 2257d2c8-1929-4390-b22c-f96ca8b291bc
 ms.date: 07/26/2016
-ms.openlocfilehash: 2da672e1f55af1e38ae0a3fa90b7ecb10d2f17c7
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
+ms.openlocfilehash: bbcdad7c5496cd08994a613b07e1bc7c611e4572
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43128382"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57876855"
 ---
 # <a name="exchange-edifact-messages-for-b2b-enterprise-integration-in-azure-logic-apps-with-enterprise-integration-pack"></a>Trocar mensagens EDIFACT para enterprise integração B2B no Azure Logic Apps Enterprise Integration Pack
 
@@ -38,7 +38,7 @@ Depois de [criar uma conta de integração](../logic-apps/logic-apps-enterprise-
 
 ## <a name="create-an-edifact-agreement"></a>Crie um contrato EDIFACT 
 
-1. Inicie sessão no [portal do Azure](http://portal.azure.com "portal do Azure"). 
+1. Inicie sessão no [portal do Azure](https://portal.azure.com "portal do Azure"). 
 
 2. No menu principal do Azure, selecione **todos os serviços**. Na caixa de pesquisa, introduza "integração" e, em seguida, selecione **contas de integração**.
 
@@ -65,7 +65,7 @@ Depois de [criar uma conta de integração](../logic-apps/logic-apps-enterprise-
 
    | Propriedade | Descrição |
    | --- | --- |
-   | Nome |Nome do contrato |
+   | Name |Nome do contrato |
    | Tipo de Contrato | Deve ser EDIFACT |
    | Parceiro do Anfitrião |Tem de um contrato de parceiro de um anfitrião e convidado. O parceiro do anfitrião representa a organização que configura o contrato. |
    | Identidade do Anfitrião |Um identificador para o parceiro do anfitrião |
@@ -82,7 +82,7 @@ Agora que definiu as propriedades de contrato, é possível configurar como o pr
 1. Sob **Add**, selecione **receber definições**.
 Configure estas propriedades com base no seu contrato com o parceiro que troca mensagens com. Para descrições das propriedades, consulte as tabelas nesta secção.
 
-   **Receber definições** está organizada nestas secções: identificadores, reconhecimento, os esquemas, números de controlo, validação e as definições internas.
+   **Receber definições** está organizada nestas secções: Identificadores, reconhecimento, esquemas, números de controlo, validação e as definições internas.
 
    ![Configurar "Receber definições"](./media/logic-apps-enterprise-integration-edifact/edifact-2.png)  
 
@@ -155,7 +155,7 @@ Quando concluir cada linha de validação, o outro é adicionado automaticamente
 1.  Sob **Add**, selecione **enviar definições**.
 Configure estas propriedades com base no seu contrato com o seu parceiro que troca mensagens com. Para descrições das propriedades, consulte as tabelas nesta secção.
 
-    **Definições de envio** está organizada nestas secções: identificadores de confirmação, esquemas, Envelopes, conjuntos de carateres e separadores, números de controlo e validações.
+    **Definições de envio** está organizada nestas secções: Identificadores, reconhecimento, os esquemas, Envelopes, conjuntos de carateres e separadores, números de controlo e validações.
 
     ![Configurar a "Definições de envio"](./media/logic-apps-enterprise-integration-edifact/edifact-3.png)    
 

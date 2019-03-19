@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 02/26/2019
 ms.author: mbullwin
-ms.openlocfilehash: 09084f71eda611c4b638a339d0d837e77e2639b9
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 92a7c1a45655f8804aa1f81b1a77ebf7cd5197e8
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57432316"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58122170"
 ---
 # <a name="monitor-azure-app-service-performance"></a>Monitorizar o desempenho do serviço de aplicações do Azure
 Na [portal do Azure](https://portal.azure.com) pode configurar a monitorização de desempenho de aplicações para as suas aplicações web, móveis back-ends e aplicações API no [App Service do Azure](../../app-service/overview.md). O [Azure Application Insights](../../azure-monitor/app/app-insights-overview.md) instrui a sua aplicação a enviar telemetria sobre as atividades para o serviço Application Insights, onde são armazenadas e analisadas. Aí, podem ser utilizados gráficos de métricas e ferramentas de pesquisa para ajudar a diagnosticar problemas, melhorar o desempenho e avaliar a utilização.
@@ -38,25 +38,25 @@ Se estiver atualmente a executar um serviço de aplicações no Azure, já tem a
 
    * Opte por criar um novo recurso, a menos que já configurou a um recurso do Application Insights para esta aplicação. 
 
-    > [!NOTE]
-    > Quando clica em **OK** para criar o novo recurso, será solicitado a **aplicar definições de monitorização**. Selecionando **continuar** irá ligar o seu novo recurso do Application Insights ao seu serviço de aplicações, fazendo assim, será também **acionar um reinício do serviço de aplicações**. 
+     > [!NOTE]
+     > Quando clica em **OK** para criar o novo recurso, será solicitado a **aplicar definições de monitorização**. Selecionando **continuar** irá ligar o seu novo recurso do Application Insights ao seu serviço de aplicações, fazendo assim, será também **acionar um reinício do serviço de aplicações**. 
 
-    ![Instrumente a sua aplicação Web](./media/azure-web-apps/create-resource.png)
+     ![Instrumente a sua aplicação Web](./media/azure-web-apps/create-resource.png)
 
 2. Depois de especificar o recurso a utilizar, pode escolher como pretende que o application insights para recolher dados por plataforma para a sua aplicação. Monitorização de aplicações do ASP.NET é por padrão com dois níveis diferentes de coleção.
 
     ![Escolher opções por plataforma](./media/azure-web-apps/choose-options-new.png)
 
-    * .NET **conjunto básico** nível oferece funcionalidades essenciais de APM de instância única.
+   * .NET **conjunto básico** nível oferece funcionalidades essenciais de APM de instância única.
     
-    * .NET **recomendado coleção** nível:
-        * Adiciona as tendências de utilização de CPU, memória e e/s.
-        * Correlaciona microsserviços em limites de pedido/dependência.
-        * Recolhe as tendências de utilização e permite a correlação de resultados de disponibilidade para transações.
-        * Recolhe as exceções não processadas pelo processo de host.
-        * Melhora a precisão de métricas APM sob carga, quando a amostragem é usada.
+   * .NET **recomendado coleção** nível:
+       * Adiciona as tendências de utilização de CPU, memória e e/s.
+       * Correlaciona microsserviços em limites de pedido/dependência.
+       * Recolhe as tendências de utilização e permite a correlação de resultados de disponibilidade para transações.
+       * Recolhe as exceções não processadas pelo processo de host.
+       * Melhora a precisão de métricas APM sob carga, quando a amostragem é usada.
     
-    .NET core oferece **recomendado coleção** ou **desativado** para .NET Core 2.0 e 2.1.
+     .NET core oferece **recomendado coleção** ou **desativado** para .NET Core 2.0 e 2.1.
 
 3. **Instrumentar o seu serviço de aplicações** após instalação do Application Insights.
 
@@ -67,9 +67,9 @@ Se estiver atualmente a executar um serviço de aplicações no Azure, já tem a
    * Selecione Definições > Definições da Aplicação
    * Em Definições da Aplicação, adicione um par de chaves-valores novo:
 
-    Chave: `APPINSIGHTS_JAVASCRIPT_ENABLED`
+     Chave: `APPINSIGHTS_JAVASCRIPT_ENABLED`
 
-    Valor:`true`
+     Valor:`true`
    * **Guarde** as definições e **reinicie** a aplicação.
 
 4. Explorar dados de monitorização da sua aplicação, selecionando **configurações** > **Application Insights** > **ver mais no Application Insights**.

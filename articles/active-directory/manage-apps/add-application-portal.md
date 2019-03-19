@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 07/24/2018
 ms.author: celested
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 27456f672e2fa67928b43e80bef384a14e9c1d62
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 9f062596e2be93065b3c076787c2f5b3dfcedf9d
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56166968"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58110125"
 ---
 # <a name="quickstart-add-an-application-to-your-azure-active-directory-tenant"></a>Início rápido: Adicionar uma aplicação com o seu inquilino do Azure Active Directory
 
@@ -113,35 +113,35 @@ Para editar as propriedades da aplicação
 
 4. As tabelas seguintes ajudam-no a escolher as opções que são mais adequadas às suas necessidades.
 
-    - Comportamento para utilizadores **atribuídos**:
+   - Comportamento para utilizadores **atribuídos**:
 
-        | Definições da propriedades da aplicação | | | Experiência para utilizadores atribuídos | |
-        |---|---|---|---|---|
-        | Ativado para os utilizadores iniciarem sessão? | Atribuição do utilizador necessária? | Visível para os utilizadores? | Os utilizadores atribuídos podem iniciar sessão? | Os utilizadores atribuídos podem ver a aplicação?* |
-        | sim | sim | sim | sim | sim  |
-        | sim | sim | não  | sim | não   |
-        | sim | não  | sim | sim | sim  |
-        | sim | não  | não  | sim | não   |
-        | não  | sim | sim | não  | não   |
-        | não  | sim | não  | não  | não   |
-        | não  | não  | sim | não  | não   |
-        | não  | não  | não  | não  | não   |
+       | Definições da propriedades da aplicação | | | Experiência para utilizadores atribuídos | |
+       |---|---|---|---|---|
+       | Ativado para os utilizadores iniciarem sessão? | Atribuição do utilizador necessária? | Visível para os utilizadores? | Os utilizadores atribuídos podem iniciar sessão? | Os utilizadores atribuídos podem ver a aplicação?* |
+       | sim | sim | sim | sim | sim  |
+       | sim | sim | não  | sim | não   |
+       | sim | não  | sim | sim | sim  |
+       | sim | não  | não  | sim | não   |
+       | não  | sim | sim | não  | não   |
+       | não  | sim | não  | não  | não   |
+       | não  | não  | sim | não  | não   |
+       | não  | não  | não  | não  | não   |
 
-    - Comportamento para utilizadores **não atribuídos**:
+   - Comportamento para utilizadores **não atribuídos**:
 
-        | Definições da propriedades da aplicação | | | Experiência para utilizadores não atribuídos | |
-        |---|---|---|---|---|
-        | Ativado para os utilizadores iniciarem sessão? | Atribuição do utilizador necessária? | Visível para os utilizadores? | Os utilizadores não atribuídos podem iniciar sessão? | Os utilizadores não atribuídos podem ver a aplicação?* |
-        | sim | sim | sim | não  | não   |
-        | sim | sim | não  | não  | não   |
-        | sim | não  | sim | sim | não   |
-        | sim | não  | não  | sim | não   |
-        | não  | sim | sim | não  | não   |
-        | não  | sim | não  | não  | não   |
-        | não  | não  | sim | não  | não   |
-        | não  | não  | não  | não  | não   |
+       | Definições da propriedades da aplicação | | | Experiência para utilizadores não atribuídos | |
+       |---|---|---|---|---|
+       | Ativado para os utilizadores iniciarem sessão? | Atribuição do utilizador necessária? | Visível para os utilizadores? | Os utilizadores não atribuídos podem iniciar sessão? | Os utilizadores não atribuídos podem ver a aplicação?* |
+       | sim | sim | sim | não  | não   |
+       | sim | sim | não  | não  | não   |
+       | sim | não  | sim | sim | não   |
+       | sim | não  | não  | sim | não   |
+       | não  | sim | sim | não  | não   |
+       | não  | sim | não  | não  | não   |
+       | não  | não  | sim | não  | não   |
+       | não  | não  | não  | não  | não   |
 
-    *O utilizador pode ver a aplicação no painel de acesso e no iniciador de aplicações do Office 365?
+     *O utilizador pode ver a aplicação no painel de acesso e no iniciador de aplicações do Office 365?
 
 ## <a name="use-a-custom-logo"></a>Utilizar um logótipo personalizado
 

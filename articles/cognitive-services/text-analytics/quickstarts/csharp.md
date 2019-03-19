@@ -10,17 +10,17 @@ ms.subservice: text-analytics
 ms.topic: quickstart
 ms.date: 01/02/2019
 ms.author: assafi
-ms.openlocfilehash: 9b56104934c1ddcc60222c988efdf173ca33d77b
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: 5026c281618e4adea2f7e3e6e301a53990c75480
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56871014"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57895520"
 ---
 # <a name="quickstart-using-c-to-call-the-text-analytics-cognitive-service"></a>Início rápido: Utilizar o C# para chamar o serviço cognitivos de análise de texto
 <a name="HOLTop"></a>
 
-Este artigo mostra-lhe como detetar idioma, analisar sentimentos e extrair expressões-chave a utilizar o [APIs de análise de texto](//go.microsoft.com/fwlink/?LinkID=759711) com C#. O código foi escrito para trabalhar numa aplicação .Net Core, com o mínimo de referências a bibliotecas externas, para que também possa ser executado no Linux ou MacOS.
+Este artigo mostra-lhe como detetar idioma, analisar sentimentos e extrair expressões-chave a utilizar o [APIs de análise de texto](//go.microsoft.com/fwlink/?LinkID=759711) com C#. O código foi escrito para trabalhar num aplicativo do .NET Core, com um mínimo referências a bibliotecas externas, portanto, também pode executá-lo no Linux ou MacOS.
 
 Veja as [definições de API](//go.microsoft.com/fwlink/?LinkID=759346) para ter acesso à documentação técnica sobre APIs.
 

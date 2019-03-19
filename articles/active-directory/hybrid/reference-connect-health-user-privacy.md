@@ -14,12 +14,12 @@ ms.topic: reference
 ms.date: 04/26/2018
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d0a7dc5152bb1ede5f7311e74815a6d58782d32a
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 27e5ae48a8194c05a19e5164ee2cc6be68967a62
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56199328"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58112760"
 ---
 # <a name="user-privacy-and-azure-ad-connect-health"></a>Privacidade do utilizador e o Azure AD Connect Health 
 
@@ -62,17 +62,17 @@ Ver [como remover um servidor do Azure AD Connect Health](how-to-connect-health-
 O Azure AD Connect Health fornece também a opção para parar a recolha de dados do **todos os** registado serviços no inquilino. Recomendamos consideração cuidadosa e confirmação completa de todos os administradores globais antes de efetuar a ação. Depois do processo é iniciado, serviço de integridade de ligar deixará de receber, processamento e relatórios de todos os dados de todos os seus serviços. Serão retidos dados existentes no serviço do Connect Health para não mais de 30 dias.
 Se pretender parar a recolha de dados de servidor específico, siga os passos na eliminação de servidores específicos. Para parar a recolha de dados tenant-wise, siga os passos seguintes para parar a recolha de dados e eliminar todos os serviços do inquilino.
 
-1.  Clique em **definições gerais** em configuração do painel principal. 
-2.  Clique em **parar a recolha de dados** botão na parte superior do painel. As outras opções de definições de configuração do inquilino serão desativadas uma vez que o processo é iniciado.  
+1. Clique em **definições gerais** em configuração do painel principal. 
+2. Clique em **parar a recolha de dados** botão na parte superior do painel. As outras opções de definições de configuração do inquilino serão desativadas uma vez que o processo é iniciado.  
  
- ![Parar a recolha de dados](./media/reference-connect-health-user-privacy/gdpr4.png)
+   ![Parar a recolha de dados](./media/reference-connect-health-user-privacy/gdpr4.png)
   
-3.  Certifique-se a lista de serviços de integração que são afetados pela parar a coleções de dados. 
-4.  Introduza o nome de inquilino exato para ativar a **eliminar** botão de ação
-5.  Clique em **eliminar** para acionar a eliminação de todos os serviços. Ligar estado de funcionamento deixará de receber, processamento, todos os dados enviados dos seus serviços de integração de relatórios. Todo o processo de pode demorar até 24 horas. Tenha em atenção que este passo não é reversível. 
-6.  Depois de concluído o processo, não verá quaisquer serviços registrados no Connect Health mais. 
+3. Certifique-se a lista de serviços de integração que são afetados pela parar a coleções de dados. 
+4. Introduza o nome de inquilino exato para ativar a **eliminar** botão de ação
+5. Clique em **eliminar** para acionar a eliminação de todos os serviços. Ligar estado de funcionamento deixará de receber, processamento, todos os dados enviados dos seus serviços de integração de relatórios. Todo o processo de pode demorar até 24 horas. Tenha em atenção que este passo não é reversível. 
+6. Depois de concluído o processo, não verá quaisquer serviços registrados no Connect Health mais. 
 
- ![Após a interrupção da recolha de dados](./media/reference-connect-health-user-privacy/gdpr5.png)
+   ![Após a interrupção da recolha de dados](./media/reference-connect-health-user-privacy/gdpr5.png)
 
 ## <a name="re-enable-data-collection-and-monitoring-in-azure-ad-connect-health"></a>Volte a ativar a recolha de dados e a monitorização no Azure AD Connect Health
 Para voltar a Ativar monitorização no Azure AD Connect Health para um serviço monitorado excluído anteriormente, tem de desinstalar e [reinstale o agente de estado de funcionamento](how-to-connect-health-agent-install.md) em todos os servidores.
@@ -85,14 +85,14 @@ Pode ser retomada a recolha de dados tenant-Wise no Azure AD Connect Health. Rec
 > As etapas a seguir estarão disponíveis após 24 horas de desativar a ação.
 > Depois de ativar de recolha de dados, a informação apresentada e a monitorização dos dados no Connect Health não apresentará quaisquer dados herdados coletados antes. 
 
-1.  Clique em **definições gerais** em configuração do painel principal. 
-2.  Clique em **ativar a recolha de dados** botão na parte superior do painel. 
+1. Clique em **definições gerais** em configuração do painel principal. 
+2. Clique em **ativar a recolha de dados** botão na parte superior do painel. 
  
- ![Ativar a recolha de dados](./media/reference-connect-health-user-privacy/gdpr6.png)
+   ![Ativar a recolha de dados](./media/reference-connect-health-user-privacy/gdpr6.png)
  
-3.  Introduza o nome de inquilino exato para ativar a **ativar** botão.
-4.  Clique em **ativar** botão para conceder permissão de recolha de dados no serviço do Connect Health. A alteração será aplicada em breve. 
-5.  Siga os [processo de instalação](how-to-connect-health-agent-install.md) reinstalar o agente nos servidores a serem monitoradas e os serviços estarão presentes no portal.  
+3. Introduza o nome de inquilino exato para ativar a **ativar** botão.
+4. Clique em **ativar** botão para conceder permissão de recolha de dados no serviço do Connect Health. A alteração será aplicada em breve. 
+5. Siga os [processo de instalação](how-to-connect-health-agent-install.md) reinstalar o agente nos servidores a serem monitoradas e os serviços estarão presentes no portal.  
 
 
 ## <a name="next-steps"></a>Passos Seguintes

@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 11/13/2018
 ms.author: priyamo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f20031b41d56e049670491a9aa9a41b21e0bfca4
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 99a35c09d60ccb009c0f21d3aea59de2d5e9b63d
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56197815"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58119824"
 ---
 # <a name="tutorial-use-a-windows-vm-system-assigned-managed-identity-to-access-azure-data-lake-store"></a>Tutorial: Utilize uma VM do Windows atribuídos de sistema identidade gerida para aceder ao Azure Data Lake Store
 
@@ -68,7 +68,7 @@ Neste tutorial, vai autenticar para a API REST do sistema de ficheiros do Data L
 1. No portal, navegue para **Máquinas Virtuais**, aceda à sua VM do Windows e, na **Descrição Geral** clique em **Ligar**.
 2. Introduza o seu **Nome de Utilizador** e a **Palavra-passe** que adicionou quando criou a VM do Windows. 
 3. Agora que já criou uma **Ligação ao Ambiente de Trabalho Remoto** com a máquina virtual, abra o **PowerShell** na sessão remota. 
-4. Através de `Invoke-WebRequest` do PowerShell, envie um pedido às identidades geridas locais para o ponto final dos recursos do Azure obter um token de acesso para o Azure Data Lake Store.  O identificador de recurso do Data Lake Store é "https://datalake.azure.net/".  O Data Lake faz uma correspondência exata no identificador de recurso e a barra à direita é importante.
+4. Através de `Invoke-WebRequest` do PowerShell, envie um pedido às identidades geridas locais para o ponto final dos recursos do Azure obter um token de acesso para o Azure Data Lake Store.  O identificador de recurso do Data Lake Store é `https://datalake.azure.net/`.  O Data Lake faz uma correspondência exata no identificador de recurso e a barra à direita é importante.
 
    ```powershell
    $response = Invoke-WebRequest -Uri 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=https%3A%2F%2Fdatalake.azure.net%2F' -Method GET -Headers @{Metadata="true"}

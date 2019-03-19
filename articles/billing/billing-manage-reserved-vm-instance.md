@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/30/2019
 ms.author: banders
-ms.openlocfilehash: 36800071d5e0080ef5d1d791eed12587b114df78
-ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
+ms.openlocfilehash: dbfb559516177d496f5b16dc31f0ef8d0603cf68
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55743638"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57904019"
 ---
 # <a name="manage-reservations-for-azure-resources"></a>Gerir reservas para recursos do Azure
 
@@ -38,13 +38,13 @@ Para atualizar o âmbito de uma reserva:
 4. Selecione **Definições** > **Configuração**.
 5. Altere o âmbito.
 
-Se alterar do partilhadas com âmbito único, só pode selecionar subscrições em que é o proprietário. Apenas as subscrições no mesmo contexto de faturação que a reserva, pode ser selecionada.
+Se alterar do partilhadas com âmbito único, só pode selecionar subscrições em que é o proprietário. Apenas as subscrições que fazem parte do mesmo contexto de faturação que a reserva podem ser selecionadas.
 
-O âmbito só se aplica a oferta pay as you go, MS-AZR - 0003p ou MS-AZR - 0023P, Enterprise oferecem MS-AZR - 0017P ou MS-AZR - 0148P ou tipos de subscrição do CSP.
+O âmbito só se aplica às ofertas Pay As You Go MS-AZR - 0003p ou MS-AZR - 0023P, oferta Enterprise MS-AZR - 0017P ou MS-AZR - 0148P, ou tipos de subscrição CSP.
 
 ## <a name="add-or-change-users-who-can-manage-a-reservation"></a>Adicionar ou alterar os utilizadores que podem gerir uma reserva
 
-Pode delegar a gestão de uma reserva ao adicionar as pessoas a funções de reserva. Por predefinição, a pessoa que comprasse a reserva e o administrador de conta têm a função de proprietário a reserva.
+Pode delegar a gestão de uma reserva. Para tal, adicione pessoas às funções na reserva. Por predefinição, a pessoa que comprou a reserva e o administrador de conta têm a função Proprietário.
 
 Pode gerir o acesso a reservas de forma independente das subscrições do que obtém o desconto de reserva. Quando concede permissões para gerir uma reserva de alguém, que não lhes direitos para gerir a subscrição. E se conceder a alguém permissões para gerir uma subscrição no âmbito da reserva, que não lhes direitos para gerir a reserva.
 
@@ -54,7 +54,7 @@ Para delegar a gestão de acesso para uma reserva:
 2. Selecione **todos os serviços** > **reserva** para reservas de lista que tem acesso a.
 3. Selecione a reserva que pretende delegar acesso a outros utilizadores.
 4. Selecione **controlo de acesso (IAM)**.
-5. Selecione **adicionar atribuição de função** > **função** > **proprietário**. Em alternativa, se pretende conceder acesso limitado, selecione uma função diferente.
+5. Selecione **adicionar atribuição de função** > **função** > **proprietário**. Se preferir dar acesso limitado, selecione uma função diferente.
 6. Escreva o endereço de e-mail do utilizador que pretende adicionar como proprietário.
 7. Selecione o utilizador e, em seguida, selecione **Guardar**.
 
@@ -133,4 +133,4 @@ Para saber mais sobre as reservas do Azure, veja os artigos seguintes:
 
 ## <a name="need-help-contact-us"></a>Precisa de ajuda? Contacte-nos.
 
-Se tiver alguma dúvida ou precisar de ajuda, [criar um pedido de suporte](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).
+Se tiver alguma dúvida ou precisar de ajuda, [criar um pedido de suporte](https://go.microsoft.com/fwlink/?linkid=2083458).

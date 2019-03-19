@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 9/7/2018
 ms.author: saurse
-ms.openlocfilehash: 1e8e9365567c19400b86dc60d966eb965b83591d
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.openlocfilehash: d58b51f06c21c787e4aa720c803ab6533544d55c
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51281756"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58110822"
 ---
 # <a name="restore-files-to-windows-by-using-the-azure-resource-manager-deployment-model"></a>Restaurar ficheiros para Windows, utilizando o modelo de implementação Azure Resource Manager
 
@@ -51,11 +51,11 @@ Se um ficheiro eliminado acidentalmente e pretende restaurá-lo na mesma máquin
 4. Sobre o **selecionar modo de recuperação** página, selecione **ficheiros e pastas individuais** > **seguinte**.
 
     ![Página de captura de ecrã de recuperar dados Assistente selecionar modo de recuperação](./media/backup-azure-restore-windows-server/samemachine_selectrecoverymode_instantrestore.png)
-  > [!IMPORTANT]
-  > A opção de restaurar ficheiros e pastas individuais requer o .NET Framework 4.5.2 ou posterior. Se não vir a **ficheiros e pastas individuais** opção, tem de atualizar .NET Framework versão 4.5.2 ou posterior e tente novamente.
+   > [!IMPORTANT]
+   > A opção de restaurar ficheiros e pastas individuais requer o .NET Framework 4.5.2 ou posterior. Se não vir a **ficheiros e pastas individuais** opção, tem de atualizar .NET Framework versão 4.5.2 ou posterior e tente novamente.
 
-  > [!TIP]
-  > O **ficheiros e pastas individuais** permite a opção para um acesso rápido aos dados de ponto de recuperação. É adequado para a recuperação de arquivos individuais, com tamanhos totalling não mais de 80 GB e oferece a transferência ou cópia acelera MBps até 6 durante a recuperação. O **Volume** opção recupera todas as cópias de segurança de dados num volume especificado. Esta opção fornece a transferência mais rápida velocidades (até 60 MBps), que é ideal para recuperar dados de grande porte ou volumes inteiros.
+   > [!TIP]
+   > O **ficheiros e pastas individuais** permite a opção para um acesso rápido aos dados de ponto de recuperação. É adequado para a recuperação de arquivos individuais, com tamanhos totalling não mais de 80 GB e oferece a transferência ou cópia acelera MBps até 6 durante a recuperação. O **Volume** opção recupera todas as cópias de segurança de dados num volume especificado. Esta opção fornece a transferência mais rápida velocidades (até 60 MBps), que é ideal para recuperar dados de grande porte ou volumes inteiros.
 
 5. Sobre o **selecionar Volume e data** , selecione o volume que contém os ficheiros e pastas que pretende restaurar.
 

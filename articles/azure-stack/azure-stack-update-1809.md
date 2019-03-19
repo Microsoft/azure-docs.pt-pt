@@ -16,12 +16,12 @@ ms.date: 02/28/2019
 ms.author: sethm
 ms.reviewer: justini
 ms.lastreviewed: 02/28/2019
-ms.openlocfilehash: fd1e49a8bab3b6133a476bbafaa45e0e61fe1f1b
-ms.sourcegitcommit: 1902adaa68c660bdaac46878ce2dec5473d29275
+ms.openlocfilehash: 58117bce8de667c9750b2e0c19992b99716945cc
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/11/2019
-ms.locfileid: "57730555"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58124206"
 ---
 # <a name="azure-stack-1809-update"></a>Atualização de 1809 de pilha do Azure
 
@@ -63,12 +63,12 @@ Esta atualização inclui os seguintes aprimoramentos para o Azure Stack:
 - Os seguintes problemas de disco gerido foram corrigidos na 1809 e também foram corrigidos no 1808 [do Azure Stack correção 1.1808.9.117](https://support.microsoft.com/help/4481066/): 
 
    <!--  2966665 – IS, ASDK --> 
-   - Foi corrigido o problema em que anexar discos de dados SSD para máquinas de virtuais de disco gerido (DS, DSv2, Fs, Fs_V2) falhou com um erro de tamanho de premium:  *Falha ao atualizar discos para a máquina virtual "vmname" erro: Pedido não é possível efetuar a operação porque o tipo de conta de armazenamento "Premium_LRS" não é suportado para o tamanho da VM "Standard_DS/Ds_V2/FS/Fs_v2)*. 
+  - Foi corrigido o problema em que anexar discos de dados SSD para máquinas de virtuais de disco gerido (DS, DSv2, Fs, Fs_V2) falhou com um erro de tamanho de premium:  *Falha ao atualizar discos para a máquina virtual "vmname" erro: Pedido não é possível efetuar a operação porque o tipo de conta de armazenamento "Premium_LRS" não é suportado para o tamanho da VM "Standard_DS/Ds_V2/FS/Fs_v2)*. 
    
-   - Criação de um disco gerido de VM usando **createOption**: **Anexar** falha com o erro seguinte: *Falha na operação de longa com o estado "Falhou". Informações adicionais: "Ocorreu um erro de execução interna."*
-   Código de erro: InternalExecutionError ErrorMessage: Ocorreu um erro de execução interno.
+  - Criação de um disco gerido de VM usando **createOption**: **Anexar** falha com o erro seguinte: *Falha na operação de longa com o estado "Falhou". Informações adicionais: "Ocorreu um erro de execução interna."*
+    Código de erro: InternalExecutionError ErrorMessage: Ocorreu um erro de execução interno.
    
-   Este problema agora foi corrigido.
+    Este problema agora foi corrigido.
 
 - <!-- 2702741 -  IS, ASDK --> Foi corrigido o problema no qual os IPs públicos que foram implementadas utilizando a alocação de dinâmica método não eram a garantia de ser preservadas quando uma paragem da Desalocação é emitido. Agora são preservadas.
 
@@ -297,10 +297,10 @@ Seguem-se após a instalação problemas conhecidos para esta versão de compila
 <!-- TBD - IS ASDK --> 
 - Depois de aplicar o 1809 de atualização, poderá encontrar os seguintes problemas ao implementar VMs com discos geridos:
 
-   - Se a subscrição tiver sido criada antes da atualização de 1808, implementar uma VM com Managed Disks poderá falhar com uma mensagem de erro interno. Para resolver o problema, siga estes passos para cada subscrição:
-      1. No portal do inquilino, aceda a **subscrições** e encontrar a subscrição. Clique em **fornecedores de recursos**, em seguida, clique em **Microsoft. Compute**e, em seguida, clique em **voltar a registar**.
-      2. Na mesma subscrição, aceda a **controlo de acesso (IAM)** e certifique-se de que o **AzureStack-DiskRP-Client** função está listada.
-   2. Se tiver configurado o ambiente multi-inquilino, a implementação de VMs numa assinatura associada um diretório de convidado poderá falhar com uma mensagem de erro interno. Para resolver o problema, siga estes passos [este artigo](azure-stack-enable-multitenancy.md#registering-azure-stack-with-the-guest-directory) reconfigurar cada um dos seus diretórios de convidado.
+  - Se a subscrição tiver sido criada antes da atualização de 1808, implementar uma VM com Managed Disks poderá falhar com uma mensagem de erro interno. Para resolver o problema, siga estes passos para cada subscrição:
+     1. No portal do inquilino, aceda a **subscrições** e encontrar a subscrição. Clique em **fornecedores de recursos**, em seguida, clique em **Microsoft. Compute**e, em seguida, clique em **voltar a registar**.
+     2. Na mesma subscrição, aceda a **controlo de acesso (IAM)** e certifique-se de que o **AzureStack-DiskRP-Client** função está listada.
+  - Se tiver configurado o ambiente multi-inquilino, a implementação de VMs numa assinatura associada um diretório de convidado poderá falhar com uma mensagem de erro interno. Para resolver o problema, siga estes passos [este artigo](azure-stack-enable-multitenancy.md#registering-azure-stack-with-the-guest-directory) reconfigurar cada um dos seus diretórios de convidado.
 
 - Uma VM do Ubuntu 18.04 criado com autorização de SSH ativada não permitirá que use as chaves SSH para iniciar sessão. Como solução, utilize o acesso VM para a extensão do Linux para implementar as chaves SSH após o aprovisionamento ou utilizar autenticação baseada em palavra-passe.
 

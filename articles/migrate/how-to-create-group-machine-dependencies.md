@@ -6,12 +6,12 @@ ms.service: azure-migrate
 ms.topic: article
 ms.date: 12/05/2018
 ms.author: raynew
-ms.openlocfilehash: 3938dece92ed133d268fceda746cbe05305e15ae
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 388a0419d5de87c3eb7faff9b556f888e52ac12e
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57449500"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58117375"
 ---
 # <a name="group-machines-using-machine-dependency-mapping"></a>Agrupar máquinas através de mapeamento de dependências de máquina
 
@@ -105,8 +105,8 @@ Saiba mais sobre o suporte de agente de dependência para o [Windows](../azure-m
 
 4. Pode ver as dependências para diferentes horas de duração clicando-se na duração de tempo na etiqueta de intervalo de tempo. Por predefinição, o intervalo é uma hora. Pode modificar o intervalo de tempo ou especificar o início e datas de término e duração.
 
-    > [!NOTE]
-      Atualmente, a visualização de dependência da interface do Usuário não suporta a seleção de um intervalo de tempo mais de uma hora. Utilização do Azure Monitor regista [consultar os dados de dependência](https://docs.microsoft.com/azure/migrate/how-to-create-group-machine-dependencies) ao longo de um período mais longo.
+   > [!NOTE]
+   >    Atualmente, a visualização de dependência da interface do Usuário não suporta a seleção de um intervalo de tempo mais de uma hora. Utilização do Azure Monitor regista [consultar os dados de dependência](https://docs.microsoft.com/azure/migrate/how-to-create-group-machine-dependencies) ao longo de um período mais longo.
 
 5. Depois de identificar as máquinas dependentes que pretende agrupar, utilize Ctrl + clique para selecionar várias máquinas no mapa e clique em **agrupar máquinas**.
 6. Especifique um nome de grupo. Certifique-se de que as máquinas dependentes são detetadas pelo Azure Migrate.

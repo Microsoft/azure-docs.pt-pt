@@ -12,12 +12,12 @@ ms.date: 01/24/2019
 ms.author: lizross
 ms.reviewer: olhaun
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1927e9b4aeec6f424c69632d8811c49c97d3aad1
-ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
+ms.openlocfilehash: 9634e2578ea256d1dec71389f676ee53627e6272
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56961555"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58077773"
 ---
 # <a name="backup-and-recover-account-credentials-with-the-microsoft-authenticator-app"></a>Cópia de segurança e recuperar credenciais de conta com a aplicação Microsoft Authenticator
 
@@ -27,9 +27,9 @@ ms.locfileid: "56961555"
 
 A aplicação Microsoft Authenticator faz uma cópia de segurança de credenciais da conta e as definições de aplicação relacionados, como a ordem das suas contas, para a cloud. Após a cópia de segurança, também pode utilizar a aplicação para recuperar as informações num novo dispositivo, evitando potencialmente obter bloqueado out ou ter de recriar as contas.
 
->[!IMPORTANT]
+> [!IMPORTANT]
 > Precisa de uma conta Microsoft pessoal e uma conta do iCloud para cada localização de armazenamento de cópia de segurança. Mas dentro desse local de armazenamento, pode criar cópias de segurança várias contas. Por exemplo, pode ter uma conta pessoal, uma conta da instituição de ensino e uma conta de terceiros, como o Facebook, Google e assim por diante.
-
+> 
 > Apenas as credenciais da conta pessoal e 3rd party são armazenadas, que inclui o nome de utilizador e o código de verificação de conta é necessária para provar a sua identidade. Não armazenamos quaisquer outras informações associadas com as suas contas, incluindo mensagens de correio eletrónico ou ficheiros. Também não associar nem partilhar as suas contas de qualquer forma, ou com qualquer outro produto ou serviço. E, finalmente, o administrador de TI não receberão qualquer informação sobre qualquer uma destas contas.
 
 ## <a name="back-up-your-account-credentials"></a>Criar cópias de segurança as credenciais da conta

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/12/2018
 ms.author: aljo
-ms.openlocfilehash: f19693853672b6274265c95b851f478b4f3ef4a2
-ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
+ms.openlocfilehash: a3778a0b0e5b4b59eb29cb67c0596d9636eb3ccb
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55961895"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58166706"
 ---
 # <a name="upgrading-and-updating-an-azure-service-fabric-cluster"></a>A atualizar e a atualizar um cluster do Azure Service Fabric
 
@@ -101,8 +101,6 @@ Várias definições de configuração diferentes podem ser personalizadas num c
 ## <a name="patch-the-os-in-the-cluster-nodes"></a>Patch do SO de nós de cluster
 O aplicativo de orquestração do patch (POA) é uma aplicação do Service Fabric que automatiza o sistema operativo, aplicação de patches no cluster do Service Fabric sem tempo de inatividade. O [Patch Orchestration Application para Windows](service-fabric-patch-orchestration-application.md) ou [Patch Orchestration Application para Linux](service-fabric-patch-orchestration-application-linux.md) pode ser implementado no seu cluster para instalar os patches de forma organizada, mantendo os serviços disponível sempre. 
 
-## <a name="os-upgrades-on-the-vms-that-make-up-the-cluster"></a>Atualizações de SO nas VMs que compõem o cluster
-Se tem de atualizar a imagem do SO nas máquinas virtuais do cluster, é feita a uma VM ao mesmo tempo. É responsável para esta atualização, não é atualmente sem automatização para isso.
 
 ## <a name="next-steps"></a>Passos Seguintes
 * Saiba como personalizar algumas do [definições de recursos de infraestrutura de cluster de recursos de infraestrutura do serviço](service-fabric-cluster-fabric-settings.md)

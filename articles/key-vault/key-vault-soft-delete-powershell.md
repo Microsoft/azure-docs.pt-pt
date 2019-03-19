@@ -7,12 +7,12 @@ ms.service: key-vault
 ms.topic: conceptual
 ms.date: 02/01/2018
 ms.author: mbaldwin
-ms.openlocfilehash: 3d199442564964d4eb70878e7e6460fe550cd4c2
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 3da4662885b2b09c6474a1a6ceafd627e71cf236
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57452493"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58081037"
 ---
 # <a name="how-to-use-key-vault-soft-delete-with-powershell"></a>Como utilizar a eliminação de forma recuperável do Key Vault com o PowerShell
 
@@ -177,19 +177,19 @@ Set-AzKeyVaultAccessPolicy -VaultName ContosoVault -UserPrincipalName user@conto
 Como chaves, segredos geridos com seus próprios comandos:
 
 - Elimine um segredo designado SQLPassword: 
-```powershell
-Remove-AzKeyVaultSecret -VaultName ContosoVault -name SQLPassword
-```
+  ```powershell
+  Remove-AzKeyVaultSecret -VaultName ContosoVault -name SQLPassword
+  ```
 
 - Liste eliminados todos os segredos num cofre de chaves: 
-```powershell
-Get-AzKeyVaultSecret -VaultName ContosoVault -InRemovedState
-```
+  ```powershell
+  Get-AzKeyVaultSecret -VaultName ContosoVault -InRemovedState
+  ```
 
 - Recupere um segredo no Estado eliminado: 
-```powershell
-Undo-AzKeyVaultSecretRemoval -VaultName ContosoVault -Name SQLPAssword
-```
+  ```powershell
+  Undo-AzKeyVaultSecretRemoval -VaultName ContosoVault -Name SQLPAssword
+  ```
 
 - Remover um segredo no estado de eliminado: 
 

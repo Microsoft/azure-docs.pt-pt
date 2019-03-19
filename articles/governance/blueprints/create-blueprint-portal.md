@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.service: blueprints
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: 845d200238c276be3f0d64afb3127864d8d9ae19
-ms.sourcegitcommit: 1902adaa68c660bdaac46878ce2dec5473d29275
+ms.openlocfilehash: fdf87bff026dee4969b3995b37c31de3ead7714b
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/11/2019
-ms.locfileid: "57729914"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58004912"
 ---
 # <a name="define-and-assign-an-azure-blueprint-in-the-portal"></a>Definir e atribuir um esquema de Azure no portal
 
@@ -249,9 +249,9 @@ Se já não precisar de um esquema, remova a atribuição do mesmo de uma subscr
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-- Saber mais sobre o [ciclo de vida do esquema](./concepts/lifecycle.md)
-- Compreender como utilizar [parâmetros estáticos e dinâmicos](./concepts/parameters.md)
-- Aprender a personalizar a [ordem de sequenciação do esquema](./concepts/sequencing-order.md)
-- Saber como utilizar o [bloqueio de recursos de esquema](./concepts/resource-locking.md)
-- Saber como [atualizar as atribuições existentes](./how-to/update-existing-assignments.md)
-- Resolver problemas durante a atribuição de um esquema com [resolução de problemas gerais](./troubleshoot/general.md)
+- Saiba mais sobre o [ciclo de vida de esquema](./concepts/lifecycle.md).
+- Compreender como usar [parâmetros estáticos e dinâmicos](./concepts/parameters.md).
+- Aprenda a personalizar a [esquema de ordem de sequenciamento](./concepts/sequencing-order.md).
+- Descubra como tornar a usar [esquema de bloqueio do recurso](./concepts/resource-locking.md).
+- Saiba como [atualizar atribuições existentes](./how-to/update-existing-assignments.md).
+- Resolver problemas durante a atribuição de um plano gráfico com [resolução de problemas gerais](./troubleshoot/general.md).

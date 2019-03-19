@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6f0a10a56aeecf9973ea12b022e0030fb4635fbf
-ms.sourcegitcommit: 1afd2e835dd507259cf7bb798b1b130adbb21840
+ms.openlocfilehash: 91ab8e8757c4a5313fde5f4d883e45648c9143b7
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56984553"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57901360"
 ---
 # <a name="preview-azure-ad-password-protection-on-premises---frequently-asked-questions"></a>Pré-visualização: Azure proteção de palavra-passe do AD no local - perguntas mais frequentes
 
@@ -86,6 +86,10 @@ Não. Uma vez que o servidor proxy é sem monitoração de estado, não é impor
 **P: É muito bem implementar o serviço de Proxy de proteção de palavra-passe do Azure AD lado a lado com outros serviços, como o Azure AD Connect?**
 
 Sim. O serviço de Proxy de proteção de palavra-passe do Azure AD e do Azure AD Connect devem nunca entre em conflito diretamente entre si.
+
+**P: Por que ordem devem os agentes do DC e os proxies de ser instalados e registados?**
+
+Qualquer ordenação de instalação do agente de Proxy, a instalação do agente DC, o registo de floresta e o registo de Proxy é suportada.
 
 **P: Eu deveria estar preocupado com o impacto em meu controladores de domínio de implementar esta funcionalidade no desempenho?**
 

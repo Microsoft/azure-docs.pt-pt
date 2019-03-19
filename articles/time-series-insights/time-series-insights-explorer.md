@@ -12,12 +12,12 @@ ms.workload: big-data
 ms.topic: conceptual
 ms.date: 11/30/2017
 ms.custom: seodec18
-ms.openlocfilehash: d65ce83465f54a30b96bc1ee6644319e1b4fb020
-ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
+ms.openlocfilehash: 301326f4ba858c7aef6c8bdec8f2cae3ed926847
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53556599"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58121048"
 ---
 # <a name="azure-time-series-insights-explorer"></a>Explorador do Time Series Insights do Azure
 Este artigo explora os vários recursos e as opções disponíveis dentro da aplicação de web de Explorador do Time Series Insights. Utilize o Explorador do Time Series Insights no seu browser para criar visualizações dos dados.
@@ -71,7 +71,7 @@ Dentro de minutos de ligar-se a origem do evento para o seu ambiente do Time Ser
          |<, >, <=, >=     |  Período de tempo de Double, DateTime,       |         |
          |=, !=, <>     | Cadeia de caracteres, Bool, Double, DateTime, TimeSpan, nulo        |         |
          |IN     | Cadeia de caracteres, Bool, Double, DateTime, TimeSpan, nulo        |  Todos os operandos devem ser do mesmo tipo ou ser constante NULL.        |
-         |TEM     | Cadeia        |  Literais de cadeia de caracteres constante só são permitidas no lado direito. Cadeia de caracteres vazia e NULL não são permitidas.       |
+         |HAS     | String        |  Literais de cadeia de caracteres constante só são permitidas no lado direito. Cadeia de caracteres vazia e NULL não são permitidas.       |
 
       - **Exemplos de consultas**
       
@@ -91,27 +91,27 @@ Dentro de minutos de ligar-se a origem do evento para o seu ambiente do Time Ser
 
 10. O **gráfico** permite-lhe explorar visualmente os seus dados. Ferramentas de gráfico incluem:
 
-   - Selecione/clique, que permite uma seleção de um intervalo de tempo específico ou de uma série de dados individual.  
-   - Num período de tempo span seleção, pode aplicar zoom ou explorar eventos.  
-   - Dentro de uma série de dados, pode dividir as séries por outra coluna, adicionar a série como novo termo, mostrar apenas a série selecionada, excluir a série selecionada, enviar um ping a série ou explorar eventos da série selecionada.
-   - Na área de filtro à esquerda do gráfico, pode ver todas as séries de dados exibidos e reordenar por valor ou o nome, ver todas as séries de dados ou séries especificamente afixados ou removidos.  Também pode selecionar uma série de dados individual e dividir as séries por outra coluna, adicionar a série como novo termo, mostrar apenas a série selecionada, excluir a série selecionada, afixar a série ou explorar eventos da série selecionada.
-   - Ao visualizar vários termos em simultâneo, pode de pilha, desempilhar, consulte dados adicionais sobre uma série de dados e utilizar o mesmo eixo y entre todos os termos com os botões no canto superior direito do gráfico.
+    - Selecione/clique, que permite uma seleção de um intervalo de tempo específico ou de uma série de dados individual.  
+    - Num período de tempo span seleção, pode aplicar zoom ou explorar eventos.  
+    - Dentro de uma série de dados, pode dividir as séries por outra coluna, adicionar a série como novo termo, mostrar apenas a série selecionada, excluir a série selecionada, enviar um ping a série ou explorar eventos da série selecionada.
+    - Na área de filtro à esquerda do gráfico, pode ver todas as séries de dados exibidos e reordenar por valor ou o nome, ver todas as séries de dados ou séries especificamente afixados ou removidos.  Também pode selecionar uma série de dados individual e dividir as séries por outra coluna, adicionar a série como novo termo, mostrar apenas a série selecionada, excluir a série selecionada, afixar a série ou explorar eventos da série selecionada.
+    - Ao visualizar vários termos em simultâneo, pode de pilha, desempilhar, consulte dados adicionais sobre uma série de dados e utilizar o mesmo eixo y entre todos os termos com os botões no canto superior direito do gráfico.
  
-   ![Ferramentas do gráfico](media/time-series-insights-explorer/explorer5.png) 
+    ![Ferramentas do gráfico](media/time-series-insights-explorer/explorer5.png) 
 
 11. O **mapa térmico** pode ser utilizado para detetar rapidamente a série de dados exclusivos ou anómalos numa determinada consulta. Termo de pesquisa apenas um pode ser visualizado como um mapa térmico.    
 
-   ![Mapa térmico](media/time-series-insights-explorer/explorer6.png)
+    ![Mapa térmico](media/time-series-insights-explorer/explorer6.png)
 
 12. **Eventos**:  Ao escolher explorar eventos ao selecionar ou clicando com o botão direito acima, o painel de eventos é disponibilizado.  Aqui, pode ver todos os eventos não processados e exportar seus eventos como JSON ou ficheiros CSV. Tenha em atenção que o Time Series Insights armazena todos os dados não processados.
 
-   ![Eventos](media/time-series-insights-explorer/explorer7.png)
+    ![Eventos](media/time-series-insights-explorer/explorer7.png)
 
 13. Clique nas **estatísticas** separador depois explorar eventos para expor os padrões e as estatísticas de coluna.  
 
-   - **Padrões**: esta funcionalidade analisam proativamente as os padrões mais estatisticamente significativos numa região de dados selecionada. Isso libera da necessidade de examinar a milhares de eventos para compreender quais padrões garantem mais tempo e energia. Além disso, o Time Series Insights permite-lhe passar diretamente para estes padrões estatisticamente significativos para continuar a realizar uma análise. Esta funcionalidade também é útil para investigações de post-mortem a dados históricos. 
+    - **Padrões**: esta funcionalidade analisam proativamente as os padrões mais estatisticamente significativos numa região de dados selecionada. Isso libera da necessidade de examinar a milhares de eventos para compreender quais padrões garantem mais tempo e energia. Além disso, o Time Series Insights permite-lhe passar diretamente para estes padrões estatisticamente significativos para continuar a realizar uma análise. Esta funcionalidade também é útil para investigações de post-mortem a dados históricos. 
 
-   - **Estatísticas de coluna**:  Estatísticas de coluna fornecem a criação de gráficos e tabelas que dividir dados de cada coluna da série de dados selecionadas ao longo do período de tempo selecionado.  
+    - **Estatísticas de coluna**:  Estatísticas de coluna fornecem a criação de gráficos e tabelas que dividir dados de cada coluna da série de dados selecionadas ao longo do período de tempo selecionado.  
  
       ![ESTATÍSTICAS](media/time-series-insights-explorer/explorer8.png) 
 

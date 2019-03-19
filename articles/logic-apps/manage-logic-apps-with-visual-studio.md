@@ -11,12 +11,12 @@ ms.reviewer: klam, LADocs
 ms.topic: article
 ms.custom: mvc
 ms.date: 03/15/2018
-ms.openlocfilehash: dbb38336f0521f8f8e526ad3f5e13829075e7cca
-ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
+ms.openlocfilehash: 9f626e2a5c277cdce78c6e90046a1d40dac2d588
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54158150"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58078674"
 ---
 # <a name="manage-logic-apps-with-visual-studio"></a>Gerir aplicações lógicas com o Visual Studio
 
@@ -79,7 +79,7 @@ No Visual Studio, é possível abrir as aplicações lógicas anteriormente cria
 
    Este exemplo mostra as aplicações lógicas por tipo de recurso, para que as aplicações lógicas são apresentados no **Logic Apps** secção.
 
-  ![Aplicação de lógica de implementado abertos do portal do Azure](./media/manage-logic-apps-with-visual-studio/open-logic-app-in-editor.png)
+   ![Aplicação de lógica de implementado abertos do portal do Azure](./media/manage-logic-apps-with-visual-studio/open-logic-app-in-editor.png)
 
    Depois da aplicação lógica abre no estruturador de aplicações lógicas, na parte inferior do designer, pode escolher **vista de código** , de modo a que possa rever a estrutura de definição de aplicação lógica subjacente. 
    Se quiser criar um modelo de implementação para a aplicação lógica, saiba [como transferir um modelo Azure Resource Manager](#download-logic-app) para essa aplicação lógica. Saiba mais sobre [modelos do Resource Manager](../azure-resource-manager/resource-group-overview.md#template-deployment).

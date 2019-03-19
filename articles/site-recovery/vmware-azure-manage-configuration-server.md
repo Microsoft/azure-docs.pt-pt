@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 02/12/2018
 ms.author: ramamill
-ms.openlocfilehash: 9aa6b9dc26b53315957b7ddbb113d1d129dcc1da
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: da7750198f76bc9e17c23b1347e9fc78262aa06c
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56109168"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58086960"
 ---
 # <a name="manage-the-configuration-server-for-vmware-vm-disaster-recovery"></a>Gerir o servidor de configuração para a recuperação de desastres da VM de VMware
 
@@ -93,25 +93,25 @@ O modelo de formato OVF (Open Virtualization) implementa o servidor de configura
 Pode voltar a registar o servidor de configuração no mesmo cofre se for necessário. Se tiver uma máquina de servidor de processos adicionais, além do servidor de processos padrão em execução na máquina do servidor de configuração, voltar a registar ambas as máquinas.
 
 
-  1. No cofre, abra **Manage** > **infraestrutura do Site Recovery** > **Configuration Servers**.
-  2. Na **servidores**, selecione **chave de registo do Download** para transferir o ficheiro de credenciais do cofre.
-  3. Inicie sessão na máquina do servidor de configuração.
-  4. Na **%ProgramData%\ASR\home\svsystems\bin**, abra **cspsconfigtool.exe**.
-  5. Sobre o **registo do cofre** separador, selecione **procurar**e localize o ficheiro de credenciais de cofre que transferiu.
-  6. Se for necessário, forneça detalhes do servidor proxy. Em seguida, selecione **Registar**.
-  7. Abra uma janela de comando do PowerShell de administrador e execute o seguinte comando:
+1. No cofre, abra **Manage** > **infraestrutura do Site Recovery** > **Configuration Servers**.
+2. Na **servidores**, selecione **chave de registo do Download** para transferir o ficheiro de credenciais do cofre.
+3. Inicie sessão na máquina do servidor de configuração.
+4. Na **%ProgramData%\ASR\home\svsystems\bin**, abra **cspsconfigtool.exe**.
+5. Sobre o **registo do cofre** separador, selecione **procurar**e localize o ficheiro de credenciais de cofre que transferiu.
+6. Se for necessário, forneça detalhes do servidor proxy. Em seguida, selecione **Registar**.
+7. Abra uma janela de comando do PowerShell de administrador e execute o seguinte comando:
    ```
-      $pwd = ConvertTo-SecureString -String MyProxyUserPassword
-      Set-OBMachineSetting -ProxyServer http://myproxyserver.domain.com -ProxyPort PortNumber – ProxyUserName domain\username -ProxyPassword $pwd
+    $pwd = ConvertTo-SecureString -String MyProxyUserPassword
+    Set-OBMachineSetting -ProxyServer http://myproxyserver.domain.com -ProxyPort PortNumber – ProxyUserName domain\username -ProxyPassword $pwd
    ```
 
-      >[!NOTE]
-      >Para **solicitar certificados mais recentes** do servidor de configuração para o servidor de processos de escalamento horizontal, execute o comando *"< Drive\Microsoft de instalação do Azure Site Recovery\agent\cdpcli.exe >"-- registermt*
+    >[!NOTE]
+    >Para **solicitar certificados mais recentes** do servidor de configuração para o servidor de processos de escalamento horizontal, execute o comando *"< Drive\Microsoft de instalação do Azure Site Recovery\agent\cdpcli.exe >"-- registermt*
 
-  8. Por fim, reinicie o obengine executando o seguinte comando.
-  ```
-          net stop obengine
-          net start obengine
+8. Por fim, reinicie o obengine executando o seguinte comando.
+   ```
+        net stop obengine
+        net start obengine
    ```
 
 

@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/22/2018
 ms.author: ergreenl
-ms.openlocfilehash: bb2ebeedb1b34288a3d402ffdf4df80aa3be83cd
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 1102a8c80b0040c7044d64c674d956d339238623
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55154080"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58086654"
 ---
 # <a name="join-a-red-hat-enterprise-linux-7-virtual-machine-to-a-managed-domain"></a>Associar uma máquina virtual do Red Hat Enterprise Linux 7 a um domínio gerido
 Este artigo mostra-lhe como associar uma máquina virtual do Red Hat Enterprise Linux (RHEL) 7 a um domínio gerido do Azure AD Domain Services.
@@ -86,12 +86,11 @@ Agora que os pacotes necessários estão instalados na máquina virtual do Linux
     sudo realm discover CONTOSO100.COM
     ```
 
-     > [!NOTE]
-     > **Resolução de problemas:** Se *realm detetar* não conseguiu encontrar o seu domínio gerido:
-     * Certifique-se de que o domínio está acessível a partir da máquina virtual (tente ping).
-     * Verifique que a máquina virtual, de fato, foi implementada para a mesma rede virtual em que o domínio gerido está disponível.
-     * Verifique se a atualizar as definições do servidor DNS para a rede virtual para que apontem para os controladores de domínio do domínio gerido.
-     >
+   > [!NOTE]
+   > **Resolução de problemas:** Se *realm detetar* não conseguiu encontrar o seu domínio gerido:
+   >   * Certifique-se de que o domínio está acessível a partir da máquina virtual (tente ping).
+   >   * Verifique que a máquina virtual, de fato, foi implementada para a mesma rede virtual em que o domínio gerido está disponível.
+   >   * Verifique se a atualizar as definições do servidor DNS para a rede virtual para que apontem para os controladores de domínio do domínio gerido.
 
 2. Inicialize o Kerberos. No seu terminal SSH, escreva o seguinte comando:
 

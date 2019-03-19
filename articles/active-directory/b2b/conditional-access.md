@@ -11,12 +11,12 @@ author: msmimart
 manager: daveba
 ms.reviewer: sasubram
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f51b42780a4a3500a5f5e8385d0973a335c2b78e
-ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
+ms.openlocfilehash: a5234443e234d232a9711274bea2f73427266f6e
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56670184"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58113491"
 ---
 # <a name="conditional-access-for-b2b-collaboration-users"></a>Acesso condicional para utilizadores de colaboração B2B
 
@@ -48,26 +48,26 @@ Atualmente, o administrador pode exigir utilizadores de colaboração do B2B par
 
 1. Ligar ao Azure AD
 
-  ```
-  $cred = Get-Credential
-  Connect-MsolService -Credential $cred
-  ```
+   ```
+   $cred = Get-Credential
+   Connect-MsolService -Credential $cred
+   ```
 2. Obter todos os utilizadores com prova de métodos
 
-  ```
-  Get-MsolUser | where { $_.StrongAuthenticationMethods} | select UserPrincipalName, @{n="Methods";e={($_.StrongAuthenticationMethods).MethodType}}
-  ```
-  Segue-se um exemplo:
+   ```
+   Get-MsolUser | where { $_.StrongAuthenticationMethods} | select UserPrincipalName, @{n="Methods";e={($_.StrongAuthenticationMethods).MethodType}}
+   ```
+   Segue-se um exemplo:
 
-  ```
-  Get-MsolUser | where { $_.StrongAuthenticationMethods} | select UserPrincipalName, @{n="Methods";e={($_.StrongAuthenticationMethods).MethodType}}
-  ```
+   ```
+   Get-MsolUser | where { $_.StrongAuthenticationMethods} | select UserPrincipalName, @{n="Methods";e={($_.StrongAuthenticationMethods).MethodType}}
+   ```
 
 3. Repor o método MFA de um utilizador específico exigir que o utilizador de colaboração do B2B definir métodos de verificação de segurança novamente. Exemplo:
 
-  ```
-  Reset-MsolStrongAuthenticationMethodByUpn -UserPrincipalName gsamoogle_gmail.com#EXT#@ WoodGroveAzureAD.onmicrosoft.com
-  ```
+   ```
+   Reset-MsolStrongAuthenticationMethodByUpn -UserPrincipalName gsamoogle_gmail.com#EXT#@ WoodGroveAzureAD.onmicrosoft.com
+   ```
 
 ### <a name="why-do-we-perform-mfa-at-the-resource-tenancy"></a>Por que podemos executar MFA em inquilinos do recurso?
 

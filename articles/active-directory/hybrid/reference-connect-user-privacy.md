@@ -15,12 +15,12 @@ ms.date: 05/21/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 74cdbd704f589ca4c045f672bbc49fa4460003a0
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 6f5d3125b7b77e8ce7a943f640c44615049ab160
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56175851"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58096355"
 ---
 # <a name="user-privacy-and-azure-ad-connect"></a>Privacidade do utilizador e do Azure AD Connect 
 
@@ -84,4 +84,4 @@ Utilize os seguintes passos para agendar o script seja executado a cada 48 horas
 
 ## <a name="next-steps"></a>Passos Seguintes
 * [Rever a política de Privacy da Microsoft no Centro de fidedignidade](https://www.microsoft.com/trustcenter)
-- [Estado de funcionamento e a privacidade dos utilizadores do Azure AD Connect](reference-connect-health-user-privacy.md)
+* [Estado de funcionamento e a privacidade dos utilizadores do Azure AD Connect](reference-connect-health-user-privacy.md)

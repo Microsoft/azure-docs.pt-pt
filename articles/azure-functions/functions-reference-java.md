@@ -11,12 +11,12 @@ ms.devlang: java
 ms.topic: conceptual
 ms.date: 09/14/2018
 ms.author: routlaw
-ms.openlocfilehash: 14a9e369f3366fc103cde2f0faafb570de409de7
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.openlocfilehash: 9258b58783d4670620a251fef866211f7634480f
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57311870"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58096729"
 ---
 # <a name="azure-functions-java-developer-guide"></a>Guia de programadores de Java de funções do Azure
 
@@ -391,6 +391,6 @@ Para obter mais informações sobre o desenvolvimento de Java de função do Azu
 * [Best Practices for Azure Functions (Melhores Práticas para as Funções do Azure)](functions-best-practices.md)
 * [Referência para programadores das Funções do Azure](functions-reference.md)
 * [Acionadores de funções do Azure e enlaces](functions-triggers-bindings.md)
-- Desenvolvimento local e de depuração com [Visual Studio Code](https://code.visualstudio.com/docs/java/java-azurefunctions), [IntelliJ](functions-create-maven-intellij.md), e [Eclipse](functions-create-maven-eclipse.md). 
+* Desenvolvimento local e de depuração com [Visual Studio Code](https://code.visualstudio.com/docs/java/java-azurefunctions), [IntelliJ](functions-create-maven-intellij.md), e [Eclipse](functions-create-maven-eclipse.md). 
 * [Depuração remota do Java Azure funciona com o Visual Studio Code](https://code.visualstudio.com/docs/java/java-serverless#_remote-debug-functions-running-in-the-cloud)
 * [Plug-in do maven para as funções do Azure](https://github.com/Microsoft/azure-maven-plugins/blob/develop/azure-functions-maven-plugin/README.md) -Simplifique a criação da função através do `azure-functions:add` objetivo e preparar um diretório de transição para [implementação de ficheiros ZIP](deployment-zip-push.md).

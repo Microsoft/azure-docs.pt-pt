@@ -15,12 +15,12 @@ ms.date: 03/07/2019
 ms.author: sethm
 ms.reviewer: efemmano
 ms.lastreviewed: 03/07/2019
-ms.openlocfilehash: 42336205726823dd04e0412f29c3e7a23d134d39
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 59c69477e120facec1fbf132ce7017ca21aa8748
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57763998"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58092621"
 ---
 # <a name="create-an-offer-in-azure-stack"></a>Criar uma oferta no Azure Stack
 
@@ -54,12 +54,12 @@ ms.locfileid: "57763998"
 
 Depois de criar a oferta, pode alterar seu estado. Ofertas têm de ser feitas **público** para os utilizadores obter a vista completa quando eles subscrevem. Ofertas podem ser:
 
-   - **Público**: Visível para os utilizadores.
-   - **Privada**: Só é visível para os administradores da cloud. Esta definição é útil durante a elaboração de plano ou à oferta, ou se o administrador da nuvem deseja [criar cada subscrição para os utilizadores](azure-stack-subscribe-plan-provision-vm.md#create-a-subscription-as-a-cloud-operator).
-   - **Desativado**: Fechados a novos subscritores. O administrador da nuvem pode desativar a ofertas para evitar futuras subscrições, mas deixe os assinantes atuais afetada.
+- **Público**: Visível para os utilizadores.
+- **Privada**: Só é visível para os administradores da cloud. Esta definição é útil durante a elaboração de plano ou à oferta, ou se o administrador da nuvem deseja [criar cada subscrição para os utilizadores](azure-stack-subscribe-plan-provision-vm.md#create-a-subscription-as-a-cloud-operator).
+- **Desativado**: Fechados a novos subscritores. O administrador da nuvem pode desativar a ofertas para evitar futuras subscrições, mas deixe os assinantes atuais afetada.
 
-   > [!TIP]  
-   > As alterações para a oferta não são imediatamente visíveis ao usuário. Para ver as alterações, os utilizadores poderão ter de terminar e iniciar sessão novamente para o portal de utilizador para ver a nova oferta.
+  > [!TIP]  
+  > As alterações para a oferta não são imediatamente visíveis ao usuário. Para ver as alterações, os utilizadores poderão ter de terminar e iniciar sessão novamente para o portal de utilizador para ver a nova oferta.
 
 Existem duas formas de alterar o estado de uma oferta:
 

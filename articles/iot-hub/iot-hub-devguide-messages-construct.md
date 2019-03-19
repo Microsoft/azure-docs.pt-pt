@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 08/13/2018
 ms.author: asrastog
-ms.openlocfilehash: c882907ef2763f13a3806c335dabf330d35a0831
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 08eb7171249c42348877afedc80c6c6338265422
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57433217"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57861740"
 ---
 # <a name="create-and-read-iot-hub-messages"></a>Criar e ler mensagens do Hub IoT
 
@@ -56,8 +56,7 @@ A tabela seguinte lista o conjunto de propriedades do sistema de mensagens do Io
 | iothub-enqueuedtime |Data e hora a [Cloud-para-dispositivo](iot-hub-devguide-c2d-guidance.md) mensagem foi recebida pelo IoT Hub. | Não para mensagens de C2D; Sim, caso contrário. |
 | correlation-id |Uma propriedade de cadeia de caracteres numa mensagem de resposta que contém, normalmente, a MessageId da solicitação, em padrões de solicitação-resposta. | Sim |
 | id de utilizador |Um ID utilizado para especificar a origem de mensagens. Quando as mensagens são geradas pelo IoT Hub, ele é definido como `{iot hub name}`. | Não |
-| iothub-ack |Um gerador de mensagem de comentários. Esta propriedade é utilizada nas mensagens de cloud para o dispositivo ao IoT Hub para gerar mensagens de comentários como resultado o consumo da mensagem do pedido pelo dispositivo. Valores possíveis: **none** (predefinição): nenhuma mensagem de comentários é gerada, **positivo**: receber uma mensagem de comentários, se a mensagem foi concluída, **negativo**: receba uma mensagem de comentários, se a mensagem expirou (ou contagem máxima de entrega foi atingida) sem que está a ser concluída por dispositivo, ou **completo**: positivos e negativos. 
-<!-- robinsh For more information, see [Message feedback][lnk-feedback].--> | Sim |
+| iothub-ack |Um gerador de mensagem de comentários. Esta propriedade é utilizada nas mensagens de cloud para o dispositivo ao IoT Hub para gerar mensagens de comentários como resultado o consumo da mensagem do pedido pelo dispositivo. Valores possíveis: **none** (predefinição): nenhuma mensagem de comentários é gerada, **positivo**: receber uma mensagem de comentários, se a mensagem foi concluída, **negativo**: receba uma mensagem de comentários, se a mensagem expirou (ou contagem máxima de entrega foi atingida) sem que está a ser concluída por dispositivo, ou **completo**: positivos e negativos. <!-- robinsh For more information, see [Message feedback][lnk-feedback].--> | Sim |
 | iothub-connection-device-id |Um ID definido pelo IoT Hub nas mensagens do dispositivo para a cloud. Contém os **deviceId** do dispositivo que enviou a mensagem. | Não para mensagens D2C; Sim, caso contrário. |
 | iothub-connection-auth-generation-id |Um ID definido pelo IoT Hub nas mensagens do dispositivo para a cloud. Contém os **generationId** (como por [propriedades de identidade de dispositivo](iot-hub-devguide-identity-registry.md#device-identity-properties)) do dispositivo que enviou a mensagem. | Não para mensagens D2C; Sim, caso contrário. |
 | iothub-connection-auth-method |Um método de autenticação definido pelo IoT Hub nas mensagens do dispositivo para a cloud. Esta propriedade contém informações sobre o método de autenticação utilizado para autenticar o dispositivo que envia a mensagem. <!-- ROBINSH For more information, see [Device to cloud anti-spoofing][lnk-antispoofing].--> | Não para mensagens D2C; Sim, caso contrário. |

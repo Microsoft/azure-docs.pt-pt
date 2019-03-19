@@ -16,12 +16,12 @@ ms.date: 01/18/2019
 ms.author: rolyon
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d5fa81e564cf28f8b5478abe9ec5bb63d0f11bd3
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 8ab3570cb7e3e8b09425bf4c05f7f5725fd21d4f
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57449670"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57845159"
 ---
 # <a name="what-are-azure-ad-access-reviews"></a>Quais são as revisões de acesso do Azure AD?
 
@@ -84,7 +84,7 @@ Se estiver pronto para implementar as revisões de acesso na sua organização, 
 
 Para ativar as revisões de acesso, siga estes passos.
 
-1. Como um Administrador Global ou administrador de conta de utilizador, inicie sessão para o [portal do Azure](https://portal.azure.com) em que pretende utilizar o acesso a revisões.
+1. Como um Administrador Global ou administrador de utilizadores, inicie sessão para o [portal do Azure](https://portal.azure.com) em que pretende utilizar o acesso a revisões.
 
 1. Clique em **todos os serviços** e encontrar o acesso a revisões de serviço.
 

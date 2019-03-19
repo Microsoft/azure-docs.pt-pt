@@ -16,12 +16,12 @@ ms.date: 02/15/2019
 ms.author: jeffgilb
 ms.reviewer: misainat
 ms.lastreviewed: 10/10/2018
-ms.openlocfilehash: eff27e296800f78303d085f471e4fda188b487ce
-ms.sourcegitcommit: f863ed1ba25ef3ec32bd188c28153044124cacbc
+ms.openlocfilehash: b1b11dc27b279173ede4498ca353aea4018ea8f9
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56301864"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58102439"
 ---
 # <a name="post-asdk-installation-configuration-tasks"></a>Pós-instalação de ASDK tarefas de configuração
 
@@ -172,7 +172,7 @@ Set-ADDefaultDomainPasswordPolicy -MaxPasswordAge 180.00:00:00 -Identity azurest
 
 Para Implantações com o Azure AD, terá [ativar multi-inquilinos](../azure-stack-enable-multitenancy.md#enable-multi-tenancy) para a sua instalação ASDK.
 
-> [!NOTE]  
+> [!NOTE]
 > Quando as contas de utilizador ou administrador de domínios que não seja utilizada para registar o Azure Stack são utilizadas para iniciar sessão portal do Azure Stack, o nome de domínio utilizado para registar o Azure Stack deve ser anexado ao portal do url. Por exemplo, se o Azure Stack foi registado com fabrikam.onmicrosoft.com e a conta de utilizador iniciar sessão está admin@contoso.com, o url a utilizar para iniciar sessão no portal de utilizador seria: https://portal.local.azurestack.external/fabrikam.onmicrosoft.com.
 
 ## <a name="next-steps"></a>Passos Seguintes

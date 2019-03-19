@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 05/18/2018
 ms.author: magoedte
-ms.openlocfilehash: 6254a32349a0f7c743c3fb4993080ca3437c8276
-ms.sourcegitcommit: 9f87a992c77bf8e3927486f8d7d1ca46aa13e849
+ms.openlocfilehash: 9112d50384aba288038343ff9a14ed55542fb722
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/28/2018
-ms.locfileid: "53810275"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58121354"
 ---
 # <a name="guidance-for-personal-data-stored-in-log-analytics-and-application-insights"></a>Documentação de orientação para os dados pessoais armazenados no Log Analytics e Application Insights
 
@@ -53,7 +53,7 @@ O log Analytics é um armazenamento flexível, que, ao mesmo tempo que prescreve
     ```
     search "[username goes here]"
     ```
-Lembre-se de ter um aspeto não apenas para os nomes de utilizador legível por humanos, mas também GUIDs que diretamente podem ser rastreados volta a um utilizador específico!
+  Lembre-se de ter um aspeto não apenas para os nomes de utilizador legível por humanos, mas também GUIDs que diretamente podem ser rastreados volta a um utilizador específico!
 * *Identificações de dispositivo*: Como IDs de usuário, identificações de dispositivo, por vezes, são consideradas "private". Utilize a mesma abordagem, conforme listado acima para IDs de usuário, para identificar tabelas onde isso pode ser uma preocupação. 
 * *Dados personalizados*: O log Analytics permite que a coleção numa variedade de métodos: registos personalizados e campos personalizados, o [HTTP Data Collector API](../../azure-monitor/platform/data-collector-api.md) , e dados personalizados recolhido como parte dos logs de eventos do sistema. Todos esses são suscetíveis a que contém dados privados e devem ser examinados para verificar a existem de dados.
 * *Dados capturados solução*: Uma vez que o mecanismo de solução é aberta, recomendamos que reveja todas as tabelas geradas pelas soluções para garantir a conformidade.

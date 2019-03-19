@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/29/2019
 ms.author: kumud
-ms.openlocfilehash: 18e4a7ae5010730054dd110828c63e8418b93f39
-ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
+ms.openlocfilehash: 52524e6291faae8ccc27c0d53e9e38ab63a4c8d5
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55296924"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58132434"
 ---
 # <a name="load-balancer-with-tcp-reset-on-idle-public-preview"></a>Balanceador de carga com a reposição TCP em inatividade (pré-visualização pública)
 
@@ -27,7 +27,7 @@ Pode usar [Balanceador de carga Standard](load-balancer-standard-overview.md) pa
 ![Reposição de TCP de Balanceador de carga](media/load-balancer-tcp-reset/load-balancer-tcp-reset.png)
 
 >[!NOTE] 
->Balanceador de carga com reposição na funcionalidade de tempo limite de inatividade de TCP está disponível como pré-visualização pública neste momento e disponível num conjunto limitado de [regiões](#regions). Esta pré-visualização é disponibilizada sem um contrato de nível de serviço e não é recomendada para cargas de trabalho de produção. Algumas funcionalidades poderão não ser suportadas ou poderão ter capacidades limitadas. Veja os [Termos Suplementares de Utilização para Pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) para obter mais informações.
+>Balanceador de carga com reposição na funcionalidade de tempo limite de inatividade de TCP está disponível como pré-visualização pública neste momento. Esta pré-visualização é disponibilizada sem um contrato de nível de serviço e não é recomendada para cargas de trabalho de produção. Algumas funcionalidades poderão não ser suportadas ou poderão ter capacidades limitadas. Veja os [Termos Suplementares de Utilização para Pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) para obter mais informações.
  
 Alterar este comportamento predefinido e ativar TCP redefine a enviar no tempo limite de inatividade em regras NAT de entrada, regras de balanceamento de carga e [regras de saída](https://aka.ms/lboutboundrules).  Quando ativado por regra, o Balanceador de carga irá enviar bidirecional (pacotes de TCP RST) de reposição de TCP para pontos finais de cliente e servidor no momento do tempo limite de inatividade para todos os fluxos correspondentes.
 

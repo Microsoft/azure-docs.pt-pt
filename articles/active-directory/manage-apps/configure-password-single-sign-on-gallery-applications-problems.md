@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 07/11/2017
 ms.author: celested
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: afe467d56d0247e17f73bb85a39246c4c04629cd
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: f6c313cc654461ea22c126fede317ed230408b82
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56173458"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58079201"
 ---
 # <a name="problem-configuring-password-single-sign-on-for-an-azure-ad-gallery-application"></a>Problema ao configurar a palavra-passe início de sessão único para uma aplicação da galeria do Azure AD
 
@@ -37,23 +37,23 @@ Embora a Microsoft tem as tecnologias para detetar automaticamente quando integr
 
 Para resolver este problema, tente primeiro essas coisas:
 
--   Peça ao utilizador que primeiro tente **entrar diretamente para o site de aplicativos** com as credenciais armazenadas para eles.
+- Peça ao utilizador que primeiro tente **entrar diretamente para o site de aplicativos** com as credenciais armazenadas para eles.
 
   * Se o início de sessão funciona, em seguida, tem do usuário clique no **atualizar as credenciais** botão a **mosaico de aplicação** no **aplicações** secção do [acesso à aplicação Painel](https://myapps.microsoft.com/) atualizá-los para o trabalho nome de utilizador e palavra-passe mais recente conhecidos.
 
-   * Se ou outro administrador atribuir as credenciais para este utilizador, encontrar o utilizador ou a atribuição do grupo da aplicação ao navegar para o **utilizadores e grupos** separador da aplicação, selecionando a atribuição e clicar o  **Atualizar credenciais** botão.
+  * Se ou outro administrador atribuir as credenciais para este utilizador, encontrar o utilizador ou a atribuição do grupo da aplicação ao navegar para o **utilizadores e grupos** separador da aplicação, selecionando a atribuição e clicar o  **Atualizar credenciais** botão.
 
--   Se o utilizador atribuído das suas próprias credenciais, peça ao utilizador **Certifique-se não se esqueça de que a palavra-passe não expirou no aplicativo** e, se assim for, **atualizar a palavra-passe expirada** ao iniciar sessão na aplicação diretamente.
+- Se o utilizador atribuído das suas próprias credenciais, peça ao utilizador **Certifique-se não se esqueça de que a palavra-passe não expirou no aplicativo** e, se assim for, **atualizar a palavra-passe expirada** ao iniciar sessão na aplicação diretamente.
 
-   * Depois da palavra-passe foi atualizada no aplicativo, solicitar o usuário clique a **atualizar as credenciais** botão a **mosaico de aplicação** no **aplicações** secção do [Painel de acesso de aplicação](https://myapps.microsoft.com/) atualizá-los para o trabalho nome de utilizador e palavra-passe mais recente conhecidos.
+  * Depois da palavra-passe foi atualizada no aplicativo, solicitar o usuário clique a **atualizar as credenciais** botão a **mosaico de aplicação** no **aplicações** secção do [Painel de acesso de aplicação](https://myapps.microsoft.com/) atualizá-los para o trabalho nome de utilizador e palavra-passe mais recente conhecidos.
 
-   * Se ou outro administrador atribuir as credenciais para este utilizador, encontrar o utilizador ou a atribuição do grupo da aplicação ao navegar para o **utilizadores e grupos** separador da aplicação, selecionando a atribuição e clicar o  **Atualizar credenciais** botão.
+  * Se ou outro administrador atribuir as credenciais para este utilizador, encontrar o utilizador ou a atribuição do grupo da aplicação ao navegar para o **utilizadores e grupos** separador da aplicação, selecionando a atribuição e clicar o  **Atualizar credenciais** botão.
 
--   O utilizador atualizar a extensão de browser do painel de acesso ao seguir os passos abaixo a [como instalar a extensão de Browser do painel de acesso](#how-to-install-the-access-panel-browser-extension) secção.
+- O utilizador atualizar a extensão de browser do painel de acesso ao seguir os passos abaixo a [como instalar a extensão de Browser do painel de acesso](#how-to-install-the-access-panel-browser-extension) secção.
 
--   Certifique-se de que a extensão de browser do painel de acesso está em execução e ativado no browser do utilizador.
+- Certifique-se de que a extensão de browser do painel de acesso está em execução e ativado no browser do utilizador.
 
--   Certifique-se de que os utilizadores não estão a tentar iniciar sessão para a aplicação do painel de acesso ao mesmo tempo no **modo inPrivate, incógnito ou privado**. A extensão do painel de acesso não é suportada nesses modos.
+- Certifique-se de que os utilizadores não estão a tentar iniciar sessão para a aplicação do painel de acesso ao mesmo tempo no **modo inPrivate, incógnito ou privado**. A extensão do painel de acesso não é suportada nesses modos.
 
 No caso de sugestões anteriores funcionar, pode ser o caso em que uma alteração ocorreu no lado do aplicativo que está temporariamente quebrado a integração do aplicativo com o Azure AD. Por exemplo, isto pode ocorrer quando o fornecedor do aplicativo introduz um script na respetiva página de que tem um comportamento diferente para o vs manuais automatizada de entrada, que faz com que automatizadas de integração, como o nosso próprio, interromper. Felizmente, em muitos casos, a Microsoft pode trabalhar com fornecedores de aplicativos para resolver rapidamente estes problemas.
 
@@ -65,13 +65,13 @@ Além disso, **se for contato com o fornecedor desse aplicativo,** **enviá-los 
 
 Existem duas das principais causas para este problema:
 
--   Dependendo das configurações de segurança ativadas no Internet Explorer, se o Web site não é parte de um **zona fidedignos**, às vezes, nosso script impedidos de execução para a aplicação.
+- Dependendo das configurações de segurança ativadas no Internet Explorer, se o Web site não é parte de um **zona fidedignos**, às vezes, nosso script impedidos de execução para a aplicação.
 
   *  Para resolver este problema, indique o usuário **adicionar o site da aplicação** para o **Sites confiáveis** lista dentro de suas **definições de segurança do Internet Explorer**. Pode enviar os seus utilizadores para o [como adicionar um site à minha lista de sites fidedignos](https://answers.microsoft.com/en-us/ie/forum/ie9-windows_7/how-do-i-add-a-site-to-my-trusted-sites-list/98cc77c8-b364-e011-8dfc-68b599b31bf5) artigo para obter instruções detalhadas.
 
--   Em raras circunstâncias, validação de segurança do Internet Explorer, às vezes, pode fazer com que a página carregar mais lenta do que a execução do nosso script.
+- Em raras circunstâncias, validação de segurança do Internet Explorer, às vezes, pode fazer com que a página carregar mais lenta do que a execução do nosso script.
 
-   * Infelizmente, esta situação pode variar consoante a versão do navegador, a velocidade do computador ou a sites visitados. Neste caso, sugerimos que contacte o suporte para que possamos corrigir a integração para esta aplicação específica.
+  * Infelizmente, esta situação pode variar consoante a versão do navegador, a velocidade do computador ou a sites visitados. Neste caso, sugerimos que contacte o suporte para que possamos corrigir a integração para esta aplicação específica.
 
 Além disso, **se for contato com o fornecedor desse aplicativo,** **enviá-los nossa maneira** para que possa trabalhar com eles para integrar nativamente seus aplicativos com o Azure Active Directory. Pode enviar o fornecedor para o [listar a sua aplicação na Galeria de aplicações do Azure Active Directory](../develop/howto-app-gallery-listing.md) para obtê-las iniciado.
 

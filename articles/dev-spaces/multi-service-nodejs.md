@@ -9,12 +9,12 @@ ms.date: 11/21/2018
 ms.topic: tutorial
 description: Desenvolvimento rápido da Kubernetes com contentores e microsserviços no Azure
 keywords: 'Docker, o Kubernetes, o Azure, o AKS, o serviço Kubernetes do Azure, contentores, Helm, a malha de serviço, roteamento de malha do serviço, kubectl, k8s '
-ms.openlocfilehash: d8371bf355cb73a9e627dafe502100a6a639bc91
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 8d17ece1426c2aedda2ef98cb465dad532d4dba6
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57779985"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57902710"
 ---
 # <a name="multi-service-development-with-azure-dev-spaces"></a>Desenvolvimento múltiplos serviço com os espaços de desenvolvimento do Azure
 
@@ -32,8 +32,8 @@ Já deverá ter o código de exemplo para `mywebapi` deste guia sob uma pasta de
 ### <a name="run-mywebapi"></a>Execute *mywebapi*
 1. Abra a pasta `mywebapi` numa *janela separada do VS Code*.
 1. Abra a **Paleta de Comandos** (através do menu **Ver | Paleta de Comandos**), e utilize o preenchimento automático para escrever e selecione este comando: `Azure Dev Spaces: Prepare configuration files for Azure Dev Spaces`. Este comando não deve ser confundido com o comando `azds prep`, que configura o projeto para implementação.
-1. Prima F5 e aguarde que o serviço seja criado e implementado. Saberá que está pronto quando for apresentada a barra de depuração do VS Code.
-1. Tome nota do URL do ponto final, algo semelhante a http://localhost:\<portnumber\>. **Sugestão: A barra de status do VS Code irá apresentar um URL clicável.** Poderá parecer que o contentor está a ser executado localmente. Contudo, na verdade, está a ser executado no nosso ambiente de desenvolvimento no Azure. O motivo para o endereço localhost é porque `mywebapi` não definiu quaisquer pontos finais públicos e apenas pode ser acedido a partir da instância do Kubernetes. Para sua comodidade e para facilitar a interação com o serviço privado da sua máquina local, o Azure Dev Spaces cria um túnel SSH temporário para o contentor em execução no Azure.
+1. Prima F5 e aguarde que o serviço seja criado e implementado. Saberá que fique pronta quando os *escute na porta 80* é apresentada uma mensagem na consola de depuração.
+1. Tome nota do URL do ponto final, algo semelhante a `http://localhost:<portnumber>`. **Sugestão: A barra de status do VS Code irá apresentar um URL clicável.** Poderá parecer que o contentor está a ser executado localmente. Contudo, na verdade, está a ser executado no nosso ambiente de desenvolvimento no Azure. O motivo para o endereço localhost é porque `mywebapi` não definiu quaisquer pontos finais públicos e apenas pode ser acedido a partir da instância do Kubernetes. Para sua comodidade e para facilitar a interação com o serviço privado da sua máquina local, o Azure Dev Spaces cria um túnel SSH temporário para o contentor em execução no Azure.
 1. Quando `mywebapi` estiver pronto, abra o browser no endereço localhost. Deverá ver uma resposta a partir do serviço `mywebapi` ("Hello from mywebapi").
 
 
@@ -60,7 +60,7 @@ Vamos agora escrever código em `webfrontend` que efetua um pedido a `mywebapi`.
        });
     });
     ```
- 4. *Remova* a linha `server.close()` no final de `server.js`
+   1. *Remova* a linha `server.close()` no final de `server.js`
 
 O exemplo de código anterior reencaminha o cabeçalho `azds-route-as` do pedido a receber para o pedido a enviar. Verá posteriormente como isto ajuda as equipas de desenvolvimento de colaboração.
 

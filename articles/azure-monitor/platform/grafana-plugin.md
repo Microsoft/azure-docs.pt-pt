@@ -9,12 +9,12 @@ ms.date: 11/06/2017
 ms.topic: conceptual
 ms.service: azure-monitor
 ms.subservice: ''
-ms.openlocfilehash: f592cfdba940b95a9935c6b68f3294233d9fbf15
-ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
+ms.openlocfilehash: 64a7a52d39fcac87bdc49b9d36e80d453557bc5b
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56888496"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58002268"
 ---
 # <a name="monitor-your-azure-services-in-grafana"></a>Monitorizar os serviços do Azure no Grafana
 Agora pode monitorizar serviços do Azure e aplicações a partir [Grafana](https://grafana.com/) utilizando o [Plug-in de origem de dados do Azure Monitor](https://grafana.com/plugins/grafana-azure-monitor-datasource). O plug-in reúne dados de desempenho de aplicativo recolhidos pelo Monitor do Azure, incluindo vários registos e métricas. Em seguida, pode exibir esses dados no seu dashboard da Grafana.
@@ -77,9 +77,9 @@ Depois de iniciado sessão com êxito, deverá ver que o plug-in da origem de da
 
         > [!NOTE]
         > Alguns campos de origem de dados são nomeados de forma diferente do que as definições do Azure correlacionadas:
-        >     * ID do inquilino é o ID de diretório do Azure
-        >     * ID de cliente é o ID de aplicação do Active Directory do Azure
-        >     * Segredo do cliente é o valor da chave de aplicação do Active Directory do Azure
+        > * ID do inquilino é o ID de diretório do Azure
+        > * ID de cliente é o ID de aplicação do Active Directory do Azure
+        > * Segredo do cliente é o valor da chave de aplicação do Active Directory do Azure
 
 5. Se utilizar o Application Insights, também pode incluir o API do Application Insights e o ID de aplicação para recolher métricas do Application Insights com base. Para obter mais informações, consulte [obter a sua chave de API e o ID da aplicação](https://dev.applicationinsights.io/documentation/Authorization/API-key-and-App-ID).
 
@@ -96,16 +96,16 @@ Depois de iniciado sessão com êxito, deverá ver que o plug-in da origem de da
     ![O Grafana novo gráfico](./media/grafana-plugin/grafana-new-graph-dark.png)
 
 4. Selecione a origem de dados do Azure Monitor que configurou.
-    * Azure Monitor a recolher métricas – selecione **do Azure Monitor** na lista pendente de serviço. Uma lista de seletores é exibida, onde pode selecionar os recursos e a métrica a monitorizar neste gráfico. Para recolher métricas de uma VM, utilize o espaço de nomes **Microsoft.Compute/VirtualMachines**. Assim que tiver selecionado as VMs e as métricas, pode começar a ver seus dados no dashboard.
-    ![O Grafana gráfico config para o Azure Monitor](./media/grafana-plugin/grafana-graph-config-for-azure-monitor-dark.png)
-    * Azure Monitor a recolher registos de dados – selecione **do Azure Log Analytics** na lista pendente de serviço. Selecione a área de trabalho que gostaria de consultar e definir o texto da consulta. Pode copiar, aqui, qualquer consulta de registo já tem ou crie um novo. À medida que escreve na sua consulta, o IntelliSense aparece e opções de preenchimento automático de sugerir. Selecione o tipo de visualização **série de tempo** **tabela**, e execute a consulta.
+   * Azure Monitor a recolher métricas – selecione **do Azure Monitor** na lista pendente de serviço. Uma lista de seletores é exibida, onde pode selecionar os recursos e a métrica a monitorizar neste gráfico. Para recolher métricas de uma VM, utilize o espaço de nomes **Microsoft.Compute/VirtualMachines**. Assim que tiver selecionado as VMs e as métricas, pode começar a ver seus dados no dashboard.
+     ![O Grafana gráfico config para o Azure Monitor](./media/grafana-plugin/grafana-graph-config-for-azure-monitor-dark.png)
+   * Azure Monitor a recolher registos de dados – selecione **do Azure Log Analytics** na lista pendente de serviço. Selecione a área de trabalho que gostaria de consultar e definir o texto da consulta. Pode copiar, aqui, qualquer consulta de registo já tem ou crie um novo. À medida que escreve na sua consulta, o IntelliSense aparece e opções de preenchimento automático de sugerir. Selecione o tipo de visualização **série de tempo** **tabela**, e execute a consulta.
     
-    > [!NOTE]
-    >
-    > A consulta predefinida fornecida com o plug-in utiliza duas macros: "__interval $__timeFilter() e $. 
-    > Essas macros permitem o Grafana calcular dinamicamente o intervalo de tempo e o intervalo de tempo, quando aplica zoom parte de um gráfico. Pode remover essas macros e utilizar um filtro de hora padrão, como *TimeGenerated > há (1H)*, mas isso significa que o gráfico não suporte o zoom na funcionalidade.
+     > [!NOTE]
+     >
+     > A consulta predefinida fornecida com o plug-in utiliza duas macros: "__interval $__timeFilter() e $. 
+     > Essas macros permitem o Grafana calcular dinamicamente o intervalo de tempo e o intervalo de tempo, quando aplica zoom parte de um gráfico. Pode remover essas macros e utilizar um filtro de hora padrão, como *TimeGenerated > há (1H)*, mas isso significa que o gráfico não suporte o zoom na funcionalidade.
     
-    ![O Grafana gráfico config para o Azure Log Analytics](./media/grafana-plugin/grafana-graph-config-for-azure-log-analytics-dark.png)
+     ![O Grafana gráfico config para o Azure Log Analytics](./media/grafana-plugin/grafana-graph-config-for-azure-log-analytics-dark.png)
 
 5. Segue-se um dashboard simple com dois gráficos. Um no lado esquerdo mostra a percentagem de CPU de duas VMs. O gráfico à direita mostra as transações numa conta de armazenamento do Azure, dividida por tipo de transação de API.
     ![O Grafana dois gráficos exemplo](media/grafana-plugin/grafana6.png)

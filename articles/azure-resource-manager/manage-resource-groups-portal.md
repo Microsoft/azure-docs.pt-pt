@@ -11,12 +11,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/11/2019
 ms.author: jgao
-ms.openlocfilehash: 2f31809a0d80079730966e2ecdb017b68563949e
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.openlocfilehash: cbbc710c9408c84c601d7b9eb9560641b5313a05
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56825109"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58090938"
 ---
 # <a name="manage-azure-resource-manager-resource-groups-by-using-the-azure-portal"></a>Gerir grupos de recursos do Azure Resource Manager com o portal do Azure
 
@@ -46,11 +46,11 @@ O grupo de recursos armazena metadados sobre os recursos. Quando especificar uma
 3. Selecione **Adicionar**.
 4. Introduza os seguintes valores:
 
-    - **Subscrição**: Selecione a sua subscrição do Azure. 
-    - **Grupo de recursos**: Introduza um nome de grupo de recursos novo. 
-    - **Região**: Selecione uma localização do Azure, como **E.U.A. Central**.
+   - **Subscrição**: Selecione a sua subscrição do Azure. 
+   - **Grupo de recursos**: Introduza um nome de grupo de recursos novo. 
+   - **Região**: Selecione uma localização do Azure, como **E.U.A. Central**.
 
-    ![Criar grupo de recursos](./media/manage-resource-groups-portal/manage-resource-groups-create-group.png)
+     ![Criar grupo de recursos](./media/manage-resource-groups-portal/manage-resource-groups-create-group.png)
 5. Selecione **rever + criar**
 6. Selecione **Criar**. Demora alguns segundos para criar um grupo de recursos.
 7. Selecione **atualizar** no menu superior para atualizar a lista do grupo de recursos e, em seguida, selecione o grupo de recursos recentemente criado para abri-lo. Ou selecione **notificação**(o ícone de sino) na parte superior e, em seguida, selecione **vá para o grupo de recursos** para abrir o grupo de recursos recém-criado
@@ -130,14 +130,14 @@ Este método exporta os modelos para determinadas implementações. Se tiver alt
 3. Selecione uma das implementações da lista.
 4. No painel esquerdo, selecione **modelo**. O Resource Manager obtém os seguintes seis ficheiros para si:
 
-    - **Modelo** - O modelo que define a infraestrutura para a sua solução. Quando criou a conta do Storage através do portal, o Resource Manager utilizou um modelo para a implementar e guardou esse modelo para consulta futura.
-    - **Parâmetros** - Um ficheiro de parâmetros que pode utilizar para transmitir valores durante a implementação. Contém os valores que indicou durante a primeira implementação. Pode alterar qualquer um destes valores quando reimplementar o modelo.
-    - **CLI** -ficheiro de script de uma CLI do Azure que pode utilizar para implementar o modelo.
-    - **PowerShell** - Um ficheiro de script do Azure PowerShell que pode utilizar para implementar o modelo.
-    - **.NET** - Uma classe .NET que pode utilizar para implementar o modelo.
-    - **.NET** - Uma classe Ruby que pode utilizar para implementar o modelo.
+   - **Modelo** - O modelo que define a infraestrutura para a sua solução. Quando criou a conta do Storage através do portal, o Resource Manager utilizou um modelo para a implementar e guardou esse modelo para consulta futura.
+   - **Parâmetros** - Um ficheiro de parâmetros que pode utilizar para transmitir valores durante a implementação. Contém os valores que indicou durante a primeira implementação. Pode alterar qualquer um destes valores quando reimplementar o modelo.
+   - **CLI** -ficheiro de script de uma CLI do Azure que pode utilizar para implementar o modelo.
+   - **PowerShell** - Um ficheiro de script do Azure PowerShell que pode utilizar para implementar o modelo.
+   - **.NET** - Uma classe .NET que pode utilizar para implementar o modelo.
+   - **.NET** - Uma classe Ruby que pode utilizar para implementar o modelo.
 
-    Por predefinição, o portal apresenta o modelo.
+     Por predefinição, o portal apresenta o modelo.
 
 5. Selecione **transferir** para exportar um modelo para o computador local.
 
@@ -151,14 +151,14 @@ Se tiver alterado os recursos do portal ou adicionar/remover recursos em várias
 1. Abra o grupo de recursos que pretende eliminar.  Ver [abrir grupos de recursos](#open-resource-groups).
 2. No painel esquerdo, selecione **script de automação**. O Resource Manager obtém os seguintes seis ficheiros para si:
 
-    - **Modelo** - O modelo que define a infraestrutura para a sua solução. Quando criou a conta do Storage através do portal, o Resource Manager utilizou um modelo para a implementar e guardou esse modelo para consulta futura.
-    - **Parâmetros** - Um ficheiro de parâmetros que pode utilizar para transmitir valores durante a implementação. Contém os valores que indicou durante a primeira implementação. Pode alterar qualquer um destes valores quando reimplementar o modelo.
-    - **CLI** -ficheiro de script de uma CLI do Azure que pode utilizar para implementar o modelo.
-    - **PowerShell** - Um ficheiro de script do Azure PowerShell que pode utilizar para implementar o modelo.
-    - **.NET** - Uma classe .NET que pode utilizar para implementar o modelo.
-    - **.NET** - Uma classe Ruby que pode utilizar para implementar o modelo.
+   - **Modelo** - O modelo que define a infraestrutura para a sua solução. Quando criou a conta do Storage através do portal, o Resource Manager utilizou um modelo para a implementar e guardou esse modelo para consulta futura.
+   - **Parâmetros** - Um ficheiro de parâmetros que pode utilizar para transmitir valores durante a implementação. Contém os valores que indicou durante a primeira implementação. Pode alterar qualquer um destes valores quando reimplementar o modelo.
+   - **CLI** -ficheiro de script de uma CLI do Azure que pode utilizar para implementar o modelo.
+   - **PowerShell** - Um ficheiro de script do Azure PowerShell que pode utilizar para implementar o modelo.
+   - **.NET** - Uma classe .NET que pode utilizar para implementar o modelo.
+   - **.NET** - Uma classe Ruby que pode utilizar para implementar o modelo.
 
-    Por predefinição, o portal apresenta o modelo.
+     Por predefinição, o portal apresenta o modelo.
 3. Selecione **transferir** para exportar um modelo para o computador local.
 
 Alguns modelos exportados tem algumas edições para que poderem ser utilizados. Para saber como desenvolver modelos, veja a [tutoriais passo a passo](/azure/azure-resource-manager/).

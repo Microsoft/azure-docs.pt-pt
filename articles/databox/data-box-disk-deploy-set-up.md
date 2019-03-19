@@ -9,14 +9,14 @@ ms.topic: tutorial
 ms.date: 10/31/2018
 ms.author: alkohli
 Customer intent: As an IT admin, I need to be able to order Data Box Disk to upload on-premises data from my server onto Azure.
-ms.openlocfilehash: f2e18db7bd1766901ffb36cc74172f4c8414135c
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 4c2f2ebca40ee3e4b5a9a32767783694af52944b
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51232895"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58106649"
 ---
-# <a name="tutorial-unpack-connect-and-unlock-azure-data-box-disk"></a>Tutorial: Descompactar, ligar e desbloquear o Disco do Azure Data Box
+# <a name="tutorial-unpack-connect-and-unlock-azure-data-box-disk"></a>Tutorial: Descompactar, ligar e desbloquear o disco do Azure Data Box
 
 Este tutorial descreve como descompactar, ligar e desbloquear o seu Disco do Azure Data Box.
 
@@ -32,7 +32,7 @@ Neste tutorial, ficará a saber como:
 
 Antes de começar, certifique-se de que:
 
-1. Concluiu o [Tutorial: Encomendar o Disco do Azure Data Box](data-box-disk-deploy-ordered.md).
+1. Concluiu o [Tutorial: Solicite o disco do Azure Data Box](data-box-disk-deploy-ordered.md).
 2. Recebeu os seus discos e o estado da tarefa no portal foi atualizado para **Entregue**.
 3. Possui um computador cliente no qual pode instalar a ferramenta de desbloqueio do Data Box Disk. O computador cliente tem de:
     - Executar um [sistema operativo suportado](data-box-disk-system-requirements.md#supported-operating-systems-for-clients).
@@ -70,7 +70,7 @@ Dependendo se está ligado a um cliente Windows ou Linux, os passos para desbloq
 Siga os seguintes passos para ligar e desbloquear os discos.
      
 1. No portal do Azure, aceda a **Geral > Detalhes do dispositivo**. 
-2. Transfira o conjunto de ferramentas do Data Box Disk correspondente ao cliente Windows. Este conjunto de ferramentas contém três ferramentas: ferramenta de Desbloqueio do Data Box Disk, a ferramenta de Validação do Data Box Disk e a ferramenta de Cópia Dividida do Data Box Disk. 
+2. Transfira o conjunto de ferramentas do Data Box Disk correspondente ao cliente Windows. Este conjunto de ferramentas contém 3 ferramentas: Ferramenta de caixa desbloquear de disco de dados, a ferramenta de validação de disco de caixa de dados e ferramenta de cópia de divisão de disco de caixa de dados. 
 
     Neste procedimento, utilizará apenas a ferramenta de Desbloqueio do Data Box Disk. As outras duas ferramentas serão utilizadas posteriormente.
 
@@ -170,39 +170,39 @@ Siga os seguintes passos para ligar e desbloquear os discos.
     
  
 5. Escreva `y` para continuar a instalação. Os pacotes que o script instala são: 
-    - **epel-release** - repositório que contém os três pacotes seguintes. 
-    - **dislocker and fuse-dislocker** - este utilitário ajuda a desencriptar discos encriptados por BitLocker. 
-    - **ntfs-3g** - pacote que ajuda a montar volumes NTFS. 
+   - **epel-release** - repositório que contém os três pacotes seguintes. 
+   - **dislocker and fuse-dislocker** - este utilitário ajuda a desencriptar discos encriptados por BitLocker. 
+   - **ntfs-3g** - pacote que ajuda a montar volumes NTFS. 
  
-    Assim que os pacotes forem instalados com êxito, o terminal irá apresentar uma notificação para esse efeito.     
-    ```
-    Dependency Installed: compat-readline5.x86 64 0:5.2-17.I.el6 dislocker-libs.x86 64 0:0.7.1-8.el6 mbedtls.x86 64 0:2.7.4-l.el6        ruby.x86 64 0:1.8.7.374-5.el6 
-    ruby-libs.x86 64 0:1.8.7.374-5.el6 
-    Complete! 
-    Loaded plugins: fastestmirror, refresh-packagekit, security 
-    Setting up Remove Process 
-    Resolving Dependencies 
-    --> Running transaction check 
-    ---> Package epel-release.noarch 0:6-8 will be erased --> Finished Dependency Resolution 
-    Dependencies Resolved 
-    Package        Architecture        Version        Repository        Size 
-    Removing:  epel-release        noarch         6-8        @extras        22 k 
-    Transaction Summary                                 
-    Remove        1 Package(s) 
-    Installed size: 22 k 
-    Downloading Packages: 
-    Running rpmcheckdebug 
-    Running Transaction Test 
-    Transaction Test Succeeded 
-    Running Transaction 
-    Erasing : epel-release-6-8.noarch 
-    Verifying : epel-release-6-8.noarch 
-    Removed: 
-    epel-release.noarch 0:6-8 
-    Complete! 
-    Dislocker is installed by the script. 
-    OpenSSL is already installed.
-    ```
+     Assim que os pacotes forem instalados com êxito, o terminal irá apresentar uma notificação para esse efeito.     
+     ```
+     Dependency Installed: compat-readline5.x86 64 0:5.2-17.I.el6 dislocker-libs.x86 64 0:0.7.1-8.el6 mbedtls.x86 64 0:2.7.4-l.el6        ruby.x86 64 0:1.8.7.374-5.el6 
+     ruby-libs.x86 64 0:1.8.7.374-5.el6 
+     Complete! 
+     Loaded plugins: fastestmirror, refresh-packagekit, security 
+     Setting up Remove Process 
+     Resolving Dependencies 
+     --> Running transaction check 
+     ---> Package epel-release.noarch 0:6-8 will be erased --> Finished Dependency Resolution 
+     Dependencies Resolved 
+     Package        Architecture        Version        Repository        Size 
+     Removing:  epel-release        noarch         6-8        @extras        22 k 
+     Transaction Summary                                 
+     Remove        1 Package(s) 
+     Installed size: 22 k 
+     Downloading Packages: 
+     Running rpmcheckdebug 
+     Running Transaction Test 
+     Transaction Test Succeeded 
+     Running Transaction 
+     Erasing : epel-release-6-8.noarch 
+     Verifying : epel-release-6-8.noarch 
+     Removed: 
+     epel-release.noarch 0:6-8 
+     Complete! 
+     Dislocker is installed by the script. 
+     OpenSSL is already installed.
+     ```
 
 6. Execute a ferramenta de Desbloqueio do Data Box Disk. Forneça a chave de acesso do portal do Azure que obteve em [Ligar a discos e obter a chave de acesso](#Connect-to-disks-and-get-the-passkey). Opcionalmente, especifique uma lista de volumes encriptados por BitLocker a desbloquear. A chave de acesso e a lista de volumes devem ser especificadas entre aspas. 
 
@@ -254,7 +254,7 @@ Siga os seguintes passos para ligar e desbloquear os discos.
 
     ![Conteúdos do Disco do Data Box](media/data-box-disk-deploy-set-up/data-box-disk-content-linux.png)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Neste tutorial, ficou a conhecer tópicos do Azure Data Box Disk, como:
 

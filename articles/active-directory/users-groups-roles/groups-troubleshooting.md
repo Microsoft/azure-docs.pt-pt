@@ -13,12 +13,12 @@ ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2a1210360690384b07e6d88007ccd118731ecce0
-ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
+ms.openlocfilehash: 0594d99874ea9bb83673013a9a03272edcd8ce0b
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57405441"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57897678"
 ---
 # <a name="troubleshoot-and-resolve-groups-issues"></a>Resolver problemas de grupos
 
@@ -28,15 +28,15 @@ ms.locfileid: "57405441"
 Para desativar a criação do grupo de usuários não-administradores no Powershell:
 1. Certifique-se de que os usuários não-administradores têm permissão para criar grupos:
    
-  ```
-  PS C:\> Get-MsolCompanyInformation | fl UsersPermissionToCreateGroupsEnabled
-  ```
+   ```
+   PS C:\> Get-MsolCompanyInformation | fl UsersPermissionToCreateGroupsEnabled
+   ```
   
 2. Se ele retorna `UsersPermissionToCreateGroupsEnabled : True`, em seguida, os usuários não-administradores podem criar grupos. Para desativar esta funcionalidade:
   
-  ``` 
-  Set-MsolCompanySettings -UsersPermissionToCreateGroupsEnabled $False
-  ```
+   ``` 
+   Set-MsolCompanySettings -UsersPermissionToCreateGroupsEnabled $False
+   ```
 
 <br/>**Recebi um grupos máximo permitido de erro ao tentar criar um grupo dinâmico no Powershell**<br/>
 Se receber uma mensagem no Powershell indicando _políticas de grupo dinâmico permitidas máx contagem de grupos atingida_, isso significa que atingiu o limite máximo para grupos dinâmicos no seu inquilino. O número máximo de grupos dinâmicos por inquilino é de 5000.
@@ -47,7 +47,7 @@ Para criar novos grupos dinâmicos, terá primeiro de eliminar alguns grupos din
 
 **Configurei uma regra num grupo, mas nenhuma das associações for atualizadas no grupo**<br/>
 1. Verifique se os valores para o utilizador ou atributos de dispositivos na regra. Certifique-se de que existem utilizadores que satisfazem a regra. Para dispositivos, verifique as propriedades do dispositivo para garantir que todos os atributos sincronizados contêm os valores esperados.<br/>
-2. Verifique a associação do Estado de processamento para confirmar se foi concluída. Pode verificar o [estado de processamento de associação](\groups-create-rule.md#check-processing-status-for-a-rule) e a última data de atualização no **descrição geral** página para o grupo.
+2. Verifique a associação do Estado de processamento para confirmar se foi concluída. Pode verificar o [estado de processamento de associação](groups-create-rule.md#check-processing-status-for-a-rule) e a última data de atualização no **descrição geral** página para o grupo.
 
 Se estiver tudo correto, aguarde algum tempo para o grupo ser preenchido. Dependendo do tamanho do seu inquilino, o grupo pode demorar até 24 horas a ser preenchido pela primeira vez, ou após uma alteração de regra.
 

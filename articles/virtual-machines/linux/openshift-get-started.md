@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 03/01/2019
 ms.author: haroldw
-ms.openlocfilehash: 826377f7ae4803818fab22e333f7b9b89caf67cb
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 826085df8d928cab0a05527be8c464af5f4e9180
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57444893"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58002510"
 ---
 # <a name="openshift-in-azure"></a>OpenShift no Azure
 
@@ -50,7 +50,7 @@ Uma vez que os clientes "proprietário" a plataforma de toda, eles podem instal�
 
 ## <a name="openshift-on-azure"></a>OpenShift no Azure
 
-OpenShift no Azure é uma oferta completamente gerida do OpenShift em execução no Azure. Este serviço em conjunto, é gerido e suportado pela Microsoft e a Red Hat. O cluster irá implementar para a subscrição do cliente do Azure. O serviço está atualmente em pré-visualização privada e está agendado para ser GA à volta do final do Q1 CY2019. Para clientes interessados em participar na pré-visualização privada, preencha os [formulário de nomeação](http://aka.ms/openshiftazureinterest).  Irão ser fornecidas mais informações, como a oferta se aproximar GA.
+OpenShift no Azure é uma oferta completamente gerida do OpenShift em execução no Azure. Este serviço em conjunto, é gerido e suportado pela Microsoft e a Red Hat. O cluster irá implementar para a subscrição do cliente do Azure. O serviço está atualmente em pré-visualização privada e está agendado para ser GA à volta do final do Q1 CY2019. Para clientes interessados em participar na pré-visualização privada, preencha os [formulário de nomeação](https://aka.ms/openshiftazureinterest).  Irão ser fornecidas mais informações, como a oferta se aproximar GA.
 
 ## <a name="okd-formerly-openshift-origin"></a>OKD (anteriormente conhecido como o OpenShift Origin)
 

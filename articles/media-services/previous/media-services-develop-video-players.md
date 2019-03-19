@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/09/2019
 ms.author: juliako
-ms.openlocfilehash: 6c57c8ad85ef83e8739bc2bf35b3bd0dc6d5a902
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: ba8d9fd54b8b29a3e58f170402a64f5899fec002
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56004847"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57880692"
 ---
 # <a name="develop-video-player-applications"></a>Desenvolver aplicações de leitor de vídeo
 ## <a name="overview"></a>Descrição geral
@@ -44,10 +44,10 @@ Para obter mais informações:
 ## <a name="other-tools-for-creating-player-applications"></a>Outras ferramentas para a criação de aplicações de leitor
 Também pode utilizar qualquer um dos SDKs seguintes:
 
-* [Do cliente Smooth Streaming SDK](http://www.iis.net/downloads/microsoft/smooth-streaming) 
+* [Do cliente Smooth Streaming SDK](https://www.iis.net/downloads/microsoft/smooth-streaming) 
 * [Aplicação de Windows Store de transmissão em fluxo uniforme](media-services-build-smooth-streaming-apps.md)
-* [Plataforma de multimédia do Microsoft: Arquitetura do leitor](http://playerframework.codeplex.com/) 
-* [HTML5 Documentação Player Framework](http://playerframework.codeplex.com/wikipage?title=HTML5%20Player&referringTitle=Documentation) 
+* [Plataforma de multimédia do Microsoft: Arquitetura do leitor](https://playerframework.codeplex.com/) 
+* [HTML5 Documentação Player Framework](https://playerframework.codeplex.com/wikipage?title=HTML5%20Player&referringTitle=Documentation) 
 * [Smooth Streaming Plug-in para OSMF da Microsoft](https://www.microsoft.com/download/details.aspx?id=36057) 
 * [Licenciamento Microsoft® Smooth Streaming cliente Kit de migração](https://aka.ms/sspk) 
 * [Desenvolvimento de aplicativos de vídeo do XBOX](https://xbox.create.msdn.com/) 

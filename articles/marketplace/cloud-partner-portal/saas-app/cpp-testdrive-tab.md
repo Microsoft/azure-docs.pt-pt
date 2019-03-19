@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 12/04/2018
 ms.author: pbutlerm
-ms.openlocfilehash: 0fa3638ef47fb8cb1d0237a2ab9530ab76d316dc
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: e97e79ef3077431d8fc627cd634a67b0a01b6f8e
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57449273"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57993100"
 ---
 # <a name="saas-application-test-drive-tab"></a>Guia de Test-Drive do aplicativo de SaaS
 
@@ -47,6 +47,7 @@ Os passos de publicação principais para adicionar um teste de unidade são:
 ## <a name="setting-up-a-test-drive"></a>Configuração de uma versão de teste
 
 Existem quatro tipos diferentes de versões de teste disponíveis, cada um com base no tipo de produto e marketplace que estiver num cenário.
+
 |  **Tipo**          |  **Descrição**  |  **Instruções de configuração**  |
 |  ---------------   |  ---------------  |  ---------------  |
 |     Azure Resource Manager               |    Uma versão de teste de Gestor de recursos do Azure é um modelo de implementação que contém todos os recursos do Azure que compõem uma solução que está a ser criada pelo editor. Produtos de acordo com esse tipo de versão de teste são aqueles que utilizam apenas os recursos do Azure.               |       [Versão de Teste do Azure Resource Manager](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/test-drive/azure-resource-manager-test-drive)            |

@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 06/03/2018
 ms.author: mbullwin
-ms.openlocfilehash: 24132fdb23ff89045f2b497327997d95e4ceecac
-ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
+ms.openlocfilehash: 7f3b8101b633c977201b6c413ad12e4bbe55e9a7
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54054848"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58011791"
 ---
 # <a name="application-insights-for-aspnet-core"></a>Application Insights para Núcleo do ASP.NET
 
@@ -88,21 +88,21 @@ Selecione **View** > **Team Explorer** (Ctrl +\, Ctrl + M) > **projeto** > **alt
 
 - Um novo ficheiro é criado:
 
-  -  _ConnectedService.json_
+  - _ConnectedService.json_
 
     ```json
     {
-      "ProviderId": "Microsoft.ApplicationInsights.ConnectedService.ConnectedServiceProvider",
-      "Version": "8.12.10405.1",
-      "GettingStartedDocument": {
-        "Uri": "https://go.microsoft.com/fwlink/?LinkID=798432"
-      }
+     "ProviderId": "Microsoft.ApplicationInsights.ConnectedService.ConnectedServiceProvider",
+     "Version": "8.12.10405.1",
+     "GettingStartedDocument": {
+       "Uri": "https://go.microsoft.com/fwlink/?LinkID=798432"
+     }
     }
     ```
 
 - Três arquivos são modificados (comentários adicionais adicionados para realçar as alterações):
 
-  - _appSettings_:
+  - _appsettings.json_:
 
     ```json
     {
@@ -180,6 +180,10 @@ Selecione **View** > **Team Explorer** (Ctrl +\, Ctrl + M) > **projeto** > **alt
           }
       }
       ```
+
+## <a name="send-ilogger-logs-to-application-insights"></a>Enviar registos de ILogger para o Application Insights
+
+O Application Insights suporta captura os registos enviados por ILogger. Configurar o Check-out de Registro em log os exemplos de código [aqui](https://docs.microsoft.com/azure/azure-monitor/app/ilogger).
 
 ## <a name="synthetic-transactions-with-powershell"></a>Transações sintéticas com o PowerShell
 

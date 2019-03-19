@@ -17,12 +17,12 @@ ms.workload: infrastructure-services
 ms.date: 02/03/2019
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 486044656b1c288b1658d10a162e1f9fa071172a
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.openlocfilehash: eac9f80e4b57c725de3bc05f55e09d49fb8e2ee5
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56817121"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58004601"
 ---
 [1928533]:https://launchpad.support.sap.com/#/notes/1928533
 [1999351]:https://launchpad.support.sap.com/#/notes/1999351
@@ -48,7 +48,7 @@ ms.locfileid: "56817121"
 
 [deployment-guide]:deployment-guide.md
 
-[dr-guide-classic]:http://go.microsoft.com/fwlink/?LinkID=521971
+[dr-guide-classic]:https://go.microsoft.com/fwlink/?LinkID=521971
 
 [getting-started]:get-started.md
 
@@ -403,26 +403,31 @@ Com o botão direito a **saoglobal2** grupo de cluster do SOFS e, em seguida, se
 _**Figura 6:** Iniciar o assistente "Adicionar a partilha de ficheiros"_
 
 <br>
+
 ![Figura 7: "Selecionar partilha SMB – rápida"][sap-ha-guide-figure-8018]
 
 _**Figura 7:** Selecione "Partilha SMB – rápida"_
 
 <br>
+
 ![Figura 8: Selecione "sapglobalhost2" e especifique o caminho no Volume2][sap-ha-guide-figure-8019]
 
 _**Figura 8:** Selecione "sapglobalhost2" e especifique o caminho no Volume2_
 
 <br>
+
 ![Figura 9: Definir o nome da partilha de ficheiros para "/sapmnt"][sap-ha-guide-figure-8020]
 
 _**Figura 9:** Definir o nome da partilha de ficheiros para "/sapmnt"_
 
 <br>
+
 ![Figura 10: Desativar todas as definições][sap-ha-guide-figure-8021]
 
 _**Figura 10:** Desativar todas as definições_
 
 <br>
+
 Atribua *controlo total* permissões em ficheiros e /sapmnt partilham para:
 * O **SAP_\<SID > _GlobalAdmin** grupo de utilizadores de domínio
 * Objeto de computador de nós de cluster do ASCS/SCS **ascs 1$** e **ascs-2$**
@@ -432,16 +437,19 @@ Atribua *controlo total* permissões em ficheiros e /sapmnt partilham para:
 _**Figura 11:** Atribuir "Controle total" para contas de grupo e de computador do utilizador_
 
 <br>
+
 ![Figura 12: Selecione "Criar"][sap-ha-guide-figure-8023]
 
 _**Figura 12:** Selecione "Criar"_
 
 <br>
+
 ![Figura 13: O segundo /sapmnt vinculado ao anfitrião de sapglobal2 e Volume2 é criado][sap-ha-guide-figure-8024]
 
 _**Figura 13:** O segundo /sapmnt vinculado ao anfitrião de sapglobal2 e Volume2 é criado_
 
 <br>
+
 ## <a name="install-sap-netweaver-multi-sid"></a>Instalar múltiplos SID SAP NetWeaver
 
 ### <a name="install-sap-sid2-ascsscs-and-ers-instances"></a>Instalar o SAP \<SID2 > instâncias ASCS/SCS e ERS

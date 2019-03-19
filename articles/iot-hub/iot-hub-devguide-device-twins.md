@@ -8,12 +8,12 @@ ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 01/29/2018
-ms.openlocfilehash: 4cbb8e389f403aeb149998acc21956ebce40be78
-ms.sourcegitcommit: 15e9613e9e32288e174241efdb365fa0b12ec2ac
+ms.openlocfilehash: 4ad75a7ba4e2f6060824f3cf1c87a42f8fa32843
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "57011505"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58113151"
 ---
 # <a name="understand-and-use-device-twins-in-iot-hub"></a>Compreender e utilizar dispositivos duplos no IoT Hub
 
@@ -180,44 +180,44 @@ O back-end de solução funciona no dispositivo duplo usando as seguintes opera�
 
 * **Receber notificações de duplo**. Esta operação permite que a solução de back-end ser notificado quando o duplo é modificado. Para fazer isso, sua solução de IoT precisa de criar uma rota e definir a origem de dados igual ao *twinChangeEvents*. Por predefinição, nenhuma dessas rotas existirem previamente, para que não existem notificações de duplo são enviadas. Se a taxa de alteração é demasiado elevada, ou por outros motivos, como falhas internos, o IoT Hub pode enviar apenas uma notificação que contém todas as alterações. Portanto, se seu aplicativo precisar fiável de auditoria e registo de todos os Estados intermediários, deve usar mensagens dispositivo-para-cloud. A mensagem de notificação de duplo inclui propriedades e o corpo.
 
-   - Propriedades
+  - Propriedades
 
-   | Name | Value |
-   | --- | --- |
-   $content-type | application/json |
-   $iothub-enqueuedtime |  Tempo quando a notificação foi enviada |
-   $iothub-message-source | twinChangeEvents |
-   $content-encoding | utf-8 |
-   deviceId | ID do dispositivo |
-   hubName | Nome do IoT Hub |
-   operationTimestamp | [ISO8601](https://en.wikipedia.org/wiki/ISO_8601) timestamp da operação |
-   iothub-message-schema | deviceLifecycleNotification |
-   opType | "replaceTwin" ou "updateTwin" |
+    | Name | Value |
+    | --- | --- |
+    $content-type | application/json |
+    $iothub-enqueuedtime |  Tempo quando a notificação foi enviada |
+    $iothub-message-source | twinChangeEvents |
+    $content-encoding | utf-8 |
+    deviceId | ID do dispositivo |
+    hubName | Nome do IoT Hub |
+    operationTimestamp | [ISO8601](https://en.wikipedia.org/wiki/ISO_8601) timestamp da operação |
+    iothub-message-schema | deviceLifecycleNotification |
+    opType | "replaceTwin" ou "updateTwin" |
 
-   Propriedades do sistema de mensagens têm o prefixo a `$` símbolo.
+    Propriedades do sistema de mensagens têm o prefixo a `$` símbolo.
 
-   - Corpo
+  - Corpo
         
-   Esta secção inclui todas as alterações de duplo em formato JSON. Utiliza o mesmo formato como um patch, com a diferença que ele pode conter todas as seções de duplo: etiquetas, properties.reported, properties.desired e que contém os elementos de "$metadata". Por exemplo,
+    Esta secção inclui todas as alterações de duplo em formato JSON. Utiliza o mesmo formato como um patch, com a diferença que ele pode conter todas as seções de duplo: etiquetas, properties.reported, properties.desired e que contém os elementos de "$metadata". Por exemplo,
 
-   ```json
-   {
-       "properties": {
-           "desired": {
-               "$metadata": {
-                   "$lastUpdated": "2016-02-30T16:24:48.789Z"
-               },
-               "$version": 1
-           },
-           "reported": {
-               "$metadata": {
-                   "$lastUpdated": "2016-02-30T16:24:48.789Z"
-               },
-               "$version": 1
-           }
-       }
-   }
-   ```
+    ```json
+    {
+      "properties": {
+          "desired": {
+              "$metadata": {
+                  "$lastUpdated": "2016-02-30T16:24:48.789Z"
+              },
+              "$version": 1
+          },
+          "reported": {
+              "$metadata": {
+                  "$lastUpdated": "2016-02-30T16:24:48.789Z"
+              },
+              "$version": 1
+          }
+      }
+    }
+    ```
 
 Suportam a todas as operações anteriores [a simultaneidade otimista](iot-hub-devguide-device-twins.md#optimistic-concurrency) e requerem a **ServiceConnect** permissão, conforme definido na [controlar o acesso ao IoT Hub](iot-hub-devguide-security.md).
 

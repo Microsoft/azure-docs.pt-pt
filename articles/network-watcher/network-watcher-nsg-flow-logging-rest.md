@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: jdial
-ms.openlocfilehash: 565b5bcce114ab5ebd2169ece11a958013cf2ee5
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
+ms.openlocfilehash: eadff8e2db6e5b8ea19b041614e0d1f3908da8a2
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56338908"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57876889"
 ---
 # <a name="configuring-network-security-group-flow-logs-using-rest-api"></a>Registos de fluxo de configurar o grupo de segurança de rede com a REST API
 
@@ -209,7 +209,7 @@ Segue-se um exemplo da resposta devolvida:
 
 ## <a name="download-a-flow-log"></a>Transferir o registo de um fluxo
 
-A localização de armazenamento de um registo de fluxo é definida durante a criação. Uma ferramenta conveniente para aceder a estes registos de fluxo guardados para uma conta de armazenamento é o Explorador de armazenamento do Microsoft Azure, que pode ser baixado aqui:  http://storageexplorer.com/
+A localização de armazenamento de um registo de fluxo é definida durante a criação. Uma ferramenta conveniente para aceder a estes registos de fluxo guardados para uma conta de armazenamento é o Explorador de armazenamento do Microsoft Azure, que pode ser baixado aqui:  https://storageexplorer.com/
 
 Se for especificada uma conta de armazenamento, os arquivos de captura de pacotes são guardados para uma conta de armazenamento na seguinte localização:
 

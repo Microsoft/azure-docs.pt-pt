@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: f8c99bd6bc9edb78a7af241f1eee2669c955a040
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: ff73982b706fa2d353be818f5022de8fbfec42fb
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57767316"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58167444"
 ---
 # <a name="set-up-a-device-template-new-ui-design"></a>Configurar um modelo de dispositivo (design de nova interface do Usuário)
 
@@ -44,11 +44,13 @@ Partir deste modelo de dispositivo, pode criar e ligar os dispositivos de ventoi
 
 1. Navegue para o **modelos de dispositivos** página.
 
-2. Para criar um modelo em branco, selecione **+** e, em seguida, introduza um nome, tal como **refrigerador** ao seu novo modelo de dispositivo. Em seguida, selecione **criar**:
+2. Para criar um modelo, comece por selecionar **+ novo**.
 
-   ![Página de detalhes do dispositivo com "Refrigerador" como o nome do modelo](./media/howto-set-up-template/devicedetailspage.png)
+3. Para começar rapidamente a utilizar, escolha entre os modelos previamente criados existentes. Caso contrário, selecione **personalizada**, introduza um nome e clique em **criar** para criar seu próprio modelo do zero.
 
-4. Agora, está na **detalhes do dispositivo** página para um novo modelo de dispositivo. IoT Central cria automaticamente um dispositivo simulado ao criar um modelo de dispositivo. Um dispositivo simulado permite testar o comportamento do seu aplicativo antes de ligar um dispositivo real.
+   ![Biblioteca de modelos de dispositivo](./media/howto-set-up-template/newtemplate.png)
+
+4. Quando cria um modelo personalizado, consulte a **detalhes do dispositivo** página ao seu novo modelo de dispositivo. IoT Central cria automaticamente um dispositivo simulado ao criar um modelo de dispositivo. Um dispositivo simulado permite testar o comportamento do seu aplicativo antes de ligar um dispositivo real.
 
 As secções seguintes descrevem cada um dos separadores no **modelo de dispositivo** página.
 

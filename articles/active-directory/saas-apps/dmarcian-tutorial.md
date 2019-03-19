@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 01/30/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ce82775b65316fc646b45b4749a6b1719ed6e59f
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: c24cbf8ad21c7dd5875a71532a5278e313774e66
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57443152"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57883972"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-dmarcian"></a>Tutorial: Integração do Active Directory do Azure com dmarcian
 
@@ -106,6 +106,7 @@ Para configurar o Azure AD início de sessão único com dmarcian, execute os se
     ![dmarcian domínio e URLs únicas início de sessão em informações](common/idp-intiated.png)
 
     a. Na **identificador** caixa de texto, escreva um URL com o seguinte padrão:
+
     | |
     | -- |
     | `https://us.dmarcian.com/sso/saml/<ACCOUNT_ID>/sp.xml` |
@@ -113,6 +114,7 @@ Para configurar o Azure AD início de sessão único com dmarcian, execute os se
     | `https://dmarcian-ap.com/sso/saml/<ACCOUNT_ID>/sp.xml` |
 
     b. Na **URL de resposta** caixa de texto, escreva um URL com o seguinte padrão:
+
     | |
     |--|
     | `https://us.dmarcian.com/login/<ACCOUNT_ID>/handle/` |
@@ -124,6 +126,7 @@ Para configurar o Azure AD início de sessão único com dmarcian, execute os se
     ![dmarcian domínio e URLs únicas início de sessão em informações](common/metadata-upload-additional-signon.png)
 
     Na **URL de início de sessão** caixa de texto, escreva um URL com o seguinte padrão:
+    
     | |
     |--|
     | `https://us.dmarcian.com/login/<ACCOUNT_ID>` |
@@ -186,7 +189,7 @@ O objetivo desta secção é criar um utilizador de teste no portal do Azure cha
 
     a. Na **Name** , insira **BrittaSimon**.
   
-    b. Na **nome de utilizador** , digite **brittasimon@yourcompanydomain.extension**  
+    b. Na **nome de utilizador** , digite **brittasimon\@yourcompanydomain.extension**  
     Por exemplo, BrittaSimon@contoso.com
 
     c. Selecione **palavra-passe de Show** caixa de verificação e, em seguida, anote o valor que é apresentado na caixa de palavra-passe.
@@ -239,7 +242,7 @@ Para ativar a utilizadores do Azure AD iniciar sessão no dmarcian, tem de ser a
 
     ![O novo utilizador](./media/dmarcian-tutorial/tutorial_dmarcian_save.png)
 
-    a. Na **novo E-Mail do utilizador** caixa de texto, introduza o e-mail do utilizador, como **brittasimon@contoso.com**.
+    a. Na **novo E-Mail do utilizador** caixa de texto, introduza o e-mail do utilizador, como **brittasimon\@contoso.com**.
 
     b. Se pretende conceder direitos de administrador para o utilizador, selecione **fazer com que o utilizador seja um administrador**.
 

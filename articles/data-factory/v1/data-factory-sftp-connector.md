@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 02/12/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: c29cf0604e651902474d85dbd6edd3208e6b5944
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: 55a829f2ed32152d14ef637c8079f7af8c487bea
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55811302"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58097649"
 ---
 # <a name="move-data-from-an-sftp-server-using-azure-data-factory"></a>Mover dados de um servidor SFTP com o Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -50,7 +50,7 @@ Pode criar um pipeline com uma atividade de cópia que move os dados de uma orig
 A tabela seguinte fornece uma descrição para elementos JSON específicos ao serviço ligado de FTP.
 
 | Propriedade | Descrição | Necessário |
-| --- | --- | --- | --- |
+| --- | --- | --- |
 | tipo | A propriedade de tipo deve ser definida como `Sftp`. |Sim |
 | anfitrião | Nome ou endereço IP do servidor SFTP. |Sim |
 | porta |Porta em que o servidor SFTP está a escutar. O valor predefinido é: 21 |Não |
@@ -65,7 +65,7 @@ A tabela seguinte fornece uma descrição para elementos JSON específicos ao se
 Para utilizar a autenticação básica, defina `authenticationType` como `Basic`e especifique as seguintes propriedades além do conector do SFTP genéricas introduzidas na última secção:
 
 | Propriedade | Descrição | Necessário |
-| --- | --- | --- | --- |
+| --- | --- | --- |
 | o nome de utilizador | Utilizador que tenha acesso ao servidor SFTP. |Sim |
 | palavra-passe | Palavra-passe para o utilizador (nome de utilizador). | Sim |
 
@@ -115,7 +115,7 @@ Para utilizar a autenticação básica, defina `authenticationType` como `Basic`
 Para utilizar a autenticação de chave pública SSH, defina `authenticationType` como `SshPublicKey`e especifique as seguintes propriedades além do conector do SFTP genéricas introduzidas na última secção:
 
 | Propriedade | Descrição | Necessário |
-| --- | --- | --- | --- |
+| --- | --- | --- |
 | o nome de utilizador |Utilizador que tenha acesso ao servidor SFTP |Sim |
 | privateKeyPath | Especifique um caminho absoluto para o ficheiro de chave privada pode aceder a esse gateway. | Especifique a `privateKeyPath` ou `privateKeyContent`. <br><br> Aplicam-se apenas quando se copiam dados a partir de um servidor SFTP no local. |
 | privateKeyContent | Uma cadeia de caracteres serializada do conteúdo de chave privada. O Assistente de cópia pode ler o ficheiro de chave privada e extrair o conteúdo da chave privado automaticamente. Se estiver a utilizar qualquer outra ferramenta/SDK, use a propriedade privateKeyPath. | Especifique a `privateKeyPath` ou `privateKeyContent`. |

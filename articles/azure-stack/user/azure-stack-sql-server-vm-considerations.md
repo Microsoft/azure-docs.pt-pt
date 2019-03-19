@@ -16,12 +16,12 @@ ms.date: 01/14/2019
 ms.author: mabrigg
 ms.reviewer: anajod
 ms.lastreviewed: 01/14/2019
-ms.openlocfilehash: d9855f107f9888fbfbcb10a3df849e78c87c0605
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 7981df6aa1e08688bdbe3b18629450b996f7609e
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55246767"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58123407"
 ---
 # <a name="optimize-sql-server-performance"></a>Otimizar o desempenho do SQL Server
 
@@ -104,20 +104,20 @@ Recomendamos que o serviço de armazenamento de TempDB num disco de dados, pois 
 
 - **Repartição de disco:** Para obter mais débito, pode adicionar discos de dados adicionais e utilize a repartição de disco. Para determinar o número de discos de dados, que precisa, analise o número de IOPS e largura de banda necessária para os ficheiros de registo e para os seus dados e ficheiros de TempDB. Tenha em atenção que são de limites de IOPS por disco de dados com base na família da série de máquina virtual e não com base no tamanho de máquina virtual. Limites de largura de banda de rede, no entanto, se baseiam o tamanho de máquina virtual. Consulte as tabelas no [tamanhos de máquinas virtuais no Azure Stack](https://docs.microsoft.com/azure/azure-stack/user/azure-stack-vm-sizes) para obter mais detalhes. Utilize as seguintes diretrizes:
 
-    - Para Windows Server 2012 ou posterior, utilize [espaços de armazenamento](https://technet.microsoft.com/library/hh831739.aspx) com as seguintes diretrizes:
+  - Para Windows Server 2012 ou posterior, utilize [espaços de armazenamento](https://technet.microsoft.com/library/hh831739.aspx) com as seguintes diretrizes:
 
-        1.  Defina o interleave (tamanho da faixa) a 64 KB (65,536 bytes) para cargas de trabalho (OLTP) e 256 KB (262.144 bytes) para cargas de trabalho de armazenamento de dados para evitar o impacto de desempenho devido ao alinhamento incorreto da partição de processamento de transações online. Tem de ser definida com o PowerShell.
+    1. Defina o interleave (tamanho da faixa) a 64 KB (65,536 bytes) para cargas de trabalho (OLTP) e 256 KB (262.144 bytes) para cargas de trabalho de armazenamento de dados para evitar o impacto de desempenho devido ao alinhamento incorreto da partição de processamento de transações online. Tem de ser definida com o PowerShell.
 
-        2.  Definir o número de colunas = número de discos físicos. Utilize o PowerShell, ao configurar mais de oito discos (não a IU de Gestor de servidor).
+    2. Definir o número de colunas = número de discos físicos. Utilize o PowerShell, ao configurar mais de oito discos (não a IU de Gestor de servidor).
 
-            Por exemplo, o PowerShell seguinte cria um novo agrupamento de armazenamento com o tamanho de intercalação definido para 64 KB e o número de colunas para 2:
+       Por exemplo, o PowerShell seguinte cria um novo agrupamento de armazenamento com o tamanho de intercalação definido para 64 KB e o número de colunas para 2:
 
-          ```PowerShell  
-          $PoolCount = Get-PhysicalDisk -CanPool $True
-          $PhysicalDisks = Get-PhysicalDisk | Where-Object {$_.FriendlyName -like "*2" -or $_.FriendlyName -like "*3"}
+       ```PowerShell  
+       $PoolCount = Get-PhysicalDisk -CanPool $True
+       $PhysicalDisks = Get-PhysicalDisk | Where-Object {$_.FriendlyName -like "*2" -or $_.FriendlyName -like "*3"}
 
-          New-StoragePool -FriendlyName "DataFiles" -StorageSubsystemFriendlyName "Storage Spaces*" -PhysicalDisks $PhysicalDisks | New-VirtualDisk -FriendlyName "DataFiles" -Interleave 65536 -NumberOfColumns 2 -ResiliencySettingName simple –UseMaximumSize |Initialize-Disk -PartitionStyle GPT -PassThru |New-Partition -AssignDriveLetter -UseMaximumSize |Format-Volume -FileSystem NTFS -NewFileSystemLabel "DataDisks" -AllocationUnitSize 65536 -Confirm:$false
-          ```
+       New-StoragePool -FriendlyName "DataFiles" -StorageSubsystemFriendlyName "Storage Spaces*" -PhysicalDisks $PhysicalDisks | New-VirtualDisk -FriendlyName "DataFiles" -Interleave 65536 -NumberOfColumns 2 -ResiliencySettingName simple –UseMaximumSize |Initialize-Disk -PartitionStyle GPT -PassThru |New-Partition -AssignDriveLetter -UseMaximumSize |Format-Volume -FileSystem NTFS -NewFileSystemLabel "DataDisks" -AllocationUnitSize 65536 -Confirm:$false
+       ```
 
 - Determine o número de discos associados com o agrupamento de armazenamento com base em suas expectativas de carga. Tenha em atenção que os tamanhos de máquinas virtuais permitem diferentes números de discos de dados anexados. Para obter mais informações, consulte [tamanhos de máquinas virtuais suportados no Azure Stack](https://docs.microsoft.com/azure/azure-stack/user/azure-stack-vm-sizes).
 - Para obter o máximo IOPS possíveis para discos de dados, a recomendação é adicionar o número máximo de discos de dados suportados pela sua [tamanho da máquina virtual](https://docs.microsoft.com/azure/azure-stack/user/azure-stack-vm-sizes) e utilize a repartição de disco.
