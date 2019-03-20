@@ -86,9 +86,6 @@ items:
     - name: Utilizar R
       href: ../hdinsight-hadoop-r-scripts-linux.md
       maintainContext: true
-    - name: Utilizar Apache Solr
-      href: ../hdinsight-hadoop-solr-install-linux.md
-      maintainContext: true
     - name: Utilizar Apache Zeppelin
       href: ../hdinsight-apache-spark-zeppelin-notebook.md
       maintainContext: true
@@ -342,9 +339,9 @@ items:
   - name: Ferramentas do Windows para HDInsight
     href: ../hdinsight-hadoop-windows-tools.md
     maintainContext: true
-ms.openlocfilehash: 7c80f3ef28f4e0f47e03d79865f93a0aa9e6e716
-ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
+ms.openlocfilehash: 61a6926b739f8e925079e12b598fd4b7b6a91bda
+ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56889822"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58200606"

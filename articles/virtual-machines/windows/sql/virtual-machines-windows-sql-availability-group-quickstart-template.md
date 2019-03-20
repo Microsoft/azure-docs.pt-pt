@@ -15,12 +15,12 @@ ms.workload: iaas-sql-server
 ms.date: 01/04/2019
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 5390885ccb4bbc3e1552d3f5e80c1b451b7bee38
-ms.sourcegitcommit: dd1a9f38c69954f15ff5c166e456fda37ae1cdf2
+ms.openlocfilehash: 4b4527bfaacc592c13552e362de0cba620314cd8
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57570169"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58122051"
 ---
 # <a name="use-azure-quickstart-templates-to-configure-always-on-availability-group-for-sql-server-on-an-azure-vm"></a>Utilizar modelos de início rápido do Azure para configurar o grupo de disponibilidade Always On do SQL Server numa VM do Azure
 Este artigo descreve como utilizar os modelos de início rápido do Azure para parcialmente automatizar a implementação de uma configuração de grupo Always On disponibilidade para máquinas virtuais SQL Server no Azure. Existem dois modelos de início rápido do Azure que são utilizados neste processo. 
@@ -76,8 +76,8 @@ Depois das suas VMs do SQL Server foram registrados com o fornecedor de recursos
 1. Se concordar com os termos e condições, selecione a caixa de verificação junto a **concordo com os termos e condições indicados acima** e selecione **Compra** para finalizar a implementação do modelo de início rápido. 
 1. Para monitorizar a implementação, selecione a implementação a partir da **notificações** bell ícone na sua faixa de navegação superior, ou navegar para sua **grupo de recursos** no portal do Azure, selecione  **Implementações** no **definições** campo e selecione a implementação de 'Template'. 
 
-  >[!NOTE]
-  > Credenciais fornecidas durante a implementação de modelo só são armazenadas para o comprimento da implementação. Depois de concluída a implementação, as senhas são removidas e será solicitado a fornecê-los novamente deve adicionar mais VMs do SQL Server para o cluster. 
+   >[!NOTE]
+   > Credenciais fornecidas durante a implementação de modelo só são armazenadas para o comprimento da implementação. Depois de concluída a implementação, as senhas são removidas e será solicitado a fornecê-los novamente deve adicionar mais VMs do SQL Server para o cluster. 
 
 
 ## <a name="step-2---manually-create-the-availability-group"></a>Passo 2 - criar manualmente o grupo de disponibilidade 
@@ -150,8 +150,8 @@ Para configurar o ILB e criar o serviço de escuta de AG, faça o seguinte:
 1. Se concordar com os termos e condições, selecione a caixa de verificação junto a **concordo com os termos e condições indicados acima** e selecione **Compra** para finalizar a implementação do modelo de início rápido. 
 1. Para monitorizar a implementação, selecione a implementação a partir da **notificações** bell ícone na sua faixa de navegação superior, ou navegar para sua **grupo de recursos** no portal do Azure, selecione  **Implementações** no **definições** campo e selecione a implementação de 'Template'. 
 
-  >[!NOTE]
-  >Se a implementação falhar a meio caminho pela, precisará manualmente [remover o serviço de escuta recém-criado](#remove-availability-group-listener) com o PowerShell antes de voltar a implementar a **101-sql-vm-aglistener-setup** modelo de início rápido. 
+   >[!NOTE]
+   >Se a implementação falhar a meio caminho pela, precisará manualmente [remover o serviço de escuta recém-criado](#remove-availability-group-listener) com o PowerShell antes de voltar a implementar a **101-sql-vm-aglistener-setup** modelo de início rápido. 
 
 ## <a name="remove-availability-group-listener"></a>Remover o serviço de escuta de grupo de disponibilidade
 Se precisar de remover o serviço de escuta configurado pelo modelo mais tarde, deve percorrer o fornecedor de recursos de VM do SQL Server. Uma vez que o serviço de escuta é registrado por meio do Provedor de recursos de VM do SQL Server, basta excluí-lo através do SQL Server Management Studio é insuficiente. Na verdade, ele deve ser eliminado por meio do Provedor de recursos de VM do SQL Server com o PowerShell. Se o fizer, remove os metadados do serviço de escuta de AG do fornecedor de recursos de VM do SQL Server e exclui fisicamente o serviço de escuta do grupo de disponibilidade. 
@@ -183,17 +183,17 @@ Este erro pode ser causado por um dos dois motivos. A conta de domínio especifi
 
  Certifique-se de que a conta existe. Se assim for, poderá estar a executar com a segunda situação. Para resolver este problema, faça o seguinte:
 
- 1. No controlador de domínio, abra a **Active Directory Users and Computers** janela da **ferramentas** opção **Gestor de servidor**. 
- 2. Navegue para a conta selecionando **utilizadores** no painel da esquerda.
- 3. A conta pretendida com o botão direito e selecione **propriedades**.
- 4. Selecione o **conta** separador e verificar se o **nome de início de sessão do utilizador** está em branco. Se for, esta é a causa do erro. 
+1. No controlador de domínio, abra a **Active Directory Users and Computers** janela da **ferramentas** opção **Gestor de servidor**. 
+2. Navegue para a conta selecionando **utilizadores** no painel da esquerda.
+3. A conta pretendida com o botão direito e selecione **propriedades**.
+4. Selecione o **conta** separador e verificar se o **nome de início de sessão do utilizador** está em branco. Se for, esta é a causa do erro. 
 
-     ![Conta de utilizador em branco indica UPN em falta](media/virtual-machines-windows-sql-availability-group-quickstart-template/account-missing-upn.png)
+    ![Conta de utilizador em branco indica UPN em falta](media/virtual-machines-windows-sql-availability-group-quickstart-template/account-missing-upn.png)
 
- 5. Preencha os **nome de início de sessão do utilizador** para corresponder ao nome do utilizador e selecione o domínio correto no menu pendente. 
- 6. Selecione **aplicar** para guardar as alterações e fechar a caixa de diálogo selecionando **OK**. 
+5. Preencha os **nome de início de sessão do utilizador** para corresponder ao nome do utilizador e selecione o domínio correto no menu pendente. 
+6. Selecione **aplicar** para guardar as alterações e fechar a caixa de diálogo selecionando **OK**. 
 
- Depois de efetuadas estas alterações, tente implementar o modelo de início rápido do Azure mais uma vez. 
+   Depois de efetuadas estas alterações, tente implementar o modelo de início rápido do Azure mais uma vez. 
 
 
 

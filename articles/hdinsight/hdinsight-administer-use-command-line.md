@@ -9,12 +9,12 @@ ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 11/06/2018
 ms.author: tyfox
-ms.openlocfilehash: 3e53a8cc1816ae4128fdfb34b7425ac95de29a57
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
+ms.openlocfilehash: 61be4088034d8cc557c67c5b6de4972766654a39
+ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53016049"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58202389"
 ---
 # <a name="manage-apache-hadoop-clusters-in-hdinsight-using-the-azure-classic-cli"></a>Gerir clusters do Apache Hadoop no HDInsight com a CLI clássica do Azure
 [!INCLUDE [selector](../../includes/hdinsight-portal-management-selector.md)]
@@ -91,7 +91,7 @@ azure hdinsight cluster disable-http-access [options] <Cluster Name>
 ## <a name="next-steps"></a>Passos Seguintes
 Neste artigo, aprendeu como efetuar diferentes tarefas administrativas de cluster HDInsight. Para obter mais informações, consulte os artigos seguintes:
 
-* [Administrar o HDInsight com o Portal do Azure][hdinsight-admin-portal]
+* [Gerir clusters do Apache Hadoop no HDInsight com o portal do Azure](hdinsight-administer-use-portal-linux.md)
 * [Administrar o HDInsight com o Azure PowerShell][hdinsight-admin-powershell]
 * [Get started with Azure HDInsight (Introdução ao Azure HDInsight)][hdinsight-get-started]
 * [Como utilizar a CLI clássica do Azure][azure-command-line-tools]
@@ -102,8 +102,6 @@ Neste artigo, aprendeu como efetuar diferentes tarefas administrativas de cluste
 [azure-member-offers]: https://azure.microsoft.com/pricing/member-offers/
 [azure-free-trial]: https://azure.microsoft.com/pricing/free-trial/
 
-
-[hdinsight-admin-portal]: hdinsight-administer-use-management-portal.md
 [hdinsight-admin-powershell]: hdinsight-administer-use-powershell.md
 [hdinsight-get-started]:hadoop/apache-hadoop-linux-tutorial-get-started.md
 

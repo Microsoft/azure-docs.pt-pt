@@ -15,16 +15,33 @@ ms.date: 11/02/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 594fb736b8ec4b49cf1525047ff8a7ce5e5dc959
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: a392fd03016f83f86364d8f92e8bb4da0aa3364a
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56194976"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57840907"
 ---
 # <a name="azure-active-directory-connect-faq"></a>FAQ do Azure Active Directory Connect
 
 ## <a name="general-installation"></a>Instalação geral
+
+**P: Como posso proteger meu servidor do Azure AD Connect para diminuir a superfície de ataque de segurança?**
+
+A Microsoft recomenda proteger o seu servidor do Azure AD Connect para diminuir a superfície de ataque de segurança para este componente crítico de seu ambiente de TI.  Seguir as recomendações abaixo irá diminuir os riscos de segurança para a sua organização.
+
+* Implementar o Azure AD Connect num servidor associado a um domínio e restringir o acesso administrativo para os administradores do domínio ou outros grupos de segurança controladas de perto
+
+Para saber mais, consulte: 
+
+* [Proteger grupos de administradores](https://docs.microsoft.com/windows-server/identity/ad-ds/plan/security-best-practices/appendix-g--securing-administrators-groups-in-active-directory)
+
+* [Protegendo contas de administrador incorporada](https://docs.microsoft.com/windows-server/identity/ad-ds/plan/security-best-practices/appendix-d--securing-built-in-administrator-accounts-in-active-directory)
+
+* [Aprimoramento de segurança e sustainment, reduzindo a superfícies de ataque](https://docs.microsoft.com/windows-server/identity/securing-privileged-access/securing-privileged-access#2-reduce-attack-surfaces )
+
+* [Reduzir a superfície de ataque do Active Directory](https://docs.microsoft.com/windows-server/identity/ad-ds/plan/security-best-practices/reducing-the-active-directory-attack-surface)
+
 **P: Instalação funcionará se o Administrador Global do Azure Active Directory (Azure AD) tem a autenticação de dois fatores (2FA) ativada?**  
 No momento da elaboração as compilações de Fevereiro de 2016, este cenário é suportado.
 

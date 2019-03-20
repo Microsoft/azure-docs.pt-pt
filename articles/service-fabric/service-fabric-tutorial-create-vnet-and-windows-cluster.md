@@ -12,15 +12,15 @@ ms.devlang: dotNet
 ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 02/19/2019
+ms.date: 03/13/2019
 ms.author: ryanwi
 ms.custom: mvc
-ms.openlocfilehash: 4ce9ffd1f89f64bd9788b2754b85ea9b765b540c
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: ade7f86bc5a00c079a7ccbe719ae46043d692047
+ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57902966"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58225149"
 ---
 # <a name="tutorial-deploy-a-service-fabric-cluster-running-windows-into-an-azure-virtual-network"></a>Tutorial: Implementar um cluster do Service Fabric em execução Windows numa rede virtual do Azure
 
@@ -31,21 +31,24 @@ Este tutorial descreve um cenário de produção. Se pretender criar um cluster 
 Neste tutorial, ficará a saber como:
 
 > [!div class="checklist"]
-> * Crie uma rede virtual no Azure com o PowerShell.
-> * Criar um cofre de chaves e carregar um certificado.
-> * Configure a autenticação do Azure Active Directory.
-> * Crie um cluster do Service Fabric seguro no Azure PowerShell.
-> * Proteger o cluster com um certificado X.509.
-> * Ligar ao cluster com o PowerShell.
-> * Remova um cluster.
+> * Criar uma VNET no Azure com o PowerShell
+> * Criar um cofre de chaves e carregar um certificado
+> * Configurar a autenticação do Azure Active Directory
+> * Configurar a recolha de diagnóstico
+> * Configurar o serviço de EventStore
+> * Configurar os registos do Azure Monitor
+> * Criar um cluster do Service Fabric seguro no Azure PowerShell
+> * Proteger o cluster com um certificado X.509
+> * Ligar ao cluster com o PowerShell
+> * Remover um cluster
 
 Nesta série de tutoriais, ficará a saber como:
-
 > [!div class="checklist"]
-> * Crie um cluster seguro no Azure.
-> * [Dimensionar um cluster in ou out](service-fabric-tutorial-scale-cluster.md).
-> * [Atualizar o runtime de um cluster](service-fabric-tutorial-upgrade-cluster.md).
-> * [Eliminar um cluster](service-fabric-tutorial-delete-cluster.md).
+> * Criar um cluster seguro no Azure
+> * [Monitorizar um cluster](service-fabric-tutorial-monitor-cluster.md)
+> * [Reduzir ou aumentar um cluster horizontalmente](service-fabric-tutorial-scale-cluster.md)
+> * [Atualizar o tempo de execução de um cluster](service-fabric-tutorial-upgrade-cluster.md)
+> * [Eliminar um cluster](service-fabric-tutorial-delete-cluster.md)
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -154,7 +157,7 @@ O ficheiro de parâmetro [azuredeploy.parameters.json][parameters] declara vári
 |clusterName|mysfcluster123| O nome do cluster. Pode conter apenas letras e números. O comprimento pode ter entre 3 e 23 carateres.|
 |localização|southcentralus| A localização do cluster. |
 |certificateThumbprint|| <p>O valor deve estar vazio, se criar um certificado autoassinado ou fornecer um ficheiro de certificado.</p><p>Para utilizar um certificado existente carregado anteriormente para um cofre de chaves, preencha o valor do thumbprint SHA-1 do certificado. Por exemplo, “6190390162C988701DB5676EB81083EA608DCCF3”.</p> |
-|certificateUrlValue|| <p>O valor deve estar vazio, se criar um certificado autoassinado ou fornecer um ficheiro de certificado. </p><p>Para utilizar um certificado existente carregado anteriormente para um cofre de chaves, preencha o URL do certificado. Por exemplo, "<https://mykeyvault.vault.azure.net:443/secrets/mycertificate/02bea722c9ef4009a76c5052bcbf8346>".</p>|
+|certificateUrlValue|| <p>O valor deve estar vazio, se criar um certificado autoassinado ou fornecer um ficheiro de certificado. </p><p>Para utilizar um certificado existente carregado anteriormente para um cofre de chaves, preencha o URL do certificado. Por exemplo, "https://mykeyvault.vault.azure.net:443/secrets/mycertificate/02bea722c9ef4009a76c5052bcbf8346".</p>|
 |sourceVaultValue||<p>O valor deve estar vazio, se criar um certificado autoassinado ou fornecer um ficheiro de certificado.</p><p>Para utilizar um certificado existente carregado anteriormente para um cofre de chaves, preencha o valor no cofre de origem. Por exemplo, "/subscriptions/333cc2c84-12fa-5778-bd71-c71c07bf873f/resourceGroups/MyTestRG/providers/Microsoft.KeyVault/vaults/MYKEYVAULT".</p>|
 
 ## <a name="set-up-azure-active-directory-client-authentication"></a>Configurar a autenticação de cliente do Azure Active Directory
@@ -264,6 +267,336 @@ Adicione os valores de parâmetros nos [azuredeploy] [ parameters] ficheiro de p
 },
 "aadClientApplicationId": {
 "value": "7a8f3b37-cc40-45cc-9b8f-57b8919ea461"
+}
+```
+<a id="configurediagnostics" name="configurediagnostics_anchor"></a>
+
+## <a name="configure-diagnostics-collection-on-the-cluster"></a>Configurar a recolha de diagnóstico no cluster
+Quando estiver a executar um cluster do Service Fabric, é uma boa idéia para recolher os registos de todos os nós numa localização central. Ter os registos numa localização central ajuda a analisar e resolver problemas no seu cluster, ou problemas em aplicações e serviços em execução nesse cluster.
+
+Uma forma de carregar e recolher registos é utilizar a extensão de diagnóstico do Azure (WAD), que carrega os registos para o armazenamento do Azure e, também tem a opção para enviar registos para o Azure Application Insights ou Hubs de eventos. Também pode utilizar um processo externo para ler os eventos de armazenamento e colocá-los num produto de plataforma de análise, como registos do Azure Monitor ou outra solução de análise de registos.
+
+Se estiver a seguir este tutorial, a recolha de diagnóstico já está configurada no [modelo][template].
+
+Se tiver um cluster existente que não tem o diagnóstico implementado, pode adicionar ou atualizá-lo por meio do modelo de cluster. Modificar o modelo do Resource Manager que é utilizado para criar o cluster existente ou transferir o modelo a partir do portal. Modifique o ficheiro Template JSON, efetuando as seguintes tarefas:
+
+Adicione um novo recurso de armazenamento para a secção de recursos no modelo:
+```json
+"resources": [
+...
+{
+  "apiVersion": "2015-05-01-preview",
+  "type": "Microsoft.Storage/storageAccounts",
+  "name": "[parameters('applicationDiagnosticsStorageAccountName')]",
+  "location": "[parameters('computeLocation')]",
+  "sku": {
+    "accountType": "[parameters('applicationDiagnosticsStorageAccountType')]"
+  },
+  "tags": {
+    "resourceType": "Service Fabric",
+    "clusterName": "[parameters('clusterName')]"
+  }
+},
+...
+]
+```
+
+Em seguida, adicione parâmetros para o nome da conta de armazenamento e o tipo para a secção de parâmetros do modelo. Substitua que o nome de conta de armazenamento de texto de marcador de posição entra que aqui com o nome de armazenamento de conta que gostaria de ter.
+
+```json
+"parameters": {
+...
+"applicationDiagnosticsStorageAccountType": {
+    "type": "string",
+    "allowedValues": [
+    "Standard_LRS",
+    "Standard_GRS"
+    ],
+    "defaultValue": "Standard_LRS",
+    "metadata": {
+    "description": "Replication option for the application diagnostics storage account"
+    }
+},
+"applicationDiagnosticsStorageAccountName": {
+    "type": "string",
+    "defaultValue": "**STORAGE ACCOUNT NAME GOES HERE**",
+    "metadata": {
+    "description": "Name for the storage account that contains application diagnostics data from the cluster"
+    }
+},
+...
+}
+```
+
+Em seguida, adicione a **IaaSDiagnostics** extensão para a matriz de extensões da **VirtualMachineProfile** propriedade de cada **Compute/virtualmachinescalesets** recursos do cluster.  Se estiver a utilizar o [modelo de exemplo][template], existem três conjuntos de dimensionamento de máquinas virtuais (uma para cada tipo de nó do cluster).
+
+```json
+"apiVersion": "2018-10-01",
+"type": "Microsoft.Compute/virtualMachineScaleSets",
+"name": "[variables('vmNodeType1Name')]",
+"properties": {
+    ...
+    "virtualMachineProfile": {
+        "extensionProfile": {
+            "extensions": [
+                {
+                    "name": "[concat(parameters('vmNodeType0Name'),'_Microsoft.Insights.VMDiagnosticsSettings')]",
+                    "properties": {
+                        "type": "IaaSDiagnostics",
+                        "autoUpgradeMinorVersion": true,
+                        "protectedSettings": {
+                        "storageAccountName": "[parameters('applicationDiagnosticsStorageAccountName')]",
+                        "storageAccountKey": "[listKeys(resourceId('Microsoft.Storage/storageAccounts', parameters('applicationDiagnosticsStorageAccountName')),'2015-05-01-preview').key1]",
+                        "storageAccountEndPoint": "https://core.windows.net/"
+                        },
+                        "publisher": "Microsoft.Azure.Diagnostics",
+                        "settings": {
+                        "WadCfg": {
+                            "DiagnosticMonitorConfiguration": {
+                            "overallQuotaInMB": "50000",
+                            "EtwProviders": {
+                                "EtwEventSourceProviderConfiguration": [
+                                {
+                                    "provider": "Microsoft-ServiceFabric-Actors",
+                                    "scheduledTransferKeywordFilter": "1",
+                                    "scheduledTransferPeriod": "PT5M",
+                                    "DefaultEvents": {
+                                    "eventDestination": "ServiceFabricReliableActorEventTable"
+                                    }
+                                },
+                                {
+                                    "provider": "Microsoft-ServiceFabric-Services",
+                                    "scheduledTransferPeriod": "PT5M",
+                                    "DefaultEvents": {
+                                    "eventDestination": "ServiceFabricReliableServiceEventTable"
+                                    }
+                                }
+                                ],
+                                "EtwManifestProviderConfiguration": [
+                                {
+                                    "provider": "cbd93bc2-71e5-4566-b3a7-595d8eeca6e8",
+                                    "scheduledTransferLogLevelFilter": "Information",
+                                    "scheduledTransferKeywordFilter": "4611686018427387904",
+                                    "scheduledTransferPeriod": "PT5M",
+                                    "DefaultEvents": {
+                                    "eventDestination": "ServiceFabricSystemEventTable"
+                                    }
+                                }
+                                ]
+                            }
+                            }
+                        },
+                        "StorageAccount": "[parameters('applicationDiagnosticsStorageAccountName')]"
+                        },
+                        "typeHandlerVersion": "1.5"
+                    }
+                }
+            ...
+            ]
+        }
+    }
+}
+```
+<a id="configureeventstore" name="configureeventstore_anchor"></a>
+
+## <a name="configure-the-eventstore-service"></a>Configurar o serviço de EventStore
+O serviço de EventStore é uma opção de monitorização no Service Fabric. EventStore fornece uma forma de compreender o estado do seu cluster ou cargas de trabalho num determinado ponto no tempo. O EventStore é um serviço do Service Fabric com monitorização de estado que mantém os eventos do cluster. O evento são expostos por meio do Service Fabric Explorer, REST e APIs. EventStore consulta o cluster diretamente para obter dados de diagnóstico sobre qualquer entidade no seu cluster e deve ser utilizado para o ajudar a:
+
+* Diagnosticar problemas em desenvolvimento ou teste, ou onde poderá estar a utilizar um pipeline de monitorização
+* Confirme que as ações de gestão que está a efetuar no seu cluster estão a ser processadas corretamente
+* Obtém um "instantâneo" de como o Service Fabric está a interagir com uma entidade específica
+
+
+
+Para ativar o serviço de EventStore no seu cluster, adicione o seguinte para o **fabricSettings** propriedade da **Microsoft.ServiceFabric/clusters** recursos:
+
+```json
+"apiVersion": "2018-02-01",
+"type": "Microsoft.ServiceFabric/clusters",
+"name": "[parameters('clusterName')]",
+"properties": {
+    ...
+    "fabricSettings": [
+        ...
+        {
+            "name": "EventStoreService",
+            "parameters": [
+                {
+                "name": "TargetReplicaSetSize",
+                "value": "3"
+                },
+                {
+                "name": "MinReplicaSetSize",
+                "value": "1"
+                }
+            ]
+        }
+    ]
+}
+```
+<a id="configureloganalytics" name="configureloganalytics_anchor"></a>
+
+## <a name="set-up-azure-monitor-logs-for-the-cluster"></a>Configurar os registos do Azure Monitor para o cluster
+
+Registos de Monitor do Azure é a nossa recomendação para monitorizar os eventos de nível de cluster. Para configurar os registos do Azure Monitor para monitorizar o seu cluster, tem de ter [diagnóstico ativado para ver eventos de nível de cluster](#configure-diagnostics-collection-on-the-cluster).  
+
+A área de trabalho precisa de estar ligado para os dados de diagnóstico originários do seu cluster.  Estes dados de registo são armazenados no *applicationDiagnosticsStorageAccountName* conta de armazenamento, no WADServiceFabric * EventTable WADWindowsEventLogsTable e WADETWEventTable tabelas.
+
+Adicione a área de trabalho do Log Analytics do Azure e adicionar a solução para a área de trabalho:
+
+```json
+"resources": [
+    ...
+    {
+        "apiVersion": "2015-11-01-preview",
+        "location": "[parameters('omsRegion')]",
+        "name": "[parameters('omsWorkspacename')]",
+        "type": "Microsoft.OperationalInsights/workspaces",
+        "properties": {
+            "sku": {
+                "name": "Free"
+            }
+        },
+        "resources": [
+            {
+                "apiVersion": "2015-11-01-preview",
+                "name": "[concat(variables('applicationDiagnosticsStorageAccountName'),parameters('omsWorkspacename'))]",
+                "type": "storageinsightconfigs",
+                "dependsOn": [
+                    "[concat('Microsoft.OperationalInsights/workspaces/', parameters('omsWorkspacename'))]",
+                    "[concat('Microsoft.Storage/storageAccounts/', variables('applicationDiagnosticsStorageAccountName'))]"
+                ],
+                "properties": {
+                    "containers": [],
+                    "tables": [
+                        "WADServiceFabric*EventTable",
+                        "WADWindowsEventLogsTable",
+                        "WADETWEventTable"
+                    ],
+                    "storageAccount": {
+                        "id": "[resourceId('Microsoft.Storage/storageaccounts/', variables('applicationDiagnosticsStorageAccountName'))]",
+                        "key": "[listKeys(resourceId('Microsoft.Storage/storageAccounts', variables('applicationDiagnosticsStorageAccountName')),'2015-06-15').key1]"
+                    }
+                }
+            },
+            {
+                "apiVersion": "2015-11-01-preview",
+                "type": "datasources",
+                "name": "sampleWindowsPerfCounter",
+                "dependsOn": [
+                    "[concat('Microsoft.OperationalInsights/workspaces/', parameters('omsWorkspacename'))]"
+                ],
+                "kind": "WindowsPerformanceCounter",
+                "properties": {
+                    "objectName": "Memory",
+                    "instanceName": "*",
+                    "intervalSeconds": 10,
+                    "counterName": "Available MBytes"
+                }
+            },
+            {
+                "apiVersion": "2015-11-01-preview",
+                "type": "datasources",
+                "name": "sampleWindowsPerfCounter2",
+                "dependsOn": [
+                    "[concat('Microsoft.OperationalInsights/workspaces/', parameters('omsWorkspacename'))]"
+                ],
+                "kind": "WindowsPerformanceCounter",
+                "properties": {
+                    "objectName": "Service Fabric Service",
+                    "instanceName": "*",
+                    "intervalSeconds": 10,
+                    "counterName": "Average milliseconds per request"
+                }
+            }
+        ]
+    },
+    {
+        "apiVersion": "2015-11-01-preview",
+        "location": "[parameters('omsRegion')]",
+        "name": "[variables('solution')]",
+        "type": "Microsoft.OperationsManagement/solutions",
+        "dependsOn": [
+            "[concat('Microsoft.OperationalInsights/workspaces/', parameters('omsWorkspacename'))]"
+        ],
+        "properties": {
+            "workspaceResourceId": "[resourceId('Microsoft.OperationalInsights/workspaces/', parameters('omsWorkspacename'))]"
+        },
+        "plan": {
+            "name": "[variables('solution')]",
+            "publisher": "Microsoft",
+            "product": "[Concat('OMSGallery/', variables('solutionName'))]",
+            "promotionCode": ""
+        }
+    }
+]
+```
+
+Em seguida, adicione parâmetros
+```json
+"parameters": {
+    ...
+    "omsWorkspacename": {
+        "type": "string",
+        "defaultValue": "mysfomsworkspace",
+        "metadata": {
+            "description": "Name of your OMS Log Analytics Workspace"
+        }
+    },
+    "omsRegion": {
+        "type": "string",
+        "defaultValue": "West Europe",
+        "allowedValues": [
+            "West Europe",
+            "East US",
+            "Southeast Asia"
+        ],
+        "metadata": {
+            "description": "Specify the Azure Region for your OMS workspace"
+        }
+    }
+}
+```
+
+Em seguida, adicione as variáveis:
+```json
+"variables": {
+    ...
+    "solution": "[Concat('ServiceFabric', '(', parameters('omsWorkspacename'), ')')]",
+    "solutionName": "ServiceFabric"
+}
+```
+
+Adicione o Log Analytics, extensão do agente para cada dimensionamento de máquinas virtuais definido no cluster e ligar o agente para a área de trabalho do Log Analytics. Isso permite recolher dados de diagnóstico sobre contentores, aplicativos e monitorização do desempenho. Ao adicioná-la como uma extensão para o recurso de conjunto de dimensionamento de máquina virtual, do Azure Resource Manager garante que é instalado em cada nó, mesmo quando a dimensionar o cluster.
+
+```json
+"apiVersion": "2018-10-01",
+"type": "Microsoft.Compute/virtualMachineScaleSets",
+"name": "[variables('vmNodeType1Name')]",
+"properties": {
+    ...
+    "virtualMachineProfile": {
+        "extensionProfile": {
+            "extensions": [
+                {
+                    "name": "[concat(variables('vmNodeType0Name'),'OMS')]",
+                    "properties": {
+                        "publisher": "Microsoft.EnterpriseCloud.Monitoring",
+                        "type": "MicrosoftMonitoringAgent",
+                        "typeHandlerVersion": "1.0",
+                        "autoUpgradeMinorVersion": true,
+                        "settings": {
+                            "workspaceId": "[reference(resourceId('Microsoft.OperationalInsights/workspaces/', parameters('omsWorkspacename')), '2015-11-01-preview').customerId]"
+                        },
+                        "protectedSettings": {
+                            "workspaceKey": "[listKeys(resourceId('Microsoft.OperationalInsights/workspaces/', parameters('omsWorkspacename')),'2015-11-01-preview').primarySharedKey]"
+                        }
+                    }
+                }
+            ...
+            ]
+        }
+    }
 }
 ```
 
@@ -383,8 +716,21 @@ Os outros artigos nesta série de tutoriais utilizam o cluster que criou. Se nã
 
 Avance para o tutorial seguinte para aprender a dimensionar o seu cluster.
 
+> [!div class="checklist"]
+> * Criar uma VNET no Azure com o PowerShell
+> * Criar um cofre de chaves e carregar um certificado
+> * Configurar a autenticação do Azure Active Directory
+> * Configurar a recolha de diagnóstico
+> * Configurar o serviço de EventStore
+> * Configurar os registos do Azure Monitor
+> * Criar um cluster do Service Fabric seguro no Azure PowerShell
+> * Proteger o cluster com um certificado X.509
+> * Ligar ao cluster com o PowerShell
+> * Remover um cluster
+
+Em seguida, avance para o tutorial seguinte para aprender a monitorizar o seu cluster.
 > [!div class="nextstepaction"]
-> [Dimensionar um cluster](service-fabric-tutorial-scale-cluster.md)
+> [Monitorizar um Cluster](service-fabric-tutorial-monitor-cluster.md)
 
 [template]:https://github.com/Azure-Samples/service-fabric-cluster-templates/blob/master/7-VM-Windows-3-NodeTypes-Secure-NSG/AzureDeploy.json
 [parameters]:https://github.com/Azure-Samples/service-fabric-cluster-templates/blob/master/7-VM-Windows-3-NodeTypes-Secure-NSG/AzureDeploy.Parameters.json

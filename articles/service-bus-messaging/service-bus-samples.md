@@ -12,21 +12,23 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/21/2018
+ms.date: 03/13/2019
 ms.author: aschhab
-ms.openlocfilehash: eefe624462609a69296ec6d6e409d72745da0846
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
+ms.openlocfilehash: 7b34233e10c5d622b598d35c6eb136b88daf8eb6
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54856694"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57880165"
 ---
 # <a name="service-bus-messaging-samples"></a>Exemplos de mensagens do Service Bus
+Os exemplos de mensagens do Service Bus demonstram funcionalidades principais [mensagens do Service Bus](https://azure.microsoft.com/services/service-bus/). Atualmente, pode encontrar os exemplos nos seguintes locais:
 
-Os exemplos de mensagens do Service Bus demonstram funcionalidades principais [mensagens do Service Bus](https://azure.microsoft.com/services/service-bus/). Atualmente, pode encontrar os exemplos em dois locais:
-
-- [.NET e Java](https://github.com/Azure/azure-service-bus/tree/master/samples) . Consulte a [Leiame do .NET](https://github.com/Azure/azure-service-bus/blob/master/samples/DotNet/Microsoft.ServiceBus.Messaging/README.md) no repositório para obter descrições das amostras do .NET e o [Leiame de Java](https://github.com/Azure/azure-service-bus/tree/master/samples/Java) para as descrições dos exemplos de Java.
-- [Typescript](https://github.com/Azure/azure-service-bus-node/tree/master/examples)
+| Linguagem de programação | Localização do SDK ou exemplos |
+| -------------------- | ----------------------- |
+| .NET, Java e gestão | https://github.com/Azure/azure-service-bus/ |
+| Node.js | https://github.com/Azure/azure-sdk-for-js/tree/master/packages/%40azure/servicebus/data-plane/examples |
+| Python | https://github.com/Azure/azure-sdk-for-python/tree/master/azure-servicebus |
 
 ## <a name="service-bus-explorer"></a>Explorador do Service Bus
 

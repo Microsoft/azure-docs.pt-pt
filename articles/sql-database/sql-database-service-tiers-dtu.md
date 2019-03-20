@@ -12,12 +12,12 @@ ms.author: sachinp
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 02/25/2019
-ms.openlocfilehash: 247198e9ba1cdc6cd43b3fe60a20cd81280113cd
-ms.sourcegitcommit: dd1a9f38c69954f15ff5c166e456fda37ae1cdf2
+ms.openlocfilehash: 7a8556edd793cbde47c14d2b79792dbe42f8e44b
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57569948"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57894296"
 ---
 # <a name="service-tiers-in-the-dtu-based-purchase-model"></a>Escalões de serviço no modelo de compra baseado em DTU
 
@@ -33,10 +33,10 @@ Escalões de serviço no modelo de compra baseado em DTU são diferenciadas por 
 Escolher uma camada de serviço depende principalmente continuidade do negócio, armazenamento e requisitos de desempenho.
 
 ||Básica|Standard|Premium|
-| :-- | --: |--:| --:| --:|
+| :-- | --: |--:| --:|
 |Carga de trabalho de destino|Desenvolvimento e produção|Desenvolvimento e produção|Desenvolvimento e produção|
 |SLA de Tempo de Atividade|99,99%|99,99%|99,99%|
-|Retenção do Backup|7 dias|35 dias|35 dias|
+|Retenção da cópia de segurança|7 dias|35 dias|35 dias|
 |CPU|Baixa|Baixa, média, alta|Médio, alto|
 |Débito de e/s (aproximado) |2,5 IOPS de por DTU| 2,5 IOPS de por DTU | 48 IOPS por DTU|
 |Latência de e/s (aproximada)|5 ms (ler), 10 ms (escrita)|5 ms (ler), 10 ms (escrita)|2 ms (leitura/escrita)|
@@ -52,10 +52,10 @@ Escolher uma camada de serviço depende principalmente continuidade do negócio,
 Computação tamanhos são expressos em termos de unidades de transação de base de dados (DTUs) para bases de dados únicas e unidades de transação da base de dados elástica (eDTUs) para conjuntos elásticos. Para obter mais informações sobre DTUs e eDTUs, veja [modelo de compra baseado em DTU](sql-database-purchase-models.md#dtu-based-purchasing-model)?
 
 ||Básica|Standard|Premium|
-| :-- | --: | --: | --: | --: |
+| :-- | --: | --: | --: |
 | Tamanho máximo de armazenamento | 2 GB | 1 TB | 4 TB  |
 | Limite máximo de DTUs | 5 | 3000 | 4000 | 
-||||||
+|||||
 
 > [!IMPORTANT]
 > Em algumas circunstâncias, poderá ter reduzir uma base de dados para recuperar espaço não utilizado. Para obter mais informações, consulte [gerir o espaço de ficheiro na base de dados do Azure SQL](sql-database-file-space-management.md).
@@ -63,13 +63,13 @@ Computação tamanhos são expressos em termos de unidades de transação de bas
 ## <a name="elastic-pool-edtu-storage-and-pooled-database-limits"></a>EDTU do conjunto elástico, armazenamento e limites de bases de dados agrupadas
 
 | | **Básica** | **Standard** | **Premium** |
-| :-- | --: | --: | --: | --: |
+| :-- | --: | --: | --: |
 | Tamanho de armazenamento máximo por base de dados  | 2 GB | 1 TB | 1 TB |
 | Tamanho de armazenamento máximo por conjunto | 156 GB | 4 TB | 4 TB |
 | Máximo eDTUs por base de dados | 5 | 3000 | 4000 |
 | Máximo eDTUs por conjunto | 1600 | 3000 | 4000 |
 | Número máximo de bases de dados por conjunto | 500  | 500 | 100 |
-||||||
+|||||
 
 > [!IMPORTANT]
 > Mais de 1 TB de armazenamento no escalão Premium está atualmente disponível em todas as regiões, exceto: Leste da China, Norte da China, Alemanha Central, Nordeste da Alemanha, e.u.a. centro-oeste, US DoD regiões e Governo dos E.u. a centro. Noutras regiões, o armazenamento máximo no escalão Premium está limitado a 1 TB.  Para obter mais informações, consulte [limitações atuais do P11-P15](sql-database-single-database-scale.md#dtu-based-purchasing-model-limitations-of-p11-and-p15-when-the-maximum-size-greater-than-1-tb).  

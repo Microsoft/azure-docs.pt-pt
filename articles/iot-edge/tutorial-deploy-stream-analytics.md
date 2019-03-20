@@ -8,12 +8,12 @@ ms.date: 09/21/2018
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc, seodec18
-ms.openlocfilehash: 0096a7a57cb4a404f5c8e36d8b69eac2c20c1fab
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: 31330c3d2b10e6245db775da4039fd1948539df4
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53139816"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58106020"
 ---
 # <a name="tutorial-deploy-azure-stream-analytics-as-an-iot-edge-module"></a>Tutorial: Implementar o Azure Stream Analytics como um módulo do IoT Edge
 
@@ -33,6 +33,7 @@ Neste tutorial, ficará a saber como:
 > * Implemente a tarefa do Azure Stream Analytics num dispositivo IoT Edge a partir do portal do Azure.
 
 <center>
+
 ![Diagrama - arquitetura do Tutorial, testar e implementar a tarefa ASA](./media/tutorial-deploy-stream-analytics/asa-architecture.png)
 </center>
 
@@ -215,9 +216,9 @@ Agora, pode aceder ao dispositivo IoT Edge para verificar a interação entre o 
    ```cmd/sh
    iotedge list  
    ```
-<!--
+   <!--
    ![Docker output](./media/tutorial-deploy-stream-analytics/docker_output.png)
--->
+   -->
 1. Veja todos os dados de métricas e registos de sistema. Utilize o nome do módulo do Stream Analytics:
 
    ```cmd/sh

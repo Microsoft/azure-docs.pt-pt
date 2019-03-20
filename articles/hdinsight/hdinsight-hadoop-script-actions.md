@@ -9,15 +9,15 @@ ms.topic: conceptual
 ms.date: 05/25/2017
 ms.author: hrasheed
 ROBOTS: NOINDEX
-ms.openlocfilehash: 5db4387c2fd610313aaac032c122366aa45dc7f9
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: 93313557781c6b3788d8b4d43d6676fc17625709
+ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53720191"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58201318"
 ---
 # <a name="develop-script-action-scripts-for-hdinsight-windows-based-clusters"></a>Desenvolver scripts de ação de Script para clusters baseados em Windows HDInsight
-Saiba como escrever scripts de ação de Script para o HDInsight. Para obter informações sobre como usar scripts de ação de Script, consulte [HDInsight personalizar clusters com ação de Script](hdinsight-hadoop-customize-cluster.md). Para o mesmo artigo escrito para clusters do HDInsight baseado em Linux, consulte [scripts de desenvolver ações de Script para HDInsight](hdinsight-hadoop-script-actions-linux.md).
+Saiba como escrever scripts de ação de Script para o HDInsight. Para obter informações sobre como usar scripts de ação de Script, consulte [HDInsight personalizar clusters com ação de Script](hdinsight-hadoop-customize-cluster-linux.md). Para o mesmo artigo escrito para clusters do HDInsight baseado em Linux, consulte [scripts de desenvolver ações de Script para HDInsight](hdinsight-hadoop-script-actions-linux.md).
 
 
 > [!IMPORTANT]  
@@ -91,16 +91,15 @@ Este script de exemplo também pode ser encontrado em [ https://hditutorialdata.
 
 HDInsight fornece vários scripts para instalar componentes adicionais nos clusters do HDInsight:
 
-| Nome | Script |
+| Name | Script |
 | --- | --- |
 | **Instalar o Spark** | `https://hdiconfigactions.blob.core.windows.net/sparkconfigactionv03/spark-installer-v03.ps1`. Ver [instalar e utilizar clusters do Apache Spark no HDInsight][hdinsight-install-spark]. |
 | **Instalar o R** | `https://hdiconfigactions.blob.core.windows.net/rconfigactionv02/r-installer-v02.ps1`. Ver [instalar e utilizar R nos clusters do HDInsight](r-server/r-server-hdinsight-manage.md#install-additional-r-packages-on-the-cluster). |
-| **Instalar o Solr** | `https://hdiconfigactions.blob.core.windows.net/solrconfigactionv01/solr-installer-v01.ps1`. Ver [instalar e utilizar clusters do Apache Solr no HDInsight](hdinsight-hadoop-solr-install.md). |
 | **Instalar o Giraph** | `https://hdiconfigactions.blob.core.windows.net/giraphconfigactionv01/giraph-installer-v01.ps1`. Ver [instalar e utilizar o Apache Giraph no HDInsight clusters](hdinsight-hadoop-giraph-install.md). |
 | **Pré-carregar bibliotecas do Hive** | `https://hdiconfigactions.blob.core.windows.net/setupcustomhivelibsv01/setup-customhivelibs-v01.ps1`. Consulte [bibliotecas adicionar Apache Hive em clusters do HDInsight](hdinsight-hadoop-add-hive-libraries.md) |
 
 
-Ação de script pode ser implementada no portal do Azure, Azure PowerShell ou com o SDK de .NET do HDInsight.  Para obter mais informações, consulte [HDInsight personalizar clusters com ação de Script][hdinsight-cluster-customize].
+Ação de script pode ser implementada no portal do Azure, Azure PowerShell ou com o SDK de .NET do HDInsight.  Para obter mais informações, consulte [clusters do HDInsight personalizar com ação de Script] [hdinsight-cluster-personalizar].
 
 > [!NOTE]  
 > Os scripts de exemplo funcionam apenas com clusters do HDInsight versão 3.1 ou acima. Para obter mais informações sobre versões de cluster do HDInsight, consulte [versões de cluster do HDInsight](hdinsight-component-versioning.md).
@@ -135,7 +134,7 @@ Aqui estão os métodos de programa auxiliar que são fornecidos por este script
 | **Expand-HDIZippedFile** |Deszipe ficheiros zipados. |
 | **Invoke-HDICmdScript** |Execute um script de cmd.exe. |
 | **Write-HDILog** |Escreva a saída do script personalizado usado para uma ação de script. |
-| **Get-serviços** |Obter uma lista de serviços em execução na máquina em que o script é executado. |
+| **Get-Services** |Obter uma lista de serviços em execução na máquina em que o script é executado. |
 | **Get-Service** |Com o nome de serviço específico como entrada, obter informações detalhadas para um serviço específico (nome de serviço, processar o ID, estado, etc.) na máquina em que o script é executado. |
 | **Get-HDIServices** |Obter uma lista de serviços do HDInsight em execução no computador em que o script é executado. |
 | **Get-HDIService** |Com o nome de serviço HDInsight específico como entrada, obter informações detalhadas para um serviço específico (nome de serviço, processar o ID, estado, etc.) na máquina em que o script é executado. |
@@ -144,9 +143,9 @@ Aqui estão os métodos de programa auxiliar que são fornecidos por este script
 | **Get-HDIServicesRunning** |Obter uma lista de serviços do HDInsight em execução no computador em que o script é executado. |
 | **Get-HDIServiceRunning** |Verifique se um serviço específico do HDInsight (por nome) está em execução no computador em que o script é executado. |
 | **Get-HDIHadoopVersion** |Obtenha a versão do Hadoop instalado no computador em que o script é executado. |
-| **Teste IsHDIHeadNode** |Verificar se o computador em que o script é executado é um nó principal. |
+| **Test-IsHDIHeadNode** |Verificar se o computador em que o script é executado é um nó principal. |
 | **Test-IsActiveHDIHeadNode** |Verificar se o computador em que o script é executado é um nó principal do Active Directory. |
-| **Teste IsHDIDataNode** |Verificar se o computador em que o script é executado é um nó de dados. |
+| **Test-IsHDIDataNode** |Verificar se o computador em que o script é executado é um nó de dados. |
 | **Edit-HDIConfigFile** |Edite os ficheiros de configuração do hive-site, core-site, site hdfs, mapred-site ou yarn-site. |
 
 ## <a name="best-practices-for-script-development"></a>Melhores práticas para o desenvolvimento de script
@@ -291,13 +290,11 @@ Este registo, é claro que a ação de script do Spark foi executada na VM com o
 No caso de ocorre uma falha de execução, a saída que ele descreve também está contida neste ficheiro de registo. As informações fornecidas nestes registos devem ser útil na depuração de problemas de script que podem surgir.
 
 ## <a name="see-also"></a>Consulte também
-* [Personalizar clusters do HDInsight com ação de Script][hdinsight-cluster-customize]
+* [Personalizar clusters do HDInsight com ação de Script] [hdinsight-cluster-personalizar]
 * [Instalar e utilizar o Apache Spark em clusters do HDInsight][hdinsight-install-spark]
-* [Instalar e utilizar o Apache Solr nos clusters do HDInsight](hdinsight-hadoop-solr-install.md).
 * [Instalar e usar o Apache Giraph nos clusters do HDInsight](hdinsight-hadoop-giraph-install.md).
 
 [hdinsight-provision]: hdinsight-provision-clusters.md
-[hdinsight-cluster-customize]: hdinsight-hadoop-customize-cluster.md
 [hdinsight-install-spark]: hdinsight-hadoop-spark-install.md
 [powershell-install-configure]: install-configure-powershell.md
 

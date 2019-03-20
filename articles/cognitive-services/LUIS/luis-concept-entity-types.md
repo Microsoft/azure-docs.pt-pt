@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 01/02/2019
 ms.author: diberry
-ms.openlocfilehash: 61211db72928bebf0e1ea50cad6362337f66f0eb
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: c8d2ccc197eb8818cfe3fc54449ee982bbe0c087
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55859623"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57844593"
 ---
 # <a name="entity-types-and-their-purposes-in-luis"></a>Tipos de entidade e suas finalidades no LUIS
 
@@ -201,7 +201,7 @@ Algumas destas entidades criados previamente definidas no código aberto [reconh
 
 ## <a name="regular-expression-entity"></a>Entidade de expressão regular 
 
-Uma expressão regular é melhor para texto de expressão não processados. Ele ignora caso e ignora a variante cultural.  Correspondência de expressões regulares é aplicada após a verificação ortográfica alterações ao nível do caráter, não no nível de token. Se a expressão regular é demasiado complexa, como o uso de muitos Retos, não é possível adicionar a expressão para o modelo. Utiliza a parte, mas nem todos os [.Net Regex](https://docs.microsoft.com/dotnet/standard/base-types/regular-expressions) biblioteca. 
+Uma expressão regular é melhor para texto de expressão não processados. Ele ignora caso e ignora a variante cultural.  Correspondência de expressões regulares é aplicada após a verificação ortográfica alterações ao nível do caráter, não no nível de token. Se a expressão regular é demasiado complexa, como o uso de muitos Retos, não é possível adicionar a expressão para o modelo. Utiliza a parte, mas nem todos os [Regex de .NET](https://docs.microsoft.com/dotnet/standard/base-types/regular-expressions) biblioteca. 
 
 A entidade é uma boa ajustar quando:
 

@@ -12,22 +12,28 @@ ms.author: jodebrui
 ms.reviewer: ''
 manager: craigg
 ms.date: 01/25/2019
-ms.openlocfilehash: fcfe8ed0bc132377fbaefaccb03e1d6a9374b8d6
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
-ms.translationtype: MT
+ms.openlocfilehash: c873587a640bb36e9fa43e314bf789a207956ae0
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57312485"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57854845"
 ---
 # <a name="optimize-performance-by-using-in-memory-technologies-in-sql-database"></a>Otimizar o desempenho ao utilizar tecnologias dentro da memória na base de dados SQL
 
-Tecnologias dentro da memória na SQL Database do Azure permitem-lhe melhorar o desempenho da sua aplicação e potencialmente reduzem os custos da base de dados. Usando tecnologias dentro da memória da base de dados do Azure SQL, pode obter aperfeiçoamentos de desempenho com várias cargas de trabalho:
+Tecnologias dentro da memória na SQL Database do Azure permitem-lhe melhorar o desempenho da sua aplicação e potencialmente reduzem os custos da base de dados. 
+
+## <a name="when-to-use-in-memory-technologies"></a>Quando utilizar tecnologias dentro da memória
+
+Usando tecnologias dentro da memória da base de dados do Azure SQL, pode obter aperfeiçoamentos de desempenho com várias cargas de trabalho:
 
 - **Transacional** (processamento transacional online (OLTP)) em que a maioria das solicitações ler ou atualizar o menor conjunto de dados (por exemplo, operações de CRUD).
 - **Análise** (processamento analítico online (OLAP)) em que a maioria das consultas possui cálculos complexos para os relatórios fins, com um determinado número de consultas que carregar e acrescentar dados para as tabelas existentes (então, a chamada de carregamento em massa) ou para eliminar o dados das tabelas. 
 - **Misto** (processamento analítico/transação do híbrida (HTAP)) em que as consultas OLTP e OLAP são executadas no mesmo conjunto de dados.
 
-Tecnologias dentro da memória podem melhorar o desempenho destas cargas de trabalho, mantendo os dados que devem ser processados na memória, usando a compilação nativo das consultas, ou avançada de processamento, tal como lotes processamento e instruções de SIMD que estão disponíveis no hardware subjacente.
+Tecnologias dentro da memória podem melhorar o desempenho destas cargas de trabalho, mantendo os dados que devem ser processados na memória, usando a compilação nativo das consultas, ou avançada de processamento, tal como lotes processamento e instruções de SIMD que estão disponíveis no hardware subjacente. 
+
+## <a name="overview"></a>Descrição geral
 
 Base de dados SQL do Azure tem as seguintes tecnologias dentro da memória:
 - *[OLTP dentro da memória](https://docs.microsoft.com/sql/relational-databases/in-memory-oltp/in-memory-oltp-in-memory-optimization)*  aumenta o número de transações por segundo e reduz a latência para processamento de transações. Os cenários que tiram partido de OLTP dentro da memória são: processamento, como de negociação e de jogos, ingestão de dados de eventos ou dispositivos de IoT, colocação em cache, o carregamento de dados e a tabela temporária e cenários de variável de tabela de transações de alto débito.

@@ -9,12 +9,12 @@ ms.custom: mvc
 ms.date: 02/22/2019
 ms.topic: tutorial
 ms.service: iot-hub
-ms.openlocfilehash: 19f46392232ade83f0f111494f2b7f80e40fb14c
-ms.sourcegitcommit: 15e9613e9e32288e174241efdb365fa0b12ec2ac
+ms.openlocfilehash: cd60129e2da0b0c2130b300159953bd81c4aeb82
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "57008207"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58077569"
 ---
 # <a name="tutorial-use-a-simulated-device-to-test-connectivity-with-your-iot-hub"></a>Tutorial: Utilizar um dispositivo simulado para testar a conectividade com o seu hub IoT
 
@@ -135,7 +135,7 @@ az iot hub generate-sas-token --device-id MyTestDevice --hub-name {YourIoTHubNam
 
 Tome nota do texto completo do token SAS gerado. Um token SAS tem o seguinte aspeto: `SharedAccessSignature sr=tutorials-iot-hub.azure-devices.net%2Fdevices%2FMyTestDevice&sig=....&se=1524155307`
 
-Numa janela de terminal no computador de desenvolvimento, navegue para a pasta raiz do projeto Node.js de exemplo que transferiu. Em seguida, navegue para a pasta **iot-hub\Tutorials\ConnectivityTests\simulated-device**.
+Numa janela de terminal no computador de desenvolvimento, navegue para a pasta raiz do projeto Node.js de exemplo que transferiu. Em seguida, navegue para o **iot hub\Tutorials\ConnectivityTests** pasta.
 
 Na janela de terminal, execute os seguintes comandos para instalar as bibliotecas necessárias e executar a aplicação de dispositivo simulado:
 
@@ -176,7 +176,7 @@ Em primeiro lugar, obtenha a cadeia de ligação atual do dispositivo simulado a
 az iot hub device-identity show-connection-string --device-id MyTestDevice --output table --hub-name {YourIoTHubName}
 ```
 
-Para executar um dispositivo simulado que envia mensagens, navegue para a pasta **iot-hub\Tutorials\ConnectivityTests\simulated-device** no código que transferiu.
+Para executar um dispositivo simulado que envia mensagens, navegue para o **iot hub\Tutorials\ConnectivityTests** pasta no código que transferiu.
 
 Na janela de terminal, execute os seguintes comandos para instalar as bibliotecas necessárias e executar a aplicação de dispositivo simulado:
 

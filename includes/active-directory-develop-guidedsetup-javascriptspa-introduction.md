@@ -4,22 +4,22 @@ description: incluir ficheiro
 services: active-directory
 documentationcenter: dev-center-name
 author: navyasric
-manager: mtillman
+manager: CelesteDG
 editor: ''
 ms.service: active-directory
 ms.devlang: na
 ms.topic: include
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/17/2018
+ms.date: 03/20/2019
 ms.author: nacanuma
 ms.custom: include file
-ms.openlocfilehash: 2cb4895fc2f884d6da41b55faa91fbcb9e88f52f
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: a6fcbc0e8adac75f17d7379ff512ba650d0bb118
+ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52978736"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58203348"
 ---
 # <a name="call-the-microsoft-graph-api-from-a-javascript-single-page-application-spa"></a>Chamar a API do Microsoft Graph a partir de uma aplicação de página única (SPA) de JavaScript
 
@@ -27,7 +27,7 @@ Este guia demonstra como uma aplicação de página única (SPA) de JavaScript p
 
 ## <a name="how-the-sample-app-generated-by-this-guide-works"></a>Como funciona a aplicação de exemplo gerada por este guia
 
-![Como funciona a aplicação de exemplo gerada por este guia](media/active-directory-develop-guidedsetup-javascriptspa-introduction/javascriptspa-intro.png)
+![Mostra como a aplicação de exemplo gerado por este funciona de tutoriais](media/active-directory-develop-guidedsetup-javascriptspa-introduction/javascriptspa-intro-updated.png)
 
 <!--start-collapse-->
 ### <a name="more-information"></a>Mais Informações

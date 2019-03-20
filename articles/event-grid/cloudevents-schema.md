@@ -8,12 +8,12 @@ ms.service: event-grid
 ms.topic: conceptual
 ms.date: 11/07/2018
 ms.author: babanisa
-ms.openlocfilehash: c9c0fd8bf7dc893ce07a6e3ce9cb392fc652a560
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 1eab0be59de90ad68cbf9601b7e2200e640875f4
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57535857"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58178072"
 ---
 # <a name="use-cloudevents-schema-with-event-grid"></a>Utilizar o esquema do CloudEvents com o Event Grid
 
@@ -24,6 +24,8 @@ CloudEvents simplifica a interoperabilidade, fornecendo um esquema de evento com
 CloudEvents está sendo criado por várias [colaboradores](https://github.com/cloudevents/spec/blob/master/community/contributors.md), incluindo Microsoft, através do [Foundation computação nativa da Cloud](https://www.cncf.io/). Está atualmente disponível como versão 0,1.
 
 Este artigo descreve como utilizar o esquema do CloudEvents com o Event Grid.
+
+[!INCLUDE [requires-azurerm](../../includes/requires-azurerm.md)]
 
 ## <a name="install-preview-feature"></a>Instale a funcionalidade de pré-visualização
 
@@ -66,12 +68,12 @@ Do CloudEvents v0.1 tem as seguintes propriedades disponíveis:
 | eventTypeVersion   | String   | "1.0"                            | A versão do eventType (opcional)                            | dataVersion
 | cloudEventsVersion | String   | "0.1"                            | A versão da especificação do CloudEvents que utiliza o evento        | *passar por*
 | source             | URI      | "/mycontext"                     | Descreve o produtor de eventos                                       | topic#subject
-| eventID            | String   | "1234-1234-1234"                 | ID do evento                                                    | id
+| eventID            | String   | "1234-1234-1234"                 | ID do evento                                                    | ID
 | eventTime          | Carimbo de data/hora| "2018-04-05T17:31:00Z"           | Timestamp de quando o evento ocorreu (opcional)                    | eventTime
 | schemaURL          | URI      | "https://myschema.com"           | Uma ligação para o esquema que seguem o atributo de dados (opcional) | *não utilizado*
 | contentType        | String   | "application/json"               | Descrever o formato de codificação de dados (opcional)                       | *não utilizado*
 | Extensões         | Mapa      | { "extA": "vA", "extB", "vB" }  | Quaisquer metadados adicionais (opcional)                                 | *não utilizado*
-| dados               | Objeto   | { "objA": "vA", "objB", "vB" }  | O payload do evento (opcional)                                       | dados
+| dados               | Object   | { "objA": "vA", "objB", "vB" }  | O payload do evento (opcional)                                       | dados
 
 Para obter mais informações, consulte a [especificação do CloudEvents](https://github.com/cloudevents/spec/blob/master/spec.md#context-attributes).
 

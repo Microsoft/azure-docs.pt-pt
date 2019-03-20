@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 11/26/2018
 ms.author: tamram
 ms.custom: mvc
-ms.openlocfilehash: 01404c89665ebfea62e7bda0e7566289bb15f2ae
-ms.sourcegitcommit: f863ed1ba25ef3ec32bd188c28153044124cacbc
+ms.openlocfilehash: 7d06d23af8d4d4f0282f6eb743c0f47dba80e3f0
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56300963"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58015302"
 ---
 # <a name="tutorial-upload-image-data-in-the-cloud-with-azure-storage"></a>Tutorial: Carregar dados de imagem na cloud com o Armazenamento do Azure
 
@@ -258,7 +258,7 @@ Selecione **Escolher ficheiro** para selecionar um ficheiro, em seguida, clique 
 No código de exemplo, a rota `post` é responsável por carregar a imagem para um contentor de blobs. A rota utiliza os módulos para ajudar a processar o carregamento:
 
 - [multer](https://github.com/expressjs/multer) implementa a estratégia de carregamento para o manipulador de rotas.
-- [para o stream](https://github.com/sindresorhus/into-stream) converte o buffer num fluxo conforme exigido pelo [createBlockBlobFromStream]. (http://azure.github.io/azure-sdk-for-node/azure-storage-legacy/latest/BlobService.html)
+- [para o stream](https://github.com/sindresorhus/into-stream) converte o buffer num fluxo conforme exigido pelo [createBlockBlobFromStream]. (https://azure.github.io/azure-sdk-for-node/azure-storage-legacy/latest/BlobService.html)
 
 À medida que o ficheiro é enviado para a rota, o conteúdo do arquivo mantenha-se na memória até que o ficheiro é carregado para o contentor de Blobs.
 
@@ -322,7 +322,7 @@ Selecione **Escolher ficheiro** para selecionar um ficheiro, em seguida, clique 
 No código de exemplo, a rota `post` é responsável por carregar a imagem para um contentor de blobs. A rota utiliza os módulos para ajudar a processar o carregamento:
 
 - [multer](https://github.com/expressjs/multer) implementa a estratégia de carregamento para o manipulador de rotas.
-- [no stream](https://github.com/sindresorhus/into-stream) converte a memória intermédia num fluxo conforme exigido pela [createBlockBlobFromStream](http://azure.github.io/azure-sdk-for-node/azure-storage-legacy/latest/BlobService.html).
+- [no stream](https://github.com/sindresorhus/into-stream) converte a memória intermédia num fluxo conforme exigido pela [createBlockBlobFromStream](https://azure.github.io/azure-sdk-for-node/azure-storage-legacy/latest/BlobService.html).
 
 À medida que o ficheiro é enviado para a rota, o conteúdo do arquivo mantenha-se na memória até que o ficheiro é carregado para o contentor de Blobs.
 

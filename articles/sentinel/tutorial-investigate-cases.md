@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 3/6/2019
 ms.author: rkarlin
-ms.openlocfilehash: 7c4994863f3c145c7095bcc12dd69ff02fab8455
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 6b3357ec06c89645b9c41e9efdb582a18af40672
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57540283"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58074680"
 ---
 # <a name="tutorial-investigate-cases-with-azure-sentinel-preview"></a>Tutorial: Investigar casos com a pré-visualização de sentinela do Azure
 
@@ -42,7 +42,7 @@ Um caso pode incluir vários alertas. É uma agregação de todas as evidências
 
 1. Selecione **casos**. O **casos** página permite-lhe saber como muitos casos, tem, quantas têm abrir, quantos tiver definido **em curso**, e quantas estão fechadas. Para cada caso, pode ver a hora em que ocorreu e o estado do caso. Ver a gravidade para decidir o que lidar com o primeiro. Na **casos** página, clique nas **alertas** guia para ver todos os alertas relacionados com um caso. Entidades que mapeou anteriormente como parte do cenário pode ser visto no **entidades** separador.  Pode filtrar os casos, conforme necessário, por exemplo, ao Estado ou gravidade. Se olharmos para o **casos** separador, irá ver casos abertos que contêm alertas acionados por suas regras de deteção definidas na **Analytics**. Na parte superior, verá os casos ativos, novos casos e, em casos de progresso. Também pode ver uma descrição geral de todos os seus casos de por gravidade.
 
-  ![Dashboard de alerta](./media/tutorial-investigate-cases/cases.png)
+   ![Dashboard de alerta](./media/tutorial-investigate-cases/cases.png)
 
 2. Para começar uma investigação, clique num caso específico. À direita, pode ver informações detalhadas para o caso, incluindo a respetiva gravidade, resumo do número de entidades envolvidas (com base no seu mapeamento). Cada caso tenha um ID exclusivo. A gravidade do cenário é determinada de acordo com o incluído no caso de alerta mais grave.  
 

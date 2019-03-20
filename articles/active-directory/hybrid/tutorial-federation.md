@@ -14,12 +14,12 @@ ms.date: 08/16/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a242e2419c64b0b80665aa2a8859f73143210bab
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: a51175d192a5afb1f84f8d0ed2de9796f198f82d
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57552202"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58102405"
 ---
 # <a name="tutorial-federate-a-single-ad-forest-environment-to-the-cloud"></a>Tutorial: Federar um ambiente de floresta AD único na cloud
 
@@ -83,7 +83,7 @@ Para concluir a criação da máquina virtual, é necessário concluir a instala
 
 1. Gestor de Hyper-V, faça duplo clique na máquina virtual
 2. Clique no botão Iniciar.
-3.  Será solicitado a 'Pressione qualquer tecla para inicializar a partir de CD ou DVD'. Vá em frente e fazê-lo.
+3. Será solicitado a 'Pressione qualquer tecla para inicializar a partir de CD ou DVD'. Vá em frente e fazê-lo.
 4. No ecrã de arranque do Windows Server selecione seu idioma e clique em **seguinte**.
 5. Clique em **instalar agora**.
 6. Introduza a chave de licença e clique em **seguinte**.
@@ -281,9 +281,9 @@ Agora iremos confirmar que os utilizadores que tínhamos no nosso diretório no 
 
 ## <a name="test-signing-in-with-one-of-our-users"></a>Testar início de sessão com um dos nossos usuários
 
-1.  Navegue para [https://myapps.microsoft.com](https://myapps.microsoft.com)
+1. Navegue para [https://myapps.microsoft.com](https://myapps.microsoft.com)
 2. Inicie sessão com uma conta de utilizador que foi criada no nosso novo inquilino.  Terá de início de sessão com o seguinte formato: (user@domain.onmicrosoft.com). Utilizar a mesma palavra-passe que o utilizador utiliza para iniciar sessão no local.
-![Certifique-se](media/tutorial-password-hash-sync/verify1.png)
+   ![Certifique-se](media/tutorial-password-hash-sync/verify1.png)
 
 Agora tem com êxito um ambiente de identidade híbrida que pode utilizar para testar e familiarizar-se com o Azure tem para oferecer a configuração.
 

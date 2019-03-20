@@ -11,13 +11,13 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
 manager: craigg
-ms.date: 02/27/2019
-ms.openlocfilehash: a243dbfa8b63d45f87fd16370fa8e120ff68711c
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.date: 03/12/2019
+ms.openlocfilehash: 21b036763a1e8a7480d11fef4c36599f92fc3657
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57309150"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57853193"
 ---
 # <a name="creating-and-using-active-geo-replication"></a>Criar e utilizar a georreplicação ativa
 
@@ -69,7 +69,7 @@ Para alcançar a continuidade do negócio real, a adição de redundância da ba
 
 - **Replicação assíncrona automática**
 
- Só pode criar uma base de dados secundária ao adicionar a base de dados existente. A secundária pode ser criada em qualquer servidor de base de dados do Azure SQL. Depois de criado, a base de dados secundária é preenchido com os dados copiados da base de dados primária. Este processo é conhecido como seeding. Depois de base de dados secundária foi criado e implantado, as atualizações para a base de dados primário são replicadas de forma assíncrona a base de dados secundária automaticamente. Replicação assíncrona significa que as transações são consolidadas no banco de dados primário antes de eles serem replicados para a base de dados secundária.
+  Só pode criar uma base de dados secundária ao adicionar a base de dados existente. A secundária pode ser criada em qualquer servidor de base de dados do Azure SQL. Depois de criado, a base de dados secundária é preenchido com os dados copiados da base de dados primária. Este processo é conhecido como seeding. Depois de base de dados secundária foi criado e implantado, as atualizações para a base de dados primário são replicadas de forma assíncrona a base de dados secundária automaticamente. Replicação assíncrona significa que as transações são consolidadas no banco de dados primário antes de eles serem replicados para a base de dados secundária.
 
 - **Bases de dados secundárias legíveis**
 
@@ -156,6 +156,8 @@ Como discutido anteriormente, georreplicação ativa também pode ser gerida atr
 ### <a name="powershell-manage-failover-of-single-and-pooled-databases"></a>PowerShell: Gerir a ativação pós-falha de bases de dados individuais e em pool
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+> [!IMPORTANT]
+> O módulo do PowerShell do Azure Resource Manager ainda é suportado pelo SQL Database do Azure, mas todo o desenvolvimento futuro é para o módulo de Az.Sql. Para estes cmdlets, consulte [azurerm. SQL](https://docs.microsoft.com/powershell/module/AzureRM.Sql/). Os argumentos para os comandos no módulo Az e nos módulos AzureRm são substancialmente idênticos.
 
 | Cmdlet | Descrição |
 | --- | --- |

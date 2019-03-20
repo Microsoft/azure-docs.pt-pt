@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 11/27/2018
 ms.author: ramamill
-ms.openlocfilehash: 099576b1a4c5c28aab7672aaeb9274bc0beb96bf
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 037f0ff64b114ce9341702564147825099695aa0
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52842327"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58105646"
 ---
 # <a name="set-up-a-process-server-in-azure-for-failback"></a>Configurar um servidor de processos no Azure para reativação pós-falha
 
@@ -33,7 +33,7 @@ Saiba mais sobre o [nova proteção](vmware-azure-reprotect.md) e [reativação 
 3. Na **Adicionar servidor de processos** página e selecionar a opção para implementar o servidor de processos no Azure.
 4. Especifique as definições do Azure, incluindo a subscrição utilizada para ativação pós-falha, um grupo de recursos, a região do Azure utilizada para a ativação pós-falha e a rede virtual na qual estão localizadas as VMs do Azure. Se tiver utilizado a várias redes do Azure, precisa de um servidor de processo em cada uma.
 
-  ![Adicionar item de galeria do servidor de processo](./media/vmware-azure-set-up-process-server-azure/add-ps-page-1.png)
+   ![Adicionar item de galeria do servidor de processo](./media/vmware-azure-set-up-process-server-azure/add-ps-page-1.png)
 
 4. Na **nome do servidor**, **nome de utilizador**, e **palavra-passe**, especifique um nome para o servidor de processos e as credenciais que serão atribuídas as permissões de administrador no servidor.
 5. Especifique uma conta de armazenamento a ser utilizado para os discos VM do servidor, a sub-rede na qual a VM do servidor de processo estarão localizado e o endereço IP do servidor que será atribuído quando a VM é iniciado.

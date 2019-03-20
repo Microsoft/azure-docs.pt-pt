@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 12/01/2017
 ms.author: priyamo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 761843aad24dc89131079eb59954bd17883e595d
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 2dfbb618bafd9ae3cbb0c691e63a243ab2c2c31e
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56178401"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57996532"
 ---
 # <a name="how-to-use-managed-identities-for-azure-resources-on-an-azure-vm-for-sign-in"></a>Como utilizar identidades geridas para recursos do Azure numa VM do Azure para início de sessão 
 
@@ -87,7 +87,7 @@ Ver [que o suporte do Azure AD a autenticação dos serviços Azure](services-su
 As respostas, como a seguir podem indicar a identidade gerida da VM para recursos do Azure não foi configurada corretamente:
 
 - PowerShell: *Invoke-WebRequest: Não é possível ligar ao servidor remoto*
-- CLI: *MSI: Falha ao obter um token da "http://localhost:50342/oauth2/token" com um erro de "HTTPConnectionPool (host = 'localhost', porta = 50342)* 
+- CLI: *MSI: Falha ao obter um token da `http://localhost:50342/oauth2/token` com um erro de "HTTPConnectionPool (host = 'localhost', porta = 50342)* 
 
 Se receber um desses erros, regresse à VM do Azure no [portal do Azure](https://portal.azure.com) e:
 

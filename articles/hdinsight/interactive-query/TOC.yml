@@ -64,12 +64,6 @@ items:
       - name: Utilizar as ferramentas do HDInsight para o Visual Studio
         href: ../hadoop/apache-hadoop-use-hive-visual-studio.md
         maintainContext: true
-      - name: Utilizar o Ambiente de Trabalho Remoto
-        href: ../hadoop/apache-hadoop-use-hive-remote-desktop.md
-        maintainContext: true
-      - name: Utilizar a Consola de Consultas
-        href: ../hadoop/apache-hadoop-use-hive-query-console.md
-        maintainContext: true
       maintainContext: true
     - name: Utilizar um Java UDF com o Apache Hive
       href: ../hadoop/apache-hadoop-hive-java-udf.md
@@ -110,17 +104,11 @@ items:
     - name: Ligar com o controlador JDBC do Apache Hive
       href: ../hadoop/apache-hadoop-connect-hive-jdbc-driver.md
       maintainContext: true
-    - name: Analisar dados de sensores armazenados
-      href: ../hadoop/apache-hive-analyze-sensor-data.md
-      maintainContext: true
     - name: Analisar tweets armazenados
       href: ../hdinsight-analyze-twitter-data-linux.md
       maintainContext: true
     - name: Analisar dados de atraso de voos
       href: ../hdinsight-analyze-flight-delay-data-linux.md
-      maintainContext: true
-    - name: Analisar registos de sites com o Apache Hive
-      href: ../hadoop/apache-hive-analyze-website-log.md
       maintainContext: true
   - name: Expandir clusters
     items:
@@ -395,9 +383,9 @@ items:
   - name: Ferramentas do Windows para HDInsight
     href: ../hdinsight-hadoop-windows-tools.md
     maintainContext: true
-ms.openlocfilehash: 3a687530afde6f24d1e264b289b7aaebf290c68f
-ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
+ms.openlocfilehash: 092c8909194b5f656c040dfd27ac721c587351c8
+ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56888258"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58200196"

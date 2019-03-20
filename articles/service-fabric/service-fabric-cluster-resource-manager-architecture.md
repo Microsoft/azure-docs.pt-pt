@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/18/2017
 ms.author: masnider
-ms.openlocfilehash: b39f7bc31ed286ef4a894e9d49166cd305d9e905
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: 82183cefc11a1f3c39fadd639c988d8bf83fc109
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56736758"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58116606"
 ---
 # <a name="cluster-resource-manager-architecture-overview"></a>Descrição geral de arquitetura do resource manager de cluster
 O Gestor de recursos de Cluster do Service Fabric é um serviço central que é executado no cluster. Gere o estado pretendido dos serviços do cluster, especialmente em relação ao consumo de recursos e quaisquer regras de colocação. 
@@ -51,6 +51,7 @@ O Gestor de recursos do Cluster tem que controlar os requisitos de cada serviço
 Vamos examinar o diagrama seguinte:
 
 <center>
+
 ![Arquitetura do Balanceador de recursos][Image1]
 </center>
 
@@ -59,6 +60,7 @@ Durante o tempo de execução, há muitas alterações que poderiam acontecer. P
 Vamos examinar o diagrama seguinte e ver o que acontece em seguida. Digamos que o Gestor de recursos de Cluster determina que as alterações são necessárias. Coordena com outros serviços do sistema (em especial o Gestor de ativação pós-falha) para fazer as alterações necessárias. Em seguida, os comandos necessários são enviados para os nós adequados (4). Por exemplo, digamos que o Gestor de recursos observado que o Nó5 foi sobrecarregado e, então Decidi mover o serviço B de Nó5 para Nó4. No final da reconfiguração (5), o cluster fica assim:
 
 <center>
+
 ![Arquitetura do Balanceador de recursos][Image2]
 </center>
 

@@ -9,12 +9,12 @@ ms.reviewer: mamccrea
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 08/24/2018
-ms.openlocfilehash: b1fc52ac46a6cdb73b9210833e437765398781ef
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: 0fec9173eb94aa60c3689089e4eacd2d9d47724a
+ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55819132"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58200026"
 ---
 # <a name="manage-hdinsight-clusters-with-enterprise-security-package"></a>Gerir clusters do HDInsight com o Enterprise Security Package
 Saiba os utilizadores e as funções no pacote de segurança de Enterprise do HDInsight (ESP) e como gerir clusters do ESP.
@@ -179,9 +179,9 @@ HDInsight Enterprise Security Package tem as seguintes funções:
 ## <a name="open-the-ambari-management-ui"></a>Abra a IU de gestão do Ambari
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com).
-2. Abra o seu cluster do HDInsight. Ver [listar e Mostrar clusters](../hdinsight-administer-use-management-portal.md#list-and-show-clusters).
+2. Abra o seu cluster do HDInsight.
 3. Clique em **Dashboard** no menu superior para abrir o Ambari.
-4. Inicie sessão no Ambari com o nome de utilizador de domínio de administrador de cluster e a palavra-passe.
+4. Inicie sessão com o nome de utilizador de domínio de administrador de cluster e a palavra-passe do Ambari.
 5. Clique nas **administrador** menu suspenso da parte superior com o botão direito canto e, em seguida, clique em **Ambari gerir**.
 
     ![Gerir o HDInsight ESP Ambari](./media/apache-domain-joined-manage/hdinsight-domain-joined-manage-ambari.png)

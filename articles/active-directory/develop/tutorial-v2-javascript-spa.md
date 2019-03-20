@@ -3,8 +3,8 @@ title: O Azure AD v2.0 JavaScript de aplicação de página única (SPA) interat
 description: Como os aplicativos SPA do JavaScript podem chamar uma API que precisam de tokens de acesso ao ponto final de v2.0 do Azure Active Directory
 services: active-directory
 documentationcenter: dev-center-name
-author: CelesteDG
-manager: mtillman
+author: navyasric
+manager: CelesteDG
 editor: ''
 ms.service: active-directory
 ms.subservice: develop
@@ -12,16 +12,16 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 04/09/2018
+ms.date: 03/20/2019
 ms.author: nacanuma
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 92f35df341e17c38b502bf2d792bc93d184347f3
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: 6b0a33a21836895bbe793aa0776888802736e7db
+ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56731060"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58201828"
 ---
 [!INCLUDE [1. Introduction](../../../includes/active-directory-develop-guidedsetup-javascriptspa-introduction.md)]
 [!INCLUDE [2. Setup](../../../includes/active-directory-develop-guidedsetup-javascriptspa-setup.md)]

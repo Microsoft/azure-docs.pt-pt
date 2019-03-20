@@ -16,12 +16,12 @@ ms.date: 05/31/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a3b503c7f0693a90d438fcec3ecae335fd349b3d
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: cb44c64540cc461bca4e305f7783f7c6b612591b
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56188006"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57996335"
 ---
 # <a name="azure-ad-connect-user-sign-in-options"></a>Opções do Azure AD Connect utilizador início de sessão
 O Azure Active Directory (Azure AD) Connect permite aos utilizadores iniciar sessão nos recursos de nuvem e no local utilizando as mesmas palavras-passe. Este artigo descreve conceitos chave para cada modelo de identidade ajudar a escolher a identidade que pretende utilizar para iniciar sessão no Azure AD.
@@ -75,7 +75,9 @@ Para obter mais informações, consulte:
 ### <a name="federation-that-uses-a-new-or-existing-farm-with-ad-fs-in-windows-server-2012-r2"></a>Federação que utiliza um farm de novo ou existente com o AD FS no Windows Server 2012 R2
 Com o início de sessão federado, os utilizadores podem iniciar sessão serviços com base no AD do Azure com suas senhas locais. Enquanto eles estão na rede empresarial, até mesmo não tem de introduzir as palavras-passe. Ao utilizar a opção de federação com o AD FS, pode implementar um farm de novo ou existente com o AD FS no Windows Server 2012 R2. Se optar por especificar um farm existente, o Azure AD Connect configura a confiança entre o seu farm e o Azure AD para que os utilizadores podem iniciar sessão.
 
-<center>![Federação com o AD FS no Windows Server 2012 R2](./media/plan-connect-user-signin/federatedsignin.png)</center>
+<center>
+
+![Federação com o AD FS no Windows Server 2012 R2](./media/plan-connect-user-signin/federatedsignin.png)</center>
 
 #### <a name="deploy-federation-with-ad-fs-in-windows-server-2012-r2"></a>Implementar a Federação com o AD FS no Windows Server 2012 R2
 
@@ -152,6 +154,7 @@ Recomendamos vivamente que mantenha o atributo predefinido userPrincipalName. Se
 Para obter as informações seguintes, vamos supor que estamos preocupados com o contoso.com de sufixo UPN, que serve no diretório no local como parte do UPN – por exemplo user@contoso.com.
 
 ###### <a name="express-settingspassword-hash-synchronization"></a>Expressar a sincronização de hash de definições/palavra-passe
+
 | Estado | Efeito na experiência do usuário, o início de sessão do Azure |
 |:---:|:--- |
 | Não adicionado |Neste caso, nenhum domínio personalizado para contoso.com foi adicionado no diretório do Azure AD. Os utilizadores que têm o UPN no local com o sufixo @contoso.com não será possível utilizar o respetivo UPN no local para iniciar sessão no Azure. Em vez disso, eles terá que usar um UPN novo, que é fornecido a eles, adicionando o sufixo de diretório do Azure AD predefinido pelo Azure AD. Por exemplo, se estiver a sincronizar os utilizadores azurecontoso.onmicrosoft.com de diretório do Azure AD, em seguida, o utilizador no local user@contoso.com receberão um UPN de user@azurecontoso.onmicrosoft.com. |

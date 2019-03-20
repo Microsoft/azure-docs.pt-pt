@@ -5,29 +5,45 @@ services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: overview
-ms.date: 03/04/2019
+ms.date: 03/19/2019
 ms.author: cherylmc
 Customer intent: As someone with a networking background, I want to understand what Virtual WAN is and if it is the right choice for my Azure network.
-ms.openlocfilehash: 6a6fc9df2b102fd16bba03f26df4e24a1c946875
-ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
+ms.openlocfilehash: 5c6e69e05eaa036e140d7275b4e66930a3e5be7a
+ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57409997"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58225302"
 ---
 # <a name="what-is-azure-virtual-wan"></a>O que é a WAN Virtual do Azure?
 
-A WAN Virtual do Azure é um serviço de rede que fornece conectividade ramo a ramo otimizada e automatizada através do Azure. A WAN Virtual permite-lhe ligar e configurar dispositivos de ramo para comunicar com o Azure. Isso pode ser feito manualmente ou através de dispositivos de parceiros através de um parceiro de Virtual WAN. Utilizar dispositivos de parceiros, permite que a facilidade de uso, a simplificação da conectividade e gestão de configuração. Para obter mais informações, consulte a [localizações e parceiros](virtual-wan-locations-partners.md) artigo. Além disso, o dashboard incorporado do Azure WAN fornece informações instantâneas de resolução de problemas que podem ajudar a poupar tempo e dá-lhe uma forma fácil de ver a conectividade em grande escala.
+WAN Virtual do Azure é um serviço de rede que fornece conectividade de ramo automatizada e otimizado para e através do Azure. Regiões do Azure servem como fontes que pode optar por ligar seus ramos para. Assim que os ramos estão ligados, pode aproveitar o backbone do Azure para estabelecer conectividade ramo-para-VNet e o ramo de ramo.
 
-![Diagrama da WAN Virtual](./media/virtual-wan-about/virtualwan.png)
+WAN Virtual do Azure reúne vários serviços de conectividade de cloud do Azure como Site-Site VPN (disponível em geral), ExpressRoute (pré-visualização), o utilizador de ponto-para-Site VPN (pré-visualização) numa única interface operacional. Conectividade para VNets do Azure é estabelecida através de ligações de rede Virtual.
 
-Este artigo fornece uma vista rápida da conectividade de rede das suas cargas de trabalho pertencentes e não pertencentes ao Azure. A WAN Virtual oferece as seguintes vantagens:
+![Diagrama da WAN Virtual](./media/virtual-wan-about/vwangraphic.png)
+
+Este artigo fornece uma vista rápida sobre a conectividade de rede na WAN Virtual do Azure. A WAN Virtual oferece as seguintes vantagens:
 
 * **Soluções de conectividade integrada no hub- and -spoke:** Automatize a configuração de Site a Site e a conectividade entre sites no local e um hub do Azure.
 * **Instalação automatizada do spoke e configuração:** Ligar a redes virtuais e cargas de trabalho para o hub do Azure forma totalmente integrada.
 * **Resolução de problemas intuitivo:** Pode ver o fluxo de ponto-a-ponto no Azure e utilize estas informações para tomar as medidas necessárias.
 
+## <a name="partner-region"></a>Parceiros e localizações
+
+Para obter mais informações, consulte a [Virtual WAN parceiros e localizações de](virtual-wan-locations-partners.md) artigo.
+
+### <a name="partner"></a>Parceiros
+
+[!INCLUDE [partners](../../includes/virtual-wan-partners-include.md)]
+
+### <a name="locations"></a>localizações
+
+[!INCLUDE [regions](../../includes/virtual-wan-regions-include.md)]
+
 ## <a name="s2s"></a>Ligações Site a site
+
+![Diagrama da WAN Virtual](./media/virtual-wan-about/virtualwan.png)
 
 Para criar uma ligação Site a Site através da WAN Virtual, pode prosseguir através de um [parceiro de WAN Virtual](virtual-wan-locations-partners.md) ou criar a ligação manualmente.
 
@@ -67,20 +83,10 @@ Para configurar uma WAN virtual ponto a ponto, crie os seguintes recursos:
 
 * **Tabela de rotas de Hub:**  Pode criar uma rota de virtual hub e aplicam-se a rota à tabela de rotas de virtual hub. Pode aplicar várias rotas à tabela de rotas do hub virtual.
 
-## <a name="partner-region"></a>Parceiros e localizações
-
-### <a name="partner"></a>Parceiros
-
-[!INCLUDE [partners](../../includes/virtual-wan-partners-include.md)]
-
-### <a name="locations"></a>localizações
-
-[!INCLUDE [regions](../../includes/virtual-wan-regions-include.md)]
-
 ## <a name="faq"></a>FAQ
 
 [!INCLUDE [Virtual WAN FAQ](../../includes/virtual-wan-faq-include.md)]
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-Ver os [Virtual WAN parceiros e localizações de](virtual-wan-locations-partners.md) página.
+Ver os [Virtual WAN parceiros e localizações de](virtual-wan-locations-partners.md) página para obter mais informações sobre nossos parceiros de Virtual WAN e locais.

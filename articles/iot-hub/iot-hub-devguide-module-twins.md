@@ -7,12 +7,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 04/26/2018
 ms.author: menchi
-ms.openlocfilehash: 9c82ad04b22a29f4a548b79b9b46a08d46de24ca
-ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
+ms.openlocfilehash: 789657e53f8575b4e001fd3ec2629aaefe1a2d8b
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52284323"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58082012"
 ---
 # <a name="understand-and-use-module-twins-in-iot-hub"></a>Compreender e utilizar duplos de módulo no IoT Hub
 
@@ -45,7 +45,7 @@ O ciclo de vida de um módulo duplo está ligado a correspondente [identidade do
 
 Um módulo duplo é um documento JSON que inclui:
 
-* **Etiquetas**. Uma secção do documento JSON que o back-end de solução pode ler e escrever. As etiquetas não estão visíveis para os módulos no dispositivo. As etiquetas são definidas para a finalidade de consulta.
+* **Tags**. Uma secção do documento JSON que o back-end de solução pode ler e escrever. As etiquetas não estão visíveis para os módulos no dispositivo. As etiquetas são definidas para a finalidade de consulta.
 
 * **Propriedades pretendidas**. Utilizados em conjunto com as propriedades comunicadas para sincronizar a configuração do módulo ou condições. O back-end de solução pode definir as propriedades pretendidas e, a aplicação de módulo pode lê-los. A aplicação de módulo também pode receber notificações de alterações nas propriedades pretendidas.
 
@@ -174,43 +174,43 @@ O back-end de solução funciona com o módulo duplo usando as seguintes operaç
 
 * **Receber notificações de duplo**. Esta operação permite que a solução de back-end ser notificado quando o duplo é modificado. Para fazer isso, sua solução de IoT precisa de criar uma rota e definir a origem de dados igual ao *twinChangeEvents*. Por predefinição, não existem notificações de duplo são enviadas, ou seja, nenhuma dessas rotas existem previamente. Se a taxa de alteração é demasiado elevada, ou por outros motivos, como falhas internos, o IoT Hub pode enviar apenas uma notificação que contém todas as alterações. Portanto, se seu aplicativo precisar fiável de auditoria e registo de todos os Estados intermediários, deve usar mensagens dispositivo-para-cloud. A mensagem de notificação de duplo inclui propriedades e o corpo.
 
-    - Propriedades
+  - Propriedades
 
-    | Nome | Valor |
+    | Name | Value |
     | --- | --- |
-    $content-tipo | application/json |
+    $content-type | application/json |
     $iothub-enqueuedtime |  Tempo quando a notificação foi enviada |
-    $iothub-mensagem-origem | twinChangeEvents |
-    $content-encoding | UTF-8 |
+    $iothub-message-source | twinChangeEvents |
+    $content-encoding | utf-8 |
     deviceId | ID do dispositivo |
     moduleId | ID do módulo |
-    HubName | Nome do IoT Hub |
+    hubName | Nome do IoT Hub |
     operationTimestamp | [ISO8601](https://en.wikipedia.org/wiki/ISO_8601) timestamp da operação |
     iothub-message-schema | deviceLifecycleNotification |
     opType | "replaceTwin" ou "updateTwin" |
 
     Propriedades do sistema de mensagens têm o prefixo a `$` símbolo.
 
-    - Corpo
+  - Corpo
         
     Esta secção inclui todas as alterações de duplo em formato JSON. Utiliza o mesmo formato como um patch, com a diferença que ele pode conter todas as seções de duplo: etiquetas, properties.reported, properties.desired e que contém os elementos de "$metadata". Por exemplo,
 
     ```json
     {
-        "properties": {
-            "desired": {
-                "$metadata": {
-                    "$lastUpdated": "2016-02-30T16:24:48.789Z"
-                },
-                "$version": 1
-            },
-            "reported": {
-                "$metadata": {
-                    "$lastUpdated": "2016-02-30T16:24:48.789Z"
-                },
-                "$version": 1
-            }
-        }
+      "properties": {
+          "desired": {
+              "$metadata": {
+                  "$lastUpdated": "2016-02-30T16:24:48.789Z"
+              },
+              "$version": 1
+          },
+          "reported": {
+              "$metadata": {
+                  "$lastUpdated": "2016-02-30T16:24:48.789Z"
+              },
+              "$version": 1
+          }
+      }
     }
     ```
 

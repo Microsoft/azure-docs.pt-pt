@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 01/19/2018
-ms.openlocfilehash: 01db1de5c6b533c346ce35c8474d996213873d10
-ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
+ms.openlocfilehash: fd2614c258aff146397e24e688eae18d84d3cfa6
+ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "54002200"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58201165"
 ---
 # <a name="streaming-at-scale-in-hdinsight"></a>Transmissão em fluxo em escala no HDInsight
 
@@ -45,7 +45,7 @@ Para obter mais informações, consulte [o que é o Apache Spark Streaming?](hdi
 
 ## <a name="scaling-a-cluster"></a>Dimensionar um cluster
 
-Embora possa especificar o número de nós do cluster durante a criação, pode querer aumentar ou diminuir o cluster de acordo com a carga de trabalho. Todos os clusters do HDInsight permitem-lhe [alterar o número de nós do cluster](hdinsight-administer-use-management-portal.md#scale-clusters). Possível ignorar os clusters do Spark sem perda de dados, como todos os dados são armazenados no armazenamento do Azure ou o armazenamento do Data Lake.
+Embora possa especificar o número de nós do cluster durante a criação, pode querer aumentar ou diminuir o cluster de acordo com a carga de trabalho. Todos os clusters do HDInsight permitem-lhe [alterar o número de nós do cluster](hdinsight-administer-use-portal-linux.md#scale-clusters). Possível ignorar os clusters do Spark sem perda de dados, como todos os dados são armazenados no armazenamento do Azure ou o armazenamento do Data Lake.
 
 Há vantagens em tecnologias de desassociação. Por exemplo, o Kafka é um evento na memória intermédia de tecnologia, para que ele é bastante e/s intensivas e não precisa de muito poder de processamento. Em comparação, processadores de fluxos, como o Spark Streaming são intensivas de computação, que requerem mais poderosas VMs. Fazendo com que essas tecnologias dissociadas em clusters diferentes, pode ajustá-las forma independente ao utilizar as VMs melhor.
 

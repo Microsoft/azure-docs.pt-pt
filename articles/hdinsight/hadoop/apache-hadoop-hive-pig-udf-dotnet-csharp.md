@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/15/2019
 ms.author: hrasheed
-ms.openlocfilehash: 139fe946b013b1c86404bdef6ed06314af349c89
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
-ms.translationtype: MT
+ms.openlocfilehash: 08910cbae9f370dde7b8718ca4868dc7b3510f8e
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56343141"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58108904"
 ---
 # <a name="use-c-user-defined-functions-with-apache-hive-and-apache-pig-streaming-on-apache-hadoop-in-hdinsight"></a>Utilize C# funções definidas pelo utilizador com o Apache Hive e Apache Pig, transmissão em fluxo no Apache Hadoop no HDInsight
 
@@ -172,13 +172,13 @@ Para obter mais informações sobre a versão do .NET framework e Mono incluído
 
 6. Para carregar os ficheiros de .exe, utilize um dos seguintes métodos:
 
-    * Se utilizar um __conta de armazenamento do Azure__, clique no ícone de carregamento e, em seguida, navegue para o **bin\debug** pasta para o **HiveCSharp** projeto. Por fim, selecione o **HiveCSharp.exe** do ficheiro e clique em **Ok**.
+   * Se utilizar um __conta de armazenamento do Azure__, clique no ícone de carregamento e, em seguida, navegue para o **bin\debug** pasta para o **HiveCSharp** projeto. Por fim, selecione o **HiveCSharp.exe** do ficheiro e clique em **Ok**.
 
-        ![carregar ícone](./media/apache-hadoop-hive-pig-udf-dotnet-csharp/upload.png)
+       ![carregar ícone](./media/apache-hadoop-hive-pig-udf-dotnet-csharp/upload.png)
     
-    * Se utilizar __armazenamento do Azure Data Lake__, uma área vazia na listagem de ficheiros com o botão direito e, em seguida, selecione __carregar__. Por fim, selecione o **HiveCSharp.exe** do ficheiro e clique em **aberto**.
+   * Se utilizar __armazenamento do Azure Data Lake__, uma área vazia na listagem de ficheiros com o botão direito e, em seguida, selecione __carregar__. Por fim, selecione o **HiveCSharp.exe** do ficheiro e clique em **aberto**.
 
-    Uma vez a __HiveCSharp.exe__ carregamento for concluído, repita o processo de carregamento para o __PigUDF.exe__ ficheiro.
+     Uma vez a __HiveCSharp.exe__ carregamento for concluído, repita o processo de carregamento para o __PigUDF.exe__ ficheiro.
 
 ## <a name="run-an-apache-hive-query"></a>Executar uma consulta Apache Hive
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 02/22/2019
 ms.author: aljo
-ms.openlocfilehash: 38aef6e5ba65f67a1dd30ba2c18e180cd92624c6
-ms.sourcegitcommit: 7f7c2fe58c6cd3ba4fd2280e79dfa4f235c55ac8
+ms.openlocfilehash: bb99e5984f91edb0cf40f3bdc485624b9ec59833
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/25/2019
-ms.locfileid: "56805318"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57872692"
 ---
 # <a name="working-with-reliable-collections"></a>Trabalhar com as Reliable Collections
 Recursos de infraestrutura do serviço oferece um modelo de programação com monitoração de estado disponível para os desenvolvedores do .NET através de coleções fiáveis. Especificamente, o Service Fabric fornece classes de fila do reliable e de dicionário fiável. Quando usar essas classes, seu estado é particionado (para escalabilidade), replicado (para disponibilidade) e transacionado dentro de uma partição (para semântica ACID). Vamos examinar um uso típico de um objeto de dicionário fiável e ver o que está realmente fazendo.
@@ -143,7 +143,7 @@ using (ITransaction tx = StateManager.CreateTransaction())
 ```
 
 ## <a name="define-immutable-data-types-to-prevent-programmer-error"></a>Definir os tipos de dados imutáveis para impedir que o erro do Programador
-Idealmente, gostaríamos do compilador para relatar erros quando acidentalmente de produzir o código que desenvolvendo o estado de um objeto que deverá para considerar um imutável. No entanto, o C# compilador não tem a capacidade de fazer isso. Portanto, para evitar potenciais erros de programador, é altamente recomendável que definir os tipos de usar com as reliable collections ser tipos imutáveis. Especificamente, isso significa que siga principais tipos de valor (por exemplo, números [Int32, UInt64, etc.], DateTime, Guid, período de tempo e assim por diante). Também pode utilizar a cadeia de caracteres. É melhor evitar as propriedades de coleção como serializando e desserializar-las com freqüência pode prejudicar desempenho. No entanto, se pretender utilizar as propriedades de coleção, recomendamos vivamente a utilização de. Biblioteca de coleções imutáveis da NET ([System.Collections.Immutable](https://www.nuget.org/packages/System.Collections.Immutable/)). Essa biblioteca está disponível para download em http://nuget.org. Também recomendamos selar suas classes e fazendo campos só de leitura, sempre que possível.
+Idealmente, gostaríamos do compilador para relatar erros quando acidentalmente de produzir o código que desenvolvendo o estado de um objeto que deverá para considerar um imutável. No entanto, o C# compilador não tem a capacidade de fazer isso. Portanto, para evitar potenciais erros de programador, é altamente recomendável que definir os tipos de usar com as reliable collections ser tipos imutáveis. Especificamente, isso significa que siga principais tipos de valor (por exemplo, números [Int32, UInt64, etc.], DateTime, Guid, período de tempo e assim por diante). Também pode utilizar a cadeia de caracteres. É melhor evitar as propriedades de coleção como serializando e desserializar-las com freqüência pode prejudicar desempenho. No entanto, se pretender utilizar as propriedades de coleção, recomendamos vivamente a utilização de. Biblioteca de coleções imutáveis da NET ([System.Collections.Immutable](https://www.nuget.org/packages/System.Collections.Immutable/)). Essa biblioteca está disponível para download em https://nuget.org. Também recomendamos selar suas classes e fazendo campos só de leitura, sempre que possível.
 
 O tipo de UserInfo abaixo demonstra como definir um imutável tipo tirar partido de recomendações mencionados anteriormente.
 

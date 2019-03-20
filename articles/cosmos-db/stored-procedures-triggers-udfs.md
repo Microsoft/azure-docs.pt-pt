@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 12/11/2018
 ms.author: mjbrown
 ms.reviewer: sngun
-ms.openlocfilehash: 89cc7906c0503daa11f0a34520c17552a4e6b5af
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: d1960fbc9fc9e8c1d672b66d3cf1f41399842059
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55454220"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58083203"
 ---
 # <a name="stored-procedures-triggers-and-user-defined-functions"></a>Procedimentos armazenados, acionadores e funções definidas pelo utilizador
 
@@ -26,7 +26,7 @@ Escrever procedimentos armazenados, acionadores e funções definidas pelo utili
 
 * **Transações atômicas:** O Azure Cosmos DB garante que as operações de base de dados que são executadas dentro de um procedimento armazenado único ou um acionador são atómicas. Esta funcionalidade atômica permite que um aplicativo combinar operações relacionadas num único lote, para que todas as operações com êxito ou nenhum deles seja bem-sucedida.
 
-- **Desempenho:** Os dados JSON intrinsecamente são mapeados para o sistema de tipo de linguagem do JavaScript. Permite que este mapeamento para diversas otimizações, como lenta materialização de documentos JSON no pool de buffer e tornando-os disponíveis a pedido para o código em execução. Existem outras vantagens de desempenho associadas com envio de lógica de negócios para a base de dados, que inclui:
+* **Desempenho:** Os dados JSON intrinsecamente são mapeados para o sistema de tipo de linguagem do JavaScript. Permite que este mapeamento para diversas otimizações, como lenta materialização de documentos JSON no pool de buffer e tornando-os disponíveis a pedido para o código em execução. Existem outras vantagens de desempenho associadas com envio de lógica de negócios para a base de dados, que inclui:
 
    * *Processamento em lote:* Pode agrupar operações como inserções e submetê-las em massa. Os custos de latência de tráfego de rede e a sobrecarga de armazenamento para criar transações separadas diminui significativamente.
 
@@ -34,7 +34,7 @@ Escrever procedimentos armazenados, acionadores e funções definidas pelo utili
 
    * *Sequenciamento:* Às vezes, operações precisam de um mecanismo acionadora que pode realizar uma ou mais atualizações dos dados. Além de atomicidade, também existem benefícios de desempenho durante a execução no lado do servidor.
 
-- **Encapsulamento:** Procedimentos armazenados podem ser utilizados para agrupar lógica num único local. Encapsulamento adiciona uma camada de abstração sobre os dados, que permite-lhe evoluir as suas aplicações de forma independente a partir dos dados. Essa camada de abstração é útil quando os dados são o esquema e não precisa de gerir a adicionar a lógica adicional diretamente na sua aplicação. A abstração permite que seu mantê-lo que seguros ao facilitar o acesso a partir dos scripts.
+* **Encapsulamento:** Procedimentos armazenados podem ser utilizados para agrupar lógica num único local. Encapsulamento adiciona uma camada de abstração sobre os dados, que permite-lhe evoluir as suas aplicações de forma independente a partir dos dados. Essa camada de abstração é útil quando os dados são o esquema e não precisa de gerir a adicionar a lógica adicional diretamente na sua aplicação. A abstração permite que seu mantê-lo que seguros ao facilitar o acesso a partir dos scripts.
 
 > [!TIP]
 > Procedimentos armazenados são mais adequados para operações que são pesadas de escrita. Ao decidir onde utilizar procedimentos armazenados, Otimize as encapsulando a quantidade máxima de escritas possível. Em termos gerais, procedimentos armazenados não são o meio mais eficaz para fazer um grande número de operações de leitura para que o uso de procedimentos armazenados para um grande número de batch de leituras para retornar para o cliente não irá produzir o benefício pretendido.

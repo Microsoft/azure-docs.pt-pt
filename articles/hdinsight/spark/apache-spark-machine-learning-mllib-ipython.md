@@ -10,12 +10,12 @@ ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 02/26/2019
 ms.author: hrasheed
-ms.openlocfilehash: b5d1908201de803ae065403600fc3478e604eedd
-ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
+ms.openlocfilehash: bf29fd8d9b707636fb5965669ad800517a6cf58f
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56959107"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58075566"
 ---
 # <a name="use-apache-spark-mllib-to-build-a-machine-learning-application-and-analyze-a-dataset"></a>Utilizar o Apache Spark MLlib para criar uma aplicação de machine learning e analisar um conjunto de dados
 
@@ -200,16 +200,16 @@ Vamos começar a perceber o que contém o conjunto de dados.
 
     Para prever um resultado de inspeção de comida, terá de desenvolver um modelo com base nas violações. Como a regressão logística é um método de classificação binária, faz sentido para agrupar os dados de resultado em duas categorias: **Falhar** e **passar**:
 
-    - Passagem
-        - Passagem
-        - Passar com condições
-    - Falha
-        - Falha
-    - Dispensar
-        - Negócios não localizado
-        - Fora do negócio
+   - Passagem
+       - Passagem
+       - Passar com condições
+   - Falha
+       - Falha
+   - Dispensar
+       - Negócios não localizado
+       - Fora do negócio
 
-    Dados com os resultados ("Business não localizado" ou "fora da empresa") não são úteis, e eles formam uma percentagem muito pequena dos resultados de qualquer forma.
+     Dados com os resultados ("Business não localizado" ou "fora da empresa") não são úteis, e eles formam uma percentagem muito pequena dos resultados de qualquer forma.
 
 4. Execute o seguinte código para converter o pacote de dados existente (`df`) para um dataframe do novo onde cada inspeção é representada como um par de violações de etiqueta. Neste caso, uma etiqueta de `0.0` representa uma falha, a etiqueta `1.0` representa o sucesso e uma etiqueta de `-1.0` representa alguns resultados além desses dois. 
 

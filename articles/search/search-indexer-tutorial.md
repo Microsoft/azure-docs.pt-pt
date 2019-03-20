@@ -1,32 +1,31 @@
 ---
 title: Tutorial para indexação de bases de dados SQL do Azure no portal do Azure - Azure Search
-description: Neste tutorial, pesquise as bases de dados SQL do Azure para extrair dados pesquisáveis e preencher um índice do Azure Search.
+description: Neste tutorial, ligar à base de dados SQL do Azure, em seguida, extrair dados pesquisáveis e carregá-los para um índice da Azure Search.
 author: HeidiSteen
 manager: cgronlun
 services: search
 ms.service: search
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 07/10/2018
+ms.date: 03/18/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: e23c9e04d06e509cba32c728ae6f86e1328d88cc
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 4e94f4c1b5de47e36dd9a5be6b9e7f43d264de82
+ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58111077"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58201403"
 ---
 # <a name="tutorial-crawl-an-azure-sql-database-using-azure-search-indexers"></a>Tutorial: Pesquise a uma base de dados SQL do Azure com indexadores do Azure Search
 
-Este tutorial mostra-lhe como configurar um indexador para extrair dados pesquisáveis a partir de uma base de dados SQL do Azure de exemplo. Os [indexadores](search-indexer-overview.md) são um componente do Azure Search que pesquisam origens de dados externas e preenchem um [índice de pesquisa](search-what-is-an-index.md) com conteúdos. O indexador da base de dados SQL do Azure é o mais utilizado de todos. 
+Saiba como configurar um indexador para extrair dados pesquisáveis a partir de uma base de dados do SQL do Azure de exemplo. Os [indexadores](search-indexer-overview.md) são um componente do Azure Search que pesquisam origens de dados externas e preenchem um [índice de pesquisa](search-what-is-an-index.md) com conteúdos. De todos os indexadores, o indexador da base de dados do Azure SQL é o mais amplamente utilizadas. 
 
 É útil dominar a configuração de indexadores, porque simplifica a quantidade de código que tem de escrever e manter. Em vez de preparar e enviar um conjunto de dados JSON compatível com esquema, pode anexar um indexador a uma origem de dados, fazer com que este extraia dados e inseri-los num índice e, opcionalmente, executar esse índice numa agenda periódica para recolher as alterações na origem subjacente.
 
-Neste tutorial, vai utilizar as [bibliotecas de cliente .NET do Azure Search](https://aka.ms/search-sdk) e uma aplicação de consola .NET Core para executar as tarefas seguintes:
+Neste tutorial, utilize o [bibliotecas de cliente .NET do Azure Search](https://aka.ms/search-sdk) e uma aplicação de consola .NET Core para executar as seguintes tarefas:
 
 > [!div class="checklist"]
-> * Transferir e configurar a solução
 > * Adicionar informações do serviço de pesquisa para as definições da aplicação
 > * Preparar um conjunto de dados externo na base de dados SQL do Azure 
 > * Rever o índice e as definições do indexador no código de exemplo
@@ -38,16 +37,16 @@ Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* Um serviço do Azure Search. Para obter ajuda para configurar um serviço, veja [Create a search service](search-create-service-portal.md) (Criar um serviço de pesquisa).
+[Criar um serviço Azure Search](search-create-service-portal.md) ou [localizar um serviço existente](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) na subscrição atual. Pode usar um serviço gratuito para este tutorial.
 
-* Uma base de dados SQL do Azure, que forneça a origem de dados externa que vai ser utilizada por um indexador. A solução de exemplo fornece um ficheiro de dados do SQL para criar a tabela.
+* Uma [base de dados do Azure SQL](https://azure.microsoft.com/services/sql-database/) fornecendo a origem de dados externa utilizada por um indexador. A solução de exemplo fornece um ficheiro de dados do SQL para criar a tabela.
 
-* O Visual Studio 2017. Pode utilizar a [Visual Studio 2017 Community Edition](https://www.visualstudio.com/downloads/) gratuita. 
+* + [Visual Studio 2017](https://visualstudio.microsoft.com/downloads/), qualquer edição. Código de exemplo e instruções foram testadas na edição de Comunidade gratuita.
 
 > [!Note]
 > Se estiver a utilizar o serviço do Azure Search gratuito, está limitado a três índices, três indexadores e três origens de dados. Este tutorial cria um de cada. Confirme que o seu serviço tem espaço para aceitar os recursos novos.
 
-## <a name="download-the-solution"></a>Transferir a solução
+### <a name="download-the-solution"></a>Transferir a solução
 
 A solução de indexador utilizada neste tutorial provém de uma coleção de exemplos do Azure Search fornecidos numa transferência principal. A solução utilizada para este tutorial é *DotNetHowToIndexers*.
 
@@ -63,7 +62,7 @@ A solução de indexador utilizada neste tutorial provém de uma coleção de ex
 
 6. No **Explorador de Soluções**, clique com o botão direito do rato na Solução principal do nó superior > **Restaurar Pacotes Nuget**.
 
-## <a name="set-up-connections"></a>Configurar ligações
+### <a name="set-up-connections"></a>Configurar ligações
 As informações de ligação dos serviços necessários estão especificadas no ficheiro **appsettings.json**, na solução. 
 
 No Explorador de Soluções, abra **appsettings.json**, para poder preencher cada definição com as instruções deste tutorial.  
@@ -105,7 +104,7 @@ Pode encontrar o ponto final do serviço de pesquisa e a chave no portal. A chav
    }
    ```
 
-## <a name="prepare-an-external-data-source"></a>Preparar uma origem de dados externa
+## <a name="prepare-sample-data"></a>Preparar dados de exemplo
 
 Neste passo, crie uma origem de dados externa que possa ser pesquisa por um indexador. O ficheiro de dados deste tutorial é *hotels.sql*, que está na pasta da solução \DotNetHowToIndexers. 
 

@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 02/26/2019
 ms.author: kumud
 ms.custom: seodec18
-ms.openlocfilehash: fa0ba7aabcd03297b076ccbc1fcc3d2453676cc1
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: fe095b8f5a0080c0f28ec570303c9dc23962dfc8
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57782671"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57869817"
 ---
 # <a name="quickstart-create-a-basic-load-balancer-by-using-the-azure-portal"></a>Início rápido: Criar um balanceador de carga básico com o portal do Azure
 
@@ -28,7 +28,7 @@ Balanceamento de carga oferece um nível mais elevado de disponibilidade e dimen
 
 Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar. 
 
-Para fazer as tarefas neste início rápido, inicie sessão para o [portal do Azure](http://portal.azure.com).
+Para fazer as tarefas neste início rápido, inicie sessão para o [portal do Azure](https://portal.azure.com).
 
 ## <a name="create-a-basic-load-balancer"></a>Criar um Balanceador de Carga Básico
 
@@ -207,7 +207,7 @@ A regra de Balanceador de carga com o nome **MyLoadBalancerRule** escuta na port
    
 1. Selecione **OK**.
    
-  ![Adicionar uma regra de Balanceador de carga](./media/load-balancer-get-started-internet-portal/5-load-balancing-rules.png)
+   ![Adicionar uma regra de Balanceador de carga](./media/load-balancer-get-started-internet-portal/5-load-balancing-rules.png)
 
 ## <a name="test-the-load-balancer"></a>Testar o balanceador de carga
 
@@ -259,6 +259,7 @@ Abra um browser e cole o endereço IP público do seu Balanceador de carga na ba
 
 ![Servidor Web do IIS](./media/load-balancer-get-started-internet-portal/9-load-balancer-test.png)
 
+Para ver o balanceador de carga a distribuir tráfego pelas três VMs que estão a executar a aplicação, pode forçar a atualização do browser.
 ## <a name="clean-up-resources"></a>Limpar recursos
 
 Para eliminar o Balanceador de carga e todos os recursos relacionados, quando já não precisar delas, abra a **MyResourceGroupLB** recursos de grupo e selecione **eliminar grupo de recursos**.

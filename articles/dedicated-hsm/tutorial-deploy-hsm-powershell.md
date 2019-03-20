@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/07/2018
 ms.author: barclayn
-ms.openlocfilehash: 4fd701c92ea2cf1447f0c3ea14db6a968ac8910e
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: fdda53172bef9fb7a4a09cbacfdc5fa4ec4c7509
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56115679"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58122357"
 ---
 # <a name="tutorial--deploying-hsms-into-an-existing-virtual-network-using-powershell"></a>Tutorial – implementar HSMs numa rede virtual existente com o PowerShell
 
@@ -255,8 +255,8 @@ Se tiver concluído com apenas o dispositivo HSM, em seguida, pode ser eliminada
 9. `syslog rotate`
 
 
->[!NOTE]
-Se tiver um problema com qualquer configuração de dispositivo da Gemalto deve contactar [atendimento ao cliente da Gemalto](https://safenet.gemalto.com/technical-support/).
+> [!NOTE]
+> Se tiver um problema com qualquer configuração de dispositivo da Gemalto deve contactar [atendimento ao cliente da Gemalto](https://safenet.gemalto.com/technical-support/).
 
 Se tiver concluído recursos neste grupo de recursos, pode removê-lo tudo com o seguinte comando:
 

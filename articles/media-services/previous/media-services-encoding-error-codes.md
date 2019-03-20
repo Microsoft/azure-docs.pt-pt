@@ -12,14 +12,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/10/2019
+ms.date: 03/18/2019
 ms.author: juliako
-ms.openlocfilehash: 7c293ea738c264b31efb1cf8dfca959612355587
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 82a8eecb4fb211117000c94c51644ce1fd27916d
+ms.sourcegitcommit: f331186a967d21c302a128299f60402e89035a8d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 03/19/2019
-ms.locfileid: "57886580"
+ms.locfileid: "58189704"
 ---
 # <a name="encoding-error-codes"></a>Códigos de erro de codificação
 

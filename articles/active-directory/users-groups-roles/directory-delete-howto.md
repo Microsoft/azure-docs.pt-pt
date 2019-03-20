@@ -9,19 +9,20 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: article
-ms.date: 03/05/2019
+ms.date: 03/18/2019
 ms.author: curtand
 ms.reviewer: elkuzmen
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1cb15f3e786313fca4ae9f0c224c68c96bac7836
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 833c2e460ae306a7673e580aaa304be93c3cd044
+ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58077722"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58199737"
 ---
 # <a name="delete-an-azure-active-directory-tenant"></a>Eliminar um inquilino do Azure Active Directory
+
 Quando um inquilino é eliminado, também são eliminados todos os recursos que estão contidos no inquilino. Tem de preparar o inquilino ao minimizarem os seus recursos associados antes de eliminar. Apenas um administrador global do Azure Active Directory (Azure AD) pode eliminar um inquilino do Azure AD a partir do portal.
 
 ## <a name="prepare-the-tenant-for-deletion"></a>Preparar o inquilino para eliminação
@@ -39,13 +40,13 @@ Não é possível eliminar um inquilino no Azure AD, até que ele passa diversas
 
 2. Selecione **Azure Active Directory**.
 
-3. Comutador para o inquilino que pretende eliminar.
+3. Mude para a organização que pretende eliminar.
   
-   ![eliminar o botão de diretório](./media/directory-delete-howto/delete-directory-command.png)
+   ![Confirmar a organização antes de eliminar](./media/directory-delete-howto/delete-directory-command.png)
 
 4. Selecione **eliminar o diretório**.
   
-   ![eliminar o botão de diretório](./media/directory-delete-howto/delete-directory-list.png)
+   ![Selecione o comando para eliminar a organização](./media/directory-delete-howto/delete-directory-list.png)
 
 5. Se o seu inquilino não passar uma ou mais verificações, é apresentada uma ligação para obter mais informações sobre como passar. Depois de passar todas as verificações, selecione **eliminar** para concluir o processo.
 
@@ -74,7 +75,7 @@ Pode colocar uma subscrição para um **Deprovisoned** estado a eliminar dentro 
   
 3. Selecione **eliminar** para eliminar a subscrição e aceite os termos e condições. Todos os dados é eliminado permanentemente no prazo de três dias. Pode reativar a subscrição durante o período de três dias, se mudar de ideias.
   
-   ![termos e condições](./media/directory-delete-howto/delete-terms.png)
+   ![Leia atentamente os termos e condições](./media/directory-delete-howto/delete-terms.png)
 
 4. Agora, o estado da subscrição tiver sido alterado, a subscrição está marcada para eliminação. A subscrição introduz o **desaprovisionada** 72 horas depois de estado.
 
@@ -83,4 +84,5 @@ Pode colocar uma subscrição para um **Deprovisoned** estado a eliminar dentro 
    ![passaram a verificação de subscrição no ecrã de eliminação](./media/directory-delete-howto/delete-checks-passed.png)
 
 ## <a name="next-steps"></a>Passos Seguintes
+
 [Documentação do Azure Active Directory](https://docs.microsoft.com/azure/active-directory/)

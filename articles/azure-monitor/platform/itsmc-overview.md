@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 05/24/2018
 ms.author: v-jysur
-ms.openlocfilehash: a6e4f816d3c5be9d3a4f4824ad7ed26d48763034
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: abbd26779cefaf52c6f2247a5d27db25f280c930
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57433277"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58118055"
 ---
 # <a name="connect-azure-to-itsm-tools-using-it-service-management-connector"></a>Ligar o Azure para ferramentas ITSM com o conector de gestão do serviço de TI
 
@@ -52,24 +52,24 @@ Pode começar a utilizar o conector de ITSM através dos seguintes passos:
 
 Antes de poder criar uma ligação, terá de adicionar a solução de conector ITSM.
 
-1.  No portal do Azure, clique em **+ novo** ícone.
+1. No portal do Azure, clique em **+ novo** ícone.
 
-    ![Recurso novo do Azure](media/itsmc-overview/azure-add-new-resource.png)
+   ![Recurso novo do Azure](media/itsmc-overview/azure-add-new-resource.png)
 
-2.  Procure **conector de gestão do serviço de TI** no Marketplace e clique **criar**.
+2. Procure **conector de gestão do serviço de TI** no Marketplace e clique **criar**.
 
-    ![Adicionar solução ITSMC](media/itsmc-overview/add-itsmc-solution.png)
+   ![Adicionar solução ITSMC](media/itsmc-overview/add-itsmc-solution.png)
 
-3.  Na **área de trabalho OMS** secção, selecione a área de trabalho do Log Analytics do Azure onde pretende instalar a solução.
+3. Na **área de trabalho OMS** secção, selecione a área de trabalho do Log Analytics do Azure onde pretende instalar a solução.
    >[!NOTE]
    >Como parte da transição em curso do Microsoft Operations Management Suite (OMS) para o Azure Monitor, áreas de trabalho do OMS são agora referidas como áreas de trabalho do Log Analytics.
-4.  Na **definições de área de trabalho do OMS** secção, selecione o ResourceGroup onde pretende criar o recurso de solução.
+4. Na **definições de área de trabalho do OMS** secção, selecione o ResourceGroup onde pretende criar o recurso de solução.
 
-    ![Área de trabalho ITSMC](media/itsmc-overview/itsmc-solution-workspace.png)
-    >[!NOTE]
-    >Como parte da transição em curso do Microsoft Operations Management Suite (OMS) para o Azure Monitor, áreas de trabalho do OMS são agora referidas como áreas de trabalho do Log Analytics.
+   ![Área de trabalho ITSMC](media/itsmc-overview/itsmc-solution-workspace.png)
+   >[!NOTE]
+   >Como parte da transição em curso do Microsoft Operations Management Suite (OMS) para o Azure Monitor, áreas de trabalho do OMS são agora referidas como áreas de trabalho do Log Analytics.
 
-5.  Clique em **Criar**.
+5. Clique em **Criar**.
 
 Quando o recurso de solução é implementado, é apresentada uma notificação na parte superior direita da janela.
 
@@ -89,22 +89,22 @@ Dependendo do produto ITSM que está a ligar, utilize os seguintes passos:
 
 Depois de ter preparado suas ferramentas ITSM, siga os passos abaixo para criar uma ligação:
 
-1.  Aceda a **todos os recursos**, procure **ServiceDesk(YourWorkspaceName)**.
-2.  Sob **ORIGENS de dados de área de trabalho** no painel esquerdo, clique em **ligações de ITSM**.
-    ![Ligações de ITSM](media/itsmc-overview/itsm-connections.png)
+1. Aceda a **todos os recursos**, procure **ServiceDesk(YourWorkspaceName)**.
+2. Sob **ORIGENS de dados de área de trabalho** no painel esquerdo, clique em **ligações de ITSM**.
+   ![Ligações de ITSM](media/itsmc-overview/itsm-connections.png)
 
-    Esta página apresenta a lista de ligações.
-3.  Clique em **adicionar ligação**.
+   Esta página apresenta a lista de ligações.
+3. Clique em **adicionar ligação**.
 
-    ![Adicionar a ligação ITSM](media/itsmc-overview/add-new-itsm-connection.png)
+   ![Adicionar a ligação ITSM](media/itsmc-overview/add-new-itsm-connection.png)
 
-4.  Especifique as definições de ligação, conforme descrito em [configurar a ligação de ITSMC com o seu artigo de produtos/serviços ITSM](../../azure-monitor/platform/itsmc-connections.md).
+4. Especifique as definições de ligação, conforme descrito em [configurar a ligação de ITSMC com o seu artigo de produtos/serviços ITSM](../../azure-monitor/platform/itsmc-connections.md).
 
-    > [!NOTE]
+   > [!NOTE]
+   > 
+   > Por predefinição, o ITSMC atualiza os dados de configuração da ligação uma vez em cada 24 horas. Para atualizar os dados de sua ligação instantaneamente para qualquer edições ou modelo de atualização que fizer, clique nas **sincronização** botão no painel da sua ligação.
 
-    > Por predefinição, o ITSMC atualiza os dados de configuração da ligação uma vez em cada 24 horas. Para atualizar os dados de sua ligação instantaneamente para qualquer edições ou modelo de atualização que fizer, clique nas **sincronização** botão no painel da sua ligação.
-
-    ![Atualização de ligação](media/itsmc-overview/itsmc-connections-refresh.png)
+   ![Atualização de ligação](media/itsmc-overview/itsmc-connections-refresh.png)
 
 
 ## <a name="using-the-solution"></a>Utilizar a solução
@@ -138,8 +138,8 @@ Utilize o seguinte procedimento:
 
 Quando a criação/edição de uma regra de alerta do Azure, utilize um grupo de ação, o que tem uma ação de ITSM. Quando o alerta for acionado, o item de trabalho é criado/atualizado na ferramenta de ITSM.
 
->[!NOTE]
-
+> [!NOTE]
+> 
 > Para obter informações sobre os preços da ação de ITSM, consulte a [página de preços](https://azure.microsoft.com/pricing/details/monitor/) para grupos de ação.
 
 
@@ -172,7 +172,7 @@ Incidentes e pedidos de alteração são sincronizados a partir de seu produto I
 As seguintes informações mostram exemplos de dados coletados pela ITSMC:
 
 > [!NOTE]
-
+> 
 > Dependendo do tipo de item de trabalho importados para o Log Analytics, **ServiceDesk_CL** contém os seguintes campos:
 
 **Item de trabalho:** **Incidentes**  
@@ -197,7 +197,7 @@ ServiceDeskWorkItemType_s="Incident"
 - Descrição
 - Data de Criação
 - Data de fecho
-- Data de resolução
+- Data de Resolução
 - Data da Última Modificação
 - Computador
 
@@ -284,17 +284,17 @@ ServiceDeskWorkItemType_s="ChangeRequest"
 
 
 ## <a name="troubleshoot-itsm-connections"></a>Resolver problemas de ligações de ITSM
-1.  Se a falha de ligação da interface do Usuário de origem ligada com um **erro ao guardar ligação** da mensagem, siga os passos seguintes:
- - Para ligações de ServiceNow, Cherwell e Provance,  
-    - Certifique-se de que introduziu corretamente o nome de utilizador, palavra-passe, ID de cliente e segredo do cliente para cada uma das ligações.  
-    - Verifique se tem privilégios suficientes no produto ITSM correspondente para fazer a conexão.  
- - Para as ligações do Service Manager,  
-    - Certifique-se de que a aplicação Web é implementada com êxito e ligação híbrida é criada. Para verificar a ligação é estabelecida com êxito com a máquina de Service Manager no local, visite o URL da aplicação Web conforme detalhado na documentação de fazer a [ligação híbrida](../../azure-monitor/platform/itsmc-connections.md#configure-the-hybrid-connection).  
+1. Se a falha de ligação da interface do Usuário de origem ligada com um **erro ao guardar ligação** da mensagem, siga os passos seguintes:
+   - Para ligações de ServiceNow, Cherwell e Provance,  
+   - Certifique-se de que introduziu corretamente o nome de utilizador, palavra-passe, ID de cliente e segredo do cliente para cada uma das ligações.  
+   - Verifique se tem privilégios suficientes no produto ITSM correspondente para fazer a conexão.  
+   - Para as ligações do Service Manager,  
+   - Certifique-se de que a aplicação Web é implementada com êxito e ligação híbrida é criada. Para verificar a ligação é estabelecida com êxito com a máquina de Service Manager no local, visite o URL da aplicação Web conforme detalhado na documentação de fazer a [ligação híbrida](../../azure-monitor/platform/itsmc-connections.md#configure-the-hybrid-connection).  
 
-2.  Se não estiver a obter sincronizados dados a partir de ServiceNow para o Log Analytics, certifique-se de que o ServiceNow instância não está a ser suspenso. Instâncias de desenvolvimento do ServiceNow, às vezes, vá em suspensão quando está ocioso por um longo período. Caso contrário, relate o problema.
-3.  Se os alertas do Log Analytics são disparados, mas funcionam itens não são criados no produto ITSM ou itens de configuração não são criados/ligados a itens de trabalho ou para quaisquer outras informações genéricas, procure nos seguintes locais:
- -  ITSMC: A solução mostra um resumo dos itens de ligações/trabalho/computadores etc. Clique em Mostrar o mosaico **estado do conector**, que leva-o para **pesquisa de registos** com a consulta relevante. Examinar os registros de log com LogType_S como erro para obter mais informações.
- - **Pesquisa de registos** página: ver as informações de erros/relacionados diretamente com a consulta `*`ServiceDeskLog_CL`*`.
+2. Se não estiver a obter sincronizados dados a partir de ServiceNow para o Log Analytics, certifique-se de que o ServiceNow instância não está a ser suspenso. Instâncias de desenvolvimento do ServiceNow, às vezes, vá em suspensão quando está ocioso por um longo período. Caso contrário, relate o problema.
+3. Se os alertas do Log Analytics são disparados, mas funcionam itens não são criados no produto ITSM ou itens de configuração não são criados/ligados a itens de trabalho ou para quaisquer outras informações genéricas, procure nos seguintes locais:
+   -  ITSMC: A solução mostra um resumo dos itens de ligações/trabalho/computadores etc. Clique em Mostrar o mosaico **estado do conector**, que leva-o para **pesquisa de registos** com a consulta relevante. Examinar os registros de log com LogType_S como erro para obter mais informações.
+   - **Pesquisa de registos** página: ver as informações de erros/relacionados diretamente com a consulta `*`ServiceDeskLog_CL`*`.
 
 ## <a name="troubleshoot-service-manager-web-app-deployment"></a>Resolver problemas de implementação de aplicação de Web do Service Manager
 1.  Em caso de problemas de implementação de aplicações web, certifique-se de que tem permissões suficientes na subscrição mencionada para criar/implementar recursos.

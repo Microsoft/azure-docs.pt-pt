@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 02/04/2018
 ms.author: haroldw
-ms.openlocfilehash: aaf8ea70254e0edb66c6b88e6303c91b26de2e9b
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 1d869d822cdeb0051836a5fc5f01eb69c523f9e3
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57453563"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57995535"
 ---
 # <a name="deploy-openshift-container-platform-in-azure"></a>Implementar o OpenShift Container Platform no Azure
 
@@ -53,7 +53,7 @@ O exemplo seguinte mostra um ficheiro de parâmetros com o nome azuredeploy com 
 
 ```json
 {
-    "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
         "masterVmSize": {

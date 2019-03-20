@@ -3,8 +3,8 @@ title: incluir ficheiro
 description: incluir ficheiro
 services: active-directory
 documentationcenter: dev-center-name
-author: andretms
-manager: mtillman
+author: danieldobalian
+manager: CelesteDG
 editor: ''
 ms.service: active-directory
 ms.devlang: na
@@ -12,14 +12,14 @@ ms.topic: include
 ms.tgt_pltfrm: ios
 ms.workload: identity
 ms.date: 09/19/2018
-ms.author: andret
+ms.author: dadobali
 ms.custom: include file
-ms.openlocfilehash: 06da33b91ef9846204b33ba2cb3dea40c75d425d
-ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
+ms.openlocfilehash: d5a38d19541e59e0e2815362c0181a8e317a5d0f
+ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49988302"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58203537"
 ---
 ## <a name="use-the-microsoft-authentication-library-msal-to-get-a-token-for-the-microsoft-graph-api"></a>Utilizar o Microsoft Authentication Library (MSAL) para obter um token para o Microsoft Graph API
 

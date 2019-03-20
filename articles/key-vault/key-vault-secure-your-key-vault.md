@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/07/2019
 ms.author: ambapat
-ms.openlocfilehash: 320a23e425ecb11e36af3efe988b25e598948132
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: 3b302c60aefec1c4cd37a7dde82a2f11a9eeed33
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56118518"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57862867"
 ---
 # <a name="secure-access-to-a-key-vault"></a>Proteger o acesso a um cofre de chaves
 
@@ -28,7 +28,7 @@ O Azure Key Vault é um serviço cloud que salvaguarda as chaves de encriptaçã
 
 ## <a name="access-model-overview"></a>Visão geral do modelo de acesso
 
-Acesso a um cofre de chaves é controlado através de duas interfaces: os *plano de gestão* e o *plano de dados*. O plano de gestão é onde pode gerir o Key Vault em si. As operações nesse plano incluem criar e eliminar cofres de chaves, obter propriedades do Cofre de chaves e a atualizar as políticas de acesso. O plano de dados é onde trabalha com os dados armazenados num cofre de chaves. Pode adicionar, eliminar e modificar as chaves, segredos e certificados.
+Acesso a um cofre de chaves é controlado através de duas interfaces: os **plano de gestão** e o **plano de dados**. O plano de gestão é onde pode gerir o Key Vault em si. As operações nesse plano incluem criar e eliminar cofres de chaves, obter propriedades do Cofre de chaves e a atualizar as políticas de acesso. O plano de dados é onde trabalha com os dados armazenados num cofre de chaves. Pode adicionar, eliminar e modificar as chaves, segredos e certificados.
 
 Para aceder a um cofre de chaves num plano, todos os chamadores (utilizadores ou aplicações) tem de ter autenticação e autorização adequadas. A autenticação estabelece a identidade do chamador. Autorização determina as operações que pode executar o autor da chamada. 
 
@@ -62,7 +62,7 @@ A tabela seguinte mostra os pontos finais para o gerenciamento e planos de dados
 
 ## <a name="management-plane-and-rbac"></a>Plano de gestão e o RBAC
 
-O plano de gestão, vai utilizar RBAC para autorizar as operações que um chamador pode executar. No modelo de RBAC, cada subscrição do Azure tem uma instância do Azure AD. Conceder acesso a utilizadores, grupos e aplicações deste diretório. O acesso é concedido para gerir os recursos na subscrição do Azure que utilizam o modelo de implementação Azure Resource Manager. Para conceder acesso, utilize o [portal do Azure](https://portal.azure.com/), o [CLI do Azure](../cli-install-nodejs.md), [Azure PowerShell](/powershell/azureps-cmdlets-docs), ou o [APIs de REST do Azure Resource Manager](https://msdn.microsoft.com/library/azure/dn906885.aspx).
+O plano de gestão, vai utilizar o RBAC (controlo de acesso de com base em funções) para autorizar as operações que um chamador pode executar. No modelo de RBAC, cada subscrição do Azure tem uma instância do Azure AD. Conceder acesso a utilizadores, grupos e aplicações deste diretório. O acesso é concedido para gerir os recursos na subscrição do Azure que utilizam o modelo de implementação Azure Resource Manager. Para conceder acesso, utilize o [portal do Azure](https://portal.azure.com/), o [CLI do Azure](../cli-install-nodejs.md), [Azure PowerShell](/powershell/azureps-cmdlets-docs), ou o [APIs de REST do Azure Resource Manager](https://msdn.microsoft.com/library/azure/dn906885.aspx).
 
 Criar um cofre de chaves num grupo de recursos e gerir o acesso ao utilizar o Azure AD. Conceder aos utilizadores ou grupos a capacidade de gerir cofres de chaves num grupo de recursos. Conceder o acesso a um nível de âmbito específico através da atribuição de funções RBAC adequadas. Para conceder acesso a um utilizador para gerir cofres de chaves, atribui um predefinidos `key vault Contributor` função ao utilizador com um âmbito específico. Os seguintes níveis de âmbitos podem ser atribuídos a uma função RBAC:
 

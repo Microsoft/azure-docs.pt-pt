@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 07/27/2018
 ms.author: wolfma
 ms.openlocfilehash: 43eb285a2c61335a78b0cbd179523b0c9eee3bf7
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
+ms.sourcegitcommit: b8f9200112cae265155b8877f7e1621c4bcc53fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43129335"
+ms.lasthandoff: 03/14/2019
+ms.locfileid: "57891362"
 ---
 > [!div class="op_single_selector"]
 > - [C#](~/articles/cognitive-services/speech-service/how-to-recognize-speech-csharp.md)

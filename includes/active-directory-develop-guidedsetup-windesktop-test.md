@@ -4,7 +4,7 @@ description: incluir ficheiro
 services: active-directory
 documentationcenter: dev-center-name
 author: jmprieur
-manager: mtillman
+manager: CelesteDG
 editor: ''
 ms.service: active-directory
 ms.devlang: na
@@ -14,12 +14,12 @@ ms.workload: identity
 ms.date: 09/17/2018
 ms.author: jmprieur
 ms.custom: include file
-ms.openlocfilehash: ac4f826ed1d27ee39d8e35605a3baa7f94b33e64
-ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
+ms.openlocfilehash: 6345eca674086801f8bb0f45476009f04a10f2e3
+ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "50035271"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58214080"
 ---
 ## <a name="test-your-code"></a>Testar o seu código
 
@@ -46,7 +46,7 @@ Depois de iniciar sessão, deverá ver as informações de perfil de utilizador 
 |**Nome** |Nome completo do utilizador |O utilizador do primeiro e último nome.|
 |**Nome de Utilizador** |<span>user@domain.com</span> |O nome de utilizador que é utilizado para identificar o utilizador.|
 |**Token expira** |DateTime |A hora em que o token expira. A MSAL expande a data de expiração ao renovar o token, se necessário.|
-|**Token de acesso** |Cadeia |A cadeia de caracteres de token que é enviada para HTTP solicita que requerem uma *cabeçalho de autorização*.|
+|**Token de acesso** |String |A cadeia de caracteres de token que é enviada para HTTP solicita que requerem uma *cabeçalho de autorização*.|
 
 <!--start-collapse-->
 ### <a name="more-information-about-scopes-and-delegated-permissions"></a>Obter mais informações sobre âmbitos e permissões delegadas

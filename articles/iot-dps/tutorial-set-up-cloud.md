@@ -1,20 +1,20 @@
 ---
 title: Configurar cloud para o Serviço Aprovisionamento de Dispositivos no Hub IoT no portal | Microsoft Docs
 description: Aprovisionamento automático de dispositivos do Hub IoT no Portal do Azure
-author: sethmanheim
-ms.author: sethm
+author: wesmc7777
+ms.author: wesmc
 ms.date: 09/05/2017
 ms.topic: tutorial
 ms.service: iot-dps
 services: iot-dps
-manager: timlt
+manager: philmea
 ms.custom: mvc
-ms.openlocfilehash: 971b00f54d59782d5aa7ca752fc06e490d372760
-ms.sourcegitcommit: 5a1d601f01444be7d9f405df18c57be0316a1c79
+ms.openlocfilehash: 8f06d3f033a2bf5907dc2ee324359bef0eb247d0
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/10/2018
-ms.locfileid: "51514847"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58170739"
 ---
 # <a name="configure-cloud-resources-for-device-provisioning-with-the-iot-hub-device-provisioning-service"></a>Configurar recursos da cloud para aprovisionamento de dispositivos com o Serviço Aprovisionamento de Dispositivos no Hub IoT
 
@@ -81,23 +81,23 @@ O passo seguinte é ligar o Serviço Aprovisionamento de Dispositivos e de hub I
 
 4. Na página **Adicionar ligação ao hub IoT**, forneça as seguintes informações e clique em **Guardar**:
 
-    * **Subscrição:** certifique-se de que está selecionada a subscrição que contém o hub IoT. Pode ligar ao hub IoT que reside numa subscrição diferente.
+    * **Subscrição:** Certifique-se de está selecionada a subscrição que contém o hub IoT. Pode ligar ao hub IoT que reside numa subscrição diferente.
 
-    * **Hub IoT:** escolha o nome do hub IoT que quer associar a esta instância do Serviço de Aprovisionamento de Dispositivos.
+    * **Hub IoT:** Escolha o nome do hub IoT que deseja vincular com esta instância do serviço aprovisionamento de dispositivos.
 
-    * **Política de Acesso**: selecione **iothubowner** como as credenciais a utilizar para estabelecer a ligação ao hub IoT.
+    * **Política de acesso:** Selecione **iothubowner** como as credenciais a utilizar para estabelecer a ligação para o hub IoT.
 
    ![Ligar o nome do hub para ligar ao Serviço Aprovisionamento de Dispositivos no portal](./media/tutorial-set-up-cloud/link-iot-hub-to-dps-portal.png)
 
 ## <a name="set-the-allocation-policy-on-the-device-provisioning-service"></a>Definir a política de alocação no Serviço Aprovisionamento de Dispositivos
 
-A política de alocação é uma definição do Serviço Aprovisionamento de Dispositivos no Hub IoT que determina a forma como os dispositivos são atribuídos a um hub IoT. Existem três políticas de alocação suportadas: 
+A política de alocação é uma definição de serviço aprovisionamento de dispositivos Hub IoT que determina a forma como os dispositivos são atribuídos a um hub IoT. Existem três políticas de alocação suportadas: 
 
-1. **Latência mais baixa**: os dispositivos são aprovisionados para um hub IoT com base no hub com a latência mais baixa para o dispositivo.
+1. **Latência mais baixa**: Dispositivos são aprovisionados para um hub IoT com base no hub com a latência mais baixa no dispositivo.
 
-2. **Distribuição ponderada uniformemente** (predefinição): os hubs IoT associados são igualmente suscetíveis de ter dispositivos aprovisionados para eles. Esta é a predefinição. Se estiver a aprovisionar dispositivos apenas para um hub IoT, pode manter esta definição. 
+2. **Distribuição ponderada uniformemente** (predefinição): Ligado a hubs IoT são igualmente suscetível de ter dispositivos aprovisionados para eles. Esta é a predefinição. Se estiver a aprovisionar dispositivos apenas para um hub IoT, pode manter esta definição. 
 
-3. **Configuração estática através da lista de inscrição**: a especificação do hub IoT pretendido na lista de inscrição tem prioridade sobre a política de alocação ao nível do Serviço Aprovisionamento de Dispositivos.
+3. **Configuração estática através da lista de inscrição**: Especificação do hub IoT pretendido na lista de inscrição tem prioridade sobre a política de alocação de nível de serviço aprovisionamento de dispositivos.
 
 Para definir a política de alocação, na página do Serviço Aprovisionamento de Dispositivos, clique em **Gerir política de alocação**. Certifique-se de que a política de alocação está definida como **Distribuição ponderada uniformemente** (predefinição). Se realizar alterações, clique em **Guardar** quando tiver terminado.
 

@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 02/07/2019
 ms.author: spelluru
-ms.openlocfilehash: 4abec80df4aeeb4c20d56b43ba122ee7266905a6
-ms.sourcegitcommit: a4efc1d7fc4793bbff43b30ebb4275cd5c8fec77
+ms.openlocfilehash: 6816c21d30ff5340441d58aff202c271eb1c836a
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56649597"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58090326"
 ---
 # <a name="tutorial-set-up-a-classroom-lab"></a>Tutorial: Configurar um laboratório de sala de aula 
 Neste tutorial, vai configurar um laboratório de sala de aula com máquinas virtuais que serão utilizadas pelos alunos na sala de aula.  
@@ -69,9 +69,9 @@ Proprietário de um laboratório pode adicionar outros utilizadores para o **cri
 
     ![Configurar a página do modelo após a conclusão](../media/tutorial-setup-classroom-lab/configure-template-after-complete.png)
 8. Sobre o **modelo de configurar** página, efetue os seguintes passos: Essas etapas são **opcional** para o tutorial.
-    2. Ligue-se à VM de modelo através da seleção de **Ligar**. 
-    3. Instalar e configurar o software na sua VM de modelo.     
-    5. Introduzir uma **descrição** do modelo
+   1. Ligue-se à VM de modelo através da seleção de **Ligar**. 
+   1. Instalar e configurar o software na sua VM de modelo.     
+   1. Introduzir uma **descrição** do modelo
 9. Selecione **Seguinte** na página do modelo. 
 10. Na página **Publicar o modelo**, execute as ações seguintes. 
     1. Para publicar o modelo imediatamente e selecione **publicar**.  
@@ -89,10 +89,10 @@ Proprietário de um laboratório pode adicionar outros utilizadores para o **cri
     ![Publicar modelo – êxito](../media/tutorial-setup-classroom-lab/publish-success.png)
 1. Verá o **dashboard** para o seu laboratório. 
     
-    ![Dashboard de laboratório de sala de aula](../media/tutorial-setup-classroom-lab/classroom-lab-home-page.png)
+     ![Dashboard de laboratório de sala de aula](../media/tutorial-setup-classroom-lab/classroom-lab-home-page.png)
 4. Mude para o **máquinas virtuais** página ao selecionar máquinas virtuais no menu da esquerda ou ao selecionar o mosaico de máquinas virtuais. Confirme que vê as máquinas virtuais que estão na **não atribuído** estado. Estas VMs ainda não estão atribuídas a estudantes. Elas devem estar no estado **Parado**. Pode iniciar uma VM de estudante, ligar à VM, parar a VM e eliminar a VM nesta página. Pode iniciá-las nesta página ou permitir que os seus estudantes iniciem as VMs. 
 
-    ![Máquinas virtuais no estado parado](../media/tutorial-setup-classroom-lab/virtual-machines-stopped.png)
+     ![Máquinas virtuais no estado parado](../media/tutorial-setup-classroom-lab/virtual-machines-stopped.png)
 
 ## <a name="add-users-to-the-lab"></a>Adicionar utilizadores ao laboratório
 

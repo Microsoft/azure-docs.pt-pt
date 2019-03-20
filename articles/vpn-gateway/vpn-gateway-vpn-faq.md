@@ -7,14 +7,14 @@ ms.service: vpn-gateway
 ms.topic: conceptual
 ms.date: 03/11/2019
 ms.author: yushwang
-ms.openlocfilehash: 98252f7faf7a456edae71dda5fda44850eef74dc
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: a4f8e2b6a1367658514cc1bf9711825959ee371e
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57766993"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58095658"
 ---
-# <a name="vpn-gateway-faq"></a>FAQ do Gateway de VPN
+# <a name="vpn-gateway-faq"></a>FAQ do VPN Gateway
 
 ## <a name="connecting"></a>Ligar às redes virtuais
 
@@ -71,11 +71,11 @@ Os gateways baseados na rota implementam as VPNs baseadas na rota. As VPNs basea
 ### <a name="can-i-update-my-policy-based-vpn-gateway-to-route-based"></a>Posso atualizar o meu gateway de VPN baseado em Políticas para ser baseado na Rota?
 Não. Um tipo de gateway de Vnet do Azure não pode ser alterado de baseado em políticas para baseado na rota, ou ao contrário. O gateway tem de ser eliminado e recriado, um processo que demora cerca de 60 minutos. O endereço IP do gateway não será mantido, nem a Chave Pré-partilhada (PSK).
 1. Elimine todas as ligações associadas ao gateway a eliminar.
-2. Elimine o gateway:
-* [Portal do Azure](vpn-gateway-delete-vnet-gateway-portal.md)
-* [Azure PowerShell](vpn-gateway-delete-vnet-gateway-powershell.md)
-* [Azure Powershell - clássico](vpn-gateway-delete-vnet-gateway-classic-powershell.md)
-3. [Criar um novo gateway do tipo pretendido e concluir a configuração VPN](vpn-gateway-howto-site-to-site-resource-manager-portal.md#VNetGateway)
+1. Elimine o gateway:
+1. [Portal do Azure](vpn-gateway-delete-vnet-gateway-portal.md)
+1. [Azure PowerShell](vpn-gateway-delete-vnet-gateway-powershell.md)
+1. [Azure Powershell - clássico](vpn-gateway-delete-vnet-gateway-classic-powershell.md)
+1. [Criar um novo gateway do tipo pretendido e concluir a configuração VPN](vpn-gateway-howto-site-to-site-resource-manager-portal.md#VNetGateway)
 
 ### <a name="do-i-need-a-gatewaysubnet"></a>Preciso de um "GatewaySubnet"?
 

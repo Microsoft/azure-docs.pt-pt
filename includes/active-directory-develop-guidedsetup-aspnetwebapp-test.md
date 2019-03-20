@@ -3,8 +3,8 @@ title: incluir ficheiro
 description: incluir ficheiro
 services: active-directory
 documentationcenter: dev-center-name
-author: andretms
-manager: mtillman
+author: jmprieur
+manager: CelesteDG
 editor: ''
 ms.service: active-directory
 ms.devlang: na
@@ -12,14 +12,14 @@ ms.topic: include
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 04/19/2018
-ms.author: andret
+ms.author: jmprieur
 ms.custom: include file
-ms.openlocfilehash: d3f2efc0ae3dcf9bdcae3f82258b28b761944487
-ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
+ms.openlocfilehash: 4c4870dc0f5a423288e6cb561b985501414e8525
+ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49988531"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58203668"
 ---
 ## <a name="test-your-code"></a>Testar o seu código
 
@@ -43,12 +43,12 @@ Para ver as afirmações do utilizador, selecione a ligação para navegar para 
 
 Depois que navega para a vista de controlador, deverá ver uma tabela que contém as propriedades básicas para o utilizador:
 
-|Propriedade |Valor |Descrição |
+|Propriedade |Value |Descrição |
 |---|---|---|
 |**Nome** |Nome completo do utilizador | O utilizador do primeiro e último nome.
-|**Nome de Utilizador** |Utilizador<span>@domain.com</span> | O nome de utilizador que é utilizado para identificar o utilizador.
+|**Nome de Utilizador** |user<span>@domain.com</span> | O nome de utilizador que é utilizado para identificar o utilizador.
 |**Assunto** |Requerente |Uma cadeia que identifica unicamente o usuário na web.|
-|**ID do inquilino** |GUID | R **guid** que representa exclusivamente a organização do utilizador do Azure AD.|
+|**ID do inquilino** |Guid | R **guid** que representa exclusivamente a organização do utilizador do Azure AD.|
 
 Além disso, deverá ver uma tabela de todas as afirmações que estão no pedido de autenticação. Para obter mais informações, consulte a [lista de declarações que estão num Token de ID do Azure AD](https://docs.microsoft.com/azure/active-directory/develop/active-directory-token-and-claims).
 
@@ -80,9 +80,9 @@ Por predefinição quando cria a aplicação criada por este guia, a aplicação
 
 Para restringir o início de sessão acesso de utilizador para a sua aplicação, várias opções estão disponíveis:
 
-#### <a name="option-1-restrict-users-from-only-one-organizations-active-directory-instance-to-sign-in-to-your-application-single-tenant"></a>Opção 1: Impedir os utilizadores de instância do Active Directory da organização apenas um para iniciar sessão na sua aplicação (inquilino único)
+#### <a name="option-1-restrict-users-from-only-one-organizations-active-directory-instance-to-sign-in-to-your-application-single-tenant"></a>Opção 1: Restringir os utilizadores da instância do Active Directory de apenas uma organização para iniciar sessão na aplicação (inquilino único)
 
-Esta opção é um cenário comum para *aplicativos LOB*: Se quiser que o aplicativo para aceitar inícios de sessão apenas a partir de contas que pertencem a uma instância específica do Azure Active Directory (incluindo *contas de convidado*dessa instância) faça o seguinte:
+Esta opção é um cenário comum para *aplicativos LOB*: Se quiser que o aplicativo para aceitar inícios de sessão apenas a partir de contas que pertencem a uma instância específica do Azure Active Directory (incluindo *contas de convidado* dessa instância) faça o seguinte:
 
 1. No **Web. config** de ficheiros, altere o valor para o `Tenant` parâmetro de `Common` para o nome do inquilino da organização, tais como `contoso.onmicrosoft.com`.
 2. No seu [classe de Startup da OWIN](#configure-the-authentication-pipeline), defina o `ValidateIssuer` argumento para `true`.
@@ -93,7 +93,7 @@ Pode restringir o acesso de início de sessão para contas de utilizador única 
 1. No seu [classe de Startup da OWIN](#configure-the-authentication-pipeline), defina o `ValidateIssuer` argumento para `true`.
 2. Defina o valor do `ValidIssuers` parâmetro à lista de permitidos organizações.
 
-#### <a name="option-3-use-a-custom-method-to-validate-issuers"></a>Opção 3: Utilizar um método personalizado para validar os emissores
+#### <a name="option-3-use-a-custom-method-to-validate-issuers"></a>Opção 3: Utilize um método personalizado para validar os emissores
 
 Pode implementar um método personalizado para validar os emissores utilizando o **IssuerValidator** parâmetro. Para obter mais informações sobre como utilizar este parâmetro, leia sobre o [TokenValidationParameters classe](https://msdn.microsoft.com/library/system.identitymodel.tokens.tokenvalidationparameters.aspx) no MSDN.
 

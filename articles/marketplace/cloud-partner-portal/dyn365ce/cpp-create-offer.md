@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 12/21/2018
 ms.author: pbutlerm
-ms.openlocfilehash: 6551eab45fdfb5070b29de4152cf2b3e3d008f69
-ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
+ms.openlocfilehash: 0138ea8dcbd780ca8aa87178dad41bdca1a72267
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54083245"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57900663"
 ---
 # <a name="create-a-dynamics-365-for-customer-engagement-application-offer"></a>Criar uma do Dynamics 365 para a oferta de aplicação de envolvimento do cliente
 
@@ -28,7 +28,7 @@ Esta secção descreve como criar e publicar um do Dynamics 365 para a oferta de
 
 ## <a name="new-offer-form"></a>Novo formulário de oferta
 
-Inicie sessão para o [Cloud Partner Portal](http://cloudpartner.azure.com/)e, em seguida, selecione **+ nova oferta** na barra de menu à esquerda. No novo oferecem menu, selecione **Dynamics 365 for Customer Engagement**:
+Inicie sessão para o [Cloud Partner Portal](https://cloudpartner.azure.com/)e, em seguida, selecione **+ nova oferta** na barra de menu à esquerda. No novo oferecem menu, selecione **Dynamics 365 for Customer Engagement**:
 
 ![Novo item de menu de oferta para Dynamics 365 para a aplicação de envolvimento do cliente](./media/new-dyn365ce-menu-item.png)
 

@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/16/2016
-ms.openlocfilehash: 848663c509fd3635b33b8e7735feb940da215bfa
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 1ad9661d85c7ec91f361cdc4d126e0a91e376b66
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57441819"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57853295"
 ---
 # <a name="scp-programming-guide"></a>Guia de programação do SCP
 SCP é uma plataforma para criar em tempo real, fiável e consistente e o aplicativo de processamento de dados de elevado desempenho. Ele é criado por cima de [Apache Storm](https://storm.incubator.apache.org/) – um sistema criado por Comunidades de sistemas operacionais de processamento em fluxo. Storm destina-se por Nathan Marz e foi aberto é obtido ao Twitter. Ela aproveita [Apache ZooKeeper](https://zookeeper.apache.org/), outro projeto do Apache para ativar altamente fiável distribuído de gerenciamento de estado e de coordenação. 
@@ -32,7 +32,7 @@ No Storm, uma topologia de aplicação define um gráfico de computação. Cada 
 
 SCP suporta melhores esforços, pelo-menos-uma vez e exatamente-processamento de dados uma vez. Num aplicativo de processamento de transmissão em fluxo distribuída, vários erros podem ocorrer durante o processamento de dados, como falha de rede, falha de máquina ou erro de código do usuário etc. Processamento pelo-menos-uma vez garante que todos os dados serão processados pelo menos uma vez ao reproduzir automaticamente os mesmos dados, quando ocorre um erro. Processamento pelo-menos-uma vez é simples e fiável e adequada para o bem muitos aplicativos. No entanto, quando um aplicativo exigir contagem exata, processamento pelo-menos-uma vez é insuficiente, uma vez que os mesmos dados potencialmente poderiam ser reproduzidos na topologia de aplicativo. Nesse caso, exatamente-depois do processamento foi criado para certificar-se de que o resultado está correto, mesmo quando os dados podem ser reproduzidos e processados múltiplas vezes.
 
-SCP permite aos programadores de .NET desenvolver aplicativos de processo de dados em tempo real, enquanto beneficia no Java Virtual Machine (JVM) com o Storm nos bastidores. O .NET e o JVM se comunicar por meio de soquetes TCP de locais. Basicamente, cada Spout/Bolt é um par de processo do .net e o Java, onde a lógica do usuário é executada no processo de .net como um plug-in.
+SCP permite aos programadores de .NET desenvolver aplicativos de processo de dados em tempo real, enquanto beneficia no Java Virtual Machine (JVM) com o Storm nos bastidores. O .NET e o JVM se comunicar por meio de soquetes TCP de locais. Basicamente, cada Spout/Bolt é um par de processo do .NET e o Java, onde a lógica do usuário é executada no processo de .NET como um plug-in.
 
 Para criar um aplicativo de processamento de dados sobre o SCP, são necessárias várias etapas:
 
@@ -355,12 +355,12 @@ SCP.NET adicionou as seguintes funções para definir topologias transacional:
 | **Novas funções** | **Parâmetros** | **Descrição** |
 | --- | --- | --- |
 | **tx-topolopy** |nome de topologia<br />spout-map<br />bolt-map |Definir uma topologia de transacional com o nome de topologia, &nbsp;spouts mapa de definição e o mapa de definição de bolts |
-| **scp-tx-spout** |exec-name<br />args<br />campos |Defina um spout transacional. Ele executa o aplicativo com ***exec-name*** usando ***args***.<br /><br />O ***campos*** é os campos de saída para spout |
-| **scp-tx-batch-bolt** |exec-name<br />args<br />campos |Defina um Bolt Batch transacional. Ele executa o aplicativo com ***exec-name*** usando ***args.***<br /><br />Os campos é os campos de saída para o bolt. |
-| **scp-tx-commit-bolt** |exec-name<br />args<br />campos |Defina um bolt de consolidação transacional. Ele executa o aplicativo com ***exec-name*** usando ***args***.<br /><br />O ***campos*** é os campos de saída para o bolt |
+| **scp-tx-spout** |exec-name<br />args<br />Campos |Defina um spout transacional. Ele executa o aplicativo com ***exec-name*** usando ***args***.<br /><br />O ***campos*** é os campos de saída para spout |
+| **scp-tx-batch-bolt** |exec-name<br />args<br />Campos |Defina um Bolt Batch transacional. Ele executa o aplicativo com ***exec-name*** usando ***args.***<br /><br />Os campos é os campos de saída para o bolt. |
+| **scp-tx-commit-bolt** |exec-name<br />args<br />Campos |Defina um bolt de consolidação transacional. Ele executa o aplicativo com ***exec-name*** usando ***args***.<br /><br />O ***campos*** é os campos de saída para o bolt |
 | **nontx-topolopy** |nome de topologia<br />spout-map<br />bolt-map |Definir uma topologia não transacional com o nome de topologia,&nbsp; spouts mapa de definição e o mapa de definição de bolts |
-| **scp-spout** |exec-name<br />args<br />campos<br />parâmetros |Defina um spout não transacional. Ele executa o aplicativo com ***exec-name*** usando ***args***.<br /><br />O ***campos*** é os campos de saída para spout<br /><br />O ***parâmetros*** são opcionais, utilizá-la para especificar alguns parâmetros, como "nontransactional.ack.enabled". |
-| **scp-bolt** |exec-name<br />args<br />campos<br />parâmetros |Defina um não transacional Bolt. Ele executa o aplicativo com ***exec-name*** usando ***args***.<br /><br />O ***campos*** é os campos de saída para o bolt<br /><br />O ***parâmetros*** são opcionais, utilizá-la para especificar alguns parâmetros, como "nontransactional.ack.enabled". |
+| **scp-spout** |exec-name<br />args<br />Campos<br />parâmetros |Defina um spout não transacional. Ele executa o aplicativo com ***exec-name*** usando ***args***.<br /><br />O ***campos*** é os campos de saída para spout<br /><br />O ***parâmetros*** são opcionais, utilizá-la para especificar alguns parâmetros, como "nontransactional.ack.enabled". |
+| **scp-bolt** |exec-name<br />args<br />Campos<br />parâmetros |Defina um não transacional Bolt. Ele executa o aplicativo com ***exec-name*** usando ***args***.<br /><br />O ***campos*** é os campos de saída para o bolt<br /><br />O ***parâmetros*** são opcionais, utilizá-la para especificar alguns parâmetros, como "nontransactional.ack.enabled". |
 
 SCP.NET tem as seguintes palavras-chave definidas:
 
@@ -450,7 +450,7 @@ Aqui,
 3. [0,1] significa um conjunto de hash de Ids de campo, a partir de 0.
 
 ### <a name="hybrid-topology"></a>Topologia de híbrida
-O Storm nativo é escrito em Java. E SCP.Net melhorou para permitir C\# os desenvolvedores escrevam C\# código para manipular a lógica de negócios. Mas também dá suporte a topologias híbridas, que contém não apenas C\# spouts/bolts, mas o Java Spout/Bolts.
+O Storm nativo é escrito em Java. E SCP.NET melhorou para permitir C\# os desenvolvedores escrevam C\# código para manipular a lógica de negócios. Mas também dá suporte a topologias híbridas, que contém não apenas C\# spouts/bolts, mas o Java Spout/Bolts.
 
 ### <a name="specify-java-spoutbolt-in-spec-file"></a>Especificar Java Spout/Bolt num ficheiro de especificação
 No ficheiro de especificação, "scp spout" e "bolt do scp" também podem ser utilizados para especificar Java Spouts e Bolts, aqui está um exemplo:
@@ -562,7 +562,7 @@ No modo de anfitrião, o código do usuário é compilado como DLL e é invocado
 
 ## <a name="scp-programming-examples"></a>Exemplos de programação do SCP
 ### <a name="helloworld"></a>HelloWorld
-**HelloWorld** é um exemplo simples para mostrar uma amostra das SCP.Net. Utiliza uma topologia não transacional, com uma chamada de spout **generator**e dois bolts chamados **splitter** e **contador**. O spout **generator** aleatoriamente gera frases e emitir essas frases para **splitter**. O bolt **splitter** divide as frases para palavras e emite essas palavras para **contador** bolt. O bolt "contador" utiliza um dicionário para registar o número de ocorrência de cada palavra.
+**HelloWorld** é um exemplo simples para mostrar uma amostra das SCP.NET. Utiliza uma topologia não transacional, com uma chamada de spout **generator**e dois bolts chamados **splitter** e **contador**. O spout **generator** aleatoriamente gera frases e emitir essas frases para **splitter**. O bolt **splitter** divide as frases para palavras e emite essas palavras para **contador** bolt. O bolt "contador" utiliza um dicionário para registar o número de ocorrência de cada palavra.
 
 Existem dois ficheiros spec, **HelloWorld.spec** e **HelloWorld\_EnableAck.spec** para este exemplo. Em C\# código, ele pode descobrir se o ack está ativado, obtendo o pluginConf do lado do Java.
 

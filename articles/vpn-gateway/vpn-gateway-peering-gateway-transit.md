@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/25/2018
 ms.author: yushwang
-ms.openlocfilehash: 9fc20c97e19ef3a651bc6df36118bc85fefcaec3
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 05b25a524894248152114ca9c756d4a0f8944ad8
+ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 03/19/2019
-ms.locfileid: "58118736"
+ms.locfileid: "58199635"
 ---
 # <a name="configure-vpn-gateway-transit-for-virtual-network-peering"></a>Configurar o trânsito do gateway de VPN para peering de rede virtual
 
@@ -37,8 +37,8 @@ Neste documento, descrevemos dois cenários:
 1. Ambas as redes virtuais estão a utilizar o modelo de implementação Resource Manager
 2. A rede virtual spoke é clássica e a rede virtual do hub com o gateway está no Resource Manager
 
-> [!IMPORTANT]
-> Atualmente, o trânsito do gateway não é suportado com peering de rede virtual global.
+> [!IMPORTANT]  
+> O trânsito de gateway é atualmente suportado com o peering de redes virtuais global em pré-visualização. A pré-visualização está disponível em todas as regiões do Azure, regiões da cloud na China e regiões de cloud de governo, mas não em nuvens. Não é necessária nenhuma lista de permissões. Pode testar em pré-visualização através da CLI, PowerShell, modelos ou API. Portal não é suportado na pré-visualização. 
 
 ## <a name="requirements"></a>Requisitos
 

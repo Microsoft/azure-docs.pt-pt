@@ -11,15 +11,15 @@ ms.topic: article
 ms.date: 01/29/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 953f2cdac41dcd610afbde39a318c0237b0b9099
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: c9d707d1a76b3b5913d66745767df8e84362a192
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56114744"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57890863"
 ---
 # <a name="the-team-data-science-process-in-action-using-sql-server"></a>O processo de ciência de dados de equipa em ação: utilizar o SQL Server
-Neste tutorial, é necessário percorrer o processo de criação e implementação de um modelo de aprendizagem automática com o SQL Server e um conjunto de dados publicamente disponível o [NYC táxis viagens](http://www.andresmh.com/nyctaxitrips/) conjunto de dados. O procedimento segue um fluxo de trabalho de ciência de dados padrão: ingerir e explorar os dados, funcionalidades de engenharia para facilitar a aprendizagem, em seguida, criar e implementar um modelo.
+Neste tutorial, é necessário percorrer o processo de criação e implementação de um modelo de aprendizagem automática com o SQL Server e um conjunto de dados publicamente disponível o [NYC táxis viagens](https://www.andresmh.com/nyctaxitrips/) conjunto de dados. O procedimento segue um fluxo de trabalho de ciência de dados padrão: ingerir e explorar os dados, funcionalidades de engenharia para facilitar a aprendizagem, em seguida, criar e implementar um modelo.
 
 ## <a name="dataset"></a>Descrição do conjunto de dados automático passar NYC táxis
 Os dados da viagem de táxis de NYC são cerca de 20GB de arquivos compactados de CSV (GB de ~ 48 descomprimido), que consiste em mais de 173 milhões de viagens individuais e os fares pago para cada viagem. Cada registo de viagem inclui a localização de recolha e de redução e tempo, hack anónimo (driver) número de licença e o número de medallion (id exclusivo de táxis). Os dados abrange todas as viagens no ano de 2013 e são fornecidos no seguintes dois conjuntos de dados para todos os meses:
@@ -82,7 +82,7 @@ Para configurar o ambiente de ciência de dados do Azure:
 Com base no tamanho do conjunto de dados, localização de origem de dados e o ambiente de destino do Azure selecionado, este cenário é semelhante à [cenário \#5: SQL Server na VM do Azure de destino do conjunto de dados grandes num local de arquivos,](plan-sample-scenarios.md#largelocaltodb).
 
 ## <a name="getdata"></a>Obter os dados de origem pública
-Para obter o [NYC táxis viagens](http://www.andresmh.com/nyctaxitrips/) conjunto de dados da localização pública, pode utilizar qualquer um dos métodos descritos [mover dados de e para armazenamento de Blobs do Azure](move-azure-blob.md) para copiar os dados para a sua nova máquina virtual.
+Para obter o [NYC táxis viagens](https://www.andresmh.com/nyctaxitrips/) conjunto de dados da localização pública, pode utilizar qualquer um dos métodos descritos [mover dados de e para armazenamento de Blobs do Azure](move-azure-blob.md) para copiar os dados para a sua nova máquina virtual.
 
 Para copiar os dados com AzCopy:
 
@@ -622,8 +622,8 @@ Para recapitular, neste tutorial passo a passo, criou um ambiente de ciência de
 Estas instruções de exemplo e que o acompanha scripts e o IPython notebook(s) são partilhadas pela Microsoft sob a licença do MIT. Verifique o ficheiro de LICENSE.txt no diretório do código de exemplo no GitHub para obter mais detalhes.
 
 ### <a name="references"></a>Referências
-• [Andrés Monroy NYC táxis viagens a página de transferência](http://www.andresmh.com/nyctaxitrips/)  
-• [Táxis de fOILing NYC dados de viagens por Chris Whong](http://chriswhong.com/open-data/foil_nyc_taxi/)   
+• [Andrés Monroy NYC táxis viagens a página de transferência](https://www.andresmh.com/nyctaxitrips/)  
+• [Táxis de fOILing NYC dados de viagens por Chris Whong](https://chriswhong.com/open-data/foil_nyc_taxi/)   
 • [Comissão de táxis de NYC e Limousine pesquisa e as estatísticas](https://www1.nyc.gov/site/tlc/about/tlc-trip-record-data.page)
 
 [1]: ./media/sql-walkthrough/sql-walkthrough_26_1.png

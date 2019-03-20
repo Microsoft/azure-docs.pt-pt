@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 11/06/2018
 ms.author: govindk
-ms.openlocfilehash: 03ec8858ee4b9323e6f7964ba02f8bb38f32d6a4
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.openlocfilehash: efe85e017d883ca82414fe5ff10b5c2932366e48
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56819008"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58101130"
 ---
 # <a name="configure-access-from-virtual-networks-vnet"></a>Configurar o acesso a partir de redes virtuais (VNet)
 
@@ -49,9 +49,9 @@ As secções seguintes descrevem como configurar um ponto de extremidade de serv
 
 > [!NOTE]
 > Para ativar pontos finais de serviço de rede virtual, tem as seguintes permissões de subscrição:
-  * Subscrição com a rede virtual: Contribuinte de rede
-  * Subscrição com a conta do Azure Cosmos DB: Contribuinte de conta do DocumentDB
-  * Se a sua rede virtual e a conta do Azure Cosmos DB estiverem em diferentes subscrições, certifique-se de que a subscrição que tem a rede virtual também tem `Microsoft.DocumentDB` fornecedor de recursos registado. Para registar um fornecedor de recursos, consulte [fornecedores de recursos do Azure e tipos de](../azure-resource-manager/resource-manager-supported-services.md) artigo. 
+>   * Subscrição com a rede virtual: Contribuinte de rede
+>   * Subscrição com a conta do Azure Cosmos DB: Contribuinte de conta do DocumentDB
+>   * Se a sua rede virtual e a conta do Azure Cosmos DB estiverem em diferentes subscrições, certifique-se de que a subscrição que tem a rede virtual também tem `Microsoft.DocumentDB` fornecedor de recursos registado. Para registar um fornecedor de recursos, consulte [fornecedores de recursos do Azure e tipos de](../azure-resource-manager/resource-manager-supported-services.md) artigo. 
 
 Aqui estão as instruções para registar a subscrição no fornecedor de recursos.
 

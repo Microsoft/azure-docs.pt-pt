@@ -14,19 +14,19 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/18/2017
 ms.author: masnider
-ms.openlocfilehash: f41027b5455aa3b1835a0d4fd0c1be11cddccd0d
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: 75aa960ff060d74d0a579b475e4334402992b3c3
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56872000"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57903370"
 ---
 # <a name="introducing-the-service-fabric-cluster-resource-manager"></a>Apresentando o Gestor de recursos de cluster do Service Fabric
 Tradicionalmente, gerenciamento de sistemas de TI ou serviços online significava dedicar máquinas virtuais ou físicas específicas para esses serviços específicos ou sistemas. Foram arquitetados como camadas de serviços. Deveria haver uma camada de "web" e uma camada de "dados" ou "armazenamento". Aplicativos teria uma camada de mensagens em que pedidos fluísse entrada e saída, bem como um conjunto de máquinas dedicadas a colocação em cache. Cada camada ou o tipo de carga de trabalho tinha máquinas específicas dedicadas a ele: a base de dados tem duas máquinas dedicadas a ele, os servidores web alguns. Se um determinado tipo de carga de trabalho causado máquinas era para executar muito quente, em seguida, adicionou mais máquinas com essa mesma configuração para essa camada. No entanto, nem todas as cargas de trabalho podem ser dimensionadas tão facilmente – particularmente com a camada de dados, normalmente, poderia substituir máquinas com máquinas maiores. Fácil. Se uma máquina falhou, essa parte do aplicativo global foi executada atingiu o limite inferior, até que a máquina pode ser restaurada. Ainda assim relativamente fácil (se não necessariamente divertido).
 
 Agora no entanto o mundo da arquitetura de serviço e o software foi alterado. É mais comum que aplicativos ADOTARAM um design de escalamento horizontal. É comum a criação de aplicativos com microsserviços ou contentores (ou ambos). Agora, embora ainda possa ter apenas algumas máquinas, eles não estiverem apenas uma única instância de uma carga de trabalho. Eles poderão ainda estar em execução várias cargas de trabalho diferentes ao mesmo tempo. Agora tem dezenas de diferentes tipos de serviços (nenhum valor de uma máquina completo de recursos de consumo), talvez centenas de diferentes instâncias desses serviços. Cada instância nomeada tem um ou mais instâncias ou de réplicas para elevada disponibilidade (HA). Consoante os tamanhos dessas cargas de trabalho e o estado de disponibilidade são, talvez tenha com centenas ou milhares de máquinas. 
 
-Não é tão simples como gerir algumas máquinas dedicadas a únicos tipos de cargas de trabalho, de repente, gestão do seu ambiente. Os servidores são virtuais e deixará de ter nomes (tiver mudado mindsets partir [animais de estimação cattle](http://www.slideshare.net/randybias/architectures-for-open-and-scalable-clouds/20) Afinal de contas). A configuração é menos com as máquinas e muito mais sobre os serviços. Hardware dedicado para uma única instância de uma carga de trabalho é basicamente uma coisa do passado. Próprios serviços se tornaram pequenos sistemas distribuídos que abrangem várias partes menores de hardware do produto.
+Não é tão simples como gerir algumas máquinas dedicadas a únicos tipos de cargas de trabalho, de repente, gestão do seu ambiente. Os servidores são virtuais e deixará de ter nomes (tiver mudado mindsets partir [animais de estimação cattle](https://www.slideshare.net/randybias/architectures-for-open-and-scalable-clouds/20) Afinal de contas). A configuração é menos com as máquinas e muito mais sobre os serviços. Hardware dedicado para uma única instância de uma carga de trabalho é basicamente uma coisa do passado. Próprios serviços se tornaram pequenos sistemas distribuídos que abrangem várias partes menores de hardware do produto.
 
 Uma vez que a aplicação já não é uma série de monolitos espalhadas em vários escalões, agora tem muitas combinações de mais de lidar com. Quem decide o que tipos de cargas de trabalho podem ser executados em qual hardware, ou quantos? Que cargas de trabalho funcionam bem no mesmo hardware, e que entram em conflito? Quando uma máquina fica para baixo como fazer sabe o que estava em execução lá nessa máquina? Quem é responsável por certificar-se de que essa carga de trabalho começa a ser executado novamente? Aguardar para a máquina (virtual)? voltar ou suas cargas de trabalho automaticamente a ativação pós-falha para outras máquinas e manter em execução? É necessária intervenção humana necessária? E sobre as atualizações neste ambiente?
 

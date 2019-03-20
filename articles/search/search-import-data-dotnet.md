@@ -1,21 +1,21 @@
 ---
 title: Carregar dados no código com o SDK de .NET - Azure Search
 description: Saiba como carregar dados para um índice de texto completo pesquisável no Azure Search utilizando C# código e o SDK de .NET de exemplo.
-author: brjohnstmsft
-manager: jlembicz
-ms.author: brjohnst
+author: heidisteen
+manager: cgronlun
+ms.author: heidist
 services: search
 ms.service: search
 ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 01/13/2017
 ms.custom: seodec2018
-ms.openlocfilehash: a34a48f8816315602fc497d4f39dcfee7fe2b032
-ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
+ms.openlocfilehash: 2b0b9d2f2030346c5201d006459ebe752aa532af
+ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53634903"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58202032"
 ---
 # <a name="upload-data-to-azure-search-using-the-net-sdk"></a>Importar dados para a Azure Search utilizando o SDK .NET
 > [!div class="op_single_selector"]

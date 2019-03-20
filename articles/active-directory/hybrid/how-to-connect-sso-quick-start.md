@@ -16,12 +16,12 @@ ms.date: 01/10/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0f2539674668a9738d03e9af9c4fb88327cb1933
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: 345c97a19f789bb3d850df000824d4c23989a81f
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56865064"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58086824"
 ---
 # <a name="azure-active-directory-seamless-single-sign-on-quick-start"></a>O Azure Active Directory totalmente integrada início de sessão único: Início rápido
 
@@ -74,8 +74,9 @@ Se já tiver uma instalação do Azure AD Connect, selecione o **alterar utiliza
 ![Azure AD Connect: Alterar o utilizador inicie sessão](./media/how-to-connect-sso-quick-start/changeusersignin.png)
 
 Continuar através do assistente até chegar à **ativar o início de sessão único em** página. Fornece credenciais de administrador de domínio para cada diretório do Active Directory de floresta que:
-    * Sincronizar com o Azure AD através do Azure AD Connect.
-    * Contém utilizadores que pretende ativar o SSO totalmente integrado.
+
+* Sincronizar com o Azure AD através do Azure AD Connect.
+* Contém utilizadores que pretende ativar o SSO totalmente integrado.
 
 Após a conclusão do assistente, o SSO totalmente integrado está ativada no seu inquilino.
 
@@ -126,11 +127,11 @@ Existem duas formas de modificar as definições de zona de Intranet dos utiliza
    - **Nome do valor**: O URL de AD do Azure onde os tíquetes Kerberos são reencaminhados.
    - **Valor** (dados): **1** indica a zona da Intranet.
 
-    O resultado tem o seguinte aspeto:
+     O resultado tem o seguinte aspeto:
 
-    Nome do valor: `https://autologon.microsoftazuread-sso.com`
+     Nome do valor: `https://autologon.microsoftazuread-sso.com`
   
-    Valor (dados): 1
+     Valor (dados): 1
 
    >[!NOTE]
    > Se quiser não permitir alguns usuários com SSO totalmente integrado (por exemplo, se estes utilizadores iniciarem sessão em quiosques partilhados), defina os valores anteriores **4**. Esta ação adiciona o URL de AD do Azure para a zona restrita e falha SSO totalmente integrado, o tempo todo.
@@ -162,9 +163,9 @@ Existem duas formas de modificar as definições de zona de Intranet dos utiliza
    - **Tipo de valor**: ***REG_DWORD***.
    - **Dados do valor**: ***00000001***.
  
-    ![Início de sessão único](./media/how-to-connect-sso-quick-start/sso16.png)
+     ![Início de sessão único](./media/how-to-connect-sso-quick-start/sso16.png)
  
-    ![Início de sessão único](./media/how-to-connect-sso-quick-start/sso17.png)
+     ![Início de sessão único](./media/how-to-connect-sso-quick-start/sso17.png)
 
 ### <a name="browser-considerations"></a>Considerações de browser
 

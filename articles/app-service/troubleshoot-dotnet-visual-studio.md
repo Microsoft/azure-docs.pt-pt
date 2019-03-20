@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 08/29/2016
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 5e749f68aba48ac258363a0a03e3474e1e28b064
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: 03bafcdbf6890573d1d2855e2b47520d0111fe13
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56876777"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57996784"
 ---
 # <a name="troubleshoot-an-app-in-azure-app-service-using-visual-studio"></a>Resolver problemas de uma aplicação no serviço de aplicações do Azure com o Visual Studio
 ## <a name="overview"></a>Descrição geral
@@ -134,19 +134,19 @@ public ActionResult About()
 }
 ```
 
-4. [Defina um ponto de interrupção](https://docs.microsoft.com/visualstudio/debugger/) sobre o `ViewBag.Message` linha.
+1. [Defina um ponto de interrupção](https://docs.microsoft.com/visualstudio/debugger/) sobre o `ViewBag.Message` linha.
 
-5. Na **Explorador de soluções**, clique com o botão direito no projeto e clique em **Publish**.
+1. Na **Explorador de soluções**, clique com o botão direito no projeto e clique em **Publish**.
 
-6. Na **perfil** na lista pendente, selecione o mesmo perfil que utilizou na [criar uma aplicação ASP.NET no App Service do Azure](app-service-web-get-started-dotnet-framework.md). Em seguida, clique em definições.
+1. Na **perfil** na lista pendente, selecione o mesmo perfil que utilizou na [criar uma aplicação ASP.NET no App Service do Azure](app-service-web-get-started-dotnet-framework.md). Em seguida, clique em definições.
 
-7. Na **Publish** caixa de diálogo, clique no **definições** separador e, em seguida, altere **configuração** para **depurar**e, em seguida, clique em  **Guardar**.
+1. Na **Publish** caixa de diálogo, clique no **definições** separador e, em seguida, altere **configuração** para **depurar**e, em seguida, clique em  **Guardar**.
 
     ![Publicar no modo de depuração](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-publishdebug.png)
 
-8. Clique em **Publicar**. Após a implementação estiver concluída e o browser abre-se para o URL do Azure da sua aplicação, feche o browser.
+1. Clique em **Publicar**. Após a implementação estiver concluída e o browser abre-se para o URL do Azure da sua aplicação, feche o browser.
 
-9. Na **Explorador de servidores**, clique com o botão direito a aplicação e, em seguida, clique em **anexar o depurador**.
+1. Na **Explorador de servidores**, clique com o botão direito a aplicação e, em seguida, clique em **anexar o depurador**.
 
     ![Anexar o depurador](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-attachdebugger.png)
 
@@ -156,19 +156,19 @@ public ActionResult About()
     > Se tiver problemas para iniciar o depurador, tentar fazê-lo através de **Cloud Explorer** em vez de **Explorador de servidores**.
     >
 
-10. Clique em **sobre** no menu.
+1. Clique em **sobre** no menu.
 
-     Visual Studio termina no ponto de interrupção, e o código está em execução no Azure, não no seu computador local.
+    Visual Studio termina no ponto de interrupção, e o código está em execução no Azure, não no seu computador local.
 
-11. Paire o rato sobre o `currentTime` variável para ver o valor de tempo.
+1. Paire o rato sobre o `currentTime` variável para ver o valor de tempo.
 
-     ![Variável de vista no modo de depuração em execução no Azure](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-debugviewinwa.png)
+    ![Variável de vista no modo de depuração em execução no Azure](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-debugviewinwa.png)
 
-     O tempo que vê é a hora do servidor do Azure, que pode ser um fuso horário diferente do que o seu computador local.
+    O tempo que vê é a hora do servidor do Azure, que pode ser um fuso horário diferente do que o seu computador local.
 
-12. Introduza um novo valor para o `currentTime` variável, tais como "Agora em execução no Azure".
+1. Introduza um novo valor para o `currentTime` variável, tais como "Agora em execução no Azure".
 
-13. Prima F5, continue a executar.
+1. Prima F5, continue a executar.
 
      A página sobre em execução no Azure mostra o novo valor que introduziu na variável currentTime.
 
@@ -311,7 +311,7 @@ public ActionResult Contact()
 }        
 ```
 
-2. Adicionar um `using System.Diagnostics;` instrução na parte superior do ficheiro.
+1. Adicionar um `using System.Diagnostics;` instrução na parte superior do ficheiro.
 
 ### <a name="view-the-tracing-output-locally"></a>Ver a saída de rastreamento localmente
 1. Prima F5 para executar a aplicação no modo de depuração.
@@ -339,15 +339,15 @@ public ActionResult Contact()
 ```
 
 O `WebPageTraceListener` saída de rastreio permite ver ao navegar para `/trace.axd`.
-3. Adicionar uma <a href="https://msdn.microsoft.com/library/vstudio/6915t83k(v=vs.100).aspx">elemento de rastreio</a> sob `<system.web>` no arquivo Web. config, como o exemplo seguinte:
+1. Adicionar uma <a href="https://msdn.microsoft.com/library/vstudio/6915t83k(v=vs.100).aspx">elemento de rastreio</a> sob `<system.web>` no arquivo Web. config, como o exemplo seguinte:
 
 ``` xml
 <trace enabled="true" writeToDiagnosticsTrace="true" mostRecent="true" pageOutput="false" />
 ```       
 
-4. Prima CTRL+F5 para executar a aplicação.
-5. Na barra de endereços da janela do navegador, adicione *axd* ao URL e, em seguida, prima Enter (o URL é semelhante ao http://localhost:53370/trace.axd).
-6. Sobre o **rastreio de aplicação** página, clique em **ver detalhes** na primeira linha (não a linha BrowserLink).
+1. Prima CTRL+F5 para executar a aplicação.
+1. Na barra de endereços da janela do navegador, adicione *axd* ao URL e, em seguida, prima Enter (o URL é semelhante ao `http://localhost:53370/trace.axd`).
+1. Sobre o **rastreio de aplicação** página, clique em **ver detalhes** na primeira linha (não a linha BrowserLink).
 
     ![axd](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-traceaxd1.png)
 
@@ -477,7 +477,7 @@ Quaisquer registos de monitorização no **saída** janela também pode ser tran
    * Registos de servidor Web se encontram no *. log* arquivos no *LogFiles\http\RawLogs* pasta. Pode usar uma ferramenta como [Log Parser](https://www.microsoft.com/download/details.aspx?displaylang=en&id=24659) para exibir e manipular esses arquivos.
    * Registos de mensagem de erro detalhadas estão na *. HTML* arquivos no *LogFiles\DetailedErrors* pasta.
 
-    (A *implementações* pasta destina-se os arquivos criados pelo controlo de origem de publicação; ele não tem qualquer coisa relacionada à publicação do Visual Studio. Quanto *Git* pasta é para que os rastreios relacionadas com controlo de origem a publicação e o registo de serviço de transmissão em fluxo de ficheiros.)  
+     (A *implementações* pasta destina-se os arquivos criados pelo controlo de origem de publicação; ele não tem qualquer coisa relacionada à publicação do Visual Studio. Quanto *Git* pasta é para que os rastreios relacionadas com controlo de origem a publicação e o registo de serviço de transmissão em fluxo de ficheiros.)  
 
 <!-- ## <a name="storagelogs"></a>View storage logs
 Application tracing logs can also be sent to an Azure storage account, and you can view them in Visual Studio. To do that you'll create a storage account, enable storage logs in the Azure portal, and view them in the **Logs** tab of the **Azure Web App** window.

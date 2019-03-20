@@ -1,5 +1,5 @@
 ---
-title: 'Início Rápido: Consultar dados no Azure Data Explorer'
+title: 'Início rápido: Consultar dados no Explorador de dados do Azure'
 description: Neste início rápido, irá aprender a consultar e partilhar dados no Azure Data Explorer.
 services: data-explorer
 author: orspod
@@ -8,14 +8,14 @@ ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: quickstart
 ms.date: 09/24/2018
-ms.openlocfilehash: 7ce66d3f6117a5e395920dc2232efb0e43f4cd18
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 9dade2ccebfb96cd54bdb9c8ef70c14fdeadad76
+ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53106452"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58225778"
 ---
-# <a name="quickstart-query-data-in-azure-data-explorer"></a>Início Rápido: Consultar dados no Azure Data Explorer
+# <a name="quickstart-query-data-in-azure-data-explorer"></a>Início rápido: Consultar dados no Explorador de dados do Azure
 
 O Azure Data Explorer é um serviço de exploração de dados rápido e altamente dimensionável para dados telemétricos e de registo. O Azure Data Explorer fornece uma aplicação Web que lhe permite executar e partilhar consultas. A aplicação está disponível no portal do Azure e como uma aplicação Web autónoma. Neste artigo, vai trabalhar na versão autónoma, que permite ligar a vários clusters e partilhar ligações avançadas para as suas consultas.
 
@@ -39,7 +39,11 @@ Tem de adicionar uma ligação, pelo menos, a um cluster antes de começar a exe
 
 1. Na parte superior esquerda da aplicação, selecione **Adicionar cluster**.
 
-1. Na caixa de diálogo **Adicionar cluster**, introduza `https://help.kusto.windows.net` e, em seguida, selecione **Adicionar**.
+1. Na **adicionar cluster** caixa de diálogo, introduza o URI, em seguida, selecione **Add**.
+
+   Pode utilizar o cluster de ajuda do URI, `https://help.kusto.windows.net`. Se tiver o seu próprio cluster, forneça o URI do cluster. Por exemplo, `https://mydataexplorercluster.westus.kusto.windows.net` conforme a imagem seguinte:
+
+    ![URI no Portal do servidor](media/web-query-data/server-uri.png)
 
 1. No painel esquerdo, deverá ver agora o cluster **help**. Expanda a base de dados **Exemplos** para que possa ver as tabelas de exemplo às quais tem acesso.
 
@@ -148,7 +152,7 @@ Agora que viu como funcionam as consultas básicas, vamos ver como pode usar a g
 
     Este painel funciona da mesma forma que a lista de campos de tabela dinâmica no Excel, que lhe permite fazer mais análises na própria grelha.
 
-1. Selecione **Modo Dinâmico** e arraste as colunas da seguinte forma: **Estado** para **Grupos de linhas**, **DamageProperty** para **Valores** e **EventType** para **Etiquetas de coluna**.  
+1. Selecione **Pivot modo**, em seguida, arraste as colunas da seguinte forma: **Estado** para **linha grupos**; **DamageProperty** ao **valores**; e **EventType** para **etiquetas de coluna**.  
 
     ![Modo dinâmico](media/web-query-data/pivot-mode.png)
 

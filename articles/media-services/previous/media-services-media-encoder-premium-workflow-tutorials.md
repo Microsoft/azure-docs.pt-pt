@@ -12,14 +12,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/10/2019
+ms.date: 03/18/2019
 ms.author: christoc;xpouyat;juliako
-ms.openlocfilehash: e0f4506afee134f2f6453ea1b1298925ff00084c
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: 3d51f5328aec66eee0d8382026e8795db45a6a2c
+ms.sourcegitcommit: f331186a967d21c302a128299f60402e89035a8d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56004611"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58189789"
 ---
 # <a name="advanced-media-encoder-premium-workflow-tutorials"></a>Tutoriais avançados do Media Encoder Premium Workflow
 ## <a name="overview"></a>Descrição geral
@@ -297,7 +297,7 @@ Para o empacotamento dinâmico trabalhar em combinação com ficheiros MP4 (tant
 
 ```xml
     <?xml version="1.0" encoding="utf-8" standalone="yes"?>
-    <smil xmlns="http://www.w3.org/2001/SMIL20/Language">
+    <smil xmlns="https://www.w3.org/2001/SMIL20/Language">
       <head>
         <meta name="formats" content="mp4" />
       </head>
@@ -947,7 +947,7 @@ Com o abaixo cláusula de guarda simples, podemos verificar se é necessária a 
 
 [Formatos e Codecs de Fluxo de Trabalho Premium do Codificador de Multimédia](media-services-premium-workflow-encoder-formats.md)
 
-[Ficheiros de fluxo de trabalho de exemplo](http://github.com/Azure/azure-media-services-samples/tree/master/Encoding%20Presets/VoD/MediaEncoderPremiumWorkfows)
+[Ficheiros de fluxo de trabalho de exemplo](https://github.com/Azure/azure-media-services-samples/tree/master/Encoding%20Presets/VoD/MediaEncoderPremiumWorkfows)
 
 [Ferramenta do Explorador dos serviços de multimédia do Azure](https://aka.ms/amse)
 

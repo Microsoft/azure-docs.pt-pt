@@ -12,14 +12,14 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 08/02/2018
+ms.date: 03/14/2019
 ms.author: alkohli
-ms.openlocfilehash: decc63ad7ce0b35de41ec53e6b5e02276aa33705
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: e5713af737a6d9d190814b4155a8e772deea06bc
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57456079"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58013906"
 ---
 # <a name="introduction-to-the-storsimple-virtual-array"></a>Introdução ao StorSimple Virtual Array
 
@@ -74,8 +74,8 @@ A tabela seguinte descreve algumas das principais vantagens que a solução Stor
 
 Um resumo das cargas de trabalho suportadas do StorSimple é apresentado abaixo.
 
-|Cenário     |Carga de trabalho     |Suportadas      |Restrições               |
-|-------------|-------------|---------------|---------------------------|
+|Cenário     |Carga de trabalho     |Suportadas      |Restrições               | Versões aplicáveis|
+|-------------|-------------|---------------|---------------------------|--------------------|
 |Office de sucursais/escritórios remotos (ROBO)  |Partilha de ficheiros     |Sim      |Ver [limites máximos para servidor de ficheiros](storsimple-ova-limits.md).<br></br>Ver [requisitos de sistema para versões suportadas do SMB](storsimple-ova-system-requirements.md).| Todas as versões     |
 |Arquivamento da cloud  |Partilha de ficheiros de arquivo     |Sim      |Ver [limites máximos para servidor de ficheiros](storsimple-ova-limits.md).<br></br>Ver [requisitos de sistema para versões suportadas do SMB](storsimple-ova-system-requirements.md).| Todas as versões     |
 

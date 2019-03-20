@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/10/2019
 ms.author: jdial
-ms.openlocfilehash: b4877f7904523782f1555f53a7bcb440871cc698
-ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
+ms.openlocfilehash: 6e393bf9c08eaa656a1c9b2302cde937a87ccc9a
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56888326"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58088507"
 ---
 # <a name="create-change-or-delete-a-virtual-network"></a>Criar, alterar ou eliminar uma rede virtual
 
@@ -54,16 +54,16 @@ Conclua as seguintes tarefas antes de concluir os passos em qualquer secção de
      >
      >
 
-    - **Nome da sub-rede**: O nome da sub-rede tem de ser exclusivo dentro da rede virtual. Não é possível alterar o nome da sub-rede depois de criar a sub-rede. O portal requer que defina uma sub-rede quando criar uma rede virtual, mesmo que uma rede virtual não é necessária ter quaisquer sub-redes. No portal, pode definir apenas uma sub-rede quando criar uma rede virtual. Pode adicionar mais sub-redes para a rede virtual mais tarde, depois de criar a rede virtual. Para adicionar uma sub-rede a uma rede virtual, consulte [gerir sub-redes](virtual-network-manage-subnet.md). Pode criar uma rede virtual que tem várias sub-redes com a CLI do Azure ou o PowerShell.
+     - **Nome da sub-rede**: O nome da sub-rede tem de ser exclusivo dentro da rede virtual. Não é possível alterar o nome da sub-rede depois de criar a sub-rede. O portal requer que defina uma sub-rede quando criar uma rede virtual, mesmo que uma rede virtual não é necessária ter quaisquer sub-redes. No portal, pode definir apenas uma sub-rede quando criar uma rede virtual. Pode adicionar mais sub-redes para a rede virtual mais tarde, depois de criar a rede virtual. Para adicionar uma sub-rede a uma rede virtual, consulte [gerir sub-redes](virtual-network-manage-subnet.md). Pode criar uma rede virtual que tem várias sub-redes com a CLI do Azure ou o PowerShell.
 
-      >[!TIP]
-      >Às vezes, os administradores criar sub-redes diferentes para filtrar ou controlar o encaminhamento de tráfego entre as sub-redes. Antes de definir sub-redes, considere como pode deseja filtrar e encaminhar o tráfego entre as sub-redes. Para saber mais sobre a filtragem de tráfego entre sub-redes, veja [grupos de segurança de rede](security-overview.md). Azure automaticamente encaminha o tráfego entre sub-redes, mas pode substituir as rotas predefinidas do Azure. Para saber mais sobre o encaminhamento de tráfego do Azures padrão sub-rede, veja [descrição geral do encaminhamento](virtual-networks-udr-overview.md).
-      >
+       >[!TIP]
+       >Às vezes, os administradores criar sub-redes diferentes para filtrar ou controlar o encaminhamento de tráfego entre as sub-redes. Antes de definir sub-redes, considere como pode deseja filtrar e encaminhar o tráfego entre as sub-redes. Para saber mais sobre a filtragem de tráfego entre sub-redes, veja [grupos de segurança de rede](security-overview.md). Azure automaticamente encaminha o tráfego entre sub-redes, mas pode substituir as rotas predefinidas do Azure. Para saber mais sobre o encaminhamento de tráfego do Azures padrão sub-rede, veja [descrição geral do encaminhamento](virtual-networks-udr-overview.md).
+       >
 
-    - **Intervalo de endereços da sub-rede**: O intervalo tem de ser dentro do espaço de endereço que introduziu para a rede virtual. O intervalo mais pequeno que pode especificar é /29, que fornece oito endereços IP para a sub-rede. O Azure reserva o endereço do primeiro e último em cada sub-rede para conformidade com o protocolo. Três endereços adicionais estão reservados para utilização do serviço do Azure. Como resultado, uma rede virtual com um intervalo de endereços da sub-rede de/29 tem apenas três endereços IP utilizáveis. Se planear ligar uma rede virtual a um gateway VPN, tem de criar uma sub-rede de gateway. Saiba mais sobre [considerações de intervalo de endereço específico para sub-redes de gateway](../vpn-gateway/vpn-gateway-about-vpn-gateway-settings.md?toc=%2fazure%2fvirtual-network%2ftoc.json#gwsub). Pode alterar o intervalo de endereços depois de criar a sub-rede, em condições específicas. Para saber como alterar um intervalo de endereços da sub-rede, veja [gerir sub-redes](virtual-network-manage-subnet.md).
-    - **Subscrição**: Selecione um [subscrição](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#subscription). Não é possível utilizar a mesma rede virtual em mais do que uma subscrição do Azure. No entanto, pode ligar uma rede virtual de uma subscrição para redes virtuais em outras subscrições com [peering de rede virtual](virtual-network-peering-overview.md). Qualquer recurso do Azure que se liga à rede virtual tem de ser na mesma subscrição que a rede virtual.
-    - **Grupo de recursos**: Selecione um existente [grupo de recursos](../azure-resource-manager/resource-group-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#resource-groups) ou criar um novo. Um recurso do Azure que se liga à rede virtual pode estar no mesmo grupo de recursos que a rede virtual ou num grupo de recursos diferentes.
-    - **Localização**: Selecione do Azure [localização](https://azure.microsoft.com/regions/), também conhecido como uma região. Uma rede virtual pode estar em apenas uma localização do Azure. No entanto, pode ligar uma rede virtual num único local a uma rede virtual em outro local com um gateway VPN. Qualquer recurso do Azure que se liga à rede virtual tem de ser na mesma localização que a rede virtual.
+     - **Intervalo de endereços da sub-rede**: O intervalo tem de ser dentro do espaço de endereço que introduziu para a rede virtual. O intervalo mais pequeno que pode especificar é /29, que fornece oito endereços IP para a sub-rede. O Azure reserva o endereço do primeiro e último em cada sub-rede para conformidade com o protocolo. Três endereços adicionais estão reservados para utilização do serviço do Azure. Como resultado, uma rede virtual com um intervalo de endereços da sub-rede de/29 tem apenas três endereços IP utilizáveis. Se planear ligar uma rede virtual a um gateway VPN, tem de criar uma sub-rede de gateway. Saiba mais sobre [considerações de intervalo de endereço específico para sub-redes de gateway](../vpn-gateway/vpn-gateway-about-vpn-gateway-settings.md?toc=%2fazure%2fvirtual-network%2ftoc.json#gwsub). Pode alterar o intervalo de endereços depois de criar a sub-rede, em condições específicas. Para saber como alterar um intervalo de endereços da sub-rede, veja [gerir sub-redes](virtual-network-manage-subnet.md).
+     - **Subscrição**: Selecione um [subscrição](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#subscription). Não é possível utilizar a mesma rede virtual em mais do que uma subscrição do Azure. No entanto, pode ligar uma rede virtual de uma subscrição para redes virtuais em outras subscrições com [peering de rede virtual](virtual-network-peering-overview.md). Qualquer recurso do Azure que se liga à rede virtual tem de ser na mesma subscrição que a rede virtual.
+     - **Grupo de recursos**: Selecione um existente [grupo de recursos](../azure-resource-manager/resource-group-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#resource-groups) ou criar um novo. Um recurso do Azure que se liga à rede virtual pode estar no mesmo grupo de recursos que a rede virtual ou num grupo de recursos diferentes.
+     - **Localização**: Selecione do Azure [localização](https://azure.microsoft.com/regions/), também conhecido como uma região. Uma rede virtual pode estar em apenas uma localização do Azure. No entanto, pode ligar uma rede virtual num único local a uma rede virtual em outro local com um gateway VPN. Qualquer recurso do Azure que se liga à rede virtual tem de ser na mesma localização que a rede virtual.
 
 **Comandos**
 

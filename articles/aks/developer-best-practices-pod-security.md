@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: iainfou
-ms.openlocfilehash: d48a1a1c9e220690649bbf60e9909a38d575c156
-ms.sourcegitcommit: a4efc1d7fc4793bbff43b30ebb4275cd5c8fec77
+ms.openlocfilehash: c2c8522e796fa43f08bf8ad2d61e70a8205d77b6
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56651964"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58183531"
 ---
 # <a name="best-practices-for-pod-security-in-azure-kubernetes-service-aks"></a>Práticas recomendadas para segurança de pod no Azure Kubernetes Service (AKS)
 
@@ -74,6 +74,8 @@ O seguinte procedimento [AKS associados projetos open source] [ aks-associated-p
 
 * Gerido identidades para recursos do Azure, e
 * Controlador de FlexVol do Cofre de chaves do Azure
+
+Projetos de código aberto associados do AKS não são suportados pelo suporte técnico do Azure. Eles são fornecidos para recolher comentários e bugs de nossa Comunidade. Esses projetos não são recomendados para utilização em produção.
 
 ### <a name="use-pod-managed-identities"></a>Identidades de geridos de pod de utilização
 

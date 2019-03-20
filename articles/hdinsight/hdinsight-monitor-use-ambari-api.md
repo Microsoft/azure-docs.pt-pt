@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 04/07/2017
 ms.author: hrasheed
 ROBOTS: NOINDEX
-ms.openlocfilehash: 7967459e1318e85e1e179e21bc803bf00ee329cd
-ms.sourcegitcommit: 21466e845ceab74aff3ebfd541e020e0313e43d9
+ms.openlocfilehash: ff6601042c82cef2b0101833117f17aca8b463dc
+ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53743798"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58223262"
 ---
 # <a name="monitor-apache-hadoop-clusters-in-hdinsight-using-the-apache-ambari-api"></a>Monitorizar clusters do Apache Hadoop no HDInsight usando a API do Apache Ambari
 Saiba como monitorizar clusters do HDInsight ao utilizar as APIs do Apache Ambari.
@@ -39,7 +39,7 @@ Antes de começar este tutorial, tem de ter os seguintes itens:
 
 * **Um cluster do Azure HDInsight**. Para obter instruções sobre o aprovisionamento do cluster, consulte [introdução à utilização do HDInsight] [ hdinsight-get-started] ou [Provision HDInsight clusters][hdinsight-provision]. Terá de seguir o tutorial, os seguintes dados:
   
-  | Propriedade do cluster | Nome da variável do PowerShell do Azure | Valor | Descrição |
+  | Propriedade do cluster | Nome da variável do PowerShell do Azure | Value | Descrição |
   | --- | --- | --- | --- |
   |   Nome de cluster do HDInsight |$clusterName | |O nome do cluster do HDInsight. |
   |   Nome de utilizador do cluster |$clusterUsername | |Nome de utilizador do cluster especificado quando o cluster foi criado. |
@@ -126,7 +126,7 @@ A tabela seguinte lista algumas do monitorização de chamadas de API de Ambari 
 | Obter serviços |`/api/v1/clusters/<ClusterName>.azurehdinsight.net/services` |Os serviços incluem: hdfs, mapreduce |
 | Obter as informações de serviços. |`/api/v1/clusters/<ClusterName>.azurehdinsight.net/services/<ServiceName>` | |
 | Obter os componentes do serviço |`/api/v1/clusters/<ClusterName>.azurehdinsight.net/services/<ServiceName>/components` |HDFS: namenode, datanodeMapReduce: jobtracker; tasktracker |
-| Obter as informações de componente. |`/api/v1/clusters/<ClusterName>.azurehdinsight.net/services/<ServiceName>/components/<ComponentName>` |ServiceComponentInfo, componentes do anfitrião, as métricas |
+| Obter as informações de componente. |`/api/v1/clusters/<ClusterName>.azurehdinsight.net/services/<ServiceName>/components/<ComponentName>` |ServiceComponentInfo, host-components, metrics |
 | Obter anfitriões |`/api/v1/clusters/<ClusterName>.azurehdinsight.net/hosts` |headnode0, workernode0 |
 | Obtenha informações do anfitrião. |`/api/v1/clusters/<ClusterName>.azurehdinsight.net/hosts/<HostName>` | |
 | Obter os componentes do anfitrião |`/api/v1/clusters/<ClusterName>.azurehdinsight.net/hosts/<HostName>/host_components` |namenode, resourcemanager |
@@ -137,7 +137,7 @@ A tabela seguinte lista algumas do monitorização de chamadas de API de Ambari 
 ## <a name="next-steps"></a>Próximos Passos
 Agora aprendeu a utilizar o Apache Ambari a monitorização de chamadas de API. Para saber mais, consulte:
 
-* [Gerir clusters do HDInsight com o portal do Azure][hdinsight-admin-portal]
+* [Gerir clusters do Apache Hadoop no HDInsight com o portal do Azure](hdinsight-administer-use-portal-linux.md)
 * [Gerir clusters do HDInsight com o Azure PowerShell][hdinsight-admin-powershell]
 * [Gerir clusters do HDInsight utilizando a interface de linha de comandos][hdinsight-admin-cli]
 * [Documentação do HDInsight][hdinsight-documentation]
@@ -155,7 +155,6 @@ Agora aprendeu a utilizar o Apache Ambari a monitorização de chamadas de API. 
 [powershell-script]: https://technet.microsoft.com/library/ee176949.aspx
 
 [hdinsight-admin-powershell]: hdinsight-administer-use-powershell.md
-[hdinsight-admin-portal]: hdinsight-administer-use-management-portal.md
 [hdinsight-admin-cli]: hdinsight-administer-use-command-line.md
 [hdinsight-documentation]: https://docs.microsoft.com/azure/hdinsight/
 [hdinsight-get-started]:hadoop/apache-hadoop-linux-tutorial-get-started.md

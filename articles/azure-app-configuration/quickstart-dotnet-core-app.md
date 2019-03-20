@@ -14,22 +14,22 @@ ms.tgt_pltfrm: .NET Core
 ms.workload: tbd
 ms.date: 02/24/2019
 ms.author: yegu
-ms.openlocfilehash: cd4115aaeec15d14d48dcb71cbdc75212c6dc2db
-ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
+ms.openlocfilehash: 5501e92b9a9d977f74bf4ed028b3cd3de4e56133
+ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56960683"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58225387"
 ---
-# <a name="quickstart-create-an-net-core-app-with-app-configuration"></a>Início rápido: Criar um .NET Core de aplicação com a configuração de aplicações
+# <a name="quickstart-create-a-net-core-app-with-app-configuration"></a>Início rápido: Criar um .NET Core de aplicação com a configuração de aplicações
 
-Configuração de aplicações do Azure é um serviço de configuração gerida no Azure. Permite-lhe armazenar e gerir todas as suas definições de aplicação num único local que é separada do seu código facilmente. Este guia de introdução mostra-lhe como incorporar o serviço uma aplicação de consola .NET Core.
+Configuração de aplicações do Azure é um serviço de configuração gerida no Azure. Pode usá-lo facilmente armazenar e gerir todas as suas definições de aplicação num único local que é separada a partir do código. Este guia de introdução mostra-lhe como incorporar o serviço uma aplicação de consola .NET Core.
 
-Pode utilizar qualquer editor de código para concluir os passos deste início rápido. No entanto, o [Visual Studio Code](https://code.visualstudio.com/) é uma excelente opção, disponível nas plataformas Windows, macOS e Linux.
+Pode utilizar qualquer editor de código para realizar os passos neste guia de introdução. [Visual Studio Code](https://code.visualstudio.com/) é uma excelente opção disponível no Windows, macOS e plataformas Linux.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Para concluir este início rápido, instale o [.NET Core SDK](https://dotnet.microsoft.com/download).
+Para fazer este início rápido, instale o [.NET Core SDK](https://dotnet.microsoft.com/download).
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
@@ -39,25 +39,25 @@ Para concluir este início rápido, instale o [.NET Core SDK](https://dotnet.mic
 
 ## <a name="create-a-net-core-console-app"></a>Criar uma aplicação de consola .NET Core
 
-Irá utilizar o [.NET Core interface de linha de comandos (CLI)](https://docs.microsoft.com/dotnet/core/tools/) para criar um novo projeto de aplicação de consola .NET Core. A vantagem de utilizar a CLI de .NET Core em vez do Visual Studio é que aquela está disponível nas plataformas Windows, macOS e Linux.
+Utilizar o [.NET Core interface de linha de comandos (CLI)](https://docs.microsoft.com/dotnet/core/tools/) para criar um novo projeto de aplicação de consola .NET Core. A vantagem de utilizar a CLI do .NET Core ao longo do Visual Studio é que ele está disponível para todas as plataformas de Linux, macOS e Windows.
 
 1. Crie uma pasta nova para o projeto.
 
-2. Na pasta nova, execute o seguinte comando para criar um projeto de aplicação Web ASP.NET Core MVC novo:
+2. Na nova pasta, execute o seguinte comando para criar um novo projeto de aplicação web de MVC do ASP.NET Core:
 
         dotnet new console
 
-## <a name="connect-to-app-configuration-store"></a>Ligar ao arquivo de configuração de aplicação
+## <a name="connect-to-an-app-configuration-store"></a>Ligar a um arquivo de configuração de aplicação
 
-1. Execute o seguinte comando para adicionar uma referência para o pacote de NuGet `Microsoft.Extensions.Configuration.AzureAppConfiguration`:
+1. Adicionar uma referência para o `Microsoft.Extensions.Configuration.AzureAppConfiguration` pacote NuGet ao executar o seguinte comando:
 
         dotnet add package Microsoft.Extensions.Configuration.AzureAppConfiguration
 
-2. Execute o seguinte comando para restaurar os pacotes do seu projeto.
+2. Execute o seguinte comando para restaurar pacotes para o seu projeto:
 
         dotnet restore
 
-3. Open *Program.cs* e atualizar a `Main` método a utilizar a configuração de aplicações ao chamar o `builder.AddAzureAppConfiguration()` método.
+3. Open *Program.cs*e atualizar a `Main` método a utilizar a configuração de aplicações ao chamar o `builder.AddAzureAppConfiguration()` método.
 
     ```csharp
     static void Main(string[] args)
@@ -72,15 +72,15 @@ Irá utilizar o [.NET Core interface de linha de comandos (CLI)](https://docs.mi
 
 ## <a name="build-and-run-the-app-locally"></a>Criar e executar a aplicação localmente
 
-1. Definir uma variável de ambiente com o nome **ConnectionString** e defini-lo para a chave de acesso ao seu arquivo de configuração de aplicação. Se estiver a utilizar o Prompt de comando do Windows, execute o seguinte comando e reinicie o Prompt de comando para permitir que a alteração tenha efeito:
+1. Definir uma variável de ambiente com o nome **ConnectionString**e defina-o para a chave de acesso ao seu arquivo de configuração de aplicação. Se utilizar a linha de comandos do Windows, execute o seguinte comando e reinicie o prompt de comando para permitir que a alteração tenha efeito:
 
         setx ConnectionString "connection-string-of-your-app-configuration-store"
 
-    Se estiver a utilizar o Windows PowerShell, execute o seguinte comando:
+    Se utilizar o Windows PowerShell, execute o seguinte comando:
 
         $Env:ConnectionString = "connection-string-of-your-app-configuration-store"
 
-    Se estiver a utilizar o macOS ou Linux, execute o seguinte comando:
+    Se usar o macOS ou Linux, execute o seguinte comando:
 
         export ConnectionString='connection-string-of-your-app-configuration-store'
 
@@ -88,7 +88,7 @@ Irá utilizar o [.NET Core interface de linha de comandos (CLI)](https://docs.mi
 
         dotnet build
 
-3. Assim que a compilação for concluída com êxito, execute o seguinte comando para executar a aplicação localmente:
+3. Após a compilação for concluída com êxito, execute o seguinte comando para executar a aplicação localmente:
 
         dotnet run
 

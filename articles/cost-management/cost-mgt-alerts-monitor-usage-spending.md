@@ -5,17 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 02/28/2019
+ms.date: 03/13/2019
 ms.topic: conceptual
 ms.service: cost-management
 manager: alavital
 ms.custom: ''
-ms.openlocfilehash: d6f7a597ff5737bb5e9a3f07122ece313bd432ff
-ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
+ms.openlocfilehash: feb7fcdd9005ef131acadfc63defbe4caeaca014
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57337786"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57991934"
 ---
 # <a name="use-cost-alerts-to-monitor-usage-and-spending"></a>Utilizar alertas de custo para monitorizar a utilização e gastos
 
@@ -39,7 +39,7 @@ Alertas de quota de gastos departamento notificá-lo quando gastos do departamen
 
 Suporte para tipos de alertas depende do tipo de conta do Azure que tem (Microsoft oferecem). A tabela seguinte mostra as funcionalidades de alertas que são suportadas por várias ofertas da Microsoft. Pode ver a lista completa de ofertas da Microsoft em [dados de compreender a gestão de custos](understand-cost-mgt-data.md).
 
-| Tipo de alerta | Enterprise Agreement | Contrato de Cliente Microsoft | Web direct/Pay-As-You-Go |
+| Tipo de alerta | Contrato Enterprise | Contrato de Cliente Microsoft | Web direct/Pay-As-You-Go |
 |---|---|---|---|
 | Orçamento | ✔ | ✔ | ✔ |
 | Crédito | ✔ |✘ | ✘ |
@@ -49,7 +49,7 @@ Suporte para tipos de alertas depende do tipo de conta do Azure que tem (Microso
 
 ## <a name="view-cost-alerts"></a>Alertas da vista de custos
 
-No portal do Azure, clique em **Cost Management + Faturação** na lista de serviços. Em seguida, na lista, no **Cost Management**, selecione **custo alertas**.
+Para ver os alertas de custo, abra o âmbito pretendido no portal do Azure e selecione **orçamentos** no menu. Utilize o **âmbito** envenenadas para mudar para outro âmbito. Selecione **custo alertas** no menu. Para obter mais informações sobre âmbitos, consulte [entender e trabalhar com âmbitos](understand-work-scopes.md).
 
 ![Imagem de exemplo de alertas, mostrado na gestão de custos](./media/cost-mgt-alerts-monitor-usage-spending/budget-alerts-fullscreen.png)
 

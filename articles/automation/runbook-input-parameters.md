@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 02/14/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: ef0dfafce33837a80ec00ba58e6be99784e652a2
-ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
+ms.openlocfilehash: 969e0c2582ce8f72592059fbf1d58e3ebe9faa5d
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/19/2019
-ms.locfileid: "56418619"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58117205"
 ---
 # <a name="runbook-input-parameters"></a>Parâmetros de entrada do runbook
 
@@ -338,10 +338,10 @@ Execute os seguintes comandos do PowerShell:
    Connect-AzureRmAccount
    ```
 
-  Lhe for pedido para introduzir as suas credenciais do Azure.
+   Lhe for pedido para introduzir as suas credenciais do Azure.
 
-  > [!IMPORTANT]
-  > **Add-AzureRmAccount** agora é um alias para **Connect-AzureRMAccount**. Quando pesquisar a sua biblioteca de itens, se não vir **Connect-AzureRMAccount**, pode utilizar **Add-AzureRmAccount**, ou pode atualizar os módulos na conta de automatização.
+   > [!IMPORTANT]
+   > **Add-AzureRmAccount** agora é um alias para **Connect-AzureRMAccount**. Quando pesquisar a sua biblioteca de itens, se não vir **Connect-AzureRMAccount**, pode utilizar **Add-AzureRmAccount**, ou pode atualizar os módulos na conta de automatização.
 
 1. Obter o conteúdo do ficheiro JSON e convertê-la numa cadeia de caracteres:
 

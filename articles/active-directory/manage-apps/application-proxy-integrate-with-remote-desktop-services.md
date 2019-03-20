@@ -16,12 +16,12 @@ ms.author: celested
 ms.custom: it-pro
 ms.reviewer: harshja
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e433eded9ffccde0eccb3b807c8eb8e3219771f5
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 295422e0f456c4dfd4166911ef8150e8a896ba1a
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56162107"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58111111"
 ---
 # <a name="publish-remote-desktop-with-azure-ad-application-proxy"></a>Publicar o ambiente de trabalho remoto com o Proxy de aplicações do Azure AD
 
@@ -86,7 +86,7 @@ Ligue-se para a implementação de RDS como administrador e alterar o nome do se
 6. No separador de Gateway de RD, alterar os **nome do servidor** campo para o URL externo que definiu para o ponto de final de anfitrião de área de trabalho remota no Proxy de aplicações.
 7. Alteração da **método de início de sessão** campo **autenticação de palavra-passe**.
 
-  ![Ecrã de propriedades de implementação no RDS](./media/application-proxy-integrate-with-remote-desktop-services/rds-deployment-properties.png)
+   ![Ecrã de propriedades de implementação no RDS](./media/application-proxy-integrate-with-remote-desktop-services/rds-deployment-properties.png)
 
 8. Execute este comando para cada coleção. Substitua *\<yourcollectionname\>* e *\<proxyfrontendurl\>* pelas suas informações. Este comando permite início de sessão único entre Web de RD e Gateway de RD e otimiza o desempenho:
 
@@ -98,8 +98,8 @@ Ligue-se para a implementação de RDS como administrador e alterar o nome do se
    ```
    Set-RDSessionCollectionConfiguration -CollectionName "QuickSessionCollection" -CustomRdpProperty "pre-authentication server address:s:https://remotedesktoptest-aadapdemo.msappproxy.net/`nrequire pre-authentication:i:1"
    ```
->[!NOTE]
->O comando acima utiliza um acento grave em "'nrequire".
+   >[!NOTE]
+   >O comando acima utiliza um acento grave em "'nrequire".
 
 9. Para verificar a modificação das propriedades personalizadas do RDP, bem como ver o conteúdo do ficheiro RDP que será transferido da RDWeb para esta coleção, execute o seguinte comando:
     ```

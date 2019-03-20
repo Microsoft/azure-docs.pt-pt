@@ -16,12 +16,12 @@ ms.date: 02/12/2019
 ms.author: jeffgilb
 ms.reviewer: prchint
 ms.lastreviewed: 09/18/2018
-ms.openlocfilehash: b8bd57953845278aa75e8cbdf41ae28300edad58
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 3d825a0f8a23380b4d9cf453076ab4b18ee67831
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56184912"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58095522"
 ---
 # <a name="azure-stack-capacity-planning"></a>Planeamento da capacidade de pilha do Azure
 Ao avaliar uma solução de pilha do Azure, existem opções de configuração de hardware que têm um impacto direto na capacidade geral da Cloud do Azure Stack. Estas são as escolhas clássicas de CPU, densidade de memória, configuração de armazenamento e geral escala de solução ou número de servidores. Ao contrário de uma solução de Virtualização tradicionais, não é aplicável a aritmética simple desses componentes para determinar a capacidade utilizável. O primeiro motivo para isso é que o Azure Stack foi concebido para alojar os componentes de infraestrutura ou de gestão dentro da solução em si. O segundo motivo é que alguns da capacidade da solução está reservado para oferecer suporte a resiliência; a atualização de software da solução de forma a minimizar a interrupção das cargas de trabalho de inquilino.
@@ -49,7 +49,7 @@ Uma descrição mais detalhada sobre as complexidades de cálculos de capacidade
 |     |     |     |     |     |     |     |     |
 
 > <sup>1</sup> VMs D2 padrão.
-
+> 
 > <sup>2</sup> núcleo Virtual a proporção de núcleos físicos.
 
 Conforme mencionado acima, a capacidade VM é determinada com a memória disponível. Os virtual núcleos para rácios de núcleos físicos exemplificar como a densidade VM irá alterar a capacidade de CPU disponível, a menos que a solução é construída com um grande número de núcleos físicos (outra CPU é escolhida). O mesmo é verdadeiro para capacidade de armazenamento e capacidade de cache de armazenamento.

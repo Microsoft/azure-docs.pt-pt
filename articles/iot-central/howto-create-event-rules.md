@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: 2fd06a2164761489af6ee84d56806ef858e3b5d8
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: f350d0ae6602fb393da3ddc350f33ec89e86078e
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57782688"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58081445"
 ---
 # <a name="create-an-event-rule-and-set-up-notifications-in-your-azure-iot-central-application"></a>Criar uma regra de evento e configure as notificações na sua aplicação do Azure IoT Central
 
@@ -59,15 +59,15 @@ Condição define os critérios que é monitorizado pela regra.
 
 1. Opcionalmente, também pode definir **contagem** como **agregação** e forneça o limiar correspondente.
 
-    - Sem agregação, a regra é acionada para cada ponto de dados de evento que atenda à condição. Por exemplo, se configurar a regra de condição para acionar quando uma **erro de Motor de ventoinha** evento ocorre, em seguida, a regra for acionada quase que imediatamente quando o dispositivo comunica que o evento.
-    - Se a contagem é utilizada como uma função de agregação, então tem de fornecer um **limiar** e uma **janela de tempo agregado** ao longo do que a condição tem de ser avaliada. Neste caso, a contagem de eventos é agregada e a regra é acionada apenas se a contagem de eventos agregado corresponde ao limiar.
+   - Sem agregação, a regra é acionada para cada ponto de dados de evento que atenda à condição. Por exemplo, se configurar a regra de condição para acionar quando uma **erro de Motor de ventoinha** evento ocorre, em seguida, a regra for acionada quase que imediatamente quando o dispositivo comunica que o evento.
+   - Se a contagem é utilizada como uma função de agregação, então tem de fornecer um **limiar** e uma **janela de tempo agregado** ao longo do que a condição tem de ser avaliada. Neste caso, a contagem de eventos é agregada e a regra é acionada apenas se a contagem de eventos agregado corresponde ao limiar.
 
-    Por exemplo, se deseja alertar quando há mais de três eventos de dispositivo dentro de 5 minutos, em seguida, selecione o evento e definir a função de agregação como "contagem", o operador como "maior que" e "limiar" como 3. Definir "Agregação período de tempo" como "5 minutos". A regra é acionada quando mais de três eventos são enviados pelo dispositivo dentro de 5 minutos. A frequência de avaliação da regra é igual a **janela de tempo agregado**, que significa que, neste exemplo, a regra é avaliada uma vez a cada 5 minutos.
+     Por exemplo, se deseja alertar quando há mais de três eventos de dispositivo dentro de 5 minutos, em seguida, selecione o evento e definir a função de agregação como "contagem", o operador como "maior que" e "limiar" como 3. Definir "Agregação período de tempo" como "5 minutos". A regra é acionada quando mais de três eventos são enviados pelo dispositivo dentro de 5 minutos. A frequência de avaliação da regra é igual a **janela de tempo agregado**, que significa que, neste exemplo, a regra é avaliada uma vez a cada 5 minutos.
 
-    ![Adicionar condição de eventos](media/howto-create-event-rules/Aggregate_Condition_Filled_Out.png)
+     ![Adicionar condição de eventos](media/howto-create-event-rules/Aggregate_Condition_Filled_Out.png)
 
-    >[!NOTE]
-    >Mais do que uma medida de eventos pode ser adicionada sob **condição**. Quando são especificadas várias condições, todas as condições têm de ser cumpridas para a regra acionar. Cada condição obtém associada implicitamente por uma cláusula 'E'. Ao utilizar o agregado, cada medida tem de ser agregada.
+     >[!NOTE]
+     >Mais do que uma medida de eventos pode ser adicionada sob **condição**. Quando são especificadas várias condições, todas as condições têm de ser cumpridas para a regra acionar. Cada condição obtém associada implicitamente por uma cláusula 'E'. Ao utilizar o agregado, cada medida tem de ser agregada.
 
 ### <a name="configure-actions"></a>Configurar ações
 

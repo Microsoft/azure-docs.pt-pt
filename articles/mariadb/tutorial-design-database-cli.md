@@ -8,12 +8,12 @@ ms.devlang: azurecli
 ms.topic: tutorial
 ms.date: 11/10/2018
 ms.custom: mvc
-ms.openlocfilehash: ed80008548585015c9e29aaea013fdeb85fd8e9d
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: 548f4f10758b2d69bf4fda00f8bf52d33d20306c
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56872782"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57999157"
 ---
 # <a name="tutorial-design-an-azure-database-for-mariadb-using-azure-cli"></a>Tutorial: Conceber uma base de dados do Azure para MariaDB com a CLI do Azure
 
@@ -184,6 +184,7 @@ az mariadb server restore --resource-group myresourcegroup --name mydemoserver-r
 ```
 
 O comando `az mariadb server restore` precisa dos seguintes parâmetros:
+
 | Definição | Valor sugerido | Descrição  |
 | --- | --- | --- |
 | resource-group |  myResourceGroup |  O grupo de recursos no qual se encontra o servidor de origem.  |

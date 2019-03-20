@@ -1,6 +1,6 @@
 ---
 title: Tutorial - partilha entre sessões e dispositivos com as âncoras espaciais do Azure e um back-end do Azure Cosmos DB | Documentos da Microsoft
-description: Neste tutorial, saiba como partilhar os identificadores de âncora espaciais do Azure entre os dispositivos no Unity com um serviço de back-end e o Azure Cosmos DB.
+description: Neste tutorial, saiba como partilhar os identificadores de âncora espaciais do Azure entre os dispositivos de Android/iOS no Unity com um serviço de back-end e o Azure Cosmos DB.
 author: ramonarguelles
 manager: vicenterivera
 services: azure-spatial-anchors
@@ -8,12 +8,12 @@ ms.author: rgarcia
 ms.date: 02/24/2019
 ms.topic: tutorial
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: f0cd42fc37727099ed95a1c6fc2d427b7862412e
-ms.sourcegitcommit: e88188bc015525d5bead239ed562067d3fae9822
+ms.openlocfilehash: b585b13f40be447a5c5a4b348efc28bf5171e210
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/24/2019
-ms.locfileid: "56752147"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57863190"
 ---
 # <a name="tutorial-sharing-across-sessions-and-devices-with-azure-spatial-anchors-and-an-azure-cosmos-db-back-end"></a>Tutorial: Partilha entre sessões e dispositivos com as âncoras espaciais do Azure e um back-end do Azure Cosmos DB
 
@@ -37,7 +37,7 @@ Vai aprender a:
 
 [!INCLUDE [Share Anchors Sample Prerequisites](../../../includes/spatial-anchors-share-sample-prereqs.md)]
 
-Vale a pena observar que, embora usará Unity e o Azure Cosmos DB neste tutorial, é apenas mostrar um exemplo sobre como partilhar os identificadores de âncora espaciais do Azure em todos os outros dispositivos. Pode utilizador outros idiomas e as tecnologias de back-end para alcançar o mesmo objetivo. Além disso, a aplicação Web do ASP.NET Core utilizado neste Tutorial tem uma dependência no SDK do .NET Core 2.2. Ele é executado bem em aplicações Web do Azure normal (para Windows), mas atualmente não funciona em aplicações Web do Azure para Linux.
+Vale a pena observar que, embora usará Unity e o Azure Cosmos DB neste tutorial, é apenas mostrar um exemplo sobre como partilhar os identificadores de âncora espaciais do Azure em todos os outros dispositivos. Pode utilizar outros idiomas e as tecnologias de back-end para alcançar o mesmo objetivo. Além disso, a aplicação Web do ASP.NET Core utilizado neste Tutorial tem uma dependência no SDK do .NET Core 2.2. Ele é executado bem em aplicações Web do Azure normal (para Windows), mas atualmente não funciona em aplicações Web do Azure para Linux.
 
 [!INCLUDE [Create Spatial Anchors resource](../../../includes/spatial-anchors-get-started-create-resource.md)]
 
@@ -46,6 +46,10 @@ Vale a pena observar que, embora usará Unity e o Azure Cosmos DB neste tutorial
 [!INCLUDE [cosmos-db-create-dbaccount-table](../../../includes/cosmos-db-create-dbaccount-table.md)]
 
 Anote o `Connection String` como será utilizado mais tarde.
+
+## <a name="open-the-sample-project-in-unity"></a>Abra o projeto de exemplo no Unity
+
+[!INCLUDE [Clone Sample Repo](../../../includes/spatial-anchors-clone-sample-repository.md)]
 
 ## <a name="deploy-your-sharing-anchors-service"></a>Implementar o seu serviço de âncoras de partilha
 

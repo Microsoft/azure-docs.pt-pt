@@ -8,31 +8,31 @@ ms.topic: article
 ms.date: 06/26/2018
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: 7f3b6de64343137278895d92835f080f8844dda1
-ms.sourcegitcommit: 89b5e63945d0c325c1bf9e70ba3d9be6888da681
+ms.openlocfilehash: e40b6fe115d6b6dea38ead9f0b2550d96bd04c7a
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/08/2019
-ms.locfileid: "57588929"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58112641"
 ---
 # <a name="configure-a-custom-domain-name-for-your-azure-storage-account"></a>Configurar um nome de domínio personalizado para a sua conta de armazenamento do Azure
 
-Pode configurar um domínio personalizado para aceder a dados de BLOBs na sua conta de armazenamento do Azure. É o ponto final predefinido para o armazenamento de Blobs do Azure  *\<nome da conta de armazenamento >. blob.core.windows.net*. Também pode utilizar o ponto final web que é gerado como parte da [funcionalidade de Web sites estáticos (pré-visualização)](storage-blob-static-website.md). Se mapear um domínio personalizado e o subdomínio, tal como *www.contoso.com*, para o blob ou web ponto final para a sua conta de armazenamento, os utilizadores podem utilizar esse domínio para aceder a dados de BLOBs na sua conta de armazenamento.
+Pode configurar um domínio personalizado para aceder a dados de BLOBs na sua conta de armazenamento do Azure. É o ponto final predefinido para o armazenamento de Blobs do Azure  *\<nome da conta de armazenamento >. blob.core.windows.net*. Também pode utilizar o ponto final web que é gerado como parte da [funcionalidade de Web sites estáticos (pré-visualização)](storage-blob-static-website.md). Se mapear um domínio personalizado e o subdomínio, tal como *www\.contoso.com*, para o blob ou web ponto final para a sua conta de armazenamento, os utilizadores podem utilizar esse domínio para aceder a dados de BLOBs na sua conta de armazenamento.
 
 > [!IMPORTANT]
 > O armazenamento do Azure, mas nativamente suporta HTTPS com domínios personalizados. Pode atualmente [utilizar CDN do Azure para aceder a blobs através da utilização de domínios personalizados através de HTTPS](storage-https-custom-domain-cdn.md).
->
-
-> [!NOTE]  
+> 
+> 
+> [!NOTE]
 > Contas de armazenamento atualmente suportam apenas um nome de domínio personalizado por conta. Não é possível mapear um nome de domínio personalizado para pontos finais de serviço da web e de Blobs.
+> 
+> [!NOTE]
+> O mapeamento funciona apenas para subdomínios (por exemplo, www\.contoso.com). Se quiser que o seu ponto final da web disponível no domínio raiz (por exemplo, contoso.com), então precisa [utilizar a CDN do Azure com domínios personalizados](storage-https-custom-domain-cdn.md)
 
-> [!NOTE]  
-> O mapeamento só funcionam em subdomínios (por exemplo, www.contoso.com). Se quiser que o seu ponto final da web disponível no domínio raiz (por exemplo, contoso.com), então precisa [utilizar a CDN do Azure com domínios personalizados](storage-https-custom-domain-cdn.md)
-
-A tabela seguinte mostra alguns URLs de exemplo para dados de BLOBs que esteja localizados numa conta de armazenamento com o nome *mystorageaccount*. O subdomínio personalizado que está registado para a conta de armazenamento são *www.contoso.com*:
+A tabela seguinte mostra alguns URLs de exemplo para dados de BLOBs que esteja localizados numa conta de armazenamento com o nome *mystorageaccount*. O subdomínio personalizado que está registado para a conta de armazenamento são *www\.contoso.com*:
 
 | Tipo de recurso | URL predefinido | URL de domínio personalizado |
-| --- | --- | --- | --- |
+| --- | --- | --- |
 | Conta de armazenamento | http://mystorageaccount.blob.core.windows.net | http://www.contoso.com |
 | Blobs |http://mystorageaccount.blob.core.windows.net/mycontainer/myblob | http://www.contoso.com/mycontainer/myblob |
 | Contentor de raiz | http://mystorageaccount.blob.core.windows.net/myblob ou http://mystorageaccount.blob.core.windows.net/$root/myblob| http://www.contoso.com/myblob ou http://www.contoso.com/$root/myblob |
@@ -43,13 +43,13 @@ A tabela seguinte mostra alguns URLs de exemplo para dados de BLOBs que esteja l
 
 ## <a name="direct-vs-intermediary-cname-mapping"></a>Direto versus intermediário mapeamento de CNAME
 
-Pode apontar seu domínio personalizado, o prefixo um subdomínio (por exemplo, www.contoso.com) para o ponto final do blob para a sua conta de armazenamento em qualquer uma das seguintes formas: 
+Pode apontar o seu domínio personalizado, o prefixo um subdomínio (por exemplo, www\.contoso.com) para o ponto final do blob para a sua conta de armazenamento em qualquer uma das seguintes formas: 
 * Utilize o mapeamento direto de CNAME.
 * Utilize o *asverifiy* subdomínio intermediário.
 
 ### <a name="direct-cname-mapping"></a>Direcionar o mapeamento CNAME
 
-A primeira e mais simples, o método é criar um registo de nome canónico (CNAME) que mapeia o seu domínio personalizado e o subdomínio diretamente para o ponto final do blob. Um registo CNAME é uma funcionalidade (DNS sistema) de nome de domínio que mapeia um domínio de origem para um domínio de destino. No nosso exemplo, o domínio de origem é o seu domínio personalizado e o subdomínio (*www.contoso.com*, por exemplo). O domínio de destino é o ponto final de serviço de BLOBs (*mystorageaccount.blob.core.windows.net*, por exemplo).
+A primeira e mais simples, o método é criar um registo de nome canónico (CNAME) que mapeia o seu domínio personalizado e o subdomínio diretamente para o ponto final do blob. Um registo CNAME é uma funcionalidade (DNS sistema) de nome de domínio que mapeia um domínio de origem para um domínio de destino. No nosso exemplo, o domínio de origem é o seu domínio personalizado e o subdomínio (*www\.contoso.com*, por exemplo). O domínio de destino é o ponto final de serviço de BLOBs (*mystorageaccount.blob.core.windows.net*, por exemplo).
 
 O método direto é abordado na seção "Registar um domínio personalizado".
 
@@ -89,7 +89,7 @@ Normalmente, pode gerir as definições de DNS do seu domínio no site da entida
    O nome de anfitrião é o ponto final de serviço de Blobs. Seu formato é  *\<mystorageaccount >. blob.core.windows.net*, em que *mystorageaccount* é o nome da conta de armazenamento. O nome de anfitrião a utilizar é apresentado no item #1 do **Custom domain** painel na [portal do Azure](https://portal.azure.com). 
 
 1. Na **Custom domain** painel, na caixa de texto, introduza o nome do seu domínio personalizado, incluindo o subdomínio.  
-   Por exemplo, se o seu domínio for *contoso.com* e é o seu alias de subdomínio *www*, introduza **www.contoso.com**. Se for o subdomínio *fotografias*, introduza **photos.contoso.com**.
+   Por exemplo, se o seu domínio for *contoso.com* e é o seu alias de subdomínio *www*, introduza **www\.contoso.com**. Se for o subdomínio *fotografias*, introduza **photos.contoso.com**.
 
 1. Para registar o seu domínio personalizado, selecione **guardar**.  
    Se o registo for bem sucedido, o portal notifica-o que sua conta de armazenamento foi atualizada com êxito.
@@ -116,7 +116,7 @@ O *asverifiy* subdomínio é um subdomínio especial reconhecido pelo Azure. Por
    O nome de anfitrião é o ponto final de serviço de Blobs. Seu formato é *asverifiy.\< mystorageaccount >. blob.core.windows.net*, onde *mystorageaccount* é o nome da conta de armazenamento. O nome de anfitrião a utilizar é apresentado no item #2 do *Custom domain* painel na [portal do Azure](https://portal.azure.com).
 
 1. Na **Custom domain** painel, na caixa de texto, introduza o nome do seu domínio personalizado, incluindo o subdomínio.  
-   Não inclua *asverifiy*. Por exemplo, se o seu domínio for *contoso.com* e é o seu alias de subdomínio *www*, introduza **www.contoso.com**. Se for o subdomínio *fotografias*, introduza **photos.contoso.com**.
+   Não inclua *asverifiy*. Por exemplo, se o seu domínio for *contoso.com* e é o seu alias de subdomínio *www*, introduza **www\.contoso.com**. Se for o subdomínio *fotografias*, introduza **photos.contoso.com**.
 
 1. Selecione o **utilizam a validação de CNAME indireta** caixa de verificação.
 

@@ -6,12 +6,12 @@ ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 01/11/2019
-ms.openlocfilehash: a999553d7ba26daba674534b1656e90ad0de4f5f
-ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
+ms.openlocfilehash: 7211ffddf82b38ca27b776ecfd12bca25ebbb0f6
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/12/2019
-ms.locfileid: "54243972"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58121949"
 ---
 # <a name="use-the-azure-portal-to-set-up-alerts-on-metrics-for-azure-database-for-postgresql"></a>Utilizar o portal do Azure para configurar alertas em métricas da base de dados do Azure para PostgreSQL 
 
@@ -60,21 +60,21 @@ Pode configurar e obter informações sobre regras de alerta com:
 
 10. Configurar uma **E-Mail/SMS/Push/voz** tipo de ação.
     
-   Escolha "E-Mail do Azure Resource Manager função" para selecionar a subscrição proprietários, contribuidores e leitores para receber notificações.
+    Escolha "E-Mail do Azure Resource Manager função" para selecionar a subscrição proprietários, contribuidores e leitores para receber notificações.
    
-   Opcionalmente, forneça um URI válido no **Webhook** campo se desejar que ele chamado quando o alerta é acionado.
+    Opcionalmente, forneça um URI válido no **Webhook** campo se desejar que ele chamado quando o alerta é acionado.
 
-   Selecione **OK** quando concluída.
+    Selecione **OK** quando concluída.
 
-   ![Grupo de ações](./media/howto-alert-on-metric/10-action-group-type.png)
+    ![Grupo de ações](./media/howto-alert-on-metric/10-action-group-type.png)
 
 11. Especifique um nome de regra de alerta, a descrição e a gravidade.
 
-   ![Grupo de ações](./media/howto-alert-on-metric/11-name-description-severity.png) 
+    ![Grupo de ações](./media/howto-alert-on-metric/11-name-description-severity.png) 
 
 12. Selecione **criar regra de alerta** para criar o alerta.
 
-   Em poucos minutos, o alerta está ativo e aciona conforme descrito anteriormente.
+    Em poucos minutos, o alerta está ativo e aciona conforme descrito anteriormente.
 
 ## <a name="manage-your-alerts"></a>Gerir os alertas
 Assim que tiver criado um alerta, pode selecioná-lo e fazer as seguintes ações:

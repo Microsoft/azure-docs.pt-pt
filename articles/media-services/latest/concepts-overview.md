@@ -9,15 +9,15 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 02/26/2019
+ms.date: 03/13/2019
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: b346ac0ac456b7f6af078496e8dd1cb738caab67
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: d3cea9f3bc5645aeaefc5bb376557d365681df56
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57530199"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57994097"
 ---
 # <a name="media-services-concepts"></a>Conceitos de serviços de multimédia
 
@@ -30,7 +30,7 @@ Para começar a gerir, encriptar, codificar, analisar e transmissão em fluxo co
 - [Carregamento na cloud e armazenamento](storage-account-concept.md)
 - [Conceito de ativos](assets-concept.md)
 
-## <a name="encoding"></a>Encoding
+## <a name="encoding"></a>Codificação
 
 Depois de carregar os ficheiros de multimédia digital de alta qualidade nos ativos, pode codificá-los em formatos que podem ser jogados numa grande variedade de navegadores e dispositivos. 
 
@@ -80,9 +80,9 @@ Pode utilizar os serviços de multimédia **manifestos dinâmica** transmitir ap
 - [Manifestos dinâmicos](filters-dynamic-manifest-overview.md)
 - [Filtros](filters-concept.md)
 
-## <a name="live-streaming"></a>Transmissão em fluxo em direto
+## <a name="live-streaming"></a>Transmissão em direto
 
-Serviços de multimédia do Azure permite-lhe fornecer eventos em direto aos seus clientes na cloud do Azure. **Eventos em direto** são responsáveis por ingerir e processar os feeds de vídeo em direto. Quando cria um **evento em direto**, é criado um ponto de final de entrada que pode utilizar para enviar um sinal ao vivo a partir de um codificador remoto. Assim que tiver o fluxo a ser encaminhados para o **evento em direto**, pode começar o evento de transmissão em fluxo através da criação de um **Asset**, **Live saída**, e **localizador de transmissão em fluxo** . **Live saída** irá arquivar a transmissão no **Asset** e disponibilizá-la para os espetadores através da **Endpoid de transmissão em fluxo**. R **evento em direto** pode ser um dos dois tipos: **pass-through** e **codificação em direto**.
+Serviços de multimédia do Azure permite-lhe fornecer eventos em direto aos seus clientes na cloud do Azure. **Eventos em direto** são responsáveis por ingerir e processar os feeds de vídeo em direto. Quando cria um **evento em direto**, é criado um ponto de final de entrada que pode utilizar para enviar um sinal ao vivo a partir de um codificador remoto. Assim que tiver o fluxo a ser encaminhados para o **evento em direto**, pode começar o evento de transmissão em fluxo através da criação de um **Asset**, **Live saída**, e **localizador de transmissão em fluxo** . **Live saída** irá arquivar a transmissão no **Asset** e disponibilizá-la para os espetadores através da **ponto final de transmissão em fluxo**. R **evento em direto** pode ser um dos dois tipos: **pass-through** e **codificação em direto**.
 
 A imagem seguinte ilustra o fluxo de trabalho do tipo de pass-through:
 

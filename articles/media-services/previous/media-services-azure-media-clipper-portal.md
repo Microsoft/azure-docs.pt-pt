@@ -6,15 +6,15 @@ keywords: Clip; subclip; codificação; suporte de dados
 author: dbgeorge
 manager: jasonsue
 ms.author: dwgeo
-ms.date: 02/08/2019
+ms.date: 03/14/2019
 ms.topic: article
 ms.service: media-services
-ms.openlocfilehash: 253b4fa511ec3efed2fb94c02ed4c4686d7a4549
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 8c88caefb0909da55de87116a23fa520c1679cc2
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57438453"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57990597"
 ---
 # <a name="create-clips-with-azure-media-clipper-in-the-portal"></a>Crie clips com o Azure Media Clipper no portal  
 

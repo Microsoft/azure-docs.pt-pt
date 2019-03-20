@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 03/01/2019
 ms.author: juliako
-ms.openlocfilehash: 3500463cc57fb236de2a591181a5dc7054780404
-ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.openlocfilehash: 410955936e07b79128e1892d72644eaeb18ee036
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/02/2019
-ms.locfileid: "57240699"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57863768"
 ---
 # <a name="tutorial-stream-live-with-media-services-v3-using-net"></a>Tutorial: Stream em direto com serviços de multimédia v3 através do .NET
 
@@ -33,7 +33,7 @@ Este tutorial mostra-lhe como:
 > [!div class="checklist"]
 > * Transferir a aplicação de exemplo descrita no tópico
 > * Examinar o código que efetua a transmissão em fluxo em direto
-> * Observar o evento com o [Leitor de Multimédia do Azure](http://amp.azure.net/libs/amp/latest/docs/index.html) em http://ampdemo.azureedge.net
+> * Observar o evento com o [Leitor de Multimédia do Azure](https://amp.azure.net/libs/amp/latest/docs/index.html) em https://ampdemo.azureedge.net
 > * Limpar recursos
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
@@ -166,7 +166,7 @@ O código seguinte mostra como limpar a sua conta de todos os eventos em direto:
 
 ## <a name="watch-the-event"></a>Ver o evento
 
-Para ver o evento, copie o URL de transmissão em fluxo que obteve quando executou o código descrito em criar um localizador de transmissão em fluxo e utilize um leitor da sua preferência. Pode utilizar o [Leitor de Multimédia do Azure](http://amp.azure.net/libs/amp/latest/docs/index.html) para testar a sua transmissão em fluxo em http://ampdemo.azureedge.net. 
+Para ver o evento, copie o URL de transmissão em fluxo que obteve quando executou o código descrito em criar um localizador de transmissão em fluxo e utilize um leitor da sua preferência. Pode utilizar o [Leitor de Multimédia do Azure](https://amp.azure.net/libs/amp/latest/docs/index.html) para testar a sua transmissão em fluxo em https://ampdemo.azureedge.net. 
 
 Evento em direto converte automaticamente os eventos para conteúdo a pedido quando parado. Mesmo depois de parar e eliminar o evento, os utilizadores conseguirão transmitir o seu conteúdo arquivado como um vídeo a pedido, desde que não elimine o elemento. Não é possível eliminar um elemento se este é utilizado por um evento; o evento deve ser eliminado primeiro. 
 

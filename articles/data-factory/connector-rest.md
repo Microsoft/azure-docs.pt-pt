@@ -10,14 +10,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 12/20/2018
+ms.date: 03/13/2019
 ms.author: jingwang
-ms.openlocfilehash: 372275740b7d4fd757e97a3966e4e87c9d2de940
-ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
+ms.openlocfilehash: 807a6b38b9f2cbe2a3c8787fe09c2ea14106a942
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54105394"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57864903"
 ---
 # <a name="copy-data-from-a-rest-endpoint-by-using-azure-data-factory"></a>Copiar dados de um ponto final REST através do Azure Data Factory
 
@@ -173,7 +173,7 @@ Para copiar dados de REST, são suportadas as seguintes propriedades:
 | relativeUrl | Um URL relativo ao recurso que contém os dados. Quando esta propriedade não for especificada, é utilizado apenas o URL especificado na definição do serviço ligado. | Não |
 | requestMethod | O método HTTP. Valores permitidos são **Obtenha** (predefinição) e **Post**. | Não |
 | additionalHeaders | Cabeçalhos de pedido HTTP adicionais. | Não |
-| RequestBody | O corpo do pedido HTTP. | Não |
+| requestBody | O corpo do pedido HTTP. | Não |
 | paginationRules | As regras de paginação para compor próximas solicitações de página. Consulte a [suporte de paginação](#pagination-support) secção em detalhes. | Não |
 
 **Exemplo 1: Usando o método Get com a paginação**
@@ -274,8 +274,8 @@ Normalmente, a REST API limitar seu tamanho de payload de resposta de uma única
 
 Este conector genérico do REST suporta os seguintes padrões de paginação: 
 
-* De URL absoluto próxima solicitação = valor da propriedade no corpo de resposta atual
-* De URL absoluto próxima solicitação = valor do cabeçalho nos cabeçalhos de resposta atual
+* URL absoluto ou relativo do próximo pedido = valor da propriedade no corpo de resposta atual
+* URL absoluto ou relativo do próximo pedido = valor do cabeçalho nos cabeçalhos de resposta atual
 * Parâmetro de consulta do pedido seguinte = valor da propriedade no corpo de resposta atual
 * Parâmetro de consulta do pedido seguinte = valor do cabeçalho nos cabeçalhos de resposta atual
 * Cabeçalho do pedido seguinte = valor da propriedade no corpo de resposta atual
@@ -287,15 +287,15 @@ Este conector genérico do REST suporta os seguintes padrões de paginação:
 
 | Chave | Descrição |
 |:--- |:--- |
-| AbsoluteUrl | Indica a URL para emitir o pedido seguinte. |
-| QueryParameters. *request_query_parameter* ou QueryParameters ['request_query_parameter'] | "request_query_parameter" é definida pelo utilizador que referencia um nome de parâmetro de consulta no seguinte URL de pedido HTTP. |
-| Cabeçalhos. *request_header* ou cabeçalhos ['request_header'] | "request_header" é definida pelo utilizador que referencia um nome de cabeçalho na próxima solicitação HTTP. |
+| AbsoluteUrl | Indica a URL para emitir o pedido seguinte. Pode ser **URL absoluto ou relativo URL**. |
+| QueryParameters.*request_query_parameter* OR QueryParameters['request_query_parameter'] | "request_query_parameter" é definida pelo utilizador que referencia um nome de parâmetro de consulta no seguinte URL de pedido HTTP. |
+| Headers.*request_header* OR Headers['request_header'] | "request_header" é definida pelo utilizador que referencia um nome de cabeçalho na próxima solicitação HTTP. |
 
 **Valores suportados** nas regras de paginação:
 
-| Valor | Descrição |
+| Value | Descrição |
 |:--- |:--- |
-| Cabeçalhos. *response_header* ou cabeçalhos ['response_header'] | "response_header" é definida pelo utilizador que referencia um nome de cabeçalho na resposta HTTP atual, o valor que será utilizado para emitir o pedido seguinte. |
+| Headers.*response_header* OR Headers['response_header'] | "response_header" é definida pelo utilizador que referencia um nome de cabeçalho na resposta HTTP atual, o valor que será utilizado para emitir o pedido seguinte. |
 | Uma expressão de JSONPath começando com "$" (que representa a raiz do corpo da resposta) | O corpo da resposta deve conter apenas um objeto JSON. A expressão de JSONPath deverá devolver um valor único primitivo, que será utilizado para emitir o pedido seguinte. |
 
 **Exemplo:**

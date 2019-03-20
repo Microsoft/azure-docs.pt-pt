@@ -17,12 +17,12 @@ ms.date: 10/31/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ecc7eb45b439140cf9d1de048a6d4a7db48c34c3
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 15d0d537a23e21eeda3b284e7ec706cde2b443e7
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56204423"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58014073"
 ---
 # <a name="changing-the-azure-ad-connect-sync-service-account-password"></a>Alterar a senha de conta de serviço de sincronização do Azure AD Connect
 Se alterar a senha de conta de serviço de sincronização do Azure AD Connect, o serviço de sincronização não será capaz de iniciar corretamente até ter abandonado a chave de encriptação e reinicializados a senha de conta de serviço de sincronização do Azure AD Connect. 
@@ -46,7 +46,7 @@ Em segundo lugar, em condições específicas, se a palavra-passe é atualizada,
 Verá erros, tais como:
 
 - Em Gestor de controlo de serviço de Windows, se tentar iniciar o serviço de sincronização e ele não é possível obter a chave de encriptação, ele falha com o erro "<strong>Windows não conseguiu iniciar a sincronização do Microsoft Azure AD no computador Local. Para obter mais informações, consulte o registo de eventos do sistema. Se se tratar de um serviço de terceiros, contacte o fornecedor de serviço e consulte o código de erro específico do serviço-21451857952</strong>. "
-- No Visualizador de eventos do Windows, o log de eventos do aplicativo contém um erro com **evento ID 6028** e mensagem de erro *"**a chave de encriptação do servidor não pode ser acedida.**"*
+- No Visualizador de eventos do Windows, o log de eventos do aplicativo contém um erro com **evento ID 6028** e a mensagem de erro *"não é possível aceder a chave de encriptação do servidor."*
 
 Para garantir que não recebem esses erros, siga os procedimentos [abandonar a chave de encriptação do Azure AD Connect Sync](#abandoning-the-azure-ad-connect-sync-encryption-key) quando alterar a palavra-passe.
  

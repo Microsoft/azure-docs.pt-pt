@@ -9,18 +9,18 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.openlocfilehash: d1d515786fde06f4622402f2c1d0c3add7cd8843
-ms.sourcegitcommit: 97d0dfb25ac23d07179b804719a454f25d1f0d46
+ms.openlocfilehash: f3d9a2447bdbc2a1a5ce930ffa161d5a9e30069b
+ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54913160"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58225064"
 ---
 # <a name="an-introduction-to-apache-hadoop-security-with-enterprise-security-package"></a>Uma introdução à segurança do Apache Hadoop com o Enterprise Security Package
 
 No passado, o Azure HDInsight suportado apenas um único utilizador: administrador local. Isto resultava muito bem para equipas ou departamentos de aplicações mais pequenos. Como cargas de trabalho baseadas em Apache Hadoop ganhavam mais popularidade no setor empresarial, a necessidade para suportam capacidades de nível empresarial, como a autenticação baseada no Active Directory, multiusuário e controlo de acesso baseado em funções se tornou cada vez mais importante. 
 
-Pode criar um cluster do HDInsight com o pacote de segurança empresarial (ESP), que está associado a um domínio do Active Directory. Em seguida, pode configurar uma lista de funcionários da empresa que podem autenticar através do Azure Active Directory para iniciar sessão no cluster do HDInsight. Ninguém de fora da empresa pode iniciar sessão ou aceder ao cluster do HDInsight. 
+Pode criar um cluster do HDInsight com o pacote de segurança empresarial (ESP), que está associado a um domínio do Active Directory. Em seguida, pode configurar uma lista de funcionários da empresa que podem autenticar através do Azure Active Directory para iniciar sessão para o cluster do HDInsight. Ninguém de fora da empresa pode iniciar sessão ou aceder ao cluster do HDInsight. 
 
 O administrador da empresa, pode configurar o controlo de acesso baseado em funções (RBAC) para o Apache Hive security utilizando [Apache Ranger](https://hortonworks.com/apache/ranger/). Configurar o RBAC restringe o acesso a dados a apenas o que é necessário. Por fim, o administrador pode auditar o acesso a dados por funcionários e quaisquer alterações efetuadas às políticas de controlo de acesso. O administrador, em seguida, pode obter um alto grau de governação de recursos da sua empresa.
 
@@ -36,7 +36,7 @@ Segurança de perímetro no HDInsight é alcançada através de redes virtuais e
 
 Outra camada de segurança de perímetro é obtida através do serviço de Gateway de VPN. O gateway funciona como primeira linha de defesa para qualquer pedido de entrada para o cluster do HDInsight. Aceita o pedido, valida- e apenas, em seguida, permite que o pedido passar para outros nós no cluster. Dessa forma, o gateway fornece segurança de perímetro para outros nós de dados e o nome do cluster.
 
-## <a name="authentication"></a>Autenticação
+## <a name="authentication"></a>Authentication
 Um administrador empresarial pode criar um cluster do HDInsight com ESP num [rede virtual](https://azure.microsoft.com/services/virtual-network/). Todos os nós do cluster do HDInsight são associados ao domínio gerido pela empresa. Isto é conseguido através da utilização de [do Azure Active Directory Domain Services](../../active-directory-domain-services/active-directory-ds-overview.md). 
 
 Com esta configuração, empregados da empresa podem iniciar sessão nós do cluster através das respetivas credenciais de domínio. Também podem utilizar as credenciais de domínio para autenticar noutros pontos finais aprovados, como o Apache Ambari Views, ODBC, JDBC, PowerShell e REST APIs para interagir com o cluster. O administrador tem controlo total sobre a limitar o número de utilizadores que interagem com o cluster através destes pontos finais.

@@ -12,16 +12,16 @@ ms.author: sashan
 ms.reviewer: mathoma, carlrab
 manager: craigg
 ms.date: 02/13/2019
-ms.openlocfilehash: 4ddeef417490b5b928f46dce428acc3e5febe159
-ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
+ms.openlocfilehash: 2e63c44db2391f63078f0945caa69a43c0c464cf
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56245988"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58001363"
 ---
 # <a name="configure-active-geo-replication-for-azure-sql-database-in-the-azure-portal-and-initiate-failover"></a>Configurar georreplicação ativa para o Azure SQL Database no portal do Azure e iniciar ativação pós-falha
 
-Este artigo mostra-lhe como configurar [georreplicação ativa para bases de dados individuais e em pool](sql-database-active-geo-replication.md#active-geo-replication-terminology-and-capabilities) na base de dados do Azure SQL com o [portal do Azure](http://portal.azure.com) e iniciar a ativação pós-falha.
+Este artigo mostra-lhe como configurar [georreplicação ativa para bases de dados individuais e em pool](sql-database-active-geo-replication.md#active-geo-replication-terminology-and-capabilities) na base de dados do Azure SQL com o [portal do Azure](https://portal.azure.com) e iniciar a ativação pós-falha.
 
 Para obter informações sobre grupos de ativação pós-falha automática com bases de dados únicos e em pool, consulte [melhores práticas de utilização de grupos de ativação pós-falha com bases de dados únicos e em pool](sql-database-auto-failover-group.md#best-practices-of-using-failover-groups-with-single-databases-and-elastic-pools). Para obter informações sobre grupos de ativação pós-falha automática com instâncias de geridas (pré-visualização), consulte [melhores práticas de utilização de grupos de ativação pós-falha com instâncias geridas](sql-database-auto-failover-group.md#best-practices-of-using-failover-groups-with-managed-instances).
 
@@ -32,7 +32,7 @@ Para configurar a georreplicação ativa com o portal do Azure, terá o seguinte
 * Uma base de dados SQL do Azure: A base de dados principal que pretende replicar para uma região geográfica diferente.
 
 > [!Note]
-Ao utilizar o portal do Azure, só pode criar uma base de dados secundária dentro da mesma subscrição como principal. Se a base de dados secundária deve ser numa subscrição diferente, utilize [criar API REST do banco de dados](https://docs.microsoft.com/rest/api/sql/databases/createorupdate) ou [API de Transact-SQL da base de dados ALTER](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql).
+> Ao utilizar o portal do Azure, só pode criar uma base de dados secundária dentro da mesma subscrição como principal. Se a base de dados secundária deve ser numa subscrição diferente, utilize [criar API REST do banco de dados](https://docs.microsoft.com/rest/api/sql/databases/createorupdate) ou [API de Transact-SQL da base de dados ALTER](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql).
 
 ## <a name="add-a-secondary-database"></a>Adicionar uma base de dados secundária
 
@@ -46,7 +46,7 @@ Depois do secundário é criado e implantado, dados começa a replicar a partir 
 > [!NOTE]
 > Se já existir na base de dados do parceiro (por exemplo, como resultado da terminação uma relação de replicação geográfica anterior) o comando falha.
 
-1. Na [portal do Azure](http://portal.azure.com), navegue para a base de dados que pretende configurar a georreplicação.
+1. Na [portal do Azure](https://portal.azure.com), navegue para a base de dados que pretende configurar a georreplicação.
 2. Na página de banco de dados SQL, selecione **georreplicação**e, em seguida, selecione a região para criar a base de dados secundário. Pode selecionar qualquer região que a região que aloja a base de dados primária, mas recomendamos que o [região emparelhada](../best-practices-availability-paired-regions.md).
 
     ![Configurar georreplicação](./media/sql-database-geo-replication-portal/configure-geo-replication.png)
@@ -66,11 +66,11 @@ Depois do secundário é criado e implantado, dados começa a replicar a partir 
 
 A base de dados secundária pode ser mudado para primária.  
 
-1. Na [portal do Azure](http://portal.azure.com), navegue para a base de dados primária na parceria de replicação geográfica.
+1. Na [portal do Azure](https://portal.azure.com), navegue para a base de dados primária na parceria de replicação geográfica.
 2. No painel da base de dados SQL, selecione **todas as definições** > **georreplicação**.
 3. Na **bases de dados secundárias** , selecione a base de dados para a primária e clique em **ativação pós-falha**.
 
-    ![Ativação pós-falha](./media/sql-database-geo-replication-failover-portal/secondaries.png)
+    ![ativação pós-falha](./media/sql-database-geo-replication-failover-portal/secondaries.png)
 4. Clique em **Sim** para iniciar a ativação pós-falha.
 
 O comando muda imediatamente a base de dados secundária para a função primária.
@@ -84,7 +84,7 @@ Existe um curto período de tempo durante o qual as bases de dados estão dispon
 
 Esta operação permanentemente termina a replicação para a base de dados secundária e altera a função da secundária para uma base de dados de leitura / escrita regular. Se a conectividade à base de dados secundário for interrompida, o comando for concluída com êxito, mas o faz secundário não tornam-se leitura / escrita até depois a conectividade é restaurada.  
 
-1. Na [portal do Azure](http://portal.azure.com), navegue para a base de dados primária na parceria de replicação geográfica.
+1. Na [portal do Azure](https://portal.azure.com), navegue para a base de dados primária na parceria de replicação geográfica.
 2. Na página de banco de dados SQL, selecione **georreplicação**.
 3. Na **bases de dados secundárias** , selecione a base de dados que pretende remover a parceria de replicação geográfica.
 4. Clique em **parar a replicação**.

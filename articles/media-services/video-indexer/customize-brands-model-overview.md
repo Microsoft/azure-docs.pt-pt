@@ -9,12 +9,12 @@ ms.service: media-services
 ms.topic: article
 ms.date: 02/10/2019
 ms.author: anzaman
-ms.openlocfilehash: 48255614291086fe85666bec407ea62f7a365410
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
+ms.openlocfilehash: 15f4b8b6d4a27e721dfcaed8b9dd700e87e3a257
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56237370"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57872884"
 ---
 # <a name="customize-a-brands-model-in-video-indexer"></a>Personalizar um modelo de marcas no Video Indexer
 
@@ -28,7 +28,7 @@ Na [dia 2 do Microsoft Build 2017](https://www.videoindexer.ai/media/ed6ede78ad/
 
 ![Descrição geral de marcas](./media/content-model-customization/brands-overview.png)
 
-Conversa sobre o windows no contexto de construção não irá detetar a palavra "Windows" como uma marca e as mesmas para a caixa, Apple, Fox, etc., com base em algoritmos de Machine Learning avançados que sabem como para eliminar a ambiguidade do contexto. A deteção de marca funciona para todos os idiomas suportados. Clique aqui para [completo vídeo de apresentação do dia 2 do Microsoft Build 2017 e índice](http://www.videoindexer.ai/media/ed6ede78ad/).
+Conversa sobre o windows no contexto de construção não irá detetar a palavra "Windows" como uma marca e as mesmas para a caixa, Apple, Fox, etc., com base em algoritmos de Machine Learning avançados que sabem como para eliminar a ambiguidade do contexto. A deteção de marca funciona para todos os idiomas suportados. Clique aqui para [completo vídeo de apresentação do dia 2 do Microsoft Build 2017 e índice](https://www.videoindexer.ai/media/ed6ede78ad/).
 
 Para colocar as suas próprias marcas, confira os passos seguintes.
 

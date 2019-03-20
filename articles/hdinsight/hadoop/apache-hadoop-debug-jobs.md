@@ -9,16 +9,16 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/14/2017
 ms.author: ashishth
-ms.openlocfilehash: 0ba3c7321b0771c839289abb7891cd8e6b280afe
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: 4d3d45434a90e89e011bf8aa7c3fd37909e25386
+ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55822685"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58203069"
 ---
 # <a name="analyze-apache-hadoop-logs"></a>Analisar registos do Apache Hadoop
 
-Cada cluster do Apache Hadoop no HDInsight do Azure tem uma conta de armazenamento do Azure utilizada como o sistema de ficheiros predefinido. A conta de armazenamento é referida como a conta de armazenamento predefinida. Cluster utiliza o armazenamento de tabelas do Azure e o armazenamento de BLOBs na conta de armazenamento predefinida para armazenar os seus registos.  Para obter a conta de armazenamento predefinida para o seu cluster, veja [Apache Hadoop gerir clusters no HDInsight](../hdinsight-administer-use-management-portal.md#find-the-default-storage-account). Mantém os registos na conta de armazenamento, mesmo depois do cluster é eliminado.
+Cada cluster do Apache Hadoop no HDInsight do Azure tem uma conta de armazenamento do Azure utilizada como o sistema de ficheiros predefinido. A conta de armazenamento é referida como a conta de armazenamento predefinida. Cluster utiliza o armazenamento de tabelas do Azure e o armazenamento de BLOBs na conta de armazenamento predefinida para armazenar os seus registos.  Para obter a conta de armazenamento predefinida para o seu cluster, veja [Apache Hadoop gerir clusters no HDInsight](../hdinsight-administer-use-portal-linux.md#find-the-storage-accounts). Mantém os registos na conta de armazenamento, mesmo depois do cluster é eliminado.
 
 ## <a name="logs-written-to-azure-tables"></a>Registos escritos para as tabelas do Azure
 
@@ -48,7 +48,7 @@ Estas tabelas contêm os seguintes campos:
 * Função
 * RowIndex
 * Inquilino
-* TIMESTAMP
+* CARIMBO DE DATA/HORA
 * TraceLevel
 
 ### <a name="tools-for-accessing-the-logs"></a>Ferramentas para acessar os registos
@@ -317,4 +317,4 @@ Algumas dessas mensagens de erro podem também ser vistas no portal do Azure qua
 
 * [Utilizar vistas do Apache Ambari para depurar tarefas do Apache Tez no HDInsight](../hdinsight-debug-ambari-tez-view.md)
 * [Ativar capturas de área dinâmica para dados dos serviços de Apache Hadoop no HDInsight baseado em Linux](../hdinsight-hadoop-collect-debug-heap-dump-linux.md)
-* [Gerir clusters do HDInsight através da IU do Apache Ambari Web](../hdinsight-hadoop-manage-ambari.md)
+* [Manage HDInsight clusters by using the Apache Ambari Web UI](../hdinsight-hadoop-manage-ambari.md) (Gerir clusters do HDInsight através da IU da Web do Apache Ambari)

@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 06/13/2018
 ms.author: tamram
 ms.subservice: queues
-ms.openlocfilehash: ec1819bab32370d27c7a4ffc0b9ef9c80ef32c48
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 5e61d346aab55f9b3c6dd136d3255f2afe0b8534
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57772945"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57850892"
 ---
 # <a name="get-started-with-azure-queue-storage-using-net"></a>Introdução ao Armazenamento de filas do Azure através do .NET
 [!INCLUDE [storage-selector-queue-include](../../../includes/storage-selector-queue-include.md)]
@@ -286,9 +286,9 @@ Agora que aprendeu as noções básicas do Armazenamento de filas, siga estas li
   * [Ligar à Base de Dados SQL com o .NET (C#)](../../sql-database/sql-database-connect-query-dotnet-core.md) para armazenar dados relacionais.
 
 [Download and install the Azure SDK for .NET]: /develop/net/
-[.NET client library reference]: http://go.microsoft.com/fwlink/?LinkID=390731&clcid=0x409
-[Creating a Azure Project in Visual Studio]: http://msdn.microsoft.com/library/azure/ee405487.aspx
-[Azure Storage Team Blog]: http://blogs.msdn.com/b/windowsazurestorage/
-[OData]: http://nuget.org/packages/Microsoft.Data.OData/5.0.2
-[Edm]: http://nuget.org/packages/Microsoft.Data.Edm/5.0.2
-[Spatial]: http://nuget.org/packages/System.Spatial/5.0.2
+[.NET client library reference]: https://go.microsoft.com/fwlink/?LinkID=390731&clcid=0x409
+[Creating an Azure Project in Visual Studio]: https://msdn.microsoft.com/library/azure/ee405487.aspx
+[Azure Storage Team Blog]: https://blogs.msdn.com/b/windowsazurestorage/
+[OData]: https://nuget.org/packages/Microsoft.Data.OData/5.0.2
+[Edm]: https://nuget.org/packages/Microsoft.Data.Edm/5.0.2
+[Spatial]: https://nuget.org/packages/System.Spatial/5.0.2

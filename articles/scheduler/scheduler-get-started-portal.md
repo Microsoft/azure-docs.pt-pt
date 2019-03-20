@@ -10,12 +10,12 @@ ms.reviewer: klam
 ms.assetid: e69542ec-d10f-4f17-9b7a-2ee441ee7d68
 ms.topic: conceptual
 ms.date: 09/17/2018
-ms.openlocfilehash: 7e5abf1100c09f8f28d268b3f2defe953c5f36f0
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 3b2cfc932c6322df8237ec7cdf820fc4242bfa72
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57770140"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57887226"
 ---
 # <a name="create-and-schedule-your-first-job-with-azure-scheduler---azure-portal"></a>Criar e agendar a primeira tarefa com o Microsoft Azure Scheduler – portal do Azure
 
@@ -34,7 +34,7 @@ Se não tiver uma subscrição do Azure, <a href="https://azure.microsoft.com/fr
 
    ![Criar o recurso do Scheduler](./media/scheduler-get-started-portal/scheduler-v2-portal-marketplace-create.png)
 
-   Agora, crie uma tarefa que envia um pedido GET para este URL: `http://www.microsoft.com/` 
+   Agora, crie uma tarefa que envia um pedido GET para este URL: `https://www.microsoft.com/` 
 
 1. Em **Tarefa do Scheduler**, introduza estas informações:
 
@@ -49,9 +49,9 @@ Se não tiver uma subscrição do Azure, <a href="https://azure.microsoft.com/fr
 
    | Propriedade | Valor de exemplo | Descrição |
    |----------|---------------|-------------| 
-   | **ação** | **Http** | O tipo de ação a executar | 
+   | **Ação** | **Http** | O tipo de ação a executar | 
    | **Método** | **Get** | O método a chamar | 
-   | **URL** | **http://www.microsoft.com** | O URL de destino | 
+   | **URL** | **https://www.microsoft.com** | O URL de destino | 
    |||| 
    
    ![Definir a tarefa](./media/scheduler-get-started-portal/scheduler-v2-portal-action-settings.png)
@@ -101,7 +101,7 @@ Para ver as propriedades só de leitura que descrevem os metadados de gestão da
 
 <a name="action-settings"></a>
 
-### <a name="action-settings"></a>Definições da ação
+### <a name="action-settings"></a>Definições de ação
 
 Para alterar as definições avançadas da tarefa, selecione **Definições da ação**. 
 

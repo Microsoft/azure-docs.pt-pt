@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/06/2018
 ms.author: hrasheed
-ms.openlocfilehash: 58fca4cfc4217c67be1a4e679d1a95f34ff5726f
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: ccb408a427680cffc339797bd3421ed9f53af640
+ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58108176"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58200689"
 ---
 # <a name="customize-linux-based-hdinsight-clusters-by-using-script-actions"></a>Personalizar clusters do HDInsight baseado em Linux utilizando as ações de script
 
@@ -157,7 +157,6 @@ HDInsight fornece scripts para instalar os seguintes componentes em clusters do 
 | Adicionar uma conta de Armazenamento do Azure |`https://hdiconfigactions.blob.core.windows.net/linuxaddstorageaccountv01/add-storage-account-v01.sh`. Ver [adicionar mais contas de armazenamento ao HDInsight](hdinsight-hadoop-add-storage.md). |
 | Instalar o Hue |`https://hdiconfigactions.blob.core.windows.net/linuxhueconfigactionv02/install-hue-uber-v02.sh`. Ver [instalar e utilizar Hue no Hadoop do HDInsight clusters](hdinsight-hadoop-hue-linux.md). |
 | Instalar prontamente |`https://raw.githubusercontent.com/hdinsight/presto-hdinsight/master/installpresto.sh`. Ver [instalar e utilizar o Presto no HDInsight baseado no Hadoop clusters](hdinsight-hadoop-install-presto.md). |
-| Instalar Solr |`https://hdiconfigactions.blob.core.windows.net/linuxsolrconfigactionv01/solr-installer-v01.sh`. Ver [instalar e utilizar clusters do Apache Solr no Hadoop do HDInsight](hdinsight-hadoop-solr-install-linux.md). |
 | Instalar Giraph |`https://hdiconfigactions.blob.core.windows.net/linuxgiraphconfigactionv01/giraph-installer-v01.sh`. Ver [instalar o Apache Giraph no Hadoop do HDInsight clusters](hdinsight-hadoop-giraph-install-linux.md). |
 | Pré-carregar bibliotecas do Hive |`https://hdiconfigactions.blob.core.windows.net/linuxsetupcustomhivelibsv01/setup-customhivelibs-v01.sh`. Ver [adicionar bibliotecas de Apache Hive personalizadas, quando criar o cluster do HDInsight](hdinsight-hadoop-add-hive-libraries.md). |
 | Instalar ou atualizar o Mono | `https://hdiconfigactions.blob.core.windows.net/install-mono/install-mono.bash`. Ver [instalar ou atualizar o Mono no HDInsight](hdinsight-hadoop-install-mono.md). |
@@ -524,7 +523,6 @@ Existem duas exceções:
 ## <a name="next-steps"></a>Passos Seguintes
 
 * [Desenvolver scripts de ações de script para o HDInsight](hdinsight-hadoop-script-actions-linux.md)
-* [Instalar e utilizar o Apache Solr nos clusters do HDInsight](hdinsight-hadoop-solr-install-linux.md)
 * [Instalar e usar o Apache Giraph nos clusters do HDInsight](hdinsight-hadoop-giraph-install-linux.md)
 * [Adicionar armazenamento adicional a um cluster do HDInsight](hdinsight-hadoop-add-storage.md)
 

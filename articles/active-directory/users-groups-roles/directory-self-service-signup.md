@@ -10,21 +10,21 @@ ms.service: active-directory
 ms.subservice: users-groups-roles
 ms.topic: article
 ms.workload: identity
-ms.date: 02/12/2019
+ms.date: 03/18/2019
 ms.author: curtand
 ms.reviewer: elkuzmen
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7818d184cd74da43ceac008331b4436979152557
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
+ms.openlocfilehash: 0cfc31705909710e6a60e0d2fd3963e74e9397ee
+ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56233178"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58201267"
 ---
 # <a name="what-is-self-service-signup-for-azure-active-directory"></a>O que é a inscrição self-service do Azure Active Directory?
 
-Este artigo explica a inscrição self-service e como para suportá-la no Azure Active Directory (Azure AD). Se pretender assumir um nome de domínio a partir de um Azure AD não gerido de inquilinos, consulte [assumir um diretório não gerido como administrador](domains-admin-takeover.md).
+Este artigo explica como utilizar a inscrição self-service para preencher uma organização no Azure Active Directory (Azure AD). Se pretender assumir um nome de domínio a partir do Azure não gerido organização AD, consulte [assumir um diretório não gerido como administrador](domains-admin-takeover.md).
 
 ## <a name="why-use-self-service-signup"></a>Porquê utilizar a inscrição self-service?
 * Leve os clientes para serviços que eles querem mais rapidamente
@@ -71,7 +71,7 @@ Esses dois parâmetros podem ser utilizados em conjunto para definir um controlo
 
 O fluxograma a seguir explica as diferentes combinações para estes parâmetros e as condições resultantes para o diretório e a inscrição self-service.
 
-![controles de inscrição self-service](./media/directory-self-service-signup/SelfServiceSignUpControls.png)
+![Fluxograma de controles de inscrição self-service](./media/directory-self-service-signup/SelfServiceSignUpControls.png)
 
 Para obter mais informações e exemplos de como utilizar estes parâmetros, consulte [Set-MsolCompanySettings](/powershell/module/msonline/set-msolcompanysettings?view=azureadps-1.0).
 

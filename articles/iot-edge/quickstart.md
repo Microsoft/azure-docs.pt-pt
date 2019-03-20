@@ -4,17 +4,17 @@ description: Neste guia de introdução, saiba como criar um dispositivo IoT Edg
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 03/13/2019
+ms.date: 03/19/2019
 ms.topic: quickstart
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc, seodec18
-ms.openlocfilehash: 4633704e7a0c97520181017e9299a1a678e869e1
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: bc859dc1e33abfee765a8f5b0f2a65bc24b7c2dc
+ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57892800"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58226951"
 ---
 # <a name="quickstart-deploy-your-first-iot-edge-module-from-the-azure-portal-to-a-windows-device---preview"></a>Início rápido: Implementar o seu primeiro módulo do IoT Edge do portal do Azure para um dispositivo de Windows - pré-visualização
 
@@ -111,7 +111,7 @@ Uma vez que os dispositivos do IoT Edge se comportar e podem ser geridos de form
    az iot hub device-identity show-connection-string --device-id myEdgeDevice --hub-name {hub_name}
    ```
 
-3. Copie o valor do `cs` da chave a partir da saída do JSON e guarde-o. Este valor é a cadeia de ligação do dispositivo. Usará esta cadeia de ligação para configurar o runtime do IoT Edge na próxima seção.
+3. Copie o valor do `connectionString` da chave a partir da saída do JSON e guarde-o. Este valor é a cadeia de ligação do dispositivo. Usará esta cadeia de ligação para configurar o runtime do IoT Edge na próxima seção.
 
    ![Obter cadeia de ligação da saída da CLI](./media/quickstart/retrieve-connection-string.png)
 

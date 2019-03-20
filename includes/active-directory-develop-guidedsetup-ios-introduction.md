@@ -3,23 +3,23 @@ title: incluir ficheiro
 description: incluir ficheiro
 services: active-directory
 documentationcenter: dev-center-name
-author: andretms
-manager: mtillman
+author: danieldobalian
+manager: CelesteDG
 editor: ''
 ms.service: active-directory
 ms.devlang: na
 ms.topic: include
 ms.tgt_pltfrm: ios
 ms.workload: identity
-ms.date: 09/19/2018
-ms.author: andret
+ms.date: 03/20/2019
+ms.author: dadobali
 ms.custom: include file
-ms.openlocfilehash: 8c7f11d74d0a0b81f9f0c40871b2eaa3eb25f51f
-ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
+ms.openlocfilehash: ace6c36f1bc4582b3210c049a4ff8cb1f770bf88
+ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49988255"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58203538"
 ---
 # <a name="call-the-microsoft-graph-api-from-an-ios-application"></a>Chamar a API do Microsoft Graph a partir de uma aplicação iOS
 
@@ -34,7 +34,7 @@ Depois de concluir os exercícios deste guia, seu aplicativo pode chamar uma API
 
 ## <a name="how-this-guide-works"></a>Como funciona este guia
 
-![Como funciona este guia](media/active-directory-develop-guidedsetup-ios-introduction/iosintro.png)
+![Mostra como a aplicação de exemplo gerado por este funciona de tutoriais](media/active-directory-develop-guidedsetup-ios-introduction/iosintro-updated.png)
 
 Neste guia, o aplicativo de exemplo permite que as aplicações iOS, para consultar o Graph API da Microsoft ou uma API web que aceita tokens a partir do ponto final v2.0 do Azure AD. Para este cenário, um token é adicionado a pedidos de HTTP utilizando o **autorização** cabeçalho. Aquisição do token e a renovação são processadas pelo Microsoft Authentication Library (MSAL).
 

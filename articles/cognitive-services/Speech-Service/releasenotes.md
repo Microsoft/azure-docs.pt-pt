@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 2/20/2019
 ms.author: wolfma
 ms.custom: seodec18
-ms.openlocfilehash: e389df02966146b217802d4e93f844a4fee425a3
-ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
+ms.openlocfilehash: 7f54507fdfd21c9402e04eb867710a774f9e6bb3
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56958659"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57856095"
 ---
 # <a name="release-notes"></a>Notas de versão
 
@@ -32,7 +32,7 @@ Esta é uma versão de correção de erros e afetar apenas o SDK gerenciado/nati
 
 **Novos recursos**
 
-* O SDK de voz suporta uma seleção de entrada microfone por meio da classe AudioConfig. Isto permite a transmitir dados áudio para o serviço de voz de um microfone de não-padrão. Para obter mais detalhes, consulte a documentação que descreve [seleção de dispositivo de entrada de áudio](how-to-select-audio-input-devices.md). Isso ainda não está disponível a partir do JavaScript.
+* O SDK de voz suporta uma seleção de entrada microfone por meio da classe AudioConfig. Isto permite-lhe transmitir dados áudio para os serviços de voz de um microfone de não-padrão. Para obter mais informações, consulte a documentação que descreve [seleção de dispositivo de entrada de áudio](how-to-select-audio-input-devices.md). Isso ainda não está disponível a partir do JavaScript.
 * O SDK de voz suporta agora Unity numa versão beta. Envie comentários através a secção de problema a [repositório de exemplo do GitHub](https://aka.ms/csspeech/samples). Esta versão suporta Unity em Windows x86 e x64 (ambiente de trabalho ou aplicativos da plataforma Universal do Windows) e o Android (ARM32/64, x86). Estão disponíveis mais informações no nosso [início rápido do Unity](quickstart-csharp-unity.md).
 * O ficheiro `Microsoft.CognitiveServices.Speech.csharp.bindings.dll` (lançado em versões anteriores) não é necessária mais. A funcionalidade agora está integrada ao SDK core.
 
@@ -64,7 +64,7 @@ O seguinte conteúdo novo está disponível no nosso [repositório de exemplo](h
   * Suporte inicial e a implementação para sugestões de frase.
   * Devolver a coleção de propriedades com o JSON do serviço para reconhecimento
 * DLLs de Windows agora contém um recurso de versão.
-* Se criar um reconhecedor `FromEndpoint` pode adicionar parâmetros diretamente para o URL de ponto final. Usando `FromEndpoint` não pode configurar o reconhecedor através das propriedades de configuração padrão.
+* Se criar um reconhecedor `FromEndpoint` pode adicionar parâmetros diretamente para o URL de ponto final. Usando `FromEndpoint` não é possível configurar o reconhecedor através das propriedades de configuração padrão.
 
 **Correções de erros**
 
@@ -89,7 +89,7 @@ Esta é uma versão só de JavaScript. Não existem recursos foram adicionados. 
 **Novos recursos**
 
 * Python
-  * A versão Beta do suporte de Python (3.5 e superior) está disponível com esta versão. Para obter mais detalhes [ver aqui](quickstart-python.md).
+  * A versão Beta do suporte de Python (3.5 e superior) está disponível com esta versão. Para obter mais informações, consulte here](quickstart-python.md).
 * JavaScript
   * O SDK de voz para JavaScript foi aberto. O código-fonte está disponível no [GitHub](https://github.com/Microsoft/cognitive-services-speech-sdk-js).
   * Agora, suportamos node. js, podem encontrar mais informações [aqui](quickstart-js-node.md).
@@ -122,7 +122,7 @@ Esta é uma versão só de JavaScript. Não existem recursos foram adicionados. 
 
 **Amostras**
 
-* Atualizados e corrigidos vários exemplos (por exemplo vozes de saída para a tradução, etc).
+* Atualizados e corrigidos vários exemplos (por exemplo saída vozes para tradução, etc.).
 * Adicionados os exemplos de node. js no [repositório de exemplo](https://aka.ms/csspeech/samples).
 
 ## <a name="speech-sdk-110"></a>Voz SDK 1.1.0
@@ -130,7 +130,7 @@ Esta é uma versão só de JavaScript. Não existem recursos foram adicionados. 
 **Novos recursos**
 
 * Suporte para Android x86/x64.
-* Suporte para o proxy: No objeto SpeechConfig, agora pode chamar uma função para definir as informações de proxy (nome de anfitrião, porta, nome de utilizador e palavra-passe). Esta funcionalidade ainda não está disponível no iOS.
+* Suporte para o proxy: O objeto de SpeechConfig, agora pode chamar uma função para definir as informações de proxy (nome de anfitrião, porta, nome de utilizador e palavra-passe). Esta funcionalidade ainda não está disponível no iOS.
 * Código de erro melhoradas e mensagens. Se um reconhecimento devolveu um erro, isso já definido `Reason` (no evento foi cancelado) ou `CancellationDetails` (no resultado do reconhecimento) para `Error`. O evento foi cancelado agora contém dois membros adicionais, `ErrorCode` e `ErrorDetails`. Se o servidor devolveu informações de erro adicionais com o erro comunicado, agora estará disponível em novos membros.
 
 **Melhorias**
@@ -179,7 +179,7 @@ No nosso [repositório de exemplo](https://aka.ms/csspeech/samples), foi adicion
 
 **Alterações recentes**
 
-* Com esta versão é introduzido um número de alterações de última hora.
+* Com esta versão, é introduzido um número de alterações de última hora.
   Verifique se existem [esta página](https://aka.ms/csspeech/breakingchanges_1_0_0) para obter detalhes.
 
 ## <a name="cognitive-services-speech-sdk-060-2018-august-release"></a>Voz dos serviços cognitivos SDK 0.6.0: Lançamento de Agosto de 2018

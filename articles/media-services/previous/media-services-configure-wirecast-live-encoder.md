@@ -12,14 +12,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 02/09/2019
+ms.date: 03/14/2019
 ms.author: juliako;cenkdin;anilmur
-ms.openlocfilehash: c734c8033947c4f4d5636bc8d82d38a3d871bdbd
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: d0da69601bfc6fd09c10b30d45195722781d87d6
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55998574"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57890054"
 ---
 # <a name="use-the-wirecast-encoder-to-send-a-single-bitrate-live-stream"></a>Utilizar o codificador de Wirecast para enviar um fluxo em direto com velocidade de transmissão única 
 > [!div class="op_single_selector"]
@@ -29,7 +29,7 @@ ms.locfileid: "55998574"
 >
 >
 
-Este artigo mostra como configurar o [Telestream Wirecast](http://www.telestream.net/wirecast/overview.htm) codificador em direto para enviar um fluxo de velocidade de transmissão única para o AMS canais que estão ativados para live encoding.  Para obter mais informações, consulte [Trabalhar com Canais Ativados para Realizar Live Encoding com Media Services do Azure](media-services-manage-live-encoder-enabled-channels.md).
+Este artigo mostra como configurar o [Telestream Wirecast](https://www.telestream.net/wirecast/overview.htm) codificador em direto para enviar um fluxo de velocidade de transmissão única para o AMS canais que estão ativados para live encoding.  Para obter mais informações, consulte [Trabalhar com Canais Ativados para Realizar Live Encoding com Media Services do Azure](media-services-manage-live-encoder-enabled-channels.md).
 
 Este tutorial mostra como gerir o Azure Media Services (AMS) com a ferramenta do Explorador de serviços de multimédia do Azure (AMSE). Essa ferramenta só é executado no PC do Windows. Se estiver no Mac ou Linux, utilize o portal do Azure para criar [canais](media-services-portal-creating-live-encoder-enabled-channel.md#create-a-channel) e [programas](media-services-portal-creating-live-encoder-enabled-channel.md).
 
@@ -109,7 +109,7 @@ Neste tutorial, são utilizadas as seguintes definições de saída. O resto des
    * Perfil: Principal
    * Quadro-chave cada: 60 quadros
 
-    **Áudio**
+     **Áudio**
 
    * Taxa de bits de destino: 192 kbits/seg
    * Taxa da amostragem: 44.100 kHz
@@ -134,7 +134,7 @@ Neste tutorial, são utilizadas as seguintes definições de saída. O resto des
 1. Selecione **OK**.
 2. No principal **Wirecast** ecrã, confirme as origens de entrada para o vídeo e áudio, está prontos e, em seguida, prima **Stream** no canto superior esquerdo.
 
-   ![Wirecast](./media/media-services-wirecast-live-encoder/media-services-wirecast7.png)
+    ![Wirecast](./media/media-services-wirecast-live-encoder/media-services-wirecast7.png)
 
 > [!IMPORTANT]
 > Antes de clicar em **Stream**, **tem** Certifique-se de que o canal está pronto.

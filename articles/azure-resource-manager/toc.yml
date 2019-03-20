@@ -19,6 +19,7 @@ items:
   - name: Utilizar referência de modelo
     href: resource-manager-tutorial-create-encrypted-storage-accounts.md
   - name: Criar múltiplas instâncias
+    displayName: iteration,copy
     href: resource-manager-tutorial-create-multiple-instances.md
   - name: Mover recursos
     href: resource-manager-tutorial-move-resources.md
@@ -82,6 +83,7 @@ items:
     - name: Definir as dependências de recurso
       href: resource-group-define-dependencies.md
     - name: Modularizar modelos
+      displayName: linked templates, nested templates
       href: resource-group-linked-templates.md
     - name: Gerir segredos
       href: resource-manager-keyvault-parameter.md
@@ -249,9 +251,9 @@ items:
     href: resource-manager-personal-data.md
   - name: Vídeos
     href: https://azure.microsoft.com/documentation/videos/index/?services=azure-resource-manager
-ms.openlocfilehash: 3d8999adac3fa61e8f94495240d4e6d4558b95b9
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 432cb5e4fb1e9b2ed2aa6e35e6e14ab68d78aa72
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57762623"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58181933"

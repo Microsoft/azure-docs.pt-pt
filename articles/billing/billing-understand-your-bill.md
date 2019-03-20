@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/19/2019
 ms.author: banders
-ms.openlocfilehash: ac36c76e8605df0fee3e39341c8be0fef7e58ddf
-ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.openlocfilehash: 9ba52951565c910138a5a49ecc97ad5748411e6d
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/02/2019
-ms.locfileid: "57246601"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57842316"
 ---
 # <a name="understand-your-microsoft-azure-bill"></a>Compreender a sua fatura do Microsoft Azure
 Para compreender a fatura do Azure, compare a fatura com o ficheiro de utilização diária detalhadas e os relatórios de gestão de custos no portal do Azure.
@@ -138,7 +138,7 @@ Para verificar o estado de seu pagamento [criar um pedido de suporte](https://po
 
 ## <a name="need-help-contact-us"></a>Precisa de ajuda? Contacte-nos.
 
-Se tiver alguma dúvida ou precisar de ajuda, [criar um pedido de suporte](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).
+Se tiver alguma dúvida ou precisar de ajuda, [criar um pedido de suporte](https://go.microsoft.com/fwlink/?linkid=2083458).
 
 ## <a name="learn-more"></a>Saiba mais
 

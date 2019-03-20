@@ -12,14 +12,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/09/2019
+ms.date: 03/18/2019
 ms.author: juliako
-ms.openlocfilehash: 7c362cb366c0f34fa34189cf6b1ca702e513bb25
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: c64a3455e1189b83558707a96dc80b88dc242b48
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56000136"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58181661"
 ---
 # <a name="customizing-media-encoder-standard-presets"></a>Predefine personalizar Media Encoder Standard  
 

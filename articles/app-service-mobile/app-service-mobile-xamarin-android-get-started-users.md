@@ -14,12 +14,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 09/24/2018
 ms.author: panarasi
-ms.openlocfilehash: d496801894560310a4225eae8a32fced52bcc428
-ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
+ms.openlocfilehash: 0a2d964d60d13f0e71de5776112a4edbe3cdcc45
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47063545"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57993917"
 ---
 # <a name="add-authentication-to-your-xamarinandroid-app"></a>Adicionar autenticação à sua aplicação xamarin. Android
 [!INCLUDE [app-service-mobile-selector-get-started-users](../../includes/app-service-mobile-selector-get-started-users.md)]
@@ -57,7 +57,7 @@ A aplicação é atualizada para exigir que os utilizadores tocar a **iniciar se
 
 1. Adicione o seguinte código para o **TodoActivity** classe:
    
-        // Define a authenticated user.
+        // Define an authenticated user.
         private MobileServiceUser user;
         private async Task<bool> Authenticate()
         {
@@ -96,7 +96,7 @@ A aplicação é atualizada para exigir que os utilizadores tocar a **iniciar se
     Esta ação cria um novo método para autenticar um usuário e um manipulador de método para um novo **iniciar sessão** botão. O utilizador no código de exemplo acima é autenticado com um início de sessão do Facebook. Uma caixa de diálogo é utilizada para apresentar o ID de utilizador após a autenticação.
    
    > [!NOTE]
-   > Se estiver a utilizar um fornecedor de identidade que não seja o Facebook, altere o valor transmitido ao **LoginAsync** acima para um dos seguintes: *MicrosoftAccount*, *Twitter*,  *Google*, ou *WindowsAzureActiveDirectory*.
+   > Se estiver a utilizar um fornecedor de identidade que não seja o Facebook, altere o valor transmitido ao **LoginAsync** acima para um dos seguintes: *MicrosoftAccount*, *Twitter*, *Google*, ou *WindowsAzureActiveDirectory*.
    > 
    > 
 2. Na **OnCreate** método, eliminar ou comente a seguinte linha de código:
@@ -130,7 +130,7 @@ A aplicação é atualizada para exigir que os utilizadores tocar a **iniciar se
 
 **A aplicação falhada com o `Java.Lang.NoSuchMethodError: No static method startActivity`**
 
-Em alguns casos, entra em conflito nos pacotes de suporte exibidos como apenas um aviso no Visual studio, mas as falhas da aplicação com esta exceção em tempo de execução. Neste caso, precisa certificar-se de que todos os pacotes de suporte referenciados no seu projeto têm a mesma versão. O [pacote NuGet de aplicações do Azure Mobile](https://www.nuget.org/packages/Microsoft.Azure.Mobile.Client/) tem `Xamarin.Android.Support.CustomTabs` dependência para a plataforma Android, portanto, se seu projeto usar mais recente de suporte de pacotes tem de instalar este pacote com a versão necessária diretamente para evitar conflitos.
+Em alguns casos, entra em conflito nos pacotes de suporte exibidos como apenas um aviso no Visual studio, mas as falhas da aplicação com esta exceção em tempo de execução. Neste caso, precisa certificar-se de que todos os pacotes de suporte referenciados no seu projeto têm a mesma versão. O [pacote NuGet de Aplicações Móveis do Azure](https://www.nuget.org/packages/Microsoft.Azure.Mobile.Client/) tem dependência `Xamarin.Android.Support.CustomTabs` para a plataforma Android. Portanto, se o seu projeto utilizar os pacotes de suporte mais recentes, precisará de instalar diretamente este pacote com a versão necessária para evitar conflitos.
 
 <!-- URLs. -->
 [Criar uma aplicação xamarin. Android]: app-service-mobile-xamarin-android-get-started.md

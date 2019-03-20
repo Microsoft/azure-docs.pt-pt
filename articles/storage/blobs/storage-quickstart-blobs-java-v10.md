@@ -8,12 +8,12 @@ ms.service: storage
 ms.topic: quickstart
 ms.date: 11/14/2018
 ms.author: rogarana
-ms.openlocfilehash: 136f9912e5a296629f76998e5843d6cccd81d3e3
-ms.sourcegitcommit: dd1a9f38c69954f15ff5c166e456fda37ae1cdf2
+ms.openlocfilehash: f44a6b825f9e8871bb7d7877ebd1821038b45f65
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57570577"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58004872"
 ---
 # <a name="quickstart-upload-download-and-list-blobs-by-using-the-java-storage-sdk-v10"></a>Início rápido: Carregar, transferir e listar os blobs ao utilizar a V10 de SDK de armazenamento de Java
 
@@ -25,7 +25,7 @@ Neste início rápido, vai aprender a utilizar o novo SDK de Armazenamento Java 
 
 Certifique-se de que tem os seguintes pré-requisitos adicionais instalados:
 
-* [Maven](http://maven.apache.org/download.cgi) para funcionar a partir da linha de comandos, ou qualquer ambiente de desenvolvimento integrado Java que preferir.
+* [Maven](https://maven.apache.org/download.cgi) para funcionar a partir da linha de comandos, ou qualquer ambiente de desenvolvimento integrado Java que preferir.
 * [JDK](https://aka.ms/azure-jdks)
 
 ## <a name="download-the-sample-application"></a>Transferir a aplicação de exemplo
@@ -100,7 +100,7 @@ Cleaning up the sample and exiting!
 
 Tem controlo do exemplo, por isso, introduza comandos para o código ser executado. As entradas são sensíveis às maiúsculas e minúsculas.
 
-Também pode utilizar uma ferramenta como o [Explorador de Armazenamento do Azure](http://storageexplorer.com/?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) para ver os ficheiros no armazenamento de Blobs. O Explorador de Armazenamento do Azure é uma ferramenta multiplataformas gratuita que lhe dá acesso às informações da sua conta de armazenamento. 
+Também pode utilizar uma ferramenta como o [Explorador de Armazenamento do Azure](https://storageexplorer.com/?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) para ver os ficheiros no armazenamento de Blobs. O Explorador de Armazenamento do Azure é uma ferramenta multiplataformas gratuita que lhe dá acesso às informações da sua conta de armazenamento. 
 
 Verifique os ficheiros. Em seguida, selecione **E** e selecione **Enter** para concluir a demonstração e eliminar os ficheiros de teste. Agora que sabe o que o exemplo faz, abra o ficheiro **Quickstart.java** para ver o código. 
 
@@ -166,11 +166,11 @@ O armazenamento de blobs suporta blobs de blocos, blobs de acréscimo e blobs de
 1. Para carregar um ficheiro para um blob, obtenha uma referência para o blob no contentor de destino. 
 2. Depois de obter a referência do blob, pode carregar um ficheiro para o mesmo, com uma das seguintes APIs:
 
-    * APIs de baixo nível. Os exemplos são [BlockBlobURL.upload](https://docs.microsoft.com/java/api/com.microsoft.azure.storage.blob._block_blob_u_r_l.upload?view=azure-java-stable#com_microsoft_azure_storage_blob__block_blob_u_r_l_upload_Flowable_ByteBuffer__long_BlobHTTPHeaders_Metadata_BlobAccessConditions_Context_), também denominado PutBlob, e [BlockBlobURL.stageBlock](https://docs.microsoft.com/java/api/com.microsoft.azure.storage.blob._block_blob_u_r_l.stageblock?view=azure-java-stable), também denominado PutBLock, na instância de **BlockBlobURL**. 
+   * APIs de baixo nível. Os exemplos são [BlockBlobURL.upload](https://docs.microsoft.com/java/api/com.microsoft.azure.storage.blob._block_blob_u_r_l.upload?view=azure-java-stable#com_microsoft_azure_storage_blob__block_blob_u_r_l_upload_Flowable_ByteBuffer__long_BlobHTTPHeaders_Metadata_BlobAccessConditions_Context_), também denominado PutBlob, e [BlockBlobURL.stageBlock](https://docs.microsoft.com/java/api/com.microsoft.azure.storage.blob._block_blob_u_r_l.stageblock?view=azure-java-stable), também denominado PutBLock, na instância de **BlockBlobURL**. 
 
-    * APIs de alto nível fornecidas na [Classe TransferManager](https://docs.microsoft.com/java/api/com.microsoft.azure.storage.blob._transfer_manager?view=azure-java-stable). Um exemplo é o método [TransferManager.uploadFileToBlockBlob](https://docs.microsoft.com/java/api/com.microsoft.azure.storage.blob._transfer_manager.uploadfiletoblockblob?view=azure-java-stable). 
+   * APIs de alto nível fornecidas na [Classe TransferManager](https://docs.microsoft.com/java/api/com.microsoft.azure.storage.blob._transfer_manager?view=azure-java-stable). Um exemplo é o método [TransferManager.uploadFileToBlockBlob](https://docs.microsoft.com/java/api/com.microsoft.azure.storage.blob._transfer_manager.uploadfiletoblockblob?view=azure-java-stable). 
 
-    Esta operação cria o blob, caso este ainda não exista. Substitui o blob, caso ele já exista.
+     Esta operação cria o blob, caso este ainda não exista. Substitui o blob, caso ele já exista.
 
 O código de exemplo cria um ficheiro local para ser utilizado para o carregamento e a transferência. Guarda o ficheiro que vai ser carregado como **sourceFile** e armazena o URL do blob em **blob**. O exemplo seguinte carrega o ficheiro para o seu contentor com o nome **quickstart**.
 

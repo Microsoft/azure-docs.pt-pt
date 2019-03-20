@@ -3,8 +3,8 @@ title: Início rápido do Azure AD v2 iOS | Microsoft Docs
 description: Saiba como iniciar sessão dos utilizadores e consultar o Microsoft Graph numa aplicação nativa iOS.
 services: active-directory
 documentationcenter: dev-center-name
-author: andretms
-manager: mtillman
+author: danieldobalian
+manager: CelesteDG
 editor: ''
 ms.assetid: 820acdb7-d316-4c3b-8de9-79df48ba3b06
 ms.service: active-directory
@@ -13,16 +13,16 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/23/2018
-ms.author: andret
+ms.date: 03/20/2019
+ms.author: dadobali
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 30e80aa57896bec5e5b1ed68d754c0a838193042
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 9134f939e771f92453b184aad643d41089623e19
+ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56194067"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58201471"
 ---
 # <a name="quickstart-sign-in-users-and-call-the-microsoft-graph-api-from-an-ios-native-app"></a>Início rápido: Iniciar sessão dos utilizadores e chamar a API do Microsoft Graph a partir de uma aplicação nativa do iOS
 
@@ -30,7 +30,7 @@ ms.locfileid: "56194067"
 
 Este início rápido contém um exemplo de código que demonstra como uma aplicação iOS nativa pode iniciar sessão em contas pessoais ou contas profissionais e escolares, obter um token de acesso e chamar a Microsoft Graph API.
 
-![Como funciona a aplicação de exemplo gerada por este Início Rápido](media/quickstart-v2-ios/ios-intro.png)
+![Mostra como funciona a aplicação de exemplo gerada por este início rápido](media/quickstart-v2-ios/ios-intro-updated.png)
 
 > [!div renderon="docs"]
 > ## <a name="register-and-download"></a>Registar e transferir

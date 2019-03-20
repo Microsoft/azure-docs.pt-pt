@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 06/05/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=alokkirpal, previous-ms.author=alok
-ms.openlocfilehash: e407aee98bef9917a99e3305e2c99dbdd0c182e0
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: e5f428062155ea732dce785955ac76011f3e4678
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55469826"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57899354"
 ---
 # <a name="machine-learning-anomaly-detection-api"></a>Do Machine Learning API de deteção de anomalias
 ## <a name="overview"></a>Descrição geral
@@ -32,7 +32,7 @@ Estes detectores de aprendizado de máquina controlam essas alterações em valo
 
 A oferta de deteção de anomalias vem com ferramentas úteis para começar.
 
-* O [aplicação web](http://anomalydetection-aml.azurewebsites.net/) ajuda-o a avaliar e visualizar os resultados da deteção de anomalias APIs nos seus dados.
+* O [aplicação web](https://anomalydetection-aml.azurewebsites.net/) ajuda-o a avaliar e visualizar os resultados da deteção de anomalias APIs nos seus dados.
 
 > [!NOTE]
 > Tente **solução IT Anomaly Insights** com tecnologia [esta API](https://gallery.cortanaintelligence.com/MachineLearningAPI/Anomaly-Detection-2)
@@ -110,9 +110,9 @@ A API de deteção de anomalias suporta detectores 3 amplas categorias. Obter de
 | Detetor de categoria | Detetor de | Descrição | Parâmetros de entrada | Saídas |
 | --- | --- | --- | --- | --- |
 | Detetores de pico |Detetor de TSpike |Detetar a picos e descidas nos muito valores são de primeira e terceira quartiles |*tspikedetector.Sensitivity:* assume o valor de número inteiro no intervalo predefinido de 1 a 10: 3; Valores mais altos capturará mais valores extremos, tornando menos confidencial |TSpike: valores binários-1 se for detetado um pico/dip, '0'; caso contrário |
-| Detetores de pico | Detetor de ZSpike |Detetar picos e descidas com base na distância datapoints são da sua média |*zspikedetector.Sensitivity:* tirar o valor de número inteiro no intervalo predefinido de 1 a 10: 3; Valores mais altos capturará mais valores extremos, tornando menos confidencial |ZSpike: valores binários-1 se for detetado um pico/dip, '0'; caso contrário | |
+| Detetores de pico | Detetor de ZSpike |Detetar picos e descidas com base na distância datapoints são da sua média |*zspikedetector.Sensitivity:* tirar o valor de número inteiro no intervalo predefinido de 1 a 10: 3; Valores mais altos capturará mais valores extremos, tornando menos confidencial |ZSpike: valores binários-1 se for detetado um pico/dip, '0'; caso contrário |
 | Detetor de tendência lenta |Detetor de tendência lenta |Detetar a tendência positiva lenta de acordo com a sensibilidade de conjunto |*trenddetector.Sensitivity:* limiar na classificação detetor (predefinição: 3.25, 3.25 – 5 é uma gama razoável para selecionar este componente a partir; Quanto maior for a menos maiúsculas de minúsculas) |tscore: número de vírgula flutuante que representa a classificação de anomalia no tendência |
-| Detetores de nível de alteração | Detetor de alteração do nível de bidirecional |Detetar alteração nível, ascendente e descendente, de acordo com a sensibilidade de conjunto |*bileveldetector.Sensitivity:* limiar na classificação detetor (predefinição: 3.25, 3.25 – 5 é uma gama razoável para selecionar este componente a partir; Quanto maior for a menos maiúsculas de minúsculas) |rpscore: número de vírgula flutuante que representa a classificação de anomalia na alteração de nível de ascendente e descendente | |
+| Detetores de nível de alteração | Detetor de alteração do nível de bidirecional |Detetar alteração nível, ascendente e descendente, de acordo com a sensibilidade de conjunto |*bileveldetector.Sensitivity:* limiar na classificação detetor (predefinição: 3.25, 3.25 – 5 é uma gama razoável para selecionar este componente a partir; Quanto maior for a menos maiúsculas de minúsculas) |rpscore: número de vírgula flutuante que representa a classificação de anomalia na alteração de nível de ascendente e descendente |
 
 ### <a name="parameters"></a>Parâmetros
 Informações mais detalhadas sobre estes parâmetros de entrada estão listadas na tabela abaixo:

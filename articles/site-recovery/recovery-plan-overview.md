@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 12/27/2018
 ms.author: raynew
-ms.openlocfilehash: c7d66c389958aa3b5274a3d81f27f416308acdee
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.openlocfilehash: 053d400a9986d0997344b2be09140d8afb0e1faf
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53975666"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57996363"
 ---
 # <a name="about-recovery-plans"></a>Acerca dos planos de recuperação
 
@@ -29,7 +29,7 @@ Um plano de recuperação ajuda-o a definir um processo de recuperação sistem�
 
 * Modele uma aplicação em torno de suas dependências.
 * Automatize tarefas de recuperação para reduzir o RTO.
-- Certifique-se de que está preparada para a recuperação de migração ou desastre, garantindo que as suas aplicações são parte de um plano de recuperação.
+* Certifique-se de que está preparada para a recuperação de migração ou desastre, garantindo que as suas aplicações são parte de um plano de recuperação.
 * Execute a ativação pós-falha de teste nos planos de recuperação, para garantir a recuperação após desastre ou a migração está a funcionar conforme esperado.
 
 
@@ -42,10 +42,10 @@ Planear e criar um grupo de recuperação para capturar as propriedades específ
     - Esta ordem garante que quando o middleware é iniciado e tenta estabelecer ligação com o escalão do SQL Server, o escalão do SQL Server já está em execução. 
     - Esta ordem também ajuda a garantir que o servidor front-end é iniciado último, para que os utilizadores finais não ligar para o URL da aplicação antes de todos os componentes estão operacionais e em execução e a aplicação está pronto para aceitar pedidos.
 
-Para criar esta ordem, adicionar grupos ao grupo de recuperação e adicionar máquinas em grupos. 
-    - Em que ordem for especificada, é utilizada a sequenciação. Ações executam em paralelo quando apropriado, para melhorar a recuperação de aplicativos RTO.
-    - As máquinas num único grupo de ativação pós-falha em paralelo.
-    - As máquinas em grupos diferentes a ativação pós-falha por ordem de grupo, para que máquinas do grupo 2 começar sua ativação pós-falha depois de todas as máquinas num grupo 1 têm de efetuar a ativação pós-falha e iniciado.
+Para criar esta ordem, adicionar grupos ao grupo de recuperação e adicionar máquinas em grupos.
+- Em que ordem for especificada, é utilizada a sequenciação. Ações executam em paralelo quando apropriado, para melhorar a recuperação de aplicativos RTO.
+- As máquinas num único grupo de ativação pós-falha em paralelo.
+- As máquinas em grupos diferentes a ativação pós-falha por ordem de grupo, para que máquinas do grupo 2 começar sua ativação pós-falha depois de todas as máquinas num grupo 1 têm de efetuar a ativação pós-falha e iniciado.
 
     ![Plano de recuperação de exemplo](./media/recovery-plan-overview/rp.png)
 
@@ -93,4 +93,4 @@ Ver um vídeo de exemplo rápido que mostra um só clique ativação pós-falha 
 ## <a name="next-steps"></a>Passos Seguintes
 
 - [Criar](site-recovery-create-recovery-plans.md) um plano de recuperação.
-* Saiba mais sobre [executar as ativações pós-falha](site-recovery-failover.md).  
+- Saiba mais sobre [executar as ativações pós-falha](site-recovery-failover.md).  

@@ -5,14 +5,14 @@ services: application-gateway
 author: amsriva
 ms.service: application-gateway
 ms.topic: article
-ms.date: 10/23/2018
-ms.author: amsriva
-ms.openlocfilehash: fcb49f532d5dfcd340baf017bd55c69d4e81e0e6
-ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
+ms.date: 3/12/2019
+ms.author: victorh
+ms.openlocfilehash: 16ba6b73dd0c64298f319d4b18750d753f166987
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53630687"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57849385"
 ---
 # <a name="overview-of-end-to-end-ssl-with-application-gateway"></a>Descrição geral do SSL ponto a ponto com o Gateway de Aplicação
 
@@ -21,6 +21,8 @@ Gateway de aplicação suporta a terminação de SSL no gateway, após o qual o 
 SSL de ponto a ponto permite-lhe transmitir dados confidenciais para o back-end encriptado e tirar partido dos benefícios das funcionalidades de balanceamento de carga de camada 7 que o gateway de aplicação fornece de forma segura. Algumas destas funcionalidades são a afinidade do cookie baseado na sessão, encaminhamento baseado em URL, suporte para encaminhamento baseado em sites ou capacidade para injetar cabeçalhos Encaminhados para X-*.
 
 Quando configurado com o modo de comunicação SSL de ponta a ponta, o gateway de aplicação termina as sessões de SSL no gateway e desencripta o tráfego de utilizador. Em seguida, aplica as regras configuradas para selecionar uma instância de conjunto de back-end adequada para encaminhar o tráfego. O gateway de aplicação, em seguida, inicia uma nova ligação SSL ao servidor de back-end e encripta novamente os dados com o certificado de chave pública do servidor de back-end antes de transmitir o pedido para o back-end. SSL de ponto a ponto é ativada ao configurar a definição do protocolo no **BackendHTTPSetting** como HTTPS que, em seguida, é aplicado a um conjunto de back-end. Cada servidor de back-end no conjunto de back-end com SSL de ponta a ponta ativado deve ser configurado com um certificado, para permitir a comunicação segura.
+
+Se aplica a política SSL para tráfego de front-end e back-end. No front-end, o Gateway de aplicação atua como o servidor e impõe a política. Back-end, o Gateway de aplicação atua como o cliente e envia as informações de protocolo/cifras como a preferência durante o handshake SSL.
 
 ![cenário de SSL ponto a ponto][1]
 

@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: traffic-manager
 ms.date: 05/16/2017
 ms.author: gwallace
-ms.openlocfilehash: 9ab5697a5cee18a148df578588da639c4d52d6af
-ms.sourcegitcommit: a4efc1d7fc4793bbff43b30ebb4275cd5c8fec77
+ms.openlocfilehash: 1086fe6d656db9450d84fd6971a271775f54687d
+ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56651384"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58202831"
 ---
 # <a name="route-traffic-for-high-availability-of-applications"></a>Encaminhar o tráfego de elevada disponibilidade de aplicações
 
@@ -56,7 +56,7 @@ Este script utiliza os seguintes comandos para criar um grupo de recursos, uma a
 | [New-AzWebApp](/powershell/module/az.websites/new-azwebapp) | Cria uma aplicação web do Azure no plano do serviço de aplicações. |
 | [Set-AzResource](/powershell/module/az.resources/new-azresource) | Cria uma aplicação web do Azure no plano do serviço de aplicações. |
 | [New-AzTrafficManagerProfile](/powershell/module/az.trafficmanager/new-aztrafficmanagerprofile) | Cria um perfil do Gestor de Tráfego do Azure. |
-| [New-AzTrafficManagerEndpoint](/powershell/module/az.trafficmanager/new-aztrafficmanagerendpoint) | Adiciona um ponto final a um perfil de Gestor de tráfego do Azure. |
+| [New-AzTrafficManagerEndpoint](/powershell/module/az.trafficmanager/new-aztrafficmanagerendpoint) | Adiciona um ponto final a um Perfil do Gestor de Tráfego do Azure. |
 
 ## <a name="next-steps"></a>Passos Seguintes
 

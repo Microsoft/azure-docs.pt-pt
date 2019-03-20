@@ -14,12 +14,12 @@ ms.date: 07/13/2017
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7b82c2261e949c724b1310ee43c6f3fe29766945
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 8b5eb46b845bebbb81dce6aadb9d97af08955df3
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57531016"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58096950"
 ---
 #  <a name="use-a-saml-20-identity-provider-idp-for-single-sign-on"></a>Utilize um fornecedor de identidade 2.0 (IdP) para início de sessão único no
 
@@ -30,16 +30,16 @@ Este documento contém informações sobre como utilizar um SAML 2.0 compatível
 
 A Microsoft suporta esta experiência de início de sessão, como a integração de um serviço cloud da Microsoft, como o Office 365, com o SAML 2.0 com base no perfil IdP corretamente configurado. Fornecedores de identidade de SAML 2.0 são produtos de terceiros e, portanto, a Microsoft não fornece suporte para a implementação, configuração, melhores práticas em relação à-los de resolução de problemas. Uma vez configurado corretamente, a integração com o SAML 2.0 fornecedor de identidade pode ser testado para configuração adequada, utilizando a ferramenta de analisador de conectividade do Microsoft, que é descrito mais detalhadamente abaixo. Para obter mais informações sobre o seu fornecedor de identidade baseada no perfil de SP de 2.0 de SAML-Lite, peça a organização que fornecido-lo.
 
->[!IMPORTANT]
->Só um conjunto limitado de clientes está disponível neste cenário de início de sessão com fornecedores de identidade de SAML 2.0, isto inclui:
-
->- Clientes baseados na Web, como o Outlook Web Access e o SharePoint Online
-- E-mail sofisticados os clientes que utilizam autenticação básica e um método de acesso do Exchange suportado, como o IMAP, POP, Active Sync, MAPI, etc. (o ponto de final de protocolo de cliente avançada é necessário implementar), incluindo:
-    - Microsoft Outlook 2010/Outlook 2013/Outlook 2016, iPhone da Apple (várias versões do iOS)
-    - Vários dispositivos de Google Android
-    - Windows Phone 7, Windows Phone 7.8 e Windows Phone 8.0
-    - Cliente de correio do Windows 8 e o cliente de correio do Windows 8.1
-    - Cliente de correio do Windows 10
+> [!IMPORTANT]
+> Só um conjunto limitado de clientes está disponível neste cenário de início de sessão com fornecedores de identidade de SAML 2.0, isto inclui:
+> 
+> - Clientes baseados na Web, como o Outlook Web Access e o SharePoint Online
+> - E-mail sofisticados os clientes que utilizam autenticação básica e um método de acesso do Exchange suportado, como o IMAP, POP, Active Sync, MAPI, etc. (o ponto de final de protocolo de cliente avançada é necessário implementar), incluindo:
+>     - Microsoft Outlook 2010/Outlook 2013/Outlook 2016, iPhone da Apple (várias versões do iOS)
+>     - Vários dispositivos de Google Android
+>     - Windows Phone 7, Windows Phone 7.8 e Windows Phone 8.0
+>     - Cliente de correio do Windows 8 e o cliente de correio do Windows 8.1
+>     - Cliente de correio do Windows 10
 
 Todos os outros clientes não estão disponíveis neste cenário de início de sessão com o seu fornecedor de identidade do SAML 2.0. Por exemplo, o cliente de desktop do Lync 2010 não é capaz de iniciar sessão no serviço junto do seu fornecedor de identidade do SAML 2.0 configurada para início de sessão único.
 
@@ -194,7 +194,7 @@ O procedimento seguinte orienta-o através de conversão de um domínio padrão 
 Para obter mais informações sobre "Set-MsolDomainAuthentication", consulte: [ https://technet.microsoft.com/library/dn194112.aspx ](https://technet.microsoft.com/library/dn194112.aspx).
 
 >[!NOTE]
->Tem de executar a utilização "$ecpUrl ="https://WS2012R2-0.contoso.com/PAOS"" apenas se configurar uma extensão ECP para o seu fornecedor de identidade. Os clientes Exchange Online, excluindo a aplicação OWA (Outlook Web), dependem uma publicação com base em ponto final de Active Directory. Se o seu STS do SAML 2.0 implementa um ponto de final Active Directory semelhante à implementação de ECP do Shibboleth de um ponto final de Active Directory pode ser possível que estes clientes avançados interagir com o serviço Exchange Online.
+>Tem de executar a utilização `$ecpUrl = "https://WS2012R2-0.contoso.com/PAOS"` apenas se configurar uma extensão ECP para o seu fornecedor de identidade. Os clientes Exchange Online, excluindo a aplicação OWA (Outlook Web), dependem uma publicação com base em ponto final de Active Directory. Se o seu STS do SAML 2.0 implementa um ponto de final Active Directory semelhante à implementação de ECP do Shibboleth de um ponto final de Active Directory pode ser possível que estes clientes avançados interagir com o serviço Exchange Online.
 
 Depois de configurar a Federação pode voltar a mudar para "não federadas" (ou "gerido"), no entanto esta alteração demora duas horas a concluir e requer que a atribuição de novas palavras-passe aleatórias com base na cloud para início de sessão a cada utilizador. Mudar para "gerido" poderá ser necessário em alguns cenários para repor um erro nas definições do. Para obter mais informações sobre a conversão de domínio, consulte: [ https://msdn.microsoft.com/library/windowsazure/dn194122.aspx ](https://msdn.microsoft.com/library/windowsazure/dn194122.aspx).
 

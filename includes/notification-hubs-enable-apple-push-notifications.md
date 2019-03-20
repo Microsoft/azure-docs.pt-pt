@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 08/28/2018
 ms.author: spelluru
 ms.custom: include file
-ms.openlocfilehash: 8c8f3cd67186450fdcf65c177ea0353d297a3b01
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
-ms.translationtype: HT
+ms.openlocfilehash: 2fc4f26f187301ea7a7a1e3051038f75da728547
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51264278"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58125369"
 ---
 ## <a name="generate-the-certificate-signing-request-file"></a>Gerar o ficheiro de pedido de assinatura de certificado
 
@@ -47,17 +47,17 @@ Para poder enviar notificações push para uma aplicação iOS, tem de registar 
 
 2. Atualize os três campos seguintes para a nova aplicação e clique em **Continuar**:
 
-    * **Nome**: escreva um nome descritivo para a aplicação no campo **Nome**, na secção **Descrição do ID da Aplicação**.
-    * **Identificador do Pacote**: na secção **ID da Aplicação Explícito**, introduza um **Identificador do Pacote** no formato `<Organization Identifier>.<Product Name>`, como mencionado no [App Distribution Guide (Guia de Distribuição de Aplicações)](https://help.apple.com/xcode/mac/current/#/dev91fe7130a). O *Identificador da Organização* e o *Nome do Produto* que utilizar têm de corresponder ao identificador da organização e ao nome do produto que irá utilizar quando criar o projeto XCode. Na captura de ecrã seguinte, utiliza-se *NotificationHubs* como identificador de uma organização e *GetStarted* como o nome do produto. A utilização do mesmo valor que irá utilizar no projeto XCode permite utilizar o perfil de publicação correto com o XCode.
-    * **Notificações Push**: selecione a opção **Notificações Push** na secção **Serviços Aplicacionais**.
+   * **Nome**: Escreva um nome descritivo para a sua aplicação no **Name** campo na **descrição do ID da aplicação** secção.
+   * **Identificador do pacote**: Sob o **ID de aplicação explícito** , digite um **identificador do pacote** sob a forma `<Organization Identifier>.<Product Name>` conforme mencionado na [guia de distribuição de aplicações](https://help.apple.com/xcode/mac/current/#/dev91fe7130a). O *Identificador da Organização* e o *Nome do Produto* que utilizar têm de corresponder ao identificador da organização e ao nome do produto que irá utilizar quando criar o projeto XCode. Na captura de ecrã seguinte, utiliza-se *NotificationHubs* como identificador de uma organização e *GetStarted* como o nome do produto. A utilização do mesmo valor que irá utilizar no projeto XCode permite utilizar o perfil de publicação correto com o XCode.
+   * **Notificações push**: Verifique os **notificações Push** opção a **dos serviços de aplicações** secção.
 
-    ![Formulário para registar um novo ID de Aplicação](./media/notification-hubs-enable-apple-push-notifications/notification-hubs-new-appid-info.png)
+     ![Formulário para registar um novo ID de Aplicação](./media/notification-hubs-enable-apple-push-notifications/notification-hubs-new-appid-info.png)
 
-    Esta ação gera o ID da Aplicação e pede-lhe que confirme as informações. Clique em **Registar** para confirmar o novo ID da Aplicação.
+     Esta ação gera o ID da Aplicação e pede-lhe que confirme as informações. Clique em **Registar** para confirmar o novo ID da Aplicação.
 
-    Assim que clicar em **Registar**, verá o ecrã **Registo concluído**, conforme apresentado na imagem seguinte. Clique em **Concluído**.
+     Assim que clicar em **Registar**, verá o ecrã **Registo concluído**, conforme apresentado na imagem seguinte. Clique em **Concluído**.
 
-    ![Registo de ID de aplicação completo que mostra as elegibilidades](./media/notification-hubs-enable-apple-push-notifications/notification-hubs-appid-registration-complete.png)
+     ![Registo de ID de aplicação completo que mostra as elegibilidades](./media/notification-hubs-enable-apple-push-notifications/notification-hubs-appid-registration-complete.png)
 
 3. No Centro de Programadores, em IDs de Aplicações, localize o ID da aplicação que criou e clique na respetiva linha.
 

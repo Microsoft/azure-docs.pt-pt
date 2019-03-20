@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/14/2018
 ms.author: hrasheed
-ms.openlocfilehash: 39864b629d41f0921c80736042ca5f8938376297
-ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
+ms.openlocfilehash: c51cb797ff4465f4efcbc526444cddeb5b923262
+ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/20/2018
-ms.locfileid: "53650999"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58225268"
 ---
 # <a name="install-custom-apache-hadoop-applications-on-azure-hdinsight"></a>Instalar aplicações de Apache Hadoop personalizadas no Azure HDInsight
 
@@ -36,11 +36,11 @@ As aplicações do HDInsight podem ser instaladas quando cria um cluster ou num 
 
 Ficheiros necessários para implementar esta aplicação (Hue):
 
-* [azuredeploy. JSON](https://github.com/hdinsight/Iaas-Applications/blob/master/Hue/azuredeploy.json): O modelo do Resource Manager para instalar a aplicação do HDInsight. Consulte [MSDN: Instalar uma aplicação do HDInsight](https://msdn.microsoft.com/library/mt706515.aspx) para desenvolver o seu próprio modelo do Resource Manager.
-* [hue install_v0.sh](https://github.com/hdinsight/Iaas-Applications/blob/master/Hue/scripts/Hue-install_v0.sh): A ação de Script a ser chamada pelo modelo do Resource Manager para a configuração de nó de extremidade.
-* [hue-tgz](https://hdiconfigactions.blob.core.windows.net/linuxhueconfigactionv01/hue-binaries-14-04.tgz): O ficheiro binário da hue a ser chamado a partir de hui install_v0.sh.
-* [hue binários--14-04.tgz](https://hdiconfigactions.blob.core.windows.net/linuxhueconfigactionv01/hue-binaries-14-04.tgz): O ficheiro binário da hue a ser chamado a partir de hui install_v0.sh.
-* [webwasb Tomcat. tar. GZ](https://hdiconfigactions.blob.core.windows.net/linuxhueconfigactionv01/webwasb-tomcat.tar.gz): Uma aplicação web de exemplo (Tomcat) a ser chamada a partir de hui install_v0.sh.
+* [azuredeploy.json](https://github.com/hdinsight/Iaas-Applications/blob/master/Hue/azuredeploy.json): O modelo do Resource Manager para instalar a aplicação do HDInsight. Consulte [MSDN: Instalar uma aplicação do HDInsight](https://msdn.microsoft.com/library/mt706515.aspx) para desenvolver o seu próprio modelo do Resource Manager.
+* [hue-install_v0.sh](https://github.com/hdinsight/Iaas-Applications/blob/master/Hue/scripts/Hue-install_v0.sh): A ação de Script a ser chamada pelo modelo do Resource Manager para a configuração de nó de extremidade.
+* [hue-binaries.tgz](https://hdiconfigactions.blob.core.windows.net/linuxhueconfigactionv01/hue-binaries-14-04.tgz): O ficheiro binário da hue a ser chamado a partir de hui install_v0.sh.
+* [hue-binaries-14-04.tgz](https://hdiconfigactions.blob.core.windows.net/linuxhueconfigactionv01/hue-binaries-14-04.tgz): O ficheiro binário da hue a ser chamado a partir de hui install_v0.sh.
+* [webwasb-tomcat.tar.gz](https://hdiconfigactions.blob.core.windows.net/linuxhueconfigactionv01/webwasb-tomcat.tar.gz): Uma aplicação web de exemplo (Tomcat) a ser chamada a partir de hui install_v0.sh.
 
 **Para instalar a Hue num cluster do HDInsight existente**
 
@@ -95,7 +95,7 @@ Em caso de falha na instalação de uma aplicação, pode ver as mensagens de er
     Clique em Ação de Script no painel Definições. O histórico de ações de script apresenta as mensagens de erro
 
     ![aplicações do hdinsight erro de ação de script](./media/hdinsight-apps-install-applications/hdinsight-apps-script-action-error.png)
-* IU Web do Ambari: Se o script de instalação foi a causa da falha, utilize a IU Web do Ambari para verificar os registos completos sobre os scripts de instalação.
+* Ambari Web UI: Se o script de instalação foi a causa da falha, utilize a IU Web do Ambari para verificar os registos completos sobre os scripts de instalação.
 
     Para obter mais informações, consulte [Resolução de problemas](hdinsight-hadoop-customize-cluster-linux.md#troubleshooting).
 

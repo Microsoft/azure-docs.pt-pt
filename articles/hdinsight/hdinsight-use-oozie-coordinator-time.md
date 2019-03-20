@@ -10,12 +10,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 10/04/2017
 ROBOTS: NOINDEX
-ms.openlocfilehash: 000f8de4d40fda39f183b0824bea6a09605e6e9d
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
+ms.openlocfilehash: a47a30995f651204782325a9f984086fdf382a03
+ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55977614"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58202202"
 ---
 # <a name="use-time-based-apache-oozie-coordinator-with-apache-hadoop-in-hdinsight-to-define-workflows-and-coordinate-jobs"></a>Utilizar o coordenador de Apache Oozie baseados no tempo com o Apache Hadoop no HDInsight para definir fluxos de trabalho e coordenar trabalhos
 Neste artigo, aprenderá como definir fluxos de trabalho e coordenadores e como acionar as tarefas de coordenador, com base no tempo. É útil percorrer [utilização Apache Oozie com o HDInsight] [ hdinsight-use-oozie] antes de ler este artigo. Para além do Oozie, também pode agendar as tarefas com o Azure Data Factory. Para obter o Azure Data Factory, veja [utilizar o Apache Pig e Apache Hive com o Data Factory](../data-factory/transform-data.md).
@@ -87,7 +87,7 @@ Antes de começar este tutorial, tem de ter o seguinte:
     |Nome da base de dados SQL|$sqlDatabaseName||A base de dados SQL do Azure para o qual o Sqoop irá exportar dados. |
 
   > [!NOTE]   
-  > Por predefinição uma base de dados SQL do Azure permite ligações de serviços do Azure, como o Azure HDInsight. Se esta definição de firewall estiver desativada, tem de ativá-la no Portal do Azure. Para obter instruções sobre como criar uma base de dados SQL e configurar regras de firewall, consulte [criar e configurar a base de dados do SQL][sqldatabase-get-started].
+  > Por predefinição uma base de dados SQL do Azure permite ligações de serviços do Azure, como o Azure HDInsight. Se esta definição de firewall estiver desativada, tem de ativá-la no portal do Azure. Para obter instruções sobre como criar uma base de dados SQL e configurar regras de firewall, consulte [criar e configurar a base de dados do SQL][sqldatabase-get-started].
 
 > [!NOTE]  
 > Fill-in os valores nas tabelas. Também será útil para percorrer neste tutorial.
@@ -192,7 +192,7 @@ A ação de Hive no fluxo de trabalho chama um ficheiro de script de HiveQL. Est
     |Variáveis de fluxo de trabalho|Descrição|
     |---|---|
     |${jobTracker}|Especifique o URL do controlador de tarefa do Hadoop. Uso **jobtrackerhost:9010** no HDInsight versão 3.0 e 2.0 de cluster.|
-    |${nameNode}|Especifique o URL do nó de nome de Hadoop. Utilizar o wasb de sistema de ficheiros predefinido: / / endereço, por exemplo, *wasb: / /&lt;containerName&gt;@&lt;storageAccountName&gt;. blob.core.windows.net*.|
+    |${nameNode}|Especifique o URL do nó de nome de Hadoop. Utilizar o wasb de sistema de ficheiros predefinido: / / endereço, por exemplo, *wasb: / /&lt;containerName&gt;\@&lt;storageAccountName&gt;. blob.core.windows.net*.|
     |${queueName}|Especifica o nome da fila que será submetida para a tarefa. Uso **predefinição**.|
 
     Variáveis de ação do Hive
@@ -655,15 +655,15 @@ O Azure PowerShell atualmente não fornece qualquer cmdlet para definir as taref
 
 Remova os sinais # se quiser executar as funções adicionais.
 
-9. Se o seu cluster do HDinsight é uma versão 2.1, substitua "https://$clusterName.azurehdinsight.net:443/oozie/v2/" com "https://$clusterName.azurehdinsight.net:443/oozie/v1/". Clusters do HDInsight versão 2.1 faz não suporta a versão 2 dos serviços web.
-10. Clique em **executar Script** ou prima **F5** para executar o script. O resultado será semelhante a:
+1. Se o seu cluster do HDInsight é uma versão 2.1, substitua "https://$clusterName.azurehdinsight.net:443/oozie/v2/" com "https://$clusterName.azurehdinsight.net:443/oozie/v1/". Clusters do HDInsight versão 2.1 faz não suporta a versão 2 dos serviços web.
+1. Clique em **executar Script** ou prima **F5** para executar o script. O resultado será semelhante a:
 
-     ![Tutorial executar saída de fluxo de trabalho][img-runworkflow-output]
-11. Ligar à base de dados SQL para ver os dados exportados.
+    ![Tutorial executar saída de fluxo de trabalho][img-runworkflow-output]
+1. Ligar à base de dados SQL para ver os dados exportados.
 
 **Para verificar o registo de erros de tarefa**
 
-Para resolver problemas de um fluxo de trabalho, o ficheiro de registo do Oozie pode ser encontrado em C:\apps\dist\oozie-3.3.2.1.3.2.0-05\oozie-win-distro\logs\Oozie.log do nó principal do cluster. Para obter informações sobre o RDP, veja [clusters do HDInsight administrar no portal do Azure][hdinsight-admin-portal].
+Para resolver problemas de um fluxo de trabalho, o ficheiro de registo do Oozie pode ser encontrado em C:\apps\dist\oozie-3.3.2.1.3.2.0-05\oozie-win-distro\logs\Oozie.log do nó principal do cluster. Para obter informações sobre o RDP, veja [Apache Hadoop gerir clusters no HDInsight com o portal do Azure](hdinsight-administer-use-portal-linux.md).
 
 **Para voltar a executar o tutorial**
 
@@ -719,7 +719,6 @@ Neste tutorial, ficou a saber como definir um fluxo de trabalho do Oozie e o coo
 [hdinsight-versions]:  hdinsight-component-versioning.md
 [hdinsight-storage]: hdinsight-hadoop-use-blob-storage.md
 [hdinsight-get-started]:hadoop/apache-hadoop-linux-tutorial-get-started.md
-[hdinsight-admin-portal]: hdinsight-administer-use-management-portal.md
 
 [hdinsight-use-sqoop]:hadoop/hdinsight-use-sqoop.md
 [hdinsight-provision]: hdinsight-hadoop-provision-linux-clusters.md

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/2/2018
 ms.author: rkarlin
-ms.openlocfilehash: 09abb8fa2c8d08b27b83a2510b4c1133458b8363
-ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
-ms.translationtype: MT
+ms.openlocfilehash: 3f837820d05f7e10524e65bd8a7775d45c4cc600
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/02/2019
-ms.locfileid: "57240733"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58110431"
 ---
 # <a name="data-collection-in-azure-security-center"></a>Recolha de dados no Centro de segurança do Azure
 Centro de segurança recolhe dados a partir das suas máquinas virtuais do Azure (VMs) e computadores não Azure para monitorizar ameaças e vulnerabilidades de segurança. Dados são recolhidos com o agente de Log Analytics, que lê várias configurações relacionadas à segurança e logs de eventos a partir da máquina e copia os dados para a área de trabalho para análise. Exemplos destes dados são: operação sistema tipo e versão, (registos de eventos Windows), de registos de sistema operativo processos em execução, nome da máquina, endereços IP e com sessão iniciada no utilizador. O agente Log Analytics também copia os ficheiros de informação de falha para a área de trabalho.
@@ -50,13 +50,13 @@ Para ativar o aprovisionamento automático do agente do Log Analytics:
 1. No menu principal do Centro de segurança, selecione **política de segurança**.
 2. Clique em **editar as definições de** na coluna Settings da subscrição pretendida na lista.
 
-  ![Selecionar subscrição][7]
+   ![Selecionar subscrição][7]
 
 3. Em **Política de segurança**, selecione **Recolha de Dados**.
 4. Sob **aprovisionamento automático**, selecione **no** para ativar o aprovisionamento automático.
 5. Selecione **Guardar**.
 
-  ![Ativar o aprovisionamento automático][1]
+   ![Ativar o aprovisionamento automático][1]
 
 >[!NOTE]
 > - Para obter instruções sobre como aprovisionar uma instalação já existente, consulte [aprovisionamento automático em casos de uma instalação de agente preexistente](#preexisting).
@@ -76,15 +76,15 @@ Centro de segurança pode criar automaticamente uma área de trabalho predefinid
 
 Para selecionar uma área de trabalho criada pelo centro de segurança:
 
-1.  Sob **configuração de área de trabalho predefinida**, selecione utiliza áreas de trabalho criadas pelo centro de segurança.
+1. Sob **configuração de área de trabalho predefinida**, selecione utiliza áreas de trabalho criadas pelo centro de segurança.
    ![Selecione o escalão de preço][10] 
 
-2. Clique em **Guardar**.<br>
+1. Clique em **Guardar**.<br>
     Centro de segurança cria uma novo recurso grupo predefinido área de trabalho e nessa localização geográfica e liga o agente a essa área de trabalho. A Convenção de nomenclatura para a área de trabalho e grupo de recursos é:<br>
-**Área de trabalho: DefaultWorkspace-[subscrição-ID]-[geo]<br> grupo de recursos: DefaultResourceGroup-[geo]**
+   **Área de trabalho: DefaultWorkspace-[subscrição-ID]-[geo]<br> grupo de recursos: DefaultResourceGroup-[geo]**
 
    Se uma subscrição contém VMs a partir de localizações geográficas vários, em seguida, o Centro de segurança cria várias áreas de trabalho. Várias áreas de trabalho são criadas para manter as regras da privacidade de dados.
--   Centro de segurança habilitará automaticamente uma solução de centro de segurança na área de trabalho pelo escalão de preço definido para a subscrição. 
+1. Centro de segurança habilitará automaticamente uma solução de centro de segurança na área de trabalho pelo escalão de preço definido para a subscrição. 
 
 > [!NOTE]
 > Escalão de áreas de trabalho criadas pelo centro de segurança de preços do log analytics não afeta a faturação do Centro de segurança. A faturação do Centro de segurança baseia-se sempre em sua política de segurança do Centro de segurança e as soluções instaladas numa área de trabalho. Para o escalão gratuito, o Centro de segurança permite que o *SecurityCenterFree* solução na área de trabalho predefinida. No escalão Standard, o Centro de segurança permite que o *segurança* solução na área de trabalho predefinida.
@@ -111,10 +111,10 @@ Para selecionar uma área de trabalho do Log Analytics existente:
 
 2. No menu pendente, selecione uma área de trabalho para armazenar os dados recolhidos.
 
-  > [!NOTE]
-  > O pull menu pendente, todas as áreas de trabalho em todas as suas subscrições estão disponíveis. Ver [cruzado a seleção de área de trabalho de subscrição](security-center-enable-data-collection.md#cross-subscription-workspace-selection) para obter mais informações. Tem de ter permissão para aceder à área de trabalho.
-  >
-  >
+   > [!NOTE]
+   > O pull menu pendente, todas as áreas de trabalho em todas as suas subscrições estão disponíveis. Ver [cruzado a seleção de área de trabalho de subscrição](security-center-enable-data-collection.md#cross-subscription-workspace-selection) para obter mais informações. Tem de ter permissão para aceder à área de trabalho.
+   >
+   >
 
 3. Selecione **Guardar**.
 4. Depois de selecionar **guardar**, será solicitado se pretende reconfigurar VMs monitorizadas que foram anteriormente ligadas a uma área de trabalho predefinida.
@@ -150,8 +150,8 @@ Quando seleciona uma área de trabalho para armazenar seus dados, todas as área
 Selecionar um escalão de recolha de dados no Centro de segurança do Azure só afetarão o armazenamento de eventos de segurança na sua área de trabalho do Log Analytics. O agente Log Analytics ainda irá recolher e analisar os eventos de segurança necessários para deteções de ameaças do Centro de segurança do Azure, independentemente de qual dos escalões de eventos de segurança optar por armazenar na sua área de trabalho do Log Analytics (se houver). Selecionar a opção para armazenar eventos de segurança na sua área de trabalho irá permitir a investigação, a pesquisa e a auditoria desses eventos na sua área de trabalho. 
 > [!NOTE]
 > Armazenamento de dados no log analytics, pode incorrer em custos adicionais para o armazenamento de dados, consulte a página de preços para obter mais detalhes.
->
-Pode escolher o direito de política para as suas subscrições e áreas de trabalho do quatro conjuntos de eventos de filtragem para serem armazenados na sua área de trabalho: 
+> 
+> Pode escolher o direito de política para as suas subscrições e áreas de trabalho do quatro conjuntos de eventos de filtragem para serem armazenados na sua área de trabalho: 
 
 - **Nenhum** – desativar o armazenamento de eventos de segurança. Esta é a predefinição.
 - **Mínimo** – um conjunto menor de eventos para os clientes que desejam minimizar o volume de eventos.
@@ -224,7 +224,7 @@ Pode desativar aprovisionamento automático de recursos em qualquer altura ao de
 3. Sobre o **política de segurança – recolha de dados** painel, em **aprovisionamento automático** selecionar **desativar**.
 4. Selecione **Guardar**.
 
-  ![Desativar aprovisionamento automático][6]
+   ![Desativar aprovisionamento automático][6]
 
 Quando o aprovisionamento automático está desativado (desativado), a seção de configuração de área de trabalho predefinido não é apresentada.
 
@@ -243,57 +243,57 @@ Existem várias formas de instalar manualmente o Microsoft Monitoring Agent. Ao 
 ### <a name="operations-management-suite-vm-extension-deployment"></a>Implementação de extensão de VM de pacote de gestão de operações 
 
 Pode instalar manualmente o agente de monitorização Microsoft, para que o Centro de segurança pode recolher dados de segurança das suas VMs e fornecer recomendações e alertas.
-1.  Selecione o aprovisionamento automático – DESATIVADO.
-2.  Criar uma área de trabalho e definir o escalão de preço para a área de trabalho que pretende definir o Microsoft Monitoring agent:
+1. Selecione o aprovisionamento automático – DESATIVADO.
+2. Criar uma área de trabalho e definir o escalão de preço para a área de trabalho que pretende definir o Microsoft Monitoring agent:
 
-    a.  No menu principal do Centro de segurança, selecione **política de segurança**.
+   a.  No menu principal do Centro de segurança, selecione **política de segurança**.
      
-    b.  Selecione a área de trabalho no qual pretende ligar o agente. Certificar-se de que a área de trabalho está na mesma subscrição, utilize no Centro de segurança e que tem permissões de leitura/escrita na área de trabalho.
-        ![Selecione a área de trabalho][8]
+   b.  Selecione a área de trabalho no qual pretende ligar o agente. Certificar-se de que a área de trabalho está na mesma subscrição, utilize no Centro de segurança e que tem permissões de leitura/escrita na área de trabalho.
+       ![Selecione a área de trabalho][8]
 3. Defina o escalão de preço.
    ![Selecione o escalão de preço][9] 
    >[!NOTE]
    >Se já tiver uma área de trabalho de um **Security** ou **SecurityCenterFree** solução ativada, os preços serão definidos automaticamente. 
    > 
 
-4.  Se quiser implantar os agentes nos novas VMs utilizando um modelo do Resource Manager, instale a extensão de máquina virtual do OMS:
+4. Se quiser implantar os agentes nos novas VMs utilizando um modelo do Resource Manager, instale a extensão de máquina virtual do OMS:
 
-    a.  [Instalar a extensão de máquina virtual do OMS para Windows](../virtual-machines/extensions/oms-windows.md)
+   a.  [Instalar a extensão de máquina virtual do OMS para Windows](../virtual-machines/extensions/oms-windows.md)
     
-    b.  [Instalar a extensão de máquina virtual do OMS para Linux](../virtual-machines/extensions/oms-linux.md)
-5.  Para implementar as extensões em VMs existentes, siga as instruções em [recolher dados sobre máquinas virtuais do Azure](../azure-monitor/learn/quick-collect-azurevm.md).
+   b.  [Instalar a extensão de máquina virtual do OMS para Linux](../virtual-machines/extensions/oms-linux.md)
+5. Para implementar as extensões em VMs existentes, siga as instruções em [recolher dados sobre máquinas virtuais do Azure](../azure-monitor/learn/quick-collect-azurevm.md).
 
-  > [!NOTE]
-  > A secção **recolher dados de eventos e desempenho** é opcional.
-  >
+   > [!NOTE]
+   > A secção **recolher dados de eventos e desempenho** é opcional.
+   >
 6. Para utilizar o PowerShell para implementar a extensão, utilize o seguinte exemplo do PowerShell:  [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
    
-    1.  Aceda a **do Log Analytics** e clique em **definições avançadas**.
+   1. Aceda a **do Log Analytics** e clique em **definições avançadas**.
     
-        ![Conjunto o log analytics][11]
+      ![Conjunto o log analytics][11]
 
-    2. Copie os valores de **WorkspaceID** e **chave primária**.
+   2. Copie os valores de **WorkspaceID** e **chave primária**.
   
-       ![Copiar valores][12]
+      ![Copiar valores][12]
 
-    3. Preencha a configuração pública e a configuração privada com estes valores:
+   3. Preencha a configuração pública e a configuração privada com estes valores:
      
-            $PublicConf = '{
-                "workspaceId": "WorkspaceID value",
-                "MultipleConnections": true
-            }' 
+           $PublicConf = '{
+               "workspaceId": "WorkspaceID value",
+               "MultipleConnections": true
+           }' 
  
-            $PrivateConf = '{
-                "workspaceKey": "<Primary key value>”
-            }' 
+           $PrivateConf = '{
+               "workspaceKey": "<Primary key value>”
+           }' 
 
       - Quando instalar numa VM do Windows:
         
-             Set-AzVMExtension -ResourceGroupName $vm.ResourceGroupName -VMName $vm.Name -Name "MicrosoftMonitoringAgent" -Publisher "Microsoft.EnterpriseCloud.Monitoring" -ExtensionType "MicrosoftMonitoringAgent" -TypeHandlerVersion '1.0' -Location $vm.Location -Settingstring $PublicConf -ProtectedSettingString $PrivateConf -ForceRerun True 
+            Set-AzVMExtension -ResourceGroupName $vm.ResourceGroupName -VMName $vm.Name -Name "MicrosoftMonitoringAgent" -Publisher "Microsoft.EnterpriseCloud.Monitoring" -ExtensionType "MicrosoftMonitoringAgent" -TypeHandlerVersion '1.0' -Location $vm.Location -Settingstring $PublicConf -ProtectedSettingString $PrivateConf -ForceRerun True 
     
-       - Quando instalar numa VM do Linux:
+      - Quando instalar numa VM do Linux:
         
-             Set-AzVMExtension -ResourceGroupName $vm1.ResourceGroupName -VMName $vm1.Name -Name "OmsAgentForLinux" -Publisher "Microsoft.EnterpriseCloud.Monitoring" -ExtensionType "OmsAgentForLinux" -TypeHandlerVersion '1.0' -Location $vm.Location -Settingstring $PublicConf -ProtectedSettingString $PrivateConf -ForceRerun True`
+            Set-AzVMExtension -ResourceGroupName $vm1.ResourceGroupName -VMName $vm1.Name -Name "OmsAgentForLinux" -Publisher "Microsoft.EnterpriseCloud.Monitoring" -ExtensionType "OmsAgentForLinux" -TypeHandlerVersion '1.0' -Location $vm.Location -Settingstring $PublicConf -ProtectedSettingString $PrivateConf -ForceRerun True`
 
 > [!NOTE]
 > Para obter instruções sobre como integrar o Centro de segurança com o PowerShell, consulte [automatizar a inclusão do Centro de segurança do Azure com o PowerShell](security-center-powershell-onboarding.md).

@@ -3,20 +3,20 @@ title: Migração e ferramentas de serviço de matriz de dados - Azure | Documen
 description: Saiba mais sobre os serviços e ferramentas disponíveis para migrar bases de dados e para suportar várias fases do processo de migração.
 services: database-migration
 author: HJToland3
-ms.author: rajpo
+ms.author: jtoland
 manager: craigg
-ms.reviewer: douglasl
+ms.reviewer: craigg
 ms.service: dms
 ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
 ms.date: 03/12/2019
-ms.openlocfilehash: f62c3105674f741702c35e50ce4afe436f67918d
-ms.sourcegitcommit: d89b679d20ad45d224fd7d010496c52345f10c96
+ms.openlocfilehash: 3b3bbe45c4850d1bb37a4d991e323d5f6d9a8a0a
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57792094"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58180777"
 ---
 # <a name="services-and-tools-available-for-data-migration-scenarios"></a>Serviços e ferramentas disponíveis para cenários de migração de dados
 

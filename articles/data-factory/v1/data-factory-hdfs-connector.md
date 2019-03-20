@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 45b3149c0d546be201412567041ab1c5a86036e6
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: f83b525a423ccb2e66d75032811a5f921238a06b
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57455977"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57893412"
 ---
 # <a name="move-data-from-on-premises-hdfs-using-azure-data-factory"></a>Mover dados do HDFS no local com o Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -397,49 +397,49 @@ Existem duas opções para configurar o ambiente no local de modo a utilizar a a
 
 **No servidor do KDC:**
 
-1.  Editar a configuração de KDC no **krb5.conf** arquivo para permitir que o KDC confiar no domínio do Windows que faça referência ao modelo de configuração seguintes. Por predefinição, a configuração está localizada em **/etc/krb5.conf**.
+1. Editar a configuração de KDC no **krb5.conf** arquivo para permitir que o KDC confiar no domínio do Windows que faça referência ao modelo de configuração seguintes. Por predefinição, a configuração está localizada em **/etc/krb5.conf**.
 
-            [logging]
-             default = FILE:/var/log/krb5libs.log
-             kdc = FILE:/var/log/krb5kdc.log
-             admin_server = FILE:/var/log/kadmind.log
+           [logging]
+            default = FILE:/var/log/krb5libs.log
+            kdc = FILE:/var/log/krb5kdc.log
+            admin_server = FILE:/var/log/kadmind.log
 
-            [libdefaults]
-             default_realm = REALM.COM
-             dns_lookup_realm = false
-             dns_lookup_kdc = false
-             ticket_lifetime = 24h
-             renew_lifetime = 7d
-             forwardable = true
+           [libdefaults]
+            default_realm = REALM.COM
+            dns_lookup_realm = false
+            dns_lookup_kdc = false
+            ticket_lifetime = 24h
+            renew_lifetime = 7d
+            forwardable = true
 
-            [realms]
-             REALM.COM = {
-              kdc = node.REALM.COM
-              admin_server = node.REALM.COM
-             }
+           [realms]
+            REALM.COM = {
+             kdc = node.REALM.COM
+             admin_server = node.REALM.COM
+            }
+           AD.COM = {
+            kdc = windc.ad.com
+            admin_server = windc.ad.com
+           }
+
+           [domain_realm]
+            .REALM.COM = REALM.COM
+            REALM.COM = REALM.COM
+            .ad.com = AD.COM
+            ad.com = AD.COM
+
+           [capaths]
             AD.COM = {
-             kdc = windc.ad.com
-             admin_server = windc.ad.com
+             REALM.COM = .
             }
 
-            [domain_realm]
-             .REALM.COM = REALM.COM
-             REALM.COM = REALM.COM
-             .ad.com = AD.COM
-             ad.com = AD.COM
+   **Reiniciar** o serviço KDC após a configuração.
 
-            [capaths]
-             AD.COM = {
-              REALM.COM = .
-             }
+2. Preparar um principal com o nome **krbtgt/REALM.COM\@AD.COM** no servidor KDC com o seguinte comando:
 
-  **Reiniciar** o serviço KDC após a configuração.
+           Kadmin> addprinc krbtgt/REALM.COM@AD.COM
 
-2.  Preparar um principal com o nome **krbtgt/REALM.COM@AD.COM** no servidor KDC com o seguinte comando:
-
-            Kadmin> addprinc krbtgt/REALM.COM@AD.COM
-
-3.  Na **hadoop.security.auth_to_local** configuração do serviço HDFS do ficheiro, adicione `RULE:[1:$1@$0](.*@AD.COM)s/@.*//`.
+3. Na **hadoop.security.auth_to_local** configuração do serviço HDFS do ficheiro, adicione `RULE:[1:$1@$0](.*\@AD.COM)s/\@.*//`.
 
 **No controlador de domínio:**
 
@@ -448,7 +448,7 @@ Existem duas opções para configurar o ambiente no local de modo a utilizar a a
             C:> Ksetup /addkdc REALM.COM <your_kdc_server_address>
             C:> ksetup /addhosttorealmmap HDFS-service-FQDN REALM.COM
 
-2.  Estabelece confiança de domínio do Windows para o Realm de Kerberos. [senha] é a palavra-passe para o principal **krbtgt/REALM.COM@AD.COM**.
+2.  Estabelece confiança de domínio do Windows para o Realm de Kerberos. [senha] é a palavra-passe para o principal **krbtgt/REALM.COM\@AD.COM**.
 
             C:> netdom trust REALM.COM /Domain: AD.COM /add /realm /passwordt:[password]
 

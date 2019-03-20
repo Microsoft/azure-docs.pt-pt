@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 01/02/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7841ba5a23e00092571b845250c16ec6ed3e9578
-ms.sourcegitcommit: 1902adaa68c660bdaac46878ce2dec5473d29275
+ms.openlocfilehash: 9faf82918619301335f191d39453d317dcf5988b
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/11/2019
-ms.locfileid: "57730152"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57856148"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-gotomeeting"></a>Tutorial: Integração do Active Directory do Azure com o GoToMeeting
 
@@ -115,16 +115,16 @@ Para configurar o Azure AD início de sessão único com o GoToMeeting, execute 
 
     e. Na **RelayState** caixa de texto, escreva um URL com o seguinte padrão:
 
-    - Para a aplicação GoToMeeting, a utilização `https://global.gotomeeting.com`
+   - Para a aplicação GoToMeeting, a utilização `https://global.gotomeeting.com`
 
-    - Para GoToTraining, utilize `https://global.gototraining.com`
+   - Para GoToTraining, utilize `https://global.gototraining.com`
 
-    - Para GoToWebinar, utilize `https://global.gotowebinar.com` 
+   - Para GoToWebinar, utilize `https://global.gotowebinar.com` 
 
-    - Para GoToAssist, utilize `https://app.gotoassist.com`
+   - Para GoToAssist, utilize `https://app.gotoassist.com`
 
-    > [!NOTE]
-    > Estes valores não são reais. Atualize estes valores com o identificador real e o URL de resposta. Contacte [equipa de suporte de cliente GoToMeeting](https://go.microsoft.com/fwlink/?linkid=845985) obter esses valores. Também pode consultar os padrões mostrados a **configuração básica de SAML** secção no portal do Azure.
+     > [!NOTE]
+     > Estes valores não são reais. Atualize estes valores com o identificador real e o URL de resposta. Contacte [equipa de suporte de cliente GoToMeeting](https://go.microsoft.com/fwlink/?linkid=845985) obter esses valores. Também pode consultar os padrões mostrados a **configuração básica de SAML** secção no portal do Azure.
 
 5. No **definido no início de sessão único com o SAML** página, além do **certificado de assinatura SAML** secção, clique em **transferir** para transferir o **certificado (Base64)** entre as opções de determinado de acordo com seus requisitos e guarde-o no seu computador.
 
@@ -164,7 +164,7 @@ O objetivo desta secção é criar um utilizador de teste no portal do Azure cha
 
     a. Na **Name** campo introduza **BrittaSimon**.
   
-    b. Na **nome de utilizador** tipo de campo **brittasimon@yourcompanydomain.extension**  
+    b. Na **nome de utilizador** tipo de campo **brittasimon\@yourcompanydomain.extension**  
     Por exemplo, BrittaSimon@contoso.com
 
     c. Selecione **palavra-passe de Show** caixa de verificação e, em seguida, anote o valor que é apresentado na caixa de palavra-passe.

@@ -4,7 +4,7 @@ description: Saiba como os aplicativos JavaScript podem chamar uma API que preci
 services: active-directory
 documentationcenter: dev-center-name
 author: navyasric
-manager: mtillman
+manager: CelesteDG
 editor: ''
 ms.service: active-directory
 ms.subservice: develop
@@ -12,16 +12,16 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/24/2018
+ms.date: 03/20/2019
 ms.author: nacanuma
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 694eb49244afb6761ce274572f15273ccef6cbb5
-ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
+ms.openlocfilehash: fe8c2287da7a7eabc26ff134d8bb44c5e45085f1
+ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57195035"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58203052"
 ---
 # <a name="quickstart-sign-in-users-and-acquire-an-access-token-from-a-javascript-application"></a>Início rápido: Iniciar sessão dos utilizadores e adquirir um token de acesso a partir de uma aplicação do JavaScript
 
@@ -29,7 +29,7 @@ ms.locfileid: "57195035"
 
 Neste início rápido, irá aprender como usar um código de exemplo que demonstra como um JavaScript a aplicação de página única (SPA) pode iniciar sessão em contas pessoais, trabalhar e escolar contas, obter um token de acesso para chamar a API do Microsoft Graph ou qualquer API web.
 
-![Como funciona a aplicação de exemplo gerada por este Início Rápido](media/quickstart-v2-javascript/javascriptspa-intro.png)
+![Mostra como funciona a aplicação de exemplo gerada por este início rápido](media/quickstart-v2-javascript/javascriptspa-intro-updated.png)
 
 > [!div renderon="docs"]
 > ## <a name="register-and-download-your-quickstart-application"></a>Registre-se e transferir a aplicação de início rápido

@@ -6,15 +6,15 @@ ms.service: automation
 ms.subservice: process-automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 09/11/2018
+ms.date: 03/19/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 13bb12c2c624bfd50933b624a28145172f521747
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: e79f4b58582ab6643a7a13ffee25503060a2208c
+ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54427683"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58226747"
 ---
 # <a name="my-first-python-runbook"></a>O meu primeiro runbook de Python
 
@@ -25,6 +25,9 @@ ms.locfileid: "54427683"
 > - [Python](automation-first-runbook-textual-python2.md)
 
 Este tutorial explica-lhe a criação de um [runbook de Python](automation-runbook-types.md#python-runbooks) na automatização do Azure. Comece com um runbook simples que testar e publicar. Em seguida, modifique o runbook para gerir recursos do Azure, neste caso, iniciar uma máquina virtual do Azure. Por último, tornar o runbook mais robusto ao adicionar parâmetros do runbook.
+
+> [!NOTE]
+> Não é suportada a utilizar um webhook para iniciar um runbook de Python.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -78,16 +81,16 @@ Neste caso, ainda não tem uma versão publicada porque acabou de criar o runboo
 1. Clique em **Publicar** para publicar o runbook e, em seguida, em **Sim** quando lhe for pedido.
 1. Se se deslocar para a esquerda para ver o runbook no **Runbooks** painel, ele mostra agora uma **estado de criação** de **publicada**.
 1. Desloque-se para a direita para ver o painel para **MyFirstRunbook-Python**.
-   As opções na parte superior permitem-nos iniciar o runbook, ver o runbook, agendar o seu início num momento futuro ou criar um [webhook](automation-webhooks.md) para que possa ser iniciado através de uma chamada HTTP.
-1. Pretende iniciar o runbook, por isso, clique em **começar** e, em seguida, clique em **Ok** quando o Painel Iniciar Runbook for aberto.
-1. É aberto um painel de tarefas para a tarefa de runbook que criou. Pode fechar este painel, mas neste caso, deixá-lo aberto para que possa ver o progresso da tarefa.
+   As opções na parte superior permitem-nos iniciar o runbook, ver o runbook ou agendá-la para iniciar em algum momento no futuro.
+2. Pretende iniciar o runbook, por isso, clique em **começar** e, em seguida, clique em **Ok** quando o Painel Iniciar Runbook for aberto.
+3. É aberto um painel de tarefas para a tarefa de runbook que criou. Pode fechar este painel, mas neste caso, deixá-lo aberto para que possa ver o progresso da tarefa.
 1. O estado da tarefa é mostrado na **resumo da tarefa** e corresponde aos Estados que vimos quando testado o runbook.
-1. Quando o estado de runbook mostrar *Concluído*, clique em **Resultado**. É aberto o painel de resultados, e pode ver seus *Olá, mundo*.
-1. Feche o painel Resultado.
-1. Clique em **Todos os Registos** para abrir o painel Fluxos da tarefa de runbook. Apenas deve conseguir ver *Hello World* no fluxo de saída, mas isto pode mostrar outros fluxos de uma tarefa de runbook, tais como Verboso e Erro se o runbook escrever nos mesmos.
-1. Feche o painel de fluxos e o painel de tarefas para regressar ao painel MyFirstRunbook-Python.
-1. Clique em **Tarefas** para abrir o painel Tarefas para este runbook. Isto apresenta uma lista de todas as tarefas criadas por este runbook. Apenas deve conseguir ver uma tarefa listada, uma vez que apenas executou a tarefa uma vez.
-1. Pode clicar nesta tarefa para abrir o mesmo painel Tarefas que visualizou quando iniciou o runbook. Isto permite-lhe voltar atrás no tempo e ver os detalhes de qualquer tarefa que foi criada para um determinado runbook.
+2. Quando o estado de runbook mostrar *Concluído*, clique em **Resultado**. É aberto o painel de resultados, e pode ver seus *Olá, mundo*.
+3. Feche o painel Resultado.
+4. Clique em **Todos os Registos** para abrir o painel Fluxos da tarefa de runbook. Apenas deve conseguir ver *Hello World* no fluxo de saída, mas isto pode mostrar outros fluxos de uma tarefa de runbook, tais como Verboso e Erro se o runbook escrever nos mesmos.
+5. Feche o painel de fluxos e o painel de tarefas para regressar ao painel MyFirstRunbook-Python.
+6. Clique em **Tarefas** para abrir o painel Tarefas para este runbook. Isto apresenta uma lista de todas as tarefas criadas por este runbook. Apenas deve conseguir ver uma tarefa listada, uma vez que apenas executou a tarefa uma vez.
+7. Pode clicar nesta tarefa para abrir o mesmo painel Tarefas que visualizou quando iniciou o runbook. Isto permite-lhe voltar atrás no tempo e ver os detalhes de qualquer tarefa que foi criada para um determinado runbook.
 
 ## <a name="add-authentication-to-manage-azure-resources"></a>Adicionar autenticação para gerir recursos do Azure
 

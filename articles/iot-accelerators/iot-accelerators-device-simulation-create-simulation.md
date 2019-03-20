@@ -7,20 +7,20 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 10/25/2018
+ms.date: 03/08/2019
 ms.author: troyhop
-ms.openlocfilehash: 268efa35f63ac8b9e0c6ea3f22a71242a2984726
-ms.sourcegitcommit: 3dcb1a3993e51963954194ba2a5e42260d0be258
+ms.openlocfilehash: 09a6920e0d3a50da1bdacbf2bc7a80396c885897
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/01/2018
-ms.locfileid: "50756850"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58180709"
 ---
-# <a name="tutorial-create-and-run-an-iot-device-simulation"></a>Tutorial: Criar e executar uma simulação de dispositivo IoT
+# <a name="tutorial-create-and-run-an-iot-device-simulation"></a>Tutorial: Criar e executar uma simulação de dispositivo do IoT
 
 Neste tutorial, vai utilizar a Simulação de Dispositivos para criar e executar uma simulação de IoT nova com um ou mais dispositivos simulados.
 
-Neste tutorial, vai:
+Neste tutorial:
 
 >[!div class="checklist"]
 > * Ver todas as simulações ativas e históricas
@@ -72,7 +72,7 @@ Para parar uma simulação, clique em **Stop Simulation** (Parar Simulação), n
 
 ![Parar simulação](media/iot-accelerators-device-simulation-create-simulation/simulationdetails.png)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Neste tutorial, aprendeu a criar, executar e parar uma simulação. Também aprendeu a ver os detalhes da simulação. Para saber mais sobre como executar simulações, avance para o próximo tutorial:
 

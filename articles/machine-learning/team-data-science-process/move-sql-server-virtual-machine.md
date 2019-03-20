@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 11/04/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: dcab8d1cfd076e57a25ee3d36fadd86f158c53b8
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: 47a77def43a9577e5a3506899da47db2f684b495
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56880602"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57835127"
 ---
 # <a name="move-data-to-sql-server-on-an-azure-virtual-machine"></a>Mover dados para o SQL Server numa máquina virtual do Azure
 
@@ -58,7 +58,7 @@ BCP é um utilitário de linha de comandos instalado com o SQL Server e é uma d
 
 > [!NOTE]
 > **Onde devem ser os meus dados para o BCP?**  
-> Embora não seja necessário, ter ficheiros que contêm dados de origem localizados na mesma máquina, como o destino do SQL Server permite transferências mais rápidas (rede velocidade vs disco local velocidade de e/s). Pode mover os arquivos simples que contém dados para a máquina em que o SQL Server está instalado usando copiar o arquivo várias ferramentas como [AZCopy](../../storage/common/storage-use-azcopy.md), [Explorador de armazenamento do Azure](http://storageexplorer.com/) ou copie/cole de windows através do ambiente de trabalho remoto Protocolo (RDP).
+> Embora não seja necessário, ter ficheiros que contêm dados de origem localizados na mesma máquina, como o destino do SQL Server permite transferências mais rápidas (rede velocidade vs disco local velocidade de e/s). Pode mover os arquivos simples que contém dados para a máquina em que o SQL Server está instalado usando copiar o arquivo várias ferramentas como [AZCopy](../../storage/common/storage-use-azcopy.md), [Explorador de armazenamento do Azure](https://storageexplorer.com/) ou copie/cole de windows através do ambiente de trabalho remoto Protocolo (RDP).
 >
 >
 
@@ -75,10 +75,10 @@ CREATE TABLE <tablename>
 )
 ```
 
-2. Gere o ficheiro de formato que descreve o esquema da tabela emitindo o comando seguinte a partir da linha de comandos do computador onde está instalado o bcp.
+1. Gere o ficheiro de formato que descreve o esquema da tabela emitindo o comando seguinte a partir da linha de comandos do computador onde está instalado o bcp.
 
     `bcp dbname..tablename format nul -c -x -f exportformatfilename.xml -S servername\sqlinstance -T -t \t -r \n`
-3. Inserir os dados na base de dados com o comando de bcp da seguinte forma. Isso deve funcionar na linha de comando supondo que o SQL Server está instalado no mesmo computador:
+1. Inserir os dados na base de dados com o comando de bcp da seguinte forma. Isso deve funcionar na linha de comando supondo que o SQL Server está instalado no mesmo computador:
 
     `bcp dbname..tablename in datafilename.tsv -f exportformatfilename.xml -S servername\sqlinstancename -U username -P password -b block_size_to_move_in_single_attempt -t \t -r \n`
 
@@ -142,7 +142,7 @@ Eis alguns comandos de exemplo para a inserção em massa são como abaixo:
 ```sql
 SET DATEFORMAT ymd;
 ```
-2. Importe dados com declarações de importação em massa:
+1. Importe dados com declarações de importação em massa:
 
 ```sql
 BULK INSERT <tablename>
@@ -195,7 +195,7 @@ Vários métodos que podem ser utilizados em massa exportar dados de um servidor
 4. Utilizar qualquer um dos métodos descritos na secção [mover dados de origem do ficheiro](#filesource_to_sqlonazurevm) para mover os dados em arquivos simples para um SQL Server.
 
 ### <a name="sql-migration"></a>Assistente de migração de base de dados SQL
-[Assistente de migração de base de dados do SQL Server](http://sqlazuremw.codeplex.com/) fornece uma forma fácil de utilizar para mover dados entre duas instâncias do SQL server. Ele permite que o utilizador mapear o esquema de dados entre origens e tabelas de destino, escolha os tipos de coluna e várias outras funcionalidades. Ele usa a cópia em massa (BCP), nos bastidores. Uma captura de ecrã do ecrã de boas-vindas para que o Assistente de migração de base de dados SQL é mostrada abaixo.  
+[Assistente de migração de base de dados do SQL Server](https://sqlazuremw.codeplex.com/) fornece uma forma fácil de utilizar para mover dados entre duas instâncias do SQL server. Ele permite que o utilizador mapear o esquema de dados entre origens e tabelas de destino, escolha os tipos de coluna e várias outras funcionalidades. Ele usa a cópia em massa (BCP), nos bastidores. Uma captura de ecrã do ecrã de boas-vindas para que o Assistente de migração de base de dados SQL é mostrada abaixo.  
 
 ![Assistente de migração do SQL Server][2]
 

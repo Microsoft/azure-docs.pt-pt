@@ -2,18 +2,18 @@
 title: O Azure Container Instances e orquestração de contentores
 description: Compreenda como o Azure container instâncias interagem com os orquestradores de contentor.
 services: container-instances
-author: seanmck
+author: dlepow
 ms.service: container-instances
 ms.topic: article
 ms.date: 11/30/2018
-ms.author: seanmck
+ms.author: danlep
 ms.custom: mvc
-ms.openlocfilehash: 08bc344a20ade3d8bb0f7dd23a854fd03ddac006
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 0a1e3c2facc10b68fe4b33d4cd0531f181b1e813
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52845812"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57838158"
 ---
 # <a name="azure-container-instances-and-container-orchestrators"></a>O Azure Container Instances e orquestradores de contentor
 
@@ -25,16 +25,16 @@ O Azure Container Instances oferece algumas das capacidades básicas de agendame
 
 A definição padrão de orquestração inclui as seguintes tarefas:
 
-- **Agendamento**: devido uma imagem de contentor e um pedido de recurso, encontrar uma máquina adequada para executar o contentor.
+- **Agendamento**: Com uma imagem de contentor e um pedido de recurso, encontre uma máquina adequada para executar o contentor.
 - **Afinidade/anti-script-affinity**: Especifique que um conjunto de contentores deve ser executado nas proximidades entre si (para o desempenho) ou até o momento suficientemente diferença (para disponibilidade).
-- **Monitorização de estado de funcionamento**: Assista para falhas de contentor e automaticamente reagendá-los.
-- **Ativação pós-falha**: controlar o que está a ser executado em cada máquina e reagendar contentores a partir de máquinas com falhas para nós em bom estado.
+- **Monitorização de estado de funcionamento**: Procure falhas de contentores e automaticamente reagendá-los.
+- **Ativação pós-falha**: Controlar o que está a ser executado em cada máquina e reagendar contentores a partir de máquinas com falhas para nós em bom estado.
 - **Dimensionamento**: Adicionar ou remover instâncias de contentor para corresponder a pedido, manual ou automaticamente.
-- **Funcionamento em rede**: forneça uma rede de sobreposição para a coordenação de contentores para comunicar em várias máquinas de host.
-- **Deteção do serviço**: ativa contentores localizar uns aos outros automaticamente, mesmo quando eles mover entre computadores anfitrião e alterar os endereços IP.
+- **Funcionamento em rede**: Forneça uma rede de sobreposição para contentores de coordenação comunicar em várias máquinas de host.
+- **Deteção do serviço**: Ative contentores localizar uns aos outros automaticamente, mesmo quando eles mover entre computadores anfitrião e alterar os endereços IP.
 - **As atualizações de aplicações de coordenada**: Gerir atualizações de contentor para evitar períodos de indisponibilidade de aplicação e ativar a reversão, caso algo corra mal.
 
-## <a name="orchestration-with-azure-container-instances-a-layered-approach"></a>Orquestração com o Azure Container Instances: uma abordagem em camadas
+## <a name="orchestration-with-azure-container-instances-a-layered-approach"></a>Orquestração com instâncias de contentor do Azure: Uma abordagem em camadas
 
 Azure Container Instances permite uma abordagem em camadas de orquestração, fornecendo todas as capacidades de agendamento e gestão necessárias para executar um único contentor, permitindo que plataformas do orchestrator gerir as tarefas de vários contentores com base no mesmo.
 

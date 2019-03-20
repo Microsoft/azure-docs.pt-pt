@@ -12,12 +12,12 @@ ms.workload: azure-vs
 ms.topic: article
 ms.date: 12/02/2016
 ms.author: ghogen
-ms.openlocfilehash: 74aea3ad4c3dda8abc69275ad4d683fbcf485ccc
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: f6f1a3a7f0a406e1dbb40f4bfc6a358da7ac68fa
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53722911"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57999551"
 ---
 # <a name="getting-started-with-azure-queue-storage-and-visual-studio-connected-services-webjob-projects"></a>Introdução ao armazenamento de filas do Azure e o Visual Studio ligados (projetos de trabalho Web) de serviços
 [!INCLUDE [storage-try-azure-tools-queues](../../includes/storage-try-azure-tools-queues.md)]
@@ -27,7 +27,7 @@ Este artigo descreve como começar a utilizar o armazenamento de filas do Azure 
 
 Este artigo fornece c# exemplos de código que mostram como utilizar a versão do SDK de WebJobs do Azure 1.x com o serviço de armazenamento de filas do Azure.
 
-O Armazenamento de Filas do Azure é um serviço para armazenar um grande número de mensagens que podem ser acedidas a partir de qualquer local no mundo através de chamadas autenticadas com HTTP ou HTTPS. Uma mensagem de fila única pode ter até 64 KB e uma fila pode conter milhões de mensagens, até ao limite da capacidade total de uma conta de armazenamento. Ver [introdução ao armazenamento de filas do Azure com o .NET](../storage/queues/storage-dotnet-how-to-use-queues.md) para obter mais informações. Para obter mais informações sobre o ASP.NET, consulte [ASP.NET](http://www.asp.net).
+O Armazenamento de Filas do Azure é um serviço para armazenar um grande número de mensagens que podem ser acedidas a partir de qualquer local no mundo através de chamadas autenticadas com HTTP ou HTTPS. Uma mensagem de fila única pode ter até 64 KB e uma fila pode conter milhões de mensagens, até ao limite da capacidade total de uma conta de armazenamento. Ver [introdução ao armazenamento de filas do Azure com o .NET](../storage/queues/storage-dotnet-how-to-use-queues.md) para obter mais informações. Para obter mais informações sobre o ASP.NET, consulte [ASP.NET](https://www.asp.net).
 
 ## <a name="how-to-trigger-a-function-when-a-queue-message-is-received"></a>Como acionar uma função quando é recebida uma mensagem de fila
 Para escrever uma função que o SDK do WebJobs chama quando é recebida uma mensagem de fila, utilize o **QueueTrigger** atributo. O construtor de atributo assume um parâmetro de cadeia de caracteres que especifica o nome da fila para consultar. Para ver como definir o nome da fila dinamicamente, confira [como definir opções de configuração](#how-to-set-configuration-options).
@@ -44,7 +44,7 @@ public static void ProcessQueueMessage([QueueTrigger("logqueue")] string logMess
 
 Além disso **cadeia de caracteres**, o parâmetro pode ser uma matriz de bytes, uma **CloudQueueMessage** objeto ou um POCO que definir.
 
-### <a name="poco-plain-old-clr-objecthttpenwikipediaorgwikiplainoldclrobject-queue-messages"></a>POCO [(objeto Plain Old CLR](http://en.wikipedia.org/wiki/Plain_Old_CLR_Object)) mensagens da fila
+### <a name="poco-plain-old-clr-objecthttpsenwikipediaorgwikiplainoldclrobject-queue-messages"></a>POCO [(objeto Plain Old CLR](https://en.wikipedia.org/wiki/Plain_Old_CLR_Object)) mensagens da fila
 No exemplo seguinte, a mensagem de fila contém JSON para um **BlobInformation** objeto que inclui um **BlobName** propriedade. O SDK automaticamente desserializa o objeto.
 
 ```csharp
@@ -54,7 +54,7 @@ public static void WriteLogPOCO([QueueTrigger("logqueue")] BlobInformation blobI
 }
 ```
 
-O SDK utiliza o [pacote NuGet newtonsoft](http://www.nuget.org/packages/Newtonsoft.Json) para serializar e desserializar mensagens. Se criar a fila de mensagens num programa que não usa o SDK do WebJobs, pode escrever código semelhante ao seguinte exemplo para criar uma mensagem de fila POCO que o SDK pode analisar.
+O SDK utiliza o [pacote NuGet newtonsoft](https://www.nuget.org/packages/Newtonsoft.Json) para serializar e desserializar mensagens. Se criar a fila de mensagens num programa que não usa o SDK do WebJobs, pode escrever código semelhante ao seguinte exemplo para criar uma mensagem de fila POCO que o SDK pode analisar.
 
 ```csharp
 BlobInformation blobInfo = new BlobInformation() { BlobName = "log.txt" };
@@ -72,7 +72,7 @@ public async static Task ProcessQueueMessageAsync([QueueTrigger("logqueue")] str
 }
 ```
 
-Funções de Async podem demorar um [token de cancelamento](http://www.asp.net/mvc/overview/performance/using-asynchronous-methods-in-aspnet-mvc-4#CancelToken), conforme mostrado no exemplo a seguir, que copia um blob. (Para obter uma explicação do **queueTrigger** marcador de posição, consulte a [Blobs](#how-to-read-and-write-blobs-and-tables-while-processing-a-queue-message) seção.)
+Funções de Async podem demorar um [token de cancelamento](https://www.asp.net/mvc/overview/performance/using-asynchronous-methods-in-aspnet-mvc-4#CancelToken), conforme mostrado no exemplo a seguir, que copia um blob. (Para obter uma explicação do **queueTrigger** marcador de posição, consulte a [Blobs](#how-to-read-and-write-blobs-and-tables-while-processing-a-queue-message) seção.)
 
 ```csharp
 public async static Task ProcessQueueMessageAsyncCancellationToken(
@@ -113,7 +113,7 @@ Pode obter as seguintes propriedades de mensagem adicionando parâmetros para a 
 * **cadeia de caracteres** queueTrigger (contém o texto da mensagem)
 * **cadeia de caracteres** id
 * **cadeia de caracteres** popReceipt
-* **Int** dequeueCount
+* **int** dequeueCount
 
 Se quiser trabalhar diretamente com a API de armazenamento do Azure, também pode adicionar um **CloudStorageAccount** parâmetro.
 
@@ -201,7 +201,7 @@ public static void CreateQueueMessage(
 }
 ```
 
-### <a name="poco-plain-old-clr-objecthttpenwikipediaorgwikiplainoldclrobject-queue-messages"></a>POCO [(objeto Plain Old CLR](http://en.wikipedia.org/wiki/Plain_Old_CLR_Object)) mensagens da fila
+### <a name="poco-plain-old-clr-objecthttpsenwikipediaorgwikiplainoldclrobject-queue-messages"></a>POCO [(objeto Plain Old CLR](https://en.wikipedia.org/wiki/Plain_Old_CLR_Object)) mensagens da fila
 Para criar uma mensagem de fila que contém um POCO, em vez de uma cadeia de caracteres, transmita o tipo POCO como um parâmetro de saída para o **fila** construtor de atributo.
 
 ```csharp
@@ -296,7 +296,7 @@ public static void DeleteBlob(
 }
 ```
 
-### <a name="poco-plain-old-clr-objecthttpenwikipediaorgwikiplainoldclrobject-queue-messages"></a>POCO [(objeto Plain Old CLR](http://en.wikipedia.org/wiki/Plain_Old_CLR_Object)) mensagens da fila
+### <a name="poco-plain-old-clr-objecthttpsenwikipediaorgwikiplainoldclrobject-queue-messages"></a>POCO [(objeto Plain Old CLR](https://en.wikipedia.org/wiki/Plain_Old_CLR_Object)) mensagens da fila
 Para um POCO armazenado como JSON na mensagem de fila, pode usar os marcadores de posição esse nome propriedades do objeto no **fila** do atributo **blobPath** parâmetro. Também pode utilizar nomes de propriedade de metadados de fila como espaços reservados. Ver [obter a fila ou metadados de mensagem de fila](#get-queue-or-queue-message-metadata).
 
 O exemplo seguinte copia um blob para um blob novo com uma extensão diferente. A mensagem de fila é uma **BlobInformation** objeto que inclui **BlobName** e **BlobNameWithoutExtension** propriedades. Os nomes de propriedade são utilizados como marcadores de posição no caminho do blob para o **BLOBs** atributos.
@@ -311,7 +311,7 @@ public static void CopyBlobPOCO(
 }
 ```
 
-O SDK utiliza o [pacote NuGet newtonsoft](http://www.nuget.org/packages/Newtonsoft.Json) para serializar e desserializar mensagens. Se criar a fila de mensagens num programa que não usa o SDK do WebJobs, pode escrever código semelhante ao seguinte exemplo para criar uma mensagem de fila POCO que o SDK pode analisar.
+O SDK utiliza o [pacote NuGet newtonsoft](https://www.nuget.org/packages/Newtonsoft.Json) para serializar e desserializar mensagens. Se criar a fila de mensagens num programa que não usa o SDK do WebJobs, pode escrever código semelhante ao seguinte exemplo para criar uma mensagem de fila POCO que o SDK pode analisar.
 
 ```csharp
 BlobInformation blobInfo = new BlobInformation() { BlobName = "boot.log", BlobNameWithoutExtension = "boot" };
@@ -331,7 +331,7 @@ O **BLOBs** atributo pode ser utilizado com os seguintes tipos:
 * **cadeia de caracteres de** (escrever; cria um blob apenas se o parâmetro de cadeia de caracteres não-nulo quando a função devolve)
 * POCO (leitura)
 * out POCO (escrever; sempre cria um blob, cria-se como um objeto nulo se POCO parâmetro for nulo quando a função devolve)
-* **CloudBlobStream** (escrita)
+* **CloudBlobStream** (write)
 * **ICloudBlob** (leitura ou escrita)
 * **CloudBlockBlob** (leitura ou escrita)
 * **CloudPageBlob** (leitura ou escrita)
@@ -442,7 +442,7 @@ static void Main(string[] args)
 ### <a name="set-values-for-webjobs-sdk-constructor-parameters-in-code"></a>Definir valores para o SDK do WebJobs parâmetros do construtor no código
 Por vezes, pretende especificar um nome de fila, um nome de blob ou contentor ou nome de uma tabela no código, em vez de codificá-lo. Por exemplo, pode pretender especificar o nome da fila **QueueTrigger** numa variável de ambiente ou ficheiro de configuração.
 
-Pode fazê-lo ao transmitir uma **NameResolver** objeto para o **JobHostConfiguration** tipo. Inclui marcadores de posição especiais rodeados por sinais de sinal de percentagem () nos parâmetros do construtor de atributo de SDK do WebJobs e a sua **NameResolver** código especifica os valores reais para ser utilizado em vez dos marcadores de posição.
+Pode fazê-lo ao transmitir uma **NameResolver** objeto para o **JobHostConfiguration** tipo. Inclui marcadores de posição especiais rodeados por sinal de percentagem) iniciar sessão nos parâmetros do construtor de atributo de SDK do WebJobs e a sua **NameResolver** código especifica os valores reais para ser utilizado em vez dos marcadores de posição.
 
 Por exemplo, suponha que pretende utilizar uma fila com o nome logqueuetest no ambiente de teste e um logqueueprod nomeado em produção. Em vez de um nome de fila codificada, pretender especificar o nome de uma entrada no **appSettings** coleção que tem o nome de fila real. Se o **appSettings** chave é logqueue, sua função pode ter um aspeto semelhante ao seguinte exemplo.
 
