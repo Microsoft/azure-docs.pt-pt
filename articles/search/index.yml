@@ -1,10 +1,10 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: 8caeb6ad79f82ecb86da313cca901cb3a16b6d5c
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: 8385fe5ecb9a6e17d872795ba4eff5c038e4df47
+ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56004711"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58199874"
 documentType: LandingData
 title: Documentação do Azure Search
 metadata:
@@ -57,12 +57,10 @@ sections:
   - type: list
     style: ordered
     items:
-    - html: <a href="/azure/search/cognitive-search-tutorial-blob">Aprenda as capacidades cognitivas das APIs REST</a>
+    - html: <a href="/azure/search/cognitive-search-tutorial-blob">Indexar com IA (Serviços Cognitivos)</a>
     - html: <a href="/azure/search/search-howto-dotnet-sdk">Como utilizar o Azure Search com .NET</a>
     - html: <a href="/azure/search/search-indexer-tutorial">Indexar conteúdo da Base de Dados SQL do Azure com .NET</a>
     - html: <a href="/azure/search/search-semi-structured-data">Indexar dados semiestruturados no armazenamento de Blobs do Azure com REST</a>
-    - html: <a href="/azure/search/search-synonyms-tutorial-sdk">Adicionar sinónimos para devolver resultados para termos equivalentes</a>
-    - html: <a href="/azure/search/search-autocomplete-tutorial">Adicionar a conclusão automática a uma caixa de pesquisa com .NET</a>
     - html: <a href="/azure/search/search-get-started-portal">Utilizar o portal para indexação e teste de consultas</a>
 - title: Referência
   items:

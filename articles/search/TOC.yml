@@ -32,16 +32,12 @@ items:
   expanded: true
 - name: Tutoriais
   items:
-  - name: Conheça as APIs de pesquisa cognitiva
-    href: cognitive-search-tutorial-blob.md
-  - name: Indexar blobs do Azure
-    href: search-semi-structured-data.md
   - name: Indexar a Base de Dados SQL do Azure
     href: search-indexer-tutorial.md
-  - name: Adicionar sinónimos em .NET
-    href: search-synonyms-tutorial-sdk.md
-  - name: Adicionar conclusão automática em .NET
-    href: search-autocomplete-tutorial.md
+  - name: Indexar blobs do Azure
+    href: search-semi-structured-data.md
+  - name: Indexar com IA (Serviços Cognitivos)
+    href: cognitive-search-tutorial-blob.md
 - name: Amostras
   items:
   - name: Exemplos de código do Azure
@@ -120,12 +116,18 @@ items:
         href: index-add-language-analyzers.md
       - name: Adicionar um analisador personalizado
         href: index-add-custom-analyzers.md
-    - name: Adicionar sugestão automática
-      href: index-add-suggesters.md
-    - name: Adicionar navegação por facetas
-      href: search-faceted-navigation.md
-    - name: Adicionar sinónimos
-      href: search-synonyms.md
+    - name: Escrita antecipada
+      items:
+      - name: Adicionar sugestão automática
+        href: index-add-suggesters.md
+      - name: Exemplo de preenchimento automático
+        href: search-autocomplete-tutorial.md
+    - name: Sinónimos
+      items:
+      - name: Adicionar sinónimos
+        href: search-synonyms.md
+      - name: Exemplo de sinónimos
+        href: search-synonyms-tutorial-sdk.md
     - name: Modelar tipos de dados complexos
       href: search-howto-complex-data-types.md
     - name: Modelar dados relacionais
@@ -212,6 +214,8 @@ items:
       href: search-filters.md
     - name: Filtros de facetas
       href: search-filters-facets.md
+    - name: Adicionar navegação por facetas
+      href: search-faceted-navigation.md
     - name: Sintaxe de expressão de filtro e OrderBy
       href: query-odata-filter-orderby-syntax.md
   - name: Ajuste de relevância
@@ -303,9 +307,9 @@ items:
     href: https://azure.microsoft.com/pricing/details/search/
   - name: Vídeos
     href: https://azure.microsoft.com/resources/videos/index/?services=search
-ms.openlocfilehash: 9127da44295defc522de45eb53ed7e6541287002
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: a7b839de360f1c03e5496f058109b6ab239fe9df
+ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57860432"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58202780"

@@ -1,10 +1,10 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: db83cf4310cb4d74dcbbd290f650e4dcfc00c0c8
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
+ms.openlocfilehash: e389eb01faff93c0e45c66cded41e94ac3730715
+ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56343711"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58226033"
 documentType: LandingData
 title: Documentação do Azure Policy
 metadata:
@@ -15,7 +15,7 @@ metadata:
   manager: carmonm
   ms.service: azure-policy
   ms.topic: landing-page
-  ms.date: 01/23/2019
+  ms.date: 03/16/2019
   ms.author: dacoulte
 abstract:
   description: O Azure Policy ajuda-o a gerir e evitar problemas de TI com definições de políticas que impõem regras e efeitos aos seus recursos. Quando utiliza o Azure Policy, os recursos mantêm-se em conformidade com os seus padrões empresariais e contratos de nível de serviço.
@@ -29,7 +29,7 @@ sections:
     items:
     - image:
         alt: Portal do Azure
-        src: ./media/portal.svg
+        src: https://docs.microsoft.com/media/common/i_portal.svg
       text: Portal do Azure
       href: ./assign-policy-portal
     - image:
@@ -42,6 +42,11 @@ sections:
         src: ./media/cli.svg
       text: CLI do Azure
       href: ./assign-policy-azurecli
+    - image:
+        alt: Modelo do Resource Manager
+        src: https://docs.microsoft.com/media/logos/logo_vs-code.svg
+      text: Modelo do Resource Manager
+      href: ./assign-policy-template
 - title: Tutoriais Passo-a-Passo
   items:
   - type: paragraph
@@ -50,15 +55,16 @@ sections:
     style: unordered
     items:
     - html: <a href="/azure/governance/policy/tutorials/create-and-manage">Criar e gerir o Azure Policy</a>
+    - html: <a href="/azure/governance/policy/tutorials/create-custom-policy-definition">Criar uma definição de política personalizada</a>
 - title: Amostras
   items:
   - type: paragraph
-    text: Utilize os seguintes exemplos de JSON para ajudar a criar definições de políticas no Azure.
+    text: Analise os exemplos disponíveis para ajudar a criar definições de políticas no Azure.
   - type: list
     style: unordered
     className: spaced noBullet
     items:
-    - html: <a href="/azure/governance/policy/samples/index">Azure PowerShell</a>
+    - html: <a href="/azure/governance/policy/samples/index">Índice de exemplos</a>
 - title: Referência
   items:
   - type: list
@@ -66,8 +72,8 @@ sections:
     className: cardsD
     items:
     - title: Linha de Comandos
-      html: <p><a href="/cli/azure/policy">CLI do Azure</a></p>
-    - title: PowerShell
-      html: <p><a href="/powershell/module/az.resources/#policies">Azure PowerShell</a></p>
-    - title: API REST
-      html: <p><a href="/rest/api/policy-insights/policyevents">Eventos</a></p><p><a href="/rest/api/policy-insights/policystates">Estados</a></p><p><a href="/rest/api/resources/policyassignments">Atribuições</a></p><p><a href="/rest/api/resources/policydefinitions">Definições de Política</a></p><p><a href="/rest/api/resources/policysetdefinitions">Definições de Iniciativas</a></p><p><a href="/rest/api/policy-insights/policytrackedresources">Recursos Controlados por Política</a></p><p><a href="/rest/api/policy-insights/remediations">Remediações</a></p>
+      html: <p><a href="/cli/azure/policy">CLI do Azure</a></p><p><a href="/powershell/module/az.resources/#policies">Azure PowerShell (Política)</a></p><p><a href="/powershell/module/az.policyinsights#policy_insights">Azure PowerShell (Informações da Política)</a></p><p><a href="https://www.powershellgallery.com/packages/Az.GuestConfiguration">Azure PowerShell (Configuração de Convidado)</a></p>
+    - title: Modelos do Resource Manager
+      html: <p><a href="/azure/templates/microsoft.authorization/policyassignments">Atribuições</a></p><p><a href="/azure/templates/microsoft.authorization/policydefinitions">Definições de Política</a></p><p><a href="/azure/templates/microsoft.authorization/policysetdefinitions">Definições de Iniciativas</a></p>
+    - title: REST
+      html: <p><a href="/rest/api/policy-insights/policyevents">Eventos</a></p><p><a href="/rest/api/policy-insights/policystates">Estados</a></p><p><a href="/rest/api/resources/policyassignments">Atribuições</a></p><p><a href="/rest/api/resources/policydefinitions">Definições de Política</a></p><p><a href="/rest/api/resources/policysetdefinitions">Definições de Iniciativas</a></p><p><a href="/rest/api/policy-insights/policytrackedresources">Recursos Controlados por Política</a></p><p><a href="/rest/api/policy-insights/remediations">Remediações</a></p><p><a href="/rest/api/guestconfiguration/">Configuração de Convidado</a></p>

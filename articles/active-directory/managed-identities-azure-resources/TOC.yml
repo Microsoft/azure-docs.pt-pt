@@ -99,6 +99,8 @@ items:
       href: how-to-use-vm-sign-in.md
     - name: Utilizar com os SDKs do Azure
       href: how-to-use-vm-sdk.md
+    - name: Parar de utilizar a extensão de VM e começar a utilizar o Azure IMDS
+      href: howto-migrate-vm-extension.md
   - name: Atribuir um acesso de identidade gerida a outro recurso do Azure
     items:
     - name: Portal
@@ -155,9 +157,9 @@ items:
     href: https://stackoverflow.com/questions/tagged/azure-msi
   - name: Fórum de Programadores do AAD
     href: https://feedback.azure.com/forums/169401-azure-active-directory/category/164757-developer-experiences
-ms.openlocfilehash: 0af911de9bd2982738c3c57ed9f5c266ba4b57f4
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: d3acf08588861f735583cf72541051809c31bc9b
+ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55451687"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58224605"

@@ -32,6 +32,8 @@ items:
     href: https://docs.azuredatabricks.net/user-guide/jobs.html
   - name: Ligar a origens de dados
     href: databricks-connect-to-data-sources.md
+  - name: Utilizar a inserção de VNet
+    href: vnet-injection.md
   - name: Utilizar com o Azure Data Factory
     href: ../data-factory/transform-data-using-databricks-notebook.md
     maintainContext: true
@@ -71,9 +73,9 @@ items:
     href: https://azure.microsoft.com/regions/services/
   - name: Opções de suporte
     href: https://azure.microsoft.com/support/options/
-ms.openlocfilehash: d35ad21cf21b273bb36fa933dac779baf4a5a965
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 58c18654cd981f8ec9cb6edfdd0024f2fef32268
+ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57551556"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58223347"

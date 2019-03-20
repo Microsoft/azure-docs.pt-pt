@@ -75,6 +75,8 @@ items:
       href: classroom-labs/how-to-use-classroom-lab.md
     - name: Criar e gerir agendamentos
       href: classroom-labs/how-to-create-schedules.md
+    - name: Criar um ambiente com várias VMs dentro de uma VM de modelo
+      href: classroom-labs/how-to-enable-multi-vm-environment.md
   - name: DevTest Labs
     items:
     - name: Especificar o grupo de recursos para as máquinas virtuais de laboratório
@@ -248,9 +250,9 @@ items:
       href: https://azure.microsoft.com/resources/videos/index/?services=devtest-lab
     - name: Perguntas mais frequentes
       href: devtest-lab-faq.md
-ms.openlocfilehash: b3cdd68b2a2b842da89a9866dc473c6d0c924e26
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.openlocfilehash: 773faa503cb3fc29ef07b310b5ee2a7af5089d49
+ms.sourcegitcommit: f331186a967d21c302a128299f60402e89035a8d
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57307943"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58189009"

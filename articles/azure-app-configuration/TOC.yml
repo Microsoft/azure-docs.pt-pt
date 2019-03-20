@@ -1,5 +1,5 @@
 items:
-- name: Documentação da Configuração da Aplicação Azure (Pré-visualização)
+- name: Documentação da Pré-visualização da Configuração da Aplicação Azure
   href: index.yml
 - name: Descrição geral
   items:
@@ -13,7 +13,7 @@ items:
     href: quickstart-dotnet-core-app.md
   - name: Criar uma aplicação .NET Framework
     href: quickstart-dotnet-app.md
-  - name: Criar uma Função do Azure
+  - name: Criar uma função do Azure
     href: quickstart-azure-function-csharp.md
   - name: Criar uma aplicação Java Spring
     href: quickstart-java-spring-app.md
@@ -54,9 +54,9 @@ items:
   items:
   - name: Fornecer comentários sobre o produto
     href: https://github.com/Azure/AppConfiguration
-ms.openlocfilehash: 6723ea35f6cc674c0e2776260c2077d781a5014c
-ms.sourcegitcommit: f7f4b83996640d6fa35aea889dbf9073ba4422f0
+ms.openlocfilehash: 2a0c67c39a17b5a7035f569ed860cd4e6b3cd844
+ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56989777"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58224537"

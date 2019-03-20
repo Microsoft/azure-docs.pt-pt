@@ -1,15 +1,15 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: a8b9bde79e811805fc692628c2b9d718da8408c8
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: e9ec024387f635457f6d8f651cf3a8444ce50440
+ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57547355"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58226594"
 documentType: LandingData
-title: Documentação da Configuração da Aplicação Azure (Pré-visualização)
+title: Documentação da Pré-visualização da Configuração da Aplicação Azure
 metadata:
   title: Documentação da Configuração da Aplicação Azure - Tutoriais, Referência da API
-  meta.description: Azure App Configuration is an Azure managed service that helps developers centralize their application configurations simply and securely.
+  meta.description: Azure App Configuration is a managed service that helps developers centralize their application configurations simply and securely.
   services: azure-app-configuration
   author: yegu-ms
   manager: balans
@@ -20,7 +20,7 @@ metadata:
   ms.date: 02/24/2019
   ms.author: yegu
 abstract:
-  description: A Configuração da Aplicação Azure é um serviço gerido do Azure que ajuda os programadores a centralizar as respetivas configurações de aplicações de forma simples e segura.
+  description: A Configuração da Aplicação Azure é um serviço gerido que ajuda os programadores a centralizar as respetivas configurações de aplicações de forma simples e segura.
 sections:
 - title: Inícios rápidos de cinco minutos
   items:
@@ -49,7 +49,7 @@ sections:
         src: https://docs.microsoft.com/java/docs-ref-conceptual/media/spring.svg
       text: Java Spring
       href: /azure/azure-app-configuration/quickstart-java-spring-app
-- title: Tutoriais Passo-a-Passo
+- title: Tutoriais passo-a-passo
   items:
   - type: paragraph
     text: Saiba como criar aplicações com a Configuração da Aplicação Azure

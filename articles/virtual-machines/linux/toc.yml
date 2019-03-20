@@ -137,6 +137,7 @@ items:
     - name: Utilizar a CLI
       href: create-cli-complete.md
     - name: Utilizar um modelo
+      displayName: Azure Resource Manager, ARM
       href: create-ssh-secured-vm-from-template.md
     - name: Utilizar a API REST
       href: create-vm-rest-api.md
@@ -414,6 +415,7 @@ items:
     - name: Desligar um disco
       href: detach-disk.md
     - name: Implementar discos com modelo
+      displayName: Azure Resource Manager, ARM
       href: using-managed-disks-template-deployments.md
     - name: Redimensionar um disco
       href: expand-disks.md
@@ -481,6 +483,7 @@ items:
     - name: PowerShell
       href: /azure/active-directory/managed-identities-azure-resources/qs-configure-powershell-windows-vm?context=azure/virtual-machines/linux/context/linux-vm-context
     - name: Modelo do Azure Resource Manager
+      displayName: ARM
       href: /azure/active-directory/managed-identities-azure-resources/qs-configure-template-windows-vm?context=azure/virtual-machines/linux/context/linux-vm-context
     - name: REST
       href: /azure/active-directory/managed-identities-azure-resources/qs-configure-rest-vm?context=azure/virtual-machines/linux/context/linux-vm-context
@@ -541,13 +544,15 @@ items:
 - name: Recursos
   items:
   - name: Modelos de autor
-    href: ../../azure-resource-manager/resource-group-authoring-templates.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
+    displayName: Azure Resource Manager, ARM
+    href: /azure/azure-resource-manager/
   - name: Desenvolva as suas competências com o Microsoft Learn
     href: /learn/browse/?products=azure-virtual-machines
   - name: Mapa do Azure
     href: https://azure.microsoft.com/roadmap/
-  - name: Modelos da comunidade
-    href: https://azure.microsoft.com/documentation/templates
+  - name: Modelos de Início Rápido do Azure
+    displayName: Azure Resource Manager, ARM
+    href: https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Compute&pageNumber=1&sort=Popular
   - name: Preços
     href: https://azure.microsoft.com/pricing/details/#Linux
   - name: Disponibilidade regional
@@ -560,9 +565,9 @@ items:
     href: faq.md
 - name: Resolução de problemas
   href: ../troubleshooting/index.md
-ms.openlocfilehash: c3263fb722a0fdc74d52e2fe5e79c05c266e583a
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: a6563c71032c5b96217189648871f91817781392
+ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58007821"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58225030"

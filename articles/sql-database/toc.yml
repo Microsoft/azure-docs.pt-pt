@@ -533,10 +533,16 @@ items:
       href: sql-database-develop-overview.md
     - name: Trabalhar com dados JSON
       href: sql-database-json-features.md
+    - name: Utilizar o Serviço de Aplicações do ASP.NET
+      href: /azure/app-service/app-service-web-tutorial-dotnet-sqldatabase?toc=/azure/sql-database/toc.json
     - name: Utilizar Funções do Azure
       href: ../azure-functions/functions-scenario-database-table-cleanup.md?toc=/azure/sql-database/toc.json
+    - name: Utilizar o Azure Logic Apps
+      href: /azure/connectors/connectors-create-api-sqlazure?toc=/azure/sql-database/toc.json
     - name: Utilizar o Conector do Spark
       href: sql-database-spark-connector.md
+    - name: Indexar com o Azure Search
+      href: /azure/search/search-howto-connecting-azure-sql-database-to-azure-search-using-indexers?toc=/azure/sql-database/toc.json
     - name: Autenticar aplicação
       href: sql-database-client-id-keys.md
     - name: Mensagens de erro
@@ -718,9 +724,9 @@ items:
       href: sql-database-elastic-jobs-getting-started.md
     - name: Desinstalar tarefa elástica (preterido)
       href: sql-database-elastic-jobs-uninstall.md
-ms.openlocfilehash: 8c0124072f26716a25cc2fc098c2da0a29a6b15f
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 41379e27d936db125261459c106687fc6c74a098
+ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57835508"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58227002"
