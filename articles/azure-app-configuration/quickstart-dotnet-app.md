@@ -14,22 +14,22 @@ ms.tgt_pltfrm: .NET
 ms.workload: tbd
 ms.date: 02/24/2019
 ms.author: yegu
-ms.openlocfilehash: becd91b3539ef992289a4032283be64fbf9d123d
-ms.sourcegitcommit: 1902adaa68c660bdaac46878ce2dec5473d29275
+ms.openlocfilehash: 551b884f032eaba3f052fcb7571ba907038152ff
+ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/11/2019
-ms.locfileid: "57729357"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58226849"
 ---
 # <a name="quickstart-create-a-net-framework-app-with-azure-app-configuration"></a>Início rápido: Criar um .NET Framework de aplicação com a configuração de aplicações do Azure
 
-Configuração de aplicações do Azure é um serviço de configuração gerida no Azure. Permite-lhe armazenar e gerir todas as suas definições de aplicação num único local que é separada do seu código facilmente. Este guia de introdução mostra-lhe como incorporar o serviço uma aplicação de consola de ambiente de trabalho do Windows baseados no .NET Framework.
+Configuração de aplicações do Azure é um serviço de configuração gerida no Azure. Pode usá-lo facilmente armazenar e gerir todas as suas definições de aplicação num único local que é separada a partir do código. Este guia de introdução mostra-lhe como incorporar o serviço uma aplicação de consola de ambiente de trabalho do Windows baseados no .NET Framework.
 
-![Início rápido concluído no local](./media/quickstarts/dotnet-fx-app-run.png)
+![Local completa do guia de introdução](./media/quickstarts/dotnet-fx-app-run.png)
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Para concluir este início rápido, instale [Visual Studio 2017](https://visualstudio.microsoft.com/vs) e [.NET Framework 4.7.1](https://dotnet.microsoft.com/download) ou posterior se ainda não o fez.
+Para fazer este início rápido, instale [Visual Studio 2017](https://visualstudio.microsoft.com/vs) e [.NET Framework 4.7.1](https://dotnet.microsoft.com/download) ou posterior se ainda não o fez.
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
@@ -41,17 +41,17 @@ Para concluir este início rápido, instale [Visual Studio 2017](https://visuals
 
 1. Inicie o Visual Studio e selecione **arquivo** > **New** > **projeto**.
 
-2. Na **novo projeto** caixa de diálogo, selecione **instalado**, expanda **Visual C#**   >  **Windows Desktop**, selecione  **Aplicação da consola (.NET Framework)**, introduza um **Name** para o seu projeto, escolha **.NET Framework 4.7.1** ou a cópia de segurança e clique em **OK**.
+2. Na **novo projeto**, selecione **instalado** > **Visual C#**   >  **Windows Desktop**. Selecione **aplicação de consola (.NET Framework)** e introduza um nome para o seu projeto. Selecione **.NET Framework 4.7.1** ou cópias de segurança e selecione **OK**.
 
-## <a name="connect-to-app-configuration-store"></a>Ligar ao arquivo de configuração de aplicação
+## <a name="connect-to-an-app-configuration-store"></a>Ligar a um arquivo de configuração de aplicação
 
-1. Clique no projeto e selecione **gerir pacotes NuGet...** . Na **navegue** separador, procurar e adicionar o seguinte pacotes NuGet ao seu projeto (Verifique a **incluir pré-lançamento** caixa se não é possível encontrá-los).
+1. Clique no projeto e selecione **gerir pacotes NuGet**. Sobre o **procurar** separador, procure e adicione os seguintes pacotes NuGet ao seu projeto. Se não é possível encontrá-los, selecione o **incluir pré-lançamento** caixa de verificação.
     ```
     Microsoft.Configuration.ConfigurationBuilders.AzureAppConfiguration 1.0.0 preview or later
     Microsoft.Configuration.ConfigurationBuilders.Environment 2.0.0 preview or later
     ```
 
-2. Atualização do *App. config* ficheiro do seu projeto seguinte:
+2. Atualização do *App. config* ficheiro do seu projeto da seguinte forma:
 
     ```xml
     <configSections>
@@ -71,9 +71,9 @@ Para concluir este início rápido, instale [Visual Studio 2017](https://visuals
     </appSettings>
     ```
 
-   Tenha em atenção, como podemos estará lendo a cadeia de ligação do seu arquivo de configuração de aplicação da variável de ambiente `ConnectionString`, é importante adicionar a `Environment` builder de configuração antes do `MyConfigStore` no `configBuilders` propriedade do `appSettings` secção.
+   A cadeia de ligação do seu arquivo de configuração de aplicação é de leitura da variável de ambiente `ConnectionString`. Adicionar a `Environment` builder de configuração antes do `MyConfigStore` no `configBuilders` propriedade do `appSettings` secção.
 
-3. Open *Program.cs* e atualizar a `Main` método a utilizar a configuração de aplicações ao chamar `ConfigurationManager`.
+3. Open *Program.cs*e atualizar a `Main` método a utilizar a configuração de aplicações ao chamar `ConfigurationManager`.
 
     ```csharp
     static void Main(string[] args)
@@ -86,15 +86,15 @@ Para concluir este início rápido, instale [Visual Studio 2017](https://visuals
 
 ## <a name="build-and-run-the-app-locally"></a>Criar e executar a aplicação localmente
 
-1. Definir uma variável de ambiente com o nome **ConnectionString** para a cadeia de ligação do seu arquivo de configuração de aplicação. Se estiver a utilizar o Prompt de comando do Windows, execute o seguinte comando:
+1. Definir uma variável de ambiente com o nome **ConnectionString** para a cadeia de ligação do seu arquivo de configuração de aplicação. Se utilizar a linha de comandos do Windows, execute o seguinte comando:
 
         setx ConnectionString "connection-string-of-your-app-configuration-store"
 
-    Se estiver a utilizar o Windows PowerShell, execute o seguinte comando:
+    Se utilizar o Windows PowerShell, execute o seguinte comando:
 
         $Env:ConnectionString = "connection-string-of-your-app-configuration-store"
 
-2. Reinicie o Visual Studio para permitir que a alteração entre em vigor e, em seguida, prima **Ctrl + F5** no teclado para compilar e executar a aplicação de consola.
+2. Reinicie o Visual Studio para permitir que a alteração tenha efeito. Prima Ctrl + F5 para compilar e executar a aplicação de consola.
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 

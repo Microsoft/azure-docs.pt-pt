@@ -16,19 +16,19 @@ ms.date: 07/13/2017
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ce4ad48a81d5f3b3b8574237b8d8685ad9b141ec
-ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
+ms.openlocfilehash: 2f2d9a7c8cfbfc4fb56ff8fba3c65ae9a7925830
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57194210"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57852975"
 ---
 # <a name="azure-ad-connect-upgrade-from-dirsync"></a>Azure AD Connect: Atualização do DirSync
 O Azure AD Connect é o sucessor do DirSync. Encontrará neste tópico as forma de atualizar a partir do DirSync. Estes passos não funcionam para atualizar a partir de outra versão do Azure AD Connect ou a partir do Azure AD Sync.
 
 Antes de começar a instalar o Azure AD Connect, certifique-se de que [transferir o Azure AD Connect](https://go.microsoft.com/fwlink/?LinkId=615771) e concluir os pré-requisitos indicados [do Azure AD Connect: Pré-requisitos de hardware e](how-to-connect-install-prerequisites.md). Em particular, pretende ler sobre o seguinte, uma vez que estas áreas são diferentes do DirSync:
 
-* A versão necessária do .Net and PowerShell. É necessário que estejam versões mais recentes no servidor do que era necessário no DirSync.
+* A versão necessária do .NET e o PowerShell. É necessário que estejam versões mais recentes no servidor do que era necessário no DirSync.
 * A configuração de servidor proxy. Se utilizar um servidor proxy para a Internet, esta definição tem de ser configurada antes de atualizar. O DirSync utilizou sempre o servidor proxy configurado para o utilizador que o instalava; em vez disso, o Azure AD Connect utiliza definições do computador.
 * Os URLs que devem estar abertos no servidor proxy. Para cenários básicos que também sejam suportados pelo DirSync, os requisitos são os mesmos. Se pretender utilizar qualquer uma das novas funcionalidades incluídas no Azure AD Connect, alguns URLs têm de estar abertos.
 
@@ -41,7 +41,7 @@ Se não estiver a atualizar do DirSync, consulte a documentação relacionada pa
 Dependendo da sua implementação atual do DirSync, existem várias opções para a atualização. Se o tempo estimado para a atualização for inferior a três horas, recomenda-se efetuar uma atualização no local. Se o tempo estimado para a atualização for superior a três horas, recomenda-se efetuar uma implementação paralela noutro servidor. Estima-se que, se tiver mais de 50 000 objetos, a atualização demorará mais de três horas.
 
 | Cenário |
-| --- | --- |
+| --- |
 | [Atualização no local](#in-place-upgrade) |
 | [Implementação paralela](#parallel-deployment) |
 

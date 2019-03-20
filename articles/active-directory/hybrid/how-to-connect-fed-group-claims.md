@@ -12,12 +12,12 @@ ms.topic: article
 ms.date: 02/27/2019
 ms.author: billmath
 author: billmath
-ms.openlocfilehash: 12ccb4978a8cfbaa7dede8d0093c78da05295fec
-ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
+ms.openlocfilehash: 622a3ce0f80bd09bd09fa7ff097f68155318142d
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57410014"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58080361"
 ---
 # <a name="configure-group-claims-for-applications-with-azure-active-directory-public-preview"></a>Configurar afirmações de grupo para aplicações com o Azure Active Directory (pré-visualização pública)
 
@@ -111,60 +111,60 @@ Algumas aplicações necessitam das informações de associação de grupo apare
 
 Afirmações de grupo também podem ser configuradas no [afirmações opcionais](../../active-directory/develop/active-directory-optional-claims.md) secção a [manifesto de aplicativo](../../active-directory/develop/reference-app-manifest.md).
 
- 1. No portal -> Azure Active Directory -> aplicação registos -> selecione aplicação -> manifesto
+1. No portal -> Azure Active Directory -> aplicação registos -> selecione aplicação -> manifesto
 
- 2. Ativar afirmações de associação de grupo, alterando o groupMembershipClaim
+2. Ativar afirmações de associação de grupo, alterando o groupMembershipClaim
 
-    Os valores válidos são:
+   Os valores válidos são:
 
-    - "Tudo"
-    - "SecurityGroup"
-    - "DistributionList"
-    - "DirectoryRole"
+   - "Tudo"
+   - "SecurityGroup"
+   - "DistributionList"
+   - "DirectoryRole"
 
-    Por exemplo:
+   Por exemplo:
 
-    ```json
-    "groupMembershipClaims": "SecurityGroup"
-    ```
+   ```json
+   "groupMembershipClaims": "SecurityGroup"
+   ```
 
-    Por predefinição que ObjectIds grupo será emitido no grupo de valor de afirmação.  Para modificar o valor de afirmação para conter nos atributos de grupo local ou para alterar o tipo de afirmação a função, utilize a configuração de OptionalClaims da seguinte forma:
+   Por predefinição que ObjectIds grupo será emitido no grupo de valor de afirmação.  Para modificar o valor de afirmação para conter nos atributos de grupo local ou para alterar o tipo de afirmação a função, utilize a configuração de OptionalClaims da seguinte forma:
 
- 3. Conjunto de afirmações opcionais de configuração do nome de grupo.
+3. Conjunto de afirmações opcionais de configuração do nome de grupo.
 
-    Se quiser grupos no token para conter no local, atributos de grupo do AD na secção afirmações opcionais especificam qual afirmação opcional do tipo de token deve ser aplicada, o nome da afirmação opcional solicitada e as propriedades adicionais assim o desejar.  Vários tipos de tokens podem ser listados:
+   Se quiser grupos no token para conter no local, atributos de grupo do AD na secção afirmações opcionais especificam qual afirmação opcional do tipo de token deve ser aplicada, o nome da afirmação opcional solicitada e as propriedades adicionais assim o desejar.  Vários tipos de tokens podem ser listados:
 
-    - idToken para o token de ID de OIDC
-    - accessToken para o token de acesso de OAuth/OIDC
-    - Saml2Token para SAML tokens.
+   - idToken para o token de ID de OIDC
+   - accessToken para o token de acesso de OAuth/OIDC
+   - Saml2Token para SAML tokens.
 
-    > [!NOTE]
-    > O tipo de Saml2Token aplica-se a SAML1.1 e SAML2.0 tokens de formato
+   > [!NOTE]
+   > O tipo de Saml2Token aplica-se a SAML1.1 e SAML2.0 tokens de formato
 
-    Para cada tipo de token relevante, modifique a declaração de grupos para utilizar a secção de OptionalClaims no manifesto. O esquema de OptionalClaims é o seguinte:
+   Para cada tipo de token relevante, modifique a declaração de grupos para utilizar a secção de OptionalClaims no manifesto. O esquema de OptionalClaims é o seguinte:
 
- ```json
- {
-    "name": "groups",
-    "source": null,
-    "essential": false,
-    "additionalProperties": []
- }
- ```
+   ```json
+   {
+   "name": "groups",
+   "source": null,
+   "essential": false,
+   "additionalProperties": []
+   }
+   ```
 
- | Esquema de afirmações opcionais | Value |
- |----------|-------------|
- | **name:** | Tem de ser "grupos" |
- | **Origem:** | Não utilizado. Omitir ou especifique null |
- | **essential:** | Não utilizado. Omitir ou especifique false |
- | **additionalProperties:** | Lista de propriedades adicionais.  As opções válidas são "sam_account_name", "dns_domain_and_sam_account_name", "netbios_domain_and_sam_account_name", "emit_as_roles" |
+   | Esquema de afirmações opcionais | Value |
+   |----------|-------------|
+   | **name:** | Tem de ser "grupos" |
+   | **Origem:** | Não utilizado. Omitir ou especifique null |
+   | **essential:** | Não utilizado. Omitir ou especifique false |
+   | **additionalProperties:** | Lista de propriedades adicionais.  As opções válidas são "sam_account_name", "dns_domain_and_sam_account_name", "netbios_domain_and_sam_account_name", "emit_as_roles" |
 
- No additionalProperties apenas um dos "sam_account_name", "dns_domain_and_sam_account_name", "netbios_domain_and_sam_account_name" são necessários.  Se existir mais do que um, o primeiro é utilizado e quaisquer outros ignorados.
+   No additionalProperties apenas um dos "sam_account_name", "dns_domain_and_sam_account_name", "netbios_domain_and_sam_account_name" são necessários.  Se existir mais do que um, o primeiro é utilizado e quaisquer outros ignorados.
 
- Algumas aplicações necessitam de informações do grupo sobre o utilizador na declaração de função.  Para alterar o tipo de afirmação a partir de um grupo de afirmação para uma declaração role, adicione "emit_as_roles" às propriedades adicionais.  Os valores de grupo serão emitidos na declaração de função.
+   Algumas aplicações necessitam de informações do grupo sobre o utilizador na declaração de função.  Para alterar o tipo de afirmação a partir de um grupo de afirmação para uma declaração role, adicione "emit_as_roles" às propriedades adicionais.  Os valores de grupo serão emitidos na declaração de função.
 
- > [!NOTE]
- > Se for utilizado "emit_as_roles" quaisquer funções de aplicação configurado que é atribuída ao utilizador irá não aparecem na declaração de função
+   > [!NOTE]
+   > Se for utilizado "emit_as_roles" quaisquer funções de aplicação configurado que é atribuída ao utilizador irá não aparecem na declaração de função
 
 ### <a name="examples"></a>Exemplos
 
