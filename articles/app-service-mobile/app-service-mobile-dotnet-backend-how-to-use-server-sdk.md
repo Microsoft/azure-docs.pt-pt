@@ -15,12 +15,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 10/01/2016
 ms.author: crdun
-ms.openlocfilehash: 33e968ac608c393d65f69bfd6abbc0d205fb9bd9
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: 195a2dd88f443120f337ba441358389f0dc290f8
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53718882"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58078793"
 ---
 # <a name="work-with-the-net-backend-server-sdk-for-azure-mobile-apps"></a>Trabalhe com o SDK do servidor de back-end .NET para Aplicações Móveis do Azure
 [!INCLUDE [app-service-mobile-selector-server-sdk](../../includes/app-service-mobile-selector-server-sdk.md)]
@@ -240,10 +240,10 @@ Também pode utilizar o `UseDefaultConfiguration()` método de extensão em vez 
 ## <a name="how-to-work-with-authentication"></a>Como: Trabalhar com a autenticação
 Aplicações móveis do Azure utiliza a autenticação de serviço de aplicação / autorização para proteger o seu back-end móvel.  Esta secção mostra como realizar as seguintes tarefas relacionadas com a autenticação no seu projeto de servidor de back-end do .NET:
 
-* [Como: Adicionar autenticação a um projeto de servidor](#add-auth)
-* [Como: Utilizar a autenticação personalizada para a sua aplicação](#custom-auth)
-* [Como: Obter as informações de utilizador autenticado](#user-info)
-* [Como: Restringir o acesso de dados para os utilizadores autorizados](#authorize)
+* [How to: Adicionar autenticação a um projeto de servidor](#add-auth)
+* [How to: Utilizar a autenticação personalizada para a sua aplicação](#custom-auth)
+* [How to: Obter as informações de utilizador autenticado](#user-info)
+* [How to: Restringir o acesso de dados para os utilizadores autorizados](#authorize)
 
 ### <a name="add-auth"></a>Como: Adicionar autenticação a um projeto de servidor
 Pode adicionar autenticação ao seu projeto de servidor, estendendo o **MobileAppConfiguration** objeto e a configuração de middleware da OWIN. Ao instalar o [Microsoft.Azure.Mobile.Server.Quickstart] pacote e chamar os **UseDefaultConfiguration** método de extensão, pode avançar para o passo 3.
@@ -263,7 +263,7 @@ Para saber mais sobre como autenticar os clientes para o back-end de aplicaçõe
 > Para ativar a autenticação personalizada, primeiro tem de ativar autenticação do serviço de aplicações sem selecionar um fornecedor para o serviço de aplicações no portal do Azure. Isso permitirá que a variável de ambiente de WEBSITE_AUTH_SIGNING_KEY quando hospedado.
 > 
 > 
-Se não pretender utilizar um dos fornecedores de autenticação/autorização do serviço da aplicação, pode implementar seu próprio sistema de início de sessão. Instalar o [Microsoft.Azure.Mobile.Server.Login] pacote para ajudar a geração de tokens de autenticação.  Fornece seu próprio código para validar as credenciais do utilizador. Por exemplo, pode verificar em relação a SALT e hash palavras-passe numa base de dados. No exemplo abaixo, o `isValidAssertion()` método (definido em outro lugar) é responsável por estas verificações.
+> Se não pretender utilizar um dos fornecedores de autenticação/autorização do serviço da aplicação, pode implementar seu próprio sistema de início de sessão. Instalar o [Microsoft.Azure.Mobile.Server.Login] pacote para ajudar a geração de tokens de autenticação.  Fornece seu próprio código para validar as credenciais do utilizador. Por exemplo, pode verificar em relação a SALT e hash palavras-passe numa base de dados. No exemplo abaixo, o `isValidAssertion()` método (definido em outro lugar) é responsável por estas verificações.
 
 A autenticação personalizada é exposta ao criar um ApiController e expor `register` e `login` ações. O cliente deve usar uma interface do Usuário personalizada para recolher as informações do usuário.  As informações, em seguida, foi submetidas para a API com uma chamada de POST de HTTP padrão. Assim que o servidor valida a asserção, é emitido um token com o `AppServiceLoginHandler.CreateToken()` método.  O ApiController **não deve** utilizar o `[MobileAppController]` atributo.
 

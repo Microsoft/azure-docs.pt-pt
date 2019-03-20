@@ -11,18 +11,20 @@ ms.author: jovanpop
 ms.reviewer: carlr
 manager: craigg
 ms.date: 01/25/2019
-ms.openlocfilehash: 090c3919bcaee98f5ef398cd581bbf9070f5e87a
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 4e80bbc868376a41212d924bd31df6ac70a52ded
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57765341"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57901972"
 ---
 # <a name="automate-management-tasks-using-database-jobs"></a>Automatizar tarefas de gestão com tarefas de base de dados
 
 Base de dados SQL do Azure permite-lhe criar e agendar tarefas que podem ser executadas periodicamente numa ou mais bases de dados para executar consultas de T-SQL e executar tarefas de manutenção. Cada tarefa regista o estado de execução e repete também automaticamente as operações de caso de qualquer falha.
 Pode definir a base de dados de destino ou grupos de bases de dados SQL do Azure onde o trabalho será executado e também definir agendas para executar uma tarefa.
 Uma tarefa processa a tarefa de início de sessão em base de dados de destino. Também define, manter e manter scripts do Transact-SQL a ser executado num grupo de bases de dados SQL do Azure.
+
+## <a name="when-to-use-automated-jobs"></a>Quando utilizar tarefas automáticas
 
 Existem vários cenários em que poderá utilizar a automatização de tarefas:
 
@@ -35,8 +37,10 @@ Existem vários cenários em que poderá utilizar a automatização de tarefas:
   - Agregue dados a partir de uma coleção de bases de dados SQL do Azure numa tabela de destino única.
   - Execute consultas de processamento de dados de execução mais longa num grande conjunto de bases de dados, por exemplo, a coleção de telemetria de cliente. Os resultados são recolhidos para uma tabela de destino única para análise adicional.
 - Movimentos de dados
- - Criar tarefas que replicar as alterações feitas em seus bancos de dados para outras bases de dados ou recolher atualizações feitas em bancos de dados remotos e aplicar alterações no banco de dados.
- - Crie tarefas que carregar os dados de ou para as bases de dados com o SQL Server Integration Services (SSIS).
+  - Criar tarefas que replicar as alterações feitas em seus bancos de dados para outras bases de dados ou recolher atualizações feitas em bancos de dados remotos e aplicar alterações no banco de dados.
+  - Crie tarefas que carregar os dados de ou para as bases de dados com o SQL Server Integration Services (SSIS).
+
+## <a name="overview"></a>Descrição geral
 
 As seguintes tecnologias de agendamento de tarefa estão disponíveis na base de dados do Azure SQL:
 
@@ -77,7 +81,7 @@ Outros tipos de passos da tarefa não são atualmente suportados, incluindo:
 - Leitor de fila não é suportada.
 - Não é suportado do Analysis Services
 
-### <a name="job-schedules"></a>Agendas de trabalhos
+### <a name="job-schedules"></a>Agendas de tarefas
 
 Uma agenda Especifica quando é executada uma tarefa. Mais do que uma tarefa pode ser executado na agenda mesmo e, mais do que uma agenda pode aplicar a mesma tarefa.
 Uma agenda pode definir as seguintes condições para a hora quando uma tarefa é executada:
@@ -157,9 +161,9 @@ Alguns dos recursos do SQL Agent que estão disponíveis no SQL Server não são
 - Definições do agente do SQL são só de leitura. Procedimento `sp_set_agent_properties` não é suportado na instância gerida.
 - Agente de ativação/desativação não é atualmente suportada na instância gerida. Agente do SQL está sempre em execução.
 - Notificações são parcialmente suportadas
- - Não é suportada paginação.
- - NetSend não é suportada.
- - Alertas não ainda não são suportados.
+  - Não é suportada paginação.
+  - NetSend não é suportada.
+  - Alertas não ainda não são suportados.
 - Proxies não são suportados.
 - Registo de eventos não é suportado.
 

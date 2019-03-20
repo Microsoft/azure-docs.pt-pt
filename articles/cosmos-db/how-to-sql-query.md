@@ -1,17 +1,17 @@
 ---
 title: Consultas SQL para o Azure Cosmos DB
-description: Saiba mais sobre a sintaxe SQL, conceitos de base de dados e consultas SQL para o Azure Cosmos DB. SQL pode utilizado como uma linguagem de consulta JSON no Azure Cosmos DB.
+description: Saiba mais sobre a sintaxe SQL, conceitos de base de dados e consultas SQL para o Azure Cosmos DB. SQL pode ser usado como uma linguagem de consulta JSON no Azure Cosmos DB.
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 11/15/2018
 ms.author: mjbrown
-ms.openlocfilehash: 5833ee3964958437b7834ff25f1bce7837370fb1
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 822c4631c08da27ef7b92af2df5e5e0d04f063b0
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57550588"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58013893"
 ---
 # <a name="sql-query-examples-for-azure-cosmos-db"></a>Exemplos de consulta SQL para o Azure Cosmos DB
 
@@ -2113,9 +2113,9 @@ O segundo exemplo mostra uma consulta mais complexa que retorna vários resultad
 
 Se os resultados de uma consulta não podem caber dentro de uma única página de resultados, em seguida, a API de REST devolve um token de continuação por meio do `x-ms-continuation-token` cabeçalho de resposta. Os clientes podem paginar os resultados, incluindo o cabeçalho nos resultados subsequentes. O número de resultados por página também pode ser controlado através de `x-ms-max-item-count` cabeçalho número. Se a consulta especificada tem uma função de agregação, como `COUNT`, em seguida, a página de consultas pode devolver um valor parcialmente agregado sobre a página de resultados. Os clientes tem de efetuar uma agregação de segundo nível sobre esses resultados para produzir os resultados finais, por exemplo, soma sobre as contagens devolvidas nas páginas individuais para devolver a contagem total.
 
-Para gerir a política de consistência de dados para consultas, utilize o `x-ms-consistency-level` cabeçalho, como todos os pedidos de REST API. Para obter consistência da sessão, é necessário para ecoar também a versão mais recente `x-ms-session-token` cabeçalho de Cookie no pedido de consulta. Política de indexação do contentor consultados também pode influenciar a consistência dos resultados da consulta. Com as definições de política de indexação predefinidas, para contentores o índice é sempre atual com o conteúdo do item e os resultados da consulta correspondem a consistência escolhida para dados. Se a política de indexação é Relaxada para Lazy, as consultas podem devolver resultados obsoletos. Para obter mais informações, consulte [níveis de consistência do Azure Cosmos DB][consistency-levels].
+Para gerir a política de consistência de dados para consultas, utilize o `x-ms-consistency-level` cabeçalho, como todos os pedidos de REST API. Para obter consistência da sessão, é necessário para ecoar também a versão mais recente `x-ms-session-token` cabeçalho de Cookie no pedido de consulta. Política de indexação do contentor consultados também pode influenciar a consistência dos resultados da consulta. Com as definições de política de indexação predefinidas, para contentores o índice é sempre atual com o conteúdo do item e os resultados da consulta correspondem a consistência escolhida para dados. Para obter mais informações, consulte [níveis de consistência do Azure Cosmos DB][consistency-levels].
 
-Se a política de indexação configurada no contentor não é possível suportar a consulta especificada, o servidor do Azure Cosmos DB devolve 400 "Solicitação incorreta". Esta mensagem de erro é devolvida nas consultas de intervalo com caminhos configurados para pesquisas de hash (igualdade) e para caminhos explicitamente excluídos da indexação. O `x-ms-documentdb-query-enable-scan` cabeçalho pode ser especificado para permitir que a consulta para realizar uma análise quando um índice não está disponível.
+Se a política de indexação configurada no contentor não é possível suportar a consulta especificada, o servidor do Azure Cosmos DB devolve 400 "Solicitação incorreta". Esta mensagem de erro devolvida para as consultas com caminhos explicitamente excluídos da indexação. O `x-ms-documentdb-query-enable-scan` cabeçalho pode ser especificado para permitir que a consulta para realizar uma análise quando um índice não está disponível.
 
 Pode obter métricas detalhadas na execução da consulta, definindo `x-ms-documentdb-populatequerymetrics` cabeçalho para `True`. Para obter mais informações, consulte [métricas de consulta SQL para o Azure Cosmos DB](sql-api-query-metrics.md).
 

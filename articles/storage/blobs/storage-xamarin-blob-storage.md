@@ -8,12 +8,12 @@ ms.service: storage
 ms.topic: article
 ms.date: 05/11/2017
 ms.author: michaelhauss
-ms.openlocfilehash: cac889b83bb0e7a7aab12ff4097556abf60663b6
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: b9c707dcc1628f685661f88aaed29612465a5469
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57449126"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58010068"
 ---
 # <a name="how-to-use-blob-storage-from-xamarin"></a>Como utilizar o armazenamento de Blobs do Xamarin
 
@@ -168,7 +168,7 @@ namespace XamarinApp.iOS
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Navigation;
 
-// The Blank Page item template is documented at http://go.microsoft.com/fwlink/?LinkId=391641
+// The Blank Page item template is documented at https://go.microsoft.com/fwlink/?LinkId=391641
 
 namespace XamarinApp.WinPhone
 {
@@ -231,7 +231,7 @@ namespace XamarinApp.WinPhone
 ## <a name="run-the-application"></a>Executar a aplicação
 Agora, pode executar esta aplicação no emulador do Android ou Windows Phone. Também pode executar esta aplicação no emulador do iOS, mas isso exigirá um MAC. Para obter instruções específicas sobre como fazer isso, leia a documentação para [ligar o Visual Studio para Mac](https://developer.xamarin.com/guides/ios/getting_started/installation/windows/connecting-to-mac/)
 
-Depois de executar a aplicação, irá criar o contentor `mycontainer` na sua conta de armazenamento. Esta deve conter o blob `myblob`, que tem o texto, `Hello, world!`. Pode verificar isto utilizando o [Explorador de armazenamento do Microsoft Azure](http://storageexplorer.com/).
+Depois de executar a aplicação, irá criar o contentor `mycontainer` na sua conta de armazenamento. Esta deve conter o blob `myblob`, que tem o texto, `Hello, world!`. Pode verificar isto utilizando o [Explorador de armazenamento do Microsoft Azure](https://storageexplorer.com/).
 
 ## <a name="next-steps"></a>Passos Seguintes
 Neste tutorial, aprendeu a criar uma aplicação de várias plataformas no Xamarin que utiliza o armazenamento do Azure, especificamente tendo num cenário no armazenamento de Blobs. No entanto, pode fazer muito mais com o armazenamento de BLOBs não só, mas também com a tabela, ficheiros e armazenamento de filas. Veja os artigos seguintes para obter mais informações:

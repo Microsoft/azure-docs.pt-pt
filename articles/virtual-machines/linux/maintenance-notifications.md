@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/02/2018
 ms.author: shants
-ms.openlocfilehash: 5c154541163285de6f17a4ac697a14737bf31762
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: 860cb2bee902c6559b7851eb05fa9c5270876fe9
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56738339"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58084730"
 ---
 # <a name="handling-planned-maintenance-notifications-for-linux-virtual-machines"></a>Notificações de manutenção de manipulação planeada para máquinas virtuais do Linux
 
@@ -86,12 +86,12 @@ Os seguintes valores são devolvidos em MaintenanceRedeployStatus:
 
 | Value | Descrição   |
 |-------|---------------|
-| IsCustomerInitiatedMaintenanceAllowed | Indica se pode iniciar a manutenção na VM neste momento ||
-| PreMaintenanceWindowStartTime         | O início da janela de manutenção self-service quando pode iniciar a manutenção na sua VM ||
-| PreMaintenanceWindowEndTime           | Fim da janela de manutenção self-service quando pode iniciar a manutenção na sua VM ||
-| MaintenanceWindowStartTime            | O início da janela agendadas de manutenção em que o Azure inicia manutenção na sua VM ||
-| MaintenanceWindowEndTime              | Fim da janela agendadas de manutenção em que o Azure inicia manutenção na sua VM ||
-| LastOperationResultCode               | O resultado da última tentativa de iniciar a manutenção na VM ||
+| IsCustomerInitiatedMaintenanceAllowed | Indica se pode iniciar a manutenção na VM neste momento |
+| PreMaintenanceWindowStartTime         | O início da janela de manutenção self-service quando pode iniciar a manutenção na sua VM |
+| PreMaintenanceWindowEndTime           | Fim da janela de manutenção self-service quando pode iniciar a manutenção na sua VM |
+| MaintenanceWindowStartTime            | O início da janela agendadas de manutenção em que o Azure inicia manutenção na sua VM |
+| MaintenanceWindowEndTime              | Fim da janela agendadas de manutenção em que o Azure inicia manutenção na sua VM |
+| LastOperationResultCode               | O resultado da última tentativa de iniciar a manutenção na VM |
 
 
 

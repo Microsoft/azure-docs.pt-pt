@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 10/31/2018
 ms.author: genli
-ms.openlocfilehash: 415cf34a8b19400091807005e1e9943aa025f244
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
+ms.openlocfilehash: 769305cc3d838832f8f445ac9623a1724603f968
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55980028"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58002728"
 ---
 # <a name="azure-performance-diagnostics-vm-extension-for-windows"></a>Extensão de VM de diagnóstico de desempenho do Azure para Windows
 
@@ -89,7 +89,7 @@ O JSON seguinte mostra o esquema da extensão de VM de diagnóstico de desempenh
 
 Siga estas instruções para instalar a extensão em máquinas de virtuais do Windows:
 
-1. Inicie sessão no [portal do Azure](http://portal.azure.com).
+1. Inicie sessão no [portal do Azure](https://portal.azure.com).
 2. Selecione a máquina virtual onde pretende instalar esta extensão.
 
     ![Captura de ecrã do portal do Azure, com as máquinas virtuais realçado](media/performance-diagnostics-vm-extension/select-the-virtual-machine.png)
@@ -112,7 +112,7 @@ Siga estas instruções para instalar a extensão em máquinas de virtuais do Wi
 ## <a name="remove-the-extension"></a>Remover a extensão
 Para remover a extensão de uma máquina virtual, siga estes passos:
 
-1. Inicie sessão para o [portal do Azure](http://portal.azure.com), selecione a máquina virtual a partir do qual pretende remover esta extensão e, em seguida, selecione a **extensões** painel. 
+1. Inicie sessão para o [portal do Azure](https://portal.azure.com), selecione a máquina virtual a partir do qual pretende remover esta extensão e, em seguida, selecione a **extensões** painel. 
 2. Selecione o (**...** ) para a entrada de extensão de diagnóstico de desempenho na lista e selecione **desinstalar**.
 
     ![Painel de captura de ecrã de extensões, com a desinstalação realçado](media/performance-diagnostics-vm-extension/uninstall-the-extension.png)
@@ -125,7 +125,7 @@ Extensões de máquina virtual do Azure podem ser implementadas com modelos Azur
 
 ```
 {
-  "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
   "contentVersion": "1.0.0.0",
   "parameters": {
     "vmName": {

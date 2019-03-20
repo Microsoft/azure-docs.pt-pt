@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 11/04/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 08c3511b3efc7ee2e21ef5847976357292bf95bb
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 59f8b8b253fc914e5723a9c41475ec78bc3f376e
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57446865"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57888404"
 ---
 # <a name="move-data-from-an-on-premises-sql-server-to-sql-azure-with-azure-data-factory"></a>Mover dados de um servidor SQL no local para o SQL Azure com o Azure Data Factory
 
@@ -61,7 +61,7 @@ Este tutorial parte do princípio de que tem:
 >
 
 ## <a name="upload-data"></a> Carregar os dados para o SQL Server no local
-Vamos utilizar o [conjunto de dados de táxis de NYC](http://chriswhong.com/open-data/foil_nyc_taxi/) para demonstrar o processo de migração. O conjunto de dados de táxis de NYC está disponível, conforme observado nessa mensagem, no armazenamento de Blobs do Azure [dados de táxis de NYC](http://www.andresmh.com/nyctaxitrips/). Os dados têm dois arquivos, o ficheiro de trip_data.csv, que contém os detalhes de viagem, e o ficheiro de trip_far.csv, que contém detalhes de Europeia pago para cada viagem. Um exemplo e uma descrição destes ficheiros são fornecidos na [descrição de conjunto de dados de viagens de táxis de NYC](sql-walkthrough.md#dataset).
+Vamos utilizar o [conjunto de dados de táxis de NYC](https://chriswhong.com/open-data/foil_nyc_taxi/) para demonstrar o processo de migração. O conjunto de dados de táxis de NYC está disponível, conforme observado nessa mensagem, no armazenamento de Blobs do Azure [dados de táxis de NYC](https://www.andresmh.com/nyctaxitrips/). Os dados têm dois arquivos, o ficheiro de trip_data.csv, que contém os detalhes de viagem, e o ficheiro de trip_far.csv, que contém detalhes de Europeia pago para cada viagem. Um exemplo e uma descrição destes ficheiros são fornecidos na [descrição de conjunto de dados de viagens de táxis de NYC](sql-walkthrough.md#dataset).
 
 Pode adaptar o procedimento aqui apresentado para um conjunto de seus próprios dados ou siga os passos, conforme descrito usando o conjunto de dados de táxis de NYC. Para carregar o conjunto de dados de táxis de NYC para a base de dados do SQL Server no local, siga o procedimento descrito em [dados de importação em massa na base de dados do SQL Server](sql-walkthrough.md#dbload). Estas instruções são para um SQL Server numa máquina Virtual do Azure, mas o procedimento para carregar para o SQL Server no local é o mesmo.
 

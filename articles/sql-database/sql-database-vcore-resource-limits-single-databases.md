@@ -11,13 +11,13 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
-ms.date: 03/06/2019
-ms.openlocfilehash: 127e3385f1fd9cf0975ff19818d3112fe5a713d0
-ms.sourcegitcommit: dd1a9f38c69954f15ff5c166e456fda37ae1cdf2
+ms.date: 03/12/2019
+ms.openlocfilehash: 990e6b4d869df030bfddfeb2d60f0ca0e23ea8ca
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57571019"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57902268"
 ---
 # <a name="azure-sql-database-vcore-based-purchasing-model-limits-for-a-single-database"></a>Base de dados do SQL do Azure limites de modelo para uma base de dados de compra baseado em vCore
 
@@ -54,7 +54,7 @@ Pode definir o escalão de serviço, o tamanho de computação e a quantidade de
 |Máximo de trabalhadores simultâneos (pedidos)|200|400|600|800|1000|1200|
 |Máximo permitido de sessões|30000|30000|30000|30000|30000|30000|
 |Número de réplicas|1|1|1|1|1|1|
-|Multi-AZ|N/A|N/D|N/D|N/D|N/D|N/D|N/A|
+|Multi-AZ|N/A|N/D|N/D|N/D|N/D|N/A|
 |Leia o Escalamento horizontal|N/A|N/D|N/D|N/D|N/D|N/A|
 |Armazenamento de cópia de segurança incluído|Tamanho de BD de X 1|Tamanho de BD de X 1|Tamanho de BD de X 1|Tamanho de BD de X 1|Tamanho de BD de X 1|Tamanho de BD de X 1|
 
@@ -84,7 +84,7 @@ Pode definir o escalão de serviço, o tamanho de computação e a quantidade de
 ### <a name="general-purpose-service-tier-generation-5-compute-platform-part-1"></a>Escalão de serviço de fins geral: Plataforma de computação de geração 5 (parte 1)
 
 |Tamanho de computação|GP_Gen5_2|GP_Gen5_4|GP_Gen5_6|GP_Gen5_8|GP_Gen5_10|GP_Gen5_12|GP_Gen5_14|
-|:--- | --: |--: |--: |--: |---: | --: |--: |--: |
+|:--- | --: |--: |--: |--: |---: | --: |--: |
 |Geração de H/W|5|5|5|5|5|5|5|
 |vCores|2|4|6|8|10|12|14|
 |Memória (GB)|10.2|20.4|30.6|40.8|51|61.2|71.4|
@@ -107,7 +107,7 @@ Pode definir o escalão de serviço, o tamanho de computação e a quantidade de
 ### <a name="general-purpose-service-tier-generation-5-compute-platform-part-2"></a>Escalão de serviço de fins geral: Plataforma de computação de geração 5 (parte 2)
 
 |Tamanho de computação|GP_Gen5_16|GP_Gen5_18|GP_Gen5_20|GP_Gen5_24|GP_Gen5_32|GP_Gen5_40|GP_Gen5_80|
-|:--- | --: |--: |--: |--: |---: | --: |--: |--: |
+|:--- | --: |--: |--: |--: |---: | --: |--: |
 |Geração de H/W|5|5|5|5|5|5|5|
 |vCores|16|18|20|24|32|40|80|
 |Memória (GB)|81.6|91.8|102|122.4|163.2|204|408|
@@ -168,7 +168,7 @@ Pode definir o escalão de serviço, o tamanho de computação e a quantidade de
 |TempDB tamanho (GB)|224|256|288|320|384|384|
 |Latência de e/s (aproximada)|1 a 2 ms (escrita)<br>ms de 1 a 2 (ler)|1 a 2 ms (escrita)<br>ms de 1 a 2 (ler)|1 a 2 ms (escrita)<br>ms de 1 a 2 (ler)|1 a 2 ms (escrita)<br>ms de 1 a 2 (ler)|1 a 2 ms (escrita)<br>ms de 1 a 2 (ler)|1 a 2 ms (escrita)<br>ms de 1 a 2 (ler)|
 |Destino IOPS (64 KB)|35000|40000|45000|50000|80000|120000|
-|Limites de velocidade de registo (MBps)|42|48|48|48|48|48|
+|Limites de velocidade de registo (MBps)|42|48|54|60|64|64|
 |Máximo de trabalhadores simultâneos (pedidos)|1400|1600|1800|2000|3200|4800|
 |Inícios de sessão simultâneos do máx. (pedidos)|1400|1600|1800|2000|3200|4800|
 |Máximo permitido de sessões|30000|30000|30000|30000|30000|30000|
@@ -180,7 +180,7 @@ Pode definir o escalão de serviço, o tamanho de computação e a quantidade de
 ### <a name="business-critical-service-tier-generation-5-compute-platform-part-1"></a>Camada de negócio críticos de serviço: Plataforma de computação de geração 5 (parte 1)
 
 |Tamanho de computação|BC_Gen5_2|BC_Gen5_4|BC_Gen5_6|BC_Gen5_8|BC_Gen5_10|BC_Gen5_12|BC_Gen5_14|
-|:--- | --: |--: |--: |--: |---: | --: |--: |--: |--: |--: |--: |--: |
+|:--- | --: |--: |--: |--: |---: | --: |--: |
 |Geração de H/W|5|5|5|5|5|5|5|
 |vCores|2|4|6|8|10|12|14|
 |Memória (GB)|10.2|20.4|30.6|40.8|51|61.2|71.4|
@@ -204,7 +204,7 @@ Pode definir o escalão de serviço, o tamanho de computação e a quantidade de
 ### <a name="business-critical-service-tier-generation-5-compute-platform-part-2"></a>Camada de negócio críticos de serviço: Plataforma de computação de geração 5 (parte 2)
 
 |Tamanho de computação|BC_Gen5_16|BC_Gen5_18|BC_Gen5_20|BC_Gen5_24|BC_Gen5_32|BC_Gen5_40|BC_Gen5_80|
-|:--- | --: |--: |--: |--: |---: | --: |--: |--: |--: |--: |--: |--: |
+|:--- | --: |--: |--: |--: |---: | --: |--: |
 |Geração de H/W|5|5|5|5|5|5|5|
 |vCores|16|18|20|24|32|40|80|
 |Memória (GB)|81.6|91.8|102|122.4|163.2|204|408|
@@ -216,7 +216,7 @@ Pode definir o escalão de serviço, o tamanho de computação e a quantidade de
 |Tipo de armazenamento|SSD local|SSD local|SSD local|SSD local|SSD local|SSD local|SSD local|
 |Latência de e/s (aproximada)|1 a 2 ms (escrita)<br>ms de 1 a 2 (ler)|1 a 2 ms (escrita)<br>ms de 1 a 2 (ler)|1 a 2 ms (escrita)<br>ms de 1 a 2 (ler)|1 a 2 ms (escrita)<br>ms de 1 a 2 (ler)|1 a 2 ms (escrita)<br>ms de 1 a 2 (ler)|1 a 2 ms (escrita)<br>ms de 1 a 2 (ler)|1 a 2 ms (escrita)<br>ms de 1 a 2 (ler)|
 |Destino IOPS (64 KB)|40000|45000|50000|60000|80000|100000|200000|
-|Limites de velocidade de registo (MBps)|48|48|48|48|48|48|48|
+|Limites de velocidade de registo (MBps)|48|54|60|72|96|96|96|
 |Máximo de trabalhadores simultâneos (pedidos)|1600|1800|2000|2400|3200|4000|8000|
 |Inícios de sessão simultâneos máx.|1600|1800|2000|2400|3200|4000|8000|
 |Máximo permitido de sessões|30000|30000|30000|30000|30000|30000|30000|
@@ -230,7 +230,7 @@ Pode definir o escalão de serviço, o tamanho de computação e a quantidade de
 ### <a name="generation-4-compute-platform-storage-sizes-and-compute-sizes"></a>Plataforma de computação de geração 4: Tamanhos de armazenamento e tamanhos de computação
 
 |Nível de desempenho|HS_Gen4_1|HS_Gen4_2|HS_Gen4_4|HS_Gen4_8|HS_Gen4_16|HS_Gen4_24|
-|:--- | --: |--: |--: |--: |--: |--: |--: |
+|:--- | --: |--: |--: |--: |--: |--: |
 |Geração de H/W|4|4|4|4|4|4|
 |vCores|1|2|4|8|16|24|
 |Memória (GB)|7|14|28|56|112|168|
@@ -253,7 +253,7 @@ Pode definir o escalão de serviço, o tamanho de computação e a quantidade de
 ### <a name="generation-5-compute-platform"></a>Plataforma de computação de geração 5
 
 |Nível de desempenho|HS_Gen5_2|HS_Gen5_4|HS_Gen5_8|HS_Gen5_16|HS_Gen5_24|HS_Gen5_32|HS_Gen5_40|HS_Gen5_80|
-|:--- | --: |--: |--: |--: |---: | --: |--: |--: |--: |--: |--: |--: |--: |
+|:--- | --: |--: |--: |--: |---: | --: |--: |--: |
 |Geração de H/W|5|5|5|5|5|5|5|5|
 |vCores|2|4|8|16|24|32|40|80|
 |Memória (GB)|10.2|20.4|40.8|81.6|122.4|163.2|204|408|

@@ -15,12 +15,12 @@ ms.date: 02/28/2019
 ms.author: jeffgilb
 ms.reviewer: quying
 ms.lastreviewed: 02/28/2019
-ms.openlocfilehash: eb5d1ca55efed7e83739f21a432b61b6aad25f70
-ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
+ms.openlocfilehash: 68e8bfa16c56b8c864ac99cdf6c19243bc7e881c
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57194015"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58101878"
 ---
 # <a name="add-hosting-servers-for-the-mysql-resource-provider"></a>Adicionar servidores de alojamento para o fornecedor de recursos do MySQL
 
@@ -44,9 +44,9 @@ Certificar-se de que tem as credenciais para uma conta com privilégios de admin
 4. Forneça os detalhes de ligação da sua instância do servidor MySQL.
 
    * Para **nome do servidor que aloja MySQL**, forneça o nome de domínio completamente qualificado (FQDN) ou um endereço IPv4 válido. Não utilize o nome abreviado de VM.
-   - O administrador predefinido **nome de utilizador** para o Bitnami MySQL imagens disponíveis no mercado do Azure Stack é *raiz*. 
-   - Se não souber a raiz **palavra-passe**, consulte a [Bitnami documentação](https://docs.bitnami.com/azure/faq/#how-to-find-application-credentials) para saber como fazê-lo. 
-   - Uma instância de MySQL predefinida não é fornecida, pelo que tem de especificar o **tamanho de servidor de alojamento de em GB**. Introduza um tamanho próximo da capacidade do servidor da base de dados.
+   * O administrador predefinido **nome de utilizador** para o Bitnami MySQL imagens disponíveis no mercado do Azure Stack é *raiz*. 
+   * Se não souber a raiz **palavra-passe**, consulte a [Bitnami documentação](https://docs.bitnami.com/azure/faq/#how-to-find-application-credentials) para saber como fazê-lo. 
+   * Uma instância de MySQL predefinida não é fornecida, pelo que tem de especificar o **tamanho de servidor de alojamento de em GB**. Introduza um tamanho próximo da capacidade do servidor da base de dados.
    * Manter a predefinição para **subscrição**.
    * Para **grupo de recursos**, crie um novo ou utilizar um grupo existente.
 
@@ -60,8 +60,8 @@ Certificar-se de que tem as credenciais para uma conta com privilégios de admin
    O SKU **nome** deve refletir as propriedades do SKU para que os utilizadores podem implementar seus bancos de dados para o SKU adequado.
 
 6. Selecione **OK** para criar o SKU.
-> [!NOTE]
-> SKUs podem demorar até uma hora para ser visível no portal. Não é possível criar uma base de dados até que o SKU é implementada e executada.
+   > [!NOTE]
+   > SKUs podem demorar até uma hora para ser visível no portal. Não é possível criar uma base de dados até que o SKU é implementada e executada.
 
 7. Sob **adicionar um servidor de hospedagem do MySQL**, selecione **criar**.
 

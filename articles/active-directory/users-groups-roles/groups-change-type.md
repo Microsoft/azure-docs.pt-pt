@@ -15,12 +15,12 @@ ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3bf73708be8a8bc597b70d0cb50fc337efa72906
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: MT
+ms.openlocfilehash: 23d829ad9b85b6e7944f6dd534ea7fbb3f92a0d2
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56211687"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57887922"
 ---
 # <a name="change-static-group-membership-to-dynamic-in-azure-active-directory"></a>Alterar a associação de grupo estático para dinâmico no Azure Active Directory
 
@@ -33,7 +33,7 @@ Pode alterar a associação de um grupo de estático para dinâmico (ou vice-ver
 
 ## <a name="change-the-membership-type-for-a-group"></a>Alterar o tipo de associação para um grupo
 
-1. Inicie sessão para o [Centro de administração do Azure AD](https://aad.portal.azure.com) com uma conta que seja um administrador global ou um administrador de conta de utilizador no seu inquilino.
+1. Inicie sessão para o [Centro de administração do Azure AD](https://aad.portal.azure.com) com uma conta que seja um administrador global ou um administrador de utilizadores no seu inquilino.
 2. Selecione **grupos**.
 3. Partir do **todos os grupos** lista, abra o grupo que pretende alterar.
 4. Selecione **propriedades**.

@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 06/27/2018
-ms.openlocfilehash: 351734ea394b8820e87799a6d9a87979dd9c3807
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.openlocfilehash: 3165adf09281f4ad35b77c2e0fbb89e40c04c631
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53604536"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58120963"
 ---
 # <a name="submit-jobs-from-r-tools-for-visual-studio"></a>Submeter tarefas a partir das Ferramentas R para o Visual Studio
 
@@ -31,21 +31,21 @@ RTVS melhora o seu fluxo de trabalho do R, oferecendo ferramentas como o [R Inte
 2. Selecione o *ciência de dados e aplicativos analíticos* carga de trabalho, em seguida, selecione a **suporte de linguagem R**, **suporte de tempo de execução para o desenvolvimento de R**, e  **Microsoft R Client** opções.
 
 3. Tem de ter as chaves públicas e privadas para a autenticação de SSH.
-<!-- {TODO tbd, no such file yet}[use SSH with HDInsight](hdinsight-hadoop-linux-use-ssh-windows.md) -->
+   <!-- {TODO tbd, no such file yet}[use SSH with HDInsight](hdinsight-hadoop-linux-use-ssh-windows.md) -->
 
 4. Instale [ML Server](https://msdn.microsoft.com/microsoft-r/rserver-install-windows) no seu computador. ML Server fornece a [ `RevoScaleR` ](https://msdn.microsoft.com/microsoft-r/scaler/scaler) e `RxSpark` funções.
 
 5. Instale [PuTTY](https://www.putty.org/) para fornecer um contexto de computação para executar `RevoScaleR` funções a partir do seu cliente local no seu cluster do HDInsight.
 
 6. Tem a opção para aplicar as definições de ciência de dados para o ambiente do Visual Studio, que fornece um novo esquema para a área de trabalho para as ferramentas de R.
-    1. Para guardar as definições atuais do Visual Studio, utilize o **Tools > Import and Export Settings** comando, em seguida, selecione **Export selected definições de ambiente** e especifique um nome de ficheiro. Para restaurar essas definições, utilize o comando mesmo e selecione **Import selected definições de ambiente**.
+   1. Para guardar as definições atuais do Visual Studio, utilize o **Tools > Import and Export Settings** comando, em seguida, selecione **Export selected definições de ambiente** e especifique um nome de ficheiro. Para restaurar essas definições, utilize o comando mesmo e selecione **Import selected definições de ambiente**.
 
-    2. Vá para o **R Tools** menu item, em seguida, selecione **definições de ciência de dados...** .
+   2. Vá para o **R Tools** menu item, em seguida, selecione **definições de ciência de dados...** .
 
-        ![Definições de ciência de dados...](./media/r-server-submit-jobs-r-tools-vs/data-science-settings.png)
+       ![Definições de ciência de dados...](./media/r-server-submit-jobs-r-tools-vs/data-science-settings.png)
 
-    > [!NOTE]  
-    > Usando a abordagem no passo 1, também pode guardar e restaurar o layout de cientista de dados personalizados, em vez de repetir a **definições de ciência de dados** comando.
+      > [!NOTE]  
+      > Usando a abordagem no passo 1, também pode guardar e restaurar o layout de cientista de dados personalizados, em vez de repetir a **definições de ciência de dados** comando.
 
 ## <a name="execute-local-r-methods"></a>Executar métodos locais do R
 

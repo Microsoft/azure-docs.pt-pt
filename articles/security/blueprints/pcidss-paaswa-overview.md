@@ -8,12 +8,12 @@ ms.service: security
 ms.topic: article
 ms.date: 07/03/2018
 ms.author: meladie
-ms.openlocfilehash: 0d9de6e5cfa8ffa0c5f67607a60d930b623413cf
-ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.openlocfilehash: 5452a1adb419a2f57e2124d5aac49f9cdcff615a
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/02/2019
-ms.locfileid: "57247278"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58111672"
 ---
 # <a name="azure-security-and-compliance-blueprint-paas-web-application-for-pci-dss"></a>Azure Security and Compliance Blueprint: Aplicação Web de PaaS para PCI DSS
 
@@ -228,10 +228,10 @@ Esta segurança do Azure e a automação de plano gráfico de conformidade é co
 2. Reveja a configuração-0-AdministrativeAccountAndPermission.md e execute os comandos fornecidos.
 
 3. Implemente uma solução de teste com dados de exemplo da Contoso ou um ambiente de produção iniciais do piloto.
-  - 1A-ContosoWebStoreDemoAzureResources.ps1
-    - Este script implementa os recursos do Azure para uma demonstração de uma loja Web com dados de exemplo da Contoso.
-  - 1-DeployAndConfigureAzureResources.ps1
-    - Este script implementa os recursos do Azure necessários para dar suporte a um ambiente de produção para uma aplicação web de cliente. Neste ambiente deve ser ainda mais personalizado ao cliente com base nos requisitos organizacionais.
+   - 1A-ContosoWebStoreDemoAzureResources.ps1
+     - Este script implementa os recursos do Azure para uma demonstração de uma loja Web com dados de exemplo da Contoso.
+   - 1-DeployAndConfigureAzureResources.ps1
+     - Este script implementa os recursos do Azure necessários para dar suporte a um ambiente de produção para uma aplicação web de cliente. Neste ambiente deve ser ainda mais personalizado ao cliente com base nos requisitos organizacionais.
 
 ## <a name="guidance-and-recommendations"></a>Orientações e recomendações
 

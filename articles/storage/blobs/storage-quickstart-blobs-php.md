@@ -8,12 +8,12 @@ ms.devlang: php
 ms.topic: quickstart
 ms.date: 11/14/2018
 ms.author: rogarana
-ms.openlocfilehash: 58d1d47b548569f7542e24bd09a41299f12e496e
-ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
+ms.openlocfilehash: 3e1738c3e5acbe63faf1d614e2435088efd8c4d6
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/27/2018
-ms.locfileid: "53787890"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58014783"
 ---
 #  <a name="transfer-objects-tofrom-azure-blob-storage-using-php"></a>Transferir objetos de/para o armazenamento de Blobs do Azure com PHP
 Neste início rápido, vai aprender a utilizar PHP para carregar, transferir e listar blobs de blocos num contentor no armazenamento de Blobs do Azure. 
@@ -24,7 +24,7 @@ Neste início rápido, vai aprender a utilizar PHP para carregar, transferir e l
 
 Certifique-se de que tem os seguintes pré-requisitos adicionais instalados:
 
-* [PHP](http://php.net/downloads.php)
+* [PHP](https://php.net/downloads.php)
 * [Armazenamento do Azure SDK para PHP](https://github.com/Azure/azure-storage-php)
 
 ## <a name="download-the-sample-application"></a>Transferir a aplicação de exemplo
@@ -74,7 +74,7 @@ This is the content of the blob uploaded: Hello Azure!
 ```
 Quando prime o botão apresentado, o programa de exemplo elimina o contentor de armazenamento e os ficheiros. Antes de continuar, procure os dois ficheiros na pasta do servidor. Pode abrir e ver que são idênticos.
 
-Também pode utilizar uma ferramenta como o [Explorador de Armazenamento do Azure](http://storageexplorer.com) para ver os ficheiros no armazenamento de Blobs. O Explorador de Armazenamento do Azure é uma ferramenta multiplataformas gratuita que lhe permite aceder às informações da sua conta de armazenamento. 
+Também pode utilizar uma ferramenta como o [Explorador de Armazenamento do Azure](https://storageexplorer.com) para ver os ficheiros no armazenamento de Blobs. O Explorador de Armazenamento do Azure é uma ferramenta multiplataformas gratuita que lhe permite aceder às informações da sua conta de armazenamento. 
 
 Depois de verificar os ficheiros, prima qualquer tecla para concluir a demonstração e eliminar os ficheiros de teste. Agora que sabe o que o exemplo faz, abra o ficheiro example.rb para ver o código. 
 

@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 06/15/2018
-ms.openlocfilehash: 65416a00ebd487e80625e4f3c8d8a95b5995daa9
-ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
+ms.openlocfilehash: 281b4b8d20957cbbbf0f4ff52166e8c3a78b3e7d
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56886575"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58108142"
 ---
 # <a name="analyze-logs-for-apache-kafka-on-hdinsight"></a>Analisar registos para o Apache Kafka no HDInsight
 
@@ -49,28 +49,28 @@ Os passos para ativar registos de Monitor do Azure para HDInsight são os mesmos
 
 2. Selecione __pesquisa de registos__. A partir daqui, pode pesquisar os dados recolhidos do Kafka. Seguem-se alguns exemplos de procura:
 
-    * Utilização do disco: `Perf | where ObjectName == "Logical Disk" and CounterName == "Free Megabytes" and InstanceName == "_Total" and ((Computer startswith_cs "hn" and Computer contains_cs "-") or (Computer startswith_cs "wn" and Computer contains_cs "-")) | summarize AggregatedValue = avg(CounterValue) by Computer, bin(TimeGenerated, 1h)`
+   * Utilização do disco: `Perf | where ObjectName == "Logical Disk" and CounterName == "Free Megabytes" and InstanceName == "_Total" and ((Computer startswith_cs "hn" and Computer contains_cs "-") or (Computer startswith_cs "wn" and Computer contains_cs "-")) | summarize AggregatedValue = avg(CounterValue) by Computer, bin(TimeGenerated, 1h)`
 
-    * Utilização da CPU: `Perf | where CounterName == "% Processor Time" and InstanceName == "_Total" and ((Computer startswith_cs "hn" and Computer contains_cs "-") or (Computer startswith_cs "wn" and Computer contains_cs "-")) | summarize AggregatedValue = avg(CounterValue) by Computer, bin(TimeGenerated, 1h)`
+   * Utilização da CPU: `Perf | where CounterName == "% Processor Time" and InstanceName == "_Total" and ((Computer startswith_cs "hn" and Computer contains_cs "-") or (Computer startswith_cs "wn" and Computer contains_cs "-")) | summarize AggregatedValue = avg(CounterValue) by Computer, bin(TimeGenerated, 1h)`
 
-    * Mensagens de entrada por segundo: `metrics_kafka_CL | where ClusterName_s == "your_kafka_cluster_name" and InstanceName_s == "kafka-BrokerTopicMetrics-MessagesInPerSec-Count" | summarize AggregatedValue = avg(kafka_BrokerTopicMetrics_MessagesInPerSec_Count_value_d) by HostName_s, bin(TimeGenerated, 1h)`
+   * Mensagens de entrada por segundo: `metrics_kafka_CL | where ClusterName_s == "your_kafka_cluster_name" and InstanceName_s == "kafka-BrokerTopicMetrics-MessagesInPerSec-Count" | summarize AggregatedValue = avg(kafka_BrokerTopicMetrics_MessagesInPerSec_Count_value_d) by HostName_s, bin(TimeGenerated, 1h)`
 
-    * Bytes recebidos por segundo: `metrics_kafka_CL | where HostName_s == "wn0-kafka" and InstanceName_s == "kafka-BrokerTopicMetrics-BytesInPerSec-Count" | summarize AggregatedValue = avg(kafka_BrokerTopicMetrics_BytesInPerSec_Count_value_d) by bin(TimeGenerated, 1h)`
+   * Bytes recebidos por segundo: `metrics_kafka_CL | where HostName_s == "wn0-kafka" and InstanceName_s == "kafka-BrokerTopicMetrics-BytesInPerSec-Count" | summarize AggregatedValue = avg(kafka_BrokerTopicMetrics_BytesInPerSec_Count_value_d) by bin(TimeGenerated, 1h)`
 
-    * Bytes de saída por segundo: `metrics_kafka_CL | where ClusterName_s == "your_kafka_cluster_name" and InstanceName_s == "kafka-BrokerTopicMetrics-BytesOutPerSec-Count" | summarize AggregatedValue = avg(kafka_BrokerTopicMetrics_BytesOutPerSec_Count_value_d) by bin(TimeGenerated, 1h)`
+   * Bytes de saída por segundo: `metrics_kafka_CL | where ClusterName_s == "your_kafka_cluster_name" and InstanceName_s == "kafka-BrokerTopicMetrics-BytesOutPerSec-Count" | summarize AggregatedValue = avg(kafka_BrokerTopicMetrics_BytesOutPerSec_Count_value_d) by bin(TimeGenerated, 1h)`
 
-    > [!IMPORTANT]  
-    > Substitua os valores de consulta com as suas informações específicas do cluster. Por exemplo, `ClusterName_s` tem de ser definido para o nome do cluster. `HostName_s` tem de ser definido para o nome de domínio de um nó de trabalho no cluster.
+     > [!IMPORTANT]  
+     > Substitua os valores de consulta com as suas informações específicas do cluster. Por exemplo, `ClusterName_s` tem de ser definido para o nome do cluster. `HostName_s` tem de ser definido para o nome de domínio de um nó de trabalho no cluster.
 
-    Também pode introduzir `*` para pesquisar todos os tipos com sessão iniciados. Atualmente os seguintes registos estão disponíveis para consultas:
+     Também pode introduzir `*` para pesquisar todos os tipos com sessão iniciados. Atualmente os seguintes registos estão disponíveis para consultas:
 
-    | Tipo de registo | Descrição |
-    | ---- | ---- |
-    | log\_kafkaserver\_CL | Kafka broker server.log |
-    | log\_kafkacontroller\_CL | Controller.log de Mediador Kafka |
-    | metrics\_kafka\_CL | Métricas de JMX do Kafka |
+     | Tipo de registo | Descrição |
+     | ---- | ---- |
+     | log\_kafkaserver\_CL | Kafka broker server.log |
+     | log\_kafkacontroller\_CL | Controller.log de Mediador Kafka |
+     | metrics\_kafka\_CL | Métricas de JMX do Kafka |
 
-    ![Imagem da pesquisa de utilização da CPU](./media/apache-kafka-log-analytics-operations-management/kafka-cpu-usage.png)
+     ![Imagem da pesquisa de utilização da CPU](./media/apache-kafka-log-analytics-operations-management/kafka-cpu-usage.png)
  
 ## <a name="next-steps"></a>Passos Seguintes
 

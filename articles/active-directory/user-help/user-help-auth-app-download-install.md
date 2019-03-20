@@ -13,12 +13,12 @@ ms.date: 01/24/2019
 ms.author: lizross
 ms.reviewer: olhaun
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 81d0590215f92f7b3d1c2ad0bbbc509da31c2fd1
-ms.sourcegitcommit: 15e9613e9e32288e174241efdb365fa0b12ec2ac
+ms.openlocfilehash: 67393e19a72777d105f1f35a16986c52f52133be
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "57011629"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58079814"
 ---
 # <a name="download-and-install-the-microsoft-authenticator-app"></a>Transferir e instalar a aplicação Microsoft Authenticator
 >[!Important]
@@ -34,13 +34,13 @@ Pode utilizar a aplicação Microsoft Authenticator de várias formas, incluindo
 
 - **Geração de código.** Como um gerador de código para outras contas que suportam aplicações de autenticação.
 
->[!Important]
->A aplicação Microsoft Authenticator funciona com qualquer conta que utiliza a verificação de dois fatores e suporta os padrões baseados no tempo palavra-passe Monouso (TOTP).
-
->Sua organização pode implicar a utilizar uma aplicação de autenticação para início de sessão e aceder aos seus dados organizacionais e documentos. Embora o seu nome de utilizador poderá ser apresentada na aplicação, a conta, na verdade, não está configurada para atuar como um método de verificação até concluir o processo de registo. Para obter mais informações, consulte [adicionar a sua conta escolar ou profissional](user-help-auth-app-add-work-school-account.md).
-
->[!NOTE]
->Se estiver a ter problemas ao iniciar sessão para a sua conta, veja [quando não pode iniciar sessão na sua conta Microsoft](https://support.microsoft.com/help/12429) para obter ajuda.  Obter mais informações sobre o que fazer quando receber o ["não existe essa conta Microsoft"](https://support.microsoft.com/help/13811) de mensagens ao tentar iniciar sessão na sua conta Microsoft.
+> [!Important]
+> A aplicação Microsoft Authenticator funciona com qualquer conta que utiliza a verificação de dois fatores e suporta os padrões baseados no tempo palavra-passe Monouso (TOTP).
+> 
+> Sua organização pode implicar a utilizar uma aplicação de autenticação para início de sessão e aceder aos seus dados organizacionais e documentos. Embora o seu nome de utilizador poderá ser apresentada na aplicação, a conta, na verdade, não está configurada para atuar como um método de verificação até concluir o processo de registo. Para obter mais informações, consulte [adicionar a sua conta escolar ou profissional](user-help-auth-app-add-work-school-account.md).
+> 
+> [!NOTE]
+> Se estiver a ter problemas ao iniciar sessão para a sua conta, veja [quando não pode iniciar sessão na sua conta Microsoft](https://support.microsoft.com/help/12429) para obter ajuda.  Obter mais informações sobre o que fazer quando receber o ["não existe essa conta Microsoft"](https://support.microsoft.com/help/13811) de mensagens ao tentar iniciar sessão na sua conta Microsoft.
 
 ## <a name="download-and-install-the-app"></a>Transferir e instalar a aplicação
 Instale a versão mais recente da aplicação Microsoft Authenticator, com base no seu sistema operativo:
@@ -49,7 +49,8 @@ Instale a versão mais recente da aplicação Microsoft Authenticator, com base 
 
 - **Apple iOS.** No seu dispositivo iOS da Apple, vá para o Store da aplicação para [transferir e instalar a aplicação Microsoft Authenticator](https://app.adjust.com/e3rxkc_7lfdtm?fallback=https%3A%2F%2Fitunes.apple.com%2Fus%2Fapp%2Fmicrosoft-authenticator%2Fid983156458).
 
->[Importante] Se não estiver atualmente no seu dispositivo móvel, continua a poder aceder a aplicação Microsoft Authenticator, enviando-se uma ligação de transferência a partir da [página do Microsoft Authenticator](https://www.microsoft.com/en-us/account/authenticator).
+>[!Important]
+>Se não estiver atualmente no seu dispositivo móvel, continua a poder aceder a aplicação Microsoft Authenticator, enviando-se uma ligação de transferência a partir da [página do Microsoft Authenticator](https://www.microsoft.com/en-us/account/authenticator).
 
 ## <a name="next-steps"></a>Passos Seguintes
 

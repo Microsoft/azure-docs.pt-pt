@@ -14,17 +14,17 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 10/18/2018
 ms.author: pbutlerm
-ms.openlocfilehash: c119869c47547fd5d91f6ee91fcd772ea5941f46
-ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
+ms.openlocfilehash: 30f44e0e8bae4071403b5c28cd4133970fc4d468
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49431428"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58010945"
 ---
 # <a name="iot-edge-module-marketplace-tab"></a>Separador de Marketplace de módulo do IoT Edge
 
 
-O **Marketplace** separador da **nova oferta** página permite-lhe fornecer os seus clientes potenciais informações de marketing, vendas e legais e contratos e gerir as oportunidades potenciais geradas a partir do Marketplace. Esta forma longa é dividida em quatro seções: **descrição geral**, **artefactos Marketing**, **levar gestão**, e **legais**.
+O **Marketplace** separador da **nova oferta** página permite-lhe fornecer os seus clientes potenciais informações de marketing, vendas e legais e contratos e gerir as oportunidades potenciais geradas a partir do Marketplace. Esta forma longa é dividida em quatro seções: **Descrição geral**, **artefactos de Marketing**, **numa gestão**, e **legais**.
 
 ## <a name="overview"></a>Descrição geral
 
@@ -78,7 +78,7 @@ A tabela seguinte descreve a finalidade e o conteúdo desses campos.
 
 ## <a name="marketing-artifacts"></a>Artefactos de marketing
 
-Esta secção tem as seguintes subsecções: **logótipos**, **captura de ecrã**, e **vídeos**. 
+Esta secção tem as seguintes subsecções: **Logótipos**, **captura de ecrã**, e **vídeos**. 
 
 >[!Note]
 >Logótipos são o único necessário artefactos, de marketing, no entanto, todos são altamente recomendáveis para melhor apelo do cliente.
@@ -104,7 +104,7 @@ Esta secção tem as seguintes subsecções: **logótipos**, **captura de ecrã*
 
 ### <a name="logo-guidelines"></a>Diretrizes para logótipos
 
-<!-- It seems like this section could be better located in some common area, maybe a AMP Marketing/Design section 
+<!-- It seems like this section could be better located in some common area, maybe an AMP Marketing/Design section 
 +1 this should all be in a common area and referenced from here to that location.-->
 
 Todos os logótipos carregados para o Portal de parceiro de Cloud devem seguir as diretrizes:
@@ -136,7 +136,7 @@ As an example, the following hero icon is for the Azure Container Service.
 -->
 
 
-## <a name="lead-management"></a>Numa gestão
+## <a name="lead-management"></a>Gestão de oportunidades potenciais
 
 Esta permite que a secção Configurar as opções para a recolha de cliente leva gerado a partir de suas ofertas do Azure Marketplace. Pode selecionar as seguintes opções de armazenamento numa lista suspensa.
 
@@ -160,7 +160,7 @@ Depois de publicar a oferta com êxito, a ligação de oportunidade potencial é
 
 ## <a name="legal"></a>Informações Legais
 
-Esta secção permite-lhe fornecer os dois documentos legais que são necessários para cada oferta: política de privacidade e termos de utilização.
+Esta secção permite-lhe fornecer os dois documentos legais que são necessários para cada oferta: Política de privacidade e termos de utilização.
 
 |  **Campo**                |     **Descrição**                                                          |
 |  ---------                |     ---------------                                                          |

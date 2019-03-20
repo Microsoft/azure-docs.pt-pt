@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 8/9/2017
 ms.author: aljo, subramar
-ms.openlocfilehash: 1a9d9e0b6a82bd4bb3312df5288c04d0e52af3a6
-ms.sourcegitcommit: 7f7c2fe58c6cd3ba4fd2280e79dfa4f235c55ac8
+ms.openlocfilehash: 985d31ea5fff7989b70443848effb616eca47ae2
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/25/2019
-ms.locfileid: "56805677"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57844114"
 ---
 # <a name="resource-governance"></a>Governação de recursos
 
@@ -116,7 +116,7 @@ Limites de governação de recursos são especificados no manifesto do aplicativ
 
 ```xml
 <?xml version='1.0' encoding='UTF-8'?>
-<ApplicationManifest ApplicationTypeName='TestAppTC1' ApplicationTypeVersion='vTC1' xsi:schemaLocation='http://schemas.microsoft.com/2011/01/fabric ServiceFabricServiceModel.xsd' xmlns='http://schemas.microsoft.com/2011/01/fabric' xmlns:xsi='http://www.w3.org/2001/XMLSchema-instance'>
+<ApplicationManifest ApplicationTypeName='TestAppTC1' ApplicationTypeVersion='vTC1' xsi:schemaLocation='http://schemas.microsoft.com/2011/01/fabric ServiceFabricServiceModel.xsd' xmlns='http://schemas.microsoft.com/2011/01/fabric' xmlns:xsi='https://www.w3.org/2001/XMLSchema-instance'>
 
   <!--
   ServicePackageA has the number of CPU cores defined, but doesn't have the MemoryInMB defined.
@@ -145,7 +145,7 @@ Quando especificar a governação de recursos é possível usar [parâmetros de 
 
 ```xml
 <?xml version='1.0' encoding='UTF-8'?>
-<ApplicationManifest ApplicationTypeName='TestAppTC1' ApplicationTypeVersion='vTC1' xsi:schemaLocation='http://schemas.microsoft.com/2011/01/fabric ServiceFabricServiceModel.xsd' xmlns='http://schemas.microsoft.com/2011/01/fabric' xmlns:xsi='http://www.w3.org/2001/XMLSchema-instance'>
+<ApplicationManifest ApplicationTypeName='TestAppTC1' ApplicationTypeVersion='vTC1' xsi:schemaLocation='http://schemas.microsoft.com/2011/01/fabric ServiceFabricServiceModel.xsd' xmlns='http://schemas.microsoft.com/2011/01/fabric' xmlns:xsi='https://www.w3.org/2001/XMLSchema-instance'>
 
   <Parameters>
     <Parameter Name="CpuCores" DefaultValue="4" />

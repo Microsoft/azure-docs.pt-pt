@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 5/23/2018
 ms.author: aljo, anmola
-ms.openlocfilehash: f5e31c6cf08ab455b835231f54b564a3e4ed8dad
-ms.sourcegitcommit: 7f7c2fe58c6cd3ba4fd2280e79dfa4f235c55ac8
+ms.openlocfilehash: 147607bbea65199ff97459711ad6301a4ae93aa4
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/25/2019
-ms.locfileid: "56806203"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58079831"
 ---
 # <a name="containerize-your-service-fabric-reliable-services-and-reliable-actors-on-windows"></a>Colocar num contentor do Service Fabric Reliable Services e Reliable Actors no Windows
 
@@ -38,9 +38,9 @@ Este documento fornece orientações para o serviço em execução num contentor
 
 3. Para cada pacote de código que gostaria de colocar num contentor, inicializar o carregador na entrada de programa do ponto. Adicione o construtor estático mostrado no seguinte fragmento de código ao seu ficheiro de ponto de entrada do programa.
 
-  ```csharp
-  namespace MyApplication
-  {
+   ```csharp
+   namespace MyApplication
+   {
       internal static class Program
       {
           static Program()
@@ -53,7 +53,7 @@ Este documento fornece orientações para o serviço em execução num contentor
           /// </summary>
           private static void Main()
           {
-  ```
+   ```
 
 4. Criar e [pacote](service-fabric-package-apps.md#Package-App) seu projeto. Para compilar e criar um pacote, clique com o botão direito do projeto de aplicativo no Explorador de soluções e escolha o **pacote** comando.
 
@@ -79,49 +79,49 @@ Este documento fornece orientações para o serviço em execução num contentor
 
 7. Modificar a applicationmanifest. XML e o servicemanifest. XML para adicionar a imagem de contentor, informações do repositório, autenticação de registo e mapeamento de porta-a-anfitrião. Para modificar os manifestos, consulte [criar uma aplicação de contentor do Azure Service Fabric](service-fabric-get-started-containers.md). A definição de pacote de código no manifesto do serviço tem de ser substituído com a imagem de contentor correspondente. Certifique-se alterar o ponto de entrada para um tipo de ContainerHost.
 
-  ```xml
-<!-- Code package is your service executable. -->
-<CodePackage Name="Code" Version="1.0.0">
-  <EntryPoint>
+   ```xml
+   <!-- Code package is your service executable. -->
+   <CodePackage Name="Code" Version="1.0.0">
+   <EntryPoint>
     <!-- Follow this link for more information about deploying Windows containers to Service Fabric: https://aka.ms/sfguestcontainers -->
     <ContainerHost>
       <ImageName>myregistry.azurecr.io/samples/helloworldapp</ImageName>
     </ContainerHost>
-  </EntryPoint>
-  <!-- Pass environment variables to your container: -->
-</CodePackage>
-  ```
+   </EntryPoint>
+   <!-- Pass environment variables to your container: -->
+   </CodePackage>
+   ```
 
 8. Adicione o mapeamento de porta-a-anfitrião para o seu replicator e o ponto final de serviço. Uma vez que ambas estas portas são atribuídas em tempo de execução pelo Service Fabric, o ContainerPort é definida como zero para utilizar a porta atribuída para o mapeamento.
 
- ```xml
-<Policies>
-  <ContainerHostPolicies CodePackageRef="Code">
+   ```xml
+   <Policies>
+   <ContainerHostPolicies CodePackageRef="Code">
     <PortBinding ContainerPort="0" EndpointRef="ServiceEndpoint"/>
     <PortBinding ContainerPort="0" EndpointRef="ReplicatorEndpoint"/>
-  </ContainerHostPolicies>
-</Policies>
- ```
+   </ContainerHostPolicies>
+   </Policies>
+   ```
 
 9. Para configurar o modo de isolamento de contentor, veja [modo de isolamento de configurar]( https://docs.microsoft.com/azure/service-fabric/service-fabric-get-started-containers#configure-isolation-mode). O Windows suporta dois modos de isolamento para contentores: processo e Hyper-V. Os fragmentos seguintes mostram como o modo de isolamento é especificado no arquivo de manifesto do aplicativo.
 
- ```xml
-<Policies>
-  <ContainerHostPolicies CodePackageRef="Code" Isolation="process">
-  ...
-  </ContainerHostPolicies>
-</Policies>
- ```
-  ```xml
-<Policies>
-  <ContainerHostPolicies CodePackageRef="Code" Isolation="hyperv">
-  ...
-  </ContainerHostPolicies>
-</Policies>
- ```
+   ```xml
+   <Policies>
+   <ContainerHostPolicies CodePackageRef="Code" Isolation="process">
+   ...
+   </ContainerHostPolicies>
+   </Policies>
+   ```
+   ```xml
+   <Policies>
+   <ContainerHostPolicies CodePackageRef="Code" Isolation="hyperv">
+   ...
+   </ContainerHostPolicies>
+   </Policies>
+   ```
 
 10. Para testar esta aplicação, terá de implementá-la a um cluster que esteja executando a versão 5.7 ou superior. Para versões de tempo de execução 6.1 ou inferiores, terá de editar e atualizar as definições de cluster para ativar esta funcionalidade de pré-visualização. Siga os passos desta [artigo](service-fabric-cluster-fabric-settings.md) para adicionar a definição mostrada a seguir.
-```
+    ```
       {
         "name": "Hosting",
         "parameters": [
@@ -131,7 +131,7 @@ Este documento fornece orientações para o serviço em execução num contentor
           }
         ]
       }
-```
+    ```
 
 11. Próxima [implementar](service-fabric-deploy-remove-applications.md) o pacote de aplicação editado para este cluster.
 

@@ -7,16 +7,18 @@ ms.service: event-grid
 ms.topic: conceptual
 ms.date: 01/06/2019
 ms.author: spelluru
-ms.openlocfilehash: 69c26ab522a925032c5a255d07489de0052756c0
-ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
+ms.openlocfilehash: a1b49fd3a2a85377a56c92aefd1b0056f91895b1
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57340861"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58181967"
 ---
 # <a name="dead-letter-and-retry-policies"></a>Entregues e as políticas de repetição
 
 Ao criar uma subscrição de evento, pode personalizar as definições de entrega de eventos. Este artigo mostra-lhe como configurar uma localização entregues e personalizar as definições de repetição. Para obter informações sobre estas funcionalidades, consulte [entrega de mensagens do Event Grid e volte a tentar](delivery-and-retry.md).
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="set-dead-letter-location"></a>Definir localização de mensagens não entregues
 
@@ -50,10 +52,10 @@ Para desativar as mensagens não entregues, execute novamente o comando para cri
 ```azurepowershell-interactive
 $containername = "testcontainer"
 
-$topicid = (Get-AzureRmEventGridTopic -ResourceGroupName gridResourceGroup -Name demoTopic).Id
-$storageid = (Get-AzureRmStorageAccount -ResourceGroupName gridResourceGroup -Name demostorage).Id
+$topicid = (Get-AzEventGridTopic -ResourceGroupName gridResourceGroup -Name demoTopic).Id
+$storageid = (Get-AzStorageAccount -ResourceGroupName gridResourceGroup -Name demostorage).Id
 
-New-AzureRmEventGridSubscription `
+New-AzEventGridSubscription `
   -ResourceId $topicid `
   -EventSubscriptionName <event_subscription_name> `
   -Endpoint <endpoint_URL> `
@@ -102,9 +104,9 @@ Se definir ambos `event-ttl` e `max-deliver-attempts`, Event Grid utiliza o prim
 Para definir o evento time-to-live com um valor diferente 1440 minutos, utilize:
 
 ```azurepowershell-interactive
-$topicid = (Get-AzureRmEventGridTopic -ResourceGroupName gridResourceGroup -Name demoTopic).Id
+$topicid = (Get-AzEventGridTopic -ResourceGroupName gridResourceGroup -Name demoTopic).Id
 
-New-AzureRmEventGridSubscription `
+New-AzEventGridSubscription `
   -ResourceId $topicid `
   -EventSubscriptionName <event_subscription_name> `
   -Endpoint <endpoint_URL> `
@@ -114,9 +116,9 @@ New-AzureRmEventGridSubscription `
 Para definir as repetições máximas para um valor diferente de 30, utilize:
 
 ```azurepowershell-interactive
-$topicid = (Get-AzureRmEventGridTopic -ResourceGroupName gridResourceGroup -Name demoTopic).Id
+$topicid = (Get-AzEventGridTopic -ResourceGroupName gridResourceGroup -Name demoTopic).Id
 
-New-AzureRmEventGridSubscription `
+New-AzEventGridSubscription `
   -ResourceId $topicid `
   -EventSubscriptionName <event_subscription_name> `
   -Endpoint <endpoint_URL> `

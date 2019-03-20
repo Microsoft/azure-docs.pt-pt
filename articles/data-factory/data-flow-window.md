@@ -7,14 +7,14 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 01/30/2019
-ms.openlocfilehash: 60617261e14b77e9ef3a2968dc37159e961bb947
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: 6f3f06ff54fc76416ba63f4f09835897d546f8dc
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56735388"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57861915"
 ---
-# <a name="azure-data-factory-mapping-data-flow-window-transformation"></a>Mapeamento de transformação de janela de fluxo de dados de fábrica de dados do Azure
+# <a name="azure-data-factory-window-transformation"></a>Transformação de janela de fábrica de dados do Azure
 
 [!INCLUDE [notes](../../includes/data-factory-data-flow-preview.md)]
 
@@ -46,3 +46,6 @@ Por último, utilize o construtor de expressões para definir as agregações qu
 
 A lista completa de agregação e as funções analíticas disponíveis para utilização no ADF dados fluxo expressão de idioma via o construtor de expressões estão listados aqui: https://aka.ms/dataflowexpressions.
 
+## <a name="next-steps"></a>Passos Seguintes
+
+Se estiver procurando por uma agregação simples Agrupar por, utilize o [agregar transformação](data-flow-aggregate.md)

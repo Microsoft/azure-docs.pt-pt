@@ -12,12 +12,12 @@ ms.author: arib
 ms.reviewer: vanto
 manager: craigg
 ms.date: 02/07/2019
-ms.openlocfilehash: 7069114a8cb63b8b166bc29e92d8f355c49824bb
-ms.sourcegitcommit: 235cd1c4f003a7f8459b9761a623f000dd9e50ef
+ms.openlocfilehash: ce691ec0622749f1cb7252e237dae25b2657d115
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/11/2019
-ms.locfileid: "57727149"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58010522"
 ---
 # <a name="get-started-with-sql-database-auditing"></a>Introdução à auditoria da base de dados SQL
 
@@ -130,11 +130,11 @@ Se optar por escrever registos de auditoria nos registos de Monitor do Azure:
 Se optar por escrever registos de auditoria para o Hub de eventos:
 
 - Para consumir dados de registos de auditoria do Hub de eventos, terá de configurar um fluxo para consumir eventos e escrevê-los para um destino. Para obter mais informações, consulte [documentação de Hubs de eventos do Azure](https://docs.microsoft.com/azure/event-hubs/).
-- Registos de auditoria no Hub de eventos são capturados no corpo da [Apache Avro](http://avro.apache.org/) eventos e armazenados através de formatação do JSON com codificação UTF-8. Para ler os registos de auditoria, pode usar [Avro ferramentas](https://docs.microsoft.com/azure/event-hubs/event-hubs-capture-overview#use-avro-tools) ou ferramentas similares que processam neste formato.
+- Registos de auditoria no Hub de eventos são capturados no corpo da [Apache Avro](https://avro.apache.org/) eventos e armazenados através de formatação do JSON com codificação UTF-8. Para ler os registos de auditoria, pode usar [Avro ferramentas](https://docs.microsoft.com/azure/event-hubs/event-hubs-capture-overview#use-avro-tools) ou ferramentas similares que processam neste formato.
 
 Se optar por escrever registos de auditoria numa conta de armazenamento do Azure, existem vários métodos que pode utilizar para ver os registos:
 
-- Registos de auditoria são agregados na conta que escolheu durante a configuração. Pode explorar os registos de auditoria utilizando uma ferramenta como [Explorador de armazenamento do Azure](http://storageexplorer.com/). No armazenamento do Azure, os registos de auditoria são guardados como uma coleção de ficheiros de blob num contentor com o nome **sqldbauditlogs**. Para obter mais detalhes sobre a hierarquia da pasta de armazenamento, as convenções de nomenclatura e formato de registo, consulte a [referência de formato de registo de auditoria de Blob](https://go.microsoft.com/fwlink/?linkid=829599).
+- Registos de auditoria são agregados na conta que escolheu durante a configuração. Pode explorar os registos de auditoria utilizando uma ferramenta como [Explorador de armazenamento do Azure](https://storageexplorer.com/). No armazenamento do Azure, os registos de auditoria são guardados como uma coleção de ficheiros de blob num contentor com o nome **sqldbauditlogs**. Para obter mais detalhes sobre a hierarquia da pasta de armazenamento, as convenções de nomenclatura e formato de registo, consulte a [referência de formato de registo de auditoria de Blob](https://go.microsoft.com/fwlink/?linkid=829599).
 
 - Utilize o [portal do Azure](https://portal.azure.com).  Abra a base de dados relevante. No topo da base de dados **auditoria** página, clique em **ver registos de auditoria**.
 
@@ -161,7 +161,7 @@ Se optar por escrever registos de auditoria numa conta de armazenamento do Azure
     4. O ficheiro mesclado é aberta no SSMS, onde pode ver e analisá-lo, bem como exportá-lo para um ficheiro XEL ou CSV ou para uma tabela.
 
 - Utilize o Power BI. Pode ver e analisar dados de registo de auditoria no Power BI. Para obter mais informações e para aceder a um modelo que pode ser baixado, veja [analisar dados de registo de auditoria no Power BI](https://blogs.msdn.microsoft.com/azuresqldbsupport/20../../sql-azure-blob-auditing-basic-power-bi-dashboard/).
-- Transferir os ficheiros de registo do contentor de blob de armazenamento do Azure através do portal ou com uma ferramenta como [Explorador de armazenamento do Azure](http://storageexplorer.com/).
+- Transferir os ficheiros de registo do contentor de blob de armazenamento do Azure através do portal ou com uma ferramenta como [Explorador de armazenamento do Azure](https://storageexplorer.com/).
   - Depois de transferir um ficheiro de registo localmente, clique duas vezes o arquivo para abrir, visualizar e analisar os registos no SSMS.
   - Também pode transferir vários arquivos simultaneamente através do Explorador de armazenamento do Azure. Para fazer isso, uma subpasta específica com o botão direito e selecione **guardar como** salvar numa pasta local.
 

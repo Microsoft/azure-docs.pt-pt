@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 01/23/2018
 ms.author: pbutlerm
-ms.openlocfilehash: 7afa64ebedb38b4514bbd155bf8f29268d420d18
-ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
+ms.openlocfilehash: aa46fbce9d11a8fd380a5ee1990c0e7924079a9b
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55745763"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58078691"
 ---
 # <a name="create-a-self-test-client-to-pre-validate-an-azure-virtual-machine-image"></a>Criar um cliente de autoteste de mensagens em fila para pré-validar uma imagem de máquina virtual do Azure
 
@@ -297,8 +297,8 @@ Utilize os seguintes passos para registar a aplicação de cliente.
     - Selecione **guardar** para gerar a chave.
     - Sob **valor**, copie a chave.
 
-     >[!Important]
-     >Não será capaz de ver o valor da chave depois de sair do **chaves** formulário.
+      >[!Important]
+      >Não será capaz de ver o valor da chave depois de sair do **chaves** formulário.
 
     ![Formulário de valor da chave](./media/stclient-create-key.png)
 

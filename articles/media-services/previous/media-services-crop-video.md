@@ -11,14 +11,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 02/08/2019
+ms.date: 03/18/2019
 ms.author: anilmur;juliako;
-ms.openlocfilehash: 34db659232a27a18344ed492897641b92c0c1fa9
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: 9a81050fca935f688f2ff58cb04a148bf676f04b
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56001346"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58176655"
 ---
 # <a name="crop-videos-with-media-encoder-standard"></a>Recortar vídeos com o Media Encoder Standard  
 

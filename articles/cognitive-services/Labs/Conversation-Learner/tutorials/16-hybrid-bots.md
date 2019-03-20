@@ -10,12 +10,12 @@ ms.subservice: conversation-learner
 ms.topic: article
 ms.date: 07/13/2018
 ms.author: v-jaswel
-ms.openlocfilehash: 17be364959c5cdc1beaf48aa86966ede5c7c7309
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: b90fc42aa56bfc813ec464670336dea75cff0f0e
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55219367"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58117443"
 ---
 # <a name="how-to-use-conversation-learner-with-other-bot-building-technologies"></a>Como utilizar o aprendiz de conversação com outras tecnologias de criação de bot
 
@@ -119,11 +119,11 @@ Ao contrário do único bots de modelo de conversação Leaner não será capaz 
 2. Introduza "hello".  Uma vez que `isOpen` valor não está definido, o bot dirão "Desculpe, está a ser fechadas" e terminar a sessão.
 
 #### <a name="scenario-2-store-is-open"></a>Cenário 2: Store está aberta
-3. Introduza "abrir o arquivo".  Isso definirá o `isOpen` como true.
-4. Introduza "departamento".
-5. Introduza "hello".  Uma vez que `isOpen` valor está definido como true, o bot será apresentada a mensagem "O que deseja comprar?"
-6. Introduza "cadeira". "cadeira" será guardada na memória CL como a entidade `purchaseItem`. O retorno de chamada de sessão final é invocado para copia este valor de para o arquivo de conversação.
-7. Introduza 'Histórico'.  O bot será apresentada a mensagem "comprasse uma cadeira" como isso foi a última `purchaseItem`.
+1. Introduza "abrir o arquivo".  Isso definirá o `isOpen` como true.
+1. Introduza "departamento".
+1. Introduza "hello".  Uma vez que `isOpen` valor está definido como true, o bot será apresentada a mensagem "O que deseja comprar?"
+1. Introduza "cadeira". "cadeira" será guardada na memória CL como a entidade `purchaseItem`. O retorno de chamada de sessão final é invocado para copia este valor de para o arquivo de conversação.
+1. Introduza 'Histórico'.  O bot será apresentada a mensagem "comprasse uma cadeira" como isso foi a última `purchaseItem`.
 
 ## <a name="conclusion"></a>Conclusão
 

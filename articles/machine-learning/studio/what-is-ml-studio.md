@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
 ms.date: 03/28/2018
-ms.openlocfilehash: 44f2c24f1fe53b6fadabf23f03a6feda75c87883
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: 570f0a825f679ec5f0cc4c62b0608ec517148161
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56738288"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57894007"
 ---
 # <a name="what-is-azure-machine-learning-studio"></a>O que é o Azure Machine Learning Studio?
 O Microsoft Azure Machine Learning Studio é uma ferramenta de colaboração, de arrastar e largar que pode utilizar para criar, testar e implementar soluções de análise preditiva nos seus dados. Machine Learning Studio publica modelos como serviços web que podem facilmente ser consumidos por aplicações personalizadas ou ferramentas de BI como o Excel.
@@ -40,7 +40,7 @@ Não existe nenhuma programação necessária, basta ligar visualmente os conjun
 ## <a name="download-the-machine-learning-studio-overview-diagram"></a>Transferir o diagrama de descrição geral do Machine Learning Studio
 Transfira o diagrama da **Descrição geral das funcionalidades do Microsoft Azure Machine Learning Studio** e obtenha uma vista de alto nível das funcionalidades do Machine Learning Studio. Para o ter à mão, pode imprimir o diagrama no tamanho de tabloide (11 x 17 pol.).
 
-**Transfira o diagrama aqui: [Microsoft Azure Machine Learning descrição geral das capacidades do Studio](http://download.microsoft.com/download/C/4/6/C4606116-522F-428A-BE04-B6D3213E9E52/ml_studio_overview_v1.1.pdf)**
+**Transfira o diagrama aqui: [Microsoft Azure Machine Learning descrição geral das capacidades do Studio](https://download.microsoft.com/download/C/4/6/C4606116-522F-428A-BE04-B6D3213E9E52/ml_studio_overview_v1.1.pdf)**
 ![Microsoft Azure Machine Learning descrição geral das capacidades do Studio](./media/what-is-ml-studio/ml_studio_overview_v1.1.png)
 
 ## <a name="get-started-with-machine-learning-studio"></a>Introdução ao Machine Learning Studio
@@ -61,7 +61,7 @@ Clique em **Studio** e será direcionado para o **Azure Machine Learning Studio*
 * **DEFINIÇÕES** - Uma coleção de definições que pode utilizar para configurar a sua conta e recursos.
 
 ### <a name="gallery"></a>Galeria
-Clique em **Galeria** e será direcionado para a **[Galeria de IA do Azure](http://gallery.azure.ai/)**. A Galeria é um local onde uma comunidade de cientistas de dados e programadores partilham as soluções criadas com componentes do Cortana Intelligence Suite.
+Clique em **Galeria** e será direcionado para a **[Galeria de IA do Azure](https://gallery.azure.ai/)**. A Galeria é um local onde uma comunidade de cientistas de dados e programadores partilham as soluções criadas com componentes do Cortana Intelligence Suite.
 
 Para mais informações sobre a Galeria, veja [Partilhar e detetar soluções na galeria de IA do Azure](gallery-how-to-use-contribute-publish.md).
 

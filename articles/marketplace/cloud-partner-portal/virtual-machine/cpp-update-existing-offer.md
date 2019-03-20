@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 08/27/2018
 ms.author: Ankit.Sud
-ms.openlocfilehash: ee828c908cb3b103befa3890b43bb2c1f04f7cf0
-ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
+ms.openlocfilehash: 254215389d129874f7ac3fc855b26819d41a095c
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57214049"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57852479"
 ---
 # <a name="update-an-existing-vm-offer-on-azure-marketplace"></a>Atualizar uma oferta VM existente no Azure Marketplace
 
@@ -65,7 +65,7 @@ Embora haja uma grande variedade de características que é possível alterar um
 
 4.  Sob **versão de disco**, clique em **+ nova versão de disco** para adicionar uma nova imagem VM.
 
-5.  Fornecer as novas imagens de VM **versão de disco**. A versão de disco tem de cumprir os [versão semântica](http://semver.org/) formato. Versões devem ter o formato x.y. z, em que X, Y e Z são números inteiros. Certifique-se de que a nova versão que fornece é maior do que as versões de todas as anteriores; caso contrário, após republicar a nova versão não serão apresentadas no portal do ou no Azure Marketplace.
+5.  Fornecer as novas imagens de VM **versão de disco**. A versão de disco tem de cumprir os [versão semântica](https://semver.org/) formato. Versões devem ter o formato x.y. z, em que X, Y e Z são números inteiros. Certifique-se de que a nova versão que fornece é maior do que as versões de todas as anteriores; caso contrário, após republicar a nova versão não serão apresentadas no portal do ou no Azure Marketplace.
 
 6.  Para **URL de VHD do SO**, introduza o [assinatura de acesso partilhado (SAS) URI](./cpp-get-sas-uri.md) criado para o sistema de operativo VHD. 
 

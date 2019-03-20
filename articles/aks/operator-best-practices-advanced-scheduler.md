@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 11/26/2018
 ms.author: iainfou
-ms.openlocfilehash: 1534a3f010183cd91c444b577d26e3f21e296d27
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 27c9c872f4dfb82b4a1389189d62c4e1f06ee272
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57434324"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58175986"
 ---
 # <a name="best-practices-for-advanced-scheduler-features-in-azure-kubernetes-service-aks"></a>Práticas recomendadas para recursos do agendador avançadas no Azure Kubernetes Service (AKS)
 
@@ -39,10 +39,10 @@ O agendador de Kubernetes pode utilizar taints e tolerations para restringir o q
 Quando implementar um pod num cluster do AKS, o Kubernetes agenda apenas pods em nós em que um toleration está alinhado com o taint. Por exemplo, partem do princípio de que tem um nodepool no cluster do AKS para nós com GPU com suporte. Definir o nome, tal como *gpu*, em seguida, um valor para o agendamento. Se definir este valor como *NoSchedule*, o agendador de Kubernetes não é possível agendar pods no nó, se o pod não define o toleration apropriado.
 
 ```console
-kubectl taint node aks-nodepool1 gpu:NoSchedule
+kubectl taint node aks-nodepool1 sku=gpu:NoSchedule
 ```
 
-Com um taint aplicada a nós,, em seguida, define um toleration na especificação pod que permite o agendamento em nós. O exemplo seguinte define a `key: gpu` e `effect: NoSchedule` tolerar taint aplicado ao nó no passo anterior:
+Com um taint aplicada a nós,, em seguida, define um toleration na especificação pod que permite o agendamento em nós. O exemplo seguinte define a `sku: gpu` e `effect: NoSchedule` tolerar taint aplicado ao nó no passo anterior:
 
 ```yaml
 kind: Pod
@@ -61,9 +61,9 @@ spec:
       cpu: 4.0
       memory: 16Gi
   tolerations:
-  - key: "gpu"
+  - key: "sku"
     operator: "Equal"
-    value: "value"
+    value: "gpu"
     effect: "NoSchedule"
 ```
 

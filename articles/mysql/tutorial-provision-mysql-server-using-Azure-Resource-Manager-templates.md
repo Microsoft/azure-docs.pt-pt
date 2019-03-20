@@ -8,12 +8,12 @@ ms.devlang: json
 ms.topic: tutorial
 ms.date: 12/21/2018
 ms.custom: mvc
-ms.openlocfilehash: 8b443d0002b600860597710792054e9531b6cc41
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 5d5398f4da7563c6f53c17d0305f54c4360f1c65
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57532917"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58076858"
 ---
 # <a name="tutorial-provision-an-azure-database-for-mysql-server-using-azure-resource-manager-template"></a>Tutorial: Aprovisionar uma base de dados do Azure para servidor MySQL com o modelo Azure Resource Manager
 
@@ -26,7 +26,7 @@ Neste tutorial, utilize modelo Azure Resource Manager e outros utilitários para
 > [!div class="checklist"]
 > * Criar uma base de dados do Azure para o servidor MySQL com o ponto final de serviço de VNet com o modelo Azure Resource Manager
 > * Utilize a [ferramenta da linha de comandos mysql](https://dev.mysql.com/doc/refman/5.6/en/mysql.html) para criar uma base de dados
-> * Carregar dados de exemplo
+> * Carregar os dados de exemplo
 > * Consultar dados
 > * Atualizar dados
 
@@ -204,8 +204,8 @@ Neste tutorial, aprendeu a:
 > [!div class="checklist"]
 > * Criar uma base de dados do Azure para o servidor MySQL com o ponto final de serviço de VNet com o modelo Azure Resource Manager
 > * Utilize a [ferramenta da linha de comandos mysql](https://dev.mysql.com/doc/refman/5.6/en/mysql.html) para criar uma base de dados
-> * Carregar dados de exemplo
+> * Carregar os dados de exemplo
 > * Consultar dados
 > * Atualizar dados
-
+> 
 > [Como ligar aplicações à Base de Dados do Azure para MySQL](./howto-connection-string.md)

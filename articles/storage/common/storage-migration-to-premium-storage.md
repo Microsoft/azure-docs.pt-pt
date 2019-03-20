@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 06/27/2017
 ms.author: yuemlu
 ms.subservice: common
-ms.openlocfilehash: bb88bf7ddaa93336c812b1ddc9794dad8daa64b7
-ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
+ms.openlocfilehash: 5f2052576d0c6a1e663e3b84534fa0784a26e175
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/16/2019
-ms.locfileid: "56330584"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58006510"
 ---
 # <a name="migrating-to-azure-premium-storage-unmanaged-disks"></a>Migrar para o armazenamento Premium do Azure (discos não geridos)
 
@@ -138,7 +138,7 @@ Se estiver a carregar um VHD que vai ser utilizado para criar várias instância
 
     ![][1]
 
-Para uma VM do Ubuntu, utilize virt sysprep para alcançar o mesmo. Ver [virt sysprep](http://manpages.ubuntu.com/manpages/precise/man1/virt-sysprep.1.html) para obter mais detalhes. Consulte também alguns do código-fonte aberto [Provisionamento do servidor Linux software](http://www.cyberciti.biz/tips/server-provisioning-software.html) para outros sistemas de operativos Linux.
+Para uma VM do Ubuntu, utilize virt sysprep para alcançar o mesmo. Ver [virt sysprep](https://manpages.ubuntu.com/manpages/precise/man1/virt-sysprep.1.html) para obter mais detalhes. Consulte também alguns do código-fonte aberto [Provisionamento do servidor Linux software](https://www.cyberciti.biz/tips/server-provisioning-software.html) para outros sistemas de operativos Linux.
 
 ##### <a name="use-a-unique-operating-system-vhd-to-create-a-single-vm-instance"></a>Utilizar um único VHD de sistema operativo para criar uma única instância VM
 Se tiver uma aplicação em execução na VM que requer que os dados específicos do computador, não generalize o VHD. Um VHD generalizado não pode ser utilizado para criar uma instância de VM do Azure exclusiva. Por exemplo, se tiver o controlador de domínio no seu VHD, execução de sysprep tornará ineficaz como um controlador de domínio. Reveja as aplicações em execução na sua VM e o impacto da execução de sysprep nos mesmos antes de generalizar o VHD.
@@ -467,9 +467,9 @@ O script de automação é fornecido abaixo. Substitua o texto com as suas infor
 
     .Link
     To find more information about how to set up Azure PowerShell, refer to the following links.
-    http://azure.microsoft.com/documentation/articles/powershell-install-configure/
-    http://azure.microsoft.com/documentation/articles/storage-powershell-guide-full/
-    http://azure.microsoft.com/blog/2014/10/22/migrate-azure-virtual-machines-between-storage-accounts/
+    https://azure.microsoft.com/documentation/articles/powershell-install-configure/
+    https://azure.microsoft.com/documentation/articles/storage-powershell-guide-full/
+    https://azure.microsoft.com/blog/2014/10/22/migrate-azure-virtual-machines-between-storage-accounts/
 
     #>
 
@@ -558,7 +558,7 @@ O script de automação é fornecido abaixo. Substitua o texto com as suas infor
     }
     else
     {
-        Write-Host "[ERROR] - There is no valid Azure subscription found in PowerShell. Please refer to this article http://azure.microsoft.com/documentation/articles/powershell-install-configure/ to connect an Azure subscription. Exiting." -ForegroundColor Red
+        Write-Host "[ERROR] - There is no valid Azure subscription found in PowerShell. Please refer to this article https://azure.microsoft.com/documentation/articles/powershell-install-configure/ to connect an Azure subscription. Exiting." -ForegroundColor Red
         Exit
     }
 
@@ -759,7 +759,7 @@ Consulte os seguintes recursos para cenários específicos para migrar máquinas
 * [Migrar máquinas virtuais do Azure entre contas de armazenamento](https://azure.microsoft.com/blog/2014/10/22/migrate-azure-virtual-machines-between-storage-accounts/)
 * [Criar e carregar um VHD do Windows Server para o Azure.](../../virtual-machines/windows/upload-generalized-managed.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 * [Criar e carregar um VHD do Linux para o Azure](../../virtual-machines/linux/create-upload-generic.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-* [Migração de máquinas virtuais da Amazon AWS para o Microsoft Azure](http://channel9.msdn.com/Series/Migrating-Virtual-Machines-from-Amazon-AWS-to-Microsoft-Azure)
+* [Migração de máquinas virtuais da Amazon AWS para o Microsoft Azure](https://channel9.msdn.com/Series/Migrating-Virtual-Machines-from-Amazon-AWS-to-Microsoft-Azure)
 
 Além disso, consulte os seguintes recursos para saber mais sobre o armazenamento do Azure e máquinas virtuais do Azure:
 
@@ -770,4 +770,4 @@ Além disso, consulte os seguintes recursos para saber mais sobre o armazenament
 [1]:./media/storage-migration-to-premium-storage/migration-to-premium-storage-1.png
 [2]:./media/storage-migration-to-premium-storage/migration-to-premium-storage-1.png
 [3]:./media/storage-migration-to-premium-storage/migration-to-premium-storage-3.png
-[4]: http://technet.microsoft.com/library/hh831739.aspx
+[4]: https://technet.microsoft.com/library/hh831739.aspx

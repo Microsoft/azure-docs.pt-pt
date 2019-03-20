@@ -12,15 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 02/05/2019
+ms.date: 03/05/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d0e7f2f2d798a82bed3247197da6bb09aa8110d9
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 641fe5439e320208d41969b9563293257648d488
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57781515"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57842095"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-zoom"></a>Tutorial: Integração do Active Directory do Azure com o Zoom
 
@@ -112,20 +112,20 @@ Para configurar o Azure AD início de sessão único com Zoom, execute os seguin
     > [!NOTE]
     > Estes valores não são reais. Atualize estes valores com o início de sessão real URL e o identificador. Contacte [equipa de suporte de cliente de Zoom](https://support.zoom.us/hc/en-us) obter esses valores. Também pode consultar os padrões mostrados a **configuração básica de SAML** secção no portal do Azure.
 
-5. Aplicação de zoom espera que as asserções SAML num formato específico. Configure as seguintes declarações para esta aplicação. Pode gerir os valores destes atributos do **atributos de utilizador** secção na página de integração de aplicações. Sobre o **definido no início de sessão único com o SAML** página, clique em **editar** botão para abrir **atributos de utilizador** caixa de diálogo.
+5. Aplicação de zoom espera que as asserções SAML num formato específico, o que requer a adição de mapeamentos de atributos personalizado à sua configuração de atributos de token SAML. Captura de ecrã seguinte mostra a lista de atributos predefinidos. Clique em **edite** ícone para abrir **atributos do utilizador** caixa de diálogo.
 
     ![image](common/edit-attribute.png)
 
-6. No **afirmações de utilizador** secção sobre o **atributos de utilizador** caixa de diálogo, configurar o atributo de token de SAML conforme mostrado na imagem acima e execute os seguintes passos:
+6. Além disso, para acima, a aplicação de Zoom espera mais alguns atributos a serem passados na resposta SAML. No **afirmações de utilizador** secção sobre o **atributos de utilizador** caixa de diálogo, execute os seguintes passos para adicionar o atributo de token de SAML conforme mostrado na tabela a seguir:
     
     | Name | Espaço de nomes  |  Atributo de origem|
     | ---------------| --------------- | --------- |
-    | Endereço de e-mail  | user.mail  | http://schemas.xmlsoap.org/ws/2005/05/identity/claims/mail |
-    | Nome próprio  | user.givenname  | http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname |
-    | Apelido  | user.surname  | http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname |
-    | Número de telefone  | user.telephonenumber  | http://schemas.xmlsoap.org/ws/2005/05/identity/claims/phone |
-    | Departamento  | user.department  | http://schemas.xmlsoap.org/ws/2005/05/identity/claims/department |
-    | função |    user.assignedrole |http://schemas.xmlsoap.org/ws/2005/05/identity/claims/role |
+    | Endereço de e-mail  | user.mail  | `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/mail` |
+    | Nome próprio  | user.givenname  | `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname` |
+    | Apelido  | user.surname  | `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname` |
+    | Número de telefone  | user.telephonenumber  | `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/phone` |
+    | Departamento  | user.department  | `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/department` |
+    | função |    user.assignedrole |`http://schemas.xmlsoap.org/ws/2005/05/identity/claims/role` |
 
     > [!NOTE]
     > Clique [aqui](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal) saber como configurar a função no Azure AD
@@ -159,7 +159,7 @@ Para configurar o Azure AD início de sessão único com Zoom, execute os seguin
 
     a. URL de início de sessão
 
-    b. Azure Ad Identifier
+    b. Identificador do Azure AD
 
     c. URL de fim de sessão
 
@@ -179,13 +179,23 @@ Para configurar o Azure AD início de sessão único com Zoom, execute os seguin
 
     a. Na **URL da página de início de sessão** caixa de texto, cole o valor de **URL de início de sessão** que copiou do portal do Azure.
 
-    b. Na **URL da página de início de sessão** caixa de texto, cole o valor de **URL de fim de sessão** que copiou do portal do Azure.
+    b. Para **URL de página de início de sessão** valor, precisa aceder ao portal do Azure e clique em **Azure Active Directory** no lado esquerdo, em seguida, navegue até **registos das aplicações**.
 
-    c. Abra o certificado com codificação base 64 no bloco de notas, copie o conteúdo do mesmo para a área de transferência e, em seguida, cole-os para o **certificado do fornecedor de identidade** caixa de texto.
+    ![O botão do Azure Active Directory](./media/zoom-tutorial/appreg.png)
 
-    d. Na **emissor** caixa de texto, cole o valor de **do Azure Ad identificador** que copiou do portal do Azure. 
+    c. Clique em **pontos finais**
 
-    e. Clique em **Guardar**.
+    ![O botão de ponto final](./media/zoom-tutorial/endpoint.png)
+
+    d. Copiar o **ponto final de fim de sessão de SAML-P** e cole-a na **URL de fim de sessão de página** caixa de texto.
+
+    ![O botão de ponto final de cópia](./media/zoom-tutorial/endpoint1.png)
+
+    e. Abra o certificado com codificação base 64 no bloco de notas, copie o conteúdo do mesmo para a área de transferência e, em seguida, cole-os para o **certificado do fornecedor de identidade** caixa de texto.
+
+    f. Na **emissor** caixa de texto, cole o valor de **do Azure AD identificador** que copiou do portal do Azure. 
+
+    g. Clique em **Guardar**.
 
     > [!NOTE]
     > Para obter mais informações, visite a documentação de zoom [https://zoomus.zendesk.com/hc/articles/115005887566](https://zoomus.zendesk.com/hc/articles/115005887566)
@@ -208,7 +218,7 @@ O objetivo desta secção é criar um utilizador de teste no portal do Azure cha
 
     a. Na **Name** campo introduza **BrittaSimon**.
   
-    b. Na **nome de utilizador** tipo de campo **brittasimon@yourcompanydomain.extension**  
+    b. Na **nome de utilizador** tipo de campo **brittasimon\@yourcompanydomain.extension**  
     Por exemplo, BrittaSimon@contoso.com
 
     c. Selecione **palavra-passe de Show** caixa de verificação e, em seguida, anote o valor que é apresentado na caixa de palavra-passe.

@@ -11,12 +11,12 @@ ms.workload: azure-vs
 ms.topic: conceptual
 ms.date: 01/02/2019
 ms.author: ghogen
-ms.openlocfilehash: 098958cd729f1c616a93bbb5264445cb6d877f8b
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: de849ae290228826ee500ae1c7e623210e585d34
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57441989"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58113253"
 ---
 # <a name="add-key-vault-to-your-web-application-by-using-visual-studio-connected-services"></a>Adicionar o Key Vault à sua aplicação web com o Visual Studio ligado Services
 
@@ -78,7 +78,7 @@ Agora, pode acessar seus segredos no código. As próximas etapas são diferente
 1. Instalar estes dois pacotes de nuget [AppAuthentication](https://www.nuget.org/packages/Microsoft.Azure.Services.AppAuthentication) e [KeyVault](https://www.nuget.org/packages/Microsoft.Azure.KeyVault) bibliotecas NuGet.
 
 2. Abra o ficheiro Program.cs e atualizar o código com o código a seguir: 
-```
+   ```
     public class Program
     {
         public static void Main(string[] args)
@@ -106,27 +106,27 @@ Agora, pode acessar seus segredos no código. As próximas etapas são diferente
 
         private static string GetKeyVaultEndpoint() => "https://<YourKeyVaultName>.vault.azure.net";
     }
-```
+   ```
 3. Em seguida, abra o ficheiro de About.cshtml.cs e escrever o código a seguir
-    1. Incluir uma referência ao Microsoft.Extensions.Configuration por este usando a instrução    
-        ```
-        using Microsoft.Extensions.Configuration
-        ```
-    2. Adicionar este construtor
-        ```
-        public AboutModel(IConfiguration configuration)
-        {
-            _configuration = configuration;
-        }
-        ```
-    3. Atualize o método OnGet. Atualize o valor do marcador de posição mostrado aqui com o nome do segredo que criou nos comandos anteriores
-        ```
-        public void OnGet()
-        {
-            //Message = "Your application description page.";
-            Message = "My key val = " + _configuration["<YourSecretNameThatWasCreatedAbove>"];
-        }
-        ```
+   1. Incluir uma referência ao Microsoft.Extensions.Configuration por este usando a instrução    
+       ```
+       using Microsoft.Extensions.Configuration
+       ```
+   2. Adicionar este construtor
+       ```
+       public AboutModel(IConfiguration configuration)
+       {
+           _configuration = configuration;
+       }
+       ```
+   3. Atualize o método OnGet. Atualize o valor do marcador de posição mostrado aqui com o nome do segredo que criou nos comandos anteriores
+       ```
+       public void OnGet()
+       {
+           //Message = "Your application description page.";
+           Message = "My key val = " + _configuration["<YourSecretNameThatWasCreatedAbove>"];
+       }
+       ```
 
 Execute a aplicação localmente ao navegar para a página. Deve seu valor secreto obtido
 

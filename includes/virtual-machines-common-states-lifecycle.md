@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 08/09/2018
 ms.author: vashan, cynthn, rajsqr
 ms.custom: include file
-ms.openlocfilehash: b48de6a6eeed997fe162cabe4d57e6770e016971
-ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
+ms.openlocfilehash: 57f557a812ec5e4eea75b76ca1394ca360a85d30
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54122807"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58125108"
 ---
 Máquinas virtuais do Azure (VMs) passar por Estados diferentes que podem ser categorizados em *aprovisionamento* e *power* Estados. O objetivo deste artigo é descrever esses Estados e realçar especificamente quando os clientes são faturados por exemplo utilização. 
 
@@ -196,7 +196,7 @@ Aqui estão os Estados de transição de operação depois da plataforma aceitou
 </tr>
 <tr>
 <td width="162">
-<p><b>A atualizar</b></p>
+<p><b>Updating</b></p>
 </td>
 <td width="366">
 <code>"statuses": [<br>
@@ -255,14 +255,14 @@ Quando a operação estiver concluída, a VM irão transitar para um dos seguint
 - **Foi efetuada com êxito** – concluíram as ações iniciadas pelo usuário.
 
     ```
- "statuses": [ 
- {
+  "statuses": [ 
+  {
      "code": "ProvisioningState/succeeded",
      "level": "Info",
      "displayStatus": "Provisioning succeeded",
      "time": "time"
- }
- ]
+  }
+  ]
     ```
 
  
@@ -270,7 +270,7 @@ Quando a operação estiver concluída, a VM irão transitar para um dos seguint
 - **Falha ao** – representa uma operação que falhou. Consulte os códigos de erro para obter mais informações e possíveis soluções.
 
     ```
- "statuses": [
+  "statuses": [
     {
       "code": "ProvisioningState/failed/InternalOperationError",
       "level": "Error",

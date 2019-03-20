@@ -8,12 +8,12 @@ ms.topic: reference
 ms.date: 09/14/2018
 ms.author: ancav
 ms.subservice: metrics
-ms.openlocfilehash: a4b6bc8f6e621cda921d599b5368c6a671defcc2
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: f7bfb4f403104bb91fb1a9ba4b70cb164e0738b4
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57548614"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58113304"
 ---
 # <a name="supported-metrics-with-azure-monitor"></a>Métricas suportadas com o Azure Monitor
 O Azure Monitor proporciona várias formas de interagir com métricas, incluindo gráficos-las no portal, o acesso aos mesmos através da API REST ou consultando-os com o PowerShell ou CLI. Segue-se uma lista completa de todas as métricas atualmente disponíveis com o pipeline de métrico do Azure Monitor. Outras métricas poderão estar disponíveis no portal ou através de APIs herdadas. Esta lista abaixo inclui apenas as métricas disponíveis com o pipeline de métrico do Azure Monitor consolidado. Para consultar e aceder a estas métricas, utilize o [2018-01-01 api-version](https://docs.microsoft.com/rest/api/monitor/metricdefinitions)
@@ -682,7 +682,7 @@ O Azure Monitor proporciona várias formas de interagir com métricas, incluindo
 ### <a name="latency-metrics"></a>Métricas de latência
 
 |Métrica|Nome a apresentar de métrica|Unidade|Tipo de Agregação|Descrição|Dimensões| Nas duas granularidades de tempo| Utilização |
-|---|---|---|---|---|---| ---| ---| ---|
+|---|---|---|---|---|---| ---| ---|
 | ReplicationLatency    | Latência de replicação|  Milissegundos|   Mínimo, máximo, média | P99 a latência de replicação entre regiões de origem e de destino para a conta geo-ativada| SourceRegion, TargetRegion| Todos | Usado para monitorar a latência de replicação de P99 entre quaisquer duas regiões para uma conta georreplicado. |
 
 ### <a name="availability-metrics"></a>Métricas de disponibilidade
@@ -694,7 +694,7 @@ O Azure Monitor proporciona várias formas de interagir com métricas, incluindo
 ### <a name="cassandra-api-metrics"></a>Métrica de API de Cassandra
 
 |Métrica|Nome a apresentar de métrica|Unidade|Tipo de Agregação|Descrição|Dimensões| Nas duas granularidades de tempo| Utilização |
-|---|---|---|---|---|---| ---| ---| ---|
+|---|---|---|---|---|---| ---| ---|
 | CassandraRequests | Pedidos de Cassandra |  Contagem|  Contagem|  Número de pedidos de API para Cassandra efetuados|  DatabaseName, CollectionName, ErrorCode, Region, OperationType, ResourceType|   Todos| Utilizado para monitorizar os pedidos de Cassandra numa granularidade ao minuto. Para obter pedidos médios por segundo, utilizar a agregação de contagem em minutos e divida por 60.|
 | CassandraRequestCharges|  Custos de pedido de Cassandra| Contagem|   Soma ou Mín, Máx, média| Solicitar unidades consumidas por pedidos de API de Cassandra|   DatabaseName, CollectionName, Region, OperationType, ResourceType|  Todos| Utilizado para monitorizar o RUs utilizados por minuto por uma conta da API de Cassandra.|
 | CassandraConnectionClosures   | Fechamentos de ligação de Cassandra |Contagem| Contagem   |Número de ligações de Cassandra fechados|    ClosureReason, região|  Todos | Utilizado para monitorizar a conectividade entre clientes e a API de Cassandra do Azure Cosmos DB.|
@@ -1072,7 +1072,7 @@ O Azure Monitor proporciona várias formas de interagir com métricas, incluindo
 
 |Métrica|Nome a apresentar de métrica|Unidade|Tipo de Agregação|Descrição|Dimensões|
 |---|---|---|---|---|---|
-|RequestCount|Contagem de pedidos|Contagem|Total|O número de pedidos de cliente atendidos pelo proxy HTTP/S|HttpStatus, HttpStatusGroup, ClientRegion, ClientCountry|
+|RequestCount|Número de Pedidos|Contagem|Total|O número de pedidos de cliente atendidos pelo proxy HTTP/S|HttpStatus, HttpStatusGroup, ClientRegion, ClientCountry|
 |RequestSize|Tamanho do pedido|Bytes|Total|O número de bytes enviados como pedidos de clientes para o proxy HTTP/S|HttpStatus, HttpStatusGroup, ClientRegion, ClientCountry|
 |ResponseSize|Tamanho de resposta|Bytes|Total|O número de bytes enviados, como as respostas, do proxy HTTP/S para clientes|HttpStatus, HttpStatusGroup, ClientRegion, ClientCountry|
 |BackendRequestCount|Contagem de pedidos de back-end|Contagem|Total|O número de pedidos enviados a partir do proxy HTTP/S para o back-ends|HttpStatus, HttpStatusGroup, Backend|

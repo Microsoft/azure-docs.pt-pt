@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 11/13/2018
 ms.author: magoedte
-ms.openlocfilehash: 1c145f100e22dbb268a7cd491eb8a43b51988c69
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.openlocfilehash: dcd546b4b4d8e47395535cd37e1629166c8c2e7f
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57315814"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58002350"
 ---
 # <a name="log-analytics-faq"></a>FAQ do Log Analytics
 
@@ -72,7 +72,7 @@ R: Para aceder a uma área de trabalho no Azure, tem de ter permissões do Azure
 R: Estruturador de vistas só está disponível nos registos para os utilizadores com permissões de Contribuidor ou superior.
 
 ### <a name="q-can-i-still-use-the-analytics-portal-outside-of-azure"></a>P. Posso continuar a utilizar o portal do Analytics fora do Azure?
-R. Sim, a página de registos no Azure e o portal da análise avançada baseiam-se no mesmo código. O log Analytics está a ser integrado como uma funcionalidade no Azure Monitor para fornecer uma experiência de monitorização mais unificada. Pode continuar a aceder através do URL do portal da análise: https://portal.loganalytics.io/subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}/workspaces/{workspaceName}.
+R. Sim, a página de registos no Azure e o portal da análise avançada baseiam-se no mesmo código. O log Analytics está a ser integrado como uma funcionalidade no Azure Monitor para fornecer uma experiência de monitorização mais unificada. Pode continuar a aceder o portal do Analytics através do URL: https:\/\/portal.loganalytics.io/subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}/workspaces/{workspaceName}.
 
 
 

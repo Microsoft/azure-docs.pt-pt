@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 09/13/2018
 ms.author: pbutlerm
-ms.openlocfilehash: 20a4e24800b2fa05990d294cb374841c50c4f79b
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
+ms.openlocfilehash: 89cc8c4bffe910de0861d7f44925a10df3811fdb
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48810339"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58097479"
 ---
 <a name="web-analytics"></a>Análise da Web
 =============
@@ -49,12 +49,12 @@ Existem duas formas de gerar seu próprio campanha.
 
 Por exemplo, pode utilizar: <https://appsource.microsoft.com/product/dynamics-365/contoso.offername?mktcmpid=NewCampaign>
 
-2. (Avançado): Utilize um dos nossos campanha suportada, genérica IDs no URL. Gostaríamos de acomodar com etiquetas de ref adicionais que tem de utilizar, portanto, damos suporte a Convenção de reconhece automaticamente essas marcas adicionais:
+1. (Avançado): Utilize um dos nossos campanha suportada, genérica IDs no URL. Gostaríamos de acomodar com etiquetas de ref adicionais que tem de utilizar, portanto, damos suporte a Convenção de reconhece automaticamente essas marcas adicionais:
     
-    1. **UTM\_campanha**
-    2. **UTM\_origem**
-    3. **Ref**
-    4. **SRC**
+    1. **utm\_campaign**
+    2. **utm\_source**
+    3. **ref**
+    4. **src**
 
 Por exemplo, pode utilizar: <https://appsource.microsoft.com/product/dynamics-365/contoso.offername?utm_campaign=NewCampaign>
 

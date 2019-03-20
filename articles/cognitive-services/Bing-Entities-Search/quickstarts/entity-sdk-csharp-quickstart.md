@@ -10,12 +10,12 @@ ms.subservice: bing-entity-search
 ms.topic: quickstart
 ms.date: 02/01/2019
 ms.author: v-gedod
-ms.openlocfilehash: 00a4f222e45bcb62db13e420c6b1829d8be8a14b
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 99b7f05304b48b7d885a80705d05fbe24854150f
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57529330"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58080646"
 ---
 # <a name="send-a-search-request-with-the-bing-entity-search-sdk-for-c"></a>Enviar um pedido de pesquisa com o SDK de pesquisa de entidades do Bing paraC#
 
@@ -52,13 +52,13 @@ Para adicionar o SDK de pesquisa de entidades do Bing ao seu projeto do Visual S
 
 ## <a name="create-a-client-and-send-a-search-request"></a>Criar um cliente e enviar um pedido de pesquisa
 
-2. Crie um novo cliente de pesquisa. Adicionar a chave de subscrição ao criar um novo `ApiKeyServiceClientCredentials`.
+1. Crie um novo cliente de pesquisa. Adicionar a chave de subscrição ao criar um novo `ApiKeyServiceClientCredentials`.
 
     ```csharp
     var client = new EntitySearchAPI(new ApiKeyServiceClientCredentials("YOUR-ACCESS-KEY"));
     ```
 
-3. Utilizar o cliente `Entities.Search()` função para procurar a sua consulta:
+1. Utilizar o cliente `Entities.Search()` função para procurar a sua consulta:
     
     ```csharp
     var entityData = client.Entities.Search(query: "Satya Nadella");

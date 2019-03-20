@@ -11,14 +11,14 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 02/07/2019
+ms.date: 03/12/2019
 ms.author: magoedte
-ms.openlocfilehash: f5bc5edaccf07f4840a2db329fb5c3a0c51b7a6d
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: a68e40b7b1caf184fabb5df62d8b461fa2fa11e2
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55999441"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57834477"
 ---
 # <a name="create-a-log-analytics-workspace-in-the-azure-portal"></a>Criar uma área de trabalho do Log Analytics no portal do Azure
 Utilize o **áreas de trabalho do Log Analytics** menu para criar uma área de trabalho do Log Analytics no portal do Azure. Uma área de trabalho do Log Analytics é um ambiente exclusivo para dados de registo do Azure Monitor. Cada área de trabalho tem seu próprio repositório de dados e a configuração e origens de dados e as soluções são configuradas para armazenar seus dados numa área de trabalho específica. Exigir uma área de trabalho do Log Analytics se pretende recolher dados das seguintes origens:
@@ -46,13 +46,13 @@ Inicie sessão no Portal do Azure em [https://portal.azure.com](https://portal.a
   
 2. Clique em **adicionar**e, em seguida, selecione opções para os seguintes itens:
 
-  * Indique um nome para a nova **Área de trabalho do Log Analytics**, como *DefaultLAWorkspace*. 
-  * Selecione uma **Subscrição** à qual ligar ao escolher na lista pendente se a predefinição selecionada não é adequada.
-  * Para **grupo de recursos**, optar por utilizar um recurso existente já grupo configuração ou criar um novo.  
-  * Selecione um disponíveis **localização**.  Para obter mais informações, veja em que [regiões do Log Analytics está disponível no](https://azure.microsoft.com/regions/services/).
-  * Se estiver a criar uma área de trabalho numa subscrição nova criada depois de 2 de abril de 2018, a mesma utilizará automaticamente o plano de preços *Por GB* e a opção para selecionar um escalão de preços não estará disponível.  Se estiver a criar uma área de trabalho para uma subscrição existente criada antes 2 de Abril de ou para uma subscrição que estava associada a uma inscrição de Enterprise Agreement (EA) já existente, selecione o escalão de preço preferido.  Para obter mais informações sobre os escalões específicos, consulte [detalhes de preços do Log Analytics](https://azure.microsoft.com/pricing/details/log-analytics/).
+   * Indique um nome para a nova **Área de trabalho do Log Analytics**, como *DefaultLAWorkspace*. 
+   * Selecione uma **Subscrição** à qual ligar ao escolher na lista pendente se a predefinição selecionada não é adequada.
+   * Para **grupo de recursos**, optar por utilizar um recurso existente já grupo configuração ou criar um novo.  
+   * Selecione um disponíveis **localização**.  Para obter mais informações, veja em que [regiões do Log Analytics está disponível](https://azure.microsoft.com/regions/services/) e procure o Azure Monitor e a partir do **pesquisa de um produto** campo.  
+   * Se estiver a criar uma área de trabalho numa subscrição nova criada depois de 2 de abril de 2018, a mesma utilizará automaticamente o plano de preços *Por GB* e a opção para selecionar um escalão de preços não estará disponível.  Se estiver a criar uma área de trabalho para uma subscrição existente criada antes 2 de Abril de ou para uma subscrição que estava associada a uma inscrição de Enterprise Agreement (EA) já existente, selecione o escalão de preço preferido.  Para obter mais informações sobre os escalões específicos, consulte [detalhes de preços do Log Analytics](https://azure.microsoft.com/pricing/details/log-analytics/).
 
-        ![Create Log Analytics resource blade](media/quick-create-workspace/create-loganalytics-workspace-02.png)  
+        ![Criar o painel de recursos do Log Analytics](media/quick-create-workspace/create-loganalytics-workspace-02.png)  
 
 3. Depois de dar as informações necessárias no painel **Área de Trabalho do Log Analytics**, clique em **OK**.  
 

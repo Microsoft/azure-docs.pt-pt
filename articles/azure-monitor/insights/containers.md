@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 02/28/2019
 ms.author: magoedte
-ms.openlocfilehash: 58f16b0aa068c8b333ef4e7986bb49327b002fbb
-ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
+ms.openlocfilehash: e8afdfece258986f5dc4cc6f1c7e66aed24e0500
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57195426"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58092553"
 ---
 # <a name="container-monitoring-solution-in-azure-monitor"></a>Solução de monitorização de contentores no Azure Monitor
 
@@ -100,19 +100,19 @@ Utilize as seguintes informações para instalar e configurar a solução.
 1. Adicionar a solução de monitorização de contentores à sua área de trabalho do Log Analytics da [do Azure marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.ContainersOMS?tab=Overview) ou utilizando o processo descrito [adicionar soluções a partir da Galeria de soluções de monitorização](../../azure-monitor/insights/solutions.md).
 
 2. Instalar e utilizar o Docker com um agente do Log Analytics. Com base no seu sistema operativo e o orchestrator do Docker, pode utilizar os seguintes métodos para configurar o agente.
-  - Para anfitriões autónomos:
-    - Em sistemas de operativos Linux suportados, instalar e executar o Docker e, em seguida, instalar e configurar o [agente do Log Analytics para Linux](../../azure-monitor/learn/quick-collect-linux-computer.md).  
-    - No CoreOS, não é possível executar o agente do Log Analytics para Linux. Em vez disso, executar uma versão em contentores do agente do Log Analytics para Linux. Reveja os anfitriões de contentor do Linux incluindo o CoreOS ou anfitriões de contentores de Linux do Azure Government incluindo CoreOS se estiver a trabalhar com contentores na Cloud do Azure Government.
-    - No Windows Server 2016 e Windows 10, instalar o motor do Docker e o cliente, em seguida, ligue-se um agente reunir informações e enviá-lo para o Azure Monitor. Revisão [instalar e configurar os anfitriões de contentor do Windows](#install-and-configure-windows-container-hosts) se tiver um ambiente do Windows.
-  - Para orquestração de vários anfitriões do Docker:
-    - Se tiver um ambiente de Red Hat OpenShift, consulte Configurar um agente do Log Analytics para Red Hat OpenShift.
-    - Se tiver um cluster do Kubernetes com o Azure Container Service:
+   - Para anfitriões autónomos:
+     - Em sistemas de operativos Linux suportados, instalar e executar o Docker e, em seguida, instalar e configurar o [agente do Log Analytics para Linux](../../azure-monitor/learn/quick-collect-linux-computer.md).  
+     - No CoreOS, não é possível executar o agente do Log Analytics para Linux. Em vez disso, executar uma versão em contentores do agente do Log Analytics para Linux. Reveja os anfitriões de contentor do Linux incluindo o CoreOS ou anfitriões de contentores de Linux do Azure Government incluindo CoreOS se estiver a trabalhar com contentores na Cloud do Azure Government.
+     - No Windows Server 2016 e Windows 10, instalar o motor do Docker e o cliente, em seguida, ligue-se um agente reunir informações e enviá-lo para o Azure Monitor. Revisão [instalar e configurar os anfitriões de contentor do Windows](#install-and-configure-windows-container-hosts) se tiver um ambiente do Windows.
+   - Para orquestração de vários anfitriões do Docker:
+     - Se tiver um ambiente de Red Hat OpenShift, consulte Configurar um agente do Log Analytics para Red Hat OpenShift.
+     - Se tiver um cluster do Kubernetes com o Azure Container Service:
        - Revisão [configurar um agente Linux do Log Analytics para o Kubernetes](#configure-a-log-analytics-linux-agent-for-kubernetes).
        - Revisão [configurar um agente do Windows do Log Analytics para Kubernetes](#configure-a-log-analytics-windows-agent-for-kubernetes).
        - Reveja a utilização Helm para implementar o agente do Log Analytics no Linux Kubernetes.
-    - Se tiver um cluster do DC/OS do Azure Container Service, saiba mais em [monitorizar um cluster de DC/OS do Azure Container Service com o Azure Monitor](../../container-service/dcos-swarm/container-service-monitoring-oms.md).
-    - Se tiver um ambiente de modo Docker Swarm, saiba mais em configurar um agente de Log Analytics para o Docker Swarm.
-    - Se tiver um cluster do Service Fabric, saiba mais em [monitorizar contentores com o Azure Monitor](../../service-fabric/service-fabric-diagnostics-oms-containers.md).
+     - Se tiver um cluster do DC/OS do Azure Container Service, saiba mais em [monitorizar um cluster de DC/OS do Azure Container Service com o Azure Monitor](../../container-service/dcos-swarm/container-service-monitoring-oms.md).
+     - Se tiver um ambiente de modo Docker Swarm, saiba mais em configurar um agente de Log Analytics para o Docker Swarm.
+     - Se tiver um cluster do Service Fabric, saiba mais em [monitorizar contentores com o Azure Monitor](../../service-fabric/service-fabric-diagnostics-oms-containers.md).
 
 Reveja os [motor do Docker no Windows](https://docs.microsoft.com/virtualization/windowscontainers/manage-docker/configure-docker-daemon) artigo para obter mais informações sobre como instalar e configurar seus mecanismos de Docker em computadores que executam o Windows.
 
@@ -476,17 +476,17 @@ Para utilizar o helm para implementar o agente do Log Analytics no seu ambiente 
     LAST DEPLOYED: Tue Sep 19 20:37:46 2017
     NAMESPACE: default
     STATUS: DEPLOYED
- 
+ 
     RESOURCES:
     ==> v1/Secret
     NAME            TYPE    DATA  AGE
     omsagent-msoms  Opaque  3     17m
- 
+ 
     ==> v1beta1/DaemonSet
     NAME            DESIRED  CURRENT  READY  UP-TO-DATE  AVAILABLE  NODE-SELECTOR  AGE
     omsagent-msoms  3        3        3      3           3          <none>         17m
     ```
-Para obter mais informações, visite [gráfico do Helm de solução de contentor](https://aka.ms/omscontainerhelm).
+   Para obter mais informações, visite [gráfico do Helm de solução de contentor](https://aka.ms/omscontainerhelm).
 
 ### <a name="install-and-configure-windows-container-hosts"></a>Instalar e configurar os anfitriões de contentores do Windows
 

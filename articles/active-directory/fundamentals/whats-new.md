@@ -16,12 +16,12 @@ ms.author: lizross
 ms.reviewer: dhanyahk
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0c34cd59a5f4636eeca395fde49e45beb1a49752
-ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
+ms.openlocfilehash: ae0565bd51235f2d1b471adcc511786c204d175a
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57408892"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57890523"
 ---
 # <a name="whats-new-in-azure-active-directory"></a>O que há de novo no Azure Active Directory?
 
@@ -186,7 +186,7 @@ Para obter mais informações sobre os novos cookies, consulte [definições de 
 
 ---
 
-### <a name="new-federated-apps-available-in-azure-ad-app-gallery---january-2019"></a>Novas aplicações federadas disponíveis na Galeria de aplicações do Azure AD - Janeiro de 2019
+### <a name="new-federated-apps-available-in-azure-ad-app-gallery---january-2019"></a>Novas Aplicações Federadas disponíveis na galeria de aplicações do Azure AD - janeiro de 2019
 
 **Tipo:** Nova funcionalidade  
 **Categoria de serviço:** Aplicações Empresariais  
@@ -200,7 +200,7 @@ Para obter mais informações sobre as aplicações, consulte [integração de a
 
 ---
 
-### <a name="new-azure-ad-identity-protection-enhancements-public-preview"></a>Novos aprimoramentos do Azure AD Identity Protection (pré-visualização pública)
+### <a name="new-azure-ad-identity-protection-enhancements-public-preview"></a>Novas melhorias no Azure AD Identity Protection (Pré-visualização pública)
 
 **Tipo:** Funcionalidade alterada  
 **Categoria de serviço:** Identity Protection  
@@ -220,7 +220,7 @@ Para obter mais informações sobre os melhoramentos, consulte [o que é o Azure
 
 ---
 
-### <a name="new-app-lock-feature-for-the-microsoft-authenticator-app-on-ios-and-android-devices"></a>Nova funcionalidade de bloqueio de aplicação para a aplicação Microsoft Authenticator em dispositivos iOS e Android
+### <a name="new-app-lock-feature-for-the-microsoft-authenticator-app-on-ios-and-android-devices"></a>Nova funcionalidade de Bloqueio de Aplicação para a aplicação Microsoft Authenticator em dispositivos iOS e Android
 
 **Tipo:** Nova funcionalidade  
 **Categoria de serviço:** Aplicação Microsoft Authenticator  
@@ -232,7 +232,7 @@ Para obter mais informações, consulte a [aplicação Microsoft Authenticator F
 
 ---
 
-### <a name="enhanced-azure-ad-privileged-identity-management-pim-export-capabilities"></a>Capacidades de exportação de avançada do Azure AD Privileged Identity Management (PIM)
+### <a name="enhanced-azure-ad-privileged-identity-management-pim-export-capabilities"></a>Capacidades de exportação avançadas do Azure AD Privileged Identity Management (PIM)
 
 **Tipo:** Nova funcionalidade  
 **Categoria de serviço:** Privileged Identity Management  
@@ -246,7 +246,7 @@ Para obter mais informações, consulte [ver histórico de atividade e auditoria
 
 ## <a name="novemberdecember-2018"></a>Novembro/Dezembro de 2018
 
-### <a name="users-removed-from-synchronization-scope-no-longer-switch-to-cloud-only-accounts"></a>Utilizadores não removidos do escopo de sincronização nenhum comutador de mais tempo a contas apenas na cloud
+### <a name="users-removed-from-synchronization-scope-no-longer-switch-to-cloud-only-accounts"></a>Os utilizadores removidos do âmbito de sincronização já não mudam para contas apenas na cloud
 
 **Tipo:** Fixo  
 **Categoria de serviço:** Gestão de Utilizadores  
@@ -307,7 +307,7 @@ Para obter mais informações sobre o esquema, consulte [esquema de registos de 
 
 ---
 
-### <a name="identity-protection-improvements-to-the-supervised-machine-learning-model-and-the-risk-score-engine"></a>Melhorias de proteção de identidade para a supervisionadas do machine learning modelo e o mecanismo de pontuação de risco
+### <a name="identity-protection-improvements-to-the-supervised-machine-learning-model-and-the-risk-score-engine"></a>Melhorias no Identity Protection para o modelo controlado de machine learning e motor de pontuação de risco
 
 **Tipo:** Funcionalidade alterada  
 **Categoria de serviço:** Identity Protection  
@@ -319,7 +319,7 @@ Deteções de risco agora são avaliadas de modelo, que calcula o risco de utili
 
 ---
 
-### <a name="administrators-can-reset-their-own-password-using-the-microsoft-authenticator-app-public-preview"></a>Os administradores podem repor a sua própria palavra-passe a utilizar a aplicação Microsoft Authenticator (pré-visualização pública)
+### <a name="administrators-can-reset-their-own-password-using-the-microsoft-authenticator-app-public-preview"></a>Os administradores podem repor a própria palavra-passe com a aplicação Microsoft Authenticator (Pré-visualização pública)
 
 **Tipo:** Funcionalidade alterada  
 **Categoria de serviço:** Reposição Autónoma de Palavra-passe  
@@ -341,7 +341,7 @@ Para obter mais informações sobre como utilizar a aplicação Microsoft Authen
 
 ---
 
-### <a name="new-azure-ad-cloud-device-administrator-role-public-preview"></a>Nova função de administrador de dispositivo na Cloud do Azure AD (pré-visualização pública)
+### <a name="new-azure-ad-cloud-device-administrator-role-public-preview"></a>Nova função de Administrador de Dispositivos na Cloud do Azure AD (Pré-visualização pública)
 
 **Tipo:** Nova funcionalidade  
 **Categoria de serviço:** Gestão e Registo de Dispositivos  
@@ -353,7 +353,7 @@ Para obter mais informações sobre as funções e permissões, consulte [atribu
 
 ---
 
-### <a name="manage-your-devices-using-the-new-activity-timestamp-in-azure-ad-public-preview"></a>Gerir os seus dispositivos com o novo período de tempo de atividade no Azure AD (pré-visualização pública)
+### <a name="manage-your-devices-using-the-new-activity-timestamp-in-azure-ad-public-preview"></a>Gira os seus dispositivos com a nova data/hora de atividade no Azure AD (Pré-visualização pública)
 
 **Tipo:** Nova funcionalidade  
 **Categoria de serviço:** Gestão e Registo de Dispositivos  
@@ -365,7 +365,7 @@ Para obter mais informações sobre como obter e utilizar esta timestamp, consul
 
 ---
 
-### <a name="administrators-can-require-users-to-accept-a-terms-of-use-on-each-device"></a>Os administradores podem exigir que os utilizadores aceitem os termos de utilização em cada dispositivo
+### <a name="administrators-can-require-users-to-accept-a-terms-of-use-on-each-device"></a>Os administradores podem exigir que os utilizadores aceitem os Termos de utilização em cada dispositivo
 
 **Tipo:** Nova funcionalidade  
 **Categoria de serviço:** Termos de Utilização  
@@ -377,7 +377,7 @@ Para obter mais informações, consulte a [por dispositivo termos da seção de 
 
 ---
 
-### <a name="administrators-can-configure-a-terms-of-use-to-expire-based-on-a-recurring-schedule"></a>Os administradores podem configurar os termos de utilização para expirar com base numa agenda periódica
+### <a name="administrators-can-configure-a-terms-of-use-to-expire-based-on-a-recurring-schedule"></a>Os administradores podem configurar os Termos de utilização para expirar com base numa agenda periódica
 
 **Tipo:** Nova funcionalidade  
 **Categoria de serviço:** Termos de Utilização  
@@ -424,7 +424,7 @@ Para obter mais informações sobre o PIM e as notificações de e-mail disponí
 
 ---
 
-### <a name="group-based-licensing-is-now-generally-available"></a>Licenciamento baseado em grupo está agora em disponibilidade geral
+### <a name="group-based-licensing-is-now-generally-available"></a>O licenciamento baseado em grupos está agora geralmente disponível
 
 **Tipo:** Funcionalidade alterada  
 **Categoria de serviço:** Outros  
@@ -516,11 +516,11 @@ Corrigimos um problema para que as funções de administrador específico podem 
 
 As funções são:
 
-- Administrador global ou de gravador de empresa
+- Administrador global
 
-- Administrador de Serviços do Intune
+- Administrador do Intune
 
-- Administrador de Conta de Utilizador
+- Administrador de utilizadores
 
 Para obter mais informações, consulte [criar um grupo dinâmico e verificar o Estado](https://docs.microsoft.com/azure/active-directory/users-groups-roles/groups-create-rule)
 

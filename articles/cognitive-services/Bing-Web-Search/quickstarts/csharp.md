@@ -8,22 +8,22 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-web-search
 ms.topic: quickstart
-ms.date: 02/12/2019
+ms.date: 03/12/2019
 ms.author: aahi
 ms.custom: seodec2018
-ms.openlocfilehash: 20416a4b761496ec65c6911f3e4de18111b663a1
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 871cca9fe2b3ff50202feb4925a267b93d432700
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57551281"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57842078"
 ---
 # <a name="quickstart-search-the-web-using-the-bing-web-search-rest-api-and-c"></a>Início rápido: Pesquisar a web com a API de REST de pesquisa de Web do Bing eC#
 
-
-Utilize este guia de introdução para efetuar a primeira chamada à API de pesquisa Web do Bing e receber a resposta JSON. Isso C# aplicação envia um pedido de pesquisa para a API e exibe a resposta. Apesar de esta aplicação estar escrita em C#, a API é um serviço Web RESTful compatível com a maioria das linguagens de programação.
+Utilize este guia de introdução para efetuar a primeira chamada à API de pesquisa Web do Bing e receber a resposta JSON. Isso C# aplicação envia um pedido de pesquisa para a API e mostra a resposta. Apesar de esta aplicação estar escrita em C#, a API é um serviço Web RESTful compatível com a maioria das linguagens de programação.
 
 ## <a name="prerequisites"></a>Pré-requisitos
+
 Aqui estão algumas coisas de que irá precisar antes de executar este início rápido:
 
 * Windows: [Visual Studio 2017](https://www.visualstudio.com/downloads/)
@@ -31,7 +31,6 @@ Aqui estão algumas coisas de que irá precisar antes de executar este início r
 * Uma chave de subscrição
 
 Este programa de exemplo utiliza apenas as classes do .NET Core.
-
 
 [!INCLUDE [bing-web-search-quickstart-signup](../../../../includes/bing-web-search-quickstart-signup.md)]
 
@@ -63,7 +62,7 @@ namespace BingSearchApisQuickstart
 
 ## <a name="define-variables"></a>Definir variáveis
 
-Tem de definir algumas variáveis para que possamos continuar. Confirme que `uriBase` é válido e substitua o valor `accessKey` por uma chave de subscrição válida da sua conta do Azure. Esteja à vontade para personalizar a consulta de pesquisa, ao substituir o valor por `searchTerm`.
+Tem de definir algumas variáveis para que possamos continuar. Confirme que `uriBase` é válido e substitua o valor `accessKey` por uma chave de subscrição válida da sua conta do Azure. Esteja à vontade para personalizar a consulta de pesquisa, ao substituir o valor por `searchTerm`. Lembre-se de adicionar este código para o `Program` classe conforme indicado acima.
 
 ```csharp
 // Enter a valid subscription key.
@@ -79,7 +78,7 @@ const string searchTerm = "Microsoft Cognitive Services";
 
 ## <a name="declare-the-main-method"></a>Declarar o método Principal
 
-O `Main()` é obrigatório e é o primeiro método invocado quando o programa é iniciado. Nesta aplicação, o método principal valida o `accessKey`, faz um pedido e imprime a resposta.
+O `Main()` é necessário um método e é o primeiro método invocado quando o programa é iniciado. Nesta aplicação, o método principal valida o `accessKey`, faz um pedido e imprime a resposta.
 
 Tenha em atenção que `main()` é dependente nos métodos que são criados nas próximas seções.
 
@@ -110,7 +109,7 @@ static void Main()
 
 ## <a name="create-a-struct-for-search-results"></a>Criar uma estrutura para os resultados de pesquisa
 
-Esta estrutura devolve os resultados de pesquisa com cabeçalhos relevantes. É chamada ao fazer um pedido para a API de Pesquisa na Web do Bing para criar um objeto de resultado.
+Esta estrutura devolve os resultados de pesquisa com cabeçalhos relevantes. Ele é chamado quando efetua um pedido para a API de pesquisa Web Bing para criar um objeto de resultado.
 
 ```csharp
 // Returns search results with headers.

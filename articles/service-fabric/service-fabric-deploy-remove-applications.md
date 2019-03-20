@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 01/19/2018
 ms.author: ryanwi
-ms.openlocfilehash: d38ec87fb634e1809959b85f0382935e8a78bf3b
-ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
+ms.openlocfilehash: dbfbbd38a24d4f82ef7fd09ce57b87fb5e5327dc
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43697169"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57880811"
 ---
 # <a name="deploy-and-remove-applications-using-powershell"></a>Implementar e remover aplicações com o PowerShell
 > [!div class="op_single_selector"]
@@ -303,7 +303,7 @@ Import-Module "$ENV:ProgramFiles\Microsoft SDKs\Service Fabric\Tools\PSModule\Se
 O ImageStoreConnectionString encontra-se no manifesto do cluster:
 
 ```xml
-<ClusterManifest xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" Name="Server-Default-SingleNode" Version="1.0" xmlns="http://schemas.microsoft.com/2011/01/fabric">
+<ClusterManifest xmlns:xsd="https://www.w3.org/2001/XMLSchema" xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance" Name="Server-Default-SingleNode" Version="1.0" xmlns="http://schemas.microsoft.com/2011/01/fabric">
 
     [...]
 
@@ -317,14 +317,14 @@ O ImageStoreConnectionString encontra-se no manifesto do cluster:
 Ver [entender a cadeia de ligação do arquivo de imagem](service-fabric-image-store-connection-string.md) para informações suplementares sobre o armazenamento de imagens e a imagem de armazenamento da cadeia de ligação.
 
 ### <a name="deploy-large-application-package"></a>Implementar o pacote de aplicações grande
-Problema: [cópia ServiceFabricApplicationPackage](/powershell/module/servicefabric/copy-servicefabricapplicationpackage?view=azureservicefabricps) exceder o tempo limite para um pacote de aplicações grandes (ordem de GB).
+Problema: [Cópia ServiceFabricApplicationPackage](/powershell/module/servicefabric/copy-servicefabricapplicationpackage?view=azureservicefabricps) exceder o tempo limite para um pacote de aplicações grandes (ordem de GB).
 Experimente:
 - Especifique o tempo limite para [cópia ServiceFabricApplicationPackage](/powershell/module/servicefabric/copy-servicefabricapplicationpackage?view=azureservicefabricps) comando, com `TimeoutSec` parâmetro. Por predefinição, o tempo limite é de 30 minutos.
 - Verifique a ligação de rede entre o computador de origem e o cluster. Se a conexão estiver lenta, considere a utilização de uma máquina com uma ligação de rede melhor.
 Se o computador cliente estiver em outra região que o cluster, considere a utilização de uma máquina de cliente numa região perto ou mesmo que o cluster.
 - Verifique se está a atingir limitação externo. Por exemplo, quando o arquivo de imagens está configurado para utilizar o armazenamento do azure, pode ser limitado carregamento.
 
-Problema: Pacote de carregamento foi concluída com êxito, mas [Register-ServiceFabricApplicationType](/powershell/module/servicefabric/register-servicefabricapplicationtype?view=azureservicefabricps) exceder o tempo limite. Experimente:
+Problema: Carregar o pacote foi concluída com êxito, mas [Register-ServiceFabricApplicationType](/powershell/module/servicefabric/register-servicefabricapplicationtype?view=azureservicefabricps) exceder o tempo limite. Experimente:
 - [Comprimir pacote](service-fabric-package-apps.md#compress-a-package) antes de copiar para o arquivo de imagem.
 A compressão reduz o tamanho e o número de ficheiros, que por sua vez, reduz a quantidade de tráfego e que o Service Fabric de trabalho tem de efetuar. A operação de carregamento pode ser mais lenta (especialmente se incluir a hora de compressão), mas são mais rápidos, registre-se e anular o registo do tipo de aplicação.
 - Especifique o tempo limite para [Register-ServiceFabricApplicationType](/powershell/module/servicefabric/register-servicefabricapplicationtype?view=azureservicefabricps) com `TimeoutSec` parâmetro.
@@ -340,7 +340,7 @@ DefaultParameters      : { "Stateless1_InstanceCount" = "-1" }
 ```
 
 ### <a name="deploy-application-package-with-many-files"></a>Implementar o pacote de aplicações com muitos ficheiros
-Problema: [Register-ServiceFabricApplicationType](/powershell/module/servicefabric/register-servicefabricapplicationtype?view=azureservicefabricps) exceder o tempo limite para um pacote de aplicação com muitos ficheiros (ordem de milhares).
+Problema: [Registre-se-ServiceFabricApplicationType](/powershell/module/servicefabric/register-servicefabricapplicationtype?view=azureservicefabricps) exceder o tempo limite para um pacote de aplicação com muitos ficheiros (ordem de milhares).
 Experimente:
 - [Comprimir pacote](service-fabric-package-apps.md#compress-a-package) antes de copiar para o arquivo de imagem. A compressão reduz o número de ficheiros.
 - Especifique o tempo limite para [Register-ServiceFabricApplicationType](/powershell/module/servicefabric/register-servicefabricapplicationtype?view=azureservicefabricps) com `TimeoutSec` parâmetro.

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/09/2019
 ms.author: juliako
-ms.openlocfilehash: 4e9abb20e6548d8612bc3b59aba4f7384913d081
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: b09c80e08689768ab3e9646b7d6f60f72c33f764
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57761553"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58077790"
 ---
 # <a name="how-to-perform-live-streaming-using-media-services-to-create-multi-bitrate-streams-with-the-azure-portal"></a>Como realizar a transmissão em direto através dos serviços de multimédia para criar transmissões em fluxo com o portal do Azure  
 > [!div class="op_single_selector"]
@@ -41,18 +41,16 @@ Os seguintes são passos gerais referentes à criação de aplicações comuns d
 
 > [!NOTE]
 > Atualmente, a duração máxima recomendada de um evento em direto é de 8 horas. Contacte a amslived@microsoft.com se tiver de executar um Canal durante períodos de tempo mais longos.
-> 
-> 
 
 1. Ligue uma câmara de vídeo a um computador. Iniciar e configurar um codificador em direto no local que possa enviar um fluxo de velocidade de transmissão única dos seguintes protocolos: RTMP ou Smooth Streaming. Para obter mais informações, consulte [Suporte RTMP dos Media Services do Azure e Codificadores em Direto](https://go.microsoft.com/fwlink/?LinkId=532824).
-   
+
     Este passo também pode ser realizado depois de criar o Canal.
 2. Crie e inicie um Canal. 
 3. Obtenha o URL de inserção do Canal. 
-   
+
     O URL de inserção é utilizado pelo codificador em direto para enviar a transmissão para o Canal.
 4. Obtenha o URL de pré-visualização do Canal. 
-   
+
     Utilize este URL para verificar se o canal está a receber corretamente a transmissão em fluxo em direto.
 5. Crie um evento/programa (que também irá criar um elemento). 
 6. Publique o evento (que criará um localizador OnDemand para o elemento associado).    
@@ -83,31 +81,31 @@ O seguinte é necessário para concluir o tutorial.
 1. No [portal do Azure](https://portal.azure.com/), selecione os Serviços de Multimédia e, em seguida, clique no nome da sua conta dos Serviços de Multimédia.
 2. Selecione **Transmissão em Direto**.
 3. Selecione **Criação personalizada**. Esta opção permitir-lhe-á criar um canal que está ativado para codificação em direto.
-   
+
     ![Criar um canal](./media/media-services-portal-creating-live-encoder-enabled-channel/media-services-create-channel.png)
 4. Clique em **Definições**.
-   
+
    1. Escolha o tipo de canal do **Live Encoding**. Este tipo especifica que pretende criar um Canal ativado para live encoding. Isso significa que a transmissão em fluxo de velocidade de transmissão de entrada é enviada para o Canal e codificada como uma transmissão em fluxo com velocidade de transmissão múltipla através de configurações específicas de codificador em direto. Para obter mais informações, consulte [Transmissão em fluxo em direto utilizando os Media Services do Azure para criar transmissões em fluxo com velocidade de transmissão múltipla](media-services-manage-live-encoder-enabled-channels.md). Clique em OK.
    2. Especifique o nome de um canal.
    3. Clique em OK na parte inferior do ecrã.
 5. Selecione o separador **Ingerir**.
-   
+
    1. Nesta página, pode selecionar um protocolo de transmissão em fluxo. Para o tipo de canal do **Live Encoding**, as opções de protocolo válidas são:
-      
+
       * MP4 fragmentado de velocidade de transmissão única (Transmissão em Fluxo Uniforme)
       * RTMP de velocidade transmissão única
-        
+
         Para uma explicação mais detalhada sobre cada protocolo, consulte [Transmissão em fluxo em direto utilizando os Media Services do Azure para criar transmissões em fluxo com velocidade de transmissão múltipla](media-services-manage-live-encoder-enabled-channels.md).
-        
+
         Não é possível alterar a opção de protocolo enquanto o Canal ou os seus evento/programas associados estiverem em execução. Se necessitar de protocolos diferentes, deve criar canais separados para cada protocolo de transmissão em fluxo.  
    2. Pode aplicar restrição de IP na ingestão. 
-      
+
        Pode definir os endereços IP que estão autorizados a ingerir um vídeo neste canal. Os endereços IP permitidos podem ser especificados como um endereço IP único (por exemplo,  "10.0.0.1"), um intervalo IP com um endereço IP e uma máscara sub-rede CIDR (por exemplo "10.0.0.1/22") ou um intervalo IP com um endereço IP e uma máscara sub-rede de ponto decimal (por exemplo, '10.0.0.1(255.255.252.0)').
-      
+
        Se não for especificado qualquer endereço IP e não existir nenhuma definição de regra, então, não será permitido qualquer endereço IP. Para permitir um endereço IP, crie uma regra e defina 0.0.0.0/0.
 6. No separador **ré-visualização**, aplique de restrição de IP na pré-visualização.
 7. No separador **Encoding**, especifique a configuração predefinida de codificação. 
-   
+
     Atualmente, a única predefinição do sistema que pode selecionar é **720p Padrão**. Para especificar uma configuração predefinida, abra um pedido de suporte da Microsoft. Em seguida, introduza o nome da configuração predefinida criada para si. 
 
 > [!NOTE]
@@ -153,18 +151,18 @@ Assim que a transmissão em fluxo esteja a ser enviada para o Canal, pode começ
 Existem duas formas de iniciar o evento: 
 
 1. Na página **Canal**, prima **Evento em Direto** para adicionar um novo evento.
-   
+
     Especifique: nome do evento, nome do elemento, janela de arquivo e opção de encriptação.
-   
+
     ![createprogram](./media/media-services-portal-creating-live-encoder-enabled-channel/media-services-create-program.png)
-   
+
     Se tiver marcado **Publicar este evento em direto agora**, serão criados os URLs de PUBLICAÇÃO.
-   
+
     Pode premir **Iniciar**, sempre que estiver pronto para transmitir o evento.
-   
+
     Assim que iniciar o evento, pode premir **Ver** para começar a reproduzir o conteúdo.
 2. Em alternativa, pode utilizar um atalho e premir o botão **Go Live** na página **Canal**. Isto irá criar um Elemento de predefinição, Programa e Localizador de Transmissão em Fluxo.
-   
+
     O programa é denominado **predefinido** e a janela de arquivo está definida para 8 horas.
 
 Pode ver o evento publicado a partir da página **Evento em direto**. 

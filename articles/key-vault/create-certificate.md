@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/07/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 50306ab4dee13f772c2c34b3c3a8f13d07861fc0
-ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
+ms.openlocfilehash: 53b4d03ac8f5d22595d3a4e840a04583f7ec963d
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57410269"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57995528"
 ---
 # <a name="certificate-creation-methods"></a>Métodos de criação de certificados
 

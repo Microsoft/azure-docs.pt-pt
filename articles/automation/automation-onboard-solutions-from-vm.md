@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: automation
 ms.custom: mvc
 manager: carmonm
-ms.openlocfilehash: 894fc42954182171588d81e2f7f1e37141af9add
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.openlocfilehash: 70d9957ae5f0ec43269d371c96e3722e52edb26d
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56821256"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57837767"
 ---
 # <a name="onboard-update-management-change-tracking-and-inventory-solutions-from-an-azure-virtual-machine"></a>Carregar soluções de gestão de atualizações, controlo de alterações e inventário da máquina virtual do Azure
 
@@ -26,7 +26,7 @@ Inicie sessão no portal do Azure em https://portal.azure.com.
 
 ## <a name="enable-the-solutions"></a>Ativar as soluções
 
-Ir para uma máquina virtual existente. Sob **OPERATIONS**, selecione **gestão de atualizações**, **inventário**, ou **controlo de alterações**.
+Ir para uma máquina virtual existente. Sob **OPERATIONS**, selecione **gestão de atualizações**, **inventário**, ou **controlo de alterações**. A máquina virtual pode existir em qualquer região, independentemente da localização da sua conta de automatização.
 
 Para ativar a solução para apenas a VM, certifique-se de que **ativar para esta VM** está selecionada. Para carregar várias máquinas para a solução, selecione **ativar para as VMs nesta subscrição**e, em seguida, selecione **clique para selecionar máquinas para ativar**. Para saber como para carregar várias máquinas ao mesmo tempo, veja [soluções de integrar a gestão de atualizações, controlo de alterações e inventário](automation-onboard-solutions-from-automation-account.md).
 

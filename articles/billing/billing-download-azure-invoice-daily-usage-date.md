@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/19/2019
 ms.author: banders
-ms.openlocfilehash: b03b787e245129e5e51304a2bcc8740ebf3f6196
-ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
+ms.openlocfilehash: 59d63efbf261813c8519b03d3e1630cf24d868d0
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57406162"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57835931"
 ---
 # <a name="download-or-view-your-azure-billing-invoice-and-daily-usage-data"></a>Baixe ou exiba sua fatura do Azure e dados de utilização diária
 
@@ -30,13 +30,13 @@ Se estiver num cliente EA ou têm um [contrato de cliente do Microsoft](#check-a
 
 Apenas determinadas funções do utilizador tem permissão para obter informações de fatura e utilização, como o administrador Corporativo ou de administrador de conta de faturação. Para saber mais sobre como obter acesso a informações de faturação, veja [Gerir acesso às funções de utilização de faturação do Azure](billing-manage-access.md).
 
-Se tiver um [contrato de cliente da Microsoft](#Check-your-access-to-a-Microsoft-Customer-Agreement), tem de ser um perfil de faturação proprietário, Contribuidor, leitor, ou manager para ver informações de faturação e utilização de nota fiscal. Para saber mais sobre as funções de faturas para contratos de cliente da Microsoft, consulte [funções de perfis e tarefas de faturação](billing-understand-mca-roles.md#billing-profile-roles-and-tasks).
+Se tiver um contrato de cliente da Microsoft, tem de ser um perfil de faturação proprietário, Contribuidor, leitor, ou manager para ver informações de faturação e utilização de nota fiscal. Para saber mais sobre as funções de faturas para contratos de cliente da Microsoft, consulte [funções de perfis e tarefas de faturação](billing-understand-mca-roles.md#billing-profile-roles-and-tasks).
 
 [!INCLUDE [GDPR-related guidance](../../includes/gdpr-intro-sentence.md)]
 
 ## <a name="download-your-azure-invoices-pdf"></a>Transferir as faturas do Azure (. pdf)
 
-Para a maioria das subscrições, pode transferir a fatura do portal do Azure. Se tiver um contrato de cliente da Microsoft, consulte [transferência de faturas para um perfil de faturação](#download-invoices-for-a-billing-profile).
+Para a maioria das subscrições, pode transferir a fatura do portal do Azure. Se tiver um contrato de cliente da Microsoft, consulte o Download notas fiscais para um perfil de faturação.
 
 ### <a name="download-invoices-for-an-individual-subscription"></a>Transferência de faturas para uma subscrição individual
 
@@ -80,7 +80,7 @@ Pode haver vários motivos para não ver uma fatura:
 
 ## <a name="get-your-invoice-in-email-pdf"></a>Obter a fatura por correio eletrónico (. pdf)
 
-Pode optar ativamente e configurar os destinatários principais para receber sua fatura do Azure por email. Esta funcionalidade não pode estar disponível para determinadas subscrições como ofertas de suporte, contratos de empresa ou do Azure no Open. Se tiver um contrato do Microsoft Customer, veja [receber as faturas de perfil de faturação no e-mail](#get-your-billing-profile-invoices-in-email).
+Pode optar ativamente e configurar os destinatários principais para receber sua fatura do Azure por email. Esta funcionalidade não pode estar disponível para determinadas subscrições como ofertas de suporte, contratos de empresa ou do Azure no Open. Se tiver um contrato do Microsoft Customer, veja Get notas fiscais de seu perfil de faturação no e-mail.
 
 ### <a name="get-your-subscriptions-invoices-in-email"></a>Obter notas fiscais de sua assinatura no e-mail
 
@@ -189,7 +189,7 @@ Também pode transferir utilização mês até à data para o período de fatura
 
 ## <a name="need-help-contact-us"></a>Precisa de ajuda? Contacte-nos
 
-Se tiver alguma dúvida ou precisar de ajuda, [criar um pedido de suporte](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).
+Se tiver alguma dúvida ou precisar de ajuda, [criar um pedido de suporte](https://go.microsoft.com/fwlink/?linkid=2083458).
 
 ## <a name="next-steps"></a>Passos Seguintes
 

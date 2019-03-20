@@ -12,12 +12,12 @@ ms.date: 11/09/2018
 ms.author: celested
 ms.reviewer: arvindh
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2488cb085c3be68265a787bd062028598c9243b8
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 4e00ecde5550b5ef4f1698fa879a039dee8aad12
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56190029"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58181729"
 ---
 # <a name="end-user-experiences-for-applications-in-azure-active-directory"></a>Experiências de utilizador final para as aplicações no Azure Active Directory
 Azure Active Directory (Azure AD) fornece várias formas de personalizáveis para implementar aplicações para utilizadores finais em sua organização:
@@ -39,23 +39,21 @@ O painel de acesso separado no portal do Azure e não requer que os utilizadores
 Para obter mais informações sobre o painel de acesso do Azure AD, consulte a [introdução ao painel de acesso](../user-help/active-directory-saas-access-panel-introduction.md).
 
 ## <a name="office-365-application-launcher"></a>Iniciador de aplicações do Office 365
-Para organizações que implantaram o Office 365, o aplicações atribuídas a utilizadores através do Azure AD também serão apresentadas no portal do Office 365 em https://portal.office.com/myapps. Isto torna mais fácil e conveniente para os utilizadores numa organização para iniciar as aplicações sem ter de utilizar um portal segundo e é a solução de início de aplicação recomendada para organizações que utilizam o Office 365.
+Para organizações que implantaram o Office 365, o aplicações atribuídas a utilizadores através do Azure AD também serão apresentadas no portal do Office 365 em [ https://portal.office.com/myapps ](https://portal.office.com/myapps). Isto torna mais fácil e conveniente para os utilizadores numa organização para iniciar as aplicações sem ter de utilizar um portal segundo e é a solução de início de aplicação recomendada para organizações que utilizam o Office 365.
 
-![](./media/what-is-single-sign-on/officeapphub.png)
+![Portal do Office 365](./media/end-user-experiences/microsoft-365-portal-office-com.png)
 
 Para obter mais informações sobre o iniciador de aplicações do Office 365, consulte [ter a aplicação aparece no iniciador de aplicações do Office 365](https://msdn.microsoft.com/office/office365/howto/connect-your-app-to-o365-app-launcher).
 
 ## <a name="direct-sign-on-to-federated-apps"></a>Início de sessão direto em aplicações federadas
 Mais aplicações federadas que suportam SAML 2.0, WS-Federation ou OpenID conectam também suporte a capacidade dos utilizadores iniciar a aplicação e, em seguida, é feita através do Azure AD ao redirecionamento automático ou ao clicar numa ligação para iniciar sessão. Isso é conhecido como fornecedor de serviços-iniciada pelo início de sessão e mais aplicações federadas na Galeria de aplicações do Azure AD suportam esta (consulte a documentação ligada a partir do Assistente de configuração de início de sessão único da aplicação no portal do Azure para obter detalhes).
 
-![](./media/what-is-single-sign-on/workdaymobile.png)
+![](./media/end-user-experiences/workdaymobile.png)
 
 ## <a name="direct-sign-on-links"></a>Ligações de início de sessão em diretas
 O Azure AD também suporta únicas início de sessão em ligações diretas para aplicativos individuais que oferecem suporte baseado em palavra-passe de início de sessão único, ligado início de sessão único e qualquer outra forma de início de sessão único federado.
 
-Estas ligações são especificamente elaboradas URLs que enviam um utilizador através do processo de início de sessão do AD do Azure para uma aplicação específica sem a necessidade do lançamento de utilizador-los a partir do Azure AD aceder ao painel ou do Office 365. Estes URLs de início de sessão único no separador Dashboard de qualquer aplicação previamente integrada podem ser encontradas na seção do Active Directory do portal do Azure, conforme mostrado na captura de ecrã abaixo.
-
-![](./media/what-is-single-sign-on/deeplink.png)
+Estas ligações são especificamente elaboradas URLs que enviam um utilizador através do processo de início de sessão do AD do Azure para uma aplicação específica sem a necessidade do lançamento de utilizador-los a partir do Azure AD aceder ao painel ou do Office 365. Estes **URLs de acesso de utilizador** pode ser encontrado em Propriedades de aplicativos empresariais disponíveis em Azure Active Directory no portal do Azure.
 
 Estas ligações podem ser copiadas e coladas em qualquer lugar que deseja fornecer uma ligação de início de sessão à aplicação selecionada. Isto pode ser num e-mail ou em qualquer portal baseado na web personalizado que configurou para o acesso de aplicação do utilizador. Eis um exemplo de um URL do Azure AD direto único início de sessão do Twitter:
 

@@ -16,12 +16,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 08/30/2018
 ms.author: mikeray
-ms.openlocfilehash: 9242edb8ea08b858ae6ad092f4d855483e72d0bf
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: d86538fca907f7181bf58ff236bba8de186641fb
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57777469"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58003445"
 ---
 # <a name="tutorial-configure-always-on-availability-group-in-azure-vm-manually"></a>Tutorial: Configurar grupo de Disponibilidade AlwaysOn na VM do Azure manualmente
 
@@ -359,7 +359,7 @@ Um balanceador de carga do Azure pode ser um balanceador de carga Standard ou um
    | Definição | Campo |
    | --- | --- |
    | **Nome** |Utilizar um nome de texto para o Balanceador de carga, por exemplo **sqlLB**. |
-   | **Tipo** |Interna |
+   | **Tipo** |Interno |
    | **Rede virtual** |Utilize o nome da rede virtual do Azure. |
    | **Sub-rede** |Utilize o nome da sub-rede que a máquina virtual está no.  |
    | **Atribuição de endereços IP** |Estático |
@@ -415,6 +415,7 @@ Para configurar o Balanceador de carga, terá de criar um conjunto de back-end, 
 1. Clique no balanceador de carga, clique em **regras de balanceamento de carga**e clique em **+ adicionar**.
 
 1. Defina a forma de regras de balanceamento de carga de serviço de escuta.
+
    | Definição | Descrição | Exemplo
    | --- | --- |---
    | **Nome** | Texto | SQLAlwaysOnEndPointListener |
@@ -425,7 +426,7 @@ Para configurar o Balanceador de carga, terá de criar um conjunto de back-end, 
    | **Sonda** |O nome que especificou para a sonda | SQLAlwaysOnEndPointProbe |
    | **Persistência da sessão** | Na lista pendente | **Nenhum** |
    | **Tempo limite de inatividade** | Minutos para manter uma conexão TCP aberta | 4 |
-   | **Vírgula flutuante (devolução direta do servidor) de IP** | |Activado |
+   | **Vírgula flutuante (devolução direta do servidor) de IP** | |Ativado |
 
    > [!WARNING]
    > Devolução direta do servidor é definida durante a criação. Não pode ser alterado.
@@ -455,6 +456,7 @@ O endereço IP do WSFC também tem de ser no balanceador de carga.
 1. Defina a regras de balanceamento de carga. Clique em **regras de balanceamento de carga**e clique em **+ adicionar**.
 
 1. Defina a carga de endereço do IP do cluster principais regras de balanceamento da seguinte forma.
+
    | Definição | Descrição | Exemplo
    | --- | --- |---
    | **Nome** | Texto | WSFCEndPoint |
@@ -465,7 +467,7 @@ O endereço IP do WSFC também tem de ser no balanceador de carga.
    | **Sonda** |O nome que especificou para a sonda | WSFCEndPointProbe |
    | **Persistência da sessão** | Na lista pendente | **Nenhum** |
    | **Tempo limite de inatividade** | Minutos para manter uma conexão TCP aberta | 4 |
-   | **Vírgula flutuante (devolução direta do servidor) de IP** | |Activado |
+   | **Vírgula flutuante (devolução direta do servidor) de IP** | |Ativado |
 
    > [!WARNING]
    > Devolução direta do servidor é definida durante a criação. Não pode ser alterado.
@@ -505,15 +507,15 @@ Para testar a ligação:
 
 1. Uso **sqlcmd** utilitário para testar a ligação. Por exemplo, o seguinte script estabelece uma **sqlcmd** ligação para a réplica primária por meio do serviço de escuta com a autenticação do Windows:
 
-  ```cmd
-  sqlcmd -S <listenerName> -E
-  ```
+   ```cmd
+   sqlcmd -S <listenerName> -E
+   ```
 
-  Se o serviço de escuta é utilizar uma porta diferente da predefinição da porta (1433), especifique a porta na cadeia de ligação. Por exemplo, o seguinte comando sqlcmd liga a um serviço de escuta na porta 1435:
+   Se o serviço de escuta é utilizar uma porta diferente da predefinição da porta (1433), especifique a porta na cadeia de ligação. Por exemplo, o seguinte comando sqlcmd liga a um serviço de escuta na porta 1435:
 
-  ```cmd
-  sqlcmd -S <listenerName>,1435 -E
-  ```
+   ```cmd
+   sqlcmd -S <listenerName>,1435 -E
+   ```
 
 A ligação de SQLCMD liga-se automaticamente para qualquer instância do SQL Server aloja a réplica primária.
 

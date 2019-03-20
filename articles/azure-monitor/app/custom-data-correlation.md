@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 08/08/2018
 ms.reviewer: mbullwin
 ms.author: Evgeny.Ternovsky
-ms.openlocfilehash: b7814ce2ae94216da691b9a54049d20a03aafdd9
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: cbb144cc8aac6dc8e90d196147b0c154471b7239
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55994821"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58102065"
 ---
 # <a name="correlating-application-insights-data-with-custom-data-sources"></a>Correlacionar dados do Application Insights com origens de dados personalizados
 
@@ -44,7 +44,7 @@ Para começar a enviar dados de registo no Azure Monitor. Existem várias opçõ
 
 - Para um mecanismo síncrono, pode optar por chamar diretamente o [API do recoletor de dados](https://docs.microsoft.com/azure/log-analytics/log-analytics-data-collector-api) ou utilizar o conector de aplicação lógica – simplesmente procurar por "Azure Log Analytics" e escolha a opção "Enviar dados":
 
- ![Escolha de captura de ecrã e ação](./media/custom-data-correlation/01-logic-app-connector.png)  
+  ![Escolha de captura de ecrã e ação](./media/custom-data-correlation/01-logic-app-connector.png)  
 
 - Para obter uma opção assíncrona, utilize a API de Recoletor de dados para criar um pipeline de processamento. Ver [este artigo](https://docs.microsoft.com/azure/log-analytics/log-analytics-create-pipeline-datacollector-api) para obter detalhes.
 

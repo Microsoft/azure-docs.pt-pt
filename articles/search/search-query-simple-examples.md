@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 08/09/2018
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 6037d6a1b418a4241f1133b8ca7d89764da22f61
-ms.sourcegitcommit: dd1a9f38c69954f15ff5c166e456fda37ae1cdf2
+ms.openlocfilehash: a975c95af75e9f3e09e5d0142716795ab4b90e28
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57571376"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58136483"
 ---
 # <a name="simple-syntax-query-examples-for-building-queries-in-azure-search"></a>Exemplos de consulta de sintaxe simples para a criação de consultas na Azure Search
 
@@ -195,7 +195,7 @@ POST /indexes/nycjobs/docs/search?api-version=2017-11-11
       "count": "true"
     }
 ```
-Para obter resultados mais legíveis, os resultados da pesquisa são cortados para incluir um id da tarefa, cargo e a localização de trabalho. As coordenadas de partida foram obtidas a partir de um documento aleatório no índice (neste caso, para uma localização de trabalho no Staten island.
+Para obter resultados mais legíveis, os resultados da pesquisa são cortados para incluir um ID da tarefa, cargo e a localização de trabalho. As coordenadas de partida foram obtidas a partir de um documento aleatório no índice (neste caso, para uma localização de trabalho no Staten island.
 
 Pode também experimentar isso no Postman usando GET:
 
@@ -273,7 +273,7 @@ https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2017-
 Tente especificar consultas no seu código. As ligações seguintes explicam como configurar a consultas de pesquisa para o .NET e a API de REST com a sintaxe simples predefinido.
 
 * [Consultar o índice da Azure Search utilizando o SDK .NET](search-query-dotnet.md)
-* [Consultar o índice de pesquisa do Azure com a API REST](search-query-rest-api.md)
+* [Consultar o índice de pesquisa do Azure com a API REST](search-create-index-rest-api.md)
 
 Referência de sintaxe adicional, a arquitetura de consulta e exemplos podem ser encontrados nas seguintes ligações:
 

@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 10/20/2017
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: 2f646df3cab0320b574023cd543015921c640cab
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: c8f9b17bf5b572128348b22de62566ba06d5d766
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55478326"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57992411"
 ---
 # <a name="client-side-encryption-and-azure-key-vault-for-microsoft-azure-storage"></a>Encriptação do lado do cliente e o Azure Key Vault para o armazenamento do Microsoft Azure
 [!INCLUDE [storage-selector-client-side-encryption-include](../../../includes/storage-selector-client-side-encryption-include.md)]
@@ -48,10 +48,10 @@ Desencriptação via a técnica de envelope funciona da seguinte forma:
 4. A chave de encriptação de conteúdo (CEK), em seguida, é utilizada para desencriptar os dados de utilizador encriptado.
 
 ## <a name="encryption-mechanism"></a>Mecanismo de criptografia
-A biblioteca de cliente de armazenamento usa [AES](http://en.wikipedia.org/wiki/Advanced_Encryption_Standard) para encriptar os dados de utilizador. Especificamente, [encadeamento de bloco de cifras (CBC)](http://en.wikipedia.org/wiki/Block_cipher_mode_of_operation#Cipher-block_chaining_.28CBC.29) modo com AES. Cada serviço funciona de forma um pouco diferente, então, vamos abordar cada um deles aqui.
+A biblioteca de cliente de armazenamento usa [AES](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard) para encriptar os dados de utilizador. Especificamente, [encadeamento de bloco de cifras (CBC)](https://en.wikipedia.org/wiki/Block_cipher_mode_of_operation#Cipher-block_chaining_.28CBC.29) modo com AES. Cada serviço funciona de forma um pouco diferente, então, vamos abordar cada um deles aqui.
 
 ### <a name="blobs"></a>Blobs
-A biblioteca de cliente atualmente suporta a encriptação de todos blobs apenas. Especificamente, a encriptação é suportada quando os utilizadores utilizam o **UploadFrom*** métodos ou o **OpenWrite** método. Para downloads, ambos completos e transferências de intervalo são suportadas.
+A biblioteca de cliente atualmente suporta a encriptação de todos blobs apenas. Especificamente, a encriptação é suportada quando os utilizadores utilizam o **UploadFrom** métodos ou o **OpenWrite** método. Para downloads, ambos completos e transferências de intervalo são suportadas.
 
 Durante a encriptação, a biblioteca de cliente irá gerar um Vetor de inicialização aleatório (IV) de 16 bytes, juntamente com uma chave de encriptação de conteúdo aleatório (CEK) de 32 bytes e efetuar a encriptação de envelope dos dados de blob usando essas informações. O CEK encapsulada e alguns metadados de encriptação adicional, em seguida, são armazenados como metadados, juntamente com o blob criptografado no serviço de Blobs.
 
@@ -60,9 +60,9 @@ Durante a encriptação, a biblioteca de cliente irá gerar um Vetor de iniciali
 > 
 > 
 
-Transferir um blob encriptado envolve a obtenção dos conteúdos do blob inteiro com o **DownloadTo *** /** métodos de conveniência BlobReadStream * *. O CEK encapsulada é não envolto e utilizado em conjunto com o IV (armazenado como metadados do blob neste caso) para retornar os dados descriptografados para os utilizadores.
+Transferir um blob encriptado envolve a obtenção dos conteúdos do blob inteiro com o **DownloadTo**/**BlobReadStream** métodos de conveniência. O CEK encapsulada é não envolto e utilizado em conjunto com o IV (armazenado como metadados do blob neste caso) para retornar os dados descriptografados para os utilizadores.
 
-Transferir um intervalo de arbitrário (**DownloadRange*** métodos) no blob criptografado envolve a ajustar o intervalo fornecido por utilizadores para obter uma pequena quantidade de dados adicionais que podem ser utilizados com êxito desencriptar a pedido intervalo.
+Transferir um intervalo de arbitrário (**DownloadRange** métodos) no blob criptografado envolve a ajustar o intervalo fornecido por utilizadores para obter uma pequena quantidade de dados adicionais que podem ser utilizados com êxito desencriptar a pedido intervalo.
 
 Todos os tipos de BLOBs (blobs de blocos, blobs de páginas e blobs de acréscimo) podem ser encriptados/descriptografados com esse esquema.
 
@@ -102,7 +102,7 @@ Em operações de lote, o mesmo KEK irá ser utilizada em todas as linhas nessa 
 > Uma vez que as entidades são encriptadas, não é possível executar consultas que filtrarão numa propriedade de encriptação.  Se tentar, os resultados serão incorretos, porque o serviço estaria tentando comparar os dados encriptados com dados não encriptados.
 > 
 > 
-Para efetuar operações de consulta, tem de especificar um resolvedor de chave que é capaz de resolver todas as chaves no conjunto de resultados. Se uma entidade contida no resultado da consulta não pode ser resolvida para um fornecedor, a biblioteca de cliente irá gerar um erro. Para qualquer consulta que executa as projeções do lado do servidor, a biblioteca de cliente irá adicionar as propriedades de metadados de encriptação especial (_ClientEncryptionMetadata1 e _ClientEncryptionMetadata2) por predefinição para as colunas selecionadas.
+> Para efetuar operações de consulta, tem de especificar um resolvedor de chave que é capaz de resolver todas as chaves no conjunto de resultados. Se uma entidade contida no resultado da consulta não pode ser resolvida para um fornecedor, a biblioteca de cliente irá gerar um erro. Para qualquer consulta que executa as projeções do lado do servidor, a biblioteca de cliente irá adicionar as propriedades de metadados de encriptação especial (_ClientEncryptionMetadata1 e _ClientEncryptionMetadata2) por predefinição para as colunas selecionadas.
 
 ## <a name="azure-key-vault"></a>Azure Key Vault
 O Cofre de Chaves do Azure ajuda a salvaguardar as chaves criptográficas e os segredos utilizados pelas aplicações em cloud e pelos serviços. Ao utilizar o Azure Key Vault, os usuários podem criptografar chaves e segredos (tal como chaves de autenticação, chaves de conta de armazenamento, chaves de encriptação de dados. Ficheiros PFX e palavras-passe) utilizando as teclas que estão protegidas por módulos de segurança de hardware (HSMs). Para obter mais informações, consulte [o que é o Azure Key Vault?](../../key-vault/key-vault-whatis.md).
@@ -243,5 +243,5 @@ Tenha em atenção que os resultados de dados de armazenamento em sobrecarga de 
 ## <a name="next-steps"></a>Passos Seguintes
 * [Tutorial: Encriptar e desencriptar blobs no armazenamento do Microsoft Azure com o Azure Key Vault](../blobs/storage-encrypt-decrypt-blobs-key-vault.md)
 * Transferir o [biblioteca de cliente de armazenamento do Azure para o pacote .NET NuGet](https://www.nuget.org/packages/WindowsAzure.Storage)
-* Baixar o NuGet de Cofre de chave do Azure [Core](http://www.nuget.org/packages/Microsoft.Azure.KeyVault.Core/), [cliente](http://www.nuget.org/packages/Microsoft.Azure.KeyVault/), e [extensões](http://www.nuget.org/packages/Microsoft.Azure.KeyVault.Extensions/) pacotes  
+* Baixar o NuGet de Cofre de chave do Azure [Core](https://www.nuget.org/packages/Microsoft.Azure.KeyVault.Core/), [cliente](https://www.nuget.org/packages/Microsoft.Azure.KeyVault/), e [extensões](https://www.nuget.org/packages/Microsoft.Azure.KeyVault.Extensions/) pacotes  
 * Visite o [documentação do Cofre de chaves do Azure](../../key-vault/key-vault-whatis.md)

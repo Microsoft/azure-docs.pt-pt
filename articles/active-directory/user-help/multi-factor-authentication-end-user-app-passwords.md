@@ -14,12 +14,12 @@ ms.date: 07/30/2018
 ms.author: lizross
 ms.custom: user-help, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ee21080fd95815289f73654cc5bc650296c8e8dd
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 47128bce8dbbee1b28f6b0a3a5783e5ccee501bb
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57433370"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58177403"
 ---
 # <a name="manage-app-passwords-for-two-step-verification"></a>Gerir palavras-passe de aplicação para a verificação de dois passos
 
@@ -89,7 +89,7 @@ Se utilizar a verificação de dois passos com o seu trabalho ou a conta escolar
 
 1. Inicie sessão na sua conta escolar ou profissional.
 
-2. Aceda a https://portal.office.com, selecione o **configurações** ícone no canto superior direito do **portal do Office 365** página e, em seguida, expanda **verificação adicional de segurança**.
+2. Aceda a [ https://portal.office.com ](https://portal.office.com), selecione o **definições** ícone no canto superior direito do **portal do Office 365** página e, em seguida, expanda **adicional de segurança verificação**.
 
     ![Mostrar portal do Office expandido a área de verificação de segurança adicionais](media/security-info/security-info-o365password.png)
 
@@ -105,7 +105,7 @@ Se utilizar a verificação de dois passos com o seu trabalho ou a conta escolar
 
 1. Inicie sessão na sua conta escolar ou profissional.
 
-2. Aceda a https://portal.office.com, selecione o **configurações** ícone no canto superior direito do **portal do Office 365** página e, em seguida, selecione **verificação adicional de segurança**.
+2. Aceda a [ https://portal.office.com ](https://portal.office.com), selecione o **definições** ícone no canto superior direito do **portal do Office 365** página e, em seguida, selecione **adicional de segurança verificação**.
 
 3. Selecione o texto que indica **criar e gerir palavras-passe de aplicação** para abrir o **palavras-passe de aplicação** página.
 

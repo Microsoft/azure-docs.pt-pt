@@ -12,12 +12,12 @@ ms.topic: overview
 ms.date: 01/24/2019
 ms.author: lizross
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e051fddda6957e8eda00c0087663db129c1ae23a
-ms.sourcegitcommit: 15e9613e9e32288e174241efdb365fa0b12ec2ac
+ms.openlocfilehash: 4b47b0c5af98198d829c4658877acae2edff5455
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "57008989"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58001198"
 ---
 # <a name="what-is-the-microsoft-authenticator-app"></a>O que é a aplicação Microsoft Authenticator?
 
@@ -34,14 +34,15 @@ Pode utilizar a aplicação Microsoft Authenticator de várias formas, incluindo
 
 - Como um gerador de código para outras contas que suportam aplicações de autenticação.
 
->[!Important]
->A aplicação Microsoft Authenticator funciona com qualquer conta que utiliza a verificação de dois fatores e suporta os padrões baseados no tempo palavra-passe Monouso (TOTP).
-
->Sua organização pode implicar a utilizar uma aplicação de autenticação para início de sessão e aceder aos seus dados organizacionais e documentos. Embora o seu nome de utilizador poderá ser apresentada na aplicação, a conta, na verdade, não está configurada para atuar como um método de verificação até concluir o processo de registo. Para obter mais informações, consulte [adicionar a sua conta escolar ou profissional](user-help-auth-app-add-work-school-account.md).
-
->Se estiver a ter problemas ao iniciar sessão para a sua conta, veja [quando não pode iniciar sessão na sua conta Microsoft](https://support.microsoft.com/help/12429) para obter ajuda. Obter mais informações sobre o que fazer quando receber o ["não existe essa conta Microsoft"](https://support.microsoft.com/help/13811) de mensagens ao tentar iniciar sessão na sua conta Microsoft.
+> [!Important]
+> A aplicação Microsoft Authenticator funciona com qualquer conta que utiliza a verificação de dois fatores e suporta os padrões baseados no tempo palavra-passe Monouso (TOTP).
+> 
+> Sua organização pode implicar a utilizar uma aplicação de autenticação para início de sessão e aceder aos seus dados organizacionais e documentos. Embora o seu nome de utilizador poderá ser apresentada na aplicação, a conta, na verdade, não está configurada para atuar como um método de verificação até concluir o processo de registo. Para obter mais informações, consulte [adicionar a sua conta escolar ou profissional](user-help-auth-app-add-work-school-account.md).
+> 
+> Se estiver a ter problemas ao iniciar sessão para a sua conta, veja [quando não pode iniciar sessão na sua conta Microsoft](https://support.microsoft.com/help/12429) para obter ajuda. Obter mais informações sobre o que fazer quando receber o ["não existe essa conta Microsoft"](https://support.microsoft.com/help/13811) de mensagens ao tentar iniciar sessão na sua conta Microsoft.
 
 ## <a name="terminology"></a>Terminologia
+
 |Termo|Descrição|
 |----|-----------|
 |Verificação de dois fatores |Um processo de verificação que requer a utilização especificamente apenas duas partes de informações de verificação, como uma palavra-passe e um PIN. A aplicação Microsoft Authenticator oferece suporte a verificação de dois fatores padrão e o início de sessão passe.|

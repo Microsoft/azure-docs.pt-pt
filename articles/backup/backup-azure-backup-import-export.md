@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 05/17/2018
 ms.author: saurse
-ms.openlocfilehash: 94931546f3b8ddb18a5381de3baa31d66376badb
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: b6f0ce1939b2a78ca191d2feb0140506d130b9b0
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54810725"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58107462"
 ---
 # <a name="offline-backup-workflow-in-azure-backup"></a>Fluxo de trabalho de cópias de segurança offline no Azure Backup
 O Azure Backup tem vários eficiências incorporadas que salvar os custos de armazenamento e de rede durante as cópias de segurança completas iniciais de dados para o Azure. Normalmente, as cópias de segurança completas iniciais transferem grandes quantidades de dados e exigem mais largura de banda de rede quando comparado com as cópias de segurança subsequentes que transferem apenas as deltas/incrementais. O processo de propagação offline, cópia de segurança do Azure pode utilizar discos para carregar os dados de cópia de segurança offline para o Azure.
@@ -73,7 +73,7 @@ Esta secção descreve o fluxo de trabalho de cópia de segurança offline para 
 
     ![Ecrã de importação](./media/backup-azure-backup-import-export/offlinebackup_inputs.png)
 
-  A descrição das entradas é o seguinte:
+   A descrição das entradas é o seguinte:
 
     * **Localização de transição**: A localização de armazenamento temporário para o qual a cópia de segurança inicial é escrita. Localização de transição poderá ser num computador local ou uma partilha de rede. Se o computador de cópia e o computador de origem forem diferentes, recomendamos que especifica o caminho de rede completa da localização de transição.
     * **Conta de armazenamento do Azure Resource Manager**: O nome da conta de armazenamento de tipo de Gestor de recursos de qualquer subscrição do Azure.
@@ -81,7 +81,7 @@ Esta secção descreve o fluxo de trabalho de cópia de segurança offline para 
     * **ID de subscrição do Azure**: O ID de subscrição do Azure onde é criada a conta de armazenamento do Azure.
     * **Nome da tarefa de importação do Azure**: O nome exclusivo ao qual importação de Azure service e do Azure Backup controlam a transferência de dados enviados em discos para o Azure. 
   
-  Fornecer as entradas no ecrã e clique em **seguinte**. Guardar fornecido *localização de transição* e o *nome da tarefa de importação do Azure*, como estas informações são necessárias para preparar os discos.
+   Fornecer as entradas no ecrã e clique em **seguinte**. Guardar fornecido *localização de transição* e o *nome da tarefa de importação do Azure*, como estas informações são necessárias para preparar os discos.
 
 2. Quando lhe for pedido, inicie sessão na sua subscrição do Azure. Tem de iniciar sessão para que o Azure Backup pode criar a aplicação do Azure Active Directory e fornecer as permissões necessárias para aceder ao serviço de importação do Azure.
 
@@ -106,14 +106,14 @@ O *AzureOfflineBackupDiskPrep* utilitário prepara as unidades SATA, que são en
 
 1. Vá para o diretório e copiar o **AzureOfflineBackupDiskPrep** diretório para outro computador em que as unidades SATA estão ligadas. No computador com as unidades SATA ligados, certifique-se:
 
-    * O computador de cópia pode aceder a localização de transição para o fluxo de trabalho de propagação offline com o mesmo caminho de rede que foi fornecido no **iniciar a cópia de segurança offline** fluxo de trabalho.
-    * BitLocker está ativado no computador de cópia.
-    * O Azure PowerShell 3.7.0 está instalado.
-    * Os navegadores compatíveis mais recente (Microsoft Edge ou o Internet Explorer 11) são instalados e o JavaScript está ativado. 
-    * O computador de cópia pode acessar o portal do Azure. Se necessário, o computador de cópia pode ser o mesmo que o computador de origem.
+   * O computador de cópia pode aceder a localização de transição para o fluxo de trabalho de propagação offline com o mesmo caminho de rede que foi fornecido no **iniciar a cópia de segurança offline** fluxo de trabalho.
+   * BitLocker está ativado no computador de cópia.
+   * O Azure PowerShell 3.7.0 está instalado.
+   * Os navegadores compatíveis mais recente (Microsoft Edge ou o Internet Explorer 11) são instalados e o JavaScript está ativado. 
+   * O computador de cópia pode acessar o portal do Azure. Se necessário, o computador de cópia pode ser o mesmo que o computador de origem.
     
-    > [!IMPORTANT] 
-    > Se o computador de origem for uma máquina virtual, em seguida, o computador de cópia tem de ser um servidor físico diferente ou uma máquina de cliente do computador de origem.
+     > [!IMPORTANT] 
+     > Se o computador de origem for uma máquina virtual, em seguida, o computador de cópia tem de ser um servidor físico diferente ou uma máquina de cliente do computador de origem.
 
 2. Abra uma linha de comandos elevada no computador de cópia com o *AzureOfflineBackupDiskPrep* diretório de utilitário, como o diretório atual e execute o seguinte comando:
 
@@ -137,11 +137,11 @@ O *AzureOfflineBackupDiskPrep* utilitário prepara as unidades SATA, que são en
     Em seguida, começa a ferramenta preparar o disco e copiar os dados de cópia de segurança. Terá de anexar discos adicionais quando lhe for pedido pela ferramenta caso o disco fornecido não tem espaço suficiente para os dados de cópia de segurança. <br/>
 
     No final da execução bem-sucedida da ferramenta, o prompt de comando fornece três partes de informações:
-    1. Um ou mais discos que forneceu estão preparados para o envio para o Azure. 
-    2. Receberá uma confirmação de que a tarefa de importação foi criada. A tarefa de importação utiliza o nome que indicou.
-    3. A ferramenta exibe o endereço de envio para o Centro de dados do Azure.
+   1. Um ou mais discos que forneceu estão preparados para o envio para o Azure. 
+   2. Receberá uma confirmação de que a tarefa de importação foi criada. A tarefa de importação utiliza o nome que indicou.
+   3. A ferramenta exibe o endereço de envio para o Centro de dados do Azure.
 
-    ![Preparação de disco do Azure completa](./media/backup-azure-backup-import-export/console2.png)<br/>
+      ![Preparação de disco do Azure completa](./media/backup-azure-backup-import-export/console2.png)<br/>
 
 6. No final da execução do comando, é possível atualizar as informações de envio.
 

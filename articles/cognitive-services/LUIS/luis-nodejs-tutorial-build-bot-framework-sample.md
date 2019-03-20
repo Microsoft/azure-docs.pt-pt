@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: article
 ms.date: 01/30/2019
 ms.author: diberry
-ms.openlocfilehash: 62a3169257001f64e3103cc079e544449ac59663
-ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
+ms.openlocfilehash: 27ebe827e97c8361c7f93a125f09aa9e339a6a14
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/16/2019
-ms.locfileid: "56328389"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58087113"
 ---
 # <a name="luis-bot-in-nodejs-with-the-bot-framework-3x-and-the-azure-web-app-bot"></a>Bot de LUIS em node. js com o Bot Framework 3.x e bot de aplicação Web do Azure
 
@@ -45,16 +45,16 @@ O bot responde aos objetivos do domínio HomeAutomation que estão na aplicaçã
     ![Selecione o bot de funções para iniciar o processo de criação de recursos](./media/luis-tutorial-node-bot/bot-service-selection.png)
 
 3. Na **Bot Service** painel, forneça as informações necessárias e selecione **criar**. Esta ação cria e implementa o serviço de bot e aplicação LUIS para o Azure. Se quiser usar [priming de voz](https://docs.microsoft.com/bot-framework/bot-service-manage-speech-priming), reveja [requisitos de região](troubleshooting.md#what-luis-regions-support-bot-framework-speech-priming) antes de criar o seu bot. 
-    * Definir **nome da aplicação** ao nome do seu bot. O nome é utilizado como o subdomínio ao seu bot é implementado na cloud (por exemplo, mynotesbot.azurewebsites.net). <!-- This name is also used as the name of the LUIS app associated with your bot. Copy it to use later, to find the LUIS app associated with the bot. -->
-    * Selecione a subscrição [grupo de recursos](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview), o plano de serviço de aplicações, e [localização](https://azure.microsoft.com/regions/).
-    * Para **modelo de Bot**, selecione:
-        * **SDK v3**
-        * **Node.js**
-        * **Compreensão de idiomas**
-    * Selecione o **localização da aplicação LUIS**. Este é o processo de criação [região] [ LUIS] a aplicação é criada no.
-    * Selecione a caixa de verificação confirmação para o aviso legal. São os termos do aviso legal a caixa de verificação abaixo.
+   * Definir **nome da aplicação** ao nome do seu bot. O nome é utilizado como o subdomínio ao seu bot é implementado na cloud (por exemplo, mynotesbot.azurewebsites.net). <!-- This name is also used as the name of the LUIS app associated with your bot. Copy it to use later, to find the LUIS app associated with the bot. -->
+   * Selecione a subscrição [grupo de recursos](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview), o plano de serviço de aplicações, e [localização](https://azure.microsoft.com/regions/).
+   * Para **modelo de Bot**, selecione:
+       * **SDK v3**
+       * **Node.js**
+       * **Compreensão de idiomas**
+   * Selecione o **localização da aplicação LUIS**. Este é o processo de criação [região] [ LUIS] a aplicação é criada no.
+   * Selecione a caixa de verificação confirmação para o aviso legal. São os termos do aviso legal a caixa de verificação abaixo.
 
-    ![Painel do serviço de bot](./media/luis-tutorial-node-bot/bot-service-setting-callout-template.png)
+     ![Painel do serviço de bot](./media/luis-tutorial-node-bot/bot-service-setting-callout-template.png)
 
 
 4. Confirme que o serviço de bot foi implementado.
@@ -247,7 +247,8 @@ Saiba mais sobre [Bot Framework](https://dev.botframework.com/) e o [3.x](https:
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-<!-- From trying the bot, you can see that the recognizer can trigger interruption of the currently active dialog. Allowing and handling interruptions is a flexible design that accounts for what users really do. Learn more about the various actions you can associate with a recognized intent.--> Pode tentar adicionar outras intenções, como o ajuda, Cancelar e saudação, para a aplicação do LUIS. Em seguida, adicione caixas de diálogo para as novo intenções e testá-los com o bot. 
+<!-- From trying the bot, you can see that the recognizer can trigger interruption of the currently active dialog. Allowing and handling interruptions is a flexible design that accounts for what users really do. Learn more about the various actions you can associate with a recognized intent.-->
+Pode tentar adicionar outras intenções, como o ajuda, Cancelar e saudação, para a aplicação do LUIS. Em seguida, adicione caixas de diálogo para as novo intenções e testá-los com o bot. 
 
 <!-- 
 > [!NOTE] 

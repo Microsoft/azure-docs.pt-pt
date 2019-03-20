@@ -10,12 +10,12 @@ ms.topic: tutorial
 ms.date: 02/13/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 260dfc829d0869b1fc4f58ae399351c5f68dd926
-ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
+ms.openlocfilehash: 85fc8a42f5220aa8f05495aa260d05ce009884f0
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56270339"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58137832"
 ---
 # <a name="quickstart-use-built-in-portal-tools-for-azure-search-import-indexing-and-queries"></a>Início rápido: Utilizar ferramentas do portal internas para importação de Azure Search, indexação e consultas
 
@@ -34,13 +34,7 @@ Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-[Crie um serviço Azure Search](search-create-service-portal.md) ou localize um serviço existente na sua subscrição atual.
-
-1. Inicie sessão no [portal do Azure](https://portal.azure.com).
-2. Abra o dashboard de serviço do seu serviço da Azure Search. Se não tiver afixado o mosaico do serviço ao dashboard, pode encontrar o seu serviço da seguinte forma:
-
-   * Na Barra de atalhos, clique em **Todos os serviços** no painel de navegação à esquerda.
-   * Na caixa de pesquisa, escreva *pesquisa* para obter uma lista dos serviços relacionados com pesquisa da sua subscrição. Clique em **Pesquisar serviços**. O serviço deverá aparecer na lista.
+[Criar um serviço Azure Search](search-create-service-portal.md) ou [localizar um serviço existente](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) na subscrição atual. Pode usar um serviço gratuito para este início rápido. 
 
 ### <a name="check-for-space"></a>Verificar o espaço
 

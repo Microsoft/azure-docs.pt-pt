@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/3/2018
 ms.author: rkarlin
-ms.openlocfilehash: 3cc6cdb84b2c77b15b79c7d6a04cc7c6ae0721e5
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: bee4618ff08c89bbdab7413ca7f7f74a266d96dd
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56115866"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58077909"
 ---
 # <a name="quickstart-onboard-windows-computers-to-azure-security-center"></a>Início rápido: Integrar computadores do Windows ao centro de segurança do Azure
 Depois de incluir as subscrições do Azure, pode ativar o Centro de Segurança para os recursos em execução fora do Azure, por exemplo, no local ou em outras clouds, ao aprovisionar o MMA.
@@ -37,7 +37,7 @@ Tem de estar no escalão de preço Standard do Centro de Segurança antes de com
 1. Inicie sessão no [Portal do Azure](https://azure.microsoft.com/features/azure-portal/).
 2. No menu **Microsoft Azure**, selecione **Centro de Segurança**. **Centro de Segurança - Descrição Geral** é aberto.
 
- ![Descrição geral do Centro de Segurança][2]
+   ![Descrição geral do Centro de Segurança][2]
 
 3. No menu principal do Centro de Segurança, selecione **Introdução**.
 4. Selecione o separador **Introdução**.
@@ -48,13 +48,13 @@ Tem de estar no escalão de preço Standard do Centro de Segurança antes de com
 
     ![Adicionar computador não pertencente ao Azure](./media/quick-onboard-windows-computer/non-azure.png)
 
-  O painel **Agente Direto** abre-se, com uma ligação para transferir o agente do Windows e as chaves para o seu ID da área de trabalho a utilizar na configuração do agente.
+   O painel **Agente Direto** abre-se, com uma ligação para transferir o agente do Windows e as chaves para o seu ID da área de trabalho a utilizar na configuração do agente.
 
-6.  Selecione a ligação **Transferir o Agente do Windows** aplicável ao seu tipo de processador do computador para transferir o ficheiro de configuração.
+6. Selecione a ligação **Transferir o Agente do Windows** aplicável ao seu tipo de processador do computador para transferir o ficheiro de configuração.
 
-7.  À direita de **ID da Área de Trabalho**, selecione o ícone de copiar e cole o ID no Bloco de Notas.
+7. À direita de **ID da Área de Trabalho**, selecione o ícone de copiar e cole o ID no Bloco de Notas.
 
-8.  À direita de **Chave Primária**, selecione o ícone de copiar e cole a chave no Bloco de Notas.
+8. À direita de **Chave Primária**, selecione o ícone de copiar e cole a chave no Bloco de Notas.
 
 ## <a name="install-the-agent"></a>Instalar o agente
 Agora tem de instalar o ficheiro transferido no computador de destino.
@@ -68,7 +68,7 @@ Agora tem de instalar o ficheiro transferido no computador de destino.
 7. Caso o computador deva reportar a uma área de trabalho do Log Analytics na cloud do Azure Government, selecione **Azure US Government**, na lista pendente **Azure Cloud**.  Se o computador tiver de comunicar através de um servidor proxy com o serviço do Log Analytics, selecione **Avançadas** e forneça o URL e o número da porta do servidor proxy.
 8. Selecione **Seguinte**, depois de indicar as definições de configuração necessárias.
 
-  ![Instalar o agente][5]
+   ![Instalar o agente][5]
 
 9. Na página **Pronto para Instalar**, reveja as suas opções e selecione **Instalar**.
 10. Na página **Configuração concluída com êxito**, selecione **Concluir**

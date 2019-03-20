@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 04/20/2018
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 539a7fc5b9d3038424059f1ee599c6966a968781
-ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
+ms.openlocfilehash: a9e8d2cbc067fd92208fac778ba17c58bdc7a5e4
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53629603"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58079150"
 ---
 # <a name="filters-in-azure-search"></a>Filtros no Azure Search 
 
@@ -32,17 +32,17 @@ Cenários de exemplo incluem o seguinte:
 
 1. Utilize um filtro para segmentar o seu índice com base nos valores de dados no índice. Devido um esquema com a cidade, o tipo de alojamento e características, poderá criar um filtro para selecionar explicitamente os documentos que satisfazem os critérios (em Seattle, condos, frente marítima). 
 
-  Pesquisa em texto completo com as entradas do mesmo, muitas vezes, produz resultados semelhantes, mas é mais preciso um filtro em que ele requer uma correspondência exata do termo de filtro estrita de conteúdos no seu índice. 
+   Pesquisa em texto completo com as entradas do mesmo, muitas vezes, produz resultados semelhantes, mas é mais preciso um filtro em que ele requer uma correspondência exata do termo de filtro estrita de conteúdos no seu índice. 
 
 2. Utilize um filtro, se a experiência de pesquisa é fornecido com um requisito de filtro:
 
- * [Navegação por facetas](search-faceted-navigation.md) utiliza um filtro para transmitir de volta a categoria de faceta selecionada pelo usuário.
- * Pesquisa geográfica utiliza um filtro para passar as coordenadas da localização atual no "encontrar perto de mim" aplicações. 
- * Filtros de segurança passam identificadores de segurança como critérios de filtro, em que uma correspondência no índice serve como um proxy para os direitos de acesso ao documento.
+   * [Navegação por facetas](search-faceted-navigation.md) utiliza um filtro para transmitir de volta a categoria de faceta selecionada pelo usuário.
+   * Pesquisa geográfica utiliza um filtro para passar as coordenadas da localização atual no "encontrar perto de mim" aplicações. 
+   * Filtros de segurança passam identificadores de segurança como critérios de filtro, em que uma correspondência no índice serve como um proxy para os direitos de acesso ao documento.
 
 3. Utilize um filtro, se pretender que os critérios de pesquisa num campo numérico. 
 
-  Campos numéricos são recuperáveis no documento e podem aparecer nos resultados da pesquisa, mas não são pesquisáveis (sujeito a pesquisa em texto completo) individualmente. Se precisar de critérios de seleção com base em dados numéricos, utilize um filtro.
+   Campos numéricos são recuperáveis no documento e podem aparecer nos resultados da pesquisa, mas não são pesquisáveis (sujeito a pesquisa em texto completo) individualmente. Se precisar de critérios de seleção com base em dados numéricos, utilize um filtro.
 
 ### <a name="alternative-methods-for-reducing-scope"></a>Métodos alternativos para reduzir o âmbito
 
@@ -141,10 +141,8 @@ No SDK do .NET, é o filtrável *desativar* por predefinição. É a API para de
 
 Se um campo é não filtradas e quiser torná-lo filtráveis, terá de adicionar um novo campo, ou recriar o campo existente. Alterar uma definição de campo altera a estrutura física do índice. No Azure Search, todos os caminhos de acesso permitidos são indexados para a velocidade de consulta rápida, que exige uma reconstrução das estruturas de dados quando alterar definições de campo. 
 
-A reconstrução de campos individuais pode ser uma operação de baixo impacto, exigindo apenas uma operação de intercalação que envia a chave de documento existente e valores associados para o índice, deixando intactos os o resto de cada documento. Se tiver um requisito de recompilação, veja as ligações seguintes para obter instruções:
+A reconstrução de campos individuais pode ser uma operação de baixo impacto, exigindo apenas uma operação de intercalação que envia a chave de documento existente e valores associados para o índice, deixando intactos os o resto de cada documento. Se tiver um requisito de recompilação, veja [indexação ações (carregar, intercalar, mergeOrUpload, eliminar)](search-what-is-data-import.md#indexing-actions) para obter uma lista de opções.
 
- + [Ações de indexação com o SDK .NET](https://docs.microsoft.com/azure/search/search-import-data-dotnet#decide-which-indexing-action-to-use)
- + [Ações de indexação com a API REST](https://docs.microsoft.com/azure/search/search-import-data-rest-api#decide-which-indexing-action-to-use)
 
 ## <a name="text-filter-fundamentals"></a>Conceitos básicos do filtro de texto
 
@@ -157,8 +155,8 @@ Cadeias de texto diferenciam maiúsculas de minúsculas. Não existe nenhum infe
 
 | Abordagem | Descrição | 
 |----------|-------------|
-| [Search.in()](https://docs.microsoft.com/rest/api/searchservice/odata-expression-syntax-for-azure-search) | Uma função fornece a lista delimitada por vírgulas de cadeias de caracteres para um determinado campo. As cadeias de caracteres compreendem os critérios de filtro, que são aplicados a todos os campos no âmbito da consulta. <br/><br/>`search.in(f, ‘a, b, c’)` é semanticamente equivalente a `f eq ‘a’ or f eq ‘b’ or f eq ‘c’`, exceto que ele seja executado muito mais rapidamente quando a lista de valores é grande.<br/><br/>Recomendamos que o **search.in** funcionar para [filtros de segurança](search-security-trimming-for-azure-search.md) e para todos os filtros compostos de texto não processado para corresponder nos valores num determinado campo. Esta abordagem destina-se a velocidade. Pode esperar subsecond o tempo de resposta para centenas ou milhares de valores. Embora não haja nenhum limite explícito no número de itens que pode passar para a função, os aumentos de latência forma proporcional, segundo o número de cadeias de caracteres que fornecer. | 
-| [Search.ismatch()](https://docs.microsoft.com/rest/api/searchservice/odata-expression-syntax-for-azure-search) | Uma função que permite combinar as operações de pesquisa em texto completo com operações de filtro estritamente booleano na mesma expressão de filtro. Permite que várias combinações de filtro de consulta numa solicitação. Também pode usá-lo para um *contém* filtro para filtrar numa cadeia parcial dentro de uma cadeia de caracteres maior. |  
+| [search.in()](https://docs.microsoft.com/rest/api/searchservice/odata-expression-syntax-for-azure-search) | Uma função fornece a lista delimitada por vírgulas de cadeias de caracteres para um determinado campo. As cadeias de caracteres compreendem os critérios de filtro, que são aplicados a todos os campos no âmbito da consulta. <br/><br/>`search.in(f, ‘a, b, c’)` é semanticamente equivalente a `f eq ‘a’ or f eq ‘b’ or f eq ‘c’`, exceto que ele seja executado muito mais rapidamente quando a lista de valores é grande.<br/><br/>Recomendamos que o **search.in** funcionar para [filtros de segurança](search-security-trimming-for-azure-search.md) e para todos os filtros compostos de texto não processado para corresponder nos valores num determinado campo. Esta abordagem destina-se a velocidade. Pode esperar subsecond o tempo de resposta para centenas ou milhares de valores. Embora não haja nenhum limite explícito no número de itens que pode passar para a função, os aumentos de latência forma proporcional, segundo o número de cadeias de caracteres que fornecer. | 
+| [search.ismatch()](https://docs.microsoft.com/rest/api/searchservice/odata-expression-syntax-for-azure-search) | Uma função que permite combinar as operações de pesquisa em texto completo com operações de filtro estritamente booleano na mesma expressão de filtro. Permite que várias combinações de filtro de consulta numa solicitação. Também pode usá-lo para um *contém* filtro para filtrar numa cadeia parcial dentro de uma cadeia de caracteres maior. |  
 | [$filter = a cadeia de caracteres de operador de campo](https://docs.microsoft.com/rest/api/searchservice/odata-expression-syntax-for-azure-search) | Uma expressão definida pelo utilizador compostas por campos, operadores e valores. | 
 
 ## <a name="numeric-filter-fundamentals"></a>Conceitos básicos de filtro numérico

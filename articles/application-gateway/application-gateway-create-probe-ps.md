@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/26/2017
 ms.author: victorh
-ms.openlocfilehash: b5ea7822d96e45d61ecef384d15d78e6a75fa46c
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.openlocfilehash: acd70bacd23755cd764bc782a297d80db3622424
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57310738"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58014047"
 ---
 # <a name="create-a-custom-probe-for-azure-application-gateway-by-using-powershell-for-azure-resource-manager"></a>Criar uma sonda personalizada para o Gateway de aplicação do Azure com o PowerShell para o Azure Resource Manager
 
@@ -41,27 +41,27 @@ Neste artigo, é possível adicionar uma sonda personalizada para um gateway de 
 
 1. Utilize `Connect-AzAccount` para autenticar.
 
-  ```powershell
-  Connect-AzAccount
-  ```
+   ```powershell
+   Connect-AzAccount
+   ```
 
 1. Obter as subscrições para a conta.
 
-  ```powershell
-  Get-AzSubscription
-  ```
+   ```powershell
+   Get-AzSubscription
+   ```
 
 1. Escolha qual das subscrições do Azure utilizar.
 
-  ```powershell
-  Select-AzSubscription -Subscriptionid '{subscriptionGuid}'
-  ```
+   ```powershell
+   Select-AzSubscription -Subscriptionid '{subscriptionGuid}'
+   ```
 
 1. Crie um grupo de recursos. Pode ignorar este passo se tiver um grupo de recursos existente.
 
-  ```powershell
-  New-AzResourceGroup -Name appgw-rg -Location 'West US'
-  ```
+   ```powershell
+   New-AzResourceGroup -Name appgw-rg -Location 'West US'
+   ```
 
 O Azure Resource Manager requer que todos os grupos de recursos especifiquem uma localização, que é utilizada como a localização predefinida para os recursos nesse grupo de recursos. Certifique-se de que todos os comandos para criar um gateway de aplicação utilizam o mesmo grupo de recursos.
 
@@ -105,7 +105,7 @@ Configurar a todos os itens de configuração antes de criar o gateway de aplica
 |**Regra**| Rotas o tráfego para o back-end adequado com base nas definições de HTTP.|
 
 ```powershell
-# Creates a application gateway Frontend IP configuration named gatewayIP01
+# Creates an application gateway Frontend IP configuration named gatewayIP01
 $gipconfig = New-AzApplicationGatewayIPConfiguration -Name gatewayIP01 -Subnet $subnet
 
 #Creates a back-end IP address pool named pool01 with IP addresses 134.170.185.46, 134.170.188.221, 134.170.185.50.

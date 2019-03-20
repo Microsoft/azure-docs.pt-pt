@@ -12,12 +12,12 @@ ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
 ms.date: 02/06/2019
-ms.openlocfilehash: d94bc570f47d71a7e2b626041acd4bb6e84d0dc1
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: 36b2f3817c7e96a35c1e8f3aba22db201224ceba
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56876012"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58075940"
 ---
 # <a name="faq-about-azure-sql-hyperscale-databases"></a>FAQ sobre bases de dados de Hiperescala de SQL do Azure
 
@@ -45,7 +45,7 @@ O serviço de acesso baseado em vCore escalões principalmente são diferenciado
 - O escalão de serviço crítico para a empresa é adequado para cargas de trabalho empresariais em que a latência de e/s é uma prioridade.
 
 | | Tipo de recurso | Fins Gerais |  Hiperescala | Crítico para a Empresa |
-|:---|:---:|:---:|:---:|:---:|:---:|
+|:---|:---:|:---:|:---:|:---:|
 | **Melhor para** |Todos|  A maioria das cargas de trabalho da empresa. Ofertas de orçamento orientadas equilibradas opções de computação e armazenamento. | Aplicações de dados com os requisitos de capacidade de dados grandes e a capacidade para armazenamento de dimensionamento automático e o dimensionamento de computação com fluidez. | Aplicativos de OLTP com elevada taxa de transações e menor latência e/s. Oferece maior resiliência a falhas usando vários, isolada réplicas.|
 |  **Tipo de recurso** ||Base de dados / elastic pool / instância gerida | Base de dados individual | Base de dados / elastic pool / instância gerida |
 | **Tamanho de computação**|Base de dados / elástico conjunto * | 1 a 80 vCores | 1 a 80 vCores * | 1 a 80 vCores |

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/11/2019
 ms.author: magoedte
-ms.openlocfilehash: 65aa561b01fc4950eb007077ba3613e96ccdcacc
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 26da504188a9060dbbb35330dbd8604bf5fe5e1b
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57763871"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57995134"
 ---
 # <a name="configure-service-map-in-azure"></a>Configurar o mapa de serviço no Azure
 O Mapa de Serviço deteta automaticamente componentes de aplicações em sistemas Windows e Linux e mapeia a comunicação entre serviços. Pode usá-lo para ver os servidores, como considerá-los – sistemas interconectados que fornecem serviços críticos. Mapa de serviço mostra ligações entre servidores, processos e as portas em qualquer arquitetura ligado a TCP sem qualquer configuração necessária, que não seja a instalação de um agente.
@@ -27,10 +27,10 @@ Este artigo descreve os detalhes de configuração de agentes e integração de 
 
 ## <a name="supported-azure-regions"></a>Regiões do Azure suportadas
 Mapa de serviço está atualmente disponível nas seguintes regiões do Azure:
-- E.U.A. Leste
-- E.U.A. Centro-Oeste
+- EUA Leste
+- EUA Centro-Oeste
 - Canadá Central
-- Sul do Reino Unido
+- Reino Unido Sul
 - Europa Ocidental
 - Sudeste Asiático
 
@@ -42,6 +42,7 @@ A seção a seguir lista os sistemas operativos suportados para o agente de depe
 >
 
 ### <a name="windows-server"></a>Windows Server
+- Windows Server 2019
 - Windows Server 2016 1803
 - Windows Server 2016
 - Windows Server 2012 R2
@@ -89,7 +90,7 @@ A seção a seguir lista os sistemas operativos suportados para o agente de depe
 
 | Versão do SO | Versão de kernel |
 |:--|:--|
-| Ubuntu 18.04 | o kernel 4.15. * |
+| Ubuntu 18.04 | kernel 4.15.\*<br>4.18* |
 | Ubuntu 16.04.3 | o kernel 4.15. * |
 | 16.04 | 4.4.\*<br>4.8.\*<br>4.10.\*<br>4.11.\*<br>4.13.\* |
 | 14.04 | 3.13.\*<br>4.4.\* |

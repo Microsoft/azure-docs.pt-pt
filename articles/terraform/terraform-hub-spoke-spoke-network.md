@@ -9,12 +9,12 @@ manager: jeconnoc
 ms.author: vaangadi
 ms.topic: tutorial
 ms.date: 03/01/2019
-ms.openlocfilehash: 3487d062fb9c3334bcf06c525a3c42faac3014be
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 9cce809401a26eb2b45b11303afcd4818a1f950b
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57780512"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58009945"
 ---
 # <a name="tutorial-create-a-spoke-virtual-network-with-terraform-in-azure"></a>Tutorial: Criar uma rede virtual do spoke com o Terraform no Azure
 
@@ -38,7 +38,7 @@ Este tutorial abrange as seguintes tarefas:
 
 Dois scripts spoke são criados nesta secção. Cada script define uma rede virtual do spoke e uma máquina virtual para a carga de trabalho. Em seguida, é criada uma rede virtual em modo de peering do hub and spoke.
 
-1. Navegue para o [portal do Azure](http://portal.azure.com).
+1. Navegue para o [portal do Azure](https://portal.azure.com).
 
 1. Abra o [Azure Cloud Shell](/azure/cloud-shell/overview). Se ainda não tiver selecionado um ambiente, selecione **Bash** como o seu ambiente.
 

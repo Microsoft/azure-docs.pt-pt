@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 01/24/2018
 ms.author: magoedte
-ms.openlocfilehash: 3b7aa932d24b7879ee3f46419afa2327ee48b403
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: 100d33bbd888d00ed33a38680df5a777e12fd63e
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56001005"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58120810"
 ---
 # <a name="monitor-active-directory-replication-status-with-azure-monitor"></a>Monitorizar o estado de replicação do Active Directory com o Azure Monitor
 
@@ -45,8 +45,8 @@ Se não pretender ligar-se a qualquer um dos seus controladores de domínio dire
 
    > [!NOTE]
    > Estas alterações não entrem em vigor até a reiniciar o serviço Microsoft Monitoring Agent (HealthService.exe).
-### <a name="install-solution"></a>Instalar a solução
-Siga o processo descrito em [instalar uma solução de monitorização](solutions.md#install-a-monitoring-solution) para adicionar o **estado de replicação do Active Directory** solução para a área de trabalho do Log Analytics. Não há nenhuma configuração adicional.
+   > ### <a name="install-solution"></a>Instalar a solução
+   > Siga o processo descrito em [instalar uma solução de monitorização](solutions.md#install-a-monitoring-solution) para adicionar o **estado de replicação do Active Directory** solução para a área de trabalho do Log Analytics. Não há nenhuma configuração adicional.
 
 
 ## <a name="ad-replication-status-data-collection-details"></a>Detalhes de recolha de dados de estado de replicação do AD

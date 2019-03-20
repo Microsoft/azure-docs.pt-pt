@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/26/2019
 ms.author: ashish
-ms.openlocfilehash: 85aba4478e27d88af439dbe2e474a84ee65b373c
-ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
+ms.openlocfilehash: e8a85401c0c7282d64ebcbe2f9180f25f36f7289
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56960433"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58108159"
 ---
 # <a name="scale-hdinsight-clusters"></a>Dimensionar clusters do HDInsight
 
@@ -326,4 +326,4 @@ A última opção é a estar atento rara ocasião em que o HDFS entra em modo se
 
 * [Introdução ao Azure HDInsight](hadoop/apache-hadoop-introduction.md)
 * [Dimensionar clusters](hdinsight-administer-use-portal-linux.md#scale-clusters)
-* [Gerir clusters do HDInsight através da IU do Apache Ambari Web](hdinsight-hadoop-manage-ambari.md)
+* [Manage HDInsight clusters by using the Apache Ambari Web UI](hdinsight-hadoop-manage-ambari.md) (Gerir clusters do HDInsight através da IU da Web do Apache Ambari)

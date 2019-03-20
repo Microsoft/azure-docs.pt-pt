@@ -12,18 +12,19 @@ ms.workload: ''
 ms.tgt_pltfrm: ''
 ms.devlang: ''
 ms.topic: conceptual
-ms.date: 01/29/2019
+ms.date: 03/13/2019
 ms.author: pbutlerm
-ms.openlocfilehash: f9e57c00744301fefed32ed3e6526d3c1f52b362
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.openlocfilehash: 5014a9cdf9a8811aa6081476f9ec6c41be0ff906
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56816016"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58012938"
 ---
 # <a name="power-bi-app-offer-prerequisites"></a>Aplicação Power BI oferecem pré-requisitos
 
-Este artigo fornece as técnicas e requisitos empresariais que tem de cumprir antes de poder publicar uma aplicação do Power BI da oferta no Marketplace do AppSource.
+Este artigo fornece as técnicas e requisitos empresariais que tem de cumprir antes de poder publicar uma aplicação do Power BI da oferta no Marketplace do AppSource.  Se ainda não o fez, reveja os [Office 365, Dynamics 365, PowerApps e o Power BI oferecem guia de publicação](../../appsource-offer-publishing-guide.md).
+
 
 ## <a name="technical-requirements"></a>Requisitos técnicos
 
@@ -33,16 +34,16 @@ Depois da aplicação do serviço é criada e testada no Power BI, deve guardar 
 
 ## <a name="business-requirements"></a>Requisitos comerciais
 
-Os requisitos comerciais incluem obrigações de procedimentos, contratuais e legais:
+Os requisitos comerciais incluem obrigações de procedimentos, contratuais e legais.  Tem de:
 
--   Tem de ser um publicador de marketplace da cloud registada. Se não estiver registrado, siga os passos em [se tornar um publicador de Marketplace da Cloud](../../become-publisher.md).
+- Ser um publicador de marketplace da cloud registada. Se não estiver registrado, siga os passos em [se tornar um publicador de Marketplace da Cloud](../../become-publisher.md).
 
     > [!NOTE] 
     > Utilizar a mesma conta de registo de Microsoft Developer Center para iniciar sessão para o [Cloud Partner Portal](https://cloudpartner.azure.com). Deve ter apenas uma conta Microsoft para as ofertas de AppSource. As contas não devem ser específicas de ofertas ou serviços individuais.
  
--   É responsável por disponibilizar suporte técnico aos clientes de forma que sejam comercialmente razoável.
--   Tem de fornecer conteúdo que cumpra os critérios para a sua oferta seja incluída no AppSource. Para obter mais informações, consulte [tem uma aplicação à lista no AppSource? Eis como](https://appsource.microsoft.com/blogs/have-an-app-to-list-on-appsource-here-s-how).
--   Deve estar em conformidade com o [declaração de privacidade do Microsoft](https://privacy.microsoft.com/privacystatement).
+- Disponibilizar suporte técnico para os clientes de forma comercialmente razoável.
+- Fornece conteúdo que satisfaça os critérios para a sua oferta seja incluída no AppSource. Para obter mais informações, consulte [tem uma aplicação à lista no AppSource? Eis como](https://appsource.microsoft.com/blogs/have-an-app-to-list-on-appsource-here-s-how).
+- Está em conformidade com o [declaração de privacidade da Microsoft](https://privacy.microsoft.com/privacystatement).
 
 
 ## <a name="next-steps"></a>Passos Seguintes

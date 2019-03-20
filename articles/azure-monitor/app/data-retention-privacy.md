@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 03/04/2019
 ms.author: mbullwin
-ms.openlocfilehash: 8218da62eb8c3d8c454ca1dca1bd1071e0de67b0
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.openlocfilehash: 3c74d3a6c5b66053fb968ad52f72eca181799a3c
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57308759"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58003592"
 ---
 # <a name="data-collection-retention-and-storage-in-application-insights"></a>Recolha de dados, retenção e armazenamento no Application Insights
 
@@ -156,12 +156,12 @@ Por meio do código:
 
 - Remover ServerTelemetryChannel do ficheiro de configuração
 - Adicione este trecho de código à sua configuração:
-```csharp
-ServerTelemetryChannel channel = new ServerTelemetryChannel();
-channel.StorageFolder = @"D:\NewTestFolder";
-channel.Initialize(TelemetryConfiguration.Active);
-TelemetryConfiguration.Active.TelemetryChannel = channel;
-```
+  ```csharp
+  ServerTelemetryChannel channel = new ServerTelemetryChannel();
+  channel.StorageFolder = @"D:\NewTestFolder";
+  channel.Initialize(TelemetryConfiguration.Active);
+  TelemetryConfiguration.Active.TelemetryChannel = channel;
+  ```
 
 ### <a name="netcore"></a>NetCore
 
@@ -237,6 +237,7 @@ No entanto, pode implementar desse recurso em seu aplicativo. Todos os SDKs incl
 Os SDKs variam entre plataformas e existem vários componentes que podem instalar. (Consulte a [Application Insights - descrição geral][start].) Cada componente envia dados diferentes.
 
 #### <a name="classes-of-data-sent-in-different-scenarios"></a>Classes de dados enviados em cenários diferentes
+
 | A ação | Classes de dados recolhidos (consulte a tabela seguinte) |
 | --- | --- |
 | [Adicionar o Application Insights SDK para um projeto de web do .NET][greenbrown] |ServerContext<br/>Inferido<br/>Contadores de desempenho<br/>Pedidos<br/>**Exceções**<br/>Sessão<br/>utilizadores |
@@ -252,6 +253,7 @@ Os SDKs variam entre plataformas e existem vários componentes que podem instala
 Para [SDKs para outras plataformas][platforms], veja os seus documentos.
 
 #### <a name="the-classes-of-collected-data"></a>As classes de dados recolhidos
+
 | Classe de dados recolhidos | Inclui (não uma lista exaustiva) |
 | --- | --- |
 | **Propriedades** |**Todos os dados - determinados pelo seu código** |

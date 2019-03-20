@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 12/12/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6f0a8f6ce325dd087aec5e055e09e20e7de62a40
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: b1b48d3bced2061dbe7e8ba26e2c6738e44ba4b2
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56204836"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57840431"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-tableau-server"></a>Tutorial: Integração do Active Directory do Azure com o Tableau Server
 
@@ -171,7 +171,7 @@ Nesta secção, pode ativar o Azure AD início de sessão único no portal do Az
     
     b. Selecione a caixa de seleção de **ativar a autenticação de SAML para o servidor**.
 
-    c. URL de retorno de servidor da tableau — o URL que os utilizadores do servidor da Tableau irão aceder aos, tais como http://tableau_server. Usando http://localhost não é recomendado. Utilizar um URL com um traço à direita (por exemplo, http://tableau_server/) não é suportada. Cópia **URL de retorno de servidor da Tableau** e cole-o para o Azure AD **URL de início de sessão** caixa de texto no **Tableau Server domínio e URLs** secção.
+    c. URL de retorno de servidor da tableau — o URL que os utilizadores do servidor da Tableau irão aceder aos, tais como <http://tableau_server>. Usando `http://localhost` não é recomendado. Utilizar um URL com um traço à direita (por exemplo, `http://tableau_server/`) não é suportada. Cópia **URL de retorno de servidor da Tableau** e cole-o para o Azure AD **URL de início de sessão** caixa de texto no **Tableau Server domínio e URLs** secção.
 
     d. ID de entidade SAML, o ID da entidade identifica de forma a instalação do servidor da Tableau para o IdP. Pode introduzir o URL de servidor da Tableau novamente aqui, se assim o desejar, mas ele não tem de ser o URL de servidor da Tableau. Cópia **ID de entidade SAML** e cole-o para o Azure AD **identificador** caixa de texto no **Tableau Server domínio e URLs** secção.
 
@@ -205,7 +205,7 @@ O objetivo desta secção é criar um utilizador de teste no portal do Azure cha
 
     a. Na **Name** , insira **BrittaSimon**.
   
-    b. Na **nome de utilizador** , digite **brittasimon@yourcompanydomain.extension**  
+    b. Na **nome de utilizador** , digite **brittasimon\@yourcompanydomain.extension**  
     Por exemplo, BrittaSimon@contoso.com
 
     c. Selecione **propriedades**, selecione a **palavra-passe de Show** caixa de verificação e, em seguida, anote o valor que é apresentado na caixa de palavra-passe.

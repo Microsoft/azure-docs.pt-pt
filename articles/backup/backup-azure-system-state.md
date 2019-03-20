@@ -9,12 +9,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 05/23/2018
 ms.author: saurse
-ms.openlocfilehash: 14de0f632584ff5fb1a6b4395298e9cecfe455e6
-ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
+ms.openlocfilehash: 6d8cbac7eab797662896a96ed588c9d6370cb230
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56268728"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58105204"
 ---
 # <a name="back-up-windows-system-state-in-resource-manager-deployment"></a>Criar cópias de segurança do Estado do sistema Windows na implementação do Resource Manager
 Este artigo explica como fazer cópias de segurança do Estado do sistema Windows Server para o Azure. É um tutorial que se destina a explicar as noções básicas.
@@ -51,7 +51,7 @@ Para criar cópias de segurança do Estado de sistema do Windows Server, terá d
     Ou
     * selecione **Utilizar existente** e clique no menu pendente para ver a lista de Grupos de recursos disponíveis.
 
-  Para mais informações mais completas sobre os grupos de Recursos, veja a [Azure Resource Manager overview (Descrição geral do Azure Resource Manager)](../azure-resource-manager/resource-group-overview.md).
+   Para mais informações mais completas sobre os grupos de Recursos, veja a [Azure Resource Manager overview (Descrição geral do Azure Resource Manager)](../azure-resource-manager/resource-group-overview.md).
 
 7. Clique em **Localização** para selecionar a região geográfica do cofre. Esta escolha determina a região geográfica para onde os dados da cópia de segurança são enviados.
 
@@ -130,9 +130,9 @@ Agora que criou um cofre, configure-o para fazer backup de estado do sistema Win
     As credenciais do cofre são transferidas para a pasta Transferências. Depois de as credenciais do cofre serem transferidas, verá um pop-up a perguntar se quer abrir ou guardar as credenciais. Clique em **Guardar**. Se clicar acidentalmente em **Abrir**, deixe a caixa de diálogo que tenta abrir as credenciais do cofre falhar. Não é possível abrir as credenciais do cofre. Avance para o passo seguinte. As credenciais do cofre estão na pasta Transferências.   
 
     ![as credenciais do cofre terminaram de ser transferidas](./media/backup-try-azure-backup-in-10-mins/vault-credentials-downloaded.png)
-> [!NOTE]
-> As credenciais do cofre tem de ser guardadas apenas para uma localização que seja local para o Windows Server no qual pretende usar o agente.
->
+   > [!NOTE]
+   > As credenciais do cofre tem de ser guardadas apenas para uma localização que seja local para o Windows Server no qual pretende usar o agente.
+   >
 
 [!INCLUDE [backup-upgrade-mars-agent.md](../../includes/backup-upgrade-mars-agent.md)]
 

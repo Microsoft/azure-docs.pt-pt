@@ -17,12 +17,12 @@ ms.author: celested
 ms.custom: aaddev
 ms.reviewer: lenalepa, sureshja
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fc60f3ac785bede0f3a2e4d83cc98980b46868e2
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 15e77767e16ce6ae02c6f1f93891d5acf4bfcb6f
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56167070"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58119603"
 ---
 # <a name="quickstart-register-an-app-with-the-azure-active-directory-v10-endpoint"></a>Início rápido: Registar uma aplicação com o ponto de final do Azure Active Directory v1.0
 
@@ -52,16 +52,16 @@ Para começar, certifique-se de que tem um inquilino do Azure AD, que pode utili
 
 1. Quando a página **Criar** for apresentada, introduza as informações de registo da aplicação: 
 
-    - **Nome:** Introduza um nome de aplicação com significado
-    - **Tipo de aplicação:**
-      - Selecione **Nativa** para [aplicações cliente](developer-glossary.md#client-application) que estejam instaladas localmente num dispositivo. Esta definição é utilizada para [clientes nativos](developer-glossary.md#native-client) públicos de OAuth.
-      - Selecione **Aplicação Web/API** para [aplicações cliente](developer-glossary.md#client-application) e [aplicações de recurso/API](developer-glossary.md#resource-server) que estão instaladas num servidor seguro. Esta definição é utilizada para [clientes Web](developer-glossary.md#web-client) confidenciais de OAuth e em [clientes baseados em agentes de utilizadores](developer-glossary.md#user-agent-based-client) públicos. A mesma aplicação também pode expor um cliente e um recurso/API.
-    - **URL de início de sessão:** Para "aplicação Web / API" aplicações, indique o URL base da sua aplicação. Por exemplo, `http://localhost:31544` pode ser o URL de uma aplicação Web em execução no seu computador local. Os utilizadores utilizariam este URL para iniciar sessão numa aplicação de cliente Web. 
-    - **URI de redirecionamento:** Para aplicações "Nativas", forneça o URI utilizado pelo Azure AD para devolver respostas token. Introduza um valor específico para a aplicação, por exemplo `http://MyFirstAADApp`
+   - **Nome:** Introduza um nome de aplicação com significado
+   - **Tipo de aplicação:**
+     - Selecione **Nativa** para [aplicações cliente](developer-glossary.md#client-application) que estejam instaladas localmente num dispositivo. Esta definição é utilizada para [clientes nativos](developer-glossary.md#native-client) públicos de OAuth.
+     - Selecione **Aplicação Web/API** para [aplicações cliente](developer-glossary.md#client-application) e [aplicações de recurso/API](developer-glossary.md#resource-server) que estão instaladas num servidor seguro. Esta definição é utilizada para [clientes Web](developer-glossary.md#web-client) confidenciais de OAuth e em [clientes baseados em agentes de utilizadores](developer-glossary.md#user-agent-based-client) públicos. A mesma aplicação também pode expor um cliente e um recurso/API.
+   - **URL de início de sessão:** Para "aplicação Web / API" aplicações, indique o URL base da sua aplicação. Por exemplo, `http://localhost:31544` pode ser o URL de uma aplicação Web em execução no seu computador local. Os utilizadores utilizariam este URL para iniciar sessão numa aplicação de cliente Web. 
+   - **URI de redirecionamento:** Para aplicações "Nativas", forneça o URI utilizado pelo Azure AD para devolver respostas token. Introduza um valor específico para a aplicação, por exemplo `http://MyFirstAADApp`
 
-      ![Registar uma nova aplicação – criar](./media/quickstart-v1-integrate-apps-with-azure-ad/add-app-registration-create.png)
+     ![Registar uma nova aplicação – criar](./media/quickstart-v1-integrate-apps-with-azure-ad/add-app-registration-create.png)
 
-    Se pretende exemplos específicos de aplicações Web ou de aplicações nativas, consulte **Inícios Rápidos** na nossa documentação.
+     Se pretende exemplos específicos de aplicações Web ou de aplicações nativas, consulte **Inícios Rápidos** na nossa documentação.
 
 1. Quando terminar, selecione **Criar**.
 

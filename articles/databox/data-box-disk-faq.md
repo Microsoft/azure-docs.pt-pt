@@ -8,12 +8,12 @@ ms.subservice: disk
 ms.topic: overview
 ms.date: 02/26/2019
 ms.author: alkohli
-ms.openlocfilehash: eeac05ec86161e60ed9f34b94802c24004de0d4e
-ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
+ms.openlocfilehash: 97794675f3d489e1154d9c327c18d40708dd5b53
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57407621"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57877858"
 ---
 # <a name="what-is-azure-data-box-disk"></a>O que é o Azure Data Box Disk?
 
@@ -51,7 +51,7 @@ R.  Para obter discos do Azure Data Box, inicie sessão no portal do Azure e cri
 A. Para cinco discos de 8 TB cada (7 TB de capacidade utilizável), a capacidade utilizável máxima são 35 TB. Assim, pode transferir 35 TB de dados numa instância. Para transferir mais dados, tem de encomendar mais discos.
 
 ### <a name="q-how-can-i-check-if-data-box-disks-are-available-in-my-region"></a>P. Como posso saber se os discos do Data Box Disk estão disponíveis na minha região? 
-R.  Para ver onde os discos do Data Box estão atualmente disponíveis, vá para o [disponibilidade das regiões](data-box-disk-overview.md#).  
+R.  Para ver onde os discos do Data Box estão atualmente disponíveis, vá para o [disponibilidade das regiões](data-box-disk-overview.md#region-availability).  
 
 ### <a name="q-which-regions-can-i-store-data-in-with-data-box-disks"></a>P. Em que regiões posso armazenar dados com os discos do Data Box Disk?
 R. Disco data Box é suportado para todas as regiões dentro dos Estados Unidos, Canadá, Austrália e Europa Ocidental e norte da Europa. Só são suportadas as regiões de cloud pública do Azure. O Azure Government e as outras clouds soberanas não são suportadas.
@@ -129,11 +129,11 @@ R. O conjunto de ferramentas disponível com o disco do Data Box contém três f
  - **Ferramenta de cópia de divisão de disco de caixa de dados**: Utilize esta ferramenta se estiver a utilizar vários discos e tem um grande conjunto de dados que precisa ser dividida e copiados entre todos os discos. Essa ferramenta está atualmente disponível para Windows. Essa ferramenta não é suportada com discos geridos. Essa ferramenta também valida como ele copia os dados, pelo que pode ignorar a etapa de validação quando utilizar esta ferramenta.
 
 O conjunto de ferramentas está disponível para Windows e Linux. Pode baixar o conjunto de ferramentas aqui:
- - [Transferir o conjunto de ferramentas do Data Box Disk para Windows](https://aka.ms/databoxdisktoolswin) 
- - [Transferir o conjunto de ferramentas do Data Box Disk para Linux](https://aka.ms/databoxdisktoolslinux)
+- [Transferir o conjunto de ferramentas do Data Box Disk para Windows](https://aka.ms/databoxdisktoolswin) 
+- [Transferir o conjunto de ferramentas do Data Box Disk para Linux](https://aka.ms/databoxdisktoolslinux)
  
- ### <a name="q-can-i-use-data-box-disk-to-transfer-data-to-azure-files-and-then-use-the-data-with-azure-file-sync"></a>P. Pode usar disco Data Box para transferir dados para ficheiros do Azure e, em seguida, utilizar os dados com o Azure File Sync? 
- R. Os ficheiros do Azure são suportados com o disco Data Box mas não irão funcionar bem com o Azure File Sync. Metadados não é mantido se os dados de ficheiro são utilizados com o Azure File Sync.
+  ### <a name="q-can-i-use-data-box-disk-to-transfer-data-to-azure-files-and-then-use-the-data-with-azure-file-sync"></a>P. Pode usar disco Data Box para transferir dados para ficheiros do Azure e, em seguida, utilizar os dados com o Azure File Sync? 
+  R. Os ficheiros do Azure são suportados com o disco Data Box mas não irão funcionar bem com o Azure File Sync. Metadados não é mantido se os dados de ficheiro são utilizados com o Azure File Sync.
 
 
 ## <a name="verify-and-upload"></a>Verificar e carregar

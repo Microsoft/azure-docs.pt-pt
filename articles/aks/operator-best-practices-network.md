@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 12/10/2018
 ms.author: iainfou
-ms.openlocfilehash: 680e3990afa3ed08c69402e9e5403cb9a6f3266a
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: aaa16245fada7fbccdd0865d973de2fa19970989
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56175460"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58176587"
 ---
 # <a name="best-practices-for-network-connectivity-and-security-in-azure-kubernetes-service-aks"></a>Melhores práticas para conectividade de rede e segurança no Azure Kubernetes Service (AKS)
 
@@ -116,7 +116,7 @@ Um controlador de entrada que distribui o tráfego para serviços e aplicações
 
 ![Uma firewall de aplicações web (WAF) como o Gateway de aplicação do Azure pode proteger e distribuir o tráfego para o seu cluster do AKS](media/operator-best-practices-network/web-application-firewall-app-gateway.png)
 
-Uma firewall de aplicações web (WAF) fornece uma camada adicional de segurança ao filtrar o tráfego de entrada. O Open Web Application Security Project (OWASP) fornece um conjunto de regras para deteção de ataques, como cross site scripting ou envenenamento de cookie. [O Gateway de aplicação do Azure] [ app-gateway] é uma WAF que pode ser integrada com o AKS clusters para fornecer esses recursos de segurança, antes que o tráfego alcance o seu cluster do AKS e aplicações. Outras soluções de terceiros também executam estas funções, para que pode continuar a utilizar os investimentos existentes ou conhecimentos num determinado produto.
+Uma firewall de aplicações web (WAF) fornece uma camada adicional de segurança ao filtrar o tráfego de entrada. O Open Web Application Security Project (OWASP) fornece um conjunto de regras para deteção de ataques, como cross site scripting ou envenenamento de cookie. [O Gateway de aplicação do Azure] [ app-gateway] (atualmente em pré-visualização no AKS) é uma WAF que pode ser integrado com clusters do AKS para fornecer esses recursos de segurança, antes que o tráfego alcance o seu cluster do AKS e aplicações. Outras soluções de terceiros também executam estas funções, para que pode continuar a utilizar os investimentos existentes ou conhecimentos num determinado produto.
 
 Recursos de entrada ou de Balanceador de carga continuam a executar no cluster do AKS para refinar ainda mais a distribuição de tráfego. Gateway de aplicação podem ser gerido centralmente como um controlador de entrada com uma definição do recurso. Para começar, [criar um controlador de entradas de Gateway de aplicação][app-gateway-ingress].
 
@@ -124,7 +124,7 @@ Recursos de entrada ou de Balanceador de carga continuam a executar no cluster d
 
 **Melhores diretrizes de práticas** -utilizar políticas de rede para permitir ou negar o tráfego para os pods. Por predefinição, todo o tráfego é permitido entre pods dentro de um cluster. Para obter mais segurança, defina regras que limitam a comunicação de pod.
 
-Política de rede é uma funcionalidade de Kubernetes, que permite-lhe controlar o fluxo de tráfego entre os pods. Pode optar por permitir ou negar o tráfego com base em etiquetas de definições de atribuídas como, espaço de nomes ou porta de tráfego. O uso de diretivas de rede fornece uma forma de nativas da cloud para controlar o fluxo de tráfego. À medida pods são criados dinamicamente num cluster do AKS, as políticas de rede necessária podem ser aplicadas automaticamente. Não utilize grupos de segurança de rede do Azure para controlar o tráfego de pod de pod, utilize políticas de rede.
+Política de rede (atualmente em pré-visualização no AKS) é uma funcionalidade de Kubernetes, que permite-lhe controlar o fluxo de tráfego entre os pods. Pode optar por permitir ou negar o tráfego com base em etiquetas de definições de atribuídas como, espaço de nomes ou porta de tráfego. O uso de diretivas de rede fornece uma forma de nativas da cloud para controlar o fluxo de tráfego. À medida pods são criados dinamicamente num cluster do AKS, as políticas de rede necessária podem ser aplicadas automaticamente. Não utilize grupos de segurança de rede do Azure para controlar o tráfego de pod de pod, utilize políticas de rede.
 
 Para utilizar a política de rede, a funcionalidade tem de estar ativada ao criar um cluster do AKS. Não é possível ativar a política de rede num cluster do AKS existente. Planeie com antecedência para se certificar de que ativar política de rede em clusters e pode utilizá-las conforme necessário.
 

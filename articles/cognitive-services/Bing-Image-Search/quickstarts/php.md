@@ -12,12 +12,12 @@ ms.topic: quickstart
 ms.date: 2/12/2019
 ms.author: aahi
 ms.custom: seodec2018
-ms.openlocfilehash: 396c50e6697ed1f111d497f7adeb005e268b80bb
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: eb4d04316de875e5eada0bd70383aff73382d8b9
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57546420"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58096066"
 ---
 # <a name="quickstart-search-for-images-using-the-bing-image-search-rest-api-and-php"></a>Início rápido: Procure imagens usando a API de REST de pesquisa de imagens do Bing e o PHP
 
@@ -49,7 +49,7 @@ Para executar esta aplicação, siga os seguintes passos.
     $accessKey = 'enter key here';
     $term = 'tropical ocean';
     ```
-## <a name="construct-and-perform-an-http-request"></a>Criar e executar um pedido HTTP
+   ## <a name="construct-and-perform-an-http-request"></a>Criar e executar um pedido HTTP
 
 1. Utilize as variáveis do último passo para preparar uma solicitação HTTP para a API de pesquisa de imagens.
 

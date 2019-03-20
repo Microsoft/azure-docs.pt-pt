@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/10/2019
 ms.author: juliako
-ms.openlocfilehash: ae057feb70d9ddb2c2dae10bae20eca1b613f76f
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: 2083390c3d228e57151db8b165b876054d6c12cd
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55996965"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57876566"
 ---
 # <a name="playing-your-content-with-existing-players"></a>Reproduzir o conteúdo com leitores existentes
 Serviços de multimédia do Azure suporta muitos formatos de transmissão em fluxo populares, tais como a transmissão em fluxo uniforme, HTTP Live Streaming e MPEG-Dash. Este tópico de pontos de para os leitores existentes que pode usar para testar transmissões em fluxo.
@@ -31,12 +31,12 @@ Clique no vídeo pretendido (Certifique-se de que era [publicados](media-service
 
 São aplicáveis algumas considerações:
 
-* O **LEITOR DE CONTEÚDOS DE MEDIA SERVICES** reproduz a partir do ponto final de transmissão em fluxo predefinido. Se pretender reproduzir a partir de um ponto final de transmissão em fluxo não predefinido, utilize outro leitor. Por exemplo, [leitor de multimédia do Azure](http://amsplayer.azurewebsites.net/azuremediaplayer.html).
+* O **LEITOR DE CONTEÚDOS DE MEDIA SERVICES** reproduz a partir do ponto final de transmissão em fluxo predefinido. Se pretender reproduzir a partir de um ponto final de transmissão em fluxo não predefinido, utilize outro leitor. Por exemplo, [leitor de multimédia do Azure](https://amsplayer.azurewebsites.net/azuremediaplayer.html).
 
 ![AMSPlayer][AMSPlayer]
 
 ### <a name="azure-media-player"></a>Media Player do Azure
-Uso [leitor de multimédia do Azure](http://amsplayer.azurewebsites.net/azuremediaplayer.html) para reproduzir o conteúdo (encriptado ou protegido) em qualquer um dos seguintes formatos:
+Uso [leitor de multimédia do Azure](https://amsplayer.azurewebsites.net/azuremediaplayer.html) para reproduzir o conteúdo (encriptado ou protegido) em qualquer um dos seguintes formatos:
 
 * Transmissão em Fluxo Uniforme
 * MPEG DASH
@@ -45,17 +45,17 @@ Uso [leitor de multimédia do Azure](http://amsplayer.azurewebsites.net/azuremed
 
 ### <a name="flash-player"></a>Flash Player
 #### <a name="aes-encrypted-with-token"></a>Encriptada do AES com Token
-[http://aestoken.azurewebsites.net](http://aestoken.azurewebsites.net)
+[https://aestoken.azurewebsites.net](https://aestoken.azurewebsites.net)
 
 ### <a name="silverlight-players"></a>Jogadores do Silverlight
 
 #### <a name="playready-with-token"></a>PlayReady com Token
-[http://sltoken.azurewebsites.net](http://sltoken.azurewebsites.net)
+[https://sltoken.azurewebsites.net](https://sltoken.azurewebsites.net)
 
 ### <a name="dash-players"></a>Leitores de TRAÇO
-[http://dashplayer.azurewebsites.net](http://dashplayer.azurewebsites.net)
+[https://dashplayer.azurewebsites.net](https://dashplayer.azurewebsites.net)
 
-[http://dashif.org](http://dashif.org)
+[https://dashif.org](https://dashif.org)
 
 ### <a name="other"></a>Outros
 Para testar os URLs de HLS também pode utilizar:

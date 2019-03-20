@@ -11,13 +11,13 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 manager: craigg
-ms.date: 10/23/2018
-ms.openlocfilehash: 6c4c001fc538e5ad93a5c4fc3d6405209be7fc53
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.date: 03/12/2019
+ms.openlocfilehash: 1d60e875b12f02c957ebd6259eb0e7267f23ee51
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57309371"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57897610"
 ---
 # <a name="get-the-required-values-for-authenticating-an-application-to-access-sql-database-from-code"></a>Obter os valores necessários para autenticar uma aplicação para aceder à base de dados SQL a partir do código
 
@@ -26,8 +26,8 @@ Para criar e gerir a base de dados SQL a partir do código tem de registar a sua
 ## <a name="create-a-service-principal-to-access-resources-from-an-application"></a>Criar um principal de serviço para aceder aos recursos de uma aplicação
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
-
-Tem de ter a versão mais recente [do Azure PowerShell](/powershell/azure) instalado e em execução. Para obter informações detalhadas, consulte [como instalar o Azure PowerShell](/powershell/azure/install-az-ps).
+> [!IMPORTANT]
+> O módulo do PowerShell do Azure Resource Manager ainda é suportado pelo SQL Database do Azure, mas todo o desenvolvimento futuro é para o módulo de Az.Sql. Para estes cmdlets, consulte [azurerm. SQL](https://docs.microsoft.com/powershell/module/AzureRM.Sql/). Os argumentos para os comandos no módulo Az e nos módulos AzureRm são substancialmente idênticos.
 
 O seguinte script do PowerShell cria a aplicação do Active Directory (AD) e o principal de serviço que é necessário para autenticar a nossa aplicação C#. O script produz os valores de necessários para a amostra do C# precedente. Para obter informações detalhadas, consulte [Utilize o Azure PowerShell para criar um principal de serviço para aceder aos recursos](../active-directory/develop/howto-authenticate-service-principal-powershell.md).
 
@@ -47,7 +47,7 @@ O seguinte script do PowerShell cria a aplicação do Active Directory (AD) e o 
     $uri = "http://{app-name}"
     $secret = "{app-password}"
 
-    # Create a AAD app
+    # Create an AAD app
     $azureAdApplication = New-AzADApplication -DisplayName $appName -HomePage $Uri -IdentifierUris $Uri -Password $secret
 
     # Create a Service Principal for the app

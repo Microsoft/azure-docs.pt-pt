@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 11/12/2018
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: 951f8f887a7b29aac67b50ff8f92ddfd4a66e26b
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: ed99bd3626bb44bff68e4122d6b50523f19e1797
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57766883"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58112624"
 ---
 # <a name="integrate-your-app-with-an-azure-virtual-network"></a>Integrar a sua aplicação com uma rede Virtual do Azure
 Este documento descreve a funcionalidade de integração de rede virtual do App Service do Azure e mostra como configurá-lo com as aplicações no [App Service do Azure](https://go.microsoft.com/fwlink/?LinkId=529714). [Redes virtuais do Azure] [ VNETOverview] (VNets) permitem-lhe colocar muitos dos seus recursos do Azure numa rede de endereçáveis não internet. Estas redes, em seguida, podem ser ligadas às suas redes no local usando as tecnologias VPN. 
@@ -50,7 +50,7 @@ A funcionalidade de integração de VNet:
 Existem algumas coisas que não suporta a integração de VNet, incluindo:
 
 * montar uma unidade
-* Integração do AD 
+* A integração do AD 
 * NetBios
 * acesso de sites privados
 * a aceder a recursos de ExpressRoute 
@@ -259,7 +259,7 @@ Quando a VNet já está ligada à sua rede no local, em seguida, utilizar a inte
 
 Além das diferenças funcionais, lá são também as diferenças de preços. A funcionalidade Ambiente de serviço de aplicações é uma Premium oferta de serviço oferece, mas rede mais possibilidades de configuração, além de outros excelentes recursos. Integração VNet pode ser utilizada com Standard ou Premium ASPs e é perfeita para o consumo de forma segura recursos na sua VNet a partir do serviço de aplicações de multi-inquilino. Ligações híbridas atualmente depende de uma conta que possua a preços níveis que comece gratuitamente e, em seguida, se tornar cada vez mais caro consoante a quantidade que precisa de BizTalk. Quando se trata de trabalhar em várias redes, no entanto, não há nenhum outro recurso, como as ligações híbridas, que podem permitir-lhe aceder a recursos em mais de 100 redes separadas. 
 
-## <a name="new-vnet-integration"></a>Nova integração de VNet ##
+## <a name="new-vnet-integration"></a>Integração de VNet Nova ##
 
 Há uma nova versão da capacidade de integração de VNet não depende da tecnologia VPN ponto a Site. Ao contrário do recurso já existente, a nova funcionalidade de pré-visualização irá funcionar com o ExpressRoute e de pontos finais de serviço. 
 
@@ -284,13 +284,13 @@ Para utilizar o novo recurso:
 
 1. Vá para a interface do Usuário de rede no portal. Se a aplicação for capaz de usar o novo recurso, em seguida, irá ver uma capacidade para utilizar a nova funcionalidade de pré-visualização.  
 
- ![Selecione a nova pré-visualização da integração de VNet][6]
+   ![Selecione a nova pré-visualização da integração de VNet][6]
 
 1. Selecione **VNet adicionar (pré-visualização)**.  
 
 1. Selecione a VNet do Resource Manager que pretende integrar com o e, em seguida, criar uma nova sub-rede ou escolha uma sub-rede já existente vazia. A integração leva menos de um minuto para concluir. Durante a integração, seu aplicativo é reiniciado.  Quando a integração é concluída, verá detalhes sobre a VNet estão integradas e uma faixa na parte superior que diz a que a funcionalidade está em pré-visualização.
 
- ![Selecione a VNet e sub-rede][7]
+   ![Selecione a VNet e sub-rede][7]
 
 Para ativar a aplicação para utilizar o servidor DNS que a VNet está configurada com, crie uma definição da aplicação para a sua aplicação em que o nome é WEBSITE_DNS_SERVER e o valor é o endereço IP do servidor.  Se tiver um servidor DNS secundário, em seguida, criar outra definição de aplicação em que o nome é WEBSITE_DNS_ALT_SERVER e o valor é o endereço IP do servidor. 
 

@@ -18,12 +18,12 @@ ms.author: celested
 ms.reviewer: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9b06ceb86e8406657766be1375889fcfe1b4673d
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 292fa61ae87d87f27b988d250b694e05f6fa1d3d
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56204547"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58119433"
 ---
 # <a name="quickstart-sign-in-users-and-call-the-microsoft-graph-api-from-a-net-desktop-wpf-app"></a>Início rápido: Iniciar sessão dos utilizadores e chamar a API do Microsoft Graph a partir de uma aplicação de ambiente de trabalho .NET (WPF)
 
@@ -77,9 +77,9 @@ Agora que já tem uma aplicação no Azure AD, pode instalar a ADAL e escrever o
 
 1. Na `DirectorySearcher` projeto aberto `app.config`.
 1. Substitua os valores dos elementos no `<appSettings>` secção para refletir os valores de entrada no portal do Azure. O seu código vai fazer referência a estes valores sempre que utilizar a ADAL.
-  * O `ida:Tenant` é o domínio de inquilino do Azure AD, por exemplo, contoso.onmicrosoft.com
-  * O `ida:ClientId` é o ID de cliente da sua aplicação que copiou do portal.
-  * O `ida:RedirectUri` é o URL de redirecionamento registados no portal.
+   * O `ida:Tenant` é o domínio de inquilino do Azure AD, por exemplo, contoso.onmicrosoft.com
+   * O `ida:ClientId` é o ID de cliente da sua aplicação que copiou do portal.
+   * O `ida:RedirectUri` é o URL de redirecionamento registados no portal.
 
 ## <a name="step-3-use-adal-to-get-tokens-from-azure-ad"></a>Passo 3: Utilizar a ADAL para obter os tokens do Azure AD
 

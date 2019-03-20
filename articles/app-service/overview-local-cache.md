@@ -17,12 +17,12 @@ ms.workload: na
 ms.date: 03/04/2016
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: ea17db9af92887ff775e580224b66fed22c65d41
-ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
+ms.openlocfilehash: 1d6e233509b50f0b03678f2e62267169d02133a1
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55963867"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57990773"
 ---
 # <a name="azure-app-service-local-cache-overview"></a>Descrição geral de Cache Local do serviço de aplicações do Azure
 
@@ -35,7 +35,7 @@ Conteúdo de serviço de aplicações do Azure é armazenado no armazenamento do
 * O conteúdo é compartilhado entre várias instâncias de máquina virtual (VM) da aplicação.
 * O conteúdo é durável e pode ser modificado através da execução de aplicações.
 * Ficheiros de registo e ficheiros de dados de diagnóstico estão disponíveis na mesma pasta conteúda partilhada.
-* Publicar o novo conteúdo diretamente atualiza a pasta de conteúdo. Pode ver imediatamente o mesmo conteúdo através do site do SCM e a execução aplicação (normalmente, algumas tecnologias como ASP.NET iniciar um reinício de aplicação por algumas alterações de ficheiro para obter o conteúdo mais recente).
+* Publicar o novo conteúdo diretamente atualiza a pasta de conteúdo. Pode ver imediatamente o mesmo conteúdo através do site do SCM e a execução aplicação (normalmente, algumas tecnologias como ASP.NET iniciar reiniciar a aplicação em algumas alterações de ficheiro para obter o conteúdo mais recente).
 
 Embora muitas aplicações utilizam uma ou todas estas funcionalidades, algumas aplicações precisam apenas de um arquivo de conteúdo de alto desempenho, só de leitura que eles possam executar com elevada disponibilidade. Estas aplicações podem beneficiar de uma instância de VM de uma cache local específica.
 

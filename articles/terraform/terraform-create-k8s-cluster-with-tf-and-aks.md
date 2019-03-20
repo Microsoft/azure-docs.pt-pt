@@ -9,17 +9,17 @@ manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
 ms.date: 12/04/2018
-ms.openlocfilehash: ce16e1fbc112c4bd807c42893685643dc0a13992
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: d8438f5ddbbb3744811448aeb563be602b04516d
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57759754"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58009092"
 ---
 # <a name="create-a-kubernetes-cluster-with-azure-kubernetes-service-and-terraform"></a>Criar um cluster do Kubernetes com o Azure Kubernetes Service e Terraform
 O [Azure Kubernetes Service (AKS)](/azure/aks/) faz a gestão do seu ambiente alojado do Kubernetes, permitindo implementar e gerir rápida e facilmente aplicações contentorizadas sem que sejam necessários conhecimentos em termos de orquestração de contentores. Também põe fim às tarefas de operações e manutenções contínuas ao aprovisionar, atualizar e dimensionar recursos a pedido, sem que as aplicações sejam colocadas offline.
 
-Neste tutorial, vai aprender a realizar as seguintes tarefas na criação de um cluster do [Kubernetes](https://www.redhat.com/en/topics/containers/what-is-kubernetes) através do [Terraform](http://terraform.io) e do AKS:
+Neste tutorial, vai aprender a realizar as seguintes tarefas na criação de um cluster do [Kubernetes](https://www.redhat.com/en/topics/containers/what-is-kubernetes) através do [Terraform](https://terraform.io) e do AKS:
 
 > [!div class="checklist"]
 > * Utilizar o HCL (HashiCorp Language) para definir um cluster do Kubernetes
@@ -37,7 +37,7 @@ Neste tutorial, vai aprender a realizar as seguintes tarefas na criação de um 
 ## <a name="create-the-directory-structure"></a>Criar a estrutura de diretórios
 O primeiro passo é criar o diretório que mantenha os seus ficheiros de configuração do Terraform para o exercício.
 
-1. Navegue para o [portal do Azure](http://portal.azure.com).
+1. Navegue para o [portal do Azure](https://portal.azure.com).
 
 1. Abra o [Azure Cloud Shell](/azure/cloud-shell/overview). Se ainda não tiver selecionado um ambiente, selecione **Bash** como o seu ambiente.
 

@@ -4,12 +4,12 @@ ms.service: azure-spatial-anchors
 ms.topic: include
 ms.date: 12/13/2018
 ms.author: crtreasu
-ms.openlocfilehash: 9e232c5a8f1c2e38c04ea2236691554952f443e8
-ms.sourcegitcommit: e88188bc015525d5bead239ed562067d3fae9822
+ms.openlocfilehash: cee446e54a37ce47fc82d72724e831b8270f3769
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/24/2019
-ms.locfileid: "56752334"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57908489"
 ---
 ## <a name="create-a-spatial-anchors-resource"></a>Criar um recurso de âncoras espaciais
 
@@ -21,7 +21,7 @@ ms.locfileid: "56752334"
 
    ![Procure as âncoras espaciais](./media/spatial-anchors-get-started-create-resource/portal-search.png)
 
-4. Selecione **geográficos âncoras (pré-visualização)** para abrir uma caixa de diálogo e selecione **criar**.
+4. Selecione **geográficos âncoras** para abrir uma caixa de diálogo e selecione **criar**.
 
 5. Na **geográficos de âncoras de conta** formulário:
 
@@ -34,10 +34,10 @@ ms.locfileid: "56752334"
 
    ![Criar um recurso](./media/spatial-anchors-get-started-create-resource/create-resource-form.png)
 
-6. Após a criação de recursos foi concluída com êxito, é possível ver as propriedades de recurso. Anote o recurso **ID da conta** valor como será necessário mais tarde.
+6. Após a criação de recursos foi concluída com êxito, é possível ver as propriedades de recurso. Copiar do recurso **ID da conta** valor num editor de texto, como será necessário mais tarde.
 
    ![Ver as propriedades de recurso](./media/spatial-anchors-get-started-create-resource/view-resource-properties.png)
 
-7. Sob **definições**, selecione **chave** e anote o **chave primária** valor. Este valor é o `Account Key` e serão utilizados posteriormente.
+7. Sob **configurações**, selecione **chave**e copiar para um editor de texto a **chave primária** valor. Este valor é o `Account Key` e serão utilizados posteriormente.
 
    ![Chave de conta do Vista](./media/spatial-anchors-get-started-create-resource/view-account-key.png)

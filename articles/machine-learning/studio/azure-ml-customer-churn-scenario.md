@@ -6,16 +6,16 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
 ms.topic: conceptual
-author: ericlicoding
+author: xiaoharper
 ms.author: amlstudiodocs
 ms.custom: seodec18
 ms.date: 12/18/2017
-ms.openlocfilehash: 5a9638a18b8b5b046d66a6a95ef223220d05d550
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.openlocfilehash: 320dd28ba22d7919e3f3afdcd8baa47780f363dd
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56819348"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57856132"
 ---
 # <a name="analyze-customer-churn-using-azure-machine-learning-studio"></a>Analisar o abandono de clientes com o Azure Machine Learning Studio
 ## <a name="overview"></a>Descrição geral
@@ -25,7 +25,7 @@ Este artigo apresenta uma implementação de referência de um projeto de análi
 Esta experiência foi desenvolvida e testada pela Serge Berger, cientista de dados Principal da Microsoft e Roger Barga, anteriormente conhecido como o gerente de produto do Microsoft Azure Machine Learning Studio. A equipe de documentação do Azure gratamente reconhece os seus conhecimentos e obrigado-los para partilhar este white paper.
 
 > [!NOTE]
-> Os dados utilizados para esta fase experimental não estão disponíveis publicamente. Para obter um exemplo de como criar um modelo de aprendizagem automática para análise de alterações a dados, consulte: [Modelo de modelo de abandono de varejo](https://gallery.azure.ai/Collection/Retail-Customer-Churn-Prediction-Template-1) em [Galeria de IA do Azure](http://gallery.azure.ai/)
+> Os dados utilizados para esta fase experimental não estão disponíveis publicamente. Para obter um exemplo de como criar um modelo de aprendizagem automática para análise de alterações a dados, consulte: [Modelo de modelo de abandono de varejo](https://gallery.azure.ai/Collection/Retail-Customer-Churn-Prediction-Template-1) em [Galeria de IA do Azure](https://gallery.azure.ai/)
 > 
 > 
 
@@ -106,7 +106,7 @@ Os diagramas seguintes mostram os dados que foi utilizados.
  
 
 > Tenha em atenção que estes dados são privados e, portanto, não não possível partilhar o modelo e os dados.
-> No entanto, para um modelo semelhante usando dados publicamente disponíveis, veja este exemplo na experimentação da [Galeria de IA do Azure](http://gallery.azure.ai/): [Telco Customer Churn](http://gallery.azure.ai/Experiment/31c19425ee874f628c847f7e2d93e383).
+> No entanto, para um modelo semelhante usando dados publicamente disponíveis, veja este exemplo na experimentação da [Galeria de IA do Azure](https://gallery.azure.ai/): [Telco Customer Churn](https://gallery.azure.ai/Experiment/31c19425ee874f628c847f7e2d93e383).
 > 
 > Para saber mais sobre como implementar um modelo de análise de alterações a dados com o Cortana Intelligence Suite, também é recomendável [este vídeo](https://info.microsoft.com/Webinar-Harness-Predictive-Customer-Churn-Model.html) pelo gerente de programas Sênior Wee Hyong Tok. 
 > 
@@ -213,13 +213,13 @@ Este documento descreve um método sensato para lidar com o problema comum de ab
 ## <a name="references"></a>Referências
 [1] análise de preditiva: Além do gerenciamento de informações Predições, McKnight Ocidental, Julho/Agosto de 2011, p.18 e 20.  
 
-[2] artigo da Wikipedia: [Precisão e a precisão](http://en.wikipedia.org/wiki/Accuracy_and_precision)
+[2] artigo da Wikipedia: [Precisão e a precisão](https://en.wikipedia.org/wiki/Accuracy_and_precision)
 
-[3] [CRISP-DM 1.0: Guia de mineração de dados passo a passo](http://www.the-modeling-agency.com/crisp-dm.pdf)   
+[3] [CRISP-DM 1.0: Guia de mineração de dados passo a passo](https://www.the-modeling-agency.com/crisp-dm.pdf)   
 
 [4] [Marketing de grandes volumes de dados: Cative os clientes com mais eficiência e o valor da unidade](http://www.amazon.com/Big-Data-Marketing-Customers-Effectively/dp/1118733894/ref=sr_1_12?ie=UTF8&qid=1387541531&sr=8-12&keywords=customer+churn)
 
-[5] [modelo de modelo de abandono de telecomunicações](http://gallery.azure.ai/Experiment/Telco-Customer-Churn-5) no [Galeria de IA do Azure](http://gallery.azure.ai/) 
+[5] [modelo de modelo de abandono de telecomunicações](https://gallery.azure.ai/Experiment/Telco-Customer-Churn-5) no [Galeria de IA do Azure](https://gallery.azure.ai/) 
  
 
 ## <a name="appendix"></a>Anexo

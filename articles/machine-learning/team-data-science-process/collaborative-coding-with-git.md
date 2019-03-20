@@ -10,12 +10,12 @@ ms.topic: article
 ms.date: 11/28/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 045f2d12eb6836d14a09ea96c8eca3cad0e5246d
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 551d0cd149c4d1555a40ccf0d7baeff97c6809c2
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55458247"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57863309"
 ---
 # <a name="collaborative-coding-with-git"></a>Codificação em colaboração com Git
 
@@ -36,7 +36,7 @@ Forneça as informações para essa nova ramificação, como o nome do ramo, o r
 
 É uma boa prática criar um ramo de Git para cada item de trabalho da história. Em seguida, para cada item de trabalho de tarefas, crie um ramo com base no ramo história. Organizar os ramos desta forma hierárquica que corresponde às relações de tarefa de história é útil quando tem várias pessoas trabalhando em histórias diferentes do mesmo projeto ou ter várias pessoas trabalhando em diferentes tarefas da mesma história. Conflitos podem ser minimizados quando cada membro da Equipe trabalha numa ramificação diferente e quando cada membro funciona em diferentes códigos ou outros artefactos ao partilhar um ramo. 
 
-A imagem seguinte ilustra a estratégia de ramificação recomendada para o TDSP. Poderá não ser necessário à medida que muitas ramos que são mostrados aqui, especialmente quando tiver apenas uma ou duas pessoas trabalhando no mesmo projeto, ou apenas uma pessoa funciona em todas as tarefas de uma história. Mas separar a ramificação de desenvolvimento do ramo principal é sempre uma boa prática. Isso pode ajudar a impedir que o ramo de lançamento a ser interrompido por atividades de desenvolvimento. Uma descrição mais completa do modelo de ramificação Git pode ser encontrada na [um êxito Git ramificação modelo](http://nvie.com/posts/a-successful-git-branching-model/).
+A imagem seguinte ilustra a estratégia de ramificação recomendada para o TDSP. Poderá não ser necessário à medida que muitas ramos que são mostrados aqui, especialmente quando tiver apenas uma ou duas pessoas trabalhando no mesmo projeto, ou apenas uma pessoa funciona em todas as tarefas de uma história. Mas separar a ramificação de desenvolvimento do ramo principal é sempre uma boa prática. Isso pode ajudar a impedir que o ramo de lançamento a ser interrompido por atividades de desenvolvimento. Uma descrição mais completa do modelo de ramificação Git pode ser encontrada na [um êxito Git ramificação modelo](https://nvie.com/posts/a-successful-git-branching-model/).
 
 ![3](./media/collaborative-coding-with-git/3-git-branches.png)
 

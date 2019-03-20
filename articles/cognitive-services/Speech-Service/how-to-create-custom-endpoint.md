@@ -1,6 +1,6 @@
 ---
-title: Criar um ponto de final de voz personalizada com o serviço de voz no Azure | Documentos da Microsoft
-description: Saiba como criar um ponto de final de voz em texto personalizado com o serviço de voz nos serviços cognitivos.
+title: Criar um ponto de final de voz personalizada com os serviços de voz no Azure | Documentos da Microsoft
+description: Saiba como criar um ponto final de voz em texto personalizado usando os serviços de voz do Azure.
 services: cognitive-services
 author: PanosPeriorellis
 manager: onano
@@ -9,19 +9,19 @@ ms.subservice: custom-speech
 ms.topic: article
 ms.date: 03/12/2018
 ms.author: panosper
-ms.openlocfilehash: 63d2c15c14340b0d7407b0144a8b8c75a2634e6a
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: 1f7a84d187ba6279caad4926d54bfc56254152af
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55220251"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57863003"
 ---
 # <a name="create-a-custom-speech-to-text-endpoint"></a>Criar um ponto final de conversão de voz em texto personalizado
 
-Depois de criar modelos acústicos personalizados ou modelos de linguagem, pode implementá-las num ponto de final de voz em texto personalizado. 
+Depois de criar modelos acústicos personalizados ou modelos de linguagem, pode implementá-las num ponto de final de voz em texto personalizado.
 
 ## <a name="create-an-endpoint"></a>Criar um ponto final
-Para criar um novo ponto final personalizado, selecione **pontos de extremidade** sobre o **voz personalizada** menu na parte superior da página. Esta ação leva-o para o **pontos de extremidade** página, que contém uma tabela de pontos finais personalizados atuais. Se ainda não criou quaisquer pontos de extremidade, a tabela estiver vazia. A região atual está refletida no título da tabela. 
+Para criar um novo ponto final personalizado, selecione **pontos de extremidade** sobre o **voz personalizada** menu na parte superior da página. Esta ação leva-o para o **pontos de extremidade** página, que contém uma tabela de pontos finais personalizados atuais. Se ainda não criou quaisquer pontos de extremidade, a tabela estiver vazia. A região atual está refletida no título da tabela.
 
 Para criar uma implementação para um idioma diferente, selecione **localidade de alteração**. Para obter mais informações sobre os idiomas suportados.
 
@@ -44,6 +44,6 @@ Quando a implementação estiver pronta, o nome do ponto final torna-se uma liga
 ## <a name="next-steps"></a>Passos Seguintes
 
 Para mais tutoriais, consulte:
-- [Obter a sua subscrição de avaliação do Serviço de Voz](https://azure.microsoft.com/try/cognitive-services/)
+- [Obter a subscrição de avaliação dos Serviços de Voz](https://azure.microsoft.com/try/cognitive-services/)
 - [Criar um modelo acústico personalizado](how-to-customize-acoustic-models.md)
 - [Criar modelo de idioma personalizado](how-to-customize-language-model.md)

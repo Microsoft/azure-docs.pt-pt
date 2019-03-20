@@ -7,12 +7,12 @@ ms.author: janeng
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 11/09/2018
-ms.openlocfilehash: 6bc804c9cbf141f5b0e36a92e4f386a6540f583c
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.openlocfilehash: faf378a81a6db24acc676bed82fe495cfb108612
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53540933"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57855525"
 ---
 # <a name="troubleshoot-connection-issues-to-azure-database-for-mysql"></a>Resolver problemas de ligação à base de dados do Azure para MySQL
 
@@ -48,7 +48,7 @@ Se a aplicação de forma permanente falhar ligar à base de dados do Azure para
 
 * Configuração de firewall do servidor: Certifique-se de que a base de dados do Azure para o firewall do servidor MySQL está configurado para permitir ligações a partir do seu cliente, incluindo servidores proxy e gateways.
 * Configuração de firewall do cliente: A firewall no seu cliente tem de permitir ligações ao seu servidor de base de dados. Endereços IP e portas do servidor que não é possível para têm de ser permitidas, bem como nomes de aplicativo, como o MySQL em alguns firewalls.
-* Erro de utilizador: Parâmetros de ligação, como o nome do servidor na cadeia de ligação ou um em falta pode ter escrito incorretamente *@servername* sufixo no nome do utilizador.
+* Erro de utilizador: Parâmetros de ligação, como o nome do servidor na cadeia de ligação ou um em falta pode ter escrito incorretamente  *\@servername* sufixo no nome do utilizador.
 
 ### <a name="steps-to-resolve-persistent-connectivity-issues"></a>Passos para resolver problemas de conectividade persistente
 

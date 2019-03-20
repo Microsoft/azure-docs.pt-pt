@@ -9,12 +9,12 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.custom: seodec18
-ms.openlocfilehash: bf4f7e8f5837aaa56745e60df5a4960a93097a92
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: 9c4ddb1375154fef3290008a7b981a4e9069ae94
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56729632"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58075207"
 ---
 # <a name="set-up-and-run-analytics-jobs-using-azure-stream-analytics-api-for-net"></a>Configurar e executar tarefas de análise com a API do Azure Stream Analytics para .NET
 Saiba como configurar e executar tarefas de análise com a API do Stream Analytics para .NET com o SDK de .NET de gestão. Configurar um projeto, criar origens de entrada e saídas, transformações e iniciar e parar tarefas. Para as tarefas de análise, pode transmitir dados do armazenamento de BLOBs ou de um hub de eventos.
@@ -57,7 +57,7 @@ Install-Package Microsoft.Azure.Management.StreamAnalytics -Version 1.8.3
 Install-Package Microsoft.IdentityModel.Clients.ActiveDirectory -Version 2.28.4
 ```
 
-3. Adicione as seguintes **appSettings** secção para o ficheiro App. config:
+1. Adicione as seguintes **appSettings** secção para o ficheiro App. config:
 
    ```csharp
    <appSettings>
@@ -76,7 +76,7 @@ Install-Package Microsoft.IdentityModel.Clients.ActiveDirectory -Version 2.28.4
 
         Get-AzureAccount
 
-4. Adicione a seguinte referência em seu arquivo. csproj:
+1. Adicione a seguinte referência em seu arquivo. csproj:
 
    ```csharp
    <Reference Include="System.Configuration" />
@@ -95,7 +95,7 @@ using Microsoft.Azure.Management.StreamAnalytics.Models;
 using Microsoft.IdentityModel.Clients.ActiveDirectory;
 ```
 
-2. Adicione um método de programa auxiliar de autenticação:
+1. Adicione um método de programa auxiliar de autenticação:
 
    ```csharp
    private static async Task<string> GetAuthorizationHeader()

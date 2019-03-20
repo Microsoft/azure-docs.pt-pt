@@ -11,13 +11,13 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
 manager: craigg
-ms.date: 01/07/2019
-ms.openlocfilehash: 3594ff05e0f58671e8566b3b69972de32a58855a
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.date: 03/12/2019
+ms.openlocfilehash: ec0c3b7943db87e5c6fb31dc173a5c3b36377e6c
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57308453"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57855474"
 ---
 # <a name="manage-azure-sql-database-long-term-backup-retention"></a>Gerir a retenção de cópia de segurança de longa duração de base de dados do Azure SQL
 
@@ -75,6 +75,8 @@ Ver as cópias de segurança que são mantidas para um banco de dados específic
 ## <a name="use-powershell-to-configure-long-term-retention-policies-and-restore-backups"></a>Utilizar o PowerShell para configurar políticas de retenção de longo prazo e restaurar cópias de segurança
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+> [!IMPORTANT]
+> O módulo do PowerShell do Azure Resource Manager ainda é suportado pelo SQL Database do Azure, mas todo o desenvolvimento futuro é para o módulo de Az.Sql. Para estes cmdlets, consulte [azurerm. SQL](https://docs.microsoft.com/powershell/module/AzureRM.Sql/). Os argumentos para os comandos no módulo Az e nos módulos AzureRm são substancialmente idênticos.
 
 As secções seguintes mostram como utilizar o PowerShell para configurar a retenção de cópia de segurança de longo prazo, ver cópias de segurança no armazenamento de SQL do Azure e o restauro a partir de uma cópia de segurança no armazenamento de SQL do Azure.
 

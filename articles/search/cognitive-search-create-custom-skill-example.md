@@ -7,15 +7,15 @@ services: search
 ms.service: search
 ms.devlang: NA
 ms.topic: conceptual
-ms.date: 06/29/2018
+ms.date: 03/12/2019
 ms.author: luisca
 ms.custom: seodec2018
-ms.openlocfilehash: 892e47d87fef482c6f655473278baeb5525ee09e
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: f3b4e6cd18a362775443bb296560a076aaa1497d
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57760032"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57883632"
 ---
 # <a name="example-create-a-custom-skill-using-the-text-translate-api"></a>Exemplo: Criar uma habilidade personalizada com a API de tradução de texto
 
@@ -39,7 +39,7 @@ Embora este exemplo utiliza uma função do Azure para alojar uma API web, não 
 
 1. Na caixa de diálogo novo projeto, selecione **instalada**, expanda **Visual c#** > **Cloud**, selecione **as funções do Azure**, escreva um Dê um nome para o seu projeto e selecione **OK**. O nome da aplicação de funções deve ser válido como um espaço de nomes C#. Portanto, não use sublinhados, hífenes ou outros carateres não alfanuméricos.
 
-1. Selecione **v2 das funções do Azure (.Net Core)**. Também pode fazê-lo com a versão 1, mas o código escrito abaixo baseia-se no modelo v2.
+1. Selecione **v2 das funções do Azure (.NET Core)**. Também pode fazê-lo com a versão 1, mas o código escrito abaixo baseia-se no modelo v2.
 
 1. Selecione o tipo a ser **acionador HTTP**
 

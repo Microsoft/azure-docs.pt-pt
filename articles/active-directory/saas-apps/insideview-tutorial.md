@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 06/29/2017
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a315933dcd438c68a1326d2b656c2353e4185f12
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: 92cb4f1093d8450bb2c32d99f4ccedd0a5688253
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56866798"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58165922"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-insideview"></a>Tutorial: Integração do Active Directory do Azure com InsideView
 
@@ -191,7 +191,7 @@ O objetivo desta secção é criar um utilizador de teste no portal do Azure cha
 
     d. Clique em **Criar**.
  
-### <a name="creating-a-insideview-test-user"></a>Criar um utilizador de teste InsideView
+### <a name="creating-an-insideview-test-user"></a>Criar um utilizador de teste InsideView
 
 Para ativar a utilizadores do Azure AD iniciar sessão no InsideView, eles têm de ser aprovisionados para InsideView. No caso de InsideView, o aprovisionamento é uma tarefa manual.
 

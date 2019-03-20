@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/14/2018
 ms.author: aljo
-ms.openlocfilehash: 6a568fa724d0d403833e938ae8b01556fe96cf1f
-ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
+ms.openlocfilehash: 9b36332382de1317e386af59695f993efb233e79
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56428642"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58108448"
 ---
 # <a name="service-fabric-cluster-security-scenarios"></a>Cenários de segurança de cluster do Service Fabric
 Um cluster do Azure Service Fabric é um recurso que é proprietário. É da responsabilidade do cliente para proteger os seus clusters para ajudar a impedir que os utilizadores não autorizados a ligar aos mesmos. Um cluster seguro é especialmente importante quando estiver a executar cargas de trabalho de produção no cluster. Embora seja possível criar um cluster não seguro, se o cluster expõe os pontos finais de gestão para a internet pública, usuários anônimos podem ligar à mesma. Sem segurança de clusters não é suportado para cargas de trabalho de produção. 
@@ -112,7 +112,7 @@ O certificado tem de cumprir os seguintes requisitos:
 
 Alguns outros aspetos a considerar:
 
-* O **assunto** campo pode ter vários valores. Cada valor é o prefixo uma inicialização para indicar o tipo de valor. Normalmente, é a inicialização **CN** (para *nome comum*), por exemplo, **CN = www.contoso.com**. 
+* O **assunto** campo pode ter vários valores. Cada valor é o prefixo uma inicialização para indicar o tipo de valor. Normalmente, é a inicialização **CN** (para *nome comum*), por exemplo, **CN = www\.contoso.com**. 
 * O **assunto** campo pode estar em branco. 
 * Se o opcional **nome alternativo do requerente** campo é preenchido, tem de ter o nome comum do certificado e uma entrada por SAN. Estes são introduzidos como **nome de DNS** valores. Para saber como gerar os certificados que tenham SANs, veja [como adicionar um nome alternativo do requerente a um certificado de secure LDAP](https://support.microsoft.com/kb/931351).
 * O valor do **fins se destina** campo do certificado deve incluir um valor adequado, tal como **autenticação de servidor de** ou **autenticação de cliente**.

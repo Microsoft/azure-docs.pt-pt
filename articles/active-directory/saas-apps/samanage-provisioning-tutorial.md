@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 07/28/2018
 ms.author: v-wingf-msft
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d620701bc8590bee746be35f69b0da890c359601
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: b51f8d9329bc86320501183d7dba7735fb369fa5
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56205363"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58092383"
 ---
 # <a name="tutorial-configure-samanage-for-automatic-user-provisioning"></a>Tutorial: Configurar Samanage para aprovisionamento automático de utilizadores
 
@@ -108,9 +108,9 @@ Esta secção orienta-o pelos passos para configurar o Azure AD do serviço de a
 
 5. Sob o **credenciais de administrador** secção, de entrada a **nome de utilizador administrador** e **palavra-passe de administrador** da sua conta de Samanage. Exemplos destes valores são:
 
-    *   Na **nome de utilizador administrador** campo, preencher o nome de utilizador da conta de administrador no inquilino Samanage. Exemplo: admin@contoso.com.
+   * Na **nome de utilizador administrador** campo, preencher o nome de utilizador da conta de administrador no inquilino Samanage. Exemplo: admin@contoso.com.
 
-    *   Na **palavra-passe de administrador** campo, preencher a palavra-passe da conta de administrador correspondente ao nome de utilizador administrador.
+   * Na **palavra-passe de administrador** campo, preencher a palavra-passe da conta de administrador correspondente ao nome de utilizador administrador.
 
 6. Após preencher os campos mostrados no passo 5, clique em **Testar ligação** para garantir que o Azure AD pode ligar-se Samanage. Se a ligação falhar, certifique-se de que a conta de Samanage tem permissões de administrador e tente novamente.
 

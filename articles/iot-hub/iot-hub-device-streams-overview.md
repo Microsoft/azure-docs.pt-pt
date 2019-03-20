@@ -8,12 +8,12 @@ ms.service: iot-hub
 ms.topic: conceptual
 ms.date: 01/15/2019
 ms.author: rezas
-ms.openlocfilehash: b5e42585178505ee4c23ca4054e83f61ee1254b8
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 024bb29f9d7276021888e949073f6d45aed0a249
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57436141"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58076280"
 ---
 # <a name="iot-hub-device-streams-preview"></a>Fluxos de dispositivo do Hub IoT (pré-visualização)
 
@@ -123,7 +123,7 @@ Siga os passos abaixo para configurar os registos do Azure Monitor para atividad
 
 1. Navegue para o *das definições de diagnóstico* separador do seu IoT Hub e clique em *ativar diagnósticos* ligação.
 
-  ![Texto alternativo](./media/iot-hub-device-streams-overview/device-streams-diagnostics-settings.PNG "ativar disgnostics registos")
+   ![Texto alternativo](./media/iot-hub-device-streams-overview/device-streams-diagnostics-settings.PNG "ativar disgnostics registos")
 
 
 2. Indique um nome para as definições de diagnóstico e escolha *enviar para o Log Analytics* opção. Vai ser orientado ao escolher um recurso de área de trabalho do Log Analytics existente ou crie um novo. Além disso, verifique os *DeviceStreams* da lista.

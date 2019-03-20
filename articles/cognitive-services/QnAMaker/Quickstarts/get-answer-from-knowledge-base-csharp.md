@@ -10,12 +10,12 @@ ms.subservice: qna-maker
 ms.topic: quickstart
 ms.date: 02/28/2019
 ms.author: diberry
-ms.openlocfilehash: 6fa22d57a693a9d3dceee5f697f3f4d2eb0e394c
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.openlocfilehash: 2d011dffa4db68a0cdf6ac3415ff1316906a4e87
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57309660"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57884006"
 ---
 # <a name="get-answers-to-a-question-from-a-knowledge-base-with-c"></a>Obtenha respostas a uma pergunta de uma base de dados de conhecimento comC#
 
@@ -37,7 +37,7 @@ O código para este início rápido está no [ https://github.com/Azure-Samples/
 ## <a name="create-a-knowledge-base-project"></a>Criar um projeto de base de dados de conhecimento
 
 1. Abra o Visual Studio 2017 Community Edition.
-1. Criar uma nova aplicação de consola (.Net Core) do projeto e nomeie o projeto QnaMakerQuickstart. Aceite as predefinições nas restantes definições.
+1. Crie um novo projeto de aplicação de consola (.NET Core) e o nome do projeto QnaMakerQuickstart. Aceite as predefinições nas restantes definições.
 
 ## <a name="add-the-required-dependencies"></a>Adicionar as dependências necessárias
 

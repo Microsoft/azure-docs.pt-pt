@@ -11,15 +11,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/20/2018
+ms.date: 03/12/2019
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: af6a32d7e32f23561b207c729402eaea7925f520
-ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
+ms.openlocfilehash: 6ae7037ad4cd532b6661a56e6e37a88df3eb54a2
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56453856"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58121711"
 ---
 # <a name="locking-down-an-app-service-environment"></a>O bloqueio de um ambiente de serviço de aplicações
 
@@ -91,7 +91,6 @@ As seguintes informações só são necessário se pretender configurar uma apli
 - Pontos finais HTTP/HTTPS de caráter universal são dependências que podem variar com o seu ASE com base num número de qualificadores. 
 - Dependências de Linux são apenas uma preocupação, se estiver a implementar aplicações do Linux em ASE. Se não estiver a implementar aplicações do Linux em ASE, estes endereços não é necessário ser adicionado à firewall. 
 
-
 #### <a name="service-endpoint-capable-dependencies"></a>Dependências com capacidade de ponto final de serviço 
 
 | Ponto Final |
@@ -106,6 +105,14 @@ As seguintes informações só são necessário se pretender configurar uma apli
 |----------| ----- |
 | \*:123 | Verificação de relógio NTP. O tráfego é verificado em vários pontos de extremidade na porta 123 |
 | \*:12000 | Esta porta é utilizada para alguma monitorização do sistema. Se bloqueado, em seguida, alguns problemas será mais difícil de triagem mas seu ASE irá continuar a funcionar |
+| 40.77.24.27:80 | Necessários para monitorizar e alertar relativamente a problemas de ASE |
+| 40.77.24.27:443 | Necessários para monitorizar e alertar relativamente a problemas de ASE |
+| 13.90.249.229:80 | Necessários para monitorizar e alertar relativamente a problemas de ASE |
+| 13.90.249.229:443 | Necessários para monitorizar e alertar relativamente a problemas de ASE |
+| 104.45.230.69:80 | Necessários para monitorizar e alertar relativamente a problemas de ASE |
+| 104.45.230.69:443 | Necessários para monitorizar e alertar relativamente a problemas de ASE |
+| 13.82.184.151:80 | Necessários para monitorizar e alertar relativamente a problemas de ASE |
+| 13.82.184.151:443 | Necessários para monitorizar e alertar relativamente a problemas de ASE |
 
 Com um Firewall do Azure, obtém automaticamente abaixo tudo configurado com as etiquetas do FQDN. 
 
@@ -140,7 +147,8 @@ Com um Firewall do Azure, obtém automaticamente abaixo tudo configurado com as 
 |cacerts.digicert.com:80 |
 |azperfcounters1.blob.core.windows.net:443 |
 |azurewatsonanalysis-prod.core.windows.net:443 |
-|global.metrics.nsatc.net:80   |
+|global.metrics.nsatc.net:80 |
+|global.metrics.nsatc.net:443 |
 |az-prod.metrics.nsatc.net:443 |
 |antares.metrics.nsatc.net:443 |
 |azglobal-black.azglobal.metrics.nsatc.net:443 |
@@ -175,12 +183,6 @@ Com um Firewall do Azure, obtém automaticamente abaixo tudo configurado com as 
 | \*.management.azure.com:443 |
 | \*.update.microsoft.com:443 |
 | \*.windowsupdate.microsoft.com:443 |
-|grmdsprod\*mini\*.servicebus.windows.net:443 |
-|grmdsprod\*lini\*.servicebus.windows.net:443 |
-|grsecprod\*mini\*.servicebus.windows.net:443 |
-|grsecprod\*lini\*.servicebus.windows.net:443 |
-|graudprod\*mini\*.servicebus.windows.net:443 |
-|graudprod\*lini\*.servicebus.windows.net:443 |
 
 #### <a name="linux-dependencies"></a>Dependências do Linux 
 

@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/27/2018
 ms.author: hrasheed
-ms.openlocfilehash: fc2333b6bd41b9efdd1fcafd6168906525cb537a
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: b422074c33f52a6819d2a05144a85768a2e484a0
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57440578"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58011929"
 ---
 # <a name="run-mapreduce-jobs-with-apache-hadoop-on-hdinsight-using-rest"></a>Executar tarefas de MapReduce com o Apache Hadoop no HDInsight com REST
 
@@ -107,10 +107,10 @@ Saiba como utilizar a API REST do WebHCat de ramo de registo Apache para executa
     O final do URI (/ mapreduce/jar) informa ao WebHCat que essa solicitação inicia uma tarefa de MapReduce de uma classe num ficheiro jar. Os parâmetros utilizados neste comando são os seguintes:
 
    * **-d**: `-G` não for utilizado, pelo que o pedido é predefinido para o método POST. `-d` Especifica os valores de dados que são enviados com o pedido.
-    * **user.name**: O utilizador que está a executar o comando
-    * **jar**: A localização do ficheiro jar que contém a classe para ser executada
-    * **classe**: A classe que contém a lógica de MapReduce
-    * **arg**: Os argumentos transmitidos para a tarefa de MapReduce. Neste caso, o ficheiro de texto de entrada e o diretório que são utilizados para a saída
+     * **user.name**: O utilizador que está a executar o comando
+     * **jar**: A localização do ficheiro jar que contém a classe para ser executada
+     * **classe**: A classe que contém a lógica de MapReduce
+     * **arg**: Os argumentos transmitidos para a tarefa de MapReduce. Neste caso, o ficheiro de texto de entrada e o diretório que são utilizados para a saída
 
    Este comando deverá devolver um ID da tarefa que pode ser utilizado para verificar o estado da tarefa:
 

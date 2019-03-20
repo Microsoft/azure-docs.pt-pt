@@ -15,18 +15,18 @@ ms.author: curtand
 ms.reviewer: sumitp
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ef3a0143b2fd536332cdae8ea0bb50cc0a93e6e9
-ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
+ms.openlocfilehash: 1d2faefd8443383e7afff8e3729bf6f1cf25c3a7
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56430437"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57887035"
 ---
 # <a name="scenarios-limitations-and-known-issues-using-groups-to-manage-licensing-in-azure-active-directory"></a>Cenários, limitações e problemas conhecidos, utilizar grupos para gerir o licenciamento no Azure Active Directory
 
 Utilize as seguintes informações e exemplos para obter uma compreensão mais avançada do Azure Active Directory (Azure AD) com base no grupo de licenciamento.
 
-## <a name="usage-location"></a>Localização da utilização
+## <a name="usage-location"></a>Localização de utilização
 
 Alguns serviços Microsoft não estão disponíveis em todas as localizações. Antes de uma licença pode ser atribuída a um utilizador, o administrador tem de especificar o **localização de utilização** propriedade no utilizador. Na [do portal do Azure](https://portal.azure.com), pode especificar nos **utilizador** &gt; **perfil** &gt; **definições**.
 
@@ -63,7 +63,7 @@ Para este exemplo, modificar um utilizador e defina a respetiva extensionAttribu
 
 > [!WARNING]
 > Tenha cuidado ao modificar a regra de associação de um grupo existente. Quando uma regra é alterada, a associação do grupo serão reavaliada e os utilizadores que já não correspondem a nova regra serão removidos (os utilizadores que ainda a nova regra não será afetada durante este processo de correspondência). Os usuários tenham cujas licenças são removidas durante o processo que pode resultar na perda de serviço, ou em alguns casos, perda de dados.
-
+> 
 > Se tiver um grande grupo dinâmico que dependem para atribuição de licenças, considere a validar alterações significativas num grupo de teste mais pequeno antes de aplicá-las para o grupo principal.
 
 ## <a name="multiple-groups-and-multiple-licenses"></a>Vários grupos e várias licenças
@@ -90,23 +90,23 @@ Diretamente licenças atribuídas podem ser removidas e não afetam herdadas lic
 
 1. Inicialmente, o utilizador herde a licença apenas a partir da *serviços básicos de E3* grupo, que permite que os quatro planos de serviço, conforme mostrado:
 
-  ![Grupo de captura de ecrã de E3 ativado os serviços](./media/licensing-group-advanced/e3-group-enabled-services.png)
+   ![Grupo de captura de ecrã de E3 ativado os serviços](./media/licensing-group-advanced/e3-group-enabled-services.png)
 
 2. Pode selecionar **atribuir** diretamente atribuir uma licença de E3 ao usuário. Neste caso, vai desativar todos os planos de serviço Yammer Enterprise:
 
-  ![Captura de ecrã de como atribuir uma licença diretamente a um utilizador](./media/licensing-group-advanced/assign-license-to-user.png)
+   ![Captura de ecrã de como atribuir uma licença diretamente a um utilizador](./media/licensing-group-advanced/assign-license-to-user.png)
 
 3. Como resultado, o utilizador ainda usa apenas uma licença do produto E3. Mas a atribuição direta permite que o serviço de Yammer Enterprise para apenas esse utilizador. Pode ver quais os serviços estão ativados pela associação a grupos em comparação com a atribuição direta:
 
-  ![Captura de ecrã do herdadas versus atribuição direta](./media/licensing-group-advanced/direct-vs-inherited-assignment.png)
+   ![Captura de ecrã do herdadas versus atribuição direta](./media/licensing-group-advanced/direct-vs-inherited-assignment.png)
 
 4. Quando utilizar a atribuição direta, são permitidas as seguintes operações:
 
-  - Yammer Enterprise pode ser desativado no objeto do usuário diretamente. O **/desativar** alternância na ilustração foi ativada para este serviço, ao contrário de outros alternadores de serviço. Uma vez que o serviço é ativado diretamente no utilizador, pode ser modificado.
-  - Serviços adicionais podem ser ativados, bem, como parte da licença atribuída diretamente.
-  - O **remover** botão pode ser utilizado para remover a licença direta do usuário. Pode ver que o utilizador só tem agora a licença de grupo herdadas e apenas os serviços originais permanecerem ativados:
+   - Yammer Enterprise pode ser desativado no objeto do usuário diretamente. O **/desativar** alternância na ilustração foi ativada para este serviço, ao contrário de outros alternadores de serviço. Uma vez que o serviço é ativado diretamente no utilizador, pode ser modificado.
+   - Serviços adicionais podem ser ativados, bem, como parte da licença atribuída diretamente.
+   - O **remover** botão pode ser utilizado para remover a licença direta do usuário. Pode ver que o utilizador só tem agora a licença de grupo herdadas e apenas os serviços originais permanecerem ativados:
 
-    ![Captura de ecrã que mostra como remover a atribuição direta](./media/licensing-group-advanced/remove-direct-license.png)
+     ![Captura de ecrã que mostra como remover a atribuição direta](./media/licensing-group-advanced/remove-direct-license.png)
 
 ## <a name="managing-new-services-added-to-products"></a>Gerenciamento de novos serviços adicionados ao produtos
 Quando a Microsoft adiciona um novo serviço a um produto, será ativada por predefinição em todos os grupos aos quais atribuiu a licença de produto. Os utilizadores no seu inquilino que estão a subscrever notificações sobre alterações de produto receberá emails antecipadamente notificar sobre as adições de futura do serviço.
@@ -122,15 +122,15 @@ Eis um exemplo deste processo pode ser, como:
 3. Vá para o [ **do Azure Active Directory > licenças > todos os produtos** ](https://portal.azure.com/#blade/Microsoft_AAD_IAM/LicensesMenuBlade/Products) painel e selecione *Office 365 Enterprise E5*, em seguida, selecione **grupos licenciados** para ver uma lista de todos os grupos com esse produto.
 
 4. Clique no grupo que pretende rever (neste caso, *do Office 365 E5 - Exchange apenas*). Esta ação abre o **licenças** separador. Ao clicar na licença E5 será aberto um painel a listagem de todos os serviços ativados.
-> [!NOTE]
-> O *Microsoft Stream* serviço foi automaticamente adicionado e ativado neste grupo, para além da *Exchange Online* serviço:
+   > [!NOTE]
+   > O *Microsoft Stream* serviço foi automaticamente adicionado e ativado neste grupo, para além da *Exchange Online* serviço:
 
-  ![Captura de ecrã do novo serviço adicionado a uma licença de grupo](./media/licensing-group-advanced/manage-new-services.png)
+   ![Captura de ecrã do novo serviço adicionado a uma licença de grupo](./media/licensing-group-advanced/manage-new-services.png)
 
 5. Se pretender desativar o novo serviço neste grupo, clique nas **/desativar** Ativar/desativar junto do serviço e clique no **guardar** botão para confirmar a alteração. O Azure AD agora irá processar todos os utilizadores no grupo para aplicar a alteração; quaisquer novos utilizadores adicionados ao grupo não terão o *Microsoft Stream* serviço ativado.
 
-  > [!NOTE]
-  > Os utilizadores ainda podem ter o serviço através de alguns outra atribuição de licenças (outro grupo sejam membros de ou uma atribuição da licença direta).
+   > [!NOTE]
+   > Os utilizadores ainda podem ter o serviço através de alguns outra atribuição de licenças (outro grupo sejam membros de ou uma atribuição da licença direta).
 
 6. Se for necessário, execute os mesmos passos para outros grupos com este produto atribuído.
 
@@ -141,7 +141,7 @@ Pode usar um script do PowerShell para verificar se os utilizadores têm uma lic
 
 2. `Get-MsolAccountSku` pode ser utilizada para detetar todas as licenças de produto aprovisionado no inquilino.
 
-  ![Captura de ecrã do cmdlet Get-Msolaccountsku](./media/licensing-group-advanced/get-msolaccountsku-cmdlet.png)
+   ![Captura de ecrã do cmdlet Get-Msolaccountsku](./media/licensing-group-advanced/get-msolaccountsku-cmdlet.png)
 
 3. Utilize o *AccountSkuId* valor para a qual está interessado em com licença [este script do PowerShell](licensing-ps-examples.md#check-if-user-license-is-assigned-directly-or-inherited-from-a-group). Isto produzirá uma lista de utilizadores com esta licença com as informações sobre como a licença é atribuída.
 
@@ -159,8 +159,8 @@ Pode usar [registos de auditoria do Azure AD](../reports-monitoring/concept-audi
 
 1. Definir o **atividade** filtrar para *definir licença de grupo* e clique em **aplicar**.
 2. Os resultados incluem todos os casos de licenças que está a ser definida ou modificado em grupos.
->[!TIP]
-> Também pode escrever o nome do grupo na *destino* filtro para definir o âmbito os resultados.
+   >[!TIP]
+   > Também pode escrever o nome do grupo na *destino* filtro para definir o âmbito os resultados.
 
 3. Clique num item na vista de lista para ver os detalhes do que mudou. Sob *propriedades modificadas* antigos e novos valores para a atribuição de licença estão listados.
 
@@ -173,23 +173,23 @@ Eis um exemplo de alterações recentes de licença de grupo, com detalhes:
 Quando altera uma licença num grupo, do Azure AD começará a aplicar as alterações a todos os utilizadores.
 
 1. Para ver quando grupos iniciou o processamento, defina o **atividade** filtrar para *começar a aplicar licença baseada em grupo aos utilizadores*. Tenha em atenção que é o ator para a operação *Microsoft Azure AD com base em grupo licenciamento* -uma conta do sistema que é utilizada para executar todas as alterações de licença de grupo.
->[!TIP]
-> Clique num item na lista para ver os *propriedades modificadas* campo - mostra as alterações de licença que foram escolhidas para processamento. Isto é útil se feitas várias alterações a um grupo e não estiver certo qual deles foi processada.
+   >[!TIP]
+   > Clique num item na lista para ver os *propriedades modificadas* campo - mostra as alterações de licença que foram escolhidas para processamento. Isto é útil se feitas várias alterações a um grupo e não estiver certo qual deles foi processada.
 
 2. Da mesma forma, para ver a terminou de grupos de processamento, utilize o valor do filtro *concluir a aplicação de licença baseada em grupo aos utilizadores*.
->[!TIP]
-> Neste caso, o *propriedades modificadas* campo contém um resumo dos resultados – isto é útil para verificar rapidamente se o processamento resultou em erros. Resultado do exemplo:
-> ```
-Modified Properties
-...
-Name : Result
-Old Value : []
-New Value : [Users successfully assigned licenses: 6, Users for whom license assignment failed: 0.];
-> ```
+   > [!TIP]
+   > Neste caso, o *propriedades modificadas* campo contém um resumo dos resultados – isto é útil para verificar rapidamente se o processamento resultou em erros. Resultado do exemplo:
+   > ```
+   > Modified Properties
+   > ...
+   > Name : Result
+   > Old Value : []
+   > New Value : [Users successfully assigned licenses: 6, Users for whom license assignment failed: 0.];
+   > ```
 
 3. Para ver o registo completo para como um grupo foi processado, incluindo todas as alterações de utilizador, defina os seguintes filtros:
-  - **Iniciado por (Ator)**: "Microsoft Azure AD com base em grupo licenciamento"
-  - **Intervalo de datas** (opcional): intervalo personalizado para quando sabe que um grupo específico iniciado e termina o processamento
+   - **Iniciado por (Ator)**: "Microsoft Azure AD com base em grupo licenciamento"
+   - **Intervalo de datas** (opcional): intervalo personalizado para quando sabe que um grupo específico iniciado e termina o processamento
 
 Esta saída de exemplo mostra o início do processamento, todas as alterações de usuário resultante e a conclusão do processamento.
 
@@ -220,7 +220,7 @@ Se utilizar o licenciamento baseado em grupo, é uma boa idéia para se familiar
 
 - Quando as licenças são atribuídas ou modificadas durante um grande grupo (por exemplo, 100 000 utilizadores), ele poderia afetar o desempenho. Especificamente, o volume de alterações gerado pela automatização do Azure AD pode afetar negativamente o desempenho da sua sincronização de diretórios entre o Azure AD e sistemas no local.
 
-- Se estiver a utilizar grupos dinâmicos para gerir a associação do seu utilizador, certifique-se de que o utilizador faz parte do grupo, o que é necessário para a atribuição de licenças. Caso contrário, [verifique o estado de processamento para a regra de associação](https://docs.microsoft.com/azure/active-directory/users-groups-roles/groups-create-rule#check-processing-status-for-a-membership-rule) do grupo dinâmico. 
+- Se estiver a utilizar grupos dinâmicos para gerir a associação do seu utilizador, certifique-se de que o utilizador faz parte do grupo, o que é necessário para a atribuição de licenças. Caso contrário, [verifique o estado de processamento para a regra de associação](https://docs.microsoft.com/azure/active-directory/users-groups-roles/groups-create-rule) do grupo dinâmico. 
 
 - Em determinadas situações de carga elevada, poderá demorar muito tempo a processar as alterações de licença para grupos ou as alterações na associação a grupos com licenças existentes. Se vir as suas alterações demorar mais de 24 horas para processar o grupo de tamanho de utilizadores de 60 mil ou menos, tente [abra um pedido de suporte](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/supportRequest) para permitir a investigar. 
 

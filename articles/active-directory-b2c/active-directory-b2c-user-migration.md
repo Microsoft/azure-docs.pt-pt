@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 10/04/2017
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: e19e21ab31fcee87aac6e7e8a0e1d0fbd0a7452c
-ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
+ms.openlocfilehash: 0ca35c5d7a882a67bdce5e006b94d1f16daf9130
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57409912"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57893209"
 ---
 # <a name="azure-active-directory-b2c-user-migration"></a>Azure Active Directory B2C: Migração de utilizador
 Ao migrar o fornecedor de identidade para o Azure Active Directory B2C (Azure AD B2C), também poderá ter de migrar a conta de utilizador. Este artigo explica como migrar as contas de utilizador existentes de qualquer fornecedor de identidade para o Azure AD B2C. O artigo não se destina a ser prescritivas, mas, em vez disso, ele descreve alguns cenários. O desenvolvedor é responsável pela adequação de cada abordagem.
@@ -63,7 +63,7 @@ Em primeiro lugar, registe a sua aplicação de migração no Azure AD. Em segui
 1. Crie uma nova aplicação ao fazer o seguinte:
    - Para **Name**, utilize **B2CUserMigration** ou qualquer outro nome que desejar.
    - Para **tipo de aplicação**, utilize **aplicação/API Web**.
-   - Para **URL de início de sessão**, utilize **https://localhost** (como não é relevante para esta aplicação).
+   - Para **URL de início de sessão**, utilize `https://localhost` (como não é relevante para esta aplicação).
    - Selecione **Criar**.
    
 1. Depois do aplicativo é criado, no **aplicativos** , selecione o recém-criado **B2CUserMigration** aplicação.
@@ -94,7 +94,7 @@ Agora tem uma aplicação com permissões para criar, ler e atualizar utilizador
 Ler e escrever as permissões de dados do diretório fazer *não* incluem o direito de eliminar os utilizadores. Para dar a sua aplicação a capacidade de eliminar utilizadores (para limpar o ambiente), tem de efetuar um passo extra, o que envolve a execução do PowerShell para definir permissões de administrador de conta de utilizador. Caso contrário, pode avançar para a secção seguinte.
 
 > [!IMPORTANT]
-> Tem de utilizar uma conta de administrador de inquilino de B2C que seja *local* para o inquilino do B2C. A sintaxe do nome de conta é *admin@contosob2c.onmicrosoft.com*.
+> Tem de utilizar uma conta de administrador de inquilino de B2C que seja *local* para o inquilino do B2C. A sintaxe do nome de conta é *administrador\@contosob2c.onmicrosoft.com*.
 
 >[!NOTE]
 > O seguinte script do PowerShell requer [do Azure Active Directory PowerShell versão 2][AD-Powershell].

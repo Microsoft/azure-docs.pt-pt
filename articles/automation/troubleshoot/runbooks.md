@@ -8,12 +8,12 @@ ms.date: 01/24/2019
 ms.topic: conceptual
 ms.service: automation
 manager: carmonm
-ms.openlocfilehash: 77f6a48402aef5b493b115d2137ccb6a507050b7
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: b34a1716d077aeead572c60d0c6b9bcad60a5b1e
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57760210"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58005432"
 ---
 # <a name="troubleshoot-errors-with-runbooks"></a>Resolver problemas de erros com runbooks
 
@@ -133,7 +133,7 @@ Para utilizar um certificado com os cmdlets do modelo de implementação clássi
 
 ## <a name="common-errors-when-working-with-runbooks"></a>Erros comuns ao trabalhar com runbooks
 
-###<a name="child-runbook-object"></a>Runbook subordinado devolve um erro quando o fluxo de saída contém objetos em vez de tipos de dados simples
+### <a name="child-runbook-object"></a>Runbook subordinado devolve um erro quando o fluxo de saída contém objetos em vez de tipos de dados simples
 
 #### <a name="issue"></a>Problema
 
@@ -303,7 +303,7 @@ Este erro ocorre devido a um dos seguintes problemas:
 
 3. Módulo incompatível. Este erro pode ocorrer se as dependências do módulo não estão corretas e se não forem, o runbook devolve normalmente um "comando não encontrado" ou "Não é possível vincular o parâmetro" mensagem.
 
-4. O runbook tentou chamar um um executável ou subprocess num runbook que é executado numa área de segurança do Azure. Este cenário não é suportado em áreas de segurança do Azure.
+4. O runbook tentou chamar um executável ou subprocess num runbook que é executado numa área de segurança do Azure. Este cenário não é suportado em áreas de segurança do Azure.
 
 #### <a name="resolution"></a>Resolução
 
@@ -463,7 +463,7 @@ O webhook que está a tentar chamar está desabilitado ou expirou.
 
 Se o webhook está desabilitado, pode reativar o webhook através do portal do Azure. Quando um webhook tiver expirado, o webhook tem de ser eliminado e recriado. Só é possível [renovar um webhook](../automation-webhooks.md#renew-webhook) se ainda não já expirou.
 
-### <a name="429"></a>Cenário: 429: A taxa de pedidos está atualmente demasiado grande. Tente novamente
+### <a name="429"></a>Cenário: 429: The request rate is currently too large. Tente novamente
 
 #### <a name="issue"></a>Problema
 

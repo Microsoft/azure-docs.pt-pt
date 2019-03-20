@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/10/2019
 ms.author: juliako
-ms.openlocfilehash: 58306780978189749b592b6cd9d13c63ecd25641
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: c19572f74a4ec4b5d7418772ec5f7251835a8bb8
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55996156"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58012984"
 ---
 # <a name="media-encoder-standard-schema"></a>Esquema Media Encoder Standard
 Este artigo descreve alguns dos elementos e tipos do esquema XML no qual [predefine Media Encoder Standard](media-services-mes-presets-overview.md) baseiam-se. O artigo apresenta a explicação de elementos e os respetivos valores válidos.  
@@ -27,6 +27,7 @@ Este artigo descreve alguns dos elementos e tipos do esquema XML no qual [predef
 Define uma predefinição de codificação.  
 
 ### <a name="elements"></a>Elementos
+
 | Name | Tipo | Descrição |
 | --- | --- | --- |
 | **Codificação** |[Codificação](media-services-mes-schema.md#Encoding) |Elemento de raiz, indica que as origens de entrada estão a ser codificada. |
@@ -34,6 +35,7 @@ Define uma predefinição de codificação.
 | **StretchMode**<br/>minOccurs="0"<br/>default="AutoSize|xs:string|Controlar o tamanho de quadro de vídeo de saída, o preenchimento, o pixel ou visualizar a proporção de aspecto. **StretchMode** poderia ser um dos seguintes valores: **NONE**, **AutoSize** (predefinição), ou **AutoFit**.<br/><br/>**Nenhum**: Siga estritamente a resolução de saída (por exemplo, o **largura** e **altura** na configuração predefinida) sem considerar a taxa de proporção de pixel ou a taxa de proporção de exibição de vídeo de entrada. Recomendado em cenários como [corte](media-services-crop-video.md), em que o vídeo de saída tem uma taxa de proporção diferente em comparação com a entrada. <br/><br/>**AutoSize**: A resolução de saída poderão caber dentro da janela (largura * altura) especificado pela configuração predefinida. No entanto, o codificador produz um vídeo de saída que tem a proporção de pixel do quadrado (1:1). Por conseguinte, a saída largura ou altura de saída pode ser substituído para corresponderem à proporção de apresentação da entrada, sem preenchimento. Por exemplo, se a entrada é de 1920 x 1080, e a predefinição de codificação pede-lhe 1280 x 1280, em seguida, o valor de altura na configuração predefinida é substituído e o resultado será em 1280 x 720, que mantém a entrada proporção de 16:9. <br/><br/>**AutoFit**: Se for necessário, preenche o vídeo de saída (com letterbox ou pillarbox) que respeite a resolução de saída desejada, garantindo que a região de vídeo Active Directory na saída tem a mesma proporção como entrada. Por exemplo, suponha que a entrada é de 1920 x 1080 e a predefinição de codificação pede-lhe 1280 x 1280. Em seguida, a saída de vídeo será 1280 x 1280, mas ele conterá um retângulo de 1280 x 720 interna de "vídeo Active Directory' com a taxa de proporção de 16:9 e letterbox regiões 280 pixels de altura na parte superior e inferior. Por outro exemplo, se a entrada é 1440 x 1080 e a predefinição de codificação pede-lhe 1280 x 720, em seguida, o resultado será em 1280 x 720, que contém um retângulo interno de 960 x 720 na taxa de proporção de 4:3 e pilar caixa regiões 160 pixels grande no lado esquerdo e direito. 
 
 ### <a name="attributes"></a>Atributos
+
 | Name | Tipo | Descrição |
 | --- | --- | --- |
 | **Versão**<br/><br/> Necessário |**xs: decimal** |A versão predefinida. As seguintes restrições aplicam-se: valor de xs:fractionDigits = valor "1" e xs:minInclusive = "1", por exemplo, **versão = "1.0"**. |
@@ -42,6 +44,7 @@ Define uma predefinição de codificação.
 Contém uma seqüência dos seguintes elementos:  
 
 ### <a name="elements"></a>Elementos
+
 | Name | Tipo | Descrição |
 | --- | --- | --- |
 | **H264Video** |[H264Video](media-services-mes-schema.md#H264Video) |Definições para H.264 codificação de vídeo. |
@@ -52,6 +55,7 @@ Contém uma seqüência dos seguintes elementos:
 
 ## <a name="H264Video"></a> H264Video
 ### <a name="elements"></a>Elementos
+
 | Name | Tipo | Descrição |
 | --- | --- | --- |
 | **TwoPass**<br/><br/> minOccurs="0" |**xs:boolean** |Atualmente, é suportada a codificação de apenas de uma passagem. |
@@ -62,6 +66,7 @@ Contém uma seqüência dos seguintes elementos:
 | **H264Layers**<br/><br/> minOccurs="0" |[H264Layers](media-services-mes-schema.md#H264Layers) |Coleção de camadas de vídeo de saída. |
 
 ### <a name="attributes"></a>Atributos
+
 | Name | Tipo | Descrição |
 | --- | --- | --- |
 | **condição** |**xs:string** | Quando a entrada não tem nenhum vídeo, pode querer forçar o codificador para inserir um Roteiro de vídeo monocromático. Para tal, utilize condição = "InsertBlackIfNoVideoBottomLayerOnly" (para inserir um vídeo em apenas a velocidade de transmissão mais baixa) ou condição = "InsertBlackIfNoVideo" (para inserir um vídeo de todo o resultado de velocidades de transmissão). Para obter mais informações, veja [este](media-services-advanced-encoding-with-mes.md#no_video) artigo.|
@@ -71,6 +76,7 @@ Contém uma seqüência dos seguintes elementos:
 Por predefinição, se tiver de enviar uma entrada ao codificador que contenha apenas áudio e nenhum vídeo, o elemento de saída contém ficheiros com dados de áudio apenas. Alguns leitores podem não ser capazes de lidar com esses fluxos de saída. Pode usar o H264Video **InsertBlackIfNoVideo** atributo definição para forçar o codificador para adicionar uma faixa de vídeo para o resultado desse cenário. Para obter mais informações, veja [este](media-services-advanced-encoding-with-mes.md#no_video) artigo.
               
 ### <a name="elements"></a>Elementos
+
 | Name | Tipo | Descrição |
 | --- | --- | --- |
 | **H264Layer**<br/><br/> minOccurs="0" maxOccurs="unbounded" |[H264Layer](media-services-mes-schema.md#H264Layer) |Uma coleção de camadas de h264 taxa de bits. |
@@ -82,6 +88,7 @@ Por predefinição, se tiver de enviar uma entrada ao codificador que contenha a
 > 
 
 ### <a name="elements"></a>Elementos
+
 | Name | Tipo | Descrição |
 | --- | --- | --- |
 | **Perfil**<br/><br/> minOccurs="0"<br/><br/> predefinição = "Auto" |**xs: string** |Pode ser de um dos seguintes procedimentos **xs: string** valores: **Auto**, **linha de base**, **Main**, **elevada**. |
@@ -104,16 +111,19 @@ Por predefinição, se tiver de enviar uma entrada ao codificador que contenha a
  Para obter mais informações sobre AAC, consulte [AAC](https://en.wikipedia.org/wiki/Advanced_Audio_Coding).  
 
 ### <a name="elements"></a>Elementos
+
 | Name | Tipo | Descrição |
 | --- | --- | --- |
 | **Perfil**<br/><br/> minOccurs="0 "<br/><br/> default="AACLC" |**xs: string** |Poderia ser um dos seguintes valores: **AACLC**, **HEAACV1**, ou **HEAACV2**. |
 
 ### <a name="attributes"></a>Atributos
+
 | Name | Tipo | Descrição |
 | --- | --- | --- |
 | **condição** |**xs: string** |Para forçar o codificador para produzir um elemento que contenha uma faixa de áudio silenciosa quando a entrada tem sem áudio, especifique o valor de "InsertSilenceIfNoAudio".<br/><br/> Por predefinição, se tiver de enviar uma entrada ao codificador que contém apenas vídeo e áudio de nenhum, em seguida, o elemento de saída contém ficheiros que contêm dados apenas de vídeos. Alguns leitores podem não ser capazes de lidar com esses fluxos de saída. Pode utilizar esta definição para forçar o codificador para adicionar uma faixa de áudio automática para a saída desse cenário. |
 
 ### <a name="groups"></a>Grupos
+
 | Referência | Descrição |
 | --- | --- |
 | [AudioGroup](media-services-mes-schema.md#AudioGroup)<br/><br/> minOccurs="0" |Ver Descrição [AudioGroup](media-services-mes-schema.md#AudioGroup) saber o número apropriado de canais, a taxa de amostragem e a taxa de bits que poderia ser definida para cada perfil. |
@@ -122,6 +132,7 @@ Por predefinição, se tiver de enviar uma entrada ao codificador que contenha a
 Para obter detalhes sobre quais os valores são válidos para cada perfil, consulte a tabela "Detalhes do codec de áudio" que se segue.  
 
 ### <a name="elements"></a>Elementos
+
 | Name | Tipo | Descrição |
 | --- | --- | --- |
 | **canais**<br/><br/> minOccurs="0" |**xs: int** |O número de canais de áudio codificado. Seguem-se as opções válidas: 1, 2, 5, 6, 8.<br/><br/> Predefinição: 2. |
@@ -129,14 +140,16 @@ Para obter detalhes sobre quais os valores são válidos para cada perfil, consu
 | **Velocidade de transmissão**<br/><br/> minOccurs="0" |**xs: int** |A velocidade de transmissão utilizada quando a codificação de áudio, especificado em kbps. |
 
 ### <a name="audio-codec-details"></a>Detalhes de codec de áudio
+
 Codec de áudio|Detalhes  
 -----------------|---  
-**AACLC**|1:<br/><br/> - 11025: 8 &lt;= a velocidade de transmissão &lt; 16<br/><br/> - 12000: 8 &lt;= a velocidade de transmissão &lt; 16<br/><br/> - 16000: 8 &lt;= a velocidade de transmissão &lt;32<br/><br/>- 22050: 24 &lt;= a velocidade de transmissão &lt; 32<br/><br/> - 24000: 24 &lt;= a velocidade de transmissão &lt; 32<br/><br/> - 32000: 32 &lt;= a velocidade de transmissão &lt;= 192<br/><br/> - 44100: 56 &lt;= a velocidade de transmissão &lt;= 288<br/><br/> - 48000: 56 &lt;= a velocidade de transmissão &lt;= 288<br/><br/> - 88200 : 128 &lt;= a velocidade de transmissão &lt;= 288<br/><br/> - 96000 : 128 &lt;= a velocidade de transmissão &lt;= 288<br/><br/> 2:<br/><br/> - 11025: 16 &lt;= a velocidade de transmissão &lt; 24<br/><br/> - 12000: 16 &lt;= a velocidade de transmissão &lt; 24<br/><br/> - 16000: 16 &lt;= a velocidade de transmissão &lt; 40<br/><br/> - 22050: 32 &lt;= a velocidade de transmissão &lt; 40<br/><br/> - 24000 : 32 &lt;= a velocidade de transmissão &lt; 40<br/><br/> - 32000:  40 &lt;= a velocidade de transmissão &lt;= 384<br/><br/> - 44100: 96 &lt;= a velocidade de transmissão &lt;= 576<br/><br/> - 48000 : 96 &lt;= a velocidade de transmissão &lt;= 576<br/><br/> - 88200: 256 &lt;= a velocidade de transmissão &lt;= 576<br/><br/> - 96000: 256 &lt;= a velocidade de transmissão &lt;= 576<br/><br/> 5/6:<br/><br/> - 32000: 160 &lt;= a velocidade de transmissão &lt;= 896<br/><br/> - 44100: 240 &lt;= a velocidade de transmissão &lt;= 1024<br/><br/> - 48000: 240 &lt;= a velocidade de transmissão &lt;= 1024<br/><br/> - 88200: 640 &lt;= a velocidade de transmissão &lt;= 1024<br/><br/> - 96000: 640 &lt;= a velocidade de transmissão &lt;= 1024<br/><br/> 8:<br/><br/> - 32000 : 224 &lt;= a velocidade de transmissão &lt;= 1024<br/><br/> - 44100 : 384 &lt;= a velocidade de transmissão &lt;= 1024<br/><br/> - 48000: 384 &lt;= a velocidade de transmissão &lt;= 1024<br/><br/> - 88200: 896 &lt;= a velocidade de transmissão &lt;= 1024<br/><br/> - 96000: 896 &lt;= a velocidade de transmissão &lt;= 1024  
-**HEAACV1**|1:<br/><br/> - 22050: bitrate = 8<br/><br/> - 24000: 8 &lt;= a velocidade de transmissão &lt;= 10<br/><br/> - 32000: 12 &lt;= a velocidade de transmissão &lt;= 64<br/><br/> - 44100: 20 &lt;= a velocidade de transmissão &lt;= 64<br/><br/> - 48000: 20 &lt;= a velocidade de transmissão &lt;= 64<br/><br/> - 88200: bitrate = 64<br/><br/> 2:<br/><br/> - 32000: 16 &lt;= a velocidade de transmissão &lt;= 128<br/><br/> - 44100: 16 &lt;= a velocidade de transmissão &lt;= 128<br/><br/> - 48000: 16 &lt;= a velocidade de transmissão &lt;= 128<br/><br/> - 88200 : 96 &lt;= a velocidade de transmissão &lt;= 128<br/><br/> - 96000: 96 &lt;= a velocidade de transmissão &lt;= 128<br/><br/> 5/6:<br/><br/> - 32000 : 64 &lt;= a velocidade de transmissão &lt;= 320<br/><br/> - 44100: 64 &lt;= a velocidade de transmissão &lt;= 320<br/><br/> - 48000: 64 &lt;= a velocidade de transmissão &lt;= 320<br/><br/> - 88200 : 256 &lt;= a velocidade de transmissão &lt;= 320<br/><br/> - 96000: 256 &lt;= a velocidade de transmissão &lt;= 320<br/><br/> 8:<br/><br/> - 32000: 96 &lt;= a velocidade de transmissão &lt;= 448<br/><br/> - 44100: 96 &lt;= a velocidade de transmissão &lt;= 448<br/><br/> - 48000: 96 &lt;= a velocidade de transmissão &lt;= 448<br/><br/> - 88200: 384 &lt;= a velocidade de transmissão &lt;= 448<br/><br/> - 96000: 384 &lt;= a velocidade de transmissão &lt;= 448  
-**HEAACV2**|2:<br/><br/> - 22050: 8 &lt;= a velocidade de transmissão &lt;= 10<br/><br/> - 24000: 8 &lt;= a velocidade de transmissão &lt;= 10<br/><br/> - 32000: 12 &lt;= a velocidade de transmissão &lt;= 64<br/><br/> - 44100: 20 &lt;= a velocidade de transmissão &lt;= 64<br/><br/> - 48000: 20 &lt;= a velocidade de transmissão &lt;= 64<br/><br/> - 88200: 64 &lt;= a velocidade de transmissão &lt;= 64  
+**AACLC** |1:<br/><br/> - 11025: 8 &lt;= a velocidade de transmissão &lt; 16<br/><br/> - 12000: 8 &lt;= a velocidade de transmissão &lt; 16<br/><br/> - 16000: 8 &lt;= a velocidade de transmissão &lt;32<br/><br/>- 22050: 24 &lt;= a velocidade de transmissão &lt; 32<br/><br/> - 24000: 24 &lt;= a velocidade de transmissão &lt; 32<br/><br/> - 32000: 32 &lt;= a velocidade de transmissão &lt;= 192<br/><br/> - 44100: 56 &lt;= a velocidade de transmissão &lt;= 288<br/><br/> - 48000: 56 &lt;= a velocidade de transmissão &lt;= 288<br/><br/> - 88200 : 128 &lt;= a velocidade de transmissão &lt;= 288<br/><br/> - 96000 : 128 &lt;= a velocidade de transmissão &lt;= 288<br/><br/> 2:<br/><br/> - 11025: 16 &lt;= a velocidade de transmissão &lt; 24<br/><br/> - 12000: 16 &lt;= a velocidade de transmissão &lt; 24<br/><br/> - 16000: 16 &lt;= a velocidade de transmissão &lt; 40<br/><br/> - 22050: 32 &lt;= a velocidade de transmissão &lt; 40<br/><br/> - 24000 : 32 &lt;= a velocidade de transmissão &lt; 40<br/><br/> - 32000:  40 &lt;= a velocidade de transmissão &lt;= 384<br/><br/> - 44100: 96 &lt;= a velocidade de transmissão &lt;= 576<br/><br/> - 48000 : 96 &lt;= a velocidade de transmissão &lt;= 576<br/><br/> - 88200: 256 &lt;= a velocidade de transmissão &lt;= 576<br/><br/> - 96000: 256 &lt;= a velocidade de transmissão &lt;= 576<br/><br/> 5/6:<br/><br/> - 32000: 160 &lt;= a velocidade de transmissão &lt;= 896<br/><br/> - 44100: 240 &lt;= a velocidade de transmissão &lt;= 1024<br/><br/> - 48000: 240 &lt;= a velocidade de transmissão &lt;= 1024<br/><br/> - 88200: 640 &lt;= a velocidade de transmissão &lt;= 1024<br/><br/> - 96000: 640 &lt;= a velocidade de transmissão &lt;= 1024<br/><br/> 8:<br/><br/> - 32000 : 224 &lt;= a velocidade de transmissão &lt;= 1024<br/><br/> - 44100 : 384 &lt;= a velocidade de transmissão &lt;= 1024<br/><br/> - 48000: 384 &lt;= a velocidade de transmissão &lt;= 1024<br/><br/> - 88200: 896 &lt;= a velocidade de transmissão &lt;= 1024<br/><br/> - 96000: 896 &lt;= a velocidade de transmissão &lt;= 1024  
+**HEAACV1** |1:<br/><br/> - 22050: bitrate = 8<br/><br/> - 24000: 8 &lt;= a velocidade de transmissão &lt;= 10<br/><br/> - 32000: 12 &lt;= a velocidade de transmissão &lt;= 64<br/><br/> - 44100: 20 &lt;= a velocidade de transmissão &lt;= 64<br/><br/> - 48000: 20 &lt;= a velocidade de transmissão &lt;= 64<br/><br/> - 88200: bitrate = 64<br/><br/> 2:<br/><br/> - 32000: 16 &lt;= a velocidade de transmissão &lt;= 128<br/><br/> - 44100: 16 &lt;= a velocidade de transmissão &lt;= 128<br/><br/> - 48000: 16 &lt;= a velocidade de transmissão &lt;= 128<br/><br/> - 88200 : 96 &lt;= a velocidade de transmissão &lt;= 128<br/><br/> - 96000: 96 &lt;= a velocidade de transmissão &lt;= 128<br/><br/> 5/6:<br/><br/> - 32000 : 64 &lt;= a velocidade de transmissão &lt;= 320<br/><br/> - 44100: 64 &lt;= a velocidade de transmissão &lt;= 320<br/><br/> - 48000: 64 &lt;= a velocidade de transmissão &lt;= 320<br/><br/> - 88200 : 256 &lt;= a velocidade de transmissão &lt;= 320<br/><br/> - 96000: 256 &lt;= a velocidade de transmissão &lt;= 320<br/><br/> 8:<br/><br/> - 32000: 96 &lt;= a velocidade de transmissão &lt;= 448<br/><br/> - 44100: 96 &lt;= a velocidade de transmissão &lt;= 448<br/><br/> - 48000: 96 &lt;= a velocidade de transmissão &lt;= 448<br/><br/> - 88200: 384 &lt;= a velocidade de transmissão &lt;= 448<br/><br/> - 96000: 384 &lt;= a velocidade de transmissão &lt;= 448  
+**HEAACV2** |2:<br/><br/> - 22050: 8 &lt;= a velocidade de transmissão &lt;= 10<br/><br/> - 24000: 8 &lt;= a velocidade de transmissão &lt;= 10<br/><br/> - 32000: 12 &lt;= a velocidade de transmissão &lt;= 64<br/><br/> - 44100: 20 &lt;= a velocidade de transmissão &lt;= 64<br/><br/> - 48000: 20 &lt;= a velocidade de transmissão &lt;= 64<br/><br/> - 88200: 64 &lt;= a velocidade de transmissão &lt;= 64  
   
 ## <a name="Clip"></a> Clip
 ### <a name="attributes"></a>Atributos
+
 | Name | Tipo | Descrição |
 | --- | --- | --- |
 | **StartTime** |**xs:duration** |Especifica a hora de início de uma apresentação. O valor de StartTime tem de corresponder os carimbos de data / absoluto de vídeo de entrada. Por exemplo, se o primeiro quadro de vídeo de entrada tem um carimbo de 12:00:10.000, em seguida, StartTime deve ser, pelo menos, 12:00:10.000 ou superior. |
@@ -144,11 +157,13 @@ Codec de áudio|Detalhes
 
 ## <a name="Output"></a> Saída
 ### <a name="attributes"></a>Atributos
+
 | Name | Tipo | Descrição |
 | --- | --- | --- |
 | **FileName** |**xs:string** |O nome do ficheiro de saída.<br/><br/> Pode usar macros descritas na tabela seguinte para criar os nomes de ficheiro de saída. Por exemplo:<br/><br/> **"Outputs": [      {       "FileName": "{Basename}*{Resolution}*{Bitrate}.mp4",       "Format": {         "Type": "MP4Format"       }     }   ]** |
 
 ### <a name="macros"></a>Macros
+
 | Macro | Descrição |
 | --- | --- |
 | **{Basename}** |Se estiver fazendo a codificação VoD, {Nome_de_base} é os primeiro 32 carateres da propriedade AssetFile.Name do ficheiro principal no recurso de entrada.<br/><br/> Se o elemento de entrada for um arquivo em direto, em seguida, {Nome_de_base} é derivado dos atributos de trackName no manifesto do servidor. Se estiver a enviar uma tarefa do subclip com TopBitrate, como em: "< VideoStream\>TopBitrate < / VideoStream\>" e o ficheiro de saída contém vídeo, em seguida, {Nome_de_base} é os primeiro 32 carateres de trackName da camada de vídeo com a velocidade de transmissão mais alta.<br/><br/> Se em vez disso, que está a enviar uma tarefa de subclip com todas as velocidades de transmissão de entrada, tais como "< VideoStream\>* < / VideoStream\>" e o ficheiro de saída contém vídeo, em seguida, {Nome_de_base} é os primeiro 32 carateres de trackName das camada de vídeo correspondente. |
@@ -162,6 +177,7 @@ Codec de áudio|Detalhes
 
 ## <a name="Video"></a> Vídeo (tipo complexo herda de Codec)
 ### <a name="attributes"></a>Atributos
+
 | Name | Tipo | Descrição |
 | --- | --- | --- |
 | **Começar** |**xs:string** | |
@@ -186,6 +202,7 @@ Em alternativa, pode fazer uso do **PreserveResolutionAfterRotation** sinalizar 
 
 ## <a name="FormatGroup"></a> FormatGroup (grupo)
 ### <a name="elements"></a>Elementos
+
 | Name | Tipo | Descrição |
 | --- | --- | --- |
 | **BmpFormat** |**BmpFormat** | |
@@ -194,30 +211,35 @@ Em alternativa, pode fazer uso do **PreserveResolutionAfterRotation** sinalizar 
 
 ## <a name="BmpLayer"></a> BmpLayer
 ### <a name="element"></a>Elemento
+
 | Name | Tipo | Descrição |
 | --- | --- | --- |
 | **Width**<br/><br/> minOccurs="0" |**xs:int** | |
 | **Height**<br/><br/> minOccurs="0" |**xs:int** | |
 
 ### <a name="attributes"></a>Atributos
+
 | Name | Tipo | Descrição |
 | --- | --- | --- |
 | **condição** |**xs:string** | |
 
 ## <a name="PngLayer"></a> PngLayer
 ### <a name="element"></a>Elemento
+
 | Name | Tipo | Descrição |
 | --- | --- | --- |
 | **Width**<br/><br/> minOccurs="0" |**xs:int** | |
 | **Height**<br/><br/> minOccurs="0" |**xs:int** | |
 
 ### <a name="attributes"></a>Atributos
+
 | Name | Tipo | Descrição |
 | --- | --- | --- |
 | **condição** |**xs:string** | |
 
 ## <a name="JpgLayer"></a> JpgLayer
 ### <a name="element"></a>Elemento
+
 | Name | Tipo | Descrição |
 | --- | --- | --- |
 | **Width**<br/><br/> minOccurs="0" |**xs:int** | |
@@ -225,42 +247,49 @@ Em alternativa, pode fazer uso do **PreserveResolutionAfterRotation** sinalizar 
 | **Qualidade**<br/><br/> minOccurs="0" |**xs:int** |Valores válidos: 1(worst)-100(Best) |
 
 ### <a name="attributes"></a>Atributos
+
 | Name | Tipo | Descrição |
 | --- | --- | --- |
 | **condição** |**xs:string** | |
 
 ## <a name="PngLayers"></a> PngLayers
 ### <a name="elements"></a>Elementos
+
 | Name | Tipo | Descrição |
 | --- | --- | --- |
 | **PngLayer**<br/><br/> minOccurs="0" maxOccurs="unbounded" |[PngLayer](media-services-mes-schema.md#PngLayer) | |
 
 ## <a name="BmpLayers"></a> BmpLayers
 ### <a name="elements"></a>Elementos
+
 | Name | Tipo | Descrição |
 | --- | --- | --- |
 | **BmpLayer**<br/><br/> minOccurs="0" maxOccurs="unbounded" |[BmpLayer](media-services-mes-schema.md#BmpLayer) | |
 
 ## <a name="JpgLayers"></a> JpgLayers
 ### <a name="elements"></a>Elementos
+
 | Name | Tipo | Descrição |
 | --- | --- | --- |
 | **JpgLayer**<br/><br/> minOccurs="0" maxOccurs="unbounded" |[JpgLayer](media-services-mes-schema.md#JpgLayer) | |
 
 ## <a name="BmpImage"></a> BmpImage (tipo complexo herda de vídeo)
 ### <a name="elements"></a>Elementos
+
 | Name | Tipo | Descrição |
 | --- | --- | --- |
 | **PngLayers**<br/><br/> minOccurs="0" |[PngLayers](media-services-mes-schema.md#PngLayers) |Camadas de PNG |
 
 ## <a name="JpgImage"></a> JpgImage (tipo complexo herda de vídeo)
 ### <a name="elements"></a>Elementos
+
 | Name | Tipo | Descrição |
 | --- | --- | --- |
 | **PngLayers**<br/><br/> minOccurs="0" |[PngLayers](media-services-mes-schema.md#PngLayers) |Camadas de PNG |
 
 ## <a name="PngImage"></a> PngImage (tipo complexo herda de vídeo)
 ### <a name="elements"></a>Elementos
+
 | Name | Tipo | Descrição |
 | --- | --- | --- |
 | **PngLayers**<br/><br/> minOccurs="0" |[PngLayers](media-services-mes-schema.md#PngLayers) |Camadas de PNG |

@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: automation
 ms.subservice: update-management
 manager: carmonm
-ms.openlocfilehash: ff3492a0f523e32be8f6ffdabf9d15e4faa70cb4
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: d4331942526b3dbda376605db2618ceeaec3f60a
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55812638"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58166003"
 ---
 # <a name="understand-the-windows-agent-check-results-in-update-management"></a>Compreender os resultados de verificação de agente do Windows na gestão de atualizações
 
@@ -119,7 +119,7 @@ CheckResultMessageArguments : {}
 
 RuleId                      : DotNetFrameworkInstalledCheck
 RuleGroupId                 : prerequisites
-RuleName                    : .Net Framework 4.5+
+RuleName                    : .NET Framework 4.5+
 RuleGroupName               : Prerequisite Checks
 RuleDescription             : .NET Framework version 4.5 or higher is required
 CheckResult                 : Passed

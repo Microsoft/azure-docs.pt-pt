@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: TomSh
-ms.openlocfilehash: 934046ac4be6c0e85ee687cefb46b61ec8affca6
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: ed57d72d32ba82a37036c9af77590bd4e93db8d9
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57543372"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57904257"
 ---
 # <a name="introduction-to-azure-security"></a>Introdução à segurança do Azure
 ## <a name="overview"></a>Descrição geral
@@ -59,7 +59,7 @@ Os recursos listados a seguir são capacidades, que pode rever para fornecer a g
 | [Plataforma segura](https://www.microsoft.com/en-us/trustcenter/Security/default.aspx)  | [Privacidade e controlos](https://www.microsoft.com/en-us/trustcenter/Privacy/default.aspx)  |[Conformidade](https://www.microsoft.com/en-us/trustcenter/Compliance/default.aspx)   | [Transparência](https://www.microsoft.com/en-us/trustcenter/Transparency/default.aspx) |
 | :-- | :-- | :-- | :-- |
 | [Ciclo de desenvolvimento de segurança](https://www.microsoft.com/en-us/sdl/)interno auditorias | [Gerir os seus dados sempre](https://www.microsoft.com/en-us/trustcenter/Privacy/You-own-your-data) | [Centro de Fidedignidade](https://www.microsoft.com/en-us/trustcenter/default.aspx) |[Como a Microsoft protege os dados do cliente nos serviços do Azure](https://www.microsoft.com/en-us/trustcenter/Transparency/default.aspx) |
-| [Treinamento de segurança obrigatório, verificações de segundo plano](https://downloads.cloudsecurityalliance.org/star/self-assessment/StandardResponsetoRequestforInformationWindowsAzureSecurityPrivacy.docx) |  [Controlar a localização de dados](https://www.microsoft.com/en-us/trustcenter/Privacy/Where-your-data-is-located) |  [Hub de controles comuns](https://www.microsoft.com/en-us/trustcenter/Common-Controls-Hub) |[Como o Microsoft gerir a localização dos dados nos serviços do Azure](http://azuredatacentermap.azurewebsites.net/)|
+| [Treinamento de segurança obrigatório, verificações de segundo plano](https://downloads.cloudsecurityalliance.org/star/self-assessment/StandardResponsetoRequestforInformationWindowsAzureSecurityPrivacy.docx) |  [Controlar a localização de dados](https://www.microsoft.com/en-us/trustcenter/Privacy/Where-your-data-is-located) |  [Hub de controles comuns](https://www.microsoft.com/en-us/trustcenter/Common-Controls-Hub) |[Como o Microsoft gerir a localização dos dados nos serviços do Azure](https://azuredatacentermap.azurewebsites.net/)|
 | [Os testes de penetração](https://downloads.cloudsecurityalliance.org/star/self-assessment/StandardResponsetoRequestforInformationWindowsAzureSecurityPrivacy.docx), [detecção de intrusão, DDoS](https://www.microsoft.com/en-us/trustcenter/Security/ThreatManagement), [auditorias e Registro em log](https://www.microsoft.com/en-us/trustcenter/Security/AuditingAndLogging) | [Fornecer acesso a dados em seus próprios termos](https://www.microsoft.com/en-us/trustcenter/Privacy/Who-can-access-your-data-and-on-what-terms) |  [Os serviços em nuvem devida diligência lista de verificação](https://www.microsoft.com/en-us/trustcenter/Compliance/Due-Diligence-Checklist) |[Quem na Microsoft podem aceder aos seus dados em quais condições](https://www.microsoft.com/en-us/trustcenter/Privacy/Who-can-access-your-data-and-on-what-terms)|
 | [Centro de dados de ponta](https://www.microsoft.com/en-us/cloud-platform/global-datacenters), a segurança física, [proteger a rede](https://docs.microsoft.com/azure/security/security-network-overview) | [Responder às autoridades judiciárias](https://www.microsoft.com/en-us/trustcenter/Privacy/Responding-to-govt-agency-requests-for-customer-data) |  [Conformidade por serviço, a localização e a indústria](https://www.microsoft.com/en-us/trustcenter/Compliance/default.aspx) |[Como a Microsoft protege os dados do cliente nos serviços do Azure](https://www.microsoft.com/en-us/trustcenter/Transparency/default.aspx)|
 |  [Resposta a incidentes de segurança](https://aka.ms/SecurityResponsepaper), [responsabilidade partilhada](https://aka.ms/sharedresponsibility) |[Normas de privacidade rigorosas](https://www.microsoft.com/en-us/TrustCenter/Privacy/We-set-and-adhere-to-stringent-standards) |  | [Certificação de revisão para serviços do Azure, hub de transparência](https://www.microsoft.com/en-us/trustcenter/Compliance/default.aspx)|
@@ -79,22 +79,22 @@ O [solução de segurança e auditoria](https://docs.microsoft.com/azure/operati
 
 Além disso, pode configurar a segurança e conformidade para [automaticamente executar ações específicas](https://blogs.technet.microsoft.com/robdavies/2016/04/20/simple-look-at-oms-alert-remediation-with-runbooks-part-1/) quando é detetado um evento específico.
 
-### <a name="azure-resource-manager"></a>Gestor de Recursos do Azure
+### <a name="azure-resource-manager"></a>Azure Resource Manager
 [O Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-deployment-model) permite-lhe trabalhar com os recursos na sua solução como um grupo. Pode implementar, atualizar ou eliminar todos os recursos da sua solução numa operação única e coordenada. Utilizar um [modelo Azure Resource Manager](https://blogs.technet.microsoft.com/canitpro/2015/06/29/devops-basics-infrastructure-as-code-arm-templates/) para implementação e esse modelo podem funcionar para ambientes diferentes, tais como teste, transição e produção. O Resource Manager fornece funcionalidades de segurança, auditoria e etiquetagem para o ajudar a gerir os recursos após a implementação.
 
 As implementações do Resource Manager de baseados em modelos do Azure ajudam a melhorar a segurança das soluções implementadas no Azure, porque a controlar as definições de segurança padrão e pode ser integrado ao padronizado implementações baseadas em modelos. Isso reduz o risco de erros de configuração de segurança que podem ocorrer durante as implementações manuais.
 
-### <a name="application-insights"></a>Estatísticas das Aplicações
+### <a name="application-insights"></a>Application Insights
 [O Application Insights](https://docs.microsoft.com/azure/application-insights/) é um serviço de gestão de desempenho de aplicações (APM) extensível para desenvolvedores da web. Com o Application Insights, pode monitorizar as aplicações web em direto e detetar automaticamente anomalias de desempenho. Ele inclui ferramentas de análise poderosas para ajudar a diagnosticar problemas e para compreender o que os utilizadores fazem realmente com as suas aplicações. Monitoriza a aplicação sempre que ele é executado, durante o teste e depois de ter publicado ou implementado.
 
 O Application Insights cria gráficos e tabelas que mostram-lhe, por exemplo, que alturas do dia, obtém a maioria dos usuários, como capacidade de resposta a aplicação está e bem servida por todos os serviços externos que depende.
 
 Se existirem panes, falhas ou problemas de desempenho, pode pesquisar através dos dados de telemetria em detalhes para diagnosticar a causa. E o serviço envia-lhe e-mails se há alguma alteração na disponibilidade e desempenho da sua aplicação. Application Insights, portanto, torna-se uma ferramenta de segurança importante porque ajuda com a disponibilidade na confidencialidade, integridade e triad de segurança de disponibilidade.
 
-### <a name="azure-monitor"></a>Monitor do Azure
+### <a name="azure-monitor"></a>Azure Monitor
 [O Azure Monitor](https://docs.microsoft.com/azure/monitoring-and-diagnostics/) oferece a visualização, consulta, encaminhamento, alertas, dimensionamento automático e automatização em ambos os dados da infraestrutura do Azure ([registo de atividades](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs)) e cada recurso do Azure individual ([diagnóstico Regista](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs)). Pode utilizar o Azure Monitor para o alertar sobre eventos relacionados à segurança que são gerados nos registos do Azure.
 
-### <a name="azure-monitor-logs"></a>Registos de Monitor do Azure
+### <a name="azure-monitor-logs"></a>Registos do Azure Monitor
 [Registos de Monitor do Azure](https://azure.microsoft.com/documentation/services/log-analytics/) – dá uma solução de gestão de TI no local e de terceiros infraestrutura baseada na nuvem (por exemplo, o AWS), além de recursos do Azure. Dados do Azure Monitor podem ser roteados diretamente para os registos do Azure Monitor, para que possa ver métricas e registos de todo o ambiente num único local.
 
 Registos de Monitor do Azure podem ser uma ferramenta útil na análise de segurança forense e de outros, como a ferramenta permite-lhe procurar rapidamente por meio de grandes quantidades de entradas relacionadas com segurança com uma abordagem de consulta flexíveis. Além disso, no local [registos de firewall e proxy podem ser exportados para o Azure e disponibilizados para análise com os registos do Azure Monitor.](https://docs.microsoft.com/azure/log-analytics/log-analytics-proxy-firewall)
@@ -189,7 +189,7 @@ Para muitas organizações, a encriptação de dados Inativos é um passo obriga
 [Cross-Origin Resource Sharing (CORS)](https://docs.microsoft.com/rest/api/storageservices/fileservices/cross-origin-resource-sharing--cors--support-for-the-azure-storage-services) é um mecanismo que-se entre si dar permissão para aceder a recursos uns dos outros. O agente de utilizador envia cabeçalhos extra para garantir que o código JavaScript carregado a partir de um determinado domínio tem permissão para aceder aos recursos localizados em outro domínio. O último domínio, em seguida, responde com cabeçalhos extra permitir ou negar o acesso de domínio original para seus recursos.
 
 Serviços de armazenamento do Azure suportam agora CORS para que depois de definir as regras CORS para o serviço, um pedido devidamente autenticado efetuado para o serviço a partir de um domínio diferente é avaliado para determinar se é permitido de acordo com as regras que especificou.
-## <a name="networking"></a>Funcionamento em Rede
+## <a name="networking"></a>Redes
 A seção fornece informações adicionais sobre os principais recursos do informações de segurança e o resumo de rede do Azure sobre esses recursos.
 
 ### <a name="network-layer-controls"></a>Controlos de camada de rede
@@ -229,20 +229,20 @@ Redes do Azure suportam vários cenários de acesso remoto seguro. Alguns desses
 ### <a name="vpn-gateway"></a>Gateway de VPN
 Para enviar tráfego de rede entre a rede Virtual do Azure e o seu site no local, tem de criar um gateway de VPN para rede Virtual do Azure. R [gateway de VPN](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways) é um tipo de gateway de rede virtual que envia o tráfego encriptado através de uma ligação pública. Também pode utilizar gateways de VPN para enviar tráfego entre redes virtuais do Azure através de recursos de infraestrutura de rede do Azure.
 
-### <a name="express-route"></a>Express Route
+### <a name="express-route"></a>ExpressRoute
 Microsoft Azure [ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-introduction) é um link WAN dedicado que permite-lhe expandir as redes no local para a cloud da Microsoft através de uma ligação privada dedicada facilitada por um fornecedor de conectividade.
 
-![Express Route](./media/azure-security/azure-security-fig1.png)
+![ExpressRoute](./media/azure-security/azure-security-fig1.png)
 
 Com o ExpressRoute, pode estabelecer ligações aos serviços em nuvem da Microsoft, tais como o Microsoft Azure, Office 365 e o CRM Online. A conectividade pode ser a partir de uma rede qualquer a qualquer (VPN de IP), uma rede Ethernet de ponto a ponto ou uma ligação cruzada virtual através de um fornecedor de conectividade numa localização conjunta.
 
 As ligações ExpressRoute não entram na Internet pública e, portanto, podem ser consideradas mais seguras do que soluções baseadas na VPN. Tal permite que as ligações do ExpressRoute ofereçam mais fiabilidade, velocidades superiores, latências inferiores e uma maior segurança do que as ligações típicas através da Internet.
 
 
-### <a name="application-gateway"></a>Gateway da Aplicação
+### <a name="application-gateway"></a>Gateway de Aplicação
 Microsoft [Gateway de aplicação do Azure](https://docs.microsoft.com/azure/application-gateway/application-gateway-introduction) fornece uma [controlador de entrega de aplicação (ADC)](https://en.wikipedia.org/wiki/Application_delivery_controller) como uma oferta de serviço, várias capacidades para a sua aplicação de balanceamento de carga layer 7.
 
-![Gateway da Aplicação](./media/azure-security/azure-security-fig2.png)
+![Gateway de Aplicação](./media/azure-security/azure-security-fig2.png)
 
 Permite-lhe otimizem a produtividade do web farm ao descarregar a terminação SSL com utilização intensiva da CPU para o Gateway de aplicação (também conhecido como "Descarga de SSL" ou "A ponte SSL"). Ele fornece também outras capacidades de encaminhamento de camada 7 incluindo a distribuição round robin de tráfego de entrada, afinidade por sessões com base no cookie, encaminhamento baseado no caminho URL e a capacidade de alojar vários Web sites atrás de um Gateway de aplicação único. O Application Gateway do Azure é um balanceador de carga de 7 camadas.
 
@@ -250,10 +250,10 @@ Fornece ativação pós-falha, pedidos HTTP de encaminhamento de desempenho entr
 
 Aplicação fornece balanceamento, com base no cookie de afinidade de sessão de carregamento de muitas funcionalidades de controlador de entrega de aplicação (ADC) incluindo HTTP [Secure Sockets Layer (SSL)](https://docs.microsoft.com/azure/application-gateway/application-gateway-web-application-firewall-powershell) descarga, sondas de estado de funcionamento personalizado, suporte para múltiplos sites, e muitos outros.
 
-### <a name="web-application-firewall"></a>Firewall de Aplicações Web
+### <a name="web-application-firewall"></a>Firewall de Aplicação Web
 Firewall de aplicações Web é uma funcionalidade do [Gateway de aplicação Azure](https://docs.microsoft.com/azure/application-gateway/application-gateway-introduction) que fornece proteção de aplicações web que utilizam o gateway de aplicação para as funções de controlo de entrega de aplicação (ADC) padrão. A Firewall de aplicações Web fá-lo ao protegê-las contra a maioria das 10 principais vulnerabilidades Web da OWASP.
 
-![Firewall de Aplicações Web](./media/azure-security/azure-security-fig1.png)
+![Firewall de Aplicação Web](./media/azure-security/azure-security-fig1.png)
 
 -   Proteção contra injeção de SQL
 
@@ -273,7 +273,7 @@ Uma firewall de aplicações Web centralizada contra ataques Web simplifica em m
 Microsoft [Gestor de tráfego do Azure](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-overview) permite-lhe controlar a distribuição do tráfego de utilizador para pontos finais de serviço nos centros de dados diferentes. Pontos finais de serviço suportados pelo Gestor de tráfego incluem as VMs do Azure, aplicações Web e serviços Cloud. Também pode utilizar o Gestor de Tráfego com pontos finais externos, não pertencentes ao Azure. O Gestor de tráfego utiliza o sistema de nomes de domínio (DNS) para direcionar os pedidos de cliente para o ponto de final mais adequado com base numa [método de encaminhamento de tráfego](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-routing-methods) e o estado de funcionamento dos pontos finais.
 
 Gestor de tráfego oferece uma variedade de métodos de encaminhamento de tráfego de mensagens em fila para atender às necessidades de aplicação diferente, o estado de funcionamento do ponto de extremidade [monitorização](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-monitoring)e a ativação pós-falha automática. O Gestor de Tráfego é resiliente a falhas, incluindo a falhas numa região do Azure inteira.
-### <a name="azure-load-balancer"></a>Balanceador de Carga do Azure
+### <a name="azure-load-balancer"></a>Azure Load Balancer
 O [Balanceador de Carga do Azure](https://docs.microsoft.com/azure/load-balancer/load-balancer-overview) oferece elevada disponibilidade e elevado desempenho de rede às suas aplicações. É um balanceador de carga de camada 4 (TCP, UDP) que distribui o tráfego de entrada entre instâncias de bom estado de funcionamento dos serviços definidos num conjunto com balanceamento de carga. O Balanceador de carga do Azure pode ser configurado para:
 
 -   Carregar saldo tráfego da Internet para máquinas virtuais. Esta configuração é conhecida como [balanceamento de carga com acesso à Internet](https://docs.microsoft.com/azure/load-balancer/load-balancer-internet-overview).
@@ -320,7 +320,7 @@ Encriptação e autenticação melhora a segurança, a menos que as chaves propr
 ### <a name="virtual-machine-backup"></a>Cópia de segurança da máquina virtual
 [O Azure Backup](https://docs.microsoft.com/azure/backup/backup-introduction-to-azure-backup) é uma solução que protege os dados da aplicação sem investimento de capital e um mínimo os custos operacionais. Erros de aplicações podem danificar os dados e erros humanos podem introduzir erros nas suas aplicações que podem levar a problemas de segurança. Com o Azure Backup, as máquinas virtuais que executam o Windows e Linux são protegidas.
 
-### <a name="azure-site-recovery"></a>Recuperação de Site do Azure
+### <a name="azure-site-recovery"></a>Azure Site Recovery
 Uma parte importante da sua organização [business continuidade/recuperação após desastre (BCDR)](https://docs.microsoft.com/azure/best-practices-availability-paired-regions) estratégia é descobrir como manter aplicações e cargas de trabalho empresariais em funcionamento quando planeada e falhas não planeadas ocorrerem. [O Azure Site Recovery](https://docs.microsoft.com/azure/site-recovery/site-recovery-overview) ajuda a orquestrar a replicação, ativação pós-falha e recuperação de cargas de trabalho e aplicações para que eles estejam disponíveis de uma localização secundária se a sua localização principal ficar inativo.
 
 ### <a name="sql-vm-tde"></a>TDE DE VM DO SQL
@@ -345,7 +345,7 @@ Atualizações de patch fornecem a base para encontrar e corrigir problemas pote
 ### <a name="azure-security-center"></a>Centro de Segurança do Azure
 O Centro de Segurança ajuda-o a evitar, detetar e responder a ameaças com uma maior visibilidade e controlo sobre a segurança dos seus recursos Azure. Fornece gestão de políticas e monitorização de segurança integrada nas suas subscrições do Azure, ajuda a detetar ameaças que caso contrário podem passar despercebidas e funciona com um ecossistema abrangente de soluções de segurança.
 
-## <a name="identity-and-access-management"></a>Gestão de identidades e acesso
+## <a name="identity-and-access-management"></a>Gestão de identidades e acessos
 
 Proteger sistemas, aplicativos e dados começa com controlos de acesso com base na identidade. As funcionalidades de gestão de acessos e identidades incorporadas no serviços e produtos comerciais da Microsoft ajudam a proteger as suas informações pessoais e organizacionais contra acesso não autorizado ao mesmo tempo, tornando-a legítimos utilizadores onde e quando quiserem eles precisa dela.
 

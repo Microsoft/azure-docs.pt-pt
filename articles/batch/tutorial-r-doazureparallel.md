@@ -11,12 +11,12 @@ ms.topic: tutorial
 ms.date: 01/23/2018
 ms.author: lahugh
 ms.custom: mvc
-ms.openlocfilehash: c682d35872587aa238ca9d76ade3d58654963628
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 557e7d9a35f012d65977d3e0654b55b15ff1e28f
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57551743"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58106445"
 ---
 # <a name="tutorial-run-a-parallel-r-simulation-with-azure-batch"></a>Tutorial: Executar uma simulação paralela em R com o Azure Batch 
 
@@ -38,7 +38,7 @@ Este tutorial mostra-lhe como implementar um conjunto do Batch e executar um tra
 
 * Uma conta do Azure Batch e uma conta de Armazenamento do Azure. Para criar estas contas, veja os inícios rápidos do Batch no [portal do Azure](quick-create-portal.md) ou na [CLI do Azure](quick-create-cli.md). 
 
-## <a name="sign-in-to-azure"></a>Inicie sessão no  Azure
+## <a name="sign-in-to-azure"></a>Iniciar sessão no Azure
 
 Inicie sessão no Portal do Azure em [https://portal.azure.com](https://portal.azure.com).
 
@@ -260,7 +260,7 @@ stopCluster(cluster)
 Neste tutorial, ficou a saber como:
 
 > [!div class="checklist"]
-Instalar doAzureParallel e configurá-lo para aceder às suas contas do Batch e de armazenamento
+> Instalar doAzureParallel e configurá-lo para aceder às suas contas do Batch e de armazenamento
 > * Criar um conjunto do Batch como um back-end paralelo para a sua sessão de R
 > * Executar uma simulação paralela de exemplo no conjunto
 

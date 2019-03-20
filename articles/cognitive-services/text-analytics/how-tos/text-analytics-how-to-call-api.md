@@ -10,12 +10,12 @@ ms.subservice: text-analytics
 ms.topic: conceptual
 ms.date: 02/13/2019
 ms.author: aahi
-ms.openlocfilehash: 6fedc1b9a6b88419dbcae41b5bb6f89bd8c5cbf7
-ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
+ms.openlocfilehash: 9d0a803f8a397d3c24f083188b6186acf4dde809
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56886883"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58122880"
 ---
 # <a name="how-to-call-the-text-analytics-rest-api"></a>Como chamar a API de REST de análise de texto
 
@@ -58,7 +58,7 @@ O serviço aceita até 1 MB de tamanho do pedido. Se estiver a utilizar o Postma
    + Cole o ponto final que copiou a partir da página de portal.
    + Acrescente um recurso.
 
-  Pontos finais do recurso são da seguinte forma (a sua região pode variar):
+   Pontos finais do recurso são da seguinte forma (a sua região pode variar):
 
    + `https://westus.api.cognitive.microsoft.com/text/analytics/v2.0/sentiment`
    + `https://westus.api.cognitive.microsoft.com/text/analytics/v2.0/keyPhrases`
@@ -71,7 +71,7 @@ O serviço aceita até 1 MB de tamanho do pedido. Se estiver a utilizar o Postma
    + `Content-Type`: application/json.
    + `Accept`: application/json.
 
-  O pedido deve ser semelhante à seguinte captura de ecrã, partindo do princípio de um **/keyPhrases** recursos.
+   O pedido deve ser semelhante à seguinte captura de ecrã, partindo do princípio de um **/keyPhrases** recursos.
 
    ![Captura de ecrã com ponto final e cabeçalhos de pedido](../media/postman-request-keyphrase-1.png)
 
@@ -81,15 +81,15 @@ O serviço aceita até 1 MB de tamanho do pedido. Se estiver a utilizar o Postma
 
 5. Cole alguns documentos JSON num formato válido para a análise pretendida. Para obter mais informações sobre uma análise específica, consulte os tópicos abaixo:
 
-  + [Deteção de idioma](text-analytics-how-to-language-detection.md)  
-  + [Extração de expressões-chave](text-analytics-how-to-keyword-extraction.md)  
-  + [Análise de sentimentos](text-analytics-how-to-sentiment-analysis.md)  
-  + [Reconhecimento de entidades (pré-visualização)](text-analytics-how-to-entity-linking.md)  
+   + [Deteção de idioma](text-analytics-how-to-language-detection.md)  
+   + [Extração de expressões-chave](text-analytics-how-to-keyword-extraction.md)  
+   + [Análise de sentimentos](text-analytics-how-to-sentiment-analysis.md)  
+   + [Reconhecimento de entidades (pré-visualização)](text-analytics-how-to-entity-linking.md)  
 
 
 6. Clique em **enviar** para submeter o pedido. Pode enviar até 100 pedidos por minuto. 
 
-  No Postman, a resposta é apresentada na janela seguinte, como um único documento JSON, com um item para cada ID de documento fornecido no pedido.
+   No Postman, a resposta é apresentada na janela seguinte, como um único documento JSON, com um item para cada ID de documento fornecido no pedido.
 
 ## <a name="see-also"></a>Consulte também 
 

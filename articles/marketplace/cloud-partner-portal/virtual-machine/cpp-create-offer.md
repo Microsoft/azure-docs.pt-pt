@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 10/19/2018
 ms.author: pbutlerm
-ms.openlocfilehash: 0a875b69a10f6305b4ffe32b63d3db5b508faf01
-ms.sourcegitcommit: 17633e545a3d03018d3a218ae6a3e4338a92450d
+ms.openlocfilehash: a3124ca2f163291d266fba77255d2ee98d30fd23
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/22/2018
-ms.locfileid: "49640094"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57888813"
 ---
 # <a name="create-virtual-machine-offer"></a>Criar oferta de Máquina Virtual
 
@@ -40,7 +40,7 @@ Em que:
 
 ## <a name="new-offer-form"></a>Novo formulário de oferta
 
-Uma vez seu início de sessão para o [Cloud Partner Portal](http://cloudpartner.azure.com/), clique nas **+ nova oferta** item na barra de menu à esquerda. No menu de resultante, clique em **máquinas virtuais** para apresentar o **nova oferta** formam e iniciar o processo de definição de ativos para uma nova oferta VM. 
+Uma vez seu início de sessão para o [Cloud Partner Portal](https://cloudpartner.azure.com/), clique nas **+ nova oferta** item na barra de menu à esquerda. No menu de resultante, clique em **máquinas virtuais** para apresentar o **nova oferta** formam e iniciar o processo de definição de ativos para uma nova oferta VM. 
 <!-- not all publishers see corevm or azure apps test, you need to be whitelisted to see them. we should hide those in these images. -->
 
 ![Nova seleção de interface do usuário de oferta de máquina virtual](./media/publishvm_003.png)
@@ -55,6 +55,6 @@ Os tópicos subsequentes nesta secção espelham os separadores na **nova oferta
 
 - [Separador Definições da oferta](./cpp-offer-settings-tab.md)
 - [Separador de SKUs](./cpp-skus-tab.md)
-- [Separador de unidade de teste](./cpp-test-drive-tab.md)
+- [Separador Versão de Teste](./cpp-test-drive-tab.md)
 - [Separador Marketplace](./cpp-marketplace-tab.md)
 - [Separador Suporte](./cpp-support-tab.md)

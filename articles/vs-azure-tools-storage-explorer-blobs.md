@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/18/2016
 ms.author: cawa
-ms.openlocfilehash: fd13cb25fbe3696bf67615ef956f478b7c355547
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: f46467871a5ae0147b5dc60881bda4175eabac56
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52422057"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57858172"
 ---
 # <a name="manage-azure-blob-storage-resources-with-storage-explorer"></a>Gerir recursos de armazenamento de Blobs do Azure com o Explorador de armazenamento
 ## <a name="overview"></a>Descrição geral
@@ -30,7 +30,7 @@ Pode utilizar o armazenamento de Blobs para expor publicamente os dados ao mundo
 Para executar os passos descritos neste artigo, é necessário o seguinte:
 
 * [Transferir e instalar o Explorador de Armazenamento](https://www.storageexplorer.com)
-* [Ligar a um serviço ou a uma conta de armazenamento do Azure](vs-azure-tools-storage-manage-with-storage-explorer.md#connect-to-a-storage-account-or-service)
+* [Ligar a uma conta de armazenamento do Azure ou serviço](vs-azure-tools-storage-manage-with-storage-explorer.md#connect-to-a-storage-account-or-service)
 
 ## <a name="create-a-blob-container"></a>Criar um contentor de blobs
 Todos os blobs têm de residir num contentor de BLOBs, que é simplesmente um agrupamento lógico de blobs. Uma conta pode conter um número ilimitado de contentores, e cada contentor pode armazenar um número ilimitado de blobs.

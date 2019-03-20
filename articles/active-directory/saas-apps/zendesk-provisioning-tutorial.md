@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 01/31/2018
 ms.author: v-ant
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8fb6108855cf3237af230f3356f0afb68e2b1ec4
-ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
+ms.openlocfilehash: f2e05e5e430760d16d5d494a6f27ef985aafc487
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56445547"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58097996"
 ---
 # <a name="tutorial-configure-zendesk-for-automatic-user-provisioning"></a>Tutorial: Configurar o Zendesk para aprovisionamento automático de utilizadores
 
@@ -111,12 +111,12 @@ Esta secção orienta-o pelos passos para configurar o Azure AD do serviço de a
 
 5. Sob o **credenciais de administrador** secção, de entrada a **nome de utilizador administrador**, **segredo de Token**, e **domínio** da conta do Zendesk. Exemplos destes valores são:
 
-    *   Na **nome de utilizador administrador** campo, preencher o nome de utilizador de conta de administrador do seu inquilino do Zendesk. Exemplo: admin@contoso.com.
+   * Na **nome de utilizador administrador** campo, preencher o nome de utilizador de conta de administrador do seu inquilino do Zendesk. Exemplo: admin@contoso.com.
 
-    *   Na **segredo de Token** campo, preencha o token SECRETO, conforme descrito no passo 6.
+   * Na **segredo de Token** campo, preencha o token SECRETO, conforme descrito no passo 6.
 
-    *   Na **domínio** campo, preencher o subdomínio do seu inquilino do Zendesk.
-    Exemplo: Uma conta com um URL de inquilino do https://my-tenant.zendesk.com, o subdomínio seria **meu inquilino**.
+   * Na **domínio** campo, preencher o subdomínio do seu inquilino do Zendesk.
+     Exemplo: Uma conta com um URL de inquilino do https://my-tenant.zendesk.com, o subdomínio seria **meu inquilino**.
 
 6. O **segredo de Token** para o Zendesk conta está localizada na **administração > API > definições**.
    Certifique-se de que **Token de acesso** está definida como **ativado**.

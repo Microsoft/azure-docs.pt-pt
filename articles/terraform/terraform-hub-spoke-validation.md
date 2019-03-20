@@ -9,12 +9,12 @@ manager: jeconnoc
 ms.author: vaangadi
 ms.topic: tutorial
 ms.date: 03/01/2019
-ms.openlocfilehash: 83e6585027aa6ca30192a93c2ec1bfc8c525d6d0
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 157be65a19a1f790b911aa9d861c5f18fc8c0813
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57781311"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58006171"
 ---
 # <a name="tutorial-validate-a-hub-and-spoke-network-with-terraform-in-azure"></a>Tutorial: Validar uma rede hub- and -spoke com o Terraform no Azure
 
@@ -41,7 +41,7 @@ Este tutorial abrange as seguintes tarefas:
 
 Depois de concluir o [pré-requisitos](#prerequisites), certifique-se de que os ficheiros de configuração adequados estão presentes.
 
-1. Navegue para o [portal do Azure](http://portal.azure.com).
+1. Navegue para o [portal do Azure](https://portal.azure.com).
 
 1. Abra o [Azure Cloud Shell](/azure/cloud-shell/overview). Se ainda não tiver selecionado um ambiente, selecione **Bash** como o seu ambiente.
 

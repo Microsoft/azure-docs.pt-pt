@@ -14,19 +14,19 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: pbutlerm
-ms.openlocfilehash: a963db0b0b1a20c110f90bacdae092846f7bdd8b
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
+ms.openlocfilehash: 7bf7e341a83727e21e9225c384829c05b7230579
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56342546"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58095998"
 ---
 # <a name="azure-application-skus-tab"></a>Separador de SKUs de aplicação do Azure
 
 Este artigo descreve como utilizar o separador de SKUs para criar as SKUs para a sua aplicação do Azure. 
 
->[!IMPORTANT] 
-Os passos para configurar um SKU são diferentes para uma oferta de aplicação gerida e uma oferta de modelo de solução. Essas diferenças são documentadas neste artigo. 
+> [!IMPORTANT]
+> Os passos para configurar um SKU são diferentes para uma oferta de aplicação gerida e uma oferta de modelo de solução. Essas diferenças são documentadas neste artigo. 
 
 ## <a name="configure-azure-application-skus"></a>Configurar os SKUs de aplicação do Azure
 

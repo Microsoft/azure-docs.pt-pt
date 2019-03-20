@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 05/16/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e947b71fe6bb9e6bd884b8b2dd0397a63bea2a95
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 8b5ec711f0e43d9d29d962d43ed8b1d86338db87
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56203646"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57881219"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-xmatters-ondemand"></a>Tutorial: Integração do Active Directory do Azure com xMatters OnDemand
 
@@ -114,6 +114,7 @@ Nesta secção, pode ativar do Azure AD início de sessão único no portal do A
     ![Configurar o início de sessão único](./media/xmatters-ondemand-tutorial/tutorial_xmattersondemand_url.png)
     
     a. Na **identificador** caixa de texto, escreva um URL com o seguinte padrão:
+
     | |
     |--|
     | `https://<companyname>.au1.xmatters.com.au/`|
@@ -123,6 +124,7 @@ Nesta secção, pode ativar do Azure AD início de sessão único no portal do A
     | `https://<companyname>.xmatters.com.au/`|
 
     b. Na **URL de resposta** caixa de texto, escreva um URL com o seguinte padrão:
+    
     | |
     |--|
     | `https://<companyname>.au1.xmatters.com.au`|
@@ -209,9 +211,9 @@ O objetivo desta secção é criar um usuário chamado Eduarda Almeida no xMatte
 
 1. Inicie sessão no seu **XMatters OnDemand** inquilino.
 
-1.  Clique em **usuários** separador e clique em **adicionar utilizador**.
+1. Clique em **usuários** separador e clique em **adicionar utilizador**.
 
-    ![Os utilizadores](./media/xmatters-ondemand-tutorial/IC781048.png "utilizadores")
+   ![Os utilizadores](./media/xmatters-ondemand-tutorial/IC781048.png "utilizadores")
 
 1. Na **adicionar um utilizador** secção, execute os seguintes passos:
 

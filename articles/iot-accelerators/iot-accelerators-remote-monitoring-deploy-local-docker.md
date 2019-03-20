@@ -8,12 +8,12 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.date: 10/25/2018
 ms.topic: conceptual
-ms.openlocfilehash: 252aacfeb85f23699c6a2e2ac1f457f9e2b59b0e
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: c00e62e237fe263f54926c8e74fb6211a2e5a4e4
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55997190"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57993057"
 ---
 # <a name="deploy-the-remote-monitoring-solution-accelerator-locally---docker"></a>Implementar o monitorização remota acelerador de soluções localmente - Docker
 
@@ -96,7 +96,7 @@ Siga estes passos para iniciar a tarefa de Stream Analytics:
 
 ### <a name="connect-to-the-dashboard"></a>Ligar ao dashboard
 
-Para aceder ao dashboard de solução de monitorização remota, navegue até [ http://localhost:8080 ](http://localhost:8080) no seu browser. Agora, pode utilizar a IU da Web e os microsserviços locais.
+Para aceder ao dashboard de solução de monitorização remota, navegue para `http://localhost:8080` no seu browser. Agora, pode utilizar a IU da Web e os microsserviços locais.
 
 ## <a name="clean-up"></a>Limpeza
 

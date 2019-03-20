@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/11/2017
 ms.author: jdial
-ms.openlocfilehash: aac23f616cb9d7c3fb29e516cfa2daa47c00e8e2
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 4190f06129d7f9bcfe455b3e321de785fc531f1e
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46989265"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57842554"
 ---
 # <a name="troubleshoot-connections-with-azure-network-watcher-using-powershell"></a>Resolver problemas de ligações com o observador de rede do Azure com o PowerShell
 
@@ -214,7 +214,7 @@ $nw = Get-AzurermResource | Where {$_.ResourceType -eq "Microsoft.Network/networ
 $networkWatcher = Get-AzureRmNetworkWatcher -Name $nw.Name -ResourceGroupName $nw.ResourceGroupName
 
 
-Test-AzureRmNetworkWatcherConnectivity -NetworkWatcher $networkWatcher -SourceId $VM1.Id -DestinationAddress http://bing.com/
+Test-AzureRmNetworkWatcherConnectivity -NetworkWatcher $networkWatcher -SourceId $VM1.Id -DestinationAddress https://bing.com/
 ```
 
 ### <a name="response"></a>Resposta

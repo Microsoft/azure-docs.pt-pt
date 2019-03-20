@@ -12,14 +12,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/08/2019
+ms.date: 03/14/2019
 ms.author: willzhan;Mingfeiy;rajputam;Juliako
-ms.openlocfilehash: ae9a8873be3fbd3cead23e27e80931f78ea57eb4
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: 6714beae690e23c686fc08b88e93044ae3901c89
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55992543"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57839496"
 ---
 # <a name="using-axinom-to-deliver-widevine-licenses-to-azure-media-services"></a>Utilização do Axinom para entregar licenças de Widevine para Serviços de Multimédia do Azure 
 > [!div class="op_single_selector"]
@@ -29,9 +29,9 @@ ms.locfileid: "55992543"
 > 
 
 ## <a name="overview"></a>Descrição geral
-Serviços de multimédia do Azure (AMS) adicionou proteção dinâmica do Google Widevine (consulte [blogue do Mingfei](https://azure.microsoft.com/blog/azure-media-services-adds-google-widevine-packaging-for-delivering-multi-drm-stream/) para obter detalhes). Além disso, leitor de multimédia do Azure (AMP) também adicionou suporte a Widevine (consulte [documento AMP](http://amp.azure.net/libs/amp/latest/docs/) para obter detalhes). Esta é uma grande conquista em transmissão em fluxo conteúdo de TRAÇO protegido pelo CENC com várias-native multi-DRM (PlayReady e Widevine) em browsers modernos equipados com MSE e EME.
+Serviços de multimédia do Azure (AMS) adicionou proteção dinâmica do Google Widevine (consulte [blogue do Mingfei](https://azure.microsoft.com/blog/azure-media-services-adds-google-widevine-packaging-for-delivering-multi-drm-stream/) para obter detalhes). Além disso, leitor de multimédia do Azure (AMP) também adicionou suporte a Widevine (consulte [documento AMP](https://amp.azure.net/libs/amp/latest/docs/) para obter detalhes). Esta é uma grande conquista em transmissão em fluxo conteúdo de TRAÇO protegido pelo CENC com várias-native multi-DRM (PlayReady e Widevine) em browsers modernos equipados com MSE e EME.
 
-Começando com o SDK de .NET de Media Services versão 3.5.2, serviços de multimédia permite-lhe configurar o modelo de licença do Widevine e obtenha licenças do Widevine. Também pode utilizar os seguintes parceiros de AMS para ajudar a fornecer licenças do Widevine: [Axinom](http://www.axinom.com/press/ibc-axinom-drm-6/), [EZDRM](http://ezdrm.com/), [castLabs](http://castlabs.com/company/partners/azure/).
+Começando com o SDK de .NET de Media Services versão 3.5.2, serviços de multimédia permite-lhe configurar o modelo de licença do Widevine e obtenha licenças do Widevine. Também pode utilizar os seguintes parceiros de AMS para ajudar a fornecer licenças do Widevine: [Axinom](https://www.axinom.com/press/ibc-axinom-drm-6/), [EZDRM](https://ezdrm.com/), [castLabs](https://castlabs.com/company/partners/azure/).
 
 Este artigo descreve como integrar e testar o servidor de licenças de Widevine gerido pelo Axinom. Especificamente, abrange:  
 
@@ -44,7 +44,7 @@ O sistema completo e o fluxo de chave de conteúdo, chave de ID, seed chave, JTW
 ![DASH e CENC](./media/media-services-axinom-integration/media-services-axinom1.png)
 
 ## <a name="content-protection"></a>Proteção de Conteúdo
-Para configurar a proteção dinâmica e a política de entrega de chave, consulte o blog do Mingfei: [Como configurar empacotamento Widevine com os serviços de multimédia do Azure](http://mingfeiy.com/how-to-configure-widevine-packaging-with-azure-media-services).
+Para configurar a proteção dinâmica e a política de entrega de chave, consulte o blog do Mingfei: [Como configurar empacotamento Widevine com os serviços de multimédia do Azure](https://mingfeiy.com/how-to-configure-widevine-packaging-with-azure-media-services).
 
 Pode configurar a proteção do dinâmica CENC com múltipla DRM para DASH, transmissão em fluxo de ter os seguintes elementos:
 
@@ -64,7 +64,7 @@ O servidor de licenças de Widevine fornecido pelo Axinom requer autenticação 
 
     <script>AzureHtml5JS.KeySystem.WidevineCustomAuthorizationHeader = "X-AxDRM-Message"</script>
 
-O resto do código AMP é padrão e API, como no documento de AMP [aqui](http://amp.azure.net/libs/amp/latest/docs/).
+O resto do código AMP é padrão e API, como no documento de AMP [aqui](https://amp.azure.net/libs/amp/latest/docs/).
 
 O javascript acima para o cabeçalho de autorização personalizado de definição ainda é uma abordagem de curto prazo, antes que a abordagem de longo prazo oficial em AMP é lançada.
 
@@ -130,7 +130,7 @@ Segue-se o código para gerar token JWT com as declarações necessárias, confo
 
 Servidor de licenças do Axinom Widevine
 
-    <add key="ax:laurl" value="http://drm-widevine-licensing.axtest.net/AcquireLicense" />
+    <add key="ax:laurl" value="https://drm-widevine-licensing.axtest.net/AcquireLicense" />
     <add key="ax:com_key_id" value="69e54088-e9e0-4530-8c1a-1eb6dcd0d14e" />
     <add key="ax:com_key" value="4861292d027e269791093327e62ceefdbea489a4c7e5a4974cc904b840fd7c0f" />
     <add key="ax:keyseed" value="8888000000000000000000000000000000000000" />
@@ -160,7 +160,7 @@ Obviamente, existem várias formas de obter espera da chave de ID. Por exemplo, 
         objXmlNamespaceManager.AddNamespace("cenc", "urn:mpeg:cenc:2013");
         objXmlNamespaceManager.AddNamespace("ms",   "urn:microsoft");
         objXmlNamespaceManager.AddNamespace("mspr", "urn:microsoft:playready");
-        objXmlNamespaceManager.AddNamespace("xsi",  "http://www.w3.org/2001/XMLSchema-instance");
+        objXmlNamespaceManager.AddNamespace("xsi",  "https://www.w3.org/2001/XMLSchema-instance");
         objXmlNamespaceManager.PushScope();
 
         XPathNodeIterator objXPathNodeIterator;

@@ -15,12 +15,12 @@ ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9409d196e307b75a14a272dee6c8c93789ca8556
-ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
+ms.openlocfilehash: 9aba12a2bca882b5f0e6e95d8e4f6014b318a12e
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56669793"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58119751"
 ---
 # <a name="delegate-app-administrator-roles-in-azure-active-directory"></a>Delegar funções de administrador da aplicação no Azure Active Directory
 
@@ -37,8 +37,8 @@ Para conceder a capacidade para gerir o acesso de aplicação no portal do Azure
 1. Inicie sessão no seu [inquilino do Azure AD](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Overview) com uma conta ou elegível para a função de Administrador Global no inquilino.
 2. Quando tiver permissões suficientes, abra a [página de funções e os administradores](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RolesAndAdministrators).
 3. Abra uma das seguintes funções para ver as atribuições de membro:
-  * **Administrador da aplicação**
-  * **Administrador da aplicação cloud**
+   * **Administrador da aplicação**
+   * **Administrador da aplicação cloud**
 4. Sobre o **membros** página para a função, selecione **Add member**.
 5. Selecione um ou mais membros a adicionar à função. <!--Members can be users or groups.-->
 
@@ -50,8 +50,8 @@ Por predefinição, todos os utilizadores podem criar registos de aplicações, 
 
 1. Inicie sessão no seu [inquilino do Azure AD](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Overview) com uma conta ou elegível para a função de Administrador Global no inquilino.
 2. Quando tiver obtido permissões suficientes, defina uma ou ambas das seguintes ações:
-  * Sobre o [página de definições de utilizador para o seu inquilino](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/UserSettings), defina **os utilizadores podem registar aplicações** para não.
-  * Sobre o [definições de utilizador para aplicações empresariais](https://portal.azure.com/#blade/Microsoft_AAD_IAM/StartboardApplicationsMenuBlade/UserSettings/menuId/), defina **os utilizadores podem dar consentimento a aplicações aceder aos dados da empresa em nome deles** para não.
+   * Sobre o [página de definições de utilizador para o seu inquilino](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/UserSettings), defina **os utilizadores podem registar aplicações** para não.
+   * Sobre o [definições de utilizador para aplicações empresariais](https://portal.azure.com/#blade/Microsoft_AAD_IAM/StartboardApplicationsMenuBlade/UserSettings/menuId/), defina **os utilizadores podem dar consentimento a aplicações aceder aos dados da empresa em nome deles** para não.
 3. Em seguida, atribua utilizadores que necessitam desta permissão para serem membros da função de desenvolvedor do aplicativo conforme necessário.
 
 Quando um usuário registra um aplicativo, eles são adicionados automaticamente como o primeiro proprietário para a aplicação.

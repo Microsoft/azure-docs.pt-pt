@@ -1,21 +1,21 @@
 ---
-title: Gerir os serviços da web de Machine Learning Studio com a gestão de API
+title: Gerir os serviços da web com a gestão de API
 titleSuffix: Azure Machine Learning Studio
 description: Um guia que mostram como gerir os serviços de web do AzureML com a gestão de API. Gerir os pontos finais de REST API com a definição de acesso de utilizador, a otimização do uso e a monitorização do dashboard.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
 ms.topic: conceptual
-author: ericlicoding
+author: xiaoharper
 ms.author: amlstudiodocs
 ms.custom: seodec18
 ms.date: 11/03/2017
-ms.openlocfilehash: d4029d7f15918ea75ebcb10bfa8f8f7657eb11ca
-ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
+ms.openlocfilehash: 0d79bc167ea0416218a4d4822bcd6221699643ca
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57342586"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57852897"
 ---
 # <a name="manage-azure-machine-learning-studio-web-services-using-api-management"></a>Gerir os serviços de web do Azure Machine Learning Studio com a gestão de API
 ## <a name="overview"></a>Descrição geral
@@ -182,11 +182,11 @@ Mude o nome para **SimpleFeatureHashingExperiment**. Expanda **conjuntos de dado
 
 Expanda **transformação de dados** e **manipulação** e arraste **selecionar colunas no conjunto de dados** na experimentação. Ligue-se **revisões de livros da Amazon** ao **selecionar colunas no conjunto de dados**.
 
-![selecionar colunas](./media/manage-web-service-endpoints-using-api-management/project-columns.png)
+![Ligar o módulo de conjunto de dados do livro revisões para um módulo de colunas do projeto](./media/manage-web-service-endpoints-using-api-management/project-columns.png)
 
 Clique em **Select Columns in Dataset** e, em seguida, clique em **iniciar Seletor de colunas** e selecione **Col2**. Clique na marca de verificação para aplicar estas alterações.
 
-![selecionar colunas](./media/manage-web-service-endpoints-using-api-management/select-columns.png)
+![Selecionar colunas com nomes de coluna](./media/manage-web-service-endpoints-using-api-management/select-columns.png)
 
 Expanda **análise de texto** e arraste **Hashing de funcionalidade** para a experimentação. Ligue-se **selecionar colunas no conjunto de dados** ao **Hashing de funcionalidade**.
 

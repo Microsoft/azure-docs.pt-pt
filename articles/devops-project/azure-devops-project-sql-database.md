@@ -1,6 +1,6 @@
 ---
-title: Implementar a Aplicação ASP.NET e a Base de Dados SQL do Azure com o Azure DevOps Project | Tutorial dos Serviços de DevOps do Azure
-description: O Projeto de DevOps permite começar a utilizar o Azure facilmente. O Azure DevOps Project facilita a implementação de um ASP.NET na Base de Dados SQL do Azure em alguns passos rápidos.
+title: 'Tutorial: Implementar a sua aplicação ASP.NET e o código de base de dados do Azure SQL usando os projetos de DevOps do Azure'
+description: Projetos de DevOps torna mais fácil começar a utilizar no Azure. Com os projetos de DevOps, pode implementar a sua aplicação ASP.NET e o código de base de dados do Azure SQL em poucos passos rápidos.
 ms.author: mlearned
 ms.manager: douge
 ms.prod: devops
@@ -9,183 +9,212 @@ ms.topic: tutorial
 ms.date: 07/09/2018
 author: mlearned
 monikerRange: vsts
-ms.openlocfilehash: d9c7c94e344daee5af87ce40ddf4dcb686696ded
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
-ms.translationtype: HT
+ms.openlocfilehash: 0d05a2f3de92791572f0a5e6313777b5388af3df
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44297338"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57845227"
 ---
-# <a name="tutorial--deploy-your-aspnet-app-and-azure-sql-database-with-the-azure-devops-project"></a>Tutorial: Implementar a Aplicação ASP.NET e a Base de Dados SQL do Azure com o Projeto de DevOps do Azure
+# <a name="tutorial-deploy-your-aspnet-app-and-azure-sql-database-code-by-using-azure-devops-projects"></a>Tutorial: Implementar a sua aplicação ASP.NET e o código de base de dados do Azure SQL usando os projetos de DevOps do Azure
 
-O Projeto de DevOps do Azure apresenta uma experiência simplificada com a qual pode utilizar o seu código existente e o repositório de Git, ou escolher um dos exemplos de aplicação, para criar um pipeline de integração contínua (CI) e entrega contínua (CD) para o Azure.  O DevOps Project cria automaticamente recursos do Azure, como a Base de Dados SQL do Azure, um pipeline de versão no Azure DevOps, que inclui um pipeline de compilação para CI, configura um pipeline de versão para CD e, em seguida, cria um recurso do Azure Application Insights para monitorização.
+Projetos de DevOps do Azure apresenta uma experiência simplificada de onde pode colocar o seu código existente e o repositório de Git ou escolha um aplicativo de exemplo para criar um pipeline de entrega contínua (CD) para o Azure e a integração contínua (CI). 
 
-Irá:
+Projetos de DevOps também:
+* Cria automaticamente os recursos do Azure, como uma base de dados SQL do Azure.
+* Cria e configura um pipeline de lançamento em Pipelines do Azure, que inclui um pipeline de compilação para CI.
+* Define um pipeline de lançamento para o CD. 
+* Cria um recurso do Application Insights do Azure para monitorização.
+
+Neste tutorial, irá:
 
 > [!div class="checklist"]
-> * Criar um Azure DevOps Project para uma Aplicação ASP.NET e Base de Dados SQL do Azure
-> * Configurar os Serviços de DevOps do Azure e uma subscrição do Azure 
-> * Examinar o pipeline de CI dos Serviços de DevOps do Azure
-> * Examinar o pipeline de CD dos Serviços de DevOps do Azure
-> * Consolidar as alterações aos Serviços de DevOps do Azure e implementar automaticamente no Azure
-> * Ligar à Base de Dados do SQL Server do Azure 
+> * Utilizar projetos de DevOps do Azure para implementar a sua aplicação ASP.NET e o código de base de dados do Azure SQL
+> * Configurar o Azure DevOps e uma subscrição do Azure 
+> * Examinar o pipeline de CI
+> * Examinar o pipeline de CD
+> * Consolide as alterações para repositórios do Azure e implementá-las automaticamente para o Azure
+> * Ligar à base de dados SQL do Azure 
 > * Limpar recursos
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 * Uma subscrição do Azure. Pode obter uma subscrição gratuita através do [Visual Studio Dev Essentials](https://visualstudio.microsoft.com/dev-essentials/).
 
-## <a name="create-an-azure-devops-project-for-an-aspnet-app-and-azure-sql-database"></a>Criar um Azure DevOps Project para uma Aplicação ASP.NET e Base de Dados SQL do Azure
+## <a name="create-a-project-in-devops-projects-for-an-aspnet-app-and-an-azure-sql-database"></a>Criar um projeto em projetos de DevOps para uma aplicação ASP.NET e uma base de dados SQL do Azure
 
-O Azure DevOps Project cria um pipeline de CI/CD no Azure.  Pode criar uma organização **nova dos Serviços de DevOps do Azure** ou utilizar uma **organização existente**.  O Projeto de DevOps do Azure também cria **recursos do Azure**, como uma Base de Dados SQL do Azure na **subscrição do Azure** que escolher.
+Projetos de DevOps cria um pipeline CI/CD em Pipelines do Azure. Pode criar uma nova organização de DevOps do Azure ou utilizar uma organização existente. Projetos de DevOps também cria os recursos do Azure, como uma base de dados SQL do Azure, na subscrição do Azure à sua escolha.
 
-1. Inicie sessão no [portal do Microsoft Azure](https://portal.azure.com).
+1. Inicie sessão no [portal do Azure](https://portal.azure.com).
 
-1. Selecione o ícone **Criar um recurso** na barra de navegação esquerda e, em seguida, procure **DevOps Project**.  Escolha **Criar**.
+1. No painel esquerdo, selecione **criar um recurso**.
 
-    ![A Iniciar a Entrega Contínua](_img/azure-devops-project-github/fullbrowser.png)
+1. Na caixa de pesquisa, escreva **projetos de DevOps**e, em seguida, selecione **criar**.
 
-1. Selecione **.NET** e escolha **Seguinte**.
+    ![O dashboard de projetos de DevOps](_img/azure-devops-project-github/fullbrowser.png)
 
-1. Em **Escolha uma arquitetura de aplicação**, selecione **ASP.NET**.
+1. Selecione **.NET**e, em seguida, selecione **próxima**.
 
-1. Selecione **Adicionar uma base de dados** e, em seguida, escolha **Seguinte**.  
+1. Sob **escolher uma estrutura de aplicações**, selecione **ASP.NET**.
 
-1. A arquitetura de aplicações que escolheu nos passos anteriores dita o tipo de destino da implementação do serviço do Azure disponível aqui.  Selecione **Seguinte**.
-
-## <a name="configure-azure-devops-services-and-an-azure-subscription"></a>Configurar os Serviços de DevOps do Azure e uma subscrição do Azure
-
-1. Crie uma organização **nova** dos Serviços de DevOps do Azure ou utilize uma organização **existente**.  Escolha um **nome** para o seu Azure DevOps Project.  
-
-1. Selecione a sua **subscrição do Azure**.
-
-1. Opcionalmente, selecione a ligação **Alterar** para ver as definições de configuração do Azure adicionais e identifique o **nome de utilizador** na secção **Detalhes do Início de Sessão do Servidor da Base de Dados**.  **Guarde** o **nome de utilizador** para os passos seguintes deste tutorial.
- 
-1. Caso tenha realizado o passo acima, saia da área de configuração do Azure e escolha **Concluído**.  Caso contrário, basta selecionar **Concluído**.
-
-1. Irá demorar alguns minutos até que o processo esteja concluído.  Depois de concluído, o **dashboard do Projeto** do Azure DevOps é carregado no portal do Azure.  Também pode navegar para o **Dashboard do Projeto de DevOps do Azure** diretamente a partir de **Todos os recursos** no **portal do Azure**.  No lado direito do dashboard, selecione **Procurar** para ver a sua aplicação em execução.
+1. Selecione **adicionar uma base de dados**e, em seguida, selecione **próxima**.  
+    A estrutura de aplicativos, que selecionou no passo anterior, dita o tipo de destino de implementação de serviço do Azure está disponível aqui. 
     
-## <a name="examine-the-azure-devops-services-ci-pipeline"></a>Examinar o pipeline de CI dos Serviços de DevOps do Azure
+1. Selecione **Seguinte**.
 
-O Azure DevOps Project configura automaticamente um pipeline de CI/CD completo do Azure na sua organização dos Serviços DevOps do Azure.  Pode explorar e personalizar o pipeline.  Siga os passos abaixo para familiarizar-se com o pipeline de compilação dos Serviços de DevOps do Azure.
+## <a name="configure-azure-devops-and-an-azure-subscription"></a>Configurar o Azure DevOps e uma subscrição do Azure
 
-1. Navegue para o **dashboard do Projeto de DevOps do Azure**.
+1. Crie uma nova organização do Azure DevOps ou selecione uma organização existente. 
 
-1. Selecione **Pipelines de Compilação** na **parte superior** do **dashboard do Azure DevOps Project**.  Esta ligação abre um separador do browser e abre o pipeline de compilação dos Serviços de DevOps do Azure para o novo projeto.
+1. Introduza um nome para o seu projeto de DevOps do Azure. 
 
-1. Mova o cursor do rato para o lado direito do pipeline de compilação junto ao campo **Estado**. Selecione as **reticências** que são apresentadas.  Esta ação abre um menu onde pode executar várias atividades, como **colocar uma nova compilação em fila**, **colocar uma compilação em pausa** e **editar o pipeline de compilação**.
+1. Selecione os serviços de subscrição do Azure.  
+    Opcionalmente, para ver as definições de configuração do Azure adicionais e para identificar o nome de utilizador a **detalhes de início de sessão do servidor de base de dados** secção, pode selecionar **alteração**. Store o nome de utilizador para os próximos passos neste tutorial. Se realizar este passo opcional, sair da área de configuração do Azure antes de selecionar **feito**.
+ 
+1. Selecione **Done** (Concluído).  
+    Após alguns minutos, o processo é concluído e o dashboard de projetos de DevOps for apresentado no portal do Azure. Também pode navegar para o dashboard diretamente a partir **todos os recursos** no portal do Azure. No lado direito, selecione **procurar** para ver a sua aplicação em execução.
+    
+## <a name="examine-the-ci-pipeline"></a>Examinar o pipeline de CI
+
+Projetos de DevOps configura automaticamente um pipeline de CI/CD completo nos repositórios do Azure. Pode explorar e personalizar o pipeline. Para se familiarizar com o pipeline de compilação de DevOps do Azure, efetue o seguinte:
+
+1. Na parte superior do dashboard de projetos de DevOps, selecione **Criar pipelines**.  
+    Um separador do browser apresenta o pipeline de compilação para o novo projeto.
+
+1. Aponte para o **estado** campo e, em seguida, selecione as reticências (...).  
+    Um menu apresenta várias opções, como a colocação em fila uma nova compilação, colocar em pausa uma compilação e editar o pipeline de compilação.
 
 1. Selecione **Editar**.
 
-1. Nesta vista, **examine as várias tarefas** do seu pipeline de compilação.  A compilação executa várias tarefas, como obter as origens do repositório Git dos Serviços de DevOps do Azure, restaurar dependências e publicar saídas utilizadas para implementações.
+1. Neste painel, pode examinar as várias tarefas para o seu pipeline de compilação.  
+    A compilação executa várias tarefas, tais como origens ao obter a partir do Git saídas do repositório, a restauração de dependências e a publicação é utilizada para implementações.
 
-1. Na parte superior do pipeline de compilação, selecione o **nome do pipeline de compilação**.
+1. Na parte superior do pipeline de compilação, selecione o nome do pipeline de compilação.
 
-1. Altere o **nome** do seu pipeline de compilação para algo mais descritivo.  Selecione **Guardar e colocar em fila** e, em seguida, selecione **Guardar**.
+1. Altere o nome do seu pipeline de compilação para algo mais descritivo, selecione **guardar e colocar em fila**e, em seguida, selecione **guardar**.
 
-1. No nome do pipeline de compilação, selecione **Histórico**.  Verá um registo de auditoria das alterações recentes da compilação.  Os Serviços de DevOps do Azure mantêm um registo de todas as alterações efetuadas no pipeline de compilação e permitem-lhe comparar versões.
+1. No nome do pipeline de compilação, selecione **Histórico**.  
+    Este painel apresenta uma trilha de auditoria das alterações recentes para a compilação. Pipelines do Azure mantém um registro de todas as alterações feitas no pipeline de compilação e permite-lhe comparar versões.
 
-1. Selecione **Acionadores**.  O Azure DevOps Project criou automaticamente um acionador de CI e cada consolidação no repositório inicia uma nova compilação.  Opcionalmente, pode optar por incluir ou excluir os ramos do processo de CI.
+1. Selecione **Acionadores**.  
+    Projetos de DevOps cria automaticamente um acionador de CI e cada consolidação no repositório inicia uma nova compilação. Opcionalmente, pode optar por incluir ou excluir os ramos do processo de CI.
 
-1. Selecione **Retenção**.  Com base no seu cenário, pode especificar políticas para manter ou remover um determinado número de compilações.
+1. Selecione **Retenção**.  
+    Dependendo do seu cenário, pode especificar políticas de manter ou remover um determinado número de compilações.
 
-## <a name="examine-the-azure-devops-services-cd-pipeline"></a>Examinar o pipeline de CD dos Serviços de DevOps do Azure
+## <a name="examine-the-cd-pipeline"></a>Examinar o pipeline de CD
 
-O Azure DevOps Project cria e configura automaticamente os passos necessários para implementar da sua organização de Serviços de DevOps do Azure para a sua subscrição do Azure.  Estes passos incluem a configuração de uma ligação ao serviço do Azure para autenticar os Serviços de DevOps do Azure para a sua subscrição do Azure.  A automatização também cria uma Definição de Versão dos Serviços de DevOps do Azure e a versão disponibiliza a CD para o Azure.  Siga os passos abaixo para examinar mais sobre a Definição de Versão dos Serviços de DevOps do Azure.
+Projetos de DevOps automaticamente cria e configura os passos necessários para implementar a partir de sua organização de DevOps do Azure à sua subscrição do Azure. Estes passos incluem a configuração de uma ligação de serviço do Azure para autenticar o DevOps do Azure à sua subscrição do Azure. A automação também cria um pipeline de CD, que fornece o CD para a máquina virtual do Azure. Para saber mais sobre o pipeline de CD de DevOps do Azure, faça o seguinte:
 
-1. Selecione **Compilação e Versão** e, em seguida, escolha **Versões**.  O Azure DevOps Project criou um pipeline de versão dos Serviços de DevOps do Azure para gerir as implementações no Azure.
+1. Selecione **criar e lançar**e, em seguida, selecione **versões**.  
+    Projetos de DevOps cria um pipeline de lançamento para gerir implementações para o Azure.
 
-1. No lado esquerdo do browser, selecione as **reticências** junto ao pipeline de versão e, em seguida, selecione **Editar**.
+1. Selecione as reticências (...) junto ao seu pipeline de lançamento e, em seguida, selecione **editar**.  
+    O pipeline de lançamento contém um *pipeline*, que define o processo de lançamento.
 
-1. O pipeline de versão contém um **pipeline**, que define o processo da versão.  Em **Artefactos**, selecione **Remover**.  O pipeline de compilação que examinou nos passos anteriores produz a saída utilizada para o artefacto. 
+1. Em **Artefactos**, selecione **Remover**.  
+    O pipeline de compilação examinado nos passos anteriores produz a saída que é utilizada para o artefacto. 
 
-1. No lado direito do ícone **Remover**, selecione o **ícone** **Acionador de implementação contínua** (que é apresentado como um relâmpago.)  Este pipeline de versão tem um acionador de CD ativado.  O acionador inicia uma implementação sempre que estiver disponível um novo artefacto de compilação.  Opcionalmente, pode desativar o acionador, para que as suas implementações requeiram execução manual. 
+1. No lado direito do **Drop** ícone, selecione **acionador de implementação contínua**.  
+    Esta versão de pipeline tem um acionador de CD ativado, o que é executada uma implantação sempre que um novo artefacto de compilação está disponível. Opcionalmente, pode desativar o acionador para que as suas implementações exigem execução manual. 
 
-1. O Azure DevOps Project configura uma palavra-passe SQL aleatória e utiliza-a para o pipeline de versão.  No lado esquerdo do browser, selecione **Variáveis**. 
+    Projetos de DevOps configura uma palavra-passe aleatória do SQL e utiliza-o para o pipeline de lançamento.
+    
+1. No lado esquerdo, selecione **variáveis**. 
 
-1. **Execute este passo apenas se tiver alterado a palavra-passe do SQL Server.**  Existe uma única variável de **Palavra-passe**.  À direita da caixa de texto **Valor**, selecione o ícone de **cadeado**.  **Introduza** a nova palavra-passe e selecione **Guardar**.
+   > [!NOTE]
+   > Execute o seguinte passo apenas se tiver alterado a palavra-passe do SQL Server. Existe uma variável de palavra-passe única.
+  
+1. Junto a **valor** caixa, selecione o ícone de cadeado, introduza a palavra-passe nova e, em seguida, selecione **guardar**.
 
-1. No lado esquerdo do browser, selecione **Tarefas** e escolha o seu **ambiente**.  
+1. No lado esquerdo, selecione **tarefas**e, em seguida, selecione o seu ambiente.  
+    As tarefas são as atividades que executa o seu processo de implantação e estão agrupados em fases. Esta versão de pipeline tem uma fase única, que contém um *implementação de serviço de aplicações do Azure* e *implementação de base de dados SQL do Azure* tarefas.
 
-1. As tarefas são as atividades que o seu processo de implementação realiza e estão agrupadas em **Fases**.  Existe uma fase única para este pipeline de versão.  A fase contém uma tarefa de **implementação de Serviço de Aplicações do Azure** e de **Implementação de Base de Dados SQL do Azure**.
+1. Selecione o *executar o Azure SQL* de tarefas e examine as diversas propriedades que são utilizadas para a implantação do SQL.  
+    Sob **pacote de implementação**, a tarefa utiliza um *SQL DACPAC* ficheiro.
 
-1. Selecione a tarefa **Executar SQL do Azure** e examine as diversas propriedades utilizadas para a implementação de SQL.  Sob o aviso **Pacote de Implementação**, observe que a tarefa utiliza um **ficheiro SQL DACPAC**.
+1. No lado direito, selecione **ver versões** para apresentar um histórico de versões.
 
-1. No lado direito do navegador, selecione **Ver versões**.  Esta vista mostra um histórico das versões.
+1. Selecione as reticências (...) junto a uma versão e, em seguida, selecione **aberto**.  
+     Pode explorar vários menus, como um resumo de lançamento, itens de trabalho associados e testes.
 
-1. Selecione as **reticências** junto a uma das versões e escolha **Abrir**.  Existem vários menus para explorar a partir desta vista, como um **resumo da versão**, **itens relacionados com trabalho** e **Testes**.
+1. Selecione **Consolidações**.  
+     Esta vista mostra as confirmações de código que estão associadas esta implementação. Compare as versões para ver as diferenças de consolidação entre implementações.
 
-1. Selecione **Consolidações**.  Esta vista mostra as consolidações de código associadas à implementação específica. Pode comparar versões para ver as diferenças de consolidação entre implementações.
+1. Selecione **Registos**.  
+     Os registos contêm informações úteis sobre o processo de implementação. Pode visualizá-las durante e depois das implementações.
 
-1. Selecionar **Registos**.  Os registos contêm informações úteis sobre o processo de implementação.  Podem ser vistos durante e após as implementações.
-
-## <a name="commit-changes-to-azure-devops-services-and-automatically-deploy-to-azure"></a>Consolidar as alterações aos Serviços de DevOps do Azure e implementar automaticamente no Azure 
+## <a name="commit-changes-to-azure-repos-and-automatically-deploy-them-to-azure"></a>Consolide as alterações para repositórios do Azure e implementá-las automaticamente para o Azure 
 
  > [!NOTE]
- > Os passos abaixo testam o pipeline de CI/CD com uma alteração de texto simples.  Opcionalmente, pode fazer uma alteração ao Esquema do SQL Server para a tabela testar o processo de implementação SQL.
+ > O procedimento seguinte testa o pipeline de CI/CD com uma alteração de texto simples. Para testar o processo de implantação do SQL, pode fazer, opcionalmente, um esquema do SQL Server alterar para a tabela.
 
-Agora, está pronto para colaborar com uma equipa na sua aplicação, com um processo de CI/CD que implementa automaticamente o seu trabalho mais recente no seu site.  Cada alteração ao repositório Git dos Serviços de DevOps do Azure inicia uma compilação nos Serviços de DevOps do Azure e um pipeline de CD dos Serviços de DevOps do Azure executa uma implementação no Azure.  Siga os passos abaixo ou utilize outras técnicas para consolidar as alterações ao seu repositório.  As alterações de código iniciam o processo de CI/CD e implementam automaticamente as novas alterações no Azure.
+Agora, está pronto para colaborar com uma equipa na sua aplicação ao utilizar um processo de CI/CD que implementa automaticamente o seu trabalho mais recente ao seu Web site. Cada alteração para o repositório de Git inicia uma compilação em DevOps do Azure e um pipeline CD executa uma implementação para o Azure. Siga o procedimento nesta secção, ou utilize outra técnica para consolidar as alterações ao seu repositório. As alterações de código iniciam o processo de CI/CD e implementar automaticamente as suas alterações para o Azure.
 
-1. Selecione **Código** no menu dos Serviços de DevOps do Azure e navegue para o seu repositório.
+1. No painel esquerdo, selecione **código**e, em seguida, vá para o seu repositório.
 
-1. Navegue para o diretório **SampleWebApplication\Vistas\Home**, selecione as **reticências** junto ao ficheiro **Index.cshtml** e, em seguida, escolha **Editar**.
+1. Vá para o *SampleWebApplication\Views\Home* diretório, selecione as reticências (...) junto aos *Index. cshtml* de ficheiros e, em seguida, selecione **editar**. 
 
-1. Faça uma alteração no ficheiro, como algum texto dentro de uma das **etiquetas div**.  No canto superior direito, selecione **Consolidar**.  Selecione **Consolidar** novamente para emitir a alteração. 
+1. Fazer uma alteração para o ficheiro, por exemplo, adicionar algum texto dentro de uma das etiquetas div. 
 
-1. Dentro de momentos, **é iniciada uma compilação nos Serviços de DevOps do Azure** e, em seguida, é executada uma versão para implementar as alterações.  Pode monitorizar o **estado da compilação** com o dashboard do DevOps Project ou no browser com a sua organização de Serviços de DevOps do Azure.
+1. Na parte superior direita, selecione **consolidar**e, em seguida, selecione **consolidar** novamente para enviar sua alteração.  
+    Após alguns instantes, uma compilação é iniciada no Azure DevOps e uma versão executa para implementar as alterações. Monitorize o estado de compilação no dashboard de projetos de DevOps ou no navegador com a sua organização de DevOps do Azure.
 
-1. Assim que a versão estiver concluída, **atualize a aplicação** no browser para verificar as alterações.
+1. Depois de concluída a versão, atualize a aplicação para verificar as suas alterações.
 
-## <a name="connect-to-the-azure-sql-server-database"></a>Ligar à Base de Dados do SQL Server do Azure
+## <a name="connect-to-the-azure-sql-database"></a>Ligar à base de dados SQL do Azure
 
-Precisa de permissões adequadas para ligar à Base de Dados SQL do Azure.
+Precisa das permissões necessárias para ligar à base de dados SQL do Azure.
 
-1. No dashboard do Projeto de DevOps do Azure, selecione a **Base de Dados SQL** para navegar para a página de gestão da BD SQL.
+1. No dashboard de projetos de DevOps, selecione **base de dados SQL** para ir para a página de gestão para a base de dados do SQL.
    
-1. Selecione **Definir firewall do servidor** e, em seguida, selecione **+ Adicionar IP de cliente**.  
+1. Selecione **definir firewall do servidor**e, em seguida, selecione **Adicionar IP de cliente**. 
 
-1. Selecione **Guardar**.  O IP do cliente tem agora permissão para aceder ao **recurso do SQL Server do Azure**.
+1. Selecione **Guardar**.  
+    O IP de cliente tem agora acesso ao recurso do Azure do SQL Server.
 
-1. Navegue novamente para o painel **Base de Dados SQL**. 
+1. Volte para o **base de dados SQL** painel. 
 
-1. No lado direito do ecrã, selecione o **Nome do servidor** para navegar para a página de configuração para o **SQL Server**.
+1. No lado direito, selecione o nome do servidor para navegar para a página de configuração **SQL Server**.
 
-1. Selecione **Repor palavra-passe**, introduza uma palavra-passe para o **Início de sessão de administrador do SQL Server** e, em seguida, selecione **Guardar**.  **Mantenha** esta palavra-passe para os passos seguintes deste tutorial.
+1. Selecione **Repor palavra-passe**, introduza uma palavra-passe para o início de sessão de administrador do SQL Server e, em seguida, selecione **guardar**.  
+    Certifique-se de que manter esta palavra-passe para utilizar mais tarde neste tutorial.
 
-1. Pode agora, opcionalmente, utilizar ferramentas de cliente, como o **SQL Server Management Studio** ou o **Visual Studio** para ligar ao Servidor e Base de Dados SQL do Azure.  Utilize a propriedade **Nome do servidor** para ligar.
+    Agora pode utilizar, opcionalmente, ferramentas de cliente, como o SQL Server Management Studio ou o Visual Studio para ligar ao SQL Server e a base de dados SQL do Azure. Utilize a propriedade **Nome do servidor** para ligar.
 
-   Se não alterou o nome de utilizador da DB ao configurar inicialmente o projeto do DevOps, o seu nome de utilizador é a parte local do seu endereço de e-mail.  Por exemplo, se o seu endereço de e-mail é johndoe@microsoft.com, o seu nome de utilizador é johndoe.
+    Se não alterar o nome de utilizador de base de dados quando configurou inicialmente o projeto em projetos de DevOps, o seu nome de utilizador é a parte local do seu endereço de e-mail. Por exemplo, se seu endereço de e-mail for *diogoandrade\@microsoft.com*, é o seu nome de utilizador *diogoandrade*.
 
- > [!NOTE]
- > Se alterar a palavra-passe do início de sessão SQL, tem de alterar a palavra-passe da variável de pipeline de versão dos Serviços de DevOps do Azure, conforme descrito na secção **Examinar o pipeline de CD dos Serviços de DevOps do Azure**
+   > [!NOTE]
+   > Se alterar a palavra-passe para o início de sessão do SQL, tem de alterar a palavra-passe da variável de pipeline de lançamento, conforme descrito na secção "Examinar o pipeline CD".
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 
- > [!NOTE]
- > Os passos abaixo irão eliminar permanentemente os recursos.  Utilize esta funcionalidade só depois de ler atentamente as instruções.
+Se estiver a testar, pode evitar acumulação de encargos de faturas por limpar seus recursos. Quando já não são necessários, pode eliminar a base de dados SQL do Azure e os recursos relacionados que criou neste tutorial. Para tal, utilize o **eliminar** funcionalidade no dashboard de projetos de DevOps.
 
-Se estiver a testar, pode limpar os recursos para evitar a acumulação de encargos de faturação.  Quando já não for preciso, pode eliminar a Base de Dados SQL do Azure e os recursos relacionados que criou neste tutorial, através da funcionalidade **Eliminar** do dashboard do Projeto de DevOps do Azure.  **Tenha cuidado**, uma vez que a funcionalidade de eliminação destrói os dados criados pelo Azure DevOps Project, tanto no Azure como nos Serviços de DevOps do Azure, e não conseguirá recuperá-los depois.
+> [!IMPORTANT]
+> O procedimento seguinte elimina permanentemente recursos. O *eliminar* funcionalidade destrói os dados que são criados pelo projeto em projetos de DevOps no Azure e do Azure DevOps, e não será possível recuperá-la. Utilize este procedimento apenas depois de ler atentamente as instruções.
 
-1. No **portal do Azure**, navegue para o **Projeto de DevOps do Azure**.
-2. No **canto superior direito** do dashboard, selecione **Eliminar**.  Depois de ler a instrução, selecione **Sim** para **eliminar permanentemente** os recursos.
+1. No portal do Azure, vá para o dashboard de projetos de DevOps.
+2. Na parte superior direita, selecione **eliminar**. 
+3. Na linha de comandos, selecione **Sim** ao *eliminar permanentemente* os recursos.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
-Opcionalmente, pode modificar estes pipelines de compilação e versão para satisfazer as necessidades da sua equipa. Também pode utilizar este padrão de CI/CD como um modelo para outros projetos.  Aprendeu a:
+Opcionalmente, pode modificar estes pipelines de compilação e versão para satisfazer as necessidades da sua equipa. Também pode utilizar este padrão de CI/CD como modelo para outros pipelines. Neste tutorial, ficou a saber como:
 
 > [!div class="checklist"]
-> * Criar um Azure DevOps Project para uma Aplicação ASP.NET e Base de Dados SQL do Azure
-> * Configurar os Serviços de DevOps do Azure e uma subscrição do Azure 
-> * Examinar o pipeline de CI dos Serviços de DevOps do Azure
-> * Examinar o pipeline de CD dos Serviços de DevOps do Azure
-> * Consolidar as alterações aos Serviços de DevOps do Azure e implementar automaticamente no Azure
-> * Ligar à Base de Dados do SQL Server do Azure 
+> * Utilizar projetos de DevOps do Azure para implementar a sua aplicação ASP.NET e o código de base de dados do Azure SQL
+> * Configurar o Azure DevOps e uma subscrição do Azure 
+> * Examinar o pipeline de CI
+> * Examinar o pipeline de CD
+> * Consolide as alterações para repositórios do Azure e implementá-las automaticamente para o Azure
+> * Ligar à base de dados SQL do Azure 
 > * Limpar recursos
 
-Para saber mais sobre o pipeline do Azure, veja este tutorial:
+Para saber mais sobre o pipeline de CI/CD, consulte:
 
 > [!div class="nextstepaction"]
-> [Personalizar o processo de CD](https://docs.microsoft.com/azure/devops/pipelines/release/define-multistage-release-process?view=vsts)
+> [Definir o seu pipeline de vários estágios de implementação contínua (CD)](https://docs.microsoft.com/azure/devops/pipelines/release/define-multistage-release-process?view=vsts)
 
 ## <a name="videos"></a>Vídeos
 

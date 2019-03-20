@@ -11,13 +11,13 @@ author: oslake
 ms.author: moslake
 ms.reviewer: genemi,ayolubek, jrasnick
 manager: craigg
-ms.date: 03/07/2019
-ms.openlocfilehash: 60f00418a2e3fcf2ac88dfc351e07ca8c3ac802a
-ms.sourcegitcommit: 30a0007f8e584692fe03c0023fe0337f842a7070
+ms.date: 03/12/2019
+ms.openlocfilehash: 9704acee2ca8bad7437ae22ff5041e2253916dce
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57574615"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57880437"
 ---
 # <a name="dns-alias-for-azure-sql-database"></a>Alias de DNS para a base de dados do Azure SQL
 
@@ -88,6 +88,8 @@ Além disso, as APIs REST pode ser vistas no GitHub em:
 #### <a name="powershell-for-managing-your-dns-aliases"></a>PowerShell para gerir os seus aliases DNS
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+> [!IMPORTANT]
+> O módulo do PowerShell do Azure Resource Manager ainda é suportado pelo SQL Database do Azure, mas todo o desenvolvimento futuro é para o módulo de Az.Sql. Para estes cmdlets, consulte [azurerm. SQL](https://docs.microsoft.com/powershell/module/AzureRM.Sql/). Os argumentos para os comandos no módulo Az e nos módulos AzureRm são substancialmente idênticos.
 
 Cmdlets do PowerShell estão disponíveis que chamar as APIs REST.
 

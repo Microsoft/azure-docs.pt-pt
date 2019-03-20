@@ -9,12 +9,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 02/15/2019
 ms.author: jingwang
-ms.openlocfilehash: bb701a33d4ebb1ffca19896f3b4ac0419f27d54f
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: e21223bf3c50a98e039d0f19c51116c4a3cfbcc0
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57539042"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57875143"
 ---
 # <a name="supported-file-formats-and-compression-codecs-in-azure-data-factory"></a>Formatos de ficheiro suportados e codecs de compactação no Azure Data Factory
 
@@ -573,6 +573,14 @@ O **compressão** secção tem duas propriedades:
 
 > [!NOTE]
 > As definições de compressão não são suportadas para os dados no **AvroFormat**, **OrcFormat**, ou **ParquetFormat**. Durante a leitura de ficheiros nesses formatos, o Data Factory Deteta e utiliza o codec de compressão existente nos metadados. Ao escrever ficheiros nesses formatos, o Data Factory escolhe o codec de compressão predefinido para esse formato. Por exemplo, ZLIB para OrcFormat e SNAPPY para ParquetFormat.
+
+## <a name="unsupported-file-types-and-compression-formats"></a>Tipos de ficheiro não suportado e formatos de compressão
+
+Pode utilizar os recursos de extensibilidade do Azure Data Factory para transformar ficheiros que não são suportados. Duas opções incluem as funções do Azure e de tarefas personalizadas através do Azure Batch.
+
+Pode ver um exemplo que utiliza uma função do Azure para [extraia os conteúdos de um arquivo tar](https://github.com/Azure/Azure-DataFactory/tree/master/SamplesV2/UntarAzureFilesWithAzureFunction). Para obter mais informações, consulte [atividade de funções do Azure](https://docs.microsoft.com/azure/data-factory/control-flow-azure-function-activity).
+
+Também pode criar esta funcionalidade com uma atividade dotnet personalizado. Estão disponíveis mais informações [aqui](https://docs.microsoft.com/en-us/azure/data-factory/transform-data-using-dotnet-custom-activity)
 
 ## <a name="next-steps"></a>Passos Seguintes
 

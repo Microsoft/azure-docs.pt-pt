@@ -11,23 +11,23 @@ ms.subservice: qna-maker
 ms.topic: tutorial
 ms.date: 01/24/2019
 ms.author: diberry
-ms.openlocfilehash: dd307e4abf4145bad9e0be79d261abf98d7bb3b7
-ms.sourcegitcommit: d89b679d20ad45d224fd7d010496c52345f10c96
+ms.openlocfilehash: 42d53cee48be73a0d151b6f44d381463fa1c4e16
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57792366"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58102167"
 ---
 # <a name="tutorial-using-c-create-knowledge-base-then-answer-question"></a>Tutorial: Utilizar o C#, dados de conhecimento base, em seguida, responder a pergunta
 
 Este tutorial orienta programaticamente a criação e publicação de uma base de dados de conhecimento (BDC) e a resposta a uma pergunta do cliente a partir da mesma. 
 
 > [!div class="checklist"]
-* Criar uma base de dados de conhecimento 
-* Verificar estado de criação
-* Preparar e publicar a base de dados de conhecimento
-* Obter informações de pontos finais
-* Utilizar o Curl para consultar a base de dados de conhecimento
+> * Criar uma base de dados de conhecimento 
+> * Verificar estado de criação
+> * Preparar e publicar a base de dados de conhecimento
+> * Obter informações de pontos finais
+> * Utilizar o Curl para consultar a base de dados de conhecimento
 
 
 Este início rápido chama as API do Criador de FAQ:

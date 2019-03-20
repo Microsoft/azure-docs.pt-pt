@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/04/2018
 ms.author: kraigb
-ms.openlocfilehash: ced279575c0dd6ca2509911a53a23c2ebf9eb77e
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: cfce5765cda1e3a1dfb7eb073719191b13b0696e
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57762047"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58089204"
 ---
 # <a name="quickstart-clone-a-notebook"></a>Início rápido: Clonar um bloco de notas
 
@@ -40,13 +40,13 @@ A clonagem, cria uma cópia de um bloco de notas do GitHub na sua conta de bloco
 
 1. Na **carregar repositório do GitHub** que aparece, introduza ou defina os seguintes detalhes, em seguida, selecione **importação**:
 
-    - **Repositório do GitHub**: Microsoft/cognitivos-services-blocos de notas (este nome clona os blocos de notas do Jupyter para os serviços cognitivos do Azure no [ https://github.com/Microsoft/cognitive-services-notebooks ](https://github.com/Microsoft/cognitive-services-notebooks)).
-    - **Clonar recursivamente**: (limpo)
-    - **Nome do projeto**: Clone de serviços cognitivos
-    - **ID do projeto**: clone de serviços cognitivos
-    - **Público**: (limpo)
+   - **Repositório do GitHub**: Microsoft/cognitivos-services-blocos de notas (este nome clona os blocos de notas do Jupyter para os serviços cognitivos do Azure no [ https://github.com/Microsoft/cognitive-services-notebooks ](https://github.com/Microsoft/cognitive-services-notebooks)).
+   - **Clonar recursivamente**: (limpo)
+   - **Nome do projeto**: Clone de serviços cognitivos
+   - **ID do projeto**: clone de serviços cognitivos
+   - **Público**: (limpo)
 
-    ![Carregar o pop-up de repositório do GitHub para recolher informações do repositório](media/quickstarts/upload-github-repo-popup.png)
+     ![Carregar o pop-up de repositório do GitHub para recolher informações do repositório](media/quickstarts/upload-github-repo-popup.png)
 
 1. Seja paciente, enquanto o processo for concluído; um repositório de clonagem pode demorar alguns minutos.
 

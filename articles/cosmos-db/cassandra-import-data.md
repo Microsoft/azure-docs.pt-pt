@@ -10,12 +10,12 @@ ms.topic: tutorial
 ms.date: 12/03/2018
 ms.custom: seodec18
 Customer intent: As a developer, I want to migrate my existing Cassandra workloads to Azure Cosmos DB so that the overhead to manage resources, clusters, and garbage collection is automatically handled by Azure Cosmos DB.
-ms.openlocfilehash: b12e7aad5fbdf65a8936b943f5053eda76dbd883
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: c9f7ec5009c9299e317d9b10f857e326d25fa005
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54037485"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58120113"
 ---
 # <a name="tutorial-migrate-your-data-to-cassandra-api-account-in-azure-cosmos-db"></a>Tutorial: Migrar os dados para a conta da API de Cassandra na Azure Cosmos DB
 
@@ -35,31 +35,31 @@ Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure
 
 * **Calcule as que necessidades de débito da sua:** Antes de migrar dados para a API de Cassandra de contas no Azure Cosmos DB, deve determinar as necessidades de débito da sua carga de trabalho. Em geral, recomenda-se começar com o débito médio necessário para as operações CRUD e, em seguida, incluir o débito adicional necessário para operações ETL (Extrair Transformar Carregar) ou grandes. Precisa dos seguintes detalhes para planear a migração: 
 
-   * **Tamanho de dados existente ou o tamanho estimado dos dados:** Define o requisito de tamanho e o débito de base de dados mínimo. Se estiver a calcular o tamanho dos dados para uma nova aplicação, pode pressupor que os dados são distribuídos uniformemente nos registos e calcular o valor ao multiplicar o tamanho de dados. 
+  * **Tamanho de dados existente ou o tamanho estimado dos dados:** Define o requisito de tamanho e o débito de base de dados mínimo. Se estiver a calcular o tamanho dos dados para uma nova aplicação, pode pressupor que os dados são distribuídos uniformemente nos registos e calcular o valor ao multiplicar o tamanho de dados. 
 
-   * **Taxa de transferência necessária:** Fazer uma aproximação de leitura (get/consulta) e escrever a taxa de débito (update/delete/insert). Este valor é necessário para calcular as unidades de pedido necessárias, juntamente com o tamanho de dados no estado estável.  
+  * **Taxa de transferência necessária:** Fazer uma aproximação de leitura (get/consulta) e escrever a taxa de débito (update/delete/insert). Este valor é necessário para calcular as unidades de pedido necessárias, juntamente com o tamanho de dados no estado estável.  
 
-   * **O esquema:** Ligar ao cluster do Cassandra existente por meio de cqlsh e exporte o esquema do Cassandra: 
+  * **O esquema:** Ligar ao cluster do Cassandra existente por meio de cqlsh e exporte o esquema do Cassandra: 
 
-     ```bash
-     cqlsh [IP] "-e DESC SCHEMA" > orig_schema.cql
-     ```
+    ```bash
+    cqlsh [IP] "-e DESC SCHEMA" > orig_schema.cql
+    ```
 
-   Depois de identificar os requisitos da sua carga de trabalho existente, deve criar uma conta do Cosmos do Azure, base de dados e contentores, de acordo com os requisitos de débito recolhidos.  
+    Depois de identificar os requisitos da sua carga de trabalho existente, deve criar uma conta do Cosmos do Azure, base de dados e contentores, de acordo com os requisitos de débito recolhidos.  
 
-   * **Determine a taxa de RU uma operação:** Pode determinar o RUs utilizando qualquer um dos SDKs suportados pela API do Cassandra. Este exemplo mostra a versão do .NET dos encargos de obter RU.
+  * **Determine a taxa de RU uma operação:** Pode determinar o RUs utilizando qualquer um dos SDKs suportados pela API do Cassandra. Este exemplo mostra a versão do .NET dos encargos de obter RU.
 
-     ```csharp
-     var tableInsertStatement = table.Insert(sampleEntity);
-     var insertResult = await tableInsertStatement.ExecuteAsync();
+    ```csharp
+    var tableInsertStatement = table.Insert(sampleEntity);
+    var insertResult = await tableInsertStatement.ExecuteAsync();
 
-     foreach (string key in insertResult.Info.IncomingPayload)
-       {
-          byte[] valueInBytes = customPayload[key];
-          string value = Encoding.UTF8.GetString(valueInBytes);
-          Console.WriteLine($"CustomPayload:  {key}: {value}");
-       }
-     ```
+    foreach (string key in insertResult.Info.IncomingPayload)
+      {
+         byte[] valueInBytes = customPayload[key];
+         string value = Encoding.UTF8.GetString(valueInBytes);
+         Console.WriteLine($"CustomPayload:  {key}: {value}");
+      }
+    ```
 
 * **Atribua a taxa de transferência necessária:** O Azure Cosmos DB pode dimensionar automaticamente o armazenamento e débito à medida que aumentam os seus requisitos. Pode calcular as necessidades de débito com a [Calculadora de unidades de pedido do Azure Cosmos DB](https://www.documentdb.com/capacityplanner). 
 

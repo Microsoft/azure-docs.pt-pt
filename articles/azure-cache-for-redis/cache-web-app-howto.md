@@ -15,12 +15,12 @@ ms.topic: quickstart
 ms.date: 03/26/2018
 ms.author: yegu
 ms.custom: mvc
-ms.openlocfilehash: 8225f5a093724c00dcc336d5dc2195f4addc998b
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
+ms.openlocfilehash: f0972e840fab3c624616ba8aa70bae74be5b1dc2
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56237829"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58090479"
 ---
 # <a name="quickstart-create-an-aspnet-web-app"></a>Início rápido: Criar uma aplicação Web ASP.NET 
 
@@ -74,9 +74,9 @@ Em seguida, crie a cache para a aplicação.
 
 #### <a name="to-edit-the-cachesecretsconfig-file"></a>Para editar o ficheiro *CacheSecrets.config*
 
-3. Crie um ficheiro no computador com o nome *CacheSecrets.config*. Coloque-o numa localização onde não dê entrada com o código de origem do seu exemplo de aplicação. Neste início rápido, o ficheiro *CacheSecrets.config* está localizado em *C:\AppSecrets\CacheSecrets.config*.
+1. Crie um ficheiro no computador com o nome *CacheSecrets.config*. Coloque-o numa localização onde não dê entrada com o código de origem do seu exemplo de aplicação. Neste início rápido, o ficheiro *CacheSecrets.config* está localizado em *C:\AppSecrets\CacheSecrets.config*.
 
-4. Edite o ficheiro *CacheSecrets.config*. Em seguida, adicione o seguinte conteúdo:
+1. Edite o ficheiro *CacheSecrets.config*. Em seguida, adicione o seguinte conteúdo:
 
     ```xml
     <appSettings>
@@ -84,14 +84,14 @@ Em seguida, crie a cache para a aplicação.
     </appSettings>
     ```
 
-5. Substitua `<cache-name>` pelo nome do anfitrião da cache.
+1. Substitua `<cache-name>` pelo nome do anfitrião da cache.
 
-6. Substitua `<access-key>` pela chave primária da sua cache.
+1. Substitua `<access-key>` pela chave primária da sua cache.
 
     > [!TIP]
     > Pode utilizar a chave de acesso secundária durante a rotação da chave como uma chave alternativa enquanto regenera a chave de acesso primária.
->
-7. Guarde o ficheiro.
+   >
+1. Guarde o ficheiro.
 
 ## <a name="update-the-mvc-application"></a>Atualizar a aplicação MVC
 

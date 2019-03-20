@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/04/2018
 ms.author: kraigb
-ms.openlocfilehash: fd1e7ccdc54b5c5111ecfa466e916a376f43521a
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: c5f8b6db77cabdf5e7af66063cbd9a058bd01800
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57770722"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58082777"
 ---
 # <a name="work-with-data-files-in-azure-notebook-projects"></a>Trabalhar com arquivos de dados em projetos de bloco de notas do Azure
 
@@ -42,13 +42,13 @@ Pode colocar arquivos num projeto do dashboard do projeto, ou dentro de um bloco
 
 1. Selecione o **carregue** comando, então **de URL** ou **do computador** e os detalhes necessários para os dados que pretende importar do projeto:
 
-    - **Partir do URL**: Introduza o endereço de origem na **URL de ficheiro** campo e o nome de ficheiro para atribuir ao bloco de notas no seu projeto no **nome do ficheiro** campo. Em seguida, selecione **+ adicionar ficheiro** para adicionar o URL para a lista de carregamento. Repita o processo para todos os URLs adicionais, em seguida, selecione **feito**.
+   - **Partir do URL**: Introduza o endereço de origem na **URL de ficheiro** campo e o nome de ficheiro para atribuir ao bloco de notas no seu projeto no **nome do ficheiro** campo. Em seguida, selecione **+ adicionar ficheiro** para adicionar o URL para a lista de carregamento. Repita o processo para todos os URLs adicionais, em seguida, selecione **feito**.
 
-    ![Carregar a partir do pop-up de URL](media/quickstarts/upload-from-url-popup.png)
+     ![Carregar a partir do pop-up de URL](media/quickstarts/upload-from-url-popup.png)
 
-    - **Do computador**: Arrastar e soltar arquivos em pop-up ou selecione **escolher ficheiros**, em seguida, procure e selecione os ficheiros de dados que pretende importar. Pode remover ou escolher qualquer número de ficheiros, de qualquer tipo e o formato, porque é o código no bloco de notas, abra o ficheiro e analisar os dados.
+   - **Do computador**: Arrastar e soltar arquivos em pop-up ou selecione **escolher ficheiros**, em seguida, procure e selecione os ficheiros de dados que pretende importar. Pode remover ou escolher qualquer número de ficheiros, de qualquer tipo e o formato, porque é o código no bloco de notas, abra o ficheiro e analisar os dados.
 
-    ![Carregar a partir do pop-up de computador](media/quickstarts/upload-from-computer-popup.png)
+     ![Carregar a partir do pop-up de computador](media/quickstarts/upload-from-computer-popup.png)
 
 1. Depois de importados, os ficheiros são apresentados no dashboard do projeto e podem ser acedidos no código do bloco de notas com pathnames relativo para a pasta que contém.
 

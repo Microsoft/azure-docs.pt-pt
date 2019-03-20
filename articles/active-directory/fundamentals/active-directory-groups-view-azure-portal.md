@@ -13,12 +13,12 @@ ms.author: lizross
 ms.custom: it-pro, seodec18, seo-update-azuread-jan
 ms.reviewer: krbain
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d92038a7992129ce3a812fd12a5e42f5ac37125e
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 8eef6f7a363fe7b020a3ef18ae26799d7d5452ed
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57443592"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57881015"
 ---
 <!--As a brand-new Azure AD administrator, I need to view my organization’s groups along with the assigned members, so I can manage permissions to apps and services for people in my organization-->
 
@@ -61,7 +61,7 @@ Crie um novo utilizador, com o nome _Alain Charon_. O utilizador tem de existir 
 
     - **Nome:** Tipo _Alain Charon_.
 
-    - **Nome de utilizador:** Tipo *alain@contoso.com*.
+    - **Nome de utilizador:** Tipo *alain\@contoso.com*.
 
 3. Copie a palavra-passe gerada automaticamente,fornecida na caixa **Palavra-passe** e, em seguida, selecione **Criar**.
 

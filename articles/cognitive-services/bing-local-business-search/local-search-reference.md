@@ -9,12 +9,12 @@ ms.service: cognitive-services
 ms.topic: article
 ms.date: 11/01/2018
 ms.author: rosh, v-gedod
-ms.openlocfilehash: 34cedd2b389187e55201b62acc38fca291cdd736
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: bc38b4457179c11f9d6b2656aacb8aa66848c444
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57761793"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57992481"
 ---
 # <a name="bing-local-business-search-api-v7-reference"></a>Referência da API de pesquisa de negócios locais do Bing v7
 
@@ -75,7 +75,7 @@ O pedido pode incluir os seguintes parâmetros de consulta. Consulte a coluna ne
 |<a name="count" />Contagem|O número de resultados a devolver, começando com o índice especificado pelo `offset` parâmetro.|String|Não|   
 |<a name="localCategories" />localCategories|Lista de opções que definem a pesquisa por categoria de negócios.  Consulte [Local de negócios de categorias de pesquisa](local-categories.md)|String|Não|  
 |<a name="mkt" />mkt|O mercado de onde os resultados provêm. <br /><br />Para obter uma lista de possíveis valores de mercado, consulte códigos de mercado.<br /><br /> **NOTA:** A API de pesquisa de negócios locais atualmente suporta apenas en--nos mercado e a linguagem.<br /><br />|String|Sim|
-|<a name="offset"/>offset|O índice inicial de resultados especificados pelo `count` parâmetro.|Número Inteiro|Não|  
+|<a name="offset"/>offset|O índice inicial de resultados especificados pelo `count` parâmetro.|Número inteiro|Não|  
 |<a name="query" />q|Termo de pesquisa do usuário.|String|Não|  
 |<a name="responseformat" />responseFormat|O tipo de mídia a utilizar para a resposta. Seguem-se os valores possíveis de maiúsculas e minúsculas.<br /><ul><li>JSON</li><li>JSONLD</li></ul><br /> A predefinição é JSON. Para obter informações sobre o JSON de objetos que contém a resposta, consulte [objetos de resposta](#response-objects).<br /><br />  Se especificar JsonLd, o corpo da resposta inclui os objetos de JSON LD que contêm os resultados da pesquisa. Para obter informações sobre o JSON-LD, consulte [JSON LD](https://json-ld.org/).|String|Não|  
 |<a name="safesearch" />safeSearch|É um filtro utilizado para filtrar conteúdo para adultos. Os valores seguintes são os possíveis valores do filtro, não sensíveis a maiúsculas e minúsculas.<br /><ul><li>Desativar&mdash;devolver páginas da Web com o texto para adultos, imagens ou vídeos.<br /><br/></li><li>Moderado&mdash;devolver páginas da Web com o texto para adultos, mas não para adultos imagens ou vídeos.<br /><br/></li><li>Strict&mdash;não retornam páginas da Web com o texto para adultos, imagens ou vídeos.</li></ul><br /> A predefinição é Moderado.<br /><br /> **NOTA:** Se a solicitação é proveniente de um mercado de política de adultos do Bing que requer que `safeSearch` está definido para Strict, Bing ignora o `safeSearch` valor e utiliza Strict.<br/><br/>**NOTA:** Se utilizar o `site:` operador de consulta, é provável que a resposta pode conter o conteúdo para adultos, independentemente do que o `safeSearch` parâmetro de consulta está definido como. Utilize `site:` apenas se tiver conhecimento do conteúdo do site e se o seu cenário suportar a possibilidade de conteúdos para adultos. |String|Não|  
@@ -86,7 +86,7 @@ O pedido pode incluir os seguintes parâmetros de consulta. Consulte a coluna ne
 Seguem-se os objetos de resposta JSON que pode incluir a resposta. Se a solicitação for bem-sucedida, o objeto de nível superior na resposta é o [SearchResponse](#searchresponse) objeto. Se o pedido falhar, o objeto de nível superior é o [byl vrácen Prvek](#errorresponse) objeto.
 
 
-|Objeto|Descrição|  
+|Object|Descrição|  
 |------------|-----------------|  
 |[Local](#place)|Define as informações sobre um negócio local como um restaurante ou hotel.|  
 
@@ -119,11 +119,11 @@ Define a licença sob a qual podem ser utilizada o texto ou fotos.
   
 |Name|Value|Type|  
 |----------|-----------|----------|  
-|name|O nome da licença.|String|  
+|nome|O nome da licença.|String|  
 |url|O URL para um Web site em que o utilizador pode obter mais informações sobre a licença.<br /><br /> Utilize o nome e o URL para criar uma hiperligação.|String|  
 
 
-### <a name="link"></a>Associar  
+### <a name="link"></a>Ligação  
 Define os componentes de um hiperlink.  
   
 |Name|Value|Type|  
@@ -142,7 +142,7 @@ Tenha em atenção que um fabricante poderá fornecer seu nome ou o site ou ambo
   
 |Name|Value|Type|  
 |----------|-----------|----------|  
-|name|O nome do Editor.|String|  
+|nome|O nome do Editor.|String|  
 |url|O URL para o site do publicador.<br /><br /> Tenha em atenção que o publicador poderão não fornecer um Web site.|String|  
   
   
@@ -155,7 +155,7 @@ Define as informações sobre o local de uma empresa, como um restaurante ou hot
 |_type|Dica de tipo, que pode ser definida como um dos seguintes:<br /><br /><ul><li>Hotel</li><li>LocalBusiness<br /></li><li>Restaurante</ul><li>|String|  
 |endereço|O endereço postal de onde está localizada a entidade.|PostalAddress|  
 |entityPresentationInfo|Obter informações adicionais sobre a entidade como sugestões que pode utilizar para determinar o tipo da entidade. Por exemplo, se é um restaurante ou hotel. O `entityScenario` campo é definido como ListItem.|EntityPresentationInfo|  
-|name|Nome da entidade.|String|  
+|nome|Nome da entidade.|String|  
 |Telefone|Número de telefone da entidade.|String|  
 |url|O URL para o site da entidade.<br /><br /> Utilizar este URL, juntamente com o nome da entidade para criar uma hiperligação que quando clicado leva o usuário ao site da entidade.|String|  
 |webSearchUrl|O URL para o resultado da pesquisa do Bing para este local.|String| 
@@ -173,21 +173,24 @@ Define o contexto de consulta que Bing utilizado para o pedido.
 |originalQuery|A cadeia de consulta, conforme especificado no pedido.|String|  
 
 ### <a name="identifiable"></a>Identificação
+
 |Name|Value|Type|  
 |-------------|-----------------|----------|
-|id|Um identificador de recurso|String|
+|ID|Um identificador de recurso|String|
  
 ### <a name="rankinggroup"></a>RankingGroup
 Define uma pesquisa resulta de grupo, tal como mainline.
+
 |Name|Value|Type|  
 |-------------|-----------------|----------|
 |itens|Uma lista de resultados de pesquisa para ver o grupo.|RankingItem|
 
 ### <a name="rankingitem"></a>RankingItem
 Define um item de resultado de pesquisa para apresentar.
+
 |Name|Value|Type|  
 |-------------|-----------------|----------|
-|resultIndex|Um índice baseado em zero do item na resposta a apresentar. Se o item não incluir este campo, apresenta todos os itens na resposta. Por exemplo, exiba todos os artigos de notícias na resposta de notícias.|Número Inteiro|
+|resultIndex|Um índice baseado em zero do item na resposta a apresentar. Se o item não incluir este campo, apresenta todos os itens na resposta. Por exemplo, exiba todos os artigos de notícias na resposta de notícias.|Número inteiro|
 |answerType|A resposta que contém o item para apresentar. Por exemplo, notícias.<br /><br />Utilize o tipo para encontrar a resposta no objeto SearchResponse. O tipo é o nome de um campo de SearchResponse.<br /><br /> No entanto, utilizar o tipo de resposta apenas se este objeto inclui o campo de valor; caso contrário, ignorá-lo.|String|
 |textualIndex|O índice da resposta sob textualAnswers para apresentar.| Número inteiro não assinado|
 |valor|O ID identifica uma resposta para apresentar ou um item de uma resposta para apresentar. Se o ID identifica uma resposta, exiba todos os itens da resposta.|Identificação|

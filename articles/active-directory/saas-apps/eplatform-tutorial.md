@@ -12,14 +12,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 02/27/2019
+ms.date: 03/05/2019
 ms.author: jeedes
-ms.openlocfilehash: fb606e914e0fb2b9721f3ca1e8927be500270795
-ms.sourcegitcommit: 1902adaa68c660bdaac46878ce2dec5473d29275
+ms.openlocfilehash: 75c65d9fe7cf884f1c76439fc2f8d5373fadd5ae
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/11/2019
-ms.locfileid: "57730413"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57880624"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-eplatform"></a>Tutorial: Integração do Active Directory do Azure com ePlatform
 
@@ -109,15 +109,43 @@ Para configurar o Azure AD início de sessão único com ePlatform, execute os s
     > [!NOTE]
     > O valor não é real. Atualize o valor com o URL de início de sessão real. Contacte [equipa de suporte de cliente ePlatform](https://help.eplatform.co/hc/en-us) para obter o valor. Também pode consultar os padrões mostrados a **configuração básica de SAML** secção no portal do Azure.
 
-4. Na **certificado de assinatura SAML** secção, clique em **editar** botão para abrir **certificado de assinatura SAML** caixa de diálogo.
+5. Na **certificado de assinatura SAML** secção, clique em **editar** botão para abrir **certificado de assinatura SAML** caixa de diálogo.
 
     ![Editar o certificado de assinatura de SAML](common/edit-certificate.png)
 
-5. Na **certificado de assinatura SAML** secção, copie a **Thumbprint** e guarde-o no seu computador.
+6. Na **certificado de assinatura SAML** secção, copie a **Thumbprint** e guarde-o no seu computador.
 
     ![Copie o valor do Thumbprint](common/copy-thumbprint.png)
 
-6. Sobre o **configurar ePlatform** secção, copie os URLs apropriados de acordo com seus requisitos.
+7. Seu aplicativo ePlatform espera que as asserções SAML num formato específico, o que requer a adição de mapeamentos de atributos personalizado à sua configuração de atributos de token SAML. Captura de ecrã seguinte mostra a lista de atributos predefinidos. Clique em **edite** ícone para abrir **atributos do utilizador** caixa de diálogo.
+
+    ![image](common/edit-attribute.png)
+
+8. Além dos acima, o aplicativo ePlatform espera mais alguns atributos a serem passados na resposta SAML. No **afirmações de utilizador** secção sobre o **atributos de utilizador** caixa de diálogo, execute os seguintes passos para adicionar o atributo de token de SAML conforme mostrado na tabela a seguir:
+
+    | Name | Atributo de origem |
+    | ---------------| --------------- |
+    | upn | user.userprincipalname |
+
+    a. Clique em **Adicionar nova afirmação** para abrir o **afirmações de utilizador de gerir** caixa de diálogo.
+
+    ![image](common/new-save-attribute.png)
+
+    ![image](common/new-attribute-details.png)
+
+    b. Na **nome** caixa de texto, escreva o nome de atributo apresentado para essa linha.
+
+    c. Deixe o **espaço de nomes** em branco.
+
+    d. Selecione a origem de dado **atributo**.
+
+    e. Partir do **atributo de origem** lista, digite o valor de atributo apresentado para essa linha.
+
+    f. Clique em **Ok**
+
+    g. Clique em **Guardar**.
+
+9. Sobre o **configurar ePlatform** secção, copie os URLs apropriados de acordo com seus requisitos.
 
     ![URLs de configuração de cópia](common/copy-configuration-urls.png)
 
@@ -149,7 +177,7 @@ O objetivo desta secção é criar um utilizador de teste no portal do Azure cha
 
     a. Na **Name** campo introduza **BrittaSimon**.
   
-    b. Na **nome de utilizador** tipo de campo **brittasimon@yourcompanydomain.extension**  
+    b. Na **nome de utilizador** tipo de campo **brittasimon\@yourcompanydomain.extension**  
     Por exemplo, BrittaSimon@contoso.com
 
     c. Selecione **palavra-passe de Show** caixa de verificação e, em seguida, anote o valor que é apresentado na caixa de palavra-passe.

@@ -8,14 +8,14 @@ keywords: ''
 ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: conceptual
-ms.date: 04/25/2018
+ms.date: 03/14/2019
 ms.author: azfuncdf
-ms.openlocfilehash: 5e185eea6fb1e96f17bf458dbfe2f06226933386
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: 170f20ae65a8ba58291a630dc76496cbdcdb36de
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53341173"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58138121"
 ---
 # <a name="performance-and-scale-in-durable-functions-azure-functions"></a>Desempenho e dimensionamento nas funções durável (funções do Azure)
 
@@ -48,6 +48,15 @@ Existe uma fila de item de trabalho por hub de tarefas nas funções durável. E
 Existem várias *controlar filas* por hub de tarefas nas funções durável. R *fila de controle* é mais sofisticado do que a fila de item de trabalho mais simples. Filas de controle são utilizadas para acionar as funções do orchestrator com monitoração de estado. Uma vez que as instâncias de função do orchestrator são singletons com monitoração de estado, não é possível utilizar um modelo de consumidores concorrentes para distribuir a carga entre VMs. Em vez disso, as mensagens do orchestrator são com balanceamento de carga entre as filas de controle. Obter mais detalhes sobre esse comportamento podem ser encontrados nas secções subsequentes.
 
 Filas de controle contêm uma variedade de tipos de mensagem de ciclo de vida de orquestração. Os exemplos incluem [mensagens de controlo do orchestrator](durable-functions-instance-management.md), a função de atividade *resposta* mensagens e mensagens de timer. Até 32 mensagens serão removidos da fila de uma fila de controle numa única pesquisa. Essas mensagens contêm dados de carga, bem como metadados, incluindo a instância de orquestração destina. Se várias mensagens de retirada da fila destinam-se para a mesma instância de orquestração, eles serão processados como um lote.
+
+### <a name="queue-polling"></a>Consulta de fila
+
+A extensão de tarefas durável implementa um aleatório exponencial término algoritmo para minimizar o efeito da fila de inatividade de consulta nos custos de transação de armazenamento. Quando é encontrada uma mensagem, o tempo de execução verifica imediatamente para outra mensagem; Quando não é encontrada nenhuma mensagem, ele aguarda um período de tempo antes de tentar novamente. Depois de tentativas falhadas subsequentes para obter uma mensagem de fila, o tempo de espera continua a aumentar até atingir o tempo de espera máximo, o que está predefinida para 30 segundos.
+
+O atraso máximo de sondagem é configurável através da `maxQueuePollingInterval` propriedade no [ficheiro Host. JSON](../functions-host-json.md#durabletask). Definir este tipo como um valor mais alto pode resultar em latências de processamento de mensagens superior. Latências maiores esperadas apenas depois de períodos de inatividade. Definir este tipo como um valor inferior poderá resultar em custos de armazenamento superiores, devido a transações de armazenamento maior.
+
+> [!NOTE]
+> Quando em execução nos planos de consumo de funções do Azure e o Premium, o [controlador de dimensionamento de funções do Azure](../functions-scale.md#how-the-consumption-plan-works) pesquisará cada fila de controle e o item de trabalho uma vez a cada 10 segundos. Esta consulta adicional é necessária para determinar quando ativar a instâncias de aplicações de função e para tomar decisões de dimensionamento. No momento da redação, este segundo intervalo 10 é constante e não pode ser configurado.
 
 ## <a name="storage-account-selection"></a>Seleção de conta de armazenamento
 
@@ -235,4 +244,4 @@ Se não vir os números de débito esperado e sua CPU e utilização de memória
 ## <a name="next-steps"></a>Passos Seguintes
 
 > [!div class="nextstepaction"]
-> [Criar a primeira função durável noC#](durable-functions-create-first-csharp.md)
+> [Create your first durable function in C#](durable-functions-create-first-csharp.md) (Criar a sua primeira função durável em C#)

@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 01/23/2019
 ms.author: danlep
 ms.custom: seodec18, H1Hack27Feb2017
-ms.openlocfilehash: d2aa05d6648a76b02e09c660d7e6f6f30988db53
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 180cbb9c31d14c36679bb84f92b3c9892ee3602d
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57542170"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58011148"
 ---
 # <a name="push-your-first-image-to-a-private-docker-container-registry-using-the-docker-cli"></a>Enviar a sua primeira imagem para um registo privado de contentor Docker com a CLI do Docker
 
@@ -62,7 +62,7 @@ Executar o seguinte [docker run](https://docs.docker.com/engine/reference/run/) 
 docker run -it --rm -p 8080:80 nginx
 ```
 
-Navegue até [ http://localhost:8080 ](http://localhost:8080) para ver a página da web padrão servidos pelo Nginx no contentor em execução. Deverá ver uma página semelhante ao seguinte:
+Navegue até `http://localhost:8080` para ver a página da web padrão servidos pelo Nginx no contentor em execução. Deverá ver uma página semelhante ao seguinte:
 
 ![Nginx no computador local](./media/container-registry-get-started-docker-cli/nginx.png)
 
@@ -104,7 +104,7 @@ Utilize o [docker run](https://docs.docker.com/engine/reference/run/) comando pa
 docker run -it --rm -p 8080:80 myregistry.azurecr.io/samples/nginx
 ```
 
-Navegue até [ http://localhost:8080 ](http://localhost:8080) para ver o contentor em execução.
+Navegue até `http://localhost:8080` para ver o contentor em execução.
 
 Para parar e remover o contentor, prima `Control` + `C`.
 

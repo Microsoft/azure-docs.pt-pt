@@ -7,19 +7,21 @@ ms.topic: conceptual
 ms.service: container-service
 ms.date: 12/03/2018
 ms.author: iainfou
-ms.openlocfilehash: e47817f70a727fe815e5d7e61ad7820121f26d97
-ms.sourcegitcommit: d89b679d20ad45d224fd7d010496c52345f10c96
+ms.openlocfilehash: a04dbd42e09ad8ec352af74950b6d71425a84a9d
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57791414"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58177675"
 ---
-# <a name="create-and-configure-an-azure-kubernetes-services-aks-cluster-to-use-virtual-nodes-using-the-azure-cli"></a>Criar e configurar um cluster de serviços de Kubernetes do Azure (AKS) para utilizar nós virtuais com a CLI do Azure
+# <a name="preview---create-and-configure-an-azure-kubernetes-services-aks-cluster-to-use-virtual-nodes-using-the-azure-cli"></a>Pré-visualizar - criar e configurar um cluster de serviços de Kubernetes do Azure (AKS) para utilizar nós virtuais com a CLI do Azure
 
 Rapidamente, dimensionar cargas de trabalho de aplicação num cluster do Azure Kubernetes Service (AKS), pode utilizar nós virtuais. Connosco virtuais, tem o rápido provisionamento de pods e pague apenas por segundo para o tempo de execução. Não precisa de esperar para dimensionamento automático de cluster do Kubernetes para implementar nós de computação VM para executar os pods adicionais. Este artigo mostra-lhe como criar e configurar os recursos de rede virtual e o cluster do AKS, em seguida, ativar nós virtuais.
 
 > [!IMPORTANT]
-> Nós virtuais para o AKS estão atualmente nos **pré-visualização**. As pré-visualizações são tornadas disponíveis para si na condição de concordar com os [termos suplementares de utilização](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Alguns aspetos desta funcionalidade podem alterar-se após a disponibilidade geral (GA).
+> Funcionalidades de pré-visualização do AKS são self-service e participar. Pré-visualizações são fornecidas para recolher comentários e bugs de nossa Comunidade. No entanto, não são suportados pelo suporte técnico do Azure. Se cria um cluster ou adicionar esses recursos em clusters existentes, esse cluster não é suportado até que a funcionalidade não se encontra em pré-visualização e é formado para disponibilidade geral (GA).
+>
+> Se tiver problemas com funcionalidades de pré-visualização [abra um problema no repositório GitHub do AKS] [ aks-github] com o nome da funcionalidade de pré-visualização no título do bug.
 
 ## <a name="before-you-begin"></a>Antes de começar
 
@@ -335,6 +337,7 @@ Nós virtuais são, muitas vezes, um componente de uma solução de dimensioname
 [kubectl-apply]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#apply
 [node-selector]:https://kubernetes.io/docs/concepts/configuration/assign-pod-node/
 [toleration]: https://kubernetes.io/docs/concepts/configuration/taint-and-toleration/
+[aks-github]: https://github.com/azure/aks/issues]
 
 <!-- LINKS - internal -->
 [azure-cli-install]: /cli/azure/install-azure-cli

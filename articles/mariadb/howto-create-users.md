@@ -6,12 +6,12 @@ ms.author: jasonh
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.openlocfilehash: 189e122e04d56d28c1e1e94d328569647614a124
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.openlocfilehash: 019c4eca564c503913a488a1d1ee5e4046ff320a
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53542132"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58089884"
 ---
 # <a name="create-users-in-azure-database-for-mariadb"></a>Criar utilizadores na base de dados do Azure para MariaDB 
 Este artigo descreve como pode criar os utilizadores na base de dados do Azure para MariaDB.
@@ -80,7 +80,7 @@ Depois de criar a base de dados do Azure para MariaDB server, pode utilizar a co
    ```bash
    mysql --host mydemoserver.mariadb.database.azure.com --database testdb --user db_user@mydemoserver -p
    ```
-Para obter mais informações sobre a gestão de conta de utilizador, consulte documentação MariaDB [gestão de contas de utilizador](https://mariadb.com/kb/en/library/user-account-management/), [sintaxe de concessão](https://mariadb.com/kb/en/library/grant/), e [privilégios](https://mariadb.com/kb/en/library/grant/#privilege-levels).
+   Para obter mais informações sobre a gestão de conta de utilizador, consulte documentação MariaDB [gestão de contas de utilizador](https://mariadb.com/kb/en/library/user-account-management/), [sintaxe de concessão](https://mariadb.com/kb/en/library/grant/), e [privilégios](https://mariadb.com/kb/en/library/grant/#privilege-levels).
 
 ## <a name="next-steps"></a>Passos Seguintes
 Abra a firewall para os endereços IP de máquinas de novos utilizadores para que estes possam ligar-se: [Criar e gerir a base de dados do Azure para MariaDB regras de firewall com o portal do Azure](howto-manage-firewall-portal.md)  

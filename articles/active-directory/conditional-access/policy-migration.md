@@ -18,12 +18,12 @@ ms.date: 07/24/2018
 ms.author: markvi
 ms.reviewer: nigu
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7f93b9d6fb6e79ce348dc9bed64452536d5132f7
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 1a52f0521caa86cfeaa4417a90ea6c7bc51fce0d
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56169280"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58163641"
 ---
 # <a name="what-is-a-policy-migration-in-azure-active-directory-conditional-access"></a>O que é uma migração de política de acesso condicional do Azure Active Directory? 
 

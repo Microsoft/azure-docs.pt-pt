@@ -8,12 +8,12 @@ ms.service: traffic-manager
 ms.topic: tutorial
 ms.date: 10/15/2018
 ms.author: kumud
-ms.openlocfilehash: f4c29526f675cab461153b4749c4f6edc237dada
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: 50790e50602fbc8d302a67ea9963a4e492ce2f0b
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54467337"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58009767"
 ---
 # <a name="tutorial-control-traffic-routing-with-weighted-endpoints-by-using-traffic-manager"></a>Tutorial: Controlar o encaminhamento de tráfego com pontos de extremidade ponderados utilizando o Gestor de tráfego
 
@@ -54,12 +54,13 @@ Nesta secção, irá criar duas VMs, (*myIISVMEastUS* e *myIISVMWEurope*), nas r
 
     |Definição|Valor|
     |---|---|
-    |Nome|Introduza **myIISVMEastUS**.|
+    |Name|Introduza **myIISVMEastUS**.|
     |Nome de utilizador| Introduza um nome de utilizador à sua escolha.|
     |Palavra-passe| Introduza uma palavra-passe à sua escolha. A palavra-passe tem de ter, pelo menos, 12 carateres e cumprir os [requisitos de complexidade definidos](../virtual-machines/windows/faq.md?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm).|
     |Grupo de recursos| Selecione **Novo** e introduza **myResourceGroupTM1**.|
     |Localização| Selecione **E.U.A. Leste**.|
     |||
+
 4. Selecione um tamanho de VM em **Escolher um tamanho**.
 5. Selecione os seguintes valores para **Definições** e, em seguida, selecione **OK**:
     
@@ -69,17 +70,19 @@ Nesta secção, irá criar duas VMs, (*myIISVMEastUS* e *myIISVMWEurope*), nas r
     |Grupo de Segurança de Rede|Selecione **Básico**. Na lista pendente **Selecionar portas de entrada públicas**, selecione **HTTP** e **RDP**. |
     |Diagnósticos de arranque|Selecione **Desativado**.|
     |||
+
 6. Em **Criar**, em **Resumo**, selecione **Criar** para iniciar a implementação da VM.
 
 7. Conclua os passos 1 a 6 novamente, com as seguintes alterações:
 
-    |Definição|Valor|
+    |Definição|Value|
     |---|---|
     |Grupo de recursos | Selecione **Novo** e introduza **myResourceGroupTM2**.|
     |Localização|Introduza **Europa Ocidental**.|
     |Nome da VM | Introduza **myIISVMWEurope**.|
     |Rede virtual | Selecione **Rede virtual**. Em **Criar rede virtual**, para **Nome**, introduza **myVNet2**. Para a **Sub-rede**, introduza **mySubnet**.|
     |||
+
 8. A criação das VMs demora alguns minutos. Não prossiga com outros passos até que ambas as VMs tenham sido criadas.
 
 ![Criar uma VM](./media/tutorial-traffic-manager-improve-website-response/createVM.png)
@@ -129,7 +132,7 @@ Nesta secção, vai criar a VM *mVMEastUS*. Vai utilizar esta VM para testar de 
 
     |Definição|Valor|
     |---|---|
-    |Nome|Introduza **myVMEastUS**.|
+    |Name|Introduza **myVMEastUS**.|
     |Nome de utilizador| Introduza um nome de utilizador à sua escolha.|
     |Palavra-passe| Introduza uma palavra-passe à sua escolha. A palavra-passe tem de ter, pelo menos, 12 carateres e cumprir os [requisitos de complexidade definidos](../virtual-machines/windows/faq.md?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm).|
     |Grupo de recursos| Selecione **Utilizar existente** e, em seguida, selecione **myResourceGroupTM1**.|
@@ -137,6 +140,7 @@ Nesta secção, vai criar a VM *mVMEastUS*. Vai utilizar esta VM para testar de 
 
 4. Selecione um tamanho de VM em **Escolher um tamanho**.
 5. Selecione os seguintes valores para **Definições** e, em seguida, selecione **OK**:
+
     |Definição|Valor|
     |---|---|
     |Rede virtual| Selecione **Rede virtual**. Em **Criar rede virtual**, para **Nome**, introduza **myVNet3**. Para a sub-rede, introduza **mySubnet**.|
@@ -155,7 +159,7 @@ Crie um perfil do Gestor de Tráfego com base no método de encaminhamento **Pon
 
     | Definição                 | Valor                                              |
     | ---                     | ---                                                |
-    | Nome                   | Introduza um nome exclusivo na zona trafficmanager.net. Resulta no nome DNS trafficmanager.net, que serve para aceder ao seu perfil do Gestor de Tráfego.                                   |
+    | Name                   | Introduza um nome exclusivo na zona trafficmanager.net. Resulta no nome DNS trafficmanager.net, que serve para aceder ao seu perfil do Gestor de Tráfego.                                   |
     | Método de encaminhamento          | Selecione o método de encaminhamento **Ponderado**.                                       |
     | Subscrição            | Selecione a sua subscrição.                          |
     | Grupo de recursos          | Selecione **Utilizar existente** e, em seguida, selecione **myResourceGroupTM1**. |
@@ -171,10 +175,10 @@ Adicione as duas VMs em execução o myIISVMEastUS de servidores IIS e myIISVMWE
 2. Em **Perfil do Gestor de Tráfego**, na secção **Definições**, selecione **Pontos finais** > **Adicionar**.
 3. Introduza ou selecione as seguintes informações. Aceite as predefinições das outras definições e selecione **OK**.
 
-    | Definição                 | Valor                                              |
+    | Definição                 | Value                                              |
     | ---                     | ---                                                |
-    | Tipo                    | Introduza o ponto final do Azure.                                   |
-    | Nome           | Introduza **myEastUSEndpoint**.                                        |
+    | Type                    | Introduza o ponto final do Azure.                                   |
+    | Name           | Introduza **myEastUSEndpoint**.                                        |
     | Tipo de recurso de destino           | Selecione **Endereço IP público**.                          |
     | Recurso de destino          | Escolha um endereço IP público para mostrar a lista de recursos com endereços IP públicos na mesma subscrição. Em **Recurso**, selecione o endereço IP público com o nome **myIISVMEastUS-ip**. Este é o endereço IP público da VM do servidor do IIS na região E.U.A. Leste.|
     |  Peso      | Introduza **100**.        |

@@ -8,16 +8,16 @@ ms.subservice: cosmosdb-table
 ms.devlang: dotnet
 ms.topic: reference
 ms.date: 10/18/2018
-ms.openlocfilehash: 99371f0ae56046a328155aa2151ad8b89df93a04
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 38b283ed666b39b4e090bd95051a4454a9b47e62
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57551930"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57975666"
 ---
 # <a name="azure-cosmos-db-table-net-standard-api-download-and-release-notes"></a>API padrão do .NET da tabela do Azure Cosmos DB: Transferir e notas de versão
 > [!div class="op_single_selector"]
-
+> 
 > * [.NET](table-sdk-dotnet.md)
 > * [.NET Standard](table-sdk-dotnet-standard.md)
 > * [Java](table-sdk-java.md)
@@ -27,9 +27,15 @@ ms.locfileid: "57551930"
 |   |   |
 |---|---|
 |**Transferência de SDK**|[NuGet](https://www.nuget.org/packages/Microsoft.Azure.Cosmos.Table)|
+|**Exemplo**|[Exemplo de .NET API de tabela de cosmos DB](https://github.com/Azure-Samples/azure-cosmos-table-dotnet-core-getting-started)|
+|**Início rápido**|[Início rápido](create-table-dotnet.md)|
+|**Tutorial**|[Tutorial](tutorial-develop-table-dotnet.md)|
 |**Estrutura de suporte atual**|[Microsoft .NET Standard 2.0](https://www.nuget.org/packages/NETStandard.Library)|
 
 ## <a name="release-notes"></a>Notas de versão
+
+### <a name="a-name100100"></a><a name="1.0.0"/>1.0.0
+* Versão de disponibilidade geral
 
 ### <a name="a-name0110-preview0110-preview"></a><a name="0.11.0-preview"/>0.11.0-Preview
 * As alterações foram feitas como CloudTableClient pode ser configurado. Agora demora um um objeto de TableClientConfiguration durante a construção. TableClientConfiguration fornece propriedades diferentes para configurar o comportamento de cliente, dependendo se o ponto de extremidade de destino é a API de tabela do Cosmos DB ou a API de tabela de armazenamento do Azure.
@@ -56,6 +62,7 @@ A Microsoft fornece notificação, pelo menos, **12 meses** antecedência exting
 
 | Versão | Data de lançamento | Data de retirada |
 | --- | --- | --- |
+| [1.0.0](#1.0.0) |13 de Março de 2019 |--- |
 | [0.11.0-preview](#0.11.0-preview) |5 de Março de 2019 |--- |
 | [0.10.1-preview](#0.10.1-preview) |22 de Janeiro de 2019 |--- |
 | [0.10.0-preview](#0.10.0-preview) |18 de Dezembro de 2018 |--- |

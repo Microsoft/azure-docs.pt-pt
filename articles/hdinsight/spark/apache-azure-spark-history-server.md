@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 09/14/2018
-ms.openlocfilehash: a896c949e1f05a5d9ee179fa475150ad8da34283
-ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
+ms.openlocfilehash: 8fd737bb784938f7cbff243837678f41d5ac55c9
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/27/2018
-ms.locfileid: "53792786"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58076807"
 ---
 # <a name="use-extended-apache-spark-history-server-to-debug-and-diagnose-apache-spark-applications"></a>Utilizar servidor expandida de histórico do Apache Spark para depurar e diagnosticar aplicações Apache Spark
 
@@ -106,11 +106,11 @@ Selecione o ID da tarefa, em seguida, clique em **Graph** no menu da ferramenta 
 
 + Reproduzir a tarefa ao clicar o **reprodução** botão e parar em qualquer altura ao clicar no botão stop. O ecrã de tarefa na cor para mostrar o estado diferente quando reprodução:
 
-    + Verde para foi concluída com êxito: A tarefa foi concluída com êxito.
-    + Cor de laranja para repetidos: Instâncias de tarefas que falhou, mas não afetam o resultado final da tarefa. Estas tarefas tinham duplicar ou repita instâncias que podem ter êxito mais tarde.
-    + Azul para execução: A tarefa está em execução.
-    + Branco para espera ou ignorados: A tarefa está a aguardar para ser executado ou o estágio foi ignorada.
-    + Vermelho para falha: A tarefa falhou.
+  + Verde para foi concluída com êxito: A tarefa foi concluída com êxito.
+  + Cor de laranja para repetidos: Instâncias de tarefas que falhou, mas não afetam o resultado final da tarefa. Estas tarefas tinham duplicar ou repita instâncias que podem ter êxito mais tarde.
+  + Azul para execução: A tarefa está em execução.
+  + Branco para espera ou ignorados: A tarefa está a aguardar para ser executado ou o estágio foi ignorada.
+  + Vermelho para falha: A tarefa falhou.
 
     ![mostruário de cores do gráfico, em execução](./media/apache-azure-spark-history-server/sparkui-graph-color-running.png)
  
@@ -132,20 +132,20 @@ Selecione o ID da tarefa, em seguida, clique em **Graph** no menu da ferramenta 
     ![Descrição do gráfico](./media/apache-azure-spark-history-server/sparkui-graph-tooltip.png)
 
 + No separador de gráfico da tarefa, fases terão dica de ferramenta e pequeno ícone apresentado se tiverem tarefas cumprir o abaixo condições:
-    + Distorção de dados: tamanho de leitura de dados > tamanho de todas as tarefas dentro desta fase de leitura de dados de média * > 10 MB de tamanho de 2 e dados de leitura.
-    + Distorção de tempo: tempo de execução > tempo médio de execução de todas as tarefas dentro desta fase * 2 e o tempo de execução > 2 minutos.
+  + Distorção de dados: tamanho de leitura de dados > tamanho de todas as tarefas dentro desta fase de leitura de dados de média * > 10 MB de tamanho de 2 e dados de leitura.
+  + Distorção de tempo: tempo de execução > tempo médio de execução de todas as tarefas dentro desta fase * 2 e o tempo de execução > 2 minutos.
 
     ![ícone de distorção de gráfico](./media/apache-azure-spark-history-server/sparkui-graph-skew-icon.png)
 
 + O nó de gráfico da tarefa mostra as seguintes informações de cada estágio:
-    + ID.
-    + Nome ou descrição.
-    + Número total de tarefas.
-    + Dados lidos: a soma de tamanho de entrada e shuffle tamanho de leitura.
-    + Escrita de dados: a soma de tamanho de saída e shuffle escrever tamanho.
-    + Tempo de execução: o tempo entre a hora de início da primeira tentativa e tempo de conclusão da última tentativa.
-    + Contagem de linhas: a soma dos registos de entrada, saída de registos, misturar os registos de leitura e misturar os registos de escrita.
-    + Curso.
+  + ID.
+  + Nome ou descrição.
+  + Número total de tarefas.
+  + Dados lidos: a soma de tamanho de entrada e shuffle tamanho de leitura.
+  + Escrita de dados: a soma de tamanho de saída e shuffle escrever tamanho.
+  + Tempo de execução: o tempo entre a hora de início da primeira tentativa e tempo de conclusão da última tentativa.
+  + Contagem de linhas: a soma dos registos de entrada, saída de registos, misturar os registos de leitura e misturar os registos de escrita.
+  + Curso.
 
     > [!NOTE]  
     > Por predefinição, o nó de gráfico de tarefa irá apresentar informações da última tentativa de cada estágio (exceto para o estágio de tempo de execução), mas durante o gráfico de reprodução nó mostrará as informações de cada tentativa.
@@ -244,7 +244,7 @@ Caso se depare com erro de servidor de histórico, siga os passos para fornecer 
 
 Se quiser atualizar com correções, utilize o script abaixo que irá atualizar enhancement.jar* do spark.
 
-**upgrade_spark_enhancement.SH**:
+**upgrade_spark_enhancement.sh**:
 
    ```bash
     #!/usr/bin/env bash
@@ -312,10 +312,10 @@ Se quiser atualizar com correções, utilize o script abaixo que irá atualizar 
     https://hdinsighttoolingstorage.blob.core.windows.net/shsscriptactions/upgrade_spark_enhancement.sh
    ```
 
-    + Para verificar **Head** e **trabalho**.
-    + **Parâmetros**: definir a siga de parâmetros a utilização de bash.
+   + Para verificar **Head** e **trabalho**.
+   + **Parâmetros**: definir a siga de parâmetros a utilização de bash.
 
-    ![carregar o registo ou a correção de atualização](./media/apache-azure-spark-history-server/sparkui-upload2.png)
+     ![carregar o registo ou a correção de atualização](./media/apache-azure-spark-history-server/sparkui-upload2.png)
 
 
 ## <a name="known-issues"></a>Problemas conhecidos

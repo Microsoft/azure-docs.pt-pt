@@ -10,12 +10,12 @@ ms.topic: reference
 ms.date: 09/10/2018
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: 58773dded162ea51ccc6e502bbbdd4e13965c1d6
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: c312433832f7402eaff8b40c4e0a2a61397f6f87
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55203493"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58123509"
 ---
 # <a name="stringcollection-claims-transformations"></a>Transformações de afirmações de StringCollection
 
@@ -29,7 +29,7 @@ Adiciona uma afirmação de cadeia de caracteres para uma nova afirmação strin
 
 | Item | TransformationClaimType | Tipo de Dados | Notas |
 | ---- | ----------------------- | --------- | ----- |
-| InputClaim | item | cadeia | ClaimType sejam adicionados ao afirmações de saída. |
+| InputClaim | item | string | ClaimType sejam adicionados ao afirmações de saída. |
 | InputClaim | coleção | stringCollection | [Opcional] Se especificado, a transformação de afirmações copia os itens desta coleção e adiciona o item no final do conjunto de afirmações de saída. |
 | OutputClaim | coleção | stringCollection | Os ClaimTypes que são produzidos este ClaimsTransformation po vyvolání. |
 
@@ -52,10 +52,10 @@ A transformação de declarações seguinte adiciona o **e-mail** ClaimType para
 ### <a name="example"></a>Exemplo
 
 - Afirmações de entrada:
-    - **recolha**: ["someone@outlook.com"]
-    - **item**: "admin@contoso.com"
+  - **recolha**: ["someone@outlook.com"]
+  - **item**: "admin@contoso.com"
 - Afirmações de saída: 
-    - **recolha**: ["someone@outlook.com","admin@contoso.com"]
+  - **recolha**: ["someone@outlook.com","admin@contoso.com"]
 
 ## <a name="addparametertostringcollection"></a>AddParameterToStringCollection
 
@@ -64,7 +64,7 @@ Adiciona um parâmetro de cadeia de caracteres para uma nova afirmação stringC
 | Item | TransformationClaimType | Tipo de Dados | Notas |
 | ---- | ----------------------- | --------- | ----- |
 | InputClaim | coleção | stringCollection | [Opcional] Se especificado, a transformação de afirmações copia os itens desta coleção e adiciona o item no final do conjunto de afirmações de saída. |
-| InputParameter | item | cadeia | O valor a ser adicionado para a afirmação de saída. |
+| InputParameter | item | string | O valor a ser adicionado para a afirmação de saída. |
 | OutputClaim | coleção | stringCollection | Os ClaimTypes que serão produzidos este ClaimsTransformation po vyvolání. |
 
 Utilize este afirmações de transformação para adicionar um valor de cadeia de caracteres para um stringCollection novo ou existente. O exemplo seguinte adiciona um endereço de e-mail constante (admin@contoso.com) para o **otherMails** de afirmação. 
@@ -86,11 +86,11 @@ Utilize este afirmações de transformação para adicionar um valor de cadeia d
 ### <a name="example"></a>Exemplo
 
 - Afirmações de entrada:
-    - **recolha**: ["someone@outlook.com"]
+  - **recolha**: ["someone@outlook.com"]
 - Parâmetros de entrada 
-    - **item**: "admin@contoso.com"
+  - **item**: "admin@contoso.com"
 - Afirmações de saída:
-    - **recolha**: ["someone@outlook.com","admin@contoso.com"]
+  - **recolha**: ["someone@outlook.com","admin@contoso.com"]
 
 ## <a name="getsingleitemfromstringcollection"></a>GetSingleItemFromStringCollection
 
@@ -99,7 +99,7 @@ Obtém o primeiro item da coleção cadeia fornecida.
 | Item | TransformationClaimType | Tipo de Dados | Notas |
 | ---- | ----------------------- | --------- | ----- |
 | InputClaim | coleção | stringCollection | Os ClaimTypes que são utilizados pela transformação de declarações para obter o item. |
-| OutputClaim | extractedItem | cadeia | Os ClaimTypes que são produzidos este ClaimsTransformation po vyvolání. O primeiro item na coleção. |
+| OutputClaim | extractedItem | string | Os ClaimTypes que são produzidos este ClaimsTransformation po vyvolání. O primeiro item na coleção. |
 
 O exemplo seguinte lê a **otherMails** de afirmação e retornar o primeiro item para o **e-mail** de afirmação. 
 
@@ -117,7 +117,7 @@ O exemplo seguinte lê a **otherMails** de afirmação e retornar o primeiro ite
 ### <a name="example"></a>Exemplo
 
 - Afirmações de entrada:
-    - **recolha**: ["someone@outlook.com","someone@contoso.com"]
+  - **recolha**: ["someone@outlook.com","someone@contoso.com"]
 - Afirmações de saída: 
-    - **extractedItem**: "someone@outlook.com"
+  - **extractedItem**: "someone@outlook.com"
 

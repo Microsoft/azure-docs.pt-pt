@@ -10,12 +10,12 @@ ms.subservice: bing-video-search
 ms.topic: quickstart
 ms.date: 01/31/2019
 ms.author: aahi
-ms.openlocfilehash: f4b42ff2639bf7e6a982f7c21b6ac4f2a8c84c5e
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 29d0dc032bd14161674c58d6e502ad77c3bf75e5
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57538923"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58108785"
 ---
 # <a name="quickstart-search-for-videos-using-the-bing-video-search-rest-api-and-c"></a>Início rápido: Procurar vídeos com a API de REST de pesquisa de vídeo Bing eC#
 
@@ -52,7 +52,7 @@ O código-fonte para este exemplo está disponível [no GitHub](https://github.c
 
 ### <a name="create-a-struct-to-format-the-bing-video-search-api-response"></a>Criar uma estrutura para formatar a resposta de API de pesquisa de vídeos do Bing
 
-3. Defina uma estrutura `SearchResult` para conter os resultados da pesquisa de imagens e as informações do cabeçalho JSON.
+1. Defina uma estrutura `SearchResult` para conter os resultados da pesquisa de imagens e as informações do cabeçalho JSON.
 
     ```csharp
     struct SearchResult
@@ -226,6 +226,6 @@ Crie um método com o nome `BingVideoSearch` para efetuar a chamada à API e def
 > [!div class="nextstepaction"]
 > [Criar uma aplicação web de página única](../tutorial-bing-video-search-single-page-app.md)
 
-## <a name="see-also"></a>Ver também 
+## <a name="see-also"></a>Consulte também 
 
  [O que é a API de pesquisa de vídeos do Bing?](../overview.md)

@@ -9,12 +9,12 @@ manager: carmonm
 ms.topic: tutorial
 ms.date: 05/10/2018
 ms.custom: mvc
-ms.openlocfilehash: 5cf09753645d8238232e064af2ba1a301a2a7217
-ms.sourcegitcommit: a2ae233e20e670e2f9e6b75e83253bd301f5067c
-ms.translationtype: HT
+ms.openlocfilehash: d247369647106cf1671a8770a6dce21f1a34a4b9
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/13/2018
-ms.locfileid: "41920329"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58082199"
 ---
 # <a name="onboard-update-and-change-tracking-solutions-to-azure-automation"></a>Carregar soluções de atualização e controlo de alterações para a Automatização do Azure
 
@@ -81,7 +81,7 @@ Agora que as soluções estão ativadas, pode adicionar uma VM do Azure para car
    ![Ativar a solução de atualização para a VM](media/automation-onboard-solutions/enable-update.png)
 
 > [!NOTE]
-> Se não esperar pela conclusão da outra solução, quando ativar a solução seguinte, irá receber uma mensagem com a indicação: *Está em curso a instalação de outra solução nesta ou numa máquina virtual diferente. Assim que a instalação terminar, o botão Ativar será ativado e poderá pedir a instalação da solução nesta máquina virtual.*
+> Se não esperar para outra solução concluir, quando ativar a solução seguinte, receberá uma mensagem que diz: *Instalação de outra solução está em curso nesta ou uma máquina virtual diferente. Assim que a instalação terminar, o botão Ativar será ativado e poderá pedir a instalação da solução nesta máquina virtual.*
 
 ## <a name="install-and-update-modules"></a>Instalar e atualizar módulos
 
@@ -105,7 +105,7 @@ Na página **Módulos**, selecione **Procurar galeria** para abrir a galeria de 
 1. Selecione **Procurar galeria**.
 1. Procure **atualização e controlo de alterações**, clique no runbook e selecione **Importar** na página **Ver Origem**. Selecione **OK** para importar o runbook para a Conta de automatização.
 
-  ![Importar o runbook de inclusão](media/automation-onboard-solutions/import-from-gallery.png)
+   ![Importar o runbook de inclusão](media/automation-onboard-solutions/import-from-gallery.png)
 
 1. Na página **Runbook**, selecione **Editar** e, em seguida, selecione **Publicar**. Na caixa de diálogo **Publicar Runbook**, selecione **Sim** para publicar o runbook.
 
@@ -131,7 +131,7 @@ Tem de ter carregado as soluções de controlo de alterações ou atualização 
 1. Selecione **OK** para iniciar a tarefa de runbook.
 1. Monitorize o progresso e os erros na página de tarefa de runbook.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Neste tutorial, ficou a saber como:
 

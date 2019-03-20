@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: article
 ms.date: 01/23/2019
 ms.author: diberry
-ms.openlocfilehash: 97e29ba166d652f053f754482b6da36a33ec5bb5
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: 1c44d2e41d37a9236ee6d6936c349acf5ca5e44c
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56878184"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58098777"
 ---
 # <a name="add-luis-results-to-application-insights-and-azure-functions"></a>Adicionar o LUIS resultados para o Application Insights e as funções do Azure
 Este tutorial adiciona informações de solicitação e resposta de LUIS para [Application Insights](https://azure.microsoft.com/services/application-insights/) armazenamento de dados de telemetria. Depois de ter esses dados, pode consultá-lo com o idioma de Kusto ou o Power BI para analisar, Agregar, o relatório de em objetivos e entidades de expressão em tempo real. Isto ajuda a análise é determinar se deve utilizar para adicionar ou editar as intenções e entidades da sua aplicação LUIS.
@@ -26,9 +26,9 @@ O bot baseia-se com o Bot Framework 3.x e bot de aplicação Web do Azure.
 Neste tutorial, ficará a saber como:
 
 > [!div class="checklist"]
-* Adicionar a biblioteca do Application Insights para um bot de aplicação web
-* Capturar e enviar os resultados da consulta de LUIS para o Application Insights
-* Consultar o Application Insights para intenção superior, a pontuação e a expressão
+> * Adicionar a biblioteca do Application Insights para um bot de aplicação web
+> * Capturar e enviar os resultados da consulta de LUIS para o Application Insights
+> * Consultar o Application Insights para intenção superior, a pontuação e a expressão
 
 ## <a name="prerequisites"></a>Pré-requisitos
 

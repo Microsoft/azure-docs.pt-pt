@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: troubleshooting
 ms.date: 02/05/2019
 ms.author: v-doglov
-ms.openlocfilehash: 3a3e9da66cf9ca6e08bb25b4f4b9d09aa0c5b6e7
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: fc50be2a960784895947f3f154a0251f41716fc7
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57431942"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58117307"
 ---
 # <a name="troubleshoot-microsoft-azure-site-recovery-provider-upgrade-failures"></a>Resolver problemas de falhas de atualização do Fornecedor do Microsoft Azure Site Recovery
 
@@ -48,21 +48,21 @@ Para a atualização com êxito, a pasta de 3rd party não deve ser renomeada.
 
 Para resolver o problema.
 
-2. Inicie o Editor de registo (regedit.exe) e abra o ramo HKEY_LOCAL_MACHINE\SOFTWARE\WOW6432Node\InMage Systems\Installed Products\10.
-3. Inspecione o `Build_Version` valor da chave. Se estiver definido para a versão mais recente, reduza o número de versão. Por exemplo, se a versão mais recente é 9.22. \* e o `Build_Version` conjunto para o valor da chave, em seguida, reduzi-lo para 9.21.\*.
-4. Baixe o mais recente Microsoft Azure Site Recovery Unified Setup:
+1. Inicie o Editor de registo (regedit.exe) e abra o ramo HKEY_LOCAL_MACHINE\SOFTWARE\WOW6432Node\InMage Systems\Installed Products\10.
+1. Inspecione o `Build_Version` valor da chave. Se estiver definido para a versão mais recente, reduza o número de versão. Por exemplo, se a versão mais recente é 9.22. \* e o `Build_Version` conjunto para o valor da chave, em seguida, reduzi-lo para 9.21.\*.
+1. Baixe o mais recente Microsoft Azure Site Recovery Unified Setup:
    1. Na seção "Links para suportado atualmente update rollups" a [as atualizações no Azure Site Recovery de serviço](service-updates-how-to.md##links-to-currently-supported-update-rollups) artigo, selecione o fornecedor para a qual estiver a atualizar.
    2. Na página de rollup, localize a **atualizar informações** secção e Baixe o Update Rollup do Microsoft Azure Site Recovery Unified Setup.
-5. Abra uma linha de comandos e navegue para a pasta para o qual transferiu o ficheiro de configuração unificada e o extrair os ficheiros de configuração do download usando o seguinte comando, MicrosoftAzureSiteRecoveryUnifiedSetup.exe /q /x:&lt;caminho da pasta para o extrair ficheiros&gt;.
+1. Abra uma linha de comandos e navegue para a pasta para o qual transferiu o ficheiro de configuração unificada e o extrair os ficheiros de configuração do download usando o seguinte comando, MicrosoftAzureSiteRecoveryUnifiedSetup.exe /q /x:&lt;caminho da pasta para o extrair ficheiros&gt;.
 
     Comando de exemplo:
 
     MicrosoftAzureSiteRecoveryUnifiedSetup.exe /q /x:C:\Temp\Extracted
 
-4. No prompt de comando, navegue para a pasta para onde extraiu os ficheiros e execute os seguintes comandos de instalação:
+1. No prompt de comando, navegue para a pasta para onde extraiu os ficheiros e execute os seguintes comandos de instalação:
    
     CX_THIRDPARTY_SETUP.EXE /VERYSILENT /SUPPRESSMSGBOXES /NORESTART
 
-5. Utilize o Gestor de tarefas para monitorizar o progresso da instalação. Quando o processo para CX_THIRDPARTY_SETUP. EXE já não está visível no Gerenciador de tarefas, avance para o passo seguinte.
-6. Certifique-se de que C:\thirdparty existe e que a pasta contém as bibliotecas RRD.
+1. Utilize o Gestor de tarefas para monitorizar o progresso da instalação. Quando o processo para CX_THIRDPARTY_SETUP. EXE já não está visível no Gerenciador de tarefas, avance para o passo seguinte.
+1. Certifique-se de que C:\thirdparty existe e que a pasta contém as bibliotecas RRD.
 1. Voltar para a pasta para o qual transferiu a configuração unificada e execute MicrosoftAzureSiteRecoveryUnifiedSetup.exe para concluir a atualização. 
