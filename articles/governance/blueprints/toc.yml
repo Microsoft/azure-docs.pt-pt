@@ -85,6 +85,8 @@ items:
   href: ./troubleshoot/general.md
 - name: Referências
   items:
+  - name: SDK do Azure para .NET
+    href: /dotnet/api/overview/azure/blueprints/management
   - name: REST
     href: /rest/api/blueprints/
   - name: PSGallery (módulo Az.Blueprint)
@@ -104,9 +106,9 @@ items:
     href: https://www.youtube.com/channel/UCZZ3-oMrVI5ssheMzaWC4uQ
   - name: Azure Friday - Descrição Geral do Azure Blueprints
     href: https://channel9.msdn.com/Shows/Azure-Friday/An-overview-of-Azure-Blueprints
-ms.openlocfilehash: aa7ec969dbb16508cb08dde4cf8f16e07042611c
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: d01f554f918cac97b149f3ea2e1449829348e745
+ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57892375"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58226679"
