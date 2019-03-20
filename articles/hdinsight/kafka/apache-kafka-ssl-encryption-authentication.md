@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 01/15/2019
 ms.author: hrasheed
-ms.openlocfilehash: decaf892d40de75638d05dc16e999a673dce21e5
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: cd850808f656b211bf1fdbfd2fe7c5799150b030
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55477034"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57839666"
 ---
 # <a name="setup-secure-sockets-layer-ssl-encryption-and-authentication-for-apache-kafka-in-azure-hdinsight"></a>Configurar a encriptação Secure Sockets Layer (SSL) e a autenticação para o Apache Kafka no HDInsight do Azure
 
@@ -194,7 +194,7 @@ scp -i ~/kafka-security.pem sshuser@wn0-umakaf:/home/sshuser/ssl/ca-cert .
 keytool -keystore kafka.client.truststore.jks -alias CARoot -import -file ca-cert -storepass $CLIPASS -keypass $CLIPASS -noprompt
 
 # Import CA cert to keystore
-keytool -keystore kafka.client.keystore.jks -alias CARoot -import -file ca-cert -storepass $CLIPASS -keypass $CLIPASS -noprompt
+keytool -keystore kafka.client.keystore.jks -alias CARoot -import -file cert-signed -storepass $CLIPASS -keypass $CLIPASS -noprompt
 ```
 
 Por fim, ver o ficheiro `client-ssl-auth.properties` com o comando `cat client-ssl-auth.properties`. Ele deve ter as seguintes linhas:

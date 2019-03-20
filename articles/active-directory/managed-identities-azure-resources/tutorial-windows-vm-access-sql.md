@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 11/07/2018
 ms.author: priyamo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a269c15b9b38b190196e6c2e77ff5b4b3826ba65
-ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
+ms.openlocfilehash: 57905b3d3c062c299a0f414ae6110dd0b6249198
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57342171"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57848035"
 ---
 # <a name="tutorial-use-a-windows-vm-system-assigned-managed-identity-to-access-azure-sql"></a>Tutorial: Utilize uma VM do Windows atribuídos de sistema identidade gerida para aceder ao SQL do Azure
 
@@ -103,7 +103,7 @@ O código em execução na VM pode agora obter um token através da identidade g
 
 O SQL do Azure suporta nativamente a autenticação do Azure AD para que possa aceitar diretamente tokens de acesso obtidos através de identidades geridas para recursos do Azure. Vai utilizar o método de **token de acesso** de criação de uma ligação para o SQL. Isto faz parte da integração do SQL do Azure no Azure AD e é diferente de fornecer as credenciais na cadeia de ligação.
 
-Eis um exemplo de código .Net para abrir uma ligação para o SQL com um token de acesso. Este código tem de ser executado na VM para poder aceder ao ponto final da identidade gerida atribuída pelo sistema da VM. **.NET framework 4.6** ou superior, é necessário usar o método de token de acesso. Substitua os valores de AZURE-SQL-SERVERNAME e DATABASE em conformidade. Tenha em atenção que o ID de recurso para o SQL do Azure é "https://database.windows.net/".
+Eis um exemplo de código do .NET de abrir uma ligação para o SQL com um token de acesso. Este código tem de ser executado na VM para poder aceder ao ponto final da identidade gerida atribuída pelo sistema da VM. **.NET framework 4.6** ou superior, é necessário usar o método de token de acesso. Substitua os valores de AZURE-SQL-SERVERNAME e DATABASE em conformidade. Tenha em atenção o ID de recurso para o SQL do Azure é `https://database.windows.net/`.
 
 ```csharp
 using System.Net;

@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 11/27/2018
 ms.author: ramamill
-ms.openlocfilehash: 5282f2e153ec2f1304bec9aadaf8fab88961edd9
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 536b7ed21e7dd54fcbea97951330b08925961713
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57443627"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57884970"
 ---
 # <a name="set-up-the-source-environment-for-vmware-to-azure-replication"></a>Configurar o ambiente de origem para VMware para replicação do Azure
 
@@ -24,7 +24,7 @@ Este artigo descreve como configurar o seu ambiente no local de origem, para rep
 O artigo pressupõe que já tem:
 
 - Planejado sua implementação com a ajuda do [do Azure Site Recovery Deployment Planner](site-recovery-deployment-planner.md). Isto ajuda a alocar a largura de banda suficiente com base na sua taxa de alteração de dados diária, de acordo com o objetivo de ponto de recuperação pretendido (RPO).
-- [Configurar recursos](tutorial-prepare-azure.md) no [portal do Azure](http://portal.azure.com).
+- [Configurar recursos](tutorial-prepare-azure.md) no [portal do Azure](https://portal.azure.com).
 - [Configurar o VMware no local](vmware-azure-tutorial-prepare-on-premises.md), incluindo uma conta dedicada para a deteção automática.
 
 ## <a name="choose-your-protection-goals"></a>Escolha os seus objetivos de proteção
@@ -58,18 +58,18 @@ Excluir seguintes pastas a partir do software antivírus para a replicação uni
 - C:\Program Files\Microsoft Azure Site Recovery Provider
 - C:\Programas\Microsoft Azure Site Recovery Configuration Manager 
 - Ferramenta de coleção de erro do C:\Program Files\Microsoft Azure Site Recovery 
- - C:\thirdparty
- - C:\Temp
- - C:\strawberry
- - C:\ProgramData\MySQL
- - C:\Program ficheiros (x86) \MySQL
- - C:\ProgramData\ASR
- - C:\ProgramData\Microsoft Azure Site Recovery
- - C:\ProgramData\ASRLogs
- - C:\ProgramData\ASRSetupLogs
- - C:\ProgramData\LogUploadServiceLogs
- - C:\inetpub
- - Diretório de instalação do servidor de ASR. Por exemplo: E:\Program ficheiros (x86) \Microsoft Azure Site Recovery
+  - C:\thirdparty
+  - C:\Temp
+  - C:\strawberry
+  - C:\ProgramData\MySQL
+  - C:\Program ficheiros (x86) \MySQL
+  - C:\ProgramData\ASR
+  - C:\ProgramData\Microsoft Azure Site Recovery
+  - C:\ProgramData\ASRLogs
+  - C:\ProgramData\ASRSetupLogs
+  - C:\ProgramData\LogUploadServiceLogs
+  - C:\inetpub
+  - Diretório de instalação do servidor de ASR. Por exemplo: E:\Program ficheiros (x86) \Microsoft Azure Site Recovery
 
 ### <a name="if-antivirus-software-is-active-on-scale-out-process-servermaster-target"></a>Se o Software antivírus estiver ativo na horizontal processar servidor/principal de destino
 

@@ -3,7 +3,7 @@ title: Web de registo do serviço - Azure Machine Learning Studio | Documentos d
 description: Saiba como ativar o registo de serviços web Machine Learning Studio. O registo fornece informações adicionais para ajudar a resolver problemas relacionados com as APIs.
 services: machine-learning
 documentationcenter: ''
-author: ericlicoding
+author: xiaoharper
 ms.custom: seodec18
 ms.author: amlstudiodocs
 editor: cgronlun
@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 06/15/2017
-ms.openlocfilehash: 23a160ee15547bea7d5ee832cd1032b2e899966b
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.openlocfilehash: 727379edb60756ca8cb3e5ebdc29cd38858945e4
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56821837"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57857560"
 ---
 # <a name="enable-logging-for-azure-machine-learning-studio-web-services"></a>Ativar o registo de serviços web Azure Machine Learning Studio
 Este documento fornece informações sobre a capacidade de registos de serviços da web de Machine Learning Studio. O registo fornece informações adicionais, além de apenas um número de erro e uma mensagem, que pode ajudá-lo a resolver problemas de suas chamadas para as APIs de Machine Learning Studio.  
@@ -57,7 +57,7 @@ Ativar o registo a partir do [serviços Web do Azure Machine Learning Studio](ht
 
    3. Se o contentor **ml-diagnostics** não existir, clique em **+ contentor**, dê o contentor a. o nome "ml-diagnostics" e selecione o **acessar tipo** como "Blob". Clique em **OK**.
 
-      ![Selecione o nível de registo](./media/web-services-logging/create-ml-diagnostics-container.png)
+      ![Criar um novo contentor para armazenar os seus registos de diagnóstico](./media/web-services-logging/create-ml-diagnostics-container.png)
 
 > [!TIP]
 >

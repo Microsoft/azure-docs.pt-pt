@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 12/25/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7523eef4e3dc25929616f1d151ab22841db13993
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 0a62aa573d49ccdd237e692b63a6fda0dd83d52a
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57781991"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57888302"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-palo-alto-networks-captive-portal"></a>Tutorial: Integração do Active Directory do Azure com o Portal de cativas de redes da Palo Alto
 
@@ -105,12 +105,12 @@ Em primeiro lugar, ative o Azure AD início de sessão único no portal do Azure
 
     ![Painel da Palo Alto redes cativas Portal SAML configuração básica](common/idp-intiated.png)
 
-    1. Para **identificador**, introduza um URL com o padrão `https://<customer_firewall_host_name>/SAML20/SP`.
+   1. Para **identificador**, introduza um URL com o padrão `https://<customer_firewall_host_name>/SAML20/SP`.
 
-    2. Para **URL de resposta**, introduza um URL com o padrão `https://<customer_firewall_host_name>/SAML20/SP/ACS`.
+   2. Para **URL de resposta**, introduza um URL com o padrão `https://<customer_firewall_host_name>/SAML20/SP/ACS`.
 
-    > [!NOTE]
-    > Atualize os valores de marcador de posição neste passo com o identificador real e URLs de resposta. Para obter os valores reais, contacte [equipa de suporte da Palo Alto redes cativas Portal cliente](https://support.paloaltonetworks.com/support).
+      > [!NOTE]
+      > Atualize os valores de marcador de posição neste passo com o identificador real e URLs de resposta. Para obter os valores reais, contacte [equipa de suporte da Palo Alto redes cativas Portal cliente](https://support.paloaltonetworks.com/support).
 
 5. Na **certificado de assinatura SAML** secção, junto a **XML de metadados de Federação**, selecione **transferir**. Guarde o ficheiro transferido no seu computador.
 
@@ -158,7 +158,7 @@ Em seguida, crie um utilizador de teste com o nome *Eduarda Almeida* no portal d
 
     1. Para **Name**, introduza **BrittaSimon**.
   
-    2. Para **nome de utilizador**, introduza **BrittaSimon @\<your_company_domain\>**. Por exemplo, **BrittaSimon@contoso.com**.
+    2. Para **nome de utilizador**, introduza **BrittaSimon\@\<your_company_domain\>**. Por exemplo, **BrittaSimon\@contoso.com**.
 
     3. Para **palavra-passe**, introduza uma palavra-passe. Recomendamos que mantenha um registo da palavra-passe que introduzir. Pode selecionar o **mostrar palavra-passe** caixa de verificação para apresentar a palavra-passe.
 
@@ -197,7 +197,7 @@ Em seguida, crie um utilizador com o nome *Eduarda Almeida* no Portal de cativas
 > [!NOTE]
 > Se quiser criar manualmente um utilizador, entre em contato com o [equipa de suporte da Palo Alto redes cativas Portal cliente](https://support.paloaltonetworks.com/support).
 
-### <a name="test-single-sign-on"></a>Testar início de sessão único 
+### <a name="test-single-sign-on"></a>Testar o início de sessão único 
 
 Portal de cativas de redes da Palo Alto é instalado atrás da firewall numa VM do Windows. Para testar o início de sessão único no Portal de cativas de redes da Palo Alto, inicie sessão para a VM do Windows utilizando o protocolo RDP (Remote Desktop). Na sessão do RDP, abra um browser e aceda a qualquer Web site. O URL de SSO é aberto e lhe for pedido para se autenticar. Quando a autenticação for concluída, pode acessar os Web sites.
 

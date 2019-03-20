@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 01/04/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a12b8457be70a8821d34575a082a421d2ba3a715
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 78e395db2f8ccaf4fbe9fb64b0faf9ac70c1b21c
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57781855"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57839039"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-g-suite"></a>Tutorial: Integração do Active Directory do Azure com o G Suite
 
@@ -150,6 +150,7 @@ Para configurar o Azure AD início de sessão único com o G Suite, execute os s
     a. Na **URL de início de sessão** caixa de texto, escreva um URL com o seguinte padrão: `https://www.google.com/a/<yourdomain.com>/ServiceLogin?continue=https://mail.google.com`
 
     b. Na **identificador** caixa de texto, escreva um URL com o seguinte padrão:
+
     | |
     |--|
     | `google.com/a/<yourdomain.com>` |
@@ -167,6 +168,7 @@ Para configurar o Azure AD início de sessão único com o G Suite, execute os s
     a. Na **URL de início de sessão** caixa de texto, escreva um URL com o seguinte padrão: `https://www.google.com/a/<yourdomain.com>/ServiceLogin?continue=https://console.cloud.google.com `
 
     b. Na **identificador** caixa de texto, escreva um URL com o seguinte padrão:
+    
     | |
     |--|
     | `google.com/a/<yourdomain.com>` |
@@ -267,7 +269,7 @@ O objetivo desta secção é criar um utilizador de teste no portal do Azure cha
 
     a. Na **Name** campo introduza **BrittaSimon**.
   
-    b. Na **nome de utilizador** tipo de campo **brittasimon@yourcompanydomain.extension**  
+    b. Na **nome de utilizador** tipo de campo **brittasimon\@yourcompanydomain.extension**  
     Por exemplo, BrittaSimon@contoso.com
 
     c. Selecione **palavra-passe de Show** caixa de verificação e, em seguida, anote o valor que é apresentado na caixa de palavra-passe.

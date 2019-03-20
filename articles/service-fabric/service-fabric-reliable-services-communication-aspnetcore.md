@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: required
 ms.date: 10/12/2018
 ms.author: vturecek
-ms.openlocfilehash: c941a9adb552bcd0a02e22b23970717f82c0308f
-ms.sourcegitcommit: 15e9613e9e32288e174241efdb365fa0b12ec2ac
+ms.openlocfilehash: d74cee712b33f8d8d9924b9b8906ccd97e0b1756
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "57009941"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57902999"
 ---
 # <a name="aspnet-core-in-service-fabric-reliable-services"></a>ASP.NET Core no Service Fabric Reliable Services
 
@@ -377,7 +377,7 @@ $"{this.PackageName}{ConfigurationPath.KeyDelimiter}{section.Name}{Configuration
 Por exemplo, se tiver um pacotes de configuração com o nome `MyConfigPackage` com abaixo conteúdo, em seguida, o valor de configuração vai estar disponível no ASP.NET Core `IConfiguration` por meio da chave *MyConfigPackage:MyConfigSection:MyParameter*
 ```xml
 <?xml version="1.0" encoding="utf-8" ?>
-<Settings xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.microsoft.com/2011/01/fabric">  
+<Settings xmlns:xsd="https://www.w3.org/2001/XMLSchema" xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.microsoft.com/2011/01/fabric">  
   <Section Name="MyConfigSection">
     <Parameter Name="MyParameter" Value="Value1" />
   </Section>  

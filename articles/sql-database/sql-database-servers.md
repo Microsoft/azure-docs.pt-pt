@@ -11,13 +11,13 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
-ms.date: 02/08/2019
-ms.openlocfilehash: 1968c0ee44458cdef47f6118c50e876d52a74f24
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.date: 03/12/2019
+ms.openlocfilehash: 851722838b4f22b1f193823af0b9b018106e9308
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57316545"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57838770"
 ---
 # <a name="azure-sql-database-servers-and-their-management"></a>Servidores de base de dados SQL do Azure e a gestão
 
@@ -83,6 +83,8 @@ Para gerir uma base de dados existente, navegue para o **bases de dados SQL** p�
 ## <a name="manage-azure-sql-servers-databases-and-firewalls-using-powershell"></a>Gerir servidores SQL do Azure, bases de dados e firewalls com o PowerShell
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+> [!IMPORTANT]
+> O módulo do PowerShell do Azure Resource Manager ainda é suportado pelo SQL Database do Azure, mas todo o desenvolvimento futuro é para o módulo de Az.Sql. Para estes cmdlets, consulte [azurerm. SQL](https://docs.microsoft.com/powershell/module/AzureRM.Sql/). Os argumentos para os comandos no módulo Az e nos módulos AzureRm são substancialmente idênticos.
 
 Para criar e gerir o servidor SQL do Azure, bases de dados e firewalls com o Azure PowerShell, utilize os seguintes cmdlets do PowerShell. Se precisar de instalar ou atualizar o PowerShell, veja [módulo de instalar o Azure PowerShell](/powershell/azure/install-az-ps). Para criar e gerir conjuntos elásticos, veja [conjuntos elásticos](sql-database-elastic-pool.md).
 

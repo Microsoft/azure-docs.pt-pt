@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/28/2019
 ms.author: banders
-ms.openlocfilehash: 389a8ac729cf5f4f95aa37654434245d08ecc87e
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 90f832319fa2343003af58bd99eb64c0cbd94dd8
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57533634"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57894551"
 ---
 # <a name="set-up-your-billing-account-for-a-microsoft-customer-agreement"></a>Configurar a sua conta de cobrança para um contrato de cliente da Microsoft
 
@@ -47,7 +47,7 @@ Antes de iniciar a configuração, recomendamos que faça o seguinte:
 - **Compreender as alterações para o acesso dos administradores de faturação**
   - Os administradores a sua inscrição de Enterprise Agreement obtém acesso para os âmbitos de faturas na nova conta. [Compreender as alterações para o respetivo acesso](#understand-changes-to-your-billing-administrators-access).
 - **Funcionalidades de Enterprise Agreement do modo de exibição que são substituídas pela nova conta**
-  - Ver recursos de Registro do contrato Enterprise que são [substituídos pelos recursos da nova conta](#review-features-replaced-by-the-new-billing-account).
+  - Recursos de exibição do Registro do contrato Enterprise que são substituídos pelos recursos da nova conta.
 - **Ver respostas para perguntas mais comuns**
   - Modo de exibição [informações adicionais](#additional-information) para saber mais sobre a configuração.
 
@@ -130,7 +130,7 @@ As quotas de gastos que tiverem sido definidas para os departamentos na sua insc
 
 Centro de custos que estavam definidas as subscrições do Azure no seu registro de contrato Enterprise são passadas a nova conta de faturação. No entanto, não são suportados os centros de custos de departamentos e contas de contrato Enterprise.
 
-## <a name="additional-information"></a>Informação adicional
+## <a name="additional-information"></a>Informações adicionais
 
 As secções seguintes fornecem informações adicionais sobre como configurar a sua conta de cobrança.
 

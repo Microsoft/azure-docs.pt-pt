@@ -8,12 +8,12 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 10/1/2018
 ms.author: raynew
-ms.openlocfilehash: 6ee05af0391311b4782211807f41ce099a6c24a2
-ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
+ms.openlocfilehash: 5dfe768ddb3509f896b90f913ffecdf33907357a
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56889941"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57876685"
 ---
 # <a name="contoso---deploy-a-migration-infrastructure"></a>Contoso - implementar uma infraestrutura de migração
 
@@ -101,10 +101,10 @@ Depois de pagar para o Azure, a Contoso precisa de saber como gerir as subscriç
 - Uma inscrição de Enterprise do Azure define como uma empresa molda e utiliza os serviços do Azure e define uma estrutura de governação de núcleo.
 - Como primeiro passo, a Contoso determinou uma estrutura (conhecida como uma estrutura de enterprise para a inscrição empresarial. Contoso utilizado [este artigo](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-subscription-governance) para ajudar a compreender e uma estrutura de design.
 - Por enquanto, Contoso decidiu usar uma abordagem funcional para gerir as subscrições.
-    - Dentro da empresa irá utilizar um único departamento de TI, que controla o orçamento do Azure. Este será o grupo de apenas com as assinaturas.
-    - Contoso irá expandir no futuro, este modelo para que outros grupos empresariais podem associar uma vez que os departamentos na inscrição empresarial.
-    - Dentro do departamento de TI Contoso tem estruturada duas subscrições, desenvolvimento e produção.
-    - Se a Contoso requer subscrições adicionais no futuro, ele precisa de gerir o acesso, políticas e conformidade para nessas subscrições. Contoso fará isso por meio da introdução [grupos de gestão do Azure](https://docs.microsoft.com/azure/azure-resource-manager/management-groups-overview), como uma camada adicional acima de subscrições.
+  - Dentro da empresa irá utilizar um único departamento de TI, que controla o orçamento do Azure. Este será o grupo de apenas com as assinaturas.
+  - Contoso irá expandir no futuro, este modelo para que outros grupos empresariais podem associar uma vez que os departamentos na inscrição empresarial.
+  - Dentro do departamento de TI Contoso tem estruturada duas subscrições, desenvolvimento e produção.
+  - Se a Contoso requer subscrições adicionais no futuro, ele precisa de gerir o acesso, políticas e conformidade para nessas subscrições. Contoso fará isso por meio da introdução [grupos de gestão do Azure](https://docs.microsoft.com/azure/azure-resource-manager/management-groups-overview), como uma camada adicional acima de subscrições.
 
     ![Estrutura de Enterprise](./media/contoso-migration-infrastructure/enterprise-structure.png) 
 
@@ -146,7 +146,7 @@ Dando e controlar o acesso de utilizador aos recursos do Azure com a gestão de 
 
 Contoso é usar a edição gratuita do Azure AD que está incluído com uma subscrição do Azure. Administradores de contoso, configure um diretório do AD da seguinte forma:
 
-1. Na [portal do Azure](http://portal.azure.com/), que navegam até **criar um recurso** > **identidade** > **Azure Active Directory**.
+1. Na [portal do Azure](https://portal.azure.com/), que navegam até **criar um recurso** > **identidade** > **Azure Active Directory**.
 2. Na **criar diretório**, eles especificam um nome para o diretório, um nome de domínio inicial e a região na qual deve ser criado o diretório do Azure AD.
 
     ![Criar o Azure AD](./media/contoso-migration-infrastructure/azure-ad-create.png) 
@@ -310,7 +310,7 @@ Com o design regional em vigor, a Contoso está pronta para considerar uma estra
 
 Contoso considerado um [número de arquiteturas](https://docs.microsoft.com/azure/architecture/reference-architectures/hybrid-networking/) para híbrida entre o Azure e o datacenter no local de rede. [Leia mais](https://docs.microsoft.com/azure/architecture/reference-architectures/hybrid-networking/considerations) sobre como comparar as opções.
 
-Como lembrete, a infraestrutura de rede no local do Contoso consiste atualmente o Centro de dados em nova York e local ramos na parte do Leste dos EUA.  Todas as localizações de tem uma conexão de classe de negócios para a internet.  Em seguida, cada uma das ramificações está ligada ao centro de dados através de um túnel IPSec VPN através da internet.
+Como lembrete, a infraestrutura de rede no local do Contoso consiste atualmente o Centro de dados em nova York e local ramos na parte do Leste dos EUA.  Todas as localizações de tem uma conexão de classe de negócios para a internet.  Em seguida, cada uma das ramificações está ligada ao centro de dados por meio de um túnel IPSec VPN através da internet.
 
 ![Rede de contoso](./media/contoso-migration-infrastructure/contoso-networking.png) 
 
@@ -581,18 +581,18 @@ Depois de atualizar as definições de rede, os administradores da Contoso estã
 
 1. No portal do Azure, que implementam uma nova VM do Windows Server para a VNet apropriada.
 2. É possível criar conjuntos de disponibilidade em cada local para a VM. Conjuntos de disponibilidade, faça o seguinte:
-    - Certifique-se de que os recursos de infraestrutura do Azure separa as VMs em diferentes estruturas na região do Azure. 
-    -  Permite que a Contoso ser elegível para o SLA de 99,95% para as VMs no Azure.  [Saiba mais](https://docs.microsoft.com/azure/virtual-machines/windows/tutorial-availability-sets).
+   - Certifique-se de que os recursos de infraestrutura do Azure separa as VMs em diferentes estruturas na região do Azure. 
+   - Permite que a Contoso ser elegível para o SLA de 99,95% para as VMs no Azure.  [Saiba mais](https://docs.microsoft.com/azure/virtual-machines/windows/tutorial-availability-sets).
 
-    ![Grupo de disponibilidade](./media/contoso-migration-infrastructure/availability-group.png) 
+     ![Grupo de disponibilidade](./media/contoso-migration-infrastructure/availability-group.png) 
 3. Depois de implementada a VM, que abrem a interface de rede para a VM. Definir o endereço IP privado para estático e especifique um endereço válido.
 
     ![NIC DE VM](./media/contoso-migration-infrastructure/vm-nic.png)
 
 4. Agora, eles anexar um disco de dados nova para a VM. Este disco contém a base de dados do Active Directory e a partilha sysvol. 
-    - O tamanho do disco determina o número de IOPS que suporta.
-    - Ao longo do tempo, o tamanho do disco talvez seja necessário aumentar à medida que cresce o ambiente.
-    - A unidade não deve ser definida como leitura/escrita para colocação em cache do anfitrião. Bases de dados de diretório Active Directory não oferecem suporte isso.
+   - O tamanho do disco determina o número de IOPS que suporta.
+   - Ao longo do tempo, o tamanho do disco talvez seja necessário aumentar à medida que cresce o ambiente.
+   - A unidade não deve ser definida como leitura/escrita para colocação em cache do anfitrião. Bases de dados de diretório Active Directory não oferecem suporte isso.
 
      ![Disco do Active Directory](./media/contoso-migration-infrastructure/ad-disk.png)
 

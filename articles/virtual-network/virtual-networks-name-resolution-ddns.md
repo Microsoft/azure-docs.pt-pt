@@ -1,6 +1,6 @@
 ---
-title: Através do DNS dinâmico para registar os nomes de anfitrião no Azure | Microsoft Docs
-description: Saiba como configurar o DNS dinâmico para registar os nomes de anfitrião no seus próprios servidores DNS.
+title: Utilizar o DNS dinâmico para registar nomes de anfitrião no Azure | Documentos da Microsoft
+description: Saiba como configurar o DNS dinâmico para registar nomes de anfitrião em seus próprios servidores DNS.
 services: dns
 documentationcenter: na
 author: subsarma
@@ -14,28 +14,28 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/23/2017
 ms.author: subsarma
-ms.openlocfilehash: bbbce45b7c321fd4934374c76f2a4421b125d46f
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: c2ef842fd62ef060f06536d66387c3facd0627b5
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/19/2018
-ms.locfileid: "31600959"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57994693"
 ---
-# <a name="use-dynamic-dns-to-register-hostnames-in-your-own-dns-server"></a>Utilizar o DNS dinâmico para registar os nomes de anfitrião no servidor DNS
+# <a name="use-dynamic-dns-to-register-hostnames-in-your-own-dns-server"></a>Utilizar o DNS dinâmico para registar nomes de anfitriões no seu próprio servidor DNS
 
-[O Azure oferece resolução de nomes](virtual-networks-name-resolution-for-vms-and-role-instances.md) para máquinas virtuais (VM) e instâncias de função. Quando a resolução do nome tem de exceder as capacidades fornecidas por predefinição do Azure DNS, pode fornecer os seus próprios servidores DNS. Utilizar os seus próprios servidores DNS dá-lhe a capacidade para personalizar a sua solução DNS para se adequarem às suas necessidades específicas. Por exemplo, precisa de aceder a recursos no local através do seu controlador de domínio do Active Directory.
+[O Azure fornece resolução de nomes](virtual-networks-name-resolution-for-vms-and-role-instances.md) para máquinas virtuais (VM) e instâncias de função. Quando a resolução do nome tem de exceder as capacidades fornecidas por predefinição do Azure DNS, pode fornecer seus próprios servidores DNS. Usar seus próprios servidores DNS dá-lhe a capacidade de adaptar a sua solução DNS para se adequar às suas necessidades específicas. Por exemplo, terá de aceder a recursos no local através do seu controlador de domínio do Active Directory.
 
-Quando os servidores DNS personalizados estão alojados as VMs do Azure, pode reencaminhar consultas de nome de anfitrião para a mesma rede virtual no Azure, para resolver os nomes de anfitrião. Se não pretender utilizar esta opção, pode registar os nomes de anfitrião VM no seu servidor DNS com o DNS dinâmico (DDNS). Azure não tem as credenciais para criar diretamente os registos nos servidores DNS, pelo que disposições alternativas, muitas vezes, são necessários. Siga alguns cenários comuns, com alternativas:
+Quando os servidores DNS personalizados estão alojados como VMs do Azure, pode reencaminhar consultas de nome de anfitrião para a mesma rede virtual para o Azure para resolver os nomes de anfitrião. Se não pretender utilizar esta opção, pode registrar seus nomes de anfitrião VM no seu servidor DNS com o DNS dinâmicas (DDNS). Azure não tem as credenciais para criar diretamente os registos em seus servidores DNS, para que a alternativas disposições geralmente são necessários. Siga alguns cenários comuns, com alternativas:
 
-## <a name="windows-clients"></a>Clientes Windows
-A tentativa de clientes do Windows não-associados a um domínio protegidas DDNS atualizações quando estes arrancam ou quando muda do endereço IP. O nome DNS é o nome de anfitrião e o sufixo DNS primário. Azure deixa o sufixo DNS primário em branco, mas pode definir o sufixo na VM, através de [interface de utilizador](https://technet.microsoft.com/library/cc794784.aspx) ou [PowerShell](/powershell/module/dnsclient/set-dnsclient).
+## <a name="windows-clients"></a>Clientes do Windows
+Clientes do Windows não-associados a um domínio tentarem sem segurança DDNS atualizações quando arrancarem, ou quando o respetivo endereço IP é alterado. O nome DNS é o nome de anfitrião e o sufixo DNS primário. Azure deixa o sufixo DNS primário em branco, mas pode definir o sufixo na VM, através da [interface do usuário](https://technet.microsoft.com/library/cc794784.aspx) ou [PowerShell](/powershell/module/dnsclient/set-dnsclient).
 
-Os clientes do Windows associados a um domínio registar os respetivos endereços IP com o controlador de domínio utilizando o DDNS segura. O processo de associação de domínio define o sufixo DNS primário no cliente e cria e mantém a relação de confiança.
+Clientes de Windows associados a um domínio registar os seus endereços IP com o controlador de domínio utilizando o DDNS seguro. O processo de associação a um domínio define o sufixo DNS primário no cliente e cria e mantém a relação de confiança.
 
-## <a name="linux-clients"></a>Clientes do Linux
-Clientes Linux, geralmente, não registar-se com o servidor DNS no arranque, assumem que o servidor de DHCP não-lo. Servidores DHCP do Azure têm as credenciais para registar registos no seu servidor DNS. Pode utilizar uma ferramenta chamada `nsupdate`, que está incluído no pacote de enlace, para enviar DDNS atualizações. Porque o protocolo DDNS está padronizado, pode utilizar `nsupdate` , mesmo quando não utilizar enlace no servidor DNS.
+## <a name="linux-clients"></a>Clientes Linux
+Clientes Linux, geralmente, não registram-se com o servidor DNS na inicialização, eles supõem que o servidor DHCP faz isso. Servidores DHCP do Azure não tem as credenciais para registrar os registros no seu servidor DNS. Pode usar uma ferramenta chamada `nsupdate`, que está incluído no pacote Bind, para enviar DDNS atualizações. Como o protocolo DDNS é padronizado, pode usar `nsupdate` até mesmo quando não estiver a utilizar Bind no servidor DNS.
 
-Pode utilizar os hooks que são fornecidos pelo cliente de DHCP para criar e manter a entrada de nome de anfitrião no servidor DNS. Durante o ciclo de DHCP, o cliente executa os scripts no */etc/dhcp/dhclient-exit-hooks.d/*. Pode utilizar os hooks para registar o novo endereço IP com `nsupdate`. Por exemplo:
+Pode usar os ganchos que são fornecidos pelo cliente de DHCP para criar e manter a entrada de nome de anfitrião no servidor DNS. Durante o ciclo DHCP, o cliente executa os scripts no */etc/dhcp/dhclient-exit-hooks.d/*. Pode usar os ganchos para registar o novo endereço IP com `nsupdate`. Por exemplo:
 
 ```bash
 #!/bin/sh
@@ -61,11 +61,11 @@ then
 fi
 ```
 
-Também pode utilizar o `nsupdate` de atualizações de comando para efetuar DDNS segura. Por exemplo, quando estiver a utilizar um servidor DNS de enlace, um par de chaves públicas-privadas é [gerado](http://linux.yyz.us/nsupdate/). O servidor DNS [configurado](http://linux.yyz.us/dns/ddns-server.html) com a parte pública da chave, por isso que as TI podem verificar a assinatura no pedido. Para fornecer o par de chaves para `nsupdate`, utilize o `-k` opção, para os DDNS pedido ser assinados de atualização.
+Também pode utilizar o `nsupdate` de atualizações de comando para realizar DDNS seguro. Por exemplo, quando estiver a utilizar um servidor de Bind DNS, um par de chaves públicas-privadas é [gerado](http://linux.yyz.us/nsupdate/). O servidor DNS [configurado](http://linux.yyz.us/dns/ddns-server.html) com a parte pública da chave, por isso que a TI pode verificar a assinatura no pedido. Para fornecer o par de chaves para `nsupdate`, utilize o `-k` opção, para as DDNS pedido sejam assinados de atualização.
 
-Quando estiver a utilizar um servidor DNS do Windows, pode utilizar a autenticação Kerberos com o `-g` parâmetro `nsupdate`, mas não está disponível na versão Windows `nsupdate`. Para utilizar o Kerberos, utilize `kinit` ao carregar as credenciais. Por exemplo, pode carregar as credenciais de um [keytab ficheiro](http://www.itadmintools.com/2011/07/creating-kerberos-keytab-files.html)), em seguida, `nsupdate -g` escolherá as credenciais, da cache.
+Quando estiver a utilizar um servidor DNS do Windows, pode utilizar a autenticação Kerberos com o `-g` parâmetro na `nsupdate`, mas não está disponível na versão do Windows `nsupdate`. Para utilizar o Kerberos, utilize `kinit` para carregar as credenciais. Por exemplo, é possível carregar as credenciais de uma [o keytab ficheiro](https://www.itadmintools.com/2011/07/creating-kerberos-keytab-files.html)), em seguida, `nsupdate -g` seleciona as credenciais, da cache.
 
-Se for necessário, pode adicionar um sufixo de procura DNS para as suas VMs. O sufixo DNS especificado no */etc/resolv.conf* ficheiro. A maioria das Linux distros gerir automaticamente o conteúdo deste ficheiro, por isso, normalmente, não é possível editá-lo. No entanto, pode substituir o sufixo, utilizando o cliente DHCP `supersede` comando. Para substituir o sufixo, adicione a seguinte linha para o */etc/dhcp/dhclient.conf* ficheiro:
+Se for necessário, pode adicionar um sufixo de procura DNS às suas VMs. O sufixo DNS especificado no */etc/resolv.conf* ficheiro. A maioria das distribuições de Linux gerir automaticamente o conteúdo deste ficheiro, então, normalmente não é possível editá-lo. No entanto, é possível substituir o sufixo ao utilizar o cliente DHCP `supersede` comando. Para substituir o sufixo, adicione a seguinte linha para o */etc/dhcp/dhclient.conf* ficheiro:
 
 ```
 supersede domain-name <required-dns-suffix>;

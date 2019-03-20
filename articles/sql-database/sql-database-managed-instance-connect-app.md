@@ -12,12 +12,12 @@ ms.author: srbozovi
 ms.reviewer: bonova, carlrab
 manager: craigg
 ms.date: 11/09/2018
-ms.openlocfilehash: 0d007096bdd231769e04b503d97889b121eae9c3
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
+ms.openlocfilehash: 9d47e3fb821e9ad64beecd62c274a33e7fa14041
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55565501"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57887328"
 ---
 # <a name="connect-your-application-to-azure-sql-database-managed-instance"></a>Ligar a sua aplicação à Instância Gerida de Base de Dados SQL do Azure
 
@@ -143,7 +143,7 @@ As seguintes versões mínimas a ferramentas e os controladores são recomendada
 |JDBC driver    | 6.4.0 |
 |Controlador node. js | 2.1.1 |
 |Controlador OLEDB   | 18.0.2.0 |
-|SSMS   | 17.8.1 ou [superior](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms?view=sql-server-2017) |
+|SSMS   | 17.8.1 ou [superior](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) |
 
 ## <a name="next-steps"></a>Passos Seguintes
 

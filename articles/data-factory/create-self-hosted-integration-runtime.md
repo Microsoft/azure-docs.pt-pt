@@ -11,12 +11,12 @@ ms.date: 01/15/2019
 author: nabhishek
 ms.author: abnarain
 manager: craigg
-ms.openlocfilehash: d1e43924634e3c4543c244043cb06d965a4d14e0
-ms.sourcegitcommit: 30a0007f8e584692fe03c0023fe0337f842a7070
+ms.openlocfilehash: 37e3dbb5f69d7319e0b56a5d209e0487e0562e00
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57576842"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57838804"
 ---
 # <a name="create-and-configure-a-self-hosted-integration-runtime"></a>Criar e configurar um runtime de integração autoalojado
 O integration runtime (IR) é a infraestrutura de computação do Azure Data Factory utiliza para fornecer capacidades de integração de dados em diferentes ambientes de rede. Para obter detalhes sobre o runtime de integração, consulte [descrição geral do runtime de integração](concepts-integration-runtime.md).
@@ -61,7 +61,7 @@ Este é um fluxo de dados de alto nível para o resumo de passos para copiar com
 ## <a name="considerations-for-using-a-self-hosted-ir"></a>Considerações sobre a utilização de um ir Autoalojado
 
 - Um runtime de integração autoalojado único pode ser utilizado para várias origens de dados no local. Um runtime de integração autoalojado único pode ser partilhado com outro fábrica de dados no mesmo inquilino do Azure Active Directory. Para obter mais informações, consulte [partilha um runtime de integração autoalojado](#sharing-the-self-hosted-integration-runtime-with-multiple-data-factories).
-- Pode ter apenas uma instância de um runtime de integração autoalojado instalado numa única máquina. Se tiver duas fábricas de dados que precisem de aceder a origens no local dados, tem de instalar o runtime de integração autoalojado em dois computadores no local. Em outras palavras, um runtime de integração autoalojado está associado a uma fábrica de dados específico.
+- Pode ter apenas uma instância de um runtime de integração autoalojado instalado numa única máquina. Se tiver duas fábricas de dados que precisam de aceder a origens de dados no local, terá de instalar o runtime de integração autoalojado em dois locais computadores cada de ambas as fábricas de dados ou utilizar o [Self-hosted IRdorecursodecompartilhamento](#sharing-the-self-hosted-integration-runtime-with-multiple-data-factories)para partilhar um runtime de integração autoalojado com outra Data Factory.  
 - O runtime de integração autoalojado não precisa de estar no mesmo computador, como a origem de dados. No entanto, o mais perto da origem de dados com o runtime de integração autoalojado reduz o tempo para o runtime de integração autoalojado ligar à origem de dados. Recomendamos que instale o runtime de integração autoalojado num computador que é diferente dessa origem de dados de locais de anfitriões. Quando a origem de dados e do runtime de integração autoalojado em computadores diferentes, o runtime de integração autoalojado não compitam por recursos com a origem de dados.
 - Pode ter vários runtimes de integração autoalojado em diferentes computadores que se ligam à mesma origem de dados no local. Por exemplo, pode ter dois runtimes de integração autoalojado que sirva duas fábricas de dados, mas a mesma origem de dados no local é registrada em ambas as fábricas de dados.
 - Se já tiver um gateway instalado no seu computador para ser usado um cenário do Power BI, instale um runtime de integração autoalojado separada do Azure Data Factory em outra máquina.
@@ -145,7 +145,7 @@ Eis os requisitos para o certificado TLS/SSL que é utilizado para proteger as c
 - Certificados que utilizam chaves CNG não são suportados.  
 
 > [!NOTE]
-> Este certificado é utilizado para encriptar as portas no nó do Runtime de integração autoalojado, utilizado para **comunicação nó a nó** (para a sincronização de estado) e enquanto **com o PowerShell cmdlet para o serviço ligado de credenciais definição**de dentro da rede local. Sugerimos que utilize este certificado se o seu ambiente de rede privada não é seguro ou se quiser proteger a comunicação entre nós dentro da sua rede privada também. Movimento de dados em trânsito do Runtime de integração autoalojado para outros arquivos de dados sempre acontece através do canal encriptado, independentemente deste certificado ou não. 
+> Este certificado é utilizado para encriptar as portas no nó do Runtime de integração autoalojado, utilizado para **comunicação nó a nó** (para sincronização de estado que inclui serviços ligados de sincronização de credenciais em todos os nós) e ao **com o PowerShell cmdlet para o serviço ligado de credenciais definição** de dentro da rede local. Sugerimos que utilize este certificado se o seu ambiente de rede privada não é seguro ou se quiser proteger a comunicação entre nós dentro da sua rede privada também. Movimento de dados em trânsito do Runtime de integração autoalojado para outros arquivos de dados sempre acontece através do canal encriptado, independentemente deste certificado ou não. 
 
 ## <a name="sharing-the-self-hosted-integration-runtime-with-multiple-data-factories"></a>Partilhar o runtime de integração autoalojado com várias fábricas de dados
 

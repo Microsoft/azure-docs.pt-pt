@@ -4,17 +4,17 @@ description: Saiba mais sobre os parâmetros de estáticos e dinâmicos e como u
 services: blueprints
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 02/01/2019
+ms.date: 03/12/2019
 ms.topic: conceptual
 ms.service: blueprints
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: d7c923dd819f826d9d9aaf8d5b88355a9feb344f
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.openlocfilehash: 42a70f7ea21a58f40f7786d6c6f1a51093923f83
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56823166"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57838022"
 ---
 # <a name="creating-dynamic-blueprints-through-parameters"></a>Criação de esquemas dinâmicas através de parâmetros
 
@@ -41,8 +41,13 @@ Esta medida de segurança impede a prática de não segura de armazenar segredos
 - Nome secreto do Key Vault
 - Versão de segredo do Key Vault
 
-O Key Vault referenciado tem de existir na mesma subscrição que o esquema está a ser atribuído a.
-Ele também tem de ter **ativar o acesso ao Azure Resource Manager para a implementação de modelo** configurado do Key Vault **políticas de acesso** página. Para instruções sobre como ativar esta funcionalidade, consulte [Key Vault - ativar a implementação do modelo](../../../managed-applications/key-vault-access.md#enable-template-deployment). Para obter mais informações sobre o Azure Key Vault, consulte [descrição geral do Cofre de chave](../../../key-vault/key-vault-overview.md).
+Se utilizar a atribuição do esquema uma **atribuído ao sistema de identidade gerido**, o referenciado Key Vault _tem_ existe na mesma subscrição, a definição do esquema está atribuída a.
+
+Se utilizar a atribuição do esquema uma **atribuído ao utilizador a identidade gerida**, o referenciado Key Vault _poderá_ existe numa subscrição centralizada. A identidade gerida deve ser concedida direitos adequados no Key Vault antes da atribuição do esquema.
+
+Em ambos os casos, o Cofre de chaves tem de ter **ativar o acesso ao Azure Resource Manager para a implementação de modelo** configurado no **políticas de acesso** página. Para instruções sobre como ativar esta funcionalidade, consulte [Key Vault - ativar a implementação do modelo](../../../managed-applications/key-vault-access.md#enable-template-deployment).
+
+Para obter mais informações sobre o Azure Key Vault, consulte [descrição geral do Cofre de chave](../../../key-vault/key-vault-overview.md).
 
 ## <a name="parameter-types"></a>Tipos de parâmetro
 
@@ -236,8 +241,8 @@ Artefactos para um grupo de recursos são definidos com um "nome de modelo," **n
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-- Saber mais sobre o [ciclo de vida do esquema](lifecycle.md)
-- Aprender a personalizar a [ordem de sequenciação do esquema](sequencing-order.md)
-- Saber como utilizar o [bloqueio de recursos de esquema](resource-locking.md)
-- Saber como [atualizar as atribuições existentes](../how-to/update-existing-assignments.md)
-- Resolver problemas durante a atribuição de um esquema com [resolução de problemas gerais](../troubleshoot/general.md)
+- Saiba mais sobre o [ciclo de vida de esquema](lifecycle.md).
+- Aprenda a personalizar a [esquema de ordem de sequenciamento](sequencing-order.md).
+- Descubra como tornar a usar [esquema de bloqueio do recurso](resource-locking.md).
+- Saiba como [atualizar atribuições existentes](../how-to/update-existing-assignments.md).
+- Resolver problemas durante a atribuição de um plano gráfico com [resolução de problemas gerais](../troubleshoot/general.md).

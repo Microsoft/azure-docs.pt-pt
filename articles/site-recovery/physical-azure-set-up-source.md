@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: ramamill
-ms.openlocfilehash: 2e5b90f36a6dc5c88db3f6f449c911d22de680b1
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.openlocfilehash: e9bf06ba058078fc5012410bdd75ef90ff6c93d4
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53976805"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57899014"
 ---
 # <a name="set-up-the-configuration-server-for-disaster-recovery-of-physical-servers-to-azure"></a>Configurar o servidor de configuração para recuperação após desastre de servidores físicos no Azure
 
@@ -22,7 +22,7 @@ Este artigo descreve como configurar o seu ambiente no local para começar a rep
 ## <a name="prerequisites"></a>Pré-requisitos
 
 O artigo pressupõe que já tem:
-- O Cofre dos serviços de recuperação no [portal do Azure](http://portal.azure.com "portal do Azure").
+- O Cofre dos serviços de recuperação no [portal do Azure](https://portal.azure.com "portal do Azure").
 - Um computador físico em que pretende instalar o servidor de configuração.
 - Se tiver desativado o TLS 1.0 no computador no qual está a instalar o servidor de configuração, certifique-se de que o TLs 1.2 está ativado e que o .NET Framework versão 4.6 ou posterior está instalado no computador (com criptografia segura desabilitada). [Saiba mais](https://support.microsoft.com/help/4033999/how-to-resolve-azure-site-recovery-agent-issues-after-disabling-tls-1).
 
@@ -47,7 +47,7 @@ A tabela seguinte lista os mínimos de hardware, software e requisitos de rede p
 
 1. Na **preparar origem**, se não tiver um servidor de configuração, clique em **+ servidor de configuração** para adicionar um.
 
-  ![Configurar a origem](./media/physical-azure-set-up-source/plus-config-srv.png)
+   ![Configurar a origem](./media/physical-azure-set-up-source/plus-config-srv.png)
 2. Na **Adicionar servidor** painel, verifique se **servidor de configuração** aparece no **tipo de servidor**.
 4. Transfira o ficheiro de instalação do Site Recovery Unified Setup.
 5. Transfira a chave de registo do cofre. Terá da chave de registo ao executar a configuração unificada. A chave é válida durante cinco dias depois de gerá-la.

@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 11/29/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 95465fdc17131c996fa242d028addbab4191628c
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: d1bb62c9a11971f72a6c96c4652b136c19812cb3
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56191117"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57839326"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-everbridge"></a>Tutorial: Integração do Active Directory do Azure com EverBridge
 
@@ -127,22 +127,22 @@ Nesta secção, pode ativar o Azure AD início de sessão único no portal do Az
 
 5. Para configurar o **EverBridge** como **EverBridge membro Portal**, no **configuração básica de SAML** secção, execute os seguintes passos:
 
-    * Se desejar configurar a aplicação no **IDP** iniciada pelo modo:
+   * Se desejar configurar a aplicação no **IDP** iniciada pelo modo:
 
-        ![EverBridge domínio e URLs únicas início de sessão em informações](./media/everbridge-tutorial/tutorial_everbridge_url1.png)
+       ![EverBridge domínio e URLs únicas início de sessão em informações](./media/everbridge-tutorial/tutorial_everbridge_url1.png)
 
-        * Na **identificador** caixa de texto, escreva um URL com o seguinte padrão: `https://sso.everbridge.net/<API_Name>/<Organization_ID>`
+       * Na **identificador** caixa de texto, escreva um URL com o seguinte padrão: `https://sso.everbridge.net/<API_Name>/<Organization_ID>`
 
-        * Na **URL de resposta** caixa de texto, escreva um URL com o seguinte padrão: `https://member.everbridge.net/saml/SSO/<API_Name>/<Organization_ID>/alias/defaultAlias`
+       * Na **URL de resposta** caixa de texto, escreva um URL com o seguinte padrão: `https://member.everbridge.net/saml/SSO/<API_Name>/<Organization_ID>/alias/defaultAlias`
 
-    * Clique em **definir URLs adicionais** e executar o passo seguinte, se desejar configurar a aplicação na **SP** iniciada pelo modo:
+   * Clique em **definir URLs adicionais** e executar o passo seguinte, se desejar configurar a aplicação na **SP** iniciada pelo modo:
 
-        ![EverBridge domínio e URLs únicas início de sessão em informações](./media/everbridge-tutorial/tutorial_everbridge_url2.png)
+       ![EverBridge domínio e URLs únicas início de sessão em informações](./media/everbridge-tutorial/tutorial_everbridge_url2.png)
 
-        * Na **URL de início de sessão** caixa de texto, escreva um URL com o seguinte padrão: `https://member.everbridge.net/saml/login/<API_Name>/<Organization_ID>/alias/defaultAlias?disco=true`
+       * Na **URL de início de sessão** caixa de texto, escreva um URL com o seguinte padrão: `https://member.everbridge.net/saml/login/<API_Name>/<Organization_ID>/alias/defaultAlias?disco=true`
 
-    > [!NOTE]
-    > Estes valores não são reais. Atualize estes valores com o identificador real, o URL de resposta e URL de início de sessão. Contacte [equipa de suporte de EverBridge](mailto:support@everbridge.com) obter esses valores.
+     > [!NOTE]
+     > Estes valores não são reais. Atualize estes valores com o identificador real, o URL de resposta e URL de início de sessão. Contacte [equipa de suporte de EverBridge](mailto:support@everbridge.com) obter esses valores.
 
 6. No **certificado de assinatura SAML** página, além da **certificado de assinatura SAML** secção, clique em **transferir** para transferir **XML de metadados de Federação** e, em seguida, guarde o ficheiro de metadados no seu computador.
 
@@ -164,21 +164,21 @@ Nesta secção, pode ativar o Azure AD início de sessão único no portal do Az
 
 9. No menu na parte superior, clique nas **definições** separador e selecione **Single Sign-On** sob **segurança**.
    
-    ![Configurar o início de sessão único](./media/everbridge-tutorial/tutorial_everbridge_002.png)
+     ![Configurar o início de sessão único](./media/everbridge-tutorial/tutorial_everbridge_002.png)
    
-    a. Na **nome** caixa de texto, escreva o nome do identificador de fornecedor (por exemplo: nome da sua empresa).
+     a. Na **nome** caixa de texto, escreva o nome do identificador de fornecedor (por exemplo: nome da sua empresa).
    
-    b. Na **nome da API** caixa de texto, escreva o nome da API.
+     b. Na **nome da API** caixa de texto, escreva o nome da API.
    
-    c. Clique em **Escolher ficheiro** botão para carregar o ficheiro de metadados que transferiu a partir do portal do Azure.
+     c. Clique em **Escolher ficheiro** botão para carregar o ficheiro de metadados que transferiu a partir do portal do Azure.
    
-    d. Na localização de identidade de SAML, selecione **identidade é no elemento NameIdentifier da declaração de assunto**.
+     d. Na localização de identidade de SAML, selecione **identidade é no elemento NameIdentifier da declaração de assunto**.
    
-    e. Na **URL de início de sessão do fornecedor de identidade** caixa de texto, cole o valor de **URL de início de sessão** que copiou do portal do Azure.
+     e. Na **URL de início de sessão do fornecedor de identidade** caixa de texto, cole o valor de **URL de início de sessão** que copiou do portal do Azure.
    
-    f. No fornecedor iniciada solicitar vínculo de serviço, selecione **redirecionamento de HTTP**.
+     f. No fornecedor iniciada solicitar vínculo de serviço, selecione **redirecionamento de HTTP**.
 
-    g. Clicar em **Guardar**
+     g. Clicar em **Guardar**
 
 10. Para configurar o início de sessão único num **EverBridge** como **EverBridge membro Portal**, terá de enviar o transferido **XML de metadados de Federação** para [ A equipa de suporte Everbridge](mailto:support@everbridge.com). Se definir esta definição para que a ligação de SAML SSO definidas corretamente em ambos os lados.
 
@@ -200,7 +200,7 @@ O objetivo desta secção é criar um utilizador de teste no portal do Azure cha
 
     a. Na **Name** , insira **BrittaSimon**.
   
-    b. Na **nome de utilizador** , digite **brittasimon@yourcompanydomain.extension**  
+    b. Na **nome de utilizador** , digite **brittasimon\@yourcompanydomain.extension**  
     Por exemplo, BrittaSimon@contoso.com
 
     c. Selecione **propriedades**, selecione a **palavra-passe de Show** caixa de verificação e, em seguida, anote o valor que é apresentado na caixa de palavra-passe.

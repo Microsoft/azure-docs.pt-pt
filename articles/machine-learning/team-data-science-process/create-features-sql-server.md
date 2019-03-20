@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 11/21/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: ce3fdef6429452eeee522896b47ed71de6a10201
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 2d01b74e7db275f4b2e3933415bbae40911b114b
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55451738"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57854896"
 ---
 # <a name="create-features-for-data-in-sql-server-using-sql-and-python"></a>Criar características para dados no SQL Server com SQL e Python
 Este documento mostra como gerar características para dados armazenados numa VM do SQL Server no Azure que o ajudam a aprender de forma mais eficiente com os dados de algoritmos. Pode utilizar uma linguagem de programação, como o Python ou SQL para realizar esta tarefa. Ambas as abordagens são demonstradas aqui.
@@ -24,7 +24,7 @@ Este documento mostra como gerar características para dados armazenados numa VM
 Esta tarefa é um passo na [Team Data Science Process (TDSP)](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/).
 
 > [!NOTE]
-> Para obter um exemplo prático, consulte a [conjunto de dados de táxis de NYC](http://www.andresmh.com/nyctaxitrips/) e consulte IPNB intitulada [preparação de dados de NYC usando SQL Server e o IPython Notebook](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/DataScienceProcess/iPythonNotebooks/machine-Learning-data-science-process-sql-walkthrough.ipynb) para uma passo a passo-a-ponto.
+> Para obter um exemplo prático, consulte a [conjunto de dados de táxis de NYC](https://www.andresmh.com/nyctaxitrips/) e consulte IPNB intitulada [preparação de dados de NYC usando SQL Server e o IPython Notebook](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/DataScienceProcess/iPythonNotebooks/machine-Learning-data-science-process-sql-walkthrough.ipynb) para uma passo a passo-a-ponto.
 > 
 > 
 
@@ -63,7 +63,7 @@ O exemplo seguinte mostra como gerar recursos compartimentados por compartimenta
 ### <a name="sql-featurerollout"></a>A implementar os recursos de uma única coluna
 Nesta secção, vamos demonstrar como implementar uma única coluna numa tabela para gerar recursos adicionais. O exemplo parte do princípio de que existe uma coluna de latitude ou longitude na tabela a partir do qual está a tentar gerar recursos.
 
-Eis um breve manual nos dados de localização de latitude/longitude (resourced do stackoverflow `http://gis.stackexchange.com/questions/8650/how-to-measure-the-accuracy-of-latitude-and-longitude`). Aqui estão algumas dicas úteis para compreender sobre dados de localização antes de criar recursos do campo:
+Eis um breve manual nos dados de localização de latitude/longitude (resourced do stackoverflow `https://gis.stackexchange.com/questions/8650/how-to-measure-the-accuracy-of-latitude-and-longitude`). Aqui estão algumas dicas úteis para compreender sobre dados de localização antes de criar recursos do campo:
 
 * O início de sessão indica se estamos Norte ou sul, Leste ou oeste em todo o mundo.
 * Um centenas de diferentes de zero dígitos indica a longitude, latitude não está a ser utilizado.
@@ -111,7 +111,7 @@ O seguinte formato de cadeia de ligação pode ser utilizado para ligar a uma ba
     import pyodbc
     conn = pyodbc.connect('DRIVER={SQL Server};SERVER=<servername>;DATABASE=<dbname>;UID=<username>;PWD=<password>')
 
-O [biblioteca de Pandas](http://pandas.pydata.org/) Python fornece um conjunto avançado de estruturas de dados e ferramentas de análise de dados para manipulação de dados para a programação de Python. O seguinte código lê os resultados retornados de uma base de dados do SQL Server num quadro de dados Pandas:
+O [biblioteca de Pandas](https://pandas.pydata.org/) Python fornece um conjunto avançado de estruturas de dados e ferramentas de análise de dados para manipulação de dados para a programação de Python. O seguinte código lê os resultados retornados de uma base de dados do SQL Server num quadro de dados Pandas:
 
     # Query database and load the returned results in pandas data frame
     data_frame = pd.read_sql('''select <columnname1>, <columnname2>... from <tablename>''', conn)

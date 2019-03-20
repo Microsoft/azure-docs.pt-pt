@@ -9,12 +9,12 @@ ms.subservice: translator-text
 ms.date: 02/21/2019
 ms.author: v-rada
 ms.topic: conceptual
-ms.openlocfilehash: 246580d7c93677859c5800cdc9394c1603c4c36b
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 3b2c5f3e02241f8c4e8a9ae87bd7436863243978
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57776977"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57901530"
 ---
 # <a name="migrate-hub-workspace-and-projects-to-custom-translator"></a>Migrar os projetos de área de trabalho de Hub e ao Translator personalizado
 
@@ -26,12 +26,8 @@ Estas ações são executadas durante a migração:
 * Qualquer treinamentos migrados que não estavam em estado de implementação serão colocados sobre o estado de rascunho migrados. Neste estado, terá a opção de preparar um modelo com a definição migrada, mas serão aplicáveis os custos de treinamento regular.
 * Em qualquer momento, a pontuação de BLEU migrados do Hub de treinamento pode ser encontrado na página TrainingDetails do modelo no "Bleu pontuação no Hub de MT" cabeçalho.
 
->[!Note]
-Para um treinamento tenha êxito, o Translator personalizado requer um mínimo de 10 000 frases extraídos exclusivos. Tradutor personalizado não é possível realizar um treinamento têm menos do que o [mínima sugerida](sentence-alignment.md#suggested-minimum-number-of-extracted-and-aligned-sentences).
-
-## <a name="enable-account-migration"></a>Ativar a migração de contas
-
-Para usar a ferramenta de migração, terá de ter a sua migração de contas de Hub ativada. Para tal, envie um e-mail [ custommt@microsoft.com ](mailto:custommt@microsoft.com) com uma lista de todos os live id contas que gostaria de ter ativado. Estas contas devem ser os endereços de e-mail que inicie sessão com.
+> [!Note]
+> Para um treinamento tenha êxito, o Translator personalizado requer um mínimo de 10 000 frases extraídos exclusivos. Tradutor personalizado não é possível realizar um treinamento têm menos do que o [mínima sugerida](sentence-alignment.md#suggested-minimum-number-of-extracted-and-aligned-sentences).
 
 ## <a name="find-custom-translator-workspace-id"></a>Localizar o ID de área de trabalho do Microsoft Translator personalizado
 

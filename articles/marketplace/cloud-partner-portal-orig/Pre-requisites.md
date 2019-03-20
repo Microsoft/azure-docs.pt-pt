@@ -12,17 +12,16 @@ ms.workload: ''
 ms.tgt_pltfrm: ''
 ms.devlang: ''
 ms.topic: conceptual
-ms.date: 09/13/2018
+ms.date: 03/13/2019
 ms.author: pbutlerm
-ms.openlocfilehash: 46a12307a70125973d36cf0a09b44b32d3279a97
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
+ms.openlocfilehash: a4596b711cd90610051faee0d09501c075548062
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48810744"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57991887"
 ---
-<a name="prerequisites-for-application-curation"></a>Pré-requisitos para a organização de aplicação
-===============================
+# <a name="prerequisites-for-application-curation"></a>Pré-requisitos para a organização de aplicação
 
 A Microsoft requer revisões específicas para validar que são cumpridos os seguintes requisitos:
 
@@ -43,4 +42,5 @@ Atualmente, parceiros devem demonstrar que esses requisitos foram cumpridos por 
 - Modelos (código e testes)
 - Conteúdo de marketing
 
-Ver [pré-requisitos para a organização de aplicação](https://docs.microsoft.com/dynamics365/operations/dev-itpro/lcs-solutions/app-validation-lcs-solutions) para obter mais informações.
+Para obter mais informações sobre os requisitos técnicos e de processos, consulte [validar aplicativos para finanças e operações](https://docs.microsoft.com/dynamics365/operations/dev-itpro/lcs-solutions/app-validation-lcs-solutions).  Além disso, se ainda não o fez, reveja os [Office 365, Dynamics 365, PowerApps e o Power BI oferecem guia de publicação](../appsource-offer-publishing-guide.md).
+

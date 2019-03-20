@@ -6,14 +6,14 @@ author: sogup
 manager: vijayts
 ms.service: backup
 ms.topic: conceptual
-ms.date: 02/17/2019
+ms.date: 03/13/2019
 ms.author: sogup
-ms.openlocfilehash: 0fa221721471772b066990ec2d33f0cedb960239
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 01c3e8072db81620764ccdd3ea99258de4649807
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57453546"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57858945"
 ---
 # <a name="manage-azure-vm-backups"></a>Gerir as cópias de segurança de VMs do Azure
 
@@ -33,7 +33,7 @@ Pode gerir as cópias de segurança através do dashboard e pela exploração pa
 
 ## <a name="view-vms-on-the-dashboard"></a>VMs do modo de exibição no dashboard
 
-Para ver as VMs no dashboard do cofre: 
+Para ver as VMs no dashboard do cofre:
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com/).
 2. No Hub menu, selecione **procurar**. Na lista de recursos, escreva **Serviços de Recuperação**. À medida que escreve, a lista é filtrada com base na sua entrada. Selecione **cofres dos serviços de recuperação**.
@@ -42,39 +42,43 @@ Para ver as VMs no dashboard do cofre:
 
 3. Facilidade de utilização, com o botão direito do cofre e selecione **afixar ao dashboard**.
 4. Abra o dashboard do cofre.
+
     ![Abra o dashboard do cofre e o painel de definições](./media/backup-azure-manage-vms/full-view-rs-vault.png)
 
-4. Sobre o **itens de cópia de segurança** mosaico, selecione **máquinas virtuais do Azure**.
+5. Sobre o **itens de cópia de segurança** mosaico, selecione **máquinas virtuais do Azure**.
 
     ![Abra o mosaico de itens de cópia de segurança](./media/backup-azure-manage-vms/contoso-vault-1606.png)
 
-5. Sobre o **itens de cópia de segurança** painel, verá a última tarefa de cópia de segurança para cada item. Neste exemplo, o Cofre protege uma máquina virtual: demovm markgal.  
+6. Sobre o **itens de cópia de segurança** painel, pode ver a lista de VMs protegidas. Neste exemplo, o Cofre protege uma máquina virtual: demobackup.  
 
     ![Ver o painel de itens de cópia de segurança](./media/backup-azure-manage-vms/backup-items-blade-select-item.png)
 
-
-6. A partir do dashboard do item de cofre, pode criar ou modificar as políticas de cópia de segurança, ver pontos de restauro, executar uma paragem de cópia de segurança, a pedido ou retomar a proteção de VMs, eliminar pontos de recuperação e executar um restauro.
+7. A partir do dashboard do item de cofre, modificar as políticas de cópia de segurança, execute uma paragem de cópia de segurança, a pedido ou retomar a proteção de VMs, eliminar dados de cópia de segurança, ver pontos de restauro e executar um restauro.
 
     ![O dashboard de itens de cópia de segurança e o painel de definições](./media/backup-azure-manage-vms/item-dashboard-settings.png)
 
-## <a name="manage-backup-policies"></a>Gerir políticas de cópia de segurança
+## <a name="manage-backup-policy-for-a-vm"></a>Gerir a política de cópia de segurança para uma VM
 
 Para gerir uma política de cópia de segurança:
 
-1. Sobre o [dashboard de item do cofre](#view-vms-in-the-dashboard), selecione **todas as definições**.
+1. Inicie sessão no [portal do Azure](https://portal.azure.com/). Abra o dashboard do cofre.
+2. Sobre o **itens de cópia de segurança** mosaico, selecione **máquinas virtuais do Azure**.
 
-    ![A opção de definições de todos os](./media/backup-azure-manage-vms/all-settings-button.png)
-2. Na **configurações**, selecione **política de cópia de segurança**.
-3. Sobre o **escolher política de cópia de segurança** menu:
+    ![Abra o mosaico de itens de cópia de segurança](./media/backup-azure-manage-vms/contoso-vault-1606.png)
+
+3. Sobre o **itens de cópia de segurança** painel, pode ver a lista de VMs protegidas e o estado da última cópia de segurança com a hora de pontos de restauro mais recente.
+
+    ![Ver o painel de itens de cópia de segurança](./media/backup-azure-manage-vms/backup-items-blade-select-item.png)
+
+4. A partir do dashboard do item de cofre, pode selecionar uma política de cópia de segurança.
 
    * Para mudar as políticas, selecione uma política diferente e, em seguida, selecione **guardar**. A nova política é imediatamente aplicada ao cofre.
-   * Para criar uma política, selecione **criar novo**. Para obter mais informações, consulte [configurar uma política de cópia de segurança](backup-azure-arm-vms-prepare.md#configure-a-backup-policy).
 
      ![Escolha uma política de cópia de segurança](./media/backup-azure-manage-vms/backup-policy-create-new.png)
 
-
 ## <a name="run-an-on-demand-backup"></a>Executar cópias de segurança a pedido
-Pode executar uma cópia de segurança a pedido de uma VM depois de configurar a proteção. Considere estes detalhes: 
+Pode executar uma cópia de segurança a pedido de uma VM depois de configurar a proteção. Considere estes detalhes:
+
 - Se a cópia de segurança inicial estiver pendente, a cópia de segurança a pedido cria uma cópia completa da VM no cofre dos serviços de recuperação.
 - Se a cópia de segurança inicial estiver concluída, uma cópia de segurança a pedido irá enviar apenas alterações de instantâneo anterior, para o Cofre dos serviços de recuperação. Ou seja, backups posteriores são sempre incrementais.
 - O período de retenção para uma cópia de segurança a pedido é o valor de retenção que especifica quando acionar a cópia de segurança.
@@ -138,7 +142,7 @@ Pode eliminar dados de cópia de segurança de uma VM durante a **parar cópia d
 Depois de parar ou desativar a tarefa de cópia de segurança da VM, pode eliminar os dados de cópia de segurança:
 
 
-1. Sobre o [dashboard de item do cofre](#view-vms-in-the-dashboard), selecione **Eliminar cópia de segurança**.
+1. Sobre o [dashboard de item do cofre](#view-vms-in-the-dashboard), selecione **eliminar dados de cópia de segurança**.
 
     ![Selecionar cópia de segurança de eliminação](./media/backup-azure-manage-vms/delete-backup-buttom.png)
 

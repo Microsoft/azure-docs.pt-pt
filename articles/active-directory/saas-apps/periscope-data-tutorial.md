@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 02/21/2019
 ms.author: jeedes
-ms.openlocfilehash: be2eee7e9951ac1975adfacc63d982a4fb4eabbd
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 94686d62e8019bfc5dba1ccd4a00142512930c0e
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57782433"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57862221"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-periscope-data"></a>Tutorial: Integração do Active Directory do Azure com dados de Periscope
 
@@ -105,6 +105,7 @@ Para configurar o Azure AD início de sessão único com dados de Periscope, exe
     ![Periscope dados domínio e URLs únicas início de sessão em informações](common/sp-identifier.png)
 
     a. Na **iniciar sessão no URL** texto, escreva qualquer um dos URLs:
+    
     | |
     |--|
     | `https://app.periscopedata.com/` |
@@ -165,7 +166,7 @@ O objetivo desta secção é criar um utilizador de teste no portal do Azure cha
 
     a. Na **Name** campo introduza **BrittaSimon**.
   
-    b. Na **nome de utilizador** tipo de campo **brittasimon@yourcompanydomain.extension**  
+    b. Na **nome de utilizador** tipo de campo **brittasimon\@yourcompanydomain.extension**  
     Por exemplo, BrittaSimon@contoso.com
 
     c. Selecione **palavra-passe de Show** caixa de verificação e, em seguida, anote o valor que é apresentado na caixa de palavra-passe.
@@ -218,7 +219,7 @@ Para ativar a utilizadores do Azure AD iniciar sessão no Periscope dados, tem d
 
     b. Na **sobrenome** texto, digite o apelido do utilizador, como **Simon**.
 
-    c. Na **E-Mail** texto, introduza o e-mail do utilizador, como **brittasimon@contoso.com**.
+    c. Na **E-Mail** texto, introduza o e-mail do utilizador, como **brittasimon\@contoso.com**.
 
     d. Clique em **adicionar**.
 

@@ -8,12 +8,12 @@ ms.service: security
 ms.topic: article
 ms.date: 07/13/2018
 ms.author: jomolesk
-ms.openlocfilehash: 7f67b7363719f544c485503e0f8207bb1f1078ce
-ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.openlocfilehash: 7ac210d9b30a05fd5dbfd46c41c3e62a1d610357
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/02/2019
-ms.locfileid: "57244711"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57891108"
 ---
 # <a name="azure-security-and-compliance-blueprint-paas-web-application-hosting-for-uk-official-workloads"></a>Azure Security and Compliance Blueprint: Aplicação Web de PaaS de alojamento para cargas de trabalho oficial do Reino Unido
 
@@ -168,7 +168,7 @@ Informações detalhadas sobre como proteger o armazenamento do Azure podem ser 
 
 ### <a name="monitoring-logging-and-audit"></a>Monitorização, registo e auditoria
 
-#### <a name="azure-monitor-logs"></a>Registos de Monitor do Azure
+#### <a name="azure-monitor-logs"></a>Registos do Azure Monitor
 
 [Registos de Monitor do Azure](https://azure.microsoft.com/services/log-analytics/) é um serviço no Azure que ajuda a recolher e analisar dados gerados pelos recursos na sua cloud e ambientes no local.
 
@@ -219,7 +219,7 @@ Além disso, a Cloud Security Alliance (CSA) publicado a matriz de controle de C
 
 Este esquema tiver sido revisto pelo do Reino Unido National Cyber Security Centre (NCSC) e alinha os princípios de segurança de Cloud de 14 NCSC
 
-Os modelos de automatização foram testados pela equipe do Arquiteto de soluções ao Cloud do Azure de unidade do Reino Unido cliente sucesso e pelo nosso parceiro da Microsoft, [Ampliphae](http://www.ampliphae.com/).
+Os modelos de automatização foram testados pela equipe do Arquiteto de soluções ao Cloud do Azure de unidade do Reino Unido cliente sucesso e pelo nosso parceiro da Microsoft, [Ampliphae](https://www.ampliphae.com/).
 
 
 ## <a name="deploy-the-solution"></a>Implementar a solução

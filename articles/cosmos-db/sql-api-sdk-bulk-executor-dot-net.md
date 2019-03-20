@@ -8,12 +8,12 @@ ms.devlang: dotnet
 ms.topic: reference
 ms.date: 11/19/2018
 ms.author: ramkris
-ms.openlocfilehash: 76a40c7e9f32deea798441ce53be7c7ef262e2bd
-ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
+ms.openlocfilehash: 4f2d8b3246901f139695998224dfe036cccb9833
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55770674"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57855789"
 ---
 # <a name="net-bulk-executor-library-download-information"></a>Biblioteca de .NET em massa Executor: Transferir informações 
 
@@ -36,7 +36,7 @@ ms.locfileid: "55770674"
 | **Descrição**| A biblioteca de Executor em massa permite que os aplicativos de cliente realizar operações em massa em contas do Azure Cosmos DB. Biblioteca de Executor em massa fornece BulkImport BulkUpdate e BulkDelete espaços de nomes. O módulo pode em massa de BulkImport ingerir documentos de forma otimizada, de modo a que o débito aprovisionado para uma coleção é consumido para o respetivo limite máximo permitido. BulkUpdate módulo pode em massa atualizar os dados existentes nos contentores do Azure Cosmos DB como patches. O módulo de BulkDelete pode em massa documentos de eliminação de forma otimizada, de modo a que o débito aprovisionado para uma coleção é consumido para o respetivo limite máximo permitido.|
 |**Transferência de SDK**| [NuGet](https://www.nuget.org/packages/Microsoft.Azure.CosmosDB.BulkExecutor/) |
 | **Biblioteca do BulkExecutor no GitHub**| [GitHub](https://github.com/Azure/azure-cosmosdb-bulkexecutor-dotnet-getting-started)|
-|**Documentação da API**|[Documentação de referência de .net API](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmosdb.bulkexecutor?view=azure-dotnet)|
+|**Documentação da API**|[Documentação de referência da .NET API](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmosdb.bulkexecutor?view=azure-dotnet)|
 |**Introdução**|[Introdução ao .NET SDK da biblioteca do Executor em massa](bulk-executor-dot-net.md)|
 | **Estrutura de suporte atual**| Microsoft .NET Framework 4.5.2, 4.6.1 e .NET Standard 2.0 |
 

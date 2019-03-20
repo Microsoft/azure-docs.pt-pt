@@ -15,12 +15,12 @@ ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6ea25510596903e4020e8237bc5bd389c584ead9
-ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
+ms.openlocfilehash: 8e81d5513f43882093883256cf9eab4a22e9ca01
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56268444"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57875279"
 ---
 # <a name="administrator-roles-by-admin-task-in-azure-active-directory"></a>Funções de administrador pela tarefa de administração no Azure Active Directory
 
@@ -144,18 +144,18 @@ Atualizar as propriedades de início de sessão únicas | Proprietário da aplic
 
 Tarefa | Função com privilégios mínimos | Funções adicionais
 ---- | --------------------- | ----------------
-Atribuir licenças | Administrador de conta de utilizador | 
-Criar grupo | Administrador de conta de utilizador | 
-Criar, atualizar ou eliminar a revisão de acesso de um grupo ou de uma aplicação | Administrador de conta de utilizador | 
-Gerir a expiração de grupo | Administrador de conta de utilizador | 
+Atribuir licenças | Administrador de utilizadores | 
+Criar grupo | Administrador de utilizadores | 
+Criar, atualizar ou eliminar a revisão de acesso de um grupo ou de uma aplicação | Administrador de utilizadores | 
+Gerir a expiração de grupo | Administrador de utilizadores | 
 Gerir definições do grupo | Administrador Global | 
 Leia toda a configuração (exceto associação oculta) | Leitores de diretórios | Função de utilizador padrão ([consulte a documentação](https://docs.microsoft.com/azure/active-directory/fundamentals/users-default-permissions))
-Associação de leitura, ocultada | Membro do grupo | O proprietário do grupo, o administrador de palavras-passe, administrador do Exchange, administrador do SharePoint, o administrador de Equipes, administrador de conta de utilizador
-Leia a associação de grupos com associação oculta a | Administrador de Suporte Técnico | Administrador de conta de utilizador, administrador de Equipes
-Revogar a licença | Administrador de licença | Administrador de conta de utilizador
-Atualizar associação de grupo | O proprietário do grupo ([consulte a documentação](https://docs.microsoft.com/azure/active-directory/fundamentals/users-default-permissions)) | Administrador de conta de utilizador
-Proprietários do grupo de atualização | O proprietário do grupo ([consulte a documentação](https://docs.microsoft.com/azure/active-directory/fundamentals/users-default-permissions)) | Administrador de conta de utilizador
-Propriedades do grupo de atualização | O proprietário do grupo ([consulte a documentação](https://docs.microsoft.com/azure/active-directory/fundamentals/users-default-permissions)) | Administrador de conta de utilizador
+Associação de leitura, ocultada | Membro do grupo | O proprietário do grupo, o administrador de palavras-passe, administrador do Exchange, administrador do SharePoint, o administrador de Equipes, administrador de utilizadores
+Leia a associação de grupos com associação oculta a | Administrador de Suporte Técnico | Administrador de utilizador, administrador de Equipes
+Revogar a licença | Administrador de licença | Administrador de utilizadores
+Atualizar associação de grupo | O proprietário do grupo ([consulte a documentação](https://docs.microsoft.com/azure/active-directory/fundamentals/users-default-permissions)) | Administrador de utilizadores
+Proprietários do grupo de atualização | O proprietário do grupo ([consulte a documentação](https://docs.microsoft.com/azure/active-directory/fundamentals/users-default-permissions)) | Administrador de utilizadores
+Propriedades do grupo de atualização | O proprietário do grupo ([consulte a documentação](https://docs.microsoft.com/azure/active-directory/fundamentals/users-default-permissions)) | Administrador de utilizadores
 
 ## <a name="identity-protection"></a>Identity Protection
 
@@ -176,9 +176,9 @@ Vulnerabilidades de leitura | Leitor de Segurança |
 
 Tarefa | Função com privilégios mínimos | Funções adicionais
 ---- | --------------------- | ----------------
-Atribuir licenças | Administrador de licença | Administrador de conta de utilizador
+Atribuir licenças | Administrador de licença | Administrador de utilizadores
 Leia toda a configuração | Leitores de diretórios | Função de utilizador padrão ([consulte a documentação](https://docs.microsoft.com/azure/active-directory/fundamentals/users-default-permissions))
-Revogar a licença | Administrador de licença | Administrador de conta de utilizador
+Revogar a licença | Administrador de licença | Administrador de utilizadores
 Experimente ou adquira subscrição | Administrador de faturação | 
 
 
@@ -315,21 +315,21 @@ Utilizadores sinalizados para risco de leitura | Leitor de Segurança |
 Tarefa | Função com privilégios mínimos | Funções adicionais
 ---- | --------------------- | ----------------
 Adicionar utilizador à função de diretório | Administrador com Função Privilegiada | 
-Adicionar utilizador ao grupo | Administrador de conta de utilizador | 
-Atribuir licenças | Administrador de licença | Administrador de conta de utilizador
-Criar utilizador convidado | Autor de convites | Administrador de conta de utilizador
-Criar utilizador | Administrador de conta de utilizador | 
-Eliminar utilizadores | Administrador de conta de utilizador | 
-Invalidar os tokens de atualização de administradores limitados (consulte a documentação) | Administrador de conta de utilizador | 
-Invalidar os tokens de atualização de não-administradores (consulte a documentação) | Administrador de palavras-passe | Administrador de conta de utilizador
+Adicionar utilizador ao grupo | Administrador de utilizadores | 
+Atribuir licenças | Administrador de licença | Administrador de utilizadores
+Criar utilizador convidado | Autor de convites | Administrador de utilizadores
+Criar utilizador | Administrador de utilizadores | 
+Eliminar utilizadores | Administrador de utilizadores | 
+Invalidar os tokens de atualização de administradores limitados (consulte a documentação) | Administrador de utilizadores | 
+Invalidar os tokens de atualização de não-administradores (consulte a documentação) | Administrador de palavras-passe | Administrador de utilizadores
 Invalidar os tokens de atualização de administradores com privilégios (consulte a documentação) | Administrador Global | 
 Configuração básica de leitura | Função de utilizador padrão ([consulte a documentação](https://docs.microsoft.com/azure/active-directory/fundamentals/users-default-permissions) | 
-Repor palavra-passe para administradores limitados (consulte a documentação) | Administrador de conta de utilizador | 
-Repor palavra-passe de não-administradores (consulte a documentação) | Administrador de palavras-passe | Administrador de conta de utilizador
+Repor palavra-passe para administradores limitados (consulte a documentação) | Administrador de utilizadores | 
+Repor palavra-passe de não-administradores (consulte a documentação) | Administrador de palavras-passe | Administrador de utilizadores
 Repor palavra-passe de administradores com privilégios | Administrador Global | 
-Revogar a licença | Administrador de licença | Administrador de conta de utilizador
-Atualizar todas as propriedades, exceto o nome Principal de utilizador | Administrador de conta de utilizador | 
-Atualizar o nome do Principal de utilizador para administradores limitados (consulte a documentação) | Administrador de conta de utilizador | 
+Revogar a licença | Administrador de licença | Administrador de utilizadores
+Atualizar todas as propriedades, exceto o nome Principal de utilizador | Administrador de utilizadores | 
+Atualizar o nome do Principal de utilizador para administradores limitados (consulte a documentação) | Administrador de utilizadores | 
 Atualize a propriedade de nome Principal de utilizador em administradores com privilégios (consulte a documentação) | Administrador Global | 
 Atualizar as definições de utilizador | Administrador Global | 
 

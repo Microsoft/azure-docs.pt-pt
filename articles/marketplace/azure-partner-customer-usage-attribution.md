@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 11/17/2018
 ms.author: yijenj
-ms.openlocfilehash: 3f3c7523bfc800a74da56b1b3241ac5756c68d14
-ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
+ms.openlocfilehash: 44efe3482e9e1657125cc28441819ea173c982ab
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57215511"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57861949"
 ---
 # <a name="azure-partner-customer-usage-attribution"></a>Atribuição de utilização do cliente de parceiro do Azure
 
@@ -280,7 +280,7 @@ Se precisar de assistência de integração do Marketplace e/ou atribuição de 
    - Para problemas de utilização de associação, selecione **outros**.
    - Para problemas de acesso com CPP de mercado do Azure, selecione **problemas de acesso ao**.
    
-    ![Escolha a categoria de problema](media/marketplace-publishers-guide/lu-article-incident.png)
+     ![Escolha a categoria de problema](media/marketplace-publishers-guide/lu-article-incident.png)
 
 1. Selecione **iniciar pedido**.
 
@@ -299,7 +299,7 @@ Também pode receber orientação técnica do Microsoft Partner consultor técni
 
 ### <a name="how-to-submit-a-technical-consultation-request"></a>Como submeter um pedido de consultoria técnica
 
-1. Visite [ http://aka.ms/TechnicalJourney ](http://aka.ms/TechnicalJourney).
+1. Visite [ https://aka.ms/TechnicalJourney ](https://aka.ms/TechnicalJourney).
 1. Selecione infraestrutura de nuvem e gestão e uma nova página serão aberta para que possa ver a viagem técnica.
 1. Em serviços de implantação, clique num botão de pedido de envio
 1. Inicie sessão com a sua MSA (conta da MPN) ou o AAD (conta de Dashboard de parceiro). com base nas suas credenciais de início de sessão, irá abrir um formulário de solicitação online: 
@@ -308,7 +308,7 @@ Também pode receber orientação técnica do Microsoft Partner consultor técni
     * Introduza um título e a descrição do problema (fornecer tantos detalhes quanto possível).
 1. Clique em submeter
 
-Ver instruções passo a passo com capturas de ecrã em [ http://aka.ms/TechConsultInstructions ](http://aka.ms/TechConsultInstructions).
+Ver instruções passo a passo com capturas de ecrã em [ https://aka.ms/TechConsultInstructions ](https://aka.ms/TechConsultInstructions).
 
 ### <a name="whats-next"></a>O que se segue
 

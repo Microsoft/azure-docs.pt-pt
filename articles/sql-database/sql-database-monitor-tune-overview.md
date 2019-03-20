@@ -12,12 +12,12 @@ ms.author: danil
 ms.reviewer: jrasnik, carlrab
 manager: craigg
 ms.date: 01/25/2019
-ms.openlocfilehash: 1e281c99fdbf5081122d7b132c5f2ca7f91a5980
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.openlocfilehash: ac87ce2198296b82ef5655d7d75443a0bd49df3c
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57312703"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57875157"
 ---
 # <a name="monitoring-and-performance-tuning"></a>Ajuste de monitorização e desempenho
 
@@ -175,7 +175,7 @@ Nem sempre é fácil concluir que existe uma alteração de volume da carga de t
 
 Assim que tenha a certeza de que não está a enfrentar uma CPU de alta, o problema de desempenho relacionados com a execução, está a enfrentar um problema de desempenho relacionados com a espera. Ou seja, seus recursos de CPU não estão sendo usados com eficiência porque está a aguardar a CPU em algum outro tipo de recurso. Neste caso, sua próxima etapa é identificar o que os recursos da CPU estão a aguardar. Categorias de tipo de espera de métodos mais comuns para mostrar parte superior:
 
-- O [Query Store](https://docs.microsoft.com/sql/relational-databases/performance/monitoring-performance-by-using-the-query-store) fornece estatísticas de espera por consulta ao longo do tempo. No Query Store, os tipos de espera são combinados em categorias de espera. O mapeamento das categorias de espera de espera tipos está disponível no [sys.query_store_wait_stats](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-query-store-wait-stats-transact-sql?view=sql-server-2017#wait-categories-mapping-table).
+- O [Query Store](https://docs.microsoft.com/sql/relational-databases/performance/monitoring-performance-by-using-the-query-store) fornece estatísticas de espera por consulta ao longo do tempo. No Query Store, os tipos de espera são combinados em categorias de espera. O mapeamento das categorias de espera de espera tipos está disponível no [sys.query_store_wait_stats](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-query-store-wait-stats-transact-sql#wait-categories-mapping-table).
 - [sys.dm_db_wait_stats](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-db-wait-stats-azure-sql-database) devolve informações sobre todas as esperas encontrados por threads que executados durante a operação. Pode utilizar esta vista agregada para diagnosticar problemas de desempenho com a base de dados do Azure SQL e também com consultas específicas e lotes.
 - [os_waiting_tasks](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-os-waiting-tasks-transact-sql) retorna informações sobre a fila de espera de tarefas que estão a aguardar em algum recurso.
 

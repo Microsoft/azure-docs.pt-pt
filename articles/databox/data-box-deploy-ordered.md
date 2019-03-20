@@ -8,12 +8,12 @@ ms.subservice: pod
 ms.topic: tutorial
 ms.date: 03/05/2019
 ms.author: alkohli
-ms.openlocfilehash: 16a3fab1fe2338611823a9ab559826302bd06d13
-ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
+ms.openlocfilehash: 07ccd2aaec6b2325d6eef09a466a5d0707836b4b
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57403843"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57834273"
 ---
 # <a name="tutorial-order-azure-data-box"></a>Tutorial: Pedido do Azure Data Box
 
@@ -61,6 +61,7 @@ Execute os passos seguintes no Portal do Azure para encomendar um dispositivo.
 3. Clique em **Criar**.
 
 4. Verifique se o serviço Data Box está disponível na sua região. Introduza ou selecione as seguintes informações e clique em **Aplicar**. 
+
     |Definição  |Valor  |
     |---------|---------|
     |Subscrição     | Selecione uma subscrição de patrocínio EA, CSP ou do Azure para o serviço do Data Box. <br> A subscrição está ligada à sua conta de faturação.       |

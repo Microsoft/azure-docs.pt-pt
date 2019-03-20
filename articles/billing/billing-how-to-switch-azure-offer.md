@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/11/2018
 ms.author: banders
-ms.openlocfilehash: 6e0339808d65cd5b4acd7b77284ccedf7cdf1989
-ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
+ms.openlocfilehash: bbdcbdc7ef288eeeb279c7e5e59baee492e1f292
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54902130"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57835280"
 ---
 # <a name="change-your-azure-pay-as-you-go-subscription-to-a-different-offer"></a>Alterar a sua subscrição pay as you go do Azure para outra oferta
 
@@ -55,7 +55,7 @@ Como um [pay as you go](https://azure.microsoft.com/offers/ms-azr-0003p/) client
 1. Clique em **Mudar para outra oferta**. O botão só está disponível se estiver no Pay As You Go e se tiver terminado o seu primeiro período de faturação.
 
    ![Observe o botão de oferta de comutador no lado direito da página](./media/billing-how-to-switch-azure-offer/switchbutton.png)
-1. **Selecione a oferta que pretende** na lista de ofertas a sua subscrição pode ser alterada para. Esta lista varia consoante as associações que está associada à sua conta. Se nada estiver disponível, consulte a [lista de ofertas disponíveis, pode mudar para](#whats-supported) e certifique-se de que tem as associações certas. 
+1. **Selecione a oferta que pretende** na lista de ofertas a sua subscrição pode ser alterada para. Esta lista varia de acordo com as associações da sua conta. Se nada estiver disponível, consulte a [lista de ofertas disponíveis, pode mudar para](#whats-supported) e certifique-se de que tem as associações certas. 
 
    ![Selecionar uma oferta que pretende mudar para o](./media/billing-how-to-switch-azure-offer/selectoffer.png)
 1. Consoante a oferta que estar a mudar para, poderá ver uma observação sobre o impacto da mudança. Percorra esta lista cuidadosamente e siga as instruções antes de continuar.
@@ -78,7 +78,7 @@ Uma oferta do Azure é o *tipo* da subscrição do Azure que tem. Por exemplo, [
 
 Poderá não ver o **mudar para outra oferta** botão se:
 
-* Não on [pay as you go](https://azure.microsoft.com/offers/ms-azr-0003p/). Atualmente apenas as subscrições de pay as you go podem ser convertidas para outra oferta.
+* Não on [pay as you go](https://azure.microsoft.com/offers/ms-azr-0003p/). Atualmente, só as subscrições Pay As You Go podem ser convertidas noutra oferta.
   * Se estiver num [avaliação gratuita](https://azure.microsoft.com/free/), saiba como [Atualize para pay as you go](billing-upgrade-azure-subscription.md).
   * Para mudar de oferta de uma subscrição diferente, [contacte o suporte](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
 * Ainda estiver em seu primeiro período de faturação; tem de aguardar que o primeiro período de faturação terminar antes de pode alternar ofertas.
@@ -116,4 +116,4 @@ No dia que mudar, uma nota fiscal é gerada para todas as cobranças por liquida
 
 ## <a name="need-help-contact-us"></a>Precisa de ajuda? Contacte-nos.
 
-Se tiver alguma dúvida ou precisar de ajuda, [criar um pedido de suporte](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).
+Se tiver alguma dúvida ou precisar de ajuda, [criar um pedido de suporte](https://go.microsoft.com/fwlink/?linkid=2083458).
