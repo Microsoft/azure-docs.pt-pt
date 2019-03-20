@@ -1,25 +1,18 @@
 ---
 title: Suporte de WebSocket no Gateway de aplicação do Azure | Documentos da Microsoft
 description: Esta página fornece uma descrição geral do suporte de WebSocket de Gateway de aplicação.
-documentationcenter: na
-services: application-gateway
 author: amsriva
-manager: rossort
-editor: amsriva
-ms.assetid: 8968dac1-e9bc-4fa1-8415-96decacab83f
-ms.service: application-gateway
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 05/08/2017
 ms.author: amsriva
-ms.openlocfilehash: cc6e2480ea117a288ae94c9cd66be6a354d8230f
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.service: application-gateway
+ms.topic: conceptual
+ms.workload: infrastructure-services
+ms.date: 03/18/2019
+ms.openlocfilehash: bae4b3d955076679a5640717ac6f5446e3951fb9
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52993331"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58168124"
 ---
 # <a name="overview-of-websocket-support-in-application-gateway"></a>Descrição geral do suporte de WebSocket no Gateway de aplicação
 
@@ -29,7 +22,15 @@ Protocolo WebSocket padronizado nas [RFC6455](https://tools.ietf.org/html/rfc645
 
 Pode continuar a utilizar um serviço de escuta HTTP padrão na porta 80 ou 443 para receber o tráfego do WebSocket. Tráfego de WebSocket, em seguida, é direcionado para o servidor de back-end ativado WebSocket usando o pool de back-end adequado conforme especificado nas regras de gateway de aplicação. O servidor de back-end deve responder para as sondas de gateway de aplicação, que são descritas no [descrição geral de sonda de estado de funcionamento](application-gateway-probe-overview.md) secção. Sondas de estado de funcionamento do gateway de aplicação são apenas HTTP/HTTPS. Cada servidor de back-end tem de responder às sondas HTTP para o gateway de aplicação para encaminhar o tráfego de WebSocket para o servidor.
 
-## <a name="listener-configuration-element"></a>Elemento de configuração do serviço de escuta
+Ele é usado em aplicações que tiram partido de comunicação rápida e em tempo real, como bate-papo, dashboard e as aplicações de jogos.
+
+## <a name="how-does-websocket-work"></a>Como funciona o WebSocket
+
+Para estabelecer uma conexão WebSocket, um handshake baseado em HTTP específico é trocado entre o cliente e o servidor. Se tiver êxito, o protocolo de camada de aplicativo é "atualizado" de HTTP para WebSockets, utilizando a ligação de TCP anteriormente estabelecida. Quando isto ocorrer, o HTTP é completamente da imagem; dados podem ser enviados ou receberam usando o protocolo WebSocket por dois pontos de extremidade, até que a conexão WebSocket é fechada. 
+
+![addcert](./media/application-gateway-websocket/websocket.png)
+
+### <a name="listener-configuration-element"></a>Elemento de configuração do serviço de escuta
 
 Um serviço de escuta HTTP pode ser utilizado para suportar o tráfego do WebSocket. Segue-se um fragmento de um elemento httpListeners de um ficheiro de modelo de exemplo. Precisaria de serviços de escuta HTTP e HTTPS para suportar o WebSocket e proteger o tráfego do WebSocket. Da mesma forma, pode utilizar o [portal](application-gateway-create-gateway-portal.md) ou [PowerShell](application-gateway-create-gateway-arm.md) para criar um gateway de aplicação com serviços de escuta na porta 80/443 para suportar o tráfego do WebSocket.
 

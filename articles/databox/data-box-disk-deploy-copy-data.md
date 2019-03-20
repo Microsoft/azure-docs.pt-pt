@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 02/26/2019
 ms.author: alkohli
 Customer intent: As an IT admin, I need to be able to order Data Box Disk to upload on-premises data from my server onto Azure.
-ms.openlocfilehash: 6a008072fc88b9dc800b792c13a6c77c31b31e51
-ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
+ms.openlocfilehash: 47c14379a01da86f547ac917472260a041b67f99
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57410031"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58106904"
 ---
 # <a name="tutorial-copy-data-to-azure-data-box-disk-and-verify"></a>Tutorial: Copiar dados para o disco do Azure Data Box e certifique-se
 
@@ -169,8 +169,8 @@ Execute os seguintes passos para ligar e copiar dados do seu computador para o D
     Para otimizar o desempenho, utilize os seguintes parâmetros do Robocopy ao copiar os dados.
 
     |    Plataforma    |    Principalmente ficheiros pequenos < 512 KB                           |    Principalmente ficheiros médios 512 KB - 1 MB                      |    Principalmente ficheiros grandes > 1 MB                             |   
-    |----------------|--------------------------------------------------------|--------------------------------------------------------|--------------------------------------------------------|---|
-    |    Data Box Disk        |    4 Robocopy sessões * <br> 16 threads por sessões    |    2 Robocopy sessões * <br> 16 threads por sessões    |    2 Robocopy sessões * <br> 16 threads por sessões    |  |
+    |----------------|--------------------------------------------------------|--------------------------------------------------------|--------------------------------------------------------|
+    |    Data Box Disk        |    4 Robocopy sessões * <br> 16 threads por sessões    |    2 Robocopy sessões * <br> 16 threads por sessões    |    2 Robocopy sessões * <br> 16 threads por sessões    |
     
     **Cada sessão de Robocopy pode ter um máximo de 7000 diretórios e arquivos de 150 milhões.*
     
@@ -209,10 +209,10 @@ Este procedimento opcional pode ser utilizado quando utilizar vários discos e d
  
 5. Modificar o `SampleConfig.json` ficheiro.
  
-    - Forneça um nome de tarefa. Esta ação cria uma pasta no Data Box Disk que vai passar a ser o contentor da conta de armazenamento do Azure associada a estes discos. O nome da tarefa tem de seguir as convenções de nomenclatura de contentores do Azure. 
-    - Forneça um caminho de origem, tornando a nota no formato de caminho no `SampleConfigFile.json`. 
-    - Introduza as letras de unidade correspondentes aos discos de destino. Os dados são obtidos a partir do caminho de origem e copiados para vários discos.
-    - Indique um caminho para os ficheiros de registo. Por predefinição, é enviado para o diretório atual onde o `.exe` está localizado.
+   - Forneça um nome de tarefa. Esta ação cria uma pasta no Data Box Disk que vai passar a ser o contentor da conta de armazenamento do Azure associada a estes discos. O nome da tarefa tem de seguir as convenções de nomenclatura de contentores do Azure. 
+   - Forneça um caminho de origem, tornando a nota no formato de caminho no `SampleConfigFile.json`. 
+   - Introduza as letras de unidade correspondentes aos discos de destino. Os dados são obtidos a partir do caminho de origem e copiados para vários discos.
+   - Indique um caminho para os ficheiros de registo. Por predefinição, é enviado para o diretório atual onde o `.exe` está localizado.
 
      ![Dados de cópia dividida](media/data-box-disk-deploy-copy-data/split-copy-5.png)
 

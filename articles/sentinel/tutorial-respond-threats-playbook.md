@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 2/28/2019
 ms.author: rkarlin
-ms.openlocfilehash: 6e72ee4ce8c36377980cb279d15c70f7235cd303
-ms.sourcegitcommit: 235cd1c4f003a7f8459b9761a623f000dd9e50ef
+ms.openlocfilehash: 5ce409b984ab9110a8ca44f47675045e4d80aed5
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/11/2019
-ms.locfileid: "57726316"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58088643"
 ---
 # <a name="tutorial-set-up-automated-threat-responses-in-azure-sentinel-preview"></a>Tutorial: Configurar respostas de ameaças automatizada sentinela na pré-visualização no Azure
 
@@ -59,8 +59,8 @@ Playbooks de segurança podem ser executados manual ou automaticamente. Executá
 
 Siga estes passos para criar um playbook de segurança de novo no Azure sentinela:
 
-1.  Abra o **Azure sentinela** dashboard.
-2.  Sob **gerenciamento**, selecione **Playbooks**.
+1. Abra o **Azure sentinela** dashboard.
+2. Sob **gerenciamento**, selecione **Playbooks**.
 
    ![Aplicação Lógica](./media/tutorial-respond-threats-playbook/playbookimg.png)
 

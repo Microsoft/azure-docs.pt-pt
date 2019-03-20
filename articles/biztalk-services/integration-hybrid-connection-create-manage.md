@@ -14,19 +14,19 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/18/2016
 ms.author: ccompy
-ms.openlocfilehash: 0a9197c8c46cc480f5f096f1d2ef98c0d5823f35
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 584b9d67808e75222d832f045e5d3f93fbb326ae
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57455790"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58105095"
 ---
 # <a name="create-and-manage-hybrid-connections"></a>Criar e Gerir Ligações Híbridas
 
 > [!IMPORTANT]
 > As Ligações Híbridas do BizTalk são desativadas e substituídas por Ligações Híbridas do Serviço de Aplicações. Para obter mais informações, incluindo como gerir as Ligações Híbridas do BizTalk, veja [Azure App Service Hybrid Connections](../app-service/app-service-hybrid-connections.md) (Ligações Híbridas do Serviço de Aplicações do Azure).
-
->[!INCLUDE [Use APIs to manage MABS](../../includes/biztalk-services-retirement-azure-classic-portal.md)]
+> 
+> [!INCLUDE [Use APIs to manage MABS](../../includes/biztalk-services-retirement-azure-classic-portal.md)]
 
 ## <a name="overview-of-the-steps"></a>Descrição geral dos passos
 1. Criar uma ligação híbrida, introduzindo os **nome de anfitrião** ou **FQDN** do recurso no local na sua rede privada.

@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 02/27/2019
 ms.author: alzam
 Customer intent: As someone with a networking background, I want to connect remote users to my VNets using Virtual WAN and I don't want to go through a Virtual WAN partner.
-ms.openlocfilehash: a13e8d7b97fcca95c0d90b9dd283b9bafbb4a21f
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 9fe0c7f7ae0c19833421b647449f0e4100904f5b
+ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57541971"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58226237"
 ---
 # <a name="tutorial-create-a-point-to-site-connection-using-azure-virtual-wan-preview"></a>Tutorial: Criar uma ligação de ponto a Site com a Azure Virtual WAN (pré-visualização)
 
@@ -69,7 +69,7 @@ Get-AzProviderFeature -ProviderNamespace Microsoft.Network -FeatureName AllowP2S
 Get-AzProviderFeature -ProviderNamespace Microsoft.Network -FeatureName AllowVnetGatewayOpenVpnProtocol
 ```
 
-Assim que a funcionalidade for apresentada como estando registada, volte a registar a subscrição no espaço de nomes do Microsoft.Network.
+Assim que o recurso mostra como registrado, registe a subscrição Network espaço de nomes.
 
 ```azurepowershell-interactive
 Register-AzResourceProvider -ProviderNamespace Microsoft.Network
@@ -103,11 +103,11 @@ Uma configuração P2S define os parâmetros para ligar clientes remotos.
 4. Clique em **+ Adicionar configuração ponto a site** na parte superior da página para abrir a página **Criar nova configuração ponto a site**.
 5. Na página **Criar nova configuração ponto a site**, preencha os seguintes campos:
 
-  *  **Nome da configuração** - o nome pelo qual quer mencionar a sua configuração.
-  *  **Tipo de túnel** - o protocolo a utilizar para o túnel.
-  *  **Conjunto de endereços** - o conjunto de endereços IP a partir do qual os clientes serão atribuídos.
-  *  **Nome do Certificado de Raiz** - um nome descritivo para o certificado.
-  *  **Dados do Certificado de Raiz** - dados do certificado X.509 codificado com Base-64.
+   *  **Nome da configuração** - o nome pelo qual quer mencionar a sua configuração.
+   *  **Tipo de túnel** - o protocolo a utilizar para o túnel.
+   *  **Conjunto de endereços** - o conjunto de endereços IP a partir do qual os clientes serão atribuídos.
+   *  **Nome do Certificado de Raiz** - um nome descritivo para o certificado.
+   *  **Dados do Certificado de Raiz** - dados do certificado X.509 codificado com Base-64.
 
 6. Clique em **Criar** para criar a configuração.
 

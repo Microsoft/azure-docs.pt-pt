@@ -4,12 +4,12 @@ ms.service: virtual-machines
 ms.topic: include
 ms.date: 11/25/2018
 ms.author: cynthn
-ms.openlocfilehash: 343ffb8daf19711d6c2a61b819ece92448146446
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
+ms.openlocfilehash: c97c94492417dcc87d34751908f1766393ad37ed
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55735523"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58102557"
 ---
 Quando já não precisar de um disco de dados que esteja ligado a uma máquina virtual, pode desligá-lo facilmente. Desligar um disco remove o disco da máquina virtual, mas não elimina o disco da conta de armazenamento do Azure.
 
@@ -28,7 +28,7 @@ Se não souber o nome do disco ou pretender verificar o mesmo antes de desligá-
 
 3. Clique em **Discos** ao longo da margem esquerda do dashboard de máquina virtual, em **Definições**.
 
- O dashboard de máquina virtual apresenta o nome e o tipo de todos os discos ligados. Por exemplo, este ecrã mostra uma máquina virtual com um disco de sistema operativo (SO) e um disco de dados:
+   O dashboard de máquina virtual apresenta o nome e o tipo de todos os discos ligados. Por exemplo, este ecrã mostra uma máquina virtual com um disco de sistema operativo (SO) e um disco de dados:
 
     ![Localizar o disco de dados](./media/howto-detach-disk-windows-linux/vmwithdisklist.png)
 
@@ -39,14 +39,14 @@ Se não souber o nome do disco ou pretender verificar o mesmo antes de desligá-
 
 3. Clique no disco que pretende desligar.
 
-  ![Identificar o disco a desligar](./media/howto-detach-disk-windows-linux/disklist.png)
+   ![Identificar o disco a desligar](./media/howto-detach-disk-windows-linux/disklist.png)
 
 4. A partir da barra de comandos, clique em **Desligar**.
 
-  ![Localizar o comando para desligar](./media/howto-detach-disk-windows-linux/diskdetachcommand.png)
+   ![Localizar o comando para desligar](./media/howto-detach-disk-windows-linux/diskdetachcommand.png)
 
 5. Na janela de confirmação, clique em **Sim** para desligar o disco.
 
-  ![Confirmar a ação de desligar o disco](./media/howto-detach-disk-windows-linux/confirmdetach.png)
+   ![Confirmar a ação de desligar o disco](./media/howto-detach-disk-windows-linux/confirmdetach.png)
 
 O disco permanece no armazenamento, mas já não está ligado a uma máquina virtual.

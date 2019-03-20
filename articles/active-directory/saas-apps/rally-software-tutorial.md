@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 08/04/2017
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ba4f1d41497af8f57a343eacc92c5da7d2488d07
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: e7264792a123a8f8ce6c4a08a6c502de578d374c
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56163704"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57891965"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-rally-software"></a>Tutorial: Integração do Active Directory do Azure com Rally Software
 
@@ -206,7 +206,7 @@ Para utilizadores do Azure AD possam iniciar sessão, tem de ser aprovisionados 
 
     a. Na **nome de utilizador** como a caixa de texto, escreva o nome de utilizador **Brittsimon**.
    
-    b. Na **endereço de email** caixa de texto, introduza o e-mail do utilizador, como **brittasimon@contoso.com**.
+    b. Na **endereço de email** caixa de texto, introduza o e-mail do utilizador, como **brittasimon\@contoso.com**.
 
     c. Na **nome próprio** texto, introduza o nome de utilizador, como **Eduarda**.
 

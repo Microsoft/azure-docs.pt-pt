@@ -1,21 +1,21 @@
 ---
-title: Utilizar o portal de serviços Web do Azure Machine Learning Studio
+title: Gerir os serviços Web
 titleSuffix: Azure Machine Learning Studio
-description: Pode gerenciar seu novo do Machine Learning e serviços Web clássicos com o portal do Microsoft Azure Machine Learning Web Services. Uma vez que os serviços Web clássicos e serviços Web novos baseiam-se nos diferentes tecnologias subjacentes, tem funcionalidades de gestão ligeiramente diferente para cada uma delas.
+description: Gerir os seus serviços de Machine Learning novo e Web clássico com o portal do Microsoft Azure Machine Learning Web Services. Uma vez que os serviços Web clássicos e serviços Web novos baseiam-se nos diferentes tecnologias subjacentes, tem funcionalidades de gestão ligeiramente diferente para cada uma delas.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
 ms.topic: conceptual
-author: ericlicoding
+author: xiaoharper
 ms.author: amlstudiodocs
 ms.custom: previous-ms.author=yahajiza, previous-author=YasinMSFT
 ms.date: 02/28/2017
-ms.openlocfilehash: 2d62b5a140fc4614e26d40f153f5e13d4a3b70f4
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.openlocfilehash: 711cb674cb00a880eadda11b03da87631df90b0d
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56817155"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57838379"
 ---
 # <a name="manage-a-web-service-using-the-azure-machine-learning-studio-web-services-portal"></a>Gerir um serviço web com o portal de serviços Web do Azure Machine Learning Studio
 Pode gerenciar seu novo do Machine Learning e serviços Web clássicos com o portal do Microsoft Azure Machine Learning Web Services. Uma vez que os serviços Web clássicos e serviços Web novos baseiam-se nos diferentes tecnologias subjacentes, tem funcionalidades de gestão ligeiramente diferente para cada uma delas.
@@ -29,7 +29,7 @@ No portal do Machine Learning Web Services, pode:
 * Adicionar e eliminar os pontos de extremidade (apenas clássica)
 
 >[!NOTE]
->Também pode gerir serviços web clássico [Machine Learning Studio](http://studio.azureml.net) sobre o **serviços Web** separador.
+>Também pode gerir serviços web clássico [Machine Learning Studio](https://studio.azureml.net) sobre o **serviços Web** separador.
 
 ## <a name="permissions-to-manage-new-resources-manager-based-web-services"></a>Permissões para gerir o novo Gestor de recursos com base em serviços da web
 

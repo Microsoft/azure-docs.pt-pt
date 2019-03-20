@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/26/2019
 ms.author: kumud
-ms.openlocfilehash: 4d47192ea69047b0b12deffc41776a87c16ca6ab
-ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
+ms.openlocfilehash: c26117bf298d5fe7fd8a14e0aa2b14834e412328
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56959753"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58009924"
 ---
 # <a name="traffic-manager-frequently-asked-questions-faq"></a>O Gestor de tráfego perguntas mais frequentes (FAQ)
 
@@ -340,6 +340,7 @@ Não, o Gestor de tráfego não permite a misturar tipos de endereçamento de po
 Quando é recebida uma consulta em relação a um, o Gestor de tráfego primeiro localiza o ponto final que tem de ser devolvido de acordo com o método de encaminhamento especificado e o estado de funcionamento dos pontos finais. Ele, em seguida, analisa o tipo de registo solicitada na consulta de entrada e o tipo de registo associadas com o ponto final antes de retornar uma resposta com base na tabela abaixo.
 
 Para perfis com qualquer método de encaminhamento que não seja MultiValue:
+
 |Pedido recebido da consulta|    Tipo de ponto final|  Resposta fornecida|
 |--|--|--|
 |QUALQUER |  A / AAAA / CNAME |  Ponto de extremidade de destino| 
@@ -350,6 +351,7 @@ Para perfis com qualquer método de encaminhamento que não seja MultiValue:
 |CNAME |    CNAME | Ponto de extremidade de destino|
 |CNAME  |A / AAAA | NODATA |
 |
+
 Perfis com o método de encaminhamento definida como MultiValue:
 
 |Pedido recebido da consulta|    Tipo de ponto final | Resposta fornecida|

@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 12/17/2018
 ms.author: dkshir
 ms.custom: include file
-ms.openlocfilehash: f286676cba3d1333db52fb1125279772d518dd88
-ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
+ms.openlocfilehash: 0c89c8353d410ddd54e8a59f3838c914702b96ca
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53584807"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58124530"
 ---
 1. Inicie sessão no [portal do Azure](http://portal.azure.com).
 
@@ -27,7 +27,7 @@ ms.locfileid: "53584807"
    * **Grupo de recursos**: Selecione ou crie uma [grupo de recursos](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview#resource-groups) para a instância de duplos Digital.
    * **Localização**: Selecione a localização mais próxima dos seus dispositivos.
 
-    ![Painel digital de duplos com informações inseridas](./media/create-digital-twins-portal/create-digital-twins-param.png)
+     ![Painel digital de duplos com informações inseridas](./media/create-digital-twins-portal/create-digital-twins-param.png)
 
 1. Reveja as suas informações de duplos Digital e, em seguida, selecione **criar**. A instância de duplos Digital poderá demorar alguns minutos a ser criada. Pode monitorizar o progresso no painel **Notificações**.
 

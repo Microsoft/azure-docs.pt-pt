@@ -10,19 +10,18 @@ ms.subservice: translator-text
 ms.topic: quickstart
 ms.date: 02/21/2019
 ms.author: erhopf
-ms.openlocfilehash: e89593e33dd7330ce64c46c826c9d0437c4c27d2
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: 08dca771050f1b62cd85208a4b8f3d39340fb97d
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56738050"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57834295"
 ---
 # <a name="quickstart-use-the-translator-text-api-to-translate-a-string-with-nodejs"></a>Início rápido: Utilize a API de texto do Translator para traduzir uma cadeia de caracteres com node. js
 
 Neste início rápido, vai aprender a traduzir uma cadeia de texto de inglês para italiano e alemão com Node.js e a API REST de Texto do Microsoft Translator.
 
 Este início rápido requer uma [conta dos Serviços Cognitivos do Azure](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) com um recurso de Tradução de Texto. Se não tiver uma conta, pode utilizar a [avaliação gratuita](https://azure.microsoft.com/try/cognitive-services/) para obter uma chave de subscrição.
-
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -33,7 +32,7 @@ Este início rápido requer:
 
 ## <a name="create-a-project-and-import-required-modules"></a>Criar um projeto e importar os módulos exigidos
 
-Crie um novo projeto através do seu editor ou IDE favorito. Em seguida, copie este fragmento de código para o seu projeto num ficheiro com o nome `translate-text.js`.
+Criar um novo projeto usando o seu IDE favorito ou editor ou uma nova pasta com um arquivo chamado `translate-text.js` no ambiente de trabalho. Em seguida, copie este fragmento de código no seu projeto/ficheiro:
 
 ```javascript
 const request = require('request');

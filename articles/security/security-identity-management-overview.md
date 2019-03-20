@@ -14,13 +14,13 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/19/2018
 ms.author: terrylan
-Customer intent: As a IT Pro or decision maker I am trying to learn about identity management capabilities in Azure
-ms.openlocfilehash: b58cbcdccced3952c3171daa14f80986e473c5dd
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+Customer intent: As an IT Pro or decision maker I am trying to learn about identity management capabilities in Azure
+ms.openlocfilehash: 29c04fc04b5d277e982a37402a128b2dbe787e2c
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56111497"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57898504"
 ---
 # <a name="azure-identity-management-security-overview"></a>Descrição geral da segurança de gestão de identidade do Azure
 
@@ -67,7 +67,7 @@ Saiba mais:
 
 ## <a name="reverse-proxy"></a>Proxy inverso
 
-Proxy de aplicações do Azure AD permite-lhe publicar aplicações no local, tal como [SharePoint](https://support.office.com/article/What-is-SharePoint-97b915e6-651b-43b2-827d-fb25777f446f?ui=en-US&rs=en-US&ad=US) sites, [Outlook Web App](https://technet.microsoft.com/library/jj657718.aspx), e [IIS](http://www.iis.net/)-com base em aplicações dentro da rede privada Fornece acesso seguro aos utilizadores fora da rede. Proxy de aplicações fornece acesso remoto e SSO para muitos tipos de locais aplicativos web com milhares de aplicações SaaS suportadas pelo Azure AD. Os funcionários poderem iniciar sessão para as suas aplicações de casa em seus próprios dispositivos e autenticar-se através deste proxy baseado na nuvem.
+Proxy de aplicações do Azure AD permite-lhe publicar aplicações no local, tal como [SharePoint](https://support.office.com/article/What-is-SharePoint-97b915e6-651b-43b2-827d-fb25777f446f?ui=en-US&rs=en-US&ad=US) sites, [Outlook Web App](https://technet.microsoft.com/library/jj657718.aspx), e [IIS](https://www.iis.net/)-com base em aplicações dentro da rede privada Fornece acesso seguro aos utilizadores fora da rede. Proxy de aplicações fornece acesso remoto e SSO para muitos tipos de locais aplicativos web com milhares de aplicações SaaS suportadas pelo Azure AD. Os funcionários poderem iniciar sessão para as suas aplicações de casa em seus próprios dispositivos e autenticar-se através deste proxy baseado na nuvem.
 
 Saiba mais:
 

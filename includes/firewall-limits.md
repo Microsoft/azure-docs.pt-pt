@@ -5,19 +5,19 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: include
-ms.date: 2/4/2019
+ms.date: 3/14/2019
 ms.author: victorh
 ms.custom: include file
-ms.openlocfilehash: c3bb0c7eb6effeb5165eace565a9db5dac1d39d6
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 3e6bde63c5f759ec711b243fc25fa0ed8bde634a
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57553819"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58016490"
 ---
 | Recurso | Limite predefinido |
 | --- | --- |
-| Dados processados |1.000 TB/firewall/mês. <sup>1</sup> |
+| Taxa de transferência de dados |30 Gbps<sup>1</sup> |
 |Regras|10 000, todos regra combinado de tipos.|
 |Global peering|Não suportado. Deve ter, pelo menos, uma implementação de firewall por região.|
 |Tamanho mínimo de AzureFirewallSubnet |/26|

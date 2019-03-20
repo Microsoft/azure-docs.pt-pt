@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 11/13/2018
 ms.author: magoedte
-ms.openlocfilehash: 84c6a88449844d3a2f59b3b93dd95b102b653679
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: f73f6a9cf274de207305cfd90e089a549088dd06
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55817619"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58088745"
 ---
 # <a name="how-to-troubleshoot-issues-with-the-log-analytics-agent-for-linux"></a>Como resolver problemas com o agente do Log Analytics para Linux 
 
@@ -55,27 +55,27 @@ Se nenhum destes passos resolver, também estão disponíveis os seguintes canai
 
 ## <a name="installation-error-codes"></a>Códigos de erro de instalação
 
-| Código de Erro | Significado |
-| --- | --- |
+| Código de Erro | Significado | |
+| --- | --- | --- |
 | NOT_DEFINED | Uma vez que as dependências necessárias não estão instaladas, não será instalado o plug-in do auoms auditd | Instalação de auoms falhou, instalar o pacote auditd. |
-| 2 | Opção inválido fornecida para o pacote de shell. Executar `sudo sh ./omsagent-*.universal*.sh --help` para utilização |
-| 3 | Nenhuma opção fornecida para o pacote de shell. Executar `sudo sh ./omsagent-*.universal*.sh --help` para utilização. |
-| 4 | Definições de proxy inválidas ou; tipo de pacote inválido omsagent -*rpm*pacotes. SH só podem ser instalados em sistemas baseados em RPM e omsagent -*deb*. SH pacotes só podem ser instalados em sistemas baseados no Debian. Recomendamos que utilize o instalador universal de é o [versão mais recente](../../azure-monitor/learn/quick-collect-linux-computer.md#install-the-agent-for-linux). Reveja também para verificar as definições de proxy. |
-| 5 | O pacote de shell tem de ser executado como raiz ou ocorreu o erro 403 devolvido durante a integração. Execute o comando com `sudo`. |
-| 6 | Inválido empacotar a arquitetura ou ocorreu o erro de erro 200 devolvido durante a integração; omsagent -*x64.sh pacotes só podem ser instalados em sistemas de 64 bits e omsagent -* x86.sh pacotes só podem ser instalados em sistemas de 32 bits. Transferir o pacote correto para a sua arquitetura do [versão mais recente](https://github.com/Microsoft/OMS-Agent-for-Linux/releases/latest). |
-| 17 | Falha na instalação do pacote do OMS. Examine a saída do comando da falha de raiz. |
-| 19 | Falha na instalação do pacote da OMI. Examine a saída do comando da falha de raiz. |
-| 20 | Falha na instalação do pacote SCX. Examine a saída do comando da falha de raiz. |
-| 21 | Falha ao instalar os kits de fornecedor. Examine a saída do comando da falha de raiz. |
-| 22 | Falha na instalação do pacote agrupado. Examinar a saída do comando da falha de raiz |
-| 23 | Pacote SCX ou OMI já instalado. Uso `--upgrade` em vez de `--install` para instalar o pacote de shell. |
-| 30 | Erro interno do pacote. Ficheiro de um [problema do GitHub](https://github.com/Microsoft/OMS-Agent-for-Linux/issues) com os detalhes da saída. |
-| 55 | Versão de openssl não suportado ou não é possível ligar ao serviço Log Analytics ou dpkg está bloqueado ou em falta curl programa. |
-| 61 | Biblioteca de ctypes de Python em falta. Instale a biblioteca de ctypes Python ou o pacote (python ctypes). |
-| 62 | Programa tar em falta, tar de instalação. |
-| 63 | Programa po em falta, sed. de instalação |
-| 64 | Programa curl em falta, curl de instalação. |
-| 65 | Programa gpg em falta, gpg da instalação. |
+| 2 | Opção inválido fornecida para o pacote de shell. Executar `sudo sh ./omsagent-*.universal*.sh --help` para utilização | |
+| 3 | Nenhuma opção fornecida para o pacote de shell. Executar `sudo sh ./omsagent-*.universal*.sh --help` para utilização. | |
+| 4 | Definições de proxy inválidas ou; tipo de pacote inválido omsagent -*rpm*pacotes. SH só podem ser instalados em sistemas baseados em RPM e omsagent -*deb*. SH pacotes só podem ser instalados em sistemas baseados no Debian. Recomendamos que utilize o instalador universal de é o [versão mais recente](../../azure-monitor/learn/quick-collect-linux-computer.md#install-the-agent-for-linux). Reveja também para verificar as definições de proxy. | |
+| 5 | O pacote de shell tem de ser executado como raiz ou ocorreu o erro 403 devolvido durante a integração. Execute o comando com `sudo`. | |
+| 6 | Inválido empacotar a arquitetura ou ocorreu o erro de erro 200 devolvido durante a integração; omsagent -\*x64.sh pacotes só podem ser instalados em sistemas de 64 bits e omsagent -\*x86.sh pacotes só podem ser instalados em sistemas de 32 bits. Transferir o pacote correto para a sua arquitetura do [versão mais recente](https://github.com/Microsoft/OMS-Agent-for-Linux/releases/latest). | |
+| 17 | Falha na instalação do pacote do OMS. Examine a saída do comando da falha de raiz. | |
+| 19 | Falha na instalação do pacote da OMI. Examine a saída do comando da falha de raiz. | |
+| 20 | Falha na instalação do pacote SCX. Examine a saída do comando da falha de raiz. | |
+| 21 | Falha ao instalar os kits de fornecedor. Examine a saída do comando da falha de raiz. | |
+| 22 | Falha na instalação do pacote agrupado. Examinar a saída do comando da falha de raiz | |
+| 23 | Pacote SCX ou OMI já instalado. Uso `--upgrade` em vez de `--install` para instalar o pacote de shell. | |
+| 30 | Erro interno do pacote. Ficheiro de um [problema do GitHub](https://github.com/Microsoft/OMS-Agent-for-Linux/issues) com os detalhes da saída. | |
+| 55 | Versão de openssl não suportado ou não é possível ligar ao serviço Log Analytics ou dpkg está bloqueado ou em falta curl programa. | |
+| 61 | Biblioteca de ctypes de Python em falta. Instale a biblioteca de ctypes Python ou o pacote (python ctypes). | |
+| 62 | Programa tar em falta, tar de instalação. | |
+| 63 | Programa po em falta, sed. de instalação | |
+| 64 | Programa curl em falta, curl de instalação. | |
+| 65 | Programa gpg em falta, gpg da instalação. | |
 
 ## <a name="onboarding-error-codes"></a>Códigos de erro de integração
 
@@ -161,17 +161,17 @@ Abaixo o plug-in de saída, anule os comentários a seção a seguir, removendo 
 
 ### <a name="resolution"></a>Resolução
 1. Reonboard para o serviço de Log Analytics com o agente Log Analytics para Linux ao utilizar o seguinte comando com a opção `-v` ativada. Ele permite que a saída detalhada do agente ligar através do proxy para o serviço Log Analytics. 
-`/opt/microsoft/omsagent/bin/omsadmin.sh -w <Workspace ID> -s <Workspace Key> -p <Proxy Conf> -v`
+   `/opt/microsoft/omsagent/bin/omsadmin.sh -w <Workspace ID> -s <Workspace Key> -p <Proxy Conf> -v`
 
-2. Reveja a secção [atualizar as definições de proxy](agent-manage.md#update-proxy-settings) para verificar se configurou corretamente o agente para comunicar através de um servidor proxy.    
-* Volte a verificar que os seguintes pontos de extremidade do Log Analytics estão na lista de permissões:
+1. Reveja a secção [atualizar as definições de proxy](agent-manage.md#update-proxy-settings) para verificar se configurou corretamente o agente para comunicar através de um servidor proxy.    
+1. Volte a verificar que os seguintes pontos de extremidade do Log Analytics estão na lista de permissões:
 
-    |Recursos do Agente| Portas | Direção |
-    |------|---------|----------|  
-    |*.ods.opinsights.azure.com | Porta 443| Entrada e saída |  
-    |*.oms.opinsights.azure.com | Porta 443| Entrada e saída |  
-    |*.blob.core.windows.net | Porta 443| Entrada e saída |  
-    |*.azure-automation.net | Porta 443| Entrada e saída | 
+     |Recursos do Agente| Portas | Direção |
+     |------|---------|----------|  
+     |*.ods.opinsights.azure.com | Porta 443| Entrada e saída |  
+     |*.oms.opinsights.azure.com | Porta 443| Entrada e saída |  
+     |*.blob.core.windows.net | Porta 443| Entrada e saída |  
+     |*.azure-automation.net | Porta 443| Entrada e saída | 
 
 ## <a name="issue-you-receive-a-403-error-when-trying-to-onboard"></a>Problema: Recebe um erro 403 quando tentar carregar
 
@@ -366,15 +366,15 @@ Este erro indica que a extensão de diagnóstico do Linux (LAD) é instalada lad
 * A definição **aplicam-se a seguinte configuração para meus servidores Linux** não tiver sido selecionada.
 * omsconfig não tenha capturado a configuração de registo personalizado mais recente do serviço.
 * Agente de análise do registo de utilizador do Linux `omsagent` não conseguir aceder ao registo personalizado devido a permissões ou não foi encontrada.  Pode ver os seguintes erros:
- * `[DATETIME] [warn]: file not found. Continuing without tailing it.`
- * `[DATETIME] [error]: file not accessible by omsagent.`
+  * `[DATETIME] [warn]: file not found. Continuing without tailing it.`
+  * `[DATETIME] [error]: file not accessible by omsagent.`
 * Problema com a condição de corrida corrigidos no agente do Log Analytics para Linux versão 1.1.0-217 conhecido
 
 ### <a name="resolution"></a>Resolução
 1. Certifique-se de que a inclusão para o Log Analytics foi concluída com êxito, verificando se existe o seguinte ficheiro: `/etc/opt/microsoft/omsagent/<workspace id>/conf/omsadmin.conf`. Se não, qualquer um de:  
 
-  1. Reonboard utilizando a linha de comando omsadmin.sh [instruções](https://github.com/Microsoft/OMS-Agent-for-Linux/blob/master/docs/OMS-Agent-for-Linux.md#onboarding-using-the-command-line).
-  2. Sob **definições avançadas** no portal do Azure, certifique-se de que a definição **aplicam-se a seguinte configuração para meus servidores Linux** está ativada.  
+   1. Reonboard utilizando a linha de comando omsadmin.sh [instruções](https://github.com/Microsoft/OMS-Agent-for-Linux/blob/master/docs/OMS-Agent-for-Linux.md#onboarding-using-the-command-line).
+   2. Sob **definições avançadas** no portal do Azure, certifique-se de que a definição **aplicam-se a seguinte configuração para meus servidores Linux** está ativada.  
 
 2. Verifique se o `omsconfig` agente consegue comunicar com o serviço Log Analytics ao executar o comando seguinte `sudo su omsagent -c 'python /opt/microsoft/omsconfig/Scripts/GetDscConfiguration.py'`.  Este comando devolve a configuração que o agente receber do serviço, incluindo definições de Syslog, contadores de desempenho do Linux e registos personalizados. Se este comando falhar, execute o seguinte comando `sudo su omsagent -c 'python /opt/microsoft/omsconfig/Scripts/PerformRequiredConfigurationChecks.py`. Este comando força o agente de omsconfig para comunicar com o serviço do Log Analytics e obter a configuração mais recente.
 
@@ -408,9 +408,9 @@ Pode continuar reonboard depois de utilizar o `--purge` opção
 ### <a name="resolution"></a>Resolução 
 Execute os seguintes passos para corrigir o problema.
 1. Remova a extensão do portal do Azure.
-2. Instalar o agente ao seguir a [instruções](../../azure-monitor/learn/quick-collect-linux-computer.md).
-3. Reinicie o agente ao executar o seguinte comando: `sudo /opt/microsoft/omsagent/bin/service_control restart`.
-* Aguarde alguns minutos e o estado de aprovisionamento é alterado para **aprovisionamento foi concluída com êxito**.
+1. Instalar o agente ao seguir a [instruções](../../azure-monitor/learn/quick-collect-linux-computer.md).
+1. Reinicie o agente ao executar o seguinte comando: `sudo /opt/microsoft/omsagent/bin/service_control restart`.
+1. Aguarde alguns minutos e o estado de aprovisionamento é alterado para **aprovisionamento foi concluída com êxito**.
 
 
 ## <a name="issue-the-log-analytics-agent-upgrade-on-demand"></a>Problema: A Log Analytics agent atualização a pedido

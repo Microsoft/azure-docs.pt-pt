@@ -17,12 +17,12 @@ ms.topic: conceptual
 ms.date: 06/15/2018
 ms.author: banders
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 153b75d4477d61637732e6c2da614113656c4ea4
-ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
+ms.openlocfilehash: 6d8baa5f10aeba179ef141cfea86fded8cf44dfc
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54902538"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57878215"
 ---
 # <a name="transfer-ownership-of-an-azure-subscription-to-another-account"></a>Transferir a propriedade de uma subscrição do Azure para outra conta
 
@@ -70,7 +70,7 @@ Transferi a sua subscrição para outro utilizador no Centro de contas para alte
 
 ## <a name="transfer-subscription-ownership-for-enterprise-agreement-ea-customers"></a>Transferir a propriedade de subscrição para clientes Enterprise Agreement (EA)
 
-O administrador de empresa pode transferir a propriedade de subscrições dentro de uma inscrição. Para começar a utilizar, veja [transferir a propriedade da conta](https://ea.azure.com/helpdocs/changeAccountOwnerForASubscription) no portal do EA.
+O Administrador da Empresa pode transferir a propriedade das subscrições que pertençam a uma inscrição. Para começar a utilizar, veja [transferir a propriedade da conta](https://ea.azure.com/helpdocs/changeAccountOwnerForASubscription) no portal do EA.
 
 ## <a name="next-steps-after-accepting-ownership-of-a-subscription"></a>Passos seguintes depois de aceitar a propriedade de uma subscrição
 
@@ -90,7 +90,7 @@ Transferência de subscrição Self-Service está disponível para ofertas ou ti
 | Nome da Oferta                                                                             | Número da oferta |
 |----------------------------------------------------------------------------------------|--------------|
 | [Contrato Enterprise (EA)](https://azure.microsoft.com/pricing/enterprise-agreement/)\*|MS-AZR-0017P        |
-| [Rede de parceiros da Microsoft](https://azure.microsoft.com/offers/ms-azr-0025p/)          | MS-AZR-0025P        |
+| [Microsoft Partner Network](https://azure.microsoft.com/offers/ms-azr-0025p/)          | MS-AZR-0025P        |
 | [O MSDN Platforms](https://azure.microsoft.com/offers/ms-azr-0062p/)                     | MS-AZR-0062P        |
 | [Pay as you go](https://azure.microsoft.com/offers/ms-azr-0003p/)                      | MS-AZR-0003P        |
 | [Pay as you go programador/teste](https://azure.microsoft.com/offers/ms-azr-0023p/)             | MS-AZR-0023P        |
@@ -174,4 +174,4 @@ Se não é possível transferir a propriedade de subscrição, pode migrar manua
 
 ## <a name="need-help-contact-us"></a>Precisa de ajuda? Contacte-nos.
 
-Se tiver alguma dúvida ou precisar de ajuda, [criar um pedido de suporte](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).
+Se tiver alguma dúvida ou precisar de ajuda, [criar um pedido de suporte](https://go.microsoft.com/fwlink/?linkid=2083458).

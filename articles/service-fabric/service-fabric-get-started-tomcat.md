@@ -14,17 +14,17 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 6/08/2018
 ms.author: v-jamebr
-ms.openlocfilehash: 29208bcbdbe6ad01d0e1ac7343bd921f3287260a
-ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
+ms.openlocfilehash: 3e93e822c5764a23bba124152ef5dfabf2d3f94f
+ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39581918"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58223874"
 ---
 # <a name="create-service-fabric-container-running-apache-tomcat-server-on-linux"></a>Criar o contentor do Service Fabric com o servidor Apache Tomcat no Linux
 Apache Tomcat é uma implementação open source popular das tecnologias Java Servlet e o servidor de Java. Este artigo mostra-lhe como criar um contentor com o Apache Tomcat e uma aplicação Web simples, implementar o contentor para um cluster do Service Fabric em execução no Linux e ligar à aplicação Web.  
 
-Para saber mais sobre o Apache Tomcat, veja a [home page do Apache Tomcat](http://tomcat.apache.org/). 
+Para saber mais sobre o Apache Tomcat, veja a [home page do Apache Tomcat](https://tomcat.apache.org/). 
 
 ## <a name="prerequisites"></a>Pré-requisitos
 * Um computador de programação com:
@@ -95,9 +95,9 @@ Siga os passos nesta secção para criar uma imagem do Docker com base numa imag
 
 1. Para testar o seu contentor, abra um browser e introduza um dos seguintes URLs. Verá uma variante de "Hello World!" ecrã de boas-vindas para cada URL.
 
-   - http://localhost:8080/hello 
-   - http://localhost:8080/hello/sayhello 
-   - http://localhost:8080/hello/sayhi 
+   - `http://localhost:8080/hello` 
+   - `http://localhost:8080/hello/sayhello` 
+   - `http://localhost:8080/hello/sayhi` 
 
    ![Olá mundo /sayhi](./media/service-fabric-get-started-tomcat/hello.png)
 
@@ -143,7 +143,7 @@ Agora que já enviou a imagem de Tomcat para um registo de contentor, pode criar
 
    * Nome à aplicação: ServiceFabricTomcat
    * Nome do serviço de aplicações: TomcatService
-   * O nome da imagem de entrada: forneça o URL da imagem de contentor no seu registo de contentor; Por exemplo, myregistry.azurecr.io/samples/tomcattest.
+   * Introduza o nome da imagem: Forneça o URL da imagem de contentor no seu registo de contentor; Por exemplo, myregistry.azurecr.io/samples/tomcattest.
    * Comandos: Deixe em branco. Uma vez que esta imagem tem um ponto de entrada de carga de trabalho definido, não tem de especificar explicitamente comandos de entrada (os comandos são executados dentro do contentor, o que faz com que este continue em execução após o arranque).
    * Número de instâncias da aplicação de contentor de convidado: 1
 
@@ -151,72 +151,72 @@ Agora que já enviou a imagem de Tomcat para um registo de contentor, pode criar
 
 10. No manifesto do serviço (*ServiceFabricTomcat/ServiceFabricTomcat/TomcatServicePkg/ServiceManifest.xml*), adicione o seguinte XML na raiz **ServiceManfest** tag para abrir a porta a aplicação está a escutar para pedidos. O **ponto final** marca declara o protocolo e a porta para o ponto final. Neste artigo, o serviço contentorizado escuta na porta 8080: 
 
-    ```xml
-    <Resources>
-      <Endpoints>
-        <!-- This endpoint is used by the communication listener to obtain the port on which to 
-         listen. Please note that if your service is partitioned, this port is shared with 
-         replicas of different partitions that are placed in your code. -->
-        <Endpoint Name="endpointTest" Port="8080" Protocol="tcp"/>
-      </Endpoints>
-    </Resources>
-    ```
+   ```xml
+   <Resources>
+    <Endpoints>
+      <!-- This endpoint is used by the communication listener to obtain the port on which to 
+       listen. Please note that if your service is partitioned, this port is shared with 
+       replicas of different partitions that are placed in your code. -->
+      <Endpoint Name="endpointTest" Port="8080" Protocol="tcp"/>
+    </Endpoints>
+   </Resources>
+   ```
 
 11. No manifesto do aplicativo (*ServiceFabricTomcat/ServiceFabricTomcat/ApplicationManifest.xml*), sob o **ServiceManifestImport** marcar, adicione o seguinte XML. Substitua a **AccountName** e **palavra-passe** no **RepositoryCredentials** etiqueta com o nome do seu registo de contentor e a palavra-passe necessária para iniciar sessão para o mesmo.
 
-    ```xml
-    <Policies>
-      <ContainerHostPolicies CodePackageRef="Code">
-        <PortBinding ContainerPort="8080" EndpointRef="endpointTest"/>
-        <RepositoryCredentials AccountName="myregistry" Password="=P==/==/=8=/=+u4lyOB=+=nWzEeRfF=" PasswordEncrypted="false"/>
-      </ContainerHostPolicies>
-    </Policies>
-    ```
+   ```xml
+   <Policies>
+    <ContainerHostPolicies CodePackageRef="Code">
+      <PortBinding ContainerPort="8080" EndpointRef="endpointTest"/>
+      <RepositoryCredentials AccountName="myregistry" Password="=P==/==/=8=/=+u4lyOB=+=nWzEeRfF=" PasswordEncrypted="false"/>
+    </ContainerHostPolicies>
+   </Policies>
+   ```
 
-    O **ContainerHostPolicies** marca especifica políticas para activar anfitriões de contentor.
+   O **ContainerHostPolicies** marca especifica políticas para activar anfitriões de contentor.
     
-    * O **PortBinding** marca configura a política de mapeamento de portas porta do contentor-a-anfitrião. O **ContainerPort** atributo estiver definido para 8080, uma vez que o contentor expõe a porta 8080, conforme especificado no Dockerfile. O **EndpointRef** atributo está definido como "endpointTest", o ponto final definido no manifesto do serviço no passo anterior. Assim, os pedidos de entrada para o serviço na porta 8080 são mapeados para a porta 8080 no contentor. 
-    * O **RepositoryCredentials** marca Especifica as credenciais que o contentor tem de autenticar com o repositório (privado) em que ele recebe a imagem a partir. Esta política não é necessário se a imagem será obtida a partir de um repositório público.
+   * O **PortBinding** marca configura a política de mapeamento de portas porta do contentor-a-anfitrião. O **ContainerPort** atributo estiver definido para 8080, uma vez que o contentor expõe a porta 8080, conforme especificado no Dockerfile. O **EndpointRef** atributo está definido como "endpointTest", o ponto final definido no manifesto do serviço no passo anterior. Assim, os pedidos de entrada para o serviço na porta 8080 são mapeados para a porta 8080 no contentor. 
+   * O **RepositoryCredentials** marca Especifica as credenciais que o contentor tem de autenticar com o repositório (privado) em que ele recebe a imagem a partir. Esta política não é necessário se a imagem será obtida a partir de um repositório público.
     
 
 12. Na *ServiceFabricTomcat* pasta, ligue-se ao seu cluster do service fabric. 
 
-    * Para ligar ao cluster do Service Fabric local, execute:
+   * Para ligar ao cluster do Service Fabric local, execute:
 
-       ```bash
-       sfctl cluster select --endpoint http://localhost:19080
-       ```
+     ```bash
+     sfctl cluster select --endpoint http://localhost:19080
+     ```
     
-    * Para ligar a um cluster do Azure seguro, certifique-se de que o certificado de cliente está presente como um ficheiro. pem no *ServiceFabricTomcat* diretório e execute: 
+   * Para ligar a um cluster do Azure seguro, certifique-se de que o certificado de cliente está presente como um ficheiro. pem no *ServiceFabricTomcat* diretório e execute: 
 
-       ```bash
-       sfctl cluster select --endpoint https://PublicIPorFQDN:19080 -pem your-certificate.pem -no-verify
-       ```
-       No comando anterior, substitua `your-certificate.pem` com o nome do seu ficheiro de certificado de cliente. Em ambientes de desenvolvimento e teste, o certificado de cluster é frequentemente utilizado como o certificado de cliente. Se o certificado não é autoassinado, omita o `-no-verify` parâmetro. 
+     ```bash
+     sfctl cluster select --endpoint https://PublicIPorFQDN:19080 -pem your-certificate.pem -no-verify
+     ```
+     No comando anterior, substitua `your-certificate.pem` com o nome do seu ficheiro de certificado de cliente. Em ambientes de desenvolvimento e teste, o certificado de cluster é frequentemente utilizado como o certificado de cliente. Se o certificado não é autoassinado, omita o `-no-verify` parâmetro. 
        
-       Certificados de cluster são geralmente transferidos localmente como arquivos. pfx. Se ainda não tiver o certificado no formato PEM, pode executar o seguinte comando para criar um ficheiro. pem a partir de um ficheiro. pfx:
+     Certificados de cluster são geralmente transferidos localmente como arquivos. pfx. Se ainda não tiver o certificado no formato PEM, pode executar o seguinte comando para criar um ficheiro. pem a partir de um ficheiro. pfx:
 
-       ```bash
-       openssl pkcs12 -in your-certificate.pfx -out your-certificate.pem -nodes -passin pass:your-pfx-password
-       ```
+     ```bash
+     openssl pkcs12 -in your-certificate.pfx -out your-certificate.pem -nodes -passin pass:your-pfx-password
+     ```
 
-       Se o ficheiro. pfx não estiver protegido de palavra-passe, utilize `-passin pass:` para o último parâmetro.
+     Se o ficheiro. pfx não estiver protegido de palavra-passe, utilize `-passin pass:` para o último parâmetro.
 
 
 13. Execute o script de instalação fornecido no modelo para implementar a aplicação ao seu cluster. O script copia o pacote de aplicação para o armazenamento de imagens do cluster, registra o tipo de aplicativo e cria uma instância da aplicação.
 
-       ```bash
-       ./install.sh
-       ```
+     ```bash
+     ./install.sh
+     ```
 
-    Depois de executar o script de instalação, abra um browser e navegue para o Service Fabric Explorer:
+   Depois de executar o script de instalação, abra um browser e navegue para o Service Fabric Explorer:
     
-    * Num local cluster, utilize http://localhost:19080/Explorer (substitua *localhost* pelo IP privado da VM se estiver a utilizar Vagrant em Mac OS X).
-    * Num cluster do Azure seguro, utilize https://PublicIPorFQDN:19080/Explorer. 
+   * Num local cluster, utilize `http://localhost:19080/Explorer` (substitua *localhost* pelo IP privado da VM se estiver a utilizar Vagrant em Mac OS X).
+   * Num cluster do Azure seguro, utilize `https://PublicIPorFQDN:19080/Explorer`. 
     
-    Expanda a **aplicativos** nó e tenha em atenção que agora existe uma entrada para o tipo de aplicação **ServiceFabricTomcatType**e outro para a primeira instância desse tipo. Poderá demorar alguns minutos para a aplicação para a implantação completa, portanto, seja paciente.
+   Expanda a **aplicativos** nó e tenha em atenção que agora existe uma entrada para o tipo de aplicação **ServiceFabricTomcatType**e outro para a primeira instância desse tipo. Poderá demorar alguns minutos para a aplicação para a implantação completa, portanto, seja paciente.
 
-    ![Service Fabric Explorer](./media/service-fabric-get-started-tomcat/service-fabric-explorer.png)
+   ![Service Fabric Explorer](./media/service-fabric-get-started-tomcat/service-fabric-explorer.png)
 
 
 1. Para aceder à aplicação no servidor do Tomcat, abra uma janela do browser e introduza qualquer um dos seguintes URLs. Se tiver implementado no cluster local, utilize *localhost* para *PublicIPorFQDN*. Verá uma variante de "Hello World!" ecrã de boas-vindas para cada URL.

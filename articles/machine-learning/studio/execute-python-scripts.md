@@ -6,16 +6,16 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
 ms.topic: conceptual
-author: ericlicoding
+author: xiaoharper
 ms.author: amlstudiodocs
 ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
-ms.date: 03/05/2019
-ms.openlocfilehash: f508d16330bad7044a69ccff2ddf84ece74e78a2
-ms.sourcegitcommit: 1902adaa68c660bdaac46878ce2dec5473d29275
+ms.date: 03/12/2019
+ms.openlocfilehash: 4b4f3877b56752756050de0af226571ac2a93293
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/11/2019
-ms.locfileid: "57729421"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57888162"
 ---
 # <a name="execute-python-machine-learning-scripts-in-azure-machine-learning-studio"></a>Executar scripts de machine learning em Python no Azure Machine Learning Studio
 
@@ -62,13 +62,14 @@ Conjuntos de dados do Studio não são os mesmos que o pandas DataFrames. Como r
 | Vetores de índice | Não suportado * |
 | Nomes das colunas de cadeia de caracteres não | Chamar `str` nos nomes das colunas |
 | Nomes de colunas duplicados | Adicione sufixo numérico: (1), (2), (3), e assim por diante.
+
 **Todos os quadros de dados de entrada na função Python sempre terá um índice numérico de 64 bits de 0 para o número de linhas menos 1*
 
 ## <a id="import-modules"></a>Importar os módulos de script de Python existentes
 
-O back-end utilizado para executar o Python se baseia [Anaconda](https://store.continuum.io/cshop/anaconda/), um amplamente utilizadas científica distribuição de Python. Ele vem com quase 200 para os pacotes de Python mais comuns utilizados em cargas de trabalho centrado em dados. No entanto, pode achar a necessidade de incorporar bibliotecas adicionais.
+O back-end utilizado para executar o Python se baseia [Anaconda](https://store.continuum.io/cshop/anaconda/), um amplamente utilizadas científica distribuição de Python. Ele vem com quase 200 para os pacotes de Python mais comuns utilizados em cargas de trabalho centrado em dados. Studio não suporta atualmente a utilização de sistemas de gestão do pacote como Pip ou Conda para instalar e gerir bibliotecas externas.  Se achar necessário para incorporar bibliotecas adicionais, utilize o seguinte cenário como guia.
 
-Um caso de uso comum é incorporar scripts existentes do Python em experimentações do Studio. O [executar Script do Python] [ execute-python-script] módulo aceita um ficheiro zip que contém módulos de Python na porta de entrada terceiro. O ficheiro é descompactei pela estrutura de execução em tempo de execução e os conteúdos são adicionados ao caminho de biblioteca do interpretador de Python. O `azureml_main` função pode, em seguida, importar esses módulos diretamente de ponto de entrada.
+Um caso de uso comum é incorporar scripts existentes do Python em experimentações do Studio. O [executar Script do Python] [ execute-python-script] módulo aceita um ficheiro zip que contém módulos de Python na porta de entrada terceiro. O ficheiro é descompactei pela estrutura de execução em tempo de execução e os conteúdos são adicionados ao caminho de biblioteca do interpretador de Python. O `azureml_main` função pode, em seguida, importar esses módulos diretamente de ponto de entrada. 
 
 Por exemplo, considere o arquivo Hello.py que contém uma função de "Olá, mundo" simples.
 
@@ -87,6 +88,25 @@ Carregar o ficheiro zip como um conjunto de dados no Studio. Em seguida, criar e
 O resultado do módulo mostra que o ficheiro zip foi descompactado e que a função `print_hello` tiver sido executado.
 
 ![Saída do módulo que mostra a função definida pelo utilizador](./media/execute-python-scripts/figure7.png)
+
+## <a name="accessing-azure-storage-blobs"></a>Aceder a Blobs de armazenamento do Azure
+
+Pode acessar dados armazenados numa conta de armazenamento de Blobs do Azure com estes passos:
+
+1. Transfira o [pacote de armazenamento de Blobs do Azure para Python](https://azuremlpackagesupport.blob.core.windows.net/python/azure.zip) localmente.
+1. Carregar o ficheiro zip para a área de trabalho do Studio como um conjunto de dados.
+1. Criar o objeto de BlobService com `protocol='http'`
+
+```
+from azure.storage.blob import BlockBlobService
+
+# Create the BlockBlockService that is used to call the Blob service for the storage account
+block_blob_service = BlockBlobService(account_name='account_name', account_key='account_key', protocol='http')
+```
+
+1. Desativar **transferência segura necessária** no seu armazenamento **configuração** separador definição
+
+![Desativar a transferência segura necessária no portal do Azure](./media/execute-python-scripts/disable-secure-transfer-required.png)
 
 ## <a name="operationalizing-python-scripts"></a>Operacionalização de scripts do Python
 

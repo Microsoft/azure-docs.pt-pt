@@ -10,12 +10,12 @@ ms.reviewer: jonfan, estfan, LADocs
 ms.topic: article
 ms.assetid: 7422d2d5-b1c7-4a11-8c9b-0d8cfa463164
 ms.date: 01/31/2017
-ms.openlocfilehash: c4ee56f4ddcccb1fc4ddd84aa1c1b16dea9754d9
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
+ms.openlocfilehash: 6665ea8bc4016c9d64005f9c742115cf785ed5ba
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43123962"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57842146"
 ---
 # <a name="exchange-x12-messages-for-b2b-enterprise-integration-in-azure-logic-apps-with-enterprise-integration-pack"></a>Trocar mensagens X12 para enterprise integração B2B no Azure Logic Apps Enterprise Integration Pack
 
@@ -36,9 +36,10 @@ Depois de [criar uma conta de integração](../logic-apps/logic-apps-enterprise-
 
 ## <a name="create-an-x12-agreement"></a>Criar um X12 contrato
 
-1. Inicie sessão no [portal do Azure](http://portal.azure.com "portal do Azure"). 
+1. Inicie sessão no [portal do Azure](https://portal.azure.com "portal do Azure"). 
 
-2. No menu principal do Azure, selecione **todos os serviços**. Na caixa de pesquisa, introduza "integração" e, em seguida, selecione **contas de integração**.  
+2. No menu principal do Azure, selecione **todos os serviços**. 
+   Na caixa de pesquisa, introduza "integração" e, em seguida, selecione **contas de integração**.  
 
    ![Localize a conta de integração](./media/logic-apps-enterprise-integration-x12/account-1.png)
 
@@ -49,7 +50,8 @@ Depois de [criar uma conta de integração](../logic-apps/logic-apps-enterprise-
 
    ![Selecione onde pretende criar o contrato de conta de integração](./media/logic-apps-enterprise-integration-x12/account-3.png)
 
-4. Selecione **descrição geral**, em seguida, selecione a **contratos** mosaico. Se não tiver um mosaico de contratos, adicione primeiro o mosaico. 
+4. Selecione **descrição geral**, em seguida, selecione a **contratos** mosaico. 
+   Se não tiver um mosaico de contratos, adicione primeiro o mosaico. 
 
    ![Escolha o que mosaico "Contratos"](./media/logic-apps-enterprise-integration-as2/agreement-1.png)
 
@@ -57,13 +59,16 @@ Depois de [criar uma conta de integração](../logic-apps/logic-apps-enterprise-
 
    ![Escolha "Adicionar"](./media/logic-apps-enterprise-integration-as2/agreement-2.png)     
 
-6. Sob **Add**, introduza um **nome** para seu contrato. Para o tipo de contrato, selecione **X12**. Selecione o **parceiro do anfitrião**, **identidade do anfitrião**, **parceiro convidado**, e **identidade do convidado** para seu contrato. Para obter mais detalhes de propriedade, consulte a tabela neste passo.
+6. Sob **Add**, introduza um **nome** para seu contrato. 
+   Para o tipo de contrato, selecione **X12**. 
+   Selecione o **parceiro do anfitrião**, **identidade do anfitrião**, **parceiro convidado**, e **identidade do convidado** para seu contrato. 
+   Para obter mais detalhes de propriedade, consulte a tabela neste passo.
 
     ![Fornecer detalhes do contrato](./media/logic-apps-enterprise-integration-x12/x12-1.png)  
 
     | Propriedade | Descrição |
     | --- | --- |
-    | Nome |Nome do contrato |
+    | Name |Nome do contrato |
     | Tipo de Contrato | Deve ser X12 |
     | Parceiro do Anfitrião |Tem de um contrato de parceiro de um anfitrião e convidado. O parceiro do anfitrião representa a organização que configura o contrato. |
     | Identidade do Anfitrião |Um identificador para o parceiro do anfitrião |
@@ -72,8 +77,8 @@ Depois de [criar uma conta de integração](../logic-apps/logic-apps-enterprise-
     | Definições de Receção |Estas propriedades aplicam-se a todas as mensagens recebidas por um contrato. |
     | Definições de Envio |Estas propriedades aplicam-se a todas as mensagens enviadas por um contrato. |  
 
-  > [!NOTE]
-  > Resolução do contrato depende o qualificador do remetente e o identificador e o qualificador do destinatário e o identificador definido na mensagem de entrada e parceiro correspondentes de X12. Se alterar estes valores para o seu parceiro, atualize também o contrato.
+   > [!NOTE]
+   > Resolução do contrato depende o qualificador do remetente e o identificador e o qualificador do destinatário e o identificador definido na mensagem de entrada e parceiro correspondentes de X12. Se alterar estes valores para o seu parceiro, atualize também o contrato.
 
 ## <a name="configure-how-your-agreement-handles-received-messages"></a>Configurar a forma como seus identificadores de contrato receberam mensagens
 
@@ -82,7 +87,7 @@ Agora que definiu as propriedades de contrato, é possível configurar como o pr
 1.  Sob **Add**, selecione **receber definições**.
 Configure estas propriedades com base no seu contrato com o parceiro que troca mensagens com. Para descrições das propriedades, consulte as tabelas nesta secção.
 
-    **Receber definições** está organizada nestas secções: identificadores, reconhecimento, esquemas, Envelopes, números de controlo, validações e as definições internas.
+    **Receber definições** está organizada nestas secções: Identificadores, reconhecimento, esquemas, Envelopes, números de controlo, validações e as definições internas.
 
 2. Depois de terminar, certifique-se de guardar as definições ao escolher **OK**.
 
@@ -178,7 +183,7 @@ Quando concluir cada linha de validação, o outro é adicionado automaticamente
 1.  Sob **Add**, selecione **enviar definições**.
 Configure estas propriedades com base no seu contrato com o seu parceiro que troca mensagens com. Para descrições das propriedades, consulte as tabelas nesta secção.
 
-    **Definições de envio** está organizada nestas secções: identificadores de confirmação, esquemas, Envelopes, conjuntos de carateres e separadores, números de controlo e validação.
+    **Definições de envio** está organizada nestas secções: Identificadores, reconhecimento, os esquemas, Envelopes, conjuntos de carateres e separadores, números de controlo e validação.
 
 2. Depois de terminar, certifique-se de guardar as definições ao escolher **OK**.
 

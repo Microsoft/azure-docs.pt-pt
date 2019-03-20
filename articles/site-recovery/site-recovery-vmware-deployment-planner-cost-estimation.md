@@ -5,18 +5,26 @@ author: mayurigupta13
 manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 11/27/2018
+ms.date: 3/14/2019
 ms.author: mayg
-ms.openlocfilehash: d1e406567b5f56f6ad08e4d276202ebf43d92534
-ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
+ms.openlocfilehash: 8a36a80903a47bb4163666baf86ed8dac13a00de
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54321496"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58093842"
 ---
 # <a name="review-the-cost-estimation-report-in-the-site-recovery-deployment-planner-for-vmware-disaster-recovery-to-azure"></a>Reveja o relatório de estimativa de custo no Site Recovery Deployment Planner para a recuperação de desastre do VMware para o Azure
 
 O relatório do Planeador de Implementações fornece o resumo da estimativa de custos em folhas de [Recomendações](site-recovery-vmware-deployment-planner-analyze-report.md#recommendations) e a análise detalhada de custos na folha Estimativa de Custos. Inclui a análise detalhada de custos por VM. 
+
+>[!Note]
+>A versão atual da ferramenta Planeador de implementações não fornece a estimativa de custos para VMs a replicar para o Managed Disks.
+>* As estimativas de custo de exploração de DR são o mesmo para contas de armazenamento e discos geridos, quando o parâmetro de "Utilizar discos geridos" está definido como "Sim" no painel "Computação e rede".
+>* Para obter uma estimativa aproximada de custo anual de replicação, faça as seguintes definições temporárias no **estimativa de custos** folha:
+>    * Defina o parâmetro de "Duração de custos" **definições** tabela para "Ano"
+>    * Na **detalhado de análise de custo** de tabela, defina a coluna "Número de explorações de DR num ano" e 12 e "duração de cada exploração de DR (dias)" para 30 
+>    * O custo de replicação será semelhante ao custo preenchido no custo do armazenamento de coluna 'R', ou seja, exploração de DR por ano em **custo de exploração de DR por ano** subsecção.
 
 ### <a name="cost-estimation-summary"></a>Resumo da estimativa de custos 
 O gráfico mostra a vista de resumo do custo total estimado da recuperação após desastre (DR) para o Azure da região de destino que escolheu e a moeda que especificou para a geração do relatório.
@@ -106,9 +114,9 @@ Para adicionar VMs manualmente:
 * Redundância de dados 
 * Benefício Híbrido do Azure
 
-3.  Pode aplicar o mesmo valor a todas as VMs na tabela ao clicar no botão «Apply to all» (Aplicar a todos) para Número de Explorações de DR num ano, Duração de cada Exploração de DR (Dias), Redundância de dados e Benefício Híbrido do Azure.
+1. Pode aplicar o mesmo valor a todas as VMs na tabela ao clicar no botão «Apply to all» (Aplicar a todos) para Número de Explorações de DR num ano, Duração de cada Exploração de DR (Dias), Redundância de dados e Benefício Híbrido do Azure.
 
-4.  Clique em «Re-calculate cost» (Voltar a calcular o custo) para atualizar o custo.
+1. Clique em «Re-calculate cost» (Voltar a calcular o custo) para atualizar o custo.
 
 **Nome da VM**: O nome da VM.
 
@@ -148,7 +156,7 @@ eastus, eastus2, westus, centralus, northcentralus, southcentralus, northeurope,
 ## <a name="supported-currencies"></a>Moedas suportadas
 O Planeador de Implementações do Azure Site Recovery pode gerar o relatório de custos com qualquer uma das moedas seguintes.
 
-|Moeda|Nome||Moeda|Nome||Moeda|Nome|
+|Moeda|Name||Moeda|Name||Moeda|Name|
 |---|---|---|---|---|---|---|---|
 |ARS|Peso Argentino ($)||AUD|Dólar Australiano ($)||BRL|Real Brasileiro (R$)|
 |CAD|Dólar Canadiano ($)||CHF|Franco Suíço (chf)||DKK|Coroa Dinamarquesa (kr)|

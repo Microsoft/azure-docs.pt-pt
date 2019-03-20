@@ -14,21 +14,21 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/31/2018
 ms.author: genli
-ms.openlocfilehash: 7977dc55d101c99bf1f850a529083916367308b4
-ms.sourcegitcommit: 6678e16c4b273acd3eaf45af310de77090137fa1
+ms.openlocfilehash: b83a6e2c81eac9993c481561e3cebbed681d2c4a
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/01/2018
-ms.locfileid: "50747818"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58096049"
 ---
 # <a name="how-to-set-a-static-internal-private-ip-address-using-powershell-classic"></a>Como definir um endereço IP de privada interno estático com o PowerShell (clássico)
 Na maioria dos casos, não tem de especificar um endereço IP estático interno para a máquina virtual. As VMs numa rede virtual irão receber automaticamente um endereço IP interno de um intervalo que especificou. Mas em certos casos, a especificação de um endereço IP estático para uma VM específica faz sentido. Por exemplo, se a VM irá executar o DNS ou vai ser um controlador de domínio. Um endereço IP estático interno permanece com a VM, mesmo através de um Estado de paragem/desaprovisionamento. 
 
 > [!IMPORTANT]
-> O Azure tem dois modelos de implementação diferentes para criar e trabalhar com os recursos: [Resource Manager e clássico](../azure-resource-manager/resource-manager-deployment-model.md). Este artigo cobre a utilização do modelo de implementação clássica. A Microsoft recomenda que as implementações mais novas utilizem o [modelo de implementação do Resource Manager](virtual-networks-static-private-ip-arm-ps.md).
+> O Azure tem dois modelos de implementação diferentes para criar e trabalhar com recursos:  [Resource Manager e clássica](../azure-resource-manager/resource-manager-deployment-model.md). Este artigo cobre a utilização do modelo de implementação clássica. A Microsoft recomenda que as implementações mais novas utilizem o [modelo de implementação do Resource Manager](virtual-networks-static-private-ip-arm-ps.md).
 > 
 > 
-## <a name="install-the-azure-powershell-service-management-module"></a>Instalar o módulo de gestão de serviço do Azure PowerShell
+> ## <a name="install-the-azure-powershell-service-management-module"></a>Instalar o módulo de gestão de serviço do Azure PowerShell
 
 Antes de executar os comandos seguintes, certifique-se de que o [módulo de gestão de serviço do Azure PowerShell](https://docs.microsoft.com/powershell/azure/servicemanagement/install-azure-ps?view=azuresmps-4.0.0
 ) está instalado na máquina. Para o histórico de versões do módulo de gestão de serviço do Azure PowerShell, consulte [módulo do Azure na galeria do PowerShell](https://www.powershellgallery.com/packages/Azure/5.3.0).

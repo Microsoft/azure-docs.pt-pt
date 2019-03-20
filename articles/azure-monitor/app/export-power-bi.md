@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 08/10/2018
 ms.author: mbullwin
-ms.openlocfilehash: 17c493568953265ac12ebccc680652ed5da6ae4d
-ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
-ms.translationtype: MT
+ms.openlocfilehash: 13156b3419d961850c8e4e408a9cf565a5f957ad
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56312996"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58086399"
 ---
 # <a name="feed-power-bi-from-application-insights"></a>Feed do Power BI do Application Insights
 [Power BI](https://www.powerbi.com/) é um conjunto de ferramentas de negócio que o ajuda a analisar dados e partilhar informações. Dashboards avançados estão disponíveis em todos os dispositivos. Pode combinar dados de várias origens, incluindo consultas de análise de [do Azure Application Insights](../../azure-monitor/app/app-insights-overview.md).
@@ -96,7 +96,7 @@ Isto pode acontecer se não tiver sido atualizado o seu token de atualização. 
 1. Inicie sessão no portal do Azure e certifique-se de que pode aceder ao recurso.
 2. Tente atualizar as credenciais para o dashboard.
 
- Se tem acesso e atualizar as credenciais não funciona, abra um pedido de suporte.
+   Se tem acesso e atualizar as credenciais não funciona, abra um pedido de suporte.
 
 ### <a name="bad-gateway-502"></a>Gateway inválido (502)
 Normalmente, isto é provocado por uma consulta do Analytics que devolve muitos dados. Tente utilizar um intervalo de tempo menor para a consulta. 

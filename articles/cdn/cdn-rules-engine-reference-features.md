@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/09/2018
 ms.author: magattus
-ms.openlocfilehash: d6d898b93af6c03b313ec2340eb076de85877155
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 205a8dae55394a82a60f54ed32bad95324a59517
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57530999"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57996939"
 ---
 # <a name="azure-cdn-rules-engine-features"></a>Funcionalidades do motor de regras CDN do Azure
 Este artigo apresenta uma lista de descrições detalhadas dos recursos disponíveis para a rede de entrega de conteúdos (CDN) do Azure [motor de regras](cdn-rules-engine.md).
@@ -76,7 +76,7 @@ Esta funcionalidade foi concebida para fornecer informações adicionais dentro 
 Name | Objetivo
 -----|--------
 [Comentário](#comment) | Permite que uma nota a ser adicionados dentro de uma regra.
- 
+ 
 ## <a name="header-features"></a>Funcionalidades de cabeçalho
 
 Esses recursos foram desenvolvidos para adicionar, modificar ou eliminar cabeçalhos da solicitação ou resposta.
@@ -126,7 +126,7 @@ Enabled|Indicates that the request is eligible for Edge Optimizer processing.
 Disabled|Restores the default behavior. The default behavior is to deliver content over the ADN platform without any additional processing.
 
 **Default Behavior:** Disabled
- 
+ 
 
 ### Edge Optimizer - Instantiate Configuration
 **Purpose:** Instantiates or activates the Edge Optimizer configuration associated with a site.
@@ -164,7 +164,7 @@ Name | Objetivo
 [Tamanho do corpo de pedido colocáveis em cache](#cacheable-request-body-size) | Define o limiar para determinar se uma resposta de POSTAGEM pode ser colocado em cache.
 [Variável de utilizador](#user-variable) | Apenas para utilização interna.
 
- 
+ 
 ## <a name="url-features"></a>Funcionalidades de URL
 
 Esses recursos permitem que um pedido para ser redirecionado ou reescrito para um URL diferente.
@@ -182,6 +182,7 @@ Name | Objetivo
 ---
 ### <a name="age-response-header"></a>Cabeçalho de resposta de idade
 **Objetivo**: Determina se um cabeçalho de resposta de idade está incluído na resposta enviada para o autor do pedido.
+
 Value|Resultado
 --|--
 Ativado | O cabeçalho de resposta de idade está incluído na resposta enviada para o autor do pedido.
@@ -191,7 +192,7 @@ Desativado | O cabeçalho de resposta de idade está excluído da resposta envia
 
 [Voltar ao início](#azure-cdn-rules-engine-features)
 
-</br>
+<br>
 
 ---
 ### <a name="bandwidth-parameters"></a>Parâmetros de largura de banda
@@ -394,6 +395,7 @@ Opção|Descrição
 --|--
 Caminho original| Defina o caminho relativo para os tipos de pedidos cuja chave de cache é reescrito. Pode ser definido um caminho relativo ao selecionar um caminho de base de origem e, em seguida, definir um padrão de expressão regular.
 Novo caminho|Defina o caminho relativo para a nova chave de cache. Pode ser definido um caminho relativo ao selecionar um caminho de base de origem e, em seguida, definir um padrão de expressão regular. Este caminho relativo que pode ser construído dinamicamente através da utilização de [variáveis HTTP](cdn-http-variables.md).
+
 **Comportamento predefinido:** chave um pedido de cache é determinado pelo URI do pedido.
 
 [Voltar ao início](#azure-cdn-rules-engine-features)
@@ -473,6 +475,7 @@ text/html| Ficheiros HTML
 text/css|Folhas de estilo em cascata (CSS)
 application/x-javascript|Javascript
 application/javascript|Javascript
+
 Informações da chave:
 
 - Especifique vários tipos de suportes de dados de Internet por cada um com um único espaço de delimitação. 
@@ -1024,6 +1027,7 @@ Value|Resultado
 --|--
 Ativado|Faz com que o POP de refetch o elemento a partir do servidor de origem.
 Desativado|Restaura o comportamento padrão. O comportamento padrão é servir a ativos de cache válido mediante pedido.
+
 Esta funcionalidade não é necessária para a colocação em cache correta e de entrega de conteúdos, mas pode ser útil como uma solução alternativa. Por exemplo, geradores de conteúdo dinâmicos nos servidores de origem inadvertidamente podem resultar em respostas de 0 bytes enviadas para os POPs. Esses tipos de respostas são normalmente colocadas em cache pelos POPs. Se sabe que uma resposta de 0 bytes nunca é uma resposta válida 
 
 para esse conteúdo, em seguida, esta funcionalidade pode impedir que esses tipos de ativos vinculado aos seus clientes.
@@ -1279,6 +1283,7 @@ Opção|Descrição
 -|-
  Padrão de & origem | Essas configurações definem um padrão URI do pedido que identifica o tipo de pedidos que pode ser reescrito. Irão ser reescritos apenas pedidos cujo URL cumprir ambos os seguintes critérios: <br/><br/>  - **Origem (ou ponto de acesso ao conteúdo):** selecione um caminho relativo que identifica um servidor de origem. Este caminho é o _/XXXX/_ secção e ao nome de ponto final. <br/><br/> - **Origem (padrão):** tem de ser definido um padrão que identifica os pedidos através do caminho relativo. Este padrão de expressão regular tem de definir um caminho que começa depois do acesso ao conteúdo anteriormente selecionado apontar diretamente (consulte acima). <br/> Certifique-se de que o pedido URI critérios (ou seja, origem e padrão) definidos anteriormente não entram em conflito com qualquer uma das condições de correspondência definidas para esta funcionalidade. Especificar um padrão; Se utilizar um valor em branco como o padrão, todas as cadeias de caracteres são correspondentes. 
  Destino  |Defina a URL relativa para o qual os pedidos acima irão ser reescritos por: <br/>    1. Selecionar um ponto de acesso ao conteúdo que identifica um servidor de origem. <br/>    2. Definir um caminho relativo com: <br/>        -Um padrão de expressão regular <br/>        - [Variáveis HTTP](cdn-http-variables.md) <br/> <br/> Substitua os valores capturados no padrão de origem para o padrão de destino usando $_n_ onde _n_ identifica um valor pela ordem em que foram capturado. Por exemplo, US $1 representa o primeiro valor capturado no padrão de origem, enquanto us $2 representa o segundo valor. 
+
  Esta funcionalidade permite que os POPs regravar a URL sem redirecionamento tradicional de executar. Ou seja, o solicitante recebe o mesmo código de resposta, como se o URL reescrito tinha sido solicitado.
 
 **Cenário de exemplo 1**

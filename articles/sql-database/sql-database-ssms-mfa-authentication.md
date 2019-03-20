@@ -12,12 +12,12 @@ ms.author: mireks
 ms.reviewer: vanto
 manager: craigg
 ms.date: 10/08/2018
-ms.openlocfilehash: 1f26fb101c9940a51ffb4fb7e1b48a51b943599a
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
+ms.openlocfilehash: 938d1b820bbc85824138d77b81b0f922fd494d0d
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55663745"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58003373"
 ---
 # <a name="universal-authentication-with-sql-database-and-sql-data-warehouse-ssms-support-for-mfa"></a>Autenticação universal com a base de dados SQL e SQL Data Warehouse (suporte do SSMS para a MFA)
 Azure SQL Data Warehouse e base de dados SQL do Azure suportam ligações do SQL Server Management Studio (SSMS) usando *Active Directory Universal Authentication*. 
@@ -46,7 +46,7 @@ Os utilizadores do AD do Azure suportados para cenários B2B do Azure AD, como o
 - SSMS versão 17,2 fornece suporte de assistente DacFx para base de dados de exportação/extração/Deploy. Assim que um utilizador específico é autenticado por meio da caixa de diálogo de autenticação inicial através da autenticação Universal, as funções de assistente DacFx da mesma forma que faz para todos os outros métodos de autenticação.
 - O Designer de tabela do SSMS não suporta a autenticação Universal.
 - Não existem não requisitos de software adicionais para o Active Directory Universal Authentication, exceto pelo fato de que tem de utilizar uma versão suportada do SSMS.  
-- A versão do Active Directory Authentication Library (ADAL) para autenticação Universal foi atualizada para a última versão lançada disponível adal 3.13.9. Ver [biblioteca de autenticação do Active Directory 3.14.1](http://www.nuget.org/packages/Microsoft.IdentityModel.Clients.ActiveDirectory/).  
+- A versão do Active Directory Authentication Library (ADAL) para autenticação Universal foi atualizada para a última versão lançada disponível adal 3.13.9. Ver [biblioteca de autenticação do Active Directory 3.14.1](https://www.nuget.org/packages/Microsoft.IdentityModel.Clients.ActiveDirectory/).  
 
 
 ## <a name="next-steps"></a>Passos Seguintes

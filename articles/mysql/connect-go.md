@@ -8,14 +8,14 @@ ms.custom: mvc
 ms.devlang: go
 ms.topic: quickstart
 ms.date: 02/28/2018
-ms.openlocfilehash: b61aefcee36584b6ecfd1d701cb548c06f731d05
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.openlocfilehash: 4abc34044d188be6b770439f06e8d4dab7f3ab93
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53536649"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57897661"
 ---
-# <a name="azure-database-for-mysql-use-go-language-to-connect-and-query-data"></a>Base de dados do Azure para MySQL: Utilize a linguagem Go para ligar e consultar dados
+# <a name="azure-database-for-mysql-use-go-language-to-connect-and-query-data"></a>Base de Dados do Azure para MySQL: Utilize a linguagem Go para ligar e consultar dados
 Este guia de introdução demonstra como se pode ligar a uma Base de Dados do Azure para MySQL a partir de plataformas Windows, Ubuntu, Linux e Apple macOS com código escrito na linguagem [Go](https://golang.org/). Explica como utilizar as instruções SQL para consultar, inserir, atualizar e eliminar dados da base de dados. Este tópico pressupõe que está familiarizado com a programação com Go e que nunca trabalhou com a Base de Dados do Azure para MySQL.
 
 ## <a name="prerequisites"></a>Pré-requisitos
@@ -86,7 +86,7 @@ Obtenha as informações de ligação necessárias para se ligar à Base de Dado
    
 
 ## <a name="build-and-run-go-code"></a>Criar e executar código Go 
-1. Para escrever o código Golang, pode utilizar um editor de textos simples, como o Blobo de Notas no Microsoft Windows, o [vi](http://manpages.ubuntu.com/manpages/xenial/man1/nvi.1.html#contenttoc5) ou o [Nano](https://www.nano-editor.org/) no Ubuntu ou o TextEdit em macOS. Se preferir um Ambiente de Desenvolvimento Interativo (IDE) rico, experimente o [Gogland](https://www.jetbrains.com/go/), da Jetbrains, o [Visual Studio Code](https://code.visualstudio.com/), da Microsoft, ou o [Atom](https://atom.io/).
+1. Para escrever o código Golang, pode utilizar um editor de textos simples, como o Blobo de Notas no Microsoft Windows, o [vi](https://manpages.ubuntu.com/manpages/xenial/man1/nvi.1.html#contenttoc5) ou o [Nano](https://www.nano-editor.org/) no Ubuntu ou o TextEdit em macOS. Se preferir um Ambiente de Desenvolvimento Interativo (IDE) rico, experimente o [Gogland](https://www.jetbrains.com/go/), da Jetbrains, o [Visual Studio Code](https://code.visualstudio.com/), da Microsoft, ou o [Atom](https://atom.io/).
 2. Cole o código Go das secções seguintes em ficheiros de texto e, em seguida, guarde-os na pasta do projeto com a extensão de ficheiro \*.go, (como, por exemplo, o caminho do Windows `%USERPROFILE%\go\src\mysqlgo\createtable.go` ou o caminho do Linux `~/go/src/mysqlgo/createtable.go`).
 3. Localize as constantes `HOST`, `DATABASE`, `USER` e `PASSWORD` no código e, em seguida, substitua os valores de exemplo pelos seus próprios valores. 
 4. Inicie a linha de comandos ou a shell de Bash. Altere o diretório para a pasta do projeto . Por exemplo, no Windows `cd %USERPROFILE%\go\src\mysqlgo\`. No Linux, `cd ~/go/src/mysqlgo/`.  Alguns dos editores de IDE mencionados oferecem capacidades de depuração e runtime sem que sejam necessários comandos da shell.

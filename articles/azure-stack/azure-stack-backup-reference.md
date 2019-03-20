@@ -16,12 +16,12 @@ ms.date: 02/12/2019
 ms.author: jeffgilb
 ms.reviewer: hectorl
 ms.lastreviewed: 10/25/2018
-ms.openlocfilehash: a7930ea86f7972a6e4abb939fb148d519ca924e9
-ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
+ms.openlocfilehash: b35b069f05f117b227a2edbf5595f2682b7f6e86
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/19/2019
-ms.locfileid: "56416722"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57997263"
 ---
 # <a name="infrastructure-backup-service-reference"></a>Referência de serviço de cópia de segurança de infra-estrutura
 
@@ -89,17 +89,20 @@ Os requisitos incluem:
 Controlador de cópia de segurança de infra-estrutura faz a cópia de segurança de dados a pedido. Recomenda-se fazer o backup finalmente duas vezes um dia e manter no máximo de sete dias de cópias de segurança. 
 
 **1811 e muito mais**
+
 | Dimensionamento do ambiente | Tamanho previsto de cópia de segurança | Quantidade total de espaço necessário |
 |-------------------|--------------------------|--------------------------------|
 | 16 de 4 nós        | 20 GB                    | 280 GB                        |
 | ASDK              | 10 GB                    | 140 GB                        |
 
 **Pré-1811**
+
 | Dimensionamento do ambiente | Tamanho previsto de cópia de segurança | Quantidade total de espaço necessário |
 |-------------------|--------------------------|--------------------------------|
 | 4-16 nós, ASDK  | 10 GB                     | 140 GB                        |
 
 ### <a name="network-requirements"></a>Requisitos da rede
+
 | Localização do armazenamento                                                                 | Detalhes                                                                                                                                                                                 |
 |----------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Partilha de ficheiros SMB alojada num dispositivo de armazenamento dentro do ambiente de rede fidedigna | É necessária a porta 445 se a instância do Azure Stack reside num ambiente com firewall. Controlador de cópia de segurança da infraestrutura será feita uma ligação ao servidor de ficheiros SMB através da porta 445. |
@@ -131,6 +134,7 @@ O certificado utilizado durante a recuperação da cloud com a chave privada (. 
 Considere estes limites, como planejar, implantar e operar as instâncias do Microsoft Azure Stack. A tabela seguinte descreve estes limites.
 
 ### <a name="infrastructure-backup-limits"></a>Limites de cópia de segurança da infraestrutura
+
 | Identificador de limite                                                 | Limite        | Comentários                                                                                                                                    |
 |------------------------------------------------------------------|--------------|---------------------------------------------------------------------------------------------------------------------------------------------|
 | Tipo de cópia de segurança                                                      | Apenas completo    | Controlador de cópia de segurança de infra-estrutura só suporta cópias de segurança completas. Cópias de segurança incrementais não são suportadas.                                          |

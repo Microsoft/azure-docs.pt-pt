@@ -5,22 +5,22 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 12/07/2018
+ms.date: 03/18/2019
 ms.topic: tutorial
 ms.service: cost-management
 ms.custom: seodec18
 manager: benshy
-ms.openlocfilehash: a5376aed3e9cdb12be58cb07d7eb00303a03a963
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: a9c6e99d3eff14c364d5eba3e6256382f9df6bc4
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53074882"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58182715"
 ---
 <!-- Intent: As a cloud-consuming administrator, I need to ensure that my reserved instances are optimized for cost and usage
 -->
 
-# <a name="tutorial-optimize-reserved-instances"></a>Tutorial: otimizar instâncias reservadas
+# <a name="tutorial-optimize-reserved-instances"></a>Tutorial: Otimizar as instâncias reservadas
 
 Neste tutorial, vai aprender como a Cloudyn pode ajudar a otimizar os custos e a utilização das instâncias reservadas do Azure e do Amazon Web Services (AWS). Uma instância reservada com um dos fornecedores de serviços cloud é um compromisso para um contrato a longo prazo, em que há um compromisso prévio para a utilização futura da VM. Além disso, pode oferecer potencialmente poupanças consideráveis, em comparação com o modelo de preços de VM de pagamento por utilização padrão. As poupanças potenciais só são conseguidas quando utiliza totalmente a capacidade das suas instâncias reservadas.
 

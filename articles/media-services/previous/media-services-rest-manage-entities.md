@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/08/2019
 ms.author: juliako
-ms.openlocfilehash: 0f500ec776d90755d6738af80c34866105d354f5
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: ff7bb6fa087ab7fa362c13ca03d6f3100a505ce3
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55999407"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57858962"
 ---
 # <a name="managing-media-services-entities-with-rest"></a>Gerenciando entidades de serviços de multimédia com REST  
 
@@ -29,7 +29,7 @@ ms.locfileid: "55999407"
 > 
 > 
 
-Serviços de multimédia do Microsoft Azure é um serviço baseado em REST, criado sobre OData v3. Pode adicionar, consultar, atualizar e eliminar entidades praticamente da mesma forma como pode, em qualquer outro serviço OData. Exceções serão destacadas quando aplicável. Para obter mais informações sobre OData, veja [documentação Open Data Protocol](http://www.odata.org/documentation/).
+Serviços de multimédia do Microsoft Azure é um serviço baseado em REST, criado sobre OData v3. Pode adicionar, consultar, atualizar e eliminar entidades praticamente da mesma forma como pode, em qualquer outro serviço OData. Exceções serão destacadas quando aplicável. Para obter mais informações sobre OData, veja [documentação Open Data Protocol](https://www.odata.org/documentation/).
 
 Este tópico mostra-lhe como gerir entidades de serviços de multimédia do Azure com REST.
 

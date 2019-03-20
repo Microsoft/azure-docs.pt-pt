@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/30/2019
 ms.author: manayar
-ms.openlocfilehash: 34f1b023b2ea2451f3308666d156278e92afb4aa
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
+ms.openlocfilehash: d1cff1011e190e5fbb2874657cbdfbdc68bde0c0
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55565977"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58084400"
 ---
 # <a name="using-application-health-extension-with-virtual-machine-scale-sets"></a>Conjuntos de extensão com o dimensionamento de máquinas virtuais com o estado de funcionamento da aplicação
 Monitorizar o estado de funcionamento do aplicativo é um sinal importante para gerenciar e atualizar a sua implementação. Conjuntos de dimensionamento de máquina virtual do Azure fornecem suporte para [atualizações sem interrupção](virtual-machine-scale-sets-upgrade-scale-set.md#how-to-bring-vms-up-to-date-with-the-latest-scale-set-model) incluindo [atualizações automáticas da imagem do SO](virtual-machine-scale-sets-automatic-upgrade.md), que dependem de monitorização de estado de funcionamento das instâncias individuais para atualizar a sua implementação .
@@ -64,19 +64,19 @@ O JSON seguinte mostra o esquema para a extensão de estado de funcionamento do 
 ### <a name="property-values"></a>Valores de propriedade
 
 | Nome | Valor / exemplo | Tipo de Dados
-| ---- | ---- | ---- | ----
+| ---- | ---- | ---- 
 | apiVersion | `2018-10-01` | date |
-| publicador | `Microsoft.ManagedServices` | cadeia |
-| tipo | `ApplicationHealthLinux` (Linux), `ApplicationHealthWindows` (Windows) | cadeia |
+| publicador | `Microsoft.ManagedServices` | string |
+| tipo | `ApplicationHealthLinux` (Linux), `ApplicationHealthWindows` (Windows) | string |
 | typeHandlerVersion | `1.0` | int |
 
 ### <a name="settings"></a>Definições
 
 | Name | Valor / exemplo | Tipo de Dados
 | ---- | ---- | ----
-| protocolo | `http` ou `tcp` | cadeia |
+| protocolo | `http` ou `tcp` | string |
 | porta | Opcional quando o protocolo é `http`obrigatório quando o protocolo é `tcp` | int |
-| requestPath | Obrigatório quando o protocolo é `http`, não permitido quando o protocolo é `tcp` | cadeia |
+| requestPath | Obrigatório quando o protocolo é `http`, não permitido quando o protocolo é `tcp` | string |
 
 ## <a name="deploy-the-application-health-extension"></a>Implementar a extensão de estado de funcionamento da aplicação
 Existem várias formas de implementar o estado de funcionamento do aplicativo extensão para seu dimensionamento define conforme explicado nos exemplos abaixo.

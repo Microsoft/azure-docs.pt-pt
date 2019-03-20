@@ -6,7 +6,7 @@ keywords: ''
 author: curtand
 manager: mtillman
 ms.author: curtand
-ms.date: 01/31/2019
+ms.date: 03/18/2019
 ms.topic: article
 ms.service: active-directory
 ms.workload: identity
@@ -14,12 +14,12 @@ ms.subservice: users-groups-roles
 ms.custom: it-pro
 ms.reviewer: martincoetzer; MarkMorow
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a01bd205ad26169ab0a21345a2246eb12dca6645
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
-ms.translationtype: MT
+ms.openlocfilehash: a31d41dedf7b925287a5beda15c7bfeb2bc59c96
+ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
+ms.translationtype: HT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 03/19/2019
-ms.locfileid: "58180896"
+ms.locfileid: "58201879"
 ---
 # <a name="securing-privileged-access-for-hybrid-and-cloud-deployments-in-azure-ad"></a>Proteger o acesso privilegiado para implementações híbridas e na cloud no Azure AD
 
@@ -44,11 +44,12 @@ A cyber-attack, if successful, can shut down operations not just for a few hours
 does the article really start here?-->
 Na maioria das organizações, a segurança dos ativos empresariais depende da integridade das contas com privilégios que administram e gerem os sistemas de TI. Os ciberatacantes concentrar-se no acesso privilegiado para sistemas de infraestrutura (por exemplo, Active Directory e Azure Active Directory) para obter acesso a dados confidenciais de uma organização. 
 
-As abordagens tradicionais que se concentram em proteger os pontos de entrada e saída de uma rede como perímetro segurança principal são menos eficazes devido ao aumento na utilização de aplicações SaaS e dispositivos pessoais na Internet. A substituição natural do perímetro de segurança de rede numa empresa moderna complexa é os controlos de autenticação e autorização na camada de identidade da organização. 
+As abordagens tradicionais que se concentram em proteger os pontos de entrada e saída de uma rede como perímetro segurança principal são menos eficazes devido ao aumento na utilização de aplicações SaaS e dispositivos pessoais na Internet. A substituição natural do perímetro de segurança de rede numa empresa moderna complexa é os controlos de autenticação e autorização na camada de identidade da organização.
 
 Contas administrativas privilegiadas estão efetivamente controlar este novo "perímetro de segurança." É fundamental para proteger o acesso privilegiado, independentemente se o ambiente está no local, na cloud ou híbrida no local e na cloud dos serviços hospedados. Proteger o acesso administrativo contra adversários requer a adotar uma abordagem completa e meticulosa para isolar os sistemas da sua organização de riscos. 
 
 Proteger o acesso privilegiado requer alterações ao
+
 * Processos e práticas administrativas e gerenciamento de conhecimentos
 * Componentes técnicos como defesas de anfitriões, proteções de contas e gestão de identidades
 
@@ -75,7 +76,7 @@ Essa estrutura de plano foi concebida para maximizar a utilização de tecnologi
 
 ## <a name="stage-1-critical-items-that-we-recommend-you-do-right-away"></a>Fase 1: Itens críticos que recomendamos que faça agora mesmo
 
-![Fase 1](./media/directory-admin-roles-secure/stage-one.png)
+![Itens de críticas a fase 1 fazer primeiro](./media/directory-admin-roles-secure/stage-one.png)
 
 Fase 1 do plano se concentra em tarefas críticas que são rápidos e fáceis de implementar. Recomendamos que efetue estes itens alguns imediatamente dentro das primeira 24-48 horas para garantir um nível básico de proteger o acesso privilegiado. Nesta fase do plano protegida acesso privilegiado inclui as seguintes ações:
 
@@ -116,17 +117,17 @@ Remova as contas que já não são necessários nessas funções. Em seguida, ca
 
 Certifique-se de que não obtém com uma situação onde eles poderiam ser inadvertidamente impedidos de aceder a administração de inquilino do Azure AD devido a uma incapacidade para iniciar sessão ou ativar a conta de um usuário individual existente como administrador. Por exemplo, se a organização estiver federada para um fornecedor de identidade no local, esse fornecedor de identidade pode estar indisponível, para que os utilizadores não podem iniciar sessão no local. Pode mitigar o impacto de acidental falta de acesso administrativo ao armazenar duas ou mais contas de acesso de emergência no seu inquilino.
 
-Contas de acesso de emergência ajudam as organizações a restringir o acesso privilegiado num ambiente do Azure Active Directory existente. Estas contas são altamente privilegiadas e não estão atribuídas a indivíduos específicos. Contas de acesso de emergência estão limitadas a emergência para "break glass" cenários onde não não possível utilizar contas administrativas normais. As organizações devem garantir o objetivo de controlar e reduzir a utilização da conta de emergência para apenas esse tempo para os quais é necessário. 
+Contas de acesso de emergência ajudam as organizações a restringir o acesso privilegiado num ambiente do Azure Active Directory existente. Estas contas são altamente privilegiadas e não estão atribuídas a indivíduos específicos. Contas de acesso de emergência estão limitadas a emergência para "break glass" cenários onde não não possível utilizar contas administrativas normais. As organizações devem garantir o objetivo de controlar e reduzir a utilização da conta de emergência para apenas esse tempo para os quais é necessário.
 
 Avalie as contas que são atribuídas ou elegíveis para a função de administrador global. Se não vir nenhum apenas na cloud contas com o *. onmicrosoft.com domínio (previstas para acesso de emergência "break glass"), criá-los. Para obter mais informações, consulte [gerir contas de administrador de acesso de emergência no Azure AD](directory-emergency-access.md).
 
-#### <a name="turn-on-multi-factor-authentication-and-register-all-other-highly-privileged-single-user-non-federated-admin-accounts"></a>Ativar a autenticação multifator e registar todas as outras contas de administrador de não federadas de utilizador único de privilégios elevados 
+#### <a name="turn-on-multi-factor-authentication-and-register-all-other-highly-privileged-single-user-non-federated-admin-accounts"></a>Ativar a autenticação multifator e registar todas as outras contas de administrador de não federadas de utilizador único de privilégios elevados
 
 Precisa do Azure multi-factor Authentication (MFA), no início de sessão para todos os utilizadores individuais que são permanentemente atribuídos a um ou mais funções de administrador do Azure AD: Administrador global, o administrador com função privilegiada, o administrador do Exchange Online e o administrador do SharePoint Online. Utilize o guia para habilitar [multi-factor Authentication (MFA) para as suas contas de administrador](../authentication/howto-mfa-userstates.md) e certifique-se de que todos esses utilizadores registarem no [ https://aka.ms/mfasetup ](https://aka.ms/mfasetup). Podem encontrar mais informações no passo 2 e o passo 3 do guia [proteger o acesso a dados e serviços do Office 365](https://support.office.com/article/Protect-access-to-data-and-services-in-Office-365-a6ef28a4-2447-4b43-aae2-f5af6d53c68e). 
 
 ## <a name="stage-2-mitigate-the-most-frequently-used-attack-techniques"></a>Fase 2: Mitigar as técnicas de ataque utilizadas com mais frequência
 
-![Fase 2](./media/directory-admin-roles-secure/stage-two.png)
+![Ataques de Mitigate usado com freqüência de fase 2](./media/directory-admin-roles-secure/stage-two.png)
 
 Estágio 2 dos focos de mapa na mitigação mais frequentemente utilizadas técnicas de ataque de roubo de credenciais e abuso e pode ser implementado em aproximadamente 2-4 semanas. Nesta fase do plano protegida acesso privilegiado inclui as seguintes ações.
 
@@ -144,7 +145,7 @@ Com o aumento no bring-your-own device (BYOD) e políticas de trabalho a partir 
 * Peça aos utilizadores para a justificação de negócio para acesso administrativo.
 * Remova o acesso de administrador para esses indivíduos e serviços que não precisam dela.
 
-#### <a name="identify-microsoft-accounts-in-administrative-roles-that-need-to-be-switched-to-work-or-school-accounts"></a>Identificar as contas Microsoft funções administrativas que têm de ser mudado para contas escolares ou 
+#### <a name="identify-microsoft-accounts-in-administrative-roles-that-need-to-be-switched-to-work-or-school-accounts"></a>Identificar as contas Microsoft funções administrativas que têm de ser mudado para contas escolares ou
 
 Às vezes, os administradores globais iniciais para uma organização reutilizar as credenciais da conta Microsoft já quando eles começaram a utilizar o Azure AD. Essas contas Microsoft devem ser substituídas por contas individuais, com base na cloud ou sincronizadas. 
 
@@ -200,18 +201,17 @@ Se o seu inquilino do Azure Active Directory está sincronizado com o Active Dir
 
 #### <a name="complete-an-inventory-of-subscriptions"></a>Concluir um inventário das subscrições
 
-Utilize o portal da empresa e o portal do Azure para identificar as subscrições na sua organização que alojam aplicações de produção. 
+Utilize o portal da empresa e o portal do Azure para identificar as subscrições na sua organização que alojam aplicações de produção.
 
 #### <a name="remove-microsoft-accounts-from-admin-roles"></a>Remover contas Microsoft de funções de administrador
 
-As contas Microsoft de outros programas, como Xbox Live e Outlook não devem ser utilizadas como contas de administrador para as subscrições organizacionais. Remover o estado de administrador de todas as contas Microsoft e substitua com o Active Directory (por exemplo, chris@contoso.com) contas escolares ou.
+As contas Microsoft de outros programas, como Xbox Live e Outlook não devem ser utilizadas como contas de administrador para as subscrições organizacionais. Remover o estado de administrador de todas as contas Microsoft e substitua com o Azure Active Directory (por exemplo, chris@contoso.com) contas escolares ou.
 
 #### <a name="monitor-azure-activity"></a>Monitorizar a atividade do Azure
 
 O registo de atividades do Azure fornece um histórico de eventos ao nível da subscrição no Azure. Oferece informações sobre quem criadas, atualizadas e eliminadas que recursos, e quando esses eventos ocorreram. Para obter mais informações, consulte [auditoria e receber notificações sobre ações importantes efetuadas na sua subscrição do Azure](../../azure-monitor/platform/quick-audit-notify-action-subscription.md).
 
-
-### <a name="additional-steps-for-organizations-managing-access-to-other-cloud-apps-via-azure-ad"></a>Passos adicionais para as organizações a gerir o acesso a outras aplicações na cloud através do Azure AD 
+### <a name="additional-steps-for-organizations-managing-access-to-other-cloud-apps-via-azure-ad"></a>Passos adicionais para as organizações a gerir o acesso a outras aplicações na cloud através do Azure AD
 
 #### <a name="configure-conditional-access-policies"></a>Configurar políticas de acesso condicional
 
@@ -220,7 +220,7 @@ Prepare as políticas de acesso condicional para aplicações alojadas na cloud 
 
 ## <a name="stage-3-build-visibility-and-take-full-control-of-admin-activity"></a>Fase 3: Criar visibilidade e controle completo da atividade de administrador
 
-![Fase 3](./media/directory-admin-roles-secure/stage-three.png)
+![Fase 3 assumir o controlo da atividade de administração](./media/directory-admin-roles-secure/stage-three.png)
 
 Fase 3 baseia-se nas mitigações da fase 2 e foi concebida para ser implementada em cerca de 1 a 3 meses. Nesta fase do plano protegida acesso privilegiado inclui os seguintes componentes.
 
@@ -322,8 +322,7 @@ O agente SIEM do Cloud App Security se integra o Cloud App Security com o seu se
 
 ## <a name="stage-4-continue-building-defenses-to-a-more-proactive-security-posture"></a>Fase 4: Continuar a criar defensas para uma postura de segurança proativa
 
-
-![Fase 4](./media/directory-admin-roles-secure/stage-four.png)
+![Fase 4 Adote uma postura de segurança proativa](./media/directory-admin-roles-secure/stage-four.png)
 
 Fase 4 do plano baseia-se a visibilidade da fase 3 e foi concebida para ser implementada em seis meses e muito mais. Concluir um ajuda de mapa desenvolver strong privilegiado proteções de acesso de potenciais ataques que estão atualmente conhecidos e disponíveis hoje em dia. Infelizmente, as ameaças de segurança constantemente evoluam e mudança, pelo que recomendamos que encare de segurança como um processo contínuo focado no aumento do custo e reduzindo a taxa de êxito dos adversários direcionamento de seu ambiente.
 
@@ -368,7 +367,7 @@ Determinar se necessita [transferir a propriedade de uma subscrição do Azure p
 
 ## <a name="break-glass-what-to-do-in-an-emergency"></a>"Break glass": o que fazer numa emergência
 
-![Emergência](./media/directory-admin-roles-secure/emergency.jpeg)
+![Contas para acesso de vidro de garantia de reparação de emergência](./media/directory-admin-roles-secure/emergency.jpeg)
 
 1. Notifique os principais gerentes e responsáveis pela segurança com informações pertinentes relacionadas com o incidente.
 
@@ -390,51 +389,41 @@ Para obter mais informações sobre como o Microsoft Office 365 lida com inciden
 
 ## <a name="faq-common-questions-we-receive-regarding-securing-privileged-access"></a>FAQ: Perguntas comuns que recebemos relativamente à proteção de acesso privilegiado  
 
-
 **P:** O que devo fazer se eu ainda não Implementei quaisquer componentes de acesso seguro?
 
 **Resposta:** Definir a conta de efeito de vidro break, pelo menos, dois, atribuir MFA às suas contas de administrador com privilégios e contas de utilizador em separado das contas de Administrador Global.
-
 
 **P:** Depois de uma violação, o que é o problema principal que precisa ser resolvidos primeiro?
 
 **Resposta:** Certifique-se de que está a exigir a autenticação mais forte para indivíduos e altamente expostos.
 
-
 **P:** O que acontece se foram desativados nossos administradores com privilégios?
 
 **Resposta:** Crie uma conta de Administrador Global que é sempre mantida atualizada.
-
 
 **P:** O que acontece se houver apenas um global esquerda de administrador e não podem ser alcançados? 
 
 **Resposta:** Utilize uma das suas contas de quebra de vidro para obter acesso privilegiado de imediato.
 
-
 **P:** Como posso proteger administradores dentro da minha organização?
 
 **Resposta:** Ter administradores sempre realizar seus negócios diários como usuários padrão de "sem privilégios".
- 
 
 **P:** Quais são as melhores práticas para a criação de contas de administrador no Azure AD?
 
 **Resposta:** Acesso privilegiado de reserva para tarefas de administrador específico.
 
-
 **P:** Quais ferramentas existem para reduzir o acesso de administrador persistentes?
 
 **Resposta:** Funções de administrador do Identity Management (PIM) e o Azure AD com privilégios.
 
-
 **P:** O que é a posição da Microsoft em sincronizar as contas de administrador para o Azure AD?
 
-**Resposta:** Camada 0 contas de administrador (incluindo contas, grupos e outros recursos que têm controlo administrativo direto ou indireto da floresta do AD, domínios ou controladores de domínio e todos os ativos) são utilizadas apenas para contas AD e locais são geralmente não sincronizadas para o Azure AD para a nuvem. 
-
+**Resposta:** Camada 0 contas de administrador (incluindo contas, grupos e outros recursos que têm controlo administrativo direto ou indireto da floresta do AD, domínios ou controladores de domínio e todos os ativos) são utilizadas apenas para contas AD e locais são geralmente não sincronizadas para o Azure AD para a nuvem.
 
 **P:** Como podemos impedir que os administradores a atribuir acesso aleatório de administrador no portal do?
 
 **Resposta:** Utilize contas sem privilégios para todos os utilizadores e a maioria dos administradores. Comece com o desenvolvimento de uma impressão digital da organização para determinar qual devem ser privilegiadas a algumas contas de administrador. E monitorize os utilizadores administrativos recentemente criado.
-
 
 ## <a name="next-steps"></a>Passos Seguintes
 
@@ -444,10 +433,8 @@ Para obter mais informações sobre como o Microsoft Office 365 lida com inciden
 
 * [Documentação de orientação sobre como realizar uma avaliação de risco](https://www.microsoft.com/trustcenter/guidance/risk-assessment) -gerir requisitos de segurança e conformidade para serviços cloud da Microsoft
 
-### <a name="other-ms-online-services"></a>Outros serviços Online da MS 
+### <a name="other-microsoft-online-services"></a>Outros serviços Online da Microsoft
 
 * [Segurança do Microsoft Intune](https://www.microsoft.com/trustcenter/security/intune-security) – o Intune fornece gestão de dispositivos móveis, gestão de aplicações móveis e capacidades de gestão de PC da cloud.
 
 * [Segurança do Microsoft Dynamics 365](https://www.microsoft.com/trustcenter/security/dynamics365-security) – do Dynamics 365 é a solução com base na cloud da Microsoft que unifica o gerenciamento de relacionamento de cliente (CRM) e o planeamento de recursos (ERP) de recursos empresariais.
-
- 

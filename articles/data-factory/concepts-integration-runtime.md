@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 06/14/2018
 ms.author: jingwang
-ms.openlocfilehash: 82885c00557c85fefcf221789263632e21bd77da
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
+ms.openlocfilehash: ab6da597457fa94c171a1e2547c1d48cf35cd0f9
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56344034"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57893055"
 ---
 # <a name="integration-runtime-in-azure-data-factory"></a>Integration runtime no Azure Data Factory
 O Integration Runtime (IR) é a infraestrutura de computação que o Azure Data Factory utiliza para proporcionar as seguintes capacidades de integração de dados em diferentes ambientes de rede:
@@ -51,7 +51,7 @@ O diagrama seguinte mostra como os diferentes runtimes de integração podem ser
 Os runtimes de integração do Azure podem:
 
 - Executar atividades de cópia entre arquivos de dados na cloud
-- Expedir as atividades de transformação seguintes na rede pública: Atividade do Hive do HDInsight, atividade Pig do HDInsight, atividade MapReduce do HDInsight, atividade Spark do HDInsight, atividade Streaming do HDInsight, atividade execução de Batch do Machine Learning, atividades recursos de atualização do Machine Learning, atividade de procedimento armazenado, Atividade do Data Lake Analytics U-SQL, atividade personalizada .net, atividade Web, atividade de pesquisa e atividade obter metadados.
+- Expedir as atividades de transformação seguintes na rede pública: Atividade do Hive do HDInsight, atividade Pig do HDInsight, atividade MapReduce do HDInsight, atividade Spark do HDInsight, atividade Streaming do HDInsight, atividade execução de Batch do Machine Learning, atividades recursos de atualização do Machine Learning, atividade de procedimento armazenado, Atividade do Data Lake Analytics U-SQL, atividade personalizada .NET, atividade Web, atividade de pesquisa e atividade obter metadados.
 
 ### <a name="azure-ir-network-environment"></a>Ambiente de rede de IR do Azure
 O Azure Integration Runtime suporta a ligação a arquivos de dados e a serviços de computação na rede pública com pontos finais públicos acessíveis. Utilize um runtime de integração autoalojado para o ambiente Rede Virtual do Azure.
@@ -69,7 +69,7 @@ Para obter informações sobre como criar e configurar um runtime de integraçã
 Os runtimes de integração autoalojados podem:
 
 - Executar a atividade de cópia entre arquivos de dados na cloud e um arquivo de dados numa rede privada.
-- Expedir as seguintes atividades de transformação relativamente aos recursos de computação no local ou de rede Virtual do Azure: Atividade de Hive do HDInsight (BYOC-traga seu Cluster próprio), atividade de Pig do HDInsight (BYOC), atividade de MapReduce do HDInsight (BYOC), atividade do Spark do HDInsight (BYOC), transmissão em fluxo do HDInsight atividade (BYOC), atividade execução de lote do Machine Learning, Machine Learning Atividades do recurso, atividade de procedimento armazenado, atividade U-SQL do Data Lake Analytics, atividade personalizada .net, atividade de pesquisa e atividade obter metadados de atualização.
+- Expedir as seguintes atividades de transformação relativamente aos recursos de computação no local ou de rede Virtual do Azure: Atividade de Hive do HDInsight (BYOC-traga seu Cluster próprio), atividade de Pig do HDInsight (BYOC), atividade de MapReduce do HDInsight (BYOC), atividade do Spark do HDInsight (BYOC), transmissão em fluxo do HDInsight atividade (BYOC), atividade execução de lote do Machine Learning, Machine Learning Atividades do recurso, atividade de procedimento armazenado, atividade U-SQL do Data Lake Analytics, atividade personalizada .NET, atividade de pesquisa e atividade obter metadados de atualização.
 
 > [!NOTE] 
 > Utilize o runtime de integração autoalojado para suportar arquivos de dados que requeiram que utilize o seu próprio controlador, como SAP Hana, MySQL, etc.  Para obter mais informações, veja [Supported data stores](copy-activity-overview.md#supported-data-stores-and-formats) (Arquivos de dados suportados).

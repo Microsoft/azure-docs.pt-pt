@@ -8,16 +8,16 @@ ms.topic: include
 ms.date: 03/09/2018
 ms.author: cynthn
 ms.custom: include file
-ms.openlocfilehash: d4075f644ed1ce42479e35544f0e1442488f78eb
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: b0b5e817d5e39dd7800a1482d40c56db5f2be6ff
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/16/2018
-ms.locfileid: "29958916"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58109426"
 ---
 1. Inicie sessão no [portal do Azure](https://portal.azure.com).
 
-2. A partir do canto superior esquerdo, clique em **crie um recurso** > **computação** > **Datacenter do Windows Server 2016**.
+2. No canto superior esquerdo, clique em **criar um recurso** > **computação** > **Windows Server 2016 Datacenter**.
 
     ![Navegue para as imagens de VM do Azure no portal](./media/virtual-machines-common-portal-create-fqdn/marketplace-new.png)
 
@@ -33,7 +33,7 @@ O painel Noções Básicas solicita as informações administrativas para a máq
 
 2. Introduza um **Nome de utilizador** e uma **Palavra-passe** forte que são utilizados para criar uma conta local na VM. A conta local é utilizada para iniciar sessão e gerir a VM. No exemplo, _azureuser_ é o nome de utilizador.
 
- A palavra-passe tem de ter entre 8 e 123 carateres e cumprir três dos quatro requisitos de complexidade seguintes: um caráter em letra minúscula, um caráter em letra maiúscula, um número e um caráter especial. Saiba mais sobre os [requisitos de nomes de utilizador e palavras-passe](../articles/virtual-machines/windows/faq.md).
+   A palavra-passe tem de ter entre 8 e 123 carateres e cumprir três dos quatro requisitos de complexidade seguintes: um caráter em letra minúscula, um caráter em letra maiúscula, um número e um caráter especial. Saiba mais sobre os [requisitos de nomes de utilizador e palavras-passe](../articles/virtual-machines/windows/faq.md).
 
 3. A **Subscrição** é opcional. Uma definição comum é "Pay As You Go".
 

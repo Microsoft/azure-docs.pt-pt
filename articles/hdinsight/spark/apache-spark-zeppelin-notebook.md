@@ -9,12 +9,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 03/04/2019
-ms.openlocfilehash: 019232308ec5fa6d735e4499c3fb5f3ac2727e2d
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 18660b41f4413d3ae1cd820cd645ddb540397906
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57766399"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58095911"
 ---
 # <a name="use-apache-zeppelin-notebooks-with-apache-spark-cluster-on-azure-hdinsight"></a>Utilizar blocos de notas do Zeppelin do Apache com o cluster do Apache Spark no Azure HDInsight
 
@@ -106,12 +106,12 @@ Os clusters do Spark do HDInsight incluem [Apache Zeppelin](https://zeppelin.apa
 
 8. Selecione o **gráfico de barras** ícone para alterar a apresentação.  Em seguida, selecione **definições** e efetue as seguintes alterações:
 
-    * **Grupos:**  Adicione **targettemp**.  
-    * **Valores:** 1. Remova **data**.  2. Adicione **temp_diff**.  3.  Alterar o agregador partir **soma** ao **média**.  
+   * **Grupos:**  Adicione **targettemp**.  
+   * **Valores:** 1. Remova **data**.  2. Adicione **temp_diff**.  3.  Alterar o agregador partir **soma** ao **média**.  
 
-    Captura de ecrã seguinte mostra a saída.
+     Captura de ecrã seguinte mostra a saída.
 
-    ![Execute uma instrução de SQL do Spark com o bloco de notas](./media/apache-spark-zeppelin-notebook/hdinsight-zeppelin-spark-query-2.png "execute uma instrução de SQL do Spark com o bloco de notas")
+     ![Execute uma instrução de SQL do Spark com o bloco de notas](./media/apache-spark-zeppelin-notebook/hdinsight-zeppelin-spark-query-2.png "execute uma instrução de SQL do Spark com o bloco de notas")
 
 9. Reinicie o interpretador de Livy para sair do aplicativo. Para tal, abra as definições do interpretador ao selecionar o com sessão iniciada no nome de utilizador no canto superior direito e, em seguida, selecione **interpretador**.  
 

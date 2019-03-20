@@ -12,12 +12,12 @@ ms.workload: azure-vs
 ms.topic: conceptual
 ms.date: 11/14/2017
 ms.author: ghogen
-ms.openlocfilehash: 9a9fe0a92f8a8eadbd72ae56303348413a9d10c3
-ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
+ms.openlocfilehash: 1f90ce71084ba3acbf5a0aec5c7b8e9683323766
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/18/2018
-ms.locfileid: "42057376"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58011614"
 ---
 # <a name="how-to-get-started-with-azure-table-storage-and-visual-studio-connected-services"></a>Serviços ligados de como começar com o armazenamento de tabelas do Azure e o Visual Studio
 
@@ -27,7 +27,7 @@ Este artigo descreve como começar a utilizar o armazenamento de tabelas do Azur
 
 O serviço de armazenamento de tabelas do Azure permite-lhe armazenar grandes quantidades de dados estruturados. O serviço é um arquivo de dados NoSQL que aceita chamadas autenticadas de dentro e fora da cloud do Azure. As tabelas do Azure são ideais para armazenar dados estruturados não relacionais. Para obter mais informações sobre como utilizar o Table storage do Azure, consulte [introdução ao armazenamento de tabelas do Azure com o .NET](../storage/storage-dotnet-how-to-use-tables.md).
 
-Para começar a utilizar, crie primeiro uma tabela na sua conta de armazenamento. Este artigo, em seguida, mostra como criar uma tabela no c# e como realizar operações de tabela básico, como adicionar, modificar, ler e remover as entradas da tabela.  O código utiliza a biblioteca de cliente de armazenamento do Azure para .NET. Para obter mais informações sobre o ASP.NET, consulte [ASP.NET](http://www.asp.net).
+Para começar a utilizar, crie primeiro uma tabela na sua conta de armazenamento. Este artigo, em seguida, mostra como criar uma tabela no c# e como realizar operações de tabela básico, como adicionar, modificar, ler e remover as entradas da tabela.  O código utiliza a biblioteca de cliente de armazenamento do Azure para .NET. Para obter mais informações sobre o ASP.NET, consulte [ASP.NET](https://www.asp.net).
 
 Algumas das APIs de armazenamento do Azure são assíncronas e o código neste artigo supõe que métodos async que estão a ser utilizados. Ver [programação assíncrona](https://docs.microsoft.com/dotnet/csharp/async) para obter mais informações.
 

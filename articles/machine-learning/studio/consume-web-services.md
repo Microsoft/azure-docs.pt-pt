@@ -6,16 +6,16 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
 ms.topic: conceptual
-author: ericlicoding
+author: xiaoharper
 ms.author: amlstudiodocs
 ms.custom: seodec18
 ms.date: 06/02/2017
-ms.openlocfilehash: eac5573154bdb6227821a4e055391c3d79c8d297
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.openlocfilehash: a537227a7003391122e10f7f39233040cef49db3
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56817724"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57870066"
 ---
 # <a name="how-to-consume-an-azure-machine-learning-studio-web-service"></a>Como consumir um serviço web do Azure Machine Learning Studio
 
@@ -161,7 +161,7 @@ namespace CallRequestResponseService
                 client.BaseAddress = new Uri(apiUri);
 
                 // WARNING: The 'await' statement below can result in a deadlock
-                // if you are calling this code from the UI thread of an ASP.Net application.
+                // if you are calling this code from the UI thread of an ASP.NET application.
                 // One way to address this would be to call ConfigureAwait(false)
                 // so that the execution does not attempt to resume on the original context.
                 // For instance, replace code such as:

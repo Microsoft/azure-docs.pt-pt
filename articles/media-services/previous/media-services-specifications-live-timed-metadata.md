@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/08/2019
 ms.author: johndeu;
-ms.openlocfilehash: 89a19d53046afd8d2b16b23508e952989091c8d2
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: a953f4b77f896d3943cd996abf8c1fc1306ee9d7
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56005272"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57882001"
 ---
 # <a name="signaling-timed-metadata-in-live-streaming"></a>Assinalar metadados temporizados na transmissão em direto 
 
@@ -120,6 +120,7 @@ A caixa "moov" deve conter uma **TrackHeaderBox ('tkhd')** caixa conforme defini
 | **Nome do campo** | **Tipo de campo**          | **Necessário?** | **Descrição**                                                                                                |
 |----------------|-------------------------|---------------|----------------------------------------------------------------------------------------------------------------|
 | duração       | número inteiro não assinado de 64 bits | Necessário      | DEVE ser 0, uma vez que a caixa de controle tem zero exemplos e a duração total dos exemplos na caixa de controle é 0. |
+
 -------------------------------------
 
 A caixa "moov" deve conter uma **HandlerBox ('hdlr')** conforme definido na [ISO-14496-12] com as seguintes restrições:
@@ -127,6 +128,7 @@ A caixa "moov" deve conter uma **HandlerBox ('hdlr')** conforme definido na [ISO
 | **Nome do campo** | **Tipo de campo**          | **Necessário?** | **Descrição**   |
 |----------------|-------------------------|---------------|-------------------|
 | handler_type   | número inteiro sem sinal de 32 bits | Necessário      | DEVE ser "metadados". |
+
 -------------------------------------
 
 A caixa "stsd" deve conter uma caixa de MetaDataSampleEntry com um nome de codificação, tal como definido em [ISO-14496-12].  Por exemplo, para mensagens de SCTE 35 o nome de codificação deve ser 'scte'.
@@ -225,7 +227,7 @@ Metadados temporizados para Apple HTTP Live Streaming (HLS) podem ser incorporad
 
 | **Nome de atributo** | **Tipo**                      | **Necessário?**                             | **Descrição**                                                                                                                                                                                                                                                                      |
 |--------------------|-------------------------------|-------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| INDICAÇÃO                | cadeia de caracteres com aspas                 | Necessário                                  | A mensagem codificada como uma cadeia base64, conforme descrito em [IETF RFC 4648](http://tools.ietf.org/html/rfc4648). Para mensagens de [SCTE-35], este é o splice_info_section() codificada em base64.                                                                                                |
+| INDICAÇÃO                | cadeia de caracteres com aspas                 | Necessário                                  | A mensagem codificada como uma cadeia base64, conforme descrito em [IETF RFC 4648](https://tools.ietf.org/html/rfc4648). Para mensagens de [SCTE-35], este é o splice_info_section() codificada em base64.                                                                                                |
 | TIPO               | cadeia de caracteres com aspas                 | Necessário                                  | Um URN ou uma URL, identificando o esquema de mensagem. Para mensagens de [SCTE-35], o tipo usa o valor especial "scte35".                                                                                                                                |
 | ID                 | cadeia de caracteres com aspas                 | Necessário                                  | Um identificador exclusivo para o evento. Se o ID não for especificado, quando a mensagem é ingerida, serviços de multimédia do Azure irá gerar um id exclusivo.                                                                                                                                          |
 | DURAÇÃO           | número de ponto flutuante decimal | Necessário                                  | A duração do evento. Se desconhecido, o valor deve ser 0. As unidades são factional segundos.                                                                                                                                                                                           |
@@ -280,8 +282,8 @@ O elemento de EventStream tem os seguintes atributos:
 
 | **Nome de atributo** | **Tipo**                | **Necessário?** | **Descrição**                                                                                                                                                                                                                                                                                   |
 |--------------------|-------------------------|---------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| scheme_id_uri      | cadeia                  | Necessário      | Identifica o esquema da mensagem. O esquema está definido para o valor do atributo de esquema na caixa de manifesto de servidor ao vivo. O valor deve ser um URN ou um URL, identificando o esquema de mensagem; Por exemplo, "urn: scte:scte35:2013a:bin".                                                                |
-| valor              | cadeia                  | Opcional      | Um valor de cadeia de caracteres adicionais utilizado pelos proprietários do esquema para personalizar a semântica da mensagem. Para diferenciar os vários fluxos de eventos com o mesmo esquema, o valor tem de ser definido para o nome do fluxo de eventos (trackName para uniforme de ingestão ou o nome de mensagem AMF para RTMP ingerir). |
+| scheme_id_uri      | string                  | Necessário      | Identifica o esquema da mensagem. O esquema está definido para o valor do atributo de esquema na caixa de manifesto de servidor ao vivo. O valor deve ser um URN ou um URL, identificando o esquema de mensagem; Por exemplo, "urn: scte:scte35:2013a:bin".                                                                |
+| valor              | string                  | Opcional      | Um valor de cadeia de caracteres adicionais utilizado pelos proprietários do esquema para personalizar a semântica da mensagem. Para diferenciar os vários fluxos de eventos com o mesmo esquema, o valor tem de ser definido para o nome do fluxo de eventos (trackName para uniforme de ingestão ou o nome de mensagem AMF para RTMP ingerir). |
 | Escala temporal          | número inteiro sem sinal de 32 bits | Necessário      | Escala da temporal, em tiques por segundo, os tempos e campos de duração na caixa 'emsg'.                                                                                                                                                                                                       |
 
 
@@ -292,7 +294,7 @@ Zero ou mais elementos de evento estão contidos dentro do elemento de EventStre
 | presentation_time   | número inteiro não assinado de 64 bits | Opcional      | TEM de ser o suporte de dados de tempo de apresentação do evento relativo ao início do período. O tempo de apresentação e a duração devem alinhar com pontos de acesso de Stream (SAP) do tipo 1 ou 2, conforme definido na [ISO-14496-12] Annex I. |
 | duração            | número inteiro sem sinal de 32 bits | Opcional      | A duração do evento. Isso tem de ser omitido se a duração é desconhecida.                                                                                                                                                 |
 | ID                  | número inteiro sem sinal de 32 bits | Opcional      | Identifica esta instância da mensagem. As mensagens com uma semântica equivalente deverá ter o mesmo valor. Se o ID não for especificado, quando a mensagem é ingerida, serviços de multimédia do Azure irá gerar um id exclusivo.             |
-| Valor do elemento do evento | cadeia                  | Necessário      | A mensagem de evento como uma cadeia base64, conforme descrito em [IETF RFC 4648](http://tools.ietf.org/html/rfc4648).                                                                                                                   |
+| Valor do elemento do evento | string                  | Necessário      | A mensagem de evento como uma cadeia base64, conforme descrito em [IETF RFC 4648](https://tools.ietf.org/html/rfc4648).                                                                                                                   |
 
 #### <a name="xml-syntax-and-example-for-dash-manifest-mpd-signaling"></a>Sintaxe do XML e de exemplo para DASH manifesto Signaling (MPD)
 
@@ -365,8 +367,8 @@ Os campos do DASHEventMessageBox são definidos abaixo:
 
 | **Nome do campo**          | **Tipo de campo**          | **Necessário?** | **Descrição**                                                                                                                                                                                                                                                                                                                                                    |
 |-------------------------|-------------------------|---------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| scheme_id_uri           | cadeia                  | Necessário      | Identifica o esquema da mensagem. O esquema está definido para o valor do atributo de esquema na caixa de manifesto de servidor ao vivo. O valor deve ser um URN ou um URL, identificando o esquema de mensagem. Para mensagens de [SCTE-35], isso leva o valor especial "urn: scte:scte35:2013a:bin", embora [SCTE 67] recomenda outra coisa. |
-| Value                   | cadeia                  | Necessário      | Um valor de cadeia de caracteres adicionais utilizado pelos proprietários do esquema para personalizar a semântica da mensagem. Para diferenciar os vários fluxos de eventos com o mesmo esquema, o valor será definido como o nome do fluxo de eventos (trackName para uniforme de ingestão ou o nome de mensagem AMF para RTMP ingerir).                                                                  |
+| scheme_id_uri           | string                  | Necessário      | Identifica o esquema da mensagem. O esquema está definido para o valor do atributo de esquema na caixa de manifesto de servidor ao vivo. O valor deve ser um URN ou um URL, identificando o esquema de mensagem. Para mensagens de [SCTE-35], isso leva o valor especial "urn: scte:scte35:2013a:bin", embora [SCTE 67] recomenda outra coisa. |
+| Value                   | string                  | Necessário      | Um valor de cadeia de caracteres adicionais utilizado pelos proprietários do esquema para personalizar a semântica da mensagem. Para diferenciar os vários fluxos de eventos com o mesmo esquema, o valor será definido como o nome do fluxo de eventos (trackName para uniforme de ingestão ou o nome de mensagem AMF para RTMP ingerir).                                                                  |
 | Escala temporal               | número inteiro sem sinal de 32 bits | Necessário      | Escala da temporal, em tiques por segundo, os tempos e campos de duração na caixa 'emsg'.                                                                                                                                                                                                                                                                        |
 | Presentation_time_delta | número inteiro sem sinal de 32 bits | Necessário      | O suporte de dados apresentação intervalo de tempo do tempo de apresentação do evento e a primeira hora de apresentação esse segmento. O tempo de apresentação e a duração devem alinhar com pontos de acesso de Stream (SAP) do tipo 1 ou 2, conforme definido na [ISO-14496-12] Annex I.                                                                                            |
 | event_duration          | número inteiro sem sinal de 32 bits | Necessário      | A duração do evento ou 0xFFFFFFFF para indicar uma duração de desconhecido.                                                                                                                                                                                                                                                                                          |
@@ -396,7 +398,7 @@ Ingestão de transmissão em fluxo uniforme requer que a caixa de dados de supor
 
 **[MS-SSTR]**  ["Microsoft Smooth Streaming protocolo", 15 de Maio de 2014](https://download.microsoft.com/download/9/5/E/95EF66AF-9026-4BB0-A41D-A4F81802D92C/%5bMS-SSTR%5d.pdf)
 
-**[AMF0]**  ["AMF0 de formato de mensagem de ação"](http://download.macromedia.com/pub/labs/amf/amf0_spec_121207.pdf)
+**[AMF0]**  ["AMF0 de formato de mensagem de ação"](https://download.macromedia.com/pub/labs/amf/amf0_spec_121207.pdf)
 
 **[LIVE FMP4]**  [Especificação de ingestão de MP4 fragmentado em direto de serviços de multimédia do azure](https://docs.microsoft.com/azure/media-services/media-services-fmp4-live-ingest-overview)
 

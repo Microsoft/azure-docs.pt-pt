@@ -1,5 +1,5 @@
 ---
-title: 'Início rápido: Criar um pipeline CI/CD para PHP com projetos de DevOps do Azure'
+title: 'Início rápido: Criar um pipeline CI/CD para o PHP com projetos de DevOps do Azure'
 description: Projetos de DevOps torna mais fácil começar a utilizar no Azure. Ajuda-o a utilizar o seu próprio código e o repositório GitHub para lançar uma aplicação num serviço do Azure à sua escolha com alguns passos rápidos.
 ms.prod: devops
 ms.technology: devops-cicd
@@ -17,12 +17,12 @@ ms.date: 07/09/2018
 ms.author: mlearned
 ms.custom: mvc
 monikerRange: vsts
-ms.openlocfilehash: 24a957260e3e3f161ce9e2e61b746f9b052e784d
-ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
+ms.openlocfilehash: 82310857276c53c85af033ae32a3aeef4f33c8da
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52264374"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58109380"
 ---
 # <a name="create-a-cicd-pipeline-for-php-with-azure-devops-projects"></a>Criar um pipeline CI/CD para o PHP com projetos de DevOps do Azure
 
@@ -65,7 +65,7 @@ Se não tiver uma subscrição do Azure, pode obter uma gratuitamente através d
 
     ![Vista do Dashboard](_img/azure-devops-project-php/dashboardnopreview.png) 
     
- Projetos de DevOps configurado automaticamente uma compilação CI e a versão de Acionador.  Agora está pronto para colaborar com uma equipa na sua aplicação PHP, com um processo de CI/CD que implementa automaticamente o seu trabalho mais recente no seu site.
+   Projetos de DevOps configurado automaticamente uma compilação CI e a versão de Acionador.  Agora está pronto para colaborar com uma equipa na sua aplicação PHP, com um processo de CI/CD que implementa automaticamente o seu trabalho mais recente no seu site.
 
 ## <a name="commit-code-changes-and-execute-cicd"></a>Consolidar as alterações de código e executar o CI/CD
 

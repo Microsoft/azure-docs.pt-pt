@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: cherylmc
 ms.custom: seodec18
-ms.openlocfilehash: 16d85510efb055d7d564ffadb9fff2b200771bc6
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
+ms.openlocfilehash: 66c43556e698063b95ce1c3787458e40c9d71504
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53438834"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58079473"
 ---
 # <a name="connect-a-virtual-network-to-an-expressroute-circuit-using-the-portal"></a>Ligar uma rede virtual a um circuito do ExpressRoute com o portal
 > [!div class="op_single_selector"]
@@ -54,13 +54,13 @@ Este artigo ajuda-o a criar uma ligação para ligar uma rede virtual a um circu
 
 1. Certifique-se de que o circuito do ExpressRoute e o peering privado do Azure foram configurados com êxito. Siga as instruções em [criar um circuito do ExpressRoute](expressroute-howto-circuit-arm.md) e [configurar encaminhamento](expressroute-howto-routing-arm.md). O circuito de ExpressRoute deve ter um aspeto semelhante à imagem seguinte:
 
-  ![Captura de ecrã de circuito de ExpressRoute](./media/expressroute-howto-linkvnet-portal-resource-manager/routing1.png)
+   ![Captura de ecrã de circuito de ExpressRoute](./media/expressroute-howto-linkvnet-portal-resource-manager/routing1.png)
 2. Agora pode iniciar o aprovisionamento de uma ligação para ligar o gateway de rede virtual para o seu circuito do ExpressRoute. Clique em **conexão** > **Add** para abrir o **adicionar ligação** página e, em seguida, configure os valores.
 
-  ![Adicionar captura de ecrã da ligação](./media/expressroute-howto-linkvnet-portal-resource-manager/samesub1.png)
+   ![Adicionar captura de ecrã da ligação](./media/expressroute-howto-linkvnet-portal-resource-manager/samesub1.png)
 3. Depois da ligação foi configurada com êxito, o objeto de ligação irá mostrar as informações para a ligação.
 
-  ![Captura de ecrã de objeto de ligação](./media/expressroute-howto-linkvnet-portal-resource-manager/samesub2.png)
+   ![Captura de ecrã de objeto de ligação](./media/expressroute-howto-linkvnet-portal-resource-manager/samesub2.png)
 
 ## <a name="connect-a-vnet-to-a-circuit---different-subscription"></a>Ligar uma rede virtual a um circuito - subscrição diferente
 
@@ -95,10 +95,10 @@ O proprietário do circuito cria uma autorização. Isso resulta na criação de
 
 1. Na página do ExpressRoute, clique em **autorizações** e, em seguida, escreva um **nome** da autorização e clique em **guardar**.
 
-  ![Autorizações](./media/expressroute-howto-linkvnet-portal-resource-manager/authorization.png)
+   ![Autorizações](./media/expressroute-howto-linkvnet-portal-resource-manager/authorization.png)
 2. Depois da configuração é guardada, copie os **ID de recurso** e o **chave de autorização**.
 
-  ![Chave de autorização](./media/expressroute-howto-linkvnet-portal-resource-manager/authkey.png)
+   ![Chave de autorização](./media/expressroute-howto-linkvnet-portal-resource-manager/authkey.png)
 
 **Para eliminar uma autorização de conexão**
 
@@ -112,18 +112,18 @@ O utilizador de circuito tem o ID de recurso e uma chave de autorização do pro
 
 1. Clique nas **+ novo** botão.
 
-  ![Clique em novo](./media/expressroute-howto-linkvnet-portal-resource-manager/Connection1.png)
+   ![Clique em novo](./media/expressroute-howto-linkvnet-portal-resource-manager/Connection1.png)
 2. Procure **"Ligação"** no Marketplace, selecione-a e clique em **criar**.
 
-  ![Pesquisa para a ligação](./media/expressroute-howto-linkvnet-portal-resource-manager/Connection2.png)
+   ![Pesquisa para a ligação](./media/expressroute-howto-linkvnet-portal-resource-manager/Connection2.png)
 3. Certifique-se de que o **tipo de ligação** está definido como "ExpressRoute".
 4. Preencha os detalhes, em seguida, clique em **OK** na página de noções básicas.
 
-  ![Página de noções básicas](./media/expressroute-howto-linkvnet-portal-resource-manager/Connection3.png)
+   ![Página de noções básicas](./media/expressroute-howto-linkvnet-portal-resource-manager/Connection3.png)
 5. Na **definições** página, selecione a **gateway de rede Virtual** e verificar o **resgatar autorização** caixa de verificação.
 6. Introduza o **chave de autorização** e o **emparelhamento de URI do circuito** e dê um nome de ligação. Clique em **OK**.
 
-  ![Página de definições](./media/expressroute-howto-linkvnet-portal-resource-manager/Connection4.png)
+   ![Página de definições](./media/expressroute-howto-linkvnet-portal-resource-manager/Connection4.png)
 7. Reveja as informações a **resumo** página e clique em **OK**.
 
 **Para liberar uma autorização de conexão**

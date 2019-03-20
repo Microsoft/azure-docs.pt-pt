@@ -1,6 +1,6 @@
 ---
-title: Azure Service Fabric inverso diagnóstico proxy | Microsoft Docs
-description: Saiba como monitorizar e diagnosticar o processamento de pedidos no proxy inverso.
+title: Diagnóstico de proxy inverso do Azure Service Fabric | Documentos da Microsoft
+description: Saiba como monitorizar e diagnosticar o processamento da solicitação, o proxy inverso.
 services: service-fabric
 documentationcenter: .net
 author: kavyako
@@ -13,106 +13,107 @@ ms.tgt_pltfrm: na
 ms.workload: required
 ms.date: 08/08/2017
 ms.author: kavyako
-ms.openlocfilehash: 662fc124af71c1ce976037a3544f59e3cea54ef0
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: c9c8c649208cff95f4ee515d39cc8cca3e2c64bf
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34207636"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58121490"
 ---
-# <a name="monitor-and-diagnose-request-processing-at-the-reverse-proxy"></a>Monitorizar e diagnosticar o processamento de pedidos no proxy inverso
+# <a name="monitor-and-diagnose-request-processing-at-the-reverse-proxy"></a>Monitorizar e diagnosticar o processamento da solicitação, o proxy inverso
 
-Começando com a versão 5.7 do Service Fabric, estão disponíveis para a recolha de eventos de proxy inverso. Os eventos estão disponíveis dois canais, uma com só erro eventos relacionados com a falha de processamento de pedidos no proxy inverso e segundo canal que contém eventos verbosos com entradas de pedidos com êxito ou falhadas.
+A partir da versão 5.7 do Service Fabric, estão disponíveis para a recolha de eventos de proxy inverso. Os eventos estão disponíveis em dois canais, uma com apenas eventos de erro relacionados com a falha de processamento de pedidos com o proxy inverso e um segundo canal que contém eventos verbosos com entradas para pedidos com êxito ou falhadas.
 
-Consulte [recolher eventos de proxy inverso](service-fabric-diagnostics-event-aggregation-wad.md#log-collection-configurations) para ativar a recolha de eventos destes canais no local e clusters de Service Fabric do Azure.
+Consulte a [recolher eventos de proxy inverso](service-fabric-diagnostics-event-aggregation-wad.md#log-collection-configurations) para ativar a recolha de eventos destes canais no local e os clusters do Azure Service Fabric.
 
-## <a name="troubleshoot-using-diagnostics-logs"></a>Resolver problemas com os registos de diagnóstico
-Seguem-se alguns exemplos sobre como interpretar os registos comuns de falha que uma pode encontrar:
+## <a name="troubleshoot-using-diagnostics-logs"></a>Resolver problemas com registos de diagnóstico
+Aqui estão alguns exemplos sobre como interpretar os registos de falha comuns que um pode encontrar:
 
-1. Proxy inverso devolve o código de estado de resposta 504 (tempo limite).
+1. Proxy inverso devolverá o código de estado de resposta 504 (tempo limite).
 
-    Uma razão dever-se a falha do serviço em responder dentro do período de tempo limite de pedido.
-O primeiro evento abaixo registos os detalhes do pedido foi recebido no proxy inverso. O segundo evento indica que o pedido falhou ao reencaminhamento ao serviço, devido a "Erro interno = ERROR_WINHTTP_TIMEOUT" 
+    Uma das razões pode dever-o a conseguir responder dentro do período de tempo limite de pedido de serviço.
+   O primeiro evento abaixo os detalhes do pedido recebido, o proxy inverso de registos. 
+   O segundo evento indica que o pedido falhou ao encaminhamento ao serviço, devido a "Erro interno = ERROR_WINHTTP_TIMEOUT" 
 
     O payload inclui:
 
-    *  **traceId**: GUID este pode ser utilizado para correlacionar todos os eventos correspondente a um único pedido. No abaixo dois eventos, o traceId = **2f87b722-e254-4ac2-a802-fd315c1a0271**, implying pertencem ao mesmo pedido.
-    *  **requestUrl**: URL (URL de proxy inverso) ao qual o pedido foi enviado.
-    *  **verbo**: verbo HTTP.
-    *  **remoteAddress**: endereço do cliente a enviar o pedido.
-    *  **resolvedServiceUrl**: serviço URL de ponto final ao qual o pedido de entrada foi resolvido. 
-    *  **errorDetails**: informações adicionais sobre a falha.
+   * **traceId**: Este GUID pode ser utilizado para correlacionar a todos os eventos correspondentes a um único pedido. Na abaixo dois eventos, o traceId = **2f87b722-e254-4ac2-a802-fd315c1a0271**, implicando a que pertencem à mesma solicitação.
+   * **requestUrl**: O URL (URL de proxy inverso) para o qual o pedido foi enviado.
+   * **verb**: Verbo HTTP.
+   * **remoteAddress**: Endereço do cliente enviar o pedido.
+   * **resolvedServiceUrl**: URL de ponto final de serviço ao qual a solicitação de entrada foi resolvida. 
+   * **errorDetails**: Obter informações adicionais sobre a falha.
 
-    ```
-    {
-      "Timestamp": "2017-07-20T15:57:59.9871163-07:00",
-      "ProviderName": "Microsoft-ServiceFabric",
-      "Id": 51477,
-      "Message": "2f87b722-e254-4ac2-a802-fd315c1a0271 Request url = https://localhost:19081/LocationApp/LocationFEService?zipcode=98052, verb = GET, remote (client) address = ::1, resolved service url = Https://localhost:8491/LocationApp/?zipcode=98052, request processing start time =     15:58:00.074114 (745,608.196 MSec) ",
-      "ProcessId": 57696,
-      "Level": "Informational",
-      "Keywords": "0x1000000000000021",
-      "EventName": "ReverseProxy",
-      "ActivityID": null,
-      "RelatedActivityID": null,
-      "Payload": {
-        "traceId": "2f87b722-e254-4ac2-a802-fd315c1a0271",
-        "requestUrl": "https://localhost:19081/LocationApp/LocationFEService?zipcode=98052",
-        "verb": "GET",
-        "remoteAddress": "::1",
-        "resolvedServiceUrl": "Https://localhost:8491/LocationApp/?zipcode=98052",
-        "requestStartTime": "2017-07-20T15:58:00.0741142-07:00"
-      }
-    }
+     ```
+     {
+     "Timestamp": "2017-07-20T15:57:59.9871163-07:00",
+     "ProviderName": "Microsoft-ServiceFabric",
+     "Id": 51477,
+     "Message": "2f87b722-e254-4ac2-a802-fd315c1a0271 Request url = https://localhost:19081/LocationApp/LocationFEService?zipcode=98052, verb = GET, remote (client) address = ::1, resolved service url = Https://localhost:8491/LocationApp/?zipcode=98052, request processing start time =     15:58:00.074114 (745,608.196 MSec) ",
+     "ProcessId": 57696,
+     "Level": "Informational",
+     "Keywords": "0x1000000000000021",
+     "EventName": "ReverseProxy",
+     "ActivityID": null,
+     "RelatedActivityID": null,
+     "Payload": {
+      "traceId": "2f87b722-e254-4ac2-a802-fd315c1a0271",
+      "requestUrl": "https://localhost:19081/LocationApp/LocationFEService?zipcode=98052",
+      "verb": "GET",
+      "remoteAddress": "::1",
+      "resolvedServiceUrl": "Https://localhost:8491/LocationApp/?zipcode=98052",
+      "requestStartTime": "2017-07-20T15:58:00.0741142-07:00"
+     }
+     }
 
-    {
-      "Timestamp": "2017-07-20T16:00:01.3173605-07:00",
-      ...
-      "Message": "2f87b722-e254-4ac2-a802-fd315c1a0271 Error while forwarding request to service: response status code = 504, description = Reverse proxy Timeout, phase = FinishSendRequest, internal error = ERROR_WINHTTP_TIMEOUT ",
-      ...
-      "Payload": {
-        "traceId": "2f87b722-e254-4ac2-a802-fd315c1a0271",
-        "statusCode": 504,
-        "description": "Reverse Proxy Timeout",
-        "sendRequestPhase": "FinishSendRequest",
-        "errorDetails": "internal error = ERROR_WINHTTP_TIMEOUT"
-      }
-    }
-    ```
+     {
+     "Timestamp": "2017-07-20T16:00:01.3173605-07:00",
+     ...
+     "Message": "2f87b722-e254-4ac2-a802-fd315c1a0271 Error while forwarding request to service: response status code = 504, description = Reverse proxy Timeout, phase = FinishSendRequest, internal error = ERROR_WINHTTP_TIMEOUT ",
+     ...
+     "Payload": {
+      "traceId": "2f87b722-e254-4ac2-a802-fd315c1a0271",
+      "statusCode": 504,
+      "description": "Reverse Proxy Timeout",
+      "sendRequestPhase": "FinishSendRequest",
+      "errorDetails": "internal error = ERROR_WINHTTP_TIMEOUT"
+     }
+     }
+     ```
 
-2. Proxy inverso devolve o código de estado de resposta 404 (não for encontrado). 
+2. Proxy inverso devolve o código de estado de resposta 404 (não encontrado). 
     
-    Segue-se um evento de exemplo em que o proxy inverso devolve 404, uma vez que não foi possível localizar o ponto final de serviço correspondentes.
+    Aqui está um evento de exemplo em que o proxy inverso devolve 404, uma vez que ele não foi possível encontrar o ponto de extremidade de serviço correspondente.
     As entradas de payload de interesse aqui são:
-    *  **processRequestPhase**: indica a fase de durante o processamento de pedido quando a falha ocorreu, ***TryGetEndpoint*** revertidos ao tentar obter um ponto final do serviço para reencaminhar para. 
-    *  **errorDetails**: apresenta os critérios de pesquisa de ponto final. Aqui pode ver que o listenerName especificado = **FrontEndListener** enquanto a lista de ponto final de réplica contém apenas um serviço de escuta com o nome **OldListener**.
+   * **processRequestPhase**: Indica a fase de durante o processamento de solicitação quando a falha ocorreu, ***TryGetEndpoint*** como ao tentar obter o ponto final de serviço para reencaminhar para. 
+   * **errorDetails**: Lista os critérios de pesquisa de ponto final. Aqui pode ver que o listenerName especificado = **FrontEndListener** ao passo que a lista de ponto final de réplica contém apenas um serviço de escuta com o nome **OldListener**.
     
-    ```
-    {
+     ```
+     {
+     ...
+     "Message": "c1cca3b7-f85d-4fef-a162-88af23604343 Error while processing request, cannot forward to service: request url = https://localhost:19081/LocationApp/LocationFEService?ListenerName=FrontEndListener&zipcode=98052, verb = GET, remote (client) address = ::1, request processing start time = 16:43:02.686271 (3,448,220.353 MSec), error = FABRIC_E_ENDPOINT_NOT_FOUND, message = , phase = TryGetEndoint, SecureOnlyMode = false, gateway protocol = https, listenerName = FrontEndListener, replica endpoint = {\"Endpoints\":{\"\":\"Https:\/\/localhost:8491\/LocationApp\/\"}} ",
+     "ProcessId": 57696,
+     "Level": "Warning",
+     "EventName": "ReverseProxy",
+     "Payload": {
+      "traceId": "c1cca3b7-f85d-4fef-a162-88af23604343",
+      "requestUrl": "https://localhost:19081/LocationApp/LocationFEService?ListenerName=NewListener&zipcode=98052",
       ...
-      "Message": "c1cca3b7-f85d-4fef-a162-88af23604343 Error while processing request, cannot forward to service: request url = https://localhost:19081/LocationApp/LocationFEService?ListenerName=FrontEndListener&zipcode=98052, verb = GET, remote (client) address = ::1, request processing start time = 16:43:02.686271 (3,448,220.353 MSec), error = FABRIC_E_ENDPOINT_NOT_FOUND, message = , phase = TryGetEndoint, SecureOnlyMode = false, gateway protocol = https, listenerName = FrontEndListener, replica endpoint = {\"Endpoints\":{\"\":\"Https:\/\/localhost:8491\/LocationApp\/\"}} ",
-      "ProcessId": 57696,
-      "Level": "Warning",
-      "EventName": "ReverseProxy",
-      "Payload": {
-        "traceId": "c1cca3b7-f85d-4fef-a162-88af23604343",
-        "requestUrl": "https://localhost:19081/LocationApp/LocationFEService?ListenerName=NewListener&zipcode=98052",
-        ...
-        "processRequestPhase": "TryGetEndoint",
-        "errorDetails": "SecureOnlyMode = false, gateway protocol = https, listenerName = FrontEndListener, replica endpoint = {\"Endpoints\":{\"OldListener\":\"Https:\/\/localhost:8491\/LocationApp\/\"}}"
-      }
-    }
-    ```
-    Outro exemplo em que o proxy inverso pode devolver 404 não é encontrado: parâmetro de configuração ApplicationGateway\Http **SecureOnlyMode** está definido como verdadeiro com o proxy reverso a escutar **HTTPS**; no entanto, todos os pontos finais de réplica são não seguros (escuta de HTTP).
-    Inverte devolve proxy 404, uma vez que não é possível localizar um ponto final à escuta HTTPS para reencaminhar o pedido. Analisar os parâmetros no caso de payload ajuda a restringir o problema:
+      "processRequestPhase": "TryGetEndoint",
+      "errorDetails": "SecureOnlyMode = false, gateway protocol = https, listenerName = FrontEndListener, replica endpoint = {\"Endpoints\":{\"OldListener\":\"Https:\/\/localhost:8491\/LocationApp\/\"}}"
+     }
+     }
+     ```
+     Outro exemplo em que o proxy reverso pode devolver 404 não encontrado é: Parâmetro de configuração de ApplicationGateway\Http **SecureOnlyMode** está definido como verdadeiro com o proxy inverso a escutar **HTTPS**, no entanto, todos os pontos de extremidade de réplica são inseguros (escuta de HTTP).
+     Inverter devolve de proxy 404, uma vez que ele não é possível localizar um ponto de extremidade escutando HTTPS para encaminhar a solicitação. Analisar os parâmetros no caso de payload ajuda a limitar o problema:
     
-    ```
-        "errorDetails": "SecureOnlyMode = true, gateway protocol = https, listenerName = NewListener, replica endpoint = {\"Endpoints\":{\"OldListener\":\"Http:\/\/localhost:8491\/LocationApp\/\", \"NewListener\":\"Http:\/\/localhost:8492\/LocationApp\/\"}}"
-    ```
+     ```
+      "errorDetails": "SecureOnlyMode = true, gateway protocol = https, listenerName = NewListener, replica endpoint = {\"Endpoints\":{\"OldListener\":\"Http:\/\/localhost:8491\/LocationApp\/\", \"NewListener\":\"Http:\/\/localhost:8492\/LocationApp\/\"}}"
+     ```
 
-3. Pedido para o proxy reverso falha com um erro de tempo limite. 
-    Os registos de eventos contêm um evento com os detalhes do pedido recebido (não apresentados aqui).
-    O evento seguinte mostra que o serviço respondeu com um código de 404 estado e proxy inverso inicia resolver novamente. 
+3. Pedido para o proxy inverso falha com um erro de tempo limite. 
+    Os registos de eventos contêm um evento com os detalhes de pedido recebido (não mostrados aqui).
+    O próximo evento mostra que o serviço respondeu com um código de 404 estado e proxy inverso inicia uma voltar a resolver. 
 
     ```
     {
@@ -133,11 +134,11 @@ O primeiro evento abaixo registos os detalhes do pedido foi recebido no proxy in
       }
     }
     ```
-    Aquando da recolha de todos os eventos, verá uma formação de eventos que mostra cada resolve e a tentativa de pesquisa direta.
+    Aquando da recolha de todos os eventos, verá um comboio de eventos que mostra cada resolve e a tentativa de encaminhamento.
     O último evento na série mostra que o processamento do pedido falhou com um tempo limite, juntamente com o número de tentativas de resolver com êxito.
     
     > [!NOTE]
-    > É recomendado para manter a recolha de eventos de canal verboso desativada por predefinição e ativá-la para resolução de problemas de forma necessário.
+    > Recomenda-se mantenha a recolha de eventos de canal verboso desativada por predefinição e habilitá-lo para resolução de problemas de forma necessidade.
 
     ```
     {
@@ -156,13 +157,13 @@ O primeiro evento abaixo registos os detalhes do pedido foi recebido no proxy in
     }
     ```
     
-    Se a coleção está ativada para eventos de erro crítico/apenas, verá um evento com detalhes sobre o tempo limite e o número de tentativas de resolver. 
+    Se a coleção estiver ativada para apenas os eventos de erro/crítico, verá um evento com detalhes sobre o tempo limite e o número de tentativas de resolução. 
     
-    Os serviços que pretendem enviar um código de 404 estado novamente para o utilizador, deve adicionar um cabeçalho de "X ServiceFabric" na resposta. Depois do cabeçalho é adicionado à resposta, o proxy inverso reencaminha o código de estado para o cliente.  
+    Serviços que pretendem enviar um código de 404 estado ao usuário, deve adicionar um cabeçalho "X-ServiceFabric" na resposta. Depois do cabeçalho é adicionado à resposta, o proxy inverso reencaminha o código de estado para o cliente.  
 
-4. Casos quando o cliente desligou-se o pedido.
+4. Casos em que o cliente desligou o pedido.
 
-    Seguinte evento é registado quando proxy inverso é o reencaminhamento a resposta ao cliente, mas o cliente desligar:
+    Seguinte evento é registado quando o proxy inverso está a reencaminhar a resposta ao cliente, mas o cliente desligar:
 
     ```
     {
@@ -182,7 +183,7 @@ O primeiro evento abaixo registos os detalhes do pedido foi recebido no proxy in
     ```
 5. Proxy inverso devolve 404 FABRIC_E_SERVICE_DOES_NOT_EXIST
 
-    Erro FABRIC_E_SERVICE_DOES_NOT_EXIST é devolvido se o esquema de URI não está especificado para o ponto final de serviço no manifesto de serviço.
+    Erro FABRIC_E_SERVICE_DOES_NOT_EXIST é devolvido se o esquema URI não está especificado para o ponto final de serviço no manifesto do serviço.
 
     ```
     <Endpoint Name="ServiceEndpointHttp" Port="80" Protocol="http" Type="Input"/>
@@ -194,10 +195,10 @@ O primeiro evento abaixo registos os detalhes do pedido foi recebido no proxy in
     ```
 
 > [!NOTE]
-> Eventos relacionados com o processamento de pedidos de websocket não são atualmente registados. Isto será adicionado na próxima versão.
+> Eventos relacionados com o processamento da solicitação websocket não são atualmente registados. Isso será adicionado na próxima versão.
 
 ## <a name="next-steps"></a>Passos Seguintes
-* [Agregação de eventos e coleção utilizando o Windows Azure Diagnostics](service-fabric-diagnostics-event-aggregation-wad.md) para ativar a recolha de registos em clusters do Azure.
-* Para ver eventos de Service Fabric no Visual Studio, consulte [monitorizar e diagnosticar localmente](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally.md).
-* Consulte [Configurar proxy inverso para ligar aos serviços segurados](https://github.com/ChackDan/Service-Fabric/tree/master/ARM%20Templates/ReverseProxySecureSample#configure-reverse-proxy-to-connect-to-secure-services) para o Azure Resource Manager amostras de modelo para configurar o secure proxy inverso com o certificado de serviço diferentes opções de validação.
-* Leitura [Service Fabric proxy inverso](service-fabric-reverseproxy.md) para obter mais informações.
+* [Agregação de eventos e coleções com o Windows Azure Diagnostics](service-fabric-diagnostics-event-aggregation-wad.md) para ativar a recolha de registos em clusters do Azure.
+* Para ver eventos do Service Fabric no Visual Studio, consulte [monitorizar e diagnosticar localmente](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally.md).
+* Consulte a [configurar o proxy inverso para ligar a serviços seguros](https://github.com/ChackDan/Service-Fabric/tree/master/ARM%20Templates/ReverseProxySecureSample#configure-reverse-proxy-to-connect-to-secure-services) para o Azure Resource Manager exemplos de modelos para configurar o secure proxy inverso, com o certificado de serviço diferentes opções de validação.
+* Leia [proxy inverso do Service Fabric](service-fabric-reverseproxy.md) para saber mais.

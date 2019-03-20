@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 04/23/2018
 ms.author: hrasheed
-ms.openlocfilehash: 027f8ad854cfc4c412a56a293de3b02a425d6858
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: a2f964915efda6ce83439c3c1970de58b0467456
+ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53713833"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58201726"
 ---
 # <a name="install-apache-giraph-on-hdinsight-hadoop-clusters-and-use-giraph-to-process-large-scale-graphs"></a>Instalar o Apache Giraph nos clusters do Hadoop do HDInsight e utilizar Giraph para processar gráficos em grande escala
 
@@ -171,5 +171,3 @@ Depois do cluster ter sido criado, utilize os seguintes passos para executar o e
 ## <a name="next-steps"></a>Passos Seguintes
 
 * [Instalar e utilizar Hue em clusters do HDInsight](hdinsight-hadoop-hue-linux.md).
-
-* [Instalar o Apache Solr nos clusters do HDInsight](hdinsight-hadoop-solr-install-linux.md).

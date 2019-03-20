@@ -11,16 +11,16 @@ ms.workload: app-service
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/27/2019
+ms.date: 03/18/2019
 ms.author: anwestg
 ms.reviewer: anwestg
-ms.lastreviewed: 01/16/2019
-ms.openlocfilehash: c993322bdf4266939eab854e217cae6e90326d29
-ms.sourcegitcommit: f7f4b83996640d6fa35aea889dbf9073ba4422f0
+ms.lastreviewed: 03/18/2019
+ms.openlocfilehash: 1ea079373edc9b9f1dde6038f1e02e3d7036e052
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56991568"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57890496"
 ---
 # <a name="update-azure-app-service-on-azure-stack"></a>Atualizar o serviço de aplicações do Azure no Azure Stack
 
@@ -52,7 +52,7 @@ Durante este processo, a atualização irá:
 
 Para atualizar a sua implementação do serviço de aplicações no Azure Stack, siga estes passos:
 
-1. Transferir o [instalador do serviço de aplicações](https://aka.ms/appsvcupdate4installer)
+1. Transferir o [instalador do serviço de aplicações](https://aka.ms/appsvcupdate5installer)
 
 2. Executar appservice.exe como administrador
 
@@ -72,13 +72,13 @@ Para atualizar a sua implementação do serviço de aplicações no Azure Stack,
 
    1. Clique nas **Connect** junto aos **subscrições do Azure Stack** caixa.
         * Se estiver a utilizar o Azure Active Directory (Azure AD), introduza a conta de administrador do Azure AD e a palavra-passe que forneceu quando implementou o Azure Stack. Clique em **iniciar sessão**.
-        * Se estiver a utilizar os serviços de Federação do Active Directory (AD FS), forneça a sua conta de administrador. Por exemplo, *cloudadmin@azurestack.local*. Introduza a palavra-passe e clique em **sessão**.
+        * Se estiver a utilizar os serviços de Federação do Active Directory (AD FS), forneça a sua conta de administrador. Por exemplo, *cloudadmin\@azurestack*. Introduza a palavra-passe e clique em **sessão**.
    2. Na **subscrições do Azure Stack** caixa, selecione a **subscrição do fornecedor predefinido**.
    3. Na **localizações do Azure Stack** caixa, selecione a localização que corresponde à região que está a implementar. Por exemplo, seleccione **local** se sua a implementar o Development Kit do Azure Stack.
    4. Se for detetada uma implementação existente do serviço de aplicações, em seguida, a conta de armazenamento e de grupo de recursos será preenchida e a cinzento.
    5. Clique em **seguinte** para rever o resumo da atualização.
 
-    ![Instalação do serviço de aplicações detetada][3]
+      ![Instalação do serviço de aplicações detetada][3]
 
 8. Na página de resumo:
    1. Certifique-se seleções que fez. Para fazer alterações, utilize o **Previous** botões para visitar as páginas anteriores.

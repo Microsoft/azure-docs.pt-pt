@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/22/2018
 ms.author: hrasheed
-ms.openlocfilehash: 31e4f4a8cfe9a82cf5320cd364905c7c91de0959
-ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
+ms.openlocfilehash: 73ac2072a087f0931b6c9c776d3ad0bfedb4320b
+ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/20/2018
-ms.locfileid: "53653803"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58199533"
 ---
 # <a name="create-apache-hbase-clusters-on-hdinsight-in-azure-virtual-network"></a>Criar clusters do Apache HBase no HDInsight na rede Virtual do Azure
 Saiba como criar clusters do Azure HDInsight Apache HBase numa [rede Virtual do Azure][1].
@@ -64,7 +64,7 @@ Nesta secção, vai criar um cluster do Apache HBase baseado em Linux com a cont
    * **Eu concordo com os termos e condições indicados acima**: (Selecionar)
 3. Clique em **Comprar**. A criação de um cluster demora cerca de 20 minutos. Assim que o cluster é criado, pode clicar no painel do cluster no portal para abri-lo.
 
-Depois de concluir o tutorial, pode querer eliminar o cluster. Com o HDInsight, os dados são armazenados no Storage do Azure, pelo que pode eliminar um cluster em segurança quando este não está a ser utilizado. Também lhe é cobrado o valor de um cluster do HDInsight mesmo quando não o está a utilizar. Uma vez que os custos do cluster são muito superiores aos custos do armazenamento, faz sentido do ponto de vista económico eliminar os clusters quando não estiverem a ser utilizados. Para instruções de eliminação de um cluster, consulte [Apache Hadoop gerir clusters no HDInsight com o portal do Azure](../hdinsight-administer-use-management-portal.md#delete-clusters).
+Depois de concluir o tutorial, pode querer eliminar o cluster. Com o HDInsight, os dados são armazenados no Storage do Azure, pelo que pode eliminar um cluster em segurança quando este não está a ser utilizado. Também lhe é cobrado o valor de um cluster do HDInsight mesmo quando não o está a utilizar. Uma vez que os custos do cluster são muito superiores aos custos do armazenamento, faz sentido do ponto de vista económico eliminar os clusters quando não estiverem a ser utilizados. Para instruções de eliminação de um cluster, consulte [Apache Hadoop gerir clusters no HDInsight com o portal do Azure](../hdinsight-administer-use-portal-linux.md#delete-clusters).
 
 Para começar a trabalhar com o novo cluster de HBase, pode utilizar os procedimentos encontrados na [começar a utilizar o Apache HBase com o Apache Hadoop no HDInsight](./apache-hbase-tutorial-get-started-linux.md).
 
@@ -90,9 +90,9 @@ Para começar a trabalhar com o novo cluster de HBase, pode utilizar os procedim
      2. Clique em **anfitriões** no menu superior.
    * Utilize o Curl para fazer chamadas REST:
 
-    ```bash
+     ```bash
         curl -u <username>:<password> -k https://<clustername>.azurehdinsight.net/ambari/api/v1/clusters/<clustername>.azurehdinsight.net/services/hbase/components/hbrest
-    ```
+     ```
 
      Nos dados JavaScript Object Notation (JSON) devolvidos, localize a entrada de "host_name". Ela contém o FQDN para os nós do cluster. Por exemplo:
 
@@ -105,7 +105,7 @@ Para começar a trabalhar com o novo cluster de HBase, pode utilizar os procedim
 
      Utilize o seguinte script do Azure PowerShell para registar o **Get-ClusterDetail** função, que pode ser utilizada para devolver o sufixo DNS:
 
-    ```powershell
+     ```powershell
         function Get-ClusterDetail(
             [String]
             [Parameter( Position=0, Mandatory=$true )]
@@ -195,13 +195,13 @@ Para começar a trabalhar com o novo cluster de HBase, pode utilizar os procedim
                 Write-host $Suffix
             }
         }
-    ```
+     ```
 
      Depois de executar o script do PowerShell do Azure, utilize o seguinte comando para devolver o sufixo DNS ao utilizar o **Get-ClusterDetail** função. Especifique o seu nome de cluster do HBase do HDInsight, o nome de administrador e a palavra-passe de administrador ao utilizar este comando.
 
-    ```powershell
+     ```powershell
         Get-ClusterDetail -ClusterDnsName <yourclustername> -PropertyName FQDNSuffix -Username <clusteradmin> -Password <clusteradminpassword>
-    ```
+     ```
 
      Este comando devolve o sufixo DNS. Por exemplo, **yourclustername.b4.internal.cloudapp.net**.
 

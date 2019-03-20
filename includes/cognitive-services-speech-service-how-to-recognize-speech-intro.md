@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 09/24/2018
 ms.author: wolfma
 ms.openlocfilehash: 31482cc7850c574b952c454021af729da324ba15
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.sourcegitcommit: b8f9200112cae265155b8877f7e1621c4bcc53fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52978717"
+ms.lasthandoff: 03/14/2019
+ms.locfileid: "57891367"
 ---
 <!-- N.B. no header, no intents here, language-agnostic -->
 

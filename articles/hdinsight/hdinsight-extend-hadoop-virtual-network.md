@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/06/2018
-ms.openlocfilehash: 8a67b94c7f2355872b243a05a7908604e88cf778
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: ae3b4787928b3a578df30dd7f8a2791ce487305d
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57433795"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58100501"
 ---
 # <a name="extend-azure-hdinsight-using-an-azure-virtual-network"></a>Expandir HDInsight do Azure com uma rede Virtual do Azure
 
@@ -115,8 +115,8 @@ Utilize os passos nesta secção para saber como adicionar um novo HDInsight par
     * [Criar o HDInsight com a CLI clássica do Azure](hdinsight-hadoop-create-linux-clusters-azure-cli.md)
     * [Criar o HDInsight com um modelo Azure Resource Manager](hdinsight-hadoop-create-linux-clusters-arm-templates.md)
 
-  > [!IMPORTANT]  
-  > A adição de HDInsight a uma rede virtual é um passo de configuração opcional. Certifique-se de que selecione a rede virtual, quando configurar o cluster.
+   > [!IMPORTANT]  
+   > A adição de HDInsight a uma rede virtual é um passo de configuração opcional. Certifique-se de que selecione a rede virtual, quando configurar o cluster.
 
 ## <a id="multinet"></a>Ligar a várias redes
 
@@ -128,8 +128,8 @@ O Azure fornece resolução de nomes para os serviços do Azure que estão insta
 
 * Qualquer recurso que está na mesma rede Virtual do Azure, utilizando o __nome DNS interno__ do recurso. Por exemplo, ao utilizar a resolução de nome predefinido, seguem-se nomes DNS internos exemplo atribuídos a nós de trabalho do HDInsight:
 
-    * wn0-hdinsi.0owcbllr5hze3hxdja3mqlrhhe.ex.internal.cloudapp.net
-    * wn2-hdinsi.0owcbllr5hze3hxdja3mqlrhhe.ex.internal.cloudapp.net
+  * wn0-hdinsi.0owcbllr5hze3hxdja3mqlrhhe.ex.internal.cloudapp.net
+  * wn2-hdinsi.0owcbllr5hze3hxdja3mqlrhhe.ex.internal.cloudapp.net
 
     Ambos estes nós podem comunicar diretamente entre si e com outros nós no HDInsight, utilizando nomes DNS internos.
 
@@ -148,29 +148,29 @@ Para habilitar a resolução de nome entre a rede virtual e os recursos em redes
 
 4. Configure o reencaminhamento entre os servidores DNS. A configuração depende do tipo de rede remota.
 
-    * Se a rede remota for uma rede no local, configure o DNS da seguinte forma:
+   * Se a rede remota for uma rede no local, configure o DNS da seguinte forma:
         
-        * __DNS personalizado__ (na rede virtual):
+     * __DNS personalizado__ (na rede virtual):
 
-            * Encaminhar pedidos para o sufixo DNS da rede virtual para o resolvedor recursivo do Azure (168.63.129.16). O Azure trata solicitações de recursos na rede virtual
+         * Encaminhar pedidos para o sufixo DNS da rede virtual para o resolvedor recursivo do Azure (168.63.129.16). O Azure trata solicitações de recursos na rede virtual
 
-            * Reencaminhe todos os outros pedidos para o servidor DNS no local. O DNS no local processa todos os outros pedidos de resolução de nomes, até mesmo solicitações de recursos de internet, tais como o Microsoft.com.
+         * Reencaminhe todos os outros pedidos para o servidor DNS no local. O DNS no local processa todos os outros pedidos de resolução de nomes, até mesmo solicitações de recursos de internet, tais como o Microsoft.com.
 
-        * __DNS locais__: Encaminhar pedidos para o sufixo DNS de rede virtual para o servidor DNS personalizado. O servidor DNS personalizado, em seguida, encaminha para o resolvedor recursivo do Azure.
+     * __DNS locais__: Encaminhar pedidos para o sufixo DNS de rede virtual para o servidor DNS personalizado. O servidor DNS personalizado, em seguida, encaminha para o resolvedor recursivo do Azure.
 
-        Este solicitações de configuração de rotas para completamente qualificado do nomes de domínio que contêm o sufixo DNS da rede virtual para o servidor DNS personalizado. Todos os outros pedidos (mesmo para endereços públicos da internet) são processados pelo servidor DNS no local.
+       Este solicitações de configuração de rotas para completamente qualificado do nomes de domínio que contêm o sufixo DNS da rede virtual para o servidor DNS personalizado. Todos os outros pedidos (mesmo para endereços públicos da internet) são processados pelo servidor DNS no local.
 
-    * Se a rede remota é outra rede Virtual do Azure, configure o DNS da seguinte forma:
+   * Se a rede remota é outra rede Virtual do Azure, configure o DNS da seguinte forma:
 
-        * __DNS personalizado__ (em cada rede virtual):
+     * __DNS personalizado__ (em cada rede virtual):
 
-            * As solicitações para o sufixo DNS das redes virtuais são encaminhadas para os servidores DNS personalizados. O DNS em cada rede virtual é responsável por resolver recursos dentro de sua rede.
+         * As solicitações para o sufixo DNS das redes virtuais são encaminhadas para os servidores DNS personalizados. O DNS em cada rede virtual é responsável por resolver recursos dentro de sua rede.
 
-            * Reencaminhe todos os outros pedidos para o resolvedor recursivo do Azure. O resolvedor recursivo é responsável por resolver local e recursos da internet.
+         * Reencaminhe todos os outros pedidos para o resolvedor recursivo do Azure. O resolvedor recursivo é responsável por resolver local e recursos da internet.
 
-        O servidor DNS para cada rede reencaminha os pedidos para o outro, com base no sufixo DNS. Outras solicitações são resolvidas de utilizar o resolvedor recursivo do Azure.
+       O servidor DNS para cada rede reencaminha os pedidos para o outro, com base no sufixo DNS. Outras solicitações são resolvidas de utilizar o resolvedor recursivo do Azure.
 
-    Para obter um exemplo de cada configuração, consulte o [exemplo: DNS personalizado](#example-dns) secção.
+     Para obter um exemplo de cada configuração, consulte o [exemplo: DNS personalizado](#example-dns) secção.
 
 Para obter mais informações, consulte a [resolução de nomes para VMs e instâncias de função](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md) documento.
 
@@ -647,9 +647,9 @@ Este exemplo faz as seguintes suposições:
     };
     ```
     
-    * Substitua a `10.0.0.0/16` e `10.1.0.0/16` intervalos de suas redes virtuais de endereços de valores com o IP. Esta entrada permite que os recursos em cada rede para fazer pedidos dos servidores DNS.
+   * Substitua a `10.0.0.0/16` e `10.1.0.0/16` intervalos de suas redes virtuais de endereços de valores com o IP. Esta entrada permite que os recursos em cada rede para fazer pedidos dos servidores DNS.
 
-    Todos os pedidos que não são para os sufixos DNS das redes virtuais (por exemplo, microsoft.com) é manipulada pelo resolvedor recursivo do Azure.
+     Todos os pedidos que não são para os sufixos DNS das redes virtuais (por exemplo, microsoft.com) é manipulada pelo resolvedor recursivo do Azure.
 
 4. Para utilizar a configuração, reinicie o enlace. Por exemplo, `sudo service bind9 restart` em ambos os servidores DNS.
 

@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: article
 ms.date: 01/31/2019
 ms.author: alkohli
-ms.openlocfilehash: d0b171f05bb2243da83509348b099bebcb44ebc7
-ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
+ms.openlocfilehash: 81407a298ccfe1b9884fc5d5b815ac8c18ffee6a
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55508713"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58094682"
 ---
 # <a name="develop-a-c-iot-edge-module-to-move-files-on-data-box-edge-preview"></a>Desenvolver um módulo de c# IoT Edge para mover ficheiros do Edge de caixa de dados (pré-visualização)
 
@@ -71,14 +71,14 @@ Um registo de contentor do Azure é um registo do Docker privado no Azure, onde 
 2. Selecione **criar um recurso > contentores > registo de contentor**. Clique em **Criar**.
 3. Fornece o seguinte:
 
-    1. Um exclusivo **nome do registo** no Azure que contém 5 e 50 carateres de alfanuméricos.
-    2. Escolher uma **subscrição**.
-    3. Criar um novo ou selecione um existente **grupo de recursos**.
-    4. Selecione uma **Localização**. Recomendamos que esta localização ser a mesma, que é associado ao recurso de borda de caixa de dados.
-    5. Mude **Utilizador administrador** para **Ativar**.
-    6. Defina o SKU como **básica**.
+   1. Um exclusivo **nome do registo** no Azure que contém 5 e 50 carateres de alfanuméricos.
+   2. Escolher uma **subscrição**.
+   3. Criar um novo ou selecione um existente **grupo de recursos**.
+   4. Selecione uma **Localização**. Recomendamos que esta localização ser a mesma, que é associado ao recurso de borda de caixa de dados.
+   5. Mude **Utilizador administrador** para **Ativar**.
+   6. Defina o SKU como **básica**.
 
-    ![Criar registo de contentor](./media/data-box-edge-create-iot-edge-module/create-container-registry-1.png)
+      ![Criar registo de contentor](./media/data-box-edge-create-iot-edge-module/create-container-registry-1.png)
  
 4. Selecione **Criar**.
 5. Depois de o registo de contentores ser criado, navegue para o mesmo e selecione **Chaves de acesso**.

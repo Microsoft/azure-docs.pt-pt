@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 04/17/2017
 ms.author: rasquill
 ms.custom: mvc
-ms.openlocfilehash: cd2eb3ba1d3207f4f210aa259e938bb42b44d37a
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 647923ce87e66314d7a95beb88cc842230f28774
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57535455"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58077076"
 ---
 # <a name="deprecated-canary-release-microservices-with-vamp-on-an-azure-container-service-dcos-cluster"></a>(PRETERIDO) Microsserviços de versão canary com Vamp num cluster DC/OS do Azure Container Service
 
@@ -62,12 +62,12 @@ Vamp requer o Elasticsearch para a coleta de métricas e de agregação. Pode ut
 
 2. Selecione **modo JSON** partir do **implementar o novo serviço** pop-up.
 
-  ![Selecione o modo JSON](./media/container-service-dcos-vamp-canary-release/02_deploy_service_json_mode.png)
+   ![Selecione o modo JSON](./media/container-service-dcos-vamp-canary-release/02_deploy_service_json_mode.png)
 
 3. Cole o seguinte JSON. Esta configuração é executado o contentor com 1 GB de RAM e uma verificação de estado de funcionamento básico na porta Elasticsearch.
   
-  ```JSON
-  {
+   ```JSON
+   {
     "id": "elasticsearch",
     "instances": 1,
     "cpus": 0.2,
@@ -89,40 +89,40 @@ Vamp requer o Elasticsearch para a coleta de métricas e de agregação. Pode ut
         "maxConsecutiveFailures": 0
       }
     ]
-  }
-  ```
+   }
+   ```
   
 
 3. Clique em **implementar**.
 
-  DC/OS implementa o contentor de Elasticsearch. Pode controlar o progresso no **serviços** página.  
+   DC/OS implementa o contentor de Elasticsearch. Pode controlar o progresso no **serviços** página.  
 
-  ![implementar e? Elasticsearch](./media/container-service-dcos-vamp-canary-release/03_deply_elasticsearch.png)
+   ![implementar e? Elasticsearch](./media/container-service-dcos-vamp-canary-release/03_deply_elasticsearch.png)
 
 ### <a name="deploy-vamp"></a>Implementar Vamp
 
 Assim que o Elasticsearch comunica **em execução**, pode adicionar o pacote de DC/OS Universe Vamp. 
 
 1. Aceda a **universo** e procure **vamp**. 
-  ![Vamp no DC/OS universe](./media/container-service-dcos-vamp-canary-release/04_universe_deploy_vamp.png)
+   ![Vamp no DC/OS universe](./media/container-service-dcos-vamp-canary-release/04_universe_deploy_vamp.png)
 
 2. Clique em **instale** junto a vamp empacotamento e a escolha **instalação avançada**.
 
 3. Desloque para baixo e introduza o seguinte url de elasticsearch: `http://elasticsearch.marathon.mesos:9200`. 
 
-  ![Introduza o URL do Elasticsearch](./media/container-service-dcos-vamp-canary-release/05_universe_elasticsearch_url.png)
+   ![Introduza o URL do Elasticsearch](./media/container-service-dcos-vamp-canary-release/05_universe_elasticsearch_url.png)
 
 4. Clique em **reveja e instale**, em seguida, clique em **instalar** para iniciar a implementação.  
 
-  DC/OS implementa todos os Vamp componentes obrigatórios. Pode controlar o progresso no **serviços** página.
+   DC/OS implementa todos os Vamp componentes obrigatórios. Pode controlar o progresso no **serviços** página.
   
-  ![Implementar Vamp como pacote do universo](./media/container-service-dcos-vamp-canary-release/06_deploy_vamp.png)
+   ![Implementar Vamp como pacote do universo](./media/container-service-dcos-vamp-canary-release/06_deploy_vamp.png)
   
 5. Depois de concluída a implementação, pode acessar a interface do Usuário Vamp:
 
-  ![Serviço de vamp no DC/OS](./media/container-service-dcos-vamp-canary-release/07_deploy_vamp_complete.png)
+   ![Serviço de vamp no DC/OS](./media/container-service-dcos-vamp-canary-release/07_deploy_vamp_complete.png)
   
-  ![Vamp da interface do Usuário](./media/container-service-dcos-vamp-canary-release/08_vamp_ui.png)
+   ![Vamp da interface do Usuário](./media/container-service-dcos-vamp-canary-release/08_vamp_ui.png)
 
 
 ## <a name="deploy-your-first-service"></a>Implementar o seu primeiro serviço
@@ -139,11 +139,11 @@ Este cenário utiliza uma aplicação monolítica de exemplo chamada [ **sava**]
 
 3. Cole o seguinte esquema YAML. Este esquema contém um cluster com a variante de apenas um serviço, o que podemos alterar num passo posterior:
 
-  ```YAML
-  name: sava                        # deployment name
-  gateways:
+   ```YAML
+   name: sava                        # deployment name
+   gateways:
     9050: sava_cluster/webport      # stable endpoint
-  clusters:
+   clusters:
     sava_cluster:               # cluster to create
      services:
         -
@@ -152,7 +152,7 @@ Este cenário utiliza uma aplicação monolítica de exemplo chamada [ **sava**]
             deployable: magneticio/sava:1.0.0
             ports:
               webport: 8080/http # cluster endpoint, used for canary releasing
-  ```
+   ```
 
 4. Clique em **Guardar**. Vamp inicia a implementação.
 
@@ -202,9 +202,9 @@ Para mesclar o novo serviço de sava 1.1 com a implementação em execução:
 
 2. Clique em **adicionar** e cole o seguinte esquema YAML: Este esquema descreve uma nova variante de serviço (sava: 1.1.0) para implementar dentro do cluster existente (sava_cluster).
 
-  ```YAML
-  name: sava:1.1.0      # blueprint name
-  clusters:
+   ```YAML
+   name: sava:1.1.0      # blueprint name
+   clusters:
     sava_cluster:       # cluster to update
       services:
         -
@@ -213,17 +213,17 @@ Para mesclar o novo serviço de sava 1.1 com a implementação em execução:
             deployable: magneticio/sava:1.1.0    
             ports:
               webport: 8080/http # cluster endpoint to update
-  ```
+   ```
   
 3. Clique em **Guardar**. O plano gráfico é armazenado e listado no **esquemas** página.
 
 4. Abra o menu de ação no esquema a sava: 1.1 e clique em **intercalar com o**.
 
-  ![Vamp da interface do Usuário - esquemas](./media/container-service-dcos-vamp-canary-release/20_sava110_mergeto.png)
+   ![Vamp da interface do Usuário - esquemas](./media/container-service-dcos-vamp-canary-release/20_sava110_mergeto.png)
 
 5. Selecione o **sava** implementação e clique em **intercalar**.
 
-  ![Vamp da interface do Usuário - esquema de intercalação para implementação](./media/container-service-dcos-vamp-canary-release/21_sava110_merge.png)
+   ![Vamp da interface do Usuário - esquema de intercalação para implementação](./media/container-service-dcos-vamp-canary-release/21_sava110_merge.png)
 
 Vamp implementa a variante de serviço novo sava: 1.1.0 descrita no esquema juntamente com sava: 1.0.0 no **sava_cluster** da implementação em execução. 
 
@@ -241,11 +241,11 @@ Com as duas versões do sava implementadas no mesmo cluster, ajustar a distribui
 
 2. Defina a distribuição da ponderação como 50% 50% e clique em **guardar**.
 
-  ![Vamp da interface do Usuário - controlo de deslize de peso de gateway](./media/container-service-dcos-vamp-canary-release/24_sava_cluster_webport_weight.png)
+   ![Vamp da interface do Usuário - controlo de deslize de peso de gateway](./media/container-service-dcos-vamp-canary-release/24_sava_cluster_webport_weight.png)
 
 3. Volte ao seu navegador e atualize a página de sava mais algumas vezes. A aplicação de sava agora muda entre uma página de sava: 1.0 e uma página de sava: 1.1.
 
-  ![alternando serviços sava1.0 e sava1.1](./media/container-service-dcos-vamp-canary-release/25_sava_100_101.png)
+   ![alternando serviços sava1.0 e sava1.1](./media/container-service-dcos-vamp-canary-release/25_sava_100_101.png)
 
 
   > [!NOTE]
@@ -264,23 +264,23 @@ Pode criar uma condição para filtrar todos os usuários do Firefox e direcion�
 
 2. Introduza a condição **agente do usuário = = Firefox** e clique em ![Vamp IU – guardar](./media/container-service-dcos-vamp-canary-release/vamp_ui_save.png).
 
-  Vamp adiciona da condição com uma força de padrão de 0%. Para começar a filtrar o tráfego, terá de ajustar a força da condição.
+   Vamp adiciona da condição com uma força de padrão de 0%. Para começar a filtrar o tráfego, terá de ajustar a força da condição.
 
 3. Clique em ![Vamp interface do Usuário - editar](./media/container-service-dcos-vamp-canary-release/vamp_ui_edit.png) para alterar a **força** aplicadas à condição.
  
 4. Definir o **força** para 100% e clique em ![Vamp IU – guardar](./media/container-service-dcos-vamp-canary-release/vamp_ui_save.png) para guardar.
 
-  Vamp agora envia o tráfego que correspondem à condição (todos os usuários do Firefox) para sava: 1.0.0.
+   Vamp agora envia o tráfego que correspondem à condição (todos os usuários do Firefox) para sava: 1.0.0.
 
-  ![Vamp da interface do Usuário - aplicar condição ao gateway](./media/container-service-dcos-vamp-canary-release/26_apply_condition.png)
+   ![Vamp da interface do Usuário - aplicar condição ao gateway](./media/container-service-dcos-vamp-canary-release/26_apply_condition.png)
 
 5. Por último, ajuste o peso de gateway para enviar todo o tráfego restante (todos os utilizadores não Firefox) para o novo sava: 1.1.0. Clique em ![Vamp interface do Usuário - editar](./media/container-service-dcos-vamp-canary-release/vamp_ui_edit.png) junto a **peso** e defina a distribuição da ponderação, para 100% é direcionado para a rota sava/sava_cluster/sava:1.1.0/webport.
 
-  Todo o tráfego não filtrado pela condição agora é direcionado para o novo sava: 1.1.0.
+   Todo o tráfego não filtrado pela condição agora é direcionado para o novo sava: 1.1.0.
 
 6. Para ver o filtro em ação, abra dois diferentes navegadores (um Firefox e um outro navegador) e aceder ao serviço de sava de ambos. Todos os pedidos do Firefox são enviados para sava: 1.0.0, enquanto todos os outros navegadores são direcionados para sava: 1.1.0.
 
-  ![Interface do Usuário - filtrar o tráfego de vamp](./media/container-service-dcos-vamp-canary-release/27_filter_traffic.png)
+   ![Interface do Usuário - filtrar o tráfego de vamp](./media/container-service-dcos-vamp-canary-release/27_filter_traffic.png)
 
 ## <a name="summing-up"></a>Resumindo
 

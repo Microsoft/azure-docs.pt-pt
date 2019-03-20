@@ -7,12 +7,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 04/19/2018
 ms.author: kgremban
-ms.openlocfilehash: 882c2f7d9abfa40ddafbba4f98292c3f8f44c459
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: e7e8d12af92a566753d8f3d7baf5019bae44de2c
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57548716"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58163522"
 ---
 # <a name="send-cloud-to-device-messages-with-iot-hub-ios"></a>Enviar mensagens da cloud para o dispositivo com o IoT Hub (iOS)
 
@@ -128,7 +128,7 @@ Para além de instalar os pods necessários para o projeto, o comando de instala
 1. Obter a cadeia de ligação de serviço para o seu hub IoT. Pode copiar essa cadeia de caracteres do [portal do Azure](https://portal.azure.com) partir a **iothubowner** política no **políticas de acesso partilhado** painel, ou recuperá-la com o seguinte comando da CLI:  
 
     ```azurecli-interactive
-    az iot hub show-connection-string --hub-name {YourIoTHubName} --output table
+    az iot hub show-connection-string --name {YourIoTHubName} --output table
     ```
 
 2. Abra a área de trabalho de exemplo no XCode.

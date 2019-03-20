@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 05/16/2017
 ms.author: celested
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 14957a94dbe8330553a4090e22d80d6cc2ee06eb
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 70513675d09a663c65c6f5b3e18059467a8ba388
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56217331"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58109329"
 ---
 # <a name="managing-access-to-apps"></a>Gerir o acesso a aplicações
 Gestão de acesso contínuo, avaliação de utilização e relatórios continuam a ser um desafio depois de uma aplicação é integrada ao sistema de identidade da sua organização. Em muitos casos, os administradores de TI ou suporte técnico tem de realizar uma função ativa em curso no gerenciamento de acesso às suas aplicações. Às vezes, a atribuição é realizada por uma equipa de TI geral ou divisão. Muitas vezes, a decisão de atribuição se destina a ser designado como o tomador de decisões de negócios, que requerem a sua aprovação antes de IT facilita a atribuição.  Outras organizações investem na integração com um automatizada identidades e acessos sistema de gerenciamento existente, como o controlo de acesso baseado em funções (RBAC) ou o controlo de acesso baseado em atributo (ABAC). A integração e o desenvolvimento de regra tendem a ser dispendiosos e especializados. Monitorização ou relatórios sobre qualquer uma das abordagens de gerenciamento são o seu próprio investimento separado, dispendioso e complexo.
@@ -29,7 +29,7 @@ Gestão de acesso contínuo, avaliação de utilização e relatórios continuam
 
 * [A adicionar novas ou aplicações existentes](configure-single-sign-on-portal.md)
 
- Atribuição de aplicações do Azure AD se concentra em dois modos de atribuição principal:
+  Atribuição de aplicações do Azure AD se concentra em dois modos de atribuição principal:
 
 * **Atribuição individual** administrador de TI um com permissões de Administrador Global do diretório pode selecionar as contas de utilizador individuais e conceder-lhes acesso à aplicação.
 * **Atribuição baseada em grupo (paga apenas do Azure AD)** administrador de TI um com permissões de Administrador Global do diretório pode atribuir um grupo à aplicação. Acesso de utilizadores específicos é determinado pelo serem membros do grupo no momento que tentam aceder à aplicação. Em outras palavras, um administrador pode, efetivamente, criar uma regra de atribuição que diz "qualquer membro atual do grupo atribuído tem acesso à aplicação". Utilizar esta opção de atribuição, os administradores podem se beneficiar qualquer uma das opções de gestão de grupo do Azure AD, incluindo [grupos dinâmicos baseados em atributo](../fundamentals/active-directory-groups-create-azure-portal.md), grupos de sistema externo (por exemplo, no local do Active Directory ou Workday), ou grupos de administrador-gerida ou self-service. Um único grupo pode ser facilmente atribuído a várias aplicações, tornando-se de que os aplicativos com afinidade de atribuição podem partilhar as regras de atribuição, reduzindo a complexidade de gestão geral. Tenha em atenção que as associações a grupos aninhados não são suportadas para atribuição de grupo para aplicações neste momento.

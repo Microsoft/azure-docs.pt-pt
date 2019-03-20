@@ -10,12 +10,12 @@ ms.subservice: academic-knowledge
 ms.topic: conceptual
 ms.date: 03/23/2017
 ms.author: alch
-ms.openlocfilehash: f6c2fbe5daeb114d6a5ea77c9823f1fa5bfe8425
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 5d47b938560fb1bd15adfe1a1c2d35b7359d47a3
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55864473"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57977416"
 ---
 # <a name="graph-search-method"></a>Método de pesquisa do gráfico
 
@@ -29,6 +29,7 @@ https://westus.api.cognitive.microsoft.com/academic/v1.0/graph/search?
 <br>
 
 ## <a name="request-parameters"></a>Parâmetros do Pedido  
+
 Name     | Value | Necessário?  | Descrição
 -----------|-----------|---------|--------
 **mode**       | Cadeia de texto | Sim | Nome do modo que deseja usar. O valor é *json* ou *lambda*.
@@ -45,7 +46,9 @@ Para o *json* pesquisa, o corpo da mensagem é um objeto JSON. O objeto JSON des
 Para o *lambda* pesquisa, o corpo da mensagem é uma cadeia de texto sem formatação. O corpo de mensagem é uma cadeia de consulta do LIKQ lambda, que é uma única instrução c# (consulte a [especificação de cadeia de consulta](LambdaSearchSyntax.md) para *lambda* pesquisa). 
 
 <br>
+
 ## <a name="response-json"></a>Resposta (JSON)
+
 Name | Descrição
 -------|-----   
 **Resultados** | Uma matriz de 0 ou mais entidades que correspondem à expressão de consulta. Cada entidade contém os valores de atributos solicitados. Este campo é apresentado se o pedido foi processado com êxito.
@@ -55,6 +58,7 @@ Name | Descrição
 Se uma consulta não é possível processar dentro _800 ms_, uma _tempo limite_ vai ser devolvido o erro. 
 
 <br>
+
 #### <a name="example"></a>Exemplo:
 
 ##### <a name="json-search"></a>Pesquisa JSON

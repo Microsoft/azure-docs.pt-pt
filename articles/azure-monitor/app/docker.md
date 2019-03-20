@@ -10,16 +10,19 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 11/20/2018
+ms.date: 03/14/2019
 ms.author: mbullwin
-ms.openlocfilehash: 0c31d895c453a8272c337b78f01dc8342a4d0765
-ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
+ms.openlocfilehash: 115e2d6b041ecc3f38a2a6438d90777da9660221
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56672513"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57996469"
 ---
-# <a name="monitor-docker-applications-in-application-insights"></a>Monitorizar aplicações do Docker no Application Insights
+# <a name="monitor-docker-applications-in-application-insights-deprecated"></a>Monitorizar aplicações do Docker no Application Insights (preterido)
+
+> [!NOTE]
+> Esta solução foi preterida. Para saber mais sobre os investimentos atuais na monitorização de contentores, recomendamos dar uma olhada [Monitor do Azure para contentores](https://docs.microsoft.com/azure/azure-monitor/insights/container-insights-overview).
 
 Os contadores de desempenho e eventos de ciclo de vida da [Docker](https://www.docker.com/) contentores podem ser colocada em gráficos no Application Insights. Instalar o [Application Insights](https://hub.docker.com/r/microsoft/applicationinsights/) imagem num contentor no seu anfitrião e ele irá apresentar os contadores de desempenho para o anfitrião, bem como para as outras imagens.
 
@@ -30,9 +33,6 @@ Quando executa o [imagem do Application Insights](https://hub.docker.com/r/micro
 * Telemetria de ciclo de vida sobre todos os contentores em execução no anfitrião - iniciar, parar e assim por diante.
 * Contadores de desempenho para todos os contentores. CPU, memória, utilização de rede e muito mais.
 * Se [instalado o SDK do Application Insights para Java](../../azure-monitor/app/java-get-started.md) nas aplicações em execução nos contentores, toda a telemetria desses aplicativos terão propriedades adicionais, identificar a máquina de contentor e o anfitrião. Por exemplo, se tiver instâncias de uma aplicação em execução no anfitrião mais do que uma, pode filtrar facilmente a telemetria da sua aplicação por anfitrião.
-
-> [!NOTE]
-> Esta solução foi preterida. Para saber mais sobre os investimentos atuais na monitorização de contentores, recomendamos dar uma olhada [Monitor do Azure para contentores](https://docs.microsoft.com/azure/azure-monitor/insights/container-insights-overview).
 
 ## <a name="set-up-your-application-insights-resource"></a>Configurar o recurso do Application Insights
 

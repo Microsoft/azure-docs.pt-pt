@@ -17,12 +17,12 @@ ms.date: 02/03/2019
 ms.author: markvi
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a7a1d0dab08c4beb93d323bcd1a5f5b00a190daa
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: 018281406bb810f6357ad00948060cedae57fc6d
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56868294"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58003807"
 ---
 # <a name="how-to-plan-your-hybrid-azure-active-directory-join-implementation"></a>Como: Planear a sua implementação híbrida do Azure Active Directory
 
@@ -41,6 +41,8 @@ Se tiver um ambiente do Active Directory no local e quiser associar os seus disp
 
 Este artigo pressupõe que está familiarizado com o [introdução à gestão de dispositivos no Azure Active Directory](../device-management-introduction.md).
 
+>[!NOTE]
+>  O mínimo necessário funcional do domínio e os níveis funcionais de floresta para Windows 10 a associação do Azure AD híbrido é o Windows Server 2008 R2. Em versões mais baixas, o utilizador pode não obter uma primário atualizar Token durante o início de sessão do Windows devido a problemas LSA 
 
 ## <a name="plan-your-implementation"></a>Planeie a sua implementação
 

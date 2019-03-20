@@ -4,18 +4,18 @@ ms.service: storage
 ms.topic: include
 ms.date: 12/11/2018
 ms.author: tamram
-ms.openlocfilehash: b099f5ff7e43f2deeb3b8c41adcb802cd431a65a
-ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
+ms.openlocfilehash: fa0edaaa3ee785f89faceb51419d360752bb9825
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53636008"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58052016"
 ---
 O agente de sincronização de ficheiros do Azure é atualizado regularmente para adicionar novas funcionalidades e para resolver problemas. Recomendamos que configure o Microsoft Update para obter atualizações para o agente de sincronização de ficheiros do Azure, como eles estão disponíveis.
 
 #### <a name="major-vs-minor-agent-versions"></a>Principais vs. as versões do agente secundárias
-* Muitas vezes, as versões do agente principais contêm novos recursos e tem um número crescente como a primeira parte do número de versão. Por exemplo: *2.\*.\**
-* As versões do agente secundária são também denominadas "patches" e são lançadas com mais frequência do que as versões principais. Geralmente contêm correções de erros e melhorias menores, mas não existem novas funcionalidades. Por exemplo:  *\*.3.\**
+* Muitas vezes, as versões do agente principais contêm novos recursos e tem um número crescente como a primeira parte do número de versão. Por exemplo: \*2.\*.\*\*
+* As versões do agente secundária são também denominadas "patches" e são lançadas com mais frequência do que as versões principais. Geralmente contêm correções de erros e melhorias menores, mas não existem novas funcionalidades. Por exemplo: \* \*.3.\*\*
 
 #### <a name="upgrade-paths"></a>Caminhos de atualização
 Existem quatro aprovação e teste de formas de instalar as atualizações de agente do Azure File Sync. 

@@ -9,12 +9,12 @@ ms.date: 10/16/2018
 ms.topic: conceptual
 manager: carmonm
 ms.custom: mvc
-ms.openlocfilehash: c020d3c7513efda93d7ac5d3bdd79f21f8bc77dd
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.openlocfilehash: 0f5d36dfbe614e35256231a91a9e15055e2e81cb
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56818482"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57843628"
 ---
 # <a name="onboard-update-management-change-tracking-and-inventory-solutions"></a>Carregar soluções de gestão de atualizações, controlo de alterações e inventário
 
@@ -41,14 +41,19 @@ A tabela seguinte mostra os mapeamentos suportados:
 |Sudeste da Austrália.|Sudeste da Austrália.|
 |CanadaCentral|CanadaCentral|
 |CentralIndia|CentralIndia|
-|EastUS|EastUS2|
+|EastUS<sup>1</sup>|EastUS2|
 |JapanEast|JapanEast|
 |SoutheastAsia|SoutheastAsia|
 |WestCentralUS|WestCentralUS|
 |WestEurope|WestEurope|
 |UKSouth|UKSouth|
 |USGovVirginia|USGovVirginia|
-|EastUS2EUAP|CentralUSEUAP|
+|EastUS2EUAP<sup>1</sup>|CentralUSEUAP|
+
+<sup>1</sup> EastUS2EUAP e EastUS mapeamentos para áreas de trabalho do Log Analytics para contas de automatização não são um mapeamento de região para região exato, mas é o mapeamento correto.
+
+> [!NOTE]
+> Devido à procura, uma região pode não estar disponível ao criar a sua área de trabalho de conta de automatização ou o Log Analytics.  Se for esse o caso, certifique-se de que está a utilizar uma região em que pode criar recursos na tabela anterior.
 
 A solução de Controlo de Alterações e Inventário fornece a capacidade de [controlar as alterações](automation-vm-change-tracking.md) e [inventário](automation-vm-inventory.md) nas suas máquinas virtuais. Neste passo, vai ativar a solução numa máquina virtual.
 
@@ -91,7 +96,7 @@ Selecione qualquer pesquisa guardada para ver a consulta usada para preencher o 
 
 Da sua automação de conta Selecione **inventário** ou **controlo de alterações** sob **o GERENCIAMENTO de configuração**, ou **gestão de atualizações** sob **gestão de ATUALIZAÇÕES**.
 
-Clique em **+ adicionar VMs do Azure**, selecione uma ou mais VMs a partir da lista. Máquinas virtuais que não pode ser ativadas são cinzento para fora e não pode ser selecionada. Sobre o **ativar gestão de atualizações** página, clique em **ativar**. Esta ação adiciona as VMs selecionadas para o grupo de computadores para a solução, a pesquisa guardado.
+Clique em **+ adicionar VMs do Azure**, selecione uma ou mais VMs a partir da lista. Máquinas virtuais que não pode ser ativadas são cinzento para fora e não pode ser selecionada. VMs do Azure podem existir em qualquer região, independentemente da localização da sua conta de automatização. Sobre o **ativar gestão de atualizações** página, clique em **ativar**. Esta ação adiciona as VMs selecionadas para o grupo de computadores para a solução, a pesquisa guardado.
 
 ![Ativar as VMs do Azure](media/automation-onboard-solutions-from-automation-account/enable-azure-vms.png)
 

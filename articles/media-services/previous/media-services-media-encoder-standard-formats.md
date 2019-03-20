@@ -11,14 +11,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/26/2019
+ms.date: 03/18/2019
 ms.author: juliako;anilmur
-ms.openlocfilehash: a5131449b5aa66e3075cbf67cc055286dbc4ccb9
-ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
+ms.openlocfilehash: c862de2eec4e6c116218457a20b567dc02778685
+ms.sourcegitcommit: f331186a967d21c302a128299f60402e89035a8d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56957764"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58190027"
 ---
 # <a name="media-encoder-standard-formats-and-codecs"></a>Formatos e Codecs do Codificador de Multimédia Standard
 
@@ -30,7 +30,7 @@ Este documento contém uma lista do importar mais comuns e formatos de ficheiro 
 
 ## <a name="input-containerfile-formats"></a>Formatos de arquivo/contentor de entrada
 | Formatos de ficheiro (extensões de ficheiro) | Suportadas |
-| --- | --- | --- | --- |
+| --- | --- |
 | FLV (com codecs H.264 e AAC) (. flv) |Sim |
 | MXF    (.mxf) |Sim |
 | GXF    (.gxf) |Sim |
@@ -59,7 +59,7 @@ ou
 
 ## <a name="input-video-codecs"></a>Codecs de vídeo de entrada
 | Codecs de vídeo de entrada | Suportadas |
-| --- | --- | --- | --- |
+| --- | --- |
 | AVC 8 bits/10-bits, até 4:2:2, incluindo AVCIntra |4 de 8 bits: 2:0 e 4:2:2 |
 | Avid DNxHD (no MXF) |Sim |
 | DVCPro/DVCProHD (no MXF) |Sim |
@@ -82,7 +82,7 @@ ou
 
 ## <a name="input-audio-codecs"></a>Codecs de áudio de entrada
 | Codecs de áudio de entrada | Suportadas |
-| --- | --- | --- | --- |
+| --- | --- |
 | AAC (AAC-LC, AAC-HE e AAC-HEv2; até 5.1) |Sim |
 | MPEG camada 2 |Sim |
 | MP3 (MPEG-1 camada de áudio 3) |Sim |

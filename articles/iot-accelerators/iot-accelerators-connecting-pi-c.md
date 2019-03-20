@@ -6,14 +6,14 @@ manager: timlt
 ms.service: iot-accelerators
 services: iot-accelerators
 ms.topic: conceptual
-ms.date: 09/17/2018
+ms.date: 03/08/2019
 ms.author: dobett
-ms.openlocfilehash: 838a33fd390b28fec609c42487dca225ddc6eaa8
-ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
+ms.openlocfilehash: 3331db51f4d141cf142d1bd0578043ca6681f3cd
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53628209"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58180505"
 ---
 # <a name="connect-your-raspberry-pi-device-to-the-remote-monitoring-solution-accelerator-c"></a>Ligar o seu dispositivo de Raspberry Pi para o acelerador de solução de monitorização remota (C)
 

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/07/2019
 ms.author: spelluru
-ms.openlocfilehash: bc81f479305f39024b8d946e1ace3fc84ecb6253
-ms.sourcegitcommit: 89b5e63945d0c325c1bf9e70ba3d9be6888da681
+ms.openlocfilehash: 1f6887a403e03ac11bb080a1d9855daff66ca088
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/08/2019
-ms.locfileid: "57588861"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58096780"
 ---
 # <a name="track-costs-associated-with-a-lab-in-azure-devtest-labs"></a>Controlar os custos associados a um laboratório no Azure DevTest Labs
 Este artigo fornece informações sobre como controlar o custo do seu laboratório. Ele mostra como ver a estimativa de custos trent para o mês de calendário atual para o laboratório. O artigo também mostra como ver o custo do mês até à data por recurso no laboratório.
@@ -41,19 +41,19 @@ Para ver o gráfico de tendência de custo estimado mensal, siga estes passos:
 
     As quantidades de custo são arredondadas para o número inteiro seguinte. Por exemplo: 
 
-    * 5.01 Arredonda por excesso até 6 
-    * 5.50 Arredonda por excesso até 6
-    * 5.99 Arredonda por excesso até 6
+   * 5.01 Arredonda por excesso até 6 
+   * 5.50 Arredonda por excesso até 6
+   * 5.99 Arredonda por excesso até 6
 
-    Como ele declara acima do gráfico, os custos de vir por predefinição no gráfico estão *estimado* custa usando [pay as you go](https://azure.microsoft.com/offers/ms-azr-0003p/) oferecem taxas. Também pode definir seus próprios gastos destinos que são apresentados nos gráficos por [gerenciando os destinos de custo para o laboratório.](#managing-cost-targets-for-your-lab)
+     Como ele declara acima do gráfico, os custos de vir por predefinição no gráfico estão *estimado* custa usando [pay as you go](https://azure.microsoft.com/offers/ms-azr-0003p/) oferecem taxas. Também pode definir seus próprios gastos destinos que são apresentados nos gráficos por [gerenciando os destinos de custo para o laboratório.](#managing-cost-targets-for-your-lab)
 
-    Os seguintes custos estão *não* incluídas no cálculo de custo:
+     Os seguintes custos estão *não* incluídas no cálculo de custo:
 
-    * Subscrições de CSP e Dreamspark não são atualmente suportadas como o Azure DevTest Labs utiliza a [APIs de faturas do Azure](../billing/billing-usage-rate-card-overview.md) para calcular o laboratório de custos, que não suporta subscrições de CSP ou Dreamspark.
-    * As taxas de oferta. Atualmente, não é possível utilizar as tarifas da oferta (mostradas na sua subscrição) que ter negociado com a Microsoft ou Microsoft parceiros. São utilizadas apenas as taxas de pay as you go.
-    * Seus impostos
-    * Slevy
-    * A moeda de faturação. Atualmente, o custo do laboratório é apresentado apenas na moeda USD.
+   * Subscrições de CSP e Dreamspark não são atualmente suportadas como o Azure DevTest Labs utiliza a [APIs de faturas do Azure](../billing/billing-usage-rate-card-overview.md) para calcular o laboratório de custos, que não suporta subscrições de CSP ou Dreamspark.
+   * As taxas de oferta. Atualmente, não é possível utilizar as tarifas da oferta (mostradas na sua subscrição) que ter negociado com a Microsoft ou Microsoft parceiros. São utilizadas apenas as taxas de pay as you go.
+   * Seus impostos
+   * Slevy
+   * A moeda de faturação. Atualmente, o custo do laboratório é apresentado apenas na moeda USD.
 
 ### <a name="managing-cost-targets-for-your-lab"></a>Gestão de destinos de custo para o laboratório
 DevTest Labs permite que a gerenciar melhor os custos em seu laboratório, definindo um destino de gastos, em seguida, pode ver no gráfico de tendência de custo estimado mensal. DevTest Labs pode também enviar-lhe uma notificação quando os gastos de destino especificado ou o limiar for atingido. 
@@ -76,11 +76,11 @@ DevTest Labs permite que a gerenciar melhor os custos em seu laboratório, defin
 
        ![Configurar o painel de notificação](./media/devtest-lab-configure-cost-management/configure-notification.png)
 
-      - Se especificar **notificar**, tem de definir um URL do webhook.
-      - Da mesma forma, se definir um URL do webhook, tem de definir **notificação** ao **no** no painel de limiar de custo.
-      - Tem de criar um webhook antes de introduzi-la aqui.  
+     - Se especificar **notificar**, tem de definir um URL do webhook.
+     - Da mesma forma, se definir um URL do webhook, tem de definir **notificação** ao **no** no painel de limiar de custo.
+     - Tem de criar um webhook antes de introduzi-la aqui.  
 
-      Para obter mais informações sobre os webhooks, consulte [criar um webhook ou uma função de Azure API](../azure-functions/functions-create-a-web-hook-or-api-function.md). 
+       Para obter mais informações sobre os webhooks, consulte [criar um webhook ou uma função de Azure API](../azure-functions/functions-create-a-web-hook-or-api-function.md). 
 
 ## <a name="view-cost-by-resource"></a>Vista de custos por recurso 
 A funcionalidade de tendência de custo mensal no labs permite-lhe ver o quanto têm gasto no mês atual. Ela também mostra a projeção de gastos até ao fim do mês, com base nos seus gastos nos últimos sete dias. Para ajudar a compreender por que motivo o gastos no laboratório está a cumprir limiares no início, pode utilizar o **de custos por recurso** funcionalidade que lhe mostra o custo acumulado do mês **por recurso** numa tabela.
