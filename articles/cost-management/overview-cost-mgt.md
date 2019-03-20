@@ -5,17 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 02/28/2018
+ms.date: 03/14/2019
 ms.topic: overview
 ms.service: cost-management
 manager: benshy
 ms.custom: ''
-ms.openlocfilehash: d5ed8e896034341dcc9a776d722144bb5879568b
-ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
+ms.openlocfilehash: 69f91949347eadcffb3c0d3ff833a40b5e483e24
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57337962"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58003169"
 ---
 # <a name="what-is-azure-cost-management"></a>O que é o Azure Cost Management?
 

@@ -8,12 +8,12 @@ ms.devlang: java
 ms.topic: quickstart
 ms.date: 03/26/2018
 ms.author: lbosq
-ms.openlocfilehash: ac32ec6fc1f59b87d3efb88d95d21af309681934
-ms.sourcegitcommit: 7723b13601429fe8ce101395b7e47831043b970b
+ms.openlocfilehash: db931a3a114be101eeb5e14fa7ba100a789e7cf5
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56587978"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58094996"
 ---
 # <a name="quickstart-create-a-graph-database-in-azure-cosmos-db-using-the-java-sdk"></a>Início rápido: Criar uma base de dados no Azure Cosmos DB com o SDK de Java 
 
@@ -219,17 +219,17 @@ Agora, pode voltar ao Data Explorer e ver os vértices adicionados ao gráfico e
 
 12. Agora, pode ligar rakesh e ashley. Confirme que **ashley** está selecionada na lista **Resultados** e clique no botão ![Alterar o destino de um vértice num gráfico](./media/create-graph-java/edit-pencil-button.png)  junto a **Destinos** no lado inferior direito. Poderá ter de alargar a janela para ver o botão.
 
-   ![Alterar o destino de um vértice de um gráfico](./media/create-graph-java/azure-cosmosdb-data-explorer-edit-target.png)
+    ![Alterar o destino de um vértice de um gráfico](./media/create-graph-java/azure-cosmosdb-data-explorer-edit-target.png)
 
 13. Na caixa **Destino**, escreva *rakesh*, na caixa **Etiqueta da extremidade**, escreva *conhece* e, em seguida, clique na caixa de verificação.
 
-   ![Adicionar uma ligação entre ashley e rakesh no Data Explorer](./media/create-graph-java/azure-cosmosdb-data-explorer-set-target.png)
+    ![Adicionar uma ligação entre ashley e rakesh no Data Explorer](./media/create-graph-java/azure-cosmosdb-data-explorer-set-target.png)
 
 14. Agora, selecione **rakesh** na lista de resultados e veja se ashley e rakesh estão ligados. 
 
-   ![Dois vértices ligados no Data Explorer](./media/create-graph-java/azure-cosmosdb-graph-explorer.png)
+    ![Dois vértices ligados no Data Explorer](./media/create-graph-java/azure-cosmosdb-graph-explorer.png)
 
-   Esta ação conclui a parte da criação de recursos deste tutorial. Pode continuar a adicionar vértices ao seu gráfico, modificar os vértices existentes ou alterar as consultas. Agora vamos rever as métricas que o Azure Cosmos DB oferece e, em seguida, limpar os recursos. 
+    Esta ação conclui a parte da criação de recursos deste tutorial. Pode continuar a adicionar vértices ao seu gráfico, modificar os vértices existentes ou alterar as consultas. Agora vamos rever as métricas que o Azure Cosmos DB oferece e, em seguida, limpar os recursos. 
 
 ## <a name="review-slas-in-the-azure-portal"></a>Rever os SLAs no portal do Azure
 

@@ -10,12 +10,12 @@ ms.subservice: academic-knowledge
 ms.topic: conceptual
 ms.date: 03/27/2017
 ms.author: alch
-ms.openlocfilehash: a5ad7005a2ab3d6ed5f9c8fe38db9552e3925a30
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: d2e628fb7fc502ef9ba81d20680d66f24fd7d138
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55871324"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58004921"
 ---
 # <a name="evaluate-method"></a>Avalie o método
 
@@ -27,7 +27,9 @@ O **avaliar** REST API é utilizada para devolver um conjunto de entidades acad�
 https://westus.api.cognitive.microsoft.com/academic/v1.0/evaluate? 
 ```   
 <br>
+
 ## <a name="request-parameters"></a>Parâmetros do Pedido  
+
 Name     | Value | Necessário?  | Descrição
 -----------|-----------|---------|--------
 **expr**       | Cadeia de texto | Sim | Uma expressão de consulta que especifica quais entidades devem ser devolvidas.
@@ -38,7 +40,9 @@ Name     | Value | Necessário?  | Descrição
 **orderby** |   Cadeia de texto | Não<br>Predefinição:, diminuindo prob | Nome de um atributo que é utilizado para ordenação as entidades. Opcionalmente, ascendente/descendente pode ser especificado. O formato é: *name: asc* ou *nome: desc*.
   
  <br>
+
 ## <a name="response-json"></a>Resposta (JSON)
+
 Name | Descrição
 -------|-----   
 **expr** |  O *expr* parâmetro no pedido.
@@ -46,6 +50,7 @@ Name | Descrição
 **aborted** | VERDADEIRO se o pedido excedeu o limite de tempo.
 
 <br>
+
 #### <a name="example"></a>Exemplo:
 ```
 https://westus.api.cognitive.microsoft.com/academic/v1.0/evaluate?expr=

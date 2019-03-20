@@ -9,12 +9,12 @@ ms.date: 01/31/2019
 ms.topic: tutorial
 ms.service: backup
 ms.custom: mvc
-ms.openlocfilehash: a73568fd1dd7ed6b6cd3a7938768db4982725658
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.openlocfilehash: 99f5b09d0b5dfc144dca7f19efff3f0656a82b35
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55497891"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58093250"
 ---
 # <a name="use-azure-portal-to-back-up-multiple-virtual-machines"></a>Utilizar o portal do Azure para criar cópias de segurança de várias máquinas virtuais
 
@@ -77,16 +77,16 @@ Depois de criar o cofre dos Serviços de Recuperação, o próximo passo é conf
     ![Selecionar a carga de trabalho](./media/tutorial-backup-vm-at-scale/create-new-policy.png)
 
 5. No menu **Backup policy** (Política de cópia de segurança), em **Policy Name** (Nome da Política), escreva *Finance* (Financeiro). Introduza as seguintes alterações à política de cópia de segurança:
-    - Em **Backup frequency** (Frequência da cópia de segurança), defina o fuso horário como *Hora Central*. Uma vez que o complexo desportivo está localizado no Texas, o proprietário quer que a hora seja a local. Deixe a frequência de cópia de segurança definida como Daily at 3:30AM. (Diariamente às 03:30).
-    - Em **Retention of daily backup point** (Retenção do ponto de criação de cópia de segurança diário), defina o período como 90 dias.
-    - Em **Retention of weekly backup point** (Retenção do ponto de criação de cópia de segurança semanal), utilize o ponto de restauro *Monday* (Segunda-feira) e retenha-o durante 52 semanas.
-    - Em **Retention of monthly backup point** (Retenção do ponto de criação de cópia de segurança mensal), utilize o ponto de restauro First Sunday of the month (Primeiro domingo do mês) e retenha-o durante 36 meses.
-    - Anule seleção da opção **Retention of yearly backup point** (Retenção do ponto de criação de cópia de segurança anual). O responsável pela área financeira não quer manter os dados por mais de 36 meses.
-    - Clique em **OK** para criar a política de cópias de segurança.
+   - Em **Backup frequency** (Frequência da cópia de segurança), defina o fuso horário como *Hora Central*. Uma vez que o complexo desportivo está localizado no Texas, o proprietário quer que a hora seja a local. Deixe a frequência de cópia de segurança definida como Daily at 3:30AM. (Diariamente às 03:30).
+   - Em **Retention of daily backup point** (Retenção do ponto de criação de cópia de segurança diário), defina o período como 90 dias.
+   - Em **Retention of weekly backup point** (Retenção do ponto de criação de cópia de segurança semanal), utilize o ponto de restauro *Monday* (Segunda-feira) e retenha-o durante 52 semanas.
+   - Em **Retention of monthly backup point** (Retenção do ponto de criação de cópia de segurança mensal), utilize o ponto de restauro First Sunday of the month (Primeiro domingo do mês) e retenha-o durante 36 meses.
+   - Anule seleção da opção **Retention of yearly backup point** (Retenção do ponto de criação de cópia de segurança anual). O responsável pela área financeira não quer manter os dados por mais de 36 meses.
+   - Clique em **OK** para criar a política de cópias de segurança.
 
-    ![Selecionar a carga de trabalho](./media/tutorial-backup-vm-at-scale/set-new-policy.png)
+     ![Selecionar a carga de trabalho](./media/tutorial-backup-vm-at-scale/set-new-policy.png)
 
-    Depois de criar a política de cópia de segurança, associe-a às máquinas virtuais.
+     Depois de criar a política de cópia de segurança, associe-a às máquinas virtuais.
 
 6. Na caixa de diálogo **Select virtual machines** (Selecionar máquinas virtuais), selecione *myVM* e clique em **OK** para implementar a política de cópia de segurança nas máquinas virtuais.
 

@@ -11,18 +11,18 @@ ms.topic: conceptual
 ms.date: 01/11/2019
 ms.author: erhopf
 ms.custom: seodec18
-ms.openlocfilehash: 5e25de83ddec2884d4bd10ea85f4708d534b8e3f
-ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
+ms.openlocfilehash: eff79b31e926d382d98416b585ca2af54b3e87d0
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57403248"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57872651"
 ---
 # <a name="quickstart-convert-text-to-speech-using-nodejs"></a>Início rápido: Converter texto para voz com node. js
 
 Neste início rápido, irá aprender como converter texto para voz com node. js e a API REST do texto para voz. O corpo do pedido neste guia está estruturado como [Speech Synthesis Markup Language (SSML)](speech-synthesis-markup.md), que permite-lhe escolher a voz e o idioma da resposta.
 
-Este início rápido requer uma [conta dos serviços cognitivos do Azure](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) com um recurso de serviço de voz. Se não tiver uma conta, pode utilizar a [avaliação gratuita](get-started.md) para obter uma chave de subscrição.
+Este início rápido requer uma [conta dos serviços cognitivos do Azure](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) com um recurso de serviços de voz. Se não tiver uma conta, pode utilizar a [avaliação gratuita](get-started.md) para obter uma chave de subscrição.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -30,7 +30,7 @@ Este início rápido requer:
 
 * [Node 8.12.x ou posterior](https://nodejs.org/en/)
 * [Visual Studio](https://visualstudio.microsoft.com/downloads/), [Visual Studio Code](https://code.visualstudio.com/download), ou no seu editor de texto favorito
-* Uma chave de subscrição do Azure para o serviço de voz. [Obter uma gratuitamente! ](get-started.md).
+* Uma chave de subscrição do Azure para os serviços de voz. [Obter uma gratuitamente! ](get-started.md).
 
 ## <a name="create-a-project-and-require-dependencies"></a>Crie um projeto e necessitam de dependências
 
@@ -53,9 +53,9 @@ const xmlbuilder = require('xmlbuilder');
 
 ## <a name="get-an-access-token"></a>Obter um token de acesso
 
-A API REST do texto para discurso exige um token de acesso para a autenticação. Para obter um token de acesso, um exchange é necessário. Esta função troca sua chave de subscrição do serviço de voz para um token de acesso através do `issueToken` ponto final.
+A API REST do texto para discurso exige um token de acesso para a autenticação. Para obter um token de acesso, um exchange é necessário. Esta função troca sua chave de subscrição de serviços de voz para um token de acesso através do `issueToken` ponto final.
 
-Este exemplo parte do princípio de que a sua subscrição do serviço de voz está na região E.U.A. oeste. Se estiver a utilizar uma região diferente, atualize o valor para `uri`. Para obter uma lista completa, consulte [regiões](https://docs.microsoft.com/azure/cognitive-services/speech-service/regions#rest-apis).
+Este exemplo parte do princípio de que a sua subscrição de serviços de voz está na região E.U.A. oeste. Se estiver a utilizar uma região diferente, atualize o valor para `uri`. Para obter uma lista completa, consulte [regiões](https://docs.microsoft.com/azure/cognitive-services/speech-service/regions#rest-apis).
 
 Copie este código para o seu projeto:
 
@@ -80,7 +80,7 @@ Na próxima seção, vamos criar a função para chamar a API de texto para voz 
 
 ## <a name="make-a-request-and-save-the-response"></a>Fazer um pedido e guardar a resposta
 
-Aqui pretende criar o pedido para a API de texto para voz e guardar a resposta de voz. Este exemplo parte do princípio de que está a utilizar o ponto de extremidade do E.U.A. oeste. Se o recurso está registado para uma região diferente, certifique-se de que atualiza o `uri`. Para obter mais informações, consulte [regiões de serviço de voz](https://docs.microsoft.com/azure/cognitive-services/speech-service/regions#text-to-speech).
+Aqui pretende criar o pedido para a API de texto para voz e guardar a resposta de voz. Este exemplo parte do princípio de que está a utilizar o ponto de extremidade do E.U.A. oeste. Se o recurso está registado para uma região diferente, certifique-se de que atualiza o `uri`. Para obter mais informações, consulte [regiões de serviços de voz](https://docs.microsoft.com/azure/cognitive-services/speech-service/regions#text-to-speech).
 
 Em seguida, terá de adicionar cabeçalhos necessários para o pedido. Certifique-se de que Atualize `User-Agent` com o nome do recurso (localizado no portal do Azure) e conjunto `X-Microsoft-OutputFormat` para a saída de áudio preferencial. Para obter uma lista completa dos formatos de saída, consulte [saídas de áudio](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis#audio-outputs).
 

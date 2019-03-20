@@ -16,12 +16,12 @@ ms.date: 02/26/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b044edbc24a83aeb98ff603a43f160a6c88d940f
-ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
+ms.openlocfilehash: bfd61b78ca3027ade1f2f48dec33e0a8ed508d3d
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57193352"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58003907"
 ---
 # <a name="azure-ad-connect-automatic-upgrade"></a>Azure AD Connect: Atualização automática
 Esta funcionalidade foi introduzida com compilação [1.1.105.0 (lançado em Fevereiro de 2016)](reference-connect-version-history.md#111050).  Esta funcionalidade foi atualizada na [criar 1.1.561](reference-connect-version-history.md#115610) e agora oferece suporte a cenários adicionais que foram anteriormente não suportados.
@@ -89,16 +89,16 @@ Aqui está uma lista das mensagens mais comuns que encontrar. Não listar todos,
 | UpgradeAbortedSyncExeInUse |O [o Gestor do serviço de sincronização da interface do Usuário](how-to-connect-sync-service-manager-ui.md) está aberta no servidor. |
 | UpgradeAbortedSyncOrConfigurationInProgress |O Assistente de instalação está em execução ou uma sincronização foi agendada fora o scheduler. |
 | **UpgradeNotSupported** | |
-| UpgradeNotSupportedAdfsSignInMethod | Selecionou Adfs como o método de início de sessão. | 
+| UpgradeNotSupportedAdfsSignInMethod | Selecionou Adfs como o método de início de sessão. |
 | UpgradeNotSupportedCustomizedSyncRules |Adicionou suas próprias regras personalizadas para a configuração. |
 | UpgradeNotSupportedDeviceWritebackEnabled |Ativou o [repetição de escrita do dispositivo](how-to-connect-device-writeback.md) funcionalidade. |
 | UpgradeNotSupportedGroupWritebackEnabled |Ativou o [repetição de escrita do grupo](how-to-connect-preview.md#group-writeback) funcionalidade. |
 | UpgradeNotSupportedInvalidPersistedState |A instalação não é um definições Express ou uma atualização do DirSync. |
 | UpgradeNotSupportedMetaverseSizeExceeeded |Tem mais de 100 000 objetos no metaverso. |
 | UpgradeNotSupportedMultiForestSetup |Está a ligar mais do que uma floresta. Configuração rápida apenas se conecta a uma floresta. |
-| UpgradeNotSupportedNonLocalDbInstall |Não estiver a utilizar uma base de dados do SQL Server Express LocalDB. |d
+| UpgradeNotSupportedNonLocalDbInstall |Não estiver a utilizar uma base de dados do SQL Server Express LocalDB. |
 | UpgradeNotSupportedNonMsolAccount |O [conta de conector do AD DS](reference-connect-accounts-permissions.md#ad-ds-connector-account) não é a conta de msol _ predefinida mais. |
-| UpgradeNotSupportedNotConfiguredSignInMethod | Quando configurar o AAD Connect, que escolheu *não Configure* ao selecionar o método de início de sessão. | 
+| UpgradeNotSupportedNotConfiguredSignInMethod | Quando configurar o AAD Connect, que escolheu *não Configure* ao selecionar o método de início de sessão. |
 | UpgradeNotSupportedPtaSignInMethod | Tiver selecionado autenticação pass-through como o método de início de sessão. |
 | UpgradeNotSupportedStagingModeEnabled |O servidor está definido para estar no [modo de teste](how-to-connect-sync-staging-server.md). |
 | UpgradeNotSupportedUserWritebackEnabled |Ativou o [repetição de escrita do utilizador](how-to-connect-preview.md#user-writeback) funcionalidade. |

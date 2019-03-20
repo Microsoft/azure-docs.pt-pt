@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: mareat
-ms.openlocfilehash: 6b3f3217f90c2c5a72ba9576b5e0cc89e6133cd8
-ms.sourcegitcommit: 97d0dfb25ac23d07179b804719a454f25d1f0d46
+ms.openlocfilehash: 6df49f9cd308f4bb9b1fef6e5860872526ce8bb7
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54913313"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58079031"
 ---
 # <a name="visualizing-network-security-group-flow-logs-with-power-bi"></a>Registos de fluxo do grupo de segurança de rede visualizing com o Power BI
 
@@ -56,10 +56,10 @@ Também tem de ter o cliente do Power BI Desktop instalado no seu computador e o
 
 1. Transfira e abra o modelo seguinte do Power BI na aplicação de ambiente de trabalho do Power BI [modelo de registos de fluxo do Power BI do observador de rede](https://aka.ms/networkwatcherpowerbiflowlogstemplate)
 1. Introduza os parâmetros de consulta necessários
-    1. **StorageAccountName** – Especifica como o nome da conta de armazenamento que contém os registos de fluxo NSG que gostaria de carregar e visualizar.
-    1. **NumberOfLogFiles** – Especifica o número de ficheiros de registo que pretende transferir e visualizar no Power BI. Por exemplo, se for especificado 50, 50 ficheiros de registo mais recente. Se tivermos 2 NSGs ativada e configurada para enviar registos de fluxo NSG para esta conta, as últimas 25 horas de registos podem ser visualizadas.
+   1. **StorageAccountName** – Especifica como o nome da conta de armazenamento que contém os registos de fluxo NSG que gostaria de carregar e visualizar.
+   1. **NumberOfLogFiles** – Especifica o número de ficheiros de registo que pretende transferir e visualizar no Power BI. Por exemplo, se for especificado 50, 50 ficheiros de registo mais recente. Se tivermos 2 NSGs ativada e configurada para enviar registos de fluxo NSG para esta conta, as últimas 25 horas de registos podem ser visualizadas.
 
-    ![principal do Power BI][2]
+      ![principal do Power BI][2]
 
 1. Introduza a chave de acesso para a sua conta de armazenamento. Pode encontrar as chaves de acesso válido ao navegar para a sua conta de armazenamento no portal do Azure e selecionar **chaves de acesso** no menu definições. Clique em **Connect** , em seguida, aplicar as alterações.
 
@@ -67,7 +67,7 @@ Também tem de ter o cliente do Power BI Desktop instalado no seu computador e o
 
     ![chave de acesso 2][4]
 
-4.  Os registos estão a transferir e analisá-la, e agora pode utilizar os elementos visuais previamente criados.
+4. Os registos estão a transferir e analisá-la, e agora pode utilizar os elementos visuais previamente criados.
 
 ## <a name="understanding-the-visuals"></a>Compreender os elementos visuais
 

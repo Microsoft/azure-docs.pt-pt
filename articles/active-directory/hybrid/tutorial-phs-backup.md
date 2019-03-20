@@ -12,12 +12,12 @@ ms.date: 01/30/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 03e91726dd8f37fb2c3b8ffe2c8e89762e8d3dd6
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 2281bc451a5acf9e4e634a124161a3e8b0734deb
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57546386"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58090513"
 ---
 # <a name="tutorial--setting-up-phs-as-backup-for-ad-fs-in-azure-ad-connect"></a>Tutorial:  Configurar o PHS como cópia de segurança para o AD FS no Azure AD Connect
 
@@ -60,9 +60,9 @@ Agora, mostraremos como mudar para a sincronização de hash de palavra-passe. A
 
 ## <a name="test-signing-in-with-one-of-our-users"></a>Testar início de sessão com um dos nossos usuários
 
-1.  Navegue para [https://myapps.microsoft.com](https://myapps.microsoft.com)
+1. Navegue para [https://myapps.microsoft.com](https://myapps.microsoft.com)
 2. Inicie sessão com uma conta de utilizador que foi criada no nosso novo inquilino.  Terá de iniciar sessão com o seguinte formato: (user@domain.onmicrosoft.com). Utilize a mesma palavra-passe que o utilizador utiliza para iniciar sessão no local.</br>
-![Certifique-se](media/tutorial-password-hash-sync/verify1.png)</br>
+   ![Certifique-se](media/tutorial-password-hash-sync/verify1.png)</br>
 
 ## <a name="next-steps"></a>Próximos Passos
 

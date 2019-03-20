@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.date: 09/18/2018
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: 5266ca3f50a2d8163dbab95109cb967fb5a63ed8
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: ebe23c606d95baa6c79c668fc929177c8bc37e44
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55474586"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57862952"
 ---
 # <a name="create-a-storage-account"></a>Criar uma conta de armazenamento
 
@@ -55,6 +55,10 @@ O botão inicia uma shell interativa que pode utilizar para executar os passos n
 
 Também pode instalar e utilizar a CLI do Azure localmente. Este início rápido requer a execução da versão 2.0.4 ou posterior da CLI do Azure. Executar `az --version` para localizar a versão. Se precisar de instalar ou atualizar, veja [Instalar a CLI do Azure](/cli/azure/install-azure-cli). 
 
+# <a name="templatetabtemplate"></a>[Modelo](#tab/template)
+
+Nenhum.
+
 ---
 
 ## <a name="log-in-to-azure"></a>Iniciar sessão no Azure
@@ -80,6 +84,10 @@ Para iniciar sessão na sua instalação local da CLI, execute o comando de iní
 ```cli
 az login
 ```
+
+# <a name="templatetabtemplate"></a>[Modelo](#tab/template)
+
+N/A
 
 ---
 
@@ -170,6 +178,33 @@ Para criar uma conta de armazenamento para fins gerais v2 com armazenamento com 
 |Armazenamento georredundante (GRS)     |Standard_GRS         |
 |Armazenamento georredundante com acesso de leitura (GRS)     |Standard_RAGRS         |
 
+# <a name="templatetabtemplate"></a>[Modelo](#tab/template)
+
+Pode utilizar o Azure Powershell ou a CLI do Azure para implementar um modelo do Resource Manager para criar uma conta de armazenamento. O modelo utilizado neste início rápido é partir [modelos de início rápido do Azure](https://azure.microsoft.com/resources/templates/101-storage-account-create/). Para executar os scripts, selecione **experimente** para abrir o Azure Cloud shell. Colar o script, o shell com o botão direito e, em seguida, selecione **colar**.
+
+```azurepowershell-interactive
+$resourceGroupName = Read-Host -Prompt "Enter the Resource Group name"
+$location = Read-Host -Prompt "Enter the location (i.e. centralus)"
+
+New-AzResourceGroup -Name $resourceGroupName -Location "$location"
+New-AzResourceGroupDeployment -ResourceGroupName $resourceGroupName -TemplateUri "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-storage-account-create/azuredeploy.json"
+```
+
+```azurecli-interactive
+echo "Enter the Resource Group name:" &&
+read resourceGroupName &&
+echo "Enter the location (i.e. centralus):" &&
+read location &&
+az group create --name $resourceGroupName --location "$location" &&
+az group deployment create --resource-group $resourceGroupName --template-file "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-storage-account-create/azuredeploy.json"
+```
+
+Para saber como criar modelos, veja:
+
+- [Documentação do Azure Resource Manager](/azure/azure-resource-manager/).
+- [Referência de modelo de conta de armazenamento](/azure/templates/microsoft.storage/allversions).
+- [Exemplos de modelos de conta de armazenamento adicional](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Storage).
+
 ---
 
 Para obter mais informações sobre as opções de replicação disponíveis, veja [Opções de replicação do Azure](storage-redundancy.md).
@@ -202,6 +237,21 @@ Para remover o grupo de recursos e os respetivos recursos associados, incluindo 
 az group delete --name storage-quickstart-resource-group
 ```
 
+# <a name="templatetabtemplate"></a>[Modelo](#tab/template)
+
+Para remover o grupo de recursos e respetivos recursos associados, incluindo a nova conta de armazenamento, utilize o Azure PowerShell ou a CLI do Azure.
+
+```azurepowershell-interactive
+$resourceGroupName = Read-Host -Prompt "Enter the Resource Group name"
+Remove-AzResourceGroup -Name $resourceGroupName
+```
+
+```azurecli-interactive
+echo "Enter the Resource Group name:" &&
+read resourceGroupName &&
+az group delete --name $resourceGroupName
+```
+
 ---
 
 ## <a name="next-steps"></a>Passos Seguintes
@@ -222,5 +272,10 @@ Neste início rápido, criou uma conta de armazenamento standard para fins gerai
 
 > [!div class="nextstepaction"]
 > [Trabalhar com blobs com a CLI do Azure](../blobs/storage-quickstart-blobs-cli.md)
+
+# <a name="templatetabtemplate"></a>[Modelo](#tab/template)
+
+> [!div class="nextstepaction"]
+> [Trabalhar com blobs ao utilizar o portal do Azure](../blobs/storage-quickstart-blobs-portal.md)
 
 ---

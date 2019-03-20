@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: jingwang
-ms.openlocfilehash: 09f0416e5a03527613e7c353961d81de39c4fe0e
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
+ms.openlocfilehash: 3bc91b1c20bb4cf4ae755ca47c8d8e0581eb3a1f
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55566844"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57995393"
 ---
 # <a name="copy-data-from-hbase-using-azure-data-factory"></a>Copiar dados do HBase com o Azure Data Factory 
 
@@ -42,7 +42,7 @@ As seguintes propriedades são suportadas para o serviço ligado de HBase:
 | Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
 | tipo | A propriedade de tipo tem de ser definida como: **HBase** | Sim |
-| anfitrião | O nome ou endereço IP anfitrião do servidor de HBase. (ou seja  `[clustername].azurehdinsight.net`, ' 192.168.222.160·)  | Sim |
+| anfitrião | O nome ou endereço IP anfitrião do servidor de HBase. (ou seja  `[clustername].azurehdinsight.net`, `192.168.222.160`)  | Sim |
 | porta | A porta TCP que a instância de HBase utiliza para escutar ligações de cliente. O valor predefinido é 9090. Se ligar ao Azure HDInsights, especifique a porta como 443. | Não |
 | httpPath | O URL parcial correspondente para o servidor de HBase, por exemplo, `/hbaserest0` ao utilizar o cluster do HDInsights. | Não |
 | authenticationType | O mecanismo de autenticação a utilizar para ligar ao servidor de HBase. <br/>Valores permitidos são: **Anónimo**, **básico** | Sim |

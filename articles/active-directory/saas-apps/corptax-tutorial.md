@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 12/17/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ab3380790ae489ffed34cc3c3f1a59fd532972e7
-ms.sourcegitcommit: 1902adaa68c660bdaac46878ce2dec5473d29275
+ms.openlocfilehash: f150522c8ea4d3bcb69b7ffe274f1d40d831ab2b
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/11/2019
-ms.locfileid: "57730041"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57864920"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-corptax"></a>Tutorial: Integração do Active Directory do Azure com CorpTax
 
@@ -133,7 +133,7 @@ O objetivo desta secção é criar um utilizador de teste no portal do Azure cha
 
     a. Na **Name** , insira **BrittaSimon**.
 
-    b. Na **nome de utilizador** , digite **brittasimon@yourcompanydomain.extension**  
+    b. Na **nome de utilizador** , digite **brittasimon\@yourcompanydomain.extension**  
     Por exemplo, BrittaSimon@contoso.com
 
     c. Selecione **palavra-passe de Show** caixa de verificação e, em seguida, anote o valor que é apresentado na caixa de palavra-passe.
@@ -170,12 +170,12 @@ Nesta secção, vai ativar Eduarda Almeida utilizar o Azure início de sessão �
 
 Nesta secção, vai criar um usuário chamado Eduarda Almeida no CorpTax. Trabalhar com [equipa de suporte de CorpTax](mailto:bgraves@corptax.com) para adicionar os utilizadores na plataforma CorpTax. Os utilizadores tem de ser criados e ativados antes de utilizar o início de sessão único.
 
-### <a name="test-single-sign-on"></a>Testar início de sessão único
+### <a name="test-single-sign-on"></a>Testar o início de sessão único
 
 Nesta secção, vai testar a configuração do Azure AD única início de sessão com o painel de acesso.
 Quando clica no mosaico CorpTax no painel de acesso, deve ser redirecionado para o abaixo CorpTax página - 
 
-![imagem](media/corptax-tutorial/corptaxlogin.png)
+![image](media/corptax-tutorial/corptaxlogin.png)
 
 Na **ambiente** caixa de texto, escreva o seu ambiente apropriado, deve ter automaticamente sessão iniciada no CorpTax para o qual configura o SSO. Para obter mais informações sobre o painel de acesso, consulte [introdução ao painel de acesso](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 

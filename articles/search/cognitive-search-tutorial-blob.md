@@ -10,12 +10,12 @@ ms.topic: tutorial
 ms.date: 07/11/2018
 ms.author: luisca
 ms.custom: seodec2018
-ms.openlocfilehash: 5fe0fc5aa6bdb217a5e7a8ecb8b1898fd8d3ecf8
-ms.sourcegitcommit: dd1a9f38c69954f15ff5c166e456fda37ae1cdf2
-ms.translationtype: MT
+ms.openlocfilehash: 410e5d618e1deb1887329bea41e2cd3c6d795e58
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57570186"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58075855"
 ---
 # <a name="tutorial-learn-how-to-call-cognitive-search-apis-preview"></a>Tutorial: Saiba como chamar cognitivos procurar APIs (pré-visualização)
 
@@ -59,7 +59,7 @@ Primeiro, inscreva-se no serviço do Azure Search.
 
 1. Para Grupo de recursos, crie um grupo de recursos para conter todos os recursos que criar neste tutorial. Tal torna mais fácil limpar os recursos depois de concluir o tutorial.
 
-1. Para a localização, escolha uma da [regiões suportadas](https://docs.microsoft.com/azure/search/cognitive-search-quickstart-blob#supported-regions) para pesquisa cognitiva.
+1. Para a localização, recomendamos que escolha uma região que está próximo de seus dados e outras aplicações na cloud.
 
 1. Para Escalão de preço, pode criar um serviço **Gratuito** para concluir os tutoriais e os inícios rápidos. Para uma investigação mais aprofundada através dos seus próprios dados, crie um [serviço pago](https://azure.microsoft.com/pricing/details/search/), como **Básico** ou **Standard**. 
 
@@ -89,7 +89,7 @@ O pipeline de melhoramento solicita conteúdo das origens de dados do Azure. Os 
 
 1. Depois de os ficheiros de exemplo serem carregados, obtenha o nome do contentor e uma cadeia de ligação para o seu armazenamento de Blobs. Pode fazê-lo ao navegar até à sua conta de armazenamento no portal do Azure. Em **Chaves de acesso**, copie o campo **Cadeia de Ligação**.
 
-  A cadeia de ligação deve ter um URL semelhante ao seguinte exemplo:
+   A cadeia de ligação deve ter um URL semelhante ao seguinte exemplo:
 
       ```http
       DefaultEndpointsProtocol=https;AccountName=cogsrchdemostorage;AccountKey=<your account key>;EndpointSuffix=core.windows.net
@@ -256,7 +256,7 @@ Nesta secção, pode definir o esquema de índice ao especificar os campos a inc
 
 Neste exercício, utiliza os seguintes campos e tipos de campo:
 
-| nomes de campo: | ID       | conteúdo   | languageCode | keyPhrases         | organizações     |
+| nomes de campo: | `id`       | conteúdo   | languageCode | keyPhrases         | organizações     |
 |--------------|----------|-------|----------|--------------------|-------------------|
 | tipos de campo: | Edm.String|Edm.String| Edm.String| List<Edm.String>  | List<Edm.String>  |
 
@@ -443,7 +443,7 @@ Content-Type: application/json
 
 Repita a operação para os campos adicionais: conteúdo, idioma, expressões-chave e organizações neste exercício. Pode devolver vários campos através de `$select` com uma lista delimitada por vírgulas.
 
-Pode utilizar GET ou POST, dependendo da complexidade da cadeia de consulta e do comprimento. Para obter mais informações, veja [Consultar através da API REST](https://docs.microsoft.com/azure/search/search-query-rest-api).
+Pode utilizar GET ou POST, dependendo da complexidade da cadeia de consulta e do comprimento. Para obter mais informações, veja [Consultar através da API REST](https://docs.microsoft.com/rest/api/searchservice/search-documents).
 
 <a name="access-enriched-document"></a>
 

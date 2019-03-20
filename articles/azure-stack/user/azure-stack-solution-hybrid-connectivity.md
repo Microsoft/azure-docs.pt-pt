@@ -15,12 +15,12 @@ ms.date: 01/14/2019
 ms.author: mabrigg
 ms.reviewer: anajod
 ms.lastreviewed: 01/14/2019
-ms.openlocfilehash: a05021255c6226329f1d7a3f0e7fa8c9be756646
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: c9be377dc74ac936aa3139d395b6a02f3b3192eb
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57546726"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58084366"
 ---
 # <a name="tutorial-configure-hybrid-cloud-connectivity-with-azure-and-azure-stack"></a>Tutorial: configurar a conectividade de cloud híbrida com o Azure e o Azure Stack
 
@@ -97,7 +97,7 @@ Especificações de ligação:
 
 Endereços IP de rede e sub-rede:
 
-| Ligação do Azure/Azure Stack | Name | Sub-rede | Endereço IP |
+| Ligação do Azure/Azure Stack | Name | Subrede | Endereço IP |
 |-------------------------------------|---------------------------------------------|---------------------------------------|-----------------------------|
 | Azure vNet | ApplicationvNet<br>10.100.102.9/23 | ApplicationSubnet<br>10.100.102.0/24 |  |
 |  |  | GatewaySubnet<br>10.100.103.0/24 |  |
@@ -152,12 +152,12 @@ Utilize os seguintes passos para criar um gateway de rede virtual no Azure.
 3. Na **gateway de rede Virtual**, selecione **Create** para abrir o **criar gateway de rede virtual** página.
 4. No **criar gateway de rede virtual**, especifique os valores para o seu gateway de rede, conforme mostrado na **valores de exemplo Tutorial**e os seguintes valores adicionais:
 
-    - **SKU**: básico
-    - **Rede virtual**: Selecione a rede Virtual que criou anteriormente. A sub-rede do gateway que criou é selecionada automaticamente.
-    - **Configuração do primeiro IP**:  Este é o IP público do seu Gateway.
-        - Selecione **criar configuração de IP do gateway**, que leva-o para o **escolher endereço IP público** página.
-        - Selecione **+ criar novo** para abrir o **Criar endereço IP público** página.
-        - Introduza um **Name** para seu endereço IP público. Deixe o SKU como **básica**e, em seguida, selecione **OK** para guardar as alterações.
+   - **SKU**: básico
+   - **Rede virtual**: Selecione a rede Virtual que criou anteriormente. A sub-rede do gateway que criou é selecionada automaticamente.
+   - **Configuração do primeiro IP**:  Este é o IP público do seu Gateway.
+     - Selecione **criar configuração de IP do gateway**, que leva-o para o **escolher endereço IP público** página.
+     - Selecione **+ criar novo** para abrir o **Criar endereço IP público** página.
+     - Introduza um **nome** para seu endereço IP público. Deixe o SKU como **básica**e, em seguida, selecione **OK** para guardar as alterações.
 
        > [!Note]
        > Atualmente, o Gateway de VPN só suporta alocação de endereço IP público dinâmico. No entanto, isso não significa que o endereço IP é alterado depois do que é atribuído ao gateway de VPN. O endereço IP Público só é alterado quando o gateway é eliminado e recriado. Redimensionar, repor ou outra manutenção/atualização interna ao gateway de VPN não alterar o endereço IP.

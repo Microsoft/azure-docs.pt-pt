@@ -8,18 +8,18 @@ ms.topic: include
 ms.date: 04/14/2018
 ms.author: genli
 ms.custom: include file
-ms.openlocfilehash: 2eb7fb82b358d4ec8628bfa546b572ee3cbe47fa
-ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
+ms.openlocfilehash: 136c7e497b24db99b230884514d4a286bbeb64be
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51208294"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58084562"
 ---
 Quando criar uma máquina virtual (VM), às VM paradas e (desalocada) de reiniciar ou redimensionar uma VM, o Microsoft Azure aloca recursos de computação à sua subscrição. Estamos continuamente investem na infraestrutura adicional e recursos para se certificar de que tenhamos sempre todos os tipos VM disponíveis para dar suporte a procura dos clientes. No entanto, ocasionalmente, poderá experienciar falhas de alocação de recursos devido a um crescimento inédito nas procura de serviços do Azure em regiões específicas. Este problema pode ocorrer ao tentar criar ou iniciar VMs numa região, enquanto as VMs apresentam o seguinte código de erro e a mensagem:
 
 **Código de erro**: AllocationFailed ou ZonalAllocationFailed
 
-**Mensagem de erro**: "Falha na atribuição. Mas não tem capacidade suficiente para o tamanho VM pedida nesta região. Saiba mais sobre como aumentar as probabilidades de êxito na alocação em http://aka.ms/allocation-guidance"
+**Mensagem de erro**: "Falha de alocação. Mas não tem capacidade suficiente para o tamanho VM pedida nesta região. Saiba mais sobre como aumentar as probabilidades de êxito na alocação em http://aka.ms/allocation-guidance"
 
 Este artigo explica as causas de algumas das falhas de alocação comuns e sugere possíveis soluções.
 
@@ -30,7 +30,7 @@ Até que o seu tipo VM preferencial está disponível na sua região preferida, 
 Identifique o cenário que melhor corresponda ao seu caso e, em seguida, repita o pedido de atribuição ao utilizar a solução sugerida correspondente para aumentar a probabilidade de êxito na alocação. Em alternativa, pode sempre voltar a tentar mais tarde. Isso é porque recursos suficientes podem ter sido liberados no cluster, região ou zona para acomodar o seu pedido. 
 
 
-## <a name="resize-a-vm-or-add-vms-to-an-existing-availability-set"></a>Redimensionar uma VM ou adicionar VMs a um conjunto de disponibilidade existente
+## <a name="resize-a-vm-or-add-vms-to-an-existing-availability-set"></a>Redimensionar uma VM ou adicionar VMs a um conjunto de disponibilidade já existente
 
 ### <a name="cause"></a>Causa
 
@@ -41,11 +41,11 @@ Um pedido para redimensionar uma VM ou adicionar que uma VM a um conjunto de dis
 Se a VM pode ser parte de um conjunto de disponibilidade diferente, crie uma VM num conjunto (na mesma região) de disponibilidade diferente. Essa nova VM, em seguida, pode ser adicionado à mesma rede virtual.
 
 Pare (desaloque) todas as VMs no mesmo disponibilidade definida, em seguida, reiniciar cada um deles.
-Para parar: clique em grupos de recursos > [seu grupo de recursos] > recursos > [seu conjunto de disponibilidade] > máquinas virtuais > [sua máquina virtual] > parar.
+Para parar a: Clique em grupos de recursos > [seu grupo de recursos] > recursos > [seu conjunto de disponibilidade] > máquinas virtuais > [sua máquina virtual] > parar.
 Depois de parar todas as VMs, selecione a primeira VM e, em seguida, clique em Iniciar.
 Este passo certifica-se de que uma nova tentativa de alocação é executada e que um novo cluster pode ser selecionado com capacidade suficiente.
 
-## <a name="restart-partially-stopped-deallocated-vms"></a>Reinício parcialmente parada (desalocadas) de VMs
+## <a name="restart-partially-stopped-deallocated-vms"></a>Reiniciar VMs parcialmente paradas (desalocadas)
 
 ### <a name="cause"></a>Causa
 
@@ -54,11 +54,11 @@ Desalocação parcial significa que parada (desalocado) de um ou mais, mas não 
 ### <a name="workaround"></a>Solução
 
 Pare (desaloque) todas as VMs no mesmo disponibilidade definida, em seguida, reiniciar cada um deles.
-Para parar: clique em grupos de recursos > [seu grupo de recursos] > recursos > [seu conjunto de disponibilidade] > máquinas virtuais > [sua máquina virtual] > parar.
+Para parar a: Clique em grupos de recursos > [seu grupo de recursos] > recursos > [seu conjunto de disponibilidade] > máquinas virtuais > [sua máquina virtual] > parar.
 Depois de parar todas as VMs, selecione a primeira VM e, em seguida, clique em Iniciar.
 Esta ação irá garantir que uma nova tentativa de alocação é executada e que um novo cluster pode ser selecionado com capacidade suficiente.
 
-## <a name="restart-fully-stopped-deallocated-vms"></a>Reiniciar VMs (desalocadas) totalmente paradas
+## <a name="restart-fully-stopped-deallocated-vms"></a>Reiniciar VMs completamente paradas (desalocadas)
 
 ### <a name="cause"></a>Causa
 
@@ -75,12 +75,12 @@ Se o seu pedido de alocação é grande (mais de 500 núcleos), consulte a docum
 
 ## <a name="allocation-failures-for-older-vm-sizes-av1-dv1-dsv1-d15v2-ds15v2-etc"></a>Falhas de alocação para tamanhos de VM mais antigas (Av1, Dv1, DSv1, o D15v2, DS15v2, etc.)
 
-À medida que Expandimos a infraestrutura do Azure, iremos implementar hardware de última geração que foi concebido para suportar os tipos de máquina virtual mais recentes. Algumas das VMs de série mais antigas não são executados na nossa infraestrutura de geração mais recente. Por esse motivo, os clientes, ocasionalmente, poderão experienciar falhas de alocação destes SKUs legados. Para evitar este problema, nós o encorajamos os clientes que estão a utilizar máquinas virtuais de série herdados a considerar mover para as VMs mais recentes equivalentes pelas seguintes recomendações: estas VMs estão otimizadas para o hardware mais recente e irá permitir-lhe tirar partido da melhor preços e desempenho. 
+À medida que Expandimos a infraestrutura do Azure, iremos implementar hardware de última geração que foi concebido para suportar os tipos de máquina virtual mais recentes. Algumas das VMs de série mais antigas não são executados na nossa infraestrutura de geração mais recente. Por esse motivo, os clientes, ocasionalmente, poderão experienciar falhas de alocação destes SKUs legados. Para evitar este problema, nós o encorajamos os clientes que estão a utilizar máquinas virtuais de série herdados a considerar mover para as VMs mais recentes equivalentes pelas seguintes recomendações: Estas VMs estão otimizadas para o hardware mais recente e irão permitir-lhe tirar partido da melhor preço e desempenho. 
 
 |Herdados-série/tamanho da VM|Mais recente-série/tamanho da VM recomendado|Mais informações|
 |----------------------|----------------------------|--------------------|
 |Série Av1|[Série Av2](../articles/virtual-machines/windows/sizes-general.md#av2-series)|https://azure.microsoft.com/blog/new-av2-series-vm-sizes/
-|DSv1 série ou Dv1 (D1 a D5)|[Dv3 ou série Dsv3](../articles/virtual-machines/windows/sizes-general.md#dsv3-series-sup1sup)|https://azure.microsoft.com/blog/introducing-the-new-dv3-and-ev3-vm-sizes/
+|DSv1 série ou Dv1 (D1 a D5)|[Dv3 ou série Dsv3](../articles/virtual-machines/windows/sizes-general.md#dsv3-series-1)|https://azure.microsoft.com/blog/introducing-the-new-dv3-and-ev3-vm-sizes/
 |DSv1 série ou Dv1 (D11 a D14)|[Ev3 ou série Esv3](../articles/virtual-machines/windows/sizes-memory.md#esv3-series)|
 |O D15v2 ou DS15v2|Se estiver a utilizar o modelo de implementação do Gestor de theResource para tirar o máximo partido dos tamanhos de VM maior, considere mover para E16v3/E16sv3 ou E32v3/E32sv3. Estas entidades foram concebidas para serem executadas em hardware de geração mais recente. Se estiver a utilizar o modelo de implementação do Resource Manager para se certificar de que a sua instância de VM está isolada do hardware dedicado de um único cliente, considere mover para os novo isolados tamanhos de VM, E64i_v3 ou E64is_v3, que são concebidos para serem executados no hardware mais recente geração. |https://azure.microsoft.com/blog/new-isolated-vm-sizes-now-available/
 

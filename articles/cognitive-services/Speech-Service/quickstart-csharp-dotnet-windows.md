@@ -10,18 +10,22 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 12/13/2018
 ms.author: wolfma
-ms.openlocfilehash: cff3f526586eb52466883247d41a57dae919dd21
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: a3990bfac9199fadeff0573d7547d7e5bc551ece
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56867229"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57838617"
 ---
 # <a name="quickstart-recognize-speech-with-the-speech-sdk-for-net-framework-windows"></a>Início rápido: Reconhecer a conversão de voz com o SDK de voz para .NET Framework (Windows)
 
 [!INCLUDE [Selector](../../../includes/cognitive-services-speech-service-quickstart-selector.md)]
 
 Utilize este guia para criar uma aplicação de consola de voz em texto com o .NET framework para Windows e o SDK de Voz. Quando terminar, pode utilizar o microfone do seu computador para converter voz em texto em tempo real.
+
+Para uma rápida demonstração (sem criar projeto do Visual Studio por conta própria conforme mostrado abaixo):
+
+Obter a versão mais recente [SDK de voz dos serviços cognitivos](https://github.com/Azure-Samples/cognitive-services-speech-sdk) do Github.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -41,7 +45,7 @@ Para concluir este projeto, precisa de:
 
     [!code-csharp[Quickstart Code](~/samples-cognitive-services-speech-sdk/quickstart/csharp-dotnet-windows/helloworld/Program.cs#code)]
 
-1. Encontre e substitua a cadeia `YourSubscriptionKey` pela sua chave de subscrição do Serviço de Voz.
+1. Localizar e substituir a cadeia de caracteres `YourSubscriptionKey` com a sua chave de subscrição de serviços de voz.
 
 1. Encontre e substitua a cadeia de carateres `YourServiceRegion` pela [região](regions.md) associada à subscrição. Por exemplo, se estiver a utilizar a versão de avaliação gratuita, a região é `westus`.
 
@@ -57,7 +61,7 @@ Para concluir este projeto, precisa de:
 
     ![Captura de ecrã da aplicação Visual Studio, com a opção Iniciar Depuração realçada](media/sdk/qs-csharp-dotnet-windows-09-start-debugging.png "Iniciar a depuração da aplicação")
 
-1. Será apresentada uma janela de consola, que lhe pede para falar. Agora, diga algo em inglês. A sua voz é transmitida para o Serviço de Voz e convertida para texto em tempo real. O resultado é impresso na consola.
+1. Será apresentada uma janela de consola, que lhe pede para falar. Agora, diga algo em inglês. Sua fala é transmitida para os serviços de voz e transcrito para texto em tempo real. O resultado é impresso na consola.
 
     ![Captura de ecrã a mostrar o resultado da consola após o reconhecimento bem-sucedido](media/sdk/qs-csharp-dotnet-windows-10-console-output.png "Resultado da consola após o reconhecimento bem-sucedido")
 

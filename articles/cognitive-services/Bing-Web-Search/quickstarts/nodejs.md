@@ -8,21 +8,22 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-web-search
 ms.topic: quickstart
-ms.date: 02/12/2019
+ms.date: 03/12/2019
 ms.author: aahi
 ms.custom: seodec2018
-ms.openlocfilehash: 3233357d9013c2a1f9d77178c217ca9310a34ac4
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 95a27ff17ca74f930fc1a739c0eb94a90bd82ec4
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56198206"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57834494"
 ---
-# <a name="search-the-web-using-the-bing-web-search-rest-api-and-nodejs"></a>Pesquisar a web com a API de REST de pesquisa do Bing Web e o node. js
+# <a name="quickstart-search-the-web-using-the-bing-web-search-rest-api-and-nodejs"></a>Início rápido: Pesquisar a web com a API de REST de pesquisa do Bing Web e o node. js
 
-Utilize este guia de introdução para efetuar a primeira chamada à API de pesquisa Web do Bing e receber a resposta JSON. Esta aplicação node. js envia um pedido de pesquisa para a API e apresenta a resposta. Embora esse aplicativo é escrito em JavaScript, a API é um serviço RESTful Web compatível com a maioria das linguagens de programação.
+Utilize este guia de introdução para efetuar a primeira chamada à API de pesquisa Web do Bing e receber a resposta JSON. Esta aplicação node. js envia um pedido de pesquisa para a API e mostra a resposta. Embora esse aplicativo é escrito em JavaScript, a API é um serviço RESTful Web compatível com a maioria das linguagens de programação.
 
 ## <a name="prerequisites"></a>Pré-requisitos
+
 Aqui estão algumas coisas de que irá precisar antes de executar este início rápido:
 
 * [Node.js 6](https://nodejs.org/en/download/) ou posterior
@@ -43,7 +44,7 @@ const https = require('https')
 
 ## <a name="set-the-subscription-key"></a>Definir a chave de subscrição
 
-Este fragmento de código utiliza a variável de ambiente `AZURE_SUBSCRIPTION_KEY` para armazenar a chave de subscrição, uma boa prática para evitar a exposição acidental das suas chaves quando implementar código. [Clique aqui](https://azure.microsoft.com/try/cognitive-services/my-apis/?apiSlug=search-api-v7) para procurar a sua chave de subscrição.
+Este fragmento de código utiliza a variável de ambiente `AZURE_SUBSCRIPTION_KEY` para armazenar a chave de subscrição, uma boa prática para evitar a exposição acidental das suas chaves quando implementar código. Vá para o [página das APIs Your](https://azure.microsoft.com/try/cognitive-services/my-apis/?apiSlug=search-api-v7) para procurar a sua chave de subscrição.
 
 Se não estiver familiarizado com a utilização de variáveis de ambiente, ou se quiser executar esta aplicação o mais rapidamente possível, pode substituir `process.env['AZURE_SUBSCRIPTION_KEY']` pela chave de subscrição definida como cadeia de carateres.
 
@@ -110,7 +111,7 @@ Se desejar comparar o seu código com o nosso, aqui está o programa concluído:
 const https = require('https')
 const SUBSCRIPTION_KEY = process.env['AZURE_SUBSCRIPTION_KEY']
 if (!SUBSCRIPTION_KEY) {
-  throw new Error('Missing the AZURE_SUBSCRIPTION_KEY environment varable')
+  throw new Error('Missing the AZURE_SUBSCRIPTION_KEY environment variable')
 }
 function bingWebSearch(query) {
   https.get({

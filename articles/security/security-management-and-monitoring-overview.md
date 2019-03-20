@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/30/2018
 ms.author: terrylan
-ms.openlocfilehash: 7dfc4329b338a65169c81521360264753bafa9d6
-ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
+ms.openlocfilehash: f79f94c277b02a9f377b90bf74763ac617f65c16
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50239921"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57892903"
 ---
 # <a name="azure-security-management-and-monitoring-overview"></a>Gestão de segurança do Azure e a descrição geral da monitorização
 
@@ -50,7 +50,7 @@ Com o Azure, pode utilizar o software antimalware dos maiores fornecedores de se
 
 O Microsoft Antimalware para serviços Cloud do Azure e máquinas virtuais oferece a capacidade de instalar um agente de antimalware para as funções de PaaS e máquinas virtuais. Com base no System Center Endpoint Protection, esta funcionalidade permite locais comprovadas tecnologia de segurança na cloud.
 
-Também oferecemos uma integração profunda da tendência [Deep Security](http://www.trendmicro.com/us/enterprise/cloud-solutions/deep-security/) e [SecureCloud](http://www.trendmicro.com/us/enterprise/cloud-solutions/secure-cloud/) produtos na plataforma do Azure. Segurança avançada é uma solução de antivírus e SecureCloud é uma solução de encriptação. Deep Security é implementado dentro de VMs por meio de um modelo de extensão. Ao utilizar o portal do Azure da interface do Usuário e o PowerShell, pode optar por utilizar o Deep Security em novas VMs que estão a ser rotacionadas ou em VMs existentes que já estão implementadas.
+Também oferecemos uma integração profunda da tendência [Deep Security](https://www.trendmicro.com/us/enterprise/cloud-solutions/deep-security/) e [SecureCloud](https://www.trendmicro.com/us/enterprise/cloud-solutions/secure-cloud/) produtos na plataforma do Azure. Segurança avançada é uma solução de antivírus e SecureCloud é uma solução de encriptação. Deep Security é implementado dentro de VMs por meio de um modelo de extensão. Ao utilizar o portal do Azure da interface do Usuário e o PowerShell, pode optar por utilizar o Deep Security em novas VMs que estão a ser rotacionadas ou em VMs existentes que já estão implementadas.
 
 Symantec Endpoint Protection (SEP) também é suportado no Azure. Por meio da integração do portal, pode especificar que pretende usar SEP numa VM. Setembro de pode ser instalado numa nova VM através do portal do Azure ou pode ser instalado numa VM existente através do PowerShell.
 
@@ -123,7 +123,7 @@ Ao fornecer notificações e a remediação recomendada, Identity Protection aju
 Saiba mais:
 
 * [O Azure Active Directory Identity Protection](../active-directory/active-directory-identityprotection.md)
-* [O Channel 9: Azure AD e mostrar de identidade: pré-visualização de proteção de identidade](https://channel9.msdn.com/Series/Azure-AD-Identity/Azure-AD-and-Identity-Show-Identity-Protection-Preview)
+* [Channel 9: O Azure AD e mostrar de identidade: Pré-visualização de proteção de identidade](https://channel9.msdn.com/Series/Azure-AD-Identity/Azure-AD-and-Identity-Show-Identity-Protection-Preview)
 
 ## <a name="security-center"></a>Centro de Segurança
 
@@ -144,7 +144,7 @@ Saiba mais:
 
 ## <a name="intelligent-security-graph"></a>Gráfico de segurança inteligente
 
-Gráfico de segurança inteligente oferece proteção de ameaças em tempo real em produtos e serviços Microsoft. Utiliza análise avançada com ligação uma grande quantidade de dados de segurança e de inteligência de ameaças para fornecer informações que podem reforçar a segurança organizacional. A Microsoft utiliza análise avançada — mais de 450 milhares de milhões de autenticações por mês de processamento, análise de e-mails de 400 milhares de milhões de software maligno e phishing e atualizar mil milhões de dispositivos — para fornecer informações mais ricas. Estas informações podem ajudar a sua organização, detetar e responder rapidamente a ataques.
+Gráfico de segurança inteligente oferece proteção de ameaças em tempo real em produtos e serviços Microsoft. Utiliza análise avançada com ligação uma grande quantidade de dados de segurança e de inteligência de ameaças para fornecer informações que podem reforçar a segurança organizacional. A Microsoft utiliza análise avançada — mais de 450 milhares de milhões de autenticações por mês de processamento, análise de e-mails de 400 milhares de milhões de software maligno e phishing e atualizar mil milhões de dispositivos — para fornecer informações mais ricas. Estes insights podem ajudar a sua organização a detetar e responder de forma mais rápidas aos ataques.
 
 * [Gráfico de segurança inteligente](https://www.microsoft.com/security/intelligence)
 

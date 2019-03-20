@@ -9,18 +9,18 @@ ms.topic: article
 ms.date: 05/11/2017
 ms.author: lakasa
 ms.subservice: common
-ms.openlocfilehash: 9a96f80c609f446dcc1fea2a87925dec3dadfedd
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 0a2088e603828a7850cb250c1874008d63fe9c89
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55471900"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57992459"
 ---
 # <a name="client-side-encryption-and-azure-key-vault-with-java-for-microsoft-azure-storage"></a>Encriptação do lado do cliente e o Azure Key Vault com o Java para o armazenamento do Microsoft Azure
 [!INCLUDE [storage-selector-client-side-encryption-include](../../../includes/storage-selector-client-side-encryption-include.md)]
 
 ## <a name="overview"></a>Descrição geral
-O [biblioteca de clientes de armazenamento do Azure para Java](http://mvnrepository.com/artifact/com.microsoft.azure/azure-storage) suporta a encriptação de dados dentro de aplicativos de cliente antes de carregar para o armazenamento do Azure e a desencriptação de dados durante a transferência para o cliente. A biblioteca também suporta a integração com [do Azure Key Vault](https://azure.microsoft.com/services/key-vault/) para gestão de chaves de conta de armazenamento.
+O [biblioteca de clientes de armazenamento do Azure para Java](https://mvnrepository.com/artifact/com.microsoft.azure/azure-storage) suporta a encriptação de dados dentro de aplicativos de cliente antes de carregar para o armazenamento do Azure e a desencriptação de dados durante a transferência para o cliente. A biblioteca também suporta a integração com [do Azure Key Vault](https://azure.microsoft.com/services/key-vault/) para gestão de chaves de conta de armazenamento.
 
 ## <a name="encryption-and-decryption-via-the-envelope-technique"></a>Encriptação e desencriptação via a técnica de envelope
 Os processos de criptografia e descriptografia siga a técnica de envelope.  
@@ -43,7 +43,7 @@ Desencriptação via a técnica de envelope funciona da seguinte forma:
 4. A chave de encriptação de conteúdo (CEK), em seguida, é utilizada para desencriptar os dados de utilizador encriptado.
 
 ## <a name="encryption-mechanism"></a>Mecanismo de criptografia
-A biblioteca de cliente de armazenamento usa [AES](http://en.wikipedia.org/wiki/Advanced_Encryption_Standard) para encriptar os dados de utilizador. Especificamente, [encadeamento de bloco de cifras (CBC)](http://en.wikipedia.org/wiki/Block_cipher_mode_of_operation#Cipher-block_chaining_.28CBC.29) modo com AES. Cada serviço funciona de forma um pouco diferente, então, vamos abordar cada um deles aqui.
+A biblioteca de cliente de armazenamento usa [AES](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard) para encriptar os dados de utilizador. Especificamente, [encadeamento de bloco de cifras (CBC)](https://en.wikipedia.org/wiki/Block_cipher_mode_of_operation#Cipher-block_chaining_.28CBC.29) modo com AES. Cada serviço funciona de forma um pouco diferente, então, vamos abordar cada um deles aqui.
 
 ### <a name="blobs"></a>Blobs
 A biblioteca de cliente atualmente suporta a encriptação de todos blobs apenas. Especificamente, a encriptação é suportada quando os utilizadores utilizam o **carregue*** métodos ou o **openOutputStream** método. Para downloads, ambos completos e transferências de intervalo são suportadas.  
@@ -55,9 +55,9 @@ Durante a encriptação, a biblioteca de cliente irá gerar um Vetor de iniciali
 > 
 > 
 
-Transferir um blob encriptado envolve a obtenção dos conteúdos do blob inteiro com o **download * / openInputStream** métodos de conveniência. O CEK encapsulada é não envolto e utilizado em conjunto com o IV (armazenado como metadados do blob neste caso) para retornar os dados descriptografados para os utilizadores.
+Transferir um blob encriptado envolve a obtenção dos conteúdos do blob inteiro com o **baixe**/**openInputStream** métodos de conveniência. O CEK encapsulada é não envolto e utilizado em conjunto com o IV (armazenado como metadados do blob neste caso) para retornar os dados descriptografados para os utilizadores.
 
-Transferir um intervalo de arbitrário (**downloadRange*** métodos) no blob criptografado envolve a ajustar o intervalo fornecido por utilizadores para obter uma pequena quantidade de dados adicionais que podem ser utilizados com êxito desencriptar a pedido intervalo.  
+Transferir um intervalo de arbitrário (**downloadRange** métodos) no blob criptografado envolve a ajustar o intervalo fornecido por utilizadores para obter uma pequena quantidade de dados adicionais que podem ser utilizados com êxito desencriptar a pedido intervalo.  
 
 Todos os tipos de BLOBs (blobs de blocos, blobs de páginas e blobs de acréscimo) podem ser encriptados/descriptografados com esse esquema.
 
@@ -98,8 +98,8 @@ Em operações de lote, o mesmo KEK irá ser utilizada em todas as linhas nessa 
 > [!NOTE]
 > Uma vez que as entidades são encriptadas, não é possível executar consultas que filtrarão numa propriedade de encriptação.  Se tentar, os resultados serão incorretos, porque o serviço estaria tentando comparar os dados encriptados com dados não encriptados.
 > 
->
-Para efetuar operações de consulta, tem de especificar um resolvedor de chave que é capaz de resolver todas as chaves no conjunto de resultados. Se uma entidade contida no resultado da consulta não pode ser resolvida para um fornecedor, a biblioteca de cliente irá gerar um erro. Para qualquer consulta que executa as projeções de lado do servidor, a biblioteca de cliente irá adicionar as propriedades de metadados de encriptação especial (_ClientEncryptionMetadata1 e _ClientEncryptionMetadata2) por predefinição para as colunas selecionadas.
+> 
+> Para efetuar operações de consulta, tem de especificar um resolvedor de chave que é capaz de resolver todas as chaves no conjunto de resultados. Se uma entidade contida no resultado da consulta não pode ser resolvida para um fornecedor, a biblioteca de cliente irá gerar um erro. Para qualquer consulta que executa as projeções de lado do servidor, a biblioteca de cliente irá adicionar as propriedades de metadados de encriptação especial (_ClientEncryptionMetadata1 e _ClientEncryptionMetadata2) por predefinição para as colunas selecionadas.
 
 ## <a name="azure-key-vault"></a>Azure Key Vault
 O Cofre de Chaves do Azure ajuda a salvaguardar as chaves criptográficas e os segredos utilizados pelas aplicações em cloud e pelos serviços. Ao utilizar o Azure Key Vault, os usuários podem criptografar chaves e segredos (tal como chaves de autenticação, chaves de conta de armazenamento, chaves de encriptação de dados. Ficheiros PFX e palavras-passe) utilizando as teclas que estão protegidas por módulos de segurança de hardware (HSMs). Para obter mais informações, consulte [o que é o Azure Key Vault?](../../key-vault/key-vault-whatis.md).
@@ -248,9 +248,9 @@ public void setEncryptedProperty1(final String encryptedProperty1) {
 Tenha em atenção que os resultados de dados de armazenamento em sobrecarga de desempenho adicionais a encriptar. A chave de conteúdo e o IV tem de ser gerado, o próprio conteúdo tem de estar encriptado e metadados adicionais tem de ser formatados e carregados. Essa sobrecarga irá variar consoante a quantidade de dados a ser encriptadas. Recomendamos que os clientes sempre testarem seus aplicativos para o desempenho durante o desenvolvimento.
 
 ## <a name="next-steps"></a>Passos Seguintes
-* Transferir o [biblioteca de cliente de armazenamento do Azure para o pacote Maven de Java](http://mvnrepository.com/artifact/com.microsoft.azure/azure-storage)  
+* Transferir o [biblioteca de cliente de armazenamento do Azure para o pacote Maven de Java](https://mvnrepository.com/artifact/com.microsoft.azure/azure-storage)  
 * Transferir o [biblioteca de clientes de armazenamento do Azure para Java código-fonte do GitHub](https://github.com/Azure/azure-storage-java)   
 * Transferir a biblioteca do Maven de Cofre de chave do Azure para os pacotes Java Maven:
-  * [Principais](http://mvnrepository.com/artifact/com.microsoft.azure/azure-keyvault-core) pacote
-  * [Cliente](http://mvnrepository.com/artifact/com.microsoft.azure/azure-keyvault) pacote
+  * [Principais](https://mvnrepository.com/artifact/com.microsoft.azure/azure-keyvault-core) pacote
+  * [Cliente](https://mvnrepository.com/artifact/com.microsoft.azure/azure-keyvault) pacote
 * Visite o [documentação do Cofre de chaves do Azure](../../key-vault/key-vault-whatis.md)

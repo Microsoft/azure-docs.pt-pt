@@ -1,5 +1,5 @@
 ---
-title: O que é a configuração de aplicações do Azure | Documentos da Microsoft
+title: O que é a configuração de aplicações do Azure? | Microsoft Docs
 description: Uma visão geral do serviço de configuração de aplicações do Azure.
 services: azure-app-configuration
 documentationcenter: ''
@@ -13,57 +13,59 @@ ms.devlang: na
 ms.topic: overview
 ms.date: 02/24/2019
 ms.author: yegu
-ms.openlocfilehash: 3e96a1af4746c6344f9565d0f0de8ab2b2b8d8bc
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 8c2c31b4d87ac2db123c0cae63679e3773734b4f
+ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58009387"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58226288"
 ---
-# <a name="what-is-azure-app-configuration"></a>O que é a configuração de aplicações do Azure
+# <a name="what-is-azure-app-configuration"></a>O que é a configuração de aplicações do Azure?
 
-Configuração de aplicações do Azure fornece um serviço para gerir as definições da aplicação centralmente. Programas modernos, especialmente os que são executados numa nuvem, geralmente têm vários componentes que são distribuídos por natureza. Propagação de definições de configuração nesses componentes pode levar a erros de resolução de problemas é difícil durante a implementação de uma aplicação. Configuração de aplicações permite-lhe armazenar todas as definições para a sua aplicação e proteger seus acessos num único local.
+Configuração de aplicações do Azure fornece um serviço para gerir centralmente as definições da aplicação. Programas modernos, especialmente os programas em execução numa nuvem, geralmente têm vários componentes que são distribuídos por natureza. Propagação de definições de configuração nesses componentes pode levar a erros de resolução de problemas é difícil durante a implementação de uma aplicação. Utilize configuração de aplicações para armazenar todas as definições para a sua aplicação e proteger seus acessos num único local.
 
-Serviço de configuração de aplicações está atualmente em **pré-visualização**. É gratuito para utilizar durante este período de pré-visualização. Embora não haja nenhum processo de aprovação especiais para aceder ao serviço, [registar](https://aka.ms/azconfig/register) connosco para que o pode informar sobre qualquer alteração importante com antecedência.
+Configuração de aplicações é gratuita durante o período de pré-visualização. Se quiser experimentar, [registar](https://aka.ms/azconfig/register) na pré-visualização.
 
-## <a name="why-use-app-configuration"></a>Por que usar a configuração de aplicações
+## <a name="why-use-app-configuration"></a>Por que usar a configuração de aplicações?
 
-Aplicativos baseados na nuvem, muitas vezes, executar em várias máquinas virtuais ou contentores em várias regiões e utilizam múltiplos serviços externos. Criar uma aplicação distribuída que é robusta e escalonável é um verdadeiro desafio. Várias metodologias de programação tem risen para ajudar os desenvolvedores a lidar com cada vez maior complexidade de criar esses aplicativos. Por exemplo, fornece detalhes sobre a aplicação de 12 fatores muitos padrões de arquiteturais bem testados e práticas recomendadas para utilização com aplicações na cloud. Uma recomendação de chave deste guia é separar a configuração a partir do código. Isso significa que a configuração de uma aplicação, tais como definições deve ser mantida fora do seu executável e ler a partir do seu ambiente de tempo de execução ou de uma origem externa.
+Aplicativos baseados na nuvem, muitas vezes, executar em várias máquinas virtuais ou contentores em várias regiões e utilizam múltiplos serviços externos. Criar uma aplicação distribuída que é robusta e escalonável é um desafio. 
 
-Embora qualquer aplicativo pode fazer usá-lo, o seguinte é bons exemplos dos tipos de aplicativo que deve utilizar a configuração de aplicações:
+Várias metodologias de programação ajudam os desenvolvedores a lidar com a crescente complexidade da criação de aplicativos. Por exemplo, a aplicação de 12 fatores descreve vários padrões de arquitetura bem testados e melhores práticas para utilização com aplicações na cloud. Uma recomendação de chave deste guia é separar a configuração a partir do código. Neste caso, as definições de configuração de um aplicativo devem ser mantidas fora do seu executável e ler a partir do seu ambiente de tempo de execução ou de uma origem externa.
 
-* Microsserviços com base no AKS, Service Fabric ou outras aplicações em contentores implementadas em localizações geográficas de um ou mais.
-* Aplicações sem servidor, incluindo as funções do Azure ou a outras aplicações orientadas por eventos computação sem monitoração de estado.
-* Pipeline de implementação contínua.
+Embora qualquer aplicativo pode fazer uso de configuração de aplicações, os exemplos seguintes são os tipos de aplicações que tiram partido da utilização do mesmo:
+
+* Microsserviços com base no serviço Kubernetes do Azure, Azure Service Fabric ou outras aplicações em contentores implementadas em localizações geográficas de um ou mais
+* Aplicações sem servidor, que inclui as funções do Azure ou outras aplicações orientadas por eventos computação sem monitoração de estado
+* Pipeline de implementação contínua
 
 Configuração de aplicações oferece as seguintes vantagens:
 
-* Um serviço totalmente gerido que pode configurar em minutos.
-* Representações de chave flexíveis e mapeamentos.
-* Marcação com etiquetas.
-* Repetição de ponto no tempo de definições.
-* Comparação de dois conjuntos de configurações em dimensões personalizado.
-* Segurança aprimorada por meio de identidades geridas do Azure.
-* Concluir encriptações de dados, Inativos ou em trânsito.
-* Integração nativa com arquiteturas populares.
+* Um serviço totalmente gerido que pode configurar em minutos
+* Representações de chave flexíveis e mapeamentos
+* Marcação com etiquetas
+* Repetição de ponto no tempo de definições
+* Comparação de dois conjuntos de configurações em dimensões personalizado
+* Maior segurança por meio de identidades geridas do Azure
+* Dados completos encriptações, Inativos ou em trânsito
+* Integração nativa com estruturas populares
 
-Configuração de aplicações complementa [do Azure Key Vault](https://azure.microsoft.com/services/key-vault/) utilizado para armazenar segredos da aplicação. Configuração de aplicações torna mais fácil de implementar seguintes cenários:
+Configuração de aplicações complementa [do Azure Key Vault](https://azure.microsoft.com/services/key-vault/), que é utilizado para armazenar segredos da aplicação. Configuração de aplicações torna mais fácil de implementar os seguintes cenários:
 
-* Gestão centralizada e a distribuição dos dados de configuração hierárquica para ambientes diferentes e localizações geográficas.
-* Alterações de configuração dinâmica sem voltar a implementar ou reiniciar uma aplicação.
-* Gestão de recursos.
+* Gestão centralizada e a distribuição dos dados de configuração hierárquica para ambientes diferentes e localizações geográficas
+* Alterações de configuração dinâmica sem a necessidade de voltar a implementar ou reiniciar uma aplicação
+* Gestão de recursos
 
-## <a name="how-to-use-app-configuration"></a>Como utilizar a configuração de aplicações
+## <a name="use-app-configuration"></a>Utilizar configuração de aplicações
 
-A maneira mais fácil de adicionar um arquivo de configuração de aplicação à sua aplicação é através de uma biblioteca de cliente que a Microsoft fornece. Consoante a estrutura e linguagem de programação, o seguinte mostra os melhores métodos disponíveis para si:
+A maneira mais fácil de adicionar um arquivo de configuração de aplicação à sua aplicação é através de uma biblioteca de cliente que a Microsoft fornece. Com base na linguagem de programação e framework, os seguintes métodos de melhor disponibilizadas para.
 
 | Linguagem de programação e framework | Como ligar |
 |---|---|
-| **.NET core** e **ASP.NET Core** | Fornecedor de configuração de configuração de aplicações de .NET Core. |
-| **.NET** e **ASP.NET** | Construtor de configuração de configuração de aplicação para o .NET. |
-| **Java Spring** | Cliente de configuração de configuração de aplicação de Spring Cloud. |
-| Outros | Configuração de aplicações REST API. |
+| .NET core e o ASP.NET Core | Fornecedor de configuração de aplicações de .NET Core |
+| .NET e ASP.NET | Construtor de configuração de aplicação para .NET |
+| Java Spring | Cliente de configuração de aplicação de Spring Cloud |
+| Outros | Configuração de aplicações REST API |
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-* [Quickstart: Criar uma aplicação web ASP.NET](quickstart-aspnet-core-app.md)  
+* [Quickstart: Criar uma aplicação web ASP.NET](quickstart-aspnet-core-app.md) 

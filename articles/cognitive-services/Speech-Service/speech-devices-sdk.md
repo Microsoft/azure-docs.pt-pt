@@ -8,26 +8,26 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 12/06/2018
+ms.date: 03/13/2019
 ms.author: erhopf
 ms.custom: seodec18
-ms.openlocfilehash: d7ef018b376b96f967a065857839761fc5822239
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: cb0e079eee78f865d472b55b162fb65b5eadaf44
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55876315"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57900493"
 ---
 # <a name="about-the-speech-devices-sdk-preview"></a>Sobre os dispositivos de voz SDK (pré-visualização)
 
-O [serviço de voz](overview.md) funciona com uma ampla variedade de dispositivos e fontes de áudio. Agora, pode tirar seus aplicativos de fala para o próximo nível com correspondentes de hardware e software. O SDK de dispositivos de voz é uma biblioteca pretuned que se encontra emparelhada com finalidade específica, kits de desenvolvimento de matriz de microfone.
+O [serviços de voz](overview.md) funcionam com uma grande variedade de dispositivos e fontes de áudio. Agora, pode tirar seus aplicativos de fala para o próximo nível com correspondentes de hardware e software. O SDK de dispositivos de voz é uma biblioteca pretuned que se encontra emparelhada com finalidade específica, kits de desenvolvimento de matriz de microfone.
 
 O SDK de dispositivos de voz pode ajudá-lo a:
 * Teste rapidamente a novos cenários de voz.
-* Integre mais facilmente o serviço de voz com base na cloud no seu dispositivo.
+* Integre mais facilmente os serviços de voz com base na cloud no seu dispositivo.
 * Crie uma experiência de usuário excecional para os seus clientes.
 
-O SDK de dispositivos de voz consome os [SDK de voz](speech-sdk.md). Ele usa o SDK de voz para enviar o áudio que é processado pelo nosso algoritmo de processamento de áudio avançado da matriz de microfone do dispositivo para o [serviço de voz](overview.md). Ele usa o áudio multicanal para oferecer extremidade campo mais preciso [reconhecimento de fala](speech-to-text.md) através de supressão de ruído, cancelamento de eco, beamforming e dereverberation.
+O SDK de dispositivos de voz consome os [SDK de voz](speech-sdk.md). Ele usa o SDK de voz para enviar o áudio que é processado pelo nosso algoritmo de processamento de áudio avançado da matriz de microfone do dispositivo para o [serviços de voz](overview.md). Ele usa o áudio multicanal para oferecer extremidade campo mais preciso [reconhecimento de fala](speech-to-text.md) através de supressão de ruído, cancelamento de eco, beamforming e dereverberation.
 
 Também pode utilizar o SDK de dispositivos de voz para criar dispositivos de ambiente que têm seu próprio [personalizado do word de reativação](speech-devices-sdk-create-kws.md)— para que a indicação de que inicia uma interação do utilizador é exclusiva para a sua marca.
 
@@ -39,7 +39,7 @@ Atualmente, esses designs de referência completa, ponto-a-ponto sistema estão 
 
 |||
 |-|-|
-|[![Logótipo ROOBO](media/speech-devices-sdk/roobo-logo.png)](http://ddk.roobo.com/)|ROOBO fornece completa artificial intelligence soluções de sistema (IA) para aparelhos electric domésticos, automóveis, robôs, toys e outros setores. Estruturas de referência do ROOBO reduzem significativamente o desenvolvimento time-to-market por meio da integração com o serviço Microsoft Speech. [Visite ROOBO](http://ddk.roobo.com/).|
+|[![Logótipo ROOBO](media/speech-devices-sdk/roobo-logo.png)](http://ddk.roobo.com/)|ROOBO fornece completa artificial intelligence soluções de sistema (IA) para aparelhos electric domésticos, automóveis, robôs, toys e outros setores. Estruturas de referência do ROOBO reduzem significativamente o desenvolvimento time-to-market por meio da integração com os serviços de voz do Azure. [Visite ROOBO](http://ddk.roobo.com/).|
 
 ## <a name="next-steps"></a>Passos Seguintes
 

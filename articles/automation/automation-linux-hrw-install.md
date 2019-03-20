@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 06/28/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 29ca8c4114d48fa0d3756930354660712b1b35b3
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
-ms.translationtype: MT
+ms.openlocfilehash: 3bdf642c37fe5f64b7d853da6a050ec8c2a7d44d
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56820421"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57834664"
 ---
 # <a name="deploy-a-linux-hybrid-runbook-worker"></a>Implementar um Runbook Worker híbrido do Linux
 
@@ -71,7 +71,7 @@ Antes de continuar, tenha em atenção a área de trabalho do Log Analytics, lig
 
 1. Instale o agente do Log Analytics para Linux ao executar o seguinte comando. Substitua \<WorkspaceID\> e \<WorkspaceKey\> com os valores apropriados da sua área de trabalho.
 
-  [!INCLUDE [log-analytics-agent-note](../../includes/log-analytics-agent-note.md)] 
+   [!INCLUDE [log-analytics-agent-note](../../includes/log-analytics-agent-note.md)] 
 
    ```bash
    wget https://raw.githubusercontent.com/Microsoft/OMS-Agent-for-Linux/master/installer/scripts/onboard_agent.sh && sh onboard_agent.sh -w <WorkspaceID> -s <WorkspaceKey>
@@ -111,12 +111,8 @@ Os seguintes tipos de runbook não funcionam numa função de trabalho híbrida 
 * Gráfico
 * Fluxo de trabalho de PowerShell gráfico
 
-## <a name="troubleshoot"></a>Resolução de problemas
-
-Para saber como resolver problemas de suas funções de trabalho de Runbook híbridas, consulte [resolução de problemas Linux os Runbook Workers híbridos](troubleshoot/hybrid-runbook-worker.md#linux)
-
 ## <a name="next-steps"></a>Passos Seguintes
 
 * Para saber como configurar os seus runbooks para automatizar processos no seu datacenter no local ou outro ambiente de cloud, veja [executar runbooks numa função de trabalho de Runbook híbrida](automation-hrw-run-runbooks.md).
 * Para obter instruções sobre como remover os Runbook Workers híbridos, consulte [remover Azure Automation os Runbook Workers híbridos](automation-hybrid-runbook-worker.md#remove-a-hybrid-runbook-worker).
-
+* Para saber como resolver problemas de suas funções de trabalho de Runbook híbridas, consulte [resolução de problemas Linux os Runbook Workers híbridos](troubleshoot/hybrid-runbook-worker.md#linux)
