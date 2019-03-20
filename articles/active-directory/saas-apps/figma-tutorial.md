@@ -8,18 +8,19 @@ manager: mtillman
 ms.reviewer: barbkess
 ms.assetid: 8569cae1-87dd-4c40-9bbb-527ac80d6a96
 ms.service: active-directory
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 02/28/2019
+ms.date: 03/13/2019
 ms.author: jeedes
-ms.openlocfilehash: 6e4bf95489a584a9f882ce616a6aef297b0a53e5
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: d58da4781a7c5c93d897e0efd7cf3d5aee612d78
+ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57782246"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58225689"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-figma"></a>Tutorial: Integração do Active Directory do Azure com Figma
 
@@ -123,22 +124,25 @@ Para configurar o Azure AD início de sessão único com Figma, execute os segui
 
 6. Aplicação de Figma espera que as asserções SAML num formato específico, o que requer a adição de mapeamentos de atributos personalizado à sua configuração de atributos de token SAML. Captura de ecrã seguinte mostra a lista de atributos predefinidos. Clique em **edite** ícone para abrir **atributos de utilizador** caixa de diálogo.
 
-    ![imagem](common/edit-attribute.png)
+    ![image](common/edit-attribute.png)
 
 7. Além dos acima, o aplicativo Figma espera mais alguns atributos a serem passados na resposta SAML. No **afirmações de utilizador** secção sobre o **atributos de utilizador** caixa de diálogo, execute os seguintes passos para adicionar o atributo de token de SAML conforme mostrado na tabela a seguir:
 
     | Name | Atributo de origem|
     | ---------------| --------- |
     | `externalId` | `user.mailnickname` |
+    | `displayName` | `user.displayname` |
+    | `title` | `user.jobtitle` |
+    | `emailaddress` | `user.mail` |
     | `familyName` | `user.surname` |
     | `givenName` | `givenName` |
     | `userName` | `user.userprincipalname` |
 
     a. Clique em **Adicionar nova afirmação** para abrir o **afirmações de utilizador de gerir** caixa de diálogo.
 
-    ![imagem](common/new-save-attribute.png)
+    ![image](common/new-save-attribute.png)
 
-    ![imagem](common/new-attribute-details.png)
+    ![image](common/new-attribute-details.png)
 
     b. Na **nome** caixa de texto, escreva o nome de atributo apresentado para essa linha.
 
@@ -158,23 +162,7 @@ Para configurar o Azure AD início de sessão único com Figma, execute os segui
   
 ### <a name="configure-figma-single-sign-on"></a>Configurar Figma Single Sign-On
 
-1. Numa janela do browser web diferente, abra o site o Figma [aqui](https://goo.gl/forms/XkRB1z5ed4eVUzXn2) como administrador.
-
-2. Sobre o **Figma SAML SSO configuração** página, execute os seguintes passos:
-
-    ![Configurar o início de sessão único](./media/figma-tutorial/configure01.png)
-
-    a. Na **endereço de E-Mail** texto, introduza o e-mail do utilizador, como **brittasimon@contoso.com**.
-
-    b. Na **nome da** texto, introduza o nome de utilizador, como **Brittasimon**.
-
-    c. Selecione a opção de acordo com a organização Figma.
-
-    d. Na **nome da sua organização no Figma** caixa de texto, escreva o nome da sua organização.
-
-    e. Na **URL de metadados do fornecedor de identidade (IDP)** caixa de texto, colar a **Url de metadados de Federação de aplicação** que copiou do portal do Azure.
-
-    f. Clique em **submeter**.
+Para configurar o início de sessão único no lado de Figma, tem de seguir artigo a Figma [processo de configurar o SSO do Azure Active Directory SAML](https://help.figma.com/article/243-configure-azure-active-directory-saml-sso).
 
 ### <a name="create-an-azure-ad-test-user"></a>Criar um utilizador de teste do Azure AD 
 
@@ -194,7 +182,7 @@ O objetivo desta secção é criar um utilizador de teste no portal do Azure cha
 
     a. Na **Name** , insira **BrittaSimon**.
   
-    b. Na **nome de utilizador** , digite **brittasimon@yourcompanydomain.extension**  
+    b. Na **nome de utilizador** , digite **brittasimon\@yourcompanydomain.extension**  
     Por exemplo, BrittaSimon@contoso.com
 
     c. Selecione **palavra-passe de Show** caixa de verificação e, em seguida, anote o valor que é apresentado na caixa de palavra-passe.
@@ -231,7 +219,7 @@ Nesta secção, vai ativar Eduarda Almeida utilizar o Azure início de sessão �
 
 Nesta secção, um usuário chamado Eduarda Almeida é criado na Figma. Figma suporta o aprovisionamento de just-in-time, que está ativado por predefinição. Não existe nenhum item de ação para nesta secção. Se um utilizador já não existir no Figma, uma nova é criada quando tentar acessar Figma.
 
-### <a name="test-single-sign-on"></a>Testar início de sessão único 
+### <a name="test-single-sign-on"></a>Testar o início de sessão único 
 
 Nesta secção, vai testar a configuração do Azure AD única início de sessão com o painel de acesso.
 

@@ -7,12 +7,12 @@ ms.service: vpn-gateway
 ms.topic: article
 ms.date: 02/14/2019
 ms.author: cherylmc
-ms.openlocfilehash: d09f03aed8a739eaaaf8c60c379a746551d3b6f8
-ms.sourcegitcommit: 15e9613e9e32288e174241efdb365fa0b12ec2ac
+ms.openlocfilehash: 54b89b74017b8d5d6e4bd1b52c6b3986d2802702
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "57009890"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58118804"
 ---
 # <a name="reset-a-vpn-gateway"></a>Repor um Gateway de VPN
 
@@ -47,7 +47,7 @@ Pode repor um gateway de VPN do Resource Manager com o portal do Azure. Se prete
 1. Abra o [portal do Azure](https://portal.azure.com) e navegue para o gateway de rede virtual do Gestor de recursos que pretende repor.
 2. No painel para o gateway de rede virtual, clique em "Repor".
 
-  ![Repor o painel do Gateway de VPN](./media/vpn-gateway-howto-reset-gateway/reset-vpn-gateway-portal.png)
+   ![Repor o painel do Gateway de VPN](./media/vpn-gateway-howto-reset-gateway/reset-vpn-gateway-portal.png)
 3. No painel da reposição, clique nas **repor** botão.
 
 ## <a name="ps"></a>PowerShell

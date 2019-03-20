@@ -8,12 +8,12 @@ ms.service: data-lake-store
 ms.topic: conceptual
 ms.date: 03/26/2018
 ms.author: yagupta
-ms.openlocfilehash: df89f8fd4dd5c7690d858009e250a474f702f1a8
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.openlocfilehash: a009f212bd8baaa353d602dc6090aeeccddd4936
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46125039"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58098139"
 ---
 # <a name="encryption-of-data-in-azure-data-lake-storage-gen1"></a>Encriptação de dados no Azure Data Lake Storage Gen1
 
@@ -22,7 +22,7 @@ Encriptação no Azure Data Lake Storage Gen1 ajuda-o a proteger os seus dados, 
 Geração 1 de armazenamento do Data Lake suporta a encriptação de dados inativos e em trânsito. Para dados inativos, oferece suporte a geração 1 de armazenamento do Data Lake "por predefinição," encriptação transparente. Eis o que cada um destes termos significa em maior detalhe:
 
 * **Por predefinição**: Quando cria uma nova conta de geração 1 de armazenamento do Data Lake, a predefinição ativa a encriptação. Por esse motivo, os dados armazenados no Data Lake Storage Gen1 são sempre encriptados antes de serem armazenados em suportes de dados persistentes. Este é o comportamento para todos os dados e não pode ser alterado depois de uma conta ser criada.
-* **Transparente**: geração 1 de armazenamento do Data Lake automaticamente encripta os dados antes de persistir e desencripta-os antes da obtenção. A encriptação é configurada e gerida ao nível da conta de geração 1 de armazenamento do Data Lake por um administrador. Não são feitas alterações às APIs de acesso aos dados. Portanto, sem alterações são necessárias em aplicações e serviços que interagem com o Data Lake Storage Gen1 devido à encriptação.
+* **Transparente**: Geração 1 de armazenamento do Data Lake automaticamente encripta os dados antes de persistir e desencripta-os antes da obtenção. A encriptação é configurada e gerida ao nível da conta de geração 1 de armazenamento do Data Lake por um administrador. Não são feitas alterações às APIs de acesso aos dados. Portanto, sem alterações são necessárias em aplicações e serviços que interagem com o Data Lake Storage Gen1 devido à encriptação.
 
 Os dados em trânsito (também denominados dados em movimento) também são sempre encriptados no Data Lake Storage Gen1. Para além de encriptar os dados antes de serem armazenados em suportes de dados persistentes, os dados também são sempre protegidos em trânsito com HTTPS. O HTTPS é o único protocolo que é suportado para as interfaces REST do Data Lake Storage geração 1. O diagrama seguinte mostra como os dados se tornam encriptados no Data Lake Storage Gen1:
 
@@ -120,17 +120,17 @@ Tenha em atenção que se usar as opções predefinidas para a encriptação, os
 
     ![Captura de ecrã do Key Vault](./media/data-lake-store-encryption/keyvault.png)
 
-3.  Selecione a chave associada à sua conta do Data Lake Storage Gen1 e criar uma nova versão desta chave. Tenha em atenção que Gen1 de armazenamento do Data Lake atualmente só suporta a rotação de chaves para uma nova versão de uma chave. Não suporta a rotação para uma chave diferente.
+3. Selecione a chave associada à sua conta do Data Lake Storage Gen1 e criar uma nova versão desta chave. Tenha em atenção que Gen1 de armazenamento do Data Lake atualmente só suporta a rotação de chaves para uma nova versão de uma chave. Não suporta a rotação para uma chave diferente.
 
    ![Captura de ecrã da janela Chaves, com a opção Nova Versão realçada](./media/data-lake-store-encryption/keynewversion.png)
 
-4.  Navegue para a conta de geração 1 do Data Lake Storage e selecione **Encryption**.
+4. Navegue para a conta de geração 1 do Data Lake Storage e selecione **Encryption**.
 
-    ![Janela de conta de captura de ecrã do Data Lake Storage Gen1, com a encriptação realçada](./media/data-lake-store-encryption/select-encryption.png)
+   ![Janela de conta de captura de ecrã do Data Lake Storage Gen1, com a encriptação realçada](./media/data-lake-store-encryption/select-encryption.png)
 
-5.  Verá uma mensagem a informar de que está disponível uma versão nova da chave. Clique em **Rodar Chave** para atualizar a chave para a versão nova.
+5. Verá uma mensagem a informar de que está disponível uma versão nova da chave. Clique em **Rodar Chave** para atualizar a chave para a versão nova.
 
-    ![Janela de captura de ecrã do Data Lake Storage geração 1 com mensagem e rodar chave realçadas](./media/data-lake-store-encryption/rotatekey.png)
+   ![Janela de captura de ecrã do Data Lake Storage geração 1 com mensagem e rodar chave realçadas](./media/data-lake-store-encryption/rotatekey.png)
 
 Esta operação deve demorar menos de dois minutos e não se prevê qualquer período de indisponibilidade durante a rotação de chaves. Depois de a operação estar concluída, a versão nova da chave estará em uso.
 

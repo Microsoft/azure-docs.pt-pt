@@ -12,12 +12,12 @@ ms.author: srbozovi
 ms.reviewer: carlrab, bonova
 manager: craigg
 ms.date: 12/14/2018
-ms.openlocfilehash: 9459aa9df74efa500109d7c281daad28355bd0d0
-ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
+ms.openlocfilehash: e2aa9edcd53aa3881b07e31fcf2312d5173a3a6e
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55895741"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57903516"
 ---
 # <a name="quickstart-restore-a-database-to-a-managed-instance"></a>Início rápido: Restaurar uma base de dados para uma instância gerida 
 
@@ -48,7 +48,7 @@ No SSMS, siga estes passos para restaurar a base de dados do Wide World Importer
 
 1. Abra o SMSS e ligue à sua instância gerida.
 2. A partir do menu do lado esquerdo, sua instância gerida com o botão direito e selecione **nova consulta** para abrir uma nova janela de consulta.
-3. Execute o seguinte script SQL, que utiliza uma conta de armazenamento pré-configurado e a chave SAS para [criar uma credencial](https://docs.microsoft.com/sql/t-sql/statements/create-credential-transact-sql?view=sql-server-2017) na sua instância gerida.
+3. Execute o seguinte script SQL, que utiliza uma conta de armazenamento pré-configurado e a chave SAS para [criar uma credencial](https://docs.microsoft.com/sql/t-sql/statements/create-credential-transact-sql) na sua instância gerida.
 
    ```sql
    CREATE CREDENTIAL [https://mitutorials.blob.core.windows.net/databases] 

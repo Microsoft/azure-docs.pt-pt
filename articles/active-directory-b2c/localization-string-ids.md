@@ -10,12 +10,12 @@ ms.topic: reference
 ms.date: 09/10/2018
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: 3f72480aaa05c0f50179d4d330525b12525282bc
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 5f937a86e4e063ad1e8346dc629a917ae7ce8b65
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55161873"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58077212"
 ---
 # <a name="localization-string-ids"></a>Cadeia de caracteres de localização IDs
 
@@ -33,7 +33,7 @@ Os seguintes Ids são utilizados para uma definição de conteúdo com o ID `api
 | **logonIdentifier_email** | Endereço de E-mail |
 | **requiredField_email** | Introduza o seu e-mail |
 | **invalid_email** | Introduza um endereço de e-mail válido |
-| **email_pattern** | ^[a-zA-Z0-9.!#$%&’'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\\.[a-zA-Z0-9-]+)*$ |
+| **email_pattern** | ^[a-zA-Z0-9.!#$%&’'*+/=?^_\`{\|}~-]+@[a-zA-Z0-9-]+(?:\\.[a-zA-Z0-9-]+)*$ |
 | **local_intro_username** | Iniciar sessão com o nome de utilizador |
 | **logonIdentifier_username** | Nome de utilizador |
 | **requiredField_username** | Introduza o seu nome de utilizador |

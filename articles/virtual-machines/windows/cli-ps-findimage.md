@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 01/25/2019
 ms.author: danlep
-ms.openlocfilehash: 1b3f000352a91d0204469f4ac14d5293140b933f
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: ebf4b413ecfbdf850f0d9e6ebc50f166e27bee0a
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56868855"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58081853"
 ---
 # <a name="find-windows-vm-images-in-the-azure-marketplace-with-azure-powershell"></a>Encontrar imagens de VM do Windows no Azure Marketplace com o Azure PowerShell
 
@@ -37,7 +37,7 @@ Também pode procurar imagens disponíveis e as ofertas com o [do Azure Marketpl
 Esta tabela mostra um subconjunto de Skus disponíveis para os publicadores e ofertas indicado.
 
 | Publicador | Oferta | Sku |
-|:--- |:--- |:--- |:--- |
+|:--- |:--- |:--- |
 | MicrosoftWindowsServer |WindowsServer |2019-Datacenter |
 | MicrosoftWindowsServer |WindowsServer |2019-Datacenter-Core |
 | MicrosoftWindowsServer |WindowsServer |2019-Datacenter-with-Containers |

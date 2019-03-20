@@ -11,6 +11,8 @@ items:
     href: quickstart-create-server-database-portal.md
   - name: Criar BD - CLI do Azure
     href: quickstart-create-server-database-azure-cli.md
+  - name: Criar BD - comando up da CLI do Azure
+    href: quickstart-create-server-up-azure-cli.md
   - name: Ligar e consultar
     items:
     - name: Python
@@ -237,9 +239,9 @@ items:
     href: partners-migration-postgresql.md
   - name: Guia de Migração de Bases de Dados
     href: https://datamigration.microsoft.com/
-ms.openlocfilehash: 4c10bd629542aa445ccea46df404df8c0db94c1c
-ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
+ms.openlocfilehash: c2d60cf82fa128b1af3a4838448b5c1bf69858fc
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56887578"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57888251"

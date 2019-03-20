@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 07/18/2018
 ms.author: dukek
 ms.subservice: alerts
-ms.openlocfilehash: 207d1f7f5eb4db4203f2595a06f943e8ae69881e
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: e69158a6ee4d8415f52cf458c028cab56f481d8b
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54432035"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58121133"
 ---
 # <a name="how-to-trigger-complex-actions-with-azure-monitor-alerts"></a>Como realizar ações complexos com alertas do Azure Monitor
 
@@ -275,19 +275,19 @@ O processo para criar um alerta de métrica é semelhante à [criar um alerta de
 - As etapas 9 e 10 são os mesmos.
 - Para obter os passos 11 por meio de 14, utilize o seguinte processo:
 
-   1. Selecione **+** **novo passo** e, em seguida, escolha **adicionar uma condição**. Defina as condições a seguir para que a aplicação lógica é executado apenas quando os dados de entrada corresponde a estes valores abaixo. Quando introduzir o valor de versão na caixa de texto, colocá-lo ("2.0") entre aspas para certifica-se de que é avaliada como uma cadeia de caracteres e não um tipo numérico.  O sistema não mostra as aspas se retornar à página, mas o código subjacente ainda mantém o tipo de cadeia de caracteres. 
-       - `schemaId == AzureMonitorMetricAlert`
-       - `version == "2.0"`
+  1. Selecione **+** **novo passo** e, em seguida, escolha **adicionar uma condição**. Defina as condições a seguir para que a aplicação lógica é executado apenas quando os dados de entrada corresponde a estes valores abaixo. Quando introduzir o valor de versão na caixa de texto, colocá-lo ("2.0") entre aspas para certifica-se de que é avaliada como uma cadeia de caracteres e não um tipo numérico.  O sistema não mostra as aspas se retornar à página, mas o código subjacente ainda mantém o tipo de cadeia de caracteres. 
+     - `schemaId == AzureMonitorMetricAlert`
+     - `version == "2.0"`
        
        !["Condição de payload de alerta de métrica"](media/action-groups-logic-app/metric-alert-payload-condition.png "condição de payload de alerta de métrica")
 
-   1. Na **se for true** condição, adicione um **para cada** loop e a ação do Microsoft Teams. Defina a mensagem com uma combinação de HTML e de conteúdo dinâmico.
+  1. Na **se for true** condição, adicione um **para cada** loop e a ação do Microsoft Teams. Defina a mensagem com uma combinação de HTML e de conteúdo dinâmico.
 
-       !["Ação de postagem de métrica condição verdadeiro do alerta"](media/action-groups-logic-app/metric-alert-true-condition-post-action.png "ação de postagem de condições verdadeiro alerta de métricas")
+      !["Ação de postagem de métrica condição verdadeiro do alerta"](media/action-groups-logic-app/metric-alert-true-condition-post-action.png "ação de postagem de condições verdadeiro alerta de métricas")
 
-   1. Na **se for FALSO** de condição, defina uma ação do Microsoft Teams para comunicar que o alerta de métrica não corresponde às expectativas da aplicação lógica. Inclua JSON payload. Observe como fazer referência a `triggerBody` conteúdo dinâmico no `json()` expressão.
+  1. Na **se for FALSO** de condição, defina uma ação do Microsoft Teams para comunicar que o alerta de métrica não corresponde às expectativas da aplicação lógica. Inclua JSON payload. Observe como fazer referência a `triggerBody` conteúdo dinâmico no `json()` expressão.
 
-       !["Ação de postagem de condições de Falso alerta métricas"](media/action-groups-logic-app/metric-alert-false-condition-post-action.png "ação de postagem de condições falso alerta de métricas")
+      !["Ação de postagem de condições de Falso alerta métricas"](media/action-groups-logic-app/metric-alert-false-condition-post-action.png "ação de postagem de condições falso alerta de métricas")
 
 - Passo 15 é o mesmo. Siga as instruções para guardar a aplicação lógica e atualizar o seu grupo de ação.
 

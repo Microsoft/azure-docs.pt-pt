@@ -8,12 +8,12 @@ services: site-recovery
 ms.topic: article
 ms.date: 12/31/2018
 ms.author: raynew
-ms.openlocfilehash: 6ebf1abe6f3b115a254201184f47e6aad2febb2a
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: 2f70a180afcc8eda5d43356c3f4f96b25292c6d5
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55208181"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58088932"
 ---
 # <a name="support-matrix-for-disaster-recovery-of-vmware-vms-and-physical-servers-to-a-secondary-site"></a>Matriz de suporte para recuperação após desastre de VMs de VMware e servidores físicos para um site secundário
 
@@ -110,10 +110,10 @@ Mover o armazenamento, rede, as VMs do Azure entre grupos de recursos (dentro ou
 
 O serviço de mobilidade coordena a replicação entre servidores de VMware no local ou servidores físicos e o site secundário. Quando configurar a replicação, certifique-se de que tem a versão mais recente do serviço de mobilidade e de outros componentes.
 
-**Atualização** | **Detalhes** 
---- | --- 
-Atualizações do Scout | [Conheça e baixe](vmware-physical-secondary-disaster-recovery.md#updates) as atualizações mais recentes do Scout | Scout atualizações são cumulativas.
-Atualizações de componentes | Scout atualizações incluem atualizações para todos os componentes, incluindo o servidor do RX, servidor de configuração, processo e servidores de destino mestre, servidores de vContinuum e servidores de origem que pretende proteger.<br/><br/> [Saiba mais](vmware-physical-secondary-disaster-recovery.md#download-and-install-component-updates).
+| **Atualização** | **Detalhes** |
+| --- | --- |
+|Atualizações do Scout | Scout atualizações são cumulativas. <br/><br/> [Conheça e baixe](vmware-physical-secondary-disaster-recovery.md#updates) as atualizações mais recentes do Scout |
+|Atualizações de componentes | Scout atualizações incluem atualizações para todos os componentes, incluindo o servidor do RX, servidor de configuração, processo e servidores de destino mestre, servidores de vContinuum e servidores de origem que pretende proteger.<br/><br/> [Saiba mais](vmware-physical-secondary-disaster-recovery.md#download-and-install-component-updates).|
 
 
 ## <a name="next-steps"></a>Passos Seguintes

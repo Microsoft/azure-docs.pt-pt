@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 06/21/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 51daf3b9553babb5fc627c02d79914c68c318145
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 941a02ef9ab3d623d34c8dc6996040f6d9e44859
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56190828"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58096848"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-screencast-o-matic"></a>Tutorial: Integração do Active Directory do Azure com Matic Screencast-S
 
@@ -133,17 +133,17 @@ Nesta secção, pode ativar o Azure AD início de sessão único no portal do Az
 
 9. Sobre o **página de configuração de acesso**, execute os seguintes passos:
 
-    * Sob **URL de acesso** secção, escreva o seu instancename na caixa de texto especificada.
+   * Sob **URL de acesso** secção, escreva o seu instancename na caixa de texto especificada.
 
-    ![O acesso](./media/screencast-tutorial/tutorial_screencast_access.png)
+     ![O acesso](./media/screencast-tutorial/tutorial_screencast_access.png)
 
-    * Selecione **utilizador de domínio exigir** sob **restrição de utilizador de SAML (opcional)** secção.
+   * Selecione **utilizador de domínio exigir** sob **restrição de utilizador de SAML (opcional)** secção.
 
-    * Sob **carregar ficheiro de XML de metadados de IDP**, clique em **Escolher ficheiro** para carregar os metadados que transferiu a partir do portal do Azure.
+   * Sob **carregar ficheiro de XML de metadados de IDP**, clique em **Escolher ficheiro** para carregar os metadados que transferiu a partir do portal do Azure.
 
-    * Clique em **OK**. 
+   * Clique em **OK**. 
 
-    ![O acesso](./media/screencast-tutorial/tutorial_screencast_save.png)
+     ![O acesso](./media/screencast-tutorial/tutorial_screencast_save.png)
 
 ### <a name="create-an-azure-ad-test-user"></a>Criar um utilizador de teste do Azure AD
 

@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 02/08/2019
 ms.author: erhopf
 ms.custom: seodec18
-ms.openlocfilehash: d48ad97d50c413c4530e54f2538fda9cd0e31b8f
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
+ms.openlocfilehash: 09cc38cd5343e8b01b3e704191ea40c133d724f8
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56342682"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58103728"
 ---
 # <a name="try-speech-services-for-free"></a>Experimente gratuitamente os serviços de voz
 
@@ -87,19 +87,19 @@ Para adicionar um recurso de serviços de voz (escalão gratuito ou pago) à sua
 
 1. Sob **criar**, introduza:
 
-    * Um nome para o novo recurso. O nome auxilia a distinguir entre várias subscrições para o mesmo serviço.
-    * Escolha a subscrição do Azure que o novo recurso está associado para determinar como são cobradas as taxas.
-    * Selecione a região onde o recurso será utilizado. Atualmente, os serviços de voz está disponível nas regiões E.U.A. oeste, Europa do Norte e Ásia Oriental.
-    * Escolha a um escalão de preço gratuito ou pago. Clique em **vista de detalhes de preço completos** para obter informações completas sobre as quotas de utilização e de preços para cada camada.
-    * Criar um novo grupo de recursos para esta subscrição de voz ou o atribuir a subscrição a um grupo de recursos existente. Os grupos de recursos ajudam a que manter suas várias subscrições do Azure, organizadas.
-    * Para obter acesso conveniente a sua subscrição no futuro, selecione o **afixar ao dashboard** caixa de verificação.
-    * Selecione **criar.**
+   * Um nome para o novo recurso. O nome auxilia a distinguir entre várias subscrições para o mesmo serviço.
+   * Escolha a subscrição do Azure que o novo recurso está associado para determinar como são cobradas as taxas.
+   * Selecione a região onde o recurso será utilizado. Atualmente, os serviços de voz está disponível nas regiões E.U.A. oeste, Europa do Norte e Ásia Oriental.
+   * Escolha a um escalão de preço gratuito ou pago. Clique em **vista de detalhes de preço completos** para obter informações completas sobre as quotas de utilização e de preços para cada camada.
+   * Criar um novo grupo de recursos para esta subscrição de voz ou o atribuir a subscrição a um grupo de recursos existente. Os grupos de recursos ajudam a que manter suas várias subscrições do Azure, organizadas.
+   * Para obter acesso conveniente a sua subscrição no futuro, selecione o **afixar ao dashboard** caixa de verificação.
+   * Selecione **criar.**
 
-    ![Selecione o botão Criar](media/index/try-speech-api-create-speech4.png)
+     ![Selecione o botão Criar](media/index/try-speech-api-create-speech4.png)
 
-    Ele demora alguns minutos a criar e implementar o novo recurso de voz. Selecione **guia de introdução** para ver informações sobre o novo recurso.
+     Ele demora alguns minutos a criar e implementar o novo recurso de voz. Selecione **guia de introdução** para ver informações sobre o novo recurso.
 
-    ![Painel de início rápido](media/index/try-speech-api-create-speech5.png)
+     ![Painel de início rápido](media/index/try-speech-api-create-speech5.png)
 
 1. Sob **início rápido**, clique nas **chaves** link no passo 1 para exibir as chaves de subscrição. Cada subscrição tem duas chaves; Pode utilizar qualquer um dos chave em seu aplicativo. Selecione o botão junto a cada chave para copiá-lo para a área de transferência para colar no seu código.
 

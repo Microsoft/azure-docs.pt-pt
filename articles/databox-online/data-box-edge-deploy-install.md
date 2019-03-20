@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 11/01/2018
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to install Data Box Edge in datacenter so I can use it to transfer data to Azure.
-ms.openlocfilehash: 243697c20f10a019a73326c3bd79e23fc3342640
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: ddcaca46a2b8f9501337b3591d6ed666876e1de9
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56113605"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58093774"
 ---
 # <a name="tutorial-install-azure-data-box-edge-preview"></a>Tutorial: Instalar o Edge de caixa de dados do Azure (pré-visualização)
 
@@ -94,15 +94,15 @@ O dispositivo tem de ser instalado num bastidor de 19 polegadas padrão. Utilize
     ![Instalar as calhas de montagem em bastidor](./media/data-box-edge-deploy-install/rack-mount-rail-1.png)
 
 2. Instale os rails externas em membros vertical cab rack. Para ajudar com a orientação, os slides do rail são marcados **Front**, e esse fim é afixação em direção à frente do bastidor.    
-    1. Localize os pinos na parte frontal e posterior da montagem das calhas. Expanda a calha para encaixar entre os suportes do bastidor. Primeiro, fixe a calha exterior na parte posterior do bastidor. Ajuste o traseiro montar Reto de fecho para posicioná-lo dentro os buracos de montagem de rack rear.   
+   1. Localize os pinos na parte frontal e posterior da montagem das calhas. Expanda a calha para encaixar entre os suportes do bastidor. Primeiro, fixe a calha exterior na parte posterior do bastidor. Ajuste o traseiro montar Reto de fecho para posicioná-lo dentro os buracos de montagem de rack rear.   
 
-    2. Pressione e segure o gatilho no suporte posterior para expor os ganchos metálicos. Alinhar e inserir o parêntesis de back-os buracos de montagem e, em seguida, o acionador de versão.
+   2. Pressione e segure o gatilho no suporte posterior para expor os ganchos metálicos. Alinhar e inserir o parêntesis de back-os buracos de montagem e, em seguida, o acionador de versão.
 
-    3. Alinhe o suporte frontal com o orifício de montagem.
+   3. Alinhe o suporte frontal com o orifício de montagem.
 
-    4. O front-Reto de abertura deve ser corrigido agora no rack. Opcionalmente, M5 X screws 10L pode ser utilizado para proteger os rails com postagens, se necessário. 
+   4. O front-Reto de abertura deve ser corrigido agora no rack. Opcionalmente, M5 X screws 10L pode ser utilizado para proteger os rails com postagens, se necessário. 
 
-    ![Instalar as calhas de montagem em bastidor](./media/data-box-edge-deploy-install/rack-mount-rail-2.png)
+      ![Instalar as calhas de montagem em bastidor](./media/data-box-edge-deploy-install/rack-mount-rail-2.png)
 
 3. Para anexar o rail interna nos chassis, certifique-se de que o aberturas de keyhole do rail interna estão alinhadas com os pins de localização na lateral do chassi. Certifique-se de que as cabeças dos pinos de localização da estrutura estão salientes nas aberturas dos orifícios na calha interior. Puxe a calha para a frente da estrutura até ouvir um clique e a calha encaixar. Repita com a outra calha interior. Pressione a estrutura com a calha interior na parte deslizante para concluir a instalação no bastidor.
 

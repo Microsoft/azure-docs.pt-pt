@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 04/27/2018
 ms.author: jdial
 ms.custom: mvc
-ms.openlocfilehash: c8d1f659078a36bc57e92b01e6e32502be7a0ea9
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: a35e65237a3f4278e9154daddff328887d9f36ef
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54434755"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57997383"
 ---
 # <a name="tutorial-diagnose-a-communication-problem-between-networks-using-the-azure-portal"></a>Tutorial: Diagnosticar um problema de comunicação entre redes com o portal do Azure
 
@@ -36,8 +36,8 @@ Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure
 ## <a name="prerequisites"></a>Pré-requisitos
 
 Para utilizar o diagnóstico de VPN, tem de ter um gateway de VPN existente e em execução. Se não tiver um gateway de VPN existente para diagnosticar, pode implementar um com o [script do PowerShell](../vpn-gateway/scripts/vpn-gateway-sample-site-to-site-powershell.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json). Pode executar o script do PowerShell a partir de:
-    - **Uma instalação local do PowerShell**: O script requer o AzureRM PowerShell 5.7.0 de versão do módulo ou posterior. Execute `Get-Module -ListAvailable AzureRM` para localizar a versão instalada. Se precisar de atualizar, veja [Instalar o Azure PowerShell](/powershell/azure/azurerm/install-azurerm-ps). Se estiver a executar localmente o PowerShell, também terá de executar o `Login-AzureRmAccount` para criar uma ligação com o Azure.
-    - **O Azure Cloud Shell**: O [Azure Cloud Shell](https://shell.azure.com/powershell) tem a versão mais recente do PowerShell instalado e configurado e iniciar a sua sessão no Azure.
+- **Uma instalação local do PowerShell**: O script requer o AzureRM PowerShell 5.7.0 de versão do módulo ou posterior. Execute `Get-Module -ListAvailable AzureRM` para localizar a versão instalada. Se precisar de atualizar, veja [Instalar o Azure PowerShell](/powershell/azure/azurerm/install-azurerm-ps). Se estiver a executar localmente o PowerShell, também terá de executar o `Login-AzureRmAccount` para criar uma ligação com o Azure.
+- **O Azure Cloud Shell**: O [Azure Cloud Shell](https://shell.azure.com/powershell) tem a versão mais recente do PowerShell instalado e configurado e iniciar a sua sessão no Azure.
 
 O script demora aproximadamente uma hora para criar um gateway de VPN. Os passos restantes presumem que o gateway que está a diagnosticar é aquele implementado por este script. Se diagnosticar o seu próprio gateway existente, os resultados variam.
 
@@ -76,7 +76,7 @@ Se já tiver um observador de rede ativado na região E.U.A. Leste, avance para 
     Pode ver que o **ESTADO DE RESOLUÇÃO DE PROBLEMAS** é **Danificado**, bem como um **Resumo** e **Detalhes** do problema no separador **Estado**.
 10. Quando seleciona o separador **Ação**, o diagnóstico de VPN fornece informações adicionais. No exemplo, conforme apresentado na seguinte imagem, o diagnóstico de VPN informa-o de que deve verificar o estado de funcionamento de cada ligação:
 
-  ![Ação](./media/diagnose-communication-problem-between-networks/action.png)
+    ![Ação](./media/diagnose-communication-problem-between-networks/action.png)
 
 ## <a name="diagnose-a-gateway-connection"></a>Diagnosticar uma ligação de gateway
 

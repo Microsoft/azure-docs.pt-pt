@@ -10,12 +10,12 @@ ms.author: mimart
 author: msmimart
 ms.reviewer: mal
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 183a6ddf3fd47be552ba13ce42c1f6e29fca4410
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 3a30281012d28489a40e3366585164628d87c220
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56162242"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57994600"
 ---
 # <a name="tutorial-bulk-invite-azure-ad-b2b-collaboration-users"></a>Tutorial: Em massa convidar utilizadores de colaboração B2B do Azure AD
 
@@ -119,7 +119,7 @@ Para verificar se os utilizadores convidados foram adicionados ao Azure AD, exec
 ```powershell
  Get-AzureADUser -Filter "UserType eq 'Guest'"
 ```
-Deverá ver os utilizadores que convidou listados, com um nome principal de utilizador (UPN) no formato *endereçoe-mail*#EXT#@*dominio*. Por exemplo, *lstokes_fabrikam.com#EXT#@contoso.onmicrosoft.com*, em que contoso.onmicrosoft.com é a organização a partir da qual envia os convites.
+Deverá ver os utilizadores que convidou listado, com um nome principal de utilizador (UPN), no formato *emailaddress*EXT de # #\@*domínio*. Por exemplo, *lstokes_fabrikam.com#EXT#\@contoso.onmicrosoft.com*, em que contoso.onmicrosoft.com é a organização a partir do qual enviados os convites.
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 

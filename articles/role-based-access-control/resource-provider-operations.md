@@ -13,12 +13,12 @@ ms.workload: identity
 ms.date: 02/24/2019
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: fb22594ba240f9e7b790dbef0bd1e091c30c82b9
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: b400af524d303fe4fbcbc8e34a394b286a048cc4
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57456555"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58008804"
 ---
 # <a name="azure-resource-manager-resource-provider-operations"></a>Operações de fornecedor de recursos do Azure Resource Manager
 
@@ -1599,7 +1599,7 @@ Atualize o nome de um grupo pessoa existente e userData. As propriedades mantenh
 > | Ação | Microsoft.DataBoxEdge/dataBoxEdgeDevices/bandwidthSchedules/write | Cria ou atualiza as agendas de largura de banda |
 > | Ação | Microsoft.DataBoxEdge/dataBoxEdgeDevices/delete | Elimina os dispositivos de limite de caixa de dados |
 > | Ação | Microsoft.DataBoxEdge/dataBoxEdgeDevices/downloadUpdates/action | Transferir Atualizações no dispositivo |
-> | Ação | Microsoft.DataBoxEdge/dataBoxEdgeDevices/extendedInformation/action | Obtém o recurso de outras informações sobre o |
+> | Ação | Microsoft.DataBoxEdge/dataBoxEdgeDevices/extendedInformation/action | Obtém as informações expandidas de recursos |
 > | Ação | Microsoft.DataBoxEdge/dataBoxEdgeDevices/getExtendedInformation/action | ArmApiDesc_action_getExtendedInformation_dataBoxEdgeDevices |
 > | Ação | Microsoft.DataBoxEdge/dataBoxEdgeDevices/installUpdates/action | Instalar Atualizações no dispositivo |
 > | Ação | Microsoft.DataBoxEdge/dataBoxEdgeDevices/jobs/read | Apresenta uma lista ou obtém as tarefas |
@@ -4153,15 +4153,15 @@ Atualize o nome de um grupo pessoa existente e userData. As propriedades mantenh
 > [!div class="mx-tdCol2BreakAll"]
 > | Tipo de Acção | Operação | Descrição |
 > | --- | --- | --- |
-> | Ação | Microsoft.Portal/consoles/delete | Remove a instância da cloud shell. |
-> | Ação | Microsoft.Portal/consoles/write | Criar ou atualizar uma instância da cloud shell. |
+> | Ação | Microsoft.Portal/consoles/delete | Remove a instância do cloud shell. |
+> | Ação | Microsoft.Portal/consoles/write | Criar ou atualizar uma instância do cloud shell. |
 > | Ação | Microsoft.Portal/dashboards/delete | Remove o dashboard da subscrição. |
 > | Ação | Microsoft.Portal/dashboards/read | Lê os dashboards da subscrição. |
 > | Ação | Microsoft.Portal/dashboards/write | Adicionar ou modificar o dashboard para uma subscrição. |
 > | Ação | Microsoft.Portal/register/action | Registar no Portal |
-> | Ação | Microsoft.Portal/usersettings/delete | Remova as definições de utilizador da cloud shell. |
-> | Ação | Microsoft.Portal/usersettings/read | Lê as definições de utilizador da cloud shell. |
-> | Ação | Microsoft.Portal/usersettings/write | Crie ou atualize definição de utilizador da cloud shell. |
+> | Ação | Microsoft.Portal/usersettings/delete | Remove as definições de utilizador do cloud shell. |
+> | Ação | Microsoft.Portal/usersettings/read | Lê as definições de utilizador do shell de cloud. |
+> | Ação | Microsoft.Portal/usersettings/write | Criar ou atualizar a definição de utilizador do cloud shell. |
 
 ## <a name="microsoftpowerbidedicated"></a>Microsoft.PowerBIDedicated
 

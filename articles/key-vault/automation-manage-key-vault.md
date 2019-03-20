@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/07/2019
 ms.author: magoedte
-ms.openlocfilehash: 85a0c05719ba374ed213212db6f094d75e433183
-ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
+ms.openlocfilehash: ace32968808dfa919e6ca5d5777818d2672249fe
+ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54073446"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58224878"
 ---
 # <a name="managing-azure-key-vault-using-azure-automation"></a>Gerir o Azure Key Vault com a automatização do Azure
 
@@ -34,7 +34,7 @@ Reduzir o overhead operacional e liberar IT e a equipa do DevOps para se dedicar
 
 ## <a name="how-can-azure-automation-help-manage-azure-key-vault"></a>Como pode automatização do Azure ajudar a gerir o Azure Key Vault?
 
-Key Vault pode ser gerido na automatização do Azure utilizando o [cmdlets do AzureRM Key Vault](https://www.powershellgallery.com/packages/AzureRM.KeyVault/1.1.4) e [cmdlets do Cofre de chaves do Azure clássico](https://docs.microsoft.com/powershell/module/servicemanagement/azure). O módulo do Azure para gerir o Cofre de chave clássico está disponível automaticamente na automatização do Azure e pode importar os [módulo do AzureRM KeyVault](https://www.powershellgallery.com/packages/AzureRM.KeyVault/1.1.4) para a automatização do Azure, para que possam realizar muitas de suas tarefas de gestão do Cofre de chaves no serviço. Também pode emparelhar estes cmdlets na automatização do Azure com os cmdlets para outros serviços do Azure, para automatizar tarefas complexas em serviços do Azure e 3º sistemas de terceiros.
+Key Vault pode ser gerido na automatização do Azure utilizando o [cmdlets do AzureRM Key Vault](https://www.powershellgallery.com/packages/AzureRM.KeyVault/1.1.4) e [cmdlets do Cofre de chaves do Azure clássico](https://docs.microsoft.com/powershell/module/servicemanagement/azure). O módulo do Azure para gerir o Cofre de chave clássico está disponível automaticamente na automatização do Azure e pode importar os [módulo do AzureRM KeyVault](https://www.powershellgallery.com/packages/AzureRM.KeyVault/1.1.4) para a automatização do Azure, para que possam realizar muitas de suas tarefas de gestão do Cofre de chaves no serviço. Para saber mais sobre como importar o módulo para automatização do Azure, veja [gerir módulos na automatização do Azure](../automation/shared-resources/modules.md) também pode emparelhar estes cmdlets na automatização do Azure com os cmdlets para outros serviços do Azure, para automatizar tarefas complexas em Serviços do Azure e o 3º sistemas de terceiros.
 
 Com os cmdlets do Azure Key Vault pode realizar estas tarefas, entre outras: 
 

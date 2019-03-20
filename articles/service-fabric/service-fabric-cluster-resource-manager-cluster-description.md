@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/18/2017
 ms.author: masnider
-ms.openlocfilehash: 1020e18894f4bb307ad14f780e76eab1df1314bb
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: 810388a85e4ad339ff1444d21ac231fe4c00aeac
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56875978"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58120538"
 ---
 # <a name="describing-a-service-fabric-cluster"></a>Descrever um cluster do service fabric
 O Gestor de recursos de Cluster do Service Fabric fornece vários mecanismos para descrever um cluster. Durante o tempo de execução, o Gestor de recursos de Cluster utiliza estas informações para garantir a elevada disponibilidade dos serviços em execução no cluster. Ao impor estas regras importantes, ele também tenta otimizar o consumo de recursos dentro do cluster.
@@ -47,6 +47,7 @@ Um domínio de falha é qualquer área de falha de coordenada. Uma única máqui
 No gráfico abaixo, todas as entidades que contribuem para domínios de falha e listam todos os diferentes domínios de falha que resultam de cores. Neste exemplo, temos de centros de dados ("DC"), racks ("R") e os painéis ("B"). Em termos conceituais, se cada painel contém mais do que uma máquina virtual, pode haver outra camada na hierarquia de domínio de falha.
 
 <center>
+
 ![Nós organizados por meio de domínios de falha][Image1]
 </center>
 
@@ -59,6 +60,7 @@ Gestor de recursos de Cluster do Service Fabric não importa quantas camadas exi
 O que o aspeto de domínios desequilibrados? O diagrama abaixo, vamos mostrar duas layouts de cluster diferente. No primeiro exemplo, os nós são distribuídos uniformemente por domínios de falha. No segundo exemplo, um domínio de falha tem muitos mais nós que os outros domínios de falha. 
 
 <center>
+
 ![Dois layouts de cluster diferente][Image2]
 </center>
 
@@ -72,6 +74,7 @@ Domínios de atualização são muito como domínios de falha, mas com algumas d
 O diagrama seguinte mostra que três domínios de atualização estão repartidos em três domínios de falha. Ela também mostra uma possível colocação para três réplicas diferentes de um serviço com estado, onde cada acaba em diferentes domínios de atualização e de falha. Esse posicionamento permite que a perda de um domínio de falha no meio de uma atualização de serviço e ainda terá uma cópia do código e dados.  
 
 <center>
+
 ![Colocação com falhas e domínios de atualização][Image3]
 </center>
 
@@ -88,6 +91,7 @@ Não existe nenhum limite real para o número total de falhas ou domínios de at
 - Um modelo de "repartido" ou "matrix" em que os domínios de falha e domínios de atualização formam uma matriz com máquinas normalmente em execução para baixo as diagonals
 
 <center>
+
 ![Layouts de domínio de atualização e de falha][Image4]
 </center>
 
@@ -190,9 +194,9 @@ A abordagem de "quórum seguro" fornece mais flexibilidade do que a abordagem de
 Uma vez que ambas as abordagens têm vantagens e desvantagens, introduzimos uma abordagem adaptável, que combina essas duas estratégias.
 
 > [!NOTE]
->Este será o comportamento padrão a partir do Service Fabric versão 6.2. 
->
-A abordagem adaptável usa a lógica de "máximo diferença" por predefinição e muda para a lógica de "quórum seguro" apenas quando necessário. O Gestor de recursos de Cluster detecta automaticamente qual estratégia é necessária examinar como é que o cluster e os serviços são configurados. Para um determinado serviço: *Se o TargetReplicaSetSize for uniformemente divisível pelo número de domínios de falha e o número de domínios de atualização **e** o número de nós é menor ou igual a (número de domínios de falhas) * (de acordo com o número de domínios de atualização), o Cluster Gestor de recursos deve utilizar a lógica de "quórum com base" para esse serviço.* Lembre-se de que o Gestor de recursos do Cluster irá utilizar esta abordagem para serviços com e sem monitoração de estado, apesar de não ser relevante para serviços sem estado de perda de quórum.
+> Este será o comportamento padrão a partir do Service Fabric versão 6.2. 
+> 
+> A abordagem adaptável usa a lógica de "máximo diferença" por predefinição e muda para a lógica de "quórum seguro" apenas quando necessário. O Gestor de recursos de Cluster detecta automaticamente qual estratégia é necessária examinar como é que o cluster e os serviços são configurados. Para um determinado serviço: *Se o TargetReplicaSetSize for uniformemente divisível pelo número de domínios de falha e o número de domínios de atualização **e** o número de nós é menor ou igual a (número de domínios de falhas) * (de acordo com o número de domínios de atualização), o Cluster Gestor de recursos deve utilizar a lógica de "quórum com base" para esse serviço.* Lembre-se de que o Gestor de recursos do Cluster irá utilizar esta abordagem para serviços com e sem monitoração de estado, apesar de não ser relevante para serviços sem estado de perda de quórum.
 
 Voltemos ao exemplo anterior e partem do princípio de que um cluster tem agora 8 nós (o cluster ainda está configurado com cinco domínios de falha e cinco domínios de atualização e TargetReplicaSetSize de um serviço hospedado em que permanece de cluster de cinco). 
 
@@ -344,6 +348,7 @@ por meio de ClusterConfig.json das implementações autónomas
 Para oferecer suporte a esses tipos de configurações, o Service Fabric tem uma noção de primeira classe de etiquetas que podem ser aplicados a nós. Essas marcas são chamadas **propriedades de nó**. **Restrições de posicionamento** são as declarações anexadas aos serviços individuais que selecionar para uma ou mais propriedades de nó. Restrições de posicionamento definem em que os serviços devem ser executados. O conjunto de restrições é extensível - qualquer par de chave/valor pode trabalhar. 
 
 <center>
+
 ![Layout diferentes cargas de trabalho de cluster][Image5]
 </center>
 
@@ -351,6 +356,7 @@ Para oferecer suporte a esses tipos de configurações, o Service Fabric tem uma
 Service Fabric define algumas propriedades de nó predefinidos que podem ser utilizadas automaticamente sem que o utilizador ter de defini-los. As propriedades predefinidas definidas em cada nó são os **NodeType** e o **NodeName**. Por exemplo, pode escrever uma restrição de posicionamento como `"(NodeType == NodeType03)"`. Em geral, achamos NodeType para ser uma das mais comumente usados propriedades. É útil, uma vez que ele corresponde 1:1 com um tipo de uma máquina. Cada tipo de máquina corresponde a um tipo de carga de trabalho num aplicativo de n camadas tradicional.
 
 <center>
+
 ![Restrições de posicionamento e propriedades de nó][Image6]
 </center>
 
@@ -474,6 +480,7 @@ Se desativado todos os recursos *balanceamento*, Gestor de recursos de Cluster d
 Durante o tempo de execução, o Gestor de recursos de Cluster controla a capacidade restante no cluster e em nós. Para poder controlar a capacidade do Gestor de recursos de Cluster subtrai utilização de cada serviço da capacidade do nó onde o serviço é executado. Com essas informações, o Gestor de recursos de Cluster do Service Fabric pode descobrir onde colocar ou mover réplicas para que nós não passam pela capacidade.
 
 <center>
+
 ![Nós de cluster e a capacidade][Image7]
 </center>
 

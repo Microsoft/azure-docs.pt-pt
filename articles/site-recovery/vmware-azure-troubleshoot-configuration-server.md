@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 02/13/2019
 ms.author: ramamill
-ms.openlocfilehash: a81bcf26234f3b7840a75e7134596cb777071e8f
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 3676a1e4bf69f7d31bb347f99787c4e2f08721a9
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57432792"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58107598"
 ---
 # <a name="troubleshoot-configuration-server-issues"></a>Resolver problemas do servidor de configuração
 
@@ -25,9 +25,9 @@ A máquina de origem regista com o servidor de configuração quando instalar o 
 1. Abra o ficheiro de C:\ProgramData\ASR\home\svsystems\var\configurator_register_host_static_info.log. (A pasta ProgramData pode ser uma pasta oculta. Se não vir a pasta ProgramData, no Explorador de ficheiros, no **View** separador a **Mostrar/ocultar** secção, selecione o **oculto itens** caixa de verificação.) Falhas podem ser causadas por vários problemas.
 
 2. Procure a cadeia de caracteres **endereço IP válido não foram encontrados**. Se for encontrada a cadeia de caracteres:
-    1. Certifique-se de que o ID de anfitrião pedido é o mesmo que o ID do anfitrião da máquina de origem.
-    2. Certifique-se de que a máquina de origem tem, pelo menos, um endereço IP atribuído para o NIC físico. Para o registo do agente com o servidor de configuração com êxito, a máquina de origem tem de ter pelo menos um endereço de v4 IP válido atribuído para o NIC físico.
-    3. Execute um dos seguintes comandos no computador de origem para obter todos os endereços IP da máquina de origem:
+   1. Certifique-se de que o ID de anfitrião pedido é o mesmo que o ID do anfitrião da máquina de origem.
+   2. Certifique-se de que a máquina de origem tem, pelo menos, um endereço IP atribuído para o NIC físico. Para o registo do agente com o servidor de configuração com êxito, a máquina de origem tem de ter pelo menos um endereço de v4 IP válido atribuído para o NIC físico.
+   3. Execute um dos seguintes comandos no computador de origem para obter todos os endereços IP da máquina de origem:
       - Para Windows: `> ipconfig /all`
       - Para Linux: `# ifconfig -a`
 

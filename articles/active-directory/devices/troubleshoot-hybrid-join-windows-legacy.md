@@ -16,12 +16,12 @@ ms.date: 04/23/2018
 ms.author: markvi
 ms.reviewer: jairoc
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ea658f18af7ae44d73f78cb5fe4f7ae1316ea901
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 6e79b0fc0ef23287c8871b7a7634d28d129b900e
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57439128"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58101147"
 ---
 # <a name="troubleshooting-hybrid-azure-active-directory-joined-down-level-devices"></a>Resolução de problemas híbrida do Azure Active Directory dispositivos associados a um nível inferior 
 
@@ -85,19 +85,19 @@ Se o dispositivo não tiver sido associado ao Azure AD híbrido, pode tentar faz
 
     ![Associação à área de trabalho para Windows](./media/troubleshoot-hybrid-join-windows-legacy/02.png)
     
-    - Autoworkplace.exe não conseguiu autenticar silenciosamente com o Azure AD ou AD FS. Isto pode dever-se em falta ou configurado incorretamente o AD FS (para domínios federados) ou em falta ou incorrectamente configurado do Azure AD totalmente integrada início de sessão único (para domínios geridos) ou problemas de rede. 
+  - Autoworkplace.exe não conseguiu autenticar silenciosamente com o Azure AD ou AD FS. Isto pode dever-se em falta ou configurado incorretamente o AD FS (para domínios federados) ou em falta ou incorrectamente configurado do Azure AD totalmente integrada início de sessão único (para domínios geridos) ou problemas de rede. 
     
-     - É possível que a autenticação multifator (MFA) é ativada ou não está configurado para o utilizador e WIAORMUTLIAUTHN não está configurado no servidor do AD FS. 
+    - É possível que a autenticação multifator (MFA) é ativada ou não está configurado para o utilizador e WIAORMUTLIAUTHN não está configurado no servidor do AD FS. 
      
-     - Outra possibilidade é essa página de deteção (HRD) de realm inicial está a aguardar interação do usuário, que impede **autoworkplace.exe** silenciosamente solicitem um token.
+    - Outra possibilidade é essa página de deteção (HRD) de realm inicial está a aguardar interação do usuário, que impede **autoworkplace.exe** silenciosamente solicitem um token.
      
-     - É possível que o AD FS e URLs do Azure AD estão em falta na zona de intranet do IE no cliente.
+    - É possível que o AD FS e URLs do Azure AD estão em falta na zona de intranet do IE no cliente.
      
-     - Problemas de conectividade de rede podem estar a impedir **autoworkplace.exe** chegue do AD FS ou os URLs de AD do Azure. 
+    - Problemas de conectividade de rede podem estar a impedir **autoworkplace.exe** chegue do AD FS ou os URLs de AD do Azure. 
      
-     - **Autoworkplace.exe** exige que o cliente ter direta linha de visão do cliente com local a organização do controlador de domínio do AD, que significa que essa associação do Azure AD híbrido é bem-sucedida apenas quando o cliente está ligado à intranet da organização.
+    - **Autoworkplace.exe** exige que o cliente ter direta linha de visão do cliente com local a organização do controlador de domínio do AD, que significa que essa associação do Azure AD híbrido é bem-sucedida apenas quando o cliente está ligado à intranet da organização.
      
-     - Sua organização utiliza o Azure AD totalmente integrada início de sessão único, `https://autologon.microsoftazuread-sso.com` ou `https://aadg.windows.net.nsatc.net` não estão presentes nas definições de intranet de IE do dispositivo, e **permitir atualizações à barra de estado por meio de script** não está ativada para a zona da Intranet.
+    - Sua organização utiliza o Azure AD totalmente integrada início de sessão único, `https://autologon.microsoftazuread-sso.com` ou `https://aadg.windows.net.nsatc.net` não estão presentes nas definições de intranet de IE do dispositivo, e **permitir atualizações à barra de estado por meio de script** não está ativada para a zona da Intranet.
 
 - Não tem sessão iniciada como um utilizador de domínio
 

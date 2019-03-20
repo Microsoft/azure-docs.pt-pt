@@ -9,12 +9,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/01/2018
-ms.openlocfilehash: adc85514c0f4e2f7245a7db6dffbe6b9dc5e6d42
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
+ms.openlocfilehash: 6e27d00e4b12ade82cfde6b3a4927edc7d69798a
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53435196"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58075821"
 ---
 # <a name="generate-movie-recommendations-by-using-apache-mahout-with-linux-based-apache-hadoop-in-hdinsight-ssh"></a>Gerar recomendações de filmes com o Apache Mahout com baseado em Linux Apache Hadoop no HDInsight (SSH)
 
@@ -170,15 +170,15 @@ mahout recommenditembased -s SIMILARITY_COOCCURRENCE -i /HdiSamples/HdiSamples/M
 
     Este comando analisa as recomendações geradas para 4 de ID de utilizador.
 
-    * O **ratings.txt utilizador** arquivo é usado para recuperar a filmes que estejam classificados.
+   * O **ratings.txt utilizador** arquivo é usado para recuperar a filmes que estejam classificados.
 
-    * O **moviedb.txt** arquivo é usado para recuperar os nomes dos filmes.
+   * O **moviedb.txt** arquivo é usado para recuperar os nomes dos filmes.
 
-    * O **recommendations.txt** é usada para recuperar as recomendações de filmes para este utilizador.
+   * O **recommendations.txt** é usada para recuperar as recomendações de filmes para este utilizador.
 
      O resultado deste comando é semelhante ao seguinte texto:
 
-        Pontuação de sete anos na Tibet (1997), = 5.0 Indiana Jones e o último Crusade (1989), pontuação = 5.0 Jaws (1975), a pontuação = 5.0 sentido e Sensibility (1995), a pontuação = 5.0 independência de dia (ID4) (1996), pontuação = 5.0 do meu amigo melhor Wedding (1997), a pontuação = 5.0 Jerry Maguire (1996), pontuação = 5.0 Scream 2 (1997), pontuação = 5.0 tempo para eliminação, um (1996), pontuação = 5.0
+       Pontuação de sete anos na Tibet (1997), = 5.0 Indiana Jones e o último Crusade (1989), pontuação = 5.0 Jaws (1975), a pontuação = 5.0 sentido e Sensibility (1995), a pontuação = 5.0 independência de dia (ID4) (1996), pontuação = 5.0 do meu amigo melhor Wedding (1997), a pontuação = 5.0 Jerry Maguire (1996), pontuação = 5.0 Scream 2 (1997), pontuação = 5.0 tempo para eliminação, um (1996), pontuação = 5.0
 
 ## <a name="delete-temporary-data"></a>Eliminar dados temporários
 

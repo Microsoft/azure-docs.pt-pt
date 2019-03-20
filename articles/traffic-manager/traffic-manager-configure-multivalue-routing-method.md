@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/10/2018
 ms.author: kumud
-ms.openlocfilehash: 40b266c92a86006746ab5341ac5fa1d785ee6032
-ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
+ms.openlocfilehash: de7288e2062fdfab363c46749b34c7afcacbb6e1
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54197173"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58094808"
 ---
 # <a name="configure-multivalue-routing-method-in-traffic-manager"></a>Configurar o método de encaminhamento de valores múltiplos no Gestor de tráfego
 
@@ -42,14 +42,14 @@ Crie um perfil do Gestor de tráfego que direciona o tráfego de utilizadores, e
     
     | Definição                 | Valor                                              |
     | ---                     | ---                                                |
-    | Nome                   | Este nome tem de ser exclusivo na zona trafficmanager.net e dá origem ao nome DNS, trafficmanager.net, que é utilizado para aceder ao perfil do seu Gestor de Tráfego.                                   |
+    | Name                   | Este nome tem de ser exclusivo na zona trafficmanager.net e dá origem ao nome DNS, trafficmanager.net, que é utilizado para aceder ao perfil do seu Gestor de Tráfego.                                   |
     | Método de encaminhamento          | Selecione o **Multivalue** método de encaminhamento.                                       |
     | Subscrição            | Selecione a sua subscrição.                          |
-    | Grupo de recursos          | Selecione *myResourceGroupTM1*. |
+    | Grupo de recursos          | Select *myResourceGroupTM1*. |
     | Localização                | Esta definição refere-se à localização do grupo de recursos e não tem qualquer impacto no perfil do Gestor de Tráfego que vai ser implementado globalmente.                              |
    |        |           | 
   
-  ![Criar um perfil do Gestor de Tráfego](./media/traffic-manager-multivalue-routing-method/create-traffic-manager-profile.png)
+   ![Criar um perfil do Gestor de Tráfego](./media/traffic-manager-multivalue-routing-method/create-traffic-manager-profile.png)
 
 ## <a name="add-traffic-manager-endpoints"></a>Adicionar pontos finais do Gestor de Tráfego
 
@@ -59,15 +59,15 @@ Adicione dois endereços IP como pontos finais externos para o perfil do Gestor 
 2. Em **Perfil do Gestor de Tráfego** , na secção **Definições**, clique em **Pontos Finais** e em **Adicionar**.
 3. Introduza ou selecione as seguintes informações, aceite as predefinições para as restantes definições e, em seguida, selecione **OK**:
 
-    | Definição                 | Valor                                              |
+    | Definição                 | Value                                              |
     | ---                     | ---                                                |
-    | Tipo                    | Ponto final externo                                   |
-    | Nome           | myEndpoint1                                        |
+    | Type                    | Ponto final externo                                   |
+    | Name           | myEndpoint1                                        |
     | Nome de domínio completamente qualificado (FQDN) ou IP           | Escreva o endereço IP público do ponto final que pretende adicionar a este perfil do Gestor de tráfego                         |
     |        |           |
 
 4. Repita os passos 2 e 3 para adicionar outro ponto final com o nome *myEndpoint2*, para **nome de domínio completamente qualificado (FQDN) ou IP**, introduza o endereço IP público do segundo ponto de extremidade.
-5.  Quando a adição de ambos os pontos finais estiver concluída, estes são apresentados em **Perfil do Gestor de Tráfego**, juntamente com o respetivo estado de monitorização como **Online**.
+5. Quando a adição de ambos os pontos finais estiver concluída, estes são apresentados em **Perfil do Gestor de Tráfego**, juntamente com o respetivo estado de monitorização como **Online**.
 
    ![Adicionar um ponto final do Gestor de Tráfego](./media/traffic-manager-multivalue-routing-method/add-endpoint.png)
  

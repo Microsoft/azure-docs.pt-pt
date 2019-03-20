@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 07/11/2017
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e940d7593b6760a81a781fd72c0bb45347b00c2a
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 4494996ed54b25be71367dd3e3043023d0958074
+ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56168158"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58224044"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-statuspage"></a>Tutorial: Integração do Active Directory do Azure com StatusPage
 
@@ -114,23 +114,25 @@ Nesta secção, pode ativar o Azure AD início de sessão único no portal do Az
     ![Configurar o início de sessão único](./media/statuspage-tutorial/tutorial_statuspage_url.png)
 
     a. Na **identificador** caixa de texto, escreva um URL com o seguinte padrão:
+
     | |
     |--|
     | `https://<subdomain>.statuspagestaging.com/` |
     | `https://<subdomain>.statuspage.io/` |
 
     b. Na **URL de resposta** caixa de texto, escreva um URL com o seguinte padrão: 
+    
     | |
     |--|
     | `https://<subdomain>.statuspagestaging.com/sso/saml/consume` |
     | `https://<subdomain>.statuspage.io/sso/saml/consume` |
 
-    > [!NOTE]
-    > Contacte a equipa de suporte de StatusPage em [ SupportTeam@statuspage.io ](mailto:SupportTeam@statuspage.io)solicite os metadados necessários para configurar o início de sessão único. 
-    >
-    >a. Dos metadados, copie o valor de emissor e, em seguida, cole-o para o **identificador** caixa de texto.
-    >
-    >b. Dos metadados, copie o URL de resposta e, em seguida, cole-o para o **URL de resposta** caixa de texto.
+   > [!NOTE]
+   > Contacte a equipa de suporte de StatusPage em [ SupportTeam@statuspage.io ](mailto:SupportTeam@statuspage.io)solicite os metadados necessários para configurar o início de sessão único. 
+   > 
+   > a. Dos metadados, copie o valor de emissor e, em seguida, cole-o para o **identificador** caixa de texto.
+   > 
+   > b. Dos metadados, copie o URL de resposta e, em seguida, cole-o para o **URL de resposta** caixa de texto.
 
 1. Sobre o **certificado de assinatura SAML** secção, clique em **certificado (Base64)** e, em seguida, guarde o ficheiro de certificado no seu computador.
 
@@ -156,15 +158,15 @@ Nesta secção, pode ativar o Azure AD início de sessão único no portal do Az
 
 1. Na página de configuração de SSO, execute os seguintes passos:
    
-    ![Configurar o início de sessão único](./media/statuspage-tutorial/tutorial_statuspage_08.png) 
+      ![Configurar o início de sessão único](./media/statuspage-tutorial/tutorial_statuspage_08.png) 
 
-    ![Configurar o início de sessão único](./media/statuspage-tutorial/tutorial_statuspage_09.png) 
+      ![Configurar o início de sessão único](./media/statuspage-tutorial/tutorial_statuspage_09.png) 
  
-    a. Na **URL de destino de SSO** caixa de texto, cole o valor de **SAML único início de sessão no URL do serviço**, que copiou do portal do Azure.
+      a. Na **URL de destino de SSO** caixa de texto, cole o valor de **SAML único início de sessão no URL do serviço**, que copiou do portal do Azure.
 
-    b. Abra o seu certificado transferido no bloco de notas, copiar o conteúdo e, em seguida, cole-o para o **certificado** caixa de texto. 
+      b. Abra o seu certificado transferido no bloco de notas, copiar o conteúdo e, em seguida, cole-o para o **certificado** caixa de texto. 
 
-    c. Clique em **Guardar configuração**.
+      c. Clique em **Guardar configuração**.
 
 > [!TIP]
 > Agora pode ler uma versão concisa destas instruções dentro do [portal do Azure](https://portal.azure.com), enquanto estiver a configurar a aplicação!  Depois de adicionar esta aplicação a partir da **do Active Directory > aplicações empresariais** secção, basta clicar o **Single Sign-On** separador e a documentação do embedded através de acesso a  **Configuração** seção na parte inferior. Pode ler mais sobre a funcionalidade de documentação do embedded aqui: [Documentação do Azure AD incorporado]( https://go.microsoft.com/fwlink/?linkid=845985)

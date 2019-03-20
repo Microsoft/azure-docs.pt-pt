@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 08/09/2018
-ms.openlocfilehash: c6763580a6693020c497c500342ff3ae4dc840d4
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
+ms.openlocfilehash: 43b672569b398f636b2e02172428cf072febb156
+ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56339233"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58202457"
 ---
 # <a name="information-about-using-hdinsight-on-linux"></a>Informações sobre como utilizar o HDInsight no Linux
 
@@ -114,7 +114,8 @@ Ao utilizar o armazenamento do Azure ou o armazenamento do Data Lake, não preci
 
 No HDInsight, os recursos de armazenamento de dados (armazenamento de Blobs do Azure e armazenamento do Azure Data Lake) estão desassociados dos recursos de computação. Portanto, pode criar clusters do HDInsight para fazer a computação à medida que precisa e posteriormente elimina o cluster quando o trabalho estiver concluído, ao mesmo tempo, manter os ficheiros de dados que permanecem em segurança no armazenamento na cloud, desde que precisa.
 
-### <a name="uri-and-scheme"></a>URI e o esquema
+
+### <a name="URI-and-scheme"></a>URI e o esquema
 
 Alguns comandos podem exigir que especifique o esquema como parte do URI, ao aceder a um ficheiro. Por exemplo, o componente de Storm-HDFS exige que especifique o esquema. Quando utiliza o armazenamento de não-padrão (adicionado como armazenamento de "adicional" para o cluster de armazenamento), tem de utilizar sempre o esquema como parte do URI.
 
@@ -248,7 +249,7 @@ Para obter informações específicas sobre como aumentar o seu cluster do HDIns
 
 ## <a name="how-do-i-install-hue-or-other-hadoop-component"></a>Como posso instalar o Hue (ou outros componentes do Hadoop)?
 
-HDInsight é um serviço gerido. Se o Azure detetar um problema com o cluster, pode eliminar o nó com falha e criar um nó para substituí-lo. Se instalar manualmente as coisas no cluster, estas não são mantidas quando esta operação ocorre. Em alternativa, utilize [ações de Script do HDInsight](hdinsight-hadoop-customize-cluster.md). Uma ação de script pode ser utilizada para efetuar as seguintes alterações:
+HDInsight é um serviço gerido. Se o Azure detetar um problema com o cluster, pode eliminar o nó com falha e criar um nó para substituí-lo. Se instalar manualmente as coisas no cluster, estas não são mantidas quando esta operação ocorre. Em alternativa, utilize [ações de Script do HDInsight](hdinsight-hadoop-customize-cluster-linux.md). Uma ação de script pode ser utilizada para efetuar as seguintes alterações:
 
 * Instalar e configurar um serviço ou o web site.
 * Instale e configure um componente que requer alterações de configuração em vários nós no cluster.
@@ -256,7 +257,6 @@ HDInsight é um serviço gerido. Se o Azure detetar um problema com o cluster, p
 Ações de script são scripts de Bash. Os scripts são executados durante a criação do cluster e são utilizados para instalar e configurar componentes adicionais. Scripts de exemplo são fornecidos para instalar os seguintes componentes:
 
 * [Apache Giraph](hdinsight-hadoop-giraph-install-linux.md)
-* [Apache Solr](hdinsight-hadoop-solr-install-linux.md)
 
 Para obter informações sobre o desenvolvimento das suas próprias Ações de Script, consulte [Desenvolvimento de Ações de Script com o HDInsight](hdinsight-hadoop-script-actions-linux.md).
 

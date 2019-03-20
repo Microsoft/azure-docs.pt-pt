@@ -10,17 +10,17 @@ ms.service: active-directory
 ms.topic: article
 ms.workload: identity
 ms.subservice: users-groups-roles
-ms.date: 02/25/2019
+ms.date: 03/18/2019
 ms.author: curtand
 ms.reviewer: sumitp
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 423399c93fca222dad2db3175036719a0cd5fdb9
-ms.sourcegitcommit: 1afd2e835dd507259cf7bb798b1b130adbb21840
+ms.openlocfilehash: 8a54d1ad3ab809f2a2f8df6ae0e30b1b061c2be1
+ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56986163"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58201091"
 ---
 # <a name="assign-licenses-to-users-by-group-membership-in-azure-active-directory"></a>Atribuir licenças aos utilizadores pela associação de grupo no Azure Active Directory
 
@@ -30,7 +30,7 @@ Neste exemplo, o inquilino contém um grupo de segurança chamado **departamento
 
 > [!NOTE]
 > Alguns serviços Microsoft não estão disponíveis em todas as localizações. Antes de uma licença pode ser atribuída a um utilizador, o administrador tem de especificar a propriedade de localização de utilização no utilizador.
-
+> 
 > Para a atribuição de licença de grupo, todos os utilizadores sem uma localização de utilização definida herdam a localização do diretório. Se tiver usuários em vários locais, recomendamos que defina a localização de utilização sempre como parte do seu fluxo de criação do utilizador no Azure AD (por exemplo, através do AAD Connect configuração) – que garante o resultado da atribuição de licenças que sempre está correto e se os utilizadores não recebem serviços em locais que não são permitidas.
 
 ## <a name="step-1-assign-the-required-licenses"></a>Passo 1: Atribuir as licenças necessárias
@@ -41,7 +41,7 @@ Neste exemplo, o inquilino contém um grupo de segurança chamado **departamento
 
 4. Sob **todos os produtos**, selecione Office 365 Enterprise E5 e Enterprise Mobility + Security E3, selecionando os nomes de produtos. Para começar a atribuição, selecione **atribuir** na parte superior do painel.
 
-   ![Todos os produtos, atribuir licenças](./media/licensing-groups-assign/all-products-assign.png)
+   ![Selecione os produtos para atribuir licenças](./media/licensing-groups-assign/all-products-assign.png)
   
 5. Sobre o **atribuir licenças** painel, selecione **utilizadores e grupos** para abrir uma lista de utilizadores e grupos.
 
@@ -49,7 +49,7 @@ Neste exemplo, o inquilino contém um grupo de segurança chamado **departamento
 
 7. Sobre o **atribuir licenças** painel, clique em **opções de atribuição**, que apresenta todos os planos de serviço incluídos nos dois produtos que selecionamos anteriormente. Encontrar **Yammer Enterprise** e ativá-la **desativar** para desativar o serviço de licença de produto. Confirme clicando **OK** na parte inferior **opções de licença**.
 
-   ![Opções de atribuição](./media/licensing-groups-assign/assignment-options.png)
+   ![Selecione os planos de serviço de licenças](./media/licensing-groups-assign/assignment-options.png)
   
 8. Para concluir a atribuição, no painel **Atribuir licença**, clique em **Atribuir**, na parte inferior.
 
@@ -69,7 +69,7 @@ Quando atribuir licenças a um grupo, do Azure AD processa todos os membros exis
 
    - Informações sobre os utilizadores que estão em estado de erro porque não foi possível atribuir licenças às mesmas.
 
-   ![Opções de atribuição](./media/licensing-groups-assign/assignment-errors.png)
+   ![erros de licenciamento e o estado de licença](./media/licensing-groups-assign/assignment-errors.png)
 
 3. Ver informações mais detalhadas sobre a licença de processamento sob **do Azure Active Directory** > **utilizadores e grupos** > *nome do grupo*  >  **Registos de auditoria**. Tenha em atenção as seguintes atividades:
 
@@ -85,15 +85,15 @@ Quando atribuir licenças a um grupo, do Azure AD processa todos os membros exis
 2. No painel de grupo, selecione **licenças**. A notificação na parte superior do painel mostra que há 10 utilizadores licenças não foi possível atribuir a. Abra-o para ver uma lista de todos os utilizadores num Estado de erro de licenciamento para este grupo.
 3. O **atribuições falhadas** coluna nos informa que ambas as licenças de produto não foi possível atribuir aos utilizadores. O **principais motivo da falha** coluna contém a causa da falha. Neste caso, ele possui **planos do serviço em conflito**.
 
-   ![Atribuições falhadas](./media/licensing-groups-assign/failed-assignments.png)
+   ![licenças que não foi possível atribuir](./media/licensing-groups-assign/failed-assignments.png)
 
 4. Selecione um utilizador para abrir o **licenças** painel. Este painel mostra todas as licenças que estão atualmente atribuídas ao utilizador. Neste exemplo, o utilizador tem a licença do Office 365 Enterprise E1 que foi herdada a partir da **os utilizadores de local público** grupo. Entrar em conflito com a licença de E3 que o sistema estava a tentar aplicar a partir da **departamento de RH** grupo. Assim, nenhuma das licenças desse grupo foi atribuída ao utilizador.
 
-   ![Ver licenças de um utilizador](./media/licensing-groups-assign/user-license-view.png)
+   ![Ver todos os conflitos de licença para um utilizador](./media/licensing-groups-assign/user-license-view.png)
 
 5. Para resolver este conflito, remova o utilizador a partir da **os utilizadores de local público** grupo. Depois do Azure AD processa a alteração, o **departamento de RH** corretamente as licenças são atribuídas.
 
-   ![Licença atribuída corretamente](./media/licensing-groups-assign/license-correctly-assigned.png)
+   ![Aqui estão corretamente as licenças atribuídas](./media/licensing-groups-assign/license-correctly-assigned.png)
 
 ## <a name="next-steps"></a>Passos Seguintes
 

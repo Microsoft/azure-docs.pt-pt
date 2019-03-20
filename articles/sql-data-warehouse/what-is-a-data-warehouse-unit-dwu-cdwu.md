@@ -10,12 +10,12 @@ ms.subservice: implement
 ms.date: 04/17/2018
 ms.author: rortloff
 ms.reviewer: igorstan
-ms.openlocfilehash: 32a3ec7146e4dd43e0c5f522187856132745b539
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.openlocfilehash: 5f6e24dfa1b5c4ea4f0748af81104edfe88ceeae
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57307094"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58099108"
 ---
 # <a name="data-warehouse-units-dwus-and-compute-data-warehouse-units-cdwus"></a>Unidades do Data Warehouse (DWUs) e de computação (cDWUs) de unidades do Data Warehouse
 Recomendações sobre como escolher o número ideal de unidades do data warehouse (DWUs, cDWUs) para otimizar o preço e desempenho e como alterar o número de unidades. 
@@ -186,7 +186,7 @@ FROM      sys.databases
 ;
 ```
 
-3. Submeter a consulta seguinte para verificar o estado da operação
+1. Submeter a consulta seguinte para verificar o estado da operação
 
 ```sql
 SELECT    *

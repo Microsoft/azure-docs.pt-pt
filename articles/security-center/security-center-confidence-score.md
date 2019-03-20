@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/23/2018
 ms.author: rkarlin
-ms.openlocfilehash: 67442a5861514eadfebfc877d91e735e05f6f63d
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: 64bab5c1b99720eecb189834d7a11802cf919ca3
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56117550"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58106785"
 ---
 # <a name="alert-confidence-score"></a>Pontuação de confiança de alerta 
 
@@ -45,7 +45,7 @@ Para ver a pontuação de confiança:
 Para ver os dados que contribuíram para confiança do Centro de segurança num alerta:
 - Na segurança de alerta painel, em **confiança**, ver as observações que contribuíram para a classificação de confiança e obter informações relacionadas com o alerta. Isso fornece mais informações sobre a natureza das atividades que causou o alerta.
 
- ![Pontuação de confiança suspeita][2]
+  ![Pontuação de confiança suspeita][2]
 
 Pontuação de confiança do Centro de segurança de utilização para atribuir prioridades a triagem de alerta no seu ambiente. A pontuação de confiança economiza tempo e esforço por automaticamente para investigar alertas, aplicar práticas recomendadas do setor e algoritmos inteligentes e a funcionar como uma analista virtual para determinar quais ameaças têm real e em que precisa se concentrar sua atenção.
 

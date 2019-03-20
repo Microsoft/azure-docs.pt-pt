@@ -11,18 +11,19 @@ ms.workload: big-data
 ms.topic: conceptual
 ms.date: 12/08/2017
 ms.custom: seodec18
-ms.openlocfilehash: 282a20beb11172aa3a1d2c7326dc38ce8a7acfcf
-ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
+ms.openlocfilehash: fe348daa4613e0b515244686e48ed63a41991d81
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/07/2019
-ms.locfileid: "54062660"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58009385"
 ---
 # <a name="create-time-series-insights-resources-using-azure-resource-manager-templates"></a>Criar recursos do Time Series Insights com modelos Azure Resource Manager
 
 Este artigo descreve como criar e implementar recursos de Time Series Insights com modelos do Azure Resource Manager, PowerShell e o fornecedor de recursos do Time Series Insights.
 
 O Time Series Insights suporta os seguintes recursos:
+
    | Recurso | Descrição |
    | --- | --- |
    | Ambiente | Um ambiente do Time Series Insights é um agrupamento lógico de eventos que são ler a partir de mediadores de eventos, armazenados e disponibilizados para consulta. Para obter mais informações consulte [planejar seu ambiente do Azure Time Series Insights](time-series-insights-environment-planning.md) |
@@ -65,7 +66,7 @@ Para criar um ficheiro de parâmetros, copiar os [201-timeseriesinsights-ambient
 
 ```json
 {
-  "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
   "contentVersion": "1.0.0.0",
   "parameters": {
       "eventHubNamespaceName": {
@@ -94,7 +95,7 @@ Para criar um ficheiro de parâmetros, copiar os [201-timeseriesinsights-ambient
    | eventHubNamespaceName | O espaço de nomes do hub de eventos de origem. |
    | eventHubName | O nome do hub de eventos de origem. |
    | consumerGroupName | O nome do grupo de consumidor que o serviço do Time Series Insights irá utilizar para ler os dados do hub de eventos. **NOTA:** Para evitar a contenção de recursos, este grupo de consumidor tem de ser dedicado para o serviço do Time Series Insights e não partilhado com outros leitores. |
-   | EnvironmentName | O nome do ambiente. O nome não pode incluir: ' <', ' >', '%', '&', ': ','\\','?', '/' e quaisquer carateres de controlo. Todos os outros carateres são permitidos.|
+   | environmentName | O nome do ambiente. O nome não pode incluir: ' <', ' >', '%', '&', ': ','\\','?', '/' e quaisquer carateres de controlo. Todos os outros carateres são permitidos.|
    | eventSourceName | O nome do recurso de subordinado de origem de evento. O nome não pode incluir: ' <', ' >', '%', '&', ': ','\\','?', '/' e quaisquer carateres de controlo. Todos os outros carateres são permitidos. |
 
 #### <a name="optional-parameters"></a>Parâmetros opcionais
@@ -116,7 +117,7 @@ Por exemplo, ficheiro de parâmetros seguintes seria usado para criar um ambient
 
 ```json
 {
-    "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
         "eventHubNamespaceName": {
@@ -268,7 +269,7 @@ Outputs                 :
 Página inicial do modelo de início rápido no GitHub também inclui um **implementar no Azure** botão. Clicar nele abre uma página de implementação personalizada no portal do Azure. Nesta página, introduza ou selecione os valores para cada um dos parâmetros do [parâmetros obrigatórios](time-series-insights-manage-resources-using-azure-resource-manager-template.md#required-parameters) ou [parâmetros opcionais](time-series-insights-manage-resources-using-azure-resource-manager-template.md#optional-parameters) tabelas. Depois de preencher as definições, clicar o **Compra** botão irá iniciar a implementação do modelo.
 
 <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F201-timeseriesinsights-environment-with-eventhub%2Fazuredeploy.json" target="_blank">
-    <img src="http://azuredeploy.net/deploybutton.png"/>
+    <img src="https://azuredeploy.net/deploybutton.png"/>
 </a>
 
 ## <a name="next-steps"></a>Passos Seguintes

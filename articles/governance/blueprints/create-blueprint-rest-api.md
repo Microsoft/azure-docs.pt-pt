@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.service: blueprints
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: 347ee8389677e507e299490d86ae9b51ba4f59a6
-ms.sourcegitcommit: 1902adaa68c660bdaac46878ce2dec5473d29275
+ms.openlocfilehash: 9dada3c6f0718db41a24368aca594bbd3215fec5
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/11/2019
-ms.locfileid: "57731574"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57994868"
 ---
 # <a name="define-and-assign-an-azure-blueprint-with-rest-api"></a>Definir e Atribuir um Azure Blueprint com a API REST
 
@@ -70,6 +70,9 @@ Em cada URI da API REST, existem variáveis que são utilizadas que precisa de s
 
 - `{YourMG}` -Substituir com o ID do seu grupo de gestão
 - `{subscriptionId}` - substituir pelo ID da subscrição
+
+> [!NOTE]
+> Esquemas também podem ser criadas ao nível da subscrição. Para ver um exemplo, consulte [criar o esquema no exemplo de subscrição](/rest/api/blueprints/blueprints/createorupdate#subscriptionblueprint).
 
 1. Crie o objeto _esquema_ inicial. O **Corpo do Pedido** inclui propriedades sobre o esquema, grupos de recursos a criar e todos os parâmetros ao nível do esquema. Os parâmetros são definidos durante a atribuição e utilizados pelos artefactos adicionados nos passos posteriores.
 
@@ -435,9 +438,9 @@ Para remover o próprio esquema, utilize a seguinte operação da API REST:
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-- Saber mais sobre o [ciclo de vida do esquema](./concepts/lifecycle.md)
-- Compreender como utilizar [parâmetros estáticos e dinâmicos](./concepts/parameters.md)
-- Aprender a personalizar a [ordem de sequenciação do esquema](./concepts/sequencing-order.md)
-- Saber como utilizar o [bloqueio de recursos de esquema](./concepts/resource-locking.md)
-- Saber como [atualizar as atribuições existentes](./how-to/update-existing-assignments.md)
-- Resolver problemas durante a atribuição de um esquema com [resolução de problemas gerais](./troubleshoot/general.md)
+- Saiba mais sobre o [ciclo de vida de um esquema](./concepts/lifecycle.md).
+- Compreenda como utilizar [parâmetros estáticos e dinâmicos](./concepts/parameters.md).
+- Aprenda a personalizar a [ordem de sequenciação do esquema](./concepts/sequencing-order.md).
+- Saiba como utilizar o [bloqueio de recursos de esquema](./concepts/resource-locking.md).
+- Saiba como [atualizar as atribuições existentes](./how-to/update-existing-assignments.md).
+- Resolva problemas durante a atribuição de um esquema com a [resolução de problemas gerais](./troubleshoot/general.md).

@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 01/26/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4ea80824588980fdd6c580b6d77c2a5566159547
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: b78cb45d83cd9bc9bc973ec7a09cb75a8b111744
+ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56211092"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58224153"
 ---
 # <a name="tutorial-configure-g-suite-for-automatic-user-provisioning"></a>Tutorial: Configurar o G Suite para o aprovisionamento automático de utilizadores
 
@@ -53,7 +53,7 @@ Antes de configurar e ativar o serviço de aprovisionamento, terá de decidir qu
 
 > [!IMPORTANT]
 > Recomendamos que um único utilizador do Azure AD ser atribuído ao G Suite para testar a configuração de aprovisionamento. Pode atribuir utilizadores e grupos adicionais mais tarde.
-
+> 
 > Quando atribui um utilizador ao G Suite, selecione o **usuário** ou **grupo** função na caixa de diálogo de atribuição. O **acesso predefinido** função não funciona para o aprovisionamento.
 
 ## <a name="enable-automated-user-provisioning"></a>Ativar o aprovisionamento automatizado do utilizador
@@ -80,8 +80,8 @@ Esta secção orienta-o ao longo do processo de ligar o Azure AD para a API do G
    
     ![Selecione a referência da API.][16]
 
-    > [!IMPORTANT]
-    > Para cada utilizador que pretende aprovisionar ao G Suite, nome de utilizadores no Azure Active Directory *tem* ser vinculado a um domínio personalizado. Por exemplo, aquela aparência, como os nomes de utilizador bob@contoso.onmicrosoft.com não serão aceites pela G Suite. Por outro lado, bob@contoso.com é aceite. Pode alterar o domínio de um utilizador existente ao editar as respetivas propriedades no Azure AD. Incluímos instruções sobre como definir um domínio personalizado para o Azure Active Directory e o G Suite nos passos seguintes.
+   > [!IMPORTANT]
+   > Para cada utilizador que pretende aprovisionar ao G Suite, nome de utilizadores no Azure Active Directory *tem* ser vinculado a um domínio personalizado. Por exemplo, aquela aparência, como os nomes de utilizador bob@contoso.onmicrosoft.com não serão aceites pela G Suite. Por outro lado, bob@contoso.com é aceite. Pode alterar o domínio de um utilizador existente ao editar as respetivas propriedades no Azure AD. Incluímos instruções sobre como definir um domínio personalizado para o Azure Active Directory e o G Suite nos passos seguintes.
       
 1. Se ainda não adicionou um nome de domínio personalizado para o Azure Active Directory, em seguida, siga os passos seguintes:
   
@@ -105,8 +105,8 @@ Esta secção orienta-o ao longo do processo de ligar o Azure AD para a API do G
 
     e. Repita os passos anteriores para todos os domínios que pretende adicionar ao seu diretório.
 
-    > [!NOTE]
-    Para o aprovisionamento de utilizador, o domínio personalizado deve corresponder ao nome de domínio da origem do Azure AD. Se não forem iguais, poderá conseguir resolver o problema com a implementação de personalização de mapeamento do atributo.
+   > [!NOTE]
+   >  Para o aprovisionamento de utilizador, o domínio personalizado deve corresponder ao nome de domínio da origem do Azure AD. Se não forem iguais, poderá conseguir resolver o problema com a implementação de personalização de mapeamento do atributo.
 
 
 1. Agora que tiver verificado todos os domínios com o Azure AD, tem de verificá-los novamente com o Google Apps. Para cada domínio que já não estiver registado com o Google, siga os passos seguintes:
@@ -149,13 +149,13 @@ Esta secção orienta-o ao longo do processo de ligar o Azure AD para a API do G
 
 1. Definir o **modo de aprovisionamento** ao **automática**. 
 
-     ![Aprovisionamento](./media/google-apps-provisioning-tutorial/provisioning.png)
+       ![Provisioning](./media/google-apps-provisioning-tutorial/provisioning.png)
 
 1. Sob o **credenciais de administrador** secção, selecione **autorizar**. Abre uma caixa de diálogo de autorização do Google numa nova janela do browser.
 
 1. Confirme que pretende conceder permissão ao Azure Active Directory para fazer alterações ao seu inquilino do G Suite. Selecione **Aceitar**.
     
-     ![Certifique-se as permissões.][28]
+       ![Confirm permissions.][28]
 
 1. No portal do Azure, selecione **Testar ligação** para garantir que as do Azure AD pode ligar-se à sua aplicação. Se a ligação falhar, certifique-se de que a sua conta G Suite tem permissões de administrador da equipa. Em seguida, tente o **autorizar** passo novamente.
 

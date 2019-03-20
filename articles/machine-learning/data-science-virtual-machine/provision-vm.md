@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/04/2018
 ms.author: gokuma
-ms.openlocfilehash: 8ee424412c9c54dadef7391084e3ab976da9ad7f
-ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
+ms.openlocfilehash: 0b8349c6c59ac64be15c75b28c083a4483f2f68a
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/19/2019
-ms.locfileid: "56417453"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57896267"
 ---
 # <a name="provision-a-windows-data-science-virtual-machine-on-azure"></a>Aprovisionar uma máquina de Virtual de ciência dados Windows no Azure
 
@@ -44,7 +44,7 @@ As ferramentas seguintes estão incluídas numa DSVM do:
   * [Vowpal Wabbit](https://github.com/JohnLangford/vowpal_wabbit) – uma sistema que oferece suporte a técnicas como hash online, allreduce, reduções, learning2search e aprendizagem interativa e Active Directory de aprendizagem rápida
   * [XGBoost](https://xgboost.readthedocs.org/en/latest/) -uma ferramenta que fornece a implementação de árvore precisos e de elevada
   * [Rattle](https://togaware.com/rattle/) -a ferramenta de análise de R que permite-lhe começar a utilizar a análise de dados e aprendizagem automática em R. Ele inclui a exploração e modelação com a geração automática de código R dados baseados em GUI.
-  * [Weka](http://www.cs.waikato.ac.nz/ml/weka/) -mineração de dados visual e de machine learning software em Java
+  * [Weka](https://www.cs.waikato.ac.nz/ml/weka/) -mineração de dados visual e de machine learning software em Java
   * [Apache Drill](https://drill.apache.org/) -um motor de consulta SQL sem esquema para o Apache Hadoop, NoSQL e armazenamento na cloud. Ele oferece suporte a interfaces ODBC e JDBC para consultar o NoSQL e de ficheiros a partir de ferramentas de BI padrão, como o Power BI, o Microsoft Excel e o Tableau.
 * Bibliotecas em R e Python para utilizam no Azure Machine Learning e outros serviços do Azure
 * Git, incluindo o Git Bash, trabalhar com repositórios de código de origem que incluem o GitHub e do Azure DevOps. Git fornece várias Linux da linha de comandos utilitários populares que são acessíveis no Git Bash e de um prompt de comando. Os exemplos são awk, PO, perl, grep, find, wget e curl.
@@ -71,7 +71,7 @@ Existem não existem custos de software para esta imagem VM de ciência de dados
 
 ## <a name="prerequisite"></a>Pré-requisito
 
-Para criar uma máquina de Virtual de ciência de dados do Microsoft, tem de ter uma subscrição do Azure. Consulte [Obter uma avaliação gratuita do Azure](http://azure.com/free).
+Para criar uma máquina de Virtual de ciência de dados do Microsoft, tem de ter uma subscrição do Azure. Consulte [Obter uma avaliação gratuita do Azure](https://azure.com/free).
 
 ## <a name="create-your-dsvm"></a>Criar a sua DSVM
 
@@ -229,4 +229,4 @@ Pode utilizar o [Microsoft Web Platform Installer](https://www.microsoft.com/web
 * No Explorador de ficheiros, navegue até **C:\Program Files\Microsoft\ML Server\R_SERVER\library\RevoScaleR\demoScripts** para exemplos que utilizam a biblioteca de pacotes RevoScaleR no R que suporta as análises de dados à escala empresarial.  
 * Leia o artigo [dez coisas que pode fazer na máquina Virtual de ciência de dados](https://aka.ms/dsvmtenthings).
 * Aprenda a criar soluções de análise de ponto-a-ponto sistematicamente utilizando o [Team Data Science Process](../team-data-science-process/index.yml).
-* Visite o [Galeria de IA do Azure](http://gallery.cortanaintelligence.com) para machine learning e os dados analytics de exemplo que utilizam o Azure Machine Learning e os dados relacionados de serviços no Azure. Também fornecemos um ícone para esta galeria sobre o **iniciar** menu e o ambiente de trabalho da máquina virtual.
+* Visite o [Galeria de IA do Azure](https://gallery.cortanaintelligence.com) para machine learning e os dados analytics de exemplo que utilizam o Azure Machine Learning e os dados relacionados de serviços no Azure. Também fornecemos um ícone para esta galeria sobre o **iniciar** menu e o ambiente de trabalho da máquina virtual.

@@ -9,12 +9,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: tutorial
 ms.date: 12/06/2018
-ms.openlocfilehash: 39ae76da197db0c2b4f494bd74b3c76e6ff27f8e
-ms.sourcegitcommit: 30a0007f8e584692fe03c0023fe0337f842a7070
+ms.openlocfilehash: b6717bc76caffb9c4b6f7743cc5356a80a8f742b
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57576808"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58111859"
 ---
 # <a name="tutorial-use-apache-storm-with-apache-kafka-on-hdinsight"></a>Tutorial: Utilizar o Apache Storm com o Apache Kafka no HDInsight
 
@@ -400,26 +400,26 @@ Para criar uma Rede Virtual do Azure e, depois, criar os clusters do Kafka e do 
     * Kafka no HDInsight versão 3.6 (três nós de trabalho)
     * Storm no HDInsight versão 3.6 (três nós de trabalho)
 
-  > [!WARNING]  
-  > Para garantir a disponibilidade do Kafka no HDInsight, o cluster tem de conter pelo menos três nós de trabalho. Este modelo cria um cluster do Kafka que contém três nós de trabalho.
+   > [!WARNING]  
+   > Para garantir a disponibilidade do Kafka no HDInsight, o cluster tem de conter pelo menos três nós de trabalho. Este modelo cria um cluster do Kafka que contém três nós de trabalho.
 
 2. Utilize a seguinte orientação para preencher as entradas da secção **Implementação personalizada**:
 
-    2. Utilize as seguintes informações para preencher as entradas da secção **Modelo personalizado**:
+   1. Utilize as seguintes informações para preencher as entradas da secção **Modelo personalizado**:
 
-    | Definição | Valor |
-    | --- | --- |
-    | Subscrição | A sua subscrição do Azure |
-    | Grupo de recursos | O grupo de recursos que contém os recursos. |
-    | Localização | A região do Azure na qual os recursos são criados. |
-    | Nome do Cluster do Kafka | O nome do cluster do Kafka. |
-    | Nome do Cluster do Storm | O nome do cluster do Storm. |
-    | Nome de Utilizador de Início de Sessão do Cluster | O nome de utilizador administrador para os clusters. |
-    | Palavra-passe de Início de Sessão do Cluster | A palavra-passe de utilizador administrador para os clusters. |
-    | Nome de Utilizador SSH | O nome de utilizador SSH para os clusters. |
-    | Palavra-passe do SSH | A palavra-passe do utilizador SSH. |
+      | Definição | Valor |
+      | --- | --- |
+      | Subscrição | A sua subscrição do Azure |
+      | Grupo de recursos | O grupo de recursos que contém os recursos. |
+      | Localização | A região do Azure na qual os recursos são criados. |
+      | Nome do Cluster do Kafka | O nome do cluster do Kafka. |
+      | Nome do Cluster do Storm | O nome do cluster do Storm. |
+      | Nome de Utilizador de Início de Sessão do Cluster | O nome de utilizador administrador para os clusters. |
+      | Palavra-passe de Início de Sessão do Cluster | A palavra-passe de utilizador administrador para os clusters. |
+      | Nome de Utilizador SSH | O nome de utilizador SSH para os clusters. |
+      | Palavra-passe do SSH | A palavra-passe do utilizador SSH. |
    
-    ![Imagem dos parâmetros de modelo](./media/hdinsight-apache-storm-with-kafka/storm-kafka-template.png)
+      ![Imagem dos parâmetros de modelo](./media/hdinsight-apache-storm-with-kafka/storm-kafka-template.png)
 
 3. Leia os **Termos e Condições** e selecione **Aceito os temos e as condições apresentados acima**.
 
@@ -434,17 +434,17 @@ Para criar uma Rede Virtual do Azure e, depois, criar os clusters do Kafka e do 
 
 2. No diretório **hdinsight-storm-java-kafka**, utilize o seguinte comando para compilar o projeto e criar um pacote para implementação:
 
-  ```bash
-  mvn clean package
-  ```
+   ```bash
+   mvn clean package
+   ```
 
     O processo do pacote cria um ficheiro denominado `KafkaTopology-1.0-SNAPSHOT.jar` no diretório `target`.
 
 3. Utilize os seguintes comandos para copiar o pacote para o cluster do Storm no HDInsight. Substitua `sshuser` pelo nome de utilizador do SSH do cluster. Substitua `stormclustername` pelo nome do cluster do __Storm__.
 
-  ```bash
-  scp ./target/KafkaTopology-1.0-SNAPSHOT.jar sshuser@stormclustername-ssh.azurehdinsight.net:KafkaTopology-1.0-SNAPSHOT.jar
-  ```
+   ```bash
+   scp ./target/KafkaTopology-1.0-SNAPSHOT.jar sshuser@stormclustername-ssh.azurehdinsight.net:KafkaTopology-1.0-SNAPSHOT.jar
+   ```
 
     Quando lhe for pedido, introduza a palavra-passe que utilizou quando criou os clusters.
 
@@ -577,9 +577,9 @@ O Kafka armazena os dados num _tópico_. Tem de criar o tópico antes de iniciar
 
 1. A partir da sessão do SSH para o cluster do Storm, utilize o comando seguinte para iniciar a topologia de leitor:
 
-  ```bash
-  storm jar KafkaTopology-1.0-SNAPSHOT.jar org.apache.storm.flux.Flux --remote -R /reader.yaml --filter dev.properties
-  ```
+   ```bash
+   storm jar KafkaTopology-1.0-SNAPSHOT.jar org.apache.storm.flux.Flux --remote -R /reader.yaml --filter dev.properties
+   ```
 
 2. Aguarde um minuto e, em seguida, utilize o seguinte comando para ver os ficheiros criados pela topologia de leitor:
 

@@ -17,12 +17,12 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.custom: seohack1
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 776e3f7047e2f6b43063e085a8ae7a8d29835a75
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: c851b5ef024e6584e6f8c93995208b08a91fbb60
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56217358"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58096678"
 ---
 # <a name="azure-ad-connect-sync-handling-largeobject-errors-caused-by-usercertificate-attribute"></a>Sincronização do Azure AD Connect: Tratamento de erros de LargeObject causados pelo atributo userCertificate
 
@@ -79,9 +79,9 @@ Certifique-se de que não ocorre sincronização ocorre enquanto estiver no meio
 > [!Note]
 > Os passos anteriores apenas são aplicáveis a versões mais recentes (1.1.xxx.x) do Azure AD Connect com o agendador interno. Se estiver a utilizar as versões mais antigas (1.0.xxx.x) do Azure AD Connect que utiliza o agendador de tarefas do Windows, ou se estiver a utilizar o seu próprio agendador personalizado (não comuns) para acionar a sincronização periódica, terá de desativá-las em conformidade.
 
-3. Iniciar o **Synchronization Service Manager** ao aceder ao serviço de sincronização de início →.
+1. Iniciar o **Synchronization Service Manager** ao aceder ao serviço de sincronização de início →.
 
-4. Vá para o **Operations** separador e confirme que não existe nenhuma operação cujo estado é *"em curso."*
+1. Vá para o **Operations** separador e confirme que não existe nenhuma operação cujo estado é *"em curso."*
 
 ### <a name="step-2-find-the-existing-outbound-sync-rule-for-usercertificate-attribute"></a>Passo 2. Encontrar a regra de sincronização de saída existente para o atributo userCertificate
 Deve haver uma regra de sincronização existente que está ativada e configurada para exportar o atributo userCertificate para objetos de utilizador para o Azure AD. Localize esta regra de sincronização para descobrir sua **precedência** e **filtro de âmbito** configuração:

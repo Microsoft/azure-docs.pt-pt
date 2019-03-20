@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 1f2b8e79d5b7638a8266ada9f789b055d9249dc5
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: d83b659cc04218fad66ea95216e69682b265dc83
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57531067"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58077807"
 ---
 # <a name="tutorial-use-rest-api-to-create-an-azure-data-factory-pipeline-to-copy-data"></a>Tutorial: Utilizar a API REST para criar um pipeline do Azure Data Factory para copiar dados 
 > [!div class="op_single_selector"]
@@ -64,24 +64,24 @@ Um pipeline pode ter mais de uma atividade. Além disso, pode encadear duas ativ
   
   1. Execute o comando seguinte e introduza o nome de utilizador e a palavra-passe que utiliza para iniciar sessão no Portal do Azure:
     
-    ```PowerShell 
-    Connect-AzAccount
-    ```   
+     ```PowerShell 
+     Connect-AzAccount
+     ```   
   2. Execute o comando seguinte para ver todas as subscrições desta conta:
 
-    ```PowerShell     
-    Get-AzSubscription
-    ``` 
+     ```PowerShell     
+     Get-AzSubscription
+     ``` 
   3. Execute o comando seguinte para selecionar a subscrição com a qual pretende trabalhar. Substitua **&lt;NameOfAzureSubscription**&gt; pelo nome da sua subscrição do Azure. 
      
-    ```PowerShell
-    Get-AzSubscription -SubscriptionName <NameOfAzureSubscription> | Set-AzContext
-    ```
+     ```PowerShell
+     Get-AzSubscription -SubscriptionName <NameOfAzureSubscription> | Set-AzContext
+     ```
   4. Crie um grupo de recursos do Azure denominado **ADFTutorialResourceGroup** ao executar o comando seguinte no PowerShell:  
 
-    ```PowerShell     
+     ```PowerShell     
       New-AzResourceGroup -Name ADFTutorialResourceGroup  -Location "West US"
-    ```
+     ```
      
       Se o grupo de recursos já existir, especifique se pretende atualizá-lo (Y) ou mantê-lo como está (N). 
      

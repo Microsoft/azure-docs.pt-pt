@@ -13,14 +13,14 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: multiple
 ms.workload: media
-ms.date: 02/04/2019
+ms.date: 03/12/2019
 ms.author: juliako
-ms.openlocfilehash: 4f67158c0de8cdd161bce269059af6d421bb68b5
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
+ms.openlocfilehash: 2d7dc6eb5ee77804f0c8c87ee2e5a5dd1d0dc30a
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56340353"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57841128"
 ---
 # <a name="migration-guidance-for-moving-from-media-services-v2-to-v3"></a>Orientações de migração para mover de serviços de multimédia v2 para v3
 
@@ -72,6 +72,7 @@ Se tiver um serviço de vídeo desenvolvido hoje na parte superior dos [APIs de 
     * Substitui o evento em direto canal.<br/>A faturação baseia-se a medidores de canal em direto de eventos em direto. Para obter mais informações, consulte [faturação](live-event-states-billing.md) e [preços](https://azure.microsoft.com/pricing/details/media-services/).
     * Saída em direto substitui o programa.
 * Saídas em direto não têm de ser iniciados explicitamente, iniciar a criação e parar quando eliminado. Programas de forma diferente se trabalhou nas v2 APIs, eles tinham que ser iniciado após a criação.
+*  Para obter informações sobre uma tarefa, precisa saber o nome de transformação sob as quais a criação da tarefa. 
 
 ## <a name="feature-gaps-with-respect-to-v2-apis"></a>Intervalos de funcionalidades em relação a v2 APIs
 
@@ -98,6 +99,7 @@ A tabela seguinte mostra as diferenças de código entre v2 e v3 para cenários 
 |Criar um elemento e carregar um ficheiro |[exemplo de .NET v2](https://github.com/Azure-Samples/media-services-dotnet-dynamic-encryption-with-aes/blob/master/DynamicEncryptionWithAES/DynamicEncryptionWithAES/Program.cs#L113)|[exemplo de .NET de v3](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/master/AMSV3Tutorials/UploadEncodeAndStreamFiles/Program.cs#L169)|
 |Submeter uma tarefa|[exemplo de .NET v2](https://github.com/Azure-Samples/media-services-dotnet-dynamic-encryption-with-aes/blob/master/DynamicEncryptionWithAES/DynamicEncryptionWithAES/Program.cs#L146)|[exemplo de .NET de v3](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/master/AMSV3Tutorials/UploadEncodeAndStreamFiles/Program.cs#L298)<br/><br/>Mostra como criar primeiro uma transformação e, em seguida, submeter uma tarefa.|
 |Publicar um elemento com encriptação AES |1. Create ContentKeyAuthorizationPolicyOption<br/>2. Criar ContentKeyAuthorizationPolicy<br/>3. Create AssetDeliveryPolicy<br/>4. Criar elemento e carregar conteúdo ou submeter tarefa e utilizar recursos de saída<br/>5. Associe AssetDeliveryPolicy com elemento<br/>6. Criar ContentKey<br/>7. Anexar ContentKey ativo<br/>8. Criar AccessPolicy<br/>9. Criar o localizador<br/><br/>[exemplo de .NET v2](https://github.com/Azure-Samples/media-services-dotnet-dynamic-encryption-with-aes/blob/master/DynamicEncryptionWithAES/DynamicEncryptionWithAES/Program.cs#L64)|1. Criar política de chave de conteúdo<br/>2. Criar recurso<br/>3. Carregar conteúdo ou utilizar recursos como JobOutput<br/>4. Criar o localizador de transmissão em fluxo<br/><br/>[exemplo de .NET de v3](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/master/AMSV3Tutorials/EncryptWithAES/Program.cs#L105)|
+|Obter os detalhes da tarefa e gerir tarefas |[Gerir tarefas com o v2](../previous/media-services-dotnet-manage-entities.md#get-a-job-reference) |[Gerir tarefas com v3](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/master/AMSV3Tutorials/UploadEncodeAndStreamFiles/Program.cs#L546)|
 
 ## <a name="known-issues"></a>Problemas conhecidos
 

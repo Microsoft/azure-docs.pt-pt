@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: 6f82f50ebaa7ad4440078d1fd4658109cf0e19b6
-ms.sourcegitcommit: dd1a9f38c69954f15ff5c166e456fda37ae1cdf2
+ms.openlocfilehash: 0fc34c913453abd174009213233a54e30b9346d3
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57571291"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57881389"
 ---
 # <a name="store-data-at-the-edge-with-azure-blob-storage-on-iot-edge-preview"></a>Store dados na periferia com o armazenamento de Blobs do Azure no IoT Edge (pré-visualização)
 
@@ -230,6 +230,7 @@ Utilize as propriedades pretendidas para definir propriedades de expiração aut
 
 ### <a name="auto-tiering-properties"></a>Propriedades de colocação em camadas automática 
 O nome desta definição é `tieringSettings`
+
 | Campo | Valores Possíveis | Explicação |
 | ----- | ----- | ---- |
 | tieringOn | VERDADEIRO, FALSO | Por predefinição está definida `false`, se pretender ativá-la no defini-lo como `true`|
@@ -239,6 +240,7 @@ O nome desta definição é `tieringSettings`
 
 ### <a name="auto-expiration-properties"></a>Propriedades de expiração automática
 O nome desta definição é `ttlSettings`
+
 | Campo | Valores Possíveis | Explicação |
 | ----- | ----- | ---- |
 | ttlOn | VERDADEIRO, FALSO | Por predefinição está definida `false`, se pretender ativá-la no defini-lo como `true`|
@@ -272,7 +274,7 @@ Defina as propriedades pretendidas para ativar a disposição em camadas automá
 
    ```
 
- ![definir as propriedades de colocação em camadas automática e de expiração automática](./media/how-to-store-data-blob/iotedge_custom_module.png)
+  ![definir as propriedades de colocação em camadas automática e de expiração automática](./media/how-to-store-data-blob/iotedge_custom_module.png)
 
 - **Depois do módulo é implementado por meio da funcionalidade de "Módulo duplo de identidade"**: Aceda a "Módulo duplo de identidade" deste módulo, copie o JSON em propriedades pretendidas, configurar cada propriedade com o valor apropriado e guardar. No Json de "Módulo duplo de identidade", certifique-se de que sempre que adicionar ou atualizar qualquer pretendido de propriedade, o `reported configuration` secção reflete as alterações e o `configurationValidation` secção comunica êxito para cada propriedade.
 
@@ -343,6 +345,9 @@ Eis um exemplo de propriedades pretendidas para este módulo: ![definir as propr
     }
 
    ```
+  ## <a name="logs"></a>Registos
+
+Siga as instruções para [configurar os registos de docker para módulos do IoT Edge](production-checklist.md#set-up-logs-and-diagnostics)
 
 ## <a name="connect-to-your-blob-storage-module"></a>Ligar ao seu módulo de armazenamento de BLOBs
 
@@ -377,8 +382,8 @@ Inícios rápidos utilizarem outros idiomas que também são suportados pela IoT
 * [Python](../storage/blobs/storage-quickstart-blobs-python.md)
 * [Node.js](../storage/blobs/storage-quickstart-blobs-nodejs.md) 
 
-### <a name="azure-storage-explorer"></a>Explorador do Armazenamento do Azure
-Também pode tentar [Explorador de armazenamento do Azure](https://azure.microsoft.com/features/storage-explorer/) para ligar à sua conta de armazenamento local. Tentámos com [versão anterior 1.5.0](https://go.microsoft.com/fwlink/?LinkId=809306&clcid=0x409) do Explorador do Azure.
+### <a name="azure-storage-explorer"></a>Explorador do Storage do Azure
+Também pode tentar [Explorador de armazenamento do Azure](https://azure.microsoft.com/features/storage-explorer/) para ligar à sua conta de armazenamento local. Tentámos com [versão anterior 1.5.0](https://github.com/Microsoft/AzureStorageExplorer/releases/tag/v1.5.0) do Explorador do Azure.
 > [!NOTE]
 > Poderá encontrar erros durante a realização de passos abaixo, ignorar e atualizar. 
 
@@ -388,8 +393,8 @@ Também pode tentar [Explorador de armazenamento do Azure](https://azure.microso
 4. Percorra os passos para ligar.
 5. Criar contentor dentro de sua conta de armazenamento local
 6. Inicie o carregamento de ficheiros como blobs de blocos.
-> [!NOTE]
-> Desmarque a caixa de verificação para carregá-lo como blobs de páginas. Este módulo não suporta blobs de páginas. Obterá esta linha de comandos ao carregar ficheiros, como o. ISO, ficheiros. vhd, vhdx ou qualquer grandes.
+   > [!NOTE]
+   > Desmarque a caixa de verificação para carregá-lo como blobs de páginas. Este módulo não suporta blobs de páginas. Obterá esta linha de comandos ao carregar ficheiros, como o. ISO, ficheiros. vhd, vhdx ou qualquer grandes.
 
 7. Pode optar por ligar as suas contas de armazenamento do Azure onde está a carregar os dados. Dá-lhe uma vista única para a sua conta de armazenamento local e a conta de armazenamento do Azure
 
@@ -445,7 +450,7 @@ Suporte para:
 Não suportado:
 * Colocar o bloco de URL
 
-##<a name="feedback"></a>Comentários:
+## <a name="feedback"></a>Comentários:
 Seus comentários são muito importantes para nós, para tornar este módulo e as respetivas funcionalidades úteis e fácil de usar. Partilhe os seus comentários e informe-nos como podemos melhorar.
 
 Pode contactar-em absiotfeedback@microsoft.com 

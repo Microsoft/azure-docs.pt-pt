@@ -10,12 +10,12 @@ ms.service: machine-learning
 ms.subservice: studio
 ms.topic: tutorial
 ms.date: 02/11/2019
-ms.openlocfilehash: c067b0e6a85e0b5c4bd4cbb582de13bb1bc87774
-ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
+ms.openlocfilehash: f69b3f2c8de4cf137583ad7a33e8edfe31373096
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56453618"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57904512"
 ---
 # <a name="tutorial-1-predict-credit-risk---azure-machine-learning-studio"></a>Tutorial 1: Prever o risco de crédito - Azure Machine Learning Studio
 
@@ -70,7 +70,7 @@ Depois de sua área de trabalho é criada, abra o Machine Learning Studio ([http
 ## <a name="upload"></a>Carregar os dados existentes
 
 Para desenvolver um modelo preditivo para o risco de crédito, terá de dados que pode usar para preparar e, em seguida, testar o modelo. Neste tutorial, vai utilizar o "UCI Statlog (dados de crédito alemães) conjunto de dados" do repositório de UC Irvine Machine Learning. Pode encontrá-lo aqui:  
-<a href="http://archive.ics.uci.edu/ml/datasets/Statlog+(German+Credit+Data)">http://archive.ics.uci.edu/ml/datasets/Statlog+(German+Credit+Data)</a>
+<a href="https://archive.ics.uci.edu/ml/datasets/Statlog+(German+Credit+Data)">https://archive.ics.uci.edu/ml/datasets/Statlog+(German+Credit+Data)</a>
 
 Usará o arquivo chamado **german.data**. Transferir este ficheiro para o disco rígido local.  
 
@@ -212,18 +212,18 @@ Para utilizar [Editar metadados][edit-metadata], primeiro tem de especificar as 
 
 1. De volta a **propriedades** painel, procure o **novos nomes das colunas** parâmetro. Neste campo, introduza uma lista de nomes para a 21 de colunas no conjunto de dados, separados por vírgulas e a ordem da coluna. Pode obter os nomes de colunas na documentação do conjunto de dados no site da UCI, ou para sua comodidade pode copiar e colar a lista seguinte:  
 
-  ```   
-  Status of checking account, Duration in months, Credit history, Purpose, Credit amount, Savings account/bond, Present employment since, Installment rate in percentage of disposable income, Personal status and sex, Other debtors, Present residence since, Property, Age in years, Other installment plans, Housing, Number of existing credits, Job, Number of people providing maintenance for, Telephone, Foreign worker, Credit risk  
-  ```
+   ```   
+   Status of checking account, Duration in months, Credit history, Purpose, Credit amount, Savings account/bond, Present employment since, Installment rate in percentage of disposable income, Personal status and sex, Other debtors, Present residence since, Property, Age in years, Other installment plans, Housing, Number of existing credits, Job, Number of people providing maintenance for, Telephone, Foreign worker, Credit risk  
+   ```
 
-  O painel de propriedades tem esta aparência:
+   O painel de propriedades tem esta aparência:
 
-  ![Propriedades de metadados de edição](./media/tutorial-part1-credit-risk/edit-metadata-properties.png)
+   ![Propriedades de metadados de edição](./media/tutorial-part1-credit-risk/edit-metadata-properties.png)
 
-  > [!TIP]
-  > Se pretender verificar os cabeçalhos de coluna, execute a experimentação (clique em **executar** abaixo a tela da experimentação). Quando ele for concluída, em execução (aparece uma marca de verificação verde [Editar metadados][edit-metadata]), clique na porta de saída do [Editar metadados] [ edit-metadata] módulo, e selecione **Visualize**. Pode ver a saída de qualquer módulo da mesma forma para ver o progresso dos dados através da experimentação.
-  > 
-  > 
+   > [!TIP]
+   > Se pretender verificar os cabeçalhos de coluna, execute a experimentação (clique em **executar** abaixo a tela da experimentação). Quando ele for concluída, em execução (aparece uma marca de verificação verde [Editar metadados][edit-metadata]), clique na porta de saída do [Editar metadados] [ edit-metadata] módulo, e selecione **Visualize**. Pode ver a saída de qualquer módulo da mesma forma para ver o progresso dos dados através da experimentação.
+   > 
+   > 
 
 ### <a name="create-training-and-test-datasets"></a>A criação de treinamento e teste de conjuntos de dados
 

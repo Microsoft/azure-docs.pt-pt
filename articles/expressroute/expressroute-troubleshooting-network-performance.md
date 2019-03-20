@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 12/20/2017
 ms.author: jonor
 ms.custom: seodec18
-ms.openlocfilehash: 17f239dc3ba9714c01f55a88419df2d3416908fa
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 9ec310ffaa9d2bb297abde9341bf7b6c2dc763b4
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57539705"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57995789"
 ---
 # <a name="troubleshooting-network-performance"></a>Resolução de problemas de desempenho da rede
 ## <a name="overview"></a>Descrição geral
@@ -180,20 +180,20 @@ Configuração de teste:
 | | | | | | |
 |-|-|-|-|-|-|
 |ExpressRoute<br/>Localização|Azure<br/>Região|Estimado<br/>Distância (km)|Latência|1 sessão<br/>Largura de Banda|Máximo<br/>Largura de Banda|
-| Seattle | EUA Oeste 2        |    191 km |   5 ms | 262.0 Mbits/s |  3.74 Gbits/seg | 21
-| Seattle | EUA Oeste          |  1,094 km de distância |  18 ms |  82.3 Mbits/s |  3.70 Gbits/seg | 20
-| Seattle | EUA Central       |  2,357 km de distância |  40 ms |  38.8 Mbits/s |  2.55 Gbits/seg | 17
-| Seattle | EUA Centro-Sul |  2,877 km de distância |  51 ms |  30.6 Mbits/s |  2,49 Gbits/seg | 19
-| Seattle | EUA Centro-Norte |  2,792 km de distância |  55 ms |  27.7 Mbits/s |  2.19 Gbits/seg | 18
-| Seattle | EUA Leste 2        |  3,769 km de distância |  73 ms |  21.3 Mbits/s |  1.79 Gbits/seg | 16
-| Seattle | EUA Leste          |  3,699 km de distância |  74 ms |  21.1 Mbits/s |  1.78 Gbits/seg | 15
-| Seattle | Leste do Japão       |  7,705 km de distância | 106 ms |  14.6 Mbits/s |  1.22 Gbits/seg | 28
-| Seattle | Reino Unido Sul         |  7,708 km de distância | 146 ms |  10.6 Mbits/s |   896 Mbits/s | 24
-| Seattle | Europa Ocidental      |  7,834 km de distância | 153 ms |  10.2 Mbits/s |   761 Mbits/s | 23
-| Seattle | Leste da Austrália   | 12,484 km de distância | 165 ms |   9.4 Mbits/s |   794 Mbits/s | 26
-| Seattle | Sudeste Asiático   | 12,989 km de distância | 170 ms |   9.2 Mbits/s |   756 Mbits/s | 25
-| Seattle | Sul do Brasil *   | 10,930 km de distância | 189 ms |   8.2 Mbits/s |   699 Mbits/s | 22
-| Seattle | Sul da Índia      | 12,918 km de distância | 202 ms |   7.7 Mbits/s |   634 Mbits/s | 27
+| Seattle | EUA Oeste 2        |    191 km |   5 ms | 262.0 Mbits/s |  3.74 Gbits/seg |
+| Seattle | EUA Oeste          |  1,094 km de distância |  18 ms |  82.3 Mbits/s |  3.70 Gbits/seg |
+| Seattle | EUA Central       |  2,357 km de distância |  40 ms |  38.8 Mbits/s |  2.55 Gbits/seg |
+| Seattle | EUA Centro-Sul |  2,877 km de distância |  51 ms |  30.6 Mbits/s |  2,49 Gbits/seg |
+| Seattle | EUA Centro-Norte |  2,792 km de distância |  55 ms |  27.7 Mbits/s |  2.19 Gbits/seg |
+| Seattle | EUA Leste 2        |  3,769 km de distância |  73 ms |  21.3 Mbits/s |  1.79 Gbits/seg |
+| Seattle | EUA Leste          |  3,699 km de distância |  74 ms |  21.1 Mbits/s |  1.78 Gbits/seg |
+| Seattle | Leste do Japão       |  7,705 km de distância | 106 ms |  14.6 Mbits/s |  1.22 Gbits/seg |
+| Seattle | Reino Unido Sul         |  7,708 km de distância | 146 ms |  10.6 Mbits/s |   896 Mbits/s |
+| Seattle | Europa Ocidental      |  7,834 km de distância | 153 ms |  10.2 Mbits/s |   761 Mbits/s |
+| Seattle | Leste da Austrália   | 12,484 km de distância | 165 ms |   9.4 Mbits/s |   794 Mbits/s |
+| Seattle | Sudeste Asiático   | 12,989 km de distância | 170 ms |   9.2 Mbits/s |   756 Mbits/s |
+| Seattle | Sul do Brasil *   | 10,930 km de distância | 189 ms |   8.2 Mbits/s |   699 Mbits/s |
+| Seattle | Sul da Índia      | 12,918 km de distância | 202 ms |   7.7 Mbits/s |   634 Mbits/s |
 
 \* A latência para Brasil é um bom exemplo em que a distância em linha reta é significativamente diferente do fibra executar distância. Eu esperava que a latência deve ser cerca de 160 ms, mas é realmente 189 ms. Essa diferença em relação a minha expectativa pode indicar um problema de rede em algum lugar, mas é muito provável que tenha que executar o fiber não passa para Brasil numa linha reta e tem um km 1.000 extra mais ou menos de deslocação para chegar ao Brasil de Seattle.
 
@@ -213,14 +213,3 @@ Configuração de teste:
 [Network Docs]: https://docs.microsoft.com/azure/index
 [Ticket Link]: https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview
 [ACT]: https://aka.ms/AzCT
-
-
-
-
-
-
-
-
-
-
-

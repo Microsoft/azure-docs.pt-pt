@@ -8,7 +8,7 @@ items:
     expanded: true
 - name: Inícios rápidos
   items:
-  - name: Introdução
+  - name: Experimentar o Content Moderator na Web
     href: quick-start.md
   - name: Utilizar o SDK de cliente
     items:
@@ -26,6 +26,10 @@ items:
   items:
   - name: Imagens de comércio eletrónico moderado
     href: ecommerce-retail-catalog-moderation.md
+  - name: Moderar conteúdos do Facebook
+    href: facebook-post-moderation.md
+  - name: Moderação de vídeos e transcrições
+    href: video-transcript-moderation-review-tutorial-dotnet.md
 - name: Conceitos
   items:
   - name: Moderação de imagens
@@ -104,12 +108,6 @@ items:
       href: Review-Tool-User-Guide/Workflows.md
     - name: Ver dashboard
       href: Review-Tool-User-Guide/View-Dashboard.md
-  - name: Primeiras aplicações do Content Moderator
-    items:
-    - name: Moderação de conteúdos do Facebook
-      href: facebook-post-moderation.md
-    - name: Moderação de vídeos e transcrições
-      href: video-transcript-moderation-review-tutorial-dotnet.md
   - name: Exportar ou eliminar dados da conta
     href: ./export-delete-data.md
   - name: Série de webinars do Azure
@@ -160,9 +158,9 @@ items:
     href: https://azure.microsoft.com/global-infrastructure/services/
   - name: Roteiro do Azure
     href: https://azure.microsoft.com/global-infrastructure/services/?products=cognitive-services
-ms.openlocfilehash: c9f43e8598afc6e9fa68c24313ef862072d48e75
-ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
+ms.openlocfilehash: cee9e6c585dfa65ccee5c0f4631b5efc81dde760
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54215376"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57900714"

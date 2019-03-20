@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 09/17/2018
 ms.author: ryanwi
-ms.openlocfilehash: 787a25a822e4ee7e13a2f1429bacd8d5cd2139ca
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: fda6af0f253457aaf3aef1e8444850592255b318
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56196829"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58113678"
 ---
 # <a name="service-fabric-terminology-overview"></a>Descrição geral da terminologia do Service Fabric
 O Azure Service Fabric é uma plataforma de sistemas distribuídos que facilita o empacotamento, a implementação e a gestão de microsserviços dimensionáveis e fiáveis.  Pode [anfitrião do Service Fabric clusters em qualquer lugar](service-fabric-deploy-anywhere.md): Azure, num datacenter no local ou em qualquer fornecedor de cloud.  O Service Fabric é o orquestrador que alimenta [malha do Azure Service Fabric](/azure/service-fabric-mesh). Pode utilizar qualquer estrutura para escrever seus serviços e escolha onde pretende executar a aplicação a partir de várias opções de ambiente. Este artigo fornece detalhes sobre a terminologia usada pelo Service Fabric para compreender os termos usados na documentação.
@@ -162,14 +162,14 @@ Service Fabric é uma tecnologia de plataforma de código aberto baseados em vá
 Ambientes diferentes tem vários níveis de suporte de estruturas e modelos de implementação. A tabela seguinte descreve a estrutura de suporte e combinações de modelo de implementação.
 
 | Tipo de aplicação | Descrito por | Malha de recursos de infraestrutura do serviço do Azure | Clusters de recursos de infraestrutura do serviço do Azure (qualquer sistema operacional)| Local cluster | Cluster autónomo |
-|---|---|---|---|---|---|---|---|---|---|
+|---|---|---|---|---|---|
 | Aplicações de malha do Service Fabric | Modelo de recursos (YAML & JSON) | Suportadas |Não suportado | Windows – suportado, Linux e Mac não suportado | Windows e não suportados |
 |Aplicativos nativos do Service Fabric | Modelo de aplicativo nativo (XML) | Não suportado| Suportadas|Suportadas|Windows – suportado|
 
 A tabela seguinte descreve os modelos de aplicação diferente e as ferramentas existentes para os mesmos em relação a Service Fabric.
 
 | Tipo de aplicação | Descrito por | Visual Studio | Eclipse | SFCTL | AZ CLI | PowerShell|
-|---|---|---|---|---|---|---|---|---|---|
+|---|---|---|---|---|---|---|
 | Aplicações de malha do Service Fabric | Modelo de recursos (YAML & JSON) | VS 2017 |Não suportado |Não suportado | Suportado - apenas ambiente de malha | Não suportado|
 |Aplicativos nativos do Service Fabric | Modelo de aplicativo nativo (XML) | VS 2017 e VS 2015| Suportadas|Suportadas|Suportadas|Suportadas|
 

@@ -16,12 +16,12 @@ ms.author: celested
 ms.reviewer: harshja
 ms.custom: H1Hack27Feb2017; it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5895325aa929e44128c331db847252835f563796
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 32d218e057fa040eded07f0adc813485ddaa52fd
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57437556"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58080104"
 ---
 # <a name="troubleshoot-application-proxy-problems-and-error-messages"></a>Resolver problemas do Proxy de aplicações e mensagens de erro
 Se ocorrerem erros na Acessando um aplicativo publicado ou na publicação de aplicações, verifique as seguintes opções para ver se o Proxy de aplicações do Microsoft Azure AD está a funcionar corretamente:
@@ -36,7 +36,7 @@ Para obter mais informações sobre a ferramenta de resolução de problemas de 
 ## <a name="the-page-is-not-rendered-correctly"></a>A página não é processada corretamente
 Pode ter problemas com a sua aplicação de processamento ou está a funcionar incorretamente sem receber mensagens de erro específicas. Isto pode ocorrer se publicou o caminho do artigo, mas a aplicação requer o conteúdo existente fora desse caminho.
 
-Por exemplo, se publicar o caminho https://yourapp/app mas o aplicativo chama imagens https://yourapp/media, eles não serão compostos. Certifique-se de que pode publicar a aplicação através do caminho de nível mais alto, que precisa incluir todos os conteúdos relevantes. Neste exemplo, seria http://yourapp/.
+Por exemplo, se publicar o caminho `https://yourapp/app` mas o aplicativo chama imagens `https://yourapp/media`, eles não serão compostos. Certifique-se de que pode publicar a aplicação através do caminho de nível mais alto, que precisa incluir todos os conteúdos relevantes. Neste exemplo, seria `http://yourapp/`.
 
 Se alterar o caminho para incluir conteúdo referenciado, mas ainda precisar que os utilizadores aterrar num link-se no caminho, consulte a mensagem de blogue [definir a ligação correta para aceder a aplicações de Proxy de aplicações no Azure AD painel e iniciador de aplicações do Office 365](https://blogs.technet.microsoft.com/applicationproxyblog/2016/04/06/setting-the-right-link-for-application-proxy-applications-in-the-azure-ad-access-panel-and-office-365-app-launcher/).
 

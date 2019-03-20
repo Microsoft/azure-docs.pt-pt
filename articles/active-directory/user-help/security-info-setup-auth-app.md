@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 02/13/2019
 ms.author: lizross
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 336b30a8e8687b3a2bdd05a17e558f44905f135e
-ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
+ms.openlocfilehash: a4757be00a3633f56aed52dd7af22923e49b0b62
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57338846"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58102388"
 ---
 # <a name="set-up-security-info-preview-to-use-an-authenticator-app"></a>Definir informações de segurança (pré-visualização) para utilizar uma aplicação de autenticação
 Pode seguir estes passos para adicionar a verificação de dois fatores e métodos de reposição de palavra-passe. Depois de ter configurado isso pela primeira vez, pode retornar para o **informações de segurança** página para adicionar, atualizar ou eliminar as suas informações de segurança.
@@ -52,10 +52,10 @@ Dependendo das definições da sua organização, poderá conseguir utilizar uma
 
     ![Comece obtendo a página da aplicação](media/security-info/securityinfo-myprofile-getauthapp.png)
 
-    >[!Note]
-    >Se pretender utilizar uma aplicação de autenticação que não a aplicação Microsoft Authenticator, selecione o **desejo usar uma aplicação de autenticador diferente** ligação.
-    
-    >Se sua organização permite-lhe escolher um método diferente, além da aplicação authenticator, pode selecionar o **quero configurar uma ligação de outro método**.
+   > [!Note]
+   > Se pretender utilizar uma aplicação de autenticação que não a aplicação Microsoft Authenticator, selecione o **desejo usar uma aplicação de autenticador diferente** ligação.
+   > 
+   > Se sua organização permite-lhe escolher um método diferente, além da aplicação authenticator, pode selecionar o **quero configurar uma ligação de outro método**.
 
 5. Manter-se no **configurar a sua conta** página enquanto configurar a aplicação Microsoft Authenticator no seu dispositivo móvel.
 
@@ -81,9 +81,9 @@ Dependendo das definições da sua organização, poderá conseguir utilizar uma
 
 8. Aprove a notificação na aplicação Microsoft Authenticator e, em seguida, selecione **seguinte**.
 
-    ![Notificação de êxito, ligar a aplicação e a sua conta](media/security-info/securityinfo-myprofile-successauthapp.png)
+     ![Notificação de êxito, ligar a aplicação e a sua conta](media/security-info/securityinfo-myprofile-successauthapp.png)
 
-    Por predefinição, para verificar a sua identidade quando utilizar a reposição de palavra-passe ou a verificação em dois passos, suas informações de segurança é atualizada para utilizar a aplicação Microsoft Authenticator.
+     Por predefinição, para verificar a sua identidade quando utilizar a reposição de palavra-passe ou a verificação em dois passos, suas informações de segurança é atualizada para utilizar a aplicação Microsoft Authenticator.
 
 ## <a name="delete-your-authenticator-app-from-your-security-info-methods"></a>Eliminar aplicação de autenticador a partir de seus métodos de informações de segurança
 Se já não quiser utilizar a aplicação de autenticação como um método de informações de segurança, pode removê-lo a partir da **informações de segurança** página. Isto funciona para todas as aplicações de autenticação, não apenas a aplicação Microsoft Authenticator. Depois de eliminar a aplicação, terá de ir para a aplicação de autenticador no seu dispositivo móvel e eliminar a conta.

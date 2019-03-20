@@ -8,23 +8,23 @@ ms.topic: conceptual
 ms.date: 3/12/2018
 ms.author: dukek
 ms.subservice: alerts
-ms.openlocfilehash: cb70dd30d2c3218ac0ad6ef4bd7b71108845f8cb
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: 11fd6a2c58671cc5d0bcf0593239eb9e62aca834
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54476449"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58109496"
 ---
 # <a name="rate-limiting-for-voice-sms-emails-azure-app-push-notifications-and-webhook-posts"></a>Taxa de limitação para voz, SMS, mensagens de correio eletrónico, notificações push da aplicação do Azure e webhook de mensagens
 Limitação de velocidade é uma suspensão de notificações que ocorre quando demasiados são enviados para um número de telefone específico, o endereço de e-mail ou o dispositivo. Limitação de velocidade garante que os alertas são gerenciáveis e passíveis de ação.
 
 Os limiares de limite de taxa são:
 
- - **SMS**: SMS não mais de 1 a cada 5 minutos.
- - **Voz**: Chamada de voz não mais de 1 a cada 5 minutos.
- - **e-mail**: Não mais do que 100 mensagens de e-mail numa hora.
+- **SMS**: SMS não mais de 1 a cada 5 minutos.
+- **Voz**: Chamada de voz não mais de 1 a cada 5 minutos.
+- **e-mail**: Não mais do que 100 mensagens de e-mail numa hora.
  
- Outras ações não são o limite de taxa.
+  Outras ações não são o limite de taxa.
 
 ## <a name="rate-limit-rules"></a>Regras de limite de taxa
 - Um número de telefone específico ou o e-mail é limitada ao receber mais mensagens do que permite o limiar de taxa.

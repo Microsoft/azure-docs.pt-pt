@@ -10,12 +10,12 @@ ms.subservice: custom-vision
 ms.topic: conceptual
 ms.date: 01/10/2019
 ms.author: anroth
-ms.openlocfilehash: d91d62c387fc7bcaef8b7f2cb7e8d865c882aeed
-ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
+ms.openlocfilehash: f2cd8f5074f815e84caaedb01335406657f29088
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56445462"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58088014"
 ---
 # <a name="how-to-build-a-classifier-with-custom-vision"></a>Como criar um classificador com visão personalizada
 
@@ -100,7 +100,7 @@ Para carregar outro conjunto de imagens, regresse à parte superior desta secç�
 
 > [!NOTE]
 > O serviço de visão personalizada oferece suporte a alguns manipulação de imagem negativo automática. Por exemplo, se estiver criando um grape versus classificador banana e enviar uma imagem de um calçado para predição, o classificador deve classificar essa imagem como próximo de 0% para grape e banana.
-
+> 
 > Por outro lado, nos casos em que as imagens negativas são apenas uma variação das imagens utilizadas na formação, é provável que o modelo classifica as imagens negativas como uma classe etiquetada devido às semelhanças excelentes. Por exemplo, se tiver uma cor de laranja versus classificador grapefruit e alimentar numa imagem de um clementine, ele pode classificar o clementine como uma cor de laranja porque muitos recursos do clementine assemelhar-se do laranjas. Se as imagens negativas dessa natureza, é recomendável criar uma ou mais etiquetas adicionais (como **outros**) e identificar as imagens negativas com esta etiqueta durante o treinamento para permitir que o modelo para melhor distinção entre essas classes .
 
 ## <a name="train-the-classifier"></a>Preparar o classificador

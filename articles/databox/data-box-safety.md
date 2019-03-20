@@ -8,12 +8,12 @@ ms.subservice: pod
 ms.topic: article
 ms.date: 09/24/2018
 ms.author: alkohli
-ms.openlocfilehash: 65b111d74121b6a679883d480b9e1f19d41e334e
-ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
+ms.openlocfilehash: d0ef3e407fd256b4db351f86b51964cbcb16e819
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49093566"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57905142"
 ---
 # <a name="safely-install-and-operate-your-azure-data-box"></a>Instalar e operar o Azure Data Box em segurança
 ![Ícone de aviso](./media/data-box-safety/warning_icon.png)
@@ -77,14 +77,14 @@ Aqui estão os ícones que encontrará ao rever as precauções de segurança a 
 * Desligue permanentemente a unidade antes, movê-lo ou se achar que tem de se tornar danificado de qualquer forma.
 * Forneça uma fonte de energia adequado com a proteção de sobrecarga elétrico para satisfazer as seguintes especificações de energia:
 
-    - Tensão: AC de V 100 a 240 V AC
+    - Tensão: V AC de 100 a 240 V AC
     - Atual: 6, máximo
-    - Frequência: 50 Hz a 60 Hz
+    - Frequência de: 50 Hz a 60 Hz
 
 ![Ícone de aviso](./media/data-box-safety/warning_icon.png) **cuidado:**
 
 * Este dispositivo contém baterias de célula de moeda. Não tente para o dispositivo de serviço. Baterias neste dispositivo não for utilizador serviceable na. 
-* **Para o pessoal do serviço apenas**: risco de explosão se bateria é substituída por um tipo incorreto. Descarte as baterias utilizadas, de acordo com as instruções.
+* **Para o pessoal do serviço apenas**: Risco de explosão se bateria é substituída por um tipo incorreto. Descarte as baterias utilizadas, de acordo com as instruções.
 
 ![Observe o ícone](./media/data-box-safety/notice_icon.png) **aviso:**
 
@@ -101,10 +101,10 @@ Este dispositivo é:
 - Avaliada como informações de tecnologia de equipamentos (ITE), concebido para operar num ambiente de sala de típica de dados. A adequação do produto para outros ambientes pode exigir mais avaliação.
 - Concebido para utilização com NRTL listados (UL, CSA, ETL, etc.) e IEC/EN 60950-1 ou IEC/EN 62368-1 em conformidade (CE marcado) equipamento de tecnologia da informação.
 - Concebido para operar no ambiente seguinte. 
-    - Operar a temperatura: 50° para 95° F (10° 35° c)
+    - Temperatura operacional: 50° para 95° F (10° 35° c)
     - Temperatura de armazenamento:-4 ° para 122 ° F (-20 ° 50 ° c)
     - Humidade relativa: 15% a 85% (noncondensing) 
-    - Operacional em altitude: testado até 6500 pés (metros de 0 a medidores de 2000)
+    - Altitude operacional: Testado até 6500 pés (metros de 0 a medidores de 2000)
 
 Para as classificações de fonte de alimentação elétrica, consulte a etiqueta de classificação de dispositivo fornecida com a unidade. 
 
@@ -122,11 +122,11 @@ Este dispositivo está em conformidade com a parte 15 as regras de FCC e o setor
 
 ![Canadá](./media/data-box-safety/canada.png)
 
-PODE ICES-3(A)/NMB-3(A)
+CAN ICES-3(A)/NMB-3(A)
 
-Microsoft Corporation, um Microsoft forma, Redmond, WA 98052, EUA.
+Microsoft Corporation, One Microsoft Way, Redmond, WA 98052, USA.
 
-Dos Estados Unidos: (800) 426-9400
+Estados Unidos: (800) 426-9400
 
 Canadá: (800) 933-4750
 
@@ -142,7 +142,7 @@ Esse é um produto de classe A. Num ambiente nacional, este produto pode causar 
 
 ![Ícone de disposição da bateria](./media/data-box-safety/battery_disposal_icon.png)
 
-Esse símbolo no produto ou suas baterias ou seu empacotamento significa que este produto e qualquer baterias contém tem não ser descartadas com sua desperdício agregado familiar. Em vez disso, é da responsabilidade do cliente passar isso para um ponto de coleção aplicável para a Reciclagem de baterias e equipamento elétrico e eletrónico. Essa coleção separada e a Reciclagem irá ajudam a conservação dos recursos naturais e impedir potenciais conseqüências negativas de estado de funcionamento humano e o ambiente devido à presença possível de substâncias tóxicas de perigosas baterias e elétrica e eletrónica equipamento, que pode ser causado por descarte inadequado. Para obter mais informações sobre onde pode entregar suas baterias e o desperdício elétrico e eletrónico, entre em contato com seu escritório local cidade/município, seu serviço do agregado familiar disposição desperdício ou a loja de onde tiver adquirido este produto. Contacte *erecycle@microsoft.com* para obter mais informações sobre WEEE.
+Esse símbolo no produto ou suas baterias ou seu empacotamento significa que este produto e qualquer baterias contém tem não ser descartadas com sua desperdício agregado familiar. Em vez disso, é da responsabilidade do cliente passar isso para um ponto de coleção aplicável para a Reciclagem de baterias e equipamento elétrico e eletrónico. Essa coleção separada e a Reciclagem irá ajudam a conservação dos recursos naturais e impedir potenciais conseqüências negativas de estado de funcionamento humano e o ambiente devido à presença possível de substâncias tóxicas de perigosas baterias e elétrica e eletrónica equipamento, que pode ser causado por descarte inadequado. Para obter mais informações sobre onde pode entregar suas baterias e o desperdício elétrico e eletrónico, entre em contato com seu escritório local cidade/município, seu serviço do agregado familiar disposição desperdício ou a loja de onde tiver adquirido este produto. Contacte *erecycle\@microsoft.com* para obter mais informações sobre WEEE.
 
 Este produto contém battery(ies) de célula de moeda.
 

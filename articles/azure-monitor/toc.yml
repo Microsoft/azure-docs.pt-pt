@@ -282,12 +282,24 @@ items:
             href: app/profiler-servicefabric.md
           - name: Ativar o Profiler para uma VM do Azure
             href: app/profiler-vm.md
+          - name: Gerador de perfis para os serviços de Aplicação do Linux (pré-visualização)
+            href: app/profiler-aspnetcore-linux.md
           - name: Definições do Profiler
             href: app/profiler-settings.md
           - name: Acompanhar pedidos para a Criação de Perfis
             href: app/profiler-trackrequests.md
           - name: Resolução de problemas do Profiler
             href: app/profiler-troubleshooting.md
+        - name: Depurador de Instantâneos
+          items:
+          - name: Descrição geral
+            href: app/snapshot-debugger.md
+          - name: Ativar o Snapshot Debugger para um Serviço de Aplicações
+            href: app/snapshot-debugger-appservice.md
+          - name: Ativar o Snapshot Debugger para outros ambientes
+            href: app/snapshot-debugger-vm.md
+          - name: Resolução de problemas do Snapshot Debugger
+            href: app/snapshot-debugger-troubleshoot.md
         - name: Diagnóstico
           href: ../application-insights/app-insights-azure-diagnostics.md
         - name: Pré-visualizações
@@ -305,7 +317,7 @@ items:
         - name: Núcleo de ASP.NET
           href: app/asp-net-core.md
           items:
-          - name: Gerador de perfis para os serviços de Aplicação do Linux
+          - name: Gerador de perfis para os serviços de Aplicação do Linux (pré-visualização)
             href: app/profiler-aspnetcore-linux.md
         - name: Consola
           href: app/console.md
@@ -327,8 +339,6 @@ items:
           href: app/annotations.md
         - name: ApplicationInsights.config
           href: app/configuration-with-applicationinsights-config.md
-        - name: Depurador de Instantâneos
-          href: app/snapshot-debugger.md
       - name: Aplicações Java
         items:
         - name: Web Apps
@@ -1034,9 +1044,9 @@ items:
     href: https://stackoverflow.com/search?q=monitoring
   - name: Exemplos de código
     href: https://azure.microsoft.com/resources/samples/?service=monitor
-ms.openlocfilehash: 84cda925280e7497b2538d958a841bba3fc48d60
-ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
+ms.openlocfilehash: 661ffa0c16b17186523c7b36e571a38785a2ea5c
+ms.sourcegitcommit: f331186a967d21c302a128299f60402e89035a8d
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57341311"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58189874"

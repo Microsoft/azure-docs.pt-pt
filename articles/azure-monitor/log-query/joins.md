@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 08/16/2018
 ms.author: bwren
-ms.openlocfilehash: c79becfda84e1a7d65399c7211bdc3b98a28696f
-ms.sourcegitcommit: e88188bc015525d5bead239ed562067d3fae9822
+ms.openlocfilehash: 2ea5b4e3af6591e6e25a863998baa7cecb3e29e8
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/24/2019
-ms.locfileid: "56750570"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58079116"
 ---
 # <a name="joins-in-azure-monitor-log-queries"></a>É associado a nas consultas de registo do Azure Monitor
 
@@ -101,7 +101,7 @@ Considere os seguintes pontos para um desempenho ideal:
 
 - Utilize um filtro de horas em cada tabela para reduzir os registos que têm de ser avaliados para a junção.
 - Uso `where` e `project` para reduzir o número de linhas e colunas nas tabelas de entrada antes da junção.
-* Se uma tabela é sempre menor do que o outro, utilize-o como o lado esquerdo da associação.
+- Se uma tabela é sempre menor do que o outro, utilize-o como o lado esquerdo da associação.
 
 
 ## <a name="next-steps"></a>Passos Seguintes

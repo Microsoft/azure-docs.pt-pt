@@ -9,12 +9,12 @@ ms.date: 11/28/2018
 ms.topic: conceptual
 ms.service: service-fabric-mesh
 manager: chackdan
-ms.openlocfilehash: f767dfdf96b89344fea18893f7030ea0fd1882ad
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 36d0b49f1b9fb1ca5d13283146d134137a5cb028
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57764275"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57900646"
 ---
 # <a name="manage-service-fabric-mesh-application-secrets"></a>Gerir segredos da aplicação do Service Fabric malha
 Malha do Service Fabric suporta segredos como recursos do Azure. Um segredo de malha do Service Fabric pode ser qualquer informação de texto confidenciais, como cadeias de ligação de armazenamento, as palavras-passe ou outros valores que devem ser armazenados e transmitidos de forma segura. Este artigo mostra como utilizar o serviço de Store seguro do Service Fabric para implementar e manter segredos.
@@ -31,13 +31,13 @@ Gerir segredos inclui os seguintes passos:
 5. Comandos do Azure de utilização "az" CLI para a gestão de ciclo de vida do serviço de Store seguro.
 
 ## <a name="declare-a-mesh-secrets-resource"></a>Declare um recurso de segredos de malha
-Um recurso de segredos de malha é declarado num arquivo do Azure Resource modelo JSON ou YAML usando o tipo de inlinedValue e definições de contentType SecretsStoreRef. O recurso de segredos de malha suporta segredos de serviço Store seguro obtido. 
+Um recurso de segredos de malha é declarado num JSON de modelo de recursos do Azure ou o ficheiro YAML usando o tipo de inlinedValue e definições de contentType SecretsStoreRef. O recurso de segredos de malha suporta segredos de serviço Store seguro obtido. 
 >
 Segue-se um exemplo de como declarar os recursos de malha segredos num ficheiro JSON:
 
 ```json
 {
-  "$schema": "http://schema.management.azure.com/schemas/2014-04-01-preview/deploymentTemplate.json",
+  "$schema": "https://schema.management.azure.com/schemas/2014-04-01-preview/deploymentTemplate.json",
   "contentVersion": "1.0.0.0",
   "parameters": {
     "location": {
@@ -103,7 +103,7 @@ Segue-se um exemplo de como declarar os recursos de malha segredos/valores num f
 
 ```json
 {
-  "$schema": "http://schema.management.azure.com/schemas/2014-04-01-preview/deploymentTemplate.json",
+  "$schema": "https://schema.management.azure.com/schemas/2014-04-01-preview/deploymentTemplate.json",
   "contentVersion": "1.0.0.0",
   "parameters": {
     "location": {
@@ -215,9 +215,9 @@ az mesh secret show --Resource-group <myResourceGroup> --secret-name <mySecret>
 
 - Não é possível eliminar um segredo enquanto está a ser referenciado por um aplicativo de malha.
 - A eliminar um recurso de segredos elimina todas as versões de segredos/recursos.
-```azurecli-interactive
-az mesh secret delete --Resource-group <myResourceGroup> --secret-name <mySecret>
-```
+  ```azurecli-interactive
+  az mesh secret delete --Resource-group <myResourceGroup> --secret-name <mySecret>
+  ```
 
 ### <a name="list-secrets-in-subscription"></a>Lista os segredos na subscrição
 ```azurecli-interactive

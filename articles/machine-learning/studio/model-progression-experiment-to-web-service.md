@@ -1,23 +1,23 @@
 ---
-title: Como um modelo de machine learning torna-se um serviço web
+title: Como um modelo torna-se um serviço web
 titleSuffix: Azure Machine Learning Studio
-description: Uma visão geral sobre a mecânica como sua progride de modelo do Azure Machine Learning Studio de desenvolvimento de um experimentação para um serviço Web operacionalizado.
+description: Uma visão geral sobre a mecânica como sua progride de modelo do Azure Machine Learning Studio de desenvolvimento de um experimentação para um serviço Web.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
 ms.topic: conceptual
-author: ericlicoding
+author: xiaoharper
 ms.author: amlstudiodocs
 ms.custom: previous-ms.author=yahajiza, previous-author=YasinMSFT
 ms.date: 03/20/2017
-ms.openlocfilehash: 808883fc96369538a26a06a7dadb5f0ecd6628d5
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.openlocfilehash: 28bb96099acb800d9095325b8c7b46a6b5124b4e
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56823404"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57835134"
 ---
-# <a name="how-a-machine-learning-studio-model-progresses-from-an-experiment-to-an-operationalized-web-service"></a>Como um modelo de Machine Learning Studio evolui de uma experimentação para um serviço Web operacionalizado
+# <a name="how-a-machine-learning-studio-model-progresses-from-an-experiment-to-a-web-service"></a>Como um modelo de Machine Learning Studio evolui de uma experimentação para um serviço Web
 O Azure Machine Learning Studio dispõe numa tela interativa que permite que desenvolver, executar, testar e iterar um ***experimentar*** que representa um modelo de Análise Preditiva. Há uma grande variedade de módulos disponíveis que pode:
 
 * Dados de entrada na sua experimentação
@@ -32,7 +32,7 @@ Quando estiver satisfeito com a sua experimentação, pode implementá-la como u
 Neste artigo, vamos dar uma visão geral sobre a mecânica como sua progride de modelo de Machine Learning de desenvolvimento de um experimentação para um serviço Web operacionalizado.
 
 > [!NOTE]
-> Existem outras formas de desenvolver e implementar modelos de machine learning, mas este artigo se concentra em como utilizar o Machine Learning Studio. Por exemplo, para ler uma descrição de como criar um serviço Web preditivo clássico com o R, veja a mensagem de blogue [compilação & implementar preditiva Web aplicações usando o r Studio e do Azure Machine Learning studio](http://blogs.technet.com/b/machinelearning/archive/2015/09/25/build-and-deploy-a-predictive-web-app-using-rstudio-and-azure-ml.aspx).
+> Existem outras formas de desenvolver e implementar modelos de machine learning, mas este artigo se concentra em como utilizar o Machine Learning Studio. Por exemplo, para ler uma descrição de como criar um serviço Web preditivo clássico com o R, veja a mensagem de blogue [compilação & implementar preditiva Web aplicações usando o r Studio e do Azure Machine Learning studio](https://blogs.technet.com/b/machinelearning/archive/2015/09/25/build-and-deploy-a-predictive-web-app-using-rstudio-and-azure-ml.aspx).
 >
 >
 

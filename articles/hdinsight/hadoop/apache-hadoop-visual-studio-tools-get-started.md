@@ -10,12 +10,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017,seodec18
 ms.topic: conceptual
 ms.date: 02/21/2019
-ms.openlocfilehash: 7d93e5777e3456098e1282fd70da55e85e1f80d0
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: bb7c46548726b00c68c8e952a8e2956ad0511763
+ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57438250"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58201777"
 ---
 # <a name="use-data-lake-tools-for-visual-studio-to-connect-to-azure-hdinsight-and-run-apache-hive-queries"></a>Utilizar o Data Lake Tools para Visual Studio para ligar ao Azure HDInsight e executar consultas do Apache Hive
 
@@ -93,7 +93,7 @@ Ligar-se ao portal do Azure a partir do Visual Studio:
 
 1. No Explorador de servidores, navegue até **Azure** > **HDInsight** e selecione o cluster.
 
-2. Um cluster do HDInsight com o botão direito e selecione **gerir Cluster no Portal do Azure**.
+2. Um cluster do HDInsight com o botão direito e selecione **gerir Cluster no portal do Azure**.
 
 Para fazer perguntas e/ou enviar comentários a partir do Visual Studio:
 
@@ -246,12 +246,12 @@ Para ver tarefas do Hive:
 1. Um cluster do HDInsight com o botão direito e selecione **ver tarefas**. É apresentada uma lista dos trabalhos do Hive executados no cluster.  
 
 2. Selecione uma tarefa. Na janela **Resumo da Tarefa do Hive**, selecione uma das seguintes opções:
-    - **Consulta da Tarefa**
-    - **Resultado da Tarefa**
-    - **Registo da Tarefa**  
-    - **Registo do Yarn**
+   - **Consulta da Tarefa**
+   - **Resultado da Tarefa**
+   - **Registo da Tarefa**  
+   - **Registo do Yarn**
 
-    ![Captura de ecrã da janela de Visualização das Tarefas do Hive no HDInsight Visual Studio Tools](./media/apache-hadoop-visual-studio-tools-get-started/hdinsight.visual.studio.tools.view.hive.jobs.png "Ver tarefas do Hive")
+     ![Captura de ecrã da janela de Visualização das Tarefas do Hive no HDInsight Visual Studio Tools](./media/apache-hadoop-visual-studio-tools-get-started/hdinsight.visual.studio.tools.view.hive.jobs.png "Ver tarefas do Hive")
 
 
 ## <a name="run-apache-pig-scripts"></a>Executar scripts de Apache Pig
@@ -275,5 +275,5 @@ Neste artigo, aprendeu a utilizar o pacote do Data Lake Tools para Visual Studio
 * [Utilizar o Hive do Hadoop no HDInsight](hdinsight-use-hive.md)
 * [Introdução à utilização do Apache Hadoop no HDInsight](apache-hadoop-linux-tutorial-get-started.md)
 * [Submeter tarefas do Apache Hadoop no HDInsight](submit-apache-hadoop-jobs-programmatically.md)
-* [Analisar dados do Twitter com o Apache Hadoop no HDInsight](../hdinsight-analyze-twitter-data.md)
+* [Analisar dados do Twitter com o Apache Hadoop no HDInsight](../hdinsight-analyze-twitter-data-linux.md)
 

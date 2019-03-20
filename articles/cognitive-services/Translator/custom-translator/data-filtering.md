@@ -9,12 +9,12 @@ ms.subservice: translator-text
 ms.date: 02/21/2019
 ms.author: v-jansko
 ms.topic: conceptual
-ms.openlocfilehash: dee0f55d816cae3b178990a432c37d3082d26de3
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 195c39562e36000597d04bb760741ec7f40203c8
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57775769"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57844678"
 ---
 # <a name="data-filtering"></a>Filtragem de dados
 
@@ -45,7 +45,7 @@ Tradutor personalizado remove as frases que estão presentes no ajuste de docume
 Substitua os vários carateres de pontuação de final da sentença numa única instância.  
 
 ## <a name="japanese-character-normalization"></a>Normalização de caracteres japoneses
-Normalizar os caracteres japoneses duplicados: Converta meia largura para caracteres de largura total.
+Converta as letras de largura total e dígitos para caracteres de meia largura.
 
 ## <a name="unescaped-xml-tags"></a>Invalidada marcas XML
 Filtragem de etiquetas de invalidada de transformações em etiquetas com caráter de escape:

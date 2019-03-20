@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 1/3/2019
 ms.author: rkarlin
-ms.openlocfilehash: 52b347aef240f2338aedff2c2a1a3cd53743dc27
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: 5a25ba889ebde750937f88e447123263a82d5627
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56114268"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57896828"
 ---
 # <a name="integrate-security-solutions-in-azure-security-center"></a>Integrar soluções de segurança no Centro de Segurança do Azure
 Este documento ajuda-o a gerir soluções de segurança já ligadas ao Centro de Segurança do Azure e adicionar novas.
@@ -34,7 +34,7 @@ O Centro de Segurança facilita a ativação de soluções de segurança integra
 Atualmente, as soluções de segurança integradas incluem:
 
 - Firewall de aplicações Web ([Barracuda](https://www.barracuda.com/products/webapplicationfirewall), [F5](https://support.f5.com/kb/en-us/products/big-ip_asm/manuals/product/bigip-ve-web-application-firewall-microsoft-azure-12-0-0.html), [Imperva](https://www.imperva.com/Products/WebApplicationFirewall-WAF), [Fortinet](https://www.fortinet.com/products.html) e [Gateway de Aplicação do Azure](https://azure.microsoft.com/blog/azure-web-application-firewall-waf-generally-available/))
-- Firewalls de próxima geração ([Check Point](https://www.checkpoint.com/products/vsec-microsoft-azure/), [Barracuda](https://campus.barracuda.com/product/nextgenfirewallf/article/NGF/AzureDeployment/), [Fortinet](http://docs.fortinet.com/d/fortigate-fortios-handbook-the-complete-guide-to-fortios-5.2), [Cisco](http://www.cisco.com/c/en/us/td/docs/security/firepower/quick_start/azure/ftdv-azure-qsg.html) e [Palo Alto Networks](https://www.paloaltonetworks.com/products))
+- Firewalls de próxima geração ([Check Point](https://www.checkpoint.com/products/vsec-microsoft-azure/), [Barracuda](https://campus.barracuda.com/product/nextgenfirewallf/article/NGF/AzureDeployment/), [Fortinet](https://docs.fortinet.com/d/fortigate-fortios-handbook-the-complete-guide-to-fortios-5.2), [Cisco](https://www.cisco.com/c/en/us/td/docs/security/firepower/quick_start/azure/ftdv-azure-qsg.html) e [Palo Alto Networks](https://www.paloaltonetworks.com/products))
 - Avaliação de vulnerabilidades ([Qualys](https://www.qualys.com/public-clouds/microsoft-azure/) e [Rapid7](https://www.rapid7.com/products/insightvm/))
 
 > [!NOTE]
@@ -60,7 +60,7 @@ As soluções de segurança do Azure implementadas a partir do Centro de Seguran
 
 3. No menu Centro de Segurança, selecione **Soluções de segurança**.
 
-  ![Descrição geral do Centro de Segurança](./media/security-center-partner-integration/overview.png)
+   ![Descrição geral do Centro de Segurança](./media/security-center-partner-integration/overview.png)
 
 Em **Soluções de segurança**, pode ver informações sobre o estado de funcionamento da solução de segurança do Azure integrada e efetuar tarefas de gestão básicas. Também pode ligar outros tipos de origens de dados de segurança, tais como alertas do Azure Active Directory Identity Protection e registos de firewall no Common Event Format (CEF).
 
@@ -82,12 +82,12 @@ O estado de uma solução de parceiro pode ser:
 >
 >
 
-2. Selecione **vista** para obter informações adicionais e opções, que inclui:
+1. Selecione **vista** para obter informações adicionais e opções, que inclui:
 
-  - **Consola de soluções**. Abre a experiência de gestão para esta solução.
-  - **Associar VM**. Abre o painel de ligar aplicações. Aqui pode ligar recursos à solução de parceiros.
-  - **Eliminar solução**.
-  - **Configurar**.
+   - **Consola de soluções**. Abre a experiência de gestão para esta solução.
+   - **Associar VM**. Abre o painel de ligar aplicações. Aqui pode ligar recursos à solução de parceiros.
+   - **Eliminar solução**.
+   - **Configurar**.
 
    ![Detalhe de solução de parceiros](./media/security-center-partner-solutions/partner-solutions-detail.png)
 

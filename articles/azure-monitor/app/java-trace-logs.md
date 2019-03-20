@@ -10,14 +10,14 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 02/12/2018
+ms.date: 03/14/2019
 ms.author: mbullwin
-ms.openlocfilehash: d3f8e5ac1f85483d04da99744809f4bc72295024
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
+ms.openlocfilehash: d8344177fc5895451cf876f5aa581baa1fed52e6
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54266199"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58001866"
 ---
 # <a name="explore-java-trace-logs-in-application-insights"></a>Explore Java registos de rastreio no Application Insights
 Se estiver a utilizar Logback ou Log4J (versão 1.2 ou 2.0) para o rastreio, pode ter os registos de rastreio enviados automaticamente para o Application Insights, onde pode explorar e pesquisar nos mesmos.
@@ -158,7 +158,7 @@ Agora que configurou o seu projeto para enviar os rastreios para o Application I
 
 Submetido por meio de agentes Coletores de exceções serão apresentadas no portal como telemetria de exceção.
 
-![No portal do Application Insights, abrir a pesquisa](./media/java-trace-logs/10-diagnostics.png)
+![No portal do Application Insights, abrir a pesquisa](./media/java-trace-logs/01-diagnostics.png)
 
 ## <a name="next-steps"></a>Passos Seguintes
 [Pesquisa de diagnóstico][diagnostic]

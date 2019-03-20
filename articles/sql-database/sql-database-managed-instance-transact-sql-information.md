@@ -11,13 +11,13 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: carlrab, bonova
 manager: craigg
-ms.date: 03/06/2019
-ms.openlocfilehash: 2f615214fb7b77614054841af7972eb814525dee
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.date: 03/13/2019
+ms.openlocfilehash: 8654899e0a6dfce8f25855eba6c5f4a88af78665
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57549923"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57903135"
 ---
 # <a name="azure-sql-database-managed-instance-t-sql-differences-from-sql-server"></a>Diferenças de SQL da base de dados geridos instância T-SQL do Azure do SQL Server
 
@@ -46,7 +46,7 @@ Uma vez que ainda existem algumas diferenças na sintaxe e o comportamento, este
 - [GRUPO DE DISPONIBILIDADE DE SOLTAR](https://docs.microsoft.com/sql/t-sql/statements/drop-availability-group-transact-sql)
 - [SET HADR](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql-set-hadr) cláusula do [ALTER DATABASE](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql) instrução
 
-### <a name="backup"></a>Backup
+### <a name="backup"></a>Cópia de segurança
 
 Instâncias geridas têm cópias de segurança automáticas e permitir que os utilizadores criar a base de dados completa `COPY_ONLY` cópias de segurança. Diferenciais, registo e de cópias de segurança de instantâneos de ficheiros não são suportadas.
 
@@ -92,7 +92,7 @@ A chave de diferenças no `CREATE AUDIT` sintaxe para a auditoria para o armazen
 - Uma nova sintaxe `TO URL` é fornecido e permite-lhe especificar o URL do contentor de armazenamento de Blobs do Azure onde `.xel` serão colocados ficheiros
 - A sintaxe `TO FILE` não é suportada uma vez que uma instância gerida não é possível aceder a partilhas de ficheiros do Windows.
 
-Para obter mais informações, veja:  
+Para obter mais informações, consulte:  
 
 - [CRIAR A AUDITORIA DE SERVIDOR](https://docs.microsoft.com/sql/t-sql/statements/create-server-audit-transact-sql)  
 - [ALTER SERVER AUDIT](https://docs.microsoft.com/sql/t-sql/statements/alter-server-audit-transact-sql)
@@ -477,7 +477,11 @@ As seguintes variáveis, funções e exibições devolvem resultados diferentes:
 
 ### <a name="tempdb-size"></a>Tamanho TEMPDB
 
-`tempdb` é dividido em 12 14 GB de tamanho de ficheiros com o máximo por ficheiro. Este tamanho máximo por ficheiro não pode ser alterado e novos ficheiros que podem ser adicionados a `tempdb`. Esta limitação será removida em breve. Algumas consultas podem devolver um erro se precisarem de mais de 168 GB no `tempdb`.
+Tamanho máximo do ficheiro de `tempdb` não pode ser greather que 24 GB/core no escalão fins gerais. Máx. `tempdb` tamanho no escalão crítico para a empresa é limitado com o tamanho de armazenamento de instância. `tempdb` sempre é dividido em arquivos de dados de 12. Este tamanho máximo por ficheiro não pode ser alterado e novos ficheiros que podem ser adicionados a `tempdb`. Algumas consultas podem devolver um erro se precisarem de mais de 24GB / núcleo em `tempdb`.
+
+### <a name="cannot-restore-contained-database"></a>Não é possível restaurar a base de dados contida
+
+Não é possível restaurar a instância gerida [bases de dados contidas](https://docs.microsoft.com/sql/relational-databases/databases/contained-databases). Restauro de ponto no tempo das bases de dados contidas existentes não funcionam na instância gerida. Este problema será removido em breve e enquanto isso, recomendamos para remover a opção de contenção de seus bancos de dados que são colocados na instância gerida e não utilize a opção de contenção para as bases de dados de produção.
 
 ### <a name="exceeding-storage-space-with-small-database-files"></a>Que exceda o espaço de armazenamento com ficheiros de base de dados pequena
 
@@ -510,7 +514,7 @@ Várias vistas de sistema, contadores de desempenho, mensagens de erro, XEvents 
 
 ### <a name="database-mail-profile"></a>Perfil de correio de base de dados
 
-É possível que o perfil de correio de base de dados apenas uma e tem de ser chamado `AzureManagedInstance_dbmail_profile`.
+O perfil de correio de base de dados utilizado pelo agente do SQL tem de ser chamado `AzureManagedInstance_dbmail_profile`.
 
 ### <a name="error-logs-are-not-persisted"></a>Registos de erros não são persistente
 
@@ -524,7 +528,7 @@ Uma instância gerida coloca informações verbosas em registos de erros e muito
 
 ### <a name="transaction-scope-on-two-databases-within-the-same-instance-isnt-supported"></a>Escopo da transação nas duas bases de dados dentro da instância do mesmo não é suportado
 
-`TransactionScope` classe no .net não funciona se duas consultas são enviadas para duas bases de dados dentro da mesma instância sob o mesmo escopo de transação:
+`TransactionScope` classe no .NET não funciona se duas consultas são enviadas para duas bases de dados dentro da mesma instância sob o mesmo escopo de transação:
 
 ```C#
 using (var scope = new TransactionScope())

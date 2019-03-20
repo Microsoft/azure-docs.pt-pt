@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 05/11/2017
 ms.author: fhryo-msft
 ms.subservice: common
-ms.openlocfilehash: 25ec52b44f8d5a36868cc609c42b6db5ab939fa4
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.openlocfilehash: bfaa738b0f99594a3bd11541d519701ff5eb98f5
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55490270"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57896165"
 ---
 # <a name="monitor-diagnose-and-troubleshoot-microsoft-azure-storage"></a>Monitorizar, diagnosticar e resolver problemas do Armazenamento do Microsoft Azure
 [!INCLUDE [storage-selector-portal-monitoring-diagnosing-troubleshooting](../../../includes/storage-selector-portal-monitoring-diagnosing-troubleshooting.md)]
@@ -123,9 +123,9 @@ O resto desta secção descreve o que deve monitorar de métricas e por que.
 Pode utilizar o [portal do Azure](https://portal.azure.com) para ver o estado de funcionamento do serviço de armazenamento (e outros serviços do Azure) em todas as regiões do Azure em todo o mundo. Monitorização permite-lhe ver imediatamente se um problema fora do seu controlo está a afetar o serviço de armazenamento na região que utilizar para a sua aplicação.
 
 O [portal do Azure](https://portal.azure.com) também pode fornecer notificações de incidentes que afetam os vários serviços do Azure.
-Nota: Estas informações estavam anteriormente disponíveis, juntamente com dados históricos, sobre o [Dashboard de serviço do Azure](http://status.azure.com).
+Nota: Estas informações estavam anteriormente disponíveis, juntamente com dados históricos, sobre o [Dashboard de serviço do Azure](https://status.azure.com).
 
-Embora o [portal do Azure](https://portal.azure.com) recolhe informações de estado de funcionamento de dentro dos datacenters do Azure (monitorização do avesso), precisa também considerar adotar uma abordagem de fora para dentro para gerar transações sintéticas que acedem a periodicamente seu aplicativo web alojadas no Azure de várias localizações. Serviços oferecidos pela [Dynatrace](http://www.dynatrace.com/en/synthetic-monitoring) e Application Insights para DevOps do Azure são exemplos desta abordagem. Para obter mais informações sobre o Application Insights para DevOps do Azure, consulte o apêndice "[apêndice 5: Monitorização com o Application Insights para DevOps do Azure](#appendix-5). "
+Embora o [portal do Azure](https://portal.azure.com) recolhe informações de estado de funcionamento de dentro dos datacenters do Azure (monitorização do avesso), precisa também considerar adotar uma abordagem de fora para dentro para gerar transações sintéticas que acedem a periodicamente seu aplicativo web alojadas no Azure de várias localizações. Serviços oferecidos pela [Dynatrace](https://www.dynatrace.com/en/synthetic-monitoring) e Application Insights para DevOps do Azure são exemplos desta abordagem. Para obter mais informações sobre o Application Insights para DevOps do Azure, consulte o apêndice "[apêndice 5: Monitorização com o Application Insights para DevOps do Azure](#appendix-5). "
 
 ### <a name="monitoring-capacity"></a>Capacidade de monitorização
 Métricas de armazenamento só armazena as métricas de capacidade para o serviço de BLOBs como blobs, normalmente, a conta para a maior proporção de dados armazenados (no momento da escrita, não é possível utilizar as métricas de armazenamento para monitorizar a capacidade das tabelas e filas). Pode encontrar estes dados no **$MetricsCapacityBlob** se tiver ativado a monitorização para o serviço de Blob de tabela. Métricas de armazenamento regista estes dados uma vez por dia, e pode usar o valor do **RowKey** para determinar se a linha contém uma entidade que se relaciona com dados de utilizador (valor **dados**) ou dados de análise (o valor **analytics**). Cada entidade armazenada contém informações sobre a quantidade de armazenamento utilizado (**capacidade** medido em bytes) e o número atual de contentores (**ContainerCount**) e blobs (**ObjectCount** ) em utilização na conta de armazenamento. Para obter mais informações sobre as métricas de capacidade armazenadas no **$MetricsCapacityBlob** da tabela, consulte [esquema de tabela de métricas de análise de armazenamento](https://msdn.microsoft.com/library/azure/hh343264.aspx).
@@ -194,7 +194,7 @@ Os utilizadores da sua aplicação notificá-lo de erros comunicados pela aplica
 > 
 > 
 
-Os seguintes recursos são úteis para compreender os códigos de estado e o erro relacionados com o armazenamento:
+Os recursos seguintes são úteis para compreender os códigos de estado e erro relacionados com o armazenamento:
 
 * [Códigos de erro de API de REST comuns](https://msdn.microsoft.com/library/azure/dd179357.aspx)
 * [Códigos de Erro do Serviço de Blobs](https://msdn.microsoft.com/library/azure/dd179439.aspx)
@@ -220,10 +220,10 @@ A biblioteca de cliente de armazenamento para .NET permite-lhe recolher dados de
 ### <a name="using-network-logging-tools"></a>Usando ferramentas de registo de rede
 Pode capturar o tráfego entre o cliente e servidor para fornecer informações detalhadas sobre os dados que o cliente e o servidor estão a trocar e as condições de rede subjacente. Ferramentas de registo de rede útil incluem:
 
-* [Fiddler](http://www.telerik.com/fiddler) é um proxy que lhe permite examinar os cabeçalhos e os dados do payload de mensagens de solicitação e resposta HTTP e HTTPS de depuração na web gratuita. Para obter mais informações, consulte [apêndice 1: Com o Fiddler para capturar o tráfego HTTP e HTTPS](#appendix-1).
-* [Microsoft Network Monitor (Netmon)](https://www.microsoft.com/download/details.aspx?id=4865) e [Wireshark](http://www.wireshark.org/) é rede gratuita analisadores de protocolo que permitem-lhe ver informações detalhadas do pacote para uma vasta gama de protocolos de rede. Para obter mais informações sobre o Wireshark, consulte "[apêndice 2: Usando o Wireshark para capturar o tráfego de rede](#appendix-2)".
+* [Fiddler](https://www.telerik.com/fiddler) é um proxy que lhe permite examinar os cabeçalhos e os dados do payload de mensagens de solicitação e resposta HTTP e HTTPS de depuração na web gratuita. Para obter mais informações, consulte [apêndice 1: Com o Fiddler para capturar o tráfego HTTP e HTTPS](#appendix-1).
+* [Microsoft Network Monitor (Netmon)](https://www.microsoft.com/download/details.aspx?id=4865) e [Wireshark](https://www.wireshark.org/) é rede gratuita analisadores de protocolo que permitem-lhe ver informações detalhadas do pacote para uma vasta gama de protocolos de rede. Para obter mais informações sobre o Wireshark, consulte "[apêndice 2: Usando o Wireshark para capturar o tráfego de rede](#appendix-2)".
 * Microsoft Message Analyzer é uma ferramenta da Microsoft, que prevalece sobre Netmon e que, para além da captura de dados de pacote de rede, ajuda-o a ver e analisar os dados de registo a partir de outras ferramentas. Para obter mais informações, consulte "[apêndice 3: Usando o Microsoft Message Analyzer para capturar o tráfego de rede](#appendix-3)".
-* Se quiser executar um teste de conectividade básica para verificar se o seu computador cliente pode ligar ao serviço de armazenamento do Azure através da rede, é possível fazer isso através da norma **ping** ferramenta no cliente. No entanto, pode utilizar o [ **tcping** ferramenta](http://www.elifulkerson.com/projects/tcping.php) para verificar a conectividade.
+* Se quiser executar um teste de conectividade básica para verificar se o seu computador cliente pode ligar ao serviço de armazenamento do Azure através da rede, é possível fazer isso através da norma **ping** ferramenta no cliente. No entanto, pode utilizar o [ **tcping** ferramenta](https://www.elifulkerson.com/projects/tcping.php) para verificar a conectividade.
 
 Em muitos casos, os dados de registo do registo de armazenamento e a biblioteca de cliente de armazenamento será suficientes para diagnosticar um problema, mas em alguns cenários, poderá ter as informações mais detalhadas que podem fornecer essas ferramentas de registo de rede. Por exemplo, com o Fiddler para ver mensagens de HTTP e HTTPS permite-lhe ver os dados de cabeçalho e payload enviados de e para os serviços de armazenamento, o que permitem que examinar a forma como uma aplicação cliente repete a operações de armazenamento. Analisadores de protocolo, como o Wireshark funcionam ao nível do pacote, permitindo-lhe ver dados TCP, o que permitem que a solucionar problemas de conectividade e de perda de pacotes. Analisador de mensagens pode operar em camadas HTTP e TCP.
 
@@ -464,12 +464,12 @@ As métricas apresentam um aumento na **PercentNetworkError** para um de seus se
 A causa mais comum deste erro é um cliente a desligar antes de um tempo limite expira no serviço de armazenamento. Investigar o código no seu cliente para compreender por que e quando o cliente se desliga do serviço de armazenamento. Também pode utilizar o Wireshark, Microsoft Message Analyzer ou Tcping para investigar problemas de conectividade de rede do cliente. Essas ferramentas são descritas na [Appendices].
 
 ### <a name="the-client-is-receiving-403-messages"></a>O cliente está a receber mensagens HTTP 403 (proibido)
-Se a aplicação cliente que está a gerar erros de HTTP 403 (proibido), das causas prováveis é que o cliente está a utilizar um expiradas acesso assinatura partilhado (SAS) quando envia um pedido de armazenamento (embora outras causas possíveis incluem o relógio chaves inválido distorção e cabeçalhos vazios ). Se uma chave SAS expirada é a causa, não verá todas as entradas nos dados de registo de armazenamento de registo do lado do servidor. A tabela seguinte mostra um exemplo de registo do lado do cliente gerado pela biblioteca de cliente de armazenamento que ilustra este problema ocorrer:
+Se a aplicação cliente estiver a gerar erros HTTP 403 (Proibido), uma das causas prováveis é o cliente estar a utilizar uma Assinatura de Acesso Partilhado (SAS) expirada quando envia um pedido de armazenamento (embora outras causas possíveis incluam distorção do relógio, chaves inválidas e cabeçalhos vazios). Se uma chave de SAS expirada for a causa, não verá entradas nos dados do Registo de Armazenamento do lado do servidor. A tabela seguinte mostra um exemplo de registo do lado do cliente gerado pela biblioteca de cliente de armazenamento que ilustra este problema ocorrer:
 
 | Origem | Verbosidade | Verbosidade | ID de pedido de cliente | Texto de operação |
 | --- | --- | --- | --- | --- |
 | Microsoft.WindowsAzure.Storage |Informações |3 |85d077ab-... |A iniciar a operação com a localização primária por modo de local PrimaryOnly. |
-| Microsoft.WindowsAzure.Storage |Informações |3 |85d077ab-... |A partir de uma solicitação síncrona para https://domemaildist.blob.core.windows.netazureimblobcontainer/blobCreatedViaSAS.txt?sv=2014-02-14&amp; sr = c&amp;is = mypolicy&amp;sig = OFnd4Rd7z01fIvh % 2BmcR6zbudIH2F5Ikm % 2FyhNYZEmJNQ % 3D&amp;api-version = 2014-02-14. |
+| Microsoft.WindowsAzure.Storage |Informações |3 |85d077ab-... |A partir de uma solicitação síncrona para <https://domemaildist.blob.core.windows.netazureimblobcontainer/blobCreatedViaSAS.txt?sv=2014-02-14&sr=c&si=mypolicy&sig=OFnd4Rd7z01fIvh%2BmcR6zbudIH2F5Ikm%2FyhNYZEmJNQ%3D&api-version=2014-02-14> |
 | Microsoft.WindowsAzure.Storage |Informações |3 |85d077ab-... |A aguardar resposta. |
 | Microsoft.WindowsAzure.Storage |Aviso |2 |85d077ab-... |Excepção emitida ao aguardar a resposta: O servidor remoto devolveu um erro: (403) Proibido. |
 | Microsoft.WindowsAzure.Storage |Informações |3 |85d077ab-... |Resposta recebida. Código de estado 403, ID do pedido de = = 9d67c64a-64ed-4b0d-9515-3b14bbcdc63d, MD5 de conteúdo = ETag =. |
@@ -480,15 +480,15 @@ Se a aplicação cliente que está a gerar erros de HTTP 403 (proibido), das cau
 
 Neste cenário, deve investigar por que o token SAS está prestes a expirar antes do cliente envia o token para o servidor:
 
-* Normalmente, não deve ser definida uma hora de início ao criar uma SAS para um cliente para utilizar imediatamente. Se existem relógio pequenas diferenças entre o host a gerar a SAS com a hora atual e o serviço de armazenamento, em seguida, é possível que o serviço de armazenamento receber uma SAS que ainda não é válida.
-* Não defina um tempo de expiração curto numa SAS. Novamente, o relógio pequeno as diferenças entre o host a gerar a SAS e o serviço de armazenamento podem levar a uma SAS aparentemente prestes a expirar anteriormente que previa.
+* Normalmente, não deve definir uma hora de início quando cria uma SAS para um cliente utilizar imediatamente. Se existirem pequenas diferenças horárias entre o anfitrião que gera a SAS com a hora atual e o serviço de armazenamento, é possível que o serviço de armazenamento receba uma SAS que ainda não seja válida.
+* Não defina um tempo de expiração demasiado curto numa SAS. Novamente, pequenas diferenças horárias entre o anfitrião que gera a SAS e o serviço de armazenamento podem levar uma SAS a expirar aparentemente mais cedo do que o previsto.
 * Faz o parâmetro de versão na chave de SAS (por exemplo **sv = 2015-04-05**) corresponde à versão da biblioteca de clientes de armazenamento que está a utilizar? Recomendamos que utilize sempre a versão mais recente do [biblioteca de clientes de armazenamento](https://www.nuget.org/packages/WindowsAzure.Storage/).
-* Se voltar a gerar as chaves de acesso de armazenamento, quaisquer tokens SAS existentes podem ser invalidados. Este problema pode ocorrer se gerar tokens SAS com um tempo de expiração longo para aplicativos de cliente para a cache.
+* Se voltar a gerar as chaves de acesso ao armazenamento, quaisquer tokens de SAS existentes podem ser invalidados. Este problema pode ocorrer se gerar tokens de SAS com um tempo de expiração longo para aplicações cliente na cache.
 
-Se estiver a utilizar a biblioteca de cliente de armazenamento para gerar tokens SAS, em seguida, é fácil de criar um token válido. No entanto, se estiver usando a API de REST de armazenamento e construir os tokens de SAS manualmente, consulte [delegar acesso com uma assinatura de acesso partilhado](https://msdn.microsoft.com/library/azure/ee395415.aspx).
+Se estiver a utilizar a Biblioteca de Cliente de Armazenamento para gerar tokens de SAS, é fácil criar um token válido. No entanto, se estiver usando a API de REST de armazenamento e construir os tokens de SAS manualmente, consulte [delegar acesso com uma assinatura de acesso partilhado](https://msdn.microsoft.com/library/azure/ee395415.aspx).
 
 ### <a name="the-client-is-receiving-404-messages"></a>O cliente está a receber mensagens de HTTP 404 (não encontrado)
-Se o aplicativo cliente recebe uma mensagem de HTTP 404 (não encontrado) do servidor, isso implica que o objeto que o cliente estava a tentar utilizar (por exemplo, uma entidade, tabelas, BLOBs, contentores ou filas) não existe no serviço de armazenamento. Existem vários motivos possíveis para isso, tais como:
+Se a aplicação cliente receber uma mensagem de HTTP 404 (Não encontrado) do servidor, isso implica que o objeto que o cliente estava a tentar utilizar (por exemplo, um blob, contentor, entidade, tabela ou fila) não existe no serviço de armazenamento. Existem vários motivos possíveis para tal, como:
 
 * [O cliente ou outro processo anteriormente eliminou o objeto]
 * [Um problema de autorização de assinatura de acesso partilhado (SAS)]
@@ -589,7 +589,7 @@ SCRIPT7002: XMLHttpRequest: Network Error 0x80070005, Access is denied.
 > 
 > 
 
-Estes erros ocorrerem porque o navegador da web implementa a [diretiva de mesma origem](http://www.w3.org/Security/wiki/Same_Origin_Policy) proveniente de restrição de segurança que impede que uma página da web chamar uma API num domínio diferente do domínio da página.
+Estes erros ocorrerem porque o navegador da web implementa a [diretiva de mesma origem](https://www.w3.org/Security/wiki/Same_Origin_Policy) proveniente de restrição de segurança que impede que uma página da web chamar uma API num domínio diferente do domínio da página.
 
 Para contornar o problema de JavaScript, pode configurar a Cross Origin Resource Sharing (CORS) para o serviço de armazenamento, que o cliente está a aceder. Para obter mais informações, consulte [suporte de Cross-Origin Resource Sharing (CORS) para serviços de armazenamento do Azure](https://msdn.microsoft.com/library/azure/dn535601.aspx).
 
@@ -632,9 +632,9 @@ A tabela seguinte mostra um extrato de registo do lado do servidor para duas ope
 | 05:10:13.8987407 |GetContainerProperties |404 |mmcont |bc881924-… |
 | 05:10:14.2147723 |CreateContainer |409 |mmcont |bc881924-… |
 
-O código no aplicativo cliente elimina e, em seguida, recria imediatamente um contentor de Blobs com o mesmo nome: o **CreateIfNotExists** método (pedido de cliente ID bc881924-...), eventualmente, falhar com o erro de HTTP 409 (conflito). Quando um cliente Elimina contentores de BLOBs, tabelas ou filas, há um breve período antes do nome fica novamente disponível.
+O código no aplicativo cliente elimina e, em seguida, recria imediatamente um contentor de Blobs com o mesmo nome: o **CreateIfNotExists** método (pedido de cliente ID bc881924-...), eventualmente, falhar com o erro de HTTP 409 (conflito). Quando um cliente elimina blobs, contentores, tabelas ou filas, tem de passar um curto período até o nome ficar novamente disponível.
 
-O aplicativo de cliente deve usar nomes de contentor exclusivo sempre que cria novos contentores se o padrão de eliminação/recrie é comum.
+A aplicação cliente deve utilizar nomes de contentor exclusivos sempre que criar novos contentores se o padrão de eliminação/recriação for comum.
 
 ### <a name="metrics-show-low-percent-success"></a>As métricas apresentam PercentSuccess baixa ou entradas do log analytics tem operações com o estado de transação de ClientOtherErrors
 O **PercentSuccess** métrica captura a percentagem de operações que foram bem-sucedidas, com base no respetivo código de estado de HTTP. Contagem de operações com códigos de estado de 2XX conclusão com êxito, ao passo que as operações com códigos de Estado nos intervalos de 3XX, 4XX e 5XX são contabilizadas como sem êxito e inferior a **PercentSuccess** valor de métrica. Nos ficheiros de registo de armazenamento do lado do servidor, estas operações são registadas com o estado da transação **ClientOtherErrors**.
@@ -708,7 +708,7 @@ Para obter mais informações sobre como utilizar o Microsoft Message Analyzer, 
 Os apêndices descrevem várias ferramentas que podem ser úteis quando estiver a diagnosticar e resolver problemas com o armazenamento do Azure (e outros serviços). Essas ferramentas não fazem parte do armazenamento do Azure e algumas são produtos de terceiros. Como tal, as ferramentas discutidas estes apêndices não são abrangidas por qualquer contrato de suporte, pode ter com o Microsoft Azure ou o armazenamento do Azure e, portanto, como parte do seu processo de avaliação deve examinar as opções de licenciamento e suporte disponíveis a partir do fornecedores dessas ferramentas.
 
 ### <a name="appendix-1"></a>Apêndice 1: Com o Fiddler para capturar o tráfego HTTP e HTTPS
-[Fiddler](http://www.telerik.com/fiddler) é uma ferramenta útil para analisar o tráfego HTTP e HTTPS entre a aplicação cliente e o serviço de armazenamento do Azure que está a utilizar.
+[Fiddler](https://www.telerik.com/fiddler) é uma ferramenta útil para analisar o tráfego HTTP e HTTPS entre a aplicação cliente e o serviço de armazenamento do Azure que está a utilizar.
 
 > [!NOTE]
 > Fiddler possível decodificar o tráfego HTTPS; Leia a documentação do Fiddler cuidadosamente para compreender a forma como consegue fazê-lo e para compreender as implicações de segurança.
@@ -727,14 +727,14 @@ Para limitar a quantidade de tráfego que captura de Fiddler, pode utilizar filt
 ![][5]
 
 ### <a name="appendix-2"></a>Apêndice 2: Usando o Wireshark para capturar o tráfego de rede
-[O Wireshark](http://www.wireshark.org/) é um analisador de protocolo de rede permite-lhe ver informações detalhadas do pacote para uma vasta gama de protocolos de rede.
+[O Wireshark](https://www.wireshark.org/) é um analisador de protocolo de rede permite-lhe ver informações detalhadas do pacote para uma vasta gama de protocolos de rede.
 
 O procedimento seguinte mostra como capturar informações detalhadas do pacote para o tráfego do computador local onde instalou o Wireshark no serviço tabela na sua conta de armazenamento do Azure.
 
 1. Inicie o Wireshark no seu computador local.
 2. Na **iniciar** secção, selecione a interface de rede local ou interfaces que estão ligados à internet.
 3. Clique em **capturar opções**.
-4. Adicionar um filtro para o **capturar filtro** caixa de texto. Por exemplo, **alojar contosoemaildist.table.core.windows.net** irá configurar o Wireshark para capturar apenas os pacotes enviados para ou a partir do ponto de final de serviço de tabela no **contosoemaildist** conta de armazenamento. Veja a [uma lista completa de filtros de capturar](http://wiki.wireshark.org/CaptureFilters).
+4. Adicionar um filtro para o **capturar filtro** caixa de texto. Por exemplo, **alojar contosoemaildist.table.core.windows.net** irá configurar o Wireshark para capturar apenas os pacotes enviados para ou a partir do ponto de final de serviço de tabela no **contosoemaildist** conta de armazenamento. Veja a [uma lista completa de filtros de capturar](https://wiki.wireshark.org/CaptureFilters).
    
    ![][6]
 5. Clique em **Iniciar**. O Wireshark agora irá capturar todos os pacotes enviar de ou para o ponto de extremidade do serviço de tabela como utilizar a aplicação cliente no seu computador local.
@@ -745,12 +745,12 @@ O WireShark irá realçar os erros que existem nos **packetlist** janela. També
 
 ![][7]
 
-Também pode optar por ver os dados TCP como a camada de aplicativo vê-lo ao clicar com o botão direito sobre os dados TCP e selecionar **siga TCP Stream**. Isto é útil se capturou o despejo sem um filtro de captura. Para obter mais informações, consulte [seguintes fluxos do TCP](http://www.wireshark.org/docs/wsug_html_chunked/ChAdvFollowTCPSection.html).
+Também pode optar por ver os dados TCP como a camada de aplicativo vê-lo ao clicar com o botão direito sobre os dados TCP e selecionar **siga TCP Stream**. Isto é útil se capturou o despejo sem um filtro de captura. Para obter mais informações, consulte [seguintes fluxos do TCP](https://www.wireshark.org/docs/wsug_html_chunked/ChAdvFollowTCPSection.html).
 
 ![][8]
 
 > [!NOTE]
-> Para obter mais informações sobre como utilizar o Wireshark, consulte a [Guia do usuário do Wireshark](http://www.wireshark.org/docs/wsug_html_chunked).
+> Para obter mais informações sobre como utilizar o Wireshark, consulte a [Guia do usuário do Wireshark](https://www.wireshark.org/docs/wsug_html_chunked).
 > 
 > 
 

@@ -1,10 +1,10 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: 9a99e7133b24d37af5ce36c717d03bb0fdae7da5
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: c68bf4cf8bcc50069f3741ac0f1746363c1f82ac
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56733576"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57861813"
 documentType: LandingData
 title: Documentação dos Serviços de Voz
 metadata:
@@ -24,7 +24,7 @@ metadata:
   ms.author: erhopf
   ms.custom: seodec18
 abstract:
-  description: Saiba como utilizar os Serviços de Voz e o SDK de Voz para adicionar funcionalidades compatíveis com voz às suas aplicações. Pode utilizar o SDK de Voz para adicionar funcionalidades de <i>conversão de voz em texto</i> (reconhecimento de voz/SR), <i>intenção</i>, <i>tradução</i> e <i>conversão de texto em voz</i> (TTS) às suas aplicações. O Serviço de Voz também tem uma API REST que funciona com qualquer linguagem de programação que possa fazer pedidos HTTP.
+  description: Saiba como utilizar os Serviços de Voz e o SDK de Voz para adicionar funcionalidades compatíveis com voz às suas aplicações. Pode utilizar o SDK de Voz para adicionar funcionalidades de <i>conversão de voz em texto</i> (reconhecimento de voz/SR), <i>intenção</i>, <i>tradução</i> e <i>conversão de texto em voz</i> (TTS) às suas aplicações. Os Serviço de Voz também têm APIs REST que funcionam com qualquer linguagem de programação que possa fazer pedidos HTTP.
 sections:
 - items:
   - type: list

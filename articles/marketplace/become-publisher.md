@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 06/05/2018
 ms.author: ellacroi
-ms.openlocfilehash: 2970ef58e177d10eac80d46825f3fb985b98af61
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: 8973558e0841bfd0d6651a08d39da96b544156c9
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56734970"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57842462"
 ---
 # <a name="become-a-cloud-marketplace-publisher"></a>Se tornar um publicador de Marketplace da Cloud
 
@@ -49,14 +49,14 @@ Após o registro, registe o ID do Microsoft Partner Network para a sua organiza�
 
 ## <a name="2-create-a-microsoft-account"></a>2. Criar uma conta Microsoft  
 | 15 min |  
-Um de contas da Microsoft, por exemplo, *@outlook.com ou @live.com*, é utilizada para aceder a muitos dispositivos Microsoft e serviços. É necessário para o Azure Marketplace transact ofertas e recomendamos que a sua utilização, para todos os editores de cloud. Para obter mais informações sobre as vantagens e as utilizações de uma conta Microsoft, [visite esta página](https://account.microsoft.com/account/). Irá utilizar uma conta Microsoft pessoal para aceder ao Portal de parceiro de Cloud, a plataforma de publicação que irá utilizar para criar e gerir o marketplace oferece. 
+Um de contas da Microsoft, por exemplo,  *\@outlook.com ou \@live.com*, é utilizada para aceder a muitos dispositivos Microsoft e serviços. É necessário para o Azure Marketplace transact ofertas e recomendamos que a sua utilização, para todos os editores de cloud. Para obter mais informações sobre as vantagens e as utilizações de uma conta Microsoft, [visite esta página](https://account.microsoft.com/account/). Irá utilizar uma conta Microsoft pessoal para aceder ao Portal de parceiro de Cloud, a plataforma de publicação que irá utilizar para criar e gerir o marketplace oferece. 
 
 [! IMPORTANTE] tenha em atenção que uma conta Microsoft associada com o seu e-mail de trabalho não permitirá que aceder ao portal.
 
->[!Note]
->Se já tiver uma conta Microsoft, consulte a [diretrizes para criar um ID da Microsoft para gerir uma conta do marketplace](https://docs.microsoft.com/azure/marketplace/guidelines#guidelines-for-creating-a-microsoft-id-to-manage-a-marketplace-account) para determinar se ele pode ser usado para publicação do marketplace. 
-
->Os utilizadores com uma conta empresarial do Azure Active Directory, federada devem ler [este artigo](https://docs.microsoft.com/azure/marketplace/guidelines#issue-microsoft-id-in-an-azure-ad-federated-domain) antes de tentar criar ou utilizar a Account Microsoft existente.
+> [!Note]
+> Se já tiver uma conta Microsoft, consulte a [diretrizes para criar um ID da Microsoft para gerir uma conta do marketplace](https://docs.microsoft.com/azure/marketplace/guidelines#guidelines-for-creating-a-microsoft-id-to-manage-a-marketplace-account) para determinar se ele pode ser usado para publicação do marketplace. 
+> 
+> Os utilizadores com uma conta empresarial do Azure Active Directory, federada devem ler [este artigo](https://docs.microsoft.com/azure/marketplace/guidelines#issue-microsoft-id-in-an-azure-ad-federated-domain) antes de tentar criar ou utilizar a Account Microsoft existente.
 
 *   Para obter ajuda a criar ou gerir a sua conta Microsoft, visite o [páginas de suporte de ajuda de conta Microsoft](https://support.microsoft.com/products/microsoft-account?category=manage-account).
 

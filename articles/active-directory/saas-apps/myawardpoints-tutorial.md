@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/01/2019
 ms.author: jeedes
-ms.openlocfilehash: 6b2561f480f12936892428fe21b65d24a17e9356
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: a828f7c53345292e986e8eba5027ada5629e1185
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57768210"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57855059"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-my-award-points-top-subtop-team"></a>Tutorial: Integração do Active Directory do Azure com meus pontos principais Sub/superior a equipa do prémio
 
@@ -76,10 +76,10 @@ Para o início de sessão único funcionar, uma relação de ligação entre um 
 Para configurar e testar o Azure AD início de sessão único com meus pontos principais Sub/superior a equipa do prémio, tem de concluir os seguintes blocos de construção:
 
 1. **[Configurar o Azure AD início de sessão único](#configure-azure-ad-single-sign-on)**  - para permitir que os utilizadores utilizar esta funcionalidade.
-2. **[Configurar meu prémio pontos superior Sub/superior equipe início de sessão único](#configure-my-award-points-top-sub/top-team-single-sign-on)**  - para configurar as definições de início de sessão único no lado do aplicativo.
+2. **Configurar meu prémio pontos superior Sub/superior equipe Single Sign-On** - para configurar as definições de início de sessão único no lado do aplicativo.
 3. **[Criar um utilizador de teste do Azure AD](#create-an-azure-ad-test-user)**  - para testar o Azure AD início de sessão único com Eduarda Almeida.
 4. **[Atribua o utilizador de teste do Azure AD](#assign-the-azure-ad-test-user)**  - para ativar a Eduarda Almeida utilizar o Azure AD início de sessão único.
-5. **[Criar utilizador de teste de meus pontos principais Sub/superior a equipa do prémio](#create-my-award-points-top-sub/top-team-test-user)**  - para ter um equivalente da Eduarda Almeida em meus pontos principais Sub/superior a equipa do prémio que está ligado à representação de utilizador do Azure AD.
+5. **Criar utilizador de teste de meus pontos principais Sub/superior a equipa do prémio** - para ter um equivalente da Eduarda Almeida em meus pontos principais Sub/superior a equipa do prémio que está ligado à representação de utilizador do Azure AD.
 6. **[Testar início de sessão único](#test-single-sign-on)**  - para verificar se a configuração funciona.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Configurar o Azure AD início de sessão único
@@ -148,7 +148,7 @@ O objetivo desta secção é criar um utilizador de teste no portal do Azure cha
 
     a. Na **Name** campo introduza **BrittaSimon**.
   
-    b. Na **nome de utilizador** tipo de campo **brittasimon@yourcompanydomain.extension**  
+    b. Na **nome de utilizador** tipo de campo **brittasimon\@yourcompanydomain.extension**  
     Por exemplo, BrittaSimon@contoso.com
 
     c. Selecione **palavra-passe de Show** caixa de verificação e, em seguida, anote o valor que é apresentado na caixa de palavra-passe.
@@ -198,4 +198,3 @@ Quando clica no mosaico de meus pontos principais Sub/superior a equipa do prém
 - [O que é o acesso a aplicações e início de sessão único com o Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
-

@@ -10,12 +10,12 @@ ms.subservice: conversation-learner
 ms.topic: article
 ms.date: 04/30/2018
 ms.author: v-jaswel
-ms.openlocfilehash: afa927009e684fa7f8c6217c91dcb589b331b5f5
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: f5b3234c45a9ee80bc5a2c2afe67046896270802
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55224178"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58163791"
 ---
 # <a name="how-to-add-pre-trained-entities"></a>Como adicionar entidades de Pre-trained
 Este tutorial mostra como adicionar entidades de Pre-Trained ao seu modelo de aprendiz de conversação.
@@ -25,7 +25,7 @@ Este tutorial mostra como adicionar entidades de Pre-Trained ao seu modelo de ap
 [![Pré-visualização de Tutorial do entidades com formação prévia](https://aka.ms/cl_Tutorial_v3_PreTrainedEntities_Preview)](https://aka.ms/cl_Tutorial_v3_PreTrainedEntities)
 
 ## <a name="requirements"></a>Requisitos
-Este tutorial requer que o bot tutorial geral está em execução
+Este tutorial requer que o tutorial geral Bot está em execução
 
     npm run tutorial-general
 
@@ -35,50 +35,49 @@ Entidades com formação prévia reconhecem tipos comuns de entidades, como núm
 
 ## <a name="steps"></a>Passos
 
+Comece na home page na IU da Web.
+
 ### <a name="create-the-model"></a>Criar o modelo
 
-1. Na IU da Web, clique em "Novo modelo."
-2. No campo "Nome", escreva "PretrainedEntities" e prima enter.
-3. Clique no botão "Criar".
+1. Selecione **novo modelo**.
+2. Introduza **PretrainedEntities** para **nome**.
+3. Selecione **Criar**.
 
 ### <a name="entity-creation"></a>Criação de entidade
 
-1. No painel esquerdo, clique em "Entidades", em seguida, no botão "Nova entidade".
-2. Selecionar "Pré-Trained/datetimeV2" para o "tipo de entidade".
-3. Selecione a caixa de verificação "Com múltiplos valor".
-    - Entidades de valores múltiplos acumular-se um ou mais valores na entidade.
-    - Propriedades negatable estão desativadas para Pre-Trained entidades.
-4. Clique no botão "Criar".
+1. Selecione **entidades** no painel esquerdo, em seguida, **nova entidade**.
+2. Selecione **Pre Trained/datetimeV2** para **tipo de entidade**.
+3. Verifique **com múltiplos valores** para permitir que a entidade acumular-se um ou mais valores. Tenha em atenção que a entidades de Pre-Trained não pode ser negatable.
+4. Selecione **Criar**.
 
-![](../media/tutorial7_entities_a.PNG)
+![](../media/T08_entity_create.png)
 
-### <a name="create-the-first-action"></a>Criar a primeira ação
+1. Selecione **ações** no painel esquerdo, em seguida, **nova ação**.
+2. Introduza **a data é $builtin-datetimev2** para **de resposta do Bot...** .
+3. Selecione **Criar**.
 
-1. No painel esquerdo, clique em "Ações", em seguida, no botão "Nova ação".
-2. No "do Bot de resposta...", digite "a data é $builtin-datetimev2"
-3. Clique no botão "Criar".
-
-![](../media/tutorial7_actions_a.PNG)
+![](../media/T08_action_create_1.png)
 
 ### <a name="create-the-second-action"></a>Criar a segunda ação
 
-1. No painel esquerdo, clique em "Ações", em seguida, no botão "Nova ação".
-2. No "do Bot de resposta...", digite "Qual é a data?"
-    - Entidades com formação prévia não podem ser necessário entidades, como eles são reconhecidos por predefinição para todas as expressões de utilizador.
-3. No campo "Dá direito Disqualifying", escreva "builtin-datetimev2."
-4. Clique no botão "Criar".
+1. Selecione **ações** no painel esquerdo, em seguida, **nova ação**.
+2. Introduza **o que é a data?** para **de resposta do Bot...** . Não podem ser entidades com formação prévia **necessárias entidades** conforme eles são reconhecidos por predefinição para todas as expressões.
+3. Introduza **builtin datetimev2** para **Disqualifying dá direito**.
+4. Selecione **Criar**.
 
-![](../media/tutorial7_actions2_a.PNG)
+![](../media/T08_action_create_2.png)
 
 ### <a name="train-the-model"></a>Preparar o modelo
 
-1. No painel esquerdo, clique em "Caixas de diálogo Train", em seguida, no botão "Train caixa de diálogo Novo".
-2. No painel de bate-papo, em que se lê "... sua mensagem de tipo", escreva "hello".
-3. Clique no botão "Pontuação ações".
-4. Selecione a resposta, "Qual é a data?"
-5. No painel de bate-papo, em que se lê "Tipo de sua mensagem...", escreva "hoje"
-    - A expressão de hoje é reconhecida automaticamente por modelos com formação prévia no LUIS.
+1. Selecione **caixas de diálogo Train** no painel esquerdo, em seguida, **caixa de diálogo do novo Train**.
+2. Introduza **hello** para expressão do usuário no painel à esquerda de bate-papo.
+3. Selecione **pontuação ações**.
+4. Selecione **o que é a data?** na lista de ações
+5. Introduza **hoje mesmo** para expressão do usuário no painel à esquerda de bate-papo.
+    - O **hoje mesmo** expressão é reconhecida automaticamente por modelos com formação prévia no LUIS.
     - Pairar o rato sobre os valores de entidades de Pre-Trained mostra dados adicionais fornecidos pelo LUIS.
+
+![](../media/T08_training.png)
 
 ## <a name="next-steps"></a>Passos Seguintes
 

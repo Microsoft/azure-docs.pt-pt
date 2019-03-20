@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 01/11/2018
 ms.author: ashishth
-ms.openlocfilehash: 9a76ad219e538874af04a72c9aa64e87a35bc53d
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
+ms.openlocfilehash: 7b6f9ca914e9fed48463d2134eeba1cd4c103690
+ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53434890"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58225329"
 ---
 # <a name="manage-logs-for-an-hdinsight-cluster"></a>Gerir registos de um cluster do HDInsight
 
@@ -77,7 +77,7 @@ Um cluster de HDInsight típico utiliza vários pacotes de software open-source 
 
 ### <a name="view-cluster-configuration-settings-with-the-ambari-ui"></a>Ver as definições de configuração de cluster com a IU do Ambari
 
-Apache Ambari simplifica o gerenciamento, configuração e monitorização de um cluster do HDInsight, fornecendo uma web interface do Usuário e uma API REST. Ambari está incluído nos clusters do HDInsight baseado em Linux. Selecione o **Dashboard de clusters** painel no portal do Azure HDInsight página para abrir o **' Dashboards de clusters** página de ligação.  Em seguida, selecione o **dashboard de clusters do HDInsight** painel para abrir a IU do Ambari.  Deverá informar suas credenciais de início de sessão do cluster.
+Apache Ambari simplifica o gerenciamento, configuração e monitorização de um cluster do HDInsight, fornecendo uma web interface do Usuário e uma API REST. Ambari está incluído nos clusters do HDInsight baseado em Linux. Selecione o **Dashboard de clusters** painel no portal do Azure HDInsight página para abrir o**Dashboards de clusters** página de ligação.  Em seguida, selecione o **dashboard de clusters do HDInsight** painel para abrir a IU do Ambari.  Deverá informar suas credenciais de início de sessão do cluster.
 
 Para abrir uma lista de vistas de serviço, selecione o **vistas Ambari** painel na página do portal do Azure para HDInsight.  Esta lista varia consoante as bibliotecas de que instalou.  Por exemplo, poderá ver o Gestor de filas do YARN, a vista do Hive e a exibição de Tez.  Selecione qualquer ligação de serviço para ver a configuração e informações de serviço.  IU do Ambari **Stack e a versão** página fornece informações sobre a configuração dos serviços de cluster e o histórico de versões de serviço. Para navegar para esta secção da IU do Ambari, selecione o **administrador** menu e, em seguida **pilhas e versões**.  Selecione o **versões** guia para ver informações de versão do serviço.
 
@@ -177,5 +177,5 @@ Para recolher os registos de todos os nós para um local central, pode criar um 
 ## <a name="next-steps"></a>Passos Seguintes
 
 * [Monitorização e registo prática para HDInsight](https://msdn.microsoft.com/library/dn749790.aspx)
-* [Registo de aplicações do acesso Apache Hadoop YARN no HDInsight baseado em Linux](hdinsight-hadoop-access-yarn-app-logs-linux.md)
+* [Sessão de aplicação do acesso Apache Hadoop YARN no HDInsight baseado em Linux](hdinsight-hadoop-access-yarn-app-logs-linux.md)
 * [Como controlar o tamanho dos ficheiros de registo para vários componentes do Apache Hadoop](https://community.hortonworks.com/articles/8882/how-to-control-size-of-log-files-for-various-hdp-c.html)

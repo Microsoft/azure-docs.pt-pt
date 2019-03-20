@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 07/14/2017
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c8f682e0795f8f732805e817e4498cc486bbb2c6
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 6376a479d2e6969505310de0e8e73e74738a04c0
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56178469"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57881336"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-scc-lifecycle"></a>Tutorial: Integração do Active Directory do Azure com o ciclo de vida de SCC
 
@@ -117,6 +117,7 @@ Nesta secção, pode ativar o Azure AD início de sessão único no portal do Az
     a. Na **URL de início de sessão** caixa de texto, escreva um URL com o seguinte padrão: `https://<sub-domain>.scc.com/ic7/welcome/customer/PICTtest.aspx`
 
     b. Na **identificador** caixa de texto, escreva um URL com o seguinte padrão:
+    
     | |
     |--|--|
     | `https://bs1.scc.com/<entity>`|
@@ -135,8 +136,8 @@ Nesta secção, pode ativar o Azure AD início de sessão único no portal do Az
 
 1. Para configurar o início de sessão único num **ciclo de vida de SCC** lado, terá de enviar o transferido **XML de metadados** para [equipa de suporte do ciclo de vida de SCC](mailto:lifecycle.support@scc.com). Se definir esta definição para que a ligação de SAML SSO definidas corretamente em ambos os lados.
 
-  >[!NOTE]
-  >Início de sessão único tem de ser ativada pela equipa de suporte do ciclo de vida de SCC.
+   >[!NOTE]
+   >Início de sessão único tem de ser ativada pela equipa de suporte do ciclo de vida de SCC.
 
 > [!TIP]
 > Agora pode ler uma versão concisa destas instruções dentro do [portal do Azure](https://portal.azure.com), enquanto estiver a configurar a aplicação!  Depois de adicionar esta aplicação a partir da **do Active Directory > aplicações empresariais** secção, basta clicar o **Single Sign-On** separador e a documentação do embedded através de acesso a  **Configuração** seção na parte inferior. Pode ler mais sobre a funcionalidade de documentação do embedded aqui: [Documentação do Azure AD incorporado]( https://go.microsoft.com/fwlink/?linkid=845985)

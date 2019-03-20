@@ -194,9 +194,11 @@ items:
       href: backup-azure-arm-userestapi-managejobs.md
   - name: Fazer cópias de segurança de bases de dados do SQL Server em VMs do Azure
     items:
+    - name: Sobre a Cópia de Segurança do SQL Server em VMs do Azure
+      href: backup-sql-server-azure-vms.md
     - name: Fazer cópias de segurança de bases de dados do SQL Server em VMs do Azure
-      href: backup-azure-sql-database.md
-    - name: Restaurar bases de dados do SQL Server guardadas na cópia de segurança
+      href: backup-sql-server-database-azure-vms.md
+    - name: Restaurar bases de dados do SQL Server em VMs do Azure
       href: restore-sql-database-azure-vm.md
     - name: Gerir bases de dados do SQL Server guardadas na cópia de segurança
       href: manage-monitor-sql-database-backup.md
@@ -276,9 +278,9 @@ items:
     href: https://azure.microsoft.com/updates/?product=backup
   - name: Vídeos
     href: https://azure.microsoft.com/documentation/videos/index/?services=backup
-ms.openlocfilehash: c30132c7dcad3873daa39e7d8ecf112032183963
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: 033235611271b00275a0ef759af80f2c8c9a2474
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56873394"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58014655"

@@ -8,17 +8,17 @@ ms.workload: data-services
 ms.tgt_pltfrm: ''
 ms.devlang: powershell
 ms.topic: conceptual
-ms.date: 02/12/2019
+ms.date: 03/18/2019
 author: swinarko
 ms.author: sawinark
 ms.reviewer: douglasl
 manager: craigg
-ms.openlocfilehash: 846fc5de6470326fbd51d19397503e4eee2ee15b
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
-ms.translationtype: MT
+ms.openlocfilehash: 8e01ac4efa3c310b17e88351383861cbdccb68e6
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57436090"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58171113"
 ---
 # <a name="run-an-ssis-package-with-the-execute-ssis-package-activity-in-azure-data-factory"></a>Executar um pacote do SSIS com a atividade de executar o pacote do SSIS no Azure Data Factory
 Este artigo descreve como executar um pacote do SSIS no pipeline do Azure Data Factory (ADF) através da atividade de executar o pacote do SSIS. 
@@ -51,19 +51,19 @@ Neste passo, vai utilizar da interface do Usuário do ADF/aplicação para criar
 
    ![Definir as propriedades no separador Geral](media/how-to-invoke-ssis-package-ssis-activity/ssis-activity-general.png)
 
-4. Sobre o **definições** separador para a atividade de executar o pacote do SSIS, selecione o runtime de integração Azure-SSIS que está associado a base de dados SSISDB onde o pacote é implementado. Verifique se o pacote precisar de runtime de 32 bits para executar, o **runtime de 32 bits** caixa de verificação. Para **nível de registo**, selecione um âmbito predefinido do registo para a execução do pacote. Verifique os **personalizado** caixa de verificação, se pretender introduzir o seu nome de registo personalizado em vez disso. Quando o runtime de integração Azure-SSIS está em execução e o **entradas manuais** caixa de verificação estiver desmarcada, pode procurar e selecionar os pastas/projetos/pacotes/ambientes existentes a partir de SSISDB. Clique nas **atualizar** botão para buscar o seu recém-adicionada pastas/projetos/pacotes/ambientes SSISDB, para que estejam disponíveis para navegação e a seleção. 
+4. Sobre o **definições** separador para a atividade de executar o pacote do SSIS, selecione o runtime de integração Azure-SSIS que está associado a base de dados SSISDB onde o pacote é implementado. Se o pacote utiliza a autenticação do Windows para aceder aos arquivos de dados, por exemplo, partilhas de servidores/ficheiro SQL no local, ficheiros do Azure, etc., verifique os **autenticação do Windows** caixa de verificação e introduza o domínio/nome de utilizador/palavra-passe para o seu pacote execução. Verifique se o pacote precisar de runtime de 32 bits para executar, o **runtime de 32 bits** caixa de verificação. Para **nível de registo**, selecione um âmbito predefinido do registo para a execução do pacote. Verifique os **personalizado** caixa de verificação, se pretender introduzir o seu nome de registo personalizado em vez disso. Quando o runtime de integração Azure-SSIS está em execução e o **entradas manuais** caixa de verificação estiver desmarcada, pode procurar e selecionar os pastas/projetos/pacotes/ambientes existentes a partir de SSISDB. Clique nas **atualizar** botão para buscar o seu recém-adicionada pastas/projetos/pacotes/ambientes SSISDB, para que estejam disponíveis para navegação e a seleção. 
 
    ![Definir as propriedades no separador Definições - automático](media/how-to-invoke-ssis-package-ssis-activity/ssis-activity-settings.png)
 
-   Quando não está em execução o runtime de integração de SSIS do Azure ou o **entradas manuais** caixa de verificação, pode inserir seus caminhos de pacote e um ambiente SSISDB nos seguintes formatos: `<folder name>/<project name>/<package name>.dtsx` e `<folder name>/<environment name>`.
+   Quando não está em execução o runtime de integração de SSIS do Azure ou o **entradas manuais** caixa de verificação, pode inserir seus caminhos de pacote e o ambiente do SSISDB diretamente nos seguintes formatos: `<folder name>/<project name>/<package name>.dtsx` e `<folder name>/<environment name>`.
 
    ![Definir as propriedades no separador Definições - Manual](media/how-to-invoke-ssis-package-ssis-activity/ssis-activity-settings2.png)
 
-5. Na **parâmetros do SSIS** separador para executar o pacote do SSIS atividade, quando está a executar o runtime de integração Azure-SSIS e o **entradas manuais** caixa de seleção **definições** separador estiver desmarcado, o parâmetros SSIS existentes de SSISDB no pacote/projeto selecionado serão exibidos para que possa atribuir valores a elas. Caso contrário, pode inseri-los um por um atribuir valores a elas manualmente – Certifique-se que existe e forem introduzidos corretamente para a execução do pacote com êxito. Também pode adicionar conteúdo dinâmico para os valores usando expressões, funções, variáveis de sistema do ADF e parâmetros de pipeline ADF, as variáveis.
+5. Na **parâmetros do SSIS** separador para executar o pacote do SSIS atividade, quando está a executar o runtime de integração Azure-SSIS e o **entradas manuais** caixa de seleção **definições** separador estiver desmarcado, o parâmetros SSIS existentes de SSISDB no pacote/projeto selecionado serão exibidos para que possa atribuir valores a elas. Caso contrário, pode inseri-los um por um atribuir valores a elas manualmente – Certifique-se que existe e forem introduzidos corretamente para a execução do pacote com êxito. Pode adicionar conteúdo dinâmico para os valores usando expressões, funções, variáveis de sistema do ADF e parâmetros de pipeline ADF, as variáveis. Em alternativa, pode utilizar segredos armazenados no seu Cofre de chave do Azure (AKV) como seus valores. Para tal, clique nas **do AZURE KEY VAULT** caixa de verificação junto ao parâmetro relevante, selecione/editar seu serviço AKV ligado existente ou crie um novo e, em seguida, selecione o nome/versão do segredo para seu valor do parâmetro.  Quando cria/editar seu serviço AKV ligado, pode selecionar/editar seu AKV existente ou crie um novo, mas. conceda acesso de identidade do ADF gerido para sua AKV se não o tiver feito isso já. Também pode introduzir os segredos diretamente no seguinte formato: `<AKV linked service name>/<secret name>/<secret version>`.
 
    ![Definir propriedades na guia Parameters do SSIS](media/how-to-invoke-ssis-package-ssis-activity/ssis-activity-ssis-parameters.png)
 
-6. Na **gerenciadores de conexão** separador para executar o pacote do SSIS atividade, quando está a executar o runtime de integração Azure-SSIS e o **entradas manuais** caixa de seleção **definições** separador estiver desmarcado, Os gerenciadores de conexão existente no seu projeto/pacote selecionado do SSISDB serão exibidas para que possa atribuir valores a elas. Caso contrário, pode inseri-los um por um atribuir valores a elas manualmente – Certifique-se que existe e forem introduzidos corretamente para a execução do pacote com êxito. Também pode adicionar conteúdo dinâmico para os valores usando expressões, funções, variáveis de sistema do ADF e parâmetros de pipeline ADF, as variáveis.
+6. Na **gerenciadores de conexão** separador para executar o pacote do SSIS atividade, quando está a executar o runtime de integração Azure-SSIS e o **entradas manuais** caixa de seleção **definições** separador estiver desmarcado, Os gerenciadores de conexão existente no seu projeto/pacote selecionado do SSISDB serão exibidas para que possa atribuir valores às suas propriedades. Caso contrário, pode inseri-los um por um atribuir valores às suas propriedades manualmente – Certifique-se que existe e forem introduzidos corretamente para a execução do pacote com êxito. Pode adicionar conteúdo dinâmico para os valores de propriedade usando expressões, funções, variáveis de sistema do ADF e parâmetros de pipeline ADF, as variáveis. Em alternativa, pode utilizar segredos armazenados no seu Cofre de chave do Azure (AKV) como valores de suas propriedades. Para tal, clique nas **do AZURE KEY VAULT** caixa de verificação junto a propriedade relevante, selecione/editar seu serviço AKV ligado existente ou crie um novo e, em seguida, selecione o nome/versão do segredo para seu valor de propriedade.  Quando cria/editar seu serviço AKV ligado, pode selecionar/editar seu AKV existente ou crie um novo, mas. conceda acesso de identidade do ADF gerido para sua AKV se não o tiver feito isso já. Também pode introduzir os segredos diretamente no seguinte formato: `<AKV linked service name>/<secret name>/<secret version>`.
 
    ![Definir as propriedades no separador de gerenciadores de conexão](media/how-to-invoke-ssis-package-ssis-activity/ssis-activity-connection-managers.png)
 
@@ -139,6 +139,14 @@ Neste passo, vai criar um pipeline com uma atividade de executar o pacote do SSI
                        "referenceName": "myAzureSSISIR",
                        "type": "IntegrationRuntimeReference"
                    },
+                   "executionCredential": {
+                       "domain": "MyDomain",
+                       "userName": "MyUsername",
+                       "password": {
+                           "type": "SecureString",
+                           "value": "**********"
+                       }
+                   },
                    "runtime": "x64",
                    "loggingLevel": "Basic",
                    "packageLocation": {
@@ -148,11 +156,27 @@ Neste passo, vai criar um pipeline com uma atividade de executar o pacote do SSI
                    "projectParameters": {
                        "project_param_1": {
                            "value": "123"
+                       },
+                       "project_param_2": {
+                           "value": {
+                               "value": "@pipeline().parameters.MyPipelineParameter",
+                               "type": "Expression"
+                           }
                        }
                    },
                    "packageParameters": {
                        "package_param_1": {
                            "value": "345"
+                       },
+                       "package_param_2": {
+                           "value": {
+                               "type": "AzureKeyVaultSecret",
+                               "store": {
+                                   "referenceName": "myAKV",
+                                   "type": "LinkedServiceReference"
+                               },
+                               "secretName": "MySecret"
+                           }
                        }
                    },
                    "projectConnectionManagers": {
@@ -171,12 +195,20 @@ Neste passo, vai criar um pipeline com uma atividade de executar o pacote do SSI
                    "packageConnectionManagers": {
                        "MyOledbCM": {
                            "userName": {
-                               "value": "sa"
+                               "value": {
+                                   "value": "@pipeline().parameters.MyUsername",
+                                   "type": "Expression"
+                               }
                            },
                            "passWord": {
                                "value": {
-                                   "type": "SecureString",
-                                   "value": "def"
+                                   "type": "AzureKeyVaultSecret",
+                                   "store": {
+                                       "referenceName": "myAKV",
+                                       "type": "LinkedServiceReference"
+                                   },
+                                   "secretName": "MyPassword",
+                                   "secretVersion": "3a1b74e361bf4ef4a00e47053b872149"
                                }
                            }
                        }

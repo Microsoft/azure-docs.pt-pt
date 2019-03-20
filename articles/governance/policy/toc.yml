@@ -17,6 +17,9 @@ items:
   - name: Atribuir uma política - CLI do Azure
     displayName: assign, compliance
     href: assign-policy-azurecli.md
+  - name: Atribuir uma política - modelo
+    displayName: assign, compliance, resource manager, ARM
+    href: assign-policy-template.md
   expanded: true
 - name: Tutoriais
   items:
@@ -261,11 +264,14 @@ items:
   - name: Criar políticas programaticamente
     displayName: assign, definition
     href: ./how-to/programmatically-create.md
+  - name: Políticas de autor para propriedades de matriz
+    displayName: array property, alias, aliases, in, notIn, type, defaultValue
+    href: ./how-to/author-policies-for-arrays.md
   - name: Obter dados de conformidade
     displayName: evaluation, scan, summarize, query, events, log analytics
     href: ./how-to/get-compliance-data.md
   - name: Determinar as causas da não conformidade
-    displayName: reasons, comliance details
+    displayName: reasons, compliance details
     href: ./how-to/determine-non-compliance.md
   - name: Identificar recursos em não conformidade
     displayName: managed identity, task, definition, roleDefinitionIds
@@ -332,9 +338,9 @@ items:
     href: https://azure.microsoft.com/pricing/calculator/
   - name: UserVoice
     href: https://feedback.azure.com/forums/915958-azure-governance
-ms.openlocfilehash: b90528e1c8f459ba90e626f1f6307acebd963511
-ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
+ms.openlocfilehash: c80c593f025511679cf0739f8f9f40a1097795b9
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56888513"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57900697"

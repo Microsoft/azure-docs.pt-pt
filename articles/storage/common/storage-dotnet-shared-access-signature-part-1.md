@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 04/18/2017
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: bee2a715e9e9b163af342b70c4cdd63d24ccee3b
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: e9e78d3226f90ef780a1ed2114ba256c293463dc
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57450044"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58001594"
 ---
 # <a name="using-shared-access-signatures-sas"></a>Utilizar assinaturas de acesso partilhado (SAS)
 
@@ -40,11 +40,11 @@ Um cenário comum em que é útil uma SAS é um serviço em que os utilizadores 
 
 1. Os clientes carregar e transferir dados através de um serviço de proxy de front-end, que efetua a autenticação. Este serviço de proxy de front-end tem a vantagem de permitir que a validação de regras de negócios, mas para grandes quantidades de dados ou transações de grande volume, criação de um serviço que possa ser dimensionada para corresponder a pedido pode ser difícil ou dispendioso.
 
-  ![Diagrama do cenário: Serviço de proxy de front-end](./media/storage-dotnet-shared-access-signature-part-1/sas-storage-fe-proxy-service.png)   
+   ![Diagrama do cenário: Serviço de proxy de front-end](./media/storage-dotnet-shared-access-signature-part-1/sas-storage-fe-proxy-service.png)   
 
 1. Um serviço simples autentica o cliente conforme necessário e, em seguida, gera uma SAS. Assim que o cliente recebe a SAS, podem aceder a recursos da conta de armazenamento diretamente com as permissões definidas pela SAS e para o intervalo permitido a SAs. A SAS, reduz a necessidade para todos os dados através do serviço de front-end de proxy de encaminhamento.
 
-  ![Diagrama do cenário: Serviço do fornecedor SAS](./media/storage-dotnet-shared-access-signature-part-1/sas-storage-provider-service.png)   
+   ![Diagrama do cenário: Serviço do fornecedor SAS](./media/storage-dotnet-shared-access-signature-part-1/sas-storage-provider-service.png)   
 
 Muitos serviços do mundo real, podem utilizar uma mistura dessas duas abordagens. Por exemplo, alguns dados possam ser processados e validados através do proxy de front-end, enquanto outros dados são guardados e/ou diretamente através da SAS de leitura.
 
@@ -230,8 +230,8 @@ Seguem-se alguns exemplos de ambos os tipos de assinaturas de acesso partilhado,
 
 Para executar esses exemplos em C#, precisa referenciar os seguintes pacotes de NuGet no seu projeto:
 
-* [Biblioteca de cliente de armazenamento do Azure para .NET](http://www.nuget.org/packages/WindowsAzure.Storage), versão 6.x ou posterior (para utilizar a conta SAS).
-* [Gestor de Configuração do Azure](http://www.nuget.org/packages/Microsoft.WindowsAzure.ConfigurationManager)
+* [Biblioteca de cliente de armazenamento do Azure para .NET](https://www.nuget.org/packages/WindowsAzure.Storage), versão 6.x ou posterior (para utilizar a conta SAS).
+* [Gestor de Configuração do Azure](https://www.nuget.org/packages/Microsoft.WindowsAzure.ConfigurationManager)
 
 Para obter exemplos adicionais que mostram como criar e testar uma SAS, consulte [exemplos de código do Azure para armazenamento](https://azure.microsoft.com/documentation/samples/?service=storage).
 

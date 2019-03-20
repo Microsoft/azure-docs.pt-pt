@@ -9,12 +9,12 @@ ms.service: azure-databricks
 ms.custom: mvc
 ms.topic: tutorial
 ms.date: 12/07/2018
-ms.openlocfilehash: 6509db136524d90db11b83acb701bda71c541060
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: 54a7f308163cb2463554da32f0fae8b897c0742f
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56882625"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58080544"
 ---
 # <a name="tutorial-sentiment-analysis-on-streaming-data-using-azure-databricks"></a>Tutorial: Análise de sentimentos dos dados de transmissão em fluxo com o Azure Databricks
 
@@ -40,6 +40,10 @@ Este tutorial abrange as seguintes tarefas:
 > * Executar a análise de sentimentos em tweets
 
 Se não tiver uma subscrição do Azure, [crie uma conta gratuita](https://azure.microsoft.com/free/) antes de começar.
+
+> [!Note]
+> Este tutorial não pode ser efetuado através de **subscrição de avaliação gratuita do Azure**.
+> Para utilizar uma conta gratuita para criar o cluster do Azure Databricks, antes de criar o cluster, aceda ao seu perfil e altere a subscrição para **pay as you go**. Para obter mais informações, veja [Conta gratuita do Azure](https://azure.microsoft.com/free/).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -97,11 +101,11 @@ Nesta secção, vai criar uma área de trabalho do Azure Databricks com o portal
 
     Aceite todos os outros valores predefinidos que não sejam os seguintes:
 
-    * Introduza um nome para o cluster.
-    * Para este artigo, crie um cluster com o runtime **4.0 (beta)**.
-    * Certifique-se de que seleciona a caixa de verificação **Terminar após \_\_ minutos de atividade**. Indique uma duração (em minutos) para terminar o cluster, caso não esteja a ser utilizado.
+   * Introduza um nome para o cluster.
+   * Para este artigo, crie um cluster com o runtime **4.0 (beta)**.
+   * Certifique-se de que seleciona a caixa de verificação **Terminar após \_\_ minutos de atividade**. Indique uma duração (em minutos) para terminar o cluster, caso não esteja a ser utilizado.
 
-    Selecione **Criar cluster**. Depois de o cluster estar em execução, pode anexar blocos de notas ao cluster e executar tarefas do Spark.
+     Selecione **Criar cluster**. Depois de o cluster estar em execução, pode anexar blocos de notas ao cluster e executar tarefas do Spark.
 
 ## <a name="create-a-twitter-application"></a>Criar uma aplicação do Twitter
 
@@ -125,16 +129,16 @@ Guarde os valores que obteve da aplicação do Twitter. Vai precisar dos valores
 
 Neste tutorial, vai utilizar as APIs do Twitter para enviar tweets para os Hubs de Eventos. Também pode utilizar o [Conector de Hubs de eventos do Spark](https://github.com/Azure/azure-event-hubs-spark) para ler e escrever dados em Hubs de Eventos do Azure. Para utilizar estas APIs como parte do cluster, adicione-as como bibliotecas ao Azure Databricks e, em seguida, associe-as ao cluster do Spark. As instruções seguintes mostram como adicionar a biblioteca à pasta **Partilhados** da sua área de trabalho.
 
-1.  Na área de trabalho do Azure Databricks, selecione **Área de Trabalho** e, em seguida, clique com botão direito do rato em **Partilhados**. No menu de contexto, selecione **Criar** > **Biblioteca**.
+1. Na área de trabalho do Azure Databricks, selecione **Área de Trabalho** e, em seguida, clique com botão direito do rato em **Partilhados**. No menu de contexto, selecione **Criar** > **Biblioteca**.
 
-    ![Caixa de diálogo Adicionar biblioteca](./media/databricks-sentiment-analysis-cognitive-services/databricks-add-library-option.png "Caixa de diálogo Adicionar biblioteca")
+   ![Caixa de diálogo Adicionar biblioteca](./media/databricks-sentiment-analysis-cognitive-services/databricks-add-library-option.png "Caixa de diálogo Adicionar biblioteca")
 
 2. Na página Nova Biblioteca, em **Origem**, selecione **Coordenada do Maven**. Em **Coordenada**, introduza a coordenada do pacote que quer adicionar. Eis as coordenadas do Maven para as bibliotecas utilizadas neste tutorial:
 
-    * Conector de Hubs de Eventos do Spark – `com.microsoft.azure:azure-eventhubs-spark_2.11:2.3.5`
-    * API do Twitter – `org.twitter4j:twitter4j-core:4.0.6`
+   * Conector de Hubs de Eventos do Spark – `com.microsoft.azure:azure-eventhubs-spark_2.11:2.3.5`
+   * API do Twitter – `org.twitter4j:twitter4j-core:4.0.6`
 
-    ![Fornecer coordenadas do Maven](./media/databricks-sentiment-analysis-cognitive-services/databricks-eventhub-specify-maven-coordinate.png "Fornecer coordenadas do Maven")
+     ![Fornecer coordenadas do Maven](./media/databricks-sentiment-analysis-cognitive-services/databricks-eventhub-specify-maven-coordinate.png "Fornecer coordenadas do Maven")
 
 3. Selecione **Criar Biblioteca**.
 
@@ -164,13 +168,13 @@ Neste tutorial, vai utilizar o [APIs de análise de texto do Microsoft Cognitive
 
     ![Criar conta de serviços cognitivos](./media/databricks-sentiment-analysis-cognitive-services/create-cognitive-services-account.png "Criar conta de serviços cognitivos")
 
-    - Introduza um nome para a conta de Serviços Cognitivos.
-    - Selecione a subscrição do Azure na qual a conta foi criada.
-    - Selecione uma localização do Azure.
-    - Selecione um escalão de preço para o serviço. Para obter mais informações sobre os preços dos Serviços Cognitivos, veja a [página de preços](https://azure.microsoft.com/pricing/details/cognitive-services/).
-    - Especifique se pretende criar um novo grupo de recursos ou selecione um existente.
+   - Introduza um nome para a conta de Serviços Cognitivos.
+   - Selecione a subscrição do Azure na qual a conta foi criada.
+   - Selecione uma localização do Azure.
+   - Selecione um escalão de preço para o serviço. Para obter mais informações sobre os preços dos Serviços Cognitivos, veja a [página de preços](https://azure.microsoft.com/pricing/details/cognitive-services/).
+   - Especifique se pretende criar um novo grupo de recursos ou selecione um existente.
 
-    Selecione **Criar**.
+     Selecione **Criar**.
 
 5. Depois da conta é criada, do **descrição geral** separador, selecione **Mostrar chaves de acesso**.
 

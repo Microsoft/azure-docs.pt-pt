@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 11/13/2018
 ms.author: kasinh
-ms.openlocfilehash: f81e7a0008c015c033d30045970fe1bd67597ff9
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 26f25a0dcbeef0d5b7456d42caaca392c3ca6a1a
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57452203"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58075617"
 ---
 # <a name="install-and-upgrade-azure-backup-server"></a>Instalar e atualizar o servidor de cópia de segurança do Azure
 > [!div class="op_single_selector"]
@@ -231,16 +231,16 @@ As secções seguintes descrevem como atualizar agentes de proteção para compu
 
 2. No painel de visualização, selecione os computadores de cliente para o qual pretende atualizar o agente de proteção.
 
-  > [!NOTE]
-  > O **as atualizações do agente** coluna indica quando uma atualização do agente de proteção está disponível para cada computador protegido. Na **ações** painel, o **atualização** ação está disponível apenas quando um computador protegido está selecionado e as atualizações estiverem disponíveis.
-  >
-  >
+   > [!NOTE]
+   > O **as atualizações do agente** coluna indica quando uma atualização do agente de proteção está disponível para cada computador protegido. Na **ações** painel, o **atualização** ação está disponível apenas quando um computador protegido está selecionado e as atualizações estiverem disponíveis.
+   >
+   >
 
 3. Para instalar agentes de proteção atualizados em computadores selecionados, o **ações** painel, selecione **atualização**.
 
 4. Para um computador cliente que não está ligado à rede, até que o computador estiver ligado à rede, o **estado do agente** coluna mostra o estado **atualização pendente**.
 
-  Depois de um computador cliente está ligado à rede, o **as atualizações do agente** coluna para o computador cliente apresentem o estado **atualização**.
+   Depois de um computador cliente está ligado à rede, o **as atualizações do agente** coluna para o computador cliente apresentem o estado **atualização**.
 
 ## <a name="move-mabs-to-a-new-server"></a>Mover o MABS para um novo servidor
 
@@ -262,10 +262,11 @@ Eis os passos se precisar de mover o MABS para um novo servidor, mantendo o arma
 9. Restaurar a partir do SQL a DPMDB
 10. Instalar, de linha de comandos de administrador no novo servidor cd para o Microsoft Azure Backup, localização e a pasta bin
 
-Exemplo de caminho: C:\Windows\System32 > cd "c:\Program Files\Microsoft Backup\DPM\DPM\bin\ do Azure
-para o Azure backup execute DPMSYNC-SYNC
+    Exemplo de caminho: C:\Windows\System32 > cd "c:\Program Files\Microsoft Backup\DPM\DPM\bin do Azure\" 
 
-10) Execute o DPMSYNC-SYNC Nota Se tiver adicionado novos discos ao agrupamento de armazenamento do DPM em vez de mover os antigos, em seguida, execute DPMSYNC - Reallocatereplica
+11. A cópia de segurança do Azure, execute DPMSYNC-SYNC
+
+    Se tiver adicionado novos discos ao agrupamento de armazenamento do DPM em vez de mover os antigos, em seguida, execute DPMSYNC - Reallocatereplica
 
 ## <a name="network-connectivity"></a>Conectividade de rede
 O Azure Backup Server precisa de conectividade para o serviço de cópia de segurança do Azure para o produto a funcionar com êxito. Para validar se o computador tem conectividade para o Azure, utilize o ```Get-DPMCloudConnection``` cmdlet na consola do PowerShell de servidor de cópia de segurança do Azure. Se a saída do cmdlet for TRUE, em seguida, existe a conectividade, caso contrário não existe nenhuma conectividade.
@@ -306,33 +307,33 @@ Utilize os procedimentos seguintes para atualizar o MABS.
 ### <a name="upgrade-from-mabs-v2-to-v3"></a>Atualizar do MABS V2 para V3
 
 > [!NOTE]
-
+> 
 > MABS V2 não é um pré-requisito para a instalação de MABS V3. No entanto, pode atualizar para o MABS V3 apenas a partir do MABS V2.
 
 Utilize os seguintes passos para atualizar o MABS:
 
 1. Atualizar-se do MABS V2 para MABS V3, atualize o seu sistema operacional para Windows Server 2016 ou Windows Server 2019, se for necessário.
 
-2.  Atualize o servidor. Os passos são semelhantes às [instalação](#install-and-upgrade-azure-backup-server). No entanto, para as definições de SQL, obterá uma opção para atualizar a sua instância de SQL ao SQL 2017 ou para utilizar a sua própria instância do SQL server 2017.
+2. Atualize o servidor. Os passos são semelhantes às [instalação](#install-and-upgrade-azure-backup-server). No entanto, para as definições de SQL, obterá uma opção para atualizar a sua instância de SQL ao SQL 2017 ou para utilizar a sua própria instância do SQL server 2017.
 
-  > [!NOTE]
+   > [!NOTE]
+   > 
+   > Não sair enquanto sua instância de SQL está a ser atualizada, a sair desinstalará a instância de registo de SQL e, por conseguinte, uma tentativa de atualizar novamente o MABS irá falhar.
 
-  > Não sair enquanto sua instância de SQL está a ser atualizada, a sair desinstalará a instância de registo de SQL e, por conseguinte, uma tentativa de atualizar novamente o MABS irá falhar.
+   Coisas importantes a ter em conta:
 
-  Coisas importantes a ter em conta:
-
-  > [!IMPORTANT]
-
-  >  Como parte da atualização do SQL 2017, as chaves de encriptação do SQL de cópia de segurança e desinstalar do reporting services. Após a atualização do SQL server, service(14.0.6827.4788) de geração de relatórios está instalado e as chaves de encriptação são restauradas.
-
- > Ao configurar manualmente o SQL 2017, consulte *configuração do SSRS com o SQL 2017* secção em instruções de instalação.
+   > [!IMPORTANT]
+   > 
+   >  Como parte da atualização do SQL 2017, as chaves de encriptação do SQL de cópia de segurança e desinstalar do reporting services. Após a atualização do SQL server, service(14.0.6827.4788) de geração de relatórios está instalado e as chaves de encriptação são restauradas.
+   > 
+   > Ao configurar manualmente o SQL 2017, consulte *configuração do SSRS com o SQL 2017* secção em instruções de instalação.
 
 3. Atualize os agentes de proteção nos servidores protegidos.
 4. As cópias de segurança devem continuar sem a necessidade de reiniciar os servidores de produção.
 5. Pode começar a proteger os dados agora. Se estiver a atualizar para o armazenamento de cópia de segurança moderno, ao proteger, também pode escolher os volumes que pretende armazenar as cópias de segurança e verificar se há em espaço aprovisionado. [Saiba mais](backup-mabs-add-storage.md).
 
 > [!NOTE]
-
+> 
 > Se estiver a atualizar do MABS V1 para V2, certifique-se de que é o seu sistema operacional Windows Server 2016 ou Windows Server 2012 R2. Para tirar partido das novas funcionalidades, como o System Center 2016 proteção Manager moderna cópia de segurança do armazenamento de dados, tem de instalar o V2 do servidor de cópia de segurança no Windows Server 2016. Antes de atualizar para ou instalar V2 do servidor de cópia de segurança, leia sobre o [pré-requisitos de instalação](https://docs.microsoft.com/system-center/dpm/install-dpm?view=sc-dpm-1807#setup-prerequisites) aplicável para o MABS.
 
 ## <a name="troubleshooting"></a>Resolução de problemas

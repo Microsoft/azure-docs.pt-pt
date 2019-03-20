@@ -3,8 +3,8 @@ title: incluir ficheiro
 description: incluir ficheiro
 services: active-directory
 documentationcenter: dev-center-name
-author: andretms
-manager: mtillman
+author: jmprieur
+manager: CelesteDG
 editor: ''
 ms.service: active-directory
 ms.devlang: na
@@ -12,20 +12,20 @@ ms.topic: include
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 05/04/2018
-ms.author: andret
+ms.author: jmprieur
 ms.custom: include file
-ms.openlocfilehash: 15db2192703971a8056df34343c427db11c8411a
-ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
+ms.openlocfilehash: cce0bb9d1a9317396d197d182a424a45c8448f1b
+ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49988524"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58203646"
 ---
 ## <a name="register-your-application"></a>Registar a sua aplicação
 
 Para registar a sua aplicação e adicionar as suas informações de registo de aplicação à sua solução, tem duas opções:
 
-### <a name="option-1-express-mode"></a>Opção 1: Modo de Express
+### <a name="option-1-express-mode"></a>Opção 1: Modo expresso
 
 Pode registar a sua aplicação rapidamente ao fazer o seguinte:
 

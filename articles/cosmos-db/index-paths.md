@@ -1,17 +1,17 @@
 ---
 title: Trabalhar com caminhos de índice no Azure Cosmos DB
 description: Descrição geral de caminhos de índice no Azure Cosmos DB
-author: rimman
+author: markjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 11/5/2018
-ms.author: rimman
-ms.openlocfilehash: c22d8d69284c546a4fccc86302672d81ce65b9e8
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.date: 3/13/2019
+ms.author: mjbrown
+ms.openlocfilehash: d0fce763822ded374eab2f70c3f319aba0c89267
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54032776"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57992825"
 ---
 # <a name="index-paths-in-azure-cosmos-db"></a>Caminhos de índice no Azure Cosmos DB
 
@@ -25,12 +25,12 @@ Aqui estão os padrões comuns para especificar caminhos de índice:
 
 | **Caminho** | **Caso de utilização/descrição** |
 | ---------- | ------- |
-| /   | Caminho predefinido da coleção. Recursiva e aplica-se a árvore do documento inteiro.|
-| / prop /?  | Caminho de índice necessário para servir consultas semelhante ao seguinte (com tipos de endereços ou intervalos de Hash, respectivamente):<br><br>SELECT FROM c coleção onde c.prop = "valor"<br><br>SELECT FROM c coleção onde c.prop > 5<br><br>SELECIONAR a partir de coleção c ORDER BY c.prop  |
-| / prop / *  | Caminho de índice para todos os caminhos sob a etiqueta especificada. Funciona com as seguintes consultas<br><br>SELECT FROM c coleção onde c.prop = "valor"<br><br>SELECT FROM c coleção onde c.prop.subprop > 5<br><br>SELECT FROM c coleção onde c.prop.subprop.nextprop = "valor"<br><br>SELECIONAR a partir de coleção c ORDER BY c.prop |
-| [] / propriedades / /?  | Caminho de índice necessário para servir a iteração e Junte-se a consultas em matrizes de escalares, como ["a", "b", "c"]:<br><br>SELECIONAR etiqueta de etiqueta IN collection.props etiqueta de onde = "valor"<br><br>SELECIONAR etiqueta de coleção c associação marca IN c.props onde Etiquetar > 5  |
-| /Props/ [] /subprop/? | Caminho de índice necessário para servir a iteração e consultas de JUNÇÃO em relação a matrizes de objetos, como [{subprop: "a"}, {subprop: "b"}]:<br><br>SELECIONAR etiqueta de etiqueta IN collection.props onde tag.subprop = "valor"<br><br>SELECIONAR etiqueta de coleção c associação marca IN c.props onde tag.subprop = "valor" |
-| / prop/subprop /? | Caminho de índice necessário para servir consultas (com tipos de endereços ou intervalos de Hash, respectivamente):<br><br>SELECT FROM c coleção onde c.prop.subprop = "valor"<br><br>SELECT FROM c coleção onde c.prop.subprop > 5  |
+| /          | Caminho predefinido da coleção. Recursiva e aplica-se a árvore do documento inteiro.|
+| / prop /?    | Caminho de índice necessário para servir consultas semelhante ao seguinte (com tipos de intervalo, respectivamente): <br><br>SELECT FROM collection c WHERE c.prop = "value"<br><br>SELECT FROM collection c WHERE c.prop > 5 <br><br>SELECT FROM collection c ORDER BY c.prop  |
+| /prop/*    | Caminho de índice para todos os caminhos sob a etiqueta especificada. Funciona com as seguintes consultas <br><br>SELECT FROM collection c WHERE c.prop = "value"<br><br>SELECT FROM collection c WHERE c.prop.subprop > 5<br><br>SELECT FROM collection c WHERE c.prop.subprop.nextprop = "value"<br><br>SELECT FROM collection c ORDER BY c.prop |
+| /props/[]/?| Caminho de índice necessário para servir a iteração e Junte-se a consultas em matrizes de escalares, como ["a", "b", "c"]:<br><br>SELECT tag FROM tag IN collection.props WHERE tag = "value"<br><br>SELECT tag FROM collection c JOIN tag IN c.props WHERE tag > 5 |
+| /props/[]/subprop/? | Caminho de índice necessário para servir a iteração e consultas de JUNÇÃO em relação a matrizes de objetos, como [{subprop: "a"}, {subprop: "b"}]:<br><br>SELECT tag FROM tag IN collection.props WHERE tag.subprop = "value"<br><br>SELECT tag FROM collection c JOIN tag IN c.props WHERE tag.subprop = "value" |
+| /prop/subprop/? | Caminho de índice necessário para servir consultas (com tipos de intervalo, respectivamente):<br><br>SELECT FROM collection c WHERE c.prop.subprop = "value"<br><br>SELECT FROM collection c WHERE c.prop.subprop > 5  |
 
 Quando definir os caminhos de índice personalizado, tem de especificar a regra de indexação predefinida para o item inteiro, assinalado com o caminho especial `/*`.
 

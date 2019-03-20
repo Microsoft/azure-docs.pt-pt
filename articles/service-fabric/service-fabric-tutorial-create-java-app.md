@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 09/01/2018
 ms.author: suhuruli
 ms.custom: mvc
-ms.openlocfilehash: 92cee8e95888d5084165413ce49d4c884e476e71
-ms.sourcegitcommit: dd1a9f38c69954f15ff5c166e456fda37ae1cdf2
+ms.openlocfilehash: 5ad3d7c27b003fb3963333471bceb3226655a5eb
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57571444"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57874886"
 ---
 # <a name="tutorial-create-an-application-with-a-java-web-api-front-end-service-and-a-stateful-back-end-service-on-service-fabric"></a>Tutorial: Crie uma aplicação com um serviço de front-end de API da web de Java e um serviço de back-end com monitorização de estado no Service Fabric
 
@@ -76,6 +76,7 @@ Em primeiro lugar, crie o front-end para a Web da aplicação de Voto. Uma inter
     ![Package Explorer do Eclipse após a criação da aplicação]( ./media/service-fabric-tutorial-create-java-app/eclipse-package-explorer.png)
 
 A tabela mostra uma descrição breve de cada item no Package Explorer da captura de ecrã anterior. 
+
 | **Item do Package Explorer** | **Descrição** |
 | --- | --- |
 | PublishProfiles | Contém os ficheiros JSON que descrevem os detalhes do perfil de clusters locais e do Azure Service Fabric. O plug-in utiliza o conteúdo destes ficheiros durnte a implementação da aplicação. |
@@ -103,7 +104,7 @@ Para adicionar uma interface do Usuário que pode ser processada pelo serviço s
 <!DOCTYPE html>
 <html>
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
-<script src="http://cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/0.13.4/ui-bootstrap-tpls.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/0.13.4/ui-bootstrap-tpls.min.js"></script>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 <body>
 
@@ -911,7 +912,7 @@ Neste momento, a aplicação está pronta para ser implementada num cluster do S
 
 4. No Package Explorer do Eclipse, clique com o botão direito do rato no projeto **Voting** e clique em **Service Fabric -> Publish Application... (Publicar Aplicação...)** 
 5. Na janela **Publicar a Aplicação**, selecione **Local.json** na lista pendente e clique em **Publicar**.
-6. Vá para o seu browser e aceda a **http://localhost:8080** para ver a sua aplicação em execução no cluster do Service Fabric local. 
+6. Aceda ao seu navegador da web e acesso `http://localhost:8080` para ver a sua aplicação em execução no cluster do Service Fabric local. 
 
 ## <a name="next-steps"></a>Passos Seguintes
 

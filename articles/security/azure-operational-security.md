@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: TomSh
-ms.openlocfilehash: 5a407db97803d3c3be898893b7da6c1cb4aa94bb
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: ab5b50433b85416ff471546171998e992293b0ea
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57537002"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57901513"
 ---
 # <a name="azure-operational-security"></a>Segurança operacional do Azure
 ## <a name="introduction"></a>Introdução
@@ -57,7 +57,7 @@ Este white paper descreve a abordagem da Microsoft para segurança operacionais 
 
 Registos do Microsoft Azure Monitor é a solução de gestão de TI para a cloud híbrida. Usada sozinha ou para expandir a sua implementação existente do System Center, os registos de Monitor do Azure dá-lhe a máxima flexibilidade e o controle para a gestão baseada na nuvem da sua infraestrutura.
 
-![Registos de Monitor do Azure](./media/azure-operational-security/azure-operational-security-fig1.png)
+![Registos do Azure Monitor](./media/azure-operational-security/azure-operational-security-fig1.png)
 
 Com os registos do Azure Monitor, pode gerenciar qualquer instância em qualquer cloud, incluindo no local, Azure, AWS, Windows Server, Linux, VMware e OpenStack, a um custo menor do que soluções competitivas. Criado para o mundo de cloud-first, registos do Azure Monitor oferece uma nova abordagem para gerir a sua empresa que é a forma mais rápida e rentável para atender aos novos desafios de negócios e acomodar novas cargas de trabalho, aplicações e ambientes na cloud.
 
@@ -67,12 +67,12 @@ A funcionalidade principal dos logs de Monitor do Azure é fornecida por um conj
 
 | Serviço  | Descrição|
 | :------------- | :-------------|
-| Registos de Monitor do Azure | Monitorizar e analisar a disponibilidade e o desempenho de diferentes recursos, incluindo computadores e máquinas virtuais. |
+| Registos do Azure Monitor | Monitorizar e analisar a disponibilidade e o desempenho de diferentes recursos, incluindo computadores e máquinas virtuais. |
 |Automatização | Automatizar processos manuais e impor configurações para computadores e máquinas virtuais. |
 | Cópia de segurança | Criar cópias de segurança e restaurar dados críticos. |
 | Site Recovery | Providenciar elevada disponibilidade para aplicações críticas. |
 
-### <a name="azure-monitor-logs"></a>Registos de Monitor do Azure
+### <a name="azure-monitor-logs"></a>Registos do Azure Monitor
 
 [Registos de Monitor do Azure](https://azure.microsoft.com/documentation/services/log-analytics) fornece serviços de monitorização através da recolha de dados de recursos geridos num repositório central. Estes dados podem incluir dados de eventos ou de desempenho ou dados personalizados fornecidos através da API. Depois de recolhidos, os dados estão disponíveis para alertas, análises e exportação.
 
@@ -80,7 +80,7 @@ A funcionalidade principal dos logs de Monitor do Azure é fornecida por um conj
 Este método permite-lhe consolidar os dados de várias origens, para que pode combinar dados dos seus serviços do Azure com os seus existentes ambiente no local. Também separa claramente a recolha dos dados das ações tomadas em relação aos mesmos, para que todas as ações estejam disponíveis para todos os tipos de dados.
 
 
-![Registos de Monitor do Azure](./media/azure-operational-security/azure-operational-security-fig2.png)
+![Registos do Azure Monitor](./media/azure-operational-security/azure-operational-security-fig2.png)
 
 O serviço do Azure Monitor gere os seus dados com base na cloud em segurança, utilize os seguintes métodos:
 -   segregação de dados
@@ -149,7 +149,7 @@ Para ajudar os clientes a evitar, detetar e responder a ameaças, o Centro de Se
 
 -   **Segregação de dados**: Dados são mantidos separados de forma lógica em cada componente em todo o serviço. Todos os dados são etiquetados por organização. Este tipo de etiquetagem persiste por todo o ciclo de vida dos dados e é imposto em cada camada do serviço.
 
--   **Acesso a dados**: Para fornecer recomendações de segurança e investigar potenciais ameaças de segurança, o pessoal técnico da Microsoft pode aceder a informações recolhidas ou analisadas pelos serviços do Azure, incluindo os ficheiros de informação de falha, processar eventos de criação, instantâneos de disco da VM e artefactos, que Pode incluir, involuntariamente, dados do cliente ou dados pessoais das suas máquinas virtuais. Respeitamos a [declaração de privacidade e termos do Microsoft Online Services](http://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&DocumentTypeId=31), qual estado em que a Microsoft não se utiliza dados do cliente ou derivará informações dos mesmos para fins publicitários ou comerciais.
+-   **Acesso a dados**: Para fornecer recomendações de segurança e investigar potenciais ameaças de segurança, o pessoal técnico da Microsoft pode aceder a informações recolhidas ou analisadas pelos serviços do Azure, incluindo os ficheiros de informação de falha, processar eventos de criação, instantâneos de disco da VM e artefactos, que Pode incluir, involuntariamente, dados do cliente ou dados pessoais das suas máquinas virtuais. Respeitamos a [declaração de privacidade e termos do Microsoft Online Services](https://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&DocumentTypeId=31), qual estado em que a Microsoft não se utiliza dados do cliente ou derivará informações dos mesmos para fins publicitários ou comerciais.
 
 -   **A utilização de dados**: A Microsoft utiliza os padrões e informações sobre ameaças presentes em vários inquilinos para melhorar as nossas capacidades de prevenção e deteção; podemos fazê-lo de acordo com os compromissos de privacidade descritos na nossa [declaração de privacidade](https://www.microsoft.com/en-us/privacystatement/OnlineServices/).
 
@@ -271,6 +271,7 @@ Os seguintes tipos de pedidos autenticados e anónimos são registados.
 | Pedidos com um acesso assinatura partilhado (SAS), incluindo pedidos de falhadas e bem-sucedidas |Erros de tempo limite para o cliente e servidor |
 |   Pedidos de dados de análise |    Pedidos falhados de GET com código de erro 304 (não modificado) |
 | Pedidos efetuados por análise de armazenamento em si, como o registo é criada ou eliminada, não tem sessão iniciados. Uma lista completa dos dados com sessão iniciada está documentada no [operações com sessão iniciada da análise de armazenamento e as mensagens de estado](https://docs.microsoft.com/rest/api/storageservices/fileservices/storage-analytics-logged-operations-and-status-messages) e [formato de registo de análise de armazenamento](https://docs.microsoft.com/rest/api/storageservices/fileservices/storage-analytics-log-format) tópicos. | Todos os outros pedidos anónimos com falhas não são registados. Uma lista completa dos dados com sessão iniciada está documentada no [operações com sessão iniciada da análise de armazenamento e as mensagens de estado](https://docs.microsoft.com/rest/api/storageservices/fileservices/storage-analytics-logged-operations-and-status-messages) e [formato de registo de análise de armazenamento](https://docs.microsoft.com/rest/api/storageservices/fileservices/storage-analytics-log-format). |
+
 ## <a name="azure-active-directory"></a>Azure Active Directory
 
 O Azure AD também inclui um conjunto completo de capacidades de gestão de identidade incluindo a autenticação multifator, registo de dispositivos, gestão de palavras-passe self-service, gestão de grupos self-service, gestão de contas com privilégios, acesso baseado em funções controlo, monitorização da utilização de aplicações, avançado auditoria e monitorização de segurança e alertas.
@@ -293,7 +294,7 @@ Os relatórios fornecem o registo de auditoria para o nome do evento, o ator que
 |Inícios de sessão de dispositivos possivelmente infetados |Atividade de utilizadores individuais |   |
 |Utilizadores com atividade anómala de início de sessão |Relatório de atividade de grupos |   |
 | |Relatório de atividade de registo de reposição de palavra-passe |   |
-| |Atividade de reposição de palavra-passe |   | |
+| |Atividade de reposição de palavra-passe |   |
 
 
 

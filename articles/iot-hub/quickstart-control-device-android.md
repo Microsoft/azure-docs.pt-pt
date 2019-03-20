@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 11/19/2018
 ms.author: wesmc
-ms.openlocfilehash: d42bf11f97d7ba532ea41350522e3a8c71ff7f86
-ms.sourcegitcommit: 235cd1c4f003a7f8459b9761a623f000dd9e50ef
+ms.openlocfilehash: a9e5b00ad84a57f49303f2e6f9389b4791fd0f60
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/11/2019
-ms.locfileid: "57727115"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58166951"
 ---
 # <a name="quickstart-control-a-device-connected-to-an-iot-hub-android"></a>Início rápido: Controlar um dispositivo ligado a um IoT hub (Android)
 
@@ -91,7 +91,7 @@ Também é necessário um _cadeia de ligação de serviço_ para permitir que os
 **YourIoTHubName**: Substitua este marcador de posição abaixo com o nome que escolheu para o seu hub IoT.
 
 ```azurecli-interactive
-az iot hub show-connection-string --hub-name YourIoTHubName --output table
+az iot hub show-connection-string --name YourIoTHubName --output table
 ```
 
 Anote a cadeia de ligação do serviço, que se parece com:
@@ -127,7 +127,7 @@ O aplicativo de exemplo do SDK de dispositivo pode ser executado num dispositivo
 
 5. Assim que a aplicação for carregada, clique nas **iniciar** botão para começar a enviar telemetria ao seu IoT Hub:
 
-    ![Candidatura](media/quickstart-send-telemetry-android/sample-screenshot.png)
+    ![Aplicação](media/quickstart-send-telemetry-android/sample-screenshot.png)
 
 Esta aplicação tem de ser deixada em execução num phycial dispositivo ou emulador enquanto executar o exemplo de SDK do serviço para atualizar o intervalo de telemetria durante o tempo de execução.
 

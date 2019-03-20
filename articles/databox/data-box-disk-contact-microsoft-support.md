@@ -8,12 +8,12 @@ ms.subservice: ''
 ms.topic: article
 ms.date: 09/27/2018
 ms.author: alkohli
-ms.openlocfilehash: 763dfbc3813a63ffbc91180de1d5b518cef2a46d
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: d62ad37e6bbe9c89ef803cefc43f373e287a7af7
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55470167"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58100450"
 ---
 # <a name="open-a-support-ticket-for-azure-data-box"></a>Abra um pedido de suporte do Azure Data Box 
 
@@ -55,14 +55,14 @@ Execute os seguintes passos para criar um pedido de suporte:
 
 4. Na **novo pedido de suporte**, clique em **informações de contacto do passo 3**. Na **informações de contacto**, siga os passos abaixo:
 
-    1. Na **opções de contacto**, forneça o seu método preferencial de contacto (telefone ou e-mail) e o idioma. O tempo de resposta é selecionado automaticamente com base no seu plano de subscrição.
-    2. Na **informações de contacto**, fornecer seu nome, e-mail, contato opcional, país. Selecione **guardar alterações de contactos para futuros pedidos de suporte**.
-    3. Clique em **Criar**.
+   1. Na **opções de contacto**, forneça o seu método preferencial de contacto (telefone ou e-mail) e o idioma. O tempo de resposta é selecionado automaticamente com base no seu plano de subscrição.
+   2. Na **informações de contacto**, fornecer seu nome, e-mail, contato opcional, país. Selecione **guardar alterações de contactos para futuros pedidos de suporte**.
+   3. Clique em **Criar**.
    
-        ![Informações de contacto](./media/data-box-disk-contact-microsoft-support/data-box-disk-support3.png)   
+       ![Informações de contacto](./media/data-box-disk-contact-microsoft-support/data-box-disk-support3.png)   
 
-    Support da Microsoft utiliza estas informações para contactá-lo para obter mais informações, diagnóstico e resolução.
-Depois de ter submetido o seu pedido, um engenheiro de suporte irá contactá-lo assim que possível para continuar com o seu pedido.
+      Support da Microsoft utiliza estas informações para contactá-lo para obter mais informações, diagnóstico e resolução.
+      Depois de ter submetido o seu pedido, um engenheiro de suporte irá contactá-lo assim que possível para continuar com o seu pedido.
 
 ## <a name="manage-a-support-request"></a>Gerir pedidos de suporte
 

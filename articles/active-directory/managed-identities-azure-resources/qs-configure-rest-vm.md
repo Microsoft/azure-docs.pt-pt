@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 06/25/2018
 ms.author: priyamo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 09bdffbceafc11d99889cbda1461e4af4d89168e
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 778897e1a146abd0655d76ef157f64522681cb0d
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57444621"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57889680"
 ---
 # <a name="configure-managed-identities-for-azure-resources-on-an-azure-vm-using-rest-api-calls"></a>Configurar identidades gerida para recursos do Azure numa VM do Azure através de chamadas à REST API
 
@@ -63,7 +63,7 @@ Para criar uma VM do Azure com a identidade gerida atribuídos do sistema ativad
     az network nic create -g myResourceGroup --vnet-name myVnet --subnet mySubnet -n myNic
    ```
 
-3.  Obter um token de acesso de portador, que irá utilizar no próximo passo no cabeçalho de autorização para criar a sua VM com uma identidade gerida atribuído de sistema.
+3. Obter um token de acesso de portador, que irá utilizar no próximo passo no cabeçalho de autorização para criar a sua VM com uma identidade gerida atribuído de sistema.
 
    ```azurecli-interactive
    az account get-access-token
@@ -80,6 +80,7 @@ Para criar uma VM do Azure com a identidade gerida atribuídos do sistema ativad
    ```
    
    **Cabeçalhos de pedido**
+   
    |Cabeçalho do pedido  |Descrição  |
    |---------|---------|
    |*Content-Type*     | Necessário. Definido como `application/json`.        |
@@ -168,6 +169,7 @@ Para ativar a identidade gerida atribuído de sistema numa VM que foi originalme
    PATCH https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/myVM?api-version=2018-06-01 HTTP/1.1
    ```
    **Cabeçalhos de pedido**
+
    |Cabeçalho do pedido  |Descrição  |
    |---------|---------|
    |*Content-Type*     | Necessário. Definido como `application/json`.        |
@@ -239,6 +241,7 @@ Para ativar a identidade gerida atribuído de sistema numa VM que foi originalme
    |---------|---------|
    |*Content-Type*     | Necessário. Definido como `application/json`.        |
    |*Autorização*     | Necessário. Definido como válido `Bearer` token de acesso.        | 
+
    **Corpo do pedido**
 
    ```JSON
@@ -314,7 +317,7 @@ Para atribuir uma identidade de utilizador atribuído a uma VM, a conta tem do [
     az network nic create -g myResourceGroup --vnet-name myVnet --subnet mySubnet -n myNic
    ```
 
-3.  Obter um token de acesso de portador, que irá utilizar no próximo passo no cabeçalho de autorização para criar a sua VM com uma identidade gerida atribuído de sistema.
+3. Obter um token de acesso de portador, que irá utilizar no próximo passo no cabeçalho de autorização para criar a sua VM com uma identidade gerida atribuído de sistema.
 
    ```azurecli-interactive
    az account get-access-token
@@ -507,6 +510,7 @@ Para atribuir uma identidade de utilizador atribuído a uma VM, a conta tem do [
    GET https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/<RESOURCE GROUP>/providers/Microsoft.Compute/virtualMachines/<VM NAME>?api-version=2018-06-01 HTTP/1.1
    ```
    **Cabeçalhos de pedido**
+
    |Cabeçalho do pedido  |Descrição  |
    |---------|---------|
    |*Autorização*     | Necessário. Definido como válido `Bearer` token de acesso.
@@ -675,6 +679,7 @@ Para remover uma identidade de utilizador atribuído a uma VM, a conta tem do [c
    ```
 
    **Cabeçalhos de pedido**
+
    |Cabeçalho do pedido  |Descrição  |
    |---------|---------|
    |*Content-Type*     | Necessário. Definido como `application/json`.        |

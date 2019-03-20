@@ -12,12 +12,12 @@ ms.workload: infrastructure
 ms.date: 03/16/2018
 ms.author: kumud
 ms.custom: ''
-ms.openlocfilehash: 35b4b06a09b8ef7b27e8d105d7f2336668c49f8f
-ms.sourcegitcommit: dd1a9f38c69954f15ff5c166e456fda37ae1cdf2
+ms.openlocfilehash: 1a5b883a8c9688d4545c0e98c00f78a2e982a611
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57570866"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58079723"
 ---
 # <a name="how-to-send-real-user-measurements-to-traffic-manager-with-visual-studio-mobile-center"></a>Como enviar medições de utilizador reais para o Gestor de tráfego com o Visual Studio Mobile Center
 
@@ -33,22 +33,22 @@ Para configurar as medições de utilizador reais, terá de obter uma chave e in
 As medidas a tomar e enviados para o Gestor de tráfego a partir da sua aplicação de cliente são identificadas pelo serviço usando uma cadeia de caracteres exclusiva, chamada a chave de medições de utilizador Real (RUM). Pode obter uma chave de executar com o portal do Azure, uma API REST ou através do PowerShell / CLI interfaces.
 
 Para obter a chave de rum do através do portal do Azure utilizando o seguinte procedimento:
-   1. Num browser, inicie sessão no portal do Azure. Se ainda não tiver uma conta, pode inscrever-se numa avaliação gratuita de um mês.
-   2. Na barra de pesquisa do portal, procure o nome de perfil do Gestor de tráfego que pretende modificar e, em seguida, clique no perfil do Gestor de tráfego nos resultados que apresentados.
-   3. Na página de perfil do Traffic Manager, clique em **medidas de utilizadores reais** sob **definições**.
-   4. Clique em **gerar chave** para criar uma nova chave de rum do.
+1. Num browser, inicie sessão no portal do Azure. Se ainda não tiver uma conta, pode inscrever-se numa avaliação gratuita de um mês.
+2. Na barra de pesquisa do portal, procure o nome de perfil do Gestor de tráfego que pretende modificar e, em seguida, clique no perfil do Gestor de tráfego nos resultados que apresentados.
+3. Na página de perfil do Traffic Manager, clique em **medidas de utilizadores reais** sob **definições**.
+4. Clique em **gerar chave** para criar uma nova chave de rum do.
         
    ![Gerar chave de medições de utilizador reais](./media/traffic-manager-create-rum-visual-studio/generate-rum-key.png)
 
    **Figura 1: Geração de chave de medições de utilizador real**
 
-   5.   A página apresenta a chave de rum do que é gerado e um trecho de código JavaScript que tem de ser incorporados em sua página HTML.
+5. A página apresenta a chave de rum do que é gerado e um trecho de código JavaScript que tem de ser incorporados em sua página HTML.
  
    ![Código de JavaScript para a chave de medições de utilizador reais](./media/traffic-manager-create-rum-visual-studio/rum-key.png)
 
    **Figura 2: Chave de medições de utilizador real e JavaScript de medida**
  
-   6. Clique nas **cópia** botão para copiar a chave de rum do. 
+6. Clique nas **cópia** botão para copiar a chave de rum do. 
 
 ## <a name="step-2-instrument-your-app-with-the-rum-package-of-mobile-center-sdk"></a>Passo 2: Instrumente a sua aplicação com o pacote executar do SDK do Mobile Center
 

@@ -14,17 +14,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/07/2016
 ms.author: mandia
-ms.openlocfilehash: f69035202a3358af38ebaf8e94abdd3b030e633f
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: e58a62761284e0671c0083d41f5dde4c13b32fe2
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51256073"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58108261"
 ---
-# <a name="biztalk-services-troubleshoot-using-operation-logs"></a>BizTalk Services: Resolver problemas com os registos de operações
+# <a name="biztalk-services-troubleshoot-using-operation-logs"></a>Serviços BizTalk: Resolução de problemas com os registos de operações
 
 > [!INCLUDE [BizTalk Services is being retired, and replaced with Azure Logic Apps](../../includes/biztalk-services-retirement.md)]
-
+> 
 > [!INCLUDE [Use APIs to manage MABS](../../includes/biztalk-services-retirement-azure-classic-portal.md)]
 
 ## <a name="what-are-the-operation-logs"></a>Quais são os registos de operação
@@ -39,7 +39,7 @@ Os registos de operações é uma funcionalidade de serviços de gestão que per
 ## <a name="view-biztalk-services-operation-logs"></a>Ver os registos de operações dos serviços BizTalk
 1. No portal, selecione **dos serviços de gestão**e, em seguida, selecione a **os registos de operações** separador.
 2. Pode filtrar os registos com base nos parâmetros diferentes, como a subscrição, intervalo de datas, o tipo de serviço (por exemplo, os serviços BizTalk), nome do serviço ou estado da operação (com êxito, falha).
-3. Selecione a marca de verificação para ver a lista filtrada. A imagem seguinte mostra as atividades relacionadas ao testbiztalkservice: ![ver os registos de operações][ViewLogs] 
+3. Selecione a marca de verificação para ver a lista filtrada. A imagem seguinte mostra as atividades relacionadas ao testbiztalkservice: ![Ver registos de operação][ViewLogs] 
 4. Para ver mais sobre uma operação específica, selecione a linha e clique em **detalhes** na barra de tarefas na parte inferior.
 
 ## <a name="bizops"></a>Operações controladas utilizando os serviços de gestão do Azure
@@ -67,11 +67,11 @@ A tabela seguinte lista as operações que são controladas usando os serviços 
 * [Serviço de cópia de segurança do BizTalk](https://go.microsoft.com/fwlink/p/?LinkID=325584)
 * [Restaurar o serviço BizTalk a partir de cópia de segurança](https://go.microsoft.com/fwlink/p/?LinkID=325582)
 * [Serviços BizTalk: Programador, básico, Standard e Premium gráfico de edições](https://go.microsoft.com/fwlink/p/?LinkID=302279)
-* [Os serviços BizTalk: aprovisionamento](https://go.microsoft.com/fwlink/p/?LinkID=302280)
-* [Serviços BizTalk: Gráfico de Estado de Aprovisionamento](https://go.microsoft.com/fwlink/p/?LinkID=329870)
-* [Serviços BizTalk: Separadores Dashboard, Monitorizar e Dimensionar](https://go.microsoft.com/fwlink/p/?LinkID=302281)
-* [Serviços BizTalk: limitação](https://go.microsoft.com/fwlink/p/?LinkID=302282)
-* [Serviços BizTalk: Nome e Chave do Emissor](https://go.microsoft.com/fwlink/p/?LinkID=303941)
+* [Serviços BizTalk: Aprovisionamento](https://go.microsoft.com/fwlink/p/?LinkID=302280)
+* [Serviços BizTalk: Gráfico de estado de aprovisionamento](https://go.microsoft.com/fwlink/p/?LinkID=329870)
+* [Serviços BizTalk: Separadores dashboard, monitorizar e dimensionar](https://go.microsoft.com/fwlink/p/?LinkID=302281)
+* [Serviços BizTalk: Throttling](https://go.microsoft.com/fwlink/p/?LinkID=302282)
+* [Serviços BizTalk: Nome do emissor e chave do emissor](https://go.microsoft.com/fwlink/p/?LinkID=303941)
 * [Como posso começar a utilizar o SDK dos Serviços BizTalk do Azure](https://go.microsoft.com/fwlink/p/?LinkID=302335)
 
 [ViewLogs]: ./media/biztalk-troubleshoot-using-ops-logs/Operation-Logs.png

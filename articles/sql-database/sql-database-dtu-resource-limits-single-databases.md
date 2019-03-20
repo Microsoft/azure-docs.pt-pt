@@ -11,24 +11,19 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
-ms.date: 03/06/2019
-ms.openlocfilehash: 25a76133bfecfb08c1e413efea93f1466926c533
-ms.sourcegitcommit: dd1a9f38c69954f15ff5c166e456fda37ae1cdf2
+ms.date: 03/14/2019
+ms.openlocfilehash: 37dcde3d55ce704c7a5dbb6d7757420ba8c393f6
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57569217"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57885106"
 ---
 # <a name="resource-limits-for-single-databases-using-the-dtu-based-purchasing-model"></a>Limites de recursos para bases de dados individuais com o modelo de compra baseado em DTU
 
 Este artigo fornece os limites de recursos detalhados para a base de dados do Azure SQL únicas bases de dados com o modelo de compra baseado em DTU.
 
-Para baseado em DTU compra modelo limites de recursos para conjuntos elásticos, veja [limites de recursos baseados em DTU - conjuntos elásticos](sql-database-vcore-resource-limits-elastic-pools.md). Para limites de recursos baseados em vCore, consulte [limites de recursos baseados em vCore - bases de dados individuais](sql-database-vcore-resource-limits-single-databases.md) e [limites de recursos baseados em vCore - conjuntos elásticos](sql-database-vcore-resource-limits-elastic-pools.md). Para obter mais informações sobre os diferentes modelos de compras, veja [escalões de serviço e modelos de compra](sql-database-purchase-models.md).
-
-> [!IMPORTANT]
-> Em algumas circunstâncias, poderá ter reduzir uma base de dados para recuperar espaço não utilizado. Para obter mais informações, consulte [gerir o espaço de ficheiro na base de dados do Azure SQL](sql-database-file-space-management.md).
-
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+Para baseado em DTU compra modelo limites de recursos para conjuntos elásticos, veja [limites de recursos baseados em DTU - conjuntos elásticos](sql-database-dtu-resource-limits-elastic-pools.md). Para limites de recursos baseados em vCore, consulte [limites de recursos baseados em vCore - bases de dados individuais](sql-database-vcore-resource-limits-single-databases.md) e [limites de recursos baseados em vCore - conjuntos elásticos](sql-database-vcore-resource-limits-elastic-pools.md). Para obter mais informações sobre os diferentes modelos de compras, veja [escalões de serviço e modelos de compra](sql-database-purchase-models.md).
 
 ## <a name="single-database-storage-sizes-and-compute-sizes"></a>Base de dados: Tamanhos de armazenamento e tamanhos de computação
 
@@ -37,7 +32,7 @@ As tabelas seguintes mostram os recursos disponíveis para uma base de dados em 
 > [!IMPORTANT]
 > Para dimensionar a orientação e considerações, consulte [dimensionar uma base de dados](sql-database-single-database-scale.md)
 
-### <a name="basic-service-tier"></a>Escalão de serviço Basic
+### <a name="basic-service-tier"></a>Camada de serviços básicos
 
 | **Tamanho de computação** | **Básica** |
 | :--- | --: |
@@ -49,7 +44,7 @@ As tabelas seguintes mostram os recursos disponíveis para uma base de dados em 
 | Sessões simultâneas máx. | 300 |
 |||
 
-### <a name="standard-service-tier"></a>Escalão de serviço Standard
+### <a name="standard-service-tier"></a>Camada de serviços padrão
 
 | **Tamanho de computação** | **S0** | **S1** | **S2** | **S3** |
 | :--- |---:| ---:|---:|---:|
@@ -73,7 +68,7 @@ As tabelas seguintes mostram os recursos disponíveis para uma base de dados em 
 | Sessões simultâneas máx. |4800 | 9600 | 19200 | 30000 |30000 |
 |||||||
 
-### <a name="premium-service-tier"></a>Escalão de serviço Premium
+### <a name="premium-service-tier"></a>Camada de serviços premium
 
 | **Tamanho de computação** | **P1** | **P2** | **P4** | **P6** | **P11** | **P15** |
 | :--- |---:|---:|---:|---:|---:|---:|
@@ -86,7 +81,9 @@ As tabelas seguintes mostram os recursos disponíveis para uma base de dados em 
 |||||||
 
 > [!IMPORTANT]
-> Mais de 1 TB de armazenamento no escalão Premium está atualmente disponível em todas as regiões, exceto: Leste da China, Norte da China, Alemanha Central, Nordeste da Alemanha, e.u.a. centro-oeste, US DoD regiões e Governo dos E.u. a centro. Noutras regiões, o armazenamento máximo no escalão Premium está limitado a 1 TB.  Para obter mais informações, consulte [limitações atuais do P11-P15](#single-database-limitations-of-p11-and-p15-when-the-maximum-size-greater-than-1-tb).  
+> Mais de 1 TB de armazenamento no escalão Premium está atualmente disponível em todas as regiões, exceto: Leste da China, Norte da China, Alemanha Central, Nordeste da Alemanha, e.u.a. centro-oeste, US DoD regiões e Governo dos E.u. a centro. Noutras regiões, o armazenamento máximo no escalão Premium está limitado a 1 TB.  Para obter mais informações, consulte limitações atuais do P11-P15.  
+> [!NOTE]
+> Para `tempdb` limites, consulte [limites de tempdb](https://docs.microsoft.com/sql/relational-databases/databases/tempdb-database?view=sql-server-2017#tempdb-database-in-sql-database).
 
 ## <a name="next-steps"></a>Passos Seguintes
 

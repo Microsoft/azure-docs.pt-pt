@@ -8,12 +8,12 @@ ms.service: storage
 ms.topic: conceptual
 ms.date: 02/04/2019
 ms.author: rogarana
-ms.openlocfilehash: 3bf82f37752009a488512d720093bc9c595dff8e
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.openlocfilehash: c9aaa22a656d1164ad4e9f9c1ed7539a93dd0457
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55753219"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57999941"
 ---
 # <a name="how-to-upload-download-and-list-blobs-using-the-client-library-for-java-v7"></a>Como carregar, transferir e listar blobs com a biblioteca de cliente para v7 de Java
 
@@ -34,7 +34,7 @@ Certifique-se de que tem os seguintes pré-requisitos:
 
 * Em alternativa, instale e configure o Maven para funcionar a partir da linha de comandos.
 
-Este guia utiliza [Eclipse](http://www.eclipse.org/downloads/) com a configuração "Eclipse IDE para programadores Java".
+Este guia utiliza [Eclipse](https://www.eclipse.org/downloads/) com a configuração "Eclipse IDE para programadores Java".
 
 ## <a name="download-the-sample-application"></a>Transferir a aplicação de exemplo
 
@@ -87,7 +87,7 @@ Deleting the source, and downloaded files
 Antes de continuar, verifique o ficheiro de exemplo no seu diretório predefinido (*C:\Users\<user>\AppData\Local\Temp*, para utilizadores do Windows). Copie o URL para o blob fora da janela da consola e cole-o num browser para ver os conteúdos do ficheiro no armazenamento de Blobs. Se comparar o ficheiro de exemplo no seu diretório com os conteúdos armazenados no armazenamento de Blobs, verá que eles são os mesmos. 
 
   >[!NOTE]
-  >Também pode utilizar uma ferramenta como o [Explorador de Armazenamento do Azure](http://storageexplorer.com/?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) para ver os ficheiros no armazenamento de Blobs. O Explorador de Armazenamento do Azure é uma ferramenta multiplataformas gratuita que lhe permite aceder às informações da sua conta de armazenamento.
+  >Também pode utilizar uma ferramenta como o [Explorador de Armazenamento do Azure](https://storageexplorer.com/?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) para ver os ficheiros no armazenamento de Blobs. O Explorador de Armazenamento do Azure é uma ferramenta multiplataformas gratuita que lhe permite aceder às informações da sua conta de armazenamento.
 
 Depois de verificar os ficheiros, prima a tecla **Enter** para concluir a demonstração e eliminar os ficheiros de teste. Agora que sabe o que o exemplo faz, abra o ficheiro **AzureApp.java** para ver o código. 
 

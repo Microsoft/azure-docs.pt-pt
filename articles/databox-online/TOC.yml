@@ -72,10 +72,24 @@ items:
       href: data-box-edge-system-requirements.md
     - name: Compreender os limites
       href: data-box-edge-limits.md
+    - name: Descrição geral da segurança
+      href: data-box-edge-security.md
+    - name: Rever especificações
+      href: data-box-edge-technical-specifications-compliance.md
   - name: Procedimento
     items:
+    - name: Gerir a computação
+      href: data-box-edge-manage-compute.md
     - name: Desenvolver um módulo C#
       href: data-box-edge-create-iot-edge-module.md
+    - name: Gerir partilhas
+      href: data-box-edge-manage-shares.md
+    - name: Gerir utilizadores
+      href: data-box-edge-manage-users.md
+    - name: Gerir horários de largura de banda
+      href: data-box-edge-manage-bandwidth-schedules.md
+    - name: Gerir energia, acesso, conectividade
+      href: data-box-edge-manage-access-power-connectivity-mode.md
     - name: Gerir através do PowerShell
       href: data-box-edge-connect-powershell-interface.md
 - name: Recursos
@@ -86,9 +100,9 @@ items:
     href: https://azure.microsoft.com/services/storage/databox/edge/
   - name: Preços
     href: https://azure.microsoft.com/pricing/details/storage/databox/edge/
-ms.openlocfilehash: 0ce74b9b3000c04c7e94358c8c93bade74cfd81f
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: e9a8ba6e284a03b4be085aa59be7fa5ae0ab65e9
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57551330"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57855117"

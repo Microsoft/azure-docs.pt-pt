@@ -9,12 +9,12 @@ ms.service: media-services
 ms.topic: article
 ms.date: 02/10/2019
 ms.author: juliako
-ms.openlocfilehash: cfefa8a1bfee03959d0f3b077d9915a6badb1ffd
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: fd680b00feb8a75dfec952d7211554100fca00d8
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55988090"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58075071"
 ---
 # <a name="embed-video-indexer-widgets-into-your-applications"></a>Incorporar widgets do indexador de vídeos nas suas aplicações
 
@@ -45,7 +45,7 @@ Um widget **Player** permite-lhe transmitir o vídeo com uma velocidade de trans
 |t|Segundos a partir do início|Faz com que o leitor inicie a reprodução a partir de um determinado momento.<br/>Exemplo: t=60|
 |captions|Código do idioma|Obtém a legenda no idioma especificado durante o carregamento do widget para ficar disponível no menu das legendas.<br/>Exemplo: captions=pt-PT|
 |showCaptions|Um valor booleano|Faz com que o leitor carregue já com as legendas ativadas.<br/>Exemplo: showCaptions=true|
-|tipo||Ativa uma máscara de leitor de áudio (a peça de vídeo é removida).<br/>Exemplo: type=audio|"
+|tipo||Ativa uma máscara de leitor de áudio (a peça de vídeo é removida).<br/>Exemplo: type=audio|
 |autoplay|Um valor booleano|Indica se o leitor deve iniciar a reprodução do vídeo ao ser carregado (predefinição: true)<br/>Exemplo: autoplay=false|
 |language|Código do idioma|Controla o idioma do leitor (predefinição: en-US)<br/>Exemplo: language=pt-PT|
 

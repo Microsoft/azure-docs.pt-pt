@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 4c431b149edb0677585da3c84e37d64873478ccf
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 905d084b46919ad945cf44f5517b95d5321ee3de
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57432741"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58116203"
 ---
 # <a name="copy-data-to-and-from-azure-sql-data-warehouse-using-azure-data-factory"></a>Copiar dados de e para o Azure SQL Data Warehouse com o Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -197,28 +197,28 @@ Se não forem cumpridos os requisitos, o Azure Data Factory verifica as definiç
 1. **Serviço ligado de origem** é do tipo: **AzureStorage** ou **AzureDataLakeStore com autenticação do principal de serviço**.
 2. O **conjunto de dados de entrada** é do tipo: **AzureBlob** ou **AzureDataLakeStore**e o formato de tipo sob `type` propriedades é **OrcFormat**, **ParquetFormat**, ou **TextFormat** com as seguintes configurações:
 
-    1. `rowDelimiter` tem de ser **\n**.
-    2. `nullValue` está definido como **vazio a cadeia de caracteres** (""), ou `treatEmptyAsNull` está definido como **verdadeiro**.
-    3. `encodingName` está definido como **utf-8**, que é **padrão** valor.
-    4. `escapeChar`, `quoteChar`, `firstRowAsHeader`, e `skipLineCount` não forem especificadas.
-    5. `compression` pode ser **sem compressão**, **GZip**, ou **Deflate**.
+   1. `rowDelimiter` tem de ser **\n**.
+   2. `nullValue` está definido como **vazio a cadeia de caracteres** (""), ou `treatEmptyAsNull` está definido como **verdadeiro**.
+   3. `encodingName` está definido como **utf-8**, que é **padrão** valor.
+   4. `escapeChar`, `quoteChar`, `firstRowAsHeader`, e `skipLineCount` não forem especificadas.
+   5. `compression` pode ser **sem compressão**, **GZip**, ou **Deflate**.
 
-    ```JSON
-    "typeProperties": {
-        "folderPath": "<blobpath>",
-        "format": {
-            "type": "TextFormat",
-            "columnDelimiter": "<any delimiter>",
-            "rowDelimiter": "\n",
-            "nullValue": "",
-            "encodingName": "utf-8"
-        },
-        "compression": {
-            "type": "GZip",
-            "level": "Optimal"
-        }
-    },
-    ```
+      ```JSON
+      "typeProperties": {
+       "folderPath": "<blobpath>",
+       "format": {
+           "type": "TextFormat",
+           "columnDelimiter": "<any delimiter>",
+           "rowDelimiter": "\n",
+           "nullValue": "",
+           "encodingName": "utf-8"
+       },
+       "compression": {
+           "type": "GZip",
+           "level": "Optimal"
+       }
+      },
+      ```
 
 3. Não existe nenhuma `skipHeaderLineCount` em **BlobSource** ou **AzureDataLakeStore** para a atividade de cópia no pipeline.
 4. Não existe nenhuma `sliceIdentifierColumnName` em **SqlDWSink** para a atividade de cópia no pipeline. (PolyBase garante que todos os dados são atualizados ou nada é atualizado numa única execução. Para alcançar **repetibilidade**, poderia usar `sqlWriterCleanupScript`).

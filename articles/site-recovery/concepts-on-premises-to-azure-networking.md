@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: mayg
-ms.openlocfilehash: a78e5c411c03aaff07818c4e45183f8eff40492d
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: 334537e77d5f291dc38e008af7fed9a4ea973265
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55211360"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58108853"
 ---
 # <a name="set-up-ip-addressing-to-connect-to-azure-vms-after-failover"></a>Configurar para ligar a VMs do Azure após a ativação pós-falha de endereçamento IP
 
@@ -49,8 +49,8 @@ Vamos examinar um exemplo para a ativação pós-falha para o Azure através de 
 - O Woodgrove Bank aloja as aplicações de negócio num site no local. Eles hospedam as aplicações móveis no Azure.
 - Não existe conectividade de site-site VPN entre a rede de borda no local e a rede virtual do Azure. Devido a ligação de VPN, a rede virtual no Azure é apresentada como uma extensão da rede no local.
 - O Woodgrove quer replicar cargas de trabalho no local para o Azure com o Site Recovery.
- - O Woodgrove tem as aplicações que dependem endereços IP embutido em, pelo que precisam para manter os endereços IP para as aplicações, após a ativação pós-falha para o Azure.
- - Recursos em execução no Azure utilizam o IP endereço intervalo 172.16.1.0/24, 172.16.2.0/24.
+  - O Woodgrove tem as aplicações que dependem endereços IP embutido em, pelo que precisam para manter os endereços IP para as aplicações, após a ativação pós-falha para o Azure.
+  - Recursos em execução no Azure utilizam o IP endereço intervalo 172.16.1.0/24, 172.16.2.0/24.
 
 ![Antes da ativação pós-falha de sub-rede](./media/site-recovery-network-design/network-design7.png)
 

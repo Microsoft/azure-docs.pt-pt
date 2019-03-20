@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 01/08/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 01af5052d8b092d10609769f211d6ffcde03cf8e
-ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
+ms.openlocfilehash: bd4c024e14e70b5937d85e9917340d25f552096d
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54190379"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58110873"
 ---
 # <a name="install-and-configure-an-on-premises-data-gateway"></a>Instalar e configurar um gateway de dados no local
 
@@ -23,7 +23,7 @@ Um gateway de dados no local é necessário quando um ou mais servidores do Azur
 
 **Requisitos mínimos:**
 
-* O .NET 4.5 framework
+* .NET 4.5 Framework
 * versão de 64 bits do Windows 7 / Windows Server 2008 R2 (ou posterior)
 
 **Recomendado:**
@@ -90,19 +90,19 @@ Depois de ter instalado e registado o gateway, terá de criar um recurso de gate
 
 2. Na **criar gateway de ligação**, introduzirem estas definições:
 
-    * **Nome**: Introduza um nome para o seu recurso de gateway. 
+   * **Nome**: Introduza um nome para o seu recurso de gateway. 
 
-    * **Subscrição**: Selecione a subscrição do Azure para associar o seu recurso de gateway. 
+   * **Subscrição**: Selecione a subscrição do Azure para associar o seu recurso de gateway. 
    
-      A assinatura padrão baseia-se a conta do Azure que utilizou para iniciar sessão.
+     A assinatura padrão baseia-se a conta do Azure que utilizou para iniciar sessão.
 
-    * **Grupo de recursos**: Crie um grupo de recursos ou selecione um existente.
+   * **Grupo de recursos**: Crie um grupo de recursos ou selecione um existente.
 
-    * **Localização**: Selecione a região que registou o seu gateway no.
+   * **Localização**: Selecione a região que registou o seu gateway no.
 
-    * **Nome de instalação**: Se a instalação do gateway não estiver selecionada, selecione o gateway registado. 
+   * **Nome de instalação**: Se a instalação do gateway não estiver selecionada, selecione o gateway registado. 
 
-    Quando tiver terminado, clique em **criar**.
+     Quando tiver terminado, clique em **criar**.
 
 ## <a name="connect-servers"></a>Ligar servidores para o recurso de gateway
 

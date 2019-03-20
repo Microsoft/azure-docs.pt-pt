@@ -14,22 +14,24 @@ ms.tgt_pltfrm: ASP.NET Core
 ms.workload: tbd
 ms.date: 02/24/2019
 ms.author: yegu
-ms.openlocfilehash: 850bb044e5ab9e653bf343b4f222cf21b159bd5d
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: f9d21cb1b047fcc1043ca2d92f718bb5821879a3
+ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57446763"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58226067"
 ---
 # <a name="quickstart-create-an-aspnet-core-app-with-azure-app-configuration"></a>Início rápido: Criar uma aplicação ASP.NET Core com a configuração de aplicações do Azure
 
-Configuração de aplicações do Azure é um serviço de configuração gerida no Azure. Permite-lhe armazenar e gerir todas as suas definições de aplicação num único local que é separada do seu código facilmente. Este guia de introdução mostra-lhe como incorporar o serviço numa aplicação web ASP.NET Core. ASP.NET Core baseia-se um objeto de configuração com base de chave-valor único utilizando as definições de um ou mais origens de dados, conhecidas como *fornecedores de configuração*, especificado por uma aplicação. Porque a .NET Core configuração de aplicações, o cliente está implementado como tal, um fornecedor, o serviço é apresentado tal como com outra origem de dados.
+Configuração de aplicações do Azure é um serviço de configuração gerida no Azure. Pode usá-lo facilmente armazenar e gerir todas as suas definições de aplicação num único local que é separada a partir do código. Este guia de introdução mostra-lhe como incorporar o serviço numa aplicação web ASP.NET Core. 
 
-Pode utilizar qualquer editor de código para concluir os passos deste início rápido. No entanto, o [Visual Studio Code](https://code.visualstudio.com/) é uma excelente opção, disponível nas plataformas Windows, macOS e Linux.
+ASP.NET Core baseia-se um objeto de configuração baseada em chave-valor único com definições de um ou mais origens de dados que são especificadas por uma aplicação. Estas origens de dados são conhecidas como *fornecedores de configuração*. Porque a .NET Core configuração de aplicações, o cliente está implementado como tal, um fornecedor, o serviço é apresentado como outra origem de dados.
+
+Pode utilizar qualquer editor de código para realizar os passos neste guia de introdução. [Visual Studio Code](https://code.visualstudio.com/) é uma excelente opção disponível no Windows, macOS e plataformas Linux.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Para concluir este início rápido, instale o [.NET Core SDK](https://dotnet.microsoft.com/download).
+Para fazer este início rápido, instale o [.NET Core SDK](https://dotnet.microsoft.com/download).
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
@@ -39,19 +41,19 @@ Para concluir este início rápido, instale o [.NET Core SDK](https://dotnet.mic
 
 ## <a name="create-an-aspnet-core-web-app"></a>Criar uma aplicação Web ASP.NET Core
 
-Irá utilizar o [.NET Core interface de linha de comandos (CLI)](https://docs.microsoft.com/dotnet/core/tools/) para criar um novo projeto de aplicação de Web de MVC do ASP.NET Core. A vantagem de utilizar a CLI de .NET Core em vez do Visual Studio é que aquela está disponível nas plataformas Windows, macOS e Linux.
+Utilizar o [.NET Core interface de linha de comandos (CLI)](https://docs.microsoft.com/dotnet/core/tools/) para criar um novo projeto de aplicação web de MVC do ASP.NET Core. A vantagem de utilizar a CLI do .NET Core ao longo do Visual Studio é que ele está disponível para todas as plataformas de Linux, macOS e Windows.
 
-1. Crie uma pasta nova para o projeto. Neste início rápido, iremos designá-lo *TestAppConfig*.
+1. Crie uma pasta nova para o projeto. Neste início rápido, um nome *TestAppConfig*.
 
-2. Na pasta nova, execute o seguinte comando para criar um projeto de aplicação Web ASP.NET Core MVC novo:
+2. Na nova pasta, execute o seguinte comando para criar um novo projeto de aplicação web de MVC do ASP.NET Core:
 
         dotnet new mvc
 
 ## <a name="add-secret-manager"></a>Adicionar Gestor de segredo
 
-Adicionará a [ferramenta Gerenciador de segredo](https://docs.microsoft.com/aspnet/core/security/app-secrets) ao seu projeto. Esta ferramenta armazena os dados confidenciais dos projetos de programação fora da árvore dos projetos. Esta abordagem ajuda a evitar a partilha acidental de segredos de aplicações no código fonte.
+Adicionar a [ferramenta Gerenciador de segredo](https://docs.microsoft.com/aspnet/core/security/app-secrets) ao seu projeto. Esta ferramenta armazena os dados confidenciais dos projetos de programação fora da árvore dos projetos. Esta abordagem ajuda a evitar a partilha acidental de segredos de aplicações no código fonte.
 
-- Abra o ficheiro *.csproj*. Adicionar um `UserSecretsId` elemento, conforme mostrado abaixo e substitua o respetivo valor com os seus próprios, que é normalmente um GUID. Guarde o ficheiro.
+- Abra o ficheiro *.csproj*. Adicionar um `UserSecretsId` elemento, conforme mostrado aqui e substitua o respetivo valor com os seus próprios, que é normalmente um GUID. Guarde o ficheiro.
 
     ```xml
     <Project Sdk="Microsoft.NET.Sdk.Web">
@@ -69,29 +71,29 @@ Adicionará a [ferramenta Gerenciador de segredo](https://docs.microsoft.com/asp
     </Project>
     ```
 
-## <a name="connect-to-app-configuration-store"></a>Ligar ao arquivo de configuração de aplicação
+## <a name="connect-to-an-app-configuration-store"></a>Ligar a um arquivo de configuração de aplicação
 
-1. Execute o seguinte comando para adicionar uma referência para o pacote de NuGet `Microsoft.Extensions.Configuration.AzureAppConfiguration`:
+1. Adicionar uma referência para o `Microsoft.Extensions.Configuration.AzureAppConfiguration` pacote NuGet ao executar o seguinte comando:
 
         dotnet add package Microsoft.Extensions.Configuration.AzureAppConfiguration
 
-2. Execute o seguinte comando para restaurar os pacotes do seu projeto.
+2. Execute o seguinte comando para restaurar pacotes para o seu projeto:
 
         dotnet restore
 
 3. Adicionar um segredo com o nome *ConnectionStrings:AppConfig* ao Gestor de segredo.
 
-    Este segredo irá conter a cadeia de ligação para aceder ao seu arquivo de configuração de aplicação. Substitua o valor no comando abaixo com a cadeia de ligação para o arquivo de configuração de aplicação.
+    Este segredo contém a cadeia de ligação para aceder ao seu arquivo de configuração de aplicação. Substitua o valor no comando seguinte a cadeia de ligação do seu arquivo de configuração de aplicação.
 
     Este comando tem de ser executado no mesmo diretório que o ficheiro *.csproj*.
 
         dotnet user-secrets set ConnectionStrings:AppConfig "Endpoint=<your_endpoint>;Id=<your_id>;Secret=<your_secret>"
 
-    Gestor de segredo só serão utilizadas para testar a aplicação web localmente. Quando a aplicação é implementada (por exemplo, para [App Service do Azure](https://azure.microsoft.com/services/app-service/web)), que irá utilizar uma definição da aplicação (por exemplo, **cadeias de ligação** no serviço de aplicações) em vez de armazenar a cadeia de ligação com o segredo Gestor.
+    Segredo Manager é utilizada apenas para testar a aplicação web localmente. Quando a aplicação for implementada, por exemplo, a [App Service do Azure](https://azure.microsoft.com/services/app-service/web), utilize uma aplicação de definir, por exemplo, **cadeias de ligação** no serviço de aplicações. Utilize esta definição em vez de armazenar a cadeia de ligação com o Gestor de segredo.
 
-    Este segredo é acedidos com a API de configuração. Os dois pontos (:) funcionam no nome da configuração com a API de configuração nas plataformas suportadas, veja [Configuração por ambiente](https://docs.microsoft.com/aspnet/core/fundamentals/configuration/index?tabs=basicconfiguration&view=aspnetcore-2.0).
+    Este segredo é acessado com a API de configuração. Dois pontos (:) funciona no nome da configuração com a API de configuração nas plataformas suportadas. Ver [configuração pelo ambiente](https://docs.microsoft.com/aspnet/core/fundamentals/configuration/index?tabs=basicconfiguration&view=aspnetcore-2.0).
 
-4. Open *Program.cs* e atualizar a `CreateWebHostBuilder` método a utilizar a configuração de aplicações ao chamar o `config.AddAzureAppConfiguration()` método.
+4. Abra o ficheiro Program.cs e atualizar o `CreateWebHostBuilder` método a utilizar a configuração de aplicações ao chamar o `config.AddAzureAppConfiguration()` método.
 
     ```csharp
     public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
@@ -104,7 +106,7 @@ Adicionará a [ferramenta Gerenciador de segredo](https://docs.microsoft.com/asp
             .UseStartup<Startup>();
     ```
 
-5. Open *Index. cshtml* no *vistas* > *home page* diretório e substituir seu conteúdo com o código a seguir:
+5. Abra o Index. cshtml nas vistas > diretório de casa e substituir seu conteúdo com o código a seguir:
 
     ```html
     @using Microsoft.Extensions.Configuration
@@ -130,7 +132,7 @@ Adicionará a [ferramenta Gerenciador de segredo](https://docs.microsoft.com/asp
     </html>
     ```
 
-6. Open *layout. cshtml* no *vistas* > *partilhado* diretório e substituir seu conteúdo com o código a seguir:
+6. Abrir o layout. cshtml nas vistas > partilhados diretório e substituir seu conteúdo com o código a seguir:
 
     ```html
     <!DOCTYPE html>
@@ -159,15 +161,15 @@ Adicionará a [ferramenta Gerenciador de segredo](https://docs.microsoft.com/asp
 
 ## <a name="build-and-run-the-app-locally"></a>Criar e executar a aplicação localmente
 
-1. Para criar a aplicação com a CLI de .NET Core, execute o seguinte comando na shell de comandos:
+1. Para criar a aplicação com a CLI do .NET Core, execute o seguinte comando na shell de comandos:
 
         dotnet build
 
-2. Depois de concluir com êxito a compilação, execute o seguinte comando para executar a aplicação Web localmente:
+2. Após a compilação for concluída com êxito, execute o seguinte comando para executar a aplicação web localmente:
 
         dotnet run
 
-3. Inicie uma janela do browser e navegue para `http://localhost:5000`, que é o URL predefinido da aplicação web alojada localmente.
+3. Abra uma janela do browser e aceda a `http://localhost:5000`, que é o URL predefinido da aplicação web alojada localmente.
 
     ![Início rápido iniciação da aplicação local](./media/quickstarts/aspnet-core-app-launch-local.png)
 

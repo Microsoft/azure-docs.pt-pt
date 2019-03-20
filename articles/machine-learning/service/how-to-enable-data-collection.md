@@ -11,12 +11,12 @@ ms.author: marthalc
 author: marthalc
 ms.date: 12/3/2018
 ms.custom: seodec18
-ms.openlocfilehash: fa1076fb523c3634cf8e4f4832d36aa7ee715797
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.openlocfilehash: a127a211157edb0b26d0495bc2ed05dd79323111
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56816356"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57842639"
 ---
 # <a name="collect-data-for-models-in-production"></a>Recolher dados para modelos em produção
 
@@ -50,7 +50,7 @@ O caminho para os dados de saída no blob segue esta sintaxe:
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-- Se não tiver uma subscrição do Azure, crie uma conta gratuita antes de começar. Experimente o [uma versão gratuita ou paga do serviço Azure Machine Learning](http://aka.ms/AMLFree) hoje mesmo.
+- Se não tiver uma subscrição do Azure, crie uma conta gratuita antes de começar. Experimente o [uma versão gratuita ou paga do serviço Azure Machine Learning](https://aka.ms/AMLFree) hoje mesmo.
 
 - Uma Azure Machine Learning serviço área de trabalho, um diretório local que contém os scripts e o SDK do Azure Machine Learning para Python instalada. Saiba como obter estes pré-requisitos com o [como configurar um ambiente de desenvolvimento](how-to-configure-environment.md) documento.
 
@@ -136,15 +136,15 @@ Pode parar a recolha de dados de qualquer altura. Utilize o código de Python ou
 
   1. Aceda a **implementações** -> **selecionar serviço** -> **editar**.
 
-    [![Opção de editar](media/how-to-enable-data-collection/EditService.PNG)](./media/how-to-enable-data-collection/EditService.PNG#lightbox)
+     [![Opção de editar](media/how-to-enable-data-collection/EditService.PNG)](./media/how-to-enable-data-collection/EditService.PNG#lightbox)
 
   1. Na **definições avançadas**, Desselecionar **recolha de dados de modelo permitir**. 
 
-    [![Desmarque a opção de recolha de dados](media/how-to-enable-data-collection/UncheckDataCollection.png)](./media/how-to-enable-data-collection/UncheckDataCollection.png#lightbox)
+     [![Desmarque a opção de recolha de dados](media/how-to-enable-data-collection/UncheckDataCollection.png)](./media/how-to-enable-data-collection/UncheckDataCollection.png#lightbox)
 
   1. Selecione **atualização** para aplicar a alteração.
 
-* Opção 2 – utilizar o Python para desativar a recolha de dados:
++ Opção 2 – utilizar o Python para desativar a recolha de dados:
 
   ```python 
   ## replace <service_name> with the name of the web service

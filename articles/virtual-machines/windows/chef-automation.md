@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/30/2017
 ms.author: diviso
-ms.openlocfilehash: 6659b49ecfbcb6bf571fccc258a65aa547f72f86
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: a973d8dbab18e9ea66afb5ffff83f47c3ad98f93
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57453818"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58012341"
 ---
 # <a name="automating-azure-virtual-machine-deployment-with-chef"></a>Automatizar a implementação de máquinas virtuais do Azure com o Chef
 [!INCLUDE [learn-about-deployment-models](../../../includes/learn-about-deployment-models-both-include.md)]
@@ -32,7 +32,7 @@ Com a versão mais recente do API na nuvem, a Chef fornece uma integração perf
 Neste artigo, vai configurar o ambiente do Chef para aprovisionar máquinas virtuais do Azure e percorrer a criar uma política ou "Manual" e, em seguida, implementar este manual de uma máquina virtual do Azure.
 
 ## <a name="chef-basics"></a>Noções básicas do chef
-Antes de começar, [rever os conceitos básicos do Chef](http://www.chef.io/chef).
+Antes de começar, [rever os conceitos básicos do Chef](https://www.chef.io/chef).
 
 O diagrama seguinte ilustra a arquitetura geral do Chef.
 

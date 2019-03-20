@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 02/25/2019
 ms.author: jeedes
-ms.openlocfilehash: c97a24be4b8ee88f76b46af8136445740c2906de
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: d1cc7735b8caa952a5ab7695d3e1f35b03fec1bb
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57781243"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57890683"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-purecloud-by-genesys"></a>Tutorial: Integração do Active Directory do Azure com PureCloud por Genesys
 
@@ -105,6 +105,7 @@ Para configurar o Azure AD início de sessão único com PureCloud por Genesys, 
     ![PureCloud por Genesys domínio e URLs únicas início de sessão em informações](common/idp-intiated.png)
 
     a. Na **identificador** caixa de texto, escreva um URL de acordo com a sua região:
+
     | |
     |--|
     | `https://login.mypurecloud.com/saml` |
@@ -114,6 +115,7 @@ Para configurar o Azure AD início de sessão único com PureCloud por Genesys, 
     | `https://login.mypurecloud.au/saml` |
 
     b. Na **URL de resposta** caixa de texto, escreva um URL de acordo com a sua região:
+
     | |
     |--|
     | `https://login.mypurecloud.com/saml` |
@@ -127,6 +129,7 @@ Para configurar o Azure AD início de sessão único com PureCloud por Genesys, 
     ![PureCloud por Genesys domínio e URLs únicas início de sessão em informações](common/metadata-upload-additional-signon.png)
 
     Na **URL de início de sessão** caixa de texto, escreva um URL de acordo com a sua região:
+    
     | |
     |--|
     | `https://login.mypurecloud.com` |
@@ -137,20 +140,20 @@ Para configurar o Azure AD início de sessão único com PureCloud por Genesys, 
 
 6. PureCloud pelo aplicativo Genesys espera que as asserções SAML num formato específico, o que requer a adição de mapeamentos de atributos personalizado à sua configuração de atributos de token SAML. Captura de ecrã seguinte mostra a lista de atributos predefinidos. Clique em **edite** ícone para abrir **atributos do utilizador** caixa de diálogo.
 
-    ![imagem](common/edit-attribute.png)
+    ![image](common/edit-attribute.png)
 
 7. Além disso, anteriormente, PureCloud pelo aplicativo Genesys espera mais alguns atributos a serem passados na resposta SAML. No **afirmações de utilizador** secção sobre o **atributos de utilizador** caixa de diálogo, execute os seguintes passos para adicionar o atributo de token de SAML conforme mostrado na tabela a seguir:
 
     | Name | Atributo de origem|
     | ---------------| --------------- |
-    | E-mail | user.userprinicipalname |
+    | Email | user.userprinicipalname |
     | OrganizationName | `Your organization name` |
 
     a. Clique em **Adicionar nova afirmação** para abrir o **afirmações de utilizador de gerir** caixa de diálogo.
 
-    ![imagem](common/new-save-attribute.png)
+    ![image](common/new-save-attribute.png)
 
-    ![imagem](common/new-attribute-details.png)
+    ![image](common/new-attribute-details.png)
 
     b. Na **nome** caixa de texto, escreva o nome de atributo apresentado para essa linha.
 
@@ -200,7 +203,7 @@ Para configurar o Azure AD início de sessão único com PureCloud por Genesys, 
 
     ![Configurar o início de sessão único](./media/purecloud-by-genesys-tutorial/configure06.png)
 
-    e. Clique em **Guardar**   
+    e. Clicar em **Guardar**   
 
 ### <a name="create-an-azure-ad-test-user"></a>Criar um utilizador de teste do Azure AD 
 
@@ -220,7 +223,7 @@ O objetivo desta secção é criar um utilizador de teste no portal do Azure cha
 
     a. Na **Name** campo introduza **BrittaSimon**.
   
-    b. Na **nome de utilizador** tipo de campo **brittasimon@yourcompanydomain.extension**  
+    b. Na **nome de utilizador** tipo de campo **brittasimon\@yourcompanydomain.extension**  
     Por exemplo, BrittaSimon@contoso.com
 
     c. Selecione **palavra-passe de Show** caixa de verificação e, em seguida, anote o valor que é apresentado na caixa de palavra-passe.
@@ -275,11 +278,11 @@ Para ativar a utilizadores do Azure AD iniciar sessão no PureCloud por Genesys,
 
     a. Na **FullName** texto, introduza o nome de utilizador, como **Brittasimon**.
 
-    b. Na **E-Mail** texto, introduza o e-mail do utilizador, como **brittasimon@contoso.com**.
+    b. Na **E-Mail** texto, introduza o e-mail do utilizador, como **brittasimon\@contoso.com**.
     
     c. Clique em **Criar**.
 
-### <a name="test-single-sign-on"></a>Testar início de sessão único 
+### <a name="test-single-sign-on"></a>Testar o início de sessão único 
 
 Nesta secção, vai testar a configuração do Azure AD única início de sessão com o painel de acesso.
 

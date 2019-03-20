@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 12/18/2018
 ms.author: diberry
-ms.openlocfilehash: ac4095d19904db10d4d60364dd2c739e8105c171
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 4465488dc02568932e839d3234bdb672d59e6804
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55863624"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58089850"
 ---
 # <a name="authoring-and-endpoint-user-access"></a>Criação e o ponto final de acesso de utilizador
 Acesso de criação está disponível para os proprietários e colaboradores. Para uma aplicação privada, o acesso de ponto final está disponível para os proprietários e colaboradores. Para uma aplicação pública, acesso de ponto final está disponível para todos os utilizadores que tem sua própria conta de LUIS tem o ID de. a aplicação pública 
@@ -53,7 +53,7 @@ Acesso para consultar o ponto final é controlado por uma definição no **infor
 Ponto final da aplicação privada só está disponível para o seguinte:
 
 |Chave e o utilizador|Explicação|
-|--|--|--|
+|--|--|
 |Chave de criação do proprietário| Até o ponto final de 1000 ocorrências|
 |Chaves de criação dos colaboradores| Até o ponto final de 1000 ocorrências|
 |Qualquer tecla atribuída a LUIS por um autor ou colaborador|Com base na camada de utilização de chave|

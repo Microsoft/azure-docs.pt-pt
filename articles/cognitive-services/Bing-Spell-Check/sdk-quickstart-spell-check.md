@@ -10,12 +10,12 @@ ms.subservice: bing-spell-check
 ms.topic: quickstart
 ms.date: 02/20/2019
 ms.author: v-gedod
-ms.openlocfilehash: ae558c40a3eb30cb239b19a59542d9d83d5a9566
-ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
+ms.openlocfilehash: 3487656f72f315aa15ce003a8dfd279c45d1f992
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56886150"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58105748"
 ---
 # <a name="quickstart-check-spelling-with-the-bing-spell-check-sdk-for-c"></a>Início rápido: Verifique a ortografia com o SDK de verificação de ortografia para do Bing paraC#
 
@@ -91,7 +91,7 @@ Para adicionar o SDK de verificação de ortográfica do Bing ao seu projeto, cl
                 Console.WriteLine("First SpellCheck Suggestion Score: {0} ", firstSuggestion.Score);
                 Console.WriteLine("First SpellCheck Suggestion : {0} ", firstSuggestion.Suggestion);
             }
-}
+   }
 
 ## Next steps
 

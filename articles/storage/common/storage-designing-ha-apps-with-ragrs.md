@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 01/17/2019
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: 47ca2febeffe395ba2482165f04ee29aa0193c63
-ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
+ms.openlocfilehash: be1c46c5bc2c8edcfeca81c82095687c4ddfd894
+ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55512249"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58225829"
 ---
 # <a name="designing-highly-available-applications-using-ra-grs"></a>Conceber aplicações de elevada disponibilidade com RA-GRS
 
@@ -123,7 +123,7 @@ Basicamente, existem dois cenários a considerar quando decidir como responder a
 
     Neste cenário, há uma penalidade de desempenho porque todas as solicitações de leitura irão tente primeiro o ponto final primário, aguarde o tempo limite expirar, em seguida, mude para o ponto final secundário.
 
-Nestes cenários, deve identificar que há um problema em curso com o ponto final primário e enviar todos os pedidos diretamente para o ponto final secundário de leitura, definindo a **LocationMode** propriedade **SecondaryOnly** . Neste momento, também deve alterar o aplicativo seja executado no modo só de leitura. Essa abordagem é conhecida como o [padrão de disjuntor automático](https://msdn.microsoft.com/library/dn589784.aspx).
+Nestes cenários, deve identificar que há um problema em curso com o ponto final primário e enviar todos os pedidos diretamente para o ponto final secundário de leitura, definindo a **LocationMode** propriedade **SecondaryOnly** . Neste momento, também deve alterar o aplicativo seja executado no modo só de leitura. Essa abordagem é conhecida como o [padrão de disjuntor automático](/azure/architecture/patterns/circuit-breaker).
 
 ### <a name="update-requests"></a>Pedidos de atualização
 
@@ -203,7 +203,7 @@ A tabela seguinte mostra um exemplo de como o que pode acontecer quando atualiza
 | T0       | Transação r: <br> Inserir o funcionário <br> entidade no principal |                                   |                    | Transação A inserido para o primário,<br> não replicadas ainda. |
 | T1       |                                                            | Transação A <br> replicar para<br> secundária | T1 | R de transações replicada para o secundário. <br>Hora da última sincronização atualizada.    |
 | T2       | Transação b:<br>Atualizar<br> Entidade Employee<br> no principal  |                                | T1                 | Transação B escrito para o servidor primário,<br> não replicadas ainda.  |
-| T3       | Transação c:<br> Atualizar <br>Administrador<br>entidade de função no<br>primária |                    | T1                 | Transação C escrito para o servidor primário,<br> não replicadas ainda.  |
+| T3       | Transação c:<br> Atualizar <br>administrador<br>entidade de função no<br>principal |                    | T1                 | Transação C escrito para o servidor primário,<br> não replicadas ainda.  |
 | *T4*     |                                                       | Transação C <br>replicar para<br> secundária | T1         | Transação C replicado para o secundário.<br>LastSyncTime não atualizada porque <br>transação B não tem sido replicada ainda.|
 | *T5*     | Entidades de leitura <br>partir do secundário                           |                                  | T1                 | Obtém o valor obsoleto de funcionário <br> entidade porque ainda não a transação B <br> replicadas ainda. Obtém o novo valor<br> entidade de função de administrador porque tem de C<br> replicadas. Hora da última sincronização ainda não<br> foi atualizado porque a transação B<br> ainda não replicadas. Pode dizer o<br>entidade de função de administrador é inconsistente <br>uma vez que a entidade data/hora é após <br>a hora da última sincronização. |
 | *T6*     |                                                      | Transação B<br> replicar para<br> secundária | T6                 | *T6* – tem todas as transações por meio da C <br>foram replicados, a hora da última sincronização<br> é atualizado. |
@@ -216,7 +216,7 @@ Reconhecer que tem dados potencialmente inconsistentes, o cliente pode utilizar 
 
 É importante testar seu aplicativo se comporta conforme o esperado quando encontrar erros de repetição. Por exemplo, precisa testar que o aplicativo alterna para o secundário e no modo só de leitura quando Deteta um problema e muda uma quando a região primária fique disponível novamente. Para tal, precisa de uma forma para simular erros de repetição e controle a frequência com que eles ocorrem.
 
-Pode usar [Fiddler](http://www.telerik.com/fiddler) para interceptar e modificar as respostas HTTP num script. Este script pode identificar as respostas do seu ponto final primário e alterar o código de estado HTTP de forma que a biblioteca de cliente de armazenamento reconhece como um erro de repetição. Este fragmento de código mostra um exemplo simples de um script de Fiddler que intercepta as respostas a pedidos em relação a leitura a **employeedata** tabela rolesettings para retornar um status 502:
+Pode usar [Fiddler](https://www.telerik.com/fiddler) para interceptar e modificar as respostas HTTP num script. Este script pode identificar as respostas do seu ponto final primário e alterar o código de estado HTTP de forma que a biblioteca de cliente de armazenamento reconhece como um erro de repetição. Este fragmento de código mostra um exemplo simples de um script de Fiddler que intercepta as respostas a pedidos em relação a leitura a **employeedata** tabela rolesettings para retornar um status 502:
 
 ```java
 static function OnBeforeResponse(oSession: Session) {
@@ -228,7 +228,7 @@ static function OnBeforeResponse(oSession: Session) {
 }
 ```
 
-Pode estender esse exemplo para interceptar um maior número de pedidos e alterar apenas a **responseCode** em alguns para simular melhor um cenário do mundo real. Para obter mais informações sobre como personalizar os scripts de Fiddler, consulte [modificar uma solicitação ou resposta](http://docs.telerik.com/fiddler/KnowledgeBase/FiddlerScript/ModifyRequestOrResponse) na documentação do Fiddler.
+Pode estender esse exemplo para interceptar um maior número de pedidos e alterar apenas a **responseCode** em alguns para simular melhor um cenário do mundo real. Para obter mais informações sobre como personalizar os scripts de Fiddler, consulte [modificar uma solicitação ou resposta](https://docs.telerik.com/fiddler/KnowledgeBase/FiddlerScript/ModifyRequestOrResponse) na documentação do Fiddler.
 
 Se tiver efetuado os limiares para mudar a sua aplicação para o modo só de leitura configurável, será mais fácil testar o comportamento com volumes de transações de não produção.
 

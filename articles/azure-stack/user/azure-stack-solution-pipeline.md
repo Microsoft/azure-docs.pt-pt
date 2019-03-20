@@ -15,12 +15,12 @@ ms.date: 03/11/2019
 ms.author: mabrigg
 ms.reviewer: anajod
 ms.lastreviewed: 11/07/2018
-ms.openlocfilehash: 13c5d194ca5e6a606b319a42fdba7a597a8d4852
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 9c7e6640bdb17e9f996545c2c3315c0c1ade42d1
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57781209"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57902217"
 ---
 # <a name="tutorial-deploy-apps-to-azure-and-azure-stack"></a>Tutorial: Implementar aplicações no Azure e no Azure Stack
 
@@ -78,17 +78,17 @@ Este tutorial parte do princípio de que tenha algum conhecimento básico do Azu
 ### <a name="azure-stack-requirements"></a>Requisitos do Azure Stack
 
 * Utilizar um sistema integrado do Azure Stack ou implementar o Azure Stack Development Kit (ASDK). Para implementar o ASDK:
-    * O [Tutorial: implementar o ASDK através do instalador](https://docs.microsoft.com/azure/azure-stack/asdk/asdk-deploy) dá instruções de implementação detalhados.
-    * Utilize o [ConfigASDK.ps1](https://github.com/mattmcspirit/azurestack/blob/master/deployment/ConfigASDK.ps1 ) script do PowerShell para automatizar passos de pós-implementação ASDK.
+  * O [Tutorial: implementar o ASDK através do instalador](https://docs.microsoft.com/azure/azure-stack/asdk/asdk-deploy) dá instruções de implementação detalhados.
+  * Utilize o [ConfigASDK.ps1](https://github.com/mattmcspirit/azurestack/blob/master/deployment/ConfigASDK.ps1 ) script do PowerShell para automatizar passos de pós-implementação ASDK.
 
     > [!Note]
     > A instalação de ASDK demora cerca de sete horas a concluir, então, planeie em conformidade.
 
- * Implementar [serviço de aplicações](https://docs.microsoft.com/azure/azure-stack/azure-stack-app-service-deploy) serviços de PaaS para o Azure Stack.
- * Crie [plano/ofertas](https://docs.microsoft.com/azure/azure-stack/azure-stack-plan-offer-quota-overview) no Azure Stack.
- * Criar uma [subscrição do inquilino](https://docs.microsoft.com/azure/azure-stack/azure-stack-subscribe-plan-provision-vm) no Azure Stack.
- * Crie uma aplicação Web na subscrição do inquilino. Tome nota do novo URL de aplicação Web para utilizar mais tarde.
- * Implemente uma máquina de Virtual do Windows Server 2012 na subscrição do inquilino. Irá utilizar este servidor como servidor de compilação e para executar os serviços de DevOps do Azure.
+  * Implementar [serviço de aplicações](https://docs.microsoft.com/azure/azure-stack/azure-stack-app-service-deploy) serviços de PaaS para o Azure Stack.
+  * Crie [plano/ofertas](https://docs.microsoft.com/azure/azure-stack/azure-stack-plan-offer-quota-overview) no Azure Stack.
+  * Criar uma [subscrição do inquilino](https://docs.microsoft.com/azure/azure-stack/azure-stack-subscribe-plan-provision-vm) no Azure Stack.
+  * Crie uma aplicação Web na subscrição do inquilino. Tome nota do novo URL de aplicação Web para utilizar mais tarde.
+  * Implemente uma máquina de Virtual do Windows Server 2012 na subscrição do inquilino. Irá utilizar este servidor como servidor de compilação e para executar os serviços de DevOps do Azure.
 * Forneça uma imagem do Windows Server 2016 com o .NET 3.5 para uma máquina virtual (VM). Esta VM será criado no seu Azure Stack como um agente de compilação privada.
 
 ### <a name="developer-tool-requirements"></a>Requisitos da ferramenta de desenvolvedor
@@ -97,8 +97,8 @@ Este tutorial parte do princípio de que tenha algum conhecimento básico do Azu
 * [Instale o Visual Studio 2017](https://docs.microsoft.com/visualstudio/install/install-visual-studio) e [início de sessão nos serviços do Azure DevOps](https://www.visualstudio.com/docs/setup-admin/team-services/connect-to-visual-studio-team-services).
 * Ligar ao seu projeto e [cloná-lo localmente](https://www.visualstudio.com/docs/git/gitquickstart).
 
- > [!Note]
- > O seu ambiente do Azure Stack tem as imagens corretas distribuídas para executar o Windows Server e SQL Server. Também tem de ter implementado o serviço de aplicações.
+  > [!Note]
+  > O seu ambiente do Azure Stack tem as imagens corretas distribuídas para executar o Windows Server e SQL Server. Também tem de ter implementado o serviço de aplicações.
 
 ## <a name="prepare-the-private-azure-pipelines-agent-for-azure-devops-services-integration"></a>Preparar o agente de Azure Pipelines privado a integração de serviços do Azure DevOps
 
@@ -131,7 +131,7 @@ Um Principal de serviço requer uma chave para autenticação. Utilize os seguin
 
 2. Tome nota do valor de **ID da aplicação**. Irá utilizar esse valor quando configurar o ponto final de serviço nos serviços de DevOps do Azure.
 
-    ![ID da Aplicação](media/azure-stack-solution-hybrid-pipeline/000_02.png)
+    ![ID da aplicação](media/azure-stack-solution-hybrid-pipeline/000_02.png)
 
 3. Para gerar uma chave de autenticação, selecione **Definições**.
 
@@ -211,7 +211,7 @@ Crie um Token de acesso pessoal para aceder aos serviços do Azure DevOps.
 
 2. Selecione **gerir a segurança** à página de criação de token de acesso.
 
-    ![Início de Sessão de Utilizador](media/azure-stack-solution-hybrid-pipeline/000_17.png)
+    ![Início de sessão do utilizador](media/azure-stack-solution-hybrid-pipeline/000_17.png)
 
     ![Selecione um projeto](media/azure-stack-solution-hybrid-pipeline/000_18.png)
 
@@ -287,11 +287,11 @@ Pode criar uma ligação de serviço com o seguinte mapeamento:
 | Ambiente | AzureStack | O nome do seu ambiente. |
 | URL do ambiente | `https://management.local.azurestack.external` | Ponto final de gestão. |
 | Nível de âmbito | Subscrição | O âmbito da ligação. |
-| ID de Subscrição | 65710926-XXXX-4F2A-8FB2-64C63CD2FAE9 | ID de subscrição do utilizador do Azure Stack |
+| ID da subscrição | 65710926-XXXX-4F2A-8FB2-64C63CD2FAE9 | ID de subscrição do utilizador do Azure Stack |
 | Nome da subscrição | name@contoso.com | Nome de subscrição de utilizador do Azure Stack. |
 | ID de cliente do Principal de serviço | FF74AACF-XXXX-4776-93FC-C63E6E021D59 | O ID de principal da [isso](https://docs.microsoft.com/azure/azure-stack/user/azure-stack-solution-pipeline#create-a-service-principal) secção deste artigo. |
 | Chave de Principal de serviço | THESCRETGOESHERE= | A chave do mesmo artigo (ou a palavra-passe se utilizou o script). |
-| ID do Inquilino | D073C21E-XXXX-4AD0-B77E-8364FCA78A94 | O ID de inquilino é recuperar seguindo as instruções em [obter o ID de inquilino](https://docs.microsoft.com/azure/azure-stack/user/azure-stack-solution-pipeline#get-the-tenant-id).  |
+| ID do inquilino | D073C21E-XXXX-4AD0-B77E-8364FCA78A94 | O ID de inquilino é recuperar seguindo as instruções em [obter o ID de inquilino](https://docs.microsoft.com/azure/azure-stack/user/azure-stack-solution-pipeline#get-the-tenant-id).  |
 | Ligação: | Não verificado | Valide as definições de ligação para o principal de serviço. |
 
 Agora que o ponto final for criado, o DevOps para ligação do Azure Stack está pronta a utilizar. O agente de compilação no Azure Stack obtém as instruções do DevOps e, em seguida, o agente transmite informações de ponto final para comunicação com o Azure Stack.
@@ -312,11 +312,11 @@ Pode criar uma ligação de serviço com o seguinte mapeamento:
 | Ambiente | AzureStack | O nome do seu ambiente. |
 | URL do ambiente | `https://management.local.azurestack.external` | Ponto final de gestão. |
 | Nível de âmbito | Subscrição | O âmbito da ligação. |
-| ID de Subscrição | 65710926-XXXX-4F2A-8FB2-64C63CD2FAE9 | ID de subscrição do utilizador do Azure Stack |
+| ID da subscrição | 65710926-XXXX-4F2A-8FB2-64C63CD2FAE9 | ID de subscrição do utilizador do Azure Stack |
 | Nome da subscrição | name@contoso.com | Nome de subscrição de utilizador do Azure Stack. |
 | ID de cliente do Principal de serviço | FF74AACF-XXXX-4776-93FC-C63E6E021D59 | O ID de cliente do Principal de serviço que criou para o AD FS. |
 | Certificado | `<certificate>` |  Converta o ficheiro de certificado de PFX em PEM. Cole o conteúdo do ficheiro do certificado PEM neste campo. <br> Converter o PFX em PEM:<br>`openssl pkcs12 -in file.pfx -out file.pem -nodes -password pass:<password_here>` |
-| ID do Inquilino | D073C21E-XXXX-4AD0-B77E-8364FCA78A94 | O ID de inquilino é recuperar seguindo as instruções em [obter o ID de inquilino](https://docs.microsoft.com/azure/azure-stack/user/azure-stack-solution-pipeline#get-the-tenant-id). |
+| ID do inquilino | D073C21E-XXXX-4AD0-B77E-8364FCA78A94 | O ID de inquilino é recuperar seguindo as instruções em [obter o ID de inquilino](https://docs.microsoft.com/azure/azure-stack/user/azure-stack-solution-pipeline#get-the-tenant-id). |
 | Ligação: | Não verificado | Valide as definições de ligação para o principal de serviço. |
 
 Agora que o ponto final for criado, o Azure DevOps para ligação do Azure Stack está pronto a utilizar. O agente de compilação no Azure Stack obtém as instruções de DevOps do Azure e, em seguida, o agente transmite informações de ponto final para comunicação com o Azure Stack.
@@ -363,7 +363,7 @@ Pode aplicar híbrida CI/CD de código do aplicativo e o código de infraestrutu
 
 2. Navegue para o **Criar aplicação Web** página para o projeto.
 
-3. Na **argumentos**, adicione **win10-x64 - r** código. Isto é necessário para acionar uma implementação independente com .net Core.
+3. Na **argumentos**, adicione **win10-x64 - r** código. Isto é necessário para acionar uma implementação independente com .NET Core.
 
     ![Adicionar o pipeline de compilação do argumento](media/azure-stack-solution-hybrid-pipeline/020_publish_additions.png)
 

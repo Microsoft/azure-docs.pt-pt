@@ -2,7 +2,7 @@
 title: Perguntas mais frequentes sobre - HSM dedicada do Azure | Documentos da Microsoft
 description: Perguntas mais frequentes sobre que aborda tópicos diferentes no HSM dedicada do Azure
 services: dedicated-hsm
-author: barclayn
+author: johndaw
 manager: barbkess
 tags: azure-resource-manager
 ms.custom: mvc
@@ -11,14 +11,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 12/11/2018
+ms.date: 3/11/2019
 ms.author: barclayn
-ms.openlocfilehash: 2c77f5abac69a1bade523d2a4b6793c2a9df8cf2
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
-ms.translationtype: MT
+ms.openlocfilehash: cd3228b66dbbf19b574c390733340c0ea2fb5a78
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57447868"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57846893"
 ---
 # <a name="frequently-asked-questions-faq"></a>Perguntas Mais Frequentes (FAQ)
 
@@ -166,17 +166,17 @@ Sim. Pode enviar registos a partir da aplicação do HSM para um servidor syslog
 
 Sim. Configuração de elevada disponibilidade e o programa de configuração são executadas no software de cliente HSM fornecido pelo Gemalto. HSMs da mesma VNET ou de outras VNETs na mesma região ou em várias regiões ou no local HSMs ligado a uma VNET com o site a site ou VPN de ponto a ponto pode ser adicionado a mesma configuração de elevada disponibilidade.
 
-### <a name="can-i-add-hsms-from-my-on-premises-network-to-a-high-availability-group-with-azure-dedicated-hsm"></a>Posso adicionar HSMs de minha rede no local para um grupo de elevada disponibilidade com o HSM do Azure dedicado?
+### <a name="q-can-i-add-hsms-from-my-on-premises-network-to-a-high-availability-group-with-azure-dedicated-hsm"></a>P: Posso adicionar HSMs de minha rede no local para um grupo de elevada disponibilidade com o HSM do Azure dedicado?
 
 Sim. Têm de cumprir os requisitos de elevada disponibilidade para o 7 de HSM de rede de Luna SafeNet.
 
-### <a name="can-i-add-luna-56-hsms-from-on-premises-networks-to-a-high-availability-group-with-azure-dedicated-hsm"></a>Posso adicionar Luna 5/6 HSMs de redes no local para um grupo de elevada disponibilidade com o HSM do Azure dedicado?
+### <a name="q-can-i-add-luna-56-hsms-from-on-premises-networks-to-a-high-availability-group-with-azure-dedicated-hsm"></a>P: Posso adicionar Luna 5/6 HSMs de redes no local para um grupo de elevada disponibilidade com o HSM do Azure dedicado?
 
 Não.
 
 ### <a name="q-how-many-hsms-can-i-add-to-the-same-high-availability-configuration-from-one-single-application"></a>P: HSMs quantos posso adicionar para a mesma configuração de elevada disponibilidade de um único aplicativo?
 
-16.
+16\.
 
 ## <a name="support"></a>Suporte
 
@@ -246,7 +246,7 @@ Sim. Serviço HSM dedicado Aprovisiona os aparelhos de 7 de HSM de rede SafeNet 
 
 O serviço de HSM dedicados Aprovisiona aparelhos de 7 de HSM de rede de Luna SafeNet. HSMs validadas por estes uso de aparelhos FIPS 140-2 nível 3. A configuração predefinida implementada, o sistema operativo e o firmware também são FIPS validada. Não é necessário efetuar qualquer ação de conformidade do FIPS 140-2 nível 3.
 
-### <a name="how-does-a-customer-ensure-that-when-an-hsm-is-deprovisioned-all-the-key-material-is-wiped-out"></a>Como é que um cliente garantir a que quando um HSM é desaprovisionado todo o material de chave serem eliminado?
+### <a name="q-how-does-a-customer-ensure-that-when-an-hsm-is-deprovisioned-all-the-key-material-is-wiped-out"></a>P: Como é que um cliente garantir a que quando um HSM é desaprovisionado todo o material de chave serem eliminado?
 
 Antes de solicitar o desaprovisionamento, um cliente tem de ter a zeroized o HSM através da Gemalto fornecida ferramentas de cliente do HSM.
 

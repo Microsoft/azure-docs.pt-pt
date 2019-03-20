@@ -7,17 +7,17 @@ ms.subservice: development
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
-author: jodebrui
-ms.author: jodebrui
+author: CarlRabeler
+ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
-ms.date: 01/25/2019
-ms.openlocfilehash: c873587a640bb36e9fa43e314bf789a207956ae0
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: HT
+ms.date: 03/19/2019
+ms.openlocfilehash: d2c852b48c219283bba2304a993dd26e802b3252
+ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57854845"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58226985"
 ---
 # <a name="optimize-performance-by-using-in-memory-technologies-in-sql-database"></a>Otimizar o desempenho ao utilizar tecnologias dentro da memória na base de dados SQL
 
@@ -83,7 +83,7 @@ Tecnologia OLTP na memória fornece operações de acesso de dados de resposta e
 
 - **Com otimização de memória rowstore** formato em que cada linha é um objeto de memória em separado. Este é um formato de OLTP dentro da memória clássico otimizado para cargas de trabalho OLTP de alto desempenho. Existem dois tipos de tabelas com otimização de memória que podem ser utilizados no formato rowstore com otimização de memória:
   - *Tabelas duráveis* (SCHEMA_AND_DATA) em que as linhas colocadas na memória são mantidas depois de reiniciar o servidor. Este tipo de tabelas se comporte como uma tabela de rowstore tradicional com as vantagens adicionais das otimizações na memória.
-  - *Duradoura não tabelas* (SCEMA_ONLY) onde as linhas são preservados para não após o reinício. Este tipo de tabela foi concebido para dados temporários (por exemplo, a substituição de tabelas temporárias) ou tabelas em que precisa rapidamente carregar os dados antes de movê-lo para alguma tabela persistente (então, a chamada de tabelas de testes).
+  - *Duradoura não tabelas* (SCHEMA_ONLY) onde as linhas são preservados para não após o reinício. Este tipo de tabela foi concebido para dados temporários (por exemplo, a substituição de tabelas temporárias) ou tabelas em que precisa rapidamente carregar os dados antes de movê-lo para alguma tabela persistente (então, a chamada de tabelas de testes).
 - **Com otimização de memória de columnstore** formato em que os dados são organizados num formato em colunas. Esta estrutura destina-se a cenários HTAP em que precisa para executar consultas de análise sobre a mesma estrutura de dados onde está a executar a carga de trabalho OLTP.
 
 > [!Note]

@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: article
 ms.date: 02/15/2019
 ms.author: diberry
-ms.openlocfilehash: 39e942b3694ebc59d3cf7d9f4b6a02c4f025e0d0
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: b9304e151bbce691b752f12aeec8a5376e517a8d
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56737302"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58120776"
 ---
 # <a name="language-understanding-frequently-asked-questions-faq"></a>Compreensão de idiomas perguntas mais frequentes sobre (FAQ)
 
@@ -147,7 +147,7 @@ Consulte a [testes de Batch](luis-tutorial-batch-testing.md) tutorial.
 
 ### <a name="when-an-app-is-exported-then-reimported-into-a-new-app-with-a-new-app-id-the-luis-prediction-scores-are-different-why-does-this-happen"></a>Quando uma aplicação é exportada, em seguida, novamente importada para uma nova aplicação (com um novo ID de aplicação), as pontuações de predição de LUIS são diferentes. Por que isso acontece?
 
-Ver [diferenças de predição entre cópias da mesma aplicação](luis-concept-prediction-score.md#differences-with-predictions).
+Ver [diferenças de predição entre cópias da mesma aplicação](luis-concept-prediction-score.md#review-intents-with-similar-scores).
 
 ### <a name="some-utterances-go-to-the-wrong-intent-after-i-made-changes-to-my-app-the-issue-seems-to-disappear-at-random-how-do-i-fix-it"></a>Algumas expressões com até a intenção de errado depois que fiz alterações para a minha aplicação. O problema parece sumir aleatoriamente. Como posso corrigi-lo? 
 

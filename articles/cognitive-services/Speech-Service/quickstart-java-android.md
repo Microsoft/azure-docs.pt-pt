@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 2/20/2019
 ms.author: wolfma
-ms.openlocfilehash: 2ee5028e0766ec52c407bf0ef0e18885c11734d8
-ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
-ms.translationtype: MT
+ms.openlocfilehash: 43ace5e56234ed01ca008050c0efdf17b9a5a081
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56961061"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57848869"
 ---
 # <a name="quickstart-recognize-speech-in-java-on-android-by-using-the-speech-sdk"></a>Início rápido: Reconhecer voz em Java no Android com o SDK de voz
 
@@ -30,7 +30,7 @@ Atualmente, o SDK de Voz é compatível com dispositivos Android com processador
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Precisa de uma chave de subscrição do serviço de Voz para concluir este Guia de Início Rápido. Pode obter uma gratuitamente. Veja [Experimente o serviço de Voz gratuitamente](get-started.md) para obter detalhes.
+Precisa de uma chave de subscrição de serviços de voz para concluir este início rápido. Pode obter uma gratuitamente. Ver [experimentar gratuitamente os serviços de voz](get-started.md) para obter detalhes.
 
 ## <a name="create-and-configure-a-project"></a>Criar e configurar um projeto
 
@@ -137,7 +137,7 @@ O texto e uma representação gráfica da sua interface do Usuário deverá esta
 
    ![Captura de ecrã da janela de seleção de destino de implementação](media/sdk/qs-java-android-12-deploy.png)
 
-Prima o botão na aplicação para iniciar uma secção de reconhecimento de voz. Os próximos 15 segundos de voz em inglês serão enviados para o serviço de Voz e transcritos. O resultado é apresentado na aplicação Android e na janela logcat no Android Studio.
+Prima o botão na aplicação para iniciar uma secção de reconhecimento de voz. Serão enviados para os serviços de voz e transcrito próximos 15 segundos de voz em inglês. O resultado é apresentado na aplicação Android e na janela logcat no Android Studio.
 
 ![Captura de ecrã da aplicação Android](media/sdk/qs-java-android-13-gui-on-device.png)
 

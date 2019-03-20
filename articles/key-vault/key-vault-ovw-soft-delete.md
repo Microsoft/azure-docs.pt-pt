@@ -7,12 +7,12 @@ author: msmbaldwin
 ms.author: mbaldwin
 manager: barbkess
 ms.date: 09/25/2017
-ms.openlocfilehash: 3ca08f12e3f389265fd3a77b3aa82c086085a10a
-ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
+ms.openlocfilehash: 526b0b135c8d5c1741ddf5f3fe6fb32f259a3e2c
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57403707"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58092995"
 ---
 # <a name="azure-key-vault-soft-delete-overview"></a>Descrição geral da eliminação de forma recuperável de Cofre de chaves do Azure
 
@@ -44,9 +44,9 @@ Com esta funcionalidade, a operação de eliminação num cofre de chaves ou o o
 ### <a name="purge-protection--flag"></a>Limpar sinalizador de proteção
 Remover a proteção (**– enable--proteção contra remoção** na CLI do Azure) sinalizador está desativada por predefinição. Quando esse sinalizador estiver ativado, um cofre ou um objeto no estado de eliminado, não é possível limpar até ter passado o período de retenção de 90 dias. Esse cofre ou o objeto ainda pode ser recuperado. Este sinalizador oferece mais segurança para os clientes que um cofre ou um objeto pode nunca ser permanentemente eliminado até que tenha passado o período de retenção. Pode ativar o sinalizador de proteção de remoção somente se o sinalizador de eliminação de forma recuperável está ativada ou durante a criação do cofre ativar ambas as eliminação de forma recuperável e remover a proteção.
 
-> [!NOTE] 
-   O pré-requisito para ativar a proteção contra remoção é que deve ter a eliminação de forma recuperável ativada.
-É o comando para fazer isso em 2 de CLI do Azure
+> [!NOTE]
+>    O pré-requisito para ativar a proteção contra remoção é que deve ter a eliminação de forma recuperável ativada.
+> É o comando para fazer isso em 2 de CLI do Azure
 
 ```
 az keyvault create --name "VaultName" --resource-group "ResourceGroupName" --location westus --enable-soft-delete true --enable-purge-protection true

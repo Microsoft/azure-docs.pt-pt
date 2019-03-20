@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/06/2017
 ms.author: yegu
-ms.openlocfilehash: 52c5fb8a6da7e3f12d621406542f0e31f7ece1de
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
+ms.openlocfilehash: 23b8e4e7e88f5b993f9b0f9981bbae6b884e2818
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56233290"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57880015"
 ---
 # <a name="create-a-web-app-plus-azure-cache-for-redis-using-a-template"></a>Criar uma aplicação Web e Cache do Azure ainda para Redis com um modelo
 
@@ -35,7 +35,7 @@ Para o modelo completo, consulte [aplicação Web com Cache do Azure para o mode
 Neste modelo, irá implementar:
 
 * Aplicação Web do Azure
-* Cache de Redis do Azure.
+* Cache do Azure para Redis
 
 Para executar automaticamente a implementação, clique no seguinte botão:
 
@@ -86,7 +86,7 @@ O modelo cria a cache na mesma localização que o grupo de recursos.
 ### <a name="web-app"></a>Aplicação Web
 Cria a aplicação web com o nome especificado no **webSiteName** variável.
 
-Tenha em atenção que a aplicação web está configurada com as propriedades da definição de aplicação ativá-lo a trabalhar com a Cache do Azure para Redis. Esta aplicação definições são criadas dinamicamente com base nos valores fornecidos durante a implementação.
+Tenha em atenção que a aplicação web está configurada com as propriedades da definição de aplicação ativá-lo a trabalhar com a Cache do Azure para Redis. Estas aplicações são criadas dinamicamente as definições com base nos valores fornecidos durante a implementação.
 
     {
       "apiVersion": "2015-08-01",

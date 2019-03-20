@@ -11,29 +11,30 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: PowerShell
 ms.topic: conceptual
-ms.date: 01/18/2019
+ms.date: 03/19/2019
 ms.author: mabrigg
 ms.reviewer: xiaofmao
-ms.lastreviewed: 01/18/2019
-ms.openlocfilehash: 840445b2c1a28d294027c7fbfda9e6bf6e431f14
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: HT
+ms.lastreviewed: 03/19/2019
+ms.openlocfilehash: 34e49060a28869015f067f058b81239ec13eff47
+ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57990699"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58226407"
 ---
-# <a name="manage-storage-accounts-in-azure-stack"></a>Gerir contas de armazenamento no Azure Stack
+# <a name="manage-azure-stack-storage-accounts"></a>Gerir contas de armazenamento do Azure Stack
 
-Saiba como gerir contas de armazenamento no Azure Stack para encontrar, recuperar e recuperar a capacidade de armazenamento com base nas necessidades de negócio.
+Saiba como gerir contas de armazenamento do Azure Stack. Encontrar, recuperar e recuperar a capacidade de armazenamento com base nas necessidades de negócio.
 
 ## <a name="find-a-storage-account"></a>Localizar uma conta de armazenamento
+
 A lista de contas de armazenamento na região pode ser visualizada no Azure Stack por:
 
 1. Inicie sessão para o [do portal de administração](https://adminportal.local.azurestack.external).
 
-2. Selecione **todos os serviços** > **contas de armazenamento**.
+2. Selecione **todos os serviços** > **armazenamento** > **contas de armazenamento**.
 
-   ![](media/azure-stack-manage-storage-accounts/image4.png)
+   ![Contas de armazenamento do Azure Stack](media/azure-stack-manage-storage-accounts/image4.png)
 
 Por predefinição, são apresentadas as primeiras 10 contas. Pode optar por obter muito mais ao clicar o **carregar mais** link na parte inferior da lista.
 
@@ -46,16 +47,17 @@ Se estiver interessado numa conta de armazenamento específica – pode **filtra
 
 1. Selecione **filtro** na parte superior do painel.
 2. No painel de filtro, ele permite que especifique **nome da conta**, **ID de subscrição**, ou **estado** para ajustar a lista de contas de armazenamento a serem exibidos. Utilize-os conforme apropriado.
-3. Selecione **atualização**. A lista deve atualizar-se em conformidade.
+3. À medida que escreve, a lista será aplicado automaticamente o filtro.  .
    
-    ![](media/azure-stack-manage-storage-accounts/image5.png)
+    ![Filtrar contas de armazenamento do Azure Stack](media/azure-stack-manage-storage-accounts/image5.png)
+
 4. Para repor o filtro: selecione **filtro**, limpamos as seleções e atualizar.
 
 A caixa de texto de pesquisa (na parte superior do painel de lista de contas de armazenamento) permite-lhe realçar o texto selecionado na lista de contas. Pode utilizar este quando o nome completo ou o ID não está facilmente disponível.
 
 Pode utilizar aqui o texto livre para ajudar a encontrar a conta que está interessado.
 
-![](media/azure-stack-manage-storage-accounts/image6.png)
+![Localizar contas de armazenamento do Azure Stack](media/azure-stack-manage-storage-accounts/image6.png)
 
 ## <a name="look-at-account-details"></a>Ver os detalhes de conta
 Depois de localizar as contas que estiver interessado numa visualização, pode selecionar a conta específica para ver alguns detalhes. Um novo painel abre-se com os detalhes da conta, tais como: o tipo da conta, hora de criação, localização, etc.
@@ -97,9 +99,8 @@ A definição de período de retenção permite que um operador da cloud especif
 
 1. Inicie sessão para o [do portal de administração](https://adminportal.local.azurestack.external).
 2. Selecione **todos os serviços** > **gestão da região** sob **administração**.
-3. Selecione **armazenamento** partir do **fornecedores de recursos** lista.
-4. Selecione **definições** na parte superior para abrir o painel de definição.
-5. Selecione **configuração** , em seguida, edite o valor do período de retenção.
+3. Selecione **fornecedores de recursos** > **armazenamento** > **definições**. O caminho é a home page > *região* -fornecedores de recursos > armazenamento.
+4. Selecione **configuração** , em seguida, edite o valor do período de retenção.
 
    Definir o número de dias e, em seguida, guardá-lo.
    

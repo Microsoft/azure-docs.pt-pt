@@ -22,7 +22,7 @@ items:
   expanded: true
 - name: Tutoriais
   items:
-  - name: 1 - Criar conta
+  - name: 1 - Criar e gerir dados
     items:
     - name: Criar uma aplicação de consola
       items:
@@ -238,7 +238,7 @@ items:
         href: create-mongodb-golang.md
     - name: Tutoriais
       items:
-      - name: 1 - Criar conta
+      - name: 1 - Criar e gerir dados
         items:
         - name: Aplicação de consola Node.js
           href: mongodb-samples.md
@@ -337,7 +337,7 @@ items:
         href: create-cassandra-python.md
     - name: Tutoriais
       items:
-      - name: 1 - Criar conta e base de dados
+      - name: 1 - Criar e gerir dados
         href: create-cassandra-api-account-java.md
       - name: 2 - Carregar dados
         href: cassandra-api-load-data.md
@@ -389,7 +389,7 @@ items:
         href: create-table-python.md
     - name: Tutoriais
       items:
-      - name: 1 - Criar conta
+      - name: 1 - Criar e gerir dados
         href: tutorial-develop-table-dotnet.md
       - name: 2 - Migrar dados
         displayName: import
@@ -656,9 +656,9 @@ items:
       href: use-cases.md
     - name: Aplicações de redes sociais
       href: social-media-apps.md
-ms.openlocfilehash: f42bc31661ecc14fde4d2466ccd89d91dfd5deb5
-ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
+ms.openlocfilehash: 96160b85319ddd7e09b1ecd4e57b974608648021
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57406818"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57876923"

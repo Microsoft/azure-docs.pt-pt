@@ -16,12 +16,12 @@ ms.author: celested
 ms.custom: aaddev
 ms.reviewer: luleon, hirsin, smalser
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b953d979fc5306372c1e751fbbb8942d19fed03f
-ms.sourcegitcommit: a4efc1d7fc4793bbff43b30ebb4275cd5c8fec77
+ms.openlocfilehash: f854c8b27065c2d2bf0c9964fe9dfce66aba423a
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56648919"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58104510"
 ---
 # <a name="debug-saml-based-single-sign-on-to-applications-in-azure-active-directory"></a>Depurar baseado em SAML início de sessão único para aplicações no Azure Active Directory
 
@@ -97,9 +97,9 @@ Para resolver o problema, siga estes passos:
     - Se a extensão My segura de aplicações início de sessão estiver instalada, do **testar início de sessão único** painel, clique em **transferir a resposta SAML**.
     - Se a extensão não estiver instalada, utilize uma ferramenta como [Fiddler](https://www.telerik.com/fiddler) para recuperar a resposta SAML. 
 1. Observe que esses elementos no token SAML resposta:
-    - Identificador exclusivo do utilizador do valor de NameID e de formato
-    - Afirmações emitidas no token
-    - Certificado utilizado para assinar o token. 
+   - Identificador exclusivo do utilizador do valor de NameID e de formato
+   - Afirmações emitidas no token
+   - Certificado utilizado para assinar o token. 
 
      Para obter mais informações sobre a resposta SAML, consulte [protocolo SAML de início de sessão único](single-sign-on-saml-protocol.md).
 

@@ -1,10 +1,10 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: ba32f17ac596a21614c1e18a01f622defb069a8e
-ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
+ms.openlocfilehash: dad3d16ad6d630bd57e6e5d196d16d45692935d9
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57338421"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58167971"
 documentType: LandingData
 title: Documentação da Base de Dados SQL do Azure
 metadata:
@@ -65,7 +65,7 @@ sections:
         src: media/index/i_elasticpool.svg
       title: Conjuntos elásticos
     - href: /azure/sql-database/sql-database-managed-instance-index
-      html: <p>Utilize a Instância Gerida para migrar facilmente bases de dados no local para o PaaS do Azure com poucas ou nenhumas alterações de código à base de dados.</p>
+      html: <p>Utilize a Instância Gerida para obter uma Instância do Motor de Base de Dados do SQL Server totalmente gerida alojada na cloud do Azure, com poucas ou nenhumas alterações de código necessárias para a migração das bases de dados no local.</p>
       image:
         src: media/index/i_mi.svg
       title: Instância gerida

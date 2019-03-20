@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/09/2018
 ms.author: shants
-ms.openlocfilehash: 3d3ed7d1448ecb350a75a933666e6ab8bd17e84c
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: 31d4829c6adaf4bd5392ef393dcaefbeb7dc6255
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56737217"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57992425"
 ---
 # <a name="planned-maintenance-notifications-for-virtual-machine-scale-sets"></a>Notificações de manutenção planeada para conjuntos de dimensionamento de máquinas virtuais
 
@@ -126,14 +126,10 @@ Get-AzVmss -ResourceGroupName rgName -VMScaleSetName vmssName -InstanceId id -In
 ```
 
 As seguintes propriedades são devolvidas em **MaintenanceRedeployStatus**: 
-| Value | Descrição   |
-|-------|---------------|
-| IsCustomerInitiatedMaintenanceAllowed | Indica se pode iniciar a manutenção na VM neste momento. ||
-| PreMaintenanceWindowStartTime         | O início da janela de manutenção self-service quando pode iniciar a manutenção na sua VM. ||
-| PreMaintenanceWindowEndTime           | O fim da janela de manutenção self-service quando pode iniciar a manutenção na sua VM. ||
-| MaintenanceWindowStartTime            | O início da manutenção agendada, em que o Azure inicia manutenção na sua VM. ||
-| MaintenanceWindowEndTime              | O fim da janela agendadas de manutenção em que o Azure inicia manutenção na sua VM. ||
-| LastOperationResultCode               | O resultado da última tentativa de iniciar a manutenção na VM. ||
+
+| Valor | Descrição |
+
+|-------|---------------| | IsCustomerInitiatedMaintenanceAllowed | Indica se pode iniciar a manutenção na VM neste momento. | | PreMaintenanceWindowStartTime | O início da janela de manutenção self-service quando pode iniciar a manutenção na sua VM. | | PreMaintenanceWindowEndTime | O fim da janela de manutenção self-service quando pode iniciar a manutenção na sua VM. | | MaintenanceWindowStartTime | O início da manutenção agendada, em que o Azure inicia manutenção na sua VM. | | MaintenanceWindowEndTime | O fim da janela agendadas de manutenção em que o Azure inicia manutenção na sua VM. | | LastOperationResultCode | O resultado da última tentativa de iniciar a manutenção na VM. |
 
 
 
@@ -156,14 +152,10 @@ az vmss list-instances -g rgName -n vmssName --expand instanceView
 ```
 
 As seguintes propriedades são devolvidas em **MaintenanceRedeployStatus** para cada instância VM: 
-| Value | Descrição   |
-|-------|---------------|
-| IsCustomerInitiatedMaintenanceAllowed | Indica se pode iniciar a manutenção na VM neste momento. ||
-| PreMaintenanceWindowStartTime         | O início da janela de manutenção self-service quando pode iniciar a manutenção na sua VM. ||
-| PreMaintenanceWindowEndTime           | O fim da janela de manutenção self-service quando pode iniciar a manutenção na sua VM. ||
-| MaintenanceWindowStartTime            | O início da manutenção agendada, em que o Azure inicia manutenção na sua VM. ||
-| MaintenanceWindowEndTime              | O fim da janela agendadas de manutenção em que o Azure inicia manutenção na sua VM. ||
-| LastOperationResultCode               | O resultado da última tentativa de iniciar a manutenção na VM. ||
+
+| Valor | Descrição |
+
+|-------|---------------| | IsCustomerInitiatedMaintenanceAllowed | Indica se pode iniciar a manutenção na VM neste momento. | | PreMaintenanceWindowStartTime | O início da janela de manutenção self-service quando pode iniciar a manutenção na sua VM. | | PreMaintenanceWindowEndTime | O fim da janela de manutenção self-service quando pode iniciar a manutenção na sua VM. | | MaintenanceWindowStartTime | O início da manutenção agendada, em que o Azure inicia manutenção na sua VM. | | MaintenanceWindowEndTime | O fim da janela agendadas de manutenção em que o Azure inicia manutenção na sua VM. | | LastOperationResultCode | O resultado da última tentativa de iniciar a manutenção na VM. |
 
 
 ### <a name="start-maintenance-on-your-vm-instance-by-using-the-cli"></a>Iniciar a manutenção em sua instância de VM com a CLI

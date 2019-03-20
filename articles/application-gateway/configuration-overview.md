@@ -7,20 +7,20 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 03/04/2019
 ms.author: absha
-ms.openlocfilehash: 702101039c03b30bb8883ef0308fe68c5567a0c4
-ms.sourcegitcommit: 1902adaa68c660bdaac46878ce2dec5473d29275
+ms.openlocfilehash: 7bc3ea054056ac67cf0a116fb1538bc1483ab4d4
+ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/11/2019
-ms.locfileid: "57733322"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58223534"
 ---
 # <a name="application-gateway-configuration-overview"></a>Descrição geral de configuração do Gateway de aplicação
 
 Gateway de aplicação é composto por vários componentes que podem ser configurados de maneiras diferentes para a realização de diferentes cenários. Este artigo orienta-o através de como cada componente está a ser configurado.
 
-![componentes de gateway de aplicação](.\media\configuration-overview\configuration-overview1.png)
+![componentes de gateway de aplicação](./media/configuration-overview/configuration-overview1.png)
 
-A imagem de exemplo acima ilustra a configuração de um aplicativo com serviços de 3 escuta. Os primeiros dois são serviços de escuta de múltiplos sites para http://acme.com/* e http://fabrikam.com/*, respectivamente. Ambos estão à escuta na porta 80. O serviço de escuta de terceiro é um serviço de escuta básico com a terminação de SSL de ponta a ponta. 
+A imagem de exemplo acima ilustra a configuração de um aplicativo com serviços de 3 escuta. Os primeiros dois são serviços de escuta de múltiplos sites para `http://acme.com/*` e `http://fabrikam.com/*`, respectivamente. Ambos estão à escuta na porta 80. O serviço de escuta de terceiro é um serviço de escuta básico com a terminação de SSL de ponta a ponta. 
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -85,8 +85,7 @@ Pode escolher entre [serviço de escuta básico ou de vários locais](https://do
 
 - Se estiver a alojar um site único por trás de um gateway de aplicação, escolha o serviço de escuta básico. Saiba mais [como criar um gateway de aplicação com o serviço de escuta básico](https://docs.microsoft.com/azure/application-gateway/quick-create-portal).
 
-- Se estiver a configurar mais de um aplicativo web ou vários subdomínios do mesmo domínio principal na mesma instância de gateway de aplicação, em seguida, escolha o serviço de escuta de múltiplos site. Para o serviço de escuta de múltiplos site, além disso terá de introduzir um nome de anfitrião. Isto acontece porque o Gateway de aplicação baseia-se em cabeçalhos de anfitrião HTTP 1.1 para alojar mais do que um site no mesmo endereço IP público e porta.![1551057450710](C:\Users\absha\AppData\Roaming\Typora\typora-user-images\1551057450710.png)
-
+- Se estiver a configurar mais de um aplicativo web ou vários subdomínios do mesmo domínio principal na mesma instância de gateway de aplicação, em seguida, escolha o serviço de escuta de múltiplos site. Para o serviço de escuta de múltiplos site, além disso terá de introduzir um nome de anfitrião. Isto acontece porque o Gateway de aplicação baseia-se em cabeçalhos de anfitrião HTTP 1.1 para alojar mais do que um site no mesmo endereço IP público e porta.
 
 > [!NOTE]
 > Em caso de v1 SKUs, serviços de escuta são processados na ordem em que forem sendo apresentados. Por esse motivo se uma solicitação de entrada corresponder a um serviço de escuta básico processa-lo primeiro. Por conseguinte, os serviços de escuta de múltiplos sites devem ser configurados antes de um serviço de escuta básico para garantir que o tráfego é encaminhado para o back-end correto.
@@ -195,7 +194,7 @@ Para obter informações sobre a capacidade de redirecionamento, veja [descriç�
 
   - ##### <a name="listener"></a>Serviço de Escuta
 
-    Serviço de escuta ao escolher como o destino de redirecionamento ajuda a partir de um serviço de escuta a redirecionar para outro serviço de escuta no gateway. Esta definição é necessária para habilitar HTTP para redirecionamento a HTTPS, ou seja, o tráfego de redirecionamento do serviço de escuta de origem, verificar a existência de pedidos HTTP recebidos para o serviço de escuta de destino, verificar a existência de pedidos HTTPS recebidos. Também pode escolher a cadeia de consulta e o caminho na solicitação original a serem incluídos no pedido reencaminhado para o destino de redirecionamento.![componentes de gateway de aplicação](.\media\configuration-overview\configure-redirection.png)
+    Serviço de escuta ao escolher como o destino de redirecionamento ajuda a partir de um serviço de escuta a redirecionar para outro serviço de escuta no gateway. Esta definição é necessária para habilitar HTTP para redirecionamento a HTTPS, ou seja, o tráfego de redirecionamento do serviço de escuta de origem, verificar a existência de pedidos HTTP recebidos para o serviço de escuta de destino, verificar a existência de pedidos HTTPS recebidos. Também pode escolher a cadeia de consulta e o caminho na solicitação original a serem incluídos no pedido reencaminhado para o destino de redirecionamento.![componentes de gateway de aplicação](./media/configuration-overview/configure-redirection.png)
 
     Para obter mais informações sobre HTTP para redirecionamento a HTTPS, consulte [redirecionamento de HTTP para HTTP através do portal](https://docs.microsoft.com/azure/application-gateway/redirect-http-to-https-portal), [redirecionamento de HTTP para HTTP com o PowerShell](https://docs.microsoft.com/azure/application-gateway/redirect-http-to-https-powershell), [redirecionamento de HTTP para HTTP com a CLI](https://docs.microsoft.com/azure/application-gateway/redirect-http-to-https-cli)
 
@@ -277,7 +276,7 @@ Se possuir um domínio personalizado e mapeou o nome DNS personalizado já exist
 
 ### <a name="host-name-override"></a>Substituição do nome de anfitrião
 
-Esta funcionalidade substitui o *anfitrião* cabeçalho no pedido de entrada no gateway de aplicação para o nome de anfitrião que especificar aqui. Por exemplo, se www.contoso.com é especificado como o **nome de anfitrião** definição, a solicitação original https://appgw.eastus.cloudapp.net/path1 será alterado para https://www.contoso.com/path1 quando a solicitação é encaminhada para o servidor de back-end. 
+Esta funcionalidade substitui o *anfitrião* cabeçalho no pedido de entrada no gateway de aplicação para o nome de anfitrião que especificar aqui. Por exemplo, se www\.contoso.com é especificado como o **nome de anfitrião** definição, a solicitação original https://appgw.eastus.cloudapp.net/path1 será alterado para https://www.contoso.com/path1 quando a solicitação é encaminhada para o servidor de back-end. 
 
 ## <a name="backend-pool"></a>Conjunto back-end
 

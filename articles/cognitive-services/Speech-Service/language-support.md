@@ -1,5 +1,5 @@
 ---
-title: Suporte de idiomas - API de serviço de voz
+title: Suporte de idiomas - serviços de voz
 titleSuffix: Azure Cognitive Services
 description: Os serviços de voz do Azure suporta vários idiomas para conversão de voz em texto e texto para voz, juntamente com a tradução de voz. Este artigo fornece uma lista abrangente de suporte de idiomas pelo serviço.
 services: cognitive-services
@@ -8,17 +8,17 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 12/13/2018
+ms.date: 03/19/2019
 ms.author: erhopf
 ms.custom: seodec18
-ms.openlocfilehash: 22916a188c79d5894faf48dd71d6ab17a582cf8b
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 3188b5acc00f7f0463ae1154346447bee463e09c
+ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55878039"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58225438"
 ---
-# <a name="language-and-region-support-for-speech-service-api"></a>Suporte de idioma e região para a API de serviço de voz
+# <a name="language-and-region-support-for-the-speech-services"></a>Suporte de idioma e região para os serviços de voz
 
 Diferentes idiomas são suportados para diferentes funções de serviços de voz. As tabelas seguintes resumem o suporte de idiomas.
 
@@ -76,13 +76,18 @@ Vozes neurais podem ser utilizados para tornar as interações com chatbots e as
 Para obter uma lista completa de vozes neurais e a disponibilidade regional, consulte [regiões](regions.md#neural-voices).
 
 | Região | Idioma | Género | Mapeamento de nome de serviço|
-|--------|----------|---------|--------------------|
+|--------|----------|--------|---------------------|
+| de-DE | Alemão (Alemanha) | Feminino | "Microsoft Server voz texto para voz de voz (de-DE, KatjaNeural)" |
 | en-US | English (US) | Masculino | "Microsoft Server voz texto para voz de voz (en-US, GuyNeural)" |
 | en-US | English (US) | Feminino | "Microsoft Server voz texto para voz de voz (en-US, JessaNeural)" |
+| it-IT | Italiano (Itália) | Feminino | "Microsoft Server voz texto para voz de voz (it-IT, ElsaNeural)" |
 | zh-CN | Chinês | Feminino | "Microsoft Server voz texto para voz de voz (zh-CN, XiaoxiaoNeural)" |
 
 > [!IMPORTANT]
 > Microsoft Server voz texto para voz de voz (zh-CN, XiaoxiaoNeural) só está disponível através do ponto de extremidade do Sudeste asiático: https://southeastasia.tts.speech.microsoft.com/cognitiveservices/v1.
+
+> [!IMPORTANT]
+> Microsoft Server voz texto para voz de voz (de-DE, KatjaNeural) e Microsoft Server voz texto para voz de voz (it-IT, ElsaNeural) apenas estão disponíveis através do ponto de extremidade da Europa Ocidental: https://westeurope.tts.speech.microsoft.com/cognitiveservices/v1.
 
 ### <a name="standard-voices"></a>Vozes padrão
 
@@ -179,7 +184,7 @@ zh-TW | Chinês (Taiwan)|Feminino | "Microsoft Server voz texto para voz de voz 
 Personalização de voz está disponível para nós inglês (en-US), continente chinês (zh-CN), francês (fr-FR), alemão (Alemanha-DE) e italiano (it-IT).
 
 > [!NOTE]
-> Francês, alemão e italiano formação de voz começa com um conjunto de dados de mais de 2000 expressões com. Modelos de bilingue chinês-inglês também são suportados com um conjunto de dados inicial de expressões com mais de 2000.
+> Italiano, alemão e francês formação de voz começa com um conjunto de dados de expressões com mais de 2000. Modelos de bilingue chinês-inglês também são suportados com um conjunto de dados inicial de expressões com mais de 2000.
 
 ## <a name="speech-translation"></a>Tradução de voz
 
@@ -255,5 +260,5 @@ O **tradução por voz** API suporta idiomas diferentes para a tradução de voz
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-* [Obter a subscrição de avaliação de Voz](https://azure.microsoft.com/try/cognitive-services/)
+* [Obter a subscrição de avaliação dos Serviços de Voz](https://azure.microsoft.com/try/cognitive-services/)
 * [Veja como a reconhecer a conversão de voz em c#](quickstart-csharp-dotnet-windows.md)

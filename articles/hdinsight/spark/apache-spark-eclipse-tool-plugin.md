@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/30/2017
 ms.author: hrasheed
-ms.openlocfilehash: 4370cc5e39b7d1b9a50e8fc8af9f7bfc58f6356a
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.openlocfilehash: 05df154db27dcf1b07506c6bf9c2a681408de61e
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53602754"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58091822"
 ---
 # <a name="use-azure-toolkit-for-eclipse-to-create-apache-spark-applications-for-an-hdinsight-cluster"></a>Utilizar o Azure Toolkit para Eclipse para criar aplicativos de Apache Spark para um cluster do HDInsight
 
@@ -141,12 +141,12 @@ Pode ligar um cluster normal usando o nome de utilizador do Ambari gerido. Da me
    a. A partir do Explorador de pacotes, com o botão direito no nome do projeto e, em seguida, selecione **submeter a aplicação Spark para HDInsight**.        
    b. Na **Spark submissão** caixa de diálogo, forneça os valores seguintes e, em seguida, selecione **submeter**:
       
-      * Para **nome do Cluster**, selecione o cluster do Spark do HDInsight no qual pretende executar a sua aplicação.
-      * Selecione um artefato do projeto Eclipse ou selecione um na unidade de disco rígido. O valor predefinido depende do item que clique com botão direito do Explorador de pacotes.
-      * Na **nome da classe principal** na lista pendente, o Assistente de submissão apresenta todos os nomes de objeto do seu projeto. Selecione ou introduza uma que pretende executar. Se tiver selecionado um artefato de uma unidade de disco rígida, tem de introduzir manualmente o nome da classe principal. 
-      * Uma vez que o código da aplicação neste exemplo não necessita de argumentos de linha de comandos ou referenciar JARs ou ficheiros, pode deixar as restantes caixas de texto vazio.
+   * Para **nome do Cluster**, selecione o cluster do Spark do HDInsight no qual pretende executar a sua aplicação.
+   * Selecione um artefato do projeto Eclipse ou selecione um na unidade de disco rígido. O valor predefinido depende do item que clique com botão direito do Explorador de pacotes.
+   * Na **nome da classe principal** na lista pendente, o Assistente de submissão apresenta todos os nomes de objeto do seu projeto. Selecione ou introduza uma que pretende executar. Se tiver selecionado um artefato de uma unidade de disco rígida, tem de introduzir manualmente o nome da classe principal. 
+   * Uma vez que o código da aplicação neste exemplo não necessita de argumentos de linha de comandos ou referenciar JARs ou ficheiros, pode deixar as restantes caixas de texto vazio.
         
-      ![Caixa de diálogo de envio do Spark](./media/apache-spark-eclipse-tool-plugin/create-scala-proj-3.png)
+     ![Caixa de diálogo de envio do Spark](./media/apache-spark-eclipse-tool-plugin/create-scala-proj-3.png)
 1. O **Spark submissão** separador deve começar a exibir o progresso. Pode parar a aplicação ao selecionar o botão vermelho no **Spark submissão** janela. Também pode ver os registos para esta aplicação específico, executar, selecionando o ícone de globo (representado por caixa azul na imagem).
       
    ![Janela de envio do Spark](./media/apache-spark-eclipse-tool-plugin/create-scala-proj-4.png)

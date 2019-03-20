@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 06/26/2017
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2187d0e986a173e1b8dc37fd0abdfa3bfd9e9505
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 64aebaedd9221b2570b66bdb8550bff36b54492c
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56168992"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58084764"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-springcm"></a>Tutorial: Integração do Active Directory do Azure com SpringCM
 
@@ -212,9 +212,9 @@ Para que os utilizadores do Azure Active Directory iniciar sessão no SpringCM, 
 
 1. Clique em **Guardar**.
 
-  >[!NOTE]
-  >Pode utilizar quaisquer outras SpringCM utilizador conta criação ferramentas ou APIs fornecidas pelo SpringCM para aprovisionar contas de utilizador do AAD.  
-  > 
+   >[!NOTE]
+   >Pode utilizar quaisquer outras SpringCM utilizador conta criação ferramentas ou APIs fornecidas pelo SpringCM para aprovisionar contas de utilizador do AAD.  
+   > 
 
 ### <a name="assigning-the-azure-ad-test-user"></a>Atribuir o utilizador de teste do Azure AD
 
@@ -249,7 +249,7 @@ Nesta secção, vai ativar Eduarda Almeida utilizar o Azure início de sessão �
 ### <a name="testing-single-sign-on"></a>Teste de início de sessão único
 
 Nesta secção, vai testar a configuração do Azure AD única início de sessão com o painel de acesso.
- 
+ 
 Quando clica no mosaico SpringCM no painel de acesso, deve obter automaticamente sessão iniciada em seu aplicativo SpringCM.
 
 Para obter mais informações sobre o painel de acesso, consulte [introdução ao painel de acesso](../user-help/active-directory-saas-access-panel-introduction.md). 

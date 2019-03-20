@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 2/20/2019
 ms.author: victorh
-ms.openlocfilehash: 58f448646efc4cac9298d5dc4ec7a99e0e39bddc
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.openlocfilehash: 86be94404e7ab492beeebd6a467d23e68e7bce6b
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57309099"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58080172"
 ---
 # <a name="create-and-configure-an-application-gateway-to-host-multiple-web-sites-using-the-azure-portal"></a>Criar e configurar um gateway de aplicação para alojar vários web sites com o portal do Azure
 
@@ -44,20 +44,20 @@ Uma rede virtual é necessária para a comunicação entre os recursos que criar
 2. Selecione **Rede** e, em seguida, selecione **Gateway de Aplicação** na lista Destaques.
 3. Introduza estes valores para o gateway de aplicação:
 
-    - *myAppGateway* - para o nome do gateway de aplicação.
-    - *myResourceGroupAG* - para o novo grupo de recursos.
+   - *myAppGateway* - para o nome do gateway de aplicação.
+   - *myResourceGroupAG* - para o novo grupo de recursos.
 
-    ![Criar um novo gateway de aplicação](./media/create-multiple-sites-portal/application-gateway-create.png)
+     ![Criar um novo gateway de aplicação](./media/create-multiple-sites-portal/application-gateway-create.png)
 
 4. Aceite os valores predefinidos para as outras definições e, em seguida, clique em **OK**.
 5. Clique em **escolher uma rede virtual**, clique em **criar nova**e, em seguida, introduza estes valores para a rede virtual:
 
-    - *myVNet* - para o nome da rede virtual.
-    - *10.0.0.0/16* - para o espaço de endereços de rede virtual.
-    - *myAGSubnet* - para o nome da sub-rede.
-    - *10.0.0.0/24* - para o espaço de endereço da sub-rede.
+   - *myVNet* - para o nome da rede virtual.
+   - *10.0.0.0/16* - para o espaço de endereços de rede virtual.
+   - *myAGSubnet* - para o nome da sub-rede.
+   - *10.0.0.0/24* - para o espaço de endereço da sub-rede.
 
-    ![Criar a rede virtual](./media/create-multiple-sites-portal/application-gateway-vnet.png)
+     ![Criar a rede virtual](./media/create-multiple-sites-portal/application-gateway-vnet.png)
 
 6. Clique em **OK** para criar a rede virtual e a sub-rede.
 7. Clique em **escolher um endereço IP público**, clique em **criar nova**e, em seguida, introduza o nome do endereço IP público. Neste exemplo, o endereço IP público tem o nome *myAGPublicIPAddress*. Aceite os valores predefinidos para as outras definições e, em seguida, clique em **OK**.
@@ -134,8 +134,8 @@ Neste exemplo, vai criar duas máquinas virtuais para serem utilizadas como serv
 1. Clique em **serviços de escuta** e, em seguida, clique em **multilocal**.
 2. Introduza estes valores para o serviço de escuta:
     
-    - *contosoListener* - no nome do serviço de escuta.
-    - *www.contoso.com* -substitua este exemplo de nome de anfitrião com o seu nome de domínio.
+   - *contosoListener* - no nome do serviço de escuta.
+   - *www.contoso.com* -substitua este exemplo de nome de anfitrião com o seu nome de domínio.
 
 3. Clique em **OK**.
 4. Criar um segundo ouvinte usando o nome da *fabrikamListener* e utilizar o seu nome de domínio de segundo. Neste exemplo, *www.fabrikam.com* é utilizado.

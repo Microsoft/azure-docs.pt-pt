@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 2/4/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 04a43a41b2e115f5bf7cc6b4bf3ca1bd352f5918
-ms.sourcegitcommit: 1902adaa68c660bdaac46878ce2dec5473d29275
+ms.openlocfilehash: 5ff1718211fa298e4daee694795a0b2438033fe2
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/11/2019
-ms.locfileid: "57729766"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57838139"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-egnyte"></a>Tutorial: Integração do Active Directory do Azure com Egnyte
 
@@ -178,7 +178,7 @@ O objetivo desta secção é criar um utilizador de teste no portal do Azure cha
 
     a. Na **Name** campo introduza **BrittaSimon**.
   
-    b. Na **nome de utilizador** tipo de campo **brittasimon@yourcompanydomain.extension**  
+    b. Na **nome de utilizador** tipo de campo **brittasimon\@yourcompanydomain.extension**  
     Por exemplo, BrittaSimon@contoso.com
 
     c. Selecione **palavra-passe de Show** caixa de verificação e, em seguida, anote o valor que é apresentado na caixa de palavra-passe.
@@ -229,7 +229,7 @@ Para ativar a utilizadores do Azure AD iniciar sessão no Egnyte, tem de ser apr
     
     ![Novo utilizador padrão](./media/egnyte-tutorial/ic787825.png "novo utilizador padrão")   
 
-    a. Na **E-Mail** texto, introduza o e-mail do utilizador, como **Brittasimon@contoso.com**.
+    a. Na **E-Mail** texto, introduza o e-mail do utilizador, como **Brittasimon\@contoso.com**.
 
     b. Na **nome de utilizador** texto, introduza o nome de utilizador do utilizador, como **Brittasimon**.
 
@@ -245,7 +245,7 @@ Para ativar a utilizadores do Azure AD iniciar sessão no Egnyte, tem de ser apr
 >Pode utilizar quaisquer outras Egnyte utilizador conta criação ferramentas ou APIs fornecidas pelo Egnyte para aprovisionar contas de utilizador do AAD.
 >
 
-### <a name="test-single-sign-on"></a>Testar início de sessão único 
+### <a name="test-single-sign-on"></a>Testar o início de sessão único 
 
 Nesta secção, vai testar a configuração do Azure AD única início de sessão com o painel de acesso.
 

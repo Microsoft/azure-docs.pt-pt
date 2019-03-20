@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 01/02/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4ffac91aef9a091f827c333605ab20c1cce7e258
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: b7556e93e6e7b7e9bdb1f19f5a6e5b3c15c7b910
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57446100"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57894075"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-canvas"></a>Tutorial: Integração do Active Directory do Azure com o Canvas
 
@@ -180,7 +180,7 @@ O objetivo desta secção é criar um utilizador de teste no portal do Azure cha
 
     a. Na **Name** campo introduza **BrittaSimon**.
   
-    b. Na **nome de utilizador** tipo de campo **brittasimon@yourcompanydomain.extension**  
+    b. Na **nome de utilizador** tipo de campo **brittasimon\@yourcompanydomain.extension**  
     Por exemplo, BrittaSimon@contoso.com
 
     c. Selecione **palavra-passe de Show** caixa de verificação e, em seguida, anote o valor que é apresentado na caixa de palavra-passe.
@@ -239,9 +239,9 @@ Para ativar a utilizadores do Azure AD iniciar sessão na tela, tem de ser aprov
 
    a. Na **FullName** caixa de texto, introduza o nome de utilizador, como **BrittaSimon**.
 
-   b. Na **E-Mail** caixa de texto, introduza o e-mail do utilizador, como **brittasimon@contoso.com**.
+   b. Na **E-Mail** caixa de texto, introduza o e-mail do utilizador, como **brittasimon\@contoso.com**.
 
-   c. Na **início de sessão** caixa de texto, introduza o endereço de e-mail do utilizador do Azure AD, como **brittasimon@contoso.com**.
+   c. Na **início de sessão** caixa de texto, introduza o endereço de e-mail do utilizador do Azure AD, como **brittasimon\@contoso.com**.
 
    d. Selecione **o utilizador sobre a criação de conta de E-Mail**.
 

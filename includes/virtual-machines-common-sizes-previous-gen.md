@@ -8,19 +8,19 @@ ms.topic: include
 ms.date: 07/06/2018
 ms.author: cynthn;azcspmt;jonbeck
 ms.custom: include file
-ms.openlocfilehash: bf272262d8279dea034440c9ffcf8c49f9fd75ab
-ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
+ms.openlocfilehash: c16483f4b8ef160c78ff95582faf54c9a9d24a04
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57458017"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57964255"
 ---
 Este artigo fornece informações sobre as gerações anteriores de tamanhos de máquina virtual. Estes tamanhos ainda podem ser utilizados, mas há gerações mais recentes disponíveis.
 
 
 ## <a name="ds-series"></a>Série DS
 
-ACU: 160
+ACU: 160-250 <sup>1</sup>
 
 Armazenamento Premium:  Suportadas
 
@@ -33,11 +33,12 @@ Cache de armazenamento Premium:  Suportadas
 | Standard_DS3 |4 |14 |28 |16 |16,000 / 128 (172) |12,800 / 128 |4 / 2000 |
 | Standard_DS4 |8 |28 |56 |32 |32,000 / 256 (344) |25,600 / 256 |8 / 4000 |
 
+<sup>1</sup> família de VM pode ser executado em um dos seguinte da CPU: 2.2 GHz Intel Xeon® E5 2660 v2, 2,4 GHz Intel Xeon® E5 2673 v3 (Haswell) ou 2.3 GHz Intel XEON® E5 2673 v4 (Broadwell)
 <br>
 
 ## <a name="ds-series---memory-optimized"></a>Série DS - com otimização de memória
 
-ACU: 160 <sup>1</sup>
+ACU: 160-250 <sup>1,2</sup>
 
 Armazenamento Premium:  Suportadas
 
@@ -52,11 +53,11 @@ Cache de armazenamento Premium:  Suportadas
 
 <sup>1</sup> o débito máximo do disco (IOPS ou MBps) possível com uma VM da série DS pode estar limitado pelo número, tamanho e repartição dos discos anexados.  Para obter detalhes, consulte [conceber o elevado desempenho](../articles/virtual-machines/windows/premium-storage-performance.md).
 
-
+<sup>2</sup> família de VM pode ser executado em um dos seguinte da CPU: 2.2 GHz Intel Xeon® E5 2660 v2, 2,4 GHz Intel Xeon® E5 2673 v3 (Haswell) ou 2.3 GHz Intel XEON® E5 2673 v4 (Broadwell)
 
 ## <a name="d-series"></a>Série D 
 
-ACU: 160
+ACU: 160-250 <sup>1</sup>
 
 Armazenamento Premium:  Não suportado
 
@@ -69,11 +70,12 @@ Cache de armazenamento Premium:  Não suportado
 | Standard_D3  | 4         | 14          | 200            | 12000 / 187 / 93                                         | 16 / 16x500                         | 4 / 2000                     |
 | Standard_D4  | 8         | 28          | 400            | 24000 / 375 / 187                                        | 32 / 32x500                       | 8 / 4000                     |
 
+<sup>1</sup> família de VM pode ser executado em um dos seguinte da CPU: 2.2 GHz Intel Xeon® E5 2660 v2, 2,4 GHz Intel Xeon® E5 2673 v3 (Haswell) ou 2.3 GHz Intel XEON® E5 2673 v4 (Broadwell)
 <br>
 
 ## <a name="d-series---memory-optimized"></a>Série D - com otimização de memória
 
-ACU: 160
+ACU: 160-250 <sup>1</sup>
 
 Armazenamento Premium:  Não suportado
 
@@ -86,6 +88,7 @@ Cache de armazenamento Premium:  Não suportado
 | Standard_D13 | 8         | 56          | 400            | 24000 / 375 / 187                                        | 32 / 32x500                       | 8 / 4000                     |
 | Standard_D14 | 16        | 112         | 800            | 48000 / 750 / 375                                        | 64 / 64x500                       | 8 / 8000                |
 
+<sup>1</sup> família de VM pode ser executado em um dos seguinte da CPU: 2.2 GHz Intel Xeon® E5 2660 v2, 2,4 GHz Intel Xeon® E5 2673 v3 (Haswell) ou 2.3 GHz Intel XEON® E5 2673 v4 (Broadwell)
 <br>
 
 ## <a name="a-series---compute-intensive-instances"></a>Série A – Instâncias de computação intensiva
@@ -127,6 +130,7 @@ Cache de armazenamento Premium:  Não suportado
 | Standard_A5 |2 |14 |135 |4 |4x500 |2 / 500 |
 | Standard_A6 |4 |28 |285 |8 |8x500 |2 / 1000 |
 | Standard_A7 |8 |56 |605 |16 |16x500 |4 / 2000 |
+
 <br>
 
 <sup>1</sup> tamanho o A0 está sobre-subscrito no hardware físico. Apenas para este tamanho específico, outras implementações de cliente podem afetar o desempenho da carga de trabalho em execução. O desempenho relativo é indicado abaixo como a linha de base esperada, sujeito a uma variabilidade aproximada de 15%.

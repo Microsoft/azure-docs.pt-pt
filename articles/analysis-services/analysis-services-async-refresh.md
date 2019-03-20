@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 01/08/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: f10bae780ebb05d3450f4dab7e53fa87fe25b022
-ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
+ms.openlocfilehash: 5e9558eae43b351aa198b64bb2a7903c756064c2
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54189558"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58168022"
 ---
 # <a name="asynchronous-refresh-with-the-rest-api"></a>Atualização assíncrona com a API REST
 
@@ -57,7 +57,7 @@ Por exemplo, pode utilizar o verbo POST na coleção de atualizações para efet
 https://westus.asazure.windows.net/servers/myserver/models/AdventureWorks/refreshes
 ```
 
-## <a name="authentication"></a>Autenticação
+## <a name="authentication"></a>Authentication
 
 Todas as chamadas têm de ser autenticadas com um token válido do Azure Active Directory (OAuth 2) no cabeçalho de autorização e tem de cumprir os seguintes requisitos:
 
@@ -98,20 +98,20 @@ O corpo pode se parecer com o seguinte:
 
 Não é necessário especificar parâmetros. O padrão é aplicado.
 
-|Nome  |Tipo  |Descrição  |Predefinição  |
-|---------|---------|---------|---------|
-|Tipo     |  Enum       |  O tipo de processamento para realizar. Os tipos estão alinhados com o TMSL [atualizar o comando](https://docs.microsoft.com/sql/analysis-services/tabular-models-scripting-language-commands/refresh-command-tmsl) tipos: completa, clearValues, calcular, dataOnly, automática e desfragmentar. Adicione o tipo não é suportado.      |   automática      |
-|CommitMode     |  Enum       |  Determina se os objetos serão consolidados em lotes ou apenas quando terminar. Incluem modos: partialBatch transacional, do padrão,.  |  transacional       |
-|MaxParallelism     |   Int      |  Este valor determina o número máximo de threads para executar comandos de processamento em paralelo. Este valor alinhado com a propriedade MaxParallelism que pode ser definida no TMSL [de sequência de comando](https://docs.microsoft.com/sql/analysis-services/tabular-models-scripting-language-commands/sequence-command-tmsl) ou usando outros métodos.       | 10        |
-|RetryCount    |    Int     |   Indica o número de vezes que a operação será repetida antes de falhar.      |     0    |
-|Objetos     |   Array      |   Uma matriz de objetos a serem processados. Cada objeto inclui: "tabela" ao processar a tabela inteira ou "tabela" e "partition" ao processar uma partição. Se forem especificados não existem objetos, o modelo de todo é atualizado. |   A todo o modelo de processo      |
+| Name             | Tipo  | Descrição  |Predefinição  |
+|------------------|-------|--------------|---------|
+| `Type`           | Enum  | O tipo de processamento para realizar. Os tipos estão alinhados com o TMSL [atualizar o comando](https://docs.microsoft.com/sql/analysis-services/tabular-models-scripting-language-commands/refresh-command-tmsl) tipos: completa, clearValues, calcular, dataOnly, automática e desfragmentar. Adicione o tipo não é suportado.      |   automática      |
+| `CommitMode`     | Enum  | Determina se os objetos serão consolidados em lotes ou apenas quando terminar. Incluem modos: partialBatch transacional, do padrão,.  |  transacional       |
+| `MaxParallelism` | Int   | Este valor determina o número máximo de threads para executar comandos de processamento em paralelo. Este valor alinhado com a propriedade MaxParallelism que pode ser definida no TMSL [de sequência de comando](https://docs.microsoft.com/sql/analysis-services/tabular-models-scripting-language-commands/sequence-command-tmsl) ou usando outros métodos.       | 10        |
+| `RetryCount`     | Int   | Indica o número de vezes que a operação será repetida antes de falhar.      |     0    |
+| `Objects`        | Array | Uma matriz de objetos a serem processados. Cada objeto inclui: "tabela" ao processar a tabela inteira ou "tabela" e "partition" ao processar uma partição. Se forem especificados não existem objetos, o modelo de todo é atualizado. |   A todo o modelo de processo      |
 
 CommitMode é igual ao partialBatch. É utilizado ao fazer uma carga inicial de grandes conjuntos de dados que o processo poderá demorar horas. Se a operação de atualização falhar após a confirmação com êxito um ou mais lotes, serão permanecem confirmados, os lotes consolidados com êxito (ele não irá reverter lotes consolidadas com êxito).
 
 > [!NOTE]
 > No momento da escrita, o tamanho do lote é o valor de MaxParallelism, mas pode alterar este valor.
 
-## <a name="get-refreshesrefreshid"></a>GET /refreshes/\<refreshId >
+## <a name="get-refreshesrefreshid"></a>GET /refreshes/\<refreshId>
 
 Para verificar o estado de uma operação de atualização, utilize o verbo GET no ID de atualização. Eis um exemplo do corpo da resposta. Se a operação está em curso **inProgress** é retornado no estado.
 
@@ -161,7 +161,7 @@ Para obter uma lista de operações de atualização de histórico para um model
 ]
 ```
 
-## <a name="delete-refreshesrefreshid"></a>Eliminar /refreshes/\<refreshId >
+## <a name="delete-refreshesrefreshid"></a>DELETE /refreshes/\<refreshId>
 
 Para cancelar uma operação de atualização em curso, usam o verbo de eliminação no ID de atualização do.
 

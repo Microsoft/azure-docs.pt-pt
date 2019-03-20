@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.date: 01/22/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: ae162c6e0ced1021272f08e3e645596586d847d4
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: d0eda93855c3be66d4c733774a6cc1d5875a8394
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57535764"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57998299"
 ---
 # <a name="tutorial-build-your-first-azure-data-factory-using-azure-resource-manager-template"></a>Tutorial: Criar a primeira fábrica de dados do Azure com o modelo Azure Resource Manager
 > [!div class="op_single_selector"]
@@ -52,6 +52,7 @@ O pipeline neste tutorial tem uma atividade: **Atividade do Hive do HDInsight**.
 * Veja [Authoring Azure Resource Manager Templates (Criação de Modelos Azure Resource Manager)](../../azure-resource-manager/resource-group-authoring-templates.md) para saber mais sobre os modelos Azure Resource Manager. 
 
 ## <a name="in-this-tutorial"></a>Neste tutorial
+
 | Entidade | Descrição |
 | --- | --- |
 | Serviço ligado do Storage do Azure |Liga a sua conta de Armazenamento do Azure à fábrica de dados. A conta de Armazenamento do Azure possui os dados de entrada e de saída do pipeline neste exemplo. |
@@ -317,17 +318,17 @@ Crie um ficheiro JSON com o nome **ADFTutorialARM Parameters.json** que contém 
 ## <a name="create-data-factory"></a>Criar fábrica de dados
 1. Inicie o **Azure PowerShell** e execute o seguinte comando: 
    * Execute o comando seguinte e introduza o nome de utilizador e a palavra-passe que utiliza para iniciar sessão no portal do Azure.
-    ```PowerShell
-    Connect-AzAccount
-    ```  
+     ```PowerShell
+     Connect-AzAccount
+     ```  
    * Execute o comando seguinte para ver todas as subscrições para esta conta.
-    ```PowerShell
-    Get-AzSubscription
-    ``` 
+     ```PowerShell
+     Get-AzSubscription
+     ``` 
    * Execute o comando seguinte para selecionar a subscrição com a qual pretende trabalhar. Esta subscrição deve ser idêntica à que utilizou no Portal do Azure.
-    ```
-    Get-AzSubscription -SubscriptionName <SUBSCRIPTION NAME> | Set-AzContext
-    ```   
+     ```
+     Get-AzSubscription -SubscriptionName <SUBSCRIPTION NAME> | Set-AzContext
+     ```   
 2. Execute o seguinte comando para implementar as entidades do Data Factory com o modelo do Resource Manager que criou no Passo 1. 
 
     ```PowerShell
@@ -621,6 +622,7 @@ Eis o exemplo de um modelo do Resource Manager para criar um gateway lógico. In
 Este modelo cria uma fábrica de dados com o nome GatewayUsingArmDF com um gateway designado: GatewayUsingARM. 
 
 ## <a name="see-also"></a>Consultar Também
+
 | Tópico | Descrição |
 |:--- |:--- |
 | [Pipelines](data-factory-create-pipelines.md) |Este artigo ajuda-o a compreender os pipelines e as atividades no Azure Data Factory e como os utilizar para construir fluxos de dados ponto a ponto condicionados por dados para o seu cenário ou empresa. |

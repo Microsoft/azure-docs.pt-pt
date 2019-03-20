@@ -10,12 +10,12 @@ services: time-series-insights
 ms.topic: conceptual
 ms.date: 12/03/2018
 ms.custom: seodec18
-ms.openlocfilehash: d5c18521f39b1b57b5f94a54bb3131e05abba745
-ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
+ms.openlocfilehash: ed8a829bd73a53dc94bf8b08648b3d6684f718f6
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53556650"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58109768"
 ---
 # <a name="visualize-data-in-the-explorer-preview"></a>Visualizar dados no Explorador de pré-visualização
 
@@ -141,7 +141,7 @@ Quando trabalha com pré-visualização do Time Series Insights, primeiro seleci
 
 1. **Intervalo de e para o controle da web de datas**: Com esse controle da web pode facilmente clique e selecione a data pretendida e os intervalos de tempo. Também pode utilizar o controlo de alternar entre diferentes fusos horários. Depois de efetuar as alterações, para aplicar a sua área de trabalho atual, selecione **guardar**.
 
-  ![treze-Explorer][13]
+   ![treze-Explorer][13]
 
 ## <a name="time-series-insights-preview-navigation-panel"></a>Painel de navegação de pré-visualização de informações de série de tempo
 

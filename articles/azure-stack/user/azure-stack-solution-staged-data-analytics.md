@@ -15,12 +15,12 @@ ms.date: 03/04/2018
 ms.author: mabrigg
 ms.reviewer: anajod
 ms.lastreviewed: 12/01/2018
-ms.openlocfilehash: 1115e11d6bf830afad3746eb41d6368cb89bdbf3
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: c3ea877e3271dcb5bea527d661e12827eb64fa0c
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57534383"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57997417"
 ---
 # <a name="tutorial-create-a-staged-data-analytics-solution-with-azure-and-azure-stack"></a>Tutorial: Criar uma solução de análise de dados pré-configurados com o Azure e o Azure Stack 
 
@@ -175,25 +175,25 @@ Crie uma nova função do Azure Stack para mover apagar dados do Azure Stack par
 
 ## <a name="create-a-blob-storage-triggered-function"></a>Criar uma função acionada pelo Armazenamento de blobs
 
-1.  Expanda a aplicação de funções e selecione o **+** junto a **funções**.
+1. Expanda a aplicação de funções e selecione o **+** junto a **funções**.
 
-2.  No campo de pesquisa, escreva `blob` e, em seguida, escolha o idioma pretendido para o **acionador de Blob** modelo.
+2. No campo de pesquisa, escreva `blob` e, em seguida, escolha o idioma pretendido para o **acionador de Blob** modelo.
 
-  ![Escolha o modelo de acionador do armazenamento de Blobs.](media/azure-stack-solution-staged-data-analytics/image10.png)
+   ![Escolha o modelo de acionador do armazenamento de Blobs.](media/azure-stack-solution-staged-data-analytics/image10.png)
 
-3.  Utilize as definições especificadas na tabela abaixo:
+3. Utilize as definições especificadas na tabela abaixo:
 
-    | Definição | Valor sugerido | Descrição |
-    | ------- | ------- | ------- |
-    | Name | Exclusivo na aplicação Function App | Nome desta função acionada por blob. |
-    | Caminho | \<caminho da localização de armazenamento acima > | Localização no Armazenamento de blobs a ser monitorizado. O nome de ficheiro do blob é transmitido no enlace como o parâmetro de nome. |
-    | Ligação da conta de armazenamento | Ligação de aplicação de função | Pode utilizar a ligação de conta de armazenamento já a ser utilizada pela sua aplicação de função ou crie um novo. |
+   | Definição | Valor sugerido | Descrição |
+   | ------- | ------- | ------- |
+   | Name | Exclusivo na aplicação Function App | Nome desta função acionada por blob. |
+   | Caminho | \<caminho da localização de armazenamento acima > | Localização no Armazenamento de blobs a ser monitorizado. O nome de ficheiro do blob é transmitido no enlace como o parâmetro de nome. |
+   | Ligação da conta de armazenamento | Ligação de aplicação de função | Pode utilizar a ligação de conta de armazenamento já a ser utilizada pela sua aplicação de função ou crie um novo. |
 
-    **Exemplo:**
+   **Exemplo:**
 
-    ![Crie a função acionada pelo Armazenamento de blobs.](media/azure-stack-solution-staged-data-analytics/image11.png)
+   ![Crie a função acionada pelo Armazenamento de blobs.](media/azure-stack-solution-staged-data-analytics/image11.png)
 
-4.  Selecione **criar** para criar a função.
+4. Selecione **criar** para criar a função.
 
 ### <a name="test-the-function"></a>Testar a função
 
@@ -253,21 +253,21 @@ Utilize os passos e as definições descritas acima para criar outra conta e blo
 
 ## <a name="test-the-queue-triggered-function"></a>Função acionada por fila de teste
 
-1.  No portal do Azure Stack, navegue para a função. Expanda a **registos** na parte inferior da página e certifique-se de que a transmissão de registos não está em pausa.
+1. No portal do Azure Stack, navegue para a função. Expanda a **registos** na parte inferior da página e certifique-se de que a transmissão de registos não está em pausa.
 
-2.  Abra o Explorador de armazenamento e ligue-se para a conta de armazenamento que criou no início desta secção.
+2. Abra o Explorador de armazenamento e ligue-se para a conta de armazenamento que criou no início desta secção.
 
-3.  Expanda a conta de armazenamento **contentores de BLOBs**, e os BLOBs que criou anteriormente. Selecione **carregue** e, em seguida, **carregar ficheiros.**
+3. Expanda a conta de armazenamento **contentores de BLOBs**, e os BLOBs que criou anteriormente. Selecione **carregue** e, em seguida, **carregar ficheiros.**
 
-    ![Carregue um ficheiro para o contentor de blobs.](media/azure-stack-solution-staged-data-analytics/image12.png)
+   ![Carregue um ficheiro para o contentor de blobs.](media/azure-stack-solution-staged-data-analytics/image12.png)
 
-4.  Na caixa de diálogo carregar ficheiros, selecione o campo de ficheiros. Procure um ficheiro num computador local, como um ficheiro de imagem, selecione-o e selecione **aberto** e, em seguida **carregar**.
+4. Na caixa de diálogo carregar ficheiros, selecione o campo de ficheiros. Procure um ficheiro num computador local, como um ficheiro de imagem, selecione-o e selecione **aberto** e, em seguida **carregar**.
 
-5.  Volte para os registos de função e certifique-se de que o blob foi lido.
+5. Volte para os registos de função e certifique-se de que o blob foi lido.
 
-  **Exemplo:**
+   **Exemplo:**
 
-    ![Ver mensagem nos registos.](media/azure-stack-solution-staged-data-analytics/image13.png)
+   ![Ver mensagem nos registos.](media/azure-stack-solution-staged-data-analytics/image13.png)
 
 ## <a name="securely-stored-and-accessed-compliant-data"></a>Dados em conformidade com segurança armazenados e acedidos
 

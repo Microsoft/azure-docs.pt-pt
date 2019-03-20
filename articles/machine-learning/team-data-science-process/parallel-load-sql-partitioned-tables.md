@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 11/09/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: f1a5f54e520cdabd49e1ca69626e1c693bc1ee19
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 253f73cc58292778d88417b693c157fcbd7d92bd
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55470030"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57853040"
 ---
 # <a name="build-and-optimize-tables-for-fast-parallel-import-of-data-into-a-sql-server-on-an-azure-vm"></a>Compilar e otimizar tabelas para a importação de dados rápido paralela num SQL Server numa VM do Azure
 
@@ -95,7 +95,7 @@ Para obter mais informações, consulte [criar tabelas Particionadas e índices]
 
 ## <a name="bulk-import-the-data-for-each-individual-partition-table"></a>Em massa importar os dados para cada tabela de partições individuais
 
-* Pode utilizar BCP, a inserção em massa ou outros métodos como [Assistente de migração do SQL Server](http://sqlazuremw.codeplex.com/). O exemplo fornecido usa o método BCP.
+* Pode utilizar BCP, a inserção em massa ou outros métodos como [Assistente de migração do SQL Server](https://sqlazuremw.codeplex.com/). O exemplo fornecido usa o método BCP.
 * [Alterar o banco de dados](https://msdn.microsoft.com/library/bb522682.aspx) para alterar o esquema de Registro em log de transação para BULK_LOGGED para minimizar a sobrecarga de iniciar sessão, por exemplo:
   
         ALTER DATABASE <database_name> SET RECOVERY BULK_LOGGED

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/10/2018
 ms.author: kumud
-ms.openlocfilehash: d6b5a8b31b78e21868a7f81c481c4fce1cd4e6f5
-ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
+ms.openlocfilehash: 0d7c792c5230a5d82e97f4598a5dcfb864cead74
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57192450"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57847149"
 ---
 # <a name="azure-monitor-logs-for-public-basic-load-balancer"></a>Registos de Monitor do Azure para o Balanceador de carga básico público
 
@@ -38,7 +38,7 @@ Pode utilizar diferentes tipos de registos no Azure para gerir e resolver proble
 
 Um registo de auditoria é ativado automaticamente para todos os recursos do Resource Manager. Tem de ativar o registo de sonda de estado de funcionamento para iniciar a recolha de dados disponíveis por meio desses registos e eventos. Utilize os seguintes passos para ativar o registo.
 
-Início de sessão para o [portal do Azure](http://portal.azure.com). Se ainda não tiver um balanceador de carga [criar um balanceador de carga](load-balancer-get-started-internet-arm-ps.md) antes de continuar.
+Início de sessão para o [portal do Azure](https://portal.azure.com). Se ainda não tiver um balanceador de carga [criar um balanceador de carga](load-balancer-get-started-internet-arm-ps.md) antes de continuar.
 
 1. No portal, clique em **procurar**.
 2. Selecione **balanceadores de carga**.

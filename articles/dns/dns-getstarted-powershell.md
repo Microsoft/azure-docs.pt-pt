@@ -7,12 +7,12 @@ ms.service: dns
 ms.topic: quickstart
 ms.date: 3/11/2019
 ms.author: victorh
-ms.openlocfilehash: 5bf4c99d511e35b697ab383069aab1b31674621b
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 75ac8a45eb49ac5c4ec3b39667542f4f454a9954
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57771647"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58110329"
 ---
 # <a name="quickstart-create-an-azure-dns-zone-and-record-using-azure-powershell"></a>Início rápido: Criar uma zona DNS do Azure e o registo com o Azure PowerShell
 
@@ -90,7 +90,7 @@ Agora que tem uma zona DNS de teste com um registo de teste "A", pode testar a r
 
    ![nslookup](media/dns-getstarted-portal/nslookup.PNG)
 
-O nome do anfitrião **www.contoso.xyz** é resolvida para **10.10.10.10**, tal como tiver configurado. Este resultado verifica se a resolução de nomes está a funcionar corretamente.
+O nome do anfitrião **www\.contoso.xyz** é resolvido para o **10.10.10.10**, tal como tiver configurado. Este resultado verifica se a resolução de nomes está a funcionar corretamente.
 
 ## <a name="delete-all-resources"></a>Eliminar todos os recursos
 

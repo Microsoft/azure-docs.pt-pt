@@ -10,12 +10,12 @@ ms.subservice: text-analytics
 ms.topic: conceptual
 ms.date: 02/13/2019
 ms.author: aahi
-ms.openlocfilehash: fc594a660efe1bf90daeffa79826057a8e66c60c
-ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
+ms.openlocfilehash: 512417a228ed99a2f5b516f14084a5785bc0c1dd
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56245172"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58096746"
 ---
 # <a name="how-to-find-endpoints-and-access-keys-for-the-text-analytics-cognitive-service"></a>Como encontrar pontos de extremidade e acesso chaves para o serviço cognitivos de análise de texto
 
@@ -33,7 +33,7 @@ Se precisar de ajuda a localizar a chave, ou para determinar se a sua subscriç�
 
 4. Clique na ligação para abrir o painel de serviço. Agora pode obter uma chave a partir **recursos > chaves** ou ao clicar em **Mostrar chaves de acesso** no painel Essentials. O ponto final também está visível no painel Essentials.
 
- ![Página de portal com o ponto final e de chaves](../media/portal-keys-endpoint.png)
+   ![Página de portal com o ponto final e de chaves](../media/portal-keys-endpoint.png)
 
 ## <a name="see-also"></a>Consulte também 
 

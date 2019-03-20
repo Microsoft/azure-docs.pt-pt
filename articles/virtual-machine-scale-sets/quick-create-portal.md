@@ -17,12 +17,12 @@ ms.topic: quickstart
 ms.custom: H1Hack27Feb2017
 ms.date: 03/27/2018
 ms.author: cynthn
-ms.openlocfilehash: 0a9975b6f44a97d198dc308e263879c3358aab82
-ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
+ms.openlocfilehash: a2081bab2aebf0d49f3bde2467dac1fa683452ab
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56672700"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58008727"
 ---
 # <a name="quickstart-create-a-virtual-machine-scale-set-in-the-azure-portal"></a>Início rápido: Criar um conjunto de dimensionamento de máquinas virtuais no Portal do Azure
 Um conjunto de dimensionamento de máquinas virtuais permite implementar e gerir um conjunto de máquinas virtuais idênticas e de dimensionamento automático. Pode dimensionar o número de VMs no conjunto de dimensionamento manualmente ou definir regras para dimensionar automaticamente com base na utilização de recursos como CPU, exigência de memória ou tráfego de rede. Em seguida, um balanceador de carga do Azure distribui o tráfego pelas instâncias de VM no conjunto de dimensionamento. Neste início rápido, vai criar um conjunto de dimensionamento de máquinas virtuais no Portal do Azure.
@@ -31,7 +31,7 @@ Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure
 
 
 ## <a name="log-in-to-azure"></a>Iniciar sessão no Azure
-Inicie sessão no portal do Azure em http://portal.azure.com.
+Inicie sessão no portal do Azure em https://portal.azure.com.
 
 
 ## <a name="create-virtual-machine-scale-set"></a>Criar conjunto de dimensionamento da máquina virtual
@@ -43,10 +43,10 @@ Pode implementar um conjunto de dimensionamento com uma imagem do Windows Server
 4. Selecione o tipo de SO pretendido, como *Datacenter do Windows Server 2016*.
 5. Introduza o nome do grupo de recursos pretendido, como *myResourceGroup*, e a localização, como *E.U.A. Leste*.
 6. Introduza o seu nome de utilizador pretendido e selecione o tipo de autenticação que preferir.
-    - A **Palavra-passe** tem de ter, pelo menos, 12 carateres e cumprir três dos quatro requisitos de complexidade seguintes: um caráter em letra minúscula, um caráter em letra maiúscula, um número e um caráter especial. Para obter mais informações, veja [requisitos de nome de utilizador e palavra-passe](../virtual-machines/windows/faq.md#what-are-the-username-requirements-when-creating-a-vm).
-    - Se selecionar uma imagem de disco de SO Linux, em vez disso, pode escolher **Chave pública SSH**. Forneça apenas a chave pública, como *~/.ssh/id_rsa.pub*. Pode utilizar o Azure Cloud Shell no portal para [criar e utilizar chaves SSH](../virtual-machines/linux/mac-create-ssh-keys.md).
+   - A **Palavra-passe** tem de ter, pelo menos, 12 carateres e cumprir três dos quatro requisitos de complexidade seguintes: um caráter em letra minúscula, um caráter em letra maiúscula, um número e um caráter especial. Para obter mais informações, veja [requisitos de nome de utilizador e palavra-passe](../virtual-machines/windows/faq.md#what-are-the-username-requirements-when-creating-a-vm).
+   - Se selecionar uma imagem de disco de SO Linux, em vez disso, pode escolher **Chave pública SSH**. Forneça apenas a chave pública, como *~/.ssh/id_rsa.pub*. Pode utilizar o Azure Cloud Shell no portal para [criar e utilizar chaves SSH](../virtual-machines/linux/mac-create-ssh-keys.md).
 
-    ![Os detalhes básicos para criar um dimensionamento de máquina virtual definido no portal do Azure](./media/virtual-machine-scale-sets-create-portal/create-scale-set-basic-details.png)
+     ![Os detalhes básicos para criar um dimensionamento de máquina virtual definido no portal do Azure](./media/virtual-machine-scale-sets-create-portal/create-scale-set-basic-details.png)
 1. Selecione uma, como opção, o balanceamento de carga *Balanceador de carga*, em **escolha balanceamento de carga opções**. Introduza os detalhes restantes para a sua opção de balanceamento de carga. Por exemplo, para *Balanceador de carga* tem de introduzir um **nome do endereço IP público** e **etiqueta de nome de domínio**.
 1. Introduza os detalhes da rede virtual no **configurar redes virtuais**. Por exemplo, pode criar uma nova rede virtual *myVirtualNetwork*e uma nova sub-rede *padrão*.
 1. Para confirmar as opções do conjunto de dimensionamento, selecione **Criar**.

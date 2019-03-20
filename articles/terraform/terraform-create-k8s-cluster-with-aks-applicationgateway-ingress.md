@@ -9,12 +9,12 @@ manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
 ms.date: 1/10/2019
-ms.openlocfilehash: 7eb88f0bd30c9f28f8980cdc0e16ba46a9da9551
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 477b2ec1af4c52f51c3ab20ac2ddf7ef043dfcc7
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57765599"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57994356"
 ---
 # <a name="create-a-kubernetes-cluster-with-application-gateway-ingress-controller-using-azure-kubernetes-service-and-terraform"></a>Criar um cluster de Kubernetes com o controlador de entrada do Gateway de aplicação com o serviço Kubernetes do Azure e o Terraform
 [O Azure Kubernetes Service (AKS)](/azure/aks/) gere o seu ambiente alojado do Kubernetes. AKS torna rápido e fácil de implementar e gerir aplicações em contentores sem conhecimentos de orquestração de contentores. Também põe fim às tarefas de operações e manutenções contínuas ao aprovisionar, atualizar e dimensionar recursos a pedido, sem que as aplicações sejam colocadas offline.
@@ -36,16 +36,16 @@ Neste tutorial, irá aprender a realizar as seguintes tarefas na criação de um
 - **Configurar o Terraform**: Siga as instruções no artigo, [Terraform e configurar o acesso ao Azure](/azure/virtual-machines/linux/terraform-install-configure)
 
 - **Principal de serviço do Azure**: Siga as instruções na secção do **criar o principal de serviço** secção no artigo [criar um Azure principal de serviço com a CLI do Azure](/cli/azure/create-an-azure-service-principal-azure-cli?view=azure-cli-latest). Tome nota dos valores para o appId, displayName e palavra-passe.
-    - Tenha em atenção o ID de objeto do Principal de serviço, executando o seguinte comando
+  - Tenha em atenção o ID de objeto do Principal de serviço, executando o seguinte comando
 
     ```bash
-     az ad sp list --display-name <displayName>
+    az ad sp list --display-name <displayName>
     ```
 
 ## <a name="create-the-directory-structure"></a>Criar a estrutura de diretórios
 O primeiro passo é criar o diretório que mantenha os seus ficheiros de configuração do Terraform para o exercício.
 
-1. Navegue para o [portal do Azure](http://portal.azure.com).
+1. Navegue para o [portal do Azure](https://portal.azure.com).
 
 1. Abra o [Azure Cloud Shell](/azure/cloud-shell/overview). Se ainda não tiver selecionado um ambiente, selecione **Bash** como o seu ambiente.
 
@@ -99,8 +99,8 @@ Crie o ficheiro de configuração Terraform que declara o fornecedor do Azure.
     ```bash
     :wq
     ```
-## <a name="define-input-variables"></a>Definir variáveis de entrada
-Criar o arquivo de configuração do Terraform que apresenta uma lista de todas as variáveis necessárias para esta implementação
+   ## <a name="define-input-variables"></a>Definir variáveis de entrada
+   Criar o arquivo de configuração do Terraform que apresenta uma lista de todas as variáveis necessárias para esta implementação
 1. No Cloud Shell, crie um ficheiro denominado `variables.tf`
     ```bash
     vi variables.tf

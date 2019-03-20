@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 11/26/2018
 ms.author: fauhse
 ms.subservice: files
-ms.openlocfilehash: 23bf70cd60639aec3ea7e8504dc3f6ebccd4923f
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: 937346bf6927efe11e43b64b7c9a2111f00c0e0a
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56883594"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57890836"
 ---
 # <a name="azure-file-sync-proxy-and-firewall-settings"></a>As definições do proxy e da firewall do Azure File Sync
 O Azure File Sync liga-se os servidores no local para os ficheiros do Azure, ativar a sincronização de múltiplos site e recursos de camada de cloud. Como tal, um servidor no local tem de estar ligado à internet. Administrador de TI tem de decidir o melhor caminho para o servidor chegar a serviços cloud do Azure.
@@ -59,28 +59,28 @@ Para configurar as definições de proxy de todo o computador, siga os passos ab
 
 1. Configurar definições de proxy para aplicações .NET 
 
-  - Edite esses dois arquivos:  
-    C:\Windows\Microsoft.NET\Framework64\v4.0.30319\Config\machine.config  
-    C:\Windows\Microsoft.NET\Framework\v4.0.30319\Config\machine.config
+   - Edite esses dois arquivos:  
+     C:\Windows\Microsoft.NET\Framework64\v4.0.30319\Config\machine.config  
+     C:\Windows\Microsoft.NET\Framework\v4.0.30319\Config\machine.config
 
-  - Adicione a secção de < system.net > nos arquivos Machine. config (abaixo da seção < System. ServiceModel >).  Alterar 127.0.01:8888 para o endereço IP e porta do servidor proxy. 
-  ```
+   - Adicione a secção de < system.net > nos arquivos Machine. config (abaixo da seção < System. ServiceModel >).  Alterar 127.0.01:8888 para o endereço IP e porta do servidor proxy. 
+     ```
       <system.net>
         <defaultProxy enabled="true" useDefaultCredentials="true">
           <proxy autoDetect="false" bypassonlocal="false" proxyaddress="http://127.0.0.1:8888" usesystemdefault="false" />
         </defaultProxy>
       </system.net>
-  ```
+     ```
 
 2. Configurar as definições de proxy de WinHTTP 
 
-  - Execute o seguinte comando a partir de uma linha de comandos elevada ou o PowerShell para ver a definição de proxy existente:   
+   - Execute o seguinte comando a partir de uma linha de comandos elevada ou o PowerShell para ver a definição de proxy existente:   
 
-    proxy do Netsh winhttp show
+     proxy do Netsh winhttp show
 
-  - Execute o seguinte comando a partir de uma linha de comandos elevada ou o PowerShell para definir a definição de proxy (alterar 127.0.01:8888 para o endereço IP e porta do servidor proxy):  
+   - Execute o seguinte comando a partir de uma linha de comandos elevada ou o PowerShell para definir a definição de proxy (alterar 127.0.01:8888 para o endereço IP e porta do servidor proxy):  
 
-    netsh winhttp define 127.0.0.1:8888 de proxy
+     netsh winhttp define 127.0.0.1:8888 de proxy
 
 3. Reinicie o serviço de agente de sincronização de armazenamento, executando o seguinte comando a partir de uma linha de comandos elevada ou o PowerShell: 
 
@@ -100,7 +100,7 @@ A tabela seguinte descreve os domínios necessários para a comunicação:
 | **Azure Active Directory** | https://graph.windows.net/ | https://graph.windows.net/ | Como parte da implementação do Azure File Sync, será criado um principal de serviço no Azure Active Directory da subscrição. Este URL é usado para isso. Este principal é utilizado para delegar a um conjunto mínimo de direitos para o serviço de sincronização de ficheiros do Azure. O utilizador que executa a configuração inicial do Azure File Sync tem de ser um utilizador autenticado com privilégios de proprietário da subscrição. |
 | **Armazenamento do Azure** | &ast;.core.windows.net | &ast;.core.usgovcloudapi.net | Quando o servidor transfere um ficheiro, em seguida, o servidor executa esse movimento de dados com mais eficiência quando se fala diretamente para a partilha de ficheiros do Azure na conta de armazenamento. O servidor tem uma chave SAS que só permite o acesso de partilha de ficheiros de destino. |
 | **Azure File Sync** | &ast;.one.microsoft.com | &ast;.afs.azure.us | Após o registo do servidor inicial, o servidor recebe um URL regional para a instância do serviço Azure File Sync nessa região. O servidor pode utilizar o URL para se comunicar diretamente e eficiente com a instância de lidar com a sincronizar. |
-| **Microsoft PKI** | `https://www.microsoft.com/pki/mscorp`<br />http://ocsp.msocsp.com | `https://www.microsoft.com/pki/mscorp`<br />http://ocsp.msocsp.com | Depois de instalar o agente de sincronização de ficheiros do Azure, o URL de PKI é utilizado para transferir os certificados intermédios necessários para comunicar com o serviço de sincronização de ficheiros do Azure e a partilha de ficheiros do Azure. O URL de protocolo OCSP é utilizado para verificar o estado de um certificado. |
+| **Microsoft PKI** | `https://www.microsoft.com/pki/mscorp`<br /><http://ocsp.msocsp.com> | `https://www.microsoft.com/pki/mscorp`<br /><http://ocsp.msocsp.com> | Depois de instalar o agente de sincronização de ficheiros do Azure, o URL de PKI é utilizado para transferir os certificados intermédios necessários para comunicar com o serviço de sincronização de ficheiros do Azure e a partilha de ficheiros do Azure. O URL de protocolo OCSP é utilizado para verificar o estado de um certificado. |
 
 > [!Important]
 > Quando a permitir o tráfego para &ast;. one.microsoft.com, o tráfego para mais do que apenas o serviço de sincronização é possível a partir do servidor. Existem muitos serviços da Microsoft mais disponíveis em subdomínios.

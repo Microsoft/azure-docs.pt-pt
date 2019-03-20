@@ -62,26 +62,29 @@ items:
       href: container-registry-image-lock.md
     - name: Eliminar imagens de contentor
       href: container-registry-delete.md
-    - name: Fidedignidade do conteúdo (pré-visualização)
-      href: container-registry-content-trust.md
     - name: Atualizar para um registo Clássico
       href: container-registry-upgrade.md
     - name: Utilizar webhooks do ACR
       href: container-registry-webhook.md
     - name: Repositórios de gráfico do Helm (pré-visualização)
       href: container-registry-helm-repos.md
-  - name: Autenticação
+  - name: Segurança e autenticação
     items:
+    - name: Limitar acesso com rede virtual (pré-visualização)
+      href: container-registry-vnet.md
     - name: Descrição geral da autenticação
       href: container-registry-authentication.md
-    - name: Autenticação do principal de serviço
-      href: container-registry-auth-service-principal.md
-    - name: Autenticação de identidade gerida
-      href: container-registry-authentication-managed-identity.md
-    - name: Azure Container Instances
-      href: container-registry-auth-aci.md
-    - name: Serviço de Kubernetes do Azure (AKS)
-      href: container-registry-auth-aks.md
+      items:
+      - name: Autenticação do principal de serviço
+        href: container-registry-auth-service-principal.md
+      - name: Autenticação de identidade gerida
+        href: container-registry-authentication-managed-identity.md
+      - name: Autenticação no Azure Container Instances
+        href: container-registry-auth-aci.md
+      - name: Autenticação no Azure Kubernetes Service (AKS)
+        href: container-registry-auth-aks.md
+    - name: Fidedignidade do conteúdo (pré-visualização)
+      href: container-registry-content-trust.md
   - name: Compilação e aplicação de patches
     items:
     - name: Tarefas ACR
@@ -137,9 +140,9 @@ items:
     href: https://stackoverflow.com/questions/tagged/azure-container-registry
   - name: Vídeos
     href: https://azure.microsoft.com/resources/videos/index/?services=container-registry&sort=newest
-ms.openlocfilehash: ef8f6b64129f9dd2f2959c89e93c34b9d90a62f7
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 732c0f878df9b5d722571bf45e4afd76a3180ebb
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57541954"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58137999"

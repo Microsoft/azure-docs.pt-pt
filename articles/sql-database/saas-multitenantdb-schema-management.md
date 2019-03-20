@@ -12,12 +12,12 @@ ms.author: genemi
 ms.reviewer: billgib, sstein
 manager: craigg
 ms.date: 12/18/2018
-ms.openlocfilehash: 55e414a35574f8437a30ffb75aebd82eded14fa9
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: c7c10608d90f7659b108d2d8c80038f59396de2d
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57447928"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57878079"
 ---
 # <a name="manage-schema-in-a-saas-application-that-uses-sharded-multi-tenant-sql-databases"></a>Gerir esquema numa aplicação SaaS que utiliza bases de dados SQL em partição horizontal multi-inquilinos
 
@@ -53,7 +53,7 @@ Neste tutorial, ficará a saber como:
 - O Azure PowerShell tem de ser instalado. Para obter detalhes, consulte [introdução ao Azure PowerShell](https://docs.microsoft.com/powershell/azure/get-started-azureps).
 
 > [!NOTE]
-> Este tutorial utiliza funcionalidades do serviço de base de dados do Azure SQL que estão em pré-visualização limitada ([tarefas de bases de dados elásticas](sql-database-elastic-database-client-library.md)). Se pretender realizar este tutorial, forneça o seu ID de subscrição para *SaaSFeedback@microsoft.com* com assunto = Elastic de tarefas de pré-visualização. Após receber a confirmação indicando que a sua subscrição foi ativada, deverá [transferir e instalar os cmdlets mais recentes das tarefas da versão de pré-lançamento](https://github.com/jaredmoo/azure-powershell/releases). Esta pré-visualização é limitada, por isso, contacte *SaaSFeedback@microsoft.com* para questões relacionadas ou suporte.
+> Este tutorial utiliza funcionalidades do serviço de base de dados do Azure SQL que estão em pré-visualização limitada ([tarefas de bases de dados elásticas](sql-database-elastic-database-client-library.md)). Se pretender realizar este tutorial, forneça o seu ID de subscrição para *SaaSFeedback\@microsoft.com* com assunto = Elastic de tarefas de pré-visualização. Após receber a confirmação indicando que a sua subscrição foi ativada, deverá [transferir e instalar os cmdlets mais recentes das tarefas da versão de pré-lançamento](https://github.com/jaredmoo/azure-powershell/releases). Esta pré-visualização é limitada, por isso, contacte *SaaSFeedback\@microsoft.com* para questões relacionadas ou suporte.
 
 ## <a name="introduction-to-saas-schema-management-patterns"></a>Introdução aos padrões de gestão de esquemas SaaS
 

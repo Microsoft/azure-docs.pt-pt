@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 05/15/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 1dbac37e8b3bac5ee06ac3bdc3270c04efdcd408
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 4ff7f92d1d13966be5d17f37210bef961f64faf2
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57536696"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58084611"
 ---
 # <a name="copy-data-to-or-from-oracle-on-premises-by-using-azure-data-factory"></a>Copiar dados de ou para Oracle no local com o Azure Data Factory
 
@@ -56,11 +56,11 @@ O gateway é necessário, mesmo que o Oracle está hospedado numa infraestrutura
 Este conector Oracle suporta duas versões de controladores:
 
 - **Microsoft driver para Oracle (recomendado)**: A partir Data Management Gateway versão 2.7, um controlador de Microsoft para Oracle é instalado automaticamente com o gateway. Não precisa de instalar ou atualizar o driver para estabelecer conectividade a Oracle. Também pode assistir a melhor desempenho de cópia utilizando este controlador. Estas versões de bases de dados do Oracle são suportados:
-    - R1 Oracle 12c (12.1)
-    - Oracle 11g R1, R2 (11.1, 11.2)
-    - Oracle 10g R1, R2 (10.1, 10.2)
-    - Oracle 9i R1, R2 (9.0.1, 9.2)
-    - Oracle 8i R3 (8.1.7)
+  - R1 Oracle 12c (12.1)
+  - Oracle 11g R1, R2 (11.1, 11.2)
+  - Oracle 10g R1, R2 (10.1, 10.2)
+  - Oracle 9i R1, R2 (9.0.1, 9.2)
+  - Oracle 8i R3 (8.1.7)
 
     > [!NOTE]
     > Servidor de proxy do Oracle não é suportada.
@@ -614,7 +614,7 @@ Ao mover dados do Oracle, são utilizados os seguintes mapeamentos do tipo de da
 | NVARCHAR2 |String |
 | RAW |Byte[] |
 | ROWID |String |
-| TIMESTAMP |DateTime |
+| CARIMBO DE DATA/HORA |DateTime |
 | TIMESTAMP COM O FUSO HORÁRIO LOCAL |DateTime |
 | TIMESTAMP COM O FUSO HORÁRIO |DateTime |
 | NÚMERO INTEIRO NÃO ASSINADO |Number |

@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/25/2019
+ms.date: 03/19/2019
 ms.author: monhaber
-ms.openlocfilehash: e42deed992496cc28bdf92c01934d74361f2de6f
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 7e4a4572a53338dc0c7b5d7d11dca7130c8979be
+ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57444026"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58226900"
 ---
 # <a name="azure-security-center-frequently-asked-questions-faq"></a>Perguntas mais frequentes (FAQ) do Centro de Segurança do Azure
 Encontre respostas para perguntas sobre o Centro de segurança do Azure, um serviço que o ajuda a prevenir, detetar e responder a ameaças com maior visibilidade e controlo da segurança dos seus recursos do Microsoft Azure.
@@ -52,7 +52,7 @@ Centro de segurança avalia a configuração dos seus recursos para identificar 
 Ver [permissões no Centro de segurança do Azure](security-center-permissions.md) para saber mais sobre as funções e ações permitidas no Centro de segurança.
 
 ## <a name="data-collection-agents-and-workspaces"></a>Recolha de dados, agentes e áreas de trabalho
-Centro de segurança recolhe dados a partir das suas máquinas virtuais do Azure (VMs) e computadores não Azure para monitorizar ameaças e vulnerabilidades de segurança. Os dados são recolhidos com o Microsoft Monitoring Agent, que lê várias configurações relacionadas com segurança e registos de eventos a partir da máquina e copia os dados para a sua área de trabalho para análise.
+Centro de segurança recolhe dados de máquinas virtuais do Azure (VMs), os conjuntos de dimensionamento de máquinas virtuais (VMSS), os contentores de IaaS e computadores não Azure (incluindo no local) para monitorizar ameaças e vulnerabilidades de segurança. Os dados são recolhidos com o Microsoft Monitoring Agent, que lê várias configurações relacionadas com segurança e registos de eventos a partir da máquina e copia os dados para a sua área de trabalho para análise.
 
 ### <a name="am-i-billed-for-azure-monitor-logs-on-the-workspaces-created-by-security-center"></a>Estou me são faturadas para os registos do Azure Monitor em áreas de trabalho criadas pelo centro de segurança?
 Não. Áreas de trabalho criadas pelo centro de segurança, enquanto o configurado para os registos do Azure Monitor faturação de nó, por não ter custos de registos do Azure Monitor. A faturação do Centro de segurança baseia-se sempre em sua política de segurança do Centro de segurança e as soluções instaladas numa área de trabalho:
@@ -74,7 +74,7 @@ VMs de IaaS de Linux ou Windows qualificam se:
 
 - A extensão do Microsoft Monitoring Agent não está atualmente instalada na VM.
 - A VM está no estado de execução.
-- O Windows ou o agente de VM do Linux está instalado.
+- O Windows ou Linux [agente da Máquina Virtual do Azure](https://docs.microsoft.com/en-us/azure/virtual-machines/extensions/agent-windows) está instalado.
 - A VM não é utilizada como uma aplicação, como o firewall de aplicações web ou de firewall da próxima geração.
 
 ### <a name="can-i-delete-the-default-workspaces-created-by-security-center"></a>Pode eliminar as áreas de trabalho predefinida criadas pelo centro de segurança?
@@ -115,21 +115,23 @@ Para selecionar uma área de trabalho do Log Analytics existente:
 
    - Selecione **Cancelar** para cancelar a operação.
 
-### <a name="what-if-the-microsoft-monitoring-agent-was-already-installed-as-an-extension-on-the-vm"></a>E se o Microsoft Monitoring Agent já foi instalado como uma extensão na VM?
-Centro de segurança não substitui as ligações existentes a áreas de trabalho do utilizador. Centro de segurança armazena os dados de segurança da VM na área de trabalho já ligada. Centro de segurança atualiza a versão de extensão para incluir o ID de recurso do Azure da VM para suportar a utilização do Centro de segurança.
+### E se o Microsoft Monitoring Agent já foi instalado como uma extensão na VM?<a name="mmaextensioninstalled"></a>
+Quando o agente de monitorização é instalado como uma extensão, permite que a configuração da extensão de relatório para apenas uma área de trabalho única. Centro de segurança não substitui as ligações existentes a áreas de trabalho do utilizador. Centro de segurança irá armazenar dados de segurança de uma VM numa área de trabalho que já está ligada, desde que a solução de "securityFree" ou "segurança" foi instalada no mesmo. Centro de segurança pode atualizar a versão de extensão para a versão mais recente neste processo.
 
-### <a name="what-if-i-had-a-microsoft-monitoring-agent-installed-on-the-machine-but-not-as-an-extension"></a>E se eu tinha um Microsoft Monitoring Agent instalado na máquina, mas não como uma extensão?
-Se o Microsoft Monitoring Agent estiver instalado diretamente na VM (não como uma extensão do Azure), o Centro de segurança não instala o Microsoft Monitoring Agent e monitorização de segurança é limitada.
+Para obter mais informações, consulte [aprovisionamento automático em casos de uma instalação de agente preexistente](security-center-enable-data-collection.md#preexisting).
 
-Para obter mais informações, consulte a secção seguinte [o que acontece se um SCOM ou OMS direcionar o agente já está instalado na minha VM?](#scomomsinstalled)
 
-### O que acontece se um SCOM ou OMS direcionar o agente já está instalado na minha VM?<a name="scomomsinstalled"></a>
-Centro de segurança não consegue identificar com antecedência que um agente está instalado.  Centro de segurança tenta instalar a extensão do Microsoft Monitoring Agent e falhar devido ao agente instalado existente.  Esta falha impede a substituir as definições de ligação do agente para o seu espaço de trabalho e evita a criação de multi homing.
+### E se eu tinha um Microsoft Monitoring Agent instalado diretamente na máquina, mas não como uma extensão (agente direto)?<a name="directagentinstalled"></a>
+Se o Microsoft Monitoring Agent estiver instalado diretamente na VM (não como uma extensão do Azure), o Centro de segurança irá instalar a extensão do Microsoft Monitoring Agent e pode atualizar o Microsoft Monitoring agent para a versão mais recente.
+O agente instalado continuará a reportar para suas áreas de trabalho já configurada e, além disso, irá reportar à área de trabalho configurada no Centro de segurança (multi-homing é suportado).
+Se a área de trabalho configurada é uma área de trabalho do utilizador (não área de trabalho do Centro de segurança predefinida), terá de instalar o "segurança / solução de"securityFree"no mesmo centro de segurança iniciar o processamento de eventos a partir de VMs e computadores do relatório para essa área de trabalho.
 
-> [!NOTE]
-> A versão do agente é atualizada para a versão mais recente do agente OMS.  Isto aplica-se aos utilizadores do SCOM também.
->
->
+Para máquinas existentes em subscrições integrado ao centro de segurança antes de 2019-03-17, será detetado, quando um agente existente, a extensão do Microsoft Monitoring Agent não será instalada e a máquina não será afetada. Para que esses computadores, consulte a recomendação de "Resolver problemas nas suas máquinas de estado de funcionamento do agente de monitorização" para resolver os problemas de instalação do agente nessas máquinas
+
+ Para obter mais informações, consulte a secção seguinte [o que acontece se um SCOM ou OMS direcionar o agente já está instalado na minha VM?](#scomomsinstalled)
+
+### O que acontece se um agente do SCOM já está instalado na minha VM?<a name="scomomsinstalled"></a>
+Centro de segurança irá instalar a Microsoft Monitoring Agent extensão lado a lado para o SCOM existente. O agente do SCOM existente irá continuar a reportar para o servidor do SCOM normalmente. Tenha em atenção que o agente do SCOM e o Microsoft Monitoring Agent partilham bibliotecas comuns do tempo de execução, que serão atualizadas para a versão de disponibilidade mais recente durante esta processar.
 
 ### <a name="what-is-the-impact-of-removing-these-extensions"></a>O que é o impacto da remoção destas extensões?
 Se remover a extensão de monitorização da Microsoft, o Centro de segurança não é possível recolher dados de segurança da VM e algumas recomendações de segurança e alertas não estão disponíveis. Dentro de 24 horas, o Centro de segurança determina que a VM está em falta a extensão e reinstala a extensão.

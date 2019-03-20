@@ -9,12 +9,12 @@ ms.service: media-services
 ms.topic: article
 ms.date: 02/10/2019
 ms.author: juliako
-ms.openlocfilehash: 8d70fca5820dbd2152ca378916bfbcdbad4a027f
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: e85beea4250b5ac5f4defd0b918786079d3dbe3e
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57776761"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57892664"
 ---
 # <a name="frequently-asked-questions"></a>Perguntas mais frequentes
 
@@ -100,7 +100,7 @@ O conteúdo de vídeo ou áudio que tenham públicos como sua definição de pri
 
 ### <a name="what-access-does-microsoft-have-to-my-video-or-audio-files-that-have-been-indexed-andor-stored-by-video-indexer-and-the-metadata-and-insights-that-were-extracted"></a>Que acesso Microsoft tem para meus arquivos de vídeos ou áudio que tem sido indexados e/ou armazenados pelo indexador de vídeos e os metadados e informações que foram extraídas?
 
-Pelo [termos de serviço Online do Azure](http://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&DocumentTypeId=31) (OST), que é proprietário completamente o seu conteúdo e Microsoft apenas irá aceder ao seu conteúdo e os metadados e informações que o indexador de vídeo extrai a partir do seu conteúdo, de acordo com OST e da Microsoft Declaração de privacidade.
+Pelo [termos de serviço Online do Azure](https://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&DocumentTypeId=31) (OST), que é proprietário completamente o seu conteúdo e Microsoft apenas irá aceder ao seu conteúdo e os metadados e informações que o indexador de vídeo extrai a partir do seu conteúdo, de acordo com OST e da Microsoft Declaração de privacidade.
 
 ### <a name="are-the-custom-models-that-i-build-in-my-video-indexer-account-available-to-other-accounts"></a>Estão disponíveis para outras contas os modelos personalizados que crio na minha conta do Video Indexer?
 

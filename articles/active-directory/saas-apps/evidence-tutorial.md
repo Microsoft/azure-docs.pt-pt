@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 02/07/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: acbc5a6396278a7fa38f0e9206d9756da5c9007c
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: e331ea54a290bc794b04bb0d8e0ea653ef12bc19
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57772353"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57860725"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-evidencecom"></a>Tutorial: Integração do Active Directory do Azure com Evidence.com
 
@@ -158,7 +158,7 @@ O objetivo desta secção é criar um utilizador de teste no portal do Azure cha
 
     a. Na **Name** campo introduza **BrittaSimon**.
   
-    b. Na **nome de utilizador** tipo de campo **brittasimon@yourcompanydomain.extension**  
+    b. Na **nome de utilizador** tipo de campo **brittasimon\@yourcompanydomain.extension**  
     Por exemplo, BrittaSimon@contoso.com
 
     c. Selecione **palavra-passe de Show** caixa de verificação e, em seguida, anote o valor que é apresentado na caixa de palavra-passe.
@@ -207,7 +207,7 @@ Para utilizadores do Azure AD possam iniciar sessão, tem de ser aprovisionados 
 
 5. O **endereço de E-Mail** do utilizador foi adicionado tem de corresponder ao nome de utilizador dos utilizadores no Azure AD que pretende conceder acesso. Se o endereço de e-mail e nome de utilizador não é o mesmo valor na sua organização, pode utilizar o **Evidence.com > atributos > início de sessão único** seção do portal do Azure para alterar o nameidenitifer enviado para Evidence.com para ser o endereço de e-mail.
 
-### <a name="test-single-sign-on"></a>Testar início de sessão único 
+### <a name="test-single-sign-on"></a>Testar o início de sessão único 
 
 Nesta secção, vai testar a configuração do Azure AD única início de sessão com o painel de acesso.
 

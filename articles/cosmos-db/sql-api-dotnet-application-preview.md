@@ -1,6 +1,6 @@
 ---
-title: Tutorial para desenvolver uma aplicação web do ASP.NET MVC com o Azure Cosmos DB com a pré-visualização de .net SDK.
-description: Este tutorial descreve como criar um ASP .net MVC aplicação web com o Azure Cosmos DB. Irá armazenar e aceder a dados JSON a partir de uma aplicação de tarefas alojada no Azure.
+title: Tutorial para desenvolver uma aplicação web do ASP.NET MVC, com o Azure Cosmos DB com o .NET SDK de pré-visualização.
+description: Este tutorial descreve como criar uma aplicação web ASP .NET MVC com o Azure Cosmos DB. Irá armazenar e aceder a dados JSON a partir de uma aplicação de tarefas alojada no Azure.
 author: deborahc
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
@@ -8,14 +8,14 @@ ms.devlang: dotnet
 ms.topic: tutorial
 ms.date: 12/03/2018
 ms.author: dech
-ms.openlocfilehash: fa2657fbc4e5fe734b8e026494351fef2aea1c2a
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: bf1da7e8a1041b15076ebda6eeac9b0a75c567c0
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57454209"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57857169"
 ---
-# <a name="tutorial-develop-an-aspnet-mvc-web-application-with-azure-cosmos-db-by-using-net-preview-sdk"></a>Tutorial: Desenvolver uma aplicação web do ASP.NET MVC com o Azure Cosmos DB com a pré-visualização de .net SDK 
+# <a name="tutorial-develop-an-aspnet-mvc-web-application-with-azure-cosmos-db-by-using-net-preview-sdk"></a>Tutorial: Desenvolver uma aplicação web do ASP.NET MVC com o Azure Cosmos DB com a pré-visualização de .NET SDK 
 
 > [!div class="op_single_selector"]
 > * [.NET](sql-api-dotnet-application.md)
@@ -26,7 +26,7 @@ ms.locfileid: "57454209"
 > * [Xamarin](mobile-apps-with-xamarin.md)
 
 
-Este tutorial mostra-lhe como utilizar o Azure Cosmos DB para armazenar e aceder a dados a partir de uma aplicação ASP.NET MVC alojada no Azure. Este tutorial utiliza o .net SDK V3, que está atualmente em pré-visualização. A imagem seguinte mostra a página da web que criará utilizando o exemplo neste artigo:
+Este tutorial mostra-lhe como utilizar o Azure Cosmos DB para armazenar e aceder a dados a partir de uma aplicação ASP.NET MVC alojada no Azure. Este tutorial utiliza a V3 de SDK do .NET que está atualmente em pré-visualização. A imagem seguinte mostra a página da web que criará utilizando o exemplo neste artigo:
  
 ![Captura de ecrã da todo list criada por este tutorial – tutorial ASP NET MVC passo a passo de aplicativo web do MVC](./media/sql-api-dotnet-application-preview/asp-net-mvc-tutorial-image01.png)
 
@@ -77,7 +77,7 @@ A secção seguinte, vai criar uma nova aplicação ASP.NET MVC.
 
 3. Na caixa **Nome**, escreva o nome do projeto. Este tutorial utiliza o nome “todo” (tarefas). Se optar por utilizar algo que não isto, em seguida, onde quer que este tutorial aborda o espaço de nomes de todo, ajuste os exemplos de código fornecido para utilizar o nome que deu seu aplicativo. 
 
-4. Selecione **navegue** para navegar para a pasta onde pretende criar o projeto e, em seguida, escolha **.Net framework 4.6.1** ou superior. Selecione **OK**. 
+4. Selecione **navegue** para navegar para a pasta onde pretende criar o projeto e, em seguida, escolha **.NET framework 4.6.1** ou superior. Selecione **OK**. 
 
 5. A caixa de diálogo **Nova aplicação Web do ASP.NET** é apresentada. No painel de modelos, selecione **MVC**.
 
@@ -235,7 +235,7 @@ A primeira coisa a fazer aqui é adicionar uma classe que contém a lógica para
    defaults: new { controller = "Item", action = "Index", id = UrlParameter.Optional }
    ```
 
-  Esse código agora diz ao ASP.NET MVC que, se não tiver especificado um valor no URL para controlar o comportamento do encaminhamento, em vez de **home page**, ele usa **Item** como o controlador e **índice**como o modo de exibição.
+   Esse código agora diz ao ASP.NET MVC que, se não tiver especificado um valor no URL para controlar o comportamento do encaminhamento, em vez de **home page**, ele usa **Item** como o controlador e **índice**como o modo de exibição.
 
 Agora, se executar o aplicativo, ele chama sua **ItemController** que chama os métodos de GetItems da classe TodoItemService definidos na secção seguinte. 
 

@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 11/13/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 62320d6523652d91f35e55196a84cc32ea7bc55d
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 36e1c8d6cae79147c5cd4b5a46f5e1c330811ab8
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57440170"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57877654"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-procore-sso"></a>Tutorial: Integração do Active Directory do Azure com o Procore SSO
 
@@ -179,7 +179,7 @@ O objetivo desta secção é criar um utilizador de teste no portal do Azure cha
 
     a. Na **Name** , insira **BrittaSimon**.
   
-    b. Na **nome de utilizador** , digite **brittasimon@yourcompanydomain.extension**  
+    b. Na **nome de utilizador** , digite **brittasimon\@yourcompanydomain.extension**  
        Por exemplo, BrittaSimon@contoso.com
 
     c. Selecione **propriedades**, selecione a **palavra-passe de Show** caixa de verificação e, em seguida, anote o valor que é apresentado na caixa de palavra-passe.
@@ -204,7 +204,7 @@ Siga os passos abaixo para criar um utilizador de teste Procore Procore SSOc lad
 
     b. Na **Apelido** textbox, o apelido do utilizador de tipo, como **Simon**.
 
-    c. Na **endereço de E-Mail** caixa de texto, como o endereço de e-mail do utilizador do tipo **BrittaSimon@contoso.com**.
+    c. Na **endereço de E-Mail** caixa de texto, como o endereço de e-mail do utilizador do tipo **BrittaSimon\@contoso.com**.
 
     d. Selecione **modelo de permissão** como **aplicar o modelo de permissão mais tarde**.
 

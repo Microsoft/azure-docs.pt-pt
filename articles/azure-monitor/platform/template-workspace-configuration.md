@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 02/21/2019
 ms.author: magoedte
-ms.openlocfilehash: 7654de7041b2aa7a5b72f551893c3e0fb60bbd40
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.openlocfilehash: c59e0e7cd846f77082b7131aaec15e4945a18191
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57309864"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58110159"
 ---
 # <a name="manage-log-analytics-using-azure-resource-manager-templates"></a>Gerir o Log Analytics, utilizando modelos Azure Resource Manager
 
@@ -43,7 +43,7 @@ Este artigo fornece exemplos de modelos que mostram algumas das configurações 
 A tabela seguinte lista a versão de API para os recursos utilizados neste exemplo.
 
 | Recurso | Tipo de recurso | Versão de API |
-|:---|:---|:---|:---|
+|:---|:---|:---|
 | Área de trabalho   | áreas de trabalho    | 2017-03-15-pré-visualização |
 | Pesquisa      | savedSearches | 2015-03-20 |
 | Origem de dados | origens de dados   | 2015-11-01-pré-visualização |

@@ -11,19 +11,21 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 manager: craigg
-ms.date: 01/25/2019
-ms.openlocfilehash: dc9b58402ed0fcc48d60b51d30f891ffcadddbe0
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.date: 03/12/2019
+ms.openlocfilehash: 52a12486add25cd32400af755aa6cd8cac07c6f4
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57315627"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57905069"
 ---
 # <a name="create-and-manage-sql-database-elastic-jobs-using-powershell-preview"></a>Criar e gerir conjuntos elásticos de base de dados SQL com o PowerShell (pré-visualização)
 
 As APIs do PowerShell para o **tarefas de bases de dados elásticas** (em pré-visualização), permitem-lhe definir um grupo de bases de dados em relação aos quais os scripts serão executados. Este artigo mostra como criar e gerir **tarefas de bases de dados elásticas** utilizando cmdlets do PowerShell. Ver [descrição geral das tarefas elásticas](sql-database-elastic-jobs-overview.md). 
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+> [!IMPORTANT]
+> O módulo do PowerShell do Azure Resource Manager ainda é suportado pelo SQL Database do Azure, mas todo o desenvolvimento futuro é para o módulo de Az.Sql. Para estes cmdlets, consulte [azurerm. SQL](https://docs.microsoft.com/powershell/module/AzureRM.Sql/). Os argumentos para os comandos no módulo Az e nos módulos AzureRm são substancialmente idênticos.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 * Uma subscrição do Azure. Para uma avaliação gratuita, consulte [durante um mês avaliação gratuita](https://azure.microsoft.com/pricing/free-trial/).

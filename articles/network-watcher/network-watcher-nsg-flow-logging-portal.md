@@ -17,12 +17,12 @@ ms.workload: infrastructure-services
 ms.date: 04/30/2018
 ms.author: jdial
 ms.custom: mvc
-ms.openlocfilehash: 124ac79971ca2ee1e7b5ad085a73aceb8f5d8841
-ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
+ms.openlocfilehash: bfe4abe4a83a6b22d05942f91f4152d5c0e62be9
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57191395"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58124100"
 ---
 # <a name="tutorial-log-network-traffic-to-and-from-a-virtual-machine-using-the-azure-portal"></a>Tutorial: Registar tráfego de rede de e para uma máquina virtual utilizando o portal do Azure
 
@@ -211,7 +211,7 @@ O valor de **mac** na saída anterior é o endereço MAC da interface de rede qu
 | 30 | Pacotes enviados - origem para destino **apenas 2 da versão** | O número total de pacotes TCP ou UDP enviados da origem para destino, desde a última atualização. |
 | 16978 | Bytes enviados - origem para destino **apenas 2 da versão** | O número total de bytes de pacotes TCP ou UDP enviados da origem para destino, desde a última atualização. Bytes de pacote incluem o cabeçalho de pacote e o payload. | 
 | 24 | Pacotes enviados - destino para origem **apenas 2 da versão** | O número total de pacotes TCP ou UDP enviadas do destino para origem, desde a última atualização. |
-| 14008| Bytes enviados - destino para origem **apenas 2 da versão** | O número total de bytes de pacotes TCP e UDP enviadas do destino para origem, desde a última atualização. Bytes de pacote incluem o cabeçalho de pacote e o payload.| |
+| 14008| Bytes enviados - destino para origem **apenas 2 da versão** | O número total de bytes de pacotes TCP e UDP enviadas do destino para origem, desde a última atualização. Bytes de pacote incluem o cabeçalho de pacote e o payload.|
 
 ## <a name="next-steps"></a>Passos Seguintes
 

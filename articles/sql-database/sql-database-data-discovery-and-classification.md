@@ -12,12 +12,12 @@ ms.author: ronitr
 ms.reviewer: vanto
 manager: craigg
 ms.date: 02/07/2019
-ms.openlocfilehash: 8417b849ad7589ce6a770eb805c38a13e3c672dd
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: ac52d8fa03c3c3ad1d618d014381fadfa752b7d7
+ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57448769"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58202984"
 ---
 # <a name="azure-sql-database-data-discovery--classification"></a>Deteção de dados de base de dados SQL do Azure e classificação
 
@@ -145,6 +145,13 @@ Também pode utilizar as APIs REST para gerir programaticamente classificações
 - [Obter](https://docs.microsoft.com/rest/api/sql/sensitivitylabels/get) -obtém a etiqueta de sensibilidade de uma determinada coluna
 - [Lista por base de dados atual](https://docs.microsoft.com/rest/api/sql/sensitivitylabels/listcurrentbydatabase) -obtém as etiquetas de sensibilidade atual de um determinado banco de dados
 - [Recomendado pela base de dados de lista](https://docs.microsoft.com/rest/api/sql/sensitivitylabels/listrecommendedbydatabase) -obtém as etiquetas de sensibilidade recomendada de um determinado banco de dados
+
+## <a name="permissions"></a>Permissões
+As seguintes funções incorporadas podem ler a classificação de dados de uma base de dados SQL do Azure: `Owner`, `Reader`, `Contributor`, `SQL Security Manager` e `User Access Administrator`.
+
+As seguintes funções incorporadas, podem modificar a classificação de dados de uma base de dados SQL do Azure: `Owner`, `Contributor`, `SQL Security Manager`.
+
+Saiba mais sobre [RBAC para recursos do Azure](https://docs.microsoft.com/azure/role-based-access-control/overview)
 
 ## <a id="subheading-5"></a>Passos seguintes
 

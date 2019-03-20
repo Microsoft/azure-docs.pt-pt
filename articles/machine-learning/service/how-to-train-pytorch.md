@@ -11,12 +11,12 @@ author: mx-iao
 ms.reviewer: sgilley
 ms.date: 12/04/2018
 ms.custom: seodec18
-ms.openlocfilehash: 4f1c4e7695e0c260b6486b3c3d4d0bd8b3f951f6
-ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
+ms.openlocfilehash: a5ddc17f6200ba2d43d67fcd2e4bcc35c224e6cb
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57342620"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58004067"
 ---
 # <a name="train-pytorch-models-with-azure-machine-learning-service"></a>Utilizar modelos de PyTorch com o serviço Azure Machine Learning
 
@@ -42,6 +42,7 @@ pt_est = PyTorch(source_directory='./my-pytorch-proj',
 ```
 
 Aqui, podemos especificar os parâmetros seguintes para o construtor de PyTorch:
+
 Parâmetro | Descrição
 --|--
 `source_directory` |  Diretório de local que contém todos os seus códigos necessários para a tarefa de preparação. Esta pasta é copiada a partir do seu computador local para a computação remota
@@ -82,6 +83,7 @@ pt_est = PyTorch(source_directory='./my-pytorch-project',
 ```
 
 Este código expõe os seguintes novos parâmetros para o construtor de PyTorch:
+
 Parâmetro | Descrição | Predefinição
 --|--|--
 `node_count` |  Número de nós a utilizar para a tarefa de preparação. | `1`

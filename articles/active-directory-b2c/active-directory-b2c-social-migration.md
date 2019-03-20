@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 03/03/2018
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: d6f857e926343c4c3c26d746134bbb9d94754c12
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: a1ecc4de9475e735cd17286826c1d8cea05904ab
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56866016"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58089357"
 ---
 # <a name="azure-active-directory-b2c-migrate-users-with-social-identities"></a>Azure Active Directory B2C: Migrar os utilizadores com identidades sociais
 Quando planeia migrar o seu fornecedor de identidade para o Azure AD B2C, também terá de migrar os utilizadores com identidades sociais. Este artigo explica como migrar as contas de identidades das redes sociais existentes, tais como: Contas do Facebook, LinkedIn, Microsoft e Google para o Azure AD B2C. Este artigo também se aplica a identidades federadas, no entanto, essas migrações são menos comuns.
@@ -32,14 +32,14 @@ Este artigo é uma continuação do artigo de migração de utilizador e se conc
 * **Combinar conta local com a identidade de redes sociais**. Conforme mencionado, os nomes de início de sessão de conta local e as identidades de contas de redes sociais são armazenados em atributos diferentes. `signInNames` é utilizado para a conta local, enquanto `userIdentities` para a conta de redes sociais. Uma única conta do Azure AD B2C, pode ser uma conta local apenas, apenas a conta de redes sociais ou combinar uma conta local com a identidade de redes sociais num registo de um utilizador. Este comportamento permite-lhe gerir uma conta única, embora um utilizador pode iniciar sessão com o credential(s) de conta local ou com as identidades sociais.
 
 * `UserIdentity` Tipo – contém informações sobre a identidade de um utilizador de conta de redes sociais num inquilino do Azure AD B2C:
-    * `issuer` A representação de cadeia de caracteres do fornecedor de identidade que emitiu o identificador de utilizador, como facebook.com.
-    * `issuerUserId` O identificador de utilizador exclusivo utilizado pelo fornecedor de identidade social no formato base64.
+  * `issuer` A representação de cadeia de caracteres do fornecedor de identidade que emitiu o identificador de utilizador, como facebook.com.
+  * `issuerUserId` O identificador de utilizador exclusivo utilizado pelo fornecedor de identidade social no formato base64.
 
     ```JSON
     "userIdentities": [{
-            "issuer": "Facebook.com",
-            "issuerUserId": "MTIzNDU2Nzg5MA=="
-        }
+          "issuer": "Facebook.com",
+          "issuerUserId": "MTIzNDU2Nzg5MA=="
+      }
     ]
     ```
 

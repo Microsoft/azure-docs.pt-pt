@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 02/09/2017
 ms.author: richrund
-ms.openlocfilehash: c3148ebe11ba0e23cbded5965234ece9fb6082aa
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.openlocfilehash: b2c43ff2ae45b4adccb8f19873070a4c3a9dbe99
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57317701"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58078774"
 ---
 # <a name="azure-key-vault-analytics-solution-in-log-analytics"></a>Solução de análise do Cofre de chaves do Azure no Log Analytics
 
@@ -138,13 +138,13 @@ Para utilizar a solução atualizada:
 1. [Configurar diagnóstico sejam enviadas diretamente para o Log Analytics do Key Vault](#enable-key-vault-diagnostics-in-the-portal)  
 2. Ativar a solução de Cofre de chaves do Azure utilizando o processo descrito [adicionar soluções Log Analytics da Galeria de soluções](../../azure-monitor/insights/solutions.md)
 3. Atualizar quaisquer consultas guardadas, dashboards ou alertas para usar o novo tipo de dados
-  + Tipo é a mudança do: KeyVaults para AzureDiagnostics. Pode usar o ResourceType para filtrar para registos do Cofre de chave.
-  - Em vez de: `KeyVaults`, utilize `AzureDiagnostics | where ResourceType'=="VAULTS"`
-  + Campos: (Os nomes de campos diferenciam maiúsculas de minúsculas)
-  - Para qualquer campo que tem um sufixo de \_s, \_1!d, ou \_g o nome, altere o primeiro caráter em minúsculas
-  - Para qualquer campo que tem um sufixo de \_o nome, os dados é dividido em campos individuais com base nos nomes de campos aninhados. Por exemplo, o UPN do chamador é armazenado num campo `identity_claim_http_schemas_xmlsoap_org_ws_2005_05_identity_claims_upn_s`
-   - Campo CallerIpAddress alterado para CallerIPAddress
-   - Campo RemoteIPCountry já não está presente
+   + Tipo é a mudança do: KeyVaults para AzureDiagnostics. Pode usar o ResourceType para filtrar para registos do Cofre de chave.
+   + Em vez de: `KeyVaults`, utilize `AzureDiagnostics | where ResourceType'=="VAULTS"`
+   + Campos: (Os nomes de campos diferenciam maiúsculas de minúsculas)
+   + Para qualquer campo que tem um sufixo de \_s, \_1!d, ou \_g o nome, altere o primeiro caráter em minúsculas
+   + Para qualquer campo que tem um sufixo de \_o nome, os dados é dividido em campos individuais com base nos nomes de campos aninhados. Por exemplo, o UPN do chamador é armazenado num campo `identity_claim_http_schemas_xmlsoap_org_ws_2005_05_identity_claims_upn_s`
+   + Campo CallerIpAddress alterado para CallerIPAddress
+   + Campo RemoteIPCountry já não está presente
 4. Remover os *análise do Key Vault (preterido)* solução. Se estiver a utilizar o PowerShell, utilize `Set-AzureOperationalInsightsIntelligencePack -ResourceGroupName <resource group that the workspace is in> -WorkspaceName <name of the log analytics workspace> -IntelligencePackName "KeyVault" -Enabled $false`
 
 Os dados recolhidos antes da alteração não é visível na solução de novo. Pode continuar a consultar estes dados com o tipo de antigo e nomes de campos.

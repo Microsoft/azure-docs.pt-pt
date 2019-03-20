@@ -2,19 +2,19 @@
 title: Obter registos de contentor e os eventos com o Azure Container Instances
 description: Saiba como depurar com registos de contentor e eventos com o Azure Container Instances
 services: container-instances
-author: jluk
+author: dlepow
 manager: jeconnoc
 ms.service: container-instances
 ms.topic: article
 ms.date: 05/30/2018
-ms.author: juluk
+ms.author: danlep
 ms.custom: mvc
-ms.openlocfilehash: 21e75beffbf592f25257b0dca7ba48b0ffe560a8
-ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
+ms.openlocfilehash: ae6a0f311366245d9b64aa9379ffad043ec7ba33
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56669776"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57835684"
 ---
 # <a name="retrieve-container-logs-and-events-in-azure-container-instances"></a>Obter registos de contentor e eventos no Azure Container Instances
 

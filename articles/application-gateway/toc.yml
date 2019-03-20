@@ -50,7 +50,7 @@ items:
     items:
     - name: Descrição geral da política SSL
       href: application-gateway-ssl-policy-overview.md
-    - name: SSL ponto a ponto
+    - name: Terminação SSL e SSL ponto a ponto
       href: ssl-overview.md
   - name: WAF
     items:
@@ -68,7 +68,7 @@ items:
     href: redirect-overview.md
   - name: Rescrever cabeçalhos HTTP
     href: rewrite-http-headers.md
-  - name: Suporte multi-inquilino
+  - name: Aplicação Web do serviço de aplicações e suporte multi-inquilino
     href: application-gateway-web-app-overview.md
   - name: Monitorização do estado de funcionamento
     href: application-gateway-probe-overview.md
@@ -156,9 +156,11 @@ items:
     items:
     - name: Azure PowerShell
       href: add-http-header-rewrite-rule-powershell.md
-  - name: Suporte multi-inquilino
+  - name: Configurar Aplicação Web do serviço de aplicações e serviço multi-inquilino
     items:
-    - name: Configurar suporte multi-inquilino
+    - name: Portal
+      href: configure-web-app-portal.md
+    - name: Azure PowerShell
       href: create-web-app.md
   - name: Sondas personalizadas
     items:
@@ -216,9 +218,9 @@ items:
     href: https://azure.microsoft.com/regions/services/
   - name: Stack Overflow
     href: https://stackoverflow.com/questions/tagged/azure-application-gateway
-ms.openlocfilehash: 57ae904b8bc65ef9b249b055d8f1abb3b25c4752
-ms.sourcegitcommit: 1902adaa68c660bdaac46878ce2dec5473d29275
+ms.openlocfilehash: bd544dc507be3caade81ee45c3a5d704392c5694
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/11/2019
-ms.locfileid: "57729964"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58170331"

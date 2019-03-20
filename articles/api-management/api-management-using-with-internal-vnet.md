@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/11/2019
 ms.author: apimpm
-ms.openlocfilehash: 04712b1ba1eccd71dcfcc9012ebcbdfcbdcd2404
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: d8cea95fbfb76f1dd1891045309a35aa1d0a8ab0
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57773689"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58099489"
 ---
 # <a name="using-azure-api-management-service-with-an-internal-virtual-network"></a>Utilizar o serviço de gestão de API do Azure com uma rede virtual interna
 Com as redes virtuais do Azure, gestão de API do Azure pode gerir APIs não está acessíveis na internet. Um número de tecnologias VPN está disponível para fazer a conexão. Gestão de API pode ser implementada em dois modos principais dentro de uma rede virtual:
@@ -108,11 +108,11 @@ Se utilizar um servidor DNS personalizado numa rede virtual, também pode criar 
 
 ### <a name="access-on-custom-domain-names"></a>Acesso em nomes de domínio personalizados
 
-   1. Se não quiser aceder ao serviço de gestão de API com os nomes de anfitrião predefinido, pode configurar nomes de domínio personalizados para todos os seus pontos finais de serviço conforme mostrado na imagem seguinte:
+1. Se não quiser aceder ao serviço de gestão de API com os nomes de anfitrião predefinido, pode configurar nomes de domínio personalizados para todos os seus pontos finais de serviço conforme mostrado na imagem seguinte:
 
    ![Configurar um domínio personalizado para gestão de API][api-management-custom-domain-name]
 
-   2. Em seguida, pode criar registos no seu servidor DNS para aceder os pontos de extremidade que só estão acessíveis a partir da sua rede virtual.
+2. Em seguida, pode criar registos no seu servidor DNS para aceder os pontos de extremidade que só estão acessíveis a partir da sua rede virtual.
 
 ## <a name="routing"> </a> Encaminhamento
 + Com balanceamento de carga virtual endereços IP privados do intervalo de sub-rede serão ser reservado e utilizado para aceder os gestão de API pontos finais de serviço de dentro da vnet.

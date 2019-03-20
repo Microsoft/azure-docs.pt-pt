@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 11/21/2018
 ms.author: ryanwi
 ms.custom: mvc, devcenter
-ms.openlocfilehash: 69866b9235f907b9e70a339d35372a8dca8ec175
-ms.sourcegitcommit: 7f7c2fe58c6cd3ba4fd2280e79dfa4f235c55ac8
+ms.openlocfilehash: 4cb7d04c01ae7173e63778f2768b2f9561dff11d
+ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/25/2019
-ms.locfileid: "56804523"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58200962"
 ---
 # <a name="mount-an-azure-files-based-volume-in-a-service-fabric-mesh-application"></a>Monte um volume de ficheiros do Azure com base num aplicativo de malha do Service Fabric 
 
@@ -87,7 +87,7 @@ Para montar o volume no seu serviço, adicione uma `volumeRefs` para o `codePack
 
 ```json
 {
-  "$schema": "http://schema.management.azure.com/schemas/2014-04-01-preview/deploymentTemplate.json",
+  "$schema": "https://schema.management.azure.com/schemas/2014-04-01-preview/deploymentTemplate.json",
   "contentVersion": "1.0.0.0",
   "parameters": {
     "location": {
@@ -119,7 +119,7 @@ Para montar o volume no seu serviço, adicione uma `volumeRefs` para o `codePack
       "type": "string",
       "defaultValue": "TestVolumeData",
       "metadata": {
-        "description": "Folder in which to store the state. Provide a empty value to create a unique folder for each container to store the state. A non-empty value will retain the state across deployments, however if more than one applications are using the same folder, the counter may update more frequently."
+        "description": "Folder in which to store the state. Provide an empty value to create a unique folder for each container to store the state. A non-empty value will retain the state across deployments, however if more than one applications are using the same folder, the counter may update more frequently."
       }
     }
   },

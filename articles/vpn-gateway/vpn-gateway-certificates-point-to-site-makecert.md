@@ -1,5 +1,5 @@
 ---
-title: 'Gerar e exportar certificados para ligações ponto a Site: MakeCert: Azure | Documentos da Microsoft'
+title: 'Gerar e exportar certificados para ligações ponto a Site: MakeCert : Azure | Microsoft Docs'
 description: Criar um certificado de raiz autoassinado, exportar a chave pública e gerar certificados de cliente utilizando o MakeCert.
 services: vpn-gateway
 documentationcenter: na
@@ -8,12 +8,12 @@ ms.service: vpn-gateway
 ms.topic: article
 ms.date: 09/05/2018
 ms.author: cherylmc
-ms.openlocfilehash: 3ff7e754a55e15a8fa8a32f846efbbbe5025e46e
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.openlocfilehash: 973c0aa3bd187e963f15adbe34955d6bc9fa612d
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44297864"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58102082"
 ---
 # <a name="generate-and-export-certificates-for-point-to-site-connections-using-makecert"></a>Gerar e exportar certificados para ligações ponto a Site com o MakeCert
 
@@ -28,16 +28,16 @@ Embora, recomendamos que utilize o [passos do Windows 10 PowerShell](vpn-gateway
 Os passos seguintes mostram como criar um certificado autoassinado utilizando o MakeCert. Estes passos não são específicos do modelo de implementação. Eles são válidos para o Resource Manager e clássica.
 
 1. Transfira e instale [MakeCert](https://msdn.microsoft.com/library/windows/desktop/aa386968(v=vs.85).aspx).
-2. Após a instalação, normalmente, é possível encontrar o utilitário makecert.exe sob esse caminho: "C:\Program Files (x86) \Windows Kits\10\bin\<arch >'. Embora, é possível que tenha sido instalado para outra localização. Abra uma linha de comandos como administrador e navegue para a localização do utilitário MakeCert. Pode utilizar o exemplo a seguir, ajustando para a localização apropriada:
+2. Após a instalação, normalmente, pode encontrar o utilitário makecert.exe sob esse caminho: "C:\Program ficheiros (x86) \Windows Kits\10\bin\<arch >'. Embora, é possível que tenha sido instalado para outra localização. Abra uma linha de comandos como administrador e navegue para a localização do utilitário MakeCert. Pode utilizar o exemplo a seguir, ajustando para a localização apropriada:
 
-  ```cmd
-  cd C:\Program Files (x86)\Windows Kits\10\bin\x64
-  ```
+   ```cmd
+   cd C:\Program Files (x86)\Windows Kits\10\bin\x64
+   ```
 3. Criar e instalar um certificado no arquivo de certificados pessoais no seu computador. O exemplo seguinte cria um correspondente *. cer* ficheiro que carregar para o Azure quando configurar P2S. Substitua "P2SRootCert" e "P2SRootCert.cer" com o nome que pretende utilizar para o certificado. O certificado está localizado em sua 'Certificates - atual user\personal\certificates' '.
 
-  ```cmd
-  makecert -sky exchange -r -n "CN=P2SRootCert" -pe -a sha256 -len 2048 -ss My
-  ```
+   ```cmd
+   makecert -sky exchange -r -n "CN=P2SRootCert" -pe -a sha256 -len 2048 -ss My
+   ```
 
 ## <a name="cer"></a>Exportar a chave pública (. cer)
 
@@ -61,14 +61,14 @@ Os seguintes passos guiá-lo por meio de gerar um certificado de cliente a parti
  
 1. No mesmo computador que utilizou para criar o certificado autoassinado, abra um prompt de comando como administrador.
 2. Modificar e executar o exemplo para gerar um certificado de cliente.
-  * Alteração *"P2SRootCert"* para o nome de raiz autoassinado que estão a gerar o certificado de cliente do. Certifique-se de que está a utilizar o nome do certificado de raiz, que é tudo o que o "CN =" valor era que especificou quando criou de raiz autoassinada.
-  * Alteração *P2SChildCert* para o nome que pretende gerar um certificado de cliente para ser.
+   * Alteração *"P2SRootCert"* para o nome de raiz autoassinado que estão a gerar o certificado de cliente do. Certifique-se de que está a utilizar o nome do certificado de raiz, que é tudo o que o "CN =" valor era que especificou quando criou de raiz autoassinada.
+   * Alteração *P2SChildCert* para o nome que pretende gerar um certificado de cliente para ser.
 
-  Se executar o exemplo seguinte sem modificá-la, o resultado é um certificado de cliente com o nome P2SChildcert no arquivo de certificados pessoais que foi gerado a partir do certificado de raiz P2SRootCert.
+   Se executar o exemplo seguinte sem modificá-la, o resultado é um certificado de cliente com o nome P2SChildcert no arquivo de certificados pessoais que foi gerado a partir do certificado de raiz P2SRootCert.
 
-  ```cmd
-  makecert.exe -n "CN=P2SChildCert" -pe -sky exchange -m 96 -ss My -in "P2SRootCert" -is my -a sha256
-  ```
+   ```cmd
+   makecert.exe -n "CN=P2SChildCert" -pe -sky exchange -m 96 -ss My -in "P2SRootCert" -is my -a sha256
+   ```
 
 ### <a name="clientexport"></a>Exportar um certificado de cliente
 

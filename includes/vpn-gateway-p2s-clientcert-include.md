@@ -7,12 +7,12 @@ ms.service: vpn-gateway
 ms.topic: include
 ms.date: 12/11/2018
 ms.author: cherylmc
-ms.openlocfilehash: 8c55b9b9ce6e98e91e7c6a712e0a9dbca0964512
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
+ms.openlocfilehash: 31ccf14c82f6248c74d6af932fe9e338d26d2747
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55985488"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57964249"
 ---
 Cada computador cliente que se liga a uma VNet com uma ligação ponto a Site tem de ter um certificado de cliente instalado. Gerá-lo a partir do certificado de raiz e instalá-lo em cada computador cliente. Se não instalar um certificado de cliente válido, a autenticação irá falhar quando o cliente tenta estabelecer ligação à VNet.
 
@@ -22,7 +22,7 @@ Pode gerar certificados de cliente através dos seguintes métodos:
 
 - **Certificado da empresa:**
 
-  - Se estiver a utilizar uma solução de certificado de empresa, gere um certificado de cliente com o formato do valor de nome comum *name@yourdomain.com*. Utilize este formato, em vez do *domínio name\username* formato.
+  - Se estiver a utilizar uma solução de certificado de empresa, gere um certificado de cliente com o formato do valor de nome comum *name\@oseudominio.com*. Utilize este formato, em vez do *domínio name\username* formato.
   - Certifique-se de que o certificado de cliente baseia-se um modelo de certificado de utilizador que tenha *autenticação de cliente* listado como o primeiro item na lista de utilizadores. Verificar o certificado ao fazer duplo clique e exibindo **utilização de chave avançada** no **detalhes** separador.
 
 - **Certificado de raiz autoassinado:** Siga os passos dos seguintes artigos de certificados P2S para que os certificados de cliente que criar serão compatíveis com as suas ligações de P2S. As etapas nestes artigos geram um certificado de cliente compatível: 

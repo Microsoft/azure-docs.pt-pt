@@ -18,12 +18,12 @@ ms.author: celested
 ms.reviewer: hirsin, jesakowi, jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 94d0e469614204a7507ba666ac04e59774eebde7
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 225065e35e40c06d324bee89fa65a765a2727233
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56204424"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58123764"
 ---
 # <a name="permissions-and-consent-in-the-azure-active-directory-v20-endpoint"></a>Permissões e consentimento no ponto de final de v2.0 do Azure Active Directory
 
@@ -213,7 +213,7 @@ GET http://localhost/myapp/permissions?tenant=a8990e1f-ff32-408a-9f8e-78d3b9139b
 ```
 
 | Parâmetro | Descrição |
-| --- | --- | --- |
+| --- | --- |
 | `tenant` | O inquilino do diretório que concedidas as permissões solicitada, no formato GUID de seu aplicativo. |
 | `state` | Um valor incluído no pedido que também vai ser devolvido na resposta de token. Pode ser uma cadeia de caracteres de qualquer conteúdo que quer. O estado é usado para codificar as informações sobre o estado do utilizador na aplicação antes do pedido de autenticação ocorreu, como a página ou a vista estivessem na. |
 | `admin_consent` | Será definido como `True`. |
@@ -227,7 +227,7 @@ GET http://localhost/myapp/permissions?error=permission_denied&error_description
 ```
 
 | Parâmetro | Descrição |
-| --- | --- | --- |
+| --- | --- |
 | `error` | Uma cadeia de código de erro que pode ser utilizada para classificar tipos de erros que ocorrem e pode ser utilizada para reagir a erros. |
 | `error_description` | Uma mensagem de erro específicas que pode ajudar a um desenvolvedor de identificar a causa de raiz de um erro. |
 
@@ -260,7 +260,7 @@ Para obter mais informações sobre o protocolo OAuth 2.0 e como obter os tokens
 
 Pode utilizar o `/.default` âmbito para o ajudar a migrar as suas aplicações a partir do ponto final v1.0 para o ponto final v2.0. Este é um âmbito integrado para cada aplicativo que se refere à lista estática de permissões configuradas no registo de aplicação. R `scope` valor de `https://graph.microsoft.com/.default` é funcionalmente o mesmo que os pontos finais v1.0 `resource=https://graph.microsoft.com` -ou seja, ele solicita um token com os âmbitos no Microsoft Graph que o aplicativo registrou no portal do Azure.
 
-O âmbito de /.default pode ser utilizado em qualquer fluxo de OAuth 2.0, mas é especialmente necessário no [em-nome-de fluxo](v2-oauth2-on-behalf-of-flow.md) e [fluxo de credenciais de cliente](v2-oauth2-client-creds-grant-flow.md).  
+O âmbito de /.default pode ser utilizado em qualquer fluxo de OAuth 2.0, mas é especialmente necessário no [](v2-oauth2-on-behalf-of-flow.md) em-nome-de fluxo e [fluxo de credenciais de cliente](v2-oauth2-client-creds-grant-flow.md).  
 
 > [!NOTE]
 > Os clientes não é possível combinar estática (`/.default`) e consentimento dinâmico numa única solicitação. Portanto, `scope=https://graph.microsoft.com/.default+mail.read` resultará num erro devido à combinação de tipos de âmbito.

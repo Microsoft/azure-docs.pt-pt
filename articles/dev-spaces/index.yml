@@ -1,10 +1,10 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: 4ad9de80a77d054ef723d9ed5bd53e410c653baa
-ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
+ms.openlocfilehash: 5fc027e52d838a85e7b880e3dd0daf4438e850dc
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57195086"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57852003"
 documentType: LandingData
 title: Espaços de Programador do Azure
 metadata:
@@ -25,7 +25,7 @@ sections:
     text: >-
       > [!IMPORTANT]
 
-      > O Azure Dev Spaces está atualmente em pré-visualização e é suportado apenas por clusters do AKS nas regiões **E.U.A. Leste**, **E.U.A. Leste 2**, **E.U.A. Central**, **E.U.A. Oeste 2**, **Europa Ocidental**, **Sudeste Asiático**, **Canadá Central** e **Leste do Canadá**. As pré-visualizações são tornadas disponíveis para si na condição de concordar com os [termos suplementares de utilização](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Alguns aspetos desta funcionalidade podem alterar-se após a disponibilidade geral (GA).
+      > O Azure Dev Spaces está atualmente em pré-visualização e é suportado apenas por clusters do AKS nas regiões **E.U.A. Leste**, **E.U.A. Leste 2**, **E.U.A. Central**, **E.U.A. Oeste 2**, **Europa do Norte**, **Europa Ocidental**, **Sudeste Asiático**, **Canadá Central** e **Leste do Canadá**. As pré-visualizações são tornadas disponíveis para si na condição de concordar com os [termos suplementares de utilização](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Alguns aspetos desta funcionalidade podem alterar-se após a disponibilidade geral (GA).
 - title: Introdução ao Azure Dev Spaces
   items:
   - type: paragraph

@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/19/2019
 ms.author: banders
-ms.openlocfilehash: 59d63efbf261813c8519b03d3e1630cf24d868d0
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 52e227b933533bf60a474d0417c57e4b75c7978f
+ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57835931"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58224639"
 ---
 # <a name="download-or-view-your-azure-billing-invoice-and-daily-usage-data"></a>Baixe ou exiba sua fatura do Azure e dados de utilização diária
 
@@ -56,7 +56,7 @@ Para obter mais informações sobre a sua fatura, consulte [compreender a sua fa
 
 ### <a name="download-invoices-for-a-microsoft-customer-agreement"></a>Transferência de faturas para um contrato de cliente da Microsoft
 
-Notas fiscais são gerados para cada [faturação perfil](billing-mca-overview.md#understand-billing-profiles) no contrato de cliente do Microsoft. Tem de ser um perfil de faturação proprietário, a Contribuidor, leitor, ou Gestor de transferência de faturas do portal do Azure de nota fiscal. 
+Notas fiscais são gerados para cada [faturação perfil](billing-mca-overview.md#understand-billing-profiles) no contrato de cliente do Microsoft. Tem de ser um perfil de faturação proprietário, a Contribuidor, leitor, ou Gestor de transferência de faturas do portal do Azure de nota fiscal.
 
 1. Pesquisar nos **custo Management + faturação**.
 2. Selecione um perfil de faturação.
@@ -91,7 +91,7 @@ Pode optar ativamente e configurar os destinatários principais para receber sua
 2. Clique em **optar ativamente por participar no** e aceite os termos.
 
     ![Captura de ecrã que mostra a etapa de aceitação fluxo 2](./media/billing-download-azure-invoice-daily-usage-date/InvoiceArticleStep2.PNG)
- 
+
 3. Depois de ter aceite o contrato, pode configurar os destinatários adicionais. Quando um destinatário for removido, o endereço de e-mail já não é armazenado. Se mudar de ideias, terá de voltar a adicioná-los.
 
     ![Captura de ecrã que mostra a etapa de aceitação do fluxo 3](./media/billing-download-azure-invoice-daily-usage-date/InvoiceArticleStep3.PNG)
@@ -106,7 +106,7 @@ Pode optar por obter a fatura por e-mail ao seguir os passos acima e clicando em
 
 ### <a name="get-your-microsoft-customer-agreement-invoices-in-email"></a>Obter as faturas de contrato de cliente da Microsoft no e-mail
 
-Se tiver um contrato de cliente da Microsoft, pode optar por obter a fatura numa mensagem de e-mail. Todos os faturação perfil proprietários, contribuidores, os leitores e notas fiscais gerentes obterá a nota fiscal por e-mail. Os leitores não é possível atualizar a preferência de nota fiscal de e-mail. 
+Se tiver um contrato de cliente da Microsoft, pode optar por obter a fatura numa mensagem de e-mail. Todos os faturação perfil proprietários, contribuidores, os leitores e notas fiscais gerentes obterá a nota fiscal por e-mail. Os leitores não é possível atualizar a preferência de nota fiscal de e-mail.
 
 1. Pesquisar nos **custo Management + faturação**.
 1. Selecione um perfil de faturação.
@@ -121,7 +121,7 @@ Pode optar por obter a fatura por e-mail ao seguir os passos acima e clicando em
 
 ## <a name="download-usage"></a>Transferir utilização
 
- Para a maioria das subscrições, encontre o ficheiro de utilização diária no [Centro de contas do Azure](https://account.azure.com/Subscriptions). Se for um cliente EA ou têm um contrato de cliente da Microsoft, pode transferir utilização no [portal do Azure](https://portal.azure.com/). <!-para fazer: atualizar PayG experiência para Ibiza assim que ele é fornecido >
+ Para a maioria das subscrições, encontre o ficheiro de utilização diária no [Centro de contas do Azure](https://account.azure.com/Subscriptions). Se for um cliente EA ou têm um contrato de cliente da Microsoft, pode transferir utilização no [portal do Azure](https://portal.azure.com/). <!-- TO DO: update PayG experience to Ibiza once it ships-->
 
 ### <a name="download-usage-from-the-account-center-csv"></a>Transferir utilização a partir do Centro de contas (. csv)
 

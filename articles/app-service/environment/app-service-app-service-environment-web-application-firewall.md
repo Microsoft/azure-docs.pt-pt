@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 03/03/2018
 ms.author: naziml
 ms.custom: seodec18
-ms.openlocfilehash: 4681dad55807705a2ce8e9908cbd3ee53fb3c32e
-ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
+ms.openlocfilehash: c1930777f44266755f20400d063ec938ee631adb
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53631503"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58089323"
 ---
 # <a name="configuring-a-web-application-firewall-waf-for-app-service-environment"></a>Configurar uma Firewall de Aplicações Web (WAF) para o Ambiente de Serviço de Aplicações
 ## <a name="overview"></a>Descrição geral
@@ -66,7 +66,7 @@ Adicione o ponto final de gestão, conforme mostrado na imagem seguinte, para co
 
 ![Adicionar o Ponto Final de Gestão][AddManagementEndpoint]
 
-Utilize um browser para navegar para o ponto final de gestão do seu Serviço Cloud. Se o nome do seu Serviço Cloud for test.cloudapp.net, navegaria para http://test.cloudapp.net:8000 para aceder a este ponto final. Veria uma página de início de sessão igual à da imagem seguinte, onde poderia iniciar sessão com as credenciais que especificou na fase de configuração da VM do WAF.
+Utilize um browser para navegar para o ponto final de gestão do seu Serviço Cloud. Se o nome do seu Serviço Cloud for test.cloudapp.net, navegaria para `http://test.cloudapp.net:8000` para aceder a este ponto final. Veria uma página de início de sessão igual à da imagem seguinte, onde poderia iniciar sessão com as credenciais que especificou na fase de configuração da VM do WAF.
 
 ![Página de Início de Sessão de Gestão][ManagementLoginPage]
 

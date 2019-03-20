@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: ramamill
-ms.openlocfilehash: 06430bf476c2e9f3af2102272fb54d201a3f1066
-ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
+ms.openlocfilehash: 862846c8ec544cf082d45cea650269b6518a016f
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/27/2018
-ms.locfileid: "53790814"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58003527"
 ---
 # <a name="install-the-mobility-service-manually-on-vmware-vms-and-physical-servers"></a>Instalar o serviço de mobilidade manualmente em VMs de VMware e servidores físicos
 
@@ -65,40 +65,42 @@ Antes de instalar, crie uma frase de acesso que será utilizado durante a instal
 
 1. Copie o instalador para uma pasta local (por exemplo, C:\Temp) no servidor que pretende proteger. 
 
-  ```
-  cd C:\Temp
-  ren Microsoft-ASR_UA*Windows*release.exe MobilityServiceInstaller.exe
-  MobilityServiceInstaller.exe /q /x:C:\Temp\Extracted
-  cd C:\Temp\Extracted.
-  ```
+   ```
+   cd C:\Temp
+   ren Microsoft-ASR_UA*Windows*release.exe MobilityServiceInstaller.exe
+   MobilityServiceInstaller.exe /q /x:C:\Temp\Extracted
+   cd C:\Temp\Extracted.
+   ```
 2. Instale da seguinte forma:
 
-  ```
-  UnifiedAgent.exe /Role "MS" /InstallLocation "C:\Program Files (x86)\Microsoft Azure Site Recovery" /Platform "VmWare" /Silent
-  ```
+   ```
+   UnifiedAgent.exe /Role "MS" /InstallLocation "C:\Program Files (x86)\Microsoft Azure Site Recovery" /Platform "VmWare" /Silent
+   ```
 
 3. Registe o agente com o servidor de configuração.
 
-  ```
-  cd C:\Program Files (x86)\Microsoft Azure Site Recovery\agent
-  UnifiedAgentConfigurator.exe  /CSEndPoint <CSIP> /PassphraseFilePath <PassphraseFilePath>
-  ```
+   ```
+   cd C:\Program Files (x86)\Microsoft Azure Site Recovery\agent
+   UnifiedAgentConfigurator.exe  /CSEndPoint <CSIP> /PassphraseFilePath <PassphraseFilePath>
+   ```
 
 #### <a name="installation-settings"></a>Definições de instalação
+
 **Definição** | **Detalhes**
 --- | ---
-Utilização | . UnifiedAgent.exe /Role < MS|MT > /InstallLocation <Install Location> /Platform "VmWare" /Silent
-Registos de configuração | Em % ProgramData%\ASRSetupLogs\ASRUnifiedAgentInstaller.log.
-/ Função | Parâmetro de instalação obrigatória. Especifica se o serviço de mobilidade (MS) ou o destino mestre (TA) deve ser instalado.
+Utilização | . UnifiedAgent.exe /Role < MS\|MT > /InstallLocation <Install Location> /Platform "VmWare" /Silent
+Registos de configuração | Under %ProgramData%\ASRSetupLogs\ASRUnifiedAgentInstaller.log.
+/Role | Parâmetro de instalação obrigatória. Especifica se o serviço de mobilidade (MS) ou o destino mestre (TA) deve ser instalado.
 /InstallLocation| Parâmetro opcional. Especifica a localização de instalação do serviço de mobilidade (qualquer pasta).
 / Plataforma | Obrigatório. Especifica a plataforma em que o serviço de mobilidade está instalado. **VMware** para VMware VMs/servidores físicos; **Azure** para VMs do Azure. 
-/ Silenciosa| Opcional. Especifica se pretende executar o instalador em modo silencioso.
+/Silent| Opcional. Especifica se pretende executar o instalador em modo silencioso.
 
 #### <a name="registration-settings"></a>Definições de registo
+
 **Definição** | **Detalhes**
 --- | ---
 Utilização | UnifiedAgentConfigurator.exe /CSEndPoint <CSIP> /PassphraseFilePath <PassphraseFilePath>
-Registos de configuração do agente | Em % ProgramData%\ASRSetupLogs\ASRUnifiedAgentConfigurator.log.
+Registos de configuração do agente | Under %ProgramData%\ASRSetupLogs\ASRUnifiedAgentConfigurator.log.
 /CSEndPoint | Parâmetro obrigatório. Especifica o endereço IP do servidor de configuração. Utilize qualquer endereço IP válido.
 /PassphraseFilePath |  Obrigatório. Localização da frase de acesso. Utilize qualquer válido UNC ou caminho de ficheiro local.
 
@@ -106,39 +108,42 @@ Registos de configuração do agente | Em % ProgramData%\ASRSetupLogs\ASRUnified
 ### <a name="on-a-linux-machine"></a>Num computador com Linux
 
 1. Copie o instalador para uma pasta local (por exemplo, /tmp) no servidor que pretende proteger. Num terminal, execute os seguintes comandos:
-  ```
-  cd /tmp ;
+   ```
+   cd /tmp ;
 
-  tar -xvzf Microsoft-ASR_UA*release.tar.gz
-  ```
+   tar -xvzf Microsoft-ASR_UA*release.tar.gz
+   ```
 2. Instale da seguinte forma:
 
-  ```
-  sudo ./install -d <Install Location> -r MS -v VmWare -q
-  ```
+   ```
+   sudo ./install -d <Install Location> -r MS -v VmWare -q
+   ```
 3. Após a instalação estiver concluída, o serviço de mobilidade tem de estar registado para o servidor de configuração. Execute o seguinte comando para registar o serviço de mobilidade com o servidor de configuração:
 
-  ```
-  /usr/local/ASR/Vx/bin/UnifiedAgentConfigurator.sh -i <CSIP> -P /var/passphrase.txt
-  ```
+   ```
+   /usr/local/ASR/Vx/bin/UnifiedAgentConfigurator.sh -i <CSIP> -P /var/passphrase.txt
+   ```
 
 
 #### <a name="installation-settings"></a>Definições de instalação
+
 **Definição** | **Detalhes**
 --- | ---
-Utilização | . /Install -d <Install Location> - r < MS|MT > - v. o VmWare - q
+Utilização | . /Install -d <Install Location> - r < MS\|MT > - v. o VmWare - q
 -r | Parâmetro de instalação obrigatória. Especifica se o serviço de mobilidade (MS) ou o destino mestre (TA) deve ser instalado.
 -d | Parâmetro opcional. Especifica a localização de instalação do serviço de mobilidade: /usr/local/ASR.
 -v | Obrigatório. Especifica a plataforma em que o serviço de mobilidade está instalado. **VMware** para VMware VMs/servidores físicos; **Azure** para VMs do Azure. 
 -q | Opcional. Especifica se pretende executar o instalador em modo silencioso.
 
 #### <a name="registration-settings"></a>Definições de registo
+
 **Definição** | **Detalhes**
 --- | ---
-Utilização | CD /usr/local/ASR/Vx/bin<br/><br/> UnifiedAgentConfigurator.sh -i <CSIP> - P <PassphraseFilePath>
+Utilização | CD /usr/local/ASR/Vx/bin<br/><br/> UnifiedAgentConfigurator.sh -i <CSIP> -P <PassphraseFilePath>
 -i | Parâmetro obrigatório. Especifica o endereço IP do servidor de configuração. Utilize qualquer endereço IP válido.
 -P |  Obrigatório. Caminho completo do ficheiro em que a frase de acesso é guardado. Utilize qualquer pasta válido
 
 ## <a name="next-steps"></a>Passos Seguintes
+
 - [Configurar a recuperação após desastre para VMs de VMware](vmware-azure-tutorial.md)
 - [Configurar a recuperação após desastre para servidores físicos](physical-azure-disaster-recovery.md)

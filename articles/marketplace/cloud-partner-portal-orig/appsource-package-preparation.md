@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 09/13/2018
 ms.author: pbutlerm
-ms.openlocfilehash: 0b24c5d2f174c9a656e81d0c85e12b589d7d7799
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
+ms.openlocfilehash: cc06ddf2fce93bef27e7aaee85b47179608e192b
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48810648"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57837040"
 ---
 # <a name="appsource-package-preparation"></a>Preparação do pacote do AppSource
 
@@ -63,7 +63,7 @@ A etapa final é o seguinte num ficheiro de ZIP. Chamá-lo **Package**. Ele cont
 
 1. PkgFolder (incluindo tudo dentro da pasta)
 2. DLL
-3. **Content_Types**
+3. **Content_Types.xml**
 
 Passos para criar Package:
 
@@ -71,11 +71,11 @@ Passos para criar Package:
 
 ![CRMScreenShot2](media/CRMScreenShot2.png)
 
-2. Selecione todos os itens na pasta, clique com botão direito e selecione Enviar para (zip) pasta comprimida
+1. Selecione todos os itens na pasta, clique com botão direito e selecione Enviar para (zip) pasta comprimida
 
 ![CRMScreenShot3](media/CRMScreenShot3.png)
 
-3. Altere o nome para o Package
+1. Altere o nome para o Package
 
 ![CRMScreenShot4](media/CRMScreenShot4.png)
 
@@ -97,7 +97,7 @@ Aqui está o código de exemplo para input.xml. Consulte as definições na tabe
         <StartDate>01/01/2016</StartDate>
         <EndDate>01/01/2021</EndDate>
         <SupportedCountries>US,CA</SupportedCountries>
-        <LearnMoreLink>http://www.microsoft.com</LearnMoreLink>
+        <LearnMoreLink>https://www.microsoft.com</LearnMoreLink>
         <Locales>
         <PackageLocale Code="1033" IsDefault="true">
         <Logo>logo32x32.png</Logo>
@@ -117,12 +117,12 @@ Aqui está o código de exemplo para input.xml. Consulte as definições na tabe
 |SolutionAnchorName |Nome do ficheiro zip solução no package deployer que é utilizado para o nome a apresentar e a descrição de ativos de solução.|
 | startDate| Esta é a data em que o pacote de solução irá tornar-se disponível. O formato é MM/DD/AAAA|
 |endDate|Esta é a data em que o pacote de solução deixará de estar disponível. O formato é MM/DD/AAAA |
-|SupportedCountries |Esta é uma lista delimitada por vírgulas de países que deve ver este pacote. Entre em contato com os serviços online para obter uma lista de todos os códigos de país atual. No momento, isso escrevendo a lista foi: AE, AL, AM, pedidos, AR, AT, AU, AZ, BA, BB, DB, BE, BG, BH, BM, BN, BO, Brasil, BY, AC, CH, CI, CL, CM, CO, CR, CV, CW, CY, CZ, DE, DK, faça, DZ, EC, EE, EG , ES, FI, FR, GB, GE, GH, GR, GT, HK, HN, RH, HU, ID, IE, IL, IN, IQ, É, ELE, JM, JO, JP, KE, KG, KN, COREIA, KW, KY, KZ, LB, LK, LT, LU, LV, LY, MA, MC, MD, ME, MK, MN, MÊS, MT, MU, MX, MEU , NG, NI, NL, NÃO, NZ, OM, PA, PE, PH, PK, PL, PR, PS, HORA DO PACÍFICO, PY, CONTROLE DE QUALIDADE, RO, RS, RU, RW, SA, SE, SG, IS, SK, SN, SV, TH, TM, TN, TR, TT, TW, UA, E.U.A., UY, UZ, VE, VI, VN, ZA, ZW |
+|SupportedCountries |Esta é uma lista delimitada por vírgulas de países que deve ver este pacote. Entre em contato com os serviços online para obter uma lista de todos os códigos de país atual. O momento da redação deste artigo lista foi: AE, AL, AM, PEDIDOS, AR, AT, AU, AZ, BA, BB, DB, SER, BG, BH, BM, BN, BO, BRASIL, PELA AC, CH, CI, CL, CM, CO, CR, CV, CW, CY, CZ, DE, DK, FAÇA, DZ, EC, EE, POR EXEMPLO, ES, FI, FR, GB, GE, GH, GR, GT, HK , HN, RH, HU, ID, IE, IL, IN, IQ, É, ELE, JM, JO, JP, KE, KG, KN, COREIA, KW, KY, KZ, LB, LK, LT, LU, LV, LY, MA, MC, MD, ME, MK, MN, MÊS, MT, MU, MX, MEU, NG, NI, NL, NÃO, NZ, OM, PA, PE, PH , PK, PL, PR, PS, HORA DO PACÍFICO, PY, CONTROLE DE QUALIDADE, RO, RS, RU, RW, SA, SE, SG, IS, SK, SN, SV, TH, TM, TN, TR, TT, TW, UA, E.U.A., UY, UZ, VE, VI, VN, ZA, ZW |
 |LearnMoreLink | URL para a página de informações mais para este pacote. |
 |Localidades|Uma instância deste nó para cada idioma de UX pretende oferecer apoio técnico na solução preferencial experiência do usuário. Este nó contém elementos subordinados que descrevem a Localidade, o logótipo e a termos para cada idioma|
-|Localidades: PackageLocale.Code|LCID do idioma para este nó. Exemplo: Inglês dos Estados Unidos são 1033|
+|Localidades: PackageLocale.Code|LCID do idioma para este nó. Exemplo: Inglês dos Estados Unidos é 1033|
 |Localidades: PackageLocale.IsDefault|Indica que este é o idioma predefinido. Isto é utilizado como Outono fazer uma cópia de linguagem se o idioma de UX escolhido pelo cliente não está disponível.|
-|Localidades: logótipo|Isso se o logótipo que pretende utilizar para este pacote. Tamanho de ícone é de 32 x 32. Os formatos permitidos são PNG e JPG|
+|Localidades: Logótipo|Isso se o logótipo que pretende utilizar para este pacote. Tamanho de ícone é de 32 x 32. Os formatos permitidos são PNG e JPG|
 |Localidades: termos: PackageTerm.File|Este é o nome de ficheiro de documentos HTML que contém os seus termos de licença.|
 
 É aqui onde irá apresentar o logótipo:
@@ -132,10 +132,10 @@ Aqui está o código de exemplo para input.xml. Consulte as definições na tabe
 A etapa final é o seguinte num ficheiro de ZIP.
 
 1. ZIP (criado anteriormente)
-2. **Content_Types**
+2. **Content_Types.xml**
 3. xml
 4. PNG
-5. HTML
+5. html
 
 ![CRMScreenShot6](media/CRMScreenShot6.png)
 

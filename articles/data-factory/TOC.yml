@@ -433,6 +433,8 @@ items:
     items:
     - name: Agregação
       href: data-flow-aggregate.md
+    - name: Alterar linha
+      href: data-flow-alter-row.md
     - name: Divisão condicional
       href: data-flow-conditional-split.md
     - name: Coluna derivada
@@ -549,6 +551,8 @@ items:
       href: solution-templates-introduction.md
     - name: Copiar ficheiros de vários contentores
       href: solution-template-copy-files-multiple-containers.md
+    - name: Copiar novos ficheiros por DataÚltimaModificação
+      href: solution-template-copy-new-files-lastmodifieddate.md
     - name: Cópia em massa com a tabela de controlo
       href: solution-template-bulk-copy-with-control-table.md
     - name: Cópia delta com a tabela de controlo
@@ -585,9 +589,9 @@ items:
     href: https://azure.microsoft.com/global-infrastructure/services/
   - name: Opções de suporte
     href: https://azure.microsoft.com/support/options/
-ms.openlocfilehash: 8c724971db16381bb327cca6a30c5b8d63cac2bc
-ms.sourcegitcommit: 1902adaa68c660bdaac46878ce2dec5473d29275
+ms.openlocfilehash: 32411c9ec042a8504ef08ece1359ea9e5ee7ebda
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/11/2019
-ms.locfileid: "57730756"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57858899"

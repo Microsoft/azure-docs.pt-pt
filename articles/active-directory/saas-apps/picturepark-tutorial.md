@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 07/06/2017
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e56dc54c2c296ee17b04070ac8ee68d2180b7046
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 7b458632ddb6e23ab1ddf642752aa0cbfc11f1ce
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56183450"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57839073"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-picturepark"></a>Tutorial: Integração do Active Directory do Azure com Picturepark
 
@@ -224,7 +224,7 @@ Para habilitar logon Picturepark de utilizadores do Azure AD, tem de ser aprovis
    
     ![Criar utilizador](./media/picturepark-tutorial/ic795069.png "criar utilizador")
    
-    a. Na **endereço de E-Mail** caixa de texto, tipo a **endereço de e-mail** do utilizador **BrittaSimon@contoso.com**.  
+    a. Na **endereço de E-Mail** caixa de texto, tipo a **endereço de e-mail** do utilizador **BrittaSimon\@contoso.com**.  
    
     b. Na **palavra-passe** e **Confirmar palavra-passe** caixas de texto, tipo o **palavra-passe** de BrittaSimon. 
    

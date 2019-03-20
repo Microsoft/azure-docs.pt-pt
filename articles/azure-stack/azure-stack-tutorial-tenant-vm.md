@@ -17,12 +17,12 @@ ms.author: jeffgilb
 ms.reviewer: unknown
 ms.lastreviewed: 09/11/2018
 ms.custom: mvc
-ms.openlocfilehash: a24b7314775ea7667ab992742586e5b5c8bbb369
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 34ef200ff96b098969c74937934d6178cfaf81ea
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56205165"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58117137"
 ---
 # <a name="tutorial-make-virtual-machines-available-to-your-azure-stack-users"></a>Tutorial: tornar as máquinas virtuais disponíveis para os utilizadores do Azure Stack
 
@@ -129,8 +129,8 @@ Agora que criou uma oferta, pode testá-la. Vai iniciar sessão como um utilizad
    No portal de utilizador pode aprovisionar uma máquina virtual utilizando a nova subscrição.
 
    a. Inicie sessão no portal de utilizador com uma conta de utilizador.
-      - Para um sistema integrado, o URL varia com base na região e o nome de domínio externo de sua operador e estará no formato https://portal.&lt; *região*&gt;.&lt; *FQDN*&gt;.
-   - Se estiver usando o Kit de desenvolvimento do Azure Stack, o endereço de portal é https://portal.local.azurestack.external.
+   - Para um sistema integrado, o URL varia com base na região e o nome de domínio externo de sua operador e estará no formato https://portal.&lt; *região*&gt;.&lt; *FQDN*&gt;.
+     - Se estiver usando o Kit de desenvolvimento do Azure Stack, o endereço de portal é https://portal.local.azurestack.external.
 
    b.  No dashboard, selecione **+ criar um recurso** > **computação** > **Windows Server 2016 Datacenter Eval**e, em seguida, selecione **Criar**.
 

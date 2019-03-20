@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 02/05/2019
-ms.openlocfilehash: 6cd1d917be67d21e3e6dfe54ed5dec77b92509e9
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.openlocfilehash: e4037e79812f0cf548ddfcc277c1b66332e0f1f7
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56821460"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57902880"
 ---
 # <a name="azure-stream-analytics-preview-features"></a>Funcionalidades de pré-visualização do Azure Stream Analytics
 
@@ -61,7 +61,7 @@ Agora, pode operacionalizar os pipelines em tempo real com identidades geridas p
 
 ### <a name="visual-studio-code-for-azure-stream-analytics"></a>Visual Studio Code para o Azure Stream Analytics
 
-Tarefas do Azure Stream Analytics podem ser criadas no Visual Studio Code. Para ter acesso a ferramentas de recursos de pré-visualização privada, entre em contato com a *ASAToolsfeedback@microsoft.com*.
+Tarefas do Azure Stream Analytics podem ser criadas no Visual Studio Code. Para ter acesso a ferramentas de recursos de pré-visualização privada, entre em contato com a *ASAToolsfeedback\@microsoft.com*.
 
 ## <a name="next-steps"></a>Passos Seguintes
 

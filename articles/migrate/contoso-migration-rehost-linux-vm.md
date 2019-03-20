@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 10/10/2018
 ms.author: raynew
-ms.openlocfilehash: 5f6cb29d8fb3fd1c3b75e18330e3ad2711a61aab
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 4d7f3c8d8efbdc658e4f7621a0606cb7fd92c88d
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57444927"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58103490"
 ---
 # <a name="contoso-migration-rehost-an-on-premises-linux-app-to-azure-vms"></a>Migração de Contoso: Realojar a uma aplicação do Linux no local nas VMS do Azure
 
@@ -314,17 +314,17 @@ Agora, os administradores da Contoso podem começar a replicar a **OSTICKETWEB**
 
 3. Eles selecionam os **OSTICKETWEB** VM para replicação. 
 
-    - Nesta fase selecionarem **OSTICKETWEB** única, uma vez que a VNet e a sub-rede tem ambos de ser selecionadas e as VMs não estão na mesma sub-rede.
-    - Site Recovery instala automaticamente o serviço de mobilidade quando a replicação está ativada para a VM.
+   - Nesta fase selecionarem **OSTICKETWEB** única, uma vez que a VNet e a sub-rede tem ambos de ser selecionadas e as VMs não estão na mesma sub-rede.
+   - Site Recovery instala automaticamente o serviço de mobilidade quando a replicação está ativada para a VM.
 
-    ![Ativar a replicação](./media/contoso-migration-rehost-linux-vm/enable-replication3.png)
+     ![Ativar a replicação](./media/contoso-migration-rehost-linux-vm/enable-replication3.png)
 
 4. Nas propriedades da VM, eles selecionam a conta que é utilizada pelo servidor de processos para instalar automaticamente o serviço de mobilidade na máquina.
 
      ![Serviço de Mobilidade](./media/contoso-migration-rehost-linux-vm/linux-mobility.png)
 
 5. na **as definições de replicação** > **configurar as definições de replicação**, eles verificam a que a política de replicação correto é aplicado e selecione **ativar replicação**.
-6.  Controlar o progresso de replicação em **tarefas**. Depois de a tarefa **Finalizar Proteção** ser executada, a máquina está preparada para ativação pós-falha.
+6. Controlar o progresso de replicação em **tarefas**. Depois de a tarefa **Finalizar Proteção** ser executada, a máquina está preparada para ativação pós-falha.
 
 
 

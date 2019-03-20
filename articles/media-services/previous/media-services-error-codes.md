@@ -12,14 +12,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/10/2019
+ms.date: 03/18/2019
 ms.author: juliako
-ms.openlocfilehash: d700423ea966cab3b0f546d21d4d2f5ca5208971
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: f3c362730e7908e88b363659b7fa580b6f2cddf1
+ms.sourcegitcommit: f331186a967d21c302a128299f60402e89035a8d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55990518"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58189466"
 ---
 # <a name="azure-media-services-error-codes"></a>Códigos de erro de serviços de multimédia do Azure
 Ao utilizar os serviços de multimédia do Microsoft Azure, poderá receber códigos de erro HTTP do serviço consoante problemas como tokens de autenticação expirar a ações que não são suportadas nos serviços de multimédia. Segue-se uma lista de **códigos de erro HTTP** que podem ser devolvidos por serviços de multimédia e as possíveis causas para eles.  

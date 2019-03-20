@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/02/2018
 ms.author: banders
-ms.openlocfilehash: 36ce4d96e02bac1eae1791acf811da468726b4a6
-ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
+ms.openlocfilehash: 16feb41707e5afa07054d20b620f5822eedad773
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54902708"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57858917"
 ---
 # <a name="understand-your-bill-for-azure-customers-with-an-enterprise-agreement"></a>Compreender a sua fatura para clientes do Azure com um contrato Enterprise
 
@@ -77,7 +77,7 @@ Comparar a quantidade total de utilização do portal da empresa na **relatório
 
 ### <a name="review-marketplace-invoice"></a>Nota fiscal do marketplace de revisão
 
-Comparar o Azure Marketplace total no **relatórios** > **resumo de utilização** no portal da empresa com a sua fatura do marketplace. A nota fiscal de marketplace é apenas para compras no Azure Marketplace e utilização. As quantidades na **resumo de utilização** não incluem impostos. 
+Comparar o Azure Marketplace total no **relatórios** > **resumo de utilização** no portal da empresa com a sua fatura do marketplace. A fatura do Marketplace diz respeito apenas a compras e utilização do Azure Marketplace. As quantidades na **resumo de utilização** não incluem impostos. 
 
 1. Inicie sessão para o [Enterprise portal](https://ea.azure.com).
 1. Selecione **relatórios**.
@@ -92,4 +92,4 @@ Comparar o Azure Marketplace total no **relatórios** > **resumo de utilização
 
 ## <a name="need-help-contact-us"></a>Precisa de ajuda? Contacte-nos.
 
-Se tiver alguma dúvida ou precisar de ajuda, [criar um pedido de suporte](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).
+Se tiver alguma dúvida ou precisar de ajuda, [criar um pedido de suporte](https://go.microsoft.com/fwlink/?linkid=2083458).

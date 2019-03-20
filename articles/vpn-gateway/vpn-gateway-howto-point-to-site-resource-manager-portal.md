@@ -8,12 +8,12 @@ ms.service: vpn-gateway
 ms.topic: conceptual
 ms.date: 10/24/2018
 ms.author: cherylmc
-ms.openlocfilehash: 4e8a28634e554ee75eea79e69c0b73e8adec3447
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
+ms.openlocfilehash: fa406ac2f1e0b89a1161660a49f2a4cb6f6d6c32
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55700541"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58117324"
 ---
 # <a name="configure-a-point-to-site-connection-to-a-vnet-using-native-azure-certificate-authentication-azure-portal"></a>Configure uma ligação de ponto a Site a uma VNet com a autenticação de certificados nativa do Azure: Portal do Azure
 
@@ -94,17 +94,17 @@ O conjunto de endereços de cliente é um conjunto de endereços IP privados que
 
 1. Assim que o gateway da rede virtual for criado, navegue até à secção **Definições** da página do gateway de rede virtual. Na secção **Definições**, clique em **Configuração ponto a site**.
 
-  ![Página Ponto a Site](./media/vpn-gateway-howto-point-to-site-resource-manager-portal/gatewayblade.png) 
+   ![Página Ponto a Site](./media/vpn-gateway-howto-point-to-site-resource-manager-portal/gatewayblade.png) 
 2. Clique em **Configurar agora** para abrir a página de configuração.
 
-  ![Configurar agora](./media/vpn-gateway-howto-point-to-site-resource-manager-portal/configurenow.png)
+   ![Configurar agora](./media/vpn-gateway-howto-point-to-site-resource-manager-portal/configurenow.png)
 3. Na página de configuração **Ponto a site**, na caixa **Conjunto de endereços**, adicione o intervalo de endereços IP privados que pretende utilizar. Os clientes VPN recebem dinamicamente um endereço IP do intervalo que especificou. Clique em **Guardar** para validar e guardar a definição.
 
-  ![Conjunto de endereços de cliente](./media/vpn-gateway-howto-point-to-site-resource-manager-portal/addresspool.png)
+   ![Conjunto de endereços de cliente](./media/vpn-gateway-howto-point-to-site-resource-manager-portal/addresspool.png)
 
-  >[!NOTE]
-  >Se não vir o Tipo de túnel ou o Tipo de autenticação no portal desta página, o gateway está a utilizar a SKU Básica. A SKU Básica não suporta a autenticação IKEv2 ou RADIUS.
-  >
+   >[!NOTE]
+   >Se não vir o Tipo de túnel ou o Tipo de autenticação no portal desta página, o gateway está a utilizar a SKU Básica. A SKU Básica não suporta a autenticação IKEv2 ou RADIUS.
+   >
 
 ## <a name="tunneltype"></a>7. Configurar o tipo de túnel
 
@@ -126,13 +126,13 @@ Pode carregar certificados de raiz fidedigna adicionais até um total de 20. Ass
 2. Certifique-se de que exportou o certificado de raiz como um ficheiro X.509 codificado com Base-64 (.cer). Tem de exportar o certificado neste formato para poder abrir o certificado com o editor de texto.
 3. Abra o certificado com um editor de texto, como o Bloco de Notas. Quando copiar os dados de certificado, certifique-se de que copia o texto como uma linha contínua sem símbolos de retorno ou avanços de linha. Poderá ter de modificar a sua vista no editor de texto para "Mostrar Símbolo/Mostrar todos os carateres" para ver os símbolos de retorno ou avanços de linha. Copie apenas a secção seguinte como uma linha contínua:
 
-  ![Dados de certificado](./media/vpn-gateway-howto-point-to-site-resource-manager-portal/notepadroot.png)
+   ![Dados de certificado](./media/vpn-gateway-howto-point-to-site-resource-manager-portal/notepadroot.png)
 4. Cole os dados de certificado no campo **Dados de Certificado Público**. **Nomeie** o certificado e, em seguida, clique em **Guardar**. Pode adicionar até 20 certificados de raiz fidedigna.
 
-  ![Carregamento de certificados](./media/vpn-gateway-howto-point-to-site-resource-manager-portal/uploaded.png)
+   ![Carregamento de certificados](./media/vpn-gateway-howto-point-to-site-resource-manager-portal/uploaded.png)
 5. Clique em **Guardar** no início da página para guardar todas as definições de configuração.
 
-  ![Guardar](./media/vpn-gateway-howto-point-to-site-resource-manager-portal/save.png)
+   ![Guardar](./media/vpn-gateway-howto-point-to-site-resource-manager-portal/save.png)
 
 ## <a name="installclientcert"></a>10. Instalar um certificado de cliente exportado
 
@@ -159,10 +159,10 @@ Os ficheiros de configuração de cliente VPN contêm as definições para confi
 
 2. Na página de estado da **Ligação**, clique em **Ligar** para iniciar a ligação. Se vir um ecrã **Selecionar Certificado**, verifique se o certificado de cliente apresentado é aquele que pretende utilizar para se ligar. Se não for, utilize a seta para baixo para selecionar o certificado correto e clique em **OK**.
 
-  ![O cliente VPN liga-se ao Azure](./media/vpn-gateway-howto-point-to-site-resource-manager-portal/clientconnect.png)
+   ![O cliente VPN liga-se ao Azure](./media/vpn-gateway-howto-point-to-site-resource-manager-portal/clientconnect.png)
 3. A ligação é estabelecida.
 
-  ![Ligação estabelecida](./media/vpn-gateway-howto-point-to-site-resource-manager-portal/connected.png)
+   ![Ligação estabelecida](./media/vpn-gateway-howto-point-to-site-resource-manager-portal/connected.png)
 
 #### <a name="troubleshoot-windows-p2s-connections"></a>Resolução de problemas com ligações P2S do Windows
 
@@ -183,8 +183,8 @@ Estas instruções aplicam-se aos clientes Windows.
 1. Para verificar se a ligação VPN está ativa, abra uma linha de comandos elevada e execute *ipconfig/all*.
 2. Veja os resultados. Repare que o endereço IP que recebeu é um dos endereços dentro do Conjunto de Endereços de Cliente de VPN de Ponto a Site que especificou na configuração. Os resultados são semelhantes a este exemplo:
 
-  ```
-  PPP adapter VNet1:
+   ```
+   PPP adapter VNet1:
       Connection-specific DNS Suffix .:
       Description.....................: VNet1
       Physical Address................:
@@ -194,7 +194,7 @@ Estas instruções aplicam-se aos clientes Windows.
       Subnet Mask.....................: 255.255.255.255
       Default Gateway.................:
       NetBIOS over Tcpip..............: Enabled
-  ```
+   ```
 
 ## <a name="connectVM"></a>Ligar a uma máquina virtual
 

@@ -12,12 +12,12 @@ ms.author: genemi
 ms.reviewer: billgib,andrela,stein
 manager: craigg
 ms.date: 09/24/2018
-ms.openlocfilehash: fd420e29387aedd3f04fdf7437a3ef27c5589fc8
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
+ms.openlocfilehash: d29baaad6090cea5eb31f5f50bba444cb3771155
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55562900"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57835786"
 ---
 # <a name="provision-and-catalog-new-tenants-in-a-saas-application-using-a-sharded-multi-tenant-azure-sql-database"></a>Aprovisionar e catalogar novos inquilinos numa aplicação SaaS com uma base de dados de SQL do Azure em partição horizontal do multi-inquilino
 
@@ -237,7 +237,7 @@ A lista completa de inquilinos e a base de dados correspondente para cada um est
 - O nome do inquilino é armazenado na tabela de inquilinos.
 - O nome de base de dados é armazenado nas tabelas de gestão de partições horizontais.
 
-1. No SQL Server Management Studio (SSMS), ligar para o servidor de inquilinos na **ta. o catálogo\<USUÁRIO\>. database.windows.net**, com início de sessão = **desenvolvedor**e a palavra-passe = **P@ssword1**
+1. No SQL Server Management Studio (SSMS), ligar para o servidor de inquilinos na **ta. o catálogo\<USUÁRIO\>. database.windows.net**, com início de sessão = **desenvolvedor**e a palavra-passe =  **P\@ssword1**
 
     ![Caixa de diálogo de ligação de SSMS](media/saas-multitenantdb-provision-and-catalog/SSMSConnection.png)
 

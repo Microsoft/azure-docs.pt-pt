@@ -7,12 +7,12 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.topic: tutorial
 ms.date: 02/01/2019
-ms.openlocfilehash: e1a0dda4c13baf7fc2e5ba65d599db8c74591adb
-ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
+ms.openlocfilehash: 1421b142fbca83d2de46f52f8390d0c25f22780c
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55893243"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58117290"
 ---
 # <a name="tutorial-configure-apache-hbase-policies-in-hdinsight-with-enterprise-security-package-preview"></a>Tutorial: Configurar políticas de Apache HBase no HDInsight com o Enterprise Security Package (pré-visualização)
 
@@ -102,7 +102,7 @@ Criar uma política Ranger **sales_user1** e **marketing_user1**.
 
     ![Criar Política da IU do Apache Ranger Admin](./media/apache-domain-joined-run-hbase/apache-ranger-hbase-policies-list.png)
 
-3.  Sobre o **criar política** ecrã, introduza os seguintes valores:
+3. Sobre o **criar política** ecrã, introduza os seguintes valores:
 
    |**Definição**  |**Valor sugerido**  |
    |---------|---------|

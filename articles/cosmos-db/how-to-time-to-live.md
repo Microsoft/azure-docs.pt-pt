@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: sample
 ms.date: 11/14/2018
 ms.author: mjbrown
-ms.openlocfilehash: a7fedf0907ecc4c8ced4c5bfe30bb30aeb8f4aca
-ms.sourcegitcommit: dd1a9f38c69954f15ff5c166e456fda37ae1cdf2
+ms.openlocfilehash: bb5997c2ae8f93068b0ad2a77b5109f6c79b9b30
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57570900"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58003508"
 ---
 # <a name="configure-time-to-live-in-azure-cosmos-db"></a>Configurar o TTL no Azure Cosmos DB
 
@@ -115,8 +115,8 @@ Utilize os seguintes passos para ativar o TTL num item:
 
 5. Em seguida, navegue para o item para o qual pretende definir a hora em direto, adicione a `ttl` propriedade e selecione **atualização**. 
 
-  ```json
-  {
+   ```json
+   {
     "id": "1",
     "_rid": "Jic9ANWdO-EFAAAAAAAAAA==",
     "_self": "dbs/Jic9AA==/colls/Jic9ANWdO-E=/docs/Jic9ANWdO-EFAAAAAAAAAA==/",
@@ -124,8 +124,8 @@ Utilize os seguintes passos para ativar o TTL num item:
     "_attachments": "attachments/",
     "ttl": 10,
     "_ts": 1551307496
-  }
-  ```
+   }
+   ```
 
 ### <a id="dotnet-set-ttl-item"></a>SDK do .NET
 
@@ -161,7 +161,6 @@ const itemDefinition = {
           key: "value", 
           ttl: 2
         };
-}
 ```
 
 

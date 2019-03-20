@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 10/27/2017
 ms.author: magoedte
-ms.openlocfilehash: 113408b49297a292967be9215291b3cecfa7384d
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 949bf52a586603fc6a82c0da553cf70877a8f4be
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57431611"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58085019"
 ---
 # <a name="optimize-your-active-directory-environment-with-the-active-directory-health-check-solution-in-azure-monitor"></a>Otimizar seu ambiente do Active Directory com a solução de verificação de estado de funcionamento do Active Directory no Azure Monitor
 
@@ -111,10 +111,10 @@ Ver as avaliações de conformidade resumidos para sua infraestrutura e, em segu
 ### <a name="to-view-recommendations-for-a-focus-area-and-take-corrective-action"></a>Para ver as recomendações para uma área de foco e tomar medidas corretivas
 [!INCLUDE [azure-monitor-solutions-overview-page](../../../includes/azure-monitor-solutions-overview-page.md)]
 
-4. Sobre o **descrição geral** página, clique no **verificação de estado de funcionamento do Active Directory** mosaico.
-5. Sobre o **verificar o estado de funcionamento** página, reveja as informações de resumo em um dos painéis de área de foco e, em seguida, clique num para ver as recomendações para essa área de foco.
-6. Em qualquer uma das páginas de área de foco, pode ver as fez para o seu ambiente de recomendações ordenadas por prioridade. Clique numa recomendação em **Objetos afetados** para ver detalhes sobre por que motivo a recomendação é feita.<br><br> ![imagem de recomendações de verificar o estado de funcionamento](./media/ad-assessment/ad-healthcheck-dashboard-02.png)
-7. Pode efetuar ações corretivas sugeridas na **ações sugeridas**. Quando o item tiver sido resolvido, registos de avaliações posteriores que as ações recomendadas foram executados e irão aumentar a sua pontuação de conformidade. Itens corrigidos aparecem como **objetos transmitidos**.
+1. Sobre o **descrição geral** página, clique no **verificação de estado de funcionamento do Active Directory** mosaico.
+1. Sobre o **verificar o estado de funcionamento** página, reveja as informações de resumo em um dos painéis de área de foco e, em seguida, clique num para ver as recomendações para essa área de foco.
+1. Em qualquer uma das páginas de área de foco, pode ver as fez para o seu ambiente de recomendações ordenadas por prioridade. Clique numa recomendação em **Objetos afetados** para ver detalhes sobre por que motivo a recomendação é feita.<br><br> ![imagem de recomendações de verificar o estado de funcionamento](./media/ad-assessment/ad-healthcheck-dashboard-02.png)
+1. Pode efetuar ações corretivas sugeridas na **ações sugeridas**. Quando o item tiver sido resolvido, registos de avaliações posteriores que as ações recomendadas foram executados e irão aumentar a sua pontuação de conformidade. Itens corrigidos aparecem como **objetos transmitidos**.
 
 ## <a name="ignore-recommendations"></a>Ignorar recomendações
 Se tiver recomendações que deseja ignorar, pode criar um arquivo de texto que o Azure Monitor irá utilizar para impedir que as recomendações de aparecer no seu os resultados da avaliação.

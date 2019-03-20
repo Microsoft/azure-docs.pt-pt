@@ -10,17 +10,17 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: tutorial
-ms.date: 01/28/2019
+ms.date: 03/18/2019
 ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro;seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 564cfe0bb0b95d12d91b7d8d4e3f1f0549ec73e4
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 93b59a108d5d87479c12174e97713d4c12d84f2e
+ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57451761"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58200060"
 ---
 # <a name="tutorial-add-or-remove-group-members-automatically"></a>Tutorial: Adicionar ou remover membros do grupo automaticamente
 
@@ -28,7 +28,7 @@ No Azure Active Directory (Azure AD), pode adicionar ou remover de forma automá
 
 Neste tutorial, ficará a saber como:
 > [!div class="checklist"]
-> * Criar um grupo de utilizadores convidados de uma empresa parceira específica preenchido automaticamente
+> * Criar um grupo de automaticamente preenchido de utilizadores convidados a partir de uma empresa parceira
 > * Atribuir licenças para o grupo às características do parceiro específico para acesso por parte dos utilizadores convidados
 > * Bónus: proteja o grupo **Todos os utilizadores** mediante a remoção dos utilizadores convidados, para que, por exemplo, possa dar acesso aos seus utilizadores membros a sites internos
 
@@ -46,13 +46,13 @@ Primeiro, vai criar um grupo para os utilizadores convidados que pertençam todo
 
 1. Inicie sessão no portal do Azure (https://portal.azure.com) com uma conta que o administrador global do seu inquilino.
 2. Selecione **Azure Active Directory** > **Grupos** > **Novo grupo**.
-  ![comando Selecionar novo grupo](./media/groups-dynamic-tutorial/new-group.png)
+   ![Selecione o comando para iniciar um novo grupo](./media/groups-dynamic-tutorial/new-group.png)
 3. No painel **Grupo**:
   
-  * Selecione **Segurança** como o tipo de grupo
-  * Introduza `Guest users Contoso` como o nome e a descrição do grupo
-  * Altere o **Tipo de adesão** para **Utilizador Dinâmico**
-  * Selecione **Adicionar consulta dinâmica**
+   * Selecione **Segurança** como o tipo de grupo
+   * Introduza `Guest users Contoso` como o nome e a descrição do grupo
+   * Altere o **Tipo de adesão** para **Utilizador Dinâmico**
+   * Selecione **Adicionar consulta dinâmica**
   
 4. Selecione **Regra avançada** e, na caixa **Regra avançada**, introduza: `(user.userType -eq "Guest") -and (user.companyName -eq "Contoso")`
 5. Selecione **Adicionar consulta** para fechar o painel.

@@ -16,16 +16,16 @@ ms.date: 06/21/2018
 ms.author: rolyon
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f5a422f619c4ef63da59516ff2748683eb0f7f70
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: 2516e61b6b86c3d2cee164cfcb80a1f938922908
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56726694"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57839649"
 ---
 # <a name="retrieve-access-review-results-for-groups-or-applications-in-azure-ad-access-reviews"></a>Obter resultados de revisão de acesso para grupos ou aplicações nas revisões de acesso do Azure AD
 
-Os administradores podem utilizar o Azure Active Directory (Azure AD) para [criar uma revisão de acesso](create-access-review.md) para membros do grupo ou os utilizadores atribuídos a uma aplicação.  Um utilizador que tenha a função de **Administrador Global**, **Administrador de Conta de Segurança**, **Administrador de Segurança** ou **Leitor de Segurança** também pode ler os resultados de uma revisão de acesso.  Para atribuir utilizadores a uma dessas funções, um Administrador com Função Privilegiada pode utilizar o Azure AD PIM para tornar um utilizador elegível para ativar a função ou um Administrador Global pode permanentemente [atribuir um utilizador à função](../fundamentals/active-directory-users-assign-role-azure-portal.md).
+Os administradores podem utilizar o Azure Active Directory (Azure AD) para [criar uma revisão de acesso](create-access-review.md) para membros do grupo ou os utilizadores atribuídos a uma aplicação.  Um utilizador que está a **Administrador Global**, **administrador de utilizadores**, **administrador de segurança** ou **leitor de segurança** função também pode os resultados de uma revisão de acesso de leitura.  Para atribuir utilizadores a uma destas funções, um administrador com função privilegiada pode utilizar o Azure AD PIM para tornar um utilizador elegível para ativar a função ou um Administrador Global pode permanentemente [atribuir um utilizador à função](../fundamentals/active-directory-users-assign-role-azure-portal.md).
 
 [!INCLUDE [GDPR-related guidance](../../../includes/gdpr-intro-sentence.md)]
 

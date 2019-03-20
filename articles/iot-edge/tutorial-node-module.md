@@ -9,12 +9,12 @@ ms.date: 01/04/2019
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc, seodec18
-ms.openlocfilehash: ab57e3cd99d015343330f4d9c558b9af729dcd5c
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 10026f0a9ff702ee45926ca097e9123ea3db06d5
+ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57437824"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58225931"
 ---
 # <a name="tutorial-develop-and-deploy-a-nodejs-iot-edge-module-to-your-simulated-device"></a>Tutorial: Desenvolver e implementar um módulo do IoT Edge do node. js para o seu dispositivo simulado
 
@@ -61,14 +61,14 @@ Se ainda não tiver um registo de contentor, siga estes passos para criar uma no
 
 2. Indique os valores seguintes para criar o seu registo de contentor:
 
-   | Campo | Valor | 
+   | Campo | Valor |
    | ----- | ----- |
    | Nome de registo | Indique um nome exclusivo. |
    | Subscrição | Selecione uma subscrição na lista pendente. |
    | Grupo de recursos | Recomendamos que utilize o mesmo grupo de recursos para todos os recursos de teste que criou durante os inícios rápidos e tutoriais do IoT Edge. Por exemplo, **IoTEdgeResources**. |
    | Localização | Escolha uma localização perto de si. |
    | Utilizador admin | Defina para **Ativar**. |
-   | SKU | Selecione **Básico**. | **Terminal**
+   | SKU | Selecione **Básico**. |
 
 5. Selecione **Criar**.
 
@@ -197,11 +197,11 @@ Cada modelo inclui o código de exemplo, que captura os dados simulados do senso
 11. Adicione o módulo duplo NodeModule ao manifesto de implementação. Insira o seguinte conteúdo JSON na parte inferior da secção `moduleContent`, após o módulo duplo `$edgeHub`: 
 
    ```json
-       "NodeModule": {
-           "properties.desired":{
-               "TemperatureThreshold":25
-           }
-       }
+     "NodeModule": {
+         "properties.desired":{
+             "TemperatureThreshold":25
+         }
+     }
    ```
 
    ![Adicionar módulo duplo ao modelo de implementação](./media/tutorial-node-module/module-twin.png)

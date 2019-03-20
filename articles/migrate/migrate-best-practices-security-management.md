@@ -7,12 +7,12 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 12/08/2018
 ms.author: raynew
-ms.openlocfilehash: 8b895580f2edc0b7af1c6195212490ce083208ad
-ms.sourcegitcommit: f7f4b83996640d6fa35aea889dbf9073ba4422f0
+ms.openlocfilehash: 0bd19492c844e217dc520ae0c189ca467bb7ac0a
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56991160"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58011096"
 ---
 # <a name="best-practices-for-securing-and-managing-workloads-migrated-to-azure"></a>Melhores práticas para proteger e gerenciar as cargas de trabalho migradas para o Azure
 
@@ -267,7 +267,7 @@ Muitas vezes, usando apenas um nome do grupo de recursos relacionado aos recurso
 
 - [Saiba mais sobre](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags) marcação e marque as limitações.
 - [Revisão](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags#powershell) exemplos do PowerShell e CLI para configurar a etiquetagem e para aplicar etiquetas de um grupo de recursos a seus recursos.
-- [Leitura](http://www.azurefieldnotes.com/2016/07/18/azure-resource-tagging-best-practices/) marcação de melhores práticas do Azure.
+- [Leitura](https://www.azurefieldnotes.com/2016/07/18/azure-resource-tagging-best-practices/) marcação de melhores práticas do Azure.
 
 
 ## <a name="best-practice-implement-blueprints"></a>Prática recomendada: Implementar planos gráficos

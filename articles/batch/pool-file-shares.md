@@ -15,12 +15,12 @@ ms.workload: big-compute
 ms.date: 05/24/2018
 ms.author: lahugh
 ms.custom: ''
-ms.openlocfilehash: 13ed2caa5ae547747707c368246ea23486dbed72
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 1e9d039769e7fbcb9c2b7285aa727acd7322bcdf
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55469571"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58103337"
 ---
 # <a name="use-an-azure-file-share-with-a-batch-pool"></a>Utilizar uma partilha de ficheiros do Azure com um conjunto do Batch
 
@@ -66,16 +66,16 @@ Para simplificar a operação de montagem, manter, opcionalmente, as credenciais
 
 1. Execute o `cmdkey` utilitário de linha de comando usando uma tarefa de início na configuração do conjunto. Isto persiste as credenciais em cada nó do Windows. A linha de comandos da tarefa de início é semelhante a:
 
-  ```
-  cmd /c "cmdkey /add:mystorageaccountname.file.core.windows.net /user:AZURE\mystorageaccountname /pass:XXXXXXXXXXXXXXXXXXXXX=="
+   ```
+   cmd /c "cmdkey /add:mystorageaccountname.file.core.windows.net /user:AZURE\mystorageaccountname /pass:XXXXXXXXXXXXXXXXXXXXX=="
 
-  ```
+   ```
 
 2. Montar a partilha em cada nó como parte de cada tarefa utilizando `net use`. Por exemplo, a seguinte linha de comandos de tarefas monta a partilha de ficheiros como o *s:* unidade. Isso poderia ser seguido de um comando ou script que faça referência a partilha. Credenciais em cache são usadas na chamada para `net use`. Este passo pressupõe que está a utilizar a mesma identidade de utilizador para as tarefas que utilizou na tarefa de início no conjunto, que não é adequado para todos os cenários.
 
-  ```
-  cmd /c "net use S: \\mystorageaccountname.file.core.windows.net\myfileshare" 
-  ```
+   ```
+   cmd /c "net use S: \\mystorageaccountname.file.core.windows.net\myfileshare" 
+   ```
 
 ### <a name="c-example"></a>Exemplo do c#
 O seguinte C# exemplo mostra como manter as credenciais num agrupamento de Windows através de uma tarefa de início. O nome do serviço de ficheiro de armazenamento e as credenciais de armazenamento são transmitidas como constantes definidas. Aqui, a tarefa de início é executado sob uma conta de auto-utilizador (não-administrador) padrão com âmbito de agrupamento.

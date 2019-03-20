@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/18/2017
 ms.author: masnider
-ms.openlocfilehash: 2858628874dc9955db5084ef5732d85acd6e7fc1
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: 985d41d3a00974e25c9abc4709c5bf5e662f7a50
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56729798"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58086042"
 ---
 # <a name="placement-policies-for-service-fabric-services"></a>Políticas de colocação para serviços do service fabric
 As políticas de colocação são regras adicionais que podem ser utilizadas para regular o posicionamento do serviço em alguns cenários específicos e menos comuns. Alguns exemplos desses cenários são:
@@ -44,6 +44,7 @@ A maioria dos controles seguintes poderia ser configurada por meio de propriedad
 O **InvalidDomain** política de colocação permite-lhe especificar que um determinado domínio de falhas é inválido para um serviço específico. Esta política garante que um determinado serviço nunca é executado numa determinada área, por exemplo por motivos de política geopolíticas ou da empresa. Podem ser especificados vários domínios inválidos através de políticas separadas.
 
 <center>
+
 ![Exemplo de domínio inválido][Image1]
 </center>
 
@@ -64,6 +65,7 @@ New-ServiceFabricService -ApplicationName $applicationName -ServiceName $service
 A política de colocação de domínio necessários requer que o serviço está presente apenas no domínio especificado. Podem ser especificados vários domínios necessários através de políticas separadas.
 
 <center>
+
 ![Exemplo de domínio necessários][Image2]
 </center>
 
@@ -85,6 +87,7 @@ New-ServiceFabricService -ApplicationName $applicationName -ServiceName $service
 O domínio principal preferencial Especifica o domínio de falha para colocar o primário no. O principal acaba neste domínio quando tudo o que está em bom estado. Se o domínio ou a réplica primária falha ou desligado, o principal move-se em outro local, o ideal é que, no mesmo domínio. Se esta nova localização não estiver no domínio preferencial, o Gestor de recursos de Cluster move-o novamente para o domínio preferencial logo que possível. Naturalmente esta definição só faz sentido para serviços com estado. Esta política é mais útil em clusters que estão estendidos em regiões do Azure ou vários datacenters, mas tem os serviços que preferem a colocação num certo local. Manter as cores primárias perto dos seus utilizadores ou outros serviços ajuda a fornecer uma latência mais baixa, especialmente para leituras, que são processadas pela cores primárias, por predefinição.
 
 <center>
+
 ![Domínios de primários preferenciais e ativação pós-falha][Image3]
 </center>
 

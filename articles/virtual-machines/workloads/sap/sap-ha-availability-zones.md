@@ -17,12 +17,12 @@ ms.workload: infrastructure-services
 ms.date: 02/03/2019
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: a8e20d617da12aea857308f4020fbd0cfe711430
-ms.sourcegitcommit: a4efc1d7fc4793bbff43b30ebb4275cd5c8fec77
+ms.openlocfilehash: 687f99fb6447eddb4ce10ce81bc349181ec5c48c
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56651316"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58094757"
 ---
 # <a name="sap-workload-configurations-with-azure-availability-zones"></a>Configurações de carga de trabalho SAP com zonas de disponibilidade do Azure
 [Azure Availability Zones](https://docs.microsoft.com/azure/availability-zones/az-overview) é um dos recursos de alta disponibilidade fornecidos pelo Azure. Utilizar zonas de disponibilidade melhora a disponibilidade geral de cargas de trabalho SAP no Azure. Esta funcionalidade já está disponível em alguns [regiões do Azure](https://azure.microsoft.com/global-infrastructure/regions/). No futuro, ele estará disponível em mais regiões.
@@ -109,8 +109,8 @@ As seguintes considerações aplicam-se para esta configuração:
 - Todas as máquinas virtuais a implementar, precisa usar [Managed Disks do Azure](https://azure.microsoft.com/services/managed-disks/). Discos não geridos não são suportados para implementações zonais.
 - Armazenamento Premium do Azure e [armazenamento Ultra SSD](https://docs.microsoft.com/azure/virtual-machines/windows/disks-ultra-ssd) não suporta qualquer tipo de replicação de armazenamento em zonas. O aplicativo (DBMS ou SAP Central Services) têm de replicar dados importantes.
 - O mesmo é válido para o diretório partilhado /sapmnt, que é um disco partilhado (Windows), uma partilha CIFS (Windows) ou uma partilha NFS (Linux). Tem de utilizar uma tecnologia que replica esses discos partilhados ou partilhas de entre as zonas. Essas tecnologias são suportadas:
-    - Para Windows, uma solução de cluster que utiliza o SIOS DataKeeper, conforme documentado [uma instância do SAP ASCS/SCS de Cluster num cluster de ativação pós-falha do Windows ao utilizar um disco partilhado de cluster no Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-high-availability-guide-wsfc-shared-disk).
-    - Para o SUSE Linux, uma de partilha NFS que baseia-se conforme documentado [elevada disponibilidade para NFS nas VMs do Azure no SUSE Linux Enterprise Server](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-suse-nfs).
+  - Para Windows, uma solução de cluster que utiliza o SIOS DataKeeper, conforme documentado [uma instância do SAP ASCS/SCS de Cluster num cluster de ativação pós-falha do Windows ao utilizar um disco partilhado de cluster no Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-high-availability-guide-wsfc-shared-disk).
+  - Para o SUSE Linux, uma de partilha NFS que baseia-se conforme documentado [elevada disponibilidade para NFS nas VMs do Azure no SUSE Linux Enterprise Server](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-suse-nfs).
     
     Atualmente, a solução que utiliza o servidor de ficheiros de escalamento horizontal do Microsoft, conforme documentado [infraestrutura de preparar o Azure para elevada disponibilidade SAP através de uma partilha de ficheiros e de cluster de ativação pós-falha do Windows para as instâncias do SAP ASCS/SCS](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-high-availability-infrastructure-wsfc-file-share), não é suportado nas zonas.
 - A terceiro zona é utilizada para alojar o dispositivo SBD no caso de criar um [cluster de SUSE Linux Pacemaker](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-suse-pacemaker#create-azure-fence-agent-stonith-device) ou instâncias de aplicações adicionais.

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/29/2018
 ms.author: terrylan
-ms.openlocfilehash: 6fd25bbf6910140a338267c51955a817d0195939
-ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.openlocfilehash: 2aabe3d1fa8a6034c2dab38c8d6fa6da4b00ac1b
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/02/2019
-ms.locfileid: "57247193"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58080344"
 ---
 # <a name="azure-network-security-overview"></a>Descrição geral da segurança de rede do Azure
 
@@ -61,8 +61,8 @@ O Azure suporta vários tipos de controlo de acesso à rede, tais como:
 
 Qualquer implementação segura requer alguma medida de controlo de acesso de rede. É o objetivo de controlo de acesso de rede restringir a comunicação de máquina virtual para os sistemas necessários. Outras tentativas de comunicação são bloqueadas.
 
->[!NOTE]
-Firewalls de armazenamento são abordados os [descrição geral da segurança de armazenamento do Azure](security-storage-overview.md) artigo
+> [!NOTE]
+> Firewalls de armazenamento são abordados os [descrição geral da segurança de armazenamento do Azure](security-storage-overview.md) artigo
 
 #### <a name="network-security-rules-nsgs"></a>Regras de segurança de rede (NSGs)
 
@@ -365,8 +365,8 @@ O observador de rede do Azure pode ajudá-lo a resolver problemas e fornece um n
 
 Para obter mais informações sobre o observador de rede e como começar a testar algumas das funcionalidades nos seus laboratórios, consulte [descrição geral da monitorização de observador de rede do Azure](../network-watcher/network-watcher-monitoring-overview.md).
 
->[!NOTE]
-Para as notificações mais atualizadas sobre a disponibilidade e o estado deste serviço, consulte a [página de atualizações do Azure](https://azure.microsoft.com/updates/?product=network-watcher).
+> [!NOTE]
+> Para as notificações mais atualizadas sobre a disponibilidade e o estado deste serviço, consulte a [página de atualizações do Azure](https://azure.microsoft.com/updates/?product=network-watcher).
 
 ### <a name="azure-security-center"></a>Centro de Segurança do Azure
 

@@ -7,12 +7,12 @@ ms.service: dns
 ms.topic: article
 ms.date: 2/20/2019
 ms.author: victorh
-ms.openlocfilehash: d751d4898be3fd19f9e6f5d03e9313e9d98e9dd2
-ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
+ms.openlocfilehash: 6c5e0e47f006c6be170bdbf6fee431bfd3b6df0e
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56446100"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58105061"
 ---
 # <a name="azure-dns-alias-records-overview"></a>Registos descrição geral de alias de DNS do Azure
 
@@ -58,7 +58,7 @@ Esta restrição apresenta um problema para os proprietários da aplicação que
 
 Esse problema pode ser resolvido utilizando registos de alias. Ao contrário de registos CNAME, os registos de alias podem ser criados no vértice da zona e proprietários de aplicativos podem utilizá-lo para apontar o respetivo registo de apex de zona para um perfil de Gestor de tráfego que tem pontos finais externos. Os proprietários de aplicativos podem apontar para o mesmo perfil de Gestor de tráfego, que é utilizado para qualquer outro domínio na sua zona DNS.
 
-Por exemplo, contoso.com e www.contoso.com podem apontar para o mesmo perfil de Gestor de tráfego. Para saber mais sobre como utilizar os registos de alias com perfis do Gestor de tráfego do Azure, veja a secção de passos seguinte.
+Por exemplo, contoso.com e www\.contoso.com pode apontar para o mesmo perfil de Gestor de tráfego. Para saber mais sobre como utilizar os registos de alias com perfis do Gestor de tráfego do Azure, veja a secção de passos seguinte.
 
 ## <a name="next-steps"></a>Passos Seguintes
 

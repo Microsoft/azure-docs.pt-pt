@@ -16,12 +16,12 @@ ms.date: 09/24/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 00d0332e44b76cc3b883fd0472567f74cfde21b2
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 7c34d8de3dfd06540dd50542ab19da0c1d9b1567
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57444986"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58079746"
 ---
 # <a name="azure-active-directory-seamless-single-sign-on"></a>O Azure Active Directory totalmente integrada início de sessão único
 
@@ -53,8 +53,8 @@ SSO totalmente integrado pode ser combinada com ambos os [sincronização de Has
 
 - Início de sessão de nome de utilizador pode ser qualquer um do nome de utilizador de predefinição de no local (`userPrincipalName`) ou outro atributo que configurou no Azure AD Connect (`Alternate ID`). Ambos utilizam o trabalho de casos porque utiliza o SSO totalmente integrado a `securityIdentifier` de afirmação na permissão Kerberos para procurar o objeto de utilizador correspondente no Azure AD.
 - SSO totalmente integrado é uma funcionalidade oportunista. Se falhar por algum motivo, a experiência de início de sessão do utilizador tem a ver com seu comportamento regular - ou seja, o utilizador tem de introduzir a palavra-passe na página de início de sessão.
-- Se um aplicativo (por exemplo, https://myapps.microsoft.com/contoso.com) encaminha uma `domain_hint` (OpenID Connect) ou `whr` parâmetro (SAML) - identificar o seu inquilino, ou `login_hint` parâmetro - a identificação do usuário, no seu Azure AD início de sessão pedido, os usuários são Inicie automaticamente sem eles introduzir nomes de utilizador ou palavras-passe.
-- Os utilizadores também obtém uma experiência de início de sessão silenciosa se um aplicativo (por exemplo, https://contoso.sharepoint.com) envia pedidos de início de sessão para os pontos finais do Azure AD configurar como os inquilinos - ou seja, https://login.microsoftonline.com/contoso.com/<..> ou https://login.microsoftonline.com/<tenant_ID>/<..> - em vez ponto de extremidade comum do Azure AD - ou seja, https://login.microsoftonline.com/common/<...>.
+- Se um aplicativo (por exemplo, `https://myapps.microsoft.com/contoso.com`) encaminha uma `domain_hint` (OpenID Connect) ou `whr` parâmetro (SAML) - identificar o seu inquilino, ou `login_hint` parâmetro - a identificação do usuário, no seu Azure AD início de sessão pedido, os usuários são Inicie automaticamente sem eles introduzir nomes de utilizador ou palavras-passe.
+- Os utilizadores também obtém uma experiência de início de sessão silenciosa se um aplicativo (por exemplo, `https://contoso.sharepoint.com`) envia pedidos de início de sessão para os pontos finais do Azure AD configurar como os inquilinos - ou seja, `https://login.microsoftonline.com/contoso.com/<..>` ou `https://login.microsoftonline.com/<tenant_ID>/<..>` - em vez ponto de extremidade comum do Azure AD - ou seja, `https://login.microsoftonline.com/common/<...>` .
 - Fim de sessão é suportada. Isto permite aos utilizadores escolher outra conta do Azure AD para iniciar sessão, em vez de automaticamente a ser iniciado sessão com o SSO totalmente integrado automaticamente.
 - Clientes do Office 365 Win32 (Outlook, Word, Excel e outras pessoas) com as versões 16.0.8730.xxxx e superior são suportados com um fluxo não interativo. Para o OneDrive, terá de ativar a [funcionalidade de configuração automática do OneDrive](https://techcommunity.microsoft.com/t5/Microsoft-OneDrive-Blog/Previews-for-Silent-Sync-Account-Configuration-and-Bandwidth/ba-p/120894) para uma experiência de início de sessão silenciosa.
 - Pode ser ativada através do Azure AD Connect.
