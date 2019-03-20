@@ -9,12 +9,12 @@ manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
 ms.date: 10/29/2017
-ms.openlocfilehash: b9c7c20b6b3bbad8731dc00e2c6e3d88f92936df
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 5aff45b4a6b5da62569e0a39c13239a726e6b80b
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57765412"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58001987"
 ---
 # <a name="use-terraform-to-create-an-azure-virtual-machine-scale-set-from-a-packer-custom-image"></a>Utilizar o Terraform para criar um conjunto de dimensionamento de máquinas virtuais do Azure a partir de uma imagem personalizada do Packer
 
@@ -180,7 +180,7 @@ Neste passo, vai criar os seguintes recursos na rede que foi anteriormente imple
 - Um conjunto de endereços de back-end do Azure e atribuí-lo ao balanceador de carga 
 - Uma porta de sonda de estado de funcionamento utilizada pela aplicação e configurada no balanceador de carga 
 - Um conjunto de dimensionamento de máquinas virtuais por detrás do balanceador de carga que é executado na VNET implementada anteriormente
-- [Nginx](http://nginx.org/) nos nós do conjunto de dimensionamento de máquinas virtuais instalado a partir da imagem personalizada
+- [Nginx](https://nginx.org/) nos nós do conjunto de dimensionamento de máquinas virtuais instalado a partir da imagem personalizada
 
 
 Adicione o seguinte código ao fim do ficheiro `vmss.tf`.

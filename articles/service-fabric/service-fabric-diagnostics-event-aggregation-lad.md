@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 2/25/2019
 ms.author: srrengar
-ms.openlocfilehash: 9e4c4e8c8d7aa89e2a27efc2c2deebd4863be23e
-ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.openlocfilehash: ca6be2b08c9a38813b2c98eef7e5696bd61fd074
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/02/2019
-ms.locfileid: "57242960"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57893038"
 ---
 # <a name="event-aggregation-and-collection-using-linux-azure-diagnostics"></a>Agregação de eventos e coleções com o diagnóstico do Linux do Azure
 > [!div class="op_single_selector"]
@@ -35,7 +35,7 @@ Uma forma de carregar e recolher registos é utilizar a extensão de diagnóstic
 ## <a name="log-and-event-sources"></a>Origens de registos e eventos
 
 ### <a name="service-fabric-platform-events"></a>Eventos de plataforma do Service Fabric
-Service Fabric emite alguns registos de out-of-the-box via [LTTng](http://lttng.org), incluindo eventos operacionais ou eventos de tempo de execução. Estes registos são armazenados na localização que especifica o modelo do Resource Manager do cluster. Para obter ou definir os detalhes da conta de armazenamento, procure a marca **AzureTableWinFabETWQueryable** e procure **StoreConnectionString**.
+Service Fabric emite alguns registos de out-of-the-box via [LTTng](https://lttng.org), incluindo eventos operacionais ou eventos de tempo de execução. Estes registos são armazenados na localização que especifica o modelo do Resource Manager do cluster. Para obter ou definir os detalhes da conta de armazenamento, procure a marca **AzureTableWinFabETWQueryable** e procure **StoreConnectionString**.
 
 ### <a name="application-events"></a>Eventos da aplicação
  Eventos emitidos a partir do código de seus aplicativos e dos serviços conforme especificado por si quando instrumentar o seu software. Pode usar qualquer solução de registo que escreve os ficheiros de registo baseados em texto, por exemplo, LTTng. Para obter mais informações, consulte a documentação de LTTng no rastreamento de seu aplicativo.
@@ -52,5 +52,5 @@ Esta ação configura o agente LAD para monitorizar os ficheiros de registo espe
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-1. Para entender mais detalhadamente quais eventos, deve examinar durante a resolução de problemas, consulte [documentação LTTng](http://lttng.org/docs) e [LAD usando](https://docs.microsoft.com/azure/virtual-machines/extensions/diagnostics-linux).
+1. Para entender mais detalhadamente quais eventos, deve examinar durante a resolução de problemas, consulte [documentação LTTng](https://lttng.org/docs) e [LAD usando](https://docs.microsoft.com/azure/virtual-machines/extensions/diagnostics-linux).
 2. [Configurar o agente do Log Analytics](service-fabric-diagnostics-event-analysis-oms.md) para ajudar a recolher métricas, monitorizar contentores implementados no seu cluster e visualizar os seus registos 

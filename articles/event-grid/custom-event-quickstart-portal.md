@@ -9,12 +9,12 @@ ms.date: 12/07/2018
 ms.topic: quickstart
 ms.service: event-grid
 ms.custom: seodec18
-ms.openlocfilehash: 330625140640ba13bcb7fb912fcc554cb8da1516
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 59c274c0967ef73bb7843fb1e155953bccce4857
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57544687"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58183378"
 ---
 # <a name="quickstart-route-custom-events-to-web-endpoint-with-the-azure-portal-and-event-grid"></a>Início rápido: Encaminhar eventos personalizados para o ponto final da web com o portal do Azure e o Event Grid
 
@@ -23,6 +23,8 @@ O Azure Event Grid é um serviço de eventos para a cloud. Neste artigo, o porta
 Quando tiver terminado, verá que os dados do evento foram enviados para a aplicação Web.
 
 ![Ver resultados](./media/custom-event-quickstart-portal/view-result.png)
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 [!INCLUDE [quickstarts-free-trial-note.md](../../includes/quickstarts-free-trial-note.md)]
 
@@ -126,8 +128,8 @@ curl -X POST -H "aeg-sas-key: $key" -d "$event" $endpoint
 O segundo exemplo utiliza o PowerShell para efetuar passos semelhantes.
 
 ```azurepowershell-interactive
-$endpoint = (Get-AzureRmEventGridTopic -ResourceGroupName gridResourceGroup -Name <topic-name>).Endpoint
-$keys = Get-AzureRmEventGridTopicKey -ResourceGroupName gridResourceGroup -Name <topic-name>
+$endpoint = (Get-AzEventGridTopic -ResourceGroupName gridResourceGroup -Name <topic-name>).Endpoint
+$keys = Get-AzEventGridTopicKey -ResourceGroupName gridResourceGroup -Name <topic-name>
 
 $eventID = Get-Random 99999
 

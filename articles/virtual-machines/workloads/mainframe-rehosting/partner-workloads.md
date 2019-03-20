@@ -8,12 +8,12 @@ manager: edprice
 editor: edprice
 tags: ''
 keywords: ''
-ms.openlocfilehash: b4ba59ef24ec106c5a5f21f395445ca39b2bd1ea
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: faaba873f20fc0ac04abdd7bd78dd85429d341e7
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56739799"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57996525"
 ---
 # <a name="mainframe-workloads-supported-on-azure"></a>Cargas de trabalho de mainframe suportadas no Azure
 
@@ -26,7 +26,7 @@ Para obter mais ajuda com a emulação de mainframe e serviços, consulte a [Cen
 - [Micro COBOL Visual de foco](https://www.microfocus.com/products/visual-cobol/) ferramentas de desenvolvimento e integração.
 - [Micro foco PL / eu](https://www.microfocus.com/campaign/download/pli-modernization/) compilador herdado para a plataforma .NET, que suporta PL de mainframe /, sintaxe, tipos de dados e comportamento.
 - [Micro Focus Enterprise Server](https://www.microfocus.com/products/enterprise-suite/enterprise-server/) plataforma de integração de mainframe.
-- [A Fujitsu NetCOBOL](http://www.fujitsu.com/global/products/software/developer-tool/netcobol/) ferramentas de desenvolvimento e integração.
+- [A Fujitsu NetCOBOL](https://www.fujitsu.com/global/products/software/developer-tool/netcobol/) ferramentas de desenvolvimento e integração.
 - [NTT dados empresariais COBOL](https://www.nttdataservices.com/en-ie/services/application-modernization-services) ferramentas de desenvolvimento e integração.
 - [PL NTT aberto / eu](https://www.nttdataservices.com/en-ie/services/application-modernization-services) compilador herdado para a plataforma .NET, que suporta PL de mainframe /, sintaxe, tipos de dados e comportamento.
 - [Compilador Raincode COBOL](https://www.raincode.com/products/cobol/) ferramentas de desenvolvimento e integração.

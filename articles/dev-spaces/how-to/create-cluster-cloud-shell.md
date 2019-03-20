@@ -9,12 +9,12 @@ ms.date: 10/04/2018
 ms.topic: conceptual
 description: Saiba como criar rapidamente um cluster do Kubernetes ativado para espaços de desenvolvimento do Azure diretamente a partir do seu browser, sem instalar nada.
 keywords: Docker, o Kubernetes, o Azure, o AKS, o serviço Kubernetes do Azure, contentores, Helm, a malha de serviço, roteamento de malha do serviço, kubectl, k8s
-ms.openlocfilehash: 7d55261c3b5461e6986c1c194da7afd37587ff55
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: bfde055c99a1109a8f71c838b44ed1742e3f06aa
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57781532"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57895571"
 ---
 # <a name="create-a-kubernetes-cluster-using-azure-cloud-shell"></a>Criar um cluster de Kubernetes com o Azure Cloud Shell
 
@@ -22,7 +22,7 @@ Pode usar [Azure Cloud Shell](/azure/cloud-shell) para criar um cluster de espa�
 
 ## <a name="create-the-cluster"></a>Criar o cluster
 
-Primeiro, crie o grupo de recursos. Utilize uma das regiões suportadas atualmente (EUA Leste, EUA Leste 2, EUA Central, EUA Oeste 2, Europa Ocidental, Sudeste Asiático, Canadá Central ou Leste do Canadá).
+Primeiro, crie o grupo de recursos num [região que suporte do Azure Dev espaços](https://docs.microsoft.com/azure/dev-spaces/#a-rapid,-iterative-kubernetes-development-experience-for-teams).
 
 ```azurecli-interactive
 az group create --name MyResourceGroup --location <region>
@@ -31,7 +31,7 @@ az group create --name MyResourceGroup --location <region>
 Crie um cluster do Kubernetes com o seguinte comando:
 
 ```azurecli-interactive
-az aks create -g MyResourceGroup -n MyAKS --location <region> --kubernetes-version 1.10.13
+az aks create -g MyResourceGroup -n MyAKS --location <region>
 ```
 
 A criação do cluster demora alguns minutos.  Quando terminar, o resultado é mostrado no formato JSON. Procure `provisioningState` e certifique-se de que tem `Succeeded`.

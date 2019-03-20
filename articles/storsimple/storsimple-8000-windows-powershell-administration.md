@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 01/09/2018
 ms.author: alkohli@microsoft.com
-ms.openlocfilehash: 449c65d0ed746664b75bf8775dda695f569b3eb0
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: e6053ef9b5e1fc113e3bd3057d627347f285cd99
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51228390"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58003132"
 ---
 # <a name="use-windows-powershell-for-storsimple-to-administer-your-device"></a>Utilizar o Windows PowerShell para StorSimple para administrar o seu dispositivo
 
@@ -47,7 +47,7 @@ Pode acessar o Windows PowerShell para StorSimple através de um dos seguintes m
 
 ## <a name="connect-to-windows-powershell-for-storsimple-via-the-device-serial-console"></a>Ligar para o Windows PowerShell para StorSimple através da consola de série do dispositivo
 
-Pode [transfira o PuTTY](http://www.putty.org/) ou semelhante software de emulação do terminal para ligar ao Windows PowerShell para StorSimple. Tem de configurar o PuTTY especificamente para aceder ao dispositivo do Microsoft Azure StorSimple. Os tópicos seguintes contêm os passos detalhados sobre como configurar o PuTTy e ligar ao dispositivo. Várias opções de menu na consola de série do também são explicadas.
+Pode [transfira o PuTTY](https://www.putty.org/) ou semelhante software de emulação do terminal para ligar ao Windows PowerShell para StorSimple. Tem de configurar o PuTTY especificamente para aceder ao dispositivo do Microsoft Azure StorSimple. Os tópicos seguintes contêm os passos detalhados sobre como configurar o PuTTy e ligar ao dispositivo. Várias opções de menu na consola de série do também são explicadas.
 
 ### <a name="putty-settings"></a>Definições do PuTTY
 
@@ -110,8 +110,8 @@ Pode escolher as seguintes definições:
    * Aplicar atualizações
    * Instalar correções
 
-    > [!NOTE]
-    > Esta é a opção preferencial, se esqueceu a palavra-passe de administrador do dispositivo e não é possível ligar através da opção 1 ou 2.
+     > [!NOTE]
+     > Esta é a opção preferencial, se esqueceu a palavra-passe de administrador do dispositivo e não é possível ligar através da opção 1 ou 2.
 
 4. **Alterar idioma** esta opção permite-lhe alterar o idioma de apresentação na interface do Windows PowerShell. Os idiomas suportados são o inglês, japonês, russo, francês, Coreia do Sul, espanhol, italiano, alemão, chinês e português (Brasil).
 

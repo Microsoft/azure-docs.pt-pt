@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/07/2018
-ms.openlocfilehash: b8995436677c195317b9ac304fe8c52cc2fcfc80
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.openlocfilehash: b9b4af353e5bbd36f1f8d7468c38542a0fabda85
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53602074"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58112182"
 ---
 # <a name="use-azure-kubernetes-service-with-apache-kafka-on-hdinsight"></a>Utilizar o serviço Kubernetes do Azure com o Apache Kafka no HDInsight
 
@@ -33,7 +33,7 @@ O [Apache Kafka](https://kafka.apache.org) é uma plataforma de transmissão em 
 Este documento parte do princípio de que está familiarizado com a criação e utilizar os serviços do Azure seguintes:
 
 * Kafka no HDInsight
-* Serviço Kubernetes do Azure
+* Azure Kubernetes Service
 * Redes Virtuais do Azure
 
 Este documento assume também que tiver percorrido o [tutorial do Azure Kubernetes Service](../../aks/tutorial-kubernetes-prepare-app.md). Este tutorial cria um serviço de contentor, cria um cluster do Kubernetes, um registo de contentores e configura o `kubectl` utilitário.
@@ -81,17 +81,17 @@ Se ainda não tiver um cluster do AKS, utilize um dos seguintes documentos para 
 
 5. Para configurar o peering entre a rede de HDInsight e a rede de cluster do AKS, selecione a rede virtual e, em seguida, selecione __Peerings__. Selecione __+ adicionar__ e utilize os seguintes valores para preencher o formulário:
 
-    * __Nome__: Introduza um nome exclusivo para esta configuração de peering.
-    * __Rede virtual__: Utilize este campo para selecionar a rede virtual para o **cluster do AKS**.
+   * __Nome__: Introduza um nome exclusivo para esta configuração de peering.
+   * __Rede virtual__: Utilize este campo para selecionar a rede virtual para o **cluster do AKS**.
 
-    Deixe todos os outros campos com o valor predefinido, em seguida, selecione __OK__ para configurar o peering.
+     Deixe todos os outros campos com o valor predefinido, em seguida, selecione __OK__ para configurar o peering.
 
 6. Para configurar o peering entre a rede de cluster do AKS e a rede de HDInsight, selecione o __rede virtual de cluster do AKS__e, em seguida, selecione __Peerings__. Selecione __+ adicionar__ e utilize os seguintes valores para preencher o formulário:
 
-    * __Nome__: Introduza um nome exclusivo para esta configuração de peering.
-    * __Rede virtual__: Utilize este campo para selecionar a rede virtual para o __cluster de HDInsight__.
+   * __Nome__: Introduza um nome exclusivo para esta configuração de peering.
+   * __Rede virtual__: Utilize este campo para selecionar a rede virtual para o __cluster de HDInsight__.
 
-    Deixe todos os outros campos com o valor predefinido, em seguida, selecione __OK__ para configurar o peering.
+     Deixe todos os outros campos com o valor predefinido, em seguida, selecione __OK__ para configurar o peering.
 
 ## <a name="install-apache-kafka-on-hdinsight"></a>Instalar o Apache Kafka no HDInsight
 

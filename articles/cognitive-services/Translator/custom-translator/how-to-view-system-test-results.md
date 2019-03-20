@@ -9,12 +9,12 @@ ms.subservice: translator-text
 ms.date: 02/21/2019
 ms.author: v-rada
 ms.topic: conceptual
-ms.openlocfilehash: d06b4a0a9823871ffc14d7cfa7148f6e335835d6
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 67ddc7a8e9d79d0eef9c017b315385df62c18e33
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57762675"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57997710"
 ---
 # <a name="view-system-test-results"></a>Viver resultados do teste do sistema
 
@@ -26,7 +26,7 @@ Selecione um projeto, em seguida, selecione o separador de modelos desse projeto
 
 O separador de teste mostra-lhe:
 
-1.  **Resultados do teste de sistema:** o resultado do processo de teste nos treinamentos. O processo de teste produz a pontuação de BLEU.
+1.  **Resultados do teste de sistema:** O resultado do processo de teste nos treinamentos. O processo de teste produz a pontuação de BLEU.
 
     **Contagem de sentença:** O número de frases paralelas foram utilizadas no conjunto de teste.
 

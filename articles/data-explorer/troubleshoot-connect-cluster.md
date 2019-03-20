@@ -8,12 +8,12 @@ ms.service: data-explorer
 services: data-explorer
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.openlocfilehash: d10d39a65acd3664c99e8b5aa5cc015a76d9d1aa
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.openlocfilehash: 89ae8bd4139623cfafe811b7c82433cfb8400611
+ms.sourcegitcommit: f331186a967d21c302a128299f60402e89035a8d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50209382"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58189670"
 ---
 # <a name="troubleshoot-failure-to-connect-to-a-cluster-in-azure-data-explorer"></a>Resolução de problemas: Falha ao ligar a um cluster no Explorador de dados do Azure
 
@@ -27,7 +27,7 @@ Se não conseguir ligar a um cluster no Explorador de dados do Azure, siga estes
 
 1. Certifique-se de que o cluster ainda não foram eliminado: rever o registo de atividades na sua subscrição.
 
-1. Verifique os [dashboard de estado de funcionamento do serviço do Azure](https://azure.microsoft.com/status/>). Procure o estado do Explorador de dados do Azure na região onde está a tentar ligar a um cluster.
+1. Verifique os [dashboard de estado de funcionamento do serviço do Azure](https://azure.microsoft.com/status/). Procure o estado do Explorador de dados do Azure na região onde está a tentar ligar a um cluster.
 
     Se o estado não estiver **boa** (marca de verificação verde), tente ligar ao cluster depois do Estado melhora.
 

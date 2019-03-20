@@ -16,12 +16,12 @@ ms.date: 11/14/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 11ebb8bbeb2a58cad41294b6bba805585127844a
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 8de47aab231c66f3539c2d2f0f0e4c535a04038a
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57442398"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58085376"
 ---
 # <a name="azure-active-directory-seamless-single-sign-on-frequently-asked-questions"></a>O Azure Active Directory totalmente integrada início de sessão único: Perguntas mais frequentes
 
@@ -47,7 +47,7 @@ Abaixo encontra uma lista parcial das aplicações que pode enviar estes parâme
 | -- | -- |
 | Painel de acesso | https://myapps.microsoft.com/contoso.com |
 | Outlook na Web | https://outlook.office365.com/contoso.com |
-| Portais do Office 365 | https://portal.office.com?domain_hint=contoso.com, https://www.office.com?domain_hint=contoso.com |
+| Portais do Office 365 | <https://portal.office.com?domain_hint=contoso.com>, <https://www.office.com?domain_hint=contoso.com> |
 
 Além disso, os utilizadores obtêm uma experiência de início de sessão silenciosa se uma aplicação envia pedidos de início de sessão para os pontos finais do Azure AD configurar como os inquilinos - ou seja, https://login.microsoftonline.com/contoso.com/<..> ou https://login.microsoftonline.com/<tenant_ID>/<..> - em vez ponto de extremidade comum do Azure AD - ou seja, https://login.microsoftonline.com/common/<...>. Abaixo encontra uma lista parcial de aplicativos que realizar estes tipos de pedidos de início de sessão.
 
@@ -95,8 +95,8 @@ Siga estes passos no servidor no local onde está a executar o Azure AD Connect:
 
 1. Chamar `$creds = Get-Credential`. Quando lhe for pedido, introduza as credenciais de administrador de domínio de floresta do AD pretendida.
 
-    >[!NOTE]
-    >Utilizamos o nome de utilizador do administrador de domínio, fornecido em nomes de Principal utilizador (UPN) (johndoe@contoso.com) formato ou o domínio sam conta qualificado (contoso\diogoandrade ou com\johndoe) formato de nome, para localizar a floresta de AD pretendida. Se utilizar o nome qualificado de sam conta de domínio, usamos a parte do nome de utilizador de domínio [localizar o controlador de domínio, o administrador de domínio através de DNS](https://social.technet.microsoft.com/wiki/contents/articles/24457.how-domain-controllers-are-located-in-windows.aspx). Se utilizar o UPN em vez disso, podemos [traduzi-la para um nome de sam conta qualificado do domínio](https://docs.microsoft.com/windows/desktop/api/ntdsapi/nf-ntdsapi-dscracknamesa) antes de localizar o controlador de domínio apropriadas.
+   > [!NOTE]
+   > Utilizamos o nome de utilizador do administrador de domínio, fornecido em nomes de Principal utilizador (UPN) (johndoe@contoso.com) formato ou o domínio sam conta qualificado (contoso\diogoandrade ou com\johndoe) formato de nome, para localizar a floresta de AD pretendida. Se utilizar o nome qualificado de sam conta de domínio, usamos a parte do nome de utilizador de domínio [localizar o controlador de domínio, o administrador de domínio através de DNS](https://social.technet.microsoft.com/wiki/contents/articles/24457.how-domain-controllers-are-located-in-windows.aspx). Se utilizar o UPN em vez disso, podemos [traduzi-la para um nome de sam conta qualificado do domínio](https://docs.microsoft.com/windows/desktop/api/ntdsapi/nf-ntdsapi-dscracknamesa) antes de localizar o controlador de domínio apropriadas.
 
 2. Chamar `Update-AzureADSSOForest -OnPremCredentials $creds`. Este comando atualiza a chave de desencriptação do Kerberos para o `AZUREADSSOACC` conta de computador nesta floresta de AD específico e atualiza-o no Azure AD.
 3. Repita os passos anteriores para cada floresta do AD que configurou a funcionalidade no.

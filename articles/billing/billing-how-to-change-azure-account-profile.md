@@ -16,12 +16,12 @@ ms.topic: conceptual
 ms.date: 05/11/2018
 ms.author: banders
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: f399cf55123ad6bc8ccb011c5d7d59f615af652d
-ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
+ms.openlocfilehash: ecf39623c70441e4b726221b4e92e2492370a9bc
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54904391"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57846757"
 ---
 # <a name="change-your-azure-account-profile-information-such-as-contact-email-address-and-phone-number"></a>Alterar as informações de perfil de conta do Azure como o e-mail de contacto, endereço e número de telefone
 
@@ -38,15 +38,15 @@ O endereço de e-mail no perfil de administrador de conta é utilizado pela Micr
 
 ### <a name="can-notifications-be-sent-to-a-different-email-address-other-than-the-account-administrator-email-address-associated-with-my-account"></a>As notificações podem ser enviadas para outro endereço de e-mail em vez do endereço de e-mail do administrador de conta associado à minha conta?
 
-Sim. O endereço de e-mail na conta obtém notificações importantes sobre todas as subscrições na conta. Assim, recomendamos que especifica um endereço de correio eletrónico de contacto que o administrador de conta verifica regularmente.
+Sim. O endereço de e-mail na conta recebe notificações importantes sobre todas as subscrições da conta. Assim, recomendamos que especifica um endereço de correio eletrónico de contacto que o administrador de conta verifica regularmente.
 
 ### <a name="can-i-change-the-account-administrator-email-address-in-my-profile"></a>Pode alterar o endereço de e-mail do administrador de conta no meu perfil?
 
-Sim. O administrador de conta é a pessoa que configurar a conta do Azure e que recebe notificações de e-mail importantes sobre todas as subscrições na conta. Recomendamos que especifica um endereço de correio eletrónico de contacto que o administrador de conta verifica regularmente.
+Sim. O Administrador de Conta é a pessoa que configura a conta do Azure e que recebe notificações por e-mail importantes sobre todas as subscrições da conta. Recomendamos que especifique um endereço de e-mail de contacto que seja visto regularmente pelo Administrador de Conta.
 
 ### <a name="does-updating-my-profile-email-also-update-my-login-email-address"></a>Atualizar o meu correio eletrónico do perfil também atualiza a meu endereço de e-mail de início de sessão?
 
-Não. A atualizar o endereço de e-mail de perfil não atualizar o seu endereço de e-mail de início de sessão. Para alterar seu endereço de e-mail de início de sessão, terá de transferir a propriedade da conta.
+Não. A atualização do endereço de e-mail do perfil não atualiza o endereço de e-mail de início de sessão. Para alterar o endereço de e-mail de início de sessão, tem de transferir a propriedade da conta.
 
 ### <a name="does-updating-my-profile-address-also-update-my-credit-card-billing-address"></a>A atualizar o meu endereço de perfil também atualizar o meu endereço de cobrança de cartão de crédito?
 
@@ -54,9 +54,9 @@ Para saber como atualizar as informações de faturação, veja [alterar o cart�
 
 ### <a name="why-cant-i-update-the-country"></a>Por que não é possível atualizar os país?
 
-Devido a restrições técnicas, não é possível alterar o país numa conta existente. No entanto, pode criar uma conta no país desejado e, em seguida, contacte o suporte do Azure para migrar os serviços para essa conta.
+Devido a limitações técnicas, não é possível mudar o país em contas já existentes. No entanto, pode criar uma conta no país desejado e, em seguida, contacte o suporte do Azure para migrar os serviços para essa conta.
 
 ## <a name="need-help-contact-us"></a>Precisa de ajuda? Contacte-nos.
 
-Se tiver alguma dúvida ou precisar de ajuda, [criar um pedido de suporte](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).
+Se tiver alguma dúvida ou precisar de ajuda, [criar um pedido de suporte](https://go.microsoft.com/fwlink/?linkid=2083458).
 

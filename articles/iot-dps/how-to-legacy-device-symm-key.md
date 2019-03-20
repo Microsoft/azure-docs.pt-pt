@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
 manager: timlt
-ms.openlocfilehash: cf4ee8b1b9d96ad4d32a0ac8b1682968b90653f9
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: c43d3b236a305f1e6d2bd392527a5206b6a5c974
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57541495"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58074901"
 ---
 # <a name="how-to-provision-legacy-devices-using-symmetric-keys"></a>Como aprovisionar dispositivos legados com chaves simétricas
 
@@ -120,17 +120,17 @@ O SDK inclui o código de exemplo para o dispositivo simulado. Esse dispositivo 
 
 3. No **adicionar grupo de inscrição**, introduza as seguintes informações e clique nas **guardar** botão.
 
-    - **Nome do grupo**: Introduza **mylegacydevices**.
+   - **Nome do grupo**: Introduza **mylegacydevices**.
 
-    - **Tipo de atestado**: Selecione **chave simétrica**.
+   - **Tipo de atestado**: Selecione **chave simétrica**.
 
-    - **Chaves de geração automática**: Esta caixa de verificação.
+   - **Chaves de geração automática**: Esta caixa de verificação.
 
-    - **Selecione como pretende atribuir dispositivos a hubs**: Selecione **configuração estática** para poder atribuir a um concentrador específico.
+   - **Selecione como pretende atribuir dispositivos a hubs**: Selecione **configuração estática** para poder atribuir a um concentrador específico.
 
-    - **Selecione os hubs IoT deste grupo pode ser atribuído a**: Selecione um dos seus hubs.
+   - **Selecione os hubs IoT deste grupo pode ser atribuído a**: Selecione um dos seus hubs.
 
-    ![Adicionar grupo de inscrição para o atestado de chave simétrico](./media/how-to-legacy-device-symm-key/symm-key-enrollment-group.png)
+     ![Adicionar grupo de inscrição para o atestado de chave simétrico](./media/how-to-legacy-device-symm-key/symm-key-enrollment-group.png)
 
 4. Depois de guardar a inscrição, a **Chave Primária** e a **Chave Secundária** serão geradas e adicionadas à entrada de inscrição. Seu grupo de inscrição de chave simétrica é apresentado como **mylegacydevices** sob a *nome do grupo* coluna no *grupos de inscrição* separador. 
 

@@ -10,12 +10,12 @@ ms.subservice: custom-decision-service
 ms.topic: conceptual
 ms.date: 05/09/2018
 ms.author: marossi
-ms.openlocfilehash: c03278c0d0faced20f4e02fcc1f61531c88ae141
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 8a8f669c33f40fb80dc826ec04203880dee74d82
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55869675"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58109414"
 ---
 # <a name="logdownloader"></a>LogDownloader
 
@@ -49,7 +49,7 @@ python LogDownloader.py [-h] -a APP_ID -l LOG_DIR [-s START_DATE]
 | `-s START_DATE`, `--start_date START_DATE` | O download data (incluída), além de início *DD-MM-AAAA* formato. | `None` |
 | `-e END_DATE`, `--end_date END_DATE` | A transferir data de fim (incluída), no *DD-MM-AAAA* formato. | `None` |
 | `-o OVERWRITE_MODE`, `--overwrite_mode OVERWRITE_MODE` | O modo de substituição a utilizar. | |
-| | `0`: Nunca substituir; Peça ao utilizador se os blobs são utilizadas atualmente. | Predefinição | |
+| | `0`: Nunca substituir; Peça ao utilizador se os blobs são utilizadas atualmente. | Predefinição |
 | | `1`: Peça ao utilizador como proceder quando os ficheiros têm tamanhos diferentes ou os blobs estão atualmente a ser utilizados. | |
 | | `2`: Substitui sempre; Transferir blobs usados no momento. | |
 | | `3`: Nunca substituir e, se o tamanho é maior, sem pedir; de acréscimo Transferir blobs usados no momento. | |

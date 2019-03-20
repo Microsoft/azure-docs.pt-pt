@@ -8,12 +8,12 @@ ms.author: yanacai
 ms.reviewer: jasonwhowell
 ms.topic: conceptual
 ms.date: 03/01/2017
-ms.openlocfilehash: 6a73ef058a76152678099eca3f1bd15590b0b03d
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 14908225e78b79cb748e712ae23643ddde4a4242
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51238799"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58089969"
 ---
 # <a name="run-and-test-u-sql-with-azure-data-lake-u-sql-sdk"></a>Executar e testar o U-SQL com o SDK do Azure Data Lake U-SQL
 
@@ -32,11 +32,11 @@ O SDK do Data Lake U-SQL requer as seguintes dependências:
 - [Microsoft .NET Framework 4.6 ou mais recente](https://www.microsoft.com/download/details.aspx?id=17851).
 - Microsoft Visual C++ 14 e o Windows SDK 10.0.10240.0 ou mais recente (que é chamado CppSDK neste artigo). Existem duas formas de obter CppSDK:
 
-    - Instale [Visual Studio Community Edition](https://developer.microsoft.com/downloads/vs-thankyou). Terá uma pasta de \Windows Kits\10 sob a pasta de ficheiros de programa – por exemplo, C:\Program Files (x86) \Windows Kits\10\. Também encontrará a versão do SDK do Windows 10 em \Windows Kits\10\Lib. Se não vir estas pastas, reinstale o Visual Studio e certifique-se de que seleciona o SDK do Windows 10 durante a instalação. Se o ter isso instalado com o Visual Studio, o compilador local do U-SQL irá encontrá-lo automaticamente.
+  - Instale [Visual Studio Community Edition](https://developer.microsoft.com/downloads/vs-thankyou). Terá uma pasta de \Windows Kits\10 sob a pasta de ficheiros de programa – por exemplo, C:\Program Files (x86) \Windows Kits\10\. Também encontrará a versão do SDK do Windows 10 em \Windows Kits\10\Lib. Se não vir estas pastas, reinstale o Visual Studio e certifique-se de que seleciona o SDK do Windows 10 durante a instalação. Se o ter isso instalado com o Visual Studio, o compilador local do U-SQL irá encontrá-lo automaticamente.
 
     ![Ferramentas do Data Lake para Visual Studio SDK do Windows 10 de execução local](./media/data-lake-analytics-data-lake-tools-local-run/data-lake-tools-for-visual-studio-local-run-windows-10-sdk.png)
 
-    - Instale [Data Lake Tools para Visual Studio](https://aka.ms/adltoolsvs). Pode encontrar o Visual C++ e o Windows SDK previamente incluídas em pacotes de ficheiros em C:\Program Files (x86) \Microsoft Visual Studio 14.0\Common7\IDE\Extensions\Microsoft\ADL Tools\X.X.XXXX.X\CppSDK. Neste caso, o compilador de local do U-SQL não é possível localizar as dependências automaticamente. Tem de especificar o caminho de CppSDK para ele. Pode copiar os ficheiros para outra localização ou utilizá-la como está.
+  - Instale [Data Lake Tools para Visual Studio](https://aka.ms/adltoolsvs). Pode encontrar o Visual C++ e o Windows SDK previamente incluídas em pacotes de ficheiros em C:\Program Files (x86) \Microsoft Visual Studio 14.0\Common7\IDE\Extensions\Microsoft\ADL Tools\X.X.XXXX.X\CppSDK. Neste caso, o compilador de local do U-SQL não é possível localizar as dependências automaticamente. Tem de especificar o caminho de CppSDK para ele. Pode copiar os ficheiros para outra localização ou utilizá-la como está.
 
 ## <a name="understand-basic-concepts"></a>Compreender os conceitos básicos
 
@@ -55,9 +55,9 @@ Pode utilizar um caminho relativo e um caminho absoluto local em scripts U-SQL. 
 
 |Caminho relativo|Caminho absoluto|
 |-------------|-------------|
-|/abc/def/Input.csv |C:\LocalRunDataRoot\abc\def\input.csv|
-|abc/def/Input.csv  |C:\LocalRunDataRoot\abc\def\input.csv|
-|D:/abc/def/Input.csv |D:\abc\def\input.csv|
+|/abc/def/input.csv |C:\LocalRunDataRoot\abc\def\input.csv|
+|abc/def/input.csv  |C:\LocalRunDataRoot\abc\def\input.csv|
+|D:/abc/def/input.csv |D:\abc\def\input.csv|
 
 ### <a name="working-directory"></a>Diretório de trabalho
 
@@ -139,18 +139,18 @@ Seguem-se para os argumentos opcionais **executar**:
 
 |Argumento|Valor predefinido|Descrição|
 |--------|-------------|-----------|
-|-Code-behind|Falso|O script tem. cs code-behind|
+|-CodeBehind|Falso|O script tem. cs code-behind|
 |-CppSDK| |Diretório de CppSDK|
 |-DataRoot| Variável de ambiente de DataRoot|DataRoot para execução, o padrão a variável de ambiente 'LOCALRUN_DATAROOT' local|
 |-MessageOut| |Mensagens na consola para um ficheiro de cópia de segurança|
 |-Paralelo|1|Executar o plano com o paralelismo especificado|
-|-Referências| |Lista de caminhos para os assemblies de referência adicionais ou ficheiros de dados de code-behind, separados por ";"|
+|-References| |Lista de caminhos para os assemblies de referência adicionais ou ficheiros de dados de code-behind, separados por ";"|
 |-UdoRedirect|Falso|Gerar a configuração de redirecionamento do assembly Udo|
 |-UseDatabase|master|Base de dados a utilizar para o code-behind do registo de assembly temporário|
 |-Verbose|Falso|Mostrar saídas detalhadas de tempo de execução|
 |-WorkDir|Diretório atual|Diretório para a utilização de compilador e saídas|
 |-RunScopeCEP|0|ScopeCEP de modo a utilizar|
-|-ScopeCEPTempPath|Temp|Temp caminho a utilizar para dados de transmissão em fluxo|
+|-ScopeCEPTempPath|temp|Temp caminho a utilizar para dados de transmissão em fluxo|
 |-OptFlags| |Lista separada por vírgulas de sinalizadores de otimizador|
 
 
@@ -212,7 +212,7 @@ Seguem-se para os argumentos opcionais **executar**:
 |-DataRoot | '' |Raiz de dados para a execução de metadados. Assume como predefinição o **LOCALRUN_DATAROOT** variável de ambiente.|
 |-MessageOut | '' |Mensagens na consola para um ficheiro de cópia de segurança.|
 |-Paralelo | '1' |Indicador de executar os passos de execução local gerados com o nível de paralelismo especificado.|
-|-Verbose | "Falso" |Indicador para Mostrar saídas detalhadas de tempo de execução.|
+|-Verbose | 'False' |Indicador para Mostrar saídas detalhadas de tempo de execução.|
 
 Eis um exemplo de utilização:
 
@@ -223,7 +223,7 @@ Eis um exemplo de utilização:
 
 As interfaces de programação estão localizadas no LocalRunHelper.exe. Pode usá-los para integrar a funcionalidade do SDK do U-SQL e a estrutura de teste do c# para dimensionar o seu teste de local de script de U-SQL. Neste artigo, vou usar o padrão C# projeto teste de unidade para mostrar como utilizar essas interfaces para testar o script de U-SQL.
 
-### <a name="step-1-create-c-unit-test-project-and-configuration"></a>Passo 1: Criar o projeto de teste c# unidade e a configuração
+### <a name="step-1-create-c-unit-test-project-and-configuration"></a>Passo 1: Criar C# projeto e a configuração de teste de unidade
 
 - Criar um projeto de teste de unidade em C# através do ficheiro > novo > projeto > em Visual C# > teste > projeto de teste de unidade.
 - Adicione LocalRunHelper.exe como uma referência para o projeto. O LocalRunHelper.exe está localizado em \build\runtime\LocalRunHelper.exe no pacote Nuget.
@@ -330,9 +330,9 @@ LocalRunHelper.exe fornece as interfaces de programação de compilação local 
 
 **Construtor**
 
-LocalRunHelper pública ([TextWriter messageOutput = null])
+public LocalRunHelper([System.IO.TextWriter messageOutput = null])
 
-|Parâmetro|Tipo|Descrição|
+|Parâmetro|Type|Descrição|
 |---------|----|-----------|
 |messageOutput|System.IO.TextWriter|para mensagens de saída, definido como nulo para utilizar a consola|
 
@@ -340,33 +340,33 @@ LocalRunHelper pública ([TextWriter messageOutput = null])
 
 |Propriedade|Tipo|Descrição|
 |--------|----|-----------|
-|AlgebraPath|cadeia|O caminho para o ficheiro de álgebra (arquivo de álgebra é um dos resultados da compilação)|
-|CodeBehindReferences|cadeia|Se o script tiver adicional code-behind de referências, especifique os caminhos separados por ";"|
-|CppSdkDir|cadeia|Diretório de CppSDK|
-|CurrentDir|cadeia|Diretório atual|
-|DataRoot|cadeia|Caminho de raiz de dados|
-|DebuggerMailPath|cadeia|O caminho para o depurador mailslot|
-|GenerateUdoRedirect|Bool|Se quisermos gerar a configuração de substituição de redirecionamento de carregamento de assemblagem|
-|HasCodeBehind|Bool|Se o script contém code-behind|
-|InputDir|cadeia|Diretório de dados de entrada|
-|MessagePath|cadeia|Caminho do arquivo de despejo de mensagem|
-|OutputDir|cadeia|Diretório de dados de saída|
+|AlgebraPath|string|O caminho para o ficheiro de álgebra (arquivo de álgebra é um dos resultados da compilação)|
+|CodeBehindReferences|string|Se o script tiver adicional code-behind de referências, especifique os caminhos separados por ";"|
+|CppSdkDir|string|Diretório de CppSDK|
+|CurrentDir|string|Diretório atual|
+|DataRoot|string|Caminho de raiz de dados|
+|DebuggerMailPath|string|O caminho para o depurador mailslot|
+|GenerateUdoRedirect|booleano|Se quisermos gerar a configuração de substituição de redirecionamento de carregamento de assemblagem|
+|HasCodeBehind|booleano|Se o script contém code-behind|
+|InputDir|string|Diretório de dados de entrada|
+|MessagePath|string|Caminho do arquivo de despejo de mensagem|
+|OutputDir|string|Diretório de dados de saída|
 |Paralelismo|int|Paralelismo para executar a álgebra|
 |ParentPid|int|PID do pai no qual o serviço monitoriza para sair, definido como 0 ou negativos para ignorar|
-|ResultPath|cadeia|Caminho do ficheiro de informação de estado de resultado|
-|RuntimeDir|cadeia|Diretório de tempo de execução|
-|ScriptPath|cadeia|Onde encontrar o script|
-|Raso|Bool|Superficialmente a compilação ou não|
-|TempDir|cadeia|Diretório temporário|
-|UseDataBase|cadeia|Especifique a base de dados a utilizar para o code-behind do registo de assembly temporário, mestre por padrão|
-|WorkDir|cadeia|Diretório de trabalho preferencial|
+|ResultPath|string|Caminho do ficheiro de informação de estado de resultado|
+|RuntimeDir|string|Diretório de tempo de execução|
+|ScriptPath|string|Onde encontrar o script|
+|Raso|booleano|Superficialmente a compilação ou não|
+|TempDir|string|Diretório temporário|
+|UseDataBase|string|Especifique a base de dados a utilizar para o code-behind do registo de assembly temporário, mestre por padrão|
+|WorkDir|string|Diretório de trabalho preferencial|
 
 
 **Método**
 
 |Método|Descrição|Voltar|Parâmetro|
 |------|-----------|------|---------|
-|bool pública DoCompile()|Compilar o script de U-SQL|VERDADEIRO em caso de êxito| |
+|public bool DoCompile()|Compilar o script de U-SQL|VERDADEIRO em caso de êxito| |
 |bool pública DoExec()|O resultado compilado de execução|VERDADEIRO em caso de êxito| |
 |bool pública DoRun()|Execute o script de U-SQL (compilação + execução)|VERDADEIRO em caso de êxito| |
 |bool pública IsValidRuntimeDir (caminho de cadeia de caracteres)|Verifique se o caminho especificado é o caminho de tempo de execução válido|Verdadeiro para válido|O caminho do diretório de tempo de execução|
@@ -379,7 +379,7 @@ E_CSC_SYSTEM_INTERNAL: Erro interno! Não foi possível carregar o ficheiro ou a
 
 Verifique o seguinte:
 
-- Certifique-se de que tem o x64 ambiente. A plataforma de destino de compilação e o ambiente de teste deve ser x64, consulte **passo 1: Criar unidade em c# testar o projeto e a configuração** acima.
+- Certifique-se de que tem o x64 ambiente. A plataforma de destino de compilação e o ambiente de teste deve ser o x64, consulte o **passo 1: Criar C# projeto e a configuração de teste de unidade** acima.
 - Certifique-se de que copiou todos os ficheiros de dependência em NugetPackage\build\runtime\ ao diretório de trabalho do projeto.
 
 

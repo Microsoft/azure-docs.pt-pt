@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/27/2019
 ms.author: hrasheed
-ms.openlocfilehash: 4d2e238182ec37a2ac652806bb1eed18110759de
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 31909d007727ca5b440343e3c5a035984399b77a
+ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57897168"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58201743"
 ---
 # <a name="process-and-analyze-json-documents-by-using-apache-hive-in-azure-hdinsight"></a>Processar e analisar documentos JSON com o Apache Hive no HDInsight do Azure
 
@@ -153,8 +153,8 @@ Concluindo, o tipo de operador JSON no Hive que escolher depende do seu cenário
 Para artigos relacionados, consulte:
 
 * [Utilizar o Apache Hive e o HiveQL com o Apache Hadoop no HDInsight para analisar um ficheiro do Apache log4j de exemplo](../hdinsight-use-hive.md)
-* [Analisar dados de atraso de voo com o Apache Hive no HDInsight](../hdinsight-analyze-flight-delay-data.md)
-* [Analisar dados do Twitter com o Apache Hive no HDInsight](../hdinsight-analyze-twitter-data.md)
+* [Analisar dados de atraso de voo com o Apache Hive no HDInsight](../hdinsight-analyze-flight-delay-data-linux.md)
+* [Analisar dados do Twitter com o Apache Hive no HDInsight](../hdinsight-analyze-twitter-data-linux.md)
 
 [hdinsight-python]:python-udf-hdinsight.md
 

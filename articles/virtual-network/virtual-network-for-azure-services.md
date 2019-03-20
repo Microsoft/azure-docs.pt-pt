@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: jdial
-ms.openlocfilehash: 74831692b8dfa1da359716eb54287e2f07f3bd36
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
+ms.openlocfilehash: 1702e6cb977cdb90cdd5a0d692e5516c10075529
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55692176"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58102776"
 ---
 # <a name="virtual-network-integration-for-azure-services"></a>Integração da rede virtual para serviços do Azure
 
@@ -52,7 +52,7 @@ Implementação de serviços dentro de uma rede virtual fornece as seguintes cap
 |Dados|[RedisCache](../azure-cache-for-redis/cache-how-to-premium-vnet.md?toc=%2fazure%2fvirtual-network%2ftoc.json)<br/>[Instância gerida da base de dados SQL do Azure](../sql-database/sql-database-managed-instance-connectivity-architecture.md?toc=%2fazure%2fvirtual-network%2ftoc.json)|
 Análise | [O Azure HDInsight](../hdinsight/hdinsight-extend-hadoop-virtual-network.md?toc=%2fazure%2fvirtual-network%2ftoc.json)<br/>[Azure Databricks](../azure-databricks/what-is-azure-databricks.md?toc=%2fazure%2fvirtual-network%2ftoc.json) |
 | Identidade | [Serviços de domínio do Active Directory do Azure](../active-directory-domain-services/active-directory-ds-getting-started-vnet.md?toc=%2fazure%2fvirtual-network%2ftoc.json) |
-| Contentores | [Serviço Kubernetes do Azure (AKS)](../aks/concepts-network.md?toc=%2fazure%2fvirtual-network%2ftoc.json)<br/>[Instância de contentor do Azure (ACI)](https://www.aka.ms/acivnet)<br/>[Motor do serviço de contentor do Azure](https://github.com/Azure/acs-engine) com CNI de rede Virtual do Azure [Plug-in](https://github.com/Azure/acs-engine/tree/master/examples/vnet)||
+| Contentores | [Serviço Kubernetes do Azure (AKS)](../aks/concepts-network.md?toc=%2fazure%2fvirtual-network%2ftoc.json)<br/>[Instância de contentor do Azure (ACI)](https://www.aka.ms/acivnet)<br/>[Motor do serviço de contentor do Azure](https://github.com/Azure/acs-engine) com CNI de rede Virtual do Azure [Plug-in](https://github.com/Azure/acs-engine/tree/master/examples/vnet)|
 | Web | [Gestão de API](../api-management/api-management-using-with-vnet.md?toc=%2fazure%2fvirtual-network%2ftoc.json)<br/>[Ambiente do Serviço de Aplicações](../app-service/web-sites-integrate-with-vnet.md?toc=%2fazure%2fvirtual-network%2ftoc.json)<br/>|
 | Alojado | [HSM dedicados do Azure](../dedicated-hsm/index.yml?toc=%2fazure%2fvirtual-network%2ftoc.json)<br/>[Ficheiros do Azure NetApp](../azure-netapp-files/azure-netapp-files-introduction.md?toc=%2fazure%2fvirtual-network%2ftoc.json)<br/>|
 |||

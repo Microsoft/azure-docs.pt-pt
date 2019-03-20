@@ -11,13 +11,13 @@ author: juliemsft
 ms.author: jrasnick
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 12/19/2018
-ms.openlocfilehash: f462940f652f568168c4d0b1e8012c7196d59b13
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.date: 03/12/2019
+ms.openlocfilehash: e488e742fc49102f7c58d132a66bca2347ad575c
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57314165"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57849878"
 ---
 # <a name="managing-azure-sql-databases-using-azure-automation"></a>Gerir bases de dados SQL do Azure com a automatização do Azure
 
@@ -33,7 +33,7 @@ Reduzir o overhead operacional e liberar IT / equipa do DevOps para se dedicar a
 
 ## <a name="how-can-azure-automation-help-manage-azure-sql-databases"></a>Como pode automatização do Azure ajudar a gerir bases de dados SQL do Azure?
 
-Base de dados SQL do Azure podem ser gerido na automatização do Azure com o [cmdlets do PowerShell de base de dados SQL do Azure](https://docs.microsoft.com/powershell/module/servicemanagement/azure/?view=azuresmps-4.0.0#sql) que estão disponíveis no [ferramentas do Azure PowerShell](/powershell/azure/overview). A automatização do Azure tem estes cmdlets do PowerShell de base de dados SQL do Azure disponíveis de imediato, para que possa executar todas as suas tarefas de gestão de BD SQL no serviço. Também pode emparelhar estes cmdlets na automatização do Azure com os cmdlets para outros serviços do Azure, para automatizar tarefas complexas em serviços do Azure e em todos os sistemas de terceiros.
+Base de dados SQL do Azure podem ser gerido na automatização do Azure com o [cmdlets do PowerShell de base de dados SQL do Azure](https://docs.microsoft.com/powershell/module/servicemanagement/azure/#sql) que estão disponíveis no [ferramentas do Azure PowerShell](/powershell/azure/overview). A automatização do Azure tem estes cmdlets do PowerShell de base de dados SQL do Azure disponíveis de imediato, para que possa executar todas as suas tarefas de gestão de BD SQL no serviço. Também pode emparelhar estes cmdlets na automatização do Azure com os cmdlets para outros serviços do Azure, para automatizar tarefas complexas em serviços do Azure e em todos os sistemas de terceiros.
 
 A automatização do Azure também tem a capacidade de comunicar com os servidores SQL diretamente, através da emissão de comandos SQL com o PowerShell.
 

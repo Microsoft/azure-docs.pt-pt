@@ -8,12 +8,12 @@ ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 12/3/2018
 ms.author: victorh
-ms.openlocfilehash: 8deb02738b19ebe7b50441125e38e540456bd0d3
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.openlocfilehash: e6ba429d3e94f43cf21e6b76b7ef3644ca28fb19
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57317072"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58169175"
 ---
 # <a name="configure-ssl-policy-versions-and-cipher-suites-on-application-gateway"></a>Configurar versões de política SSL e cipher suites no Gateway de aplicação
 
@@ -161,7 +161,7 @@ $subnet = $vnet.Subnets[0]
 # Create a public IP address
 $publicip = New-AzPublicIpAddress -ResourceGroupName $rg.ResourceGroupName -name publicIP01 -location "East US" -AllocationMethod Dynamic
 
-# Create a ip configuration object
+# Create an ip configuration object
 $gipconfig = New-AzApplicationGatewayIPConfiguration -Name gatewayIP01 -Subnet $subnet
 
 # Create a backend pool for backend web servers

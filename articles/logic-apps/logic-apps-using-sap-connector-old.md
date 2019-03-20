@@ -2,7 +2,6 @@
 title: Ligar a sistemas SAP - Azure Logic Apps | Documentos da Microsoft
 description: Como aceder e gerir recursos SAP através da automatização de fluxos de trabalho com o Azure Logic Apps
 author: ecfan
-manager: jeconnoc
 ms.author: estfan
 ms.date: 05/31/2018
 ms.topic: article
@@ -11,18 +10,17 @@ services: logic-apps
 ms.reviewer: klam, divswa, LADocs
 ms.suite: integration
 tags: connectors
-ms.openlocfilehash: 77d1e11c1400f9a3d6bb6bda8e935cd4d24a195e
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
+ms.openlocfilehash: d677c0eae9c92f90783ed4ebd95a528b34c872ec
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50230901"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58170841"
 ---
 # <a name="connect-to-sap-systems-from-azure-logic-apps"></a>Ligar a sistemas SAP a partir do Azure Logic Apps
 
 > [!NOTE]
-> Este conector SAP vai ser preterido em breve. Lançámos novos e mais avançados conector do SAP e recomendamos que escolha ou mover para o [novo conector SAP](./logic-apps-using-sap-connector.md).
->  
+> Este conector SAP está agendada para preterição. Utilize ou migrar para o [conector do SAP mais recente e mais avançado](./logic-apps-using-sap-connector.md). 
 
 Este artigo mostra como pode acessar seus recursos SAP a partir de dentro de uma aplicação lógica ao utilizar os conectores do servidor de aplicações SAP e SAP Message Server. Dessa forma, pode automatizar tarefas, processos e fluxos de trabalho que gerir os seus dados do SAP e a recursos através da criação de aplicações lógicas.
 
@@ -38,7 +36,7 @@ Se não tiver uma subscrição do Azure, <a href="https://azure.microsoft.com/fr
 
 Para seguir este artigo, precisa destes itens:
 
-* A aplicação de lógica de onde deseja acessar seu sistema SAP e um acionador que inicia o fluxo de trabalho da sua aplicação lógica. Atualmente, os conectores SAP fornecem apenas as ações. Se estiver familiarizado com aplicações lógicas, reveja [o que é o Azure Logic Apps](../logic-apps/logic-apps-overview.md) e [guia de início rápido: criar a sua primeira aplicação lógica](../logic-apps/quickstart-create-first-logic-app-workflow.md).
+* A aplicação de lógica de onde deseja acessar seu sistema SAP e um acionador que inicia o fluxo de trabalho da sua aplicação lógica. Atualmente, os conectores SAP fornecem apenas as ações. Se estiver familiarizado com aplicações lógicas, reveja [o que é o Azure Logic Apps](../logic-apps/logic-apps-overview.md) e [início rápido: Criar a sua primeira aplicação lógica](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
 * Sua <a href="https://wiki.scn.sap.com/wiki/display/ABAP/ABAP+Application+Server" target="_blank">servidor de aplicações SAP</a> ou <a href="https://help.sap.com/saphelp_nw70/helpdata/en/40/c235c15ab7468bb31599cc759179ef/frameset.htm" target="_blank">servidor de mensagens do SAP</a>
 
@@ -67,7 +65,7 @@ Neste exemplo, vai criar uma aplicação lógica com um ponto de extremidade no 
 
 1. No portal do Azure, crie uma aplicação lógica em branco, que abre o Estruturador da aplicação lógica. 
 
-2. Na caixa de pesquisa, introduza "pedido de http" como o filtro. Na lista de disparadores, selecione este acionador: **pedido - pedido de HTTP de quando é recebido**
+2. Na caixa de pesquisa, introduza "pedido de http" como o filtro. Na lista de disparadores, selecione este acionador: **Pedido - quando é recebido um pedido HTTP**
 
    ![Adicionar acionador de pedido de HTTP](./media/logic-apps-using-sap-connector-old/add-trigger.png)
 
@@ -93,7 +91,7 @@ No Azure Logic Apps, um [ação](../logic-apps/logic-apps-overview.md#logic-app-
    * **Servidor de aplicações SAP - enviá-las para SAP**
    * **Servidor de mensagens SAP - enviá-las para SAP**
 
-   Este exemplo utiliza esta ação: **SAP Application Server - enviá-las para SAP**
+   Este exemplo utiliza esta ação: **Servidor de aplicações SAP - enviá-las para SAP**
 
    ![Selecione "Servidor de aplicações SAP" ou "Servidor de mensagens SAP"](media/logic-apps-using-sap-connector-old/select-sap-action.png)
 
@@ -154,7 +152,7 @@ Agora, adicione uma ação de resposta para o fluxo de trabalho da sua aplicaç�
 
 1. No Estruturador da aplicação lógica, sob a ação de SAP, escolha **novo passo** > **adicionar uma ação**.
 
-2. Na caixa de pesquisa, introduza "resposta" como o filtro. Na lista de ações, selecione a ação: **pedido - resposta**
+2. Na caixa de pesquisa, introduza "resposta" como o filtro. Na lista de ações, selecione a ação: **Pedido - resposta**
 
 3. Clique no interior da **corpo** caixa para que a lista de conteúdo dinâmico apareça. Nessa lista, sob **enviar para o SAP**, selecione a **corpo** campo. 
 

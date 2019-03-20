@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e5639984c6eef7d1c081fd52061988d3535c00fa
-ms.sourcegitcommit: 30a0007f8e584692fe03c0023fe0337f842a7070
+ms.openlocfilehash: 6888a8787856ef23c459c7ffc18f8e2b4de17f6f
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57576995"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57901149"
 ---
 # <a name="password-policies-and-restrictions-in-azure-active-directory"></a>Políticas de palavra-passe e restrições no Azure Active Directory
 
@@ -33,22 +33,22 @@ A política de porta de dois requer dois tipos de dados de autenticação, por e
 * Todas as seguintes funções de administrador do Azure são afetadas:
   * Administrador de suporte técnico
   * Administrador de assistência técnica
-  * Administrador de Faturação
+  * Administrador de faturação
   * Parceiro de Suporte de Escalão 1
   * Parceiro de Suporte de Escalão 2
-  * Administrador do serviço Exchange
-  * Administrador do serviço Lync
-  * Administrador de conta de utilizador
+  * Administrador do Exchange
+  * Administrador do Skype para Empresas
+  * Administrador de utilizadores
   * Escritores de diretórios
   * Administrador global ou administrador de empresa
-  * Administrador de serviços do SharePoint
+  * Administrador do SharePoint
   * Administrador de Conformidade
   * Administrador de aplicações
   * Administrador de segurança
   * Administrador com Função Privilegiada
-  * Administrador de serviços do Microsoft Intune
+  * Administrador do Intune
   * Administrador de serviço de proxy de aplicações
-  * Administrador de serviço CRM
+  * Administrador do Dynamics 365
   * Administrador de serviço do Power BI
   * Administrador da autenticação
   * Administrador com privilégios de autenticação
@@ -71,11 +71,7 @@ Cada conta de utilizador que tem de iniciar sessão Azure AD tem de ter um valor
 
 | Propriedade | Requisitos de UserPrincipalName |
 | --- | --- |
-| Carateres permitidos |<ul> <li>A – Z</li> <li>a - z</li><li>0 – 9</li> <li> ' \. - \_ ! 
-          \#
-           ^ 
-          \~
-        </li></ul> |
+| Carateres permitidos |<ul> <li>A – Z</li> <li>a - z</li><li>0 – 9</li> <li> ' \. - \_ ! \# ^ \~</li></ul> |
 | Carateres não permitidos |<ul> <li>Qualquer "\@ \" caractere que não é separar o nome de utilizador do domínio.</li> <li>Não pode conter um caráter de ponto final "." imediatamente anterior a "\@ \" símbolo</li></ul> |
 | Restrições de tamanho |<ul> <li>O comprimento total não pode exceder 113 carateres</li><li>Pode haver até 64 carateres antes do "\@ \" símbolo</li><li>Pode haver até 48 carateres após o "\@ \" símbolo</li></ul> |
 
@@ -85,7 +81,7 @@ A tabela seguinte descreve as definições de política de palavra-passe aplicad
 
 | Propriedade | Requisitos |
 | --- | --- |
-| Carateres permitidos |<ul><li>A – Z</li><li>a - z</li><li>0 – 9</li> <li>@ # $ % ^ & * - _ ! + = [ ] { } &#124; \ : ‘ , . ? / ` ~ " ( ) ;</li></ul> |
+| Carateres permitidos |<ul><li>A – Z</li><li>a - z</li><li>0 – 9</li> <li>@ # $ % ^ & * - _ ! + = [ ] { } &#124; \ : ‘ , . ? / \` ~ " ( ) ;</li></ul> |
 | Carateres não permitidos |<ul><li>Carateres Unicode.</li><li>Espaços.</li><li> Não pode conter um caráter de ponto "." imediatamente anterior a "\@ \" símbolo".</li></ul> |
 | Restrições de palavra-passe |<ul><li>Um mínimo de 8 caracteres e um máximo de 16 carateres.</li><li>Requer três de quatro dos seguintes procedimentos:<ul><li>Carateres em minúsculas.</li><li>Carateres maiúsculos.</li><li>Números (0-9).</li><li>Símbolos (consulte as restrições de palavra-passe anteriores).</li></ul></li></ul> |
 | Duração de expiração de palavra-passe |<ul><li>Valor predefinido: **90** dias.</li><li>O valor é configurável utilizando o `Set-MsolPasswordPolicy` cmdlet a partir do módulo Azure Active Directory para Windows PowerShell.</li></ul> |
@@ -114,7 +110,7 @@ Para começar, precisa [transferir e instalar o módulo Azure AD PowerShell](htt
 1. Ligar ao Windows PowerShell com suas credenciais de administrador da empresa.
 1. Execute um dos seguintes comandos:
 
-   * Para ver se a palavra-passe de um único utilizador está definida para nunca expirar, execute o seguinte cmdlet através do UPN (por exemplo, *aprilr@contoso.onmicrosoft.com*) ou o ID de utilizador do utilizador que pretende verificar: `Get-AzureADUser -ObjectId <user ID> | Select-Object @{N="PasswordNeverExpires";E={$_.PasswordPolicies -contains "DisablePasswordExpiration"}}`
+   * Para ver se a palavra-passe de um único utilizador está definida para nunca expirar, execute o seguinte cmdlet através do UPN (por exemplo, *aprilr\@contoso.onmicrosoft.com*) ou o ID de utilizador do utilizador que pretende verificar: `Get-AzureADUser -ObjectId <user ID> | Select-Object @{N="PasswordNeverExpires";E={$_.PasswordPolicies -contains "DisablePasswordExpiration"}}`
    * Para ver os **palavra-passe nunca expira** definir para todos os utilizadores, execute o seguinte cmdlet: `Get-AzureADUser -All $true | Select-Object UserPrincipalName, @{N="PasswordNeverExpires";E={$_.PasswordPolicies -contains "DisablePasswordExpiration"}}`
 
 ### <a name="set-a-password-to-expire"></a>Definir uma palavra-passe a expirar

@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/06/2018
-ms.openlocfilehash: 0699686338a14ed6cc1ddcb076e14de86d0249d9
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 6c57dff2e0f0c1edb887ddd8f0e5ca206ba8b912
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57438615"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58110397"
 ---
 # <a name="manage-ml-services-cluster-on-azure-hdinsight"></a>Gerir o cluster de serviços de ML no Azure HDInsight
 
@@ -310,7 +310,7 @@ Para instalar pacotes de R em nós de trabalho do cluster, tem de utilizar uma a
 
    * Para **nome**, forneça um nome para a ação de script.
 
-    * Para **URI do script de Bash**, introduza `https://mrsactionscripts.blob.core.windows.net/rpackages-v01/InstallRPackages.sh`. Este é o script que instala os pacotes de R adicionais no nó de trabalho
+     * Para **URI do script de Bash**, introduza `https://mrsactionscripts.blob.core.windows.net/rpackages-v01/InstallRPackages.sh`. Este é o script que instala os pacotes de R adicionais no nó de trabalho
 
    * Selecione a caixa de verificação só **trabalho**.
 

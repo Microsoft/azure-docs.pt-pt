@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 10/17/2018
 ms.author: cherylmc
-ms.openlocfilehash: 9779885869666ffd1198afcda944823b99d52e5b
-ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
+ms.openlocfilehash: bf7d80bbbe63204cda47719a7d7c019013ad800b
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/19/2019
-ms.locfileid: "56417978"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58099176"
 ---
 # <a name="connect-virtual-networks-from-different-deployment-models-using-the-portal"></a>Ligar redes virtuais a partir de modelos de implementação diferentes com o portal
 
@@ -114,7 +114,7 @@ Se já tiver uma VNet com um gateway VPN, certifique-se de que o gateway é din�
 1. Sobre o **nova ligação VPN** página, selecione a **criar gateway de imediato** caixa de verificação.
 2. Clique em **Configuração do gateway opcional** para abrir a página **Configuração do gateway**.
 
-  ![Página de configuração do Open gateway](./media/vpn-gateway-connect-different-deployment-models-portal/optionalgatewayconfiguration.png "página de configuração do gateway aberto")
+   ![Página de configuração do Open gateway](./media/vpn-gateway-connect-different-deployment-models-portal/optionalgatewayconfiguration.png "página de configuração do gateway aberto")
 3. Clique em **sub-rede - configurar definições necessárias** para abrir o **adicionar sub-rede** página. O **nome** já está configurada com o valor necessário: **GatewaySubnet**.
 4. O **intervalo de endereços** refere-se para o intervalo para a sub-rede do gateway. Embora seja possível criar uma sub-rede de gateway com/29 (3 endereços), de intervalo de endereços, recomendamos a criação de uma sub-rede de gateway que contém mais endereços IP. Isto irá acomodar configurações futuras que possam precisar de endereços IP mais disponíveis. Se possível, utilize/27 ou /28. Se estiver a utilizar estes passos como um exercício, pode consultar o [valores de exemplo](#values). Neste exemplo, vamos utilizar '10.0.0.32/28'. Clique em **OK** para criar a sub-rede do gateway.
 5. Sobre o **configuração do Gateway** página, **tamanho** refere-se para o SKU de gateway. Selecione o SKU de gateway para o seu gateway VPN.
@@ -192,16 +192,16 @@ Nesta secção, substitua o endereço IP do marcador de posição que utilizou a
 2. Na página da sua rede virtual, clique em **descrição geral**.
 3. Na **ligações VPN** secção, clique no nome do seu site local no gráfico.
 
-  ![Ligações de VPN](./media/vpn-gateway-connect-different-deployment-models-portal/vpnconnections.png "ligações VPN")
+   ![Ligações de VPN](./media/vpn-gateway-connect-different-deployment-models-portal/vpnconnections.png "ligações VPN")
 4. Sobre o **conexões VPN de Site a site** página, clique no nome do site.
 
-  ![Nome do site](./media/vpn-gateway-connect-different-deployment-models-portal/sitetosite3.png "nome do Local site")
+   ![Nome do site](./media/vpn-gateway-connect-different-deployment-models-portal/sitetosite3.png "nome do Local site")
 5. Na página de ligação para o seu site local, clique no nome do site local para abrir o **Local site** página.
 
-  ![Site-local-aberto](./media/vpn-gateway-connect-different-deployment-models-portal/openlocal.png "Abrir site local")
+   ![Site-local-aberto](./media/vpn-gateway-connect-different-deployment-models-portal/openlocal.png "Abrir site local")
 6. Sobre o **Local site** página, substitua a **endereço IP do gateway de VPN** com o endereço IP do gateway do Resource Manager.
 
-  ![Endereço de ip de gateway](./media/vpn-gateway-connect-different-deployment-models-portal/gwipaddress.png "endereço IP do Gateway")
+   ![Endereço de ip de gateway](./media/vpn-gateway-connect-different-deployment-models-portal/gwipaddress.png "endereço IP do Gateway")
 7. Clique em **OK** para atualizar o endereço IP.
 
 ## <a name="RMtoclassic"></a>Secção 4 - criar o Resource Manager para ligação clássica

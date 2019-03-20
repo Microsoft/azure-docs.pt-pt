@@ -16,12 +16,12 @@ ms.date: 11/14/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: af01d924036e5d31de5498e51b56efdf1defc9f3
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 5217f21449efeb2086770f040fb781765ea819eb
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56201453"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58083942"
 ---
 # <a name="azure-active-directory-seamless-single-sign-on-technical-deep-dive"></a>O Azure Active Directory totalmente integrada início de sessão único: Análise técnica aprofundada
 
@@ -60,7 +60,7 @@ O fluxo de início de sessão num navegador da web é o seguinte:
 3. O usuário digita no respetivo nome de utilizador para a página de início de sessão do Azure AD.
 
    >[!NOTE]
-   >Para [determinados aplicativos](./how-to-connect-sso-faq.md#what-applications-take-advantage-of-domainhint-or-loginhint-parameter-capability-of-seamless-sso), passos 2 e 3 são ignorados.
+   >Para [determinados aplicativos](./how-to-connect-sso-faq.md#what-applications-take-advantage-of-domain_hint-or-login_hint-parameter-capability-of-seamless-sso), passos 2 e 3 são ignorados.
 
 4. Usando o JavaScript em segundo plano, o Azure AD desafios ao navegador, via uma resposta 401 não autorizado, para fornecer um tíquete Kerberos.
 5. O navegador, por sua vez, solicita um pedido de suporte do Active Directory para o `AZUREADSSOACC` conta de computador (que representa o Azure AD).

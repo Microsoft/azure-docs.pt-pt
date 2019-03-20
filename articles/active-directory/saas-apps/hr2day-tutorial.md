@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 06/24/2017
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e932fd59fb888d73fb2ad9aee3f440b4aca3e662
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 378aab82fac5298c3785f752478e3bfc3c6e325b
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56180578"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58103150"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-hr2day-by-merces"></a>Tutorial: Integração do Active Directory do Azure com HR2day por Merces
 
@@ -132,8 +132,8 @@ Nesta secção, pode ativar do Azure AD início de sessão único no portal do A
 
     ![Configurar o início de sessão único](./media/hr2day-tutorial/tutorial_hr2day_00.png)
     
-    > [!NOTE] 
-    Antes de poder configurar a asserção de SAML, tem de contactar o [HR2day pela equipa de suporte de cliente Merces](mailto:servicedesk@merces.nl) e pedir o valor do atributo de identificador exclusivo para o seu inquilino. Vai precisar deste valor para concluir os passos na secção seguinte. 
+   > [!NOTE]
+   >  Antes de poder configurar a asserção de SAML, tem de contactar o [HR2day pela equipa de suporte de cliente Merces](mailto:servicedesk@merces.nl) e pedir o valor do atributo de identificador exclusivo para o seu inquilino. Vai precisar deste valor para concluir os passos na secção seguinte. 
 
 1. Na **início de sessão único** caixa de diálogo a **atributos de utilizador** secção, configure o atributo de token SAML, conforme mostrado na imagem seguinte. Em seguida, siga os passos seguintes.
     
@@ -174,7 +174,7 @@ Nesta secção, pode ativar do Azure AD início de sessão único no portal do A
 
     > [!TIP]
     >Agora pode ler uma versão concisa destas instruções dentro do [portal do Azure](https://portal.azure.com), enquanto estiver a configurar a aplicação!  Depois de adicionar esta aplicação a partir da **do Active Directory** > **aplicações empresariais** secção, selecione o **Single Sign-On** separador. Em seguida, aceder a documentação do embedded através do **configuração** seção na parte inferior. Pode ler mais sobre a funcionalidade de documentação do embedded na [documentação do embedded do Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985).
-> 
+   > 
 
 ### <a name="create-an-azure-ad-test-user"></a>Criar um utilizador de teste do Azure AD
 O objetivo desta secção é criar um utilizador de teste no portal do Azure chamado Eduarda Almeida.

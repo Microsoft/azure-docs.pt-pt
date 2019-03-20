@@ -9,16 +9,16 @@ ms.service: iot-dps
 services: iot-dps
 manager: arjmands
 ms.custom: mvc
-ms.openlocfilehash: 4ab558b680a0d00d1b9bdfbcb1529219f6c37b37
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: af59ccc6d14dce49d06e178aac3ecafc29bd982c
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56728714"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57990741"
 ---
 # <a name="how-to-use-different-attestation-mechanisms-with-device-provisioning-service-client-sdk-for-c"></a>Como utilizar diferentes mecanismos de atestado com o SDK do Cliente do Serviço Aprovisionamento de Dispositivos para C
 
-Este artigo mostra-lhe como utilizar diferentes [mecanismos de atestado](concepts-security.md#attestation-mechanism) com o SDK do Cliente do Serviço Aprovisionamento de Dispositivos para C. Pode utilizar um dispositivo físico ou um simulador. O serviço de aprovisionamento suporta a autenticação para dois tipos de mecanismos de atestação: X **.** Plataforma 509 e confiável Module (TPM).
+Este artigo mostra-lhe como utilizar diferentes [mecanismos de atestado](concepts-security.md#attestation-mechanism) com o SDK do Cliente do Serviço Aprovisionamento de Dispositivos para C. Pode utilizar um dispositivo físico ou um simulador. O serviço de aprovisionamento suporta a autenticação para dois tipos de mecanismos de atestação: X.509 e Trusted Platform Module (TPM).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -98,14 +98,14 @@ Crie o SDK antes de criar a inscrição dos dispositivos.
 
 ### <a name="windows"></a>Windows
 - Para criar o SDK no Windows, siga os passos seguintes para gerar ficheiros de projeto:
-    - Abra uma “Linha de Comandos de Programador” para o VS2015
-    - Execute os seguintes comandos de CMake a partir da raiz do repositório:
-      ```
-      cd azure-iot-sdk-c
-      mkdir cmake
-      cd cmake
-      cmake -G "Visual Studio 14 2015" ..
-      ```
+  - Abra uma “Linha de Comandos de Programador” para o VS2015
+  - Execute os seguintes comandos de CMake a partir da raiz do repositório:
+    ```
+    cd azure-iot-sdk-c
+    mkdir cmake
+    cd cmake
+    cmake -G "Visual Studio 14 2015" ..
+    ```
     Este comando cria bibliotecas x86. Para criar para x64, modifique o argumento do gerador de cmake: 
     ```
     cmake .. -G "Visual Studio 14 2015 Win64"

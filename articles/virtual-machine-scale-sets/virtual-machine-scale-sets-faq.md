@@ -13,15 +13,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/30/2019
+ms.date: 03/13/2019
 ms.author: manayar
 ms.custom: na
-ms.openlocfilehash: 610ac10e757ef422ce130c0cfe8253af6ba4b7b9
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 994612f390cb6c6dcb3b4c2acaaec839ef461d2c
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57542476"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57999556"
 ---
 # <a name="azure-virtual-machine-scale-sets-faqs"></a>FAQs de conjuntos de dimensionamento de máquina virtual do Azure
 
@@ -234,7 +234,7 @@ Pode fornecer as chaves públicas SSH em texto simples quando criar uma VM do Li
 ```
 
 nome do elemento linuxConfiguration | Necessário | Tipo | Descrição
---- | --- | --- | --- |  ---
+--- | --- | --- | --- 
 SSH | Não | Coleção | Especifica a configuração de chave SSH para um sistema operacional do Linux
 caminho | Sim | Cadeia | Especifica o caminho de ficheiro do Linux em que as chaves SSH ou o certificado deve estar localizado
 keyData | Sim | Cadeia | Especifica uma chave pública de SSH codificada em base64
@@ -309,7 +309,7 @@ A documentação do Azure Key Vault declara que a API de REST do segredo de obte
 
 Método | do IdP
 --- | ---
-GET | https://mykeyvault.vault.azure.net/secrets/{secret-name}/{secret-version}?api-version={api-version}
+GET | <https://mykeyvault.vault.azure.net/secrets/{secret-name}/{secret-version}?api-version={api-version}>
 
 Substitua {*segredo-name*} com o nome e o substitua {*segredo-versão*} com a versão do segredo do que pretende recuperar. O versão do segredo pode ser excluído. Nesse caso, a versão atual é recuperada.
 
@@ -535,7 +535,7 @@ Para implementar um conjunto a uma rede virtual do Azure existente de dimensiona
 
 ### <a name="how-do-i-add-the-ip-address-of-the-first-vm-in-a-virtual-machine-scale-set-to-the-output-of-a-template"></a>Como posso adicionar o endereço IP da VM primeiro num conjunto de dimensionamento para a saída de um modelo?
 
-Para adicionar o endereço IP da VM primeiro num conjunto para a saída de um modelo de dimensionamento de máquina virtual, consulte [do Azure Resource Manager: Obter máquina virtual conjuntos de dimensionamento de IPs privados](http://stackoverflow.com/questions/42790392/arm-get-vmsss-private-ips).
+Para adicionar o endereço IP da VM primeiro num conjunto para a saída de um modelo de dimensionamento de máquina virtual, consulte [do Azure Resource Manager: Obter máquina virtual conjuntos de dimensionamento de IPs privados](https://stackoverflow.com/questions/42790392/arm-get-vmsss-private-ips).
 
 ### <a name="can-i-use-scale-sets-with-accelerated-networking"></a>Pode utilizar os conjuntos de dimensionamento com redes aceleradas?
 
@@ -721,3 +721,26 @@ A principal diferença entre a eliminação de uma VM num conjunto de dimensiona
 - Deseja iniciar um conjunto de VMs mais rapidamente do que pode aumentar horizontalmente a um conjunto de dimensionamento de máquina virtual.
   - Relacionadas com este cenário, pode ter criado seu próprio mecanismo de dimensionamento automático e pretender um dimensionamento de ponta a ponta mais rápido.
 - Tem um conjunto de dimensionamento de máquinas virtuais que não pelo é distribuído por domínios de falha ou domínios de atualização. Isto poderá ser porque o tenha eliminado seletivamente VMs ou porque as VMs foram eliminadas depois de aprovisionar em excesso. Em execução `stop deallocate` seguido de `start` na máquina virtual uniformemente conjunto de dimensionamento distribui as VMs em domínios de falha ou domínios de atualização.
+
+### <a name="how-do-i-take-a-snapshot-of-a-vmss-instance"></a>Como posso tirar um instantâneo de uma instância VMSS?
+Crie um instantâneo de uma instância de um VMSS.
+
+```azurepowershell-interactive
+$rgname = "myResourceGroup"
+$vmssname = "myVMScaleSet"
+$Id = 0
+$location = "East US"
+ 
+$vmss1 = Get-AzVmssVM -ResourceGroupName $rgname -VMScaleSetName $vmssname -InstanceId $Id     
+$snapshotconfig = New-AzSnapshotConfig -Location $location -AccountType Standard_LRS -OsType Windows -CreateOption Copy -SourceUri $vmss1.StorageProfile.OsDisk.ManagedDisk.id
+New-AzSnapshot -ResourceGroupName $rgname -SnapshotName 'mySnapshot' -Snapshot $snapshotconfig
+``` 
+ 
+Crie um disco gerido a partir do instantâneo.
+
+```azurepowershell-interactive
+$snapshotName = "myShapshot"
+$snapshot = Get-AzSnapshot -ResourceGroupName $rgname -SnapshotName $snapshotName  
+$diskConfig = New-AzDiskConfig -AccountType Premium_LRS -Location $location -CreateOption Copy -SourceResourceId $snapshot.Id
+$osDisk = New-AzDisk -Disk $diskConfig -ResourceGroupName $rgname -DiskName ($snapshotName + '_Disk') 
+```

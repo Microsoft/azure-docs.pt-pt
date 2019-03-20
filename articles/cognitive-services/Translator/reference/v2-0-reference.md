@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: reference
 ms.date: 05/15/2018
 ms.author: v-jansko
-ms.openlocfilehash: c87e1b42aa8474aa62e979e0d7ec1f8bf948910f
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 4f08b728198d6ee508cbd8267c593abc59e4cb37
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57539654"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58075258"
 ---
 # <a name="translator-text-api-v20"></a>V2.0 de API de texto do tradutor
 
@@ -78,10 +78,10 @@ Tipo de conteúdo de resposta: aplicação/xml
 
 |Parâmetro|Value|Descrição    |Tipo de parâmetro|Tipo de Dados|
 |:--|:--|:--|:--|:--|
-|AppID  |(vazio)    |Obrigatório. Se o cabeçalho de autorização ou Ocp-Apim-Subscription-Key é usado, deixe o campo de appid vazio ou incluir uma cadeia de caracteres que contém "Bearer" + "" + "access_token".|consulta|string|
-|texto|(vazio)   |Obrigatório. Uma cadeia de caracteres que representa o texto a traduzir. O tamanho do texto não pode exceder os 10000 carateres.|consulta|string|
+|AppID  |(vazio)    |Necessário. Se o cabeçalho de autorização ou Ocp-Apim-Subscription-Key é usado, deixe o campo de appid vazio ou incluir uma cadeia de caracteres que contém "Bearer" + "" + "access_token".|consulta|string|
+|texto|(vazio)   |Necessário. Uma cadeia de caracteres que representa o texto a traduzir. O tamanho do texto não pode exceder os 10000 carateres.|consulta|string|
 |de|(vazio)   |Opcional. Uma cadeia de caracteres que representa o código de idioma do texto de tradução. Por exemplo, en para inglês.|consulta|string|
-|para|(vazio) |Obrigatório. Uma cadeia de caracteres que representa o código de idioma para traduzir o texto em.|consulta|string|
+|para|(vazio) |Necessário. Uma cadeia de caracteres que representa o código de idioma para traduzir o texto em.|consulta|string|
 |contentType|(vazio)    |Opcional. O formato de texto a ser traduzido. Os formatos suportados são text/plain (predefinição) e texto/html. Qualquer HTML tem de ser um elemento bem formado e completo.|consulta|string|
 |categoria|(vazio)   |Opcional. Uma cadeia de caracteres que contém a categoria (domínio) da tradução. Predefinição é "geral".|consulta|string|
 |Autorização|(vazio)  |Necessário se o campo de appid ou cabeçalho Ocp-Apim-Subscription-Key não for especificado. Token de autorização:  "Bearer" + "" + "access_token".|cabeçalho|string|
@@ -129,7 +129,7 @@ O formato do corpo do pedido deve ser o seguinte:
 Elementos dentro do `TranslateArrayRequest` são:
 
 
-* `appid`: Obrigatório. Se o `Authorization` ou `Ocp-Apim-Subscription-Key` cabeçalho é usado, deixe o campo de appid vazio incluir, caso contrário, uma cadeia de caracteres que contém `"Bearer" + " " + "access_token"`.
+* `appid`: Necessário. Se o `Authorization` ou `Ocp-Apim-Subscription-Key` cabeçalho é usado, deixe o campo de appid vazio incluir, caso contrário, uma cadeia de caracteres que contém `"Bearer" + " " + "access_token"`.
 * `from`: Opcional. Uma cadeia de caracteres que representa o código de idioma para traduzir texto de. Se deixado em branco a resposta irá incluir o resultado da deteção automática de idioma.
 * `options`: Opcional. Um `Options` objeto que contém os valores apresentados abaixo. Eles são todos opcionais e predefinido para as definições mais comuns. Elementos especificados tem de estar listados em ordem alfabética.
     - `Category`: Uma cadeia de caracteres que contém a categoria (domínio) da tradução. Assume a predefinição `general`.
@@ -138,8 +138,8 @@ Elementos dentro do `TranslateArrayRequest` são:
     - `State`: Estado do utilizador para o ajudar a correlacionar pedido e resposta. O mesmo conteúdo será devolvido na resposta.
     - `Uri`: Filtre os resultados por este URI. Predefinição: `all`.
     - `User`: Filtre os resultados por este utilizador. Predefinição: `all`.
-* `texts`: Obrigatório. Uma matriz que contém os textos para a tradução. Todas as cadeias de caracteres devem ser do mesmo idioma. O total de todos os textos para ser convertido não pode exceder os 10000 carateres. O número máximo de elementos de matriz é 2000.
-* `to`: Obrigatório. Uma cadeia de caracteres que representa o código de idioma para traduzir o texto em.
+* `texts`: Necessário. Uma matriz que contém os textos para a tradução. Todas as cadeias de caracteres devem ser do mesmo idioma. O total de todos os textos para ser convertido não pode exceder os 10000 carateres. O número máximo de elementos de matriz é 2000.
+* `to`: Necessário. Uma cadeia de caracteres que representa o código de idioma para traduzir o texto em.
 
 Podem ser omitidos elementos opcionais. Os elementos que são filhos diretos do TranslateArrayRequest tem de estar listados em ordem alfabética.
 
@@ -224,8 +224,8 @@ Tipo de conteúdo de resposta: aplicação/xml
 
 |Parâmetro|Value|Descrição|Tipo de parâmetro|Tipo de Dados|
 |:--|:--|:--|:--|:--|
-|AppID|(vazio)|Obrigatório. Se o `Authorization` ou `Ocp-Apim-Subscription-Key` cabeçalho é usado, deixe o campo de appid vazio incluir, caso contrário, uma cadeia de caracteres que contém `"Bearer" + " " + "access_token"`.|consulta|string|
-|região|(vazio) |Obrigatório. Uma cadeia de caracteres que representa uma combinação de um código de cultura de duas letras em minúsculas do ISO 639 associadas com uma linguagem e um código de subcultura de duas letras em maiúsculas do ISO 3166 para localizar os nomes de idiomas ou um código de cultura em minúsculas do ISO 639 por si só.|consulta|string|
+|AppID|(vazio)|Necessário. Se o `Authorization` ou `Ocp-Apim-Subscription-Key` cabeçalho é usado, deixe o campo de appid vazio incluir, caso contrário, uma cadeia de caracteres que contém `"Bearer" + " " + "access_token"`.|consulta|string|
+|região|(vazio) |Necessário. Uma cadeia de caracteres que representa uma combinação de um código de cultura de duas letras em minúsculas do ISO 639 associadas com uma linguagem e um código de subcultura de duas letras em maiúsculas do ISO 3166 para localizar os nomes de idiomas ou um código de cultura em minúsculas do ISO 639 por si só.|consulta|string|
 |Autorização|(vazio)  |Necessário se o campo de appid ou `Ocp-Apim-Subscription-Key` cabeçalho não for especificado. Token de autorização: `"Bearer" + " " + "access_token"`.|cabeçalho|string|
 |OCP-Apim-Subscription-Key|(vazio)  |Necessário se o campo de appid ou `Authorization` cabeçalho não for especificado.|cabeçalho|string|
 
@@ -258,7 +258,7 @@ Tipo de conteúdo de resposta: aplicação/xml
 
 |Parâmetro|Value|Descrição|Tipo de parâmetro|Tipo de Dados|
 |:--|:--|:--|:--|:--|
-|AppID|(vazio)|Obrigatório. Se o `Authorization` ou `Ocp-Apim-Subscription-Key` cabeçalho é usado, deixe o campo de appid vazio incluir, caso contrário, uma cadeia de caracteres que contém `"Bearer" + " " + "access_token"`.|consulta|string|
+|AppID|(vazio)|Necessário. Se o `Authorization` ou `Ocp-Apim-Subscription-Key` cabeçalho é usado, deixe o campo de appid vazio incluir, caso contrário, uma cadeia de caracteres que contém `"Bearer" + " " + "access_token"`.|consulta|string|
 |Autorização|(vazio)  |Necessário se o `appid` campo ou `Ocp-Apim-Subscription-Key` cabeçalho não for especificado. Token de autorização: `"Bearer" + " " + "access_token"`.|cabeçalho|string|
 |OCP-Apim-Subscription-Key|(vazio)|Necessário se o `appid` campo ou `Authorization` cabeçalho não for especificado.|cabeçalho|string|
 
@@ -291,7 +291,7 @@ Tipo de conteúdo de resposta: aplicação/xml
 
 |Parâmetro|Value|Descrição|Tipo de parâmetro|Tipo de Dados|
 |:--|:--|:--|:--|:--|
-|AppID|(vazio)|Obrigatório. Se o `Authorization` ou `Ocp-Apim-Subscription-Key` cabeçalho é usado, deixe o campo de appid vazio incluir, caso contrário, uma cadeia de caracteres que contém `"Bearer" + " " + "access_token"`.|consulta|string|
+|AppID|(vazio)|Necessário. Se o `Authorization` ou `Ocp-Apim-Subscription-Key` cabeçalho é usado, deixe o campo de appid vazio incluir, caso contrário, uma cadeia de caracteres que contém `"Bearer" + " " + "access_token"`.|consulta|string|
 |Autorização|(vazio)|Necessário se o `appid` campo ou `Ocp-Apim-Subscription-Key` cabeçalho não for especificado. Token de autorização: `"Bearer" + " " + "access_token"`.|cabeçalho|string|
 |OCP-Apim-Subscription-Key|(vazio)|Necessário se o `appid` campo ou `Authorization` cabeçalho não for especificado.|cabeçalho|string|
  
@@ -323,11 +323,11 @@ Tipo de conteúdo de resposta: aplicação/xml
 
 |Parâmetro|Value|Descrição|Tipo de parâmetro|Tipo de Dados|
 |:--|:--|:--|:--|:--|
-|AppID|(vazio)|Obrigatório. Se o `Authorization` ou `Ocp-Apim-Subscription-Key` cabeçalho é usado, deixe o campo de appid vazio incluir, caso contrário, uma cadeia de caracteres que contém `"Bearer" + " " + "access_token"`.|consulta|string|
-|texto|(vazio)   |Obrigatório. Uma cadeia de caracteres contendo uma frase ou frases de idioma especificado seja falado para o fluxo de wave. O tamanho do texto para fala não pode exceder os 2.000 caracteres.|consulta|string|
-|language|(vazio)   |Obrigatório. Uma cadeia de caracteres representando o código de idioma com suporte para dizer o texto no. O código tem de estar presente na lista de códigos retornado do método `GetLanguagesForSpeak`.|consulta|string|
+|AppID|(vazio)|Necessário. Se o `Authorization` ou `Ocp-Apim-Subscription-Key` cabeçalho é usado, deixe o campo de appid vazio incluir, caso contrário, uma cadeia de caracteres que contém `"Bearer" + " " + "access_token"`.|consulta|string|
+|texto|(vazio)   |Necessário. Uma cadeia de caracteres contendo uma frase ou frases de idioma especificado seja falado para o fluxo de wave. O tamanho do texto para fala não pode exceder os 2.000 caracteres.|consulta|string|
+|language|(vazio)   |Necessário. Uma cadeia de caracteres representando o código de idioma com suporte para dizer o texto no. O código tem de estar presente na lista de códigos retornado do método `GetLanguagesForSpeak`.|consulta|string|
 |Formato|(vazio)|Opcional. Uma cadeia que especifica o ID do tipo de conteúdo. Atualmente, `audio/wav` e `audio/mp3` estão disponíveis. O valor predefinido é `audio/wav`.|consulta|string|
-|opções|(vazio)    |<ul><li>Opcional. Uma cadeia que especifica as propriedades da fala sintetizada:<li>`MaxQuality` e `MinSize` estão disponíveis para especificar a qualidade dos sinais de áudio. Com o `MaxQuality`, pode obter vozes com a mais alta qualidade e com `MinSize`, pode obter as vozes com o tamanho mais pequeno. A predefinição é `MinSize`.</li><li>`female` e `male` estão disponíveis para especificar o sexo pretendido de voz. A predefinição é `female`. Utilize a barra vertical "|` to include multiple options. For example  `MaxQuality|Masculino ".</li></li></ul> |consulta|string|
+|opções|(vazio)    |<ul><li>Opcional. Uma cadeia que especifica as propriedades da fala sintetizada:<li>`MaxQuality` e `MinSize` estão disponíveis para especificar a qualidade dos sinais de áudio. Com o `MaxQuality`, pode obter vozes com a mais alta qualidade e com `MinSize`, pode obter as vozes com o tamanho mais pequeno. A predefinição é `MinSize`.</li><li>`female` e `male` estão disponíveis para especificar o sexo pretendido de voz. A predefinição é `female`. Utilize a barra vertical <code>\|</code> para incluir várias opções. Por exemplo `MaxQuality|Male`.</li></li></ul> |consulta|string|
 |Autorização|(vazio)|Necessário se o `appid` campo ou `Ocp-Apim-Subscription-Key` cabeçalho não for especificado. Token de autorização: `"Bearer" + " " + "access_token"`.|cabeçalho|string|
 |OCP-Apim-Subscription-Key|(vazio)  |Necessário se o `appid` campo ou `Authorization` cabeçalho não for especificado.|cabeçalho|string|
 
@@ -359,8 +359,8 @@ Tipo de conteúdo de resposta: aplicação/xml
 
 |Parâmetro|Value|Descrição|Tipo de parâmetro|Tipo de Dados|
 |:--|:--|:--|:--|:--|
-|AppID|(vazio)  |Obrigatório. Se o `Authorization` ou `Ocp-Apim-Subscription-Key` cabeçalho é usado, deixe o campo de appid vazio incluir, caso contrário, uma cadeia de caracteres que contém `"Bearer" + " " + "access_token"`.|consulta|string|
-|texto|(vazio)|Obrigatório. Uma cadeia de caracteres que contém algum texto cujo idioma é ser identificadas. O tamanho do texto não pode exceder os 10000 carateres.|consulta| string|
+|AppID|(vazio)  |Necessário. Se o `Authorization` ou `Ocp-Apim-Subscription-Key` cabeçalho é usado, deixe o campo de appid vazio incluir, caso contrário, uma cadeia de caracteres que contém `"Bearer" + " " + "access_token"`.|consulta|string|
+|texto|(vazio)|Necessário. Uma cadeia de caracteres que contém algum texto cujo idioma é ser identificadas. O tamanho do texto não pode exceder os 10000 carateres.|consulta| string|
 |Autorização|(vazio)|Necessário se o `appid` campo ou `Ocp-Apim-Subscription-Key` cabeçalho não for especificado. Token de autorização: `"Bearer" + " " + "access_token"`.|cabeçalho|string|
 |OCP-Apim-Subscription-Key  |(vazio)    |Necessário se o `appid` campo ou `Authorization` cabeçalho não for especificado.|cabeçalho|string|
 
@@ -414,7 +414,7 @@ Tipo de conteúdo de resposta: aplicação/xml
 
 |Parâmetro|Value|Descrição|Tipo de parâmetro|Tipo de Dados|
 |:--|:--|:--|:--|:--|
-|AppID|(vazio)|Obrigatório. Se o `Authorization` ou `Ocp-Apim-Subscription-Key` cabeçalho é usado, deixe o campo de appid vazio incluir, caso contrário, uma cadeia de caracteres que contém `"Bearer" + " " + "access_token"`.|consulta|string|
+|AppID|(vazio)|Necessário. Se o `Authorization` ou `Ocp-Apim-Subscription-Key` cabeçalho é usado, deixe o campo de appid vazio incluir, caso contrário, uma cadeia de caracteres que contém `"Bearer" + " " + "access_token"`.|consulta|string|
 |Autorização|(vazio)|Necessário se o `appid` campo ou `Ocp-Apim-Subscription-Key` cabeçalho não for especificado. Token de autorização: `"Bearer" + " " + "access_token"`.|cabeçalho|string|
 |OCP-Apim-Subscription-Key|(vazio)|Necessário se o `appid` campo ou cabeçalho de autorização não está especificado.|cabeçalho|string|
 
@@ -448,15 +448,15 @@ Tipo de conteúdo de resposta: aplicação: xml
 
 |Parâmetro|Value|Descrição|Tipo de parâmetro|Tipo de Dados   |
 |:--|:--|:--|:--|:--|
-|AppID|(vazio)|Obrigatório. Se o `Authorization` ou `Ocp-Apim-Subscription-Key` cabeçalho é usado, deixe o campo de appid vazio incluir, caso contrário, uma cadeia de caracteres que contém `"Bearer" + " " + "access_token"`.|consulta|string|
-|originalText|(vazio)|Obrigatório. Uma cadeia de caracteres que contém o texto a traduzir. A cadeia de caracteres tem um comprimento máximo de 1000 carateres.|consulta|string|
-|translatedText|(vazio) |Obrigatório. Uma cadeia de caracteres que contém traduzido texto no idioma de destino. A cadeia de caracteres tem um comprimento máximo de 2000 caracteres.|consulta|string|
-|de|(vazio)   |Obrigatório. Uma cadeia de caracteres que representa o código de idioma do texto de tradução. EN = inglês, Alemanha = Alemão etc...|consulta|string|
-|para|(vazio)|Obrigatório. Uma cadeia de caracteres que representa o código de idioma para traduzir o texto em.|consulta|string|
+|AppID|(vazio)|Necessário. Se o `Authorization` ou `Ocp-Apim-Subscription-Key` cabeçalho é usado, deixe o campo de appid vazio incluir, caso contrário, uma cadeia de caracteres que contém `"Bearer" + " " + "access_token"`.|consulta|string|
+|originalText|(vazio)|Necessário. Uma cadeia de caracteres que contém o texto a traduzir. A cadeia de caracteres tem um comprimento máximo de 1000 carateres.|consulta|string|
+|translatedText|(vazio) |Necessário. Uma cadeia de caracteres que contém traduzido texto no idioma de destino. A cadeia de caracteres tem um comprimento máximo de 2000 caracteres.|consulta|string|
+|de|(vazio)   |Necessário. Uma cadeia de caracteres que representa o código de idioma do texto de tradução. EN = inglês, Alemanha = Alemão etc...|consulta|string|
+|para|(vazio)|Necessário. Uma cadeia de caracteres que representa o código de idioma para traduzir o texto em.|consulta|string|
 |classificação|(vazio) |Opcional. Um número inteiro que representa a classificação de qualidade para essa cadeia de caracteres. Valor entre -10 e 10. Predefinição é 1.|consulta|inteiro|
 |contentType|(vazio)    |Opcional. O formato de texto a ser traduzido. Os formatos suportados são "text/plain" e "text/html". Qualquer HTML tem de ser um elemento bem formado e completo.   |consulta|string|
 |categoria|(vazio)|Opcional. Uma cadeia de caracteres que contém a categoria (domínio) da tradução. Predefinição é "geral".|consulta|string|
-|Utilizador|(vazio)|Obrigatório. Uma cadeia utilizada para controlar o originador de envio.|consulta|string|
+|Utilizador|(vazio)|Necessário. Uma cadeia utilizada para controlar o originador de envio.|consulta|string|
 |uri|(vazio)|Opcional. Uma cadeia de caracteres que contém a localização do conteúdo dessa conversão.|consulta|string|
 |Autorização|(vazio)|Necessário se o campo de appid ou `Ocp-Apim-Subscription-Key` cabeçalho não for especificado. Token de autorização: `"Bearer" + " " + "access_token"`.    |cabeçalho|string|
 |OCP-Apim-Subscription-Key|(vazio)|Necessário se o `appid` campo ou `Authorization` cabeçalho não for especificado.|cabeçalho|string|
@@ -508,11 +508,11 @@ Segue-se o formato do corpo do pedido.
 
 Elementos dentro do elemento de AddtranslationsRequest são:
 
-* `AppId`: Obrigatório. Se o `Authorization` ou `Ocp-Apim-Subscription-Key` cabeçalho é usado, deixe o campo de appid vazio incluir, caso contrário, uma cadeia de caracteres que contém `"Bearer" + " " + "access_token"`.
-* `From`: Obrigatório. Uma cadeia de caracteres contendo o código de idioma do idioma de origem. Tem de ser um dos idiomas retornados pelo `GetLanguagesForTranslate` método.
-* `To`: Obrigatório. Uma cadeia de caracteres contendo o código de idioma do idioma de destino. Tem de ser um dos idiomas retornados pelo `GetLanguagesForTranslate` método.
-* `Translations`: Obrigatório. Uma matriz de traduções para adicionar a memória de tradução. Cada tradução deve conter: originalText, translatedText e classificação. O tamanho de cada originalText e translatedText está limitado a 1000 carateres. O total de todas as originalText(s) e translatedText(s) não pode exceder os 10000 carateres. O número máximo de elementos de matriz é 100.
-* `Options`: Obrigatório. Um conjunto de opções, incluindo a categoria, ContentType, Uri e utilizador. É necessário um utilizador. Categoria, ContentType e Uri são opcionais. Elementos especificados tem de estar listados em ordem alfabética.
+* `AppId`: Necessário. Se o `Authorization` ou `Ocp-Apim-Subscription-Key` cabeçalho é usado, deixe o campo de appid vazio incluir, caso contrário, uma cadeia de caracteres que contém `"Bearer" + " " + "access_token"`.
+* `From`: Necessário. Uma cadeia de caracteres contendo o código de idioma do idioma de origem. Tem de ser um dos idiomas retornados pelo `GetLanguagesForTranslate` método.
+* `To`: Necessário. Uma cadeia de caracteres contendo o código de idioma do idioma de destino. Tem de ser um dos idiomas retornados pelo `GetLanguagesForTranslate` método.
+* `Translations`: Necessário. Uma matriz de traduções para adicionar a memória de tradução. Cada tradução deve conter: originalText, translatedText e classificação. O tamanho de cada originalText e translatedText está limitado a 1000 carateres. O total de todas as originalText(s) e translatedText(s) não pode exceder os 10000 carateres. O número máximo de elementos de matriz é 100.
+* `Options`: Necessário. Um conjunto de opções, incluindo a categoria, ContentType, Uri e utilizador. É necessário um utilizador. Categoria, ContentType e Uri são opcionais. Elementos especificados tem de estar listados em ordem alfabética.
 
 ### <a name="response-class-status-200"></a>Classe de resposta (estado 200)
 Método AddTranslationArray foi concluída com êxito. Após 31 de Janeiro de 2018, não serão aceite envios de sentença. O serviço irá responder com o código de erro 410.
@@ -558,9 +558,9 @@ Tipo de conteúdo de resposta: aplicação/xml
 
 |Parâmetro|Value|Descrição|Tipo de parâmetro|Tipo de Dados|
 |:--|:--|:--|:--|:--|
-|AppID|(vazio)  |Obrigatório. Se o cabeçalho de autorização ou Ocp-Apim-Subscription-Key é usado, deixe o campo de appid vazio ou incluir uma cadeia de caracteres que contém "Bearer" + "" + "access_token".|consulta| string|
-|texto|(vazio)   |Obrigatório. Uma cadeia de caracteres que representa o texto a dividir em frases. O tamanho do texto não pode exceder os 10000 carateres.|consulta|string|
-|language   |(vazio)    |Obrigatório. Uma cadeia de caracteres que representa o código de idioma do texto de entrada.|consulta|string|
+|AppID|(vazio)  |Necessário. Se o cabeçalho de autorização ou Ocp-Apim-Subscription-Key é usado, deixe o campo de appid vazio ou incluir uma cadeia de caracteres que contém "Bearer" + "" + "access_token".|consulta| string|
+|texto|(vazio)   |Necessário. Uma cadeia de caracteres que representa o texto a dividir em frases. O tamanho do texto não pode exceder os 10000 carateres.|consulta|string|
+|language   |(vazio)    |Necessário. Uma cadeia de caracteres que representa o código de idioma do texto de entrada.|consulta|string|
 |Autorização|(vazio)|Necessário se o campo de appid ou cabeçalho Ocp-Apim-Subscription-Key não for especificado. Token de autorização:  "Bearer" + "" + "access_token".    |cabeçalho|string|
 |OCP-Apim-Subscription-Key|(vazio)|Necessário se o campo de appid ou o cabeçalho de autorização não está especificado.|cabeçalho|string|
 
@@ -652,11 +652,11 @@ Tipo de conteúdo de resposta: aplicação/xml
 
 |Parâmetro|Value|Descrição|Tipo de parâmetro|Tipo de Dados|
 |:--|:--|:--|:--|:--|
-|AppID|(vazio)|Obrigatório. Se o `Authorization` ou `Ocp-Apim-Subscription-Key` cabeçalho é usado, deixe o campo de appid vazio incluir, caso contrário, uma cadeia de caracteres que contém `"Bearer" + " " + "access_token"`.|consulta|string|
-|texto|(vazio)|Obrigatório. Uma cadeia de caracteres que representa o texto a traduzir. O tamanho do texto não pode exceder os 10000 carateres.|consulta|string|
-|de|(vazio)|Obrigatório. Uma cadeia de caracteres que representa o código de idioma do texto de tradução.|consulta|string|
-|para |(vazio)    |Obrigatório. Uma cadeia de caracteres que representa o código de idioma para traduzir o texto em.|consulta|string|
-|maxTranslations|(vazio)|Obrigatório. Um número inteiro que representa o número máximo de traduções para retornar.|consulta|inteiro|
+|AppID|(vazio)|Necessário. Se o `Authorization` ou `Ocp-Apim-Subscription-Key` cabeçalho é usado, deixe o campo de appid vazio incluir, caso contrário, uma cadeia de caracteres que contém `"Bearer" + " " + "access_token"`.|consulta|string|
+|texto|(vazio)|Necessário. Uma cadeia de caracteres que representa o texto a traduzir. O tamanho do texto não pode exceder os 10000 carateres.|consulta|string|
+|de|(vazio)|Necessário. Uma cadeia de caracteres que representa o código de idioma do texto de tradução.|consulta|string|
+|para |(vazio)    |Necessário. Uma cadeia de caracteres que representa o código de idioma para traduzir o texto em.|consulta|string|
+|maxTranslations|(vazio)|Necessário. Um número inteiro que representa o número máximo de traduções para retornar.|consulta|inteiro|
 |Autorização| (vazio)|Necessário se o `appid` campo ou `Ocp-Apim-Subscription-Key` cabeçalho não for especificado. Token de autorização: `"Bearer" + " " + "access_token"`.|string| cabeçalho|
 |OCP-Apim-Subscription-Key|(vazio)  |Necessário se o `appid` campo ou `Authorization` cabeçalho não for especificado.|cabeçalho|string|
 
@@ -700,9 +700,9 @@ Segue-se o formato do corpo do pedido.
 
 `GetTranslationsArrayRequest` inclui os seguintes elementos:
 
-* `AppId`: Obrigatório. Se o cabeçalho Authorization é usado, deixe o campo de appid vazio incluir outro uma cadeia de caracteres que contém `"Bearer" + " " + "access_token"`.
-* `From`: Obrigatório. Uma cadeia de caracteres que representa o código de idioma do texto de tradução.
-* `MaxTranslations`: Obrigatório. Um número inteiro que representa o número máximo de traduções para retornar.
+* `AppId`: Necessário. Se o cabeçalho Authorization é usado, deixe o campo de appid vazio incluir outro uma cadeia de caracteres que contém `"Bearer" + " " + "access_token"`.
+* `From`: Necessário. Uma cadeia de caracteres que representa o código de idioma do texto de tradução.
+* `MaxTranslations`: Necessário. Um número inteiro que representa o número máximo de traduções para retornar.
 * `Options`: Opcional. Um objeto de opções que contém os valores apresentados abaixo. Eles são todos opcionais e predefinido para as definições mais comuns. Elementos especificados tem de estar listados em ordem alfabética.
     - Category`: Uma cadeia de caracteres que contém a categoria (domínio) da tradução. Predefinição é geral.
     - `ContentType`: O único suportado e a predefinição, a opção é text/plain.
@@ -713,8 +713,8 @@ Segue-se o formato do corpo do pedido.
 * `State`: Estado do utilizador para o ajudar a correlacionar pedido e resposta. O mesmo conteúdo será devolvido na resposta.
 * `Uri`: Filtre os resultados por este URI. Se nenhum valor for definido, a predefinição é tudo.
 * `User`: Filtre os resultados por este utilizador. Se nenhum valor for definido, a predefinição é tudo.
-* `Texts`: Obrigatório. Uma matriz que contém os textos para a tradução. Todas as cadeias de caracteres devem ser do mesmo idioma. O total de todos os textos para ser convertido não pode exceder os 10000 carateres. O número máximo de elementos de matriz é 10.
-* `To`: Obrigatório. Uma cadeia de caracteres que representa o código de idioma para traduzir o texto em.
+* `Texts`: Necessário. Uma matriz que contém os textos para a tradução. Todas as cadeias de caracteres devem ser do mesmo idioma. O total de todos os textos para ser convertido não pode exceder os 10000 carateres. O número máximo de elementos de matriz é 10.
+* `To`: Necessário. Uma cadeia de caracteres que representa o código de idioma para traduzir o texto em.
 
 Podem ser omitidos elementos opcionais. Direcionar os elementos que são filhos do `GetTranslationsArrayRequest` tem de estar listada em ordem alfabética.
 

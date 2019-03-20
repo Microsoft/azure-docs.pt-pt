@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/09/2018
 ms.author: jdial
-ms.openlocfilehash: 842c0d5e3dff0c21545405624f0f536c80359b19
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: eb98fc2da95f1aa2b7294d09ec2a3145bdb5c789
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55809900"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58112743"
 ---
 # <a name="view-the-topology-of-an-azure-virtual-network"></a>Ver a topologia de rede virtual do Azure
 
@@ -42,7 +42,7 @@ Pode utilizar o [portal do Azure](#azure-portal), o [CLI do Azure](#azure-cli), 
     - Dentro do mesmo grupo de recursos e região que o *myVnet* rede virtual. Por exemplo, um grupo de segurança de rede existe num grupo de recursos diferente *MyResourceGroup*, não é mostrado, mesmo que o grupo de segurança de rede está associado a uma sub-rede na *MyVnet* rede virtual .
     - Dentro de, ou associados a recursos no, a *myVnet* rede virtual. Por exemplo, um grupo de segurança de rede não está associado a uma interface de rede ou sub-rede no *myVnet* rede virtual não é mostrada, mesmo se o grupo de segurança de rede estiver no *MyResourceGroup* grupo de recursos.
 
-  A topologia de mostrado na imagem é para a rede virtual criada depois de implementar o **encaminhar o tráfego através de um exemplo de script de aplicação virtual de rede**, que pode implementar utilizando o [CLI do Azure](../virtual-network/scripts/virtual-network-cli-sample-route-traffic-through-nva.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json), ou [PowerShell](../virtual-network/scripts/virtual-network-powershell-sample-route-traffic-through-nva.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json).
+   A topologia de mostrado na imagem é para a rede virtual criada depois de implementar o **encaminhar o tráfego através de um exemplo de script de aplicação virtual de rede**, que pode implementar utilizando o [CLI do Azure](../virtual-network/scripts/virtual-network-cli-sample-route-traffic-through-nva.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json), ou [PowerShell](../virtual-network/scripts/virtual-network-powershell-sample-route-traffic-through-nva.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json).
 
 6. Selecione **transferir topologia** para transferir a imagem como um arquivo editável, no formato de svg.
 
@@ -79,7 +79,7 @@ A conta que utilizar tem de ter as informações necessárias [permissões](requ
 
     Informações de topologia só são devolvidas para recursos que estejam no mesmo grupo de recursos como o *MyResourceGroup* grupo de recursos e a mesma região que o observador de rede. Por exemplo, um grupo de segurança de rede existe num grupo de recursos diferente *MyResourceGroup*, não é mostrado, mesmo que o grupo de segurança de rede está associado a uma sub-rede na *MyVnet* rede virtual .
 
-  Saiba mais sobre as relações e [propriedades](#properties) no resultado retornado. Se não tiver uma rede virtual existente para ver uma topologia para, pode criar uma com o [encaminhar o tráfego através de uma aplicação virtual de rede](../virtual-network/scripts/virtual-network-cli-sample-route-traffic-through-nva.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json) exemplo do script. Para ver um diagrama da topologia e transferi-lo num arquivo editável, utilize o [portal](#azure-portal).
+   Saiba mais sobre as relações e [propriedades](#properties) no resultado retornado. Se não tiver uma rede virtual existente para ver uma topologia para, pode criar uma com o [encaminhar o tráfego através de uma aplicação virtual de rede](../virtual-network/scripts/virtual-network-cli-sample-route-traffic-through-nva.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json) exemplo do script. Para ver um diagrama da topologia e transferi-lo num arquivo editável, utilize o [portal](#azure-portal).
 
 ## <a name = "powershell"></a>Ver a topologia - PowerShell
 
@@ -123,7 +123,7 @@ A conta que utilizar tem de ter as informações necessárias [permissões](requ
 
    Informações de topologia só são devolvidas para recursos que estejam no mesmo grupo de recursos como o *MyResourceGroup* grupo de recursos e a mesma região que o observador de rede. Por exemplo, um grupo de segurança de rede existe num grupo de recursos diferente *MyResourceGroup*, não é mostrado, mesmo que o grupo de segurança de rede está associado a uma sub-rede na *MyVnet* rede virtual .
 
-  Saiba mais sobre as relações e [propriedades](#properties) no resultado retornado. Se não tiver uma rede virtual existente para ver uma topologia para, pode criar uma com o [encaminhar o tráfego através de uma aplicação virtual de rede](../virtual-network/scripts/virtual-network-powershell-sample-route-traffic-through-nva.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json) exemplo do script. Para ver um diagrama da topologia e transferi-lo num arquivo editável, utilize o [portal](#azure-portal).
+   Saiba mais sobre as relações e [propriedades](#properties) no resultado retornado. Se não tiver uma rede virtual existente para ver uma topologia para, pode criar uma com o [encaminhar o tráfego através de uma aplicação virtual de rede](../virtual-network/scripts/virtual-network-powershell-sample-route-traffic-through-nva.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json) exemplo do script. Para ver um diagrama da topologia e transferi-lo num arquivo editável, utilize o [portal](#azure-portal).
 
 ## <a name="relationships"></a>Relações
 

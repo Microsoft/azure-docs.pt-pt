@@ -12,12 +12,12 @@ ms.topic: tutorial
 ms.date: 03/12/2018
 ms.author: abnarain
 ms.reviewer: douglasl
-ms.openlocfilehash: 85c3c913564dd38ece76ddd7f72b8ea4da52958e
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: fcf3fe85b6dd184b4f58060aab4fcf3ce146af13
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57778829"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58015168"
 ---
 # <a name="run-a-databricks-notebook-with-the-databricks-notebook-activity-in-azure-data-factory"></a>Executar um Databricks Notebook com a Atividade do Databricks Notebook no Azure Data Factory
 
@@ -151,7 +151,7 @@ Nesta secção, vai criar um serviço ligado do Databricks. Este serviço ligado
 
           ![Criar uma nova pasta](media/transform-data-using-databricks-notebook/databricks-notebook-activity-image13.png)
 
-       1. [Crie um novo Notebook](https://docs.databricks.com/user-guide/notebooks/index.html#creating-a-notebook) (Python) e denomine-o **mynotebook** na **Pasta** adftutorial**e**clique em **Criar**.
+       1. [Criar um novo notebook](https://docs.databricks.com/user-guide/notebooks/index.html#creating-a-notebook) (Python) e vamos chamá-lo **mynotebook** sob **adftutorial** pasta, clique em **criar.**
 
           ![Criar um novo Notebook](media/transform-data-using-databricks-notebook/databricks-notebook-activity-image14.png)
 

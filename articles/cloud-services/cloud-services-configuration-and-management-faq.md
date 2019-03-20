@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/23/2018
 ms.author: genli
-ms.openlocfilehash: dd7351d2948526905c91f2eac52e48b25cf063ac
-ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
-ms.translationtype: MT
+ms.openlocfilehash: 90b6798f7b7ab3acc552135c73bb1e491e4a0111
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54191433"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57835525"
 ---
 # <a name="configuration-and-management-issues-for-azure-cloud-services-frequently-asked-questions-faqs"></a>Configuração e problemas de gerenciamento de serviços Cloud do Azure: Perguntas mais frequentes (FAQ)
 
@@ -143,7 +143,7 @@ Para obter mais informações, consulte os seguintes documentos:
 ### <a name="how-do-i-enable-wad-logging-for-cloud-services"></a>Como posso ativar o registo de WAD para serviços em nuvem?
 Pode ativar o registo de Windows Azure Diagnostics (WAD) por meio de opções seguintes:
 1. [Ativar a partir do Visual Studio](https://docs.microsoft.com/visualstudio/azure/vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines#turn-on-diagnostics-in-cloud-service-projects-before-you-deploy-them)
-2. [Ativar por meio de código do .net](https://docs.microsoft.com/azure/cloud-services/cloud-services-dotnet-diagnostics)
+2. [Ativar por meio de código do .NET](https://docs.microsoft.com/azure/cloud-services/cloud-services-dotnet-diagnostics)
 3. [Ativar através do Powershell](https://docs.microsoft.com/azure/cloud-services/cloud-services-diagnostics-powershell)
 
 Para obter as definições de WAD atuais do seu serviço Cloud, pode utilizar [Get-AzureServiceDiagnosticsExtensions](https://docs.microsoft.com/azure/cloud-services/cloud-services-diagnostics-powershell#get-current-diagnostics-extension-configuration) ps cmd ou pode vê-lo através do portal a partir do painel de "Serviços Cloud--> extensões".
@@ -311,7 +311,7 @@ O enlace de SNI pode ser configurado com o cmdlet do PowerShell **New-WebBinding
     
 Conforme descrito [aqui](https://technet.microsoft.com/library/ee790567.aspx), o $sslFlags poderia ser um dos valores como o seguinte:
 
-|Valor|Significado|
+|Value|Significado|
 ------|------
 |0|Não existem SNI|
 |1|SNI ativado |
