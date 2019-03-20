@@ -14,12 +14,12 @@ ms.devlang: php
 ms.topic: article
 ms.author: jowargo
 ms.date: 01/04/2019
-ms.openlocfilehash: 10bc12879ea30f75ee5af3bd9226ff1626b72ae3
-ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
+ms.openlocfilehash: 43a691ff9025cdb39786f965be6a2fca1b33bd3d
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55962745"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57883581"
 ---
 # <a name="how-to-use-notification-hubs-from-python"></a>Como utilizar os Hubs de notificação do Python
 
@@ -374,7 +374,7 @@ Verá detalhadas por exemplo o resultado do Hub de notificação.
     ```
 - Se não existiam destinos encontrados para as notificações push, provavelmente terá para ver a seguinte saída como a resposta (o que indica que não havia nenhum registos encontrados para fornecer a notificação provavelmente porque os registros de tinham algumas sem correspondência etiquetas)
     ```xml
-    '<NotificationOutcome xmlns="http://schemas.microsoft.com/netservices/2010/10/servicebus/connect" xmlns:i="http://www.w3.org/2001/XMLSchema-instance"><Success>0</Success><Failure>0</Failure><Results i:nil="true"/></NotificationOutcome>'
+    '<NotificationOutcome xmlns="http://schemas.microsoft.com/netservices/2010/10/servicebus/connect" xmlns:i="https://www.w3.org/2001/XMLSchema-instance"><Success>0</Success><Failure>0</Failure><Results i:nil="true"/></NotificationOutcome>'
     ```
 
 ### <a name="broadcast-toast-notification-to-windows"></a>Notificação de alerta para o Windows de difusão
@@ -437,9 +437,9 @@ Este artigo mostrou como criar um cliente REST do Python para os Hubs de notific
 
 <!-- URLs -->
 [Exemplo de wrapper do REST do Python]: https://github.com/Azure/azure-notificationhubs-samples/tree/master/notificationhubs-rest-python
-[Tutorial de introdução]: http://azure.microsoft.com/documentation/articles/notification-hubs-windows-store-dotnet-get-started/
-[Tutorial de notícias de última hora]: http://azure.microsoft.com/documentation/articles/notification-hubs-windows-store-dotnet-send-breaking-news/
-[Tutorial de notícias de localização]: http://azure.microsoft.com/documentation/articles/notification-hubs-windows-store-dotnet-send-localized-breaking-news/
+[Tutorial de introdução]: https://azure.microsoft.com/documentation/articles/notification-hubs-windows-store-dotnet-get-started/
+[Tutorial de notícias de última hora]: https://azure.microsoft.com/documentation/articles/notification-hubs-windows-store-dotnet-send-breaking-news/
+[Tutorial de notícias de localização]: https://azure.microsoft.com/documentation/articles/notification-hubs-windows-store-dotnet-send-localized-breaking-news/
 
 <!-- Images. -->
 [1]: ./media/notification-hubs-python-backend-how-to/DetailedLoggingInfo.png
