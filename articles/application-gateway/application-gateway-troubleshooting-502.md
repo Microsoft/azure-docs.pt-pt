@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/09/2017
 ms.author: amsriva
-ms.openlocfilehash: d50f25fbe10fc5ac4e834141fe7ac45fbed918ab
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.openlocfilehash: 26144b7eb53f5c0d4ebecbc9e6eece741f466719
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57309031"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57997802"
 ---
 # <a name="troubleshooting-bad-gateway-errors-in-application-gateway"></a>Resolução de problemas de erros de gateway inválido no Gateway de aplicação
 
@@ -83,7 +83,7 @@ Se estiver presente, certifique-se de que o servidor DNS é capaz de resolver co
 
 | Propriedade de pesquisa | Value | Descrição |
 | --- | --- | --- |
-| URL de Pesquisa |http://127.0.0.1/ |Caminho do URL |
+| URL de Pesquisa |`http://127.0.0.1/` |Caminho do URL |
 | Intervalo |30 |Intervalo de sonda em segundos |
 | Tempo limite |30 |Tempo limite de sonda em segundos |
 | Limiar com funcionamento incorreto |3 |Contagem de repetições de sonda. O servidor de back-end está marcado para baixo depois que a contagem de falhas consecutivas da sonda atinge o limiar de mau estado de funcionamento. |
@@ -92,7 +92,7 @@ Se estiver presente, certifique-se de que o servidor DNS é capaz de resolver co
 
 * Certifique-se de que um site predefinido está configurado e está à escuta em 127.0.0.1.
 * Se BackendHttpSetting especificar uma porta diferente da 80, o site predefinido deve ser configurado para escutar nessa porta.
-* A chamada para http://127.0.0.1:port deverá devolver um código de resultado HTTP de 200. Isso deve ser retornado ao período de tempo limite de 30 segundos.
+* A chamada para `http://127.0.0.1:port` deverá devolver um código de resultado HTTP de 200. Isso deve ser retornado ao período de tempo limite de 30 segundos.
 * Certifique-se de que a porta configurada está aberta e que não há regras de firewall ou grupos de segurança do Azure rede, que bloqueia o tráfego de entrada ou de saída na porta configurada.
 * Se as VMs clássicas do Azure ou serviço em nuvem é utilizado com o FQDN ou IP público, certifique-se de que o correspondente [ponto final](../virtual-machines/windows/classic/setup-endpoints.md?toc=%2fazure%2fapplication-gateway%2ftoc.json) é aberto.
 * Se a VM é configurada através do Azure Resource Manager e estiver fora da VNet em que o Gateway de aplicação é implementado, [grupo de segurança de rede](../virtual-network/security-overview.md) tem de ser configurado para permitir o acesso a porta pretendida.
@@ -118,7 +118,7 @@ Sondas de estado de funcionamento personalizadas permitem maior flexibilidade pa
 Verifique se a sonda de estado de funcionamento personalizado está configurada corretamente, como a tabela anterior. Além dos passos de resolução de problemas anteriores, certifique-se também o seguinte:
 
 * Certifique-se de que a sonda está especificada corretamente, de acordo a [guia](application-gateway-create-probe-ps.md).
-* Se o Gateway de aplicação está configurado para um único site, por predefinição, o anfitrião nome deve ser especificado como '127.0.0.1', a menos que caso contrário, é configurado na sonda personalizada.
+* Se o Gateway de aplicação está configurado para um único site, por predefinição, o anfitrião o nome deve ser especificado como `127.0.0.1`, a menos que caso contrário, configuradas na sonda personalizada.
 * Certifique-se de que uma chamada para http://\<host\>:\<porta\>\<caminho\> devolve um código de resultado HTTP de 200.
 * Certifique-se de que um intervalo, limite de tempo e UnhealtyThreshold estão dentro dos intervalos aceitáveis.
 * Se utilizar uma sonda HTTPS, certifique-se de que o servidor de back-end não requer SNI ao configurar um certificado de contingência no próprio servidor de back-end.

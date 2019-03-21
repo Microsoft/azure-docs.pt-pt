@@ -8,12 +8,12 @@ ms.service: advisor
 ms.topic: article
 ms.date: 01/29/2019
 ms.author: kasparks
-ms.openlocfilehash: cc5c4310d5f9886518bee6612113fba174130bec
-ms.sourcegitcommit: a4efc1d7fc4793bbff43b30ebb4275cd5c8fec77
+ms.openlocfilehash: 140c8b2ab9b7985652a6474a1a9373e0d453b9e6
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56648721"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57900731"
 ---
 # <a name="reduce-service-costs-using-azure-advisor"></a>Reduzir os custos de serviço utilizando o Assistente do Azure
 
@@ -40,6 +40,10 @@ Advisor identifica as portas de rede virtual que tem estado Inativas durante mai
 O assistente irá rever a utilização da máquina virtual durante os últimos 30 dias e determinar se pode poupar dinheiro ao comprar uma reserva do Azure. O assistente mostrará a os regiões e os tamanhos em que potencialmente tem as maioria das poupanças e irá mostrar-lhe a poupança estimada na compra de reservas. 
 
 Com reservas do Azure, pode comprar previamente os custos base para as suas máquinas virtuais. Descontos serão aplicado automaticamente para as VMs de novas ou existentes com o mesmo tamanho e a região, como as reservas. [Saiba mais sobre as instâncias de VM reservadas do Azure.](https://azure.microsoft.com/pricing/reserved-vm-instances/)
+
+## <a name="delete-unassociated-public-ip-addresses-to-save-money"></a>Eliminar não associados a endereços IP públicos para poupar dinheiro
+
+Advisor identifica os endereços IP públicos que não estão atualmente associados aos recursos do Azure, como VMs ou balanceadores de carga. IP público destes endereços são fornecidos com um encargo nominal. Se não pretender utilizá-los, excluí-los pode resultar em reduções de custos.
 
 ## <a name="how-to-access-cost-recommendations-in-azure-advisor"></a>Como acessar as recomendações de custo no Assistente do Azure
 

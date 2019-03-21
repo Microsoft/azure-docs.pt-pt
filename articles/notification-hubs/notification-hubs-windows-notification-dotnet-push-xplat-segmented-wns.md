@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 01/04/2019
 ms.author: jowargo
-ms.openlocfilehash: bddf6bfdbc1548d16c48def696126301d2af35f3
-ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
+ms.openlocfilehash: 8e583ac1c8ac4b6f32c2fa9f8b7ed07c2e7033e8
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54446753"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57890003"
 ---
 # <a name="tutorial-push-notifications-to-specific-windows-devices-running-universal-windows-platform-applications"></a>Tutorial: Notificações push para dispositivos específicos do Windows que executam aplicações de plataforma Universal do Windows
 
@@ -271,9 +271,9 @@ Neste artigo, aprendeu a difundir notícias de última hora por categoria. A apl
 [Use Notification Hubs to broadcast localized breaking news]: notification-hubs-windows-store-dotnet-xplat-localized-wns-push-notification.md
 [Notify users with Notification Hubs]: notification-hubs-aspnet-backend-windows-dotnet-wns-notification.md
 [Mobile Service]: /develop/mobile/tutorials/get-started/
-[Notification Hubs Guidance]: http://msdn.microsoft.com/library/jj927170.aspx
-[Notification Hubs How-To for Windows Store]: http://msdn.microsoft.com/library/jj927172.aspx
-[Submit an app page]: http://go.microsoft.com/fwlink/p/?LinkID=266582
-[My Applications]: http://go.microsoft.com/fwlink/p/?LinkId=262039
-[Live SDK for Windows]: http://go.microsoft.com/fwlink/p/?LinkId=262253
-[wns object]: http://go.microsoft.com/fwlink/p/?LinkId=260591
+[Notification Hubs Guidance]: https://msdn.microsoft.com/library/jj927170.aspx
+[Notification Hubs How-To for Windows Store]: https://msdn.microsoft.com/library/jj927172.aspx
+[Submit an app page]: https://go.microsoft.com/fwlink/p/?LinkID=266582
+[My Applications]: https://go.microsoft.com/fwlink/p/?LinkId=262039
+[Live SDK for Windows]: https://go.microsoft.com/fwlink/p/?LinkId=262253
+[wns object]: https://go.microsoft.com/fwlink/p/?LinkId=260591

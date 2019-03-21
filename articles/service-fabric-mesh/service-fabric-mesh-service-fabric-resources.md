@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 10/23/2018
 ms.author: vturecek
 ms.custom: mvc, devcenter
-ms.openlocfilehash: 702e1ef9c8593c2106be256e6fd7de602bf41aa7
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: 3cee0ada75c4ea265c7e9c598408eb6b01477d6c
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54020001"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57903679"
 ---
 # <a name="introduction-to-service-fabric-resource-model"></a>Introdução ao modelo de recursos do Service Fabric
 

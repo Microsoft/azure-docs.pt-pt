@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 01/24/2018
 ms.author: sngun
-ms.openlocfilehash: d9d2b58ff249e765620e2fbae5c9677e9412f1ea
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: cf90f7231362d147914e22419c9008d2628a483f
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57432061"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57861898"
 ---
 # <a name="performance-tips-for-azure-cosmos-db-and-net"></a>Sugestões de desempenho para o Azure Cosmos DB e .NET
 
@@ -38,37 +38,37 @@ Portanto, se está perguntando "como posso melhorar o desempenho da minha base d
 
    * Modo direto
 
-     Modo direto suporta a conectividade através de protocolos TCP e HTTPS. Se estiver a utilizar a versão mais recente do SDK do .net, o modo de conectividade direta é suportado no .NET Standard 2.0 e o .net framework. Ao utilizar o modo direto, existem duas opções de protocolo disponíveis:
+     Modo direto suporta a conectividade através de protocolos TCP e HTTPS. Se estiver a utilizar a versão mais recente do SDK de .NET, o modo de conectividade direta é suportado no .NET Standard 2.0 e o .NET framework. Ao utilizar o modo direto, existem duas opções de protocolo disponíveis:
 
-    * TCP
-    * HTTPS
+     * TCP
+     * HTTPS
 
-    Ao utilizar o modo de Gateway, Cosmos DB utiliza a porta 443 e as portas 10250, 10255 e 10256 ao utilizar a API do Azure Cosmos DB para o MongoDB. O 10250 porta é mapeado para uma instância de MongoDB predefinida sem georreplicação e mapa de 10255/10256 portas para a instância de MongoDB com a funcionalidade de georreplicação. Quando o TCP no modo direto, além das portas de Gateway, tem de garantir que a porta de intervalo entre 10000 e 20000 está aberto porque o Azure Cosmos DB utiliza as portas TCP dinâmicas. Se estas portas não estão abertas e tentar utilizar TCP, receberá um erro 503 Serviço indisponível. A tabela seguinte mostra os modos de conectividade disponíveis para as APIs diferentes e o utilizador de portas de serviço para cada API:
+     Ao utilizar o modo de Gateway, Cosmos DB utiliza a porta 443 e as portas 10250, 10255 e 10256 ao utilizar a API do Azure Cosmos DB para o MongoDB. O 10250 porta é mapeado para uma instância de MongoDB predefinida sem georreplicação e mapa de 10255/10256 portas para a instância de MongoDB com a funcionalidade de georreplicação. Quando o TCP no modo direto, além das portas de Gateway, tem de garantir que a porta de intervalo entre 10000 e 20000 está aberto porque o Azure Cosmos DB utiliza as portas TCP dinâmicas. Se estas portas não estão abertas e tentar utilizar TCP, receberá um erro 503 Serviço indisponível. A tabela seguinte mostra os modos de conectividade disponíveis para as APIs diferentes e o utilizador de portas de serviço para cada API:
 
-    |Modo de ligação  |Protocolo suportado  |SDKs suportados  |Porta de serviço/API  |
-    |---------|---------|---------|---------|
-    |Gateway  |   HTTPS    |  Todos os SDKS    |   SQL(443), Mongo(10250, 10255, 10256), Table(443), Cassandra(10350), Graph(443)    |
-    |Direto    |    HTTPS     |  SDK de .net e Java    |   Portas dentro do intervalo de 10 000 20.000    |
-    |Direto    |     TCP    |  .Net SDK    | Portas dentro do intervalo de 10 000 20.000 |
+     |Modo de ligação  |Protocolo suportado  |SDKs suportados  |Porta de serviço/API  |
+     |---------|---------|---------|---------|
+     |Gateway  |   HTTPS    |  Todos os SDKS    |   SQL(443), Mongo(10250, 10255, 10256), Table(443), Cassandra(10350), Graph(443)    |
+     |Direto    |    HTTPS     |  SDK de .NET e Java    |   Portas dentro do intervalo de 10 000 20.000    |
+     |Direto    |     TCP    |  SDK .NET    | Portas dentro do intervalo de 10 000 20.000 |
 
-    O Azure Cosmos DB oferece um modelo de programação RESTful simples e aberto através de HTTPS. Além disso, ele oferece um protocolo TCP eficiente, que também é RESTful no seu modelo de comunicação e está disponível através do SDK de cliente .NET. TCP direto e HTTPS utilizem SSL para tráfego de criptografia e autenticação inicial. Para obter melhor desempenho, utilize o protocolo TCP, sempre que possível.
+     O Azure Cosmos DB oferece um modelo de programação RESTful simples e aberto através de HTTPS. Além disso, ele oferece um protocolo TCP eficiente, que também é RESTful no seu modelo de comunicação e está disponível através do SDK de cliente .NET. TCP direto e HTTPS utilizem SSL para tráfego de criptografia e autenticação inicial. Para obter melhor desempenho, utilize o protocolo TCP, sempre que possível.
 
-    O modo de conectividade é configurado durante a construção da instância do DocumentClient com o parâmetro ConnectionPolicy. Se for utilizado o modo direto, o protocolo também pode ser definido dentro o parâmetro ConnectionPolicy.
+     O modo de conectividade é configurado durante a construção da instância do DocumentClient com o parâmetro ConnectionPolicy. Se for utilizado o modo direto, o protocolo também pode ser definido dentro o parâmetro ConnectionPolicy.
 
-    ```csharp
-    var serviceEndpoint = new Uri("https://contoso.documents.net");
-    var authKey = new "your authKey from the Azure portal";
-    DocumentClient client = new DocumentClient(serviceEndpoint, authKey,
-    new ConnectionPolicy
-    {
+     ```csharp
+     var serviceEndpoint = new Uri("https://contoso.documents.net");
+     var authKey = new "your authKey from the Azure portal";
+     DocumentClient client = new DocumentClient(serviceEndpoint, authKey,
+     new ConnectionPolicy
+     {
         ConnectionMode = ConnectionMode.Direct,
         ConnectionProtocol = Protocol.Tcp
-    });
-    ```
+     });
+     ```
 
-    Porque TCP só é suportado no modo direto, se o modo de Gateway é usado, em seguida, o protocolo HTTPS é sempre utilizado para comunicar com o Gateway e o valor de protocolo no ConnectionPolicy é ignorado.
+     Porque TCP só é suportado no modo direto, se o modo de Gateway é usado, em seguida, o protocolo HTTPS é sempre utilizado para comunicar com o Gateway e o valor de protocolo no ConnectionPolicy é ignorado.
 
-    ![Ilustração da política de ligação do Azure Cosmos DB](./media/performance-tips/connection-policy.png)
+     ![Ilustração da política de ligação do Azure Cosmos DB](./media/performance-tips/connection-policy.png)
 
 2. **Chamar OpenAsync para evitar a latência de inicialização no primeiro pedido**
 

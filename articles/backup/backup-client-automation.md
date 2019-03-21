@@ -8,46 +8,39 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 5/24/2018
 ms.author: pvrk
-ms.openlocfilehash: d430f6252157c5d34aa236ef88f8490b4ad6a184
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.openlocfilehash: 0a7a16a43b208bf2d14b86cd5cb23544ec03f9a9
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55497949"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57877535"
 ---
 # <a name="deploy-and-manage-backup-to-azure-for-windows-serverwindows-client-using-powershell"></a>Implementar e gerir cópias de segurança para o Azure para o Windows Server/cliente Windows com o PowerShell
 Este artigo mostra-lhe como utilizar o PowerShell para configurar o Azure Backup no Windows Server ou um cliente do Windows e gestão de cópia de segurança e recuperação.
 
 ## <a name="install-azure-powershell"></a>Instalar o Azure PowerShell
-[!INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]
 
-Este artigo incide sobre o Azure Resource Manager (ARM) e os cmdlets do PowerShell de cópia de segurança Online MS que permitem-lhe utilizar um cofre dos serviços de recuperação num grupo de recursos.
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-Em Outubro de 2015, o Azure PowerShell 1.0 foi lançado. Esta versão foi concluída com êxito a 0.9.8 de versão e colocada sobre algumas alterações significativas, especialmente o padrão de nomenclatura dos cmdlets. Os cmdlets da versão 1.0 seguem o padrão de nomenclatura {verbo}-AzureRm{nome}; ao passo que os nomes da versão 0.9.8 não incluem **Rm** (por exemplo, New-AzureRmResourceGroup em vez de New-AzureResourceGroup). Ao utilizar o Azure PowerShell 0.9.8, tem de começar por ativar o modo Resource Manager executando o comando **Switch-AzureMode AzureResourceManager**. Este comando não é necessário no 1.0 ou posterior.
-
-Se desejar usar seus scripts escritos para o 0.9.8 ambiente, no ambiente de 1.0 ou posterior, deve atualizar e cuidadosamente testar os scripts num ambiente de pré-produção antes de os utilizar na produção para evitar o impacto inesperado.
-
-[Baixe a versão mais recente do PowerShell](https://github.com/Azure/azure-powershell/releases) (versão mínima necessária é: 1.0.0)
-
-[!INCLUDE [arm-getting-setup-powershell](../../includes/arm-getting-setup-powershell.md)]
+Para começar, [de instalar a versão mais recente do PowerShell](/powershell/azure/install-az-ps).
 
 ## <a name="create-a-recovery-services-vault"></a>Criar um cofre dos serviços de recuperação
 Os seguintes passos levá-lo através da criação de um cofre dos serviços de recuperação. Um cofre dos serviços de recuperação é diferente de um cofre de cópia de segurança.
 
-1. Se estiver a utilizar o Azure Backup pela primeira vez, tem de utilizar o **Register-AzureRMResourceProvider** cmdlet para registar o fornecedor de serviços de recuperação do Azure com a sua subscrição.
+1. Se estiver a utilizar o Azure Backup pela primeira vez, tem de utilizar o **Register-AzResourceProvider** cmdlet para registar o fornecedor de serviços de recuperação do Azure com a sua subscrição.
 
     ```
-    PS C:\> Register-AzureRmResourceProvider -ProviderNamespace "Microsoft.RecoveryServices"
+    PS C:\> Register-AzResourceProvider -ProviderNamespace "Microsoft.RecoveryServices"
     ```
 2. O Cofre dos serviços de recuperação é um recurso do ARM, por isso terá de colocá-lo dentro de um grupo de recursos. Pode utilizar um grupo de recursos existente ou crie um novo. Ao criar um novo grupo de recursos, especifique o nome e local para o grupo de recursos.  
 
     ```
-    PS C:\> New-AzureRmResourceGroup –Name "test-rg" –Location "WestUS"
+    PS C:\> New-AzResourceGroup –Name "test-rg" –Location "WestUS"
     ```
-3. Utilize o **New-AzureRmRecoveryServicesVault** cmdlet para criar o novo cofre. Certifique-se de que especifique a mesma localização do cofre que foi utilizado para o grupo de recursos.
+3. Utilize o **New-AzRecoveryServicesVault** cmdlet para criar o novo cofre. Certifique-se de que especifique a mesma localização do cofre que foi utilizado para o grupo de recursos.
 
     ```
-    PS C:\> New-AzureRmRecoveryServicesVault -Name "testvault" -ResourceGroupName " test-rg" -Location "WestUS"
+    PS C:\> New-AzRecoveryServicesVault -Name "testvault" -ResourceGroupName " test-rg" -Location "WestUS"
     ```
 4. Especifique o tipo de redundância de armazenamento a utilizar. Pode usar [armazenamento localmente redundante (LRS)](../storage/common/storage-redundancy-lrs.md) ou [armazenamento Georredundante (GRS)](../storage/common/storage-redundancy-grs.md). O exemplo seguinte mostra que a opção - BackupStorageRedundancy para testVault está definida como GeoRedundant.
 
@@ -57,17 +50,17 @@ Os seguintes passos levá-lo através da criação de um cofre dos serviços de 
    >
 
     ```
-    PS C:\> $vault1 = Get-AzureRmRecoveryServicesVault –Name "testVault"
-    PS C:\> Set-AzureRmRecoveryServicesBackupProperties  -vault $vault1 -BackupStorageRedundancy GeoRedundant
+    PS C:\> $vault1 = Get-AzRecoveryServicesVault –Name "testVault"
+    PS C:\> Set-AzRecoveryServicesBackupProperties  -vault $vault1 -BackupStorageRedundancy GeoRedundant
     ```
 
 ## <a name="view-the-vaults-in-a-subscription"></a>Ver os cofres numa subscrição
-Uso **Get-AzureRmRecoveryServicesVault** para ver a lista de todos os cofres na subscrição atual. Pode utilizar este comando para verificar que foi criado um cofre novo, ou para ver quais os cofres estão disponíveis na subscrição.
+Uso **Get-AzRecoveryServicesVault** para ver a lista de todos os cofres na subscrição atual. Pode utilizar este comando para verificar que foi criado um cofre novo, ou para ver quais os cofres estão disponíveis na subscrição.
 
-Execute o comando **Get-AzureRmRecoveryServicesVault**, e a subscrição de todos os cofres estão listados.
+Execute o comando **Get-AzRecoveryServicesVault**, e a subscrição de todos os cofres estão listados.
 
 ```
-PS C:\> Get-AzureRmRecoveryServicesVault
+PS C:\> Get-AzRecoveryServicesVault
 Name              : Contoso-vault
 ID                : /subscriptions/1234
 Type              : Microsoft.RecoveryServices/vaults
@@ -131,7 +124,7 @@ Depois de criado o Cofre dos serviços de recuperação, transfira o agente mais
 
 ```
 PS C:\> $credspath = "C:\downloads"
-PS C:\> $credsfilename = Get-AzureRmRecoveryServicesVaultSettingsFile -Backup -Vault $vault1 -Path  $credspath
+PS C:\> $credsfilename = Get-AzRecoveryServicesVaultSettingsFile -Backup -Vault $vault1 -Path  $credspath
 ```
 
 No Windows Server ou na máquina de cliente do Windows, execute o [Start-OBRegistration](https://technet.microsoft.com/library/hh770398%28v=wps.630%29.aspx) cmdlet para registar a máquina com o cofre.

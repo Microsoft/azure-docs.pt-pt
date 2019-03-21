@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 02/12/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c2159fafbc1e27385b39d0416c7588a15b279ea9
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 949b5b1aaab60e5b1d160963ac3f024dbbfbe552
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57436158"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57834972"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-cezanne-hr-software"></a>Tutorial: Integração do Active Directory do Azure com o Software de RH Cezanne
 
@@ -184,7 +184,7 @@ O objetivo desta secção é criar um utilizador de teste no portal do Azure cha
 
     a. Na **Name** campo introduza **BrittaSimon**.
   
-    b. Na **nome de utilizador** tipo de campo **brittasimon@yourcompanydomain.extension**  
+    b. Na **nome de utilizador** tipo de campo **brittasimon\@yourcompanydomain.extension**  
     Por exemplo, BrittaSimon@contoso.com
 
     c. Selecione **palavra-passe de Show** caixa de verificação e, em seguida, anote o valor que é apresentado na caixa de palavra-passe.

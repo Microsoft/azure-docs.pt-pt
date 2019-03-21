@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/18/2017
 ms.author: masnider
-ms.openlocfilehash: 534a9584427efd15b8119f8421fb041199b97fbf
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: 9a124bd9a52e22c359fb771e4d4c8714bd1dbe2c
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56731587"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58123237"
 ---
 # <a name="balancing-your-service-fabric-cluster"></a>Balanceamento do seu cluster do service fabric
 O Gestor de recursos de Cluster do Service Fabric suporta alterações de carga dinâmico, reagir a adições ou remoções de nós ou serviços. Também automaticamente corrige violações de restrição e rebalances proativamente o cluster. Mas quantas vezes essas ações direcionadas, e o que aciona-los?
@@ -122,6 +122,7 @@ por meio de ClusterConfig.json das implementações autónomas ou Template para 
 ```
 
 <center>
+
 ![Balanceamento de limiar de exemplo][Image1]
 </center>
 
@@ -130,6 +131,7 @@ Neste exemplo, cada serviço está a consumir uma unidade de alguns métrica. No
 No exemplo na parte inferior, a carga máxima num nó é 10, enquanto o mínimo é duas, resultando numa proporção de cinco. Cinco é superior ao limiar designado de balanceamento de três para essa métrica. Como resultado, um reequilibrar execute será agendada a próxima vez, o balanceamento timer é acionado. Numa situação como essa alguma carga normalmente é distribuída para Nó3. Uma vez que o Gestor de recursos de Cluster do Service Fabric não usa uma abordagem greedy, alguns carga também pode ser distribuída para Node2. 
 
 <center>
+
 ![Balanceamento de ações de exemplo do limiar][Image2]
 </center>
 
@@ -145,6 +147,7 @@ Obter abaixo do limiar balanceamento não é um objetivo explícito. Balanceamen
 Digamos que podemos manter nosso limiar de balanceamento de três para esta métrica. Vamos também supor que temos um limiar de atividade de 1536. No primeiro caso, enquanto o cluster está desequilibrado pelo limiar de balanceamento de mensagens em fila não existe nenhum nó atende a esse limite de atividade, portanto, nada acontece. No exemplo na parte inferior, Node1 é superior ao limiar de atividade. Uma vez que são excedido o limiar de balanceamento e o limite de atividade para a métrica, balanceamento está agendado. Por exemplo, vamos examinar o diagrama seguinte: 
 
 <center>
+
 ![Exemplo de limiar de atividade][Image3]
 </center>
 
@@ -194,6 +197,7 @@ Ocasionalmente, no entanto, um serviço que não era o próprio desequilibrado o
 Obviamente, pode ver em que vamos aqui: Há uma cadeia! Não temos realmente quatro serviços independentes, temos três serviços que estão relacionados e outro que está desativada por conta própria.
 
 <center>
+
 ![Serviços de balanceamento em conjunto][Image4]
 </center>
 
@@ -202,6 +206,7 @@ Devido a esta cadeia, é possível que um desequilíbrio nas métricas de 1 a 4 
 O Gestor de recursos de Cluster detecta automaticamente os serviços que estão relacionados. Adicionar, remover ou alterar as métricas para os serviços pode afetar suas relações. Por exemplo, entre as duas execuções do balanceamento Service2 a podem ter sido atualizadas para remover Metric2. Isso divide a cadeia entre Service1 e Service2. Agora, em vez de dois grupos de serviços relacionados, há três:
 
 <center>
+
 ![Serviços de balanceamento em conjunto][Image5]
 </center>
 

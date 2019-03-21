@@ -13,12 +13,12 @@ ms.topic: article
 ms.date: 12/10/2018
 ms.author: routlaw
 ms.custom: seodec18
-ms.openlocfilehash: 698e6fb861ab891a84aa43ca94769099a5c76943
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: d944a51f7e0ee24d5a3768ba28d7a8294c30b99b
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57766823"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58118770"
 ---
 # <a name="java-developers-guide-for-app-service-on-linux"></a>Guia de programação Java para o serviço de aplicações no Linux
 
@@ -250,21 +250,21 @@ Em seguida, determine se a origem de dados deve estar disponível para um aplica
 #### <a name="finally-place-the-driver-jars-in-the-tomcat-classpath-and-restart-your-app-service"></a>Por fim, coloque os JARs de driver em Tomcat classpath e reinicie o serviço de aplicações
 
 1. Certifique-se de que os ficheiros de controlador JDBC estão disponíveis para o classloader Tomcat, colocando-os no `/home/tomcat/lib` diretório. (Criar este diretório se ainda não exista.) Para carregar esses arquivos à sua instância do serviço de aplicações, execute os seguintes passos:  
-    1. Instale a extensão de webpp do App Service do Azure:
+   1. Instale a extensão de webpp do App Service do Azure:
 
       ```azurecli-interactive
       az extension add –name webapp
       ```
 
-    1. Execute o seguinte comando da CLI para criar um túnel SSH do seu sistema local no serviço de aplicações:
+   1. Execute o seguinte comando da CLI para criar um túnel SSH do seu sistema local no serviço de aplicações:
 
       ```azurecli-interactive
       az webapp remote-connection create –g [resource group] -n [app name] -p [local port to open]
       ```
 
-    1. Ligue à porta de túnel local com o cliente SFTP e carregar os ficheiros para o `/home/tomcat/lib` pasta.
+   1. Ligue à porta de túnel local com o cliente SFTP e carregar os ficheiros para o `/home/tomcat/lib` pasta.
 
-    Em alternativa, pode utilizar um cliente de FTP para carregar o controlador JDBC. Siga estes [instruções para obter as suas credenciais FTP](https://docs.microsoft.com/azure/app-service/deploy-configure-credentials).
+      Em alternativa, pode utilizar um cliente de FTP para carregar o controlador JDBC. Siga estes [instruções para obter as suas credenciais FTP](https://docs.microsoft.com/azure/app-service/deploy-configure-credentials).
 
 2. Se tiver criado uma origem de dados ao nível do servidor, reinicie a aplicação do Linux do serviço de aplicações. Tomcat redefinirá `CATALINA_HOME` para `/home/tomcat/conf` e utilizar a configuração atualizada.
 

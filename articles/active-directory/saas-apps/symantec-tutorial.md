@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 12/25/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 040d72854846a5065b9a5dea9c8cd0e42dcbdd74
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 6b9fdc6bf46cff1f3a38d40a4e7abad5bfe56c47
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57776840"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57877841"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-symantec-web-security-service-wss"></a>Tutorial: Integração do Active Directory do Azure com o serviço de segurança de Web do Symantec (WSS)
 
@@ -141,7 +141,7 @@ O objetivo desta secção é criar um utilizador de teste no portal do Azure cha
 
     a. Na **Name** campo introduza **BrittaSimon**.
   
-    b. Na **nome de utilizador** tipo de campo **brittasimon@yourcompanydomain.extension**  
+    b. Na **nome de utilizador** tipo de campo **brittasimon\@yourcompanydomain.extension**  
     Por exemplo, BrittaSimon@contoso.com
 
     c. Selecione **palavra-passe de Show** caixa de verificação e, em seguida, anote o valor que é apresentado na caixa de palavra-passe.
@@ -181,7 +181,7 @@ Nesta secção, vai criar um usuário chamado Eduarda Almeida no serviço de seg
 > [!NOTE]
 > Clique [aqui](https://www.bing.com/search?q=my+ip+address&qs=AS&pq=my+ip+a&sc=8-7&cvid=29A720C95C78488CA3F9A6BA0B3F98C5&FORM=QBLH&sp=1) para obter a sua máquina do IPaddress pública.
 
-### <a name="test-single-sign-on"></a>Testar início de sessão único 
+### <a name="test-single-sign-on"></a>Testar o início de sessão único 
 
 Nesta secção, irá testar a funcionalidade de início de sessão única, agora que configurou a sua conta do WSS para utilizar o Azure AD para autenticação de SAML.
 

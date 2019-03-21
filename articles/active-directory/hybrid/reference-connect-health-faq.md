@@ -15,12 +15,12 @@ ms.topic: reference
 ms.date: 07/18/2017
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bf1dc33276c10a9b7fe7c7ebb6619b8c47d66bfb
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: ec88caafa9a6168860a8e9e2ff9e2abe0cfd0e77
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57447834"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57852982"
 ---
 # <a name="azure-ad-connect-health-frequently-asked-questions"></a>Perguntas mais frequentes do Azure AD Connect Health
 Este artigo contém respostas para perguntas mais frequentes (FAQ) sobre o Azure Active Directory (Azure AD) Connect Health. Estas FAQ sobre perguntas sobre como utilizar o serviço, que inclui a faturação modelo, capacidades, limitações e suporte.
@@ -192,6 +192,9 @@ CheckForMS17-010
 **P: Por que razão as minhas ADFS Audita a ser gerado, não?**
 
 Utilize o cmdlet do PowerShell <i>Get-AdfsProperties - AuditLevel</i> garantir que os registos de auditoria não está no estado desativado. Leia mais sobre [registos de auditoria do AD FS](https://docs.microsoft.com/windows-server/identity/ad-fs/technical-reference/auditing-enhancements-to-ad-fs-in-windows-server#auditing-levels-in-ad-fs-for-windows-server-2016). Observe que se são avançadas de definições de auditoria enviadas para o servidor do AD FS, quaisquer alterações Auditpol.exe serão substituído (evento se a aplicação gerada não está configurada). Neste caso, defina a política de segurança local para iniciar sessão falhas de aplicação gerados e o sucesso.
+
+**P: Quando o certificado do agente serão renovada antes de expiração automática?**
+A certificação do agente será automática renovado **6 meses** antes da data de expiração. Se não for renovado, certifique-se que a ligação de rede do agente está estável. Reinicie os serviços do agente ou atualização para a versão mais recente também poderá resolver o problema.
 
 
 ## <a name="related-links"></a>Ligações relacionadas

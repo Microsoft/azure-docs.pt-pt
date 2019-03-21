@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 02/25/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 596dc691ea2a8bf4e00684bb22ea849814ef9222
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 3b478d0779a493d9c5b29690a3eb495d5abaadc7
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57778183"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57842967"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-learning-seat-lms"></a>Tutorial: Integração do Active Directory do Azure com a aprendizagem de LMS posto de trabalho
 
@@ -154,7 +154,7 @@ O objetivo desta secção é criar um utilizador de teste no portal do Azure cha
 
     a. Na **Name** campo introduza **BrittaSimon**.
   
-    b. Na **nome de utilizador** tipo de campo **brittasimon@yourcompanydomain.extension**  
+    b. Na **nome de utilizador** tipo de campo **brittasimon\@yourcompanydomain.extension**  
     Por exemplo, BrittaSimon@contoso.com
 
     c. Selecione **palavra-passe de Show** caixa de verificação e, em seguida, anote o valor que é apresentado na caixa de palavra-passe.

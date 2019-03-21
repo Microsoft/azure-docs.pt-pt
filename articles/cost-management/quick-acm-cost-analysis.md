@@ -5,17 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 02/28/2019
+ms.date: 03/13/2019
 ms.topic: quickstart
 ms.service: cost-management
 manager: dougeby
 ms.custom: seodec18
-ms.openlocfilehash: a36f20011429ea45fb951e331c5cf3c2bb7209e2
-ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
+ms.openlocfilehash: 55407ec1846a0fe2eb037756dc2e97d8b05e7330
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57342535"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57997297"
 ---
 # <a name="quickstart-explore-and-analyze-costs-with-cost-analysis"></a>Início rápido: Explore e analise os custos com a análise de custos
 
@@ -51,9 +51,9 @@ Para obter mais informações sobre a atribuir acesso a dados de gestão de cust
 
 ## <a name="review-costs-in-cost-analysis"></a>Rever os custos na análise de custos
 
-Para rever os custos com a análise de custo, no portal do Azure, navegue até **gestão de custos + faturação** &gt; **análise de custo**. Selecione **âmbito: _ScopeName_**, selecione um âmbito e, em seguida, clique em **selecione**.
+Para rever os seus custos na análise de custos, abra o âmbito pretendido no portal do Azure e selecione **análise de custo** no menu. Por exemplo, navegue até **subscrições**, selecione uma subscrição na lista e, em seguida, selecione **análise de custo** no menu. Utilize o **âmbito** envenenadas para mudar para outro âmbito na análise de custo. Para obter mais informações sobre âmbitos, consulte [entender e trabalhar com âmbitos](understand-work-scopes.md).
 
-O âmbito que selecionar será utilizado em toda a Gestão de Custos para fornecer a consolidação de dados e para controlar o acesso às informações relativas aos custos. Quando utiliza âmbitos, não faz uma seleção múltipla dos mesmos. Em vez disso, selecionar um âmbito maior do que outras pessoas até implementar e, em seguida, filtro pendente para o que deseja. Isso é importante para compreender porque algumas pessoas não devem ter acesso a um âmbito principal que âmbitos subordinados até implementar. Para obter mais informações sobre âmbitos, consulte [entender e trabalhar com âmbitos](understand-work-scopes.md).
+O âmbito que selecionar será utilizado em toda a Gestão de Custos para fornecer a consolidação de dados e para controlar o acesso às informações relativas aos custos. Quando utiliza âmbitos, não faz uma seleção múltipla dos mesmos. Em vez disso, selecionar um âmbito maior do que outras pessoas até implementar e, em seguida, filtro pendente para o que deseja. Isso é importante para compreender porque algumas pessoas não devem ter acesso a um âmbito principal que âmbitos subordinados até implementar.
 
 Clique em **Abrir Análise de Custos**.
 

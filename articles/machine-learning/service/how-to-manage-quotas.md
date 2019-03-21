@@ -11,12 +11,12 @@ author: nishankgu
 ms.author: nigup
 ms.date: 12/04/2018
 ms.custom: seodec18
-ms.openlocfilehash: b735df4e245d6e3ceebd847e91ed7dfdb255c267
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: aa425b6dfeb076448d14fc35cbea964516d603b0
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55245995"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57904648"
 ---
 # <a name="manage-and-request-quotas-for-azure-resources"></a>Gerir e solicitar as quotas para recursos do Azure
 

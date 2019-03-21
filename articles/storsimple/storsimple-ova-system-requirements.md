@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 01/11/2019
 ms.author: alkohli
-ms.openlocfilehash: 7e5cf79613bdbd62427e99a0d1f2aa29ed8f85be
-ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
+ms.openlocfilehash: becf48320b346feea82944ed2f7e752125795d40
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/12/2019
-ms.locfileid: "54245196"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57999515"
 ---
 # <a name="storsimple-virtual-array-system-requirements"></a>Requisitos de sistema da Matriz Virtual StorSimple
 ## <a name="overview"></a>Descrição geral
@@ -39,7 +39,7 @@ As informações de requisitos de sistema do StorSimple publicadas neste artigo 
 Os requisitos de software incluem informações sobre os browsers suportados, as versões da SMB, plataformas de Virtualização e os requisitos de mínima do dispositivo virtual.
 
 ### <a name="supported-virtualization-platforms"></a>Plataformas de Virtualização suportados
-| **Hipervisor** | **Versão** |
+| **Hypervisor** | **Versão** |
 | --- | --- |
 | Hyper-V |Windows Server 2008 R2 SP1 e posterior |
 | VMware ESXi |5.0, 5.5, 6.0 e 6.5. |
@@ -72,7 +72,7 @@ São os seguintes requisitos de software para os iniciadores iSCSI que acedem a 
 
 | **Sistemas operativos suportados** | **Versão necessária** | **Notas/requisitos adicionais** |
 | --- | --- | --- |
-| Windows Server |2008 R2 SP1, 2012, 2012R2 |StorSimple pode criar com aprovisionamento dinâmico e totalmente aprovisionado volumes. Ele não é possível criar volumes parcialmente aprovisionados. Volumes do StorSimple iSCSI apenas são suportados para: <ul><li>Simples volumes em discos básicos do Windows.</li><li>NTFS do Windows para a formatação de um volume.</li> |
+| Windows Server |2008R2 SP1, 2012, 2012R2 |StorSimple pode criar com aprovisionamento dinâmico e totalmente aprovisionado volumes. Ele não é possível criar volumes parcialmente aprovisionados. Volumes do StorSimple iSCSI apenas são suportados para: <ul><li>Simples volumes em discos básicos do Windows.</li><li>NTFS do Windows para a formatação de um volume.</li> |
 
 São os seguintes requisitos de software para os clientes SMB que acedem a sua matriz Virtual do StorSimple (que é configurado como servidor de ficheiros).
 
@@ -100,7 +100,7 @@ A tabela seguinte lista as portas que têm de ser aberta na firewall para permit
 | UDP 123 (NTP) |Saída |WAN |Em alguns casos; consulte as notas. |Esta porta é necessária apenas se estiver a utilizar um servidor NTP baseado na Internet.<br></br> Tenha em atenção que se implementar um servidor de ficheiros, recomendamos que a sincronização de hora com os controladores de domínio do Active Directory. |
 | TCP 80 (HTTP) |Em |LAN |Sim |Esta é a porta de entrada para a interface do Usuário local no dispositivo StorSimple para gestão local. <br></br> Tenha em atenção que a interface do Usuário local a aceder através de HTTP será automaticamente redirecionada para HTTPS. |
 | TCP 443 (HTTPS) |Em |LAN |Sim |Esta é a porta de entrada para a interface do Usuário local no dispositivo StorSimple para gestão local. |
-| 3260 de TCP (iSCSI) |Em |LAN |Não |Esta porta é utilizada para aceder aos dados através de iSCSI. |
+| TCP 3260 (iSCSI) |Em |LAN |Não |Esta porta é utilizada para aceder aos dados através de iSCSI. |
 
 <sup>1</sup> nenhuma porta de entrada tem de ser aberta na Internet pública.
 
@@ -125,12 +125,12 @@ Recomendamos que defina as regras de firewall para tráfego de saída, com base 
 | --- | --- |
 | `https://*.storsimple.windowsazure.com/*`<br>`https://*.accesscontrol.windows.net/*`<br>`https://*.servicebus.windows.net/*` <br>`https://login.windows.net`|Serviço do Gestor de Dispositivos do StorSimple<br>Serviço de Controlo de Acesso<br>Service Bus do Azure<br>Serviço de Autenticação|
 | `http://*.backup.windowsazure.com` |Registo de dispositivo |
-| `http://crl.microsoft.com/pki/*`<br>`http://www.microsoft.com/pki/*` |Revogação de certificados |
+| `https://crl.microsoft.com/pki/*`<br>`https://www.microsoft.com/pki/*` |Revogação de certificados |
 | `https://*.core.windows.net/*`<br>`https://*.data.microsoft.com`<br>`http://*.msftncsi.com` |Contas de armazenamento do Azure e monitorização |
-| `http://*.windowsupdate.microsoft.com`<br>`https://*.windowsupdate.microsoft.com`<br>`http://*.update.microsoft.com`<br> `https://*.update.microsoft.com`<br>`http://*.windowsupdate.com`<br>`http://download.microsoft.com`<br>`http://wustat.windows.com`<br>`http://ntservicepack.microsoft.com` |Servidores do Microsoft Update<br> |
+| `https://*.windowsupdate.microsoft.com`<br>`https://*.windowsupdate.microsoft.com`<br>`https://*.update.microsoft.com`<br> `https://*.update.microsoft.com`<br>`http://*.windowsupdate.com`<br>`https://download.microsoft.com`<br>`http://wustat.windows.com`<br>`https://ntservicepack.microsoft.com` |Servidores do Microsoft Update<br> |
 | `http://*.deploy.akamaitechnologies.com` |Akamai CDN |
 | `https://*.partners.extranet.microsoft.com/*` |Pacote de suporte |
-| `http://*.data.microsoft.com ` |O serviço de telemetria no Windows, consulte o [atualização para a experiência do cliente e a telemetria de diagnóstico](https://support.microsoft.com/en-us/kb/3068708) |
+| `https://*.data.microsoft.com ` |O serviço de telemetria no Windows, consulte o [atualização para a experiência do cliente e a telemetria de diagnóstico](https://support.microsoft.com/en-us/kb/3068708) |
 
 ## <a name="next-steps"></a>Passos Seguintes
 * [Preparar o portal para implementar a sua matriz Virtual StorSimple](storsimple-virtual-array-deploy1-portal-prep.md)

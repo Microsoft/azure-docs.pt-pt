@@ -13,12 +13,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 02/18/2019
 ms.author: glenga
-ms.openlocfilehash: 6c6d72875cded1b594af12922db9a0c4e8afed17
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 0da4e1a0b20874c4452dd77bf77df0860dec455f
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57769341"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57848078"
 ---
 # <a name="how-to-use-the-azure-webjobs-sdk-for-event-driven-background-processing"></a>Como utilizar o SDK de WebJobs do Azure para processamento condicionada por eventos em segundo plano
 
@@ -151,7 +151,7 @@ static void Main(string[] args)
 }
 ```
 
-## <a name="triggers"></a>Ativadores
+## <a name="triggers"></a>Acionadores
 
 As funções têm de ser métodos públicos e tem de ter um atributo de Acionador ou o [ `NoAutomaticTrigger` ](#manual-trigger) atributo.
 
@@ -285,7 +285,7 @@ Esses tipos de Acionador e vinculação estão incluídos na versão 2. *x* do `
 
 * Armazenamento de blobs
 * Armazenamento de filas
-* Armazenamento de tabela
+* Table Storage
 
 Para utilizar outro acionador e tipos de ligação, instale o pacote NuGet que contém-los e chamar uma `Use<binding>` método no `JobHostConfiguration` objeto. Por exemplo, se pretender utilizar um acionador de temporizador, instale `Microsoft.Azure.WebJobs.Extensions` e chamar `UseTimers` no `Main` método, conforme mostrado aqui:
 
@@ -370,7 +370,7 @@ Pode configurar as ligações seguintes:
 
 * [Acionador do Azure cosmos DB](#azure-cosmosdb-trigger-configuration-version-3x)
 * [Acionador de Hubs de eventos](#event-hubs-trigger-configuration-version-3x)
-* [Acionador do armazenamento de fila](#queue-trigger-configuration)
+* Acionador do armazenamento de fila
 * [Ligação do SendGrid](#sendgrid-binding-configuration-version-3x)
 * [Acionador do Service Bus](#service-bus-trigger-configuration-version-3x)
 

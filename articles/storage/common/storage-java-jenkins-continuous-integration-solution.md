@@ -9,12 +9,12 @@ ms.service: storage
 custom: jenkins
 ms.date: 07/31/2018
 ms.subservice: common
-ms.openlocfilehash: 2aeab9be28a61f4e185be7192e7965cbf02bfed9
-ms.sourcegitcommit: d89b679d20ad45d224fd7d010496c52345f10c96
+ms.openlocfilehash: 8ea80d557185f4489a96384b77ddd2519e7bd049
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57791992"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57992203"
 ---
 # <a name="using-azure-storage-with-a-jenkins-continuous-integration-solution"></a>Utilizar o armazenamento do Azure com uma solução de integração contínua Jenkins
 
@@ -40,7 +40,7 @@ Benefícios da utilização do serviço de BLOBs para hospedar seus artefactos d
   
     Se não tiver atualmente uma solução Jenkins CI, pode executar uma solução do Jenkins CI usando a técnica seguinte:
   
-  1. Numa máquina ativada do Java, baixe jenkins.war de <http://jenkins-ci.org>.
+  1. Numa máquina ativada do Java, baixe jenkins.war de <https://jenkins-ci.org>.
   2. No prompt de comando que é aberto para a pasta que contém jenkins.war, execute:
      
       `java -jar jenkins.war`
@@ -48,7 +48,7 @@ Benefícios da utilização do serviço de BLOBs para hospedar seus artefactos d
   3. No browser, abra `http://localhost:8080/` para abrir o dashboard do Jenkins, que irá utilizar para instalar e configurar o plug-in do armazenamento do Azure.
      
       Embora uma solução típica do Jenkins CI poderia ser configurada para ser executado como um serviço, em execução na guerra Jenkins na linha de comandos será suficiente para este tutorial.
-* Uma conta do Azure. Pode inscrever-se numa conta do Azure em <http://www.azure.com>.
+* Uma conta do Azure. Pode inscrever-se numa conta do Azure em <https://www.azure.com>.
 * Uma conta de armazenamento do Azure. Se ainda não tiver uma conta de armazenamento, pode criar uma com os passos indicados em [criar uma conta de armazenamento](../common/storage-quickstart-create-account.md).
 * Familiaridade com a solução do Jenkins CI é recomendada, mas não obrigatório, como o seguinte conteúdo irá utilizar um exemplo básico para mostrar as etapas necessárias ao utilizar o serviço de BLOBs como um repositório para o Jenkins CI artefactos de compilação.
 
@@ -118,7 +118,7 @@ Os passos seguintes mostram para configurar uma etapa de compilação para trans
 1. Na **crie** secção de configuração da tarefa, selecione **Adicionar passo de compilação** e selecione **transferir a partir do armazenamento de Blobs do Azure**.
 2. Para **nome da conta de armazenamento**, selecione a conta de armazenamento a utilizar.
 3. Para **nome do contentor**, especifique o nome do contentor que tem os blobs que pretende transferir. Pode utilizar variáveis de ambiente.
-4. Para **nome do Blob**, especifique o nome do blob. Pode utilizar variáveis de ambiente. Além disso, pode utilizar um asterisco como caráter universal depois de especificar o letter(s) inicial do nome do blob. Por exemplo, **project\*** especificaria todos os blobs cujos nomes começam com **projeto**.
+4. Para **nome do Blob**, especifique o nome do blob. Pode utilizar variáveis de ambiente. Além disso, pode utilizar um asterisco como caráter universal depois de especificar o letter(s) inicial do nome do blob. Por exemplo, **project\\*** de especificar todos os blobs cujos nomes começam com **projeto**.
 5. [Opcional] Para **caminho de transferência**, especifique o caminho na máquina do Jenkins em que pretende transferir ficheiros do armazenamento de Blobs do Azure. Variáveis de ambiente também podem ser utilizadas. (Se não fornecer um valor para **caminho de transferência**, os ficheiros de armazenamento de Blobs do Azure serão transferidos para a área de trabalho da tarefa.)
 
 Se tiver outros itens que pretende transferir a partir do armazenamento de Blobs do Azure, pode criar passos de compilação adicional.

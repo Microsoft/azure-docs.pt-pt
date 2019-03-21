@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 07/12/2018
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: da9aec6c449802ee9296ea4e60efe47650176212
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 36534388b02a283db744c6ef362878f6232c5ecb
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57433353"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57990695"
 ---
 # <a name="sap-maxdb-livecache-and-content-server-deployment-on-azure-vms"></a>SAP MaxDB liveCache e implementação de servidor de conteúdo em VMs do Azure
 
@@ -158,7 +158,7 @@ ms.locfileid: "57433353"
 [deploy-template-portal]:../../../resource-group-template-deploy-portal.md
 [deploy-template-powershell]:../../../resource-group-template-deploy.md
 
-[dr-guide-classic]:http://go.microsoft.com/fwlink/?LinkID=521971
+[dr-guide-classic]:https://go.microsoft.com/fwlink/?LinkID=521971
 
 [getting-started]:get-started.md
 [getting-started-dbms]:get-started.md#1343ffe1-8021-4ce6-a08d-3a1553a4db82
@@ -172,7 +172,7 @@ ms.locfileid: "57433353"
 [getting-started-windows-classic-ha-sios]:../../virtual-machines-windows-classic-sap-get-started.md#4bb7512c-0fa0-4227-9853-4004281b1037
 [getting-started-windows-classic-planning]:../../virtual-machines-windows-classic-sap-get-started.md#f2a5e9d8-49e4-419e-9900-af783173481c
 
-[ha-guide-classic]:http://go.microsoft.com/fwlink/?LinkId=613056
+[ha-guide-classic]:https://go.microsoft.com/fwlink/?LinkId=613056
 
 [install-extension-cli]:virtual-machines-linux-enable-aem.md
 

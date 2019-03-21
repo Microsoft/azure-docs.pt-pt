@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: billing
 ms.date: 6/13/2018
 ms.author: erikre
-ms.openlocfilehash: a20ec22bee17bd73df24a6a0653e458241f90cfc
-ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
+ms.openlocfilehash: 8b42361e7b94bf017dde4eaec882f9fed4d42ed6
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55746443"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57862000"
 ---
 # <a name="automation-scenarios-for-billing-and-cost-management"></a>Cenários de automação para a gestão de faturação e de custo
 
@@ -143,4 +143,4 @@ Estas APIs fornecem semelhante conjuntos de dados, mas têm a públicos diferent
 
 - Para comparar a fatura com o ficheiro de utilização diária detalhadas e os relatórios de gestão de custos no portal do Azure, veja [compreender a sua fatura do Microsoft Azure](billing-understand-your-bill.md).
 
-- Se tiver alguma dúvida ou precisar de ajuda, [criar um pedido de suporte](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).
+- Se tiver alguma dúvida ou precisar de ajuda, [criar um pedido de suporte](https://go.microsoft.com/fwlink/?linkid=2083458).

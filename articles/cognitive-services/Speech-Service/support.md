@@ -10,16 +10,16 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 07/26/2018
 ms.author: wolfma
-ms.openlocfilehash: b8e6c8b125e8eeaadac2e6864b06d55c42d3b173
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: a4c256a6acd8e51986b40e28a6f658f1103ab337
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57542007"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57877705"
 ---
 # <a name="support-and-help-options"></a>Opções de suporte e ajuda
 
-Está apenas começar a explorar a funcionalidade do serviço de voz? Estiver implementando um novo recurso à sua aplicação? Seguem-se sugestões sobre onde pode obter ajuda, como desenvolvedor.
+Está apenas começar a explorar a funcionalidade dos serviços de fala? Estiver implementando um novo recurso à sua aplicação? Seguem-se sugestões sobre onde pode obter ajuda, como desenvolvedor.
 
 > [!div class="checklist"]
 > * Mantenha-se informado sobre novos desenvolvimentos *serviços cognitivos do Azure*, ou encontrar as notícias mais recentes relacionadas ao *serviço de voz*.
@@ -30,7 +30,7 @@ Está apenas começar a explorar a funcionalidade do serviço de voz? Estiver im
 
 ## <a name="stay-informed"></a>Mantenha-se informado
 
-Notícias sobre os serviços cognitivos são recolhidas no [blogue de serviços cognitivos](https://azure.microsoft.com/blog/topics/cognitive-services/). Para obter as informações mais recentes sobre o serviço de voz, controlar os [blogue do serviço de voz](https://azure.microsoft.com/blog/tag/speech-service/).
+Notícias sobre os serviços cognitivos são recolhidas no [blogue de serviços cognitivos](https://azure.microsoft.com/blog/topics/cognitive-services/). Para obter as informações mais recentes sobre os serviços de voz, controlar os [blogue de serviços de voz](https://azure.microsoft.com/blog/tag/speech-service/).
 
 ## <a name="search"></a>Pesquisa
 

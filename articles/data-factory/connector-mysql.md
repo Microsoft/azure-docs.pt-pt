@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 02/01/2019
 ms.author: jingwang
-ms.openlocfilehash: 1bc2277b4100fe7571dc27758de12f1ca00020a1
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
+ms.openlocfilehash: e05e2f2d04aeb572307f8114ca80f148b3d50e3d
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55656520"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58124036"
 ---
 # <a name="copy-data-from-mysql-using-azure-data-factory"></a>Copiar dados do MySQL com o Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -57,7 +57,7 @@ As seguintes propriedades são suportadas para o serviço ligado do MySQL:
 É uma cadeia de ligação típica `Server=<server>;Port=<port>;Database=<database>;UID=<username>;PWD=<password>`. Mais de propriedades que pode ser definido por seu caso:
 
 | Propriedade | Descrição | Opções | Necessário |
-|:--- |:--- |:--- |:--- |:--- |
+|:--- |:--- |:--- |:--- |
 | SSLMode | Esta opção especifica se o driver utiliza encriptação SSL e verificação ao ligar ao MySQL. Por exemplo, `SSLMode=<0/1/2/3/4>`| DESATIVADO (0) / preferencial (1) **(predefinição)** / necessária (2) / VERIFY_CA (3) / VERIFY_IDENTITY (4) | Não |
 | UseSystemTrustStore | Esta opção especifica se pretende utilizar um certificado de AC a partir da loja de confiança do sistema, ou a partir de um ficheiro PEM especificado. Por exemplo, `UseSystemTrustStore=<0/1>;`| (1) de ativado / desativado (0) **(predefinida)** | Não |
 

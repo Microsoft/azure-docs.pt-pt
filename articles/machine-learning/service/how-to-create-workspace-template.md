@@ -6,16 +6,15 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
-ms.reviewer: larryfr
-ms.author: haining
-author: hning86
+ms.author: larryfr
+author: Blackmist
 ms.date: 02/11/2019
-ms.openlocfilehash: d91cb2a98c6861695ffdc231bd979abaf24b2c6e
-ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
+ms.openlocfilehash: 2b5ee1b5079f22985b03aaafac30c11a10a3c8f0
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56669997"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57850082"
 ---
 # <a name="create-an-azure-machine-learning-service-workspace-by-using-a-template"></a>Criar uma área de trabalho do serviço do Azure Machine Learning utilizando um modelo
 
@@ -25,7 +24,7 @@ Para obter mais informações, consulte [implementar uma aplicação com o model
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* Uma **subscrição do Azure**. Se não tiver um, experimente o [uma versão gratuita ou paga do serviço Azure Machine Learning](http://aka.ms/AMLFree).
+* Uma **subscrição do Azure**. Se não tiver um, experimente o [uma versão gratuita ou paga do serviço Azure Machine Learning](https://aka.ms/AMLFree).
 
 * Para utilizar um modelo a partir de uma CLI, é necessário um [do Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview?view=azps-1.2.0) ou o [CLI do Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
 
@@ -193,12 +192,12 @@ Para obter mais informações sobre modelos, consulte os artigos seguintes:
 1. Siga os passos em [implementar recursos de modelo personalizado](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-template-deploy-portal#deploy-resources-from-custom-template). Quando deparar-se com o __Editar modelo__ ecrã, cole o modelo a partir deste documento.
 1. Selecione __guardar__ para utilizar o modelo. Forneça as seguintes informações e os Concordo com os listados termos e condições:
 
-    * Subscrição: Selecione a subscrição do Azure a utilizar para estes recursos.
-    * Grupo de recursos: Selecione ou crie um grupo de recursos para conter os serviços.
-    * Nome da área de trabalho: O nome a utilizar para a área de trabalho do Azure Machine Learning que vai ser criada. O nome de área de trabalho tem de ter entre 3 e 33 carateres. Pode conter apenas carateres alfanuméricos e "-".
-    * Localização: Selecione a localização onde os recursos serão criados.
+   * Subscrição: Selecione a subscrição do Azure a utilizar para estes recursos.
+   * Grupo de recursos: Selecione ou crie um grupo de recursos para conter os serviços.
+   * Nome da área de trabalho: O nome a utilizar para a área de trabalho do Azure Machine Learning que vai ser criada. O nome de área de trabalho tem de ter entre 3 e 33 carateres. Pode conter apenas carateres alfanuméricos e "-".
+   * Localização: Selecione a localização onde os recursos serão criados.
 
-    ![Os parâmetros de modelo no portal do Azure](media/how-to-create-workspace-template/template-parameters.png)
+     ![Os parâmetros de modelo no portal do Azure](media/how-to-create-workspace-template/template-parameters.png)
 
 Para obter mais informações, consulte [implementar recursos de modelo personalizado](../../azure-resource-manager/resource-group-template-deploy-portal.md#deploy-resources-from-custom-template).
 

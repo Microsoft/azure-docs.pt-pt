@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: quickstart
 ms.date: 02/21/2019
 ms.author: erhopf
-ms.openlocfilehash: 705bc49cef13ae80d648ca59b50021250dede3bd
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: e455b0167810c6e08853f3bce665cb6f314eec52
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56736775"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58181457"
 ---
 # <a name="quickstart-use-the-translator-text-api-to-get-a-list-of-supported-languages-using-python"></a>Início rápido: Utilize a API de texto do Translator para obter uma lista de idiomas suportados com o Python
 
@@ -95,6 +95,8 @@ python get-languages.py
 Se quiser comparar o seu código com o nosso, o exemplo completo está disponível no [GitHub](https://github.com/MicrosoftTranslator/Text-Translation-API-V3-Python).
 
 ## <a name="sample-response"></a>Resposta de amostra
+
+Encontre a abreviatura de país nesta [lista de idiomas](https://docs.microsoft.com/en-us/azure/cognitive-services/translator/language-support).
 
 Este exemplo foi truncado para mostrar um fragmento do resultado:
 

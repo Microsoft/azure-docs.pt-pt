@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 02/28/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f5d72961fdbb5a0cfd349adc83e6cd90b6a06493
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: eb64495d727429ff4dcfc233adee7dd5c60aaa8d
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57441224"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57852139"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-cisco-webex"></a>Tutorial: Integração do Active Directory do Azure com o Cisco Webex
 
@@ -192,7 +192,7 @@ O objetivo desta secção é criar um utilizador de teste no portal do Azure cha
 
     a. Na **Name** campo introduza **BrittaSimon**.
   
-    b. Na **nome de utilizador** tipo de campo **brittasimon@yourcompanydomain.extension**  
+    b. Na **nome de utilizador** tipo de campo **brittasimon\@yourcompanydomain.extension**  
     Por exemplo, BrittaSimon@contoso.com
 
     c. Selecione **palavra-passe de Show** caixa de verificação e, em seguida, anote o valor que é apresentado na caixa de palavra-passe.
@@ -245,7 +245,7 @@ Nesta secção, vai criar um usuário chamado Eduarda Almeida na Cisco Webex. Ne
 
     b. Na **sobrenome** caixa de texto, tipo último nome de utilizador, como **Simon**.
 
-    c. Na **endereço de E-Mail** caixa de texto, como o tipo de endereço de e-mail do utilizador **britta.simon@contoso.com**.
+    c. Na **endereço de E-Mail** caixa de texto, como o tipo de endereço de e-mail do utilizador **britta.simon\@contoso.com**.
 
 5. Clique no sinal para adicionar a Eduarda Almeida. Clique depois em **Seguinte**.
 

@@ -9,18 +9,18 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 06/29/2017
+ms.date: 03/11/2019
 ms.author: mbullwin
-ms.openlocfilehash: eaac042a9b3433a37428316a35855165c05da98a
-ms.sourcegitcommit: 7862449050a220133e5316f0030a259b1c6e3004
+ms.openlocfilehash: 61215adc2aee5cef3693d119bf0efb36526d748b
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/22/2018
-ms.locfileid: "53756756"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57855151"
 ---
 # <a name="automate-application-insights-processes-by-using-logic-apps"></a>Automatize processos do Application Insights ao utilizar o Logic Apps
 
-Encontra-se a executar repetidamente as mesmas consultas nos seus dados de telemetria para verificar se o seu serviço está a funcionar corretamente? Está à procura para automatizar estas consultas para localizar tendências e anomalias e, em seguida, criar seus próprios fluxos de trabalho em torno deles? O conector do Azure Application Insights (pré-visualização) para o Logic Apps é a ferramenta certa para esta finalidade.
+Encontra-se a executar repetidamente as mesmas consultas nos seus dados de telemetria para verificar se o seu serviço está a funcionar corretamente? Está à procura para automatizar estas consultas para localizar tendências e anomalias e, em seguida, criar seus próprios fluxos de trabalho em torno deles? O conector do Azure Application Insights para aplicações lógicas é a ferramenta certa para esta finalidade.
 
 Com esta integração, pode automatizar vários processos sem ter de escrever uma única linha de código. Pode criar uma aplicação lógica com o conector do Application Insights para rapidamente automatizar qualquer processo do Application Insights. 
 
@@ -34,42 +34,44 @@ Neste tutorial, saiba como criar uma aplicação lógica que utiliza o algoritmo
 1. Inicie sessão no [portal do Azure](https://portal.azure.com).
 1. Clique em **criar um recurso**, selecione **Web + móvel**e, em seguida, selecione **aplicação lógica**.
 
-    ![Nova janela de aplicação lógica](./media/automate-with-logic-apps/logicapp1.png)
+    ![Nova janela de aplicação lógica](./media/automate-with-logic-apps/1createlogicapp.png)
 
 ### <a name="step-2-create-a-trigger-for-your-logic-app"></a>Passo 2: Criar um acionador para a aplicação lógica
 1. Na **Estruturador da aplicação lógica** janela, em **começar com um acionador comum**, selecione **periodicidade**.
 
-    ![Janela do Estruturador da aplicação lógica](./media/automate-with-logic-apps/logicapp2.png)
+    ![Janela do Estruturador da aplicação lógica](./media/automate-with-logic-apps/2logicappdesigner.png)
 
-1. Na **frequência** caixa, selecione **dia** e, em seguida, no **intervalo** , escreva **1**.
+1. Na **intervalo** , escreva **1** e, em seguida,**frequência** caixa, selecione **dia**.
 
-    ![Estruturador da aplicação lógica "Recurrence" janela](./media/automate-with-logic-apps/step2b.png)
+    ![Estruturador da aplicação lógica "Recurrence" janela](./media/automate-with-logic-apps/3recurrence.png)
 
 ### <a name="step-3-add-an-application-insights-action"></a>Passo 3: Adicionar uma ação do Application Insights
-1. Clique em **novo passo**e, em seguida, clique em **adicionar uma ação**.
+1. Clique em **novo passo**.
 
 1. Na **escolher uma ação** caixa de pesquisa, escreva **Azure Application Insights**.
 
-1. Sob **ações**, clique em **pré-visualização de consulta do Azure Application Insights - Analytics visualizar**.
+1. Sob **ações**, clique em **Azure Application Insights - consulta do Analytics visualizar**.
 
-    !["Escolher uma ação" janela do Estruturador da aplicação lógica](./media/automate-with-logic-apps/flow2.png)
+    !["Escolher uma ação" janela do Estruturador da aplicação lógica](./media/automate-with-logic-apps/4visualize.png)
 
 ### <a name="step-4-connect-to-an-application-insights-resource"></a>Passo 4: Ligar a um recurso do Application Insights
 
 Para concluir este passo, terá um ID de aplicação e uma chave de API para o seu recurso. Pode recuperá-los no portal do Azure, conforme mostrado no diagrama seguinte:
 
-![ID da aplicação no portal do Azure](./media/automate-with-logic-apps/appid.png) 
+![ID da aplicação no portal do Azure](./media/automate-with-logic-apps/5apiaccess.png)
+
+![ID da aplicação no portal do Azure](./media/automate-with-logic-apps/6apikey.png)
 
 Forneça um nome para a ligação, o ID da aplicação e a chave de API.
 
-![Janela de ligação de fluxo de Estruturador da aplicação lógica](./media/automate-with-logic-apps/flow3.png)
+![Janela de ligação de fluxo de Estruturador da aplicação lógica](./media/automate-with-logic-apps/7connection.png)
 
 ### <a name="step-5-specify-the-analytics-query-and-chart-type"></a>Passo 5: Especifique o tipo de gráfico e de consulta do Analytics
 No exemplo seguinte, a consulta seleciona os pedidos com falhas durante o último dia e correlaciona-los com exceções que ocorreram como parte da operação. Análise correlaciona os pedidos com falhas, com base no identificador do operation_Id. A consulta, em seguida, segmenta os resultados usando o algoritmo de autocluster. 
 
 Ao criar suas próprias consultas, certifique-se de que estão a funcionar corretamente no Analytics antes de o adicionar ao seu fluxo.
 
-1. Na **consulta** caixa, adicione a seguinte consulta do Analytics: 
+1. Na **consulta** caixa, adicione a seguinte consulta do Analytics:
 
     ```
     requests
@@ -84,17 +86,17 @@ Ao criar suas próprias consultas, certifique-se de que estão a funcionar corre
 
 1. Na **tipo de gráfico** caixa, selecione **tabela Html**.
 
-    ![Janela de configuração de consulta do Analytics](./media/automate-with-logic-apps/flow4.png)
+    ![Janela de configuração de consulta do Analytics](./media/automate-with-logic-apps/8query.png)
 
 ### <a name="step-6-configure-the-logic-app-to-send-email"></a>Passo 6: Configurar a aplicação de lógica para enviar e-mail
 
-1. Clique em **novo passo**e, em seguida, selecione **adicionar uma ação**.
+1. Clique em **novo passo**.
 
 1. Na caixa de pesquisa, escreva **Outlook do Office 365**.
 
 1. Clique em **Office 365 Outlook - enviar um e-mail**.
 
-    ![Seleção do Outlook do Office 365](./media/automate-with-logic-apps/flow2b.png)
+    ![Seleção do Outlook do Office 365](./media/automate-with-logic-apps/9sendemail.png)
 
 1. Na **enviar um e-mail** janela, efetue o seguinte procedimento:
 
@@ -103,10 +105,12 @@ Ao criar suas próprias consultas, certifique-se de que estão a funcionar corre
    b. Escreva um assunto do e-mail.
 
    c. Clique em qualquer ponto do **corpo** caixa e, em seguida, no menu conteúdo dinâmico que abre à direita, selecione **corpo**.
+    
+   d. Clique nas **adicione o novo parâmetro** menu pendente e selecione anexos e é HTML.
 
-   d. Clique em **Mostrar opções avançadas**.
+      ![Configuração do Outlook do Office 365](./media/automate-with-logic-apps/10emailbody.png)
 
-      ![Configuração do Outlook do Office 365](./media/automate-with-logic-apps/flow5.png)
+      ![Configuração do Outlook do Office 365](./media/automate-with-logic-apps/11emailparameter.png)
 
 1. No menu de conteúdo dinâmico, efetue o seguinte:
 
@@ -116,14 +120,14 @@ Ao criar suas próprias consultas, certifique-se de que estão a funcionar corre
     
     c. Na **é HTML** caixa, selecione **Sim**.
 
-      ![Ecrã de configuração de e-mail do Office 365](./media/automate-with-logic-apps/flow7.png)
+      ![Ecrã de configuração de e-mail do Office 365](./media/automate-with-logic-apps/12emailattachment.png)
 
 ### <a name="step-7-save-and-test-your-logic-app"></a>Passo 7: Guardar e testar a sua aplicação lógica
 * Clique em **guardar** para guardar as alterações.
 
 Pode aguardar que o acionador executar a aplicação lógica ou pode executar a aplicação lógica imediatamente selecionando **executar**.
 
-![Ecrã de criação da aplicação lógica](./media/automate-with-logic-apps/step7.png)
+![Ecrã de criação da aplicação lógica](./media/automate-with-logic-apps/13save.png)
 
 Quando é executada a sua aplicação lógica, os destinatários especificados na lista de correio eletrónico irão receber um e-mail que é semelhante ao seguinte:
 

@@ -10,12 +10,12 @@ ms.subservice: consume
 ms.date: 04/17/2018
 ms.author: jrj
 ms.reviewer: igorstan
-ms.openlocfilehash: 95cabaa5fd31eadb5f75ebd3f4e0da31911dcd3f
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 0e82c1887cb096c7c95ad7e1cbbc1d76962f7831
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57445964"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58000449"
 ---
 # <a name="sql-data-warehouse-data-integration-partners"></a>Parceiros de integração de dados do SQL Data Warehouse
 Para criar a sua solução de armazém de dados, escolha entre uma ampla variedade de ferramentas líderes do setor. Este artigo destaca a empresas parceiras da Microsoft com soluções de integração de dados de suporte do Azure SQL Data Warehouse.
@@ -54,7 +54,7 @@ Para saber mais sobre outros parceiros, veja [parceiros de Business Intelligence
 [informatica_cloud_services_config]:https://kb.informatica.com/proddocs/Product%20Documentation/6/IC_Spring2017_MicrosoftAzure[SQL]DataWarehouseConnectorGuide_en.pdf
 
 <!--Datasheet Links-->
-[alteryx_designer_datasheet]:http://www.alteryx.com/sites/default/files/resources/files/alt-designer-ds.pdf
+[alteryx_designer_datasheet]:https://www.alteryx.com/sites/default/files/resources/files/alt-designer-ds.pdf
 [attunity_cloudbeam_datasheet]:http://www.attunity.com/sites/default/files/content/attunity-azure-solution-sheet.pdf
 
 <!--[bryte_systems_azure_datasheet]:-->
@@ -62,15 +62,15 @@ Para saber mais sobre outros parceiros, veja [parceiros de Business Intelligence
 <!--[informatica_cloud_datasheet]:https://www.informatica.com/content/dam/informatica-com/global/amer/us/collateral/data-sheet/cloud-integration-platform_data-sheet_2711.pdf-->
 
 [informatica_powercenter_datasheet]:https://www.informatica.com/content/dam/informatica-com/global/amer/us/collateral/brochure/powercenter_brochure_6659.pdf
-[snaplogic_datasheet]:http://campaigns.snaplogic.com/rs/055-FYJ-916/images/SnapLogic-for-Microsoft-Cortana.pdf
+[snaplogic_datasheet]:https://campaigns.snaplogic.com/rs/055-FYJ-916/images/SnapLogic-for-Microsoft-Cortana.pdf
 
 <!--Free Trial-->
 [informatica_cloud_free_trial]:https://www.informatica.com/products/cloud-integration/connectivity/microsoft-azure-connector.html
 
 <!--Website Links -->
-[alteryx_designer_website]:http://www.alteryx.com/partners/microsoft/
+[alteryx_designer_website]:https://www.alteryx.com/partners/microsoft/
 [attunity_cloudbeam_website]:http://www.attunity.com/attunity-cloudbeam-for-azure/
-[bryte_systems_azure_website]:http://www.bryteflow.com/
+[bryte_systems_azure_website]:https://www.bryteflow.com/
 [informatica_Cloud_Services_website]:https://www.informatica.com/products/cloud-integration.html
 [informatica_PowerCenter_website]:https://www.informatica.com/products/data-integration/powercenter.html
 [redgate_website]:http://dataplatformstudio.com/
@@ -101,7 +101,7 @@ Para saber mais sobre outros parceiros, veja [parceiros de Business Intelligence
 
 [alteryx_designer_press]:https://www.alteryx.com/press-releases/alteryx-now-enables-data-analysts-to-perform-in-database-blending-in-microsoft-azure 
 [attunity_cloudbeam_press]:http://www.attunity.com/news/attunity-launches-cloud-data-warehouse-solutions-microsoft-azure
-[bryte_systems_azure_press]:http://medianet.com.au/releases/release-details?id=837667
+[bryte_systems_azure_press]:https://medianet.com.au/releases/release-details?id=837667
 
 <!--[informatica_Cloud_Services_press]:-->
 <!--[informatica_PowerCenter_press]:-->
@@ -136,4 +136,4 @@ Para saber mais sobre outros parceiros, veja [parceiros de Business Intelligence
 
 <!--WhitePaper-->
 
-[alteryx_whitepaper]:http://pages.alteryx.com/Microsoft-Azure-InDB-WP?lsm=microsoft
+[alteryx_whitepaper]:https://pages.alteryx.com/Microsoft-Azure-InDB-WP?lsm=microsoft

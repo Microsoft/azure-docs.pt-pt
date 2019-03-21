@@ -4,22 +4,20 @@ ms.service: spatial-anchors
 ms.topic: include
 ms.date: 1/30/2019
 ms.author: rgarcia
-ms.openlocfilehash: 5f1e0153b1f919bc9d7e921d2a1b3ae745b2b01f
-ms.sourcegitcommit: e88188bc015525d5bead239ed562067d3fae9822
-ms.translationtype: MT
+ms.openlocfilehash: bfeb8bddf5fe3b4a76e662aed6c5a07439d2f1cf
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/24/2019
-ms.locfileid: "56752155"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57908635"
 ---
-## <a name="open-the-sample-project-in-unity"></a>Abra o projeto de exemplo no Unity
+## <a name="set-up-your-device"></a>Configurar o dispositivo
 
-[!INCLUDE [Clone Sample Repo](spatial-anchors-clone-sample-repository.md)]
-
-## <a name="to-set-up-for-an-android-device"></a>Para configurar a para um dispositivo Android
+### <a name="set-up-an-android-device"></a>Configurar um dispositivo Android
 
 [!INCLUDE [Android Unity Build Settings](spatial-anchors-unity-android-build-settings.md)]
 
-## <a name="to-set-up-for-an-ios-device"></a>Para configurar a para um dispositivo iOS
+### <a name="set-up-an-ios-device"></a>Configurar um dispositivo iOS
 
 [!INCLUDE [iOS Unity Build Settings](spatial-anchors-unity-ios-build-settings.md)]
 
@@ -35,7 +33,7 @@ Salve a cena selecionando **arquivo** -> **guardar**.
 
 ## <a name="to-deploy-to-an-android-device"></a>Para implementar num dispositivo Android
 
-Ligar o dispositivo Android, inicie sessão e ligá-la no PC com um cabo USB.
+Inicie sessão no seu dispositivo Android e ligá-la no PC com um cabo USB.
 
 Open **definições de criação** ao selecionar **ficheiro** -> **definições de criação**.
 

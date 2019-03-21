@@ -11,14 +11,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/10/2019
+ms.date: 03/18/2019
 ms.author: juliako
-ms.openlocfilehash: 1ea11c44806e2375a272fe8f5e256d8ffde7affb
-ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.openlocfilehash: f09391bf18910bf9151c99b8df91f92b2582e823
+ms.sourcegitcommit: f331186a967d21c302a128299f60402e89035a8d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/02/2019
-ms.locfileid: "57240410"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58189840"
 ---
 # <a name="implement-failover-streaming-with-media-services"></a>Implementar ativação pós-falha, transmissão em fluxo com os serviços de multimédia 
 

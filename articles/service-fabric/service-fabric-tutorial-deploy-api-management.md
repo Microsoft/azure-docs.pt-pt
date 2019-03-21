@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 9/26/2018
 ms.author: ryanwi
 ms.custom: mvc
-ms.openlocfilehash: 015cbadef57a3e306fea4321db4b12c3a3918683
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: 4685c4213ad992e8d0fcffdf91a039cd04b426ee
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54433786"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57844212"
 ---
 # <a name="integrate-api-management-with-service-fabric-in-azure"></a>Integrar a gestão de API com o Service Fabric no Azure
 
@@ -142,7 +142,7 @@ Introduza um **displayName** (nome a apresentar) e uma **description** (descriç
 
 * **displayName** pode ser qualquer nome para a API. Neste artigo, utilize "Service Fabric App".
 * **name** indica um nome exclusivo e descritivo para a API, como "service-fabric-app". É apresentado no portais do programador e do editor.
-* **serviceUrl** referencia o serviço HTTP que implementa a API. A API de Gestão reencaminha os pedidos para este endereço. Nos back-ends do Service Fabric, o valor do URL não é utilizado. Pode pôr qualquer valor aqui. Neste artigo, por exemplo "http://servicefabric".
+* **serviceUrl** referencia o serviço HTTP que implementa a API. A API de Gestão reencaminha os pedidos para este endereço. Nos back-ends do Service Fabric, o valor do URL não é utilizado. Pode pôr qualquer valor aqui. Neste artigo, por exemplo "<http://servicefabric>".
 * **path** é anexado ao URL base do serviço Gestão de API. O URL base é comum a todas as APIs alojadas por uma instância do serviço Gestão de API. A Gestão de API distingue as APIs pelo respetivo sufixo, pelo que cada API tem de ter o seu sufixo exclusivo para um determinado editor.
 * O campo **protocols** determina que protocolos podem ser utilizados para aceder à API. Neste artigo, listar **http** e **https**.
 * **path** é um sufixo para a API. Neste artigo, utilize "myapp".
@@ -177,7 +177,7 @@ A [configuração do back-end do Service Fabric](/azure/api-management/api-manag
     <set-backend-service
         backend-id="servicefabric"
         sf-service-instance-name="service-name"
-        sf-resolve-condition="@(context.LastError?.Reason == 'BackendConnectionFailure')" />
+        sf-resolve-condition="@(context.LastError?.Reason == "BackendConnectionFailure")" />
   </inbound>
   <backend>
     <base/>
@@ -226,7 +226,7 @@ Em *inbound_policy*, substitua o valor *sf-service-instance-name* por `fabric:/A
     <set-backend-service
         backend-id="servicefabric"
         sf-service-instance-name="service-name"
-        sf-resolve-condition="@(context.LastError?.Reason == 'BackendConnectionFailure')" />
+        sf-resolve-condition="@(context.LastError?.Reason == "BackendConnectionFailure")" />
   </inbound>
   <backend>
     <base/>
@@ -285,7 +285,7 @@ Agora, pode experimentar enviar um pedido para o serviço de back-end do Service
 
 Um cluster é constituído por outros recursos do Azure, além do próprio recurso do cluster. A forma mais simples de eliminar o cluster e todos os recursos que consome é eliminando o grupo de recursos.
 
-Inicie sessão no Azure e selecione o ID da subscrição com a qual pretende remover o cluster.  Pode encontrar o ID da subscrição ao iniciar sessão no [portal do Azure](http://portal.azure.com). Elimine o grupo de recursos e todos os recursos de cluster através do cmdlet [Remove-AzureRMResourceGroup](/en-us/powershell/module/azurerm.resources/remove-azurermresourcegroup).
+Inicie sessão no Azure e selecione o ID da subscrição com a qual pretende remover o cluster.  Pode encontrar o ID da subscrição ao iniciar sessão no [portal do Azure](https://portal.azure.com). Elimine o grupo de recursos e todos os recursos de cluster através do cmdlet [Remove-AzureRMResourceGroup](/en-us/powershell/module/azurerm.resources/remove-azurermresourcegroup).
 
 ```powershell
 $ResourceGroupName = "sfclustertutorialgroup"

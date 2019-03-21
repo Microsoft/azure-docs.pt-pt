@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 09/14/2017
 ms.author: rasquill
 ms.custom: mvc
-ms.openlocfilehash: 86976263c54f40c370a2bc8cab426f3e413442f7
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 48afb867a5455ffea10f8a74b1fff2c2b7f361ab
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57546260"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57849759"
 ---
 # <a name="deprecated-use-draft-with-azure-container-service-and-azure-container-registry-to-build-and-deploy-an-application-to-kubernetes"></a>(PRETERIDO) Utilizar o Draft com o Azure Container Service e o Azure Container Registry para criar e implementar uma aplicação no Kubernetes
 
@@ -31,7 +31,7 @@ Pode utilizar o Draft com qualquer registo de imagens do Docker e com qualquer c
 ## <a name="create-an-azure-container-registry"></a>Criar um Azure Container Registry
 Pode [criar um Azure Container Registry ](../../container-registry/container-registry-get-started-azure-cli.md) facilmente, mas os passos são os seguintes:
 
-1. Crie um grupo de recursos do Azure para gerir o registo do ACR e o cluster do Kubernetes no ACS.
+1. Crie um grupo de recursos do Azure para gerir o registo do ACR e o cluster de Kubernetes no ACS.
       ```azurecli
       az group create --name draft --location eastus
       ```
@@ -106,11 +106,11 @@ Uma vez que já tem um cluster, pode utilizar o comando [az acs kubernetes get-c
 1. Baixe o rascunho para o seu ambiente em https://github.com/Azure/draft/releases e instalar no seu caminho para que possa ser utilizado o comando.
 2. Baixe o helm para o seu ambiente no https://github.com/kubernetes/helm/releases e [instalá-lo no seu caminho, para que possa ser utilizado o comando](https://github.com/kubernetes/helm/blob/master/docs/install.md#installing-the-helm-client).
 3. Configure o Draft para utilizar o seu registo e criar subdomínios para cada gráfico do Helm que crie. Para configurar o Draft, precisa:
-  - Do nome do Azure Container Registry (neste exemplo, `draftacsdemo`)
-  - Da chave de registo, ou palavra-passe, de `az acr credential show -n <registry name> --output tsv --query "passwords[0].value"`
+   - Do nome do Azure Container Registry (neste exemplo, `draftacsdemo`)
+   - Da chave de registo, ou palavra-passe, de `az acr credential show -n <registry name> --output tsv --query "passwords[0].value"`
 
-  Chamar `draft init` e o processo de configuração pede-lhe os valores acima; tenha em atenção que formato de URL para o URL de registo é o nome do registo (neste exemplo, `draftacsdemo`) e ainda `.azurecr.io`. O nome de utilizador é o nome de registo por conta própria. Da primeira vez que o executa, o processo é parecido com o seguinte.
- ```bash
+   Chamar `draft init` e o processo de configuração pede-lhe os valores acima; tenha em atenção que formato de URL para o URL de registo é o nome do registo (neste exemplo, `draftacsdemo`) e ainda `.azurecr.io`. O nome de utilizador é o nome de registo por conta própria. Da primeira vez que o executa, o processo é parecido com o seguinte.
+   ```bash
     $ draft init
     Creating /home/ralph/.draft 
     Creating /home/ralph/.draft/plugins 
@@ -132,7 +132,7 @@ Uma vez que já tem um cluster, pode utilizar o comando [az acs kubernetes get-c
     3. Enter your password: 
     Draft has been installed into your Kubernetes Cluster.
     Happy Sailing!
-```
+   ```
 
 Está agora pronto para implementar uma aplicação.
 
@@ -224,7 +224,7 @@ O seu fornecedor de domínio tem a sua própria forma de atribuir servidores DNS
     ```
 
 2. Crie uma zona DNS para o seu domínio.
-Utilize o comando [az network dns zone create](/cli/azure/network/dns/zone#az-network-dns-zone-create) para obter os servidores de nomes e delegar o controlo de DNS para o DNS do Azure no seu domínio.
+   Utilize o comando [az network dns zone create](/cli/azure/network/dns/zone#az-network-dns-zone-create) para obter os servidores de nomes e delegar o controlo de DNS para o DNS do Azure no seu domínio.
     ```azurecli
     az network dns zone create --resource-group squillace.io --name squillace.io
     {
@@ -247,12 +247,12 @@ Utilize o comando [az network dns zone create](/cli/azure/network/dns/zone#az-ne
     ```
 3. Adicione os servidores DNS que lhe forem dados ao fornecedor do seu domínio de implementação, o que lhe vai permitir utilizar o DNS do Azure para reencaminhar o seu domínio como quiser. A maneira de fazê-lo varia por domínio indicar; [delegar os seus servidores de nomes de domínio ao DNS do Azure](../../dns/dns-delegate-domain-azure-dns.md) contém alguns dos detalhes que deve saber. 
 4. Assim que tiver foram delegado a seu domínio ao DNS do Azure, crie uma entrada de conjunto de registos A para o seu mapeamento de domínio de implementação para o `ingress` IP do passo 2 da secção anterior.
-  ```azurecli
-  az network dns record-set a add-record --ipv4-address 13.64.108.240 --record-set-name '*.draft' -g squillace.io -z squillace.io
-  ```
-A saída é semelhante ao seguinte.
-  ```json
-  {
+   ```azurecli
+   az network dns record-set a add-record --ipv4-address 13.64.108.240 --record-set-name '*.draft' -g squillace.io -z squillace.io
+   ```
+   A saída é semelhante ao seguinte.
+   ```json
+   {
     "arecords": [
       {
         "ipv4Address": "13.64.108.240"
@@ -265,23 +265,23 @@ A saída é semelhante ao seguinte.
     "resourceGroup": "squillace.io",
     "ttl": 3600,
     "type": "Microsoft.Network/dnszones/A"
-  }
-  ```
+   }
+   ```
 5. Reinstalar **rascunho**
 
    1. Remova **draftd** do cluster, escrevendo `helm delete --purge draft`. 
    2. Reinstalar **rascunho** utilizando o mesmo `draft-init` comando, mas com o `--ingress-enabled` opção:
-    ```bash
-    draft init --ingress-enabled
-    ```
-   Responda a pedidos, tal como fez na primeira vez, acima. No entanto, tem mais uma pergunta para responder a, através do caminho completo do domínio que configurou o DNS do Azure.
+      ```bash
+      draft init --ingress-enabled
+      ```
+      Responda a pedidos, tal como fez na primeira vez, acima. No entanto, tem mais uma pergunta para responder a, através do caminho completo do domínio que configurou o DNS do Azure.
 
 6. Introduza o seu domínio de nível superior de entrada (por exemplo, draft.example.com): draft.squillace.io
 7. Quando chama `draft up` desta vez, será capaz de ver a sua aplicação (ou `curl` -lo) no URL do formulário `<appname>.draft.<domain>.<top-level-domain>`. No caso deste exemplo, `http://handy-labradoodle.draft.squillace.io`. 
-```bash
-curl -s http://handy-labradoodle.draft.squillace.io
-Hello World, I'm Java!
-```
+   ```bash
+   curl -s http://handy-labradoodle.draft.squillace.io
+   Hello World, I'm Java!
+   ```
 
 
 ## <a name="next-steps"></a>Passos Seguintes

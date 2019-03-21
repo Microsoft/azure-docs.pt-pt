@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/28/2018
 ms.author: rkarlin
-ms.openlocfilehash: 80c6e3cc29bdd6502640723385273328739d6ebb
-ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.openlocfilehash: ece396a85a817df51f650fd1c513085efa3dedf5
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/02/2019
-ms.locfileid: "57245269"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57842135"
 ---
 # <a name="azure-security-center-planning-and-operations-guide"></a>Guia de operações e planeamento do Centro de Segurança do Azure
 Este guia destina-se a profissionais de tecnologias da informação (TI), arquitetos de TI, analistas de segurança de informações e administradores de nuvem cujas organizações estejam a planear utilizar o Centro de Segurança do Azure.
@@ -227,7 +227,7 @@ Embora este artigo não pretenda ajudá-lo a criar o seu próprio plano de Respo
 ![Atividade suspeita](./media/security-center-planning-and-operations-guide/security-center-planning-and-operations-guide-fig5-1.png)
 
 > [!NOTE]
-> Pode utilizar o [Computer Security Incident Handling Guide](http://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-61r2.pdf) (Guia de Processamento de Incidentes de Segurança Informática) do National Institute of Standards and Technology (NIST) (Instituto Nacional de Normas e Tecnologia dos Estados Unidos) como referência para o ajudar a criar o seu próprio.
+> Pode utilizar o [Computer Security Incident Handling Guide](https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-61r2.pdf) (Guia de Processamento de Incidentes de Segurança Informática) do National Institute of Standards and Technology (NIST) (Instituto Nacional de Normas e Tecnologia dos Estados Unidos) como referência para o ajudar a criar o seu próprio.
 >
 
 Pode utilizar Alertas do Centro de Segurança durante as seguintes fases:

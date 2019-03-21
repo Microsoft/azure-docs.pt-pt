@@ -8,19 +8,19 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: conceptual
-ms.date: 08/29/2018
+ms.date: 03/11/2019
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: 6cd7b2a8a70a315b05c0824a863803bbc6ffabb2
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 37cdac16a51a30bdaf1ba0266bab7fdd1f2990f0
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55872140"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57895452"
 ---
 # <a name="detecting-image-types-with-computer-vision"></a>Detetar tipos de imagem com imagem digitalizada
 
-Imagem digitalizada pode analisar o tipo de conteúdo de imagens ao indicar se uma imagem é clip-art, a probabilidade numa escala ou um desenho de linha de classificação.
+Com o [analisar imagem](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa) API, imagem digitalizada pode de analisar o tipo de conteúdo de imagens, que indica se uma imagem é clip-art ou um desenho de linha.
 
 ## <a name="detecting-clip-art"></a>Clip-art de detecção
 
@@ -115,4 +115,4 @@ As respostas JSON seguintes ilustra o que o de imagem digitalizada devolve quand
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-Conheça os conceitos [marcação de imagens](concept-tagging-images.md) e [categorizar imagens](concept-categorizing-images.md).
+Consulte a [analisar imagem](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa) documentação para aprender a detetar tipos de imagem de referência.

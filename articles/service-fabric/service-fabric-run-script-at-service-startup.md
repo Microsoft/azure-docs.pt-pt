@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 03/21/2018
 ms.author: mfussell
-ms.openlocfilehash: caca931806aed7e1868c126d4629073bcea4b900
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.openlocfilehash: 3ae43f7427996f8be15b22fec4406bbdfe8aa4fe
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55098617"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57838447"
 ---
 # <a name="run-a-service-startup-script-as-a-local-user-or-system-account"></a>Executar um script de arranque do serviço como uma conta de utilizador local ou conta de sistema
 Antes de um serviço do Service Fabric executável é iniciado poderá ser necessário executar algum trabalho de configuração ou configuração.  Por exemplo, a configurar variáveis de ambiente. Pode especificar um script para executar antes do executável do serviço é iniciado no manifesto do serviço para o serviço. Ao configurar uma política de RunAs para o ponto de entrada de configuração de serviço que pode alterar a conta, o executável de configuração é executado sob.  Um ponto de entrada de configuração individual permite-lhe executar a configuração de privilégios elevados durante um curto período de tempo para que o executável de host de serviço não tem de executar com privilégios elevados por longos períodos de tempo.
@@ -34,8 +34,8 @@ Segue-se um exemplo de manifesto do serviço simples para um serviço sem estado
 <ServiceManifest Name="MyStatelessServicePkg"
                  Version="1.0.0"
                  xmlns="http://schemas.microsoft.com/2011/01/fabric"
-                 xmlns:xsd="http://www.w3.org/2001/XMLSchema"
-                 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+                 xmlns:xsd="https://www.w3.org/2001/XMLSchema"
+                 xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance">
   <Description>An example service manifest.</Description>
   <ServiceTypes>
     <StatelessServiceType ServiceTypeName="MyStatelessServiceType" />
@@ -74,7 +74,7 @@ O exemplo de manifesto de aplicação seguinte mostra como configurar o ponto de
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
-<ApplicationManifest xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" ApplicationTypeName="MyApplicationType" ApplicationTypeVersion="1.0.0" xmlns="http://schemas.microsoft.com/2011/01/fabric">
+<ApplicationManifest xmlns:xsd="https://www.w3.org/2001/XMLSchema" xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance" ApplicationTypeName="MyApplicationType" ApplicationTypeVersion="1.0.0" xmlns="http://schemas.microsoft.com/2011/01/fabric">
   <Parameters>
     <Parameter Name="MyStatelessService_InstanceCount" DefaultValue="-1" />
   </Parameters>
@@ -113,7 +113,7 @@ Muitas vezes, é preferível para executar o script de arranque com uma conta de
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
-<ApplicationManifest xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" ApplicationTypeName="MyApplicationType" ApplicationTypeVersion="1.0.0" xmlns="http://schemas.microsoft.com/2011/01/fabric">
+<ApplicationManifest xmlns:xsd="https://www.w3.org/2001/XMLSchema" xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance" ApplicationTypeName="MyApplicationType" ApplicationTypeVersion="1.0.0" xmlns="http://schemas.microsoft.com/2011/01/fabric">
   <Parameters>
     <Parameter Name="MyStatelessService_InstanceCount" DefaultValue="-1" />
   </Parameters>

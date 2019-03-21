@@ -6,15 +6,15 @@ keywords: Clip; subclip; codificação; suporte de dados
 author: dbgeorge
 manager: jasonsue
 ms.author: dwgeo
-ms.date: 02/08/2019
+ms.date: 03/14/2019
 ms.topic: article
 ms.service: media-services
-ms.openlocfilehash: 352ed070e36d1a98806b074108f8115b7d1b8c94
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 2eb32b8ec265a4afa2581374c1f07ac06958a576
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57454464"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57992798"
 ---
 # <a name="configure-azure-media-clipper-keyboard-shortcuts"></a>Configurar atalhos de teclado do Azure Media Clipper 
 

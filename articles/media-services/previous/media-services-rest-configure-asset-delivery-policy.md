@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/07/2017
 ms.author: juliako
-ms.openlocfilehash: 8fd523b50ec5d7161da5d9d778386914136097dc
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
-ms.translationtype: MT
+ms.openlocfilehash: 08da3a003fae0ba21af45fef9f98329cf12f97ff
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54828201"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57880199"
 ---
 # <a name="configuring-asset-delivery-policies"></a>Configurar políticas de entrega de ativo
 [!INCLUDE [media-services-selector-asset-delivery-policy](../../../includes/media-services-selector-asset-delivery-policy.md)]
@@ -258,7 +258,7 @@ Pedido:
     {"Name":"AssetDeliveryPolicy","AssetDeliveryProtocol":1,"AssetDeliveryPolicyType":4,"AssetDeliveryConfiguration":"[{\"Key\":2,\"Value\":\"https:\\/\\/amsaccount1.keydelivery.mediaservices.windows.net\/PlayReady\/"}]"}
 
 
-Se pretender proteger os seus conteúdos com Widevine DRM, atualize os valores de AssetDeliveryConfiguration para utilizar WidevineLicenseAcquisitionUrl (que tem o valor de 7) e especifique o URL de um serviço de entrega de licença. Pode utilizar os seguintes parceiros de AMS para ajudar a fornecer licenças do Widevine: [Axinom](http://www.axinom.com/press/ibc-axinom-drm-6/), [EZDRM](http://ezdrm.com/), [castLabs](http://castlabs.com/company/partners/azure/).
+Se pretender proteger os seus conteúdos com Widevine DRM, atualize os valores de AssetDeliveryConfiguration para utilizar WidevineLicenseAcquisitionUrl (que tem o valor de 7) e especifique o URL de um serviço de entrega de licença. Pode utilizar os seguintes parceiros de AMS para ajudar a fornecer licenças do Widevine: [Axinom](https://www.axinom.com/press/ibc-axinom-drm-6/), [EZDRM](https://ezdrm.com/), [castLabs](https://castlabs.com/company/partners/azure/).
 
 Por exemplo: 
 

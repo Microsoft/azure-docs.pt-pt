@@ -5,15 +5,15 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: tutorial
-ms.date: 11/15/2018
+ms.date: 3/14/2019
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: 2dd9fc5691c646a72936039b6bcc5949d227c6b5
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 288a6e1b1d88fcef6fbd5554ba811acc1dab776e
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57545337"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57994258"
 ---
 # <a name="tutorial-deploy-and-configure-azure-firewall-using-the-azure-portal"></a>Tutorial: Implementar e configurar o Azure Firewall com o portal do Azure
 
@@ -124,8 +124,8 @@ Utilize as informações na tabela seguinte para configurar a máquina virtual d
 
 |Definição  |Value  |
 |---------|---------|
-|Sub-rede|Workload-SN|
-|IP Público|Nenhuma|
+|Subrede|Workload-SN|
+|IP público|Nenhuma|
 |Portas de entrada públicas|Nenhuma|
 
 ## <a name="deploy-the-firewall"></a>Implementar a firewall
@@ -168,7 +168,7 @@ Na sub-rede **Workload-SN**, vai configurar a rota de saída predefinida para pa
 9. Clique em **Atualizar**  e, em seguida, clique na tabela de rotas **Firewall-route**.
 10. Clique em **Sub-redes** > **Associar**.
 11. Clique em **Rede virtual** > **Test-FW-VN**.
-12. Em **Sub-rede**, clique em **Workload-SN**. Confirme que seleciona apenas a sub-rede **Workload-SN** para esta rota. Caso contrário, a firewall não funcionará corretamente.
+12. Em **Sub-rede**, clique em **Workload-SN**. Certifique-se de que seleciona apenas as **SN da carga de trabalho** sub-rede para esta rota, caso contrário, a firewall não funcionará corretamente.
 
 13. Clique em **OK**.
 14. Clique em **Rotas** > **Adicionar**.
@@ -218,7 +218,7 @@ Esta é a regra de rede que permite acesso de saída aos dois endereços IP na p
 
 ### <a name="change-the-primary-and-secondary-dns-address-for-the-srv-work-network-interface"></a>Alterar o endereço DNS primário e secundário para a interface de rede **Srv-Work**
 
-Para fins de teste neste tutorial, configure os endereços DNS primários e secundários. Não é um requisito geral do Azure Firewall.
+Para fins de teste neste tutorial, configure os endereços DNS primários e secundários. Isso não é um requisito geral do Firewall do Azure.
 
 1. No portal do Azure, abra o grupo de recursos **Test-FW-RG**.
 2. Clique na interface de rede da máquina virtual **Srv-Work**.
@@ -244,7 +244,7 @@ Agora, teste a firewall para confirmar que funciona conforme esperado.
 
    Deve estar bloqueado pela firewall.
 
-Verificou que as regras de firewall estão a funcionar:
+Portanto, agora verificar que as regras de firewall estão a funcionar:
 
 - Pode navegar para o único FQDN permitido, mas não para quaisquer outros.
 - Pode resolver nomes DNS com o servidor DNS externo configurado.
