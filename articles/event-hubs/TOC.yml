@@ -23,7 +23,7 @@ items:
       href: event-hubs-resource-manager-namespace-event-hub.md
   - name: Enviar eventos para o hub de eventos
     items:
-    - name: .NET Standard
+    - name: .NET Core
       href: event-hubs-dotnet-standard-getstarted-send.md
     - name: .NET Framework
       href: event-hubs-dotnet-framework-getstarted-send.md
@@ -39,7 +39,7 @@ items:
       href: event-hubs-node-get-started-send.md
   - name: Receber eventos do hub de eventos
     items:
-    - name: .NET Standard
+    - name: .NET Core
       href: event-hubs-dotnet-standard-getstarted-receive-eph.md
     - name: .NET Framework
       href: event-hubs-dotnet-framework-getstarted-receive-eph.md
@@ -199,9 +199,9 @@ items:
     href: https://stackoverflow.com/questions/tagged/azure-eventhub
   - name: Vídeos
     href: https://azure.microsoft.com/documentation/videos/index/?services=event-hubs
-ms.openlocfilehash: 3053e474ff88c979287dcbfb666283302ea03ed3
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: f565b8c743d8ed29b1fea4480f798dd522fcd045
+ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57531220"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58285990"

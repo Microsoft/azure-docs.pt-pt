@@ -224,29 +224,27 @@ items:
   items:
   - name: FAQ
     href: api-management-faq.md
+  - name: Preços
+    href: https://aka.ms/apimpricing
   - name: Disponibilidade regional
     href: https://azure.microsoft.com/regions/services/
-  - name: Documentação de orientação de design da API
-    href: https://docs.microsoft.com/azure/architecture/best-practices/api-design?toc=%2Fazure%2Fapi-management%2Ftoc.json
-  - name: Documentação de orientação de implementação da API
-    href: https://docs.microsoft.com/azure/architecture/best-practices/api-implementation?toc=%2Fazure%2Fapi-management%2Ftoc.json
+  - name: Mapa
+    href: https://aka.ms/apimroadmap
+  - name: Pedidos de funcionalidades
+    href: https://aka.ms/apimwish
+  - name: Vídeos
+    href: https://azure.microsoft.com/documentation/videos/index/?services=api-management
   - name: Fórum do MSDN
     href: https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=azureapimgmt
   - name: Stack Overflow
     href: https://stackoverflow.com/questions/tagged/azure-api-management
-  - name: Vídeos
-    href: https://azure.microsoft.com/documentation/videos/index/?services=api-management
-  - name: Mapa
-    href: https://aka.ms/apimroadmap
-  - name: Modelo de solução do Power BI para a Gestão de API
-    href: https://aka.ms/apimpbi
-  - name: Blogue
-    href: https://aka.ms/apimblog
-  - name: Pedidos de funcionalidades
-    href: https://aka.ms/apimwish
-ms.openlocfilehash: fd8cade676bb8966ad33637bad97d100c268f89d
-ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
+  - name: Documentação de orientação de design da API
+    href: https://docs.microsoft.com/azure/architecture/best-practices/api-design?toc=%2Fazure%2Fapi-management%2Ftoc.json
+  - name: Documentação de orientação de implementação da API
+    href: https://docs.microsoft.com/azure/architecture/best-practices/api-implementation?toc=%2Fazure%2Fapi-management%2Ftoc.json
+ms.openlocfilehash: 637671ae4e85a7f3ed4f71af5caf580660c2b6ce
+ms.sourcegitcommit: aa3be9ed0b92a0ac5a29c83095a7b20dd0693463
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/12/2019
-ms.locfileid: "54246624"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58260218"

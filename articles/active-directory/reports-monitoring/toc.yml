@@ -30,8 +30,6 @@ items:
     items:
     - name: Aceder à API de Relatórios com certificados
       href: tutorial-access-api-with-certificates.md
-    - name: Gerar um script para transferir os registos de início de sessão
-      href: tutorial-signin-logs-download-script.md
   - name: Monitorização
     items:
     - name: Transmitir registos no hub de eventos
@@ -120,9 +118,9 @@ items:
     - name: Esquema de início de sessão do registo
       href: reference-azure-monitor-sign-ins-log-schema.md
   expanded: true
-ms.openlocfilehash: e14fac6ff115951ca46995d7973e919e6a774b8c
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.openlocfilehash: 746e3834189b9c0c478f7bbcd8b72e6760c288f6
+ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56819382"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58293775"

@@ -21,6 +21,8 @@ items:
     href: fhir-oss-powershell-quickstart.md
   - name: Implementar o FHIR Server para o Azure - CLI
     href: fhir-oss-cli-quickstart.md
+  - name: Configurar o CORS
+    href: configure-cross-origin-resource-sharing.md
   expanded: true
 - name: Tutoriais
   items:
@@ -48,9 +50,9 @@ items:
     href: fhir-faq.md
   - name: Funcionalidades suportadas
     href: fhir-features-supported.md
-ms.openlocfilehash: 60d0d4b8368a64b9ef66608de6824cec9876b8be
-ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
+ms.openlocfilehash: e49816187ce1f41db7aba43e78c7bb3ab3e10db6
+ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56958121"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58285416"

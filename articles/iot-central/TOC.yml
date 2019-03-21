@@ -79,7 +79,6 @@ items:
     - name: Acionar Funções do Azure
       href: howto-trigger-azure-functions.md
     - name: Exportar os seus dados
-      href: howto-export-data.md
       items:
       - name: Exportar para os Hubs de Eventos e o Service Bus
         href: howto-export-data-event-hubs-service-bus.md
@@ -143,9 +142,9 @@ items:
     href: iot-central-customer-data-requests.md
   - name: Browsers suportados
     href: iot-central-supported-browsers.md
-ms.openlocfilehash: c54c627e04dbb825d14cda8af28ebe77636bb785
-ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
+ms.openlocfilehash: e1ff69dd8b8956ddfc9225f6a1d36ee8f7b511c7
+ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57342263"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58294115"
