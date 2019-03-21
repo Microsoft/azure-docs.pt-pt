@@ -15,12 +15,12 @@ ms.workload: iaas-sql-server
 ms.date: 02/13/2019
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 8578cd24b585bb5f0ba4930f005d8d2b2fece7f7
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 66e94ed4f68ed43891ad3e81bd66cdc57799d204
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57449687"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58117902"
 ---
 # <a name="how-to-change-the-licensing-model-for-a-sql-server-virtual-machine-in-azure"></a>Como alterar o modelo de licenciamento para uma máquina virtual do SQL Server no Azure
 Este artigo descreve como alterar o modelo de licenciamento para uma máquina virtual do SQL Server no Azure com o novo fornecedor de recursos de VM do SQL - **Microsoft.SqlVirtualMachine**. Há dois modelos para uma máquina virtual (VM) a alojar o SQL Server - pay as you go, de licenciamento e traga a sua própria licença (BYOL). E agora, com o PowerShell ou a CLI do Azure, pode modificar o modelo de licenciamento sua VM do SQL Server utiliza. 
@@ -62,7 +62,7 @@ Os passos seguintes irão registar o fornecedor de recursos do SQL com a sua sub
 1. Tipo de `sql` no filtro para apresentar os fornecedores de recursos relacionados com o SQL. 
 1. Selecione *registar*, *voltar a registar*, ou *Unregister* para o **Microsoft.SqlVirtualMachine** fornecedor consoante sua ação desejada. 
 
-  ![Modificar o fornecedor](media/virtual-machines-windows-sql-ahb/select-resource-provider-sql.png)
+   ![Modificar o fornecedor](media/virtual-machines-windows-sql-ahb/select-resource-provider-sql.png)
 
 ### <a name="with-azure-cli"></a>Com a CLI do Azure
 O fragmento de código seguinte irá registar o fornecedor de recursos do SQL com a sua subscrição do Azure. 

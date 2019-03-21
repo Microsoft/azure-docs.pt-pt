@@ -5,17 +5,16 @@ services: logic-apps
 ms.service: logic-apps
 author: divyaswarnkar
 ms.author: divswa
-manager: jeconnoc
 ms.reviewer: estfan, LADocs
 ms.suite: integration
 ms.topic: article
 ms.date: 08/16/2018
-ms.openlocfilehash: d607c75bc451774e6bf269eb658236d93a85021f
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
-ms.translationtype: MT
+ms.openlocfilehash: 3441350a07047676ac43de23262be6c54912162c
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54854382"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58104170"
 ---
 # <a name="perform-advanced-json-transformations-with-liquid-templates-in-azure-logic-apps"></a>Execute transformações de JSON avançadas com modelos de fluidos no Azure Logic Apps
 
@@ -35,8 +34,7 @@ Portanto, antes de poder executar uma transformação líquida na sua aplicaçã
 
 ## <a name="create-liquid-template-or-map-for-your-integration-account"></a>Criar modelo de fluidos ou mapa para a sua conta de integração
 
-1. Neste exemplo, crie o modelo de fluidos de exemplo descrito neste passo.
-Se pretender utilizar quaisquer filtros no seu modelo de fluidos, certificar-se de que esses filtros começam com letras maiúsculas. Saiba mais sobre [Liquid filtra](https://shopify.github.io/liquid/basics/introduction/#filters), que utilizam [DotLiquid](https://dotliquidmarkup.org/) e C# convenções de nomenclatura.
+1. Neste exemplo, crie o modelo de fluidos de exemplo descrito neste passo. No seu modelo de fluidos, pode usar [Liquid filtra](https://shopify.github.io/liquid/basics/introduction/#filters), que utilizam [DotLiquid](https://dotliquidmarkup.org/) e C# convenções de nomenclatura. No entanto, certifique-se de que *iniciar o filtro de nomes com carateres maiúsculos*, não minúsculos. 
 
    ```json
    {%- assign deviceList = content.devices | Split: ', ' -%}
@@ -67,7 +65,7 @@ Se pretender utilizar quaisquer filtros no seu modelo de fluidos, certificar-se 
 
 4. Escolher **adicionar** e forneça estes detalhes para o seu mapa:
 
-   | Propriedade | Valor | Descrição | 
+   | Propriedade | Value | Descrição | 
    |----------|-------|-------------|
    | **Nome** | JsonToJsonTemplate | O nome para o seu mapa, o que é "JsonToJsonTemplate" neste exemplo | 
    | **Tipo de mapa** | **liquid** | O tipo para seu mapa. Para JSON e transformação de JSON, tem de selecionar **líquidos**. | 
@@ -82,7 +80,8 @@ Se pretender utilizar quaisquer filtros no seu modelo de fluidos, certificar-se 
 
 2. No Estruturador da aplicação lógica, adicione a [acionador de pedido](../connectors/connectors-native-reqres.md#use-the-http-request-trigger) à sua aplicação lógica.
 
-3. No acionador, escolha **novo passo**. Na caixa de pesquisa, introduza "liquid" como o filtro e selecione a ação: **Transformar JSON para JSON - Liquid**
+3. No acionador, escolha **novo passo**. 
+   Na caixa de pesquisa, introduza "liquid" como o filtro e selecione a ação: **Transformar JSON para JSON - Liquid**
 
    ![Localize e selecione a ação de líquidos](./media/logic-apps-enterprise-integration-liquid-transform/search-action-liquid.png)
 
@@ -101,7 +100,7 @@ Se pretender utilizar quaisquer filtros no seu modelo de fluidos, certificar-se 
 
    2. Partir do **Selecione uma conta de integração** lista, selecione a sua conta de integração e escolha **guardar**.
 
-     ![Aplicação de lógica de ligação para a conta de integração](./media/logic-apps-enterprise-integration-liquid-transform/link-integration-account.png)
+      ![Aplicação de lógica de ligação para a conta de integração](./media/logic-apps-enterprise-integration-liquid-transform/link-integration-account.png)
 
 ## <a name="test-your-logic-app"></a>Teste a aplicação lógica
 

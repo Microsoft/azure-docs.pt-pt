@@ -1,72 +1,80 @@
 ---
-title: Sobre voz-serviço de voz
+title: Voz com serviços de voz do Azure
 titleSuffix: Azure Cognitive Services
-description: A API de voz oferece mais de 75 vozes em mais de 45 idiomas e localidades. Para utilizar tipos de voz padrão, só tem de especificar o nome de voz com alguns outros parâmetros ao chamar o serviço de voz.
+description: Voz, conversão de voz dos serviços do Azure é um serviço baseado em REST que permite que seus aplicativos, ferramentas ou dispositivos converter texto em fala sintetizada de semelhante à humana natural. Escolha entre padrão e neurais vozes ou criar a sua voz personalizada exclusivo para o produto ou marca. 75 + vozes standard estão disponíveis em mais de 45 idiomas e localidades e 5 vozes neurais estão disponíveis em 4 idiomas e localidades.
 services: cognitive-services
 author: erhopf
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 12/13/2018
+ms.date: 03/19/2019
 ms.author: erhopf
 ms.custom: seodec18
-ms.openlocfilehash: 0836ae4a9041db27cfed35dd0f1fc0df6e541aff
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 05028704c08ebd06f9b9e4e3f45c5137eb1e6b58
+ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55859339"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58226917"
 ---
-# <a name="about-the-text-to-speech-api"></a>Sobre a API de texto para discurso
+# <a name="what-is-text-to-speech"></a>O que é o texto para discurso?
 
-O **voz** (TTS) API converte a entrada de texto em voz com som natural (também denominado *síntese de fala*).
+Voz, conversão de voz dos serviços do Azure é um serviço baseado em REST que permite que seus aplicativos, ferramentas ou dispositivos converter texto em fala sintetizada de semelhante à humana natural. Escolher entre padrão e neurais vozes ou criar os seus próprios [voz personalizada](#custom-voice-fonts) exclusivo para o produto ou marca. 75 + vozes standard estão disponíveis em mais de 45 idiomas e localidades e 5 vozes neurais estão disponíveis em 4 idiomas e localidades. Para obter uma lista completa, consulte [idiomas suportados](language-support.md#text-to-speech).
 
-Para gerar voz, a sua aplicação envia pedidos de HTTP POST para a API de texto para voz. Lá, o texto é sintetizado em voz com som humanos e retornado como um arquivo de áudio. Uma variedade de vozes e idiomas são suportados.
-
-Os cenários em que fala síntese está a ser adotada incluem:
-
-* *Melhorar a acessibilidade:* **voz** tecnologia permite que os proprietários de conteúdo e os editores a responder para as pessoas de diferentes formas interagirem com os seus conteúdos. As pessoas com dificuldades de leitura ou o visual impairment apreciam a capacidade de consumir conteúdos aurally. Voz de saída também torna mais fácil para as pessoas usufruir conteúdo textual, como jornais ou posta em blog, em dispositivos móveis ao exercitar transporte ou viagens.
-
-* *A responder em cenários de multitarefa:* **voz** permite que as pessoas que visam absorver informações importantes rapidamente e confortavelmente ao dirigir ou caso contrário, um conveniente fora ler ambiente. A navegação é um aplicativo comum nessa área.
-
-* *Aprimoramento de aprendizagem com vários modos de:* Pessoas diferentes saiba a melhor de formas diferentes. Especialistas de aprendizagem online têm mostrado que fornecer o texto e voz em conjunto pode ajudar a facilitar as informações saber mais e manter.
-
-* *Fornecimento de bots intuitivo ou assistentes:* A capacidade de comunicar com pode ser uma parte integral de um chatbot inteligente ou um assistente virtual. Cada vez mais empresas estão desenvolvendo bots de bate-papo para fornecer experiências de serviço de cliente atraente para seus clientes. Voz adiciona outra dimensão, permitindo que as respostas do bot para que sejam recebidas aurally (por exemplo, por telefone).
-
-## <a name="voice-support"></a>Suporte de voz
-
-A Microsoft **voz** serviço oferece mais de 75 vozes em mais de 45 idiomas e localidades. Para utilizar estes padrão "tipos de voz", só precisa de especificar o nome de voz com alguns outros parâmetros quando chama a API de REST do serviço. Para obter mais informações sobre vozes, localidades e idiomas suportados, consulte [idiomas suportados](language-support.md#text-to-speech).
-
-> [!IMPORTANT]
-> Os custos variam para vozes neurais, padrão e personalizados. Para obter mais informações, consulte [preços](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/).
+Tecnologia de texto para discurso permite que os criadores de conteúdo interagir com os seus utilizadores de formas diferentes. Voz pode melhorar a acessibilidade, fornecendo os utilizadores com uma opção para interagir com o conteúdo poder ouvi-lo. Se o usuário tem um visual impairment, uma deficiência de aprendizagem, ou necessita de informações de navegação, obtendo, voz pode melhorar uma experiência existente. Voz também é um complemento valioso para bots de voz e assistentes virtual.
 
 ### <a name="neural-voices"></a>Vozes neurais
 
-Voz neural pode ser utilizado para tornar as interações com chatbots e assistentes virtual mais natural e envolventes converter textos digital, como o e-livros em audiobooks e melhorar a sistemas de navegação no carro. Com o prosody natural de semelhante à humana e articulation clara de palavras, o Neural TTS reduziu significativamente fadiga escuta quando interage com os sistemas de IA. Para obter mais informações sobre as vozes neurais, consulte [idiomas suportados](language-support.md#text-to-speech).
+Vozes neurais podem ser utilizados para tornar as interações com chatbots e assistentes virtual mais natural e envolventes converter textos digital, como o e-livros em audiobooks e melhorar a sistemas de navegação no carro. Com o prosody natural de semelhante à humana e articulation clara de palavras, o vozes Neural reduzem significativamente fadiga escuta quando interage com os sistemas de IA. Para obter mais informações sobre as vozes neurais, consulte [idiomas suportados](language-support.md#text-to-speech).
 
 ### <a name="custom-voices"></a>Vozes personalizadas
 
-Personalização de texto para discurso de voz permite-lhe criar uma voz reconhecível, um do-única para sua marca: um *tipo de voz.* Para criar o seu tipo de voz, fazer uma gravação de studio e carregar os scripts associados como os dados de treinamento. O serviço, em seguida, cria um modelo de voz única ajustado para a gravação. Pode utilizar o seu tipo de voz para sintetizar voz. Para obter mais informações, consulte [tipos de voz personalizada](how-to-customize-voice-font.md).
+Personalização de voz permite-lhe criar uma voz reconhecível, um do-única para sua marca. Para criar o seu tipo de voz personalizada, fazer uma gravação de studio e carregar os scripts associados como os dados de treinamento. O serviço, em seguida, cria um modelo de voz única ajustado para a gravação. Pode utilizar este tipo de voz personalizada para sintetizar voz. Para obter mais informações, consulte [vozes personalizadas](how-to-customize-voice-font.md).
 
-## <a name="api-capabilities"></a>Capacidades de API
+## <a name="core-features"></a>Principais recursos
 
-Muitas das funcionalidades dos **voz** API, sobretudo em torno da personalização, estão disponíveis através de REST. A tabela seguinte resume as capacidades de cada método de acessar a API. Para obter uma lista completa de capacidades e detalhes de API, consulte [Swagger referência](https://westus.cris.ai/swagger/ui/index).
+Esta tabela lista os principais recursos de voz:
 
-| Caso de utilização | REST | SDKs |
-|-----|-----|-----|----|
-| Carregar conjuntos de dados para adaptação de voz | Sim | Não |
-| Criar e gerir modelos de tipo de letra de voz | Sim | Não |
-| Criar e gerir implementações de tipo de letra de voz | Sim | Não |
-| Criar e gerir os testes de tipo de letra de voz| Sim | Não |
-| Gerir Subscrições | Sim | Não |
+| Caso de utilização | SDK | REST |
+|----------|-----|------|
+| Converta texto em voz. | Não | Sim |
+| Carregar conjuntos de dados para adaptação de voz. | Não | Sim\* |
+| Criar e gerir modelos de tipo de letra de voz. | Não | Sim\* |
+| Criar e gerir implementações de tipo de letra de voz. | Não | Sim\* |
+| Criar e gerir os testes de tipo de letra de voz. | Não | Sim\* |
+| Gerir subscrições. | Não | Sim\* |
+
+\* *Esses serviços estão disponíveis com o ponto de extremidade cris.ai. Ver [Swagger referência](https://westus.cris.ai/swagger/ui/index).*
 
 > [!NOTE]
-> A API implementa limitação que limita os pedidos de API para 25 por 5 segundos. Cabeçalhos de mensagens informará os limites.
+> O ponto final de texto para discurso implementa limitação que limita os pedidos para 25 por 5 segundos. Quando ocorre a limitação, será notificado através de cabeçalhos de mensagens.
+
+## <a name="get-started-with-text-to-speech"></a>Introdução ao texto em voz
+
+Oferecemos inícios rápidos, criados para executar o código em menos de 10 minutos. Esta tabela inclui uma lista de guias de introdução de texto para discurso organizados por idioma.
+
+| Início Rápido | Plataforma | Referência da API |
+|------------|----------|---------------|
+| [C#, .NET Core](quickstart-dotnet-text-to-speech.md) | Windows, macOS, Linux | [Procurar](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis#text-to-speech-api) |
+| [Node.js](quickstart-nodejs-text-to-speech.md) | Janela, macOS, Linux | [Procurar](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis#text-to-speech-api) |
+| [Python](quickstart-python-text-to-speech.md) | Janela, macOS, Linux | [Procurar](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis#text-to-speech-api) |
+
+## <a name="sample-code"></a>Código de exemplo
+
+Código de exemplo para voz está disponível no GitHub. Esses exemplos abrangem a conversão de texto para discurso em linguagens de programação mais populares.
+
+* [Exemplos de texto para voz (REST)](https://github.com/Azure-Samples/Cognitive-Speech-TTS)
+
+## <a name="reference-docs"></a>Documentos de referência
+
+* [SDK de Voz](speech-sdk-reference.md)
+* [Dispositivos de voz SDK](speech-devices-sdk.md)
+* [REST API: Speech-to-text](rest-speech-to-text.md)
+* [REST API: Text-to-speech](rest-text-to-speech.md)
+* [REST API: Transcrição de batch e personalização](https://westus.cris.ai/swagger/ui/index)
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-* [Obter uma subscrição de serviços de voz gratuito](https://azure.microsoft.com/try/cognitive-services/)
-* [Quickstart: Converter a voz, o Python](quickstart-python-text-to-speech.md)
-* [Quickstart: Converter a voz, .NET Core](quickstart-dotnet-text-to-speech.md)
-* [Referência da API REST](rest-apis.md)
+* [Obter uma subscrição de serviços de voz gratuito](get-started.md)
+* [Criar tipos de voz personalizada](how-to-customize-voice-font.md)

@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.date: 11/06/2018
 ms.author: hrasheed
 ms.custom: mvc
-ms.openlocfilehash: 7ef45061207bed28c1b3c16b7cefbcc9bfc49959
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: 16ec2f52a3272e774f4743ec730e0b1184d8fb53
+ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55814977"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58225642"
 ---
 # <a name="quickstart-create-an-apache-spark-cluster-in-hdinsight-using-template"></a>Início rápido: Criar um cluster do Apache Spark no HDInsight com o modelo
 

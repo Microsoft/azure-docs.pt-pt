@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 02/15/2019
 ms.author: danlep
 ms.custom: mvc
-ms.openlocfilehash: eb7a98d22e9005bb1d5db2f1fbd35a1279d84703
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: c90041f54fc9b4b57885083ec94843b596f48b79
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57537236"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58123271"
 ---
 # <a name="troubleshoot-common-issues-in-azure-container-instances"></a>Resolver problemas comuns no Azure Container Instances
 
@@ -25,7 +25,7 @@ Este artigo mostra como resolver problemas comuns de gestão ou implementar cont
 Ao definir sua especificação de contentor, determinados parâmetros requerem o cumprimento das restrições de nomenclatura. Segue-se uma tabela com requisitos específicos para o contentor de propriedades do grupo. Para obter mais informações sobre as convenções de nomenclatura do Azure, consulte [convenções de nomenclatura] [ azure-name-restrictions] no Centro de arquitetura do Azure.
 
 | Âmbito | Comprimento | Maiúsculas e Minúsculas | Carateres válidos | Padrão sugerido | Exemplo |
-| --- | --- | --- | --- | --- | --- | --- |
+| --- | --- | --- | --- | --- | --- |
 | Nome do grupo de contentor | 1-64 |Não sensível a maiúsculas e minúsculas |Alfanumérico e hífen em qualquer lugar, exceto o primeiro ou último caráter |`<name>-<role>-CG<number>` |`web-batch-CG1` |
 | Nome do contentor | 1-64 |Não sensível a maiúsculas e minúsculas |Alfanumérico e hífen em qualquer lugar, exceto o primeiro ou último caráter |`<name>-<role>-CG<number>` |`web-batch-CG1` |
 | Portas de contentores | Entre 1 e 65535 |Número inteiro |Número inteiro entre 1 e 65535 |`<port-number>` |`443` |

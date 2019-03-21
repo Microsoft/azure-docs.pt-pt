@@ -8,15 +8,15 @@ ms.topic: include
 ms.date: 08/30/2018
 ms.author: danlep
 ms.custom: include file
-ms.openlocfilehash: 4ca9ed2f2cb6f111e15093f0f3a90e2f37ab3521
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 844e4a0d2715799b808f2c7630c201f6e792bd63
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57554123"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58124421"
 ---
-| Recurso | Básico | Standard | Premium |
-|---|---|---|---|---|
+| Recurso | Básica | Standard | Premium |
+|---|---|---|---|
 | Armazenamento<sup>1</sup> | 10 GiB | 100 GiB| 500 GiB |
 | Tamanho da camada de imagem máximo | 20 GiB | 20 GiB | 50 giB |
 | ReadOps por minuto<sup>2, 3</sup> | 1,000 | 3000 | 10,000 |

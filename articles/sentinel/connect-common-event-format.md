@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 3/6/2019
 ms.author: rkarlin
-ms.openlocfilehash: 761889d4529e9885538e4c80d3da326ec682ad09
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 31939b3b09fb36ac59efa1d7d7e302ac5f65a51c
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57551080"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58117188"
 ---
 # <a name="connect-your-external-solution-using-common-event-format"></a>Ligue a sua solução externa com o formato de evento comum
 
@@ -30,7 +30,7 @@ ms.locfileid: "57551080"
 Pode ligar o Azure sentinela com uma solução externa que permite-lhe guardar os ficheiros de registo do Syslog. Se a aplicação permite-lhe guardar os registos como Syslog Common Event Format (CEF), a integração com o Azure sentinela permite-lhe executar facilmente análises e consultas em todos os dados.
 
 > [!NOTE]
-
+> 
 > Dados são armazenados na localização geográfica da área de trabalho no qual está a executar sentinela do Azure.
 
 ## <a name="how-it-works"></a>Como funciona
@@ -100,19 +100,19 @@ Se não estiver a utilizar o Azure, implemente manualmente o agente de Azure sen
 1. Para criar uma VM do Linux dedicado, em **configuração do agente Linux Syslog** escolha **implementação Manual**.
    1. Sob **transfira e instale o agente de Syslog**, selecione **máquina Linux não Azure**. 
    1. Na **agente direto** ecrã que se abre, selecione **agente para Linux** para transferir o agente ou execute este comando para baixá-lo no seu computador Linux:   `wget https://raw.githubusercontent.com/Microsoft/OMS-Agent-for-Linux/master/installer/scripts/onboard_agent.sh && sh onboard_agent.sh -w {workspace GUID} -s gehIk/GvZHJmqlgewMsIcth8H6VqXLM9YXEpu0BymnZEJb6mEjZzCHhZgCx5jrMB1pVjRCMhn+XTQgDTU3DVtQ== -d opinsights.azure.com`
-    3. No ecrã de conector, sob **configurar e reencaminhar Syslog**, defina se o daemon de Syslog está **rsyslog.d** ou **syslog-ng**. 
-    4. Copie estes comandos e executá-los na sua aplicação:
-       - Se tiver selecionado rsyslog:
-          1. Informe o Syslog daemon para escutar local_4 de instalações e para enviar as mensagens Syslog para o agente do Azure sentinela através da porta 25226. `sudo bash -c "printf 'local4.debug  @127.0.0.1:25226' > /etc/rsyslog.d/security-config-omsagent.conf"`
+      1. No ecrã de conector, sob **configurar e reencaminhar Syslog**, defina se o daemon de Syslog está **rsyslog.d** ou **syslog-ng**. 
+      1. Copie estes comandos e executá-los na sua aplicação:
+         - Se tiver selecionado rsyslog:
+           1. Informe o Syslog daemon para escutar local_4 de instalações e para enviar as mensagens Syslog para o agente do Azure sentinela através da porta 25226. `sudo bash -c "printf 'local4.debug  @127.0.0.1:25226' > /etc/rsyslog.d/security-config-omsagent.conf"`
             
-          2. Transferir e instalar o [o ficheiro de configuração de security_events](https://aka.ms/asi-syslog-config-file-linux) que configura o agente de Syslog para escutar na porta 25226. `sudo wget -O /etc/opt/microsoft/omsagent/{0}/conf/omsagent.d/security_events.conf "https://aka.ms/syslog-config-file-linux"` Onde {0} deve ser substituído pela sua área de trabalho GUID.
-          3. Reinicie o syslog daemon `sudo service rsyslog restart`
-       - Se selecionou syslog-ng:
+           2. Transferir e instalar o [o ficheiro de configuração de security_events](https://aka.ms/asi-syslog-config-file-linux) que configura o agente de Syslog para escutar na porta 25226. `sudo wget -O /etc/opt/microsoft/omsagent/{0}/conf/omsagent.d/security_events.conf "https://aka.ms/syslog-config-file-linux"` Onde {0} deve ser substituído pela sua área de trabalho GUID.
+           3. Reinicie o syslog daemon `sudo service rsyslog restart`
+         - Se selecionou syslog-ng:
             1. Informe o Syslog daemon para escutar local_4 de instalações e para enviar as mensagens Syslog para o agente do Azure sentinela através da porta 25226. `sudo bash -c "printf 'filter f_local4_oms { facility(local4); };\n  destination security_oms { tcp(\"127.0.0.1\" port(25226)); };\n  log { source(src); filter(f_local4_oms); destination(security_oms); };' > /etc/syslog-ng/security-config-omsagent.conf"`
             2. Transferir e instalar o [o ficheiro de configuração de security_events](https://aka.ms/asi-syslog-config-file-linux) que configura o agente de Syslog para escutar na porta 25226. `sudo wget -O /etc/opt/microsoft/omsagent/{0}/conf/omsagent.d/security_events.conf "https://aka.ms/syslog-config-file-linux"` Onde {0} deve ser substituído pela sua área de trabalho GUID.
             3. Reinicie o syslog daemon `sudo service syslog-ng restart`
-    5. Reinicie o agente de Syslog utilizando este comando: `sudo /opt/microsoft/omsagent/bin/service_control restart [{workspace GUID}]`
-    6. Confirme que não existem erros no registo do agente ao executar este comando: `tail /var/opt/microsoft/omsagent/log/omsagent.log`
+      1. Reinicie o agente de Syslog utilizando este comando: `sudo /opt/microsoft/omsagent/bin/service_control restart [{workspace GUID}]`
+      1. Confirme que não existem erros no registo do agente ao executar este comando: `tail /var/opt/microsoft/omsagent/log/omsagent.log`
   
 ## <a name="step-2-validate-connectivity"></a>Passo 2: Validar a conectividade
 

@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 11/24/2017
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 44252274cc3c0050ba138c3115deeceb2f06f8d8
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 0c59e892c8fd5a8bcc74d23e16eaabf1dc1a08f0
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57782773"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58121541"
 ---
 # <a name="buy-a-custom-domain-name-for-azure-app-service"></a>Comprar um nome de domínio personalizado para o serviço de aplicações do Azure
 
@@ -146,7 +146,7 @@ Também pode ver os nomes de anfitriões selecionados no **domínios personaliza
 
 ![](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-buydomains-hostnames-added.png)
 
-Para testar os nomes de anfitrião, navegue para os nomes de anfitrião listadas no browser. No exemplo da captura de ecrã anterior, tentar navegar até _kontoso.net_ e _www.kontoso.net_.
+Para testar os nomes de anfitrião, navegue para os nomes de anfitrião listadas no browser. No exemplo da captura de ecrã anterior, tentar navegar até _kontoso.net_ e _www\.kontoso.net_.
 
 ## <a name="assign-hostnames-to-app"></a>Atribuir nomes de anfitrião de aplicação
 
@@ -177,7 +177,7 @@ Selecione **Adicionar nome de anfitrião**.
 Na **Adicionar nome de anfitrião** caixa de diálogo, escreva o nome de domínio completamente qualificado do seu domínio do serviço de aplicações ou qualquer subdomínio. Por exemplo:
 
 - kontoso.net
-- www.kontoso.net
+- www\.kontoso.net
 - abc.kontoso.net
 
 Quando terminar, selecione **Validate**. O tipo de registo de nome de anfitrião é selecionado automaticamente para.

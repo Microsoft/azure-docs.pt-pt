@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 05/19/2017
 ms.author: kefre
 ms.custom: seodec18
-ms.openlocfilehash: 08838ce0af16cc4ae768bd5d2ecf72c57f8fae97
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 03e519520d4a956a5c9690dc1327089505aafced
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55858081"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58120861"
 ---
 # <a name="how-to-obtain-subscription-keys"></a>Como obter chaves de subscrição
 
@@ -24,8 +24,8 @@ Serviços de visão do computador exigem chaves de subscrição especial. Todas 
 
 Para se inscrever para chaves de subscrição, veja [subscrições](https://azure.microsoft.com/try/cognitive-services/). É gratuito para se inscrever. Os preços para estes serviços são sujeitos a alterações.
 
->[!NOTE]
-As chaves de subscrição são válidas para apenas um destes [regiões do Microsoft Azure](https://azure.microsoft.com/regions/). 
+> [!NOTE]
+> As chaves de subscrição são válidas para apenas um destes [regiões do Microsoft Azure](https://azure.microsoft.com/regions/). 
 
 | Região | Endereço |
 |---|---|

@@ -9,12 +9,12 @@ ms.date: 01/04/2019
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc, seodec18
-ms.openlocfilehash: 9abdbd232b7f346aae9ee5fbe93d23afa4aaf32c
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
+ms.openlocfilehash: 9a541f42670b3ccf83331e3e2e9069289bb9b4b3
+ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55562373"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58224078"
 ---
 # <a name="tutorial-develop-a-java-iot-edge-module-and-deploy-to-your-simulated-device"></a>Tutorial: Desenvolver um módulo do IoT Edge do Java e implementar no seu dispositivo simulado
 
@@ -233,11 +233,11 @@ O ficheiro de ambiente armazena as credenciais do seu registo de contentor e par
 13. Adicione o módulo **JavaModule** ao manifesto da implementação. Insira o seguinte conteúdo JSON na parte inferior da secção **moduleContent**, após o módulo duplo **$edgeHub**: 
 
    ```json
-       "JavaModule": {
-           "properties.desired":{
-               "TemperatureThreshold":25
-           }
-       }
+     "JavaModule": {
+         "properties.desired":{
+             "TemperatureThreshold":25
+         }
+     }
    ```
 
    ![Adicionar módulo duplo ao modelo de implementação](./media/tutorial-java-module/module-twin.png)

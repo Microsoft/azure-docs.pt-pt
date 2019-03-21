@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 12/09/2016
 ms.author: bburns
 ms.custom: mvc
-ms.openlocfilehash: 8010d7cbf960c3e2f6528687be97a47d31270696
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.openlocfilehash: 0d9f13003a9b81085fda9635fc8b07566a1c0c66
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52997206"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58107530"
 ---
 # <a name="deprecated-monitor-an-azure-container-service-cluster-with-log-analytics"></a>(PRETERIDO) Monitorizar um cluster do Azure Container Service com o Log Analytics
 
@@ -91,37 +91,37 @@ $ kubectl create -f oms-daemonset.yaml
 ### <a name="installing-the-log-analytics-agent-using-a-kubernetes-secret"></a>Instalação do agente de Log Analytics com o segredo do Kubernetes
 Para proteger o seu ID de área de trabalho do Log Analytics e a chave pode utilizar o segredo do Kubernetes como parte do ficheiro DaemonSet YAML.
 
- - Copie o script, ficheiro de modelo secreta e o ficheiro DaemonSet YAML (partir [repositório](https://github.com/Microsoft/OMS-docker/tree/master/Kubernetes)) e certifique-se de que estão no mesmo diretório.
-      - Gerar script - gen.sh segredo do segredo
-      - modelo secreto - template.yaml do segredo
-   - Ficheiro DaemonSet YAML - omsagent-ds-secrets.yaml
- - Execute o script. O script solicitará o ID de área de trabalho do Log Analytics e a chave primária. Inserir que e o script irá criar um ficheiro yaml secreta, para que pode executá-lo.
-   ```
-   #> sudo bash ./secret-gen.sh
-   ```
+- Copie o script, ficheiro de modelo secreta e o ficheiro DaemonSet YAML (partir [repositório](https://github.com/Microsoft/OMS-docker/tree/master/Kubernetes)) e certifique-se de que estão no mesmo diretório.
+  - Gerar script - gen.sh segredo do segredo
+  - modelo secreto - template.yaml do segredo
+    - Ficheiro DaemonSet YAML - omsagent-ds-secrets.yaml
+- Execute o script. O script solicitará o ID de área de trabalho do Log Analytics e a chave primária. Inserir que e o script irá criar um ficheiro yaml secreta, para que pode executá-lo.
+  ```
+  #> sudo bash ./secret-gen.sh
+  ```
 
-   - Crie o pod segredos ao executar o seguinte: ``` kubectl create -f omsagentsecret.yaml ```
+  - Crie o pod segredos ao executar o seguinte: ``` kubectl create -f omsagentsecret.yaml ```
 
-   - Para verificar, execute o seguinte:
+  - Para verificar, execute o seguinte:
 
-   ```
-   root@ubuntu16-13db:~# kubectl get secrets
-   NAME                  TYPE                                  DATA      AGE
-   default-token-gvl91   kubernetes.io/service-account-token   3         50d
-   omsagent-secret       Opaque                                2         1d
-   root@ubuntu16-13db:~# kubectl describe secrets omsagent-secret
-   Name:           omsagent-secret
-   Namespace:      default
-   Labels:         <none>
-   Annotations:    <none>
+  ```
+  root@ubuntu16-13db:~# kubectl get secrets
+  NAME                  TYPE                                  DATA      AGE
+  default-token-gvl91   kubernetes.io/service-account-token   3         50d
+  omsagent-secret       Opaque                                2         1d
+  root@ubuntu16-13db:~# kubectl describe secrets omsagent-secret
+  Name:           omsagent-secret
+  Namespace:      default
+  Labels:         <none>
+  Annotations:    <none>
 
-   Type:   Opaque
+  Type:   Opaque
 
-   Data
-   ====
-   WSID:   36 bytes
-   KEY:    88 bytes
-   ```
+  Data
+  ====
+  WSID:   36 bytes
+  KEY:    88 bytes
+  ```
 
   - Criar a sua omsagent daemon-set através da execução ``` kubectl create -f omsagent-ds-secrets.yaml ```
 
