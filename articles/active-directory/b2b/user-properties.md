@@ -10,13 +10,14 @@ ms.author: mimart
 author: msmimart
 manager: daveba
 ms.reviewer: sasubram
+ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 45e9553a3af8a09a6630efa771294661702feef5
-ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
+ms.openlocfilehash: 791dcfadf1db6cae48bee5c926f75e454c88fc55
+ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56670715"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58294659"
 ---
 # <a name="properties-of-an-azure-active-directory-b2b-collaboration-user"></a>Propriedades de um utilizador de colaboração do Azure Active Directory B2B
 
@@ -32,7 +33,7 @@ Consoante as necessidades da organização de convite, um utilizador de colabora
 
 - Estado de 4: Que se encontrem no Azure da organização de anfitrião AD com UserType = convidado e as credenciais que gere a organização de anfitrião.
 
-  ![Exibindo iniciais na máquina](media/user-properties/redemption-diagram.png)
+  ![Diagrama a ilustrar os Estados de quatro utilizador](media/user-properties/redemption-diagram.png)
 
 
 Agora, vamos ver o aspeto de um utilizador de colaboração B2B do Azure AD no Azure AD.
@@ -41,7 +42,7 @@ Agora, vamos ver o aspeto de um utilizador de colaboração B2B do Azure AD no A
 
 Estado 1 e 2 do Estado contas são o resultado de convidar utilizadores convidados para colaborar com as credenciais dos utilizadores de convidado. Quando o convite é inicialmente enviado ao utilizador convidado, é criada uma conta no seu diretório. Esta conta não tem quaisquer credenciais associadas com a mesma, porque a autenticação é efetuada pelo fornecedor de identidade do utilizador convidado. O **origem** propriedade para a conta de utilizador convidado no seu diretório está definida como **Invited utilizador**. 
 
-![Antes de resgate da oferta](media/user-properties/before-redemption.png)
+![Captura de ecrã que mostra as propriedades do utilizador antes de resgate da oferta](media/user-properties/before-redemption.png)
 
 ### <a name="after-invitation-redemption"></a>Após o resgate de convite
 
@@ -87,7 +88,7 @@ Normalmente, um utilizador do Azure AD B2B e o utilizador convidado são sinôni
 
 ## <a name="filter-for-guest-users-in-the-directory"></a>Filtro para os utilizadores convidados no diretório
 
-![Filtrar utilizadores convidados](media/user-properties/filter-guest-users.png)
+![Captura de ecrã que mostra o filtro para os utilizadores convidados](media/user-properties/filter-guest-users.png)
 
 ## <a name="convert-usertype"></a>Converter UserType
 É possível converter UserType de membro para o convidado e vice-versa com o PowerShell. No entanto, a propriedade UserType representa a relação do utilizador para a organização. Portanto, deve alterar esta propriedade apenas se for a relação do utilizador para as alterações da organização. Se mudar a relação do utilizador, deve alterar ao nome principal de utilizador (UPN)? O utilizador deve continuar a ter acesso aos mesmos recursos? Deve ser atribuída uma caixa de correio? Não é recomendada a alterar o UserType com o PowerShell como uma atividade atômica. Além disso, no caso desta propriedade se torna imutável com o PowerShell, não recomendamos que tenha uma dependência nesse valor.
@@ -97,7 +98,7 @@ Pode haver casos em que pretende atribuir aos seus usuários de convidado privil
 
 É possível desativar as limitações de padrão para que um utilizador convidado no diretório da empresa tem as mesmas permissões que um utilizador de membro.
 
-![Remover limitações de utilizador convidado](media/user-properties/remove-guest-limitations.png)
+![Captura de ecrã que mostra os utilizadores externos opção nas definições do utilizador](media/user-properties/remove-guest-limitations.png)
 
 ## <a name="can-i-make-guest-users-visible-in-the-exchange-global-address-list"></a>Posso fazer os utilizadores convidados visível na lista de endereços Global do Exchange?
 Sim. Por predefinição, os objetos de convidado não são visíveis na lista de endereços global da sua organização, mas pode utilizar o Azure Active Directory PowerShell para que fiquem visíveis. Para obter detalhes, consulte **posso fazer objetos de convidado visível na lista de endereços global?** na [gerir o acesso de convidado no grupos do Office 365](https://docs.microsoft.com/office365/admin/create-groups/manage-guest-access-in-groups?redirectSourcePath=%252fen-us%252farticle%252fmanage-guest-access-in-office-365-groups-9de497a9-2f5c-43d6-ae18-767f2e6fe6e0&view=o365-worldwide#faq). 

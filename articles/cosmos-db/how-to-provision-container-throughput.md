@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: sample
 ms.date: 11/06/2018
 ms.author: mjbrown
-ms.openlocfilehash: 4df8a12581b5d71a76964ca1e3d40c6c53185f67
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 28060637db47b42db66f706815066d498032ec11
+ms.sourcegitcommit: aa3be9ed0b92a0ac5a29c83095a7b20dd0693463
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55860325"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58258722"
 ---
 # <a name="provision-throughput-on-an-azure-cosmos-container"></a>Débito de aprovisionar num contentor do Cosmos do Azure
 
@@ -21,7 +21,7 @@ Este artigo explica como aprovisionar o débito para um contentor (gráfico ou u
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com/).
 
-1. [Criar uma nova conta do Azure Cosmos DB](create-sql-api-dotnet.md#create-a-database-account), ou selecione uma conta existente.
+1. [Criar uma nova conta do Azure Cosmos DB](create-sql-api-dotnet.md#create-account), ou selecione uma conta existente.
 
 1. Abra o **Data Explorer** painel e selecione **nova coleção**. Em seguida, fornece os seguintes detalhes:
 

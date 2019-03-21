@@ -7,12 +7,12 @@ ms.author: sngun
 ms.topic: conceptual
 ms.date: 10/22/2018
 ms.reviewer: sngun
-ms.openlocfilehash: 4b37b6cd35526d6a76625dd03d1325f1688e698e
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: 4532962b6fd9f40fad625ab000116e5a617682e5
+ms.sourcegitcommit: aa3be9ed0b92a0ac5a29c83095a7b20dd0693463
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54044472"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58258788"
 ---
 # <a name="connect-qlik-sense-to-azure-cosmos-db-and-visualize-your-data"></a>Ligar o Qlik Sense ao Azure Cosmos DB e visualize os seus dados
 
@@ -42,9 +42,9 @@ Antes de seguir as instruções neste artigo, certifique-se de que tem os seguin
 
 * Transfira o [dados de vídeo Games](https://www.kaggle.com/gregorut/videogamesales), estes dados de exemplo estão num formato CSV. Irá armazenar estes dados numa conta do Cosmos DB e visualizá-los de Qlik Sense.
 
-* Criar uma conta do Azure Cosmos DB SQL API com os passos descritos em [criar uma conta](create-sql-api-dotnet.md#create-a-database-account) secção do artigo guia de introdução.
+* Criar uma conta do Azure Cosmos DB SQL API com os passos descritos em [criar uma conta](create-sql-api-dotnet.md#create-account) secção do artigo guia de introdução.
 
-* [Criar uma base de dados e uma coleção](create-sql-api-dotnet.md#add-a-collection) – pode usar definir o valor de débito da coleção para 1000 RU/s. 
+* [Criar uma base de dados e uma coleção](create-sql-api-dotnet.md#create-collection-database) – pode usar definir o valor de débito da coleção para 1000 RU/s. 
 
 * Carregar os dados de vendas de jogo de vídeo de exemplo para a sua conta do Cosmos DB. Pode importar os dados utilizando a ferramenta de migração de dados do Azure Cosmos DB, que pode fazer uma [sequenciais](import-data.md#SQLSeqTarget) ou uma [em massa importação](import-data.md#SQLBulkTarget) de dados. Demora cerca de 3 a 5 minutos até que os dados a importar para a conta do Cosmos DB.
 

@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 11/13/2018
 ms.author: adigan
-ms.openlocfilehash: ee62138a56851747e75d75b7a806b2b73ba4fbbb
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 621d071f98701ff3a949f4172fef1d13819d7192
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57544652"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57852870"
 ---
 # <a name="add-storage-to-azure-backup-server"></a>Adicionar armazenamento ao Azure Backup Server
 
@@ -100,13 +100,13 @@ A atualização dos grupos de proteção para utilizar o armazenamento de cópia
 
 1. Na consola do administrador, selecione o **proteção** funcionalidade. Na **membro do grupo de proteção** listar, o membro com o botão direito e, em seguida, selecione **parar proteção do membro**.
 
-  ![Parar proteção do membro](https://docs.microsoft.com/system-center/dpm/media/upgrade-to-dpm-2016/dpm-2016-stop-protection1.png)
+   ![Parar proteção do membro](https://docs.microsoft.com/system-center/dpm/media/upgrade-to-dpm-2016/dpm-2016-stop-protection1.png)
 
 2. Na **remover do grupo** diálogo caixa, reveja o espaço em disco utilizado e o espaço livre disponível no agrupamento de armazenamento. A predefinição é deixar os pontos de recuperação no disco e permitir que os mesmos expirem, conforme a política de retenção associada. Clique em **OK**.
 
-  Se pretender devolver imediatamente o espaço em disco utilizado para o pool de armazenamento livre, selecione o **Eliminar réplica no disco** caixa de verificação para eliminar os dados de cópia de segurança (e pontos de recuperação) associados a esse membro.
+   Se pretender devolver imediatamente o espaço em disco utilizado para o pool de armazenamento livre, selecione o **Eliminar réplica no disco** caixa de verificação para eliminar os dados de cópia de segurança (e pontos de recuperação) associados a esse membro.
 
-  ![Remover da caixa de diálogo de grupo](https://docs.microsoft.com/system-center/dpm/media/upgrade-to-dpm-2016/dpm-2016-retain-data.png)
+   ![Remover da caixa de diálogo de grupo](https://docs.microsoft.com/system-center/dpm/media/upgrade-to-dpm-2016/dpm-2016-retain-data.png)
 
 3. Crie um grupo de proteção que utiliza o armazenamento de cópia de segurança Moderno. Inclua as origens de dados não protegidas.
 

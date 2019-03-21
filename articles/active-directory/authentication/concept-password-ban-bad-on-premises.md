@@ -1,6 +1,6 @@
 ---
-title: Pré-visualização de proteção de palavra-passe do Azure AD
-description: Banir senhas fracas no Active Directory no local ao utilizar a pré-visualização de proteção de palavra-passe do Azure AD
+title: Proteção de palavras-passe do Azure AD
+description: Banir senhas fracas no Active Directory no local ao utilizar a proteção de palavra-passe do Azure AD
 services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
@@ -11,21 +11,16 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2fdf308ff6178dcb51ec73e46d43b853f62e7777
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: MT
+ms.openlocfilehash: f1b3660d256e4beda948f723035aa75ca8a9ed2e
+ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57840958"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58284873"
 ---
-# <a name="preview-enforce-azure-ad-password-protection-for-windows-server-active-directory"></a>Pré-visualização: Impor proteção de palavra-passe do Azure AD para o Windows Server Active Directory
+# <a name="enforce-azure-ad-password-protection-for-windows-server-active-directory"></a>Impor proteção de palavra-passe do Azure AD para o Windows Server Active Directory
 
-|     |
-| --- |
-| Proteção de palavra-passe do Azure Active Directory (Azure AD) e a lista de palavras-passe banidas personalizadas são funcionalidades de pré-visualização pública do Azure AD. Para obter informações sobre pré-visualizações, consulte [termos de utilização suplementares para pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).|
-|     |
-
-Proteção de palavra-passe do Azure AD é um novo recurso em pré-visualização pública, que melhora a políticas de palavra-passe de uma organização. Proteção de palavra-passe de implementação no local utiliza os dois as globais e personalizadas banida de palavra-passe listas que são armazenadas no Azure AD. Ele faz o mesmo verificações no local como o Azure AD para alterações com base na cloud.
+Proteção de palavra-passe do Azure AD é uma funcionalidade que melhora a políticas de palavra-passe de uma organização. Proteção de palavra-passe de implementação no local utiliza os dois as globais e personalizadas banida de palavra-passe listas que são armazenadas no Azure AD. Ele faz o mesmo verificações no local como o Azure AD para alterações com base na cloud.
 
 ## <a name="design-principles"></a>Princípios de conceção
 

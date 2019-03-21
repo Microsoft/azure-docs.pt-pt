@@ -12,16 +12,18 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/10/2018
 ms.author: tomfitz
-ms.openlocfilehash: bc8726499f900602bf1dbfc58a7ea2574a483245
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: d236bcbf71915576ee31587e9abfff92c99250c1
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53273906"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58177522"
 ---
 # <a name="subscribe-to-events-for-a-blob-storage-account-with-powershell"></a>Subscrever eventos para uma conta de armazenamento de Blobs com o PowerShell
 
 Este script cria uma subscrição do Event Grid para os eventos para uma conta de armazenamento de Blobs.
+
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
@@ -35,7 +37,7 @@ Este script utiliza o seguinte comando para criar a subscrição de eventos. Cad
 
 | Comando | Notas |
 |---|---|
-| [New-AzureRmEventGridSubscription](https://docs.microsoft.com/powershell/module/azurerm.eventgrid/new-azurermeventgridsubscription) | Crie uma subscrição do Event Grid. |
+| [New-AzEventGridSubscription](https://docs.microsoft.com/powershell/module/az.eventgrid/new-azeventgridsubscription) | Crie uma subscrição do Event Grid. |
 
 ## <a name="next-steps"></a>Passos seguintes
 

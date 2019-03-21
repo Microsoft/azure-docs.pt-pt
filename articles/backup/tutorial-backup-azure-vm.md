@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 03/05/2019
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: f923589d0ca000e7dfa8d28b1cbeeb8c6e07f25c
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 85e5fc7e1c8a4561b51afaf0d665fedb6d9cde1f
+ms.sourcegitcommit: aa3be9ed0b92a0ac5a29c83095a7b20dd0693463
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57835406"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58258382"
 ---
 # <a name="back-up-azure-vms-with-powershell"></a>Fazer uma cópia de segurança de VMs do Azure com o PowerShell
 
@@ -87,9 +87,9 @@ Executam cópias de segurança em conformidade com a agenda especificada na pol�
 
 Para ativar e de cópia de segurança a VM do Azure neste tutorial, vamos fazer o seguinte:
 
-1. Especificar um contentor no cofre que contém os seus dados de cópia de segurança com [Get-AzRecoveryServicesBackupContainer](/powershell/module/az.recoveryservices.backup/get-Azrecoveryservicesbackupcontainer).
-2. Cada VM para cópia de segurança é um item. Para iniciar uma tarefa de cópia de segurança, é obter informações sobre a VM com [Get-AzRecoveryServicesBackupItem](/powershell/module/Az.RecoveryServices.Backup/Get-AzRecoveryServicesBackupItem).
-3. Executar cópias de segurança ad hoc com[AzRecoveryServicesBackupItem de cópia de segurança](/powershell/module/az.recoveryservices.backup/backup-Azrecoveryservicesbackupitem). 
+1. Especificar um contentor no cofre que contém os seus dados de cópia de segurança com [Get-AzRecoveryServicesBackupContainer](/powershell/module/az.recoveryservices/get-Azrecoveryservicesbackupcontainer).
+2. Cada VM para cópia de segurança é um item. Para iniciar uma tarefa de cópia de segurança, é obter informações sobre a VM com [Get-AzRecoveryServicesBackupItem](/powershell/module/az.recoveryservices/Get-AzRecoveryServicesBackupItem).
+3. Executar cópias de segurança ad hoc com[AzRecoveryServicesBackupItem de cópia de segurança](/powershell/module/az.recoveryservices/backup-Azrecoveryservicesbackupitem). 
     - A primeira tarefa de cópia de segurança inicial cria um ponto de recuperação completo.
     - Depois da cópia de segurança inicial, cada tarefa de cópia de segurança cria pontos de recuperação incrementais.
     - Os pontos de recuperação incrementais são eficientes em termos de armazenamento e tempo, uma vez que só transferem as alterações feitas desde a última cópia de segurança.

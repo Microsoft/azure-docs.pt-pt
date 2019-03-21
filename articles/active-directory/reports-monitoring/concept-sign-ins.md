@@ -17,12 +17,12 @@ ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 993a8ca48df40b400c21852d3d28941d9d62affb
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 32720669ae9d8941abce4429471c13608a18cbc5
+ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57549022"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58294897"
 ---
 # <a name="sign-in-activity-reports-in-the-azure-active-directory-portal"></a>Relatórios de atividade de início de sessão no portal do Azure Active Directory
 
@@ -97,10 +97,10 @@ Selecione um item na vista de lista para obter informações mais detalhadas.
 Para limitar os dados comunicados para um nível que funcione para si, pode filtrar os dados dos inícios de sessão através dos seguintes campos predefinidos:
 
 - Utilizador
-- Candidatura
+- Aplicação
 - Estado de início de sessão
 - Acesso Condicional
-- Data
+- Date
 
 ![Atividade de início de sessão](./media/concept-sign-ins/04.png "Atividade de início de sessão")
 
@@ -110,15 +110,15 @@ O filtro **Aplicação** permite-lhe especificar o nome da aplicação que mais 
 
 O filtro **Estado do início de sessão** permite-lhe selecionar:
 
-- Tudo
+- Todos
 - Êxito
 - Falha
 
 O **acesso condicional** filtro permite-lhe selecionar o estado de política de AC para o início de sessão:
 
-- Tudo
+- Todos
 - Não Aplicado
-- Com êxito
+- Êxito
 - Falha
 
 O filtro **Data** permite-lhe definir um período de tempo para os dados devolvidos.  
@@ -127,7 +127,7 @@ Os valores possíveis são:
 - 1 mês
 - 7 dias
 - 24 horas
-- Intervalo de Tempo Personalizado
+- Intervalo de tempo personalizado
 
 Quando selecionar um período de tempo personalizado, pode configurar uma hora de início e uma hora de fim.
 
@@ -149,7 +149,7 @@ Se adicionar mais campos à vista de inícios de sessão, estes campos são adic
 
 ## <a name="download-sign-in-activities"></a>Transferir atividades de início de sessão
 
-Pode [transferir os dados de inícios de sessão](quickstart-download-sign-in-report.md) se quiser trabalhar com eles fora do portal do Azure. Clicar **transferir** lhe dá a opção para criar um ficheiro CSV ou JSCON dos 250 000 registos mais recentes.  
+Pode [transferir os dados de inícios de sessão](quickstart-download-sign-in-report.md) se quiser trabalhar com eles fora do portal do Azure. Clicar **transferir** lhe dá a opção para criar um ficheiro JSON ou CSV dos 250 000 registos mais recentes.  
 
 ![Transferir](./media/concept-sign-ins/71.png "Transferir")
 
@@ -164,11 +164,11 @@ Para além do Azure AD, o portal do Azure fornece pontos de entrada adicionais p
 - A descrição de geral de proteção de segurança de identidade
 - Utilizadores
 - Grupos
-- Aplicações empresariais
+- Aplicações Empresariais
 
 ### <a name="users-sign-ins-data-in-identity-security-protection"></a>Dados de inícios de sessão de utilizadores na proteção de segurança de identidade
 
-O gráfico de início de sessão do utilizador no **proteção de segurança de identidade** página Visão Geral mostra as agregações semanais de início de sessão ins para todos os utilizadores num determinado período de tempo. A predefinição do período de tempo é 30 dias.
+O gráfico de início de sessão do utilizador no **proteção de segurança de identidade** página Visão Geral mostra as agregações semanais de inícios de sessão de todos os utilizadores num determinado período de tempo. A predefinição do período de tempo é 30 dias.
 
 ![Atividade de início de sessão](./media/concept-sign-ins/06.png "Atividade de início de sessão")
 
@@ -186,12 +186,12 @@ Ao clicar num item, obtém mais detalhes sobre a operação de início de sessã
 - ID de Utilizador
 - Utilizador
 - Nome de utilizador
-- ID da Aplicação
-- Candidatura
+- ID da aplicação
+- Aplicação
 - Cliente
 - Localização
 - Endereço IP
-- Data
+- Date
 - MFA Necessário
 - Estado de início de sessão
 
@@ -214,7 +214,7 @@ O ponto de entrada para estes dados são as três aplicações mais utilizadas n
 
 ![Atividade de início de sessão](./media/concept-sign-ins/10.png "Atividade de início de sessão")
 
-As agregações semanais de inícios de sessão do gráfico de utilização da aplicação das três aplicações mais utilizadas num determinado período de tempo. A predefinição do período de tempo é 30 dias.
+As aplicação utilização gráfico as agregações semanais de inícios de sessão para as suas aplicações de 3 principais num determinado período de tempo. A predefinição do período de tempo é 30 dias.
 
 ![Atividade de início de sessão](./media/concept-sign-ins/47.png "Atividade de início de sessão")
 
@@ -230,7 +230,7 @@ A opção **Inícios de sessão** dá uma visão geral completa de todos os even
 
 ## <a name="office-365-activity-logs"></a>Registos de atividades do Office 365
 
-Pode ver registos de atividade do Office 365 a partir da [Centro de administração do Office 365](https://docs.microsoft.com/office365/admin/admin-overview/about-the-admin-center). Apesar de atividades do Office 365 e partilha de registos de atividade do Azure AD muitos dos recursos de diretório, apenas o Centro de administração do Office 365 fornece uma visão completa dos registos de atividades do Office 365. 
+Pode ver registos de atividade do Office 365 a partir da [Centro de administração do Microsoft 365](https://docs.microsoft.com/office365/admin/admin-overview/about-the-admin-center). Apesar de atividades do Office 365 e partilha de registos de atividade do Azure AD muitos dos recursos de diretório, apenas o Centro de administração do Microsoft 365 fornece uma visão completa dos registos de atividades do Office 365. 
 
 Também pode aceder a registos de atividades do Office 365 programaticamente usando a [APIs de gestão do Office 365](https://docs.microsoft.com/office/office-365-management-api/office-365-management-apis-overview).
 

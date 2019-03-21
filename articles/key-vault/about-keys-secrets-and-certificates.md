@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/07/2019
 ms.author: mbaldwin
-ms.openlocfilehash: cb18b9063599520ccc6caec44053dc9780969f74
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 01d9f763983da2415aba0f9bae81414017bc2f02
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57532341"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57842571"
 ---
 # <a name="about-keys-secrets-and-certificates"></a>Sobre chaves, segredos e certificados
 
@@ -42,7 +42,7 @@ O JavaScript Object Notation (JSON) e especificações de assinatura de objeto d
 -   [Chave do JSON Web (JWK)](https://tools.ietf.org/html/draft-ietf-jose-json-web-key)  
 -   [Encriptação de Web JSON (JWE)](http://tools.ietf.org/html/draft-ietf-jose-json-web-encryption)  
 -   [Algoritmos de Web JSON (JWA)](http://tools.ietf.org/html/draft-ietf-jose-json-web-algorithms)  
--   [Assinatura de Web JSON (JWS)](http://tools.ietf.org/html/draft-ietf-jose-json-web-signature)  
+-   [Assinatura de Web JSON (JWS)](https://tools.ietf.org/html/draft-ietf-jose-json-web-signature)  
 
 ### <a name="data-types"></a>Tipos de dados
 
@@ -112,7 +112,7 @@ Os módulos criptográficos que utiliza o Cofre de chaves, se o HSM ou software,
 #### <a name="curve-types"></a>Tipos de curva
 
 -   **P-256** -a curva do NIST p-256, definida no [DSS FIPS PUB 186 4](https://nvlpubs.nist.gov/nistpubs/FIPS/NIST.FIPS.186-4.pdf).
--   **P-256_K** -a curva de seg o SECP256K1, definido no [seg 2: Recomendado parâmetros de domínio de curva elíptica](http://www.secg.org/sec2-v2.pdf).
+-   **P-256_K** -a curva de seg o SECP256K1, definido no [seg 2: Recomendado parâmetros de domínio de curva elíptica](https://www.secg.org/sec2-v2.pdf).
 -   **P-384** -a curva do NIST p-384, definida no [DSS FIPS PUB 186 4](https://nvlpubs.nist.gov/nistpubs/FIPS/NIST.FIPS.186-4.pdf).
 -   **P-521** -a curva do NIST p-521, definida no [DSS FIPS PUB 186 4](https://nvlpubs.nist.gov/nistpubs/FIPS/NIST.FIPS.186-4.pdf).
 
@@ -208,7 +208,7 @@ As seguintes permissões podem ser concedidas, num por utilizador / serviço pri
   - *get*: Ler a parte pública de uma chave, juntamente com seus atributos
   - *list*: Listar as chaves ou versões de uma chave armazenada num cofre de chaves
   - *update*: Atualize os atributos de uma chave
-  - *criar*: Criar chaves novas
+  - *Criar*: Criar chaves novas
   - *import*: Importar uma chave para um cofre de chaves
   - *delete*: Eliminar o objeto de chave
   - *recover*: Recuperar uma chave eliminada
@@ -409,10 +409,10 @@ Contactos do certificado contêm informações de contacto para enviar notifica�
 
 Se a política de um certificado estiver definida para renovação automática, em seguida, é enviada uma notificação sobre os eventos seguintes.  
 
--   Antes de renovação de certificado
--   Após a renovação de certificado, que indica se o certificado foi renovado com êxito ou se tiver ocorrido um erro, que requerem a renovação manual do certificado.  
+- Antes de renovação de certificado
+- Após a renovação de certificado, que indica se o certificado foi renovado com êxito ou se tiver ocorrido um erro, que requerem a renovação manual do certificado.  
 
- Quando uma política de certificado que está configurada para ser manualmente renovada (apenas para e-mail), é enviada uma notificação quando está na altura de renovar o certificado.  
+  Quando uma política de certificado que está configurada para ser manualmente renovada (apenas para e-mail), é enviada uma notificação quando está na altura de renovar o certificado.  
 
 ### <a name="certificate-access-control"></a>Controlo de acesso de certificado
 
@@ -424,7 +424,7 @@ Se a política de um certificado estiver definida para renovação automática, 
   - *get*: Obter a versão atual do certificado ou qualquer versão de um certificado 
   - *list*: Listar os certificados atuais ou versões de um certificado  
   - *update*: Atualizar um certificado
-  - *criar*: Criar um certificado do Key Vault
+  - *Criar*: Criar um certificado do Key Vault
   - *import*: Importar o material de certificado para um certificado do Key Vault
   - *delete*: Eliminar um certificado, a política e todas as suas versões  
   - *recover*: Recuperar um certificado eliminado

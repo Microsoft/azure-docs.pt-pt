@@ -1,6 +1,6 @@
 ---
-title: Operações de pré-visualização da proteção de palavra-passe do AD do Azure e relatórios
-description: As operações de pós-implementação de pré-visualização da proteção de palavra-passe do AD do Azure e relatórios
+title: Operações de proteção de palavra-passe do AD do Azure e relatórios
+description: Operações de pós-implementação de proteção de palavra-passe do AD do Azure e relatórios
 services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
@@ -11,19 +11,14 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1fda79f16560a5c96e1283f4d9d9f14dbe503d61
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: MT
+ms.openlocfilehash: ac91a70465d79b235ae43681a1375d47e7691efe
+ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56175253"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58285807"
 ---
-# <a name="preview-azure-ad-password-protection-operational-procedures"></a>Pré-visualização: Procedimentos operacionais de proteção de palavra-passe do AD do Azure
-
-|     |
-| --- |
-| Proteção de palavra-passe do Azure AD é uma funcionalidade de pré-visualização pública do Azure Active Directory. Para obter mais informações sobre pré-visualizações, consulte [termos de utilização suplementares para pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)|
-|     |
+# <a name="azure-ad-password-protection-operational-procedures"></a>Procedimentos operacionais de proteção de palavra-passe do AD do Azure
 
 Depois de concluir o [instalação de proteção de palavra-passe do Azure AD](howto-password-ban-bad-on-premises-deploy.md) no local, existem alguns itens que devem ser configurados no portal do Azure.
 
@@ -33,7 +28,7 @@ Siga as instruções no artigo [configurar a lista de palavras-passe banidas per
 
 ## <a name="enable-password-protection"></a>Ativar a proteção de palavra-passe
 
-1. Entrar para o [portal do Azure](https://portal.azure.com) e procure **Azure Active Directory**, **métodos de autenticação**, em seguida, **proteção de palavra-passe (pré-visualização)**.
+1. Entrar para o [portal do Azure](https://portal.azure.com) e procure **Azure Active Directory**, **métodos de autenticação**, em seguida, **proteção por senha**.
 1. Definir **ativar a proteção de palavra-passe no Active Directory do Windows Server** para **Sim**
 1. Conforme mencionado na [guia de implementação](howto-password-ban-bad-on-premises-deploy.md#deployment-strategy), é recomendado para definir inicialmente o **modo** para **auditoria**
    * Quando estiver familiarizado com a funcionalidade, pode mudar a **modo** para **imposto**

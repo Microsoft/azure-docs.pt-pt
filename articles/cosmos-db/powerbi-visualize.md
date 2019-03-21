@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 10/03/2018
 ms.author: sngun
-ms.openlocfilehash: f6ba66aa37b4a1902f98d2a1fcf5f542fa6476d7
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: 2c58b982e596c95aa47442c1897410fe9ab6b99a
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54043656"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58137679"
 ---
 # <a name="visualize-azure-cosmos-db-data-by-using-the-power-bi-connector"></a>Visualizar dados do Azure Cosmos DB ao utilizar o conector do Power BI
 
@@ -36,7 +36,7 @@ Antes de seguir as instruções neste tutorial do Power BI, certifique-se de que
 
    * **Parâmetros de origem** 
 
-       * **Importe a partir de:** Ficheiros JSON
+       * **Importe a partir de:** JSON file(s)
 
    * **Parâmetros de destino** 
 
@@ -122,7 +122,7 @@ Irá recuperar os dados de volcano da conta do Azure Cosmos DB e visualize dados
 8. Forneça um nome para a nova coluna, por exemplo, LatLong.
 9. Em seguida, especifique a fórmula personalizada para a nova coluna.  No nosso exemplo, concatenamos os valores de Latitude e Longitude, separados por vírgulas, como mostrado a seguir usando a seguinte fórmula: `Text.From([coordinates]{1})&","&Text.From([coordinates]{0})`. Clique em **OK**.
    
-    Para obter mais informações sobre as expressões DAX (Data Analysis) incluindo funções DAX, visite [básicas de DAX no Power BI Desktop](https://support.powerbi.com/knowledgebase/articles/554619-dax-basics-in-power-bi-desktop).
+    Para obter mais informações sobre as expressões DAX (Data Analysis) incluindo funções DAX, visite [Noções básicas do DAX no Power BI Desktop](https://docs.microsoft.com/power-bi/desktop-quickstart-learn-dax-basics).
    
     ![Tutorial de BI de energia para o conector do Azure Cosmos DB Power BI - Adicionar coluna personalizada](./media/powerbi-visualize/power_bi_connector_pbicustomlatlong.png)
 

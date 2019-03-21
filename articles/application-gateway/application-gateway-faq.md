@@ -6,14 +6,14 @@ author: vhorne
 ms.service: application-gateway
 ms.topic: article
 ms.workload: infrastructure-services
-ms.date: 3/13/2019
+ms.date: 3/20/2019
 ms.author: victorh
-ms.openlocfilehash: 96bd9e679e1766e87a0bb807204df744bb3cca95
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: ae55f2abf9815174e7258c2ace949078794c380d
+ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57897712"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58286198"
 ---
 # <a name="frequently-asked-questions-for-application-gateway"></a>Perguntas mais frequentes sobre o Gateway de aplicação
 
@@ -31,7 +31,7 @@ Gateway de aplicação suporta o dimensionamento automático, descarga de SSL e 
 
 ### <a name="what-is-the-difference-between-application-gateway-and-azure-load-balancer"></a>O que é a diferença entre o Gateway de aplicação e o Balanceador de carga do Azure?
 
-Gateway de aplicação é um balanceador de carga de camada 7, o que significa que ele funciona com apenas tráfego web (HTTP/HTTPS/WebSocket). Ele oferece suporte a recursos como a terminação de SSL, afinidade de sessão baseada em cookies e round robin de tráfego de balanceamento de carga. Carregar tráfego de saldos do Balanceador de carga na camada 4 (TCP/UDP).
+Gateway de aplicação é um balanceador de carga de camada 7, o que significa que ele funciona com apenas tráfego web (HTTP/HTTPS/WebSocket/HTTP/2). Ele oferece suporte a recursos como a terminação de SSL, afinidade de sessão baseada em cookies e round robin de tráfego de balanceamento de carga. Carregar tráfego de saldos do Balanceador de carga na camada 4 (TCP/UDP).
 
 ### <a name="what-protocols-does-application-gateway-support"></a>Quais protocolos o Gateway de aplicação suporta?
 
@@ -39,19 +39,11 @@ Gateway de aplicação suporta HTTP, HTTPS, HTTP/2 e WebSocket.
 
 ### <a name="how-does-application-gateway-support-http2"></a>Como é que o Gateway de aplicação suporta HTTP/2?
 
-Suporte de protocolo HTTP/2 está disponível para clientes que se conectam para ouvintes de gateway de aplicação apenas. A comunicação para agrupamentos de servidores de back-end é através de HTTP/1.1. 
-
-Por predefinição, o suporte de HTTP/2 está desativado. O exemplo de fragmento de código do Azure PowerShell seguinte mostra como pode ativá-la:
-
-```azurepowershell
-$gw = Get-AzApplicationGateway -Name test -ResourceGroupName hm
-$gw.EnableHttp2 = $true
-Set-AzApplicationGateway -ApplicationGateway $gw
-```
+Ver [suporte de HTTP/2](https://docs.microsoft.com/azure/application-gateway/configuration-overview#http2-support) para saber como gateway de aplicação suporta o protocolo HTTP/2.
 
 ### <a name="what-resources-are-supported-today-as-part-of-backend-pool"></a>Os recursos que são atualmente suportados como parte do conjunto de back-end?
 
-Conjuntos de back-end podem ser compostos de NICs, conjuntos de dimensionamento de máquinas virtuais, IPs públicos, nomes de IPs interno, de domínio completamente qualificado (FQDN) e back-ends de multi-inquilino, como o serviço de aplicações do Azure. Membros do conjunto de back-end de Gateway de aplicação não estão associados a um conjunto de disponibilidade. Membros dos agrupamentos de back-end podem ser em clusters, centros de dados, ou fora do Azure, desde que eles têm conectividade IP.
+Ver [recursos de back-end suportados](https://docs.microsoft.com/azure/application-gateway/application-gateway-components#backend-pool) para saber quais os recursos que são suportados pelo gateway de aplicação.
 
 ### <a name="what-regions-is-the-service-available-in"></a>Que regiões o serviço está disponível no?
 
@@ -104,9 +96,7 @@ Misturar Standard_v2 e o padrão Gateway de aplicação na mesma sub-rede não �
 
 ### <a name="does-application-gateway-support-x-forwarded-for-headers"></a>O Gateway de aplicação suporta cabeçalhos x-reencaminhados-para?
 
-Sim, o Gateway de aplicação insere cabeçalhos x-reencaminhados-para proto x reencaminhados e porta x reencaminhados no pedido reencaminhado para o back-end. O formato para o cabeçalho x-reencaminhados-para-se uma lista separada por vírgulas de IP: porta. Os valores válidos para proto x reencaminhados são http ou https. Porta X reencaminhados Especifica a porta em que o pedido foi atingido no gateway de aplicação.
-
-Gateway de aplicação também insere o cabeçalho X-Original-Host, que contém o cabeçalho de anfitrião original com a qual a solicitação chegou. Este cabeçalho é útil em cenários como a integração do Web site do Azure, onde o cabeçalho de anfitrião recebido é modificado antes do tráfego é encaminhado para o back-end.
+Sim. Ver [modificações para pedir](https://docs.microsoft.com/azure/application-gateway/how-application-gateway-works#modifications-to-the-request) para saber mais sobre os cabeçalhos x-reencaminhados-para suportadas pelo Gateway de aplicação.
 
 ### <a name="how-long-does-it-take-to-deploy-an-application-gateway-does-my-application-gateway-still-work-when-being-updated"></a>Quanto tempo demora a implementar um Gateway de aplicação? O meu Gateway de aplicação ainda funciona quando a ser atualizado?
 
@@ -114,15 +104,47 @@ Novas implementações de SKU de Gateway de aplicação v1 podem demorar até 20
 
 Implementações de v2 SKU podem demorar cerca de cinco a seis minutos a aprovisionar.
 
+### <a name="can-exchange-server-be-used-as-backend-with-application-gateway"></a>Servidor do Exchange pode ser utilizado como back-end com o Gateway de aplicação?
+
+Não, o Gateway de aplicação não suporta protocolos de e-mail, como o SMTP, IMAP e POP3. 
+
+## <a name="performance"></a>Desempenho
+
+### <a name="how-does-application-gateway-support-high-availability-and-scalability"></a>Como o Gateway de aplicação suporta elevada disponibilidade e escalabilidade?
+
+O SKU do Gateway de aplicação v1 suporta cenários de elevada disponibilidade, quando tem duas ou mais instâncias implementadas. Em domínios de atualização e com falha para garantir que todas as instâncias não falharem ao mesmo tempo, o Azure distribui essas instâncias. O SKU de v1 oferece suporte a escalabilidade com a adição de várias instâncias do mesmo gateway para partilhar a carga.
+
+O SKU de v2 assegura automaticamente que as novas instâncias são distribuídas por domínios de falha e domínios de atualização. Se for escolhida a redundância de zona, as instâncias mais recentes também são distribuídas por zonas de disponibilidade para oferecer resiliência de falha zonais.
+
+### <a name="how-do-i-achieve-dr-scenario-across-data-centers-with-application-gateway"></a>Como posso obter o cenário de DR em centros de dados com o Gateway de aplicação?
+
+Os clientes podem utilizar o Gestor de tráfego para distribuir o tráfego por vários Gateways de aplicação em datacenters diferentes.
+
+### <a name="is-autoscaling-supported"></a>Dimensionamento automático é suportado?
+
+Sim, o SKU do Gateway de aplicação v2 suporta o dimensionamento automático. Para obter mais informações, consulte [dimensionamento automático e o Gateway de aplicação com redundância de zona (pré-visualização pública)](application-gateway-autoscaling-zone-redundant.md).
+
+### <a name="does-manual-scale-updown-cause-downtime"></a>Faz o dimensionamento manual para cima ou para baixo de tempo de inatividade causa?
+
+Não há nenhum tempo de inatividade. Instâncias são distribuídas por domínios de atualização e domínios de falha.
+
+### <a name="does-application-gateway-support-connection-draining"></a>O Gateway de aplicação suporta drenagem de ligação?
+
+Sim. Pode configurar a ligação a ser drenado para alterar os membros dentro de um conjunto de back-end sem interrupção. Isso permite que as ligações existentes continuem a ser enviadas ao seu destino anterior até que essa conexão é fechada ou um tempo limite configurável expira. Drenagem de ligação apenas aguarda para ligações em trânsito atuais concluir. Gateway de aplicação não está ciente do Estado de sessão do aplicativo.
+
+### <a name="can-i-change-instance-size-from-medium-to-large-without-disruption"></a>Posso alterar o tamanho de instância média para grandes sem interrupção?
+
+Sim, o Azure distribui instâncias em vários domínios de atualização e com falha para garantir que todas as instâncias não falharem ao mesmo tempo. Gateway de aplicação suporta o dimensionamento ao adicionar várias instâncias do mesmo gateway para partilhar a carga.
+
 ## <a name="configuration"></a>Configuração
 
 ### <a name="is-application-gateway-always-deployed-in-a-virtual-network"></a>Gateway de aplicação é sempre implementado numa rede virtual?
 
-Sim, o Gateway de aplicação é sempre implementado numa sub-rede de rede virtual. Esta sub-rede apenas pode conter os Gateways de aplicação.
+Sim, o Gateway de aplicação é sempre implementado numa sub-rede de rede virtual. Esta sub-rede apenas pode conter os Gateways de aplicação. Ver [requisitos de rede e sub-rede virtual](https://docs.microsoft.com/azure/application-gateway/configuration-overview#azure-virtual-network-and-dedicated-subnet) para compreender as considerações de sub-rede de Gateway de aplicação.
 
-### <a name="can-application-gateway-communicate-with-instances-outside-its-virtual-network"></a>Gateway de aplicação pode comunicar com instâncias fora de sua rede virtual?
+### <a name="can-application-gateway-communicate-with-instances-outside-of-the-virtual-network-it-is-in-or-outside-of-the-subscription-it-is-in"></a>Gateway de aplicação pode comunicar com instâncias de fora da rede virtual está a ser ou fora da subscrição está a ser?
 
-Gateway de aplicação pode comunicar com instâncias de fora da rede virtual que está a ser, desde que existe conectividade IP. Se planeja usar IPs interno como membros do agrupamento de back-end, em seguida, ele requer [VNET Peering](../virtual-network/virtual-network-peering-overview.md) ou [Gateway de VPN](../vpn-gateway/vpn-gateway-about-vpngateways.md).
+Gateway de aplicação pode comunicar com instâncias de fora da rede virtual que está a ser ou fora da subscrição está a ser, desde que existe conectividade IP. Se planeja usar IPs interno como membros do agrupamento de back-end, em seguida, ele requer [VNET Peering](../virtual-network/virtual-network-peering-overview.md) ou [Gateway de VPN](../vpn-gateway/vpn-gateway-about-vpngateways.md).
 
 ### <a name="can-i-deploy-anything-else-in-the-application-gateway-subnet"></a>Posso implementar qualquer coisa na sub-rede de gateway de aplicação?
 
@@ -140,11 +162,7 @@ Grupos de segurança de rede (NSGs) são suportados na sub-rede de gateway de ap
 
 ### <a name="are-user-defined-routes-supported-on-the-application-gateway-subnet"></a>Rotas definidas pelo utilizador são suportadas na sub-rede de gateway de aplicação?
 
-Rotas definidas pelo utilizador (UDRs) são suportadas na sub-rede de gateway de aplicação, desde que elas não alteram a comunicação de ponto-a-ponto de solicitação/resposta.
-
-Por exemplo, pode configurar um UDR na sub-rede de gateway de aplicação para apontar para um dispositivo de firewall para a inspeção de pacotes, mas tem de garantir que o pacote pode contactar a inspeção de mensagem do seu destino pretendido. Falha ao fazer isso pode resultar em comportamento do encaminhamento sonda ou tráfego de estado de funcionamento incorreto. Isto inclui as rotas aprendidas ou rotas predefinidas que 0.0.0.0/0 propagadas pelo ExpressRoute ou Gateways de VPN na rede virtual.
-
-As UDRs na sub-rede de gateway de aplicação são **não** suportadas no v2 SKU. Para obter mais informações, consulte [dimensionamento automático e o Gateway de aplicação com redundância de zona (pré-visualização pública)](application-gateway-autoscaling-zone-redundant.md#known-issues-and-limitations).
+Ver [restrições de rotas definidas pelo utilizador](https://docs.microsoft.com/azure/application-gateway/configuration-overview#user-defined-routes-supported-on-the-application-gateway-subnet) para saber mais sobre as rotas definidas pelo utilizador suportadas na sub-rede de gateway de aplicação.
 
 ### <a name="what-are-the-limits-on-application-gateway-can-i-increase-these-limits"></a>Quais são os limites no Gateway de aplicação? Pode aumentar estes limites?
 
@@ -180,51 +198,13 @@ Campo de anfitrião Especifica o nome para enviar a sonda a. Aplicável apenas q
 
 ### <a name="can-i-whitelist-application-gateway-access-to-a-few-source-ips"></a>Posso lista de permissões de acesso de Gateway de aplicação para IPs de origem alguns?
 
-Este cenário pode ser feito com NSGs na sub-rede de gateway de aplicação. As seguintes restrições devem ser colocadas na sub-rede na ordem listada de prioridade:
-
-* Permitir o tráfego de entrada do intervalo de IP/IP de origem.
-
-* Permitir pedidos recebidos de todas as origens para portas 65503 65534 para [comunicação de estado de funcionamento do back-end](application-gateway-diagnostics.md). Este intervalo de porta é necessário para a comunicação de infraestrutura do Azure. Estão protegidas (bloqueadas) pelos certificados do Azure. Sem os certificados adequados, as entidades externas, incluindo os clientes desses gateways, não será capazes de iniciar quaisquer alterações nesses pontos finais.
-
-* Permitir entradas sondas do Balanceador de carga do Azure (etiqueta AzureLoadBalancer) e virtual rede tráfego de entrada (etiqueta VirtualNetwork) a [NSG](../virtual-network/security-overview.md).
-
-* Bloquear todas as outras tráfego de entrada com uma negação todas as regras.
-
-* Permitir o tráfego de saída à Internet para todos os destinos.
+Sim. Ver [restringir o acesso a IPs de origem específico](https://docs.microsoft.com/azure/application-gateway/configuration-overview#whitelist-application-gateway-access-to-a-few-source-ips) para compreender como garantir que apenas na lista de permissões, IPs de origem pode acessar o Gateway de aplicação.
 
 ### <a name="can-the-same-port-be-used-for-both-public-and-private-facing-listeners"></a>A mesma porta pode ser utilizada para as escutas de destinado ao públicas e privadas?
 
 Não, esta extensão não é suportada.
 
-## <a name="performance"></a>Desempenho
-
-### <a name="how-does-application-gateway-support-high-availability-and-scalability"></a>Como o Gateway de aplicação suporta elevada disponibilidade e escalabilidade?
-
-O SKU do Gateway de aplicação v1 suporta cenários de elevada disponibilidade, quando tem duas ou mais instâncias implementadas. Em domínios de atualização e com falha para garantir que todas as instâncias não falharem ao mesmo tempo, o Azure distribui essas instâncias. O SKU de v1 oferece suporte a escalabilidade com a adição de várias instâncias do mesmo gateway para partilhar a carga.
-
-O SKU de v2 assegura automaticamente que as novas instâncias são distribuídas por domínios de falha e domínios de atualização. Se for escolhida a redundância de zona, as instâncias mais recentes também são distribuídas por zonas de disponibilidade para oferecer resiliência de falha zonais.
-
-### <a name="how-do-i-achieve-dr-scenario-across-data-centers-with-application-gateway"></a>Como posso obter o cenário de DR em centros de dados com o Gateway de aplicação?
-
-Os clientes podem utilizar o Gestor de tráfego para distribuir o tráfego por vários Gateways de aplicação em datacenters diferentes.
-
-### <a name="is-autoscaling-supported"></a>Dimensionamento automático é suportado?
-
-Sim, o SKU do Gateway de aplicação v2 suporta o dimensionamento automático. Para obter mais informações, consulte [dimensionamento automático e o Gateway de aplicação com redundância de zona (pré-visualização pública)](application-gateway-autoscaling-zone-redundant.md).
-
-### <a name="does-manual-scale-updown-cause-downtime"></a>Faz o dimensionamento manual para cima ou para baixo de tempo de inatividade causa?
-
-Não há nenhum tempo de inatividade. Instâncias são distribuídas por domínios de atualização e domínios de falha.
-
-### <a name="does-application-gateway-support-connection-draining"></a>O Gateway de aplicação suporta drenagem de ligação?
-
-Sim. Pode configurar a ligação a ser drenado para alterar os membros dentro de um conjunto de back-end sem interrupção. Isso permite que as ligações existentes continuem a ser enviadas ao seu destino anterior até que essa conexão é fechada ou um tempo limite configurável expira. Drenagem de ligação apenas aguarda para ligações em trânsito atuais concluir. Gateway de aplicação não está ciente do Estado de sessão do aplicativo.
-
-### <a name="can-i-change-instance-size-from-medium-to-large-without-disruption"></a>Posso alterar o tamanho de instância média para grandes sem interrupção?
-
-Sim, o Azure distribui instâncias em vários domínios de atualização e com falha para garantir que todas as instâncias não falharem ao mesmo tempo. Gateway de aplicação suporta o dimensionamento ao adicionar várias instâncias do mesmo gateway para partilhar a carga.
-
-## <a name="ssl-configuration"></a>Configuração do SSL
+## <a name="configuration---ssl"></a>Configuração - SSL
 
 ### <a name="what-certificates-are-supported-on-application-gateway"></a>Quais certificados são suportados no Gateway de aplicação?
 
@@ -294,7 +274,11 @@ Certificados são suportados com uma predefinição de 5 até 10 de autenticaç�
 
 Não, não é integrado com o Azure Key Vault.
 
-## <a name="web-application-firewall-waf-configuration"></a>Configuração do Web Application Firewall (WAF)
+### <a name="how-to-configure-https-listeners-for-com-and-net-sites"></a>Como configurar os serviços de escuta HTTPS para os sites. com e .net? 
+
+Para vários baseado em domínio (baseados em host) encaminhamento, pode criar serviços de escuta de múltiplos sites, selecione HTTPS como o protocolo na configuração do serviço de escuta e associar os serviços de escuta com as regras de encaminhamento. Para obter mais detalhes, consulte [alojar vários sites com o Gateway de aplicação](https://docs.microsoft.com/azure/application-gateway/multiple-site-overview). 
+
+## <a name="configuration---web-application-firewall-waf"></a>Configuração – Firewall de aplicações Web (WAF)
 
 ### <a name="does-the-waf-sku-offer-all-the-features-available-with-the-standard-sku"></a>O SKU da WAF oferece todas as funcionalidades disponíveis com o SKU Standard?
 

@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: article
-ms.date: 02/21/2019
+ms.date: 03/19/2019
 ms.author: diberry
-ms.openlocfilehash: 9e4935c9aea87faa07481652ed70032c226e11d5
-ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
+ms.openlocfilehash: 5f757218d29317f82339967a327f34438c62ab96
+ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56675267"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58294149"
 ---
 # <a name="install-and-run-text-analytics-containers"></a>Instalar e executar contentores de análise de texto
 
@@ -26,7 +26,7 @@ Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Para executar qualquer um dos contentores de análise de texto, tem de ter o seguinte:
+Para executar qualquer um dos contentores de análise de texto, tem de ter os ambientes de contentor e de computador do anfitrião.
 
 ## <a name="preparation"></a>Preparação
 
@@ -46,13 +46,16 @@ Tem de cumprir os seguintes pré-requisitos antes de utilizar contentores de an�
 
 A tabela seguinte descreve os núcleos de CPU mínimos e recomendados, pelo menos 2,6 GHz (gigahertz) ou mais rápida e memória, em gigabytes (GB), ao alocar para cada contentor de análise de texto.
 
-| Contentor | Mínimo | Recomendado |
-|-----------|---------|-------------|
-|Extração de Expressões-Chave | 1 núcleo, 2 GB de memória | 1 núcleo, 4 GB de memória |
-|Deteção de Idioma | 1 núcleo, 2 GB de memória | 1 núcleo, 4 GB de memória |
-|Análise de Sentimentos | 1 núcleo, 2 GB de memória | 1 núcleo, 4 GB de memória |
+| Contentor | Mínimo | Recomendado | TPS<br>(No mínimo, máximo)|
+|-----------|---------|-------------|--|
+|Extração de Expressões-Chave | 1 núcleo, 2 GB de memória | 1 núcleo, 4 GB de memória |15, 30|
+|Deteção de Idioma | 1 núcleo, 2 GB de memória | 1 núcleo, 4 GB de memória |15, 30|
+|Análise de Sentimentos | 1 núcleo, 2 GB de memória | 1 núcleo, 4 GB de memória |15, 30|
 
-Núcleos e memória correspondem para o `--cpus` e `--memory` as definições que são utilizadas como parte do `docker run` comando.
+* Cada principal tem de ser, pelo menos, de 2,6 GHz (gigahertz) ou mais rápido.
+* TPS - transações por segundo
+
+Núcleos e memória correspondem para o `--cpus` e `--memory` as definições, que são utilizadas como parte do `docker run` comando.
 
 ## <a name="get-the-container-image-with-docker-pull"></a>Obter a imagem de contentor com o `docker pull`
 
@@ -64,7 +67,7 @@ Imagens de contentor para análise de texto estão disponíveis a partir do regi
 |Deteção de Idioma | `mcr.microsoft.com/azure-cognitive-services/language` |
 |Análise de Sentimentos | `mcr.microsoft.com/azure-cognitive-services/sentiment` |
 
-Utilize o [ `docker pull` ](https://docs.docker.com/engine/reference/commandline/pull/) comando para baixar uma imagem de contentor do registo de contentor do Microsoft....
+Utilize o [ `docker pull` ](https://docs.docker.com/engine/reference/commandline/pull/) comando para baixar uma imagem de contentor do registo de contentor do Microsoft.
 
 Para obter uma descrição completa de etiquetas disponíveis para os contentores de análise de texto, consulte os seguintes contentores sobre o Docker Hub:
 
@@ -125,7 +128,7 @@ ApiKey={BILLING_KEY}
 Este comando:
 
 * Execute um contentor de expressões-chave a partir da imagem de contentor
-* Aloca um núcleos de CPU e 4 gigabytes (GB) de memória
+* Aloca um núcleo de CPU e 4 gigabytes (GB) de memória
 * Expõe a porta TCP 5000 e aloca um TTY pseudo para o contentor
 * Remove automaticamente o contentor depois sai. A imagem de contentor ainda está disponível no computador anfitrião. 
 
@@ -140,7 +143,7 @@ Obter mais [exemplos](../text-analytics-resource-container-config.md#example-doc
 
 O contêiner fornece o ponto final de predição de consulta baseado em REST APIs. 
 
-Usar o host, https://localhost:5000, para o contentor APIs.
+Usar o host, `https://localhost:5000`, para o contentor APIs.
 
 ## <a name="stop-the-container"></a>Parar o contentor
 

@@ -12,21 +12,21 @@ ms.topic: overview
 ms.date: 01/24/2019
 ms.author: lizross
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e53afdfc4d2d8288a612cfb461751e6f78ebb2fa
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 34455cac61dd3b1f1251d4bc2003bd8b029de031
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56179268"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58014965"
 ---
 # <a name="overview-about-adding-accounts-to-the-microsoft-authenticator-app"></a>Descrição geral sobre como adicionar contas para a aplicação Microsoft Authenticator
 
 A aplicação Microsoft Authenticator ajuda-o início de sessão para as suas contas se usar a verificação de dois fatores. Verificação de dois fatores ajuda-o a aceder às suas contas de forma mais segura, especialmente enquanto vê informações confidenciais. Uma vez que as palavras-passe podem ser esquecidas, roubado ou comprometido, dois fatores verificação é uma etapa adicional de segurança que ajuda a proteger a sua conta, tornando mais difícil para outras pessoas a entrar na.
 
->[!Important]
->A aplicação Microsoft Authenticator funciona com qualquer aplicação que utiliza a verificação de dois fatores e de qualquer conta que suporte os padrões baseados no tempo palavra-passe Monouso (TOTP).
-
->Este conteúdo destina-se aos utilizadores. Se for um administrador, pode encontrar mais informações sobre como configurar e gerir o ambiente do Azure Active Directory (Azure AD) na [Documentação do Azure Active Directory](https://docs.microsoft.com/azure/active-directory).
+> [!Important]
+> A aplicação Microsoft Authenticator funciona com qualquer aplicação que utiliza a verificação de dois fatores e de qualquer conta que suporte os padrões baseados no tempo palavra-passe Monouso (TOTP).
+> 
+> Este conteúdo destina-se aos utilizadores. Se for um administrador, pode encontrar mais informações sobre como configurar e gerir o ambiente do Azure Active Directory (Azure AD) na [Documentação do Azure Active Directory](https://docs.microsoft.com/azure/active-directory).
 
 Pode utilizar a aplicação Microsoft Authenticator de várias formas, incluindo:
 
@@ -43,6 +43,7 @@ Pode ativar a verificação de dois fatores para muitas contas que utilize todos
 |Contas pessoais|A Microsoft e contas de não-Microsoft abrir pessoalmente, por exemplo, para o Outlook.com, Xbox LIVE, Google, Facebook e muito mais.|
 
 ## <a name="in-this-section"></a>Nesta secção
+
 |Artigo |Descrição |
 |------|------------|
 |[Adicionar a sua conta escolar ou profissional](user-help-auth-app-add-work-school-account.md)|Descreve como adicionar a sua conta escolar ou profissional para a aplicação Microsoft Authenticator para verificação de dois fatores.|

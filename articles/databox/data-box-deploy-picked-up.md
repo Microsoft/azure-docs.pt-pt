@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: tutorial
-ms.date: 02/19/2019
+ms.date: 03/19/2019
 ms.author: alkohli
-ms.openlocfilehash: f658b8a0530b0031f0ad22ce3c09ea7cc212430b
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 72d6ce58a986ddd0d0976d99de5ca3426d78f0b9
+ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58107074"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58287167"
 ---
 # <a name="tutorial-return-azure-data-box-and-verify-data-upload-to-azure"></a>Tutorial: Devolver o Azure Data Box e verifique se o carregamento de dados para o Azure
 
@@ -43,7 +43,13 @@ Antes de começar, certifique-se:
 
 1. Certifique-se de que o dispositivo está desligado e os cabos são removidos. Coloque em segurança o cabo de alimentação enviado com o dispositivo atrás do mesmo.
 2. Certifique-se de que a etiqueta de envio é apresentada no ecrã de tinta eletrónica e agende uma recolha com a sua operadora. Se a etiqueta está danificada ou perdida ou não é apresentada no ecrã do E-tinta, contacte o Support da Microsoft. Se o suporte sugere, em seguida, pode aceder à **descrição geral > Download etiqueta de envio** no portal do Azure. Transfira a etiqueta de envio e affix no dispositivo. 
-3. Agende uma recolha com UPS se retornando o dispositivo. Para agendar uma recolha, chamar no-BREAK local (número gratuito de incidir específico do país) ou entregar a caixa de dados no local de entrega mais próximo.
+3. Agende uma recolha com UPS se retornando o dispositivo. Para agendar uma recolha:
+
+    - Chame no-BREAK local (número gratuito de incidir específico do país).
+    - Em sua chamada citar a remessa inversa número, como mostra a exibição de tinta E ou a etiqueta impressa de controle.
+    - Se o número de controlo não é indicado, UPS exigirá que paga um custo adicional durante a recolha.
+
+    Em vez da recolha de agendamento, também pode remover o desativar a caixa de dados no local de entrega mais próximo.
 4. Após a sua transportadora recolher e analisar o Data Box, o estado de encomenda no portal será atualizado para **Picked up (Recolhido)**. É também mostrado um ID de controlo.
 
 ## <a name="verify-data-upload-to-azure"></a>Verificar o carregamento de dados para o Azure

@@ -12,14 +12,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 02/10/2019
+ms.date: 03/19/2019
 ms.author: juliako
-ms.openlocfilehash: 2df2bd08fbf7aa87fac43f58125bfd811169418b
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 3e754d81a18b683e601608b856bbc9da1b790dbd
+ms.sourcegitcommit: aa3be9ed0b92a0ac5a29c83095a7b20dd0693463
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57774222"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58259385"
 ---
 # <a name="create-a-media-services-account-using-the-azure-portal"></a>Criar uma conta de serviços de multimédia com o portal do Azure
 

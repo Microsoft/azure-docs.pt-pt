@@ -15,12 +15,12 @@ ms.date: 03/15/2019
 ms.author: mabrigg
 ms.reviewer: thoroet
 ms.lastreviewed: 01/24/2019
-ms.openlocfilehash: 5eb2dc129cdde6f116cb4e054fa7eb792812db40
-ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
-ms.translationtype: HT
+ms.openlocfilehash: a0411e3aa8f4df1039a129fd73ebdad5a58c5a0c
+ms.sourcegitcommit: aa3be9ed0b92a0ac5a29c83095a7b20dd0693463
+ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 03/20/2019
-ms.locfileid: "58225880"
+ms.locfileid: "58257589"
 ---
 # <a name="connect-to-azure-stack-with-powershell-as-an-operator"></a>Ligar ao Azure Stack com o PowerShell como um operador
 
@@ -82,4 +82,4 @@ New-AzureRmResourceGroup -Name "MyResourceGroup" -Location "Local"
 
 - [Desenvolver modelos para o Azure Stack](user/azure-stack-develop-templates.md)
 - [Implementar modelos com o PowerShell](user/azure-stack-deploy-template-powershell.md)
-  - [Referência do módulo do Azure Stack](https://docs.microsoft.com/en-us/powershell/azure/azure-stack/overview)  
+  - [Referência do módulo do Azure Stack](https://docs.microsoft.com/powershell/azure/azure-stack/overview)  

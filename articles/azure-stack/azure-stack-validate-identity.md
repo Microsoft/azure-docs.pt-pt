@@ -16,12 +16,12 @@ ms.date: 12/04/2018
 ms.author: sethm
 ms.reviewer: unknown
 ms.lastreviewed: 12/04/2018
-ms.openlocfilehash: 880c44530a33918f9526e4a7d805f094cfbf0c90
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: b43fb3ff158a7df609d7a828192815db6b15963b
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57772658"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57850065"
 ---
 # <a name="validate-azure-identity"></a>Validar a identidade do Azure 
 Utilize a ferramenta de Verificador de preparação do Azure Stack (AzsReadinessChecker) para validar que o Azure Active Directory (Azure AD) está pronto para utilizar com o Azure Stack. Valide a sua solução de identidade do Azure antes de iniciar uma implementação do Azure Stack.  
@@ -56,7 +56,7 @@ Os seguintes pré-requisitos devem ser cumpridos.
 
    > `Install-Module Microsoft.AzureStack.ReadinessChecker -Force`
 
-2. A partir da linha do PowerShell, execute o seguinte para definir *$serviceAdminCredential* como administrador do serviço para o seu inquilino do Azure AD.  Substitua *serviceadmin@contoso.onmicrosoft.com* com sua conta e inquilino. 
+2. A partir da linha do PowerShell, execute o seguinte para definir *$serviceAdminCredential* como administrador do serviço para o seu inquilino do Azure AD.  Substitua *serviceadmin\@contoso.onmicrosoft.com* com sua conta e inquilino. 
    > `$serviceAdminCredential = Get-Credential serviceadmin@contoso.onmicrosoft.com -Message "Enter Credentials for Service Administrator of Azure Active Directory Tenant"` 
 
 3. Prompt do PowerShell, execute o seguinte para iniciar a validação do seu Azure AD. 

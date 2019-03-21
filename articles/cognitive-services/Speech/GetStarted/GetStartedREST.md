@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 09/18/2018
 ms.author: zhouwang
 ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: e29d4c0a4279ae44a45b082c5a36b471af3cb12a
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: ead4026ecec4878c69bc21a9ebc989eaf3d69a13
+ms.sourcegitcommit: aa3be9ed0b92a0ac5a29c83095a7b20dd0693463
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58110193"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58259946"
 ---
 # <a name="quickstart-use-the-bing-speech-recognition-rest-api"></a>Início rápido: Utilizar a API de REST de reconhecimento de voz do Bing
 
@@ -66,9 +66,9 @@ Alguns exemplos de serviço URIs estão listados na tabela seguinte.
 
 | Modo de reconhecimento  | Idioma | Formato de saída | URI de serviço |
 |---|---|---|---|
-| `interactive` | pt-BR | Predefinição | https://speech.platform.bing.com/speech/recognition/interactive/cognitiveservices/v1?language=pt-BR |
-| `conversation` | en-US | Detalhado | https://speech.platform.bing.com/speech/recognition/conversation/cognitiveservices/v1?language=en-US&format=detailed |
-| `dictation` | FR-FR | Simples | https://speech.platform.bing.com/speech/recognition/dictation/cognitiveservices/v1?language=fr-FR&format=simple |
+| `interactive` | pt-BR | Predefinição | https:\//speech.platform.bing.com/speech/recognition/interactive/cognitiveservices/v1?language=pt-BR |
+| `conversation` | en-US | Detalhado | https:\//speech.platform.bing.com/speech/recognition/conversation/cognitiveservices/v1?language=en-US&format=detailed |
+| `dictation` | FR-FR | Simples | https:\//speech.platform.bing.com/speech/recognition/dictation/cognitiveservices/v1?language=fr-FR&format=simple |
 
 > [!NOTE]
 > O URI de serviço é necessário apenas quando a sua aplicação utilizar REST APIs para chamar o serviço de reconhecimento de fala. Se utilizar um da [bibliotecas de cliente](GetStartedClientLibraries.md), normalmente, não precisa de saber qual URI é utilizado. As bibliotecas de cliente podem utilizar o serviço de diferente URIs, que são aplicáveis apenas para uma biblioteca de cliente específico. Para obter mais informações, consulte a biblioteca de cliente da sua preferência.

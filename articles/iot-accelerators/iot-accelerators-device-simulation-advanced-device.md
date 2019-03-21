@@ -7,14 +7,14 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.topic: conceptual
 ms.custom: mvc
-ms.date: 10/25/2018
+ms.date: 03/18/2019
 ms.author: troyhop
-ms.openlocfilehash: a97afe64992db6b48558561ba958b513c8416494
-ms.sourcegitcommit: a8948ddcbaaa22bccbb6f187b20720eba7a17edc
+ms.openlocfilehash: 4401d4b93a27e76554368ce72d256b38de61df4c
+ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56592830"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58286130"
 ---
 # <a name="create-an-advanced-device-model"></a>Criar um modelo de dispositivo avançados
 
@@ -486,7 +486,7 @@ function main(context, state) {
 
     // ...
 
-    return state;
+    return updateState;
 }
 ```
 

@@ -12,12 +12,12 @@ ms.author: mabrigg
 ms.reviewer: kivenkat
 ms.custom: mvc
 ms.lastreviewed: 12/03/2018
-ms.openlocfilehash: d9a17bdad0bfa4965d36fbe2a2cf3a7890060e98
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 39298d34a0d29eb1e5a4234ffe0e0fcca844226e
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57772573"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57858189"
 ---
 # <a name="quickstart-create-a-linux-server-virtual-machine-with-the-azure-stack-portal"></a>Início rápido: criar uma máquina de virtual de servidor do Linux com o portal do Azure Stack
 
@@ -43,7 +43,7 @@ Pode criar uma máquina virtual do Ubuntu Server 16.04 LTS com o portal do Azure
 
    Se estiver a utilizar o Azure Stack Development Kit (ASDK), poderá não ter acesso a um cliente SSH. Se precisar de um cliente, existem diversos pacotes que incluem um cliente SSH. Por exemplo, o PuTTY inclui um cliente SSH e o gerador de chaves SSH (puttygen.exe). Para obter mais informações sobre os pacotes disponíveis, leia o seguinte artigo do Azure: [Como utilizar chaves SSH com Windows no Azure](https://docs.microsoft.com/azure/virtual-machines/linux/ssh-from-windows#windows-packages-and-ssh-clients).
 
-   Este início rápido utiliza o PuTTY para gerar as chaves SSH e para ligar à máquina virtual de servidor do Linux. Para transferir e instalar PuTTY, aceda a [ https://www.putty.org/ ](http://www.putty.org).
+   Este início rápido utiliza o PuTTY para gerar as chaves SSH e para ligar à máquina virtual de servidor do Linux. Para transferir e instalar PuTTY, aceda a [ https://www.putty.org/ ](https://www.putty.org).
 
 ## <a name="create-an-ssh-key-pair"></a>Criar um par de chaves SSH
 
@@ -77,8 +77,8 @@ Inicie sessão no portal do Azure Stack. O endereço do portal do Azure Stack de
 
 4. Tipo de informações da máquina virtual. Para **Tipo de autenticação**, selecione **Chave pública de SSH**. Cole a chave pública de SSH que guardou e, em seguida, clique em **OK**.
 
-   >[!NOTE]
- Certifique-se de que remover qualquer espaço em branco à esquerda nem à direita, para que a chave.
+   > [!NOTE]
+   > Certifique-se de que remover qualquer espaço em branco à esquerda nem à direita, para que a chave.
 
    ![Noções básicas do painel - Configurar a máquina virtual](media/azure-stack-quick-linux-portal/linux-01.PNG)
 
@@ -88,10 +88,10 @@ Inicie sessão no portal do Azure Stack. O endereço do portal do Azure Stack de
 
 6. Sobre o **definições** página, efetue as alterações de pretendida para as predefinições.
    
-    - A partir da versão do Azure Stack 1808, pode configurar **armazenamento** onde pode optar por utilizar *discos geridos*. Antes da versão 1808 podem ser usados apenas os discos não geridos.    
-      ![Configurar o armazenamento para discos geridos](media/azure-stack-quick-linux-portal/linux-03.PNG)
+   - A partir da versão do Azure Stack 1808, pode configurar **armazenamento** onde pode optar por utilizar *discos geridos*. Antes da versão 1808 podem ser usados apenas os discos não geridos.    
+     ![Configurar o armazenamento para discos geridos](media/azure-stack-quick-linux-portal/linux-03.PNG)
     
-    Quando as configurações estiver prontas, selecione **OK** para continuar.
+     Quando as configurações estiver prontas, selecione **OK** para continuar.
 
 7. Sobre o **resumo** página, clique em **OK** para iniciar a implementação da máquina virtual.  
    ![Implementar](media/azure-stack-quick-linux-portal/deploy.png)

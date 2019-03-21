@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 07/27/2017
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1e5d097afa3af111a7de8341b90d8c6c05ac0347
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 6a37a811c7944334571b4043d8ba937ffadc1e71
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56205754"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57891574"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-workcom"></a>Tutorial: Integração do Active Directory do Azure com Work.com
 
@@ -262,9 +262,9 @@ Para utilizadores do Azure Active Directory poder iniciar sessão, tem de ser ap
     
     c. Na **Alias** caixa de texto, tipo a **nome** do utilizador **BrittaS**.
     
-    d. Na **E-Mail** caixa de texto, tipo a **endereço de e-mail** do utilizador **Brittasimon@contoso.com**.
+    d. Na **E-Mail** caixa de texto, tipo a **endereço de e-mail** do utilizador **Brittasimon\@contoso.com**.
     
-    e. Na **nome de utilizador** caixa de texto, escreva um nome de utilizador do utilizador, como **Brittasimon@contoso.com**.
+    e. Na **nome de utilizador** caixa de texto, escreva um nome de utilizador do utilizador, como **Brittasimon\@contoso.com**.
     
     f. Na **nome Nick** caixa de texto, escreva um **nick nome** do utilizador **Simon**.
     

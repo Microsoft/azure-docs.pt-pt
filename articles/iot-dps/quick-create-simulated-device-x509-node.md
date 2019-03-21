@@ -10,12 +10,12 @@ services: iot-dps
 manager: timlt
 ms.devlang: nodejs
 ms.custom: mvc
-ms.openlocfilehash: aeeab619ac2366796a1039bf85cc71f89a10b83c
-ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
-ms.translationtype: HT
+ms.openlocfilehash: cc0d004a20aa5497c40b07e04e0eeae7758a9826
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50158504"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58085257"
 ---
 # <a name="create-and-provision-an-x509-simulated-device-using-nodejs-device-sdk-for-iot-hub-device-provisioning-service"></a>Criar e aprovisionar um dispositivo simulado X.509 com o SDK de dispositivo Node.js com o Serviço de Aprovisionamento de Dispositivos no Hub IoT
 [!INCLUDE [iot-dps-selector-quick-create-simulated-device-x509](../../includes/iot-dps-selector-quick-create-simulated-device-x509.md)]
@@ -25,10 +25,10 @@ Estes passos mostram como criar uma entrada de inscrição no Serviço de Aprovi
 Se não estiver familiarizado com o processo de aprovisionamento automático, reveja também [Conceitos de aprovisionamento automático](concepts-auto-provisioning.md). Certifique-se também de que executa os passos descritos em [Configurar o Serviço de Aprovisionamento de Dispositivos no Hub IoT com o portal do Azure](./quick-setup-auto-provision.md) antes de continuar. 
 
 O Serviço Aprovisionamento de Dispositivos no IoT do Azure suporta dois tipos de inscrição:
-- [Grupos de inscrição](concepts-service.md#enrollment-group): utilizados para inscrever vários dispositivos relacionados.
-- [Inscrições Individuais](concepts-service.md#individual-enrollment): utilizadas para inscrever um dispositivo individual.
+- [Grupos de inscrição](concepts-service.md#enrollment-group): Utilizado para inscrever vários dispositivos relacionados.
+- [Inscrições individuais](concepts-service.md#individual-enrollment): Utilizado para inscrever um dispositivo individual.
 
-Este artigo irá demonstrar as inscrições individuais.
+Este artigo vai demonstrar as inscrições individuais.
 
 [!INCLUDE [IoT Device Provisioning Service basic](../../includes/iot-dps-basic.md)]
 
@@ -80,17 +80,17 @@ Vai utilizar o código de exemplo do SDK do [Azure IoT para Node.js](https://git
 5. No painel de resumo do Serviço Aprovisionamento de Dispositivos, selecione **Gerir inscrições**. Selecione o separador **Inscrições Individuais** e clique no botão **Adicionar inscrição individual** na parte superior. 
 
 6. No painel **Adicionar Inscrição**, introduza as seguintes informações:
-    - Selecione **X.509** como o *Mecanismo* de atestado de identidades.
-    - Em *Ficheiro de certificado primário .pem ou .cer*, clique em *Selecionar um ficheiro* para selecionar o ficheiro de certificado **{certificate-name}_cert.pem** criado nos passos anteriores.  
-    - Opcionalmente, pode fornecer as seguintes informações:
-      - Selecione um hub IoT ligado ao seu serviço de aprovisionamento.
-      - Introduza um ID de dispositivo exclusivo. Certifique-se de que evita dados confidenciais quando der o nome ao seu dispositivo. 
-      - Atualize o **estado inicial do dispositivo duplo** com a configuração inicial pretendida para o dispositivo.
-   - Quando tiver terminado, clique no botão **Guardar**. 
+   - Selecione **X.509** como o *Mecanismo* de atestado de identidades.
+   - Em *Ficheiro de certificado primário .pem ou .cer*, clique em *Selecionar um ficheiro* para selecionar o ficheiro de certificado **{certificate-name}_cert.pem** criado nos passos anteriores.  
+   - Opcionalmente, pode fornecer as seguintes informações:
+     - Selecione um hub IoT ligado ao seu serviço de aprovisionamento.
+     - Introduza um ID de dispositivo exclusivo. Certifique-se de que evita dados confidenciais quando der o nome ao seu dispositivo. 
+     - Atualize o **estado inicial do dispositivo duplo** com a configuração inicial pretendida para o dispositivo.
+     - Quando tiver terminado, clique no botão **Guardar**. 
 
-    [![Adicionar inscrição individual para fins de atestado X.509 no portal](./media/quick-create-simulated-device-x509-node/device-enrollment.png)](./media/quick-create-simulated-device-x509-node/device-enrollment.png#lightbox)
+     [![Adicionar inscrição individual para fins de atestado X.509 no portal](./media/quick-create-simulated-device-x509-node/device-enrollment.png)](./media/quick-create-simulated-device-x509-node/device-enrollment.png#lightbox)
 
-    Após a instalação bem-sucedida, o seu dispositivo X.509 aparece como **{certificatename}** na coluna *ID de Registo* do separador *Inscrições Individuais*. Anote este valor para utilizar mais tarde.
+     Após a instalação bem-sucedida, o seu dispositivo X.509 aparece como **{certificatename}** na coluna *ID de Registo* do separador *Inscrições Individuais*. Anote este valor para utilizar mais tarde.
 
 ## <a name="simulate-the-device"></a>Simular o dispositivo
 

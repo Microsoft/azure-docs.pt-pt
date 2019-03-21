@@ -14,12 +14,12 @@ ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 46fc0a49ebae86a715685e1073b4eb7cc10e6032
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 65e803ca373fb9853fc23d17f1a27ecadc6a209c
+ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57533413"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58295220"
 ---
 # <a name="find-activity-reports-in-the-azure-portal"></a>Encontrar relatórios de atividade no portal do Azure
 
@@ -52,7 +52,7 @@ Pode utilizar a filtragem avançada no relatório de auditoria para aceder a uma
 
 Categorias incluem:
 
-- Tudo
+- Todos
 - AdministrativeUnit
 - ApplicationManagement
 - Authentication
@@ -73,7 +73,7 @@ Pode também filtrar num serviço específico com o **serviço** filtro de lista
 
 Os serviços incluem:
 
-- Tudo
+- Todos
 - Revisões de Acesso
 - Aprovisionamento de Contas 
 - Aplicação SSO
@@ -81,12 +81,12 @@ Os serviços incluem:
 - B2C
 - Acesso Condicional
 - Diretório do Núcleo
-- Gestão de direitos
-- Proteção de Identidade
+- Gestão de Direitos
+- Identity Protection
 - Utilizadores Convidados
 - PIM
 - Gestão de Grupos Personalizada
-- Gestão de Passord self-service
+- Gestão de Palavra-passe Personalizada
 - Termos de Utilização
 
 ## <a name="sign-ins-report"></a>Relatório de inícios de sessão 
@@ -153,11 +153,11 @@ Transferi os registos de atividades (auditorias ou inícios de sessão) e não v
  
 #### <a name="cause"></a>Causa
 
-Quando transfere registos de atividades no portal do Azure, limitamos o dimensionamento para 5000 registos, ordenados pelos mais recente primeiro. 
+Quando transfere registos de atividades no portal do Azure, limitamos o dimensionamento para 250000 registos, ordenados pelos mais recente primeiro. 
 
 #### <a name="resolution"></a>Resolução
 
-Pode tirar partido das [APIs de Relatórios do Azure AD](concept-reporting-api.md) para obter até um milhão de registos num determinado período. Nossa abordagem recomendada é [executar um script de forma agendada](tutorial-signin-logs-download-script.md) que chama às APIs de relatórios para obter registos de uma forma incremental durante um período de tempo (por exemplo, diária ou semanal). 
+Pode tirar partido das [APIs de Relatórios do Azure AD](concept-reporting-api.md) para obter até um milhão de registos num determinado período.
 
 ### <a name="missing-audit-data-for-recent-actions-in-the-azure-portal"></a>Dados de auditoria para ações recentes no portal do Azure em falta
 

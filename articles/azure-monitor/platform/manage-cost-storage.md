@@ -11,15 +11,15 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 01/10/2018
+ms.date: 03/20/2018
 ms.author: magoedte
 ms.subservice: ''
-ms.openlocfilehash: a1d8984b8c9d0859ff754e3d5bfb35bd98236b54
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 5a8bd836322ae005b426707e0994bfdc19701fd8
+ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58098564"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58295679"
 ---
 # <a name="manage-usage-and-costs-for-log-analytics"></a>Gerir a utilização e custos para o Log Analytics
 
@@ -112,13 +112,13 @@ Se a sua área de trabalho do Log Analytics tem acesso aos escalões de preços 
 3. Sob **escalão de preço**, selecione um escalão de preço e, em seguida, clique em **selecione**.  
     ![Selecionado o plano de preços](media/manage-cost-storage/workspace-pricing-tier-info.png)
 
-Se pretender mover a sua área de trabalho para o escalão de preço atual, terá [alterar o modelo de preços no Azure Monitor de monitorização da sua subscrição](https://docs.microsoft.com/azure/azure-monitor/platform/usage-estimated-costs#moving-to-the-new-pricing-model) que irá alterar o escalão de preço de todas as áreas de trabalho dessa subscrição.
+Se pretender mover a sua área de trabalho para o escalão de preço atual, terá [alterar o modelo de preços no Azure Monitor de monitorização da sua subscrição](usage-estimated-costs.md#moving-to-the-new-pricing-model) que irá alterar o escalão de preço de todas as áreas de trabalho dessa subscrição.
 
 > [!NOTE]
 > Se a sua área de trabalho estiver ligada a uma conta de Automatização, antes poder selecionar o escalão de preço *Autónomo (Por GB)*, tem de eliminar quaisquer soluções de **Automatização e Controlo** e desassociar a conta de Automatização. No painel da área de trabalho, em **Geral**, clique em **Soluções** para ver e eliminar soluções. Para desassociar a Conta de automatização, clique no nome da Conta de automatização no painel **Escalão de preços**.
 
 > [!NOTE]
-> Pode saber mais sobre [definir o escalão de preço por meio de ARM](https://docs.microsoft.com/azure/azure-monitor/platform/template-workspace-configuration#create-a-log-analytics-workspace) e como garantir que a implementação de ARM será concluída com êxito, independentemente se a subscrição está no herdados ou no novo modelo de preços. 
+> Pode saber mais sobre [definir o escalão de preço por meio de ARM](template-workspace-configuration.md#create-a-log-analytics-workspace) e como garantir que a implementação de ARM será concluída com êxito, independentemente se a subscrição está no herdados ou no novo modelo de preços. 
 
 
 ## <a name="troubleshooting-why-log-analytics-is-no-longer-collecting-data"></a>Por isso que o Log Analytics já não está a recolher dados de resolução de problemas
@@ -138,24 +138,12 @@ Para ser notificado quando parar a recolha de dados, utilize os passos descritos
 
 ## <a name="troubleshooting-why-usage-is-higher-than-expected"></a>Resolver o motivo pelo qual a utilização é superior ao esperado
 A utilização superior deve-se a um ou a ambos os motivos abaixo:
-- Estão a ser enviados para o Log Analytics mais dados do que o esperado
 - Estão a ser enviados dados para o Log Analytics por mais nós do que o esperado
+- Estão a ser enviados para o Log Analytics mais dados do que o esperado
 
-### <a name="data-volume"></a>Volume de dados 
-Sobre o **utilização e custos estimados** página, o *ingestão de dados por solução* gráfico mostra o volume total de dados enviados e a quantidade está a ser enviado por cada solução. Isto permite-lhe determinar as tendências, como se a utilização de dados global (ou a utilização por uma solução específica) está a crescer, permanece estável ou diminui. É a consulta usada para gerar este
+A próxima explor de secções
 
-`Usage| where TimeGenerated > startofday(ago(31d))| where IsBillable == true
-| summarize TotalVolumeGB = sum(Quantity) / 1024 by bin(TimeGenerated, 1d), Solution| render barchart`
-
-Tenha em atenção que a cláusula "onde IsBillable = true" filtra tipos de dados de algumas soluções para o qual não é cobrado ingestão. 
-
-Pode explorar mais a ver as tendências de dados para tipos de dados específicos, por exemplo, se quiser estudar os dados devido a registos do IIS:
-
-`Usage| where TimeGenerated > startofday(ago(31d))| where IsBillable == true
-| where DataType == "W3CIISLog"
-| summarize TotalVolumeGB = sum(Quantity) / 1024 by bin(TimeGenerated, 1d), Solution| render barchart`
-
-### <a name="nodes-sending-data"></a>Nós a enviar dados
+## <a name="understanding-nodes-sending-data"></a>Noções básicas sobre o envio de dados
 
 Para compreender o número de computadores (nós) que fornecem dados por dia no mês passado, utilize
 
@@ -171,9 +159,9 @@ Para obter uma lista de computadores a enviar **faturados os tipos de dados** (a
 | where computerName != ""
 | summarize TotalVolumeBytes=sum(_BilledSize) by computerName`
 
-Utilize estes `union withsource = tt *` moderadamente, uma consulta como análises em todos os tipos de dados são dispendiosas. 
+Utilize estes `union withsource = tt *` moderadamente, uma consulta como análises em todos os tipos de dados são dispendiosas. Esta consulta substitui o método antigo de consulta de informações por computador com o tipo de dados de utilização.  
 
-Isso pode ser estendido para devolver a contagem de computadores por hora, que estão a enviar faturados os tipos de dados:
+Isso pode ser estendido para devolver a contagem de computadores por hora, que estão a enviar faturados os tipos de dados (que é como o Log Analytics calcula nós cobrar herdados por relativas ao nó de escalão de preço):
 
 `union withsource = tt * 
 | where _IsBillable == true 
@@ -181,13 +169,30 @@ Isso pode ser estendido para devolver a contagem de computadores por hora, que e
 | where computerName != ""
 | summarize dcount(computerName) by bin(TimeGenerated, 1h) | sort by TimeGenerated asc`
 
-Para ver os **tamanho** de eventos a cobrar ingeridos por computador, utilize o `_BilledSize` propriedade que fornece o tamanho em bytes:
+## <a name="understanding-ingested-data-volume"></a>Volume de dados de conhecimento ingerido 
+
+Sobre o **utilização e custos estimados** página, o *ingestão de dados por solução* gráfico mostra o volume total de dados enviados e a quantidade está a ser enviado por cada solução. Isto permite-lhe determinar as tendências, como se a utilização de dados global (ou a utilização por uma solução específica) está a crescer, permanece estável ou diminui. É a consulta usada para gerar este
+
+`Usage | where TimeGenerated > startofday(ago(31d))| where IsBillable == true
+| summarize TotalVolumeGB = sum(Quantity) / 1024 by bin(TimeGenerated, 1d), Solution| render barchart`
+
+Tenha em atenção que a cláusula "onde IsBillable = true" filtra tipos de dados de algumas soluções para o qual não é cobrado ingestão. 
+
+Pode explorar mais a ver as tendências de dados para tipos de dados específicos, por exemplo, se quiser estudar os dados devido a registos do IIS:
+
+`Usage | where TimeGenerated > startofday(ago(31d))| where IsBillable == true
+| where DataType == "W3CIISLog"
+| summarize TotalVolumeGB = sum(Quantity) / 1024 by bin(TimeGenerated, 1d), Solution| render barchart`
+
+### <a name="data-volume-by-computer"></a>Volume de dados por computador
+
+Para ver os **tamanho** de eventos a cobrar ingeridos por computador, utilize o `_BilledSize` propriedade ([propriedades de registo padrão #_billedsize.md](learn more)) que fornece o tamanho em bytes:
 
 `union withsource = tt * 
 | where _IsBillable == true 
 | summarize Bytes=sum(_BilledSize) by  Computer | sort by Bytes nulls last `
 
-Esta consulta substitui o método antigo de consulta isso com o tipo de dados de utilização. 
+O `_IsBillable` propriedade especifica se os dados ingeridos incorrerá em encargos ([log-padrão-properties.md #_isbillable](Learn more).)
 
 Para ver os **contagem** de eventos ingeridos por computador, utilize
 
@@ -207,8 +212,29 @@ Se quiser ver contagens para tipos de dados cobrar estão a enviar dados para um
 | where _IsBillable == true 
 | summarize count() by tt | sort by count_ nulls last `
 
+### <a name="data-volume-by-azure-resource-resource-group-or-subscription"></a>Volume de dados por recursos do Azure, o grupo de recursos ou subscrição
+
+Por dados a partir de nós que estão alojados no Azure, pode obter o **tamanho** de eventos a cobrar ingeridos __por computador__, utilize o `_ResourceId` propriedade que fornece o caminho completo para o recurso ([ registo-padrão-properties.md #_resourceid](learn more)):
+
+`union withsource = tt * 
+| where _IsBillable == true 
+| summarize Bytes=sum(_BilledSize) by _ResourceId | sort by Bytes nulls last `
+
+Por dados a partir de nós que estão alojados no Azure, pode obter o **tamanho** de eventos a cobrar ingeridos __por subscrição do Azure__, analisar o `_ResourceId` propriedade como:
+
+`union withsource = tt * 
+| where _IsBillable == true 
+| parse tolower(_ResourceId) with "/subscriptions/" subscriptionId "/resourcegroups/" 
+    resourceGroup "/providers/" provider "/" resourceType "/" resourceName   
+| summarize Bytes=sum(_BilledSize) by subscriptionId | sort by Bytes nulls last `
+
+A alteração `subscriptionId` para `resourceGroup` mostrará o volume de dados ingeridos cobrar por grupo de resouurce do Azure. 
+
+
 > [!NOTE]
 > Alguns dos campos do tipo de dados de utilização, enquanto ainda está no esquema, foram preteridos e serão que seus valores já não são preenchidos. Estes são **computador** , bem como campos relacionados com a ingestão (**TotalBatches**, **BatchesWithinSla**, **BatchesOutsideSla**,  **BatchesCapped** e **AverageProcessingTimeMs**.
+
+### <a name="querying-for-common-data-types"></a>Consultar os tipos de dados comuns
 
 Para saber mais sobre a origem de dados para um tipo de dados específico, aqui estão algumas consultas de exemplo úteis:
 
@@ -241,7 +267,7 @@ Algumas sugestões para reduzir o volume de registos recolhidos incluem:
 | AzureDiagnostics           | Alterar a coleção de registo de recursos para: <br> - Reduzir o número de registos de envio de recursos do Log Analytics <br> - Recolher apenas registos necessários |
 | Dados de solução de computadores que não precisam da solução | Utilize a [segmentação de soluções](../insights/solution-targeting.md) para recolher dados apenas de grupos de computadores necessários. |
 
-### <a name="getting-node-counts"></a>Ao obter contagens de nó 
+### <a name="getting-security-and-automation-node-counts"></a>Ao obter contagens de nó de segurança e de automatização 
 
 Se estiver a utilizar "Por nó (OMS)" escalão de preço, em seguida, é cobrado com base no número de nós e soluções utilizar, o número de informações e nós de análise que lhe está a ser cobrada serão apresentados na tabela no **utilização e custos estimados**página.  
 
@@ -282,6 +308,7 @@ Para ver o número de nós de automatização distintos, utilize a consulta:
  | summarize count() by ComputerEnvironment | sort by ComputerEnvironment asc`
 
 ## <a name="create-an-alert-when-data-collection-is-higher-than-expected"></a>Criar um alerta quando a recolha de dados for superior ao esperado
+
 Esta secção descreve como criar um alerta se:
 - O volume de dados exceder uma determinada quantidade.
 - Se previr que o volume de dados vai exceder uma determinada quantidade.

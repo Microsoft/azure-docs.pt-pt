@@ -4,15 +4,15 @@ description: Saiba mais sobre as diferentes formas de registar e monitorizar dad
 author: SnehaGunda
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 12/06/2018
+ms.date: 03/15/2019
 ms.author: sngun
 ms.custom: seodec18
-ms.openlocfilehash: 2a08097b42f395bd0009353635cabbd264c3c421
-ms.sourcegitcommit: f7f4b83996640d6fa35aea889dbf9073ba4422f0
+ms.openlocfilehash: d75eb87bff812589e4d3a3a14079ddaaf368a588
+ms.sourcegitcommit: aa3be9ed0b92a0ac5a29c83095a7b20dd0693463
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56992095"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58259776"
 ---
 # <a name="diagnostic-logging-in-azure-cosmos-db"></a>Registo de diagnósticos no Azure Cosmos DB 
 
@@ -24,7 +24,7 @@ Depois de começar a utilizar um ou mais bases de dados do Azure Cosmos DB, pode
 
 Antes de falarmos sobre como monitorizar a sua conta do Azure Cosmos DB, vamos esclarecer algumas coisas sobre o registo e monitorização. Existem diferentes tipos de registos na plataforma do Azure. Existem [registos de atividades do Azure](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs), [registos de diagnóstico do Azure](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs), [métricas do Azure](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-metrics), eventos, monitorização heartbeat, registos de operações e assim por diante. Há uma grande quantidade de registos. Pode ver a lista completa de registos no [registos do Azure Monitor](https://azure.microsoft.com/services/log-analytics/) no portal do Azure. 
 
-A imagem seguinte mostra os diferentes tipos de registos do Azure que estão disponíveis:
+A imagem seguinte mostra o tipo diferente de registos do Azure que estão disponíveis:
 
 ![Diferentes tipos de registos do Azure](./media/logging/azurelogging.png)
 
@@ -67,7 +67,7 @@ Registos de diagnóstico do Azure são emitidos por um recurso e fornecer dados 
 
 Para ativar o registo de diagnósticos, tem de ter os seguintes recursos:
 
-* Uma existente do Azure Cosmos DB conta, base de dados e contentores. Para obter instruções sobre como criar esses recursos, consulte [criar uma conta de base de dados com o portal do Azure](create-sql-api-dotnet.md#create-a-database-account), [exemplos da CLI do Azure](cli-samples.md), ou [exemplos do PowerShell](powershell-samples.md).
+* Uma existente do Azure Cosmos DB conta, base de dados e contentores. Para obter instruções sobre como criar esses recursos, consulte [criar uma conta de base de dados com o portal do Azure](create-sql-api-dotnet.md#create-account), [exemplos da CLI do Azure](cli-samples.md), ou [exemplos do PowerShell](powershell-samples.md).
 
 Para ativar o registo de diagnóstico no portal do Azure, siga os passos abaixo:
 
@@ -99,27 +99,23 @@ Para ativar as métricas e registo de diagnósticos através da utilização da 
 - Para ativar o armazenamento dos registos de diagnóstico numa conta de armazenamento, utilize este comando:
 
    ```azurecli-interactive
-   azure insights diagnostic set --resourceId <resourceId> --storageId <storageAccountId> --enabled true
+   az monitor diagnostic-settings create --name DiagStorage --resource <resourceId> --storage-account <storageAccountName> --logs '[{"category": "QueryRuntimeStatistics", "enabled": true, "retentionPolicy": {"enabled": true, "days": 0}}]'
    ```
 
-   O `resourceId` é o nome da conta do Azure Cosmos DB. O `storageId` é o nome da conta do storage para o qual pretende enviar os registos.
+   O `resource` é o nome da conta do Azure Cosmos DB. O recurso está no formato "/subscriptions/`<subscriptionId>`/resourceGroups/`<resource_group_name>`/providers/Microsoft.DocumentDB/databaseAccounts/ < Azure_Cosmos_account_name >" o `storage-account` é o nome da conta de armazenamento para que pretende enviar os registos. Pode iniciar outros registos, atualizando os valores de parâmetro de categoria "MongoRequests" ou "DataPlaneRequests". 
 
 - Para ativar a transmissão em fluxo dos registos de diagnóstico para um hub de eventos, use este comando:
 
    ```azurecli-interactive
-   azure insights diagnostic set --resourceId <resourceId> --serviceBusRuleId <serviceBusRuleId> --enabled true
+   az monitor diagnostic-settings create --name cdbdiagsett --resourceId <resourceId> --event-hub-rule <eventHubRuleID> --logs '[{"category":"QueryRuntimeStatistics","enabled":true,"retentionPolicy":{"days":6,"enabled":true}}]'
    ```
 
-   O `resourceId` é o nome da conta do Azure Cosmos DB. O `serviceBusRuleId` é uma cadeia de caracteres com este formato:
-
-   ```azurecli-interactive
-   {service bus resource ID}/authorizationrules/{key name}
-   ```
+   O `resource` é o nome da conta do Azure Cosmos DB. O `event-hub-rule` é o ID de regra de hub do evento. 
 
 - Para ativar registos de diagnóstico de envio para uma área de trabalho do Log Analytics, use este comando:
 
    ```azurecli-interactive
-   azure insights diagnostic set --resourceId <resourceId> --workspaceId <resource id of the log analytics workspace> --enabled true
+   az monitor diagnostic-settings create --name cdbdiagsett --resourceId <resourceId> --workspace <resource id of the log analytics workspace> --logs '[{"category":"QueryRuntimeStatistics","enabled":true,"retentionPolicy":{"days":6,"enabled":true}}]'
    ```
 
 Pode combinar estes parâmetros para ativar várias opções de saída.

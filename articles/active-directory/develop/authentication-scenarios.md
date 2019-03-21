@@ -18,12 +18,12 @@ ms.author: celested
 ms.reviewer: saeeda, sureshja, hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 58b0d2c12a4e2088964e397b1bc499fa4adfdff3
-ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
+ms.openlocfilehash: 172bc96857c6aa0ab19fd4f1a13870dd493100bf
+ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56244560"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58295713"
 ---
 # <a name="what-is-authentication"></a>O que é a autenticação?
 
@@ -79,7 +79,7 @@ O Azure AD representa as aplicações que seguem um modelo específico concebido
 
 No Azure AD, um **objeto de aplicação** descreve uma aplicação como uma entidade abstrata. Os programadores trabalham com aplicações. No momento da implementação, o Azure AD utiliza um determinado objeto de aplicação como esquema para criar um **principal de serviço**, que representa uma instância concreta de uma aplicação num diretório ou inquilino. É o principal de serviço que define o que a aplicação pode realmente fazer num diretório de destino específico, quem pode utilizá-la, a que recursos tem acesso e assim por diante. O Azure AD cria um principal de serviço a partir de um objeto de aplicação por **consentimento**.
 
-O diagrama seguinte mostra um fluxo de aprovisionamento simplificado do Azure AD orientado por consentimento.
+O diagrama seguinte mostra um fluxo de aprovisionamento simplificado do Azure AD orientado por consentimento.  Nela, existem dois inquilinos (A e B), em que o inquilino A possui o aplicativo, e o inquilino B é instanciar o aplicativo por meio de um principal de serviço.  
 
 ![Fluxo de aprovisionamento simplificado orientado por consentimento](./media/authentication-scenarios/simplified-provisioning-flow-consent.png)
 
@@ -87,14 +87,14 @@ Neste fluxo de aprovisionamento:
 
 |   |   |
 |---|---|
-| 1 | Um utilizador a partir de B tenta iniciar sessão com a aplicação |
+| 1 | Um utilizador no inquilino B tenta iniciar sessão com a aplicação |
 | 2 | As credenciais do utilizador são obtidas e verificadas |
 | 3 | É pedido ao utilizador para dar consentimento para a aplicação obter acesso ao inquilino B |
-| 4 | O Azure AD utiliza o objeto de aplicação em A como esquema para criar um principal de serviço em B |
+| 4 | Azure AD utiliza o objeto de aplicativo na como um plano gráfico para a criação de um principal de serviço no inquilino B |
 | 5 | O utilizador recebe o token pedido |
 |   |   |
 
-Pode repetir este processo quantas vezes desejar para outros inquilinos (C, D e assim por diante). O diretório A retém o esquema da aplicação (objeto de aplicação). Os utilizadores e administradores de todos os outros inquilinos onde foi dado consentimento à aplicação mantêm o controlo sobre o que a aplicação tem permissão para fazer através do objeto principal de serviço correspondente em cada inquilino. Para obter mais informações, veja [Objetos de aplicação e principal de serviço no Azure AD](app-objects-and-service-principals.md).
+Pode repetir este processo quantas vezes desejar para outros inquilinos (C, D e assim por diante). Inquilino A retém o plano gráfico para a aplicação (objeto de aplicativo). Os utilizadores e administradores de todos os outros inquilinos onde foi dado consentimento à aplicação mantêm o controlo sobre o que a aplicação tem permissão para fazer através do objeto principal de serviço correspondente em cada inquilino. Para obter mais informações, veja [Objetos de aplicação e principal de serviço no Azure AD](app-objects-and-service-principals.md).
 
 ## <a name="claims-in-azure-ad-security-tokens"></a>Afirmações nos tokens de segurança do Microsoft Azure AD
 

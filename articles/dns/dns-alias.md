@@ -7,12 +7,12 @@ ms.service: dns
 ms.topic: article
 ms.date: 2/20/2019
 ms.author: victorh
-ms.openlocfilehash: 6c5e0e47f006c6be170bdbf6fee431bfd3b6df0e
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 1f6d6b2ae5fd3a0c08d37b93c73656ac6bb71d67
+ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58105061"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58295645"
 ---
 # <a name="azure-dns-alias-records-overview"></a>Registos descrição geral de alias de DNS do Azure
 
@@ -59,6 +59,13 @@ Esta restrição apresenta um problema para os proprietários da aplicação que
 Esse problema pode ser resolvido utilizando registos de alias. Ao contrário de registos CNAME, os registos de alias podem ser criados no vértice da zona e proprietários de aplicativos podem utilizá-lo para apontar o respetivo registo de apex de zona para um perfil de Gestor de tráfego que tem pontos finais externos. Os proprietários de aplicativos podem apontar para o mesmo perfil de Gestor de tráfego, que é utilizado para qualquer outro domínio na sua zona DNS.
 
 Por exemplo, contoso.com e www\.contoso.com pode apontar para o mesmo perfil de Gestor de tráfego. Para saber mais sobre como utilizar os registos de alias com perfis do Gestor de tráfego do Azure, veja a secção de passos seguinte.
+
+### <a name="point-zone-apex-to-azure-cdn-endpoints"></a>Aponte o vértice da zona para pontos finais da CDN do Azure
+Tal como um perfil do Gestor de tráfego, também pode utilizar os registos de alias para apontar o vértice da zona DNS para pontos finais da CDN do Azure. Isto é útil quando criar os Web sites estáticos com o armazenamento do Azure e CDN do Azure. Em seguida, pode aceder ao site sem "www" para o seu nome DNS de prefixação.
+
+Por exemplo, se o seu Web site estático com o nome www.contoso.com, os utilizadores podem aceder a seu site usando o contoso.com sem que seja necessário preceder www para o nome DNS.
+
+Conforme descrito anteriormente, os registos CNAME não são suportados no vértice da zona. Assim, não é possível utilizar um registo CNAME para apontar o contoso.com para o ponto final da CDN. Em vez disso, pode utilizar um registo de alias para apontar diretamente o vértice da zona para um ponto final da CDN.
 
 ## <a name="next-steps"></a>Passos Seguintes
 

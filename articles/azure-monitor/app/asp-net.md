@@ -10,20 +10,20 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 01/19/2018
+ms.date: 03/14/2019
 ms.author: mbullwin
-ms.openlocfilehash: 6b849ad72554af163d8ac3d5ff1248023dc71052
-ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
+ms.openlocfilehash: 358ca13548f0215fabee949c5fa3dee64beb2d6d
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56268531"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57996971"
 ---
 # <a name="set-up-application-insights-for-your-aspnet-website"></a>Configurar o Application Insights para o seu site ASP.NET
 
 Este procedimento configura a sua aplicação Web do ASP.NET para enviar telemetria para o serviço [Azure Application Insights](../../azure-monitor/app/app-insights-overview.md). Funciona para aplicações ASP.NET alojadas no seu próprio servidor IIS no local ou na Cloud. Obtém gráficos e um idioma de consulta poderoso que o ajudam a compreender o desempenho da sua aplicação e como as pessoas estão a utilizá-la, bem como alertas automáticos sobre falhas ou problemas de desempenho. Muitos programadores acham que estas funcionalidades são excelentes tal como estão, mas também pode expandir e personalizar a telemetria se precisar.
 
-A configuração demora apenas alguns cliques no Visual Studio. Tem a opção de evitar encargos ao limitar o volume de telemetria. Isto permite-lhe experimentar e depurar, ou monitorizar um site com poucos utilizadores. Quando decidir que pretende continuar e monitorizar o seu site de produção, pode elevar o limite facilmente mais tarde.
+A configuração demora apenas alguns cliques no Visual Studio. Tem a opção de evitar encargos ao limitar o volume de telemetria. Esta funcionalidade permite-lhe experimentar e depurar, ou monitorizar um site com poucos utilizadores. Quando decidir que pretende continuar e monitorizar o seu site de produção, pode elevar o limite facilmente mais tarde.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 Para adicionar o Application Insights ao site ASP.NET, é necessário:
@@ -37,11 +37,11 @@ Se não tiver uma subscrição do Azure, crie uma conta [gratuita](https://azure
 ## <a name="ide"></a> Passo 1: Adicionar o Application Insights SDK
 
 > [!IMPORTANT]
-> O processo de adicionar o Application Insights varia consoante o tipo de modelo do ASP.NET. Se estiver a utilizar o modelo **Vazio** ou **Aplicação Móvel do Azure**, selecione **Projeto** > **Adicionar Telemetria do Application Insights**. Para todos os outros modelos ASP.NET, consulte as instruções abaixo. 
+> As capturas de ecrã neste exemplo baseiam-se no Visual Studio 2017 versão 15.9.9. A experiência para adicionar o Application Insights varia entre as versões do Visual Studio 2017, bem como por tipo de modelo do ASP.NET. As versões mais antigas podem ter o texto alternativo, como "A configurar o Application Insights".
 
-Clique no nome da aplicação Web no Explorador de Soluções e escolha **Configurar o Application Insights**
+Clique no nome da sua aplicação web no Explorador de soluções e escolha **Add** > **telemetria do Application Insights**
 
-![Captura de ecrã do Explorador de Soluções, com a opção Configurar Application Insights realçada](./media/asp-net/0001-configure-application-insights.png)
+![Captura de ecrã do Explorador de Soluções, com a opção Configurar Application Insights realçada](./media/asp-net/add-telemetry-new.png)
 
 (Dependendo da versão do SDK do Application Insights, poderá ser-lhe pedido para atualizar para a versão mais recente do SDK. Se lhe for pedido, selecione **Atualizar SDK**.)
 
@@ -49,15 +49,15 @@ Clique no nome da aplicação Web no Explorador de Soluções e escolha **Config
 
 Ecrã de Configuração do Application Insights:
 
-Selecione **Iniciar Gratuitamente**.
+Selecione **começar**.
 
-![Captura de ecrã da página Registar a sua aplicação no Application Insights](./media/asp-net/0004-start-free.png)
+![Captura de ecrã da página Registar a sua aplicação no Application Insights](./media/asp-net/00004-start-free.png)
 
 Se pretender definir o grupo de recursos ou a localização onde os seus dados são armazenado, clique em **Configurar definições**. Os grupos de recursos são utilizados para controlar o acesso aos dados. Por exemplo, se tiver várias aplicações que fazem parte do mesmo sistema, poderá colocar os seus dados do Application Insights no mesmo grupo de recursos.
 
- Selecione **Registar**. 
+ Selecione **Registar**.
 
-![Captura de ecrã da página Registar a sua aplicação no Application Insights](./media/asp-net/0005-register-ed.png)
+![Captura de ecrã da página Registar a sua aplicação no Application Insights](./media/asp-net/00005-register-ed.png)
 
  A telemetria será enviada para o [portal do Azure](https://portal.azure.com), durante a depuração e após ter publicado a aplicação.
 > [!NOTE]
@@ -68,7 +68,7 @@ Execute a aplicação com F5. Abra páginas diferentes para gerar alguma telemet
 
 No Visual Studio, verá uma contagem dos eventos que foram registados.
 
-![Captura de ecrã do Visual Studio. O botão do Application Insights é apresentado durante a depuração.](./media/asp-net/0006-Events.png)
+![Captura de ecrã do Visual Studio. O botão do Application Insights é apresentado durante a depuração.](./media/asp-net/00006-Events.png)
 
 ## <a name="step-3-see-your-telemetry"></a>Passo 3: Ver a telemetria
 Pode ver a sua telemetria no Visual Studio ou no portal Web do Application Insights. Procure telemetria no Visual Studio para o ajudar a depurar a sua aplicação. Monitorize o desempenho e a utilização no portal Web quando o sistema estiver em direto. 
@@ -95,7 +95,7 @@ Abra o recurso do Application Insights. Inicie sessão no [portal do Azure](http
 
 O portal é aberto na vista da telemetria da sua aplicação.
 
-![Captura de ecrã da página de descrição geral do Application Insights](./media/asp-net/66.png)
+![Captura de ecrã da página de descrição geral do Application Insights](./media/asp-net/007.png)
 
 No portal, clique em qualquer gráfico ou mosaico para ver mais detalhes.
 
@@ -117,8 +117,6 @@ Também pode continuar a analisar a sua telemetria no [Visual Studio](../../azur
 
 Parabéns! Instalou o pacote do Application Insights na sua aplicação e configurou o mesmo para enviar telemetria para o serviço do Application Insights no Azure.
 
-![Diagrama do movimento da telemetria](./media/asp-net/01-scheme.png)
-
 O recurso do Azure que recebe a telemetria da sua aplicação é identificado por uma *chave de instrumentação*. Encontrará esta chave no ficheiro ApplicationInsights.config.
 
 
@@ -126,10 +124,6 @@ O recurso do Azure que recebe a telemetria da sua aplicação é identificado po
 Para atualizar para uma [nova versão do SDK](https://github.com/Microsoft/ApplicationInsights-dotnet-server/releases), abra o **gestor de pacotes NuGet** e filtre os pacotes instalados. Selecione **Microsoft.ApplicationInsights.Web** e escolha **Atualizar**.
 
 Se tiver realizado personalizações no ApplicationInsights.config, guarde uma cópia do mesmo antes de atualizar. Em seguida, intercale as suas alterações na nova versão.
-
-## <a name="video"></a>Vídeo
-
-> [!VIDEO https://channel9.msdn.com/events/Connect/2016/100/player]
 
 ## <a name="next-steps"></a>Passos Seguintes
 
@@ -155,7 +149,7 @@ Existem tópicos alternativos que pode ver se estiver interessado em:
 
 * [Testes de disponibilidade](../../azure-monitor/app/monitor-web-app-availability.md): Crie testes para se certificar de que o site está visível na web.
 * [Diagnóstico inteligente](../../azure-monitor/app/proactive-diagnostics.md): Esses testes são executados automaticamente, para que não tenha de fazer nada para os configurar. Estes indicam se a aplicação tem uma taxa de pedidos com falha fora do normal.
-* [Alertas de métricas](../../azure-monitor/app/alerts.md): Defina estes para o avisar se uma métrica ultrapassa um limiar. Pode defini-los em métricas personalizadas que introduz no código da sua aplicação.
+* [Alertas de métricas](../../azure-monitor/app/alerts.md): Definir alertas para o avisar se uma métrica ultrapassa um limiar. Pode defini-los em métricas personalizadas que introduz no código da sua aplicação.
 
 ### <a name="automation"></a>Automatização
 

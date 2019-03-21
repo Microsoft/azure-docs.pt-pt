@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.openlocfilehash: 69cf0815a8418df4c8a36adf99770640df327d49
-ms.sourcegitcommit: dd1a9f38c69954f15ff5c166e456fda37ae1cdf2
+ms.openlocfilehash: ffed12b9184c7b6a690c30db9826f031fe6c9f9b
+ms.sourcegitcommit: aa3be9ed0b92a0ac5a29c83095a7b20dd0693463
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57568860"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58259793"
 ---
 # <a name="choose-a-map-style-in-azure-maps"></a>Escolha um estilo de mapa do Azure Maps
 
@@ -42,7 +42,7 @@ O segundo bloco de código utiliza o mapa [setStyle](https://docs.microsoft.com/
 
 O primeiro bloco de código no código anterior define a chave de subscrição e cria um objeto de mapa, o estilo de mapa previamente está definido como grayscale_dark. Ver [criar um mapa](./map-create.md) para obter instruções sobre como criar um mapa.
 
-O segundo bloco de código constrói um Seletor de estilo usando o atlas [StyleControl](/javascript/api/azure-maps-control/atlas.controls.stylecontrol) construtor.
+O segundo bloco de código constrói um Seletor de estilo usando o atlas [StyleControl](/javascript/api/azure-maps-control/atlas.control.stylecontrol) construtor.
 
 Um Seletor de estilo permite a seleção de estilo para o mapa. O terceiro bloco de código adiciona o Seletor de estilo para o mapa através do mapa [Controls](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest) método. O Seletor de estilo é no mapa **serviço de escuta de eventos** para se certificar de que carrega depois que o mapa for totalmente carregada.
 

@@ -2,30 +2,32 @@
 author: roygara
 ms.service: virtual-machines
 ms.topic: include
-ms.date: 11/09/2018
+ms.date: 03/18/2019
 ms.author: rogarana
-ms.openlocfilehash: 09b4f94db3464943a8367bfb3ca89f9a88446193
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 2936fd318f08c74675f7e8b382c861f4a28319fc
+ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57554178"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58261385"
 ---
 Pode anexar vários discos de dados para uma máquina virtual do Azure. Com base nos destinos de escalabilidade e desempenho para discos de dados de uma VM, é possível determinar o número e tipo de disco que tem de cumprir os requisitos de capacidade e desempenho.
 
 > [!IMPORTANT]
 > Para otimizar o desempenho, limite o número de discos muito utilizados anexados à máquina virtual para evitar uma possível limitação. Se todos os discos ligados não são muito utilizados ao mesmo tempo, a máquina virtual pode suportar um grande número de discos.
 
-* **Para o Azure discos geridos:** 
+**Para o Azure discos geridos:**
 
-> | Recurso | Limite predefinido | Limite máximo |
+A tabela seguinte ilustra o padrão e os limites máximos do número de recursos por região por subscrição
+
+> | Recurso | Limite predefinido  | Limite máximo |
 > | --- | --- | --- |
-> | Discos geridos Standard | 10,000 | 50,000 |
-> | Discos geridos Standard SSD | 10,000 | 50,000 |
-> | Discos geridos Premium | 10,000 | 50,000 |
-> | Instantâneos de Standard_LRS | 10,000 | 50,000 |
-> | Instantâneos de Standard_ZRS | 10,000 | 50,000 |
-> | Imagem gerida | 10,000 | 50,000 |
+> | Discos geridos Standard | 25,000 | 50,000 |
+> | Discos geridos Standard SSD | 25,000 | 50,000 |
+> | Discos geridos Premium | 25,000 | 50,000 |
+> | Instantâneos de Standard_LRS | 25,000 | 50,000 |
+> | Instantâneos de Standard_ZRS | 25,000 | 50,000 |
+> | Imagem gerida | 25,000 | 50,000 |
 
 * **Para contas de armazenamento Standard:** Uma conta de armazenamento Standard tem uma taxa de pedidos total máxima de 20.000 IOPS. O IOPS total em todos os discos da máquina virtual numa conta de armazenamento Standard não deve exceder este limite.
   

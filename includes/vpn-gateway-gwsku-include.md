@@ -5,17 +5,17 @@ services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: include
-ms.date: 11/06/2018
+ms.date: 03/20/2019
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: 9ae3a17c9756a38414ee25fd24f7d12d6179e95f
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.openlocfilehash: b1a9d93d9fccf02ba1517e429625150736e539e9
+ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51285732"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58305377"
 ---
-Quando cria um gateway de rede virtual, tem de especificar o SKU de gateway que pretende utilizar. Selecione o SKU que atende as suas necessidades com base nos tipos de cargas de trabalho, taxas de transferência, funcionalidades e SLA.
+Quando cria um gateway de rede virtual, tem de especificar o SKU de gateway que pretende utilizar. Selecione o SKU que atende as suas necessidades com base nos tipos de cargas de trabalho, taxas de transferência, funcionalidades e SLA. Para o gateway de rede virtual SKUs em zonas de disponibilidade do Azure, consulte [SKUs de Gateway de zonas de disponibilidade do Azure](../articles/vpn-gateway/about-zone-redundant-vnet-gateways.md).
 
 ###  <a name="benchmark"></a>SKUs de Gateway por túnel, ligação e débito
 
@@ -29,7 +29,7 @@ SKU de gateway VPN novo simplificam os conjuntos de funcionalidades oferecidos e
 
 | **SKU**| **Funcionalidades**|
 | ---    | ---         |
-|**Básico** (\*\*)   | **VPN baseada em rota**: 10 túneis de S2S/ligações; sem autenticação RADIUS para P2S; sem IKEv2 para P2S<br>**VPN baseada em política**: (IKEv1): 1/ligação S2S túnel; nenhum P2S|
+|**Básico** (*)   | **VPN baseada em rota**: 10 túneis de S2S/ligações; sem autenticação RADIUS para P2S; sem IKEv2 para P2S<br>**VPN baseada em política**: (IKEv1): 1 túnel S2S/ligação; nenhum P2S|
 | **VpnGw1, VpnGw2, and VpnGw3** | **VPN baseada em rota**: até 30 túneis (*), P2S, BGP, ativo-ativo, IPsec/IKE política personalizada, coexistência ExpressRoute/VPN |
 |        |             |
 
@@ -44,7 +44,7 @@ Devido a diferenças na SLAs e conjuntos de recursos, é recomendável seguir os
 | **Carga de trabalho**                       | **SKU**               |
 | ---                                | ---                    |
 | **Produção, cargas de trabalho críticas** | VpnGw1, VpnGw2, VpnGw3 |
-| **Dev-test ou prova de conceito**   | Basic (\*\*)                 |
+| **Dev-test ou prova de conceito**   | Basic (*)                 |
 |                                    |                        |
 
 (\*\*) O SKU básico é considerado um SKU de legado e tem limitações de recursos. Certifique-se de que o recurso que precisa é suportado antes de utilizar o SKU básico.

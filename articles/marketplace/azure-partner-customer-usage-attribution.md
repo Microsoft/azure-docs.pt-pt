@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 11/17/2018
 ms.author: yijenj
-ms.openlocfilehash: 44efe3482e9e1657125cc28441819ea173c982ab
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: MT
+ms.openlocfilehash: ae31aa19e5905ccafcd0161ea362cc68234f8295
+ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57861949"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58294760"
 ---
 # <a name="azure-partner-customer-usage-attribution"></a>Atribuição de utilização do cliente de parceiro do Azure
 
@@ -127,6 +127,8 @@ Ao utilizar a CLI do Azure para o GUID de acréscimo, defina o **AZURE_HTTP_USER
 ```
 export AZURE_HTTP_USER_AGENT='pid-eb7927c8-dd66-43e1-b0cf-c346a422063'
 ```
+Para obter mais informações, consulte [Azure SDK para Go](https://docs.microsoft.com/go/azure/).
+
 ## <a name="use-terraform"></a>Utilize o Terraform
 
 O suporte para o Terraform está disponível através 1.21.0 do fornecedor do Azure de versão: [ https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/CHANGELOG.md#1210-january-11-2019 ](https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/CHANGELOG.md#1210-january-11-2019).  Este suporte aplica-se a todos os parceiros que implementar a sua solução por meio do Terraform, e todos os recursos implementados e limitados pelo fornecedor do Azure (versão 1.21.0 ou posterior).

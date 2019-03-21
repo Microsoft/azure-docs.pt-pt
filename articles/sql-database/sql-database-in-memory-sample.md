@@ -12,12 +12,12 @@ ms.author: jovanpop
 ms.reviewer: ''
 manager: craigg
 ms.date: 12/18/2018
-ms.openlocfilehash: 9551f07efa9d388da69b6474f6a2dd5af947ff2c
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 2aa98c3958f1dffeb8adbad5e91a11f397d4a9fd
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57767656"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58005733"
 ---
 # <a name="in-memory-sample"></a>Exemplo de dentro da memória
 
@@ -25,7 +25,7 @@ Tecnologias dentro da memória na SQL Database do Azure permitem-lhe melhorar o 
 
 Neste artigo, verá dois exemplos que ilustram o uso de OLTP na memória, bem como os índices columnstore na base de dados do Azure SQL.
 
-Para obter mais informações, veja:
+Para obter mais informações, consulte:
 - [Descrição geral de OLTP na memória e cenários de uso](https://msdn.microsoft.com/library/mt774593.aspx) (inclui referências a casos práticos de clientes e informações para começar a trabalhar)
 - [Documentação para OLTP dentro da memória](https://msdn.microsoft.com/library/dn133186.aspx)
 - [Guia de índices Columnstore](https://msdn.microsoft.com/library/gg492088.aspx)
@@ -180,7 +180,7 @@ Idealmente, que teria que pretende executar ostress.exe numa máquina virtual do
 
 Na VM, ou em qualquer anfitrião escolher, instale os utilitários de linguagem de marcação de repetição (RML). Os utilitários incluem ostress.exe.
 
-Para obter mais informações, veja:
+Para obter mais informações, consulte:
 - A discussão ostress.exe [base de dados de exemplo para OLTP dentro da memória](https://msdn.microsoft.com/library/mt465764.aspx).
 - [Base de dados de exemplo para OLTP dentro da memória](https://msdn.microsoft.com/library/mt465764.aspx).
 - O [blogue para a instalação ostress.exe](https://blogs.msdn.com/b/psssql/archive/20../../cumulative-update-2-to-the-rml-utilities-for-microsoft-sql-server-released.aspx).
@@ -190,11 +190,11 @@ Para obter mais informações, veja:
 <!--
 dn511655.aspx is for SQL 2014,
 [Extensions to AdventureWorks to Demonstrate In-Memory OLTP]
-(http://msdn.microsoft.com/library/dn511655&#x28;v=sql.120&#x29;.aspx)
+(https://msdn.microsoft.com/library/dn511655&#x28;v=sql.120&#x29;.aspx)
 
 whereas for SQL 2016+
 [Sample Database for In-Memory OLTP]
-(http://msdn.microsoft.com/library/mt465764.aspx)
+(https://msdn.microsoft.com/library/mt465764.aspx)
 -->
 
 
@@ -244,9 +244,9 @@ Depois de ter o resultado a partir do *_inmem* executar, execute os seguintes pa
 
 
 1. Repor a base de dados ao executar o seguinte comando no SSMS para eliminar todos os dados que é inserido através da execução anterior:
-```sql
-EXECUTE Demo.usp_DemoReset;
-```
+   ```sql
+   EXECUTE Demo.usp_DemoReset;
+   ```
 
 2. Edite a linha de comando ostress.exe para substituir todas *_inmem* com *_ondisk*.
 
@@ -277,13 +277,13 @@ Para efetuar análises em tempo real numa carga de trabalho OLTP, muitas vezes �
 
 
 1. Utilize o portal do Azure para criar uma nova base de dados do AdventureWorksLT do exemplo.
- - Utilize esse nome exato.
- - Escolha qualquer escalão de serviço Premium.
+   - Utilize esse nome exato.
+   - Escolha qualquer escalão de serviço Premium.
 
 2. Copiar o [sql_in memory_analytics_sample](https://raw.githubusercontent.com/Microsoft/sql-server-samples/master/samples/features/in-memory/t-sql-scripts/sql_in-memory_analytics_sample.sql) para sua área de transferência.
- - O script T-SQL cria os objetos necessários dentro da memória da base de dados de exemplo AdventureWorksLT que criou no passo 1.
- - O script cria duas tabelas de fatos e de tabela de dimensão. As tabelas de fatos são preenchidas com linhas de 3,5 milhões cada.
- - O script poderá demorar 15 minutos a concluir.
+   - O script T-SQL cria os objetos necessários dentro da memória da base de dados de exemplo AdventureWorksLT que criou no passo 1.
+   - O script cria duas tabelas de fatos e de tabela de dimensão. As tabelas de fatos são preenchidas com linhas de 3,5 milhões cada.
+   - O script poderá demorar 15 minutos a concluir.
 
 3. Cole o script T-SQL no SSMS e, em seguida, execute o script. O **COLUMNSTORE** palavra-chave no **CREATE INDEX** instrução é crucial, como em:<br/>`CREATE NONCLUSTERED COLUMNSTORE INDEX ...;`
 

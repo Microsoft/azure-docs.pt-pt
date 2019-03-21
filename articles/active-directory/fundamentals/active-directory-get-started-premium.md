@@ -13,12 +13,12 @@ ms.author: lizross
 ms.reviewer: piotrci
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 97c70c6187672c47a9f6dc09e1ccb8e6eadeff6a
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: ed01b2b122724ba1428fb685bb3f1f52b7099a7b
+ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56187697"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58287065"
 ---
 # <a name="sign-up-for-azure-active-directory-premium-editions"></a>Inscreva-se para as edições do Azure Active Directory Premium
 Pode comprar e associar as edições Premium do Azure Active Directory (Azure AD) com a sua subscrição do Azure. Se tiver de criar uma subscrição nova do Azure, também terá de ativar o plano de licenciamento e o acesso ao serviço Microsoft Azure AD.
@@ -65,17 +65,17 @@ Se iniciou sessão com um novo plano de licença do Microsoft Azure AD, terá d
 ### <a name="to-activate-your-license-plan"></a>Para ativar o plano de licenciamento
 - Abra o e-mail de confirmação que recebeu da Microsoft depois de se inscrever e, em seguida, clique em **Iniciar Sessão** ou em **Inscrever-se**.
    
-    ![Iniciar sessão](media/active-directory-get-started-premium/MOLSEmail.png)
+    ![E-mail de confirmação com início de sessão e inscrevem-se ligações](media/active-directory-get-started-premium/MOLSEmail.png)
 
     - **Iniciar sessão.** Escolha esta ligação se tiver um inquilino existente e, em seguida, inicie sessão com a sua conta de administrador existente. Tem de ser um administrador global no inquilino onde as licenças estão a ser ativadas.
 
     - **Inscrever-se.** Escolha esta ligação se quiser abrir a página **Criar Perfil de Conta** e crie um novo inquilino do Microsoft Azure AD para o seu plano de licenciamento.
 
-        ![Criar perfil de conta](media/active-directory-get-started-premium/MOLSAccountProfile.png)
+        ![Criar a página de perfil de conta, com informações de exemplo](media/active-directory-get-started-premium/MOLSAccountProfile.png)
 
 Quando tiver terminado, verá uma caixa de confirmação a agradecer por ter ativado o plano de licença para o seu inquilino.
 
-![Confirmação](media/active-directory-get-started-premium/MOLSThankYou.png)
+![Caixa de confirmação com obrigado](media/active-directory-get-started-premium/MOLSThankYou.png)
 
 ## <a name="activate-your-azure-ad-access"></a>Ativar o acesso ao Microsoft Azure AD
 Se adicionar licenças do Azure AD Premium novas a uma subscrição já existente, o acesso ao Microsoft Azure AD já deverá estar ativado. Caso contrário, tem de ativar o acesso do Azure AD depois de receber o **E-mail de boas-vindas**.  
@@ -89,11 +89,11 @@ Depois de as suas licenças compradas serem aprovisionadas no diretório, recebe
 
 1. Abra o **E-mail de boas-vindas** e, em seguida, clique em **Iniciar Sessão**.
    
-    ![E-mail de boas-vindas](media/active-directory-get-started-premium/AADEmail.png)
+    ![E-mail de boas-vindas, com ligação de início de sessão realçado](media/active-directory-get-started-premium/AADEmail.png)
 
 2. Depois de iniciar sessão com êxito, deverá proceder à verificação de dois passos num dispositivo móvel.
    
-    ![Verificação móvel](media/active-directory-get-started-premium/SignUppage.png)
+    ![Página de verificação de dois passos com verificação móvel](media/active-directory-get-started-premium/SignUppage.png)
 
 Normalmente, o processo de ativação demora apenas alguns minutos e, em seguida, pode utilizar o inquilino do Microsoft Azure AD. 
 

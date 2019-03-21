@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 03/19/2019
 ms.author: sachdevaswati
-ms.openlocfilehash: f9020cd6d35c59e9293e6e8a96b09319f9f8bb00
-ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
+ms.openlocfilehash: 48a0400a471e06f65c1d548b7c1c419a1cb198bd
+ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 03/20/2019
-ms.locfileid: "58225688"
+ms.locfileid: "58284583"
 ---
 # <a name="faq-about-sql-server-databases-that-are-running-on-an-azure-vm-backup"></a>FAQ sobre bases de dados do SQL Server em execução numa cópia de segurança de VM do Azure
 
@@ -66,7 +66,7 @@ Não. Tarefas de cópia de segurança com êxito não geram alertas. Os alertas 
 O **tarefa de cópia de segurança** menu mostrará apenas ad-hoc tarefas de cópia de segurança. Para a tarefa agendada utilize [monitorização com o Azure Monitor](backup-azure-monitoring-use-azuremonitor.md).
 
 ## <a name="are-future-databases-automatically-added-for-backup"></a>Bases de dados futuros são adicionados automaticamente para cópia de segurança?
-Sim, pode obter esta capacidade com [proteção automática](backup-azure-sql-database.md#enable-auto-protection).  
+Sim, pode obter esta capacidade com [proteção automática](backup-sql-server-database-azure-vms.md#enable-auto-protection).  
 
 ## <a name="if-i-delete-a-database-from-an-autoprotected-instance-what-will-happen-to-the-backups"></a>Se eliminar uma base de dados de uma instância de autoprotected, o que acontecerá com as cópias de segurança?
 Se uma base de dados é removida de uma instância de autoprotected, as cópias de segurança da base de dados ainda são tentadas. Isso implica que a base de dados eliminada começa a aparecer como mau estado de funcionamento sob **itens de cópia de segurança** e ainda está protegido.
@@ -84,7 +84,7 @@ Uma base de dados novamente com o nome é tratado como uma nova base de dados. P
 Pode selecionar a base de dados, que agora é mudado e configurar a proteção no mesmo. No caso da proteção automática está ativada na instância, a base de dados de nome mudado irá ser detetado e protegido automaticamente.
 
 ##  <a name="why-cant-i-see-an-added-database-for-an-autoprotected-instance"></a>Por que motivo não vejo uma base de dados foi adicionado para uma instância de autoprotected?
-A base de dados que [adicionar a uma instância de autoprotected](backup-azure-sql-database.md#enable-auto-protection) não pode aparecer imediatamente em itens protegidos. Isto acontece porque a deteção, normalmente, é executada a cada 8 horas. No entanto, pode detetar e proteger imediatamente novas bases de dados, se executar manualmente uma deteção, selecionando **bds recuperar**, conforme mostrado na imagem seguinte.
+A base de dados que [adicionar a uma instância de autoprotected](backup-sql-server-database-azure-vms.md#enable-auto-protection) não pode aparecer imediatamente em itens protegidos. Isto acontece porque a deteção, normalmente, é executada a cada 8 horas. No entanto, pode detetar e proteger imediatamente novas bases de dados, se executar manualmente uma deteção, selecionando **bds recuperar**, conforme mostrado na imagem seguinte.
 
   ![Detetar manualmente uma base de dados adicionado recentemente](./media/backup-azure-sql-database/view-newly-added-database.png)
 

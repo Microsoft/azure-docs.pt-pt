@@ -10,13 +10,14 @@ ms.author: mimart
 author: msmimart
 manager: daveba
 ms.reviewer: mal
+ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 16caf8b6fd48b5dca676b1c8ee046ad01264ca03
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 561d7f5b28775e5f431d35d956cff6f800cc11b2
+ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56211432"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58294523"
 ---
 # <a name="how-users-in-your-organization-can-invite-guest-users-to-an-app"></a>Como os utilizadores na sua organização podem convidar utilizadores convidados para uma aplicação
 
@@ -36,15 +37,15 @@ Depois de uma aplicação está configurada para Self-Service, os proprietários
 1. Abra o painel de acesso da `https://myapps.microsoft.com`.
 2. Aponte para a aplicação, selecione as reticências (**...** ) e, em seguida, selecione **Gerir aplicação**.
  
-   ![Painéis de acesso Gerir aplicação](media/add-users-iw/access-panel-manage-app.png)
+   ![Captura de ecrã que mostra o submenu para aplicação de gerir para a aplicação do Salesforce](media/add-users-iw/access-panel-manage-app.png)
  
 3. Na parte superior da lista de utilizadores, selecione **+**.
    
-   ![Painel de acesso, adicionar um utilizador](media/add-users-iw/access-panel-manage-app-add-user.png)
+   ![Captura de ecrã que mostra o símbolo de adição para adicionar membros à aplicação](media/add-users-iw/access-panel-manage-app-add-user.png)
    
 4. Na **adicionar membros** caixa de pesquisa, escreva o endereço de e-mail para o utilizador convidado. Também tem a opção de incluir uma mensagem de boas-vindas.
    
-   ![Convite de painel de acesso](media/add-users-iw/access-panel-invitation.png)
+   ![Captura de ecrã que mostra o adicionar a janela de membros para adicionar um convidado](media/add-users-iw/access-panel-invitation.png)
    
 5. Selecione **adicionar** para enviar um convite ao utilizador convidado. Após enviar o convite, a conta do utilizador será automaticamente adicionada ao diretório como convidada.
 
@@ -55,19 +56,19 @@ Depois de uma aplicação está configurada para Self-Service, os proprietários
 2. Abra o painel de acesso da `https://myapps.microsoft.com`.
 3. Selecione o **grupos** aplicação.
    
-   ![Aplicação de grupos do painel de acesso](media/add-users-iw/access-panel-groups.png)
+   ![Captura de ecrã que mostra a aplicação de grupos no painel de acesso](media/add-users-iw/access-panel-groups.png)
    
 4. Sob **grupos que possuo**, selecione o grupo que tem acesso à aplicação que pretende partilhar.
    
-   ![Grupos de painel de acesso que sou proprietário](media/add-users-iw/access-panel-groups-i-own.png)
+   ![Captura de ecrã que mostra onde pode selecionar um grupo de grupos que sou proprietário](media/add-users-iw/access-panel-groups-i-own.png)
    
 5. No topo da lista de membros do grupo, selecione **+**.
    
-   ![Grupos de painel de acesso ao adicionar um membro](media/add-users-iw/access-panel-groups-add-member.png)
+   ![Captura de ecrã que mostra o símbolo de adição para adicionar membros ao grupo](media/add-users-iw/access-panel-groups-add-member.png)
    
 6. Na **adicionar membros** caixa de pesquisa, escreva o endereço de e-mail para o utilizador convidado. Também tem a opção de incluir uma mensagem de boas-vindas.
    
-   ![Convite de grupo do painel de acesso](media/add-users-iw/access-panel-invitation.png)
+   ![Captura de ecrã que mostra o adicionar a janela de membros para adicionar um convidado](media/add-users-iw/access-panel-invitation.png)
    
 7. Selecione **adicionar** para enviar automaticamente o convite ao utilizador convidado. Após enviar o convite, a conta do utilizador será automaticamente adicionada ao diretório como convidada.
 

@@ -12,12 +12,12 @@ ms.workload: azure-vs
 ms.topic: conceptual
 ms.date: 12/02/2016
 ms.author: ghogen
-ms.openlocfilehash: 44056ae1bca2595965abd3a47b4a2aa29d221623
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: cec8ab9d678ff559176580fa8eccc261f449f4c5
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51255238"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58012893"
 ---
 # <a name="getting-started-with-azure-table-storage-and-visual-studio-connected-services-cloud-services-projects"></a>Introdução ao armazenamento de tabelas do Azure e o Visual Studio ligados (projetos de serviços cloud) de serviços
 [!INCLUDE [storage-try-azure-tools-tables](../../includes/storage-try-azure-tools-tables.md)]
@@ -29,12 +29,12 @@ O serviço de armazenamento de tabelas do Azure permite-lhe armazenar grandes qu
 
 Para começar, tem primeiro de criar uma tabela na sua conta de armazenamento. Vamos mostrar-lhe como criar uma tabela do Azure no código bem como realizar operações de entidade, como adicionar, modificar, ler e entidades da tabela de leitura e de tabela básica. Os exemplos são escritos em C\# de código e utilizar o [biblioteca de clientes de armazenamento do Microsoft Azure para .NET](https://msdn.microsoft.com/library/azure/dn261237.aspx).
 
-**Nota:** algumas das APIs que realizam chamadas de saída para o armazenamento do Azure são assíncronas. Ver [programação assíncrona com Async e Await](https://msdn.microsoft.com/library/hh191443.aspx) para obter mais informações. O código abaixo parte do princípio de métodos de programação assíncrona estão a ser utilizados.
+**NOTA:** Algumas das APIs que realizam chamadas de saída para o armazenamento do Azure são assíncronas. Ver [programação assíncrona com Async e Await](https://msdn.microsoft.com/library/hh191443.aspx) para obter mais informações. O código abaixo parte do princípio de métodos de programação assíncrona estão a ser utilizados.
 
 * Ver [introdução ao armazenamento de tabelas do Azure com o .NET](../storage/storage-dotnet-how-to-use-tables.md) para obter mais informações sobre a manipulação programática de tabelas.
 * Ver [documentação do armazenamento](https://azure.microsoft.com/documentation/services/storage/) para obter informações gerais sobre o armazenamento do Azure.
 * Ver [documentação de serviços Cloud](https://azure.microsoft.com/documentation/services/cloud-services/) para obter informações gerais sobre os serviços cloud do Azure.
-* Ver [ASP.NET](http://www.asp.net) para obter mais informações sobre a programação de aplicativos do ASP.NET.
+* Ver [ASP.NET](https://www.asp.net) para obter mais informações sobre a programação de aplicativos do ASP.NET.
 
 ## <a name="access-tables-in-code"></a>Tabelas de acesso no código
 Para aceder a tabelas em projetos de serviço cloud, terá de incluir os seguintes itens para c# ficheiros de origem que acede ao armazenamento de tabelas do Azure.

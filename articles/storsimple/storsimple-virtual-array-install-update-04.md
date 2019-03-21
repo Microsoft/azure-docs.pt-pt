@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 02/07/2017
 ms.author: alkohli
-ms.openlocfilehash: cd3fdec0e50d64af28306034e6e1086e67526b7d
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: b67fcb82bdcc94d7faeceedb7420a869e6578cad
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51251058"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58007335"
 ---
 # <a name="install-update-04-on-your-storsimple-virtual-array"></a>Instalar atualização 0.4 em sua matriz Virtual StorSimple
 
@@ -48,7 +48,7 @@ Execute os seguintes passos para transferir a atualização de software a partir
 
 #### <a name="to-download-the-update-or-the-hotfix"></a>Para transferir a atualização ou a correção
 
-1. Inicie o Internet Explorer e navegue para [ http://catalog.update.microsoft.com ](https://catalog.update.microsoft.com).
+1. Inicie o Internet Explorer e navegue para [ https://catalog.update.microsoft.com ](https://catalog.update.microsoft.com).
 
 2. Se esta for a primeira vez que utiliza o Catálogo Microsoft Update neste computador, clique em **Instalar** quando lhe for pedido para instalar o suplemento do Catálogo Microsoft Update.
 

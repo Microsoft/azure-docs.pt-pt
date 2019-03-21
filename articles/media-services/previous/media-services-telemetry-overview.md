@@ -12,14 +12,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/09/2019
+ms.date: 03/20/2019
 ms.author: juliako
-ms.openlocfilehash: 48b88aed833b0cd15f47195c67be80fe75fe153f
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: 5f33249496c9a4fc8a094e64f15c8d95da69194b
+ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56005187"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58294880"
 ---
 # <a name="azure-media-services-telemetry"></a>Telemetria de serviços de multimédia do Azure  
 

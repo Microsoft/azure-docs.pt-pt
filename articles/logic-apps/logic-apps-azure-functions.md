@@ -10,16 +10,16 @@ ms.topic: article
 ms.date: 08/20/2018
 ms.reviewer: klam, LADocs
 ms.suite: integration
-ms.openlocfilehash: bb00ef0f76b71d0a4748a319c9f2a5d64dffa251
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
+ms.openlocfilehash: 2bec33a4a8540f9599cf1d479f1f59c4cde39bd2
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50233315"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57861592"
 ---
 # <a name="add-and-run-custom-code-snippets-in-azure-logic-apps-with-azure-functions"></a>Adicionar e executar fragmentos de código personalizado no Azure Logic Apps com as funções do Azure
 
-Quando quiser executar apenas suficiente código que executa uma tarefa específica nas suas aplicações lógicas, pode criar suas próprias funções com [as funções do Azure](../azure-functions/functions-overview.md). Este serviço ajuda-o a criar o node. js, c# e F # trechos de código para que não tenha de criar uma aplicação completa ou a infraestrutura para a execução do seu código. As funções do Azure fornece computação sem servidor na cloud e é útil para realizar tarefas como nestes exemplos:
+Quando quiser executar apenas suficiente código que executa uma tarefa específica nas suas aplicações lógicas, pode criar suas próprias funções com [as funções do Azure](../azure-functions/functions-overview.md). Este serviço ajuda-o a criar o node. js, C#, e F# fragmentos de código para que não tenha de criar uma aplicação completa ou a infraestrutura para a execução do seu código. As funções do Azure fornece computação sem servidor na cloud e é útil para realizar tarefas como nestes exemplos:
 
 * Estenda o comportamento da sua aplicação lógica com as funções em node. js ou c#.
 * Realizar cálculos em seu fluxo de trabalho de aplicação lógica.
@@ -44,7 +44,7 @@ Para seguir este artigo, precisa destes itens:
     O modelo de Acionador HTTP pode aceitar o conteúdo que tenha `application/json` tipo da sua aplicação lógica. 
     Quando adiciona uma função do Azure à sua aplicação lógica, o Estruturador da aplicação lógica mostra as funções personalizadas criadas através deste modelo na sua subscrição do Azure. 
 
-  * A função não usa rotas personalizadas, a menos que definiu uma [definição de OpenAPI](../azure-functions/functions-openapi-definition.md), anteriormente conhecido como um [ficheiro Swagger](http://swagger.io/). 
+  * A função não usa rotas personalizadas, a menos que definiu uma [definição de OpenAPI](../azure-functions/functions-openapi-definition.md), anteriormente conhecido como um [ficheiro Swagger](https://swagger.io/). 
   
   * Se definiu uma definição de OpenAPI para a função, o Designer de aplicações lógicas dá-lhe uma experiência mais rica para trabalhar com parâmetros da função. Antes da aplicação lógica pode localizar e acessar as funções com as definições de OpenAPI [configure a sua aplicação de função, seguindo estes passos](#function-swagger).
 
@@ -52,7 +52,7 @@ Para seguir este artigo, precisa destes itens:
 
   Antes de poder adicionar ações que podem executar as funções, tem de iniciar a aplicação lógica com um acionador.
 
-  Se estiver familiarizado com aplicações lógicas, reveja [o que é o Azure Logic Apps](../logic-apps/logic-apps-overview.md) e [guia de início rápido: criar a sua primeira aplicação lógica](../logic-apps/quickstart-create-first-logic-app-workflow.md).
+  Se estiver familiarizado com aplicações lógicas, reveja [o que é o Azure Logic Apps](../logic-apps/logic-apps-overview.md) e [início rápido: Criar a sua primeira aplicação lógica](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
 <a name="create-function-external"></a>
 
@@ -67,7 +67,7 @@ Se estiver familiarizado com a criação de funções do Azure, saiba como [cria
 
 <a name="function-swagger"></a>
 
-* Opcionalmente, se [gerar uma definição de API](../azure-functions/functions-openapi-definition.md), anteriormente conhecido como um [ficheiro Swagger](http://swagger.io/), por sua função, pode obter uma experiência mais rica ao trabalhar com parâmetros de função no Designer de aplicações lógicas. Para configurar a sua aplicação de funções para que a aplicação lógica pode encontrar e utilizar as funções que tenham uma descrição do Swagger, siga estes passos:
+* Opcionalmente, se [gerar uma definição de API](../azure-functions/functions-openapi-definition.md), anteriormente conhecido como um [ficheiro Swagger](https://swagger.io/), por sua função, pode obter uma experiência mais rica ao trabalhar com parâmetros de função no Designer de aplicações lógicas. Para configurar a sua aplicação de funções para que a aplicação lógica pode encontrar e utilizar as funções que tenham uma descrição do Swagger, siga estes passos:
 
   1. Certifique-se de que a sua aplicação function app está ativamente em execução.
 
@@ -125,11 +125,11 @@ Antes de poder criar uma função do Azure a partir de dentro da sua aplicação
    * Entre os passos existentes no fluxo de trabalho da sua aplicação lógica, mova o rato por cima da seta, selecione o sinal de adição (+) iniciar sessão e, em seguida, selecione **adicionar uma ação**.
 
 3. Na caixa de pesquisa, introduza "azure functions" como o filtro.
-Na lista de ações, selecione a ação: **escolher uma função do Azure - as funções do Azure** 
+Na lista de ações, selecione a ação: **Escolha uma função do Azure - as funções do Azure** 
 
    ![Localizar "Azure functions"](./media/logic-apps-azure-functions/find-azure-functions-action.png)
 
-4. Na lista de aplicações de função, selecione a sua aplicação de função. Depois das ações é aberta a lista, selecione a ação: **as funções do Azure - criar uma nova função**
+4. Na lista de aplicações de função, selecione a sua aplicação de função. Depois de abre a lista de ações, selecione a ação: **As funções do Azure - criar nova função**
 
    ![Selecione a sua aplicação de função](./media/logic-apps-azure-functions/select-function-app-create-function.png)
 
@@ -181,7 +181,7 @@ Para chamar as funções do Azure existentes a partir de aplicações lógicas, 
 2. No passo em que pretende adicionar a função, escolha **novo passo** > **adicionar uma ação**. 
 
 3. Na caixa de pesquisa, introduza "azure functions" como o filtro.
-Na lista de ações, selecione a ação: **escolher uma função do Azure - as funções do Azure** 
+Na lista de ações, selecione a ação: **Escolha uma função do Azure - as funções do Azure** 
 
    ![Localizar "Azure functions"](./media/logic-apps-azure-functions/find-azure-functions-action.png)
 

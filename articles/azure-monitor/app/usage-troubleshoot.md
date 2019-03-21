@@ -13,12 +13,12 @@ ms.date: 07/11/2018
 ms.reviewer: mbullwin
 ms.pm_owner: daviste;NumberByColors
 ms.author: daviste
-ms.openlocfilehash: 7c903390af54d1771bce1b6aff96e9bb54397189
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: eabc47c2acb33d8c6ee03477b5e8c7783edebbb7
+ms.sourcegitcommit: aa3be9ed0b92a0ac5a29c83095a7b20dd0693463
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54046059"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58258785"
 ---
 # <a name="troubleshoot-user-behavior-analytics-tools-in-application-insights"></a>Resolver problemas de ferramentas de análise de comportamento do utilizador no Application Insights
 Tem dúvidas sobre o [ferramentas de análise de comportamento do utilizador no Application Insights](usage-overview.md): [Utilizadores, sessões, eventos](usage-segmentation.md), [funis](usage-funnels.md), [fluxos de utilizador](usage-flows.md), [retenção](usage-retention.md), ou coortes? Seguem-se algumas respostas.
@@ -39,7 +39,7 @@ As ferramentas de análise de comportamento do utilizador não são atualmente s
 ## <a name="naming-events"></a>Eventos de nomenclatura
 **Meu aplicativo tem milhares de vista de página diferentes e nomes de eventos personalizados. É difícil distinguir entre eles, e as ferramentas de análise de comportamento do utilizador, muitas vezes, deixar de responder. Como posso corrigir esses problemas de nomenclatura?**
 
-Vista de página e nomes de eventos personalizados são utilizados em toda as ferramentas de análise de comportamento do utilizador. Eventos de nomenclatura bem é fundamental para retirar valor dessas ferramentas. O objetivo é um equilíbrio entre ter nomes muito poucos, bem genéricos ("botão clicado") e ter nomes de demasiados, excessivamente específicos ("botão Editar clicou http://www.contoso.com/index").
+Vista de página e nomes de eventos personalizados são utilizados em toda as ferramentas de análise de comportamento do utilizador. Eventos de nomenclatura bem é fundamental para retirar valor dessas ferramentas. O objetivo é um equilíbrio entre ter nomes muito poucos, bem genéricos ("botão clicado") e ter nomes de demasiados, excessivamente específicos ("botão Editar clicado em http:\//www.contoso.com/index").
 
 Para fazer alterações para a vista de página e a sua aplicação está a enviar de nomes de evento personalizado, terá de alterar o código-fonte e Reimplementar a sua aplicação. **Telemetria de todos os dados no Application Insights são armazenados durante 90 dias e não não possível eliminar**, por isso, as alterações que fizer para nomes de eventos irão demorar 90 dias para totalmente do manifesto. Durante 90 dias depois de efetuar alterações de nome, ambos os nomes antigos e novos eventos irão aparecer na sua telemetria, então, ajustar consultas e comunicar dentro de suas equipes, em conformidade.
 

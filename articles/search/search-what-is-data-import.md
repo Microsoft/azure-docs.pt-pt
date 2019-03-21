@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 02/26/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 2c3da9470668fa2987195c26e98eee51f14027f7
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 7d95ae1f750c59c121e998c6f51f9439b1b0339a
+ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58136349"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58287099"
 ---
 # <a name="data-import-overview---azure-search"></a>Importação de dados descrição geral - Azure Search
 
@@ -40,18 +40,25 @@ Para obter uma introdução a cada metodologia, veja [início rápido: Criar um 
 
 <a name="indexing-actions"></a>
 
-### <a name="indexing-actions-upload-merge-uploadormerge-delete"></a>Ações de indexação: carregar, intercalar, uploadOrMerge, eliminar
+### <a name="indexing-actions-upload-merge-mergeorupload-delete"></a>Ações de indexação: carregar, intercalar, mergeOrUpload, eliminar
 
-Ao utilizar a API REST, irá emitir pedidos de HTTP POST com corpos de pedido JSON para o URL de ponto final do seu índice de Pesquisa do Azure. O objeto JSON no corpo do pedido de HTTP irá conter uma única matriz JSON com o nome "valor", que contém objetos JSON que representam os documentos que pretende adicionar ao seu índice, atualizar ou eliminar.
+Pode controlar o tipo de ação de indexação numa base por documento, especificando se o documento deve ser carregado no total, intercalado com o conteúdo de documento existente ou excluídos.
 
-Cada objeto JSON na matriz "valor" representa um documento a ser indexado. Cada um destes objetos contém a chave do documento e especifica a ação de indexação pretendida (carregar, intercalar, eliminar). Dependendo das ações que escolher abaixo, apenas determinados campos tem de ser incluídos para cada documento:
+Na API do REST, emita pedidos de HTTP POST com corpos de pedido JSON para o URL de ponto final do seu índice da Azure Search. Cada objeto JSON na matriz "valor" contém a chave do documento e especifica uma ação de indexação adições, atualizações, ou elimina o conteúdo do documento. Para obter um exemplo de código, consulte [carregar documentos](search-create-index-rest-api.md#load-documents).
+
+No SDK do .NET, empacotar os dados para um `IndexBatch` objeto. Uma `IndexBatch` encapsula uma coleção de `IndexAction` objetos, cada um deles contendo um documento e uma propriedade que informa a Azure Search qual a ação a realizar nesse documento. Para obter um exemplo de código, consulte [construir IndexBatch](search-import-data-dotnet.md#construct-indexbatch).
+
 
 | @search.action | Descrição | Campos necessários para cada documento | Notas |
 | -------------- | ----------- | ---------------------------------- | ----- |
 | `upload` |Um ação `upload` é semelhante a um "upsert" onde o documento será inserido se for novo e atualizado/substituído se já existir. |chave, juntamente com quaisquer outros campos que pretende definir |Quando atualizar/substituir um documento existente, qualquer campo que não está especificado no pedido terá o respetivo campo definido como `null`. Isto ocorre mesmo quando o campo foi anteriormente definido para um valor não nulo. |
-| `merge` |Atualiza um documento existente com os campos especificados. Se o documento não existe no índice, a intercalação irá falhar. |chave, juntamente com quaisquer outros campos que pretende definir |Qualquer campo que especifique numa intercalação irá substituir o campo existente no documento. Isto inclui campos do tipo `Collection(Edm.String)`. Por exemplo, se o documento contém um campo `tags` com o valor `["budget"]` e executar uma intercalação com o valor `["economy", "pool"]` para `tags`, o valor final do campo `tags` será `["economy", "pool"]`. Não será `["budget", "economy", "pool"]`. |
+| `merge` |Atualiza um documento existente com os campos especificados. Se o documento não existe no índice, a intercalação irá falhar. |chave, juntamente com quaisquer outros campos que pretende definir |Qualquer campo que especifique numa intercalação irá substituir o campo existente no documento. No SDK do .NET, isto inclui campos do tipo `DataType.Collection(DataType.String)`. Na API do REST, isto inclui campos do tipo `Collection(Edm.String)`. Por exemplo, se o documento contém um campo `tags` com o valor `["budget"]` e executar uma intercalação com o valor `["economy", "pool"]` para `tags`, o valor final do campo `tags` será `["economy", "pool"]`. Não será `["budget", "economy", "pool"]`. |
 | `mergeOrUpload` |Esta ação tem o mesmo comportamento de `merge` caso um documento com a chave especificada já exista no índice. Se o documento não existir, tem um comportamento semelhante `upload` a um novo documento. |chave, juntamente com quaisquer outros campos que pretende definir |- |
 | `delete` |Remove o documento especificado do índice. |apenas chave |Quaisquer campos que especificar diferentes do campo de chave serão ignorados. Se pretender remover um campo individual de um documento, utilize `merge` em vez disso e simplesmente defina o campo explicitamente como nulo. |
+
+## <a name="decide-which-indexing-action-to-use"></a>Decidir a ação de indexação a utilizar
+Para importar dados utilizando o SDK de .NET, (carregar, intercalar, delete e mergeOrUpload). Dependendo das ações que escolher abaixo, apenas determinados campos tem de ser incluídos para cada documento:
+
 
 ### <a name="formulate-your-query"></a>Formular a consulta
 Existem duas formas de [pesquisar o índice através da API REST](https://docs.microsoft.com/rest/api/searchservice/Search-Documents). Uma forma consiste em emitir um pedido de HTTP POST, em que os parâmetros da sua consulta são definidos num objeto JSON no corpo do pedido. A outra forma consiste em emitir um pedido de HTTP GET, em que os parâmetros da consulta são definidos no URL do pedido. O POST tem [limites mais flexíveis](https://docs.microsoft.com/rest/api/searchservice/Search-Documents) em relação ao tamanho dos parâmetros de consulta do que o GET. Por este motivo, recomendamos a utilização do POST, salvo se tiver circunstâncias especiais em que a utilização do GET seja mais conveniente.

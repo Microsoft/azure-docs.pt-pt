@@ -9,14 +9,15 @@ ms.date: 07/02/2018
 ms.author: mimart
 author: msmimart
 manager: daveba
-ms.reviewer: sasubram
+ms.reviewer: mal
+ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bb01ae6514dfb97cc8a923619513383ace0b09a5
-ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
+ms.openlocfilehash: f4935cc15bf3edeccd6b6ce9da701904a32606db
+ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56669980"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58295033"
 ---
 # <a name="quickstart-add-guest-users-to-your-directory-in-the-azure-portal"></a>Início rápido: Adicionar utilizadores convidados para o seu diretório no portal do Azure
 
@@ -39,15 +40,15 @@ Para concluir o cenário deste tutorial, precisa de:
 2. No painel esquerdo, selecione **Azure Active Directory**.
 3.  Em **Gerir**, selecione **Utilizadores**.
 
-    ![Selecione Azure Active Directory](media/quickstart-add-users-portal/quickstart-users-portal-user.png)
+    ![Captura de ecrã que mostra onde pode selecionar a opção de utilizadores](media/quickstart-add-users-portal/quickstart-users-portal-user.png)
 
 4.  Selecione **Novo utilizador convidado**.
 
-    ![Selecione Azure Active Directory](media/quickstart-add-users-portal/quickstart-users-portal-user-3.png)
+    ![Captura de ecrã que mostra onde pode selecionar a opção de utilizador novo convidado](media/quickstart-add-users-portal/quickstart-users-portal-user-3.png)
 
 5.  Em **Nome de utilizador**, introduza o endereço de e-mail do utilizador externo. Em **Incluir uma mensagem pessoal com o convite**, escreva uma mensagem de boas-vindas. 
 
-    ![Selecione Azure Active Directory](media/quickstart-add-users-portal/quickstart-users-portal-user-4.png)
+    ![Captura de ecrã que mostra onde pode introduzir a mensagem de convite de utilizador convidado](media/quickstart-add-users-portal/quickstart-users-portal-user-4.png)
 
 6. Selecione **Convidar** para enviar automaticamente o convite ao utilizador convidado. É apresentada uma notificação com a mensagem **Utilizador convidado com sucesso** no canto superior direito. 
 7.  Após enviar o convite, a conta do utilizador será automaticamente adicionada ao diretório como convidada.
@@ -59,7 +60,7 @@ Adicione a aplicação Salesforce ao seu inquilino de teste e atribua o utilizad
 3.  Selecione **Nova aplicação**.
 4. Em **Adicionar a partir da galeria**, pesquise a aplicação **Salesforce** e, em seguida, selecione-a.
 
-    ![Selecione Azure Active Directory](media/quickstart-add-users-portal/quickstart-users-portal-select-salesforce.png)
+    ![Caixa de pesquisa de captura de ecrã que mostra a adicionar a partir da Galeria](media/quickstart-add-users-portal/quickstart-users-portal-select-salesforce.png)
 5. Selecione **Adicionar**.
 6. Em **Gerir**, selecione **Início de sessão único** e em **Modo de Início de Sessão Único**, selecione **Início de Sessão Baseado em Palavra-passe** e clique em **Guardar**.
 7. Em **Gerir**, selecione **Utilizadores e grupos** > **Adicionar utilizador** > **Utilizadores e grupos**.
@@ -71,11 +72,11 @@ Agora inicie sessão como utilizador convidado para ver o convite.
 1.  Inicie sessão na conta de e-mail do seu utilizador convidado de teste.
 2.  Na sua caixa de entrada, procure o e-mail "Foi convidado".
 
-    ![E-mail de convite B2B](media/quickstart-add-users-portal/quickstart-users-portal-email-small.png)
+    ![Captura de ecrã que mostra o e-mail de convite de B2B](media/quickstart-add-users-portal/quickstart-users-portal-email-small.png)
 
 3.  No corpo do e-mail, selecione **Começar Agora**. É apresentada uma página **Analisar permissões** no browser. 
 
-    ![Página de aceitação do convite B2B](media/quickstart-add-users-portal/quickstart-users-portal-accept.png)
+    ![Captura de ecrã que mostra a página de permissões de revisão](media/quickstart-add-users-portal/quickstart-users-portal-accept.png)
 
 4. Selecione **Aceitar**. É apresentado o Painel de Acesso, que enumera as aplicações a que o utilizador convidado pode aceder.
 

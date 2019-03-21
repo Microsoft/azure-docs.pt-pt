@@ -14,14 +14,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/08/2019
 ms.author: willzhan, dwgeo
-ms.openlocfilehash: 13042a25a0bf106dd579e7d5e8cf8553a79c8f00
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
-ms.translationtype: MT
+ms.openlocfilehash: bf2f2db57f33645389fd751c8c00f9f135416c50
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56002108"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57864138"
 ---
 # <a name="offline-widevine-streaming-for-android"></a>Offline Widevine para transmissão em fluxo para Android  
+
+> [!div class="op_single_selector" title1="Select the version of Media Services that you are using:"]
+> * [Versão 3](../latest/offline-widevine-for-android.md)
+> * [Versão 2](offline-widevine-for-android.md)
 
 Além de proteger conteúdo para a transmissão em fluxo online, suporte de dados de conteúdo de subscrição e aluguel serviços oferta conteúdo transferível que funciona quando não estiver ligado à internet. Poderá ter de transferir o conteúdo no seu telemóvel ou tablet para reprodução em modo de avião, quando se soltando desligado da rede. Cenários adicionais, em que pode querer transferir conteúdo:
 

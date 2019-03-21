@@ -10,12 +10,12 @@ ms.suite: integration
 ms.topic: article
 ms.date: 08/18/2018
 tags: connectors
-ms.openlocfilehash: 1247f603b759364edcee2bff12f75bb0a217ecd6
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
-ms.translationtype: MT
+ms.openlocfilehash: 9fe41cf2946525948897635a4e30213d161431ef
+ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50231259"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58295305"
 ---
 # <a name="manage-dynamics-365-records-with-azure-logic-apps"></a>Gerir registos do Dynamics 365 com o Azure Logic Apps
 
@@ -42,7 +42,7 @@ Primeiro, adicione um acionador do Dynamics 365 que é acionado quando é aprese
 
 1. Na [portal do Azure](https://portal.azure.com), abra a aplicação lógica em branco no Estruturador da aplicação lógica, se não estiver já abrir.
 
-1. Na caixa de pesquisa, introduza "Dynamics 365" como o filtro. Neste exemplo, abaixo da lista de disparadores, selecione este acionador: **quando é criado um registo**
+1. Na caixa de pesquisa, introduza "Dynamics 365" como o filtro. Neste exemplo, abaixo da lista de disparadores, selecione este acionador: **Quando é criado um registo**
 
    ![Selecionar acionador](./media/connectors-create-api-crmonline/select-dynamics-365-trigger.png)
 
@@ -66,7 +66,7 @@ Agora, adicione a ação de Dynamics 365 que cria um registo de tarefas para o n
 
 1. No acionador, escolha **novo passo**.
 
-1. Na caixa de pesquisa, introduza "Dynamics 365" como o filtro. Na lista de ações, selecione a ação: **criar um novo registo**
+1. Na caixa de pesquisa, introduza "Dynamics 365" como o filtro. Na lista de ações, selecione a ação: **Criar um novo registo**
 
    ![Ação de seleção](./media/connectors-create-api-crmonline/select-action.png)
 
@@ -123,8 +123,8 @@ A tabela seguinte descreve alguns dos tipos de campo e os tipos de dados necess�
 | Tipo de campo | Tipo de dados obrigatório | Descrição | 
 |------------|--------------------|-------------|
 | Campos de texto | Uma linha de texto | Estes campos requerem uma única linha de texto ou conteúdo dinâmico, que tem o tipo de texto. <p><p>*Campos de exemplo*: **Descrição** e **categoria** | 
-| Campos de número inteiro | Número inteiro | Alguns campos requerem o número inteiro ou conteúdo dinâmico, que tem o tipo de número inteiro. <p><p>*Campos de exemplo*: **percentagem concluída** e **duração** | 
-| Campos de data | Data e hora | Alguns campos requerem uma data com o formato dd/mm/aaaa ou conteúdo dinâmico, que tem o tipo de data. <p><p>*Campos de exemplo*: **criado em**, **Start Date**, **início real**, **fim real**, e **data de vencimento** | 
+| Campos de número inteiro | Número inteiro | Alguns campos requerem o número inteiro ou conteúdo dinâmico, que tem o tipo de número inteiro. <p><p>*Campos de exemplo*: **Percentagem de conclusão** e **duração** | 
+| Campos de data | Data e hora | Alguns campos requerem uma data com o formato dd/mm/aaaa ou conteúdo dinâmico, que tem o tipo de data. <p><p>*Campos de exemplo*: **Criado em**, **data de início**, **início real**, **fim real**, e **data de vencimento** | 
 | Tipo de campos que requerem um ID de registo e a pesquisa | Chave primária | Alguns campos que fazem referência a outro registo de entidade requerem um ID de registo e um tipo de pesquisa. | 
 ||||
 
@@ -187,7 +187,7 @@ Para obter mais informações sobre resolução de problemas de aplicações ló
 
 ## <a name="connector-reference"></a>Referência do conector
 
-Para obter detalhes técnicos, como disparadores, ações e limites, conforme descrito pelo ficheiro de Swagger do conector, consulte a [página de referência do conector](/connectors/crm/). 
+Para obter detalhes técnicos, como disparadores, ações e limites, conforme descrito pelo ficheiro de Swagger do conector, consulte a [página de referência do conector](/connectors/dynamicscrmonline/). 
 
 ## <a name="get-support"></a>Obter suporte
 

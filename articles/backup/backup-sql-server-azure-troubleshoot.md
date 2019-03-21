@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: article
 ms.date: 03/13/2019
 ms.author: anuragm
-ms.openlocfilehash: b8fb6e2b23c275d198ac58fec874ad6627a7b43e
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: HT
+ms.openlocfilehash: e5565e257e511203043c84e499712cc6a0a78c3f
+ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58007175"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58286019"
 ---
 # <a name="troubleshoot-back-up-sql-server-on-azure"></a>Resolver problemas de cópia de segurança do SQL Server no Azure
 
@@ -21,7 +21,7 @@ Este artigo fornece informações de resolução de problemas para proteger VMs 
 
 ## <a name="feature-consideration-and-limitations"></a>Funcionalidade considerações e limitações
 
-Para ver a consideração de funcionalidade, consulte o artigo [cópia de segurança sobre o SQL Server em VMs do Azure](backup-sql-server-azure-vms.md#feature-consideration-and-limitations).
+Para ver a consideração de funcionalidade, consulte o artigo [cópia de segurança sobre o SQL Server em VMs do Azure](backup-azure-sql-database.md#feature-consideration-and-limitations).
 
 ## <a name="sql-server-permissions"></a>Permissões do SQL Server
 
@@ -80,7 +80,7 @@ As tabelas a seguir são organizadas por código de erro.
 | Mensagem de erro | Causas possíveis | Ação recomendada |
 |---|---|---|
 | Não é possível efetuar cópia de segurança, como o log de transação para a origem de dados está cheio. | O espaço do registo transacional de base de dados está cheio. | Para corrigir este problema, consulte a [documentação do SQL](https://docs.microsoft.com/sql/relational-databases/errors-events/mssqlserver-9002-database-engine-error). |
-| Esta base de dados SQL não suporta o tipo de cópia de segurança solicitado. | Réplicas secundárias do sempre em AG não suportam cópias de segurança completas e diferenciais. | <ul><li>Se acionada uma cópia de segurança ad hoc, acione as cópias de segurança no nó principal.</li><li>Se a cópia de segurança foi agendada pela política, certifique-se de que o nó principal está registado. Para registar o nó [siga os passos para detetar uma base de dados do SQL Server](backup-azure-sql-database.md#discover-sql-server-databases).</li></ul> |
+| Esta base de dados SQL não suporta o tipo de cópia de segurança solicitado. | Réplicas secundárias do sempre em AG não suportam cópias de segurança completas e diferenciais. | <ul><li>Se acionada uma cópia de segurança ad hoc, acione as cópias de segurança no nó principal.</li><li>Se a cópia de segurança foi agendada pela política, certifique-se de que o nó principal está registado. Para registar o nó [siga os passos para detetar uma base de dados do SQL Server](backup-sql-server-database-azure-vms.md#discover-sql-server-databases).</li></ul> |
 
 ## <a name="restore-failures"></a>As falhas do restauro
 

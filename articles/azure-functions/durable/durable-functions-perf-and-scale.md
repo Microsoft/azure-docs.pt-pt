@@ -10,12 +10,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 03/14/2019
 ms.author: azfuncdf
-ms.openlocfilehash: 170f20ae65a8ba58291a630dc76496cbdcdb36de
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 3c9227a34c1b7208210b84b5b7d64ecdc8654a83
+ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58138121"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58286385"
 ---
 # <a name="performance-and-scale-in-durable-functions-azure-functions"></a>Desempenho e dimensionamento nas funções durável (funções do Azure)
 
@@ -60,7 +60,7 @@ O atraso máximo de sondagem é configurável através da `maxQueuePollingInterv
 
 ## <a name="storage-account-selection"></a>Seleção de conta de armazenamento
 
-As filas, tabelas e blobs utilizados pelas funções duráveis são criados por numa conta de armazenamento do Azure configurada. A conta a utilizar pode ser especificada utilizando o `durableTask/azureStorageConnectionStringName` definição **Host. JSON** ficheiro.
+As filas, tabelas e blobs utilizados pelas funções duráveis são criados numa conta de armazenamento do Azure configurada. A conta a utilizar pode ser especificada utilizando o `durableTask/azureStorageConnectionStringName` definição **Host. JSON** ficheiro.
 
 ### <a name="functions-1x"></a>Funções 1.x
 

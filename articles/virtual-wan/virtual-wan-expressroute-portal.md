@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 10/5/2018
 ms.author: cherylmc
 Customer intent: As someone with a networking background, I want to connect my corporate on-premises network(s) to my VNets using Virtual WAN and ExpressRoute.
-ms.openlocfilehash: 6ac9fce9a6903b95156f43f41cea7bffdb1a072d
-ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
+ms.openlocfilehash: 017c8c2f060f969f2e7f8d387dcbafa2dac426d3
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57402851"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57842950"
 ---
 # <a name="tutorial-create-an-expressroute-association-using-azure-virtual-wan-preview"></a>Tutorial: Criar uma associação de ExpressRoute com o Azure WAN Virtual (pré-visualização)
 
@@ -43,7 +43,7 @@ Neste tutorial, ficará a saber como:
 
 ## <a name="register"></a>Registar esta funcionalidade
 
-Antes de poder configurar uma WAN Virtual, tem de inscrever primeiro a sua subscrição na Pré-visualização. Caso contrário, não poderá trabalhar com a WAN Virtual no portal. Para se inscrever, envie um e-mail para **azurevirtualwan@microsoft.com** com o ID da subscrição. Receberá um e-mail assim que a sua subscrição tiver sido inscrita.
+Antes de poder configurar uma WAN Virtual, tem de inscrever primeiro a sua subscrição na Pré-visualização. Caso contrário, não poderá trabalhar com a WAN Virtual no portal. Para se inscrever, enviar um e-mail para **azurevirtualwan\@microsoft.com** com o ID da subscrição. Receberá um e-mail assim que a sua subscrição tiver sido inscrita.
 
 **Considerações sobre a Pré-visualização:**
 
@@ -71,15 +71,15 @@ Num browser, navegue para o [portal do Azure (pré-visualização)](https://aka.
 ## <a name="hub"></a>4. Encontrar e associar um circuito a um hub
 
 1. Selecione o seu vWAN e em **Arquitetura do WAN Virtual**, selecione **Circuitos do ExpressRoute**
-2. Se o circuito do ExpressRoute estiver na mesma subscrição que o seu vWAN, clique em **Selecionar circuito do ExpressRoute** na sua subscrição(ões) 
-3. Utilizando a lista pendente, selecione o ExpressRoute que pretende associar ao hub.
-4. Se o circuito do ExpressRoute não estiver na mesma subscrição ou foram fornecidos [um ID de chave e o mesmo nível de autorização](../expressroute/expressroute-howto-linkvnet-portal-resource-manager.md), selecione **localizar um circuito resgatar uma chave de autorização**
-5. Introduza os seguintes detalhes:
-* **Chave de autorização** – Gerado pelo proprietário do circuito, conforme descrito acima
-* **URI do circuito do elemento** – URI do circuito que é apresentado pelo proprietário do circuito e é o identificador exclusivo do circuito
-* **Peso de encaminhamento** - [peso de encaminhamento](../expressroute/expressroute-optimize-routing.md) permite-lhe dar preferência a determinados caminhos quando vários circuitos de diferentes localizações de peering estão ligados ao mesmo hub
-6. Clique em **Encontrar circuito** e selecione o circuito, se for encontrado
-7. Selecione 1 ou mais hubs no menu pendente e clique em **Guardar**
+1. Se o circuito do ExpressRoute estiver na mesma subscrição que o seu vWAN, clique em **Selecionar circuito do ExpressRoute** na sua subscrição(ões) 
+1. Utilizando a lista pendente, selecione o ExpressRoute que pretende associar ao hub.
+1. Se o circuito do ExpressRoute não estiver na mesma subscrição ou foram fornecidos [um ID de chave e o mesmo nível de autorização](../expressroute/expressroute-howto-linkvnet-portal-resource-manager.md), selecione **localizar um circuito resgatar uma chave de autorização**
+1. Introduza os seguintes detalhes:
+1. **Chave de autorização** – Gerado pelo proprietário do circuito, conforme descrito acima
+1. **URI do circuito do elemento** – URI do circuito que é apresentado pelo proprietário do circuito e é o identificador exclusivo do circuito
+1. **Peso de encaminhamento** - [peso de encaminhamento](../expressroute/expressroute-optimize-routing.md) permite-lhe dar preferência a determinados caminhos quando vários circuitos de diferentes localizações de peering estão ligados ao mesmo hub
+1. Clique em **Encontrar circuito** e selecione o circuito, se for encontrado
+1. Selecione 1 ou mais hubs no menu pendente e clique em **Guardar**
 
 ## <a name="vnet"></a>5. Ligar a VNet a um hub
 

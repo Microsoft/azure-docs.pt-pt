@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 02/21/2019
 ms.author: charwen
 ms.custom: seodec18
-ms.openlocfilehash: 690ef0a6eb85934ffc5bd8e546843bc70559c28d
-ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
+ms.openlocfilehash: 4a1f9556413df7ad8954171d2b446419d3bc2975
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57406291"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58092315"
 ---
 # <a name="configure-expressroute-and-site-to-site-coexisting-connections-using-powershell"></a>Configurar ligações coexistentes ExpressRoute e de Site a Site com o PowerShell
 > [!div class="op_single_selector"]
@@ -87,14 +87,14 @@ Este procedimento orienta-o ao longo da criação de uma VNet e de ligações Ex
 
 1. Inicie sessão e selecione a sua subscrição.
 
-  [!INCLUDE [sign in](../../includes/expressroute-cloud-shell-connect.md)]
+   [!INCLUDE [sign in](../../includes/expressroute-cloud-shell-connect.md)]
 2. Definir variáveis.
 
-  ```azurepowershell-interactive
-  $location = "Central US"
-  $resgrp = New-AzResourceGroup -Name "ErVpnCoex" -Location $location
-  $VNetASN = 65515
-  ```
+   ```azurepowershell-interactive
+   $location = "Central US"
+   $resgrp = New-AzResourceGroup -Name "ErVpnCoex" -Location $location
+   $VNetASN = 65515
+   ```
 3. Crie uma rede virtual, incluindo uma Sub-Rede do Gateway. Para obter mais informações sobre como criar uma rede virtual, veja [Criar uma rede virtual](../virtual-network/manage-virtual-network.md#create-a-virtual-network). Para obter mais informações sobre como criar sub-redes, veja [Criar uma sub-rede](../virtual-network/virtual-network-manage-subnet.md#add-a-subnet)
    
    > [!IMPORTANT]
@@ -104,64 +104,64 @@ Este procedimento orienta-o ao longo da criação de uma VNet e de ligações Ex
    
     Crie uma nova VNet.
 
-  ```azurepowershell-interactive
-  $vnet = New-AzVirtualNetwork -Name "CoexVnet" -ResourceGroupName $resgrp.ResourceGroupName -Location $location -AddressPrefix "10.200.0.0/16"
-  ```
+   ```azurepowershell-interactive
+   $vnet = New-AzVirtualNetwork -Name "CoexVnet" -ResourceGroupName $resgrp.ResourceGroupName -Location $location -AddressPrefix "10.200.0.0/16"
+   ```
    
     Adicione sub-redes.
 
-  ```azurepowershell-interactive
-  Add-AzVirtualNetworkSubnetConfig -Name "App" -VirtualNetwork $vnet -AddressPrefix "10.200.1.0/24"
-  Add-AzVirtualNetworkSubnetConfig -Name "GatewaySubnet" -VirtualNetwork $vnet -AddressPrefix "10.200.255.0/24"
-  ```
+   ```azurepowershell-interactive
+   Add-AzVirtualNetworkSubnetConfig -Name "App" -VirtualNetwork $vnet -AddressPrefix "10.200.1.0/24"
+   Add-AzVirtualNetworkSubnetConfig -Name "GatewaySubnet" -VirtualNetwork $vnet -AddressPrefix "10.200.255.0/24"
+   ```
    
     Guarde a configuração da VNet.
 
-  ```azurepowershell-interactive
-  $vnet = Set-AzVirtualNetwork -VirtualNetwork $vnet
-  ```
+   ```azurepowershell-interactive
+   $vnet = Set-AzVirtualNetwork -VirtualNetwork $vnet
+   ```
 4. <a name="vpngw"></a>Em seguida, crie o Gateway de Rede de VPNs. Para obter mais informações sobre a configuração do Gateway de VPN, veja [Configurar uma VNet com uma ligação de Rede de VPNs](../vpn-gateway/vpn-gateway-create-site-to-site-rm-powershell.md). O GatewaySku só é suportado para *VpnGw1*, *VpnGw2*, *VpnGw3*, *Standard* e nos gateways de VPN *HighPerformance*. As configurações coexistentes do Gateway de VPN do ExpressRoute não são suportadas no SKU Básico. O VpnType tem de ser *RouteBased*.
 
-  ```azurepowershell-interactive
-  $gwSubnet = Get-AzVirtualNetworkSubnetConfig -Name "GatewaySubnet" -VirtualNetwork $vnet
-  $gwIP = New-AzPublicIpAddress -Name "VPNGatewayIP" -ResourceGroupName $resgrp.ResourceGroupName -Location $location -AllocationMethod Dynamic
-  $gwConfig = New-AzVirtualNetworkGatewayIpConfig -Name "VPNGatewayIpConfig" -SubnetId $gwSubnet.Id -PublicIpAddressId $gwIP.Id
-  New-AzVirtualNetworkGateway -Name "VPNGateway" -ResourceGroupName $resgrp.ResourceGroupName -Location $location -IpConfigurations $gwConfig -GatewayType "Vpn" -VpnType "RouteBased" -GatewaySku "VpnGw1"
-  ```
+   ```azurepowershell-interactive
+   $gwSubnet = Get-AzVirtualNetworkSubnetConfig -Name "GatewaySubnet" -VirtualNetwork $vnet
+   $gwIP = New-AzPublicIpAddress -Name "VPNGatewayIP" -ResourceGroupName $resgrp.ResourceGroupName -Location $location -AllocationMethod Dynamic
+   $gwConfig = New-AzVirtualNetworkGatewayIpConfig -Name "VPNGatewayIpConfig" -SubnetId $gwSubnet.Id -PublicIpAddressId $gwIP.Id
+   New-AzVirtualNetworkGateway -Name "VPNGateway" -ResourceGroupName $resgrp.ResourceGroupName -Location $location -IpConfigurations $gwConfig -GatewayType "Vpn" -VpnType "RouteBased" -GatewaySku "VpnGw1"
+   ```
    
     O gateway de VPN do Azure oferece suporte ao protocolo de encaminhamento BGP. Pode especificar o ASN (Número AS) para essa Rede Virtual, ao adicionar o comutador -Asn no comando seguinte. Se não especificar esse parâmetro, o padrão do número AS será 65515.
 
-  ```azurepowershell-interactive
-  $azureVpn = New-AzVirtualNetworkGateway -Name "VPNGateway" -ResourceGroupName $resgrp.ResourceGroupName -Location $location -IpConfigurations $gwConfig -GatewayType "Vpn" -VpnType "RouteBased" -GatewaySku "VpnGw1" -Asn $VNetASN
-  ```
+   ```azurepowershell-interactive
+   $azureVpn = New-AzVirtualNetworkGateway -Name "VPNGateway" -ResourceGroupName $resgrp.ResourceGroupName -Location $location -IpConfigurations $gwConfig -GatewayType "Vpn" -VpnType "RouteBased" -GatewaySku "VpnGw1" -Asn $VNetASN
+   ```
    
     Pode encontrar o IP do peering de BGP e o número AS que o Azure utiliza para o Gateway de VPN em $azureVpn.BgpSettings.BgpPeeringAddress e $azureVpn.BgpSettings.Asn. Para obter mais informações, veja o artigo [Configure BGP (Configurar o BGP)](../vpn-gateway/vpn-gateway-bgp-resource-manager-ps.md) para o Gateway de VPN do Azure.
 5. Crie uma entidade de gateway de VPN de site local. Este comando não configurar o seu gateway de VPN no local. Em vez disso, este permite-lhe fornecer as definições do gateway local, tal como o IP público e o espaço de endereço no local, para que o gateway de VPN do Azure se possa ligar a este.
    
     Se o seu dispositivo VPN local suportar apenas o encaminhamento estático, pode configurar as rotas estáticas da seguinte forma:
 
-  ```azurepowershell-interactive
-  $MyLocalNetworkAddress = @("10.100.0.0/16","10.101.0.0/16","10.102.0.0/16")
-  $localVpn = New-AzLocalNetworkGateway -Name "LocalVPNGateway" -ResourceGroupName $resgrp.ResourceGroupName -Location $location -GatewayIpAddress *<Public IP>* -AddressPrefix $MyLocalNetworkAddress
-  ```
+   ```azurepowershell-interactive
+   $MyLocalNetworkAddress = @("10.100.0.0/16","10.101.0.0/16","10.102.0.0/16")
+   $localVpn = New-AzLocalNetworkGateway -Name "LocalVPNGateway" -ResourceGroupName $resgrp.ResourceGroupName -Location $location -GatewayIpAddress *<Public IP>* -AddressPrefix $MyLocalNetworkAddress
+   ```
    
     Se o seu dispositivo VPN local suportar o BGP e se pretender ativar o encaminhamento dinâmico, terá de conhecer o IP do peering de BGP e o número AS que o seu dispositivo VPN local utiliza.
 
-  ```azurepowershell-interactive
-  $localVPNPublicIP = "<Public IP>"
-  $localBGPPeeringIP = "<Private IP for the BGP session>"
-  $localBGPASN = "<ASN>"
-  $localAddressPrefix = $localBGPPeeringIP + "/32"
-  $localVpn = New-AzLocalNetworkGateway -Name "LocalVPNGateway" -ResourceGroupName $resgrp.ResourceGroupName -Location $location -GatewayIpAddress $localVPNPublicIP -AddressPrefix $localAddressPrefix -BgpPeeringAddress $localBGPPeeringIP -Asn $localBGPASN
-  ```
+   ```azurepowershell-interactive
+   $localVPNPublicIP = "<Public IP>"
+   $localBGPPeeringIP = "<Private IP for the BGP session>"
+   $localBGPASN = "<ASN>"
+   $localAddressPrefix = $localBGPPeeringIP + "/32"
+   $localVpn = New-AzLocalNetworkGateway -Name "LocalVPNGateway" -ResourceGroupName $resgrp.ResourceGroupName -Location $location -GatewayIpAddress $localVPNPublicIP -AddressPrefix $localAddressPrefix -BgpPeeringAddress $localBGPPeeringIP -Asn $localBGPASN
+   ```
 6. Configure o seu dispositivo VPN local para estabelecer ligação com o novo gateway de VPN do Azure. Para obter mais informações sobre a configuração do dispositivo VPN, veja [Configuração do Dispositivo VPN](../vpn-gateway/vpn-gateway-about-vpn-devices.md).
 
 7. Ligue o gateway de Rede de VPNs no Azure ao gateway local.
 
-  ```azurepowershell-interactive
-  $azureVpn = Get-AzVirtualNetworkGateway -Name "VPNGateway" -ResourceGroupName $resgrp.ResourceGroupName
-  New-AzVirtualNetworkGatewayConnection -Name "VPNConnection" -ResourceGroupName $resgrp.ResourceGroupName -Location $location -VirtualNetworkGateway1 $azureVpn -LocalNetworkGateway2 $localVpn -ConnectionType IPsec -SharedKey <yourkey>
-  ```
+   ```azurepowershell-interactive
+   $azureVpn = Get-AzVirtualNetworkGateway -Name "VPNGateway" -ResourceGroupName $resgrp.ResourceGroupName
+   New-AzVirtualNetworkGatewayConnection -Name "VPNConnection" -ResourceGroupName $resgrp.ResourceGroupName -Location $location -VirtualNetworkGateway1 $azureVpn -LocalNetworkGateway2 $localVpn -ConnectionType IPsec -SharedKey <yourkey>
+   ```
  
 
 8. Se estiver a ligar a um circuito do ExpressRoute existente, ignore os passos 8 e 9 e avance para o passo 10. Configure circuitos do ExpressRoute. Para obter mais informações sobre configurar o circuito do ExpressRoute, veja [Criar um circuito do ExpressRoute](expressroute-howto-circuit-arm.md).
@@ -171,18 +171,18 @@ Este procedimento orienta-o ao longo da criação de uma VNet e de ligações Ex
 
 10. <a name="gw"></a>Crie um Gateway do ExpressRoute. Para obter mais informações sobre a configuração do gateway ExpressRoute, veja [Configuração do gateway ExpressRoute](expressroute-howto-add-gateway-resource-manager.md). O GatewaySKU deve ser *Standard*, *HighPerformance* ou *UltraPerformance*.
 
-  ```azurepowershell-interactive
-  $gwSubnet = Get-AzVirtualNetworkSubnetConfig -Name "GatewaySubnet" -VirtualNetwork $vnet
-  $gwIP = New-AzPublicIpAddress -Name "ERGatewayIP" -ResourceGroupName $resgrp.ResourceGroupName -Location $location -AllocationMethod Dynamic
-  $gwConfig = New-AzVirtualNetworkGatewayIpConfig -Name "ERGatewayIpConfig" -SubnetId $gwSubnet.Id -PublicIpAddressId $gwIP.Id
-  $gw = New-AzVirtualNetworkGateway -Name "ERGateway" -ResourceGroupName $resgrp.ResourceGroupName -Location $location -IpConfigurations $gwConfig -GatewayType "ExpressRoute" -GatewaySku Standard
-  ```
+    ```azurepowershell-interactive
+    $gwSubnet = Get-AzVirtualNetworkSubnetConfig -Name "GatewaySubnet" -VirtualNetwork $vnet
+    $gwIP = New-AzPublicIpAddress -Name "ERGatewayIP" -ResourceGroupName $resgrp.ResourceGroupName -Location $location -AllocationMethod Dynamic
+    $gwConfig = New-AzVirtualNetworkGatewayIpConfig -Name "ERGatewayIpConfig" -SubnetId $gwSubnet.Id -PublicIpAddressId $gwIP.Id
+    $gw = New-AzVirtualNetworkGateway -Name "ERGateway" -ResourceGroupName $resgrp.ResourceGroupName -Location $location -IpConfigurations $gwConfig -GatewayType "ExpressRoute" -GatewaySku Standard
+    ```
 11. Ligue o gateway ExpressRoute ao circuito ExpressRoute. Quando tiver concluído este passo, a ligação entre a sua rede no local e do Azure, através do ExpressRoute, é estabelecida. Para obter mais informações sobre a operação de ligação, veja [Ligar VNets ao ExpressRoute](expressroute-howto-linkvnet-arm.md).
 
-  ```azurepowershell-interactive
-  $ckt = Get-AzExpressRouteCircuit -Name "YourCircuit" -ResourceGroupName "YourCircuitResourceGroup"
-  New-AzVirtualNetworkGatewayConnection -Name "ERConnection" -ResourceGroupName $resgrp.ResourceGroupName -Location $location -VirtualNetworkGateway1 $gw -PeerId $ckt.Id -ConnectionType ExpressRoute
-  ```
+    ```azurepowershell-interactive
+    $ckt = Get-AzExpressRouteCircuit -Name "YourCircuit" -ResourceGroupName "YourCircuitResourceGroup"
+    New-AzVirtualNetworkGatewayConnection -Name "ERConnection" -ResourceGroupName $resgrp.ResourceGroupName -Location $location -VirtualNetworkGateway1 $gw -PeerId $ckt.Id -ConnectionType ExpressRoute
+    ```
 
 ## <a name="add"></a>Para configurar ligações coexistentes a uma VNet já existente
 Se tiver uma rede virtual que tenha apenas um gateway de rede virtual (digamos, gateway de VPN de Site para Site) e pretende adicionar outro gateway de um tipo diferente (digamos, gateway do ExpressRoute), verifique o tamanho da sub-rede do gateway. Se a sub-rede do gateway for /27 ou mais, pode ignorar os passos abaixo e seguir os passos na secção anterior para adicionar um gateway de VPN de Site para Site ou um gateway do ExpressRoute. Se a sub-rede do gateway for /28 ou /29, primeiro tem de eliminar o gateway de rede virtual e aumentar o tamanho da sub-rede do gateway. Os passos nesta secção mostram-lhe como o fazer.
@@ -191,14 +191,14 @@ Os cmdlets que vai utilizar para esta configuração podem ser ligeiramente dife
 
 1. Elimine o gateway ExpressRoute ou de Rede de VPNs existente.
 
-  ```azurepowershell-interactive 
-  Remove-AzVirtualNetworkGateway -Name <yourgatewayname> -ResourceGroupName <yourresourcegroup>
-  ```
+   ```azurepowershell-interactive 
+   Remove-AzVirtualNetworkGateway -Name <yourgatewayname> -ResourceGroupName <yourresourcegroup>
+   ```
 2. Elimine a sub-Rede do Gateway.
 
-  ```azurepowershell-interactive
-  $vnet = Get-AzVirtualNetwork -Name <yourvnetname> -ResourceGroupName <yourresourcegroup> Remove-AzVirtualNetworkSubnetConfig -Name GatewaySubnet -VirtualNetwork $vnet
-  ```
+   ```azurepowershell-interactive
+   $vnet = Get-AzVirtualNetwork -Name <yourvnetname> -ResourceGroupName <yourresourcegroup> Remove-AzVirtualNetworkSubnetConfig -Name GatewaySubnet -VirtualNetwork $vnet
+   ```
 3. Adicione uma Sub-Rede do Gateway que é /27 ou superior.
    
    > [!NOTE]
@@ -206,16 +206,16 @@ Os cmdlets que vai utilizar para esta configuração podem ser ligeiramente dife
    > 
    > 
 
-  ```azurepowershell-interactive
-  $vnet = Get-AzVirtualNetwork -Name <yourvnetname> -ResourceGroupName <yourresourcegroup>
-  Add-AzVirtualNetworkSubnetConfig -Name "GatewaySubnet" -VirtualNetwork $vnet -AddressPrefix "10.200.255.0/24"
-  ```
+   ```azurepowershell-interactive
+   $vnet = Get-AzVirtualNetwork -Name <yourvnetname> -ResourceGroupName <yourresourcegroup>
+   Add-AzVirtualNetworkSubnetConfig -Name "GatewaySubnet" -VirtualNetwork $vnet -AddressPrefix "10.200.255.0/24"
+   ```
    
     Guarde a configuração da VNet.
 
-  ```azurepowershell-interactive
-  $vnet = Set-AzVirtualNetwork -VirtualNetwork $vnet
-  ```
+   ```azurepowershell-interactive
+   $vnet = Set-AzVirtualNetwork -VirtualNetwork $vnet
+   ```
 4. Nesta fase, já tem uma rede virtual sem quaisquer gateways. Para criar gateways novos e configurar as ligações, siga os passos na secção anterior.
 
 ## <a name="to-add-point-to-site-configuration-to-the-vpn-gateway"></a>Para adicionar uma configuração ponto a site para o gateway de VPN
@@ -224,20 +224,20 @@ Pode seguir os passos abaixo para adicionar a configuração de ponto a Site par
 
 1. Adicione um conjunto de endereços de Cliente de VPN.
 
-  ```azurepowershell-interactive
-  $azureVpn = Get-AzVirtualNetworkGateway -Name "VPNGateway" -ResourceGroupName $resgrp.ResourceGroupName
-  Set-AzVirtualNetworkGatewayVpnClientConfig -VirtualNetworkGateway $azureVpn -VpnClientAddressPool "10.251.251.0/24"
-  ```
+   ```azurepowershell-interactive
+   $azureVpn = Get-AzVirtualNetworkGateway -Name "VPNGateway" -ResourceGroupName $resgrp.ResourceGroupName
+   Set-AzVirtualNetworkGatewayVpnClientConfig -VirtualNetworkGateway $azureVpn -VpnClientAddressPool "10.251.251.0/24"
+   ```
 2. Carregue o certificado de raiz VPN para o Azure para o seu gateway de VPN. Neste exemplo, é assumido que o certificado de raiz é armazenado no computador local em que os seguintes cmdlets do PowerShell são executados e que está a executar localmente do PowerShell. Também pode carregar o certificado com o portal do Azure.
 
-  ```powershell
-  $p2sCertFullName = "RootErVpnCoexP2S.cer" 
-  $p2sCertMatchName = "RootErVpnCoexP2S" 
-  $p2sCertToUpload=get-childitem Cert:\CurrentUser\My | Where-Object {$_.Subject -match $p2sCertMatchName} 
-  if ($p2sCertToUpload.count -eq 1){write-host "cert found"} else {write-host "cert not found" exit} 
-  $p2sCertData = [System.Convert]::ToBase64String($p2sCertToUpload.RawData) 
-  Add-AzVpnClientRootCertificate -VpnClientRootCertificateName $p2sCertFullName -VirtualNetworkGatewayname $azureVpn.Name -ResourceGroupName $resgrp.ResourceGroupName -PublicCertData $p2sCertData
-  ```
+   ```powershell
+   $p2sCertFullName = "RootErVpnCoexP2S.cer" 
+   $p2sCertMatchName = "RootErVpnCoexP2S" 
+   $p2sCertToUpload=get-childitem Cert:\CurrentUser\My | Where-Object {$_.Subject -match $p2sCertMatchName} 
+   if ($p2sCertToUpload.count -eq 1){write-host "cert found"} else {write-host "cert not found" exit} 
+   $p2sCertData = [System.Convert]::ToBase64String($p2sCertToUpload.RawData) 
+   Add-AzVpnClientRootCertificate -VpnClientRootCertificateName $p2sCertFullName -VirtualNetworkGatewayname $azureVpn.Name -ResourceGroupName $resgrp.ResourceGroupName -PublicCertData $p2sCertData
+   ```
 
 Para obter mais informações sobre VPNs Ponto a Site, veja [Configurar uma ligação Ponto a Site](../vpn-gateway/vpn-gateway-howto-point-to-site-rm-ps.md).
 

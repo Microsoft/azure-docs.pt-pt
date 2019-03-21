@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: ff73982b706fa2d353be818f5022de8fbfec42fb
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 1306b97ce7fcf2cd429be31bc99d022de53805d6
+ms.sourcegitcommit: aa3be9ed0b92a0ac5a29c83095a7b20dd0693463
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58167444"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58259864"
 ---
 # <a name="set-up-a-device-template-new-ui-design"></a>Configurar um modelo de dispositivo (design de nova interface do Usuário)
 
@@ -78,6 +78,8 @@ Por exemplo, pode adicionar uma nova medida de telemetria de temperatura:
 ![Formulário de "Criar telemetria" com detalhes para medidas de temperatura](./media/howto-set-up-template/measurementsform.png)
 
 Depois de selecionar **salvar**, o **temperatura** medição aparece na lista de medidas. Em pouco tempo, verá a visualização dos dados de temperatura do dispositivo simulado.
+
+Quando se apresenta a telemetria, pode escolher entre as seguintes opções de agregação: Média, mínimo, máximo, Sum e Count. **Média** está selecionado como a agregação predefinida no gráfico. 
 
 > [!NOTE]
 > O tipo de dados da medição de telemetria é uma vírgula flutuante ponto número.

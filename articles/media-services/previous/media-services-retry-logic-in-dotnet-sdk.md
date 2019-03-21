@@ -12,14 +12,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/08/2019
+ms.date: 03/20/2019
 ms.author: juliako
-ms.openlocfilehash: 909a68ff0fd78fbdd4870506d1ad579392036dbf
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: 63715f668438519131eba5bfff7aa38fc73267d0
+ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55999203"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58294489"
 ---
 # <a name="retry-logic-in-the-media-services-sdk-for-net"></a>Lógica de repetição no SDK de serviços de multimédia para .NET  
 

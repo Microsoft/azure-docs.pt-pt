@@ -11,19 +11,14 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 30627994a8fe8cfe73e7945dadf2153ea60860b8
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: MT
+ms.openlocfilehash: ef8f66cda7e80ffdafefbbac5de24d45f01401af
+ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56175137"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58286935"
 ---
 # <a name="configuring-the-custom-banned-password-list"></a>Configurar a lista de palavras-passe banidas personalizado
-
-|     |
-| --- |
-| Proteção de palavra-passe do Azure AD é uma funcionalidade de pré-visualização pública do Azure Active Directory. Para obter mais informações sobre pré-visualizações, consulte [termos de utilização suplementares para pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)|
-|     |
 
 Muitas organizações consideram que aos utilizadores criarem palavras-passe utilizando palavras locais comuns, como uma instituição de ensino, equipe de esporte ou pessoas famosas, deixando-as fáceis de adivinhar. Lista de palavras-passe banidas personalizado da Microsoft permite que as organizações de acrescentar cadeias de caracteres para avaliar e bloquear, além de global banida a lista de palavra-passe, quando os utilizadores e administradores tentam alterar ou repor uma palavra-passe.
 
@@ -31,7 +26,7 @@ Muitas organizações consideram que aos utilizadores criarem palavras-passe uti
 
 Configurar a lista de palavras-passe banidas personalizado requer uma licença do Azure Active Directory Premium P1 ou P2. Para obter mais informações sobre o licenciamento do Azure Active Directory, consulte a [Azure Active Directory, página de preços](https://azure.microsoft.com/pricing/details/active-directory/). |
 
-1. Entrar para o [portal do Azure](https://portal.azure.com) e procure **Azure Active Directory**, **métodos de autenticação**, em seguida, **proteção de palavra-passe (pré-visualização)**.
+1. Entrar para o [portal do Azure](https://portal.azure.com) e procure **Azure Active Directory**, **métodos de autenticação**, em seguida, **proteção por senha**.
 1. Definir a opção **lista personalizada de impor**ao **Sim**.
 1. Acrescentar cadeias de caracteres para o **personalizado banida lista de palavra-passe**, uma cadeia de caracteres por linha
    * A lista de palavras-passe banidas personalizado pode conter até 1000 palavras.

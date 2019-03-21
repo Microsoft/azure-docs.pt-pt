@@ -11,12 +11,12 @@ ms.author: nilesha
 ms.reviewer: trbye
 ms.date: 02/05/2019
 ms.custom: seodec18
-ms.openlocfilehash: 1f9265567ea23b7a3f47c995474ee1328ebaae2c
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: e30e65ba2efaf60a0e2d0a6df409c96db4d6285e
+ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57878419"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58295815"
 ---
 # <a name="tutorial-use-automated-machine-learning-to-build-your-regression-model"></a>Tutorial: Utilizar automatizada de machine learning para criar o seu modelo de regressão
 
@@ -112,7 +112,7 @@ import os
 
 ### <a name="configure-workspace"></a>Configurar a área de trabalho
 
-Crie um objeto de área de trabalho a partir da área de trabalho existente. R [área de trabalho](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace%28class%29?view=azure-ml-py) é uma classe que aceita as suas informações de recursos e subscrição do Azure. Ele também cria um recurso da nuvem para monitorizar e controlar suas execuções de modelo.
+Crie um objeto de área de trabalho a partir da área de trabalho existente. R [área de trabalho](https://docs.microsoft.com/en-us/python/api/azureml-core/azureml.core.workspace.workspace?view=azure-ml-py) é uma classe que aceita as suas informações de recursos e subscrição do Azure. Ele também cria um recurso da nuvem para monitorizar e controlar suas execuções de modelo.
 
 `Workspace.from_config()` lê o ficheiro **aml_config/config.json** e carrega os detalhes para um objeto com o nome `ws`.  `ws` é utilizado em todo o restante código neste tutorial.
 

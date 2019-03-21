@@ -4,17 +4,17 @@ description: Saiba como política do Azure utiliza a configuração de convidado
 services: azure-policy
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 02/27/2019
+ms.date: 03/18/2019
 ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: da29065485438b402dfb8b9a41f95f435a172a01
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: d97ac99cae963ddb9df4de06736c64d5d8ceafb5
+ms.sourcegitcommit: f331186a967d21c302a128299f60402e89035a8d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57854488"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58187664"
 ---
 # <a name="understand-azure-policys-guest-configuration"></a>Compreender a configuração de convidado do Azure Policy
 
@@ -64,7 +64,7 @@ A tabela seguinte mostra uma lista das ferramentas de locais usadas em cada sist
 
 ### <a name="validation-frequency"></a>Frequência de validação
 
-O cliente de configuração de convidado verifica a existência de novo conteúdo a cada 5 minutos. Depois de uma atribuição de convidado é recebida, as definições são verificadas num intervalo de 15 minutos. Os resultados são enviados para o fornecedor de recursos de configuração de convidado assim que a auditoria for concluída. Quando uma política [acionador de avaliação](../how-to/get-compliance-data.md#evaluation-triggers) ocorre, o estado da máquina é escrito para o fornecedor de recursos de configuração de convidado. Este evento faz com que o Azure Policy avaliar as propriedades do Azure Resource Manager. Uma edição de avaliação de política de por demanda obtém o valor mais recente do fornecedor de recursos de configuração de convidado. No entanto, ele não aciona uma nova auditoria da configuração da máquina virtual.
+O cliente de configuração de convidado verifica a existência de novo conteúdo a cada 5 minutos. Depois de uma atribuição de convidado é recebida, as definições são verificadas num intervalo de 15 minutos. Os resultados são enviados para o fornecedor de recursos de configuração de convidado assim que a auditoria for concluída. Quando uma política [acionador de avaliação](../how-to/get-compliance-data.md#evaluation-triggers) ocorre, o estado da máquina é escrito para o fornecedor de recursos de configuração de convidado. Isso faz com que o Azure Policy avaliar as propriedades do Azure Resource Manager. Uma edição de avaliação de política de por demanda obtém o valor mais recente do fornecedor de recursos de configuração de convidado. No entanto, ele não aciona uma nova auditoria da configuração da máquina virtual.
 
 ### <a name="supported-client-types"></a>Tipos de cliente suportados
 
@@ -74,22 +74,18 @@ A tabela seguinte mostra uma lista de sistemas operativos suportados nas imagens
 |-|-|-|
 |Canónico|Ubuntu Server|14.04, 16.04, 18.04|
 |credativ|Debian|8, 9|
-|Microsoft|Windows Server|Centro de dados de 2012, 2012 R2 Datacenter, 2016 Datacenter|
+|Microsoft|Windows Server|Centro de dados de 2012, 2012 R2 Datacenter, 2016 Datacenter, Datacenter de 2019|
+|Microsoft|Cliente Windows|Windows 10|
 |OpenLogic|CentOS|7.3, 7.4, 7.5|
 |Red Hat|Red Hat Enterprise Linux|7.4, 7.5|
 |SUSE|SLES|12 SP3|
 
 > [!IMPORTANT]
-> Configuração do convidado pode auditar qualquer servidor com um SO suportado.  Se gostaria de servidores que utilizam uma imagem personalizada de auditoria, precisa duplicar a **DeployIfNotExists** definição e modificar a **se** secção para incluir as propriedades da imagem.
+> Configuração do convidado pode auditar nós com um SO suportado.  Se gostaria de máquinas virtuais que utilizam uma imagem personalizada de auditoria, precisa duplicar a **DeployIfNotExists** definição e modificar a **se** secção para incluir as propriedades da imagem.
 
 ### <a name="unsupported-client-types"></a>Tipos de cliente não suportada
 
-A tabela seguinte lista os sistemas operativos que não são suportados:
-
-|Sistema operativo|Notas|
-|-|-|
-|Cliente Windows | Não são suportados sistemas operativos de cliente (por exemplo, o Windows 7 e Windows 10).
-|Servidor de Nano do Windows Server 2016 | Não suportado.|
+O servidor Nano do Windows Server não é suportado em qualquer versão.
 
 ### <a name="guest-configuration-extension-network-requirements"></a>Requisitos de rede de extensão da configuração de convidado
 
@@ -123,8 +119,7 @@ Política do Azure utiliza os fornecedores de recursos de configuração de conv
 > [!NOTE]
 > Para cada definição de configuração de convidado, tanto o **DeployIfNotExists** e **auditoria** definições de política tem de existir.
 
-Todas as políticas incorporadas para a configuração de convidado são incluídas numa iniciativa para as definições para utilizam em atribuições de grupo. O incorporado *[pré-visualização]: Definições de segurança de palavra-passe dentro de máquinas virtuais do Linux e Windows de auditoria* iniciativa contém 18 políticas. Existem seis **DeployIfNotExists** e **auditoria** pares de definição de política para Windows e três pares para Linux.
-Para cada um, o **DeployIfNotExists** [regra de definição de política](definition-structure.md#policy-rule) limita os sistemas avaliados.
+Todas as políticas incorporadas para a configuração de convidado são incluídas numa iniciativa para as definições para utilizam em atribuições de grupo. A iniciativa incorporada com o nome *[pré-visualização]: Definições de segurança de palavra-passe dentro de máquinas virtuais do Linux e Windows de auditoria* contém 18 políticas. Existem seis **DeployIfNotExists** e **auditoria** pares para Windows e três pares para Linux. Valida a apenas o destino em cada caso, a lógica dentro da definição do sistema operativo é avaliado com base no [regra de política](definition-structure.md#policy-rule) definição.
 
 ## <a name="client-log-files"></a>Ficheiros de registo de cliente
 
@@ -134,12 +129,19 @@ Windows: `C:\Packages\Plugins\Microsoft.GuestConfiguration.ConfigurationforWindo
 
 Linux: `/var/lib/waagent/Microsoft.GuestConfiguration.ConfigurationforLinux-1.8.0/GCAgent/logs/dsc.log`
 
+## <a name="guest-configuration-samples"></a>Exemplos de configuração de convidado
+
+Exemplos para configuração de convidado de política estão disponíveis nas seguintes localizações:
+
+- [Índice de exemplos - configuração de convidado](../samples/index.md#guest-configuration)
+- [Repositório do GitHub de exemplos do Azure Policy](https://github.com/Azure/azure-policy/tree/master/samples/GuestConfiguration).
+
 ## <a name="next-steps"></a>Passos Seguintes
 
-- Reveja exemplos em [exemplos do Azure Policy](../samples/index.md)
-- Reveja o [estrutura de definição de política](definition-structure.md)
-- Revisão [Noções básicas sobre os efeitos de política](effects.md)
-- Compreender como [criar políticas programaticamente](../how-to/programmatically-create.md)
-- Saiba como [obter dados de conformidade](../how-to/getting-compliance-data.md)
-- Saiba como [remediar recursos não compatíveis](../how-to/remediate-resources.md)
-- Rever o que é um grupo de gestão, com [Organizar os recursos com grupos de gestão do Azure](../../management-groups/index.md)
+- Reveja exemplos em [exemplos do Azure Policy](../samples/index.md).
+- Veja a [Estrutura de definição do Policy](definition-structure.md).
+- Veja [Compreender os efeitos do Policy](effects.md).
+- Compreender como [criar políticas programaticamente](../how-to/programmatically-create.md).
+- Saiba como [obter dados de conformidade](../how-to/getting-compliance-data.md).
+- Saiba como [remediar recursos incompatíveis](../how-to/remediate-resources.md).
+- Revisão que um grupo de gestão é com [organizar os recursos com grupos de gestão do Azure](../../management-groups/index.md).

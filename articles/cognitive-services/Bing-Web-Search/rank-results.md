@@ -11,12 +11,12 @@ ms.subservice: bing-web-search
 ms.topic: conceptual
 ms.date: 03/17/2019
 ms.author: scottwhi
-ms.openlocfilehash: 1f731f8c68137b92637c3d7e1a8117a7a738bbeb
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 9a49c4af474d7f0618bf0cff1a093e5cbb62fe2d
+ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58170688"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58295611"
 ---
 # <a name="how-to-use-ranking-to-display-bing-web-search-api-results"></a>Como utilizar a classificação de mensagens em fila para apresentar os resultados da API de pesquisa Web Bing  
 
@@ -56,7 +56,7 @@ O seguinte mostra um exemplo [RankingResponse](https://docs.microsoft.com/rest/a
             },
             . . .  
         ]  
-    },  
+    }],  
     "images" : {
         "id" : "https:\/\/api.cognitive.microsoft.com\/api\/v7\/#Images",
         "readLink" : "https:\/\/api.cognitive.microsoft.com\/api\/v7\/images...",

@@ -7,12 +7,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 08/07/2018
 ms.author: rkmanda
-ms.openlocfilehash: 308d9a04e52572e00e1cbed24548e5f09adda571
-ms.sourcegitcommit: 1afd2e835dd507259cf7bb798b1b130adbb21840
+ms.openlocfilehash: ac47ad10f394eaf31a9f7c12d7a2a03ea23283f6
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56985925"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58092655"
 ---
 # <a name="iot-hub-high-availability-and-disaster-recovery"></a>IoT Hub elevada disponibilidade e recuperação após desastre
 
@@ -128,7 +128,7 @@ Para simplificar este passo, deve usar operações idempotentes. Operações Ide
 Aqui está um resumo das opções de HA/DR apresentado neste artigo que pode ser utilizado como uma arquitetura de referência para escolher a opção certa que funciona para a sua solução.
 
 | Opção de HA/DR | RTO | RPO: | Requer intervenção manual? | Complexidade da implementação | Impacto de custos adicionais|
-| --- | --- | --- | --- | --- | --- | --- |
+| --- | --- | --- | --- | --- | --- |
 | Ativação pós-falha iniciada pelo Microsoft |2 - 26 horas|Consulte a tabela RPO acima|Não|Nenhuma|Nenhuma|
 | Ativação pós-falha manual |10 min - 2 horas|Consulte a tabela RPO acima|Sim|Muito baixa. Só tem de acionar esta operação a partir do portal.|Nenhuma|
 | Cross região HA |< 1 min|Depende da frequência de replicação de sua solução personalizada de HA|Não|Elevado|> 1 x o custo de 1 hub de IoT|

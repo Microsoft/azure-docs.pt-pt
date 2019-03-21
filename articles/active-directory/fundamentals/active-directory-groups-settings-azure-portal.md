@@ -13,12 +13,12 @@ ms.author: lizross
 ms.reviewer: krbain
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5802634fe070f5d71fae01706c3cb4e83e04a72e
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 691f705574050b15869a0ac8b7d128507e5aae10
+ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56192069"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58285637"
 ---
 # <a name="edit-your-group-information-using-azure-active-directory"></a>Editar as suas informações de grupo com o Azure Active Directory
 
@@ -39,7 +39,7 @@ Utilizar o Azure Active Directory (Azure AD), pode editar as definições de um 
 
 4. Selecione o grupo de **política MDM - oeste**e, em seguida, selecione **propriedades** partir o **gerir** área.
 
-    ![Página de descrição geral de grupo com membros e número e a opção de membro realçada](media/active-directory-groups-settings-azure-portal/group-overview-blade.png)
+    ![Página de descrição geral de grupo, com a opção de membro e informações realçado](media/active-directory-groups-settings-azure-portal/group-overview-blade.png)
 
 5. Atualização do **definições gerais** informações conforme necessário, incluindo:
 
