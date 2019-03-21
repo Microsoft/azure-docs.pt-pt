@@ -1,10 +1,10 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: 15c1e8af5e6df658ea24ce357aeeee711eaf9279
-ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
+ms.openlocfilehash: 3ef506da391ece8f4da79283e09cd137ebec5b23
+ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56673499"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58294676"
 documentType: LandingData
 title: Documentação do Azure Active Directory B2B
 metadata:
@@ -25,7 +25,7 @@ abstract:
   description: Saiba como utilizar a colaboração de empresa para empresa (B2B) do Azure AD para partilhar em segurança as aplicações e serviços da sua empresa com utilizadores convidados e parceiros externos de qualquer organização, e manter o controlo sobre os seus próprios dados empresariais.  Seguem-se algumas das principais funcionalidades:<ul><li>Através de um processo de resgate e convite simples, os utilizadores convidados podem começar a colaborar nos recursos que pretendem aceder.</li><li>Os seus utilizadores convidados e parceiros externos gerem as suas próprias identidades através do Azure AD, contas de e-mail de redes sociais ou de qualquer fornecedor de identidade.</li><li>Pode proteger os seus recursos empresariais com funcionalidades do Azure AD, como a autenticação multifator.</li><li>Pode utilizar APIs para personalizar a experiência, por exemplo, através de um portal de inscrição personalizado.</li></ul>Os seguintes recursos ajudam-no a começar rapidamente.
   aside:
     image:
-      alt: 
+      alt: Imagem em miniatura do vídeo O Azure AD B2B explicado
       height: 110
       src: ./media/index/video.png
       width: 246

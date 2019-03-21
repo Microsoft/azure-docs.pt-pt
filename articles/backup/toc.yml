@@ -180,6 +180,8 @@ items:
       href: backup-client-automation.md
     - name: Partilhas de Ficheiros do Azure no portal do Azure
       href: backup-azure-afs-automation.md
+    - name: SQL nas cópias de segurança de VMs do Azure
+      href: backup-azure-sql-automation.md
   - name: Utilize a API REST do Azure Backup
     items:
     - name: Criar cofre dos Serviços de Recuperação
@@ -195,7 +197,7 @@ items:
   - name: Fazer cópias de segurança de bases de dados do SQL Server em VMs do Azure
     items:
     - name: Sobre a Cópia de Segurança do SQL Server em VMs do Azure
-      href: backup-sql-server-azure-vms.md
+      href: backup-azure-sql-database.md
     - name: Fazer cópias de segurança de bases de dados do SQL Server em VMs do Azure
       href: backup-sql-server-database-azure-vms.md
     - name: Restaurar bases de dados do SQL Server em VMs do Azure
@@ -244,7 +246,7 @@ items:
       href: backup-sql-server-azure-troubleshoot.md
   - name: Monitorizar cargas de trabalho do Azure Backup
     items:
-    - name: Com o Portal do Azure
+    - name: Utilizar o portal do Azure
       href: backup-azure-monitoring-built-in-monitor.md
     - name: Utilizar o Azure Monitor
       href: backup-azure-monitoring-use-azuremonitor.md
@@ -278,9 +280,9 @@ items:
     href: https://azure.microsoft.com/updates/?product=backup
   - name: Vídeos
     href: https://azure.microsoft.com/documentation/videos/index/?services=backup
-ms.openlocfilehash: 033235611271b00275a0ef759af80f2c8c9a2474
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: eb58460b2331ab867e064235d5a2536809b28021
+ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58014655"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58284974"

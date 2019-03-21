@@ -23,11 +23,11 @@ items:
     href: search-create-index-rest-api.md
   - name: C#
     items:
-    - name: Criar um índice
+    - name: 1 - Criar um índice
       href: search-create-index-dotnet.md
-    - name: Importar dados
+    - name: 2 - Carregar dados
       href: search-import-data-dotnet.md
-    - name: Pesquisa
+    - name: 3 - Pesquisar um índice
       href: search-query-dotnet.md
   expanded: true
 - name: Tutoriais
@@ -307,9 +307,9 @@ items:
     href: https://azure.microsoft.com/pricing/details/search/
   - name: Vídeos
     href: https://azure.microsoft.com/resources/videos/index/?services=search
-ms.openlocfilehash: a7b839de360f1c03e5496f058109b6ab239fe9df
-ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
+ms.openlocfilehash: 660d15ad6a03bc0f6bca3dd1ae21fe1178146663
+ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58202780"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58285886"
