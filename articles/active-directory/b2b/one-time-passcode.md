@@ -10,13 +10,14 @@ ms.author: mimart
 author: msmimart
 manager: mtillman
 ms.reviewer: mal
+ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e9493f7ee3278bb42dc21574cd008fbe2f4376a1
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 8f5234674bc41e1f5bfa260dfc32042a3345d9f7
+ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56185150"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58294830"
 ---
 # <a name="email-one-time-passcode-authentication-preview"></a>Autenticação de código de acesso único por e-mail (pré-visualização)
 
@@ -35,11 +36,11 @@ Esta funcionalidade está atualmente disponível para pré-visualização (consu
 ## <a name="user-experience-for-one-time-passcode-guest-users"></a>Experiência de utilizador para os utilizadores convidados de código de acesso único
 Com a autenticação de código de acesso único, o utilizador convidado pode resgatar o convite ao clicar numa ligação direta ou ao utilizar o e-mail de convite. Em ambos os casos, uma mensagem no navegador indica que será enviado um código para o endereço de e-mail do utilizador convidado. O utilizador convidado seleciona **enviar código**:
  
-   ![Painéis de acesso Gerir aplicação](media/one-time-passcode/otp-send-code.png)
+   ![Captura de ecrã que mostra o botão de código de envio](media/one-time-passcode/otp-send-code.png)
  
 Um código de acesso é enviado para o endereço de e-mail do utilizador. O utilizador obtém o código de acesso de e-mail e insere-la na janela do browser:
  
-   ![Painéis de acesso Gerir aplicação](media/one-time-passcode/otp-enter-code.png)
+   ![Captura de ecrã que mostra a página de código Enter](media/one-time-passcode/otp-enter-code.png)
  
 O utilizador convidado já é autenticado e podem ver o recurso partilhado ou continuar a iniciar sessão. 
 
@@ -57,7 +58,7 @@ No momento do convite, não existe nenhuma indicação de que o utilizador que e
 
 Pode ver os utilizadores convidados que autenticam com códigos de acesso Monouso no portal do Azure acedendo a **do Azure Active Directory** > **relações organizacionais**  >   **Os utilizadores de outras organizações**.
 
-![Ver código de acesso único utilizadores no portal do Azure onde origem é igual a OTP](media/one-time-passcode/otp-users.png)
+![Captura de ecrã que mostra um utilizador de código de acesso único com o valor de origem de OTP](media/one-time-passcode/otp-users.png)
 
 > [!NOTE]
 > Quando um usuário redeems um código de acesso único e mais tarde obtém uma MSA, a conta do Azure AD ou a outra conta federada, este irá continuar a ser autenticadas através de um código de acesso único. Se pretender atualizar o método de autenticação, pode eliminar a conta de utilizador convidado e reinvite-los.

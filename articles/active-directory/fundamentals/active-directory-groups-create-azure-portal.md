@@ -13,12 +13,12 @@ ms.author: lizross
 ms.reviewer: krbain
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2887badb9a72cc94321263196d02dfab47229b7c
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 78e83f4a1aea04bbaea12181419de6c5c06034f2
+ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58078300"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58287082"
 ---
 # <a name="create-a-basic-group-and-add-members-using-azure-active-directory"></a>Criar um grupo básico e adicionar membros com o Azure Active Directory
 Pode criar um grupo básico através do portal do Microsoft Azure Active Directory (Microsoft Azure AD). Para os fins deste artigo, um grupo básico é adicionado a um único recurso pelo proprietário do recurso (administrador) e inclui membros específicos (funcionários) que precisam de aceder a esse recurso. Para cenários mais complexos, incluindo associações dinâmicas e criação de regras, veja [Documentação da gestão de utilizadores do Azure Active Directory](../users-groups-roles/index.yml).
@@ -31,7 +31,7 @@ Pode criar um grupo básico e adicionar os membros ao mesmo tempo.
 
 2. Selecione **Azure Active Directory**, **Grupos** e, em seguida, selecione **Novo grupo**.
 
-    ![Microsoft Azure AD com Grupos apresentados](media/active-directory-groups-create-azure-portal/group-full-screen.png)
+    ![Página de AD do Azure, com os grupos que mostra](media/active-directory-groups-create-azure-portal/group-full-screen.png)
 
 3. Na página **Grupo**, preencha as informações necessárias.
 

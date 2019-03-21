@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 0e86180a643b27056edc9901d590760cedcbf259
-ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
+ms.openlocfilehash: bd39b0aae5b76f37e2153f8e4c4502be994fa5b5
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54331882"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58081836"
 ---
 # <a name="move-data-from-postgresql-using-azure-data-factory"></a>Mover dados do PostgreSQL com o Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -50,12 +50,12 @@ Pode criar um pipeline com uma atividade de cópia que move os dados de um arqui
 
 - A maneira mais fácil para criar um pipeline é utilizar o **Assistente para copiar**. Consulte [Tutorial: Criar um pipeline com o Assistente para copiar](data-factory-copy-data-wizard-tutorial.md) para um rápido passo a passo sobre como criar um pipeline com o Assistente para copiar dados.
 - Também pode utilizar as seguintes ferramentas para criar um pipeline:
-    - Portal do Azure
-    - Visual Studio
-    - Azure PowerShell
-    - Modelo Azure Resource Manager
-    - API .NET
-    - API REST
+  - Portal do Azure
+  - Visual Studio
+  - Azure PowerShell
+  - Modelo Azure Resource Manager
+  - API .NET
+  - API REST
 
     Ver [tutorial da atividade de cópia](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) para obter instruções passo a passo Criar um pipeline com uma atividade de cópia.
 
@@ -306,46 +306,46 @@ Ao mover dados para o PostgreSQL, os seguintes mapeamentos de servem do tipo de 
 
 | Tipo de base de dados PostgreSQL | Aliases de PostgresSQL | Tipo de .NET framework |
 | --- | --- | --- |
-| abstime | |Datetime | &nbsp;
+| abstime | |Datetime |
 | bigint |int8 |Int64 |
 | bigserial |serial8 |Int64 |
-| bit [(n)] | |Byte[], String | &nbsp;
+| bit [(n)] | |Byte[], String |
 | bit variado [(n)] |varbit |Byte[], String |
-| boolean |Bool |Booleano |
-| Caixa | |Byte[], String |&nbsp;
-| bytea | |Byte[], String |&nbsp;
-| caráter [(n)] |char [(n)] |Cadeia |
-| caráter variados [(n)] |varchar [(n)] |Cadeia |
-| CID | |Cadeia |&nbsp;
-| cidr | |Cadeia |&nbsp;
-| Círculo | |Byte[], String |&nbsp;
-| date | |Datetime |&nbsp;
-| daterange | |Cadeia |&nbsp;
-| precisão dupla |float8 |Valor de duplo |
-| inet | |Byte[], String |&nbsp;
-| intarry | |Cadeia |&nbsp;
-| int4range | |Cadeia |&nbsp;
-| int8range | |Cadeia |&nbsp;
+| boolean |booleano |Booleano |
+| Caixa | |Byte[], String |
+| bytea | |Byte[], String |
+| caráter [(n)] |char [(n)] |String |
+| caráter variados [(n)] |varchar [(n)] |String |
+| CID | |String |
+| CIDR | |String |
+| Círculo | |Byte[], String |
+| date | |Datetime |
+| daterange | |String |
+| precisão dupla |float8 |Double |
+| inet | |Byte[], String |
+| intarry | |String |
+| int4range | |String |
+| int8range | |String |
 | inteiro |int, int4 |Int32 |
-| intervalo de [campos] [(p)] | |Timespan |&nbsp;
-| json | |Cadeia |&nbsp;
-| jsonb | |Byte[] |&nbsp;
-| Linha | |Byte[], String |&nbsp;
-| lseg | |Byte[], String |&nbsp;
-| macaddr | |Byte[], String |&nbsp;
-| dinheiro | |Decimal |&nbsp;
+| intervalo de [campos] [(p)] | |Timespan |
+| json | |String |
+| jsonb | |Byte[] |
+| Linha | |Byte[], String |
+| lseg | |Byte[], String |
+| macaddr | |Byte[], String |
+| dinheiro | |Decimal |
 | numérico [(p, s)] |decimal [(p, s)] |Decimal |
-| numrange | |Cadeia |&nbsp;
-| OID | |Int32 |&nbsp;
-| caminho | |Byte[], String |&nbsp;
-| pg_lsn | |Int64 |&nbsp;
-| point | |Byte[], String |&nbsp;
-| Polígono | |Byte[], String |&nbsp;
-| real |float4 |Único |
+| numrange | |String |
+| OID | |Int32 |
+| caminho | |Byte[], String |
+| pg_lsn | |Int64 |
+| ponto | |Byte[], String |
+| Polígono | |Byte[], String |
+| real |float4 |Single |
 | smallint |int2 |Int16 |
 | smallserial |serial2 |Int16 |
 | série |serial4 |Int32 |
-| texto | |Cadeia |&nbsp;
+| texto | |String |
 
 ## <a name="map-source-to-sink-columns"></a>Origem do mapa para colunas de sink
 Para saber mais sobre as colunas de mapeamento no conjunto de dados de origem para colunas no conjunto de dados de sink, veja [mapeamento de colunas do conjunto de dados no Azure Data Factory](data-factory-map-columns.md).

@@ -7,17 +7,17 @@ ms.subservice: development
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
-author: jodebrui
-ms.author: jodebrui
+author: CarlRabeler
+ms.author: carlrab
 ms.reviewer: MightyPen
 manager: craigg
 ms.date: 11/07/2018
-ms.openlocfilehash: fbe05186b317d3c24dca55197c2989155b5543bd
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
+ms.openlocfilehash: ad66253d33b2e99f0be79bfaddc86b3274f5cab0
+ms.sourcegitcommit: aa3be9ed0b92a0ac5a29c83095a7b20dd0693463
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55565926"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58258926"
 ---
 # <a name="use-in-memory-oltp-to-improve-your-application-performance-in-sql-database"></a>Utilize o OLTP na memória para melhorar o desempenho da aplicação na base de dados SQL
 

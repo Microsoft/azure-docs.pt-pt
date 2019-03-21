@@ -8,12 +8,12 @@ ms.service: storage
 ms.topic: quickstart
 ms.date: 11/14/2018
 ms.author: tamram
-ms.openlocfilehash: 277ed8328a537efe4d32e1ca8b0d62f5d74537dd
-ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
+ms.openlocfilehash: 50bb13ecaa9e6076f00749d54b492a1e6663a93e
+ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57193182"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58287116"
 ---
 # <a name="quickstart-use-net-to-create-a-blob-in-object-storage"></a>Início rápido: Utilizar o .NET para criar um blob no armazenamento de objetos
 
@@ -173,7 +173,7 @@ else
     // Otherwise, let the user know that they need to define the environment variable.
     Console.WriteLine(
         "A connection string has not been defined in the system environment variables. " +
-        "Add a environment variable named 'storageconnectionstring' with your storage " +
+        "Add an environment variable named 'storageconnectionstring' with your storage " +
         "connection string as a value.");
     Console.WriteLine("Press any key to exit the sample application.");
     Console.ReadLine();

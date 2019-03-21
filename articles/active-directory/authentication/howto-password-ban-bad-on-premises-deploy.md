@@ -1,6 +1,6 @@
 ---
-title: Implementar a pré-visualização de proteção de palavra-passe do Azure AD
-description: Implementar a pré-visualização de proteção de palavra-passe do Azure AD proibir o uso de palavras-passe incorretas no local
+title: Implementar proteção de palavras-passe do Azure AD
+description: Implementar a proteção de palavra-passe do Azure AD proibir o uso de palavras-passe incorretas no local
 services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
@@ -11,19 +11,14 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 832f29d16e5976493da56b304c3de0288b83c9b6
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 54d2d600771316b0a88ea0a2486c0dedd0f84594
+ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57848750"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58286538"
 ---
-# <a name="preview-deploy-azure-ad-password-protection"></a>Pré-visualização: Implementar proteção de palavras-passe do Azure AD
-
-|     |
-| --- |
-| Proteção de palavra-passe do Azure Active Directory (Azure AD) é uma funcionalidade de pré-visualização pública do Azure AD. Para obter mais informações sobre pré-visualizações, consulte [termos de utilização suplementares para pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)|
-|     |
+# <a name="deploy-azure-ad-password-protection"></a>Implementar proteção de palavras-passe do Azure AD
 
 Agora que compreende [como impor proteção de palavra-passe do Azure AD para o Windows Server Active Directory](concept-password-ban-bad-on-premises.md), a próxima etapa é planejar e executar a sua implementação.
 

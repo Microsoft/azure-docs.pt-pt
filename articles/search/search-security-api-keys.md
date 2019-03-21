@@ -8,15 +8,14 @@ services: search
 ms.service: search
 ms.devlang: rest-api
 ms.topic: conceptual
-ms.date: 06/20/2018
+ms.date: 03/19/2019
 ms.author: heidist
-ms.custom: seodec2018
-ms.openlocfilehash: 6ba63fa776e92dd2f8035cfbbdb8cea2860d106f
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: a59451c659effb55a2e16236b359b7601eb31cd4
+ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53316934"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58286606"
 ---
 # <a name="create-and-manage-api-keys-for-an-azure-search-service"></a>Criar e gerir as chaves de api para um serviço Azure Search
 
@@ -42,19 +41,35 @@ Dois tipos de chaves são utilizados para aceder ao seu serviço de pesquisa: ad
 > [!NOTE]  
 >  Ele é considerado uma prática de segurança fraca para transmitir dados confidenciais, tais como um `api-key` no URI do pedido. Por esse motivo, o Azure Search aceita apenas uma chave de consulta como uma `api-key` na consulta de cadeia de caracteres e deve evitar fazer isso, a menos que o conteúdo do seu índice deve ser publicamente disponível. Como regra geral, recomendamos que passar seu `api-key` como um cabeçalho de pedido.  
 
-## <a name="find-api-keys-for-your-service"></a>Localizar as chaves de api para o seu serviço
+## <a name="find-existing-keys"></a>Localizar as chaves existentes
 
 Pode obter as chaves de acesso no portal ou através da [API REST da gestão](https://docs.microsoft.com/rest/api/searchmanagement/). Para obter mais informações, consulte [gerir chaves de api administrador e a consulta](search-security-api-keys.md).
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com).
 2. Lista os [serviços de pesquisa](https://portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) para a sua subscrição.
-3. Selecione o serviço e na página do serviço, encontre **configurações** >**chaves** para exibir as chaves de administração e a consulta.
+3. Selecione o serviço e na página Descrição geral, clique em **configurações** >**chaves** para exibir as chaves de administração e a consulta.
 
-![Secção de chaves de página do portal, as definições,](media/search-security-overview/settings-keys.png)
+   ![Secção de chaves de página do portal, as definições,](media/search-security-overview/settings-keys.png)
+
+## <a name="create-query-keys"></a>Criar chaves de consulta
+
+Chaves de consulta são utilizadas para acesso só de leitura para documentos dentro de um índice. Restringir o acesso e de operações nas aplicações de cliente é essencial para proteger os ativos de pesquisa no seu serviço. Utilize sempre uma chave de consulta, em vez de uma chave de administração para qualquer consulta provenientes de uma aplicação de cliente.
+
+1. Inicie sessão no [portal do Azure](https://portal.azure.com).
+2. Lista os [serviços de pesquisa](https://portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) para a sua subscrição.
+3. Selecione o serviço e na página Descrição geral, clique em **configurações** >**chaves**.
+4. Clique em **gerir chaves de consulta**.
+5. Utilize a consulta já gerada para o seu serviço ou criar até 50 novas chaves de consulta. A chave de consulta padrão não tem o nome, mas as chaves de consulta adicionais podem ser nomeadas para capacidade de gestão.
+
+   ![Criar ou utilizar uma chave de consulta](media/search-security-overview/create-query-key.png) 
+
+
+> [!Note]
+> Um exemplo de código que mostra a utilização de chave de consulta pode ser encontrado na [consultar um índice da Azure Search no C# ](search-query-dotnet.md).
 
 ## <a name="regenerate-admin-keys"></a>Regenerar chaves de administração
 
-Duas chaves administrativas são criadas para cada serviço, para que possa rollover de uma chave primária, com a chave secundária para acesso contínuo.
+Duas chaves administrativas são criadas para cada serviço, para que pode girar uma chave primária, com a chave secundária para acesso contínuo.
 
 Se voltar a gerar chaves primárias e secundárias ao mesmo tempo, todas as aplicações com qualquer chave para aceder às operações de serviço já não terá acesso ao serviço.
 

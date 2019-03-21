@@ -9,12 +9,12 @@ ms.subservice: answer-search
 ms.topic: quickstart
 ms.date: 04/13/2018
 ms.author: rosh
-ms.openlocfilehash: 7a749efca0e8acacff4dac49e7a524d25ef5acad
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: c44be9779cf2b856ac2f5e9e017fd9d1040a018b
+ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55878583"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58294047"
 ---
 # <a name="quickstart-project-answer-search-with-node"></a>Início rápido: Pesquisa de resposta de projeto com o nó
 
@@ -52,7 +52,7 @@ let path = '/answerSearch/v7.0/search';
 let mkt = 'en-us';
 let q = 'Yosemite National Park';
 
-let params = '?q=' + encodeURI(q) + '&mkt=en-us';
+let params = '?q=' + encodeURI(q) + '&mkt= + mkt;
 
 let response_handler = function (response) {
     let body = '';

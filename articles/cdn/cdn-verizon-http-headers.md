@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/16/2018
 ms.author: magattus
-ms.openlocfilehash: 7fa76a2c5b01e623e490edd0091f7fb372b7085f
-ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
+ms.openlocfilehash: 7ce845fb272cea1d621e8ccc18203e3a071e8c29
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49093243"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57992011"
 ---
 # <a name="verizon-specific-http-headers-for-azure-cdn-rules-engine"></a>Cabeçalhos HTTP específicos da Verizon para o motor de regras de CDN do Azure
 
@@ -27,7 +27,7 @@ Para **CDN do Azure Premium da Verizon** produtos, quando uma solicitação HTTP
 
 Se quiser impedir que um desses cabeçalhos reservada a ser adicionado no pedido de POP da CDN do Azure (rede de entrega de conteúdos) para o servidor de origem, tem de criar uma regra com o [funcionalidade de Proxy de cabeçalhos especiais](cdn-rules-engine-reference-features.md#proxy-special-headers) no mecanismo de regras. Esta regra, exclua o cabeçalho que pretende remover da lista padrão de cabeçalhos no campo de cabeçalhos. Se ativou a [funcionalidade de cabeçalhos de resposta de Cache depurar](cdn-rules-engine-reference-features.md#debug-cache-response-headers), certifique-se de que adicionar as informações necessárias `X-EC-Debug` cabeçalhos. 
 
-Por exemplo, para remover o `Via` cabeçalho, o campo de cabeçalhos da regra deve incluir a seguinte lista de cabeçalhos: *X-reencaminhados-para, X-reencaminhados-Proto, X-Host, X-Midgress, X-Gateway-List, X-EC-Name, anfitrião*. 
+Por exemplo, para remover o `Via` cabeçalho, o campo de cabeçalhos da regra deve incluir a seguinte lista de cabeçalhos: *X-reencaminhados-para, X-reencaminhados-Proto, X-Host, X-Midgress, X-Gateway-List, X-EC-Name, alojar*. 
 
 ![Regra de cabeçalhos especiais de proxy](./media/cdn-http-headers/cdn-proxy-special-header-rule.png)
 
@@ -35,14 +35,14 @@ A tabela seguinte descreve os cabeçalhos que podem ser adicionados ao POP do CD
 
 Cabeçalho do pedido | Descrição | Exemplo
 ---------------|-------------|--------
-[através de](#via-request-header) | Identifica o servidor POP ou transmitidas por proxy o pedido para um servidor de origem. | ECS de HTTP/1.1 (dca/1A2B)
+[Via](#via-request-header) | Identifica o servidor POP ou transmitidas por proxy o pedido para um servidor de origem. | ECS de HTTP/1.1 (dca/1A2B)
 X-reencaminhados-para | Indica o endereço IP do autor do pedido.| 10.10.10.10
 Proto X reencaminhados | Indica o protocolo do pedido. | http
-Anfitrião de X | Indica o nome de anfitrião do pedido. | CDN.mydomain.com
+X-Host | Indica o nome de anfitrião do pedido. | cdn.mydomain.com
 X Midgress | Indica se o pedido foi transmitidas por proxy por meio de um servidor adicional da CDN. Por exemplo, um servidor de origem de servidor escudo POP ou um servidor de gateway do servidor para ADN POP. <br />Este cabeçalho é adicionado ao pedido, apenas quando o tráfego de midgress ocorre. Neste caso, o cabeçalho é definido como 1 para indicar que o pedido foi transmitidas por proxy por meio de um servidor adicional da CDN.| 1
 [Anfitrião](#host-request-header) | Identifica o anfitrião e a porta onde o conteúdo solicitado pode ser encontrado. | marketing.mydomain.com:80
-[Lista de gateways de X](#x-gateway-list-request-header) | ADN: Identifica a lista de ativação pós-falha de servidores de Gateway de ADN atribuído a uma origem do cliente. <br />Escudo de origem: indica o conjunto de servidores de escudo de origem atribuído a uma origem do cliente. | `icn1,hhp1,hnd1`
-X-EC -_&lt;nome&gt;_ | Cabeçalhos de pedido que começam com *X-EC* (por exemplo, X-EC-etiqueta, [EC-X-Debug](cdn-http-debug-headers.md)) estão reservados para utilização pela CDN.| produção de waf
+[X-Gateway-List](#x-gateway-list-request-header) | ADN: Identifica a lista de ativação pós-falha de servidores de Gateway de ADN atribuído a uma origem do cliente. <br />Escudo de origem: Indica o conjunto de servidores de escudo de origem atribuído a uma origem do cliente. | `icn1,hhp1,hnd1`
+X-EC-_&lt;name&gt;_ | Cabeçalhos de pedido que começam com *X-EC* (por exemplo, X-EC-etiqueta, [EC-X-Debug](cdn-http-debug-headers.md)) estão reservados para utilização pela CDN.| produção de waf
 
 ## <a name="via-request-header"></a>Por meio do cabeçalho do pedido
 O formato por meio do qual o `Via` pedido cabeçalho identifica um servidor POP é especificado pela seguinte sintaxe:
@@ -53,15 +53,16 @@ Os termos utilizados na sintaxe são definidos da seguinte forma:
 - Protocolo: Indica que a versão do protocolo (por exemplo, HTTP/1.1) utilizado para o proxy, o pedido. 
 
 - Plataforma: Indica a plataforma em que o conteúdo foi solicitado. Os códigos seguintes são válidos para este campo: 
+
     Código | Plataforma
     -----|---------
     ECAcc | HTTP grandes
     ECS   | Pequenas de HTTP
     ECD   | Rede de entrega de aplicações (ADN)
 
-- POP: Indica o [POP](cdn-pop-abbreviations.md) que processada o pedido. 
+- POP: Indica a [POP](cdn-pop-abbreviations.md) que processada o pedido. 
 
-- ID: apenas para utilização interna.
+- ID: Apenas para utilização interna.
 
 ### <a name="example-via-request-header"></a>Exemplo por meio do cabeçalho de pedido
 

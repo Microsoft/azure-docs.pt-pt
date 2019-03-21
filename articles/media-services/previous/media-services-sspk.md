@@ -12,14 +12,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/13/2019
+ms.date: 03/20/2019
 ms.author: xpouyat
-ms.openlocfilehash: 34aee7405ac7afb8646ec58c5cbb049e450a4987
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 505def9cde7cddf2ddcc23408fa3159de886167a
+ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57897440"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58294574"
 ---
 # <a name="licensing-microsoft-smooth-streaming-client-porting-kit"></a>Licenciamento Microsoft® Smooth Streaming cliente Kit de migração 
 ## <a name="overview"></a>Descrição geral

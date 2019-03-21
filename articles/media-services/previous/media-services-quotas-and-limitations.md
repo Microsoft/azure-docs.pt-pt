@@ -12,14 +12,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/12/2019
+ms.date: 03/20/2019
 ms.author: juliako
-ms.openlocfilehash: b58b925653326414db7d17bf9c5a0e1fc9676821
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: dc0d41457729bf5fd78adb88d683ab4fbe23a148
+ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56181478"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58293350"
 ---
 # <a name="quotas-and-limitations"></a>Quotas e Limitações
 

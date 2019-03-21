@@ -12,14 +12,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/10/2019
+ms.date: 03/20/2019
 ms.author: juliako
-ms.openlocfilehash: 20fa58215db226b1825f2922331e0d380612c4e5
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: a7b61ba05aea817d65e7cac991ad460d708a5ea7
+ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55991383"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58294166"
 ---
 # <a name="how-to-check-job-progress"></a>Como: verificar o progresso da tarefa
 > [!div class="op_single_selector"]

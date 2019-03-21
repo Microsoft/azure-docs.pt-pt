@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc, seodec18
-ms.openlocfilehash: b02facd19929c2d875ffc6266f4c0bfccc6eda52
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 985f1f73fbfc8c75df8393615fca32f5d1c08b9d
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57781889"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58078317"
 ---
 # <a name="tutorial-deploy-azure-machine-learning-as-an-iot-edge-module-preview"></a>Tutorial: Implementar o Azure Machine Learning como um módulo do IoT Edge (pré-visualização)
 
@@ -128,8 +128,8 @@ Nesta secção, converter ficheiros de modelo treinada de aprendizagem e num Azu
 
 12. Execute as células no bloco de notas, selecionando-os e selecionando **execute** ou premir `Shift + Enter`.
 
-   >[!TIP]
-   >Algumas das células no notebook tutorial da deteção de anomalias são opcionais, uma vez que eles criam os recursos que alguns utilizadores podem ou não podem ter ainda, como um IoT Hub. Se colocar suas informações de recursos existente na primeira célula, receberá erros se executar as células que criam novos recursos, porque o Azure não irá criar recursos duplicados. Isso é bom, e pode ignorar os erros ou ignorar completamente essas seções opcionais. 
+    >[!TIP]
+    >Algumas das células no notebook tutorial da deteção de anomalias são opcionais, uma vez que eles criam os recursos que alguns utilizadores podem ou não podem ter ainda, como um IoT Hub. Se colocar suas informações de recursos existente na primeira célula, receberá erros se executar as células que criam novos recursos, porque o Azure não irá criar recursos duplicados. Isso é bom, e pode ignorar os erros ou ignorar completamente essas seções opcionais. 
 
 Depois de concluir todos os passos no bloco de notas, terá preparado um modelo de deteção de anomalias, desenvolvido como uma imagem de contentor do Docker e enviou essa imagem para o Azure Container Registry. Em seguida, testou o modelo e finalmente implementou-a para o seu dispositivo IoT Edge. 
 

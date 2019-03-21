@@ -10,12 +10,12 @@ ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 3/26/2018
 ms.author: victorh
-ms.openlocfilehash: 8810ebc2bea02cc9e2163fb27f1223240c0a8ce2
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: HT
+ms.openlocfilehash: 10bc4e4c440e5495afd820f588270b7990108b68
+ms.sourcegitcommit: aa3be9ed0b92a0ac5a29c83095a7b20dd0693463
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58106615"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58259266"
 ---
 # <a name="create-an-application-gateway-with-path-based-routing-rules-using-the-azure-portal"></a>Criar um gateway de aplicação com o caminho com base em regras de encaminhamento com o portal do Azure
 
@@ -156,7 +156,7 @@ Neste exemplo, vai criar três máquinas virtuais para serem utilizadas como ser
 
     ![Registar o endereço IP público do gateway de aplicação](./media/application-gateway-create-url-route-portal/application-gateway-record-ag-address.png)
 
-2. Copie o endereço IP público e cole-o na barra de endereço do browser. Como, por exemplo, http:// http://40.121.222.19.
+2. Copie o endereço IP público e cole-o na barra de endereço do browser. Por exemplo, http:\//40.121.222.19.
 
     ![Testar o URL base no gateway de aplicação](./media/application-gateway-create-url-route-portal/application-gateway-iistest.png)
 

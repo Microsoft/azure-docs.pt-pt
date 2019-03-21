@@ -12,14 +12,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/08/2019
+ms.date: 03/20/2019
 ms.author: juliako
-ms.openlocfilehash: ff7bb6fa087ab7fa362c13ca03d6f3100a505ce3
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: ffbf30f2bfdf0a175513a8d2b9182b35c39f6aae
+ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57858962"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58292455"
 ---
 # <a name="managing-media-services-entities-with-rest"></a>Gerenciando entidades de serviços de multimédia com REST  
 

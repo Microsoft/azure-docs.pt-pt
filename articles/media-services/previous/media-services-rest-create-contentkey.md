@@ -12,14 +12,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/10/2019
+ms.date: 03/20/2019
 ms.author: juliako
-ms.openlocfilehash: 6ae0b534b64ac3c845c603061ee7e0b8e8467cf0
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: 84fd4f0971c56d8cf2cdf138ba8ac8ea1a6e07eb
+ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55996224"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58293843"
 ---
 # <a name="create-content-keys-with-rest"></a>Criar chaves de conteúdo com REST
 > [!div class="op_single_selector"]

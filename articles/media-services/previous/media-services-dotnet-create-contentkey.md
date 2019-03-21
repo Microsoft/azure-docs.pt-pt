@@ -12,14 +12,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/09/2019
+ms.date: 03/18/2019
 ms.author: juliako
-ms.openlocfilehash: 148e5b8dad4e204f9cf0ab4288777b65765666e8
-ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.openlocfilehash: ab26be3b9ac5d209cfe8117bdf9e87e0c7e74188
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/02/2019
-ms.locfileid: "57245680"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58183089"
 ---
 # <a name="create-contentkeys-with-net"></a>Criar ContentKeys com .NET 
 > [!div class="op_single_selector"]

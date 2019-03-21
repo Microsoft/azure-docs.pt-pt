@@ -10,12 +10,12 @@ ms.service: search
 ms.devlang: rest-api
 ms.topic: conceptual
 ms.custom: seodec2018
-ms.openlocfilehash: 0524bd224e3da3e6a9b18a4225c88e9c43d07606
-ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
+ms.openlocfilehash: 87da5cdd31abb41a774a46d3891006eb58ac5e4d
+ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 03/20/2019
-ms.locfileid: "58223415"
+ms.locfileid: "58285139"
 ---
 # <a name="quickstart-create-an-azure-search-index-using-powershell-and-the-rest-api"></a>Início rápido: Criar um índice da Azure Search com o PowerShell e a API REST
 > [!div class="op_single_selector"]
@@ -77,7 +77,7 @@ Se o serviço está vazio e tem sem índices, os resultados são semelhantes ao 
 }
 ```
 
-## <a name="1---create-an-index"></a>1 - criar um índice
+## <a name="1---create-an-index"></a>1 - Criar um índice
 
 A menos que estiver a utilizar o portal, tem de existir um índice no serviço antes de carregar dados. Este passo define o índice e envia-o para o serviço. O [criar índice (REST API)](https://docs.microsoft.com/rest/api/searchservice/create-index) é utilizado para este passo.
 
@@ -162,6 +162,8 @@ Resultados devem ser semelhantes ao seguinte (truncado para os primeiros dois ca
 
 > [!Tip]
 > Para efeitos de verificação, poderia também Verifique a lista de índices no portal do ou volte a executar o comando utilizado para verificar a ligação de serviço para ver os *hotéis* índice listados na coleção de índices.
+
+<a name="load-documents"></a>
 
 ## <a name="2---load-documents"></a>2 - carregar documentos
 
@@ -253,7 +255,7 @@ Os resultados devem ter um aspeto semelhantes ao seguinte exemplo. Deverá ver u
 }
 ```
 
-## <a name="3---search-an-index"></a>3 - um índice de pesquisa
+## <a name="3---search-an-index"></a>3 - Pesquisar um índice
 
 Este passo mostra-lhe como consultar um índice com o [API de pesquisa de documentos](https://docs.microsoft.com/rest/api/searchservice/search-documents).
 

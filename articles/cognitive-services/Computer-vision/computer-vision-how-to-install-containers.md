@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: article
-ms.date: 02/21/2019
+ms.date: 3/19/2019
 ms.author: diberry
 ms.custom: seodec18
-ms.openlocfilehash: 1b26f0833dec95d886a56dde4526d02f697926ae
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 665e6651db37cc04693d68bd2de2ede6e595eab4
+ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58004410"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58293401"
 ---
 # <a name="install-and-run-recognize-text-containers"></a>Instalar e executar contentores de reconhecer texto
 
@@ -50,14 +50,14 @@ Tem de cumprir os seguintes pré-requisitos antes de utilizar contentores de rec
 
 A tabela seguinte descreve os mínimos e recomendados núcleos de CPU e memória para atribuir cada contentor de reconhecer texto.
 
-| Contentor | Mínimo | Recomendado |
-|-----------|---------|-------------|
-|Reconhecer texto|1 núcleo, 8 GB de memória, 0,5 TPS|2 núcleos, 8 GB de memória, 1 TPS|
+| Contentor | Mínimo | Recomendado |TPS<br>(No mínimo, máximo)|
+|-----------|---------|-------------|--|
+|Reconhecer texto|1 núcleo, 8 GB de memória, 0,5 TPS|2 núcleos, 8 GB de memória, 1 TPS|0.5, 1|
 
-Cada principal tem de ser, pelo menos, de 2,6 GHz (gigahertz) ou mais rápido.
+* Cada principal tem de ser, pelo menos, de 2,6 GHz (gigahertz) ou mais rápido.
+* TPS - transações por segundo
 
 Núcleos e memória correspondem para o `--cpus` e `--memory` as definições, que são utilizadas como parte do `docker run` comando.
-
 
 ## <a name="get-the-container-image-with-docker-pull"></a>Obter a imagem de contentor com o `docker pull`
 

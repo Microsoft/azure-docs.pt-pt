@@ -13,12 +13,12 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 02/20/2019
 ms.author: juliako
-ms.openlocfilehash: 2556942119fdd4f58f6bd47bc88160dd2e13753d
-ms.sourcegitcommit: 7723b13601429fe8ce101395b7e47831043b970b
+ms.openlocfilehash: 3a50d78645630e499b11f012da122b12b026ae6b
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56585565"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57857866"
 ---
 # <a name="quickstart-stream-video-files---net"></a>Início rápido: Transmitir ficheiros de vídeo - .NET
 
@@ -42,7 +42,7 @@ No final do início rápido, será capaz de transmitir um vídeo.
 Clone o repositório do GitHub que contém o exemplo de .NET de transmissão para o computador com o comando seguinte:  
 
  ```bash
- git clone http://github.com/Azure-Samples/media-services-v3-dotnet-quickstarts.git
+ git clone https://github.com/Azure-Samples/media-services-v3-dotnet-quickstarts.git
  ```
 
 O exemplo está localizado na pasta [EncodeAndStreamFiles](https://github.com/Azure-Samples/media-services-v3-dotnet-quickstarts/tree/master/AMSV3Quickstarts/EncodeAndStreamFiles).

@@ -12,14 +12,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/08/2019
+ms.date: 03/20/2019
 ms.author: johndeu;
-ms.openlocfilehash: ae1e586abaaf3aee147228765e091814d4c3e4dc
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: b26252ddda7997bebd730bb4c1007f76b3e645a4
+ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57885475"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58294710"
 ---
 # <a name="smooth-streaming-protocol-ms-sstr-amendment-for-hevc"></a>Modificação de protocolo (MS-SSTR) transmissão em fluxo uniforme para HEVC 
 

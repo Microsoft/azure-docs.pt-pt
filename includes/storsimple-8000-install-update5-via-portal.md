@@ -4,12 +4,12 @@ ms.service: storsimple
 ms.topic: include
 ms.date: 10/26/2018
 ms.author: alkohli
-ms.openlocfilehash: 68c04ef893e5e0826f03bffa93fb7c79b4959fdc
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: d2df7388018c463ba58b57be46945915210b84b6
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55888646"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58125142"
 ---
 #### <a name="to-install-an-update-from-the-azure-portal"></a>Para instalar uma atualização a partir do portal do Azure
 
@@ -35,7 +35,7 @@ ms.locfileid: "55888646"
    * **Verificações do estado de funcionamento do componente de hardware** para verificar se todos os componentes de hardware do seu dispositivo StorSimple estão em bom estado de funcionamento.
    * **Verificações de DATA 0** para verificar se DATA 0 está ativado no seu dispositivo. Se esta interface não estiver ativada, terá de ativá-la e, em seguida, tentar novamente.
 
-    A atualização é transferida e instalada apenas se todas as verificações forem concluídas com êxito. Será notificado quando as verificações estiverem em curso. Se o prechecks falharem, em seguida, será fornecido com os motivos da falha. Resolver esses problemas e, em seguida, repita a operação. Poderá ter de contactar o Suporte da Microsoft se não conseguir resolver estes problemas.
+     A atualização é transferida e instalada apenas se todas as verificações forem concluídas com êxito. Será notificado quando as verificações estiverem em curso. Se o prechecks falharem, em seguida, será fornecido com os motivos da falha. Resolver esses problemas e, em seguida, repita a operação. Poderá ter de contactar o Suporte da Microsoft se não conseguir resolver estes problemas.
 
 7. Depois dos prechecks forem concluídas com êxito, é criada uma tarefa de atualização. Será notificado quando a tarefa de atualização for criada com êxito.
    

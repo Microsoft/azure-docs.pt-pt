@@ -15,12 +15,12 @@ ms.topic: quickstart
 ms.date: 03/26/2018
 ms.author: cephalin;robmcm
 ms.custom: seodec18
-ms.openlocfilehash: 9044890c1bb4a662adecec0e94a220897af54557
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: 6bf0562d222bce07f74ef5355ad0e3d6b8844c33
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56115118"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58096627"
 ---
 # <a name="create-your-first-java-web-app-in-azure"></a>Criar a primeira aplicação Web Java no Azure
 
@@ -125,7 +125,7 @@ Na caixa de diálogo **Criar Serviço de Aplicações**:
   * **Localização**: Selecione **Europa Ocidental** ou para uma localização perto de si.
   * **Escalão de preço**: Selecione a opção gratuita. Para as funcionalidades, veja [Preços do Serviço de Aplicações](https://azure.microsoft.com/pricing/details/app-service/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
 
-   ![Caixa de diálogo Criar Serviço de Aplicações](./media/app-service-web-get-started-java/create-app-service-dialog-box.png)
+    ![Caixa de diálogo Criar Serviço de Aplicações](./media/app-service-web-get-started-java/create-app-service-dialog-box.png)
 
 [!INCLUDE [app-service-plan](../../includes/app-service-plan.md)]
 

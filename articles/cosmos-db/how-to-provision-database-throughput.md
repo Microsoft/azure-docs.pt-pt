@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: sample
 ms.date: 11/06/2018
 ms.author: mjbrown
-ms.openlocfilehash: 8c2fe8d42ded5a072a2211b102736326554bc4f4
-ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.openlocfilehash: c0a947c9cf2c1d4a11d310b9bab0774a70534a1e
+ms.sourcegitcommit: aa3be9ed0b92a0ac5a29c83095a7b20dd0693463
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/02/2019
-ms.locfileid: "57239891"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58259436"
 ---
 # <a name="provision-throughput-for-a-database-in-azure-cosmos-db"></a>Aprovisione o débito para a base de dados no Azure Cosmos DB
 
@@ -23,7 +23,7 @@ Este artigo explica como aprovisionar débito para uma base de dados no Azure Co
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com/).
 
-1. [Criar uma nova conta do Azure Cosmos DB](create-sql-api-dotnet.md#create-a-database-account), ou selecione uma conta existente.
+1. [Criar uma nova conta do Azure Cosmos DB](create-sql-api-dotnet.md#create-account), ou selecione uma conta existente.
 
 1. Abra o **Data Explorer** painel e selecione **nova base de dados**. Indique os detalhes seguintes:
 

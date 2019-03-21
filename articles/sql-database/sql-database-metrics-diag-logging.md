@@ -11,13 +11,13 @@ author: danimir
 ms.author: danil
 ms.reviewer: jrasnik, carlrab
 manager: craigg
-ms.date: 03/06/2019
-ms.openlocfilehash: 02f5b98026699be4c71e0cecf94634c7a139d21e
-ms.sourcegitcommit: 235cd1c4f003a7f8459b9761a623f000dd9e50ef
+ms.date: 03/12/2019
+ms.openlocfilehash: 76c7519a166bfbfe5d2a7695a077b809aa971489
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/11/2019
-ms.locfileid: "57727013"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57904036"
 ---
 # <a name="azure-sql-database-metrics-and-diagnostics-logging"></a>Métricas de base de dados SQL do Azure e o registo de diagnósticos
 
@@ -44,13 +44,13 @@ Pode ativar e gerir as métricas e registos de telemetria de diagnóstico utiliz
 - PowerShell
 - CLI do Azure
 - API de REST do Azure Monitor
-- Modelo do Azure Resource Manager
+- Modelo Azure Resource Manager
 
 Quando ativar métricas e registo de diagnósticos, tem de especificar o destino de recursos do Azure para recolher a telemetria de diagnóstico. Opções disponíveis incluem:
 
 - Análise de SQL do Azure
-- Hubs de Eventos do Azure
-- Armazenamento do Azure
+- Azure Event Hubs
+- Storage do Azure
 
 Pode aprovisionar um novo recurso do Azure ou selecione um recurso existente. Depois de escolher um recurso utilizando o **das definições de diagnóstico** opção, especifique os dados a recolher.
 
@@ -141,7 +141,7 @@ Pode configurar um recurso de instância gerida para recolher a telemetria de di
 
 | Recurso | Monitorização de telemetria |
 | :------------------- | ------------------- |
-| **Instância gerida** | [ResourceUsageStats](#logs-for-managed-instances) contém a contagem de vCores, percentagem de CPU média, pedidos de e/s, espaço de armazenamento reservada, lidos/escritos de bytes e espaço de armazenamento utilizado. |
+| **Instância gerida** | ResourceUsageStats contém a contagem de vCores, percentagem de CPU média, pedidos de e/s, espaço de armazenamento reservada, lidos/escritos de bytes e espaço de armazenamento utilizado. |
 
 Para ativar a transmissão em fluxo de telemetria de diagnóstico para um recurso de instância gerida, siga estes passos:
 
@@ -189,6 +189,8 @@ Para ativar a transmissão de telemetria de diagnóstico, por exemplo, bancos de
 ### <a name="powershell"></a>PowerShell
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+> [!IMPORTANT]
+> O módulo do PowerShell do Azure Resource Manager ainda é suportado pelo SQL Database do Azure, mas todo o desenvolvimento futuro é para o módulo de Az.Sql. Para estes cmdlets, consulte [azurerm. SQL](https://docs.microsoft.com/powershell/module/AzureRM.Sql/). Os argumentos para os comandos no módulo Az e nos módulos AzureRm são substancialmente idênticos.
 
 Pode ativar métricas e registo de diagnósticos com o PowerShell.
 
@@ -421,7 +423,7 @@ Detalhes de telemetria disponível para todos os registos são divulgadas em tab
 |Recurso|Nome do recurso |
 |ResourceType|Nome do tipo de recurso. Sempre: MANAGEDINSTANCES |
 |SubscriptionId|GUID da subscrição para a base de dados |
-|GrupoRecursos|Nome do grupo de recursos para a base de dados |
+|ResourceGroup|Nome do grupo de recursos para a base de dados |
 |LogicalServerName_s|Nome da instância gerida |
 |ResourceId|URI do recurso |
 |SKU_s|SKU do produto de instância gerida |
@@ -447,7 +449,7 @@ Detalhes de telemetria disponível para todos os registos são divulgadas em tab
 |Recurso|Nome do recurso |
 |ResourceType|Nome do tipo de recurso. Sempre: SERVERS/DATABASES |
 |SubscriptionId|GUID da subscrição para a base de dados |
-|GrupoRecursos|Nome do grupo de recursos para a base de dados |
+|ResourceGroup|Nome do grupo de recursos para a base de dados |
 |LogicalServerName_s|Nome do servidor da base de dados |
 |ElasticPoolName_s|Nome do conjunto elástico da base de dados, se aplicável |
 |DatabaseName_s|Nome da base de dados |
@@ -498,7 +500,7 @@ Saiba mais sobre [dados de estatísticas de tempo de execução de consulta Stor
 |Recurso|Nome do recurso |
 |ResourceType|Nome do tipo de recurso. Sempre: SERVERS/DATABASES |
 |SubscriptionId|GUID da subscrição para a base de dados |
-|GrupoRecursos|Nome do grupo de recursos para a base de dados |
+|ResourceGroup|Nome do grupo de recursos para a base de dados |
 |LogicalServerName_s|Nome do servidor da base de dados |
 |ElasticPoolName_s|Nome do conjunto elástico da base de dados, se aplicável |
 |DatabaseName_s|Nome da base de dados |
@@ -536,7 +538,7 @@ Saiba mais sobre [dados de estatísticas de espera de consulta Store](https://do
 |Recurso|Nome do recurso |
 |ResourceType|Nome do tipo de recurso. Sempre: SERVERS/DATABASES |
 |SubscriptionId|GUID da subscrição para a base de dados |
-|GrupoRecursos|Nome do grupo de recursos para a base de dados |
+|ResourceGroup|Nome do grupo de recursos para a base de dados |
 |LogicalServerName_s|Nome do servidor da base de dados |
 |ElasticPoolName_s|Nome do conjunto elástico da base de dados, se aplicável |
 |DatabaseName_s|Nome da base de dados |
@@ -565,7 +567,7 @@ Saiba mais sobre [mensagens de erro do SQL Server](https://msdn.microsoft.com/li
 |Recurso|Nome do recurso |
 |ResourceType|Nome do tipo de recurso. Sempre: SERVERS/DATABASES |
 |SubscriptionId|GUID da subscrição para a base de dados |
-|GrupoRecursos|Nome do grupo de recursos para a base de dados |
+|ResourceGroup|Nome do grupo de recursos para a base de dados |
 |LogicalServerName_s|Nome do servidor da base de dados |
 |ElasticPoolName_s|Nome do conjunto elástico da base de dados, se aplicável |
 |DatabaseName_s|Nome da base de dados |
@@ -594,7 +596,7 @@ Saiba mais sobre [estatísticas de espera de base de dados](https://docs.microso
 |Recurso|Nome do recurso |
 |ResourceType|Nome do tipo de recurso. Sempre: SERVERS/DATABASES |
 |SubscriptionId|GUID da subscrição para a base de dados |
-|GrupoRecursos|Nome do grupo de recursos para a base de dados |
+|ResourceGroup|Nome do grupo de recursos para a base de dados |
 |LogicalServerName_s|Nome do servidor da base de dados |
 |ElasticPoolName_s|Nome do conjunto elástico da base de dados, se aplicável |
 |DatabaseName_s|Nome da base de dados |
@@ -617,7 +619,7 @@ Saiba mais sobre [estatísticas de espera de base de dados](https://docs.microso
 |Recurso|Nome do recurso |
 |ResourceType|Nome do tipo de recurso. Sempre: SERVERS/DATABASES |
 |SubscriptionId|GUID da subscrição para a base de dados |
-|GrupoRecursos|Nome do grupo de recursos para a base de dados |
+|ResourceGroup|Nome do grupo de recursos para a base de dados |
 |LogicalServerName_s|Nome do servidor da base de dados |
 |ElasticPoolName_s|Nome do conjunto elástico da base de dados, se aplicável |
 |DatabaseName_s|Nome da base de dados |
@@ -641,7 +643,7 @@ Saiba mais sobre [estatísticas de espera de base de dados](https://docs.microso
 |Recurso|Nome do recurso |
 |ResourceType|Nome do tipo de recurso. Sempre: SERVERS/DATABASES |
 |SubscriptionId|GUID da subscrição para a base de dados |
-|GrupoRecursos|Nome do grupo de recursos para a base de dados |
+|ResourceGroup|Nome do grupo de recursos para a base de dados |
 |LogicalServerName_s|Nome do servidor da base de dados |
 |ElasticPoolName_s|Nome do conjunto elástico da base de dados, se aplicável |
 |DatabaseName_s|Nome da base de dados |
@@ -661,7 +663,7 @@ Saiba mais sobre [estatísticas de espera de base de dados](https://docs.microso
 |Recurso|Nome do recurso |
 |ResourceType|Nome do tipo de recurso. Sempre: SERVERS/DATABASES |
 |SubscriptionId|GUID da subscrição para a base de dados |
-|GrupoRecursos|Nome do grupo de recursos para a base de dados |
+|ResourceGroup|Nome do grupo de recursos para a base de dados |
 |LogicalServerName_s|Nome do servidor da base de dados |
 |LogicalDatabaseName_s|Nome da base de dados |
 |ElasticPoolName_s|Nome do conjunto elástico da base de dados, se aplicável |

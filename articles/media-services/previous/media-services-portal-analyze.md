@@ -12,14 +12,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/10/2019
+ms.date: 03/19/2019
 ms.author: juliako
-ms.openlocfilehash: fa48713034de5660218d2d568be6673a7d39a7e3
-ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.openlocfilehash: 7a303b9d27b3708bd4f59517452fa232cc38c923
+ms.sourcegitcommit: aa3be9ed0b92a0ac5a29c83095a7b20dd0693463
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/02/2019
-ms.locfileid: "57245306"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58259691"
 ---
 # <a name="analyze-your-media-using-the-azure-portal"></a>Analise a sua multimédia com o portal do Azure 
 > [!NOTE]

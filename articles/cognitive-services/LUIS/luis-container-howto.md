@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: article
-ms.date: 02/21/2019
+ms.date: 03/19/2019
 ms.author: diberry
-ms.openlocfilehash: 19206278f838b77954c28e95e9171a857ba1338a
-ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
+ms.openlocfilehash: 1cf5fb00e9f1a202fe7ad46253f916e3e6bee7a7
+ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56670666"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58295577"
 ---
 # <a name="install-and-run-luis-docker-containers"></a>Instalar e executar o LUIS contentores do docker
  
@@ -46,15 +46,14 @@ Para executar o contentor de LUIS, tem de ter o seguinte:
 
 Este contentor suporta valores mínimos e recomendados para as definições:
 
-|Definição| Mínimo | Recomendado |
-|-----------|---------|-------------|
-|Núcleos<BR>`--cpus`|1 núcleo|1 núcleo|
-|Memória<BR>`--memory`|2 GB|4GB|
-|Transações por segundo<BR>(TPS)|20 TPS|40 TPS|
+|Contentor| Mínimo | Recomendado | TPS<br>(No mínimo, máximo)|
+|-----------|---------|-------------|--|
+|LUIS|1 núcleo, 2 GB de memória|1 núcleo, 4 GB de memória|20,40|
 
-Cada principal tem de ser, pelo menos, de 2,6 GHz (gigahertz) ou mais rápido.
+* Cada principal tem de ser, pelo menos, de 2,6 GHz (gigahertz) ou mais rápido.
+* TPS - transações por segundo
 
-O `--cpus` e `--memory` as definições são utilizadas como parte do `docker run` comando.
+Núcleos e memória correspondem para o `--cpus` e `--memory` as definições, que são utilizadas como parte do `docker run` comando.
 
 ## <a name="get-the-container-image-with-docker-pull"></a>Obter a imagem de contentor com o `docker pull`
 
@@ -103,7 +102,7 @@ O diretório de montagem de entrada pode conter os **produção**, **teste**, e 
 |Tipo de pacote|API de ponto final da consulta|Disponibilidade de consulta|Formato de nome de ficheiro de pacote|
 |--|--|--|--|
 |Preparado|GET, Post|Contentor apenas|`{APPLICATION_ID}_v{APPLICATION_VERSION}.gz`|
-|Testes|GET, Post|Azure e contentores|`{APPLICATION_ID}_STAGING.gz`|
+|Teste|GET, Post|Azure e contentores|`{APPLICATION_ID}_STAGING.gz`|
 |Produção|GET, Post|Azure e contentores|`{APPLICATION_ID}_PRODUCTION.gz`|
 
 > [!IMPORTANT]
@@ -265,7 +264,7 @@ Configurar os parâmetros de consulta como e o que é devolvido na resposta da c
 
 |Parâmetro de consulta|Type|Objetivo|
 |--|--|--|
-|`q`|cadeia|Expressão do utilizador.|
+|`q`|string|Expressão do utilizador.|
 |`timezoneOffset`|número|O timezoneOffset permite-lhe [alterar o fuso horário](luis-concept-data-alteration.md#change-time-zone-of-prebuilt-datetimev2-entity) utilizado pelo datetimeV2 a entidade pré-criados.|
 |`verbose`|boolean|Devolve todas as intenções e suas pontuações quando definidas como true. A predefinição é FALSO, que retorna apenas a intenção superior.|
 |`staging`|boolean|Consulta interativa devolve resultados do ambiente de teste se definido como true. |

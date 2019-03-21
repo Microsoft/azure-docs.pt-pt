@@ -6,14 +6,14 @@ author: mayurigupta13
 manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 11/27/2018
+ms.date: 3/20/2019
 ms.author: mayg
-ms.openlocfilehash: 6065d83cf74b6bb7c3d80d4e452df8377dc9823e
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: 7bfe382ac1a175aafb4944dffa8d12a372f4fb70
+ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56732658"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58286504"
 ---
 # <a name="analyze-the-azure-site-recovery-deployment-planner-report"></a>Analisar o relatório do Azure Site Recovery Deployment Planner
 Este artigo aborda as folhas do relatório do Excel que o Planeador de Implementações do Azure Site Recovery gera para um cenário de Hyper-V para o Azure.
@@ -275,7 +275,7 @@ A tabela seguinte mostra os limites do Site Recovery. Estes limites baseiam-se e
 ---|---|---|---
 Armazenamento Standard | 8 KB | 2 MB/s por VM | 168 GB por VM
 Armazenamento Premium | 8 KB  | 5 MB/s por VM | 421 GB por VM
-Armazenamento Premium | 16 KB ou mais| 10 MB/s por VM | 842 GB por VM
+Armazenamento Premium | 16 KB ou mais| 20 MB/s por VM | 1684 GB por VM
 
 Estes limites são números médios, que pressupõem uma sobreposição de E/S de 30 por cento. O Site Recovery é capaz de processar um débito superior com base no rácio de sobreposição, em tamanhos de escrita maiores e no comportamento real de E/S da carga de trabalho. Os números anteriores pressupõem um atraso típico de aproximadamente cinco minutos. Ou seja, depois de os dados serem carregados, são processados e é criado um ponto de recuperação ao fim de cinco minutos.
 

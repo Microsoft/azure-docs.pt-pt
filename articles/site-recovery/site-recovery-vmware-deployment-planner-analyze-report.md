@@ -5,14 +5,14 @@ author: mayurigupta13
 manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 03/01/2019
+ms.date: 3/20/2019
 ms.author: mayg
-ms.openlocfilehash: 460bb6b9c7c5700d2c59dbe88d3089be64bb3a31
-ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
+ms.openlocfilehash: cbea6785239c70a3cdb229d0811497f051224238
+ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57216446"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58286351"
 ---
 # <a name="analyze-the-azure-site-recovery-deployment-planner-report-for-vmware-disaster-recovery-to-azure"></a>Analisar o relatório do Azure Site Recovery Deployment Planner para a recuperação de desastre do VMware para o Azure
 
@@ -41,6 +41,9 @@ A folha do Resumo no local proporciona uma descrição geral do ambiente do VMwa
 **Alterações a dados típicas observadas por dia (GB)**: A alteração a dados média registada em dias de criação de todos os perfis. Este número é utilizado como uma das entradas para decidir o número de servidores de configuração e de servidores de processos adicionais a utilizar na implementação.
 
 ## <a name="recommendations"></a>Recomendações
+
+>[!Note]
+>Quando replicar diretamente para os discos geridos, ignore a recomendação para o número de contas de armazenamento.
 
 A folha de recomendações do relatório de VMware para o Azure tem os seguintes detalhes de acordo com o RPO pretendido selecionado:
 
@@ -155,6 +158,9 @@ Poderá haver casos em que sabe que não pode definir uma largura de banda com m
 ![RPO alcançável para largura de banda de 500 Mbps](media/site-recovery-vmware-deployment-planner-analyze-report/achievable-rpo-v2a.png)
 
 ## <a name="vm-storage-placement"></a>Colocação do armazenamento de VMs
+
+>[!Note]
+>Quando replicar diretamente para os discos geridos, não é necessário se preocupar sobre o número de contas de armazenamento. Para armazenamento, utilize apenas a recomendação no tipo de armazenamento (Standard ou Premium). O mesmo tipo é aplicável para discos geridos.
 
 ![Colocação do armazenamento de VMs](media/site-recovery-vmware-deployment-planner-analyze-report/vm-storage-placement-v2a.png)
 
@@ -273,7 +279,7 @@ Disco Premium P10 ou P15 | 8 KB  | 2 MB/s | 168 GB por disco
 Disco Premium P10 ou P15 | 16 KB | 4 MB/s |  336 GB por disco
 Disco Premium P10 ou P15 | 32 KB ou superior | 8 MB/s | 672 GB por disco
 Disco Premium P20 ou P30 ou P40 ou P50 | 8 KB    | 5 MB/s | 421 GB por disco
-Disco Premium P20 ou P30 ou P40 ou P50 | 16 KB ou superior |10 MB/s | 842 GB por disco
+Disco Premium P20 ou P30 ou P40 ou P50 | 16 KB ou superior | 20 MB/s | 1684 GB por disco
 
 **Alterações a dados de origem** | **Limite Máximo**
 ---|---

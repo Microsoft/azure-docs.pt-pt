@@ -4,20 +4,23 @@ ms.service: azure-spatial-anchors
 ms.topic: include
 ms.date: 1/29/2019
 ms.author: rgarcia
-ms.openlocfilehash: 8047ed27c732cabf92f53b4b70c22471ecb848aa
-ms.sourcegitcommit: 30a0007f8e584692fe03c0023fe0337f842a7070
+ms.openlocfilehash: e8daaaf5b6b15eb3095f11e94c707a33b4b18e28
+ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57588164"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58305302"
 ---
-Selecione **criar** para abrir uma caixa de diálogo. Em seguida, selecione uma pasta para exportar o projeto Xcode.
+Selecione **criar**. Na caixa de diálogo que se abre, selecione uma pasta para exportar o projeto Xcode para.
 
-Quando a exportação for concluída, uma pasta será apresentada que contém o projeto Xcode exportado.
+Quando a exportação for concluída, será apresentada uma pasta que contém o projeto Xcode exportado.
+
+> [!NOTE]
+> Se for apresentada uma janela que lhe pergunta se pretende substituir ou de acréscimo, recomendamos que seleciona **acréscimo** porque é mais rápido. Só deverá precisar de selecionar **substitua** se estiver a alterar ativos em seu cenário. (Por exemplo, se estiver a adicionar, remover, ou alterar relações pai/filho ou se estiver a adicionar, remover ou alterar as propriedades.) Se estiver a fazer alterações no código-fonte, somente **acréscimo** deve ser suficiente.
 
 ### <a name="open-the-xcode-project"></a>Abra o projeto Xcode
 
-Na pasta de projeto Xcode exportada, execute o comando seguinte no Terminal para instalar os CocoaPods necessários para o projeto:
+Na pasta de projeto Xcode exportada, execute este comando no Terminal para instalar os CocoaPods necessários para o projeto:
 
 ```bash
 pod install --repo-update
@@ -30,11 +33,11 @@ open ./Unity-iPhone.xcworkspace
 ```
 
 > [!NOTE]
-> Se vir um `library not found for -lPods-Unity-iPhone` erro, provavelmente aberta da `.xcodeproj` de ficheiros em vez do `.xcworkspace`. Abra o `.xcworkspace` e tente novamente.
+> Se vir um `library not found for -lPods-Unity-iPhone` erro, provavelmente abriu o `.xcodeproj` de ficheiros em vez do `.xcworkspace` ficheiro. 
 
-Selecione a raiz **Unity iPhone** nó para ver as definições do projeto e selecionar o **geral** separador.
+Selecione a raiz **Unity iPhone** nó para ver as definições do projeto e, em seguida, selecione a **geral** separador.
 
-Sob **assinatura**, selecione **gerir assinatura automaticamente**. Selecione **ativar automática** na caixa de diálogo que aparece para repor as definições de criar.
+Sob **assinatura**, certifique-se **gerir assinatura automaticamente** está ativada. Se não for, ative-a e, em seguida, selecione **ativar automática** na caixa de diálogo que aparece para repor as definições de compilação.
 
 Sob **informações de implantação**, certifique-se a **destino da implementação** está definida como `11.0`.
 

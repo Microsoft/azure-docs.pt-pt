@@ -15,12 +15,12 @@ ms.topic: quickstart
 ms.date: 02/08/2019
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 6b9e5f304eb578a5f63739d26047db328a3d5ac9
-ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
+ms.openlocfilehash: 5cca0d866442583c87665b3a1db8c65c66d12f0a
+ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57216769"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58285382"
 ---
 # <a name="create-a-python-app-in-azure-app-service-on-linux-preview"></a>Criar uma aplicação Python no serviço de aplicações do Azure no Linux (pré-visualização)
 
@@ -109,12 +109,12 @@ Checking connectivity... done.
 
 Mude para o diretório que contém o código de exemplo e execute o comando `az webapp up`.
 
-No comando a seguir, substitua <nome_aplicação> por um nome de aplicação exclusivo.
+No exemplo seguinte, substitua < nome da aplicação > com um nome de aplicação exclusivo.
 
 ```bash
 cd python-docs-hello-world
 
-az webapp up -n <app_name>
+az webapp up -n <app-name>
 ```
 
 Este comando pode demorar alguns minutos a ser executado. Ao executar, apresenta informações semelhantes ao exemplo seguinte:
@@ -125,15 +125,15 @@ Creating Resource group 'appsvc_rg_Linux_CentralUS' ...
 Resource group creation complete
 Creating App service plan 'appsvc_asp_Linux_CentralUS' ...
 App service plan creation complete
-Creating app '<app_name>' ....
+Creating app '<app-name>' ....
 Webapp creation complete
 Creating zip with contents of dir /home/username/quickstart/python-docs-hello-world ...
 Preparing to deploy contents to app.
 All done.
 {
-  "app_url": "https:/<app_name>.azurewebsites.net",
+  "app_url": "https:/<app-name>.azurewebsites.net",
   "location": "Central US",
-  "name": "<app_name>",
+  "name": "<app-name>",
   "os": "Linux",
   "resourcegroup": "appsvc_rg_Linux_CentralUS ",
   "serverfarm": "appsvc_asp_Linux_CentralUS",
@@ -151,7 +151,7 @@ All done.
 Utilize o browser para navegar para a aplicação implementada.
 
 ```bash
-http://<app_name>.azurewebsites.net
+http://<app-name>.azurewebsites.net
 ```
 
 O código de exemplo do Python está a executar no serviço de aplicações no Linux com uma imagem incorporada.
@@ -174,10 +174,10 @@ return "Hello Azure!"
 
 Guardar as alterações e sair do editor. Utilize o comando `^S` para guardar e `^Q` para sair.
 
-Agora vai reimplementar a aplicação. Substitute `<app_name>` com a sua aplicação.
+Agora vai reimplementar a aplicação. Substitute `<app-name>` com a sua aplicação.
 
 ```bash
-az webapp up -n <app_name>
+az webapp up -n <app-name>
 ```
 
 Depois de concluída a implementação, volte para a janela do browser aberta que abriu no passo **Navegar para a aplicação** e atualize a página.

@@ -8,18 +8,18 @@ ms.date: 12/07/2018
 ms.topic: conceptual
 ms.service: iot-central
 manager: peterpr
-ms.openlocfilehash: 43fda73b1bd410c3e754316bb8bf8c7e1c744e58
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: f6e44b21a2a2e174ffa49073fdeb8cc96910a69e
+ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58005340"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58295084"
 ---
 # <a name="export-your-data-to-azure-blob-storage"></a>Exportar os dados para o armazenamento de Blobs do Azure
 
 *Este tópico aplica-se aos administradores.*
 
-Este artigo se aprofunda-se em como usar a funcionalidade de exportação contínua de dados no Azure IoT Central para exportarem periodicamente os dados para o seu **conta de armazenamento de Blobs do Azure**. Pode exportar **medidas**, **dispositivos**, e **modelos de dispositivos** para arquivos no formato do Apache Avro. Os dados exportados podem ser utilizados para análise de caminho típico, como modelos de formação no Azure Machine Learning ou análise de tendências de longo prazo no Microsoft Power BI.
+Este artigo descreve como utilizar a funcionalidade de exportação contínua de dados no Azure IoT Central para exportarem periodicamente os dados para o seu **conta de armazenamento de Blobs do Azure**. Pode exportar **medidas**, **dispositivos**, e **modelos de dispositivos** para arquivos no formato do Apache Avro. Os dados exportados podem ser utilizados para análise de caminho típico, como modelos de formação no Azure Machine Learning ou análise de tendências de longo prazo no Microsoft Power BI.
 
 > [!Note]
 > Mais uma vez, quando ativar a exportação contínua de dados, obtém apenas os dados a partir desse momento ou superior. Atualmente, não poderá obter dados para um tempo quando a exportação de dados contínua foi desativada. Para manter mais dados históricos, ative a exportação contínua de dados desde o início.
@@ -28,6 +28,69 @@ Este artigo se aprofunda-se em como usar a funcionalidade de exportação contí
 ## <a name="prerequisites"></a>Pré-requisitos
 
 - Tem de ser um administrador na sua aplicação do Centro de IoT
+
+
+## <a name="set-up-export-destination"></a>Configurar o destino de exportação
+
+Se não tiver um armazenamento existente para exportar para, siga estes passos:
+
+## <a name="create-storage-account"></a>Criar conta de armazenamento
+
+1. Criar uma [nova conta de armazenamento no portal do Azure](https://ms.portal.azure.com/#create/Microsoft.StorageAccount-ARM). Pode saber mais na [docs do armazenamento do Azure](https://aka.ms/blobdocscreatestorageaccount).
+2. Para o tipo de conta, escolha **fins gerais** ou **armazenamento de BLOBs**.
+3. Escolha uma subscrição. 
+
+    > [!Note] 
+    > Agora, pode exportar dados para outras subscrições que estão **não são as mesmas** que aquela para a sua aplicação pay as you go IoT Central. Irá ligar através de uma cadeia de ligação em vez disso.
+
+4. Crie um contentor na conta de armazenamento. Aceda à sua conta de armazenamento. Sob **serviço Blob**, selecione **procurar Blobs**. Selecione **+ contentor** na parte superior para criar um novo contentor
+
+
+## <a name="set-up-continuous-data-export"></a>Configurar a exportação contínua de dados
+
+Agora que tem um destino de armazenamento para exportar dados para, siga estes passos para configurar a exportação contínua de dados. 
+
+1. Inicie sessão na sua aplicação IoT Central.
+
+2. No menu da esquerda, selecione **a exportação contínua de dados**.
+
+    > [!Note]
+    > Se não vir a exportação contínua de dados no menu à esquerda, não for um administrador na sua aplicação. Fale com o administrador para configurar a exportação de dados.
+
+    ![Criar novo cde Hub de eventos](media/howto-export-data/export_menu.PNG)
+
+3. Selecione o **+ novo** botão no canto superior direito. Escolher **armazenamento de Blobs do Azure** como o destino da exportação. 
+
+    > [!NOTE] 
+    > O número máximo de exportações por aplicação é cinco. 
+
+    ![Criar nova exportação contínua de dados](media/howto-export-data/export_new.PNG)
+
+4. Na caixa de lista pendente, selecione seu **espaço de nomes de conta de armazenamento**. Também pode escolher a última opção na lista que é **introduza uma cadeia de ligação**. 
+
+    > [!NOTE] 
+    > Apenas verá espaços de nomes de contas de armazenamento na **mesma subscrição que a sua aplicação do Centro de IoT**. Se pretender exportar para um destino fora desta subscrição, escolha **introduza uma cadeia de ligação** e veja o passo 5.
+
+    > [!NOTE] 
+    > Para exportar aplicações de avaliação, a única forma de configurar contínua de dados de 7 dias é por meio de uma cadeia de ligação. Isto acontece porque a 7 dias aplicações avaliação não tem uma subscrição do Azure associada.
+
+    ![Criar novo cde Hub de eventos](media/howto-export-data/export-create-blob.png)
+
+5. (Opcional) Se escolheu **introduza uma cadeia de ligação**, aparece uma caixa de novo para que cole a cadeia de ligação. Para obter a cadeia de ligação para a sua:
+    - Conta de armazenamento, aceda à conta de armazenamento no portal do Azure.
+        - Sob **configurações**, selecione **chaves de acesso**
+        - Copiar a cadeia de ligação chave1 ou a cadeia de ligação chave2
+ 
+6. Escolha um contentor na caixa de lista pendente.
+
+7. Sob **dados para exportar**, especifique cada tipo de dados para exportar, definindo o tipo como **no**.
+
+6. Para ativar a exportação contínua de dados, certifique-se **exportar dados** é **no**. Selecione **Guardar**.
+
+  ![Configurar a exportação contínua de dados](media/howto-export-data/export-list-blob.png)
+
+7. Após alguns minutos, os dados serão apresentados no seu destino escolhido.
+
 
 ## <a name="export-to-azure-blob-storage"></a>Exportar para o armazenamento de Blobs do Azure
 

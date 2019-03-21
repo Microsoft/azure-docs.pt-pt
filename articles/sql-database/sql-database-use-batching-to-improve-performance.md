@@ -12,12 +12,12 @@ ms.author: sstein
 ms.reviewer: genemi
 manager: craigg
 ms.date: 01/25/2019
-ms.openlocfilehash: 76b53132cca536f66aa2f739b27d74b08a3f16cf
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: e76b5ecd3d6401c317f6500ec376fc25d3fa55b8
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57781396"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57997700"
 ---
 # <a name="how-to-use-batching-to-improve-sql-database-application-performance"></a>Como utilizar a criação de batches de mensagens em fila para melhorar o desempenho de aplicações de base de dados SQL
 
@@ -298,7 +298,7 @@ O **DataAdapter** classe permite-lhe modificar um **conjunto de dados** de objet
 
 ### <a name="entity-framework"></a>Estrutura de entidades
 
-Estrutura de entidades não suporta atualmente a criação de batches. Diferentes desenvolvedores da Comunidade foi efetuada uma tentativa demonstrar as soluções alternativas, como substituição a **SaveChanges** método. Mas as soluções geralmente são complexos e personalizados para o aplicativo e o modelo de dados. O projeto do Entity Framework codeplex tem atualmente uma página de discussão sobre essa solicitação de recurso. Para ver esta discussão, consulte [anotações de reuniões de Design - 2 de Agosto de 2012](http://entityframework.codeplex.com/wikipage?title=Design%20Meeting%20Notes%20-%20August%202%2c%202012).
+Estrutura de entidades não suporta atualmente a criação de batches. Diferentes desenvolvedores da Comunidade foi efetuada uma tentativa demonstrar as soluções alternativas, como substituição a **SaveChanges** método. Mas as soluções geralmente são complexos e personalizados para o aplicativo e o modelo de dados. O projeto do Entity Framework codeplex tem atualmente uma página de discussão sobre essa solicitação de recurso. Para ver esta discussão, consulte [anotações de reuniões de Design - 2 de Agosto de 2012](https://entityframework.codeplex.com/wikipage?title=Design%20Meeting%20Notes%20-%20August%202%2c%202012).
 
 ### <a name="xml"></a>XML
 

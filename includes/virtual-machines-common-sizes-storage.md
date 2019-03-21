@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 07/06/2018
 ms.author: azcspmt;jonbeck;cynthn
 ms.custom: include file
-ms.openlocfilehash: dbbfea183454b1068558111bf62b45f5fa6415cc
-ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
+ms.openlocfilehash: e05281b2279f5d40f8a3ba4ed3f49a38e5abf0ee
+ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/16/2019
-ms.locfileid: "56333912"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58261596"
 ---
 Armazenamento de tamanhos de VM otimizados oferecem débito de disco elevados e e/s e são ideais para macrodados, SQL, NoSQL bases de dados, armazenamento de dados e grandes bancos de dados transacionais.  Os exemplos incluem Cassandra, MongoDB, Cloudera e Redis. Este artigo fornece informações sobre o número de vCPUs, discos de dados e NICs, bem como armazenamento local débito e de rede da largura de banda para cada tamanho otimizada.
 
@@ -31,13 +31,13 @@ Armazenamento Premium: Suportadas
 
 Cache de armazenamento Premium: Não suportado
 
-| Tamanho          | vCPU | Memória (GiB) | Disco temporário<sup>1</sup> (GiB) | Discos NVMe<sup>2</sup> | Débito de disco de NVMe<sup>3</sup> (IOPS de leitura / MBps) | Tamanho da Cache do anfitrião<sup>4</sup> | Discos de dados de máx. | NICs. Máx. / esperado de largura de banda de rede (Mbps) | 
+| Tamanho          | vCPU | Memória (GiB) | Disco temporário<sup>1</sup> (GiB) | Discos NVMe<sup>2</sup> | Débito de disco de NVMe<sup>3</sup> (IOPS de leitura / MBps) | Max não colocado em cache o débito de disco de dados (IOPs/MBps)<sup>4</sup> | Discos de dados de máx. | NICs. Máx. / esperado de largura de banda de rede (Mbps) | 
 |---------------|-----------|-------------|--------------------------|----------------|---------------------------------------------------|-------------------------------------------|------------------------------|------------------------------| 
-| Standard_L8s_v2   |  8 |  64 |  80 |  1x1.92 TB  | 340,000 / 2,000 | N/A | 16 | 2 / 3,200  | 
-| Standard_L16s_v2  | 16 | 128 | 160 |  2x1.92 TB  | 680,000 / 4,500 | N/A | 32 | 4 / 6,400  | 
-| Standard_L32s_v2  | 32 | 256 | 320 |  4x1.92 TB  | 1.4 M / 9000    | N/A | 32 | 8 / 12,800 | 
-| Standard_L64s_v2  | 64 | 512 | 640 |  8x1.92 TB  | 2.7 M / 18,000   | N/A | 32 | 8 / 25,600 |
-| Standard_L80s_v2  | 80 | 640 | 800 | 10x1.92TB   | 3.4 M / 22,000   | N/A | 32 | 8 / 32,000 |
+| Standard_L8s_v2   |  8 |  64 |  80 |  1x1.92 TB  | 400,000 / 2,000 | 8,000/160 | 16 | 2 / 3,200  | 
+| Standard_L16s_v2  | 16 | 128 | 160 |  2x1.92 TB  | 800,000 / 4,000 | 16,000/320 | 32 | 4 / 6,400  | 
+| Standard_L32s_v2  | 32 | 256 | 320 |  4x1.92 TB  | 1,5 M / 8.000    | 32,000/640 | 32 | 8 / 12,800 | 
+| Standard_L64s_v2  | 64 | 512 | 640 |  8x1.92 TB  | 2.9 M / 16.000   | 64,000/1,280 | 32 | 8 / 25,600 |
+| Standard_L80s_v2  | 80 | 640 | 800 | 10x1.92TB   | 3,8 M / 20.000   | 80,000/1,400 | 32 | 8 / 32,000 |
  
 <sup>1</sup> VMs da série Lsv2 tem um disco de recursos temporário com base de SCSI padrão para utilização do ficheiro de paginação/troca de SO (d no Windows, /dev/sdb no Linux). Este disco fornece 80 GiB de armazenamento, de 4.000 IOPS e velocidade para cada 8 vCPUs (por exemplo, Standard_L80s_v2 fornece GiB 800 40.000 IOPS e 800 MBPS) de transferência de 80 MBps. Isto garante que as unidades de nvme, algo podem ser completamente dedicadas para a utilização de aplicações. Este disco é Efêmera e todos os dados serão perdidos em Parar/desalocar.
 

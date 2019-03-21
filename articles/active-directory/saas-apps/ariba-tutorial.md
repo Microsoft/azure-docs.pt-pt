@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 12/25/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a9456f2bf314e827b27940515891e441433c1a88
-ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
+ms.openlocfilehash: 6e6655c1f67b5655dbde8c04f09a664f64350e3d
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57402854"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57856010"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-ariba"></a>Tutorial: Integração do Active Directory do Azure com o Ariba
 
@@ -106,6 +106,7 @@ Para configurar o Azure AD início de sessão único com o Ariba, execute os seg
     ![Domínio de Ariba e URLs únicas início de sessão em informações](common/sp-identifier.png)
 
     a. Na **iniciar sessão no URL** caixa de texto, escreva um URL com o seguinte padrão:
+    
     | |
     |--|
     | `https://<subdomain>.sourcing.ariba.com` |
@@ -142,7 +143,7 @@ O objetivo desta secção é criar um utilizador de teste no portal do Azure cha
 
     a. Na **Name** campo introduza **BrittaSimon**.
   
-    b. Na **nome de utilizador** tipo de campo **brittasimon@yourcompanydomain.extension**  
+    b. Na **nome de utilizador** tipo de campo **brittasimon\@yourcompanydomain.extension**  
     Por exemplo, BrittaSimon@contoso.com
 
     c. Selecione **palavra-passe de Show** caixa de verificação e, em seguida, anote o valor que é apresentado na caixa de palavra-passe.

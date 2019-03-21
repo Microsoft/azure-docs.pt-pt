@@ -1,5 +1,5 @@
 ---
-title: Monitorização e registo na pré-visualização de proteção de palavra-passe do Azure AD
+title: Monitorização e registo na proteção de palavra-passe do Azure AD
 description: Compreender a proteção de palavra-passe do Azure AD, monitorização e registo
 services: active-directory
 ms.service: active-directory
@@ -11,23 +11,18 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f1f946eceab68b0fe49ea67dc33a7094458cd14c
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
-ms.translationtype: MT
+ms.openlocfilehash: b1e12addc15afe0c0745e0e8d5a9b6718483d477
+ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57451491"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58293724"
 ---
-# <a name="preview-azure-ad-password-protection-monitoring-and-logging"></a>Pré-visualização: Proteção de palavra-passe do Azure AD monitorização e registo
-
-|     |
-| --- |
-| Proteção de palavra-passe do Azure AD é uma funcionalidade de pré-visualização pública do Azure Active Directory. Para obter mais informações sobre pré-visualizações, consulte [termos de utilização suplementares para pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)|
-|     |
+# <a name="azure-ad-password-protection-monitoring-and-logging"></a>Proteção de palavra-passe do Azure AD monitorização e registo
 
 Após a implementação de proteção de palavra-passe do Azure AD, monitorização e relatórios são tarefas essenciais. Este artigo apresenta detalhes para ajudar a que compreender o várias técnicas de monitorização, incluindo onde cada serviço regista informações e como um relatório sobre a utilização de proteção de palavra-passe do Azure AD.
 
-# <a name="dc-agent-event-logging"></a>Registo de eventos do agente DC
+## <a name="dc-agent-event-logging"></a>Registo de eventos do agente DC
 
 Em cada controlador de domínio, o software de serviço do agente de controlador de domínio grava os resultados de cada operação de validação de palavras-passe individuais (e outro Estado) para um registo de eventos local:
 

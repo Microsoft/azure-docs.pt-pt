@@ -5,24 +5,71 @@ services: application-gateway
 author: amsriva
 ms.service: application-gateway
 ms.topic: article
-ms.date: 3/12/2019
+ms.date: 3/19/2019
 ms.author: victorh
-ms.openlocfilehash: 16ba6b73dd0c64298f319d4b18750d753f166987
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 92799019d13de71d911767d8e400598513587667
+ms.sourcegitcommit: aa3be9ed0b92a0ac5a29c83095a7b20dd0693463
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57849385"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58258410"
 ---
-# <a name="overview-of-end-to-end-ssl-with-application-gateway"></a>Descrição geral do SSL ponto a ponto com o Gateway de Aplicação
+# <a name="overview-of-ssl-termination-and-end-to-end-ssl-with-application-gateway"></a>Descrição geral de terminação de SSL e o SSL ponto a ponto com o Gateway de aplicação
 
-Gateway de aplicação suporta a terminação de SSL no gateway, após o qual o tráfego normalmente flui desencriptado para os servidores de back-end. Esta funcionalidade permite que os servidores Web estejam livres de sobrecarga de encriptação e desencriptação dispendiosa. No entanto, para alguns clientes, a comunicação sem encriptação para os servidores de back-end não é uma opção aceitável. Esta comunicação desencriptada pode dever-se aos requisitos de segurança, requisitos de conformidade ou a aplicação pode aceitar apenas uma ligação segura. Para essas aplicações, o gateway de aplicação suporta a encriptação SSL de ponta a ponta.
+Secure Sockets Layer (SSL) é a tecnologia de segurança padrão para estabelecer uma ligação encriptada entre um servidor web e um browser. Esta ligação garante que todos os dados passados entre o servidor web e os browsers permanecem encriptados e privadas. Gateway de aplicação suporta ambos os terminação de SSL no gateway, bem como a encriptação SSL ponto a ponto.
+
+## <a name="ssl-termination"></a>Terminação de SSL
+
+Gateway de aplicação suporta a terminação de SSL no gateway, após o qual o tráfego normalmente flui desencriptado para os servidores de back-end. Há uma série de vantagens de fazer a terminação de SSL no gateway de aplicação:
+
+- **Desempenho melhorado** – o maior impacto durante a desencriptação de SSL de desempenho é o handshake inicial. Para melhorar o desempenho, o servidor fazendo a descriptografia coloca em cache IDs de sessão SSL e gere pedidos de sessão TLS. Se isso for feito no gateway de aplicação, todos os pedidos do mesmo cliente podem utilizar os valores do cache. Se isso é feito nos servidores de back-end, em seguida, sempre que pedidos do cliente aceda a um servidor diferente, o cliente deve re‑authenticate. A utilização de pedidos de suporte TLS pode ajudar a atenuar este problema, mas eles não são suportados por todos os clientes e podem ser difícil de configurar e gerir.
+- **Melhor utilização dos servidores de back-end** – processamento de SSL/TLS é exigente em termos de CPU muito e está se tornando mais intensivo, como aumentam a tamanhos de chave. Remover este trabalho de servidores de back-end permite que eles se concentrem nas quais eles são mais eficientes na distribuição de conteúdos.
+- **Encaminhamento inteligente** – ao desencriptar o tráfego, o gateway de aplicação tem acesso para o conteúdo do pedido, como cabeçalhos, o URI e assim por diante e pode utilizar estes dados para encaminhar os pedidos.
+- **Gestão de certificados** – certificados só tem de ser adquiridas e instalados no gateway de aplicação e nem todos os servidores de back-end. Isso poupa tempo e dinheiro.
+
+Para configurar a terminação de SSL, um certificado SSL deve ser adicionado ao serviço de escuta para ativar o gateway de aplicação derivar uma chave simétrica de acordo com a especificação de protocolo SSL. A chave simétrica, em seguida, é utilizada para encriptar e desencriptar o tráfego enviado para o gateway. O certificado SSL tem de estar no formato Personal Information Exchange (PFX). Esse formato de arquivo permite-lhe exportar a chave privada que é necessário pelo gateway de aplicação para efetuar a encriptação e desencriptação de tráfego.
+
+> [!NOTE] 
+>
+> Gateway de aplicação não fornece qualquer capacidade de criar um novo certificado ou enviar um pedido de certificado para uma autoridade de certificação.
+
+Para a ligação de SSL funcionar, terá de garantir que o certificado SSL cumpre as condições seguintes:
+
+- É que a data e hora atuais no "Válido de" e "Válidos para" intervalo de datas no certificado.
+- Corresponde a que o certificado "Common Name" (CN) o cabeçalho de anfitrião no pedido. Por exemplo, se o cliente estiver a um pedido para `https://www.contoso.com/`, em seguida, tem de ser o CN `www.contoso.com`.
+
+### <a name="certificates-supported-for-ssl-termination"></a>Certificados suportados para a terminação de SSL
+
+Gateway de aplicação suporta os seguintes tipos de certificados:
+
+- Certificado de CA (autoridade de certificação): Um certificado de AC é um certificado digital emitido por uma autoridade de certificação (AC)
+- Certificado EV (validação estendida): Um certificado EV é um diretrizes de certificado padrão do setor. Isto irá ativar a barra de localizador de navegador verde e publicar também o nome da empresa.
+- Certificado de caráter universal: Este certificado suporta qualquer número de subdomínios com base em *. site.com, onde o subdomínio substituiria o *. No entanto, ele não, suporta site.com, portanto, no caso dos utilizadores estão a aceder seu Web site sem escrever o líder "www", o certificado de caráter universal não irão abrangê que.
+- Certificados Autoassinados: Browsers cliente não confiar nestes certificados e irão avisar o utilizador que o certificado do serviço virtual não faz parte de uma cadeia confiável. Certificados autoassinados são bons para testes ou ambientes nos quais os administradores a controlar os clientes e podem ignorar com segurança os alertas de segurança do navegador. Cargas de trabalho de produção nunca devem utilizar certificados autoassinados.
+
+Para obter mais informações, consulte [configurar a terminação de SSL com o gateway de aplicação](https://docs.microsoft.com/azure/application-gateway/create-ssl-portal).
+
+## <a name="end-to-end-ssl-encryption"></a>A encriptação SSL de ponta a ponta
+
+Alguns clientes talvez não pretendidos ao nível da comunicação sem encriptação para os servidores de back-end. Tal pode dever-se aos requisitos de segurança, aos requisitos de conformidade ou a aplicação pode aceitar apenas uma ligação segura. Para essas aplicações, o gateway de aplicação suporta a encriptação SSL de ponta a ponta.
 
 SSL de ponto a ponto permite-lhe transmitir dados confidenciais para o back-end encriptado e tirar partido dos benefícios das funcionalidades de balanceamento de carga de camada 7 que o gateway de aplicação fornece de forma segura. Algumas destas funcionalidades são a afinidade do cookie baseado na sessão, encaminhamento baseado em URL, suporte para encaminhamento baseado em sites ou capacidade para injetar cabeçalhos Encaminhados para X-*.
 
-Quando configurado com o modo de comunicação SSL de ponta a ponta, o gateway de aplicação termina as sessões de SSL no gateway e desencripta o tráfego de utilizador. Em seguida, aplica as regras configuradas para selecionar uma instância de conjunto de back-end adequada para encaminhar o tráfego. O gateway de aplicação, em seguida, inicia uma nova ligação SSL ao servidor de back-end e encripta novamente os dados com o certificado de chave pública do servidor de back-end antes de transmitir o pedido para o back-end. SSL de ponto a ponto é ativada ao configurar a definição do protocolo no **BackendHTTPSetting** como HTTPS que, em seguida, é aplicado a um conjunto de back-end. Cada servidor de back-end no conjunto de back-end com SSL de ponta a ponta ativado deve ser configurado com um certificado, para permitir a comunicação segura.
+Quando configurado com o modo de comunicação SSL de ponta a ponta, o gateway de aplicação termina as sessões de SSL no gateway e desencripta o tráfego de utilizador. Em seguida, aplica as regras configuradas para selecionar uma instância de conjunto de back-end adequada para encaminhar o tráfego. O gateway de aplicação, em seguida, inicia uma nova ligação SSL ao servidor de back-end e encripta novamente os dados com o certificado de chave pública do servidor de back-end antes de transmitir o pedido para o back-end. Qualquer resposta do servidor Web atravessa o mesmo processo para o utilizador final. SSL de ponto a ponto é ativada ao configurar a definição do protocolo no [definição de HTTP de back-end](https://docs.microsoft.com/azure/application-gateway/configuration-overview#http-settings) como HTTPS que, em seguida, é aplicado a um conjunto de back-end.
 
 Se aplica a política SSL para tráfego de front-end e back-end. No front-end, o Gateway de aplicação atua como o servidor e impõe a política. Back-end, o Gateway de aplicação atua como o cliente e envia as informações de protocolo/cifras como a preferência durante o handshake SSL.
+
+Gateway de aplicação comunica apenas com essas instâncias de back-end que colocaram o respetivo certificado com o gateway de aplicação ou cujos certificados são assinados pela bem conhecidas autoridades de AC em que o CN do certificado corresponde ao nome de anfitrião em HTTP definições de back-end. Estes incluem os serviços do Azure fidedignos, tais como aplicações de web do serviço de aplicações do Azure e a API Management do Azure.
+
+Se os certificados dos membros no agrupamento de back-end não estão assinados pelo bem conhecidas autoridades de AC, cada instância do conjunto de back-end com SSL de ponta a ponta ativado deve ser configurada com um certificado para permitir a comunicação segura. A adicionar o certificado garante que o gateway de aplicação comunica apenas com instâncias de back-end conhecidas. Isso protege ainda mais a comunicação de ponto-a-ponto.
+
+> [!NOTE] 
+>
+> Configuração de certificado de autenticação não é necessária para serviços do Azure confiáveis, como aplicações de web do serviço de aplicações do Azure e a API Management do Azure.
+
+> [!NOTE] 
+>
+> O certificado adicionado ao **definição de HTTP de back-end** para autenticar o back-end servidores podem ser o mesmo que o certificado adicionado à **serviço de escuta** para terminação de SSL no gateway de aplicação ou diferentes para Segurança aprimorada.
 
 ![cenário de SSL ponto a ponto][1]
 

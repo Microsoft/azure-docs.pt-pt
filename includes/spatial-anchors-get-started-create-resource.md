@@ -4,40 +4,40 @@ ms.service: azure-spatial-anchors
 ms.topic: include
 ms.date: 12/13/2018
 ms.author: crtreasu
-ms.openlocfilehash: cee446e54a37ce47fc82d72724e831b8270f3769
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: dc8d3c2d400204f53b05bb5536af95679541f3f6
+ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57908489"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58305242"
 ---
 ## <a name="create-a-spatial-anchors-resource"></a>Criar um recurso de âncoras espaciais
 
-1. Navegue para o <a href="https://portal.azure.com" target="_blank">portal do Azure</a>.
+Aceda ao <a href="https://portal.azure.com" target="_blank">Portal do Azure</a>.
 
-2. No menu à esquerda no portal do Azure, selecione **criar um recurso**.
+No painel de navegação esquerdo no portal do Azure, selecione **criar um recurso**.
 
-3. Procure "Âncoras espaciais" na barra de pesquisa.
+Utilize a caixa de pesquisa para procurar **geográficos âncoras**.
 
    ![Procure as âncoras espaciais](./media/spatial-anchors-get-started-create-resource/portal-search.png)
 
-4. Selecione **geográficos âncoras** para abrir uma caixa de diálogo e selecione **criar**.
+Selecione **geográficos âncoras**. Na caixa de diálogo, selecione **criar**.
 
-5. Na **geográficos de âncoras de conta** formulário:
+Na **geográficos de âncoras de conta** caixa de diálogo:
 
-   1. Especifique um nome de recurso exclusiva.
-   2. Selecione a subscrição para anexar o recurso.
-   3. Criar um grupo de recursos, selecionando **criar novo** e dê o nome do grupo de recursos **myResourceGroup** e selecione **OK**.
+- Introduza um nome de recurso exclusiva.
+- Selecione a subscrição que pretende anexar o recurso.
+- Criar um grupo de recursos, selecionando **criar novo**. Atribua o nome **myResourceGroup** e selecione **OK**.
       [!INCLUDE [resource group intro text](resource-group.md)]
-   4. Selecione uma localização (região) onde o recurso será colocado.
-   5. Selecione **New** para começar a criar o recurso.
+- Selecione uma localização (região) onde colocar o recurso.
+- Selecione **New** para começar a criar o recurso.
 
    ![Criar um recurso](./media/spatial-anchors-get-started-create-resource/create-resource-form.png)
 
-6. Após a criação de recursos foi concluída com êxito, é possível ver as propriedades de recurso. Copiar do recurso **ID da conta** valor num editor de texto, como será necessário mais tarde.
+Depois do recurso é criado, pode ver as propriedades de recurso. Copiar do recurso **ID da conta** valor num editor de texto, porque irá precisar dele mais tarde.
 
-   ![Ver as propriedades de recurso](./media/spatial-anchors-get-started-create-resource/view-resource-properties.png)
+   ![Propriedades de recurso](./media/spatial-anchors-get-started-create-resource/view-resource-properties.png)
 
-7. Sob **configurações**, selecione **chave**e copiar para um editor de texto a **chave primária** valor. Este valor é o `Account Key` e serão utilizados posteriormente.
+Sob **configurações**, selecione **chave**. Copiar o **chave primária** valor num editor de texto. Este valor é o `Account Key`. Precisará dela mais tarde.
 
-   ![Chave de conta do Vista](./media/spatial-anchors-get-started-create-resource/view-account-key.png)
+   ![Chave de conta](./media/spatial-anchors-get-started-create-resource/view-account-key.png)

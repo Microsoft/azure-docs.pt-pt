@@ -12,14 +12,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/10/2019
+ms.date: 03/19/2019
 ms.author: juliako
-ms.openlocfilehash: e595633a188d64c293651f741238313bf1c9f34a
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
-ms.translationtype: HT
+ms.openlocfilehash: 42227095c69924cd2922673d020b349aa29f2daa
+ms.sourcegitcommit: aa3be9ed0b92a0ac5a29c83095a7b20dd0693463
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57838226"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58259521"
 ---
 # <a name="output-metadata"></a>Metadados de saída
 ## <a name="overview"></a>Descrição geral

@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: face-api
 ms.topic: article
-ms.date: 03/18/2019
+ms.date: 03/19/2019
 ms.author: diberry
-ms.openlocfilehash: a52c5bf1a52a4d598986664c41e80273e0b26788
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: f3534f3001de1c3e58f0be3fb7bc9639b7dfcd03
+ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58014099"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58295434"
 ---
 # <a name="install-and-run-face-containers"></a>Instalar e executar contentores de rostos
 
@@ -48,11 +48,12 @@ Tem de cumprir os seguintes pré-requisitos antes de utilizar contentores da Fac
 
 A tabela seguinte descreve os mínimos e recomendados núcleos de CPU e memória para atribuir cada contentor da Face API.
 
-| Contentor | Mínimo | Recomendado |
-|-----------|---------|-------------|
-|Rostos | 1 núcleo, 2 GB de memória | 1 núcleo, 4 GB de memória |
+| Contentor | Mínimo | Recomendado | TPS<br>(No mínimo, máximo)|
+|-----------|---------|-------------|--|
+|Rostos | 1 núcleo, 2 GB de memória | 1 núcleo, 4 GB de memória |10, 20|
 
-Cada principal tem de ser, pelo menos, de 2,6 GHz (gigahertz) ou mais rápido.
+* Cada principal tem de ser, pelo menos, de 2,6 GHz (gigahertz) ou mais rápido.
+* TPS - transações por segundo
 
 Núcleos e memória correspondem para o `--cpus` e `--memory` as definições, que são utilizadas como parte do `docker run` comando.
 

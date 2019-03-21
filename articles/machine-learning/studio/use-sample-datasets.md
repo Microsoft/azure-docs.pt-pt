@@ -6,29 +6,28 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
 ms.topic: conceptual
-author: ericlicoding
+author: xiaoharper
 ms.author: amlstudiodocs
 ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 01/19/2018
-ms.openlocfilehash: e4e29f4b714fe187622d778db58743ca4f02e84e
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: f86ae4977621927a09d9b83287a00dfa3bc17196
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57445590"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57880998"
 ---
 # <a name="use-the-sample-datasets-in-azure-machine-learning-studio"></a>Utilizar os conjuntos de dados de exemplo no Azure Machine Learning Studio
 [top]: #machine-learning-sample-datasets
 
-Quando cria uma nova área de trabalho no Azure Machine Learning Studio, um número de conjuntos de dados de exemplo e experimentações está incluído por predefinição. Muitos destes conjuntos de dados de exemplo são utilizados pelos modelos de exemplo no [Galeria de IA do Azure](http://gallery.azure.ai/). Outras pessoas estão incluídas como exemplos de vários tipos de dados normalmente utilizados na machine learning.
+Quando cria uma nova área de trabalho no Azure Machine Learning Studio, um número de conjuntos de dados de exemplo e experimentações está incluído por predefinição. Muitos destes conjuntos de dados de exemplo são utilizados pelos modelos de exemplo no [Galeria de IA do Azure](https://gallery.azure.ai/). Outras pessoas estão incluídas como exemplos de vários tipos de dados normalmente utilizados na machine learning.
 
 Algumas destes conjuntos de dados estão disponíveis no armazenamento de Blobs do Azure. Para estes conjuntos de dados, a tabela seguinte fornece uma ligação direta. Pode utilizar estes conjuntos de dados em suas experiências utilizando o [importar dados] [ import-data] módulo.
 
 O resto destes conjuntos de dados de exemplo estão disponíveis na sua área de trabalho sob **conjuntos de dados guardado**. Pode encontrar isto na paleta do módulo para a esquerda da tela de experimentação no Machine Learning Studio.
 Pode utilizar qualquer um destes conjuntos de dados na sua própria experiência ao arrastá-la à tela de experimentação.
 
-
-
+## <a name="datasets"></a>Conjuntos de dados
 
 <table>
 
@@ -44,7 +43,7 @@ Um subconjunto de 1994 recenseamento banco de dados, usando os adultos de trabal
 <p></p>
 <b>Utilização:</b> Classificar as pessoas que utilizam dados demográficos para prever se uma pessoa recebe mais de 50 mil por ano.
 <p></p>
-<b>Pesquisas relacionadas:</b> Kohavi, R., Becker, B., (1996). Repositório de aprendizagem UCI <a href="http://archive.ics.uci.edu/ml"> http://archive.ics.uci.edu/ml </a>. Irvine, CA: Universidade da Califórnia, de informações sobre a escola e ciência da computação </td>
+<b>Pesquisas relacionadas:</b> Kohavi, R., Becker, B., (1996). Repositório de aprendizagem UCI <a href="https://archive.ics.uci.edu/ml"> https://archive.ics.uci.edu/ml </a>. Irvine, CA: Universidade da Califórnia, de informações sobre a escola e ciência da computação </td>
 </tr>
 
 <tr>
@@ -65,7 +64,7 @@ A classificação de risco está inicialmente associada a preço automática. Em
 <p></p>
 <b>Utilização:</b> Prever a classificação de risco por recursos, com a regressão ou classificação multivariate. 
 <p></p>
-<b>Pesquisas relacionadas:</b> Schlimmer, J.C. (1987). Repositório de aprendizagem UCI <a href="http://archive.ics.uci.edu/ml"> http://archive.ics.uci.edu/ml </a>. Irvine, CA: Universidade da Califórnia, de informações sobre a escola e ciência da computação </td>
+<b>Pesquisas relacionadas:</b> Schlimmer, J.C. (1987). Repositório de aprendizagem UCI <a href="https://archive.ics.uci.edu/ml"> https://archive.ics.uci.edu/ml </a>. Irvine, CA: Universidade da Califórnia, de informações sobre a escola e ciência da computação </td>
 </tr>
 
 <tr>
@@ -96,9 +95,9 @@ Dados de Doador incluem os meses desde a última doação) e frequência ou o n�
 <p></p>
 <b>Utilização:</b> O objetivo é prever por meio de classificação, se o doador doou sangue em Março de 2007, onde 1 indica um doador durante o período de destino e 0 um não-doador. 
 <p></p>
-<b>Pesquisas relacionadas:</b> Yeh I.C., (2008). Repositório de aprendizagem UCI <a href="http://archive.ics.uci.edu/ml"> http://archive.ics.uci.edu/ml </a>. Irvine, CA: Universidade da Califórnia, de informações sobre a escola e ciência da computação
+<b>Pesquisas relacionadas:</b> Yeh I.C., (2008). Repositório de aprendizagem UCI <a href="https://archive.ics.uci.edu/ml"> https://archive.ics.uci.edu/ml </a>. Irvine, CA: Universidade da Califórnia, de informações sobre a escola e ciência da computação
 <p></p>
-Yeh, eu-Cheng, Yang, King-Jang e Ting, etiqueta-Ming de VPN, "descoberta de dados de conhecimento no modelo RFM usando a seqüência de Bernoulli,"especialista em sistemas com aplicativos, 2008, <a href="http://dx.doi.org/10.1016/j.eswa.2008.07.018">http://dx.doi.org/10.1016/j.eswa.2008.07.018</a>
+Yeh, eu-Cheng, Yang, King-Jang e Ting, etiqueta-Ming de VPN, "descoberta de dados de conhecimento no modelo RFM usando a seqüência de Bernoulli,"especialista em sistemas com aplicativos, 2008, <a href="https://dx.doi.org/10.1016/j.eswa.2008.07.018">https://dx.doi.org/10.1016/j.eswa.2008.07.018</a>
   </td>
 </tr>
 
@@ -109,7 +108,7 @@ Um dos três relacionados com o cancro conjuntos de dados fornecidos pelo Instit
 <p></p>
 <b>Utilização:</b> Classificar o tipo de cancro, com base em 9 atributos, alguns dos quais estão lineares e alguns são categóricos. 
 <p></p>
-<b>Pesquisas relacionadas:</b> O.L. Wohlberg, W.H., rua, W.N. e Mangasarian, (1995). Repositório de aprendizagem UCI <a href="http://archive.ics.uci.edu/ml"> http://archive.ics.uci.edu/ml </a>. Irvine, CA: Universidade da Califórnia, de informações sobre a escola e ciência da computação </td>
+<b>Pesquisas relacionadas:</b> O.L. Wohlberg, W.H., rua, W.N. e Mangasarian, (1995). Repositório de aprendizagem UCI <a href="https://archive.ics.uci.edu/ml"> https://archive.ics.uci.edu/ml </a>. Irvine, CA: Universidade da Califórnia, de informações sobre a escola e ciência da computação </td>
 </tr>
 
 <tr>
@@ -162,13 +161,13 @@ Um conjunto de perfis de energia simulado, com base em 12 criar diferentes forma
 <p></p>
 <b>Utilização:</b> Utilize regressão ou classificação para prever a classificação de eficiência energética com base em como uma das duas respostas reais com valores. Para a classificação de Roc, é arredondar a variável de resposta para o número inteiro mais próximo. 
 <p></p>
-<b>Pesquisas relacionadas:</b> Xifara, A. & Tsanas, A. (2012). Repositório de aprendizagem UCI <a href="http://archive.ics.uci.edu/ml"> http://archive.ics.uci.edu/ml </a>. Irvine, CA: Universidade da Califórnia, de informações sobre a escola e ciência da computação </td>
+<b>Pesquisas relacionadas:</b> Xifara, A. & Tsanas, A. (2012). Repositório de aprendizagem UCI <a href="https://archive.ics.uci.edu/ml"> https://archive.ics.uci.edu/ml </a>. Irvine, CA: Universidade da Califórnia, de informações sobre a escola e ciência da computação </td>
 </tr>
 
 <tr>
   <td>Voo atrasa a dados</td>
   <td>
-Voo comercial no tempo de dados de desempenho obtidos a partir da recolha de dados de TranStats dos EUA Departamento de transportes (<a href="http://www.transtats.bts.gov/DL_SelectFields.asp?Table_ID=236&DB_Short_Name=On-Time">de forma atempada</a>).
+Voo comercial no tempo de dados de desempenho obtidos a partir da recolha de dados de TranStats dos EUA Departamento de transportes (<a href="https://www.transtats.bts.gov/DL_SelectFields.asp?Table_ID=236&DB_Short_Name=On-Time">de forma atempada</a>).
 <p></p>
 O conjunto de dados abrange o período de tempo de Abril de Outubro de 2013. Antes de carregar para o Azure Machine Learning Studio, o conjunto de dados foi processado da seguinte forma:
 <ul>
@@ -187,7 +186,7 @@ Registos de entradas de voo do avião e departures dentro dos Estados Unidos de 
 <p></p>
 <b>Utilização:</b> Prever a atrasos de voos. 
 <p></p>
-<b>Pesquisas relacionadas:</b> Dos E.U.A. dodep. of Transportation <a href="http://www.transtats.bts.gov/DL_SelectFields.asp?Table_ID=236&DB_Short_Name=On-Time"> http://www.transtats.bts.gov/DL_SelectFields.asp?Table_ID=236&DB_Short_Name=On-Time </a>.
+<b>Pesquisas relacionadas:</b> Dos E.U.A. dodep. of Transportation <a href="https://www.transtats.bts.gov/DL_SelectFields.asp?Table_ID=236&DB_Short_Name=On-Time"> https://www.transtats.bts.gov/DL_SelectFields.asp?Table_ID=236&DB_Short_Name=On-Time </a>.
   </td>
 </tr>
 
@@ -198,7 +197,7 @@ Contém dados de informações sobre o clima, como índices de temperatura e hum
 <p></p>
 <b>Utilização:</b> Esta é uma tarefa de regressão difícil, em que o objetivo é prever a área burned de floresta desencadeado. 
 <p></p>
-<b>Pesquisas relacionadas:</b> Cortez, P. & Morais, A. (2008). Repositório de aprendizagem UCI <a href="http://archive.ics.uci.edu/ml"> http://archive.ics.uci.edu/ml </a>. Irvine, CA: Universidade da Califórnia, de informações sobre a escola e ciência da computação
+<b>Pesquisas relacionadas:</b> Cortez, P. & Morais, A. (2008). Repositório de aprendizagem UCI <a href="https://archive.ics.uci.edu/ml"> https://archive.ics.uci.edu/ml </a>. Irvine, CA: Universidade da Califórnia, de informações sobre a escola e ciência da computação
 <p></p>
 [Cortez e Morais, 2007] P. Cortez e Morais de r. Uma abordagem de mineração de dados para prever com dados Meteorological floresta desencadeado. In J. Neves, M. F. Santos e J. Machado Eds., novas tendências em Inteligência Artificial, judiciais 2007 EPIA 13 - português conferência em Inteligência Artificial, Dezembro, Guimarães, Portugal, pp. 512-523, 2007. APPIA, ISBN-13 978-989-95618-0-9. Disponível em: <a href="http://www.dsi.uminho.pt/~pcortez/fires.pdf"> http://www.dsi.uminho.pt/~pcortez/fires.pdf </a>.
   </td>
@@ -207,7 +206,7 @@ Contém dados de informações sobre o clima, como índices de temperatura e hum
 <tr>
   <td>Conjunto de dados alemão UCI de cartão de crédito</td>
   <td>
-O conjunto de dados de UCI Statlog (cartão de crédito alemão) (<a href="http://archive.ics.uci.edu/ml/datasets/Statlog+(German+Credit+Data)">Statlog + alemão + crédito + dados</a>), usando o arquivo german.data.
+O conjunto de dados de UCI Statlog (cartão de crédito alemão) (<a href="https://archive.ics.uci.edu/ml/datasets/Statlog+(German+Credit+Data)">Statlog + alemão + crédito + dados</a>), usando o arquivo german.data.
 <p></p>
 O conjunto de dados classifica as pessoas, descritas por um conjunto de atributos, como os riscos de crédito baixa ou alta. Cada exemplo representa uma pessoa. Há 20 recursos, numéricos e categóricos e uma etiqueta de binária (o valor de risco de crédito). Entradas de risco elevado crédito tem etiqueta = 2, entradas de risco de crédito baixa tem etiqueta = 1. O custo de misclassifying um exemplo de baixo risco tão elevado é 1, ao passo que o custo de misclassifying um exemplo de alto risco como baixa é 5.
   </td>
@@ -227,7 +226,7 @@ Isto é, talvez, a base de dados mais conhecido para ser encontrados na literatu
 <p></p>
 <b>Utilização:</b> Prever o tipo de íris de medidas.  
 <p></p>
-<b>Pesquisas relacionadas:</b> Fisher, R.A. (1988). Repositório de aprendizagem UCI <a href="http://archive.ics.uci.edu/ml"> http://archive.ics.uci.edu/ml </a>. Irvine, CA: Universidade da Califórnia, de informações sobre a escola e ciência da computação </td>
+<b>Pesquisas relacionadas:</b> Fisher, R.A. (1988). Repositório de aprendizagem UCI <a href="https://archive.ics.uci.edu/ml"> https://archive.ics.uci.edu/ml </a>. Irvine, CA: Universidade da Califórnia, de informações sobre a escola e ciência da computação </td>
 </tr>
 
 <tr>
@@ -246,7 +245,7 @@ Os dados de lista de consumo de combustível para vários automóveis em quilóm
 <p></p>
 <b>Utilização:</b> Prever a economia de combustível com base em atributos discretos de valor múltiplos três e cinco atributos contínuos. 
 <p></p>
-<b>Pesquisas relacionadas:</b> StatLib, Carnegie Mellon University, (1993). Repositório de aprendizagem UCI <a href="http://archive.ics.uci.edu/ml"> http://archive.ics.uci.edu/ml </a>. Irvine, CA: Universidade da Califórnia, de informações sobre a escola e ciência da computação </td>
+<b>Pesquisas relacionadas:</b> StatLib, Carnegie Mellon University, (1993). Repositório de aprendizagem UCI <a href="https://archive.ics.uci.edu/ml"> https://archive.ics.uci.edu/ml </a>. Irvine, CA: Universidade da Califórnia, de informações sobre a escola e ciência da computação </td>
 </tr>
 
 <tr>
@@ -256,7 +255,7 @@ Um subconjunto de dados do Instituto nacional de Diabetes e da base de dados Dig
 <p></p>
 <b>Utilização:</b> Preveja se o requerente tem diabetes (classificação binária). 
 <p></p>
-<b>Pesquisas relacionadas:</b> Sigillito, V. (1990). Repositório de aprendizagem UCI <a href="http://archive.ics.uci.edu/ml"> http://archive.ics.uci.edu/ml"</a>. Irvine, CA: Universidade da Califórnia, de informações sobre a escola e ciência da computação </td>
+<b>Pesquisas relacionadas:</b> Sigillito, V. (1990). Repositório de aprendizagem UCI <a href="https://archive.ics.uci.edu/ml"> https://archive.ics.uci.edu/ml"</a>. Irvine, CA: Universidade da Califórnia, de informações sobre a escola e ciência da computação </td>
 </tr>
 
 <tr>
@@ -266,7 +265,7 @@ Um conjunto de metadados sobre clientes, incluindo dados demográficos e prefer�
 <p></p>
 <b>Utilização:</b> Utilize este conjunto de dados, em combinação com os outros dois restaurante conjuntos de dados, para treinar e testar um sistema de recomendador. 
 <p></p>
-<b>Pesquisas relacionadas:</b> Bache, K. e Lichman, M. (2013). Repositório de aprendizagem UCI <a href="http://archive.ics.uci.edu/ml"> http://archive.ics.uci.edu/ml </a>. Irvine, CA: Universidade da Califórnia, de informações sobre a escola e ciência da computação.
+<b>Pesquisas relacionadas:</b> Bache, K. e Lichman, M. (2013). Repositório de aprendizagem UCI <a href="https://archive.ics.uci.edu/ml"> https://archive.ics.uci.edu/ml </a>. Irvine, CA: Universidade da Califórnia, de informações sobre a escola e ciência da computação.
   </td>
 </tr>
 
@@ -277,7 +276,7 @@ Um conjunto de metadados sobre restaurantes e as respetivas funcionalidades, com
 <p></p>
 <b>Utilização:</b> Utilize este conjunto de dados, em combinação com os outros dois restaurante conjuntos de dados, para treinar e testar um sistema de recomendador. 
 <p></p>
-<b>Pesquisas relacionadas:</b> Bache, K. e Lichman, M. (2013). Repositório de aprendizagem UCI <a href="http://archive.ics.uci.edu/ml"> http://archive.ics.uci.edu/ml </a>. Irvine, CA: Universidade da Califórnia, de informações sobre a escola e ciência da computação.
+<b>Pesquisas relacionadas:</b> Bache, K. e Lichman, M. (2013). Repositório de aprendizagem UCI <a href="https://archive.ics.uci.edu/ml"> https://archive.ics.uci.edu/ml </a>. Irvine, CA: Universidade da Califórnia, de informações sobre a escola e ciência da computação.
   </td>
 </tr>
 
@@ -288,7 +287,7 @@ Contém as classificações dadas por usuários para restaurantes numa escala de
 <p></p>
 <b>Utilização:</b> Utilize este conjunto de dados, em combinação com os outros dois restaurante conjuntos de dados, para treinar e testar um sistema de recomendador. 
 <p></p>
-<b>Pesquisas relacionadas:</b> Bache, K. e Lichman, M. (2013). Repositório de aprendizagem UCI <a href="http://archive.ics.uci.edu/ml"> http://archive.ics.uci.edu/ml </a>. Irvine, CA: Universidade da Califórnia, de informações sobre a escola e ciência da computação.
+<b>Pesquisas relacionadas:</b> Bache, K. e Lichman, M. (2013). Repositório de aprendizagem UCI <a href="https://archive.ics.uci.edu/ml"> https://archive.ics.uci.edu/ml </a>. Irvine, CA: Universidade da Califórnia, de informações sobre a escola e ciência da computação.
   </td>
 </tr>
 
@@ -301,7 +300,7 @@ Este conjunto de dados contém uma série de registos a partir do acinzentado re
 <p></p>
 As notas de aço siga um conjunto padrão, definido pela SAE e outras organizações. Está procurando uma específicas de "nível" (a variável de classe) e quiser compreender os valores necessários. 
 <p></p>
-<b>Pesquisas relacionadas:</b> Sterling, D. & Buntine, W. (NA). Repositório de aprendizagem UCI <a href="http://archive.ics.uci.edu/ml"> http://archive.ics.uci.edu/ml </a>. Irvine, CA: Universidade da Califórnia, de informações sobre a escola e ciência da computação
+<b>Pesquisas relacionadas:</b> Sterling, D. & Buntine, W. (NA). Repositório de aprendizagem UCI <a href="https://archive.ics.uci.edu/ml"> https://archive.ics.uci.edu/ml </a>. Irvine, CA: Universidade da Califórnia, de informações sobre a escola e ciência da computação
 <p></p>
 Um guia útil para acinzentado notas pode ser encontrado aqui: <a href="https://otk-sitecore-prod-v2-cdn.azureedge.net/-/media/from-sharepoint/documents/product/outokumpu-steel-grades-properties-global-standards.pdf">https://otk-sitecore-prod-v2-cdn.azureedge.net/-/media/from-sharepoint/documents/product/outokumpu-steel-grades-properties-global-standards.pdf</a>
   </td>
@@ -322,13 +321,13 @@ Os dados terem sido previamente processados para criar um cluster elongated com 
 <p></p>
 Além disso, tenha em atenção que o número de eventos de segundo plano (h, para hadronic showers) é subestimado. Medidas reais, a classe de h ou ruído representa a maioria dos eventos. 
 <p></p>
-<b>Pesquisas relacionadas:</b> Bock, R.K. (1995). Repositório de aprendizagem UCI <a href="http://archive.ics.uci.edu/ml"> http://archive.ics.uci.edu/ml </a>. Irvine, CA: Universidade da Califórnia, de informações sobre a escola </td>
+<b>Pesquisas relacionadas:</b> Bock, R.K. (1995). Repositório de aprendizagem UCI <a href="https://archive.ics.uci.edu/ml"> https://archive.ics.uci.edu/ml </a>. Irvine, CA: Universidade da Califórnia, de informações sobre a escola </td>
 </tr>
 
 <tr>
   <td>Conjunto de dados de Meteorologia</td>
   <td>
-Por hora observações de com base em ' s land meteorologia da NOAA (<a href="http://az754797.vo.msecnd.net/data/WeatherDataset.csv">intercalar dados de 201304 para 201310</a>).
+Por hora observações de com base em ' s land meteorologia da NOAA (<a href="https://az754797.vo.msecnd.net/data/WeatherDataset.csv">intercalar dados de 201304 para 201310</a>).
 <p></p>
 Os dados meteorológicos abrange observações feitas a partir de estações de Meteorologia do aeroporto, que abrange o período de tempo de Abril de Outubro de 2013. Antes de carregar para o Azure Machine Learning Studio, o conjunto de dados foi processado da seguinte forma:
 <ul>
@@ -343,7 +342,7 @@ Os dados meteorológicos abrange observações feitas a partir de estações de 
 <tr>
   <td>Wikipedia SP 500 conjunto de dados</td>
   <td>
-Dados são derivados da Wikipedia (<a href="http://www.wikipedia.org/">http://www.wikipedia.org/</a>) com base nos artigos de cada empresa S & P 500, armazenadas como dados XML.
+Dados são derivados da Wikipedia (<a href="https://www.wikipedia.org/">https://www.wikipedia.org/</a>) com base nos artigos de cada empresa S & P 500, armazenadas como dados XML.
 <p></p>
 Antes de carregar para o Azure Machine Learning Studio, o conjunto de dados foi processado da seguinte forma:
 <ul>
@@ -382,7 +381,7 @@ Funcionalidades de exemplos de treinamento no conjunto de dados de notícias da 
 <tr>
   <td><a href="https://azuremlsampleexperiments.blob.core.windows.net/datasets/network_intrusion_detection.csv">network_intrusion_detection.csv</a><br></td>
   <td>
-Competição de ferramentas de conjunto de dados da deteção de dados de conhecimento do concurso KDD Cup 1999 e extração de dados (<a href="http://kdd.ics.uci.edu/databases/kddcup99/kddcup99.html">kddcup99.html</a>).
+Competição de ferramentas de conjunto de dados da deteção de dados de conhecimento do concurso KDD Cup 1999 e extração de dados (<a href="https://kdd.ics.uci.edu/databases/kddcup99/kddcup99.html">kddcup99.html</a>).
 <p></p>
 O conjunto de dados foi transferido e armazenado no armazenamento de Blobs do Azure (<a href="https://azuremlsampleexperiments.blob.core.windows.net/datasets/network_intrusion_detection.csv">network_intrusion_detection.csv</a>) e inclui treinamento e teste de conjuntos de dados. O conjunto de dados de treinamento tem aproximadamente mil 126 linhas e colunas de 43, incluindo as etiquetas. Três colunas são parte das informações de etiqueta e 40 colunas, que consiste de funcionalidades numéricas e de cadeia de caracteres/categóricos, estão disponíveis para o modelo de formação. Os dados de teste tem aproximadamente 22,5 K exemplos com as mesmas 43 colunas como em dados de treinamento de teste.
   </td>
@@ -398,7 +397,7 @@ Atribuições de tópico de artigos de notícias no conjunto de dados de notíci
 <tr>
   <td><a href="https://azuremlsampleexperiments.blob.core.windows.net/datasets/student_performance.txt">student_performance.txt</a></td>
   <td>
-O desafio de avaliação do desempenho de estudante do concurso KDD Cup 2010 vêm os dados (<a href="http://www.kdd.org/kdd-cup/view/kdd-cup-2010-student-performance-evaluation">avaliação do desempenho dos alunos</a>). Os dados usados são o conjunto de treinamento de Algebra_2008_2009 (Stamper, J., Niculescu-Mizil, r., Ritter, s., Gordon, G.J. e Koedinger, K.R. (2010). Algebra I 2008-2009. Conjunto de dados do desafio da KDD Cup 2010 educacionais Data Mining desafio. Encontrá-lo em <a href="http://pslcdatashop.web.cmu.edu/KDDCup/downloads.jsp">downloads.jsp</a>.
+O desafio de avaliação do desempenho de estudante do concurso KDD Cup 2010 vêm os dados (<a href="https://www.kdd.org/kdd-cup/view/kdd-cup-2010-student-performance-evaluation">avaliação do desempenho dos alunos</a>). Os dados usados são o conjunto de treinamento de Algebra_2008_2009 (Stamper, J., Niculescu-Mizil, r., Ritter, s., Gordon, G.J. e Koedinger, K.R. (2010). Algebra I 2008-2009. Conjunto de dados do desafio da KDD Cup 2010 educacionais Data Mining desafio. Encontrá-lo em <a href="https://pslcdatashop.web.cmu.edu/KDDCup/downloads.jsp">downloads.jsp</a>.
 <p></p>
 O conjunto de dados foi transferido e armazenado no armazenamento de Blobs do Azure (<a href="https://azuremlsampleexperiments.blob.core.windows.net/datasets/student_performance.txt">student_performance.txt</a>) e contém ficheiros de registo de um estudante de ensino do sistema. Os recursos fornecidos incluem ID do problema e sua descrição breve, ID de estudante, timestamp e o número de tentativas o aluno feito antes de resolver o problema da forma correta. O conjunto de dados original tiver registos 8.9M; Este conjunto de dados tem sido a amostragem-a para baixo para as primeiras 100 mil linhas. O conjunto de dados tem 23 colunas separados por tabulações de vários tipos: numéricos, categóricos e timestamp.
   </td>
@@ -406,6 +405,10 @@ O conjunto de dados foi transferido e armazenado no armazenamento de Blobs do Az
 
 </table>
 
+## <a name="next-steps"></a>Passos Seguintes
+
+> [!div class="nextstepaction"]
+> [Dar suas experimentações com exemplos](sample-experiments.md)
 
 <!-- Module References -->
 [import-data]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/

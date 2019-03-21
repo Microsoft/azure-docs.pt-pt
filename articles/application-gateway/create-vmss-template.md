@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/31/2017
 ms.author: victorh
-ms.openlocfilehash: 0f3bdaaa038dcd0ef2a0ad6466cbb7a09ec7c2bc
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.openlocfilehash: 4cfe8b02697fe8234c29995a611cb99a89e2e54b
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57312448"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58080986"
 ---
 # <a name="create-an-application-gateway-by-using-the-azure-resource-manager-template"></a>Criar um gateway de aplicação com o modelo Azure Resource Manager
 
@@ -55,16 +55,16 @@ Pode transferir o modelo Azure Resource Manager existente para criar uma rede vi
 1. Abra o ficheiro que guardou e observe o conteúdo em **parâmetros** na linha
 1. Os parâmetros do modelo Azure Resource Manager fornecem um marcador de posição para valores que podem ser preenchidos durante a implementação.
 
-  | Parâmetro | Descrição |
-  | --- | --- |
-  | **subnetPrefix** |Bloco CIDR para a sub-rede de gateway de aplicação. |
-  | **applicationGatewaySize** | Tamanho do gateway de aplicação.  WAF só permite a médias e grandes. |
-  | **backendIpaddress1** |Endereço IP do primeiro servidor web. |
-  | **backendIpaddress2** |Endereço IP do segundo servidor web. |
-  | **wafEnabled** | Definição para determinar se o WAF está ativada.|
-  | **wafMode** | Modo de firewall de aplicações web.  Opções disponíveis são **prevenção** ou **deteção**.|
-  | **wafRuleSetType** | Tipo de conjunto de regras da WAF.  Atualmente o OWASP é a única opção suportada. |
-  | **wafRuleSetVersion** |Versão do conjunto de regras. OWASP CRS 2.2.9 e 3.0 estão, atualmente, as opções com suporte. |
+   | Parâmetro | Descrição |
+   | --- | --- |
+   | **subnetPrefix** |Bloco CIDR para a sub-rede de gateway de aplicação. |
+   | **applicationGatewaySize** | Tamanho do gateway de aplicação.  WAF só permite a médias e grandes. |
+   | **backendIpaddress1** |Endereço IP do primeiro servidor web. |
+   | **backendIpaddress2** |Endereço IP do segundo servidor web. |
+   | **wafEnabled** | Definição para determinar se o WAF está ativada.|
+   | **wafMode** | Modo de firewall de aplicações web.  Opções disponíveis são **prevenção** ou **deteção**.|
+   | **wafRuleSetType** | Tipo de conjunto de regras da WAF.  Atualmente o OWASP é a única opção suportada. |
+   | **wafRuleSetVersion** |Versão do conjunto de regras. OWASP CRS 2.2.9 e 3.0 estão, atualmente, as opções com suporte. |
 
 1. Verifique o conteúdo em **recursos** e tenha em atenção as seguintes propriedades:
 
@@ -77,44 +77,44 @@ Pode transferir o modelo Azure Resource Manager existente para criar uma rede vi
 1. Guarde o ficheiro numa pasta local do computador.
 1. Abra o ficheiro que guardou e edite os valores dos parâmetros. Utilize os seguintes valores para implementar o gateway de aplicação descrito no nosso cenário.
 
-    ```json
-    {
-        "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
-        "contentVersion": "1.0.0.0",
-        "parameters": {
-            "addressPrefix": {
-            "value": "10.0.0.0/16"
-            },
-            "subnetPrefix": {
-            "value": "10.0.0.0/28"
-            },
-            "applicationGatewaySize": {
-            "value": "WAF_Medium"
-            },
-            "capacity": {
-            "value": 2
-            },
-            "backendIpAddress1": {
-            "value": "10.0.1.10"
-            },
-            "backendIpAddress2": {
-            "value": "10.0.1.11"
-            },
-            "wafEnabled": {
-            "value": true
-            },
-            "wafMode": {
-            "value": "Detection"
-            },
-            "wafRuleSetType": {
-            "value": "OWASP"
-            },
-            "wafRuleSetVersion": {
-            "value": "3.0"
-            }
-        }
-    }
-    ```
+     ```json
+     {
+         "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+         "contentVersion": "1.0.0.0",
+         "parameters": {
+             "addressPrefix": {
+             "value": "10.0.0.0/16"
+             },
+             "subnetPrefix": {
+             "value": "10.0.0.0/28"
+             },
+             "applicationGatewaySize": {
+             "value": "WAF_Medium"
+             },
+             "capacity": {
+             "value": 2
+             },
+             "backendIpAddress1": {
+             "value": "10.0.1.10"
+             },
+             "backendIpAddress2": {
+             "value": "10.0.1.11"
+             },
+             "wafEnabled": {
+             "value": true
+             },
+             "wafMode": {
+             "value": "Detection"
+             },
+             "wafRuleSetType": {
+             "value": "OWASP"
+             },
+             "wafRuleSetVersion": {
+             "value": "3.0"
+             }
+         }
+     }
+     ```
 
 1. Guarde o ficheiro. Pode testar o modelo JSON e o modelo de parâmetros com as ferramentas de validação JSON online como [JSlint.com](https://www.jslint.com/).
 

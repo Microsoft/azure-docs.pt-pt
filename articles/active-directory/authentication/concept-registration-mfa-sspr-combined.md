@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 03/06/2019
+ms.date: 03/18/2019
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fa9872ef76264956430bb69856a197042c196dfd
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
-ms.translationtype: MT
+ms.openlocfilehash: 6399f5b208bc4d7182622f29bd522cfc9a088e9d
+ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57550195"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58224554"
 ---
 # <a name="combined-security-information-registration-preview"></a>Registo de informações de segurança combinados (pré-visualização)
 
@@ -68,11 +68,11 @@ Os utilizadores podem definir as seguintes opções como método de predefiniç�
 
 ## <a name="combined-registration-modes"></a>Registo combinado modos
 
-Existem dois "modos" do registo combinado: interrupção e gerir. 
+Existem dois "modos" do registo combinado: interrupção e gerir.
 
-Modo de interrupção, é uma experiência semelhante ao assistente, mostrada a um utilizador quando registar ou atualizar suas informações de segurança em início de sessão. 
+Modo de interrupção, é uma experiência semelhante ao assistente, mostrada a um utilizador quando registar ou atualizar suas informações de segurança em início de sessão.
 
-Gerir o modo é parte do perfil do usuário e lhes permite gerir as suas informações de segurança. 
+Gerir o modo é parte do perfil do usuário e lhes permite gerir as suas informações de segurança.
 
 Em ambos os modos, se um utilizador registou anteriormente um método que pode ser utilizado para a MFA, terão de executar a MFA antes de poderem aceder suas informações de segurança.
 

@@ -12,14 +12,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 02/10/2019
+ms.date: 03/20/2019
 ms.author: juliako
-ms.openlocfilehash: cd77f13b12fa2f8557ef0d32841ed6a9dbfda8df
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: e42386c380c94e36f1dbe0d418bf5a42f2486fd0
+ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57778761"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58293673"
 ---
 # <a name="set-up-your-media-services-development-environment"></a>Configurar o ambiente de desenvolvimento dos Serviços de Multimédia  
 

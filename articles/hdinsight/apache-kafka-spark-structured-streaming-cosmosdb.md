@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/06/2018
 ms.author: hrasheed
-ms.openlocfilehash: e964e00cd326d924a77a53348942f91ebbdbdea4
-ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
+ms.openlocfilehash: 9d29608ded920b14af1be6d4d68ab1d77c3c8cb5
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53630165"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58099159"
 ---
 # <a name="use-apache-spark-structured-streaming-with-apache-kafka-and-azure-cosmos-db"></a>Utilizar o Apache Spark estruturado de transmissão em fluxo com o Apache Kafka e Azure Cosmos DB
 
@@ -52,19 +52,19 @@ Embora pode criar uma rede virtual do Azure, Kafka, e clusters do Spark manualme
 
     Este modelo cria os seguintes recursos:
 
-    * Um cluster do Kafka no HDInsight 3.6.
+   * Um cluster do Kafka no HDInsight 3.6.
 
-    * Spark no cluster de HDInsight 3.6.
+   * Spark no cluster de HDInsight 3.6.
 
-    * Uma Rede Virtual do Azure, que contém os clusters do HDInsight.
+   * Uma Rede Virtual do Azure, que contém os clusters do HDInsight.
 
-        > [!NOTE]  
-        > A rede virtual criada pelo modelo utiliza o espaço de endereços 10.0.0.0/16.
+       > [!NOTE]  
+       > A rede virtual criada pelo modelo utiliza o espaço de endereços 10.0.0.0/16.
 
-    * Uma base de dados do Azure Cosmos DB SQL API.
+   * Uma base de dados do Azure Cosmos DB SQL API.
 
-    > [!IMPORTANT]  
-    > O bloco de notas de transmissão em fluxo estruturada utilizado neste exemplo requer o Spark no HDInsight 3.6. Se utilizar uma versão anterior do Spark no HDInsight, irá receber mensagens de erro ao utilizar o bloco de notas.
+     > [!IMPORTANT]  
+     > O bloco de notas de transmissão em fluxo estruturada utilizado neste exemplo requer o Spark no HDInsight 3.6. Se utilizar uma versão anterior do Spark no HDInsight, irá receber mensagens de erro ao utilizar o bloco de notas.
 
 2. Utilize as seguintes informações para preencher as entradas a **implementação personalizada** secção:
    

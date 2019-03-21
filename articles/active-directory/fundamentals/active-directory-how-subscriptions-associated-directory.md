@@ -13,12 +13,12 @@ ms.author: lizross
 ms.reviewer: jeffsta
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 262f46b3d0b61923352f3ff98b08cb5e4f6d5e75
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: HT
+ms.openlocfilehash: f8c5cb04c17e508409e67f0441daee4bc44c29d5
+ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57993905"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58285011"
 ---
 # <a name="associate-or-add-an-azure-subscription-to-your-azure-active-directory-tenant"></a>Associar ou adicionar uma subscrição do Azure com o seu inquilino do Azure Active Directory
 
@@ -62,11 +62,10 @@ Antes de poder associar ou adicionar a sua subscrição, tem de efetuar as segui
 
     O diretório é alterado para a subscrição e obtém uma mensagem de êxito.
 
-    ![Mensagem de êxito](media/active-directory-how-subscriptions-associated-directory/edit-directory-success.png)    
+    ![Mensagem de êxito sobre alterações de diretório](media/active-directory-how-subscriptions-associated-directory/edit-directory-success.png)    
+4. Utilize o **alternador de diretório** para aceder ao seu novo diretório. Poderá demorar até 10 minutos para que tudo seja apresentado corretamente.
 
-4. Utilize o alternador de diretório para ir para o seu novo diretório. Poderá demorar até 10 minutos para que tudo seja apresentado corretamente.
-
-    ![Página de alternador de diretório](media/active-directory-how-subscriptions-associated-directory/directory-switcher.png)
+    ![Página de alternador de diretório, com informações de exemplo](media/active-directory-how-subscriptions-associated-directory/directory-switcher.png)
 
 Alterar o diretório de subscrição é uma operação de nível de serviço, para que não afeta a propriedade de faturação de subscrição. O administrador de conta pode ainda alterar o administrador de serviço a partir da [Centro de contas](https://account.azure.com/subscriptions). Para eliminar o diretório original, tem de transferir a subscrição de faturação a propriedade para um administrador de conta nova. Para obter mais informações sobre como transferir a propriedade da faturação, veja [Transferir a propriedade de uma subscrição do Azure para outra conta](../../billing/billing-subscription-transfer.md). 
 

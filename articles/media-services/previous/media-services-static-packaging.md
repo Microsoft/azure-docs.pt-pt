@@ -12,14 +12,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 02/08/2019
+ms.date: 03/20/2019
 ms.author: juliako
-ms.openlocfilehash: b8f8c802eb2b353be6b7ee2fbf484bd9f4acf3e8
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 56f1f04ea300ae628abb1200203873ee4ffb1af1
+ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57848206"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58294183"
 ---
 # <a name="using-azure-media-packager-to-accomplish-static-packaging-tasks"></a>Utilizar o empacotador de multimédia do Azure para realizar tarefas de empacotamento estáticos  
 > [!NOTE]

@@ -1,6 +1,6 @@
 ---
-title: Resolução de problemas na pré-visualização de proteção de palavra-passe do Azure AD
-description: Compreender o Azure AD palavra-passe proteção pré-visualização comum de resolução de problemas
+title: Resolução de problemas na proteção de palavra-passe do Azure AD
+description: Compreender o Azure AD palavra-passe proteção comum de resolução de problemas
 services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
@@ -11,19 +11,14 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 760ad30daabee61300768b7c67824f39437ac87f
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
-ms.translationtype: MT
+ms.openlocfilehash: 7ac97d7bda56a871e0b8f6de6d5d7262f3f44667
+ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58006951"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58285705"
 ---
-# <a name="preview-azure-ad-password-protection-troubleshooting"></a>Pré-visualização: Resolução de problemas de proteção de palavra-passe do AD do Azure
-
-|     |
-| --- |
-| Proteção de palavra-passe do Azure AD é uma funcionalidade de pré-visualização pública do Azure Active Directory. Para obter mais informações sobre pré-visualizações, consulte [termos de utilização suplementares para pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)|
-|     |
+# <a name="azure-ad-password-protection-troubleshooting"></a>Resolução de problemas de proteção de palavra-passe do AD do Azure
 
 Após a implementação de proteção de palavra-passe do Azure AD, a resolução de problemas pode ser necessária. Este artigo apresenta detalhes para ajudar a compreender alguns passos de resolução de problemas comuns.
 
@@ -101,7 +96,7 @@ Depois da despromoção foi concluída com êxito, e o controlador de domínio f
 
 ## <a name="removal"></a>Remoção
 
-Se é decidido para desinstalar o software de pré-visualização pública e a limpeza de estado de todas as respetivas dos domínios e floresta, esta tarefa pode ser feita usando os seguintes passos:
+Se é decidido para desinstalar o software de proteção de palavra-passe do Azure AD e limpeza do Estado de todas as respetivas dos domínios e floresta, esta tarefa pode ser feita usando os seguintes passos:
 
 > [!IMPORTANT]
 > É importante executar estes passos por ordem. Se qualquer instância do serviço de Proxy é deixada em execução periodicamente novamente criará seu objeto de serviceConnectionPoint. Se qualquer instância do serviço de agente do controlador de domínio for deixada em execução periodicamente novamente criará seu objeto de serviceConnectionPoint e o estado de sysvol.
@@ -120,7 +115,7 @@ Se é decidido para desinstalar o software de pré-visualização pública e a l
 
    O objeto resultante (s) encontrada por meio da `Get-ADObject` comando, em seguida, pode ser enviado por pipe para `Remove-ADObject`, ou eliminada manualmente.
 
-4. Remova manualmente todos os pontos de ligação do agente de controlador de domínio em cada contexto de nomenclatura de domínio. Pode haver um desses objetos por controlador de domínio na floresta, dependendo de quão amplamente foi implementado o software de pré-visualização pública. A localização desse objeto pode ser detetada com o seguinte comando do PowerShell do Active Directory:
+4. Remova manualmente todos os pontos de ligação do agente de controlador de domínio em cada contexto de nomenclatura de domínio. Pode haver um desses objetos por controlador de domínio na floresta, dependendo de quão amplamente o software foi implementado. A localização desse objeto pode ser detetada com o seguinte comando do PowerShell do Active Directory:
 
    ```PowerShell
    $scp = "serviceConnectionPoint"

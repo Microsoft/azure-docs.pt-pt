@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 12/27/2018
 ms.author: raynew
-ms.openlocfilehash: 4fa8e28d9ccc16482ca937a220eae83e282da7e9
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
-ms.translationtype: MT
+ms.openlocfilehash: 2b801df6036566840dd96bde0801ab018d0614b5
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55210040"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58103099"
 ---
 # <a name="support-matrix-for-disaster-recovery-of-hyper-v-vms-to-a-secondary-site"></a>Matriz de suporte para recuperação após desastre de VMs de Hyper-V para um site secundário
 
@@ -109,7 +109,7 @@ Mover o armazenamento, rede, as VMs do Azure entre grupos de recursos (dentro ou
 O fornecedor coordena as comunicações entre servidores do VMM. 
 
 **Latest** | **Atualizações**
---- | --- | --- | --- | ---
+--- | --- 
 5.1.19 ([disponível no portal](https://aka.ms/downloaddra) | [Funcionalidades e correções mais recentes](https://support.microsoft.com/kb/3155002)
 
 

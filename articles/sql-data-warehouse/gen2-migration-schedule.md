@@ -10,12 +10,12 @@ ms.assetid: 04b05dea-c066-44a0-9751-0774eb84c689
 ms.service: sql-data-warehouse
 ms.topic: article
 ms.date: 02/09/2019
-ms.openlocfilehash: dea0a38b1f543fbb17cb0cd98ee4f96144d07f4e
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 8f24bab531143cad1974663eb71b173a20b6f51a
+ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57432911"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58287184"
 ---
 # <a name="upgrade-your-data-warehouse-to-gen2"></a>Atualizar o seu armazém de dados para a geração 2
 
@@ -43,8 +43,8 @@ A tabela seguinte resume por região quando a escala de computação de geraçã
 | China Norte |\* |\* |
 | Norte da China 2 |\* |\* |
 | Ásia Oriental |Disponível |1 de Maio de 2019 |
-| EUA Leste |Disponível |2 de abril de 2019 |
-| EUA Leste 2 |Disponível |2 de abril de 2019 |
+| EUA Leste |Disponível |1 de Maio de 2019 |
+| EUA Leste 2 |Disponível |A 1 de Maio. 2019 |
 | França Central |\* |\* |
 | Alemanha Central |\* |\* |
 | Alemanha Oeste-Central |1 de Setembro de 2019|2 de Janeiro de 2020 |
@@ -55,15 +55,15 @@ A tabela seguinte resume por região quando a escala de computação de geraçã
 | Coreia do Sul Central |2 de abril de 2019 |1 de Maio de 2019 |
 | Coreia do Sul |2 de abril de 2019 |1 de Junho de 2019 |
 | EUA Centro-Norte |2 de abril de 2019 |1 de Junho de 2019 |
-| Europa do Norte |Disponível |2 de abril de 2019 |
+| Europa do Norte |Disponível |1 de Maio de 2019 |
 | EUA Centro-Sul |Disponível |1 de Maio de 2019 |
-| Sudeste Asiático |Disponível |2 de abril de 2019 |
+| Sudeste Asiático |Disponível |1 de Maio de 2019 |
 | Reino Unido Sul |2 de abril de 2019 |1 de Maio de 2019 |
 | Reino Unido Oeste |\*|\* |
 | EUA Centro-Oeste |2 de Setembro de 2019 |2 de Janeiro de 2020|
-| Europa Ocidental |Disponível |2 de abril de 2019 |
+| Europa Ocidental |Disponível |1 de Maio de 2019 |
 | EUA Oeste |2 de abril de 2019 |1 de Junho de 2019 |
-| EUA Oeste 2 |Disponível |2 de abril de 2019 |
+| EUA Oeste 2 |Disponível |1 de Maio de 2019 |
 
 ## <a name="automatic-upgrade-process"></a>Processo de atualização automática
 

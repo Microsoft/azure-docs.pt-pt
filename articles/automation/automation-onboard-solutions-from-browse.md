@@ -9,12 +9,12 @@ ms.date: 06/06/2018
 ms.topic: article
 manager: carmonm
 ms.custom: mvc
-ms.openlocfilehash: 84b66605939abd0f676625a5959f4a31ef1774db
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.openlocfilehash: 3cffd09a54b09a425f3b7f3519b4ceb7a04a6d08
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56818294"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57855355"
 ---
 # <a name="enable-update-management-change-tracking-and-inventory-solutions-on-multiple-vms"></a>Ativar a gestão de atualizações, controlo de alterações e soluções de inventário em várias VMs
 
@@ -28,7 +28,7 @@ Inicie a sessão no Azure em https://portal.azure.com
 
 No portal do Azure, navegue até **máquinas virtuais**.
 
-Utilizando as caixas de verificação, selecione as máquinas virtuais que pretende integrar com o controlo de alterações e inventário ou gestão de atualizações. Integração está disponível para até três grupos de recursos diferentes ao mesmo tempo.
+Utilizando as caixas de verificação, selecione as máquinas virtuais que pretende integrar com o controlo de alterações e inventário ou gestão de atualizações. Integração está disponível para até três grupos de recursos diferentes ao mesmo tempo. VMs do Azure podem existir em qualquer região, independentemente da localização da sua conta de automatização.
 
 ![Lista de VMs](media/automation-onboard-solutions-from-browse/vmlist.png)
 > [!TIP]
@@ -68,14 +68,19 @@ A tabela seguinte mostra os mapeamentos suportados:
 |Sudeste da Austrália.|Sudeste da Austrália.|
 |CanadaCentral|CanadaCentral|
 |CentralIndia|CentralIndia|
-|EastUS|EastUS2|
+|EastUS<sup>1</sup>|EastUS2|
 |JapanEast|JapanEast|
 |SoutheastAsia|SoutheastAsia|
 |WestCentralUS|WestCentralUS|
 |WestEurope|WestEurope|
 |UKSouth|UKSouth|
 |USGovVirginia|USGovVirginia|
-|EastUS2EUAP|CentralUSEUAP|
+|EastUS2EUAP<sup>1</sup>|CentralUSEUAP|
+
+<sup>1</sup> EastUS2EUAP e EastUS mapeamentos para áreas de trabalho do Log Analytics para contas de automatização não são um mapeamento de região para região exato, mas é o mapeamento correto.
+
+> [!NOTE]
+> Devido à procura, uma região pode não estar disponível ao criar a sua área de trabalho de conta de automatização ou o Log Analytics.  Se for esse o caso, certifique-se de que está a utilizar uma região em que pode criar recursos na tabela anterior.
 
 Desmarque a caixa de verificação junto a qualquer máquina virtual que não pretende ativar. Máquinas virtuais que não é possível ativar já estão a ser desmarcadas.
 

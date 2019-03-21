@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 06/22/2018
 ms.author: bwren
-ms.openlocfilehash: 1996befa78409e572798a9043f7e6ee3b6f647bc
-ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
+ms.openlocfilehash: f07fc2f03ad72e7ee0fd408782b8fe845c88e780
+ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56887911"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58286572"
 ---
 # <a name="create-custom-views-by-using-view-designer-in-azure-monitor"></a>Criar vistas personalizadas com o estruturador de vistas no Azure Monitor
 Ao utilizar o estruturador de vistas no Azure Monitor, pode criar diversas exibições personalizadas no portal do Azure pode ajudá-lo a visualizar os dados na sua área de trabalho do Log Analytics. Este artigo apresenta uma visão geral do estruturador de vistas e procedimentos para criação e edição de exibições personalizadas.
@@ -43,6 +43,9 @@ As vistas que criar com o estruturador de vistas contêm os elementos que são d
 | Mosaicos | São apresentados no seu Azure Monitor **descrição geral** página. Cada mosaico mostra um resumo visual do modo de exibição personalizado, que ele representa. Cada tipo de mosaico fornece uma visualização diferente de seus registros. Selecionar um mosaico para apresentar uma vista personalizada. |
 | Vista personalizada | Apresentado quando seleciona um mosaico. Cada vista contém um ou mais partes de visualização. |
 | Partes de visualização | Apresentar uma visualização de dados na área de trabalho do Log Analytics com base num ou vários [registar as consultas](../log-query/log-query-overview.md). A maioria das partes incluem um cabeçalho, que fornece uma visualização de alto nível, e uma lista, que apresenta os principais resultados. Cada tipo de parte fornece uma visualização diferente dos registos na área de trabalho do Log Analytics. Selecionar elementos na parte ao executar uma consulta de registo que fornece registos detalhados. |
+
+## <a name="required-permissions"></a>Permissões obrigatórias
+Exigir pelo menos [permissões ao nível do Contribuidor](manage-access.md#manage-accounts-and-users) na área de trabalho do Log Analytics para criar ou modificar vistas. Se não tiver esta permissão, a opção de exibir Designer não ser apresentada no menu.
 
 
 ## <a name="work-with-an-existing-view"></a>Trabalhar com uma vista existente

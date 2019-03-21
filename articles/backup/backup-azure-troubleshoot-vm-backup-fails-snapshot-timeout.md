@@ -9,12 +9,12 @@ ms.service: backup
 ms.topic: troubleshooting
 ms.date: 12/03/2018
 ms.author: genli
-ms.openlocfilehash: 85dca677238070ded13b59faf9a13081c2409987
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 4d090740b75acbe2629ae4f1e13cde8947f190bb
+ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57890870"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58286436"
 ---
 # <a name="troubleshoot-azure-backup-failure-issues-with-the-agent-or-extension"></a>Resolver problemas de falhas de cópia de segurança do Azure: Problemas com o agente ou a extensão
 
@@ -102,19 +102,12 @@ Depois de registar e agendar uma VM para o serviço de cópia de segurança do A
 **Fazer com que 5: Serviço de cópia de segurança não tem permissão para eliminar os pontos de restauração antigos devido a um bloqueio de grupo de recursos** <br>
 **Fazer com que 6: [A VM não tem acesso à internet](#the-vm-has-no-internet-access)**
 
-## <a name="usererrorunsupporteddisksize---currently-azure-backup-does-not-support-disk-sizes-greater-than-1023gb"></a>UserErrorUnsupportedDiskSize - atualmente o Azure Backup não suporta tamanhos de disco superiores a 1023GB
+## <a name="usererrorunsupporteddisksize---currently-azure-backup-does-not-support-disk-sizes-greater-than-4095gb"></a>UserErrorUnsupportedDiskSize - atualmente o Azure Backup não suporta tamanhos de disco superiores a 4095GB
 
 **Código de erro**: UserErrorUnsupportedDiskSize <br>
-**Mensagem de erro**: O Azure Backup não suporta atualmente tamanhos de disco superiores a 1023 GB <br>
+**Mensagem de erro**: Atualmente, o Azure Backup não suporta tamanhos de disco superiores a 4095GB <br>
 
-A operação de cópia de segurança poderá falhar quando a cópia de segurança de VM com o tamanho do disco superior a 1023GB, uma vez que o Cofre não é atualizado para restaurar instantânea. Atualizar para o restaurar instantâneas irá fornecer suporte a até 4TB, vê-lo [artigo](backup-instant-restore-capability.md#upgrading-to-instant-restore). Depois de atualizar, demorará até duas horas para a subscrição aproveitar essa funcionalidade. Forneça a memória intermédia suficiente antes de repetir a operação.  
-
-## <a name="usererrorstandardssdnotsupported---currently-azure-backup-does-not-support-standard-ssd-disks"></a>UserErrorStandardSSDNotSupported - atualmente o Azure Backup não suporta discos de Standard SSD
-
-**Código de erro**: UserErrorStandardSSDNotSupported <br>
-**Mensagem de erro**: Atualmente, o Azure Backup não suporta discos Standard SSD <br>
-
-Atualmente o Azure Backup suporta discos de Standard SSD apenas para os cofres que são atualizados para o [restaurar instantâneas](backup-instant-restore-capability.md).
+A operação de cópia de segurança poderá falhar quando a cópia de segurança de VM com o tamanho do disco superior a 4095GB. Suporte para discos grandes estará disponível brevemente.  
 
 ## <a name="usererrorbackupoperationinprogress---unable-to-initiate-backup-as-another-backup-operation-is-currently-in-progress"></a>UserErrorBackupOperationInProgress - não é possível iniciar a cópia de segurança como outra operação de cópia de segurança está atualmente em curso
 
@@ -200,7 +193,7 @@ As seguintes condições poderão provocar a falha na tarefa de instantâneo:
 | Causa | Solução |
 | --- | --- |
 | O estado da VM é informado incorretamente, uma vez que a VM é encerrada no protocolo RDP (Remote Desktop). | Se encerrar a VM na RDP, consulte o portal para determinar se o estado da VM está correto. Se não estiver correto, encerre a VM no portal, utilizando o **encerramento** opção no dashboard de VM. |
-| A VM não é possível obter o endereço de anfitrião ou de recursos de infraestrutura do DHCP. | DHCP tem de estar ativado no computador convidado para a cópia de segurança de VM de IaaS para trabalhar. Se a VM não é possível obter o endereço de anfitrião ou de recursos de infraestrutura da resposta DHCP 245, não é possível transferir ou executar quaisquer extensões. Se precisar de um IP privado estático, estes devem ser configurado através da **Portal do Azure** ou **PowerShell** e certifique-se a opção de DHCP no interior da VM é ativada. [Saiba mais](../virtual-network/virtual-networks-static-private-ip-arm-ps.md#change-the-allocation-method-for-a-private-ip-address-assigned-to-a-network-interface) sobre como configurar um endereço IP estático com o PowerShell.
+| A VM não é possível obter o endereço de anfitrião ou de recursos de infraestrutura do DHCP. | DHCP tem de estar ativado no computador convidado para a cópia de segurança de VM de IaaS para trabalhar. Se a VM não é possível obter o endereço de anfitrião ou de recursos de infraestrutura da resposta DHCP 245, não é possível transferir ou executar quaisquer extensões. Se precisar de um IP privado estático, estes devem ser configurado através da **portal do Azure** ou **PowerShell** e certifique-se a opção de DHCP no interior da VM é ativada. [Saiba mais](../virtual-network/virtual-networks-static-private-ip-arm-ps.md#change-the-allocation-method-for-a-private-ip-address-assigned-to-a-network-interface) sobre como configurar um endereço IP estático com o PowerShell.
 
 ### <a name="the-backup-extension-fails-to-update-or-load"></a>A extensão de cópia de segurança não consegue atualizar ou de carga
 Se não é possível carregar extensões, a cópia de segurança falha porque não pode ser criado um instantâneo.

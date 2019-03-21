@@ -15,12 +15,12 @@ ms.author: lizross
 ms.reviewer: jeffsta
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 548ea67092a2cdb8cedeed869becd8933c08c5c6
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 22bf80c13ef3b18ab3119b6b35e529c8ad32f504
+ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58181797"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58285099"
 ---
 # <a name="find-help-and-open-a-support-ticket-for-azure-active-directory"></a>Encontrar ajuda e abra um pedido de suporte do Azure Active Directory
 A Microsoft fornece técnico a nível global, pré-vendas, faturação e suporte de subscrição do Azure Active Directory (Azure AD). O suporte está disponível tanto online como por telefone do Microsoft Azure paga e subscrições de avaliação. O suporte por telefone e suporte de faturação online estão disponíveis em idiomas adicionais. 
@@ -31,7 +31,7 @@ Antes de criar um pedido de suporte, consulte os seguintes recursos para obter r
 
 * Para obter conteúdo, como informações de procedimentos ou exemplos de código para os profissionais de TI e desenvolvedores, consulte a [técnica documentação em docs.microsoft.com](https://docs.microsoft.com/azure/active-directory/).
 
-* O [Comunidade tecnológica da Microsoft](https://techcommunity.microsoft.com/) é o local para os nossos parceiros de profissionais de IT e os clientes colaborar, compartilhar e aprender. O [Microsoft Tech Community Center do informações](https://techcommunity.microsoft.com/t5/Community-Info-Center/ct-p/Community-Info-Center) é utilizado para anúncios, postagens em blog, perguntar-me-qualquer coisa (AMA) as interações com especialistas e muito mais. Também pode [aderir à Comunidade para enviar suas idéias](https://techcommunity.microsoft.com/t5/Communities/ct-p/communities).
+* O [Comunidade técnica do Microsoft](https://techcommunity.microsoft.com/) é o local para os nossos parceiros de profissionais de IT e os clientes colaborar, compartilhar e aprender. O [Microsoft Technical Community Center do informações](https://techcommunity.microsoft.com/t5/Community-Info-Center/ct-p/Community-Info-Center) é utilizado para anúncios, postagens em blog, perguntar-me-qualquer coisa (AMA) as interações com especialistas e muito mais. Também pode [aderir à Comunidade para enviar suas idéias](https://techcommunity.microsoft.com/t5/Communities/ct-p/communities).
 
 
 ## <a name="open-a-support-ticket"></a>Abra um pedido de suporte
@@ -64,8 +64,7 @@ Se não for possível encontrar respostas com recursos de ajuda autónoma, pode 
 ### <a name="how-to-open-a-support-ticket-for-azure-ad-in-the-microsoft-365-admin-center"></a>Como abrir um pedido de suporte para o Azure AD no Centro de administração do Microsoft 365
 
 > [!NOTE]
-> Suporte para o Azure AD no [Centro de administração do Microsoft 365](https://admin.microsoft.com) é disponibilizado apenas para administradores.
-> 
+> Suporte para o Azure AD no [Centro de administração do Microsoft 365](https://admin.microsoft.com) é disponibilizado apenas para administradores. 
 
 1. Inicie sessão para o [Centro de administração do Microsoft 365](https://admin.microsoft.com) com uma conta que tenha um Enterprise Mobility + licença Security (EMS).
 

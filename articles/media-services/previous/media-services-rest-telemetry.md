@@ -12,14 +12,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/09/2019
+ms.date: 03/20/2019
 ms.author: juliako
-ms.openlocfilehash: 6be9c785e12f588addabbe14fb5d199ea9d4b256
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: MT
+ms.openlocfilehash: b1eb6e1458fab6de3472d68352ba7764b71007c8
+ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58079968"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58292586"
 ---
 # <a name="configuring-azure-media-services-telemetry-with-rest"></a>Configurar a telemetria de serviços de multimédia do Azure com REST
 

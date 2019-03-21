@@ -7,12 +7,12 @@ ms.service: dns
 ms.topic: quickstart
 ms.date: 3/11/2019
 ms.author: victorh
-ms.openlocfilehash: b24b06ab121b1484e458a9e725fd90590af05c08
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 7a2c300e30050e7e46a2b2c724258539df85e410
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57761502"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58093427"
 ---
 # <a name="quickstart-create-an-azure-dns-zone-and-record-using-azure-cli"></a>Início rápido: Criar uma zona DNS do Azure e o registo com a CLI do Azure
 
@@ -92,7 +92,7 @@ Agora que tem uma zona DNS de teste com um registo de teste "A", pode testar a r
 
    ![nslookup](media/dns-getstarted-portal/nslookup.PNG)
 
-O nome do anfitrião **www.contoso.xyz** é resolvida para **10.10.10.10**, tal como tiver configurado. Este resultado verifica se a resolução de nomes está a funcionar corretamente.
+O nome do anfitrião **www\.contoso.xyz** é resolvido para o **10.10.10.10**, tal como tiver configurado. Este resultado verifica se a resolução de nomes está a funcionar corretamente.
 
 ## <a name="delete-all-resources"></a>Eliminar todos os recursos
 

@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/09/2018
 ms.author: njray
-ms.openlocfilehash: 901afc8f28b617eb5bada2a0f58761ddb9f67607
-ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
+ms.openlocfilehash: 1622de0cccdbc8fee0681e209e756b30da292d3c
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/16/2019
-ms.locfileid: "56327418"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58003501"
 ---
 # <a name="ibm-db2-purescale-on-azure"></a>IBM DB2 pureScale no Azure
 
@@ -66,7 +66,7 @@ Essa abordagem é um modelo que pode modificar para o tamanho e a escala da sua 
 
 ### <a name="compute-considerations"></a>Considerações de computação
 
-Esta arquitetura é executado as camadas do aplicativo, armazenamento e dados em máquinas virtuais do Azure. O [scripts de configuração de implementação](http://aka.ms/db2onazure) crie o seguinte:
+Esta arquitetura é executado as camadas do aplicativo, armazenamento e dados em máquinas virtuais do Azure. O [scripts de configuração de implementação](https://aka.ms/db2onazure) crie o seguinte:
 
 -   Um cluster de pureScale DB2. O tipo de recursos de computação que necessita no Azure depende do seu programa de configuração. Em geral, pode usar duas abordagens:
 

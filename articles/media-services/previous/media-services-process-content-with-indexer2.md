@@ -11,14 +11,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 02/10/2019
+ms.date: 03/19/2019
 ms.author: adsolank;juliako;
-ms.openlocfilehash: 12d188b39375bce88d3adc244d217854c75f436d
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 6a798d0f33ba4d1960f07e670e6e71916f68eff1
+ms.sourcegitcommit: aa3be9ed0b92a0ac5a29c83095a7b20dd0693463
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57861298"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58258275"
 ---
 # <a name="indexing-media-files-with-azure-media-indexer-2-preview"></a>Indexe ficheiros multimédia com a pré-visualização de 2 de indexador de multimédia do Azure
 ## <a name="overview"></a>Descrição geral

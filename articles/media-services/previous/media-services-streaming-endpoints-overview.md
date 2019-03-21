@@ -12,14 +12,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/08/2019
+ms.date: 03/20/2019
 ms.author: juliako
-ms.openlocfilehash: b40a2bbfa7bbab7ffbdd4c47684eda7c954e7b77
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: c5979fa7ff67c5acda9ab653bc4ee52d8b5129a5
+ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55996959"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58293809"
 ---
 # <a name="streaming-endpoints-overview"></a>Descrição geral de pontos finais de transmissão em fluxo  
 
@@ -50,8 +50,8 @@ A partir da versão de Janeiro de 2017 dos serviços de multimédia, tem dois ti
 
 Type|Descrição
 ---|---
-**Standard**|Esta é a opção predefinida que funcionaria para a maioria dos cenários.<br/>Com esta opção, obtém o SLA/limitado, primeiros 15 dias depois de iniciar o ponto final de transmissão em fluxo é gratuito.<br/>Se criar mais de uma transmissão em fluxo de pontos de extremidade, apenas a primeira é gratuito durante os primeiros 15 dias, os outros são faturados assim que são iniciados. <br/>Tenha em atenção que versão de avaliação gratuita só se aplica às contas de serviços de suporte de dados recém-criado e ponto final de transmissão em fluxo predefinido. Pontos finais de transmissão em fluxo existentes e os pontos finais de transmissão em fluxo criados além disso, não inclui período de avaliação gratuita, mesmo que sejam atualizados para a versão 2.0 ou são criados como a versão 2.0.
-**Premium**|Esta opção é adequada para cenários de profissionais que necessitam de maior escala ou controle.<br/>SLA de variável com base na capacidade premium transmissão em fluxo (SU) de unidades adquirida, dedicados pontos finais de transmissão em fluxo em direto em ambiente isolado e não compitam por recursos.
+**Standard** |Esta é a opção predefinida que funcionaria para a maioria dos cenários.<br/>Com esta opção, obtém o SLA/limitado, primeiros 15 dias depois de iniciar o ponto final de transmissão em fluxo é gratuito.<br/>Se criar mais de uma transmissão em fluxo de pontos de extremidade, apenas a primeira é gratuito durante os primeiros 15 dias, os outros são faturados assim que são iniciados. <br/>Tenha em atenção que versão de avaliação gratuita só se aplica às contas de serviços de suporte de dados recém-criado e ponto final de transmissão em fluxo predefinido. Pontos finais de transmissão em fluxo existentes e os pontos finais de transmissão em fluxo criados além disso, não inclui período de avaliação gratuita, mesmo que sejam atualizados para a versão 2.0 ou são criados como a versão 2.0.
+**Premium** |Esta opção é adequada para cenários de profissionais que necessitam de maior escala ou controle.<br/>SLA de variável com base na capacidade premium transmissão em fluxo (SU) de unidades adquirida, dedicados pontos finais de transmissão em fluxo em direto em ambiente isolado e não compitam por recursos.
 
 Para obter mais informações, consulte a **tipos de comparar a transmissão em fluxo** secção seguinte.
 

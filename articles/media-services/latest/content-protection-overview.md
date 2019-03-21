@@ -11,15 +11,15 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/18/2019
+ms.date: 03/20/2019
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: 3ce24100a0780f313a00b80129601f4e8f344bde
-ms.sourcegitcommit: f331186a967d21c302a128299f60402e89035a8d
+ms.openlocfilehash: 4d1a9ae622de103b459d256cb48c5823f5866a3b
+ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58189772"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58294081"
 ---
 # <a name="content-protection-with-dynamic-encryption"></a>Proteção de conteúdo com encriptação dinâmica
 
@@ -199,6 +199,13 @@ Para proteger os seus ativos inativos, os recursos devem ser encriptados pela en
 |[Encriptação do lado do cliente de armazenamento](https://docs.microsoft.com/azure/storage/common/storage-client-side-encryption)|Oferecidas pelo armazenamento do Azure, chave gerida pelo cliente no Cofre de chaves de encriptação do lado do cliente|Não suportado|
 
 <sup>1</sup> em serviços de multimédia v3, a encriptação de armazenamento (encriptação AES-256) só é suportada para em versões anteriores compatibilidade quando os recursos foram criados com os serviços de multimédia v2. O que significa v3 funciona com o armazenamento existente encriptado ativos, mas não permitirá que a criação de novos itens.
+
+## <a name="troubleshoot"></a>Resolução de problemas
+
+Se obtiver o `MPE_ENC_ENCRYPTION_NOT_SET_IN_DELIVERY_POLICY` erro, certifique-se de especificar a política de transmissão em fluxo de mensagens em fila adequada.
+
+Se obtiver erros que terminam com `_NOT_SPECIFIED_IN_URL`, certifique-se de que especifica o formato de encriptação no URL. Por exemplo, .../manifest (formato = Format=m3u8-cmaf, encriptação cbcs-aapl). Ver [transmissão em fluxo protocolos e tipos de encriptação](#streaming-protocols-and-encryption types).
+
 
 ## <a name="next-steps"></a>Passos Seguintes
 

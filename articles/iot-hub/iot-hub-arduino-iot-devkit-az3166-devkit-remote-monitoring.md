@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.tgt_pltfrm: arduino
 ms.date: 02/02/2018
 ms.author: liydu
-ms.openlocfilehash: 5a36a1e955bf79654ae9e5cc01564a47e1a13a05
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: ae8dc263e08528c6e3b3bae8c779162c96d51f43
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57545046"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58100790"
 ---
 # <a name="connect-mxchip-iot-devkit-to-azure-iot-remote-monitoring-solution-accelerator"></a>Ligar o MXChip IoT DevKit ao solution accelerator do monitoramento remoto do Azure IoT
 
@@ -54,7 +54,7 @@ Uma subscrição ativa do Azure. Se não tiver um, pode registrar-se através de
 
    ![Dashboard](media/iot-hub-arduino-iot-devkit-az3166-devkit-remote-monitoring/azure-iot-suite-new-solution-created.png)
   
-   ![Console](media/iot-hub-arduino-iot-devkit-az3166-devkit-remote-monitoring/azure-iot-suite-console.png)
+   ![Consola](media/iot-hub-arduino-iot-devkit-az3166-devkit-remote-monitoring/azure-iot-suite-console.png)
 
 5. Clique em **adicionar um dispositivo**.
 
@@ -76,8 +76,8 @@ Uma subscrição ativa do Azure. Se não tiver um, pode registrar-se através de
 
 3. Ligar o DevKit ao seu computador. O VS Code automaticamente Deteta sua DevKit e abre-se as seguintes páginas:
 
-  * A página de introdução de DevKit.
-  * Exemplos de Arduino: Exemplos práticos para começar com DevKit.
+   * A página de introdução de DevKit.
+   * Exemplos de Arduino: Exemplos práticos para começar com DevKit.
 
 4. Expanda o lado esquerdo **exemplos de ARDUINO** secção, navegue até **exemplos para MXCHIP AZ3166 > AzureIoT**e selecione **RemoteMonitoring**. Abre uma nova janela do VS Code com uma pasta de projeto.
 

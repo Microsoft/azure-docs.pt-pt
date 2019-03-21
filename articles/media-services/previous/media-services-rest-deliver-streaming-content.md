@@ -12,14 +12,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/08/2019
+ms.date: 03/20/2019
 ms.author: juliako
-ms.openlocfilehash: cfa3dd5c39626f209fdcba9df567d506cc768bec
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 974f0af461ecdc7de820191950b010035d02a601
+ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57884023"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58294965"
 ---
 # <a name="publish-azure-media-services-content-using-rest"></a>Publicar conteúdo de serviços de multimédia do Azure com REST 
 > [!div class="op_single_selector"]

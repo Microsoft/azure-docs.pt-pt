@@ -13,14 +13,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/08/2019
+ms.date: 03/19/2019
 ms.author: juliako
-ms.openlocfilehash: b17706b09ce64735cd9d68ace579fd7f5b366dc3
-ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.openlocfilehash: 1775bbb2913f6b1a985ca7ec9e89bafed42fd0e6
+ms.sourcegitcommit: aa3be9ed0b92a0ac5a29c83095a7b20dd0693463
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/02/2019
-ms.locfileid: "57244473"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58258212"
 ---
 # <a name="manage-streaming-endpoints-with-the-azure-portal"></a>Gerir pontos finais de transmissão em fluxo com o portal do Azure 
 

@@ -8,12 +8,12 @@ ms.topic: sample
 ms.date: 04/05/2018
 author: wmengmsft
 ms.author: wmeng
-ms.openlocfilehash: 62e94d1551efed5acc8dbd93bc941a4f9aeceb25
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: 6b8b2d2d035183861f367c9425ec54d1c9babf34
+ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54044693"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58286555"
 ---
 # <a name="how-to-use-azure-table-storage-or-azure-cosmos-db-table-api-from-java"></a>Como utilizar o Armazenamento de tabelas do Azure ou a API de Tabelas do Azure Cosmos DB a partir de Java
 [!INCLUDE [storage-selector-table-include](../../includes/storage-selector-table-include.md)]
@@ -474,7 +474,7 @@ try
         TableQuery.from(CustomerEntity.class)
         .select(new String[] {"Email"});
 
-    // Define a Entity resolver to project the entity to the Email value.
+    // Define an Entity resolver to project the entity to the Email value.
     EntityResolver<String> emailResolver = new EntityResolver<String>() {
         @Override
         public String resolve(String PartitionKey, String RowKey, Date timeStamp, HashMap<String, EntityProperty> properties, String etag) {

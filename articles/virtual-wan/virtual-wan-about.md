@@ -5,49 +5,59 @@ services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: overview
-ms.date: 03/19/2019
+ms.date: 03/20/2019
 ms.author: cherylmc
 Customer intent: As someone with a networking background, I want to understand what Virtual WAN is and if it is the right choice for my Azure network.
-ms.openlocfilehash: 5c6e69e05eaa036e140d7275b4e66930a3e5be7a
-ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
-ms.translationtype: MT
+ms.openlocfilehash: 6f2f002c5ff08e21741927d07a0facfd09ec0914
+ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
+ms.translationtype: HT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 03/20/2019
-ms.locfileid: "58225302"
+ms.locfileid: "58295696"
 ---
 # <a name="what-is-azure-virtual-wan"></a>O que é a WAN Virtual do Azure?
 
-WAN Virtual do Azure é um serviço de rede que fornece conectividade de ramo automatizada e otimizado para e através do Azure. Regiões do Azure servem como fontes que pode optar por ligar seus ramos para. Assim que os ramos estão ligados, pode aproveitar o backbone do Azure para estabelecer conectividade ramo-para-VNet e o ramo de ramo.
+WAN Virtual do Azure é um serviço de rede que fornece conectividade de ramo automatizada e otimizado para e através do Azure. Regiões do Azure servem como fontes que pode optar por ligar seus ramos para. Assim que os ramos estão ligados, pode aproveitar o backbone do Azure para estabelecer conectividade ramo-para-VNet e o ramo de ramo. Para obter uma lista de parceiros e localizações que suportam Virtual WAN VPN, consulte a [Virtual WAN parceiros e localizações de](virtual-wan-locations-partners.md) artigo.
 
-WAN Virtual do Azure reúne vários serviços de conectividade de cloud do Azure como Site-Site VPN (disponível em geral), ExpressRoute (pré-visualização), o utilizador de ponto-para-Site VPN (pré-visualização) numa única interface operacional. Conectividade para VNets do Azure é estabelecida através de ligações de rede Virtual.
+WAN Virtual do Azure reúne vários serviços de conectividade de cloud do Azure como site-site VPN (disponível em geral), ExpressRoute (pré-visualização), o utilizador de ponto-para-site VPN (pré-visualização) numa única interface operacional. Conectividade para VNets do Azure é estabelecida através de ligações de rede virtual.
 
 ![Diagrama da WAN Virtual](./media/virtual-wan-about/vwangraphic.png)
 
 Este artigo fornece uma vista rápida sobre a conectividade de rede na WAN Virtual do Azure. A WAN Virtual oferece as seguintes vantagens:
 
-* **Soluções de conectividade integrada no hub- and -spoke:** Automatize a configuração de Site a Site e a conectividade entre sites no local e um hub do Azure.
+* **Soluções de conectividade integrada no hub- and -spoke:** Automatize a configuração de site a site e a conectividade entre sites no local e um hub do Azure.
 * **Instalação automatizada do spoke e configuração:** Ligar a redes virtuais e cargas de trabalho para o hub do Azure forma totalmente integrada.
-* **Resolução de problemas intuitivo:** Pode ver o fluxo de ponto-a-ponto no Azure e utilize estas informações para tomar as medidas necessárias.
+* **Resolução de problemas intuitivo:** Pode ver o fluxo de ponto-a-ponto no Azure e, em seguida, utilize estas informações para tomar as medidas necessárias.
 
-## <a name="partner-region"></a>Parceiros e localizações
+## <a name="resources"></a>Recursos da WAN virtual
 
-Para obter mais informações, consulte a [Virtual WAN parceiros e localizações de](virtual-wan-locations-partners.md) artigo.
+Para configurar uma WAN do ponto-a-ponto Virtual, crie os seguintes recursos:
 
-### <a name="partner"></a>Parceiros
+* **virtualWAN:** O recurso de virtualWAN representa uma sobreposição virtual da sua rede do Azure e é uma coleção de vários recursos. Contém ligações a todos os hubs virtuais que quer ter na WAN virtual. Os recursos da WAN virtual estão isolados uns dos outros e não podem conter um hub comum. Os Hubs Virtuais na WAN Virtual não comunicam entre si. A propriedade "Permitir tráfego de ramificação para ramificação" permite que os Sites de tráfego entre os sites VPN, bem como VPN para o ExpressRoute (atualmente em pré-visualização) ativado.
 
-[!INCLUDE [partners](../../includes/virtual-wan-partners-include.md)]
+* **Hub:** Um hub virtual é uma rede virtual gerida pela Microsoft. O hub contém vários pontos finais de serviço para ativar a conectividade da rede no local (vpnsite). O hub é o núcleo da sua rede numa região. Só pode existir um hub por região do Azure. Quando cria um hub com o portal do Azure, este cria uma VNet e um vpngateway do hub virtual.
 
-### <a name="locations"></a>localizações
+  Um gateway do hub não é igual a um gateway de rede virtual que utiliza para o ExpressRoute e o Gateway de VPN. Por exemplo, ao utilizar o Virtual WAN, não crie uma ligação site a site do site no local diretamente à VNet. Em vez disso, cria uma ligação de site a site para o hub. O tráfego passa sempre pelo gateway do hub. Isto significa que as VNets não precisam do seu próprio gateway de rede virtual. A WAN Virtual permite às VNets tirar partido do fácil dimensionamento através do hub virtual e do gateway do hub virtual.
 
-[!INCLUDE [regions](../../includes/virtual-wan-regions-include.md)]
+* **Ligação do hub de rede virtual:** O recurso de ligação de rede virtual de Hub é utilizado para ligar o hub de forma totalmente integrada à sua rede virtual. Neste momento, só pode ligar a redes virtuais que estejam na mesma região do hub.
 
-## <a name="s2s"></a>Ligações Site a site
+* **Tabela de rotas de Hub:**  Pode criar uma rota de virtual hub e aplicam-se a rota à tabela de rotas de virtual hub. Pode aplicar várias rotas à tabela de rotas do hub virtual.
+
+**Recursos adicionais de Virtual WAN**
+
+  * **Site:** Este recurso é utilizado para apenas ligações de site a site. O recurso de site é **vpnsite**. Ele representa o dispositivo VPN no local e as respetivas definições. Ao trabalhar com um parceiro de WAN Virtual, tem uma solução integrada para exportar automaticamente estas informações para o Azure.
+
+## <a name="connectivity"></a>Conectividade
+
+Virtual WAN permite três tipos de conectividade: site a site, ponto a site (pré-visualização) e do ExpressRoute (pré-visualização).
+
+### <a name="s2s"></a>Ligações de VPN de site a site
 
 ![Diagrama da WAN Virtual](./media/virtual-wan-about/virtualwan.png)
 
-Para criar uma ligação Site a Site através da WAN Virtual, pode prosseguir através de um [parceiro de WAN Virtual](virtual-wan-locations-partners.md) ou criar a ligação manualmente.
+Quando cria uma ligação site a site Virtual WAN, pode trabalhar com um parceiro disponível. Se não quiser usar um parceiro, pode configurar a ligação manualmente. Para obter mais informações, consulte [criar uma ligação de site a site com Virtual WAN](virtual-wan-site-to-site-portal.md).
 
-### <a name="s2spartner"></a>Fluxo de trabalho do parceiro
+#### <a name="s2spartner"></a>Fluxo de trabalho do parceiro WAN virtual
 
 Quando trabalha com um parceiro de Virtual WAN, é o fluxo de trabalho:
 
@@ -55,33 +65,23 @@ Quando trabalha com um parceiro de Virtual WAN, é o fluxo de trabalho:
 2. O controlador de dispositivos de ramo (VPN/SDWAN) obtém a configuração de conectividade do Azure e atualiza o dispositivo local. Isto automatiza a transferência de configuração, a edição e a atualização do dispositivo VPN no local.
 3. Depois de o dispositivo ter a configuração certa do Azure, é estabelecida uma ligação site a site (dois túneis ativos) à WAN do Azure. O Azure suporta IKEv1 e IKEv2. O BGP é opcional.
 
-Se não quiser usar um parceiro, pode configurar a ligação manualmente, consulte [criar uma ligação de Site a Site com Virtual WAN](virtual-wan-site-to-site-portal.md).
+#### <a name="partners"></a>Parceiros para conexões de Virtual WAN site a site
 
-## <a name="p2s"></a>Ligações Ponto a site (Pré-visualização)
+Para obter uma lista de parceiros disponíveis e localizações, consulte a [Virtual WAN parceiros e localizações de](virtual-wan-locations-partners.md) artigo.
+
+### <a name="p2s"></a>Ligações de VPN ponto a site (pré-visualização)
 
 Uma ligação Ponto a Site (P2S) permite-lhe criar uma ligação segura ao seu hub virtual a partir de um computador cliente individual. É estabelecida uma ligação P2S ao iniciá-la a partir do computador cliente. Esta solução é útil para as pessoas que trabalham à distância que queiram ligar a partir de uma localização remota, como, por exemplo, a partir de casa ou de uma conferência. Uma VPN P2S também é uma solução útil para utilizar em vez de uma VPN S2S, quando são poucos os clientes que precisam de ligar.
 
-Para criar a ligação manualmente, veja [Criar uma ligação Ponto a Site com a WAN Virtual](virtual-wan-point-to-site-portal.md).
+Para criar a ligação, veja [criar uma ligação de ponto a site através da WAN Virtual](virtual-wan-point-to-site-portal.md).
 
-## <a name="er"></a>Ligações do ExpressRoute (Pré-visualização)
+### <a name="er"></a>Ligações do ExpressRoute (Pré-visualização)
 
-Para criar a ligação manualmente, veja [Criar uma ligação ExpressRoute com a WAN Virtual](virtual-wan-expressroute-portal.md).
+O ExpressRoute permite-lhe ligar a rede no local para o Azure através de uma ligação privada. Para criar a ligação, veja [crie uma ligação de ExpressRoute através de Virtual WAN](virtual-wan-expressroute-portal.md).
 
-## <a name="resources"></a>Recursos da WAN virtual
+## <a name="locations"></a>localizações
 
-Para configurar uma WAN virtual ponto a ponto, crie os seguintes recursos:
-
-* **virtualWAN:** O recurso de virtualWAN representa uma sobreposição virtual da sua rede do Azure e é uma coleção de vários recursos. Contém ligações a todos os hubs virtuais que quer ter na WAN virtual. Os recursos da WAN virtual estão isolados uns dos outros e não podem conter um hub comum. Os Hubs Virtuais na WAN Virtual não comunicam entre si. A propriedade "Permitir tráfego de ramo para ramo" permite o tráfego entre os sites VPN, bem como Sites com o VPN para ExpressRoute ativado. Lembre-se de que o ExpressRoute na WAN Virtual do Azure está atualmente em Pré-visualização.
-
-* **Site:** O recurso de site conhecido como vpnsite representa o dispositivo VPN no local e as respetivas definições. Ao trabalhar com um parceiro de WAN Virtual, tem uma solução integrada para exportar automaticamente estas informações para o Azure.
-
-* **Hub:** Um hub virtual é uma rede virtual gerida pela Microsoft. O hub contém vários pontos finais de serviço para ativar a conectividade da rede no local (vpnsite). O hub é o núcleo da sua rede numa região. Só pode existir um hub por região do Azure. Quando cria um hub com o portal do Azure, este cria uma VNet e um vpngateway do hub virtual.
-
-  Um gateway do hub não é igual a um gateway de rede virtual que utiliza para o ExpressRoute e o Gateway de VPN. Por exemplo, ao utilizar a WAN Virtual, não cria uma ligação Site a Site a partir do site no local diretamente à VNet. Em vez disso, cria uma ligação Site a Site ao hub. O tráfego passa sempre pelo gateway do hub. Isto significa que as VNets não precisam do seu próprio gateway de rede virtual. A WAN Virtual permite às VNets tirar partido do fácil dimensionamento através do hub virtual e do gateway do hub virtual. 
-
-* **Ligação do hub de rede virtual:** O recurso de ligação de rede virtual de Hub é utilizado para ligar o hub de forma totalmente integrada à sua rede virtual. Neste momento, só pode ligar a redes virtuais que estejam na mesma região do hub.
-
-* **Tabela de rotas de Hub:**  Pode criar uma rota de virtual hub e aplicam-se a rota à tabela de rotas de virtual hub. Pode aplicar várias rotas à tabela de rotas do hub virtual.
+Para informações de localização, consulte a [Virtual WAN parceiros e localizações de](virtual-wan-locations-partners.md) artigo.
 
 ## <a name="faq"></a>FAQ
 
@@ -89,4 +89,4 @@ Para configurar uma WAN virtual ponto a ponto, crie os seguintes recursos:
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-Ver os [Virtual WAN parceiros e localizações de](virtual-wan-locations-partners.md) página para obter mais informações sobre nossos parceiros de Virtual WAN e locais.
+[Criar uma ligação de site a site com Virtual WAN](virtual-wan-site-to-site-portal.md)

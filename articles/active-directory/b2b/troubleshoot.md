@@ -12,12 +12,12 @@ manager: daveba
 ms.reviewer: sasubram
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ec05c513d89dc8a590cbd0f586f382d699edc5e3
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: af106650f6e1d139ec7af2c8d243dc50f2e963fc
+ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57454126"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58293963"
 ---
 # <a name="troubleshooting-azure-active-directory-b2b-collaboration"></a>Resolução de problemas de colaboração do Azure Active Directory B2B
 
@@ -29,7 +29,7 @@ Aqui estão algumas soluções para problemas comuns com a colaboração B2B do 
 Em casos em que os utilizadores externos não são preenchidos na lista, o objeto poderá demorar alguns minutos a replicar.
 
 ## <a name="a-b2b-guest-user-is-not-showing-up-in-sharepoint-onlineonedrive-people-picker"></a>Um utilizador de convidados B2B não está visível no selecionador de pessoas do SharePoint Online/OneDrive 
- 
+ 
 A capacidade de pesquisar para utilizadores convidados existentes no selecionador de pessoas de SharePoint Online (SPO) está DESATIVADO por predefinição de acordo com o comportamento herdado.
 
 Pode ativar esta funcionalidade, utilize a definição 'ShowPeoplePickerSuggestionsForGuestUsers' ao nível da coleção inquilino e o site. Pode definir a funcionalidade com os cmdlets Set-SPOTenant e Set-SPOSite, que permitem aos membros procurar todos os utilizadores convidados existentes no diretório. As alterações no âmbito do inquilino não afetam os sites SPO já aprovisionados.
@@ -38,7 +38,7 @@ Pode ativar esta funcionalidade, utilize a definição 'ShowPeoplePickerSuggesti
 
 Se for notificado de que não tem permissões para convidar utilizadores, certifique-se de que a sua conta de utilizador está autorizada a convidar utilizadores externos em definições do utilizador:
 
-![Definições de utilizadores externas](media/troubleshoot/external-user-settings.png)
+![Captura de ecrã que mostra as definições de utilizadores externos](media/troubleshoot/external-user-settings.png)
 
 Se tiver modificado recentemente estas definições ou atribuída a função de utilizador que convida convidados para um utilizador, poderá haver um atraso de 60 de 15 minutos antes das alterações entrem em vigor.
 
@@ -50,7 +50,7 @@ Erros comuns incluem:
 
 Ao convidar utilizadores cuja organização está a utilizar o Azure Active Directory, mas em que não existe conta de utilizador específico (por exemplo, o utilizador não existe no Azure AD contoso.com). O administrador de contoso.com pode ter uma política de impedir que os usuários a ser criada. O utilizador tem de verificar com o seu administrador para determinar se são permitidos a utilizadores externos. Administrador do utilizador externo poderá ter de permitir que os utilizadores de verificado por E-Mail no respetivo domínio (consulte este [artigo](/powershell/module/msonline/set-msolcompanysettings?view=azureadps-1.0) permitir que os utilizadores verificado de E-Mail).
 
-![Erro a indicar que este inquilino não permite e-mail verificado os utilizadores a adicionar](media/troubleshoot/allow-email-verified-users.png)
+![Erro a indicar que o inquilino não permite e-mail verificado utilizadores](media/troubleshoot/allow-email-verified-users.png)
 
 ### <a name="external-user-does-not-exist-already-in-a-federated-domain"></a>Utilizador externo não pode já existir num domínio federado
 
