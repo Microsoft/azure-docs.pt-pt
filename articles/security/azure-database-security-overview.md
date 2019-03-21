@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/30/2018
 ms.author: TomSh
-ms.openlocfilehash: f9297946b7e09bc8c516470515d0eee9885d5d38
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: 7e0e93c82279ec1a4fbecbbf27c7a1866286b2f8
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56116325"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57860521"
 ---
 # <a name="azure-database-security-overview"></a>Descrição geral da segurança da base de dados do Azure
 
@@ -50,7 +50,7 @@ Base de dados SQL ajuda a proteger os seus dados ao fornecer encriptação:
 Para outras formas de encriptar os seus dados, considere:
 
 -   A [encriptação ao nível da célula](https://msdn.microsoft.com/library/ms179331.aspx), para encriptar colunas específicas ou até mesmo células de dados com chaves de encriptação diferentes.
--   [O Azure Key Vault com o SQL Server numa VM do Azure](http://blogs.technet.com/b/kv/archive/2015/01/12/using-the-key-vault-for-sql-server-encryption.aspx), se precisar de um módulo de hardware de segurança ou gerenciamento central da sua hierarquia de chaves de encriptação.
+-   [O Azure Key Vault com o SQL Server numa VM do Azure](https://blogs.technet.com/b/kv/archive/2015/01/12/using-the-key-vault-for-sql-server-encryption.aspx), se precisar de um módulo de hardware de segurança ou gerenciamento central da sua hierarquia de chaves de encriptação.
 
 ### <a name="encryption-in-motion"></a>Encriptação em movimento
 

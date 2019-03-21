@@ -11,13 +11,13 @@ author: srdan-bozovic-msft
 ms.author: srbozovi
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 02/25/2019
-ms.openlocfilehash: dde54894867811a34340f6dd4d0236b6b54e8144
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.date: 03/12/2019
+ms.openlocfilehash: cfa9f6bcb81182f4e76e995d626b207f8e130a80
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57307722"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57840924"
 ---
 # <a name="azure-sql-connectivity-architecture"></a>Arquitetura de conectividade do SQL do Azure
 
@@ -127,6 +127,8 @@ Para alterar a política de ligação de base de dados do Azure SQL para um serv
 ## <a name="script-to-change-connection-settings-via-powershell"></a>Script para alterar as definições de ligação através do PowerShell
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+> [!IMPORTANT]
+> O módulo do PowerShell do Azure Resource Manager ainda é suportado pelo SQL Database do Azure, mas todo o desenvolvimento futuro é para o módulo de Az.Sql. Para estes cmdlets, consulte [azurerm. SQL](https://docs.microsoft.com/powershell/module/AzureRM.Sql/). Os argumentos para os comandos no módulo Az e nos módulos AzureRm são substancialmente idênticos.
 
 > [!IMPORTANT]
 > Este script requer os [módulo do Azure PowerShell](/powershell/azure/install-az-ps).
@@ -150,7 +152,7 @@ Set-AzResource -ResourceId $id -Properties @{"connectionType" = "Proxy"} -f
 ## <a name="script-to-change-connection-settings-via-azure-cli"></a>Script para alterar as definições de ligação através da CLI do Azure
 
 > [!IMPORTANT]
-> Este script requer os [CLI do Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
+> Este script requer os [CLI do Azure](https://docs.microsoft.com/cli/azure/install-azure-cli).
 
 O script CLI seguinte mostra como alterar a diretiva de conexão.
 

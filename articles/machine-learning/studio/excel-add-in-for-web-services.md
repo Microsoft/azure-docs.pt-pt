@@ -6,16 +6,16 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
 ms.topic: conceptual
-author: ericlicoding
+author: xiaoharper
 ms.author: amlstudiodocs
 ms.custom: seodec18
 ms.date: 02/01/2018
-ms.openlocfilehash: 8841cd7ea6610be99628575e5057fcf6f7cf0478
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.openlocfilehash: 9e801e0d7a26cd4d6c43118959aee1dec7216b1c
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56820365"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58120249"
 ---
 # <a name="excel-add-in-for-azure-machine-learning-studio-web-services"></a>Suplemento do Excel para serviços da web do Azure Machine Learning Studio
 Excel torna mais fácil chamar serviços web diretamente sem a necessidade de escrever qualquer código.

@@ -6,14 +6,14 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: backup
 ms.topic: conceptual
-ms.date: 02/04/2019
+ms.date: 03/13/2019
 ms.author: raynew
-ms.openlocfilehash: 3700ffe0a2b0e0d3ec69bce3a11cdc36d28d9145
-ms.sourcegitcommit: dd1a9f38c69954f15ff5c166e456fda37ae1cdf2
+ms.openlocfilehash: 7a1bd6da68b49481429709c7e4fd37dd5c07ae2c
+ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57569115"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58200791"
 ---
 # <a name="back-up-windows-machines-with-the-azure-backup-mars-agent"></a>Fazer uma cópia de segurança de máquinas do Windows com o agente MARS de cópia de segurança do Azure
 
@@ -43,7 +43,7 @@ O que pode criar cópias de segurança depende de onde o agente está instalado.
 
 ## <a name="before-you-start"></a>Antes de começar
 
-- [Saiba como](backup-architecture.md#architecture-direct-backup-of-on-premises-windows-machinesazure-vm-filesfolders) cópia de segurança do Azure cria uma cópia de segurança de máquinas do Windows com o agente MARS.
+- [Saiba como](backup-architecture.md#architecture-direct-backup-of-on-premises-windows-server-machines-or-azure-vm-files-or-folders) cópia de segurança do Azure cria uma cópia de segurança de máquinas do Windows com o agente MARS.
 - [Saiba mais sobre](backup-architecture.md#architecture-back-up-to-dpmmabs) a arquitetura de cópia de segurança que executa o agente de MARS num servidor MABS ou DPM secundário.
 - [Revisão](backup-support-matrix-mars-agent.md) o que é suportado e o que pode ser uma cópia de segurança com o agente MARS.
 - Verificar o acesso de internet nas máquinas que pretende criar cópias de segurança.
@@ -51,13 +51,21 @@ O que pode criar cópias de segurança depende de onde o agente está instalado.
 
 ### <a name="verify-internet-access"></a>Verifique se o acesso à internet
 
-Se a sua máquina limitou o acesso à internet, certifique-se de que as definições da firewall na máquina ou proxy permitem estes URLs:
+Se a sua máquina limitou o acesso à internet, certifique-se de que as definições da firewall na máquina ou proxy permitem estes URLs e endereços IP:
 
-- www.msftncsi.com
+**URLs**
+
+- www\.msftncsi.com
 - *.Microsoft.com
 - *.WindowsAzure.com
 - *.microsoftonline.com
 - \*.windows.net
+
+**Endereço IP**
+
+- 20.190.128.0/18
+- 40.126.0.0/18
+
 
 ## <a name="create-a-recovery-services-vault"></a>Criar um cofre dos Serviços de Recuperação 
 
@@ -72,15 +80,20 @@ Um cofre dos serviços de recuperação armazena todas as cópias de segurança 
 
     ![Passo 2 da Criação do Cofre dos Serviços de Recuperação](./media/backup-try-azure-backup-in-10-mins/rs-vault-menu.png)
 
-4. Para o **Nome**, introduza um nome amigável para identificar o cofre. O nome tem de ser exclusivo para a subscrição do Azure. Escreva um nome que contenha entre 2 e 50 carateres. Tem de começar com uma letra e pode conter apenas letras, números e hífenes.
+4. Para o **Nome**, introduza um nome amigável para identificar o cofre.
+
+   - O nome tem de ser exclusivo para a subscrição do Azure.
+   - Pode conter 2 e 50 carateres.
+   - Ele tem de começar com uma letra e pode conter apenas letras, números e hífenes.
 
 5. Selecione a subscrição do Azure, o grupo de recursos e a região geográfica na qual deve ser criado no cofre. Dados de cópia de segurança são enviados para o cofre. Em seguida, clique em **Criar**.
 
     ![Passo 3 da Criação de um Cofre dos Serviços de Recuperação](./media/backup-try-azure-backup-in-10-mins/rs-vault-step-3.png)
 
-Pode demorar alguns minutos a criar o cofre. Monitorizar notificações de estado no portal. Depois do cofre for criado, aparece na lista de cofres dos serviços de recuperação. Se após vários minutos não vir o cofre, clique em **atualizar**.
+   - Pode demorar algum tempo para o cofre a ser criada.
+   - Monitorize as notificações de estado na área de canto superior direito do portal. Se após vários minutos não vir o cofre, clique em **atualizar**.
 
-![Clique no botão Atualizar](./media/backup-try-azure-backup-in-10-mins/refresh-button.png)
+     ![Clique no botão Atualizar](./media/backup-try-azure-backup-in-10-mins/refresh-button.png)
 
 ### <a name="set-storage-redundancy"></a>Redundância de armazenamento do conjunto
 
@@ -129,17 +142,17 @@ Transferir o agente de MARS para instalação nos computadores que pretende cria
 
 1. Executar o **MARSagentinstaller.exe** ficheiros nas máquinas que pretende criar cópias de segurança.
 2. No Assistente de configuração do agente MARS > **definições de instalação**, especifique onde pretende instalar o agente e um local para utilizar para a cache. Clique depois em **Seguinte**.
-    - O Azure Backup utiliza a cache para armazenar instantâneos de dados antes de os enviar para o Azure.
-    - A localização da cache deve ter espaço livre igual a, pelo menos, 5% do tamanho dos dados que pode criar uma cópia de segurança.
+   - O Azure Backup utiliza a cache para armazenar instantâneos de dados antes de os enviar para o Azure.
+   - A localização da cache deve ter espaço livre igual a, pelo menos, 5% do tamanho dos dados que pode criar uma cópia de segurança.
 
-    ![Definições de instalação do Assistente de MARS](./media/backup-configure-vault/mars1.png)
+     ![Definições de instalação do Assistente de MARS](./media/backup-configure-vault/mars1.png)
 
 2. Na **configuração do Proxy**, especifique a forma do agente em execução na máquina do Windows se vai ligar à internet. Clique depois em **Seguinte**.
 
-    - Se estiver a utilizar um personalizado proxy especificar as definições de proxy e as credenciais se necessário.
-    - Lembre-se de que o agente tem acesso ao [estes URLs](#verify-internet-access).
+   - Se estiver a utilizar um personalizado proxy especificar as definições de proxy e as credenciais se necessário.
+   - Lembre-se de que o agente tem acesso ao [estes URLs](#verify-internet-access).
 
-    ![Acesso à internet do MARS Assistente](./media/backup-configure-vault/mars2.png)
+     ![Acesso à internet do MARS Assistente](./media/backup-configure-vault/mars2.png)
 
 3. Na **instalação** reveja a verificação de pré-requisitos e clique em **instalar**.
 4. Depois do agente está instalado, clique em **avançar para o registo**.

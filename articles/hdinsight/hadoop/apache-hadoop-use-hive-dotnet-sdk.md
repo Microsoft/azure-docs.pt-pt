@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/16/2018
 ms.author: hrasheed
-ms.openlocfilehash: d3c9c8eab0ce13aee5dbe7bdb732d45555e547fb
-ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
+ms.openlocfilehash: 31e759baa4f5e7b220eabf2bb9ffcc5cc011a354
+ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53407172"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58200468"
 ---
 # <a name="run-apache-hive-queries-using-hdinsight-net-sdk"></a>Executar consultas do Apache Hive com o HDInsight .NET SDK
 [!INCLUDE [hive-selector](../../../includes/hdinsight-selector-use-hive.md)]
@@ -139,7 +139,6 @@ Neste artigo, aprendeu a várias formas de criar um cluster do HDInsight. Para o
 
 * [Introdução ao Azure HDInsight](apache-hadoop-linux-tutorial-get-started.md)
 * [Criar clusters do Apache Hadoop no HDInsight](../hdinsight-hadoop-provision-linux-clusters.md)
-* [Gerir clusters do Apache Hadoop no HDInsight com o portal do Azure](../hdinsight-administer-use-management-portal.md)
 * [Referência do SDK de .NET do HDInsight](https://docs.microsoft.com/dotnet/api/overview/azure/hdinsight)
 * [Utilizar o Apache Pig com o HDInsight](hdinsight-use-pig.md)
 * [Utilizar o Apache Sqoop com o HDInsight](apache-hadoop-use-sqoop-mac-linux.md)

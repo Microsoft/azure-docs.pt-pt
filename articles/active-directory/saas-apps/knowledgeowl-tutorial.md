@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 04/27/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 32f53742de3242fb3b60a15d436ec6cd842aa429
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: c8c86ad6e4b11f21c648083fac35e15eec7658c1
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56184001"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57995503"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-knowledgeowl"></a>Tutorial: Integração do Active Directory do Azure com KnowledgeOwl
 
@@ -110,6 +110,7 @@ Nesta secção, pode ativar o Azure AD início de sessão único no portal do Az
     ![KnowledgeOwl domínio e URLs únicas início de sessão em informações](./media/knowledgeowl-tutorial/tutorial_knowledgeowl_url.png)
 
     a. Na **identificador (ID de entidade)** caixa de texto, escreva um URL com o seguinte padrão:
+
     |||
     |-|-|
     | `https://app.knowledgeowl.com/sp`|
@@ -117,6 +118,7 @@ Nesta secção, pode ativar o Azure AD início de sessão único no portal do Az
     |||
 
     b. Na **URL de resposta** caixa de texto, escreva um URL com o seguinte padrão:
+
     |||
     |-|-|
     | `https://subdomain.knowledgeowl.com/help/saml-login`|
@@ -132,6 +134,7 @@ Nesta secção, pode ativar o Azure AD início de sessão único no portal do Az
     ![KnowledgeOwl domínio e URLs únicas início de sessão em informações](./media/knowledgeowl-tutorial/tutorial_knowledgeowl_url1.png)
 
     Na **URL de início de sessão** caixa de texto, escreva um URL com o seguinte padrão:
+    
     |||
     |-|-|
     | `https://subdomain.knowledgeowl.com/help/saml-login`|
@@ -185,29 +188,29 @@ Nesta secção, pode ativar o Azure AD início de sessão único no portal do Az
 
 1. Clique em **configurações** e, em seguida, selecione **segurança**.
 
-    ![Configuração de KnowledgeOwl](./media/knowledgeowl-tutorial/configure1.png)
+     ![Configuração de KnowledgeOwl](./media/knowledgeowl-tutorial/configure1.png)
 
 1. Desloque-se para **SAML SSO integração** e execute os seguintes passos:
     
-    ![Configuração de KnowledgeOwl](./media/knowledgeowl-tutorial/configure2.png)
+     ![Configuração de KnowledgeOwl](./media/knowledgeowl-tutorial/configure2.png)
 
-    a. Selecione **ativar o SAML SSO**.
+     a. Selecione **ativar o SAML SSO**.
 
-    b. Copiar o **ID de entidade de SP** valor e cole-o no **identificador (ID de entidade)** no **KnowledgeOwl domínio e URLs** secção no portal do Azure.
+     b. Copiar o **ID de entidade de SP** valor e cole-o no **identificador (ID de entidade)** no **KnowledgeOwl domínio e URLs** secção no portal do Azure.
 
-    c. Copiar o **URL de início de sessão de SP** valor e cole-o no **URL de início de sessão e o URL de resposta** caixas de texto no **KnowledgeOwl domínio e URLs** secção no portal do Azure.
+     c. Copiar o **URL de início de sessão de SP** valor e cole-o no **URL de início de sessão e o URL de resposta** caixas de texto no **KnowledgeOwl domínio e URLs** secção no portal do Azure.
 
-    d. Na **IdP entityID** caixa de texto, colar a **ID de entidade de SAML** valor, que copiou do portal do Azure.
+     d. Na **IdP entityID** caixa de texto, colar a **ID de entidade de SAML** valor, que copiou do portal do Azure.
 
-    e. Na **URL de início de sessão do IdP** caixa de texto, colar a **SAML único início de sessão no URL do serviço** valor, que copiou do portal do Azure.
+     e. Na **URL de início de sessão do IdP** caixa de texto, colar a **SAML único início de sessão no URL do serviço** valor, que copiou do portal do Azure.
 
-    f. Na **URL de fim de sessão do IdP** caixa de texto, colar a **URL de fim de sessão** valor, que copiou do portal do Azure
+     f. Na **URL de fim de sessão do IdP** caixa de texto, colar a **URL de fim de sessão** valor, que copiou do portal do Azure
 
-    g. Carregar o formato de certificado transferido do portal do Azure ao clicar o **carregar o certificado de IdP**.
+     g. Carregar o formato de certificado transferido do portal do Azure ao clicar o **carregar o certificado de IdP**.
 
-    h. Clique em **atributos de SAML do mapa** para mapear os atributos e execute os seguintes passos:
+     h. Clique em **atributos de SAML do mapa** para mapear os atributos e execute os seguintes passos:
     
-    ![Configuração de KnowledgeOwl](./media/knowledgeowl-tutorial/configure3.png)
+     ![Configuração de KnowledgeOwl](./media/knowledgeowl-tutorial/configure3.png)
 
     * Introduza `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/ssoid` para o **SSO ID** caixa de texto
     * Introduza `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress` para o **nome de utilizador/E-Mail** caixa de texto.
@@ -215,9 +218,9 @@ Nesta secção, pode ativar o Azure AD início de sessão único no portal do Az
     * Introduza `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname` para o **Apelido** caixa de texto.
     * Clicar em **Guardar**
 
-    i. Clique em **Guardar** na parte inferior da página.
+      i. Clique em **Guardar** na parte inferior da página.
 
-    ![Configuração de KnowledgeOwl](./media/knowledgeowl-tutorial/configure4.png)
+      ![Configuração de KnowledgeOwl](./media/knowledgeowl-tutorial/configure4.png)
 
 ### <a name="create-an-azure-ad-test-user"></a>Criar um utilizador de teste do Azure AD
 

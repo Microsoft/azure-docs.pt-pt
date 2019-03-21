@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 06/12/2018
 ms.author: shlo
-ms.openlocfilehash: 8ceae771f1a66f6d999dd0dc2b1f298d4aae8f86
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: 845544a2062b43f0d9f883ddecbc2589b3357221
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54017298"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57997928"
 ---
 # <a name="pipelines-and-activities-in-azure-data-factory"></a>Pipelines e atividades no Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -94,10 +94,10 @@ Eis como os pipelines são definidos no formato JSON:
 }
 ```
 
-Etiqueta | Descrição | Tipo | Necessário
+Etiqueta | Descrição | Type | Necessário
 --- | ----------- | ---- | --------
-nome | Nome do pipeline. Especifique um nome que represente a ação que o pipeline realiza. <br/><ul><li>Número máximo de carateres: 140</li><li>Tem de começar com uma letra, número ou um caráter de sublinhado (\_)</li><li>Os carateres seguintes não são permitidos: “.”, “+”, “?”, “/”, “<”,”>”,”*”,”%”,”&”,”:”,”\”</li></ul> | Cadeia | Sim
-descrição | Especifique o texto que descreve para o que é utilizado o pipeline. | Cadeia | Não
+nome | Nome do pipeline. Especifique um nome que represente a ação que o pipeline realiza. <br/><ul><li>Número máximo de carateres: 140</li><li>Tem de começar com uma letra, número ou um caráter de sublinhado (\_)</li><li>Os carateres seguintes não são permitidos: “.”, “+”, “?”, “/”, “<”,”>”,”*”,”%”,”&”,”:”,”\”</li></ul> | String | Sim
+descrição | Especifique o texto que descreve para o que é utilizado o pipeline. | String | Não
 atividades | A secção **atividades** pode ter uma ou mais atividades definidas na mesma. Veja a secção [JSON da Atividade](#activity-json) para obter detalhes sobre o elemento JSON das atividades. | Array | Sim
 parâmetros | A secção **parâmetros** pode ter um ou mais parâmetros definidos no pipeline, tornando-o flexível para reutilização. | Lista | Não
 
@@ -167,6 +167,7 @@ As políticas afetam o comportamento de runtime de uma atividade, proporcionando
     }
 }
 ```
+
 Nome JSON | Descrição | Valores Permitidos | Necessário
 --------- | ----------- | -------------- | --------
 tempo limite | Especifica o tempo limite para a execução da atividade. | Timespan | Não. O tempo limite predefinido é de 7 dias.

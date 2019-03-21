@@ -12,12 +12,12 @@ ms.date: 3/11/2019
 author: swinarko
 ms.author: sawinark
 manager: craigg
-ms.openlocfilehash: 787c436261635376ff82e8762cbc1469f4375e6b
-ms.sourcegitcommit: 1902adaa68c660bdaac46878ce2dec5473d29275
+ms.openlocfilehash: 58bdc0e698fc28929c2080b1737770275b1164ad
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/11/2019
-ms.locfileid: "57729957"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57848733"
 ---
 # <a name="enable-azure-active-directory-authentication-for-azure-ssis-integration-runtime"></a>Ativar a autenticação do Azure Active Directory para o Runtime de integração Azure-SSIS
 
@@ -76,37 +76,55 @@ Pode utilizar um grupo do Azure AD existente ou crie um novo com o Azure AD Powe
 
 Pode [configurar e gerir a autenticação do Azure AD com o SQL](https://docs.microsoft.com/azure/sql-database/sql-database-aad-authentication-configure) através dos seguintes passos:
 
-1.  No portal do Azure, selecione **todos os serviços** -> **servidores SQL** no painel de navegação esquerda.
+1.  No portal do Azure, selecione **todos os serviços** -> **servidores SQL** no painel de navegação esquerda.
 
 2.  Selecione o seu servidor de base de dados do Azure SQL seja configurado com a autenticação do Azure AD.
 
-3.  Na **configurações** seção do painel, selecione **administrador do Active Directory**.
+3.  Na **configurações** seção do painel, selecione **administrador do Active Directory**.
 
-4.  Na barra de comandos, selecione **definir administrador**.
+4.  Na barra de comandos, selecione **definir administrador**.
 
-5.  Selecione uma conta de utilizador do Azure AD que se tornarão o administrador do servidor e, em seguida, selecione **selecionar.**
+5.  Selecione uma conta de utilizador do Azure AD que se tornarão o administrador do servidor e, em seguida, selecione **selecionar.**
 
-6.  Na barra de comandos, selecione **guardar.**
+6.  Na barra de comandos, selecione **guardar.**
 
 ### <a name="create-a-contained-user-in-azure-sql-database-server-representing-the-azure-ad-group"></a>Criar um usuário independente no servidor de base de dados do Azure SQL, que representa o grupo do Azure AD
 
 Esta próxima etapa, precisa [Microsoft SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) (SSMS).
 
-1.  Inicie o SSMS.
+1. Inicie o SSMS.
 
-2.  Na **ligar ao servidor** caixa de diálogo, introduza o nome do servidor de base de dados do Azure SQL no **nome do servidor** campo.
+2. Na **ligar ao servidor** caixa de diálogo, introduza o nome do servidor de base de dados do Azure SQL no **nome do servidor** campo.
 
-3.  Na **autenticação** campo, selecione **Active Directory - Universal com o suporte MFA** (também pode utilizar os outros dois tipos de autenticação do Active Directory, consulte [ Configurar e gerir a autenticação do Azure AD com o SQL](https://docs.microsoft.com/azure/sql-database/sql-database-aad-authentication-configure)).
+3. Na **autenticação** campo, selecione **Active Directory - Universal com o suporte MFA** (também pode utilizar os outros dois tipos de autenticação do Active Directory, consulte [configurar e gerir Autenticação do Azure AD com o SQL](https://docs.microsoft.com/azure/sql-database/sql-database-aad-authentication-configure)).
 
-4.  Na **nome de utilizador** , insira o nome da conta do Azure AD que definiu como administrador do servidor, por exemplo, testuser@xxxonline.com.
+4. Na **nome de utilizador** , insira o nome da conta do Azure AD que definiu como administrador do servidor, por exemplo, testuser@xxxonline.com.
 
-5.  Selecione **Connect** e concluir o processo de início de sessão.
+5. Selecione **Connect** e concluir o processo de início de sessão.
 
-6.  Na **Object Explorer**, expanda o **bases de dados** -> **bases de dados do sistema** pasta.
+6. Na **Object Explorer**, expanda o **bases de dados** -> **bases de dados do sistema** pasta.
 
-7.  Com o botão direito no **mestre** da base de dados e selecione **nova consulta**.
+7. Com o botão direito no **mestre** da base de dados e selecione **nova consulta**.
 
-8.  Na janela da consulta, introduza o seguinte comando do T-SQL e selecione **Execute** na barra de ferramentas.
+8. Na janela da consulta, introduza o seguinte comando do T-SQL e selecione **Execute** na barra de ferramentas.
+
+   ```sql
+   CREATE USER [SSISIrGroup] FROM EXTERNAL PROVIDER
+   ```
+
+   O comando deve ser concluído com êxito, a criação de um usuário independente para representar o grupo.
+
+9. Limpar a janela de consulta, introduza o seguinte comando do T-SQL e selecione **Execute** na barra de ferramentas.
+
+   ```sql
+   ALTER ROLE dbmanager ADD MEMBER [SSISIrGroup]
+   ```
+
+   O comando deve ser concluído com êxito, o usuário independente a conceder a capacidade de criar uma base de dados (SSISDB).
+
+10. Se o SSISDB foi criado utilizando a autenticação SQL e pretender passar a utilizar a autenticação do Azure AD para o runtime de integração Azure-SSIS para aceder ao mesmo, faça duplo clique em **SSISDB** da base de dados e selecione **nova consulta**.
+
+11. Na janela da consulta, introduza o seguinte comando do T-SQL e selecione **Execute** na barra de ferramentas.
 
     ```sql
     CREATE USER [SSISIrGroup] FROM EXTERNAL PROVIDER
@@ -114,25 +132,7 @@ Esta próxima etapa, precisa [Microsoft SQL Server Management Studio](https://d
 
     O comando deve ser concluído com êxito, a criação de um usuário independente para representar o grupo.
 
-9.  Limpar a janela de consulta, introduza o seguinte comando do T-SQL e selecione **Execute** na barra de ferramentas.
-
-    ```sql
-    ALTER ROLE dbmanager ADD MEMBER [SSISIrGroup]
-    ```
-
-    O comando deve ser concluído com êxito, o usuário independente a conceder a capacidade de criar uma base de dados (SSISDB).
-
-10.  Se o SSISDB foi criado utilizando a autenticação SQL e pretender passar a utilizar a autenticação do Azure AD para o runtime de integração Azure-SSIS para aceder ao mesmo, faça duplo clique em **SSISDB** da base de dados e selecione **nova consulta**.
-
-11.  Na janela da consulta, introduza o seguinte comando do T-SQL e selecione **Execute** na barra de ferramentas.
-
-    ```sql
-    CREATE USER [SSISIrGroup] FROM EXTERNAL PROVIDER
-    ```
-
-    O comando deve ser concluído com êxito, a criação de um usuário independente para representar o grupo.
-
-12.  Limpar a janela de consulta, introduza o seguinte comando do T-SQL e selecione **Execute** na barra de ferramentas.
+12. Limpar a janela de consulta, introduza o seguinte comando do T-SQL e selecione **Execute** na barra de ferramentas.
 
     ```sql
     ALTER ROLE db_owner ADD MEMBER [SSISIrGroup]
@@ -191,9 +191,9 @@ Esta próxima etapa, precisa [Microsoft SQL Server Management Studio](https://d
     
     O comando deve ser concluído com êxito, concedendo a identidade gerida para o ADF a capacidade de criar uma base de dados (SSISDB).
 
-8.  Se o SSISDB foi criado utilizando a autenticação SQL e pretender passar a utilizar a autenticação do Azure AD para o runtime de integração Azure-SSIS para aceder ao mesmo, faça duplo clique em **SSISDB** da base de dados e selecione **nova consulta**.
+8.  Se o SSISDB foi criado utilizando a autenticação SQL e pretender passar a utilizar a autenticação do Azure AD para o runtime de integração Azure-SSIS para aceder ao mesmo, faça duplo clique em **SSISDB** da base de dados e selecione **nova consulta**.
 
-9.  Na janela da consulta, introduza o seguinte comando do T-SQL e selecione **Execute** na barra de ferramentas.
+9.  Na janela da consulta, introduza o seguinte comando do T-SQL e selecione **Execute** na barra de ferramentas.
 
     ```sql
     CREATE USER [{the managed identity name}] FOR LOGIN [{the managed identity name}] WITH DEFAULT_SCHEMA = dbo

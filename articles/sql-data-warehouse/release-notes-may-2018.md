@@ -10,12 +10,12 @@ ms.subservice: manage
 ms.date: 07/23/2018
 ms.author: twounder
 ms.reviewer: twounder
-ms.openlocfilehash: 45a391f45d11d968818bafc97a705411a133b273
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: c17cb13bff0ea9eb3b0bb2caf5bb527fa3958428
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57430854"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57852615"
 ---
 # <a name="whats-new-in-azure-sql-data-warehouse-may-2018"></a>O que há de novo no Azure SQL Data Warehouse? Maio de 2018 
 O Azure SQL Data Warehouse recebe melhorias continuamente. Este artigo descreve os novos recursos e alterações que foram introduzidas em Maio de 2018. 
@@ -44,7 +44,7 @@ Como melhor prática e documentação de orientação, recomendamos a definiçã
 Consulte a [ALTER DATABASE definido Options](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql-set-options) artigo para obter mais detalhes.
 
 ## <a name="rejected-row-support"></a>Suporte de linha de rejeitado
-Os clientes utilizam frequentemente [PolyBase (tabelas externas) para carregar dados](design-elt-data-loading.md) para o SQL Data Warehouse devido ao elevado desempenho, a natureza de carregamento de dados em paralelo. O PolyBase é o modelo de carregamento padrão quando o carregamento de dados via [do Azure Data Factory](http://azure.com/adf) também. 
+Os clientes utilizam frequentemente [PolyBase (tabelas externas) para carregar dados](design-elt-data-loading.md) para o SQL Data Warehouse devido ao elevado desempenho, a natureza de carregamento de dados em paralelo. O PolyBase é o modelo de carregamento padrão quando o carregamento de dados via [do Azure Data Factory](https://azure.com/adf) também. 
 
 SQL Data Warehouse adiciona a capacidade de definir uma localização de linha rejeitadas por meio da `REJECTED_ROW_LOCATION` parâmetro com o [criar tabela externa](https://docs.microsoft.com/sql/t-sql/statements/create-external-table-transact-sql) instrução. Após a execução de um [CREATE TABLE AS SELECT (CTAS)](https://docs.microsoft.com/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse) da tabela externa, todas as linhas que não foi possível carregar serão armazenadas num arquivo de perto a origem para investigação adicional. 
 
@@ -144,7 +144,7 @@ Agora que já sabe um pouco sobre o SQL Data Warehouse, saiba como rapidamente [
 [Blogues da Equipa Customer Advisory]: https://blogs.msdn.microsoft.com/sqlcat/tag/sql-dw/
 [Histórias de sucesso de clientes]: https://azure.microsoft.com/case-studies/?service=sql-data-warehouse
 [Pedidos de funcionalidades]: https://feedback.azure.com/forums/307516-sql-data-warehouse
-[Fórum do Stack Overflow]: http://stackoverflow.com/questions/tagged/azure-sqldw
+[Fórum do Stack Overflow]: https://stackoverflow.com/questions/tagged/azure-sqldw
 [Twitter]: https://twitter.com/hashtag/SQLDW
 [Vídeos]: https://azure.microsoft.com/documentation/videos/index/?services=sql-data-warehouse
 [create a SQL Data Warehouse]: ./create-data-warehouse-portal.md

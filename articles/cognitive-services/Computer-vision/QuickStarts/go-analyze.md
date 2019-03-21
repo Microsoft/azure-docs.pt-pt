@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: quickstart
-ms.date: 08/28/2018
+ms.date: 03/11/2019
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: 4e44bce29b1a9ca83cae009df5b10484d0b2739d
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: e783181e737a235a83149b1f22d699fe0aef0bfb
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57543717"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57848665"
 ---
 # <a name="quickstart-analyze-a-remote-image-using-the-rest-api-and-go-in-computer-vision"></a>Início rápido: Analisar uma imagem remota através da API REST e entrar de imagem digitalizada
 
@@ -33,7 +33,7 @@ Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure
 
 Para criar e executar o exemplo, siga os seguintes passos:
 
-1. Copie o código seguinte para um editor de texto.
+1. Copiar o abaixo o código num editor de texto.
 1. Faça as alterações seguintes ao código, onde for necessário:
     1. Substitua o valor de `subscriptionKey` pela chave de subscrição.
     1. Substitua o valor de `uriBase` pelo URL de ponto final do método [Analyze Image](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa) (Analisar Imagem) da região do Azure onde obteve as chaves de subscrição, se necessário.
@@ -177,10 +177,6 @@ O JSON devolve uma resposta de êxito. A aplicação de exemplo analisa e aprese
   "requestId": "a92f89ab-51f8-4735-a58d-507da2213fc2"
 }
 ```
-
-## <a name="clean-up-resources"></a>Limpar recursos
-
-Quando já não for necessário, elimine o pacote compilado e o ficheiro a partir do qual o pacote foi compilado e, em seguida, feche a janela da linha de comandos e o editor de texto.
 
 ## <a name="next-steps"></a>Passos Seguintes
 

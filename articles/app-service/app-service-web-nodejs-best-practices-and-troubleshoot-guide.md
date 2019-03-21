@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 11/09/2017
 ms.author: ranjithr
 ms.custom: seodec18
-ms.openlocfilehash: 6a22600f7d6653da64256d7ec63ba26f272b2184
-ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
+ms.openlocfilehash: 323de505bc1bfa9747f372033392a9fd6e08462c
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56888275"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57898861"
 ---
 # <a name="best-practices-and-troubleshooting-guide-for-node-applications-on-azure-app-service-windows"></a>Melhores práticas e guia de resolução de problemas para aplicações de nó no Windows de serviço de aplicações do Azure
 
@@ -118,7 +118,7 @@ O valor predefinido é false. Quando definido como true, iisnode apresenta o có
 
 ### <a name="debuggingenabled-do-not-enable-on-live-production-site"></a>debuggingEnabled (não ativar no site de produção em direto)
 
-Esta definição controla a funcionalidade de depuração. O Iisnode está integrado com o node-inspector. Ao ativar esta definição, ativar a depuração da sua aplicação de nó. Após a ativação desta definição, o iisnode cria arquivos de um inspetor do nó no diretório de "debuggerVirtualDir" na primeira solicitação de depuração para a aplicação de nó. É possível carregar o inspetor de nó ao enviar um pedido para http://yoursite/server.js/debug. Pode controlar o segmento de URL de depuração com a definição de 'debuggerPathSegment'. Por predefinição, debuggerPathSegment = "debug". Pode definir `debuggerPathSegment` para um GUID, por exemplo, por isso que ele é mais difícil de ser detetados por outros utilizadores.
+Esta definição controla a funcionalidade de depuração. O Iisnode está integrado com o node-inspector. Ao ativar esta definição, ativar a depuração da sua aplicação de nó. Após a ativação desta definição, o iisnode cria arquivos de um inspetor do nó no diretório de "debuggerVirtualDir" na primeira solicitação de depuração para a aplicação de nó. É possível carregar o inspetor de nó ao enviar um pedido para `http://yoursite/server.js/debug`. Pode controlar o segmento de URL de depuração com a definição de 'debuggerPathSegment'. Por predefinição, debuggerPathSegment = "debug". Pode definir `debuggerPathSegment` para um GUID, por exemplo, por isso que ele é mais difícil de ser detetados por outros utilizadores.
 
 Leia [depurar aplicações node. js no Windows](https://tomasz.janczuk.org/2011/11/debug-nodejs-applications-on-windows.html) para obter mais detalhes sobre a depuração.
 
@@ -133,7 +133,7 @@ O módulo de agentkeepalive garante que os soquetes são reutilizados na sua apl
 Exemplo [agentKeepALive](https://www.npmjs.com/package/agentkeepalive) configuração:
 
 ```nodejs
-var keepaliveAgent = new Agent({
+let keepaliveAgent = new Agent({
     maxSockets: 40,
     maxFreeSockets: 10,
     timeout: 60000,
@@ -155,9 +155,9 @@ Se considerar sua aplicação está a consumir muita CPU e não pode explicar po
 Por exemplo, digamos que tenha uma aplicação hello world que quer criar perfis da seguinte forma:
 
 ```nodejs
-var http = require('http');
+const http = require('http');
 function WriteConsoleLog() {
-    for(var i=0;i<99999;++i) {
+    for(let i=0;i<99999;++i) {
         console.log('hello world');
     }
 }
@@ -173,7 +173,7 @@ http.createServer(function (req, res) {
 }).listen(process.env.PORT);
 ```
 
-Vá para o site da consola de depuração https://yoursite.scm.azurewebsites.net/DebugConsole
+Vá para o site da consola de depuração `https://yoursite.scm.azurewebsites.net/DebugConsole`
 
 Entrar no seu diretório do site/wwwroot. Verá um prompt de comando, conforme mostrado no exemplo a seguir:
 
@@ -185,12 +185,12 @@ Este comando instala o profiler v8 no nó\_diretório modules e todas as respeti
 Agora, edite sua Server. js para criar um perfil de seu aplicativo.
 
 ```nodejs
-var http = require('http');
-var profiler = require('v8-profiler');
-var fs = require('fs');
+const http = require('http');
+const profiler = require('v8-profiler');
+const fs = require('fs');
 
 function WriteConsoleLog() {
-    for(var i=0;i<99999;++i) {
+    for(let i=0;i<99999;++i) {
         console.log('hello world');
     }
 }

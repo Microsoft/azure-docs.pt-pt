@@ -17,12 +17,12 @@ ms.author: celested
 ms.reviewer: zachowd, lenalepa, jesakowi
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: dbac6fe421864f9479c9a4ee7eecde97c13f6052
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 0200aa917894f4b7f1a45a9d3bd15b128aaf27a2
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56200535"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58124189"
 ---
 # <a name="azure-active-directory-consent-framework"></a>Framework de consentimento do Azure Active Directory
 
@@ -58,14 +58,14 @@ Os passos seguintes mostram como o consentimento refletir funciona para o desenv
 
     **Para dar consentimento a uma aplicação do permissões delegadas**
 
-    1. Vá para o **definições** página para a sua aplicação
-    1. Selecione **permissões obrigatórias**.
-    1. Clique nas **conceder permissões** botão.
+   1. Vá para o **definições** página para a sua aplicação
+   1. Selecione **permissões obrigatórias**.
+   1. Clique nas **conceder permissões** botão.
 
-    ![Concessão de permissões de consentimento de administrador explícita](./media/quickstart-v1-integrate-apps-with-azure-ad/grantpermissions.png)
+      ![Concessão de permissões de consentimento de administrador explícita](./media/quickstart-v1-integrate-apps-with-azure-ad/grantpermissions.png)
 
-  > [!IMPORTANT]
-  > Conceder explícita consentir utilizar o **conceder permissões** botão é atualmente necessário para aplicações de página única (SPA) que utilizam ADAL.js. Caso contrário, o aplicativo falhar quando o token de acesso é solicitado.
+   > [!IMPORTANT]
+   > Conceder explícita consentir utilizar o **conceder permissões** botão é atualmente necessário para aplicações de página única (SPA) que utilizam ADAL.js. Caso contrário, o aplicativo falhar quando o token de acesso é solicitado.
 
 ## <a name="next-steps"></a>Passos Seguintes
 

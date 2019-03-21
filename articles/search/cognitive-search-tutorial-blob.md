@@ -1,5 +1,5 @@
 ---
-title: Tutorial para chamar a pesquisa cognitiva APIs - Azure Search
+title: Tutorial para chamar as APIs serviços cognitivos num pipeline de indexação - Azure Search
 description: Neste tutorial, acompanhe um exemplo de extração de dados, linguagem natural e processamento de imagem por IA na indexação do Azure Search para extração e transformação de dados.
 manager: pablocas
 author: luiscabrer
@@ -7,19 +7,19 @@ services: search
 ms.service: search
 ms.devlang: NA
 ms.topic: tutorial
-ms.date: 07/11/2018
+ms.date: 03/18/2019
 ms.author: luisca
 ms.custom: seodec2018
-ms.openlocfilehash: 410e5d618e1deb1887329bea41e2cd3c6d795e58
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: a68d33d44e5edfb53f34f8a58b590dfdd25bc050
+ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
 ms.translationtype: HT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 03/19/2019
-ms.locfileid: "58075855"
+ms.locfileid: "58201794"
 ---
-# <a name="tutorial-learn-how-to-call-cognitive-search-apis-preview"></a>Tutorial: Saiba como chamar cognitivos procurar APIs (pré-visualização)
+# <a name="tutorial-call-cognitive-services-apis-in-an-azure-search-indexing-pipeline-preview"></a>Tutorial: Chamar APIs serviços cognitivos num Azure Search, indexação do pipeline (pré-visualização)
 
-Neste tutorial, vai aprender os mecanismos da programação do melhoramento de dados no Azure Search com as *competências cognitivas*. As competências cognitivas são o processamento de linguagem natural (NLP) e as operações de análise de imagem que extraem texto e representações de texto a partir de uma imagem, detetam o idioma, as entidades, as expressões-chave e muito mais. O resultado final é conteúdo avançado adicional num índice do Azure Search, criado por um pipeline de indexação da pesquisa cognitiva. 
+Neste tutorial, vai aprender os mecanismos da programação do melhoramento de dados no Azure Search com as *competências cognitivas*. Habilidades são apoiadas por capacidades de análise de imagem nos serviços cognitivos e processamento de linguagem natural (NLP). Através do conjunto de capacidades composição e configuração, pode extrair representações de texto de uma imagem ou um ficheiro de documentos digitalizados e de texto. Também pode detetar idioma, entidades, expressões-chave e muito mais. O resultado final é o conteúdo mais avançado no índice da Azure Search, criado por um pipeline de indexação com tecnologia de IA. 
 
 Neste tutorial, vai fazer chamadas à API REST para realizar as seguintes tarefas:
 
@@ -59,7 +59,7 @@ Primeiro, inscreva-se no serviço do Azure Search.
 
 1. Para Grupo de recursos, crie um grupo de recursos para conter todos os recursos que criar neste tutorial. Tal torna mais fácil limpar os recursos depois de concluir o tutorial.
 
-1. Para a localização, recomendamos que escolha uma região que está próximo de seus dados e outras aplicações na cloud.
+1. Para a localização, escolha uma região que está próximo de seus dados e outras aplicações na cloud.
 
 1. Para Escalão de preço, pode criar um serviço **Gratuito** para concluir os tutoriais e os inícios rápidos. Para uma investigação mais aprofundada através dos seus próprios dados, crie um [serviço pago](https://azure.microsoft.com/pricing/details/search/), como **Básico** ou **Standard**. 
 

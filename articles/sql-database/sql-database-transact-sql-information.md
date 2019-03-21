@@ -12,12 +12,12 @@ ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
 ms.date: 12/03/2018
-ms.openlocfilehash: b6d821f8c4f2fa66e24e6a2409f58406820ef6d0
-ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
+ms.openlocfilehash: 4d3f27d48819a4bd997cbb62177f5aae4afc85eb
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56100792"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57993160"
 ---
 # <a name="resolving-transact-sql-differences-during-migration-to-sql-database"></a>Resolver diferenças do Transact-SQL durante a migração para a base de dados SQL
 

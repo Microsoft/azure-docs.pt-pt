@@ -8,12 +8,12 @@ ms.devlang: dotnet
 ms.topic: tutorial
 ms.date: 08/03/2017
 ms.author: sngun
-ms.openlocfilehash: 778c5c50e2742dd7436f809be06c625254973b49
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 3f19c442d0f5806147ee05b3f0d2d32740a8ecdd
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57440850"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58121745"
 ---
 # <a name="_Toc395809351"></a>Tutorial do ASP.NET MVC: Desenvolvimento de aplicativos Web com o Azure Cosmos DB
 
@@ -541,7 +541,6 @@ Parabéns! Acabou de criar a sua primeira aplicação Web ASP.NET MVC com o Azur
 
 Para adicionar mais funcionalidades à sua aplicação, reveja as APIs disponíveis na [Biblioteca .NET do Azure Cosmos DB](/dotnet/api/overview/azure/cosmosdb?view=azure-dotnet) e esteja à vontade para contribuir para a Biblioteca .NET do Azure Cosmos DB no [GitHub][GitHub]. 
 
-[\*]: https://microsoft.sharepoint.com/teams/DocDB/Shared%20Documents/Documentation/Docs.LatestVersions/PicExportError
 [Visual Studio Express]: https://www.visualstudio.com/products/visual-studio-express-vs.aspx
 [Microsoft Web Platform Installer]: https://www.microsoft.com/web/downloads/platform.aspx
 [Preventing Cross-Site Request Forgery]: https://go.microsoft.com/fwlink/?LinkID=517254

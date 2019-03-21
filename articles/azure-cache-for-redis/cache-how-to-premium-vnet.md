@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/15/2017
 ms.author: yegu
-ms.openlocfilehash: 15b7bae6116d05e7bf4cd76a1ba1b93bb127fef8
-ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
+ms.openlocfilehash: d4b8fd6ccb3fc7cb2627d4bd3e103239181e4d9d
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56313097"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57994394"
 ---
 # <a name="how-to-configure-virtual-network-support-for-a-premium-azure-cache-for-redis"></a>Como configurar o suporte de rede Virtual para uma Cache do Azure Premium para Redis
 A Cache de Redis do Azure tem ofertas de cache diferente, que fornecem flexibilidade na escolha de tamanho de cache e funcionalidades, incluindo as funcionalidades do escalão Premium, tais como clustering, persistência e suporte de rede virtual. Uma VNet é uma rede privada na cloud. Quando uma Cache do Azure para a instância de Redis está configurada com uma VNet, não é publicamente endereçável e só pode ser acedida a partir de máquinas virtuais e aplicações dentro da VNet. Este artigo descreve como configurar o suporte de rede virtual para uma Cache do Azure de premium para a instância de Redis.
@@ -106,7 +106,7 @@ Quando a Cache de Redis do Azure está alojada numa VNet, as portas nas tabelas 
 
 Existem sete requisitos de porta de saída.
 
-- Se a ligações desejadas, toda a saída à internet podem ser feitas por meio de um cliente no local dispositivo auditoria.
+- Todas as ligações de saída à internet podem ser feitas por meio de um cliente do locais auditoria de dispositivo.
 - Três das portas encaminham o tráfego para pontos finais do Azure, manutenção de armazenamento do Azure e o DNS do Azure.
 - Os intervalos de portas restantes e para as comunicações internas de sub-rede de Redis. Não existem regras NSG de sub-rede são necessárias para as comunicações internas de sub-rede de Redis.
 

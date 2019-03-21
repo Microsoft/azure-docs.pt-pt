@@ -16,16 +16,16 @@ ms.workload: infrastructure-services
 ms.date: 06/23/2017
 ms.author: genli
 ms.custom: ''
-ms.openlocfilehash: 2baae0a1932bdcb7fa5e29ac06dd8ae7a7020a30
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: e26ec4d268b9bd8852ef8cd2c522995902e15923
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52421849"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57992391"
 ---
 # <a name="configure-a-virtual-network-classic-using-a-network-configuration-file"></a>Configurar uma rede virtual através de um ficheiro de configuração de rede (clássico)
 > [!IMPORTANT]
-> O Azure tem dois modelos de implementação para criar e trabalhar com recursos: [Resource Manager e Clássico](../resource-manager-deployment-model.md?toc=%2fazure%2fvirtual-network%2ftoc.json). Este artigo cobre a utilização do modelo de implementação clássica. A Microsoft recomenda que as implementações mais novas utilizem o modelo de implementação do Resource Manager.
+> O Azure tem dois modelos de implementação diferentes para criar e trabalhar com recursos: [Resource Manager e clássica](../resource-manager-deployment-model.md?toc=%2fazure%2fvirtual-network%2ftoc.json). Este artigo cobre a utilização do modelo de implementação clássica. A Microsoft recomenda que as implementações mais novas utilizem o modelo de implementação do Resource Manager.
 
 Pode criar e configurar uma rede virtual (clássico) com um arquivo de configuração de rede usando a interface de linha de comandos (CLI) clássica do Azure ou o Azure PowerShell. Não é possível criar ou modificar uma rede virtual por meio do modelo de implementação Azure Resource Manager através de um ficheiro de configuração de rede. Não é possível utilizar o portal do Azure para criar ou modificar uma rede virtual (clássico) com um ficheiro de configuração de rede, no entanto, pode utilizar o portal do Azure para criar uma rede virtual (clássico), sem utilizar um ficheiro de configuração de rede.
 
@@ -71,7 +71,7 @@ O ficheiro de configuração de rede de exemplo seguinte cria uma rede virtual d
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
-<NetworkConfiguration xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.microsoft.com/ServiceHosting/2011/07/NetworkConfiguration">
+<NetworkConfiguration xmlns:xsd="https://www.w3.org/2001/XMLSchema" xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.microsoft.com/ServiceHosting/2011/07/NetworkConfiguration">
   <VirtualNetworkConfiguration>
     <Dns />
     <VirtualNetworkSites>

@@ -9,17 +9,17 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: article
-ms.date: 03/01/2019
+ms.date: 03/18/2019
 ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: df5668c3fa43130ee1a0271d6040b1989ee8ab79
-ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.openlocfilehash: f828ff83e6b9c60eb08edef7f47e88185fb5aef8
+ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/02/2019
-ms.locfileid: "57242637"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58199686"
 ---
 # <a name="create-a-dynamic-group-and-check-status"></a>Criar um grupo dinâmico e verificar o Estado
 
@@ -34,15 +34,15 @@ Para obter exemplos de sintaxe, propriedades suportadas, operadores e valores pa
 2. Selecione **grupos**.
 3. Selecione **todos os grupos**e selecione **novo grupo**.
 
-   ![Adicionar novo grupo](./media/groups-create-rule/new-group-creation.png)
+   ![Selecione o comando para adicionar o novo grupo](./media/groups-create-rule/new-group-creation.png)
 
 4. Sobre o **grupo** página, introduza um nome e descrição para o novo grupo. Selecione um **tipo de associação** para utilizadores ou dispositivos e em seguida, selecione **adicionar consulta dinâmica**. Pode usar o construtor de regra para criar uma regra simples, ou [escreve uma regra de associação](groups-dynamic-membership.md).
 
-   ![Adicionar regra de associação dinâmica](./media/groups-create-rule/add-dynamic-group-rule.png)
+   ![Adicionar regra de associação para um grupo dinâmico](./media/groups-create-rule/add-dynamic-group-rule.png)
 
 5. Para ver as propriedades de extensão personalizado disponíveis para a consulta de associação
-  1. Selecione **obter propriedades de extensão personalizado**
-  2. Introduza o ID da aplicação e, em seguida, selecione **atualizar propriedades**. 
+   1. Selecione **obter propriedades de extensão personalizado**
+   2. Introduza o ID da aplicação e, em seguida, selecione **atualizar propriedades**. 
 6. Depois de criar a regra, selecione **adicionar consulta** na parte inferior do painel.
 7. Selecione **Create** sobre o **grupo** painel para criar o grupo.
 
@@ -56,7 +56,7 @@ Quando é criado um novo grupo do Office 365, uma notificação de boas-vindas �
 
 Pode ver a associação ao processar o estado e a data da última atualização no **descrição geral** página para o grupo.
   
-  ![visor de estado de grupo dinâmico](./media/groups-create-rule/group-status.png)
+  ![exibição de estado de grupo dinâmico](./media/groups-create-rule/group-status.png)
 
 As seguintes mensagens de estado podem ser exibidas para **processamento de associação** Estado:
 
@@ -74,7 +74,7 @@ As seguintes mensagens de estado podem ser exibidas para **associação atualiza
 
 Se ocorrer um erro ao processar a regra de associação para um grupo específico, um alerta é mostrado na parte superior dos **página de descrição geral** para o grupo. Se não pendente de associação de grupo dinâmica atualizações podem ser processadas para todos os grupos no inquilino para obter mais, em seguida, 24 horas, um alerta é mostrado na parte superior do **todos os grupos**.
 
-![mensagem de erro de processamento](./media/groups-create-rule/processing-error.png)
+![alertas de mensagem de erro de processamento](./media/groups-create-rule/processing-error.png)
 
 Estes artigos fornecem informações adicionais sobre os grupos no Azure Active Directory.
 

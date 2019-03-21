@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 04/13/2018
 ms.author: sngun
 ms.custom: include file
-ms.openlocfilehash: 37d7b1d44c2a4b2f3cd2fd3ac881b106d5056279
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
-ms.translationtype: HT
+ms.openlocfilehash: a91c42ca32fb356b418dcd412c0690b01ff85789
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38726131"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57908176"
 ---
 Agora, pode utilizar a ferramenta Data Explorer no portal do Azure para criar uma base de dados e uma tabela. 
 
@@ -28,11 +28,10 @@ Agora, pode utilizar a ferramenta Data Explorer no portal do Azure para criar um
     Definição|Valor sugerido|Descrição
     ---|---|---
     ID da tabela|tabela de exemplo|O ID da sua nova tabela. Os nomes das tabelas têm os mesmos requisitos de carateres que os IDs das bases de dados. Os nomes das bases de dados têm de ter entre um e 255 carateres e não podem conter `/ \ # ?` nem espaços à direita.
-    Capacidade de armazenamento| Fixa (10 GB)|Deixe o valor predefinido de **Fixa (10 GB)**. Este valor é a capacidade de armazenamento da base de dados.
     Débito|400 RUs|Altere o débito para 400 unidades de pedido por segundo (RU/s). Se pretender reduzir a latência, pode aumentar o débito mais tarde.
 
-    Clique em **OK**.
+3. Clique em **OK**.
 
-    O Data Explorer mostra a base de dados e a tabela novas.
+4. O Data Explorer mostra a base de dados e a tabela novas.
 
-    ![O Data Explorer do portal do Azure a mostrar a base de dados e a coleção novas](./media/cosmos-db-create-table/azure-cosmos-db-new-table.png)
+   ![O Data Explorer do portal do Azure a mostrar a base de dados e a coleção novas](./media/cosmos-db-create-table/azure-cosmos-db-new-table.png)

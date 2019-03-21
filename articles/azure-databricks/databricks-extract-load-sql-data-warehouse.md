@@ -9,12 +9,12 @@ ms.custom: mvc
 ms.topic: tutorial
 ms.workload: Active
 ms.date: 02/15/2019
-ms.openlocfilehash: 6ec32a40cea4f95d9225134cfb36d4930245d1c5
-ms.sourcegitcommit: e88188bc015525d5bead239ed562067d3fae9822
+ms.openlocfilehash: e306245da2c76560ad447358fa1a57e491c370ee
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/24/2019
-ms.locfileid: "56750604"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57855695"
 ---
 # <a name="tutorial-extract-transform-and-load-data-by-using-azure-databricks"></a>Tutorial: Extrair, transformar e carregar dados com o Azure Databricks
 
@@ -40,6 +40,10 @@ Este tutorial abrange as seguintes tarefas:
 
 Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
+> [!Note]
+> Este tutorial não pode ser efetuado através de **subscrição de avaliação gratuita do Azure**.
+> Para utilizar uma conta gratuita para criar o cluster do Azure Databricks, antes de criar o cluster, aceda ao seu perfil e altere a subscrição para **pay as you go**. Para obter mais informações, veja [Conta gratuita do Azure](https://azure.microsoft.com/free/).
+     
 ## <a name="prerequisites"></a>Pré-requisitos
 
 Conclua estas tarefas antes de começar este tutorial:

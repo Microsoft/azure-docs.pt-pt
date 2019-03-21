@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 03/15/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: b1e6884366300a4edfce1eb05971e50f673b3a22
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 4ddcd2429ce1b7e44670b52a0a7b7494d0400af7
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55457229"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57860980"
 ---
 # <a name="data-exploration-and-modeling-with-spark"></a>Exploração e modelação de dados com o Spark
 
@@ -29,8 +29,8 @@ Os modelos que usamos incluem regressão logística e linear, florestas aleatór
 
 * [Regressão linear com SGD](https://spark.apache.org/docs/latest/api/python/pyspark.mllib.html#pyspark.mllib.regression.LinearRegressionWithSGD) é um modelo de regressão linear que utiliza um método stochastic Gradient gradiente descendente (SGD) e para Otimização e a funcionalidade de dimensionamento para prever as quantidades de sugestão pago. 
 * [Regressão logística com LBFGS](https://spark.apache.org/docs/latest/api/python/pyspark.mllib.html#pyspark.mllib.classification.LogisticRegressionWithLBFGS) ou regressão "logit", é um modelo de regressão que pode ser utilizado quando a variável dependente é categórica para fazer a classificação de dados. LBFGS é um algoritmo de otimização de quasi-Newton que aproxima-se o algoritmo de Broyden – Fletcher – Goldfarb – Shanno (BFGS) com uma quantidade limitada de memória do computador e que é amplamente usado no machine learning.
-* [Florestas aleatórias](http://spark.apache.org/docs/latest/mllib-ensembles.html#Random-Forests) são árvores de árvores de decisões.  Elas combinam muitos árvores de decisão para reduzir o risco de overfitting. Florestas aleatórias são usadas para classificação e regressão e podem lidar com recursos categóricos e podem ser estendidas para a definição de classificação multiclasses. Eles não requerem o dimensionamento do recurso e podem capturar não linearities e interações de recursos. Florestas aleatórias são uma do mais bem-sucedidas modelos de machine learning para classificação e regressão.
-* [Gradiente aumentado árvores](http://spark.apache.org/docs/latest/ml-classification-regression.html#gradient-boosted-trees-gbts) (GBTs) são árvores de árvores de decisões. GBTs treinar árvores de decisão iterativamente para minimizar a uma função de perda. GBTs são utilizados para classificação e regressão e pode lidar com recursos categóricos, não requerem o dimensionamento do recurso e podem capturar não linearities e interações de recursos. Eles também podem ser usados numa configuração de classificação de várias classes.
+* [Florestas aleatórias](https://spark.apache.org/docs/latest/mllib-ensembles.html#Random-Forests) são árvores de árvores de decisões.  Elas combinam muitos árvores de decisão para reduzir o risco de overfitting. Florestas aleatórias são usadas para classificação e regressão e podem lidar com recursos categóricos e podem ser estendidas para a definição de classificação multiclasses. Eles não requerem o dimensionamento do recurso e podem capturar não linearities e interações de recursos. Florestas aleatórias são uma do mais bem-sucedidas modelos de machine learning para classificação e regressão.
+* [Gradiente aumentado árvores](https://spark.apache.org/docs/latest/ml-classification-regression.html#gradient-boosted-trees-gbts) (GBTs) são árvores de árvores de decisões. GBTs treinar árvores de decisão iterativamente para minimizar a uma função de perda. GBTs são utilizados para classificação e regressão e pode lidar com recursos categóricos, não requerem o dimensionamento do recurso e podem capturar não linearities e interações de recursos. Eles também podem ser usados numa configuração de classificação de várias classes.
 
 Os passos de modelação também contêm código que mostra como treinar, avaliar e guardar cada tipo de modelo. Python tem sido utilizado para a solução de código e para mostrar os gráficos relevantes.   
 
@@ -60,19 +60,17 @@ Tarefas de regressão e de classificação que são implementadas por meio de um
 
 > [!NOTE]
 > O conjunto de dados de companhia aérea foi adicionado para os blocos de notas do Spark 2.0 para melhor ilustrar a utilização de algoritmos de classificação. Consulte as seguintes ligações para informações sobre a companhia aérea no tempo de conjunto de dados de saída e o conjunto de dados de Meteorologia:
-
->- Dados de saída no tempo de companhia aérea: [http://www.transtats.bts.gov/ONTIME/](http://www.transtats.bts.gov/ONTIME/)
-
->- Dados meteorológicos de aeroporto: [https://www.ncdc.noaa.gov/](https://www.ncdc.noaa.gov/) 
 > 
+> - Dados de saída no tempo de companhia aérea: [https://www.transtats.bts.gov/ONTIME/](https://www.transtats.bts.gov/ONTIME/)
 > 
+> - Dados meteorológicos de aeroporto: [https://www.ncdc.noaa.gov/](https://www.ncdc.noaa.gov/) 
 
 <!-- -->
 
 <!-- -->
 
 > [!NOTE]
-Os blocos de notas do Spark 2.0 nos NYC táxis e companhia aérea voo atraso-conjuntos de dados podem demorar 10 minutos ou mais para ser executada (dependendo do tamanho do cluster do HDI). O primeiro bloco de notas na lista acima mostra muitos aspectos de exploração de dados, visualização e preparação de modelos de ML num bloco de notas que demora menos tempo a executar com o conjunto de dados do NYC objeto de amostragem de baixo, no qual os ficheiros de táxis e Europeia tenham sido previamente associado a um: [Spark2.0-pySpark3-Machine-Learning-data-Science-spark-Advanced-Data-Exploration-Modeling.ipynb](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/Spark/pySpark/Spark2.0/Spark2.0-pySpark3-machine-learning-data-science-spark-advanced-data-exploration-modeling.ipynb) este bloco de notas demora muito menor tempo a concluir (2 a 3 minutos) e pode ser um bom ponto de partida para explorar rapidamente o código fornecidos para o Spark 2.0. 
+> Os blocos de notas do Spark 2.0 nos NYC táxis e companhia aérea voo atraso-conjuntos de dados podem demorar 10 minutos ou mais para ser executada (dependendo do tamanho do cluster do HDI). O primeiro bloco de notas na lista acima mostra muitos aspectos de exploração de dados, visualização e preparação de modelos de ML num bloco de notas que demora menos tempo a executar com o conjunto de dados do NYC objeto de amostragem de baixo, no qual os ficheiros de táxis e Europeia tenham sido previamente associado a um: [Spark2.0-pySpark3-Machine-Learning-data-Science-spark-Advanced-Data-Exploration-Modeling.ipynb](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/Spark/pySpark/Spark2.0/Spark2.0-pySpark3-machine-learning-data-science-spark-advanced-data-exploration-modeling.ipynb) este bloco de notas demora muito menor tempo a concluir (2 a 3 minutos) e pode ser um bom ponto de partida para explorar rapidamente o código fornecidos para o Spark 2.0. 
 
 <!-- -->
 
@@ -81,7 +79,7 @@ Os blocos de notas do Spark 2.0 nos NYC táxis e companhia aérea voo atraso-con
 <!-- -->
 
 > [!NOTE]
-As descrições abaixo estão relacionadas ao uso de Spark 1.6. Para versões de Spark 2.0, utilize os blocos de notas descrito e ligação acima. 
+> As descrições abaixo estão relacionadas ao uso de Spark 1.6. Para versões de Spark 2.0, utilize os blocos de notas descrito e ligação acima. 
 
 <!-- -->
 
@@ -362,8 +360,8 @@ Este código mostra como criar um novo recurso por horas de discretização em r
 ### <a name="index-and-encode-categorical-features-for-input-into-modeling-functions"></a>Indexar e codificar categóricas funcionalidades de entrada para as funções de modelagem
 Esta secção mostra como índice ou codificar categóricas funcionalidades de entrada para as funções de modelagem. A Modelagem e prever as funções de MLlib necessitam de funcionalidades com dados categóricos de entrada a ser indexados ou codificada antes de utilizar. Dependendo do modelo, terá de índice ou codificá-los de formas diferentes:  
 
-* **Modelagem com base em árvore** requer categorias para ser codificado como valores numéricos (por exemplo, uma funcionalidade com três categorias pode ser codificada com 0, 1, 2). Isto é fornecido do MLlib [StringIndexer](http://spark.apache.org/docs/latest/ml-features.html#stringindexer) função. Esta função codifica uma coluna de cadeia de caracteres de etiquetas para uma coluna de índices de etiqueta ordenadas frequências de etiqueta. Embora indexado com valores numéricos para entrada e de processamento de dados, os algoritmos de árvore podem ser especificados para tratá-los adequadamente como categorias. 
-* **Modelos de regressão Linear e de logística** necessitam de acesso frequente uma codificação, onde, por exemplo, uma funcionalidade com três categorias pode ser expandida para três colunas de funcionalidades, com cada que contêm 0 ou 1 consoante a categoria de uma observação. Fornece MLlib [OneHotEncoder](http://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.OneHotEncoder.html#sklearn.preprocessing.OneHotEncoder) função para fazer uma-hot codificação. Este codificador mapeia uma coluna de índices de etiqueta a uma coluna de vetores de binários, no máximo um único um valor. Esta codificação permite que os algoritmos que esperam que os recursos de com valores numéricos, como a regressão logística, possam ser aplicadas aos recursos categóricos.
+* **Modelagem com base em árvore** requer categorias para ser codificado como valores numéricos (por exemplo, uma funcionalidade com três categorias pode ser codificada com 0, 1, 2). Isto é fornecido do MLlib [StringIndexer](https://spark.apache.org/docs/latest/ml-features.html#stringindexer) função. Esta função codifica uma coluna de cadeia de caracteres de etiquetas para uma coluna de índices de etiqueta ordenadas frequências de etiqueta. Embora indexado com valores numéricos para entrada e de processamento de dados, os algoritmos de árvore podem ser especificados para tratá-los adequadamente como categorias. 
+* **Modelos de regressão Linear e de logística** necessitam de acesso frequente uma codificação, onde, por exemplo, uma funcionalidade com três categorias pode ser expandida para três colunas de funcionalidades, com cada que contêm 0 ou 1 consoante a categoria de uma observação. Fornece MLlib [OneHotEncoder](https://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.OneHotEncoder.html#sklearn.preprocessing.OneHotEncoder) função para fazer uma-hot codificação. Este codificador mapeia uma coluna de índices de etiqueta a uma coluna de vetores de binários, no máximo um único um valor. Esta codificação permite que os algoritmos que esperam que os recursos de com valores numéricos, como a regressão logística, possam ser aplicadas aos recursos categóricos.
 
 Aqui está o código para indexar e codificar funcionalidades categóricas:
 

@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 07/18/2017
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 75e276cb0beb982d797fcf6816d84eae6b135b74
-ms.sourcegitcommit: a4efc1d7fc4793bbff43b30ebb4275cd5c8fec77
+ms.openlocfilehash: 6d6e453819ad749972de89658fa695d803d8e222
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56652285"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57898827"
 ---
 # <a name="azure-ad-connect-health-agent-installation"></a>Instalação do Agente do Azure AD Connect Health
 Este documento descreve a instalação e a configuração dos Agentes do Azure AD Connect Health. Pode transferir os agentes de [aqui](how-to-connect-install-roadmap.md#download-and-install-azure-ad-connect-health-agent).
@@ -235,6 +235,28 @@ Se concluiu a configuração, estes serviços já devem estar a ser executados. 
 
 ![Verificar o Azure AD Connect Health](./media/how-to-connect-health-agent-install/aadconnect-health-adds-agent-install5.png)
 
+### <a name="quick-agent-installation-in-multiple-servers"></a>Instalação do agente rápida em vários servidores
+1. Crie uma conta de utilizador no Azure AD com uma palavra-passe.
+2. Atribuir a **proprietário** função para esta conta AAD local no Azure AD Connect Health através do portal. Siga os passos [aqui](how-to-connect-health-operations.md#manage-access-with-role-based-access-control). Atribua a função para todas as instâncias de serviço. 
+3. Transfira o ficheiro MSI do .exe, no controlador de domínio local para a instalação.
+4. Execute o seguinte script para registo. Substitua os parâmetros com a nova conta de utilizador que criou e respetiva palavra-passe. 
+
+```
+AdHealthAddsAgentSetup.exe /quiet
+sleep 30
+$userName = "NEWUSER@DOMAIN"
+$secpasswd = ConvertTo-SecureString "PASSWORD" -AsPlainText -Force
+$myCreds = New-Object System.Management.Automation.PSCredential ($userName, $secpasswd)
+import-module "C:\Program Files\Azure Ad Connect Health Adds Agent\PowerShell\AdHealthAdds"
+ 
+Register-AzureADConnectHealthADDSAgent -UserPrincipalName $USERNAME -Credential $password
+
+```
+1. Quando tiver terminado, pode remover o acesso para a conta local, fazendo uma ou mais dos seguintes procedimentos: 
+    * Remover a atribuição de função para a conta local para o AAD Connect Health
+    * Roda a palavra-passe para a conta local. 
+    * Desativar a conta local do AAD
+    * Eliminar a conta local do AAD  
 
 ## <a name="agent-registration-using-powershell"></a>Registo do Agente com o PowerShell
 Depois de instalar o agente adequado setup.exe, pode efetuar o passo de registo do agente com os comandos do PowerShell seguintes, consoante a função. Abra uma Janela do PowerShell e execute o comando adequado:

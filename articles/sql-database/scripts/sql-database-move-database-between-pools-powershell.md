@@ -11,13 +11,13 @@ author: CarlRabeler
 ms.reviewer: ''
 ms.author: carlrab
 manager: craigg
-ms.date: 03/07/2019
-ms.openlocfilehash: 82ba51e177cc18fda9ea1d62b46e0368fe79c428
-ms.sourcegitcommit: 30a0007f8e584692fe03c0023fe0337f842a7070
+ms.date: 03/12/2019
+ms.openlocfilehash: 9b179bb7021e77acd99b529d6ab3b0d638858dbd
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57574990"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57894245"
 ---
 # <a name="use-powershell-to-create-elastic-pools-and-move-databases-between-elastic-pools"></a>Utilizar o PowerShell para criar conjuntos elásticos e mover bases de dados entre conjuntos elásticos
 

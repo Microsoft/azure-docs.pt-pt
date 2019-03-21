@@ -13,16 +13,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/08/2017
+ms.date: 03/14/2019
 ms.author: markvi
 ms.reviewer: raluthra
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 409c86556d8132cb913508518be7d5b9f9d35321
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 8caf7d0670246d14c5197fda763826b970bd125e
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56180203"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57993077"
 ---
 # <a name="how-to-configure-the-user-risk-policy"></a>Como: Configurar a política de utilizador de risco
 

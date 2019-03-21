@@ -3,20 +3,20 @@ title: Topologias para migrações de instância gerida da base de dados SQL do 
 description: Saiba as configurações de origem e de destino para o serviço de migração de base de dados.
 services: database-migration
 author: HJToland3
-ms.author: rajpo
+ms.author: jtoland
 manager: craigg
-ms.reviewer: douglasl
+ms.reviewer: craigg
 ms.service: dms
 ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
 ms.date: 03/12/2019
-ms.openlocfilehash: 82c91515ac3fae65623e3750471fec46b5d4bf5b
-ms.sourcegitcommit: d89b679d20ad45d224fd7d010496c52345f10c96
+ms.openlocfilehash: d12d6b1274a756bfb13761ab999a1539bcee3657
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57790684"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58178123"
 ---
 # <a name="network-topologies-for-azure-sql-db-managed-instance-migrations-using-the-azure-database-migration-service"></a>Topologias de rede para migrações de instância gerida BD SQL do Azure com o serviço de migração de base de dados do Azure
 Este artigo aborda várias topologias de rede que funciona com o serviço de migração de base de dados do Azure para proporcionar uma experiência de migração abrangente de servidores do SQL Server no local para a instância gerida da base de dados SQL do Azure.

@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 12/27/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8bda6aff61b3060f23a3ac8ccf9a7933ad2a56a2
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: f8def13360bba2f82d5adf315503dc7d655f490d
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57781821"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57899832"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-sap-hana"></a>Tutorial: Integração do Active Directory do Azure com o SAP HANA
 
@@ -195,7 +195,7 @@ O objetivo desta secção é criar um utilizador de teste no portal do Azure cha
 
     a. Na **Name** campo introduza **BrittaSimon**.
   
-    b. Na **nome de utilizador** tipo de campo **brittasimon@yourcompanydomain.extension**  
+    b. Na **nome de utilizador** tipo de campo **brittasimon\@yourcompanydomain.extension**  
     Por exemplo, BrittaSimon@contoso.com
 
     c. Selecione **palavra-passe de Show** caixa de verificação e, em seguida, anote o valor que é apresentado na caixa de palavra-passe.
@@ -248,8 +248,8 @@ Se precisar de criar manualmente um utilizador, siga os passos seguintes:
 
 4. Adicionar a **identidades externas** (no caso, BrittaSimon) ou escolha **qualquer**. Em seguida, selecione **OK**.
 
-    >[!Note]
-    >Se o **qualquer** não está selecionada a caixa de verificação, em seguida, o nome de utilizador no HANA tem de corresponder exatamente ao nome do utilizador, o UPN antes do sufixo de domínio. (Por exemplo, BrittaSimon@contoso.com torna-se BrittaSimon no HANA.)
+   > [!Note]
+   > Se o **qualquer** não está selecionada a caixa de verificação, em seguida, o nome de utilizador no HANA tem de corresponder exatamente ao nome do utilizador, o UPN antes do sufixo de domínio. (Por exemplo, BrittaSimon@contoso.com torna-se BrittaSimon no HANA.)
 
 5. Para fins de teste, atribuir todos **XS** funções para o utilizador.
 

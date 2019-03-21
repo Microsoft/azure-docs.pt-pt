@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 11/26/2018
 ms.author: iainfou
-ms.openlocfilehash: abdce8b63a035fe55f4bd37acc5012237bd499da
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: 8233330973946e552e36a85a11bdbbfb06c739f0
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52428971"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58178140"
 ---
 # <a name="best-practices-for-basic-scheduler-features-in-azure-kubernetes-service-aks"></a>Práticas recomendadas para recursos do agendador básica no Azure Kubernetes Service (AKS)
 
@@ -25,7 +25,7 @@ Este artigo de melhores práticas se concentra em Kubernetes básica funcionalid
 > * Limitar o impacto da manutenção agendada com orçamentos de interrupção de pod
 > * Verificação de ausentes solicitações de recursos de pod e limites usando o `kube-advisor` ferramenta
 
-## <a name="enforce-resource-quotas"></a>Impor quotas de recursos
+## <a name="enforce-resource-quotas"></a>Enforce resource quotas
 
 **Melhores diretrizes de práticas** -planear e a aplicar quotas de recursos ao nível do espaço de nomes. Se não definem o pods solicitações de recursos e limites, rejeite a implementação. Monitorizar a utilização de recursos e ajustar as quotas conforme necessário.
 
@@ -122,9 +122,9 @@ Para obter mais informações sobre como utilizar os orçamentos de interrupçã
 
 ## <a name="regularly-check-for-cluster-issues-with-kube-advisor"></a>Verificar regularmente a existência de problemas de cluster com o Assistente do kube
 
-**Melhores diretrizes de práticas** -regularmente executam a versão mais recente do `kube-advisor` para detetar problemas no seu cluster. Se aplicar quotas de recursos num cluster do AKS existente, execute `kube-advisor` primeiro para encontrar os pods que não têm pedidos de recursos e os limites definidos.
+**Melhores diretrizes de práticas** -regularmente executam a versão mais recente do `kube-advisor` ferramenta de código-fonte aberto para detetar problemas no seu cluster. Se aplicar quotas de recursos num cluster do AKS existente, execute `kube-advisor` primeiro para encontrar os pods que não têm pedidos de recursos e os limites definidos.
 
-O [kube advisor] [ kube-advisor] ferramenta examina um cluster de Kubernetes e relatórios sobre os problemas que encontrar. É uma verificação útil identificar os pods que não têm limites e pedidos de recursos no local.
+O [kube advisor] [ kube-advisor] ferramenta é um projeto de código-fonte aberto associado do AKS que verifica a existência de um cluster do Kubernetes, relatórios de problemas que encontrar. É uma verificação útil identificar os pods que não têm limites e pedidos de recursos no local.
 
 Num cluster do AKS que hospeda várias equipes de desenvolvimento e aplicações, pode ser difícil de controlar os pods sem esses recursos solicitam e nos limites do conjunto. Como melhor prática, executar regularmente `kube-advisor` nos seus clusters do AKS, especialmente se não atribuir quotas de recursos para espaços de nomes.
 

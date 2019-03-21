@@ -1,7 +1,7 @@
 ---
-title: Auto-preparar um modelo de previsão
+title: Auto-preparar um modelo de previsão de séries de tempo
 titleSuffix: Azure Machine Learning service
-description: Saiba como utilizar o serviço Azure Machine Learning para preparar um modelo de regressão de previsão a utilizar a aprendizagem automática.
+description: Saiba como utilizar o serviço Azure Machine Learning para preparar uma série de tempo, previsão através de modelo de regressão automatizada de aprendizagem automática.
 services: machine-learning
 author: trevorbye
 ms.author: trbye
@@ -9,17 +9,17 @@ ms.service: machine-learning
 ms.subservice: core
 ms.reviewer: trbye
 ms.topic: conceptual
-ms.date: 03/08/2019
-ms.openlocfilehash: 7c34040180cd7c6b635d55e59498908b1373ae1b
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.date: 03/19/2019
+ms.openlocfilehash: cc5aae0e46e181e8063a4e01a832e68eab0eae0e
+ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57786620"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58226621"
 ---
-# <a name="auto-train-a-forecast-model"></a>Auto-preparar um modelo de previsão
+# <a name="auto-train-a-time-series-forecast-model"></a>Auto-preparar um modelo de previsão de séries de tempo
 
-Neste artigo, irá aprender a preparar um modelo de regressão de previsão com aprendizagem automática no serviço Azure Machine Learning. Configurar um modelo de previsão é semelhante à configuração de um modelo de regressão padrão com aprendizagem automática, mas alguns passos de opções e o processamento prévio de configuração existem para trabalhar com dados de séries de tempo. Os exemplos seguintes mostram-lhe como para:
+Neste artigo, irá aprender a preparar um modelo de previsão de séries de tempo da regressão com aprendizagem automática no serviço Azure Machine Learning. Configurar um modelo de previsão é semelhante à configuração de um modelo de regressão padrão com aprendizagem automática, mas alguns passos de opções e o processamento prévio de configuração existem para trabalhar com dados de séries de tempo. Os exemplos seguintes mostram-lhe como para:
 
 * Preparar dados para a Modelagem de série de tempo
 * Configurar parâmetros de séries de tempo específicos numa [ `AutoMLConfig` ](https://docs.microsoft.com/python/api/azureml-train-automl/azureml.train.automl.automlconfig.automlconfig?view=azure-ml-py) objeto
@@ -58,7 +58,7 @@ Neste caso os dados já estão classificados ascendente pelo campo tempo `week_s
 
 ```python
 X_train = data.iloc[:950]
-X_test = data.iloc[50:]
+X_test = data.iloc[-50:]
 
 y_train = X_train.pop("sales_quantity").values
 y_test = X_test.pop("sales_quantity").values

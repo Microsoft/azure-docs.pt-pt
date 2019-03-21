@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 10/11/2018
 ms.author: raynew
-ms.openlocfilehash: 47b16966f9e72a43cf4fb934706f7b96becef59a
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
+ms.openlocfilehash: 4a6ed900753747c1d5bf394aced54da11177320f
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55694504"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58118396"
 ---
 # <a name="contoso-migration-rehost-an-on-premises-app-to-azure-vms"></a>Migração de Contoso: Realojar uma aplicação no local em VMs do Azure
 
@@ -168,10 +168,10 @@ Eles configurar estes da seguinte forma:
     - A base de dados de aplicação VM (SQLVM) serão migrados para a sub-rede de base de dados (PROD-DB-EUS2), na rede de produção.
 
 2. Configurar uma conta de armazenamento-Contoso cria uma conta de armazenamento do Azure (contosovmsacc20180528) na região primária.
-    - A conta de armazenamento tem de estar na mesma região que o cofre dos Serviços de Recuperação.
-    - Utilizam uma conta para fins gerais, com o armazenamento standard e replicação LRS.
+   - A conta de armazenamento tem de estar na mesma região que o cofre dos Serviços de Recuperação.
+   - Utilizam uma conta para fins gerais, com o armazenamento standard e replicação LRS.
 
-    ![Armazenamento de recuperação de site](./media/contoso-migration-rehost-vm/asr-storage.png)
+     ![Armazenamento de recuperação de site](./media/contoso-migration-rehost-vm/asr-storage.png)
 
 3. Criar um cofre-com a conta de armazenamento e de rede no local, a Contoso agora cria um cofre de serviços de recuperação (ContosoMigrationVault) e o coloca no grupo de recursos ContosoFailoverRG na região E.U.A. Leste 2 primária.
 
@@ -221,15 +221,15 @@ Após a ativação pós-falha, a Contoso quer ligar às VMs do Azure. Para tal, 
 
 1. Para ter acesso através da internet:
 
- - Ative o RDP na VM no local antes da ativação pós-falha.
- - Certifique-se de que as regras TCP e UDP estão adicionadas para o **público** perfil.
- - Verifique se o RDP é permitido na **Firewall do Windows** > **aplicações permitidas** para todos os perfis.
+   - Ative o RDP na VM no local antes da ativação pós-falha.
+   - Certifique-se de que as regras TCP e UDP estão adicionadas para o **público** perfil.
+   - Verifique se o RDP é permitido na **Firewall do Windows** > **aplicações permitidas** para todos os perfis.
 
 2. Para ter acesso através de VPN de site a site, eles:
 
- - Ative o RDP na máquina no local.
- - Permitir RDP no **Firewall do Windows** -> **aplicações e funcionalidades permitidas**, para **domínio e privadas** redes.
- - Definir política de SAN do sistema operacional na VM no local para **OnlineAll**.
+   - Ative o RDP na máquina no local.
+   - Permitir RDP no **Firewall do Windows** -> **aplicações e funcionalidades permitidas**, para **domínio e privadas** redes.
+   - Definir política de SAN do sistema operacional na VM no local para **OnlineAll**.
 
 Além disso, quando executam uma ativação pós-falha que precisam verificar o seguinte:
 
@@ -341,10 +341,10 @@ Com tudo instalado, os administradores da Contoso podem agora ativar a replicaç
 
 4. Eles selecionam **WebVM** para a replicação, verifique a política de replicação e ativar a replicação.
 
-    - Nesta fase eles seleciona apenas WEBVM porque VNet e sub-rede tem de ser selecionadas e as VMs da aplicação serão colocadas em sub-redes diferentes.
-    - Site Recovery instala automaticamente o serviço de mobilidade na VM quando a replicação está ativada.
+   - Nesta fase eles seleciona apenas WEBVM porque VNet e sub-rede tem de ser selecionadas e as VMs da aplicação serão colocadas em sub-redes diferentes.
+   - Site Recovery instala automaticamente o serviço de mobilidade na VM quando a replicação está ativada.
 
-    ![Ativar a replicação](./media/contoso-migration-rehost-vm/enable-replication3.png)
+     ![Ativar a replicação](./media/contoso-migration-rehost-vm/enable-replication3.png)
 
 5. Controlar o progresso de replicação em **tarefas**. Depois de a tarefa **Finalizar Proteção** ser executada, a máquina está preparada para ativação pós-falha.
 6. Na **Essentials** no portal do Azure, podem ver a estrutura para as VMs a replicar para o Azure.

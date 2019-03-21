@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 10/19/2018
 ms.author: pbutlerm
-ms.openlocfilehash: dcfe744cc8ca6f3b3cd201898a79fcce3f24f8d5
-ms.sourcegitcommit: 17633e545a3d03018d3a218ae6a3e4338a92450d
+ms.openlocfilehash: c21fa3cf819f48dcda46f2d444ed52bc2eb9ae3d
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/22/2018
-ms.locfileid: "49639925"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58113525"
 ---
 # <a name="get-shared-access-signature-uri-for-your-vm-image"></a>Obter o URI de assinatura de acesso partilhado para a imagem de VM
 
@@ -44,33 +44,33 @@ O URL de SAS podem ser gerado de duas formas comuns de utilizar as ferramentas a
 
 Utilize os seguintes passos para gerar um URI de SAS com a CLI do Azure.
 
-1.  Transferir e instalar o [da CLI do Azure do Microsoft](https://azure.microsoft.com/documentation/articles/xplat-cli-install/).  Versões estão disponíveis para várias distribuições do Linux, macOS e Windows. 
-2.  Crie um ficheiro de PowerShell (`.ps1` extensão de ficheiro), copie o código a seguir, em seguida, guarde-o localmente.
+1. Transferir e instalar o [da CLI do Azure do Microsoft](https://azure.microsoft.com/documentation/articles/xplat-cli-install/).  Versões estão disponíveis para várias distribuições do Linux, macOS e Windows. 
+2. Crie um ficheiro de PowerShell (`.ps1` extensão de ficheiro), copie o código a seguir, em seguida, guarde-o localmente.
 
-    ``` powershell
-    az storage container generate-sas --connection-string 'DefaultEndpointsProtocol=https;AccountName=<account-name>;AccountKey=<account-key>;EndpointSuffix=core.windows.net' --name <vhd-name> --permissions rl --start '<start-date>' --expiry '<expiry-date>'
-    ```
+   ``` powershell
+   az storage container generate-sas --connection-string 'DefaultEndpointsProtocol=https;AccountName=<account-name>;AccountKey=<account-key>;EndpointSuffix=core.windows.net' --name <vhd-name> --permissions rl --start '<start-date>' --expiry '<expiry-date>'
+   ```
     
-3.  Edite o ficheiro para fornecer os seguintes valores de parâmetro.  Datas devem ser fornecidas no formato de datetime UTC, por exemplo `10-25-2016T00:00:00Z`.
-    - `<account-name>` -O nome da conta de armazenamento do Azure
-    - `<account-key>` -A sua chave de conta de armazenamento do Azure
-    - `<vhd-name>` -O nome do VHD
-    - `<start-date>` -Data para o acesso VHD de início de permissão. Forneça uma data de um dia antes da data atual. 
-    - `<expiry-date>` -Data de expiração de permissão de acesso VHD.  Forneça uma data de, pelo menos, três semanas para além da data atual. 
+3. Edite o ficheiro para fornecer os seguintes valores de parâmetro.  Datas devem ser fornecidas no formato de datetime UTC, por exemplo `10-25-2016T00:00:00Z`.
+   - `<account-name>` -O nome da conta de armazenamento do Azure
+   - `<account-key>` -A sua chave de conta de armazenamento do Azure
+   - `<vhd-name>` -O nome do VHD
+   - `<start-date>` -Data para o acesso VHD de início de permissão. Forneça uma data de um dia antes da data atual. 
+   - `<expiry-date>` -Data de expiração de permissão de acesso VHD.  Forneça uma data de, pelo menos, três semanas para além da data atual. 
  
-    O exemplo seguinte mostra os valores de parâmetros adequada (no momento da redação deste artigo).
+   O exemplo seguinte mostra os valores de parâmetros adequada (no momento da redação deste artigo).
 
-    ``` powershell
-        az storage container generate-sas --connection-string 'DefaultEndpointsProtocol=https;AccountName=st00009;AccountKey=6L7OWFrlabs7Jn23OaR3rvY5RykpLCNHJhxsbn9ONc+bkCq9z/VNUPNYZRKoEV1FXSrvhqq3aMIDI7N3bSSvPg==;EndpointSuffix=core.windows.net' --name vhds --permissions rl --start '2017-11-06T00:00:00Z' --expiry '2018-08-20T00:00:00Z'
-    ```
+   ``` powershell
+       az storage container generate-sas --connection-string 'DefaultEndpointsProtocol=https;AccountName=st00009;AccountKey=6L7OWFrlabs7Jn23OaR3rvY5RykpLCNHJhxsbn9ONc+bkCq9z/VNUPNYZRKoEV1FXSrvhqq3aMIDI7N3bSSvPg==;EndpointSuffix=core.windows.net' --name vhds --permissions rl --start '2017-11-06T00:00:00Z' --expiry '2018-08-20T00:00:00Z'
+   ```
  
 4. Guarde as alterações para este script do PowerShell.
 5. Execute este script, usando os privilégios administrativos, para gerar um *cadeia de ligação SAS* para acesso de nível de contêiner.  Pode usar duas abordagens básicas:
-    - Execute o script a partir da consola.  Por exemplo, no Windows, escrita-clique em de script e selecione **executar como administrador**.
-    - Execute o script a partir de um editor de script do PowerShell, como o [ISE do Windows PowerShell](https://docs.microsoft.com/powershell/scripting/core-powershell/ise/introducing-the-windows-powershell-ise), com privilégios administrativos. 
-  O seguinte exemplo demonstra uma cadeia de ligação de SAS que está a ser gerada dentro deste editor. 
+   - Execute o script a partir da consola.  Por exemplo, no Windows, escrita-clique em de script e selecione **executar como administrador**.
+   - Execute o script a partir de um editor de script do PowerShell, como o [ISE do Windows PowerShell](https://docs.microsoft.com/powershell/scripting/core-powershell/ise/introducing-the-windows-powershell-ise), com privilégios administrativos. 
+     O seguinte exemplo demonstra uma cadeia de ligação de SAS que está a ser gerada dentro deste editor. 
 
-    ![Geração de URI de SAS no ISE do PowerShell](./media/publishvm_032.png)
+     ![Geração de URI de SAS no ISE do PowerShell](./media/publishvm_032.png)
 
 6. Copie a cadeia de ligação SAS resultante e guarde-o num arquivo de texto numa localização segura.  Será necessário editar essa cadeia de caracteres para adicionar as informações de localização do VHD associadas a ele para criar o URI de SAS final. 
 7. No portal do Azure, navegue para o armazenamento de BLOBs que contém o VHD associado com o URI gerado recentemente.
@@ -102,11 +102,11 @@ Utilize os seguintes passos para gerar um URI de SAS com o Explorador de armazen
     ![Obter o item SAS no Explorador do Azure](./media/publishvm_034.png)
 
 6. O **assinatura de acesso partilhado** é apresentada a caixa de diálogo. Introduza valores para os seguintes campos:
-    - **Hora de início** -data para o acesso VHD de início de permissão. Forneça uma data que é um dia antes da data atual.
-    - **Hora de expiração** -data de expiração da permissão de acesso VHD.  Forneça uma data de, pelo menos, três semanas para além da data atual.
-    - **Permissões** - selecione o `Read` e `List` permissões. 
+   - **Hora de início** -data para o acesso VHD de início de permissão. Forneça uma data que é um dia antes da data atual.
+   - **Hora de expiração** -data de expiração da permissão de acesso VHD.  Forneça uma data de, pelo menos, três semanas para além da data atual.
+   - **Permissões** - selecione o `Read` e `List` permissões. 
 
-    ![Caixa de diálogo SAS no Explorador do Azure](./media/publishvm_035.png)
+     ![Caixa de diálogo SAS no Explorador do Azure](./media/publishvm_035.png)
 
 7. Clique em **criar** para criar o URI de SAS associado para este VHD.  A caixa de diálogo agora apresenta detalhes sobre esta operação. 
 8. Copiar o **URL** valor e guardá-lo num arquivo de texto numa localização segura. 

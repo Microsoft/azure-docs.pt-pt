@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 01/25/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: db5e309bc077b29740b0d6e597164bcbcc5448f9
-ms.sourcegitcommit: 1902adaa68c660bdaac46878ce2dec5473d29275
+ms.openlocfilehash: 4156ef264069b5f926f28f766a201dceb29a512b
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/11/2019
-ms.locfileid: "57730904"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57834800"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-coupa"></a>Tutorial: Integração do Active Directory do Azure com Coupa
 
@@ -111,6 +111,7 @@ Para configurar o Azure AD início de sessão único com Coupa, execute os segui
     > O valor de URL de início de sessão não é real. Atualize este valor com o URL de início de sessão real. Contacte [equipa de suporte de cliente Coupa](https://success.coupa.com/Support/Contact_Us?) para obter este valor.
 
     b. Na **identificador** caixa, escreva um URL:
+
     | Ambiente  | do IdP |
     |:-------------|----|
     | Sandbox | `devsso35.coupahost.com`|
@@ -118,6 +119,7 @@ Para configurar o Azure AD início de sessão único com Coupa, execute os segui
     | | |
 
     c. Na **URL de resposta** caixa de texto, escreva um URL:
+
     | Ambiente | do IdP |
     |------------- |----|
     | Sandbox | `https://devsso35.coupahost.com/sp/ACS.saml2`|
@@ -174,7 +176,7 @@ O objetivo desta secção é criar um utilizador de teste no portal do Azure cha
 
     a. Na **Name** campo introduza **BrittaSimon**.
   
-    b. Na **nome de utilizador** tipo de campo **brittasimon@yourcompanydomain.extension**  
+    b. Na **nome de utilizador** tipo de campo **brittasimon\@yourcompanydomain.extension**  
     Por exemplo, BrittaSimon@contoso.com
 
     c. Selecione **palavra-passe de Show** caixa de verificação e, em seguida, anote o valor que é apresentado na caixa de palavra-passe.

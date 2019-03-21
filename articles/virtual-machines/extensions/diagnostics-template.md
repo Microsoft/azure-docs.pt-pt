@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 05/31/2017
 ms.author: saurabh
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 85e9b49cb8be1a3f53ca0f3b4816e6165b68bde0
-ms.sourcegitcommit: fd488a828465e7acec50e7a134e1c2cab117bee8
+ms.openlocfilehash: 00b4a145da9104cab410c5a07f6d7ec5ded5c45d
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "53993115"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57893548"
 ---
 # <a name="use-monitoring-and-diagnostics-with-a-windows-vm-and-azure-resource-manager-templates"></a>Utilizar a monitorização e diagnóstico com modelos de VM do Windows e do Azure Resource Manager
 A extensão de diagnóstico do Azure fornece as capacidades de monitorização e diagnóstico numa máquina virtual do Azure baseado no Windows. Pode ativar estas capacidades na máquina virtual, incluindo a extensão como parte do modelo do Azure Resource Manager. Ver [criação de modelos do Azure Resource Manager com extensões de VM](../windows/template-description.md#extensions) para obter mais informações sobre a inclusão de qualquer extensão como parte de um modelo de máquina virtual. Este artigo descreve como adicionar a extensão de diagnóstico do Azure para um modelo de máquina virtual do windows.  
@@ -162,7 +162,7 @@ A configuração de métricas acima gera tabelas na sua conta de armazenamento d
 * **PT1H** ou **PT1M**: Significa que a tabela contém dados agregados de mais de 1 hora ou de 1 minuto
 * **P10D**: Significa que a tabela irá conter dados durante 10 dias a partir de quando a tabela à recolha de dados
 * **V2S**: Constante de cadeia
-* **AAAAMMDD**: A data em que a tabela à recolha de dados
+* **yyyymmdd**: A data em que a tabela à recolha de dados
 
 Exemplo: *WADMetricsPT1HP10DV2S20151108* contém dados de métricas agregados mais de uma hora durante 10 dias a partir de 11-Novembro de 2015    
 

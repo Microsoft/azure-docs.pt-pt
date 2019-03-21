@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen
-ms.openlocfilehash: 555fcc8998f954d222753194fc08bdf4a113d59c
-ms.sourcegitcommit: dd1a9f38c69954f15ff5c166e456fda37ae1cdf2
+ms.openlocfilehash: 8ae6c8a20a05df723d3f6b394e0639f218896a85
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57570951"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57845142"
 ---
 # <a name="show-search-results-on-the-map"></a>Mostrar resultados da pesquisa no mapa
 
@@ -33,7 +33,7 @@ O segundo bloco de código cria um **SubscriptionKeyCredentialPolicy** para aute
 
 O terceiro bloco de código cria uma origem de dados objeto utilizando a [origem de dados](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.source.datasource?view=azure-iot-typescript-latest) de classe e adicionar-lhe os resultados da pesquisa. Uma [camada de símbolo](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.symbollayer?view=azure-iot-typescript-latest) usa ou ícones de texto para processar dados com base no ponto encapsulados no [DataSource](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.source.datasource?view=azure-iot-typescript-latest) como símbolos no mapa.  Uma camada de símbolo, em seguida, é criada e a origem de dados é adicionada para a camada de símbolo, o que é então adicionada ao mapa.
 
-O quarto bloco de código utiliza a [SearchFuzzy](https://docs.microsoft.com/javascript/api/azure-maps-rest/services.search?view=azure-iot-typescript-latest#getsearchfuzzy-string--searchgetsearchfuzzyoptionalparams-) método na [módulo do serviço](https://atlas.microsoft.com/sdk/js/atlas-service.js?api-version=2). Permite-lhe executar uma pesquisa de texto de forma livre através da [obter pesquisa difusa rest API](https://docs.microsoft.com/rest/api/maps/search/getsearchfuzzy) para procurar o ponto de interesse. Obter a API de pesquisa difusa pode lidar com qualquer combinação de entradas difusas. Uma coleção de recursos de GeoJSON da resposta é extraída, em seguida, utilizar o **geojson.getFeatures()** método e adicionado à origem de dados, o que resulta automaticamente nos dados que está sendo renderizados no mapa através da camada de símbolo.
+O quarto bloco de código utiliza a [SearchFuzzy](/javascript/api/azure-maps-rest/atlas.service.models.searchgetsearchfuzzyoptionalparams) método na [módulo do serviço](https://atlas.microsoft.com/sdk/js/atlas-service.js?api-version=2). Permite-lhe executar uma pesquisa de texto de forma livre através da [obter pesquisa difusa rest API](https://docs.microsoft.com/rest/api/maps/search/getsearchfuzzy) para procurar o ponto de interesse. Obter a API de pesquisa difusa pode lidar com qualquer combinação de entradas difusas. Uma coleção de recursos de GeoJSON da resposta é extraída, em seguida, utilizar o **geojson.getFeatures()** método e adicionado à origem de dados, o que resulta automaticamente nos dados que está sendo renderizados no mapa através da camada de símbolo.
 
 O último bloco de código ajusta os limites de câmera para o mapa através do mapa [setCamera](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#setcamera-cameraoptions---cameraboundsoptions---animationoptions-) propriedade.
 

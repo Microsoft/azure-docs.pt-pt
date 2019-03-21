@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 11/04/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: be953621dbadee74361b2170c2a532cfec6ef77a
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: d67bd26dcb2ac0b3bf909e1ef3d5ca75a0882eb3
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55477865"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57840652"
 ---
 # <a name="create-hive-tables-and-load-data-from-azure-blob-storage"></a>Criar tabelas do Hive e carregar dados do armazenamento de Blobs do Azure
 
@@ -36,7 +36,7 @@ Partimos do princípio de que os dados de tabelas do Hive estão numa **descompr
 
 Se quiser prática sobre o **dados de viagens de táxis NYC**, terá de:
 
-* **Baixe** a 24 [dados de viagens de táxis NYC](http://www.andresmh.com/nyctaxitrips) ficheiros (ficheiros de viagens 12 e 12 ficheiros de Europeia),
+* **Baixe** a 24 [dados de viagens de táxis NYC](https://www.andresmh.com/nyctaxitrips) ficheiros (ficheiros de viagens 12 e 12 ficheiros de Europeia),
 * **deszipe** todos os ficheiros para os ficheiros. csv e, em seguida,
 * **carregue** -os para o padrão (ou contentor adequado) de armazenamento do Azure conta; as opções para esta conta aparecer no [armazenamento de utilização Azure com clusters do Azure HDInsight](../../hdinsight/hdinsight-hadoop-use-blob-storage.md) tópico. O processo para carregar os ficheiros. csv para o contentor predefinido na conta de armazenamento pode ser encontrado nisso [página](hive-walkthrough.md#upload).
 

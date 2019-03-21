@@ -12,12 +12,12 @@ ms.author: sstein
 ms.reviewer: ''
 manager: craigg
 ms.date: 12/04/2018
-ms.openlocfilehash: 67b9be6f7788acd44ac60fe0c71133d69a2c122e
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.openlocfilehash: a1e1be24f9cb6d762d5480385843e9a5356d4a29
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57313842"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57889798"
 ---
 # <a name="installing-elastic-database-jobs-overview"></a>Instalação de descrição geral das tarefas de bases de dados elásticas
 
@@ -27,12 +27,12 @@ ms.locfileid: "57313842"
 
 [**Tarefas de base de dados elásticas** ](sql-database-elastic-jobs-overview.md) pode ser instalado através do PowerShell ou através do portal do Azure. Pode obter acesso para criar e gerir tarefas com a API de PowerShell apenas se instalar o pacote do PowerShell. Além disso, as APIs do PowerShell fornecem significativamente mais funcionalidade do que o portal no momento.
 
-Se já tiver instalado **tarefas de bases de dados elásticas** através do Portal existente de um **conjunto elástico**, a pré-visualização mais recente do Powershell inclui scripts para atualizar sua instalação existente. É altamente recomendável atualizar sua instalação para o versão mais recente **tarefas de bases de dados elásticas** componentes para tirar o máximo partido da nova funcionalidade exposta por meio das APIs do PowerShell.
+Se já tiver instalado **tarefas de bases de dados elásticas** através do Portal existente de um **conjunto elástico**, a pré-visualização mais recente do PowerShell inclui scripts para atualizar sua instalação existente. É altamente recomendável atualizar sua instalação para o versão mais recente **tarefas de bases de dados elásticas** componentes para tirar o máximo partido da nova funcionalidade exposta por meio das APIs do PowerShell.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 * Uma subscrição do Azure. Para uma avaliação gratuita, consulte [avaliação gratuita](https://azure.microsoft.com/pricing/free-trial/).
 * Azure PowerShell. Instalar a versão mais recente com o [instalador de plataforma Web](https://go.microsoft.com/fwlink/p/?linkid=320376). Para informações detalhadas, consulte [Como instalar e configurar o Azure PowerShell](/powershell/azure/overview).
-* [O utilitário de linha de comandos do NuGet](https://nuget.org/nuget.exe) é utilizado para instalar o pacote de tarefas de bases de dados elásticas. Para obter mais informações, consulte http://docs.nuget.org/docs/start-here/installing-nuget.
+* [O utilitário de linha de comandos do NuGet](https://nuget.org/nuget.exe) é utilizado para instalar o pacote de tarefas de bases de dados elásticas. Para obter mais informações, consulte https://docs.nuget.org/docs/start-here/installing-nuget.
 
 ## <a name="download-and-import-the-elastic-database-jobs-powershell-package"></a>Transferir e importar o pacote de PowerShell de tarefas de bases de dados elásticas
 1. Inicie a janela de comando do Microsoft Azure PowerShell e navegue para o diretório onde transferiu o utilitário de linha de comandos do NuGet (nuget.exe).
@@ -75,9 +75,7 @@ Os parâmetros fornecidos nesta invocação de exemplo podem ser modificados par
     <td>Fornece o nome do grupo de recursos do Azure criado para conter os componentes do Azure recentemente criados. Este parâmetro, por predefinição "__ElasticDatabaseJob". Não é recomendado alterar este valor.</td>
     </tr>
 
-</tr>
-
-    <tr>
+<tr>
     <td>ResourceGroupLocation</td>
     <td>Disponibiliza a localização do Azure a ser utilizado para os componentes do Azure recentemente criados. Este parâmetro, por predefinição para a localização E.U.A. Central.</td>
 </tr>
@@ -85,28 +83,24 @@ Os parâmetros fornecidos nesta invocação de exemplo podem ser modificados par
 <tr>
     <td>ServiceWorkerCount</td>
     <td>Fornece o número de trabalhadores de serviço para instalar. Este parâmetro é predefinido para 1. Um número mais alto de trabalhos pode ser utilizado para aumentar horizontalmente o serviço e para proporcionar elevada disponibilidade. Recomenda-se para utilizar "2" para Implantações que exigem elevada disponibilidade do serviço.</td>
-    </tr>
-
 </tr>
-    <tr>
+
+<tr>
     <td>ServiceVmSize</td>
     <td>Fornece o tamanho da VM para utilização no serviço Cloud. Este parâmetro, por predefinição A0. Valores de parâmetros de.... /.. / A3 são aceites que fazer com que a função de trabalho utilizar um tamanho de extra pequena/pequeno/médio/grande, respectivamente. Veja de obter mais informações sobre tamanhos de função de trabalho, Fo [tarefas de bases de dados elásticas, componentes e preços](sql-database-elastic-jobs-overview.md#components-and-pricing).</td>
 </tr>
 
-</tr>
-    <tr>
+<tr>
     <td>SqlServerDatabaseSlo</td>
     <td>Fornece o tamanho de computação para uma edição Standard. Este parâmetro, por predefinição S0. Valores de parâmetro de.... /.. /.. /.. / S9/S12 são aceites que fazer com que a base de dados do SQL do Azure utilizar o tamanho de computação respectivos. Para obter mais informações sobre tamanhos de computação de base de dados SQL, consulte [tarefas de bases de dados elásticas, componentes e preços](sql-database-elastic-jobs-overview.md#components-and-pricing).</td>
 </tr>
 
-</tr>
-    <tr>
+<tr>
     <td>SqlServerAdministratorUserName</td>
     <td>Fornece o nome de utilizador de administrador para o servidor de base de dados do Azure SQL criado recentemente. Quando não especificado, será aberta uma janela de credenciais do PowerShell para solicitar as credenciais.</td>
 </tr>
 
-</tr>
-    <tr>
+<tr>
     <td>SqlServerAdministratorPassword</td>
     <td>Fornece a palavra-passe de administrador para o servidor de base de dados do Azure SQL criado recentemente. Quando não fornecido, será aberta uma janela de credenciais do PowerShell para solicitar as credenciais.</td>
 </tr>
@@ -131,22 +125,17 @@ Para atualizar o tamanho da VM de uma instalação, execute o seguinte script co
   <th>Descrição</th>
 </tr>
 
-  <tr>
+<tr>
     <td>ResourceGroupName</td>
     <td>Identifica o nome do grupo de recursos do Azure utilizado quando os componentes de tarefa elástica da base de dados foram instalados inicialmente. Este parâmetro, por predefinição "__ElasticDatabaseJob". Uma vez que não é recomendado alterar este valor, não deve ter de especificar este parâmetro.</td>
-    </tr>
 </tr>
 
-</tr>
-
-  <tr>
+<tr>
     <td>ServiceWorkerCount</td>
     <td>Fornece o número de trabalhadores de serviço para instalar.  Este parâmetro é predefinido para 1.  Um número mais alto de trabalhos pode ser utilizado para aumentar horizontalmente o serviço e para proporcionar elevada disponibilidade.  Recomenda-se para utilizar "2" para Implantações que exigem elevada disponibilidade do serviço.</td>
 </tr>
 
-</tr>
-
-    <tr>
+<tr>
     <td>ServiceVmSize</td>
     <td>Fornece o tamanho da VM para utilização no serviço Cloud. Este parâmetro, por predefinição A0. Valores de parâmetros de.... /.. / A3 são aceites que fazer com que a função de trabalho utilizar um tamanho de extra pequena/pequeno/médio/grande, respectivamente. Veja de obter mais informações sobre tamanhos de função de trabalho, Fo [tarefas de bases de dados elásticas, componentes e preços](sql-database-elastic-jobs-overview.md#components-and-pricing).</td>
 </tr>

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 1/29/2019
 ms.author: dukek
 ms.subservice: alerts
-ms.openlocfilehash: 8e9208981dd54fef1f56ee552d34bab78210b96d
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.openlocfilehash: 29db8c8b51082016d413c66c6abfdb1c518c9329
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57316562"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58117970"
 ---
 # <a name="create-and-manage-action-groups-in-the-azure-portal"></a>Criar e gerir grupos de ação no portal do Azure
 ## <a name="overview"></a>Descrição geral ##
@@ -72,9 +72,9 @@ Depois de criar um grupo de ação, é visível na **grupos de ação** secção
 **Aplicação do Azure Push** -pode ter um número limitado de ações de aplicação do Azure num grupo de ação. Neste momento, a ação de aplicações do Azure só suporta ServiceHealth alertas. Qualquer outro tipo de alerta será ignorado. Ver [configurar alertas sempre que uma notificação de estado de funcionamento do serviço é lançada](../../azure-monitor/platform/alerts-activity-log-service-notifications.md).
 
 **E-mail** -serão enviadas mensagens de correio eletrónico dos seguintes endereços de e-mail. Certifique-se de que a filtragem de e-mail está configurado corretamente
-   - azure-noreply@microsoft.com
-   - azureemail-noreply@microsoft.com
-   - alerts-noreply@mail.windowsazure.com
+- azure-noreply@microsoft.com
+- azureemail-noreply@microsoft.com
+- alerts-noreply@mail.windowsazure.com
 
 Pode ter um número limitado de ações de e-mail num grupo de ação. Consulte a [informações de limitação de taxas](./../../azure-monitor/platform/alerts-rate-limiting.md) artigo
 

@@ -10,12 +10,12 @@ ms.subservice: manage
 ms.date: 10/12/2018
 ms.author: elbutter
 ms.reviewer: craigg
-ms.openlocfilehash: 3b354ebf5436a6637fe126085225b0ae6c8f1dcc
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 1d8b6d2df21fe0aabe85754e061db4deb129b32e
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55465865"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57895707"
 ---
 # <a name="get-started-quickly-with-fivetran-and-sql-data-warehouse"></a>Comece a trabalhar rapidamente com Fivetran e o SQL Data Warehouse
 
@@ -80,5 +80,5 @@ Para iniciar sessão no Fivetran, introduza as credenciais que utiliza para aced
 * Anfitrião (o nome do servidor).
 * Porta.
 * Base de dados.
-* Utilizador (o nome de utilizador deve estar **fivetran @_server_name_**  em que *server_name* faz parte do seu URI de anfitrião do Azure: ***server_name*.database.windows .net** ).
+* Utilizador (o nome de utilizador deve estar **fivetran\@_server_name_**  em que *server_name* faz parte do seu URI de anfitrião do Azure: ***server_name *. Database.Windows.NET**).
 * Palavra-passe.

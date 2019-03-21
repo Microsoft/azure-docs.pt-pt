@@ -17,12 +17,12 @@ ms.date: 03/01/2019
 ms.author: markvi
 ms.reviewer: jairoc
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0f3c1dae656e91fab91878ca2411f6cad0fc0431
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.openlocfilehash: b303841dffd09e2c2f8250e4a7885fda36ab4a38
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57315151"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58168610"
 ---
 # <a name="what-is-device-management-in-azure-active-directory"></a>O que é a gestão de dispositivos no Azure Active Directory?
 

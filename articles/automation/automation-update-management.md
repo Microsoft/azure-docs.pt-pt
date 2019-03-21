@@ -6,19 +6,19 @@ ms.service: automation
 ms.subservice: update-management
 author: georgewallace
 ms.author: gwallace
-ms.date: 03/04/2019
+ms.date: 03/15/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: c8b25c0caf71835ccb5a055956d73a713efa5da0
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
-ms.translationtype: MT
+ms.openlocfilehash: 77f18a80c094fbaf58cfb09df38e5fa1c924329a
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57541218"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57856197"
 ---
 # <a name="update-management-solution-in-azure"></a>Solução de gestão de atualizações no Azure
 
-Pode utilizar a solução de gestão de atualizações na automatização do Azure para gerir atualizações do sistema operativo para os seus computadores Windows e Linux que estão implementados no Azure, em ambientes no local ou em outros fornecedores de cloud. Pode rapidamente avaliar o estado das atualizações disponíveis em todos os computadores agente e gerir o processo de instalação de atualizações necessárias para os servidores.
+Pode utilizar a solução de gestão de atualizações na automatização do Azure para gerir atualizações do sistema operativo para os seus computadores Windows e Linux no Azure, em ambientes no local ou em outros fornecedores de cloud. Pode rapidamente avaliar o estado das atualizações disponíveis em todos os computadores agente e gerir o processo de instalação de atualizações necessárias para os servidores.
 
 Pode ativar a gestão de atualizações para máquinas virtuais diretamente a partir da sua conta de automatização do Azure. Para saber como ativar a gestão de atualizações para máquinas virtuais a partir da sua conta de automatização, veja [gerir atualizações para várias máquinas virtuais](manage-update-multi.md). Também pode ativar a gestão de atualizações para uma máquina virtual a partir da página de máquina virtual no portal do Azure. Este cenário está disponível para [Linux](../virtual-machines/linux/tutorial-monitoring.md#enable-update-management) e [Windows](../virtual-machines/windows/tutorial-monitoring.md#enable-update-management) máquinas virtuais.
 
@@ -35,7 +35,7 @@ Computadores que são geridos pela gestão de atualizações utilizam as seguint
 
 O diagrama seguinte mostra uma vista conceptual do comportamento e fluxo de dados com como a solução avalia e aplica as atualizações de segurança a todos os Windows Server computadores e Linux ligados numa área de trabalho:
 
-![Atualizar o fluxo do processo de gestão](media/automation-update-management/update-mgmt-updateworkflow.png)
+![Atualizar o fluxo do processo de gestão](./media/automation-update-management/update-mgmt-updateworkflow.png)
 
 Gestão de atualizações pode ser utilizado de forma nativa carregar máquinas em várias subscrições no mesmo inquilino.
 
@@ -276,7 +276,7 @@ As tabelas seguintes listam as classificações de atualização na gestão de a
 |Update rollups     | Um conjunto cumulativo de correções que são agrupadas para facilitar a implementação.        |
 |Pacotes de funcionalidades     | Novas funcionalidades do produto que são distribuídas fora de uma versão do produto.        |
 |Service packs     | Um conjunto cumulativo de correções que são aplicadas a uma aplicação.        |
-|Atualizações da definição     | Uma atualização para vírus ou outros ficheiros de definição.        |
+|Atualizações de definições     | Uma atualização para vírus ou outros ficheiros de definição.        |
 |Ferramentas     | Um utilitário ou funcionalidade que ajuda a concluir tarefas de um ou mais.        |
 |Atualizações     | Uma atualização para uma aplicação ou ficheiro que está instalado atualmente.        |
 
@@ -295,7 +295,7 @@ sudo yum -q --security check-update
 
 Atualmente, não existe nenhum método de método suportado para ativar a disponibilidade de dados de classificação nativos no CentOS. Neste momento, apenas de melhor esforço suporte é fornecido aos clientes que poderão ter ativada isso por conta própria.
 
-## <a name="firstparty-predownload"></a>Aplicação de patches de terceiros em primeiro lugar e pré-transferir
+## <a name="firstparty-predownload"></a>Definições avançadas
 
 Gestão de atualizações que se baseia no Windows Update para transferir e instalar atualizações do Windows. Como resultado, respeitamos muitos das definições utilizadas pelo Windows Update. Se utilizar as definições para ativar as atualizações de não-Windows, gestão de atualizações irão gerir as atualizações também. Se pretender ativar a transferir atualizações antes de ocorre uma implementação de atualização, implementações de atualizações podem ir mais rápido e ser menos provável de exceder a janela de manutenção.
 
@@ -311,9 +311,18 @@ $WUSettings.NotificationLevel = 3
 $WUSettings.Save()
 ```
 
+### <a name="disable-automatic-installation"></a>Desativar a instalação automática
+
+As VMs do Azure têm a instalação automática de atualizações ativada por predefinição. Isso pode fazer com que a instalação antes de agendá-las para ser instalado por gestão de atualizações de atualizações. Pode desativar esse comportamento, definindo a `NoAutoUpdate` chave de registo para `1`. O fragmento de PowerShell seguinte mostra-lhe uma forma de fazer isso.
+
+```powershell
+$AutoUpdatePath = "HKLM:SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate\AU"
+Set-ItemProperty -Path $AutoUpdatePath -Name NoAutoUpdate -Value 1
+```
+
 ### <a name="enable-updates-for-other-microsoft-products"></a>Ativar as atualizações para outros produtos da Microsoft
 
-Por predefinição, o Windows Update fornece apenas atualizações para Windows. Se habilitar **dar-me de atualizações para outros produtos Microsoft se eu atualizar o Windows**, é apresentada com as atualizações para outros produtos, incluindo patches de segurança essas coisas para SQL Server ou outro software de terceiros primeiro. Esta opção não pode ser configurada pela diretiva de grupo. Execute o PowerShell seguinte nos sistemas que deseja ativar outros primeiro patches de terceiros em e gestão de atualizações irão honrar esta definição.
+Por predefinição, o Windows Update fornece apenas atualizações para Windows. Se habilitar **dar-me de atualizações para outros produtos Microsoft se eu atualizar o Windows**, é apresentada com as atualizações para outros produtos, incluindo patches de segurança para o SQL Server ou outro software de terceiros primeiro. Esta opção não pode ser configurada pela diretiva de grupo. Execute o PowerShell seguinte nos sistemas que deseja ativar outros primeiro patches de terceiros em e gestão de atualizações irão honrar esta definição.
 
 ```powershell
 $ServiceManager = (New-Object -com "Microsoft.Update.ServiceManager")
@@ -601,7 +610,7 @@ No Red Hat Enterprise Linux, o nome do pacote para excluir é redhat-release-ser
 
 Ao implementar atualizações de uma máquina Linux, pode selecionar as classificações de atualização. Este procedimento filtra as atualizações que são aplicadas à máquina que cumpram os critérios especificados. Este filtro é aplicado localmente na máquina, quando a atualização é implementada.
 
-Como gestão de atualizações executa enriquecimento de atualização na cloud, algumas atualizações poderão ser sinalizadas na gestão de atualizações como tendo impacto de segurança, mesmo que a máquina local não tem essas informações. Como resultado, se aplicar atualizações críticas a uma máquina Linux, poderá haver atualizações que não estejam marcadas como tendo o impacto de segurança que a máquina e as atualizações não são aplicadas.
+Como gestão de atualizações executa enriquecimento de atualização na cloud, algumas atualizações podem ser sinalizadas na gestão de atualizações como tendo impacto de segurança, mesmo que a máquina local não tem essa informação. Como resultado, se aplicar atualizações críticas a uma máquina Linux, poderá haver atualizações que não estejam marcadas como tendo o impacto de segurança que a máquina e as atualizações não são aplicadas.
 
 No entanto, a gestão de atualizações ainda podem comunicar que a máquina como estando em não conformidade porque tem informações adicionais sobre a atualização relevante.
 
@@ -614,10 +623,6 @@ Para remover uma VM de gestão de atualizações:
 * Na área de trabalho do Log Analytics, remover a VM da pesquisa guardada para a configuração de âmbito `MicrosoftDefaultScopeConfig-Updates`. Pesquisas guardadas podem ser encontradas na **gerais** na sua área de trabalho.
 * Remover os [Microsoft Monitoring agent](../azure-monitor/learn/quick-collect-windows-computer.md#clean-up-resources) ou o [agente do Log Analytics para Linux](../azure-monitor/learn/quick-collect-linux-computer.md#clean-up-resources).
 
-## <a name="troubleshoot"></a>Resolução de problemas
-
-Para saber como resolver problemas de gestão de atualizações, veja [resolução de problemas de gestão de atualizações](troubleshoot/update-management.md)
-
 ## <a name="next-steps"></a>Passos Seguintes
 
 Avance para o tutorial para saber como gerir atualizações para as suas máquinas virtuais do Windows.
@@ -629,4 +634,4 @@ Avance para o tutorial para saber como gerir atualizações para as suas máquin
 * [Criar alertas](automation-tutorial-update-management.md#configure-alerts) para obter o estado de implementação de atualização.
 
 * Para saber como interagir com a gestão de atualizações por meio da API REST, veja [as configurações de atualização de Software](/rest/api/automation/softwareupdateconfigurations)
-
+* Para saber como resolver problemas de gestão de atualizações, veja [resolução de problemas de gestão de atualizações](troubleshoot/update-management.md)

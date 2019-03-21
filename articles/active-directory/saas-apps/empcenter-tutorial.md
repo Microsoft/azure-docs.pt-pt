@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 02/05/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a0eb51180dc8f5d0091e24d993a64599151e02fd
-ms.sourcegitcommit: 1902adaa68c660bdaac46878ce2dec5473d29275
+ms.openlocfilehash: 12eb3c9bc011a6dd0af2054d8a0f3b1568d0ed21
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/11/2019
-ms.locfileid: "57731665"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57850841"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-empcenter"></a>Tutorial: Integração do Active Directory do Azure com EmpCenter
 
@@ -106,6 +106,7 @@ Para configurar o Azure AD início de sessão único com EmpCenter, execute os s
     ![EmpCenter domínio e URLs únicas início de sessão em informações](common/sp-signonurl.png)
 
     Na **URL de início de sessão** caixa de texto, escreva um URL com o seguinte padrão:
+    
     | |
     |--|
     | `https://<subdomain>.EmpCenter.com/<instancename>` |
@@ -150,7 +151,7 @@ O objetivo desta secção é criar um utilizador de teste no portal do Azure cha
 
     a. Na **Name** campo introduza **BrittaSimon**.
   
-    b. Na **nome de utilizador** tipo de campo **brittasimon@yourcompanydomain.extension**  
+    b. Na **nome de utilizador** tipo de campo **brittasimon\@yourcompanydomain.extension**  
     Por exemplo, BrittaSimon@contoso.com
 
     c. Selecione **palavra-passe de Show** caixa de verificação e, em seguida, anote o valor que é apresentado na caixa de palavra-passe.
@@ -191,7 +192,7 @@ Para habilitar os utilizadores do Azure AD iniciar sessão no EmpCenter, tem de 
 > Pode utilizar quaisquer outras EmpCenter utilizador conta criação ferramentas ou APIs fornecidas pelo EmpCenter para aprovisionar o Azure Active Directory contas de utilizador.
 >
 
-### <a name="test-single-sign-on"></a>Testar início de sessão único 
+### <a name="test-single-sign-on"></a>Testar o início de sessão único 
 
 Nesta secção, vai testar a configuração do Azure AD única início de sessão com o painel de acesso.
 

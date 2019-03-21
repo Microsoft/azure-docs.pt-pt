@@ -9,18 +9,18 @@ ms.service: media-services
 ms.topic: tutorial
 ms.date: 02/10/2019
 ms.author: juliako
-ms.openlocfilehash: e3bba18e9b391807a154ff959e1ce59dabe04ece
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: c0c1f9e4b8ed854c562ad7af16222e726b3b4293
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55998240"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57893310"
 ---
 # <a name="quickstart-how-to-sign-up-and-upload-your-first-video"></a>Início rápido: Como inscrever-se e carregar o seu primeiro vídeo
 
 Este tutorial de introdução mostra-lhe como iniciar sessão no site do Video Indexer e carregar o seu primeiro vídeo.
 
-Quando criar uma conta do Video Indexer, pode optar por uma conta de avaliação gratuita (através da qual obtém um determinado número de minutos de indexação gratuitos) ou uma opção paga (não fica limitado pela quota). Com a avaliação gratuita, o Video Indexer fornece até 600 minutos de indexação gratuita a utilizadores de sites e até 2400 minutos de indexação gratuita a utilizadores de APIs. Com a opção paga, pode criar uma conta do Video Indexer que está [ligada à sua subscrição do Azure e uma conta dos Serviços de Multimédia do Azure](connect-to-azure.md). Irá pagar pelos minutos de indexação e pelas cobranças relacionadas com a conta dos Serviços de Multimédia do Azure. 
+Quando criar uma conta do Video Indexer, pode optar por uma conta de avaliação gratuita (através da qual obtém um determinado número de minutos de indexação gratuitos) ou uma opção paga (não fica limitado pela quota). Com a avaliação gratuita, o Video Indexer fornece até 600 minutos de indexação gratuita a utilizadores de sites e até 2400 minutos de indexação gratuita a utilizadores de APIs. Com uma opção paga, cria uma conta do Video Indexer que seja [ligado à sua subscrição do Azure e uma conta de Media Services do Azure](connect-to-azure.md). Irá pagar pelos minutos de indexação e pelas cobranças relacionadas com a conta dos Serviços de Multimédia do Azure. 
 
 ## <a name="sign-up-for-video-indexer"></a>Inscrever-se no Video Indexer
 

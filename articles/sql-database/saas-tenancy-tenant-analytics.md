@@ -12,12 +12,12 @@ ms.author: sstein
 ms.reviewer: anjangsh,billgib,genemi
 manager: craigg
 ms.date: 12/18/2018
-ms.openlocfilehash: f7c482a0308d3c2b2583d99cf4079040065b80c0
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
+ms.openlocfilehash: 9f88314bbf507dc3b4e282532acfa079c2a63cce
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55561396"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57890547"
 ---
 # <a name="cross-tenant-analytics-using-extracted-data---single-tenant-app"></a>Análise de entre inquilinos com extraídos dados - aplicação de inquilino único
  
@@ -93,7 +93,7 @@ Os passos seguintes, vai implementar o armazenamento de análise, o que é chama
     - Para utilizar a base de dados SQL com o arquivo de colunas, defina **$DemoScenario** = **3**  
 3. Prima **F5** para executar o script de demonstração (que chama o *implementar TenantAnalytics<XX>. ps1* script) que cria o arquivo de análise de inquilino. 
 
-Agora que implementou a aplicação e preenchido com dados interessantes de inquilino, utilize [SQL Server Management Studio (SSMS)](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) liguem **tenants1-dpt -&lt;utilizador&gt;**  e **catálogo-dpt -&lt;usuário&gt;**  servidores com início de sessão = *desenvolvedor*, palavra-passe = *P@ssword1*. Consulte a [introdutório](saas-dbpertenant-wingtip-app-overview.md) para obter mais orientações.
+Agora que implementou a aplicação e preenchido com dados interessantes de inquilino, utilize [SQL Server Management Studio (SSMS)](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) liguem **tenants1-dpt -&lt;utilizador&gt;**  e **catálogo-dpt -&lt;usuário&gt;**  servidores com início de sessão = *desenvolvedor*, palavra-passe = *P\@ssword1*. Consulte a [introdutório](saas-dbpertenant-wingtip-app-overview.md) para obter mais orientações.
 
 ![architectureOverView](media/saas-tenancy-tenant-analytics/ssmsSignIn.png)
 
@@ -175,7 +175,7 @@ Utilize os seguintes passos para ligar ao Power BI e para importar as vistas que
 
     ![signinpowerbi](./media/saas-tenancy-tenant-analytics/powerBISignIn.PNG)
 
-5. Selecione **base de dados** no painel esquerdo, em seguida, introduza o nome de utilizador = *programador*e introduza a palavra-passe = *P@ssword1*. Clique em **Ligar**.  
+5. Selecione **base de dados** no painel esquerdo, em seguida, introduza o nome de utilizador = *programador*e introduza a palavra-passe = *P\@ssword1*. Clique em **Ligar**.  
 
     ![databasesignin](./media/saas-tenancy-tenant-analytics/databaseSignIn.PNG)
 

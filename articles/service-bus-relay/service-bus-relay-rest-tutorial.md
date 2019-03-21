@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/06/2018
 ms.author: spelluru
-ms.openlocfilehash: e0f85e11b2be8a615f949e0d37325dbd748f728a
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.openlocfilehash: 4ed45e1ed18ad630831772997b1fc150882731bd
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55103280"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57847971"
 ---
 # <a name="azure-wcf-relay-rest-tutorial"></a>Tutorial de REST do reencaminhamento WCF do Azure
 Este tutorial descreve como criar uma simples aplicação anfitriã de reencaminhamento do Azure que expõe uma interface baseada em REST. O REST permite que um cliente web, como um navegador, aceda às APIs do Service Bus através de pedidos de HTTP.
@@ -40,7 +40,7 @@ Siga os passos seguintes neste tutorial:
 Para concluir este tutorial, precisa dos seguintes pré-requisitos:
 
 - Uma subscrição do Azure. Se não tiver uma, [crie uma conta gratuita](https://azure.microsoft.com/free/) antes de começar.
-- [Visual Studio 2015 ou posterior](http://www.visualstudio.com). Os exemplos neste tutorial utilizam o Visual Studio 2017.
+- [Visual Studio 2015 ou posterior](https://www.visualstudio.com). Os exemplos neste tutorial utilizam o Visual Studio 2017.
 - Azure SDK para .NET. Instale-o a partir da [página de downloads do SDK](https://azure.microsoft.com/downloads/).
 
 ## <a name="create-a-relay-namespace"></a>Criar um espaço de nomes do reencaminhamento
@@ -81,10 +81,10 @@ A principal diferença entre um contrato WCF e um contrato de estilo REST é a a
     {
         ...
     ```
-8. Imediatamente depois da chaveta de abertura da declaração do espaço de nomes, defina uma nova interface com o nome **IImageContract** e aplique o atributo **ServiceContractAttribute** à interface com um valor `http://samples.microsoft.com/ServiceModel/Relay/`. O valor do espaço de nomes difere do espaço de nomes que utiliza em todo o âmbito do seu código. O valor do espaço de nomes utiliza-se como identificador exclusivo para este contrato e deve conter a informação da versão. Para obter mais informações, consulte o artigo [Controlo de Versões do Serviço](https://go.microsoft.com/fwlink/?LinkID=180498). A especificação explícita do espaço de nomes impede que o valor de espaço de nomes predefinido seja adicionado ao nome do contrato.
+8. Imediatamente depois da chaveta de abertura da declaração do espaço de nomes, defina uma nova interface com o nome **IImageContract** e aplique o atributo **ServiceContractAttribute** à interface com um valor `https://samples.microsoft.com/ServiceModel/Relay/`. O valor do espaço de nomes difere do espaço de nomes que utiliza em todo o âmbito do seu código. O valor do espaço de nomes utiliza-se como identificador exclusivo para este contrato e deve conter a informação da versão. Para obter mais informações, consulte o artigo [Controlo de Versões do Serviço](https://go.microsoft.com/fwlink/?LinkID=180498). A especificação explícita do espaço de nomes impede que o valor de espaço de nomes predefinido seja adicionado ao nome do contrato.
    
     ```csharp
-    [ServiceContract(Name = "ImageContract", Namespace = "http://samples.microsoft.com/ServiceModel/Relay/RESTTutorial1")]
+    [ServiceContract(Name = "ImageContract", Namespace = "https://samples.microsoft.com/ServiceModel/Relay/RESTTutorial1")]
     public interface IImageContract
     {
     }
@@ -134,7 +134,7 @@ using System.IO;
 namespace Microsoft.ServiceBus.Samples
 {
 
-    [ServiceContract(Name = "IImageContract", Namespace = "http://samples.microsoft.com/ServiceModel/Relay/")]
+    [ServiceContract(Name = "IImageContract", Namespace = "https://samples.microsoft.com/ServiceModel/Relay/")]
     public interface IImageContract
     {
         [OperationContract, WebGet]
@@ -169,7 +169,7 @@ Tal como acontece com os passos anteriores, há muito pouca diferença entre a i
 2. Aplique o atributo [ServiceBehaviorAttribute](/dotnet/api/system.servicemodel.servicebehaviorattribute) à classe **IImageService** para indicar que a classe é uma implementação de um contrato de WCF.
    
     ```csharp
-    [ServiceBehavior(Name = "ImageService", Namespace = "http://samples.microsoft.com/ServiceModel/Relay/")]
+    [ServiceBehavior(Name = "ImageService", Namespace = "https://samples.microsoft.com/ServiceModel/Relay/")]
     class ImageService : IImageContract
     {
     }
@@ -311,7 +311,7 @@ namespace Microsoft.ServiceBus.Samples
 {
 
 
-    [ServiceContract(Name = "ImageContract", Namespace = "http://samples.microsoft.com/ServiceModel/Relay/")]
+    [ServiceContract(Name = "ImageContract", Namespace = "https://samples.microsoft.com/ServiceModel/Relay/")]
     public interface IImageContract
     {
         [OperationContract, WebGet]
@@ -320,7 +320,7 @@ namespace Microsoft.ServiceBus.Samples
 
     public interface IImageChannel : IImageContract, IClientChannel { }
 
-    [ServiceBehavior(Name = "ImageService", Namespace = "http://samples.microsoft.com/ServiceModel/Relay/")]
+    [ServiceBehavior(Name = "ImageService", Namespace = "https://samples.microsoft.com/ServiceModel/Relay/")]
     class ImageService : IImageContract
     {
         const string imageFileName = "image.jpg";
@@ -512,7 +512,7 @@ using Microsoft.ServiceBus.Web;
 namespace Microsoft.ServiceBus.Samples
 {
 
-    [ServiceContract(Name = "ImageContract", Namespace = "http://samples.microsoft.com/ServiceModel/Relay/")]
+    [ServiceContract(Name = "ImageContract", Namespace = "https://samples.microsoft.com/ServiceModel/Relay/")]
     public interface IImageContract
     {
         [OperationContract, WebGet]
@@ -521,7 +521,7 @@ namespace Microsoft.ServiceBus.Samples
 
     public interface IImageChannel : IImageContract, IClientChannel { }
 
-    [ServiceBehavior(Name = "ImageService", Namespace = "http://samples.microsoft.com/ServiceModel/Relay/")]
+    [ServiceBehavior(Name = "ImageService", Namespace = "https://samples.microsoft.com/ServiceModel/Relay/")]
     class ImageService : IImageContract
     {
         const string imageFileName = "image.jpg";

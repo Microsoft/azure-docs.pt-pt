@@ -11,13 +11,13 @@ author: oslake
 ms.author: moslake
 ms.reviewer: vanto, genemi
 manager: craigg
-ms.date: 02/20/2019
-ms.openlocfilehash: 15ca464e8e44183b445bfdabe9abf5dd560a4f70
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.date: 03/12/2019
+ms.openlocfilehash: 4af27ad4fb5096f3ccac5de901c76e8d7464e1f4
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57312267"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57887124"
 ---
 # <a name="use-virtual-network-service-endpoints-and-rules-for-database-servers"></a>Utilizar pontos finais de serviço de rede virtual e regras para servidores de base de dados
 
@@ -175,58 +175,60 @@ Normalmente é utilizar o PolyBase para carregar dados para o Azure SQL Data War
 #### <a name="prerequisites"></a>Pré-requisitos
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+> [!IMPORTANT]
+> O módulo do PowerShell do Azure Resource Manager ainda é suportado pelo SQL Database do Azure, mas todo o desenvolvimento futuro é para o módulo de Az.Sql. Para estes cmdlets, consulte [azurerm. SQL](https://docs.microsoft.com/powershell/module/AzureRM.Sql/). Os argumentos para os comandos no módulo Az e nos módulos AzureRm são substancialmente idênticos.
 
 1.  Instalar o Azure PowerShell através desta [guia](https://docs.microsoft.com/powershell/azure/install-az-ps).
 2.  Se tiver uma conta de armazenamento para fins gerais v1 ou BLOBs, tem de atualizar primeiro para fins gerais v2 através desta [guia](https://docs.microsoft.com/azure/storage/common/storage-account-upgrade).
 3.  Tem de ter **permitir confiável a serviços da Microsoft para aceder a esta conta de armazenamento** ativada na conta de armazenamento do Azure **Firewalls e redes virtuais** menu definições. Consulte este [guia](https://docs.microsoft.com/azure/storage/common/storage-network-security#exceptions) para obter mais informações.
  
 #### <a name="steps"></a>Passos
-1.  No PowerShell, **registar o servidor de base de dados SQL** com o Azure Active Directory (AAD):
+1. No PowerShell, **registar o servidor de base de dados SQL** com o Azure Active Directory (AAD):
 
-    ```powershell
-    Connect-AzAccount
-    Select-AzSubscription -SubscriptionId your-subscriptionId
-    Set-AzSqlServer -ResourceGroupName your-database-server-resourceGroup -ServerName your-database-servername -AssignIdentity
-    ```
+   ```powershell
+   Connect-AzAccount
+   Select-AzSubscription -SubscriptionId your-subscriptionId
+   Set-AzSqlServer -ResourceGroupName your-database-server-resourceGroup -ServerName your-database-servername -AssignIdentity
+   ```
     
- 1. Criar uma **para fins gerais v2 conta de armazenamento** usando essa [guia](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account).
+   1. Criar uma **para fins gerais v2 conta de armazenamento** usando essa [guia](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account).
 
-    > [!NOTE]
-    > - Se tiver uma conta de armazenamento para fins gerais v1 ou BLOBs, tem **atualizar primeiro para v2** usando essa [guia](https://docs.microsoft.com/azure/storage/common/storage-account-upgrade).
-    > - Para problemas conhecidos com geração 2 de armazenamento do Azure Data Lake, consulte este [guia](https://docs.microsoft.com/azure/storage/data-lake-storage/known-issues).
+   > [!NOTE]
+   > - Se tiver uma conta de armazenamento para fins gerais v1 ou BLOBs, tem **atualizar primeiro para v2** usando essa [guia](https://docs.microsoft.com/azure/storage/common/storage-account-upgrade).
+   > - Para problemas conhecidos com geração 2 de armazenamento do Azure Data Lake, consulte este [guia](https://docs.microsoft.com/azure/storage/data-lake-storage/known-issues).
     
-1.  Na sua conta de armazenamento, navegue até **controlo de acesso (IAM)** e clique em **adicionar atribuição de função**. Atribua **contribuinte de dados de Blob de armazenamento (pré-visualização)** função RBAC para o seu servidor de base de dados SQL.
+1. Na sua conta de armazenamento, navegue até **controlo de acesso (IAM)** e clique em **adicionar atribuição de função**. Atribua **contribuinte de dados de Blob de armazenamento (pré-visualização)** função RBAC para o seu servidor de base de dados SQL.
 
-    > [!NOTE] 
-    > Apenas os membros com privilégios de proprietário podem efetuar este passo. Para várias funções incorporadas para recursos do Azure, consulte este [guia](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles).
+   > [!NOTE] 
+   > Apenas os membros com privilégios de proprietário podem efetuar este passo. Para várias funções incorporadas para recursos do Azure, consulte este [guia](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles).
   
-1.  **Polybase a conectividade à conta de armazenamento do Azure:**
+1. **Polybase a conectividade à conta de armazenamento do Azure:**
 
-    1. Criar uma base de dados **[chave mestra](https://docs.microsoft.com/sql/t-sql/statements/create-master-key-transact-sql?view=sql-server-2017)** se ainda não criou uma anteriormente:
-        ```SQL
-        CREATE MASTER KEY [ENCRYPTION BY PASSWORD = 'somepassword'];
-        ```
+   1. Criar uma base de dados **[chave mestra](https://docs.microsoft.com/sql/t-sql/statements/create-master-key-transact-sql)** se ainda não criou uma anteriormente:
+       ```SQL
+       CREATE MASTER KEY [ENCRYPTION BY PASSWORD = 'somepassword'];
+       ```
     
-    1. Criar credencial com âmbito de base de dados com **IDENTITY = "Identidade do serviço gerido"**:
+   1. Criar credencial com âmbito de base de dados com **IDENTITY = "Identidade do serviço gerido"**:
 
-        ```SQL
-        CREATE DATABASE SCOPED CREDENTIAL msi_cred WITH IDENTITY = 'Managed Service Identity';
-        ```
-        > [!NOTE] 
-        > - Não é necessário especificar o segredo com chave de acesso de armazenamento do Azure porque usa esse mecanismo [identidade gerido](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview) nos bastidores.
-        > - Nome de identidade deve ser **"Identidade do serviço gerido"** para conectividade de PolyBase trabalhar com a conta de armazenamento do Azure obtida para a VNet.    
+       ```SQL
+       CREATE DATABASE SCOPED CREDENTIAL msi_cred WITH IDENTITY = 'Managed Service Identity';
+       ```
+       > [!NOTE] 
+       > - Não é necessário especificar o segredo com chave de acesso de armazenamento do Azure porque usa esse mecanismo [identidade gerido](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview) nos bastidores.
+       > - Nome de identidade deve ser **"Identidade do serviço gerido"** para conectividade de PolyBase trabalhar com a conta de armazenamento do Azure obtida para a VNet.    
     
-    1. Criar origem de dados externa com abfss: / / esquema para ligar à sua conta de armazenamento para fins gerais v2 com o PolyBase:
+   1. Criar origem de dados externa com abfss: / / esquema para ligar à sua conta de armazenamento para fins gerais v2 com o PolyBase:
 
-        ```SQL
-        CREATE EXTERNAL DATA SOURCE ext_datasource_with_abfss WITH (TYPE = hadoop, LOCATION = 'abfss://myfile@mystorageaccount.dfs.core.windows.net', CREDENTIAL = msi_cred);
-        ```
-        > [!NOTE] 
-        > - Se já tiver associadas à conta de armazenamento para fins gerais v1 ou blob de tabelas externas, deve primeiro remover essas tabelas externas e, em seguida, remover a origem de dados externa correspondente. Em seguida, criar origem de dados externa com abfss: / / esquema ligar à conta de armazenamento para fins gerais v2 conforme apresentado acima e voltar a criar todas as tabelas externas usando essa nova fonte de dados externa. Poderia usar [gerar e o Assistente de publicação de Scripts](https://docs.microsoft.com/sql/ssms/scripting/generate-and-publish-scripts-wizard?view=sql-server-2017) para gerar scripts de criar para todas as tabelas externas para facilitar.
-        > - Para obter mais informações sobre abfss: / / esquema, consulte este [guia](https://docs.microsoft.com/azure/storage/data-lake-storage/introduction-abfs-uri).
-        > - Para obter mais informações sobre criar origem de dados externa, consulte este [guia](https://docs.microsoft.com/sql/t-sql/statements/create-external-data-source-transact-sql).
+       ```SQL
+       CREATE EXTERNAL DATA SOURCE ext_datasource_with_abfss WITH (TYPE = hadoop, LOCATION = 'abfss://myfile@mystorageaccount.dfs.core.windows.net', CREDENTIAL = msi_cred);
+       ```
+       > [!NOTE] 
+       > - Se já tiver associadas à conta de armazenamento para fins gerais v1 ou blob de tabelas externas, deve primeiro remover essas tabelas externas e, em seguida, remover a origem de dados externa correspondente. Em seguida, criar origem de dados externa com abfss: / / esquema ligar à conta de armazenamento para fins gerais v2 conforme apresentado acima e voltar a criar todas as tabelas externas usando essa nova fonte de dados externa. Poderia usar [gerar e o Assistente de publicação de Scripts](https://docs.microsoft.com/sql/ssms/scripting/generate-and-publish-scripts-wizard) para gerar scripts de criar para todas as tabelas externas para facilitar.
+       > - Para obter mais informações sobre abfss: / / esquema, consulte este [guia](https://docs.microsoft.com/azure/storage/data-lake-storage/introduction-abfs-uri).
+       > - Para obter mais informações sobre criar origem de dados externa, consulte este [guia](https://docs.microsoft.com/sql/t-sql/statements/create-external-data-source-transact-sql).
         
-    1. Consulta como normal usando [tabelas externas](https://docs.microsoft.com/sql/t-sql/statements/create-external-table-transact-sql).
+   1. Consulta como normal usando [tabelas externas](https://docs.microsoft.com/sql/t-sql/statements/create-external-table-transact-sql).
 
 ### <a name="azure-sql-database-blob-auditing"></a>Base de dados SQL do Azure a auditoria de BLOBs
 
@@ -256,7 +258,7 @@ Erro de ligação 40914 está relacionado à *regras de rede virtual*, conforme 
 
 *Texto da mensagem:* Não é possível abrir o servidor '{0}"pedida pelo início de sessão. Cliente com o endereço IP{1}' não tem permissão para aceder ao servidor.
 
-*Descrição do erro:* O cliente está a tentar ligar a partir de um endereço IP que não está autorizado a ligar ao servidor de base de dados do Azure SQL. O firewall do servidor não tem nenhuma regra de endereço IP que permite que um cliente de comunicação entre o endereço IP indicado para a base de dados SQL.
+*Descrição do erro:* O cliente está a tentar ligar a partir de um endereço IP que não está autorizado a ligar ao servidor de base de dados do Azure SQL. O servidor da firewall não dispõe de qualquer regra de endereço IP que permita a um cliente comunicar entre esse mesmo endereço IP e a Base de Dados SQL.
 
 *Resolução de erro:* Introduza o endereço IP do cliente como uma regra de IP. Tal, utilize o painel de Firewall no portal do Azure.
 

@@ -17,12 +17,12 @@ ms.topic: article
 ms.date: 07/06/2016
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 5a4b8b2fd3e232d7b42b2f510075c3964ca50531
-ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
+ms.openlocfilehash: 5edd3e51e83b5ab324d1e110a1882b20d935a9b5
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/20/2018
-ms.locfileid: "53652579"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57899133"
 ---
 # <a name="troubleshoot-http-errors-of-502-bad-gateway-and-503-service-unavailable-in-azure-app-service"></a>Resolver erros HTTP "502 gateway inválido" e "503 Serviço indisponível" no serviço de aplicações do Azure
 "502 gateway inválido" e "503 Serviço indisponível" são erros comuns na sua aplicação alojada num [App Service do Azure](https://go.microsoft.com/fwlink/?LinkId=529714). Este artigo ajuda-o a resolver esses erros.
@@ -109,7 +109,7 @@ Além disso, pode optar por executar a sua aplicação em mais de uma instância
 Pode definir o dimensionamento Manual ou automático.
 
 #### <a name="use-autoheal"></a>Utilizam o AutoHeal
-AutoHeal recicla o processo de trabalho para a sua aplicação com base nas definições que escolher (como alterações de configuração, pedidos, limites baseados em memória ou o tempo necessário para executar um pedido). Na maioria das vezes, a forma mais rápida para recuperar a partir de um problema é a Reciclagem do processo. Embora sempre pode reiniciar a aplicação a partir diretamente no Portal do Azure, AutoHeal fará automaticamente para. Tudo o que precisa fazer é adicionar alguns acionadores ao Web. config de raiz para a sua aplicação. Tenha em atenção que estas definições funciona da mesma forma, mesmo que seu aplicativo não é um .net um.
+AutoHeal recicla o processo de trabalho para a sua aplicação com base nas definições que escolher (como alterações de configuração, pedidos, limites baseados em memória ou o tempo necessário para executar um pedido). Na maioria das vezes, a forma mais rápida para recuperar a partir de um problema é a Reciclagem do processo. Embora sempre pode reiniciar a aplicação a partir diretamente no Portal do Azure, AutoHeal fará automaticamente para. Tudo o que precisa fazer é adicionar alguns acionadores ao Web. config de raiz para a sua aplicação. Tenha em atenção que estas definições funciona da mesma forma, mesmo que seu aplicativo não é um .NET um.
 
 Para obter mais informações, consulte [Autorrecuperação dos Web Sites Azure](https://azure.microsoft.com/blog/auto-healing-windows-azure-web-sites/).
 

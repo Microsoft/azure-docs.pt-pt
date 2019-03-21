@@ -6,14 +6,14 @@ manager: timlt
 ms.author: dobett
 ms.service: iot-accelerators
 services: iot-accelerators
-ms.date: 08/06/2018
+ms.date: 03/08/2019
 ms.topic: conceptual
-ms.openlocfilehash: 56fbb5d45e55e63ae887d915367cfc649e531095
-ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
+ms.openlocfilehash: 9accb41cdb4d780bf137d6872cca022226f902e6
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/16/2018
-ms.locfileid: "51820227"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58180760"
 ---
 # <a name="configure-role-based-access-controls-in-the-remote-monitoring-solution-accelerator"></a>Configurar os controlos de acesso baseado em funções no solution accelerator monitorização remota
 
@@ -21,7 +21,7 @@ Este artigo fornece informações sobre como configurar os controlos de acesso b
 
 ## <a name="default-settings"></a>Predefinições
 
-Ao implementar a solução de monitorização remota em primeiro lugar, existem duas funções: **administrador** e **só de leitura**.
+Ao implementar a solução de monitorização remota em primeiro lugar, existem duas funções: **Admin** e **só de leitura**.
 
 Nenhum utilizador dos **administrador** função tem acesso total à solução, incluindo as seguintes permissões abaixo. Um utilizador a **só de leitura** função apenas terá acesso para ver a solução.
 

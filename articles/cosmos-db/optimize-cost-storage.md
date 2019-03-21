@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: rimman
-ms.openlocfilehash: 34b151c14323e7ee22c31f22a63b07a0fb18671e
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: aed32db257ddbc8cb5b8f4af5f27024c23583798
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57536220"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57892409"
 ---
 # <a name="optimize-storage-cost-in-azure-cosmos-db"></a>Otimizar o custo de armazenamento no Azure Cosmos DB
 
@@ -39,7 +39,7 @@ Se quiser armazenar tipos de mídia avançada, por exemplo, vídeos, imagens, et
 
 ## <a name="check-storage-consumed"></a>Verificar o armazenamento consumido
 
-Para verificar o consumo de armazenamento de um contentor do Cosmos do Azure, pode executar um pedido HEAD ou GET no contentor e inspecionar os `x-ms-request-quota` e o `x-ms-request-usage` cabeçalhos. Em alternativa, ao trabalhar com o SDK do .net, pode utilizar o [DocumentSizeQuota](https://docs.microsoft.com/previous-versions/azure/dn850325(v%3Dazure.100)), e [DocumentSizeUsage](https://msdn.microsoft.com/library/azure/dn850324.aspx) propriedades para obter o armazenamento consumido.
+Para verificar o consumo de armazenamento de um contentor do Cosmos do Azure, pode executar um pedido HEAD ou GET no contentor e inspecionar os `x-ms-request-quota` e o `x-ms-request-usage` cabeçalhos. Em alternativa, ao trabalhar com o SDK de .NET, pode utilizar o [DocumentSizeQuota](https://docs.microsoft.com/previous-versions/azure/dn850325(v%3Dazure.100)), e [DocumentSizeUsage](https://msdn.microsoft.com/library/azure/dn850324.aspx) propriedades para obter o armazenamento consumido.
 
 ## <a name="using-sdk"></a>Com o SDK
 

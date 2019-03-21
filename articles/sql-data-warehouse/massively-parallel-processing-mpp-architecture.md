@@ -10,12 +10,12 @@ ms.subservice: design
 ms.date: 04/17/2018
 ms.author: rortloff
 ms.reviewer: igorstan
-ms.openlocfilehash: 236009a3292f26d7fda73013c022f40535aa1ecb
-ms.sourcegitcommit: f7f4b83996640d6fa35aea889dbf9073ba4422f0
+ms.openlocfilehash: 0c2ad7e5a707c20db2773324e8047eedaad1a48b
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56992333"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57835038"
 ---
 # <a name="azure-sql-data-warehouse---massively-parallel-processing-mpp-architecture"></a>O Azure SQL Data Warehouse - paralelo em grande escala (MPP) arquitetura de processamento
 Saiba como o Azure SQL Data Warehouse combina processamento paralelo em massa (MPP) com o armazenamento do Azure para alcançar a escalabilidade e de elevado desempenho. 
@@ -51,7 +51,7 @@ O nó de controlo é o cérebro do armazém de dados. É o front-end que interag
 
 Os nós de computação fornecem a capacidade computacional. Mapa de distribuições para nós de computação para processamento. Como paga para obter mais recursos de computação, o SQL Data Warehouse mapeia novamente as distribuições para os nós de computação disponíveis. O número de intervalos de nós de 1 a 60 de computação e é determinado pelo nível de serviço para o armazém de dados.
 
-Cada nó de computação tem um ID de nó que está visível nas vistas de sistema. Pode ver o ID de nó de computação para a coluna de node_id nas vistas de sistema cujos nomes comecem com sys.pdw_nodes procurar. Para obter uma lista uma destas vistas de sistema, consulte [vistas de sistema MPP](http://docs.microsoft.com/sql/relational-databases/system-catalog-views/sql-data-warehouse-and-parallel-data-warehouse-catalog-views?view=aps-pdw-2016-au7).
+Cada nó de computação tem um ID de nó que está visível nas vistas de sistema. Pode ver o ID de nó de computação para a coluna de node_id nas vistas de sistema cujos nomes comecem com sys.pdw_nodes procurar. Para obter uma lista uma destas vistas de sistema, consulte [vistas de sistema MPP](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sql-data-warehouse-and-parallel-data-warehouse-catalog-views?view=aps-pdw-2016-au7).
 
 ### <a name="data-movement-service"></a>Serviço de movimento de dados
 Serviço de movimento de dados (DMS) é a tecnologia de transporte de dados que coordena o movimento de dados entre os nós de computação. Algumas consultas requerem movimento de dados para garantir que as consultas paralelas devolvem resultados precisos. Quando for necessário o movimento de dados, o DMS garante que os dados corretos obtém para o local correto. 
@@ -124,9 +124,9 @@ Agora que já sabe um pouco sobre o SQL Data Warehouse, saiba como [criar um SQL
 [Blogues da Equipa Customer Advisory]: https://blogs.msdn.microsoft.com/sqlcat/tag/sql-dw/
 [Pedidos de funcionalidades]: https://feedback.azure.com/forums/307516-sql-data-warehouse
 [Fórum do MSDN]: https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureSQLDataWarehouse
-[Fórum do Stack Overflow]: http://stackoverflow.com/questions/tagged/azure-sqldw
+[Fórum do Stack Overflow]: https://stackoverflow.com/questions/tagged/azure-sqldw
 [Twitter]: https://twitter.com/hashtag/SQLDW
 [Vídeos]: https://azure.microsoft.com/documentation/videos/index/?services=sql-data-warehouse
 [SLA for SQL Data Warehouse]: https://azure.microsoft.com/support/legal/sla/sql-data-warehouse/v1_0/
-[Volume Licensing]: http://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&DocumentTypeId=37
+[Volume Licensing]: https://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&DocumentTypeId=37
 [Service Level Agreements]: https://azure.microsoft.com/support/legal/sla/

@@ -6,14 +6,14 @@ author: vhorne
 ms.service: application-gateway
 ms.topic: article
 ms.workload: infrastructure-services
-ms.date: 1/11/2019
+ms.date: 3/13/2019
 ms.author: victorh
-ms.openlocfilehash: 5552ca80059b4aa7ef96caf7984b4c15ec177d38
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
-ms.translationtype: MT
+ms.openlocfilehash: 96bd9e679e1766e87a0bb807204df744bb3cca95
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57316596"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57897712"
 ---
 # <a name="frequently-asked-questions-for-application-gateway"></a>Perguntas mais frequentes sobre o Gateway de aplicação
 
@@ -75,7 +75,7 @@ Quando utiliza um endereço IP público como um ponto de extremidade, estes pode
 
 ### <a name="what-is-keep-alive-timeout-and-tcp-idle-timeout-setting-on-application-gateway"></a>O que é o tempo limite de ligação Keep-Alive e definição de tempo limite de inatividade de TCP no Gateway de aplicação?
 
-Tempo limite de ligação Keep-Alive no v1 SKU é o tempo limite de seg. 120 Keep-Alive no v2 SKU é o tempo limite de inatividade de TCP do segundo 75. é o padrão de 4 min no VIP do Gateway de aplicação de front-end.
+Tempo limite de ligação Keep-Alive no SKU do v1 é tempo de limite de Keep-Alive seg 120. no SKU do v2 é o tempo limite de inatividade de TCP do segundo 75. é o padrão de 4 minutos no VIP do Gateway de aplicação de front-end.
 
 ### <a name="does-the-ip-or-dns-name-change-over-the-lifetime-of-the-application-gateway"></a>O nome IP ou DNS se altera ao longo da duração do Gateway de aplicação?
 
@@ -93,6 +93,8 @@ Apenas um endereço IP público é suportado num gateway de aplicação.
 
 Gateway de aplicação consome um endereço IP privado por instância, além de outro endereço IP privado, se uma configuração de IP de front-end privado está configurada. Além disso, o Azure reserva os primeiros quatro e o último endereço IP em cada sub-rede para utilização interna.
 Por exemplo, se um gateway de aplicação está definido como três instâncias e não existe nenhum IP de front-end privado, em seguida, / 29 sub-rede tamanho ou superior é necessária. Neste caso, o gateway de aplicação utiliza três endereços IP. Se tiver três instâncias e um endereço IP para a configuração de IP de front-end privado, em seguida, / 28 sub-rede tamanho ou superior é necessário porque são necessários quatro endereços IP.
+
+Como melhor prática, utilize pelo menos/28 tamanho da sub-rede. Isto dá-lhe 11 endereços utilizáveis suficientes. Se a carga de aplicação necessitar de mais de 10 instâncias, deve considerar/27 ou/26 tamanho da sub-rede.
 
 ### <a name="q-can-i-deploy-more-than-one-application-gateway-resource-to-a-single-subnet"></a>P. Pode implementar mais do que um recurso de Gateway de aplicação para uma única sub-rede?
 

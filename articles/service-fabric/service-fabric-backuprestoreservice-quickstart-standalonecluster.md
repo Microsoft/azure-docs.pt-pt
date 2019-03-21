@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/29/2018
 ms.author: hrushib
-ms.openlocfilehash: 84403729d6d31ef9dea82b228a1c21bfb847b0ce
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: f3a0651d3641a547722528fb33f688cce1913e6a
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57453444"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57886648"
 ---
 # <a name="periodic-backup-and-restore-in-azure-service-fabric"></a>Cópia de segurança periódica e restauro no Azure Service Fabric
 > [!div class="op_single_selector"]
@@ -56,7 +56,7 @@ O Service Fabric fornece um conjunto de APIs para alcançar a seguinte funcional
 ## <a name="prerequisites"></a>Pré-requisitos
 * Cluster do Service Fabric com recursos de infraestrutura versão 6.2 e versões posteriores. O cluster deve ser configurado no Windows Server. Consulte este [artigo](service-fabric-cluster-creation-for-windows-server.md) para obter os passos transferir o pacote necessário.
 * Certificado X.509 para a encriptação dos segredos necessárias para se ligar ao armazenamento para armazenar cópias de segurança. Consultar [artigo](service-fabric-windows-cluster-x509-security.md) saber como adquirir ou para criar um certificado X.509 autoassinado.
-* Aplicação de Service Fabric Reliable com monitoração de estado criada com o SDK do Service Fabric versão 3.0 ou superior. Para aplicativos destinados a .net Core 2.0, a aplicação deve ser criada usando o Service Fabric SDK versão 3.1 ou posterior.
+* Aplicação de Service Fabric Reliable com monitoração de estado criada com o SDK do Service Fabric versão 3.0 ou superior. Para aplicativos visando o .NET Core 2.0, a aplicação deve ser criada usando o Service Fabric SDK versão 3.1 ou posterior.
 
 ## <a name="enabling-backup-and-restore-service"></a>Ativar o serviço de cópia de segurança e restauro
 Primeiro tem de ativar a _cópia de segurança e restaurar o serviço_ no seu cluster. Obter o modelo para o cluster que pretende implementar. Pode utilizar o [modelos de exemplo](https://github.com/Azure-Samples/service-fabric-dotnet-standalone-cluster-configuration/tree/master/Samples). Ativar a _cópia de segurança e restaurar o serviço_ com os seguintes passos:

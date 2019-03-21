@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 03/03/2019
 ms.author: mayg
-ms.openlocfilehash: 238e7a26be67fcfd2a0b79a87409e5c0d57e0cbf
-ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
+ms.openlocfilehash: e75d4b1701944e206fcf6ded2dcb6d1e1fbc77cb
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57338370"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57900561"
 ---
 # <a name="prepare-the-target-environment-for-disaster-recovery-of-vmware-vms-or-physical-servers-to-azure"></a>Preparar o ambiente de destino para recuperação após desastre de VMs de VMware ou servidores físicos no Azure
 
@@ -22,7 +22,7 @@ Este artigo descreve como preparar o ambiente do Azure para iniciar a replicaç�
 ## <a name="prerequisites"></a>Pré-requisitos
 
 O artigo supõe:
-- Criou um cofre dos serviços de recuperação [portal do Azure](http://portal.azure.com "portal do Azure") para proteger as suas máquinas de origem
+- Criou um cofre dos serviços de recuperação [portal do Azure](https://portal.azure.com "portal do Azure") para proteger as suas máquinas de origem
 - Tiver configurado seu ambiente no local para replicar a origem [máquinas virtuais VMware](vmware-azure-set-up-source.md) ou [servidores físicos](physical-azure-set-up-source.md) para o Azure.
 
 ## <a name="prepare-target"></a>Preparar o destino

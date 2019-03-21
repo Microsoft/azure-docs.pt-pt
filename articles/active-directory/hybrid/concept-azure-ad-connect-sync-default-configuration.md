@@ -16,12 +16,12 @@ ms.date: 07/13/2017
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 06f51f56de29d5e598ea74b39352d3c15bf7b375
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: b42a6b667a8708aeb2edeb0c80a5ab747b6c60a9
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56880636"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57891142"
 ---
 # <a name="azure-ad-connect-sync-understanding-the-default-configuration"></a>Sincronização do Azure AD Connect: Entender a configuração predefinida
 Este artigo explica as regras de configuração de out-of-box. Ele documenta as regras e como estas regras afetam a configuração. Ele também explica a configuração predefinida de sincronização do Azure AD Connect. O objetivo é que o leitor compreende como o modelo de configuração, com o nome aprovisionamento declarativo, está a funcionar num exemplo real. Este artigo pressupõe que já instalou e configurar a sincronização do Azure AD Connect utilizando o Assistente de instalação.
@@ -201,7 +201,7 @@ A linguagem de expressão é VBA (Visual Basic for Applications), portanto, as p
 IIF(
 // (The evaluation for IIF) Is the attribute pwdLastSet present in AD?
 IsPresent([pwdLastSet]),
-// (The True part of IIF) If it is, then from right to left, convert the AD time format to a .Net datetime, change it to the time format used by Azure AD, and finally convert it to a string.
+// (The True part of IIF) If it is, then from right to left, convert the AD time format to a .NET datetime, change it to the time format used by Azure AD, and finally convert it to a string.
 CStr(FormatDateTime(DateFromNum([pwdLastSet]),"yyyyMMddHHmmss.0Z")),
 // (The False part of IIF) Nothing to contribute
 NULL

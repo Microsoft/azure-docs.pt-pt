@@ -14,12 +14,12 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 01/23/2019
 ms.author: aschhab
-ms.openlocfilehash: 70a0463094f98612169e78e4bcdd4eac9c8ebf24
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
+ms.openlocfilehash: 34829482e570354c1ab1e1fd6cec0c96b993cd83
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54844709"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58167036"
 ---
 # <a name="amqp-10-support-in-service-bus"></a>Suporte de AMQP 1.0 no Service Bus
 O serviço de nuvem do Azure Service Bus e no local [Service Bus para Windows Server (1.1 do barramento de serviço)](https://msdn.microsoft.com/library/dn282144.aspx) suportam o Advanced Message colocação em fila Protocol (AMQP) 1.0. AMQP permite-lhe criar para várias plataformas, aplicações híbridas com um protocolo de norma aberta. Pode construir aplicativos usando componentes que são criadas através de linguagens e estruturas diferentes e que executam sistemas operacionais. Todos esses componentes podem ligar-se ao Service Bus e perfeitamente trocam mensagens comerciais estruturados com eficiência e em total fidelidade.
@@ -77,7 +77,7 @@ Neste momento, as seguintes bibliotecas de cliente são conhecidas para trabalha
 | C |Apache Qpid Proton-C |
 | PHP |Apache Qpid Proton-PHP |
 | Python |Apache Qpid Proton-Python |
-| C# |.Net AMQP Lite |
+| C# |.NET de AMQP Lite |
 
 **Figura 2: Tabela de bibliotecas de cliente AMQP 1.0**
 
