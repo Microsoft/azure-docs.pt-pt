@@ -117,6 +117,11 @@ items:
     - name: Aplicar encriptação do Data Lake Store
       displayName: deny
       href: samples/enforce-data-lake-store-encryption.md
+  - name: Configuração de Convidado
+    items:
+    - name: Auditar as aplicações instaladas no Linux
+      displayName: audit, vm
+      href: samples/guest-configuration-applications-installed-linux.md
   - name: Cofres de Chaves
     items:
     - name: Auditar cofres que não tenham pontos finais de rede virtual
@@ -286,9 +291,9 @@ items:
       href: /powershell/module/az.resources/#policies
     - name: Informações da Política
       href: /powershell/module/az.policyinsights#policy_insights
-    - name: Configuração de Convidado (pré-visualização)
-      href: https://www.powershellgallery.com/packages/AzureRM.GuestConfiguration
-  - name: API REST
+    - name: Configuração de Convidado
+      href: https://www.powershellgallery.com/packages/Az.GuestConfiguration
+  - name: REST
     items:
     - name: Eventos
       href: /rest/api/policy-insights/policyevents
@@ -304,7 +309,7 @@ items:
       href: /rest/api/policy-insights/policytrackedresources
     - name: Remediações
       href: /rest/api/policy-insights/remediations
-    - name: Configuração de Convidado (pré-visualização)
+    - name: Configuração de Convidado
       href: /rest/api/guestconfiguration/
   - name: Modelos do Resource Manager
     items:
@@ -338,9 +343,9 @@ items:
     href: https://azure.microsoft.com/pricing/calculator/
   - name: UserVoice
     href: https://feedback.azure.com/forums/915958-azure-governance
-ms.openlocfilehash: c80c593f025511679cf0739f8f9f40a1097795b9
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 730222484658019c78fb2dfef94c474f3031769b
+ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57900697"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58226135"

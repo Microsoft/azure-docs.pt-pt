@@ -88,7 +88,7 @@ items:
       href: security-center-adaptive-application.md
     - name: Monitorização da integridade do ficheiro
       href: security-center-file-integrity-monitoring.md
-    - name: Proteção de Rede Ajustável
+    - name: Proteção de rede ajustável
       href: security-center-adaptive-network-hardening.md
   - name: Detetar ameaças
     href: security-center-detection-capabilities.md
@@ -193,9 +193,9 @@ items:
     href: https://azure.microsoft.com/regions/services/
   - name: Resolução de problemas
     href: security-center-troubleshooting-guide.md
-ms.openlocfilehash: cc02ac53a535b96fbe039790a568371638305d80
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: b0acd0948589e4045e7c9dbd9cc423bfd0ae1e3d
+ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
 ms.translationtype: HT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 03/19/2019
-ms.locfileid: "57888217"
+ms.locfileid: "58201182"
