@@ -10,12 +10,12 @@ ms.reviewer: jonfan, estfan, LADocs
 ms.topic: article
 ms.assetid: cf44af18-1fe5-41d5-9e06-cc57a968207c
 ms.date: 04/10/2017
-ms.openlocfilehash: 3d465123f814887282bf2b29a5b6e0836601c243
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
+ms.openlocfilehash: 8d024e0bc90724892bc53f8895b270716ad0cefc
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43123909"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58099438"
 ---
 # <a name="cross-region-disaster-recovery-for-b2b-integration-accounts-in-azure-logic-apps"></a>Recuperação de desastres em várias regiões para contas de integração B2B no Azure Logic Apps
 

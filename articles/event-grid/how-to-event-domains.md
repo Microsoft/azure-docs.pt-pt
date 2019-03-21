@@ -7,12 +7,12 @@ ms.service: event-grid
 ms.author: babanisa
 ms.topic: conceptual
 ms.date: 01/17/2019
-ms.openlocfilehash: 63a71065fc168f5eb80f19b93c014bdacc5af7e6
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: c49044d8bd96efb7e86cf54509c32033900be305
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57542255"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58180913"
 ---
 # <a name="manage-topics-and-publish-events-using-event-domains"></a>Tópicos de gerir e publicar eventos através de domínios de eventos
 
@@ -24,6 +24,8 @@ Este artigo mostra como:
 * Publicar eventos para um domínio
 
 Para saber mais sobre os domínios de eventos, veja [compreender os domínios de eventos para o gerenciamento de tópicos do Event Grid](event-domains.md).
+
+[!INCLUDE [requires-azurerm](../../includes/requires-azurerm.md)]
 
 ## <a name="install-preview-feature"></a>Instale a funcionalidade de pré-visualização
 

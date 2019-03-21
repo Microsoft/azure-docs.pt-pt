@@ -10,12 +10,12 @@ ms.subservice: text-analytics
 ms.topic: quickstart
 ms.date: 02/15/2019
 ms.author: aahi
-ms.openlocfilehash: b4778c87ca5da266858cd05c67e5f0a78af731bc
-ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
+ms.openlocfilehash: 11a8ef1974e8d930b0001ccfb445b0eee509356f
+ms.sourcegitcommit: f331186a967d21c302a128299f60402e89035a8d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/16/2019
-ms.locfileid: "56330822"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58188956"
 ---
 # <a name="quickstart-using-go-to-call-the-text-analytics-cognitive-service"></a>Início rápido: Com o Go para chamar o serviço cognitivos de análise de texto 
 <a name="HOLTop"></a>
@@ -41,9 +41,9 @@ A API Deteção de Idioma deteta o idioma de um documento de texto através do [
 1. Substitua o valor `subscriptionKey` por uma chave de acesso válida para a sua subscrição.
 1. Substitua a localização em `uriBase` (atualmente `westcentralus`) pela região em que se inscreveu.
 1. Guarde o ficheiro com uma extensão ".go".
-1. Abra uma linha de comandos num computador com o Go instalado.
-1. Compile o ficheiro, por exemplo, com o comando "go build quickstart.go".
-1. Execute o ficheiro, por exemplo, com o comando "quickstart".
+1. Abra um prompt de comando num computador com o ir instalado da sua pasta de raiz.
+1. Crie o ficheiro, por exemplo: `go build detect.go`.
+1. Execute o ficheiro, por exemplo: `go run detect.go`.
 
 ```golang
 package main
@@ -177,16 +177,16 @@ func main() {
 
 ## <a name="analyze-sentiment-request"></a>Pedido de análise de sentimentos
 
-A API da Análise de Sentimentos deteta o sentimento de um conjunto de registos de texto através do [método Sentimento](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c9). O seguinte exemplo classifica dois documentos, um em inglês e outro em espanhol.
+A API da Análise de Sentimentos deteta o sentimento de um conjunto de registos de texto através do [método Sentimento](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c9). Análise de sentimentos pode ser utilizada para descobrir o que os clientes pensam da sua marca ou tópico através da análise de texto não processado para dicas sobre o sentimento positivo ou negativo. O exemplo seguinte fornece as pontuações para dois documentos, uma em inglês e outra em espanhol.
 
 1. Crie um novo projeto de Go no seu editor de código preferido.
 1. Adicione o código indicado abaixo.
 1. Substitua o valor `subscriptionKey` por uma chave de acesso válida para a sua subscrição.
 1. Substitua a localização em `uriBase` (atualmente `westcentralus`) pela região em que se inscreveu.
 1. Guarde o ficheiro com uma extensão ".go".
-1. Abra uma linha de comandos num computador com o Go instalado.
-1. Compile o ficheiro, por exemplo, com o comando "go build quickstart.go".
-1. Execute o ficheiro, por exemplo, com o comando "quickstart".
+1. Abra um prompt de comando num computador com o ir instalado da sua pasta de raiz.
+1. Crie o ficheiro, por exemplo: `go build sentiment.go`.
+1. Execute o ficheiro, por exemplo: `go run sentiment.go`.
 
 ```golang
 package main
@@ -272,7 +272,8 @@ func main() {
 
 ## <a name="analyze-sentiment-response"></a>Analisar a resposta do sentimento
 
-É devolvida uma resposta com êxito em JSON, tal como é apresentado no exemplo seguinte: 
+O resultado é medido como positivo se ele é classificado mais próximo 1.0 e negativo se são classificada mais próximo para 0,0.
+É devolvida uma resposta com êxito em JSON, tal como é apresentado no exemplo seguinte:
 
 ```json
 {
@@ -294,7 +295,7 @@ func main() {
 
 ## <a name="extract-key-phrases-request"></a>Pedido de extração de expressões-chave
 
-A API de Extração de Expressões-Chave extrai expressões-chave de um documento de texto através do [método Expressões-Chave](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c6). O seguinte exemplo extrai expressões-chave para o documento em inglês e o documento em espanhol.
+A API de Extração de Expressões-Chave extrai expressões-chave de um documento de texto através do [método Expressões-Chave](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c6). Extração de expressões-chave é utilizada para identificar rapidamente os pontos principais de um documento ou de texto. O seguinte exemplo extrai expressões-chave para o documento em inglês e o documento em espanhol.
 
 1. Crie um novo projeto de Go no seu editor de código preferido.
 1. Adicione o código indicado abaixo.
@@ -302,8 +303,8 @@ A API de Extração de Expressões-Chave extrai expressões-chave de um document
 1. Substitua a localização em `uriBase` (atualmente `westcentralus`) pela região em que se inscreveu.
 1. Guarde o ficheiro com uma extensão ".go".
 1. Abra uma linha de comandos num computador com o Go instalado.
-1. Compile o ficheiro, por exemplo, com o comando "go build quickstart.go".
-1. Execute o ficheiro, por exemplo, com o comando "quickstart".
+1. Crie o ficheiro, por exemplo: `go build key-phrases.go`.
+1. Execute o ficheiro, por exemplo: `go run key-phrases.go`.
 
 ```golang
 package main
@@ -390,7 +391,7 @@ func main() {
 
 ## <a name="extract-key-phrases-response"></a>Resposta da extração de expressões-chave
 
-É devolvida uma resposta com êxito em JSON, tal como é apresentado no exemplo seguinte: 
+É devolvida uma resposta com êxito em JSON, tal como é apresentado no exemplo seguinte:
 
 ```json
 {
@@ -430,9 +431,9 @@ func main() {
 
 <a name="Entities"></a>
 
-## <a name="identify-entities-request"></a>Pedido para identificar as entidades
+## <a name="identify-entities"></a>Identificar as entidades
 
-A API de Entidades identifica entidades conhecidas num documento de texto através do [método Entidades](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-V2-1-Preview/operations/5ac4251d5b4ccd1554da7634). O seguinte exemplo identifica as entidades dos documentos em inglês.
+A API de Entidades identifica entidades conhecidas num documento de texto através do [método Entidades](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-V2-1-Preview/operations/5ac4251d5b4ccd1554da7634). [Entidades](https://docs.microsoft.com/en-us/azure/cognitive-services/text-analytics/how-tos/text-analytics-how-to-entity-linking) extrair palavras de texto, como "EUA", em seguida, dar a o tipo de e/ou a ligação da Wikipedia para este word(s). O tipo de "United States" for `location`, enquanto o link para Wikipedia é `https://en.wikipedia.org/wiki/United_States`.  O seguinte exemplo identifica as entidades dos documentos em inglês.
 
 1. Crie um novo projeto de Go no seu editor de código preferido.
 1. Adicione o código indicado abaixo.
@@ -440,8 +441,8 @@ A API de Entidades identifica entidades conhecidas num documento de texto atrav�
 1. Substitua a localização em `uriBase` (atualmente `westcentralus`) pela região em que se inscreveu.
 1. Guarde o ficheiro com uma extensão ".go".
 1. Abra uma linha de comandos num computador com o Go instalado.
-1. Compile o ficheiro, por exemplo, com o comando "go build quickstart.go".
-1. Execute o ficheiro, por exemplo, com o comando "quickstart".
+1. Crie o ficheiro, por exemplo: `go build entities.go`.
+1. Execute o ficheiro, por exemplo: `go run entities.go`.
 
 ```golang
 package main

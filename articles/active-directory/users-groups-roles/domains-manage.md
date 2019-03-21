@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: elkuzmen
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 797ac714d3205a271fe6590a3a320e1b9e2a073e
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 908ae768ae471ab6f49452c99323c31d34772d45
+ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56194738"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58201856"
 ---
 # <a name="managing-custom-domain-names-in-your-azure-active-directory"></a>Gerir nomes de domínio personalizados no Azure Active Directory
 
@@ -33,11 +33,11 @@ Quando é criado o seu diretório, o nome de domínio inicial, como "contoso.onm
 2. Selecione **Azure Active Directory**.
 3. Selecione **Nomes de domínio personalizados**.
   
-   ![Abrir gestão de utilizadores](./media/domains-manage/add-custom-domain.png)
+   ![Abrir a página de gestão de utilizadores](./media/domains-manage/add-custom-domain.png)
 4. Selecione o nome do domínio que pretende que o domínio principal.
 5. Selecione o **tornar o primário** comando. Certifique-se à sua escolha quando lhe for pedido.
   
-   ![Criar um nome de domínio primário](./media/domains-manage/make-primary-domain.png)
+   ![Tornar um domínio, nome principal](./media/domains-manage/make-primary-domain.png)
 
 Pode alterar o nome de domínio primário para o diretório para qualquer domínio personalizado verificado que não está federado. Alterar o domínio principal para o seu diretório não será alterado o nome de utilizador para todos os utilizadores existentes.
 
@@ -90,7 +90,7 @@ As seguintes ações são efetuadas como parte da **ForceDelete** operação:
 **P: Por que a eliminação de domínio falha com um erro que indica que tenho de grupos do Exchange controlada neste nome de domínio?** <br>
 **R:** Hoje em dia, determinados grupos como grupos de segurança com capacidade de correio e distribuídas listas são aprovisionados pelo Exchange e precisem ser limpos manualmente no [Centro de administração do Exchange (EAC)](https://outlook.office365.com/ecp/). Aqui pode ser remanescentes ProxyAddresses que contam com o nome de domínio personalizado e terá de ser atualizados manualmente para outro nome de domínio. 
 
-**P: Eu estou conectado como admin@contoso.com , mas não consigo eliminar o nome de domínio "contoso.com"?**<br>
+**P: Eu estou conectado como administrador\@contoso.com, mas eu não é possível eliminar o nome de domínio "contoso.com"?**<br>
 **R:** Não é possível referenciar o nome de domínio personalizado que está a tentar eliminar o seu nome de conta de utilizador. Certifique-se de que a conta de Administrador Global está a utilizar o nome de domínio predefinido inicial (. onmicrosoft.com) como admin@contoso.onmicrosoft.com. Inicie sessão com um Administrador Global diferente da conta que, como admin@contoso.onmicrosoft.com ou outro nome de domínio personalizado, como "fabrikam.com" onde está a conta admin@fabrikam.com.
 
 **P: Cliquei no botão de domínio de eliminar e veja `In Progress` estado para a operação de eliminação. Quanto tempo demora? O que acontece se falhar?**<br>

@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/26/2017
 ms.author: jdial
-ms.openlocfilehash: a09d880a1a17e429692dcb8e542657f416de7b30
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.openlocfilehash: 90ca35ec899d71578a7da4061ca7842d13769072
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56823540"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58123577"
 ---
 # <a name="virtual-network-traffic-routing"></a>Encaminhamento de tráfego da rede virtual
 
@@ -48,8 +48,8 @@ Os tipos de salto seguintes listados na tabela anterior representam a forma como
 - **Internet**: Encaminha o tráfego especificado pelo prefixo de endereço para a Internet. A rota predefinida do sistema especifica o prefixo de endereço 0.0.0.0/0. Se não substituir as rotas predefinidas do Azure, o Azure encaminha o tráfego de qualquer endereço não especificado por um intervalo de endereços dentro de uma rede virtual para a Internet, com uma exceção. Se o endereço de destino for para um dos serviços do Azure, o Azure encaminha o tráfego diretamente para o serviço através da rede principal do Azure, em vez de o encaminhar para a Internet. O tráfego entre os serviços do Azure não atravessa a Internet, independentemente da região do Azure na qual a rede virtual existe ou da região em que uma instância do serviço Azure está implementada. Pode substituir a rota do sistema predefinida do Azure para o prefixo de endereço 0.0.0.0/0 por uma [rota personalizada](#custom-routes).
 
 - **Nenhum**: O tráfego encaminhado para o **None** tipo de próximo salto é removido, em vez de encaminhado fora da sub-rede. O Azure cria automaticamente rotas predefinidas para os seguintes prefixos de endereço:
-    - **10.0.0.0/8 172.16.0.0/12 e 192.168.0.0/16**: Reservado para utilização privada em RFC 1918.
-    - **100.64.0.0/10**: Reservado em RFC 6598.
+  - **10.0.0.0/8 172.16.0.0/12 e 192.168.0.0/16**: Reservado para utilização privada em RFC 1918.
+  - **100.64.0.0/10**: Reservado em RFC 6598.
 
     Se atribuir um dos intervalos de endereços anteriores dentro do espaço de endereços de uma rede virtual, o Azure altera automaticamente o tipo de salto seguinte da rota de **Nenhum** para **Rede virtual**. Se atribuir um intervalo de endereços ao espaço de endereços de uma rede virtual que inclui um dos quatro prefixos de endereços reservados, mas não é igual a estes, o Azure remove a rota para o prefixo e adiciona uma rota ao prefixo de endereço que adicionou, tendo **Rede virtual** como o tipo de salto seguinte.
 
@@ -82,12 +82,12 @@ Ao criar uma rota definida pelo utilizador, pode especificar os tipos de próxim
 
 - **Aplicação virtual**: Uma aplicação virtual é uma máquina virtual que normalmente executa uma aplicação de rede, como uma firewall. Para saber mais sobre diversas aplicações de rede virtual pré-configuradas que pode implementar numa rede virtual, veja o [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/category/networking?page=1&subcategories=appliances). Quando cria uma rota com o tipo de salto seguinte **aplicação virtual**, também tem de especificar um endereço IP de próximo salto. O endereço IP pode ser:
 
-    - O [endereço IP privado](virtual-network-ip-addresses-overview-arm.md#private-ip-addresses) de uma interface de rede ligada a uma máquina virtual. Qualquer interface de rede ligada a uma máquina virtual que reencaminhe o tráfego de rede para um endereço que não o da mesma tem de ter a opção do Azure *Ativar reencaminhamento de IP* ativada. A definição desativa a verificação por parte do Azure da origem e do destino de uma interface de rede. Saiba mais sobre como [ativar o reencaminhamento de IP em interfaces de rede](virtual-network-network-interface.md#enable-or-disable-ip-forwarding). Embora *Ativar o reencaminhamento de IPs* seja uma definição do Azure, também poderá ser necessário ativar o reencaminhamento de IP dentro do sistema operativo da máquina virtual, de modo a que a aplicação reencaminhe o tráfego entre as interfaces de rede dos endereços IP privados atribuídos ao Azure. Se a aplicação tem de encaminhar o tráfego para um endereço IP público, tem de suportar o tráfego com proxy, ou traduzir com um endereço de rede o endereço IP privado do endereço IP privado da origem para o seu próprio endereço IP privado, o qual o Azure, em seguida, traduz com um endereço de rede para um endereço IP público, antes de enviar o tráfego para a Internet. Para determinar as definições necessárias na máquina virtual, veja a documentação relativa ao seu sistema operativo ou à sua aplicação de rede. Para compreender as ligações de saída no Azure, veja [Compreender as ligações de saída](../load-balancer/load-balancer-outbound-connections.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
+  - O [endereço IP privado](virtual-network-ip-addresses-overview-arm.md#private-ip-addresses) de uma interface de rede ligada a uma máquina virtual. Qualquer interface de rede ligada a uma máquina virtual que reencaminhe o tráfego de rede para um endereço que não o da mesma tem de ter a opção do Azure *Ativar reencaminhamento de IP* ativada. A definição desativa a verificação por parte do Azure da origem e do destino de uma interface de rede. Saiba mais sobre como [ativar o reencaminhamento de IP em interfaces de rede](virtual-network-network-interface.md#enable-or-disable-ip-forwarding). Embora *Ativar o reencaminhamento de IPs* seja uma definição do Azure, também poderá ser necessário ativar o reencaminhamento de IP dentro do sistema operativo da máquina virtual, de modo a que a aplicação reencaminhe o tráfego entre as interfaces de rede dos endereços IP privados atribuídos ao Azure. Se a aplicação tem de encaminhar o tráfego para um endereço IP público, tem de suportar o tráfego com proxy, ou traduzir com um endereço de rede o endereço IP privado do endereço IP privado da origem para o seu próprio endereço IP privado, o qual o Azure, em seguida, traduz com um endereço de rede para um endereço IP público, antes de enviar o tráfego para a Internet. Para determinar as definições necessárias na máquina virtual, veja a documentação relativa ao seu sistema operativo ou à sua aplicação de rede. Para compreender as ligações de saída no Azure, veja [Compreender as ligações de saída](../load-balancer/load-balancer-outbound-connections.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 
-      > [!NOTE]
-      > Implemente uma aplicação virtual numa sub-rede diferente daquela em que estão implementados os recursos que são encaminhados através da mesma. Implementar a aplicação virtual na mesma sub-rede e, depois, aplicar uma tabela de rotas à sub-rede que encaminha o tráfego através dessa aplicação virtual, pode resultar em ciclos de encaminhamento, nos quais o tráfego nunca sai da sub-rede.
+    > [!NOTE]
+    > Implemente uma aplicação virtual numa sub-rede diferente daquela em que estão implementados os recursos que são encaminhados através da mesma. Implementar a aplicação virtual na mesma sub-rede e, depois, aplicar uma tabela de rotas à sub-rede que encaminha o tráfego através dessa aplicação virtual, pode resultar em ciclos de encaminhamento, nos quais o tráfego nunca sai da sub-rede.
 
-    - O endereço IP privado de um [Balanceador de carga interno](../load-balancer/load-balancer-get-started-ilb-arm-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json) do Azure. Muitas vezes, são utilizados balanceadores de carga como parte de uma [estratégia de elevada disponibilidade para aplicações de redes virtuais](/azure/architecture/reference-architectures/dmz/nva-ha?toc=%2fazure%2fvirtual-network%2ftoc.json).
+  - O endereço IP privado de um [Balanceador de carga interno](../load-balancer/load-balancer-get-started-ilb-arm-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json) do Azure. Muitas vezes, são utilizados balanceadores de carga como parte de uma [estratégia de elevada disponibilidade para aplicações de redes virtuais](/azure/architecture/reference-architectures/dmz/nva-ha?toc=%2fazure%2fvirtual-network%2ftoc.json).
 
     Pode definir uma rota que tem 0.0.0.0/0 como o prefixo de endereço e um tipo de próximo salto de aplicação virtual, permitindo que a aplicação inspecione o tráfego e determine se este deve ser encaminhado ou ignorado. Se quiser criar uma rota definida pelo utilizador que contenha o prefixo de endereço 0.0.0.0/0, leia [prefixo de endereço 0.0.0.0/0](#default-route) primeiro.
 
@@ -217,7 +217,7 @@ A tabela de rotas de *Subnet1* na imagem contém as rotas seguintes:
 |8   |Predefinição|Inválido|10.10.0.0/16        |Gateway de rede virtual|[X.X.X.X]          |              |
 |9   |Utilizador   |Ativa |10.10.0.0/16        |Aplicação virtual      |10.0.100.4         |To-On-Prem    |
 |10  |Predefinição|Ativa |[X.X.X.X]           |VirtualNetworkServiceEndpoint    |         |              |
-|11  |Predefinição|Inválido|0.0.0.0/0           |Internet|              |                   |              |
+|11  |Predefinição|Inválido|0.0.0.0/0           |Internet               |                   |              |
 |12  |Utilizador   |Ativa |0.0.0.0/0           |Aplicação virtual      |10.0.100.4         |Default-NVA   |
 
 Segue-se uma explicação de cada ID de rota:

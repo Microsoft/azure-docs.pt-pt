@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 10/26/2017
 ms.author: abhisram
-ms.openlocfilehash: 61c01e8ea3b4cbe7b5f7ab83ab35383d74df3105
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 888f9e04e048e3da4c9809ac4f8570f020030335
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51234941"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57855840"
 ---
 # <a name="diagnostics-and-performance-monitoring-for-reliable-actors"></a>Diagnóstico e monitorização do desempenho dos Reliable Actors
 O tempo de execução do Reliable Actors emite [EventSource](https://msdn.microsoft.com/library/system.diagnostics.tracing.eventsource.aspx) eventos e [contadores de desempenho](https://msdn.microsoft.com/library/system.diagnostics.performancecounter.aspx). Estes fornecem informações sobre como o tempo de execução está a funcionar e ajudar a resolver problemas e monitorização do desempenho.
@@ -27,7 +27,7 @@ O tempo de execução do Reliable Actors emite [EventSource](https://msdn.micros
 ## <a name="eventsource-events"></a>Eventos de EventSource
 O nome do fornecedor EventSource para o tempo de execução do Reliable Actors é "Microsoft-ServiceFabric-Atores". Eventos a partir desta origem de eventos são apresentados no [eventos de diagnóstico](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally.md#view-service-fabric-system-events-in-visual-studio) janela quando o aplicativo de ator está a ser [depurado no Visual Studio](service-fabric-debugging-your-application.md).
 
-São exemplos de ferramentas e tecnologias que ajudam na recolha de e/ou ver eventos de EventSource [PerfView](https://www.microsoft.com/download/details.aspx?id=28567), [diagnóstico do Azure](../cloud-services/cloud-services-dotnet-diagnostics.md), [registo semântico](https://msdn.microsoft.com/library/dn774980.aspx)e o [ Biblioteca do Microsoft TraceEvent](http://www.nuget.org/packages/Microsoft.Diagnostics.Tracing.TraceEvent).
+São exemplos de ferramentas e tecnologias que ajudam na recolha de e/ou ver eventos de EventSource [PerfView](https://www.microsoft.com/download/details.aspx?id=28567), [diagnóstico do Azure](../cloud-services/cloud-services-dotnet-diagnostics.md), [registo semântico](https://msdn.microsoft.com/library/dn774980.aspx)e o [ Biblioteca do Microsoft TraceEvent](https://www.nuget.org/packages/Microsoft.Diagnostics.Tracing.TraceEvent).
 
 ### <a name="keywords"></a>Palavras-chave
 Todos os eventos que pertencem a EventSource de Atores fiáveis são associados a um ou mais palavras-chave. Isto permite a filtragem de eventos que são recolhidos. Os bits de palavra-chave seguintes são definidos.

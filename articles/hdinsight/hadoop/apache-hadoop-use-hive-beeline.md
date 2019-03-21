@@ -10,12 +10,12 @@ ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 04/20/2018
 ms.author: hrasheed
-ms.openlocfilehash: 23fa146b7bdaef0451984d0fbc638c57691cf259
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: ba9746566f0f69ea2131b8f77a14939ea561638a
+ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56201725"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58200486"
 ---
 # <a name="use-the-apache-beeline-client-with-apache-hive"></a>Utilizar o cliente do Apache Beeline com Apache Hive
 
@@ -148,10 +148,10 @@ Beeline é um cliente de ramo de registo que está incluído nos nós principais
 
     * `INPUT__FILE__NAME LIKE '%.log'` -Hive tenta aplicar o esquema a todos os ficheiros no diretório. Neste caso, o diretório contém ficheiros que não corresponde ao esquema. Para impedir que os dados de lixo nos resultados, essa instrução diz ao ramo de registo que este deve devolver apenas dados de ficheiros terminados em. log.
 
-  > [!NOTE]  
-  > Tabelas externas devem ser usadas quando espera que os dados subjacentes ser atualizados por uma origem externa. Por exemplo, um processo de carregamento de dados automatizada ou uma operação de MapReduce.
-  >
-  > Remover uma tabela externa faz **não** eliminar os dados, apenas a definição da tabela.
+   > [!NOTE]  
+   > Tabelas externas devem ser usadas quando espera que os dados subjacentes ser atualizados por uma origem externa. Por exemplo, um processo de carregamento de dados automatizada ou uma operação de MapReduce.
+   >
+   > Remover uma tabela externa faz **não** eliminar os dados, apenas a definição da tabela.
 
     O resultado deste comando é semelhante ao seguinte texto:
 
@@ -198,12 +198,12 @@ Utilize os seguintes passos para criar um ficheiro, em seguida, executá-la com 
 
     Essas instruções executam as seguintes ações:
 
-    * **Criar tabela se não existe** -se a tabela ainda não existir, será criada. Uma vez que o **externo** palavra-chave não é utilizado, esta instrução cria uma tabela interna. Tabelas internas são armazenadas no armazém de dados de Hive e são geridas completamente do Hive.
-    * **ARMAZENADOS ORC de AS** -armazena os dados no formato otimizado linhas em colunas (ORC). Formato ORC é um formato altamente otimizado e eficiente para armazenar os dados de Hive.
-    * **SUBSTITUIR INSERT... SELECIONE** -seleciona linhas do **log4jLogs** tabela que contêm **[erro]**, em seguida, insere os dados no **registos de erros** tabela.
+   * **Criar tabela se não existe** -se a tabela ainda não existir, será criada. Uma vez que o **externo** palavra-chave não é utilizado, esta instrução cria uma tabela interna. Tabelas internas são armazenadas no armazém de dados de Hive e são geridas completamente do Hive.
+   * **ARMAZENADOS ORC de AS** -armazena os dados no formato otimizado linhas em colunas (ORC). Formato ORC é um formato altamente otimizado e eficiente para armazenar os dados de Hive.
+   * **SUBSTITUIR INSERT... SELECIONE** -seleciona linhas do **log4jLogs** tabela que contêm **[erro]**, em seguida, insere os dados no **registos de erros** tabela.
 
-    > [!NOTE]  
-    > Ao contrário das tabelas externas, remover uma tabela interna elimina também os dados subjacentes.
+     > [!NOTE]  
+     > Ao contrário das tabelas externas, remover uma tabela interna elimina também os dados subjacentes.
 
 3. Para guardar o ficheiro, utilize **Ctrl**+**_X**, em seguida, introduza **Y**e finalmente **Enter**.
 
@@ -294,7 +294,6 @@ Se estiver a utilizar com o Hive no Tez, consulte o documento seguinte: [Utilize
 
 
 [hdinsight-use-oozie]: hdinsight-use-oozie.md
-[hdinsight-analyze-flight-data]: hdinsight-analyze-flight-delay-data.md
 
 [putty]: https://www.chiark.greenend.org.uk/~sgtatham/putty/download.html
 

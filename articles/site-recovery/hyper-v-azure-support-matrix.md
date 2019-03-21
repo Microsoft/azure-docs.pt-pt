@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 12/27/2018
 ms.author: raynew
-ms.openlocfilehash: 325df38cfea0c87cda8b7fb5ab37dca4a6a529fd
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.openlocfilehash: 84b1cfd54f5ff9e6a29c975622847e3ae6304bf8
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57315678"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58107156"
 ---
 # <a name="support-matrix-for-disaster-recovery-of-on-premises-hyper-v-vms-to-azure"></a>Matriz de suporte para recuperação após desastre de VMs de Hyper-V no local para o Azure
 
@@ -91,7 +91,7 @@ Redes Aceleradas | Não | Não
 ## <a name="hyper-v-host-storage"></a>Armazenamento de anfitrião Hyper-V
 
 **Armazenamento** | **Hyper-V com o Virtual Machine Manager** | **Hyper-V sem o Virtual Machine Manager**
---- | --- | --- | ---
+--- | --- | --- 
 NFS | ND | ND
 SMB 3.0 | Sim | Sim
 SAN (ISCSI) | Sim | Sim
@@ -180,7 +180,7 @@ Mover o armazenamento, rede, as VMs do Azure entre grupos de recursos<br/><br/> 
 Para certificar-se de que a implementação é compatível com as definições neste artigo, certifique-se de que está a executar o fornecedor mais recente e versões do agente.
 
 **Nome** | **Descrição** | **Detalhes**
---- | --- | --- | --- | ---
+--- | --- | --- 
 Fornecedor do Azure Site Recovery | Coordena as comunicações entre servidores no local e o Azure <br/><br/> Hyper-V com o Virtual Machine Manager: Instalado em servidores do Virtual Machine Manager<br/><br/> Hyper-V sem o Virtual Machine Manager: Instalado em anfitriões Hyper-V| Versão mais recente: 5.1.2700.1 (disponível no portal do Azure)<br/><br/> [Funcionalidades e correções mais recentes](https://support.microsoft.com/help/4091311/update-rollup-23-for-azure-site-recovery)
 Agente dos serviços de recuperação do Microsoft Azure | Coordena a replicação entre VMs de Hyper-V e o Azure<br/><br/> Instalado em servidores de Hyper-V no local (com ou sem o Gestor de Máquina Virtual) | Agente mais recente disponível no portal
 

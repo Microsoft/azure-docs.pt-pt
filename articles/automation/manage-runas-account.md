@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 09/12/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: e5949016281b5f8ba5d8770403a146e52d279c73
-ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
+ms.openlocfilehash: b3c9f2f8671d5a7aa313a9f49e07230a4f9b6220
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/26/2019
-ms.locfileid: "55079992"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58109346"
 ---
 # <a name="manage-azure-automation-run-as-accounts"></a>Gerir contas Run As de automatização
 
@@ -197,6 +197,12 @@ Este script do PowerShell inclui suporte para as seguintes configurações:
         return
     }
 
+    # To use the new Az modules to create your Run As accounts please uncomment the following lines and ensure you comment out the previous two lines to avoid any issues. To learn about about using Az modules in your Automation Account see https://docs.microsoft.com/azure/automation/az-modules
+
+    # Import-Module Az.Automation
+    # Enable-AzureRmAlias 
+
+
     Connect-AzureRmAccount -Environment $EnvironmentName 
     $Subscription = Select-AzureRmSubscription -SubscriptionId $SubscriptionId
 
@@ -320,13 +326,13 @@ Esta secção descreve como eliminar e recriar uma conta Run As ou Run As Cláss
 
 3. Nas propriedades **Contas Run As**, selecione a conta Run As ou a conta Run As Clássica que quer eliminar. Em seguida, no painel **Propriedades** da conta selecionada, clique em **Eliminar**.
 
- ![Eliminar a conta Run As](media/manage-runas-account/automation-account-delete-runas.png)
+   ![Eliminar a conta Run As](media/manage-runas-account/automation-account-delete-runas.png)
 
 1. Enquanto a conta estiver a ser eliminada, pode acompanhar o progresso em **Notificações** a partir do menu.
 
 1. Assim que a conta tiver sido eliminada, pode voltar a criá-la na página de propriedades **Contas Run As**, ao selecionar a opção de criação **Conta Run As do Azure**.
 
- ![Recriar a conta Run As de Automatização](media/manage-runas-account/automation-account-create-runas.png)
+   ![Recriar a conta Run As de Automatização](media/manage-runas-account/automation-account-create-runas.png)
 
 ## <a name="cert-renewal"></a>Renovação do certificado autoassinado
 
