@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 02/07/2018
 ms.author: jingwang
-ms.openlocfilehash: 7fcf08c36d8babd0a318ed5b912823c344f4ce64
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 9e1dde57dc1903e87704bd55fb0b942b7cc349e5
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57549957"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58010586"
 ---
 # <a name="copy-data-from-amazon-redshift-using-azure-data-factory"></a>Copiar dados do Amazon Redshift, com o Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -57,7 +57,7 @@ As seguintes propriedades são suportadas para o serviço ligado do Amazon Redsh
 | servidor |Nome anfitrião ou endereço IP do servidor do Amazon Redshift. |Sim |
 | porta |O número da porta TCP que o servidor do Amazon Redshift utiliza para escutar ligações de cliente. |Não, a predefinição é 5439 |
 | base de dados |Nome da base de dados do Amazon Redshift. |Sim |
-| nome do utilizador |Nome de utilizador que tenha acesso à base de dados. |Sim |
+| o nome de utilizador |Nome de utilizador que tenha acesso à base de dados. |Sim |
 | palavra-passe |Palavra-passe da conta de utilizador. Marcar esse campo como uma SecureString armazena de forma segura na fábrica de dados, ou [referenciar um segredo armazenado no Azure Key Vault](store-credentials-in-key-vault.md). |Sim |
 | connectVia | O [Integration Runtime](concepts-integration-runtime.md) a ser utilizado para ligar ao arquivo de dados. Pode utilizar o Runtime de integração do Azure ou o Runtime de integração autoalojado (se o seu armazenamento de dados está localizado numa rede privada). Se não for especificado, ele usa o padrão do Runtime de integração do Azure. |Não |
 
@@ -126,7 +126,7 @@ Para copiar dados do Amazon Redshift, defina o tipo de origem na atividade de c�
 | Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
 | tipo | A propriedade de tipo de origem de atividade de cópia tem de ser definida: **AmazonRedshiftSource** | Sim |
-| consulta |Utilize a consulta personalizada para ler dados. |Cadeia de consulta SQL. Por exemplo: selecionar * de MyTable. |Não (se for especificado "tableName" no conjunto de dados) |
+| consulta |Utilize a consulta personalizada para ler dados. Por exemplo: selecionar * de MyTable. |Não (se for especificado "tableName" no conjunto de dados) |
 | redshiftUnloadSettings | Grupo de propriedade ao utilizar UNLOAD do Amazon Redshift. | Não |
 | s3LinkedServiceName | Refere-se a um Amazon S3 to-be-utilizado como um armazenamento provisório, especificando um nome de serviço ligado do tipo "AmazonS3". | Sim, se utilizar o descarregamento |
 | bucketName | Indica o registo de S3 para armazenar os dados intermediárias. Se não for indicado, serviço Data Factory gera automaticamente.  | Sim, se utilizar o descarregamento |
@@ -219,7 +219,7 @@ Ao copiar dados do Amazon Redshift, os seguintes mapeamentos são utilizados ent
 | REAL |Single |
 | SMALLINT |Int16 |
 | TEXTO |String |
-| TIMESTAMP |DateTime |
+| CARIMBO DE DATA/HORA |DateTime |
 | VARCHAR |String |
 
 ## <a name="next-steps"></a>Passos Seguintes

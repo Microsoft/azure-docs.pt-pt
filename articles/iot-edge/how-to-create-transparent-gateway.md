@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: 7e196a912db723d5d118b0aadc98f73f1c7271e0
-ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.openlocfilehash: c769ae8e684a94e60f6a2e31ba404a0593f7aa78
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/02/2019
-ms.locfileid: "57243759"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58096712"
 ---
 # <a name="configure-an-iot-edge-device-to-act-as-a-transparent-gateway"></a>Configurar um dispositivo IoT Edge para atuar como gateway transparente
 
@@ -181,7 +181,7 @@ Utilize os passos nesta secção para gerar certificados de teste num dispositiv
 
 Nesta secção, crie três certificados e, em seguida, ligá-los numa cadeia. Permite que colocar os certificados num arquivo de cadeia para instalá-los facilmente no seu dispositivo de gateway do IoT Edge e todos os dispositivos downstream.  
 
-1.  Crie o certificado de AC de proprietário e um certificado intermédio. Estes certificados são colocados num  *\<WRKDIR >*.
+1. Crie o certificado de AC de proprietário e um certificado intermédio. Estes certificados são colocados num  *\<WRKDIR >*.
 
    ```bash
    ./certGen.sh create_root_and_intermediate
@@ -193,7 +193,7 @@ Nesta secção, crie três certificados e, em seguida, ligá-los numa cadeia. Pe
    * `<WRKDIR>/private/azure-iot-test-only.root.ca.key.pem`
    * `<WRKDIR>/private/azure-iot-test-only.intermediate.key.pem`
 
-2.  Crie o certificado de AC de dispositivo do Edge e a chave privada com o seguinte comando. Forneça um nome para o dispositivo de gateway, que será utilizado para nomes aos ficheiros e durante a geração do certificado. 
+2. Crie o certificado de AC de dispositivo do Edge e a chave privada com o seguinte comando. Forneça um nome para o dispositivo de gateway, que será utilizado para nomes aos ficheiros e durante a geração do certificado. 
 
    ```bash
    ./certGen.sh create_edge_device_certificate "<gateway name>"

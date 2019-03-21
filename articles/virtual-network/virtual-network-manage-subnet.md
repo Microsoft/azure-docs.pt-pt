@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/09/2018
 ms.author: jdial
-ms.openlocfilehash: 895499865fb1d47669fcca2aeaa571b2fb79237b
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: b4fd3d7cd1d25415ba5938586aee448bdc512aa7
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57438725"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58100467"
 ---
 # <a name="add-change-or-delete-a-virtual-network-subnet"></a>Adicionar, alterar ou eliminar uma sub-rede de rede virtual
 
@@ -52,7 +52,7 @@ A conta iniciar sessão no, ou ligar ao Azure, tem de ser atribuída para o [con
 
        Para remover um ponto de extremidade de serviço, anule a seleção que pretende remover o ponto final de serviço para serviço. Para saber mais sobre pontos finais de serviço e os serviços podem ser ativadas para, veja [descrição geral de pontos finais de serviço de rede Virtual](virtual-network-service-endpoints-overview.md). Depois de ativar um ponto final de serviço para um serviço, deve habilitar acesso à rede para a sub-rede para um recurso criado com o serviço. Por exemplo, se ativar o ponto final de serviço para *Microsoft. Storage*, também tem de ativar o acesso de rede a todas as contas de armazenamento do Azure que pretende conceder acesso à rede. Para obter detalhes sobre como ativar o acesso à rede para sub-redes ativado para um ponto de extremidade de serviço, consulte a documentação para o serviço individual que ativou o ponto final de serviço para.
 
-    Para validar que um ponto de extremidade de serviço está ativado para uma sub-rede, veja a [rotas efetivas](diagnose-network-routing-problem.md) para qualquer interface de rede na sub-rede. Quando um ponto de extremidade é configurado, verá uma *predefinição* rota com os prefixos de endereço do serviço e um nextHopType de **VirtualNetworkServiceEndpoint**. Para saber mais sobre o encaminhamento, consulte [descrição geral do encaminhamento](virtual-networks-udr-overview.md).
+     Para validar que um ponto de extremidade de serviço está ativado para uma sub-rede, veja a [rotas efetivas](diagnose-network-routing-problem.md) para qualquer interface de rede na sub-rede. Quando um ponto de extremidade é configurado, verá uma *predefinição* rota com os prefixos de endereço do serviço e um nextHopType de **VirtualNetworkServiceEndpoint**. Para saber mais sobre o encaminhamento, consulte [descrição geral do encaminhamento](virtual-networks-udr-overview.md).
 6. Para adicionar a sub-rede à rede virtual que selecionou, selecione **OK**.
 
 **Comandos**

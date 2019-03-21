@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 03/05/2019
 ms.author: kumud
 ms:custom: seodec18
-ms.openlocfilehash: 5ce8de675eb398335df6a160213ee01add9ac129
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 87c1d047e783715b3a5beee4604e064322f965dd
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57440749"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58101892"
 ---
 # <a name="get-started"></a>Início rápido: Criar um balanceador de carga Standard com o Azure PowerShell
 
@@ -278,11 +278,11 @@ Instale o IIS com uma página da web personalizada em ambas as VMs de back-end d
 
 1. Obtenha o endereço IP público do Balanceador de Carga. Obtenha o endereço IP público do Balanceador de Carga com `Get-AzPublicIPAddress`.
 
-  ```azurepowershell-interactive
+   ```azurepowershell-interactive
     Get-AzPublicIPAddress `
     -ResourceGroupName "myResourceGroupLB" `
     -Name "myPublicIP" | select IpAddress
-  ```
+   ```
 2. Crie uma ligação de ambiente de trabalho remoto a VM1 com o endereço IP público que obteve no passo anterior. 
 
    ```azurepowershell-interactive

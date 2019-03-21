@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 11/30/2018
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: e464787919577b89b1cfec11e579cb17c18e2878
-ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
+ms.openlocfilehash: 777aca4754d4d5dc893f930994ffe61db18362fd
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57404228"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58089340"
 ---
 # <a name="configure-the-resource-owner-password-credentials-flow-in-azure-ad-b2c"></a>Configurar o fluxo de credenciais de palavra-passe de proprietário do recurso no Azure AD B2C
 
@@ -37,15 +37,15 @@ Não são suportados os seguintes fluxos:
 
 ##  <a name="create-a-resource-owner-user-flow"></a>Criar um fluxo de utilizador de proprietário do recurso
 
-1.  Inicie sessão no portal do Azure como administrador global do inquilino do Azure AD B2C.
-2.  Para mudar para o inquilino do Azure AD B2C, selecione o diretório de B2C no canto superior direito do portal.
-3.  Clique em **fluxos de utilizador**e selecione **novo fluxo de utilizador**.
-4.  Clique nas **todos os** separador e selecione **iniciar sessão com ROPC**.
-5.  Forneça um nome para o fluxo de utilizador, tal como *ROPC_Auth*.
-6.  Sob **afirmações de aplicação**, clique em **mostrar mais**.
-7.  Selecione as afirmações de aplicação que necessita para a sua aplicação, como o nome a apresentar, endereço de E-Mail e fornecedor de identidade.
-8.  Selecione **OK** e, em seguida, selecione **Criar**.
-9.  Clique em **executar o fluxo de utilizador**.
+1. Inicie sessão no portal do Azure como administrador global do inquilino do Azure AD B2C.
+2. Para mudar para o inquilino do Azure AD B2C, selecione o diretório de B2C no canto superior direito do portal.
+3. Clique em **fluxos de utilizador**e selecione **novo fluxo de utilizador**.
+4. Clique nas **todos os** separador e selecione **iniciar sessão com ROPC**.
+5. Forneça um nome para o fluxo de utilizador, tal como *ROPC_Auth*.
+6. Sob **afirmações de aplicação**, clique em **mostrar mais**.
+7. Selecione as afirmações de aplicação que necessita para a sua aplicação, como o nome a apresentar, endereço de E-Mail e fornecedor de identidade.
+8. Selecione **OK** e, em seguida, selecione **Criar**.
+9. Clique em **executar o fluxo de utilizador**.
 
    Em seguida, verá um ponto de extremidade, como neste exemplo:
 

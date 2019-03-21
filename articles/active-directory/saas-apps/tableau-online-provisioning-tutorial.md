@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 07/30/2018
 ms.author: v-wingf-msft
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a81754b9b95c7cc6e257707aec188abf1dab58c3
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 6ed8bae32cb8d0680b1f9aa66f26407c3313ea06
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56194874"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58077824"
 ---
 # <a name="tutorial-configure-tableau-online-for-automatic-user-provisioning"></a>Tutorial: Configurar o Tableau Online para aprovisionamento automático de utilizadores
 
@@ -106,13 +106,13 @@ Esta secção orienta-o pelos passos para configurar o Azure AD do serviço de a
 
 5. Sob o **credenciais de administrador** secção, de entrada a **domínio**, **nome de utilizador administrador**, **palavra-passe de administrador**, e **conteúdo URL** da sua conta Tableau Online:
 
-    *   Na **domínio** campo, preencher o subdomínio com base no passo 6.
+   * Na **domínio** campo, preencher o subdomínio com base no passo 6.
 
-    *   Na **nome de utilizador administrador** campo, preencher o nome de utilizador da conta de administrador no inquilino Clarizen. Exemplo: admin@contoso.com.
+   * Na **nome de utilizador administrador** campo, preencher o nome de utilizador da conta de administrador no inquilino Clarizen. Exemplo: admin@contoso.com.
 
-    *   Na **palavra-passe de administrador** campo, preencher a palavra-passe da conta de administrador correspondente ao nome de utilizador administrador.
+   * Na **palavra-passe de administrador** campo, preencher a palavra-passe da conta de administrador correspondente ao nome de utilizador administrador.
 
-    *   Na **URL de conteúdo** campo, preencher o subdomínio com base no passo 6.
+   * Na **URL de conteúdo** campo, preencher o subdomínio com base no passo 6.
 
 6. Depois de iniciar sessão sua conta administrativa para o Tableau Online, os valores para **domínio** e **URL de conteúdo** podem ser extraídos da URL da página Administração.
 

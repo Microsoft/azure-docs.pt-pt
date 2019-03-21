@@ -9,12 +9,12 @@ ms.date: 11/28/2018
 ms.topic: conceptual
 ms.service: service-fabric-mesh
 manager: timlt
-ms.openlocfilehash: fa2c34168423796a82f274db1b60b45ac10b5501
-ms.sourcegitcommit: 2bb46e5b3bcadc0a21f39072b981a3d357559191
+ms.openlocfilehash: 25e7ba20ea6054439d72b1827f32b8470e2b6a91
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/05/2018
-ms.locfileid: "52888669"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58106632"
 ---
 # <a name="service-fabric-mesh-terminology"></a>Terminologia de malha do Service Fabric
 
@@ -26,15 +26,15 @@ O Azure Service Fabric Mesh é um serviço totalmente gerido que permite aos pro
 
 ## <a name="application-and-service-concepts"></a>Aplicação e conceitos do serviço
 
-**Aplicação Mesh do Service Fabric**: aplicações de Mesh do Service Fabric são descritas pela [modelo de recursos](/azure/service-fabric-mesh/service-fabric-mesh-service-fabric-resources) (arquivos de recursos YAML e JSON) e podem ser implementados em qualquer ambiente em que executa a Service Fabric.
+**Aplicação de Service Fabric malha**: Aplicações de Mesh do Service Fabric são descritas pela [modelo de recursos](/azure/service-fabric-mesh/service-fabric-mesh-service-fabric-resources) (arquivos de recursos YAML e JSON) e podem ser implementados em qualquer ambiente em que executa a Service Fabric.
 
-**Aplicação nativa do Service Fabric**: aplicações nativo do Service Fabric são descritas pela [modelo de aplicativo nativo](/azure/service-fabric/service-fabric-application-model) (aplicativo baseado em XML e manifestos de serviço).  Aplicativos nativos do Service Fabric não é possível executar na malha de recursos de infraestrutura do serviço.
+**Aplicação de Service Fabric nativo**: Aplicativos nativos do Service Fabric são descritos pela [modelo de aplicativo nativo](/azure/service-fabric/service-fabric-application-model) (aplicativo baseado em XML e manifestos de serviço).  Aplicativos nativos do Service Fabric não é possível executar na malha de recursos de infraestrutura do serviço.
 
-**Aplicação**: malha de recursos de infraestrutura de serviço de um aplicativo é a unidade de implementação, o controle de versão e o tempo de vida de um aplicativo de malha. O ciclo de vida de cada instância da aplicação pode ser gerido de forma independente.  As aplicações são compostas por um ou mais pacotes de código de serviço e as definições. Um aplicativo é definido usando o esquema do modelo de recursos do Azure (RM).  Os serviços são descritos como propriedades do recurso de aplicação num modelo RM.  Redes e volumes utilizados pela aplicação são referenciados pela aplicação.  Ao criar uma aplicação, a aplicação, serviço ou serviços, rede e volumes são modelados com o modelo de recursos do Service Fabric.
+**Aplicação**: Um aplicativo de malha do Service Fabric é a unidade de implementação, o controle de versão e o tempo de vida de um aplicativo de malha. O ciclo de vida de cada instância da aplicação pode ser gerido de forma independente.  As aplicações são compostas por um ou mais pacotes de código de serviço e as definições. Um aplicativo é definido usando o esquema do modelo de recursos do Azure (RM).  Os serviços são descritos como propriedades do recurso de aplicação num modelo RM.  Redes e volumes utilizados pela aplicação são referenciados pela aplicação.  Ao criar uma aplicação, a aplicação, serviço ou serviços, rede e volumes são modelados com o modelo de recursos do Service Fabric.
 
-**Serviço**: um serviço num aplicativo representa um microsserviço e executa uma função completa e autónoma. Cada serviço é composto por um ou mais, pacotes de código que descrevem tudo necessários para executar a imagem de contentor associada ao pacote de código.  O número de réplicas do serviço num aplicativo pode ser dimensionado de entrada e saída.
+**Serviço**: Um serviço num aplicativo representa um microsserviço e executa uma função completa e autónoma. Cada serviço é composto por um ou mais, pacotes de código que descrevem tudo necessários para executar a imagem de contentor associada ao pacote de código.  O número de réplicas do serviço num aplicativo pode ser dimensionado de entrada e saída.
 
-**Pacote do código**: pacotes de código descrevem tudo necessários para executar a imagem de contentor associada ao pacote de código, incluindo o seguinte:
+**Pacote do código**: Pacotes do código descrevem tudo necessários para executar a imagem de contentor associada ao pacote de código, incluindo o seguinte:
 
 * Nome do contentor, versão e do Registro
 * Recursos de CPU e memória necessários para cada contentor
@@ -62,23 +62,23 @@ O modelo nativo não é suportado no ambiente de malha do Service Fabric.  Para 
 
 Service Fabric é uma tecnologia de plataforma de código aberto baseados em vários produtos e serviços diferentes. A Microsoft fornece as seguintes opções:
 
- - **Malha de recursos de infraestrutura do serviço**: um serviço totalmente gerido para executar aplicações do Service Fabric no Microsoft Azure.
- - **O Azure Service Fabric**: alojados no Azure a oferta de cluster do Service Fabric. Ele fornece integração entre o Service Fabric e a infraestrutura do Azure, juntamente com a gestão de atualização e configuração de clusters do Service Fabric.
- - **Autónomo do Service Fabric**: um conjunto de ferramentas de instalação e configuração para [implementar clusters do Service Fabric em qualquer lugar](/azure/service-fabric/service-fabric-deploy-anywhere) (no local ou em qualquer fornecedor de cloud). Não é gerido pelo Azure.
- - **Cluster de desenvolvimento do Service Fabric**: fornece uma experiência de desenvolvimento local no Windows, Linux ou Mac para desenvolvimento de aplicações do Service Fabric.
+ - **Malha de recursos de infraestrutura do serviço**: Um serviço totalmente gerido para executar aplicações do Service Fabric no Microsoft Azure.
+ - **Azure Service Fabric**: O Azure alojado oferta de cluster do Service Fabric. Ele fornece integração entre o Service Fabric e a infraestrutura do Azure, juntamente com a gestão de atualização e configuração de clusters do Service Fabric.
+ - **Autónomo do Service Fabric**: Um conjunto de ferramentas de instalação e configuração para [implementar clusters do Service Fabric em qualquer lugar](/azure/service-fabric/service-fabric-deploy-anywhere) (no local ou em qualquer fornecedor de cloud). Não é gerido pelo Azure.
+ - **Cluster de desenvolvimento do Service Fabric**: Fornece uma experiência de desenvolvimento local no Windows, Linux ou Mac para desenvolvimento de aplicações do Service Fabric.
 
 ## <a name="environment-framework-and-deployment-model-support-matrix"></a>Matriz de suporte de ambiente, o framework e o modelo de implementação
 Ambientes diferentes tem vários níveis de suporte de estruturas e modelos de implementação. A tabela seguinte descreve a estrutura de suporte e combinações de modelo de implementação.
 
 | Tipo de aplicação | Descrito por | Malha de recursos de infraestrutura do serviço do Azure | Clusters de recursos de infraestrutura do serviço do Azure (qualquer sistema operacional)| Local cluster | Cluster autónomo |
-|---|---|---|---|---|---|---|---|---|---|
+|---|---|---|---|---|---|
 | Aplicações de malha do Service Fabric | Modelo de recursos (YAML & JSON) | Suportadas |Não suportado | Windows – suportado, Linux e Mac não suportado | Windows e não suportados |
 |Aplicativos nativos do Service Fabric | Modelo de aplicativo nativo (XML) | Não suportado| Suportadas|Suportadas|Windows – suportado|
 
 A tabela seguinte descreve os modelos de aplicação diferente e as ferramentas existentes para os mesmos em relação a Service Fabric.
 
 | Tipo de aplicação | Descrito por | Visual Studio | Eclipse | SFCTL | AZ CLI | PowerShell|
-|---|---|---|---|---|---|---|---|---|---|
+|---|---|---|---|---|---|---|
 | Aplicações de malha do Service Fabric | Modelo de recursos (YAML & JSON) | VS 2017 |Não suportado |Não suportado | Suportado - apenas ambiente de malha | Não suportado|
 |Aplicativos nativos do Service Fabric | Modelo de aplicativo nativo (XML) | VS 2017 e VS 2015| Suportadas|Suportadas|Suportadas|Suportadas|
 

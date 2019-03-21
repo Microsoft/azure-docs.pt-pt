@@ -16,12 +16,12 @@ ms.date: 07/11/2017
 ms.author: celested
 ms.reviwer: japere,asteen
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f10a1f38b2c793bffb6061c6eefdccef7ac5c57b
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 7f7418c16d5d5312d2a9a7913da49941ef0a7870
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56204530"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58090462"
 ---
 # <a name="problem-signing-in-to-the-access-panel-website"></a>Problema ao iniciar sessão para o site do painel de acesso
 
@@ -168,23 +168,23 @@ Para ativar a reposição de palavra-passe self-service, siga estes passos de im
 
 Para verificar o estado de autenticação multifator de um utilizador, siga estes passos:
 
-1.  Abra o [ **portal do Azure** ](https://portal.azure.com/) e inicie sessão como um **Administrador Global.**
+1. Abra o [ **portal do Azure** ](https://portal.azure.com/) e inicie sessão como um **Administrador Global.**
 
-2.  Abra o **extensão do Active Directory do Azure** ao clicar em **todos os serviços** na parte superior do menu de navegação esquerdo principal.
+2. Abra o **extensão do Active Directory do Azure** ao clicar em **todos os serviços** na parte superior do menu de navegação esquerdo principal.
 
-3.  Escreva **"Azure Active Directory**" na caixa de pesquisa de filtro e selecione o **Azure Active Directory** item.
+3. Escreva **"Azure Active Directory**" na caixa de pesquisa de filtro e selecione o **Azure Active Directory** item.
 
-4.  Clique em **utilizadores e grupos** no menu de navegação.
+4. Clique em **utilizadores e grupos** no menu de navegação.
 
-5.  Clique em **todos os utilizadores**.
+5. Clique em **todos os utilizadores**.
 
-6.  Clique nas **multi-factor Authentication** botão na parte superior do painel.
+6. Clique nas **multi-factor Authentication** botão na parte superior do painel.
 
-7.  Uma vez a **Portal de administração do multi-factor Authentication** cargas, certifique-se estiver a utilizar o **utilizadores** separador.
+7. Uma vez a **Portal de administração do multi-factor Authentication** cargas, certifique-se estiver a utilizar o **utilizadores** separador.
 
-8.  Localize o utilizador na lista de utilizadores por procurar, filtrar ou ordenar.
+8. Localize o utilizador na lista de utilizadores por procurar, filtrar ou ordenar.
 
-9.  Selecione o utilizador a partir da lista de utilizadores e **habilitar**, **desativar**, ou **impor** autenticação multifator conforme pretendido.
+9. Selecione o utilizador a partir da lista de utilizadores e **habilitar**, **desativar**, ou **impor** autenticação multifator conforme pretendido.
 
    >[!NOTE]
    >Se um utilizador estiver num **imposto** de estado, pode defini-los como **desativado** temporariamente para informá-los novamente para a respetiva conta. Assim que estão de volta, pode alterar seu estado para **ativado** novamente para que eles para voltar a registar as informações de contacto durante o próximo início de sessão. Em alternativa, pode seguir os passos a [verificar informações de contacto de autenticação de um utilizador](#check-a-users-authentication-contact-info) para verificar ou definir esses dados para eles.

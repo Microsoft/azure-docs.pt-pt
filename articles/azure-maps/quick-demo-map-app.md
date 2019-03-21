@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: cc16c47f3b1764ba6887fd832656dfe2567ba0e4
-ms.sourcegitcommit: 89b5e63945d0c325c1bf9e70ba3d9be6888da681
+ms.openlocfilehash: be6d9ab0011e3d6b5d8ae1da489fc60c316e2867
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/08/2019
-ms.locfileid: "57588946"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58095471"
 ---
 # <a name="create-an-interactive-search-map-by-using-azure-maps"></a>Criar um mapa de pesquisa interativa com o Azure Maps
 
@@ -34,14 +34,14 @@ Inicie sessão no [portal do Azure](https://portal.azure.com/).
 2. Na **pesquisar no Marketplace** , introduza **Maps**.
 3. Em **Resultados**, selecione **Maps**. Selecione o **criar** botão que aparece abaixo do mapa.
 4. Sobre o **criar conta do Azure Maps** página, introduza os seguintes valores:
-    - O **Nome** da nova conta.
-    - A **Subscrição** que quer utilizar para esta conta.
-    - O **Grupo de recursos** para esta conta. Pode optar por **criar novo** ou **utilizar existente** grupo de recursos.
-    - Selecione o **escalão de preço** à sua escolha.
-    - Leitura a **licença** e **declaração de privacidade**. Selecione a caixa de verificação para aceitar os termos.
-    - Por fim, selecione o **criar** botão.
+   - O **Nome** da nova conta.
+   - A **Subscrição** que quer utilizar para esta conta.
+   - O **Grupo de recursos** para esta conta. Pode optar por **criar novo** ou **utilizar existente** grupo de recursos.
+   - Selecione o **escalão de preço** à sua escolha.
+   - Leitura a **licença** e **declaração de privacidade**. Selecione a caixa de verificação para aceitar os termos.
+   - Por fim, selecione o **criar** botão.
 
-    ![Criar uma conta do Azure Maps no portal](./media/quick-demo-map-app/create-account.png)
+     ![Criar uma conta do Azure Maps no portal](./media/quick-demo-map-app/create-account.png)
 
 5. Depois de sua conta for criada com êxito, abra-o e localize a secção de definições do menu de conta. Selecione **chaves** para exibir as chaves primárias e secundárias para a sua conta do Azure Maps. Copie o valor da **Chave Primária** para a área de transferência local para utilizar na secção seguinte.
 

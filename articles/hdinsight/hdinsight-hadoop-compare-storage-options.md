@@ -8,24 +8,53 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 02/04/2019
-ms.openlocfilehash: 91b6808e5f74d82a980dc633b2fa2bb0fe6752f1
-ms.sourcegitcommit: f863ed1ba25ef3ec32bd188c28153044124cacbc
+ms.openlocfilehash: fa08d2fb2185bd4b6cd0e2e9d20e1c44a4a35eae
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56301354"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58101487"
 ---
 # <a name="compare-storage-options-for-use-with-azure-hdinsight-clusters"></a>Compare as opções de armazenamento para utilização com clusters do HDInsight do Azure
 
-Os utilizadores do Microsoft Azure HDInsight podem escolher algumas opções de armazenamento diferente durante a criação de clusters do HDInsight:
+Pode escolher entre alguns serviços de armazenamento do Azure diferente durante a criação de clusters do HDInsight:
 
-* Armazenamento do Azure Data Lake Ger2
 * Storage do Azure
+* Armazenamento do Azure Data Lake Ger2
 * Armazenamento do Azure Data Lake Ger1
 
 Este artigo fornece uma visão geral desses tipos de armazenamento e de seus recursos exclusivos.
 
-## <a name="azure-data-lake-storage-gen2-with-apache-hadoop-in-azure-hdinsight"></a>Geração 2 de Lake armazenamento de dados do Azure com o Apache Hadoop no HDInsight do Azure
+A tabela seguinte resume os serviços de armazenamento do Azure que são suportados com diferentes versões do HDInsight:
+
+| Serviço de armazenamento | Tipo de conta | Tipo de espaço de nomes | Serviços suportados | Escalões de desempenho suportados | Suporte de acesso | Versão do HDInsight | Tipo de cluster |
+|---|---|---|---|---|---|---|---|
+|Armazenamento do Azure Data Lake Ger2| Para fins gerais V2 | Hierárquica (sistema de ficheiros) | Blobs | Standard | Armazenamento frequente, esporádica, arquivo | 3.6 + | Todos |
+|Storage do Azure| Para fins gerais V2 | Object | Blobs | Standard | Armazenamento frequente, esporádica, arquivo | 3.6 + | Todos |
+|Storage do Azure| Para fins gerais V1 | Object | Blobs | Standard | N/A | Todos | Todos |
+|Storage do Azure| Blob Storage | Object | Blobs | Standard | Armazenamento frequente, esporádica, arquivo | Todos | Todos |
+|Armazenamento do Azure Data Lake Ger1| N/A | Hierárquica (sistema de ficheiros) | N/A | N/D | N/A | Apenas 3.6 | Tudo, exceto HBase |
+
+Para obter mais informações sobre as camadas de acesso de armazenamento do Azure, consulte [armazenamento de Blobs do Azure: Premium (pré-visualização), as camadas de armazenamento frequente, esporádico e arquivo](../storage/blobs/storage-blob-storage-tiers.md)
+
+Pode criar um cluster com diferentes combinações de serviços para armazenamento secundário primário e opcional. A tabela seguinte resume as configurações de armazenamento de cluster que são atualmente suportadas no HDInsight:
+
+| Versão do HDInsight | Armazenamento Primário | Armazenamento secundário | Suportadas |
+|---|---|---|---|
+| 3.6 & 4.0 | BLOBs padrão | BLOBs padrão | Sim |
+| 3.6 & 4.0 | BLOBs padrão | Armazenamento do Data Lake Ger2 | Não |
+| 3.6 & 4.0 | BLOBs padrão | Armazenamento do Data Lake Ger1 | Sim |
+| 3.6 & 4.0 | Data Lake Storage Gen2* | Armazenamento do Data Lake Ger2 | Sim |
+| 3.6 & 4.0 | Data Lake Storage Gen2* | BLOBs padrão | Sim |
+| 3.6 & 4.0 | Armazenamento do Data Lake Ger2 | Armazenamento do Data Lake Ger1 | Não |
+| 3.6 | Armazenamento do Data Lake Ger1 | Armazenamento do Data Lake Ger1 | Sim |
+| 3.6 | Armazenamento do Data Lake Ger1 | BLOBs padrão | Sim |
+| 3.6 | Armazenamento do Data Lake Ger1 | Armazenamento do Data Lake Ger2 | Não |
+| 4.0 | Armazenamento do Data Lake Ger1 | Qualquer | Não |
+
+* = Pode ser uma ou várias contas de geração 2 de armazenamento do Data Lake, desde que eles estão todos os configuração a utilizar a mesma identidade gerida para o acesso de cluster.
+
+## <a name="use-azure-data-lake-storage-gen2-with-apache-hadoop-in-azure-hdinsight"></a>Utilizar o Azure Data Lake Storage Gen2 com o Apache Hadoop no HDInsight do Azure
 
 O Azure Data Lake Gen2 de armazenamento necessário core as funcionalidades de geração 1 de armazenamento do Azure Data Lake e integra-se para o armazenamento de Blobs do Azure. Estas funcionalidades incluem um sistema de ficheiros que é compatível com o Hadoop, o Azure Active Directory (Azure AD), e listas de controlo de acesso baseadas em POSIX (ACL). Esta combinação permite-lhe tirar partido do desempenho de geração 1 de armazenamento do Azure Data Lake ao utilizar também o gerenciamento de ciclo de vida de disposição em camadas e os dados de armazenamento de Blobs.
 
@@ -89,21 +118,10 @@ Para obter mais informações, consulte [utilizam o URI de geração 2 de armaze
 
 O armazenamento do Azure é uma solução de armazenamento para fins gerais robusta que se integra perfeitamente com o HDInsight. O HDInsight pode utilizar um contentor de blobs no Armazenamento do Azure como o sistema de ficheiros predefinido para o cluster. Através de uma interface HDFS, o conjunto completo de componentes no HDInsight pode operar diretamente em dados estruturados ou não estruturados armazenados como blobs.
 
-Quando criar uma conta de armazenamento do Azure, pode escolher entre vários tipos de conta de armazenamento. A tabela seguinte fornece informações sobre as opções que são suportadas com o HDInsight.
-
-| **Tipo de conta de armazenamento** | **Serviços suportados** | **Escalões de desempenho suportados** | **Suporte de acesso** |
-|----------------------|--------------------|-----------------------------|------------------------|
-| Para fins gerais V2   | Blobs               | Standard                    | Frequente, esporádico, arquivo *    |
-| Para fins gerais V1   | Blobs               | Standard                    | N/A                    |
-| Armazenamento de blobs         | Blobs               | Standard                    | Frequente, esporádico, arquivo *    |
-
-* Camada de acesso de de arquivo é uma camada offline que tenha uma latência de obtenção de várias horas. Não utilize este escalão com HDInsight. Para obter mais informações, consulte [camada de acesso de arquivo](../storage/blobs/storage-blob-storage-tiers.md#archive-access-tier).
-
-> [!WARNING]  
-> Não recomendamos utilizar o contentor de BLOBs predefinido para armazenar dados de negócio. As predefinição retenções aplicativo e sistema de registos de contentor. Certifique-se obter os registos antes de eliminar o contentor de BLOBs predefinido. Elimine o contentor de blog após cada utilização para reduzir os custos de armazenamento. Tenha também em atenção que um contentor de BLOBs não pode ser utilizado como o sistema de ficheiros predefinido para múltiplos clusters.
-
+Recomendamos que utilize contentores de armazenamento separada para o armazenamento de cluster predefinido e os seus dados de negócio, isolar os registos do HDInsight e os arquivos temporários de seus próprios dados de negócio. Também recomendamos a eliminar o contentor de BLOBs predefinido, que contém os registos de sistema da aplicação e, após cada utilização para reduzir o custo de armazenamento. Certifique-se de que obtém os registos antes de eliminar o contentor.
 
 ### <a name="hdinsight-storage-architecture"></a>Arquitetura de armazenamento do HDInsight
+
 O diagrama seguinte apresenta uma vista abstrata da arquitetura do armazenamento do Azure HDInsight:
 
 ![Diagrama que mostra como os clusters do Hadoop utilizam a API do HDFS para aceder e armazenar dados estruturados e não estruturados no armazenamento de BLOBs](./media/hdinsight-hadoop-compare-storage-options/HDI.WASB.Arch.png "arquitetura de armazenamento do HDInsight")

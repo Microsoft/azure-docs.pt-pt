@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 02/13/2019
 ms.author: robb
 ms.subservice: diagnostic-extension
-ms.openlocfilehash: 6c59b97a8deec78149775a147d6476e67f405d3f
-ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
+ms.openlocfilehash: 8a287f118c126967d2cf8cad77a434cfecc098eb
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56310462"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58078544"
 ---
 # <a name="what-is-azure-diagnostics-extension"></a>O que é a extensão de diagnóstico do Azure
 A extensão de diagnóstico do Azure é um agente no Azure que permite a recolha de dados de diagnóstico num aplicativo implantado. Pode utilizar a extensão de diagnóstico de várias origens diferentes. Atualmente suportados são Web do serviço de Cloud do Azure (clássico) e funções de trabalho, máquinas virtuais, a Máquina Virtual Dimensionar conjuntos e o Service Fabric. Outros serviços do Azure têm métodos de diagnóstico diferentes. Ver [descrição geral da monitorização no Azure](../../azure-monitor/overview.md).
@@ -50,6 +50,9 @@ Tem também a opção de enviar seus dados para a base de dados de séries de te
 * Ao tratar o operador de caráter universal no contadores de desempenho como a dimensão de "Instância" em sua métrica.  Por exemplo, se recolheu o "disco lógico (\*) / DiskWrites/seg" contador deve ser capaz de filtro e dividir a dimensão de "Instância" plotagem ou alertar relativamente a escritas de disco/seg para cada disco lógico na VM (por exemplo, c)
 
 Para saber mais sobre como configurar este sink, consulte o [documentação de esquema de diagnóstico do Azure.](diagnostics-extension-schema-1dot3.md)
+
+## <a name="costs"></a>Custos
+Cada uma das opções acima pode incorrer em custos. Certifique-se de que pesquisá-los para evitar faturas inesperadas.  O Application Insights, hub de eventos, e o armazenamento do Azure tem custos separados associados à ingestão e a hora de armazenados. Em particular, armazenamento do Azure irá conter todos os dados indefinidamente pelo que deve remover os dados mais antigos após um determinado período de tempo para manter os custos baixos.    
 
 ## <a name="versioning-and-configuration-schema"></a>Esquema de controlo de versões e a configuração
 Ver [histórico de versões do diagnóstico do Azure e o esquema](diagnostics-extension-schema.md).

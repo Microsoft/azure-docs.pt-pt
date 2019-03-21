@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 11/28/2018
 ms.author: lastcoolnameleft
-ms.openlocfilehash: 9958f5f0f1435af231c1426a249c745f4a2352c5
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: 926f470b8a4dbdb6d6cbfe09ee61349a819600e7
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55816616"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58098632"
 ---
 # <a name="best-practices-for-business-continuity-and-disaster-recovery-in-azure-kubernetes-service-aks"></a>Melhores práticas para o negócio continuidade e recuperação após desastre no Azure Kubernetes Service (AKS)
 
@@ -21,11 +21,11 @@ Como gerir clusters no Azure Kubernetes Service (AKS), o tempo de atividade do a
 Este artigo concentra-se em considerações de que o ajudam a práticas recomendadas planearem a recuperação de desastre e continuidade de negócio no AKS. Saiba como:
 
 > [!div class="checklist"]
-* Planear clusters do AKS em várias regiões
-* Encaminhar o tráfego entre vários clusters com o Gestor de tráfego do Azure
-* Utilizar a georreplicação para os registos de imagem de contentor
-* Plano para o estado da aplicação em vários clusters
-* Replicar o armazenamento em várias regiões
+> * Planear clusters do AKS em várias regiões
+> * Encaminhar o tráfego entre vários clusters com o Gestor de tráfego do Azure
+> * Utilizar a georreplicação para os registos de imagem de contentor
+> * Plano para o estado da aplicação em vários clusters
+> * Replicar o armazenamento em várias regiões
 
 ## <a name="plan-for-multi-region-deployment"></a>Plano para implementação em várias regiões
 
@@ -62,7 +62,7 @@ Para obter passos sobre como configurar estes pontos finais e encaminhamento, ve
 
 ### <a name="layer-7-application-routing-with-azure-front-door"></a>Encaminhamento de aplicações de camada 7 porta da frente com o Azure
 
-O Gestor de tráfego do Azure utiliza o DNS (camada 3) para o tráfego de forma. [Porta da frente do Azure (pré-visualização)](https://docs.microsoft.com/azure/frontdoor/front-door-overview) fornece uma opção de encaminhamento de HTTP/HTTPS (camada 7). As funcionalidades adicionais de porta de entrada incluem SSL terminação, domínio personalizado, Firewall de aplicações Web, reescrita de URLs e afinidade de sessão.
+O Gestor de tráfego do Azure utiliza o DNS (camada 3) para o tráfego de forma. [Porta da frente do Azure (atualmente em pré-visualização)](https://docs.microsoft.com/azure/frontdoor/front-door-overview) fornece uma opção de encaminhamento de HTTP/HTTPS (camada 7). As funcionalidades adicionais de porta de entrada incluem SSL terminação, domínio personalizado, Firewall de aplicações Web, reescrita de URLs e afinidade de sessão.
 
 Reveja as necessidades do seu tráfego de aplicativo para compreender qual é o mais adequado.
 

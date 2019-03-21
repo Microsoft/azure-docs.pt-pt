@@ -14,12 +14,12 @@ ms.author: lizross
 ms.reviewer: japere
 ms.custom: user-help, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e35cc4d5500cdfda0af4e130928434af34b1497f
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: cad68afd02694ec471d032a554ed468691ff914b
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57449789"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58105476"
 ---
 # <a name="troubleshoot-issues-with-accessing-and-using-the-myapps-portal"></a>Resolver problemas ao aceder e utilizar o portal MyApps
 
@@ -96,8 +96,8 @@ Se tiver instalado a extensão e ainda está a ter problemas, experimente o segu
 
 ## <a name="how-do-i-add-a-new-app"></a>Como posso adicionar uma nova aplicação?
 
-1.  Sobre o **aplicações** página, selecione **Adicionar aplicação**.
-2.  Procure a aplicação que pretende adicionar e, em seguida, selecione **adicionar**.
+1. Sobre o **aplicações** página, selecione **Adicionar aplicação**.
+2. Procure a aplicação que pretende adicionar e, em seguida, selecione **adicionar**.
 
    > [!NOTE]
    > * Pode aceder a esta opção apenas se o administrador tiver ativado para a sua conta.

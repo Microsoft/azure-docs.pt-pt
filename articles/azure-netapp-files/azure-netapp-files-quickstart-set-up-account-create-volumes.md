@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: quickstarts
 ms.date: 2/20/2019
 ms.author: b-juche
-ms.openlocfilehash: 76c1543f5d9979d46b303f12c495dcaa403cef1d
-ms.sourcegitcommit: 7723b13601429fe8ce101395b7e47831043b970b
+ms.openlocfilehash: 363589116cc7b936358ce0b16cbaba9a42c66234
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56589125"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58078079"
 ---
 # <a name="set-up-azure-netapp-files-and-create-a-volume"></a>Configurar o Azure NetApp Files e criar um volume 
 
@@ -56,14 +56,14 @@ Tem de ser parte do programa de pré-visualização pública e na lista de permi
      ![Criar nova conta de NetApp](../media/azure-netapp-files/azure-netapp-files-create-new-netapp-account.png)
 
 3. Na janela da nova conta de NetApp, forneça as seguintes informações: 
-    1. Introduza **myaccount1** para o nome da conta. 
-    2. Selecione a sua subscrição.
-    3. Selecione **criar novo** para criar novo grupo de recursos. Introduza **myRG1** para o nome do grupo de recursos. Clique em **OK**. 
-    4. Selecione seu local de conta.  
+   1. Introduza **myaccount1** para o nome da conta. 
+   2. Selecione a sua subscrição.
+   3. Selecione **criar novo** para criar novo grupo de recursos. Introduza **myRG1** para o nome do grupo de recursos. Clique em **OK**. 
+   4. Selecione seu local de conta.  
 
-    ![Nova janela de conta de NetApp](../media/azure-netapp-files/azure-netapp-files-new-account-window.png)  
+      ![Nova janela de conta de NetApp](../media/azure-netapp-files/azure-netapp-files-new-account-window.png)  
 
-    ![Janela de grupo de recursos](../media/azure-netapp-files/azure-netapp-files-resource-group-window.png)
+      ![Janela de grupo de recursos](../media/azure-netapp-files/azure-netapp-files-resource-group-window.png)
 
 4. Clique em **criar** para criar a sua nova conta de NetApp.
 
@@ -99,22 +99,22 @@ Tem de ser parte do programa de pré-visualização pública e na lista de permi
     ![Clique em Adicionar volumes](../media/azure-netapp-files/azure-netapp-files-click-add-volumes.png)  
 
 3. Criar uma janela de Volume, fornecem informações para o volume: 
-    1. Introduza **myvol1** como o nome do volume. 
-    2. Introduza **myfilepath1** como o caminho do ficheiro que será utilizado para criar o caminho de exportação para o volume.
-    3. Selecione o conjunto de capacidade (**mypool1**).
-    4. Utilize o valor predefinido para a quota. 
-    5. Numa rede virtual, clique em **criar novo** para criar um novo Azure virtual network (Vnet).  Em seguida, preencha as seguintes informações:
-        * Introduza **myvnet1** como o nome da Vnet.
-        * Especifique um espaço de endereços, por exemplo, 10.7.0.0/16.
-        * Introduza **myANFsubnet** como o nome da sub-rede.
-        * Especifique o intervalo de endereços de sub-rede, por exemplo, 10.7.0.0/24.
-        * Selecione **Microsoft.NetApp/volumes** para delegação de sub-rede.
-        * Clique em **OK** para criar a Vnet.
-    6. Na sub-rede, selecione a Vnet criada recentemente (**myvnet1**) como a sub-rede do delegado.
+   1. Introduza **myvol1** como o nome do volume. 
+   2. Introduza **myfilepath1** como o caminho do ficheiro que será utilizado para criar o caminho de exportação para o volume.
+   3. Selecione o conjunto de capacidade (**mypool1**).
+   4. Utilize o valor predefinido para a quota. 
+   5. Numa rede virtual, clique em **criar novo** para criar um novo Azure virtual network (Vnet).  Em seguida, preencha as seguintes informações:
+       * Introduza **myvnet1** como o nome da Vnet.
+       * Especifique um espaço de endereços, por exemplo, 10.7.0.0/16.
+       * Introduza **myANFsubnet** como o nome da sub-rede.
+       * Especifique o intervalo de endereços de sub-rede, por exemplo, 10.7.0.0/24.
+       * Selecione **Microsoft.NetApp/volumes** para delegação de sub-rede.
+       * Clique em **OK** para criar a Vnet.
+   6. Na sub-rede, selecione a Vnet criada recentemente (**myvnet1**) como a sub-rede do delegado.
 
-    ![Criar uma janela de volume](../media/azure-netapp-files/azure-netapp-files-create-volume-window.png)  
+      ![Criar uma janela de volume](../media/azure-netapp-files/azure-netapp-files-create-volume-window.png)  
 
-    ![Criar a janela de rede virtual](../media/azure-netapp-files/azure-netapp-files-create-virtual-network-window.png)  
+      ![Criar a janela de rede virtual](../media/azure-netapp-files/azure-netapp-files-create-virtual-network-window.png)  
 
 4. Clique em **Rever + criar**.
 

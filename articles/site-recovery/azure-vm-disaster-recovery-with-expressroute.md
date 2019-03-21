@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: mayg
-ms.openlocfilehash: 16b4031c0242d79b6d866d612a4d4f594dc608fa
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: 4622809f0e261236d6753daf5bb2e00ff814c849
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55821954"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58087878"
 ---
 # <a name="integrate-azure-expressroute-with-disaster-recovery-for-azure-vms"></a>Integrar o Azure ExpressRoute com recuperação após desastre para VMs do Azure
 
@@ -91,11 +91,11 @@ Implementações em empresas têm normalmente cargas de trabalho de dividir em v
     - **Origem vNet2**: 10.2.0.0/24.
     - Cada rede virtual do spoke está ligado à **vNet do Hub**.
 - **VNet do hub**. Existe uma vNet do hub **vNet do Hub de origem**: 10.10.10.0/24.
-    - Esta vNet do hub atua como o controlador de chamadas.
-    - Todas as comunicações entre sub-redes percorrer este hub.
- - Hub vNet sub-redes * *. A vNet do hub tiver duas sub-redes:
-     - **Sub-rede da NVA**: 10.10.10.0/25. Esta sub-rede contém uma NVA (10.10.10.10).
-     - **A sub-rede de gateway**: 10.10.10.128/25. Esta sub-rede contém um gateway do ExpressRoute ligado a uma ligação do ExpressRoute que encaminha para o site no local através de um domínio de encaminhamento de peering privado.
+  - Esta vNet do hub atua como o controlador de chamadas.
+  - Todas as comunicações entre sub-redes percorrer este hub.
+    - Hub vNet sub-redes * *. A vNet do hub tiver duas sub-redes:
+    - **Sub-rede da NVA**: 10.10.10.0/25. Esta sub-rede contém uma NVA (10.10.10.10).
+    - **A sub-rede de gateway**: 10.10.10.128/25. Esta sub-rede contém um gateway do ExpressRoute ligado a uma ligação do ExpressRoute que encaminha para o site no local através de um domínio de encaminhamento de peering privado.
 - O Centro de dados no local tem uma ligação de circuito do ExpressRoute através de um limite de parceiro em RAE de Hong Kong.
 - Encaminhamento de todas as é controlada por meio de tabelas de rota do Azure (UDR).
 - Todo o tráfego de saída entre vNets ou para o datacenter no local é encaminhado através da NVA.
@@ -108,7 +108,7 @@ Implementações em empresas têm normalmente cargas de trabalho de dividir em v
 --- | --- | ---
 Spoke para hub | Permitir o endereço de rede virtual | Ativado
 Spoke para hub | Permitir tráfego reencaminhado | Ativado
-Spoke para hub | Permitir que o trânsito de gateway | Desativado
+Spoke para hub | Permitir trânsito de gateway | Desativado
 Spoke para hub | Utilizar gateways de remover | Ativado
 
  ![-Spoke para configuração de peering do hub](./media/azure-vm-disaster-recovery-with-expressroute/spoke-to-hub-peering-configuration.png)
@@ -119,7 +119,7 @@ Spoke para hub | Utilizar gateways de remover | Ativado
 --- | --- | ---
 Hub para spoke | Permitir o endereço de rede virtual | Ativado
 Hub para spoke | Permitir tráfego reencaminhado | Ativado
-Hub para spoke | Permitir que o trânsito de gateway | Ativado
+Hub para spoke | Permitir trânsito de gateway | Ativado
 Hub para spoke | Utilizar gateways de remover | Desativado
 
  ![Hub para falava configuração de peering](./media/azure-vm-disaster-recovery-with-expressroute/hub-to-spoke-peering-configuration.png)

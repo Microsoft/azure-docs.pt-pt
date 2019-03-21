@@ -10,19 +10,21 @@ ms.service: azure-resource-manager
 ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.date: 01/16/2019
+ms.date: 03/18/2019
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 5f8dffa01b2d7dd7fa966d2b417019f1d2afb1bc
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: 25dda12ca33165cfc64ffd949a2068acb5150b84
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56867019"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58097154"
 ---
 # <a name="tutorial-create-linked-azure-resource-manager-templates"></a>Tutorial: Criar modelos do Azure Resource Manager ligados
 
 Saiba como criar modelos ligados do Azure Resource Manager. Com os modelos ligados, pode ter um modelo para chamar outro modelo. É ótimo para modelos de modulação. Neste tutorial, vai utilizar o mesmo modelo utilizado [Tutorial: Criar modelos Azure Resource Manager com recursos dependentes](./resource-manager-tutorial-create-templates-with-dependent-resources.md), que cria uma máquina virtual, uma rede virtual e outros recursos dependentes, incluindo uma conta de armazenamento. Separar a criação de recursos da conta de armazenamento a um modelo ligado.
+
+A chamada de um modelo ligado é como fazer uma chamada de função.  Também aprenderá como passar valores de parâmetros ao modelo de ligado e como obter "valores de retorno" do modelo ligado.
 
 Este tutorial abrange as seguintes tarefas:
 
@@ -34,6 +36,8 @@ Este tutorial abrange as seguintes tarefas:
 > * Configurar a dependência
 > * Implementar o modelo
 > * Práticas adicionais
+
+Para obter mais informações, consulte [utilização ligados e aninhados modelos durante a implantação de recursos do Azure](./resource-group-linked-templates.md).
 
 Se não tiver uma subscrição do Azure, [crie uma conta gratuita](https://azure.microsoft.com/free/) antes de começar.
 
@@ -67,95 +71,97 @@ Os Modelos de Início Rápido do Azure são um repositório de modelos do Resour
 3. Selecione **Abrir** para abrir o ficheiro.
 4. Existem cinco recursos definidos pelo modelo:
 
-    * `Microsoft.Storage/storageAccounts`. Veja a [referência do modelo](https://docs.microsoft.com/azure/templates/Microsoft.Storage/storageAccounts). 
-    * `Microsoft.Network/publicIPAddresses`. Veja a [referência do modelo](https://docs.microsoft.com/azure/templates/microsoft.network/publicipaddresses). 
-    * `Microsoft.Network/virtualNetworks`. Veja a [referência do modelo](https://docs.microsoft.com/azure/templates/microsoft.network/virtualnetworks). 
-    * `Microsoft.Network/networkInterfaces`. Veja a [referência do modelo](https://docs.microsoft.com/azure/templates/microsoft.network/networkinterfaces). 
-    * `Microsoft.Compute/virtualMachines`. Veja a [referência do modelo](https://docs.microsoft.com/azure/templates/microsoft.compute/virtualmachines).
+   * [`Microsoft.Storage/storageAccounts`](https://docs.microsoft.com/azure/templates/Microsoft.Storage/storageAccounts)
+   * [`Microsoft.Network/publicIPAddresses`](https://docs.microsoft.com/azure/templates/microsoft.network/publicipaddresses)
+   * [`Microsoft.Network/virtualNetworks`](https://docs.microsoft.com/azure/templates/microsoft.network/virtualnetworks)
+   * [`Microsoft.Network/networkInterfaces`](https://docs.microsoft.com/azure/templates/microsoft.network/networkinterfaces)
+   * [`Microsoft.Compute/virtualMachines`](https://docs.microsoft.com/azure/templates/microsoft.compute/virtualmachines)
 
-    É útil obter algumas noções básicas sobre o modelo antes de personalizar o modelo.
+     É útil obter algumas noções básicas sobre o esquema de modelo antes de personalizar o modelo.
 5. Selecione **Ficheiro**>**Guardar Como** para guardar uma cópia do ficheiro no computador local, com o nome **azuredeploy.json**.
 6. Selecione **Ficheiro**>**Guardar Como** para criar outra cópia do ficheiro com o nome **linkedTemplate.json**.
 
 ## <a name="create-the-linked-template"></a>Criar o modelo ligado
 
-O modelo ligado cria uma conta de armazenamento. O modelo ligado é quase idêntico ao modelo autónomo que cria uma conta de armazenamento. Neste tutorial, o modelo ligado tem de passar um valor de volta ao modelo principal. Este valor é definido no elemento `outputs`.
+O modelo ligado cria uma conta de armazenamento. O modelo ligado pode ser utilizado como um modelo autónomo para criar uma conta de armazenamento. Neste tutorial, o modelo ligado usa dois parâmetros e transmite um valor para o modelo principal. Este valor de "return" está definido no `outputs` elemento.
 
-1. Se não é possível abrir o ficheiro, abra linkedTemplate.json no Visual Studio Code.
+1. Open **linkedTemplate.json** no Visual Studio Code, se não é possível abrir o ficheiro.
 2. Efetue as seguintes alterações:
 
-    * Remova todos os recursos exceto a conta de armazenamento. Deverá remover um total de quatro recursos.
+    * Remover todos os parâmetros que **localização**.
+    * Adicione um parâmetro denominado **storageAccountName**. 
+        ```json
+        "storageAccountName":{
+          "type": "string",
+          "metadata": {
+              "description": "Azure Storage account name."
+          }
+        },
+        ```
+        O nome da conta de armazenamento e a localização são transferidos do modelo principal para o modelo ligado como parâmetros.
+        
+    * Remover os **variáveis** elemento e todas as definições de variável.
+    * Remova todos os recursos que não seja a conta de armazenamento. Deverá remover um total de quatro recursos.
     * Atualize o valor do **nome** elemento do recurso de conta de armazenamento para:
 
         ```json
           "name": "[parameters('storageAccountName')]",
         ```
-    * Remover os **variáveis** elemento e todas as definições de variável.
-    * Remover todos os parâmetros, exceto **localização**.
-    * Adicione um parâmetro denominado **storageAccountName**. O nome da conta de armazenamento é passado do modelo principal para o modelo ligado como um parâmetro.
 
-        ```json
-        "storageAccountName":{
-        "type": "string",
-        "metadata": {
-            "description": "Azure Storage account name."
-        }
-        },
-        ```
     * Atualize o elemento **outputs**, para que este se assemelhe a:
-
+    
         ```json
         "outputs": {
-            "storageUri": {
-                "type": "string",
-                "value": "[reference(parameters('storageAccountName')).primaryEndpoints.blob]"
-              }
+          "storageUri": {
+              "type": "string",
+              "value": "[reference(parameters('storageAccountName')).primaryEndpoints.blob]"
+            }
         }
         ```
-        O **storageUri** é necessário para a definição do recurso de máquina virtual no modelo principal.  Passe o valor de volta ao modelo principal como um valor de resultado.
+       O **storageUri** é necessário para a definição do recurso de máquina virtual no modelo principal.  Passe o valor de volta ao modelo principal como um valor de resultado.
 
-    Quando tiver terminado, o modelo terá o seguinte aspeto:
+        Quando tiver terminado, o modelo terá o seguinte aspeto:
 
-    ```json
-    {
-        "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-        "contentVersion": "1.0.0.0",
-        "parameters": {
-          "storageAccountName":{
-            "type": "string",
-            "metadata": {
-              "description": "Azure Storage account name."
+        ```json
+        {
+          "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+          "contentVersion": "1.0.0.0",
+          "parameters": {
+            "storageAccountName": {
+              "type": "string",
+              "metadata": {
+                "description": "Azure Storage account name."
+              }
+            },
+            "location": {
+              "type": "string",
+              "defaultValue": "[resourceGroup().location]",
+              "metadata": {
+                "description": "Location for all resources."
+              }
             }
           },
-          "location": {
-            "type": "string",
-            "defaultValue": "[resourceGroup().location]",
-            "metadata": {
-              "description": "Location for all resources."
+          "resources": [
+            {
+              "type": "Microsoft.Storage/storageAccounts",
+              "name": "[parameters('storageAccountName')]",
+              "location": "[parameters('location')]",
+              "apiVersion": "2018-07-01",
+              "sku": {
+                "name": "Standard_LRS"
+              },
+              "kind": "Storage",
+              "properties": {}
+            }
+          ],
+          "outputs": {
+            "storageUri": {
+              "type": "string",
+              "value": "[reference(parameters('storageAccountName')).primaryEndpoints.blob]"
             }
           }
-        },
-        "resources": [
-          {
-            "type": "Microsoft.Storage/storageAccounts",
-            "name": "[parameters('storageAccountName')]",
-            "apiVersion": "2016-01-01",
-            "location": "[parameters('location')]",
-            "sku": {
-              "name": "Standard_LRS"
-            },
-            "kind": "Storage",
-            "properties": {}
-          }
-        ],
-        "outputs": {
-            "storageUri": {
-                "type": "string",
-                "value": "[reference(parameters('storageAccountName')).primaryEndpoints.blob]"
-              }
         }
-    }
-    ```
+        ```
 3. Guarde as alterações.
 
 ## <a name="upload-the-linked-template"></a>Carregar o modelo ligado
@@ -227,7 +233,7 @@ Na prática, gerar um token SAS quando implementar o modelo principal e dar a ex
 
 O modelo principal chama-se azuredeploy.json.
 
-1. Abra azuredeploy.json no Visual Studio Code, se não estiver aberto.
+1. Open **azuredeploy. JSON** no Visual Studio Code, se não estiver aberto.
 2. Elimine a definição de recurso de conta de armazenamento a partir do modelo:
 
     ```json
@@ -302,8 +308,6 @@ Uma vez que agora a conta de armazenamento está definida no modelo ligado, tem 
     *linkedTemplate* é o nome do recurso de implementações.  
 3. Atualizar **propriedades/diagnosticsProfile/bootDiagnostics/storageUri** conforme mostrado na captura de ecrã anterior.
 4. Guarde o modelo revisado.
-
-Para obter mais informações, veja [Utilizar modelos ligados e aninhados ao implementar recursos do Azure](./resource-group-linked-templates.md)
 
 ## <a name="deploy-the-template"></a>Implementar o modelo
 

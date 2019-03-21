@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 08/09/2018
 ms.author: iainfou
-ms.openlocfilehash: 0dced367f62ab97d62cd4b11758e13a05278442e
-ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
+ms.openlocfilehash: 0cf83180647c142c9db2a1229674de96fec6a6bb
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56099263"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58087538"
 ---
 # <a name="integrate-azure-active-directory-with-azure-kubernetes-service"></a>Integrar o Azure Active Directory com o serviço Kubernetes do Azure
 
@@ -40,47 +40,47 @@ A primeira aplicação do Azure AD é utilizada para obter uma associação de g
 
 1. Selecione **Azure Active Directory** > **Registos das aplicações** > **Novo registo de aplicação**.
 
-  Dê um nome, selecione ao aplicativo **aplicação Web / API** para o tipo de aplicação e introduza qualquer valor URI formatado para **URL de início de sessão**. Selecione **criar** quando tiver terminado.
+   Dê um nome, selecione ao aplicativo **aplicação Web / API** para o tipo de aplicação e introduza qualquer valor URI formatado para **URL de início de sessão**. Selecione **criar** quando tiver terminado.
 
-  ![Criar o registo do Azure AD](media/aad-integration/app-registration.png)
+   ![Criar o registo do Azure AD](media/aad-integration/app-registration.png)
 
 2. Selecione **manifesto** e editar os `groupMembershipClaims` valor a `"All"`.
 
-  Guarde as atualizações, depois de concluído.
+   Guarde as atualizações, depois de concluído.
 
-  ![Atualizar associação de grupo para todos](media/aad-integration/edit-manifest.png)
+   ![Atualizar associação de grupo para todos](media/aad-integration/edit-manifest.png)
 
 3. Novamente na aplicação do Azure AD, selecione **configurações** > **chaves**.
 
-  Adicionar uma descrição da chave, selecione um prazo de expiração e selecione **guardar**. Anote o valor da chave. Quando implementar um Azure AD ativado o cluster do AKS, este valor é referido como o `Server application secret`.
+   Adicionar uma descrição da chave, selecione um prazo de expiração e selecione **guardar**. Anote o valor da chave. Quando implementar um Azure AD ativado o cluster do AKS, este valor é referido como o `Server application secret`.
 
-  ![Obter a chave privada da aplicação](media/aad-integration/application-key.png)
+   ![Obter a chave privada da aplicação](media/aad-integration/application-key.png)
 
 4. Regressar à aplicação do Azure AD, selecione **configurações** > **permissões obrigatórias** > **adicionar**  >   **Selecionar uma API** > **Microsoft Graph** > **selecionar**.
 
-  ![Selecione a graph API](media/aad-integration/graph-api.png)
+   ![Selecione a graph API](media/aad-integration/graph-api.png)
 
 5. Sob **PERMISSÕES de aplicação** coloque uma marca junto a **ler dados do diretório**.
 
-  ![Definir permissões de gráfico de aplicação](media/aad-integration/read-directory.png)
+   ![Definir permissões de gráfico de aplicação](media/aad-integration/read-directory.png)
 
 6. Sob **PERMISSÕES DELEGADAS**, coloque uma marca junto a **iniciar sessão e ler o perfil de utilizador** e **ler dados do diretório**. Guarde as atualizações assim que estiver pronto.
 
-  ![Definir permissões de gráfico de aplicação](media/aad-integration/delegated-permissions.png)
+   ![Definir permissões de gráfico de aplicação](media/aad-integration/delegated-permissions.png)
 
-  Selecione **Done** (Concluído).
+   Selecione **Done** (Concluído).
 
 7. Escolher *Microsoft Graph* na lista de APIs, em seguida, selecione **conceder permissões**. Este passo irá falhar se a conta atual não é um administrador inquilino.
 
-  ![Definir permissões de gráfico de aplicação](media/aad-integration/grant-permissions.png)
+   ![Definir permissões de gráfico de aplicação](media/aad-integration/grant-permissions.png)
 
-  Quando as permissões foram concedidas com êxito, a seguinte notificação é apresentada no portal do:
+   Quando as permissões foram concedidas com êxito, a seguinte notificação é apresentada no portal do:
 
-  ![Notificação de êxito permissões concedidas](media/aad-integration/permissions-granted.png)
+   ![Notificação de êxito permissões concedidas](media/aad-integration/permissions-granted.png)
 
 8. Regresse à aplicação e tome nota dos **ID da aplicação**. Ao implementar um cluster do AKS habilitados no AD do Azure, este valor é referido como o `Server application ID`.
 
-  ![Obter ID da aplicação](media/aad-integration/application-id.png)
+   ![Obter ID da aplicação](media/aad-integration/application-id.png)
 
 ## <a name="create-client-application"></a>Criar aplicação de cliente
 
@@ -88,27 +88,27 @@ A segunda aplicação do Azure AD é utilizada quando iniciar sessão com a CLI 
 
 1. Selecione **Azure Active Directory** > **Registos das aplicações** > **Novo registo de aplicação**.
 
-  Dê um nome, selecione ao aplicativo **nativo** para o tipo de aplicação e introduza qualquer valor URI formatado para **URI de redirecionamento**. Selecione **criar** quando tiver terminado.
+   Dê um nome, selecione ao aplicativo **nativo** para o tipo de aplicação e introduza qualquer valor URI formatado para **URI de redirecionamento**. Selecione **criar** quando tiver terminado.
 
-  ![Criar o registo do AAD](media/aad-integration/app-registration-client.png)
+   ![Criar o registo do AAD](media/aad-integration/app-registration-client.png)
 
 2. A partir da aplicação do Azure AD, selecione **configurações** > **permissões obrigatórias** > **adicionar** > **selecionar uma API** e procure o nome da aplicação de servidor criada no último passo deste documento.
 
-  ![Configurar permissões de aplicação](media/aad-integration/select-api.png)
+   ![Configurar permissões de aplicação](media/aad-integration/select-api.png)
 
 3. Coloque uma marca de verificação ao lado da aplicação e clique em **selecione**.
 
-  ![Selecione o ponto final de aplicação de servidor do AAD do AKS](media/aad-integration/select-server-app.png)
+   ![Selecione o ponto final de aplicação de servidor do AAD do AKS](media/aad-integration/select-server-app.png)
 
-  Selecione **concluído**
+   Selecione **concluído**
 
 4. Selecione o seu servidor de API da lista e, em seguida, escolha **conceder permissões**:
 
-  ![Conceder permissões](media/aad-integration/grant-permissions-client.png)
+   ![Conceder permissões](media/aad-integration/grant-permissions-client.png)
 
 5. Novamente na aplicação do AD, anote o **ID da aplicação**. Ao implementar um cluster do AKS habilitados no AD do Azure, este valor é referido como o `Client application ID`.
 
-  ![Obter o ID da aplicação](media/aad-integration/application-id-client.png)
+   ![Obter o ID da aplicação](media/aad-integration/application-id-client.png)
 
 ## <a name="get-tenant-id"></a>Obter o ID de inquilino
 

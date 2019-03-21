@@ -9,12 +9,12 @@ ms.date: 01/03/2019
 ms.author: tamram
 ms.custom: mvc
 ms.subservice: blobs
-ms.openlocfilehash: ad6c5f8537fd96e835731a4604ae7c10ba62e350
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: f00f11e66d33c37ff2107cbb8282b49994fe0d3b
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57434867"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58013578"
 ---
 # <a name="tutorial-build-a-highly-available-application-with-blob-storage"></a>Tutorial: Criar uma aplicação de elevada disponibilidade com armazenamento de BLOBs
 
@@ -51,8 +51,8 @@ Para concluir este tutorial:
 
 # <a name="java-v10-sdktabjava-v10"></a>[Java V10 SDK](#tab/java-v10)
 
-* Instale e configure o [Maven](http://maven.apache.org/download.cgi) para funcionar a partir da linha de comandos
-* instalar e configurar um [JDK](http://www.oracle.com/technetwork/java/javase/downloads/index.html)
+* Instale e configure o [Maven](https://maven.apache.org/download.cgi) para funcionar a partir da linha de comandos
+* instalar e configurar um [JDK](https://www.oracle.com/technetwork/java/javase/downloads/index.html)
 
 # <a name="nodejstabnodejs"></a>[Node.js](#tab/nodejs)
 

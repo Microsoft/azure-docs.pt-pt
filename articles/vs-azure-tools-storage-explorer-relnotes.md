@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/12/2018
 ms.author: cawa
-ms.openlocfilehash: aa3f2bc23b731f1e2c02d84edd6079debfbae134
-ms.sourcegitcommit: 235cd1c4f003a7f8459b9761a623f000dd9e50ef
+ms.openlocfilehash: 249ed7b1be2731fc8165ca7f205ba1d94066818e
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/11/2019
-ms.locfileid: "57727268"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58088048"
 ---
 # <a name="microsoft-azure-storage-explorer-release-notes"></a>Notas de versão do Explorador de armazenamento do Microsoft Azure
 
@@ -158,12 +158,12 @@ Este artigo contém as notas de versão para versão de Explorador de armazename
 
 * Agora pode utilizar o Explorador de armazenamento para aceder aos dados de BLOBs por meio [RBAC](https://go.microsoft.com/fwlink/?linkid=2045904&clcid=0x409). Se tem sessão iniciada e o Explorador de armazenamento é não é possível obter as chaves para a sua conta de armazenamento, em seguida, um token de OAuth será utilizado para autenticar ao interagir com os seus dados.
 * Explorador de armazenamento agora suporta contas de armazenamento de geração 2 do ADLS. Quando o Explorador de armazenamento detecta esse espaço de nomes hierárquico está ativado para uma conta de armazenamento, irá ver "(pré-visualização de geração 2 ADLS)" junto ao nome da conta de armazenamento. Explorador de armazenamento é capaz de detetar se é ou não espaço de nomes hierárquico é ativado quando tem sessão iniciada, ou se tiver ligado a conta de armazenamento com o nome e a chave. Para contas de armazenamento do ADLS geração 2, pode utilizar o Explorador de armazenamento:
-    * Criar e eliminar contentores
-    * Gerir as propriedades do contentor e permissões (lado esquerdo)
-    * Exibir e navegar dados dentro de contentores
-    * Criar novas pastas
-    * Carregar, transferir, mudar o nome e eliminar ficheiros e pastas
-    * Gerir as propriedades de ficheiros e pastas e permissões (lado direito).
+  * Criar e eliminar contentores
+  * Gerir as propriedades do contentor e permissões (lado esquerdo)
+  * Exibir e navegar dados dentro de contentores
+  * Criar novas pastas
+  * Carregar, transferir, mudar o nome e eliminar ficheiros e pastas
+  * Gerir as propriedades de ficheiros e pastas e permissões (lado direito).
     
     Outras funcionalidades de Blob típicas, como a eliminação de forma recuperável e instantâneos, não estão atualmente disponíveis. Gerenciamento de permissões também só está disponível quando conectado. Além disso, ao trabalhar numa conta de armazenamento de geração 2 do ADLS, Explorador de armazenamento irá utilizar o AzCopy para todos os carregamentos e transferências e predefinido para utilizar o nome e as credenciais da chave para todas as operações se estiver disponível.
 * Depois de comentários do usuário forte, break lease mais uma vez pode ser utilizado para dividir as concessões em vários blobs ao mesmo tempo.
@@ -227,12 +227,12 @@ Este artigo contém as notas de versão para versão de Explorador de armazename
 
 * Agora pode utilizar o Explorador de armazenamento para aceder aos dados de BLOBs por meio [RBAC](https://go.microsoft.com/fwlink/?linkid=2045904&clcid=0x409). Se tem sessão iniciada e o Explorador de armazenamento é não é possível obter as chaves para a sua conta de armazenamento, em seguida, um token de OAuth será utilizado para autenticar ao interagir com os seus dados.
 * Explorador de armazenamento agora suporta contas de armazenamento de geração 2 do ADLS. Quando o Explorador de armazenamento detecta esse espaço de nomes hierárquico está ativado para uma conta de armazenamento, irá ver "(pré-visualização de geração 2 ADLS)" junto ao nome da conta de armazenamento. Explorador de armazenamento é capaz de detetar se é ou não espaço de nomes hierárquico é ativado quando tem sessão iniciada, ou se tiver ligado a conta de armazenamento com o nome e a chave. Para contas de armazenamento do ADLS geração 2, pode utilizar o Explorador de armazenamento:
-    * Criar e eliminar contentores
-    * Gerir as propriedades do contentor e permissões (lado esquerdo)
-    * Exibir e navegar dados dentro de contentores
-    * Criar novas pastas
-    * Carregar, transferir, mudar o nome e eliminar ficheiros e pastas
-    * Gerir as propriedades de ficheiros e pastas e permissões (lado direito).
+  * Criar e eliminar contentores
+  * Gerir as propriedades do contentor e permissões (lado esquerdo)
+  * Exibir e navegar dados dentro de contentores
+  * Criar novas pastas
+  * Carregar, transferir, mudar o nome e eliminar ficheiros e pastas
+  * Gerir as propriedades de ficheiros e pastas e permissões (lado direito).
     
     Outras funcionalidades de Blob típicas, como a eliminação de forma recuperável e instantâneos, não estão atualmente disponíveis. Gerenciamento de permissões também só está disponível quando conectado. Além disso, ao trabalhar numa conta de armazenamento de geração 2 do ADLS, Explorador de armazenamento irá utilizar o AzCopy para todos os carregamentos e transferências e predefinido para utilizar o nome e as credenciais da chave para todas as operações se estiver disponível.
 * Depois de comentários do usuário forte, break lease mais uma vez pode ser utilizado para dividir as concessões em vários blobs ao mesmo tempo.
@@ -282,12 +282,12 @@ Este artigo contém as notas de versão para versão de Explorador de armazename
 
 * Agora pode utilizar o Explorador de armazenamento para aceder aos dados de BLOBs por meio [RBAC](https://go.microsoft.com/fwlink/?linkid=2045904&clcid=0x409). Se tem sessão iniciada e o Explorador de armazenamento é não é possível obter as chaves para a sua conta de armazenamento, em seguida, um token de OAuth será utilizado para autenticar ao interagir com os seus dados.
 * Explorador de armazenamento agora suporta contas de armazenamento de geração 2 do ADLS. Quando o Explorador de armazenamento detecta esse espaço de nomes hierárquico está ativado para uma conta de armazenamento, irá ver "(pré-visualização de geração 2 ADLS)" junto ao nome da conta de armazenamento. Explorador de armazenamento é capaz de detetar se é ou não espaço de nomes hierárquico é ativado quando tem sessão iniciada, ou se tiver ligado a conta de armazenamento com o nome e a chave. Para contas de armazenamento do ADLS geração 2, pode utilizar o Explorador de armazenamento:
-    * Criar e eliminar contentores
-    * Gerir as propriedades do contentor e permissões (lado esquerdo)
-    * Exibir e navegar dados dentro de contentores
-    * Criar novas pastas
-    * Carregar, transferir, mudar o nome e eliminar ficheiros e pastas
-    * Gerir as propriedades de ficheiros e pastas e permissões (lado direito).
+  * Criar e eliminar contentores
+  * Gerir as propriedades do contentor e permissões (lado esquerdo)
+  * Exibir e navegar dados dentro de contentores
+  * Criar novas pastas
+  * Carregar, transferir, mudar o nome e eliminar ficheiros e pastas
+  * Gerir as propriedades de ficheiros e pastas e permissões (lado direito).
     
     Outras funcionalidades de Blob típicas, como a eliminação de forma recuperável e instantâneos, não estão atualmente disponíveis. Gerenciamento de permissões também só está disponível quando conectado. Além disso, ao trabalhar numa conta de armazenamento de geração 2 do ADLS, Explorador de armazenamento irá utilizar o AzCopy para todos os carregamentos e transferências e predefinido para utilizar o nome e as credenciais da chave para todas as operações se estiver disponível.
 * Depois de comentários do usuário forte, break lease mais uma vez pode ser utilizado para dividir as concessões em vários blobs ao mesmo tempo.

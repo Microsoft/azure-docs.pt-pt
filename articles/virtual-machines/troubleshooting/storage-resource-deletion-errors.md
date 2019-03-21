@@ -11,22 +11,22 @@ ms.tgt_pltfrm: vm-linux
 ms.topic: troubleshooting
 ms.date: 11/01/2018
 ms.author: genli
-ms.openlocfilehash: 19a0e7f3317a5c4a87b2622de170b0fc2cc137be
-ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
+ms.openlocfilehash: a1eb946d3f1b18aaa86735dedcfbaa1fd6a89621
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/16/2019
-ms.locfileid: "56326828"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58089986"
 ---
 # <a name="troubleshoot-storage-resource-deletion-errors"></a>Resolver erros de eliminação de recursos de armazenamento
 
 Em determinados cenários, pode encontrar um dos seguintes erros ocorrem enquanto está a tentar eliminar uma conta de armazenamento do Azure, contentor ou blob numa implementação do Azure Resource Manager:
 
->**Falha ao eliminar a conta de armazenamento 'StorageAccountName'. Erro: Não é possível eliminar a conta de armazenamento porque os artefactos estão a ser utilizados.**
-
->**Falha ao eliminar o # fora do contentor (es) de #:<br>vhds: Atualmente, existe uma concessão no contentor e nenhum ID de concessão foi especificado no pedido.**
-
->**Falha ao eliminar o # fora de blobs de #:<br>BlobName.vhd: Atualmente, existe uma concessão no blob e nenhum ID de concessão foi especificado no pedido.**
+> **Falha ao eliminar a conta de armazenamento 'StorageAccountName'. Erro: Não é possível eliminar a conta de armazenamento porque os artefactos estão a ser utilizados.**
+> 
+> **Falha ao eliminar o # fora do contentor (es) de #:<br>vhds: Atualmente, existe uma concessão no contentor e nenhum ID de concessão foi especificado no pedido.**
+> 
+> **Falha ao eliminar o # fora de blobs de #:<br>BlobName.vhd: Atualmente, existe uma concessão no blob e nenhum ID de concessão foi especificado no pedido.**
 
 Os VHDs utilizados em VMs do Azure são ficheiros. vhd armazenados como blobs de páginas numa conta de armazenamento standard ou premium no Azure. Para obter mais informações acerca dos discos do Azure, consulte nosso [introdução aos discos geridos](../linux/managed-disks-overview.md).
 

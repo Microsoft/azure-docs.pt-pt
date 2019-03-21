@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 11/04/2018
 ms.author: yzheng
 ms.subservice: common
-ms.openlocfilehash: c126516f6a792a4e778e4b0f75b6a31960139ba8
-ms.sourcegitcommit: dd1a9f38c69954f15ff5c166e456fda37ae1cdf2
+ms.openlocfilehash: 93c19bc39f64df21dfa9db2490ab2103aba8191d
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57570016"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58086110"
 ---
 # <a name="managing-the-azure-blob-storage-lifecycle-preview"></a>Gerir o ciclo de vida (pré-visualização) de armazenamento de Blobs do Azure
 
@@ -100,7 +100,7 @@ az storage account management-policy show --resource-group [resourceGroupName] -
 ```
 
 > [!NOTE]
-Se ativar as regras de firewall para a sua conta de armazenamento, pedidos de gestão do ciclo de vida podem ser bloqueados. Pode desbloquear estes pedidos fornecendo exceções. Para obter mais informações, consulte a secção de exceções na [configurar firewalls e redes virtuais](https://docs.microsoft.com/azure/storage/common/storage-network-security#exceptions).
+> Se ativar as regras de firewall para a sua conta de armazenamento, pedidos de gestão do ciclo de vida podem ser bloqueados. Pode desbloquear estes pedidos fornecendo exceções. Para obter mais informações, consulte a secção de exceções na [configurar firewalls e redes virtuais](https://docs.microsoft.com/azure/storage/common/storage-network-security#exceptions).
 
 ## <a name="policy"></a>Política
 
@@ -190,7 +190,7 @@ Durante a pré-visualização, os filtros válidos incluem:
 | Nome do filtro | Tipo de filtro | Notas | É Obrigatório |
 |-------------|-------------|-------|-------------|
 | blobTypes   | Uma matriz de valores de enum predefinidos. | A pré-visualização da versão suporta apenas a `blockBlob`. | Sim |
-| prefixMatch | Uma matriz de cadeias de caracteres para prefixos ser corresponder. Uma cadeia de caracteres de prefixo tem de começar com um nome de contentor. Por exemplo, se deseja correspondência com todos os blobs em "https://myaccount.blob.core.windows.net/container1/foo/..." para uma regra, é o prefixMatch `container1/foo`. | Se não definir prefixMatch, as regras são aplicadas a todos os blobs na conta. | Não |
+| prefixMatch | Uma matriz de cadeias de caracteres para prefixos ser corresponder. Uma cadeia de caracteres de prefixo tem de começar com um nome de contentor. Por exemplo, se deseja correspondência com todos os blobs em "<https://myaccount.blob.core.windows.net/container1/foo/>..." para uma regra, é o prefixMatch `container1/foo`. | Se não definir prefixMatch, as regras são aplicadas a todos os blobs na conta. | Não |
 
 ### <a name="rule-actions"></a>Ações de regras
 
@@ -202,10 +202,10 @@ Em pré-visualização, o gerenciamento de ciclo de vida suporta a disposição 
 |---------------|---------------------------------------------|---------------|
 | tierToCool    | Suporta os blobs atualmente na camada de acesso frequente         | Não suportado |
 | tierToArchive | Suporta os blobs atualmente na camada de acesso frequente ou esporádica | Não suportado |
-| eliminar        | Suportadas                                   | Suportadas     |
+| delete        | Suportadas                                   | Suportadas     |
 
->[!NOTE] 
-Se definir mais de uma ação no mesmo blob, gerenciamento de ciclo de vida aplica-se a ação menos dispendiosa para o blob. Por exemplo, a ação `delete` é mais barato do que a ação `tierToArchive`. Ação `tierToArchive` é mais barato do que a ação `tierToCool`.
+> [!NOTE]
+> Se definir mais de uma ação no mesmo blob, gerenciamento de ciclo de vida aplica-se a ação menos dispendiosa para o blob. Por exemplo, a ação `delete` é mais barato do que a ação `tierToArchive`. Ação `tierToArchive` é mais barato do que a ação `tierToCool`.
 
 Em pré-visualização, as condições de execução da ação baseiam-se na idade. Os blobs bases utilizam a hora da última modificação para controlar a idade e a utilização de instantâneos a hora de criação de instantâneos de BLOBs para controlar a idade.
 

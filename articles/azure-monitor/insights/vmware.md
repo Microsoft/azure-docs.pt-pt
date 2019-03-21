@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 05/04/2018
 ms.author: magoedte
-ms.openlocfilehash: 7d02f5b592600cf7efd0980c1284e8c724cd1f5b
-ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
+ms.openlocfilehash: ece6c7048100a8204bfc067d9d57854b1d83c9b6
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57195159"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58074918"
 ---
 # <a name="vmware-monitoring-deprecated-solution-in-azure-monitor"></a>Solução de monitorização de VMware (preterido) no Azure Monitor
 
@@ -195,13 +195,13 @@ Pode haver vários motivos:
   1. O log Analytics escuta na porta 1514. Para verificar que está aberta, execute o seguinte comando: `netstat -a | grep 1514`
   1. Deverá ver porta `1514/tcp` abrir. Se não o fizer, certifique-se de que o omsagent está corretamente instalado. Se não vir as informações da porta, a porta de syslog não está aberta na VM.
 
-    a. Certifique-se de que o agente Log Analytics está em execução usando `ps -ef | grep oms`. Se não estiver em execução, inicie o processo ao executar o comando ` sudo /opt/microsoft/omsagent/bin/service_control start`
+     a. Certifique-se de que o agente Log Analytics está em execução usando `ps -ef | grep oms`. Se não estiver em execução, inicie o processo ao executar o comando ` sudo /opt/microsoft/omsagent/bin/service_control start`
 
-    b. Abra o ficheiro `/etc/opt/microsoft/omsagent/conf/omsagent.d/vmware_esxi.conf`.
+     b. Abra o ficheiro `/etc/opt/microsoft/omsagent/conf/omsagent.d/vmware_esxi.conf`.
 
-    c. Certifique-se de que o usuário adequado e a definição de grupo é válido, semelhante a: `-rw-r--r-- 1 omsagent omiusers 677 Sep 20 16:46 vmware_esxi.conf`
+     c. Certifique-se de que o usuário adequado e a definição de grupo é válido, semelhante a: `-rw-r--r-- 1 omsagent omiusers 677 Sep 20 16:46 vmware_esxi.conf`
 
-    d. Se o ficheiro não existe ou o utilizador e a definição de grupo é errado, tomar medidas corretivas pela [preparar o servidor Linux](#prepare-a-linux-server).
+     d. Se o ficheiro não existe ou o utilizador e a definição de grupo é errado, tomar medidas corretivas pela [preparar o servidor Linux](#prepare-a-linux-server).
 
 ## <a name="next-steps"></a>Passos Seguintes
 * Uso [registar as consultas](../log-query/log-query-overview.md) no Log Analytics para ver o VMware detalhada alojar os dados.

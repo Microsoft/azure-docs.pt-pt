@@ -11,12 +11,12 @@ ms.devlang: multiple
 ms.topic: reference
 ms.date: 09/04/2018
 ms.author: cshoe
-ms.openlocfilehash: 12056ebec0f0a23ed255532a8ba27b130ecb81d1
-ms.sourcegitcommit: e88188bc015525d5bead239ed562067d3fae9822
+ms.openlocfilehash: b2ab07e40ac2652d97e912f8c7bd3b8893bfc114
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/24/2019
-ms.locfileid: "56750451"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58094165"
 ---
 # <a name="event-grid-trigger-for-azure-functions"></a>Acionador do Event Grid para as funções do Azure
 
@@ -321,7 +321,7 @@ Para obter um exemplo completo, consulte C# exemplo.
 A tabela seguinte explica as propriedades de configuração de ligação definida no *Function* ficheiro. Não há parâmetros do construtor ou propriedades para definir o `EventGridTrigger` atributo.
 
 |propriedade de Function |Descrição|
-|---------|---------|----------------------|
+|---------|---------|
 | **tipo** | Necessário - tem de ser definido como `eventGridTrigger`. |
 | **direção** | Necessário - tem de ser definido como `in`. |
 | **name** | Necessário - o nome da variável no código de função para o parâmetro que recebe os dados do evento. |
@@ -484,10 +484,10 @@ Em alternativa, pode enviar um HTTP PUT para especificar o valor da chave por co
 
 Para testar um acionador do Event Grid localmente, terá de obter pedidos de HTTP de grelha de eventos, entregues a partir da sua origem na cloud no seu computador local. Uma forma de fazê-lo é ao capturar pedidos online e manualmente reenviá-los no seu computador local:
 
-2. [Criar uma aplicação web do Visualizador](#create-a-viewer-web-app) que captura a mensagens de eventos.
-3. [Criar uma subscrição do Event Grid](#create-an-event-grid-subscription) que envia eventos para a aplicação de Visualizador.
-4. [Gerar um pedido](#generate-a-request) e copie o corpo do pedido a partir da aplicação de Visualizador.
-5. [Publique manualmente o pedido](#manually-post-the-request) para o URL de localhost do seu Event Grid acionar a função.
+1. [Criar uma aplicação web do Visualizador](#create-a-viewer-web-app) que captura a mensagens de eventos.
+1. [Criar uma subscrição do Event Grid](#create-an-event-grid-subscription) que envia eventos para a aplicação de Visualizador.
+1. [Gerar um pedido](#generate-a-request) e copie o corpo do pedido a partir da aplicação de Visualizador.
+1. [Publique manualmente o pedido](#manually-post-the-request) para o URL de localhost do seu Event Grid acionar a função.
 
 Quando terminar de teste, pode utilizar a mesma subscrição para produção, atualizando o ponto final. Utilize o [atualização de subscrição de evento de eventgrid az](https://docs.microsoft.com/cli/azure/eventgrid/event-subscription?view=azure-cli-latest#az-eventgrid-event-subscription-update) comando da CLI do Azure.
 
@@ -557,10 +557,10 @@ A função de Acionador do Event Grid é executado e mostra os registos semelhan
 
 É outra forma de testar localmente um acionador do Event Grid automatizar a ligação de HTTP entre a Internet e o seu computador de desenvolvimento. Pode fazê-lo com uma ferramenta open-source denominada [ngrok](https://ngrok.com/):
 
-3. [Criar um ponto de extremidade ngrok](#create-an-ngrok-endpoint).
-4. [Para executar a função de Acionador do Event Grid](#run-the-event-grid-trigger-function).
-5. [Criar uma subscrição do Event Grid](#create-a-subscription) que envia eventos para o ponto de extremidade ngrok.
-6. [Acionar um evento](#trigger-an-event).
+1. [Criar um ponto de extremidade ngrok](#create-an-ngrok-endpoint).
+1. [Para executar a função de Acionador do Event Grid](#run-the-event-grid-trigger-function).
+1. [Criar uma subscrição do Event Grid](#create-a-subscription) que envia eventos para o ponto de extremidade ngrok.
+1. [Acionar um evento](#trigger-an-event).
 
 Quando terminar de teste, pode utilizar a mesma subscrição para produção, atualizando o ponto final. Utilize o [atualização de subscrição de evento de eventgrid az](https://docs.microsoft.com/cli/azure/eventgrid/event-subscription?view=azure-cli-latest#az-eventgrid-event-subscription-update) comando da CLI do Azure.
 

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: 4668ffd30742f81552cd29f6cdba4c0f82549687
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 5f6bc30c318e2f5511b352f1a52f0a5360e4b6f1
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57773508"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58081564"
 ---
 # <a name="create-a-telemetry-rule-and-set-up-notifications-in-your-azure-iot-central-application"></a>Criar uma regra de telemetria e configurar notificações na sua aplicação do Azure IoT Central
 
@@ -56,13 +56,13 @@ Condição define os critérios que é monitorizado pela regra.
 1. Selecione a telemetria que pretende monitorizar a partir da **medição** lista pendente.
 
 1. Em seguida, escolha **agregação**, **operador**e fornecer uma **limiar** valor.
-    - Agregação é opcional. Sem agregação, a regra é acionada para cada ponto de dados de telemetria que atenda à condição. Por exemplo, se a regra está configurada para o acionador quando a temperatura for superior a 80, em seguida, a regra é acionada quase instantaneamente quando o dispositivo comunica temperatura > 80.
-    - Se uma função de agregação, como média, Mín, Máx, contagem for escolhida, em seguida, o utilizador tem de fornecer uma **janela de tempo agregado** ao longo do que a condição tem de ser avaliada. Por exemplo, se definir o período como "5 minutos" e a sua regra de procura de temperatura média superior a 80, a regra é acionada quando a temperatura média for superior a 80, para, pelo menos, 5 minutos. A frequência de avaliação da regra é igual a **janela de tempo agregado**, que significa que, neste exemplo, a regra é avaliada uma vez a cada 5 minutos.
+   - Agregação é opcional. Sem agregação, a regra é acionada para cada ponto de dados de telemetria que atenda à condição. Por exemplo, se a regra está configurada para o acionador quando a temperatura for superior a 80, em seguida, a regra é acionada quase instantaneamente quando o dispositivo comunica temperatura > 80.
+   - Se uma função de agregação, como média, Mín, Máx, contagem for escolhida, em seguida, o utilizador tem de fornecer uma **janela de tempo agregado** ao longo do que a condição tem de ser avaliada. Por exemplo, se definir o período como "5 minutos" e a sua regra de procura de temperatura média superior a 80, a regra é acionada quando a temperatura média for superior a 80, para, pelo menos, 5 minutos. A frequência de avaliação da regra é igual a **janela de tempo agregado**, que significa que, neste exemplo, a regra é avaliada uma vez a cada 5 minutos.
 
-    ![Condição](media/howto-create-telemetry-rules/Aggregate_Condition_Filled_Out.png)
+     ![Condição](media/howto-create-telemetry-rules/Aggregate_Condition_Filled_Out.png)
 
-    >[!NOTE]
-    >É possível adicionar mais do que uma medida de telemetria em **condição**. Quando são especificadas várias condições, todas as condições têm de ser cumpridas para a regra acionar. Cada conditon obtém associado implicitamente por uma cláusula 'E'. Ao utilizar o agregado, cada medida tem de ser agregada.
+     >[!NOTE]
+     >É possível adicionar mais do que uma medida de telemetria em **condição**. Quando são especificadas várias condições, todas as condições têm de ser cumpridas para a regra acionar. Cada conditon obtém associado implicitamente por uma cláusula 'E'. Ao utilizar o agregado, cada medida tem de ser agregada.
 
 ### <a name="configure-actions"></a>Configurar ações
 

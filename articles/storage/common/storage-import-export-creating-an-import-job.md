@@ -8,28 +8,28 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: muralikk
 ms.subservice: common
-ms.openlocfilehash: 42246a5d2c8515c26ed399f041476c8ad70decfe
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: fa76f4fb5d4da5fd00bb9fa4ed862c6977a47e90
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57442142"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58102184"
 ---
 # <a name="creating-an-import-job-for-the-azure-importexport-service"></a>Criar uma tarefa de importação para o serviço importar/exportar do Azure
 
 A criação de uma tarefa de importação para o serviço de importação/exportação do Microsoft Azure com a API REST envolve os seguintes passos:
 
--   Preparar as unidades com a ferramenta de importação/exportação do Azure.
+- Preparar as unidades com a ferramenta de importação/exportação do Azure.
 
--   Obter a localização para enviar a unidade.
+- Obter a localização para enviar a unidade.
 
--   A criar a tarefa de importação.
+- A criar a tarefa de importação.
 
--   As unidades para a Microsoft através de um serviço de deteção de carrier suportadas de envio.
+- As unidades para a Microsoft através de um serviço de deteção de carrier suportadas de envio.
 
--   A atualizar a tarefa de importação com os detalhes de envio.
+- A atualizar a tarefa de importação com os detalhes de envio.
 
- Ver [com o serviço de importação/exportação do Microsoft Azure para transferir dados para armazenamento de BLOBs](storage-import-export-service.md) para obter uma descrição geral do serviço importar/exportar e um tutorial que demonstra como utilizar o [portal do Azure](https://portal.azure.com/) para criar e gerir a importar e exportar tarefas.
+  Ver [com o serviço de importação/exportação do Microsoft Azure para transferir dados para armazenamento de BLOBs](storage-import-export-service.md) para obter uma descrição geral do serviço importar/exportar e um tutorial que demonstra como utilizar o [portal do Azure](https://portal.azure.com/) para criar e gerir a importar e exportar tarefas.
 
 ## <a name="preparing-drives-with-the-azure-importexport-tool"></a>Preparar as unidades com a ferramenta de importação/exportação do Azure
 
@@ -39,21 +39,21 @@ Segue-se uma breve descrição geral da preparação da unidade. Consulte a [ref
 
 A preparação de sua unidade envolve:
 
--   Identificar os dados a serem importados.
+- Identificar os dados a serem importados.
 
--   Identificando os blobs de destino no armazenamento do Windows Azure.
+- Identificando os blobs de destino no armazenamento do Windows Azure.
 
--   Usando a ferramenta de importação/exportação do Azure para copiar os dados para um ou mais unidades de disco rígido.
+- Usando a ferramenta de importação/exportação do Azure para copiar os dados para um ou mais unidades de disco rígido.
 
- A ferramenta de importação/exportação do Azure também irão gerar um arquivo de manifesto para as unidades conforme é preparado. Um arquivo de manifesto contém:
+  A ferramenta de importação/exportação do Azure também irão gerar um arquivo de manifesto para as unidades conforme é preparado. Um arquivo de manifesto contém:
 
--   Uma enumeração de todos os arquivos que se destina a carregar e os mapeamentos desses arquivos para blobs.
+- Uma enumeração de todos os arquivos que se destina a carregar e os mapeamentos desses arquivos para blobs.
 
--   Somas de verificação de segmentos de cada arquivo.
+- Somas de verificação de segmentos de cada arquivo.
 
--   Informações sobre os metadados e propriedades para associar cada blob.
+- Informações sobre os metadados e propriedades para associar cada blob.
 
--   Uma listagem da ação a tomar se um blob que está a ser carregado tem o mesmo nome que um blob existente no contentor. Opções possíveis são: a) substituir o blob com o arquivo, b) manter o blob existente e ignorar carregamento do ficheiro, c) Acrescentar um sufixo ao nome, de modo que ele não entram em conflito com outros ficheiros.
+- Uma listagem da ação a tomar se um blob que está a ser carregado tem o mesmo nome que um blob existente no contentor. Opções possíveis são: a) substituir o blob com o arquivo, b) manter o blob existente e ignorar carregamento do ficheiro, c) Acrescentar um sufixo ao nome, de modo que ele não entram em conflito com outros ficheiros.
 
 ## <a name="obtaining-your-shipping-location"></a>Obter a localização de envio
 

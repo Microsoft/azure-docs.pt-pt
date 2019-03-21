@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 08/21/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f9804dee56e9f099654359e7c336f706cedbd1f7
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: d5d2e734ff9bd34a176d08e36019c826dac355bb
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56204870"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58003796"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-zenqms"></a>Tutorial: Integração do Active Directory do Azure com ZenQMS
 
@@ -120,6 +120,7 @@ Nesta secção, pode ativar o Azure AD início de sessão único no portal do Az
     ![ZenQMS domínio e URLs únicas início de sessão em informações](./media/zenqms-tutorial/tutorial_zenqms_url1.png)
 
     Na **URL de início de sessão** caixa de texto, escreva um URL com o seguinte padrão:
+    
     | |
     |-|-|
     | `https://<INSTANCE>.zenqms.com/<ID>`|

@@ -6,22 +6,22 @@ author: anuragm
 manager: shivamg
 ms.service: backup
 ms.topic: article
-ms.date: 02/19/2019
+ms.date: 03/13/2019
 ms.author: anuragm
-ms.openlocfilehash: 8bfa9f2fcdc3047ed5541db058f670a4bc464164
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
-ms.translationtype: MT
+ms.openlocfilehash: b8fb6e2b23c275d198ac58fec874ad6627a7b43e
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57449908"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58007175"
 ---
 # <a name="troubleshoot-back-up-sql-server-on-azure"></a>Resolver problemas de cópia de segurança do SQL Server no Azure
 
 Este artigo fornece informações de resolução de problemas para proteger VMs do SQL Server no Azure (pré-visualização).
 
-## <a name="public-preview-limitations"></a>Limitações da pré-visualização públicas
+## <a name="feature-consideration-and-limitations"></a>Funcionalidade considerações e limitações
 
-Para ver as limitações de pré-visualização pública, consulte o artigo [cópia de segurança da base de dados do SQL Server no Azure](backup-azure-sql-database.md#preview-limitations).
+Para ver a consideração de funcionalidade, consulte o artigo [cópia de segurança sobre o SQL Server em VMs do Azure](backup-sql-server-azure-vms.md#feature-consideration-and-limitations).
 
 ## <a name="sql-server-permissions"></a>Permissões do SQL Server
 
@@ -37,7 +37,7 @@ Utilize as informações nas tabelas seguintes para resolver problemas e erros e
 
 | Gravidade | Descrição | Causas possíveis | Ação recomendada |
 |---|---|---|---|
-| Aviso | As definições atuais desta base de dados não suportam a determinado tipo de tipos de cópia de segurança presentes na política de associados. | <li>**DB de dominar**: Apenas uma operação de cópia de segurança completa da base de dados pode ser executada na base de dados mestra; nem **diferencial** cópia de segurança nem transação **registos** cópia de segurança são possíveis. </li> <li>Qualquer base de dados **modelo de recuperação simples** não permite a transação **registos** cópia de segurança a tomar.</li> | Modifica as definições de base de dados, de modo a que todos os tipos de cópia de segurança na política são suportados. Em alternativa, altere a política atual para incluir apenas os tipos de cópia de segurança suportados. Caso contrário, os tipos de cópia de segurança não suportados serão ignorados durante a cópia de segurança agendada ou a tarefa de cópia de segurança irá falhar para cópia de segurança ad hoc.
+| Aviso | As definições atuais desta base de dados não suportam a determinado tipo de tipos de cópia de segurança presentes na política de associados. | <li>**DB de dominar**: Apenas uma operação de cópia de segurança completa da base de dados pode ser executada na base de dados mestra; nem **diferencial** cópia de segurança nem transação **registos** cópia de segurança é possível. </li> <li>Qualquer base de dados **modelo de recuperação simples** não permite a transação **registos** cópia de segurança a tomar.</li> | Modifica as definições de base de dados, de modo a que todos os tipos de cópia de segurança na política são suportados. Em alternativa, altere a política atual para incluir apenas os tipos de cópia de segurança suportados. Caso contrário, os tipos de cópia de segurança não suportados serão ignorados durante a cópia de segurança agendada ou a tarefa de cópia de segurança irá falhar para cópia de segurança ad hoc.
 
 
 ## <a name="backup-failures"></a>Falhas de cópia de segurança
@@ -136,6 +136,35 @@ O seguinte erro são códigos para configurar falhas de cópia de segurança.
 | Mensagem de erro | Causas possíveis | Ação recomendada |
 |---|---|---|
 | A intenção de Autoproteção foi removida ou é não é mais válida. | Ao ativar a proteção automática numa instância SQL **configurar a cópia de segurança** tarefas são executadas para todas as bases de dados nessa instância. Se desativar a proteção automática, enquanto as tarefas estiverem em execução, o **em curso** tarefas são canceladas com este código de erro. | Ative a proteção automática mais uma vez proteger todas as bases de dados restantes. |
+
+## <a name="re-registration-failures"></a>Falhas de re-registo
+
+Procurar um ou mais da [sintomas](#symptoms) antes de acionar a operação de voltar a registar.
+
+### <a name="symptoms"></a>Sintomas
+
+* Todas as operações, tais como cópia de segurança, restaurar e configurar a cópia de segurança estão a falhar na VM com um dos seguintes códigos de erro: **WorkloadExtensionNotReachable**, **UserErrorWorkloadExtensionNotInstalled**, **WorkloadExtensionNotPresent**, **WorkloadExtensionDidntDequeueMsg**
+* O **estado de cópia de segurança** para a cópia de segurança está mostrando o item **não está acessível**. Embora deve descartar todas as outras razões que também poderão resultar no mesmo Estado:
+
+  * Falta de permissão para efetuar a cópia de segurança relacionados com operações na VM  
+  * VM foi encerrada devido a que as cópias de segurança não podem ter lugar
+  * Problemas de rede  
+
+    ![Voltar a registar a VM](./media/backup-azure-sql-database/re-register-vm.png)
+
+* No caso de sempre no grupo de disponibilidade, as cópias de segurança começou a falhar depois alterado a preferência de cópia de segurança ou quando ocorreu uma ativação pós-falha
+
+### <a name="causes"></a>Causas
+Esses sintomas podem surgir devido a um ou mais dos seguintes motivos:
+
+  * Extensão foi eliminada ou desinstalada a partir do portal 
+  * Extensão foi desinstalada dos **painel de controlo** da VM sob **desinstalar ou alterar um programa** interface do Usuário
+  * VM foi restaurada para trás no tempo através de restauro de discos no local
+  * VM foi encerrada durante um período prolongado devido a que a configuração da extensão na mesma expirou
+  * A VM foi eliminada e a outra VM foi criada com o mesmo nome e no mesmo grupo de recursos da VM eliminada
+  * Um de nós AG não recebeu a configuração de cópia de segurança completa, isto pode acontecer uma no momento do registo de grupo de disponibilidade para o cofre ou quando é adicionado um novo nó  <br>
+    Nos cenários acima, é recomendado para acionar a operação de voltar a registar na VM. Esta opção só está disponível através do PowerShell e estará brevemente disponível no portal do Azure também.
+
 
 ## <a name="next-steps"></a>Passos Seguintes
 

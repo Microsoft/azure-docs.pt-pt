@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/18/2018
 ms.author: sumeet.mittal
-ms.openlocfilehash: a5df9215aec0b6c774b37f17b699e91ef813754d
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 619b9b68a5c4e897642e1f84c25c2822d8291400
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57771078"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58104493"
 ---
 # <a name="virtual-network-service-endpoint-policies-preview"></a>Políticas de ponto final de serviço de rede virtual (pré-visualização)
 
@@ -113,7 +113,7 @@ As políticas de ponto final de serviço da rede virtual oferecem as seguintes v
 
      - Ambiente de Serviço de Aplicações
      - Azure Rediscache
-     - Gestão de API do Azure
+     - API Management do Azure
      - Instância Gerida do Azure SQL
      - Azure Active Directory Domain Services
      - Gateway de Aplicação do Azure (Clássica)
@@ -158,11 +158,11 @@ Não estão disponíveis registos centralizados para as políticas de ponto fina
 - É recusado o acesso a contas indicadas nas políticas de ponto final
   - A filtragem dos grupos de segurança de rede ou da firewall podem estar a bloquear o acesso
   - Se remover/reaplicar a política resultar em perda de conectividade:
-   - Confirme se o serviço do Azure está configurado para permitir o acesso a partir da rede virtual, através de pontos finais, ou se a política predefinida do recurso está definida como *Permitir Tudo*.
+    - Confirme se o serviço do Azure está configurado para permitir o acesso a partir da rede virtual, através de pontos finais, ou se a política predefinida do recurso está definida como *Permitir Tudo*.
       > [!NOTE]      
       > Para terem acesso através de políticas de ponto final, os recursos dos serviços não precisam de ser protegidos em redes virtuais. No entanto, como melhor prática de segurança, recomendamos que sejam protegidos nas suas redes fidedignas, como as redes virtuais do Azure, através de pontos finais de serviço, e no local, através de uma firewall de IP.
   
-   - Confirme se os diagnósticos dos serviços mostram o tráfego através dos pontos finais.
+    - Confirme se os diagnósticos dos serviços mostram o tráfego através dos pontos finais.
     - Verifique se os registos de fluxos do grupo de segurança de rede mostram o acesso e se os registos de armazenamento mostram o acesso, conforme esperado, através dos pontos finais de serviço.
     - Contacte o suporte do Azure.
 - É recusado o acesso a contas não indicadas nas políticas de ponto final de serviço

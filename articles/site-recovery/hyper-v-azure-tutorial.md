@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 12/28/2018
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 6e0cff6725db52601b4639ad638216370dd3cfda
-ms.sourcegitcommit: 9f87a992c77bf8e3927486f8d7d1ca46aa13e849
+ms.openlocfilehash: ac214e9d29bade37bcb00f804859db730131752b
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/28/2018
-ms.locfileid: "53810700"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58087334"
 ---
 # <a name="set-up-disaster-recovery-of-on-premises-hyper-v-vms-to-azure"></a>Configurar a recuperação após desastre de VMs de Hyper-V no local para o Azure
 
@@ -137,7 +137,7 @@ A Recuperação de Sites verifica que tem uma ou mais contas de armazenamento e 
 4. Selecione a conta de armazenamento **contosovmsacct1910171607** criada no tutorial anterior para os dados replicados e a rede **ContosoASRnet**, na qual as VMs do Azure estarão localizadas após a ativação pós-falha.
 5. Em **Máquinas virtuais** > **Selecionar**, selecione a VM que pretende replicar. Em seguida, clique em **OK**.
 
- Pode controlar o progresso da ação **Ativar Proteção** em **Tarefas** > **Tarefas do Site Recovery**. Após a conclusão da tarefa **Finalizar Proteção**, a replicação inicial estará concluída e a máquina virtual estará preparada para a ativação pós-falha.
+   Pode controlar o progresso da ação **Ativar Proteção** em **Tarefas** > **Tarefas do Site Recovery**. Após a conclusão da tarefa **Finalizar Proteção**, a replicação inicial estará concluída e a máquina virtual estará preparada para a ativação pós-falha.
 
 ## <a name="next-steps"></a>Passos Seguintes
 [Executar um teste de recuperação após desastre](tutorial-dr-drill-azure.md)

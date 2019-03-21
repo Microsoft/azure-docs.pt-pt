@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 06/15/2018
 ms.author: abnarain
-ms.openlocfilehash: 03976d321a92f6049d06cea88604618d5a2dee67
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 1a575a172e4ff567cc20442c7a9779e1d52dbbba
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57532275"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58099989"
 ---
 #  <a name="security-considerations-for-data-movement-in-azure-data-factory"></a>Considerações de segurança para movimento de dados no Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -34,6 +34,7 @@ Apesar do Data Factory só está disponível em algumas regiões, o serviço de 
 O Azure Data Factory não armazena quaisquer dados, exceto para as credenciais do serviço ligado para arquivos de dados de cloud, que são encriptados utilizando certificados. Com o Data Factory, pode criar fluxos de trabalho condicionados por dados para orquestrar o movimento de dados entre [arquivos de dados suportados](copy-activity-overview.md#supported-data-stores-and-formats)e o processamento de dados utilizando [serviços de computação](compute-linked-services.md) noutras regiões ou num ambiente no local. Também pode monitorizar e gerir fluxos de trabalho ao utilizar SDKs e o Azure Monitor.
 
 Certificação fábrica de dados para:
+
 | **[Certificação em ESTRELA da CSA](https://www.microsoft.com/trustcenter/compliance/csa-star-certification)** |
 | :----------------------------------------------------------- |
 | **[ISO 20000-1:2011](https://www.microsoft.com/trustcenter/Compliance/ISO-20000-1)** |
@@ -78,13 +79,13 @@ Se o arquivo de dados na cloud suporta HTTPS ou TLS, todos os dados transferidos
 ### <a name="data-encryption-at-rest"></a>Encriptação de dados inativos
 Alguns dados armazena a encriptação de suporte de dados em repouso. Recomendamos que ative o mecanismo de encriptação de dados para esses arquivos de dados. 
 
-#### <a name="azure-sql-data-warehouse"></a>Armazém de Dados SQL do Azure
+#### <a name="azure-sql-data-warehouse"></a>Azure SQL Data Warehouse
 Encriptação de dados transparente (TDE) no armazém de dados SQL do Azure ajuda a proteger contra ameaças de atividades maliciosas através de encriptação em tempo real e a descriptografia dos seus dados em repouso. Este comportamento é transparente para o cliente. Para obter mais informações, consulte [proteger uma base de dados no SQL Data Warehouse](../sql-data-warehouse/sql-data-warehouse-overview-manage-security.md).
 
 #### <a name="azure-sql-database"></a>Base de Dados SQL do Azure
 Base de dados SQL do Azure também suporta a encriptação de dados transparente (TDE), que ajuda a proteger contra ameaças de atividades maliciosas, ao efetuar a encriptação em tempo real e a descriptografia dos dados, sem a necessidade de alterações à aplicação. Este comportamento é transparente para o cliente. Para obter mais informações, consulte [encriptação de dados transparente para a base de dados SQL e o armazém de dados](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql).
 
-#### <a name="azure-data-lake-store"></a>Arquivo do Azure Data Lake
+#### <a name="azure-data-lake-store"></a>Azure Data Lake Store
 Azure Data Lake Store também fornece encriptação para dados armazenados na conta. Quando ativada, o Data Lake Store é automaticamente encripta os dados antes de persistir e desencripta antes de recuperação, tornando-a transparente para o cliente que acessa os dados. Para obter mais informações, consulte [segurança no Azure Data Lake Store](../data-lake-store/data-lake-store-security-overview.md). 
 
 #### <a name="azure-blob-storage-and-azure-table-storage"></a>Armazenamento de Blobs do Azure e o armazenamento de tabelas do Azure
@@ -134,11 +135,11 @@ Rede Virtual do Azure é uma representação lógica da sua rede na cloud. Pode 
 
 A tabela seguinte resume a rede e recomendações de configuração do runtime de integração autoalojado com base em diferentes combinações de origem e destino localizações para movimento de dados híbrido.
 
-| Origem      | Destino                              | Configuração de rede                    | Configuração do runtime de integração                |
+| Origem      | Destino                              | Configuração da rede                    | Configuração do runtime de integração                |
 | ----------- | ---------------------------------------- | ---------------------------------------- | ---------------------------------------- |
-| No local | Máquinas virtuais e serviços em nuvem implementados em redes virtuais | VPN IPSec (point-to-site ou site a site) | O runtime de integração autoalojado pode ser instalado no local ou numa máquina virtual do Azure numa rede virtual. |
-| No local | Máquinas virtuais e serviços em nuvem implementados em redes virtuais | ExpressRoute (peering privado)           | O runtime de integração autoalojado pode ser instalado no local ou numa máquina virtual do Azure numa rede virtual. |
-| No local | Serviços baseados no Azure que tem um ponto final público | ExpressRoute (peering público)            | O runtime de integração autoalojado tem de ser instalado no local. |
+| Local | Máquinas virtuais e serviços em nuvem implementados em redes virtuais | VPN IPSec (point-to-site ou site a site) | O runtime de integração autoalojado pode ser instalado no local ou numa máquina virtual do Azure numa rede virtual. |
+| Local | Máquinas virtuais e serviços em nuvem implementados em redes virtuais | ExpressRoute (peering privado)           | O runtime de integração autoalojado pode ser instalado no local ou numa máquina virtual do Azure numa rede virtual. |
+| Local | Serviços baseados no Azure que tem um ponto final público | ExpressRoute (peering público)            | O runtime de integração autoalojado tem de ser instalado no local. |
 
 As seguintes imagens mostram o uso do runtime de integração autoalojado para mover dados entre uma base de dados no local e serviços do Azure com o ExpressRoute e VPN IPSec (com a rede Virtual do Azure):
 

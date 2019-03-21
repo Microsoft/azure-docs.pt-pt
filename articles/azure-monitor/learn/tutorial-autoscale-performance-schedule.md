@@ -9,12 +9,12 @@ ms.date: 12/11/2017
 ms.author: ancav
 ms.custom: mvc
 ms.subservice: autoscale
-ms.openlocfilehash: 9c8803ff73b3e70c19a409ef6c1e072b5f7c8b53
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: 44fecf47ccd1ce07c7e51f7bcf51ef7823f2cf97
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56734273"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58088354"
 ---
 # <a name="create-an-autoscale-setting-for--azure-resources-based-on-performance-data-or-a-schedule"></a>Criar uma Definição de Dimensionamento Automático para recursos do Azure com base nos dados de desempenho ou numa agenda
 
@@ -60,7 +60,7 @@ Os passos seguintes ajudam-no a preencher o ecrã de dimensionamento automático
 2. No perfil predefinido, certifique-se de que a opção **Modo de dimensionamento** está definida como "Dimensionar para uma contagem de instâncias específica".
 3. Defina a contagem de instâncias como **1**. Esta definição garante que, quando não estiver ativo ou em vigor nenhum outro perfil, o perfil predefinido devolve a contagem de instâncias como 1.
 
-  ![Navegar para as definições de dimensionamento automático](./media/tutorial-autoscale-performance-schedule/autoscale-setting-profile.png)
+   ![Navegar para as definições de dimensionamento automático](./media/tutorial-autoscale-performance-schedule/autoscale-setting-profile.png)
 
 
 ## <a name="create-recurrence-profile"></a>Criar perfil de periodicidade

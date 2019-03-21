@@ -11,12 +11,12 @@ ms.topic: tutorial
 ms.date: 11/06/2018
 ms.author: cshoe
 ms.custom: mvc, cc996988-fb4f-47
-ms.openlocfilehash: 4c9f92f80275d04cd1bab408213fd02abf5c9139
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
-ms.translationtype: HT
+ms.openlocfilehash: 5e0ef8287b7ce257cd551a1ace043ccbed72b50b
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51279403"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58087096"
 ---
 # <a name="create-a-function-that-integrates-with-azure-logic-apps"></a>Criar uma função que se integra no Azure Logic Apps
 
@@ -242,7 +242,7 @@ A última parte do fluxo de trabalho é acionar um e-mail quando o sentimento é
 | **Assunto** | Sentimento negativo de tweet detetado  | A linha de assunto da notificação de e-mail.  |
 | **Corpo** | Texto do tweet, Localização | Clique nos parâmetros **Tweet text** (Texto do tweet) e **Location** (Localização). |
 
-5.  Clique em **Guardar**.
+1. Clique em **Guardar**.
 
 Agora que o fluxo de trabalho está concluído, pode ativar a aplicação lógica e ver a função em funcionamento.
 
@@ -285,7 +285,7 @@ Para desativar a aplicação lógica, clique em **Descrição Geral** e clique e
 
 ![Registo de funções](media/functions-twitter-email/disable-logic-app.png)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Neste tutorial, ficou a saber como:
 

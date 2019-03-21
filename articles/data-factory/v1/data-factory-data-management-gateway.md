@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: abnarain
 robots: noindex
-ms.openlocfilehash: 6bb37008b6a8b37e575dcf83dffcf57ab08996fd
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 9008c98a086ed2d45b7339fa3f76b33240789db8
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57539999"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58102456"
 ---
 # <a name="data-management-gateway"></a>Data Management Gateway
 > [!NOTE]
@@ -93,7 +93,7 @@ O Data management gateway pode ser instalado das seguintes formas:
 
 ### <a name="install-the-gateway-from-download-center"></a>Instalar o gateway a partir do Centro de download
 1. Navegue para [página de download da Microsoft Data Management Gateway](https://www.microsoft.com/download/details.aspx?id=39717).
-2. Clique em **baixe**, selecione a versão adequada (**32-bit** vs. **64-bit**) e clique em **próxima**.
+2. Clique em **baixe**, selecione a **64-bit** versão (32 bits não é mais é suportado) e clique em **seguinte**.
 3. Executar o **MSI** diretamente ou guardá-lo para o seu disco rígido e a execução.
 4. Sobre o **bem-vindo** página, selecione um **linguagem** clique em **seguinte**.
 5. **Aceite** o contrato de licença de utilizador final e clique em **próxima**.
@@ -263,7 +263,7 @@ Ver a hora da atualização agendada nos seguintes locais:
 
 Separador base do Data Management Gateway Configuration Manager apresenta o agendamento de atualização e a última vez que o gateway foi instalado/atualizado.
 
-![Atualizações agendadas](media/data-factory-data-management-gateway/UpdateSection.png)
+![Agendar atualizações](media/data-factory-data-management-gateway/UpdateSection.png)
 
 Pode instalar a atualização imediatamente ou aguarde que o gateway sejam atualizadas automaticamente na hora agendada. Por exemplo, a imagem seguinte mostra a mensagem de notificação mostrada no Gestor de configuração do Gateway, juntamente com o botão de atualização que pode clicar para instalá-lo imediatamente.
 
@@ -291,7 +291,7 @@ Pode desativar/ativar a funcionalidade de atualização automática, efetuando o
     ```PowerShell
     .\IntegrationRuntimeAutoUpdateToggle.ps1 -on
     ```
-[Para o gateway de elevada disponibilidade e dimensionável de vários nó](data-factory-data-management-gateway-high-availability-scalability.md)
+   [Para o gateway de elevada disponibilidade e dimensionável de vários nó](data-factory-data-management-gateway-high-availability-scalability.md)
 1. Inicie o Windows PowerShell no computador gateway.
 2. Mude para a pasta C:\Program Files\Microsoft integração Runtime\3.0\PowerShellScript\.
 3. Execute o seguinte comando para ativar a atualização automática de funcionalidades DESATIVAR (desativar).
@@ -312,7 +312,7 @@ Depois de instalar o gateway, pode iniciar o Gestor de configuração de Gateway
 1. Na **pesquisa** janela, escreva **Data Management Gateway** para acessar esse utilitário.
 2. Execute o ficheiro executável **ConfigManager.exe** na pasta: **C:\Program Files\Microsoft Data Management Gateway\2.0\Shared**
 
-### <a name="home-page"></a>Home page
+### <a name="home-page"></a>Página de boas-vindas
 A Home page permite-lhe efetuar as seguintes ações:
 
 * Ver o estado do gateway (ligado ao serviço cloud etc.).
@@ -467,7 +467,7 @@ Para encriptar as credenciais no Editor do Data Factory, siga os passos abaixo:
         }
     }
     ```
-Se aceder ao portal a partir de uma máquina diferente do computador gateway, tem de certificar-se de que a aplicação do Gestor de credenciais pode ligar-se a máquina de gateway. Se o aplicativo não é possível alcançar a máquina de gateway, não permite-lhe definir as credenciais da origem de dados e para testar a ligação à origem de dados.
+   Se aceder ao portal a partir de uma máquina diferente do computador gateway, tem de certificar-se de que a aplicação do Gestor de credenciais pode ligar-se a máquina de gateway. Se o aplicativo não é possível alcançar a máquina de gateway, não permite-lhe definir as credenciais da origem de dados e para testar a ligação à origem de dados.
 
 Quando utiliza a **definição de credenciais** aplicativo, o portal encripta as credenciais com o certificado especificado no **certificado** separador do **Gestor de configuração do Gateway**  no computador gateway.
 
@@ -479,7 +479,7 @@ Se estiver procurando por uma abordagem baseada em API para encriptar as credenc
 
 Há uma abordagem mais para a definição de credenciais utilizando o Editor do Data Factory. Se criar um serviço ligado do SQL Server com o editor e introduza as credenciais em texto simples, as credenciais são encriptadas utilizando um certificado que o serviço Data Factory é proprietário. Não utilize o certificado que esse gateway é configurado para utilizar. Embora esta abordagem poderá ser um pouco mais rápida em alguns casos, é menos seguro. Por conseguinte, recomendamos que siga esta abordagem apenas para fins de desenvolvimento/teste.
 
-## <a name="powershell-cmdlets"></a>Cmdlets Powershell
+## <a name="powershell-cmdlets"></a>Cmdlets do PowerShell
 Esta secção descreve como criar e registar um gateway com cmdlets do PowerShell do Azure.
 
 1. Inicie **do Azure PowerShell** no modo de administrador.
@@ -511,7 +511,7 @@ Esta secção descreve como criar e registar um gateway com cmdlets do PowerShel
     Key               : ADF#00000000-0000-4fb8-a867-947877aef6cb@fda06d87-f446-43b1-9485-78af26b8bab0@4707262b-dc25-4fe5-881c-c8a7c3c569fe@wu#nfU4aBlq/heRyYFZ2Xt/CD+7i73PEO521Sj2AFOCmiI
     ```
 
-1. No Azure PowerShell, mude para a pasta: **C:\Program Files\Microsoft Data Management Gateway\2.0\PowerShellScript\**. Execute **RegisterGateway.ps1** associadas com a variável local **$Key** conforme mostrado no comando seguinte. Este script regista o agente de cliente instalado no seu computador com o gateway lógico que criou anteriormente.
+1. No Azure PowerShell, mude para a pasta: **C:\Program Files\Microsoft Data Management Gateway\2.0\PowerShellScript\\**. Execute **RegisterGateway.ps1** associadas com a variável local **$Key** conforme mostrado no comando seguinte. Este script regista o agente de cliente instalado no seu computador com o gateway lógico que criou anteriormente.
 
     ```PowerShell
     PS C:\> .\RegisterGateway.ps1 $MyDMG.Key
@@ -529,7 +529,7 @@ Esta secção descreve como criar e registar um gateway com cmdlets do PowerShel
     ```PowerShell        
     Get-AzDataFactoryGateway -DataFactoryName <dataFactoryName> -ResourceGroupName ADF
     ```
-Pode remover um gateway com o **Remove-AzDataFactoryGateway** cmdlet e atualização de uma descrição para um gateway com o **conjunto AzDataFactoryGateway** cmdlets. Para sintaxe e outros detalhes sobre estes cmdlets, consulte a referência de Cmdlet do Data Factory.  
+   Pode remover um gateway com o **Remove-AzDataFactoryGateway** cmdlet e atualização de uma descrição para um gateway com o **conjunto AzDataFactoryGateway** cmdlets. Para sintaxe e outros detalhes sobre estes cmdlets, consulte a referência de Cmdlet do Data Factory.  
 
 ### <a name="list-gateways-using-powershell"></a>Gateways de lista com o PowerShell
 

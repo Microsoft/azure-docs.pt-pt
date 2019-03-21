@@ -10,12 +10,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 09/25/2018
 ms.author: shlo
-ms.openlocfilehash: ec5ebfa29af13b5a34617be7f423fd7bc220636b
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: 80b1f90ee0d9f5003c39eb6a853a07d2d64ca482
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54017757"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58085342"
 ---
 # <a name="understanding-data-factory-pricing-through-examples"></a>Noções básicas sobre preços de fábrica de dados por meio de exemplos
 
@@ -33,7 +33,7 @@ Para realizar o cenário, terá de criar um pipeline com os seguintes itens:
 
 3. Um acionador de agenda para executar o pipeline a cada hora.
 
- ![Scenario1](media/pricing-concepts/scenario1.png)
+   ![Scenario1](media/pricing-concepts/scenario1.png)
 
 | **Operações** | **Tipos e unidades** |
 | --- | --- |
