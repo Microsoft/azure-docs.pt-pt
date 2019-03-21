@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 11/10/2018
 ms.author: priyamo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4782afa71919a3545bd023f33f873969c86b6cc6
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 6d3bb9708c7bab41f87ad9c2b6ae18ac62849a2d
+ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56208355"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58223925"
 ---
 # <a name="configure-managed-identities-for-azure-resources-on-an-azure-vm-using-azure-cli"></a>Configurar identidades geridas para recursos do Azure na VM do Azure com a CLI do Azure
 
@@ -107,14 +107,10 @@ Se tiver uma máquina virtual que já não necessita de identidade atribuída de
 ```azurecli-interactive
 az vm update -n myVM -g myResourceGroup --set identity.type="none"
 ```
+> [!NOTE]
+> Se aprovisionou a identidade gerida para a extensão VM de recursos do Azure (para ser preterida), terá de removê-lo com [delete de extensão az vm](https://docs.microsoft.com/cli/azure/vm/). Para obter mais informações, consulte [migre da extensão de VM para o Azure IMDS para autenticação](howto-migrate-vm-extension.md).
 
-Para remover a identidade gerida para a extensão VM de recursos do Azure (planeada para preterição em Janeiro de 2019), usuário `-n ManagedIdentityExtensionForWindows` ou `-n ManagedIdentityExtensionForLinux` mudar (consoante o tipo de VM) com [delete de extensão az vm](https://docs.microsoft.com/cli/azure/vm/):
-
-```azurecli-interactive
-az vm identity --resource-group myResourceGroup --vm-name myVm -n ManagedIdentityExtensionForWindows
-```
-
-## <a name="user-assigned-managed-identity"></a>Atribuído ao utilizador a identidade gerida
+## <a name="user-assigned-managed-identity"></a>Identidade gerida atribuída pelo utilizador
 
 Nesta secção, irá aprender como adicionar e remover uma identidade gerida atribuído ao utilizador a partir de uma VM do Azure com a CLI do Azure.
 
@@ -135,7 +131,7 @@ Para atribuir uma identidade de utilizador atribuído a uma VM durante sua cria�
    ```azurecli-interactive
    az identity create -g myResourceGroup -n myUserAssignedIdentity
    ```
-   A resposta contém detalhes para a identidade gerida de atribuído ao utilizador que criou, semelhante ao seguinte. O valor do id de recurso atribuído para a identidade gerida atribuído ao utilizador é utilizado no passo seguinte.
+   A resposta contém detalhes para a identidade gerida de atribuído ao utilizador que criou, semelhante ao seguinte. O valor do ID de recurso atribuído para a identidade gerida atribuído ao utilizador é utilizado no passo seguinte.
 
    ```json
    {

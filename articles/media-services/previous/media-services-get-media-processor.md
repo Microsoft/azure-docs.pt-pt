@@ -12,14 +12,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/10/2019
+ms.date: 03/18/2019
 ms.author: juliako
-ms.openlocfilehash: 0a8cb1178ec70d4e50f2a45834f9592c4708c5af
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: af6badda426f1bb81d8528cfda9b8c02d55712b3
+ms.sourcegitcommit: f331186a967d21c302a128299f60402e89035a8d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55998642"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58189049"
 ---
 # <a name="how-to-get-a-media-processor-instance"></a>Como: Obter uma instância de processador de multimédia
 > [!div class="op_single_selector"]

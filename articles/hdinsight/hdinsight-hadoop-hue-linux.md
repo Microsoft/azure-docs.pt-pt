@@ -10,12 +10,12 @@ ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 12/11/2017
 ms.author: hrasheed
-ms.openlocfilehash: e0e25a9a1e70575d862374da0fb3097408b002e7
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: be6b50b5cb4ea7d32f47d6eb0e19ba43a3217cb6
+ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53714632"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58202695"
 ---
 # <a name="install-and-use-hue-on-hdinsight-hadoop-clusters"></a>Instalar e utilizar Hue em clusters do HDInsight Hadoop
 
@@ -30,7 +30,7 @@ Hue é um conjunto de aplicações Web utilizado para interagir com um cluster d
 * Editor do Hive beeswax
 * Apache Pig
 * Gestor de Metastore
-* O Apache Oozie
+* Apache Oozie
 * FileBrowser (que comunica com o contentor predefinido WASB)
 * Browser de trabalho
 
@@ -143,7 +143,6 @@ Túnel SSH é a única forma de aceder a Hue num cluster quando ele estiver em e
 
 ## <a name="next-steps"></a>Passos Seguintes
 * [Instalar o Apache Giraph nos clusters do HDInsight](hdinsight-hadoop-giraph-install-linux.md). Utilize a personalização de cluster para instalar o Giraph nos clusters do HDInsight Hadoop. Giraph permite-lhe efetuar o processamento de gráficos usando o Hadoop, e pode ser utilizado com o Azure HDInsight.
-* [Instalar o Apache Solr nos clusters do HDInsight](hdinsight-hadoop-solr-install-linux.md). Utilize a personalização de cluster para instalar o Solr nos clusters do HDInsight Hadoop. Solr permite-lhe efetuar operações de pesquisa poderosa em dados armazenados.
 * [Instalar o R nos clusters do HDInsight](hdinsight-hadoop-r-scripts-linux.md). Utilize a personalização de cluster para instalar o R nos clusters do HDInsight Hadoop. R é uma linguagem de código-fonte aberto e um ambiente para o cálculo estatístico. Ele fornece centenas de funções de estatísticas internas e a sua própria linguagem de programação que combina os aspectos da programação funcional e orientada a objeto. Ele também fornece extensas capacidades de gráficas.
 
 [powershell-install-configure]: install-configure-powershell-linux.md

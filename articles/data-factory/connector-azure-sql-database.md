@@ -10,14 +10,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 02/22/2019
+ms.date: 03/13/2019
 ms.author: jingwang
-ms.openlocfilehash: c66ce1d59cf7bd4878b2903615457b3d1dbf2ba0
-ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
+ms.openlocfilehash: e9efe96490ea1c9351d87b5b2477474ef68fbda9
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56670456"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57875242"
 ---
 # <a name="copy-data-to-or-from-azure-sql-database-by-using-azure-data-factory"></a>Copiar dados de ou para a base de dados do Azure SQL com o Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you use:"]
@@ -184,13 +184,13 @@ Para utilizar a autenticação de identidade gerida, siga estes passos:
 
 1. **Crie um grupo no Azure AD.** Torne um membro do grupo de a identidade gerida.
     
-    1. Encontre a identidade de geridos de fábrica de dados do portal do Azure. Vá para a fábrica de dados **propriedades**. Copie o ID de identidade de serviço.
+   1. Encontre a identidade de geridos de fábrica de dados do portal do Azure. Vá para a fábrica de dados **propriedades**. Copie o ID de identidade de serviço.
     
-    1. Instalar o [do Azure AD PowerShell](https://docs.microsoft.com/powershell/azure/active-directory/install-adv2) módulo. Inicie sessão com o `Connect-AzureAD` comando. Execute os seguintes comandos para criar um grupo e adicionar a identidade gerida como um membro.
-    ```powershell
-    $Group = New-AzureADGroup -DisplayName "<your group name>" -MailEnabled $false -SecurityEnabled $true -MailNickName "NotSet"
-    Add-AzureAdGroupMember -ObjectId $Group.ObjectId -RefObjectId "<your data factory managed identity object ID>"
-    ```
+   1. Instalar o [do Azure AD PowerShell](https://docs.microsoft.com/powershell/azure/active-directory/install-adv2) módulo. Inicie sessão com o `Connect-AzureAD` comando. Execute os seguintes comandos para criar um grupo e adicionar a identidade gerida como um membro.
+      ```powershell
+      $Group = New-AzureADGroup -DisplayName "<your group name>" -MailEnabled $false -SecurityEnabled $true -MailNickName "NotSet"
+      Add-AzureAdGroupMember -ObjectId $Group.ObjectId -RefObjectId "<your data factory managed identity object ID>"
+      ```
     
 1. **[Aprovisionar um administrador do Azure Active Directory](../sql-database/sql-database-aad-authentication-configure.md#provision-an-azure-active-directory-administrator-for-your-azure-sql-database-server)**  para o seu servidor SQL do Azure no portal do Azure, se ainda não o tiver feito. O administrador do Azure AD pode ser um utilizador do Azure AD ou o grupo do Azure AD. Se conceder ao grupo com a identidade gerida de uma função de administrador, ignore os passos 3 e 4. O administrador terá acesso total à base de dados.
 
@@ -582,7 +582,7 @@ BEGIN
       UPDATE SET State = source.State
   WHEN NOT MATCHED THEN
       INSERT (ProfileID, State, Category)
-      VALUES (source.ProfileID, source.State, source.Category)
+      VALUES (source.ProfileID, source.State, source.Category);
 END
 ```
 
@@ -592,14 +592,11 @@ Na sua base de dados, definir o tipo de tabela com o mesmo nome que o **sqlWrite
 CREATE TYPE [dbo].[MarketingType] AS TABLE(
     [ProfileID] [varchar](256) NOT NULL,
     [State] [varchar](256) NOT NULL,
-    [Category] [varchar](256) NOT NULL,
+    [Category] [varchar](256) NOT NULL
 )
 ```
 
 A funcionalidade de procedimento armazenado aproveita [Table-Valued parâmetros](https://msdn.microsoft.com/library/bb675163.aspx).
-
->[!NOTE]
->Se escrever o tipo de dados de dinheiro/Smallmoney pela invocação de procedimento armazenado, os valores podem ser arredondados. Especifique o tipo de dados correspondente no TVP como Decimal em vez de dinheiro/Smallmoney para atenuar. 
 
 ## <a name="data-type-mapping-for-azure-sql-database"></a>Mapeamento do tipo de dados de base de dados do Azure SQL
 

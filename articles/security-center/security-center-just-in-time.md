@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 2/28/2019
+ms.date: 3/18/2019
 ms.author: monhaber
-ms.openlocfilehash: 9cdcfbc6074f8e343e2571063cc5dafe54072753
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.openlocfilehash: c7cc5784caf8a83a50536a8edc69ea76ea8589d8
+ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57314777"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58199839"
 ---
 # <a name="manage-virtual-machine-access-using-just-in-time"></a>Gerir o acesso de máquina virtual com just-in-time
 
@@ -82,26 +82,26 @@ Para selecionar as VMs que pretende ativar:
 
 1. Sob **Just-in-time acesso à VM**, selecione a **recomendado** separador.
 
-  ![Ativar o acesso just-in-time](./media/security-center-just-in-time/enable-just-in-time-access.png)
+   ![Ativar o acesso just-in-time](./media/security-center-just-in-time/enable-just-in-time-access.png)
 
 2. Sob **máquina VIRTUAL**, selecione as VMs que pretende ativar. Isso coloca uma marca de verificação junto a uma VM.
 3. Selecione **ativar JIT em VMs**.
-  1. Este painel apresenta as portas predefinidas recomendadas pelo centro de segurança do Azure:
-     - 22 - SSH
-     - 3389 - RDP
-     - 5985 - WinRM 
-     - 5986 - WinRM
-  2. Também pode configurar portas personalizadas. Para tal, selecione **adicionar**. 
-  3. Na **Adicionar configuração da porta**, para cada porta pode optar por configurar, ambos padrão e personalizadas, pode personalizar as seguintes definições:
-    - **Tipo de protocolo**-o protocolo que é permitido nesta porta quando um pedido for aprovado.
-    - **Endereços IP de origem permitidos**-intervalos de IP que são permitidos nesta porta quando um pedido for aprovado.
-    - **Tempo máximo do pedido**-a janela de tempo máximo durante o qual pode ser aberta uma porta específica.
+   1. Este painel apresenta as portas predefinidas recomendadas pelo centro de segurança do Azure:
+      - 22 - SSH
+      - 3389 - RDP
+      - 5985 - WinRM 
+      - 5986 - WinRM
+   2. Também pode configurar portas personalizadas. Para tal, selecione **adicionar**. 
+   3. Na **Adicionar configuração da porta**, para cada porta pode optar por configurar, ambos padrão e personalizadas, pode personalizar as seguintes definições:
+      - **Tipo de protocolo**-o protocolo que é permitido nesta porta quando um pedido for aprovado.
+      - **Endereços IP de origem permitidos**-intervalos de IP que são permitidos nesta porta quando um pedido for aprovado.
+      - **Tempo máximo do pedido**-a janela de tempo máximo durante o qual pode ser aberta uma porta específica.
 
 4. Selecione **Guardar**.
 
 
 > [!NOTE]
->Quando o acesso JIT da VM está ativado para uma VM, o Centro de segurança do Azure cria negar todas as regras de tráfego de entrada para as portas selecionadas nos grupos de segurança de rede associados a ele. As regras será a prioridade dos seus grupos de segurança de rede ou a prioridade mais baixa do que as regras existentes que já existem. Isso depende de uma análise realizada pelo centro de segurança do Azure que determina se uma regra é segura ou não.
+>Quando acesso JIT da VM está ativado para uma VM, o Centro de segurança do Azure cria regras "Negar todo o tráfego de entrada" para as portas selecionadas nos grupos de segurança de rede associados a ele. Se outras regras haviam sido criadas para as portas selecionadas, em seguida, as regras existentes têm prioridade sobre as novas regras de acesso "Negar todo o tráfego de entrada". Se não existirem não existem regras existentes nas portas selecionadas, em seguida, as novas regras de acesso "Negar todo o tráfego de entrada" têm prioridade superior nos grupos de segurança de rede.
 >
 
 ### <a name="request-jit-access-to-a-vm"></a>Pedido de acesso JIT para uma VM
@@ -174,9 +174,9 @@ Pode obter informações sobre atividades VM utilizando a pesquisa de registos. 
 2. Sob **VMs**, selecione uma VM para ver informações sobre ao clicar nos três pontos na linha a essa VM. Esta ação abre um menu.
 3. Selecione **registo de atividades** no menu. Esta ação abre **registo de atividades**.
 
-  ![Selecione o registo de atividades](./media/security-center-just-in-time/select-activity-log.png)
+   ![Selecione o registo de atividades](./media/security-center-just-in-time/select-activity-log.png)
 
-  **Registo de atividades** fornece uma vista filtrada de operações anteriores para essa VM, juntamente com o tempo, a data e a subscrição.
+   **Registo de atividades** fornece uma vista filtrada de operações anteriores para essa VM, juntamente com o tempo, a data e a subscrição.
 
 Pode baixar as informações de registo, selecionando **clique aqui para transferir todos os itens como CSV**.
 
@@ -188,16 +188,16 @@ Modificar os filtros e selecione **aplicar** para criar um registo e de pesquisa
 Defina esses privilégios necessários para permitir que um utilizador configurar ou editar uma política JIT para uma VM.
 
 Atribuí-las *ações* para a função: 
--   No âmbito de uma subscrição ou grupo de recursos que está associado com a VM:
-   - Microsoft.Security/locations/jitNetworkAccessPolicies/write
--    No âmbito de uma subscrição ou grupo de recursos ou VM:
-   - Microsoft.Compute/virtualMachines/write 
+- No âmbito de uma subscrição ou grupo de recursos que está associado com a VM:
+  - Microsoft.Security/locations/jitNetworkAccessPolicies/write
+- No âmbito de uma subscrição ou grupo de recursos ou VM:
+  - Microsoft.Compute/virtualMachines/write 
 
 Defina esses privilégios para permitir que um utilizador com êxito pedir acesso JIT para uma VM: Atribuí-las *ações* ao usuário:
--   No âmbito de uma subscrição ou grupo de recursos que está associado com a VM:
-   - Microsoft.Security/locations/{the_location_of_the_VM}/jitNetworkAccessPolicies/ initiate/action
--    No âmbito de uma subscrição ou grupo de recursos ou VM:
-   - Microsoft.Compute/virtualMachines/read
+- No âmbito de uma subscrição ou grupo de recursos que está associado com a VM:
+  - Microsoft.Security/locations/{the_location_of_the_VM}/jitNetworkAccessPolicies/ initiate/action
+- No âmbito de uma subscrição ou grupo de recursos ou VM:
+  - Microsoft.Compute/virtualMachines/read
 
 
 

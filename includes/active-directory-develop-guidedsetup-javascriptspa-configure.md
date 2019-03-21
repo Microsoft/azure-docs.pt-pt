@@ -4,7 +4,7 @@ description: incluir ficheiro
 services: active-directory
 documentationcenter: dev-center-name
 author: navyasric
-manager: mtillman
+manager: CelesteDG
 editor: ''
 ms.service: active-directory
 ms.devlang: na
@@ -14,12 +14,12 @@ ms.workload: identity
 ms.date: 09/17/2018
 ms.author: nacanuma
 ms.custom: include file
-ms.openlocfilehash: 135ee9f6b833165cd393b9c5ca582e0ee9499e0f
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: ec9eba4766da1afbbee568374de1ce06dc92ab2b
+ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54057409"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58203358"
 ---
 ## <a name="register-your-application"></a>Registar a sua aplicação
 

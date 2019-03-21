@@ -10,12 +10,12 @@ ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 02/22/2018
 ms.author: hrasheed
-ms.openlocfilehash: af604dbabe9df56322342230eaec70548f53c927
-ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
+ms.openlocfilehash: 7f162412a099078302bb348dab9ad3171f9e2913
+ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/27/2018
-ms.locfileid: "53794503"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58199499"
 ---
 # <a name="get-started-with-an-apache-hbase-example-in-hdinsight"></a>Introdução com um exemplo do Apache HBase no HDInsight
 
@@ -33,7 +33,7 @@ Antes de começar a experimentar este exemplo do HBase, tem de ter os itens segu
 ## <a name="create-apache-hbase-cluster"></a>Criar cluster do Apache HBase
 O procedimento seguinte utiliza um modelo do Azure Resource Manager para criar um cluster do HBase e a conta de Armazenamento do Azure dependente predefinida. Para compreender os parâmetros utilizados no procedimento e outros métodos de criação do cluster, consulte o artigo [Criar clusters do Hadoop baseados em Linux no HDInsight](../hdinsight-hadoop-provision-linux-clusters.md). Para obter mais informações sobre como utilizar a geração 2 de armazenamento do Data Lake, veja [início rápido: Configurar clusters no HDInsight](../../storage/data-lake-storage/quickstart-create-connect-hdi-cluster.md).
 
-1. Clique na imagem seguinte para abrir o modelo no portal do Azure. O modelo está localizado nos [modelos de Início Rápido do Azure](https://azure.microsoft.com/resources/templates/).
+1. Clique na imagem seguinte para abrir o modelo no portal do Azure. O modelo está localizado em [modelos de início rápido do Azure](https://azure.microsoft.com/resources/templates/).
    
     <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-hdinsight-hbase-linux%2Fazuredeploy.json" target="_blank"><img src="./media/apache-hbase-tutorial-get-started-linux/deploy-to-azure.png" alt="Deploy to Azure"></a>
 2. No painel **Implementação personalizada**, introduza os seguintes valores:
@@ -111,7 +111,7 @@ No HBase (uma implementação do [Cloud BigTable](https://cloud.google.com/bigta
 
 O HBase inclui vários métodos de carregamento dos dados em tabelas.  Para obter mais informações, consulte o artigo [Carregamento em massa](https://hbase.apache.org/book.html#arch.bulk.load).
 
-Está disponível um ficheiro de dados de exemplo num contentor de blobs público, *wasb://hbasecontacts@hditutorialdata.blob.core.windows.net/contacts.txt*.  O conteúdo do ficheiro de dados é:
+Um ficheiro de dados de exemplo pode ser encontrado no contentor de blob público, *wasb://hbasecontacts\@hditutorialdata.blob.core.windows.net/contacts.txt*.  O conteúdo do ficheiro de dados é:
 
     8396    Calvin Raji      230-555-0191    230-555-0191    5415 San Gabriel Dr.
     16600   Karen Wu         646-555-0113    230-555-0192    9265 La Paz
@@ -175,14 +175,14 @@ Pode consultar dados nas tabelas de HBase utilizando [Apache Hive](https://hive.
 
 A API de REST está protegida por [autenticação básica](https://en.wikipedia.org/wiki/Basic_access_authentication). Deve sempre efetuar pedidos com HTTP Secure (HTTPS) para ajudar a garantir que as credenciais são enviadas de forma segura para o servidor.
 
-2. Utilize o seguinte comando para listar as tabelas HBase existentes:
+1. Utilize o seguinte comando para listar as tabelas HBase existentes:
 
     ```bash
     curl -u <UserName>:<Password> \
     -G https://<ClusterName>.azurehdinsight.net/hbaserest/
     ```
 
-3. Utilize o seguinte comando para criar uma nova tabela HBase com duas famílias de coluna:
+1. Utilize o seguinte comando para criar uma nova tabela HBase com duas famílias de coluna:
 
     ```bash   
     curl -u <UserName>:<Password> \
@@ -194,7 +194,7 @@ A API de REST está protegida por [autenticação básica](https://en.wikipedia.
     ```
 
     O esquema é fornecido no formato JSon.
-4. Utilize o seguinte comando para inserir alguns dados:
+1. Utilize o seguinte comando para inserir alguns dados:
 
     ```bash   
     curl -u <UserName>:<Password> \
@@ -207,12 +207,12 @@ A API de REST está protegida por [autenticação básica](https://en.wikipedia.
    
     Terá de codificar em base64 os valores especificados no comutador -d. No exemplo:
    
-   * MTAwMA = =: 1000
-   * UGVyc29uYWw6TmFtZQ = =: Pessoal: nome
+   * MTAwMA==: 1000
+   * UGVyc29uYWw6TmFtZQ==: Pessoal: nome
    * Sm9obiBEb2xl: João Dinis
      
      [false-row-key](https://hbase.apache.org/apidocs/org/apache/hadoop/hbase/rest/package-summary.html#operation_cell_store_single) permite-lhe inserir múltiplos valores (em lote).
-5. Utilize o seguinte comando para obter uma linha:
+1. Utilize o seguinte comando para obter uma linha:
    
     ```bash 
     curl -u <UserName>:<Password> \
@@ -247,15 +247,15 @@ O HBase em HDInsight é fornecido com uma interface de utilizador da Web para mo
 2. Clique em **HBase** no menu à esquerda.
 3. Clique em **Ligações rápidas** no topo da página, aponte para a ligação de nó ativa do Zookeeper e, em seguida, clique em **IU Principal do HBase**.  A IU é aberta noutro separador do browser:
 
-  ![IU HDInsight HBase HMaster](./media/apache-hbase-tutorial-get-started-linux/hdinsight-hbase-hmaster-ui.png)
+   ![IU HDInsight HBase HMaster](./media/apache-hbase-tutorial-get-started-linux/hdinsight-hbase-hmaster-ui.png)
 
-  A IU Principal do HBase contém as seguintes secções:
+   A IU Principal do HBase contém as seguintes secções:
 
-  - servidores de região
-  - principais cópias de segurança
-  - tabelas
-  - tarefas
-  - atributos de software
+   - servidores de região
+   - principais cópias de segurança
+   - tabelas
+   - tarefas
+   - atributos de software
 
 ## <a name="delete-the-cluster"></a>Eliminar o cluster
 Para evitar inconsistências, recomendamos que desative as tabelas do HBase antes de eliminar o cluster.
@@ -272,8 +272,6 @@ Neste artigo, aprendeu a criar um cluster do Apache HBase e como criar tabelas e
 Para saber mais, consulte:
 
 * [Descrição geral do HBase do HDInsight][hdinsight-hbase-overview]: O Apache HBase é uma base de dados para os NoSQL de código-fonte aberto, Apache, que se baseada no Apache Hadoop que fornece acesso aleatório e consistência segura para grandes quantidades de dados não estruturados e semi-estruturados.
-
-[hdinsight-manage-portal]: hdinsight-administer-use-management-portal.md
 
 [hdinsight-upload-data]: ../hdinsight-upload-data.md
 [hbase-reference]: https://hbase.apache.org/book.html#importtsv

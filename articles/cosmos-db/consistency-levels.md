@@ -6,12 +6,12 @@ ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 03/27/2018
-ms.openlocfilehash: 914933e4e0489d68640edb58ceb91dc73a963eb3
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
-ms.translationtype: MT
+ms.openlocfilehash: cbe7b0e243f34d9b48e837c1211b5a186946f69f
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54034969"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57903713"
 ---
 # <a name="consistency-levels-in-azure-cosmos-db"></a>Níveis de consistência no Azure Cosmos DB
 
@@ -68,8 +68,8 @@ Um contentor do Azure Cosmos DB mantém dos visitantes e equipe principal execut
 | **Nível de consistência** | **Pontuações** |
 | - | - |
 | **Forte** | 2 a 5 |
-| **Estagnação limitada** | Classificações que têm mais de um inning desatualizado: 2 a 3, 2 a 4, 2 a 5 |
-| **Sessão** | <ul><li>Para o gravador de: 2 a 5</li><li> Para qualquer pessoa que não seja o escritor: 0 de 0, 0-1, 0-2, 0 a 3, 4 de 0, 0-5, 1-0, 1-1, 1 a 2, 1 a 3, 1 a 4, 1 a 5, 2-0, 2-1, 2 de 2, 2 e 3, 2 a 4, 2 a 5</li><li>Depois de ler 1 a 3: 1 a 3, 1 a 4, 1 a 5, 2 e 3, 2 a 4, 2 a 5</li> |
+| **Estagnação limitada** | Classificações que têm mais de um inning desatualizado: 2-3, 2-4, 2-5 |
+| **Sessão** | <ul><li>Para o gravador de: 2 a 5</li><li> Para qualquer pessoa que não seja o escritor: 0 de 0, 0-1, 0-2, 0 a 3, 4 de 0, 0-5, 1-0, 1-1, 1 a 2, 1 a 3, 1 a 4, 1 a 5, 2-0, 2-1, 2 de 2, 2 e 3, 2 a 4, 2 a 5</li><li>Depois de ler 1 a 3: 1-3, 1-4, 1-5, 2-3, 2-4, 2-5</li> |
 | **Prefixo consistente** | 0 de 0, 0-1, 1-1, 1 a 2, 1 a 3, 2 e 3, 2 a 4, 2 a 5 |
 | **Eventual** | 0 de 0, 0-1, 0-2, 0 a 3, 4 de 0, 0-5, 1-0, 1-1, 1 a 2, 1 a 3, 1 a 4, 1 a 5, 2-0, 2-1, 2 de 2, 2 e 3, 2 a 4, 2 a 5 |
 
@@ -81,7 +81,7 @@ Para saber mais sobre os conceitos de consistência, leia os artigos seguintes:
 - [Replicados dados consistência explicado por meio de Beisebol (vídeo) por Doug Tiago](https://www.youtube.com/watch?v=gluIh8zd26I)
 - [Replicados dados consistência explicado por meio de Beisebol (documento técnico) por Doug Tiago](https://www.microsoft.com/en-us/research/publication/replicated-data-consistency-explained-through-baseball/?from=http%3A%2F%2Fresearch.microsoft.com%2Fpubs%2F157411%2Fconsistencyandbaseballreport.pdf)
 - [Garantias de sessão para os dados replicados consistentes tem rigidez](https://dl.acm.org/citation.cfm?id=383631)
-- [Vantagens e desvantagens de consistência no moderno distribuídas de Design de sistemas de banco de dados: Extremidade é apenas uma parte da história](https://www.computer.org/web/csdl/index/-/csdl/mags/co/2012/02/mco2012020037-abs.html)
+- [Vantagens e desvantagens de consistência no moderno distribuídas de Design de sistemas de banco de dados: Extremidade é apenas uma parte da história](https://www.computer.org/csdl/magazine/co/2012/02/mco2012020037/13rRUxjyX7k)
 - [Probabilístico estagnação limitada (PBS) para práticos Quorums parciais](https://vldb.org/pvldb/vol5/p776_peterbailis_vldb2012.pdf)
 - [Eventualmente consistente - Revisitada](https://www.allthingsdistributed.com/2008/12/eventually_consistent.html)
 

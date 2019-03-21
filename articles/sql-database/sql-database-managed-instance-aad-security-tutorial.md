@@ -10,12 +10,12 @@ ms.author: vanto
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 02/20/2019
-ms.openlocfilehash: 39877e01eb8b9690dc1ac7b1dbb79bab450814c4
-ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
+ms.openlocfilehash: 7511b85384c2c64c823d93df4369b0fea3e64b51
+ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56456933"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58226220"
 ---
 # <a name="tutorial-managed-instance-security-in-azure-sql-database-using-azure-ad-server-principals-logins"></a>Tutorial: Segurança de instância gerida na base de dados do SQL Azure utilização de principais de servidor do Azure AD (inícios de sessão)
 
@@ -148,13 +148,13 @@ Assim que o principal do servidor do Azure AD (início de sessão) foi criado e 
 
 1. Ligue-se para a instância gerida com o servidor do Azure AD principal (início de sessão), com o SQL Server Management Studio. Introduza o nome de anfitrião da instância gerida. Para a autenticação no SSMS, existem três opções de escolha ao iniciar sessão com uma conta do Azure AD:
 
-    - Active Directory - Universal com o suporte MFA
-    - Active Directory - Palavra-passe
-    - Active Directory - Integrado </br>
+   - Active Directory - Universal com o suporte MFA
+   - Active Directory - Palavra-passe
+   - Active Directory - Integrado </br>
 
-    ![ssms-login-prompt.png](media/sql-database-managed-instance-security-tutorial/ssms-login-prompt.png)
+     ![ssms-login-prompt.png](media/sql-database-managed-instance-security-tutorial/ssms-login-prompt.png)
 
-    Para obter mais informações, consulte o artigo seguinte: [Autenticação Universal com a Base de Dados SQL e o SQL Data Warehouse (suporte do SSMS para MFA)](sql-database-ssms-mfa-authentication.md)
+     Para obter mais informações, consulte o artigo seguinte: [Autenticação Universal com a Base de Dados SQL e o SQL Data Warehouse (suporte do SSMS para MFA)](sql-database-ssms-mfa-authentication.md)
 
 1. Selecione **Active Directory - Universal com o suporte MFA**. Isso exibirá uma janela de início de sessão do multi-factor Authentication (MFA). Inicie sessão com a palavra-passe do Azure AD.
 
@@ -207,10 +207,10 @@ Assim que o principal do servidor do Azure AD (início de sessão) foi criado e 
 1. Na **Object Explorer**, clique com o botão direito do servidor e escolha **nova consulta** para a nova ligação.
 1. Verifique as permissões de servidor recentemente criado para o principal de servidor do Azure AD (início de sessão) executando o seguinte comando:
 
-    ```sql
-    SELECT * FROM sys.fn_my_permissions (NULL, 'DATABASE')
-    GO
-    ```
+      ```sql
+      SELECT * FROM sys.fn_my_permissions (NULL, 'DATABASE')
+      GO
+      ```
 
 > [!NOTE]
 > Utilizadores de convidado do Azure AD são suportados para inícios de sessão de instância gerida, apenas quando são adicionadas como parte de um grupo do Azure AD. Um utilizador convidado é uma conta que é convidada para o Azure AD, que pertence a instância gerida, do outro Azure AD. Por exemplo, joe@contoso.com (conta do Azure AD) ou steve@outlook.com (MSA conta) podem ser adicionada a um grupo no aadsqlmi Azure AD. Assim que os utilizadores são adicionados a um grupo, um início de sessão pode ser criado a instância gerida **mestre** base de dados para o grupo utilizando o **CREATE LOGIN** sintaxe. Utilizadores convidados que são membros deste grupo podem ligar-se à instância gerida utilizando os inícios de sessão atuais (por exemplo, joe@contoso.com ou steve@outlook.com).
@@ -360,7 +360,7 @@ Instância gerida suporta a representação de entidades de segurança do Azure 
     GO
     ```
 
-1. Utilize o seguinte comando para ver que o usuário estiver representando quando estiver a executar o procedimento armazenado **bob@aadsqlmi.net**.
+1. Utilize o seguinte comando para ver o que é o utilizador estiver representando ao executar o procedimento armazenado **bob\@aadsqlmi.net**.
 
     ```sql
     Exec dbo.usp_Demo

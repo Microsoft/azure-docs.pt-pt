@@ -9,12 +9,12 @@ ms.service: security
 ms.topic: article
 ms.date: 07/23/2018
 ms.author: rarangap
-ms.openlocfilehash: 92b7714e9f6635cf0b44a98a16ddb4616643ba81
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 5f23435a43d139ecb9f20e5036124f175b1830c9
+ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57544567"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58225370"
 ---
 # <a name="azure-security-and-compliance-blueprint---hipaahitrust-health-data-and-ai"></a>Segurança do Azure e o esquema de conformidade - HIPAA/HITRUST Health Data and AI
 
@@ -91,7 +91,7 @@ Eles não têm acesso a registos dos doentes.
 
 -   Atribuições de função personalizada: N/A
 
--   Âmbito: GrupoRecursos
+-   Âmbito: ResourceGroup
 
 ### <a name="data-scientist"></a>Cientista de dados
 
@@ -102,7 +102,7 @@ Cientista de dados opera o Azure Machine Learning Studio. Pode importar, exporta
 
 -   Atribuições de função personalizada: N/A
 
--   Âmbito: GrupoRecursos
+-   Âmbito: ResourceGroup
 
 ### <a name="chief-medical-information-officer-cmio"></a>Diretor de informação médica (CMIO)
 
@@ -121,7 +121,7 @@ Esta função exige monitorizar o estado de doentes individuais, bem como garant
 
 -   Atribuições de função personalizada: Tem o privilégio para executar HealthcareDemo.ps1 fazer ambos os admissão do doente e proprietários.
 
--   Âmbito: GrupoRecursos
+-   Âmbito: ResourceGroup
 
 ### <a name="auditor"></a>Auditor
 
@@ -355,13 +355,13 @@ A solução suporta o Azure Event Grid, um único serviço para gerir o encaminh
 
 - [O Assistente do Azure](/azure/advisor/advisor-overview) é consultor da cloud personalizado que o ajuda a seguir as melhores práticas para otimizar as suas implementações do Azure. Ele analisa a sua telemetria de configuração e utilização de recursos e, em seguida, recomenda soluções que o podem ajudar a melhorar a rentabilidade, o desempenho, a elevada disponibilidade e a segurança dos seus recursos do Azure.
 
-### <a name="application-insights"></a>Estatísticas das Aplicações
+### <a name="application-insights"></a>Application Insights
 - [O Application Insights](/azure/application-insights/app-insights-overview) é um serviço de gestão de desempenho de aplicações (APM) extensível para desenvolvedores da web em várias plataformas. Utilize-o para monitorizar a sua aplicação Web online. Deteta anomalias de desempenho. inclui ferramentas de análise poderosas para o ajudar a diagnosticar problemas e a compreender o que os utilizadores efetivamente fazem com a sua aplicação. Foi concebido para o ajudar a melhorar continuamente o desempenho e a usabilidade.
 
 ### <a name="azure-alerts"></a>Alertas do Azure
-- [Os alertas oferecem um método para monitorizar serviços do Azure e permitem-lhe configurar as condições em dados. Os alertas também fornecem notificações quando os dados de monitorização corresponde a uma condição de alerta.
+- [Alertas](/azure/azure-monitor/platform/alerts-metric) oferecem um método para monitorizar serviços do Azure e permitem-lhe configurar as condições em dados. Os alertas também fornecem notificações quando os dados de monitorização corresponde a uma condição de alerta.
 
-### <a name="azure-monitor-logs"></a>Registos de Monitor do Azure
+### <a name="azure-monitor-logs"></a>Registos do Azure Monitor
 [Registos de Monitor do Azure](/azure/operations-management-suite/operations-management-suite-overview) é uma coleção de serviços de gestão.
 
 -   Área de trabalho está ativada para o Centro de segurança

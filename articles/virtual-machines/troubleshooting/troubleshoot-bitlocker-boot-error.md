@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 08/31/2018
 ms.author: genli
-ms.openlocfilehash: 1cfba4bf824d381e1b40ea0228ee902a1d6b5a9a
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: a7bd812d3aadfd3c358c8d0aeccf0e92ed474a05
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57763219"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57993212"
 ---
 # <a name="bitlocker-boot-errors-on-an-azure-vm"></a>Erros de arranque do BitLocker numa VM do Azure
 
@@ -32,7 +32,7 @@ ms.locfileid: "57763219"
 
 - Plug-in do controlador USB com a chave do BitLocker
 
-- Está bloqueada! Introduza a chave de recuperação para começar a utilizar novamente (Layout de teclado: Informações de início de sessão dos Estados Unidos) incorretos foi introduzida demasiadas vezes, para que o seu PC foi bloqueado para proteger a sua privacidade. Para obter a chave de recuperação, vá para http://windows.microsoft.com/recoverykeyfaq de outro PC ou dispositivo móvel. Caso precise dela, a chave de ID é XXXXXXX. Em alternativa, pode repor o seu PC.
+- Está bloqueada! Introduza a chave de recuperação para começar a utilizar novamente (Layout de teclado: Informações de início de sessão dos Estados Unidos) incorretos foi introduzida demasiadas vezes, para que o seu PC foi bloqueado para proteger a sua privacidade. Para obter a chave de recuperação, vá para https://windows.microsoft.com/recoverykeyfaq de outro PC ou dispositivo móvel. Caso precise dela, a chave de ID é XXXXXXX. Em alternativa, pode repor o seu PC.
 
 - Introduza a palavra-passe para desbloquear este [unidade] prima a tecla de inserir para ver a palavra-passe à medida que escreve.
 - Introduza a chave de recuperação carga sua chave de recuperação a partir de um dispositivo USB.

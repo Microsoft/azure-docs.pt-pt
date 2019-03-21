@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a0463a2ad3fa74f33a52e15a246dfd4ffd63107a
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 0f8e0b79d5aebd1e92dd71bba72efa7430aa475b
+ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56200875"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58224656"
 ---
 # <a name="tutorial-azure-ad-password-reset-from-the-login-screen"></a>Tutorial: Reposição de palavras-passe do Azure AD no ecrã de início de sessão
 
@@ -33,8 +33,10 @@ Neste tutorial, vai permitir aos utilizadores repor as respetivas palavras-passe
    * [Azure AD associado](../device-management-azure-portal.md) ou
    * [Azure híbrido associado ao AD](../device-management-hybrid-azuread-joined-devices-setup.md), com conectividade de rede para um controlador de domínio.
 * Tem de ativar o Azure de reposição de palavras-passe self-service de AD.
-* Se os dispositivos Windows 10 estão por trás de um servidor proxy ou de uma firewall, tem de adicionar os URLs `passwordreset.microsoftonline.com` e `ajax.aspnetcdn.com` à sua lista de URLs permitidos de tráfego (porta 443) de HTTPS.
+* Se os dispositivos Windows 10 estão por trás de um servidor proxy ou de uma firewall, tem de adicionar os URLs `passwordreset.microsoftonline.com` e `ajax.aspnetcdn.com` para o tráfego HTTPS (porta 443) permitido lista de URLs.
+* SSPR para o Windows 10 apenas é suportado com proxies de nível de máquina
 * Reveja as limitações abaixo antes de tentar esta funcionalidade no seu ambiente.
+* Se utilizar uma imagem, antes de sysprep Certifique-se de que a cache da web é limpo para o administrador incorporado antes de efetuar o passo de CopyProfile. Podem encontrar mais informações sobre isso no artigo de suporte [fraco desempenho ao utilizar o perfil de usuário padrão personalizado](https://support.microsoft.com/help/4056823/performance-issue-with-custom-default-user-profile).
 
 ## <a name="configure-reset-password-link-using-intune"></a>Configurar a ligação Repor palavra-passe com o Intune
 

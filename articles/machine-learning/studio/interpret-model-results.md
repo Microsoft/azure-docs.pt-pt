@@ -1,21 +1,21 @@
 ---
-title: Interpretar os resultados de modelo no Machine Learning Studio
+title: Interpretar os resultados dos modelos
 titleSuffix: Azure Machine Learning Studio
 description: Como escolher o parâmetro ideal definido para um algoritmo a utilizar e visualizar as saídas do modelo de pontuação.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
 ms.topic: conceptual
-author: ericlicoding
+author: xiaoharper
 ms.author: amlstudiodocs
 ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 11/29/2017
-ms.openlocfilehash: 778f713fb1046d3c1987b065c9dc25c4ad9825cb
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.openlocfilehash: c46f22fb5c906aaffa48f39a0c643ca2a48573f9
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56822553"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57877280"
 ---
 # <a name="interpret-model-results-in-azure-machine-learning-studio"></a>Interpretar os resultados de modelo no Azure Machine Learning Studio
 Este tópico explica como visualizar e interpretar os resultados de predição no Azure Machine Learning Studio. Depois de ter um modelo de preparação e fazer predições com base no mesmo ("classificada o modelo de"), tem de compreender e interpretar o resultado de predição.
@@ -52,7 +52,7 @@ O Azure Machine Learning Studio tem diferentes módulos para lidar com cada um d
 ### <a name="two-class-classification"></a>Classificação de duas classes
 **Experimentação de exemplo**
 
-Um exemplo de um problema de classificação de duas classes é a classificação de flores íris semelhantes. A tarefa é classificar as flores íris com base nos seus recursos. O conjunto de dados de Iris fornecido no Azure Machine Learning Studio é um subconjunto das populares [conjunto de dados de Iris](http://en.wikipedia.org/wiki/Iris_flower_data_set) que contém instâncias de apenas dois flor species (classes 0 e 1). Existem quatro recursos para cada flower (comprimento da sépala, largura de sépala, comprimento da Pétala e largura da Pétala).
+Um exemplo de um problema de classificação de duas classes é a classificação de flores íris semelhantes. A tarefa é classificar as flores íris com base nos seus recursos. O conjunto de dados de Iris fornecido no Azure Machine Learning Studio é um subconjunto das populares [conjunto de dados de Iris](https://en.wikipedia.org/wiki/Iris_flower_data_set) que contém instâncias de apenas dois flor species (classes 0 e 1). Existem quatro recursos para cada flower (comprimento da sépala, largura de sépala, comprimento da Pétala e largura da Pétala).
 
 ![Captura de tela da experimentação de iris](./media/interpret-model-results/1.png)
 

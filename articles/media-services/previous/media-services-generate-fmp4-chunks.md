@@ -11,14 +11,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/10/2019
+ms.date: 03/18/2019
 ms.author: juliako
-ms.openlocfilehash: c0535dd47f57cd50c92bc4358732c1990e32e84a
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: 48c09a6100586c0c99f3d54f9708c770488c681f
+ms.sourcegitcommit: f331186a967d21c302a128299f60402e89035a8d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55994460"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58189053"
 ---
 #  <a name="create-an-encoding-task-that-generates-fmp4-chunks"></a>Criar uma tarefa de codificação que gera segmentos fMP4
 

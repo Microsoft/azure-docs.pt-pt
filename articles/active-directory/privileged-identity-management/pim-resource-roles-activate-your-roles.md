@@ -15,12 +15,12 @@ ms.date: 03/05/2019
 ms.author: rolyon
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e6bf5ae22fe8bf06d29c8c812a18cffcef14865c
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: b574e538c407040518f3905f8fbd9fa91d5dd067
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57550809"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58002046"
 ---
 # <a name="activate-my-azure-resource-roles-in-pim"></a>Ativar as minhas funções de recursos do Azure no PIM
 
@@ -36,9 +36,13 @@ Quando precisar da desempenhar uma função de recursos do Azure, pode pedir a a
 
 1. Open **do Azure AD Privileged Identity Management**. Para obter informações sobre como adicionar o mosaico do PIM ao dashboard, consulte [começar a utilizar o PIM](pim-getting-started.md).
 
-1. Clique em **minhas funções** para ver uma lista de sua elegíveis funções de diretório do Azure AD e funções de recursos do Azure.
+1. Clique em **minhas funções**.
 
     ![Funções de diretório do Azure AD e funções de recursos do Azure - as minhas funções](./media/pim-resource-roles-activate-your-roles/resources-my-roles.png)
+
+1. Clique em **funções de recursos do Azure** para ver uma lista das suas funções de recursos do Azure elegíveis.
+
+   ![Funções de recursos do Azure](./media/pim-resource-roles-activate-your-roles/resources-my-roles-azure-resources.png) 
 
 1. Na **funções de recursos do Azure** lista, localize a função que pretende ativar.
 

@@ -9,12 +9,12 @@ ms.service: iot-dps
 services: iot-dps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: 40d16076a3d995ecccd06591278b330652d960d8
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: 9ff134b0747e78773c95fac7ceab4cddd61c601d
+ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53189018"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58227019"
 ---
 # <a name="provision-the-device-to-an-iot-hub-using-the-azure-iot-hub-device-provisioning-service"></a>Aprovisionar o dispositivo num hub IoT com o Serviço Aprovisionamento de Dispositivos no Hub IoT do Azure
 
@@ -43,7 +43,7 @@ Este passo envolve a adição dos artefactos de segurança exclusiva do disposit
       [![Informações de inscrição do TPM no portal](./media/tutorial-provision-device-to-hub/tpm-device-enrollment.png)](./media/tutorial-provision-device-to-hub/tpm-device-enrollment.png#lightbox)  
 
 - Para dispositivos baseados em X.509, precisa:
-    - Do [certificado emitido para o chip ou simulação de X.509](https://msdn.microsoft.com/library/windows/desktop/bb540819.aspx), sob a forma de ficheiro *.pem* ou *.cer*. Para inscrição individual, tem de utilizar o *certificado de signatário* por dispositivo para o seu sistema X.509, ao passo que, para grupos de inscrição, tem de utilizar o *certificado de arranque*. 
+    - Do [certificado emitido para o chip ou simulação de X.509](https://msdn.microsoft.com/library/windows/desktop/bb540819.aspx), sob a forma de ficheiro *.pem* ou *.cer*. Para inscrição individual, tem de utilizar o por dispositivo *certificado autoassinado* para o seu sistema X.509, enquanto para grupos de inscrição, tem de utilizar o *certificado de raiz*. 
 
       [![Adicionar inscrição individual para fins de atestado X.509 no portal](./media/tutorial-provision-device-to-hub/individual-enrollment.png)](./media/tutorial-provision-device-to-hub/individual-enrollment.png#lightbox)
 
