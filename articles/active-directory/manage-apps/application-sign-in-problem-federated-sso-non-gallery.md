@@ -16,12 +16,12 @@ ms.date: 07/11/2017
 ms.author: celested
 ms.reviewer: asteen
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ba47f7a80ee88f3a2d0089aae0183cdba62be24f
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.openlocfilehash: 7cb0139227012be610977df3240f74a03f53be7e
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56820200"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58009068"
 ---
 # <a name="problems-signing-in-to-a-non-gallery-application-configured-for-federated-single-sign-on"></a>Problemas ao iniciar sessão numa aplicação de externas à Galeria configurada para início de sessão único federado
 
@@ -32,7 +32,7 @@ Para resolver os problemas início de sessão abaixo, recomendamos que seguir es
 
 ## <a name="application-not-found-in-directory"></a>Não foi encontrada no diretório de aplicação
 
-*Error AADSTS70001: Aplicação com o identificador 'https://contoso.com"não foi encontrado no diretório*.
+*Error AADSTS70001: Aplicação com o identificador `https://contoso.com` não foi encontrado no diretório*.
 
 **Causa possível**
 
@@ -42,27 +42,27 @@ O emissor atributo envia da aplicação para o Azure AD no pedido de SAML não c
 
 Certifique-se de que o `Issuer` atributo no pedido de SAML corresponde ao valor de identificador configurado no Azure AD. Se utilizar o [experiência em testes](../develop/howto-v1-debug-saml-sso-issues.md) no portal do Azure com a extensão de Browser de seguro de aplicações My, não precisa manualmente, siga estes passos.
 
-1.  Abra o [ **portal do Azure** ](https://portal.azure.com/) e inicie sessão como um **Administrador Global** ou **Coadministrador.**
+1. Abra o [ **portal do Azure** ](https://portal.azure.com/) e inicie sessão como um **Administrador Global** ou **Coadministrador.**
 
-2.  Abra o **extensão do Active Directory do Azure** ao clicar em **todos os serviços** na parte superior do menu de navegação esquerdo principal.
+2. Abra o **extensão do Active Directory do Azure** ao clicar em **todos os serviços** na parte superior do menu de navegação esquerdo principal.
 
-3.  Escreva **"Azure Active Directory**" na caixa de pesquisa de filtro e selecione o **Azure Active Directory** item.
+3. Escreva **"Azure Active Directory**" na caixa de pesquisa de filtro e selecione o **Azure Active Directory** item.
 
-4.  Clique em **aplicações empresariais** no menu de navegação do lado esquerdo do Azure Active Directory.
+4. Clique em **aplicações empresariais** no menu de navegação do lado esquerdo do Azure Active Directory.
 
-5.  Clique em **todos os aplicativos** para ver uma lista de todas as suas aplicações.
+5. Clique em **todos os aplicativos** para ver uma lista de todas as suas aplicações.
 
    * Se não vir a aplicação que quer mostrar aqui, utilize o **filtro** na parte superior do **todas as listas de aplicações** e defina o **mostrar** a opção de **todos os Aplicações.**
 
-6.  Selecione a aplicação que pretende configurar o início de sessão único.
+6. Selecione a aplicação que pretende configurar o início de sessão único.
 
-7.  Assim que o aplicativo é carregado, clique nas **início de sessão único** no menu de navegação do lado esquerdo da aplicação.
+7. Assim que o aplicativo é carregado, clique nas **início de sessão único** no menu de navegação do lado esquerdo da aplicação.
 
-8.  Depois do aplicativo é carregado, abra **configuração SAML do básico**. Certifique-se de que o valor na caixa de texto identificador corresponde ao valor para o valor do identificador apresentado o erro.
+8. Depois do aplicativo é carregado, abra **configuração SAML do básico**. Certifique-se de que o valor na caixa de texto identificador corresponde ao valor para o valor do identificador apresentado o erro.
 
 ## <a name="the-reply-address-does-not-match-the-reply-addresses-configured-for-the-application"></a>O endereço de resposta não corresponde ao endereço de resposta configurado para a aplicação. 
 
-*AADSTS50011 de erro: O endereço de resposta https://contoso.com"não coincide com o endereço de resposta configurado para a aplicação* 
+*AADSTS50011 de erro: O endereço de resposta `https://contoso.com` não coincide com o endereço de resposta configurado para a aplicação* 
 
 **Causa possível** 
 
@@ -72,29 +72,29 @@ O valor de AssertionConsumerServiceURL no pedido de SAML não corresponde a valo
 
 Certifique-se de que o `Issuer` atributo no pedido de SAML corresponde ao valor de identificador configurado no Azure AD. Se utilizar o [experiência em testes](../develop/howto-v1-debug-saml-sso-issues.md) no portal do Azure com a extensão de Browser de seguro de aplicações My, não precisa manualmente, siga estes passos.
  
-1.  Abra o [ **portal do Azure** ](https://portal.azure.com/) e inicie sessão como um **Administrador Global** ou **Coadministrador.** 
+1. Abra o [ **portal do Azure** ](https://portal.azure.com/) e inicie sessão como um **Administrador Global** ou **Coadministrador.** 
 
-2.  Abra o **extensão do Active Directory do Azure** ao clicar em **todos os serviços** na parte superior do menu de navegação esquerdo principal. 
+2. Abra o **extensão do Active Directory do Azure** ao clicar em **todos os serviços** na parte superior do menu de navegação esquerdo principal. 
 
-3.  Escreva **"Azure Active Directory**" na caixa de pesquisa de filtro e selecione o **Azure Active Directory** item. 
+3. Escreva **"Azure Active Directory**" na caixa de pesquisa de filtro e selecione o **Azure Active Directory** item. 
 
-4.  Clique em **aplicações empresariais** no menu de navegação do lado esquerdo do Azure Active Directory. 
+4. Clique em **aplicações empresariais** no menu de navegação do lado esquerdo do Azure Active Directory. 
 
-5.  Clique em **todos os aplicativos** para ver uma lista de todas as suas aplicações. 
+5. Clique em **todos os aplicativos** para ver uma lista de todas as suas aplicações. 
 
-  * Se não vir a aplicação que quer mostrar aqui, utilize o **filtro** na parte superior do **todas as listas de aplicações** e defina o **mostrar** a opção de **todos os Aplicações.**
+   * Se não vir a aplicação que quer mostrar aqui, utilize o **filtro** na parte superior do **todas as listas de aplicações** e defina o **mostrar** a opção de **todos os Aplicações.**
   
-6.  Selecione a aplicação que pretende configurar o início de sessão único
+6. Selecione a aplicação que pretende configurar o início de sessão único
 
-7.  Assim que o aplicativo é carregado, clique nas **início de sessão único** no menu de navegação do lado esquerdo da aplicação.
+7. Assim que o aplicativo é carregado, clique nas **início de sessão único** no menu de navegação do lado esquerdo da aplicação.
 
-8.  Depois do aplicativo é carregado, abra **configuração SAML do básico**. Certifique-se ou atualizar o valor na caixa de texto para corresponder ao URL de resposta a `AssertionConsumerServiceURL` valor no pedido de SAML.    
+8. Depois do aplicativo é carregado, abra **configuração SAML do básico**. Certifique-se ou atualizar o valor na caixa de texto para corresponder ao URL de resposta a `AssertionConsumerServiceURL` valor no pedido de SAML.    
     
 Depois de atualizou o valor de URL de resposta no Azure AD, e ele corresponde ao valor enviado pela aplicação no pedido de SAML, deverá conseguir iniciar sessão na aplicação.
 
 ## <a name="user-not-assigned-a-role"></a>Não atribuído uma função de utilizador
 
-*Error AADSTS50105: O utilizador com sessão iniciada "brian@contoso.com' não está atribuído a uma função para a aplicação*
+*Error AADSTS50105: O utilizador com sessão iniciada `brian\@contoso.com` não está atribuído a uma função para a aplicação*
 
 **Causa possível**
 
@@ -104,25 +104,25 @@ O utilizador não foi concedido acesso à aplicação no Azure AD.
 
 Para atribuir diretamente um ou mais utilizadores a uma aplicação, siga os passos abaixo. Se utilizar o [experiência em testes](../develop/howto-v1-debug-saml-sso-issues.md) no portal do Azure com a extensão de Browser de seguro de aplicações My, não precisa manualmente, siga estes passos.
 
-1.  Abra o [ **portal do Azure** ](https://portal.azure.com/) e inicie sessão como um **Administrador Global.**
+1. Abra o [ **portal do Azure** ](https://portal.azure.com/) e inicie sessão como um **Administrador Global.**
 
-2.  Abra o **extensão do Active Directory do Azure** ao clicar em **todos os serviços** na parte superior do menu de navegação esquerdo principal.
+2. Abra o **extensão do Active Directory do Azure** ao clicar em **todos os serviços** na parte superior do menu de navegação esquerdo principal.
 
-3.  Escreva **"Azure Active Directory**" na caixa de pesquisa de filtro e selecione o **Azure Active Directory** item.
+3. Escreva **"Azure Active Directory**" na caixa de pesquisa de filtro e selecione o **Azure Active Directory** item.
 
-4.  Clique em **aplicações empresariais** no menu de navegação do lado esquerdo do Azure Active Directory.
+4. Clique em **aplicações empresariais** no menu de navegação do lado esquerdo do Azure Active Directory.
 
-5.  Clique em **todos os aplicativos** para ver uma lista de todas as suas aplicações.
+5. Clique em **todos os aplicativos** para ver uma lista de todas as suas aplicações.
 
-  * Se não vir a aplicação que quer mostrar aqui, utilize o **filtro** na parte superior do **todas as listas de aplicações** e defina o **mostrar** a opção de **todos os Aplicações.**
+   * Se não vir a aplicação que quer mostrar aqui, utilize o **filtro** na parte superior do **todas as listas de aplicações** e defina o **mostrar** a opção de **todos os Aplicações.**
 
-6.  Selecione a aplicação que pretende atribuir um utilizador a partir da lista.
+6. Selecione a aplicação que pretende atribuir um utilizador a partir da lista.
 
-7.  Assim que o aplicativo é carregado, clique em **utilizadores e grupos** no menu de navegação do lado esquerdo da aplicação.
+7. Assim que o aplicativo é carregado, clique em **utilizadores e grupos** no menu de navegação do lado esquerdo da aplicação.
 
-8.  Clique nas **Add** botão na parte superior do **utilizadores e grupos** lista para abrir o **adicionar atribuição** painel.
+8. Clique nas **Add** botão na parte superior do **utilizadores e grupos** lista para abrir o **adicionar atribuição** painel.
 
-9.  Clique nas **utilizadores e grupos** Seletor da **adicionar atribuição** painel.
+9. Clique nas **utilizadores e grupos** Seletor da **adicionar atribuição** painel.
 
 10. Escreva o **nome completo** ou **endereço de e-mail** do utilizador estiver interessado em atribuir para o **procurar por nome ou endereço de e-mail** caixa de pesquisa.
 
@@ -146,9 +146,9 @@ Após um curto período de tempo, os utilizadores que selecionou ser capaz de in
 
 O Azure AD não suporta o Pedido SAML enviado pela aplicação para Início de Sessão Único. Alguns problemas comuns são:
 
--   Campos necessários no pedido de SAML em falta
+-   Faltam campos obrigatórios no pedido SAML
 
--   Método de codificação do pedido SAML
+-   Método codificado de pedido SAML
 
 **Resolução**
 
@@ -202,25 +202,25 @@ O objeto de aplicativo está danificado e do Azure AD não reconhece o certifica
 
 Para eliminar e criar um novo certificado, siga os passos abaixo:
 
-1.  Abra o [ **portal do Azure** ](https://portal.azure.com/) e inicie sessão como um **Administrador Global** ou **Coadministrador.**
+1. Abra o [ **portal do Azure** ](https://portal.azure.com/) e inicie sessão como um **Administrador Global** ou **Coadministrador.**
 
-2.  Abra o **extensão do Active Directory do Azure** ao clicar em **todos os serviços** na parte superior do menu de navegação esquerdo principal.
+2. Abra o **extensão do Active Directory do Azure** ao clicar em **todos os serviços** na parte superior do menu de navegação esquerdo principal.
 
-3.  Escreva **"Azure Active Directory**" na caixa de pesquisa de filtro e selecione o **Azure Active Directory** item.
+3. Escreva **"Azure Active Directory**" na caixa de pesquisa de filtro e selecione o **Azure Active Directory** item.
 
-4.  Clique em **aplicações empresariais** no menu de navegação do lado esquerdo do Azure Active Directory.
+4. Clique em **aplicações empresariais** no menu de navegação do lado esquerdo do Azure Active Directory.
 
-5.  Clique em **todos os aplicativos** para ver uma lista de todas as suas aplicações.
+5. Clique em **todos os aplicativos** para ver uma lista de todas as suas aplicações.
 
-  * Se não vir a aplicação que quer mostrar aqui, utilize o **filtro** na parte superior do **todas as listas de aplicações** e defina o **mostrar** a opção de **todos os Aplicações.**
+   * Se não vir a aplicação que quer mostrar aqui, utilize o **filtro** na parte superior do **todas as listas de aplicações** e defina o **mostrar** a opção de **todos os Aplicações.**
 
-6.  Selecione a aplicação que pretende configurar o início de sessão único.
+6. Selecione a aplicação que pretende configurar o início de sessão único.
 
-7.  Assim que o aplicativo é carregado, clique nas **início de sessão único** no menu de navegação do lado esquerdo da aplicação.
+7. Assim que o aplicativo é carregado, clique nas **início de sessão único** no menu de navegação do lado esquerdo da aplicação.
 
-8.  Clique em **criar novo certificado** sob a **certificado de assinatura de SAML** secção.
+8. Clique em **criar novo certificado** sob a **certificado de assinatura de SAML** secção.
 
-9.  Selecione a data de expiração. Em seguida, clique em **guardar.**
+9. Selecione a data de expiração. Em seguida, clique em **guardar.**
 
 10. Verifique **ativar o novo certificado** para substituir o certificado do Active Directory. Em seguida, clique em **guardar** na parte superior do painel e aceite para ativar o certificado de rollover.
 

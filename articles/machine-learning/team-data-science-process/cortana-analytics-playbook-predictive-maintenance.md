@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 05/11/2018
 ms.author: tdsp
 ms.custom: seodec18, previous-author=fboylu, previous-ms.author=fboylu
-ms.openlocfilehash: 046d00eec9fd5a406a1e8bf78e48d4dd913b83fd
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 0785d0805027dd0bd621203ade7287e5a1840a9a
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57437573"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57870151"
 ---
 # <a name="azure-ai-guide-for-predictive-maintenance-solutions"></a>Guia de IA do Azure para soluções de manutenção preditiva
 
@@ -401,13 +401,13 @@ O processo acima é indicado de muitas formas na literatura para instituições 
 
 Como já declarado, operacionalização de modelo para PdM é diferente de seus colegas. Implementam cenários que envolvem a deteção de anomalias e deteção de falhas normalmente _online de classificação_ (também denominado _classificação em tempo real_). Aqui, o modelo _pontuações_ cada registo de entrada e retorna uma predição. Para deteção de anomalias, a predição é uma indicação de que ocorreu uma anomalia (exemplo: One-class SVM). Para deteção de falhas, seria o tipo ou de uma classe de falha.
 
-Por outro lado, PdM envolve _classificação de lote_. Para estar em conformidade com a assinatura de modelo, os recursos novos dados tem de ser desenvolvidos da mesma forma como os dados de treinamento. Para grandes conjuntos de dados que é normais para novos dados, os recursos são agregados ao longo de janelas de tempo e classificados no batch. Classificação de lote é geralmente Feito em sistemas distribuídos, como [Spark](http://spark.apache.org/) ou [do Azure Batch](https://docs.microsoft.com/azure/batch/batch-api-basics). Existem duas alternativas - ambos inferior ao ideal:
+Por outro lado, PdM envolve _classificação de lote_. Para estar em conformidade com a assinatura de modelo, os recursos novos dados tem de ser desenvolvidos da mesma forma como os dados de treinamento. Para grandes conjuntos de dados que é normais para novos dados, os recursos são agregados ao longo de janelas de tempo e classificados no batch. Classificação de lote é geralmente Feito em sistemas distribuídos, como [Spark](https://spark.apache.org/) ou [do Azure Batch](https://docs.microsoft.com/azure/batch/batch-api-basics). Existem duas alternativas - ambos inferior ao ideal:
 - Mecanismos de transmissão em fluxo de dados suportam a agregação ao longo do windows na memória. Então, poderíamos argumentar que suportam a classificação online. Mas estes sistemas são adequados para dados densos em estreitas janelas de tempo ou elementos dispersos ao longo do windows mais amplas. Eles podem dimensiona bem para os dados densos sobre janelas de tempo maiores, como visto em cenários de PdM.
 - Se a classificação de lote não estiver disponível, a solução é adaptar online de classificação para lidar com novos dados em pequenos lotes de cada vez.
 
 ## <a name="solution-templates-for-predictive-maintenance"></a>Modelos de soluções para manutenção preditiva
 
-A seção final deste guia fornece uma lista de modelos de soluções PdM, tutoriais e experiências implementadas no Azure. Esses aplicativos PdM podem ser implementados numa subscrição do Azure numa questão de minutos em alguns casos. Eles podem ser usados como demonstrações de prova de conceito, áreas de segurança para experimentar alternativas ou accelerators para implementações de produção real. Estes modelos estão localizados no [Galeria de IA do Azure](http://gallery.azure.ai) ou [GitHub do Azure](https://github.com/Azure). Estes exemplos diferentes serão implementados ao longo do tempo para este modelo de solução.
+A seção final deste guia fornece uma lista de modelos de soluções PdM, tutoriais e experiências implementadas no Azure. Esses aplicativos PdM podem ser implementados numa subscrição do Azure numa questão de minutos em alguns casos. Eles podem ser usados como demonstrações de prova de conceito, áreas de segurança para experimentar alternativas ou accelerators para implementações de produção real. Estes modelos estão localizados no [Galeria de IA do Azure](https://gallery.azure.ai) ou [GitHub do Azure](https://github.com/Azure). Estes exemplos diferentes serão implementados ao longo do tempo para este modelo de solução.
 
 | # | Cargo | Descrição |
 |--:|:------|-------------|
@@ -431,9 +431,9 @@ O Microsoft Azure oferece os percursos de aprendizagem para os conceitos básico
 | [Programador AI no Azure](https://azure.microsoft.com/training/learning-paths/azure-ai-developer) | Público |
 | [Instituição de ensino do Microsoft AI](https://aischool.microsoft.com/learning-paths) | Público |
 | [Aprendizagem de IA do Azure do GitHub](https://github.com/Azure/connectthedots/blob/master/readme.md) | Público |
-| [Aprendizagem do LinkedIn](http://www.linkedin.com/learning) | Público |
+| [Aprendizagem do LinkedIn](https://www.linkedin.com/learning) | Público |
 | [Webinars do YouTube de IA da Microsoft](https://www.youtube.com/watch?v=NvrH7_KKzoM&t=4s) | Público |
-| [Show de IA da Microsoft](http://channel9.msdn.com/Shows/AI-Show) | Público |
+| [Show de IA da Microsoft](https://channel9.msdn.com/Shows/AI-Show) | Público |
 | [LearnAI@MS](https://learnanalytics.microsoft.com) | Parceiros |
 | [Rede de parceiros da Microsoft](https://learningportal.microsoft.com) | Parceiros |
 

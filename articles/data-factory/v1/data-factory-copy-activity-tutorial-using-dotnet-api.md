@@ -13,12 +13,12 @@ ms.topic: tutorial
 ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: ac0ef463f05c2f361c75827e300b2866e16dfef1
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 647b2ae5f23ef6f94e3a56eb777053a7eb3e0097
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57446984"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58090445"
 ---
 # <a name="tutorial-create-a-pipeline-with-copy-activity-using-net-api"></a>Tutorial: Criar um pipeline com atividade de cópia com a .NET API
 > [!div class="op_single_selector"]
@@ -515,9 +515,9 @@ Deve obter os quatro valores seguintes destes passos:
     ```
 18. Execute o exemplo, clicando em **Depurar** -> **Iniciar Depuração** no menu. Quando vir **A obter detalhes da execução de um setor de dados**, aguarde alguns minutos e prima **ENTER**.
 19. Utilize o portal do Azure para verificar se a fábrica de dados **APITutorialFactory** foi criada com os artefactos seguintes:
-   * Serviço ligado: **LinkedService_AzureStorage**
-   * Conjunto de dados: **InputDataset** e **OutputDataset**.
-   * Pipeline: **PipelineBlobSample**
+    * Serviço ligado: **LinkedService_AzureStorage**
+    * Conjunto de dados: **InputDataset** e **OutputDataset**.
+    * Pipeline: **PipelineBlobSample**
 20. Verifique se os registos dos dois colaboradores são criados na tabela **emp** na base de dados SQL do Azure especificada.
 
 ## <a name="next-steps"></a>Passos Seguintes

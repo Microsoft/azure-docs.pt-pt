@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 03/11/2019
 ms.author: mabrigg
 ms.lastreviewed: 12/01/2018
-ms.openlocfilehash: fd4c1220d0652139c247ffed80e995a90a93c5b1
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 469213ae67f1f2bcece6afa5d9b7873bfdfe8d6c
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57780848"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58095743"
 ---
 # <a name="azure-monitor-on-azure-stack"></a>Monitor do Azure no Azure Stack
 
@@ -33,8 +33,8 @@ Para obter uma introdução, visão geral e como começar a trabalhar com o Azur
 
 O Azure Monitor é o serviço de plataforma que fornece uma única origem para a monitorização de recursos do Azure. Com o Azure Monitor, pode visualizar, consultar, encaminhar, arquivar e caso contrário, tomar medidas relativamente a métricas e registos provenientes de recursos no Azure. Pode trabalhar com estes dados utilizando o portal de administração do Azure Stack, o Monitor de Cmdlets do PowerShell, CLI de várias plataformas ou APIs de REST do Azure Monitor. Para a conectividade específica suportada pelo Azure Stack, veja [como consumir dados de monitorização do Azure Stack](azure-stack-metrics-monitor.md)
 
-> [!Note]  
-Métricas e registos de diagnóstico não estão disponíveis para o Azure Stack Development Kit.
+> [!Note]
+> Métricas e registos de diagnóstico não estão disponíveis para o Azure Stack Development Kit.
 
 ## <a name="prerequisites-for-azure-monitor-on-azure-stack"></a>Pré-requisitos para o Monitor do Azure no Azure Stack
 
@@ -55,7 +55,7 @@ Como o Azure Monitor, no Azure, o Azure Monitor no Azure Stack fornece registos 
 ![Monitor do Azure no Azure Stack origens - subconjunto de computação](media//azure-stack-metrics-azure-data/azs-monitor-computersubset.png)
 
 O **Microsoft. Compute** fornecedor de recursos no Azure Stack inclui:
- - Máquinas Virtuais 
+ - Virtual Machines 
  - Conjuntos de dimensionamento de máquinas virtuais
 
 ### <a name="application---diagnostics-logs-application-logs-and-metrics"></a>Aplicação – registos de diagnóstico, registos de aplicações e métricas
@@ -67,9 +67,9 @@ Os tipos de medidas incluem:
  - Registos de aplicações
  - Registos de eventos do Windows
  - Origem de evento do .NET
- - Registos IIS
+ - Registos do IIS
  - ETW baseado no manifesto
- - Informações de falhas de sistema
+ - Informações de falha de sistema
  - Registos de erros do cliente
 
 > [!Note]  

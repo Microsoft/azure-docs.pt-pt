@@ -16,12 +16,12 @@ ms.author: celested
 ms.reviewer: jlu
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d0078c260e09ec9fd31ecf2124bc4bf7ad7f92b0
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 534c0463cd8aee9fccfa183586b946032dada722
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56173747"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58094563"
 ---
 # <a name="how-to-reactivate-disabled-access-control-service-namespaces"></a>Como: Reativar espaços de nomes do Serviço de Controlo de Acesso desativados
 
@@ -102,7 +102,7 @@ Extensões adicionais já não serão aprovadas automaticamente. Se precisar de 
     | **Tipo de problema** | `ACS to SAS Migration` |
     | **Assunto** | Descreva o problema |
 
-  ![Novo pedido de suporte técnico](./media/howto-reactivate-disabled-acs-namespaces/new-technical-support-request.png)
+   ![Novo pedido de suporte técnico](./media/howto-reactivate-disabled-acs-namespaces/new-technical-support-request.png)
 
 <!--
 

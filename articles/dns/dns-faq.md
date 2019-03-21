@@ -7,18 +7,18 @@ ms.service: dns
 ms.topic: article
 ms.date: 3/11/2019
 ms.author: victorh
-ms.openlocfilehash: b8240f69649e9bcb9a705f2c9fcbb819cf119356
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: d0c5260fcc2e7ac2acbeec308c6a0cba7d6a81be
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57761417"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58098098"
 ---
 # <a name="azure-dns-faq"></a>FAQ sobre DNS do Azure
 
 ## <a name="about-azure-dns"></a>Sobre o DNS do Azure
 
-### <a name="what-is-azure-dns"></a>O que é o Azure DNS?
+### <a name="what-is-azure-dns"></a>O que é o DNS do Azure?
 
 O sistema de nomes de domínio (DNS) traduz ou resolvido, um nome do Web site ou serviço para o endereço IP. O DNS do Azure é um serviço de alojamento para domínios DNS. Ele fornece resolução de nomes através da infraestrutura do Microsoft Azure. Ao alojar os seus domínios no Azure, pode gerir os recursos DNS com as mesmas credenciais, APIs, ferramentas e faturação dos seus outros serviços do Azure.
 
@@ -42,7 +42,7 @@ Para obter mais informações, consulte a [página do SLA de DNS do Azure](https
 
 Um domínio é um nome exclusivo no sistema de nome de domínio. Um exemplo é contoso.com.
 
-Uma zona DNS é utilizada para alojar os registos de DNS de um domínio específico. Por exemplo, o domínio contoso.com pode conter vários registos DNS. Os registos podem incluir mail.contoso.com para um servidor de email e www.contoso.com para um Web site. Estes registos estão alojados na zona DNS contoso.com.
+Uma zona DNS é utilizada para alojar os registos DNS para um determinado domínio. Por exemplo, o domínio contoso.com pode conter vários registos DNS. Os registos podem incluir mail.contoso.com para um servidor de email e www\.contoso.com para um Web site. Estes registos estão alojados na zona DNS contoso.com.
 
 É um nome de domínio *apenas um nome*. Uma zona DNS é um recurso de dados que contém os registos DNS para um nome de domínio. Pode utilizar o DNS do Azure para alojar uma zona DNS e gerir os registos DNS para um domínio no Azure. Ele também fornece servidores de nomes DNS para responder a consultas DNS da Internet.
 

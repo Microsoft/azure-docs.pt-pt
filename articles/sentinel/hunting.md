@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 2/28/2019
 ms.author: rkarlin
-ms.openlocfilehash: 24792a0099d4e45e100fa6cf0b211c62fc8630de
-ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.openlocfilehash: adedc8bc1f574ae089f2a11033fab4f390c57a9a
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/02/2019
-ms.locfileid: "57242331"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58087029"
 ---
 # <a name="hunt-for-threats-with-in-azure-sentinel-preview"></a>Busca de ameaças com sentinela na pré-visualização no Azure
 
@@ -128,19 +128,19 @@ Crie uma nova consulta de procura:
 1. Clique em **nova consulta** e selecione **guardar**.
 2. Preencha todos os campos em branco e selecione **guardar**.
 
- ![Nova consulta](./media/tutorial-hunting/new-query.png)
+   ![Nova consulta](./media/tutorial-hunting/new-query.png)
 
 Clonar e modificar uma consulta de arquivo terá existente:
 
 1. Selecione a consulta de procura na tabela que pretende modificar.
 2. Selecione as reticências (...) na linha da consulta que pretende modificar e selecione **clonar consulta**.
 
- ![Clonar consulta](./media/tutorial-hunting/clone-query.png)
+   ![Clonar consulta](./media/tutorial-hunting/clone-query.png)
  
 
-3.  Modificar a consulta e selecione **criar**.
+3. Modificar a consulta e selecione **criar**.
 
- ![consulta personalizada](./media/tutorial-hunting/custom-query.png)
+   ![consulta personalizada](./media/tutorial-hunting/custom-query.png)
 
 ## <a name="next-steps"></a>Passos Seguintes
 Neste artigo, aprendeu a executar uma investigação de detecção com sentinela do Azure. Para saber mais sobre sentinela do Azure, veja os artigos seguintes:

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/07/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 2d63c14c5eba1a9637cfd5544585e71d2bc86048
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 7ca486768cf56059328801b1b4b1036bb8aeece8
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57535166"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58081785"
 ---
 # <a name="authentication-requests-and-responses"></a>Autenticação, Pedidos e Respostas
 
@@ -26,22 +26,22 @@ O Azure Key Vault suporta o formato JSON solicitações e respostas. Pedidos par
 
 Este tópico aborda informações específicas para o serviço Azure Key Vault. Para obter informações gerais sobre como utilizar as interfaces REST do Azure, incluindo autenticação/autorização e como adquirir um token de acesso, consulte [referência da API REST do Azure](https://docs.microsoft.com/rest/api/azure).
 
-## <a name="request-url"></a>URL do pedido  
+## <a name="request-url"></a>URL do Pedido  
  Operações de gestão de chaves utilizam HTTP DELETE, GET, PATCH, PUT e HTTP POST e operações criptográficas em relação a objetos de chave existentes utilizam HTTP POST. Os clientes que não é possível suportar a verbos HTTP específicos também podem utilizar o HTTP POST com o cabeçalho de pedido de HTTP X para especificar o verbo pretendido; pedidos que normalmente não requerem um corpo devem incluir um corpo vazio ao utilizar o HTTP POST, por exemplo, quando a utilização do POST, em vez de eliminar.  
 
  Para trabalhar com objetos no Azure Key Vault, seguem URLs de exemplo:  
 
--   Para criar uma chave chamada TESTKEY em utilização um cofre de chaves- `PUT /keys/TESTKEY?api-version=<api_version> HTTP/1.1`  
+- Para criar uma chave chamada TESTKEY em utilização um cofre de chaves- `PUT /keys/TESTKEY?api-version=<api_version> HTTP/1.1`  
 
--   Para importar uma chave chamada IMPORTEDKEY numa utilização do Cofre de chaves- `POST /keys/IMPORTEDKEY/import?api-version=<api_version> HTTP/1.1`  
+- Para importar uma chave chamada IMPORTEDKEY numa utilização do Cofre de chaves- `POST /keys/IMPORTEDKEY/import?api-version=<api_version> HTTP/1.1`  
 
--   Para obter um segredo chamado MYSECRET em utilização um cofre de chaves- `GET /secrets/MYSECRET?api-version=<api_version> HTTP/1.1`  
+- Para obter um segredo chamado MYSECRET em utilização um cofre de chaves- `GET /secrets/MYSECRET?api-version=<api_version> HTTP/1.1`  
 
--   Para inscrever-se um resumo com uma chave chamada TESTKEY em utilização um cofre de chaves- `POST /keys/TESTKEY/sign?api-version=<api_version> HTTP/1.1`  
+- Para inscrever-se um resumo com uma chave chamada TESTKEY em utilização um cofre de chaves- `POST /keys/TESTKEY/sign?api-version=<api_version> HTTP/1.1`  
 
- A autoridade para um pedido para um cofre de chaves é sempre da seguinte forma,  `https://{keyvault-name}.vault.azure.net/`  
+  A autoridade para um pedido para um cofre de chaves é sempre da seguinte forma,  `https://{keyvault-name}.vault.azure.net/`  
 
- As chaves são sempre armazenadas no caminho /keys, segredos sempre são armazenados no caminho /secrets.  
+  As chaves são sempre armazenadas no caminho /keys, segredos sempre são armazenados no caminho /secrets.  
 
 ## <a name="api-version"></a>Versão da API  
  O serviço de Cofre de chaves do Azure suporta o controlo de versões de protocolo para proporcionar compatibilidade com clientes de nível inferior, embora nem todos os recursos estarão disponíveis para esses clientes. Os clientes têm de utilizar o `api-version` consultar o parâmetro de cadeia de caracteres para especificar a versão do protocolo que eles oferecem suporte à medida que não têm predefinições.  
@@ -64,17 +64,17 @@ Este tópico aborda informações específicas para o serviço Azure Key Vault. 
 ## <a name="error-responses"></a>Respostas de erro  
  Tratamento de erros irá utilizar códigos de estado HTTP. Resultados de comuns são:  
 
--   2xx – êxito: Utilizado para operação normal. O corpo da resposta irá conter o resultado esperado  
+- 2xx – êxito: Utilizado para operação normal. O corpo da resposta irá conter o resultado esperado  
 
--   3xx – redirecionamento: O 304 "Não modificado" podem ser devolvido para satisfazer um GET condicional. Outros códigos 3xx podem ser utilizados no futuro para indicar as alterações DNS e o caminho.  
+- 3xx – redirecionamento: O 304 "Não modificado" podem ser devolvido para satisfazer um GET condicional. Outros códigos 3xx podem ser utilizados no futuro para indicar as alterações DNS e o caminho.  
 
--   4xx – erro do cliente: Utilizado para pedidos incorretos, chaves em falta, erros de sintaxe, parâmetros inválidos, erros de autenticação, etc. O corpo da resposta irá conter a explicação de erro detalhadas.  
+- 4xx – erro do cliente: Utilizado para pedidos incorretos, chaves em falta, erros de sintaxe, parâmetros inválidos, erros de autenticação, etc. O corpo da resposta irá conter a explicação de erro detalhadas.  
 
--   5XX – erro de servidor: Utilizado para erros de servidor interno. O corpo da resposta irá conter informações de erro resumido.  
+- 5XX – erro de servidor: Utilizado para erros de servidor interno. O corpo da resposta irá conter informações de erro resumido.  
 
- O sistema foi concebido para funcionar por trás de uma firewall ou proxy. Por conseguinte, um cliente pode receber outros códigos de erro.  
+  O sistema foi concebido para funcionar por trás de uma firewall ou proxy. Por conseguinte, um cliente pode receber outros códigos de erro.  
 
- O Azure Key Vault também retorna informações de erro no corpo da resposta quando ocorrer um problema. O corpo da resposta é o formato JSON e assume a forma:  
+  O Azure Key Vault também retorna informações de erro no corpo da resposta quando ocorrer um problema. O corpo da resposta é o formato JSON e assume a forma:  
 
 ```  
 

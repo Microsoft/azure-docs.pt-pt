@@ -11,13 +11,13 @@ author: MightyPen
 ms.author: genemi
 ms.reviewer: jrasnik
 manager: craigg
-ms.date: 12/19/2018
-ms.openlocfilehash: d7513c4b8ea52b28d138032879f16e5a331853d2
-ms.sourcegitcommit: 30a0007f8e584692fe03c0023fe0337f842a7070
+ms.date: 03/12/2019
+ms.openlocfilehash: 0a9472dec9b76dfbde1690e11f13836746b0dfaa
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57574452"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57862901"
 ---
 # <a name="event-file-target-code-for-extended-events-in-sql-database"></a>Código de destino de ficheiro de evento para eventos expandidos na base de dados SQL
 
@@ -38,6 +38,8 @@ Este tópico apresenta um exemplo de código em duas fases:
 ## <a name="prerequisites"></a>Pré-requisitos
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+> [!IMPORTANT]
+> O módulo do PowerShell do Azure Resource Manager ainda é suportado pelo SQL Database do Azure, mas todo o desenvolvimento futuro é para o módulo de Az.Sql. Para estes cmdlets, consulte [azurerm. SQL](https://docs.microsoft.com/powershell/module/AzureRM.Sql/). Os argumentos para os comandos no módulo Az e nos módulos AzureRm são substancialmente idênticos.
 
 * Uma conta e subscrição do Azure. Pode inscrever-se para obter uma [versão de avaliação gratuita](https://azure.microsoft.com/pricing/free-trial/).
 * Qualquer base de dados que pode criar uma tabela.
@@ -459,7 +461,7 @@ GO
 ```
 
 
-## <a name="output"></a>Resultado
+## <a name="output"></a>Saída
 
 Quando tiver concluído o script de Transact-SQL, clique numa célula sob o **event_data_XML** cabeçalho da coluna. Um **<event>** elemento é apresentado o que mostra uma instrução de ATUALIZAÇÃO.
 

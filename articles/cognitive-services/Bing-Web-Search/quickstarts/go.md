@@ -8,20 +8,20 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-web-search
 ms.topic: quickstart
-ms.date: 02/12/2019
+ms.date: 03/12/2019
 ms.author: aahi
 ms.reviewer: nhoyadx@gmail.com, v-gedod, erhopf
 ms.custom: seodec2018
-ms.openlocfilehash: 3c64841656f81f2f78c02c54f08ca24cccd78586
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: b7bf73c2948b302ec8294b7dc2ff2dc8f220c91b
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56186867"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57843888"
 ---
 # <a name="quickstart-search-the-web-using-the-bing-web-search-rest-api-and-go"></a>Início rápido: Pesquisar a web com a API de REST de pesquisa do Bing Web e Go
 
-Utilize este guia de introdução para efetuar a primeira chamada à API de pesquisa Web do Bing e receber a resposta JSON. Esta aplicação Go envia um pedido de pesquisa para a API e apresenta a resposta. Embora esse aplicativo é escrito em Go, a API é um serviço RESTful Web compatível com a maioria das linguagens de programação.
+Utilize este guia de introdução para efetuar a primeira chamada à API de pesquisa Web do Bing e receber a resposta JSON. Esta aplicação Go envia um pedido de pesquisa para a API e mostra a resposta. Embora esse aplicativo é escrito em Go, a API é um serviço RESTful Web compatível com a maioria das linguagens de programação.
 
 Consulte também [dos serviços cognitivos preços - API de pesquisa Bing](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/).
 
@@ -309,7 +309,7 @@ func main() {
 
 ## <a name="sample-response"></a>Resposta de amostra  
 
-As respostas da API de Pesquisa na Web do Bing são devolvidas como JSON. Esta resposta de exemplo foi formatada com a estrutura `BingAnswer` e apresenta `result.Name` e `result.URL`.
+As respostas da API de Pesquisa na Web do Bing são devolvidas como JSON. Esta resposta de exemplo foi formatada com o `BingAnswer` struct e mostra a `result.Name` e `result.URL`.
 
 ```go
 Microsoft Cognitive Services || https://www.microsoft.com/cognitive-services

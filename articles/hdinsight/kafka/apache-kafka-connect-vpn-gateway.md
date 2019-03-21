@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/06/2018
-ms.openlocfilehash: a37e67f299262a7e0b353564c24c789859dcec7c
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.openlocfilehash: 0b1ba5c6d342fb0bf6f888af4bc3a4e1c8ef939e
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53605012"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58074723"
 ---
 # <a name="connect-to-apache-kafka-on-hdinsight-through-an-azure-virtual-network"></a>Ligar ao Apache Kafka no HDInsight através de uma rede Virtual do Azure
 
@@ -31,29 +31,29 @@ HDInsight não permite a ligação direta ao Kafka através da internet pública
 
 * Ligar uma rede privada, como sua rede no local, para a rede virtual. Esta configuração permite que os clientes na sua rede no local para trabalhar diretamente com o Kafka. Para ativar esta configuração, execute as seguintes tarefas:
 
-    1. Crie uma rede virtual
-    2. Crie um gateway VPN que utiliza uma configuração site a site. A configuração usada neste documento liga-se a um dispositivo de gateway VPN na sua rede no local.
-    3. Crie um servidor DNS na rede virtual.
-    4. Configure o reencaminhamento entre o servidor DNS em cada rede.
-    5. Crie um Kafka num cluster do HDInsight na rede virtual.
+  1. Crie uma rede virtual
+  2. Crie um gateway VPN que utiliza uma configuração site a site. A configuração usada neste documento liga-se a um dispositivo de gateway VPN na sua rede no local.
+  3. Crie um servidor DNS na rede virtual.
+  4. Configure o reencaminhamento entre o servidor DNS em cada rede.
+  5. Crie um Kafka num cluster do HDInsight na rede virtual.
 
-    Para obter mais informações, consulte a [ligar ao Apache Kafka a partir de uma rede no local](#on-premises) secção. 
+     Para obter mais informações, consulte a [ligar ao Apache Kafka a partir de uma rede no local](#on-premises) secção. 
 
 * Ligar máquinas individuais a rede virtual através de um gateway de VPN e o cliente VPN. Para ativar esta configuração, execute as seguintes tarefas:
 
-    1. Crie uma rede virtual
-    2. Crie um gateway VPN que utiliza uma configuração de ponto a site. Esta configuração pode ser utilizada com clientes Windows e MacOS.
-    3. Crie um Kafka num cluster do HDInsight na rede virtual.
-    4. Configure o Kafka para fins de publicidade de IP. Esta configuração permite que o cliente estabeleçam ligação através do Mediador de endereços IP em vez de nomes de domínio.
-    5. Transferir e utilizar o cliente VPN no sistema de desenvolvimento.
+  1. Crie uma rede virtual
+  2. Crie um gateway VPN que utiliza uma configuração de ponto a site. Esta configuração pode ser utilizada com clientes Windows e MacOS.
+  3. Crie um Kafka num cluster do HDInsight na rede virtual.
+  4. Configure o Kafka para fins de publicidade de IP. Esta configuração permite que o cliente estabeleçam ligação através do Mediador de endereços IP em vez de nomes de domínio.
+  5. Transferir e utilizar o cliente VPN no sistema de desenvolvimento.
 
-    Para obter mais informações, consulte a [ligar ao Apache Kafka com um cliente VPN](#vpnclient) secção.
+     Para obter mais informações, consulte a [ligar ao Apache Kafka com um cliente VPN](#vpnclient) secção.
 
-    > [!WARNING]  
-    > Esta configuração apenas é recomendada para fins de desenvolvimento devido às seguintes limitações:
-    >
-    > * Cada cliente tem de ligar a utilizar um cliente de software VPN.
-    > * O cliente VPN não transmite pedidos de resolução de nome para a rede virtual, pelo que deverá utilizar para comunicar com o Kafka de endereçamento IP. Comunicação do IP requer configuração adicional no cluster do Kafka.
+     > [!WARNING]  
+     > Esta configuração apenas é recomendada para fins de desenvolvimento devido às seguintes limitações:
+     >
+     > * Cada cliente tem de ligar a utilizar um cliente de software VPN.
+     > * O cliente VPN não transmite pedidos de resolução de nome para a rede virtual, pelo que deverá utilizar para comunicar com o Kafka de endereçamento IP. Comunicação do IP requer configuração adicional no cluster do Kafka.
 
 Para obter mais informações sobre como utilizar o HDInsight numa rede virtual, consulte [expandir HDInsight ao utilizar redes virtuais do Azure](../hdinsight-extend-hadoop-virtual-network.md).
 
@@ -232,8 +232,8 @@ Utilize os passos nesta secção para criar a seguinte configuração:
         -SubnetName $defaultSubnet.Id
     ```
 
-  > [!WARNING]  
-  > Este processo demora cerca de 15 minutos a concluir.
+   > [!WARNING]  
+   > Este processo demora cerca de 15 minutos a concluir.
 
 ### <a name="configure-kafka-for-ip-advertising"></a>Configurar o Kafka para fins de publicidade de IP
 
@@ -323,23 +323,23 @@ Para validar a conectividade ao Kafka, utilize os seguintes passos para criar e 
 
 3. Para enviar dados para o Kafka, utilize o seguinte código de Python:
 
-  ```python
-  from kafka import KafkaProducer
-  # Replace the `ip_address` entries with the IP address of your worker nodes
-  # NOTE: you don't need the full list of worker nodes, just one or two.
-  producer = KafkaProducer(bootstrap_servers=['kafka_broker_1','kafka_broker_2'])
-  for _ in range(50):
+   ```python
+   from kafka import KafkaProducer
+   # Replace the `ip_address` entries with the IP address of your worker nodes
+   # NOTE: you don't need the full list of worker nodes, just one or two.
+   producer = KafkaProducer(bootstrap_servers=['kafka_broker_1','kafka_broker_2'])
+   for _ in range(50):
       producer.send('testtopic', b'test message')
-  ```
+   ```
 
     Substitua o `'kafka_broker'` entradas com os endereços retornados do passo 1 nesta secção:
 
-    * Se estiver a utilizar um __cliente VPN de Software__, substitua o `kafka_broker` entradas com o endereço IP do seu nós de trabalho.
+   * Se estiver a utilizar um __cliente VPN de Software__, substitua o `kafka_broker` entradas com o endereço IP do seu nós de trabalho.
 
-    * Se tiver __ativada a resolução de nomes através de um servidor DNS personalizado__, substitua o `kafka_broker` entradas com o FQDN de nós de trabalho.
+   * Se tiver __ativada a resolução de nomes através de um servidor DNS personalizado__, substitua o `kafka_broker` entradas com o FQDN de nós de trabalho.
 
-    > [!NOTE]
-    > Este código envia a cadeia de caracteres `test message` para o tópico `testtopic`. A configuração predefinida do Kafka no HDInsight é criar o tópico, se não existir.
+     > [!NOTE]
+     > Este código envia a cadeia de caracteres `test message` para o tópico `testtopic`. A configuração predefinida do Kafka no HDInsight é criar o tópico, se não existir.
 
 4. Para obter as mensagens do Kafka, utilize o seguinte código de Python:
 

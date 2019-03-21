@@ -18,12 +18,12 @@ ms.author: celested
 ms.reviewer: hirsin, dastrock
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e4daf43ed1cf757e95ba2963e2a2f395788aed17
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: fcabf51b3a368841f7f135a32c4824eb3db571ee
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56179319"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57864937"
 ---
 # <a name="federation-metadata"></a>Metadados de federação
 Azure Active Directory (Azure AD) publica um documento de metadados de Federação para serviços que está configurado para aceitar os tokens de segurança do Azure AD emite. O formato de documento de metadados de Federação é descrito no [Web Services Federation Language (WS-Federation) versão 1.2](https://docs.oasis-open.org/wsfed/federation/v1.2/os/ws-federation-1.2-spec-os.html), que estende [metadados para a versão de OASIS Security Assertion Markup Language (SAML) 2.0](https://docs.oasis-open.org/security/saml/v2.0/saml-metadata-2.0-os.pdf).

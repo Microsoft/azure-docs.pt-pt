@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 02/18/2019
 ms.author: jeedes
-ms.openlocfilehash: 228692ede47bd67b25bfc4bd23b90666a8505107
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 26b3e2144094bfd9b10367a48226c836c6152b79
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57770753"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57899915"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-getthere"></a>Tutorial: Integração do Active Directory do Azure com GetThere
 
@@ -105,12 +105,14 @@ Para configurar o Azure AD início de sessão único com GetThere, execute os se
     ![GetThere domínio e URLs únicas início de sessão em informações](common/idp-intiated.png)
 
     a. Na **identificador** caixa de texto, escreva um URL:
+
     | |
     |--|
     | `getthere.com` |
     | `http://idp.getthere.com` |
 
     b. Na **URL de resposta** texto, escreva qualquer uma do abaixo URLs:
+    
     | |
     |--|
     | `https://wx1.getthere.net/login/saml/post.act` |
@@ -183,7 +185,7 @@ O objetivo desta secção é criar um utilizador de teste no portal do Azure cha
 
     a. Na **Name** , insira **BrittaSimon**.
   
-    b. Na **nome de utilizador** , digite **brittasimon@yourcompanydomain.extension**  
+    b. Na **nome de utilizador** , digite **brittasimon\@yourcompanydomain.extension**  
     Por exemplo, BrittaSimon@contoso.com
 
     c. Selecione **palavra-passe de Show** caixa de verificação e, em seguida, anote o valor que é apresentado na caixa de palavra-passe.

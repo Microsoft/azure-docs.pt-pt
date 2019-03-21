@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/15/2019
 ms.author: maxluk
-ms.openlocfilehash: 272ec7298785128caebd850dc488ca01937a3960
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 8fa3cd79011ab31349ec44edf52b8fd9048d0d37
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57548512"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58077977"
 ---
 # <a name="use-azure-toolkit-for-intellij-to-create-apache-spark-applications-for-an-hdinsight-cluster"></a>Utilizar o Azure Toolkit para IntelliJ para criar aplicativos de Apache Spark para um cluster do HDInsight
 
@@ -57,10 +57,10 @@ Execute os seguintes passos para instalar o plug-in de Scala:
 3. Selecione **Spark projeto (Scala)** da janela principal.
 
 4. Partir do **ferramenta de compilação** na lista pendente, selecione uma das seguintes ações:
-      * **Maven** para suporte ao Assistente de criação do projeto Scala.
-      * **SBT** para as dependências de gestão e a criação do projeto Scala.
+   * **Maven** para suporte ao Assistente de criação do projeto Scala.
+   * **SBT** para as dependências de gestão e a criação do projeto Scala.
 
-    ![Caixa de diálogo O Novo Projeto](./media/apache-spark-intellij-tool-plugin/create-hdi-scala-app.png)
+     ![Caixa de diálogo O Novo Projeto](./media/apache-spark-intellij-tool-plugin/create-hdi-scala-app.png)
 
 5. Selecione **Seguinte**.
 
@@ -166,7 +166,7 @@ Pode ligar um cluster do HDInsight ao utilizar o nome de utilizador do Apache am
         |Tipo de recurso de ligação|Selecione **Cluster de HDInsight** na lista pendente.|
         |URL do nome do cluster| Introduza o nome do cluster.|
         |Tipo de Autenticação| Deixe como **autenticação básica**|
-        |Nome de utilizador| Introduza o nome de utilizador do cluster, a predefinição é o administrador.|
+        |Nome de Utilizador| Introduza o nome de utilizador do cluster, a predefinição é o administrador.|
         |Palavra-passe| Introduza a palavra-passe para o nome de utilizador.|
     
         ![caixa de diálogo de cluster de hdinsight de ligação](./media/apache-spark-intellij-tool-plugin/link-hdinsight-cluster-dialog.png)
@@ -180,7 +180,7 @@ Pode ligar um cluster do HDInsight ao utilizar o nome de utilizador do Apache am
         |Nome do Cluster| Introduza o nome do cluster.|
         |Yarn Endpoint|Opcional.|
         |Tipo de Autenticação| Deixe como **autenticação básica**|
-        |Nome de utilizador| Introduza o nome de utilizador do cluster, a predefinição é o administrador.|
+        |Nome de Utilizador| Introduza o nome de utilizador do cluster, a predefinição é o administrador.|
         |Palavra-passe| Introduza a palavra-passe para o nome de utilizador.|
 
         ![ligar a caixa de diálogo do livy cluster](./media/apache-spark-intellij-tool-plugin/link-livy-cluster-dialog.png)
@@ -211,7 +211,7 @@ Depois de criar uma aplicação Scala, pode enviá-lo para o cluster.
     |Nome da classe principal|O valor predefinido é a classe principal a partir do ficheiro selecionado. Pode alterar a classe ao selecionar as reticências (**...** ) e escolhendo a outra classe.|
     |Configurações da tarefa|Pode alterar as chaves predefinidas e/ou valores. Para obter mais informações, consulte [API de REST do Livy Apache](https://livy.incubator.apache.org./docs/latest/rest-api.html).|
     |Argumentos de linha de comandos|Pode inserir argumentos separados por espaço para a classe principal, se necessário.|
-    |Jars referenciados e arquivos referenciados|Pode introduzir os caminhos para os ficheiros e Jars referenciadas se houver. Para mais informações: [Configuração do Apache Spark](https://spark.apache.org/docs/latest/configuration.html#runtime-environment).  Consulte também [como carregar recursos em cluster](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-storage-explorer).|
+    |Jars referenciados e arquivos referenciados|Pode introduzir os caminhos para os ficheiros e Jars referenciadas se houver. Para obter mais informações: [Configuração do Apache Spark](https://spark.apache.org/docs/latest/configuration.html#runtime-environment).  Consulte também [como carregar recursos em cluster](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-storage-explorer).|
     |Armazenamento de carregamento de tarefas|Expanda para revelar as opções adicionais.|
     |Tipo de armazenamento|Selecione **Use Azure Blob a carregar** na lista pendente.|
     |Conta de Armazenamento|Introduza a sua conta de armazenamento.|

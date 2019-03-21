@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 02/26/2019
 ms.author: adigan
-ms.openlocfilehash: 00bdc5ff63e78b0f96b794ca907bc28158e62c62
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: dd4dad2cc3e541d3b6866c02341161dc1d9e1e6c
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56883645"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58075275"
 ---
 # <a name="log-analytics-data-model-for-azure-backup-data"></a>Modelo de dados do log Analytics para dados de cópia de segurança do Azure
 
@@ -172,36 +172,36 @@ Esta tabela fornece detalhes sobre os campos relacionados com tarefas.
 
 Esta tabela fornece detalhes sobre os campos relacionados com a política.
 
-| Campo | Tipo de Dados | Descrição |
-| --- | --- | --- |
-| EventName_s |Texto |Este campo representa o nome deste evento, é sempre AzureBackupCentralReport |
-| SchemaVersion_s |Texto |Este campo indica a versão atual do esquema, é **V2** |
-| State_s |Texto |Estado atual do objeto de política, por exemplo, Active Directory, eliminado |
-| BackupManagementType_s |Texto |Tipo de fornecedor para o servidor fazendo a tarefa de cópia de segurança, por exemplo, IaaSVM, FileFolder |
-| OperationName |Texto |Este campo representa o nome da operação atual - política |
-| Categoria |Texto |Este campo representa a categoria de dados de diagnóstico enviadas para o Azure Monitor registos, é AzureBackupReport |
-| Recurso |Texto |Este é o recurso para os quais dados são recolhidos, que mostra o nome do cofre dos serviços de recuperação |
-| PolicyUniqueId_g |Texto |Id exclusivo para identificar a política |
-| PolicyName_s |Texto |Nome da política definida |
-| BackupFrequency_s |Texto |Frequência com que as cópias de segurança são executadas, por exemplo, diariamente, semanalmente |
-| BackupTimes_s |Texto |Data e hora quando estão agendadas cópias de segurança |
-| BackupDaysOfTheWeek_s |Texto |Dias da semana quando tiverem sido agendadas as cópias de segurança |
-| RetentionDuration_s |Número inteiro |Duração da retenção de cópias de segurança configuradas |
-| DailyRetentionDuration_s |Número inteiro |Duração total de retenção em dias para cópias de segurança configurados |
-| DailyRetentionTimes_s |Texto |Data e hora quando a retenção diária foi configurada |
-| WeeklyRetentionDuration_s |Número decimal |Duração da retenção semanal total em semanas para cópias de segurança configuradas |
-| WeeklyRetentionTimes_s |Texto |Data e hora quando estiver configurada retenção semanal |
-| WeeklyRetentionDaysOfTheWeek_s |Texto |Dias da semana selecionada para a retenção semanal |
-| MonthlyRetentionDuration_s |Número decimal |Duração da retenção total nos meses para cópias de segurança configuradas |
-| MonthlyRetentionTimes_s |Texto |Data e hora quando estiver configurada retenção mensal |
-| MonthlyRetentionFormat_s |Texto |Tipo de configuração para uma retenção mensal, por exemplo, diária, dia, com base, semanalmente por semana com base em |
-| MonthlyRetentionDaysOfTheWeek_s |Texto |Dias da semana selecionada para a retenção mensal |
-| MonthlyRetentionWeeksOfTheMonth_s |Texto |Semanas do mês quando retenção mensal estiver configurada, por exemplo, primeiro, último etc. |
-| YearlyRetentionDuration_s |Número decimal |Duração da retenção total nos anos para cópias de segurança configurados |
-| YearlyRetentionTimes_s |Texto |Data e hora quando estiver configurada retenção anual |
-| YearlyRetentionMonthsOfTheYear_s |Texto |Meses do ano selecionado para a retenção anual |
-| YearlyRetentionFormat_s |Texto |Tipo de configuração de retenção anual, por exemplo, diária, dia, com base, semanalmente por semana com base em |
-| YearlyRetentionDaysOfTheMonth_s |Texto |Datas do mês selecionado para a retenção anual |
+| Campo | Tipo de Dados | Versões aplicáveis | Descrição |
+| --- | --- | --- | --- |
+| EventName_s |Texto ||Este campo representa o nome deste evento, é sempre AzureBackupCentralReport |
+| SchemaVersion_s |Texto ||Este campo indica a versão atual do esquema, é **V2** |
+| State_s |Texto ||Estado atual do objeto de política, por exemplo, Active Directory, eliminado |
+| BackupManagementType_s |Texto ||Tipo de fornecedor para o servidor fazendo a tarefa de cópia de segurança, por exemplo, IaaSVM, FileFolder |
+| OperationName |Texto ||Este campo representa o nome da operação atual - política |
+| Categoria |Texto ||Este campo representa a categoria de dados de diagnóstico enviadas para o Azure Monitor registos, é AzureBackupReport |
+| Recurso |Texto ||Este é o recurso para os quais dados são recolhidos, que mostra o nome do cofre dos serviços de recuperação |
+| PolicyUniqueId_g |Texto ||Id exclusivo para identificar a política |
+| PolicyName_s |Texto ||Nome da política definida |
+| BackupFrequency_s |Texto ||Frequência com que as cópias de segurança são executadas, por exemplo, diariamente, semanalmente |
+| BackupTimes_s |Texto ||Data e hora quando estão agendadas cópias de segurança |
+| BackupDaysOfTheWeek_s |Texto ||Dias da semana quando tiverem sido agendadas as cópias de segurança |
+| RetentionDuration_s |Número inteiro ||Duração da retenção de cópias de segurança configuradas |
+| DailyRetentionDuration_s |Número inteiro ||Duração total de retenção em dias para cópias de segurança configurados |
+| DailyRetentionTimes_s |Texto ||Data e hora quando a retenção diária foi configurada |
+| WeeklyRetentionDuration_s |Número decimal ||Duração da retenção semanal total em semanas para cópias de segurança configuradas |
+| WeeklyRetentionTimes_s |Texto ||Data e hora quando estiver configurada retenção semanal |
+| WeeklyRetentionDaysOfTheWeek_s |Texto ||Dias da semana selecionada para a retenção semanal |
+| MonthlyRetentionDuration_s |Número decimal ||Duração da retenção total nos meses para cópias de segurança configuradas |
+| MonthlyRetentionTimes_s |Texto ||Data e hora quando estiver configurada retenção mensal |
+| MonthlyRetentionFormat_s |Texto ||Tipo de configuração para uma retenção mensal, por exemplo, diária, dia, com base, semanalmente por semana com base em |
+| MonthlyRetentionDaysOfTheWeek_s |Texto ||Dias da semana selecionada para a retenção mensal |
+| MonthlyRetentionWeeksOfTheMonth_s |Texto ||Semanas do mês quando retenção mensal estiver configurada, por exemplo, primeiro, último etc. |
+| YearlyRetentionDuration_s |Número decimal ||Duração da retenção total nos anos para cópias de segurança configurados |
+| YearlyRetentionTimes_s |Texto ||Data e hora quando estiver configurada retenção anual |
+| YearlyRetentionMonthsOfTheYear_s |Texto ||Meses do ano selecionado para a retenção anual |
+| YearlyRetentionFormat_s |Texto ||Tipo de configuração de retenção anual, por exemplo, diária, dia, com base, semanalmente por semana com base em | |
+| YearlyRetentionDaysOfTheMonth_s |Texto ||Datas do mês selecionado para a retenção anual |
 | SynchronisationFrequencyPerDay_s |Número inteiro |v2|Número de vezes que um dia de que um backup de arquivos está sincronizado do DPM de SC e MABS |
 | DiffBackupFormat_s |Texto |v2|Formato para cópias de segurança diferenciais para o SQL na cópia de segurança de VM do Azure |
 | DiffBackupTime_s |Hora |v2|Tempo para cópias de segurança diferenciais do SQL no Azure VM Backup|
@@ -209,35 +209,35 @@ Esta tabela fornece detalhes sobre os campos relacionados com a política.
 | LogBackupFrequency_s |Número decimal |v2|Frequência de cópias de segurança do registo de SQL|
 | LogBackupRetentionDuration_s |Número decimal |v2|Duração da retenção de cópias de segurança do registo do SQL no Azure VM Backup|
 | DiffBackupDaysofTheWeek_s |Texto |v2|Dias da semana para cópias de segurança diferenciais do SQL no Azure VM Backup|
-| SourceSystem |Texto |Sistema de origem de dados atuais - Azure |
-| ResourceId |Texto |Identificador de recurso de dados que está a ser recolhidos. Por exemplo, id de recurso do cofre dos serviços de recuperação |
-| SubscriptionId |Texto |Identificador de subscrição do recurso (ex. Cofre dos serviços de recuperação) para o qual os dados são recolhidos |
-| ResourceGroup |Texto |Grupo de recursos do recurso (ex. Cofre dos serviços de recuperação) para o qual os dados são recolhidos |
-| ResourceProvider |Texto |Fornecedor de recursos para o qual os dados são recolhidos. Por exemplo, Microsoft. recoveryservices |
-| ResourceType |Texto |Tipo de recurso para o qual os dados são recolhidos. Por exemplo, os cofres |
+| SourceSystem |Texto ||Sistema de origem de dados atuais - Azure |
+| ResourceId |Texto ||Identificador de recurso de dados que está a ser recolhidos. Por exemplo, id de recurso do cofre dos serviços de recuperação |
+| SubscriptionId |Texto ||Identificador de subscrição do recurso (ex. Cofre dos serviços de recuperação) para o qual os dados são recolhidos |
+| ResourceGroup |Texto ||Grupo de recursos do recurso (ex. Cofre dos serviços de recuperação) para o qual os dados são recolhidos |
+| ResourceProvider |Texto ||Fornecedor de recursos para o qual os dados são recolhidos. Por exemplo, Microsoft. recoveryservices |
+| ResourceType |Texto ||Tipo de recurso para o qual os dados são recolhidos. Por exemplo, os cofres |
 
 ### <a name="policyassociation"></a>PolicyAssociation
 
 Esta tabela fornece detalhes sobre associações de política com várias entidades.
 
-| Campo | Tipo de Dados | Descrição |
-| --- | --- | --- |
-| EventName_s |Texto |Este campo representa o nome deste evento, é sempre AzureBackupCentralReport |
-| SchemaVersion_s |Texto |Este campo indica a versão atual do esquema, é **V2** |
-| State_s |Texto |Estado atual do objeto de política, por exemplo, Active Directory, eliminado |
-| BackupManagementType_s |Texto |Tipo de fornecedor para o servidor fazendo a tarefa de cópia de segurança, por exemplo, IaaSVM, FileFolder |
-| OperationName |Texto |Este campo representa o nome da operação atual - PolicyAssociation |
-| Categoria |Texto |Este campo representa a categoria de dados de diagnóstico enviadas para o Azure Monitor registos, é AzureBackupReport |
-| Recurso |Texto |Este é o recurso para os quais dados são recolhidos, que mostra o nome do cofre dos serviços de recuperação |
-| PolicyUniqueId_g |Texto |Id exclusivo para identificar a política |
-| VaultUniqueId_s |Texto |Id exclusivo do cofre ao qual esta política pertence a |
+| Campo | Tipo de Dados | Versões aplicáveis | Descrição |
+| --- | --- | --- | --- |
+| EventName_s |Texto ||Este campo representa o nome deste evento, é sempre AzureBackupCentralReport |
+| SchemaVersion_s |Texto ||Este campo indica a versão atual do esquema, é **V2** |
+| State_s |Texto ||Estado atual do objeto de política, por exemplo, Active Directory, eliminado |
+| BackupManagementType_s |Texto ||Tipo de fornecedor para o servidor fazendo a tarefa de cópia de segurança, por exemplo, IaaSVM, FileFolder |
+| OperationName |Texto ||Este campo representa o nome da operação atual - PolicyAssociation |
+| Categoria |Texto ||Este campo representa a categoria de dados de diagnóstico enviadas para o Azure Monitor registos, é AzureBackupReport |
+| Recurso |Texto ||Este é o recurso para os quais dados são recolhidos, que mostra o nome do cofre dos serviços de recuperação |
+| PolicyUniqueId_g |Texto ||Id exclusivo para identificar a política |
+| VaultUniqueId_s |Texto ||Id exclusivo do cofre ao qual esta política pertence a |
 | BackupManagementServerUniqueId_s |Texto |v2 |Campo para identificar exclusivamente o servidor de gestão de cópia de segurança do Item de cópia de segurança está protegido, se aplicável        |
-| SourceSystem |Texto |Sistema de origem de dados atuais - Azure |
-| ResourceId |Texto |Identificador de recurso de dados que está a ser recolhidos. Por exemplo, id de recurso do cofre dos serviços de recuperação |
-| SubscriptionId |Texto |Identificador de subscrição do recurso (ex. Cofre dos serviços de recuperação) para o qual os dados são recolhidos |
-| ResourceGroup |Texto |Grupo de recursos do recurso (ex. Cofre dos serviços de recuperação) para o qual os dados são recolhidos |
-| ResourceProvider |Texto |Fornecedor de recursos para o qual os dados são recolhidos. Por exemplo, Microsoft. recoveryservices |
-| ResourceType |Texto |Tipo de recurso para o qual os dados são recolhidos. Por exemplo, os cofres |
+| SourceSystem |Texto ||Sistema de origem de dados atuais - Azure |
+| ResourceId |Texto ||Identificador de recurso de dados que está a ser recolhidos. Por exemplo, id de recurso do cofre dos serviços de recuperação |
+| SubscriptionId |Texto ||Identificador de subscrição do recurso (ex. Cofre dos serviços de recuperação) para o qual os dados são recolhidos |
+| ResourceGroup |Texto ||Grupo de recursos do recurso (ex. Cofre dos serviços de recuperação) para o qual os dados são recolhidos |
+| ResourceProvider |Texto ||Fornecedor de recursos para o qual os dados são recolhidos. Por exemplo, Microsoft. recoveryservices |
+| ResourceType |Texto ||Tipo de recurso para o qual os dados são recolhidos. Por exemplo, os cofres |
 
 ### <a name="protected-container"></a>Contentor protegido
 
@@ -355,7 +355,7 @@ Esta tabela fornece campos relacionados do básico de instâncias protegidas.
 Esta tabela fornece recuperação básica do ponto de campos relacionados.
 
 | Campo | Tipo de Dados | Descrição |
-| --- | --- | --- | --- |
+| --- | --- | --- |
 | BackupItemUniqueId_s |Texto |Id exclusivo utilizado para identificar o item de cópia de segurança para VMs feita com o DPM, MABS|
 | OldestRecoveryPointTime_s |Texto |Data hora do ponto de recuperação mais antigo para o item de cópia de segurança|
 | OldestRecoveryPointLocation_s |Texto |Localização do ponto de recuperação mais antigo para o item de cópia de segurança|

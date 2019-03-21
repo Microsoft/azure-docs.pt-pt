@@ -12,12 +12,12 @@ ms.author: sachinp
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 02/25/2019
-ms.openlocfilehash: 81b09ff3e8bb7e5a41432ff0bdaac36b657d74ea
-ms.sourcegitcommit: dd1a9f38c69954f15ff5c166e456fda37ae1cdf2
+ms.openlocfilehash: 5aeb84e5086fb0cf5c30e175ad419ee70bed55ad
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57569132"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58075190"
 ---
 # <a name="quickstart-create-a-single-database-in-azure-sql-database-using-the-azure-portal"></a>Início rápido: Criar uma base de dados na base de dados do SQL do Azure no portal do Azure
 
@@ -42,8 +42,8 @@ Para criar uma base de dados que contém os dados de exemplo do AdventureWorksLT
    - **Grupo de recursos**: Selecione **criar novo**, tipo *myResourceGroup*e selecione **OK**.
    - **Selecionar origem**: Lista pendente e selecione **Sample (AdventureWorksLT)**.
 
-    > [!IMPORTANT]
-    > Certifique-se de selecionar o **Sample (AdventureWorksLT)** dados, pelo que pode seguir facilmente este e outros guias de introdução do Azure SQL Database que usam esses dados.
+     > [!IMPORTANT]
+     > Certifique-se de selecionar o **Sample (AdventureWorksLT)** dados, pelo que pode seguir facilmente este e outros guias de introdução do Azure SQL Database que usam esses dados.
   
    ![Criar base de dados individual](./media/sql-database-get-started-portal/create-database-1.png)
 
@@ -76,9 +76,9 @@ Para criar uma base de dados que contém os dados de exemplo do AdventureWorksLT
 
 10. Sobre o **base de dados SQL** formulário, selecione **criar** para implementar e aprovisionar o grupo de recursos, o servidor e a base de dados.
 
-   Implementação demora alguns minutos. Pode selecionar **notificações** na barra de ferramentas para monitorizar o progresso da implementação.
+    Implementação demora alguns minutos. Pode selecionar **notificações** na barra de ferramentas para monitorizar o progresso da implementação.
 
-   ![Notificação](./media/sql-database-get-started-portal/notification.png)
+    ![Notificação](./media/sql-database-get-started-portal/notification.png)
 
 ## <a name="query-the-database"></a>Consultar a base de dados
 

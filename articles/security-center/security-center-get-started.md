@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/3/2018
 ms.author: rkarlin
-ms.openlocfilehash: 3442ced47e50485da1ffdd475d9649243b1c8583
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: 37f85afbdd55d3f14638f0833f69bb1992770449
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56116699"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58086076"
 ---
 # <a name="quickstart-onboard-your-azure-subscription-to-security-center-standard"></a>Início rápido: Carregar sua subscrição do Azure para o Centro de segurança Standard
 O Centro de Segurança do Azure oferece gestão de segurança unificada e proteção contra ameaças entre cargas de trabalho na cloud híbrida. Enquanto o escalão Gratuito oferece segurança limitada apenas para os recursos do Azure, o escalão Standard expande estas capacidades para o local e para outras clouds. O Centro de Segurança Standard ajuda a localizar e corrigir vulnerabilidades de segurança, aplicar controlos de acesso e aplicação para bloquear atividades maliciosas, detetar ameaças com análise e inteligência, e a responder rapidamente quando sob ataque. Pode experimentar o Centro de segurança Standard sem encargos. Para saber mais, veja a [página de preços](https://azure.microsoft.com/pricing/details/security-center/).
@@ -37,7 +37,7 @@ Para atualizar uma subscrição para o escalão Standard, tem de lhe ser atribu�
 1. Inicie sessão no [Portal do Azure](https://azure.microsoft.com/features/azure-portal/).
 2. No menu **Microsoft Azure**, selecione **Centro de Segurança**. **Centro de Segurança - Descrição Geral** é aberto.
 
- ![Descrição geral do Centro de Segurança][2]
+   ![Descrição geral do Centro de Segurança][2]
 
 **Centro de Segurança – Descrição Geral** oferece uma vista unificada da postura de segurança das suas cargas de trabalho da cloud híbrida, permitindo-lhe detetar e avaliar a segurança das cargas de trabalho e identificar e mitigar o risco. O Centro de Segurança ativa automaticamente qualquer uma das suas subscrições do Azure que não foram anteriormente carregadas por si ou por outro utilizador da subscrição para o escalão Gratuito.
 
@@ -55,13 +55,13 @@ Para efeitos dos inícios rápidos e tutoriais do Centro de Segurança, tem de a
 
 1. No menu principal do Centro de Segurança, selecione **Introdução**.
  
-  ![Introdução][4]
+   ![Introdução][4]
 
 2. Em **Atualização**, o Centro de Segurança apresenta uma lista de subscrições e áreas de trabalho elegíveis para inclusão. 
    - Pode clicar em **Aplicar a sua versão de avaliação** para ver uma lista de todas as subscrições e áreas de trabalho com o respetivo estado de elegibilidade de avaliação.
    -    Pode atualizar as subscrições e áreas de trabalho que não são elegíveis para avaliação.
    -    Pode selecionar as áreas de trabalho e subscrições elegíveis para iniciar a avaliação.
-3.  Clique em **Iniciar avaliação** para iniciar a avaliação nas subscrições selecionadas.
+3. Clique em **Iniciar avaliação** para iniciar a avaliação nas subscrições selecionadas.
 
 
   ![Alertas de segurança][9]

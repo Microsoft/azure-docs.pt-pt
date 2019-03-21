@@ -1,110 +1,91 @@
 ---
-title: O que é o Serviço de Voz?
+title: Quais são os serviços de voz do Azure?
 titleSuffix: Azure Cognitive Services
-description: 'O serviço de voz, parte dos serviços cognitivos do Azure, une os vários serviços de voz que estavam disponíveis anteriormente em separado: Voz do Bing (que inclui o reconhecimento de voz e de texto em fala), conversão de voz personalizada e tradução de voz.'
+description: Os serviços de voz do Azure são unificação de voz em texto, voz e tradução de voz numa única subscrição do Azure. É fácil adicionar voz seus aplicativos, ferramentas e dispositivos com o SDK de voz, o SDK de dispositivos de voz ou REST APIs. Adicionar a funcionalidade de voz a um chatbot existente, converter voz num aplicativo de tradução ou a transcrição de grandes volumes de dados do Centro de chamada.
 services: cognitive-services
 author: erhopf
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: overview
-ms.date: 12/13/2018
+ms.date: 03/13/2019
 ms.author: erhopf
-ms.openlocfilehash: 9beab6f30d42a7fd2c424971d602a581732eb946
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: d4587b5268635691d55b51a7bf88bbe01df2a0c4
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57543054"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57871654"
 ---
-# <a name="what-is-speech-services"></a>O que é o serviços de fala?
+# <a name="what-are-the-speech-services"></a>O que são os Serviços de Voz?
 
-Como os outros serviços de voz do Azure, serviços de voz têm a tecnologia tecnologias de fala utilizadas em produtos como o Cortana e o Microsoft Office.
+Serviços de voz do Azure estão a unificação de voz em texto, voz e tradução de voz numa única subscrição do Azure. É fácil em voz para ativar as suas aplicações, ferramentas e dispositivos com o [SDK de voz](speech-sdk-reference.md), [SDK de dispositivos de voz](speech-devices-sdk-qsg.md), ou [REST APIs](rest-apis.md).
 
-Os serviços de voz unam-se anteriormente disponíveis através de funcionalidades de voz do Azure a [API de voz do Bing](https://docs.microsoft.com/azure/cognitive-services/speech/home), [de voz do Translator](https://docs.microsoft.com/azure/cognitive-services/translator-speech/), [voz personalizada](https://docs.microsoft.com/azure/cognitive-services/custom-speech-service/cognitive-services-custom-speech-home), e [personalizado Voz](https://customvoice.ai/) serviços. Agora, uma subscrição dá acesso a todas estas capacidades.
+> [!IMPORTANT]
+> Serviços de voz foi substituída por uma API de voz do Bing, de voz do Translator e conversão de voz personalizada. Ver *guias de procedimentos > migração* para obter instruções de migração.
 
-## <a name="main-speech-services-functions"></a>Funções de serviços de voz de principal
+Esses recursos constituem os serviços de voz do Azure. Utilize as ligações nesta tabela para obter mais informações sobre os casos de utilização comuns para cada funcionalidade ou navegue até a referência de API.
 
-As funções principais de serviços de voz são voz em texto (também o reconhecimento de fala chamado ou transcrição), de voz (síntese de fala) e de tradução de voz.
+| Serviço | Funcionalidade | Descrição | SDK | REST |
+|---------|---------|-------------|-----|------|
+| [Conversão de voz em texto](speech-to-text.md) | Conversão de voz em texto | Conversão de voz em texto converte os fluxos de áudio em texto em tempo real que seus aplicativos, ferramentas ou dispositivos podem consumir ou apresentar. Utilize a voz para texto com [compreensão de idiomas (LUIS)](https://docs.microsoft.com/azure/cognitive-services/luis/) derivar intenções de utilizador de fala transcrita e tomar medidas relacionadas com comandos de voz. | [Sim](https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-sdk-reference) | [Sim](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis) |
+| | [Transcrição de batch](batch-transcription.md) | Transcrição de batch permite assíncrona transcrição de voz em texto de grandes volumes de dados. Este é um serviço baseado em REST, que utiliza o mesmo ponto final como a personalização e a gestão de modelos. | Não | [Sim](https://westus.cris.ai/swagger/ui/index) |
+| | [Personalização](#customize-your-speech-experience) | Se estiver usando a voz em texto para o reconhecimento e transcrição de num ambiente exclusivo, pode criar e formar modelos acústicos, idioma e pronúncia personalizados para o ruído do endereço ou específicos da indústria vocabulário. | Não | [Sim](https://westus.cris.ai/swagger/ui/index) |
+| [Voz](text-to-speech.md) | Conversão de texto em voz | Voz converte a entrada de texto em fala sintetizada de semelhante à humana. Escolha entre vozes padrão e vozes neurais (consulte [suporte de idiomas](language-support.md)). | Não | [Sim](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis) |
+| | [Personalização](#customize-your-speech-experience) | Crie tipos de voz personalizada exclusivo para a sua marca ou o produto. | Não | [Sim](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis) |
+| [Tradução de Voz](speech-translation.md) | Tradução de voz | Tradução de voz permite a tradução em tempo real, vários idioma de voz às suas aplicações, ferramentas e dispositivos. Utilize este serviço para a tradução de voz para voz e conversão de voz em texto. | [Sim](https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-sdk-reference) | Não |
 
-|Função|Funcionalidades|
-|-|-|
-|[Conversão de voz em texto](speech-to-text.md)| <li>Transcreve voz em tempo real contínua para texto.<li>Pode fazer a transcrição em série de voz de gravações de áudio. <li>Suporta resultados intermédios, deteção de fim de voz, formatação automática de texto e máscara de linguagem inapropriada. <li>Pode recorrer a [Language Understanding](https://docs.microsoft.com/azure/cognitive-services/luis/) (LUIS) para calcular a intenção do utilizador a partir da voz transcrita.\*|
-|[Voz](text-to-speech.md)| <li>**NOVO**: Fornece neurais vozes de texto para discurso quase distinguir de voz humana (em inglês). <li>Converte texto em voz com som natural. <li>Oferece vários géneros e/ou dialetos para muitos idiomas suportados. <li>Suporta a introdução de texto simples ou Speech Synthesis Markup Language (SSML). |
-|[Tradução de voz](speech-translation.md)| <li>Traduz áudio de transmissão em fluxo quase em tempo real.<li> Também pode processar voz gravada.<li>Fornece resultados como texto ou voz sintetizada. |
+## <a name="news-and-updates"></a>Notícias e atualizações
 
+Saiba quais são as novidades dos serviços de voz do Azure.
 
-## <a name="customize-speech-features"></a>Personalizar funcionalidades de voz
+* Fevereiro de 2019 - lançados voz SDK 1.3.0 com suporte para [Unity (beta)](quickstart-csharp-unity.md). Foi adicionado suporte para o `AudioInput` classe, que permite-lhe escolher a origem de transmissão em fluxo de áudio. Para obter uma lista completa de aprimoramentos e problemas conhecidos, consulte [notas de versão](releasenotes.md).
+* Dezembro de 2018 - lançados voz SDK 1.2.0 com suporte para [Python](quickstart-python.md) e [node. js](quickstart-js-node.md), assim como o Ubuntu 18.04 LTS. Para obter mais informações, consulte [notas de versão](releasenotes.md).
+* Dezembro de 2018 - inícios rápidos de voz adicionado para [.NET Core](quickstart-dotnet-text-to-speech.md), [Python](quickstart-python-text-to-speech.md), [node. js](quickstart-nodejs-text-to-speech.md). Exemplos adicionais estão disponíveis na [GitHub](https://github.com/Azure-Samples/Cognitive-Speech-TTS/tree/master/Samples-Http).
 
-Pode utilizar os seus dados para preparar os modelos subjacentes às funcionalidades de Conversão de Voz em Texto e Conversão de Texto em Voz do serviço de Voz.
+## <a name="try-speech-services"></a>Experimente os serviços de voz
 
-|Funcionalidade|Modelo|Objetivo|
-|-|-|-|
-|Conversão de voz em texto|[Modelo acústico](how-to-customize-acoustic-models.md)|Ajuda a transcrever oradores e ambientes específicos, como carros ou fábricas.|
-||[Modelo de linguagem](how-to-customize-language-model.md)|Ajuda a transcrever vocabulário e gramática específicos de uma área, como gíria médica ou informática.|
-||[Modelo de pronúncia](how-to-customize-pronunciation.md)|Ajuda a transcrever abreviaturas e acrónimos, por exemplo, "IOU" para "i owe you". |
-|Conversão de texto em voz|[Tipo de voz](how-to-customize-voice-font.md)|Dá à sua aplicação uma voz própria ao preparar o modelo em amostras de voz humana.|
+Oferecemos inícios rápidos em linguagens de programação mais populares, cada um concebido para que executar o código em menos de 10 minutos. Esta tabela contém os inícios rápidos mais populares para cada funcionalidade. Utilize o painel de navegação esquerda para explorar outros idiomas e plataformas.
 
-Pode utilizar os seus modelos personalizados em qualquer lugar onde utilizaria os modelos padrão na funcionalidade de Conversão de Voz em Texto ou Conversão de Texto em Voz da sua aplicação.
+| Conversão de voz em texto (SDK) | Tradução (SDK) | Voz (REST) |
+|-------------------|-------------------|-----------------------|
+| [C#, .NET core (Windows)](quickstart-csharp-dotnet-windows.md) | [Java (Windows, Linux)](quickstart-translate-speech-java-jre.md) | [Python (Windows, Linux, macOS)](quickstart-python-text-to-speech.md) |
+| [JavaScript (navegador)](quickstart-js-browser.md) | [C#, .NET core (Windows)](quickstart-translate-speech-dotnetcore-windows.md) | [C#, .NET core (Windows, Linux, macOS)](quickstart-dotnet-text-to-speech.md) |
+| [Python (Windows, Linux, macOS)](quickstart-python.md) | [C#, .NET Framework (Windows)](quickstart-translate-speech-dotnetframework-windows.md) | [Node.js (Windows, Linux, macOS)](quickstart-nodejs-text-to-speech.md) |
+| [Java (Windows, Linux)](quickstart-java-jre.md) | [C++ (Windows)](quickstart-translate-speech-cpp-windows.md) | |
 
-## <a name="use-the-speech-service"></a>Utilizar o serviço de Voz
+Depois de teve a oportunidade de se usar os serviços de voz, experimente o nosso tutorial que ensina a reconhecer intenções de voz com o SDK de voz e o LUIS.
 
-Para simplificar o desenvolvimento de aplicações preparadas para voz, a Microsoft fornece o [SDK de Voz](speech-sdk.md) para utilização com o serviço de Voz. O SDK de Voz fornece APIs nativas consistentes de Conversão de Voz em Texto e Tradução de Voz para C#, C++ e Java. Se estiver a desenvolver com uma destas linguagens, o SDK de Voz torna o desenvolvimento mais fácil ao tratar dos detalhes de rede por si.
+* [Tutorial: Reconhecer intenções de conversão de voz com o SDK de voz e o LUIS,C#](how-to-recognize-intents-from-speech-csharp.md)
 
-Os serviços de voz também tem um [REST API](rest-apis.md) que funciona com qualquer linguagem de programação que possa fazer pedidos HTTP. A interface REST não oferece a funcionalidade de transmissão em fluxo e em tempo real do SDK.
+## <a name="get-sample-code"></a>Obter o código de exemplo
 
-|<br>Método|Voz<br>em Texto|Texto em<br>Voz|Voz<br>Tradução|<br>Descrição|
-|-|-|-|-|-|
-|[SDK de Voz](speech-sdk.md)|Sim|Não|Sim|APIs nativas para C#, C++ e Java para simplificar o desenvolvimento.|
-|[APIs REST](rest-apis.md)|Sim|Sim|Não|Uma API simples baseada em HTTP que facilita a adição de voz às suas aplicações.|
+Código de exemplo está disponível no GitHub para cada um dos serviços de voz do Azure. Esses exemplos abrangem os cenários comuns, como ler o áudio de um arquivo ou fluxo, reconhecimento contínuo e única e trabalhar com modelos personalizados. Utilize estas ligações para ver exemplos do SDK e REST:
 
-### <a name="websockets"></a>WebSockets
+* [Exemplos de tradução de voz em texto e voz (SDK)](https://github.com/Azure-Samples/cognitive-services-speech-sdk)
+* [Exemplos de transcrição do batch (REST)](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/samples/batch)
+* [Exemplos de texto para voz (REST)](https://github.com/Azure-Samples/Cognitive-Speech-TTS)
 
-Os serviços de voz também suporta protocolos de WebSocket para transmissão em fluxo de voz em texto e tradução de voz. Os SDKs de Voz utilizam estes protocolos para comunicar com o serviço de Voz. Utilize o SDK de Voz em vez de tentar implementar a sua própria comunicação de WebSocket com o serviço de Voz.
+## <a name="customize-your-speech-experience"></a>Personalize a sua experiência de voz
 
-Se já tiver o código que usa de voz do Bing ou de voz do Translator por meio de WebSockets, pode atualizá-lo para utilizar os serviços de voz. Os protocolos de WebSocket são compatíveis, no entanto, os pontos finais são diferentes.
+Serviços de voz do Azure funciona bem com modelos incorporados, no entanto, pode querer personalizar e otimizar a experiência para o seu produto ou o ambiente ainda mais. Intervalo de opções de personalização do modelo acústico ajuste para tipos de voz exclusivo para a sua marca. Depois de criar um modelo personalizado, pode usá-lo com qualquer um dos serviços de voz do Azure.
 
-### <a name="speech-devices-sdk"></a>SDK de Dispositivos de Voz
+| Serviço de Voz | Modelo | Descrição |
+|----------------|-------|-------------|
+| Voz em Texto | [Modelo acústico](how-to-customize-acoustic-models.md) | Criar um modelo acústico personalizado para aplicações, ferramentas, ou dispositivos que são utilizados em particular ambientes, como num carro ou num chão de fábrica, cada um com condições de gravação específico. Os exemplos incluem voz acentuado, ruídos de fundo específico ou usando um microfone específico para gravação. |
+| | [Modelo de linguagem](how-to-customize-language-model.md) | Crie um modelo de idioma personalizado para melhorar a transcrição de vocabulário específico de campo e de gramática, como a terminologia médica ou gíria, IT. |
+| | [Modelo de pronúncia](how-to-customize-pronunciation.md) | Com um modelo de pronúncia personalizado, pode definir o formulário fonético e a exibição de uma palavra ou o termo. É útil para lidar com os termos personalizados, tais como nomes de produto ou acrônimos. Tudo o que precisa para começar a utilizar é um ficheiro de pronúncia – um arquivo. txt simples. |
+| Texto em Voz | [Tipo de voz](how-to-customize-voice-font.md) | Tipos de voz personalizadas permitem-lhe criar uma voz reconhecível, um do-única para sua marca. Leva apenas uma pequena quantidade de dados para começar a utilizar. Quanto mais dados que fornecer, o mais natural e semelhante à humana soará seu tipo de voz. |
 
-O [SDK de Dispositivos de Voz](speech-devices-sdk.md) é uma plataforma integrada de hardware e software para programadores de dispositivos preparados para voz. O nosso parceiro de hardware fornece designs de referência e unidades de desenvolvimento. A Microsoft fornece um SDK otimizado para dispositivos que tira total partido das capacidades do hardware.
+## <a name="reference-docs"></a>Documentos de referência
 
-
-## <a name="speech-scenarios"></a>Cenários de voz
-
-Casos de utilização para os serviços de voz incluem:
-
-> [!div class="checklist"]
-> * Criar aplicações acionadas por voz
-> * Transcrever gravações de centros de atendimento telefónico
-> * Implementar bots de voz
-
-### <a name="voice-user-interface"></a>Interface de utilizador de Voz
-
-A entrada de voz é uma excelente forma de tornar a sua aplicação flexível, automatizada e rápida de utilizar. Com uma aplicação preparada para voz, os utilizadores podem simplesmente perguntar pelas informações que pretendem.
-
-Se a sua aplicação se destina a ser utilizada pelo público em geral, pode utilizar os modelos de reconhecimento de voz predefinidos. Reconhecem uma grande variedade de oradores em ambientes comuns.
-
-Se a aplicação for utilizada num domínio específico, por exemplo, medicina ou TI, pode criar um [modelo de idioma](how-to-customize-language-model.md). Pode utilizar este modelo para ensinar os serviços de fala sobre a terminologia especial utilizada pela sua aplicação.
-
-Se a aplicação for utilizada num ambiente ruidoso, como uma fábrica, pode criar um [modelo acústico](how-to-customize-acoustic-models.md) personalizado. Esse modelo ajuda os serviços de voz para distinguir voz de ruído.
-
-### <a name="call-center-transcription"></a>Transcrição de centros de atendimento telefónico
-
-Muitas vezes, as gravações dos centros de atendimento telefónico são consultadas apenas se surgir um problema numa chamada. Com o serviço de Voz, é fácil transcrever todas as gravações para texto. Pode facilmente indexar o texto para [pesquisa em texto completo](https://docs.microsoft.com/azure/search/search-what-is-azure-search) ou aplicar a [Análise de Texto](https://docs.microsoft.com/azure/cognitive-services/Text-Analytics/) para detetar o sentimento, o idioma e expressões-chave.
-
-Se sua gravações de centro de chamada envolvem terminologia especializada, como nomes de produtos ou gíria, IT, pode criar uma [modelo de idioma](how-to-customize-language-model.md) ensinar os serviços de fala, o vocabulário. Um personalizado [modelo acústico](how-to-customize-acoustic-models.md) pode ajuda os serviços de voz compreender as ligações de telefone aquém do ideal.
-
-Para obter mais informações sobre este cenário, leia mais sobre a [transcrição em série](batch-transcription.md) com o serviço de Voz.
-
-### <a name="voice-bots"></a>Bots de voz
-
-Os [bots](https://dev.botframework.com/) são uma forma popular de ligar os utilizadores às informações que pretendem e os clientes às empresas favoritas. Ao adicionar uma interface de utilizador de conversação ao seu site ou aplicação facilita a localização da suas funcionalidades e torna o acesso às mesmas mais rápido. Com o serviço de Voz, esta conversa assume uma nova dimensão em termos de fluência ao responder a consultas faladas.
-
-Para adicionar uma personalidade única ao seu bot preparado para voz, pode dar-lhe uma voz própria. A criação de uma voz personalizada é um processo de dois passos. Em primeiro lugar, [faça gravações](record-custom-voice-samples.md) da voz que pretende utilizar. Em seguida, [submeta essas gravações](how-to-customize-voice-font.md) (juntamente com uma transcrição de texto) para o [portal de personalização de voz](https://cris.ai/Home/CustomVoice) do serviço de Voz, que fará o resto. Depois de criar a sua voz personalizada, os passos para utilizá-la na sua aplicação são simples.
+* [SDK de Voz](speech-sdk-reference.md)
+* [Dispositivos de voz SDK](speech-devices-sdk.md)
+* [REST API: Speech-to-text](rest-speech-to-text.md)
+* [REST API: Text-to-speech](rest-text-to-speech.md)
+* [REST API: Transcrição de batch e personalização](https://westus.cris.ai/swagger/ui/index)
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-Obtenha uma chave de subscrição para os serviços de voz.
-
 > [!div class="nextstepaction"]
-> [Experimente gratuitamente os serviços de voz](get-started.md)
+> [Obtenha gratuitamente uma chave de subscrição de serviços de voz](get-started.md)

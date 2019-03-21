@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 02/13/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: d8ef70088d904720a81ac558206a3140d7bbecd6
-ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
+ms.openlocfilehash: 1894fc1823772c27f37829b9b27ec515dcb841b7
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56270003"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57861065"
 ---
 # <a name="troubleshoot-the-startstop-vms-during-off-hours-solution"></a>Iniciar/parar VMs durante a solução de horas de resolução de problemas
 
@@ -141,7 +141,7 @@ Reveja a seguir uma lista de possíveis soluções para o seu problema ou locais
 
 * Para iniciar e parar VMs, a conta RunAs para a conta de automatização tem de ter permissões adequadas para a VM. Para saber como verificar as permissões num recurso, veja [início rápido: Ver as funções atribuídas a um utilizador com o portal do Azure](../../role-based-access-control/check-access.md). Terá de fornecer o Id da aplicação para o principal de serviço utilizado pela conta Run As. Pode obter este valor ao aceder à sua conta de automatização no portal do Azure, selecionando **contas Run as** sob **definições de conta** e clicando em apropriado a conta Run as.
 
-* Se a VM está a ter um problema ao iniciar ou a desalocar, esse comportamento pode ser causado por um problema na VM em si. Alguns exemplos ou problemas potenciais são, uma atualização está a ser aplicada ao tentar desligar, um serviço paradas e muito mais). Navegue para o recurso da VM e verifique o **registos de atividades** para ver se existem erros nos registos. Também pode tentar iniciar sessão na VM para ver se existem erros nos logs de eventos.
+* Se a VM está a ter um problema ao iniciar ou a desalocar, esse comportamento pode ser causado por um problema na VM em si. Alguns exemplos ou problemas potenciais são, uma atualização está a ser aplicada ao tentar desligar, um serviço paradas e muito mais). Navegue para o recurso da VM e verifique o **registos de atividades** para ver se existem erros nos registos. Também pode tentar iniciar sessão na VM para ver se existem erros nos logs de eventos. Para saber mais sobre a VM de resolução de problemas, consulte [máquinas virtuais de resolução de problemas do Azure](../../virtual-machines/troubleshooting/index.md)
 
 ## <a name="custom-runbook"></a>Cenário: Meu runbook personalizado não consegue iniciar ou parar as minhas VMs
 

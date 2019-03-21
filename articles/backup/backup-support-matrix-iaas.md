@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 02/24/2019
 ms.author: raynew
-ms.openlocfilehash: 264f10be1ecb22b6261a14f7185f88b101242d36
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 512e07f2892f9c4adf47956d3a5b07debf870e46
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57440782"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57849912"
 ---
 # <a name="support-matrix-for-azure-vm-backup"></a>Matriz de suporte para cópia de segurança de VM do Azure
 Pode utilizar o [serviço de cópia de segurança do Azure](backup-overview.md) para fazer uma cópia de segurança de máquinas no local e cargas de trabalho e máquinas virtuais do Azure (VMs). Este artigo resume as definições de suporte e limitações quando cria cópias de segurança de VMs do Azure com o Azure Backup.
@@ -40,7 +40,7 @@ Saiba mais sobre a cópia de segurança [a utilizar um servidor de cópia de seg
 
 **Ação** | **Suporte**
 --- | ---
-Ativar cópia de segurança quando criar uma VM do Windows Azure | Suporte para:  Windows Server 2016 (núcleos de Datacenter/Datacenter); Windows Server 2012 R2 Datacenter; Windows Server 2008 R2 SP1
+Ativar cópia de segurança quando criar uma VM do Windows Azure | Suporte para:  Windows Server de 2019 (núcleos de Datacenter/Datacenter), Windows Server 2016 (núcleos de Datacenter/Datacenter); Windows Server 2012 R2 Datacenter; Windows Server 2008 R2 (RTM e SP1)
 Ativar cópia de segurança, quando cria uma VM do Linux | Suporte para:<br/><br/> - Ubuntu Server: 1710, 1704, 1604 (LTS), 1404 (LTS)<br/><br/> -Red Hat: RHEL 6.7, 6.8, 6.9, 7.2, 7.3, 7.4<br/><br/> - SUSE Linux Enterprise Server: 11 SP4, 12 SP2, 12 SP3<br/><br/> -Debian: 8, 9<br/><br/> - CentOS: 6.9, 7.3<br/><br/> -Oracle Linux: 6.7, 6.8, 6.9, 7.2, 7.3
 Fazer cópias de segurança de uma VM que VM de encerramento/offline/buscando | Suportado.<br/><br/> Instantâneo é consistente de falhas única, não consistente com a aplicação.
 Criar cópias de segurança discos depois de migrar para discos geridos | Suportado.<br/><br/> Cópia de segurança continuarão a funcionar. Não é necessário realizar qualquer ação.
@@ -61,7 +61,7 @@ A tabela seguinte resume os sistemas operativos suportados, ao fazer backup de V
 
 **Cenário** | **Suporte do sistema operacional**
 --- | ---
-Criar cópias de segurança com a extensão de agente de VM do Azure | Cliente do Windows: Não suportado<br/><br/> Windows Server: Windows Server 2008 R2 ou posterior
+Criar cópias de segurança com a extensão de agente de VM do Azure | Cliente do Windows: Não suportado<br/><br/> Windows Server de 2019 (núcleos de Datacenter/Datacenter), Windows Server 2016 (núcleos de Datacenter/Datacenter); Windows Server 2012 R2 Datacenter; Windows Server 2008 R2 (RTM e SP1)
 Criar cópias de segurança com o agente MARS | [Suportado](backup-support-matrix-mars-agent.md#support-for-direct-backups) sistemas operativos.
 Criar cópias de segurança com o DPM/MABS | Sistemas operativos suportados para a cópia de segurança com [MABS](backup-mabs-protection-matrix.md) e [DPM](https://docs.microsoft.com/system-center/dpm/dpm-protection-matrix?view=sc-dpm-1807).
 

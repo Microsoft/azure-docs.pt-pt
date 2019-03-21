@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 09/13/2018
 ms.author: pbutlerm
-ms.openlocfilehash: 41f3fd55be02364b4028642db9db1d3f47043afa
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 93c70e038589667ae97acb86663a6179dcc81637
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51245091"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57877333"
 ---
 # <a name="how-to-create-dynamics-365-for-operations-offer-via-cloud-partner-portal"></a>Como criar o Dynamics 365 para operações oferecem através do portal de parceiro de Cloud
 
@@ -31,7 +31,7 @@ Antes de uma oferta pode ser publicada em nome de um fabricante de contas, uma d
 
 Depois de todos os pré-requisitos tiverem sido cumpridos, está pronto para começar a criar seu Dynamics 365 para a oferta de operações.
 
-1. Inicie sessão para o [Portal de parceiros da Cloud](http://cloudpartner.azure.com/).
+1. Inicie sessão para o [Portal de parceiros da Cloud](https://cloudpartner.azure.com/).
 2. Na barra de navegação esquerdo, clique em \"+ nova oferta\" e selecione \"Dynamics 365 para operações\".
 3. Uma nova oferta \"Editor\" Vista agora é aberta para, e estamos prontos para começar a criar.
 4. O \"formulários\" que têm de ser preenchidos são visíveis no lado esquerdo dentro os \"Editor\" vista. Cada \"formulário\" consiste num conjunto de campos que devem ser preenchidos. Necessário campos são marcados com um asterisco vermelho (\*).
@@ -51,13 +51,13 @@ O formulário de definições da oferta é um formulário básico para especific
 
 Este é um identificador exclusivo para a oferta de um perfil do publicador. Este ID será visível em URLs de produto. Apenas pode ser constituído por carateres alfanuméricos em minúsculas ou hífenes (-). O ID não pode terminar com um travessão e pode ter um máximo de 50 carateres. Este campo está bloqueado assim que uma oferta entra no ar.
 
-Por exemplo, se um publicador de contoso publicador cria uma oferta com o ID da oferta *dynamics365 de exemplo para operações*, que será apresentado no AppSource como \"https://appsource.microsoft.com/marketplace/apps/**contoso** .\*exemplo-dynamics 365 para operações\*? separador descrição geral de =\"
+Por exemplo, se um publicador de contoso publicador cria uma oferta com o ID da oferta *dynamics365 de exemplo para operações*, que será apresentado no AppSource como `https://appsource.microsoft.com/marketplace/apps/**contoso**.*sample-dynamics365 for operations*?tab=Overview\`.
 
 ### <a name="publisher-id"></a>ID de publicador
 
 Essa área suspensa permite-lhe escolher o perfil do publicador que pretende publicar esta oferta em. Este campo está bloqueado assim que uma oferta entra no ar.
 
-Nome
+Name
 
 Este é o nome a apresentar para a sua oferta. Este é o nome que aparecerá na [AppSource](https://appsource.microsoft.com). Pode ter um máximo de 50 carateres.
 

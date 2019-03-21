@@ -8,13 +8,13 @@ author: kevinlam1
 ms.author: klam
 ms.reviewer: estfan, LADocs
 ms.topic: article
-ms.date: 03/12/2019
-ms.openlocfilehash: 23cce4d846cdf183f41b25663ba21d3bf1d27013
-ms.sourcegitcommit: d89b679d20ad45d224fd7d010496c52345f10c96
+ms.date: 03/18/2019
+ms.openlocfilehash: 0fbe56ceeeba71bcbb5ef358cd66de15e36508fc
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57791005"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58165101"
 ---
 # <a name="test-logic-apps-with-mock-data-by-setting-up-static-results"></a>Testar aplicações lógicas com dados fictícios ao configurar resultados estáticos
 
@@ -67,9 +67,7 @@ Por exemplo, se configurar resultados estáticos para o Outlook 365 enviar a aç
 
    ![Mostrar ícone ativada resultados estáticos](./media/test-logic-apps-mock-data-static-results/static-results-enabled.png)
 
-   Após a execução da sua aplicação lógica, no histórico de execuções da sua aplicação lógica, o **resultados estático** coluna mostra se a uma execução específica inclui ações que têm resultados estáticos ativados, por exemplo:
-
-   ![Executar histórico - coluna de resultados estático](./media/test-logic-apps-mock-data-static-results/run-history.png)
+   Para obter execuções anteriores que utilizam dados fictícios, consulte [encontrar execuções que utilizam resultados estáticos](#find-runs-mock-data) mais adiante neste tópico.
 
 <a name="reuse-sample-outputs"></a>
 
@@ -79,7 +77,7 @@ Se a sua aplicação lógica tiver anterior executar com saídas que pode reutil
 
 1. Se ainda não o fez, no [portal do Azure](https://portal.azure.com), abra a aplicação lógica no Designer de aplicações lógicas.
 
-1. No menu principal da sua aplicação lógica, selecione **descrição geral**. 
+1. No menu principal da sua aplicação lógica, selecione **descrição geral**.
 
 1. Na **histórico de execuções** secção, selecione a aplicação de lógica executar mesmo.
 
@@ -106,6 +104,26 @@ Se a sua aplicação lógica tiver anterior executar com saídas que pode reutil
    ![Modo JSON](./media/test-logic-apps-mock-data-static-results/json-editing-mode.png)
 
 1. Quando tiver terminado, selecione **Concluído**. Ou, para voltar ao estruturador, escolha **modo de edição de comutador** (![escolha "Modo de edição de comutador"](./media/test-logic-apps-mock-data-static-results/switch-editor-mode-button.png)).
+
+<a name="find-runs-mock-data"></a>
+
+## <a name="find-runs-that-use-static-results"></a>Encontre as execuções que utilizam resultados estáticos
+
+Histórico de execuções da sua aplicação lógica identifica as execuções de onde as ações utilizam resultados estáticos. Para encontrar essas execuções, siga estes passos:
+
+1. No menu principal da sua aplicação lógica, selecione **descrição geral**. 
+
+1. No painel direito, sob **histórico de execuções**, localizar o **resultados estático** coluna. 
+
+   Qualquer execução que inclui ações com resultados tem o **resultados estático** coluna definida como **ativado**, por exemplo:
+
+   ![Executar histórico - coluna de resultados estático](./media/test-logic-apps-mock-data-static-results/run-history.png)
+
+1. Para ver as ações que utilizar resultados estáticos, selecione o run desejar onde o **resultados estático** coluna está definida como **ativado**.
+
+   Ações que utilizar estáticos resultados mostram o beaker de teste (![ícone para resultados estáticos](./media/test-logic-apps-mock-data-static-results/static-results-test-beaker-icon.png)) ícone, por exemplo:
+
+   ![Executar histórico - ações que utilizar resultados estáticos](./media/test-logic-apps-mock-data-static-results/static-results-enabled-run-details.png)
 
 ## <a name="disable-static-results"></a>Desativar resultados estáticos
 

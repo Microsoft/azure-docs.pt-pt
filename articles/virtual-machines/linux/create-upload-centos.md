@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/04/2018
 ms.author: szark
-ms.openlocfilehash: a46f2b4ed1bb3fc5fff65a627bd3d808ed85ffce
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: 4e32d2357636cb488d3a58b78b025860da3f74c4
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52967287"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58091363"
 ---
 # <a name="prepare-a-centos-based-virtual-machine-for-azure"></a>Preparar uma máquina virtual baseada em CentOS para o Azure
 
@@ -43,7 +43,7 @@ Este artigo pressupõe que já tem instalado um CentOS (ou semelhante derivativo
 * Não configure uma partição de troca no disco do SO. O agente Linux pode ser configurado para criar um ficheiro de troca no disco de recursos temporário.  Podem encontrar mais informações sobre este assunto nos passos abaixo.
 * Todos os VHDs no Azure tem de ter um tamanho virtual alinhado para 1MB. Ao converter a partir de um disco não processado para o VHD tem de se certificar de que o tamanho de disco bruto é um múltiplo de 1MB antes da conversão. Ver [observações de instalação de Linux](create-upload-generic.md#general-linux-installation-notes) para obter mais informações.
 
-## <a name="centos-6x"></a>CentOS 6. x
+## <a name="centos-6x"></a>CentOS 6.x
 
 1. No Gestor de Hyper-V, selecione a máquina virtual.
 
@@ -196,7 +196,7 @@ Este artigo pressupõe que já tem instalado um CentOS (ou semelhante derivativo
 
 - - -
 
-## <a name="centos-70"></a>CentOS 7.0 +
+## <a name="centos-70"></a>CentOS 7.0+
 
 **Alterações no CentOS 7 (e derivados semelhantes)**
 
@@ -299,13 +299,13 @@ Preparar uma máquina virtual do CentOS 7 para o Azure é muito semelhante à 6 
 
         # sudo grub2-mkconfig -o /boot/grub2/grub.cfg
 
-10. Se criar a imagem a partir **VMware, VirtualBox ou KVM:** drivers de Certifique-se do Hyper-V estão incluídos no initramfs:
+10. Se criar a imagem a partir **VMware, VirtualBox ou KVM:** Certifique-se de que os drivers de Hyper-V são incluídos no initramfs:
 
-   Editar `/etc/dracut.conf`, adicionar conteúdo:
+    Editar `/etc/dracut.conf`, adicionar conteúdo:
 
         add_drivers+=”hv_vmbus hv_netvsc hv_storvsc”
 
-   Recrie a initramfs:
+    Recrie a initramfs:
 
         # sudo dracut -f -v
 
@@ -316,7 +316,7 @@ Preparar uma máquina virtual do CentOS 7 para o Azure é muito semelhante à 6 
 
 12. Não é crie o espaço de comutação no disco do SO.
 
-   O agente Linux do Azure podem configurar automaticamente o espaço de comutação com o disco de recurso local que está ligado à VM após o aprovisionamento no Azure. Tenha em atenção que o disco de recurso local é uma *temporária* disco e poderá ser esvaziada quando a VM é desaprovisionada. Depois de instalar o agente Linux do Azure (consulte o passo anterior), modifique os parâmetros seguintes na `/etc/waagent.conf` adequadamente:
+    O agente Linux do Azure podem configurar automaticamente o espaço de comutação com o disco de recurso local que está ligado à VM após o aprovisionamento no Azure. Tenha em atenção que o disco de recurso local é uma *temporária* disco e poderá ser esvaziada quando a VM é desaprovisionada. Depois de instalar o agente Linux do Azure (consulte o passo anterior), modifique os parâmetros seguintes na `/etc/waagent.conf` adequadamente:
 
         ResourceDisk.Format=y
         ResourceDisk.Filesystem=ext4

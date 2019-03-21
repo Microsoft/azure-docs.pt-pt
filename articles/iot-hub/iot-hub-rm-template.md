@@ -9,12 +9,12 @@ services: iot-hub
 ms.devlang: csharp
 ms.topic: conceptual
 ms.date: 08/08/2017
-ms.openlocfilehash: fb3456f399e9fa8bbe35336a3b8933c39a0d03d9
-ms.sourcegitcommit: 15e9613e9e32288e174241efdb365fa0b12ec2ac
+ms.openlocfilehash: 4acf7a8bbc02a10468004092152b1d7c5c4d621f
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "57008963"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58075923"
 ---
 # <a name="create-an-iot-hub-using-azure-resource-manager-template-net"></a>Criar um hub IoT com o modelo Azure Resource Manager (.NET)
 
@@ -125,7 +125,7 @@ Utilize um ficheiro de modelo e o parâmetro JSON para criar um hub IoT no grupo
       }
     }
     ```
-  [!INCLUDE [iot-hub-pii-note-naming-hub](../../includes/iot-hub-pii-note-naming-hub.md)]
+   [!INCLUDE [iot-hub-pii-note-naming-hub](../../includes/iot-hub-pii-note-naming-hub.md)]
 
 5. Na **Explorador de servidores**, ligar à sua subscrição do Azure e na sua conta de armazenamento do Azure, criar um contentor chamado **modelos**. Na **propriedades** painel, defina o **acesso de leitura público** permissões para o **modelos** contentor para **Blob**.
 

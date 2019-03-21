@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/16/2017
 ms.author: kumud
-ms.openlocfilehash: 454d06912c34a07b0b2617936769888e92adaba1
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 85dd3cca081d492bfeefa3e8ea0d143c9c37af8f
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57453665"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58007943"
 ---
 # <a name="performance-considerations-for-traffic-manager"></a>Considerações de desempenho para o Gestor de Tráfego
 
@@ -42,11 +42,11 @@ As ferramentas sobre esses sites medida DNS latências e apresentar os resolver 
 
 ## <a name="sample-tools-to-measure-dns-performance"></a>Ferramentas de exemplo para medir o desempenho de DNS
 
-* [SolveDNS](http://www.solvedns.com/dns-comparison/)
+* [SolveDNS](https://www.solvedns.com/dns-comparison/)
 
     SolveDNS oferece muitas ferramentas de desempenho. A ferramenta de comparação de DNS pode mostrar o tempo que demora para resolver o nome de DNS e como que se compara com outros fornecedores de serviços DNS.
 
-* [WebSitePulse](http://www.websitepulse.com/help/tools.php)
+* [WebSitePulse](https://www.websitepulse.com/help/tools.php)
 
     Uma das ferramentas mais simples é WebSitePulse. Introduza o URL para ver o tempo de resolução DNS, o primeiro Byte, o último Byte e outras estatísticas de desempenho. Pode escolher entre três localizações de teste diferentes. Neste exemplo, verá que a primeira execução mostra que a pesquisa de DNS leva 0.204 seg.
 
@@ -62,15 +62,15 @@ As ferramentas sobre esses sites medida DNS latências e apresentar os resolver 
 
     ![pulse1](./media/traffic-manager-performance-considerations/traffic-manager-web-site-watchmouse.png)
 
-* [Pingdom](http://tools.pingdom.com/)
+* [Pingdom](https://tools.pingdom.com/)
 
     Essa ferramenta fornece estatísticas de desempenho para cada elemento de uma página da web. O separador de análise de página mostra a percentagem de tempo gasto em pesquisa de DNS.
 
-* [O que é o meu DNS?](http://www.whatsmydns.net/)
+* [O que é o meu DNS?](https://www.whatsmydns.net/)
 
     Este site realiza uma pesquisa DNS a partir de 20 diferentes locais e exibe os resultados num mapa.
 
-* [Aprofundar a Interface da Web](http://www.digwebinterface.com)
+* [Aprofundar a Interface da Web](https://www.digwebinterface.com)
 
     Este site mostra que informações de DNS, incluindo CNAMEs e registros mais detalhadas. Certifique-se de que verifique a "Colorize output" e "Estatísticas" em Opções e selecione "Tudo" em servidores de nomes.
 

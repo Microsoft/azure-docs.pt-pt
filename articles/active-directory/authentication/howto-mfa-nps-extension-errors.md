@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bf2e1b97d228de47634e570a407ec03d7a13e540
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 4c831a5a939e946d7189e4d35eaf051508e904a4
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56199651"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57999520"
 ---
 # <a name="resolve-error-messages-from-the-nps-extension-for-azure-multi-factor-authentication"></a>Resolver mensagens de erro da extensão NPS para multi-factor Authentication do Azure
 
@@ -68,7 +68,7 @@ Se encontrar erros com a extensão NPS para multi-factor Authentication do Azure
 
 | Código de erro | Mensagem de erro | Passos recomendados | 
 | ---------- | ------------- | ----------------- |
-| **OathCodeIncorrect** | Código errado entered\OATH código incorreto | Não é um erro, o utilizador introduziu código errado. | O utilizador introduziu o código errado. Este que tente novamente ao pedir um novo código ou volte a iniciar sessão. | 
+| **OathCodeIncorrect** | Código errado entered\OATH código incorreto | O utilizador introduziu o código errado. Este que tente novamente ao pedir um novo código ou volte a iniciar sessão. | 
 | **SMSAuthFailedMaxAllowedCodeRetryReached** | Repetição de código permitido máximo foi atingida | O utilizador não foi possível o desafio de verificação demasiadas vezes. Consoante as suas definições, poderão ter de ser desbloqueado por um administrador agora.  |
 | **SMSAuthFailedWrongCodeEntered** | Código errado introduzido/Text mensagem OTP incorreta | O utilizador introduziu o código errado. Este que tente novamente ao pedir um novo código ou volte a iniciar sessão. |
 

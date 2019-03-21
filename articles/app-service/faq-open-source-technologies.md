@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 10/31/2018
 ms.author: genli
 ms.custom: seodec18
-ms.openlocfilehash: 07912dab52cb0569428d070282551eebbdb1c7bc
-ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
+ms.openlocfilehash: 7831e5e989835b2c9432dbd61a242584a7b6244d
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54191450"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58082947"
 ---
 # <a name="open-source-technologies-faqs-for-web-apps-in-azure"></a>Tecnologias de open source FAQs para aplicações Web no Azure
 
@@ -44,10 +44,10 @@ Para ativar o registo do PHP:
 9. Selecione **Guardar**.
 10. Selecione o ícone de lápis junto a **wp-config.php**.
 11. Altere o texto para o código a seguir:
-   ```php
-   //Enable WP_DEBUG modedefine('WP_DEBUG', true);//Enable debug logging to /wp-content/debug.logdefine('WP_DEBUG_LOG', true);
-   //Suppress errors and warnings to screendefine('WP_DEBUG_DISPLAY', false);//Suppress PHP errors to screenini_set('display_errors', 0);
-   ```
+    ```php
+    //Enable WP_DEBUG modedefine('WP_DEBUG', true);//Enable debug logging to /wp-content/debug.logdefine('WP_DEBUG_LOG', true);
+    //Suppress errors and warnings to screendefine('WP_DEBUG_DISPLAY', false);//Suppress PHP errors to screenini_set('display_errors', 0);
+    ```
 12. No portal do Azure, no menu da aplicação web, reinicie a aplicação web.
 
 Para obter mais informações, consulte [registos de erros do WordPress ativar](https://blogs.msdn.microsoft.com/azureossds/2015/10/09/logging-php-errors-in-wordpress-2/).
@@ -59,31 +59,31 @@ Para obter mais informações, consulte [registos de erros do WordPress ativar](
 
 Para alterar a versão da aplicação node. js, pode usar uma das seguintes opções:
 
-*   No portal do Azure, utilize **as definições da aplicação**.
-    1. No portal do Azure, aceda à sua aplicação web.
-    2. Sobre o **definições** painel, selecione **as definições da aplicação**.
-    3. Na **as definições da aplicação**, pode incluir WEBSITE_NODE_DEFAULT_VERSION como a chave e a versão do node. js que quiser como o valor.
-    4. Aceda ao seu [consola Kudu](https://*yourwebsitename*.scm.azurewebsites.net).
-    5. Para verificar a versão do node. js, introduza o seguinte comando:  
-   ```
-   node -v
-   ```
-*   Modificar o ficheiro iisnode. Alterar a versão do node. js no ficheiro iisnode apenas define o ambiente de runtime que o iisnode utiliza. Sua cmd Kudu e outros continuar a utilizar a versão do node. js que está definida no **as definições da aplicação** no portal do Azure.
+* No portal do Azure, utilize **as definições da aplicação**.
+  1. No portal do Azure, aceda à sua aplicação web.
+  2. Sobre o **definições** painel, selecione **as definições da aplicação**.
+  3. Na **as definições da aplicação**, pode incluir WEBSITE_NODE_DEFAULT_VERSION como a chave e a versão do node. js que quiser como o valor.
+  4. Aceda ao seu [consola Kudu](https://*yourwebsitename*.scm.azurewebsites.net).
+  5. Para verificar a versão do node. js, introduza o seguinte comando:  
+     ```
+     node -v
+     ```
+* Modificar o ficheiro iisnode. Alterar a versão do node. js no ficheiro iisnode apenas define o ambiente de runtime que o iisnode utiliza. Sua cmd Kudu e outros continuar a utilizar a versão do node. js que está definida no **as definições da aplicação** no portal do Azure.
 
-    Para definir o iisnode manualmente, crie um ficheiro iisnode na sua pasta de raiz da aplicação. No ficheiro, incluem a seguinte linha:
-   ```yml
-   nodeProcessCommandLine: "D:\Program Files (x86)\nodejs\5.9.1\node.exe"
-   ```
+  Para definir o iisnode manualmente, crie um ficheiro iisnode na sua pasta de raiz da aplicação. No ficheiro, incluem a seguinte linha:
+  ```yml
+  nodeProcessCommandLine: "D:\Program Files (x86)\nodejs\5.9.1\node.exe"
+  ```
    
-*   Defina o ficheiro iisnode utilizando Package. JSON durante a implementação de controlo de origem.
-    O processo de implementação do controlo de origem do Azure envolve os seguintes passos:
-    1. Move o conteúdo para a aplicação web do Azure.
-    2. Cria um script de implementação do padrão, se não existir um (cmd,. Deployment ficheiros) na pasta de raiz de aplicação web.
-    3. Executa um script de implementação em que cria um ficheiro iisnode se mencionou que a versão do node. js no ficheiro Package. JSON > motor `"engines": {"node": "5.9.1","npm": "3.7.3"}`
-    4. O ficheiro iisnode tem a seguinte linha de código:
-        ```yml
-        nodeProcessCommandLine: "D:\Program Files (x86)\nodejs\5.9.1\node.exe"
-        ```
+* Defina o ficheiro iisnode utilizando Package. JSON durante a implementação de controlo de origem.
+  O processo de implementação do controlo de origem do Azure envolve os seguintes passos:
+  1. Move o conteúdo para a aplicação web do Azure.
+  2. Cria um script de implementação do padrão, se não existir um (cmd,. Deployment ficheiros) na pasta de raiz de aplicação web.
+  3. Executa um script de implementação em que cria um ficheiro iisnode se mencionou que a versão do node. js no ficheiro Package. JSON > motor `"engines": {"node": "5.9.1","npm": "3.7.3"}`
+  4. O ficheiro iisnode tem a seguinte linha de código:
+      ```yml
+      nodeProcessCommandLine: "D:\Program Files (x86)\nodejs\5.9.1\node.exe"
+      ```
 
 ## <a name="i-see-the-message-error-establishing-a-database-connection-in-my-wordpress-app-thats-hosted-in-app-service-how-do-i-troubleshoot-this"></a>Posso ver a mensagem "Erro ao estabelecer uma ligação de base de dados" em meu aplicativo de WordPress que está alojado no serviço de aplicações. Como posso resolver isto?
 
@@ -114,7 +114,7 @@ Para obter informações sobre a instalação do Django, consulte [implementar u
 
 Para o Azure Marketplace e implementações personalizadas:
 
-* Localização da pasta: D:\home\site\wwwroot\bin\apache-Tomcat-8.0.33\logs
+* Localização da pasta: D:\home\site\wwwroot\bin\apache-tomcat-8.0.33\logs
 * Arquivos de interesse:
     * catalina.*yyyy-mm-dd*.log
     * host-manager.*yyyy-mm-dd*.log

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/15/2018
 ms.author: yagup;jdial
-ms.openlocfilehash: bc738dd93a43a1a3610323b9dd05abfd5b5c0091
-ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
+ms.openlocfilehash: d4c3ab7e33d3d4bd8d5d5ee15c8264d1d41c858e
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57408807"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58081071"
 ---
 # <a name="traffic-analytics"></a>Análise de Tráfego
 
@@ -201,7 +201,7 @@ Algumas das informações que talvez queira obter após a análise de tráfego �
 - Estatísticas de tráfego bloqueado.
     - Por que motivo é que um anfitrião está bloqueando um volume significativo de tráfego benigno? Esse comportamento requer mais investigação e provavelmente a Otimização da configuração
 - Estatísticas de tráfego malicioso permitido/bloqueado
-    - Por que é um anfitrião recebendo tráfego malicioso e por que os fluxos de origem malicioso é permitido? Esse comportamento requer mais investigação e provavelmente a Otimização da configuração.
+  - Por que é um anfitrião recebendo tráfego malicioso e por que os fluxos de origem malicioso é permitido? Esse comportamento requer mais investigação e provavelmente a Otimização da configuração.
 
     Selecione **ver tudo**, em **anfitrião**, conforme mostrado na imagem seguinte:
 
@@ -260,8 +260,8 @@ Algumas das informações que talvez queira obter após a análise de tráfego �
 **Procurar**
 
 - Distribuição de tráfego por centro de dados, como fontes principais de tráfego para um centro de dados, redes de adesão principais conversação com o Centro de dados e superior conversação protocolos de aplicação.
-    - Se observar mais carga no Centro de dados, pode planear para a distribuição de tráfego eficiente.
-    - Se a redes de adesão são conversação no Centro de dados, corrigir, em seguida, as regras do NSG para bloqueá-los.
+  - Se observar mais carga no Centro de dados, pode planear para a distribuição de tráfego eficiente.
+  - Se a redes de adesão são conversação no Centro de dados, corrigir, em seguida, as regras do NSG para bloqueá-los.
 
     Selecione **Ver mapa** sob **seu ambiente**, conforme mostrado na imagem seguinte:
 
@@ -282,8 +282,8 @@ Algumas das informações que talvez queira obter após a análise de tráfego �
 **Procurar**
 
 - Distribuição de tráfego por rede virtual, a topologia, fontes principais de tráfego para a rede virtual, redes de adesão principais conversação para a rede virtual e de cima conversação protocolos de aplicação.
-    - Saber qual a rede virtual é conversação ao qual a rede virtual. Se não for esperada a conversa, ele poderá ser corrigido.
-    - Se a redes de adesão são conversação com uma rede virtual, pode corrigir as regras do NSG para bloquear as redes de adesão.
+  - Saber qual a rede virtual é conversação ao qual a rede virtual. Se não for esperada a conversa, ele poderá ser corrigido.
+  - Se a redes de adesão são conversação com uma rede virtual, pode corrigir as regras do NSG para bloquear as redes de adesão.
  
     Selecione **vista de VNets** sob **seu ambiente**, conforme mostrado na imagem seguinte:
 
@@ -323,7 +323,7 @@ Distribuição de tráfego por gateway de aplicação & Balanceador de carga, to
 **Procurar**
 
 - Que portas abertas são conversação através da internet?
-    - Se inesperado de portas encontram-se aberto, pode corrigir a configuração:
+  - Se inesperado de portas encontram-se aberto, pode corrigir a configuração:
 
     ![Dashboard que mostra as portas a receber e enviar o tráfego para a internet](./media/traffic-analytics/dashboard-showcasing-ports-receiving-and-sending-traffic-to-the-internet.png)
 
@@ -347,9 +347,9 @@ Tem tráfego malicioso no seu ambiente? Onde é ele provenientes de? Onde é des
 
 - O tempo de mostrar imagens seguintes tendências para cliques das regras do NSG e os detalhes de fluxo de origem-destino de um grupo de segurança de rede:
 
-    - Detetar rapidamente quais os NSGs e NSG regras são atravessando fluxos maliciosos e quais são o principal IP malicioso aborda a aceder ao seu ambiente na cloud
-    - Identificar quais as regras do NSG/NSG estão permitindo/a bloquear o tráfego de rede significativo
-    - Parte superior selecione filtros para inspeção granular de um NSG ou o NSG de regras
+  - Detetar rapidamente quais os NSGs e NSG regras são atravessando fluxos maliciosos e quais são o principal IP malicioso aborda a aceder ao seu ambiente na cloud
+  - Identificar quais as regras do NSG/NSG estão permitindo/a bloquear o tráfego de rede significativo
+  - Parte superior selecione filtros para inspeção granular de um NSG ou o NSG de regras
 
     ![Que mostra a tendência de tempo para correspondências de regras do NSG e regras principais de NSG](./media/traffic-analytics/showcasing-time-trending-for-nsg-rule-hits-and-top-nsg-rules.png)
 

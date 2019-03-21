@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 02/28/2017
 ms.author: seguler
 ms.subservice: common
-ms.openlocfilehash: 431a4ef4e84c88467dc7e36bb12d406309f9a8b7
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: d00bf87a80e13808c42a5839ad0f4508ad7214b9
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55467837"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58011102"
 ---
 # <a name="using-azure-storage-with-a-hudson-continuous-integration-solution"></a>Utilizar o Armazenamento do Azure com uma solução Hudson de Integração Contínua
 ## <a name="overview"></a>Descrição geral
@@ -25,7 +25,7 @@ Neste tutorial irá utilizar o plug-in do armazenamento do Azure para Hudson CI 
 ## <a name="introduction-to-hudson"></a>Introdução ao Hudson
 Hudson permite a integração contínua de um projeto de software, permitindo aos programadores integrar facilmente as alterações de código e tem compilações produzidos automaticamente e com frequência, assim, aumentar a produtividade dos desenvolvedores. As compilações são com versão e artefactos de compilação podem ser carregados para vários repositórios. Este artigo mostra como utilizar o armazenamento de Blobs do Azure como repositório de artefactos de compilação. Ela também mostrará como transferir as dependências do armazenamento de Blobs do Azure.
 
-Obter mais informações sobre Hudson podem ser encontradas em [Hudson cumprir](http://wiki.eclipse.org/Hudson-ci/Meet_Hudson).
+Obter mais informações sobre Hudson podem ser encontradas em [Hudson cumprir](https://wiki.eclipse.org/Hudson-ci/Meet_Hudson).
 
 ## <a name="benefits-of-using-the-blob-service"></a>Benefícios da utilização do serviço de BLOBs
 Benefícios da utilização do serviço de BLOBs para hospedar seus artefactos de compilação do desenvolvimento ágil:
@@ -52,7 +52,7 @@ Benefícios da utilização do serviço de BLOBs para hospedar seus artefactos d
   5. Depois de concluir a configuração inicial, cancelar a instância em execução de WAR o Hudson, inicie novamente o WAR Hudson e volte a abrir o dashboard de Hudson `http://localhost:8080/`, que irá utilizar para instalar e configurar o plug-in do armazenamento do Azure.
      
       Embora uma solução Hudson CI típica poderia ser configurada para ser executado como um serviço, em execução na guerra Hudson na linha de comandos será suficiente para este tutorial.
-* Uma conta do Azure. Pode inscrever-se numa conta do Azure em <http://www.azure.com>.
+* Uma conta do Azure. Pode inscrever-se numa conta do Azure em <https://www.azure.com>.
 * Uma conta de armazenamento do Azure. Se ainda não tiver uma conta de armazenamento, pode criar uma com os passos indicados em [criar uma conta de armazenamento](../common/storage-quickstart-create-account.md).
 * Familiaridade com a solução Hudson CI é recomendada, mas não obrigatório, como o seguinte conteúdo irá utilizar um exemplo básico para mostrar as etapas necessárias ao utilizar o serviço de BLOBs como um repositório para Hudson CI artefactos de compilação.
 
@@ -134,7 +134,7 @@ Os passos seguintes mostram como configurar um passo de compilação para transf
 1. No **crie** secção de configuração da tarefa, clique em **Adicionar passo de compilação** e escolha **transferir a partir do armazenamento de Blobs do Azure**.
 2. Para **nome da conta de armazenamento**, selecione a conta de armazenamento a utilizar.
 3. Para **nome do contentor**, especifique o nome do contentor que tem os blobs que pretende transferir. Pode utilizar variáveis de ambiente.
-4. Para **nome do Blob**, especifique o nome do blob. Pode utilizar variáveis de ambiente. Além disso, pode utilizar um asterisco como caráter universal depois de especificar o letter(s) inicial do nome do blob. Por exemplo, **project\*** especificaria todos os blobs cujos nomes começam com **projeto**.
+4. Para **nome do Blob**, especifique o nome do blob. Pode utilizar variáveis de ambiente. Além disso, pode utilizar um asterisco como caráter universal depois de especificar o letter(s) inicial do nome do blob. Por exemplo, **project\\*** de especificar todos os blobs cujos nomes começam com **projeto**.
 5. [Opcional] Para **caminho de transferência**, especifique o caminho na máquina Hudson onde pretende transferir ficheiros do armazenamento de Blobs do Azure. Variáveis de ambiente também podem ser utilizadas. (Se não fornecer um valor para **caminho de transferência**, os ficheiros do armazenamento de Blobs do Azure serão transferidos para a área de trabalho da tarefa.)
 
 Se tiver outros itens que pretende transferir a partir do armazenamento de Blobs do Azure, pode criar passos de compilação adicional.
@@ -158,7 +158,7 @@ A seguir, fornecemos uma visão geral dos componentes do serviço de Blobs.
     `http://example.blob.core.windows.net/myjob/2014-05-01_11-56-22/1/hello.txt`
 
 ## <a name="next-steps"></a>Passos Seguintes
-* [Cumprir Hudson](http://wiki.eclipse.org/Hudson-ci/Meet_Hudson)
+* [Cumprir Hudson](https://wiki.eclipse.org/Hudson-ci/Meet_Hudson)
 * [Armazenamento do Azure SDK para Java](https://github.com/azure/azure-storage-java)
 * [Azure Storage Client SDK Reference](http://dl.windowsazure.com/storage/javadoc/) (Referência do SDK do Cliente do Armazenamento do Azure)
 * [API REST dos Serviços do Armazenamento do Azure](https://msdn.microsoft.com/library/azure/dd179355.aspx)

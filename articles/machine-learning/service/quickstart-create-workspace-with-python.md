@@ -11,12 +11,12 @@ author: sdgilley
 ms.author: sgilley
 ms.date: 01/22/2019
 ms.custom: seodec18
-ms.openlocfilehash: 950ea04addb0c88d4c745d2de3d95df787885137
-ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
-ms.translationtype: MT
+ms.openlocfilehash: 9a17f2722af187e88bebf217d56a5a80aba46bc4
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57403435"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57876532"
 ---
 # <a name="quickstart-use-the-python-sdk-to-get-started-with-azure-machine-learning"></a>Início rápido: Utilizar o Python SDK para começar a utilizar com o Azure Machine Learning
 
@@ -49,7 +49,7 @@ Os seguintes recursos do Azure são adicionados automaticamente à sua área de 
 > Código neste artigo requer o Azure Machine Learning SDK versão 1.0.2 ou posterior e foi testado com a versão 1.0.8.
 
 
-Se não tiver uma subscrição do Azure, crie uma conta gratuita antes de começar. Experimente o [uma versão gratuita ou paga do serviço Azure Machine Learning](http://aka.ms/AMLFree) hoje mesmo.
+Se não tiver uma subscrição do Azure, crie uma conta gratuita antes de começar. Experimente o [uma versão gratuita ou paga do serviço Azure Machine Learning](https://aka.ms/AMLFree) hoje mesmo.
 
 ## <a name="install-the-sdk"></a>Instalar o SDK
 
@@ -57,6 +57,9 @@ Se não tiver uma subscrição do Azure, crie uma conta gratuita antes de começ
 > Ignore esta secção se utilizar uma máquina de Virtual de ciência de dados do Azure ou o Azure Databricks.
 > * Máquinas de virtuais de ciência de dados do Azure criadas após a 27 de Setembro de 2018 são fornecidos com o SDK de Python pré-instalado.
 > * No ambiente do Azure Databricks, utilize o [passos de instalação do Databricks](how-to-configure-environment.md#azure-databricks) em vez disso.
+
+>[!NOTE]
+> Utilize estas instruções para instalar e utilizar o SDK do bloco de notas do Jupyter no seu computador local. Para utilizar o Jupyter na máquina de virtual remota, configure remoto área de trabalho ou X sessão de terminal. 
 
 Antes de instalar o SDK, recomendamos que crie um ambiente Python isolado. Embora este artigo usa [Miniconda](https://docs.conda.io/en/latest/miniconda.html), também pode utilizar completo [Anaconda](https://www.anaconda.com/) instalado ou [Python virtualenv](https://virtualenv.pypa.io/en/stable/).
 
@@ -113,7 +116,9 @@ As instruções neste guia de introdução irão instalar todos os pacotes que n
     ```
 
 > [!IMPORTANT]
-> Em algumas ferramentas de linha de comando, poderá ter de adicionar o entre aspas duplas da seguinte forma: * 'azureml-sdk [blocos de notas]' * "azureml-sdk [automl]"
+> Em algumas ferramentas de linha de comando, poderá ter de adicionar o entre aspas duplas da seguinte forma:
+> *  'azureml-sdk[notebooks]'
+> * 'azureml-sdk[automl]'
 >
 
 

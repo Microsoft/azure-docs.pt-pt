@@ -16,12 +16,12 @@ ms.topic: quickstart
 ms.date: 08/15/2018
 ms.author: danlep
 ROBOTS: NOINDEX
-ms.openlocfilehash: 78c743448a7f7439875d3598d6ba5d4eb6dc12fc
-ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
+ms.openlocfilehash: 49e78f1774a2998de7070453f7c098aef1761242
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53408941"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58093233"
 ---
 # <a name="quickstart-create-a-cluster-for-batch-ai-training-jobs-using-the-azure-portal"></a>Início rápido: Criar um cluster para tarefas de formação de IA do Batch no portal do Azure
 
@@ -59,7 +59,7 @@ Comece por criar uma área de trabalho do Batch AI para organizar os recursos do
 
 3. Introduza valores para **Nome da área de trabalho** e **Grupo de recursos**. Se quiser, selecione diferentes opções para **Subscrição** e **Localização** para a área de trabalho. Selecione **Criar Área de Trabalho**.
 
-  ![Criar área de trabalho do Batch AI](./media/quickstart-create-cluster-portal/create-workspace.png)
+   ![Criar área de trabalho do Batch AI](./media/quickstart-create-cluster-portal/create-workspace.png)
 
 Quando a mensagem **Implementação concluída com êxito** for apresentada, aceda ao recurso que criou e selecione a área de trabalho.
 
@@ -73,7 +73,7 @@ Um servidor de ficheiros do Batch AI é um NFS de nó único que pode ser montad
 
 3. Introduza um **Nome de utilizador de administrador** e copie o conteúdo do ficheiro de chave pública SSH para **Chave SSH**. Aceite as predefinições para os restantes valores e selecione **Criar servidor de ficheiros**.
 
-  ![Criar um servidor de ficheiros do Batch AI](./media/quickstart-create-cluster-portal/create-file-server.png)
+   ![Criar um servidor de ficheiros do Batch AI](./media/quickstart-create-cluster-portal/create-file-server.png)
 
 A implementação do servidor de ficheiros demora alguns minutos.
 
@@ -89,7 +89,7 @@ Os passos seguintes criam um cluster com um único nó de GPU. O nó de cluster 
 
 2. Introduza os valores para **Nome do cluster** e as seguintes definições. O tamanho de VM sugerido tem um GPU NVIDIA Tesla K80.
   
-   |Definição  |Valor  |
+   |Definição  |Value  |
    |---------|---------|
    |**Tamanho da VM**     |Standard NC6|
    |**Número de nós de destino**     |1|

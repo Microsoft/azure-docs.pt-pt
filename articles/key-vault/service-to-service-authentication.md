@@ -10,12 +10,12 @@ ms.date: 03/05/2019
 ms.topic: conceptual
 ms.service: key-vault
 ms.assetid: 4be434c4-0c99-4800-b775-c9713c973ee9
-ms.openlocfilehash: 4436fc3c1bec4cdb8e301edd185f4416c931e24f
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: b7532dc910fae84733c04d4e16ac93a5cd0f11c8
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57456504"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58097911"
 ---
 # <a name="service-to-service-authentication-to-azure-key-vault-using-net"></a>Autenticação serviço a serviço para o Azure Key Vault com o .NET
 
@@ -153,7 +153,7 @@ Isto aplica-se apenas a desenvolvimento local. Quando a solução é implementad
 
 Quando executa seu código num serviço de aplicações do Azure ou uma VM do Azure com uma identidade gerida ativada, a biblioteca utiliza automaticamente a identidade gerida. Sem alterações de código são necessárias. 
 
-Em alternativa, pode autenticar com uma identidade de utilizador atribuído. Para obter mais informações sobre identidiades atribuídas, consulte [sobre identidades geridas por um dos recursos do Azure](../active-directory/managed-identities-azure-resources/overview.md#how-does-the-managed-identities-for-azure-resources-worka-namehow-does-it-worka). A cadeia de ligação é especificada na [suporte de cadeia de ligação](#connection-string-support) secção abaixo.
+Em alternativa, pode autenticar com uma identidade de utilizador atribuído. Para obter mais informações sobre identidiades atribuídas, consulte [sobre identidades geridas por um dos recursos do Azure](../active-directory/managed-identities-azure-resources/overview.md#how-does-the-managed-identities-for-azure-resources-work). A cadeia de ligação é especificada na [suporte de cadeia de ligação](#connection-string-support) secção abaixo.
 
 ## <a name="running-the-application-using-a-service-principal"></a>Executar a aplicação com um Principal de serviço 
 
@@ -212,7 +212,7 @@ São suportadas as seguintes opções:
 | `RunAs=Developer; DeveloperTool=VisualStudio` | Desenvolvimento local | AzureServiceTokenProvider usa o Visual Studio para obter o token. |
 | `RunAs=CurrentUser` | Desenvolvimento local | AzureServiceTokenProvider utiliza autenticação integrada do Azure AD ao obter o token. |
 | `RunAs=App` | [Identidades geridas para os recursos do Azure](../active-directory/managed-identities-azure-resources/index.yml) | AzureServiceTokenProvider usa uma identidade gerida para obter o token. |
-| `RunAs=App;AppId={ClientId of user-assigned identity}` | [Identidade de utilizador atribuída para recursos do Azure](../active-directory/managed-identities-azure-resources/overview.md#how-does-the-managed-identities-for-azure-resources-worka-namehow-does-it-worka) | AzureServiceTokenProvider usa uma identidade de utilizador atribuído ao obter o token. |
+| `RunAs=App;AppId={ClientId of user-assigned identity}` | [Identidade de utilizador atribuída para recursos do Azure](../active-directory/managed-identities-azure-resources/overview.md#how-does-the-managed-identities-for-azure-resources-work) | AzureServiceTokenProvider usa uma identidade de utilizador atribuído ao obter o token. |
 | `RunAs=App;AppId={AppId};TenantId={TenantId};CertificateThumbprint={Thumbprint};CertificateStoreLocation={LocalMachine or CurrentUser}`   | Principal de serviço | `AzureServiceTokenProvider` utiliza o certificado ao obter o token do Azure AD. |
 | `RunAs=App;AppId={AppId};TenantId={TenantId};CertificateSubjectName={Subject};CertificateStoreLocation={LocalMachine or CurrentUser}` | Principal de serviço | `AzureServiceTokenProvider` utiliza o certificado ao obter o token do Azure AD|
 | `RunAs=App;AppId={AppId};TenantId={TenantId};AppKey={ClientSecret}` | Principal de serviço |`AzureServiceTokenProvider` utiliza o segredo para obter o token do Azure AD. |

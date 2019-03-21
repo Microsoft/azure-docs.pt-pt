@@ -1,21 +1,21 @@
 ---
 title: Tutorial - criar e gerir dados exportados do Azure Cost Management | Microsoft Docs
-description: Este artigo mostra como pode criar e gerir dados exportados do Azure Cost Management para utilizá-los em sistemas externos.
+description: Este artigo mostra-lhe como pode criar e gerir os dados exportados do Azure Cost Management, para que pode usá-lo em sistemas externos.
 services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 02/28/2019
+ms.date: 03/13/2019
 ms.topic: tutorial
 ms.service: cost-management
 manager: dougeby
 ms.custom: seodec18
-ms.openlocfilehash: 5c33538513388a4093a205b44a1e049072402179
-ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
+ms.openlocfilehash: a0b50b86ca164199ca723354e39e194c6cd7423f
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57337596"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58014128"
 ---
 # <a name="tutorial-create-and-manage-exported-data"></a>Tutorial: Criar e gerir os dados exportados
 
@@ -45,9 +45,9 @@ Inicie sessão no Portal do Azure em [https://portal.azure.com](https://portal.a
 
 ## <a name="create-a-daily-export"></a>Criar uma exportação diária
 
-Cost Management + Faturação &gt; Cost Management &gt; selecione um subscrição ou grupo de recursos numa subscrição &gt; Exportação &gt;  **Adicionar**.
+Para criar ou ver uma exportação de dados ou para agendar uma exportação, abra o âmbito pretendido no portal do Azure e selecione **análise de custo** no menu. Por exemplo, navegue até **subscrições**, selecione uma subscrição na lista e, em seguida, selecione **análise de custo** no menu. Na parte superior da página de análise de custo, clique em **exportar** e, em seguida, escolha uma opção de exportação. Por exemplo, clique em **agendar exportação**. Para obter mais informações sobre âmbitos, consulte [entender e trabalhar com âmbitos](understand-work-scopes.md).
 
-Escreva um nome para a exportação e selecione o **exportação diária dos custos de mês até à data** opção. Clique em **Seguinte**.
+Clique em **Add**, escreva um nome para a exportação e, em seguida, selecione a **exportação diária dos custos de mês até à data** opção. Clique em **Seguinte**.
 
 ![Novo de exportação de exemplo que mostra o tipo de exportação](./media/tutorial-export-acm-data/basics_exports.png)
 

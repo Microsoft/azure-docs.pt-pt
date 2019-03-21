@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/17/2018
 ms.author: ergreenl
-ms.openlocfilehash: 5fc50aeeb2764f90a111c2466ff5a9deefe1e65c
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 513cccb8b83eb4a69df1bc6172f1f02485215e35
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55167993"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58086008"
 ---
 # <a name="password-and-account-lockout-policies-on-managed-domains"></a>Políticas de bloqueio de conta e palavra-passe nos domínios geridos
 Este artigo explica as políticas de palavra-passe predefinido num domínio gerido. Também aborda como configurar estas políticas.
@@ -89,28 +89,28 @@ Para criar um FGPP personalizado no seu domínio gerido:
 7. Sobre o **tarefas** painel no direito, clique em **New** e clique em **definições de palavra-passe**.
 8. Na **criar definições de palavra-passe** caixa de diálogo, especifique as definições de palavra-passe personalizada para aplicar como parte de FGPP personalizado. Não se esqueça de definir a precedência corretamente para substituir a predefinição FGPP.
 
-  ![Criar FGPP personalizado](./media/how-to/custom-fgpp.png)
+   ![Criar FGPP personalizado](./media/how-to/custom-fgpp.png)
 
-  > [!TIP]
-  > **Não se esqueça de desmarcar a proteger a partir da opção de eliminação acidental.** Se esta opção estiver selecionada, não é possível guardar a FGPP.
-  >
-  >
+   > [!TIP]
+   > **Não se esqueça de desmarcar a proteger a partir da opção de eliminação acidental.** Se esta opção estiver selecionada, não é possível guardar a FGPP.
+   >
+   >
 
 9. Na **diretamente aplica-se a**, clique nas **Add** botão. Na **selecionar utilizadores ou grupos** caixa de diálogo, clique nas **localizações** botão.
 
-  ![Selecione utilizadores e grupos](./media/how-to/fgpp-applies-to.png)
+   ![Selecione utilizadores e grupos](./media/how-to/fgpp-applies-to.png)
 
 10. Na **localizações** caixa de diálogo, expanda o nome de domínio e clique em **utilizadores do aad DC**. Agora, pode selecionar um grupo dos utilizadores incorporados OU, na qual pretende aplicar a FGPP.
 
-  ![Selecione a UO desse grupo pertence a](./media/how-to/fgpp-container.png)
+    ![Selecione a UO desse grupo pertence a](./media/how-to/fgpp-container.png)
 
 11. Escreva o nome do grupo e clique nas **verificar nomes** botão para validar o grupo existe.
 
-  ![Selecione o grupo para aplicar FGPP](./media/how-to/fgpp-apply-group.png)
+    ![Selecione o grupo para aplicar FGPP](./media/how-to/fgpp-apply-group.png)
 
 12. O nome do grupo é apresentado em **diretamente aplica-se a** secção. Clique nas **OK** botão para guardar estas alterações.
 
-  ![FGPP aplicada](./media/how-to/fgpp-applied.png)
+    ![FGPP aplicada](./media/how-to/fgpp-applied.png)
 
 > [!TIP]
 > **Para aplicar políticas de palavra-passe personalizada para contas de utilizador numa UO personalizada:** Políticas de palavra-passe de refinado bem podem ser aplicadas apenas a grupos. Para configurar uma política personalizada de palavra-passe apenas para os utilizadores de uma UO personalizado, crie um grupo que inclui os utilizadores nessa UO.

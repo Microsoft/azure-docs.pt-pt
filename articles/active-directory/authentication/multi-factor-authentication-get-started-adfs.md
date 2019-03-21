@@ -11,16 +11,18 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c47b45db95d428e9817220099368c14a31b4a528
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: ab1f54ee8c3ebb5ae41d28b70f1cffcb244af39f
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56192103"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58076008"
 ---
 # <a name="getting-started-with-azure-multi-factor-authentication-and-active-directory-federation-services"></a>Introdução ao Multi-Factor Authentication do Azure e aos Serviços de Federação do Active Directory
 
-<center>![Nuvem](./media/multi-factor-authentication-get-started-adfs/adfs.png)</center>
+<center>
+
+![Cloud](./media/multi-factor-authentication-get-started-adfs/adfs.png)</center>
 
 Se a sua organização tiver federado o seu Active Directory no local com o Azure Active Directory através do AD FS, existem duas opções para utilizar o Multi-Factor Authentication do Azure.
 
@@ -30,7 +32,7 @@ Se a sua organização tiver federado o seu Active Directory no local com o Azur
 A tabela seguinte resume a experiência de verificação entre proteger recursos com o Multi-Factor Authentication do Azure e o AD FS
 
 | Experiência de Verificação - Aplicações baseadas no browser | Experiência de Verificação - Aplicações não baseadas no browser |
-|:--- |:--- |:--- |
+|:--- |:--- |
 | Proteger recursos do Azure AD com o Multi-Factor Authentication do Azure |<li>O primeiro passo de verificação é efetuado no local com o AD FS.</li> <li>O segundo passo é um método telefónico efetuado através da autenticação na nuvem.</li> |
 | Proteger recursos do Azure AD com os Serviços de Federação do Active Directory |<li>O primeiro passo de verificação é efetuado no local com o AD FS.</li><li>O segundo passo é executado no local honrando a afirmação.</li> |
 

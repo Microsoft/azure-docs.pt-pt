@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 12/08/2017
 ms.author: alkohli
-ms.openlocfilehash: b748e203e3bf769eef8ce728bbb9471b8d13fb9a
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: f7bfe41b4cdc9989c6b949011bc240275886b6f0
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55822311"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58093335"
 ---
 # <a name="use-the-storsimple-device-manager-service-to-manage-volumes-update-3-or-later"></a>Utilizar o serviço StorSimple Device Manager para gerir volumes (atualização 3 ou posterior)
 
@@ -235,7 +235,7 @@ Pode querer alterar um volume localmente afixado a um volume em camadas se preci
    * Se estiver a alterar o tipo para **em camadas** e este volume será utilizado para dados de arquivo, selecionados a **utilizar este volume para menos dados de arquivo acedidos com frequência** caixa de verificação.
    * Se estiver a configurar um volume afixado localmente como em camadas ou _vice versa_, é apresentada a mensagem seguinte.
    
-    ![Mensagem de tipo de volume de alterações](./media/storsimple-8000-manage-volumes-u2/changevoltype3.png)
+     ![Mensagem de tipo de volume de alterações](./media/storsimple-8000-manage-volumes-u2/changevoltype3.png)
 
 7. Clique em **Guardar** para guardar as alterações. Quando lhe for pedida confirmação, clique em **Sim** para iniciar o processo de conversão. 
 

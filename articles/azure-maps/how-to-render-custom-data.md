@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: 982a8b6ed67b955fcb68006072b67f7c59f29688
-ms.sourcegitcommit: 15e9613e9e32288e174241efdb365fa0b12ec2ac
+ms.openlocfilehash: 46f08aaa33563f620e7a011620730249e903f7b7
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "57010162"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58086603"
 ---
 # <a name="render-custom-data-on-a-raster-map"></a>Processar dados personalizados num mapa de varredura
 
@@ -135,9 +135,9 @@ Também pode obter as informações de localização do caminho e o pin ao utili
 
 4. Selecione **enviar** e rever o cabeçalho de resposta. O cabeçalho de localização contém o URI utilizado para aceder ou transferir os dados para utilização futura. Ele também contém um exclusivo `udId` para os dados carregados.  
 
-  ```HTTP
-  https://atlas.microsoft.com/mapData/{udId}/status?api-version=1.0&subscription-key={Subscription-key}
-  ```
+   ```HTTP
+   https://atlas.microsoft.com/mapData/{udId}/status?api-version=1.0&subscription-key={Subscription-key}
+   ```
 
 5. Utilize o `udId` valor recebido a partir da API de carregar dados para renderizar recursos no mapa. Para tal, abra uma nova guia na coleção que criou na secção anterior. Selecione o método GET HTTP na guia builder e introduza este URL para fazer um pedido GET:
 

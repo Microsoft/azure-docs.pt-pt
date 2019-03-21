@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 02/06/2019
 ms.author: pbutlerm
-ms.openlocfilehash: 6d86d4c03a41834322c98438958c0b9e87e6025c
-ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
+ms.openlocfilehash: 9faa38a23b2039902366e5b885ab73c68a2a3d80
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57213530"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58076025"
 ---
 # <a name="azure-application-offer"></a>Oferta de aplicação do Azure
 
@@ -58,15 +58,15 @@ O diagrama seguinte mostra o processo de alto nível para publicar uma oferta de
 
 Os passos de alto nível para publicar uma oferta de aplicação do Azure são:
 
-0. Cumprir os [pré-requisitos](./cpp-prerequisites.md) - (não mostrado) certifique-se de que cumpriu os requisitos comerciais e técnicos para a publicação de uma aplicação do Azure no Azure Marketplace. 
+1. Cumprir os [pré-requisitos](./cpp-prerequisites.md) - (não mostrado) certifique-se de que cumpriu os requisitos comerciais e técnicos para a publicação de uma aplicação do Azure no Azure Marketplace. 
 
 1. [Criar a oferta](./cpp-create-offer.md) -fornecem informações detalhadas sobre a oferta. Estas informações incluem: a descrição da oferta, as especificações dos ativos, informações de suporte e materiais de marketing.
 
-2. [Criar ou recolher o negócio existente e ativos técnicos](./cpp-create-technical-assets.md) -criar os ativos empresariais (documentos legais e materiais de marketing) e ativos técnicos para a solução associada.
+1. [Criar ou recolher o negócio existente e ativos técnicos](./cpp-create-technical-assets.md) -criar os ativos empresariais (documentos legais e materiais de marketing) e ativos técnicos para a solução associada.
 
-3. [Criar o SKU](./cpp-skus-tab.md) -criar o SKU (s) associado com a oferta. Um SKU exclusivo é necessário para cada imagem que pretende publicar.
+1. [Criar o SKU](./cpp-skus-tab.md) -criar o SKU (s) associado com a oferta. Um SKU exclusivo é necessário para cada imagem que pretende publicar.
 
-4. Certificar e [publicar a oferta](./cpp-publish-offer.md) -depois da oferta e os ativos técnicos são concluídos, pode enviar a oferta. Esta submissão inicia o processo de publicação. Durante este processo, a solução é testada, validado, certified, em seguida, "entrar no ar" no Azure Marketplace.
+1. Certificar e [publicar a oferta](./cpp-publish-offer.md) -depois da oferta e os ativos técnicos são concluídos, pode enviar a oferta. Esta submissão inicia o processo de publicação. Durante este processo, a solução é testada, validado, certified, em seguida, "entrar no ar" no Azure Marketplace.
 
 ## <a name="next-steps"></a>Passos Seguintes
 

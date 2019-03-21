@@ -1,21 +1,21 @@
 ---
-title: Guia de introdução a linguagem de programação R
+title: Introdução ao R
 titleSuffix: Azure Machine Learning Studio
 description: Utilize este tutorial de programação R para começar a utilizar a linguagem R com o Azure Machine Learning Studio para criar uma solução de previsão.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
 ms.topic: conceptual
-author: ericlicoding
+author: xiaoharper
 ms.author: amlstudiodocs
 ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 03/01/2019
-ms.openlocfilehash: c18de2efff0f867213cad56b6012bb8ee6ed52bb
-ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
+ms.openlocfilehash: 307636b019b53c8457c65261824adbf8e52ca0a9
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57344912"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57875520"
 ---
 # <a name="getting-started-with-the-r-programming-language-in-azure-machine-learning-studio"></a>Introdução ao R linguagem no Azure Machine Learning Studio de programação
 
@@ -131,7 +131,7 @@ Se não sabe a última linha desse código no momento, continue a ler. O restant
 
 R Studio é um IDE amplamente usado para R. Irá utilizar o r Studio para editar, testar e depurar algum código R utilizado neste guia. Assim que o código de R é testada e pronto, pode simplesmente recortar e colar no editor de RStudio para um Machine Learning Studio [executar Script R] [ execute-r-script] módulo.  
 
-Se não tiver a linguagem de programação R instalada no seu computador desktop, recomendo que fazer isso agora. Downloads gratuitos da linguagem R de código-fonte aberto estão disponíveis no abrangente R Archive rede (CRAN) em [ http://www.r-project.org/ ](http://www.r-project.org/). Downloads estão disponíveis para Windows, Macos e Linux/UNIX. Escolha um espelho próximos e siga as instruções de download. Além disso, CRAN contém uma grande quantidade de pacotes de manipulação de dados e análise úteis.
+Se não tiver a linguagem de programação R instalada no seu computador desktop, recomendo que fazer isso agora. Downloads gratuitos da linguagem R de código-fonte aberto estão disponíveis no abrangente R Archive rede (CRAN) em [ https://www.r-project.org/ ](https://www.r-project.org/). Downloads estão disponíveis para Windows, Macos e Linux/UNIX. Escolha um espelho próximos e siga as instruções de download. Além disso, CRAN contém uma grande quantidade de pacotes de manipulação de dados e análise úteis.
 
 Se estiver familiarizado com o r Studio, deve transferir e instalar a versão de área de trabalho. Pode encontrar o RStudio downloads para Windows, Macos e Linux/UNIX em http://www.rstudio.com/products/RStudio/. Siga as orientações fornecidas para instalar o RStudio no seu computador desktop.  
 
@@ -1312,18 +1312,18 @@ RStudio está muito bem documentado. Seguem-se algumas ligações para as secç�
 
 Este tutorial de programação R abrange as noções básicas sobre o que precisa de utilizar a linguagem R com o Azure Machine Learning Studio. Se não estiver familiarizado com o R, dois introduções estão disponíveis na CRAN:
 
-* [R para iniciantes](http://cran.r-project.org/doc/contrib/Paradis-rdebuts_en.pdf) por Emmanuel Paradis é um bom lugar para começar.  
-* [Uma introdução ao R](http://cran.r-project.org/doc/manuals/R-intro.html) por W. n. Venables et. al. entra num pouco mais profundidade.
+* [R para iniciantes](https://cran.r-project.org/doc/contrib/Paradis-rdebuts_en.pdf) por Emmanuel Paradis é um bom lugar para começar.  
+* [Uma introdução ao R](https://cran.r-project.org/doc/manuals/R-intro.html) por W. n. Venables et. al. entra num pouco mais profundidade.
 
 Existem muitos livros em R que pode ajudá-lo a começar a utilizar. Aqui estão alguns que considero útil:
 
 * O **arte de programação R: Um Tour de Design estatísticas de Software** por Norman Matloff é uma excelente introdução à programação em R.  
 * **Manual de R** por Paul Teetor fornece uma abordagem de problema e a solução para utilizar o R.  
-* **R em ação** por Robert Kabacoff é outro livro introdutório úteis. O complemento [Web site do R rápida](http://www.statmethods.net/) é um recurso útil.
+* **R em ação** por Robert Kabacoff é outro livro introdutório úteis. O complemento [Web site do R rápida](https://www.statmethods.net/) é um recurso útil.
 * **R Inferno** por Patrick Burns é um livro surpreendentemente bem-humorada que lida com um número de tópicos complicados e difícil que podem ser encontrados ao programar em R. O livro está disponível gratuitamente em [o Inferno de R](http://www.burns-stat.com/documents/books/the-r-inferno/).
 * Se quiser uma descrição aprofundada tópicos avançados em R, dê uma olhada no livro **R avançadas** por Hadley Wickham. A versão online deste livro está disponível gratuitamente em [ http://adv-r.had.co.nz/ ](http://adv-r.had.co.nz/).
 
-Um catálogo de pacotes de série de tempo de R pode ser encontrado no [CRAN vista da tarefa: Análise de série de tempo](http://cran.r-project.org/web/views/TimeSeries.html). Para obter informações sobre a hora específica pacotes de objeto de série, consulte a documentação desse pacote.
+Um catálogo de pacotes de série de tempo de R pode ser encontrado no [CRAN vista da tarefa: Análise de série de tempo](https://cran.r-project.org/web/views/TimeSeries.html). Para obter informações sobre a hora específica pacotes de objeto de série, consulte a documentação desse pacote.
 
 O livro **introdutório séries de tempo** com R por Paul Cowpertwait e Andrew Metcalfe fornece uma introdução ao utilizar o R para análise de série de tempo. Muitos textos mais teóricos fornecem exemplos de R.
 
@@ -1331,8 +1331,8 @@ Aqui estão alguns ótimos recursos de internet:
 
 * DataCamp ensina R no conforto do seu browser com lições de vídeo e exercícios de codificação. Há tutoriais interativos sobre as técnicas de R mais recentes e os pacotes. Tirar o gratuito [tutorial interativo do R](https://www.datacamp.com/courses/introduction-to-r).
 * [Aprender programação R, o guia definitivo](https://www.programiz.com/r-programming) de Programiz.
-* Uma rápida [R Tutorial](http://www.cyclismo.org/tutorial/R/) por preto Kelly da computação pela Universidade Clarkson.
-* Existem ao longo de 60 R recursos listados em [recursos de linguagem R da parte superior para melhorar suas habilidades de dados](http://www.computerworld.com/article/2497464/business-intelligence-60-r-resources-to-improve-your-data-skills.html).
+* Uma rápida [R Tutorial](https://www.cyclismo.org/tutorial/R/) por preto Kelly da computação pela Universidade Clarkson.
+* Existem ao longo de 60 R recursos listados em [recursos de linguagem R da parte superior para melhorar suas habilidades de dados](https://www.computerworld.com/article/2497464/business-intelligence-60-r-resources-to-improve-your-data-skills.html).
 
 <!-- Module References -->
 [execute-r-script]: /azure/machine-learning/studio-module-reference/execute-r-script

@@ -7,12 +7,12 @@ ms.subservice: cosmosdb-graph
 ms.topic: overview
 ms.date: 01/02/2018
 ms.author: lbosq
-ms.openlocfilehash: e7230e9c4d97c1c3ba8f0cf20d32f5a59ea2219b
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: c4622293f05be5f4595136a5bbf194116fb2887c
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54034527"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58081105"
 ---
 # <a name="azure-cosmos-db-gremlin-graph-support"></a>Suporte de gráficos do Gremlin do Azure Cosmos DB
 O Azure Cosmos DB suporta a linguagem transversal de gráficos do [Apache Tinkerpop](https://tinkerpop.apache.org), o [Gremlin](https://tinkerpop.apache.org/docs/current/reference/#graph-traversal-steps), que é uma Gremlin API para criar entidades de gráficos e realizar operações de consulta de gráficos. Pode utilizar a linguagem Gremlin para criar entidades de gráfico (vértices e limites), modificar propriedades nessas entidades, efetuar consultas e transversais e eliminar entidades. 
@@ -181,7 +181,7 @@ Vamos observar os passos do Gremlin suportados pelo Azure Cosmos DB. Para obter 
 | `range` | Filtra o intervalo especificado de valores| [passo range](https://tinkerpop.apache.org/docs/current/reference/#range-step) |
 | `repeat` | Repete o passo o número de vezes especificado. Utilizado para criar ciclos | [passo repeat](https://tinkerpop.apache.org/docs/current/reference/#repeat-step) |
 | `sample` | Utilizado para exemplificar resultados da transversal | [passo sample](https://tinkerpop.apache.org/docs/current/reference/#sample-step) |
-| `select` | Utilizado para projetar resultados da transversal |  [passo select](https://tinkerpop.apache.org/docs/current/reference/#select-step) | |
+| `select` | Utilizado para projetar resultados da transversal |  [passo select](https://tinkerpop.apache.org/docs/current/reference/#select-step) |
 | `store` | Utilizado para agregações que não sejam de bloqueio da transversal | [passo store](https://tinkerpop.apache.org/docs/current/reference/#store-step) |
 | `tree` | Agrega caminhos de um vértice numa árvore | [passo tree](https://tinkerpop.apache.org/docs/current/reference/#tree-step) |
 | `unfold` | Mostra um iterador como um passo| [passo unfold](https://tinkerpop.apache.org/docs/current/reference/#unfold-step) |

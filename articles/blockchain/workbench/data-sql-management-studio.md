@@ -10,12 +10,12 @@ ms.topic: article
 ms.service: azure-blockchain
 ms.reviewer: mmercuri
 manager: femila
-ms.openlocfilehash: 32606f988152b061fa1923c409207b2a650e64ba
-ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
+ms.openlocfilehash: a5554f1fe0a14799a100aefc975a110d3a9a6311
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54332460"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58088728"
 ---
 # <a name="using-azure-blockchain-workbench-data-with-sql-server-management-studio"></a>Utilizar os dados do Azure Blockchain Workbench com o SQL Server Management Studio
 
@@ -38,9 +38,9 @@ Microsoft SQL Server Management Studio fornece a capacidade de escrever e testar
 
     ![Introduzir as credenciais de SQL](./media/data-sql-management-studio/sql-creds.png)
 
- 4. O SQL Server Management Studio apresenta a lista de bases de dados, vistas de base de dados e procedimentos armazenados na base de dados do Azure Blockchain Workbench.
+   1. O SQL Server Management Studio apresenta a lista de bases de dados, vistas de base de dados e procedimentos armazenados na base de dados do Azure Blockchain Workbench.
 
-    ![Lista de bases de dados](./media/data-sql-management-studio/db-list.png)
+      ![Lista de bases de dados](./media/data-sql-management-studio/db-list.png)
 
 5. Para ver os dados associados a qualquer uma das vistas de base de dados, pode gerar automaticamente uma instrução select através dos seguintes passos.
 6. Clique com botão direito qualquer uma das vistas da base de dados no pesquisador de objetos.

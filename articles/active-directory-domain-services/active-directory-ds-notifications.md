@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/17/2018
 ms.author: ergreenl
-ms.openlocfilehash: 5c2ff4304071267e0329f0c2baab45a554d41379
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 85fcd28b5964cbe0246a7c79fa6d24d756f7bd35
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57759174"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58086569"
 ---
 # <a name="notification-settings-in-azure-ad-domain-services"></a>Definições de notificação no Azure AD Domain Services
 
@@ -47,7 +47,6 @@ O e-mail Especifica o domínio gerido que o alerta está presente, bem como dar 
 
 > [!WARNING]
 > Sempre Certifique-se de que o e-mail é proveniente de um remetente Microsoft verificado antes de clicar em links em suas mensagens de e-mail. Os e-mails provenientes sempre a mensagem de e-mail azure-noreply@microsoft.com
->
 
 
 ## <a name="why-would-i-receive-email-notifications"></a>Por que vou receber notificações por e-mail?

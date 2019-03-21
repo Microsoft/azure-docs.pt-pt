@@ -10,12 +10,12 @@ ms.subservice: language-understanding
 ms.topic: article
 ms.date: 01/23/2019
 ms.author: diberry
-ms.openlocfilehash: fc6d68e862f6a2f3c95f5ca6d130e42c96649eb1
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 929dc7a86d141446a2070b046c6febfda4a07f0f
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55874637"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58092570"
 ---
 # <a name="use-a-list-entity-to-increase-entity-detection"></a>Utilize uma entidade de lista para aumentar a deteção de entidade 
 Este tutorial demonstra o uso de um [listar entidade](luis-concept-entity-types.md) para aumentar a deteção de entidade. Não é necessário ser rotulada como são uma correspondência exata dos termos de entidades de lista.  
@@ -23,9 +23,9 @@ Este tutorial demonstra o uso de um [listar entidade](luis-concept-entity-types.
 Neste tutorial, ficará a saber como:
 
 > [!div class="checklist"]
-* Criar uma entidade de lista 
-* Adicionar valores normalizados e sinónimos
-* Validar a identificação de entidade melhorada
+> * Criar uma entidade de lista 
+> * Adicionar valores normalizados e sinónimos
+> * Validar a identificação de entidade melhorada
 
 ## <a name="prerequisites"></a>Pré-requisitos
 

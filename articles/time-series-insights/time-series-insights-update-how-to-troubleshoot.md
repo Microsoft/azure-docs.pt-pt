@@ -10,12 +10,12 @@ services: time-series-insights
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.custom: seodec18
-ms.openlocfilehash: e44a02e2126e7b25f69999de34fe5cf42499a90c
-ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
+ms.openlocfilehash: eb1c302bf1954492ba2a7a78d16fc697fdf4b687
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53556837"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58080442"
 ---
 # <a name="diagnose-and-troubleshoot"></a>Diagnosticar e resolver problemas
 
@@ -43,16 +43,16 @@ Há vários motivos comuns, por que não poderá ver os dados no [Explorador de 
 
 - A chave de origem do evento em falta uma permissão necessária.
 
-    * Para um hub IoT, tem de fornecer a chave que tenha **ligação de serviço** permissão.
+  * Para um hub IoT, tem de fornecer a chave que tenha **ligação de serviço** permissão.
 
     ![Configuração][3]
 
-    * Conforme mostrado na imagem anterior, ambas as políticas **iothubowner** e **service** funcionam porque têm **serviço ligar** permissão.
-    * Para um hub de eventos, tem de fornecer a chave que tenha **escutar** permissão.
+  * Conforme mostrado na imagem anterior, ambas as políticas **iothubowner** e **service** funcionam porque têm **serviço ligar** permissão.
+  * Para um hub de eventos, tem de fornecer a chave que tenha **escutar** permissão.
   
     ![Permissões][4]
 
-    * Conforme mostrado na imagem anterior, ambos os **ler** e **gerir** políticas funcionam porque têm **escutar** permissão.
+  * Conforme mostrado na imagem anterior, ambos os **ler** e **gerir** políticas funcionam porque têm **escutar** permissão.
 
 - O grupo de consumidores fornecido não é exclusivo para o Time Series Insights.
 

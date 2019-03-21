@@ -5,17 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 02/28/2019
+ms.date: 03/13/2019
 ms.topic: conceptual
 ms.service: cost-management
 manager: dougeby
 ms.custom: seodec18
-ms.openlocfilehash: 1db3fbbd39418504f98469c7b4999c5a91b5d6de
-ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
+ms.openlocfilehash: e6e20db39be8a6e60833bf5c4f9b6a34a9ead461
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57342195"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58013032"
 ---
 # <a name="tutorial-create-and-manage-azure-budgets"></a>Tutorial: Crie e gira orçamentos do Azure
 
@@ -53,7 +53,9 @@ Para obter mais informações sobre a atribuição de permissão para dados de g
 
 ## <a name="create-a-budget-in-the-azure-portal"></a>Criar um orçamento no portal do Azure
 
-Pode criar um orçamento de subscrição do Azure durante um período mensal, trimestral ou anual. O conteúdo de navegação no portal do Azure determina se criar um orçamento para uma subscrição ou para um grupo de recursos. Por exemplo, no portal do Azure, navegue até **subscrições** &gt; Selecione uma subscrição &gt; **orçamentos**. Neste exemplo, é o orçamento que criar para a subscrição que selecionou. Se quiser criar um orçamento para um grupo de recursos, navegue para **grupos de recursos** > selecione um grupo de recursos > **orçamentos**....
+Pode criar um orçamento de subscrição do Azure durante um período mensal, trimestral ou anual. O conteúdo de navegação no portal do Azure determina se criar um orçamento para uma subscrição ou para um grupo de gestão.
+
+Para criar ou ver um orçamento, abra o âmbito pretendido no portal do Azure e selecione **orçamentos** no menu. Por exemplo, navegue até **subscrições**, selecione uma subscrição na lista e, em seguida, selecione **orçamentos** no menu. Utilize o **âmbito** envenenadas para mudar para um âmbito diferente, como um grupo de gestão, no orçamentos. Para obter mais informações sobre âmbitos, consulte [entender e trabalhar com âmbitos](understand-work-scopes.md).
 
 Depois de criar orçamentos, mostram uma simples exibição de seus gastos atual contra eles.
 

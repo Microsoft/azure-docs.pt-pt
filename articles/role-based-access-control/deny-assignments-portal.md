@@ -11,24 +11,28 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 11/30/2018
+ms.date: 03/13/2019
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 48098ba32a8eb1c2d7a7bafa246b8e850229b430
-ms.sourcegitcommit: 7f7c2fe58c6cd3ba4fd2280e79dfa4f235c55ac8
+ms.openlocfilehash: 2dcbcbec9054b31312043ef6642f59fa64728b30
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/25/2019
-ms.locfileid: "56804540"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58005796"
 ---
 # <a name="view-deny-assignments-for-azure-resources-using-the-azure-portal"></a>Vista de negar atribuições para recursos do Azure no portal do Azure
 
-[Negar atribuições](deny-assignments.md) impedir que os utilizadores a efetuar ações de recursos do Azure específica, mesmo se uma atribuição de função lhes concede acesso. Mesmo que não é possível criar o seu próprio negar atribuições, terá de conseguir ver negar atribuições porque eles podem afetar as suas permissões geral. Para obter informações sobre uma atribuição de negar, tem de ter o `Microsoft.Authorization/denyAssignments/read` permissão, o que está incluído na maioria [funções incorporadas para recursos do Azure](built-in-roles.md).
-
-Este artigo descreve como utilizar o portal do Azure para ver as atribuições de negação.
+[Negar atribuições](deny-assignments.md) impedir que os utilizadores a efetuar ações de recursos do Azure específica, mesmo se uma atribuição de função lhes concede acesso. Este artigo descreve como utilizar o portal do Azure para ver as atribuições de negação.
 
 > [!NOTE]
-> Neste momento, negar atribuições são só de leitura e só podem ser definidas pela Microsoft.
+> Neste momento, a única maneira que pode adicionar seus próprios negar atribuições é através da utilização do Azure esquemas. Para obter mais informações, consulte [proteger os recursos novos com bloqueios de recursos do Azure esquemas](../governance/blueprints/tutorials/protect-new-resources.md).
+
+## <a name="prerequisites"></a>Pré-requisitos
+
+Para obter informações sobre uma atribuição de negar, tem de ter:
+
+- `Microsoft.Authorization/denyAssignments/read` permissão, o que está incluído na maioria [funções incorporadas para recursos do Azure](built-in-roles.md).
 
 ## <a name="view-deny-assignments"></a>Ver atribuições de negação
 

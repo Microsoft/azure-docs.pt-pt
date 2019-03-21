@@ -11,13 +11,13 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
 manager: craigg
-ms.date: 03/07/2019
-ms.openlocfilehash: f54e715f555f01a265ed89ac633f207546a73904
-ms.sourcegitcommit: 30a0007f8e584692fe03c0023fe0337f842a7070
+ms.date: 03/12/2019
+ms.openlocfilehash: ff3f1e405dc7a1e69c3b1d1d20936ca78b97fcda
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57576366"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57855100"
 ---
 # <a name="recover-an-azure-sql-database-using-automated-database-backups"></a>Recuperar uma base de dados SQL do Azure com cópias de segurança da base de dados automatizada
 
@@ -114,9 +114,6 @@ Para recuperar uma base de dados eliminada, com o portal do Azure durante a resp
 
 Pode restaurar uma base de dados SQL em qualquer servidor em qualquer região do Azure a partir de cópias de segurança georreplicado mais recentes. O restauro geográfico utiliza uma cópia de segurança georredundante como origem e pode ser usado para recuperar uma base de dados, mesmo que a base de dados ou o Centro de dados não está acessível devido a uma falha.
 
-> [!Note]
-> O restauro geográfico não está disponível na instância gerida.
-
 Georrestauro encontra-se a opção de recuperação predefinida quando a sua base de dados está indisponível devido a um incidente na região onde está hospedado o banco de dados. Se um incidente em grande escala nos resultados da região na indisponibilidade da sua aplicação de base de dados, pode restaurar uma base de dados das cópias de segurança georreplicado para um servidor em qualquer outra região. Existe um atraso entre quando é feita uma cópia de segurança e quando é georreplicado a Azure blob numa região diferente. Este atraso pode demorar até uma hora, por isso, se ocorrer um desastre, pode haver até à perda de dados de uma hora. A ilustração seguinte mostra o restauro da base de dados da cópia de segurança disponível última noutra região.
 
 ![Restauro geográfico](./media/sql-database-geo-restore/geo-restore-2.png)
@@ -133,6 +130,9 @@ Restauro de ponto no tempo na geo-secundária não é atualmente suportado. Rest
 
 Para uma base de dados durante o restauro geográfico seus [período de retenção do modelo baseado em DTU](sql-database-service-tiers-dtu.md) ou [período de retenção do modelo baseado em vCore](sql-database-service-tiers-vcore.md) com o portal do Azure, abra a página de bases de dados SQL e, em seguida, clique em **adicionar** . Na **selecionar origem** caixa de texto, selecione **cópia de segurança**. Especifique a cópia de segurança a partir da qual pretende efetuar a recuperação, na região e no servidor da sua preferência.
 
+> [!Note]
+> Georrestauro com o portal do Azure não está disponível na instância gerida. Utilize o PowerShell.
+
 ## <a name="programmatically-performing-recovery-using-automated-backups"></a>A execução através de programação de recuperação com cópias de segurança automáticas
 
 Como foi discutido anteriormente, além de portal do Azure, a recuperação de base de dados pode ser executada por meio de programação com o Azure PowerShell ou a API REST. As tabelas seguintes descrevem o conjunto de comandos disponíveis.
@@ -140,6 +140,8 @@ Como foi discutido anteriormente, além de portal do Azure, a recuperação de b
 ### <a name="powershell"></a>PowerShell
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+> [!IMPORTANT]
+> O módulo do PowerShell do Azure Resource Manager ainda é suportado pelo SQL Database do Azure, mas todo o desenvolvimento futuro é para o módulo de Az.Sql. Para estes cmdlets, consulte [azurerm. SQL](https://docs.microsoft.com/powershell/module/AzureRM.Sql/). Os argumentos para os comandos no módulo Az e nos módulos AzureRm são substancialmente idênticos.
 
 - Para restaurar um autónoma ou de bases de dados agrupadas, consulte [restauro AzSqlDatabase](/powershell/module/az.sql/restore-azsqldatabase).
 
@@ -173,7 +175,7 @@ Para restaurar uma base de dados individual ou agrupada através da API REST:
 ### <a name="azure-cli"></a>CLI do Azure
 
 - Para restaurar uma base de dados individual ou agrupada com a CLI do Azure, consulte [restauro do az sql db](/cli/azure/sql/db#az-sql-db-restore).
-- Para restaurar uma instância gerida com a CLI do Azure, consulte [restauro de midb az sql](/cli/azure/sql/db#az-sql-midb-restore)
+- Para restaurar uma instância gerida com a CLI do Azure, consulte [restauro de midb az sql](/cli/azure/sql/db)
 
 ## <a name="summary"></a>Resumo
 

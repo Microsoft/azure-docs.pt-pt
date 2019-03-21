@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 02/05/2019
 ms.author: rajanaki
-ms.openlocfilehash: e3933fb593dfafc6ecc641d7c19741b7c0882c00
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: 36d0a976b73fe5b6f89755ce790b919468744179
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56878375"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58091652"
 ---
 # <a name="service-updates-in-azure-site-recovery"></a>Atualizações de serviço no Azure Site Recovery
 Como uma organização, terá de descobrir como pretende manter os dados protegidos e aplicações/cargas de trabalho em execução quando planeada e falhas não planeadas ocorrerem. O Azure Site Recovery contribui para a sua estratégia BCDR ao manter as suas aplicações em execução em VMs e servidores físicos disponíveis se um site ficar inativo. O Site Recovery replica as cargas de trabalho em execução em VMs e servidores físicos para que permaneçam disponíveis num local secundário, se o site primário não estiver disponível. Recupera as cargas de trabalho para o site primário quando estiver novamente operacional.
@@ -108,7 +108,7 @@ Antes de continuar com as atualizações, consulte [declaração de suporte do S
 Uma reinicialização é recomendada após cada atualização do agente de mobilidade para se certificar de que todas as alterações mais recentes são carregadas na máquina de origem. No entanto é **não seja obrigatório**. Se a diferença entre a versão do agente durante a última reinicialização e a versão atual for superior a 4, em seguida, é um reinício obrigatório. Consulte a tabela seguinte para uma explicação detalhada.
 
 |**Versão de agente durante a última reinicialização** | **Atualizar para o** | **É de reinício obrigatório?**|
-|---------|---------|---------|--------|
+|---------|---------|---------|
 |9.16 |  9.18 | Não é obrigatório|
 |9.16 | 9.19 | Não é obrigatório|
 | 9.16 | 9.20 | Não é obrigatório

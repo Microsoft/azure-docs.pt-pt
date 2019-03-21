@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 10/13/2017
 ms.author: vidarmsft
-ms.openlocfilehash: f5b128306389a87c432b869b4756a6d232dc903c
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
+ms.openlocfilehash: f5eefd1d3fa26738729d98e60d8a56cd8d33d86c
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55566045"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58084883"
 ---
 # <a name="automated-disaster-recovery-solution-using-azure-site-recovery-for-file-shares-hosted-on-storsimple"></a>Solução de recuperação após desastre automatizada com o Azure Site Recovery para partilhas de ficheiros alojadas no StorSimple
 ## <a name="overview"></a>Descrição geral
@@ -179,7 +179,7 @@ Pode criar um plano de recuperação no ASR para automatizar o processo de ativa
    - *RecoveryPlanName***-StorageAccountKey**: A chave de acesso para a conta de armazenamento acima.
    - *RecoveryPlanName***-VMGUIDS**: Após proteger uma VM, o Azure Site Recovery atribui cada VM uma ID exclusiva que dá os detalhes da sobre a VM. Para obter o VMGUID, selecione o **serviços de recuperação** separador e clique em **Item protegido** &gt; **grupos de proteção** &gt;  **Máquinas** &gt; **propriedades**. Se tiver várias VMs, em seguida, adicione os GUIDs como uma cadeia separada por vírgulas.
 
-    Por exemplo, se o nome do plano de recuperação é fileServerpredayRP, em seguida, sua **variáveis**, **ligações** e **certificados** separador deverá aparecer da seguinte forma depois de adicionar todos os recursos.
+     Por exemplo, se o nome do plano de recuperação é fileServerpredayRP, em seguida, sua **variáveis**, **ligações** e **certificados** separador deverá aparecer da seguinte forma depois de adicionar todos os recursos.
 
       ![Elementos](./media/storsimple-disaster-recovery-using-azure-site-recovery/image5.png)
 
@@ -332,30 +332,30 @@ Planeamento da capacidade é constituído por, pelo menos, dois processos import
    - Determinar a largura de banda de Internet necessária.
 
 ## <a name="limitations"></a>Limitações
-   - Atualmente, apenas 1 dispositivo do StorSimple pode efetuar a ativação pós-falha (para uma StorSimple Cloud Appliance único). O cenário de um servidor de ficheiros que abranja vários dispositivos do StorSimple ainda não é suportado.
-   - Se obtiver um erro ao ativar a proteção para uma VM, certifique-se de que já desconectados destinos iSCSI.
-   - Todos os contentores de volume foram agrupados em conjunto devido a políticas de cópia de segurança que abrangem em contentores de volumes irão efetuar a ativação pós-falha em conjunto.
-   - Todos os volumes dos contentores de volume tiver optado por irão efetuar a ativação pós-falha.
-   - Não é possível efetuar a volumes que adicionar até 64 TB, mais de ativação pós-falha porque a capacidade máxima de uma StorSimple Cloud Appliance único é 64 TB.
-   - Se falha a ativação pós-falha planeada/não planeada e as VMs são criadas no Azure, em seguida, não limpe as VMs. Em vez disso, fazer uma reativação pós-falha. Se eliminar as VMs, em seguida, as VMs no local não podem ser ativadas novamente.
-   - Após uma ativação pós-falha, se não for capaz de ver os volumes, vá para as VMs, abra a gestão de discos, reanalise os discos e, em seguida, colocá-los online.
-   - Em alguns casos, as letras de unidade no site de DR podem ser diferentes de letras no local. Se isto ocorrer, terá de corrigir manualmente o problema depois de concluída a ativação pós-falha.
-   - Tempo limite de tarefa de ativação pós-falha: O script de StorSimple expirará se a ativação pós-falha dos contentores de volumes demora mais tempo do que o limite do Azure Site Recovery por script (atualmente a 120 minutos).
-   - Tempo limite da tarefa de cópia de segurança: O script de StorSimple exceder o tempo limite se a cópia de segurança de volumes demora mais tempo do que o limite do Azure Site Recovery por script (atualmente a 120 minutos).
+- Atualmente, apenas 1 dispositivo do StorSimple pode efetuar a ativação pós-falha (para uma StorSimple Cloud Appliance único). O cenário de um servidor de ficheiros que abranja vários dispositivos do StorSimple ainda não é suportado.
+- Se obtiver um erro ao ativar a proteção para uma VM, certifique-se de que já desconectados destinos iSCSI.
+- Todos os contentores de volume foram agrupados em conjunto devido a políticas de cópia de segurança que abrangem em contentores de volumes irão efetuar a ativação pós-falha em conjunto.
+- Todos os volumes dos contentores de volume tiver optado por irão efetuar a ativação pós-falha.
+- Não é possível efetuar a volumes que adicionar até 64 TB, mais de ativação pós-falha porque a capacidade máxima de uma StorSimple Cloud Appliance único é 64 TB.
+- Se falha a ativação pós-falha planeada/não planeada e as VMs são criadas no Azure, em seguida, não limpe as VMs. Em vez disso, fazer uma reativação pós-falha. Se eliminar as VMs, em seguida, as VMs no local não podem ser ativadas novamente.
+- Após uma ativação pós-falha, se não for capaz de ver os volumes, vá para as VMs, abra a gestão de discos, reanalise os discos e, em seguida, colocá-los online.
+- Em alguns casos, as letras de unidade no site de DR podem ser diferentes de letras no local. Se isto ocorrer, terá de corrigir manualmente o problema depois de concluída a ativação pós-falha.
+- Tempo limite de tarefa de ativação pós-falha: O script de StorSimple expirará se a ativação pós-falha dos contentores de volumes demora mais tempo do que o limite do Azure Site Recovery por script (atualmente a 120 minutos).
+- Tempo limite da tarefa de cópia de segurança: O script de StorSimple exceder o tempo limite se a cópia de segurança de volumes demora mais tempo do que o limite do Azure Site Recovery por script (atualmente a 120 minutos).
    
-   > [!IMPORTANT]
-   > Executar a cópia de segurança manualmente a partir do portal do Azure e, em seguida, execute novamente o plano de recuperação.
+  > [!IMPORTANT]
+  > Executar a cópia de segurança manualmente a partir do portal do Azure e, em seguida, execute novamente o plano de recuperação.
    
-   - Tempo limite de tarefa de clone: O script de StorSimple exceder o tempo limite se a clonagem de volumes demora mais tempo do que o limite do Azure Site Recovery por script (atualmente a 120 minutos).
-   - Erro de sincronização de hora: O StorSimple scripts erros horizontalmente dizendo que as cópias de segurança foram sem êxito, apesar da cópia de segurança é efetuada com êxito no portal. Uma causa possível para que isso pode ser que o tempo da aplicação StorSimple pode ser sincronizado com a hora atual no fuso horário.
+- Tempo limite de tarefa de clone: O script de StorSimple exceder o tempo limite se a clonagem de volumes demora mais tempo do que o limite do Azure Site Recovery por script (atualmente a 120 minutos).
+- Erro de sincronização de hora: O StorSimple scripts erros horizontalmente dizendo que as cópias de segurança foram sem êxito, apesar da cópia de segurança é efetuada com êxito no portal. Uma causa possível para que isso pode ser que o tempo da aplicação StorSimple pode ser sincronizado com a hora atual no fuso horário.
    
-   > [!IMPORTANT]
-   > Sincronize a hora da aplicação com a hora atual no fuso horário.
+  > [!IMPORTANT]
+  > Sincronize a hora da aplicação com a hora atual no fuso horário.
    
-   - Erro de ativação pós-falha da aplicação: O script do StorSimple pode falhar se houver uma ativação pós-falha de aplicação quando o plano de recuperação está em execução.
+- Erro de ativação pós-falha da aplicação: O script do StorSimple pode falhar se houver uma ativação pós-falha de aplicação quando o plano de recuperação está em execução.
    
-   > [!IMPORTANT]
-   > Volte a executar o plano de recuperação depois de concluída a ativação pós-falha da aplicação.
+  > [!IMPORTANT]
+  > Volte a executar o plano de recuperação depois de concluída a ativação pós-falha da aplicação.
 
 
 ## <a name="summary"></a>Resumo

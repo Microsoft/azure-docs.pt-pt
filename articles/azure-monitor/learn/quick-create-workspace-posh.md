@@ -11,14 +11,14 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 02/21/2019
+ms.date: 03/12/2019
 ms.author: magoedte
-ms.openlocfilehash: 06c878d3b3ad2fe3144d5e55c1a01880ddcab62c
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.openlocfilehash: 055daebb28131268e517845a47d4c39aba90f201
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57312210"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57871216"
 ---
 # <a name="create-a-log-analytics-workspace-with-azure-powershell"></a>Criar uma área de trabalho do Log Analytics com o Azure PowerShell
 
@@ -46,6 +46,8 @@ Se optar por instalar e utilizar o PowerShell localmente, este tutorial requer o
 
 ## <a name="create-a-workspace"></a>Criar uma área de trabalho
 Criar uma área de trabalho com [New-AzResourceGroupDeployment](/powershell/module/az.resources/new-azresourcegroupdeployment). O exemplo seguinte cria uma área de trabalho com o nome *TestWorkspace* no grupo de recursos *laboratório* no *eastus* local usando um modelo do Resource Manager do local máquina. O modelo JSON está configurado para apenas solicitar-lhe o nome da área de trabalho e especifica um valor predefinido para os outros parâmetros que provavelmente seria usado como uma configuração padrão no seu ambiente. 
+
+Para obter informações sobre regiões suportadas, consulte [regiões do Log Analytics está disponível](https://azure.microsoft.com/regions/services/) e procure o Azure Monitor e a partir do **pesquisa de um produto** campo. 
 
 Os seguintes parâmetros de definir um valor predefinido:
 
@@ -114,7 +116,7 @@ Os seguintes parâmetros de definir um valor predefinido:
     }
     ```
 
-2. Edite o modelo para satisfazer os seus requisitos.  Revisão [Microsoft.OperationalInsights/workspaces modelo](https://docs.microsoft.com/azure/templates/microsoft.operationalinsights/workspaces) referência para saber quais propriedades e valores são suportados. 
+2. Edite o modelo para satisfazer os seus requisitos. Revisão [Microsoft.OperationalInsights/workspaces modelo](https://docs.microsoft.com/azure/templates/microsoft.operationalinsights/workspaces) referência para saber quais propriedades e valores são suportados. 
 3. Guarde este ficheiro como **deploylaworkspacetemplate.json** para uma pasta local.   
 4. Está pronto para implementar este modelo. Utilize os seguintes comandos a partir da pasta que contém o modelo:
 

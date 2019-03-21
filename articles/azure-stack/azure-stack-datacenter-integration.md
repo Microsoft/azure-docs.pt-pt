@@ -12,16 +12,16 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/12/2019
+ms.date: 03/14/2019
 ms.author: jeffgilb
 ms.reviewer: wfayed
 ms.lastreviewed: 09/12/2018
-ms.openlocfilehash: 5ececb2d3c52a1da8c1a537e6223f17a9b83921f
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 1c21cc778ed398c28077ef1a20ebbb7b295c2baa
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56207539"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58012394"
 ---
 # <a name="datacenter-integration-considerations-for-azure-stack-integrated-systems"></a>Sistemas integrados de considerações de integração do Centro de dados para o Azure Stack
 Se estiver interessado num sistema integrado do Azure Stack, deve compreender as principais considerações de planeamento, à implantação e como o sistema se encaixa no seu datacenter. Este artigo fornece uma visão geral dessas questões para ajudar a tomar decisões importantes de infraestrutura para o seu sistema de vários nó do Azure Stack. Uma compreensão destas considerações ajuda ao trabalhar com o fornecedor do hardware de OEM, à medida que implementam o Azure Stack para o seu datacenter.  
@@ -162,7 +162,7 @@ A tabela seguinte resume a lista de opções atualmente disponíveis.
 | Área | Solução de monitorização externa |
 | -- | -- |
 | Software de pilha do Azure | [Pacote de gestão do Azure Stack para o Operations Manager](https://azure.microsoft.com/blog/management-pack-for-microsoft-azure-stack-now-available/)<br>[Nagios Plug-in](https://exchange.nagios.org/directory/Plugins/Cloud/Monitoring-AzureStack-Alerts/details)<br>Chamadas de API baseada em REST | 
-| Servidores físicos (BMCs através de IPMI) | Hardware de OEM - pacote de gestão do fornecedor do Operations Manager<br>Solução de fornecidos pelo fornecedor de hardware de OEM<br>Fornecedor de hardware plug-ins do Nagios | OEM parceiros com suporte (incluída) de solução de monitorização | 
+| Servidores físicos (BMCs através de IPMI) | Hardware de OEM - pacote de gestão do fornecedor do Operations Manager<br>Solução de fornecidos pelo fornecedor de hardware de OEM<br>Fornecedor de hardware Nagios plug-ins.<br>OEM parceiros com suporte (incluída) de solução de monitorização | 
 | Dispositivos de rede (SNMP) | Deteção de dispositivos de rede do Operations Manager<br>Solução de fornecidos pelo fornecedor de hardware de OEM<br>Comutador de Nagios Plug-in |
 | Monitorização de estado de funcionamento de subscrição do inquilino | [Pacote de gestão do System Center para o Windows Azure](https://www.microsoft.com/download/details.aspx?id=50013) | 
 |  |  | 

@@ -12,12 +12,12 @@ ms.author: moslake
 ms.reviewer: ninarn, carlrab
 manager: craigg
 ms.date: 02/28/2019
-ms.openlocfilehash: dd06ae6046ab96d95cf1c1907c74d0b4d9a843bb
-ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
+ms.openlocfilehash: 96160745fa8702fc6f931904098c28d8968de2c1
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57214338"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58010232"
 ---
 # <a name="elastic-pools-help-you-manage-and-scale-multiple-azure-sql-databases"></a>O ajudam a gerir e dimensionar várias bases de dados SQL do Azure de conjuntos elásticos
 
@@ -211,7 +211,7 @@ Para obter mais informações, consulte [criar alertas de base de dados SQL no p
 
   Umbraco utiliza conjuntos elásticos com o Azure SQL Database para os serviços rapidamente aprovisionar e Dimensionar para milhares de inquilinos na nuvem.
 
-- [Daxko/CSI](http://customers.microsoft.com/story/csi-used-azure-to-accelerate-its-development-cycle-and-to-enhance-its-customer-services)
+- [Daxko/CSI](https://customers.microsoft.com/story/csi-used-azure-to-accelerate-its-development-cycle-and-to-enhance-its-customer-services)
 
   Daxko/CSI utiliza conjuntos elásticos com o SQL Database do Azure para acelerar o seu ciclo de desenvolvimento e para melhorar o serviço ao cliente e o desempenho.
 
