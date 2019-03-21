@@ -12,12 +12,12 @@ ms.tgt_pltfrm: virtual-network
 ms.workload: infrastructure
 ms.date: 09/18/2018
 ms.author: anithaa
-ms.openlocfilehash: 06c034968b2577d6321ffe6f55f969547a35931f
-ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
+ms.openlocfilehash: aaa07759ed8b10578d024d5838ac1d2658778695
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54054440"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57999884"
 ---
 # <a name="create-change-or-delete-service-endpoint-policy-using-the-azure-portal"></a>Criar, alterar ou eliminar a política de ponto final de serviço com o portal do Azure
 
@@ -35,7 +35,7 @@ Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure
 
 ## <a name="sign-in-to-azure"></a>Iniciar sessão no Azure 
 
-Inicie sessão no portal do Azure em http://portal.azure.com.
+Inicie sessão no portal do Azure em https://portal.azure.com.
 
 ## <a name="create-a-service-endpoint-policy"></a>Criar uma política de ponto final de serviço
 
@@ -45,7 +45,7 @@ Inicie sessão no portal do Azure em http://portal.azure.com.
 
    - Subscrição: Selecione a sua subscrição para a política.    
    - Grupo de recursos: Selecione **Criar novo** e introduza *myResourceGroup*.     
-   - Nome: myEndpointPolicy
+   - Name           : myEndpointPolicy
    - Localização: EUA Centro-Oeste     
  
    ![Criar ponto final de serviço Noções básicas de política](./media/virtual-network-service-endpoint-policies-portal/virtual-network-endpoint-policies-create-startpane.PNG)
@@ -63,8 +63,8 @@ Inicie sessão no portal do Azure em http://portal.azure.com.
    
 5. Opcional: Introduza ou selecione as seguintes informações na **etiquetas**:
    
-   - Chave: Selecione a sua chave para a política. Por exemplo: Departamento     
-   - Valor: Introduza o par de valor da chave. Por exemplo: Finanças
+   - Chave: Selecione a sua chave para a política. Ex.: Departamento     
+   - Valor: Introduza o par de valor da chave. Ex.: Finanças
 
 6. Selecione **rever + criar**. Validar as informações e clique em **criar**. Para tornar ainda mais as edições, clique em **Previous**. 
 
@@ -96,7 +96,7 @@ Antes de poder associar uma política a uma sub-rede, tem de criar uma rede virt
 1. Selecione **+ Criar um recurso**, no canto superior esquerdo do Portal do Azure.
 2. Selecione **Redes** e, em seguida, selecione **Rede virtual**.
 3. Em **Criar rede virtual**, introduza ou selecione as seguintes informações, aceite as predefinições para as restantes definições e, em seguida, selecione **Criar**:
-   - Nome: myVirtualNetwork      
+   - Name           : myVirtualNetwork      
    - Espaço de endereços: 10.0.0.0/16      
    - Subscrição: Selecione a sua subscrição. Política deve ser na mesma subscrição que a VNet     
    - Grupo de recursos: Selecione **utilizar existente** e, em seguida, selecione *myResourceGroup*     

@@ -10,12 +10,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 03/23/2017
 ms.author: alkarche
-ms.openlocfilehash: bb1616c7cbf5c9c4620aed3e31896e32fe0163f9
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.openlocfilehash: 6d11961f06a75341e633c7a8963e6b83ed37cf13
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53606219"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58076739"
 ---
 # <a name="openapi-20-metadata-support-in-azure-functions-preview"></a>Suporte de metadados de OpenAPI 2.0 nas funções do Azure (pré-visualização)
 O OpenAPI 2.0 (anteriormente Swagger) suporte a metadados nas funções do Azure é uma funcionalidade de pré-visualização que pode utilizar para escrever uma definição de OpenAPI 2.0 dentro de uma aplicação de funções. Em seguida, pode alojar esse ficheiro com a aplicação de função.
@@ -45,7 +45,7 @@ Para obter instruções passo a passo, consulte a [tutorial de introdução](./f
 
 ### <a name="templates"></a>Modelos disponíveis
 
-|Nome| Descrição |
+|Name| Descrição |
 |:-----|:-----|
 |Definição gerada|Uma definição de OpenAPI com a quantidade máxima de informações que podem ser inferidas a partir de metadados de existente da função.|
 
@@ -59,7 +59,7 @@ A tabela seguinte representa as definições do portal do Azure e os dados corre
 |[Caminhos](https://swagger.io/specification/#paths-object-29)|**Integre** > **métodos HTTP selecionados**|Ligações: Encaminhar
 |[Item do caminho](https://swagger.io/specification/#path-item-object-32)|**Integre** > **modelo de rota**|Ligações: Métodos
 |[Segurança](https://swagger.io/specification/#security-scheme-object-112)|**chaves**|*Não está presente*|
-|operationID *|**Rota + verbos permitidos**|Rota + verbos permitidos|
+|operationID*|**Rota + verbos permitidos**|Rota + verbos permitidos|
 
 \*O ID de operação é necessário apenas para a integração com o PowerApps e Flow.
 > [!NOTE]
@@ -72,9 +72,9 @@ A tabela seguinte representa as definições do portal do Azure e os dados corre
  Tem de ativar a definição de API de hospedagem no portal do antes de ativar o controlo de origem modificar a definição de API de controlo de origem. Siga estas instruções:
 
 1. Navegue até **definição de API (pré-visualização)** nas suas definições de aplicação de função.
-  1. Definir **origem de definição de API** ao **função**.
-  1. Clique em **modelo de definição de API de gerar** e, em seguida **guardar** para criar uma definição de modelo para modificar mais tarde.
-  1. Tenha em atenção que o URL de definição de API e a chave.
+   1. Definir **origem de definição de API** ao **função**.
+   1. Clique em **modelo de definição de API de gerar** e, em seguida **guardar** para criar uma definição de modelo para modificar mais tarde.
+   1. Tenha em atenção que o URL de definição de API e a chave.
 1. [Configurar a implementação de integração contínua/contínua (CI/CD)](https://docs.microsoft.com/azure/azure-functions/functions-continuous-deployment#continuous-deployment-requirements).
 2. Modifique o swagger no controle de origem em \site\wwwroot\.azurefunctions\swagger\swagger.json.
 

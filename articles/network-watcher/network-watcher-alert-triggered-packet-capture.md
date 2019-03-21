@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: jdial
-ms.openlocfilehash: fd7e7151d8ec676239ed810fb700149aab0fe0fa
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: 71e71b417f12b58fc03c581826c0e5c2412e684b
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54427407"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57876651"
 ---
 # <a name="use-packet-capture-for-proactive-network-monitoring-with-alerts-and-azure-functions"></a>Utilizar a captura de pacotes de monitorização de rede proativa com alertas e as funções do Azure
 
@@ -110,13 +110,13 @@ Para utilizar cmdlets do PowerShell do observador de rede, carregar o módulo do
 
     Neste exemplo dá-lhe o caminho local de seus módulos do Azure PowerShell. Essas pastas são utilizadas num passo posterior. Os módulos utilizados neste cenário são:
 
-    * AzureRM.Network
+   * AzureRM.Network
 
-    * AzureRM.Profile
+   * AzureRM.Profile
 
-    * AzureRM.Resources
+   * AzureRM.Resources
 
-    ![Pastas de PowerShell][functions5]
+     ![Pastas de PowerShell][functions5]
 
 1. Selecione **as definições da aplicação de função** > **Ir para o Editor de serviço de aplicações**.
 
@@ -146,7 +146,7 @@ Para utilizar cmdlets do PowerShell do observador de rede, carregar o módulo do
 
     ![Ficheiros PowerShell][functions7]
 
-### <a name="authentication"></a>Autenticação
+### <a name="authentication"></a>Authentication
 
 Para utilizar os cmdlets do PowerShell, tem de autenticar. Configurar a autenticação na function app. Para configurar a autenticação, tem de configurar variáveis de ambiente e carregar um ficheiro de chave encriptado para a aplicação de funções.
 
@@ -344,7 +344,7 @@ Vá para uma máquina virtual existente e, em seguida, adicione uma regra de ale
   |**Definição** | **Valor** | **Detalhes** |
   |---|---|---|
   |**Nome**|TCP_Segments_Sent_Exceeded|Nome da regra de alerta.|
-  |**Descrição**|Segmentos TCP enviado limiar excedido|A descrição para a regra de alerta.||
+  |**Descrição**|Segmentos TCP enviado limiar excedido|A descrição para a regra de alerta.|
   |**Métricas**|Segmentos TCP enviados| A métrica para utilizar para acionar o alerta. |
   |**condição**|Maior que| A condição a utilizar ao avaliar a métrica.|
   |**Limiar**|100| O valor da métrica que aciona o alerta. Este valor deve ser definido para um valor válido para o seu ambiente.|
@@ -362,7 +362,7 @@ Depois dos critérios para os acionadores de alerta, é criada uma captura de pa
 
 Se o arquivo de captura é armazenado localmente, pode recuperá-la ao iniciar sessão para a máquina virtual.
 
-Para obter instruções sobre o download de arquivos de contas de armazenamento do Azure, consulte [introdução ao armazenamento de Blobs do Azure com o .NET](../storage/blobs/storage-dotnet-how-to-use-blobs.md). É outra ferramenta que pode utilizar [Explorador de armazenamento](http://storageexplorer.com/).
+Para obter instruções sobre o download de arquivos de contas de armazenamento do Azure, consulte [introdução ao armazenamento de Blobs do Azure com o .NET](../storage/blobs/storage-dotnet-how-to-use-blobs.md). É outra ferramenta que pode utilizar [Explorador de armazenamento](https://storageexplorer.com/).
 
 Após a captura foi transferida, pode vê-lo usando qualquer ferramenta que pode ler um **. cap** ficheiro. Seguem-se ligações para duas dessas ferramentas:
 

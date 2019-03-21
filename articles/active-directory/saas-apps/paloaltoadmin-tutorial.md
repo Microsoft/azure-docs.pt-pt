@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 01/02/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0f72a1a0a276f613aaad2d7ecdbe9275a261537a
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: f45b0779693433f1b1fad3c5bfd4323eacb9a63b
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57782008"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57838651"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-palo-alto-networks---admin-ui"></a>Tutorial: Integração do Active Directory do Azure com o da Palo Alto Networks - interface do Usuário de administrador
 
@@ -117,7 +117,7 @@ Para configurar o Azure AD início de sessão único da Palo Alto Networks - int
 
 5. Da Palo Alto Networks - aplicação de interface do Usuário de administrador espera que as asserções SAML num formato específico. Configure as seguintes declarações para esta aplicação. Pode gerir os valores destes atributos do **atributos de utilizador** secção na página de integração de aplicações. Sobre o **definido no início de sessão único com o SAML** página, clique em **editar** botão para abrir **atributos de utilizador** caixa de diálogo.
 
-    ![imagem](common/edit-attribute.png)
+    ![image](common/edit-attribute.png)
 
    > [!NOTE]
    > Como os valores de atributo são apenas exemplos, mapear os valores adequados para *nome de utilizador* e *adminrole*. Há outro atributo opcional, *accessdomain*, que é utilizado para restringir o acesso de administrador para sistemas virtuais específicos na firewall.
@@ -127,15 +127,15 @@ Para configurar o Azure AD início de sessão único da Palo Alto Networks - int
 
     | Name |  Atributo de origem|
     | --- | --- |
-    | nome do utilizador | user.userprincipalname |
+    | o nome de utilizador | user.userprincipalname |
     | adminrole | customadmin |
     | | |
 
     a. Clique em **Adicionar nova afirmação** para abrir o **afirmações de utilizador de gerir** caixa de diálogo.
 
-    ![imagem](common/new-save-attribute.png)
+    ![image](common/new-save-attribute.png)
 
-    ![imagem](common/new-attribute-details.png)
+    ![image](common/new-attribute-details.png)
 
     b. Na **nome** caixa de texto, escreva o nome de atributo apresentado para essa linha.
 
@@ -271,7 +271,7 @@ O objetivo desta secção é criar um utilizador de teste no portal do Azure cha
 
     a. Na **Name** campo introduza **BrittaSimon**.
   
-    b. Na **nome de utilizador** tipo de campo **brittasimon@yourcompanydomain.extension**  
+    b. Na **nome de utilizador** tipo de campo **brittasimon\@yourcompanydomain.extension**  
     Por exemplo, BrittaSimon@contoso.com
 
     c. Selecione **palavra-passe de Show** caixa de verificação e, em seguida, anote o valor que é apresentado na caixa de palavra-passe.
@@ -308,7 +308,7 @@ Nesta secção, vai ativar Eduarda Almeida utilizar o Azure início de sessão �
 
 Da Palo Alto Networks - interface do Usuário de administrador suporta o aprovisionamento de utilizador de just-in-time. Se um utilizador já não existir, será criado automaticamente no sistema após uma autenticação com êxito. Não é necessária ação do utilizador para criar o utilizador.
 
-### <a name="test-single-sign-on"></a>Testar início de sessão único
+### <a name="test-single-sign-on"></a>Testar o início de sessão único
 
 Nesta secção, vai testar a configuração do Azure AD única início de sessão com o painel de acesso.
 

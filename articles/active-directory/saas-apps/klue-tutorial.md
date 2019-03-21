@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 02/25/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ee9b8f3cf0e1b83b59cc21800c41e0092a3c5e16
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: be794c6d24218eccdc960219dd61a2075b5ab7ec
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57776925"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57858865"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-klue"></a>Tutorial: Integração do Active Directory do Azure com Klue
 
@@ -185,7 +185,7 @@ O objetivo desta secção é criar um utilizador de teste no portal do Azure cha
 
     a. Na **Name** , insira **BrittaSimon**.
   
-    b. Na **nome de utilizador** , digite **brittasimon@yourcompanydomain.extension**  
+    b. Na **nome de utilizador** , digite **brittasimon\@yourcompanydomain.extension**  
     Por exemplo, BrittaSimon@contoso.com
 
     c. Selecione **palavra-passe de Show** caixa de verificação e, em seguida, anote o valor que é apresentado na caixa de palavra-passe.

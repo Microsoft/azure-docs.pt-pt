@@ -10,12 +10,12 @@ ms.service: machine-learning
 ms.subservice: studio
 ms.topic: tutorial
 ms.date: 02/11/2019
-ms.openlocfilehash: f64000ed502ee817f907e6ac9c89c2f037725a39
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.openlocfilehash: 7132c2073223008cd82d0ffd54aaf266d0a630ba
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56823795"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57839022"
 ---
 # <a name="tutorial-3-deploy-credit-risk-model---azure-machine-learning-studio"></a>Tutorial 3: Implementar o modelo de risco de crédito - Azure Machine Learning Studio
 
@@ -72,12 +72,11 @@ tem de eliminar os seguintes módulos:
 
 Selecione cada módulo e prima a tecla Delete, ou o módulo com o botão direito e selecione **eliminar**. 
 
-![Remover o modelo SVM](./media/tutorial-part3-credit-risk-deploy/publish3a.png)
-
+![Realça os módulos para eliminar para remover o modelo de máquina de Vetor com suporte](./media/tutorial-part3-credit-risk-deploy/publish3a.png)
 
 O nosso modelo deverá agora ser semelhante ao seguinte:
 
-![Remover o modelo SVM](./media/tutorial-part3-credit-risk-deploy/publish3.png)
+![Experimentação resultante quando o modelo de máquina de Vetor com suporte é eliminado](./media/tutorial-part3-credit-risk-deploy/publish3.png)
 
 Agora, estamos prontos para implementar este modelo com o [árvore de decisões elevada de duas classes][two-class-boosted-decision-tree].
 

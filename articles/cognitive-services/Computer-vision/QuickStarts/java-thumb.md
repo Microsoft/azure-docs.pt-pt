@@ -8,19 +8,19 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: quickstart
-ms.date: 08/28/2018
+ms.date: 03/11/2019
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: 244dfa6089ac6263abfedb398a8f58c4d307543c
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 7287dc176f230f2d5440abdf1c4a3e364dcf96e7
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55854902"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57890989"
 ---
 # <a name="quickstart-generate-a-thumbnail-using-the-rest-api-and-java-in-computer-vision"></a>Início rápido: Gere uma miniatura com a REST API e o Java de imagem digitalizada
 
-Neste guia de início rápido, irá gerar uma miniatura de uma imagem através da API REST de Imagem Digitalizada. Com o método [Get Thumbnail](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fb) (Obter Miniatura), pode gerar uma miniatura de uma imagem. O utilizador especifica a altura e a largura, que podem ser diferentes da proporção da imagem introduzida. Imagem digitalizada utiliza o corte inteligente para inteligentemente identificar a área de interesse e gerar as coordenadas de recorte com base na região.
+Neste guia de início rápido, irá gerar uma miniatura de uma imagem através da API REST de Imagem Digitalizada. O utilizador especifica a altura e a largura, que podem ser diferentes da proporção da imagem introduzida. Imagem digitalizada utiliza o corte inteligente para inteligentemente identificar a área de interesse e gerar as coordenadas de recorte com base na região.
 
 Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/ai/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=cognitive-services) antes de começar.
 
@@ -166,10 +166,6 @@ public class Main {
 ## <a name="examine-the-response"></a>Examinar a resposta
 
 É devolvida uma resposta com êxito como dados binários, que representa os dados da imagem da miniatura. Se o pedido for bem-sucedido, a miniatura é gerada a partir dos dados binários na resposta e apresentada numa janela separada, criada pela aplicação de exemplo. Se o pedido falhar, a resposta é apresentada na janela da consola. A resposta do pedido falhado contém um código de erro e uma mensagem para ajudar a determinar o que correu mal.
-
-## <a name="clean-up-resources"></a>Limpar recursos
-
-Quando já não for necessário, elimine o projeto Java, incluindo a classe compilada e as bibliotecas importadas.
 
 ## <a name="next-steps"></a>Passos Seguintes
 

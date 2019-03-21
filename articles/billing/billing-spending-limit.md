@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/15/2018
 ms.author: banders
-ms.openlocfilehash: bfc6bf8cab1358c47e66660303f3303f4e9c763a
-ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
+ms.openlocfilehash: c234f75ec752ec79e9f2a051f79e91bdde81de15
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54901008"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57845377"
 ---
 # <a name="understand-azure-spending-limit-and-how-to-remove-it"></a>Compreender o limite e como removê-lo de gastos do Azure
 
@@ -46,7 +46,7 @@ Pode remover o limite de gastos a qualquer momento, desde que exista um método 
 Para remover o seu limite de gastos, siga estes passos:
 
 1. Inicie sessão para o [Centro de contas](https://account.windowsazure.com/Subscriptions).
-1. Selecione uma subscrição. Se a subscrição está desativada devido a que está a ser atingido o limite de gastos, clique na notificação: "A subscrição atingiu o Limite de Gastos e foi desativada para evitar gastos". Caso contrário, clique em **remover limite de gastos** no **estado da subscrição** área.
+1. Selecione uma subscrição. Se a subscrição estiver desativada, porque foi atingido o limite de gastos, clique na notificação: "A subscrição atingiu o Limite de Gastos e foi desativada para evitar gastos". Caso contrário, clique em **remover limite de gastos** no **estado da subscrição** área.
 1. Selecione uma opção que seja apropriada para si.
 
 ![Selecionar uma opção para remover limite de gastos](./media/billing-spending-limit/remove-spending-limit.PNG)
@@ -86,4 +86,4 @@ Limites de gastos personalizadas não estão disponíveis.
 
 ## <a name="need-help-contact-us"></a>Precisa de ajuda? Contacte-nos.
 
-Se tiver alguma dúvida ou precisar de ajuda, [criar um pedido de suporte](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).
+Se tiver alguma dúvida ou precisar de ajuda, [criar um pedido de suporte](https://go.microsoft.com/fwlink/?linkid=2083458).

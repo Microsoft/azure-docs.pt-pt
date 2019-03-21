@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 06/17/2018
 ms.author: cynthn
-ms.openlocfilehash: cbe9e5c734708701828b2b70f062d88c960dc224
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: a1743e677e1005e5b4479c1d431b6b8bdbe77c8f
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57432690"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57848699"
 ---
 # <a name="log-in-to-a-linux-virtual-machine-in-azure-using-azure-active-directory-authentication-preview"></a>Inicie sessão na máquina virtual Linux no Azure utilizando a autenticação do Azure Active Directory (pré-visualização)
 
@@ -186,7 +186,7 @@ Access denied
 
 Se concluir com êxito a etapa de autenticação num navegador da web, poderão ser imediatamente a pedido para iniciar sessão novamente com um novo código. Este erro normalmente é causado por um erro de correspondência entre o nome de início de sessão que especificou na linha de comandos SSH e a conta que iniciou sessão no Azure AD com. Para corrigir este problema:
 
-- Certifique-se de que o nome de início de sessão que especificou na linha de comandos SSH está correto. Um erro de digitação no nome do início de sessão pode causar um erro de correspondência entre o nome de início de sessão que especificou na linha de comandos SSH e a conta que iniciou sessão no Azure AD com. Por exemplo, que escreveu *azuresuer@contoso.onmicrosoft.com* em vez de *azureuser@contoso.onmicrosoft.com*.
+- Certifique-se de que o nome de início de sessão que especificou na linha de comandos SSH está correto. Um erro de digitação no nome do início de sessão pode causar um erro de correspondência entre o nome de início de sessão que especificou na linha de comandos SSH e a conta que iniciou sessão no Azure AD com. Por exemplo, que escreveu *azuresuer\@contoso.onmicrosoft.com* em vez de *azureuser\@contoso.onmicrosoft.com*.
 - Se tiver várias contas de utilizador, certifique-se de que não fornecer uma conta de utilizador diferente na janela do browser, ao iniciar sessão com o Azure AD.
 - Linux é um sistema de operativo diferencia maiúsculas de minúsculas. Existe uma diferença entre "Azureuser@contoso.onmicrosoft.com"e"azureuser@contoso.onmicrosoft.com', que pode causar um erro de correspondência. Certifique-se de que especifica o UPN com a sensibilidade correta na linha de comandos SSH.
 

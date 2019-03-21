@@ -16,12 +16,12 @@ ms.date: 12/28/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d21fe7c70c09ad41faf628db45d82b995c8f2515
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.openlocfilehash: bd3aac6a7fb0904089f135c9af7b136eda73701f
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57311445"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57835474"
 ---
 # <a name="prerequisites-for-azure-ad-connect"></a>Pré-requisitos para o Azure AD Connect
 Este tópico descreve os pré-requisitos e os requisitos de hardware para o Azure AD Connect.
@@ -50,7 +50,7 @@ Antes de instalar o Azure AD Connect, existem algumas coisas que precisa.
 ### <a name="azure-ad-connect-server"></a>Servidor do Azure AD Connect
 * O Azure AD Connect não pode ser instalado no Small Business Server ou Windows Server Essentials, antes de 2019 (Windows Server Essentials 2019 é suportado). O servidor tem de utilizar Windows Server standard ou superior.
 * O servidor do Azure AD Connect tem de ter uma GUI completa instalada. É **nepodporuje** para instalar no server core.
-* O Azure AD Connect tem de estar instalado no Windows Server 2008 R2 ou posterior. Este servidor pode ser um controlador de domínio ou um servidor membro, ao utilizar as definições rápidas. Se utilizar definições personalizadas, em seguida, o servidor também pode ser autónomo e não tem de ser associado a um domínio.
+* O Azure AD Connect tem de estar instalado no Windows Server 2008 R2 ou posterior. Este servidor tem de ser associados a um e pode ser um controlador de domínio ou um servidor membro do domínio.
 * Se instalar o Azure AD Connect no Windows Server 2008 R2, em seguida, certifique-se aplicar as correções mais recentes do Windows Update. A instalação não é possível iniciar com um servidor sem patch.
 * Se planeia utilizar a funcionalidade **sincronização de palavra-passe**, em seguida, o servidor do Azure AD Connect tem de estar no Windows Server 2008 R2 SP1 ou posterior.
 * Se planeja usar uma **conta de serviço gerida de grupo**, em seguida, o servidor do Azure AD Connect tem de estar no Windows Server 2012 ou posterior.
@@ -64,7 +64,7 @@ Antes de instalar o Azure AD Connect, existem algumas coisas que precisa.
 ### <a name="sql-server-used-by-azure-ad-connect"></a>SQL Server utilizada pelo Azure AD Connect
 * O Azure AD Connect necessita de uma base de dados do SQL Server para armazenar dados de identidade. Por predefinição, é instalado um SQL Server 2012 Express LocalDB (uma versão leve do SQL Server Express). SQL Server Express tem um limite de tamanho de 10GB que permite-lhe gerir aproximadamente 100 000 objetos. Se precisar de gerir um volume maior de objetos de diretório, tem de apontar o Assistente de instalação para uma instalação diferente do SQL Server.
 * Se utilizar um servidor SQL separado, em seguida, estes requisitos aplicam-se:
-  * O Azure AD Connect suporta todas as versões do Microsoft SQL Server do SQL Server 2008 (com Service Pack mais recente) para o SQL Server 2017. Base de dados do Microsoft Azure SQL **nepodporuje** como uma base de dados.
+  * O Azure AD Connect suporta todas as versões do Microsoft SQL Server 2008 R2 (com Service Pack mais recente) para SQL Server 2019. Base de dados do Microsoft Azure SQL **nepodporuje** como uma base de dados.
   * Tem de utilizar um agrupamento do SQL maiúsculas de minúsculas. Esses agrupamentos são identificados com um \_CI_ no respetivo nome. É **nepodporuje** para utilizar um agrupamento de maiúsculas e minúsculas, identificado por \_CS_ no respetivo nome.
   * Só pode ter um motor de sincronização por instância de SQL. É **nepodporuje** para partilhar uma instância do SQL com a sincronização do FIM/MIM, o DirSync ou o Azure AD Sync.
 
@@ -129,9 +129,9 @@ O Azure AD Connect depende do Microsoft PowerShell e .NET Framework 4.5.1. Preci
 
 
 ### <a name="enable-tls-12-for-azure-ad-connect"></a>Ativar o TLS 1.2 para o Azure AD Connect
-Anterior à versão 1.1.614.0, o Azure AD Connect, por predefinição utiliza o TLS 1.0 para encriptar a comunicação entre o servidor de motor de sincronização e o Azure AD. Pode alterá-lo ao configurar as aplicações de .net para utilizar TLS 1.2 por predefinição no servidor. Podem encontrar mais informações sobre TLS 1.2 no [consultoria de segurança da Microsoft 2960358](https://technet.microsoft.com/security/advisory/2960358).
+Anterior à versão 1.1.614.0, o Azure AD Connect, por predefinição utiliza o TLS 1.0 para encriptar a comunicação entre o servidor de motor de sincronização e o Azure AD. Pode alterá-lo ao configurar as aplicações de .NET para utilizar TLS 1.2 por predefinição no servidor. Podem encontrar mais informações sobre TLS 1.2 no [consultoria de segurança da Microsoft 2960358](https://technet.microsoft.com/security/advisory/2960358).
 
-1. Não é possível ativar o TLS 1.2 antes do Windows Server 2008 R2 ou posterior. Certifique-se de que tem a correção do .net 4.5.1 instalada para o seu sistema operativo, consulte [consultoria de segurança da Microsoft 2960358](https://technet.microsoft.com/security/advisory/2960358). Pode ter esta correção ou versão posterior já instaladas no seu servidor.
+1. Não é possível ativar o TLS 1.2 antes do Windows Server 2008 R2 ou posterior. Certifique-se de que tem o .NET 4.5.1 correção instalada para o seu sistema operativo, consulte [consultoria de segurança da Microsoft 2960358](https://technet.microsoft.com/security/advisory/2960358). Pode ter esta correção ou versão posterior já instaladas no seu servidor.
 2. Se usar o Windows Server 2008 R2, certifique-se de que TLS 1.2 está ativada. No servidor Windows Server 2012 e versões posteriores, TLS 1.2 já deve estar ativada.
     ```
     [HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols\TLS 1.2]

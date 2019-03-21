@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 03/27/2018
 ms.author: ryanwi
-ms.openlocfilehash: 42a6430162f3bafd3ec3ce2a3c523f6f5755914a
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: 0e5cfa42eba5a2110ebf8879c771f2fef048ae03
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39001383"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57835718"
 ---
 # <a name="add-logging-to-your-service-fabric-application"></a>Adicionar registos à sua aplicação do Service Fabric
 
@@ -132,7 +132,7 @@ O registo do ASP.NET Core ([pacote Microsoft.Extensions.Logging NuGet](https://w
 
 ### <a name="using-other-logging-providers"></a>Utilizar outros fornecedores de serviços de registo
 
-Alguns fornecedores terceiros de utilizar a abordagem descrita na secção anterior, incluindo [Serilog](https://serilog.net/), [NLog](http://nlog-project.org/), e [Loggr](https://github.com/imobile3/Loggr.Extensions.Logging). Pode conectar a cada uma delas em log do ASP.NET Core, ou pode usá-los separadamente. Serilog tem uma funcionalidade que otimiza a todas as mensagens enviadas a partir de um agente de log. Esta funcionalidade pode ser útil para o nome do serviço, tipo e informações da partição de saída. Para utilizar esta capacidade na infra-estrutura do ASP.NET Core, siga estes passos:
+Alguns fornecedores terceiros de utilizar a abordagem descrita na secção anterior, incluindo [Serilog](https://serilog.net/), [NLog](https://nlog-project.org/), e [Loggr](https://github.com/imobile3/Loggr.Extensions.Logging). Pode conectar a cada uma delas em log do ASP.NET Core, ou pode usá-los separadamente. Serilog tem uma funcionalidade que otimiza a todas as mensagens enviadas a partir de um agente de log. Esta funcionalidade pode ser útil para o nome do serviço, tipo e informações da partição de saída. Para utilizar esta capacidade na infra-estrutura do ASP.NET Core, siga estes passos:
 
 1. Adicionar a **Serilog**, **Serilog.Extensions.Logging**, **Serilog.Sinks.Literate**, e **Serilog.Sinks.Observable** pacotes NuGet para o projeto. 
 2. Criar um `LoggerConfiguration` e a instância de agente de log.

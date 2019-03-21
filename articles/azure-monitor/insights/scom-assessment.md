@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/25/2018
 ms.author: magoedte
-ms.openlocfilehash: 596bc86033fdeaf872f1facfebbf47780893b7d2
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 5b4da39d56b86f79727590076ac60b87541643e1
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57455946"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58082845"
 ---
 # <a name="optimize-your-environment-with-the-system-center-operations-manager-health-check-preview-solution"></a>Otimizar seu ambiente com a solução do System Center Operations Manager verificação de integridade (pré-visualização)
 
@@ -44,11 +44,11 @@ A solução é compatível com o Microsoft System Center 2012 Operations Manager
 
 Utilize as seguintes informações para instalar e configurar a solução.
 
- - Antes de poder utilizar a solução de verificação de estado de funcionamento no Log Analytics, tem de ter a solução instalada. Instalar a solução a partir [do Azure marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.SCOMAssessmentOMS?tab=Overview).
+- Antes de poder utilizar a solução de verificação de estado de funcionamento no Log Analytics, tem de ter a solução instalada. Instalar a solução a partir [do Azure marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.SCOMAssessmentOMS?tab=Overview).
 
- - Depois de adicionar a solução para a área de trabalho, o **Center Operations Manager estado de funcionamento da verificação do sistema** mosaico no dashboard mostra uma mensagem necessária configuração adicional. Clique no mosaico e siga os passos de configuração mencionados na página
+- Depois de adicionar a solução para a área de trabalho, o **Center Operations Manager estado de funcionamento da verificação do sistema** mosaico no dashboard mostra uma mensagem necessária configuração adicional. Clique no mosaico e siga os passos de configuração mencionados na página
 
- ![Mosaico de dashboard do System Center Operations Manager](./media/scom-assessment/scom-configrequired-tile.png)
+  ![Mosaico de dashboard do System Center Operations Manager](./media/scom-assessment/scom-configrequired-tile.png)
 
 > [!NOTE]
 > Configuração do System Center Operations Manager pode ser feita usando um script ao seguir os passos mencionados na página de configuração da solução no Log Analytics.

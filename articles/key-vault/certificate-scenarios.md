@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/07/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 73a09a99b1dd275b20bcd389e9cc391f638e8bdd
-ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
+ms.openlocfilehash: 8b56151ae56de44cbab3003743ce6df33ec89612
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57404268"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58075634"
 ---
 # <a name="get-started-with-key-vault-certificates"></a>Comece com certificados do Key Vault
 Os cenários seguintes realçam vários das utilizações de principal de serviço de gestão de certificados do Key Vault incluindo os passos adicionais necessários para criar seu primeiro certificado no seu Cofre de chaves.
@@ -50,12 +50,12 @@ Certificados são compostas por três recursos inter-relacionados ligados em con
 
 **Passo 3** -administrador A Contoso, juntamente com um funcionário da Contoso (utilizador do Key Vault) que é proprietário de certificados, dependendo da AC, pode obter um certificado do administrador ou diretamente da conta com a AC.  
 
--   Iniciar uma operação de credenciais do add para um cofre de chaves por [definir um emissor de certificado](/rest/api/keyvault/setcertificateissuer/setcertificateissuer) recursos. Um emissor do certificado é uma entidade representada no Cofre de chave de Azure (KV) como um recurso de CertificateIssuer. Ele é usado para fornecer informações sobre a origem de um certificado de KV; nome do emissor, fornecedor, credenciais e outros detalhes administrativos.
-    -   Ex. MyDigiCertIssuer  
-        -   Fornecedor  
-        -   Credenciais – as credenciais da conta de AC. Cada AC tem seus próprios dados específicos.  
+- Iniciar uma operação de credenciais do add para um cofre de chaves por [definir um emissor de certificado](/rest/api/keyvault/setcertificateissuer/setcertificateissuer) recursos. Um emissor do certificado é uma entidade representada no Cofre de chave de Azure (KV) como um recurso de CertificateIssuer. Ele é usado para fornecer informações sobre a origem de um certificado de KV; nome do emissor, fornecedor, credenciais e outros detalhes administrativos.
+  - Ex. MyDigiCertIssuer  
+    -   Fornecedor  
+    -   Credenciais – as credenciais da conta de AC. Cada AC tem seus próprios dados específicos.  
 
-     Para obter mais informações sobre como criar contas com fornecedores de AC, consulte a postagem relacionada sobre o [blogue do Key Vault](https://aka.ms/kvcertsblog).  
+    Para obter mais informações sobre como criar contas com fornecedores de AC, consulte a postagem relacionada sobre o [blogue do Key Vault](https://aka.ms/kvcertsblog).  
 
 **Passo 3.1** -configure [contactos do certificado](/rest/api/keyvault/setcertificatecontacts/setcertificatecontacts) para notificações. Este é o contacto para o utilizador do Key Vault. Cofre de chaves não impõe a este passo.  
 

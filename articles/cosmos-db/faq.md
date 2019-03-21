@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: sngun
 ms.custom: seodec18
-ms.openlocfilehash: 7e1c6d771e2452e99b47c256c99e25e281b9a3aa
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: c344e8c2d0ad62b394792201ab52bb37413012f8
+ms.sourcegitcommit: aa3be9ed0b92a0ac5a29c83095a7b20dd0693463
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57849232"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58259912"
 ---
 # <a name="frequently-asked-questions-about-different-apis-in-azure-cosmos-db"></a>Perguntas mais frequentes sobre as diferentes APIs no Azure Cosmos DB
 
@@ -159,7 +159,7 @@ Os contentores também são as entidades de faturação para o Azure Cosmos DB. 
 
 ### <a name="how-do-i-create-a-database"></a>Como crio uma base de dados?
 
-Pode criar bases de dados com o [portal do Azure](https://portal.azure.com), conforme descrito na [adicionar uma coleção](create-sql-api-dotnet.md#create-collection), um do [SDKs do Azure Cosmos DB](sql-api-sdk-dotnet.md), ou o [REST APIs](/rest/api/cosmos-db/).
+Pode criar bases de dados com o [portal do Azure](https://portal.azure.com), conforme descrito na [adicionar uma coleção](create-sql-api-dotnet.md#create-collection-database), um do [SDKs do Azure Cosmos DB](sql-api-sdk-dotnet.md), ou o [REST APIs](/rest/api/cosmos-db/).
 
 ### <a name="how-do-i-set-up-users-and-permissions"></a>Como posso configurar utilizadores e permissões?
 
@@ -257,7 +257,7 @@ Existem algumas diferenças de comportamento que os utilizadores provenientes do
 * CORS não é atualmente suportada
 * Os nomes das tabelas no armazenamento de tabelas do Azure não são maiúsculas e minúsculas, mas estão na API de tabela do Azure Cosmos DB
 * Alguns dos formatos internos do Azure Cosmos DB para informações de codificação, como campos binários, atualmente não são tão eficientes como um poderia desejar. Portanto, isso pode causar limitações inesperadas no tamanho dos dados. Por exemplo, atualmente é não foi possível usar a um total Meg de uma entidade de tabela para armazenar dados binários, uma vez que a codificação aumenta o tamanho dos dados.
-* Nome de propriedade da entidade "Id" não suportado atualmente
+* Nome de propriedade da entidade "ID" não suportado atualmente
 * TableQuery TakeCount não se limita a 1000
 
 Em termos da API REST, existem várias opções de consulta/pontos finais que não são suportados pela API de tabela do Azure Cosmos DB:

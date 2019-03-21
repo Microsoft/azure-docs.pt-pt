@@ -12,12 +12,12 @@ ms.author: sstein
 ms.reviewer: billgib
 manager: craigg
 ms.date: 09/24/2018
-ms.openlocfilehash: 57a8a89c73e2be51e54130d9c37194a7513a47d8
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
+ms.openlocfilehash: 28deb9b7ba15744b9bd3d273d02db4398d2b2ef3
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55562519"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57896947"
 ---
 # <a name="provision-and-catalog-new-tenants-using-the--application-per-tenant-saas-pattern"></a>Aprovisionar e catalogar novos inquilinos usando o aplicativo por inquilino padrão SaaS
 
@@ -99,7 +99,7 @@ Assim que o script tiver concluído, o catálogo existirá e todos os inquilinos
 Agora, veja os recursos que criou.
 
 1. Abra o [portal do Azure](https://portal.azure.com/) e procurar os grupos de recursos.  Abra o **wingtip-sa-catalog -\<usuário\>**  recursos de grupo e tenha em atenção o servidor de catálogo e a base de dados.
-1. Abrir a base de dados no portal e selecione *Explorador de dados* no menu esquerdo.  Clique no comando de início de sessão e, em seguida, introduza a palavra-passe = **P@ssword1**.
+1. Abrir a base de dados no portal e selecione *Explorador de dados* no menu esquerdo.  Clique no comando de início de sessão e, em seguida, introduza a palavra-passe = **P\@ssword1**.
 
 
 1. Explorar o esquema do *tenantcatalog* base de dados.  

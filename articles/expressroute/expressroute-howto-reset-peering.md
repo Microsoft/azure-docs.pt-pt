@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 08/15/2018
 ms.author: charwen
 ms.custom: seodec18
-ms.openlocfilehash: f856753ae74b43e257cb222422f4d4eb27ee099c
-ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
+ms.openlocfilehash: 8541362a16c7d12a0e3a4cf009ed9cd5faf9f1cd
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57404880"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58097632"
 ---
 # <a name="reset-expressroute-circuit-peerings"></a>Repor peerings de circuito do ExpressRoute
 
@@ -33,48 +33,48 @@ Existem alguns cenários em que talvez ache útil a repor o seu peerings do Expr
 
 1. Se estiver a executar o PowerShell localmente, abra a consola do PowerShell com privilégios elevados e ligue à sua conta. Utilize o exemplo seguinte para o ajudar na ligação:
 
-  ```azurepowershell
-  Connect-AzAccount
-  ```
+   ```azurepowershell
+   Connect-AzAccount
+   ```
 2. Se tiver múltiplas subscrições do Azure, verifique as subscrições da conta.
 
-  ```azurepowershell-interactive
-  Get-AzSubscription
-  ```
+   ```azurepowershell-interactive
+   Get-AzSubscription
+   ```
 3. Especifique a subscrição que pretende utilizar.
 
-  ```azurepowershell-interactive
-  Select-AzSubscription -SubscriptionName "Replace_with_your_subscription_name"
-  ```
+   ```azurepowershell-interactive
+   Select-AzSubscription -SubscriptionName "Replace_with_your_subscription_name"
+   ```
 4. Execute os seguintes comandos para recuperar o seu circuito do ExpressRoute.
 
-  ```azurepowershell-interactive
-  $ckt = Get-AzExpressRouteCircuit -Name "ExpressRouteARMCircuit" -ResourceGroupName "ExpressRouteResourceGroup"
-  ```
+   ```azurepowershell-interactive
+   $ckt = Get-AzExpressRouteCircuit -Name "ExpressRouteARMCircuit" -ResourceGroupName "ExpressRouteResourceGroup"
+   ```
 5. Identifique o peering que pretende desactivar ou activar. *Peerings* é uma matriz. No exemplo a seguir, Peerings [0] é o Peering privado do Azure e Peering da Microsoft Peerings [1].
 
-  ```azurepowershell-interactive
-Name                             : ExpressRouteARMCircuit
-ResourceGroupName                : ExpressRouteResourceGroup
-Location                         : westus
-Id                               : /subscriptions/########-####-####-####-############/resourceGroups/ExpressRouteResourceGroup/providers/Microsoft.Network/expressRouteCircuits/ExpressRouteARMCircuit
-Etag                             : W/"cd011bef-dc79-49eb-b4c6-81fb6ea5d178"
-ProvisioningState                : Succeeded
-Sku                              : {
+   ```azurepowershell-interactive
+   Name                             : ExpressRouteARMCircuit
+   ResourceGroupName                : ExpressRouteResourceGroup
+   Location                         : westus
+   Id                               : /subscriptions/########-####-####-####-############/resourceGroups/ExpressRouteResourceGroup/providers/Microsoft.Network/expressRouteCircuits/ExpressRouteARMCircuit
+   Etag                             : W/"cd011bef-dc79-49eb-b4c6-81fb6ea5d178"
+   ProvisioningState                : Succeeded
+   Sku                              : {
                                      "Name": "Standard_MeteredData",
                                      "Tier": "Standard",
                                      "Family": "MeteredData"
                                    }
-CircuitProvisioningState         : Enabled
-ServiceProviderProvisioningState : Provisioned
-ServiceProviderNotes             :
-ServiceProviderProperties        : {
+   CircuitProvisioningState         : Enabled
+   ServiceProviderProvisioningState : Provisioned
+   ServiceProviderNotes             :
+   ServiceProviderProperties        : {
                                      "ServiceProviderName": "Coresite",
                                      "PeeringLocation": "Los Angeles",
                                      "BandwidthInMbps": 50
                                    }
-ServiceKey                       : ########-####-####-####-############
-Peerings                         : [
+   ServiceKey                       : ########-####-####-####-############
+   Peerings                         : [
                                      {
                                        "Name": "AzurePrivatePeering",
                                        "Etag": "W/\"cd011bef-dc79-49eb-b4c6-81fb6ea5d178\"",
@@ -130,17 +130,17 @@ Peerings                         : [
                                        "Connections": []
                                      }
                                    ]
-Authorizations                   : []
-AllowClassicOperations           : False
-GatewayManagerEtag               :
-  ```
+   Authorizations                   : []
+   AllowClassicOperations           : False
+   GatewayManagerEtag               :
+   ```
 6. Execute os seguintes comandos para alterar o estado do peering.
 
-  ```azurepowershell-interactive
-  $ckt.Peerings[0].State = "Disabled"
-  Set-AzExpressRouteCircuit -ExpressRouteCircuit $ckt
-  ```
-O peering deve estar num Estado que definir. 
+   ```azurepowershell-interactive
+   $ckt.Peerings[0].State = "Disabled"
+   Set-AzExpressRouteCircuit -ExpressRouteCircuit $ckt
+   ```
+   O peering deve estar num Estado que definir. 
 
 ## <a name="next-steps"></a>Passos Seguintes
 Se precisar de ajuda para resolver um problema do ExpressRoute, veja os artigos seguintes:

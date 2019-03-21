@@ -2,19 +2,19 @@
 title: Gerir registos de um cluster do HDInsight - Azure HDInsight
 description: Determine os tipos, tamanhos e as políticas de retenção para ficheiros de registo de atividade do HDInsight.
 services: hdinsight
-author: ashishthaps
+author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 01/11/2018
-ms.author: ashishth
-ms.openlocfilehash: 7b6f9ca914e9fed48463d2134eeba1cd4c103690
-ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
+ms.date: 03/19/2019
+ms.author: hrasheed
+ms.openlocfilehash: 0f0a22ea4a24a82cb4acf7a3b20a743ee7425c72
+ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 03/20/2019
-ms.locfileid: "58225329"
+ms.locfileid: "58294914"
 ---
 # <a name="manage-logs-for-an-hdinsight-cluster"></a>Gerir registos de um cluster do HDInsight
 
@@ -43,13 +43,12 @@ Os seguintes detalhes de cluster são úteis para ajudar a recolher informaçõe
 * Estado do cluster, incluindo detalhes da última alteração de estado
 * Tipo e número de instâncias do HDInsight especificado para o principal, núcleos e nós de tarefa
 
-Pode aproveitar essas informações de nível superior do portal do Azure.  Em alternativa, pode utilizar a CLI clássica do Azure para obter informações sobre os clusters do HDInsight:
+Pode aproveitar essas informações de nível superior do portal do Azure.  Em alternativa, pode utilizar [CLI do Azure](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest) para obter informações sobre os clusters do HDInsight:
 
+```azurecli
+    az hdinsight list --resource-group <ResourceGroup>
+    az hdinsight show --resource-group <ResourceGroup> --name <ClusterName>
 ```
-    azure hdinsight cluster list
-    azure hdinsight cluster show <ClusterName>
-```
-[!INCLUDE [classic-cli-warning](../../includes/requires-classic-cli.md)]
 
 Também pode utilizar o PowerShell para ver estas informações.  Para obter mais informações, consulte [Apache Hadoop para gerir clusters no HDInsight com o Azure PowerShell](hdinsight-administer-use-powershell.md).
 
@@ -77,7 +76,7 @@ Um cluster de HDInsight típico utiliza vários pacotes de software open-source 
 
 ### <a name="view-cluster-configuration-settings-with-the-ambari-ui"></a>Ver as definições de configuração de cluster com a IU do Ambari
 
-Apache Ambari simplifica o gerenciamento, configuração e monitorização de um cluster do HDInsight, fornecendo uma web interface do Usuário e uma API REST. Ambari está incluído nos clusters do HDInsight baseado em Linux. Selecione o **Dashboard de clusters** painel no portal do Azure HDInsight página para abrir o**Dashboards de clusters** página de ligação.  Em seguida, selecione o **dashboard de clusters do HDInsight** painel para abrir a IU do Ambari.  Deverá informar suas credenciais de início de sessão do cluster.
+Apache Ambari simplifica o gerenciamento, configuração e monitorização de um cluster do HDInsight, fornecendo uma web interface do Usuário e uma API REST. Ambari está incluído nos clusters do HDInsight baseado em Linux. Selecione o **Dashboard de clusters** painel no portal do Azure HDInsight página para abrir o **Dashboards de clusters** página de ligação.  Em seguida, selecione o **dashboard de clusters do HDInsight** painel para abrir a IU do Ambari.  Deverá informar suas credenciais de início de sessão do cluster.
 
 Para abrir uma lista de vistas de serviço, selecione o **vistas Ambari** painel na página do portal do Azure para HDInsight.  Esta lista varia consoante as bibliotecas de que instalou.  Por exemplo, poderá ver o Gestor de filas do YARN, a vista do Hive e a exibição de Tez.  Selecione qualquer ligação de serviço para ver a configuração e informações de serviço.  IU do Ambari **Stack e a versão** página fornece informações sobre a configuração dos serviços de cluster e o histórico de versões de serviço. Para navegar para esta secção da IU do Ambari, selecione o **administrador** menu e, em seguida **pilhas e versões**.  Selecione o **versões** guia para ver informações de versão do serviço.
 
@@ -99,7 +98,7 @@ A próxima etapa é examinar os ficheiros de registo de execução de tarefa par
 
 ### <a name="access-the-hadoop-log-files"></a>Aceder aos ficheiros de registo do Hadoop
 
-HDInsight armazena seus arquivos de log no sistema de arquivos de cluster e no armazenamento do Azure. Pode examinar os ficheiros de registo do cluster ao abrir uma ligação SSH ao cluster e o sistema de ficheiros de navegação ou ao utilizar o portal de estado de YARN do Hadoop no servidor remoto de nó principal. Pode examinar os ficheiros de registo no armazenamento do Azure através de qualquer uma das ferramentas que podem acessar e transferir dados do armazenamento do Azure. Os exemplos são o AZCopy, CloudXplorer e o Visual Studio Server Explorer. Também pode utilizar os SDKs do .NET do Azure e as bibliotecas de cliente de armazenamento do Azure ou do PowerShell para aceder aos dados no armazenamento de Blobs do Azure.
+HDInsight armazena seus arquivos de log no sistema de arquivos de cluster e no armazenamento do Azure. Pode examinar os ficheiros de registo do cluster ao abrir um [SSH](/hdinsight-hadoop-linux-use-ssh-unix.md) ligação ao cluster e o sistema de ficheiros de navegação ou ao utilizar o portal de estado de YARN do Hadoop no servidor remoto de nó principal. Pode examinar os ficheiros de registo no armazenamento do Azure através de qualquer uma das ferramentas que podem acessar e transferir dados do armazenamento do Azure. Os exemplos são [AzCopy](../storage/common/storage-use-azcopy.md), [CloudXplorer](http://clumsyleaf.com/products/cloudxplorer)e o Visual Studio Server Explorer. Também pode utilizar os SDKs do .NET do Azure e as bibliotecas de cliente de armazenamento do Azure ou do PowerShell para aceder aos dados no armazenamento de Blobs do Azure.
 
 Executa o trabalho de tarefas como o Hadoop *tentativas de tarefas* em vários nós no cluster. HDInsight pode iniciar a tarefa especulativa tentativas, quaisquer outras tentativas de tarefas que não forem concluídas pela primeira vez a terminar. Isso gera atividade significativa que é registada para o controlador, stderr e syslog log arquivos no momento. Além disso, várias tentativas de tarefas em execução simultânea, mas um ficheiro de registo pode apresentar apenas os resultados linearmente.
 
@@ -168,9 +167,9 @@ Para controlar o tamanho e número de ficheiros de registo guardadas, defina as 
 
 ### <a name="other-log-management-techniques"></a>Outras técnicas de gerenciamento de log
 
-Para evitar a execução sem espaço em disco, pode utilizar algumas ferramentas de sistema operacional como `logrotate` para gerir a manipulação de ficheiros de registo. Pode configurar `logrotate` para executar diariamente, a compressão iniciar ficheiros e remover antigos. Sua abordagem depende dos requisitos, tais como o período de tempo para manter o logfiles em nós locais. 
+Para evitar a execução sem espaço em disco, pode utilizar algumas ferramentas de sistema operacional, como [logrotate](https://linux.die.net/man/8/logrotate) para gerir a manipulação de ficheiros de registo. Pode configurar `logrotate` para executar diariamente, a compressão iniciar ficheiros e remover antigos. Sua abordagem depende dos requisitos, tais como o período de tempo para manter o logfiles em nós locais.  
 
-Também pode verificar se o registo de depuração está ativado para um ou mais serviços, que aumenta significativamente o tamanho do registo de saída. 
+Também pode verificar se o registo de depuração está ativado para um ou mais serviços, que aumenta significativamente o tamanho do registo de saída.  
 
 Para recolher os registos de todos os nós para um local central, pode criar um fluxo de dados, tais como ingestão todas as entradas de registo para o Solr.
 

@@ -12,14 +12,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 02/09/2019
+ms.date: 03/20/2019
 ms.author: juliako;cenkdin
-ms.openlocfilehash: 9900a9c7116359f8ccbb2d101ce6f147bef932bc
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
-ms.translationtype: MT
+ms.openlocfilehash: fc72bad81896d786bfe040632b7f6a61f775b6f1
+ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55990006"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58294754"
 ---
 # <a name="creating-filters-with-azure-media-services-rest-api"></a>Criar filtros com suporte de dados do Azure REST API dos serviços 
 > [!div class="op_single_selector"]

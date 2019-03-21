@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 10/16/2018
 ms.author: spelluru
 ms.custom: include file
-ms.openlocfilehash: 38ba8ccad63120d33ce06faf39439bb58706e78d
-ms.sourcegitcommit: a8948ddcbaaa22bccbb6f187b20720eba7a17edc
+ms.openlocfilehash: 690e0da160042b7ac432b1a36c024a8a8f439823
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56660327"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58125135"
 ---
 ## <a name="create-a-storage-account-for-event-processor-host"></a>Criar uma conta de armazenamento para o Anfitrião do Processador de Eventos
 O Anfitrião do Processador de Eventos é um agente inteligente que simplifica a receção de eventos provenientes dos Hubs de Eventos ao gerir pontos de verificação persistentes e receções em paralelo. Para o ponto de verificação, o Anfitrião do Processador de Eventos requer uma conta de armazenamento. O exemplo seguinte mostra como criar uma conta de armazenamento e como obter as chaves de acesso:
@@ -26,13 +26,13 @@ O Anfitrião do Processador de Eventos é um agente inteligente que simplifica a
 
 3. Na página **Criar conta de armazenamento**, siga os passos seguintes: 
 
-    1. Introduza um nome para a conta de armazenamento. 
-    2. Selecione uma subscrição do Azure que contenha o hub de eventos.
-    3. Selecione o grupo de recursos com o hub de eventos.
-    4. Selecione uma localização onde criar o recurso. 
-    5. Em seguida, clique em **Rever + criar**.
+   1. Introduza um nome para a conta de armazenamento. 
+   2. Selecione uma subscrição do Azure que contenha o hub de eventos.
+   3. Selecione o grupo de recursos com o hub de eventos.
+   4. Selecione uma localização onde criar o recurso. 
+   5. Em seguida, clique em **Rever + criar**.
    
-    ![Criar conta de armazenamento - página](./media/event-hubs-create-storage/create-storage2.png)
+      ![Criar conta de armazenamento - página](./media/event-hubs-create-storage/create-storage2.png)
 
 4. Na página **Rever + criar**, reveja os valores e selecione **Criar**. 
 

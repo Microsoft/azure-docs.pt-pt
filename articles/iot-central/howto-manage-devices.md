@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: 59f4dffb64b0e72e8847f0b1baf947ad1d732063
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 1e67c22a55068ce42cb1eb6d9c0c9bdf8215f44e
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57766584"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58167988"
 ---
 # <a name="manage-devices-in-your-azure-iot-central-application-new-ui-design"></a>Gerir dispositivos na sua aplicação do Azure IoT Central (design de nova interface do Usuário)
 
@@ -23,7 +23,6 @@ Este artigo descreve como, como um operador, para gerir dispositivos na sua apli
 - Manter um inventário atualizado dos seus dispositivos.
 - Mantenha-se os metadados do dispositivo atualizado, alterando os valores armazenados nas propriedades do dispositivo.
 - Controlar o comportamento dos seus dispositivos ao atualizar uma definição num dispositivo específico a partir da **definições** página.
-
 
 ## <a name="view-your-devices"></a>Ver os seus dispositivos
 
@@ -104,7 +103,7 @@ Se registar dispositivos ao iniciar a importação sob **não associados disposi
 
 ## <a name="export-devices"></a>Exportar dispositivos
 
-Para ligar um dispositivo real ao IoT Central, terá de sua cadeia de ligação. Pode exportar detalhes do dispositivo em massa para obter cadeias de ligação e outras propriedades. O processo de exportação cria um ficheiro CSV com a identidade de dispositivo, o nome do dispositivo e a cadeia de ligação primária para todos os dispositivos selecionados.
+Para ligar um dispositivo real ao IoT Central, terá de sua cadeia de ligação. Pode exportar detalhes do dispositivo em massa para obter as informações necessárias criar cadeias de ligação do dispositivo. O processo de exportação cria um ficheiro CSV com a identidade de dispositivo, nome do dispositivo e as chaves para todos os dispositivos selecionados.
 
 Em massa dispositivos de exportação da sua aplicação:
 
@@ -130,8 +129,10 @@ Em massa dispositivos de exportação da sua aplicação:
     * IOTC_DEVICENAME
     * IOTC_SASKEY_PRIMARY
     * IOTC_SASKEY_SECONDARY
-    * IOTC_X509THUMBPRINT_PRIMARY   
+    * IOTC_X509THUMBPRINT_PRIMARY
     * IOTC_X509THUMBPRINT_SECONDARY
+
+Ver [conectividade do dispositivo no Azure IoT Central](concepts-connectivity.md), para obter mais informações sobre cadeias de ligação e de dispositivos reais ao ligar à sua aplicação IoT Central.
 
 ## <a name="delete-a-device"></a>Eliminar um dispositivo
 

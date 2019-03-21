@@ -10,12 +10,12 @@ ms.date: 01/25/2019
 ms.author: zarhoads
 ms.custom: mvc
 keywords: O cosmos DB, abra o Service Broker, o Open Service Broker for Azure
-ms.openlocfilehash: 0655176a044da6b4dd6b7327aedf5eb17d79f04a
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 46fa5564e5dd3429f812b263295044d867a8511c
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57432809"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57991988"
 ---
 # <a name="integrate-existing-mongodb-application-with-azure-cosmos-db-api-for-mongodb-and-open-service-broker-for-azure-osba"></a>Integrar aplicações existentes do MongoDB API do Azure Cosmos DB para MongoDB e Open Service Broker for Azure (OSBA)
 
@@ -81,7 +81,7 @@ Iniciar a aplicação e informe-o para utilizar o *mongodb* perfil:
 java -jar -Dspring.profiles.active=mongodb build/libs/spring-music-1.0.jar
 ```
 
-Navegue para http://localhost:8080 no seu browser.
+Navegue para `http://localhost:8080` no seu browser.
 
 ![Aplicação de música Spring com dados padrão](media/music-app.png)
 
@@ -184,7 +184,7 @@ java -jar -Dspring.profiles.active=mongodb build/libs/spring-music-1.0.jar
 
 Observe a sua aplicação continua a utilizar o *mongodb* perfil e um URI que começa com *mongodb: / /* para ligar à base de dados do Cosmos DB. O [API MongoDB do Azure Cosmos DB](../cosmos-db/mongodb-introduction.md) fornece este compatibilidade. Ele permite que seu aplicativo continuam a funcionar como se está a utilizar uma base de dados do MongoDB, mas, na verdade, está a utilizar do Cosmos DB.
 
-Navegue para http://localhost:8080 no seu browser. Repare que os dados de predefinição foi restaurado. Interagir com ela, a eliminação de alguns existente álbuns e criar algumas novas. Pode verificar que as suas alterações são mantidas por interromper a sua aplicação, reiniciá-lo e naveguem de volta para ele no seu browser. Tenha em atenção as alterações que efetuou ainda estão ali. As alterações são mantidas do Cosmos DB que criou com o Open Service Broker para o Azure.
+Navegue para `http://localhost:8080` no seu browser. Repare que os dados de predefinição foi restaurado. Interagir com ela, a eliminação de alguns existente álbuns e criar algumas novas. Pode verificar que as suas alterações são mantidas por interromper a sua aplicação, reiniciá-lo e naveguem de volta para ele no seu browser. Tenha em atenção as alterações que efetuou ainda estão ali. As alterações são mantidas do Cosmos DB que criou com o Open Service Broker para o Azure.
 
 
 ## <a name="run-your-application-on-your-aks-cluster"></a>Execute a sua aplicação no seu cluster do AKS

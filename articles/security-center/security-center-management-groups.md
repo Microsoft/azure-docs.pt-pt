@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/19/2018
 ms.author: rkarlin
-ms.openlocfilehash: 7f09db1f37617519926955daf0c29c13993dbf80
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: 3282afb87672ba25294e65ea1474a9e06df03362
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56728459"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57871067"
 ---
 # <a name="gain-tenant-wide-visibility-for-azure-security-center"></a>Obtenha visibilidade ao nível do inquilino para o Centro de segurança do Azure
 Este artigo ajuda-o a começar a utilizar ao fazer várias ações que maximizar os benefícios de que Centro de segurança do Azure oferece. Realizar essas ações permite-lhe obter visibilidade em todas as subscrições do Azure que estejam ligadas ao seu inquilino do Azure Active Directory e eficaz de gerir a postura de segurança da sua organização em escala ao aplicar políticas de segurança em vários assinaturas de forma aggregative.
@@ -38,7 +38,7 @@ Para obter uma descrição detalhada dos grupos de gestão, consulte a [organiza
 Pode organizar subscrições para grupos de gestão e aplicar as políticas de governação para os grupos de gestão. Todas as subscrições num grupo de gestão herdam automaticamente as políticas aplicadas ao grupo de gestão. Enquanto os grupos de gestão não é obrigados a carregar o Centro de segurança, é altamente recomendado que crie, pelo menos, um grupo de gestão para que o grupo de gestão de raiz é criado. Depois de criar o grupo, todas as subscrições no inquilino do Azure AD serão ligadas à mesma. Para obter instruções do PowerShell e obter mais informações, consulte [criar grupos de gestão para a gestão de recursos e a organização](../azure-resource-manager/management-groups-create.md).
 
  
-1. Inicie sessão no [portal do Azure](http://portal.azure.com).
+1. Inicie sessão no [portal do Azure](https://portal.azure.com).
 2. Selecione **todos os serviços** > **grupos de gestão**.
 3. Na página principal, selecione **grupo de gestão de novo.** 
 
@@ -51,7 +51,7 @@ Pode organizar subscrições para grupos de gestão e aplicar as políticas de g
 5.  Selecione **guardar**
 
 ### <a name="view-management-groups-in-the-azure-portal"></a>Ver grupos de gestão no portal do Azure
-1. Inicie sessão para o [portal do Azure](http://portal.azure.com).
+1. Inicie sessão para o [portal do Azure](https://portal.azure.com).
 2. Para ver os grupos de gestão, selecione **todos os serviços** no menu principal do Azure.
 3. Sob **gerais**, selecione **grupos de gestão**.
 
@@ -77,7 +77,7 @@ Um administrador de inquilino do Azure Active Directory não tem acesso direto �
 
    - Quando definir a opção para Sim, são atribuídos a função de administrador de acesso de utilizador no RBAC do Azure no âmbito da raiz (/). Isso lhe concede permissão para atribuir funções em todas as subscrições do Azure e grupos de gestão associados a este diretório do Azure AD. Essa opção só está disponível para utilizadores que estão atribuídos a função de Administrador Global no Azure AD.
 
-  - Ao definir a opção para não, a função de administrador de acesso de utilizador no Azure RBAC é removida da sua conta de utilizador. Já não pode atribuir funções em todas as subscrições do Azure e grupos de gestão que estão associados este diretório do Azure AD. Pode ver e gerir apenas as subscrições do Azure e os grupos de gestão ao qual lhe foi concedido acesso.
+   - Ao definir a opção para não, a função de administrador de acesso de utilizador no Azure RBAC é removida da sua conta de utilizador. Já não pode atribuir funções em todas as subscrições do Azure e grupos de gestão que estão associados este diretório do Azure AD. Pode ver e gerir apenas as subscrições do Azure e os grupos de gestão ao qual lhe foi concedido acesso.
 
 4. Clique em **guardar** para salvar sua configuração.
 
@@ -181,8 +181,8 @@ Pode adicionar assinaturas para o grupo de gestão que criou. Estes passos não 
 
 4. Repita os passos 1 a 3 até ter adicionado todas as subscrições no âmbito.
 
- > [!NOTE]
- > Grupos de gestão podem conter subscrições e grupos de gestão de subordinados. Quando atribui um utilizador de uma função RBAC para o grupo de gestão principal, o acesso é herdado por subscrições do grupo de gestão de subordinados. As políticas definidas no grupo de gestão principal também são herdadas pelos filhos. 
+   > [!NOTE]
+   > Grupos de gestão podem conter subscrições e grupos de gestão de subordinados. Quando atribui um utilizador de uma função RBAC para o grupo de gestão principal, o acesso é herdado por subscrições do grupo de gestão de subordinados. As políticas definidas no grupo de gestão principal também são herdadas pelos filhos. 
 
 ## <a name="next-steps"></a>Passos Seguintes
 Neste artigo, aprendeu a ganhar visibilidade ao nível do inquilino para o Centro de segurança do Azure. Para saber mais sobre o Centro de Segurança, veja os artigos seguintes:

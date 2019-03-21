@@ -12,12 +12,12 @@ ms.author: xiwu
 ms.reviewer: douglasl
 manager: craigg
 ms.date: 01/25/2019
-ms.openlocfilehash: 5e8e634bfb69d7c274322d34d26ff614f75905af
-ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
+ms.openlocfilehash: 01da5f0798316517869fcc94eed2a7428fffba7b
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57215932"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57850705"
 ---
 # <a name="sync-data-across-multiple-cloud-and-on-premises-databases-with-sql-data-sync"></a>Sincronizar dados em várias bases de dados na cloud e no local com a sincronização de dados SQL
 
@@ -40,7 +40,7 @@ Sincronização de dados não é a solução preferencial para os seguintes cen�
 |----------|----------------------------|
 | Recuperação Após Desastre | [Cópias de segurança do Azure com redundância geográfica](sql-database-automated-backups.md) |
 | Escala de leitura | [Utilizar réplicas só de leitura para carregar saldo consulta só de leitura cargas de trabalho (pré-visualização)](sql-database-read-scale-out.md) |
-| ETL (OLTP para OLAP) | [Azure Data Factory](https://azure.microsoft.com/services/data-factory/) ou [SQL Server Integration Services](https://docs.microsoft.com/sql/integration-services/sql-server-integration-services?view=sql-server-2017) |
+| ETL (OLTP para OLAP) | [Azure Data Factory](https://azure.microsoft.com/services/data-factory/) ou [SQL Server Integration Services](https://docs.microsoft.com/sql/integration-services/sql-server-integration-services) |
 | Migração do SQL Server no local para a base de dados SQL do Azure | [Serviço de migração de base de dados do Azure](https://azure.microsoft.com/services/database-migration/) |
 |||
 

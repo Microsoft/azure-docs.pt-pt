@@ -5,17 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 12/07/2018
+ms.date: 03/18/2019
 ms.topic: tutorial
 ms.service: cost-management
 ms.custom: seodec18
 manager: benshy
-ms.openlocfilehash: e240cbadbee87938107c4a9bf034c47db42acf92
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.openlocfilehash: bb5a4b3a3019007948a9996ed6715e755f284f9e
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55098651"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58175172"
 ---
 <!-- Intent: As a cloud-consuming user, I need to view usage and costs for my cloud resources and services.
 -->
@@ -97,14 +97,14 @@ Alertas permitem-lhe automaticamente notificar intervenientes de anomalias de ga
 
 Este exemplo utiliza a **custo Efetivo ao longo do tempo** relatório para enviar uma notificação quando seus gastos na VM do Azure está prestes a seu orçamento total. Neste cenário, tem um orçamento total de US $20.000 e pretender receber uma notificação quando os custos estão prestes a atingir metade do seu orçamento, US $9,000 e um alerta adicional quando os custos de atingir US $10.000.
 
-1. No menu na parte superior do portal do Cloudyn, selecione **custos** > **análise de custo** > **custo Efetivo ao longo do tempo**. 
-2. Defina **Grupos** como **Serviços** e defina **Filtrar por serviço** como **Azure/VM**. 
+1. No menu na parte superior do portal do Cloudyn, selecione **custos** > **análise de custo** > **custo Efetivo ao longo do tempo**.
+2. Defina **Grupos** como **Serviços** e defina **Filtrar por serviço** como **Azure/VM**.
 3. No canto superior direito do relatório, selecione **ações** e, em seguida, selecione **agendar relatório**.
-4. Para enviar si próprio um e-mail do relatório no intervalo agendado, selecione o **agendamento** separador a **guardar ou agendar esta** caixa de diálogo do relatório. Lembre-se de selecionar **Enviar por e-mail**. Todas as marcas de agrupamento e filtragem que uso são incluídos no relatório enviado por e-mail. 
-5. Selecione o **limiar** separador e, em seguida, selecione **custo Efetivo vs. Limiar**. 
-   1. Na **alerta vermelho** caixa limiar introduza 10000. 
-   2. Na **alerta amarelo** caixa limiar introduza 9000. 
-   3. Na **número de alertas consecutivos** , introduza o número de alertas consecutivos para receber. Quando receber o número total de alertas que especificou, não são enviados alertas adicionais. 
+4. Para enviar si próprio um e-mail do relatório no intervalo agendado, selecione o **agendamento** separador a **guardar ou agendar esta** caixa de diálogo do relatório. Lembre-se de selecionar **Enviar por e-mail**. Todas as marcas de agrupamento e filtragem que uso são incluídos no relatório enviado por e-mail.
+5. Selecione o **limiar** separador e, em seguida, selecione **custo Efetivo vs. Limiar**.
+   1. Na **alerta vermelho** caixa limiar introduza 10000.
+   2. Na **alerta amarelo** caixa limiar introduza 9000.
+   3. Na **número de alertas consecutivos** , introduza o número de alertas consecutivos para receber. Quando receber o número total de alertas que especificou, não são enviados alertas adicionais.
 6. Selecione **Guardar**.
 
 ![Exemplo que mostra alertas amarelas e vermelhas, com base nos limites de gastos](./media/tutorial-review-usage/schedule-alert01.png)

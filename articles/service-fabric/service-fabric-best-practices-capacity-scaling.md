@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 01/23/2019
 ms.author: pepogors
-ms.openlocfilehash: f91ea4c4ec887a9f9fe0c15000e3810109caeb96
-ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
+ms.openlocfilehash: 425154958e4c60902b56f320f714a011b9095830
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56889074"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57997342"
 ---
 # <a name="capacity-planning-and-scaling"></a>Planejamento de capacidade e dimensionamento
 
@@ -159,6 +159,13 @@ var newCapacity = (int)Math.Max(MinimumNodeCount, scaleSet.Capacity - 1); // Che
 
 scaleSet.Update().WithCapacity(newCapacity).Apply();
 ```
+
+> [!NOTE]
+> Quando dimensiona um cluster para baixo, verá a instância VM/nó removido apresentada em mau estado de funcionamento no Service Fabric Explorer. Para obter uma explicação desse comportamento, consulte [comportamentos, pode observar no Service Fabric Explorer](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-scale-up-down#behaviors-you-may-observe-in-service-fabric-explorer).
+> 
+> Pode:
+> * Chamar [Remove-ServiceFabricNodeState cmd](https://docs.microsoft.com/powershell/module/servicefabric/remove-servicefabricnodestate?view=azureservicefabricps) com o nome de nó adequado.
+> * Implementar [aplicação de programa auxiliar de dimensionamento automático de recursos de infraestrutura do serviço](https://github.com/Azure/service-fabric-autoscale-helper/) no cluster, o que garante a dimensionado para baixo de nós são limpas do Service Fabric Explorer.
 
 ## <a name="reliability-levels"></a>Níveis de confiabilidade
 

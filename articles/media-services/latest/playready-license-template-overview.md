@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/16/2018
 ms.author: juliako
-ms.openlocfilehash: 61dc683912b2abde2ea36b71059ef020ec202f32
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: 0ce0d40bfd9d41838573f6355ceffc17761111c2
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54826746"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57843358"
 ---
 # <a name="media-services-playready-license-template-overview"></a>Descrição geral do modelo de licença PlayReady de serviços de multimédia 
 
@@ -47,7 +47,7 @@ O XML está em conformidade com o esquema XML do modelo do PlayReady licença de
 
 
     <?xml version="1.0" encoding="utf-8"?>
-    <PlayReadyLicenseResponseTemplate xmlns:i="http://www.w3.org/2001/XMLSchema-instance" 
+    <PlayReadyLicenseResponseTemplate xmlns:i="https://www.w3.org/2001/XMLSchema-instance" 
                                       xmlns="http://schemas.microsoft.com/Azure/MediaServices/KeyDelivery/PlayReadyTemplate/v1">
       <LicenseTemplates>
         <PlayReadyLicenseTemplate>
@@ -90,7 +90,7 @@ objContentKeyPolicyPlayReadyLicense = new ContentKeyPolicyPlayReadyLicense
 
 ## <a id="schema"></a>Esquema XML do modelo de licença do PlayReady
     <?xml version="1.0" encoding="utf-8"?>
-    <xs:schema xmlns:tns="http://schemas.microsoft.com/Azure/MediaServices/KeyDelivery/PlayReadyTemplate/v1" xmlns:ser="http://schemas.microsoft.com/2003/10/Serialization/" elementFormDefault="qualified" targetNamespace="http://schemas.microsoft.com/Azure/MediaServices/KeyDelivery/PlayReadyTemplate/v1" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+    <xs:schema xmlns:tns="http://schemas.microsoft.com/Azure/MediaServices/KeyDelivery/PlayReadyTemplate/v1" xmlns:ser="http://schemas.microsoft.com/2003/10/Serialization/" elementFormDefault="qualified" targetNamespace="http://schemas.microsoft.com/Azure/MediaServices/KeyDelivery/PlayReadyTemplate/v1" xmlns:xs="https://www.w3.org/2001/XMLSchema">
       <xs:import namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
       <xs:complexType name="AgcAndColorStripeRestriction">
         <xs:sequence>

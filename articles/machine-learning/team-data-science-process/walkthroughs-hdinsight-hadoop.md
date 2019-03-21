@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 09/04/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 8db11759ce501929e5cfd7b721c5e9dc80f9e01a
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: d3c3278a058162632a6ba7ea9731e5f233190700
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55473192"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57843713"
 ---
 # <a name="hdinsight-hadoop-data-science-walkthroughs-using-hive-on-azure"></a>Instruções de ciência de dados de Hadoop do HDInsight com o Hive no Azure 
 
@@ -36,7 +36,7 @@ O cenário é implementado utilizando o Hive com uma [cluster do Azure HDInsight
 
 ## <a name="predict-advertisement-clicks-using-hive-with-hdinsight-hadoop"></a>Prever cliques de anúncio, utilizando o Hive com o HDInsight Hadoop
 
-O [Clusters do Hadoop de HDInsight do uso do Azure num conjunto de dados de 1 TB](hive-criteo-walkthrough.md) estas instruções utilizam um publicamente disponíveis [Criteo](http://labs.criteo.com/downloads/download-terabyte-click-logs/) clique em conjunto de dados para prever se uma dica é pago e o intervalo de quantidades esperado. O cenário é implementado utilizando o Hive com uma [cluster do Azure HDInsight Hadoop](https://azure.microsoft.com/services/hdinsight/) para armazenar, explorar, engenheiro de recursos e reduzir os dados de exemplo. Ele usa o Azure Machine Learning para criar, preparar e classificar um modelo de classificação binária prever se um usuário clica num anúncio. Conclusão do passo a passo que mostra como publicar um desses modelos como um serviço Web.
+O [Clusters do Hadoop de HDInsight do uso do Azure num conjunto de dados de 1 TB](hive-criteo-walkthrough.md) estas instruções utilizam um publicamente disponíveis [Criteo](https://labs.criteo.com/downloads/download-terabyte-click-logs/) clique em conjunto de dados para prever se uma dica é pago e o intervalo de quantidades esperado. O cenário é implementado utilizando o Hive com uma [cluster do Azure HDInsight Hadoop](https://azure.microsoft.com/services/hdinsight/) para armazenar, explorar, engenheiro de recursos e reduzir os dados de exemplo. Ele usa o Azure Machine Learning para criar, preparar e classificar um modelo de classificação binária prever se um usuário clica num anúncio. Conclusão do passo a passo que mostra como publicar um desses modelos como um serviço Web.
 
 
 ## <a name="next-steps"></a>Passos Seguintes

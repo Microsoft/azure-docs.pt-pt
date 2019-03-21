@@ -5,17 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 12/07/2018
+ms.date: 03/18/2019
 ms.topic: quickstart
 ms.custom: seodec18
 ms.service: cost-management
 manager: benshy
-ms.openlocfilehash: 22000d92ff46d8ccb7b85e75b415b9d05784c16f
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: HT
+ms.openlocfilehash: 835a7027293694551e672220a3d7db4c7085550b
+ms.sourcegitcommit: f331186a967d21c302a128299f60402e89035a8d
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58095947"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58188276"
 ---
 # <a name="register-with-the-csp-partner-program-and-view-cost-data"></a>Registar-se com o programa de Parceiro CSP e ver dados de custos
 
@@ -23,12 +23,12 @@ Na qualidade de Parceiro CSP, pode efetuar o registo na Cloudyn. O registo conce
 
 
 > [!NOTE]
-> 
+>
 > Apenas os Parceiros CSP Diretos e os Fornecedores CSP Indiretos podem concluir o registo no Cloudyn.
-> 
+>
 > Tem de configurar a API do Centro de Parceiros para fins de autenticação e acesso a dados. Necessita de uma conta de Administrador Global do Centro de Parceiros para aprovisionar o acesso à API.
 > Para obter mais informações, consulte [Ligar à API do Centro de Parceiros](https://msdn.microsoft.com/library/partnercenter/mt709136.aspx).
-> 
+>
 > O acesso ao Cloudyn pode ser disponibilizado aos Revendedores CSP Indiretos após o respetivo Fornecedor CSP Indireto se registar no Cloudyn. Os Revendedores CSP Indiretos podem então fornecer acesso ao Cloudyn aos clientes e subscrições do Azure.
 
 ## <a name="sign-in-to-azure"></a>Iniciar sessão no Azure
@@ -59,10 +59,10 @@ Na qualidade de Parceiro CSP, pode efetuar o registo na Cloudyn. O registo conce
 
 Por predefinição, a API do Centro de Parceiros só está acessível para CSPs diretos. No entanto, um fornecedor CSP direto pode configurar o acesso para os respetivos parceiros ou clientes CSP indiretos utilizando grupos de entidades no Cloudyn.
 
-Para ativar o acesso para parceiros ou clientes CSP indiretos, siga os passos em [Registre-se com Clouydn](#register-with-cloudyn) para configurar um registo de avaliação. Em seguida, conclua os passos seguintes para segmentar os dados CSP indiretos utilizando grupos de entidades do Cloudyn. Em seguida, atribua as permissões de utilizador adequadas aos grupos de entidades.
+Para ativar o acesso para parceiros ou clientes CSP indiretos, siga os passos em [registar no Cloudyn](#register-with-cloudyn) para configurar um registo de avaliação. Em seguida, conclua os passos seguintes para segmentar os dados CSP indiretos utilizando grupos de entidades do Cloudyn. Em seguida, atribua as permissões de utilizador adequadas aos grupos de entidades.
 
 1. Crie um grupo de entidades com as informações em [Criar entidades](tutorial-user-access.md#create-and-manage-entities).
-2. Siga os passos indicados em [Atribuir subscrições a Entidades de Custo](https://support.cloudyn.com/hc/articles/115005139425-Video-Assigning-subscriptions-to-Cost-Entities). Associe a conta e as respetivas subscrições do Azure do cliente CSP indireto à entidade que criou anteriormente.
+2. Siga os passos indicados em [Atribuir subscrições a Entidades de Custo](https://www.youtube.com/watch?v=d9uTWSdoQYo). Associe a conta e as respetivas subscrições do Azure do cliente CSP indireto à entidade que criou anteriormente.
 3. Siga os passos indicados em [Criar um utilizador com acesso de administrador](tutorial-user-access.md#create-a-user-with-admin-access) para criar uma conta de utilizador com acesso de Administrador. Em seguida, certifique-se de que a conta de utilizador tem acesso de administrador às entidades específicas que criou anteriormente para a conta indireta.
 
 Os parceiros CSP indiretos iniciam sessão no portal Cloudyn utilizando as contas que criou para os mesmos.

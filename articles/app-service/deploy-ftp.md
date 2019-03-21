@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 11/30/2018
 ms.author: cephalin;dariac
 ms.custom: seodec18
-ms.openlocfilehash: f1d64170c3f9622169dd1218e4c63652c9f94b9b
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.openlocfilehash: db8445ec2b3dd8bdefa661d7f186e720c6fada09
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56820676"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57858882"
 ---
 # <a name="deploy-your-app-to-azure-app-service-using-ftps"></a>Implementar a aplicação no serviço de aplicações do Azure com FTP/S
 
@@ -44,6 +44,14 @@ No dashboard do FTP, clique em **cópia** para copiar as credenciais de ponto fi
 
 É recomendado que utilize **aplicação credenciais** para implementar na sua aplicação, porque é exclusivo para cada aplicação. No entanto, se clicar **credenciais do utilizador**, pode definir as credenciais de nível de usuário que pode utilizar para início de sessão FTP/S para todas as aplicações de serviço de aplicações na sua subscrição.
 
+> [!NOTE]
+> Autenticar para um ponto de extremidade FTP/FTPS, com um nome de utilizador de requirers de credenciais de nível de usuário no seguinte formato: 
+>
+>`<app-name>\<user-name>`
+>
+> Uma vez que as credenciais de nível de usuário são associadas ao usuário e não um recurso específico, tem de ser o nome de utilizador neste formato para direcionar a ação de início de sessão para o ponto final de aplicação certa.
+>
+
 ## <a name="deploy-files-to-azure"></a>Implementar os ficheiros para o Azure
 
 1. Partir do seu cliente FTP (por exemplo, [Visual Studio](https://www.visualstudio.com/vs/community/), [Cyberduck](https://cyberduck.io/), ou [WinSCP](https://winscp.net/index.php)), utilize as informações de ligação que recolheu para ligar à sua aplicação.
@@ -58,7 +66,6 @@ No dashboard do FTP, clique em **cópia** para copiar as credenciais de ponto fi
 > - geração de Web. config (este é um [exemplo de node. js](https://github.com/projectkudu/kudu/wiki/Using-a-custom-web.config-for-Node-apps))
 > 
 > Gerar esses arquivos necessários manualmente no seu computador local e, em seguida, implementá-las em conjunto com a sua aplicação.
->
 >
 
 ## <a name="enforce-ftps"></a>Impor FTPS

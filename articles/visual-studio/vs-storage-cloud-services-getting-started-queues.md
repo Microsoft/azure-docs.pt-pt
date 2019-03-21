@@ -12,12 +12,12 @@ ms.workload: azure-vs
 ms.topic: conceptual
 ms.date: 12/02/2016
 ms.author: ghogen
-ms.openlocfilehash: eb924bcfe3e2545cf6666a19bbb3494c11bc3a48
-ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
+ms.openlocfilehash: 28a7de1b43d793641237197aea841022996b07e3
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/18/2018
-ms.locfileid: "42057007"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57994039"
 ---
 # <a name="getting-started-with-azure-queue-storage-and-visual-studio-connected-services-cloud-services-projects"></a>Introdução ao armazenamento de filas do Azure e o Visual Studio ligados (projetos de serviços cloud) de serviços
 [!INCLUDE [storage-try-azure-tools-queues](../../includes/storage-try-azure-tools-queues.md)]
@@ -32,7 +32,7 @@ O **adicionar serviços ligados** operação instala os pacotes de NuGet adequad
 * Ver [introdução ao armazenamento de filas do Azure com o .NET](../storage/queues/storage-dotnet-how-to-use-queues.md) para obter mais informações sobre a manipulação de filas no código.
 * Ver [documentação do armazenamento](https://azure.microsoft.com/documentation/services/storage/) para obter informações gerais sobre o armazenamento do Azure.
 * Ver [documentação de serviços Cloud](https://azure.microsoft.com/documentation/services/cloud-services/) para obter informações gerais sobre os serviços cloud do Azure.
-* Ver [ASP.NET](http://www.asp.net) para obter mais informações sobre a programação de aplicativos do ASP.NET.
+* Ver [ASP.NET](https://www.asp.net) para obter mais informações sobre a programação de aplicativos do ASP.NET.
 
 O Armazenamento de Filas do Azure é um serviço para armazenar um grande número de mensagens que podem ser acedidas a partir de qualquer local no mundo através de chamadas autenticadas com HTTP ou HTTPS. Uma mensagem de fila única pode ter até 64 KB e uma fila pode conter milhões de mensagens, até ao limite da capacidade total de uma conta de armazenamento.
 
@@ -57,7 +57,7 @@ Para aceder a filas em projetos de serviços de nuvem do Visual Studio, precisa 
         // Get a reference to a queue named "messageQueue"
         CloudQueue messageQueue = queueClient.GetQueueReference("messageQueue");
 
-**Nota:** utilizar todo o código acima na frente o código nos exemplos a seguir.
+**NOTA:** Utilize todo o código acima na frente o código nos exemplos a seguir.
 
 ## <a name="create-a-queue-in-code"></a>Criar uma fila no código
 Para criar a fila no código, basta adicionar uma chamada para **CreateIfNotExists**.

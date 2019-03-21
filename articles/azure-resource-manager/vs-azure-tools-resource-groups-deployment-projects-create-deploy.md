@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/21/2019
 ms.author: tomfitz
-ms.openlocfilehash: 246ee5f8360869c1b0f901ee54d56e017ac8aeb7
-ms.sourcegitcommit: a4efc1d7fc4793bbff43b30ebb4275cd5c8fec77
+ms.openlocfilehash: 36815010c3e8fccc2ec24ce344071d0836da219b
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56649684"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58097462"
 ---
 # <a name="creating-and-deploying-azure-resource-groups-through-visual-studio"></a>Criar e implementar grupos de recursos do Azure através do Visual Studio
 
@@ -221,7 +221,7 @@ Não está limitado apenas aos recursos disponíveis através da interface do Vi
 
 1. Abra o ficheiro WebsiteSqlDeploy.json e adicione o seguinte JSON após o recurso da conta de armazenamento, mas antes do `]` da secção de recursos.
 
-  ```json
+   ```json
     ,{
       "properties": {
         "lenses": {
@@ -296,7 +296,7 @@ Não está limitado apenas aos recursos disponíveis através da interface do Vi
         "hidden-title": "[concat('OPS-',resourceGroup().name)]"
       }
     }
-  ```
+   ```
 
 2. Voltar a implementar o grupo de recursos. Observe o dashboard no portal do Azure e repare que o dashboard partilhado foi adicionado à sua lista de opções.
 

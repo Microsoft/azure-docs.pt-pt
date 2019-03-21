@@ -8,18 +8,20 @@ services: iot-hub
 ms.devlang: csharp
 ms.topic: quickstart
 ms.custom: mvc
-ms.date: 01/15/2019
+ms.date: 03/14/2019
 ms.author: rezas
-ms.openlocfilehash: 45f0b7deb0e14a398c4f1220e66239c3727e46e1
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 0b39943b318afd6f9aabd6ab0711651d64e975cf
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57444231"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58121609"
 ---
 # <a name="quickstart-communicate-to-device-applications-in-c-via-iot-hub-device-streams-preview"></a>Início rápido: Comunicar com aplicações de dispositivo no C# através de fluxos de dispositivo do IoT Hub (pré-visualização)
 
 [!INCLUDE [iot-hub-quickstarts-3-selector](../../includes/iot-hub-quickstarts-3-selector.md)]
+
+Atualmente, o IoT Hub do Microsoft Azure suporta fluxos de dispositivo como uma [funcionalidade de pré-visualização](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 [Fluxos de dispositivo do IoT Hub](./iot-hub-device-streams-overview.md) permitem que os aplicativos de serviço e dispositivo comunicar de forma segura e compatível com firewall. Este guia de introdução envolve dois C# programas que tiram partido dos fluxos de dispositivo para enviar dados para a frente e para trás (eco).
 
@@ -28,6 +30,11 @@ ms.locfileid: "57444231"
 Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
 ## <a name="prerequisites"></a>Pré-requisitos
+
+A pré-visualização de fluxos de dispositivo é atualmente suportado apenas para os Hubs IoT criado nas seguintes regiões:
+
+  - **E.U.A. central**
+  - **E.U.A. central EUAP**
 
 As duas aplicações de exemplo que executa neste guia de início rápido são escritas com C#. Precisa do SDK de .NET Core 2.1.0 ou posterior no seu computador de desenvolvimento.
 
@@ -79,7 +86,7 @@ Transfira o projeto C# de exemplo de https://github.com/Azure-Samples/azure-iot-
    **YourIoTHubName**: Substitua este marcador de posição abaixo com o nome que escolher para o seu hub IoT.
 
     ```azurecli-interactive
-    az iot hub show-connection-string --policy-name service --hub-name YourIoTHubName
+    az iot hub show-connection-string --policy-name service --name YourIoTHubName
     ```
 
     Anote o valor retornado, o que é semelhante a este:

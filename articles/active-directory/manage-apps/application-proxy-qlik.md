@@ -14,12 +14,12 @@ ms.author: celested
 ms.reviewer: japere
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 855cf81dbf24b0662048f69061ca85b72ff5f670
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 12e36c49d8c4db60302d4b72dfa81ea4aceec77b
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56171252"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58107394"
 ---
 # <a name="application-proxy-and-qlik-sense"></a>Proxy de aplicações e Qlik Sense 
 O Azure Active Directory para o Proxy de aplicações e Qlik Sense estabeleceram uma parceria em conjunto para garantir que facilmente pode utilizar o Proxy de aplicações para fornecer acesso remoto para a sua implementação Qlik Sense.  
@@ -41,13 +41,13 @@ Siga estes passos para publicar a aplicação. Para um mais detalhadas passo a p
 2. Selecione **do Azure Active Directory** > **aplicações empresariais**. 
 3. Selecione **adicionar** na parte superior do painel. 
 4. Selecione **aplicação no local**. 
-5.       Preencha os campos obrigatórios com informações sobre a sua nova aplicação. Utilize as seguintes orientações para as definições: 
-    - **URL interno**: Esta aplicação deve ter um URL interno que é o URL de QlikSense em si. Por exemplo, **https&#58;//demo.qlikemm.com:4244** 
-    - **Método de pré-autenticação**: O Azure Active Directory (recomendado mas não obrigatório) 
-1.       Selecione **adicionar** na parte inferior do painel. Seu aplicativo é adicionado e abre o menu de início rápido. 
-2.       No menu de início rápido, selecione **atribuir um utilizador para fins de teste**, e adicionar pelo menos um utilizador à aplicação. Certifique-se de que esta conta de teste tenha acesso à aplicação no local. 
-3.       Selecione **atribuir** para guardar a atribuição de utilizador de teste. 
-4.       (Opcional) No painel de gestão da aplicação, selecione o início de sessão único. Escolher **delegação restrita de Kerberos** no menu pendente e preencha os campos obrigatórios com base na sua configuração de Qlik. Selecione **Guardar**. 
+5. Preencha os campos obrigatórios com informações sobre a sua nova aplicação. Utilize as seguintes orientações para as definições: 
+   - **URL interno**: Esta aplicação deve ter um URL interno que é o URL de QlikSense em si. Por exemplo, **https&#58;//demo.qlikemm.com:4244** 
+   - **Método de pré-autenticação**: O Azure Active Directory (recomendado mas não obrigatório) 
+1. Selecione **adicionar** na parte inferior do painel. Seu aplicativo é adicionado e abre o menu de início rápido. 
+2. No menu de início rápido, selecione **atribuir um utilizador para fins de teste**, e adicionar pelo menos um utilizador à aplicação. Certifique-se de que esta conta de teste tenha acesso à aplicação no local. 
+3. Selecione **atribuir** para guardar a atribuição de utilizador de teste. 
+4. (Opcional) No painel de gestão da aplicação, selecione o início de sessão único. Escolher **delegação restrita de Kerberos** no menu pendente e preencha os campos obrigatórios com base na sua configuração de Qlik. Selecione **Guardar**. 
 
 ### <a name="application-2"></a>Aplicação #2: 
 Siga os passos como para a aplicação de n. º 1, com as seguintes exceções: 

@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 02/22/2019
 ms.author: luisca
 ms.custom: seodec2018
-ms.openlocfilehash: f3c8fd3043f20ab34dda1f4e3762e3ebc4bb6ae1
-ms.sourcegitcommit: e88188bc015525d5bead239ed562067d3fae9822
+ms.openlocfilehash: 422b97414142c36669ed449a21c6045fd774581a
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/24/2019
-ms.locfileid: "56749890"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57902659"
 ---
 #   <a name="key-phrase-extraction-cognitive-skill"></a>Competências cognitivas de extração de expressões chave
 
@@ -38,12 +38,14 @@ O tamanho máximo de um registo deve ser 50.000 carateres conforme medido pela `
 ## <a name="skill-parameters"></a>Parâmetros de habilidades
 
 Parâmetros diferenciam maiúsculas de minúsculas.
+
 | Entradas                | Descrição |
 |---------------------|-------------|
 | defaultLanguageCode | (Opcional) O código de idioma para aplicar a documentos que não especificar explicitamente o idioma.  Se o código de idioma padrão não for especificado, em inglês (en) será utilizado como o código de idioma padrão. <br/> Ver [uma lista completa das linguagens suportadas](https://docs.microsoft.com/azure/cognitive-services/text-analytics/text-analytics-supported-languages). |
 | maxKeyPhraseCount   | (Opcional) O número máximo de expressões-chave para produzir. |
 
 ## <a name="skill-inputs"></a>Entradas de habilidades
+
 | Entradas     | Descrição |
 |--------------------|-------------|
 | texto | O texto a ser analisados.|

@@ -12,12 +12,12 @@ ms.author: sstein
 ms.reviewer: ''
 manager: craigg
 ms.date: 01/25/2019
-ms.openlocfilehash: 731b87d7958bb461466b16f2ff724ea33f234ba8
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: be7dbe35800bbe911bc56d1883462534a16499a0
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57439813"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58083186"
 ---
 # <a name="monitor-and-manage-performance-of-sharded-multi-tenant-azure-sql-database-in-a-multi-tenant-saas-app"></a>Monitorizar e gerir o desempenho da base de SQL do Azure multi-inquilino em partição horizontal em aplicações SaaS multi-inquilino de
 
@@ -28,7 +28,7 @@ A aplicação de base de dados do Wingtip Tickets SaaS multi-inquilino utiliza u
 Neste tutorial, ficará a saber como:
 
 > [!div class="checklist"]
-
+> 
 > * Simular a utilização num banco de dados em partição horizontal do multi-inquilino ao executar um gerador de carga fornecido
 > * Monitorizar a base de dados, como ele responde à carga aumenta
 > * Aumentar verticalmente a base de dados para a carga de base de dados aumentada

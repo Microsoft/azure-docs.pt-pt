@@ -10,18 +10,18 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: multiple
 ms.topic: article
-ms.date: 11/22/2018
-ms.author: cephalin
+ms.date: 03/10/2019
+ms.author: cephalin;byvinyal
 ms.custom: seodec18
-ms.openlocfilehash: d89197fad8354b0bae41ab67b9bb1dfac0a179eb
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.openlocfilehash: df874ab77c88f05b048b1f9d10873943b7bebf36
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56820302"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57884392"
 ---
 # <a name="configure-deployment-credentials-for-azure-app-service"></a>Configurar as credenciais de implementação para o serviço de aplicações do Azure
-[Serviço de aplicações do Azure](https://go.microsoft.com/fwlink/?LinkId=529714) suporta dois tipos de credenciais para [implementação de Git local](deploy-local-git.md) e [implementação de FTP/S](deploy-ftp.md). Essas não são o mesmo que as suas credenciais do Azure Active Directory.
+[Serviço de aplicações do Azure](https://go.microsoft.com/fwlink/?LinkId=529714) suporta dois tipos de credenciais para [implementação de Git local](deploy-local-git.md) e [implementação de FTP/S](deploy-ftp.md). Estas credenciais não são os mesmos que as suas credenciais do Azure Active Directory.
 
 * **Credenciais de nível de usuário**: um conjunto de credenciais para toda a conta do Azure. Ele pode ser utilizado para implementar no serviço de aplicações para qualquer aplicação, em qualquer subscrição, o que a conta do Azure tem permissão para aceder. É o conjunto predefinido que é apresentado no portal do GUI (como o **descrição geral** e **propriedades** da aplicação [página de recursos](../azure-resource-manager/manage-resources-portal.md#manage-resources)). Quando um utilizador é concedido acesso à aplicação através do controlo de acesso baseado em funções (RBAC) ou permissões coadmin, esse utilizador pode usar sua próprias credenciais de nível de usuário até que o acesso foi revogado. Não partilhe estas credenciais com outros utilizadores do Azure.
 
@@ -53,6 +53,12 @@ e *FTP* nome de utilizador de implementação na sua aplicação **propriedades*
 > Azure não mostra a palavra-passe de implementação de nível de usuário. Se se esquecer da palavra-passe, pode repor as suas credenciais ao seguir os passos nesta secção.
 >
 >  
+
+## <a name="use-user-level-credentials-with-ftpftps"></a>Utilizar credenciais de nível de usuário com FTP/FTPS
+
+Autenticar para um ponto de extremidade FTP/FTPS, com um nome de utilizador de requirers de credenciais de nível de usuário no seguinte formato: `<app-name>\<user-name>`
+
+Uma vez que as credenciais de nível de usuário são associadas ao usuário e não um recurso específico, tem de ser o nome de utilizador neste formato para direcionar a ação de início de sessão para o ponto final de aplicação certa.
 
 ## <a name="appscope"></a>Obter e repor as credenciais de ao nível da aplicação
 Para obter as credenciais ao nível da aplicação:

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/18/2017
 ms.author: masnider
-ms.openlocfilehash: a50d65940ec12f9883f8991307c3cc5692d96f06
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: 6c15526169a984ffdaee826fec6ac21fc42647e9
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56738084"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58086790"
 ---
 # <a name="defragmentation-of-metrics-and-load-in-service-fabric"></a>Desfragmentação de métricas e de carga no Service Fabric
 O Service Fabric Cluster Gestor de recursos da estratégia de padrão para o gerenciamento de métricas de carga no cluster é distribuir a carga. Garantir que nós são igualmente utilizados evita a pontos de acesso frequente e esporádica que levam a contenção e desperdício de recursos. Distribuição de cargas de trabalho no cluster também é mais segura em termos de sobreviverem à falhas, uma vez que ele garante que uma falha não experimentar uma grande porcentagem de uma determinada carga de trabalho. 
@@ -41,6 +41,7 @@ A desfragmentação pode aumentar impactfulness de falhas, uma vez que mais serv
 O diagrama seguinte fornece uma representação visual de dois clusters, que é desfragmentados e outro que não é. 
 
 <center>
+
 ![Comparar com balanceamento e desfragmentados Clusters][Image1]
 </center>
 

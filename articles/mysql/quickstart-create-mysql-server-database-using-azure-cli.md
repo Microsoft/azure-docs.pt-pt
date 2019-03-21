@@ -8,14 +8,18 @@ ms.devlang: azurecli
 ms.topic: quickstart
 ms.date: 01/09/2019
 ms.custom: mvc
-ms.openlocfilehash: a693bf38ce4f7ca73589db780e44eec918e6f8bd
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 10acb353e282508c838bee89b131d94dcd3fa7ee
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57543820"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57877824"
 ---
 # <a name="quickstart-create-an-azure-database-for-mysql-server-using-azure-cli"></a>Início rápido: Criar uma Base de Dados do Azure para o servidor MySQL com a CLI do Azure
+
+> [!TIP]
+> Considere utilizar a mais simples [az mysql se](/cli/azure/ext/db-up/mysql#ext-db-up-az-mysql-up) comando da CLI do Azure (atualmente em pré-visualização). Experimente o [guia de introdução](./quickstart-create-server-up-azure-cli.md).
+
 Este guia de introdução descreve como utilizar a CLI do Azure para criar uma Base de Dados do Azure para o servidor MySQL num grupo de recursos do Azure em cerca de cinco minutos. A CLI do Azure é utilizada para criar e gerir recursos do Azure a partir da linha de comandos ou em scripts.
 
 Se não tiver uma subscrição do Azure, crie uma conta [gratuita](https://azure.microsoft.com/free/) antes de começar.
@@ -43,13 +47,13 @@ Crie uma Base de Dados do Azure para o servidor MySQL com o comando **[az mysql 
 
 **Definição** | **Valor de exemplo** | **Descrição**
 ---|---|---
-name | mydemoserver | Escolha um nome exclusivo que identifique a sua Base de Dados do Azure para o servidor MySQL. O nome do servidor pode conter apenas letras minúsculas, números e o caráter de hífen (-). Tem de conter entre 3 e 63 carateres.
+nome | mydemoserver | Escolha um nome exclusivo que identifique a sua Base de Dados do Azure para o servidor MySQL. O nome do servidor pode conter apenas letras minúsculas, números e o caráter de hífen (-). Tem de conter entre 3 e 63 carateres.
 resource-group | myResourceGroup | Indique o nome do grupo de recursos do Azure.
-nome de SKU | GP_Gen5_2 | O nome de SKU. Segue a convenção {escalão de preço}_{geração de computação}_{vCores} em estenografia. Veja abaixo desta tabela para obter mais informações sobre o parâmetro de nome de SKU.
+nome de SKU | GP_Gen5_2 | O nome de SKU. Segue a convenção {escalão de preço}\_{geração de computação}\_{vCores} em estenografia. Veja abaixo desta tabela para obter mais informações sobre o parâmetro de nome de SKU.
 backup-retention | 7 | Quando tempo se deve reter uma cópia de segurança. A unidade é dias. O intervalo é de 7-35. 
-geo-redundant-backup | Desactivado | Se as cópias de segurança georredundantes devem estar ativadas para este servidor ou não. Valores permitidos: Ativado, desativado.
-localização | euaoeste | A localização do Azure para o servidor.
-ssl-enforcement | Activado | Se SSL deve ser ativado ou não para este servidor. Valores permitidos: Ativado, desativado.
+geo-redundant-backup | Desativado | Se as cópias de segurança georredundantes devem estar ativadas para este servidor ou não. Valores permitidos: Ativado, desativado.
+localização | westus | A localização do Azure para o servidor.
+ssl-enforcement | Ativado | Se SSL deve ser ativado ou não para este servidor. Valores permitidos: Ativado, desativado.
 storage-size | 51200 | A capacidade de armazenamento do servidor (a unidade é megabytes). O tamanho de armazenamento válido é 5120 MB no mínimo e aumenta em incrementos de 1024 MB. Consulte o documento que contém os [escalões de preço](./concepts-pricing-tiers.md) para obter mais informações sobre limites de tamanho de armazenamento. 
 versão | 5.7 | A versão principal do MySQL.
 admin-user | myadmin | O nome de utilizador para o início de sessão do administrador. Não pode ser **azure_superuser**, **admin**, **administrador**, **raiz**, **convidado** nem **público**.
@@ -140,15 +144,15 @@ Ligue ao servidor com a ferramenta de linha de comandos **mysql.exe**. Pode tran
 Escreva os seguintes comandos: 
 
 1. Ligar ao servidor com a ferramenta de linha de comandos **mysql**:
-```bash
- mysql -h mydemoserver.mysql.database.azure.com -u myadmin@mydemoserver -p
-```
+   ```bash
+   mysql -h mydemoserver.mysql.database.azure.com -u myadmin@mydemoserver -p
+   ```
 
 2. Ver o estado do servidor:
-```sql
- mysql> status
-```
-Se tudo correr bem, a ferramenta de linha de comandos deve produzir o seguinte texto:
+   ```sql
+   mysql> status
+   ```
+   Se tudo correr bem, a ferramenta de linha de comandos deve produzir o seguinte texto:
 
 ```dos
 C:\Users\>mysql -h mydemoserver.mysql.database.azure.com -u myadmin@mydemoserver -p
@@ -194,9 +198,9 @@ mysql>
 > Para obter comandos adicionais, veja [MySQL 5.7 Reference Manual - Chapter 4.5.1](https://dev.mysql.com/doc/refman/5.7/en/mysql.html) (Manual de Referência do MySQL 5.7 - Capítulo 4.5.1).
 
 ## <a name="connect-to-the-server-using-the-mysql-workbench-gui-tool"></a>Ligar ao servidor com a ferramenta Workbench GUI do MySQL
-1.  Inicie a aplicação MySQL Workbench no computador cliente. Pode transferir e instalar o MySQL Workbench [aqui](https://dev.mysql.com/downloads/workbench/).
+1. Inicie a aplicação MySQL Workbench no computador cliente. Pode transferir e instalar o MySQL Workbench [aqui](https://dev.mysql.com/downloads/workbench/).
 
-2.  Na caixa de diálogo **Configurar Ligação Nova**, introduza as informações seguintes no separador **Parâmetros**:
+2. Na caixa de diálogo **Configurar Ligação Nova**, introduza as informações seguintes no separador **Parâmetros**:
 
    ![configurar ligação nova](./media/quickstart-create-mysql-server-database-using-azure-cli/setup-new-connection.png)
 
@@ -204,7 +208,7 @@ mysql>
 |---|---|---|
 |   Nome da Ligação | A Minha Ligação | Especifique uma etiqueta para esta ligação (pode ser qualquer nome) |
 | Método de Ligação | escolha Standard (TCP/IP) | Utilizar o protocolo TCP/IP para ligar à Base de Dados do Azure para MySQL> |
-| Nome de Anfitrião | mydemoserver.mysql.database.azure.com | O nome de servidor que apontou anteriormente. |
+| Nome de anfitrião | mydemoserver.mysql.database.azure.com | O nome de servidor que apontou anteriormente. |
 | Porta | 3306 | É utilizada a porta predefinida para MySQL. |
 | Nome de utilizador | myadmin@mydemoserver | O início de sessão de administrador do servidor que apontou anteriormente. |
 | Palavra-passe | **** | Utilize a palavra-passe da conta de administrador que configurou anteriormente. |

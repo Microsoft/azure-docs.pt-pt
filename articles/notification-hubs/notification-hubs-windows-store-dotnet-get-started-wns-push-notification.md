@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 04/14/2018
 ms.author: jowargo
-ms.openlocfilehash: 17c5a4445eca0fb05fb72281dd400d896ad3a090
-ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
+ms.openlocfilehash: d91e4d33bdecc23bc79e2cf975789bcaeb7ca69a
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54446005"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57837632"
 ---
 # <a name="tutorial-send-notifications-to-universal-windows-platform-apps-by-using-azure-notification-hubs"></a>Tutorial: Enviar notificações para aplicações da plataforma Universal do Windows com os Hubs de notificação do Azure
 
@@ -186,6 +186,6 @@ notification-hubs-windows-notification-dotnet-push-xplat-segmented-wns.md)
 <!-- URLs. -->
 [Use Notification Hubs to push notifications to users]: notification-hubs-aspnet-backend-windows-dotnet-wns-notification.md
 [Use Notification Hubs to send breaking news]: notification-hubs-windows-notification-dotnet-push-xplat-segmented-wns.md
-[toast catalog]: http://msdn.microsoft.com/library/windows/apps/hh761494.aspx
-[tile catalog]: http://msdn.microsoft.com/library/windows/apps/hh761491.aspx
-[badge overview]: http://msdn.microsoft.com/library/windows/apps/hh779719.aspx
+[toast catalog]: https://msdn.microsoft.com/library/windows/apps/hh761494.aspx
+[tile catalog]: https://msdn.microsoft.com/library/windows/apps/hh761491.aspx
+[badge overview]: https://msdn.microsoft.com/library/windows/apps/hh779719.aspx

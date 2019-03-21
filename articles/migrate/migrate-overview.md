@@ -7,12 +7,12 @@ ms.topic: overview
 ms.date: 03/11/2019
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: bbb3e4f319584740f165b64948e1fd4dca2722b0
-ms.sourcegitcommit: 1902adaa68c660bdaac46878ce2dec5473d29275
+ms.openlocfilehash: 7f0b3a0f63b87928938e5c0e9d39cc49c0fc791d
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/11/2019
-ms.locfileid: "57729512"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57999964"
 ---
 # <a name="about-azure-migrate"></a>Acerca do Azure Migrate
 
@@ -30,12 +30,13 @@ O Azure Migrate ajuda-o a:
 ## <a name="current-limitations"></a>Limitações atuais
 
 - Pode avaliar máquinas virtuais (VMs) do VMware no local apenas para migração para VMs do Azure. As VMs do VMware tem de ser geridas pelo vCenter Server (versão 5.5, 6.0, 6.5 ou 6.7).
-- Suporte para Hyper-V está atualmente em pré-visualização com suporte de produção, se estiver interessado em experimentá-lo, inscreva-se [aqui.](http://aka.ms/migratefuture)
+- Suporte para Hyper-V está atualmente em pré-visualização com suporte de produção, se estiver interessado em experimentá-lo, inscreva-se [aqui.](https://aka.ms/migratefuture)
 - Para avaliação de servidores físicos, pode tirar partido do nosso [ferramentas de parceiros](https://azure.microsoft.com/migration/partners/).
 - Pode detetar até 1500 VMs numa única deteção e até 1500 VMs num único projeto. Além disso, pode avaliar até 1500 VMs numa única avaliação.
 - Se pretender encontrar um ambiente maior, pode dividir a deteção e criar vários projetos. [Saiba mais](how-to-scale-assessment.md). O Azure Migrate suporta até 20 projetos por subscrição.
 - O Azure Migrate só suporta discos geridos para avaliação de migrações.
 -  Só pode criar um projeto do Azure Migrate em áreas geográficas indicadas a seguir. No entanto, isso não restringe a capacidade de criar avaliações para outras localizações do Azure de destino.
+
     **Geografia** | **Localização de armazenamento**
     --- | ---
     Azure Government | Gov (US) - Virginia
@@ -73,27 +74,27 @@ As definições da avaliação podem ser personalizadas de acordo com as suas ne
 
 ## <a name="how-does-azure-migrate-work"></a>Como funciona o Azure Migrate?
 
-1.  Cria um projeto do Azure Migrate.
-2.  O Azure Migrate utiliza uma VM no local, denominada aplicação recoletora, para detetar informações sobre as suas máquinas no local. Para criar a aplicação, transfira um ficheiro de configuração no formato Open Virtualization Appliance (.ova) e importe-o como VM no seu vCenter Server no local.
+1. Cria um projeto do Azure Migrate.
+2. O Azure Migrate utiliza uma VM no local, denominada aplicação recoletora, para detetar informações sobre as suas máquinas no local. Para criar a aplicação, transfira um ficheiro de configuração no formato Open Virtualization Appliance (.ova) e importe-o como VM no seu vCenter Server no local.
 3. Ligue à VM a partir do VCenter Server e especifique uma palavra-passe nova para a mesma durante a ligação.
 4. Execute o recoletor na VM para iniciar a deteção.
 5. O recoletor utiliza os cmdlets do VMware PowerCLI para recolher os metadados da VM. A deteção é feita sem agentes e não instala nada nos anfitriões do VMware nem nas VMs. Os metadados recolhidos incluem informações da VM (núcleos, memória, discos, tamanhos de discos e adaptadores de rede). Também recolhe dados de desempenho das VMs, incluindo utilização da CPU e de memória, IOPS de disco, débito de disco (MBps) e saída de rede (MBps).
-5.  Os metadados são enviados para o projeto do Azure Migrate. Pode vê-los no portal do Azure.
-6.  Para efeitos da avaliação, agrupa as VMs detetadas em grupos. Por exemplo, pode agrupar VMs que executem a mesma aplicação. Para um agrupamento mais preciso, pode utilizar a visualização de dependências para ver as dependências de uma máquina específica ou para todas as máquinas de um grupo e refinar o grupo.
-7.  Depois de um grupo ser definido, crie uma avaliação para o mesmo.
-8.  Depois de concluída a avaliação, pode vê-la no portal ou transferi-la no formato Excel.
+5. Os metadados são enviados para o projeto do Azure Migrate. Pode vê-los no portal do Azure.
+6. Para efeitos da avaliação, agrupa as VMs detetadas em grupos. Por exemplo, pode agrupar VMs que executem a mesma aplicação. Para um agrupamento mais preciso, pode utilizar a visualização de dependências para ver as dependências de uma máquina específica ou para todas as máquinas de um grupo e refinar o grupo.
+7. Depois de um grupo ser definido, crie uma avaliação para o mesmo.
+8. Depois de concluída a avaliação, pode vê-la no portal ou transferi-la no formato Excel.
 
-  ![Arquitetura do Azure Migrate](./media/migration-planner-overview/overview-1.png)
+   ![Arquitetura do Azure Migrate](./media/migration-planner-overview/overview-1.png)
 
 ## <a name="what-are-the-port-requirements"></a>Quais são os requisitos de porta?
 
 A tabela resume as portas necessárias para as comunicações do Azure Migrate.
 
-Componente | Comunica com |  Detalhes
---- | --- |---
-Recoletor  | Serviço do Azure Migrate | O recoletor liga-se ao serviço através da porta SSL 443.
-Recoletor | vCenter Server | Por predefinição, o recoletor liga-se ao vCenter Server na porta 443. Se o servidor escutar noutra porta, configure-a como porta de saída na VM do recoletor.
-VM no local | Área de trabalho do Log Analytics | [TCP 443] | [O Microsoft Monitoring Agent (MMA)](../log-analytics/log-analytics-windows-agent.md) utiliza a porta TCP 443 para ligar ao Azure Monitor registos. Só precisa desta porta se estiver a utilizar a visualização de dependências, a qual precisa do agente MMA.
+| Componente | Comunica com |  Detalhes |
+| --- | --- |--- |
+|Recoletor  | Serviço do Azure Migrate | O recoletor liga-se ao serviço através da porta SSL 443.|
+|Recoletor | vCenter Server | Por predefinição, o recoletor liga-se ao vCenter Server na porta 443. Se o servidor escutar noutra porta, configure-a como porta de saída na VM do recoletor.|
+|VM no local | Área de trabalho do Log Analytics | [O Microsoft Monitoring Agent (MMA)](../log-analytics/log-analytics-windows-agent.md) utiliza a porta TCP 443 para ligar ao Azure Monitor registos. Só precisa desta porta se estiver a utilizar a visualização de dependências, a qual precisa do agente MMA.|
 
 
 ## <a name="what-happens-after-assessment"></a>O que acontece após a avaliação?

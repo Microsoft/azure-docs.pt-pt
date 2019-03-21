@@ -11,13 +11,13 @@ author: juliemsft
 ms.author: jrasnick
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 03/07/2019
-ms.openlocfilehash: c8ce6dffeaa602e206c1e990ee946ee921ca731d
-ms.sourcegitcommit: 30a0007f8e584692fe03c0023fe0337f842a7070
+ms.date: 03/12/2019
+ms.openlocfilehash: 0972df18c65ee6b61db4113eaebc1f2912cd6064
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57575640"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57892885"
 ---
 # <a name="use-powershell-to-monitor-and-scale-a-single-sql-database"></a>Utilize o PowerShell para monitorizar e dimensionar uma base de dados SQL
 

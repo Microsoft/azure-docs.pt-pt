@@ -13,12 +13,12 @@ ms.date: 09/24/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6a86ce8c061450fd66b31a81ec00e51f98a39646
-ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
+ms.openlocfilehash: abfdad1db655c102dbfb300434eac952fe2154dc
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/19/2019
-ms.locfileid: "56415651"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58095906"
 ---
 # <a name="troubleshoot-azure-active-directory-seamless-single-sign-on"></a>Resolver problemas relacionados com o Azure Active Directory totalmente integrada início de sessão único
 
@@ -120,8 +120,8 @@ Se a resolução de problemas não o ajudaram, pode repor manualmente a funciona
 
 1. Chamar `$creds = Get-Credential`. Quando lhe for pedido, introduza as credenciais de administrador de domínio para a floresta do Active Directory pretendida.
 
-    >[!NOTE]
-    >Utilizamos o nome de utilizador do administrador de domínio, fornecido em nomes de Principal utilizador (UPN) (johndoe@contoso.com) formato ou o domínio sam conta qualificado (contoso\diogoandrade ou com\johndoe) formato de nome, para localizar a floresta de AD pretendida. Se utilizar o nome qualificado de sam conta de domínio, usamos a parte do nome de utilizador de domínio [localizar o controlador de domínio, o administrador de domínio através de DNS](https://social.technet.microsoft.com/wiki/contents/articles/24457.how-domain-controllers-are-located-in-windows.aspx). Se utilizar o UPN em vez disso, podemos [traduzi-la para um nome de sam conta qualificado do domínio](https://docs.microsoft.com/windows/desktop/api/ntdsapi/nf-ntdsapi-dscracknamesa) antes de localizar o controlador de domínio apropriadas.
+   > [!NOTE]
+   > Utilizamos o nome de utilizador do administrador de domínio, fornecido em nomes de Principal utilizador (UPN) (johndoe@contoso.com) formato ou o domínio sam conta qualificado (contoso\diogoandrade ou com\johndoe) formato de nome, para localizar a floresta de AD pretendida. Se utilizar o nome qualificado de sam conta de domínio, usamos a parte do nome de utilizador de domínio [localizar o controlador de domínio, o administrador de domínio através de DNS](https://social.technet.microsoft.com/wiki/contents/articles/24457.how-domain-controllers-are-located-in-windows.aspx). Se utilizar o UPN em vez disso, podemos [traduzi-la para um nome de sam conta qualificado do domínio](https://docs.microsoft.com/windows/desktop/api/ntdsapi/nf-ntdsapi-dscracknamesa) antes de localizar o controlador de domínio apropriadas.
 
 2. Chamar `Disable-AzureADSSOForest -OnPremCredentials $creds`. Este comando remove o `AZUREADSSOACC` conta de computador do controlador de domínio no local para esta floresta do Active Directory específico.
 3. Repita os passos anteriores para cada floresta do Active Directory onde configurou a funcionalidade.
@@ -130,8 +130,8 @@ Se a resolução de problemas não o ajudaram, pode repor manualmente a funciona
 
 1. Chamar `Enable-AzureADSSOForest`. Quando lhe for pedido, introduza as credenciais de administrador de domínio para a floresta do Active Directory pretendida.
 
-   >[!NOTE]
-   >Utilizamos o nome de utilizador do administrador de domínio, fornecido em nomes de Principal utilizador (UPN) (johndoe@contoso.com) formato ou o domínio sam conta qualificado (contoso\diogoandrade ou com\johndoe) formato de nome, para localizar a floresta de AD pretendida. Se utilizar o nome qualificado de sam conta de domínio, usamos a parte do nome de utilizador de domínio [localizar o controlador de domínio, o administrador de domínio através de DNS](https://social.technet.microsoft.com/wiki/contents/articles/24457.how-domain-controllers-are-located-in-windows.aspx). Se utilizar o UPN em vez disso, podemos [traduzi-la para um nome de sam conta qualificado do domínio](https://docs.microsoft.com/windows/desktop/api/ntdsapi/nf-ntdsapi-dscracknamesa) antes de localizar o controlador de domínio apropriadas.
+   > [!NOTE]
+   > Utilizamos o nome de utilizador do administrador de domínio, fornecido em nomes de Principal utilizador (UPN) (johndoe@contoso.com) formato ou o domínio sam conta qualificado (contoso\diogoandrade ou com\johndoe) formato de nome, para localizar a floresta de AD pretendida. Se utilizar o nome qualificado de sam conta de domínio, usamos a parte do nome de utilizador de domínio [localizar o controlador de domínio, o administrador de domínio através de DNS](https://social.technet.microsoft.com/wiki/contents/articles/24457.how-domain-controllers-are-located-in-windows.aspx). Se utilizar o UPN em vez disso, podemos [traduzi-la para um nome de sam conta qualificado do domínio](https://docs.microsoft.com/windows/desktop/api/ntdsapi/nf-ntdsapi-dscracknamesa) antes de localizar o controlador de domínio apropriadas.
 
 2. Repita o passo anterior para cada floresta do Active Directory onde pretende configurar a funcionalidade.
 

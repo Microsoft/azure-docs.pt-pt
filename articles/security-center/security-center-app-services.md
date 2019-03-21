@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 1/27/2019
 ms.author: monhaber
-ms.openlocfilehash: f90ad2707e42c4b5b2c4188d7f0f18bb9c5ea31b
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: ea738535ae9326109a7c3fdd0b5d0c4f4691fdf0
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56105031"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57878635"
 ---
 # <a name="protect-app-service-with-azure-security-center"></a>Proteger o serviço de aplicações com o Centro de segurança do Azure
 Este artigo ajuda-o a utilizar o Centro de segurança do Azure para monitorizar e proteger as suas aplicações em execução com base no serviço de aplicações.
@@ -68,4 +68,4 @@ Neste artigo, aprendeu a utilizar as capacidades de monitorização no Centro de
 * [Serviços aplicacionais](security-center-virtual-machine-protection.md#app-services):  Ver uma lista dos seus ambientes de serviço de aplicações com resumos de estado de funcionamento.
 * [Monitorizar soluções de parceiros no Centro de segurança do Azure](security-center-partner-solutions.md): Saiba como monitorizar o estado de funcionamento das soluções dos seus parceiros.
 * [FAQ do Centro de segurança do Azure](security-center-faq.md): Encontre as perguntas mais frequentes acerca de como utilizar o serviço.
-* [Blog de segurança do Azure](http://blogs.msdn.com/b/azuresecurity/): Encontre mensagens do blogue acerca da segurança e conformidade do Azure.
+* [Blog de segurança do Azure](https://blogs.msdn.com/b/azuresecurity/): Encontre mensagens do blogue acerca da segurança e conformidade do Azure.

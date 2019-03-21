@@ -1,5 +1,5 @@
 ---
-title: Adicionar utilizadores de colaboração do B2B sem uma ligação de convite ou envie um e-mail - Azure Active Directory | Documentos da Microsoft
+title: Adicionar convidados B2B sem uma ligação de convite ou e-mail - Azure Active Directory | Documentos da Microsoft
 description: Pode permitir que um utilizador convidado adicione outros utilizadores convidados para o Azure AD sem resgatar um convite em colaboração do Azure Active Directory B2B.
 services: active-directory
 documentationcenter: ''
@@ -12,12 +12,12 @@ author: msmimart
 manager: daveba
 ms.reviewer: sasubram
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8c33d9a3755f2fb5397dd013c88ab542e727e125
-ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
+ms.openlocfilehash: 1dca03f84b821d20ee6fecbaec24a1aa840836b5
+ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57337673"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58294982"
 ---
 # <a name="add-b2b-collaboration-guest-users-without-an-invitation-link-or-email"></a>Adicionar utilizadores de convidados de colaboração B2B sem uma ligação de convite ou e-mail
 
@@ -33,7 +33,7 @@ Este método original ainda funciona. No entanto, há uma pequena diferença no 
 
 Se convidar um utilizador no diretório, o utilizador convidado tem de aceder ao recurso específico de inquilino do portal do Azure diretamente a URL (por exemplo, https://portal.azure.com/ *resourcetenant*. onmicrosoft.com) para ver e aceitar os termos de privacidade.
 
-### <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 - [O que é a colaboração B2B do Azure AD?](what-is-b2b.md)
 - [Resgate de convite de colaboração B2B](redemption-experience.md)

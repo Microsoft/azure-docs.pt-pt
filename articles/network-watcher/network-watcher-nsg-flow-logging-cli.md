@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: jdial
-ms.openlocfilehash: 61674cc5551fb0d1be184de0ff0ed659cc56bbbe
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
+ms.openlocfilehash: 43e18326aa9afe41ddfd1183bf689972c1877b0d
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56340251"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57904989"
 ---
 # <a name="configuring-network-security-group-flow-logs-with-azure-cli"></a>Configurar registos de fluxo do grupo de segurança da rede com o CLI do Azure
 
@@ -65,7 +65,7 @@ az network watcher flow-log configure --resource-group resourceGroupName --enabl
 
 ## <a name="download-a-flow-log"></a>Transferir o registo de um fluxo
 
-A localização de armazenamento de um registo de fluxo é definida durante a criação. Uma ferramenta conveniente para aceder a estes registos de fluxo guardados para uma conta de armazenamento é o Explorador de armazenamento do Microsoft Azure, que pode ser baixado aqui:  http://storageexplorer.com/
+A localização de armazenamento de um registo de fluxo é definida durante a criação. Uma ferramenta conveniente para aceder a estes registos de fluxo guardados para uma conta de armazenamento é o Explorador de armazenamento do Microsoft Azure, que pode ser baixado aqui:  https://storageexplorer.com/
 
 Se for especificada uma conta de armazenamento, ficheiros de registo de fluxo são guardados para uma conta de armazenamento na seguinte localização:
 

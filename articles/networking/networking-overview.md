@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/19/2017
 ms.author: jdial
-ms.openlocfilehash: 56e203a212a4e0e81922336f72fd58ef3cb7dc64
-ms.sourcegitcommit: 1afd2e835dd507259cf7bb798b1b130adbb21840
+ms.openlocfilehash: c37e2357038e4f711b015fda80a0de8c4dbd9498
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56983511"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57880930"
 ---
 # <a name="azure-networking"></a>Redes do Azure
 
@@ -149,7 +149,7 @@ O Azure fornece as seguintes ferramentas para monitorizar e gerir redes:
 
 Pode implementar e configurar recursos de rede do Azure com qualquer uma das seguintes ferramentas:
 
-- **Portal do Azure:** Uma interface gráfica do usuário que é executado num navegador. Abra o [Portal do Azure](http://portal.azure.com).
+- **Portal do Azure:** Uma interface gráfica do usuário que é executado num navegador. Abra o [Portal do Azure](https://portal.azure.com).
 - **Azure PowerShell:** Ferramentas de linha de comando para gerenciar o Azure a partir de computadores Windows. Saiba mais sobre o Azure PowerShell o lendo o [descrição geral do Azure PowerShell](/powershell/azure/overview?view=azurermps-3.8.0?toc=%2fazure%2fnetworking%2ftoc.json) artigo.
 - **Interface de linha de comandos do Azure (CLI):** Ferramentas de linha de comando para gerenciar o Azure a partir de computadores Linux, macOS ou Windows. Saiba mais sobre a CLI do Azure com a leitura a [descrição geral da CLI do Azure](/cli/azure/get-started-with-azure-cli?toc=%2fazure%2fnetworking%2ftoc.json) artigo.
 - **Modelos do Azure Resource Manager:** Um ficheiro (no formato JSON) que define a infraestrutura e a configuração de uma solução do Azure. Ao utilizar um modelo, pode implementar repetidamente a solução durante o ciclo de vida da mesma e ter a confiança de que os recursos são implementados num estado consistente. Para saber mais sobre a criação de modelos, veja a [melhores práticas para criar modelos](../azure-resource-manager/resource-manager-template-best-practices.md?toc=%2fazure%2fnetworking%2ftoc.json) artigo. Modelos podem ser implementados com o portal do Azure, CLI ou PowerShell. Para começar a utilizar com os modelos imediatamente, implemente um dos muitos modelos previamente configurados no [modelos de início rápido do Azure](https://azure.microsoft.com/resources/templates/?term=network) biblioteca. 

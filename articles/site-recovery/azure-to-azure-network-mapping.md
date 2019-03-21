@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 2/28/2018
 ms.author: mayg
-ms.openlocfilehash: c4309b20664520bc1912adadee72d614a085f573
-ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
+ms.openlocfilehash: 99c7309e22d8ebe61a0a85b38c92bd3027977848
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57338958"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58013122"
 ---
 # <a name="set-up-network-mapping-and-ip-addressing-for-vnets"></a>Configurar o mapeamento da rede e endereçamento de IP para redes virtuais
 
@@ -76,6 +76,7 @@ O endereço IP para cada NIC numa máquina virtual de destino está configurado 
 **Sub-redes de origem e destino** | **Detalhes**
 --- | ---
 Mesmo espaço de endereços | Endereço IP da NIC de VM de origem está definido como o endereço IP de NIC de VM de destino.<br/><br/> Se o endereço não estiver disponível, o endereço IP disponível seguinte está definido como o destino.
+
 Espaço de endereços diferente<br/><br/> O endereço seguinte disponível de IP na sub-rede de destino está definido como o endereço da NIC de VM de destino.
 
 

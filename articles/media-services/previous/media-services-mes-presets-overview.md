@@ -12,14 +12,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/09/2019
+ms.date: 03/19/2019
 ms.author: juliako
-ms.openlocfilehash: 9d32397773a5ede4ddc2a27c367f2750078e28c6
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: 50c52369a5a957a4dd6279cac5079e2dea023106
+ms.sourcegitcommit: aa3be9ed0b92a0ac5a29c83095a7b20dd0693463
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55998155"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58260031"
 ---
 # <a name="sample-presets-for-media-encoder-standard-mes"></a>Configurações predefinidas de exemplo para o Media Encoder Standard (MES)
 

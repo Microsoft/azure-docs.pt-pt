@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 12/14/2017
 ms.author: cynthn
-ms.openlocfilehash: 7090f9da1ec1bd1453b6f0ddb327abe2f1374844
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
+ms.openlocfilehash: eb4c5897cdadecd074c2764faceeed13f4c724c3
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55697078"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58008731"
 ---
 # <a name="create-a-complete-linux-virtual-machine-with-the-azure-cli"></a>Criar uma máquina de virtual de Linux completa com a CLI do Azure
 Para criar rapidamente uma máquina virtual (VM) no Azure, pode utilizar um único comando da CLI do Azure que utiliza valores predefinidos para criar quaisquer recursos de suporte necessários. Recursos como uma rede virtual, endereço IP público e regras de grupo de segurança de rede são criados automaticamente. Para obter mais controlo do ambiente de produção utilizar, pode criar estes recursos antecipadamente e, em seguida, adicione as suas VMs a eles. Este artigo orienta-o através de como criar uma VM e cada um dos recursos de suporte individualmente.
@@ -529,7 +529,7 @@ Welcome to Ubuntu 16.04.3 LTS (GNU/Linux 4.11.0-1016-azure x86_64)
  * Support:        https://ubuntu.com/advantage
 
   Get cloud support with Ubuntu Advantage Cloud Guest:
-    http://www.ubuntu.com/business/services/cloud
+    https://www.ubuntu.com/business/services/cloud
 
 0 packages can be updated.
 0 updates are security updates.

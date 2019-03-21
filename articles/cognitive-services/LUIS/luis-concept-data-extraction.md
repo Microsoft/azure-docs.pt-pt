@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 01/09/2019
 ms.author: diberry
-ms.openlocfilehash: 385e0065123b86f8f8b7c8503fe6de6daa7c6562
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 3d9c2a694562977c2a012d9faa9c282c6b8fff9d
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55874129"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58099836"
 ---
 # <a name="data-extraction-from-intents-and-entities"></a>Extração de dados de objetivos e entidades
 LUIS dá-lhe a capacidade de obter informações de expressões de linguagem natural com um utilizador. As informações são extraídas de uma forma que pode ser utilizada por um programa, aplicação ou bot de bate-papo para tomar medidas. As secções seguintes, saiba quais dados são retornados de objetivos e entidades com exemplos de JSON.
@@ -195,7 +195,7 @@ Os dados devolvidos a partir do ponto final incluem o nome da entidade e nome de
 ```
 
 |Objeto de dados|Principal|Subordinado|Valor|
-|--|--|--|--|--|
+|--|--|--|--|
 |Entidades hierárquicas|Localização|ToLocation|"paris"|
 
 ## <a name="composite-entity-data"></a>Dados de entidades compostos

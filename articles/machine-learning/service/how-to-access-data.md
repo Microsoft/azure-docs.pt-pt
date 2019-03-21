@@ -11,12 +11,12 @@ author: mx-iao
 ms.reviewer: sgilley
 ms.date: 02/25/2019
 ms.custom: seodec18
-ms.openlocfilehash: a7c29d1bfcc0737f76afc43cb8997d6a1d16c82b
-ms.sourcegitcommit: 1902adaa68c660bdaac46878ce2dec5473d29275
+ms.openlocfilehash: e6e1b304b90b37c93bed22bcb720a646680ee083
+ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/11/2019
-ms.locfileid: "57731353"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58223619"
 ---
 # <a name="access-data-from-your-datastores"></a>Aceder a dados a partir de seus arquivos de dados
 
@@ -146,14 +146,17 @@ ds.download(target_path='your target path',
 
 <a name="train"></a>
 ## <a name="access-datastores-during-training"></a>Acesso a arquivos de dados durante o treinamento
-Pode acessar um arquivo de dados durante um treinamento ser executado (por exemplo, para dados de treinamento ou validação) num destino de computação remota através do SDK de Python com o [ `DataReference` ](https://docs.microsoft.com/python/api/azureml-core/azureml.data.data_reference.datareference?view=azure-ml-py) classe.
 
-Existem várias formas de tornar o seu arquivo de dados disponíveis na computação remota.
+Depois de disponibilizar o arquivo de dados na computação remota, pode acessá-lo durante execuções de preparação (por exemplo, dados de treinamento ou validação) transferindo simplesmente o caminho para o mesmo como um parâmetro no seu script de treinamento.
+
+A tabela seguinte lista o comum [ `DataReference` ](https://docs.microsoft.com/python/api/azureml-core/azureml.data.data_reference.datareference?view=azure-ml-py) método (s) que tornam os arquivos de dados disponíveis na computação remota.
+
+# #
 
 Forma|Método|Descrição
 ----|-----|--------
-Montar| [`as_mount()`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.data_reference.datareference?view=azure-ml-py#as-mount--)| Utilize para montar um arquivo de dados na computação remota.
-Transferir|[`as_download()`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.data_reference.datareference?view=azure-ml-py#as-download-path-on-compute-none--overwrite-false-)|Utilize para transferir dados da localização especificada pela `path_on_compute` no seu arquivo de dados para a computação remoto.
+Montar| [`as_mount()`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.data_reference.datareference?view=azure-ml-py#as-mount--)| Utilize para montar um arquivo de dados na computação remota. Modo de padrão para arquivos de dados.
+Transferência|[`as_download()`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.data_reference.datareference?view=azure-ml-py#as-download-path-on-compute-none--overwrite-false-)|Utilize para transferir dados da localização especificada pela `path_on_compute` no seu arquivo de dados para a computação remoto.
 Carregar|[`as_upload()`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.data_reference.datareference?view=azure-ml-py#as-upload-path-on-compute-none--overwrite-false-)| Utilizar para carregar dados para a raiz do seu arquivo de dados a partir da localização especificada pela `path_on_compute`.
 
 ```Python
@@ -165,20 +168,22 @@ ds.as_download(path_on_compute='your path on compute')
 ds.as_upload(path_on_compute='yourfilename')
 ```  
 
-### <a name="reference-filesfolders"></a>Ficheiros/pastas de referência
 Para fazer referência a uma pasta específica ou um ficheiro no seu arquivo de dados, utilize o arquivo de dados [ `path()` ](https://docs.microsoft.com/python/api/azureml-core/azureml.data.data_reference.datareference?view=azure-ml-py#path-path-none--data-reference-name-none-) função.
 
 ```Python
-#download the contents of the `./bar` directory from the datastore 
+#download the contents of the `./bar` directory from the datastore to the remote compute
 ds.path('./bar').as_download()
 ```
 
 
+
+> [!NOTE]
+> Qualquer `ds` ou `ds.path` objeto é resolvido para um nome de variável de ambiente do formato `"$AZUREML_DATAREFERENCE_XXXX"` cujo valor representa o caminho de montagem/transferir na computação remoto. O caminho de arquivo de dados na computação remoto não pode ser o mesmo que o caminho de execução para o script de treinamento.
+
 ### <a name="examples"></a>Exemplos 
 
-Qualquer `ds` ou `ds.path` objeto é resolvido para um nome de variável de ambiente do formato `"$AZUREML_DATAREFERENCE_XXXX"` cujo valor representa o caminho de montagem/transferir na computação remoto. O caminho de arquivo de dados na computação remoto não pode ser o mesmo que o caminho de execução para o script.
+As seguintes ilustram exemplos específicos para o [ `Estimator` ](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.estimator.estimator?view=azure-ml-py) classe para aceder ao seu arquivo de dados durante o treinamento.
 
-Para aceder ao seu arquivo de dados durante o treinamento, transmita-o para o script de treinamento como um argumento da linha de comandos através de `script_params` partir do [ `Estimator` ](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.estimator.estimator?view=azure-ml-py) classe.
 
 ```Python
 from azureml.train.estimator import Estimator
@@ -192,12 +197,13 @@ est = Estimator(source_directory='your code directory',
                 compute_target=compute_target,
                 entry_script='train.py')
 ```
-`as_mount()` é o modo predefinido para um arquivo de dados, para que poderia também diretamente passar `ds` para o `'--data_dir'` argumento.
+
+Uma vez que `as_mount()` é o modo predefinido para um arquivo de dados, poderia passar também diretamente `ds` para o `'--data_dir'` argumento.
 
 Ou passar uma lista de arquivos de dados para o construtor de Calculadora `inputs` parâmetro montar ou copiar de/para o seu datastore(s). Este exemplo de código:
 * Transfere todo o conteúdo no arquivo de dados `ds1` para a computação remota antes do script de treinamento `train.py` é executado
 * A pasta de downloads `'./foo'` no arquivo de dados `ds2` para a computação remota antes de `train.py` é executado
-* Carrega o ficheiro `'./bar.pkl'` de computação remota até o arquivo de dados `d3` após a execução do seu script
+* Carrega o ficheiro `'./bar.pkl'` de computação remota até o arquivo de dados `ds3` após a execução do seu script
 
 ```Python
 est = Estimator(source_directory='your code directory',

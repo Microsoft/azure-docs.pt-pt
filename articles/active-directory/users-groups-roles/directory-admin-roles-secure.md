@@ -14,12 +14,12 @@ ms.subservice: users-groups-roles
 ms.custom: it-pro
 ms.reviewer: martincoetzer; MarkMorow
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a31d41dedf7b925287a5beda15c7bfeb2bc59c96
-ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
-ms.translationtype: HT
+ms.openlocfilehash: 81d09978c3333a5b76c09f8c7dac85998d342f03
+ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58201879"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58287235"
 ---
 # <a name="securing-privileged-access-for-hybrid-and-cloud-deployments-in-azure-ad"></a>Proteger o acesso privilegiado para implementações híbridas e na cloud no Azure AD
 
@@ -261,7 +261,7 @@ Se já estiver a utilizar o Azure AD Privileged Identity Management, ajuste os p
 
 #### <a name="determine-exposure-to-password-based-sign-in-protocols-if-using-exchange-online"></a>Determinar a exposição a protocolos baseados em palavra-passe de início de sessão (se utilizar o Exchange Online)
 
-No passado, protocolos, pressupõe-se de que as combinações de nome de utilizador/palavra-passe foram incorporadas em dispositivos, contas de e-mail, telefones e assim por diante. Mas agora com o risco de ataques informáticos na cloud, recomendamos que identifique todos os utilizadores potenciais que, se as credenciais foram comprometidas, poderiam ser catastrófica na organização e excluí-los de conseguir iniciar sessão no respetivo e-mail através do nome de utilizador / palavra-passe através da implementação de acesso condicional e os requisitos de autenticação forte. 
+No passado, protocolos, pressupõe-se de que as combinações de nome de utilizador/palavra-passe foram incorporadas em dispositivos, contas de e-mail, telefones e assim por diante. Mas agora com o risco de ataques informáticos na cloud, recomendamos que identifique todos os utilizadores potenciais que, se as credenciais foram comprometidas, poderiam ser catastrófica na organização e excluí-los de conseguir iniciar sessão no respetivo e-mail através do nome de utilizador / palavra-passe através da implementação de acesso condicional e os requisitos de autenticação forte. Pode bloquear [antigos de autenticação através do acesso condicional](https://docs.microsoft.com/en-us/azure/active-directory/conditional-access/block-legacy-authentication). Verifique os detalhes no [como bloquear a autenticação básica](https://docs.microsoft.com/en-us/exchange/clients-and-mobile-in-exchange-online/disable-basic-authentication-in-exchange-online) por meio de Exchnage online. 
 
 #### <a name="complete-a-roles-review-assessment-for-office-365-roles-if-using-office-365"></a>Concluir uma avaliação de revisão de funções para funções do Office 365 (se utilizar o Office 365)
 

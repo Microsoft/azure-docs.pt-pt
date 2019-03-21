@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 08/04/2017
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: 1f79330f12117c6ade8884165d1538623e19c7ea
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 6be2a2d6febfe927cadbdeb12dc91b0e103d6ac4
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55175269"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58094631"
 ---
 # <a name="azure-active-directory-b2c-use-custom-attributes-in-a-custom-profile-edit-policy"></a>Azure Active Directory B2C: Utilizar atributos personalizados num perfil personalizado do Editar política
 
@@ -260,20 +260,20 @@ O token de ID enviados de volta à sua aplicação inclui a nova propriedade de 
 
 1. Adicionar a nova afirmação aos fluxos para iniciar sessão em contas de redes sociais, alterando o seguinte procedimento **os TechnicalProfiles**. Contas de redes sociais e federadas usar esses dois **os TechnicalProfiles** para iniciar sessão. Eles escrever e ler dados de utilizador com o **alternativeSecurityId** como o localizador de objeto do usuário.
 
-  ```xml
+   ```xml
     <TechnicalProfile Id="AAD-UserWriteUsingAlternativeSecurityId">
 
     <TechnicalProfile Id="AAD-UserReadUsingAlternativeSecurityId">
-  ```
+   ```
 
 2. Utilize os mesmos atributos de extensão entre as políticas incorporadas e personalizadas. Quando adiciona os atributos de extensão ou personalizado, por meio da experiência do portal, esses atributos são registados utilizando o **b2c-extensions-app** que existe no cada inquilino do B2C. Siga os passos seguintes a utilização de atributos de extensão na sua política personalizada:
 
-  a. No seu inquilino de B2C em portal.azure.com, navegue até **do Azure Active Directory** e selecione **registos das aplicações**.  
-  b. Encontre seu **b2c-extensions-app** e selecioná-lo.  
-  c. Sob **Essentials**, introduza o **ID de aplicação** e o **ID de objeto**.  
-  d. Incluí-los no seu **comuns de AAD** TechnicalProfile metadados:  
+   a. No seu inquilino de B2C em portal.azure.com, navegue até **do Azure Active Directory** e selecione **registos das aplicações**.  
+   b. Encontre seu **b2c-extensions-app** e selecioná-lo.  
+   c. Sob **Essentials**, introduza o **ID de aplicação** e o **ID de objeto**.  
+   d. Incluí-los no seu **comuns de AAD** TechnicalProfile metadados:  
 
-  ```xml
+   ```xml
       <ClaimsProviders>
         <ClaimsProvider>
           <DisplayName>Azure Active Directory</DisplayName>
@@ -285,14 +285,14 @@ O token de ID enviados de volta à sua aplicação inclui a nova propriedade de 
               <Item Key="ApplicationObjectId">insert objectId here</Item> <!-- This is the "Object ID" from the "b2c-extensions-app"-->
               <Item Key="ClientId">insert appId here</Item> <!--This is the "Application ID" from the "b2c-extensions-app"-->
             </Metadata>
-  ```
+   ```
 
 3. Manter a consistência com a experiência do portal. Utilizar a IU do portal, antes de usá-los em suas políticas personalizadas para criar esses atributos. Quando cria um atributo **ActivationStatus** no portal, deve fazer referência a ele da seguinte forma:
 
-  ```
-  extension_ActivationStatus in the custom policy.
-  extension_<app-guid>_ActivationStatus via Graph API.
-  ```
+   ```
+   extension_ActivationStatus in the custom policy.
+   extension_<app-guid>_ActivationStatus via Graph API.
+   ```
 
 ## <a name="reference"></a>Referência
 

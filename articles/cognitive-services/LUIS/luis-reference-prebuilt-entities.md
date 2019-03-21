@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: article
-ms.date: 02/12/2019
+ms.date: 03/12/2019
 ms.author: diberry
-ms.openlocfilehash: 880c825ab8923dbdf17277a51378b6f4b624e091
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: fdb105fa5aa9baefc9e64b65c275f07db802daad
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56179901"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58091703"
 ---
 # <a name="entities-per-culture-in-your-luis-model"></a>Entidades por cultura no seu modelo do LUIS
 

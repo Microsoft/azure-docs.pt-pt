@@ -7,13 +7,13 @@ ms.author: v-orspod
 ms.reviewer: jasonh
 ms.service: data-explorer
 ms.topic: tutorial
-ms.date: 2/5/2019
-ms.openlocfilehash: c171962fd6177a01afdb8e9605b09574c99f485e
-ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
+ms.date: 3/14/2019
+ms.openlocfilehash: 422813c1ddb77aa11195d3021484744839c4e3bf
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56889227"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57994344"
 ---
 # <a name="tutorial-ingest-data-in-azure-data-explorer-without-one-line-of-code"></a>Tutorial: Ingestão de dados no Explorador de dados do Azure sem uma linha de código
 
@@ -38,29 +38,44 @@ Neste tutorial, ficará a saber como:
 
 ## <a name="azure-monitor-data-provider-diagnostic-and-activity-logs"></a>Fornecedor de dados do Azure Monitor: registos de atividade e diagnóstico
 
-Ver e compreender os dados fornecidos pelos registos de atividade e diagnóstico do Azure Monitor. Vamos criar um pipeline de ingestão com base nesses esquemas de dados.
+Ver e compreender os dados fornecidos pelos Azure Monitor diagnóstico e registos de atividades abaixo. Vamos criar um pipeline de ingestão com base nesses esquemas de dados. Observe que cada evento num registo tem uma matriz de registos. Esta matriz de registos será dividido mais tarde no tutorial.
 
 ### <a name="diagnostic-logs-example"></a>Exemplo de registos de diagnóstico
 
-Registos de diagnóstico do Azure são métricas emitidas por um serviço do Azure que fornece dados sobre a operação desse serviço. Os dados são agregados com um grão de tempo de 1 minuto. Cada evento no registo de diagnóstico contém um registo. Eis um exemplo de um esquema de eventos de métrica do Explorador de dados do Azure na duração de consulta:
+Registos de diagnóstico do Azure são métricas emitidas por um serviço do Azure que fornece dados sobre a operação desse serviço. Os dados são agregados com um grão de tempo de 1 minuto. Eis um exemplo de um esquema de eventos de métrica do Explorador de dados do Azure na duração de consulta:
 
 ```json
 {
-    "count": 14,
-    "total": 0,
-    "minimum": 0,
-    "maximum": 0,
-    "average": 0,
-    "resourceId": "/SUBSCRIPTIONS/F3101802-8C4F-4E6E-819C-A3B5794D33DD/RESOURCEGROUPS/KEDAMARI/PROVIDERS/MICROSOFT.KUSTO/CLUSTERS/KEREN",
-    "time": "2018-12-20T17:00:00.0000000Z",
-    "metricName": "QueryDuration",
-    "timeGrain": "PT1M"
+    "records": [
+    {
+        "count": 14,
+        "total": 0,
+        "minimum": 0,
+        "maximum": 0,
+        "average": 0,
+        "resourceId": "/SUBSCRIPTIONS/F3101802-8C4F-4E6E-819C-A3B5794D33DD/RESOURCEGROUPS/KEDAMARI/PROVIDERS/MICROSOFT.KUSTO/CLUSTERS/KEREN",
+        "time": "2018-12-20T17:00:00.0000000Z",
+        "metricName": "QueryDuration",
+        "timeGrain": "PT1M"
+    },
+    {
+        "count": 12,
+        "total": 0,
+        "minimum": 0,
+        "maximum": 0,
+        "average": 0,
+        "resourceId": "/SUBSCRIPTIONS/F3101802-8C4F-4E6E-819C-A3B5794D33DD/RESOURCEGROUPS/KEDAMARI/PROVIDERS/MICROSOFT.KUSTO/CLUSTERS/KEREN",
+        "time": "2018-12-21T17:00:00.0000000Z",
+        "metricName": "QueryDuration",
+        "timeGrain": "PT1M"
+    }
+    ]
 }
 ```
 
 ### <a name="activity-logs-example"></a>Exemplo de registos de atividade
 
-Registos de atividades do Azure estão os registos de nível de assinatura que contêm uma coleção de registos. Os registos de fornecem informações sobre as operações executadas nos recursos da sua subscrição. Ao contrário dos registos de diagnóstico, cada evento no registo de atividades com uma matriz de registos. Vamos precisar dividir essa matriz de registos mais tarde no tutorial. Eis um exemplo de um evento de registo de atividades para a verificação de acesso:
+Registos de atividades do Azure estão os registos de nível de assinatura que forneçam informações sobre as operações executadas nos recursos da sua subscrição. Eis um exemplo de um evento de registo de atividades para a verificação de acesso:
 
 ```json
 {
@@ -129,6 +144,8 @@ No seu Explorador de dados do Azure *TestDatabase* base de dados, selecione **co
 
 ### <a name="create-the-target-tables"></a>Criar as tabelas de destino
 
+A estrutura dos registos do Azure Monitor não está em tabela. Manipular os dados e expanda cada evento para um ou mais registos. Os dados não processados irão ser ingeridos a uma tabela intermediária chamada *ActivityLogsRawRecords* para os registos de atividade e *DiagnosticLogsRawRecords* registos de diagnóstico. Nessa altura, os dados serão manipulados e expandidos. Através de uma política de atualização, os dados expandidos serão, em seguida, ser ingeridos para o *ActivityLogsRecords* tabela de registos de atividades e *DiagnosticLogsRecords* registos de diagnóstico. Isso significa que terá de criar duas tabelas separadas para a ingestão de registos de atividades e duas tabelas separadas para a ingestão de registos de diagnóstico.
+
 Utilize a IU da Web do Azure Data Explorer para criar as tabelas de destino na base de dados do Explorador de dados do Azure.
 
 #### <a name="the-diagnostic-logs-table"></a>A tabela de registos de diagnóstico
@@ -143,9 +160,13 @@ Utilize a IU da Web do Azure Data Explorer para criar as tabelas de destino na b
 
     ![Executar consulta](media/ingest-data-no-code/run-query.png)
 
-#### <a name="the-activity-logs-tables"></a>Os registos de atividades tabelas
+1. Criar a tabela de dados intermediários, com o nome *DiagnosticLogsRawRecords* no *TestDatabase* manipulação de dados utilizando a seguinte consulta na base de dados. Selecione **executar** para criar a tabela.
 
-Uma vez que a estrutura dos registos de Atividades não estiver em tabela, precisará manipular os dados e expanda cada evento para um ou mais registos. Os dados não processados irão ser ingeridos a uma tabela intermediária chamada *ActivityLogsRawRecords*. Nessa altura, os dados serão manipulados e expandidos. Os dados expandidos, em seguida, irão ser ingeridos para o *ActivityLogsRecords* tabela utilizando uma política de atualização. Isso significa que terá de criar duas tabelas separadas para a ingestão de registos de atividades.
+    ```kusto
+    .create table DiagnosticLogsRawRecords (Records:dynamic)
+    ```
+
+#### <a name="the-activity-logs-tables"></a>Os registos de atividades tabelas
 
 1. Criar uma tabela chamada *ActivityLogsRecords* no *TestDatabase* para receber os registros de log de atividade da base de dados. Para criar a tabela, execute a seguinte consulta do Explorador de dados do Azure:
 
@@ -174,7 +195,7 @@ Uma vez que a estrutura dos registos de Atividades não estiver em tabela, preci
 Para mapear dados dos registos de diagnóstico para a tabela, utilize a seguinte consulta:
 
 ```kusto
-.create table DiagnosticLogsRecords ingestion json mapping 'DiagnosticLogsRecordsMapping' '[{"column":"Timestamp","path":"$.time"},{"column":"ResourceId","path":"$.resourceId"},{"column":"MetricName","path":"$.metricName"},{"column":"Count","path":"$.count"},{"column":"Total","path":"$.total"},{"column":"Minimum","path":"$.minimum"},{"column":"Maximum","path":"$.maximum"},{"column":"Average","path":"$.average"},{"column":"TimeGrain","path":"$.timeGrain"}]'
+.create table DiagnosticLogsRawRecords ingestion json mapping 'DiagnosticLogsRawRecordsMapping' '[{"column":"Records","path":"$.records"}]'
 ```
 
 #### <a name="table-mapping-for-activity-logs"></a>Mapeamento de tabela para registos de atividades
@@ -185,9 +206,11 @@ Para mapear dados de registos de atividade para a tabela, utilize a seguinte con
 .create table ActivityLogsRawRecords ingestion json mapping 'ActivityLogsRawRecordsMapping' '[{"column":"Records","path":"$.records"}]'
 ```
 
-### <a name="create-the-update-policy-for-activity-logs-data"></a>Crie a política de atualização para os dados dos registos de atividade
+### <a name="create-the-update-policy-for-log-data"></a>Criar a política de atualização de dados de registo
 
-1. Criar uma [função](/azure/kusto/management/functions) que expande a recolha de registos, para que cada valor na coleção recebe uma linha separada. Utilize o [ `mvexpand` ](/azure/kusto/query/mvexpandoperator) operador:
+#### <a name="activity-log-data-update-policy"></a>Política de atualização de dados de registo de atividade
+
+1. Criar uma [função](/azure/kusto/management/functions) que expande a recolha de registos de registo de atividade para que cada valor na coleção recebe uma linha separada. Utilize o [ `mvexpand` ](/azure/kusto/query/mvexpandoperator) operador:
 
     ```kusto
     .create function ActivityLogRecordsExpand() {
@@ -212,6 +235,32 @@ Para mapear dados de registos de atividade para a tabela, utilize a seguinte con
 
     ```kusto
     .alter table ActivityLogsRecords policy update @'[{"Source": "ActivityLogsRawRecords", "Query": "ActivityLogRecordsExpand()", "IsEnabled": "True"}]'
+    ```
+
+#### <a name="diagnostic-log-data-update-policy"></a>Política de atualização de dados de registo de diagnóstico
+
+1. Criar uma [função](/azure/kusto/management/functions) que expande a recolha de registos de registo de diagnóstico para que cada valor na coleção recebe uma linha separada. Utilize o [ `mvexpand` ](/azure/kusto/query/mvexpandoperator) operador:
+     ```kusto
+    .create function DiagnosticLogRecordsExpand() {
+        DiagnosticLogsRawRecords
+        | mvexpand events = Records
+        | project
+            Timestamp = todatetime(events["time"]),
+            ResourceId = tostring(events["resourceId"]),
+            MetricName = tostring(events["metricName"]),
+            Count = toint(events["count"]),
+            Total = todouble(events["total"]),
+            Minimum = todouble(events["minimum"]),
+            Maximum = todouble(events["maximum"]),
+            Average = todouble(events["average"]),
+            TimeGrain = tostring(events["timeGrain"])
+    }
+    ```
+
+2. Adicionar a [atualizar política](/azure/kusto/concepts/updatepolicy) para a tabela de destino. Esta política irá automaticamente executar a consulta em quaisquer dados ingeridos recentemente na *DiagnosticLogsRawRecords* tabela de dados intermediários e ingerir os resultados para o *DiagnosticLogsRecords* tabela:
+
+    ```kusto
+    .alter table DiagnosticLogsRecords policy update @'[{"Source": "DiagnosticLogsRawRecords", "Query": "DiagnosticLogRecordsExpand()", "IsEnabled": "True"}]'
     ```
 
 ## <a name="create-an-azure-event-hubs-namespace"></a>Criar um espaço de nomes de Hubs de eventos do Azure
@@ -252,12 +301,12 @@ Selecione um recurso do qual pretende exportar as métricas. A exportação de r
     ![Definições de diagnóstico](media/ingest-data-no-code/diagnostic-settings.png)
 
 1. O **as definições de diagnóstico** painel abre-se. Siga os passos seguintes:
-    1. Dê sua diagnóstico o nome de dados de registo *ADXExportedData*.
-    1. Sob **MÉTRICA**, selecione a **AllMetrics** caixa de verificação (opcional).
-    1. Selecione o **Stream para um hub de eventos** caixa de verificação.
-    1. Selecione **configurar**.
+   1. Dê sua diagnóstico o nome de dados de registo *ADXExportedData*.
+   1. Sob **MÉTRICA**, selecione a **AllMetrics** caixa de verificação (opcional).
+   1. Selecione o **Stream para um hub de eventos** caixa de verificação.
+   1. Selecione **configurar**.
 
-    ![Painel de definições de diagnóstico](media/ingest-data-no-code/diagnostic-settings-window.png)
+      ![Painel de definições de diagnóstico](media/ingest-data-no-code/diagnostic-settings-window.png)
 
 1. Na **hub de eventos selecione** painel, configurar como exportar dados de registos de diagnóstico para o hub de eventos que criou:
     1. Na **selecione o espaço de nomes de hub de eventos** , selecione *AzureMonitoringData*.
@@ -330,7 +379,7 @@ Agora precisa de criar as ligações de dados para os seus registos de diagnóst
 
      **Definição** | **Valor sugerido** | **Descrição do campo**
     |---|---|---|
-    | **Tabela** | *DiagnosticLogsRecords* | A tabela que criou o *TestDatabase* base de dados. |
+    | **Tabela** | *DiagnosticLogsRawRecords* | A tabela que criou o *TestDatabase* base de dados. |
     | **Formato de dados** | *JSON* | O formato utilizado na tabela. |
     | **Mapeamento de colunas** | *DiagnosticLogsRecordsMapping* | O mapeamento que criou o *TestDatabase* base de dados, que mapeia os dados recebidos de JSON para os tipos de dados e os nomes de coluna da *DiagnosticLogsRecords* tabela.|
     | | |
@@ -400,6 +449,7 @@ ActivityLogsRecords
 ```
 
 Resultados de consulta:
+
 |   |   |
 | --- | --- |
 |   |  avg(DurationMs) |

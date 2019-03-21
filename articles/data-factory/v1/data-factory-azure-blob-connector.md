@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 01/05/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 733ae4451988651df2a62a22aa6eb1b6fae44309
-ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
+ms.openlocfilehash: ea4cf03b368cebbfc7d1229be28014b54f2c11d0
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54331729"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58004311"
 ---
 # <a name="copy-data-to-or-from-azure-blob-storage-using-azure-data-factory"></a>Copiar dados de ou para armazenamento de Blobs do Azure com o Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -181,6 +181,7 @@ Vamos examinar como copiar rapidamente dados de/para um armazenamento de Blobs d
     John, Doe
     Jane, Doe
     ```
+
 ### <a name="create-the-data-factory"></a>Criar a fábrica de dados
 1. Inicie sessão no [portal do Azure](https://portal.azure.com).
 2. Clique em **criar um recurso** no canto superior esquerdo, clique em **inteligência + análise**e clique em **Data Factory**.
@@ -249,14 +250,14 @@ Vamos examinar como copiar rapidamente dados de/para um armazenamento de Blobs d
     4. Selecione a sua conta de armazenamento do Azure.
     5. Clique em **Seguinte**.
 10. Sobre o **escolher o ficheiro de saída ou a pasta** página:  
-    6. Especifique **caminho da pasta** como **adfblobconnector/saída / {ano} / {month} / {day}**. Introduza **SEPARADOR**.
-    7. Para o **ano**, selecione **aaaa**.
-    8. Para o **mês**, confirme que está definida como **MM**.
-    9. Para o **dia**, confirme que está definida como **dd**.
-    10. Confirme que o **tipo de compressão** está definida como **nenhum**.
-    11. Confirme que o **copiar comportamento** está definida como **intercalar ficheiros**. Se o ficheiro de saída com o mesmo nome já existir, o novo conteúdo é adicionado ao mesmo ficheiro no final.
-    12. Clique em **Seguinte**.
-    ![Ferramenta copiar – escolha a pasta ou ficheiro de saída](media/data-factory-azure-blob-connector/choose-the-output-file-or-folder.png)
+    1. Especifique **caminho da pasta** como **adfblobconnector/saída / {ano} / {month} / {day}**. Introduza **SEPARADOR**.
+    1. Para o **ano**, selecione **aaaa**.
+    1. Para o **mês**, confirme que está definida como **MM**.
+    1. Para o **dia**, confirme que está definida como **dd**.
+    1. Confirme que o **tipo de compressão** está definida como **nenhum**.
+    1. Confirme que o **copiar comportamento** está definida como **intercalar ficheiros**. Se o ficheiro de saída com o mesmo nome já existir, o novo conteúdo é adicionado ao mesmo ficheiro no final.
+    1. Clique em **Seguinte**.
+       ![Ferramenta copiar – escolha a pasta ou ficheiro de saída](media/data-factory-azure-blob-connector/choose-the-output-file-or-folder.png)
 11. Sobre o **definições do formato de ficheiro** página, reveja as definições e clique em **próxima**. Uma das opções adicionais aqui é adicionar um cabeçalho de ficheiro de saída. Se selecionar essa opção, é adicionada uma linha de cabeçalho com nomes das colunas do esquema da origem. Pode renomear os nomes de coluna predefinido ao visualizar o esquema para a origem. Por exemplo, pode alterar a primeira coluna Nome próprio e a segunda coluna Last Name. Em seguida, o ficheiro de saída é gerado com um cabeçalho com esses nomes, como nomes de colunas.
     ![Ferramenta copiar – definições do formato do ficheiro de destino](media/data-factory-azure-blob-connector/file-format-destination.png)
 12. Na **as definições de desempenho** página, confirme se **unidades de cloud** e **cópias em paralelo** são definidas para **automática**e clique em seguinte. Para obter detalhes sobre estas definições, consulte [copie o guia de sintonização de desempenho de atividade e](data-factory-copy-activity-performance.md#parallel-copy).
@@ -281,7 +282,7 @@ Vamos examinar como copiar rapidamente dados de/para um armazenamento de Blobs d
     2017/04/24
     2017/04/25
     ```
-Para obter informações detalhadas sobre como monitorizar e gerir fábricas de dados, consulte [monitorizar e gerir o pipeline do Data Factory](data-factory-monitor-manage-app.md) artigo.
+   Para obter informações detalhadas sobre como monitorizar e gerir fábricas de dados, consulte [monitorizar e gerir o pipeline do Data Factory](data-factory-monitor-manage-app.md) artigo.
 
 ### <a name="data-factory-entities"></a>Entidades do Data Factory
 Agora, mude para o separador com a home page da fábrica de dados. Tenha em atenção que existem dois serviços ligados, dois conjuntos de dados e um pipeline na fábrica de dados agora.

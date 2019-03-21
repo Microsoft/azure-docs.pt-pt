@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 02/15/2019
 ms.author: jingwang
-ms.openlocfilehash: c4f32113c0750b825f217330f94b45484dc3be29
-ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
+ms.openlocfilehash: ad6fd4a75ca139c4943ca0d079a2d041ccb46d09
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56313471"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58101096"
 ---
 # <a name="load-data-into-azure-data-lake-storage-gen2-with-azure-data-factory"></a>Carregar dados para Gen2 de armazenamento do Azure Data Lake com o Azure Data Factory
 
@@ -77,12 +77,12 @@ Este artigo mostra-lhe como utilizar a ferramenta copiar dados do Data Factory p
     
 4. Na **ligação de especificar o Amazon S3** página, efetue os seguintes passos:
 
-    1. Especifique a **ID de chave de acesso** valor.
-    2. Especifique a **chave de acesso secreta** valor.
-    3. Clique em **Testar ligação** para validar as definições, em seguida, selecione **concluir**.
-    4. Verá, que é criada uma nova ligação. Selecione **Seguinte**.
+   1. Especifique a **ID de chave de acesso** valor.
+   2. Especifique a **chave de acesso secreta** valor.
+   3. Clique em **Testar ligação** para validar as definições, em seguida, selecione **concluir**.
+   4. Verá, que é criada uma nova ligação. Selecione **Seguinte**.
    
-    ![Especifique a conta do Amazon S3](./media/load-azure-data-lake-storage-gen2/specify-amazon-s3-account.png)
+      ![Especifique a conta do Amazon S3](./media/load-azure-data-lake-storage-gen2/specify-amazon-s3-account.png)
       
 5. Na **escolher o ficheiro de entrada ou a pasta** página, navegue para a pasta e ficheiro que pretende que devem transitar. Selecione o ficheiro/pasta, selecione **escolha**:
 

@@ -3,18 +3,18 @@ title: Transmissão em fluxo no Azure HDInsight Spark
 description: Como utilizar aplicações de transmissão em fluxo do Spark nos clusters do Spark do HDInsight.
 services: hdinsight
 ms.service: hdinsight
-author: maxluk
-ms.author: maxluk
+author: hrasheed-msft
+ms.author: hrasheed
 ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 02/05/2018
-ms.openlocfilehash: d44dc7e7a7b3c63012518c3e854270555f469247
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.date: 03/11/2019
+ms.openlocfilehash: 3ecabd683ed4303a7ff54780299ed0e83aa14c26
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56873717"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57892084"
 ---
 # <a name="overview-of-apache-spark-streaming"></a>Descrição geral do Apache Spark de transmissão em fluxo
 
@@ -55,86 +55,103 @@ Esta definição é estática e nenhum dado é processado até que o aplicativo 
 
 #### <a name="create-a-streamingcontext"></a>Criar um StreamingContext
 
-Crie um StreamingContext partir o SparkContext que aponta para o cluster. Ao criar um StreamingContext, especifica o tamanho do lote em segundos, por exemplo:
+Crie um StreamingContext partir o SparkContext que aponta para o cluster. Ao criar um StreamingContext, especifica o tamanho do lote em segundos, por exemplo:  
 
-    val ssc = new StreamingContext(spark, Seconds(1))
+```
+import org.apache.spark._
+import org.apache.spark.streaming._
+
+val ssc = new StreamingContext(sc, Seconds(1))
+```
 
 #### <a name="create-a-dstream"></a>Criar um DStream
 
 Com a instância de StreamingContext, crie uma entrada DStream para a sua origem de entrada. Neste caso, a aplicação está a observar para a aparência dos novos ficheiros no armazenamento padrão ligado ao cluster do HDInsight.
 
-    val lines = ssc.textFileStream("/uploads/2017/01/")
+```
+val lines = ssc.textFileStream("/uploads/Test/")
+```
 
 #### <a name="apply-transformations"></a>Aplicar transformações
 
 Implementar o processamento ao aplicar transformações no DStream. Esse aplicativo recebe uma linha de texto em vez do ficheiro, divide cada linha em palavras e, em seguida, utilize um padrão de map-reduce contar o número de vezes que cada palavra aparece.
 
-    val words = lines.flatMap(_.split(" "))
-    val pairs = words.map(word => (word, 1))
-    val wordCounts = pairs.reduceByKey(_ + _)
+```
+val words = lines.flatMap(_.split(" "))
+val pairs = words.map(word => (word, 1))
+val wordCounts = pairs.reduceByKey(_ + _)
+```
 
 #### <a name="output-results"></a>Resultados de saída
 
 Emita os resultados de transformação para os sistemas de destino através da aplicação de operações de saída. Neste caso, o resultado de cada execução através de computação é impresso na saída da consola.
 
-    wordCounts.print()
+```
+wordCounts.print()
+```
 
 ### <a name="run-the-application"></a>Executar a aplicação
 
 Inicie a aplicação de transmissão em fluxo e execute até que é recebido um sinal de terminação.
 
-    ssc.start()            
-    ssc.awaitTermination()
+```
+ssc.start()
+ssc.awaitTermination()
+```
 
 Para obter detalhes sobre a API do Stream Spark, juntamente com as origens de eventos, transformações e as operações de saída suporta, consulte [Apache Spark Streaming guia de programação](https://people.apache.org/~pwendell/spark-releases/latest/streaming-programming-guide.html).
 
 O aplicativo de exemplo seguinte é autónomo, para que pode executá-lo dentro de um [bloco de notas do Jupyter](apache-spark-jupyter-notebook-kernels.md). Este exemplo cria uma origem de dados fictícios na classe DummySource que produz o valor de um contador e a hora atual em milissegundos a cada cinco segundos. Um novo objeto de StreamingContext tem um intervalo de lotes de 30 segundos. Sempre que é criado um lote, o aplicativo de transmissão em fluxo examina o RDD produzido, converte o RDD para um DataFrame do Spark e cria uma tabela temporária sobre o pacote de dados.
 
-    class DummySource extends org.apache.spark.streaming.receiver.Receiver[(Int, Long)](org.apache.spark.storage.StorageLevel.MEMORY_AND_DISK_2) {
+```
+class DummySource extends org.apache.spark.streaming.receiver.Receiver[(Int, Long)](org.apache.spark.storage.StorageLevel.MEMORY_AND_DISK_2) {
 
-        /** Start the thread that simulates receiving data */
-        def onStart() {
-            new Thread("Dummy Source") { override def run() { receive() } }.start()
-        }
-
-        def onStop() {  }
-
-        /** Periodically generate a random number from 0 to 9, and the timestamp */
-        private def receive() {
-            var counter = 0  
-            while(!isStopped()) {
-                store(Iterator((counter, System.currentTimeMillis)))
-                counter += 1
-                Thread.sleep(5000)
-            }
-        }
+    /** Start the thread that simulates receiving data */
+    def onStart() {
+        new Thread("Dummy Source") { override def run() { receive() } }.start()
     }
 
-    // A batch is created every 30 seconds
-    val ssc = new org.apache.spark.streaming.StreamingContext(spark.sparkContext, org.apache.spark.streaming.Seconds(30))
+    def onStop() {  }
 
-    // Set the active SQLContext so that we can access it statically within the foreachRDD
-    org.apache.spark.sql.SQLContext.setActive(spark.sqlContext)
+    /** Periodically generate a random number from 0 to 9, and the timestamp */
+    private def receive() {
+        var counter = 0  
+        while(!isStopped()) {
+            store(Iterator((counter, System.currentTimeMillis)))
+            counter += 1
+            Thread.sleep(5000)
+        }
+    }
+}
 
-    // Create the stream
-    val stream = ssc.receiverStream(new DummySource())
+// A batch is created every 30 seconds
+val ssc = new org.apache.spark.streaming.StreamingContext(spark.sparkContext, org.apache.spark.streaming.Seconds(30))
 
-    // Process RDDs in the batch
-    stream.foreachRDD { rdd =>
+// Set the active SQLContext so that we can access it statically within the foreachRDD
+org.apache.spark.sql.SQLContext.setActive(spark.sqlContext)
 
-        // Access the SQLContext and create a table called demo_numbers we can query
-        val _sqlContext = org.apache.spark.sql.SQLContext.getOrCreate(rdd.sparkContext)
-        _sqlContext.createDataFrame(rdd).toDF("value", "time")
-            .registerTempTable("demo_numbers")
-    } 
+// Create the stream
+val stream = ssc.receiverStream(new DummySource())
 
-    // Start the stream processing
-    ssc.start()
+// Process RDDs in the batch
+stream.foreachRDD { rdd =>
 
-Em seguida, pode consultar o pacote de dados periodicamente para ver o conjunto atual de valores presentes no lote, por exemplo, usando esta consulta SQL:
+    // Access the SQLContext and create a table called demo_numbers we can query
+    val _sqlContext = org.apache.spark.sql.SQLContext.getOrCreate(rdd.sparkContext)
+    _sqlContext.createDataFrame(rdd).toDF("value", "time")
+        .registerTempTable("demo_numbers")
+} 
 
-    %%sql
-    SELECT * FROM demo_numbers
+// Start the stream processing
+ssc.start()
+```
+
+Aguarde cerca de 30 segundos depois de iniciar o aplicativo acima.  Em seguida, pode consultar o pacote de dados periodicamente para ver o conjunto atual de valores presentes no lote, por exemplo, utilizando esta consulta SQL:
+
+```sql
+%%sql
+SELECT * FROM demo_numbers
+```
 
 A saída resultante é semelhante ao seguinte:
 
@@ -161,26 +178,48 @@ Deslizante windows pode sobrepor-se, por exemplo, pode definir uma janela com um
 
 O exemplo seguinte atualiza o código que usa o DummySource, para recolher os lotes para uma janela com uma duração de um minuto e um slide de um minuto.
 
-    // A batch is created every 30 seconds
-    val ssc = new org.apache.spark.streaming.StreamingContext(spark.sparkContext, org.apache.spark.streaming.Seconds(30))
+```
+class DummySource extends org.apache.spark.streaming.receiver.Receiver[(Int, Long)](org.apache.spark.storage.StorageLevel.MEMORY_AND_DISK_2) {
 
-    // Set the active SQLContext so that we can access it statically within the foreachRDD
-    org.apache.spark.sql.SQLContext.setActive(spark.sqlContext)
+    /** Start the thread that simulates receiving data */
+    def onStart() {
+        new Thread("Dummy Source") { override def run() { receive() } }.start()
+    }
 
-    // Create the stream
-    val stream = ssc.receiverStream(new DummySource())
+    def onStop() {  }
 
-    // Process batches in 1 minute windows
-    stream.window(org.apache.spark.streaming.Minutes(1)).foreachRDD { rdd =>
+    /** Periodically generate a random number from 0 to 9, and the timestamp */
+    private def receive() {
+        var counter = 0  
+        while(!isStopped()) {
+            store(Iterator((counter, System.currentTimeMillis)))
+            counter += 1
+            Thread.sleep(5000)
+        }
+    }
+}
 
-        // Access the SQLContext and create a table called demo_numbers we can query
-        val _sqlContext = org.apache.spark.sql.SQLContext.getOrCreate(rdd.sparkContext)
-        _sqlContext.createDataFrame(rdd).toDF("value", "time")
-        .registerTempTable("demo_numbers")
-    } 
+// A batch is created every 30 seconds
+val ssc = new org.apache.spark.streaming.StreamingContext(spark.sparkContext, org.apache.spark.streaming.Seconds(30))
 
-    // Start the stream processing
-    ssc.start()
+// Set the active SQLContext so that we can access it statically within the foreachRDD
+org.apache.spark.sql.SQLContext.setActive(spark.sqlContext)
+
+// Create the stream
+val stream = ssc.receiverStream(new DummySource())
+
+// Process batches in 1 minute windows
+stream.window(org.apache.spark.streaming.Minutes(1)).foreachRDD { rdd =>
+
+    // Access the SQLContext and create a table called demo_numbers we can query
+    val _sqlContext = org.apache.spark.sql.SQLContext.getOrCreate(rdd.sparkContext)
+    _sqlContext.createDataFrame(rdd).toDF("value", "time")
+    .registerTempTable("demo_numbers")
+} 
+
+// Start the stream processing
+ssc.start()
+```
 
 Após o primeiro minuto, existem 12 entradas - seis entradas de cada um dos dois lotes recolhidos na janela.
 

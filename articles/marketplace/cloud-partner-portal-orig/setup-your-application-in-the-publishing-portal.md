@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 09/13/2018
 ms.author: pbutlerm
-ms.openlocfilehash: 7b5bb0bf8ff5fac10c47cf5bdf9564903f4d6b94
-ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
-ms.translationtype: MT
+ms.openlocfilehash: 58be8a222f649abe4be6de272a1ef2b686336262
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54448488"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57847132"
 ---
 # <a name="setup-your-application-in-the-publishing-portal"></a>Configurar a sua aplicação no Portal de publicação
 
@@ -27,16 +27,16 @@ Está agora preparado para configurar a sua aplicação no portal de publicaçã
 
 ## <a name="login-and-create-a-new-offer"></a>Início de sessão e criar uma nova oferta
 
-1. Inicie sessão para o [Portal de parceiros da Cloud](http://cloudpartner.azure.com/).
+1. Inicie sessão para o [Portal de parceiros da Cloud](https://cloudpartner.azure.com/).
 2. Na barra de navegação esquerdo, clique em "+ nova da oferta" e selecione "Dynamics 365 para envolvimento do cliente."
 
 ![Selecionar uma nova oferta](./media/CRMScreenShot14.png)
 
-3. Uma nova oferta vista de "Editor" agora é aberta para, e estamos prontos para começar a criar.
+1. Uma nova oferta vista de "Editor" agora é aberta para, e estamos prontos para começar a criar.
 
 ![Novo ecrã de oferta](./media/CRMScreenShot15.png)
 
-4. O "forms" que têm de ser preenchidos são visível no lado esquerdo do modo de "Editor" exibição. Cada "form" consiste num conjunto de campos que devem ser preenchidos. Necessário campos são marcados com um asterisco vermelho (\*).
+1. O "forms" que têm de ser preenchidos são visível no lado esquerdo do modo de "Editor" exibição. Cada "form" consiste num conjunto de campos que devem ser preenchidos. Necessário campos são marcados com um asterisco vermelho (\*).
 
 Existem quatro formas principais para a criação de um do Dynamics 365 para a oferta de envolvimento do cliente
 
@@ -59,7 +59,7 @@ Por exemplo, se um publicador **"contoso"** publicadores cria uma oferta com o I
 
 Essa área suspensa permite-lhe escolher o perfil do publicador que pretende publicar esta oferta em. Este campo está bloqueado assim que uma oferta entra no ar.
 
-### <a name="name"></a>Nome
+### <a name="name"></a>Name
 
 Este é o nome a apresentar para a sua oferta. Este é o nome que aparecerá na [AppSource](https://appsource.microsoft.com/). Pode ter um máximo de 50 carateres.
 
@@ -88,7 +88,7 @@ Aqui está uma explicação para estes campos:
 
 ### <a name="crm-package-availability"></a>Disponibilidade do pacote CRM
 
-Nesta secção, selecione em que regiões do seu pacote será disponibilizado para CRM. Para obter informações em que regiões servem que países, consulte o link: [http://o365datacentermap.azurewebsites.net/](http://o365datacentermap.azurewebsites.net/)
+Nesta secção, selecione em que regiões do seu pacote será disponibilizado para CRM. Para obter informações em que regiões servem que países, consulte o link: [https://o365datacentermap.azurewebsites.net/](https://o365datacentermap.azurewebsites.net/)
 
 Nota: Implementar Alemanha permissão especial de REQUIRES garante a soberania: "Independentes e Cloud de Governo dos E.U.A." e a validação durante a certificação
 

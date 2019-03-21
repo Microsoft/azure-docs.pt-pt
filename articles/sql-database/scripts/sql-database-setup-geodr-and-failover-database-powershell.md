@@ -11,13 +11,13 @@ author: mashamsft
 ms.author: mathoma
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 03/07/2019
-ms.openlocfilehash: d16218ab8f0dfd3e1c9597fb53c379387ee09057
-ms.sourcegitcommit: 30a0007f8e584692fe03c0023fe0337f842a7070
+ms.date: 03/12/2019
+ms.openlocfilehash: fbc662aa9706b8668ec1328d09d927035f70c808
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57575142"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57872222"
 ---
 # <a name="use-powershell-to-configure-active-geo-replication-for-a-single-database-in-azure-sql-database"></a>Utilize o PowerShell para configurar a georreplicação ativa para uma base de dados na base de dados do Azure SQL
 

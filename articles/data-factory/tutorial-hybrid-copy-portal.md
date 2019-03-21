@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.date: 01/11/2018
 ms.author: jingwang
-ms.openlocfilehash: af764557a6bd3d3f60a3aa628834d5929e073a82
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: ab13b0db843e5a2652ed1dd61a0e5ab5f7541244
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54021990"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58120266"
 ---
 # <a name="copy-data-from-an-on-premises-sql-server-database-to-azure-blob-storage"></a>Copiar dados de uma base de dados do SQL Server no local para o armazenamento de Blobs do Azure
 Neste tutorial, vai utilizar a interface de utilizador (IU) do Azure Data Factory para criar um pipeline de fábrica de dados que copia dados de uma base de dados do SQL Server no local para o armazenamento de Blobs do Azure. Vai criar e utilizar um runtime de integração autoalojado, que move dados entre arquivos de dados no local e na cloud.
@@ -134,11 +134,11 @@ O nome da fábrica de dados tem de ser *globalmente exclusivo*. Se vir a seguint
 1. Selecione a **subscrição** do Azure na qual quer criar a fábrica de dados.
 1. Em **Grupo de Recursos**, efetue um destes passos:
    
-      - Selecione **Utilizar existente** e selecione um grupo de recursos já existente na lista pendente.
+   - Selecione **Utilizar existente** e selecione um grupo de recursos já existente na lista pendente.
 
-      - Selecione **Criar novo** e introduza o nome de um grupo de recursos.
+   - Selecione **Criar novo** e introduza o nome de um grupo de recursos.
         
-    Para saber mais sobre grupos de recursos, veja [Utilizar grupos de recursos para gerir os recursos do Azure](../azure-resource-manager/resource-group-overview.md).
+     Para saber mais sobre grupos de recursos, veja [Utilizar grupos de recursos para gerir os recursos do Azure](../azure-resource-manager/resource-group-overview.md).
 1. Em **Versão**, selecione **V2**.
 1. Em **Localização**, selecione a localização para a fábrica de dados. Só aparecem na lista pendente as localizações que são suportadas. Os arquivos de dados (por exemplo, o Armazenamento e a Base de Dados SQL) e as computações (por exemplo, o Azure HDInsight) que o Data Factory utiliza podem estar noutras regiões.
 1. Selecione **Afixar ao dashboard**. 

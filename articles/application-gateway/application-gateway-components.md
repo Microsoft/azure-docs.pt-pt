@@ -7,18 +7,18 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 02/20/2019
 ms.author: absha
-ms.openlocfilehash: 0e1232391ddf4b57b5dad5ade9776e9c7cfea9b4
-ms.sourcegitcommit: 235cd1c4f003a7f8459b9761a623f000dd9e50ef
+ms.openlocfilehash: 44c8b331ebb258c39a003c91e0711e6dfb87cb12
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/11/2019
-ms.locfileid: "57727336"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58076303"
 ---
 # <a name="application-gateway-components"></a>Componentes de gateway de aplicação
 
  Um gateway de aplicação serve como o único ponto de contacto para clientes. Distribui o tráfego das aplicações recebido em vários conjuntos de back-end, como as VMs do Azure, conjuntos de dimensionamento de máquinas virtuais, serviços de aplicações ou servidores no local/externo. Para tal, utiliza vários componentes descritos neste artigo.
 
-![componentes de gateway de aplicação](.\media\application-gateway-components\application-gateway-components.png)
+![componentes de gateway de aplicação](./media/application-gateway-components/application-gateway-components.png)
 
 ## <a name="frontend-ip-address"></a>Endereço IP de front-end
 

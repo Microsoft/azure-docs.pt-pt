@@ -12,14 +12,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/09/2019
+ms.date: 03/19/2019
 ms.author: juliako
-ms.openlocfilehash: 1f7e108b4410ba62060dd4411e4b28b896e93d58
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 2639d47a6c9d8da53c9d6bccde0d317698d5d9fd
+ms.sourcegitcommit: aa3be9ed0b92a0ac5a29c83095a7b20dd0693463
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57834426"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58257974"
 ---
 # <a name="publish-content-in-the-azure-portal"></a>Publicar conteúdo no portal do Azure  
 > [!div class="op_single_selector"]

@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/19/2018
+ms.date: 03/20/2019
 ms.author: tomfitz
-ms.openlocfilehash: 39d0813eab49f526842eec171e3355326bd13c44
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: 91325b7884eae4c6f4c85c142b1e81cf2121c039
+ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53727807"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58295339"
 ---
 # <a name="define-the-order-for-deploying-resources-in-azure-resource-manager-templates"></a>Definir a ordem para a implementação de recursos nos modelos do Azure Resource Manager
 Para um determinado recurso, pode haver outros recursos que tem de existir antes do recurso está implementado. Por exemplo, um SQL server tem de existir antes de tentar implementar uma base de dados SQL. Define esta relação, marcando um recurso como dependente do recurso de outro. Define uma dependência com o **dependsOn** elemento, ou utilizando o **referência** função. 
@@ -65,7 +65,7 @@ Ao definir as dependências, pode incluir o espaço de nomes de fornecedor de re
 Embora poderá ser artísticas utilizar dependsOn para mapear as relações entre os seus recursos, é importante compreender por que está fazendo isso. Por exemplo, documente a forma como os recursos estão interligados, dependsOn não é a abordagem correta. Não é possível consultar a que recursos foram definidos no elemento dependsOn após a implementação. Usando dependsOn, potencialmente afeta o tempo de implantação porque o Gestor de recursos não implementar em paralelos dois recursos que têm uma dependência. 
 
 ## <a name="child-resources"></a>Recursos subordinados
-A propriedade de recursos permite-lhe especificar os recursos subordinados que estão relacionados com o recurso a ser definido. Recursos subordinados só podem ser definida cinco níveis de profundidade. É importante ter em atenção que uma dependência implícita não é criada entre um recurso de subordinado e o recurso principal. Se precisar do recurso de subordinados para ser implementada depois do recurso principal, têm de indicar explicitamente essa dependência com a propriedade dependsOn. 
+A propriedade de recursos permite-lhe especificar os recursos subordinados que estão relacionados com o recurso a ser definido. Recursos subordinados só podem ser definida cinco níveis de profundidade. É importante ter em atenção que uma dependência de implementação implícito não é criada entre um recurso de subordinado e o recurso principal. Se precisar do recurso de subordinados para ser implementada depois do recurso principal, têm de indicar explicitamente essa dependência com a propriedade dependsOn. 
 
 Cada recurso principal aceita apenas determinados tipos de recursos, como recursos subordinados. Os tipos de recurso aceites são especificados na [esquema de modelo](https://github.com/Azure/azure-resource-manager-schemas) do recurso principal. O nome do tipo de recurso subordinado inclui o nome do tipo de recurso principal, como **Microsoft.Web/sites/config** e **Microsoft.Web/sites/extensions** são os dois recursos subordinados do **Microsoft.Web/sites**.
 

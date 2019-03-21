@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.date: 1/8/2019
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: 49035bc94f0ed51abb5f7e7a4af8eb1a0b08cfe4
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: b474d3579a7c20c190a427f503d97ec7471a1b12
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57539834"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58091159"
 ---
 # <a name="quickstart-direct-web-traffic-with-azure-application-gateway---azure-portal"></a>Início rápido: Tráfego da web direto com o Gateway de aplicação do Azure - portal do Azure
 
@@ -37,10 +37,10 @@ Para o Azure comunicar entre os recursos que criar, ele precisa de uma rede virt
 
 1. Sobre o **Noções básicas** página, introduza estes valores para as seguintes definições do gateway de aplicação:
 
-    - **Nome**: Introduza *myAppGateway* para o nome do gateway de aplicação.
-    - **Grupo de recursos**: Selecione **myResourceGroupAG** para o grupo de recursos. Se não existir, selecione **criar novo** para criá-lo.
+   - **Nome**: Introduza *myAppGateway* para o nome do gateway de aplicação.
+   - **Grupo de recursos**: Selecione **myResourceGroupAG** para o grupo de recursos. Se não existir, selecione **criar novo** para criá-lo.
 
-    ![Criar um novo gateway de aplicação](./media/application-gateway-create-gateway-portal/application-gateway-create.png)
+     ![Criar um novo gateway de aplicação](./media/application-gateway-create-gateway-portal/application-gateway-create.png)
 
 2. Aceite os valores predefinidos para as outras definições e, em seguida, selecione **OK**.
 
@@ -50,15 +50,15 @@ Para o Azure comunicar entre os recursos que criar, ele precisa de uma rede virt
 
 2. Sobre o **escolher rede virtual** página, selecione **criar nova**e, em seguida, introduza valores para as seguintes definições de rede virtual:
 
-    - **Nome**: Introduza *myVNet* para o nome da rede virtual.
+   - **Nome**: Introduza *myVNet* para o nome da rede virtual.
 
-    - **Espaço de endereços**: Introduza *10.0.0.0/16* para o espaço de endereços de rede virtual.
+   - **Espaço de endereços**: Introduza *10.0.0.0/16* para o espaço de endereços de rede virtual.
 
-    - **Nome da sub-rede**: Introduza *myAGSubnet* para o nome da sub-rede.<br>A sub-rede do gateway de aplicação pode conter apenas os gateways de aplicação. Não existem outros recursos são permitidos.
+   - **Nome da sub-rede**: Introduza *myAGSubnet* para o nome da sub-rede.<br>A sub-rede do gateway de aplicação pode conter apenas os gateways de aplicação. Não existem outros recursos são permitidos.
 
-    - **Intervalo de endereços da sub-rede**: Introduza *10.0.0.0/24* para o intervalo de endereços da sub-rede.
+   - **Intervalo de endereços da sub-rede**: Introduza *10.0.0.0/24* para o intervalo de endereços da sub-rede.
 
-    ![Criar a rede virtual](./media/application-gateway-create-gateway-portal/application-gateway-vnet.png)
+     ![Criar a rede virtual](./media/application-gateway-create-gateway-portal/application-gateway-vnet.png)
 
 3. Selecione **OK** para voltar para o **definições** página.
 

@@ -15,12 +15,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 02/28/2019
 ms.author: cshoe
-ms.openlocfilehash: bd59a9584f6993d768a9aeb790470a1d978c78ae
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: ab050a683913e62c6671bf01397e76311a08952b
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57542458"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58006785"
 ---
 # <a name="signalr-service-bindings-for-azure-functions"></a>Enlaces do Serviço SignalR para as Funções do Azure
 
@@ -82,7 +82,7 @@ public static SignalRConnectionInfo Negotiate(
 
 #### <a name="authenticated-tokens"></a>Autenticado de tokens
 
-Se a função é acionada por um cliente autenticado, pode adicionar uma afirmação de ID de utilizador para o token gerada. Pode adicionar facilmente autenticação para uma aplicação de função com [autenticação do serviço de aplicações] (... /App-Service/Overview-Authentication-Authorization.MD).
+Se a função é acionada por um cliente autenticado, pode adicionar uma afirmação de ID de utilizador para o token gerada. Pode adicionar facilmente autenticação para uma aplicação de funções com [autenticação de serviço de aplicações](../app-service/overview-authentication-authorization.md).
 
 Autenticação do serviço de aplicações define os cabeçalhos HTTP com o nome `x-ms-client-principal-id` e `x-ms-client-principal-name` que contêm os ID de principal de cliente e o nome, o utilizador autenticado, respetivamente. Pode definir o `UserId` propriedade da ligação para o valor do cabeçalho usando um [expressão de ligação](./functions-bindings-expressions-patterns.md): `{headers.x-ms-client-principal-id}` ou `{headers.x-ms-client-principal-name}`. 
 
@@ -127,7 +127,7 @@ module.exports = async function (context, req, connectionInfo) {
 
 #### <a name="authenticated-tokens"></a>Autenticado de tokens
 
-Se a função é acionada por um cliente autenticado, pode adicionar uma afirmação de ID de utilizador para o token gerada. Pode adicionar facilmente autenticação para uma aplicação de função com [autenticação do serviço de aplicações] (... /App-Service/Overview-Authentication-Authorization.MD).
+Se a função é acionada por um cliente autenticado, pode adicionar uma afirmação de ID de utilizador para o token gerada. Pode adicionar facilmente autenticação para uma aplicação de funções com [autenticação de serviço de aplicações](../app-service/overview-authentication-authorization.md).
 
 Autenticação do serviço de aplicações define os cabeçalhos HTTP com o nome `x-ms-client-principal-id` e `x-ms-client-principal-name` que contêm os ID de principal de cliente e o nome, o utilizador autenticado, respetivamente. Pode definir o `userId` propriedade da ligação para o valor do cabeçalho usando um [expressão de ligação](./functions-bindings-expressions-patterns.md): `{headers.x-ms-client-principal-id}` ou `{headers.x-ms-client-principal-name}`. 
 
@@ -174,7 +174,7 @@ public SignalRConnectionInfo negotiate(
 
 #### <a name="authenticated-tokens"></a>Autenticado de tokens
 
-Se a função é acionada por um cliente autenticado, pode adicionar uma afirmação de ID de utilizador para o token gerada. Pode adicionar facilmente autenticação para uma aplicação de função com [autenticação do serviço de aplicações] (... /App-Service/Overview-Authentication-Authorization.MD).
+Se a função é acionada por um cliente autenticado, pode adicionar uma afirmação de ID de utilizador para o token gerada. Pode adicionar facilmente autenticação para uma aplicação de funções com [autenticação de serviço de aplicações](../app-service/overview-authentication-authorization.md).
 
 Autenticação do serviço de aplicações define os cabeçalhos HTTP com o nome `x-ms-client-principal-id` e `x-ms-client-principal-name` que contêm os ID de principal de cliente e o nome, o utilizador autenticado, respetivamente. Pode definir o `UserId` propriedade da ligação para o valor do cabeçalho usando um [expressão de ligação](./functions-bindings-expressions-patterns.md): `{headers.x-ms-client-principal-id}` ou `{headers.x-ms-client-principal-name}`.
 
@@ -260,7 +260,7 @@ public static Task SendMessage(
     return signalRMessages.AddAsync(
         new SignalRMessage
         {
-            // the message will only be sent to this user ID
+            // the message will be sent to the group with this name
             GroupName = "myGroup",
             Target = "newMessage",
             Arguments = new [] { message }

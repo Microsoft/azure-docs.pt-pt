@@ -3,7 +3,7 @@ title: Pré-requisitos da oferta do aplicativo do Azure | Documentos da Microsof
 description: Os pré-requisitos para a publicação de uma aplicação do Azure oferecem no Azure Marketplace.
 services: Azure, Marketplace, Cloud Partner Portal,
 documentationcenter: ''
-author: dan-wesley
+author: v-miclar
 manager: Patrick.Butler
 editor: ''
 ms.assetid: ''
@@ -12,18 +12,20 @@ ms.workload: ''
 ms.tgt_pltfrm: ''
 ms.devlang: ''
 ms.topic: conceptual
-ms.date: 12/06/2018
+ms.date: 03/13/2019
 ms.author: pbutlerm
-ms.openlocfilehash: b3f978635127ef6aabb123d1c95b76ed06fccbbf
-ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
+ms.openlocfilehash: df127eec662f8598246f276ef9b1608ae3021512
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56097795"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58007152"
 ---
 # <a name="azure-application-prerequisites"></a>Pré-requisitos de aplicação do Azure
 
-Este artigo descreve os pré-requisitos técnicos e empresariais para publicar uma oferta de aplicação gerida no Azure Marketplace.  Se ainda não o fez, ver o vídeo [criando modelos de soluções e aplicações geridas para o Azure Marketplace](https://channel9.msdn.com/Events/Build/2018/BRK3603).
+Este artigo descreve os pré-requisitos técnicos e empresariais para publicar uma oferta de aplicação gerida no Azure Marketplace.  Se ainda não o fez, reveja as seguintes fontes de informações:
+- Consoante o tipo de SKU ou [aplicativos do Azure: Guia de publicação da oferta do modelo de solução](../../marketplace-solution-templates.md) ou [aplicações do Azure: Guia de publicação de oferta de aplicação gerida](../../marketplace-managed-apps.md)
+- [Criação de modelos de soluções e aplicações geridas para o Azure Marketplace](https://channel9.msdn.com/Events/Build/2018/BRK3603) vídeo
 
 
 ## <a name="technical-requirements"></a>Requisitos técnicos
@@ -43,7 +45,7 @@ Para obter mais informações, consulte [interface de utilizador do portal do Az
 
 Os requisitos comerciais incluem as seguinte obrigações de procedimentos, contratuais e legais:
 
-* Tem de ser um publicador de Marketplace na nuvem registados. Se não estiver registrado, siga os passos no artigo tornar-se um publicador de Marketplace da Cloud.
+* Tem de ser um publicador de Marketplace na nuvem registados. Se não estiver registado, siga os passos no artigo [se tornar um publicador de Marketplace da Cloud](../../become-publisher.md).
 
 >[!NOTE]
 >Deve utilizar a mesma conta de registo do Microsoft Developer Center para iniciar sessão no Portal de parceiros de nuvem. Deve ter apenas uma conta Microsoft para as ofertas do Azure Marketplace. Esta conta não deve ser específica de ofertas ou serviços individuais.
@@ -65,8 +67,8 @@ Para publicar uma nova oferta de aplicação do Azure, tem de cumprir os seguint
   * Um título
   * Uma descrição (no formato HTML)
   * Uma imagem de logótipo (no formato PNG) e nestes corrigido tamanhos de imagem: 40 x 40 pixels, 90 x 90 pixels, 115 x 115 pixels e 255 x 115 pixels.
-* R *termos de utilização* e um *política de privacidade*
-* Documentação
+* R *termos de utilização* e uma *política de privacidade* documentos
+* Documentação da aplicação
 * Contactos de suporte
 
 

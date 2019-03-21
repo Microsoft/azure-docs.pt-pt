@@ -9,12 +9,12 @@ manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
 ms.date: 08/31/2018
-ms.openlocfilehash: df8260cc0d8ddd8521aa5bf683402c62bc2608f4
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: b1102649e48af8cb36a64f1142c078bf9ebc0d99
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57766738"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58006185"
 ---
 # <a name="install-and-use-the-azure-terraform-visual-studio-code-extension"></a>Instalar e utilizar a extensão do Azure Terraform no Visual Studio Code
 
@@ -59,7 +59,7 @@ Para utilizar o Terraform no Cloud Shell, tem de [instalar o Node.js](https://no
 
 ### <a name="install-graphviz"></a>Instalar o GraphViz
 
-Para utilizar a função de visualização do Terraform, precisa de [instalar o GraphViz](http://graphviz.org/).
+Para utilizar a função de visualização do Terraform, precisa de [instalar o GraphViz](https://graphviz.org/).
 
 >[!NOTE]
 >Para confirmar que o GraphViz está instalado, abra uma janela do termo e introduza `dot -V`.
@@ -128,7 +128,7 @@ Neste exercício, irá criar e executar um ficheiro de configuração básico do
     ![Guardar como main.tf](media/terraform-vscode-extension/tf-save-as-main.png)
 
 1. Selecione **Guardar**.
-- Na barra de menus, selecione **File > Open Folder** (Ficheiro > Abrir Pasta). Navegue para e selecione a nova pasta que criou.
+1. Na barra de menus, selecione **File > Open Folder** (Ficheiro > Abrir Pasta). Navegue para e selecione a nova pasta que criou.
 
 ### <a name="run-terraform-init-command"></a>Executar o comando *init* do Terraform
 

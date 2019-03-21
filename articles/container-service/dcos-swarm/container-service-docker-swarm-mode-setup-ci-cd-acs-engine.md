@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 05/27/2017
 ms.author: diegomrtnzg
 ms.custom: mvc
-ms.openlocfilehash: a2ecc2b0b8bfcf65d2ba566b8524a0c37c89ab78
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
+ms.openlocfilehash: 8aa62e4ed65f8223071786ac165f8343cb6901d5
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55980555"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58079099"
 ---
 # <a name="deprecated-full-cicd-pipeline-to-deploy-a-multi-container-application-on-azure-container-service-with-acs-engine-and-docker-swarm-mode-using-azure-devops"></a>(PRETERIDO) Pipeline de CI/CD completo para implementar uma aplicação de vários contentor no Azure Container Service com o motor de ACS e o modo Docker Swarm através do Azure DevOps
 
@@ -163,21 +163,21 @@ Precisa de dois passos de Docker para cada imagem, um para compilar a imagem e u
 
    ![DevOps do Azure - adicionar tarefa da linha de comandos](./media/container-service-docker-swarm-mode-setup-ci-cd-acs-engine/vsts-build-command-task.png)
 
-      1. Uma tarefa da linha de comandos que utiliza um script de bash para substituir a *RegistryURL* ocorrência no ficheiro docker-Compose com a variável RegistryURL. 
+   1. Uma tarefa da linha de comandos que utiliza um script de bash para substituir a *RegistryURL* ocorrência no ficheiro docker-Compose com a variável RegistryURL. 
     
-          ```-c "sed -i 's/RegistryUrl/$(RegistryURL)/g' src/docker-compose-v3.yml"```
+       ```-c "sed -i 's/RegistryUrl/$(RegistryURL)/g' src/docker-compose-v3.yml"```
 
-          ![DevOps do Azure - ficheiro de atualização Compose com o URL de registo](./media/container-service-docker-swarm-mode-setup-ci-cd-acs-engine/vsts-build-replace-registry.png)
+       ![DevOps do Azure - ficheiro de atualização Compose com o URL de registo](./media/container-service-docker-swarm-mode-setup-ci-cd-acs-engine/vsts-build-replace-registry.png)
 
-      2. Uma tarefa da linha de comandos que utiliza um script de bash para substituir a *AgentURL* ocorrência no ficheiro docker-Compose com a variável AgentURL.
+   2. Uma tarefa da linha de comandos que utiliza um script de bash para substituir a *AgentURL* ocorrência no ficheiro docker-Compose com a variável AgentURL.
   
-          ```-c "sed -i 's/AgentUrl/$(AgentURL)/g' src/docker-compose-v3.yml"```
+       ```-c "sed -i 's/AgentUrl/$(AgentURL)/g' src/docker-compose-v3.yml"```
 
-     3. Uma tarefa que descarta o ficheiro de composição atualizado como um artefacto de compilação para que possa ser utilizada na versão. Veja o ecrã seguinte para obter detalhes.
+      1. Uma tarefa que descarta o ficheiro de composição atualizado como um artefacto de compilação para que possa ser utilizada na versão. Veja o ecrã seguinte para obter detalhes.
 
-         ![DevOps do Azure - publicar artefactos](./media/container-service-docker-swarm-mode-setup-ci-cd-acs-engine/vsts-publish.png) 
+      ![DevOps do Azure - publicar artefactos](./media/container-service-docker-swarm-mode-setup-ci-cd-acs-engine/vsts-publish.png) 
 
-         ![Publicar de DevOps do Azure - ficheiro de composição](./media/container-service-docker-swarm-mode-setup-ci-cd-acs-engine/vsts-publish-compose.png) 
+      ![Publicar de DevOps do Azure - ficheiro de composição](./media/container-service-docker-swarm-mode-setup-ci-cd-acs-engine/vsts-publish-compose.png) 
 
 5. Clique em **guardar e colocar em fila** para testar o seu pipeline de compilação.
 
@@ -187,7 +187,7 @@ Precisa de dois passos de Docker para cada imagem, um para compilar a imagem e u
 
 6. Se o **criar** está correto, tem que ver este ecrã:
 
-  ![DevOps do Azure - compilação bem-sucedida](./media/container-service-docker-swarm-mode-setup-ci-cd-acs-engine/vsts-build-succeeded.png) 
+   ![DevOps do Azure - compilação bem-sucedida](./media/container-service-docker-swarm-mode-setup-ci-cd-acs-engine/vsts-build-succeeded.png) 
 
 ## <a name="step-3-create-the-release-pipeline"></a>Passo 3: Criar o pipeline de lançamento
 
@@ -235,14 +235,14 @@ O fluxo de trabalho de versão é composto por duas tarefas que adicionar.
 
     O comando foi executado no mestre de utiliza a CLI do Docker e a CLI do Docker-Compose para efetuar as seguintes tarefas:
 
-    - Inicie sessão no Azure container registry (utiliza três variáveis de compilação que são definidas na **variáveis** separador)
-    - Definir o **DOCKER_HOST** variável para trabalhar com o ponto final do Swarm (: 2375)
-    - Navegue para o *implementar* pasta que foi criada pela tarefa de cópia de segurança anterior e que contém o ficheiro docker-Compose. 
-    - Executar `docker stack deploy` comandos que as novas imagens de solicitação e criar os contentores.
+   - Inicie sessão no Azure container registry (utiliza três variáveis de compilação que são definidas na **variáveis** separador)
+   - Definir o **DOCKER_HOST** variável para trabalhar com o ponto final do Swarm (: 2375)
+   - Navegue para o *implementar* pasta que foi criada pela tarefa de cópia de segurança anterior e que contém o ficheiro docker-Compose. 
+   - Executar `docker stack deploy` comandos que as novas imagens de solicitação e criar os contentores.
 
-    >[!IMPORTANT]
-    > Conforme mostrado no ecrã anterior, deixe a **falhar em STDERR** caixa de verificação desmarcada. Esta definição permite-nos concluir o processo de liberação devido a `docker-compose` imprime várias mensagens de diagnóstico, como contentores estão a parar ou a ser eliminado, a saída de erro padrão. Se selecionar a caixa de verificação, Azure DevOps relatórios que ocorreram erros durante o lançamento, mesmo se tudo correr bem.
-    >
+     >[!IMPORTANT]
+     > Conforme mostrado no ecrã anterior, deixe a **falhar em STDERR** caixa de verificação desmarcada. Esta definição permite-nos concluir o processo de liberação devido a `docker-compose` imprime várias mensagens de diagnóstico, como contentores estão a parar ou a ser eliminado, a saída de erro padrão. Se selecionar a caixa de verificação, Azure DevOps relatórios que ocorreram erros durante o lançamento, mesmo se tudo correr bem.
+     >
 3. Guarde este novo pipeline de lançamento.
 
 ## <a name="step-4-test-the-cicd-pipeline"></a>Passo 4: Testar o pipeline de CI/CD

@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: quickstart
 ms.date: 02/21/2019
 ms.author: erhopf
-ms.openlocfilehash: 2022971d24f7ac8a24986f45031f568a86fc31d9
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: b30fa9bb0af8da7b3c72fef7aa2ecd18a8f759e8
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56726368"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57862850"
 ---
 # <a name="quickstart-use-the-translator-text-api-to-transliterate-text-using-python"></a>Início rápido: Utilizar a API de texto do Translator a transcrição de texto com o Python
 
@@ -32,7 +32,7 @@ Este início rápido requer:
 
 ## <a name="create-a-project-and-import-required-modules"></a>Criar um projeto e importar os módulos exigidos
 
-Crie um novo projeto do Python através do seu editor ou IDE favorito. Em seguida, copie este fragmento de código para o seu projeto num ficheiro com o nome `transliterate-text.py`.
+Criar um novo projeto usando o seu IDE favorito ou editor ou uma nova pasta com um arquivo chamado `transliterate-text.py` no ambiente de trabalho. Em seguida, copie este fragmento de código no seu projeto/ficheiro:
 
 ```python
 # -*- coding: utf-8 -*-
@@ -135,7 +135,7 @@ Se quiser comparar o seu código com o nosso, o exemplo completo está disponív
 [
     {
         "script": "latn",
-        "text": "konnnichiha"
+        "text": "konnichiwa"
     }
 ]
 ```

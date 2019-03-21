@@ -6,14 +6,14 @@ manager: carmonm
 ms.service: site-recovery
 services: site-recovery
 ms.topic: conceptual
-ms.date: 03/06/2019
+ms.date: 03/20/2019
 ms.author: raynew
-ms.openlocfilehash: 637a8e91ba03240cd4c2c530ae2c982d2115c81d
-ms.sourcegitcommit: dd1a9f38c69954f15ff5c166e456fda37ae1cdf2
+ms.openlocfilehash: 2fe2e972d16bdb27c5d2fbd2d552dac825235b6d
+ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57569829"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58286470"
 ---
 # <a name="support-matrix-for-disaster-recovery--of-vmware-vms-and-physical-servers-to-azure"></a>Matriz de suporte para recuperação após desastre de VMs de VMware e servidores físicos para o Azure
 
@@ -30,7 +30,7 @@ Servidores físicos | Replicação de servidores físicos de Windows/Linux no lo
 
 ## <a name="on-premises-virtualization-servers"></a>Servidores de virtualização no local
 
-**servidor** | **Requisitos** | **Detalhes**
+**Servidor** | **Requisitos** | **Detalhes**
 --- | --- | ---
 VMware | o vCenter Server 6.7, 6.5, 6.0, ou 5.5 ou vSphere 6.7, 6.5, 6.0 ou 5.5 | Recomendamos que utilize um servidor vCenter.<br/><br/> Recomendamos que os anfitriões vSphere e servidores vCenter estão localizados na mesma rede que o servidor de processos. Por predefinição os componentes de servidor de processo é executado no servidor de configuração,, esta será a rede na qual configurou o servidor de configuração, a menos que configurar um servidor de processos dedicados.
 Físico | N/A
@@ -48,7 +48,7 @@ Espaço livre em disco | 600 GB de espaço necessário para a cache do servidor 
 Espaço livre em disco | 600 GB de espaço necessário para a unidade de retenção.
 Sistema operativo  | Windows Server 2012 R2 ou Windows Server 2016 |
 Região do sistema operativo | Inglês (en-us)
-PowerCLI | [PowerCLI 6.0](https://my.vmware.com/web/vmware/details?productId=491&downloadGroup=PCLI600R1 "PowerCLI 6.0") deve ser instalado.
+PowerCLI | [PowerCLI 6.0](https://my.vmware.com/web/vmware/details?productId=491&downloadGroup=PCLI600R1 "PowerCLI 6.0") não é necessário para o servidor de configuração com as versões de [9.14](https://support.microsoft.com/help/4091311/update-rollup-23-for-azure-site-recovery).
 Funções do Windows Server | Não ative: <br/> - Active Directory Domain Services <br/>- Serviços de Informação da Internet <br/> - Hyper-V |
 Políticas de grupo| Não ative: <br/> -Impedi o acesso ao prompt de comando. <br/> -Impedi o acesso a ferramentas de edição do registo. <br/> -Lógica para anexos de ficheiros de fidedignidade. <br/> – Ative a execução do Script. <br/> [Saiba mais](https://technet.microsoft.com/library/gg176671(v=ws.10).aspx)|
 IIS | Certifique-se de que:<br/><br/> -Não é necessário um Web site predefinido do preexistente <br/> -Permitir [autenticação anónima](https://technet.microsoft.com/library/cc731244(v=ws.10).aspx) <br/> -Ativar [FastCGI](https://technet.microsoft.com/library/cc753077(v=ws.10).aspx) definição  <br/> -Não tiverem preexistente de Web site/aplicação em escuta na porta 443<br/>
@@ -121,7 +121,7 @@ Libertar os requisitos de espaço | 2 GB na partição /root <br/><br/> 250 MB n
 
 ## <a name="vmdisk-management"></a>Gerenciamento de VM/disco
 
-**ação** | **Detalhes**
+**Ação** | **Detalhes**
 --- | ---
 Redimensionar disco numa VM replicada | Suportado.
 Adicionar o disco na VM replicada | Desative a replicação para a VM, adicione o disco e, em seguida, reativar a replicação. Adicionar um disco numa VM de replicação não é atualmente suportada.
@@ -149,7 +149,7 @@ Várias NICs de rede de convidado/servidor | Sim.
 Azure ExpressRoute | Sim
 ILB | Sim
 ELB | Sim
-Gestor de Tráfego do Azure | Sim
+Traffic Manager do Azure | Sim
 Multi-NIC | Sim
 Endereço IP reservado | Sim
 IPv4 | Sim
@@ -185,12 +185,12 @@ Multipath i de convidado/servidor (o MPIO) | Não
 
 > [!NOTE]
 > UEFI de arranque máquinas de virtuais de VMware com o Windows Server 2012 ou posterior podem ser migrados para o Azure. As seguintes restrições aplicam-se:
-
+> 
 > - Apenas uma migração para o Azure é suportada. Não é suportada a reativação pós-falha para o site de VMware no local.
 > - O servidor não deve ter mais de quatro partições no disco do SO.
 > - Requer a versão de serviço de mobilidade 9.13 ou posterior.
 
-## <a name="azure-storage"></a>Armazenamento do Azure
+## <a name="azure-storage"></a>Storage do Azure
 
 **Componente** | **Suportado**
 --- | ---
@@ -213,7 +213,7 @@ Contas de armazenamento para fins gerais v2 (escalões esporádico e frequentes)
 Conjuntos de disponibilidade | Sim
 Zonas de disponibilidade | Não
 HUB | Sim
-Managed Disks | Sim
+Managed disks | Sim
 
 ## <a name="azure-vm-requirements"></a>Requisitos de VM do Azure
 
@@ -231,7 +231,7 @@ Placas de rede | São suportados vários adaptadores. |
 VHD partilhado | Não suportado. | Falha na verificação se não suportado.
 Disco FC | Não suportado. | Falha na verificação se não suportado.
 BitLocker | Não suportado. | O BitLocker tem de ser desativado antes de ativar a replicação para uma máquina. |
-Nome da VM | Entre 1 e 63 carateres.<br/><br/> Limitado a letras, números e hífenes.<br/><br/> O nome do computador deve começar e terminar com uma letra ou número. |  Atualize o valor nas propriedades da máquina no Site Recovery.
+o nome da VM | Entre 1 e 63 carateres.<br/><br/> Limitado a letras, números e hífenes.<br/><br/> O nome do computador deve começar e terminar com uma letra ou número. |  Atualize o valor nas propriedades da máquina no Site Recovery.
 
 ## <a name="azure-site-recovery-churn-limits"></a>Limites de alterações a dados do Azure Site Recovery
 
@@ -244,7 +244,7 @@ Disco Premium P10 ou P15 | 8 KB  | 2 MB/s | 168 GB por disco
 Disco Premium P10 ou P15 | 16 KB | 4 MB/s |  336 GB por disco
 Disco Premium P10 ou P15 | 32 KB ou superior | 8 MB/s | 672 GB por disco
 Disco Premium P20 ou P30 ou P40 ou P50 | 8 KB    | 5 MB/s | 421 GB por disco
-Disco Premium P20 ou P30 ou P40 ou P50 | 16 KB ou superior |10 MB/s | 842 GB por disco
+Disco Premium P20 ou P30 ou P40 ou P50 | 16 KB ou superior |20 MB/s | 1684 GB por disco
 
 **Alterações a dados de origem** | **Limite Máximo**
 ---|---
@@ -256,7 +256,7 @@ Estes são números médios, que pressupõem uma sobreposição de 30 por cento 
 
 ## <a name="vault-tasks"></a>Tarefas de cofre
 
-**ação** | **Suportado**
+**Ação** | **Suportado**
 --- | ---
 Mover o Cofre entre grupos de recursos<br/><br/> Dentro e entre subscrições | Não
 Mover o armazenamento, rede, as VMs do Azure entre grupos de recursos<br/><br/> Dentro e entre subscrições | Não
@@ -265,7 +265,7 @@ Mover o armazenamento, rede, as VMs do Azure entre grupos de recursos<br/><br/> 
 ## <a name="download-latest-azure-site-recovery-components"></a>Transferir componentes mais recentes do Azure Site Recovery
 
 **Nome** | **Descrição** | **Instruções de transferência de versão mais recente**
---- | --- | --- | --- | ---
+--- | --- | --- 
 Servidor de configuração | Coordena as comunicações entre servidores de VMware no local e o Azure <br/><br/> Instalado em servidores de VMware no local | Para instalação de raiz, clique em [aqui](vmware-azure-deploy-configuration-server.md). Para atualizar o componente existente para a versão mais recente, clique em [aqui](vmware-azure-manage-configuration-server.md#upgrade-the-configuration-server).
 Servidor de processos|Instalado por predefinição no servidor de configuração. Recebe dados de replicação. otimiza-os com colocação em cache, compressão e encriptação; e envia-os para o armazenamento do Azure. À medida que cresça a implementação, pode adicionar servidores de processo adicionais, em separado para processar maiores volumes de tráfego de replicação.| Para instalação de raiz, clique em [aqui](vmware-azure-set-up-process-server-scale.md). Para atualizar o componente existente para a versão mais recente, clique em [aqui](vmware-azure-manage-process-server.md#upgrade-a-process-server).
 Serviço de mobilidade | Coordena a replicação entre servidores de servidores/físico de VMware no local e o site do Azure/secundária<br/><br/> Instalado na VM de VMware ou servidores físicos que pretende replicar | Para instalação de raiz, clique em [aqui](vmware-azure-install-mobility-service.md). Para atualizar o componente existente para a versão mais recente, clique em [aqui](vmware-physical-mobility-service-overview.md##update-mobility-service-from-azure-portal).

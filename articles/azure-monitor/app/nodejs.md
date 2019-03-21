@@ -10,14 +10,14 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 05/01/2017
+ms.date: 03/14/2019
 ms.author: mbullwin
-ms.openlocfilehash: 075f08f89e0bbdefa76623a284971f46a1b3966a
-ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
+ms.openlocfilehash: 13379111706eaa816a8fa16cfe72711b7bf4d739
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54119803"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58013290"
 ---
 # <a name="monitor-your-nodejs-services-and-apps-with-application-insights"></a>Monitorizar os seus serviços e aplicações Node.js com o Application Insights
 
@@ -28,8 +28,6 @@ Para receber, armazenar e explorar os seus dados de monitorização, inclua o SD
 O SDK para Node.js pode monitorizar automaticamente pedidos HTTP de entrada e saída, exceções e algumas métricas do sistema. A partir da versão 0.20, o SDK também pode monitorizar alguns pacotes de terceiros comuns, como MongoDB, MySQL e Redis. Todos os eventos relacionados com pedidos HTTP de entrada são correlacionados para resolução de problemas mais rápida.
 
 Pode utilizar a API TelemetryClient para instrumentalizar e monitorizar manualmente aspetos adicionais da sua aplicação e do seu sistema. A API TelemetryClient está descrita em mais detalhe posteriormente neste artigo.
-
-![Gráficos de exemplo da monitorização do desempenho](./media/nodejs/10-perf.png)
 
 ## <a name="get-started"></a>Introdução
 
@@ -49,11 +47,7 @@ Antes de começar, confirme que tem uma subscrição do Azure ou [obtenha uma no
 1. Inicie sessão no [Portal do Azure][portal].
 2. Selecione **Criar um recurso** > **Ferramentas de programador** > **Application Insights**. O recurso inclui um ponto final para receber dados de telemetria, armazenamento para esses dados, relatórios guardados e configuração de dashboards, regras e alertas, entre outras coisas.
 
-  ![Criar um recurso do Application Insights](./media/nodejs/03-new_appinsights_resource.png)
-
 3. Na página de criação do recurso, na caixa **Tipo de Aplicação**, selecione **Aplicação Node.js**. O tipo de aplicação determina os dashboards e relatórios predefinidos que são criados por si. (Os recursos do Application Insights podem recolher dados de qualquer linguagem e plataforma.)
-
-  ![Formulário de recurso novo do Application Insights](./media/nodejs/04-create_appinsights_resource.png)
 
 ### <a name="sdk"></a> Configurar o SDK para Node.js
 
@@ -61,29 +55,29 @@ Inclua o SDK na sua aplicação, para que esta possa recolher dados.
 
 1. Copie a Chave de Instrumentação do recurso (também designada como *ikey*) a partir do portal do Azure. O Application Insights utiliza a ikey para mapear dados para o seu recurso do Azure. Antes de o SDK pode utilizar a ikey, tem de especificar a ikey numa variável de ambiente ou no seu código.  
 
-  ![Copiar a chave de instrumentação](./media/nodejs/05-appinsights_ikey_portal.png)
+   ![Copiar a chave de instrumentação](./media/nodejs/instrumentation-key-001.png)
 
 2. Adicione a biblioteca do SDK para Node.js às dependências da aplicação, através de package.json. Na pasta raiz da aplicação, execute:
 
-  ```bash
-  npm install applicationinsights --save
-  ```
+   ```bash
+   npm install applicationinsights --save
+   ```
 
 3. Carregue explicitamente a biblioteca para o seu código. Uma vez que o SDK injeta instrumentação em muitas outras bibliotecas, carregue a biblioteca o mais cedo possível, até antes de outras declarações `require`. 
 
-  Na parte superior do seu primeiro ficheiro .js, adicione o código abaixo. O método `setup` configura a ikey (e, por conseguinte, o recurso do Azure) que vai ser utilizada por predefinição para todos os itens monitorizados.
+   Na parte superior do seu primeiro ficheiro .js, adicione o código abaixo. O método `setup` configura a ikey (e, por conseguinte, o recurso do Azure) que vai ser utilizada por predefinição para todos os itens monitorizados.
 
-  ```javascript
-  const appInsights = require("applicationinsights");
-  appInsights.setup("<instrumentation_key>");
-  appInsights.start();
-  ```
+   ```javascript
+   const appInsights = require("applicationinsights");
+   appInsights.setup("<instrumentation_key>");
+   appInsights.start();
+   ```
    
-  Também pode indicar uma ikey através da variável de ambiente APPINSIGHTS\_INSTRUMENTATIONKEY, em vez de a transmitir manualmente para `setup()` ou `new appInsights.TelemetryClient()`. Esta prática permite-lhe manter as ikeys fora do código de origem consolidado e especificar outras ikeys para diferentes ambientes.
+   Também pode indicar uma ikey através da variável de ambiente APPINSIGHTS\_INSTRUMENTATIONKEY, em vez de a transmitir manualmente para `setup()` ou `new appInsights.TelemetryClient()`. Esta prática permite-lhe manter as ikeys fora do código de origem consolidado e especificar outras ikeys para diferentes ambientes.
 
-  Para opções de configuração adicionais, veja as secções seguintes.
+   Para opções de configuração adicionais, veja as secções seguintes.
 
-  Pode definir `appInsights.defaultClient.config.disableAppInsights = true` para experimentar o SDK sem enviar telemetria.
+   Pode definir `appInsights.defaultClient.config.disableAppInsights = true` para experimentar o SDK sem enviar telemetria.
 
 ### <a name="monitor"></a> Monitorizar a sua aplicação
 
@@ -91,15 +85,13 @@ O SDK recolhe automaticamente telemetria sobre o runtime de Node.js e sobre algu
 
 Em seguida, no [portal do Azure][portal], aceda ao recurso do Application Insights que criou anteriormente. Na **Linha cronológica geral**, procure os seus primeiros pontos de dados. Para ver dados mais detalhadas, selecione diferentes componentes nos gráficos.
 
-![Primeiros pontos de dados](./media/nodejs/12-first-perf.png)
-
 Para ver a topologia que é detetada para a sua aplicação, selecione o botão **Mapa da aplicação**. Selecione os componentes no mapa para ver mais detalhes.
 
-![Mapa de aplicação individual](./media/nodejs/06-appinsights_appmap.png)
+![Mapa de aplicação individual](./media/nodejs/application-map-002.png)
 
 Para saber mais sobre a sua aplicação e resolver problemas, selecione as restantes vistas disponíveis na secção **INVESTIGAR**.
 
-![Secção Investigar](./media/nodejs/07-appinsights_investigate_blades.png)
+![Secção Investigar](./media/nodejs/007-investigate-pane.png)
 
 #### <a name="no-data"></a>Não existem dados?
 

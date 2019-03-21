@@ -8,12 +8,12 @@ ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 07/18/2018
-ms.openlocfilehash: 28019163cfec1a9d2e3c12346a6aba2bd00b30b1
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 085a4ffbe0b615408bfd8aa70c027013e16f0136
+ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57539552"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58201437"
 ---
 # <a name="reference---iot-hub-endpoints"></a>Referência - pontos finais do IoT Hub
 
@@ -22,8 +22,6 @@ ms.locfileid: "57539552"
 ## <a name="iot-hub-names"></a>Nomes do IoT Hub
 
 Pode encontrar o nome de anfitrião do hub IoT que aloja os pontos finais no portal no seu hub **descrição geral** página. Por predefinição, o nome DNS de um hub IoT é semelhante a: `{your iot hub name}.azure-devices.net`.
-
-Pode utilizar o DNS do Azure para criar um nome DNS personalizado para o seu hub IoT. Para obter mais informações, veja [Utilizar o DNS do Azure para oferecer definições de domínio personalizado para um serviço do Azure](../dns/dns-custom-domain.md).
 
 ## <a name="list-of-built-in-iot-hub-endpoints"></a>Lista de pontos finais incorporados do IoT Hub
 
@@ -79,8 +77,8 @@ Atualmente, o IoT Hub suporta os seguintes serviços do Azure como pontos finais
 
 * Contentores de Armazenamento do Azure
 * Hubs de Eventos
-* Filas do Service Bus
-* Tópicos do Service Bus
+* Filas de Service Bus
+* Tópicos de Service Bus
 
 Para os limites no número de pontos de extremidade pode adicionar, ver [Quotas e limitação](iot-hub-devguide-quotas-throttling.md).
 

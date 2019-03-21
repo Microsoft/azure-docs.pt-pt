@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 02/07/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4fb333ab9fcb52eca2329b71af772c419125d6dc
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 46d8b4c20ee7aa932109c0e89904456fea8dd437
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57775905"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57854709"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-evernote"></a>Tutorial: Integração do Active Directory do Azure com Evernote
 
@@ -109,7 +109,7 @@ Para configurar o Azure AD início de sessão único com Evernote, execute os se
 
 5. Clique em **definir URLs adicionais** e executar o passo seguinte, se desejar configurar a aplicação na **SP** iniciada pelo modo:
 
-    ![imagem](common/both-preintegrated-signon.png)
+    ![image](common/both-preintegrated-signon.png)
 
     Na **URL de início de sessão** caixa de texto, escreva um URL:  `https://www.evernote.com/Login.action`
 
@@ -169,7 +169,7 @@ O objetivo desta secção é criar um utilizador de teste no portal do Azure cha
 
     a. Na **Name** campo introduza **BrittaSimon**.
   
-    b. Na **nome de utilizador** tipo de campo **brittasimon@yourcompanydomain.extension**  
+    b. Na **nome de utilizador** tipo de campo **brittasimon\@yourcompanydomain.extension**  
     Por exemplo, BrittaSimon@contoso.com
 
     c. Selecione **palavra-passe de Show** caixa de verificação e, em seguida, anote o valor que é apresentado na caixa de palavra-passe.
@@ -225,7 +225,7 @@ No caso de Evernote, o aprovisionamento é uma tarefa manual.
     
 5. Depois de convite é enviado, o titular da conta do Azure Active Directory irá receber um e-mail para aceitar o convite.
 
-### <a name="test-single-sign-on"></a>Testar início de sessão único 
+### <a name="test-single-sign-on"></a>Testar o início de sessão único 
 
 Nesta secção, vai testar a configuração do Azure AD única início de sessão com o painel de acesso.
 

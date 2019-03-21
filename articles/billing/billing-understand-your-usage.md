@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/31/2017
 ms.author: banders
-ms.openlocfilehash: 88518bee879d01966813fc89e8095d2237476a15
-ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
+ms.openlocfilehash: a143fc6d9dbd78ae365f943a00ac9f8492d5e51c
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54901314"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57897151"
 ---
 # <a name="understand-terms-on-your-microsoft-azure-detailed-usage-charges"></a>Compreender os termos na sua cobranças de utilização detalhados do Azure da Microsoft 
 
@@ -57,7 +57,7 @@ A secção superior do ficheiro CSV de utilização detalhada mostra os serviço
 |Utilização Excedente |Mostra os custos de medidor que excedam a quantidade alocada associada com a sua oferta de 6 ou 12 meses |
 |Tarifa de Alocação |Mostra a tarifa de alocação com base na totalidade do montante alocado associado à sua oferta de 6 ou 12 meses |
 |Tarifa |A tarifa que lhe é cobrada por unidade faturável |
-|Valor |Mostra o resultado da multiplicação entre a coluna de quantidade de utilização excedida, a coluna tarifa. Se a quantidade consumida não exceder a quantidade incluída, não é sem encargos, nesta coluna. |
+|Value |Mostra o resultado da multiplicação entre a coluna de quantidade de utilização excedida, a coluna tarifa. Se a quantidade consumida não exceder a quantidade incluída, não é sem encargos, nesta coluna. |
 
 ### <a name="daily-usage"></a>Utilização diária
 
@@ -90,4 +90,4 @@ Serviços externos (também conhecido como pedidos de Marketplace) são fornecid
 
 ## <a name="need-help-contact-us"></a>Precisa de ajuda? Contacte-nos.
 
-Se tiver alguma dúvida ou precisar de ajuda, [criar um pedido de suporte](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).
+Se tiver alguma dúvida ou precisar de ajuda, [criar um pedido de suporte](https://go.microsoft.com/fwlink/?linkid=2083458).

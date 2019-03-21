@@ -12,14 +12,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 02/10/2019
+ms.date: 03/20/2019
 ms.author: juliako;johndeu
-ms.openlocfilehash: e0011d36ccff7b9d621679f15776bbdb15d0cbe4
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: 549554521570d1d2f27b2da2b36ca1dfde25562f
+ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56005459"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58293622"
 ---
 # <a name="media-services-operations-rest-api-overview"></a>Descrição geral de REST API de operações de serviços de multimédia 
 [!INCLUDE [media-services-selector-setup](../../../includes/media-services-selector-setup.md)]
@@ -35,7 +35,7 @@ Autenticação para a API de REST de serviços de suporte de dados é feita atra
 As seguintes considerações aplicam-se ao utilizar o REST.
 
 * Ao consultar entidades, existe um limite de 1000 entidades retornadas, ao mesmo tempo, porque a v2 REST pública limita os resultados da consulta para resultados de 1000. Precisa usar **ignorar** e **tirar** (.NET) / **superior** (REST), conforme descrito em [neste exemplo de .NET](media-services-dotnet-manage-entities.md#enumerating-through-large-collections-of-entities) e [esta API de REST exemplo](media-services-rest-manage-entities.md#enumerating-through-large-collections-of-entities). 
-* Quando usar o JSON e especificando a utilizar o **__metadata** palavra-chave no pedido (por exemplo, para referência um objeto vinculado) tem de definir o **Accept** cabeçalho para [formato JSON verboso](http://www.odata.org/documentation/odata-version-3-0/json-verbose-format/)(consulte o exemplo a seguir). OData não compreende o **__metadata** propriedade na solicitação, a menos que defina-o como verboso.  
+* Quando usar o JSON e especificando a utilizar o **__metadata** palavra-chave no pedido (por exemplo, para referência um objeto vinculado) tem de definir o **Accept** cabeçalho para [formato JSON verboso](https://www.odata.org/documentation/odata-version-3-0/json-verbose-format/)(consulte o exemplo a seguir). OData não compreende o **__metadata** propriedade na solicitação, a menos que defina-o como verboso.  
   
         POST https://media.windows.net/API/Jobs HTTP/1.1
         Content-Type: application/json;odata=verbose
@@ -101,7 +101,7 @@ Segue-se uma lista completa dos verbos HTTP que podem ser utilizados quando os p
 | PUT |Substitui um objeto ou cria um objeto nomeado (quando aplicável). |
 | DELETE |Exclui um objeto. |
 | INTERCALAR |Atualiza um objeto existente com as alterações de propriedade nomeada. |
-| HEAD |Devolve os metadados de um objeto para uma resposta GET. |
+| CABEÇALHO |Devolve os metadados de um objeto para uma resposta GET. |
 
 ## <a name="discover-and-browse-the-media-services-entity-model"></a>Detetar e procurar o modelo de entidades de serviços de multimédia
 Para tornar as entidades de serviços de multimédia mais detetável, a operação de $metadata pode ser utilizada. Ele permite-lhe obter todos os tipos de entidade válido, propriedades de entidade, associações, funções, ações e assim por diante. Ao adicionar a operação de $metadata ao final do ponto final da API de REST dos serviços de multimédia, pode aceder a este serviço de deteção.

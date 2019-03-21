@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: site-recovery
 ms.date: 12/27/2018
 ms.author: raynew
-ms.openlocfilehash: c353c40cc838dc4082d3d4b843a48a5fedb6e1f5
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: a84cbba968baf50563a2c2b0e2843d64f17bb34a
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54039474"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58002380"
 ---
 # <a name="replicate-azure-stack-vms-to-azure"></a>Replicar VMs do Azure Stack para o Azure
 
@@ -87,7 +87,7 @@ Certifique-se de que as VMs estão em execução um dos sistemas operativos resu
 
 **Sistema operativo** | **Detalhes**
 --- | ---
-**Windows de 64 bits** | Windows Server 2016, Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2 (a partir do SP1)
+**Windows de 64 bits** | Windows Server 2016, Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2 (from SP1)
 **CentOS** | 5.2 para 5.11, 6.1 para 6.9, 7.0 para 7.3
 **Ubuntu** | 14.04 server LTS, 16.04 LTS server. Revisão [suportado kernels](https://docs.microsoft.com/azure/site-recovery/vmware-physical-azure-support-matrix#ubuntu-kernel-versions)
 
@@ -190,7 +190,7 @@ Agora a instalar o servidor de configuração:
 
 > [!NOTE]
 > Também pode ser instalado o servidor de configuração a partir da linha de comando. [Saiba mais](physical-manage-configuration-server.md#install-from-the-command-line).
-
+> 
 > Pode demorar 15 minutos ou mais para o nome da conta aparecer no portal. Para atualizar imediatamente, selecione **Servidores de Configuração** > ***nome do servidor*** > **Atualizar Servidor**.
 
 ## <a name="step-4-set-up-the-target-environment"></a>Passo 4: Configurar o ambiente de destino
@@ -249,9 +249,9 @@ Certifique-se de que concluiu todas as tarefas no [passo 1: Preparar máquina](#
 
 > [!NOTE]
 > O Site Recovery instala o Serviço de Mobilidade quando a replicação está ativada para uma VM.
-
+> 
 > Pode demorar 15 minutos ou mais tempo para as alterações produzirem efeitos e aparecerem no portal.
-
+> 
 > Para monitorizar as VMs que adiciona, verifique a última hora de deteção de VMs em **Servidores de Configuração** > **Último Contacto Em**. Para adicionar VMs sem aguardar a deteção agendada, realce o servidor de configuração (não o selecione) e selecione **Atualizar**.
 
 

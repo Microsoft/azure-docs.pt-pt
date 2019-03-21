@@ -12,12 +12,12 @@ ms.workload: na
 ms.date: 12/09/2018
 ms.author: mavane
 ms.custom: seodec18
-ms.openlocfilehash: aa55dce4b06eb895ef0b8745978d644e4e2f52b5
-ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
+ms.openlocfilehash: 4b1c829a417d050b4d931611d9f2952e01582f04
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57408858"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58089476"
 ---
 # <a name="develop-azure-resource-manager-templates-for-cloud-consistency"></a>Desenvolver modelos Azure Resource Manager para consistência de cloud
 
@@ -63,13 +63,13 @@ Capacidades do Gestor de recursos do Azure serão sempre introduzidas para o glo
 
 1. Importe o módulo de psm1 e execute o cmdlet Test-AzureRmureRmTemplateFunctions:
 
-  ```powershell
-  # Import the module
-  Import-module <path to local clone>\AzTemplateFunctions.psm1
+   ```powershell
+   # Import the module
+   Import-module <path to local clone>\AzTemplateFunctions.psm1
 
-  # Execute the Test-AzureRmTemplateFunctions cmdlet
-  Test-AzureRmTemplateFunctions -path <path to local clone>
-  ```
+   # Execute the Test-AzureRmTemplateFunctions cmdlet
+   Test-AzureRmTemplateFunctions -path <path to local clone>
+   ```
 
 O script implementa vários minimizado modelos, cada um contendo as funções de modelo apenas exclusivo. A saída do script reporta as funções de modelo suportada e está indisponível.
 

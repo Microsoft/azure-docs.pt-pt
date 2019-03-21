@@ -9,14 +9,15 @@ ms.date: 10/29/2018
 ms.author: mimart
 author: msmimart
 manager: daveba
-ms.reviewer: sasubram
+ms.reviewer: mal
+ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1ee08e4dc2f6a4616c4b427ad7d33f56e135b27a
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 860a059f57578965045ff8e7f404c3b072df03a1
+ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57442500"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58293826"
 ---
 # <a name="azure-active-directory-b2b-collaboration-faqs"></a>Colaboração do Azure Active Directory B2B FAQs
 
@@ -59,12 +60,12 @@ A menos que um utilizador é atribuído a função de administrador limitado ou 
 Sim! Quando configurar esta política, tenha cuidado para evitar a acidentalmente bloquear o acesso para membros e administradores.
 Para bloquear o acesso de um utilizador convidado para o [portal do Azure](https://portal.azure.com), utilizar uma política de acesso condicional na API de modelo de implementação clássica do Windows Azure:
 1. Modificar a **todos os utilizadores** para que ele contém apenas os membros de grupo.
-  ![modificar a captura de ecrã do grupo](media/faq/modify-all-users-group.png)
+   ![Captura de ecrã que mostra o grupo de todos os utilizadores onde o UserType não é convidado igual ](media/faq/modify-all-users-group.png)
 2. Crie um grupo dinâmico que contenha os utilizadores convidados.
-  ![Criar grupo captura de ecrã](media/faq/group-with-guest-users.png)
+   ![Captura de ecrã que mostra um novo grupo de todos os utilizadores convidados](media/faq/group-with-guest-users.png)
 3. Configure uma política de acesso condicional para bloquear os utilizadores de convidado de aceder ao portal, conforme mostrado no vídeo seguinte:
   
-  > [!VIDEO https://channel9.msdn.com/Blogs/Azure/b2b-block-guest-user/Player] 
+   > [!VIDEO https://channel9.msdn.com/Blogs/Azure/b2b-block-guest-user/Player] 
 
 ### <a name="does-azure-ad-b2b-collaboration-support-multi-factor-authentication-and-consumer-email-accounts"></a>Colaboração B2B do Azure AD suporta autenticação multifator e contas de e-mail de consumidor?
 Sim. Contas de e-mail de multi-factor authentication e de consumo são suportadas para a colaboração B2B do Azure AD.
@@ -94,7 +95,7 @@ Um utilizador convidado pode utilizar qualquer fornecedor de identidade para aut
 
 ### <a name="where-can-i-find-a-b2b-collaboration-community-to-share-solutions-and-to-submit-ideas"></a>Onde posso encontrar uma Comunidade de colaboração do B2B para partilhar soluções de e para submeter ideias?
 Estamos constantemente atentos aos comentários, para melhorar a colaboração B2B. Partilhe o seu utilizador de situações, melhores práticas e o que lhe agrada do colaboração B2B do Azure AD. Junte-se a discussão no [Comunidade tecnológica da Microsoft](https://techcommunity.microsoft.com/t5/Azure-Active-Directory-B2B/bd-p/AzureAD_B2b).
- 
+ 
 Também convidamos para enviar suas idéias e vote para futuras funcionalidades em [ideias de colaboração do B2B](https://techcommunity.microsoft.com/t5/Azure-Active-Directory-B2B-Ideas/idb-p/AzureAD_B2B_Ideas).
 
 ### <a name="can-we-send-an-invitation-that-is-automatically-redeemed-so-that-the-user-is-just-ready-to-go-or-does-the-user-always-have-to-click-through-to-the-redemption-url"></a>Podemos enviar um convite que é resgatado automaticamente, para que o utilizador é "pronto para ir"? Ou o utilizador sempre tem de clicar para o URL de resgate?

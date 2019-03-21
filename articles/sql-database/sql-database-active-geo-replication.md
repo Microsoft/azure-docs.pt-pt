@@ -12,12 +12,12 @@ ms.author: sashan
 ms.reviewer: mathoma, carlrab
 manager: craigg
 ms.date: 03/12/2019
-ms.openlocfilehash: 21b036763a1e8a7480d11fef4c36599f92fc3657
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: cb83f0c38f6860340444c15b6c5eef0b990d0ad0
+ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57853193"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58295254"
 ---
 # <a name="creating-and-using-active-geo-replication"></a>Criar e utilizar a georreplicação ativa
 
@@ -115,6 +115,12 @@ Pode atualizar ou mudar a versão de uma base de dados principal para um tamanho
 
 > [!NOTE]
 > Se criou a base de dados secundária como parte da configuração do grupo de ativação pós-falha não é recomendado para mudar para a versão da base de dados secundário. Isso é para garantir que sua camada de dados tem capacidade suficiente para processar a carga de trabalho regular depois de ativação pós-falha está ativado.
+
+> [!IMPORTANT]
+> A base de dados primária num grupo de ativação pós-falha não é possível dimensionar para um escalão superior, a menos que a base de dados secundário em primeiro lugar é dimensionada ao escalão mais elevado. Se tentar dimensionar a base de dados primária antes da base de dados secundária é dimensionada, pode receber o erro seguinte:
+>
+> `Error message: The source database 'Primaryserver.DBName' cannot have higher edition than the target database 'Secondaryserver.DBName'. Upgrade the edition on the target before upgrading the source.`
+>
 
 ## <a name="preventing-the-loss-of-critical-data"></a>Impedir a perda de dados críticos
 

@@ -10,14 +10,14 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 01/31/2019
+ms.date: 03/14/2019
 ms.author: lagayhar
-ms.openlocfilehash: 224da9285ab0aef312688e4dfa1da49451abfa5a
-ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
+ms.openlocfilehash: ece8b4ac3946f543c13975e40b1025bb3cc222f6
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56674655"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58013266"
 ---
 # <a name="get-started-with-application-insights-in-a-java-web-project"></a>Introdução ao Application Insights num projeto Web em Java
 
@@ -39,10 +39,9 @@ Se preferir o framework Spring, tente [configurar uma aplicação de inicializad
 1. Inicie sessão no [Portal do Microsoft Azure](https://portal.azure.com).
 2. Crie um recurso do Application Insights. Defina o tipo de aplicação para aplicação Web em Java.
 
-    ![Preencher um nome, escolher aplicação Web em Java e clicar em criar](./media/java-get-started/02-create.png)
 3. Localize a chave de instrumentação do novo recurso. Terá de colar esta chave no seu projeto de código em breve.
 
-    ![Na descrição geral do novo recurso, clique em Propriedades e copie a Chave de Instrumentação](./media/java-get-started/03-key.png)
+    ![Na descrição geral do novo recurso, clique em Propriedades e copie a Chave de Instrumentação](./media/java-get-started/instrumentation-key-001.png)
 
 ## <a name="2-add-the-application-insights-sdk-for-java-to-your-project"></a>2. Adicionar o Application Insights SDK para Java ao projeto
 *Escolha a forma adequada para o seu projeto.*
@@ -301,13 +300,13 @@ Regresse ao seu recurso do Application Insights no [Portal do Microsoft Azure](h
 
 Os dados de pedidos HTTP aparecem no painel de descrição geral. (Se não aparecerem, aguarde alguns segundos e, em seguida, clique em Atualizar.)
 
-![dados de exemplo](./media/java-get-started/5-results.png)
+![Captura de ecrã dos dados de exemplo de descrição geral](./media/java-get-started/overview-graphs.png)
 
 [Saiba mais sobre métricas.][metrics]
 
 Clique em qualquer gráfico para ver métricas agregadas mais detalhadas.
 
-![](./media/java-get-started/6-barchart.png)
+![Painel de falhas do Application Insights com gráficos](./media/java-get-started/006-barcharts.png)
 
 > O Application Insights pressupõe que o formato de pedidos HTTP para aplicações MVC é: `VERB controller/action`. Por exemplo, `GET Home/Product/f9anuh81`, `GET Home/Product/2dffwrf5` e `GET Home/Product/sdf96vws` são agrupados em `GET Home/Product`. Este agrupamento permite agregações significativas de pedidos, como o número de pedidos e o tempo de execução médio dos pedidos.
 >
@@ -316,16 +315,12 @@ Clique em qualquer gráfico para ver métricas agregadas mais detalhadas.
 ### <a name="instance-data"></a>Dados de instâncias
 Clique num tipo de pedido específico para ver instâncias individuais.
 
-Dois tipos de dados são apresentados no Application Insights: dados agregados, armazenados e apresentados como médias, contagens e somas; e dados de instâncias - relatórios individuais de pedidos HTTP, exceções, vistas de página ou eventos personalizados.
-
-Ao visualizar as propriedades de um pedido, pode ver os eventos de telemetria associados, como os pedidos e as exceções.
-
-![](./media/java-get-started/7-instance.png)
+![Faça uma busca numa exibição de amostragem específicos](./media/java-get-started/007-instance.png)
 
 ### <a name="analytics-powerful-query-language"></a>Análise: Poderosa linguagem de consultas
 À medida que se acumulam mais dados, pode executar consultas para agregar dados e localizar instâncias individuais.  A [análise](../../azure-monitor/app/analytics.md) é uma ferramenta poderosa para compreender o desempenho e a utilização, e para fins de diagnóstico.
 
-![Exemplo de Análise](./media/java-get-started/025.png)
+![Exemplo de Análise](./media/java-get-started/0025.png)
 
 ## <a name="7-install-your-app-on-the-server"></a>7. Instalar a aplicação no servidor
 Agora publique a aplicação no servidor, permita que as pessoas a utilizem e veja a telemetria a ser mostrada no portal.
@@ -343,11 +338,25 @@ Agora publique a aplicação no servidor, permita que as pessoas a utilizem e ve
 
     (Este componente ativa os contadores de desempenho.)
 
+## <a name="azure-app-service-config-spring-boot"></a>Configuração de serviço de aplicações do Azure (Spring Boot)
+
+Aplicações do Spring Boot em execução no Windows exigirem configuração adicional para executar nos serviços de aplicações do Azure. Modificar **Web. config** e adicione o seguinte:
+
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+    <system.webServer>
+        <handlers>
+            <add name="httpPlatformHandler" path="*" verb="*" modules="httpPlatformHandler" resourceType="Unspecified"/>
+        </handlers>
+        <httpPlatform processPath="%JAVA_HOME%\bin\java.exe" arguments="-Djava.net.preferIPv4Stack=true -Dserver.port=%HTTP_PLATFORM_PORT% -jar &quot;%HOME%\site\wwwroot\AzureWebAppExample-0.0.1-SNAPSHOT.jar&quot;">
+        </httpPlatform>
+    </system.webServer>
+</configuration>
+```
 
 ## <a name="exceptions-and-request-failures"></a>Exceções e falhas de pedido
-As exceções não processadas são recolhidas automaticamente:
-
-![Abrir Definições, Falhas](./media/java-get-started/21-exceptions.png)
+Exceções não processadas são automaticamente recolhidas.
 
 Para recolher dados de outras exceções, tem duas opções:
 
@@ -366,9 +375,9 @@ A configuração do SDK de entrada é explicada mais no nosso artigo sobre [corr
 Configuração do SDK de saída está definida no [IA Agent.xml](java-agent.md) ficheiro.
 
 ## <a name="performance-counters"></a>Contadores de desempenho
-Abra **Definições**, **Servidores** para ver uma gama de contadores de desempenho.
+Open **investigar**, **métricas**, para ver uma gama de contadores de desempenho.
 
-![](./media/java-get-started/11-perf-counters.png)
+![Captura de ecrã do painel de métricas com bytes privados do processo selecionado](./media/java-get-started/011-perf-counters.png)
 
 ### <a name="customize-performance-counter-collection"></a>Personalizar a recolha do contador de desempenho
 Para desativar a recolha do conjunto padrão de contadores de desempenho, adicione o seguinte código ao nó de raiz do ficheiro ApplicationInsights.xml:
@@ -418,10 +427,6 @@ Cada [contador de desempenho do Windows](https://msdn.microsoft.com/library/wind
 * counterName – o nome do contador de desempenho.
 * instanceName – o nome da instância da categoria do contador de desempenho ou uma cadeia vazia (""), se a categoria contiver uma única instância. Se o categoryName for Processo e o contador de desempenho que pretende recolher é do processo JVM atual no qual a aplicação está em execução, especifique `"__SELF__"`.
 
-Os contadores de desempenho ficam visíveis como métricas personalizadas no [Explorador de Métricas][metrics].
-
-![](./media/java-get-started/12-custom-perfs.png)
-
 ### <a name="unix-performance-counters"></a>Contadores de desempenho Unix
 * [Instale collectd com o plug-in do Application Insights](java-collectd.md) para obter uma ampla variedade de dados de sistema e de rede.
 
@@ -465,24 +470,14 @@ Agora que instalou o SDK, pode utilizar a API para enviar a sua própria telemet
 * [Pesquise eventos e registos][diagnostic] para ajudar a diagnosticar problemas.
 
 ## <a name="availability-web-tests"></a>Testes Web de disponibilidade
-O Application Insights pode testar o seu site em intervalos regulares para verificar se está a funcionar e a responder bem. [Para configurar][availability], clique em testes Web.
+O Application Insights pode testar o seu site em intervalos regulares para verificar se está a funcionar e a responder bem.
 
-![Clique em Testes Web e, em seguida, em Adicionar teste Web](./media/java-get-started/31-config-web-test.png)
-
-Irá obter gráficos de tempos de resposta e notificações por e-mail, se o seu site ficar inativo.
-
-![Exemplo de teste Web](./media/java-get-started/appinsights-10webtestresult.png)
-
-[Saiba mais sobre testes Web de disponibilidade.][availability]
+[Saiba mais sobre como configurar testes web de disponibilidade.][availability]
 
 ## <a name="questions-problems"></a>Tem dúvidas? Problemas?
 [Resolução de problemas de Java](java-troubleshoot.md)
 
-## <a name="video"></a>Vídeo
-
-> [!VIDEO https://channel9.msdn.com/events/Connect/2016/100/player]
-
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 * [Chamadas de dependência do monitor](java-agent.md)
 * [Contadores de desempenho Unix do monitor](java-collectd.md)
 * Adicione [monitorização das suas páginas Web](javascript.md), para monitorizar os tempos de carregamento da página, as chamadas AJAX e as exceções de browser.

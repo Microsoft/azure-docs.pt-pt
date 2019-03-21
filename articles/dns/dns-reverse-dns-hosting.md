@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/29/2017
 ms.author: victorh
-ms.openlocfilehash: f0ab7d4063eea50b58c809aee1b0ea70f8c21c6b
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: cb2f04c692d4b5f385a89ba6a3071c20ef1bdf21
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57546845"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58118260"
 ---
 # <a name="host-reverse-dns-lookup-zones-in-azure-dns"></a>Anfitrião zonas DNS inversas pesquisa no DNS do Azure
 
@@ -131,7 +131,7 @@ O exemplo a seguir descreve o processo de criação de um registro PTR numa zona
 1. Para **nome de domínio**, introduza o nome de domínio completamente qualificado (FQDN) do recurso que utiliza o IP.
 1. Selecione **OK** na parte inferior do painel para criar o DNS de registos.
 
- ![Painel "Adicionar conjunto de registos", com caixas de preenchidos](./media/dns-reverse-dns-hosting/figure5.png)
+   ![Painel "Adicionar conjunto de registos", com caixas de preenchidos](./media/dns-reverse-dns-hosting/figure5.png)
 
 Os exemplos seguintes mostram como concluir esta tarefa com o PowerShell ou da CLI do Azure.
 

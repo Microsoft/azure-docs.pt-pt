@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 10/17/2016
 ms.author: roiyz
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 0c19d32f6c6f491a91ba6c2219be9fd016b5ec34
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 1defa08b0eb9ede2adec3b7ac12c873522dd6c37
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51243884"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58011605"
 ---
 # <a name="understanding-and-using-the-azure-linux-agent"></a>Compreendendo e usando o agente Linux do Azure
 
@@ -50,7 +50,7 @@ O agente de Linux do Microsoft Azure (waagent) gere o Linux e FreeBSD aprovision
 * **Kernel**
   
   * Configura o virtual NUMA (desativar o kernel <`2.6.37`)
-  * Consome entropia de Hyper-V para /dev/random
+  * Consumes Hyper-V entropy for /dev/random
   * Configura os tempos limite de SCSI para o dispositivo de raiz (o que poderia ser remoto)
 * **Diagnóstico**
   
@@ -73,17 +73,17 @@ O fluxo de informações da plataforma para o agente ocorre por meio de dois can
 Os seguintes sistemas foram testados e funcionam com o agente Linux do Azure:
 
 > [!NOTE]
-> Esta lista poderá ser diferente da lista oficial de sistemas suportados na plataforma Microsoft Azure, conforme descrito aqui: [http://support.microsoft.com/kb/2805216](https://support.microsoft.com/kb/2805216)
+> Esta lista poderá ser diferente da lista oficial de sistemas suportados na plataforma Microsoft Azure, conforme descrito aqui: [https://support.microsoft.com/kb/2805216](https://support.microsoft.com/kb/2805216)
 > 
 > 
 
 * CoreOS
-* CentOS 6.3 +
-* Red Hat Enterprise Linux 6.7 +
+* CentOS 6.3+
+* Red Hat Enterprise Linux 6.7+
 * Debian 7.0 +
 * Ubuntu 12.04 +
-* openSUSE 12.3 +
-* SLES 11 SP3 +
+* openSUSE 12.3+
+* SLES 11 SP3+
 * Oracle Linux 6.4 +
 
 Outros sistemas suportados:
@@ -93,7 +93,7 @@ Outros sistemas suportados:
 O agente do Linux depende de alguns pacotes de sistema para funcionar corretamente:
 
 * Python 2.6 +
-* OpenSSL 1.0 +
+* OpenSSL 1.0+
 * OpenSSH 5.3 +
 * Utilitários de sistema de ficheiros: parted sfdisk fdisk, mkfs,
 * Ferramentas de palavra-passe: chpasswd, sudo
@@ -108,12 +108,12 @@ Consulte a documentação sobre o [repositório do agente Linux do Azure no GitH
 
 ## <a name="command-line-options"></a>Opções da linha de comandos
 ### <a name="flags"></a>Sinalizadores
-* verboso: aumentar verbosidade do comando especificado
-* forçar: Ignorar confirmação interativa para alguns comandos
+* verboso: Aumentar a verbosidade do comando especificado
+* força: Ignorar confirmação interativa para alguns comandos
 
 ### <a name="commands"></a>Comandos
-* ajudar a: lista os comandos com suporte e sinalizadores.
-* desaprovisionamento: tentar limpar o sistema e torná-la adequada para reprovisionamento. Eliminações de operação seguinte:
+* help: Lista os comandos com suporte e sinalizadores.
+* desaprovisionar: Tente limpar o sistema e torná-la adequada para reprovisionamento. Eliminações de operação seguinte:
   
   * Todas as chaves de anfitrião SSH (se Provisioning. regeneratesshhostkeypair 'y' no ficheiro de configuração)
   * Configuração de nomes em /etc/resolv.conf
@@ -126,11 +126,11 @@ Consulte a documentação sobre o [repositório do agente Linux do Azure no GitH
 > 
 > 
 
-* desaprovisionamento + utilizador: executa tudo no - desaprovisionamento (acima) e também elimina a última conta de utilizador aprovisionado (obtida a partir do /var/lib/waagent) e dados associados. Este parâmetro é quando Desconfiguração de uma imagem que foi anteriormente aprovisionamento no Azure, pelo que pode ser capturado e reutilizado.
-* versão: apresenta a versão do waagent
-* serialconsole: configura o GRUB para marcar ttyS0 (a primeira porta serial) como a consola de arranque. Isto garante que os registos de arranque de kernel são enviados para a porta serial e disponibilizados para depuração.
-* o daemon: executar waagent como um daemon para gerir a interação com a plataforma. Este argumento é especificado para waagent no script de init waagent.
-* iniciar: executar waagent como um processo em segundo plano
+* desaprovisionamento + utilizador: Executa tudo no - desaprovisionamento (acima) e também elimina a última conta de utilizador aprovisionado (obtida a partir do /var/lib/waagent) e dados associados. Este parâmetro é quando Desconfiguração de uma imagem que foi anteriormente aprovisionamento no Azure, pelo que pode ser capturado e reutilizado.
+* Versão: Apresenta a versão do waagent
+* serialconsole: Configura o GRUB para marcar ttyS0 (a primeira porta serial) como a consola de arranque. Isto garante que os registos de arranque de kernel são enviados para a porta serial e disponibilizados para depuração.
+* daemon: Execute waagent como um daemon para gerir a interação com a plataforma. Este argumento é especificado para waagent no script de init waagent.
+* Introdução: Executar waagent como um processo em segundo plano
 
 ## <a name="configuration"></a>Configuração
 Um ficheiro de configuração (/ etc/waagent.conf) controla as ações de waagent. O código a seguir mostra um ficheiro de configuração de exemplo:
@@ -307,7 +307,7 @@ Default: 300
 ```
 Esta definição configura o tempo limite de SCSI em segundos em que as unidades de disco e os dados do sistema operacional. Se não for definido, o sistema são utilizadas predefinições.
 
-**SISTEMA OPERACIONAL. OpensslPath:**  
+**OS.OpensslPath:**  
 ```
 Type: String  
 Default: None
@@ -344,6 +344,6 @@ Utilizar imagens de nuvem do Ubuntu [cloud-init](https://launchpad.net/ubuntu/+s
 
 * Para obter mais informações, consulte os seguintes recursos para configurar o ponto de montagem do disco de recurso e trocar espaço nas imagens do Ubuntu Cloud durante o aprovisionamento:
   
-  * [Wiki do Ubuntu: Configurar partições de troca](https://go.microsoft.com/fwlink/?LinkID=532955&clcid=0x409)
+  * [Ubuntu Wiki: Configurar partições de troca](https://go.microsoft.com/fwlink/?LinkID=532955&clcid=0x409)
   * [Injetar dados personalizados numa máquina Virtual do Azure](../windows/classic/inject-custom-data.md)
 

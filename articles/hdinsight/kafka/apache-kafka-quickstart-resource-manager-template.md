@@ -8,12 +8,12 @@ ms.author: hrasheed
 ms.custom: mvc,hdinsightactive
 ms.topic: quickstart
 ms.date: 04/16/2018
-ms.openlocfilehash: ff34eef76e03bbf4ae0195960847b7748235483c
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: b359716db5a30f8a77b9f54c2b0bc7b4d00a7f39
+ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55822464"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58225761"
 ---
 # <a name="quickstart-create-an-apache-kafka-on-hdinsight-cluster"></a>Início rápido: Criar um Apache Kafka no cluster do HDInsight
 
@@ -36,9 +36,9 @@ Neste guia de início rápido, irá saber como criar um cluster do [Apache Kafka
 
     O comando `ssh` é fornecido por predefinição nos sistemas Linux, Unix e macOS. No Windows 10, utilize um dos seguintes métodos para instalar o comando `ssh`:
 
-    * Utilize o [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/quickstart). O cloud shell fornece o comando `ssh` e pode ser configurado para utilizar o Bash ou o PowerShell como ambiente de shell.
+  * Utilize o [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/quickstart). O cloud shell fornece o comando `ssh` e pode ser configurado para utilizar o Bash ou o PowerShell como ambiente de shell.
 
-    * [Instale o Subsistema Windows para Linux](https://docs.microsoft.com/windows/wsl/install-win10). As distribuições de Linux disponíveis na Microsoft Store fornecem o comando `ssh`.
+  * [Instale o Subsistema Windows para Linux](https://docs.microsoft.com/windows/wsl/install-win10). As distribuições de Linux disponíveis na Microsoft Store fornecem o comando `ssh`.
 
     > [!IMPORTANT]  
     > Os passos neste documento pressupõem que está a utilizar um dos clientes SSH mencionados acima. Se estiver a utilizar outro cliente SSH e encontrar problemas, consulte a documentação do seu cliente SSH.

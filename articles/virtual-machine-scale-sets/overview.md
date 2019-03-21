@@ -16,12 +16,12 @@ ms.topic: overview
 ms.custom: mvc
 ms.date: 03/27/2018
 ms.author: manayar
-ms.openlocfilehash: 5cd9593bba1e97f52bfa37467920959b1ef0f698
-ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
+ms.openlocfilehash: 1ace0ddd3b29f844488eb7579934541fa8273fa0
+ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/16/2019
-ms.locfileid: "56329619"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58199907"
 ---
 # <a name="what-are-virtual-machine-scale-sets"></a>O que são os conjuntos de dimensionamento de máquinas virtuais?
 Os conjuntos de dimensionamento de máquinas virtuais do Azure permitem-lhe criar e gerir um grupo de VMs idênticas, com balanceamento de carga. O número de instâncias de VM pode aumentar ou diminuir automaticamente como resposta à procura ou a uma agenda definida. Os conjuntos de dimensionamento dão elevada disponibilidade às suas aplicações e permitem, de forma central, gerir, configurar e atualizar um grande número de VMs. Com os conjuntos de dimensionamento de máquinas virtuais, pode criar serviços em larga escala para áreas como computação, macrodados e cargas de trabalho de contentores.
@@ -46,7 +46,7 @@ Os conjuntos de dimensionamento de máquinas virtuais fornecem as capacidades de
     - O dimensionamento automático também minimiza o número de instâncias de VM desnecessárias que executam a aplicação quando a procura está reduzida, ao passo que os clientes continuam a receber um nível de desempenho aceitável à medida que a procura aumenta e mais instâncias de VMs são automaticamente adicionadas. Esta capacidade ajuda a reduzir custos e, de forma eficiente, criar recursos do Azure conforme necessário.
 
 - **Funciona em grande escala**
-    - Os conjuntos de dimensionamento suportam até 1000 instâncias de VMs. Se criar e carregar as suas próprias imagens de VM personalizadas, o limite é 300 instâncias de VMs.
+    - Os conjuntos de dimensionamento suportam até 1000 instâncias de VMs. Se criar e carregar as suas próprias imagens VM personalizadas, o limite é de 600 instâncias de VM.
     - Para obter o melhor desempenho com cargas de trabalho de produção, utilize [Managed Disks do Azure](../virtual-machines/windows/managed-disks-overview.md).
 
 

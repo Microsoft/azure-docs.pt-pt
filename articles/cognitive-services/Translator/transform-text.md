@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: conceptual
 ms.date: 12/14/2017
 ms.author: v-jansko
-ms.openlocfilehash: db350473e107a9c80aa85dffcf37d1b87a40c302
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 85e5f5bab6edff2a97f08f2d4df613c446039ee3
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57540252"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58099404"
 ---
 # <a name="how-to-use-the-transformtext-method"></a>Como utilizar o método TransformText
 
@@ -40,14 +40,14 @@ O método é um serviço RESTful usando GET através de HTTP. Ele oferece suport
 O valor de retorno fornece a frase transformada.
 
 > [!div class="tabbedCodeSnippets"]
-```json
-GetTranslationsResponse Microsoft.Translator.GetTranslations(appId, text, from, to, maxTranslations, options); TransformTextResponse
-{
-int ec;            // A positive number representing an error condition
-string em;         // A descriptive error message
-string sentence;   // transformed text
-}
-```
+> ```json
+> GetTranslationsResponse Microsoft.Translator.GetTranslations(appId, text, from, to, maxTranslations, options); TransformTextResponse
+> {
+> int ec;            // A positive number representing an error condition
+> string em;         // A descriptive error message
+> string sentence;   // transformed text
+> }
+> ```
 
 ## <a name="example"></a>Exemplo
 

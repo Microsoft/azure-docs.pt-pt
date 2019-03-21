@@ -17,12 +17,12 @@ ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 65bc0c0ee1ccc1e1f3da5e364582534dfbc0d425
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: cf069e053068eaee3f36153c3888e6c711724267
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57530710"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58182171"
 ---
 # <a name="audit-activity-reports-in-the-azure-active-directory-portal"></a>Relatório de atividade de auditoria no portal do Azure Active Directory 
 
@@ -98,7 +98,7 @@ O **serviço** filtro permite-lhe selecionar a partir de uma lista suspensa dos 
 - B2C
 - Acesso Condicional
 - Diretório do Núcleo
-- Gestão de direitos
+- Gestão de Direitos
 - Identity Protection
 - Utilizadores Convidados
 - PIM
@@ -204,7 +204,7 @@ Se pretender rever dados de auditoria relacionados com aplicações, pode encont
 
 ## <a name="office-365-activity-logs"></a>Registos de atividades do Office 365
 
-Pode ver registos de atividade do Office 365 a partir da [Centro de administração do Office 365](https://docs.microsoft.com/office365/admin/admin-overview/about-the-admin-center). Apesar de atividades do Office 365 e partilha de registos de atividade do Azure AD muitos dos recursos de diretório, apenas o Centro de administração do Office 365 fornece uma visão completa dos registos de atividades do Office 365. 
+Pode ver registos de atividade do Office 365 a partir da [Centro de administração do Microsoft 365](https://docs.microsoft.com/office365/admin/admin-overview/about-the-admin-center). Apesar de atividades do Office 365 e partilha de registos de atividade do Azure AD muitos dos recursos de diretório, apenas o Centro de administração do Microsoft 365 fornece uma visão completa dos registos de atividades do Office 365. 
 
 Também pode aceder a registos de atividades do Office 365 programaticamente usando a [APIs de gestão do Office 365](https://docs.microsoft.com/office/office-365-management-api/office-365-management-apis-overview).
 

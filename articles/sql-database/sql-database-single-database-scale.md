@@ -11,13 +11,13 @@ author: juliemsft
 ms.author: jrasnick
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 03/14/2019
-ms.openlocfilehash: 02dcdfa6f356d48b8fa22603323a7f3035e0fe51
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: HT
+ms.date: 03/20/2019
+ms.openlocfilehash: c6dc49204c0a7e1cb0d1116e29746eed2fe52f8d
+ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57858775"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58286266"
 ---
 # <a name="scale-single-database-resources-in-azure-sql-database"></a>Dimensionar recursos de base de dados na base de dados do Azure SQL
 
@@ -106,11 +106,7 @@ Será cobrado por cada hora, que uma base de dados existe ao utilizar o escalão
 
 Mais de 1 TB de armazenamento no escalão Premium está atualmente disponível em todas as regiões, exceto: Leste da China, Norte da China, Alemanha Central, Nordeste da Alemanha, e.u.a. centro-oeste, US DoD regiões e Governo dos E.u. a centro. Noutras regiões, o armazenamento máximo no escalão Premium está limitado a 1 TB. Para obter mais informações, consulte [limitações atuais do P11-P15](sql-database-single-database-scale.md#dtu-based-purchasing-model-limitations-of-p11-and-p15-when-the-maximum-size-greater-than-1-tb). As seguintes considerações e limitações aplicam-se às bases de dados P11 e P15 com um maior que 1 TB de tamanho máximo:
 
-- Se escolher um tamanho máximo superior a 1 TB durante a criação de uma base de dados (com um valor de 4 TB ou 4096 GB), o comando create falha com um erro se a base de dados é aprovisionada numa região não suportada.
-- Para P11 e P15 bases de dados existentes localizados em uma das regiões suportadas, pode aumentar o armazenamento máximo para além de 1 TB em incrementos de 256 GB até 4 TB. Para ver se um tamanho maior é suportado na sua região, utilize o [DATABASEPROPERTYEX](/sql/t-sql/functions/databasepropertyex-transact-sql) funcionar ou inspecionar o tamanho da base de dados no portal do Azure. Atualizando uma existente P11 ou P15 base de dados só pode ser executada por um início de sessão principal ao nível do servidor ou por membros da função de base de dados dbmanager.
-- Se uma operação de atualização é executada numa região suportada a configuração é atualizada automaticamente. A base de dados permanece online durante o processo de atualização. No entanto, não pode utilizar a quantia total de armazenamento para além de 1 TB de armazenamento até que os arquivos de banco de dados real foram atualizados para o novo tamanho máximo. O período de tempo necessário depende no tamanho da base de dados a ser atualizado.
-- Quando criar ou atualizar uma base de dados P11 ou P15, só pode escolher entre o tamanho máximo, 1 TB e 4 TB, em incrementos de 256 GB. Ao criar o P11/P15, a opção de armazenamento predefinida de 1 TB é pré-selecionada. Bases de dados localizados em uma das regiões suportadas, pode aumentar o número máximo de armazenamento para até um máximo de 4 TB para uma base de dados nova ou existente. Para todas as outras regiões, o tamanho máximo não pode ser aumentado superiores a 1 TB. O preço não é alterada quando seleciona 4 TB de armazenamento incluído.
-- Se o tamanho máximo de uma base de dados estiver definido como superior a 1 TB, em seguida, ele não é possível alterar a 1 TB, mesmo que o armazenamento atual utilizado é abaixo 1 TB. Portanto, não pode mudar um P11 ou P15 com um tamanho máximo superior a 1 TB para um P11 TB 1 ou de 1 TB P15 ou tamanho, por exemplo, P1 – P6 de computação mais baixo). Esta restrição aplica-se também para o restauro e cenários de cópia, incluindo o ponto no tempo, georrestauro, longo-prazo-cópia de segurança-retenção e a cópia da base de dados. Depois de uma base de dados é configurada com um tamanho máximo superior a 1 TB, todas as operações de restauro desta base de dados tem de ser executadas em P11/P15 com um tamanho máximo superior a 1 TB.
+- Se o tamanho máximo para uma base de dados P11 ou P15 foi alguma vez definido para um valor superior a 1 TB, em seguida, ele só pode ser restaurado ou copiado para uma base de dados P11 ou P15.  Posteriormente, a base de dados pode ser rescaled para um tamanho de computação diferentes, desde que a quantidade de espaço alocado no momento da operação ao redimensionar não excede os limites de tamanho máximo do novo tamanho de computação.
 - Para cenários de georreplicação ativa:
   - Como configurar uma relação de replicação geográfica: Se a base de dados primária estiver P11 ou P15, o secondary(ies) também tem de ser P11 ou P15; tamanho de computação mais baixo são rejeitados como bases de dados secundárias, uma vez que eles não são capazes de oferecer suporte a mais de 1 TB.
   - Atualizar a base de dados principal numa relação de replicação geográfica: Alterar o tamanho máximo para mais de 1 TB numa base de dados primária aciona a mesma alteração na base de dados secundário. Ambas as atualizações têm de ser efetuada com êxito para a alteração principal para entrar em vigor. Aplicam a limitações de região para a opção de mais de 1 TB. Se o elemento secundário for numa região que não suporta mais de 1 TB, o principal não está atualizado.

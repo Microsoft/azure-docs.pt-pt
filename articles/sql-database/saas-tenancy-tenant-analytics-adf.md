@@ -12,12 +12,12 @@ ms.author: anjangsh
 ms.reviewer: MightyPen, sstein
 manager: craigg
 ms.date: 12/18/2018
-ms.openlocfilehash: 7d4748ced196abdb4f3f0bcb70ad6fe254b24bf7
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
+ms.openlocfilehash: a658e2fe32ec95dfabad54684a0c9095af7a341d
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55657593"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57850297"
 ---
 # <a name="explore-saas-analytics-with-azure-sql-database-sql-data-warehouse-data-factory-and-power-bi"></a>Explore a análise de SaaS com o SQL Database do Azure, o SQL Data Warehouse, o Data Factory e o Power BI
 
@@ -94,7 +94,7 @@ Neste passo, vai implementar os recursos adicionais que utilizou no tutorial: ch
 
 Agora, reveja os recursos do Azure que implementou:
 #### <a name="tenant-databases-and-analytics-store"></a>Armazenamento de bases de dados e análise de inquilino
-Uso [SQL Server Management Studio (SSMS)](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) para ligar ao **tenants1-dpt -&lt;utilizador&gt;**  e **catálogo-dpt -&lt;utilizador&gt;**  servidores. Substitua &lt;utilizador&gt; com o valor que usou quando implementou a aplicação. Utilizar o início de sessão = *desenvolvedor* e a palavra-passe = *P@ssword1*. Consulte a [introdutório](saas-dbpertenant-wingtip-app-overview.md) para obter mais orientações.
+Uso [SQL Server Management Studio (SSMS)](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) para ligar ao **tenants1-dpt -&lt;utilizador&gt;**  e **catálogo-dpt -&lt;utilizador&gt;**  servidores. Substitua &lt;utilizador&gt; com o valor que usou quando implementou a aplicação. Utilizar o início de sessão = *desenvolvedor* e a palavra-passe = *P\@ssword1*. Consulte a [introdutório](saas-dbpertenant-wingtip-app-overview.md) para obter mais orientações.
 
 ![Ligar ao servidor de base de dados SQL do SSMS](media/saas-tenancy-tenant-analytics/ssmsSignIn.JPG)
 
@@ -113,7 +113,7 @@ No Object Explorer:
 #### <a name="blob-storage"></a>Armazenamento de blobs
 1. Na [Portal do Azure](https://ms.portal.azure.com), navegue para o grupo de recursos que utilizou para implantar o aplicativo. Certifique-se de que uma conta de armazenamento denominada **wingtipstaging\<usuário\>**  foi adicionado.
 
-  ![DWtables](media/saas-tenancy-tenant-analytics/adf-staging-storage.PNG)
+   ![DWtables](media/saas-tenancy-tenant-analytics/adf-staging-storage.PNG)
 
 1. Clique em **wingtipstaging\<usuário\>**  conta de armazenamento para explorar os objetos presentes.
 1. Clique em **Blobs** mosaico
@@ -195,7 +195,7 @@ Utilize os seguintes passos para ligar ao Power BI e para importar as vistas que
 
     ![início de sessão-no-para-power-bi](./media/saas-tenancy-tenant-analytics/powerBISignIn.PNG)
 
-5. Selecione **base de dados** no painel esquerdo, em seguida, introduza o nome de utilizador = *programador*e introduza a palavra-passe = *P@ssword1*. Clique em **Ligar**.  
+5. Selecione **base de dados** no painel esquerdo, em seguida, introduza o nome de utilizador = *programador*e introduza a palavra-passe = *P\@ssword1*. Clique em **Ligar**.  
 
     ![base de dados-início de sessão](./media/saas-tenancy-tenant-analytics/databaseSignIn.PNG)
 

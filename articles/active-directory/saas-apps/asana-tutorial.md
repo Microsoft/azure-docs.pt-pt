@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 12/31/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6ed414d47da2d7ce243de7a1de09964904502bbe
-ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
+ms.openlocfilehash: 73f6126d6bf172a35a284e92b65b1c3ef449949e
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57407524"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57904138"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-asana"></a>Tutorial: Integração do Active Directory do Azure com Asana
 
@@ -159,7 +159,7 @@ O objetivo desta secção é criar um utilizador de teste no portal do Azure cha
 
     a. Na **Name** campo introduza **BrittaSimon**.
   
-    b. Na **nome de utilizador** tipo de campo **brittasimon@yourcompanydomain.extension**  
+    b. Na **nome de utilizador** tipo de campo **brittasimon\@yourcompanydomain.extension**  
     Por exemplo, BrittaSimon@contoso.com
 
     c. Selecione **palavra-passe de Show** caixa de verificação e, em seguida, anote o valor que é apresentado na caixa de palavra-passe.
@@ -204,7 +204,7 @@ Nesta secção, vai criar um usuário chamado Eduarda Almeida no Asana.
 
     ![Criar um utilizador de teste do Azure AD](./media/asana-tutorial/tutorial_asana_12.png)
 
-2. Escreva a mensagem de e-mail do utilizador, como **britta.simon@contoso.com** na caixa de texto e, em seguida, selecione **convidar**.
+2. Escreva a mensagem de e-mail do utilizador, como **britta.simon\@contoso.com** na caixa de texto e, em seguida, selecione **convidar**.
 
 3. Clique em **Enviar convite**. O novo utilizador irá receber um e-mail para a conta de e-mail. utilizador terá de criar e validar a conta.
 
@@ -222,4 +222,4 @@ Quando clica no mosaico do Asana no painel de acesso, deve ser automaticamente s
 
 - [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 
-* [Configurar o aprovisionamento do utilizador](asana-provisioning-tutorial.md)
+- [Configurar o aprovisionamento do utilizador](asana-provisioning-tutorial.md)

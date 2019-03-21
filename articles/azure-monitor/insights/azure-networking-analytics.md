@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 06/21/2018
 ms.author: richrund
-ms.openlocfilehash: 5412fd2357a6848dae0cd5230546ff13cd1a6054
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.openlocfilehash: b1bcaa3a6246a97f15cbd249040844602f03a7b1
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57316749"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58107564"
 ---
 # <a name="azure-networking-monitoring-solutions-in-log-analytics"></a>Soluções do Log Analytics de monitorização da rede do Azure
 
@@ -217,18 +217,18 @@ Para utilizar as soluções atualizadas:
 2. [Configurar diagnóstico sejam enviadas diretamente para o Log Analytics do Azure grupos de segurança de rede](#enable-azure-network-security-group-diagnostics-in-the-portal)
 2. Ativar a *análise de Gateway de aplicação do Azure* e o *análise de grupo de segurança de rede do Azure* solução utilizando o processo descrito em [adicionar soluções Log Analytics dos Galeria de soluções](../../azure-monitor/insights/solutions.md)
 3. Atualizar quaisquer consultas guardadas, dashboards ou alertas para usar o novo tipo de dados
-  + Tipo é AzureDiagnostics. Pode usar o ResourceType para filtrar registos de rede do Azure.
+   + Tipo é AzureDiagnostics. Pode usar o ResourceType para filtrar registos de rede do Azure.
 
-    | Em vez de: | Utilização: |
-    | --- | --- |
-    | NetworkApplicationgateways &#124; onde OperationName = = "ApplicationGatewayAccess" | AzureDiagnostics &#124; where ResourceType="APPLICATIONGATEWAYS" and OperationName=="ApplicationGatewayAccess" |
-    | NetworkApplicationgateways &#124; onde OperationName = = "ApplicationGatewayPerformance" | AzureDiagnostics &#124; where ResourceType=="APPLICATIONGATEWAYS" and OperationName=ApplicationGatewayPerformance |
-    | NetworkSecuritygroups | AzureDiagnostics &#124; where ResourceType=="NETWORKSECURITYGROUPS" |
+     | Em vez de: | Utilização: |
+     | --- | --- |
+     | NetworkApplicationgateways &#124; onde OperationName = = "ApplicationGatewayAccess" | AzureDiagnostics &#124; where ResourceType="APPLICATIONGATEWAYS" and OperationName=="ApplicationGatewayAccess" |
+     | NetworkApplicationgateways &#124; onde OperationName = = "ApplicationGatewayPerformance" | AzureDiagnostics &#124; where ResourceType=="APPLICATIONGATEWAYS" and OperationName=ApplicationGatewayPerformance |
+     | NetworkSecuritygroups | AzureDiagnostics &#124; where ResourceType=="NETWORKSECURITYGROUPS" |
 
    + Para qualquer campo que tem um sufixo de \_s, \_1!d, ou \_g o nome, altere o primeiro caráter em minúsculas
    + Para qualquer campo que tem um sufixo de \_o nome, os dados é dividido em campos individuais com base nos nomes de campos aninhados.
 4. Remover os *Azure Networking Analytics (preterido)* solução.
-  + Se estiver a utilizar o PowerShell, utilize `Set-AzureOperationalInsightsIntelligencePack -ResourceGroupName <resource group that the workspace is in> -WorkspaceName <name of the log analytics workspace> -IntelligencePackName "AzureNetwork" -Enabled $false`
+   + Se estiver a utilizar o PowerShell, utilize `Set-AzureOperationalInsightsIntelligencePack -ResourceGroupName <resource group that the workspace is in> -WorkspaceName <name of the log analytics workspace> -IntelligencePackName "AzureNetwork" -Enabled $false`
 
 Os dados recolhidos antes da alteração não é visível na solução de novo. Pode continuar a consultar estes dados com o tipo de antigo e nomes de campos.
 

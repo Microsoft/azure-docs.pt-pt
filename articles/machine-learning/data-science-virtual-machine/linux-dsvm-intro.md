@@ -16,12 +16,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/16/2018
 ms.author: gokuma
-ms.openlocfilehash: 58f4d7be530aa3c7e0071a2f0d80bc30ebd5cf25
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: e7b67905c96495382536555b87772e4eefada250
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57440918"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57835752"
 ---
 # <a name="provision-a-linux-centos-data-science-virtual-machine-on-azure"></a>Aprovisionar uma máquina de Virtual de ciência de dados de CentOS do Linux no Azure
 
@@ -104,7 +104,7 @@ Eis os passos para criar uma instância da Máquina Virtual Linux Data Science:
 O aprovisionamento deve demorar cerca de 10 a 20 minutos. O estado do provisionamento é apresentado no portal do Azure.
 
 ## <a name="how-to-access-the-linux-data-science-virtual-machine"></a>Como acessar a máquina de Virtual de ciência de dados do Linux
-Depois da VM é criada, pode iniciar sessão na mesma ao utilizar SSH. Utilize as credenciais da conta que criou no **Noções básicas** secção do passo 3 para a interface do shell de texto. No Windows, pode transferir uma ferramenta de cliente SSH, como o [Putty](http://www.putty.org). Se preferir um ambiente de trabalho gráfico (sistema de Windows X), pode utilizar o Putty de reencaminhamento de X11 ou instalar o cliente de X2Go.
+Depois da VM é criada, pode iniciar sessão na mesma ao utilizar SSH. Utilize as credenciais da conta que criou no **Noções básicas** secção do passo 3 para a interface do shell de texto. No Windows, pode transferir uma ferramenta de cliente SSH, como o [Putty](https://www.putty.org). Se preferir um ambiente de trabalho gráfico (sistema de Windows X), pode utilizar o Putty de reencaminhamento de X11 ou instalar o cliente de X2Go.
 
 > [!NOTE]
 > O cliente de X2Go efetuada significativamente melhor do que em testes de reencaminhamento de X11. Recomendamos que utilize o cliente de X2Go para uma interface gráfica de área de trabalho.
@@ -114,7 +114,7 @@ Depois da VM é criada, pode iniciar sessão na mesma ao utilizar SSH. Utilize a
 ## <a name="installing-and-configuring-x2go-client"></a>Instalar e configurar o cliente de X2Go
 A VM do Linux já está a ser aprovisionado com o servidor de X2Go e pronto para aceitar ligações de cliente. Para ligar-se na área de trabalho de gráfico de VM do Linux, faça o seguinte no cliente:
 
-1. Transferir e instalar o cliente de X2Go para a sua plataforma de cliente do [X2Go](http://wiki.x2go.org/doku.php/doc:installation:x2goclient).    
+1. Transferir e instalar o cliente de X2Go para a sua plataforma de cliente do [X2Go](https://wiki.x2go.org/doku.php/doc:installation:x2goclient).    
 1. Executar o cliente de X2Go e selecione **nova sessão**. Ele abre uma janela de configuração com vários separadores. Introduza os seguintes parâmetros de configuração:
    * **Separador de sessão**:
      * **Host**: O nome de anfitrião ou endereço IP da sua VM de ciência de dados do Linux.
@@ -132,7 +132,7 @@ R é uma das linguagens mais populares para análise de dados e o machine learni
 
 Para iniciar R da consola, basta digitar **R** no shell. Isto leva-o para um ambiente interativo. Para desenvolver o seu programa de R, normalmente, utilize um editor como Emacs ou vi ou gedit e, em seguida, execute os scripts do R. Com o r Studio, tem um ambiente de IDE gráfico completas para desenvolver o seu programa de R.
 
-Também existe um script R para a instalação a [pacotes de R de 20 principais](http://www.kdnuggets.com/2015/06/top-20-r-packages.html) se desejar. Este script pode ser executado depois de se na interface interativa R, que pode ser introduzida (conforme mencionado), escrevendo **R** no shell.  
+Também existe um script R para a instalação a [pacotes de R de 20 principais](https://www.kdnuggets.com/2015/06/top-20-r-packages.html) se desejar. Este script pode ser executado depois de se na interface interativa R, que pode ser introduzida (conforme mencionado), escrevendo **R** no shell.  
 
 ### <a name="python"></a>Python
 Para o desenvolvimento com o Python, distribuição de Anaconda Python 2.7 e 3.5 foi instalada. Essa distribuição contém o Python base juntamente com aproximadamente 300 dos pacotes de análises de dados, engenharia e matemática mais populares. Pode utilizar os editores de texto padrão. Além disso, pode usar Spyder, um IDE de Python que é fornecida com distribuições Anaconda Python. Spyder necessita de uma área de trabalho gráfica ou X11 reencaminhamento. Um atalho para Spyder é fornecido na área de trabalho gráfico.
@@ -203,7 +203,7 @@ Antes de executar no contexto do Spark no Microsoft R Server, terá de realizar 
 ### <a name="ides-and-editors"></a>IDEs e editores
 Tem uma opção de vários editores de códigos. Isto inclui vi/VIM, Emacs, gEdit, PyCharm, o r Studio, Eclipse e IntelliJ. gEdit, Eclipse, IntelliJ, RStudio e PyCharm são editores gráficas e tem de ser iniciada para uma área de trabalho gráfica para utilizá-los. Esses editores tem o ambiente de trabalho e a aplicação atalhos no menu para iniciá-los.
 
-**VIM** e **Emacs** são editores baseados em texto. No Emacs, podemos ter instalado um pacote adicional chamado Emacs participa como Palestrante estatísticas (eitos de acesso) que facilita o trabalho com R no editor de Emacs. Obter mais informações podem ser encontradas em [IMIR](http://ess.r-project.org/).
+**VIM** e **Emacs** são editores baseados em texto. No Emacs, podemos ter instalado um pacote adicional chamado Emacs participa como Palestrante estatísticas (eitos de acesso) que facilita o trabalho com R no editor de Emacs. Obter mais informações podem ser encontradas em [IMIR](https://ess.r-project.org/).
 
 **Eclipse** é a abertura de origem, IDE extensível que suporta vários idiomas. A edição de programadores do Java é a instância instalada na VM. Plug-ins estão disponíveis para várias linguagens populares, que podem ser instaladas para estender o ambiente. Além disso, temos um plug-in instalado no Eclipse, chamado **Azure Toolkit para Eclipse**. Permite-lhe criar, desenvolver, testar e implementar aplicações do Azure utilizando o ambiente de desenvolvimento do Eclipse que oferece suporte a linguagens como Java. Há também uma **Azure SDK para Java** que permita o acesso aos diferentes serviços do Azure de dentro de um ambiente de Java. Obter mais informações sobre o Azure toolkit para Eclipse podem ser encontradas em [Azure Toolkit para Eclipse](../../azure-toolkit-for-eclipse.md).
 
@@ -377,5 +377,5 @@ Eis como pode continuar a sua aprendizagem e a exploração:
 * O [ciência de dados numa máquina Virtual Linux Data Science](linux-dsvm-walkthrough.md) instruções mostram como realizar várias tarefas de ciência de dados comuns com a VM de ciência de dados do Linux aprovisionados aqui. 
 * Explore as várias ferramentas de ciência de dados na VM de ciência de dados por experimentar as ferramentas descritas neste artigo. Também pode executar *dsvm-mais-info* no shell na máquina virtual para uma introdução básica e ponteiros para obter mais informações sobre as ferramentas instaladas na VM.  
 * Aprenda a criar soluções de análise de ponto-a-ponto sistematicamente utilizando o [Team Data Science Process](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/).
-* Visite o [galeria do Cortana Analytics](http://gallery.cortanaanalytics.com) para machine learning e os dados analytics de exemplo que utilizam o Cortana Analytics Suite.
+* Visite o [galeria do Cortana Analytics](https://gallery.cortanaanalytics.com) para machine learning e os dados analytics de exemplo que utilizam o Cortana Analytics Suite.
 

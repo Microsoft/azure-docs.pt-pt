@@ -3,7 +3,7 @@ title: Alertas de segurança por tipo no Centro de Segurança do Azure | Microso
 description: Este artigo explica os vários tipos de alertas de segurança disponíveis no Centro de Segurança do Azure.
 services: security-center
 documentationcenter: na
-author: rkarlin
+author: monhaber
 manager: barbkess
 editor: ''
 ms.assetid: b3e7b4bc-5ee0-4280-ad78-f49998675af1
@@ -12,22 +12,19 @@ ms.topic: conceptual
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/3/2018
-ms.author: rkarlin
-ms.openlocfilehash: 6bd05a417bfb011dd86b61d654be836ef76099b7
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.date: 3/20/2018
+ms.author: monhaber
+ms.openlocfilehash: 407d0610f919b1145a91e8678f57f8d344c9c187
+ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57439688"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58286368"
 ---
 # <a name="understanding-security-alerts-in-azure-security-center"></a>Compreender os alertas de segurança no Centro de Segurança do Azure
 Este artigo ajuda-o a compreender os vários tipos de alertas de segurança e informações relacionadas que estão disponíveis no Centro de Segurança do Azure. Para obter mais informações sobre como gerir alertas e incidentes, veja [Gerir e responder a alertas de segurança no Centro de Segurança do Azure](security-center-managing-and-responding-alerts.md).
 
 Para configurar as deteções avançadas, atualize para o Centro de Segurança do Azure Standard. Está disponível uma avaliação gratuita. Para atualizar, selecione **Escalão de Preço** na [política de segurança](tutorial-security-policy.md). Para saber mais, veja a [página de preços](https://azure.microsoft.com/pricing/details/security-center/).
-
-> [!NOTE]
-> O Centro de Segurança lançou uma pré-visualização limitada de um novo conjunto de deteções que tiram partido dos registos de auditoria, um framework de auditoria comum, para detetar comportamentos maliciosos em computadores Linux. Envie um e-mail para a [Microsoft](mailto:ASC_linuxdetections@microsoft.com) com os seus IDs de subscrição para aderir à pré-visualização.
 
 ## <a name="what-type-of-alerts-are-available"></a>Que tipo de alertas estão disponíveis?
 O Centro de Segurança do Azure utiliza uma variedade de [capacidades de deteção](security-center-detection-capabilities.md) para alertar os clientes para possíveis ataques direcionados aos respetivos ambientes. Estes alertas contêm informações valiosas sobre o que acionou o alerta, os recursos afetados e a origem do ataque. As informações incluídas num alerta variam de acordo com o tipo de análise usado para detetar a ameaça. Os incidentes também podem conter informações contextuais adicionais que podem ser úteis ao investigar uma ameaça.  Este artigo fornece informações sobre os seguintes tipos de alerta:

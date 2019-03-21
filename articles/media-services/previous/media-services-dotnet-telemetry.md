@@ -12,14 +12,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/08/2019
+ms.date: 03/18/2019
 ms.author: juliako
-ms.openlocfilehash: 27d3a386f434ba80211a3e0c28d1af0110ab7970
-ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.openlocfilehash: 1ffaefc51121aeb7421d6e49a3c0e58c76d4391e
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/02/2019
-ms.locfileid: "57241056"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58177641"
 ---
 # <a name="configuring-azure-media-services-telemetry-with-net"></a>Configurar a telemetria de serviços de multimédia do Azure com .NET 
 

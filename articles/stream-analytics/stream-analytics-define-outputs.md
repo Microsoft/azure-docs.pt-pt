@@ -9,19 +9,19 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 12/21/2018
 ms.custom: seodec18
-ms.openlocfilehash: 01aa3d45d3b168c67603861a0a947026d4f2e08c
-ms.sourcegitcommit: a4efc1d7fc4793bbff43b30ebb4275cd5c8fec77
+ms.openlocfilehash: 0a3fd2cc66a066d2790d2e12822e3246dc3db382
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56650891"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57898878"
 ---
 # <a name="understand-outputs-from-azure-stream-analytics"></a>Compreender as saídas do Azure Stream Analytics
 Este artigo descreve os diferentes tipos de saídas disponíveis para uma tarefa do Azure Stream Analytics. Saídas permitem-lhe armazenar e guardar os resultados da tarefa do Stream Analytics. Pode fazer com os dados de saída, ainda mais análises de negócio e o armazenamento de dados dos seus dados.
 
 Ao conceber a sua consulta do Stream Analytics, consulte o nome da saída usando o [cláusula INTO](https://msdn.microsoft.com/azure/stream-analytics/reference/into-azure-stream-analytics). Pode usar uma única saída por tarefa ou várias saídas por transmissão em fluxo de trabalho se for necessário, fornecendo várias cláusulas INTO na consulta.
 
-Para criar, editar e testar a tarefa do Stream Analytics produz, pode utilizar o [portal do Azure](stream-analytics-quick-create-portal.md#configure-job-output), [Azure PowerShell](stream-analytics-quick-create-powershell.md#configure-output-to-the-job), [.Net API](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.streamanalytics.ioutputsoperations?view=azure-dotnet), [REST API](https://docs.microsoft.com/rest/api/streamanalytics/stream-analytics-output), e [Visual Studio](stream-analytics-quick-create-vs.md).
+Para criar, editar e testar a tarefa do Stream Analytics produz, pode utilizar o [portal do Azure](stream-analytics-quick-create-portal.md#configure-job-output), [Azure PowerShell](stream-analytics-quick-create-powershell.md#configure-output-to-the-job), [.NET API](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.streamanalytics.ioutputsoperations?view=azure-dotnet), [REST API](https://docs.microsoft.com/rest/api/streamanalytics/stream-analytics-output), e [Visual Studio](stream-analytics-quick-create-vs.md).
 
 Algum suporte de tipos de saídas [particionamento](#partitioning), e [tamanhos de lote de saída](#output-batch-size) variar para otimizar o débito.
 
@@ -169,7 +169,7 @@ O Azure Stream Analytics atualiza o modelo de dados dinamicamente no tempo de ex
 Esta tabela abrange as conversões de tipo de dados do [tipos de dados do Stream Analytics](https://msdn.microsoft.com/library/azure/dn835065.aspx) para o Power BIs [tipos de modelo de dados de entidade (EDM)](https://powerbi.microsoft.com/documentation/powerbi-developer-walkthrough-push-data/) se não existir um conjunto de dados do POWER BI e uma tabela.
 
 Do Stream Analytics | Para o Power BI
------|-----|------------
+-----|-----
 bigint | Int64
 nvarchar (Max) | Cadeia
 datetime | Datetime
@@ -186,7 +186,7 @@ Anterior/atual | Int64 | Cadeia | Datetime | Valor de duplo
 -----------------|-------|--------|----------|-------
 Int64 | Int64 | Cadeia | Cadeia | Valor de duplo
 Valor de duplo | Valor de duplo | Cadeia | Cadeia | Valor de duplo
-Cadeia | Cadeia | Cadeia | Cadeia |  | Cadeia |
+Cadeia | Cadeia | Cadeia | Cadeia | Cadeia 
 Datetime | Cadeia | Cadeia |  Datetime | Cadeia
 
 
@@ -261,6 +261,7 @@ Saída do Azure Cosmos DB do Stream Analytics não está atualmente disponível 
 > Outras APIs do Azure Cosmos DB ainda não são suportados. Se ponto Azure Stream Analytics para as contas do Azure Cosmos DB criado com as outras APIs, os dados poderão não ser corretamente armazenados.
 
 A tabela seguinte descreve as propriedades para a criação de uma saída do Azure Cosmos DB.
+
 | Nome da propriedade | descrição |
 | --- | --- |
 | Alias de saída | Um alias para fazer referência esta saída na sua consulta do Stream Analytics. |
@@ -331,7 +332,7 @@ A tabela seguinte explica algumas das considerações para a criação de batche
 
 ## <a name="next-steps"></a>Passos Seguintes
 > [!div class="nextstepaction"]
-
+> 
 > [Quickstart: Criar uma tarefa de Stream Analytics com o portal do Azure](stream-analytics-quick-create-portal.md)
 
 <!--Link references-->

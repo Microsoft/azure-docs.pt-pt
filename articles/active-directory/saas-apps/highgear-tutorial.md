@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 01/16/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 61010399f6f2f5b87c1aa5e1c342a97e6b34bb45
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 873bc340d738704418310e22c34b0042f71a96bd
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57765523"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57890904"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-highgear"></a>Tutorial: Integração do Active Directory do Azure com HighGear
 
@@ -181,7 +181,7 @@ O objetivo desta secção é criar um utilizador de teste no portal do Azure cha
 
     a. Na **Name** campo introduza **BrittaSimon**.
   
-    b. Na **nome de utilizador** tipo de campo **brittasimon@yourcompanydomain.extension**  
+    b. Na **nome de utilizador** tipo de campo **brittasimon\@yourcompanydomain.extension**  
     Por exemplo, BrittaSimon@contoso.com
 
     c. Selecione o **palavra-passe de Show** caixa de verificação e, em seguida, anote o valor que é apresentado na caixa de palavra-passe.
@@ -246,7 +246,7 @@ Para criar um utilizador de teste para testar a configuração de início de ses
 
 7. Para guardar o contacto, clique a **guardar** na parte inferior do painel.
 
-### <a name="test-single-sign-on"></a>Testar início de sessão único 
+### <a name="test-single-sign-on"></a>Testar o início de sessão único 
 
 Nesta secção, vai testar a configuração do Azure AD única início de sessão com o painel de acesso.
 

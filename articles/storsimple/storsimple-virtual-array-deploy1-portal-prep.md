@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 01/11/2019
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 17e51c91d2857ac91b0ebf998c016ebcf56c0de0
-ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
+ms.openlocfilehash: 7c6f0a6371b38f0271237db0f7d80b831ecc145c
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/12/2019
-ms.locfileid: "54244788"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58088711"
 ---
 # <a name="deploy-storsimple-virtual-array---prepare-the-azure-portal"></a>Implantar o StorSimple Virtual Array - preparar o portal do Azure
 
@@ -155,15 +155,15 @@ Execute os seguintes passos no [portal do Azure](https://ms.portal.azure.com/) n
 3. Clique em **Adicionar**.
 4. Na **adicionar uma conta de armazenamento** painel, faça o seguinte:
    
-    1. Para **subscrição**, selecione **atual**.
+   1. Para **subscrição**, selecione **atual**.
    
-    2. Forneça o nome da sua conta de armazenamento do Azure.
+   2. Forneça o nome da sua conta de armazenamento do Azure.
    
-    3. Selecione **ativar** para criar um canal seguro para comunicação de rede entre o dispositivo StorSimple e a cloud. Selecione **desativar** apenas se estiver a utilizar uma nuvem privada.
+   3. Selecione **ativar** para criar um canal seguro para comunicação de rede entre o dispositivo StorSimple e a cloud. Selecione **desativar** apenas se estiver a utilizar uma nuvem privada.
    
-    4. Clique em **Adicionar**. Será notificado depois da conta de armazenamento for criada com êxito.<br></br>
+   4. Clique em **Adicionar**. Será notificado depois da conta de armazenamento for criada com êxito.<br></br>
    
-     ![Adicionar uma credencial de conta de armazenamento existente](./media/storsimple-virtual-array-manage-storage-accounts/ova-add-storageacct.png)
+      ![Adicionar uma credencial de conta de armazenamento existente](./media/storsimple-virtual-array-manage-storage-accounts/ova-add-storageacct.png)
 
 ## <a name="next-step"></a>Passo seguinte
 

@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/15/2019
 ms.author: jegeib
-ms.openlocfilehash: eb1b3c04d3714280c1d1ba6c91b3a4c728a3d1af
-ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
+ms.openlocfilehash: 6f7699ece97be1941ef5235b92f2c76b3bed140e
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54360309"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57883496"
 ---
-# <a name="threat-modeling-tool-update-release-71510231---1112018"></a>Versão de atualização do ferramenta de modelagem de ameaças 7.1.51023.1 - 11/1/2018
+# <a name="threat-modeling-tool-update-release-71510231---1112018"></a>Versão de atualização da Threat Modeling Tool 7.1.51023.1 - 11-01-2018
 
 Originalmente como indicado na [notas de versão de DG](./azure-security-threat-modeling-tool-releases-71509112.md), lançámos uma atualização (7.1.51023.1) para a ferramenta de modelagem de ameaças para Microsoft obrigará os utilizadores da versão de pré-visualização (pré-visualização de clientes com versão < 7.1.50911.2) para atualizar para o a versão de DG suportada. Esta versão não contém quaisquer novas funcionalidades ou correções.
 
@@ -38,7 +38,7 @@ Originalmente como indicado na [notas de versão de DG](./azure-security-threat-
 - Sistemas Operativos Suportados
   - Microsoft Windows 10
 - Versão do .NET necessária
-  - .Net 3.5.2
+  - .NET 3.5.2
 - Requisitos Adicionais
   - Uma ligação à Internet é necessária para receber atualizações para a ferramenta, bem como os modelos.
 

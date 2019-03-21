@@ -6,21 +6,18 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: backup
 ms.topic: conceptual
-ms.date: 02/19/2018
+ms.date: 03/14/2019
 ms.author: raynew
-ms.openlocfilehash: 7f25f26ac1cefa0f2dc3b9b7e30f4a4fc2901c9f
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 1712e46494796e563c26316b4f45d968872c304f
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57436532"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57996757"
 ---
-# <a name="restore-sql-server-databases-on-azure-vms"></a>Restaurar bases de dados do SQL Server em VMs do Azure 
+# <a name="restore-sql-server-databases-on-azure-vms"></a>Restaurar bases de dados do SQL Server em VMs do Azure
 
 Este artigo descreve como restaurar uma base de dados do SQL Server que está em execução numa máquina virtual do Azure (VM) que o [Azure Backup](backup-overview.md) serviço tem uma cópia de segurança para um cofre dos serviços de recuperação de cópia de segurança do Azure.
-
-> [!NOTE]
-> Cópia de segurança de bases de dados do SQL Server em execução numa VM do Azure que utiliza o Azure Backup está atualmente em pré-visualização pública.
 
 Este artigo descreve como restaurar bases de dados do SQL Server. Para obter mais informações, consulte [cópia de segurança de bases de dados do SQL Server em VMs do Azure](backup-azure-sql-database.md).
 
@@ -53,7 +50,7 @@ Para restaurar, necessita das seguintes permissões:
 * **Contribuidor (escrita)** acesso à origem de VM que é uma cópia de segurança.
 * **Contribuidor (escrita)** acesso para a VM de destino:
     - Se estiver a restaurar para a mesma VM, esta é a VM de origem.
-    - Se estiver a restaurar para uma localização alternativa, esta é a nova VM de destino. 
+    - Se estiver a restaurar para uma localização alternativa, esta é a nova VM de destino.
 
 Restaure da seguinte forma:
 1. Abra o Cofre no qual a VM do SQL Server está registado.
@@ -66,24 +63,24 @@ Restaure da seguinte forma:
 
     ![Selecione a base de dados para restaurar](./media/backup-azure-sql-database/sql-restore-sql-in-vm.png)
 
-5. Reveja o menu de base de dados. Fornece informações sobre a cópia de segurança da base de dados, incluindo: 
+5. Reveja o menu de base de dados. Fornece informações sobre a cópia de segurança da base de dados, incluindo:
 
     * Pontos de restauro mais antigo e mais recentes.
     * O estado de cópia de segurança do registo nas últimas 24 horas para bases de dados que estão em modo de recuperação completa e registadas em massa e que estão configurados para cópias de segurança do registo transacional.
 
-6. Selecione **restaurar DB**. 
+6. Selecione **restaurar DB**.
 
     ![Selecione restaurar DB](./media/backup-azure-sql-database/restore-db-button.png)
 
 7. Na **restaurar configuração**, especifique onde pretende restaurar os dados:
-    - **Alternativo de localização**: Restaurar a base de dados para uma localização alternativa e manter a base de dados de origem original.
-    - **Substituir a BD**: Restaure os dados para a mesma instância do SQL Server como a origem original. Esta opção substitui a base de dados original.
+   - **Alternativo de localização**: Restaurar a base de dados para uma localização alternativa e manter a base de dados de origem original.
+   - **Substituir a BD**: Restaure os dados para a mesma instância do SQL Server como a origem original. Esta opção substitui a base de dados original.
 
-    > [!Important]
-    > Se a base de dados selecionada pertence a um grupo de disponibilidade Always On, o SQL Server não permite que a base de dados sejam substituídas. Apenas **localização alternativa** está disponível.
-    >
+     > [!Important]
+     > Se a base de dados selecionada pertence a um grupo de disponibilidade Always On, o SQL Server não permite que a base de dados sejam substituídas. Apenas **localização alternativa** está disponível.
+     >
 
-    ![Restaurar o menu de configuração](./media/backup-azure-sql-database/restore-restore-configuration-menu.png)
+     ![Restaurar o menu de configuração](./media/backup-azure-sql-database/restore-restore-configuration-menu.png)
 
 ### <a name="restore-to-an-alternate-location"></a>Restaurar para uma localização alternativa
 
@@ -98,7 +95,7 @@ Restaure da seguinte forma:
 2. Na **selecionar ponto de restauro**, selecione se pretende [restaurar para um ponto específico no tempo](#restore-to-a-specific-point-in-time) ou a [restaurar para um ponto de recuperação específica](#restore-to-a-specific-restore-point).
 
     > [!NOTE]
-    > O restauro de ponto no tempo só está disponível para backups de log para bases de dados que estejam no modo de recuperação completa e registadas em massa. 
+    > O restauro de ponto no tempo só está disponível para backups de log para bases de dados que estejam no modo de recuperação completa e registadas em massa.
 
 ### <a name="restore-and-overwrite"></a>Restaurar e substituir
 
@@ -109,7 +106,7 @@ Restaure da seguinte forma:
 2. Na **selecionar ponto de restauro**, selecione **registos (ponto no tempo)** para [restaurar para um ponto específico no tempo](#restore-to-a-specific-point-in-time). Ou selecione **completa e diferencial** restaurar para um [ponto de recuperação específico](#restore-to-a-specific-restore-point).
 
     > [!NOTE]
-    > O restauro de ponto no tempo só está disponível para backups de log para bases de dados que estejam no modo de recuperação completa e registadas em massa. 
+    > O restauro de ponto no tempo só está disponível para backups de log para bases de dados que estejam no modo de recuperação completa e registadas em massa.
 
 ### <a name="restore-to-a-specific-point-in-time"></a>Restaurar para um ponto específico no tempo
 
@@ -125,7 +122,7 @@ Se tiver selecionado **registos (ponto no tempo)** como o tipo de restauro, efet
 
     ![Selecione um tempo de restauro](./media/backup-azure-sql-database/recovery-point-logs-graph.png)
 
- 
+
 1. Sobre o **configuração avançada** menu, se pretender manter a base de dados nonoperational após o restauro, ative **restaurar com NORECOVERY**.
 1. Se pretender alterar a localização de restauro no servidor de destino, introduza um novo caminho de destino.
 1. Selecione **OK**.
@@ -144,9 +141,9 @@ Se tiver selecionado **completa e diferencial** como o tipo de restauro, efetue 
 1. Selecione um ponto de recuperação da lista e selecione **OK** para concluir o procedimento de ponto de restauro.
 
     ![Escolha um ponto de recuperação completo](./media/backup-azure-sql-database/choose-fd-recovery-point.png)
-        
+
 1. Sobre o **configuração avançada** menu, se pretender manter a base de dados nonoperational após o restauro, ative **restaurar com NORECOVERY**.
-1. Se pretender alterar a localização de restauro no servidor de destino, introduza um novo caminho de destino. 
+1. Se pretender alterar a localização de restauro no servidor de destino, introduza um novo caminho de destino.
 1. Selecione **OK**.
 
     ![Menu de configuração avançada](./media/backup-azure-sql-database/restore-point-advanced-configuration.png)

@@ -16,12 +16,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/11/2018
 ms.author: mikeray
-ms.openlocfilehash: 7e0dea82614363883bbfb4a34894a2248faeb176
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 19910782142bf78c10dda155f40a5c41bdd64958
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57769664"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57842758"
 ---
 # <a name="configure-sql-server-failover-cluster-instance-on-azure-virtual-machines"></a>Configurar a instância de Cluster de ativação pós-falha do SQL Server em máquinas virtuais do Azure
 
@@ -101,7 +101,7 @@ Com a configuração destes pré-requisitos, pode avançar com a criação do cl
 
 ## <a name="step-1-create-virtual-machines"></a>Passo 1: Criar máquinas virtuais
 
-1. Inicie sessão para o [portal do Azure](http://portal.azure.com) com a sua subscrição.
+1. Inicie sessão para o [portal do Azure](https://portal.azure.com) com a sua subscrição.
 
 1. [Criar um conjunto de disponibilidade do Azure](../tutorial-availability-sets.md).
 
@@ -421,7 +421,7 @@ Para criar o Balanceador de carga:
    - **Sonda de estado de funcionamento**: Utilize a sonda de estado de funcionamento que configurou anteriormente.
    - **Persistência da sessão**: Nenhum.
    - **Tempo limite (minutos) de inatividade**: 4.
-   - **Vírgula flutuante (devolução direta do servidor) de IP**: Activado
+   - **Vírgula flutuante (devolução direta do servidor) de IP**: Ativado
 
 1. Clique em **OK**.
 
@@ -475,7 +475,7 @@ Ativação pós-falha de teste da FCI para validar a funcionalidade de cluster. 
 
 **Gestor de clusters de ativação pós-falha** mostra a função e os respetivos recursos ficam offline. Os recursos, em seguida, moverem e ficam online no outro nó.
 
-### <a name="test-connectivity"></a>Testar a conectividade
+### <a name="test-connectivity"></a>Testar conectividade
 
 Para testar a conectividade, inicie sessão outra máquina virtual na mesma rede virtual. Open **SQL Server Management Studio** e ligue-se ao nome do SQL Server FCI.
 

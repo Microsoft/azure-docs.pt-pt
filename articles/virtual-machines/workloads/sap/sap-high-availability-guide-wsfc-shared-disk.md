@@ -17,12 +17,12 @@ ms.workload: infrastructure-services
 ms.date: 05/05/2017
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 91a72a4244e3cae081fe9a962bbb80d3ce19822d
-ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
+ms.openlocfilehash: 608965160f4abb57ccdfe8b8256fef971754b4d6
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39113227"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58000300"
 ---
 [1928533]:https://launchpad.support.sap.com/#/notes/1928533
 [1999351]:https://launchpad.support.sap.com/#/notes/1999351
@@ -39,7 +39,7 @@ ms.locfileid: "39113227"
 
 [deployment-guide]:deployment-guide.md
 
-[dr-guide-classic]:http://go.microsoft.com/fwlink/?LinkID=521971
+[dr-guide-classic]:https://go.microsoft.com/fwlink/?LinkID=521971
 
 [getting-started]:get-started.md
 [ha-guide]:sap-high-availability-guide.md
@@ -210,9 +210,9 @@ O serviço de Balanceador de carga do Azure fornece um *Balanceador de carga int
 
 Implemente o Balanceador de carga interno no grupo de recursos que contém nós do cluster. Em seguida, configure todas as portas necessárias as regras de reencaminhamento ao utilizar a sonda de portas de Balanceador de carga interno. Os clientes podem ligar através do nome de anfitrião virtual. O servidor DNS resolve o endereço IP do cluster e a porta de identificadores de Balanceador de carga interno de reencaminhamento para o nó ativo do cluster.
 
-![Figura 1: A configuração no Azure sem um disco partilhado de cluster de failover do Windows][sap-ha-guide-figure-1001]
+![Figura 1: A configuração no Azure sem um disco partilhado de clustering de ativação pós-falha Windows][sap-ha-guide-figure-1001]
 
-_**Figura 1:** configuração no Azure sem um disco partilhado de clustering de ativação pós-falha do Windows Server_
+_**Figura 1:** A configuração no Azure sem um disco partilhado de clustering de ativação pós-falha do Windows Server_
 
 ### <a name="sap-ascsscs-ha-with-cluster-shared-disks"></a>SAP ASCS/SCS HA com discos partilhados de cluster
 No Windows, uma instância do SAP ASCS/SCS contém serviços centrais do SAP, o servidor de mensagens do SAP, processos de servidor de colocar em fila e arquivos de global host de SAP. Os arquivos de anfitrião global de SAP armazenam arquivos centrais para todo o sistema SAP.
@@ -225,15 +225,15 @@ Uma instância do SAP ASCS/SCS tem os seguintes componentes:
 
 
 * Ficheiros do anfitrião global de SAP:
-    * Estrutura de ficheiros: S:\usr\sap\\&lt;SID&gt;\SYS\.....
-    * A partilha de ficheiros /sapmnt, que permite o acesso a estes S:\usr\sap global\\&lt;SID&gt;\SYS\.... arquivos usando o seguinte caminho UNC:
+  * Estrutura de ficheiros: S:\usr\sap\\&lt;SID&gt;\SYS\...
+  * A partilha de ficheiros /sapmnt, que permite o acesso a estes S:\usr\sap global\\&lt;SID&gt;\SYS\.... arquivos usando o seguinte caminho UNC:
 
-     \\\\< nome de anfitrião virtual ASCS/SCS > \sapmnt\\&lt;SID&gt;\SYS\.....
+    \\\\< nome de anfitrião virtual ASCS/SCS > \sapmnt\\&lt;SID&gt;\SYS\.....
 
 
 ![Figura 2: Processos, estrutura de ficheiros e partilha de ficheiros do anfitrião global /sapmnt de uma instância do SAP ASCS/SCS][sap-ha-guide-figure-8001]
 
-_**Figura 2:** processos, estrutura de ficheiros e partilha de ficheiros do anfitrião global /sapmnt de uma instância do SAP ASCS/SCS_
+_**Figura 2:** Processos, estrutura de ficheiros e partilha de ficheiros do anfitrião global /sapmnt de uma instância do SAP ASCS/SCS_
 
 Numa configuração de elevada disponibilidade, cluster instâncias do SAP ASCS/SCS. Usamos *discos partilhados de cluster* (unidade S, no nosso exemplo), colocar o SAP ASCS/SCS e SAP global alojar ficheiros.
 
@@ -266,9 +266,9 @@ Para criar um recurso de disco partilhado para um cluster:
 
 Obtenha mais informações sobre [SIOS DataKeeper](http://us.sios.com/products/datakeeper-cluster/).
 
-![Figura 5: Windows Server clustering de ativação pós-falha configuração no Azure com o SIOS DataKeeper][sap-ha-guide-figure-1002]
+![Figura 5: A configuração no Azure com o SIOS DataKeeper de clustering de ativação pós-falha do Windows Server][sap-ha-guide-figure-1002]
 
-_**Figura 5:** configuração no Azure com o SIOS DataKeeper de clustering de ativação pós-falha Windows_
+_**Figura 5:** A configuração no Azure com o SIOS DataKeeper de clustering de ativação pós-falha Windows_
 
 > [!NOTE]
 > Não precisa discos partilhados para elevada disponibilidade com alguns produtos DBMS, como o SQL Server. SQL Server AlwaysOn replica DBMS dados e arquivos de log do disco local do nó de cluster para o disco local de outro nó de cluster. Neste caso, a configuração de cluster do Windows não precisa de um disco partilhado.

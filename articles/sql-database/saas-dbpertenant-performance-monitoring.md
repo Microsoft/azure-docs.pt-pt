@@ -12,12 +12,12 @@ ms.author: sstein
 ms.reviewer: ''
 manager: craigg
 ms.date: 01/25/2019
-ms.openlocfilehash: df54f9dd4047fffb578a1a95a2edc47cba711ba1
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 075d0e2471457e1a585f7fdea9b523b1d13499c7
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57433523"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58100433"
 ---
 # <a name="monitor-and-manage-performance-of-azure-sql-databases-and-pools-in-a-multi-tenant-saas-app"></a>Monitorizar e gerir o desempenho de bases de dados SQL do Azure e conjuntos numa aplicação SaaS multi-inquilino
 
@@ -28,7 +28,7 @@ A aplicação Wingtip Tickets SaaS da base de dados por inquilino utiliza um mod
 Neste tutorial, ficará a saber como:
 
 > [!div class="checklist"]
-
+> 
 > * Simular a utilização nas bases de dados de inquilinos ao executar um gerador de carga fornecido
 > * Monitorizar as bases de dados de inquilinos à medida que a carga aumenta
 > * Aumentar verticalmente o Conjunto elástico em resposta ao aumento de carga da base de dados
@@ -171,17 +171,17 @@ Como alternativa ao aumento vertical do conjunto, crie um segundo conjunto e mov
 1. Clique em **+ novo conjunto** para criar um conjunto no servidor atual.
 1. Sobre o **conjunto elástico** modelo:
 
-    1. Definir **Name** ao *Pool2*.
-    1. Deixe o escalão de preço como **Conjunto Padrão**.
-    1. Clique em **Configurar conjunto**.
-    1. Definir **eDTU do conjunto** ao *50 Edtus*.
-    1. Clique em **adicionar bases de dados** para ver uma lista de bases de dados no servidor que pode ser adicionado ao *Pool2*.
-    1. Selecione qualquer 10 bancos de dados movê-las para o novo conjunto e, em seguida, clique em **selecione**. Se esteve executando o gerador de carga, o serviço já sabe que o seu perfil de desempenho requer um conjunto maior do que o tamanho do padrão de 50 Edtus e recomenda começando com uma definição de eDTU de 100.
+   1. Definir **Name** ao *Pool2*.
+   1. Deixe o escalão de preço como **Conjunto Padrão**.
+   1. Clique em **Configurar conjunto**.
+   1. Definir **eDTU do conjunto** ao *50 Edtus*.
+   1. Clique em **adicionar bases de dados** para ver uma lista de bases de dados no servidor que pode ser adicionado ao *Pool2*.
+   1. Selecione qualquer 10 bancos de dados movê-las para o novo conjunto e, em seguida, clique em **selecione**. Se esteve executando o gerador de carga, o serviço já sabe que o seu perfil de desempenho requer um conjunto maior do que o tamanho do padrão de 50 Edtus e recomenda começando com uma definição de eDTU de 100.
 
-    ![recomendação](media/saas-dbpertenant-performance-monitoring/configure-pool.png)
+      ![recomendação](media/saas-dbpertenant-performance-monitoring/configure-pool.png)
 
-    1. Para este tutorial, deixe a predefinição em 50 eDTUs e clique em **selecione** novamente.
-    1. Selecione **OK** para criar o conjunto de novas e para mover bases de dados selecionadas para o mesmo.
+   1. Para este tutorial, deixe a predefinição em 50 eDTUs e clique em **selecione** novamente.
+   1. Selecione **OK** para criar o conjunto de novas e para mover bases de dados selecionadas para o mesmo.
 
 A criar o conjunto e mover as bases de dados demora alguns minutos. Como as bases de dados são movidos permanecem online e totalmente acessível até ao último muito momento, altura em que todas as ligações abertas são fechadas. Desde que tiver alguma lógica de repetição, clientes, em seguida, irão ligar à base de dados do novo conjunto.
 

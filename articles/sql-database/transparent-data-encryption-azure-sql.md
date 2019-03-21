@@ -11,13 +11,13 @@ author: aliceku
 ms.author: aliceku
 ms.reviewer: vanto
 manager: craigg
-ms.date: 02/20/2019
-ms.openlocfilehash: c1cd7a2845d07e0daae2a2ffcddb8f413927557d
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.date: 03/12/2019
+ms.openlocfilehash: 3333355b742d531cc814484bdefbd47e7ab6c75c
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57447052"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57878011"
 ---
 # <a name="transparent-data-encryption-for-sql-database-and-data-warehouse"></a>Encriptação de dados transparente para a base de dados SQL e o armazém de dados
 
@@ -42,7 +42,7 @@ A Microsoft diretamente move e gerencia as chaves conforme necessário para geor
 
 ## <a name="customer-managed-transparent-data-encryption---bring-your-own-key"></a>Encriptação de dados transparente gerida pelo cliente – traga a sua própria chave
 
-[TDE com chaves geridas pelo cliente no Azure Key Vault](transparent-data-encryption-byok-azure-sql.md) permite criptografar a chave de encriptação da base de dados (DEK) com uma chave assimétrica gerida pelo cliente chamada Protetor de TDE.  Isso também geralmente é chamado para suportar a como Bring Your Own Key (BYOK) para encriptação de dados transparente. No cenário BYOK, o Protetor de TDE é armazenado numa propriedade de cliente e geridos [do Azure Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-secure-your-key-vault), sistema de gestão chave externa baseada na nuvem do Azure. Pode ser o Protetor de TDE [gerado pelo Cofre de chaves ou transferidos para o Cofre de chaves](https://docs.microsoft.com/en-us/azure/key-vault/about-keys-secrets-and-certificates#key-vault-keys) de um dispositivo HSM no local. O DEK TDE, que é armazenado na página de arranque de uma base de dados, é encriptado e é desencriptado pelo Protetor TDE, que é armazenada no Azure Key Vault e nunca sai do Cofre de chaves.  Base de dados SQL tem de ser concedidas permissões para o Cofre de chaves pertencentes ao cliente para desencriptar e encriptar o DEK. Se as permissões do servidor SQL lógico para o Cofre de chaves são revogadas, uma base de dados ficarão inacessível e todos os dados são encriptados. Para a base de dados SQL do Azure, o protetor de TDE está definido ao nível do servidor lógico da SQL e é herdado por todas as bases de dados associados a esse servidor. Para [instância gerida do SQL do Azure](https://docs.microsoft.com/azure/sql-database/sql-database-howto-managed-instance), o protetor de TDE está definido ao nível da instância e esta é herdada por todos os *encriptados* bases de dados nessa instância. O termo *servidor* refere-se tanto ao servidor e a instância em todo este documento, a menos que indicado de forma diferente.
+[TDE com chaves geridas pelo cliente no Azure Key Vault](transparent-data-encryption-byok-azure-sql.md) permite criptografar a chave de encriptação da base de dados (DEK) com uma chave assimétrica gerida pelo cliente chamada Protetor de TDE.  Isso também geralmente é chamado para suportar a como Bring Your Own Key (BYOK) para encriptação de dados transparente. No cenário BYOK, o Protetor de TDE é armazenado numa propriedade de cliente e geridos [do Azure Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-secure-your-key-vault), sistema de gestão chave externa baseada na nuvem do Azure. Pode ser o Protetor de TDE [gerado pelo Cofre de chaves ou transferidos para o Cofre de chaves](https://docs.microsoft.com/azure/key-vault/about-keys-secrets-and-certificates#key-vault-keys) de um dispositivo HSM no local. O DEK TDE, que é armazenado na página de arranque de uma base de dados, é encriptado e é desencriptado pelo Protetor TDE, que é armazenada no Azure Key Vault e nunca sai do Cofre de chaves.  Base de dados SQL tem de ser concedidas permissões para o Cofre de chaves pertencentes ao cliente para desencriptar e encriptar o DEK. Se as permissões do servidor SQL lógico para o Cofre de chaves são revogadas, uma base de dados ficarão inacessível e todos os dados são encriptados. Para a base de dados SQL do Azure, o protetor de TDE está definido ao nível do servidor lógico da SQL e é herdado por todas as bases de dados associados a esse servidor. Para [instância gerida do SQL do Azure](https://docs.microsoft.com/azure/sql-database/sql-database-howto-managed-instance), o protetor de TDE está definido ao nível da instância e esta é herdada por todos os *encriptados* bases de dados nessa instância. O termo *servidor* refere-se tanto ao servidor e a instância em todo este documento, a menos que indicado de forma diferente.
 
 Com TDE com a integração do Azure Key Vault, os utilizadores podem controlar as tarefas de gestão de chaves, incluindo rotações de chave, as permissões do Cofre de chaves, as cópias de segurança de chaves e ativar a auditoria/relatórios sobre todos os protetores de TDE com a funcionalidade do Azure Key Vault. Key Vault fornece gestão de chaves central, tira partido de módulos de segurança de rigidamente monitorizados de hardware (HSMs) e permite a separação de funções entre a gestão de chaves e dados para o ajudar a cumprir a conformidade com as políticas de segurança.
 Para saber mais sobre a encriptação de dados transparente com a integração do Azure Key Vault (suporte de traga a sua própria chave) para a base de dados do Azure SQL, instância gerida SQL e armazém de dados, veja [encriptação de dados transparente com a integração do Azure Key Vault](transparent-data-encryption-byok-azure-sql.md).
@@ -84,6 +84,8 @@ Defina a chave mestra de encriptação transparente de dados, também conhecido 
 ## <a name="manage-transparent-data-encryption-by-using-powershell"></a>Gerir a encriptação de dados transparente com o PowerShell
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+> [!IMPORTANT]
+> O módulo do PowerShell do Azure Resource Manager ainda é suportado pelo SQL Database do Azure, mas todo o desenvolvimento futuro é para o módulo de Az.Sql. Para estes cmdlets, consulte [azurerm. SQL](https://docs.microsoft.com/powershell/module/AzureRM.Sql/). Os argumentos para os comandos no módulo Az e nos módulos AzureRm são substancialmente idênticos.
 
 Para configurar a encriptação de dados transparente através do PowerShell, tem de estar ligado como o Azure proprietário, Contribuidor ou Gestor de segurança SQL.
 

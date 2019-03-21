@@ -12,12 +12,12 @@ ms.workload: azure-vs
 ms.topic: conceptual
 ms.date: 12/02/2016
 ms.author: ghogen
-ms.openlocfilehash: a6e05d706d54d63695861b03cd9de0e65ebdd8bb
-ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
+ms.openlocfilehash: e0e065b23581f297ee4ae2288a6e437da461a19f
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/18/2018
-ms.locfileid: "42059909"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57998364"
 ---
 # <a name="what-happened-to-my-aspnet-project-visual-studio-azure-storage-connected-service"></a>O que aconteceu ao meu projeto ASP.NET (serviço ligado do armazenamento do Azure do Visual Studio)?
 ## <a name="references-added"></a>Referências adicionadas
@@ -36,5 +36,5 @@ Esse pacote adiciona as seguintes referências de .NET:
 ## <a name="connection-string-for-azure-storage-added"></a>Cadeia de ligação do armazenamento do Azure adicionado
 No ficheiro Web. config do seu projeto, um elemento foi criado com a cadeia de ligação e a chave da conta de armazenamento selecionada.
 
-Para obter mais informações, consulte [ASP.NET](http://www.asp.net).
+Para obter mais informações, consulte [ASP.NET](https://www.asp.net).
 

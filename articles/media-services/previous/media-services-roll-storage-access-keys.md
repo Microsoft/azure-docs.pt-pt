@@ -12,14 +12,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/08/2019
+ms.date: 03/20/2019
 ms.author: milanga;cenkdin;juliako
-ms.openlocfilehash: a49ab9b045854c49785546ed17834169ec29f8b8
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.openlocfilehash: c688169dc21304f234aead7196f377a3fa5fd633
+ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56816828"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58294931"
 ---
 # <a name="update-media-services-after-rolling-storage-access-keys"></a>Atualizar serviços de multimédia após sem interrupção de chaves de acesso de armazenamento 
 

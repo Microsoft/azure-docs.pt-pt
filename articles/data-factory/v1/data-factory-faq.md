@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: 4c50ba76cf1e9b8103bd006c9f97c18a3e92d0c2
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: d9d26ced30f718f06d6d0ba9eb7c2a78682305ad
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57550284"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58102371"
 ---
 # <a name="azure-data-factory---frequently-asked-questions"></a>Fábrica de dados do Azure - perguntas mais frequentes
 > [!NOTE]
@@ -178,7 +178,7 @@ Pode voltar a executar um setor de uma das seguintes formas:
     ```PowerShell
     Set-AzDataFactorySliceStatus -Status Waiting -ResourceGroupName $ResourceGroup -DataFactoryName $df -TableName $table -StartDateTime "02/26/2015 19:00:00" -EndDateTime "02/26/2015 20:00:00"
     ```
-Ver [Set-AzDataFactorySliceStatus] [ set-azure-datafactory-slice-status] para obter detalhes sobre o cmdlet.
+  Ver [Set-AzDataFactorySliceStatus] [ set-azure-datafactory-slice-status] para obter detalhes sobre o cmdlet.
 
 ### <a name="how-long-did-it-take-to-process-a-slice"></a>Quanto tempo demorou a processar um setor?
 Utilize o Explorador de janelas de atividade em monitorizar e gerir aplicações para saber quanto tempo demorou a processar um setor de dados. Ver [Explorador de janelas de atividade](data-factory-monitor-manage-app.md#activity-window-explorer) para obter detalhes.

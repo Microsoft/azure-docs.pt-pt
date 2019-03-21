@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 03/03/2019
 ms.author: mayg
 ms.custom: MVC
-ms.openlocfilehash: dd84becdf7043f3ae1c8070bdc1918d377bc3e3b
-ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
-ms.translationtype: MT
+ms.openlocfilehash: 5168fc28952631f00c2415d6bc171a130dc85dfd
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57337877"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57838566"
 ---
 # <a name="prepare-azure-resources-for-disaster-recovery-of-on-premises-machines"></a>Preparar os recursos do Azure para a recuperação após desastre de máquinas no local
 
@@ -35,7 +35,7 @@ Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure
 
 ## <a name="sign-in-to-azure"></a>Iniciar sessão no Azure
 
-Inicie sessão no [portal do Azure](http://portal.azure.com).
+Inicie sessão no [portal do Azure](https://portal.azure.com).
 
 ## <a name="verify-account-permissions"></a>Verificar permissões de conta
 

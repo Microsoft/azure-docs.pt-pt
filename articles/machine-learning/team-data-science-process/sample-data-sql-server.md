@@ -11,18 +11,18 @@ ms.topic: article
 ms.date: 11/13/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 4be3787df0c914762e02a2fa7ead870cbf945452
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: a544ddb6f31481750b1cd46b52d2909d71739707
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57455501"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57897083"
 ---
 # <a name="heading"></a>Dados de exemplo no SQL Server no Azure
 
 Este artigo mostra como os dados armazenados no SQL Server no Azure de exemplo usando a linguagem de programação Python ou SQL. Ele também mostra como mover dados de amostras para o Azure Machine Learning ao salvá-lo para um ficheiro, carregá-lo para um blob do Azure e, em seguida, lê-lo para o Azure Machine Learning Studio.
 
-A amostragem de Python utiliza a [pyodbc](https://code.google.com/p/pyodbc/) biblioteca ODBC para estabelecer ligação ao SQL Server no Azure e o [Pandas](http://pandas.pydata.org/) biblioteca para fazer a amostragem.
+A amostragem de Python utiliza a [pyodbc](https://code.google.com/p/pyodbc/) biblioteca ODBC para estabelecer ligação ao SQL Server no Azure e o [Pandas](https://pandas.pydata.org/) biblioteca para fazer a amostragem.
 
 > [!NOTE]
 > O código de SQL de exemplo neste documento parte do princípio de que os dados estão num SQL Server no Azure. Se não estiver, consulte [mover dados para o SQL Server no Azure](move-sql-server-virtual-machine.md) artigo para obter instruções sobre como mover seus dados para o SQL Server no Azure.
@@ -71,7 +71,7 @@ Esta secção demonstra como utilizar o [pyodbc biblioteca](https://code.google.
     import pyodbc    
     conn = pyodbc.connect('DRIVER={SQL Server};SERVER=<servername>;DATABASE=<dbname>;UID=<username>;PWD=<password>')
 
-O [Pandas](http://pandas.pydata.org/) biblioteca em Python fornece um conjunto avançado de estruturas de dados e ferramentas de análise de dados para manipulação de dados para a programação de Python. O código seguinte lê um exemplo de 0,1% dos dados de uma tabela na base de dados SQL do Azure numa dados Pandas:
+O [Pandas](https://pandas.pydata.org/) biblioteca em Python fornece um conjunto avançado de estruturas de dados e ferramentas de análise de dados para manipulação de dados para a programação de Python. O código seguinte lê um exemplo de 0,1% dos dados de uma tabela na base de dados SQL do Azure numa dados Pandas:
 
     import pandas as pd
 

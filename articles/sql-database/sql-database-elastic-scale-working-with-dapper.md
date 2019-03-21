@@ -12,12 +12,12 @@ ms.author: sstein
 ms.reviewer: ''
 manager: craigg
 ms.date: 12/04/2018
-ms.openlocfilehash: 6cc5e3f8f188c60a129f6ad6575b348616bdad9b
-ms.sourcegitcommit: dd1a9f38c69954f15ff5c166e456fda37ae1cdf2
+ms.openlocfilehash: c6ca7637c8e251fa29781503ffc18227c51bb4da
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57569761"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58002290"
 ---
 # <a name="using-elastic-database-client-library-with-dapper"></a>Utilizar a biblioteca de clientes de bases de dados elásticas com o Dapper
 Este documento é para desenvolvedores que contam com o Dapper a criação de aplicativos, mas também querem adotar [ferramentas de bases de dados elásticas](sql-database-elastic-scale-introduction.md) para criar aplicativos que implementam a fragmentação para aumentar horizontalmente as camadas de dados.  Este documento ilustra as alterações nos aplicativos baseados no Dapper que são necessários para integrar em ferramentas de bases de dados elásticas. É nosso foco irá incidir na composição da gestão de partições horizontais de bases de dados elásticas e encaminhamento dependente de dados com o Dapper. 
@@ -35,7 +35,7 @@ Quando utilizar DapperExtensions, já não terá de fornecer as instruções SQL
 
 Outra vantagem do Dapper e também DapperExtensions é que a aplicação controla a criação da ligação da base de dados. Isto ajuda a interagir com a biblioteca de cliente de base de dados elástica que mediadores de ligações com base no mapeamento de shardlets às bases de dados de base de dados.
 
-Para obter os assemblies o Dapper, consulte [o Dapper ponto net](http://www.nuget.org/packages/Dapper/). Para o Dapper extensões, consulte [DapperExtensions](http://www.nuget.org/packages/DapperExtensions).
+Para obter os assemblies o Dapper, consulte [o Dapper ponto net](https://www.nuget.org/packages/Dapper/). Para o Dapper extensões, consulte [DapperExtensions](https://www.nuget.org/packages/DapperExtensions).
 
 ## <a name="a-quick-look-at-the-elastic-database-client-library"></a>Uma vista rápida da biblioteca de clientes de bases de dados elásticas
 Com a biblioteca de cliente da base de dados elástica, define as partições de dados da sua aplicação chamados *shardlets*mapeá-los para bases de dados e identificá-los por *chaves de fragmentação*. Pode ter tantas bases de dados à medida que precisa e distribuir os shardlets por esses bancos de dados. O mapeamento de valores de chave de fragmentação às bases de dados é armazenado por um mapa de partições horizontais fornecido pelas APIs da biblioteca. Esse recurso é chamado **gestão de mapas de partições horizontais**. O mapa de partições horizontais também serve como o Mediador de ligações de base de dados para pedidos que vão ser uma chave de fragmentação. Esta capacidade é referida como **encaminhamento dependente de dados**.

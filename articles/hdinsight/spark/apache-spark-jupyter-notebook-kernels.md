@@ -10,12 +10,12 @@ ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 02/22/2018
 ms.author: hrasheed
-ms.openlocfilehash: 937f6ffb9865419611c35b95ac84832bb2f1f3fe
-ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
+ms.openlocfilehash: 92ffa02959f020789d14b3bea71763f3f5b9bb47
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/27/2018
-ms.locfileid: "53791819"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58084103"
 ---
 # <a name="kernels-for-jupyter-notebook-on-apache-spark-clusters-in-azure-hdinsight"></a>Kernels para o bloco de notas do Jupyter nos clusters do Apache Spark no Azure HDInsight 
 
@@ -59,15 +59,15 @@ Aqui estão alguns benefícios de usar os kernels novo com o bloco de notas do J
 
 - **Configuração predefinida contextos**. Com o **PySpark**, **PySpark3**, ou o **Spark** kernels, não precisa de definir os contextos do Spark ou do Hive explicitamente antes de começar a trabalhar com as suas aplicações. Estas estão disponíveis por predefinição. Desses contextos são:
    
-   * **sc** – para o contexto do Spark
-   * **kontext sqlContext** – para o contexto do Hive
+  * **sc** – para o contexto do Spark
+  * **kontext sqlContext** – para o contexto do Hive
    
-   Por isso, não precisa de instruções de como o seguinte para definir os contextos de execução:
+    Por isso, não precisa de instruções de como o seguinte para definir os contextos de execução:
    
-          sc = SparkContext('yarn-client')
-          sqlContext = HiveContext(sc)
+         sc = SparkContext('yarn-client')
+         sqlContext = HiveContext(sc)
    
-   Em vez disso, pode usar diretamente os contextos predefinidos em seu aplicativo.
+    Em vez disso, pode usar diretamente os contextos predefinidos em seu aplicativo.
 
 - **Magia de células**. O kernel do PySpark fornece alguns predefinidas "magia", que são comandos especiais que pode chamar com `%%` (por exemplo, `%%MAGIC` <args>). O comando mágico tem de ser a primeira palavra numa célula de código e permitir várias linhas de conteúdo. A palavra mágica deve ser a primeira palavra na célula. Adicionar qualquer coisa antes da mágica, até mesmo comentários, causa um erro.     Para obter mais informações sobre a magia, consulte [aqui](https://ipython.readthedocs.org/en/stable/interactive/magics.html).
    
@@ -87,7 +87,7 @@ Aqui estão alguns benefícios de usar os kernels novo com o bloco de notas do J
    > [!NOTE]  
    > Além de magia adicionada pelo kernel do PySpark, também pode utilizar o [incorporada IPython magia](https://ipython.org/ipython-doc/3/interactive/magics.html#cell-magics), incluindo `%%sh`. Pode utilizar o `%%sh` mágica para executar scripts e o bloco de código no nó principal do cluster.
 
-2. **Visualização de auto**. O **Pyspark** kernel automaticamente visualiza a saída das consultas do Hive e do SQL. Pode escolher entre vários tipos diferentes de visualizações, incluindo tabela, a circular, a linha, a área, a barra.
+1. **Visualização de auto**. O **Pyspark** kernel automaticamente visualiza a saída das consultas do Hive e do SQL. Pode escolher entre vários tipos diferentes de visualizações, incluindo tabela, a circular, a linha, a área, a barra.
 
 ## <a name="parameters-supported-with-the-sql-magic"></a>Parâmetros suportados com o % % "sql Magic"
 O `%%sql` mágica oferece suporte a parâmetros diferentes que pode utilizar para controlar o tipo de saída que recebe quando executar consultas. A tabela seguinte lista o resultado.

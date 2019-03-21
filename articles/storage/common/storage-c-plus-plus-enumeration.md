@@ -8,18 +8,18 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: dineshm
 ms.subservice: common
-ms.openlocfilehash: 51ee5362a01a846378228a42343cc0e2b9f72497
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 13ddb4d64908421e999174623003acd2fb24024d
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55470217"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58014902"
 ---
 # <a name="list-azure-storage-resources-in-c"></a>Listar recursos de armazenamento do Azure em C++
 Operações de listagem são fundamentais para muitos cenários de desenvolvimento com o armazenamento do Azure. Este artigo descreve a forma mais eficiente enumerar objetos no armazenamento do Azure com a listagem APIs fornecidas na biblioteca de cliente de armazenamento do Microsoft Azure para C++.
 
 > [!NOTE]
-> Este guia destina-se a biblioteca de cliente de armazenamento do Azure para a versão C++ 2.x, que está disponível via [NuGet](http://www.nuget.org/packages/wastorage) ou [GitHub](https://github.com/Azure/azure-storage-cpp).
+> Este guia destina-se a biblioteca de cliente de armazenamento do Azure para a versão C++ 2.x, que está disponível via [NuGet](https://www.nuget.org/packages/wastorage) ou [GitHub](https://github.com/Azure/azure-storage-cpp).
 > 
 > 
 
@@ -34,7 +34,7 @@ A biblioteca de cliente de armazenamento fornece uma variedade de métodos para 
 Cada um desses métodos é mostrada com sobrecargas diferentes para diferentes cenários.
 
 ## <a name="asynchronous-versus-synchronous"></a>Assíncrona síncrona versus
-Como a biblioteca de cliente de armazenamento para C++ foi criada por cima do [biblioteca de C++ REST](https://github.com/Microsoft/cpprestsdk), suportamos inerentemente operações assíncronas usando [pplx::task](http://microsoft.github.io/cpprestsdk/classpplx_1_1task.html). Por exemplo:
+Como a biblioteca de cliente de armazenamento para C++ foi criada por cima do [biblioteca de C++ REST](https://github.com/Microsoft/cpprestsdk), suportamos inerentemente operações assíncronas usando [pplx::task](https://microsoft.github.io/cpprestsdk/classpplx_1_1task.html). Por exemplo:
 
 ```cpp
 pplx::task<list_blob_item_segment> list_blobs_segmented_async(continuation_token& token) const;
@@ -194,7 +194,7 @@ Para obter mais informações sobre o armazenamento do Azure e a biblioteca de c
 * [Como utilizar o armazenamento de Blobs do C++](../blobs/storage-c-plus-plus-how-to-use-blobs.md)
 * [Como utilizar o armazenamento de tabelas do C++](../../cosmos-db/table-storage-how-to-use-c-plus.md)
 * [Como utilizar o armazenamento de filas do C++](../storage-c-plus-plus-how-to-use-queues.md)
-* [Biblioteca de clientes de armazenamento do Azure para documentação da API de C++.](http://azure.github.io/azure-storage-cpp/)
+* [Biblioteca de clientes de armazenamento do Azure para documentação da API de C++.](https://azure.github.io/azure-storage-cpp/)
 * [Blogue da Equipa de Armazenamento do Azure](https://blogs.msdn.com/b/windowsazurestorage/)
 * [Documentação do Armazenamento do Azure](https://azure.microsoft.com/documentation/services/storage/)
 

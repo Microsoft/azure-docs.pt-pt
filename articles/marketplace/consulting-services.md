@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 10/29/2018
 ms.author: yijenj
-ms.openlocfilehash: 53281af4cf3ce49272ffe9fc48ab0f85cea276b2
-ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
+ms.openlocfilehash: fbaa89140033ee3b07017370e31e69601aa298db
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54213626"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58078769"
 ---
 # <a name="consulting-services-for-azure-marketplace-and-appsource"></a>Serviços de consultoria para o Azure Marketplace e AppSource
 Serviços no Azure Marketplace e AppSource de consultoria fornece os parceiros da Microsoft, o objetivo de ligação de clientes com os serviços para suportar e expandir a sua utilização do Azure e os objetivos de negócio. 
@@ -41,12 +41,12 @@ As lojas de marketplace estão alinhadas com os públicos-alvo e produtos cloud 
 
 Ofertas de serviço que são baseadas no Microsoft Dynamics 365, o Office 365 e o Power BI são elegíveis para ser listado no AppSource. Para obter mais informações, consulte [diretrizes de listagem de serviços de consultoria Microsoft AppSource](https://smp-cdn-prod.azureedge.net/documents/Microsoft%20AppSource%20Partner%20Listing%20Guidelines.pdf). 
 
->[!Note]
->Serviços no Azure Marketplace de consultoria devem tirar partido das ofertas destinadas a um * * público técnico com se concentra em *soluções técnicas do Azure e serviços.* * * Serviços no AppSource de consultoria devem tirar partido das ofertas destinadas a sua experiência no fornecimento de soluções de qualidade para o Dynamics 365, o Power BI ou o PowerApps listar ofertas de serviços de consultoria no AppSource
-
-
->[!TIP]
->Para publicar a loja Azure Marketplace, irá tornar esta seleção, selecionando "Azure" no menu pendente "Produto principal" no Portal de parceiros de nuvem. Para publicar no AppSource, irá tornar esta seleção, selecionando "do Dynamics 365", "Power BI" ou "Power Apps" no menu pendente "Produto principal" no Portal de parceiros de nuvem.
+> [!Note]
+> Serviços no Azure Marketplace de consultoria devem tirar partido das ofertas destinadas a um * * público técnico com se concentra em *soluções técnicas do Azure e serviços.* * * Serviços no AppSource de consultoria devem tirar partido das ofertas destinadas a sua experiência no fornecimento de soluções de qualidade para o Dynamics 365, o Power BI ou o PowerApps listar ofertas de serviços de consultoria no AppSource
+> 
+> 
+> [!TIP]
+> Para publicar a loja Azure Marketplace, irá tornar esta seleção, selecionando "Azure" no menu pendente "Produto principal" no Portal de parceiros de nuvem. Para publicar no AppSource, irá tornar esta seleção, selecionando "do Dynamics 365", "Power BI" ou "Power Apps" no menu pendente "Produto principal" no Portal de parceiros de nuvem.
 
 ## <a name="eligible-partners-and-supported-countries"></a>Parceiros qualificados e países com suporte
 
@@ -158,7 +158,7 @@ Ao revisar oferecem descrições e resumos da oferta, a equipe aplicará os segu
 
 |Tipo de Oferta  |Necessário |Recomendado  |
 |---------|---------|---------|
-|**Avaliação**    |   Incluir uma agenda detalhada para obter avaliações de vários dias ou várias semanas e articular o que resultado final que o cliente pode esperar      |    Otimizar a sua oferta resumo com suas palavras-chave de otimização do mecanismo de pesquisa superior     |
+|**Assessment**    |   Incluir uma agenda detalhada para obter avaliações de vários dias ou várias semanas e articular o que resultado final que o cliente pode esperar      |    Otimizar a sua oferta resumo com suas palavras-chave de otimização do mecanismo de pesquisa superior     |
 |**Resumo**    |   Articular o resultado final que o cliente pode esperar. Lembre-se de que o resumo deve ser disponibilizado em pessoa. Se está a fornecer um serviço virtual, escolha um tipo de oferta diferente    |  Otimizar a sua oferta resumo com suas palavras-chave de otimização do mecanismo de pesquisa superior       |
 |**Implementação**    |  Incluir uma agenda detalhada para implementações de vários dias ou várias semanas e articular quais alterações de engenharia, artefactos técnicos ou outros artefatos de que um cliente pode esperar que os resultados do compromisso       |    Otimizar a sua oferta resumo com suas palavras-chave de otimização do mecanismo de pesquisa superior     |
 |**Prova de conceito**    |    Articular quais alterações de engenharia, artefactos técnicos ou outros artefatos de que um cliente pode esperar que os resultados do compromisso     | Otimizar a sua oferta resumo com suas palavras-chave de otimização do mecanismo de pesquisa superior        |

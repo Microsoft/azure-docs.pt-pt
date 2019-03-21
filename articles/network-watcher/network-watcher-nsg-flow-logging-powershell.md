@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: jdial
-ms.openlocfilehash: 55a9e373893f6f46e6c109dde947b25a36ee93ed
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
+ms.openlocfilehash: ebeebfa4490797493a781bf462d363d1cbcf2d55
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56343005"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57857985"
 ---
 # <a name="configuring-network-security-group-flow-logs-with-powershell"></a>Configurar registos de fluxo do grupo de segurança da rede com o PowerShell
 
@@ -83,7 +83,7 @@ Set-AzNetworkWatcherConfigFlowLog -NetworkWatcher $NW -TargetResourceId $nsg.Id 
 
 ## <a name="download-a-flow-log"></a>Transferir o registo de um fluxo
 
-A localização de armazenamento de um registo de fluxo é definida durante a criação. Uma ferramenta conveniente para aceder a estes registos de fluxo guardados para uma conta de armazenamento é o Explorador de armazenamento do Microsoft Azure, que pode ser baixado aqui:  http://storageexplorer.com/
+A localização de armazenamento de um registo de fluxo é definida durante a criação. Uma ferramenta conveniente para aceder a estes registos de fluxo guardados para uma conta de armazenamento é o Explorador de armazenamento do Microsoft Azure, que pode ser baixado aqui:  https://storageexplorer.com/
 
 Se for especificada uma conta de armazenamento, ficheiros de registo de fluxo são guardados para uma conta de armazenamento na seguinte localização:
 

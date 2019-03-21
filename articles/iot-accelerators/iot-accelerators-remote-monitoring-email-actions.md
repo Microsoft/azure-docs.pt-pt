@@ -8,12 +8,12 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.date: 11/12/2018
 ms.topic: conceptual
-ms.openlocfilehash: 3e9d7191af3a870f60b40311be03e0ef9d9bf7ad
-ms.sourcegitcommit: e88188bc015525d5bead239ed562067d3fae9822
+ms.openlocfilehash: 693da06ce14a4854d5db49f588fa29d791060166
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/24/2019
-ms.locfileid: "56750213"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58108108"
 ---
 # <a name="add-an-email-action"></a>Adicionar uma ação de e-mail
 
@@ -128,7 +128,7 @@ Os seguintes passos ajudá-lo a iniciar sessão e configurar as ações de e-mai
 
 1. Clique para iniciar sessão no Outlook. É levado para o portal do Azure:
 
-  ![Inicie sessão no Outlook](./media/iot-accelerators-remote-monitoring-email-actions/owneroutlook-email.png)
+   ![Inicie sessão no Outlook](./media/iot-accelerators-remote-monitoring-email-actions/owneroutlook-email.png)
 
 1. Clique em **autorizar**. Lhe for pedido para iniciar sessão. A conta que utiliza para iniciar sessão deve ser que o endereço de e-mail a aplicação utiliza para enviar notificações por e-mail:
 
@@ -136,7 +136,7 @@ Os seguintes passos ajudá-lo a iniciar sessão e configurar as ações de e-mai
 
 1. Se configurou com êxito a notificação de e-mail, verá esta mensagem:
 
-  ![Início de sessão de Outlook concluída com êxito](./media/iot-accelerators-remote-monitoring-email-actions/success-email.png)
+   ![Início de sessão de Outlook concluída com êxito](./media/iot-accelerators-remote-monitoring-email-actions/success-email.png)
 
 ## Personalizar a mensagem de e-mail HTML <a name="htmledit"></a>
 

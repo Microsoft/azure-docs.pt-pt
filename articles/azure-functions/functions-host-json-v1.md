@@ -10,16 +10,16 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 10/19/2018
 ms.author: glenga
-ms.openlocfilehash: ee82aab37973117b0c1960d8b75a29bfad38b7c7
-ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
+ms.openlocfilehash: 6f93bbceacff3731206e5f98ba9a252d6a046ac4
+ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50252167"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58200080"
 ---
 # <a name="hostjson-reference-for-azure-functions-1x"></a>referência de Host. JSON para as funções do Azure 1.x
 
-> [!div class="op_single_selector" title1="Selecione a versão do tempo de execução Azure Functions que você está usando: "]
+> [!div class="op_single_selector" title1="Select the version of the Azure Functions runtime you are using: "]
 > * [Versão 1](functions-host-json-v1.md)
 > * [Versão 2](functions-host-json.md)
 
@@ -109,7 +109,7 @@ O exemplo a seguir *Host. JSON* ficheiros têm todas as opções possíveis espe
 
 As secções seguintes deste artigo explicam cada propriedade de nível superior. Todas são opcionais, a menos que indicado de outra forma.
 
-## <a name="aggregator"></a>agregador
+## <a name="aggregator"></a>aggregator
 
 [!INCLUDE [aggregator](../../includes/functions-host-json-aggregator.md)]
 
@@ -220,7 +220,25 @@ Controlos de filtragem para os registos de escrita por um [objeto ILogger](funct
 
 Definições de configuração para [acionadores de fila de armazenamento e enlaces](functions-bindings-storage-queue.md).
 
-[!INCLUDE [functions-host-json-queues](../../includes/functions-host-json-queues.md)]
+```json
+{
+    "queues": {
+      "maxPollingInterval": 2000,
+      "visibilityTimeout" : "00:00:30",
+      "batchSize": 16,
+      "maxDequeueCount": 5,
+      "newBatchThreshold": 8
+    }
+}
+```
+
+|Propriedade  |Predefinição | Descrição |
+|---------|---------|---------| 
+|maxPollingInterval|60000|O intervalo máximo em milissegundos entre inquéritos de fila de mensagens em fila.| 
+|visibilityTimeout|0|O intervalo de tempo entre tentativas durante o processamento de uma mensagem de falha.| 
+|batchSize|16|O número de mensagens em fila que o runtime das funções em simultâneo recupera e processa em paralelo. Quando o número a ser processado obtém para o `newBatchThreshold`, o tempo de execução obtém outro lote e começa a processar essas mensagens. Portanto, é o número máximo de mensagens em simultâneo a ser processado por função `batchSize` plus `newBatchThreshold`. Este limite aplica-se em separado para cada função acionada por fila. <br><br>Se quiser evitar a execução paralela para mensagens recebidas numa fila, pode definir `batchSize` como 1. No entanto, esta definição elimina a simultaneidade apenas, desde que a aplicação de função for executada numa única máquina virtual (VM). Se a aplicação de funções aumenta horizontalmente para várias VMs, cada VM pode executar uma instância de cada função acionada por fila.<br><br>O máximo `batchSize` é 32. | 
+|maxDequeueCount|5|O número de vezes para tentar processar uma mensagem antes de passar para a fila não processáveis.| 
+|newBatchThreshold|batchSize/2|Sempre que obtém o número de mensagens a ser processadas em simultâneo para baixo para este número, o tempo de execução obtém outro lote.| 
 
 ## <a name="servicebus"></a>serviceBus
 

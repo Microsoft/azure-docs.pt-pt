@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 2/25/2019
 ms.author: monhaber
-ms.openlocfilehash: 73a88ec0280728b4a485bd095096e90bbc43ef40
-ms.sourcegitcommit: f7f4b83996640d6fa35aea889dbf9073ba4422f0
+ms.openlocfilehash: dd7dad51f29b4b5034c72085cd789077747faa0b
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56990956"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58106564"
 ---
 # <a name="protecting-your-machines-and-applications-in-azure-security-center"></a>Proteger as máquinas e aplicações no Centro de segurança do Azure
 Centro de segurança do Azure analisa o estado de segurança dos seus recursos do Azure. Quando o Centro de segurança identifica potenciais vulnerabilidades de segurança, cria recomendações que descreve o processo de configuração de controlos necessários. Recomendações se aplicam a tipos de recursos do Azure: máquinas virtuais (VMs) e computadores, aplicações, redes, SQL e identidade e acesso.
@@ -144,21 +144,21 @@ Existem três tipos de ícones representados nesta lista:
 
 1. Selecione uma aplicação web. É aberta uma vista de resumida com três separadores:
 
-  - **Recomendações**: com base nas avaliações realizadas pelo centro de segurança que falharam.
-  - **Passados avaliações**: lista de avaliações realizadas pelo centro de segurança passado.
-  - **Avaliações indisponíveis**: lista de avaliações de que não foi possível executar devido a um erro ou a recomendação não é relevante para o serviço de aplicações específico
+   - **Recomendações**: com base nas avaliações realizadas pelo centro de segurança que falharam.
+   - **Passados avaliações**: lista de avaliações realizadas pelo centro de segurança passado.
+   - **Avaliações indisponíveis**: lista de avaliações de que não foi possível executar devido a um erro ou a recomendação não é relevante para o serviço de aplicações específico
 
-  Sob **recomendações** é uma lista das recomendações para a aplicação web selecionada e a gravidade de cada recomendação.
+   Sob **recomendações** é uma lista das recomendações para a aplicação web selecionada e a gravidade de cada recomendação.
 
-  ![Recomendações de serviços de aplicação](./media/security-center-virtual-machine-recommendations/app-services-rec.png)
+   ![Recomendações de serviços de aplicação](./media/security-center-virtual-machine-recommendations/app-services-rec.png)
 
 2. Selecione uma recomendação para ver uma descrição da recomendação e obter uma lista de recursos de mau estado de funcionamento, recursos de bom estado de funcionamento e recursos não verificados.
 
- - Sob o **transmitido avaliações** coluna é uma lista de avaliações aprovadas.  Gravidade dessas avaliações é sempre verde.
+   - Sob o **transmitido avaliações** coluna é uma lista de avaliações aprovadas.  Gravidade dessas avaliações é sempre verde.
 
- -  Selecione uma avaliação com êxito da lista para obter uma descrição da avaliação, uma lista de recursos de mau e bom estado de funcionamento e uma lista de recursos não verificados. Há uma guia para os recursos de mau estado de funcionamento, mas essa lista está sempre vazia, uma vez que a avaliação passado.
+   - Selecione uma avaliação com êxito da lista para obter uma descrição da avaliação, uma lista de recursos de mau e bom estado de funcionamento e uma lista de recursos não verificados. Há uma guia para os recursos de mau estado de funcionamento, mas essa lista está sempre vazia, uma vez que a avaliação passado.
 
-    ![Atualização do serviço de aplicações](./media/security-center-virtual-machine-recommendations/app-service-remediation.png)
+     ![Atualização do serviço de aplicações](./media/security-center-virtual-machine-recommendations/app-service-remediation.png)
 
 ## <a name="virtual-machine-scale-sets"></a>Conjuntos de dimensionamento de máquinas virtuais
 Centro de segurança Deteta automaticamente se têm as conjuntos de escalas e recomenda que instale o Microsoft Monitoring Agent nestes conjuntos de dimensionamento. 
@@ -168,7 +168,7 @@ Para instalar o Microsoft Monitoring Agent:
 1. Selecione a recomendação **instalar o agente de monitorização no conjunto de dimensionamento de máquina virtual**. Obter uma lista de conjuntos de dimensionamento não monitorizado.
 2. Selecione um conjunto de dimensionamento de mau estado de funcionamento. Siga as instruções para instalar o agente de monitorização através de uma área de trabalho preenchida existente ou crie um novo. Certifique-se de definir a área de trabalho [escalão de preço](security-center-pricing.md) se não estiver definido.
 
- ![Instalar MMS](./media/security-center-virtual-machine-recommendations/install-mms.png)
+   ![Instalar MMS](./media/security-center-virtual-machine-recommendations/install-mms.png)
 
 Se pretender definir conjuntos de dimensionamento de novo para instalar automaticamente o Microsoft Monitoring Agent:
 1. Aceda à política do Azure e clique em **definições**.

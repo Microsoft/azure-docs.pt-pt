@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 08/16/2018
 ms.author: bwren
-ms.openlocfilehash: 4998084ed15e6ed455789689674e134c6cd9d0a8
-ms.sourcegitcommit: e88188bc015525d5bead239ed562067d3fae9822
+ms.openlocfilehash: 4b2763629a3036551cb3d362e609c72737436f4a
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/24/2019
-ms.locfileid: "56749771"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58012232"
 ---
 # <a name="work-with-strings-in-azure-monitor-log-queries"></a>Trabalhar com cadeias de caracteres em consultas de registo do Azure Monitor
 
@@ -64,9 +64,9 @@ Operador       |Descrição                         |Diferencia maiúsculas de m
 `hasprefix_cs`    |Direita lado é um prefixo de termo no esquerdo lado         |Sim            |`"North America" hasprefix_cs "Ame"`
 `!hasprefix_cs`   |Direita lado não é um prefixo de termo no esquerdo lado     |Sim            |`"North America" !hasprefix_cs "CA"` 
 `hassuffix`    |Direita lado é um sufixo de termo em esquerdo lado         |Não            |`"North America" hassuffix "ica"`
-`!hassuffix`   |Direita lado não é um sufixo de termo em esquerdo lado     |Não            |' "América do Norte"! hassuffix "americ"
+`!hassuffix`   |Direita lado não é um sufixo de termo em esquerdo lado     |Não            |`"North America" !hassuffix "americ"`
 `hassuffix_cs`    |Direita lado é um sufixo de termo em esquerdo lado         |Sim            |`"North America" hassuffix_cs "ica"`
-`!hassuffix_cs`   |Direita lado não é um sufixo de termo em esquerdo lado     |Sim            |' "América do Norte"! hassuffix_cs "icA"
+`!hassuffix_cs`   |Direita lado não é um sufixo de termo em esquerdo lado     |Sim            |`"North America" !hassuffix_cs "icA"`
 `contains`     |Direita lado ocorre como uma subsequente de esquerdo lado  |Não            |`"FabriKam" contains "BRik"`
 `!contains`    |Direita lado não ocorre em esquerdo lado           |Não            |`"Fabrikam" !contains "xyz"`
 `contains_cs`   |Direita lado ocorre como uma subsequente de esquerdo lado  |Sim           |`"FabriKam" contains_cs "Kam"`
@@ -259,6 +259,7 @@ SecurityEvent
 ```
 
 Pode ter os seguintes resultados:
+
 Atividade                                        |substituído
 ------------------------------------------------|----------------------------------------------------------
 4663 - foi efetuada uma tentativa de acessar um objeto  |ID de atividade 4663: Foi efetuada uma tentativa de acessar um objeto.

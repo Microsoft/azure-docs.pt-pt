@@ -10,12 +10,12 @@ ms.subservice: manage
 ms.date: 11/05/2018
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: 5588d2bd6cf2098d8744479c2bf2d308c9bf8f0d
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: b275f23209979e1a8068ecd99465f7b52392bc6c
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55460452"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58082913"
 ---
 # <a name="sql-data-warehouse-recommendations"></a>Recomendações de armazém de dados SQL
 
@@ -63,4 +63,3 @@ Atualmente Advisor mostrará apenas no máximo candidatos de quatro tabelas repl
 
 > [!IMPORTANT]
 > A recomendação de tabela replicada não é uma prova completa e não leva em operações de movimento de dados de conta. Estamos a tentar adicionar isso como uma heurística mas enquanto isso, deve sempre validar sua carga de trabalho depois de aplicar a recomendação. Entre em contato com sqldwadvisor@service.microsoft.com se detetar recomendações de tabela replicada que faz com que sua carga de trabalho para diminua. Para saber mais sobre as tabelas replicadas, visite o seguinte procedimento [documentação](https://docs.microsoft.com/azure/sql-data-warehouse/design-guidance-for-replicated-tables#what-is-a-replicated-table).
->

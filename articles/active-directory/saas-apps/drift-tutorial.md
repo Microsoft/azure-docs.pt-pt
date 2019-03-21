@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 02/05/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4b54568ddcf9f8e18cd0d5b15c7238302efb2c9f
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 876780189768411eba40a99192755bee6732728b
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57440884"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57874818"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-drift"></a>Tutorial: Integração do Active Directory do Azure com Descompassos
 
@@ -189,7 +189,7 @@ O objetivo desta secção é criar um utilizador de teste no portal do Azure cha
 
     a. Na **Name** campo introduza **BrittaSimon**.
   
-    b. Na **nome de utilizador** tipo de campo **brittasimon@yourcompanydomain.extension**  
+    b. Na **nome de utilizador** tipo de campo **brittasimon\@yourcompanydomain.extension**  
     Por exemplo, BrittaSimon@contoso.com
 
     c. Selecione **palavra-passe de Show** caixa de verificação e, em seguida, anote o valor que é apresentado na caixa de palavra-passe.

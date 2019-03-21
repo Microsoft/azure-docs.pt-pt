@@ -13,12 +13,12 @@ ms.author: ayolubek
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 02/12/2019
-ms.openlocfilehash: e16d68f8c30b54c24e091d1b0c7317bf74aadeba
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
+ms.openlocfilehash: b2109afe6760eb87269a33ed74784149c2bf3e03
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56234582"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58105799"
 ---
 # <a name="quickstart-use-the-azure-portals-sql-query-editor-to-connect-and-query-data"></a>Início rápido: Utilize o editor de consultas SQL do portal do Azure para ligar e consultar dados
 
@@ -65,8 +65,8 @@ Inicie sessão no [portal do Azure](https://portal.azure.com/).
 Configurar um administrador do Active Directory (AD) permite-lhe utilizar uma identidade única para iniciar sessão no portal do Azure e base de dados SQL. Siga os passos abaixo para configurar um administrador do AD para o servidor SQL.
 
 > [!NOTE]
-* Contas de e-mail (por exemplo, outlook.com, gmail.com, yahoo.com e assim por diante) ainda não são suportadas como administradores do AD. Confirme que escolhe um utilizador criado nativamente no Azure AD, ou federado no Azure AD.
-* Sessão de administrador do Azure AD não funciona com contas que têm a autenticação de 2 fatores ativada.
+> * Contas de e-mail (por exemplo, outlook.com, gmail.com, yahoo.com e assim por diante) ainda não são suportadas como administradores do AD. Confirme que escolhe um utilizador criado nativamente no Azure AD, ou federado no Azure AD.
+> * Sessão de administrador do Azure AD não funciona com contas que têm a autenticação de 2 fatores ativada.
 
 1. Selecione **todos os recursos** no menu esquerdo e, em seguida, selecione o seu SQL server.
 

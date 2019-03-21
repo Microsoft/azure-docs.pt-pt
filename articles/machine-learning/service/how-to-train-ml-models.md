@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.reviewer: sgilley
 ms.date: 2/14/2019
 ms.custom: seodec18
-ms.openlocfilehash: 58dd96b079dda50faa17a52782a79db83a0141bd
-ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
+ms.openlocfilehash: 818b6e5994a4f5b9d21d511f0a31eab6e00033f7
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/16/2019
-ms.locfileid: "56330074"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58012474"
 ---
 # <a name="train-models-with-azure-machine-learning-using-estimator"></a>Utilizar modelos com o Azure Machine Learning utilizando estimator
 
@@ -63,6 +63,7 @@ Parâmetro | Descrição
 `compute_target`| Destino de computação remota que o script de treinamento serão executados no, neste caso uma computação do Azure Machine Learning ([AmlCompute](how-to-set-up-training-targets.md#amlcompute)) cluster. (Tenha em atenção, apesar do cluster de AmlCompute é o destino frequentemente utilizado, também é possível escolher outra computação tipos de destino, como as VMs do Azure ou o computador mesmo local.)
 `entry_script`| Caminho do ficheiro (relativa a `source_directory`) do script de treinamento para ser executado na computação remota. Este ficheiro e todos os arquivos adicionais depende, devem ser localizados na pasta
 `conda_packages`| Lista de pacotes de Python a serem instalados por meio de conda necessário ao seu script de treinamento.  
+
 O construtor tem outro parâmetro chamado `pip_packages` que utilizar quaisquer pacotes de pip necessário
 
 Agora que criou sua `Estimator` objeto, submeter a tarefa de preparação para ser executado na computação remota com uma chamada para o `submit` funcionar no seu [experimentação](concept-azure-machine-learning-architecture.md#experiment) objeto `experiment`. 

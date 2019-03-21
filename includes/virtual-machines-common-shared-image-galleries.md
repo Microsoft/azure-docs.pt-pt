@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 01/09/2018
 ms.author: akjosh; cynthn
 ms.custom: include file
-ms.openlocfilehash: f8122f35ac6d604908fc31dcece7dfb53dd50286
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
+ms.openlocfilehash: 8c7da8d04b456642b158dda77d9c745891aa18e6
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55985485"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58051607"
 ---
 Galeria de imagens partilhado é um serviço que ajuda a criar a estrutura e a organização em torno de suas imagens VM geridas personalizadas. Utilizar uma galeria de imagens partilhado pode partilhar suas imagens para diferentes utilizadores, principais de serviço ou grupos do AD na sua organização. Imagens partilhadas podem ser replicadas para várias regiões, mais rápido dimensionamento das suas implementações.
 
@@ -128,18 +128,18 @@ Register-AzResourceProvider -ProviderNamespace Microsoft.Compute
  
  R. Para listar todos os recursos de Galeria de imagens de partilhado entre subscrições que têm acesso a no portal do Azure, siga os passos abaixo:
 
- 1. Abra o [Portal do Azure](https://portal.azure.com).
- 1. Aceda a **todos os recursos**.
- 1. Selecione todas as subscrições sob a qual pretende listar todos os recursos.
- 1. Procurar por recursos do tipo **Galeria privada**.
+1. Abra o [Portal do Azure](https://portal.azure.com).
+1. Aceda a **todos os recursos**.
+1. Selecione todas as subscrições sob a qual pretende listar todos os recursos.
+1. Procurar por recursos do tipo **Galeria privada**.
  
- Para ver as definições de imagem e versões de imagem, deve também selecionar **mostrar tipos ocultos**.
+   Para ver as definições de imagem e versões de imagem, deve também selecionar **mostrar tipos ocultos**.
  
- Para listar todos os recursos de Galeria de imagens de partilhado entre subscrições não tem permissões para, utilize o seguinte comando na CLI do Azure:
+   Para listar todos os recursos de Galeria de imagens de partilhado entre subscrições não tem permissões para, utilize o seguinte comando na CLI do Azure:
 
- ```bash
- az account list -otsv --query "[].id" | xargs -n 1 az sig list --subscription
- ```
+   ```bash
+   az account list -otsv --query "[].id" | xargs -n 1 az sig list --subscription
+   ```
 
 
 **P.** Como posso partilhar as minhas imagens entre subscrições?
@@ -155,9 +155,9 @@ Register-AzResourceProvider -ProviderNamespace Microsoft.Compute
 
  Cenário 2: Se tiver uma imagem generalizada não gerida, pode criar uma imagem gerida a partir do mesmo e, em seguida, crie uma definição de imagem e a versão da imagem do mesmo. 
 
- Cenário 3: Se tiver um VHD no sistema de arquivos local, em seguida, terá de carregar o VHD, criar uma imagem gerida, em seguida, pode criar e a imagem de definição e a versão da imagem do mesmo. 
-    - Se for o VHD de uma VM do Windows, veja [carregar um VHD generalizado](https://docs.microsoft.com/azure/virtual-machines/windows/upload-generalized-managed).
-    - Se for o VHD para uma VM do Linux, veja [carregar um VHD](https://docs.microsoft.com/azure/virtual-machines/linux/upload-vhd#option-1-upload-a-vhd)
+ Cenário 3: Se tiver um VHD no sistema de arquivos local, em seguida, terá de carregar o VHD, criar uma imagem gerida, em seguida, pode criar e a imagem de definição e a versão da imagem do mesmo.
+- Se for o VHD de uma VM do Windows, veja [carregar um VHD generalizado](https://docs.microsoft.com/azure/virtual-machines/windows/upload-generalized-managed).
+- Se for o VHD para uma VM do Linux, veja [carregar um VHD](https://docs.microsoft.com/azure/virtual-machines/linux/upload-vhd#option-1-upload-a-vhd)
 
 
 **P.** Pode criar uma versão de imagem de um disco especializado?

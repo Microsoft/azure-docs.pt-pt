@@ -13,14 +13,14 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/17/2018
+ms.date: 03/18/2018
 ms.author: kaanan
-ms.openlocfilehash: 48ccbedd6e3a7da0ec487f27709a47f9364f7da3
-ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
+ms.openlocfilehash: 3d95a9ea555cceda82530eb5c487eeb993c1a678
+ms.sourcegitcommit: f331186a967d21c302a128299f60402e89035a8d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56100062"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58188565"
 ---
 # <a name="work-with-a-virtual-network-tap-using-the-azure-cli"></a>Trabalhar com uma rede virtual TOQUE com a CLI do Azure
 
@@ -28,7 +28,7 @@ TOQUE (ponto de acesso de Terminal) de rede virtual do Azure permite-lhe para o 
 
 ## <a name="create-a-virtual-network-tap-resource"></a>Criar uma rede virtual do recurso de TOQUE
 
-Leia [pré-requisitos](virtual-network-tap-overview.md#prerequisites) antes de criar uma rede virtual do recurso de TOQUE. Pode executar os comandos que se seguem na [Azure Cloud Shell](https://shell.azure.com/bash), ou executando a interface de linha de comandos do Azure (CLI) do seu computador. O Azure Cloud Shell é um shell interativo gratuito, que não necessita de instalar a CLI do Azure no seu computador. Tem de iniciar sessão Azure com uma conta que tenha o adequado [permissões](virtual-network-tap-overview.md#permissions). Este artigo requer a versão 2.0.46 CLI do Azure ou posterior. Execute `az --version` para localizar a versão instalada. Se precisar de instalar ou atualizar, veja [instalar a CLI 2.0 do Azure](/cli/azure/install-azure-cli). Se estiver a executar a CLI do Azure localmente, terá também de executar `az login` para criar uma ligação com o Azure.
+Leia [pré-requisitos](virtual-network-tap-overview.md#prerequisites) antes de criar uma rede virtual do recurso de TOQUE. Pode executar os comandos que se seguem na [Azure Cloud Shell](https://shell.azure.com/bash), ou executando a interface de linha de comandos do Azure (CLI) do seu computador. O Azure Cloud Shell é um shell interativo gratuito, que não necessita de instalar a CLI do Azure no seu computador. Tem de iniciar sessão Azure com uma conta que tenha o adequado [permissões](virtual-network-tap-overview.md#permissions). Este artigo requer a versão 2.0.46 CLI do Azure ou posterior. Execute `az --version` para localizar a versão instalada. Se precisar de instalar ou atualizar, veja [instalar a CLI 2.0 do Azure](/cli/azure/install-azure-cli). TESTE de rede virtual está atualmente disponível como uma extensão. Para instalar a extensão tem de executar `az extension add -n virtual-network-tap`. Se estiver a executar a CLI do Azure localmente, terá também de executar `az login` para criar uma ligação com o Azure.
 
 1. Obter o ID da sua subscrição numa variável que é utilizada num passo posterior:
 

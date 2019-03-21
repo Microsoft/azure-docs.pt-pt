@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 02/11/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ce719b0b4baaf334df4571f154ae425115dfec21
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 1cdf8f78a54c89ac89441a87ca0ba34d61a3d2a2
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57769732"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57888319"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-euromonitor-passport"></a>Tutorial: Integração do Active Directory do Azure com o Euromonitor Passport
 
@@ -169,7 +169,7 @@ O objetivo desta secção é criar um utilizador de teste no portal do Azure cha
 
     a. Na **Name** , insira **BrittaSimon**.
   
-    b. Na **nome de utilizador** , digite **brittasimon@yourcompanydomain.extension**  
+    b. Na **nome de utilizador** , digite **brittasimon\@yourcompanydomain.extension**  
     Por exemplo, BrittaSimon@contoso.com
 
     c. Selecione **palavra-passe de Show** caixa de verificação e, em seguida, anote o valor que é apresentado na caixa de palavra-passe.

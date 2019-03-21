@@ -6,16 +6,16 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
 ms.topic: conceptual
-author: ericlicoding
+author: xiaoharper
 ms.author: amlstudiodocs
 ms.custom: seodec18
 ms.date: 02/01/2018
-ms.openlocfilehash: 37a7610cf2458906729432b1cf53043f1badd64b
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.openlocfilehash: ef1d8f1a72c5936ff661636c4c51acf439a0a5ea
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56820846"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57855202"
 ---
 # <a name="consuming-an-azure-machine-learning-studio-web-service-from-excel"></a>Consumir um serviço de Web do Azure Machine Learning Studio a partir do Excel
 
@@ -33,8 +33,8 @@ Depois de ter um serviço da web, clique nas **serviços da WEB** secção à es
 **Serviço Web clássico**
 
 1. Sobre o **DASHBOARD** separador para o serviço web é uma linha para o **SOLICITAÇÃO/resposta** serviço. Se este serviço teve uma única saída, deverá ver o **transferir o livro do Excel** ligação nessa linha.
-   
-    ![](./media/consuming-from-excel/excellink.png)
+
+    ![Transferir o livro do Excel com o portal de serviço Web do Studio](./media/consuming-from-excel/excellink.png)
 2. Clique em **transferir o livro do Excel**.
 
 **Novo serviço Web**
@@ -46,17 +46,17 @@ Depois de ter um serviço da web, clique nas **serviços da WEB** secção à es
 
 1. Abra o livro.
 2. É apresentado um aviso de segurança; Clique nas **Enable Editing** botão.
-   
-    ![](./media/consuming-from-excel/enableeditting.png)
+
+    ![Ativar a edição remover o aviso de segurança de vista protegida](./media/consuming-from-excel/enableeditting.png)
 3. É apresentado um aviso de segurança. Clique nas **ativar conteúdo** botão para executar macros na folha de cálculo.
-   
-    ![](./media/consuming-from-excel/enablecontent.png)
+
+    ![Permitir que os conteúdos ignorar o aviso de segurança desativando macros](./media/consuming-from-excel/enablecontent.png)
 4. Assim que as macros estejam habilitadas, é gerada uma tabela. Colunas azul são necessários como entrada para o serviço web RRS, ou **parâmetros**. Tenha em atenção a saída do serviço RRS, **valores previstos** em verde. Quando todas as colunas para uma determinada linha estiverem preenchidas, a pasta de trabalho automaticamente chama a API de classificação e exibe os resultados com a pontuação.
-   
-    ![](./media/consuming-from-excel/sampletable.png)
+
+    ![Valores de previsão de tabela para entradas de parâmetro e resultante](./media/consuming-from-excel/sampletable.png)
 5. Para mais de uma linha de pontuação, a segunda linha com dados e os valores previstos de preenchimento são produzidos. Pode até mesmo colar várias linhas ao mesmo tempo.
 
-Pode utilizar qualquer uma das funcionalidades do Excel (gráficos, mapa de energia, formatação condicional, etc.) com os valores previstos para o ajudar a visualizar os dados.    
+Pode utilizar qualquer uma das funcionalidades do Excel (gráficos, mapa de energia, formatação condicional, etc.) com os valores previstos para o ajudar a visualizar os dados.
 
 ## <a name="sharing-your-workbook"></a>O livro de partilha
 As macros trabalhar, a chave de API deve ser parte da folha de cálculo. Isso significa que deve compartilhá-la apenas com entidades/indivíduos que confia.

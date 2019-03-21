@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/28/2019
+ms.date: 03/20/2019
 ms.author: sethm
 ms.reviewer: adepue
-ms.lastreviewed: 02/09/2019
-ms.openlocfilehash: 0bbf76e16334ae4847ec6f7fbf3aa88fb508e84d
-ms.sourcegitcommit: 1902adaa68c660bdaac46878ce2dec5473d29275
+ms.lastreviewed: 03/20/2019
+ms.openlocfilehash: e02a09bdc8bd80b93f7fa33632c32a75c1d705bd
+ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/11/2019
-ms.locfileid: "57731138"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58226866"
 ---
 # <a name="azure-stack-1901-update"></a>Atualização de 1901 de pilha do Azure
 
@@ -58,12 +58,12 @@ Correções de pilha do Azure só são aplicáveis a sistemas integrados do Azur
 
 - **1809**: [KB 4481548 – o Azure Stack correção 1.1809.12.114](https://support.microsoft.com/help/4481548/)
 - **1811**: Sem correções atual disponível.
-- **1901**: Sem correções atual disponível.
+- **1901**: [KB 4481548 – o Azure Stack correção 1.1901.2.103](https://support.microsoft.com/help/4494720)
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 > [!IMPORTANT]
-- Instalar o [mais recente do Azure Stack correção](#azure-stack-hotfixes) para 1811 (se houver) antes de atualizar para 1901.
+> - Instalar o [mais recente do Azure Stack correção](#azure-stack-hotfixes) para 1811 (se houver) antes de atualizar para 1901.
 
 - Antes de iniciar a instalação desta atualização, execute [AzureStack teste](azure-stack-diagnostic-test.md) com os parâmetros seguintes para validar o status do seu Azure Stack e resolver quaisquer problemas operacionais detectados, incluindo todos os avisos e falhas. Também rever alertas ativos e resolver qualquer um que requerem uma ação:
 
@@ -89,7 +89,7 @@ Esta atualização inclui as seguintes novas funcionalidades e melhorias para o 
    * **AzureRm.Storage**  
          Módulo de rollup do AzureRm agora inclui o suporte da versão já publicada 5.0.4 a **2017-10-01 a api-version**.  
    * **AzureRm.Compute**  
-         Foi adicionado o parâmetro simple define na `New-AzureRMVM` e `NewAzureRMVMSS`, `-ImageName` parâmetro dá suporte a especificação de utilizador de imagens.  
+         Foi adicionado o parâmetro simple define na `New-AzureRmVM` e `New-AzureRmVmss`, `-Image` parâmetro dá suporte a especificação de utilizador de imagens.  
    * **AzureRm.Insights**  
          Módulo de rollup do AzureRm agora inclui o suporte da versão já publicada 5.1.5 a **versão de api de 2018-01-01** para métricas, tipos de recursos de definições de métricas.
 
@@ -115,7 +115,8 @@ Para rever a referência para os módulos atualizados, consulte [referência de 
 <!-- 16523695 – IS, ASDK -->
 - Foi corrigido um problema em que depois de atualizar as definições de DNS para a sua rede Virtual a partir **DNS do uso do Azure Stack** ao **DNS personalizado**, as instâncias não foram atualizadas com a nova definição.
 
-- <!-- 3235634 – IS, ASDK --> Foi corrigido um problema no qual implementar VMs com tamanhos que contém um **v2** sufixo; por exemplo, **Standard_A2_v2**, especificando o sufixo como obrigatório **Standard_A2_v2** ( v em minúsculas). Como com o global Azure, pode agora utilizar **Standard_A2_V2** (V maiúsculo).
+- <!-- 3235634 – IS, ASDK -->
+  Foi corrigido um problema no qual implementar VMs com tamanhos que contém um **v2** sufixo; por exemplo, **Standard_A2_v2**, especificando o sufixo como obrigatório **Standard_A2_v2** ( v em minúsculas). Como com o global Azure, pode agora utilizar **Standard_A2_V2** (V maiúsculo).
 
 <!-- 2869209 – IS, ASDK --> 
 - Foi corrigido um problema ao utilizar o [cmdlet Add-AzsPlatformImage](/powershell/module/azs.compute.admin/add-azsplatformimage), no qual tinha de utilizar o **- OsUri** parâmetro como a conta de armazenamento URI onde o disco é carregado. Agora, pode também utilizar o caminho local para o disco.
@@ -279,7 +280,7 @@ Seguem-se após a instalação problemas conhecidos para esta versão de compila
 
 - Uma VM do Ubuntu 18.04 criado com autorização de SSH ativada não permitirá que use as chaves SSH para iniciar sessão. Como solução, utilize o acesso VM para a extensão do Linux para implementar as chaves SSH após o aprovisionamento ou utilizar a autenticação baseada em palavra-passe.
 
-### <a name="networking"></a>Funcionamento em Rede  
+### <a name="networking"></a>Redes  
 
 <!-- 3239127 - IS, ASDK -->
 - No portal do Azure Stack, quando altera um endereço IP estático para uma configuração de IP que está vinculado a um adaptador de rede anexado a uma instância VM, verá uma mensagem de aviso que indica 
@@ -291,9 +292,9 @@ Seguem-se após a instalação problemas conhecidos para esta versão de compila
 <!-- 3632798 - IS, ASDK -->
 - No portal, se adicionar uma regra de segurança de entrada e selecione **etiquetas de serviço** como a origem, várias opções são apresentadas no **marca de origem** lista que não estão disponíveis para o Azure Stack. As únicas opções que são válidas no Azure Stack são os seguintes:
 
-    - **Internet**
-    - **VirtualNetwork**
-    - **AzureLoadBalancer**
+  - **Internet**
+  - **VirtualNetwork**
+  - **AzureLoadBalancer**
   
     As outras opções não são suportadas como etiquetas de origem no Azure Stack. Da mesma forma, se adicionar uma regra de segurança de saída e selecione **etiquetas de serviço** como o destino, a mesma lista de opções para **marca de origem** é apresentado. As opções apenas válidas são os mesmos que para **marca de origem**, conforme descrito na lista anterior.
 

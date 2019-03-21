@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/28/2019
 ms.author: magoedte
-ms.openlocfilehash: 2e7c06d7dd673ff2a638b94996667607a079e707
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.openlocfilehash: 591624e6bab07bfa06799d8e4817622e7a5c280a
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57307841"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58107649"
 ---
 # <a name="how-to-onboard-azure-monitor-for-containers"></a>Como integrar o Azure Monitor para contentores  
 
@@ -297,31 +297,31 @@ Se optar por utilizar a CLI do Azure, tem primeiro de instalar e utilizar a CLI 
 5. Guarde este ficheiro como **existingClusterParam.json** para uma pasta local.
 6. Está pronto para implementar este modelo. 
 
-    * Utilize os seguintes comandos do PowerShell na pasta que contém o modelo:
+   * Utilize os seguintes comandos do PowerShell na pasta que contém o modelo:
 
-        ```powershell
-        New-AzResourceGroupDeployment -Name OnboardCluster -ResourceGroupName <ResourceGroupName> -TemplateFile .\existingClusterOnboarding.json -TemplateParameterFile .\existingClusterParam.json
-        ```
-        A alteração de configuração pode demorar alguns minutos a concluir. Quando for concluído, será apresentada uma mensagem que é semelhante ao seguinte e inclui o resultado:
+       ```powershell
+       New-AzResourceGroupDeployment -Name OnboardCluster -ResourceGroupName <ResourceGroupName> -TemplateFile .\existingClusterOnboarding.json -TemplateParameterFile .\existingClusterParam.json
+       ```
+       A alteração de configuração pode demorar alguns minutos a concluir. Quando for concluído, será apresentada uma mensagem que é semelhante ao seguinte e inclui o resultado:
 
-        ```powershell
-        provisioningState       : Succeeded
-        ```
+       ```powershell
+       provisioningState       : Succeeded
+       ```
 
-    * Para executar o seguinte comando com a CLI do Azure:
+   * Para executar o seguinte comando com a CLI do Azure:
     
-        ```azurecli
-        az login
-        az account set --subscription "Subscription Name"
-        az group deployment create --resource-group <ResourceGroupName> --template-file ./existingClusterOnboarding.json --parameters @./existingClusterParam.json
-        ```
+       ```azurecli
+       az login
+       az account set --subscription "Subscription Name"
+       az group deployment create --resource-group <ResourceGroupName> --template-file ./existingClusterOnboarding.json --parameters @./existingClusterParam.json
+       ```
 
-        A alteração de configuração pode demorar alguns minutos a concluir. Quando for concluído, será apresentada uma mensagem que é semelhante ao seguinte e inclui o resultado:
+       A alteração de configuração pode demorar alguns minutos a concluir. Quando for concluído, será apresentada uma mensagem que é semelhante ao seguinte e inclui o resultado:
 
-        ```azurecli
-        provisioningState       : Succeeded
-        ```
-Depois de ativar a monitorização, poderá demorar cerca de 15 minutos antes de poder visualizar as métricas de estado de funcionamento para o cluster. 
+       ```azurecli
+       provisioningState       : Succeeded
+       ```
+     Depois de ativar a monitorização, poderá demorar cerca de 15 minutos antes de poder visualizar as métricas de estado de funcionamento para o cluster. 
 
 ## <a name="verify-agent-and-solution-deployment"></a>Verificar a implementação de agente e solução
 Com a versão do agente *06072018* ou posterior, pode verificar que o agente e a solução foram implementados com êxito. Com as versões anteriores do agente, pode verificar apenas a implementação de agente.

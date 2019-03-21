@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 01/31/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 0e38e921121f9b44356a33641bea4c2666412cca
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 5f98cf51b618686e3c608535667993e9d5f9e939
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57456198"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57852932"
 ---
 # <a name="automate-resources-in-your-datacenter-or-cloud-by-using-hybrid-runbook-worker"></a>Automatize a recursos no seu datacenter ou na cloud com o trabalho de Runbook híbrida
 
@@ -149,11 +149,8 @@ Com base no padrão endereços e portas que requer a função de trabalho de Run
 |*.oms.opinsights.azure.com     | *.oms.opinsights.azure.us        |
 |*.blob.core.windows.net|*.blob.core.usgovcloudapi.net|
 
-## <a name="troubleshoot"></a>Resolução de problemas
-
-Para saber como resolver problemas de suas funções de trabalho de Runbook híbridas, consulte [resolução de problemas os Runbook Workers híbridos](troubleshoot/hybrid-runbook-worker.md#general)
-
 ## <a name="next-steps"></a>Passos Seguintes
 
-Para saber como configurar os seus runbooks para automatizar processos no seu datacenter no local ou outro ambiente de cloud, veja [executar runbooks numa função de trabalho de Runbook híbrida](automation-hrw-run-runbooks.md).
+* Para saber como configurar os seus runbooks para automatizar processos no seu datacenter no local ou outro ambiente de cloud, veja [executar runbooks numa função de trabalho de Runbook híbrida](automation-hrw-run-runbooks.md).
+* Para saber como resolver problemas de suas funções de trabalho de Runbook híbridas, consulte [resolução de problemas os Runbook Workers híbridos](troubleshoot/hybrid-runbook-worker.md#general)
 

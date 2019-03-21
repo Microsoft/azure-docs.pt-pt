@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 10/31/2018
 ms.author: genli
-ms.openlocfilehash: bb5d7306558f46f84d1f4a1b7a61332bf767479f
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
+ms.openlocfilehash: 6b77ceb2ab9abe232cec75254b30ce37c3dbbf60
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54267050"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58105612"
 ---
 # <a name="reset-local-windows-password-for-azure-vm-offline"></a>Repor a palavra-passe do Windows local offline para VM do Azure
 Pode redefinir a senha do Windows local de uma VM no Azure com o [portal do Azure ou do Azure PowerShell](reset-rdp.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) desde que o agente convidado do Azure está instalado. Esse método é a principal maneira para repor uma palavra-passe de uma VM do Azure. Se ocorrerem problemas com o agente convidado do Azure não está a responder ou deixar de instalar depois de carregar uma imagem personalizada, pode repor manualmente uma palavra-passe do Windows. Este artigo fornece detalhes sobre como repor uma palavra-passe da conta local ao anexar o disco virtual de origem do SO a outra VM. Os passos descritos neste artigo não se aplicam aos controladores de domínio do Windows. 
@@ -146,7 +146,7 @@ Sempre tenta repor uma palavra-passe através da [portal do Azure ou do Azure Po
      ![Copie o URI do disco](./media/reset-local-password-without-agent/copy_source_vhd_uri.png)
 9. Crie uma VM a partir do disco de SO da VM de origem:
    
-   * Usar [este modelo do Azure Resource Manager](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-specialized-vhd-new-or-existing-vnet) para criar uma VM a partir de um VHD especializado. Clique no `Deploy to Azure` botão para abrir o portal do Azure com os detalhes com modelos preenchidos para si.
+   * Uso [este modelo do Azure Resource Manager](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-specialized-vhd-new-or-existing-vnet) para criar uma VM a partir de um VHD especializado. Clique no `Deploy to Azure` botão para abrir o portal do Azure com os detalhes com modelos preenchidos para si.
    * Se pretende manter todas as definições anteriores para a VM, selecione *Editar modelo* para fornecer a sua VNet existente, a sub-rede, a placa de rede ou o IP público.
    * Na `OSDISKVHDURI` caixa de texto de parâmetro, colar o URI do VHD de origem de se obter no passo anterior:
      

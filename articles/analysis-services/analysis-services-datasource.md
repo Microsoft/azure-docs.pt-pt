@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 02/07/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: c7b3695e5cb43a9c8f659a3ac1baddab51526b2d
-ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
+ms.openlocfilehash: eeb3b2098cf477004ba7ad85a903f1a8e2267392
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55893736"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58117834"
 ---
 # <a name="data-sources-supported-in-azure-analysis-services"></a>Origens de dados suportadas no Azure Analysis Services
 
@@ -52,14 +52,14 @@ A ligar no local origens de dados de e o servidor do Azure requerem um gateway n
 |  --- | --- | --- |
 | SQL Server |SQL Server Native Client 11.0, fornecedor Microsoft OLE DB para SQL Server, o fornecedor de dados do .NET Framework para o SQL Server | Fornecedor de dados do .NET framework para o SQL Server |
 | Armazém de dados do SQL Server |SQL Server Native Client 11.0, fornecedor Microsoft OLE DB para SQL Server, o fornecedor de dados do .NET Framework para o SQL Server | Fornecedor de dados do .NET framework para o SQL Server |
-| Oracle |Fornecedor Microsoft OLE DB para Oracle, o provedor de dados Oracle para .NET |Fornecedor de dados do Oracle para .NET | |
-| Teradata |Fornecedor OLE DB para Teradata, fornecedor de dados do Teradata para .NET |Fornecedor de dados do Teradata para .NET | |
+| Oracle |Fornecedor Microsoft OLE DB para Oracle, o provedor de dados Oracle para .NET |Fornecedor de dados do Oracle para .NET |
+| Teradata |Fornecedor OLE DB para Teradata, fornecedor de dados do Teradata para .NET |Fornecedor de dados do Teradata para .NET |
 | | | |
 
 ### <a name="in-memory-only"></a>Na memória apenas
 
 |Origem de dados  |  
-|---------|---------|
+|---------|
 |Base de dados de acesso     |  
 |Active Directory<sup>[1](#tab1400b)</sup>     |  
 |Analysis Services     |  
@@ -83,7 +83,7 @@ A ligar no local origens de dados de e o servidor do Azure requerem um gateway n
 |SharePoint<sup>[1](#tab1400b)</sup>     |   
 |Base de dados Sybase     |  
 |Tabela XML<sup>[1](#tab1400b)</sup>    |  
-|||
+||
  
 <a name="tab1400b">1</a> 1400 em tabela e apenas a modelos superior.
 

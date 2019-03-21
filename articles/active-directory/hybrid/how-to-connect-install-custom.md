@@ -12,16 +12,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 10/04/2018
+ms.date: 03/20/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b55a7016ec0068234dfc6110d9d4afc04119ccdd
-ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
+ms.openlocfilehash: bbfc325d1a33db45afecf30bfa21244e3336961d
+ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57194066"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58295492"
 ---
 # <a name="custom-installation-of-azure-ad-connect"></a>Instalação personalizada do Azure AD Connect
 As **Definições personalizadas** do Azure AD Connect são utilizadas quando pretende mais opções para a instalação. São utilizadas se tiver várias florestas ou se pretender configurar funcionalidades opcionais não abrangidas na instalação rápida. São utilizadas em todos os casos em que a opção [**instalação rápida**](how-to-connect-install-express.md) não satisfaz a sua implementação ou topologia.
@@ -221,7 +221,7 @@ Para cada floresta que tenha sido adicionada no Azure AD Connect, terá de forne
 >Pode ignorar uma floresta específica se não quiser utilizar o Início de sessão único nessa floresta.
 
 #### <a name="configure-the-intranet-zone-for-client-machines"></a>Configurar a Zona da Intranet para máquinas cliente
-Para se certificar de que o cliente inicia sessão automaticamente na zona da intranet, terá de se certificar de que os dois URLs fazem parte da zona da intranet. Tal garante que o computador associado ao domínio enviará automaticamente um pedido de suporte de Kerberos para o Azure AD quando estiver ligado à rede empresarial.
+Para garantir que o cliente inícios de sessão automaticamente na zona de intranet, precisa para se certificar de que o URL é parte da zona da intranet. Tal garante que o computador associado ao domínio enviará automaticamente um pedido de suporte de Kerberos para o Azure AD quando estiver ligado à rede empresarial.
 Num computador que tem as ferramentas de gestão de Política de Grupo.
 
 1.  Abrir as Ferramentas de Gestão da Política de Grupo

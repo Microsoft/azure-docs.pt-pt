@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 05/22/2017
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ff88f25d4bf7fea09ea07673326e068840243b98
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 75d0e962169529ab8d17aeeeed8aab26e7b7e994
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56176582"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57880879"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-wdesk"></a>Tutorial: Integração do Active Directory do Azure com Wdesk
 
@@ -219,7 +219,7 @@ Para ativar a utilizadores do Azure AD iniciar sessão no Wdesk, tem de ser apro
    
     ![Criar um utilizador de teste do Azure AD](./media/wdesk-tutorial/createuser1.png)  
 
-1. Na **usuário** texto, introduza o nome de utilizador do utilizador, como **brittasimon@contoso.com** e clique em **continuar** botão.
+1. Na **usuário** texto, introduza o nome de utilizador do utilizador, como **brittasimon\@contoso.com** e clique em **continuar** botão.
 
     ![Criar um utilizador de teste do Azure AD](./media/wdesk-tutorial/createuser3.png)
 
@@ -227,7 +227,7 @@ Para ativar a utilizadores do Azure AD iniciar sessão no Wdesk, tem de ser apro
   
     ![Criar um utilizador de teste do Azure AD](./media/wdesk-tutorial/createuser4.png)
  
-    a. Na **email** texto, introduza o e-mail do utilizador, como **brittasimon@contoso.com**.
+    a. Na **email** texto, introduza o e-mail do utilizador, como **brittasimon\@contoso.com**.
 
     b. Na **nome próprio** texto, introduza o nome de utilizador, como **Eduarda**.
 

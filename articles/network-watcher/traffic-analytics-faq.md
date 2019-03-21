@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/08/2018
 ms.author: jdial
-ms.openlocfilehash: 946af124c5e16620c5052ac32d47ddb5fe4537d2
-ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
+ms.openlocfilehash: 41b80e3914c93a4baeb39f35c7281f8fe81ff37c
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57406032"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57835321"
 ---
 # <a name="traffic-analytics-frequently-asked-questions"></a>Perguntas mais frequentes sobre a análise de tráfego
 
@@ -120,6 +120,12 @@ Não. Pode armazenar os registos não processados em qualquer conta de armazenam
 ## <a name="what-if-i-cant-configure-an-nsg-for-traffic-analytics-due-to-a-not-found-error"></a>E se eu não é possível configurar um NSG para análise de tráfego devido a um erro "Não encontrada"?
 
 Selecione uma região suportada. Se selecionar uma região sem suporte, receberá um erro "Não encontrado". As regiões suportadas são apresentadas anteriormente neste artigo.
+
+## <a name="why-am-i-getting-the-error-failed-to-update-flow-logs-settings-for--internalservererror-when-enabling-nsgs-in-us-gov-virginia"></a>Por que eu ganho o erro "Falha ao atualizar as definições de registos de fluxo para... InternalServerError..." Quando ativar NSG em Virgínia gov (US)?
+
+Isso é devido a um erro em que o fornecedor de recursos "Microsoft. Network" não é novamente registado para obter uma subscrição em Virgínia gov (US). A equipe está trabalhando na correção. Como solução, precisaria [manualmente voltar a registar 'Microsoft. Network"RP](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-manager-register-provider-errors). 
+
+Contacte o suporte se o problema persistir. 
 
 ## <a name="what-if-i-am-getting-the-status-failed-to-load-under-the-nsg-flow-logs-page"></a>E se estou a obter o estado "Falha ao carregar," sob a página de registos de fluxo NSG?
 

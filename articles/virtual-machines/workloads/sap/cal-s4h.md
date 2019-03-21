@@ -16,21 +16,21 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 09/15/2016
 ms.author: hermannd
-ms.openlocfilehash: a99fb959ae1ac1434bedffd782a7c4e0a302d361
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: c59fcf43cb4767f1d95d769dfce4d5c8755e45ee
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39431421"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57990485"
 ---
 # <a name="deploy-sap-s4hana-or-bw4hana-on-azure"></a>Implementar o SAP S/4HANA ou BW/4HANA no Azure
 Este artigo descreve como implementar o S/4HANA no Azure ao utilizar o SAP Cloud Appliance Library (SAP CAL) 3.0. Para implementar outras soluções baseadas no SAP HANA, como BW/4HANA, siga os mesmos passos.
 
 > [!NOTE]
-Para obter mais informações sobre o SAP CAL, vá para o [SAP Cloud Appliance Library](https://cal.sap.com/) Web site. SAP também tem um blog sobre o [SAP Cloud Appliance Library 3.0](http://scn.sap.com/community/cloud-appliance-library/blog/2016/05/27/sap-cloud-appliance-library-30-came-with-a-new-user-experience).
-
+> Para obter mais informações sobre o SAP CAL, vá para o [SAP Cloud Appliance Library](https://cal.sap.com/) Web site. SAP também tem um blog sobre o [SAP Cloud Appliance Library 3.0](https://scn.sap.com/community/cloud-appliance-library/blog/2016/05/27/sap-cloud-appliance-library-30-came-with-a-new-user-experience).
+> 
 > [!NOTE]
-A partir de 29 de Maio de 2017, pode utilizar o modelo de implementação Azure Resource Manager, além do modelo de implementação clássica menos preferível para implementar o SAP CAL. Recomendamos que utilize o novo modelo de implementação do Resource Manager e ignorar o modelo de implementação clássica.
+> A partir de 29 de Maio de 2017, pode utilizar o modelo de implementação Azure Resource Manager, além do modelo de implementação clássica menos preferível para implementar o SAP CAL. Recomendamos que utilize o novo modelo de implementação do Resource Manager e ignorar o modelo de implementação clássica.
 
 ## <a name="step-by-step-process-to-deploy-the-solution"></a>Processo passo a passo para implantar a solução
 
@@ -49,8 +49,8 @@ O **soluções** página mostra algumas das soluções com base em SAP CAL HANA 
 
     c. Conceder a permissão de SAP CAL para implementar na sua subscrição do Azure.
 
-    > [!NOTE]
-    Os passos seguintes mostram como criar uma conta de SAP CAL para implementações do Resource Manager. Se já tiver uma conta de SAP CAL que está ligada ao modelo de implementação clássica, *precisa* a seguir estes passos para criar uma nova conta de SAP CAL. A nova conta de SAP CAL tem de implementar no modelo do Resource Manager.
+   > [!NOTE]
+   >  Os passos seguintes mostram como criar uma conta de SAP CAL para implementações do Resource Manager. Se já tiver uma conta de SAP CAL que está ligada ao modelo de implementação clássica, *precisa* a seguir estes passos para criar uma nova conta de SAP CAL. A nova conta de SAP CAL tem de implementar no modelo do Resource Manager.
 
 1. Crie uma nova conta de SAP CAL. O **contas** página mostra três opções para o Azure: 
 
@@ -96,10 +96,10 @@ Criado com êxito uma conta de SAP CAL é capaz de:
 Agora pode começar a implementar o S/4HANA na sua subscrição de utilizador no Azure.
 
 > [!NOTE]
-Antes de continuar, determine se existem quotas de vCPU do Azure para VMs de série H do Azure. No momento, o SAP CAL utiliza VMs de série H do Azure para implementar algumas das soluções com base em SAP HANA. A subscrição do Azure poderá não ter quaisquer quotas de vCPU de série H para a série H. Nesse caso, poderá ter de contactar o suporte do Azure para obter uma quota de, pelo menos, 16 vCPUs de série H.
-
+> Antes de continuar, determine se existem quotas de vCPU do Azure para VMs de série H do Azure. No momento, o SAP CAL utiliza VMs de série H do Azure para implementar algumas das soluções com base em SAP HANA. A subscrição do Azure poderá não ter quaisquer quotas de vCPU de série H para a série H. Nesse caso, poderá ter de contactar o suporte do Azure para obter uma quota de, pelo menos, 16 vCPUs de série H.
+> 
 > [!NOTE]
-Quando implementa uma solução no Azure no SAP CAL, pode achar que pode escolher apenas uma região do Azure. Para implementar as regiões do Azure que não seja o sugerido pelo SAP CAL, terá de comprar uma subscrição de CAL do SAP. Também poderá ter de abrir uma mensagem com o SAP a sua conta do CAL ativada para entregar em regiões do Azure diferentes dos inicialmente sugeridos.
+> Quando implementa uma solução no Azure no SAP CAL, pode achar que pode escolher apenas uma região do Azure. Para implementar as regiões do Azure que não seja o sugerido pelo SAP CAL, terá de comprar uma subscrição de CAL do SAP. Também poderá ter de abrir uma mensagem com o SAP a sua conta do CAL ativada para entregar em regiões do Azure diferentes dos inicialmente sugeridos.
 
 ### <a name="deploy-a-solution"></a>Implementar uma solução
 
@@ -120,7 +120,7 @@ Vamos demonstrar o caminho básico para implementação aqui.
 
     d. Introduza um mestre **palavra-passe** para a solução de caracteres de oito ou nove. A palavra-passe é utilizada para os administradores dos diferentes componentes.
 
-   ![Modo do SAP CAL básico: Criar instância](./media/cal-s4h/s4h-pic10a.png)
+   ![Modo do SAP CAL Basic: Criar Instância](./media/cal-s4h/s4h-pic10a.png)
 
 1. Clique em **Create**e na caixa de mensagem que aparece, clique em **OK**.
 

@@ -13,12 +13,12 @@ ms.date: 04/10/2018
 ms.reviewer: mbullwin
 ms.pm_owner: daviste;NumberByColors
 ms.author: daviste
-ms.openlocfilehash: 810ccae08b540c417a0e7dfecb6ad5a8b110cd7b
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: a575161be0a339973f9c59cc13c2320b38939d04
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54046032"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58108530"
 ---
 # <a name="application-insights-cohorts"></a>Coortes do Application Insights
 
@@ -105,16 +105,16 @@ Os duas coortes anteriores foram definidos usando caixas de lista pendente. Mas 
     ![Coorte de utilizadores em branco](./media/usage-cohorts/001.png)
 
     Existem três secções:
-    * Uma Markdown texto seção, onde descreve a coorte mais detalhadamente para outras pessoas na sua equipa.
+   * Uma Markdown texto seção, onde descreve a coorte mais detalhadamente para outras pessoas na sua equipa.
 
-    * Uma secção de parâmetros, em que fazem os seus parâmetros, como **atividades** e outras caixas de lista pendente dos dois exemplos anteriores.
+   * Uma secção de parâmetros, em que fazem os seus parâmetros, como **atividades** e outras caixas de lista pendente dos dois exemplos anteriores.
 
-    * Uma secção de consulta, onde define a coorte utilizando uma consulta do analytics.
+   * Uma secção de consulta, onde define a coorte utilizando uma consulta do analytics.
 
-    Na secção de consulta, [escrever uma consulta do analytics](/azure/kusto/query). A consulta seleciona o determinado conjunto de linhas que descrevem a coorte que pretende definir. A ferramenta coortes, em seguida, adiciona implicitamente um "| cláusula resumir por user_Id"para a consulta. Estes dados são visualizados abaixo a consulta numa tabela, para que pode verificar se a que sua consulta está a devolver resultados.
+     Na secção de consulta, [escrever uma consulta do analytics](/azure/kusto/query). A consulta seleciona o determinado conjunto de linhas que descrevem a coorte que pretende definir. A ferramenta coortes, em seguida, adiciona implicitamente um "| cláusula resumir por user_Id"para a consulta. Estes dados são visualizados abaixo a consulta numa tabela, para que pode verificar se a que sua consulta está a devolver resultados.
 
-    > [!NOTE]
-    > Se não vir a consulta, tente redimensionar a secção para torná-lo aumentasse e revelar a consulta. Os GIF animados no início desta secção ilustra o comportamento de redimensionamento.
+     > [!NOTE]
+     > Se não vir a consulta, tente redimensionar a secção para torná-lo aumentasse e revelar a consulta. Os GIF animados no início desta secção ilustra o comportamento de redimensionamento.
 
 2. Copie e cole o seguinte texto no editor de consultas:
 

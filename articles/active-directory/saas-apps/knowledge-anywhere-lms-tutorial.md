@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 02/14/2019
 ms.author: jeedes
-ms.openlocfilehash: 412c2fb05cb75acabd4ff7a80ead8086498d6837
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: f39952c74006964155fd23920c85506cac13a878
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57776058"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57892728"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-knowledge-anywhere-lms"></a>Tutorial: Integração do Active Directory do Azure com LMS do conhecimento em qualquer lugar
 
@@ -191,7 +191,7 @@ O objetivo desta secção é criar um utilizador de teste no portal do Azure cha
 
     a. Na **Name** campo introduza **BrittaSimon**.
   
-    b. Na **nome de utilizador** tipo de campo **brittasimon@yourcompanydomain.extension**  
+    b. Na **nome de utilizador** tipo de campo **brittasimon\@yourcompanydomain.extension**  
     Por exemplo, BrittaSimon@contoso.com
 
     c. Selecione **palavra-passe de Show** caixa de verificação e, em seguida, anote o valor que é apresentado na caixa de palavra-passe.
@@ -228,7 +228,7 @@ Nesta secção, vai ativar Eduarda Almeida utilizar o Azure início de sessão �
 
 Nesta secção, um usuário chamado Eduarda Almeida é criado na LMS do conhecimento em qualquer lugar. Dados de conhecimento em qualquer lugar LMS suporta o aprovisionamento de utilizadores de just-in-time, que está ativado por predefinição. Não existe nenhum item de ação para nesta secção. Se um utilizador já não existir no LMS do conhecimento em qualquer lugar, é criado um novo após a autenticação.
 
-### <a name="test-single-sign-on"></a>Testar início de sessão único
+### <a name="test-single-sign-on"></a>Testar o início de sessão único
 
 Nesta secção, vai testar a configuração do Azure AD única início de sessão com o painel de acesso.
 

@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: quickstart
-ms.date: 12/13/2018
+ms.date: 03/13/2019
 ms.author: erhopf
-ms.openlocfilehash: 6bf7c92b0c9b143f9622cf1698fa39b0f45843f1
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: 34161989bf98f2605cbc2e238cb832523b2f23cb
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56874533"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57843328"
 ---
 # <a name="quickstart-translate-speech-with-the-speech-sdk-for-net-framework"></a>Início rápido: Traduzir a conversão de voz com o SDK de voz para .NET Framework
 

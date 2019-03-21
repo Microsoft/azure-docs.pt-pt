@@ -13,12 +13,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/23/2018
 ms.author: alkohli
-ms.openlocfilehash: 9992faa11585d49d3024e00338b4c1dc09da9195
-ms.sourcegitcommit: 235cd1c4f003a7f8459b9761a623f000dd9e50ef
+ms.openlocfilehash: c27244af6da01163fa9ab554b6b9c1d9c99bab23
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/11/2019
-ms.locfileid: "57726673"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58104578"
 ---
 # <a name="migrate-data-from-storsimple-5000-7000-series-to-azure-file-sync"></a>Migrar dados de séries StorSimple 5000 a 7000 para o Azure File Sync
 
@@ -57,7 +57,7 @@ Aqui encontrará os pré-requisitos de migração para o seu dispositivo de sér
 - O anfitrião tem o armazenamento local suficiente para manter seus dados armazenados em cache localmente.
 - Acesso de nível de proprietário à subscrição do Azure que irá utilizar para implementar o Azure File Sync. Podem ocorrer problemas ao criar um ponto final da cloud para o seu grupo de sincronização, se não tiver proprietário ou permissões de nível de administrador.
 - Acesso a uma [conta de armazenamento para fins gerais v2](https://docs.microsoft.com/azure/storage/common/storage-account-overview) com uma partilha de ficheiros do Azure que pretende sincronizar com. Para obter mais informações, veja [Criar uma conta de armazenamento](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account).
- - Como [criar uma partilha de ficheiros do Azure](https://docs.microsoft.com/azure/storage/files/storage-how-to-create-file-share).
+  - Como [criar uma partilha de ficheiros do Azure](https://docs.microsoft.com/azure/storage/files/storage-how-to-create-file-share).
 
 ## <a name="migration-process"></a>Processo de migração
 

@@ -11,12 +11,12 @@ ms.author: prasantp
 author: prasanthpul
 ms.date: 12/3/2018
 ms.custom: seodec18
-ms.openlocfilehash: 8c392e1df1b3a42256bc89cabcfa1506a4b4e83b
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 97464115b87ca5facdc055e0031bc5fc4e962a22
+ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58117800"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58295662"
 ---
 # <a name="onnx-and-azure-machine-learning-create-and-deploy-interoperable-ai-models"></a>ONNX e do Azure Machine Learning: Criar e implementar modelos de IA interoperáveis
 
@@ -154,21 +154,29 @@ Eis um exemplo para implementar um modelo ONNX:
    from azureml.core.model import Model
 
    def init():
-       global model_path
-       model_path = Model.get_model_path(model_name = 'MyONNXmodel')
+       global session
+       model = Model.get_model_path(model_name = 'MyONNXModel')
+       session = onnxruntime.InferenceSession(model)
 
-   def run(raw_data):
+   def preprocess(input_data_json):
+       # convert the JSON data into the tensor input
+       return np.array(json.loads(input_data_json)['data']).astype('float32')
+
+   def postprocess(result):
+       return np.array(result).tolist()
+
+   def run(input_data_json):
        try:
-           data = json.loads(raw_data)['data']
-           data = np.array(data)
-
-           sess = onnxruntime.InferenceSession(model_path)
-           result = sess.run(["outY"], {"inX": data})
-
-           return json.dumps({"result": result.tolist()})
+           start = time.time()   # start timer
+           input_data = preprocess(input_data_json)
+           input_name = session.get_inputs()[0].name  # get the id of the first input of the model   
+           result = session.run([], {input_name: input_data})
+           end = time.time()     # stop timer
+           return {"result": postprocess(result),
+                   "time": end - start}
        except Exception as e:
            result = str(e)
-           return json.dumps({"error": result})
+           return {"error": result}
    ```
 
    O ficheiro `myenv.yml` descreve as dependências necessárias para a imagem. Ver isso [tutorial](tutorial-deploy-models-with-aml.md#create-environment-file) para obter instruções sobre como criar um arquivo de ambiente, como este ficheiro de exemplo:
@@ -176,10 +184,7 @@ Eis um exemplo para implementar um modelo ONNX:
    ```python
    from azureml.core.conda_dependencies import CondaDependencies 
 
-   myenv = CondaDependencies()
-   myenv.add_pip_package("numpy")
-   myenv.add_pip_package("azureml-core")
-   myenv.add_pip_package("onnxruntime")
+   myenv = CondaDependencies.create(pip_packages=["numpy","onnxruntime","azureml-core"])
 
    with open("myenv.yml","w") as f:
     f.write(myenv.serialize_to_string())

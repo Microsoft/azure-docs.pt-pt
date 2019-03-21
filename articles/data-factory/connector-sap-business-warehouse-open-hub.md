@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 03/08/2019
 ms.author: jingwang
-ms.openlocfilehash: 474ebaad60328b011e91337c46040ae37c603e21
-ms.sourcegitcommit: 1902adaa68c660bdaac46878ce2dec5473d29275
+ms.openlocfilehash: c64842dc89c9519c738701558f510940f4cc148d
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/11/2019
-ms.locfileid: "57731053"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58103915"
 ---
 # <a name="copy-data-from-sap-business-warehouse-via-open-hub-using-azure-data-factory"></a>Copiar dados do SAP Business Warehouse através de Hub aberto com o Azure Data Factory
 
@@ -55,7 +55,7 @@ Em geral, a extração de SAP InfoProviders para o Azure Data Factory (ADF) cons
 
 1. **Cópia de dados do ADF** neste passo, a tabela de Hub aberto é lido pelo conector do ADF 
 
-![Fluxo de extração de delta](media\connector-sap-business-warehouse-open-hub\delta-extraction-flow.png)
+![Fluxo de extração de delta](media/connector-sap-business-warehouse-open-hub/delta-extraction-flow.png)
 
 No primeiro passo é executado um DTP. Cada execução cria um novo ID de pedido SAP. O ID do pedido é armazenado na tabela Hub aberto e, em seguida, é utilizado pelo conector do ADF para identificar o delta. Os dois passos executam de maneira assíncrona: o DTP é acionada pelo SAP, e a cópia de dados do ADF é disparada por meio do ADF. 
 

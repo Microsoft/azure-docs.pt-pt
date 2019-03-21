@@ -9,18 +9,18 @@ ms.reviewer: estfan, LADocs
 ms.suite: integration
 ms.topic: article
 ms.date: 08/16/2018
-ms.openlocfilehash: 3441350a07047676ac43de23262be6c54912162c
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
-ms.translationtype: HT
+ms.openlocfilehash: 5472a8ce2670a34174d6d39f0d90faca8a7002ad
+ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58104170"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58292891"
 ---
 # <a name="perform-advanced-json-transformations-with-liquid-templates-in-azure-logic-apps"></a>Execute transformações de JSON avançadas com modelos de fluidos no Azure Logic Apps
 
-Pode executar transformações de JSON básicas nas suas aplicações lógicas com ações de operação de dados nativos, como **Compose** ou **Parse JSON**. Para efetuar transformações avançadas do JSON, pode criar modelos ou mapas com [líquidos](https://shopify.github.io/liquid/), que é uma linguagem de modelo de código-fonte aberto para aplicações web flexível. Modelos de fluidos permitem-lhe definir como transformar a saída JSON e suporta mais complexas transformações de JSON, por exemplo, as iterações, controlam fluxos, variáveis e assim por diante. 
+Pode executar transformações de JSON básicas nas suas aplicações lógicas com ações de operação de dados nativos, como **Compose** ou **Parse JSON**. Para efetuar transformações avançadas do JSON, pode criar modelos ou mapas com [líquidos](https://shopify.github.io/liquid/), que é uma linguagem de modelo de código-fonte aberto para aplicações web flexível. Um modelo de fluidos define como transformar a saída JSON e oferece suporte a transformações de JSON mais complexas, como iterações, fluxos de controle, variáveis e assim por diante. 
 
-Portanto, antes de poder executar uma transformação líquida na sua aplicação lógica, primeiro define o JSON para o mapeamento de JSON com um modelo de fluidos e uma loja que mapeiam na sua conta de integração. Este artigo mostra-lhe como criar e utilizar este modelo de fluidos ou o mapa. 
+Antes de poder executar uma transformação líquida na sua aplicação lógica, deve primeiro definir o JSON para o mapeamento de JSON com um modelo de fluidos e uma loja que mapeiam na sua conta de integração. Este artigo mostra-lhe como criar e utilizar este modelo de fluidos ou o mapa. 
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -34,7 +34,10 @@ Portanto, antes de poder executar uma transformação líquida na sua aplicaçã
 
 ## <a name="create-liquid-template-or-map-for-your-integration-account"></a>Criar modelo de fluidos ou mapa para a sua conta de integração
 
-1. Neste exemplo, crie o modelo de fluidos de exemplo descrito neste passo. No seu modelo de fluidos, pode usar [Liquid filtra](https://shopify.github.io/liquid/basics/introduction/#filters), que utilizam [DotLiquid](https://dotliquidmarkup.org/) e C# convenções de nomenclatura. No entanto, certifique-se de que *iniciar o filtro de nomes com carateres maiúsculos*, não minúsculos. 
+1. Neste exemplo, crie o modelo de fluidos de exemplo descrito neste passo. No seu modelo de fluidos, pode usar [Liquid filtra](https://shopify.github.io/liquid/basics/introduction/#filters), que utilizam [DotLiquid](https://dotliquidmarkup.org/) e C# convenções de nomenclatura. 
+
+   > [!NOTE]
+   > Certificar-se de que os nomes de filtro usar *maiúsculas/minúsculas* no seu modelo. Caso contrário, os filtros não funcionarão.
 
    ```json
    {%- assign deviceList = content.devices | Split: ', ' -%}

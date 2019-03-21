@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 05/04/2018
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 291872ca25b8674528b47e695c0d5135296e3451
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: d1634552522a3d1056f9af29386b6ae32754cae0
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55472750"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57834091"
 ---
 # <a name="move-data-to-an-azure-sql-database-for-azure-machine-learning"></a>Mover dados para uma Base de Dados SQL do Azure para o Azure Machine Learning
 
@@ -39,7 +39,7 @@ Os procedimentos descritos aqui exigem que tenha:
 * Acesso a uma **base de dados SQL do Azure**. Se tem de configurar uma base de dados de SQL do Azure, [introdução ao Microsoft Azure SQL Database](../../sql-database/sql-database-get-started.md) fornece informações sobre como aprovisionar uma nova instância de uma base de dados do SQL do Azure.
 * Instalou e configurou **do Azure PowerShell** localmente. Para obter instruções, consulte [como instalar e configurar o Azure PowerShell](/powershell/azure/overview).
 
-**Dados**: Os processos de migração são demonstrados a utilizar o [conjunto de dados de táxis de NYC](http://chriswhong.com/open-data/foil_nyc_taxi/). O conjunto de dados de táxis de NYC contém informações sobre dados de viagens e fairs e está disponível no armazenamento de Blobs do Azure: [Dados de táxis de NYC](http://www.andresmh.com/nyctaxitrips/). Um exemplo e uma descrição destes ficheiros são fornecidos na [descrição de conjunto de dados de viagens de táxis de NYC](sql-walkthrough.md#dataset).
+**Dados**: Os processos de migração são demonstrados a utilizar o [conjunto de dados de táxis de NYC](https://chriswhong.com/open-data/foil_nyc_taxi/). O conjunto de dados de táxis de NYC contém informações sobre dados de viagens e fairs e está disponível no armazenamento de Blobs do Azure: [Dados de táxis de NYC](https://www.andresmh.com/nyctaxitrips/). Um exemplo e uma descrição destes ficheiros são fornecidos na [descrição de conjunto de dados de viagens de táxis de NYC](sql-walkthrough.md#dataset).
 
 Pode adaptar os procedimentos descritos aqui a um conjunto de seus próprios dados ou siga os passos, conforme descrito usando o conjunto de dados de táxis de NYC. Para carregar o conjunto de dados de táxis de NYC para a base de dados do SQL Server no local, siga o procedimento descrito em [dados de importação em massa na base de dados do SQL Server](sql-walkthrough.md#dbload). Estas instruções são para um SQL Server numa máquina Virtual do Azure, mas o procedimento para carregar para o SQL Server no local é o mesmo.
 

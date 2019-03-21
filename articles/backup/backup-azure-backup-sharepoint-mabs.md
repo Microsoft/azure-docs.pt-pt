@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 6/8/2018
 ms.author: kasinh
-ms.openlocfilehash: 7669d713f9a96ef893f7ec2ac895c28f654385c8
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: 7fa68e11ccac69db9335e589f5048264df9d0a47
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55810972"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58074986"
 ---
 # <a name="back-up-a-sharepoint-farm-to-azure"></a>Fazer cópia de segurança de um farm do SharePoint para o Azure
 Criar cópias de segurança um farm do SharePoint para o Microsoft Azure com o servidor de cópia de segurança do Azure (MABS) da Microsoft no quase da mesma forma que efetue cópias de segurança de outras origens de dados. O Azure Backup fornece flexibilidade na programação de cópia de segurança para criar diariamente, pontos de cópia de segurança semana, mensal ou anual e dá-lhe opções de política de retenção para vários pontos de cópia de segurança. Ele também fornece a capacidade para armazenar cópias de disco local para rápida objetivos de tempo de recuperação (RTO) e para armazenar cópias para o Azure para retenção económica de longo prazo.
@@ -22,7 +22,7 @@ Criar cópias de segurança um farm do SharePoint para o Microsoft Azure com o s
 Cópia de segurança do Azure para o DPM suporta os seguintes cenários:
 
 | Carga de trabalho | Versão | Implantação do SharePoint | Proteção e recuperação |
-| --- | --- | --- | --- | --- | --- |
+| --- | --- | --- | --- |
 | SharePoint |SharePoint 2016, SharePoint 2013, SharePoint 2010, SharePoint 2007, SharePoint 3.0 |SharePoint implementado como um servidor físico ou máquina virtual de Hyper-V/VMware <br> -------------- <br> SQL AlwaysOn | Proteger as opções de recuperação do Farm do SharePoint: Farm de recuperação, a base de dados e o ficheiro ou item de lista de pontos de recuperação do disco.  Recuperação de farm e base de dados de pontos de recuperação do Azure. |
 
 ## <a name="before-you-start"></a>Antes de começar

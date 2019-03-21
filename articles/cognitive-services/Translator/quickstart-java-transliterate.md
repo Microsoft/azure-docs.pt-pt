@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: quickstart
 ms.date: 02/21/2019
 ms.author: erhopf
-ms.openlocfilehash: 3ee586011c17125d5647d9a7baf946532190d8ca
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: 58821492c6972eeef622f8dc8a777f8da70acdf1
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56729797"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57895928"
 ---
 # <a name="quickstart-use-the-translator-text-api-to-transliterate-text-using-java"></a>Início rápido: Utilizar a API de texto do Translator a transcrição de texto com Java
 
@@ -74,7 +74,7 @@ Observe que este exemplo tem dependências em OkHttp pedidos de HTTP e Gson proc
 Vamos criar uma pasta para a sua aplicação de exemplo. A partir do seu diretório de trabalho, execute:
 
 ```console
-mkdir -p src/main/java
+mkdir -p src\main\java
 ```
 
 Em seguida, nesta pasta, crie um ficheiro denominado `Transliterate.java`.
@@ -184,7 +184,7 @@ gradle run
 ```json
 [
   {
-    "text": "konnnichiha",
+    "text": "konnichiwa",
     "script": "latn"
   }
 ]

@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/23/2019
 ms.author: shlo
-ms.openlocfilehash: 68cdabd8d6e5921eabaa200169c0523352461733
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
+ms.openlocfilehash: c5c12a66e8f66195a096588d779648d7486ab47b
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54856949"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58092009"
 ---
 # <a name="foreach-activity-in-azure-data-factory"></a>Atividade ForEach no Azure Data Factory
 A atividade ForEach define um fluxo de controlo de repetição no seu pipeline. Esta atividade é utilizada para iterar uma coleção e executa atividades especificadas em ciclo. A implementação de ciclo desta atividade é semelhante à estrutura de ciclo Foreach nas linguagens de programação.
@@ -71,8 +71,8 @@ As propriedades são descritas posteriormente neste artigo. A propriedade items 
 
 Propriedade | Descrição | Valores permitidos | Necessário
 -------- | ----------- | -------------- | --------
-nome | Nome da atividade para cada. | Cadeia | Sim
-tipo | Tem de ser definido como **ForEach** | Cadeia | Sim
+nome | Nome da atividade para cada. | String | Sim
+tipo | Tem de ser definido como **ForEach** | String | Sim
 isSequential | Especifica se o loop deve ser executado em seqüência ou em paralelo.  Máximo de 20 iterações de loop pode ser executado ao mesmo tempo em paralelo). Por exemplo, se tiver uma atividade de ForEach iterar através de uma atividade de cópia com 10 origem e sink conjuntos de dados diferentes com **isSequential** definido como False, todas as cópias são executadas ao mesmo tempo. A predefinição é False. <br/><br/> Se "isSequential" estiver definido como False, certifique-se de que existe uma configuração correta para executar vários executáveis. Caso contrário, esta propriedade deve ser utilizada com cuidado para evitar conflitos de escrita. Para obter mais informações, consulte [execução paralela](#parallel-execution) secção. | Booleano | Não. A predefinição é False.
 batchCount | Contagem de lotes para ser utilizado para controlar o número de execução paralela (quando isSequential está definido como false). | Número inteiro (máximo de 50) | Não. A predefinição é 20.
 Itens | Uma expressão que devolve uma matriz JSON para ser iterado. | Expressão (que devolve uma matriz JSON) | Sim
@@ -474,7 +474,7 @@ Na atividade ForEach, fornecer uma matriz para ser iterado para a propriedade **
 
 ## <a name="aggregating-outputs"></a>Agregação de saídas
 
-Para saídas agregadas __foreach__ atividade, use a opção _Variable_s e _acrescentar variável_ atividade.
+Para resultados de agregação da __foreach__ atividade, use a opção _variáveis_ e _acrescentar variável_ atividade.
 
 Em primeiro lugar, declarar uma `array` _variável_ no pipeline. Em seguida, invocar _variável acrescentar_ atividade dentro de cada um __foreach__ loop. Posteriormente, pode obter a agregação de sua matriz.
 

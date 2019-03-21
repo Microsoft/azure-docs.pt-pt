@@ -3,7 +3,7 @@ title: Web parâmetros de serviço - Azure Machine Learning Studio | Documentos 
 description: Como utilizar parâmetros do serviço Web Azure Machine Learning para modificar o comportamento do seu modelo quando o serviço web é acessado.
 services: machine-learning
 documentationcenter: ''
-author: ericlicoding
+author: xiaoharper
 ms.custom: seodec18
 ms.author: amlstudiodocs
 editor: cgronlun
@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/12/2017
-ms.openlocfilehash: 07115b893c27c013e31614c0625c4bc87a400ffb
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.openlocfilehash: a236043d5622e5a2e1ffd572c887fb5ffac2174a
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56821120"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57838005"
 ---
 # <a name="use-azure-machine-learning-studio-web-service-parameters"></a>Utilizar parâmetros do serviço web Azure Machine Learning Studio
 Um serviço web Azure Machine Learning é criado ao publicar uma experimentação que contém módulos com parâmetros configuráveis. Em alguns casos, talvez queira alterar o comportamento de módulo, enquanto o serviço web está em execução. *Parâmetros de serviço da Web* permitem-lhe executar esta tarefa. 
@@ -75,7 +75,7 @@ Por exemplo, vamos supor que temos uma experimentação com um [exportar dados] 
 O utilizador do serviço web agora pode especificar um novo destino para o [exportar dados] [ writer] módulo ao acessar o serviço web.
 
 ## <a name="more-information"></a>Mais informações
-Para obter um exemplo mais detalhado, consulte a [parâmetros do serviço Web](http://blogs.technet.com/b/machinelearning/archive/2014/11/25/azureml-web-service-parameters.aspx) entrada no [blogue de Machine Learning](http://blogs.technet.com/b/machinelearning/archive/2014/11/25/azureml-web-service-parameters.aspx).
+Para obter um exemplo mais detalhado, consulte a [parâmetros do serviço Web](https://blogs.technet.com/b/machinelearning/archive/2014/11/25/azureml-web-service-parameters.aspx) entrada no [blogue de Machine Learning](https://blogs.technet.com/b/machinelearning/archive/2014/11/25/azureml-web-service-parameters.aspx).
 
 Para obter mais informações sobre como acessar um serviço web do Machine Learning, consulte [como consumir um serviço Web do Azure Machine Learning](consume-web-services.md).
 

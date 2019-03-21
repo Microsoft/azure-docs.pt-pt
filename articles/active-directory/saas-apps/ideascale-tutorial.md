@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 02/20/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 58b3f45d94cf3e240017c857a1092512353cd61c
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 88d181c2e761679d7f52208b2086404411bc2012
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57771553"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57895053"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-ideascale"></a>Tutorial: Integração do Active Directory do Azure com IdeaScale
 
@@ -108,6 +108,7 @@ Para configurar o Azure AD início de sessão único com IdeaScale, execute os s
     a. Na **iniciar sessão no URL** caixa de texto, escreva um URL com o seguinte padrão: `https://<companyname>.ideascale.com`
 
     b. Na **identificador (ID de entidade)** caixa de texto, escreva um URL com o seguinte padrão:
+    
     | |
     |--|
     | `http://<companyname>.ideascale.com`  |
@@ -176,7 +177,7 @@ O objetivo desta secção é criar um utilizador de teste no portal do Azure cha
 
     a. Na **Name** campo introduza **BrittaSimon**.
   
-    b. Na **nome de utilizador** tipo de campo **brittasimon@yourcompanydomain.extension**  
+    b. Na **nome de utilizador** tipo de campo **brittasimon\@yourcompanydomain.extension**  
     Por exemplo, BrittaSimon@contoso.com
 
     c. Selecione **palavra-passe de Show** caixa de verificação e, em seguida, anote o valor que é apresentado na caixa de palavra-passe.
@@ -241,7 +242,7 @@ Para ativar a utilizadores do Azure AD iniciar sessão no IdeaScale, eles têm d
 > [!NOTE]
 > Pode utilizar quaisquer outras IdeaScale utilizador conta criação ferramentas ou APIs fornecidas pelo IdeaScale para aprovisionar contas de utilizador do AAD.
 
-### <a name="test-single-sign-on"></a>Testar início de sessão único
+### <a name="test-single-sign-on"></a>Testar o início de sessão único
 
 Nesta secção, vai testar a configuração do Azure AD única início de sessão com o painel de acesso.
 

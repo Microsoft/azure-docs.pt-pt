@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/22/2018
 ms.author: sharadag
-ms.openlocfilehash: 78370b004d18f70ae4d485f3ad7cfd910e6dd70a
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: 7a261d65a7bd3eea150dd764c65b94ddd47466b3
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47047931"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58100314"
 ---
 # <a name="troubleshooting-common-routing-issues"></a>Resolução de problemas comuns de encaminhamento
 Este artigo descreve como resolver problemas de alguns dos problemas comuns de roteamentos que pode enfrentar para a sua configuração de serviço de porta de entrada do Azure. 
@@ -28,7 +28,7 @@ Este artigo descreve como resolver problemas de alguns dos problemas comuns de r
 ### <a name="symptom"></a>Sintoma
 - Criar uma porta de entrada, mas um pedido para o anfitrião de front-end está a devolver um código de estado HTTP 400.
 
- - Criou um DNS mapeamento a partir de um domínio personalizado para o anfitrião de front-end que configurou. No entanto, enviar um pedido para o nome de anfitrião do domínio personalizado devolve um código de estado HTTP 400 e não é apresentada encaminhar para o backend(s) configurou.
+  - Criou um DNS mapeamento a partir de um domínio personalizado para o anfitrião de front-end que configurou. No entanto, enviar um pedido para o nome de anfitrião do domínio personalizado devolve um código de estado HTTP 400 e não é apresentada encaminhar para o backend(s) configurou.
 
 ### <a name="cause"></a>Causa
 - Esse sintoma pode acontecer se não tiver configurado uma regra de encaminhamento para o domínio personalizado que adicionou como um anfitrião de front-end. Uma regra de roteamento tem de ser explicitamente adicionada desse anfitrião de front-end, mesmo se uma já foi configurada para o anfitrião de front-end sob o subdomínio de porta de entrada (*. azurefd.net) que o seu domínio personalizado tem um mapeamento de DNS para.
@@ -54,11 +54,11 @@ Existem várias causas possíveis para este sintoma:
     - Certifique-se de que se esperou ~ 10 minutos para a configuração a serem implantados.
 
 2. Verifique as definições de back-end
-     - Navegue para o conjunto de back-end que o pedido deve ser encaminhamento (depende de como tiver configurada a regra de encaminhamento) e certifique-se de que o _tipo de anfitrião de back-end_ e o nome de anfitrião de back-end estão corretos. Se o back-end é um host personalizado, certifique-se de que tenha escrito-lo corretamente. 
+   - Navegue para o conjunto de back-end que o pedido deve ser encaminhamento (depende de como tiver configurada a regra de encaminhamento) e certifique-se de que o _tipo de anfitrião de back-end_ e o nome de anfitrião de back-end estão corretos. Se o back-end é um host personalizado, certifique-se de que tenha escrito-lo corretamente. 
 
-     - Verifique as portas HTTP e HTTPS. Na maioria dos casos, 80 e 443 (respectivamente), estão corretas e nenhuma alteração é necessária. No entanto, há uma chance de que o seu back-end não está configurado dessa forma e está à escuta numa porta diferente.
+   - Verifique as portas HTTP e HTTPS. Na maioria dos casos, 80 e 443 (respectivamente), estão corretas e nenhuma alteração é necessária. No entanto, há uma chance de que o seu back-end não está configurado dessa forma e está à escuta numa porta diferente.
 
-    - Verifique os _cabeçalho de anfitrião de back-end_ configurado para os back-ends que o anfitrião de front-end deve ser encaminhamento para. Na maioria dos casos, esse cabeçalho deve ser igual a _nome de anfitrião de back-end_. No entanto, um valor incorreto pode causar vários códigos de estado HTTP 4xx, se o back-end espera algo diferente. Se inserir o endereço IP do seu back-end, poderá ter de definir o _cabeçalho de anfitrião de back-end_ para o nome de anfitrião de back-end.
+     - Verifique os _cabeçalho de anfitrião de back-end_ configurado para os back-ends que o anfitrião de front-end deve ser encaminhamento para. Na maioria dos casos, esse cabeçalho deve ser igual a _nome de anfitrião de back-end_. No entanto, um valor incorreto pode causar vários códigos de estado HTTP 4xx, se o back-end espera algo diferente. Se inserir o endereço IP do seu back-end, poderá ter de definir o _cabeçalho de anfitrião de back-end_ para o nome de anfitrião de back-end.
 
 
 3. Verifique as definições de regra de encaminhamento

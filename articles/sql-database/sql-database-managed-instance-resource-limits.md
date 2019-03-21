@@ -12,12 +12,12 @@ ms.author: bonova
 ms.reviewer: carlrab, jovanpop, sachinp
 manager: craigg
 ms.date: 02/27/2019
-ms.openlocfilehash: e429504cb6df2ba4f871fa0c9ca780ac5d906356
-ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
+ms.openlocfilehash: 09ab154494ad3e1276239e36068255c2042358c5
+ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56958979"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58223823"
 ---
 # <a name="overview-azure-sql-database-managed-instance-resource-limits"></a>Limites de recursos de instância gerida da base de dados SQL do Azure de descrição geral
 
@@ -55,8 +55,8 @@ A instância gerida tem dois escalões de serviço - fins gerais e crítico para
 | Armazenamento máximo por base de dados | Determinado pelo tamanho de armazenamento máximo por instância | Determinado pelo tamanho de armazenamento máximo por instância |
 | Número máx. de bases de dados por instância | 100 | 100 |
 | Ficheiros de base de dados máximo por instância | Até 280 | 32.767 ficheiros por base de dados |
-| IOPS de dados/do registo (aproximado) | 500 - 7500 por arquivo<br/>\*[Depende do tamanho de ficheiro](https://docs.microsoft.com/azure/virtual-machines)| 11 mil - 110 mil (1,375 por vCore) |
-|Taxa de transferência do registo | 22 MB/s por instância | 3 MB/s por vCore<br/>Máx. de 48 MB/s por instância|
+| IOPS de dados/do registo (aproximado) | 500 - 7500 por arquivo<br/>\*[Depende do tamanho de ficheiro](https://docs.microsoft.com/azure/virtual-machines/windows/premium-storage-performance#premium-storage-disk-sizes)| 11 mil - 110 mil (1,375 por vCore) |
+| Taxa de transferência do registo | 22 MB/s por instância | 3 MB/s por vCore<br/>Máx. de 48 MB/s por instância|
 | Débito de dados (aproximado) | 100 - 250 MB/s por arquivo<br/>\*[Depende do tamanho de ficheiro](https://docs.microsoft.com/azure/virtual-machines/windows/premium-storage-performance#premium-storage-disk-sizes) | 24 - 48 MB/s por vCore |
 | Latência de e/s (aproximada) | 5-10 ms | 1-2 ms |
 | Tamanho máximo de tempDB | 192 - 1,920 GB (24 GB por vCore) | Sem restrições - limitadas pelo tamanho de armazenamento máximo da instância |
@@ -90,6 +90,9 @@ Tipos de subscrição de suporte podem conter um número limitado de recursos po
 - **Limite de sub-redes**: O número máximo de sub-redes em que as instâncias geridas são implementadas numa única região.
 - **Limite de número de instância**: O número máximo de instâncias que podem ser implementados numa única região.
 
+> [!Note]
+> Estes limites são as predefinições e limitações não técnicas. Os limites podem ser demanda aumentada através da criação especial [pedido de suporte no portal do Azure](#obtaining-a-larger-quota-for-sql-managed-instance) se precisar de mais instâncias geridas na região atual. Como alternativa, pode criar novas instâncias geridas noutra região do Azure sem enviar pedidos de suporte.
+
 Na tabela a seguir são apresentados limites regionais predefinidos para subscrições de suporte:
 
 |Tipo de subscrição| Número máx. de sub-redes de instância gerida | Número máximo de instâncias |Número máx. de GP geridos instâncias *|Número máx. de BC geridos instâncias *|
@@ -97,14 +100,14 @@ Na tabela a seguir são apresentados limites regionais predefinidos para subscri
 |"Pay-as-you-go"|1*|4*|4*|1*|
 |CSP |1*|4*|4*|1*|
 |Pay as you go programador/teste|1*|4*|4*|1*|
-|Enterprise Programador/Teste|1*|4*|4*|1*|
+|Enterprise Dev/Test|1*|4*|4*|1*|
 |EA|3**|12**|12**|3**|
 
 \* Pode optar por implementar 1 BC ou 4 instâncias GP numa sub-rede, para que o número total de "unidades de instância" na sub-rede nunca exceda 4.
 
 * * Máximo número de instâncias numa camada de serviço aplica-se se não houver nenhuma instância da outra camada de serviço. No caso de pretender ao combinar as instâncias de GP e BC na mesma sub-rede, utilize a secção seguinte como uma referência para as combinações permitidas. Como regra simple, o número total de sub-redes não pode exceder os 3 e o número total de unidades de instância não pode exceder os 12.
 
-Estes limites podem ser aumentados ao criar especial [pedido de suporte no portal do Azure](#obtaining-a-larger-quota-for-sql-managed-instance) se precisar de mais instâncias geridas na região atual. Como alternativa, pode criar novas instâncias geridas noutra região do Azure sem enviar pedidos de suporte.
+
 
 > [!IMPORTANT]
 > Quando planear as suas implementações, considere que uma instância de negócio críticos (BC) (devido a redundância adicionada) geralmente consome 4 x de uma instância de finalidade geral (GP) mais capacidade. Assim, para seus cálculos, 1 instância GP = 1 instância de unidade e a instância de 1 BC = 4 unidades de instância. Para simplificar a análise de consumo contra os limites predefinidos, resumir as unidades de instância em todas as sub-redes na região em que estão implementadas instâncias geridas e comparar os resultados com os limites de unidade de instância para o seu tipo de subscrição.

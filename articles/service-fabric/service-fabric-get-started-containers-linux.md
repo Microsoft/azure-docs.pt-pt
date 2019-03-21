@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 1/4/2019
 ms.author: aljo
-ms.openlocfilehash: fad06e56893e9a141e85d1212c342e3e040726d0
-ms.sourcegitcommit: 7f7c2fe58c6cd3ba4fd2280e79dfa4f235c55ac8
-ms.translationtype: MT
+ms.openlocfilehash: 78bf30c01bc240d4fc7439ab14868bf7be90b17e
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/25/2019
-ms.locfileid: "56805363"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57895836"
 ---
 # <a name="create-your-first-service-fabric-container-application-on-linux"></a>Criar a sua primeira aplicação de contentor do Service Fabric no Linux
 > [!div class="op_single_selector"]
@@ -162,7 +162,7 @@ docker push myregistry.azurecr.io/samples/helloworldapp
 ```
 
 ## <a name="package-the-docker-image-with-yeoman"></a>Empacotar a imagem do Docker com Yeoman
-O Service Fabric SDK para Linux inclui um gerador [Yeoman](http://yeoman.io/) que permite criar facilmente a sua aplicação e adicionar uma imagem de contentor. Vamos utilizar o Yeoman para criar uma aplicação com um único contentor do Docker, chamado *SimpleContainerApp*.
+O Service Fabric SDK para Linux inclui um gerador [Yeoman](https://yeoman.io/) que permite criar facilmente a sua aplicação e adicionar uma imagem de contentor. Vamos utilizar o Yeoman para criar uma aplicação com um único contentor do Docker, chamado *SimpleContainerApp*.
 
 Para criar uma aplicação de contentor do Service Fabric, abra uma janela de terminal e execute `yo azuresfcontainer`. 
 
@@ -301,8 +301,8 @@ Seguem-se os manifestos completos do serviço e da aplicação utilizados neste 
 <ServiceManifest Name="myservicePkg"
                  Version="1.0.0"
                  xmlns="http://schemas.microsoft.com/2011/01/fabric"
-                 xmlns:xsd="http://www.w3.org/2001/XMLSchema"
-                 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+                 xmlns:xsd="https://www.w3.org/2001/XMLSchema"
+                 xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance">
   <ServiceTypes>
     <!-- This is the name of your ServiceType.
          The UseImplicitHost attribute indicates this is a guest service. -->
@@ -347,8 +347,8 @@ Seguem-se os manifestos completos do serviço e da aplicação utilizados neste 
 <ApplicationManifest ApplicationTypeName="mycontainerType"
                      ApplicationTypeVersion="1.0.0"
                      xmlns="http://schemas.microsoft.com/2011/01/fabric"
-                     xmlns:xsd="http://www.w3.org/2001/XMLSchema"
-                     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+                     xmlns:xsd="https://www.w3.org/2001/XMLSchema"
+                     xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance">
   <!-- Import the ServiceManifest from the ServicePackage. The ServiceManifestName and ServiceManifestVersion 
        should match the Name and Version attributes of the ServiceManifest element defined in the 
        ServiceManifest.xml file. -->

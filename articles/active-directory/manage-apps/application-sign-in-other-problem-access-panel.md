@@ -16,12 +16,12 @@ ms.date: 07/11/2017
 ms.author: celested
 ms.reviewer: japere
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 52f8e20cb66fb9c516435dd40ff7e362567bb338
-ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
+ms.openlocfilehash: 691022762e63687c298090c02f486993b4fd77a5
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56310870"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58076875"
 ---
 # <a name="problems-signing-in-to-an-application-from-the-access-panel"></a>Problemas ao iniciar sessão a uma aplicação a partir do painel de acesso
 
@@ -145,25 +145,25 @@ Após um curto período, pode ver o painel de configuração do aplicativo.
 
 Para configurar o início de sessão único para uma aplicação, siga os passos abaixo:
 
-1.  <span id="_Hlk477187909" class="anchor"><span id="_Hlk477001983" class="anchor"></span></span>Abra o [ **portal do Azure** ](https://portal.azure.com/) e inicie sessão como um **Administrador Global** ou **Coadministrador.**
+1. <span id="_Hlk477187909" class="anchor"><span id="_Hlk477001983" class="anchor"></span></span>Abra o [ **portal do Azure** ](https://portal.azure.com/) e inicie sessão como um **Administrador Global** ou **Coadministrador.**
 
-2.  Abra o **extensão do Active Directory do Azure** ao clicar em **todos os serviços** na parte superior do menu de navegação esquerdo principal.
+2. Abra o **extensão do Active Directory do Azure** ao clicar em **todos os serviços** na parte superior do menu de navegação esquerdo principal.
 
-3.  Escreva **"Azure Active Directory**" na caixa de pesquisa de filtro e selecione o **Azure Active Directory** item.
+3. Escreva **"Azure Active Directory**" na caixa de pesquisa de filtro e selecione o **Azure Active Directory** item.
 
-4.  Clique em **aplicações empresariais** no menu de navegação do lado esquerdo do Azure Active Directory.
+4. Clique em **aplicações empresariais** no menu de navegação do lado esquerdo do Azure Active Directory.
 
-5.  Clique em **todos os aplicativos** para ver uma lista de todas as suas aplicações.
+5. Clique em **todos os aplicativos** para ver uma lista de todas as suas aplicações.
 
-  * Se não vir a aplicação que quer mostrar aqui, utilize o **filtro** na parte superior do **todas as listas de aplicações** e defina o **mostrar** a opção de **todos os Aplicações.**
+   * Se não vir a aplicação que quer mostrar aqui, utilize o **filtro** na parte superior do **todas as listas de aplicações** e defina o **mostrar** a opção de **todos os Aplicações.**
 
-6.  Selecione a aplicação que pretende configurar o início de sessão único.
+6. Selecione a aplicação que pretende configurar o início de sessão único.
 
-7.  Assim que o aplicativo é carregado, clique nas **início de sessão único** no menu de navegação do lado esquerdo da aplicação.
+7. Assim que o aplicativo é carregado, clique nas **início de sessão único** no menu de navegação do lado esquerdo da aplicação.
 
-8.  Selecione **baseado em SAML logon** da **modo** lista pendente.
+8. Selecione **baseado em SAML logon** da **modo** lista pendente.
 
-9.  Introduza os valores necessários no **domínio e URLs.** Deve obter estes valores do fabricante da aplicação.
+9. Introduza os valores necessários no **domínio e URLs.** Deve obter estes valores do fabricante da aplicação.
 
    1. Para configurar a aplicação como SSO iniciado por SP, o URL de início de sessão é um valor obrigatório. Para alguns aplicativos, o identificador é também um valor obrigatório.
 
@@ -175,11 +175,11 @@ Para configurar o início de sessão único para uma aplicação, siga os passos
 
 12. **Opcional:** clique em **ver e editar todos os outros atributos de utilizador** para editar os atributos a serem enviados para a aplicação no SAML token, quando os utilizadores iniciam sessão.
 
-   Para adicionar um atributo:
+    Para adicionar um atributo:
 
-   1. Clique em **adicionar atributo**. Introduza o **Name** e selecione o **valor** na lista pendente.
+    1. Clique em **adicionar atributo**. Introduza o **Name** e selecione o **valor** na lista pendente.
 
-   2. Clique em **guardar.** O atributo novo é apresentado na tabela.
+    2. Clique em **guardar.** O atributo novo é apresentado na tabela.
 
 13. Clique em **configurar &lt;nome da aplicação&gt;**  para aceda à documentação sobre como configurar o início de sessão único no aplicativo. Além disso, tem os URLs de metadados e o certificado necessário para configurar o SSO com a aplicação.
 
@@ -191,30 +191,30 @@ Para configurar o início de sessão único para uma aplicação, siga os passos
 
 Para selecionar o identificador de utilizador ou adicionar atributos de utilizador, siga os passos abaixo:
 
-1.  Abra o [ **portal do Azure** ](https://portal.azure.com/) e inicie sessão como um **Administrador Global** ou **Coadministrador.**
+1. Abra o [ **portal do Azure** ](https://portal.azure.com/) e inicie sessão como um **Administrador Global** ou **Coadministrador.**
 
-2.  Abra o **extensão do Active Directory do Azure** ao clicar em **todos os serviços** na parte superior do menu de navegação esquerdo principal.
+2. Abra o **extensão do Active Directory do Azure** ao clicar em **todos os serviços** na parte superior do menu de navegação esquerdo principal.
 
-3.  Escreva **"Azure Active Directory**" na caixa de pesquisa de filtro e selecione o **Azure Active Directory** item.
+3. Escreva **"Azure Active Directory**" na caixa de pesquisa de filtro e selecione o **Azure Active Directory** item.
 
-4.  Clique em **aplicações empresariais** no menu de navegação do lado esquerdo do Azure Active Directory.
+4. Clique em **aplicações empresariais** no menu de navegação do lado esquerdo do Azure Active Directory.
 
-5.  Clique em **todos os aplicativos** para ver uma lista de todas as suas aplicações.
+5. Clique em **todos os aplicativos** para ver uma lista de todas as suas aplicações.
 
-  * Se não vir a aplicação que pretende apresentadas aqui, utilize o **filtro** na parte superior do **todas as listas de aplicações** e defina o **mostrar** a opção de  **Todas as aplicações.**
+   * Se não vir a aplicação que pretende apresentadas aqui, utilize o **filtro** na parte superior do **todas as listas de aplicações** e defina o **mostrar** a opção de  **Todas as aplicações.**
 
-6.  Selecione a aplicação tiver configurado o início de sessão único.
+6. Selecione a aplicação tiver configurado o início de sessão único.
 
-7.  Assim que o aplicativo é carregado, clique nas **início de sessão único** no menu de navegação do lado esquerdo da aplicação.
+7. Assim que o aplicativo é carregado, clique nas **início de sessão único** no menu de navegação do lado esquerdo da aplicação.
 
-8.  Sob o **atributos de utilizador** secção, selecione o identificador exclusivo para os seus utilizadores no **identificador de utilizador** lista pendente. A opção selecionada tem de corresponder ao valor esperado na aplicação para autenticar o utilizador.
+8. Sob o **atributos de utilizador** secção, selecione o identificador exclusivo para os seus utilizadores no **identificador de utilizador** lista pendente. A opção selecionada tem de corresponder ao valor esperado na aplicação para autenticar o utilizador.
 
-    >[!NOTE]
-    >O Azure AD selecionar o formato para o atributo NameID (identificador de utilizador) com base no valor selecionado ou o formato de pedido com o aplicativo em AuthRequest o SAML. Para obter mais informações, visite o artigo [protocolo SAML de início de sessão único](https://docs.microsoft.com/azure/active-directory/develop/active-directory-single-sign-on-protocol-reference#authnrequest) na secção NameIDPolicy.
-    >
-    >
+   >[!NOTE]
+   >O Azure AD selecionar o formato para o atributo NameID (identificador de utilizador) com base no valor selecionado ou o formato de pedido com o aplicativo em AuthRequest o SAML. Para obter mais informações, visite o artigo [protocolo SAML de início de sessão único](https://docs.microsoft.com/azure/active-directory/develop/active-directory-single-sign-on-protocol-reference#authnrequest) na secção NameIDPolicy.
+   >
+   >
 
-9.  Para adicionar os atributos de utilizador, clique em **ver e editar todos os outros atributos de utilizador** para editar os atributos a serem enviados para a aplicação no SAML token, quando os utilizadores iniciam sessão.
+9. Para adicionar os atributos de utilizador, clique em **ver e editar todos os outros atributos de utilizador** para editar os atributos a serem enviados para a aplicação no SAML token, quando os utilizadores iniciam sessão.
 
    Para adicionar um atributo:
 
@@ -226,25 +226,25 @@ Para selecionar o identificador de utilizador ou adicionar atributos de utilizad
 
 Para transferir os metadados da aplicação ou o certificado do Azure AD, siga os passos abaixo:
 
-1.  Abra o [ **portal do Azure** ](https://portal.azure.com/) e inicie sessão como um **Administrador Global** ou **Coadministrador.**
+1. Abra o [ **portal do Azure** ](https://portal.azure.com/) e inicie sessão como um **Administrador Global** ou **Coadministrador.**
 
-2.  Abra o **extensão do Active Directory do Azure** ao clicar em **todos os serviços** na parte superior do menu de navegação esquerdo principal.
+2. Abra o **extensão do Active Directory do Azure** ao clicar em **todos os serviços** na parte superior do menu de navegação esquerdo principal.
 
-3.  Escreva **"Azure Active Directory**" na caixa de pesquisa de filtro e selecione o **Azure Active Directory** item.
+3. Escreva **"Azure Active Directory**" na caixa de pesquisa de filtro e selecione o **Azure Active Directory** item.
 
-4.  Clique em **aplicações empresariais** no menu de navegação do lado esquerdo do Azure Active Directory.
+4. Clique em **aplicações empresariais** no menu de navegação do lado esquerdo do Azure Active Directory.
 
-5.  Clique em **todos os aplicativos** para ver uma lista de todas as suas aplicações.
+5. Clique em **todos os aplicativos** para ver uma lista de todas as suas aplicações.
 
-  * Se não vir a aplicação que quer mostrar aqui, utilize o **filtro** na parte superior do **todas as listas de aplicações** e defina o **mostrar** a opção de **todos os Aplicações.**
+   * Se não vir a aplicação que quer mostrar aqui, utilize o **filtro** na parte superior do **todas as listas de aplicações** e defina o **mostrar** a opção de **todos os Aplicações.**
 
-6.  Selecione a aplicação tiver configurado o início de sessão único.
+6. Selecione a aplicação tiver configurado o início de sessão único.
 
-7.  Assim que o aplicativo é carregado, clique nas **início de sessão único** no menu de navegação do lado esquerdo da aplicação.
+7. Assim que o aplicativo é carregado, clique nas **início de sessão único** no menu de navegação do lado esquerdo da aplicação.
 
-8.  Aceda a **certificado de assinatura SAML** secção, em seguida, clique em **transferir** valor da coluna. Consoante o que o aplicativo requer configurar início de sessão único, verá a opção para transferir o XML de metadados ou o certificado.
+8. Aceda a **certificado de assinatura SAML** secção, em seguida, clique em **transferir** valor da coluna. Consoante o que o aplicativo requer configurar início de sessão único, verá a opção para transferir o XML de metadados ou o certificado.
 
-    O Azure AD não fornece um URL para obter os metadados. Os metadados só podem ser obtidos como um arquivo XML.
+   O Azure AD não fornece um URL para obter os metadados. Os metadados só podem ser obtidos como um arquivo XML.
 
 ## <a name="how-to-configure-federated-single-sign-on-for-a-non-gallery-application"></a>Como configurar o início de sessão único federado para uma aplicação de externas à Galeria
 
@@ -262,41 +262,41 @@ Para configurar uma aplicação de externas à galeria, tem de ter o Azure AD pr
 
 Para configurar o início de sessão único para uma aplicação que não esteja na galeria do Azure AD, siga os passos abaixo:
 
-1.  Abra o [ **portal do Azure** ](https://portal.azure.com/) e inicie sessão como um **Administrador Global** ou **Coadministrador.**
+1. Abra o [ **portal do Azure** ](https://portal.azure.com/) e inicie sessão como um **Administrador Global** ou **Coadministrador.**
 
-2.  Abra o **extensão do Active Directory do Azure** ao clicar em **todos os serviços** na parte superior do menu de navegação esquerdo principal.
+2. Abra o **extensão do Active Directory do Azure** ao clicar em **todos os serviços** na parte superior do menu de navegação esquerdo principal.
 
-3.  Escreva **"Azure Active Directory**" na caixa de pesquisa de filtro e selecione o **Azure Active Directory** item.
+3. Escreva **"Azure Active Directory**" na caixa de pesquisa de filtro e selecione o **Azure Active Directory** item.
 
-4.  Clique em **aplicações empresariais** no menu de navegação do lado esquerdo do Azure Active Directory.
+4. Clique em **aplicações empresariais** no menu de navegação do lado esquerdo do Azure Active Directory.
 
-5.  Clique nas **Add** botão no canto superior direito a **aplicações empresariais** painel.
+5. Clique nas **Add** botão no canto superior direito a **aplicações empresariais** painel.
 
-6.  Clique em **aplicação da Galeria não** no **adicionar sua própria aplicação** secção.
+6. Clique em **aplicação da Galeria não** no **adicionar sua própria aplicação** secção.
 
-7.  Introduza o nome do aplicativo na **nome** caixa de texto.
+7. Introduza o nome do aplicativo na **nome** caixa de texto.
 
-8.  Clique em **adicionar** botão, para adicionar a aplicação.
+8. Clique em **adicionar** botão, para adicionar a aplicação.
 
-9.  Assim que o aplicativo é carregado, clique nas **início de sessão único** no menu de navegação do lado esquerdo da aplicação.
+9. Assim que o aplicativo é carregado, clique nas **início de sessão único** no menu de navegação do lado esquerdo da aplicação.
 
 10. Selecione **baseado em SAML logon** no **modo** pendente
 
 11. Introduza os valores necessários no **domínio e URLs.** Deve obter estes valores do fabricante da aplicação.
 
-  1. Para configurar a aplicação como SSO iniciado por IdP, introduza o URL de resposta e o identificador.
+    1. Para configurar a aplicação como SSO iniciado por IdP, introduza o URL de resposta e o identificador.
 
-  2. **Opcional:** Para configurar a aplicação como SSO iniciado por SP, o URL de início de sessão é um valor obrigatório.
+    2. **Opcional:** Para configurar a aplicação como SSO iniciado por SP, o URL de início de sessão é um valor obrigatório.
 
 12. Na **atributos de utilizador**, selecione o identificador exclusivo para os seus utilizadores no **identificador de utilizador** lista pendente.
 
 13. **Opcional:** clique em **ver e editar todos os outros atributos de utilizador** para editar os atributos a serem enviados para a aplicação no SAML token, quando os utilizadores iniciam sessão.
 
-   Para adicionar um atributo:
+    Para adicionar um atributo:
 
-   1. Clique em **adicionar atributo**. Introduza o **Name** e selecione o **valor** na lista pendente.
+    1. Clique em **adicionar atributo**. Introduza o **Name** e selecione o **valor** na lista pendente.
 
-   2. Clique em **guardar.** O atributo novo é apresentado na tabela.
+    2. Clique em **guardar.** O atributo novo é apresentado na tabela.
 
 14. Clique em **configurar &lt;nome da aplicação&gt;**  para aceda à documentação sobre como configurar o início de sessão único no aplicativo. Além disso, terá de URLs do Azure AD e o certificado necessário para a aplicação.
 
@@ -304,30 +304,30 @@ Para configurar o início de sessão único para uma aplicação que não esteja
 
 Para selecionar o identificador de utilizador ou adicionar atributos de utilizador, siga os passos abaixo:
 
-1.  Abra o [ **portal do Azure** ](https://portal.azure.com/) e inicie sessão como um **Administrador Global** ou **Coadministrador.**
+1. Abra o [ **portal do Azure** ](https://portal.azure.com/) e inicie sessão como um **Administrador Global** ou **Coadministrador.**
 
-2.  Abra o **extensão do Active Directory do Azure** ao clicar em **todos os serviços** na parte superior do menu de navegação esquerdo principal.
+2. Abra o **extensão do Active Directory do Azure** ao clicar em **todos os serviços** na parte superior do menu de navegação esquerdo principal.
 
-3.  Escreva **"Azure Active Directory**" na caixa de pesquisa de filtro e selecione o **Azure Active Directory** item.
+3. Escreva **"Azure Active Directory**" na caixa de pesquisa de filtro e selecione o **Azure Active Directory** item.
 
-4.  Clique em **aplicações empresariais** no menu de navegação do lado esquerdo do Azure Active Directory.
+4. Clique em **aplicações empresariais** no menu de navegação do lado esquerdo do Azure Active Directory.
 
-5.  Clique em **todos os aplicativos** para ver uma lista de todas as suas aplicações.
+5. Clique em **todos os aplicativos** para ver uma lista de todas as suas aplicações.
 
-  * Se não vir a aplicação que quer mostrar aqui, utilize o **filtro** na parte superior do **todas as listas de aplicações** e defina o **mostrar** a opção de **todos os Aplicações.**
+   * Se não vir a aplicação que quer mostrar aqui, utilize o **filtro** na parte superior do **todas as listas de aplicações** e defina o **mostrar** a opção de **todos os Aplicações.**
 
-6.  Selecione a aplicação tiver configurado o início de sessão único.
+6. Selecione a aplicação tiver configurado o início de sessão único.
 
-7.  Assim que o aplicativo é carregado, clique nas **início de sessão único** no menu de navegação do lado esquerdo da aplicação.
+7. Assim que o aplicativo é carregado, clique nas **início de sessão único** no menu de navegação do lado esquerdo da aplicação.
 
-8.  Sob o **atributos de utilizador** secção, selecione o identificador exclusivo para os seus utilizadores no **identificador de utilizador** lista pendente. A opção selecionada tem de corresponder ao valor esperado na aplicação para autenticar o utilizador.
+8. Sob o **atributos de utilizador** secção, selecione o identificador exclusivo para os seus utilizadores no **identificador de utilizador** lista pendente. A opção selecionada tem de corresponder ao valor esperado na aplicação para autenticar o utilizador.
 
    >[!NOTE]
    >O Azure AD selecionar o formato para o atributo NameID (identificador de utilizador) com base no valor selecionado ou o formato de pedido com o aplicativo em AuthRequest o SAML. Para obter mais informações, visite o artigo [protocolo SAML de início de sessão único](https://docs.microsoft.com/azure/active-directory/develop/active-directory-single-sign-on-protocol-reference#authnrequest) na secção NameIDPolicy.
    >
    >
 
-9.  Para adicionar os atributos de utilizador, clique em **ver e editar todos os outros atributos de utilizador** para editar os atributos a serem enviados para a aplicação no SAML token, quando os utilizadores iniciam sessão.
+9. Para adicionar os atributos de utilizador, clique em **ver e editar todos os outros atributos de utilizador** para editar os atributos a serem enviados para a aplicação no SAML token, quando os utilizadores iniciam sessão.
 
    Para adicionar um atributo:
 
@@ -339,25 +339,25 @@ Para selecionar o identificador de utilizador ou adicionar atributos de utilizad
 
 Para transferir os metadados da aplicação ou o certificado do Azure AD, siga os passos abaixo:
 
-1.  Abra o [ **portal do Azure** ](https://portal.azure.com/) e inicie sessão como um **Administrador Global** ou **Coadministrador.**
+1. Abra o [ **portal do Azure** ](https://portal.azure.com/) e inicie sessão como um **Administrador Global** ou **Coadministrador.**
 
-2.  Abra o **extensão do Active Directory do Azure** ao clicar em **todos os serviços** na parte superior do menu de navegação esquerdo principal.
+2. Abra o **extensão do Active Directory do Azure** ao clicar em **todos os serviços** na parte superior do menu de navegação esquerdo principal.
 
-3.  Escreva **"Azure Active Directory**" na caixa de pesquisa de filtro e selecione o **Azure Active Directory** item.
+3. Escreva **"Azure Active Directory**" na caixa de pesquisa de filtro e selecione o **Azure Active Directory** item.
 
-4.  Clique em **aplicações empresariais** no menu de navegação do lado esquerdo do Azure Active Directory.
+4. Clique em **aplicações empresariais** no menu de navegação do lado esquerdo do Azure Active Directory.
 
-5.  Clique em **todos os aplicativos** para ver uma lista de todas as suas aplicações.
+5. Clique em **todos os aplicativos** para ver uma lista de todas as suas aplicações.
 
    * Se não vir a aplicação que quer mostrar aqui, utilize o **filtro** na parte superior do **todas as listas de aplicações** e defina o **mostrar** a opção de **todos os Aplicações.**
 
-6.  Selecione a aplicação tiver configurado o início de sessão único.
+6. Selecione a aplicação tiver configurado o início de sessão único.
 
-7.  Assim que o aplicativo é carregado, clique nas **início de sessão único** no menu de navegação do lado esquerdo da aplicação.
+7. Assim que o aplicativo é carregado, clique nas **início de sessão único** no menu de navegação do lado esquerdo da aplicação.
 
-8.  Aceda a **certificado de assinatura SAML** secção, em seguida, clique em **transferir** valor da coluna. Consoante o que o aplicativo requer configurar início de sessão único, verá a opção para transferir o XML de metadados ou o certificado.
+8. Aceda a **certificado de assinatura SAML** secção, em seguida, clique em **transferir** valor da coluna. Consoante o que o aplicativo requer configurar início de sessão único, verá a opção para transferir o XML de metadados ou o certificado.
 
-    O Azure AD não fornece um URL para obter os metadados. Os metadados só podem ser obtidos como um arquivo XML.
+   O Azure AD não fornece um URL para obter os metadados. Os metadados só podem ser obtidos como um arquivo XML.
 
 ## <a name="how-to-configure-password-single-sign-on-for-an-azure-ad-gallery-application"></a>Como configurar a palavra-passe início de sessão único para uma aplicação da galeria do Azure AD
 
@@ -395,25 +395,25 @@ Após um curto período, pode ver o painel de configuração do aplicativo.
 
 Para configurar o início de sessão único para uma aplicação, siga os passos abaixo:
 
-1.  Abra o [ **portal do Azure** ](https://portal.azure.com/) e inicie sessão como um **Administrador Global** ou **Coadministrador.**
+1. Abra o [ **portal do Azure** ](https://portal.azure.com/) e inicie sessão como um **Administrador Global** ou **Coadministrador.**
 
-2.  Abra o **extensão do Active Directory do Azure** ao clicar em **todos os serviços** na parte superior do menu de navegação esquerdo principal.
+2. Abra o **extensão do Active Directory do Azure** ao clicar em **todos os serviços** na parte superior do menu de navegação esquerdo principal.
 
-3.  Escreva **"Azure Active Directory**" na caixa de pesquisa de filtro e selecione o **Azure Active Directory** item.
+3. Escreva **"Azure Active Directory**" na caixa de pesquisa de filtro e selecione o **Azure Active Directory** item.
 
-4.  Clique em **aplicações empresariais** no menu de navegação do lado esquerdo do Azure Active Directory.
+4. Clique em **aplicações empresariais** no menu de navegação do lado esquerdo do Azure Active Directory.
 
-5.  Clique em **todos os aplicativos** para ver uma lista de todas as suas aplicações.
+5. Clique em **todos os aplicativos** para ver uma lista de todas as suas aplicações.
 
- * Se não vir a aplicação que quer mostrar aqui, utilize o **filtro** na parte superior do **todas as listas de aplicações** e defina o **mostrar** a opção de **todos os Aplicações.**
+   * Se não vir a aplicação que quer mostrar aqui, utilize o **filtro** na parte superior do **todas as listas de aplicações** e defina o **mostrar** a opção de **todos os Aplicações.**
 
-6.  Selecione a aplicação que pretende configurar o início de sessão único
+6. Selecione a aplicação que pretende configurar o início de sessão único
 
-7.  Assim que o aplicativo é carregado, clique nas **início de sessão único** no menu de navegação do lado esquerdo da aplicação.
+7. Assim que o aplicativo é carregado, clique nas **início de sessão único** no menu de navegação do lado esquerdo da aplicação.
 
-8.  Selecione o modo **baseado em palavra-passe de início de sessão.**
+8. Selecione o modo **baseado em palavra-passe de início de sessão.**
 
-9.  Atribua utilizadores à aplicação.
+9. Atribua utilizadores à aplicação.
 
 10. Além disso, também pode fornecer as credenciais em nome do utilizador ao selecionar as linhas dos utilizadores e clicar em **as credenciais de atualização** e introduzindo o nome de utilizador e palavra-passe em nome dos utilizadores. Caso contrário, ser pedido aos utilizadores para introduzir as credenciais durante a inicialização propriamente ditas.
 
@@ -449,25 +449,25 @@ Após um curto período, poderá ver o painel de configuração do aplicativo.
 
 Para configurar o início de sessão único para uma aplicação, siga os passos abaixo:
 
-1.  Abra o [ **portal do Azure** ](https://portal.azure.com/) e inicie sessão como um **Administrador Global** ou **Coadministrador.**
+1. Abra o [ **portal do Azure** ](https://portal.azure.com/) e inicie sessão como um **Administrador Global** ou **Coadministrador.**
 
-2.  Abra o **extensão do Active Directory do Azure** ao clicar em **todos os serviços** na parte superior do menu de navegação esquerdo principal.
+2. Abra o **extensão do Active Directory do Azure** ao clicar em **todos os serviços** na parte superior do menu de navegação esquerdo principal.
 
-3.  Escreva **"Azure Active Directory**" na caixa de pesquisa de filtro e selecione o **Azure Active Directory** item.
+3. Escreva **"Azure Active Directory**" na caixa de pesquisa de filtro e selecione o **Azure Active Directory** item.
 
-4.  Clique em **aplicações empresariais** no menu de navegação do lado esquerdo do Azure Active Directory.
+4. Clique em **aplicações empresariais** no menu de navegação do lado esquerdo do Azure Active Directory.
 
-5.  Clique em **todos os aplicativos** para ver uma lista de todas as suas aplicações.
+5. Clique em **todos os aplicativos** para ver uma lista de todas as suas aplicações.
 
- * Se não vir a aplicação que quer mostrar aqui, utilize o **filtro** na parte superior do **todas as listas de aplicações** e defina o **mostrar** a opção de **todos os Aplicações.**
+   * Se não vir a aplicação que quer mostrar aqui, utilize o **filtro** na parte superior do **todas as listas de aplicações** e defina o **mostrar** a opção de **todos os Aplicações.**
 
-6.  Selecione a aplicação que pretende configurar o início de sessão único.
+6. Selecione a aplicação que pretende configurar o início de sessão único.
 
-7.  Assim que o aplicativo é carregado, clique nas **início de sessão único** no menu de navegação do lado esquerdo da aplicação.
+7. Assim que o aplicativo é carregado, clique nas **início de sessão único** no menu de navegação do lado esquerdo da aplicação.
 
-8.  Selecione o modo **baseado em palavra-passe de início de sessão.**
+8. Selecione o modo **baseado em palavra-passe de início de sessão.**
 
-9.  Introduza o **URL de início de sessão**. Este é o URL em que os utilizadores introduzirem o respetivo nome de utilizador e palavra-passe para iniciar sessão. Certifique-se de que os campos de início de sessão são visíveis no URL.
+9. Introduza o **URL de início de sessão**. Este é o URL em que os utilizadores introduzirem o respetivo nome de utilizador e palavra-passe para iniciar sessão. Certifique-se de que os campos de início de sessão são visíveis no URL.
 
 10. Atribua utilizadores à aplicação.
 
@@ -477,25 +477,25 @@ Para configurar o início de sessão único para uma aplicação, siga os passos
 
 Para atribuir diretamente um ou mais utilizadores a uma aplicação, siga os passos abaixo:
 
-1.  Abra o [ **portal do Azure** ](https://portal.azure.com/) e inicie sessão como um **Administrador Global.**
+1. Abra o [ **portal do Azure** ](https://portal.azure.com/) e inicie sessão como um **Administrador Global.**
 
-2.  Abra o **extensão do Active Directory do Azure** ao clicar em **todos os serviços** na parte superior do menu de navegação esquerdo principal.
+2. Abra o **extensão do Active Directory do Azure** ao clicar em **todos os serviços** na parte superior do menu de navegação esquerdo principal.
 
-3.  Escreva **"Azure Active Directory**" na caixa de pesquisa de filtro e selecione o **Azure Active Directory** item.
+3. Escreva **"Azure Active Directory**" na caixa de pesquisa de filtro e selecione o **Azure Active Directory** item.
 
-4.  Clique em **aplicações empresariais** no menu de navegação do lado esquerdo do Azure Active Directory.
+4. Clique em **aplicações empresariais** no menu de navegação do lado esquerdo do Azure Active Directory.
 
-5.  Clique em **todos os aplicativos** para ver uma lista de todas as suas aplicações.
+5. Clique em **todos os aplicativos** para ver uma lista de todas as suas aplicações.
 
-  * Se não vir a aplicação que quer mostrar aqui, utilize o **filtro** na parte superior do **todas as listas de aplicações** e defina o **mostrar** a opção de **todos os Aplicações.**
+   * Se não vir a aplicação que quer mostrar aqui, utilize o **filtro** na parte superior do **todas as listas de aplicações** e defina o **mostrar** a opção de **todos os Aplicações.**
 
-6.  Selecione a aplicação que pretende atribuir um utilizador a partir da lista.
+6. Selecione a aplicação que pretende atribuir um utilizador a partir da lista.
 
-7.  Assim que o aplicativo é carregado, clique em **utilizadores e grupos** no menu de navegação do lado esquerdo da aplicação.
+7. Assim que o aplicativo é carregado, clique em **utilizadores e grupos** no menu de navegação do lado esquerdo da aplicação.
 
-8.  Clique nas **Add** botão na parte superior do **utilizadores e grupos** lista para abrir o **adicionar atribuição** painel.
+8. Clique nas **Add** botão na parte superior do **utilizadores e grupos** lista para abrir o **adicionar atribuição** painel.
 
-9.  Clique nas **utilizadores e grupos** Seletor da **adicionar atribuição** painel.
+9. Clique nas **utilizadores e grupos** Seletor da **adicionar atribuição** painel.
 
 10. Escreva o **nome completo** ou **endereço de e-mail** do utilizador estiver interessado em atribuir para o **procurar por nome ou endereço de e-mail** caixa de pesquisa.
 

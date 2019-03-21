@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 06/07/2018
 ms.author: renash
 ms.subservice: files
-ms.openlocfilehash: f12f5f1f7791fa09b07c3035db65f2f488f36d7f
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 93ba17c58dfcb5955bafbcc63655778903f60c18
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57776585"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58076348"
 ---
 # <a name="use-an-azure-file-share-with-windows"></a>Utilizar uma partilha de ficheiros do Azure com o Windows
 [Ficheiros do Azure](storage-files-introduction.md) é o sistema de ficheiros na cloud fácil de utilizar da Microsoft. As partilhas de ficheiros do Azure podem ser utilizadas de forma totalmente integrada no Windows e no Windows Server. Este artigo aborda as considerações relativas à utilização de uma partilha de ficheiros do Azure com o Windows e o Windows Server.
@@ -231,16 +231,16 @@ A tabela abaixo contém informações detalhadas sobre o estado de SMB 1 em cada
 
 | Versão do Windows                           | Estado predefinido de SMB 1 | Método de Desativação/Remoção       | 
 |-------------------------------------------|----------------------|-----------------------------|
-| Windows Server 2019 (pré-visualização)             | Desactivado             | Funcionalidade Remover com o Windows |
-| Windows Server, versões 1709+            | Desactivado             | Funcionalidade Remover com o Windows |
-| Windows 10, versões 1709+                | Desactivado             | Funcionalidade Remover com o Windows |
-| Windows Server 2016                       | Activado              | Funcionalidade Remover com o Windows |
-| Windows 10, versões 1507, 1607 e 1703 | Activado              | Funcionalidade Remover com o Windows |
-| Windows Server 2012 R2                    | Activado              | Funcionalidade Remover com o Windows | 
-| Windows 8.1                               | Activado              | Funcionalidade Remover com o Windows | 
-| Windows Server 2012                       | Activado              | Desativar com o Registo       | 
-| Windows Server 2008 R2                    | Activado              | Desativar com o Registo       |
-| Windows 7                                 | Activado              | Desativar com o Registo       | 
+| Windows Server 2019 (pré-visualização)             | Desativado             | Funcionalidade Remover com o Windows |
+| Windows Server, versões 1709+            | Desativado             | Funcionalidade Remover com o Windows |
+| Windows 10, versões 1709+                | Desativado             | Funcionalidade Remover com o Windows |
+| Windows Server 2016                       | Ativado              | Funcionalidade Remover com o Windows |
+| Windows 10, versões 1507, 1607 e 1703 | Ativado              | Funcionalidade Remover com o Windows |
+| Windows Server 2012 R2                    | Ativado              | Funcionalidade Remover com o Windows | 
+| Windows 8.1                               | Ativado              | Funcionalidade Remover com o Windows | 
+| Windows Server 2012                       | Ativado              | Desativar com o Registo       | 
+| Windows Server 2008 R2                    | Ativado              | Desativar com o Registo       |
+| Windows 7                                 | Ativado              | Desativar com o Registo       | 
 
 ### <a name="auditing-smb-1-usage"></a>Auditorias à utilização de SMB 1
 > Aplica-se a Windows Server 2019 (pré-visualização), canal semianual do Windows Server (versões 1709 e 1803), Windows Server 2016, Windows 10 (versões 1507, 1607, 1703, 1709 e 1803), Windows Server 2012 R2 e Windows 8.1
@@ -303,5 +303,5 @@ Depois de criar a chave de registo, tem de reiniciar o servidor para desativar o
 ## <a name="next-steps"></a>Passos Seguintes
 Veja estas ligações para obter mais informações sobre os Ficheiros do Azure:
 - [Planear uma implementação dos Ficheiros do Azure](storage-files-planning.md)
-* [FAQ](../storage-files-faq.md)
-* [Resolução de Problemas no Windows](storage-troubleshoot-windows-file-connection-problems.md)      
+- [FAQ](../storage-files-faq.md)
+- [Resolução de Problemas no Windows](storage-troubleshoot-windows-file-connection-problems.md)      

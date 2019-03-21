@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 04/26/2018
 ms.author: jingwang
-ms.openlocfilehash: ba268806dccb7c2671825c794383396a2ff20299
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: d86264b632daa09a899fae28e73e117b16322617
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57548818"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58121966"
 ---
 # <a name="copy-data-from-sap-ecc-using-azure-data-factory"></a>Copiar dados do SAP ECC com o Azure Data Factory
 
@@ -160,9 +160,9 @@ Para copiar dados do SAP ECC, defina o tipo de origem na atividade de cópia par
 Quando se copiam dados a partir do SAP ECC, são utilizados os seguintes mapeamentos entre tipos de dados do OData para dados do SAP ECC para tipos de dados intermediárias do Azure Data Factory. Ver [mapeamentos de tipo de esquema e dados](copy-activity-schema-and-type-mapping.md) para saber mais sobre como atividade de cópia mapeia o tipo de esquema e os dados de origem para o sink.
 
 | Tipo de dados do OData | Tipo de dados intermediárias de fábrica de dados |
-|:--- |:--- |:--- |
+|:--- |:--- |
 | Edm.Binary | String |
-| Edm.Boolean | Bool |
+| Edm.Boolean | Booleano |
 | Edm.Byte | String |
 | Edm.DateTime | DateTime |
 | Edm.Decimal | Decimal |

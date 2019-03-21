@@ -8,12 +8,12 @@ ms.subservice: gateway
 ms.topic: overview
 ms.date: 02/26/2019
 ms.author: alkohli
-ms.openlocfilehash: e6042d9a1d6dc0e737fb4cf7e55d2c6938f9b0f4
-ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
+ms.openlocfilehash: c07293971c4cadd8b7bccc608f69faa3baa19ba7
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56961054"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58100858"
 ---
 # <a name="troubleshoot-your-azure-data-box-gateway-issues"></a>Resolução de problemas do Azure Data Box Gateway 
 
@@ -67,16 +67,16 @@ Quaisquer erros ocorridos durante os processos de carregamento e atualização s
 
 2. Clique na _pasta Microsoft Data Box Gateway_. Esta pasta tem duas subpastas:
 
-    - A pasta de carregamentos, que inclui os ficheiros de registos com erros de carregamento.
-    - A pasta de atualizações para os erros durante a atualização.
+   - A pasta de carregamentos, que inclui os ficheiros de registos com erros de carregamento.
+   - A pasta de atualizações para os erros durante a atualização.
 
-    Eis um ficheiro de registo de exemplo para atualização.
+     Eis um ficheiro de registo de exemplo para atualização.
 
-    ```
-    <root container="brownbag1" machine="VM15BS020663" timestamp="07/18/2018 00:11:10" />
-    <file item="test.txt" local="False" remote="True" error="16001" />
-    <summary runtime="00:00:00.0945320" errors="1" creates="2" deletes="0" insync="3" replaces="0" pending="9" />
-    ``` 
+     ```
+     <root container="brownbag1" machine="VM15BS020663" timestamp="07/18/2018 00:11:10" />
+     <file item="test.txt" local="False" remote="True" error="16001" />
+     <summary runtime="00:00:00.0945320" errors="1" creates="2" deletes="0" insync="3" replaces="0" pending="9" />
+     ``` 
 
 3. Quando vir um erro neste ficheiro (realçado no exemplo), preste atenção ao código de erro, neste caso é 16001. Procure a descrição deste código de erro em relação à seguinte referência de erro.
 

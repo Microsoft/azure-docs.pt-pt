@@ -9,12 +9,12 @@ services: iot-hub
 ms.devlang: csharp
 ms.topic: conceptual
 ms.date: 08/08/2017
-ms.openlocfilehash: d87ca39eb27673be8d5cd0feece3eabe3e214de1
-ms.sourcegitcommit: 15e9613e9e32288e174241efdb365fa0b12ec2ac
+ms.openlocfilehash: 04850d16a9affc51bae5fbfb23fd4dff51a79340
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "57011097"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58089935"
 ---
 # <a name="create-an-iot-hub-using-the-resource-provider-rest-api-net"></a>Criar um hub IoT com o fornecedor de recursos REST API (.NET)
 
@@ -72,7 +72,7 @@ Para concluir este tutorial, precisa do seguinte:
     static string rgName = "{Resource group name}";
     static string iotHubName = "{IoT Hub name including your initials}";
     ```
-[!INCLUDE [iot-hub-pii-note-naming-hub](../../includes/iot-hub-pii-note-naming-hub.md)]
+   [!INCLUDE [iot-hub-pii-note-naming-hub](../../includes/iot-hub-pii-note-naming-hub.md)]
 
 [!INCLUDE [iot-hub-get-access-token](../../includes/iot-hub-get-access-token.md)]
 

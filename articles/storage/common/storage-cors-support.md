@@ -9,15 +9,15 @@ ms.topic: article
 ms.date: 2/22/2017
 ms.author: cbrooks
 ms.subservice: common
-ms.openlocfilehash: cf40fd45114659bf1a5da4dbaa6bfa928f34088c
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
-ms.translationtype: MT
+ms.openlocfilehash: bb1f4861f3867c592ecab86e85d3a4dfbab6738e
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55473770"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58002951"
 ---
 # <a name="cross-origin-resource-sharing-cors-support-for-the-azure-storage-services"></a>Recursos de várias origens (CORS) suporte para os serviços de armazenamento do Azure de partilha
-A partir da versão 2013-08-15, os serviços de armazenamento do Azure suportam Cross-Origin Resource Sharing (CORS) para os serviços de Blob, tabela, fila e ficheiro. CORS é uma funcionalidade HTTP que permite que uma aplicação web em execução num domínio aceder a recursos em outro domínio. Navegadores da Web implementam uma restrição de segurança, conhecida como [política de mesma origem](http://www.w3.org/Security/wiki/Same_Origin_Policy) que impede que uma página da web de chamar APIs num domínio diferente; CORS fornece uma forma segura de permitir que um domínio (o domínio de origem) chame APIs de outro domínio. Consulte a [especificação CORS](http://www.w3.org/TR/cors/) para obter detalhes sobre o CORS.
+A partir da versão 2013-08-15, os serviços de armazenamento do Azure suportam Cross-Origin Resource Sharing (CORS) para os serviços de Blob, tabela, fila e ficheiro. CORS é uma funcionalidade HTTP que permite que uma aplicação web em execução num domínio aceder a recursos em outro domínio. Navegadores da Web implementam uma restrição de segurança, conhecida como [política de mesma origem](https://www.w3.org/Security/wiki/Same_Origin_Policy) que impede que uma página da web de chamar APIs num domínio diferente; CORS fornece uma forma segura de permitir que um domínio (o domínio de origem) chame APIs de outro domínio. Consulte a [especificação CORS](https://www.w3.org/TR/cors/) para obter detalhes sobre o CORS.
 
 Pode definir as regras CORS individualmente para cada um dos serviços de armazenamento, ao chamar [definir propriedades do serviço Blob](https://msdn.microsoft.com/library/hh452235.aspx), [definir propriedades do serviço de fila](https://msdn.microsoft.com/library/hh452232.aspx), e [definir propriedades do serviço tabela](https://msdn.microsoft.com/library/hh452240.aspx). Depois de definir as regras CORS para o serviço, em seguida, um pedido devidamente autorizado efetuado para o serviço a partir de um domínio diferente será avaliado para determinar se é permitido de acordo com as regras que especificou.
 
@@ -29,7 +29,7 @@ Pode definir as regras CORS individualmente para cada um dos serviços de armaze
 ## <a name="understanding-cors-requests"></a>Noções básicas sobre solicitações CORS
 Uma solicitação CORS de um domínio de origem pode consistir em dois pedidos separados:
 
-* Uma solicitação de simulação, que consulta as restrições de CORS impostas pelo serviço. Solicitação de simulação é necessária, a menos que o método de pedido é uma [método simples](http://www.w3.org/TR/cors/), ou seja, GET, HEAD ou POST.
+* Uma solicitação de simulação, que consulta as restrições de CORS impostas pelo serviço. Solicitação de simulação é necessária, a menos que o método de pedido é uma [método simples](https://www.w3.org/TR/cors/), ou seja, GET, HEAD ou POST.
 * O pedido real, feito contra o recurso pretendido.
 
 ### <a name="preflight-request"></a>Solicitação de simulação
@@ -129,7 +129,7 @@ Em seguida, considere os seguintes pedidos CORS:
 
 | Pedir |  |  | Resposta |  |
 | --- | --- | --- | --- | --- |
-| **Método** |**Origem** |**Cabeçalhos de pedido** |**Correspondência de regra** |**Resultado** |
+| **Método** |**Origem** |**Cabeçalhos dos Pedidos** |**Correspondência de regra** |**Resultado** |
 | **PUT** |http://www.contoso.com |x-ms-blob-content-type |Primeira regra |Êxito |
 | **GET** |http://www.contoso.com |x-ms-blob-content-type |Segunda regra |Êxito |
 | **GET** |http://www.contoso.com |x-ms-client-request-id |Segunda regra |Falha |
@@ -146,7 +146,7 @@ O pedido de terceiro corresponde a segunda regra no seu domínio de origem e o m
 > 
 
 ## <a name="understanding-how-the-vary-header-is-set"></a>Compreender a forma como o cabeçalho de podem variar está definido
-O *podem variar* cabeçalho é um padrão cabeçalho HTTP/1.1 consiste num conjunto de campos de cabeçalho de pedido aconselhe o agente de utilizador ou de navegador sobre os critérios que foram selecionados pelo servidor para processar o pedido. O *podem variar* cabeçalho é usado principalmente para colocação em cache por proxies, navegadores e CDNs, o que utilizam para saber como a resposta deve ser colocado em cache. Para obter detalhes, consulte as especificações para o [cabeçalho podem variar](http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html).
+O *podem variar* cabeçalho é um padrão cabeçalho HTTP/1.1 consiste num conjunto de campos de cabeçalho de pedido aconselhe o agente de utilizador ou de navegador sobre os critérios que foram selecionados pelo servidor para processar o pedido. O *podem variar* cabeçalho é usado principalmente para colocação em cache por proxies, navegadores e CDNs, o que utilizam para saber como a resposta deve ser colocado em cache. Para obter detalhes, consulte as especificações para o [cabeçalho podem variar](https://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html).
 
 Quando o navegador ou outro agente de utilizador coloca em cache a resposta de um pedido CORS, o domínio de origem é colocado em cache, como a origem permitida. Quando um segundo domínio emite o mesmo pedido para um recurso de armazenamento, enquanto a cache estiver ativa, o agente do usuário obtém o domínio de origem em cache. Segundo domínio não corresponde ao domínio em cache, para que o pedido falha quando-caso contrário, serão bem-sucedidas. Em certos casos, o armazenamento do Azure define o cabeçalho de podem variar **origem** para instruir o agente de utilizador para enviar o pedido CORS subsequente ao serviço quando o domínio solicitante é diferente da origem em cache.
 
@@ -162,7 +162,7 @@ Tenha em atenção que para pedidos através de métodos que não seja GET/HEAD,
 A tabela seguinte indica como o Azure storage responderão aos pedidos GET/HEAD com base nos casos de mencionadas anteriormente:
 
 | Pedir | Definição da conta e o resultado da avaliação da regra |  |  | Resposta |  |  |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| --- | --- | --- | --- | --- | --- | --- |
 | **Cabeçalho de origem presente no pedido** |**CORS regra (s) especificado para este serviço** |**Existe de regra correspondente que permite que todos os origins(*)** |**Regra correspondente não existe para a correspondência de origem exato** |**A resposta inclui o cabeçalho de podem variar definido para a origem** |**A resposta inclui Access-Control-permitido-Origin: "*"** |**A resposta inclui Access-Control-expostos-Headers** |
 | Não |Não |Não |Não |Não |Não |Não |
 | Não |Sim |Não |Não |Sim |Não |Não |
@@ -184,5 +184,5 @@ Pedidos sem êxito de simulação não serão cobrados.
 
 [Definir as propriedades do serviço de tabela](https://msdn.microsoft.com/library/hh452240.aspx)
 
-[Especificação de partilha de recursos de várias origens de W3C](http://www.w3.org/TR/cors/)
+[Especificação de partilha de recursos de várias origens de W3C](https://www.w3.org/TR/cors/)
 
