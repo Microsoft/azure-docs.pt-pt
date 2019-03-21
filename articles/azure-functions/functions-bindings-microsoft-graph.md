@@ -9,12 +9,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 12/20/2017
 ms.author: cshoe
-ms.openlocfilehash: eb05d1b28b80cb7bf48bc1160c251936423763e6
-ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
+ms.openlocfilehash: f112bdf9eacf51852659ab49a5673b0c8bfb0e46
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56100803"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57997547"
 ---
 # <a name="microsoft-graph-bindings-for-azure-functions"></a>Enlaces do Microsoft Graph para as funções do Azure
 
@@ -354,12 +354,13 @@ A tabela seguinte explica as propriedades de configuração de ligação definid
 |**userToken**|**UserToken**|Se necessário e apenas se for _identidade_ está definida como `userFromToken`. Um token válido para a aplicação de funções. |
 |**path**|**Caminho**|Necessário - o caminho no OneDrive para o livro do Excel.|
 |**worksheetName**|**WorksheetName**|A folha de cálculo na qual é encontrada a tabela.|
-|**tableName**|**TableName**|O nome da tabela. Se não for especificado, será utilizado o conteúdo da folha de cálculo.|
+|**tableName**|**TableName**|Nome da tabela. Se não for especificado, será utilizado o conteúdo da folha de cálculo.|
 
 <a name="excel-input-code"></a>
 ### <a name="excel-input---usage"></a>Excel de entrada - utilização
 
 Este enlace requer as seguintes permissões do Azure AD:
+
 |Recurso|Permissão|
 |--------|--------|
 |Microsoft Graph|Ler ficheiros do utilizador|
@@ -515,13 +516,14 @@ A tabela seguinte explica as propriedades de configuração de ligação definid
 |**userToken**|**UserToken**|Se necessário e apenas se for _identidade_ está definida como `userFromToken`. Um token válido para a aplicação de funções. |
 |**path**|**Caminho**|Necessário - o caminho no OneDrive para o livro do Excel.|
 |**worksheetName**|**WorksheetName**|A folha de cálculo na qual é encontrada a tabela.|
-|**tableName**|**TableName**|O nome da tabela. Se não for especificado, será utilizado o conteúdo da folha de cálculo.|
+|**tableName**|**TableName**|Nome da tabela. Se não for especificado, será utilizado o conteúdo da folha de cálculo.|
 |**updateType**|**UpdateType**|Necessário - o tipo de alteração a fazer à tabela. Pode ser um dos seguintes valores:<ul><li><code>update</code> -Substitui o conteúdo da tabela no OneDrive.</li><li><code>append</code> -Adiciona o payload ao final da tabela no OneDrive com a criação de novas linhas.</li></ul>|
 
 <a name="excel-output-code"></a>
 ### <a name="excel-output---usage"></a>Excel de saída - utilização
 
 Este enlace requer as seguintes permissões do Azure AD:
+
 |Recurso|Permissão|
 |--------|--------|
 |Microsoft Graph|Tem acesso total aos ficheiros de utilizador|
@@ -664,6 +666,7 @@ A tabela seguinte explica as propriedades de configuração de ligação definid
 ### <a name="file-input---usage"></a>Ficheiro de entrada - utilização
 
 Este enlace requer as seguintes permissões do Azure AD:
+
 |Recurso|Permissão|
 |--------|--------|
 |Microsoft Graph|Ler ficheiros do utilizador|
@@ -671,7 +674,7 @@ Este enlace requer as seguintes permissões do Azure AD:
 O enlace expõe os seguintes tipos de funções de .NET:
 - byte[]
 - Transmitir em fluxo
-- cadeia
+- string
 - Microsoft.Graph.DriveItem
 
 
@@ -811,6 +814,7 @@ A tabela seguinte explica as propriedades de configuração de ligação definid
 #### <a name="file-output---usage"></a>Ficheiro de saída - utilização
 
 Este enlace requer as seguintes permissões do Azure AD:
+
 |Recurso|Permissão|
 |--------|--------|
 |Microsoft Graph|Tem acesso total aos ficheiros de utilizador|
@@ -818,7 +822,7 @@ Este enlace requer as seguintes permissões do Azure AD:
 O enlace expõe os seguintes tipos de funções de .NET:
 - byte[]
 - Transmitir em fluxo
-- cadeia
+- string
 - Microsoft.Graph.DriveItem
 
 
@@ -960,6 +964,7 @@ A tabela seguinte explica as propriedades de configuração de ligação definid
 ### <a name="outlook-output---usage"></a>Outlook de saída - utilização
 
 Este enlace requer as seguintes permissões do Azure AD:
+
 |Recurso|Permissão|
 |--------|--------|
 |Microsoft Graph|Enviar correio como utilizador|
@@ -967,7 +972,7 @@ Este enlace requer as seguintes permissões do Azure AD:
 O enlace expõe os seguintes tipos de funções de .NET:
 - Microsoft.Graph.Message
 - Newtonsoft.Json.Linq.JObject
-- cadeia
+- string
 - Tipos de objeto personalizado (usando a associação de modelo estruturais)
 
 
@@ -1397,7 +1402,7 @@ A tabela seguinte explica as propriedades de configuração de ligação definid
 ### <a name="webhook-output---usage"></a>Webhook de saída - utilização
 
 O enlace expõe os seguintes tipos de funções de .NET:
-- cadeia
+- string
 - Microsoft.Graph.Subscription
 
 

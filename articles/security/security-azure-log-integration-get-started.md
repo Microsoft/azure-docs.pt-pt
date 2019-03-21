@@ -15,12 +15,12 @@ ums.workload: na
 ms.date: 01/14/2019
 ms.author: barclayn
 ms.custom: azlog
-ms.openlocfilehash: 7e43af7d749719c2f69df9b53766c5452931884b
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 244b2d1764f30f790c3e51e23cd2fa0af6375960
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57542918"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57894381"
 ---
 # <a name="azure-log-integration-with-azure-diagnostics-logging-and-windows-event-forwarding"></a>Integração de registos do Azure com o registo de diagnósticos do Azure e o reencaminhamento de eventos do Windows
 
@@ -113,37 +113,37 @@ Depois de concluir a configuração básica, está pronto para executar etapas p
 1. Abra o PowerShell como um Administrador. Em seguida, vá para C:\Program Files\Microsoft Azure Log Integration.
 2. Importe os cmdlets de integração de registos do Azure. Para importar os cmdlets, execute o script `LoadAzlogModule.ps1`. ENTER `.\LoadAzlogModule.ps1`, e, em seguida, prima Enter (Observe o uso de **.\\**  neste comando). Deverá ver algo como o que é apresentado na figura a seguir:
 
-  ![Captura de ecrã da saída do comando LoadAzlogModule.ps1](./media/security-azure-log-integration-get-started/loaded-modules.png)
+   ![Captura de ecrã da saída do comando LoadAzlogModule.ps1](./media/security-azure-log-integration-get-started/loaded-modules.png)
 3. Em seguida, configure a integração de registos do Azure para utilizar um ambiente do Azure específico. Uma *ambiente do Azure* é o tipo de centro de dados de nuvem do Azure que pretende trabalhar com. Embora existam vários ambientes do Azure, atualmente, as opções relevantes são **AzureCloud** ou **AzureUSGovernment**. A executar o PowerShell como administrador, certifique-se de que está em C:\Program Files\Microsoft Azure Log Integration\. Em seguida, execute este comando:
 
-  `Set-AzlogAzureEnvironment -Name AzureCloud` (para **AzureCloud**)
+   `Set-AzlogAzureEnvironment -Name AzureCloud` (para **AzureCloud**)
   
-  Se pretender utilizar a cloud do Azure de Governo dos E.u.a., utilize **AzureUSGovernment** para o **-nome** variável. Atualmente, não são suportadas outras clouds do Azure.  
+   Se pretender utilizar a cloud do Azure de Governo dos E.u.a., utilize **AzureUSGovernment** para o **-nome** variável. Atualmente, não são suportadas outras clouds do Azure.  
 
-  > [!NOTE]
-  > Não receber comentários quando o comando for concluída com êxito. 
+   > [!NOTE]
+   > Não receber comentários quando o comando for concluída com êxito. 
 
 4. Antes de poder monitorizar um sistema, precisa do nome da conta de armazenamento que é utilizada para diagnóstico do Azure. No portal do Azure, aceda a **máquinas virtuais**. Procure por uma máquina virtual do Windows que irá monitorizar. Na **propriedades** secção, selecione **das definições de diagnóstico**.  Em seguida, selecione **agente**. Anote o nome da conta de armazenamento especificada. Precisa este nome de conta para um passo posterior.
 
-  ![Captura de ecrã do painel de definições de diagnóstico do Azure](./media/security-azure-log-integration-get-started/storage-account-large.png) 
+   ![Captura de ecrã do painel de definições de diagnóstico do Azure](./media/security-azure-log-integration-get-started/storage-account-large.png) 
 
-  ![Captura de ecrã de ativar botão de monitorização de ao nível do convidado](./media/security-azure-log-integration-get-started/azure-monitoring-not-enabled-large.png)
+   ![Captura de ecrã de ativar botão de monitorização de ao nível do convidado](./media/security-azure-log-integration-get-started/azure-monitoring-not-enabled-large.png)
 
-  > [!NOTE]
-  > Se a monitorização não foi ativada quando a máquina virtual foi criada, pode ativá-la conforme mostrado na imagem anterior.
+   > [!NOTE]
+   > Se a monitorização não foi ativada quando a máquina virtual foi criada, pode ativá-la conforme mostrado na imagem anterior.
 
 5. Agora, volte para a máquina de integração de registos do Azure. Certifique-se de que tem conectividade à conta de armazenamento do sistema onde instalou a integração de registos do Azure. O computador que executa o serviço de integração de registos do Azure precisa de aceder à conta de armazenamento para obter informações de diagnóstico do Azure, são registadas em cada um dos sistemas monitorados. Para verificar a conectividade: 
-  1. [Transfira o Explorador de armazenamento do Azure](http://storageexplorer.com/).
-  2. Concluir a configuração.
-  3. Quando a instalação estiver concluída, selecione **seguinte**. Deixe o **iniciar o Explorador de armazenamento do Microsoft Azure** caixa de verificação selecionada.  
-  4. Inicie sessão no Azure.
-  5. Certifique-se de que pode ver a conta de armazenamento que configurou para o diagnóstico do Azure: 
+   1. [Transfira o Explorador de armazenamento do Azure](https://storageexplorer.com/).
+   2. Concluir a configuração.
+   3. Quando a instalação estiver concluída, selecione **seguinte**. Deixe o **iniciar o Explorador de armazenamento do Microsoft Azure** caixa de verificação selecionada.  
+   4. Inicie sessão no Azure.
+   5. Certifique-se de que pode ver a conta de armazenamento que configurou para o diagnóstico do Azure: 
 
    ![Captura de ecrã das contas de armazenamento no Explorador de armazenamento](./media/security-azure-log-integration-get-started/storage-explorer.png)
 
-  6. Algumas opções são apresentados em contas de armazenamento. Sob **tabelas**, deverá ver uma tabela chamada **WADWindowsEventLogsTable**.
+   1. Algumas opções são apresentados em contas de armazenamento. Sob **tabelas**, deverá ver uma tabela chamada **WADWindowsEventLogsTable**.
 
-  Se a monitorização não foi ativada quando a máquina virtual foi criada, pode ativá-la, conforme descrito anteriormente.
+   Se a monitorização não foi ativada quando a máquina virtual foi criada, pode ativá-la, conforme descrito anteriormente.
 
 
 ## <a name="integrate-windows-vm-logs"></a>Integrar registos VM do Windows
@@ -156,36 +156,36 @@ Para concluir este passo, precisa de algumas coisas:
 * **StorageKey**: A chave de armazenamento para a conta de armazenamento onde as informações de diagnóstico do Azure são armazenadas para esta máquina virtual.  
 
 Para obter a chave de armazenamento, conclua os seguintes passos:
-1. Aceda ao [Portal do Azure](http://portal.azure.com).
+1. Aceda ao [Portal do Azure](https://portal.azure.com).
 2. No painel de navegação, selecione **todos os serviços**.
 3. Na **filtro** , introduza **armazenamento**. Em seguida, selecione **contas de armazenamento**.
 
-  ![Captura de ecrã que mostra as contas de armazenamento em todos os serviços](./media/security-azure-log-integration-get-started/filter.png)
+   ![Captura de ecrã que mostra as contas de armazenamento em todos os serviços](./media/security-azure-log-integration-get-started/filter.png)
 
 4. É apresentada uma lista de contas de armazenamento. Faça duplo clique a conta de que atribuiu para iniciar sessão de armazenamento.
 
-  ![Captura de ecrã que mostra uma lista de contas de armazenamento](./media/security-azure-log-integration-get-started/storage-accounts.png)
+   ![Captura de ecrã que mostra uma lista de contas de armazenamento](./media/security-azure-log-integration-get-started/storage-accounts.png)
 
 5. Em **Definições**, selecione **Chaves de acesso**.
 
-  ![Captura de ecrã que mostra a opção de chaves de acesso no menu](./media/security-azure-log-integration-get-started/storage-account-access-keys.png)
+   ![Captura de ecrã que mostra a opção de chaves de acesso no menu](./media/security-azure-log-integration-get-started/storage-account-access-keys.png)
 
 6. Cópia **chave1**e, em seguida, guarde-o numa localização segura que tem acesso para o passo seguinte.
 7. No servidor onde instalou a integração de registos do Azure, abra uma janela de linha de comandos como administrador. (Certifique-se de que abra uma janela de linha de comandos como administrador e não o PowerShell).
 8. Vá para C:\Program Files\Microsoft Azure Log Integration.
 9. Execute este comando: `Azlog source add <FriendlyNameForTheSource> WAD <StorageAccountName> <StorageKey>`.
  
-  Exemplo:
+   Exemplo:
   
-  `Azlog source add Azlogtest WAD Azlog9414 fxxxFxxxxxxxxywoEJK2xxxxxxxxxixxxJ+xVJx6m/X5SQDYc4Wpjpli9S9Mm+vXS2RVYtp1mes0t9H5cuqXEw==`
+   `Azlog source add Azlogtest WAD Azlog9414 fxxxFxxxxxxxxywoEJK2xxxxxxxxxixxxJ+xVJx6m/X5SQDYc4Wpjpli9S9Mm+vXS2RVYtp1mes0t9H5cuqXEw==`
 
-  Se pretender que o ID de subscrição sejam apresentados de evento XML, acrescente o ID de subscrição para o nome amigável:
+   Se pretender que o ID de subscrição sejam apresentados de evento XML, acrescente o ID de subscrição para o nome amigável:
 
-  `Azlog source add <FriendlyNameForTheSource>.<SubscriptionID> WAD <StorageAccountName> <StorageKey>`
+   `Azlog source add <FriendlyNameForTheSource>.<SubscriptionID> WAD <StorageAccountName> <StorageKey>`
   
-  Exemplo:
+   Exemplo:
   
-  `Azlog source add Azlogtest.YourSubscriptionID WAD Azlog9414 fxxxFxxxxxxxxywoEJK2xxxxxxxxxixxxJ+xVJx6m/X5SQDYc4Wpjpli9S9Mm+vXS2RVYtp1mes0t9H5cuqXEw==`
+   `Azlog source add Azlogtest.YourSubscriptionID WAD Azlog9414 fxxxFxxxxxxxxywoEJK2xxxxxxxxxixxxJ+xVJx6m/X5SQDYc4Wpjpli9S9Mm+vXS2RVYtp1mes0t9H5cuqXEw==`
 
 > [!NOTE]
 > Aguarde até 60 minutos e, em seguida, veja os eventos que são extraídos da conta de armazenamento. Para ver os eventos, na integração de registos do Azure, selecione **Visualizador de eventos** > **Windows registos** > **eventos reencaminhados**.
@@ -200,11 +200,11 @@ Se os dados não estão a aparecer na pasta eventos reencaminhados após uma hor
 
 1. Verifique a máquina que está a executar o serviço de integração de registos do Azure. Certifique-se que ele pode aceder ao Azure. Para testar a conectividade, num browser, experimente ir para o [portal do Azure](https://portal.azure.com).
 2. Certifique-se de que a conta de utilizador Azlog tem permissão de escrita para a pasta users\Azlog.
-  1. Abra o Explorador de Ficheiros.
-  2. Vá para c:\Users.
-  3. Com o botão direito C:\users\Azlog.
-  4. Selecione **segurança**.
-  5. Selecione **NT Service\Azlog**. Verifique as permissões para a conta. Se a conta está em falta a partir deste separador, ou se não apresentarem as permissões adequadas, pode conceder as permissões de conta neste separador.
+   1. Abra o Explorador de Ficheiros.
+   2. Vá para c:\Users.
+   3. Com o botão direito C:\users\Azlog.
+   4. Selecione **segurança**.
+   5. Selecione **NT Service\Azlog**. Verifique as permissões para a conta. Se a conta está em falta a partir deste separador, ou se não apresentarem as permissões adequadas, pode conceder as permissões de conta neste separador.
 3. Quando executa o comando `Azlog source list`, certifique-se de que a conta de armazenamento que foi adicionado no comando `Azlog source add` é listado no resultado.
 4. Para ver se algum erro forem comunicado a partir do serviço de integração de registos do Azure, aceda à **Visualizador de eventos** > **Windows registos** > **aplicação**.
 
@@ -224,15 +224,15 @@ O registo de atividades do Azure é um registo de subscrição que fornece infor
 2. Execute este comando:  ```azlog createazureid```
 
     Este comando pede-lhe o início de sessão do Azure. O comando, em seguida, cria um Azure Active Directory principal de serviço em inquilinos do Azure AD que alojam as subscrições do Azure em que o utilizador com sessão iniciada é um administrador, coadministrador ou um proprietário. O comando irá falhar se o utilizador com sessão iniciada é apenas um utilizador convidado no inquilino do Azure AD. Autenticação para o Azure é feita através do Azure AD. Criar um principal de serviço para o Azure Log Integration cria a identidade do Azure AD que é dado acesso ao ler a partir de subscrições do Azure.
-3.  Execute o seguinte comando para autorizar o principal de serviço do Azure Log Integration criado no acesso do passo anterior para a leitura do registo de atividades para a subscrição. Tem de ser um proprietário da subscrição para executar o comando.
+3. Execute o seguinte comando para autorizar o principal de serviço do Azure Log Integration criado no acesso do passo anterior para a leitura do registo de atividades para a subscrição. Tem de ser um proprietário da subscrição para executar o comando.
 
-    ```Azlog.exe authorize subscriptionId``` Exemplo:
+   ```Azlog.exe authorize subscriptionId``` Exemplo:
 
    ```AZLOG.exe authorize ba2c2367-d24b-4a32-17b5-4443234859```
 
-4.  Verifique as seguintes pastas para confirmar que os ficheiros JSON de registo de auditoria do Azure Active Directory são criados nos mesmos:
-    - C:\Users\azlog\AzureResourceManagerJson
-    - C:\Users\azlog\AzureResourceManagerJsonLD
+4. Verifique as seguintes pastas para confirmar que os ficheiros JSON de registo de auditoria do Azure Active Directory são criados nos mesmos:
+   - C:\Users\azlog\AzureResourceManagerJson
+   - C:\Users\azlog\AzureResourceManagerJsonLD
 
 > [!NOTE]
 > Para obter instruções específicas sobre trazer as informações dos ficheiros JSON para suas informações de segurança e o sistema de gestão (SIEM) de eventos, contacte o fornecedor SIEM.

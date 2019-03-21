@@ -14,12 +14,12 @@ ms.devlang: node
 ms.topic: article
 ms.date: 10/01/2016
 ms.author: crdun
-ms.openlocfilehash: 4e478c2559ac534f595393fdc36b95ad8e9c989a
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: 831f6b4bdc99e63859b390f8a9bb88d74301284e
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53725036"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57997541"
 ---
 # <a name="how-to-use-the-mobile-apps-nodejs-sdk"></a>Como utilizar o SDK de node. js de aplicações móveis
 
@@ -135,7 +135,7 @@ Visual Studio 2015 requer uma extensão para desenvolver aplicações node. js n
 
     Guarde o ficheiro.
 
-1. A executar a aplicação localmente (a API é atendida em http://localhost:3000) ou publicar no Azure.
+1. A executar a aplicação localmente (a API é atendida em `http://localhost:3000`) ou publicar no Azure.
 
 ### <a name="create-node-backend-portal"></a>Criar um back-end de node. js com o portal do Azure
 
@@ -198,7 +198,7 @@ O SDK do azure-mobile-apps node. js Server fornece mecanismos para expor as tabe
 | GET /tables/*tablename*/:id |Obter um registo específico na tabela. |
 | POST /tables/*tablename* |Crie um registo na tabela. |
 | PATCH /tables/*tablename*/:id |Atualize um registo na tabela. |
-| Eliminar /tables/*tablename*/:id |Elimine um registo na tabela. |
+| DELETE /tables/*tablename*/:id |Elimine um registo na tabela. |
 
 Esta API Web suporta [OData] e expande o esquema de tabela para suportar [sincronização de dados offline].
 
@@ -276,7 +276,7 @@ O Mobile Apps node. js SDK fornece três opções para satisfazer as necessidade
 * Utilize o **mssql** driver para fornecer um arquivo de dados SQL Server Express para o desenvolvimento.
 * Utilize o **mssql** driver para fornecer um arquivo de dados de base de dados do Azure SQL de produção.
 
-O Mobile Apps node. js SDK utiliza o [pacote de node. js mssql] para estabelecer e utilizar uma ligação ao SQL Server Express e base de dados SQL. Este pacote requer que ative as ligações de TCP na sua instância do SQL Server Express.
+O Mobile Apps node. js SDK utiliza o [mssql Node.js package] para estabelecer e utilizar uma ligação ao SQL Server Express e base de dados SQL. Este pacote requer que ative as ligações de TCP na sua instância do SQL Server Express.
 
 > [!TIP]
 > O driver de memória não fornece um conjunto completo de recursos para fins de teste. Se quiser testar seu back-end localmente, recomendamos a utilização de um arquivo de dados SQL Server Express e o driver mssql.
@@ -370,10 +370,10 @@ Recomendamos que adicione **azureMobile.js** para sua **. gitignore** arquivo (o
 
 A maioria das definições no ficheiro azureMobile.js tem uma definição de aplicação equivalente no [portal do Azure]. Utilize a lista seguinte para configurar a sua aplicação no **as definições da aplicação**:
 
-| Definição de aplicação | definição de azureMobile.js | Descrição | Valores válidos |
+| Definição de aplicação | azureMobile.js setting | Descrição | Valores válidos |
 |:--- |:--- |:--- |:--- |
-| **MS_MobileAppName** |nome |Nome da aplicação |cadeia |
-| **MS_MobileLoggingLevel** |Logging.level |Nível de registo mínimo de mensagens para iniciar sessão |erro, aviso, informações, verbosa, depuração, tolice |
+| **MS_MobileAppName** |nome |Nome da aplicação |string |
+| **MS_MobileLoggingLevel** |logging.level |Nível de registo mínimo de mensagens para iniciar sessão |erro, aviso, informações, verbosa, depuração, tolice |
 | **MS_DebugMode** |depurar |Ativa ou desativa o modo de depuração |VERDADEIRO, FALSO |
 | **MS_TableSchema** |data.schema |Nome do esquema padrão para tabelas SQL |cadeia de caracteres (predefinição: dbo) |
 | **MS_DynamicSchema** |data.dynamicSchema |Ativa ou desativa o modo de depuração |VERDADEIRO, FALSO |
@@ -988,7 +988,7 @@ Ao utilizar o portal do Azure, pode editar os ficheiros de script de back-end de
 [static-schema sample on GitHub]: https://github.com/azure/azure-mobile-apps-node/tree/master/samples/static-schema
 [QueryJS]: https://github.com/Azure/queryjs
 [Ferramentas do node. js 1.1 para o Visual Studio]: https://github.com/Microsoft/nodejstools/releases/tag/v1.1-RC.2.1
-[pacote de node. js MSSQL]: https://www.npmjs.com/package/mssql
+[mssql Node.js package]: https://www.npmjs.com/package/mssql
 [Microsoft SQL Server 2014 Express]: https://www.microsoft.com/en-us/server-cloud/Products/sql-server-editions/sql-server-express.aspx
 [ExpressJS middleware]: https://expressjs.com/guide/using-middleware.html
 [Winston]: https://github.com/winstonjs/winston

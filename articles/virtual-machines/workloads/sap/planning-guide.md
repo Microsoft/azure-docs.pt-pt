@@ -17,12 +17,12 @@ ms.workload: infrastructure-services
 ms.date: 02/05/2019
 ms.author: sedusch
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 873339750f4d9aa06607f1ba3ad3b97ea5ef68f3
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: b2ca3d42fd5facb226fd3ddea8c48decaafade85
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56883730"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58009498"
 ---
 # <a name="azure-virtual-machines-planning-and-implementation-for-sap-netweaver"></a>Máquinas de virtuais de planeamento e implementação para o SAP NetWeaver do Azure
 
@@ -156,7 +156,7 @@ ms.locfileid: "56883730"
 [deploy-template-portal]:../../../resource-group-template-deploy-portal.md
 [deploy-template-powershell]:../../../resource-group-template-deploy.md
 
-[dr-guide-classic]:http://go.microsoft.com/fwlink/?LinkID=521971
+[dr-guide-classic]:https://go.microsoft.com/fwlink/?LinkID=521971
 
 [getting-started]:get-started.md
 [getting-started-dbms]:get-started.md#1343ffe1-8021-4ce6-a08d-3a1553a4db82
@@ -170,7 +170,7 @@ ms.locfileid: "56883730"
 [getting-started-windows-classic-ha-sios]:../../virtual-machines-windows-classic-sap-get-started.md#4bb7512c-0fa0-4227-9853-4004281b1037
 [getting-started-windows-classic-planning]:../../virtual-machines-windows-classic-sap-get-started.md#f2a5e9d8-49e4-419e-9900-af783173481c
 
-[ha-guide-classic]:http://go.microsoft.com/fwlink/?LinkId=613056
+[ha-guide-classic]:https://go.microsoft.com/fwlink/?LinkId=613056
 
 [install-extension-cli]:virtual-machines-linux-enable-aem.md
 
@@ -452,7 +452,7 @@ Leia [este artigo] [ vpn-gateway-create-site-to-site-rm-powershell] para obter m
 >
 
 ### <a name="supported-os-and-database-releases"></a>Sistema operacional e as versões de base de dados suportados
-* Software de servidor Microsoft suportado para serviços de Máquina Virtual do Azure está listado neste artigo: <http://support.microsoft.com/kb/2721672>.
+* Software de servidor Microsoft suportado para serviços de Máquina Virtual do Azure está listado neste artigo: <https://support.microsoft.com/kb/2721672>.
 * Suporte para versões do sistema de operativo, versões de sistema de base de dados suportadas nos serviços de Máquina Virtual do Azure em conjunto com o SAP software estão documentadas na nota SAP [1928533].
 * Aplicações SAP e versões suportados nos serviços de Máquina Virtual do Azure estão documentados na nota SAP [1928533].
 * Imagens de 64 bits apenas são suportadas para executar como máquinas virtuais convidadas no Azure para cenários SAP. Como resultado, são suportadas aplicações de SAP apenas de 64 bits e de bases de dados.
@@ -579,7 +579,7 @@ A maioria das famílias de VM do Azure com certificação SAP são capazes de tr
 
 Se estiver dar uma olhada a parte das VMs de série DS no [deste artigo (Linux)] [ virtual-machines-sizes-linux] e [neste artigo (Windows)][virtual-machines-sizes-windows], percebe que Existem limitações de volume de dados para discos de armazenamento Premium na granularidade do nível da VM. Diferentes de séries de DS ou VMs da série GS também têm limitações de diferentes no que respeita ao número de discos de dados que podem ser montadas. Estes limites são documentados no artigo mencionado acima, também. Mas, essencialmente significa que, se, por exemplo, montar 32 x P30 discos para uma única VM DS14 não pode obter 32 x o débito máximo de um disco de P30. Em vez disso, o débito máximo no nível VM, conforme documentado no artigo limita a taxa de transferência de dados.
 
-Obter mais informações sobre o armazenamento Premium podem ser encontradas aqui: <http://azure.microsoft.com/blog/2015/04/16/azure-premium-storage-now-generally-available-2>
+Obter mais informações sobre o armazenamento Premium podem ser encontradas aqui: <https://azure.microsoft.com/blog/2015/04/16/azure-premium-storage-now-generally-available-2>
 
 #### <a name="azure-storage-accounts"></a>Contas de Armazenamento do Azure
 
@@ -751,7 +751,7 @@ Como uma árvore de decisão estimada para decidir se um sistema SAP se encaixa 
 
 **Passo 1**: As informações mais importantes para começar são o requisito de SAPS para um determinado sistema SAP. Os requisitos de SAPS precisam ser separado no DBMS e parte de aplicação SAP, mesmo que o sistema SAP já está a ser implementado no local numa configuração de camada 2. Para os sistemas existentes, SAPS relacionados com o hardware em utilização, muitas vezes, podem ser determinados ou estimadas com base em parâmetros de comparação SAP existentes. Os resultados podem ser encontrados aqui: <https://sap.com/about/benchmark.html>.
 Para sistemas SAP recentemente implementados, deve passar por um exercício de dimensionamento, o que deve determinar os requisitos de SAPS do sistema.
-Consulte também este blogue e o documento anexado para o dimensionamento de SAP no Azure: <http://blogs.msdn.com/b/saponsqlserver/archive/2015/12/01/new-white-paper-on-sizing-sap-solutions-on-azure-public-cloud.aspx>
+Consulte também este blogue e o documento anexado para o dimensionamento de SAP no Azure: <https://blogs.msdn.com/b/saponsqlserver/archive/2015/12/01/new-white-paper-on-sizing-sap-solutions-on-azure-public-cloud.aspx>
 
 **Passo 2**: Para os sistemas existentes, o volume de e/s e operações de e/s por segundo no servidor do DBMS devem ser medidas. Para sistemas recentemente planeados, o exercício de dimensionamento para o novo sistema também deve dar idéias aproximadas dos requisitos de e/s no lado do DBMS. Se não souber, eventualmente, terá de realizar uma prova de conceito.
 
@@ -801,7 +801,7 @@ Obter passos sobre como instalar, atualizar e configurar o Azure PowerShell cmdl
 
 Experiência do cliente até aqui foi que o PowerShell (PS), certamente, é a ferramenta mais potente para implementar VMs e criar passos personalizados na implementação de VMs. Todos os clientes a executar instâncias do SAP no Azure estão a utilizar os cmdlets de PS para complementar as tarefas de gestão que fazer no portal do Azure ou até mesmo estiver a utilizar os cmdlets de PS exclusivamente para gerir as respetivas implementações no Azure. Como os cmdlets específicos do Azure compartilham a mesma Convenção de nomenclatura, como os cmdlets relacionados com o Windows mais de 2000, é uma tarefa fácil para os administradores do Windows aproveitar esses cmdlets.
 
-Veja o exemplo aqui: <http://blogs.technet.com/b/keithmayer/archive/2015/07/07/18-steps-for-end-to-end-iaas-provisioning-in-the-cloud-with-azure-resource-manager-arm-powershell-and-desired-state-configuration-dsc.aspx>
+Veja o exemplo aqui: <https://blogs.technet.com/b/keithmayer/archive/2015/07/07/18-steps-for-end-to-end-iaas-provisioning-in-the-cloud-with-azure-resource-manager-arm-powershell-and-desired-state-configuration-dsc.aspx>
 
 [comment]: <> (Lista de tarefas MShermannd descrevem novo comando da CLI quando testado )
 Implementação da extensão de monitorização do Azure para SAP (consulte o capítulo [solução de monitorização do Azure para SAP] [ planning-guide-9.1] neste documento) só é possível através do PowerShell ou CLI. Por isso é obrigatório para definir e configurar o PowerShell ou a CLI ao implementar ou administrar um sistema SAP NetWeaver no Azure.  
@@ -1007,7 +1007,7 @@ Durante o período de tempo da transferência os VHDs ou os discos geridos não 
 
 #### <a name="powershell"></a>PowerShell
 
-  * Transferir um disco gerido  
+* Transferir um disco gerido  
   Tem primeiro de obter acesso ao blob subjacente do disco gerido. Em seguida, pode copiar o blob subjacente para uma nova conta de armazenamento e transferir o blob a partir desta conta de armazenamento.
 
   ```powershell
@@ -1022,7 +1022,7 @@ Durante o período de tempo da transferência os VHDs ou os discos geridos não 
   Revoke-AzureRmDiskAccess -ResourceGroupName <resource group> -DiskName <disk name>
   ```
 
-  * Transferir um VHD  
+* Transferir um VHD  
   Depois do sistema SAP está parado e a VM é encerrada, pode utilizar o cmdlet do PowerShell Save-AzureRmVhd no destino no local para transferir os discos VHD para o mundo no local. Para fazer isso, é necessário o URL do VHD, que pode ser encontrado na "secção armazenamento" do portal do Azure (é necessário navegar para a conta de armazenamento e o contentor de armazenamento onde o VHD foi criado) e precisa saber onde o VHD deve ser copiado para.
 
   Em seguida, pode aproveitar o comando, definindo o parâmetro SourceUri como o URL de VHD para transferir e a LocalFilePath como a localização física do VHD (incluindo o respetivo nome). O comando foi o seguinte aspeto:
@@ -1034,7 +1034,7 @@ Durante o período de tempo da transferência os VHDs ou os discos geridos não 
   Para obter mais detalhes sobre o cmdlet Save-AzureRmVhd, verifique aqui <https://docs.microsoft.com/powershell/module/azurerm.compute/save-azurermvhd>.
 
 #### <a name="azure-cli"></a>CLI do Azure
-  * Transferir um disco gerido  
+* Transferir um disco gerido  
   Tem primeiro de obter acesso ao blob subjacente do disco gerido. Em seguida, pode copiar o blob subjacente para uma nova conta de armazenamento e transferir o blob a partir desta conta de armazenamento.
   ```
   az disk grant-access --ids "/subscriptions/<subscription id>/resourceGroups/<resource group>/providers/Microsoft.Compute/disks/<disk name>" --duration-in-seconds 3600
@@ -1042,7 +1042,7 @@ Durante o período de tempo da transferência os VHDs ou os discos geridos não 
   az disk revoke-access --ids "/subscriptions/<subscription id>/resourceGroups/<resource group>/providers/Microsoft.Compute/disks/<disk name>"
   ```
 
-  * Transferir um VHD   
+* Transferir um VHD   
   Depois do sistema SAP está parado e a VM é encerrada, pode utilizar o comando da CLI do Azure _download de blob de armazenamento do azure_ no destino no local para transferir o VHD de discos de volta para o mundo no local. Para fazer isso, é necessário o nome e o contentor de VHD, o que pode ser encontrado na seção especiais de armazenamento do portal do Azure (é necessário navegar para a conta de armazenamento e o contentor de armazenamento onde o VHD foi criado) e precisa saber onde o VHD deverá ser cop ied para.
 
   Em seguida, pode aproveitar o comando, definindo o blob de parâmetros e contentor de VHD para o download e o destino como a localização de destino físico do VHD (incluindo o respetivo nome). O comando foi o seguinte aspeto:
@@ -1084,11 +1084,11 @@ az disk create --source "/subscriptions/<subscription id>/resourceGroups/<resour
 
 ##### <a name="azure-storage-tools"></a>Ferramentas de armazenamento do Azure
 
-* <http://storageexplorer.com/>
+* <https://storageexplorer.com/>
 
 As edições Professional do exploradores de armazenamento do Azure podem ser encontradas aqui:
 
-* <http://www.cerebrata.com/>
+* <https://www.cerebrata.com/>
 * <http://clumsyleaf.com/products/cloudxplorer>
 
 A cópia de um VHD numa conta de armazenamento em si é um processo, o que leva apenas alguns segundos (semelhante ao hardware de SAN, criação de instantâneos com a cópia lenta e copiar ao gravar). Depois de ter uma cópia do ficheiro VHD, pode anexá-lo a uma máquina virtual ou utilizá-la como uma imagem para anexar cópias do VHD para máquinas virtuais.
@@ -1326,7 +1326,7 @@ Ver a diferença de arquitetura entre ARM e o modelo clássico, conforme descrit
 
 #### <a name="configuration-of-the-sap-system-and-sap-gui-connectivity-over-the-internet"></a>Configuração da conetividade sistema SAP e SAP GUI através da internet
 
-Consulte este artigo, que descreve os detalhes a esse tópico: <http://blogs.msdn.com/b/saponsqlserver/archive/2014/06/24/sap-gui-connection-closed-when-connecting-to-sap-system-in-azure.aspx>
+Consulte este artigo, que descreve os detalhes a esse tópico: <https://blogs.msdn.com/b/saponsqlserver/archive/2014/06/24/sap-gui-connection-closed-when-connecting-to-sap-system-in-azure.aspx>
 
 #### <a name="changing-firewall-settings-within-vm"></a>Alterar as definições da Firewall na VM
 
@@ -1644,7 +1644,7 @@ Na tabela a seguir SAP típico portas de comunicação são listadas. Basicament
 
 **) sid = SAP-System-ID
 
-Informações mais detalhadas sobre as portas necessárias para diferentes produtos SAP ou serviços por produtos SAP podem ser encontrados aqui <http://scn.sap.com/docs/DOC-17124>.
+Informações mais detalhadas sobre as portas necessárias para diferentes produtos SAP ou serviços por produtos SAP podem ser encontrados aqui <https://scn.sap.com/docs/DOC-17124>.
 Com este documento, deve ser capaz de abrir portas dedicadas no dispositivo de VPN é necessário para cenários e produtos específicos do SAP.
 
 Outra segurança mede quando implementar VMs num cenário como esse poderia ser criar um [grupo de segurança de rede] [ virtual-networks-nsg] para definir as regras de acesso.
@@ -1718,7 +1718,7 @@ No Azure a capacidade dos serviços de ambiente de trabalho remoto para fornecer
 - - -
 > ![Windows][Logo_Windows] Windows
 >
-> Obter mais detalhes sobre impressão com o Windows podem ser encontradas aqui: <http://technet.microsoft.com/library/jj590748.aspx>.
+> Obter mais detalhes sobre impressão com o Windows podem ser encontradas aqui: <https://technet.microsoft.com/library/jj590748.aspx>.
 >
 >
 
@@ -1729,7 +1729,7 @@ A alteração do SAP e o sistema de transporte (TMS) tem de ser configurado para
 
 ##### <a name="configuring-the-transport-domain"></a>Configurar o domínio de transporte
 
-Configurar o seu domínio de transporte no sistema tiver designado como o controlador de domínio de transporte, conforme descrito em [configurar o controlador de domínio de transporte](http://help.sap.com/erp2005_ehp_04/helpdata/en/44/b4a0b47acc11d1899e0000e829fbbd/content.htm). Um utilizador de sistema que TMSADM será criado e o destino da RFC necessário serão gerados. Pode verificar estas ligações de RFC com a transação SM59. Resolução de nome de anfitrião tem de estar ativada no seu domínio de transporte.
+Configurar o seu domínio de transporte no sistema tiver designado como o controlador de domínio de transporte, conforme descrito em [configurar o controlador de domínio de transporte](https://help.sap.com/erp2005_ehp_04/helpdata/en/44/b4a0b47acc11d1899e0000e829fbbd/content.htm). Um utilizador de sistema que TMSADM será criado e o destino da RFC necessário serão gerados. Pode verificar estas ligações de RFC com a transação SM59. Resolução de nome de anfitrião tem de estar ativada no seu domínio de transporte.
 
 Como:
 
@@ -1742,12 +1742,12 @@ Como:
 
 A sequência de inclusão de um sistema SAP num domínio de transporte será semelhante ao seguinte:
 
-* No sistema de desenvolvimento no Azure, vá para o sistema de transporte (cliente 000) e chamar transação STMS. Escolher a configuração de outros na caixa de diálogo e continue com incluem o sistema no domínio. Especificar o controlador de domínio como anfitrião de destino ([incluindo sistemas de SAP no domínio transporte](http://help.sap.com/erp2005_ehp_04/helpdata/en/44/b4a0c17acc11d1899e0000e829fbbd/content.htm?frameset=/en/44/b4a0b47acc11d1899e0000e829fbbd/frameset.htm)). O sistema agora está a aguardar a serem incluídos no domínio de transporte.
+* No sistema de desenvolvimento no Azure, vá para o sistema de transporte (cliente 000) e chamar transação STMS. Escolher a configuração de outros na caixa de diálogo e continue com incluem o sistema no domínio. Especificar o controlador de domínio como anfitrião de destino ([incluindo sistemas de SAP no domínio transporte](https://help.sap.com/erp2005_ehp_04/helpdata/en/44/b4a0c17acc11d1899e0000e829fbbd/content.htm?frameset=/en/44/b4a0b47acc11d1899e0000e829fbbd/frameset.htm)). O sistema agora está a aguardar a serem incluídos no domínio de transporte.
 * Por motivos de segurança, em seguida, tem de voltar para o controlador de domínio para confirmar o seu pedido. Escolha a descrição geral do sistema e aprovar do sistema de espera. Em seguida, confirmar a linha de comandos e a configuração serão distribuídos.
 
 Este sistema SAP agora contém as informações necessárias sobre todos os outros sistemas SAP no domínio de transporte. Ao mesmo tempo, os dados de endereço do novo sistema SAP são enviados para todos os outros sistemas SAP e o sistema SAP é inserido no perfil de transporte do programa de controlo de transporte. Verifique se RFCs e acesso para o diretório de transporte do domínio de trabalho.
 
-Continuar com a configuração do seu sistema de transporte como de costume, tal como descrito na documentação do [alteração e o sistema de transporte](http://help.sap.com/saphelp_nw70ehp3/helpdata/en/48/c4300fca5d581ce10000000a42189c/content.htm?frameset=/en/44/b4a0b47acc11d1899e0000e829fbbd/frameset.htm).
+Continuar com a configuração do seu sistema de transporte como de costume, tal como descrito na documentação do [alteração e o sistema de transporte](https://help.sap.com/saphelp_nw70ehp3/helpdata/en/48/c4300fca5d581ce10000000a42189c/content.htm?frameset=/en/44/b4a0b47acc11d1899e0000e829fbbd/frameset.htm).
 
 Como:
 
@@ -1759,13 +1759,13 @@ Como:
 
 No site a site ligados em vários locais cenários, a latência entre locais e o Azure ainda podem ser substanciais. Se nós seguir a sequência de transportar objetos por meio de sistemas de desenvolvimento e teste para produção ou pense sobre como aplicar transportes ou pacotes de suporte para os diferentes sistemas, percebe que, dependente na localização do diretório central de transporte, Alguns dos sistemas irão se deparar com latência elevada ler ou escrever dados no diretório central de transporte. A situação é semelhante a configurações de paisagem SAP em que os diferentes sistemas encontram-se distribuídas por meio de centros de dados diferentes com substancial distância entre os centros de dados.
 
-Para contornar essa latência e ter os sistemas a trabalhar rapidamente em ler ou escrever ou do diretório de transporte, pode configurar dois domínios de transporte STMS (um para um com os sistemas no Azure e no local e vincular os domínios de transporte. Verifique esta documentação, que explica os princípios por trás desse conceito no TMS SAP: <http://help.sap.com/saphelp_me60/helpdata/en/c4/6045377b52253de10000009b38f889/content.htm?frameset=/en/57/38dd924eb711d182bf0000e829fbfe/frameset.htm>.
+Para contornar essa latência e ter os sistemas a trabalhar rapidamente em ler ou escrever ou do diretório de transporte, pode configurar dois domínios de transporte STMS (um para um com os sistemas no Azure e no local e vincular os domínios de transporte. Verifique esta documentação, que explica os princípios por trás desse conceito no TMS SAP: <https://help.sap.com/saphelp_me60/helpdata/en/c4/6045377b52253de10000009b38f889/content.htm?frameset=/en/57/38dd924eb711d182bf0000e829fbfe/frameset.htm>.
 
 Como:
 
-* Configurar um domínio de transporte em cada localização (no local e o Azure) com a transação STMS <http://help.sap.com/saphelp_nw70ehp3/helpdata/en/44/b4a0b47acc11d1899e0000e829fbbd/content.htm>
+* Configurar um domínio de transporte em cada localização (no local e o Azure) com a transação STMS <https://help.sap.com/saphelp_nw70ehp3/helpdata/en/44/b4a0b47acc11d1899e0000e829fbbd/content.htm>
 * Ligar os domínios com uma ligação de domínio e confirme a ligação entre os dois domínios.
-  <http://help.sap.com/saphelp_nw73ehp1/helpdata/en/a3/139838280c4f18e10000009b38f8cf/content.htm>
+  <https://help.sap.com/saphelp_nw73ehp1/helpdata/en/a3/139838280c4f18e10000009b38f8cf/content.htm>
 * Distribua a configuração para o sistema ligado.
 
 #### <a name="rfc-traffic-between-sap-instances-located-in-azure-and-on-premises-cross-premises"></a>Tráfego RFC entre instâncias do SAP localizado no Azure e no local (em vários locais)
@@ -1827,14 +1827,14 @@ A configuração de um Portal de SAP numa máquina Virtual não diferem de uma i
 
 Um cenário de implementação especial por alguns clientes é a exposição direta do Portal da empresa do SAP para a Internet, ao passo que o anfitrião de máquina virtual está ligado à rede da empresa através do túnel VPN de site a site ou ExpressRoute. Para um cenário, terá de certificar-se de que as portas específicas são abertos e não está bloqueado por grupo de segurança de rede ou firewall. 
 
-O URI de portal inicial é http (s):`<Portalserver`>: 5XX00/irj onde a porta é formada por mais de 50000 (Systemnumber?? 100). É o sistema de URI do SAP portal padrão 00 `<dns name`>.`<azure region` >.Cloudapp.azure.com:PublicPort/irj. Para obter mais detalhes, dê uma olhada <http://help.sap.com/saphelp_nw70ehp1/helpdata/de/a2/f9d7fed2adc340ab462ae159d19509/frameset.htm>.
+O URI de portal inicial é http (s):`<Portalserver`>: 5XX00/irj onde a porta é formada por mais de 50000 (Systemnumber?? 100). É o sistema de URI do SAP portal padrão 00 `<dns name`>.`<azure region` >.Cloudapp.azure.com:PublicPort/irj. Para obter mais detalhes, dê uma olhada <https://help.sap.com/saphelp_nw70ehp1/helpdata/de/a2/f9d7fed2adc340ab462ae159d19509/frameset.htm>.
 
 ![Configuração do ponto final][planning-guide-figure-2800]
 
 Se desejar personalizar o URL de e/ou as portas do Portal da empresa do SAP, veja esta documentação:
 
-* [URL do Portal de alteração](http://wiki.scn.sap.com/wiki/display/EP/Change+Portal+URL)
-* [Alterar os números de porta predefinidos, números de porta do Portal](http://wiki.scn.sap.com/wiki/display/NWTech/Change+Default++port+numbers%2C+Portal+port+numbers)
+* [URL do Portal de alteração](https://wiki.scn.sap.com/wiki/display/EP/Change+Portal+URL)
+* [Alterar os números de porta predefinidos, números de porta do Portal](https://wiki.scn.sap.com/wiki/display/NWTech/Change+Default++port+numbers%2C+Portal+port+numbers)
 
 ## <a name="high-availability-ha-and-disaster-recovery-dr-for-sap-netweaver-running-on-azure-virtual-machines"></a>Elevada disponibilidade (HA) e recuperação de desastre (DR) para o SAP NetWeaver em máquinas de virtuais do Azure em execução
 
@@ -1856,7 +1856,7 @@ O termo **elevada disponibilidade (HA)** é geralmente relacionadas a um conjunt
 
 e como pode ser combinada com a infraestrutura do Azure HA.
 
-Elevada disponibilidade do SAP no Azure tem algumas diferenças em comparação com elevada disponibilidade do SAP num ambiente no local físico ou virtual. O documento seguinte do SAP descreve as configurações padrão de elevada disponibilidade de SAP em ambientes virtualizados no Windows: <http://scn.sap.com/docs/DOC-44415>. Não existe nenhum sapinst integrada SAP-HA configuração para Linux, como ele existe para o Windows. Em relação a HA do SAP no local para Linux encontrar mais informações aqui: <http://scn.sap.com/docs/DOC-8541>.
+Elevada disponibilidade do SAP no Azure tem algumas diferenças em comparação com elevada disponibilidade do SAP num ambiente no local físico ou virtual. O documento seguinte do SAP descreve as configurações padrão de elevada disponibilidade de SAP em ambientes virtualizados no Windows: <https://scn.sap.com/docs/DOC-44415>. Não existe nenhum sapinst integrada SAP-HA configuração para Linux, como ele existe para o Windows. Em relação a HA do SAP no local para Linux encontrar mais informações aqui: <https://scn.sap.com/docs/DOC-8541>.
 
 ### <a name="azure-infrastructure-high-availability"></a>Elevada disponibilidade da infraestrutura do Azure
 
@@ -1877,7 +1877,7 @@ Existem dois tipos de eventos de plataforma do Azure que podem afetar a disponib
 * Eventos de manutenção planeada são atualizações periódicas feitas pela Microsoft na plataforma Azure subjacente para melhorar a confiabilidade, desempenho e segurança da infraestrutura de plataforma que suas máquinas virtuais são executadas em geral.
 * Eventos de manutenção não planeada ocorrerem quando o hardware ou a infraestrutura física subjacente à máquina virtual falharam de alguma forma. Isto pode incluir falhas de rede local, falhas de disco local ou outras falhas estruturais. Quando é detetada uma falha deste tipo, a plataforma do Azure será migrado automaticamente a máquina virtual do servidor físico mau estado de funcionamento que aloja a máquina virtual para um servidor físico em bom estado. Estes eventos são raros, mas também podem provocar o reinício da máquina virtual.
 
-Podem encontrar mais detalhes nesta documentação: <http://azure.microsoft.com/documentation/articles/virtual-machines-manage-availability>
+Podem encontrar mais detalhes nesta documentação: <https://azure.microsoft.com/documentation/articles/virtual-machines-manage-availability>
 
 #### <a name="azure-storage-redundancy"></a>Redundância de armazenamento do Azure
 
@@ -1885,7 +1885,7 @@ Os dados na sua conta de armazenamento do Microsoft Azure são sempre replicados
 
 Uma vez que o armazenamento do Azure é manter três imagens dos dados por predefinição, a RAID5 ou RAID1 em vários discos do Azure não são necessários.
 
-Podem encontrar mais detalhes neste artigo: <http://azure.microsoft.com/documentation/articles/storage-redundancy/>
+Podem encontrar mais detalhes neste artigo: <https://azure.microsoft.com/documentation/articles/storage-redundancy/>
 
 #### <a name="utilizing-azure-infrastructure-vm-restart-to-achieve-higher-availability-of-sap-applications"></a>Utilização de reinício VM de infraestrutura do Azure para alcançar a elevada disponibilidade de aplicações SAP
 
@@ -1944,7 +1944,7 @@ A implementar algumas instâncias de servidor de aplicações SAP em suas VMs de
 
 ![HA de servidores de aplicações SAP no Azure][planning-guide-figure-3000]
 
-Podem encontrar mais detalhes nesta documentação: <http://azure.microsoft.com/documentation/articles/virtual-machines-manage-availability>
+Podem encontrar mais detalhes nesta documentação: <https://azure.microsoft.com/documentation/articles/virtual-machines-manage-availability>
 
 #### <a name="high-availability-for-sap-central-services-on-azure"></a>Elevada disponibilidade para SAP Central Services no Azure
 
@@ -2004,7 +2004,7 @@ Para o perfil de início da instância do SAP ABAP e/ou Java.
 
 Ver informações adicionais sobre a inicialização automática para SAP instâncias aqui:
 
-* [Iniciar/parar SAP, juntamente com o seu servidor Unix iniciar/parar](http://scn.sap.com/community/unix/blog/2012/08/07/startstop-sap-along-with-your-unix-server-startstop)
+* [Iniciar/parar SAP, juntamente com o seu servidor Unix iniciar/parar](https://scn.sap.com/community/unix/blog/2012/08/07/startstop-sap-along-with-your-unix-server-startstop)
 * [Iniciar e parar os agentes de gestão do SAP NetWeaver](https://help.sap.com/saphelp_nwpi711/helpdata/en/49/9a15525b20423ee10000000a421938/content.htm)
 * [Como ativar automaticamente iniciar de base de dados HANA](http://www.freehanatutorials.com/2012/10/how-to-enable-auto-start-of-hana.html)
 
@@ -2047,7 +2047,7 @@ Outras VMs no sistema SAP podem ser copiadas de uso da funcionalidade de Backup 
 >
 > ![Linux][Logo_Linux] Linux
 >
-> Não existe nenhum equivalente para o Windows VSS no Linux. Por isso apenas as cópias de segurança consistente com ficheiros são cópias de segurança possíveis, mas não consistentes. A cópia de segurança do SAP DBMS deve ser feita usando a funcionalidade do DBMS. O sistema de ficheiros que inclui os dados relacionados com o SAP pode ser guardado, por exemplo, usando tar conforme descrito aqui: <http://help.sap.com/saphelp_nw70ehp2/helpdata/en/d3/c0da3ccbb04d35b186041ba6ac301f/content.htm>
+> Não existe nenhum equivalente para o Windows VSS no Linux. Por isso apenas as cópias de segurança consistente com ficheiros são cópias de segurança possíveis, mas não consistentes. A cópia de segurança do SAP DBMS deve ser feita usando a funcionalidade do DBMS. O sistema de ficheiros que inclui os dados relacionados com o SAP pode ser guardado, por exemplo, usando tar conforme descrito aqui: <https://help.sap.com/saphelp_nw70ehp2/helpdata/en/d3/c0da3ccbb04d35b186041ba6ac301f/content.htm>
 >
 >
 
@@ -2055,7 +2055,7 @@ Outras VMs no sistema SAP podem ser copiadas de uso da funcionalidade de Backup 
 
 Desde Mid 2014, extensões para vários componentes do Hyper-V, System Center e do Azure permitem a utilização do Azure como site de DR para as VMs em execução no local com base no Hyper-V.
 
-Um blog com detalhes sobre como implementar esta solução foi documentado aqui: <http://blogs.msdn.com/b/saponsqlserver/archive/2014/11/19/protecting-sap-solutions-with-azure-site-recovery.aspx>.
+Um blog com detalhes sobre como implementar esta solução foi documentado aqui: <https://blogs.msdn.com/b/saponsqlserver/archive/2014/11/19/protecting-sap-solutions-with-azure-site-recovery.aspx>.
 
 ## <a name="summary"></a>Resumo
 
