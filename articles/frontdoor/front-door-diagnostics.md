@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/18/2018
 ms.author: sharadag
-ms.openlocfilehash: d409d451385ba1f88189b12cf372845e70a87429
-ms.sourcegitcommit: 235cd1c4f003a7f8459b9761a623f000dd9e50ef
+ms.openlocfilehash: 5d4d591c465cae91c59e8f86ea9d3e421db0f952
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/11/2019
-ms.locfileid: "57726375"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58112114"
 ---
 # <a name="monitoring-metrics-for-front-door"></a>Métricas de monitorização para a porta de entrada
 
@@ -31,7 +31,7 @@ As métricas são uma funcionalidade para determinados recursos do Azure, onde p
 
 | Métrica | Nome a apresentar de métrica | Unidade | Dimensões | Descrição |
 | --- | --- | --- | --- | --- |
-| RequestCount | Contagem de pedidos | Contagem | HttpStatus</br>HttpStatusGroup</br>ClientRegion</br>ClientCountry | O número de pedidos de cliente servido por porta de entrada.  |
+| RequestCount | Número de Pedidos | Contagem | HttpStatus</br>HttpStatusGroup</br>ClientRegion</br>ClientCountry | O número de pedidos de cliente servido por porta de entrada.  |
 | RequestSize | Tamanho do pedido | Bytes | HttpStatus</br>HttpStatusGroup</br>ClientRegion</br>ClientCountry | O número de bytes enviados como pedidos de clientes para a porta de entrada. |
 | ResponseSize | Tamanho de resposta | Bytes | HttpStatus</br>HttpStatusGroup</br>ClientRegion</br>ClientCountry | O número de bytes enviados como respostas da porta de entrada para os clientes. |
 | TotalLatency | Latência total | Milissegundos | HttpStatus</br>HttpStatusGroup</br>ClientRegion</br>ClientCountry | O tempo calculado a partir do quando o pedido de cliente foi recebido por porta da frente até que o cliente confirmados o último byte de resposta de porta de entrada. |
@@ -54,12 +54,12 @@ Para ver registos de atividades:
 1. Selecione a sua instância de porta de entrada.
 2. Clique em **Registo de atividades**.
 
-    ![registo de atividade](./media/front-door-diagnostics/activity-log.png)
+    ![registo de atividades](./media/front-door-diagnostics/activity-log.png)
 
 3. Selecione o âmbito de filtragem pretendido e clique em **Aplicar**.
 
 ## <a name="diagnostic-logging"></a>Registos de diagnóstico
-Os registos de diagnóstico fornecem informações avançadas sobre operações e erros que são importantes para auditoria, bem como para fins de resolução de problemas. Os registos de diagnóstico diferem dos registos de atividades. Os registos de atividades fornecem informações aprofundadas sobre as operações executadas nos recursos do Azure. Os registos de diagnóstico fornecem informações aprofundadas sobre as operações executadas pelo recurso. Saiba mais sobre [registos de diagnóstico do Azure Monitor](..\azure-monitor\platform\diagnostic-logs-overview.md). 
+Os registos de diagnóstico fornecem informações avançadas sobre operações e erros que são importantes para auditoria, bem como para fins de resolução de problemas. Os registos de diagnóstico diferem dos registos de atividades. Os registos de atividades fornecem informações aprofundadas sobre as operações executadas nos recursos do Azure. Os registos de diagnóstico fornecem informações aprofundadas sobre as operações executadas pelo recurso. Saiba mais sobre [registos de diagnóstico do Azure Monitor](../azure-monitor/platform/diagnostic-logs-overview.md). 
 
 Para configurar os registos de diagnóstico para a porta de entrada:
 
