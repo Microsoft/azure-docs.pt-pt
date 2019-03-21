@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: quickstart
-ms.date: 01/09/2019
+ms.date: 03/12/2019
 ms.author: alkohli
-ms.openlocfilehash: 95e2a17407ad7d9e108b4ac38e8ff0ff62abf857
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: bd591ff30755fd68bb2dc673899d0ac993215e68
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57529702"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57834732"
 ---
 # <a name="quickstart-deploy-azure-data-box-using-the-azure-portal"></a>Início rápido: Implementar o Azure Data Box através do portal do Azure
 
@@ -74,7 +74,7 @@ Quando receber o Data Box, siga os passos abaixo para instalar os cabos, ligar e
     
 4. Instale os cabos do dispositivo conforme mostrado abaixo.  
 
-    ![Cabos do Data Box instalados](media/data-box-quickstart-portal/data-box-cabled-dhcp.png)  
+    ![Plano posterior do dispositivo Data Box com os cabos instalados](media/data-box-deploy-set-up/data-box-cabled-dhcp.png)  
 
     1. Ligue o cabo de alimentação ao dispositivo.
     2. Utilize o cabo de rede RJ-45 CAT 6 para ligar o seu computador anfitrião à porta de gestão (MGMT) no dispositivo. 

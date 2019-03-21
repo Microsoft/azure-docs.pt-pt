@@ -5,23 +5,23 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 03/11/2019
+ms.date: 03/12/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 6ab7fa99732c2964e5ccaa2ce4e55f4fbf28ceff
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: bc8fae8f1278babd8c4c7402d86700ad78e3cb9d
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57761282"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57897423"
 ---
 # <a name="client-libraries-for-connecting-to-azure-analysis-services"></a>Bibliotecas de cliente para ligar ao Azure Analysis Services
 
-Bibliotecas de cliente são necessárias para aplicativos de cliente e ferramentas ligar aos servidores do Analysis Services. 
+Bibliotecas de cliente são necessárias para aplicativos de cliente e ferramentas ligar aos servidores do Analysis Services. Aplicações de cliente do Microsoft, como o ambiente de trabalho do Power BI, Excel, SQL Server Management Studio (SSMS) e SQL Server Data Tools (SSDT) instalar todas as três bibliotecas de cliente e atualizá-las juntamente com as atualizações de aplicativo regular. Em alguns casos, terá de instalar as versões mais recentes das bibliotecas de cliente. Aplicações cliente personalizadas também necessitam de bibliotecas de cliente são instaladas.
 
 ## <a name="download-the-latest-client-libraries-windows-installer"></a>Transferir as bibliotecas de cliente mais recente (programa de instalação do Windows)  
 
-|Transferir  |Versão do produto  | 
+|Transferência  |Versão do produto  | 
 |---------|---------|
 |[MSOLAP (amd64)](https://go.microsoft.com/fwlink/?linkid=829576)    |    15.0.11.19    |
 |[MSOLAP (x86)](https://go.microsoft.com/fwlink/?linkid=829575)     |    15.0.11.19      |

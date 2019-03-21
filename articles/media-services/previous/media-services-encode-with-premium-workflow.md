@@ -11,14 +11,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/10/2019
+ms.date: 03/18/2019
 ms.author: juliako
-ms.openlocfilehash: 7b91f63057fa8b781fdfab17e0837a9f5547c1eb
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: d20fc0cee6bce1389649e6287170b1963e799ccf
+ms.sourcegitcommit: f331186a967d21c302a128299f60402e89035a8d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55988039"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58187732"
 ---
 # <a name="advanced-encoding-with-media-encoder-premium-workflow"></a>Codificação avançada com o Media Encoder Premium Workflow
 > [!NOTE]
@@ -62,12 +62,12 @@ Os seguintes passos são efetuados:
     Na maioria dos casos, a cadeia de configuração para a tarefa está vazia (como no exemplo a seguir). Existem alguns cenários avançados (que requerem que defina propriedades de tempo de execução dinamicamente) caso em que forneceria uma cadeia de caracteres XML para a tarefa de codificação. Exemplos de tais cenários são: criar uma sobreposição, paralelas ou sequenciais multimédia clips, limitado.
 5. Adicione dois elementos de entrada para a tarefa.
 
-    1. dia 1 – o elemento de fluxo de trabalho.
-    2. 2ª – o elemento de vídeo.
+   1. dia 1 – o elemento de fluxo de trabalho.
+   2. 2ª – o elemento de vídeo.
 
-    >[!NOTE]
-    >O elemento de fluxo de trabalho tem de ser adicionado à tarefa antes do elemento de multimédia.
-   A cadeia de configuração para esta tarefa deve estar vazia.
+      >[!NOTE]
+      >O elemento de fluxo de trabalho tem de ser adicionado à tarefa antes do elemento de multimédia.
+      A cadeia de configuração para esta tarefa deve estar vazia.
    
 6. Submeta a tarefa de codificação.
 

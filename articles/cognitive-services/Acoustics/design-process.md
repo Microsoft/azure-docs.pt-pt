@@ -1,7 +1,7 @@
 ---
-title: Visão geral do processo de design de projeto Acoustics
+title: Conceitos de Design com Simulação de Acústica
 titlesuffix: Azure Cognitive Services
-description: Este documento descreve como expressar sua intenção de design em todas as três fases do fluxo de trabalho Acoustics do projeto.
+description: Esta descrição geral conceptual explica como o projeto Acoustics incorpora acústica simulação para o processo de design de som.
 services: cognitive-services
 author: kegodin
 manager: nitinme
@@ -10,87 +10,56 @@ ms.subservice: acoustics
 ms.topic: conceptual
 ms.date: 08/17/2018
 ms.author: kegodin
-ms.openlocfilehash: bb5f309a96feac2caea85fbe81b7216eecfc4b79
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: dd27b660dfdd1f4bcec89291b10fd87750ad4c49
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55873942"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58136161"
 ---
-# <a name="design-process-overview"></a>Descrição geral do processo de design
-Pode expressar sua intenção de design em todas as três fases do fluxo de trabalho do projeto Acoustics: pré-inserir instalação de cena, Colocação de origem de som e design de pós-criar. O processo exige menos marcação associada com a colocação de reverberação volumes, mantendo o controle de designer sobre como pode parecer uma cena.
+# <a name="project-acoustics-design-process-concepts"></a>Conceitos de processo de Design do projeto Acoustics
 
-## <a name="pre-bake-design"></a>Design de pré-criar
-O processo de configuração de pré-criar cena produz a cena e os metadados que são utilizados para a simulação de som wave, que inclui a seleção que elementos de cena irão participar na simulação para fornecer occlusions, reflexo e reverberation. Os metadados para a cena são a seleção de materiais acústicos para cada elemento de cena. Os materiais acústicos controlam a quantidade de energia som refletida novamente a partir de cada superfície.
+Esta descrição geral conceptual explica como o projeto Acoustics incorpora simulação acústica física no processo de design de som.
 
-O coeficiente de absorption padrão para todas as superfícies é 0.04, que é altamente reflexiva. Pode conseguir efeitos estética e jogabilidade ajustando os coeficientes absorption de materiais diferentes em toda a cena, que são especialmente importantes para serviços de escuta quando elas ouvem as transições de uma área da cena para outro. Por exemplo, fazer a transição de uma sala reverberant escura para um brilhante, que não reverberant cena de equipamentos esportivos aprimora o impacto da transição. Para obter este efeito, Otimize os coeficientes absorption nos materiais a cena de equipamentos esportivos superior.
+## <a name="sound-design-with-audio-dsp-parameters"></a>Estrutura sólida com parâmetros DSP áudio
 
-O tempo de reverberation de um determinado material numa sala inversamente está relacionado ao seu coeficiente de absorption, com a maioria dos materiais ter valores absorption no intervalo 0,01 para 0,20. Materiais com coeficientes absorption fora deste intervalo são muito absorbent.
+Títulos interativos 3D atingir seus determinado som com áudio sinal digital, processamento de blocos (DSP) hospedados num mecanismo de áudio. Estes variam de blocos em complexidade de misturar simples, para reverberation, eco, atraso, equalization, compressão e a limitação e outros efeitos. Selecionar, organizar e definir os parâmetros nesses efeitos são da responsabilidade do estruturador de som, que cria um gráfico de áudio que atinja os objetivos estética e jogabilidade da experiência.
 
-![Gráfico de tempos de reverberação](media/ReverbTimeGraph.png)
+Num título de interativo, como os sons e o serviço de escuta de passar por todo o espaço 3D, como esses parâmetros adaptar às mudanças nas condições? O designer de som, muitas vezes, assume a responsabilidade volumes por todo o espaço que são programadas para acionar as alterações do parâmetro para alcançar as alterações no efeitos reverberation, por exemplo, ou para sons de pato em sua composição conforme o serviço de escuta se move de uma parte da cena para outro. Sistemas de Acoustics também estão disponíveis que pode automatizar alguns desses efeitos.
 
-O [criar a interface do Usuário percorrer](bake-ui-walkthrough.md) descreve os controles de pré-criar em detalhes.
+Títulos 3D utilizam sistemas de física iluminação e kinematic que estão motivados de física, mas designer ajustado para atingir uma combinação dos objetivos de imersão e o jogo. Um designer visual não define os valores de pixel individuais, mas em vez disso, se ajusta modelos 3D, materiais e sistemas de transporte leves tudo fisicamente baseadas para trade estética visual e os custos de CPU. O que seria o processo equivalente para áudio? Projeto Acoustics é um primeiro passo para a exploração dessa pergunta. Em primeiro lugar mencionaremos o que significa acoustical energia por meio de um espaço de transporte.
 
-## <a name="sound-source-placement"></a>Colocação de origem de som
-Visualizar voxels e sonda pontos no tempo de execução pode ajudar a depurar problemas com as origens de som a ser bloqueadas dentro da geometria voxelized. Para ativar/desativar a grade de voxel e pesquisa de pontos de apresentação, clique na caixa de verificação correspondente no menu Gizmos, no canto superior direito da vista de cena. Se a origem de som é dentro de um voxel de parede, mova-o para um voxel de ar.
+![zonas de reverberação](media/reverb-zones-altspace.png)
 
-![Menu de gizmos](media/GizmosMenu.png)  
+## <a name="impulse-responses-acoustically-connecting-two-points-in-space"></a>Respostas de impulso: Acoustically ligar dois pontos no espaço
 
-A exibição de voxel pode ajudar a determinar se os componentes visuais no jogo tem uma transformação aplicada às mesmas. Se assim for, aplicam-se a mesma transformação para a hospedagem de GameObject a **Acoustics Manager**.
+Se estiver familiarizado com o design de áudio, talvez esteja familiarizado com as respostas de impulso acústico. Uma resposta de impulso acústico modela o transporte de um som de uma origem para um serviço de escuta. Por conseguinte, uma resposta de impulso pode capturar cada efeito interessante de acoustics sala como oclusão e reverberation. Respostas de impulso também tem determinadas propriedades poderosas que permitem que os efeitos de DSP áudio de dimensionar. Somar dois sinais de áudio e de processamento com uma resposta de impulso fornece o mesmo resultado que aplicar a resposta de impulso em separado para cada sinal e adicionar os resultados. Propagação acústica e respostas de impulso também não dependem de áudio a ser processado apenas em cena a ser modelada e as localizações de origem e o serviço de escuta. Em resumo, uma resposta de impulso distila o efeito da cena na propagação de som.
 
-### <a name="voxel-size-discrepancies"></a>Voxel discrepâncias de tamanho
-Poderá reparar que o tamanho do voxels usados para ilustrar o que, da cena, as malhas participam na criar acoustics é diferente nas vistas de tempo de execução e de tempo de design. Essa diferença não afeta a qualidade/granularidade de sua frequência de simulação selecionado, mas é bastante um biproduct do uso de tempo de execução da cena voxelized. No tempo de execução, os voxels de simulação são "refinados" para suportar a interpolação entre localizações de origem. Isto também permite design tempo posicionamento de som origens mais próximo para as malhas de cena de que o tamanho de voxel simulação permite – uma vez que as origens dentro de um voxel que contêm uma malha acoustically treated não fazem qualquer som.
+Captura de uma resposta de impulso cada efeito acústico sala interessante e podemos aplicá-lo para áudio com eficiência com um filtro e pode obter respostas de impulso medida ou simulação. Mas e se podemos não bastante desejam acoustics para corresponder exatamente a física, mas em vez disso, moldá-lo de acordo com as demandas emocional de uma cena? Mas muito como valores de pixel, uma resposta de impulso é apenas uma lista de milhares de números, como estamos possivelmente ajustar para atender às necessidades estética? E, e se quiséssemos oclusão/obstrução varia suavemente ao passar por meio de doorways ou por trás de obstáculos, quantos respostas de impulso que é necessário obter um efeito uniforme? E se a origem move rápida? Como podemos interpolar?
 
-Seguem-se duas imagens que mostra a diferença entre voxels de design (pré-criar) e voxels de tempo de execução (pós-criar) como visualizado pelo plug-in do Unity:
+Isso parece difícil de utilizar a simulação e respostas de impulso para alguns aspectos do acoustics em títulos interativos. Mas ainda é possível criar um sistema de transporte de áudio que suporte a designers ajustes se podemos ligar as nossas respostas de impulso de simulação com nossos parâmetros de efeito DSP áudio familiares.
 
-Voxels de tempo de design:
+## <a name="connecting-simulation-to-audio-dsp-with-parameters"></a>Ligar a simulação para áudio DSP com parâmetros
 
-![VoxelsDesignTime](media/VoxelsDesignTime.png)
+Uma resposta de impulso contém todos os interessantes (e cada desinteressante) acoustical efeito. Blocos DSP áudio, quando seus parâmetros estão definidos corretamente, podem processar efeito acoustical interessante. Usando a simulação acoustical para orientar um bloco DSP áudio para automatizar o transporte de áudio numa cena 3D é apenas uma questão de medir os parâmetros DSP áudio de uma resposta de impulso. Esta medida é bem compreendida determinados efeitos acoustical importantes e comuns incluindo oclusão, obstrução, portalling e reverberation.
 
-Voxels de tempo de execução:
+Mas se a simulação é ligada diretamente para os parâmetros DSP áudio, em que é o ajuste de designer? O que obtemos de? Bem, obtemos uma quantidade significativa de memória volta ao descartar as respostas de impulso e manter alguns parâmetros DSP. E para dar o designer de algum poder sobre o resultado final, tem de localizar apenas uma forma de inserir o designer entre a simulação e o áudio DSP.
 
-![VoxelsRuntime](media/VoxelsRuntime.png)
+![parâmetros de resposta de impulso](media/acoustic-parameters.png)
 
-A decisão sobre se é ou não a malha de voxel representa com precisão as malhas de cena de arquitetura/estrutural deve ser feita usando o voxels de modo de design, não a visualização de tempo de execução do voxels refinados.
+## <a name="sound-design-by-transforming-audio-dsp-parameters-from-simulation"></a>Estrutura sólida, transformando os parâmetros DSP áudio de simulação
 
-## <a name="post-bake-design"></a>Design de pós-criar
-Criar resultados são armazenados no ficheiro de ACE como parâmetros oclusão e reverberation para todos os pares de localização de serviço de escuta de origem em toda a cena. Este resultado fisicamente preciso pode ser utilizado para o seu projeto como-é, e é um ótimo ponto de partida para o design. O processo de design de pós-criar especifica regras para transformar os parâmetros de resultado de criar no tempo de execução.
+Considere o efeito de que sua óculos de sol tem na sua visão de mundo. Num bom dia, os óculos podem reduzir a brilhar para algo mais à vontade. Numa sala escura, poderá não conseguir ver nada em todos os. Os óculos não definir um certo nível de luminosidade em todas as situações; eles apenas tornam tudo mais escura.
 
-### <a name="distance-based-attenuation"></a>Com base na distância atenuação
-O áudio DSP fornecida pelos **Microsoft Acoustics** Plug-in do Unity spatializer respeita a atenuação de com base na distância do código-fonte criada no Editor do Unity. Controlos de atenuação com base na distância estão no **origem de áudio** componente encontrado no **Inspetor** origens de painel de som, em **definições de som 3D**:
+Se usarmos a simulação para orientar o nosso DSP áudio usando parâmetros oclusão e reverberation, podemos adicionar um filtro depois do simulador para ajustar os parâmetros que o DSP 'vê". O filtro não impor um determinado nível de oclusão ou reverberação cauda comprimento, muito como óculos de sol não disponibilizar cada espaço o brilho do mesmo. O filtro poderá apenas fazer cada occluder occlude menor. Ou occlude muito mais. Ao adicionar e ajustar um filtro de parâmetro oclusão "darkening", os ambientes de grandes dimensões, abra ainda não teria pouco ou nenhum efeito oclusão, enquanto doorways aumentaria uma média para um efeito de oclusão forte, retendo os smoothness em vigor transições que fornece a simulação.
 
-![Atenuação de distância](media/distanceattenuation.png)
+Esse paradigma, tarefas do designer muda escolham acústicos parâmetros para cada situação, filtros para selecionar e ajuste a aplicar aos parâmetros mais importantes de DSP proveniente de simulação. Ela eleva atividades do designer das preocupações estreitas de configuração de transições uniformes para as preocupações mais elevadas de intensidade dos efeitos oclusão e reverberation e a presença de origens em sua composição. É claro, quando exige a situação, um filtro sempre disponível é simplesmente voltar para escolher os parâmetros DSP para uma origem específica numa situação específica.
 
-Acoustics executa o cálculo numa caixa "região de simulação" centrada a localização de player. Se uma origem de som é distante do jogador, localizado fora desta região de simulação, apenas a geometria na caixa de afetará a propagação de som (por exemplo, fazendo com que oclusão) que funciona razoavelmente bem quando occluders estão perto o jogador. No entanto, em casos quando o jogador está no espaço aberto, mas os occluders estão próximos da origem de som distante, o som pode se tornar inacreditavelmente disoccluded. Nossa solução sugerida é Certifique-se nestes casos que a atenuação de som recai como 0 em cerca de 45 m, a distância de horizontal padrão do player na periferia da caixa.
+## <a name="sound-design-in-project-acoustics"></a>Design de som no projeto Acoustics
 
-### <a name="tuning-scene-parameters"></a>Ajuste os parâmetros de cenas
-Para ajustar os parâmetros para todas as origens, clique na faixa do canal do Unity **Mixer de áudio**e ajustar os parâmetros na **projeto Acoustics Mixer** efeito.
+O pacote de projeto Acoustics integra-se cada um dos componentes descritos acima: um simulador, um codificador que extrai os parâmetros e cria o elemento de acoustics DSP áudio e uma seleção de filtros. Design de som com o projeto Acoustics implica escolher parâmetros para os filtros que ajustar os parâmetros oclusão e reverberation derivada de simulação e aplicada para o áudio DSP, com controles dinâmicos expostos dentro do editor de jogo e o mecanismo de áudio.
 
-![Personalização do Mixer](media/MixerParameters.png)
-
-* **Ajustar umidade** -ajusta o poder de reverberação no dB, em todas as origens da cena com base na distância do serviço de escuta de origem. Valores positivos emitir um som mais reverberant, enquanto valores negativos emitir um som mais dry.
-* **Dimensionamento RT60** - multiplicadora escalar para o tempo de reverberação.
-* **Utilizar Panning** -controles se áudio é saída como binaural (0) ou multicanal movimento panorâmico (1). Qualquer valor, além de 1 indica binaural. Binaural saída é spatialized com HRTFs para utilização com auscultadores e multicanal de saída é spatialized com VBAP para utilização com sistemas de orador surround multicanal. Se utilizar o panner multicanal, não se esqueça de selecionar o modo de altifalante que corresponde a definições do dispositivo, encontra-se em **definições do projeto** > **áudio**.
-
-![SpeakerMode](media/SpeakerMode.png)
-
-### <a name="tuning-source-parameters"></a>Ajuste os parâmetros de origem
-A anexar o **AcousticsAdjust** script para uma origem permite parâmetros de ajuste para essa origem. Para anexar o script, clique em **Add Component** na parte inferior dos **Inspetor** painel e navegue para **Scripts > Acoustics ajustar**. O script tem seis controles:
-
-![AcousticsAdjust](media/AcousticsAdjust.png)
-
-* **Ativar Acoustics** -controla se acoustics se aplica a esta origem. Quando desmarcado, a origem irá ser spatialized com HRTFs ou de movimento panorâmico mas não haverá nenhuma acoustics. Isso significa que nenhum obstrução, oclusão e parâmetros de reverberation dinâmica, como o tempo de nível e Win32/decay. Reverberation ainda está a ser aplicada com um nível fixo e tempo de Win32/decay.
-* **Oclusão** -aplicar um multiplicador para o nível de dB oclusão calculado pelo sistema acoustics. Se este multiplicador for superior a 1, irá ser exagerada oclusão, enquanto valores inferior a 1 fazer o efeito de oclusão mais sutil e um valor de 0 desativa oclusão.
-* **Transmissão (dB)** -definir a atenuação (no dB) causada por transmissão por meio de geometria. Defina este controlo de deslize para o nível mais baixo para desativar a transmissão. Acoustics spatializes o áudio de dry inicial como que chegam em torno de geometria da cena (portaling). Transmissão fornece uma chegada de dry adicional que é spatialized na direção de linha de visão. Tenha em atenção que a curva de atenuação de distância para a origem também é aplicada.
-* **Umidade (dB)** -ajusta o poder de reverberação no dB, de acordo com a distância da origem. Valores positivos emitir um som mais reverberant, enquanto valores negativos emitir um som mais dry. Clique no controle de curva (linha verde) para abrir o editor de curva. Modificar a curva left-clicking para adicionar pontos e arrastando esses pontos para formar a função que pretende. O eixo x é a distância de origem e o eixo y é o ajuste de reverberação no dB. Para obter mais informações sobre a edição de curvas, consulte esta [Manual do Unity](https://docs.unity3d.com/Manual/EditingCurves.html). Repor a curva predefinido, clique em **Umidade** e selecione **repor**.
-* **Win32/decay escala de tempo** -ajusta um multiplicador para a hora de Win32/decay. Por exemplo, se o resultado de criar Especifica um tempo de Win32/decay de 750 milissegundos, mas este valor é definido como 1,5, o tempo de Win32/decay aplicado para a origem é 1.125 milissegundos.
-* **Outdoorness** -um ajuste aditiva na estimativa do sistema acoustics do como "pessoas" reverberation numa origem deve parecer. A definição deste valor como 1 fará com que uma origem sempre som completamente pessoas, enquanto a defini-la como -1 fará com que uma origem de som indoors.
-
-Origens diferentes podem requerer diferentes configurações alcançar certos efeitos estética ou jogo. Caixa de diálogo é um exemplo de possíveis. O ouvido humano é mais attuned para reverberation na conversão de voz, enquanto a caixa de diálogo, muitas vezes, tem de ser inteligível para o jogo. Pode justificar isso sem ter que fazer a caixa de diálogo não-diegetic ao mover o **Umidade** baixo, ajustar a **Warp de distância Percetual** parâmetro descrito a seguir, adicionando alguns  **Transmissão** para alguns boost áudio dry se propaguem por intermédio de paredes de e/ou reduzir a **oclusão** de 1 para ter mais som chegam através de portais.
-
-A anexar o **AcousticsAdjustExperimental** script para uma origem permite parâmetros de ajuste experimentais adicionais para essa origem. Para anexar o script, clique em **Add Component** na parte inferior dos **Inspetor** painel e navegue para **Scripts > Acoustics ajustar Experimental**. Atualmente, existe um controlo experimental:
-
-![AcousticsAdjustExperimental](media/AcousticsAdjustExperimental.png)
-
-* **Warp de distância percetual** -aplicar um distorcendo exponencial para a distância usada para calcular o rácio de dry wet. O sistema de acoustics calcula wet níveis por todo o espaço, que variam sem problemas com a distância e proporcionam indicações de percepção de distância. Distorcendo valores maiores que 1 exaggerate esse efeito, aumentando os níveis de reverberation relacionados com a distância, tornando o som "distante". Distorcendo valores de marca de menos de 1 a reverberation com base na distância alterar mais sutil, garantindo o som mais "presente".
+## <a name="next-steps"></a>Passos Seguintes
+* Experimente o paradigma de design utilizando o [início rápido de Acoustics de projeto para Unity](unity-quickstart.md) ou o [Acoustics de projeto manual de início rápido para Unreal](unreal-quickstart.md)
+* Explore os [controles de design Acoustics de projeto para Unity](unity-workflow.md) ou o [Acoustics de projeto de desenvolver controles para Unreal](unreal-workflow.md)
 

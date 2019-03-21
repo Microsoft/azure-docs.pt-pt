@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/01/2019
 ms.author: jeedes
-ms.openlocfilehash: 67678c560564d762a2c1a6d472cd4b05315540f7
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 2851383ed992b314af541b24e7753b1e6b12b28d
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57769724"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57898674"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-n2f---expense-reports"></a>Tutorial: Relatórios de despesas de integração do Active Directory do Azure com N2F-
 
@@ -172,7 +172,7 @@ O objetivo desta secção é criar um utilizador de teste no portal do Azure cha
 
     a. Na **Name** campo introduza **BrittaSimon**.
   
-    b. Na **nome de utilizador** tipo de campo **brittasimon@yourcompanydomain.extension**  
+    b. Na **nome de utilizador** tipo de campo **brittasimon\@yourcompanydomain.extension**  
     Por exemplo, BrittaSimon@contoso.com
 
     c. Selecione **palavra-passe de Show** caixa de verificação e, em seguida, anote o valor que é apresentado na caixa de palavra-passe.
@@ -229,7 +229,7 @@ Para permitir que utilizadores do Azure AD iniciar sessão no N2F - relatórios 
 
     ![N2F - configuração de relatórios de despesas](./media/n2f-expensereports-tutorial/user3.png)
 
-    a. Na **endereço de E-Mail** caixa de texto, introduza o endereço de e-mail do utilizador, como **brittasimon@contoso.com**.
+    a. Na **endereço de E-Mail** caixa de texto, introduza o endereço de e-mail do utilizador, como **brittasimon\@contoso.com**.
 
     b. Na **nome próprio** caixa de texto, introduza o nome de utilizador, como **Eduarda**.
 
@@ -242,7 +242,7 @@ Para permitir que utilizadores do Azure AD iniciar sessão no N2F - relatórios 
     > [!NOTE]
     > Se estiver com problemas ao adicionar o utilizador, entre em contato com [N2F - equipa de suporte de relatórios de despesas](mailto:support@n2f.com)
 
-### <a name="test-single-sign-on"></a>Testar início de sessão único 
+### <a name="test-single-sign-on"></a>Testar o início de sessão único 
 
 Nesta secção, vai testar a configuração do Azure AD única início de sessão com o painel de acesso.
 

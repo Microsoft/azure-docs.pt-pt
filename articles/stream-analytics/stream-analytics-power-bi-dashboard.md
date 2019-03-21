@@ -9,12 +9,12 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.custom: seodec18
-ms.openlocfilehash: d7f67015d4df20ea39c1225d52be36340b8f65d1
-ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
+ms.openlocfilehash: 487c142400dc2bfa6f44e17963535051af017196
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53556981"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58116186"
 ---
 # <a name="tutorial-stream-analytics-and-power-bi-a-real-time-analytics-dashboard-for-streaming-data"></a>Tutorial: Stream Analytics e o Power BI: Um dashboard de análise em tempo real para dados de transmissão em fluxo
 O Azure Stream Analytics permite-lhe tirar partido de um das principais ferramentas de business intelligence, [Microsoft Power BI](https://powerbi.com/). Neste artigo, ficará a saber como criar ferramentas de business intelligence com o Power BI como uma saída para as tarefas do Azure Stream Analytics. Também irá aprender a criar e utilizar um dashboard em tempo real.
@@ -56,16 +56,16 @@ O tutorial de deteção de fraudes em tempo real, a saída é enviada para o arm
 
 7. Quando forem retornados para o **nova saída** painel, introduza as seguintes informações:
 
-    * **Área de trabalho de grupo**: Selecione uma área de trabalho no seu inquilino do Power BI em que pretende criar o conjunto de dados.
-    * **Nome do conjunto de dados**:  Introduza `sa-dataset`. Pode utilizar um nome diferente. Se o fizer, tome nota do mesmo para utilizar mais tarde.
-    * **Nome da tabela**: Introduza `fraudulent-calls`. Atualmente, a saída do Power BI a partir de tarefas do Stream Analytics pode ter apenas uma tabela num conjunto de dados.
+   * **Área de trabalho de grupo**: Selecione uma área de trabalho no seu inquilino do Power BI em que pretende criar o conjunto de dados.
+   * **Nome do conjunto de dados**:  Introduza `sa-dataset`. Pode utilizar um nome diferente. Se o fizer, tome nota do mesmo para utilizar mais tarde.
+   * **Nome da tabela**: Introduza `fraudulent-calls`. Atualmente, a saída do Power BI a partir de tarefas do Stream Analytics pode ter apenas uma tabela num conjunto de dados.
 
-    ![O conjunto de dados do Power BI área de trabalho e de tabela](./media/stream-analytics-power-bi-dashboard/create-pbi-ouptut-with-dataset-table.png)
+     ![O conjunto de dados do Power BI área de trabalho e de tabela](./media/stream-analytics-power-bi-dashboard/create-pbi-ouptut-with-dataset-table.png)
 
-    > [!WARNING]
-    > Se o Power BI tem um conjunto de dados e a tabela que tem os mesmos nomes que aqueles que especificou na tarefa do Stream Analytics, os existentes serão substituídos.
-    > Recomendamos que não explicitamente criar este conjunto de dados e a tabela na sua conta do Power BI. Elas são criadas automaticamente quando iniciar a tarefa de Stream Analytics e a tarefa é iniciada a saída de bombagem para o Power BI. Se a sua consulta da tarefa não devolve nenhum resultado, o conjunto de dados e a tabela não são criados.
-    >
+     > [!WARNING]
+     > Se o Power BI tem um conjunto de dados e a tabela que tem os mesmos nomes que aqueles que especificou na tarefa do Stream Analytics, os existentes serão substituídos.
+     > Recomendamos que não explicitamente criar este conjunto de dados e a tabela na sua conta do Power BI. Elas são criadas automaticamente quando iniciar a tarefa de Stream Analytics e a tarefa é iniciada a saída de bombagem para o Power BI. Se a sua consulta da tarefa não devolve nenhum resultado, o conjunto de dados e a tabela não são criados.
+     >
 
 8. Clique em **Criar**.
 
@@ -189,13 +189,13 @@ Sua tarefa do Stream Analytics começa a procurar chamadas fraudulentas num flux
     * Adicione um valor e selecione **fraudulentcalls**.
     * Para **Janela de tempo a apresentar**, selecione os últimos 10 minutos.
 
-    ![Criar o mosaico de gráfico de linhas no Power BI](./media/stream-analytics-power-bi-dashboard/pbi-create-tile-line-chart.png)
+      ![Criar o mosaico de gráfico de linhas no Power BI](./media/stream-analytics-power-bi-dashboard/pbi-create-tile-line-chart.png)
 
 9. Clique em **próxima**, adicione um título e subtítulo e clique em **aplicar**.
 
-    O dashboard do Power BI agora oferece a dois modos de exibição de dados sobre chamadas fraudulentas como detetado nos dados de transmissão em fluxo.
+     O dashboard do Power BI agora oferece a dois modos de exibição de dados sobre chamadas fraudulentas como detetado nos dados de transmissão em fluxo.
 
-    ![Concluído o dashboard do Power BI que mostra dois mosaicos para chamadas fraudulentas](./media/stream-analytics-power-bi-dashboard/pbi-dashboard-fraudulent-calls-finished.png)
+     ![Concluído o dashboard do Power BI que mostra dois mosaicos para chamadas fraudulentas](./media/stream-analytics-power-bi-dashboard/pbi-dashboard-fraudulent-calls-finished.png)
 
 
 ## <a name="learn-more-about-power-bi"></a>Mais informações sobre o Power BI

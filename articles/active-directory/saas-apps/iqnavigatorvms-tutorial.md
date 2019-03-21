@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 04/17/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ee936d174aa3e221bbeb0823ba1503c7cb64a9d6
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: f5a0700a63d21d089573f757716e08fb03665b28
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56185167"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58164999"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-iqnavigator-vms"></a>Tutorial: Integração do Active Directory do Azure com IQNavigator VMS
 
@@ -39,7 +39,7 @@ Se quiser saber mais detalhes sobre a integração de aplicações SaaS com o Az
 Para configurar a integração do Azure AD com IQNavigator VMS, precisa do seguinte:
 
 - Uma subscrição do Azure
-- Um IQNavigator VMS logon único habilitado subscrição
+- Uma IQNavigator VMS logon único habilitado subscrição
 
 > [!NOTE]
 > Para testar os passos neste tutorial, recomendamos que não utilize um ambiente de produção.
@@ -175,7 +175,7 @@ O objetivo desta secção é criar um utilizador de teste no portal do Azure cha
 
     d. Clique em **Criar**.
 
-### <a name="creating-a-iqnavigator-vms-test-user"></a>Criar um utilizador de teste IQNavigator VMS
+### <a name="creating-an-iqnavigator-vms-test-user"></a>Criar um utilizador de teste IQNavigator VMS
 
 O objetivo desta secção é criar um usuário chamado Eduarda Almeida no IQNavigator VMS. Trabalhar com [equipa de suporte de VMS de IQNavigator](https://www.beeline.com/iqn-product-support/) para adicionar os utilizadores na conta IQNavigator VMS.
 

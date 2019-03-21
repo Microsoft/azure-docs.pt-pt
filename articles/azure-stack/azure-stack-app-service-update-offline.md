@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 02/27/2019
 ms.author: anwestg
 ms.reviewer: anwestg
-ms.openlocfilehash: 9d941c36499f851f20c41fa6dd01faf14e4192ba
-ms.sourcegitcommit: f7f4b83996640d6fa35aea889dbf9073ba4422f0
+ms.openlocfilehash: 808c2f38be875e70b4f52698b7a6278aa781a6ca
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56992775"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58124099"
 ---
 # <a name="offline-update-of-azure-app-service-on-azure-stack"></a>Atualização offline do serviço de aplicações do Azure no Azure Stack
 
@@ -97,14 +97,14 @@ Para atualizar o serviço de aplicações num ambiente desligado, primeiro tem d
 7. Na página seguinte:
 
    1. Clique nas **Connect** junto aos **subscrições do Azure Stack** caixa.
-        * Se estiver a utilizar o Azure Active Directory (Azure AD), introduza a conta de administrador do Azure AD e a palavra-passe que forneceu quando implementou o Azure Stack. Clique em **iniciar sessão**.
-        * Se estiver a utilizar os serviços de Federação do Active Directory (AD FS), forneça a sua conta de administrador. Por exemplo, _cloudadmin@azurestack.local_. Introduza a palavra-passe e clique em **sessão**.
+      * Se estiver a utilizar o Azure Active Directory (Azure AD), introduza a conta de administrador do Azure AD e a palavra-passe que forneceu quando implementou o Azure Stack. Clique em **iniciar sessão**.
+      * Se estiver a utilizar os serviços de Federação do Active Directory (AD FS), forneça a sua conta de administrador. Por exemplo, _cloudadmin@azurestack.local_. Introduza a palavra-passe e clique em **sessão**.
    2. Na **subscrições do Azure Stack** caixa, selecione a **subscrição do fornecedor predefinido**.
    3. Na **localizações do Azure Stack** caixa, selecione a localização que corresponde à região que está a implementar. Por exemplo, seleccione **local** se sua a implementar o Development Kit do Azure Stack.
    4. Se for detetada uma implementação existente do serviço de aplicações, em seguida, a conta de armazenamento e de grupo de recursos será preenchida e a cinzento.
    5. Clique em **seguinte** para rever o resumo da atualização.
 
-    ![Instalação do serviço de aplicações detetada][4]
+      ![Instalação do serviço de aplicações detetada][4]
 
 8. Na página de resumo:
    1. Certifique-se seleções que fez. Para fazer alterações, utilize o **Previous** botões para visitar as páginas anteriores.

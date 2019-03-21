@@ -10,12 +10,12 @@ ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 09/19/2018
 ms.author: kakampf
-ms.openlocfilehash: 4b305087c0c755254d72811fb9275c509343c87e
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 0e15f3dc448ba218ebdfe309c4308bbc789ef5be
+ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57878402"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58226271"
 ---
 # <a name="what-are-the-apache-hadoop-components-and-versions-available-with-hdinsight"></a>Quais são os componentes do Apache Hadoop e versões disponíveis com o HDInsight?
 
@@ -75,7 +75,7 @@ As tabelas seguintes listam as versões do HDInsight. As versões HDP que corres
 
 ### <a name="available-versions"></a>Versões disponíveis
 
-A tabela seguinte lista as versões do HDInsight que estão disponíveis no Portal do Azure, bem como outros métodos de implantação, como o PowerShell e o SDK de .NET.
+A tabela seguinte lista as versões do HDInsight que estão disponíveis no portal do Azure, bem como outros métodos de implantação, como o PowerShell e o SDK de .NET.
 
 | Versão do HDInsight | Versão HDP | SO DE VM | Data da versão | Data de expiração de suporte | Data de retirada | Elevada disponibilidade |  Disponibilidade no portal do Azure | 
 | --- | --- | --- | --- | --- | --- | --- | --- |
@@ -91,7 +91,7 @@ A tabela seguinte lista as versões do HDInsight que estão disponíveis no Port
 
 ### <a name="retired-versions"></a>Versões retiradas
 
-A tabela seguinte lista as versões do HDInsight que são **não** disponível no Portal do Azure.
+A tabela seguinte lista as versões do HDInsight que são **não** disponível no portal do Azure.
 
 | Versão do HDInsight | Versão HDP | SO DE VM | Data da versão | Data de expiração de suporte | Data de retirada | Elevada disponibilidade |  Disponibilidade no portal do Azure | 
 | --- | --- | --- | --- | --- | --- | --- | --- |

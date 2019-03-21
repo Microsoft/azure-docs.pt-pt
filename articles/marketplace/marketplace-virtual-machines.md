@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 07/09/2018
 ms.author: ellacroi
-ms.openlocfilehash: b9403855949e87a287f543c2ac41738e92238303
-ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
+ms.openlocfilehash: eb49d0fe610a78b8d1a407644a206fddaba0a67a
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57217211"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58116220"
 ---
 # <a name="virtual-machine-offer-publishing-guide"></a>Guia de publicação de oferta de máquina virtual
 
@@ -56,12 +56,12 @@ Fornecer uma experiência orientada da sua solução aos seus clientes através 
 
 Utilize o tipo de oferta de máquina virtual ao implementar uma aplicação virtual para a subscrição associada do seu cliente. As VMs são totalmente commerce ativada com modelos de licenciamento de pay as you go ou bring-your-own-license (BYOL). A Microsoft aloja a transação de comércio e cobra o seu cliente em seu nome. Obtém a vantagem de utilizar a relação de pagamento preferencial entre o cliente e a Microsoft, incluindo todos os contratos Enterprise.
 
->[!NOTE]
->Neste momento, compromissos monetários, associados com um contrato Enterprise podem ser utilizado contra a utilização do Azure da sua VM, mas não em relação a taxas de licenciamento de software.  
-
->[!NOTE]
->É possível restringir a deteção e a implementação da sua VM a um conjunto específico de clientes ao publicar a imagem e preços como uma oferta privada. Ofertas privadas desbloquear a capacidade de criar ofertas exclusivas para os seus clientes mais próximos e personalizada de software e os termos da oferta. Os termos personalizados permitem-lhe destacar uma variedade de cenários, incluindo o campo ministrado por negociações com especializadas de preços e termos, bem como acesso antecipado a software de versão limitada. Ofertas privadas ativar para lhe permitir disponibilizar preços específicos ou produtos para um conjunto limitado de clientes através da criação de um novo SKU com esses detalhes.  
-*   Para obter mais informações sobre ofertas privadas, visite as ofertas de privado no Azure Marketplace, página localizada em [azure.microsoft.com/blog/private-offers-on-azure-marketplace](https://azure.microsoft.com/blog/private-offers-on-azure-marketplace).  
+> [!NOTE]
+> Neste momento, compromissos monetários, associados com um contrato Enterprise podem ser utilizado contra a utilização do Azure da sua VM, mas não em relação a taxas de licenciamento de software.  
+> 
+> [!NOTE]
+> É possível restringir a deteção e a implementação da sua VM a um conjunto específico de clientes ao publicar a imagem e preços como uma oferta privada. Ofertas privadas desbloquear a capacidade de criar ofertas exclusivas para os seus clientes mais próximos e personalizada de software e os termos da oferta. Os termos personalizados permitem-lhe destacar uma variedade de cenários, incluindo o campo ministrado por negociações com especializadas de preços e termos, bem como acesso antecipado a software de versão limitada. Ofertas privadas ativar para lhe permitir disponibilizar preços específicos ou produtos para um conjunto limitado de clientes através da criação de um novo SKU com esses detalhes.  
+> *   Para obter mais informações sobre ofertas privadas, visite as ofertas de privado no Azure Marketplace, página localizada em [azure.microsoft.com/blog/private-offers-on-azure-marketplace](https://azure.microsoft.com/blog/private-offers-on-azure-marketplace).  
 
 | Requisito | Detalhes |  
 |:--- |:--- | 

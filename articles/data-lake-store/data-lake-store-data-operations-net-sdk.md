@@ -11,12 +11,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: nitinme
-ms.openlocfilehash: 929ce0d984e53586c46f15f21b9e5c90c6a34771
-ms.sourcegitcommit: c31a2dd686ea1b0824e7e695157adbc219d9074f
+ms.openlocfilehash: 0a6cfc5ca9a0b788075f4472649a6e1bcdf87637
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/18/2019
-ms.locfileid: "54402307"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58119501"
 ---
 # <a name="filesystem-operations-on-azure-data-lake-storage-gen1-using-net-sdk"></a>Operações do sistema de ficheiros em Gen1 de armazenamento do Azure Data Lake com o .NET SDK
 > [!div class="op_single_selector"]
@@ -45,11 +45,11 @@ O exemplo de código disponível no [GitHub](https://github.com/Azure-Samples/da
 2. No menu **Ficheiro**, clique em **Novo** e, em seguida, clique em **Projeto**.
 3. A partir de **Novo Projeto**, escreva ou selecione os seguintes valores:
 
-   | Propriedade | Valor |
+   | Propriedade | Value |
    | --- | --- |
    | Categoria |Templates/Visual C#/Windows |
    | Modelo |Aplicação de Consola |
-   | Nome |CreateADLApplication |
+   | Name |CreateADLApplication |
 
 4. Clique em **OK** para criar o projeto.
 
@@ -62,7 +62,7 @@ O exemplo de código disponível no [GitHub](https://github.com/Azure-Samples/da
       * `Microsoft.Azure.DataLake.Store` - este tutorial utiliza a v1.0.0.
       * `Microsoft.Rest.ClientRuntime.Azure.Authentication` - este tutorial utiliza a v2.3.1.
     
-    Feche o **Gestor de Pacotes NuGet**.
+      Feche o **Gestor de Pacotes NuGet**.
 
 6. Abra **Program.cs**, elimine o código existente e, em seguida, inclua as seguintes instruções para adicionar referências aos espaços de nomes.
 
@@ -90,7 +90,7 @@ O exemplo de código disponível no [GitHub](https://github.com/Azure-Samples/da
 
 Nas restantes secções do artigo, pode ver como utilizar os métodos .NET disponíveis para executar operações, como a autenticação, carregamento de ficheiros, etc.
 
-## <a name="authentication"></a>Autenticação
+## <a name="authentication"></a>Authentication
 
 * Para a autenticação de utilizador final para a sua aplicação, veja [autenticação de utilizador final com geração 1 de armazenamento do Data Lake com o .NET SDK](data-lake-store-end-user-authenticate-net-sdk.md).
 * Para a autenticação de serviço a serviço para a sua aplicação, veja [autenticação de serviço para serviço com geração 1 de armazenamento do Data Lake com o .NET SDK](data-lake-store-service-to-service-authenticate-net-sdk.md).

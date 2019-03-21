@@ -11,24 +11,27 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 11/30/2018
+ms.date: 03/13/2019
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: ''
-ms.openlocfilehash: 53716fa343df25026dcc668ed8483673d934d1ad
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
+ms.openlocfilehash: fff213c8d1a408bf96e385f2097a5ef30dcc05d2
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56339129"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57992100"
 ---
 # <a name="understand-deny-assignments-for-azure-resources"></a>Compreender negar atribuições para recursos do Azure
 
-Semelhante a uma atribuição de função, um *negar atribuição* anexa um conjunto de ações de negação para um utilizador, grupo ou principal de serviço num determinado âmbito para efeitos de negar o acesso. Negar atribuições impedir que os utilizadores de executarem ações de recursos do Azure específica, mesmo se uma atribuição de função lhes concede acesso. Alguns recursos de fornecedores no Azure incluem agora negar atribuições. Atualmente, negar atribuições são **só de leitura** e só pode ser definida pela Microsoft.
+Semelhante a uma atribuição de função, um *negar atribuição* anexa um conjunto de ações de negação para um utilizador, grupo ou principal de serviço num determinado âmbito para efeitos de negar o acesso. Negar atribuições impedir que os utilizadores de executarem ações de recursos do Azure específica, mesmo se uma atribuição de função lhes concede acesso. Alguns recursos de fornecedores no Azure incluem agora negar atribuições.
 
 De certa forma, negar atribuições são diferentes de atribuições de funções. Negar atribuições podem excluir entidades de segurança e impedir a herança para âmbitos subordinados. Negar atribuições também se aplicam ao [administrador de subscrição clássica](rbac-and-directory-admin-roles.md) atribuições.
 
 Este artigo descreve como negar atribuições são definidas.
+
+> [!NOTE]
+> Neste momento, a única maneira que pode adicionar seus próprios negar atribuições é através da utilização do Azure esquemas. Para obter mais informações, consulte [proteger os recursos novos com bloqueios de recursos do Azure esquemas](../governance/blueprints/tutorials/protect-new-resources.md).
 
 ## <a name="deny-assignment-properties"></a>Propriedades de atribuição de negação
 

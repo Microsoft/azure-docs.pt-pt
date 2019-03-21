@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 10/30/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c23f16f5d3c665cb74e9e0460d2e5658fa716d72
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: e0ada3055a3347cb42179fddbba671f2f03f502d
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57452866"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57885072"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-infinite-campus"></a>Tutorial: Integração do Active Directory do Azure com o Campus infinita
 
@@ -196,14 +196,14 @@ O objetivo desta secção consiste em criar uma _único_ utilizador de teste no 
 
     a. Na **Name** , insira **BrittaSimon**.
   
-    b. Na **nome de utilizador** , digite **brittasimon@yourcompanydomain.extension**  
+    b. Na **nome de utilizador** , digite **brittasimon\@yourcompanydomain.extension**  
     Por exemplo, BrittaSimon@contoso.com
 
     c. Selecione **propriedades**, selecione a **palavra-passe de Show** caixa de verificação e, em seguida, anote o valor que é apresentado na caixa de palavra-passe.
 
     d. Selecione **Criar**.
 
-### <a name="creating-a-infinite-campus-test-user"></a>Criar um utilizador de teste do Campus infinita
+### <a name="creating-an-infinite-campus-test-user"></a>Criar um utilizador de teste do Campus infinita
 
 Campus infinito tem uma arquitetura de dados demográficos centralizados. Entre em contato com [equipa de suporte do Campus infinito](mailto:sales@infinitecampus.com) para adicionar os utilizadores na plataforma do Campus infinito.
 

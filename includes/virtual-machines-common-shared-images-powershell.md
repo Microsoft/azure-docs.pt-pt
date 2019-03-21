@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 12/10/2018
 ms.author: cynthn
 ms.custom: include file
-ms.openlocfilehash: c74a96e3dcce1394e0af5447c07ad38c54b960fa
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.openlocfilehash: 91889971e1ab8a9ea8341f6bc57735d973ea0e89
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56825474"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58125133"
 ---
 ## <a name="launch-azure-cloud-shell"></a>Iniciar o Azure Cloud Shell
 
@@ -95,7 +95,7 @@ $vmConfig = Set-AzVMSourceImage `
 
 Isto é semelhante à forma como pode atualmente especificar utilização publicador, oferta e SKU para [imagens do Azure Marketplace](../articles/virtual-machines/windows/cli-ps-findimage.md) para obter a versão mais recente de uma imagem do Marketplace. Com isso em mente, cada definição de imagem tem de ter um conjunto exclusivo desses valores.  
 
-##<a name="create-an-image-version"></a>Criar uma versão de imagem
+## <a name="create-an-image-version"></a>Criar uma versão de imagem
 
 Criar uma versão de imagem a partir de uma imagem gerida utilizando [New-AzGalleryImageVersion](https://docs.microsoft.com/powershell/module/az.compute/new-azgalleryimageversion) . Neste exemplo, é a versão da imagem *1.0.0* e ele é replicado para ambas *e.u.a. Centro-Oeste* e *Centro-Sul* centros de dados.
 

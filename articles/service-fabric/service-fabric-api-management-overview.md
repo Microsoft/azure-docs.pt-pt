@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 06/22/2017
 ms.author: vturecek
-ms.openlocfilehash: 01b67cc0c20710fcf7c9a072e0ba3baaf286852a
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: 60466f0c3c0e674dcbfa287a0368462fd5a1d18f
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52423648"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58120317"
 ---
 # <a name="service-fabric-with-azure-api-management-overview"></a>Service Fabric com a descrição geral da gestão de API do Azure
 
@@ -83,9 +83,9 @@ Para conseguir isso, uma operação de gestão de API contém uma política de p
 
 Neste exemplo, uma nova instância de serviço sem estado é criada para cada utilizador de uma aplicação com um nome gerado dinamicamente usando a seguinte fórmula:
  
- - `fabric:/app/users/<username>`
+- `fabric:/app/users/<username>`
 
- Cada serviço tem um nome exclusivo, mas os nomes não são conhecidos iniciais porque os serviços são criados em resposta ao utilizador ou administrador de entrada e, portanto, não pode ser codificada em políticas APIM ou regras de encaminhamento. Em vez disso, o nome do serviço ao qual pretende enviar uma solicitação é gerado na definição de política de back-end do `name` valor fornecido no caminho de pedido do URL. Por exemplo:
+  Cada serviço tem um nome exclusivo, mas os nomes não são conhecidos iniciais porque os serviços são criados em resposta ao utilizador ou administrador de entrada e, portanto, não pode ser codificada em políticas APIM ou regras de encaminhamento. Em vez disso, o nome do serviço ao qual pretende enviar uma solicitação é gerado na definição de política de back-end do `name` valor fornecido no caminho de pedido do URL. Por exemplo:
 
   - Um pedido para `/api/users/foo` é encaminhado para a instância de serviço `fabric:/app/users/foo`
   - Um pedido para `/api/users/bar` é encaminhado para a instância de serviço `fabric:/app/users/bar`
@@ -102,9 +102,9 @@ Para conseguir isso, uma operação de gestão de API contém uma política de p
 
 Neste exemplo, é criada uma instância de serviço com estado novo para cada usuário do aplicativo com um nome gerado dinamicamente usando a seguinte fórmula:
  
- - `fabric:/app/users/<username>`
+- `fabric:/app/users/<username>`
 
- Cada serviço tem um nome exclusivo, mas os nomes não são conhecidos iniciais porque os serviços são criados em resposta ao utilizador ou administrador de entrada e, portanto, não pode ser codificada em políticas APIM ou regras de encaminhamento. Em vez disso, o nome do serviço ao qual pretende enviar uma solicitação é gerado na definição de política de back-end do `name` valor indicado o caminho de pedido de URL. Por exemplo:
+  Cada serviço tem um nome exclusivo, mas os nomes não são conhecidos iniciais porque os serviços são criados em resposta ao utilizador ou administrador de entrada e, portanto, não pode ser codificada em políticas APIM ou regras de encaminhamento. Em vez disso, o nome do serviço ao qual pretende enviar uma solicitação é gerado na definição de política de back-end do `name` valor indicado o caminho de pedido de URL. Por exemplo:
 
   - Um pedido para `/api/users/foo` é encaminhado para a instância de serviço `fabric:/app/users/foo`
   - Um pedido para `/api/users/bar` é encaminhado para a instância de serviço `fabric:/app/users/bar`

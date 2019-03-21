@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: pbutlerm
-ms.openlocfilehash: 383f65ea925a3575afd988e07784be643201c6b8
-ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
+ms.openlocfilehash: 891d9b7b34e3d30efb46b69ef1aa75566fe634c4
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57214508"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58120759"
 ---
 # <a name="saas-application-technical-info-tab"></a>Separador de informações técnicas de aplicação SaaS
 
@@ -44,7 +44,7 @@ Para criar essa experiência, precisa configurar as seguintes partes:
 - Ligar o seu site do serviço de SaaS com as APIs de SaaS da Microsoft. O [venda de SaaS através do Azure – APIs](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-saas-subscription-apis) artigo explica como criar esta ligação.
 - Ativar venda através do Azure no Portal do Cloud Partner sob a forma de configuração técnica e forneça as informações necessárias. Para obter mais informações sobre este modelo de faturação e como ele é implementado, consulte [SaaS – venda através do Azure](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-saas-offer-subscriptions).
 
- ![Venda através de formulário da Microsoft](./media/saas-techinfo-sellthrough-ms.png)
+  ![Venda através de formulário da Microsoft](./media/saas-techinfo-sellthrough-ms.png)
 
 A tabela seguinte descreve os campos obrigatórios para venda por meio da Microsoft.
 

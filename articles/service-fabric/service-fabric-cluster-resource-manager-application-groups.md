@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/18/2017
 ms.author: masnider
-ms.openlocfilehash: e4f446ff67408ef390ba817de935c286c5b2a47e
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: 94ae233f8591c43afa1bb73c3e17964922967d36
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56727609"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58123033"
 ---
 # <a name="introduction-to-application-groups"></a>Introdução aos grupos de aplicações
 Gestor de recursos de Cluster do Service Fabric gere, tipicamente, recursos do cluster ao propagar a carga (representado por meio [métricas](service-fabric-cluster-resource-manager-metrics.md)) uniformemente em todo o cluster. O Service Fabric gere a capacidade de nós no cluster e o cluster como um todo via [capacidade](service-fabric-cluster-resource-manager-cluster-description.md). Métricas e a capacidade funcionam muito bem para muitas cargas de trabalho, mas os padrões que utilizam diferentes instâncias da aplicação Service Fabric traga, às vezes, os requisitos adicionais. Por exemplo, talvez queira:
@@ -36,6 +36,7 @@ O caso de uso mais simples para a capacidade da aplicação é quando uma instâ
 A imagem seguinte mostra uma instância de aplicação com e sem um número máximo de nós definida:
 
 <center>
+
 ![Instância da aplicação de definir o número máximo de nós][Image1]
 </center>
 
@@ -117,6 +118,7 @@ Combinar **MinimumNodes** e **NodeReservationCapacity** garante uma reserva de c
 Vejamos um exemplo de reserva de capacidade:
 
 <center>
+
 ![Instâncias da aplicação definir a capacidade de reserva][Image2]
 </center>
 

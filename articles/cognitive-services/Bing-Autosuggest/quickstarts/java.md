@@ -10,12 +10,12 @@ ms.subservice: bing-autosuggest
 ms.topic: quickstart
 ms.date: 02/20/2019
 ms.author: aahi
-ms.openlocfilehash: a95bda18009f502700f41c63cc9f00cdf6c00534
-ms.sourcegitcommit: 15e9613e9e32288e174241efdb365fa0b12ec2ac
+ms.openlocfilehash: 64b6ed680ba0812322d5796debc5edada19bc926
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "57011046"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58118838"
 ---
 # <a name="quickstart-suggest-search-queries-with-the-bing-autosuggest-rest-api-and-java"></a>Início rápido: Sugerir consultas de pesquisa com a API de REST de sugestão automática do Bing e o Java
 
@@ -73,51 +73,51 @@ public static String prettify(String json_text) {
 
 1. Criar um novo método chamado `get_suggestions()` e execute os seguintes passos:
 
-    1. Construa o URL para o seu pedido ao combinar a sua API anfitrião, caminho e consulta de pesquisa de codificação. Certifique-se de que a url-codificar a consulta antes de acrescentá-lo. Criar uma cadeia de caracteres de parâmetros para a consulta ao acrescentar o código de mercado para o `mkt=` parâmetro e a sua consulta o `q=` parâmetro.
+   1. Construa o URL para o seu pedido ao combinar a sua API anfitrião, caminho e consulta de pesquisa de codificação. Certifique-se de que a url-codificar a consulta antes de acrescentá-lo. Criar uma cadeia de caracteres de parâmetros para a consulta ao acrescentar o código de mercado para o `mkt=` parâmetro e a sua consulta o `q=` parâmetro.
     
       ```java
   
       public static String get_suggestions () throws Exception {
-          String encoded_query = URLEncoder.encode (query, "UTF-8");
-          String params = "?mkt=" + mkt + "&q=" + encoded_query;
-          //...
+         String encoded_query = URLEncoder.encode (query, "UTF-8");
+         String params = "?mkt=" + mkt + "&q=" + encoded_query;
+         //...
       }
       ```
     
-    2. Crie um novo URL do pedido com o anfitrião, caminho e os parâmetros API criados acima. 
+   2. Crie um novo URL do pedido com o anfitrião, caminho e os parâmetros API criados acima. 
     
-        ```java
-        //...
-        URL url = new URL (host + path + params);
-        //...
-        ```
+       ```java
+       //...
+       URL url = new URL (host + path + params);
+       //...
+       ```
     
-    3. Criar uma `HttpsURLConnection` de objeto e usar `openConnection()` para criar uma ligação. Definir o método de pedido como `GET`e adicione a chave de subscrição para o `Ocp-Apim-Subscription-Key` cabeçalho.
+   3. Criar uma `HttpsURLConnection` de objeto e usar `openConnection()` para criar uma ligação. Definir o método de pedido como `GET`e adicione a chave de subscrição para o `Ocp-Apim-Subscription-Key` cabeçalho.
 
       ```java
-        //...
-        HttpsURLConnection connection = (HttpsURLConnection) url.openConnection();
-        connection.setRequestMethod("GET");
-        connection.setRequestProperty("Ocp-Apim-Subscription-Key", subscriptionKey);
-        connection.setDoOutput(true);
-        //...
+       //...
+       HttpsURLConnection connection = (HttpsURLConnection) url.openConnection();
+       connection.setRequestMethod("GET");
+       connection.setRequestProperty("Ocp-Apim-Subscription-Key", subscriptionKey);
+       connection.setDoOutput(true);
+       //...
       ```
 
-    4. Ler a resposta de API a um `StringBuilder`. Depois de captura a resposta, feche o `InputStreamReader` transmitir e retornar a resposta.
+   4. Ler a resposta de API a um `StringBuilder`. Depois de captura a resposta, feche o `InputStreamReader` transmitir e retornar a resposta.
 
-        ```java
-        //...
-        StringBuilder response = new StringBuilder ();
-        BufferedReader in = new BufferedReader(
-        new InputStreamReader(connection.getInputStream()));
-        String line;
-        while ((line = in.readLine()) != null) {
-          response.append(line);
-        }
-        in.close();
+       ```java
+       //...
+       StringBuilder response = new StringBuilder ();
+       BufferedReader in = new BufferedReader(
+       new InputStreamReader(connection.getInputStream()));
+       String line;
+       while ((line = in.readLine()) != null) {
+         response.append(line);
+       }
+       in.close();
     
-        return response.toString();
-        ```
+       return response.toString();
+       ```
 
 2. A função main de seu aplicativo, chame `get_suggestions()`e a resposta através de impressão `prettify()`.
     

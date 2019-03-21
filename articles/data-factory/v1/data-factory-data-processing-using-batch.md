@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: 6ffed81390419898847ce1b1b9e6b2b48a749cdf
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: f78275af5faaf19a4993a5ae4414b0163f9a4d9d
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57548477"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58124155"
 ---
 # <a name="process-large-scale-datasets-by-using-data-factory-and-batch"></a>Conjuntos de dados em grande escala do processo com o Data Factory e o Batch
 > [!NOTE]
@@ -46,7 +46,7 @@ Com o serviço Batch, define os recursos de computação do Azure para executar 
 Opcionalmente, para saber mais sobre o Batch, veja [a documentação do Batch](https://docs.microsoft.com/azure/batch/).
 
 ## <a name="why-azure-data-factory"></a>Porquê o Azure Data Factory?
-O Data Factory é um serviço de integração de dados com base na cloud que organiza e automatiza o movimento e a transformação dos dados. Pode utilizar o Data Factory para criar pipelines de dados geridos que mover os dados no local e na cloud armazenamentos de dados para um arquivo de dados centralizado. Um exemplo é o armazenamento de Blobs do Azure. Pode utilizar o Data Factory para processar/transformar dados com os serviços, como o Azure HDInsight e Azure Machine Learning. Também pode agendar pipelines de dados para executar de forma agendada (por exemplo, hora a hora, diariamente e semanalmente). Pode monitorizar e gerir pipelines de rapidamente identificar problemas e tomar medidas.
+Data Factory é um serviço de integração de dados baseado na nuvem que orquestra e automatiza o movimento e a transformação de dados. Pode utilizar o Data Factory para criar pipelines de dados geridos que mover os dados no local e na cloud armazenamentos de dados para um arquivo de dados centralizado. Um exemplo é o armazenamento de Blobs do Azure. Pode utilizar o Data Factory para processar/transformar dados com os serviços, como o Azure HDInsight e Azure Machine Learning. Também pode agendar pipelines de dados para executar de forma agendada (por exemplo, hora a hora, diariamente e semanalmente). Pode monitorizar e gerir pipelines de rapidamente identificar problemas e tomar medidas.
 
   Se não estiver familiarizado com o Data Factory, os artigos seguintes ajudá-lo a compreender a arquitetura de implementação da solução descrita neste artigo:  
 
@@ -123,7 +123,7 @@ Crie um conjunto do Batch com, pelo menos, dois nós de computação.
 
    f. Selecione **OK** para criar o conjunto.
 
-#### <a name="azure-storage-explorer"></a>Explorador do Armazenamento do Azure
+#### <a name="azure-storage-explorer"></a>Explorador do Storage do Azure
 Utilizar [6 de Explorador de armazenamento do Azure](https://azurestorageexplorer.codeplex.com/) ou [CloudXplorer](http://clumsyleaf.com/products/cloudxplorer) (a partir de ClumsyLeaf Software) para inspecionar e alterar os dados em seus projetos de armazenamento. Também pode inspecionar e alterar os dados nos registos das suas aplicações alojadas na cloud.
 
 1. Criar um contentor com o nome **mycontainer** com acesso privado (sem acesso anónimo).
@@ -562,7 +562,7 @@ Serviços ligados ligam os arquivos de dados ou serviços de computação à fá
 
 1. Selecione **Implementar** na barra de comandos para implementar o serviço ligado.
 
-   ![Implementar](./media/data-factory-data-processing-using-batch/image8.png)
+   ![Implementação](./media/data-factory-data-processing-using-batch/image8.png)
 
 #### <a name="create-an-azure-batch-linked-service"></a>Criar um serviço ligado do Azure Batch
 Neste passo, vai criar um serviço ligado para a sua conta do Batch que é utilizada para executar a atividade personalizada da fábrica de dados.
@@ -802,8 +802,8 @@ Neste passo, vai criar um pipeline com uma atividade, a atividade personalizada 
    * O **linkedServiceName** propriedade da atividade personalizada, aponte para **AzureBatchLinkedService**, que informa a fábrica de dados que a atividade personalizada precisa ser executado no Batch.
    * O **simultaneidade** definição é importante. Se utilizar o valor predefinido, que é 1, mesmo se tiver dois ou mais nós de computação no conjunto do Batch, os setores são processados um após o outro. Por conseguinte, não está aproveitando o capacidade de lote de processamento de paralelo. Se definir **simultaneidade** para um valor mais alto, digamos que a 2, isso significa que dois reparte (corresponde à duas tarefas no Batch) podem ser processados ao mesmo tempo. Neste caso, ambas as VMs no conjunto do Batch são utilizadas. Defina a propriedade de simultaneidade adequadamente.
    * Por predefinição, apenas uma tarefa (fatia) é executada numa VM, a qualquer momento. Por predefinição, **tarefas de máximo por VM** está definido como 1 para um conjunto do Batch. Como parte dos pré-requisitos, criou um conjunto com esta propriedade definida como 2. Desta forma, os setores de fábrica de dados de dois podem executar numa VM ao mesmo tempo.
-    - O **isPaused** propriedade é definida como false por padrão. O pipeline executa imediatamente neste exemplo, uma vez que os setores de início no passado. Pode definir esta propriedade **true** colocar em pausa o pipeline e o conjunto de volta ao **falso** para reiniciar.
-    -   O **começar** e **final** tempos são cinco horas de distância. Setores são produzidos de hora a hora, para que os setores de cinco são produzidos pelo pipeline.
+     - O **isPaused** propriedade é definida como false por padrão. O pipeline executa imediatamente neste exemplo, uma vez que os setores de início no passado. Pode definir esta propriedade **true** colocar em pausa o pipeline e o conjunto de volta ao **falso** para reiniciar.
+     -   O **começar** e **final** tempos são cinco horas de distância. Setores são produzidos de hora a hora, para que os setores de cinco são produzidos pelo pipeline.
 
 1. Selecione **Implementar** na barra de comandos para implementar o pipeline.
 

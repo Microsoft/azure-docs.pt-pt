@@ -10,12 +10,12 @@ ms.topic: article
 ms.workload: powerbi
 ms.date: 09/25/2017
 ms.author: maghan
-ms.openlocfilehash: 4a7da4a6e7b4b395063f7e4c9a3e97d610492ef6
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: 222c2983d83fe2373159ea542260be7b5a8d8ce5
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56882676"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57885186"
 ---
 # <a name="get-started-with-power-bi-workspace-collections-sample"></a>Introdução ao exemplo de coleções de área de trabalho do Power BI
 
@@ -93,7 +93,7 @@ Depois de clicar num relatório, o **EmbedSample** aplicação web deve ter um a
 
 ## <a name="explore-the-sample-code"></a>Explore o código de exemplo
 
-O **coleções de área de trabalho do Microsoft Power BI** exemplo é uma aplicação de web de exemplo que mostra-lhe como integrar **Power BI** relatórios na sua aplicação. Utiliza um padrão de design Model-View-Controller (MVC) para demonstrar as práticas recomendadas. Esta secção destaca as partes do código de exemplo que pode ser explorado dentro os **PowerBI-embedded** solução de aplicação da web. O padrão Model-View-Controller (MVC) separa a Modelagem de domínio, a apresentação e as ações com base na entrada do usuário em três classes separadas: Modelo, exibe e controla. Para saber mais sobre o MVC, veja [Saiba mais sobre o ASP.NET](http://www.asp.net/mvc).
+O **coleções de área de trabalho do Microsoft Power BI** exemplo é uma aplicação de web de exemplo que mostra-lhe como integrar **Power BI** relatórios na sua aplicação. Utiliza um padrão de design Model-View-Controller (MVC) para demonstrar as práticas recomendadas. Esta secção destaca as partes do código de exemplo que pode ser explorado dentro os **PowerBI-embedded** solução de aplicação da web. O padrão Model-View-Controller (MVC) separa a Modelagem de domínio, a apresentação e as ações com base na entrada do usuário em três classes separadas: Modelo, exibe e controla. Para saber mais sobre o MVC, veja [Saiba mais sobre o ASP.NET](https://www.asp.net/mvc).
 
 O **coleções de área de trabalho do Microsoft Power BI** código de exemplo é separado da seguinte forma. Cada secção inclui o nome de ficheiro da solução do Power BI-embedded.sln para que pode encontrar facilmente o código no exemplo.
 
@@ -270,4 +270,4 @@ $filter={tableName/fieldName}%20eq%20'{fieldValue}'
 [Power BI Desktop](https://powerbi.microsoft.com/documentation/powerbi-desktop-get-the-desktop/)  
 [Exemplo de Incorporação de JavaScript](https://microsoft.github.io/PowerBI-JavaScript/demo/)  
 
-Mais perguntas? [Tente a Comunidade do Power BI](http://community.powerbi.com/)
+Mais perguntas? [Tente a Comunidade do Power BI](https://community.powerbi.com/)

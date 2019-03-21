@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: nitinme
-ms.openlocfilehash: 9740de34fe7cf7d06af1803cc6d77d7e89bbb73f
-ms.sourcegitcommit: 794bfae2ae34263772d1f214a5a62ac29dcec3d2
+ms.openlocfilehash: 5c3f393278d3d51dd3a53cd19335cd242c15c6d8
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44391526"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58168712"
 ---
 # <a name="use-distcp-to-copy-data-between-azure-storage-blobs-and-azure-data-lake-storage-gen1"></a>Utilizar o Distcp para copiar dados entre os Blobs de armazenamento do Azure e de geração 1 de armazenamento do Azure Data Lake
 > [!div class="op_single_selector"]
@@ -33,9 +33,6 @@ Se tiver um cluster do HDInsight com acesso à geração 1 de armazenamento do A
 * **Uma subscrição do Azure**. Consulte [Obter uma avaliação gratuita do Azure](https://azure.microsoft.com/pricing/free-trial/).
 * **Uma conta de geração 1 de armazenamento do Azure Data Lake**. Para obter instruções sobre como criar um, consulte [introdução ao Azure Data Lake Storage Gen1](data-lake-store-get-started-portal.md)
 * **Cluster de HDInsight do Azure** com acesso a uma conta de geração 1 de armazenamento do Data Lake. Ver [criar um cluster do HDInsight com Data Lake Storage Gen1](data-lake-store-hdinsight-hadoop-use-portal.md). Certifique-se de que ativar o ambiente de trabalho remoto para o cluster.
-
-## <a name="do-you-learn-fast-with-videos"></a>Aprende depressa com vídeos?
-[Assista a este vídeo](https://mix.office.com/watch/1liuojvdx6sie) sobre como copiar dados entre os Blobs de armazenamento do Azure e de geração 1 do Data Lake Storage utilizar o DistCp.
 
 ## <a name="use-distcp-from-an-hdinsight-linux-cluster"></a>Utilizar o Distcp a partir de um cluster Linux de HDInsight
 

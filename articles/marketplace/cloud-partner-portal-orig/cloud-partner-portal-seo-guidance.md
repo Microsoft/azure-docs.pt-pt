@@ -14,19 +14,19 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 09/13/2018
 ms.author: pbutlerm
-ms.openlocfilehash: b8ca5fc5348818a7d0f1075557d4fe5c7e3bef44
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
+ms.openlocfilehash: cacc7c0b269e8006903961049caf3cd7e3bee449
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48810512"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57834341"
 ---
 <a name="azure-marketplace-seo-publisher-guide"></a>Guia de publicador do Azure Marketplace SEO
 =======================================
 
 ### <a name="general-explanation-of-algorithm"></a>Geral explicação do algoritmo
 
-O marketplace utiliza o Azure Search para alimentar as capacidades de pesquisa do site. O algoritmo baseia-se a frequência de documento de frequência – inverso do termo ([TF-IDF](https://en.wikipedia.org/wiki/Tf–idf)). A norma [analisador de Lucene](http://lucene.apache.org/core/) é utilizado.
+O marketplace utiliza o Azure Search para alimentar as capacidades de pesquisa do site. O algoritmo baseia-se a frequência de documento de frequência – inverso do termo ([TF-IDF](https://en.wikipedia.org/wiki/Tf–idf)). A norma [analisador de Lucene](https://lucene.apache.org/core/) é utilizado.
 
 Em geral, todo o texto de campos, categorias e setores e incluídos no weightage da relevância. Termos especializados que são utilizados com pouca frequência por aplicações, mas com frequência na sua aplicação irão gerar uma melhor classificação de correspondência com a pesquisa. Então, incluindo termos como "VM" ofereceria pouco benefício, ao passo que "O Azure search" seria muito mais especializado.
 Seguem-se os campos mais relevantes a ter em consideração.

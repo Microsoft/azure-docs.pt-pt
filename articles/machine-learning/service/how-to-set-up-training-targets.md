@@ -11,12 +11,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.date: 01/07/2019
 ms.custom: seodec18
-ms.openlocfilehash: a549a46912b0d60f878a18cae1e70a763afc0243
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: ec509fc8957d20f95123e9f0f645c3e9b6e832f2
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56874703"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58122374"
 ---
 # <a name="set-up-compute-targets-for-model-training"></a>Configurar destinos de computação de preparação de modelos
 
@@ -139,16 +139,16 @@ Um persistente computação do Azure Machine Learning podem ser reutilizada em t
     * **vm_size**: A família VM de nós criados pela computação do Azure Machine Learning.
     * **max_nodes**: O número máximo de nós para dimensionamento automático até ao executar uma tarefa na computação do Azure Machine Learning.
     
- [!code-python[](~/aml-sdk-samples/ignore/doc-qa/how-to-set-up-training-targets/amlcompute2.py?name=cpu_cluster)]
+   [!code-python[](~/aml-sdk-samples/ignore/doc-qa/how-to-set-up-training-targets/amlcompute2.py?name=cpu_cluster)]
 
-  Também pode configurar várias propriedades avançadas ao criar a computação do Azure Machine Learning. As propriedades permitem-lhe criar um cluster persistente de tamanho fixo, ou dentro de uma rede Virtual do Azure existente na sua subscrição.  Consulte a [AmlCompute classe](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.amlcompute.amlcompute?view=azure-ml-py
+   Também pode configurar várias propriedades avançadas ao criar a computação do Azure Machine Learning. As propriedades permitem-lhe criar um cluster persistente de tamanho fixo, ou dentro de uma rede Virtual do Azure existente na sua subscrição.  Consulte a [AmlCompute classe](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.amlcompute.amlcompute?view=azure-ml-py
     ) para obter detalhes.
     
- Ou pode criar e anexar um recurso de computação do Azure Machine Learning persistente [no portal do Azure](#portal-create).
+   Ou pode criar e anexar um recurso de computação do Azure Machine Learning persistente [no portal do Azure](#portal-create).
 
 1. **Configurar**: Crie uma configuração de execução para o destino de computação persistente.
 
- [!code-python[](~/aml-sdk-samples/ignore/doc-qa/how-to-set-up-training-targets/amlcompute2.py?name=run_amlcompute)]
+   [!code-python[](~/aml-sdk-samples/ignore/doc-qa/how-to-set-up-training-targets/amlcompute2.py?name=run_amlcompute)]
 
 Agora que já anexados a computação e configurado a sua execução, a próxima etapa é [submeter a execução de treinamento](#submit).
 
@@ -168,34 +168,34 @@ Utilize a Máquina Virtual de ciência de dados do Azure (DSVM) como VM do Azure
 
 1. **Anexar**: Para anexar uma máquina virtual existente como um destino de computação, tem de fornecer o nome de domínio completamente qualificado (FQDN), o nome de utilizador e a palavra-passe para a máquina virtual. No exemplo, substitua \<fqdn > com o FQDN público da VM ou o endereço IP público. Substitua \<nome de utilizador > e \<palavra-passe > com o nome de utilizador SSH e palavra-passe para a VM.
 
- ```python
- from azureml.core.compute import RemoteCompute, ComputeTarget
+   ```python
+   from azureml.core.compute import RemoteCompute, ComputeTarget
 
- # Create the compute config 
- compute_target_name = "attach-dsvm"
- attach_config = RemoteCompute.attach_configuration(address = "<fqdn>",
+   # Create the compute config 
+   compute_target_name = "attach-dsvm"
+   attach_config = RemoteCompute.attach_configuration(address = "<fqdn>",
                                                     ssh_port=22,
                                                     username='<username>',
                                                     password="<password>")
 
- # If you authenticate with SSH keys instead, use this code:
- #                                                  ssh_port=22,
- #                                                  username='<username>',
- #                                                  password=None,
- #                                                  private_key_file="<path-to-file>",
- #                                                  private_key_passphrase="<passphrase>")
+   # If you authenticate with SSH keys instead, use this code:
+   #                                                  ssh_port=22,
+   #                                                  username='<username>',
+   #                                                  password=None,
+   #                                                  private_key_file="<path-to-file>",
+   #                                                  private_key_passphrase="<passphrase>")
 
- # Attach the compute
- compute = ComputeTarget.attach(ws, compute_target_name, attach_config)
+   # Attach the compute
+   compute = ComputeTarget.attach(ws, compute_target_name, attach_config)
 
- compute.wait_for_completion(show_output=True)
- ```
+   compute.wait_for_completion(show_output=True)
+   ```
 
- Ou pode anexar a DSVM a sua área de trabalho [com o portal do Azure](#portal-reuse).
+   Ou pode anexar a DSVM a sua área de trabalho [com o portal do Azure](#portal-reuse).
 
 1. **Configurar**: Crie uma configuração de execução para o destino de computação DSVM. Docker e conda são utilizados para criar e configurar o ambiente de treinamento em DSVM.
 
- [!code-python[](~/aml-sdk-samples/ignore/doc-qa/how-to-set-up-training-targets/dsvm.py?name=run_dsvm)]
+   [!code-python[](~/aml-sdk-samples/ignore/doc-qa/how-to-set-up-training-targets/dsvm.py?name=run_dsvm)]
 
 
 Agora que já anexados a computação e configurado a sua execução, a próxima etapa é [submeter a execução de treinamento](#submit).
@@ -212,11 +212,11 @@ O Azure HDInsight é uma plataforma popular para análise de macrodados. A plata
 
 1. **Anexar**: Para anexar um cluster do HDInsight como um destino de computação, tem de fornecer o nome de anfitrião, nome de utilizador e palavra-passe para o cluster do HDInsight. O exemplo seguinte utiliza o SDK para anexar um cluster a sua área de trabalho. No exemplo, substitua \<clustername > com o nome do cluster. Substitua \<nome de utilizador > e \<palavra-passe > com o nome de utilizador SSH e palavra-passe para o cluster.
 
-  ```python
- from azureml.core.compute import ComputeTarget, HDInsightCompute
- from azureml.exceptions import ComputeTargetException
+   ```python
+   from azureml.core.compute import ComputeTarget, HDInsightCompute
+   from azureml.exceptions import ComputeTargetException
 
- try:
+   try:
     # if you want to connect using SSH key instead of username/password you can provide parameters private_key_file and private_key_passphrase
     attach_config = HDInsightCompute.attach_configuration(address='<clustername>-ssh.azureinsight.net', 
                                                           ssh_port=22, 
@@ -226,17 +226,17 @@ O Azure HDInsight é uma plataforma popular para análise de macrodados. A plata
                                        name='myhdi', 
                                        attach_configuration=attach_config)
 
- except ComputeTargetException as e:
+   except ComputeTargetException as e:
     print("Caught = {}".format(e.message))
 
- hdi_compute.wait_for_completion(show_output=True)
-  ```
+   hdi_compute.wait_for_completion(show_output=True)
+   ```
 
-  Ou pode anexar o cluster do HDInsight para a área de trabalho [com o portal do Azure](#portal-reuse).
+   Ou pode anexar o cluster do HDInsight para a área de trabalho [com o portal do Azure](#portal-reuse).
 
 1. **Configurar**: Crie uma configuração de execução para o destino de computação do HDI. 
 
- [!code-python[](~/aml-sdk-samples/ignore/doc-qa/how-to-set-up-training-targets/hdi.py?name=run_hdi)]
+   [!code-python[](~/aml-sdk-samples/ignore/doc-qa/how-to-set-up-training-targets/hdi.py?name=run_hdi)]
 
 
 Agora que já anexados a computação e configurado a sua execução, a próxima etapa é [submeter a execução de treinamento](#submit).

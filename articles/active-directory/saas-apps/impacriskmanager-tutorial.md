@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 11/01/2017
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ec119c9e11b21828b1b056fb97598ca7434cfc68
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: MT
+ms.openlocfilehash: 9f987c6803f6ca538f4ae7470caaff597c9596c2
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56197714"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57900748"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-impac-risk-manager"></a>Tutorial: Integração do Active Directory do Azure com o Gestor de risco IMPAC
 
@@ -114,6 +114,7 @@ Nesta secção, pode ativar o Azure AD início de sessão único no portal do Az
     a. Na **identificador** caixa de texto, escreva um valor fornecido pelo IMPAC
 
     b. Na **URL de resposta** caixa de texto, escreva um URL com o seguinte padrão:
+
     | Ambiente | Padrão de URL |
     | ---------------|--------------- |    
     | Para Produção |`https://www.riskmanager.co.nz/DotNet/SSOv2/AssertionConsumerService.aspx?client=<ClientSuffix>`|
@@ -127,6 +128,7 @@ Nesta secção, pode ativar o Azure AD início de sessão único no portal do Az
     ![URLs de domínio do Gestor de risco IMPAC e únicas início de sessão em informações](./media/impacriskmanager-tutorial/tutorial_impacriskmanager_url1_new.png)
 
     Na **URL de início de sessão** caixa de texto, escreva um URL com o seguinte padrão:
+    
     | Ambiente | Padrão de URL |
     | ---------------|--------------- |    
     | Para Produção |`https://www.riskmanager.co.nz/SSOv2/<ClientSuffix>`|

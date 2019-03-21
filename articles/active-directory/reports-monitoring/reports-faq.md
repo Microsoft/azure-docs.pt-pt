@@ -16,12 +16,12 @@ ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c51f1d47a5412e77b7113fccfd2e9a54e1d2ff7f
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: 274675c3b9f04877f5665efbcbf7951a5bbb0e27
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56730210"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57833185"
 ---
 # <a name="frequently-asked-questions-around-azure-active-directory-reports"></a>Perguntas mais frequentes sobre em torno de relatórios do Azure Active Directory
 
@@ -29,13 +29,13 @@ Este artigo contém respostas para perguntas mais frequentes sobre o Azure Activ
 
 ## <a name="getting-started"></a>Introdução 
 
-**P: Posso utilizar atualmente o https://graph.windows.net/&lt; nome do inquilino&gt;/reports/ ponto final de APIs para auditoria de solicitação do Azure AD e a utilização de aplicação integrada relatórios em nossos sistemas de relatórios por meio de programação. O que posso alternar para?**
+**P: Posso utilizar atualmente o `https://graph.windows.net/<tenant-name>/reports/` ponto final de APIs para auditoria de solicitação do Azure AD e a utilização de aplicação integrada relatórios em nossos sistemas de relatórios por meio de programação. O que posso alternar para?**
 
 **R:** Procurar os [referência da API](https://developer.microsoft.com/graph/) para ver como é possível [usar as APIs para aceder aos relatórios de atividade](concept-reporting-api.md). Este ponto de extremidade tem dois relatórios (**auditoria** e **inícios de sessão**) que fornecem a todos os dados de obteve o antigo ponto de final de API. Este novo ponto de extremidade também tem um relatório de inícios de sessão com a licença do Azure AD Premium que pode utilizar para obter a utilização da aplicação, a utilização de dispositivos e informações de início de sessão de utilizador.
 
 ---
 
-**P: Posso utilizar atualmente o https://graph.windows.net/&lt; nome do inquilino&gt;/reports/ ponto final de APIs para extrair os relatórios de segurança do Azure AD (tipos específicos de detecções, tais como a fuga de credenciais ou inícios de sessão de endereços IP anónimos) para nossos sistemas de relatórios por meio de programação. O que posso alternar para?**
+**P: Posso utilizar atualmente o `https://graph.windows.net/<tenant-name>/reports/` ponto final de APIs para enviar relatórios de segurança do Azure AD (tipos específicos de detecções, tais como a fuga de credenciais ou inícios de sessão de endereços IP anónimos) em nossos sistemas de relatórios por meio de programação. O que posso alternar para?**
 
 **R:** Pode utilizar o [eventos de risco do Identity Protection API](../identity-protection/graph-get-started.md) para deteções de segurança de acesso através do Microsoft Graph. Esse novo formato proporciona maior flexibilidade na forma como pode consultar os dados, com filtragem avançada, seleção de campo e muito mais e padroniza eventos de risco num tipo de integração mais fácil com SIEMs e outras ferramentas de recolha de dados. Uma vez que os dados estão num formato diferente, não é possível substituir uma nova consulta para as suas consultas antigas. No entanto, [a nova API utiliza o Microsoft Graph](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/identityriskevent), que é o padrão da Microsoft para essas APIs, como o Office 365 ou do Azure AD. Para que o trabalho necessário a estender seus investimentos atuais do MS Graph ou ajuda a começar sua transição para essa nova plataforma padrão.
 
@@ -89,7 +89,7 @@ Este artigo contém respostas para perguntas mais frequentes sobre o Azure Activ
 
 **P: Pode obter informações de registo de atividade do Office 365 através do portal do Azure?**
 
-**R:** Embora as atividades do Office 365 e os registos de atividades do Azure AD partilhem muitos dos recursos de diretório, se quiser uma visão completa dos registos de atividades do Office 365, deve ir ao Centro de Administração do Office 365 para obter as informações do Registo de atividades do Office 365.
+**R:** Apesar de atividades do Office 365 e a partilha de registos de atividade do Azure AD muitos dos recursos de diretório, se desejar uma visão completa dos registos de atividades do Office 365, deve ir para o [Centro de administração do Microsoft 365](https://admin.microsoft.com) para obter o registo de atividades do Office 365 informações.
 
 ---
 
@@ -140,24 +140,27 @@ Este artigo contém respostas para perguntas mais frequentes sobre o Azure Activ
 **P: Como posso começar a utilizar?**
 
 **R:** Para começar:
-    * Navegue para o relatório de inícios de sessão na [portal do Azure](https://portal.azure.com). 
-    * Clique no início de sessão que pretende resolver problemas.
-    * Navegue para o **acesso condicional** separador. Aqui, pode ver todas as políticas que afetou o início de sessão e o resultado para cada política. 
+
+* Navegue para o relatório de inícios de sessão na [portal do Azure](https://portal.azure.com).
+* Clique no início de sessão que pretende resolver problemas.
+* Navegue para o **acesso condicional** separador. Aqui, pode ver todas as políticas que afetou o início de sessão e o resultado para cada política. 
     
 **P: Quais são todos os valores possíveis para o estado de acesso condicional?**
 
 **R:** Estado do acesso condicional pode ter os seguintes valores:
-    * **Não foram aplicados**: Isso significa que não havia nenhuma política de acesso condicional com o utilizador e a aplicação no âmbito. 
-    * **Êxito**: Isso significa que não havia uma política de acesso condicional com o utilizador e a aplicação no âmbito e políticas de acesso condicional serem satisfeitas com êxito. 
-    * **Falha de**: Isso significa que não havia uma política de acesso condicional com o utilizador e a aplicação no âmbito e políticas de acesso condicional não foram satisfeitas. 
+
+* **Não foram aplicados**: Isso significa que não havia nenhuma política de acesso condicional com o utilizador e a aplicação no âmbito. 
+* **Success**: Isso significa que não havia uma política de acesso condicional com o utilizador e a aplicação no âmbito e políticas de acesso condicional serem satisfeitas com êxito. 
+* **Falha de**: Isso significa que não havia uma política de acesso condicional com o utilizador e a aplicação no âmbito e políticas de acesso condicional não foram satisfeitas. 
     
 **P: Quais são todos os valores possíveis para o resultado de política de acesso condicional?**
 
 **R:** Uma política de acesso condicional pode ter os seguintes resultados:
-    * **Êxito**: A política com êxito foi cumprida.
-    * **Falha de**: A política não foi cumprida.
-    * **Não foram aplicados**: Isso pode ser uma vez que não cumpria as condições de política.
-    * **Não ativado**: Isso se deve a política no estado desativado. 
+
+* **Success**: A política com êxito foi cumprida.
+* **Falha de**: A política não foi cumprida.
+* **Não foram aplicados**: Isso pode ser uma vez que não cumpria as condições de política.
+* **Não ativado**: Isso se deve a política no estado desativado. 
     
 **P: O nome da política do relatório de todos os início de sessão não corresponde ao nome de política na AC. Porquê?**
 

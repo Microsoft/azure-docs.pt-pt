@@ -15,12 +15,12 @@ ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro;seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b5584e4ecc78a8805135cb3f36bd5f5cd7079129
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 5122c9142eccf12193e7e429a3af5ac44fbb8fd6
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57767078"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58111332"
 ---
 # <a name="set-up-self-service-group-management-in-azure-active-directory"></a>Configurar a gestão de grupos self-service no Azure Active Directory 
 
@@ -46,8 +46,8 @@ Grupos criados no | Comportamento de padrão de grupo de segurança | Comportame
 2. Selecione **Utilizadores e Grupos** e **Definições do grupo**.
 3. Defina **Gestão de grupos personalizada ativada** como **Sim**.
 4. Defina **Os utilizadores podem criar grupos de segurança** ou **Os utilizadores podem criar grupos do Office 365** como **Sim**.
-  * Se estas definições estiverem ativada, todos os utilizadores do seu diretório estão autorizados a criar novos grupos de segurança e a adicionar membros aos mesmos. Estes novos grupos apareceriam também no Painel de Acesso para todos os outros utilizadores. Se a definição de política do grupo o permitir, outros utilizadores podem criar pedidos de adesão para estes grupos. 
-  * Se estas definições estiverem desativadas, os utilizadores não podem criar grupos nem alterar os grupos existentes dos quais são proprietários. No entanto, podem continuar gerir os membros desses grupos e aprovar pedidos de outros utilizadores para pertencer aos respetivos grupos.
+   * Se estas definições estiverem ativada, todos os utilizadores do seu diretório estão autorizados a criar novos grupos de segurança e a adicionar membros aos mesmos. Estes novos grupos apareceriam também no Painel de Acesso para todos os outros utilizadores. Se a definição de política do grupo o permitir, outros utilizadores podem criar pedidos de adesão para estes grupos. 
+   * Se estas definições estiverem desativadas, os utilizadores não podem criar grupos nem alterar os grupos existentes dos quais são proprietários. No entanto, podem continuar gerir os membros desses grupos e aprovar pedidos de outros utilizadores para pertencer aos respetivos grupos.
 
 Também pode utilizar **Utilizadores que podem gerir grupos de segurança** e **Utilizadores que podem gerir grupos do Office 365** para obter um controlo de acesso mais refinado sobre a gestão de grupos personalizada para os seus utilizadores. Se **Os utilizadores podem criar grupos** estiver ativado, todos os utilizadores do seu inquilino estão autorizados a criar novos grupos e a adicionar membros aos mesmos. Ao defini-los como **Alguns**, está a restringir a gestão de grupos a apenas um grupo de utilizadores limitado. Quando este parâmetro estiver definido como **Alguns**, tem de adicionar utilizadores ao grupo SSGMSecurityGroupsUsers antes de eles poderem criar grupos novos e adicionar membros aos mesmos. Se definir **Utilizadores que podem utilizar a personalização em grupos de segurança** e **Utilizadores que podem gerir grupos do Office 365** como **Todos**, permitirá que todos os utilizadores do seu inquilino criem grupos novos.
 

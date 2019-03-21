@@ -16,12 +16,12 @@ ms.date: 02/27/2019
 ms.author: anwestg
 ms.reviewer: anwestg
 ms.lastreviewed: 01/11/2019
-ms.openlocfilehash: e8028bc9a4a6f3245dca61d6dd30db22dc295a7f
-ms.sourcegitcommit: f7f4b83996640d6fa35aea889dbf9073ba4422f0
+ms.openlocfilehash: d66254cdad596e3b10482b2c937326162e2e075d
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56992452"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57886835"
 ---
 # <a name="add-an-app-service-resource-provider-to-azure-stack"></a>Adicionar um fornecedor de recursos do serviço de aplicações para o Azure Stack
 
@@ -44,13 +44,13 @@ Pode dar a capacidade de criar aplicações de API web e os seus utilizadores. P
 
 Instalar o fornecedor de recursos do serviço de aplicações, pelo menos, leva uma hora. O período de tempo necessário depende da função quantas instâncias implementar. Durante a implantação, o instalador executa as seguintes tarefas:
 
- - Crie um contentor de BLOBs na conta de armazenamento do Azure Stack especificada.
- - Crie uma zona DNS e as entradas para o serviço de aplicações.
- - Registe o fornecedor de recursos do serviço de aplicações.
- - Registre-se os itens de galeria do serviço de aplicações.
+- Crie um contentor de BLOBs na conta de armazenamento do Azure Stack especificada.
+- Crie uma zona DNS e as entradas para o serviço de aplicações.
+- Registe o fornecedor de recursos do serviço de aplicações.
+- Registre-se os itens de galeria do serviço de aplicações.
 
- > [!IMPORTANT]
- > Antes de implementar o fornecedor de recursos, reveja as notas de versão para saber mais sobre novas funcionalidades, correções e os problemas conhecidos que podem afetar a sua implementação.
+  > [!IMPORTANT]
+  > Antes de implementar o fornecedor de recursos, reveja as notas de versão para saber mais sobre novas funcionalidades, correções e os problemas conhecidos que podem afetar a sua implementação.
 
 Para implementar o fornecedor de recursos do serviço de aplicações, siga estes passos:
 
@@ -74,8 +74,8 @@ Para implementar o fornecedor de recursos do serviço de aplicações, siga este
 
     a. Selecione **Connect** junto a **subscrições do Azure Stack**.
 
-     - Se estiver a utilizar o Azure Active Directory (Azure AD), introduza a conta de administrador do Azure AD e a palavra-passe que forneceu quando implementou o Azure Stack. Selecione **iniciar sessão**.
-     - Se estiver a utilizar os serviços de Federação do Active Directory (AD FS), forneça a sua conta de administrador. Por exemplo, cloudadmin@azurestack.local. Introduza a palavra-passe e, em seguida, selecione **sessão**.
+   - Se estiver a utilizar o Azure Active Directory (Azure AD), introduza a conta de administrador do Azure AD e a palavra-passe que forneceu quando implementou o Azure Stack. Selecione **iniciar sessão**.
+   - Se estiver a utilizar os serviços de Federação do Active Directory (AD FS), forneça a sua conta de administrador. Por exemplo, cloudadmin@azurestack.local. Introduza a palavra-passe e, em seguida, selecione **sessão**.
 
    b. Na **subscrições do Azure Stack**, selecione a **subscrição do fornecedor predefinido**.
 
@@ -243,7 +243,7 @@ Para criar uma aplicação web de teste, siga estes passos:
 
 1. No portal de inquilino do Azure Stack, selecione **+**, vá para o Azure Marketplace, implemente um Web site Django e, em seguida, aguarde pela conclusão da implementação. A plataforma de web Django utiliza um ficheiro com base no sistema base de dados do. Ele não requer quaisquer fornecedores de recursos adicionais, tais como SQL ou MySQL.
 
-2. Se implementou também um provedor de recursos do MySQL, pode implementar um Web site WordPress no Marketplace. Quando lhe for pedido para os parâmetros de base de dados, introduza o nome de utilizador como *User1@Server1*, com o nome de utilizador e o nome do servidor da sua preferência.
+2. Se implementou também um provedor de recursos do MySQL, pode implementar um Web site WordPress no Marketplace. Quando lhe for pedido para os parâmetros de base de dados, introduza o nome de utilizador como *User1\@servidor1*, com o nome de utilizador e o nome do servidor da sua preferência.
 
 3. Se implementou também um provedor de recursos do SQL Server, pode implementar um Web site DNN do Marketplace. Quando lhe for pedido para os parâmetros de base de dados, escolha uma base de dados no computador que executa o SQL Server que está ligada ao seu fornecedor de recursos.
 
