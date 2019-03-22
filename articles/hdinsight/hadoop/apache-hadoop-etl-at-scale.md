@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/14/2017
 ms.author: ashishth
-ms.openlocfilehash: 7897c677df38bb9b71222730a8b6a9ea11fb40bc
-ms.sourcegitcommit: 97d0dfb25ac23d07179b804719a454f25d1f0d46
+ms.openlocfilehash: c200ca98f2a5ea32886ec12d3e732af6598254f7
+ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54912668"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58337617"
 ---
 # <a name="extract-transform-and-load-etl-at-scale"></a>Extração, transformação e carregamento (ETL) em escala
 
@@ -128,7 +128,7 @@ Sqoop utiliza o MapReduce para importar e exportar os dados, para fornecer a ope
 
 Apache Flume é um serviço de distribuída, confiável e disponível para com eficiência a recolher, Agregar e mover grandes quantidades de dados de registo. Flume tem uma arquitetura de simple e flexível com base nos fluxos de dados de transmissão em fluxo. Flume é robusto e tolerante a falhas com mecanismos de fiabilidade ajustável e vários mecanismos de ativação pós-falha e recuperação. Flume usa um modelo de dados extensível simples que permite a aplicação de análise online.
 
-Apache Flume não pode ser utilizado com o Azure HDInsight.  Uma instalação de Hadoop no local pode utilizar o Flume para enviar dados para o Azure Storage Blobs ou para o armazenamento do Azure Data Lake.  Para obter mais informações, consulte [utilizando o Apache Flume com HDInsight](https://blogs.msdn.microsoft.com/bigdatasupport/2014/03/18/using-apache-flume-with-hdinsight/).
+Apache Flume não pode ser utilizado com o Azure HDInsight.  Uma instalação de Hadoop no local pode utilizar o Flume para enviar dados para o Azure Storage Blobs ou para o armazenamento do Azure Data Lake.  Para obter mais informações, consulte [utilizando o Apache Flume com HDInsight](https://web.archive.org/web/20190217104751/ https://blogs.msdn.microsoft.com/bigdatasupport/2014/03/18/using-apache-flume-with-hdinsight/).
 
 ## <a name="transform"></a>Transformação
 

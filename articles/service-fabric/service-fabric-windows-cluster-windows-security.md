@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/24/2017
 ms.author: dekapur
-ms.openlocfilehash: df836d46f244822c8c3dd35be6de08b0c4f34038
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 681ee66ca165ece170dd2a2ce2736cf55a44f1f0
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57760519"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58104085"
 ---
 # <a name="secure-a-standalone-cluster-on-windows-by-using-windows-security"></a>Proteger um cluster autónomo no Windows com segurança do Windows
 Para impedir acesso não autorizado ao cluster do Service Fabric, tem de proteger o cluster. A segurança é especialmente importante quando o cluster executa cargas de trabalho de produção. Este artigo descreve como configurar a segurança de nó para nó e o nó de cliente através de segurança do Windows no *ClusterConfig.JSON* ficheiro.  O processo correspondente para o passo de segurança de configuração do [criar um cluster autónomo no Windows](service-fabric-cluster-creation-for-windows-server.md). Para obter mais informações sobre como o Service Fabric utiliza a segurança do Windows, consulte [cenários de segurança do Cluster](service-fabric-cluster-security.md).
@@ -52,13 +52,13 @@ O exemplo *ClusterConfig.gMSA.Windows.MultiMachine.JSON* ficheiro de configuraç
 | **Definição de configuração** | **Descrição** |
 | --- | --- |
 | ClusterCredentialType |Defina como *Windows* para ativar a segurança do Windows para comunicação entre nós.  | 
-| ServerCredentialType |Defina como *Windows* para ativar a segurança do Windows para a comunicação de nó de cliente. |  
-| WindowsIdentities |Contém as identidades de cliente e de cluster. |  
-| ClustergMSAIdentity |Configura a segurança de nó para nó. Um grupo de conta de serviço gerida. |  
-| ClusterSPN |SPN registrado para a conta gMSA|  
-| ClientIdentities |Configura a segurança de cliente para nó. Uma matriz de contas de utilizador do cliente. | 
-| Identidade |Adicione o utilizador de domínio, domínio \ nomedeutilizador, para a identidade do cliente. |  
-| IsAdmin |Defina como verdadeiro para especificar que o utilizador de domínio tem acesso de cliente de administrador ou FALSO para acesso de cliente do utilizador. |  
+| ServerCredentialType |Defina como *Windows* para ativar a segurança do Windows para a comunicação de nó de cliente. |
+| WindowsIdentities |Contém as identidades de cliente e de cluster. |
+| ClustergMSAIdentity |Configura a segurança de nó para nó. Um grupo de conta de serviço gerida. |
+| ClusterSPN |SPN registrado para a conta gMSA|
+| ClientIdentities |Configura a segurança de cliente para nó. Uma matriz de contas de utilizador do cliente. |
+| Identidade |Adicione o utilizador de domínio, domínio \ nomedeutilizador, para a identidade do cliente. |
+| IsAdmin |Defina como verdadeiro para especificar que o utilizador de domínio tem acesso de cliente de administrador ou FALSO para acesso de cliente do utilizador. |
 
 > [!NOTE]
 > Valor de ClustergMSAIdentity não pode incluir o nome de domínio e só pode ser o nome de conta de serviço gerida de grupo. I.E. "mysfgmsa" está correto e ambos "mydomain / / mysfgmsa" ou "mysfgmsa@mydomain" são inválidas; como o domínio é exigido pelo computador anfitrião.
@@ -104,10 +104,10 @@ Esse modelo está a ser preterido. A recomendação é usar a gMSA conforme deta
 
 | **Definição de configuração** | **Descrição** |
 | --- | --- |
-| ClusterCredentialType |Defina como *Windows* para ativar a segurança do Windows para comunicação entre nós.  | 
-| ServerCredentialType |Defina como *Windows* para ativar a segurança do Windows para a comunicação de nó de cliente. |  
-| WindowsIdentities |Contém as identidades de cliente e de cluster. |  
-| ClusterIdentity |Utilize um nome de grupo do computador, domain\machinegroup, para configurar a segurança de nó para nó. |  
+| ClusterCredentialType |Defina como *Windows* para ativar a segurança do Windows para comunicação entre nós.  |
+| ServerCredentialType |Defina como *Windows* para ativar a segurança do Windows para a comunicação de nó de cliente. |
+| WindowsIdentities |Contém as identidades de cliente e de cluster. |
+| ClusterIdentity |Utilize um nome de grupo do computador, domain\machinegroup, para configurar a segurança de nó para nó. |
 | ClientIdentities |Configura a segurança de cliente para nó. Uma matriz de contas de utilizador do cliente. |  
 | Identidade |Adicione o utilizador de domínio, domínio \ nomedeutilizador, para a identidade do cliente. |  
 | IsAdmin |Defina como verdadeiro para especificar que o utilizador de domínio tem acesso de cliente de administrador ou FALSO para acesso de cliente do utilizador. |  

@@ -3,20 +3,20 @@ title: Artigo sobre as limitações de migração/problemas conhecidos com as mi
 description: Saiba mais sobre as limitações de migração/problemas conhecidos com as migrações de online para a base de dados do Azure SQL.
 services: database-migration
 author: HJToland3
-ms.author: rajpo
+ms.author: jtoland
 manager: craigg
-ms.reviewer: douglasl
+ms.reviewer: craigg
 ms.service: dms
 ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
 ms.date: 03/05/2019
-ms.openlocfilehash: 2261e2143a460bad812a49ba9d8a593c3f3b7b00
-ms.sourcegitcommit: d89b679d20ad45d224fd7d010496c52345f10c96
+ms.openlocfilehash: 38a59a3a390977c5a3fd22b185542f5f2ec33d79
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57792111"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58091499"
 ---
 # <a name="known-issuesmigration-limitations-with-online-migrations-to-azure-sql-db"></a>Limitações de migração/problemas conhecidos com as migrações de online para a BD SQL do Azure
 
@@ -62,9 +62,9 @@ Poderá ver uma exceção de SQL sugerindo "ntext é incompatível com hierarchy
       select object_name(object_id) 'Table name' from sys.columns where system_type_id =240 and object_id in (select object_id from sys.objects where type='U')
       ``` 
 
- 2. Excluir essas tabelas a partir da **configurar definições de migração** painel, no qual especifica tabelas para migração.
+   1. Excluir essas tabelas a partir da **configurar definições de migração** painel, no qual especifica tabelas para migração.
 
- 3. Volte a executar a atividade de migração.
+   1. Volte a executar a atividade de migração.
 
 ### <a name="migration-failures-with-various-integrity-violations-with-active-triggers-in-the-schema-during-full-data-load-or-incremental-data-sync"></a>Falhas de migração com vários violações de integridade com os acionadores de Active Directory no esquema durante a "carregamento de dados completa" ou "sincronização de dados Incremental"
 

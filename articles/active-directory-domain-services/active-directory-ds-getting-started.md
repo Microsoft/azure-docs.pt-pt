@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/23/2018
 ms.author: ergreenl
-ms.openlocfilehash: 4c533921b0c88a4f61cd96896b72306adb9a23cf
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 637ad62744affa37630df9c841f3c7529674e788
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55175711"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58122914"
 ---
 # <a name="enable-azure-active-directory-domain-services-using-the-azure-portal"></a>Ativar o Azure Active Directory Domain Services no portal do Azure
 Este artigo mostra como ativar o Azure Active Directory Domain Services (Azure AD DS) no portal do Azure.
@@ -62,14 +62,13 @@ Na **Noções básicas** página do assistente, especifique o nome de domínio D
    > [!NOTE]
    > **Diretrizes para selecionar um nome de domínio DNS**
    > * **Nome de domínio internos:** Por predefinição, o assistente Especifica o nome de domínio predefinido/interno-in do diretório (com uma **. onmicrosoft.com** sufixo) para. Se optar por ativar o acesso de secure LDAP para o domínio gerido através da internet, espere problemas de criar um registo DNS público ou obter um certificado de secure LDAP de uma AC pública para este nome de domínio. A Microsoft possui os *. onmicrosoft.com* ACs e de domínio não emitirá certificados pela garantia para este domínio.
-   * **Nomes de domínio personalizado:** Também pode escrever um nome de domínio personalizado. Neste exemplo, o nome de domínio personalizado é *contoso100.com*.
-   * **Sufixos de domínio não encaminháveis:** Em geral, recomendamos que evite um sufixo de nome de domínio não encaminháveis internos. Por exemplo, é melhor evitar a criação de um domínio com o nome de domínio DNS "contoso.com". O sufixo DNS. 'local' não é roteável e pode causar problemas de resolução de DNS.
-   * **Restrições de prefixo de domínio:** O prefixo do seu nome de domínio especificado (por exemplo, contoso100 no nome de domínio *contoso100.com*) tem de conter 15 ou menos carateres. Não é possível criar um domínio gerido com um prefixo mais de 15 carateres.
-   * **Conflitos de nome de rede:** Certifique-se de que o nome de domínio DNS que escolheu para o domínio gerido ainda não existe na rede virtual. Especificamente, verifique se:
-       * Já tem um domínio do Active Directory com o mesmo nome de domínio DNS na rede virtual.
-       * A rede virtual em que pretende ativar o domínio gerido tem uma ligação VPN à sua rede no local. Neste cenário, certifique-se que não tiver um domínio com o mesmo nome de domínio DNS na sua rede no local.
-       * Tem um serviço cloud existente com este nome na rede virtual.
-    >
+   > * **Nomes de domínio personalizado:** Também pode escrever um nome de domínio personalizado. Neste exemplo, o nome de domínio personalizado é *contoso100.com*.
+   > * **Sufixos de domínio não encaminháveis:** Em geral, recomendamos que evite um sufixo de nome de domínio não encaminháveis internos. Por exemplo, é melhor evitar a criação de um domínio com o nome de domínio DNS "contoso.com". O sufixo DNS. 'local' não é roteável e pode causar problemas de resolução de DNS.
+   > * **Restrições de prefixo de domínio:** O prefixo do seu nome de domínio especificado (por exemplo, contoso100 no nome de domínio *contoso100.com*) tem de conter 15 ou menos carateres. Não é possível criar um domínio gerido com um prefixo mais de 15 carateres.
+   > * **Conflitos de nome de rede:** Certifique-se de que o nome de domínio DNS que escolheu para o domínio gerido ainda não existe na rede virtual. Especificamente, verifique se:
+   >     * Já tem um domínio do Active Directory com o mesmo nome de domínio DNS na rede virtual.
+   >     * A rede virtual em que pretende ativar o domínio gerido tem uma ligação VPN à sua rede no local. Neste cenário, certifique-se que não tiver um domínio com o mesmo nome de domínio DNS na sua rede no local.
+   >     * Tem um serviço cloud existente com este nome na rede virtual.
 
 2. Selecione o Azure **subscrição** no qual gostaria de criar o domínio gerido.
 

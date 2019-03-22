@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 2/20/2019
 ms.author: wolfma
-ms.openlocfilehash: 43ace5e56234ed01ca008050c0efdf17b9a5a081
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: HT
+ms.openlocfilehash: 9458f052258993ee598ddfbca262faf8f6cb4ab9
+ms.sourcegitcommit: aa3be9ed0b92a0ac5a29c83095a7b20dd0693463
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57848869"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58258552"
 ---
 # <a name="quickstart-recognize-speech-in-java-on-android-by-using-the-speech-sdk"></a>Início rápido: Reconhecer voz em Java no Android com o SDK de voz
 
@@ -61,11 +61,11 @@ O Android Studio demora algum tempo a preparar o seu novo projeto Android. Em se
 A versão atual do SDK de Voz dos Serviços Cognitivos é `1.3.1`.
 
 O SDK de voz para Android é empacotado como uma [AAR (biblioteca do Android)](https://developer.android.com/studio/projects/android-library), que inclui as permissões necessárias de Android e as bibliotecas necessárias.
-Está alojado num repositório Maven em https://csspeechstorage.blob.core.windows.net/maven/.
+Ele está hospedado num repositório Maven em https:\//csspeechstorage.blob.core.windows.net/maven/.
 
 Configure o projeto para utilizar o SDK de Voz. Abra a janela Project Structure (Estrutura do Projeto), escolhendo **File** (Ficheiro)  > **Project Structure** (Estrutura do Projeto) na barra de menus do Android Studio. Na janela de estrutura do projeto, faça as seguintes alterações:
 
-1. Na lista no lado esquerdo da janela, selecione **Project** (Projeto). Edite as definições de **Default Library Repository** (Repositório de Biblioteca Predefinido), acrescentando uma vírgula e colocando o URL do repositório do Maven entre plicas. "https://csspeechstorage.blob.core.windows.net/maven/"
+1. Na lista no lado esquerdo da janela, selecione **Project** (Projeto). Edite as definições de **Default Library Repository** (Repositório de Biblioteca Predefinido), acrescentando uma vírgula e colocando o URL do repositório do Maven entre plicas. 'https:\//csspeechstorage.blob.core.windows.net/maven/'
 
    ![Captura de ecrã da janela Estrutura do Projeto](media/sdk/qs-java-android-06-add-maven-repository.png)
 
