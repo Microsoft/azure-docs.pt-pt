@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2019
 ms.author: aschhab
-ms.openlocfilehash: 2330e395244f33653af415b5db896fdc2aa2024d
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
+ms.openlocfilehash: 6e5895392db1d75a985674bf2f878a84bc8dd926
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54852988"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58107040"
 ---
 # <a name="distributed-tracing-and-correlation-through-service-bus-messaging"></a>Rastreio distribuído e correlação por meio de mensagens do Service Bus
 
@@ -213,7 +213,7 @@ Em alguns casos, é desejável para iniciar sessão apenas uma parte dos eventos
 
 1. `IsEnabled(<OperationName>, string entity, null)` Por exemplo, `IsEnabled("Microsoft.Azure.ServiceBus.Send", "MyQueue1")`. Tenha em atenção de que não existe 'Start' ou 'Stop' no final. Usá-lo para filtrar operações específicas ou filas. Se o retorno de chamada retorna `false`, os eventos para a operação não são enviados
 
-  * As operações de "Processo" e "ProcessSession", também receberá `IsEnabled(<OperationName>, string entity, Activity activity)` retorno de chamada. Usá-lo para filtrar eventos com base em `activity.Id` ou propriedades de etiquetas.
+   * As operações de "Processo" e "ProcessSession", também receberá `IsEnabled(<OperationName>, string entity, Activity activity)` retorno de chamada. Usá-lo para filtrar eventos com base em `activity.Id` ou propriedades de etiquetas.
   
 2. `IsEnabled(<OperationName>.Start)` Por exemplo, `IsEnabled("Microsoft.Azure.ServiceBus.Send.Start")`. Verifica se o evento de "Iniciar" deve ser disparado. O resultado afeta apenas o evento de "Iniciar", mas ainda mais instrumentação não dependem dele.
 

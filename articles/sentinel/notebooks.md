@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 2/28/2019
 ms.author: rkarlin
-ms.openlocfilehash: 83bbb7f6a683265e4f2ed20801d0c7541a54e9f9
-ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.openlocfilehash: 63ce2be847017ed7e80fe5e573d5553311f6af2f
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/02/2019
-ms.locfileid: "57244966"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58107683"
 ---
 # <a name="use-notebooks-to-hunt-for-anomalies"></a>Utilizar blocos de notas para procurar anomalias
 
@@ -48,15 +48,15 @@ No exemplo a seguir, executamos o bloco de notas para pesquisar por explorar as 
   
    ![Selecione o bloco de notas](./media/notebooks/select-notebook.png)
 
-3.  Clique em **importação** para clonar o repositório do GitHub para o seu projeto de blocos de notas do Azure.
-  ![Bloco de notas de importação](./media/notebooks/import1.png)
-4.  Cada bloco de anotações orienta-o através dos passos para realizar uma busca ou a investigação. Modelos, bibliotecas e outras dependências e a configuração de conectividade para o Azure sentinela são automaticamente importados para habilitar a execução de um clique. Todas as bibliotecas necessárias para executar um bloco de notas e código são previamente carregadas. Pode começar imediatamente a execução de um bloco de notas no seu espaço de trabalho do Log Analytics sem qualquer configuração.
+3. Clique em **importação** para clonar o repositório do GitHub para o seu projeto de blocos de notas do Azure.
+   ![Bloco de notas de importação](./media/notebooks/import1.png)
+4. Cada bloco de anotações orienta-o através dos passos para realizar uma busca ou a investigação. Modelos, bibliotecas e outras dependências e a configuração de conectividade para o Azure sentinela são automaticamente importados para habilitar a execução de um clique. Todas as bibliotecas necessárias para executar um bloco de notas e código são previamente carregadas. Pode começar imediatamente a execução de um bloco de notas no seu espaço de trabalho do Log Analytics sem qualquer configuração.
 
    ![Repositório de importação](./media/notebooks/import2.png)
 
-5.  Explore, modificar e executar todas as notas de exemplo fornecidas. Estes podem ser utilizados como blocos de construção para vários cenários diferentes.
+5. Explore, modificar e executar todas as notas de exemplo fornecidas. Estes podem ser utilizados como blocos de construção para vários cenários diferentes.
 
-  ![Selecione o bloco de notas](./media/notebooks/import3.png)
+   ![Selecione o bloco de notas](./media/notebooks/import3.png)
 
 
 

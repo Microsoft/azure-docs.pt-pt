@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: tutorial
 ms.date: 02/19/2019
 ms.author: diberry
-ms.openlocfilehash: d333eb6baa41321fdf7daca3c545d5d5e3ed5fe4
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: b9ddd82d18b7f67f61e5c1589511ea6db4fa18a3
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56732709"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58100297"
 ---
 # <a name="tutorial-extract-names-with-simple-entity-and-a-phrase-list"></a>Tutorial: Extrair nomes de entidade simple e uma lista de frase
 
@@ -127,7 +127,7 @@ Entidades simples precisam muitos exemplos para ter uma confiança elevada de pr
     |Candidatar a trabalho de aplicação de mosaicos.|mosaicos|
     |Currículo anexado para arquiteto paisagista.|arquiteto paisagista|
     |Envio em anexo o meu curriculum vitae para professor de biologia.|professor de biologia|
-    |Gostaria de candidatar-me ao cargo na área de fotografia.|fotografia|git 
+    |Gostaria de candidatar-me ao cargo na área de fotografia.|fotografia|
 
 ## <a name="mark-job-entity-in-other-intents"></a>Entidade de tarefa de Mark em outros objetivos
 

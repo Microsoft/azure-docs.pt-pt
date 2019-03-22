@@ -7,12 +7,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 03/05/2018
 ms.author: pullabhk
-ms.openlocfilehash: 489de7b2fe87d1bb218e3fce39f269d866d66dd7
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 83fe8d17699c19d442fd734d71d828eb9fd9d6ed
+ms.sourcegitcommit: aa3be9ed0b92a0ac5a29c83095a7b20dd0693463
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57845176"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58258365"
 ---
 # <a name="back-up-and-restore-azure-files-with-powershell"></a>Criar cópias de segurança e restaurar ficheiros do Azure com o PowerShell
 
@@ -240,9 +240,9 @@ testAzureFS       ConfigureBackup      Completed            11/12/2018 2:15:26 P
 
 Uso [AzRecoveryServicesBackupItem de cópia de segurança](https://docs.microsoft.com/powershell/module/az.recoveryservices/backup-azrecoveryservicesbackupitem?view=azps-1.4.0) para executar uma cópia de segurança a pedido para uma partilha de ficheiros do Azure protegidos.
 
-1. Obter a conta de armazenamento e o ficheiro partilham a partir do contentor no cofre que contém os seus dados de cópia de segurança com [Get-AzRecoveryServicesBackupContainer](/powershell/module/az.recoveryservices.backup/get-Azrecoveryservicesbackupcontainer).
-2. Para iniciar uma tarefa de cópia de segurança, é obter informações sobre a VM com [Get-AzRecoveryServicesBackupItem](/powershell/module/Az.RecoveryServices.Backup/Get-AzRecoveryServicesBackupItem).
-3. Executar cópias de segurança a pedido com[AzRecoveryServicesBackupItem de cópia de segurança](/powershell/module/az.recoveryservices.backup/backup-Azrecoveryservicesbackupitem).
+1. Obter a conta de armazenamento e o ficheiro partilham a partir do contentor no cofre que contém os seus dados de cópia de segurança com [Get-AzRecoveryServicesBackupContainer](/powershell/module/az.recoveryservices/get-Azrecoveryservicesbackupcontainer).
+2. Para iniciar uma tarefa de cópia de segurança, é obter informações sobre a VM com [Get-AzRecoveryServicesBackupItem](/powershell/module/az.recoveryservices/Get-AzRecoveryServicesBackupItem).
+3. Executar cópias de segurança a pedido com[AzRecoveryServicesBackupItem de cópia de segurança](/powershell/module/az.recoveryservices/backup-Azrecoveryservicesbackupitem).
 
 Execute a cópia de segurança a pedido da seguinte forma:
     

@@ -13,20 +13,20 @@ ms.date: 07/30/2018
 ms.author: lizross
 ms.custom: user-help, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c892d616609151b5ad6025b4d0b535c494e6af82
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 84c71430d05bf0755fd8a7c096a2afcb2f69d292
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57454226"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58116729"
 ---
 # <a name="sign-in-using-two-step-verification-or-security-info"></a>Inicie sessão utilizando as informações de segurança ou de verificação de dois passos
 Depois de configurar a verificação de dois passos ou informações de segurança, poderá iniciar sessão na sua conta com o seu método de autenticação especificado.
 
->[!Note]
->Se ainda estiver a utilizar a experiência de verificação de dois passos, terá de configurar os métodos de autenticação ao seguir as instruções no [configurar a minha conta para verificação de dois passos](multi-factor-authentication-end-user-first-time.md) artigo.
-
->Se o administrador tiver ativado a experiência de informações de segurança, terá de definir os métodos de autenticação usando estes artigos passo a passo:<ul><li>[Definir informações de segurança para utilizar uma aplicação de autenticação](security-info-setup-auth-app.md)</li><li>[Configurar as informações de segurança para utilizar mensagens de texto](security-info-setup-text-msg.md)</li><li>[Definir informações de segurança para utilizar uma chamada telefónica](security-info-setup-phone-number.md)</li></ul>
+> [!Note]
+> Se ainda estiver a utilizar a experiência de verificação de dois passos, terá de configurar os métodos de autenticação ao seguir as instruções no [configurar a minha conta para verificação de dois passos](multi-factor-authentication-end-user-first-time.md) artigo.
+> 
+> Se o administrador tiver ativado a experiência de informações de segurança, terá de definir os métodos de autenticação usando estes artigos passo a passo:<ul><li>[Definir informações de segurança para utilizar uma aplicação de autenticação](security-info-setup-auth-app.md)</li><li>[Configurar as informações de segurança para utilizar mensagens de texto](security-info-setup-text-msg.md)</li><li>[Definir informações de segurança para utilizar uma chamada telefónica](security-info-setup-phone-number.md)</li></ul>
 
 ## <a name="sign-in-using-an-authenticator-app-notification-on-your-mobile-device"></a>Inicie sessão com uma notificação de aplicação de autenticador no seu dispositivo móvel
 

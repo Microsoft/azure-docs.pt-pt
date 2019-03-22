@@ -14,17 +14,17 @@ ms.topic: article
 ms.date: 06/13/2017
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: 7f0af2c64d04d83cc3eb4043007979c17c75e051
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 4a2c90accaafea0c17456f8e6c5eae41199b17ed
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55877291"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58105170"
 ---
 > [!NOTE]
 > Cada ambiente de serviço de aplicações tem um IP Virtual (VIP), que pode ser utilizado para contactar o ambiente de serviço de aplicações.
->
-# <a name="create-an-external-app-service-environment"></a>Criar um ambiente de serviço de aplicações externo #
+> 
+> # <a name="create-an-external-app-service-environment"></a>Criar um ambiente de serviço de aplicações externo #
 
 O Ambiente de Serviço de Aplicações do Azure é uma implementação do Serviço de Aplicações do Azure numa sub-rede de uma rede virtual do Azure (VNet). Existem duas formas de implementar um Ambiente de Serviço de Aplicações (ASE):
 

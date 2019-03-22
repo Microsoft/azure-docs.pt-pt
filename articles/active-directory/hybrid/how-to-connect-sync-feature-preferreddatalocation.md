@@ -16,12 +16,12 @@ ms.date: 07/30/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fbe9a10c85efa2f52a04f5c2fab87421a08f0a16
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 3a7b9c8827979ac4135bcaf4dfeef7cd5de02b2d
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56199804"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58118447"
 ---
 # <a name="azure-active-directory-connect-sync-configure-preferred-data-location-for-office-365-resources"></a>Sincronização do Azure Active Directory Connect: Configurar a localização de dados preferencial para os recursos do Office 365
 O objetivo deste tópico é orientá-lo como configurar o atributo de localização de dados preferencial na sincronização do Azure Active Directory (Azure AD) Connect. Quando alguém o utilizar capacidades de Multi-Geo no Office 365, utilize este atributo para designar a localização geográfica dos dados do utilizador do Office 365. (Os termos *região* e *geo* são utilizados alternadamente.)
@@ -192,8 +192,8 @@ Em geral, o ciclo completo de sincronização é necessário. Isto acontece porq
    3. Na caixa de diálogo, selecione **importação completa**e selecione **OK**.
    4. Aguarde pela conclusão da operação.
 
-    > [!NOTE]
-    > Pode ignorar a importação completa no conector do Active Directory no local se o atributo de origem já está incluído na lista de atributos importados. Em outras palavras, não era necessário que fazer qualquer alteração durante o passo 2 anteriormente no artigo.
+      > [!NOTE]
+      > Pode ignorar a importação completa no conector do Active Directory no local se o atributo de origem já está incluído na lista de atributos importados. Em outras palavras, não era necessário que fazer qualquer alteração durante o passo 2 anteriormente no artigo.
 
 2. Execute **importação completa** no conector do Azure AD:
 

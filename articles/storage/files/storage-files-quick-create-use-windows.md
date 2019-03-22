@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.date: 02/01/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 12dea044dab2aafad1d7597214d159011b5ab536
-ms.sourcegitcommit: a4efc1d7fc4793bbff43b30ebb4275cd5c8fec77
+ms.openlocfilehash: 5109f4e801c1e34b2026cff8f8dd83558618e153
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56652472"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58165799"
 ---
 # <a name="quickstart-create-and-manage-azure-files-share-with-windows-virtual-machines"></a>Início rápido: Criar e gerir a partilha de ficheiros do Azure com as máquinas virtuais do Windows
 

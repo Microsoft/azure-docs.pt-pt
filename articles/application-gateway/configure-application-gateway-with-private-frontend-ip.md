@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 02/26/2019
 ms.author: absha
-ms.openlocfilehash: 599372bccc7465bfea0387dedd8dfd63b8a61060
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 4755eeda6a254389f0e0fbceec602fef718a9c45
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57555099"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58100177"
 ---
 # <a name="configure-an-application-gateway-with-an-internal-load-balancer-ilb-endpoint"></a>Configurar um gateway de aplicação com um ponto final (ILB) do Balanceador de carga interno
 
@@ -42,14 +42,14 @@ Para o Azure comunicar entre os recursos que criar, ele precisa de uma rede virt
    - 10.0.0.0/16* - para o espaço de endereços de rede virtual.
    - *myAGSubnet* - para o nome da sub-rede.
    - *10.0.0.0/24* - para o espaço de endereço da sub-rede.  
-   ![private-frontendip-1](.\media\configure-application-gateway-with-private-frontend-ip\private-frontendip-1.png)
+     ![private-frontendip-1](./media/configure-application-gateway-with-private-frontend-ip/private-frontendip-1.png)
 6. Clique em **OK** para criar a rede virtual e a sub-rede.
 7. Escolha a configuração de IP de front-end como privadas e por predefinição, é uma atribuição de endereços IP dinâmica. O primeiro endereço disponível do escolhido sub-rede será atribuída como o endereço IP de front-end.
 8. Se gostaria de escolher um IP privado a partir do intervalo de endereços da sub-rede (alocação estático), clique na caixa **escolher um endereço IP privado específico** e especifique o endereço IP.
    > [!NOTE]
    > Depois de atribuído, o tipo de endereço IP (dinâmico ou estático) não é possível alterar mais tarde.
 9. Escolha a configuração do serviço de escuta para o protocolo e a porta, a configuração do WAF (se necessário) e clique em OK.
-    ![private-frontendip-2](.\media\configure-application-gateway-with-private-frontend-ip\private-frontendip-2.png)
+    ![private-frontendip-2](./media/configure-application-gateway-with-private-frontend-ip/private-frontendip-2.png)
 10. Reveja as definições na página de resumo e, em seguida, clique em **OK** para criar os recursos de rede e o gateway de aplicação. Pode demorar alguns minutos até que o gateway de aplicação ser criado, aguarde até a conclusão da implementação com êxito antes de passar para a secção seguinte.
 
 ## <a name="add-backend-pool"></a>Adicionar conjunto back-end
@@ -60,7 +60,7 @@ O conjunto de back-end é utilizado para encaminhar pedidos para os servidores d
 2. Instale o IIS nas máquinas virtuais para verificar se o gateway de aplicação foi criado com êxito.
 3. Adicione os servidores de back-end para o conjunto de back-end.
 
-### <a name="create-a-virtual-machine"></a>Crie uma máquina virtual
+### <a name="create-a-virtual-machine"></a>Criar uma máquina virtual
 
 1. Clique em **Novo**.
 2. Clique em **computação** e, em seguida, selecione **do Windows Server 2016 Datacenter** na lista em destaque.
@@ -78,7 +78,7 @@ O conjunto de back-end é utilizado para encaminhar pedidos para os servidores d
 ### <a name="install-iis"></a>Instalar o IIS
 
 1. Abra a shell interativa e certifique-se de que está definida como **PowerShell**.
-    ![private-frontendip-3](.\media\configure-application-gateway-with-private-frontend-ip\private-frontendip-3.png)
+    ![private-frontendip-3](./media/configure-application-gateway-with-private-frontend-ip/private-frontendip-3.png)
 2. Execute o comando seguinte para instalar o IIS na máquina virtual:
 
    ```azurepowershell
@@ -107,13 +107,13 @@ O conjunto de back-end é utilizado para encaminhar pedidos para os servidores d
 1. Click **All resources**, and then click **myAppGateway**.
 2. Click **Backend pools**. A default pool was automatically created with the application gateway. Click **appGatewayBackendPool**.
 3. Click **Add target** to add each virtual machine that you created to the backend pool.
-   ![private-frontendip-4](.\media\configure-application-gateway-with-private-frontend-ip\private-frontendip-4.png)
+   ![private-frontendip-4](./media/configure-application-gateway-with-private-frontend-ip/private-frontendip-4.png)
 4. Click **Save.**
 
 ## Test the application gateway
 
 1. Check your frontend IP that got assigned by clicking the **Frontend IP Configurations** blade in the portal.
-    ![private-frontendip-5](.\media\configure-application-gateway-with-private-frontend-ip\private-frontendip-5.png)
+    ![private-frontendip-5](./media/configure-application-gateway-with-private-frontend-ip/private-frontendip-5.png)
 2. Copy the private IP address, and then paste it into the address bar of your browser of a VM in the same VNet or on-premises which has connectivity to this VNet and try to access the Application Gateway.
 
 ## Next steps

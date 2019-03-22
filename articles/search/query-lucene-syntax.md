@@ -19,12 +19,12 @@ translation.priority.mt:
 - ru-ru
 - zh-cn
 - zh-tw
-ms.openlocfilehash: 5bb5993ea47bfcaca96662fbb3d34341e137b929
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: a2576a0489ad62aba0a85a45f110acb8ac220847
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57544839"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58107190"
 ---
 # <a name="lucene-query-syntax-in-azure-search"></a>Sintaxe de consulta Lucene no Azure Search
 Pode escrever consultas no Azure Search com base na avançada [analisador de consultas de Lucene](https://lucene.apache.org/core/4_10_2/queryparser/org/apache/lucene/queryparser/classic/package-summary.html) sintaxe para formulários de consulta especializadas: carateres universais, a pesquisa difusa, pesquisa de proximidade, expressões regulares são alguns exemplos. Grande parte da sintaxe do analisador de consultas de Lucene é [implementado intacto no Azure Search](search-lucene-query-architecture.md), com exceção do *pesquisas de intervalo* que é construído no Azure Search através de `$filter` expressões. 
@@ -65,13 +65,13 @@ Para obter exemplos adicionais, consulte [exemplos de sintaxe de consulta Lucene
 ##  <a name="bkmk_fields"></a> Consultas de âmbito de campo  
  Pode especificar um `fieldname:searchterm` construção para definir uma operação de consulta respondidas, onde o campo é uma única palavra, e o termo de pesquisa também é uma única palavra ou frase, opcionalmente, com operadores booleanos. Alguns exemplos incluem o seguinte:  
 
--   genre: jazz não histórico  
+- genre: jazz não histórico  
 
--   artists:("Miles Davis" "John Coltrane")
+- artists:("Miles Davis" "John Coltrane")
 
- Certifique-se de que colocar várias cadeias de caracteres entre aspas, se pretender que ambas as cadeias de caracteres a ser avaliada como uma única entidade, neste caso a procurar dois artistas distintas no `artists` campo.  
+  Certifique-se de que colocar várias cadeias de caracteres entre aspas, se pretender que ambas as cadeias de caracteres a ser avaliada como uma única entidade, neste caso a procurar dois artistas distintas no `artists` campo.  
 
- O campo especificado no `fieldname:searchterm` tem de ser um `searchable` campo.  Ver [Create Index](https://docs.microsoft.com/rest/api/searchservice/create-index) para obter detalhes sobre como os atributos de índice são usados nas definições de campo.  
+  O campo especificado no `fieldname:searchterm` tem de ser um `searchable` campo.  Ver [Create Index](https://docs.microsoft.com/rest/api/searchservice/create-index) para obter detalhes sobre como os atributos de índice são usados nas definições de campo.  
 
 ##  <a name="bkmk_fuzzy"></a> pesquisa difusa  
  A pesquisa difusa localiza correspondências em termos que têm uma construção semelhante. Por [documentação de Lucene](https://lucene.apache.org/core/4_10_2/queryparser/org/apache/lucene/queryparser/classic/package-summary.html), pesquisas difusas baseiam-se nos [Damerau Levenshtein distância](https://en.wikipedia.org/wiki/Damerau%E2%80%93Levenshtein_distance).  

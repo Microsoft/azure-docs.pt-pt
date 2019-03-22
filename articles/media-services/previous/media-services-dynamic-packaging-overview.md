@@ -11,14 +11,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/10/2019
+ms.date: 03/18/2019
 ms.author: juliako
-ms.openlocfilehash: 987928d98752d5f32255b94a5e0177a20c12daf3
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: 15599beb47b7f6e72b89e7776196de8e6b94844f
+ms.sourcegitcommit: f331186a967d21c302a128299f60402e89035a8d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55989087"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58189177"
 ---
 # <a name="dynamic-packaging"></a>Empacotamento dinâmico
 

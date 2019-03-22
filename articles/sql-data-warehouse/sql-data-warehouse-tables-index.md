@@ -7,15 +7,15 @@ manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.subservice: implement
-ms.date: 04/17/2018
+ms.date: 03/18/2019
 ms.author: rortloff
 ms.reviewer: igorstan
-ms.openlocfilehash: 2d57097e4d3317bfba5055a6b75ae72dd60f046a
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: fe19510d9b4c6311923b4b2ea15f133249e6cbd5
+ms.sourcegitcommit: f331186a967d21c302a128299f60402e89035a8d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55244697"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58190044"
 ---
 # <a name="indexing-tables-in-sql-data-warehouse"></a>Indexação de tabelas no armazém de dados SQL
 Recomendações e exemplos para indexação tabelas no armazém de dados SQL do Azure.
@@ -45,12 +45,12 @@ Existem alguns cenários em que o columnstore em cluster pode não ser uma boa o
 
 - Tabelas Columnstore não suportam varchar (Max), nvarchar (Max) e varbinary (Max). Considere o heap ou o índice em cluster em vez disso.
 - Tabelas Columnstore poderão ser menos eficientes para dados transitórios. Considere a área dinâmica para dados e tabelas temporárias talvez até mesmo.
-- Obter tabelas pequenas com menos de 100 milhões de linhas. Considere as tabelas de heap.
+- Obter tabelas pequenas com menos de 60 milhões de linhas. Considere as tabelas de heap.
 
 ## <a name="heap-tables"></a>Tabelas de Heap
 Quando está temporariamente a colocar dados no SQL Data Warehouse, talvez ache que usar uma tabela de área dinâmica para dados torna o processo geral mais rápido. Isso é porque carregamentos para pilhas são mais rápidos do que para tabelas de índice e, em alguns casos que a leitura subsequente pode ser feita a partir da cache.  Se estiver a carregar dados apenas para testá-lo antes de executar mais transformações, carregar a tabela à tabela de área dinâmica para dados é muito mais rápido do que carregar os dados a uma tabela columnstore em cluster. Além disso, carregar dados para um [tabela temporária](sql-data-warehouse-tables-temporary.md) carrega mais rapidamente do que carregar uma tabela para armazenamento permanente.  
 
-Para tabelas de pesquisa pequeno, menos de 100 milhões de linhas, muitas vezes, as tabelas de heap fazem sentido.  Tabelas de columnstore cluster começam a alcançar a compressão ideal quando houver mais de 100 milhões de linhas.
+Para tabelas de pesquisa pequeno, menos de 60 milhões de linhas, muitas vezes, as tabelas de heap fazem sentido.  Tabelas de columnstore cluster começam a alcançar a compressão ideal quando houver mais de 60 milhões de linhas.
 
 Para criar uma tabela de área dinâmica para dados, basta Especifica HEAP na cláusula WITH:
 
@@ -79,7 +79,7 @@ CREATE TABLE myTable
 WITH ( CLUSTERED INDEX (id) );
 ```
 
-Para adicionar um índice não agrupado numa tabela, basta use a seguinte sintaxe:
+Para adicionar um índice não agrupado numa tabela, utilize a seguinte sintaxe:
 
 ```SQL
 CREATE INDEX zipCodeIndex ON myTable (zipCode);
@@ -182,7 +182,7 @@ Se identificou a tabelas com qualidade de segmento fraco, pretende identificar a
 Esses fatores podem fazer com que um índice columnstore, ter significativamente menor do que o ideal 1 milhão de linhas por grupo de linhas. Eles também podem causar linhas Ir para o grupo de linhas de delta em vez de um grupo de linhas comprimido. 
 
 ### <a name="memory-pressure-when-index-was-built"></a>Pressão de memória quando o índice foi criado
-O número de linhas por grupo de linhas comprimido está diretamente relacionados com a largura da linha e a quantidade de memória disponível para processar o grupo de linhas.  Quando as linhas são escritas em tabelas columnstore sob pressão de memória, a qualidade de segmento de columnstore poderá sofrer consequências.  Portanto, a prática recomendada é dar a sessão que está a escrever para o acesso de tabelas de índice columnstore para o máximo possível de memória.  Como há uma compensação entre a memória e simultaneidade, a documentação de orientação sobre a alocação de memória certo depende dos dados em cada linha da sua tabela, as unidades de armazém de dados alocadas para seu sistema e o número de ranhuras de simultaneidade pode dar à sessão que está a escrever dados à sua tabela.  Como melhor prática, recomendamos que comece com xlargerc se estiver a utilizar DW300 ou menos, largerc se estiver a utilizar DW400 para DW600 e mediumrc se estiver a utilizar DW1000 e superior.
+O número de linhas por grupo de linhas comprimido está diretamente relacionados com a largura da linha e a quantidade de memória disponível para processar o grupo de linhas.  Quando as linhas são escritas em tabelas columnstore sob pressão de memória, a qualidade de segmento de columnstore poderá sofrer consequências.  Portanto, a prática recomendada é dar a sessão que está a escrever para o acesso de tabelas de índice columnstore para o máximo possível de memória.  Como há uma compensação entre a memória e simultaneidade, a documentação de orientação sobre a alocação de memória certo depende dos dados em cada linha da sua tabela, as unidades de armazém de dados alocadas para seu sistema e o número de ranhuras de simultaneidade pode dar à sessão que está a escrever dados à sua tabela.
 
 ### <a name="high-volume-of-dml-operations"></a>Alto volume de operações DML
 Um grande volume de operações DML que atualizar e eliminar linhas pode introduzir ineficiência para o columnstore. Isso é especialmente verdadeiro quando a maioria das linhas num grupo de linhas são modificadas.
@@ -205,7 +205,7 @@ Depois das suas tabelas tenham sido carregadas com alguns dados, siga os passos 
 
 ## <a name="rebuilding-indexes-to-improve-segment-quality"></a>Reconstruir índices para melhorar a qualidade de segmento
 ### <a name="step-1-identify-or-create-user-which-uses-the-right-resource-class"></a>Passo 1: Identificar ou criar o utilizador que usa a classe de recurso correta
-É uma forma rápida para melhorar a qualidade do segmento imediatamente reconstruir o índice.  O SQL devolvido pela exibição acima devolve uma instrução ALTER INDEX REBUILD, que pode ser utilizada para reconstruir os índices. Ao reconstruir os índices, certifique-se de que aloca memória suficiente para a sessão que recria o seu índice.  Para tal, aumente a classe de recursos de um utilizador que tem permissões para criar o índice nesta tabela para o mínimo recomendado. Não é possível alterar a classe de recursos do utilizador de proprietário da base de dados, por isso se não tiver criado um utilizador no sistema, terá de fazê-lo primeiro. A classe de recursos recomendados mínimo é xlargerc se estiver a utilizar DW300 ou menos, largerc se estiver a utilizar DW400 para DW600 e mediumrc se estiver a utilizar DW1000 e superior.
+É uma forma rápida para melhorar a qualidade do segmento imediatamente reconstruir o índice.  O SQL devolvido pela exibição acima devolve uma instrução ALTER INDEX REBUILD, que pode ser utilizada para reconstruir os índices. Ao reconstruir os índices, certifique-se de que aloca memória suficiente para a sessão que recria o seu índice.  Para tal, aumente a classe de recursos de um utilizador que tem permissões para criar o índice nesta tabela para o mínimo recomendado. 
 
 Segue-se um exemplo de como alocar mais memória a um utilizador ao aumentar a sua classe de recursos. Para trabalhar com classes de recursos, consulte [classes de recursos para a gestão da carga de trabalho](resource-classes-for-workload-management.md).
 
@@ -216,7 +216,7 @@ EXEC sp_addrolemember 'xlargerc', 'LoadUser'
 ### <a name="step-2-rebuild-clustered-columnstore-indexes-with-higher-resource-class-user"></a>Passo 2: Reconstruir índices columnstore em cluster com utilizadores de classe de recursos superior
 Inicie sessão como utilizador do passo 1 (por exemplo, LoadUser), que é agora, usando uma classe de recursos maior, e executar as instruções ALTER INDEX. Certifique-se de que este utilizador tem a permissão ALTER para as tabelas onde o índice está sendo reconstruído. Estes exemplos mostram como reconstruir o índice columnstore todo ou como reconstruir uma única partição. Em tabelas grandes, é mais prático para reconstruir índices uma única partição, ao mesmo tempo.
 
-Em alternativa, em vez de reconstrua o índice, copiar a tabela para uma nova tabela [utilizar CTAS](sql-data-warehouse-develop-ctas.md). Qual o melhor caminho é melhor? Para grandes volumes de dados, é geralmente mais rápido do que CTAS [ALTER INDEX](/sql/t-sql/statements/alter-index-transact-sql). Para mais pequenos volumes de dados, ALTER INDEX é mais fácil de usar e não requer trocar a tabela. Ver **reconstruir índices com CTAS e a alternância de partição** abaixo para obter mais detalhes sobre como reconstruir índices com CTAS.
+Em alternativa, em vez de reconstrua o índice, copiar a tabela para uma nova tabela [utilizar CTAS](sql-data-warehouse-develop-ctas.md). Qual o melhor caminho é melhor? Para grandes volumes de dados, é geralmente mais rápido do que CTAS [ALTER INDEX](/sql/t-sql/statements/alter-index-transact-sql). Para mais pequenos volumes de dados, ALTER INDEX é mais fácil de usar e não requer trocar a tabela. 
 
 ```sql
 -- Rebuild the entire clustered index
@@ -263,25 +263,8 @@ WHERE   [OrderDateKey] >= 20000101
 AND     [OrderDateKey] <  20010101
 ;
 
--- Step 2: Create a SWITCH out table
-CREATE TABLE dbo.FactInternetSales_20000101
-    WITH    (   DISTRIBUTION = HASH(ProductKey)
-            ,   CLUSTERED COLUMNSTORE INDEX
-            ,   PARTITION   (   [OrderDateKey] RANGE RIGHT FOR VALUES
-                                (20000101
-                                )
-                            )
-            )
-AS
-SELECT *
-FROM    [dbo].[FactInternetSales]
-WHERE   1=2 -- Note this table will be empty
-
--- Step 3: Switch OUT the data 
-ALTER TABLE [dbo].[FactInternetSales] SWITCH PARTITION 2 TO  [dbo].[FactInternetSales_20000101] PARTITION 2;
-
--- Step 4: Switch IN the rebuilt data
-ALTER TABLE [dbo].[FactInternetSales_20000101_20010101] SWITCH PARTITION 2 TO  [dbo].[FactInternetSales] PARTITION 2;
+-- Step 2: Switch IN the rebuilt data with TRUNCATE_TARGET option
+ALTER TABLE [dbo].[FactInternetSales_20000101_20010101] SWITCH PARTITION 2 TO  [dbo].[FactInternetSales] PARTITION 2 WITH (TRUNCATE_TARGET = ON);
 ```
 
 Para obter mais detalhes sobre as partições com CTAS voltar a criar, ver [usando partições no SQL Data Warehouse](sql-data-warehouse-tables-partition.md).

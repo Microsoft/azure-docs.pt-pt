@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.date: 06/22/2018
 ms.author: jingwang
-ms.openlocfilehash: 37aa248af30c4beae3f9d170174842c908933339
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: 16741461df2431cbf4433899dd375741e944ce0f
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54020018"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58112573"
 ---
 # <a name="copy-multiple-tables-in-bulk-by-using-azure-data-factory"></a>Copiar várias tabelas em massa através do Azure Data Factory
 Este tutorial demonstra como **copiar várias tabelas da Base de Dados SQL do Azure para o Azure SQL Data Warehouse**. Também pode aplicar o mesmo padrão noutros cenários de cópia. Por exemplo, copiar tabelas do SQL Server/Oracle para a Base de Dados SQL do Azure/Data Warehouse/Blob do Azure, copiar caminhos diferentes do Blob para tabelas de Base de Dados SQL do Azure.
@@ -87,24 +87,24 @@ Tanto para a Base de dados SQL como para o SQL Data Warehouse, permita que os se
 1. Selecione a sua subscrição do **Azure** na qual pretende criar a fábrica de dados. 
 1. No **Grupo de Recursos**, siga um destes passos:
      
-      - Selecione **Utilizar existente** e selecione um grupo de recursos já existente na lista pendente. 
-      - Selecione **Criar novo** e introduza o nome de um grupo de recursos.   
+   - Selecione **Utilizar existente** e selecione um grupo de recursos já existente na lista pendente. 
+   - Selecione **Criar novo** e introduza o nome de um grupo de recursos.   
          
-      Para saber mais sobre os grupos de recursos, veja [Utilizar grupos de recursos para gerir os recursos do Azure](../azure-resource-manager/resource-group-overview.md).  
+     Para saber mais sobre os grupos de recursos, veja [Utilizar grupos de recursos para gerir os recursos do Azure](../azure-resource-manager/resource-group-overview.md).  
 1. Selecione **V2** para a **versão**.
 1. Selecione a **localização** da fábrica de dados. Para obter uma lista de regiões do Azure em que a fábrica de dados está atualmente disponível, selecione as regiões que lhe interessam, na página seguinte e, em seguida, expanda **Analytics** para localizar **Data Factory**: [Produtos disponíveis por região](https://azure.microsoft.com/global-infrastructure/services/). Os arquivos de dados (Armazenamento do Azure, Base de Dados SQL do Azure, etc.) e as computações (HDInsight, etc.) utilizados pela fábrica de dados podem estar noutras regiões.
 1. Selecione **Afixar ao dashboard**.     
 1. Clique em **Criar**.
 1. No dashboard, verá o mosaico seguinte com o estado: **Implementar fábrica de dados**. 
 
-    ![Mosaico “implementar a fábrica de dados”](media//tutorial-bulk-copy-portal/deploying-data-factory.png)
+     ![Mosaico “implementar a fábrica de dados”](media//tutorial-bulk-copy-portal/deploying-data-factory.png)
 1. Depois de concluída a criação, vai ver a página **Data Factory**, conforme mostrado na imagem.
    
-    ![Home page da fábrica de dados](./media/tutorial-bulk-copy-portal/data-factory-home-page.png)
+     ![Home page da fábrica de dados](./media/tutorial-bulk-copy-portal/data-factory-home-page.png)
 1. Clique no mosaico **Criar e Monitorizar** para iniciar a aplicação IU do Data Factory num separador à parte.
 1. Na página **introdução**, mude para o separador **Editar**, no painel do lado esquerdo, conforme mostrado na imagem abaixo:  
 
-    ![Página Introdução](./media/tutorial-bulk-copy-portal/get-started-page.png)
+     ![Página Introdução](./media/tutorial-bulk-copy-portal/get-started-page.png)
 
 ## <a name="create-linked-services"></a>Criar serviços ligados
 Os serviços ligados são criados para ligar os seus arquivos de dados e computações a uma fábrica de dados. O serviço ligado tem as informações de ligação que o serviço Data Factory utiliza para se ligar ao arquivo de dados no runtime. 
@@ -179,10 +179,10 @@ Neste tutorial, as tabelas SQL de origem e destino não estão hard-coded nas de
 
 1. Mude para o separador **Ligação** e siga os passos abaixo: 
 
-    1. Selecione **AzureSqlDatabaseLinkedService** em **Serviço ligado**.
-    1. Selecione qualquer tabela em **Tabela**. Esta é uma tabela fictícia. Vai especificar uma consulta no conjunto de dados de origem quando criar um pipeline. A consulta é utilizada para extrair dados da base de dados SQL do Azure. Em alternativa, pode clicar na caixa de verificação **Editar** e introduzir **dummyName** como o nome da tabela. 
+   1. Selecione **AzureSqlDatabaseLinkedService** em **Serviço ligado**.
+   1. Selecione qualquer tabela em **Tabela**. Esta é uma tabela fictícia. Vai especificar uma consulta no conjunto de dados de origem quando criar um pipeline. A consulta é utilizada para extrair dados da base de dados SQL do Azure. Em alternativa, pode clicar na caixa de verificação **Editar** e introduzir **dummyName** como o nome da tabela. 
 
-    ![Página de ligação do conjunto de dados de origem](./media/tutorial-bulk-copy-portal/source-dataset-connection-page.png)
+      ![Página de ligação do conjunto de dados de origem](./media/tutorial-bulk-copy-portal/source-dataset-connection-page.png)
  
 
 ### <a name="create-a-dataset-for-sink-sql-data-warehouse"></a>Criar um conjunto de dados para o SQL Data Warehouse de sink

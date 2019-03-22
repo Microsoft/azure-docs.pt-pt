@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: 3dda16450f5454b4fae6d18235b05b7bb29a8b91
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: 4b622a5925aebd140fed2ac74eaf7cc186803b90
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54018863"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58113758"
 ---
 # <a name="transform-data-using-hive-activity-in-azure-data-factory"></a>Transformar dados com a atividade do Hive no Azure Data Factory 
 > [!div class="op_single_selector" title1="Transformation Activities"]
@@ -81,7 +81,7 @@ A atividade Hive do HDInsight numa fábrica de dados [pipeline](data-factory-cre
 | entradas |Entradas consumidas pela atividade do Hive |Não |
 | saídas |Saídas produzidas pela atividade do Hive |Sim |
 | linkedServiceName |Referência para o cluster de HDInsight registado como um serviço ligado no Data Factory |Sim |
-| script |Especifique o inline de script do Hive |Não |
+| Script |Especifique o inline de script do Hive |Não |
 | caminho do script |Store o script do Hive num armazenamento de Blobs do Azure e forneça o caminho para o ficheiro. Utilize a propriedade "script" ou 'scriptPath'. Não podem ser utilizados em conjunto. O nome de ficheiro diferencia maiúsculas de minúsculas. |Não |
 | Define |Especifique parâmetros como pares chave/valor para a referenciar dentro do script do Hive com o 'hiveconf' |Não |
 
@@ -242,7 +242,7 @@ Para utilizar o script de Hive parametrizado, faça o seguinte
         SUM(Duration)
     FROM HiveSampleIn Group by ProfileID
     ```
-## <a name="see-also"></a>Consultar Também
+  ## <a name="see-also"></a>Consultar Também
 * [Atividade PIg](data-factory-pig-activity.md)
 * [Atividade MapReduce](data-factory-map-reduce.md)
 * [Atividade de transmissão em fluxo do Hadoop](data-factory-hadoop-streaming-activity.md)

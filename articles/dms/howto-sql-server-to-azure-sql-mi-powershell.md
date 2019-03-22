@@ -3,20 +3,20 @@ title: Migrar o SQL Server para instância gerida de base de dados SQL do Azure 
 description: Aprenda a migrar do SQL Server no local para a instância gerida BD SQL do Azure com o Azure PowerShell.
 services: database-migration
 author: HJToland3
-ms.author: rajpo
+ms.author: jtoland
 manager: craigg
-ms.reviewer: douglasl
+ms.reviewer: craigg
 ms.service: dms
 ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
 ms.date: 03/12/2019
-ms.openlocfilehash: 3543b7c7410b31b50a6654d3d9807128fff9fd19
-ms.sourcegitcommit: d89b679d20ad45d224fd7d010496c52345f10c96
-ms.translationtype: MT
+ms.openlocfilehash: 19fb53e73da40a65b074cb0c2f14f11bb130b586
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57791635"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58177624"
 ---
 # <a name="migrate-sql-server-on-premises-to-azure-sql-database-managed-instance-using-azure-powershell"></a>Migrar o SQL Server no local para o Azure SQL Database Managed Instance com o Azure PowerShell
 Neste artigo, migra os **Adventureworks2012** base de dados restaurada para uma instância no local do SQL Server 2005 ou superior para uma instância de gerida de base de dados do Azure SQL com o Microsoft Azure PowerShell. Pode migrar bases de dados de uma instância do SQL Server no local para a instância gerida da base de dados SQL do Azure utilizando o `AzureRM.DataMigration` módulo no Microsoft Azure PowerShell.

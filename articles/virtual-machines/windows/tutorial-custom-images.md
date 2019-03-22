@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 11/30/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 192ecf0cf4f97a709808fa04f676035e8a672b79
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
+ms.openlocfilehash: 74087a6d1ce00293c968837e72c636847081e39e
+ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55976951"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58285989"
 ---
 # <a name="tutorial-create-a-custom-image-of-an-azure-vm-with-azure-powershell"></a>Tutorial: Criar uma imagem personalizada de uma VM do Azure com o Azure PowerShell
 
@@ -65,7 +65,7 @@ O Sysprep remove todas as suas informações de conta pessoal, entre outras cois
 
 Para criar uma imagem, a VM tem de ser desalocada e marcada como generalizada no Azure.
 
-Desalocar a VM com [Stop-AzVM](https://docs.microsoft.com/powershell/module/az.compute/stop-azvm).
+Desaloque a VM com [Stop-AzVM](https://docs.microsoft.com/powershell/module/az.compute/stop-azvm).
 
 ```azurepowershell-interactive
 Stop-AzVM `
@@ -162,7 +162,7 @@ Neste tutorial, criou uma imagem de VM personalizada. Aprendeu a:
 > * Listar todas as imagens na sua subscrição
 > * Eliminar uma imagem
 
-Avance para o próximo tutorial, para saber mais sobre máquinas virtuais de elevada disponibilidade.
+Avance para o próximo tutorial para saber mais sobre como criar máquinas virtuais de elevada disponibilidade.
 
 > [!div class="nextstepaction"]
 > [Criar VMs de elevada disponibilidade](tutorial-availability-sets.md)

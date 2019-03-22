@@ -16,12 +16,12 @@ ms.date: 02/19/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a282ef88a5112593d4d8b9e304ec6ad03f44787c
-ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
+ms.openlocfilehash: 51fc93f9508bada40885e41b39e8a87cf4e0bf3c
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/19/2019
-ms.locfileid: "56415872"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58101011"
 ---
 # <a name="azure-active-directory-pass-through-authentication-quick-start"></a>Autenticação pass-through do Azure Active Directory: Início rápido
 
@@ -68,7 +68,7 @@ Certifique-se de que os seguintes pré-requisitos são cumpridos.
      Se a firewall impuser regras de acordo com os utilizadores de origem, abra estas portas para o tráfego dos serviços do Windows que são executados como um serviço de rede.
    - Se sua firewall ou proxy permite que listas de permissões de DNS, ligações de lista de permissões para  **\*. msappproxy.net** e  **\*. servicebus.windows.net**. Se não, permitir o acesso para o [intervalos IP do datacenter do Azure](https://www.microsoft.com/download/details.aspx?id=41653), que é atualizado semanalmente.
    - Os agentes de autenticação precisam acessar **login.windows.net** e **login.microsoftonline.com** para o registo inicial. Abra a firewall para essas URLs também.
-   - Para validação do certificado, os seguintes URLs de desbloqueio: **mscrl.microsoft.com:80**, **crl.microsoft.com:80**, **ocsp.msocsp.com:80**, e  **www.microsoft.com:80**. Uma vez que estes URLs são utilizadas para validação de certificados com outros produtos da Microsoft que pode já ter estes URLs desbloqueados.
+   - Para validação do certificado, os seguintes URLs de desbloqueio: **mscrl.microsoft.com:80**, **crl.microsoft.com:80**, **ocsp.msocsp.com:80**, e **www \.microsoft.com:80**. Uma vez que estes URLs são utilizadas para validação de certificados com outros produtos da Microsoft que pode já ter estes URLs desbloqueados.
 
 ## <a name="step-2-enable-the-feature"></a>Passo 2: Ativar a funcionalidade
 

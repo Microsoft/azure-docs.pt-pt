@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/29/2018
 ms.author: rkarlin
-ms.openlocfilehash: 8b2e42759ba2bffef28e1bf74e07bc149027ab7a
-ms.sourcegitcommit: a4efc1d7fc4793bbff43b30ebb4275cd5c8fec77
+ms.openlocfilehash: 6ba21c6eacd5b72d13706c08f0cc9883ccc91388
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56651775"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58107479"
 ---
 # <a name="investigate-incidents-and-alerts-in-azure-security-center-preview"></a>Investigar Incidentes e Alertas no Centro de Segurança do Azure (Pré-visualização)
 Este documento ajuda-o a utilizar a funcionalidade de investigação do Centro de Segurança do Azure para investigar alertas e incidentes de segurança.
@@ -31,10 +31,8 @@ O objetivo é facilitar o processo de investigação ao ligar todas as entidades
 
 
 > [!NOTE]
-    > * [Alertas personalizados](security-center-custom-alert.md) não são suportados na funcionalidade de investigação do Centro de segurança.
-    > * Investigação só é suportada para os alertas com base nos dados recolhidos a partir de servidores do Windows.
->
->
+> * [Alertas personalizados](security-center-custom-alert.md) não são suportados na funcionalidade de investigação do Centro de segurança.
+> * Investigação só é suportada para os alertas com base nos dados recolhidos a partir de servidores do Windows.
 
 
 ## <a name="how-investigation-works"></a>Como funciona a Investigação?
@@ -98,7 +96,7 @@ Os itens seguintes vão ser apresentados, independentemente do âmbito de tempo 
 
 ## <a name="how-to-perform-an-investigation"></a>Como fazer uma investigação?
 
-Pode começar a investigação a partir de um incidente de segurança ou a partir de um alerta. A opção que escolher irá variar consoante as suas necessidades. Os passos que se seguem são utilizados para iniciar uma investigação a partir de um alerta:
+Pode começar a investigação a partir de um incidente de segurança ou a partir de um alerta. A opção que escolher irá variar consoante as suas necessidades. Os passos seguintes são utilizados para iniciar uma investigação a partir de um alerta:
 
 1.  Abra o dashboard do **Centro de Segurança**.
 2.  Clique em **Alertas de Segurança** e selecione o incidente que quer investigar.

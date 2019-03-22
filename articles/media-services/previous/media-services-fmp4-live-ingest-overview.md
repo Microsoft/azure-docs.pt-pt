@@ -12,14 +12,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/03/2019
+ms.date: 03/18/2019
 ms.author: cenkd;juliako
-ms.openlocfilehash: 6de31da1809173fb5fae1abcde47861ed7542f31
-ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.openlocfilehash: b3357436d068396c5c3c4fae10ed6857759c5aed
+ms.sourcegitcommit: f331186a967d21c302a128299f60402e89035a8d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/02/2019
-ms.locfileid: "57240274"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58189347"
 ---
 # <a name="azure-media-services-fragmented-mp4-live-ingest-specification"></a>Especificação de ingestão de MP4 fragmentado em direto dos serviços de multimédia do Azure 
 

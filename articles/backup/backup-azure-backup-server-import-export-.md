@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 5/8/2018
 ms.author: saurse
-ms.openlocfilehash: 01b90d6bb18addd6a0235101f86b9d51953cc096
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: 8d15eb03055aed32c8a99121b750ee5767a87b50
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54818562"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58094978"
 ---
 # <a name="offline-backup-workflow-for-dpm-and-azure-backup-server"></a>Fluxo de trabalho de cópia de segurança offline do DPM e o servidor de cópia de segurança do Azure
 O Azure Backup tem vários eficiências incorporadas que salvar os custos de armazenamento e de rede durante as cópias de segurança completas iniciais de dados para o Azure. Normalmente, as cópias de segurança completas iniciais transferem grandes quantidades de dados e exigem mais largura de banda de rede quando comparado com as cópias de segurança subsequentes que transferem apenas as deltas/incrementais. O Azure Backup compacta as cópias de segurança iniciais. O processo de propagação offline, cópia de segurança do Azure pode utilizar discos para carregar a iniciais cópia de segurança de dados comprimidos offline para o Azure.
@@ -55,7 +55,7 @@ Certifique-se de que os seguintes pré-requisitos são cumpridos antes de inicia
 
 * Uma conta de armazenamento do Azure com *clássico* modelo de implementação foi criado na subscrição a partir da qual transferiu o ficheiro de definições de publicação conforme mostrado abaixo: 
 
- ![Criar uma conta de armazenamento clássicas](./media/backup-azure-backup-import-export/storageaccountclassiccreate.png)
+  ![Criar uma conta de armazenamento clássicas](./media/backup-azure-backup-import-export/storageaccountclassiccreate.png)
 
 * Uma localização de transição, o que poderá ser um compartilhamento de rede ou de qualquer unidade adicional no computador, interno ou externo, com espaço em disco suficiente para manter sua cópia inicial, é criada. Por exemplo, se estiver a tentar criar cópias de segurança um servidor de ficheiros de 500 GB, certifique-se de que a área de transição é, pelo menos, 500 GB. (Uma quantidade menor é utilizada devido à compactação.)
 * Com respeito a discos que serão enviados para o Azure, certifique-se de que apenas 2,5 polegadas SSD ou 2.5 polegadas ou 3.5 polegadas SATA II/III discos rígidos internos são utilizados. Pode utilizar unidades de disco rígido até 10 TB. Verifique os [documentação do serviço importar/exportar do Azure](../storage/common/storage-import-export-requirements.md#supported-hardware) para o conjunto mais recente de unidades de que o serviço suporta.
@@ -74,12 +74,12 @@ As informações nesta secção ajudam-o a concluir o fluxo de trabalho de cópi
 
     A descrição das entradas é o seguinte:
 
-    * **Localização de transição**: A localização de armazenamento temporário para o qual a cópia de segurança inicial é escrita. Localização de transição poderá ser num computador local ou uma partilha de rede. Se o computador de cópia e o computador de origem forem diferentes, recomendamos que especifica o caminho de rede completa da localização de transição.
-    * **Nome da tarefa de importação do Azure**: O nome exclusivo ao qual importação de Azure service e do Azure Backup controlam a transferência de dados enviados em discos para o Azure.
-    * **Definições de publicação do Azure**: Forneça o caminho local para o ficheiro de definições de publicação.
-    * **ID de subscrição do Azure**: O ID de subscrição do Azure para a subscrição de onde transferiu o ficheiro de definições de publicação do Azure. 
-    * **Conta de armazenamento do Azure**: O nome da conta de armazenamento na subscrição do Azure associada ao ficheiro de definições de publicação do Azure.
-    * **Contentor de armazenamento do Azure**: O nome do blob de armazenamento de destino na conta de armazenamento do Azure em que os dados de cópia de segurança são importados.
+   * **Localização de transição**: A localização de armazenamento temporário para o qual a cópia de segurança inicial é escrita. Localização de transição poderá ser num computador local ou uma partilha de rede. Se o computador de cópia e o computador de origem forem diferentes, recomendamos que especifica o caminho de rede completa da localização de transição.
+   * **Nome da tarefa de importação do Azure**: O nome exclusivo ao qual importação de Azure service e do Azure Backup controlam a transferência de dados enviados em discos para o Azure.
+   * **Definições de publicação do Azure**: Forneça o caminho local para o ficheiro de definições de publicação.
+   * **ID de subscrição do Azure**: O ID de subscrição do Azure para a subscrição de onde transferiu o ficheiro de definições de publicação do Azure. 
+   * **Conta de armazenamento do Azure**: O nome da conta de armazenamento na subscrição do Azure associada ao ficheiro de definições de publicação do Azure.
+   * **Contentor de armazenamento do Azure**: O nome do blob de armazenamento de destino na conta de armazenamento do Azure em que os dados de cópia de segurança são importados.
 
      Guardar a *localização de transição* e o *nome da tarefa de importação do Azure* fornecidas conforme é necessário para preparar os discos.  
      
@@ -102,14 +102,14 @@ O *AzureOfflineBackupDiskPrep* utilitário é utilizado para preparar as unidade
 
 1. Vá para o diretório e copiar o **AzureOfflineBackupDiskPrep** diretório para um computador de cópia em que as unidades SATA para estar preparado estão ligadas. Certifique-se o seguinte com respeito o computador de cópia:
 
-    * O computador de cópia pode aceder a localização de transição para o fluxo de trabalho de propagação offline com o mesmo caminho de rede que foi fornecido no **iniciar a cópia de segurança offline** fluxo de trabalho.
-    * BitLocker está ativado no computador de cópia.
-    * O computador de cópia pode acessar o portal do Azure.
+   * O computador de cópia pode aceder a localização de transição para o fluxo de trabalho de propagação offline com o mesmo caminho de rede que foi fornecido no **iniciar a cópia de segurança offline** fluxo de trabalho.
+   * BitLocker está ativado no computador de cópia.
+   * O computador de cópia pode acessar o portal do Azure.
 
-    Se necessário, o computador de cópia pode ser o mesmo que o computador de origem. 
+     Se necessário, o computador de cópia pode ser o mesmo que o computador de origem. 
     
-    > [!IMPORTANT] 
-    > Se o computador de origem for uma máquina virtual, em seguida, é obrigatório para utilizar uma máquina de cliente ou servidor físico diferente que o computador de cópia.
+     > [!IMPORTANT] 
+     > Se o computador de origem for uma máquina virtual, em seguida, é obrigatório para utilizar uma máquina de cliente ou servidor físico diferente que o computador de cópia.
     
     
 2. Abra uma linha de comandos elevada no computador de cópia com o *AzureOfflineBackupDiskPrep* diretório de utilitário, como o diretório atual e execute o seguinte comando:

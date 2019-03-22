@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 05/27/2017
 ms.author: bwren
-ms.openlocfilehash: 4f6076407ea4745556e59d44bd37ab85288e6bd2
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 67378a5911e5bd83888342aa3773f7f5ed4ccf29
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57772940"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58102589"
 ---
 # <a name="collect-data-in-log-analytics-with-an-azure-automation-runbook"></a>Recolher dados no Log Analytics com um runbook da automatização do Azure
 
@@ -68,7 +68,7 @@ A galeria do PowerShell entanto dá-lhe uma opção rápida para implementar um 
 | Name | WorkspaceId | WorkspaceKey |
 | Type | String | String |
 | Value | Cole o ID de área de trabalho de sua área de trabalho do Log Analytics. | Colar com a primária ou uma chave secundária da sua área de trabalho do Log Analytics. |
-| Encriptada | Não | Sim |
+| Encriptados | Não | Sim |
 
 ## <a name="3-create-runbook"></a>3. Criar runbook
 
@@ -131,13 +131,13 @@ A automatização do Azure inclui um ambiente para [testar o runbook](../../auto
 
 ![Runbook de teste](media/runbook-datacollect/test-runbook.png)
 
-6. Clique em **guardar** para guardar o runbook.
+1. Clique em **guardar** para guardar o runbook.
 1. Clique em **painel de teste** para abrir o runbook no ambiente de teste.
-3. Uma vez que o runbook tiver parâmetros, lhe for pedido para introduzir valores para os mesmos. Introduza o nome do grupo de recursos e a automação da conta que irá recolher informações da tarefa de.
-4. Clique em **iniciar** no início do runbook.
-3. O runbook será iniciado com o estado **em fila** antes de entrar para **em execução**.
-3. O runbook deve apresentar uma saída verbosa ideal com os trabalhos recolhidos no formato json. Se não existirem tarefas forem apresentadas, em seguida, não podem ter havido nenhuma tarefa criada na conta de automatização na última hora. Tente iniciar qualquer runbook na conta de automatização e, em seguida, executar o teste novamente.
-4. Certifique-se de que a saída não mostra os eventuais erros no comando post para o Log Analytics. Deve ter uma mensagem semelhante ao seguinte.
+1. Uma vez que o runbook tiver parâmetros, lhe for pedido para introduzir valores para os mesmos. Introduza o nome do grupo de recursos e a automação da conta que irá recolher informações da tarefa de.
+1. Clique em **iniciar** no início do runbook.
+1. O runbook será iniciado com o estado **em fila** antes de entrar para **em execução**.
+1. O runbook deve apresentar uma saída verbosa ideal com os trabalhos recolhidos no formato json. Se não existirem tarefas forem apresentadas, em seguida, não podem ter havido nenhuma tarefa criada na conta de automatização na última hora. Tente iniciar qualquer runbook na conta de automatização e, em seguida, executar o teste novamente.
+1. Certifique-se de que a saída não mostra os eventuais erros no comando post para o Log Analytics. Deve ter uma mensagem semelhante ao seguinte.
 
     ![Saída de postagem](media/runbook-datacollect/post-output.png)
 
@@ -183,15 +183,15 @@ A forma mais comum para iniciar um runbook que recolhe dados de monitorização 
 |:--|:--|
 | Name | AutomationJobs-Hourly |
 | Inicia | Selecione a que qualquer altura, pelo menos, 5 minutos posterior à hora atual. |
-| Periodicidade | Periódico |
+| Recorrência | Periódico |
 | Repetir a cada | 1 hora |
 | Definir expiração | Não |
 
 Depois de criar a agenda, terá de definir os valores de parâmetro que serão utilizados sempre que esta agenda inicia o runbook.
 
-6. Clique em **configurar parâmetros e definições de execução**.
-7. Preencha os valores para o seu **ResourceGroupName** e **AutomationAccountName**.
-8. Clique em **OK**.
+1. Clique em **configurar parâmetros e definições de execução**.
+1. Preencha os valores para o seu **ResourceGroupName** e **AutomationAccountName**.
+1. Clique em **OK**.
 
 ## <a name="9-verify-runbook-starts-on-schedule"></a>9. Verifique se o runbook inicia numa agenda
 Sempre que um runbook é iniciado, [é criada uma tarefa](../../automation/automation-runbook-execution.md) e qualquer resultado com sessão iniciada. Na verdade, essas são as mesmas tarefas que o runbook está a recolher. Pode verificar que o runbook é iniciado conforme esperado, verificando as tarefas do runbook após a hora de início para a agenda ter passado.

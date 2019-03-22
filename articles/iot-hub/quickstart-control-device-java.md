@@ -10,12 +10,12 @@ ms.devlang: java
 ms.topic: quickstart
 ms.custom: mvc
 ms.date: 02/22/2019
-ms.openlocfilehash: 82586838c9b442ce27d6a18f45fb93370e532701
-ms.sourcegitcommit: 15e9613e9e32288e174241efdb365fa0b12ec2ac
+ms.openlocfilehash: ce451ebb6b4a9afb10b9213a3d50c24c586887aa
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "57011573"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58164897"
 ---
 # <a name="quickstart-control-a-device-connected-to-an-iot-hub-java"></a>Início rápido: Controlar um dispositivo ligado a um hub IoT (Java)
 
@@ -103,7 +103,7 @@ Também precisa de uma _cadeia de ligação do serviço_ para permitir que a apl
 **YourIoTHubName**: Substitua este marcador de posição abaixo com o nome que escolheu para o seu hub IoT.
 
 ```azurecli-interactive
-az iot hub show-connection-string --hub-name YourIoTHubName --output table
+az iot hub show-connection-string --name YourIoTHubName --output table
 ```
 
 Anote a cadeia de ligação do serviço, que se parece com:

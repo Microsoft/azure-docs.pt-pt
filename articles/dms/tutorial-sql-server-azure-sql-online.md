@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: article
 ms.date: 03/12/2019
-ms.openlocfilehash: 605986a61ee6a09ccc3bfd6c58719a1d82604c8e
-ms.sourcegitcommit: d89b679d20ad45d224fd7d010496c52345f10c96
+ms.openlocfilehash: 1eb41b7b027489e18900332ca0c20598ec8edfcc
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57792026"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58093114"
 ---
 # <a name="tutorial-migrate-sql-server-to-a-single-database-or-pooled-database-in-azure-sql-database-online-using-dms"></a>Tutorial: Migrar o SQL Server para um único banco de dados ou bases de dados agrupadas na base de dados do Azure SQL online com o DMS
 
@@ -130,10 +130,10 @@ Para avaliar uma base de dados no local, siga os passos seguintes:
 
     Quando estiver a avaliar a origem do SQL Server da base de dados a migrar para uma base de dados ou bases de dados agrupadas na base de dados do Azure SQL, pode escolher um ou ambos da avaliação seguinte tipos de relatório:
 
-    - Verificar a compatibilidade da base de dados
-    - Verificar a paridade de funcionalidades
+   - Verificar a compatibilidade da base de dados
+   - Verificar a paridade de funcionalidades
 
-    Ambos os tipos de relatórios estão selecionados por predefinição.
+     Ambos os tipos de relatórios estão selecionados por predefinição.
 
 3. No DMA, no ecrã **Opções**, selecione **Seguinte**.
 4. No ecrã **Select sources** (Selecionar origens), na caixa de diálogo **Connect to a server** (Ligar a um servidor), indique os detalhes da ligação ao SQL Server e selecione **Connect** (Ligar).

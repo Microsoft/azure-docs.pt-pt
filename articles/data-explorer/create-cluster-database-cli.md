@@ -8,14 +8,22 @@ ms.reviewer: orspod
 ms.service: data-explorer
 ms.topic: quickstart
 ms.date: 2/4/2019
-ms.openlocfilehash: 357f0efcf7300545d10113c92702d9fed4aad049
-ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
+ms.openlocfilehash: ca4ffce1ae966d2bb8fb187c9b04938330969641
+ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56958027"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58286334"
 ---
 # <a name="create-an-azure-data-explorer-cluster-and-database-by-using-the-cli"></a>Criar um cluster do Explorador de dados do Azure e a base de dados com a CLI
+
+> [!div class="op_single_selector"]
+> * [Portal](create-cluster-database-portal.md)
+> * [CLI](create-cluster-database-cli.md)
+> * [PowerShell](create-cluster-database-powershell.md)
+> * [C#](create-cluster-database-csharp.md)
+> * [Python](create-cluster-database-python.md)
+>  
 
 Este início rápido descreve como criar um cluster do Explorador de dados do Azure e a base de dados com a CLI do Azure.
 

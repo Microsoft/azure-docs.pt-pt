@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/05/2018
 ms.author: jdial
-ms.openlocfilehash: 56434e12e1d5eec34e8848d71a018147f1e161f6
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 54050c4c20b6ebb35f198775448f51ee8cdc533b
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57777265"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58117647"
 ---
 # <a name="check-resource-usage-against-limits"></a>Verificar a utilização de recursos em relação a limites
 
@@ -34,16 +34,16 @@ Neste artigo, irá aprender a ver o número de cada tipo de recurso de rede que 
 4. Selecione o nome da subscrição que pretende ver informações de utilização.
 5. Sob **configurações**, selecione **utilização + quotas**.
 6. Pode selecionar as seguintes opções:
-    - **Tipos de recurso**: Pode selecionar todos os tipos de recursos ou selecione os tipos específicos de recursos que pretende visualizar.
-    - **Fornecedores**: Pode selecionar todos os fornecedores de recursos ou selecione **computação**, **rede**, ou **armazenamento**.
-    - **Localizações**: Pode selecionar todas as localizações do Azure, ou selecione as localizações específicas.
-    - Pode selecionar para mostrar todos os recursos ou apenas os recursos em que pelo menos uma é implementada.
+   - **Tipos de recurso**: Pode selecionar todos os tipos de recursos ou selecione os tipos específicos de recursos que pretende visualizar.
+   - **Fornecedores**: Pode selecionar todos os fornecedores de recursos ou selecione **computação**, **rede**, ou **armazenamento**.
+   - **Localizações**: Pode selecionar todas as localizações do Azure, ou selecione as localizações específicas.
+   - Pode selecionar para mostrar todos os recursos ou apenas os recursos em que pelo menos uma é implementada.
 
-    O exemplo na imagem seguinte mostra todos os recursos de rede pelo menos um recurso implementado nos EUA Leste:
+     O exemplo na imagem seguinte mostra todos os recursos de rede pelo menos um recurso implementado nos EUA Leste:
 
-        ![View usage data](./media/check-usage-against-limits/view-usage.png)
+       ![Ver dados de utilização](./media/check-usage-against-limits/view-usage.png)
 
-    Pode ordenar as colunas ao selecionar o cabeçalho da coluna. Os limites mostrados são os limites para a sua subscrição. Se precisar de aumentar um limite predefinido, selecione **pedido aumentar**, em seguida, preencha e submeta o pedido de suporte. Todos os recursos têm um limite máximo listado no Azure [limites](../azure-subscription-service-limits.md?toc=%2fazure%2fnetworking%2ftoc.json#networking-limits). Se o limite atual já o número máximo, o limite não pode ser aumentado.
+     Pode ordenar as colunas ao selecionar o cabeçalho da coluna. Os limites mostrados são os limites para a sua subscrição. Se precisar de aumentar um limite predefinido, selecione **pedido aumentar**, em seguida, preencha e submeta o pedido de suporte. Todos os recursos têm um limite máximo listado no Azure [limites](../azure-subscription-service-limits.md?toc=%2fazure%2fnetworking%2ftoc.json#networking-limits). Se o limite atual já o número máximo, o limite não pode ser aumentado.
 
 ## <a name="powershell"></a>PowerShell
 

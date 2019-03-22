@@ -9,12 +9,12 @@ ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 02/14/2019
 ms.author: hrasheed
-ms.openlocfilehash: dba7fbe026725510cc357fecbc7d3251849f6af8
-ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
+ms.openlocfilehash: dc088d3a6baa4198a1d5cb566b968c631ae5f2c4
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56675080"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58113820"
 ---
 # <a name="query-apache-hive-through-the-jdbc-driver-in-hdinsight"></a>Consulte o Apache Hive através do controlador JDBC no HDInsight
 
@@ -108,7 +108,7 @@ SQuirreL SQL é um cliente JDBC, que pode ser utilizado para executar remotament
 
     * **palavra-passe**: A palavra-passe para a conta de início de sessão do cluster.
 
- ![adicionar a caixa de diálogo de alias](./media/apache-hadoop-connect-hive-jdbc-driver/addalias.png)
+   ![adicionar a caixa de diálogo de alias](./media/apache-hadoop-connect-hive-jdbc-driver/addalias.png)
 
     > [!IMPORTANT] 
     > Utilize o **teste** botão para verificar se a ligação funciona. Quando **ligar a: Hive no HDInsight** for apresentada a caixa de diálogo, selecione **Connect** para executar o teste. Se o teste for bem-sucedido, verá uma **ligação estabelecida com êxito** caixa de diálogo. Se ocorrer um erro, consulte [resolução de problemas](#troubleshooting).

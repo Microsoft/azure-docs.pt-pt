@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/12/2018
 ms.author: ergreenl
-ms.openlocfilehash: 2c39e8f172283f512037e0d991b2c22eb816c8f6
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 5bed5dd19f6b736aca7ed2d551c8be0e6f03a810
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55191334"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58094546"
 ---
 # <a name="troubleshoot-invalid-service-principal-configuration-for-your-managed-domain"></a>Resolver problemas de configuração de Principal de serviço inválido para o seu domínio gerido
 
@@ -41,7 +41,7 @@ Utilize os seguintes passos para determinar qual serviço tem de ser recriadas p
 3. Pesquisa para cada ID de aplicação, colar o ID na caixa de pesquisa e prima utilizando a tabela seguinte, introduza. Se os resultados da pesquisa estiverem vazios, tem de recriar o principal de serviço ao seguir os passos na coluna "Resolução".
 
 | ID da aplicação | Resolução |
-| :--- | :--- | :--- |
+| :--- | :--- |
 | 2565bd9d-da50-47d4-8b85-4c97f669dc36 | [Recriar um principal de serviço em falta com o PowerShell](#recreate-a-missing-service-principal-with-powershell) |
 | 443155a6-77f3-45e3-882b-22b3a8d431fb | [Voltar a registar para o espaço de nomes de Microsoft.AAD](#re-register-to-the-microsoft-aad-namespace-using-the-azure-portal) |
 | abba844e-bc0e-44b0-947a-dc74e5d09022  | [Voltar a registar para o espaço de nomes de Microsoft.AAD](#re-register-to-the-microsoft-aad-namespace-using-the-azure-portal) |

@@ -4,17 +4,18 @@ titleSuffix: Azure Cognitive Services
 description: Pode criar uma Base de Dados de Conhecimento do Criador de FAQ a partir dos seus próprios conteúdos, como as FAQ ou os manuais de produtos. A Base de Dados de Conhecimento do Criador de FAQ neste exemplo é criada a partir de uma página Web de FAQ simples para responder a perguntas sobre recuperação de chaves do BitLocker.
 author: diberry
 manager: nitinme
+services: cognitive-services
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: quickstart
 ms.date: 12/18/2018
 ms.author: diberry
-ms.openlocfilehash: 2ac6e6fcd73abddcee668b8f73184b923aeab5d3
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 3f7b24af3d48075150ae7c192ccf421b928a7aa3
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55877002"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58113704"
 ---
 # <a name="create-train-and-publish-your-qna-maker-knowledge-base"></a>Criar, preparar e publicar a sua base de dados de conhecimento do Criador de FAQ
 
@@ -53,7 +54,7 @@ Pode criar uma Base de Dados de Conhecimento do Criador de FAQ a partir dos seus
 
 10. No canto superior direito, selecione **Adicionar Criador de FAQ** para adicionar uma linha nova à secção **Editorial** da BDC. Em **Pergunta**, introduza **Olá.** Em **Resposta**, introduza **Hello. Faça-me perguntas do bitlocker.**
 
-   ![Adicione um par de FAQ](../media/qnamaker-quickstart-kb/add-qna-pair.png)
+    ![Adicione um par de FAQ](../media/qnamaker-quickstart-kb/add-qna-pair.png)
 
 11. No canto superior direito, selecione **Guardar e preparar** para guardar as edições e preparar o modelo do Criador de FAQ. As edições só são mantidas se tiverem sido guardadas.
 
@@ -61,7 +62,7 @@ Pode criar uma Base de Dados de Conhecimento do Criador de FAQ a partir dos seus
 
 13. Selecione **Inspecionar** para analisar a resposta de forma mais detalhada. A janela de teste é utilizada para testar as alterações à BDC antes de estas serem publicadas.
 
-   ![Painel de Teste](../media/qnamaker-quickstart-kb/inspect-panel.png)
+    ![Painel de Teste](../media/qnamaker-quickstart-kb/inspect-panel.png)
 
 14. Selecione **Testar** novamente para fechar a pop-up **Testar**.
 
@@ -69,7 +70,7 @@ Pode criar uma Base de Dados de Conhecimento do Criador de FAQ a partir dos seus
 
 16. O serviço Criador de FAQ é agora publicado com êxito. Pode utilizar o ponto final na sua aplicação ou código de bot.
 
-   ![Publicar](../media/qnamaker-quickstart-kb/publish-sucess.png)
+    ![Publicar](../media/qnamaker-quickstart-kb/publish-sucess.png)
 
 ## <a name="next-steps"></a>Passos Seguintes
 

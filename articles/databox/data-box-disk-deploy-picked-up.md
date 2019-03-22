@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 02/21/2019
 ms.author: alkohli
 Customer intent: As an IT admin, I need to be able to order Data Box Disk to upload on-premises data from my server onto Azure.
-ms.openlocfilehash: 4c723ade885474f07d025b10e075edab0383b82e
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 0dd0474ad1ad360fd82cfdf746d2e9837f74833a
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57439949"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58108380"
 ---
 # <a name="tutorial-return-azure-data-box-disk-and-verify-data-upload-to-azure"></a>Tutorial: Devolver o disco do Azure Data Box e verifique se o carregamento de dados para o Azure
 
@@ -70,22 +70,22 @@ Certifique-se de que os dados estão na(s) conta(s) de armazenamento antes de el
 
 - Sua conta de armazenamento do Azure (s). Quando copia os dados para o Data Box, consoante o tipo, os dados são carregados para um dos seguintes caminhos na sua conta de Armazenamento do Azure.
 
-    - Para blobs de blocos e blobs de páginas: `https://<storage_account_name>.blob.core.windows.net/<containername>/files/a.txt`
-    - Para Ficheiros do Azure: `https://<storage_account_name>.file.core.windows.net/<sharename>/files/a.txt`
+  - Para blobs de blocos e blobs de páginas: `https://<storage_account_name>.blob.core.windows.net/<containername>/files/a.txt`
+  - Para Ficheiros do Azure: `https://<storage_account_name>.file.core.windows.net/<sharename>/files/a.txt`
 
     Em alternativa, pode aceder à sua conta de armazenamento do Azure no portal do Azure e navegar a partir daí.
 
 - Os grupos de recursos de disco gerido. Ao criar discos geridos, os VHDs são carregados como blobs de páginas e, em seguida, convertidos em discos geridos. Os discos geridos são anexados aos grupos de recursos especificados no momento da criação de ordem.
 
-    - Se a sua cópia para os managed disks no Azure foi concluída com êxito, pode ir para o **detalhes de pedidos** no portal do Azure e fazer uma observação do grupo de recursos especificada para discos geridos.
+  - Se a sua cópia para os managed disks no Azure foi concluída com êxito, pode ir para o **detalhes de pedidos** no portal do Azure e fazer uma observação do grupo de recursos especificada para discos geridos.
 
-        ![Ver detalhes dos pedidos](media/data-box-disk-deploy-picked-up/order-details-resource-group.png)
+      ![Ver detalhes dos pedidos](media/data-box-disk-deploy-picked-up/order-details-resource-group.png)
 
     Vá para o grupo de recursos observado e localize os discos geridos.
 
-        ![Resource group for managed disks](media/data-box-disk-deploy-picked-up/resource-group-attached-managed-disk.png)
+      ![Grupo de recursos para discos geridos](media/data-box-disk-deploy-picked-up/resource-group-attached-managed-disk.png)
 
-    - Se tiver copiado um VHDX ou um VHD de diferenciação/dinâmico, o VHD/VHDX é carregado para a conta de armazenamento de teste como um blob de blocos. Aceda a sua transição **conta de armazenamento > Blobs** e, em seguida, selecione o contentor - StandardSSD, StandardHDD ou PremiumSSD adequado. O VHD/VHDX deve aparecer como blobs de blocos na conta de armazenamento temporário.
+  - Se tiver copiado um VHDX ou um VHD de diferenciação/dinâmico, o VHD/VHDX é carregado para a conta de armazenamento de teste como um blob de blocos. Aceda a sua transição **conta de armazenamento > Blobs** e, em seguida, selecione o contentor - StandardSSD, StandardHDD ou PremiumSSD adequado. O VHD/VHDX deve aparecer como blobs de blocos na conta de armazenamento temporário.
 
 Para garantir que os dados foram carregados para o Azure, execute os seguintes passos:
 

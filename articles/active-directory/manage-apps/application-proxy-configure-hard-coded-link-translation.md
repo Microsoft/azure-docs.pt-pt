@@ -16,12 +16,12 @@ ms.author: celested
 ms.reviewer: harshja
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 778ae1aa9d5517912b9c67b27066a75d14358087
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 9c010a7bcd2d811b31d9c2d05e81cce5dc85c2ce
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56186063"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58118600"
 ---
 # <a name="redirect-hardcoded-links-for-apps-published-with-azure-ad-application-proxy"></a>Redirecionar os links codificados para as aplicações publicadas com o Proxy de aplicações do Azure AD
 
@@ -43,8 +43,8 @@ Desses três recursos mantêm as suas ligações, independentemente de onde os s
  
 > [!NOTE]
 > A última opção é apenas para inquilinos que, por qualquer motivo, não é possível utilizar domínios personalizados para que os mesmos URLs internos e externos para seus aplicativos. Antes de ativar esta funcionalidade, veja se [domínios personalizados no Proxy de aplicações do Azure AD](application-proxy-configure-custom-domain.md) pode ser útil para. 
-
->Ou, se a aplicação terá de configurar com ligação a tradução é o SharePoint, consulte [configurar mapeamentos de acesso alternativo para SharePoint 2013](https://technet.microsoft.com/library/cc263208.aspx) para outra abordagem para ligações de mapeamento. 
+> 
+> Ou, se a aplicação terá de configurar com ligação a tradução é o SharePoint, consulte [configurar mapeamentos de acesso alternativo para SharePoint 2013](https://technet.microsoft.com/library/cc263208.aspx) para outra abordagem para ligações de mapeamento. 
 
  
 ### <a name="option-1-intune-managed-browser-integration"></a>Opção 1: Integração de Browser gerido do Intune 

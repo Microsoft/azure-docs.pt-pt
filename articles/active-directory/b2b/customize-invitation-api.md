@@ -11,12 +11,12 @@ author: msmimart
 manager: daveba
 ms.reviewer: sasubram
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fbeffd012d2d2445d4a9a927981728e1bbe43e97
-ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
+ms.openlocfilehash: 610d81912ac0244f25bc39c41690ab7e7ea8897c
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56670575"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58111315"
 ---
 # <a name="azure-active-directory-b2b-collaboration-api-and-customization"></a>Colaboração do Azure Active Directory B2B API e personalização
 
@@ -44,7 +44,7 @@ A API oferece as seguintes capacidades:
     "sendInvitationMessage": true
     ```
 
-  com uma mensagem ao destinatário que pode personalizar
+   com uma mensagem ao destinatário que pode personalizar
 
     ```
     "customizedMessageBody": "Hello Sam, let's collaborate!"
@@ -58,7 +58,7 @@ A API oferece as seguintes capacidades:
     "sendInvitationMessage": false
     ```
 
-  Neste caso, obtém um URL de resgate da API que pode incorporar um modelo de e-mail, mensagem Instantânea ou outro método de distribuição da sua preferência.
+   Neste caso, obtém um URL de resgate da API que pode incorporar um modelo de e-mail, mensagem Instantânea ou outro método de distribuição da sua preferência.
 
 6. Por fim, se for um administrador, é possível convidar o utilizador como membro.
 

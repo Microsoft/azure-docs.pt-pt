@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/15/2017
 ms.author: jdial;anavin
-ms.openlocfilehash: cd0493d4fd126175acafce050394e65a47e9bda9
-ms.sourcegitcommit: a4efc1d7fc4793bbff43b30ebb4275cd5c8fec77
+ms.openlocfilehash: c9247b37e1e475892a1561c5667dc25275f67327
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56650024"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58104119"
 ---
 # <a name="create-a-virtual-network-peering---different-deployment-models-and-subscriptions"></a>Criar um peering de rede virtual - diferentes modelos de implementação e as subscrições
 
@@ -60,7 +60,7 @@ Este tutorial utiliza contas diferentes para cada subscrição. Se estiver a uti
 10. Terminar sessão no portal como UserA, em seguida, inicie sessão como utilizador b.
 11. Clique em **+ novo**, tipo *rede Virtual* no **procurar no Marketplace** caixa, em seguida, clique em **rede Virtual** nos resultados da pesquisa.
 12. Na **rede Virtual** painel que aparece, selecione **clássico** no **selecionar um modelo de implementação** caixa, em seguida, clique em **criar**.
-13.   Na criar rede virtual (clássica) caixa que aparece, introduza os seguintes valores:
+13. Na criar rede virtual (clássica) caixa que aparece, introduza os seguintes valores:
 
     - **Name**: *myVnetB*
     - **Espaço de endereços**: *10.1.0.0/16*

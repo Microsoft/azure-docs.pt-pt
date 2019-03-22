@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 11/30/2018
 ms.author: cherylmc
 ms.custom: seodec18
-ms.openlocfilehash: 115b1185575232800e060f67317e4973eea9ea53
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: d78c110f3317f4dd9f16cbe243aeca437e9890a1
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53091769"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58108802"
 ---
 # <a name="expressroute-monitoring-metrics-and-alerts"></a>Monitorização, métricas e alertas do ExpressRoute
 
@@ -43,18 +43,18 @@ Pode ver as métricas para privado, público e peering em bits por segundo da Mi
 
 1. Para configurar alertas, navegue até **do Azure Monitor**, em seguida, clique em **alertas**.
 
-  ![alerts](./media/expressroute-monitoring-metrics-alerts/eralertshowto.jpg)
+   ![alerts](./media/expressroute-monitoring-metrics-alerts/eralertshowto.jpg)
 
 2. Clique em **+ selecionar destino** e selecione o recurso de ligação de gateway do ExpressRoute.
 
-  ![destino]( ./media/expressroute-monitoring-metrics-alerts/alerthowto2.jpg)
+   ![destino]( ./media/expressroute-monitoring-metrics-alerts/alerthowto2.jpg)
 3. Defina os detalhes do alerta.
 
-  ![grupo de ação](./media/expressroute-monitoring-metrics-alerts/alerthowto3.jpg)
+   ![grupo de ação](./media/expressroute-monitoring-metrics-alerts/alerthowto3.jpg)
 
 4. Definir e adicionar o grupo de ação.
 
-  ![Adicionar grupo de ação](./media/expressroute-monitoring-metrics-alerts/actiongroup.png)
+   ![Adicionar grupo de ação](./media/expressroute-monitoring-metrics-alerts/actiongroup.png)
 
 ## <a name="alerts-based-on-each-peering"></a>Alertas com base em cada peering
 

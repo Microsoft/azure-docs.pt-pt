@@ -10,12 +10,12 @@ ms.subservice: conversation-learner
 ms.topic: article
 ms.date: 04/30/2018
 ms.author: v-jaswel
-ms.openlocfilehash: 9a819f94ae0cc90d86fdbdf4c9201f1d5a2df6ee
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: e3a84bfa643ebe74983bcef0d0ea72c701ffa589
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55213349"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58170501"
 ---
 # <a name="how-to-log-dialogs-in-a-conversation-learner-model"></a>Como iniciar sessão caixas de diálogo num modelo de aprendiz de conversação
 
@@ -55,6 +55,8 @@ Este modelo contém uma entidade com o nome "city" e ações desenvolvidas para 
 9. Selecione a resposta, "o clima em Austin é provavelmente ensolarado".
 10. Clique no botão "Guardar como Train caixa de diálogo".
     - Treinamento é inicializado imediatamente
+
+![](../media/T11_logdialog.png)
 
 Uma última observação. Consoante as necessidades de negócios, a funcionalidade de registo de conversação pode ser desativada ao aceder a definições e desmarcar a opção "conversas registo."
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 04/06/2018
 ms.author: rapatchi
-ms.openlocfilehash: 250931c9b53692dff4006a0114b6da20948b3f59
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
-ms.translationtype: MT
+ms.openlocfilehash: 87f608163e20d98179eb6c666158386a99858eeb
+ms.sourcegitcommit: f331186a967d21c302a128299f60402e89035a8d
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55096675"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58188395"
 ---
 # <a name="service-fabric-plug-in-for-eclipse-java-application-development"></a>Plug-in do Service Fabric para desenvolvimento de aplicações Java de Eclipse
 O Eclipse é um dos ambientes de desenvolvimento integrados (IDEs) mais utilizados para programadores Java. Neste artigo, descrevemos como configurar o seu ambiente de desenvolvimento do Eclipse para funcionar com o Azure Service Fabric. Saiba como instalar o plug-in do Service Fabric e criar uma aplicação do Service Fabric e implementá-la num cluster do Service Fabric local ou remoto no Eclipse. 
@@ -41,7 +41,7 @@ Instale o Eclipse Neon ou posterior a partir do [site do Eclipse](https://www.ec
 -   Para procurar e instalar atualizações do Eclipse, aceda a **Ajuda** > **Procurar Atualizações**.
 
 Para instalar o plug-in do Service Fabric, no Eclipse, aceda a **Ajuda** > **Instalar Software Novo**.
-1. Na caixa **Compatível com**, escreva **http://dl.microsoft.com/eclipse**.
+1. Na **trabalhar com** , introduza a https:\//dl.microsoft.com/eclipse.
 2. Clique em **Adicionar**.
 
    ![Plug-in do Service Fabric para Eclipse][sf-eclipse-plugin-install]
@@ -54,7 +54,7 @@ Se já tiver o plug-in do Service Fabric instalado, instale a versão mais recen
 3. Depois de atualizar o plug-in do Service Fabric, atualize também o projeto do Gradle.  Clique com o botão direito do rato em **build.gradle** e, em seguida, selecione **Atualizar**.
 
 > [!NOTE]
-> Se a instalação ou atualização do plug-in do Service Fabric estiver lenta, tal poderá dever-se a uma definição do Eclipse. O Eclipse recolhe metadados sobre todas as alterações para atualizar os sites que estão registados na sua instância do Eclipse. Para acelerar o processo de procurar e instalar uma atualização do plug-in do Service Fabric, aceda a **Sites de Software Disponíveis**. Desmarque as caixas de verificação de todos os sites, exceto daquele que aponta para a localização do plug-in do Service Fabric (http://dl.microsoft.com/eclipse/azure/servicefabric).
+> Se a instalação ou atualização do plug-in do Service Fabric estiver lenta, tal poderá dever-se a uma definição do Eclipse. O Eclipse recolhe metadados sobre todas as alterações para atualizar os sites que estão registados na sua instância do Eclipse. Para acelerar o processo de procurar e instalar uma atualização do plug-in do Service Fabric, aceda a **Sites de Software Disponíveis**. Desmarque as caixas de verificação de todos os sites, exceto daquele que aponta para a localização do plug-in do Service Fabric (https://dl.microsoft.com/eclipse/azure/servicefabric).
 
 > [!NOTE]
 >Se o Eclipse não estiver a funcionar conforme esperado no Mac (ou se precisar que utilize o perfil de superutilizador), aceda à pasta **ECLIPSE_INSTALLATION_PATH** e navegue para a subpasta **Eclipse.app/Contents/MacOS**. Abra o Eclipse mediante a execução de `./eclipse`.
@@ -141,8 +141,8 @@ Para publicar a sua aplicação para a cloud, siga estes passos:
    - O `ClientKey` campo deve apontar para um formato PEM .key ficheiro. pem ou no seu computador local que contém a chave privada para o seu certificado de cliente ou o cluster.
    - O `ClientCert` campo deve apontar para um formato PEM. pem ou. crt ficheiro no seu computador local que contém os dados de certificado para o seu cliente ou o cluster. certificado. 
 
-    ```bash
-    {
+     ```bash
+     {
          "ClusterConnectionParameters":
          {
             "ConnectionIPOrURL": "lnxxug0tlqm5.westus.cloudapp.azure.com",
@@ -150,8 +150,8 @@ Para publicar a sua aplicação para a cloud, siga estes passos:
             "ClientKey": "[path_to_your_pem_file_on_local_machine]",
             "ClientCert": "[path_to_your_pem_file_on_local_machine]"
          }
-    }
-    ```
+     }
+     ```
 
 2. A aplicação do Service Fabric com o botão direito e, em seguida, selecione **Service Fabric**.
 3. No menu de contexto, clique em **publicar a aplicação...** .
@@ -159,8 +159,8 @@ Para publicar a sua aplicação para a cloud, siga estes passos:
 
     ![Cloud da Caixa de diálogo Publicar](./media/service-fabric-get-started-eclipse/cloudjson.png)
 
-4.  Pode seguir o progresso da operação de publicação na janela da consola.
-5.  Para verificar que a aplicação está em execução, abra o Service Fabric Explorer no seu cluster do Azure numa janela do browser. No exemplo anterior, isso seria: `https://lnxxug0tlqm5.westus.cloudapp.azure.com:19080/Explorer`. Expanda a **aplicativos** nó e certifique-se a sua aplicação está em execução. 
+4. Pode seguir o progresso da operação de publicação na janela da consola.
+5. Para verificar que a aplicação está em execução, abra o Service Fabric Explorer no seu cluster do Azure numa janela do browser. No exemplo anterior, isso seria: `https://lnxxug0tlqm5.westus.cloudapp.azure.com:19080/Explorer`. Expanda a **aplicativos** nó e certifique-se a sua aplicação está em execução. 
 
 
 Em clusters do Linux seguros, se a aplicação tiver serviços de Reliable Services, também terá de configurar um certificado que seus serviços podem utilizar para chamar as APIs do tempo de execução do Service Fabric. Para obter mais informações, consulte [configurar uma aplicação de Reliable Services para executar em clusters do Linux](./service-fabric-configure-certificates-linux.md#configure-a-reliable-services-app-to-run-on-linux-clusters).

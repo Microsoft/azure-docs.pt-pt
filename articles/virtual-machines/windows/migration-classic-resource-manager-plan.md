@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/01/2017
 ms.author: kasing
-ms.openlocfilehash: 76059c587a6378ccfe16c0a633bea0c6c7a8a57d
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
+ms.openlocfilehash: b8bb3db58538263ea60520d4537a76c6ebb6abf7
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56340098"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58112522"
 ---
 # <a name="planning-for-migration-of-iaas-resources-from-classic-to-azure-resource-manager"></a>Planear a migração de recursos de IaaS do clássico para o Azure Resource Manager
 Enquanto o Azure Resource Manager oferece muitos recursos incríveis, é fundamental planejar seu percurso de migração para o fazer se as coisas a serem executados corretamente. Gastando tempo no planejamento irá garantir que não encontrar problemas durante a execução de atividades de migração.
@@ -79,8 +79,8 @@ Os clientes bem-sucedidos têm planos de onde as perguntas anteriores são discu
 
   Realizar um teste de laboratório do seu cenário exato (computação, rede e armazenamento) é a melhor forma de garantir uma migração tranquila. Isso o ajudará a garantir que:
 
-  - Um laboratório totalmente separado ou um ambiente de não produção existente para testar. Recomendamos um laboratório totalmente separado que pode ser migrado repetidamente e pode ser modificado de forma destrutiva.  Scripts para recolher/hydrate metadados das subscrições do real estão listados abaixo.
-  - É uma boa idéia para criar o laboratório numa subscrição separada. O motivo é que o laboratório será interrompido repetidamente e ter um separado, subscrição isolada irá reduzir a possibilidade de que algo real irá obter acidentalmente eliminado.
+- Um laboratório totalmente separado ou um ambiente de não produção existente para testar. Recomendamos um laboratório totalmente separado que pode ser migrado repetidamente e pode ser modificado de forma destrutiva.  Scripts para recolher/hydrate metadados das subscrições do real estão listados abaixo.
+- É uma boa idéia para criar o laboratório numa subscrição separada. O motivo é que o laboratório será interrompido repetidamente e ter um separado, subscrição isolada irá reduzir a possibilidade de que algo real irá obter acidentalmente eliminado.
 
   Isso pode ser feito com a ferramenta de AsmMetadataParser. [Leia mais sobre esta ferramenta aqui](https://github.com/Azure/classic-iaas-resourcemanager-migration/tree/master/AsmToArmMigrationApiToolset)
 
@@ -122,13 +122,13 @@ A seguir foram problemas descobertos em muitas das migrações maiores. Não se 
     > Estes limites devem ser gerados na mesma região que o seu ambiente atual a ser migrados.
     >
 
-    - Interfaces de Rede
-    - Balanceador de Carga
-    - IPs Públicos
-    - IPs públicos estáticos
-    - Núcleos
-    - Grupos de Segurança de Rede
-    - Tabelas de Rota
+  - Interfaces de Rede
+  - Balanceador de Carga
+  - IPs Públicos
+  - IPs públicos estáticos
+  - Núcleos
+  - Grupos de Segurança de Rede
+  - Tabelas de Rota
 
     Pode verificar as suas quotas atual do Azure Resource Manager com os comandos seguintes com a versão mais recente do Azure PowerShell.
     

@@ -9,12 +9,12 @@ ms.date: 10/17/2018
 ms.topic: quickstart
 ms.service: event-grid
 ms.custom: seodec18
-ms.openlocfilehash: ef821bd4c5abfb6fe89e585060b23b999b2bfa11
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: a0043ca886bf6c92ab26d76b3678bf8a2764846a
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57547049"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58098530"
 ---
 # <a name="quickstart-route-blob-storage-events-to-web-endpoint-with-the-azure-portal"></a>Início rápido: Encaminhar eventos de armazenamento de BLOBs para o ponto final da web com o portal do Azure
 
@@ -104,8 +104,8 @@ Aciona um evento para o armazenamento de Blobs ao carregar um ficheiro. O fichei
 
 1. Acionou o evento e o Event Grid enviou a mensagem para o ponto final que configurou ao subscrever. Veja a sua aplicação Web e repare que foi recebido um evento criado por um blob. 
 
-  ```json
-  {
+   ```json
+   {
     "topic": "/subscriptions/{subscription-id}/resourceGroups/eventgroup/providers/Microsoft.Storage/storageAccounts/demoblob0625",
     "subject": "/blobServices/default/containers/eventcontainer/blobs/testfile.txt",
     "eventType": "Microsoft.Storage.BlobCreated",
@@ -127,8 +127,8 @@ Aciona um evento para o armazenamento de Blobs ao carregar um ficheiro. O fichei
     },
     "dataVersion": "",
     "metadataVersion": "1"
-  }
-  ```
+   }
+   ```
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 

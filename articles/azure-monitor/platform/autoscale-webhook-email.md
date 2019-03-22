@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 04/03/2017
 ms.author: ancav
 ms.subservice: autoscale
-ms.openlocfilehash: 248167eca532beb957c723f5074fc1546982efc8
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: 25ef2541dfa0b4cbd6e11d64381da645acfe653a
+ms.sourcegitcommit: aa3be9ed0b92a0ac5a29c83095a7b20dd0693463
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54463325"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58259300"
 ---
 # <a name="use-autoscale-actions-to-send-email-and-webhook-alert-notifications-in-azure-monitor"></a>Utilizar ações de dimensionamento automático para enviar e-mail e webhook notificações de alertas no Azure Monitor
 Este artigo mostra-lhe como configurar acionadores, para que pode chamar URLs da web específica ou enviar e-mails com base em ações de dimensionamento automático no Azure.  
@@ -59,6 +59,7 @@ Ao utilizar o modelo de REST API ou do Resource Manager, inclua o elemento de no
       }
     ]
 ```
+
 | Campo | Obrigatório? | Descrição |
 | --- | --- | --- |
 | operação |sim |o valor tem de ser "Dimensionamento" |
@@ -70,7 +71,7 @@ Ao utilizar o modelo de REST API ou do Resource Manager, inclua o elemento de no
 | propriedades |sim |o valor tem de estar vazio {} ou podem conter pares chave-valor |
 
 ## <a name="authentication-in-webhooks"></a>Autenticação em webhooks
-O webhook pode autenticar através da autenticação baseada em tokens, onde guardar o webhook URI com um ID de token como um parâmetro de consulta. Por exemplo, https://mysamplealert/webcallback?tokenid=sometokenid&someparameter=somevalue
+O webhook pode autenticar através da autenticação baseada em tokens, onde guardar o webhook URI com um ID de token como um parâmetro de consulta. Por exemplo, https: \/ /mysamplealert/webcallback? tokenid = sometokenid & someparameter = somevalue
 
 ## <a name="autoscale-notification-webhook-payload-schema"></a>Esquema de payload de webhook de notificação de dimensionamento automático
 Quando a notificação de dimensionamento automático é gerada, os seguintes metadados está incluído no payload do webook:

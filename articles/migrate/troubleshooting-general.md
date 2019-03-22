@@ -6,12 +6,12 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 03/11/2019
 ms.author: raynew
-ms.openlocfilehash: 0eede0ae4623d68adf749dc528ac5cc1ce81e024
-ms.sourcegitcommit: 1902adaa68c660bdaac46878ce2dec5473d29275
+ms.openlocfilehash: 2b542cc8202b75c0007686e3f0e0d9fbd1ac28c1
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/11/2019
-ms.locfileid: "57730411"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58119178"
 ---
 # <a name="troubleshoot-azure-migrate"></a>Resolver problemas do Azure Migrate
 
@@ -53,28 +53,28 @@ Se não é possível exportar o relatório de avaliação a partir do portal, te
 
 1. Instale *armclient* no seu computador (se não estiver já instalada):
 
-  a. Numa janela de linha de comandos de administrador, execute o seguinte comando: ```@powershell -NoProfile -ExecutionPolicy Bypass -Command "iex ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1'))" && SET "PATH=%PATH%;%ALLUSERSPROFILE%\chocolatey\bin"```
+   a. Numa janela de linha de comandos de administrador, execute o seguinte comando: ```@powershell -NoProfile -ExecutionPolicy Bypass -Command "iex ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1'))" && SET "PATH=%PATH%;%ALLUSERSPROFILE%\chocolatey\bin"```
 
-  b. Numa janela do Windows PowerShell de administrador, execute o seguinte comando: ```choco install armclient```
+   b. Numa janela do Windows PowerShell de administrador, execute o seguinte comando: ```choco install armclient```
 
-2.  Obter o URL de transferência para o relatório de avaliação com a API de REST de migrar do Azure
+2. Obter o URL de transferência para o relatório de avaliação com a API de REST de migrar do Azure
 
-  a.    Numa janela do Windows PowerShell de administrador, execute o seguinte comando: ```armclient login```
+   a.    Numa janela do Windows PowerShell de administrador, execute o seguinte comando: ```armclient login```
 
-  Esta ação abre o Azure início de sessão pop-up em que precisa ao iniciar sessão no Azure.
+   Esta ação abre o Azure início de sessão pop-up em que precisa ao iniciar sessão no Azure.
 
-  b.    Na mesma janela do PowerShell, execute o seguinte comando para obter o URL de transferência para o relatório de avaliação (substitua os parâmetros do URI com os valores apropriados, a API de exemplo do pedido abaixo)
+   b.    Na mesma janela do PowerShell, execute o seguinte comando para obter o URL de transferência para o relatório de avaliação (substitua os parâmetros do URI com os valores apropriados, a API de exemplo do pedido abaixo)
 
-       ```armclient POST https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Migrate/projects/{projectName}/groups/{groupName}/assessments/{assessmentName}/downloadUrl?api-version=2018-02-02```
+      ```armclient POST https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Migrate/projects/{projectName}/groups/{groupName}/assessments/{assessmentName}/downloadUrl?api-version=2018-02-02```
 
-       Pedido de exemplo e a saída:
+      Pedido de exemplo e a saída:
 
-       ```PS C:\WINDOWS\system32> armclient POST https://management.azure.com/subscriptions/8c3c936a-c09b-4de3-830b-3f5f244d72e9/r
-esourceGroups/ContosoDemo/providers/Microsoft.Migrate/projects/Demo/groups/contosopayroll/assessments/assessment_11_16_2
-018_12_16_21/downloadUrl?api-version=2018-02-02
-{
-  "assessmentReportUrl": "https://migsvcstoragewcus.blob.core.windows.net/4f7dddac-f33b-4368-8e6a-45afcbd9d4df/contosopayrollassessment_11_16_2018_12_16_21?sv=2016-05-31&sr=b&sig=litQmHuwi88WV%2FR%2BDZX0%2BIttlmPMzfVMS7r7dULK7Oc%3D&st=2018-11-20T16%3A09%3A30Z&se=2018-11-20T16%3A19%3A30Z&sp=r",
-  "expirationTime": "2018-11-20T22:09:30.5681954+05:30"```
+      ```PS C:\WINDOWS\system32> armclient POST https://management.azure.com/subscriptions/8c3c936a-c09b-4de3-830b-3f5f244d72e9/r
+   esourceGroups/ContosoDemo/providers/Microsoft.Migrate/projects/Demo/groups/contosopayroll/assessments/assessment_11_16_2
+   018_12_16_21/downloadUrl?api-version=2018-02-02
+   {
+   "assessmentReportUrl": "https://migsvcstoragewcus.blob.core.windows.net/4f7dddac-f33b-4368-8e6a-45afcbd9d4df/contosopayrollassessment_11_16_2018_12_16_21?sv=2016-05-31&sr=b&sig=litQmHuwi88WV%2FR%2BDZX0%2BIttlmPMzfVMS7r7dULK7Oc%3D&st=2018-11-20T16%3A09%3A30Z&se=2018-11-20T16%3A19%3A30Z&sp=r",
+   "expirationTime": "2018-11-20T22:09:30.5681954+05:30"```
 
 3. Copie o URL da resposta e abra-o num browser para transferir o relatório de avaliação.
 
@@ -97,9 +97,9 @@ Pode ir para o **Essentials** secção a **descrição geral** página do projet
 1. Certifique-se de que se a ficheiros do Azure Migrate Recoletor OVA é transferido corretamente ao verificar o seu valor de hash. Consulte o [artigo](https://docs.microsoft.com/azure/migrate/tutorial-assessment-vmware#verify-the-collector-appliance) para verificar o valor de hash. Se o valor de hash não corresponde, transfira o ficheiro OVA novamente e repetir a implementação.
 2. Se ainda assim falhar e se estiver a utilizar o Cliente VMware vSphere para implementar o OVF, tente implementá-lo por meio do Cliente Web vSphere. Se continuar a falhar, tente utilizar outro navegador da web.
 3. Se estiver a utilizar o cliente de web do vSphere e tentar implantá-lo no vCenter Server 6.5 ou 6.7, tentar implementar o OVA diretamente no anfitrião ESXi ao seguir os passos abaixo:
-  - Ligar ao anfitrião ESXi diretamente (em vez do vCenter Server) com o cliente web (https:// <*endereço IP do anfitrião*>/UI)
-  - Aceda à página inicial > inventário
-  - Clique em ficheiro > modelo implementar OVF > navegue para o OVA e concluir a implementação
+   - Ligar ao anfitrião ESXi diretamente (em vez do vCenter Server) com o cliente web (https:// <*endereço IP do anfitrião*>/UI)
+   - Aceda à página inicial > inventário
+   - Clique em ficheiro > modelo implementar OVF > navegue para o OVA e concluir a implementação
 4. Se a implementação ainda falhar, contacte o suporte do Azure Migrate.
 
 
@@ -301,15 +301,15 @@ Para recolher eventos de rastreio para Windows, faça o seguinte:
 1. Abra o browser e navegue e inicie sessão [para o portal](https://portal.azure.com).
 2. Premir a tecla F12 para iniciar as ferramentas de desenvolvimento. Se for necessário, desmarque a definição **limpar as entradas na navegação**.
 3. Clique nas **rede** separador e comece a capturar o tráfego de rede:
- - No Chrome, selecione **Preserve log**. A gravação deve iniciar automaticamente. Um círculo vermelho indica que o tráfego está sendo captura. Se não aparecer, clique no círculo preto para começar
- - No Microsoft Edge/IE, gravação deve iniciar automaticamente. Se não, clique no botão verde play.
+   - No Chrome, selecione **Preserve log**. A gravação deve iniciar automaticamente. Um círculo vermelho indica que o tráfego está sendo captura. Se não aparecer, clique no círculo preto para começar
+   - No Microsoft Edge/IE, gravação deve iniciar automaticamente. Se não, clique no botão verde play.
 4. Tente reproduzir o erro.
 5. Depois de já se deparou com o erro durante a gravação, interromper a gravação e salvar uma cópia da atividade registada:
- - No Chrome, com o botão direito e clique em **guardar como HAR com conteúdo**. Isso zips e exporta os registos como um ficheiro de .har.
- - No Microsoft Edge/IE, clique nas **exportação capturado o tráfego** ícone. Isso zips e exporta o log.
+   - No Chrome, com o botão direito e clique em **guardar como HAR com conteúdo**. Isso zips e exporta os registos como um ficheiro de .har.
+   - No Microsoft Edge/IE, clique nas **exportação capturado o tráfego** ícone. Isso zips e exporta o log.
 6. Navegue para o **consola** separador para verificar a existência de quaisquer avisos ou erros. Para guardar o registo da consola:
- - No Chrome, com o botão direito em qualquer lugar no registo de consola. Selecione **guardar como**, para exportar e zip no registo.
- - No Microsoft Edge/IE, com o botão direito sobre os erros e selecione **copie todos os**.
+   - No Chrome, com o botão direito em qualquer lugar no registo de consola. Selecione **guardar como**, para exportar e zip no registo.
+   - No Microsoft Edge/IE, com o botão direito sobre os erros e selecione **copie todos os**.
 7. Feche as ferramentas de programação.
 
 ## <a name="collector-error-codes-and-recommended-actions"></a>Códigos de erro do recoletor e ações recomendadas

@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/08/2018
 ms.author: jdial
-ms.openlocfilehash: 974c984cda2dd2198d09fb0dd004e640727b8c48
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: eafdbf731ce6ae37c321712d7574ce578e704cc0
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46982652"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58108431"
 ---
 # <a name="create-a-virtual-machine-with-a-static-public-ip-address-using-the-azure-cli"></a>Criar uma máquina virtual com um endereço IP público estático, com a CLI do Azure
 
@@ -65,7 +65,7 @@ Pode concluir as etapas a seguir do computador local ou com o Azure Cloud Shell.
    Azure atribuído um endereço IP público a partir de endereços utilizados na região que criou a máquina virtual numa. Pode transferir a lista de intervalos (prefixos) das clouds [Pública](https://www.microsoft.com/download/details.aspx?id=56519), [US government](https://www.microsoft.com/download/details.aspx?id=57063), [China](https://www.microsoft.com/download/details.aspx?id=57062) e [Alemanha](https://www.microsoft.com/download/details.aspx?id=57064) do Azure.
 
 > [!WARNING]
-Não modifique as definições do endereço IP no sistema de operativo da máquina virtual. Desconhece o sistema operativo de endereços IP públicos do Azure. Embora possa adicionar definições de endereço IP privadas para o sistema operativo, recomendamos que não se o fizer, a menos que necessário e não até depois de ler [adicionar um endereço IP privado para um sistema operativo](virtual-network-network-interface-addresses.md#private).
+> Não modifique as definições do endereço IP no sistema de operativo da máquina virtual. Desconhece o sistema operativo de endereços IP públicos do Azure. Embora possa adicionar definições de endereço IP privadas para o sistema operativo, recomendamos que não se o fizer, a menos que necessário e não até depois de ler [adicionar um endereço IP privado para um sistema operativo](virtual-network-network-interface-addresses.md#private).
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 

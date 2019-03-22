@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 10/11/2018
 ms.author: raynew
-ms.openlocfilehash: 8e8b9536c96b1f5ed899695a3715021b9f9875cf
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 271e18d370068e0445f183af0c694b19f0da22f2
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57440374"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58102759"
 ---
 # <a name="contoso-migration-refactor-an-on-premises-app-to-an-azure-web-app-and-azure-sql-database"></a>Migração de Contoso: Refatorizar uma aplicação no local para uma base de dados de aplicação Web do Azure e SQL do Azure
 
@@ -244,9 +244,9 @@ Com a base de dados migrados, os administradores da Contoso podem agora aprovisi
 
 A Contoso precisa de criar a infraestrutura de DevOps e pipelines para a aplicação.  Para fazer isso, os administradores da Contoso criar um novo projeto de DevOps, importar o código e, em seguida, configure a compilação e lançar pipelines.
 
-1.   Na conta do Azure DevOps da Contoso, eles criam um novo projeto (**ContosoSmartHotelRefactor**) e selecione **Git** para controle de versão.
+1. Na conta do Azure DevOps da Contoso, eles criam um novo projeto (**ContosoSmartHotelRefactor**) e selecione **Git** para controle de versão.
 
-    ![Novo projeto](./media/contoso-migration-refactor-web-app-sql/vsts1.png)
+   ![Novo projeto](./media/contoso-migration-refactor-web-app-sql/vsts1.png)
 2. Eles importam o repositório do Git que atualmente possui o seu código de aplicação. Está a ser um [repositório público](https://github.com/Microsoft/SmartHotel360-internal-booking-apps) e pode baixá-lo.
 
     ![Baixe o código da aplicação](./media/contoso-migration-refactor-web-app-sql/vsts2.png)
@@ -306,8 +306,8 @@ Os administradores de contoso agora configurar DevOps do Azure para executar a c
 
 6. A pasta **Drop** contém os resultados da compilação.
 
-    - Os ficheiros dois zip são os pacotes que contêm as aplicações.
-    - Estes ficheiros são utilizados no pipeline de versões para implementação de aplicações Web do Azure
+   - Os ficheiros dois zip são os pacotes que contêm as aplicações.
+   - Estes ficheiros são utilizados no pipeline de versões para implementação de aplicações Web do Azure
 
      ![Artefacto](./media/contoso-migration-refactor-web-app-sql/pipeline6.png)
 
@@ -341,7 +341,7 @@ Os administradores de contoso agora configurar DevOps do Azure para executar a c
 
 16. O acionador de implementação contínua deve ser definido como **ativado**.
 
-   ![Implementação contínua ativada](./media/contoso-migration-refactor-web-app-sql/pipeline14.png) 
+    ![Implementação contínua ativada](./media/contoso-migration-refactor-web-app-sql/pipeline14.png) 
 
 17. Agora, eles mover de volta para a tarefa de fase 1, tarefas e clique em **implementar serviço de aplicações do Azure**.
 

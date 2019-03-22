@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/08/2018
 ms.author: jdial
-ms.openlocfilehash: 9b6db45e38267c70adef3f5a341b8b918b9e78fb
-ms.sourcegitcommit: d16b7d22dddef6da8b6cfdf412b1a668ab436c1f
+ms.openlocfilehash: 42e035b9dca6168fe77e6982505692cf18bfcb40
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39714432"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58106428"
 ---
 # <a name="create-a-virtual-machine-with-a-static-public-ip-address-using-the-azure-portal"></a>Criar uma máquina virtual com um endereço IP público estático através do portal do Azure
 
@@ -38,7 +38,7 @@ Inicie sessão no portal do Azure em https://portal.azure.com.
 
     |Definição|Valor|
     |---|---|
-    |Nome|myVM|
+    |Name|myVM|
     |Nome de utilizador| Introduza um nome de utilizador à sua escolha.|
     |Palavra-passe| Introduza uma palavra-passe à sua escolha. A palavra-passe tem de ter, pelo menos, 12 carateres e cumprir os [requisitos de complexidade definidos](../virtual-machines/windows/faq.md?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm).|
     |Subscrição| Selecione a sua subscrição.|
@@ -58,7 +58,7 @@ Inicie sessão no portal do Azure em https://portal.azure.com.
    ![Selecione uma porta](./media/virtual-network-deploy-static-pip-arm-portal/select-port.png)
 
 7. Aceite as predefinições restantes e selecione **OK**.
-8. Sobre o **resumo** página, selecione **criar**. A máquina virtual demora alguns minutos a implementar.
+8. Na página **Resumo**, selecione **Criar**. A máquina virtual demora alguns minutos a implementar.
 9. Depois de implementada a máquina virtual, introduza *myPublicIpAddress* na caixa de pesquisa na parte superior do portal. Quando **myPublicIpAddress** aparecer nos resultados da pesquisa, selecione.
 10. Pode ver o endereço IP público, que é atribuído, e o endereço atribuído para o **myVM** máquina virtual, conforme mostrado na imagem seguinte:
 
@@ -71,7 +71,7 @@ Inicie sessão no portal do Azure em https://portal.azure.com.
     ![Endereço IP público do Vista](./media/virtual-network-deploy-static-pip-arm-portal/public-ip-configuration.png)
 
 > [!WARNING]
-Não modifique as definições do endereço IP no sistema de operativo da máquina virtual. Desconhece o sistema operativo de endereços IP públicos do Azure. Embora possa adicionar definições de endereço IP privadas para o sistema operativo, recomendamos que não se o fizer, a menos que necessário e não até depois de ler [adicionar um endereço IP privado para um sistema operativo](virtual-network-network-interface-addresses.md#private).
+> Não modifique as definições do endereço IP no sistema de operativo da máquina virtual. Desconhece o sistema operativo de endereços IP públicos do Azure. Embora possa adicionar definições de endereço IP privadas para o sistema operativo, recomendamos que não se o fizer, a menos que necessário e não até depois de ler [adicionar um endereço IP privado para um sistema operativo](virtual-network-network-interface-addresses.md#private).
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 
