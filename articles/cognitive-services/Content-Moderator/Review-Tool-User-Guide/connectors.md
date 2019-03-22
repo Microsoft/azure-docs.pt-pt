@@ -10,12 +10,12 @@ ms.subservice: content-moderator
 ms.topic: article
 ms.date: 01/10/2019
 ms.author: sajagtap
-ms.openlocfilehash: 5e56579a856f7b6259acddcbe34f2e5361505cb5
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: 3ee582e2541e4eb55e5ea1424782df132ecf3575
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55217616"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58116559"
 ---
 # <a name="connect-to-other-cognitive-services"></a>Ligar a outros serviços cognitivos
 
@@ -33,27 +33,27 @@ O Content Moderator inclui estes conectores padrão:
 
 Antes de definir um fluxo de trabalho, certifique-se de que tem as credenciais válidas para o conector de API que pretende utilizar:
 
-1.  A ferramenta de revisão de Dashboard, selecione **configurações** > **conectores**.
+1. A ferramenta de revisão de Dashboard, selecione **configurações** > **conectores**.
 
-  ![Conteúdo conectores selecionadas do moderador](images/connectors-2.png)
+   ![Conteúdo conectores selecionadas do moderador](images/connectors-2.png)
 
-2.  Selecione o **editar** símbolo junto o conector que pretende verificar as credenciais para.
+2. Selecione o **editar** símbolo junto o conector que pretende verificar as credenciais para.
 
-  ![O Content Moderator, selecione o símbolo de edição](images/connectors-3.png)
+   ![O Content Moderator, selecione o símbolo de edição](images/connectors-3.png)
 
-3.  É apresentada a chave de subscrição. Se efetue as edições, selecione **guardar** quando tiver terminado.
+3. É apresentada a chave de subscrição. Se efetue as edições, selecione **guardar** quando tiver terminado.
 
-  ![Página de conectores de editar moderador de conteúdo](images/connectors-4-1.png)
+   ![Página de conectores de editar moderador de conteúdo](images/connectors-4-1.png)
  
 ## <a name="add-a-connector"></a>Adicionar um conector
 
-1.  Antes de adicionar um conector, precisa de uma chave de subscrição. A ferramenta de revisão de Dashboard, selecione **configurações** > **credenciais**. Selecione e copie o valor que está a **Ocp-Admin-Subscription-Key** caixa.
+1. Antes de adicionar um conector, precisa de uma chave de subscrição. A ferramenta de revisão de Dashboard, selecione **configurações** > **credenciais**. Selecione e copie o valor que está a **Ocp-Admin-Subscription-Key** caixa.
 
-2.  Selecione **conectores**. Selecione um dos conectores disponíveis que são apresentados na ferramenta de revisão Dashboard. Em seguida, selecione **Connect**. 
+2. Selecione **conectores**. Selecione um dos conectores disponíveis que são apresentados na ferramenta de revisão Dashboard. Em seguida, selecione **Connect**. 
 
-  ![Página de conector de adicionar moderador de conteúdo](images/connectors-5.png)
+   ![Página de conector de adicionar moderador de conteúdo](images/connectors-5.png)
 
-3.  Na **Ocp-Admin-Subscription-Key** caixa, cole a chave que copiou. Em seguida, selecione **Guardar**.
+3. Na **Ocp-Admin-Subscription-Key** caixa, cole a chave que copiou. Em seguida, selecione **Guardar**.
 
 ## <a name="next-steps"></a>Passos Seguintes
 
