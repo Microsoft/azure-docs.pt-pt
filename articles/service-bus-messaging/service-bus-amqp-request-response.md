@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/23/2019
 ms.author: aschhab
-ms.openlocfilehash: c6d6fc813a2691e821f3ef8f7c719945851a5001
-ms.sourcegitcommit: dd1a9f38c69954f15ff5c166e456fda37ae1cdf2
+ms.openlocfilehash: c22ba0b57ed1161e1f7e2082d2ba21f27b656da1
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57570849"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58121575"
 ---
 # <a name="amqp-10-in-microsoft-azure-service-bus-request-response-based-operations"></a>AMQP 1.0 no Microsoft Azure Service Bus: operações baseados no pedido-resposta
 
@@ -116,7 +116,7 @@ properties: {
 
 Entidades do Service Bus devem ser resolvidas da seguinte forma:  
   
-|Tipo de entidade|Morada|Exemplo|  
+|Tipo de entidade|Endereço|Exemplo|  
 |-----------------|-------------|-------------|  
 |fila|`<queue_name>`|`“myQueue”`<br /><br /> `“site1/myQueue”`|  
 |tópico|`<topic_name>`|`“myTopic”`<br /><br /> `“site2/page1/myQueue”`|  
@@ -607,13 +607,13 @@ Cada entrada de mapa na matriz inclui as seguintes propriedades:
 `com.microsoft:correlation-filter:list` é uma matriz descrita, que inclui:
 
 |Índice (se existir)|Tipo de valor|Conteúdo de valor|  
-|---------|----------------|--------------|--------------------|  
+|---------|----------------|--------------|
 | 0 | string | ID de Correlação |
 | 1 | string | ID da Mensagem |
-| 2 | string | a |
+| 2 | string | Para |
 | 3 | string | Responder A |
 | 4 | string | Label |
-| 5 | string | ID de Sessão |
+| 5 | string | ID de sessão |
 | 6 | string | Responder a ID da Sessão|
 | 7 | string | Tipo de Conteúdo |
 | 8 | Mapa | Mapa da aplicação definir propriedades |

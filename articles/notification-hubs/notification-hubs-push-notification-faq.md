@@ -15,12 +15,12 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 03/11/2019
 ms.author: jowargo
-ms.openlocfilehash: 863b380d4f36e24119e64fbd4a59e8cd66c911e1
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: da24c437a1dbe8744579cd26ee1348f50c4815ff
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57779424"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57884749"
 ---
 # <a name="push-notifications-with-azure-notification-hubs-frequently-asked-questions"></a>Enviar notificações push com Notification Hubs do Azure: Perguntas mais frequentes
 
@@ -217,22 +217,22 @@ Pode também acessar programaticamente métricas. Para obter mais informações,
 > Notificações com êxito significam simplesmente que as notificações push tem sido disponibilizadas para o PNS externo (por exemplo, o APNS da Apple) ou FCM para o Google. É da responsabilidade do PNS para entregar as notificações para dispositivos de destino. Normalmente, o PNS não expõe as métricas de entrega a terceiros.  
 
 [Portal do Azure]: https://portal.azure.com
-[Preços dos Hubs de notificação]: http://azure.microsoft.com/pricing/details/notification-hubs/
-[Notification Hubs SLA]: http://azure.microsoft.com/support/legal/sla/
+[Preços dos Hubs de notificação]: https://azure.microsoft.com/pricing/details/notification-hubs/
+[Notification Hubs SLA]: https://azure.microsoft.com/support/legal/sla/
 [Estudo de caso: Sochi]: https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=7942
 [Estudo de caso: Skanska]: https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=5847
 [Estudo de caso: Tempos de Seattle]: https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=8354
 [Estudo de caso: Mural.ly]: https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=11592
 [Estudo de caso: 7Digital]: https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=3684
 [REST APIs dos Hubs de notificação]: https://msdn.microsoft.com/library/azure/dn530746.aspx
-[Tutoriais de introdução aos Hubs de notificação]: http://azure.microsoft.com/documentation/articles/notification-hubs-ios-get-started/
-[Tutorial de aplicações do Chrome]: http://azure.microsoft.com/documentation/articles/notification-hubs-chrome-get-started/
-[Mobile Services Pricing]: http://azure.microsoft.com/pricing/details/mobile-services/
+[Tutoriais de introdução aos Hubs de notificação]: https://azure.microsoft.com/documentation/articles/notification-hubs-ios-get-started/
+[Tutorial de aplicações do Chrome]: https://azure.microsoft.com/documentation/articles/notification-hubs-chrome-get-started/
+[Mobile Services Pricing]: https://azure.microsoft.com/pricing/details/mobile-services/
 [Documentação de orientação do registo de back-end]: https://msdn.microsoft.com/library/azure/dn743807.aspx
 [Documentação de orientação do registo de back-end 2]: https://msdn.microsoft.com/library/azure/dn530747.aspx
 [Modelo de segurança de Hubs de notificação]: https://msdn.microsoft.com/library/azure/dn495373.aspx
-[Tutorial de proteger o Push dos Hubs de notificação]: http://azure.microsoft.com/documentation/articles/notification-hubs-aspnet-backend-ios-secure-push/
-[Hubs de notificação de resolução de problemas]: http://azure.microsoft.com/documentation/articles/notification-hubs-diagnosing/
+[Tutorial de proteger o Push dos Hubs de notificação]: https://azure.microsoft.com/documentation/articles/notification-hubs-aspnet-backend-ios-secure-push/
+[Hubs de notificação de resolução de problemas]: https://azure.microsoft.com/documentation/articles/notification-hubs-diagnosing/
 [Métricas de Hubs de notificação]: ../azure-monitor/platform/metrics-supported.md#microsoftnotificationhubsnamespacesnotificationhubs
 [Exportação/importação de registos]: https://msdn.microsoft.com/library/dn790624.aspx
 [Portal do Azure]: https://portal.azure.com

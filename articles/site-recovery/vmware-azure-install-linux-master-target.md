@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 03/06/2019
 ms.author: mayg
-ms.openlocfilehash: 28b28dc15809aa5d37eb9347ff3bc7eecccc9a20
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 98718709038d7fd753e5eb3d45c130085c5accd9
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57452713"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58099057"
 ---
 # <a name="install-a-linux-master-target-server-for-failback"></a>Instalar um servidor de destino principal do Linux para reativação pós-falha
 Depois de efetuar a ativação pós-falha de máquinas virtuais para o Azure, pode efetuar a reativação pós-falha as máquinas virtuais para o site no local. Para efetuar a reativação pós-falha, terá de voltar a proteger a máquina virtual do Azure para o site no local. Para que este processo, terá de um servidor de destino mestre no local para receber o tráfego. 
@@ -168,15 +168,15 @@ Para obter o ID para cada disco de rígido SCSI na máquina virtual do Linux, o 
 
 5. Ver se uma linha com **disco. EnableUUID** já existe.
 
-    - Se o valor existe e está definido como **False**, altere o valor para **verdadeiro**. (Os valores não diferenciam maiúsculas de minúsculas.)
+   - Se o valor existe e está definido como **False**, altere o valor para **verdadeiro**. (Os valores não diferenciam maiúsculas de minúsculas.)
 
-    - Se o valor existe e está definido como **True**, selecione **Cancelar**.
+   - Se o valor existe e está definido como **True**, selecione **Cancelar**.
 
-    - Se o valor não existir, selecione **Adicionar linha**.
+   - Se o valor não existir, selecione **Adicionar linha**.
 
-    - Na coluna nome, adicionar **disco. EnableUUID**e, em seguida, defina o valor **TRUE**.
+   - Na coluna nome, adicionar **disco. EnableUUID**e, em seguida, defina o valor **TRUE**.
 
-    ![Bancária se o disco. EnableUUID já existe](./media/vmware-azure-install-linux-master-target/image25.png)
+     ![Bancária se o disco. EnableUUID já existe](./media/vmware-azure-install-linux-master-target/image25.png)
 
 #### <a name="disable-kernel-upgrades"></a>Desativar as atualizações de kernel
 

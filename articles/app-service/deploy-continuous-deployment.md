@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 12/03/2018
 ms.author: cephalin;dariagrigoriu
 ms.custom: seodec18
-ms.openlocfilehash: 1313616818686c7a03269fc1cc837958665732d8
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: fcb2c270b36d5efbe7b799787cf2a123b51bea5c
+ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53725240"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58337549"
 ---
 # <a name="continuous-deployment-to-azure-app-service"></a>Implementação contínua no App Service do Azure
 Este artigo mostra-lhe como configurar a implementação contínua para [App Service do Azure](overview.md). Serviço de aplicações permite a implementação contínua do BitBucket, GitHub, e [serviços do Azure DevOps](https://www.visualstudio.com/team-services/) Pegando as atualizações mais recentes do seu repositório existente em um destes serviços.
@@ -47,6 +47,16 @@ Na **fornecedor de compilação** página, escolha o fornecedor de compilação 
 ### <a name="option-1-use-app-service-kudu-build-server"></a>Opção 1: utilizar o servidor de compilação Kudu do serviço de aplicações
 
 Na **configurar** , selecione a organização, o repositório e o ramo do qual deseja implantar continuamente. Quando terminar, clique em **continuar**.
+
+Para implementar a partir de um repositório numa organização do GitHub, navegue para o GitHub e aceda a **configurações** > **aplicativos** > **autorizado a aplicações de OAuth**. Em seguida, clique em "App Service do Azure".
+
+![Definições > aplicações > OAuth aplicações autorizadas > serviço de aplicações do Azure](media/app-service-continuous-deployment/github-settings-navigation.png)
+
+Na página seguinte, conceda acesso de serviço de aplicações para repositórios da sua organização ao clicar no botão "Concessão" no lado direito.
+
+![Clique em "Concessão" para conceder acesso de serviço de aplicações para repositórios da organização](media/app-service-continuous-deployment/grant-access.png)
+
+Sua organização deve agora mostrar na lista de "Organização" no **configurar** página do Centro de implementação.
 
 ### <a name="option-2-use-azure-pipelines-preview"></a>Opção 2: utilizar Pipelines do Azure (pré-visualização)
 

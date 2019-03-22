@@ -14,14 +14,14 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: azurecli
 ms.date: 11/22/2018
 ms.author: delhan
-ms.openlocfilehash: cb2c548a94a91fe9126f684e382e9626adb93dd6
-ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
+ms.openlocfilehash: ed3d89bc15f960947a48ac4364bd14f3fdf50cc2
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "52319464"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57853074"
 ---
-# <a name="enable-or-disable-a-firewall-rule-on-a-azure-vm-guest-os"></a>Ativar ou desativar uma regra de firewall num SO de convidado de VM do Azure
+# <a name="enable-or-disable-a-firewall-rule-on-an-azure-vm-guest-os"></a>Ativar ou desativar uma regra de firewall num SO de convidado de VM do Azure
 
 Este artigo fornece uma referência para resolução de problemas de uma situação em que suspeitar de que a firewall do sistema operativo convidado está a filtrar o tráfego parcial numa máquina virtual (VM). Isto pode ser útil pelos seguintes motivos:
 
@@ -103,19 +103,19 @@ Se a VM está online e pode ser acessada em outra VM na mesma rede virtual, pode
 
     * Para ativar uma regra, abra o valor de registo seguinte:
     
-        *MÁQUINA de destino*\SYSTEM\CurrentControlSet\Services\SharedAccess\Parameters\FirewallPolicy\FirewallRules\RemoteDesktop-UserMode-In-TCP
+        *TARGET MACHINE*\SYSTEM\CurrentControlSet\Services\SharedAccess\Parameters\FirewallPolicy\FirewallRules\RemoteDesktop-UserMode-In-TCP
     
         Em seguida, altere **Active Directory = FALSE** ao **Active Directory = TRUE** na cadeia de caracteres:
 
-        **v2.22 | Ação = permitir | Active Directory = TRUE | Dir = In | Protocolo = 6 | Perfil = domínio | Perfil = privada | Perfil público de = | LPort = 3389 | App=%systemroot%\system32\svchost.exe| SVC = termservice | Nome =@FirewallAPI.dll,-28775 | Desc =@FirewallAPI.dll,-28756 | EmbedCtxt =@FirewallAPI.dll,-28752 |**
+        **v2.22 | Ação = permitir | Active Directory = TRUE | Dir = In | Protocolo = 6 | Perfil = domínio | Perfil = privada | Perfil público de = | LPort = 3389 | App=%systemroot%\system32\svchost.exe| SVC = termservice | Nome =\@Firewallapi,-28775 | Desc =\@Firewallapi,-28756 | EmbedCtxt =\@Firewallapi,-28752 |**
     
     * Para desativar uma regra, abra o valor de registo seguinte:
     
-        *MÁQUINA de destino*\SYSTEM\CurrentControlSet\Services\SharedAccess\Parameters\FirewallPolicy\FirewallRules\RemoteDesktop-UserMode-In-TCP
+        *TARGET MACHINE*\SYSTEM\CurrentControlSet\Services\SharedAccess\Parameters\FirewallPolicy\FirewallRules\RemoteDesktop-UserMode-In-TCP
 
         Em seguida, altere **Active Directory = TRUE** ao **Active Directory = FALSE**:
         
-        **v2.22 | Ação = permitir | Active Directory = FALSE | Dir = In | Protocolo = 6 | Perfil = domínio | Perfil = privada | Perfil público de = | LPort = 3389 | App=%systemroot%\system32\svchost.exe| SVC = termservice | Nome =@FirewallAPI.dll,-28775 | Desc =@FirewallAPI.dll,-28756 | EmbedCtxt =@FirewallAPI.dll,-28752 |**
+        **v2.22 | Ação = permitir | Active Directory = FALSE | Dir = In | Protocolo = 6 | Perfil = domínio | Perfil = privada | Perfil público de = | LPort = 3389 | App=%systemroot%\system32\svchost.exe| SVC = termservice | Nome =\@Firewallapi,-28775 | Desc =\@Firewallapi,-28756 | EmbedCtxt =\@Firewallapi,-28752 |**
 
 3.  Reinicie a VM para aplicar as alterações.
 
@@ -150,19 +150,19 @@ Antes de seguir estes passos, tire um instantâneo do disco de sistema da VM afe
 
     2.  Para ativar uma regra, abra o valor de registo seguinte:
     
-        HKLM\BROKENSYSTEM\ControlSet00X\Services\SharedAccess\Parameters\FirewallPolicy\FirewallRules\RemoteDesktop usermode no TCP
+        HKLM\BROKENSYSTEM\ControlSet00X\Services\SharedAccess\Parameters\FirewallPolicy\FirewallRules\RemoteDesktop-UserMode-In-TCP
         
         Em seguida, altere **Active Directory = FALSE** ao **Active Directory = True**.
         
-        **v2.22 | Ação = permitir | Active Directory = TRUE | Dir = In | Protocolo = 6 | Perfil = domínio | Perfil = privada | Perfil público de = | LPort = 3389 | App=%systemroot%\system32\svchost.exe| SVC = termservice | Nome =@FirewallAPI.dll,-28775 | Desc =@FirewallAPI.dll,-28756 | EmbedCtxt =@FirewallAPI.dll,-28752 |**
+        **v2.22 | Ação = permitir | Active Directory = TRUE | Dir = In | Protocolo = 6 | Perfil = domínio | Perfil = privada | Perfil público de = | LPort = 3389 | App=%systemroot%\system32\svchost.exe| SVC = termservice | Nome =\@Firewallapi,-28775 | Desc =\@Firewallapi,-28756 | EmbedCtxt =\@Firewallapi,-28752 |**
 
     3.  Para desativar uma regra, abra a seguinte chave de registo:
 
-        HKLM\BROKENSYSTEM\ControlSet00X\Services\SharedAccess\Parameters\FirewallPolicy\FirewallRules\RemoteDesktop usermode no TCP
+        HKLM\BROKENSYSTEM\ControlSet00X\Services\SharedAccess\Parameters\FirewallPolicy\FirewallRules\RemoteDesktop-UserMode-In-TCP
 
         Em seguida, altere **Active Directory = True** ao **Active Directory = FALSE**.
         
-        **v2.22 | Ação = permitir | Active Directory = FALSE | Dir = In | Protocolo = 6 | Perfil = domínio | Perfil = privada | Perfil público de = | LPort = 3389 | App=%systemroot%\system32\svchost.exe| SVC = termservice | Nome =@FirewallAPI.dll,-28775 | Desc =@FirewallAPI.dll,-28756 | EmbedCtxt =@FirewallAPI.dll,-28752 |**
+        **v2.22 | Ação = permitir | Active Directory = FALSE | Dir = In | Protocolo = 6 | Perfil = domínio | Perfil = privada | Perfil público de = | LPort = 3389 | App=%systemroot%\system32\svchost.exe| SVC = termservice | Nome =\@Firewallapi,-28775 | Desc =\@Firewallapi,-28756 | EmbedCtxt =\@Firewallapi,-28752 |**
 
 9.  Realçar **BROKENSYSTEM**e, em seguida, selecione **ficheiro** > **descarregar seção** no menu.
 

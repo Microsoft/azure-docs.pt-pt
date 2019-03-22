@@ -14,12 +14,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 01/04/2019
 ms.author: jowargo
-ms.openlocfilehash: 369f3ebca0ca2f5862d8300934dee57a73d8bada
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: c934a3b16f5cdd2b4f703b1be15ce16ddc6d8746
+ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57903407"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58338484"
 ---
 # <a name="enterprise-push-architectural-guidance"></a>Orientação de arquitetura das notificações push empresariais
 
@@ -265,7 +265,7 @@ O código de exemplo completo está disponível em [Exemplos do Hub de notifica�
 ### <a name="running-the-sample"></a>Executar o exemplo
 
 1. Certifique-se de que o WebJob está em execução com êxito e agendada para ser executada continuamente.
-2. Executar o * * EnterprisePushMobileApp, que inicia a aplicação da Windows Store.
+2. Executar o **EnterprisePushMobileApp**, que inicia a aplicação da Windows Store.
 3. Executar o **EnterprisePushBackendSystem** aplicativo de console, que simula o back-end de LoB e começa a enviar mensagens e deverá ver as notificações de alerta que aparecem semelhante à imagem seguinte:
 
     ![][5]

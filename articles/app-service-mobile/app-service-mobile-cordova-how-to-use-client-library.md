@@ -14,12 +14,12 @@ ms.devlang: javascript
 ms.topic: article
 ms.date: 10/30/2016
 ms.author: crdun
-ms.openlocfilehash: cddb3769cfc5a2ba002e19036d986f4165670dc1
-ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
+ms.openlocfilehash: 3c22aab20a9260bfd21869f0b327211e2f3d8894
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55962456"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58004216"
 ---
 # <a name="how-to-use-apache-cordova-client-library-for-azure-mobile-apps"></a>Como utilizar a biblioteca de clientes do Apache Cordova para aplicações móveis do Azure
 [!INCLUDE [app-service-mobile-selector-client-library](../../includes/app-service-mobile-selector-client-library.md)]
@@ -106,7 +106,7 @@ Siga estas instruções para adicionar as suas definições locais para a config
              "https://localhost:3000"
          ],
 
-    Substitua os URLs com os URLs do seu serviço.  Os exemplos incluem "http://localhost:3000" (para o serviço de exemplo de node. js), ou "http://localhost:4400" (para o serviço de cascata).  No entanto, estes URLs são exemplos - sua situação, incluindo os serviços mencionado nos exemplos, podem ser diferentes.
+    Substitua os URLs com os URLs do seu serviço.  Os exemplos incluem `http://localhost:3000` (para o serviço de exemplo de node. js), ou `http://localhost:4400` (para o serviço de cascata).  No entanto, estes URLs são exemplos - sua situação, incluindo os serviços mencionado nos exemplos, podem ser diferentes.
 8. Clique nas **leitura/escrita** botão no canto superior direito da tela.
 9. Clique no verde **colocar** botão.
 

@@ -11,12 +11,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 03/13/2019
 ms.author: glenga
-ms.openlocfilehash: 9d6119b0703ccce61b0731d75f3bb2f75aec4e39
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
-ms.translationtype: HT
+ms.openlocfilehash: dcd6d907fec3d7f2cc0c8d5c06fdec28125154c1
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57902234"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58313248"
 ---
 # <a name="work-with-azure-functions-core-tools"></a>Trabalhar com as funções do Azure, as ferramentas de núcleo
 
@@ -412,10 +412,6 @@ Por exemplo, para chamar uma função acionada por HTTP e passar o corpo do cont
 ```bash
 func run MyHttpTrigger -c '{\"name\": \"Azure\"}'
 ```
-
-### <a name="viewing-log-files-locally"></a>Ficheiros de registo de visualização localmente
-
-[!INCLUDE [functions-local-logs-location](../../includes/functions-local-logs-location.md)]
 
 ## <a name="publish"></a>Publicar no Azure
 
