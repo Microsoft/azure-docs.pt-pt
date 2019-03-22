@@ -6,21 +6,21 @@ ms.service: automation
 ms.subservice: process-automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 03/20/2019
+ms.date: 03/21/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 5b8ec726c81dfab710d30c37d6fb1aac97c12265
-ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
-ms.translationtype: HT
+ms.openlocfilehash: c689a8fe35133456c476106e96336420640ebf66
+ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58293980"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58335985"
 ---
 # <a name="source-control-integration-in-azure-automation"></a>Integração de controlo de código fonte da Automatização do Azure
 
 Controlo de origem permite-lhe manter os runbooks na sua automação de conta são atualizados com seus scripts no seu repositório de controle de origem GitHub ou de repositórios do Azure. Controlo de origem permite-lhe facilmente colaborar com sua equipe, controlar as alterações e reverta para versões anteriores dos seus runbooks. Por exemplo, o controlo de origem permite-lhe sincronizar ramificações diferentes no controle de origem para as contas de automatização de desenvolvimento, teste ou produção. Isto torna mais fácil promover o código que foi testado em seu ambiente de desenvolvimento para a sua conta de automatização de produção. Integração do controlo de origem com a automatização suporta única direção a sincronizar a partir do seu repositório de controle de origem.
 
-A automatização do Azure suporta 3 tipos de controle de origem:
+A automatização do Azure suporta três tipos de controle de origem:
 
 * GitHub
 * Repositórios do Azure (Git)
@@ -30,6 +30,7 @@ A automatização do Azure suporta 3 tipos de controle de origem:
 
 * Um repositório de controle de origem (GitHub ou repositórios do Azure)
 * A [conta executar como](manage-runas-account.md)
+* Certifique-se de que tem o [módulos do Azure mais recente](automation-update-azure-modules.md) na conta de automatização
 
 > [!NOTE]
 > Tarefas de sincronização de controlo de origem ser executado sob os conta de automatização de utilizadores e são cobradas à mesma tarifa como outras tarefas de automatização.
@@ -52,7 +53,7 @@ Sobre o **resumo de controlo de origem** página, preencha as informações e cl
 |Branch     | O ramo para extrair os ficheiros de origem do. Direcionamento de ramo não está disponível para o tipo de controlo de origem TFVC.          |
 |Caminho da pasta     | A pasta que contém os runbooks para sincronizar. Exemplo: /Runbooks </br>*Apenas runbooks na pasta especificada são sincronizados. Não é suportada a recursão.*        |
 |Sincronização automática     | Folheio ou desativar a sincronização automática quando uma consolidação é efetuada no repositório de controle de origem         |
-|Publicar o Runbook     | Se definido como **no**, após os runbooks são sincronizados a partir do controlo de origem que serão publicados automaticamente.         |
+|Publicar o Runbook     | Se definido como **no**, após os runbooks são sincronizados a partir do controlo de origem vai ser publicados automaticamente.         |
 |Descrição     | Um campo de texto para fornecer detalhes adicionais        |
 
 ![Resumo de controlo de origem](./media/source-control-integration/source-control-summary.png)
@@ -62,7 +63,7 @@ Sobre o **resumo de controlo de origem** página, preencha as informações e cl
 
 ## <a name="configure-source-control---powershell"></a>Configurar o controlo de origem - PowerShell
 
-Também pode utilizar o PowerShell para configurar o controlo de origem na automatização do Azure. Para configurar o controlo de origem com os cmdlets do PowerShell, uma [token de acesso pessoal (PAT)](#personal-access-token) é necessária. Utilizar o [New-AzureRmAutomationSourceControl](/powershell/module/AzureRM.Automation/New-AzureRmAutomationSourceControl) para criar a ligação de controlo de origem. O cmdlet requer uma cadeia segura do Token de acesso pessoal, para saber como criar uma cadeia segura, consulte [ConvertTo-SecureString](/powershell/module/microsoft.powershell.security/convertto-securestring?view=powershell-6).
+Também pode utilizar o PowerShell para configurar o controlo de origem na automatização do Azure. Para configurar o controlo de origem com os cmdlets do PowerShell, é necessário um token de acesso pessoal (PAT). Utilizar o [New-AzureRmAutomationSourceControl](/powershell/module/AzureRM.Automation/New-AzureRmAutomationSourceControl) para criar a ligação de controlo de origem. O cmdlet requer uma cadeia segura do Token de acesso pessoal, para saber como criar uma cadeia segura, consulte [ConvertTo-SecureString](/powershell/module/microsoft.powershell.security/convertto-securestring?view=powershell-6).
 
 ### <a name="azure-repos-git"></a>Repositórios do Azure (Git)
 
@@ -113,7 +114,7 @@ Para obter mais informações sobre como criar um token de acesso pessoal nos re
 |Itens de trabalho (ler)    |
 |Ligações de serviço (leitura, consultar e gerir)<sup>1</sup>    |
 
-<sup>1</sup>permissão a ligações de serviço só é necessário se tiver ativado o autosync.
+<sup>1</sup> permissão a ligações de serviço só é necessário se tiver ativado o autosync.
 
 ## <a name="syncing"></a>A sincronizar
 
@@ -168,7 +169,7 @@ Selecione o controlo de origem que pretende remover. Sobre o **resumo de control
 
 ## <a name="encoding"></a>Codificação
 
-Se várias pessoas estão a editar runbooks no seu repositório de controle de origem com diferentes editores há uma oportunidade de se depare com problemas de codificação. Isso pode inserir caracteres incorretos no runbook. Para obter mais informações, consulte o artigo [faz com que o comum de problemas de codificação](/powershell/scripting/components/vscode/understanding-file-encoding#common-causes-of-encoding-issues)
+Se várias pessoas estão a editar runbooks no seu repositório de controle de origem com diferentes editores, há uma oportunidade de se depare com problemas de codificação. Esta situação pode levar a carateres incorretos no runbook. Para obter mais informações, consulte o artigo [faz com que o comum de problemas de codificação](/powershell/scripting/components/vscode/understanding-file-encoding#common-causes-of-encoding-issues)
 
 ## <a name="next-steps"></a>Passos Seguintes
 

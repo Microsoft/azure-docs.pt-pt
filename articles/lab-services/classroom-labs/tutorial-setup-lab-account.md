@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 02/07/2019
 ms.author: spelluru
-ms.openlocfilehash: 4c63cb69cd5ce824648d2bf0a6735e316791c44e
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: ec1b75e7bd2defe96948e9830c25488ecd8289da
+ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58079934"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58336359"
 ---
 # <a name="tutorial-set-up-a-lab-account-with-azure-lab-services"></a>Tutorial: Configurar uma conta de laboratório com o Azure Lab Services
 No Azure Lab Services, a conta de laboratório serve como a conta central em que são geridos os laboratórios na organização. Na conta de laboratório, conceda permissões para outros utilizadores criarem laboratórios e definir políticas aplicáveis a todos os laboratórios na conta de laboratório. Neste tutorial, aprenda como criar uma conta de laboratório como administrador de laboratório. 
@@ -37,10 +37,10 @@ Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure
 Os passos seguintes mostram como utilizar o portal do Azure para criar uma conta de laboratório com o Azure Lab Services. 
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com).
-2. Selecione **todos os serviços** no menu da esquerda. Selecione **contas de laboratório** no **DEVOPS** secção. Se selecionar asterisco (`*`) junto a **contas de laboratório**, é adicionado para o **Favoritos** secção no menu da esquerda. A partir da próxima vez em diante, pode selecionar **contas de laboratório** sob **Favoritos**.
+2. Selecione **todos os serviços** no menu da esquerda. Selecione **Lab Services** no **DEVOPS** secção. Se selecionar asterisco (`*`) junto a **Lab Services**, é adicionado para o **Favoritos** secção no menu da esquerda. A partir da próxima vez em diante, pode selecionar **Lab Services** sob **Favoritos**.
 
-    ![Todos os serviços -> contas de laboratório](../media/tutorial-setup-lab-account/select-lab-accounts-service.png)
-3. Sobre o **contas de laboratório** página, selecione **Add** na barra de ferramentas. 
+    ![Todos os serviços -> Serviços de laboratório](../media/tutorial-setup-lab-account/select-lab-accounts-service.png)
+3. Sobre o **Lab Services** página, selecione **Add** na barra de ferramentas. 
 
     ![Selecione adicionar na página de contas de laboratório](../media/tutorial-setup-lab-account/add-lab-account-button.png)
 4. Sobre o **conta de laboratório** página, efetue as seguintes ações: 

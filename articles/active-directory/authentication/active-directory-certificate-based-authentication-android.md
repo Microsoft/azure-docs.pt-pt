@@ -1,5 +1,5 @@
 ---
-title: Autenticação do Azure Active Directory com base em certificado no Android
+title: Autenticação baseada em certificado no Android - Azure Active Directory
 description: Saiba mais sobre os cenários suportados e os requisitos de configuração da autenticação baseada em certificados em soluções com dispositivos Android
 services: active-directory
 ms.service: active-directory
@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: annaba
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2492fe3074b72df5f9ecbaab0496fee1f54ca0e2
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: b0f4a648227e62642bb071a76cbd1f3a50bf78ae
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56211568"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58314507"
 ---
 # <a name="azure-active-directory-certificate-based-authentication-on-android"></a>Autenticação do Azure Active Directory com base em certificado no Android
 

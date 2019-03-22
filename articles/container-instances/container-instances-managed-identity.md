@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 10/22/2018
 ms.author: danlep
 ms.custom: ''
-ms.openlocfilehash: 321dfaa1a58cc806394f4807c38cbdc599cfd7a0
-ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
+ms.openlocfilehash: ac0a84aa3121c6ebb91860c96c0f6692827c8a3f
+ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56311568"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58336529"
 ---
 # <a name="how-to-use-managed-identities-with-azure-container-instances"></a>Como utilizar identidades geridas com o Azure Container Instances
 
@@ -33,7 +33,7 @@ Adapte os exemplos para ativar e utilizar as identidades no Azure Container Inst
 
 ## <a name="why-use-a-managed-identity"></a>Por que usar uma identidade gerida?
 
-Utilizar uma identidade gerida num contentor em execução para autenticar a qualquer [serviço que suporta a autenticação do Azure AD](../active-directory/managed-identities-azure-resources/services-support-msi.md#azure-services-that-support-azure-ad-authentication) sem ter de gerir as credenciais em seu código de contentor. Para os serviços que não suportam a autenticação do AD, pode armazenar segredos no Azure Key Vault e utilizar a identidade gerida para aceder ao Key Vault para obter as credenciais. Para obter mais informações sobre como utilizar uma identidade gerida, consulte [o que há de identidades geridas para recursos do Azure?](../active-directory/managed-identities-azure-resources/overview.md)
+Utilizar uma identidade gerida num contentor em execução para autenticar a qualquer [serviço que suporta a autenticação do Azure AD](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication) sem ter de gerir as credenciais em seu código de contentor. Para os serviços que não suportam a autenticação do AD, pode armazenar segredos no Azure Key Vault e utilizar a identidade gerida para aceder ao Key Vault para obter as credenciais. Para obter mais informações sobre como utilizar uma identidade gerida, consulte [o que há de identidades geridas para recursos do Azure?](../active-directory/managed-identities-azure-resources/overview.md)
 
 > [!IMPORTANT]
 > Esta funcionalidade encontra-se em pré-visualização. As pré-visualizações são tornadas disponíveis para si na condição de concordar com os [termos suplementares de utilização](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Alguns aspetos desta funcionalidade podem alterar-se após a disponibilidade geral (GA). Atualmente, as identidades geridas só são suportadas em instâncias de contentor do Linux.
@@ -252,7 +252,7 @@ token=$(curl 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=
 
 ```
 
-Utilize o token de acesso para autenticar para o Key Vault e ler um segredo. Certifique-se de que substitua o nome do seu Cofre de chaves no URL (*https://mykeyvault.vault.azure.net/...*):
+Utilize o token de acesso para autenticar para o Key Vault e ler um segredo. Certifique-se de que substitua o nome do seu Cofre de chaves no URL (*https:\//mykeyvault.vault.azure.net/...* ):
 
 ```bash
 curl https://mykeyvault.vault.azure.net/secrets/SampleSecret/?api-version=2016-10-01 -H "Authorization: Bearer $token"

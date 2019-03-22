@@ -3,7 +3,7 @@ title: Introdução ao sistema de rede do Azure Service Fabric | Documentos da M
 description: Saiba mais sobre redes, gateways e encaminhamento de tráfego inteligente em malha do Service Fabric.
 services: service-fabric-mesh
 documentationcenter: .net
-author: rwike77
+author: dkkapur
 manager: timlt
 editor: ''
 ms.assetid: ''
@@ -13,14 +13,14 @@ ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/26/2018
-ms.author: ryanwi
+ms.author: dekapur
 ms.custom: mvc, devcenter
-ms.openlocfilehash: 8d9f5c71d05477094d733fd6b798831b3ff02ce1
-ms.sourcegitcommit: 2bb46e5b3bcadc0a21f39072b981a3d357559191
+ms.openlocfilehash: b0e1047c5bbd7d8caaf2afd8b002be1c46837852
+ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/05/2018
-ms.locfileid: "52892607"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58339266"
 ---
 # <a name="introduction-to-networking-in-service-fabric-mesh-applications"></a>Introdução ao funcionamento em rede na malha de recursos de infraestrutura do serviço de aplicações
 Este artigo descreve os diferentes tipos de balanceadores de carga, como gateways de ligar a rede com as suas aplicações a outras redes, e como o tráfego é encaminhado entre os serviços em seus aplicativos.
@@ -32,7 +32,7 @@ Balanceamento de carga pode ser executado em camadas diferentes dos [modelo OSI]
 
 - Um balanceador de carga L7 funciona na camada da aplicação, que lida com o conteúdo de cada pacote. Ele inspeciona o conteúdo do pacote porque ele compreende protocolos como HTTP, HTTPS ou WebSockets. O Balanceador de carga isso dá a capacidade de executar o encaminhamento avançada. Por exemplo, um cliente faz uma única ligação de TCP de HTTP/2 para o Balanceador de carga. O Balanceador de carga, em seguida, continua a fazer duas conexões de back-end. Quando o cliente envia dois fluxos HTTP/2 para o Balanceador de carga, stream um é enviado para o back-end de um e fluxo dois é enviado para dois de back-end. Assim, até mesmo multiplexação de clientes que tenham cargas de pedido diferentes irá ser balanceado com eficiência pelos back-ends. 
 
-## <a name="networks-and-gateways"></a>Gateways e redes
+## <a name="networks-and-gateways"></a>Redes e gateways
 Na [modelo de recursos do Service Fabric](service-fabric-mesh-service-fabric-resources.md), um recurso de rede é um recurso implementável individualmente, independente de um recurso de aplicação ou serviço que pode fazer referência a ele como sua dependência. Ele é usado para criar uma rede para as suas aplicações que está aberta à internet. Vários serviços de aplicações diferentes podem ser uma parte da mesma rede. Essa rede privada é criado e gerido pelo serviço de recursos de infraestrutura e não é uma rede virtual do Azure (VNET). Aplicativos podem ser dinamicamente adicionados e removidos do recurso de rede para ativar e desativar a conectividade VNET. 
 
 Um gateway é utilizado para ligar duas redes. O recurso de Gateway implementa uma [proxy o Envoy](https://www.envoyproxy.io/) que fornece L4 encaminhamento para qualquer protocolo e L7 encaminhamento para o encaminhamento da aplicação de HTTP (S) avançada. O gateway encaminha o tráfego na sua rede a partir de uma rede externa e determina qual de serviço para encaminhar o tráfego.  Rede externa pode ser uma rede aberta (essencialmente, a internet pública) ou uma rede virtual do Azure, permitindo-lhe ligar-se com as suas aplicações do Azure e outros recursos. 

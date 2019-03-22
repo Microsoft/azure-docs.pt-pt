@@ -1,5 +1,5 @@
 ---
-title: Sem palavra-passe do Azure AD início de sessão com a aplicação Microsoft Authenticator (pré-visualização)
+title: Palavra-passe sem início de sessão com a aplicação Microsoft Authenticator (pré-visualização) - Azure Active Directory
 description: Início de sessão no Azure AD com a aplicação Microsoft Authenticator sem utilizar a sua palavra-passe (pré-visualização pública)
 services: active-directory
 ms.service: active-directory
@@ -12,12 +12,12 @@ manager: daveba
 ms.reviewer: librown
 ms.custom: seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 247e772873cf467b371b4aea45f8ceb43bce16e3
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 26dd1bd6717fe0216545d6b3aa729ac2cb19dc9d
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56180527"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58313333"
 ---
 # <a name="password-less-phone-sign-in-with-the-microsoft-authenticator-app-public-preview"></a>Palavra-passe sem início de sessão no telefone com a aplicação Microsoft Authenticator (pré-visualização pública)
 

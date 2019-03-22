@@ -3,18 +3,18 @@ title: Terminologia do malha de recursos de infraestrutura do serviço do Azure 
 description: Conheça os termos comuns para o modo de malha do Azure Service Fabric.
 services: service-fabric-mesh
 keywords: ''
-author: rwike77
-ms.author: ryanwi
+author: dkkapur
+ms.author: dekapur
 ms.date: 11/28/2018
 ms.topic: conceptual
 ms.service: service-fabric-mesh
 manager: timlt
-ms.openlocfilehash: 25e7ba20ea6054439d72b1827f32b8470e2b6a91
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 2d2661593ba3d9be2755d81803c8e248a2f7d0e1
+ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58106632"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58335815"
 ---
 # <a name="service-fabric-mesh-terminology"></a>Terminologia de malha do Service Fabric
 

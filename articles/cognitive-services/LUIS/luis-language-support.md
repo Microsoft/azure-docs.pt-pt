@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: article
-ms.date: 03/04/2019
+ms.date: 03/19/2019
 ms.author: diberry
-ms.openlocfilehash: 98df1d9612d18e4ab5044bd92822b2df76286b12
-ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
+ms.openlocfilehash: 735835d16eb14c3847f36ecb6f46c08c0a8928ef
+ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57340869"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58339521"
 ---
 # <a name="language-and-region-support-for-luis"></a>Suporte de idioma e região para LUIS
 
@@ -94,3 +94,116 @@ Para fazer o machine learning, o LUIS divide uma expressão em [tokens](luis-glo
 |Português (Brasil)|✔||||
 |Espanhol (es-ES)|✔||||
 |Espanhol (es-MX)|✔||||
+
+### <a name="custom-tokenizer-versions"></a>Versões de atomizador personalizado
+
+As culturas seguintes têm versões atomizador personalizado:
+
+|Cultura|Versão|Objetivo|
+|--|--|--|
+|Alemão<br>`de-de`|1.0.0|Divide as palavras, dividindo-los usando um atomizador de baseados em aprendizagem de máquina que tenta dividir palavras compostas em seus componentes únicos.<br>Se um usuário insere `Ich fahre einen krankenwagen` como uma expressão, ele é transformado `Ich fahre einen kranken wagen`. Permitir que a marcação de `kranken` e `wagen` independentemente como entidades diferentes.|
+|Alemão<br>`de-de`|1.0.1|Divide as palavras, dividindo-los em espaços.<br> Se um usuário insere `Ich fahre einen krankenwagen` como uma expressão, continua a ser um único token. Assim, `krankenwagen` está marcado como uma única entidade. |
+
+### <a name="migrating-between-tokenizer-versions"></a>Migrar entre versões atomizador
+
+Sua primeira opção é alterar a versão de atomizador no ficheiro de aplicação, em seguida, importe a versão. Esta ação altera a forma como as expressões são indexadas, mas permite-lhe manter o mesmo ID de aplicação. 
+
+Atomizador JSON para 1.0.0. Tenha em atenção o valor da propriedade para `tokenizerVersion`. 
+
+```JSON
+{
+    "luis_schema_version": "3.2.0",
+    "versionId": "0.1",
+    "name": "german_app_1.0.0",
+    "desc": "",
+    "culture": "de-de",
+    "tokenizerVersion": "1.0.0",
+    "intents": [
+        {
+            "name": "i1"
+        },
+        {
+            "name": "None"
+        }
+    ],
+    "entities": [
+        {
+            "name": "Fahrzeug",
+            "roles": []
+        }
+    ],
+    "composites": [],
+    "closedLists": [],
+    "patternAnyEntities": [],
+    "regex_entities": [],
+    "prebuiltEntities": [],
+    "model_features": [],
+    "regex_features": [],
+    "patterns": [],
+    "utterances": [
+        {
+            "text": "ich fahre einen krankenwagen",
+            "intent": "i1",
+            "entities": [
+                {
+                    "entity": "Fahrzeug",
+                    "startPos": 23,
+                    "endPos": 27
+                }
+            ]
+        }
+    ],
+    "settings": []
+}
+```
+
+Atomizador JSON para a versão 1.0.1. Tenha em atenção o valor da propriedade para `tokenizerVersion`. 
+
+```JSON
+{
+    "luis_schema_version": "3.2.0",
+    "versionId": "0.1",
+    "name": "german_app_1.0.1",
+    "desc": "",
+    "culture": "de-de",
+    "tokenizerVersion": "1.0.1",
+    "intents": [
+        {
+            "name": "i1"
+        },
+        {
+            "name": "None"
+        }
+    ],
+    "entities": [
+        {
+            "name": "Fahrzeug",
+            "roles": []
+        }
+    ],
+    "composites": [],
+    "closedLists": [],
+    "patternAnyEntities": [],
+    "regex_entities": [],
+    "prebuiltEntities": [],
+    "model_features": [],
+    "regex_features": [],
+    "patterns": [],
+    "utterances": [
+        {
+            "text": "ich fahre einen krankenwagen",
+            "intent": "i1",
+            "entities": [
+                {
+                    "entity": "Fahrzeug",
+                    "startPos": 16,
+                    "endPos": 27
+                }
+            ]
+        }
+    ],
+    "settings": []
+}
+```
+
+A segunda opção é [importe o ficheiro como uma nova aplicação](luis-how-to-start-new-app.md#import-an-app-from-file), em vez de uma versão. Esta ação significa que a nova aplicação tem um ID de aplicação diferente, mas utiliza a versão de atomizador especificada no ficheiro. 

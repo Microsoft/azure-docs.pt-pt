@@ -12,16 +12,16 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/11/2019
+ms.date: 03/21/2019
 ms.author: jeffgilb
 ms.reviewer: brbartle
 ms.lastreviewed: 03/04/2019
-ms.openlocfilehash: 1f6edd871d6815dab93bf9e8d582b0cb1ba6c78f
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: HT
+ms.openlocfilehash: ab5679f374753d6620b6a0eccca12ac9f162f199
+ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58109244"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58337930"
 ---
 # <a name="register-azure-stack-with-azure"></a>Registar o Azure Stack com o Azure
 
@@ -62,6 +62,9 @@ Após o registo, a permissão de administrador global do Azure Active Directory 
 O utilizador que regista o Azure Stack é o proprietário do serviço principal no Azure Active Directory. Apenas o utilizador que registou o Azure Stack pode modificar o registo do Azure Stack. Se um utilizador não administrador que não é um proprietário ao principal de serviço de registo tentar registar ou volte a registar o Azure Stack, que se possam deparar uma resposta 403. Uma resposta 403 indica que o utilizador tem permissões insuficientes para concluir a operação.
 
 Se não tiver uma subscrição do Azure que cumpra estes requisitos, pode [criar uma conta gratuita do Azure aqui](https://azure.microsoft.com/free/?b=17.06). Registar o Azure Stack, incorre em sem custos na sua subscrição do Azure.
+
+> [!NOTE]
+> Se tiver mais do que um Azure Stack, uma prática recomendada é registrar cada Azure Stack para a sua própria subscrição. Isso tornará mais fácil para si controlar a utilização.
 
 ### <a name="powershell-language-mode"></a>Modo de idioma do PowerShell
 
@@ -240,7 +243,7 @@ Se estiver a registar Azure Stack num ambiente desligado (com nenhuma conectivid
 2. Para obter o token de registo, execute os seguintes cmdlets do PowerShell:  
 
    ```Powershell
-   $FilePathForRegistrationToken = $env:SystemDrive\RegistrationToken.txt
+   $FilePathForRegistrationToken = "$env:SystemDrive\RegistrationToken.txt"
    $RegistrationToken = Get-AzsRegistrationToken -PrivilegedEndpointCredential $YourCloudAdminCredential -UsageReportingEnabled:$False -PrivilegedEndpoint $YourPrivilegedEndpoint -BillingModel Capacity -AgreementNumber '<EA agreement number>' -TokenOutputFilePath $FilePathForRegistrationToken
    ```
    Para obter mais informações sobre o cmdlet Get-AzsRegistrationToken, consulte [referência de registo](#registration-reference).

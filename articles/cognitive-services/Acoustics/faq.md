@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: acoustics
 ms.topic: resources
-ms.date: 08/17/2018
+ms.date: 03/20/2019
 ms.author: kegodin
-ms.openlocfilehash: c43c81d42a39bda504b02eb6c053a16a2cf53aec
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: HT
+ms.openlocfilehash: 3426681aad19bbe01c0f7e88ca16e79c0b490c36
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58138053"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58317311"
 ---
 # <a name="project-acoustics-frequently-asked-questions"></a>Projeto Acoustics perguntas mais frequentes
 
@@ -25,7 +25,7 @@ O conjunto de Acoustics de projeto de plug-ins é um sistema de acoustics que ca
 
 ## <a name="where-can-i-download-the-plugin"></a>Onde posso transferir o plug-in?
 
-Pode baixar o projeto Acoustics do [página do Centro de Download do projeto Acoustics](https://www.microsoft.com/en-us/download/details.aspx?id=57346).
+Pode baixar o [Plug-in do projeto Acoustics Unity](https://www.microsoft.com/download/details.aspx?id=57346) ou o [Plug-in do projeto Acoustics Unreal](https://www.microsoft.com/download/details.aspx?id=58090).
 
 ## <a name="does-project-acoustics-support-x-platform"></a>Oferece suporte a projeto Acoustics <x> plataforma?
 

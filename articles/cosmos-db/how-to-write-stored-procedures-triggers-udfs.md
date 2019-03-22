@@ -6,18 +6,21 @@ ms.service: cosmos-db
 ms.topic: sample
 ms.date: 12/11/2018
 ms.author: mjbrown
-ms.openlocfilehash: b0c09c5b425beef6badff7fb6ec298f96591abc5
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 9f890a8468eaa22fbfce326fc16afe545fd515d6
+ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57990543"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58339317"
 ---
 # <a name="how-to-write-stored-procedures-triggers-and-user-defined-functions-in-azure-cosmos-db"></a>Como escrever procedimentos armazenados, acionadores e funções definidas pelo utilizador no Azure Cosmos DB
 
 O Azure Cosmos DB oferece a execução transacional, integrada à linguagem do JavaScript que permite que escreva **procedimentos armazenados**, **acionadores**, e **funções definidas pelo utilizador (UDFs)**. Ao utilizar a API de SQL no Azure Cosmos DB, pode definir os procedimentos armazenados, acionadores e UDFs na linguagem JavaScript. Pode escrever a lógica em JavaScript e executá-lo dentro do motor de base de dados. Pode criar e executar UDFs, procedimentos armazenados e acionadores usando [portal do Azure](https://portal.azure.com/), o [linguagem JavaScript integrada a API de consulta no Azure Cosmos DB](javascript-query-api.md) e o [cliente Cosmos DB SQL API SDKs](sql-api-dotnet-samples.md). 
 
 Para chamar um procedimento armazenado, um acionador e uma função definida pelo utilizador, é preciso registrá-la. Para obter mais informações, consulte [como trabalhar com procedimentos armazenados, disparadores, funções definidas pelo utilizador no Azure Cosmos DB](how-to-use-stored-procedures-triggers-udfs.md).
+
+> [!NOTE]
+> Para contentores particionadas, ao executar um procedimento armazenado, um valor de chave de partição tem de ser fornecido nas opções de pedido. Procedimentos armazenados sempre estão no âmbito de uma chave de partição. Itens que tenham um valor de chave de partição diferente não serão visíveis para o procedimento armazenado. Isso também é aplicado a acionadores também.
 
 ## <a id="stored-procedures"></a>Como escrever procedimentos armazenados
 

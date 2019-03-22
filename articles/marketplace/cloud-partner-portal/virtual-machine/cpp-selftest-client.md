@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 01/23/2018
 ms.author: pbutlerm
-ms.openlocfilehash: aa46fbce9d11a8fd380a5ee1990c0e7924079a9b
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 8dc0a003a12eb0aca28c6a3238e2119dc449d661
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58078691"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58309423"
 ---
 # <a name="create-a-self-test-client-to-pre-validate-an-azure-virtual-machine-image"></a>Criar um cliente de autoteste de mensagens em fila para pré-validar uma imagem de máquina virtual do Azure
 
@@ -54,7 +54,7 @@ O diagrama seguinte mostra como funciona a autorização para chamadas de servi�
 A API de autoteste contém um único ponto final que suporta apenas o método POST.  Ele tem a seguinte estrutura.
 
 ```
-Uri:             https://isvapp.azurewebsites.net/selftest-vm
+Uri:             https:\//isvapp.azurewebsites.net/selftest-vm
 Method:          Post
 Request Header:  Content-Type: “application/json”
 Authorization:   “Bearer xxxx-xxxx-xxxx-xxxxx”
@@ -260,7 +260,7 @@ Utilize os seguintes passos para registar a aplicação de cliente.
 
    - **Nome** – introduza um nome amigável para a aplicação. Por exemplo, "SelfTestClient".
    - **Tipo de aplicação** – selecione **aplicação/API Web**
-   - **Início de sessão em URL** – tipo de "https://isvapp.azurewebsites.net/selftest-vm"
+   - **Início de sessão em URL** – tipo de "https:\//isvapp.azurewebsites.net/selftest-vm"
 
 4. Selecione **Criar**.
 5. Sob **registos de aplicações** ou **aplicação registada**, copiar o **ID da aplicação**.

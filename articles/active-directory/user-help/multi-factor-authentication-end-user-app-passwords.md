@@ -14,12 +14,12 @@ ms.date: 07/30/2018
 ms.author: lizross
 ms.custom: user-help, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 47128bce8dbbee1b28f6b0a3a5783e5ccee501bb
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 6d0dbfeaf3fb018c8dd3f671ce7ad9d7d50e5fca
+ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58177403"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58336308"
 ---
 # <a name="manage-app-passwords-for-two-step-verification"></a>Gerir palavras-passe de aplicação para a verificação de dois passos
 
@@ -40,7 +40,7 @@ Ao utilizar as palavras-passe de aplicação, é importante lembrar-se:
 
 É-lhe fornecido uma palavra-passe de aplicação durante o registo de verificação inicial de dois passos. Se precisar de mais do que uma senha, pode criar palavras-passe adicionais, com base na forma como utiliza a verificação de dois passos:
 
-- **Verificação de dois passos é usar com seu trabalho ou conta da instituição de ensino e o portal MyApps.** Criar e eliminar as palavras-passe de aplicação com as instruções no [criar e eliminar aplicações palavras-passe com o portal MyApps](#create-and-delete-app-passwords-using-the-myapps-portal) seção deste artigo. Para obter mais informações sobre o portal MyApps e como usá-lo, consulte [o que é o portal MyApps no Azure Active Directory?](active-directory-saas-access-panel-introduction.md).
+- **Verificação de dois passos é usar com seu trabalho ou conta da instituição de ensino e o portal MyApps.** Criar e eliminar as palavras-passe de aplicação com as instruções no [criar e eliminar aplicações palavras-passe com o portal MyApps](#create-and-delete-app-passwords-using-the-my-apps-portal) seção deste artigo. Para obter mais informações sobre o portal MyApps e como usá-lo, consulte [o que é o portal MyApps no Azure Active Directory?](active-directory-saas-access-panel-introduction.md).
 
 - **Verificação de dois passos é usar com seu trabalho ou conta da instituição de ensino e o portal do Office 365.** Criar e eliminar as palavras-passe de aplicação com as instruções no [criar e eliminar aplicações palavras-passe através do portal do Office 365](#create-and-delete-app-passwords-using-the-office-365-portal) seção deste artigo.
 

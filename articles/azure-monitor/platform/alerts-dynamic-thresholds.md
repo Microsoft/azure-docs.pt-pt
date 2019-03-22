@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 11/29/2018
 ms.author: yalavi
 ms.reviewer: mbullwin
-ms.openlocfilehash: c28bf3ac85709fb996cfb067b83530645fdccba1
-ms.sourcegitcommit: 15e9613e9e32288e174241efdb365fa0b12ec2ac
+ms.openlocfilehash: 30f853bd65c83b922faf008fbb5279c28f197f68
+ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "57008910"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58339011"
 ---
 # <a name="metric-alerts-with-dynamic-thresholds-in-azure-monitor-public-preview"></a>Alertas de métricas com limiares dinâmicos no Azure Monitor (pré-visualização pública)
 
@@ -83,7 +83,7 @@ Os limiares que aparece no gráfico, antes da criação de uma regra de alerta e
 
 ## <a name="how-much-data-is-needed-to-trigger-an-alert"></a>A quantidade de dados é necessário para acionar um alerta?
 
-Limiares dinâmicos requer, pelo menos, três dias de dados para garantir que os limiares precisos antes de acionar alertas.
+Se tiver um novo recurso ou dados de métricos em falta, limiares dinâmicos não aciona alertas antes de três dias de dados estão disponíveis para garantir que os limiares precisos.
 
 ## <a name="dynamic-thresholds-best-practices"></a>Práticas recomendadas de limiares dinâmicas
 

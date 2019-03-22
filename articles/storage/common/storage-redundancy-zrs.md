@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 10/24/2018
 ms.author: jeking
 ms.subservice: common
-ms.openlocfilehash: 11891153f1ffce438597dc4f2799a9f25d76c2f5
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: 8928e59b97143038e0850132196f1ce9a1da131d
+ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55992607"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58337889"
 ---
 # <a name="zone-redundant-storage-zrs-highly-available-azure-storage-applications"></a>Armazenamento com redundância de zona (ZRS): Aplicações de armazenamento do Azure de elevada disponibilidade
 [!INCLUDE [storage-common-redundancy-ZRS](../../../includes/storage-common-redundancy-zrs.md)]
@@ -64,7 +64,7 @@ Para efetuar uma migração manual, terá opções:
 
 Uma migração manual pode resultar num período de indisponibilidade de aplicação. Se a sua aplicação necessitar de elevada disponibilidade, a Microsoft também fornece uma opção de migração em direto. Uma migração em direto é uma migração no local. 
 
-Durante uma migração em direto, pode usar a sua conta de armazenamento, enquanto os dados são migrados entre carimbos de armazenamento de origem e de destino. Durante o processo de migração, tem o mesmo nível de durabilidade e SLA de disponibilidade como faz normalmente.
+Durante uma migração em direto, pode usar a sua conta de armazenamento, enquanto os dados são migrados entre carimbos de armazenamento de origem e de destino. Durante o processo de migração, tem o mesmo nível de durabilidade e disponibilidade SLA à medida que normalmente realizar.
 
 Tenha em atenção as seguintes restrições sobre a migração em direto:
 
@@ -88,7 +88,33 @@ Pode pedir uma migração em direto através da [portal de suporte do Azure](htt
 6. Certifique-se de que as informações de contacto estão corretas no **informações de contacto** painel.
 7. Selecione **Criar**.
 
-Um técnico de suporte irá contactá-lo e fornecer qualquer assistência que é necessário. 
+Um técnico de suporte irá contactá-lo e fornecer qualquer assistência que é necessário.
+
+## <a name="live-migration-to-zrs-faq"></a>Migração em direto ZRS FAQ
+
+**Devo planear qualquer período de indisponibilidade durante a migração?**
+
+Não há nenhum tempo de inatividade causado pela migração. Durante uma migração em direto, é possível continuar a sua conta de armazenamento, enquanto os dados são migrados entre carimbos de armazenamento de origem e de destino. Durante o processo de migração, tem o mesmo nível de durabilidade e disponibilidade SLA à medida que normalmente realizar.
+
+**Existe qualquer perda de dados associada com a migração?**
+
+Não existe nenhuma perda de dados associada com a migração. Durante o processo de migração, tem o mesmo nível de durabilidade e disponibilidade SLA à medida que normalmente realizar.
+
+**Depois da migração estiver concluída, são todas as atualizações necessárias para as aplicações?**
+
+Depois de concluída a migração do tipo de replicação da conta (s) será alterado para "armazenamento com redundância de zona (ZRS)". Pontos finais de serviço, aceder a chaves, SAS e quaisquer outras opções de configuração de conta permanecem inalteradas e intactos.
+
+**Pode pedir uma migração em direto da minha conta de fins gerais v1 (s) para ZRS?**
+
+ZRS suporta apenas contas para fins gerais v2, portanto, antes de submeter um pedido para uma migração em direto para ZRS Certifique-se atualizar a sua conta (s) para fins gerais v2. Ver [descrição geral da conta de armazenamento do Azure](https://docs.microsoft.com/azure/storage/common/storage-account-overview) e [atualizar para uma conta de armazenamento para fins gerais v2](https://docs.microsoft.com/azure/storage/common/storage-account-upgrade) para obter mais detalhes.
+
+**Pode pedir uma migração em direto da minha conta de armazenamento georredundante de acesso de leitura (RA-GRS) (s) para ZRS?**
+
+Antes de submeter um pedido para uma migração em direto para ZRS, certifique-se de suas aplicações ou workload(s) já não necessitam de acesso para o ponto final secundário de só de leitura e altere o tipo de replicação de suas contas de armazenamento para armazenamento georredundante (GRS). Ver [alterando a estratégia de replicação](https://docs.microsoft.com/azure/storage/common/storage-redundancy#changing-replication-strategy) para obter mais detalhes.
+
+**Pode pedir uma migração em direto da minha conta de armazenamento para ZRS para outra região?**
+
+Se pretender migrar os dados para uma conta ZRS localizada numa região diferente da região da conta de origem, tem de efetuar uma migração manual.
 
 ## <a name="zrs-classic-a-legacy-option-for-block-blobs-redundancy"></a>O ZRS clássico: Uma opção de legado para redundância de blobs de bloco
 > [!NOTE]
@@ -101,6 +127,8 @@ ZRS Classic assincronamente replica os dados em centros de dados dentro de uma o
 ZRS Classic só está disponível para **blobs de blocos** para fins gerais V1 (GPv1) contas de armazenamento. Para obter mais informações sobre as contas de armazenamento, veja [Visão geral da conta de armazenamento do Azure](storage-account-overview.md).
 
 Para migrar manualmente os dados da conta ZRS para ou a partir de uma conta LRS, ZRS Classic, GRS ou RA-GRS, utilize uma das seguintes ferramentas: AzCopy, o Explorador de armazenamento do Azure, o Azure PowerShell ou o Azure CLI. Também pode criar sua própria solução de migração com uma das bibliotecas de cliente do armazenamento do Azure.
+
+Também pode atualizar sua conta ZRS Classic (s) para o ZRS no Portal ou utilizando o Azure PowerShell ou na CLI do Azure.
 
 ## <a name="see-also"></a>Consulte também
 - [Replicação do Armazenamento do Azure](storage-redundancy.md)

@@ -2,17 +2,18 @@
 title: Migrar as máquinas no local para o Azure com o Azure Site Recovery | Microsoft Docs
 description: Este artigo descreve como migrar as máquinas no local para o Azure, com o Azure Site Recovery.
 author: rayne-wiselman
+manager: carmonm
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 12/27/2018
+ms.date: 03/18/2019
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: d5b229d96c0f63e27e36fb95122b36d3d8c128ac
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 0daa25cce434b2e97995963918e52df974e2ef9c
+ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58110312"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58336553"
 ---
 # <a name="migrate-on-premises-machines-to-azure"></a>Migrar máquinas no local para o Azure
 
@@ -113,7 +114,7 @@ Execute a ativação pós-falha nos computadores que quer migrar.
 5. Certifique-se de que a VM do Azure é apresentada no Azure conforme esperado.
 6. Em **Itens replicados**, clique com o botão direito do rato na VM > **Concluir a Migração**. Isso faz o seguinte:
 
-   - O processo de migração é concluído, para a replicação para a VM do AWS e interrompe a faturação do Site Recovery para a VM.
+   - O processo de migração é concluído, para a replicação para a VM no local e interrompe a faturação do Site Recovery para a VM.
    - Este passo limpa os dados de replicação. Não elimina as VMs migradas.
 
      ![Concluir a migração](./media/migrate-tutorial-on-premises-azure/complete-migration.png)

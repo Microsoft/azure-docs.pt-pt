@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: 4d1a9ae622de103b459d256cb48c5823f5866a3b
-ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
-ms.translationtype: HT
+ms.openlocfilehash: 984c5d6b5e6e2010489533a3889501c5b524a6bd
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58294081"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58311327"
 ---
 # <a name="content-protection-with-dynamic-encryption"></a>Proteção de conteúdo com encriptação dinâmica
 
@@ -204,7 +204,7 @@ Para proteger os seus ativos inativos, os recursos devem ser encriptados pela en
 
 Se obtiver o `MPE_ENC_ENCRYPTION_NOT_SET_IN_DELIVERY_POLICY` erro, certifique-se de especificar a política de transmissão em fluxo de mensagens em fila adequada.
 
-Se obtiver erros que terminam com `_NOT_SPECIFIED_IN_URL`, certifique-se de que especifica o formato de encriptação no URL. Por exemplo, .../manifest (formato = Format=m3u8-cmaf, encriptação cbcs-aapl). Ver [transmissão em fluxo protocolos e tipos de encriptação](#streaming-protocols-and-encryption types).
+Se obtiver erros que terminam com `_NOT_SPECIFIED_IN_URL`, certifique-se de que especifica o formato de encriptação no URL. Por exemplo, `…/manifest(format=m3u8-cmaf,encryption=cbcs-aapl)`. Ver [transmissão em fluxo protocolos e tipos de encriptação](#streaming-protocols-and-encryption-types).
 
 
 ## <a name="next-steps"></a>Passos Seguintes

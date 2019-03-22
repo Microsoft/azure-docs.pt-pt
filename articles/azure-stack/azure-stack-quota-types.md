@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 12/07/2018
+ms.date: 03/22/2019
 ms.author: sethm
 ms.reviewer: xiaofmao
 ms.lastreviewed: 12/07/2018
-ms.openlocfilehash: 7872ed2c9d6f094907ae4d11adef6bc7a99be8e4
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: aff9dade7fe0238c0ea8ccc3ae5bba57437c6f89
+ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57782892"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58339572"
 ---
 # <a name="quota-types-in-azure-stack"></a>Tipos de ficheiro no Azure Stack
 
@@ -29,7 +29,7 @@ ms.locfileid: "57782892"
 
 [Quotas](azure-stack-plan-offer-quota-overview.md#plans) definem os limites de recursos que uma subscrição de utilizador pode aprovisionar ou consumir. Por exemplo, uma quota pode permitir que um usuário criar até cinco VMs. Cada recurso pode ter seus próprios tipos de quotas.
 
-## <a name="compute-quota-types"></a>Tipos de quota de computação 
+## <a name="compute-quota-types"></a>Tipos de quota de computação
 
 | **Tipo** | **Default value** (Valor predefinido) | **Descrição** |
 | --- | --- | --- |
@@ -40,16 +40,15 @@ ms.locfileid: "57782892"
 | Capacidade máxima (em GB) de disco gerido standard | 2048 | A capacidade máxima de discos geridos padrão que podem ser criadas nesta localização. |
 | Capacidade máxima (em GB) de um disco gerido premium | 2048 | A capacidade máxima do premium geridos os discos que podem ser criados nesta localização. |
 
-## <a name="storage-quota-types"></a>Tipos de quota de armazenamento 
+## <a name="storage-quota-types"></a>Tipos de quota de armazenamento
 
 | **Item** | **Default value** (Valor predefinido) | **Descrição** |
 | --- | --- | --- |
-| Capacidade máxima (GB) |2048 |Capacidade de armazenamento total (incluindo os blobs e todos os instantâneos de assiociated tabelas, filas) que pode ser utilizada por uma subscrição nesta localização. |
+| Capacidade máxima (GB) |2048 |Capacidade de armazenamento total (incluindo os blobs e associados todos os instantâneos, tabelas, filas) que pode ser utilizada por uma subscrição nesta localização. |
 | Número total de contas de armazenamento |20 |O número máximo de contas de armazenamento que uma subscrição pode criar nesta localização. |
 
 > [!NOTE]  
 > Pode demorar até duas horas antes de uma quota de armazenamento é imposta.
-
 
 ## <a name="network-quota-types"></a>Tipos de quota de rede
 
@@ -69,10 +68,10 @@ Existem duas formas diferentes para ver uma quota existente:
 
 ### <a name="plans"></a>Planos
 
-1.  No painel de navegação esquerdo do portal do administrador, selecione **planos**.
-2.  Selecione o plano que gostaria de ver os detalhes para, ao clicar no respetivo nome.
-3.  No painel do que se abre, selecione **serviços e quotas**.
-4.  Selecione a quota de que pretende ver ao clicar no **nome** coluna.
+1. No painel de navegação esquerdo do portal do administrador, selecione **planos**.
+2. Selecione o plano que gostaria de ver os detalhes para, ao clicar no respetivo nome.
+3. No painel do que se abre, selecione **serviços e quotas**.
+4. Selecione a quota de que pretende ver ao clicar no **nome** coluna.
 
     [![Quotas](media/azure-stack-quota-types/quotas1sm.png "ver quotas")](media/azure-stack-quota-types/quotas1.png#lightbox)
 
@@ -88,14 +87,14 @@ Existem duas formas diferentes de editar uma quota:
 
 ### <a name="edit-a-plan"></a>Editar um plano
 
-1.  No painel de navegação esquerdo do portal do administrador, selecione **planos**.
-2.  Selecione o plano para o qual quiser para editar uma quota, ao clicar no respetivo nome.
-3.  No painel do que se abre, selecione **serviços e quotas**.
-4.  Selecione a quota de que pretende editar clicando-lo na **nome** coluna.
+1. No painel de navegação esquerdo do portal do administrador, selecione **planos**.
+2. Selecione o plano para o qual quiser para editar uma quota, ao clicar no respetivo nome.
+3. No painel do que se abre, selecione **serviços e quotas**.
+4. Selecione a quota de que pretende editar clicando-lo na **nome** coluna.
     [![Quotas](media/azure-stack-quota-types/quotas1sm.png "ver quotas")](media/azure-stack-quota-types/quotas1.png#lightbox)
 
-5.  No painel do que se abre, selecione **editar na computação**, **editar na rede**, ou **editar no armazenamento**.
-    ![Quotas](media/azure-stack-quota-types/quotas3.png "ver quotas")    
+5. No painel do que se abre, selecione **editar na computação**, **editar na rede**, ou **editar no armazenamento**.
+    ![Quotas](media/azure-stack-quota-types/quotas3.png "ver quotas")
 
 Em alternativa, pode seguir este procedimento para editar uma quota:
 
@@ -106,9 +105,9 @@ Em alternativa, pode seguir este procedimento para editar uma quota:
 
 ### <a name="edit-original-configuration"></a>Editar a configuração original
   
-Pode optar por editar a configuração original de uma quota em vez de [utilizar um plano de suplemento](create-add-on-plan.md). Ao editar uma quota, a nova configuração automaticamente aplica-se globalmente a todos os planos que utilizam esse quota e todas as assinaturas existentes que utilizam esses planos. A edição de uma quota é diferente de quando utiliza um plano de suplemento para fornecer uma quota modificada, o que um utilizador optar por subscrever. 
+Pode optar por editar a configuração original de uma quota em vez de [utilizar um plano de suplemento](create-add-on-plan.md). Ao editar uma quota, a nova configuração automaticamente aplica-se globalmente a todos os planos que utilizam esse quota e todas as assinaturas existentes que utilizam esses planos. A edição de uma quota é diferente de quando utiliza um plano de suplemento para fornecer uma quota modificada, o que um utilizador optar por subscrever.
 
-Os novos valores para a quota aplicam-se globalmente a todos os planos que utilizam a quota modificada e a todas as subscrições existentes que utilizam esses planos. 
+Os novos valores para a quota aplicam-se globalmente a todos os planos que utilizam a quota modificada e a todas as subscrições existentes que utilizam esses planos.
 
 ## <a name="next-steps"></a>Passos Seguintes
 

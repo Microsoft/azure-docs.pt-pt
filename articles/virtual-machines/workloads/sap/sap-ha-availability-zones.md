@@ -17,12 +17,12 @@ ms.workload: infrastructure-services
 ms.date: 02/03/2019
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 687f99fb6447eddb4ce10ce81bc349181ec5c48c
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 3772dbdc8582eea1b2eac368784878a8a36d34ad
+ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58094757"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58339496"
 ---
 # <a name="sap-workload-configurations-with-azure-availability-zones"></a>Configurações de carga de trabalho SAP com zonas de disponibilidade do Azure
 [Azure Availability Zones](https://docs.microsoft.com/azure/availability-zones/az-overview) é um dos recursos de alta disponibilidade fornecidos pelo Azure. Utilizar zonas de disponibilidade melhora a disponibilidade geral de cargas de trabalho SAP no Azure. Esta funcionalidade já está disponível em alguns [regiões do Azure](https://azure.microsoft.com/global-infrastructure/regions/). No futuro, ele estará disponível em mais regiões.
@@ -93,7 +93,7 @@ Tornar essas decisões, também leve em recomendações de latência de rede do 
 > Espera-se que as medidas descritas anteriormente fornecerá resultados diferentes em cada região do Azure que suporta [zonas de disponibilidade](https://docs.microsoft.com/azure/availability-zones/az-overview). Mesmo que os seus requisitos de latência de rede são os mesmos, poderá ter de adotar diferentes estratégias de implantação em diferentes regiões do Azure, uma vez que a latência de rede entre zonas pode ser diferente. Em algumas regiões do Azure, a latência de rede entre as três zonas diferentes pode ser diferente. Em outras regiões, a latência de rede entre as três zonas diferentes pode ser mais uniforme. A afirmação de que há sempre uma latência de rede entre 1 e 2 milissegundos não está correta. A latência de rede em zonas de disponibilidade em regiões do Azure não pode ser generalizada.
 
 ## <a name="activeactive-deployment"></a>Implementação de ativo/ativo
-Esta arquitetura de implementação é chamada ativo/ativo, porque a implementar as instâncias de caixa de diálogo SAP Active Directory em duas ou três zonas. A instância do SAP Central Services que utiliza a replicação de colocar em fila será implementada entre duas zonas. O mesmo é válido para a camada do DBMS, o que irá ser implementada em zonas da mesmas como serviço Central da SAP.
+Esta arquitetura de implementação é chamada ativo/ativo, uma vez que implementar os servidores de aplicações SAP Active Directory em duas ou três zonas. A instância do SAP Central Services que utiliza a replicação de colocar em fila será implementada entre duas zonas. O mesmo é válido para a camada do DBMS, o que irá ser implementada em zonas da mesmas como serviço Central da SAP.
 
 Ao considerar esta configuração, tem de encontrar duas zonas de disponibilidade na sua região essa latência de rede de entre zonas de oferta que é aceitável para a sua carga de trabalho e a replicação síncrona do DBMS. Também deseje para garantir que o delta entre a latência de rede dentro de zonas que selecionou e a latência de rede entre zonas não é demasiado grande. Isso é porque não deseja grandes variações, dependendo se uma tarefa for executada na zona com o servidor do DBMS ou na zonas, em tempos de execução de processos empresariais ou tarefas de lote. Algumas variações são aceitáveis, mas não os fatores de diferença.
 

@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 04/04/2017
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: 41b6ce24e7c2e8565d7c2f17c32b8b6e1f38ea4f
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.openlocfilehash: 16c16c0217a796ffbb57e10430f90cb4a7660ac6
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52992489"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58317617"
 ---
 # <a name="deprecated-manage-an-azure-container-service-dcos-cluster-through-the-marathon-web-ui"></a>(PRETERIDO) Gerir um cluster DC/OS do Azure Container Service através da Marathon web UI
 
@@ -36,19 +36,19 @@ Antes de avançarmos, necessita de um cluster DC/OS configurado no Serviço de C
 >
 
 ## <a name="explore-the-dcos-ui"></a>Explorar a IU do DC/OS
-Com um túnel de Secure Shell (SSH) [estabelecida](../container-service-connect.md), navegue até http://localhost/. Este procedimento permite carregar a IU da Web do DC/OS e mostrar as informações sobre o cluster, tais como recursos utilizados, agentes ativos e serviços em execução.
+Com um túnel de Secure Shell (SSH) [estabelecida](../container-service-connect.md), navegue para o http: \/ /localhost /. Este procedimento permite carregar a IU da Web do DC/OS e mostrar as informações sobre o cluster, tais como recursos utilizados, agentes ativos e serviços em execução.
 
 ![IU do DC/OS](./media/container-service-mesos-marathon-ui/dcos2.png)
 
 ## <a name="explore-the-marathon-ui"></a>Explorar a IU do Marathon
-Para ver a IU do Marathon, navegue para http://localhost/marathon. Neste ecrã, pode iniciar um novo contentor ou outra aplicação no cluster do DC/OS do Serviço de Contentor do Azure. Também pode ver informações sobre contentores e aplicações em execução.  
+Para ver a IU do Marathon, navegue para o http: \/ /localhost/marathon. Neste ecrã, pode iniciar um novo contentor ou outra aplicação no cluster do DC/OS do Serviço de Contentor do Azure. Também pode ver informações sobre contentores e aplicações em execução.  
 
 ![IU do Marathon](./media/container-service-mesos-marathon-ui/dcos3.png)
 
 ## <a name="deploy-a-docker-formatted-container"></a>Implementar um contentor formatado para Docker
 Para implementar um novo contentor utilizando o Marathon, clique em **Criar Aplicação** e introduza as seguintes informações nos separadores do formulário:
 
-| Campo | Valor |
+| Campo | Value |
 | --- | --- |
 | ID |nginx |
 | Memória | 32 |
@@ -85,7 +85,7 @@ De voltar à página principal do Marathon, pode ver o estado de implementação
 
 ![IU da página principal do Marathon – estado de implementação do contentor](./media/container-service-mesos-marathon-ui/dcos7.png)
 
-Quando voltar a mudar para os DC/OS da interface do Usuário da web (http://localhost/), verá que uma tarefa (neste caso, um contentor formatado para Docker) está em execução no cluster DC/OS.
+Quando voltar a mudar para os DC/OS da interface do Usuário da web (http:\//localhost/), verá que uma tarefa (neste caso, um contentor formatado para Docker) está em execução no cluster DC/OS.
 
 ![IU da Web do DC/OS – tarefa em execução no cluster](./media/container-service-mesos-marathon-ui/dcos8.png)
 

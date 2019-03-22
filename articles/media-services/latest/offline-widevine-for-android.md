@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/08/2019
 ms.author: willzhan
-ms.openlocfilehash: 18c83717e761f22363ccc69c827f5e383f8a9e85
-ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
+ms.openlocfilehash: 5d7dccfecc47b14be62a78600561a8ff0f7ca501
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54122320"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58312262"
 ---
 # <a name="offline-widevine-streaming-for-android"></a>Offline Widevine para transmissão em fluxo para Android
 
@@ -76,7 +76,7 @@ Na [GetOrCreateContentKeyPolicyAsync](https://github.com/Azure-Samples/media-ser
     ContentKeyPolicyWidevineConfiguration widevineConfig = ConfigureWidevineLicenseTempate();
     ```
 
-3. Crie ContentKeyPolicyOptions:
+3. Create ContentKeyPolicyOptions:
 
     ```csharp
     options.Add(
@@ -107,10 +107,10 @@ A seguinte lista de classes facilita o modo offline no SDK do ExoPlayer para And
 - library/core/src/main/java/com/google/android/exoplayer2/drm/DrmSession.java
 - library/core/src/main/java/com/google/android/exoplayer2/drm/ErrorStateDrmSession.java
 - library/core/src/main/java/com/google/android/exoplayer2/drm/ExoMediaDrm.java
-- Library/Core/src/Main/Java/com/Google/Android/exoplayer2/offline/SegmentDownloader.Java
-- Library/Core/src/Main/Java/com/Google/Android/exoplayer2/offline/DownloaderConstructorHelper.Java 
-- Library/Core/src/Main/Java/com/Google/Android/exoplayer2/offline/Downloader.Java
-- Library/dash/src/Main/Java/com/Google/Android/exoplayer2/Source/dash/offline/DashDownloader.Java 
+- library/core/src/main/java/com/google/android/exoplayer2/offline/SegmentDownloader.java
+- library/core/src/main/java/com/google/android/exoplayer2/offline/DownloaderConstructorHelper.java 
+- library/core/src/main/java/com/google/android/exoplayer2/offline/Downloader.java
+- library/dash/src/main/java/com/google/android/exoplayer2/source/dash/offline/DashDownloader.java 
 
 Os desenvolvedores devem fazer referência a [Guia do programador ExoPlayer](https://google.github.io/ExoPlayer/guide.html) e correspondentes [blogue para programadores](https://medium.com/google-exoplayer) durante o desenvolvimento de um aplicativo. Google não lançou um referência totalmente documentada implementação ou código de exemplo para a aplicação de ExoPlayer suporte Widevine offline neste momento, para que as informações estão limitadas a guia e o blog de desenvolvedores. 
 
@@ -144,7 +144,7 @@ Se atualizar o browser do dispositivo móvel Chrome para v62 (ou superior) num t
 
 A aplicação de PWA acima do código-fonte aberto foi criada no node. js. Se desejar hospedar sua própria versão num Ubuntu server, tenha em atenção os seguintes problemas de foi encontrados comuns que impedem a reprodução:
 
-1. Problema CORS: O exemplo de vídeo no aplicativo de exemplo está alojado no https://storage.googleapis.com/biograf-video-files/videos/. Google tem de configurar a CORS para todas as suas amostras de teste alojadas no bucket de Google Cloud Storage. Eles são enviados com cabeçalhos CORS, especificar explicitamente a entrada CORS: https://biograf-155113.appspot.com (o domínio no qual google hospeda seu exemplo) a impedir o acesso através de quaisquer outros sites. Se tentar, verá o seguinte erro HTTP: Falha ao carregar https://storage.googleapis.com/biograf-video-files/videos/poly-sizzle-2015/mp4/dash.mpd: nenhum cabeçalho "Access-Control-Allow-Origin" está presente no recurso pedido. Origem "https://13.85.80.81:8080" não, portanto, é permitido o acesso. Se uma resposta opaca atende suas necessidades, defina o modo do pedido para "não-cors' para obter o recurso com a CORS desativada.
+1. Problema CORS: O exemplo de vídeo no aplicativo de exemplo está alojado no https://storage.googleapis.com/biograf-video-files/videos/. Google tem de configurar a CORS para todas as suas amostras de teste alojadas no bucket de Google Cloud Storage. Eles são enviados com cabeçalhos CORS, especificar explicitamente a entrada CORS: https://biograf-155113.appspot.com (o domínio no qual google hospeda seu exemplo) a impedir o acesso através de quaisquer outros sites. Se tentar, verá o seguinte erro HTTP: Falha ao carregar https://storage.googleapis.com/biograf-video-files/videos/poly-sizzle-2015/mp4/dash.mpd: nenhum cabeçalho "Access-Control-Allow-Origin" está presente no recurso pedido. Origem "https:\//13.85.80.81:8080" não, portanto, é permitido o acesso. Se uma resposta opaca atende suas necessidades, defina o modo do pedido para "não-cors' para obter o recurso com a CORS desativada.
 2. Problema de certificado: A partir do Chrome v 58, EME para Widevine requer HTTPS. Portanto, precisa alojar a aplicação de exemplo através de HTTPS com uma X509 certificado. Um certificado de teste normal não funciona porque os seguintes requisitos: Terá de obter um certificado que cumprem os requisitos mínimos seguintes:
     - Chrome e Firefox exijam a configuração de nome alternativo do requerente de SAN de existir no certificado
     - O certificado AC tem de ter considerado fidedigno e um certificado de desenvolvimento autoassinado não funciona
@@ -159,8 +159,8 @@ Como posso fornecer licenças persistentes (offline habilitados) para alguns cli
 ### <a name="answer"></a>Resposta
 Uma vez que os serviços de multimédia v3 permite que um recurso de ter vários StreamingLocators. Pode ter
 
-1.  Um ContentKeyPolicy com license_type = "persistentes", ContentKeyPolicyRestriction com afirmação em "persistentes" e seu StreamingLocator;
-2.  Outro ContentKeyPolicy com license_type = "nonpersistent" ContentKeyPolicyRestriction com afirmação em "nonpersistent" e seu StreamingLocator.
+1.  One ContentKeyPolicy with license_type = "persistent", ContentKeyPolicyRestriction with claim on "persistent", and its StreamingLocator;
+2.  Another ContentKeyPolicy with license_type="nonpersistent", ContentKeyPolicyRestriction with claim on "nonpersistent", and its StreamingLocator.
 3.  Os dois StreamingLocators ter ContentKey diferente.
 
 Dependendo da lógica de negócios do STS personalizado, são emitidas as afirmações diferentes no JWT token. Com o token, apenas a licença correspondente pode ser obtida e pode ser reproduzido apenas o URL correspondente.
@@ -189,9 +189,9 @@ Ambos os níveis de segurança são definidos pelo Google Widevine. A diferença
 
 | **Níveis de segurança definidas na arquitetura do Widevine** |**Níveis de segurança utilizados na API do Widevine**|
 |---|---| 
-| **Nível de segurança 1**: Processamento de conteúdo, criptografia e controle de todos os são executadas dentro do ambiente de execução fidedigno (TEE). Em alguns modelos de implementação, o processamento de segurança pode ser realizado em chips diferentes.|**security_level = 5**: A criptografia, decodificação e tudo manipulação do suporte de dados (comprimidos e descomprimidos) devem ser tratados dentro de um hardware de segurança TEE.<br/><br/>**security_level = 4**: A criptografia e decodificação de conteúdo tem de ser efetuadas dentro de um hardware de segurança TEE.|
-**Nível de segurança 2**: Executa criptografia (mas o processamento de vídeo não) dentro do TEE: buffers desencriptados são devolvidos para o domínio do aplicativo e processados por meio de software ou hardware de vídeo separado. No nível 2, no entanto, informações de criptografia ainda estão processadas apenas dentro do TEE.| **security_level = 3**: As operações de criptografia e material de chave tem de ser efetuadas dentro de um hardware de segurança TEE. |
-| **Nível de segurança 3**: Não tem um TEE no dispositivo. Podem ser demoradas medidas adequadas para proteger as informações de criptografia e o conteúdo descriptografado no sistema operativo anfitrião. Uma implementação de nível 3 também pode incluir um mecanismo de criptografia de hardware, mas que apenas melhora o desempenho, não a segurança. | **security_level = 2**: Criptografia de software e um Decodificador oculto são necessários.<br/><br/>**security_level = 1**: É necessária a criptografia baseada em software whitebox.|
+| **Nível de segurança 1**: Processamento de conteúdo, criptografia e controle de todos os são executadas dentro do ambiente de execução fidedigno (TEE). Em alguns modelos de implementação, o processamento de segurança pode ser realizado em chips diferentes.|**security_level=5**: A criptografia, decodificação e tudo manipulação do suporte de dados (comprimidos e descomprimidos) devem ser tratados dentro de um hardware de segurança TEE.<br/><br/>**security_level=4**: A criptografia e decodificação de conteúdo tem de ser efetuadas dentro de um hardware de segurança TEE.|
+**Nível de segurança 2**: Executa criptografia (mas o processamento de vídeo não) dentro do TEE: buffers desencriptados são devolvidos para o domínio do aplicativo e processados por meio de software ou hardware de vídeo separado. No nível 2, no entanto, informações de criptografia ainda estão processadas apenas dentro do TEE.| **security_level=3**: As operações de criptografia e material de chave tem de ser efetuadas dentro de um hardware de segurança TEE. |
+| **Nível de segurança 3**: Não tem um TEE no dispositivo. Podem ser demoradas medidas adequadas para proteger as informações de criptografia e o conteúdo descriptografado no sistema operativo anfitrião. Uma implementação de nível 3 também pode incluir um mecanismo de criptografia de hardware, mas que apenas melhora o desempenho, não a segurança. | **security_level=2**: Criptografia de software e um Decodificador oculto são necessários.<br/><br/>**security_level=1**: É necessária a criptografia baseada em software whitebox.|
 
 ### <a name="question"></a>Pergunta
 

@@ -17,12 +17,12 @@ ms.workload: infrastructure
 ms.date: 03/30/2018
 ms.author: jdial
 ms.custom: mvc
-ms.openlocfilehash: 023662f0293debb1b40fc8ea10bb725eab7be4d8
-ms.sourcegitcommit: a4efc1d7fc4793bbff43b30ebb4275cd5c8fec77
+ms.openlocfilehash: 22090bf89e469f7e8defcd50b311c555949b9bde
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56649939"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58317729"
 ---
 # <a name="filter-network-traffic-with-a-network-security-group-using-powershell"></a>Filtrar o tráfego de rede com um grupo de segurança de rede com o PowerShell
 
@@ -277,7 +277,7 @@ Utilize o seguinte comando para instalar o Microsoft IIS na VM *myVmWeb* a parti
 Install-WindowsFeature -name Web-Server -IncludeManagementTools
 ```
 
-Depois de concluída a instalação do IIS, desligue da VM *myVmWeb*, permanecendo na ligação de ambiente de trabalho remoto da VM *myVmMgmt*. Para ver o ecrã de boas-vindas do IIS, abra o browser e navegue para http://myVmWeb.
+Depois de concluída a instalação do IIS, desligue da VM *myVmWeb*, permanecendo na ligação de ambiente de trabalho remoto da VM *myVmMgmt*. Para ver o ecrã de boas-vindas do IIS, abra um browser e navegue para o http:\//myVmWeb.
 
 Desligue da VM *myVmMgmt*.
 

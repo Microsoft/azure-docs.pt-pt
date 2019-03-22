@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 10/13/2017
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 94a0d3f19e595ac040d908ea47d6332ceae0943c
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: 8793f6f4d135d6099541d24aa5f5cfc0b6c21b30
+ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53314810"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58339436"
 ---
 # <a name="how-to-build-a-facet-filter-in-azure-search"></a>Como criar um filtro de faceta no Azure Search 
 
@@ -25,7 +25,7 @@ Navegação por facetas é utilizada para filtragem auto-direcionada nos resulta
 > * Conjunto de atributos no campo
 > * Criar os índice e carregar dados
 > * Adicionar filtros de faceta para uma consulta
-> * Processar os resultados
+> * Processar resultados
 
 Facetas são dinâmicos e retornados numa consulta. As respostas da pesquisa apresentam as categorias de faceta usadas para navegar os resultados. Se não estiver familiarizado com as facetas, o exemplo seguinte é uma ilustração de uma estrutura de navegação de faceta.
 
@@ -45,7 +45,7 @@ Qualquer [tipo de campo](https://docs.microsoft.com/rest/api/searchservice/suppo
 + Edm.DateTimeOffset
 + Edm.Boolean
 + Edm.Collections
-+ Tipos de campo numérico: Edm.Double Edm.Int32, Edm.Int64,
++ Tipos de campo numérico: Edm.Int32, Edm.Int64, Edm.Double
 
 Não é possível utilizar geographypoint no painel de navegação por facetas. Facetas são construídas a partir de texto legível ou números. Como tal, facetas não são suportadas para geo coordenadas. Precisaria de um campo Cidade ou a região a faceta por localização.
 
@@ -84,7 +84,7 @@ Na API do .NET, a filtragem de atributos tem de ser definido explicitamente. Na 
 
 ## <a name="build-and-load-an-index"></a>Criar e carregar um índice
 
-Um passo intermédio (e talvez óbvio) é que precisa [criar e preencher o índice](https://docs.microsoft.com/azure/search/search-create-index-dotnet#create-the-index) antes de formular uma consulta. Mencionamos este passo para ser completo. Uma forma de determinar se o índice está disponível é ao verificar a lista de índices [portal](https://portal.azure.com).
+Um passo intermédio (e talvez óbvio) é que precisa [criar e preencher o índice](https://docs.microsoft.com/azure/search/search-create-index-dotnet#3---construct-index) antes de formular uma consulta. Mencionamos este passo para ser completo. Uma forma de determinar se o índice está disponível é ao verificar a lista de índices [portal](https://portal.azure.com).
 
 ## <a name="add-facet-filters-to-a-query"></a>Adicionar filtros de faceta para uma consulta
 
@@ -128,4 +128,3 @@ Embora isso seja um caso de uso comum, não é algo a estrutura de navegação d
 + [Filtros no Azure Search](search-filters.md)
 + [Criar API de REST do índice](https://docs.microsoft.com/rest/api/searchservice/create-index)
 + [Procurar nos documentos de REST API](https://docs.microsoft.com/rest/api/searchservice/search-documents)
-

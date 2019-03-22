@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 01/31/2019
 ms.author: aljo
 ms.custom: mvc
-ms.openlocfilehash: 05f8c1898e565e145aedbfdc13e0a88ad09486dc
-ms.sourcegitcommit: 7f7c2fe58c6cd3ba4fd2280e79dfa4f235c55ac8
+ms.openlocfilehash: 4c7de6738e30cd883257f3b2ea873c933364c003
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/25/2019
-ms.locfileid: "56804659"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58311888"
 ---
 # <a name="quickstart-deploy-windows-containers-to-service-fabric"></a>Início rápido: Implementar contentores do Windows no Service Fabric
 
@@ -149,7 +149,7 @@ Clique em **Publicar**.
 
 Cada aplicação no cluster tem de ter um nome exclusivo. Se houver um conflito de nomes, mude o nome do projeto do Visual Studio e reimplemente-o.
 
-Abra um browser e navegue para o endereço que coloca o **ponto final de ligação** campo no passo anterior. Opcionalmente, pode preceder o identificador do esquema, `http://`, e acrescentar a porta, `:80`, ao URL. Por exemplo, http://mysfcluster.SouthCentralUS.cloudapp.azure.com:80.
+Abra um browser e navegue para o endereço que coloca o **ponto final de ligação** campo no passo anterior. Opcionalmente, pode preceder o identificador do esquema, `http://`, e acrescentar a porta, `:80`, ao URL. Por exemplo, http:\//mysfcluster.SouthCentralUS.cloudapp.azure.com:80.
 
  Deverá ver a página de web do IIS predefinida: ![Página de web do IIS predefinida][iis-default]
 

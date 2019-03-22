@@ -9,12 +9,12 @@ ms.service: logic-apps
 ms.suite: integration
 ms.topic: article
 ms.date: 01/22/2019
-ms.openlocfilehash: a22512a960426cc21f4f012e06b9df4fa86e637e
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: 046aed64d3551d5c0b6ddae44b925452c01c297a
+ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54807274"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58337600"
 ---
 # <a name="authenticate-and-access-resources-with-managed-identities-in-azure-logic-apps"></a>Autenticar e aceder a recursos com identidades geridas no Azure Logic Apps
 
@@ -57,7 +57,7 @@ Para ativar uma identidade gerida atribuído de sistema para a sua aplicação l
 
    ![GUIDs para o ID de objeto](./media/create-managed-service-identity/object-id.png)
 
-   | Propriedade | Valor | Descrição | 
+   | Propriedade | Value | Descrição | 
    |----------|-------|-------------| 
    | **ID de objeto** | <*identity-resource-ID*> | Um identificador exclusivo global (GUID) que representa o atribuído de sistema gerido identidade para a sua aplicação lógica no inquilino do Azure AD | 
    ||| 
@@ -109,7 +109,7 @@ Quando o Azure cria a aplicação lógica, a definição de fluxo de trabalho es
 }
 ```
 
-| Propriedade | Valor | Descrição | 
+| Propriedade | Value | Descrição | 
 |----------|-------|-------------|
 | **principalId** | <*principal-ID*> | Um identificador exclusivo global (GUID) que representa a aplicação lógica no inquilino do Azure AD e, às vezes, é apresentada como uma "ID de objeto" ou `objectID` | 
 | **tenantId** | <*Azure-AD-tenant-ID*> | Um identificador exclusivo global (GUID) que representa o inquilino do Azure AD em que a aplicação lógica agora é um membro. Dentro de inquilino do Azure AD, o principal de serviço tem o mesmo nome que a instância da aplicação lógica. | 
@@ -152,7 +152,7 @@ Depois de configurar a aplicação lógica com um atribuído de sistema de ident
 
 1. Forneça os detalhes necessários para esta ação, por exemplo, a solicitação **método** e **URI** localização do recurso que pretende chamar.
 
-   Por exemplo, suponha que estiver usando a autenticação do Azure Active Directory (Azure AD) com [um destes serviços do Azure que suportam o Azure AD](../active-directory/managed-identities-azure-resources/services-support-msi.md#azure-services-that-support-azure-ad-authentication). 
+   Por exemplo, suponha que estiver usando a autenticação do Azure Active Directory (Azure AD) com [um destes serviços do Azure que suportam o Azure AD](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication). 
    Na **URI** , introduza o URL de ponto final para esse serviço do Azure. 
    Então, se estiver a utilizar o Azure Resource Manager, introduza este valor na **URI** propriedade:
 
@@ -167,7 +167,7 @@ Depois de configurar a aplicação lógica com um atribuído de sistema de ident
    > [!IMPORTANT]
    > 
    > Na **público-alvo** propriedade, o valor de ID de recurso deve corresponder exatamente o que espera que o Azure AD, incluindo quaisquer necessários à direita de barras. 
-   > Pode encontrar estes valores de ID de recurso desta [que suportam o Azure AD dos serviços de tabela que descreve Azure](../active-directory/managed-identities-azure-resources/services-support-msi.md#azure-services-that-support-azure-ad-authentication). 
+   > Pode encontrar estes valores de ID de recurso desta [que suportam o Azure AD dos serviços de tabela que descreve Azure](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication). 
    > Por exemplo, se estiver a utilizar o ID de recurso do Gestor de recursos do Azure, certifique-se de que o URI tem uma barra à direita.
 
 1. Continue a criar a aplicação lógica à sua maneira.

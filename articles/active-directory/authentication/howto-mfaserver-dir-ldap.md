@@ -1,5 +1,5 @@
 ---
-title: Autenticação LDAP e Servidor MFA do Azure | Microsoft Docs
+title: Autenticação LDAP e servidor do Azure MFA - o Azure Active Directory
 description: A implementar a autenticação LDAP e servidor do Azure multi-factor Authentication.
 services: multi-factor-authentication
 ms.service: active-directory
@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 60b8c631f0e67157c4a72112b64a3ba052d591e4
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 78879f0e54dbd8f573ade7381ba83429346d00db
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56178418"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58314268"
 ---
 # <a name="ldap-authentication-and-azure-multi-factor-authentication-server"></a>Autenticação LDAP e servidor do Azure multi-factor Authentication
 

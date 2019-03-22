@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: reference
 ms.date: 02/27/2019
 ms.author: pbutlerm
-ms.openlocfilehash: 299c06fc043391fc9b765c95ec6d29da3d440719
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.openlocfilehash: d9443349ea7ce91a3b8ab01510917bc82ae9b8ad
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57318874"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58316148"
 ---
 # <a name="saas-fulfillment-apis-version-1"></a>Versão de APIs de preenchimento do SaaS 1
 
@@ -59,26 +59,26 @@ Qualquer aplicação que pretenda utilizar as capacidades do Azure AD, tem de es
 
 Para registar uma nova aplicação com o portal do Azure, execute os seguintes passos:
 
-1.  Inicie sessão no [Portal do Azure](https://portal.azure.com/).
-2.  Se a sua conta permitir aceder a mais de uma, clique na sua conta no canto superior direito e defina a sua sessão no portal para o inquilino pretendido do Azure AD.
-3.  No painel de navegação do lado esquerdo, clique nas **do Azure Active Directory** do serviço, clique em **registos das aplicações**e clique em **novo registo de aplicação**.
+1. Inicie sessão no [Portal do Azure](https://portal.azure.com/).
+2. Se a sua conta permitir aceder a mais de uma, clique na sua conta no canto superior direito e defina a sua sessão no portal para o inquilino pretendido do Azure AD.
+3. No painel de navegação do lado esquerdo, clique nas **do Azure Active Directory** do serviço, clique em **registos das aplicações**e clique em **novo registo de aplicação**.
 
-    ![Registos de aplicações do AD de SaaS](./media/saas-offer-app-registration-v1.png)
+   ![Registos de aplicações do AD de SaaS](./media/saas-offer-app-registration-v1.png)
 
-4.  Na página de criar, introduza o seu aplicativo\'informações de registo de s:
-    -   **Nome**: Introduza um nome de aplicação com significado
-    -   **Tipo de aplicação**: 
-        - Selecione **Nativa** para [aplicações cliente](https://docs.microsoft.com/azure/active-directory/develop/active-directory-dev-glossary#client-application) que estejam instaladas localmente num dispositivo. Esta definição é utilizada para [clientes nativos](https://docs.microsoft.com/azure/active-directory/develop/active-directory-dev-glossary#native-client) públicos de OAuth.
-        - Selecione **aplicação Web / API** para [aplicativos cliente](https://docs.microsoft.com/azure/active-directory/develop/active-directory-dev-glossary#client-application) e [aplicações de API derecursos/](https://docs.microsoft.com/azure/active-directory/develop/active-directory-dev-glossary#resource-server) que são instaladas num servidor seguro. Esta definição é utilizada para OAuth confidencial [clientes web](https://docs.microsoft.com/azure/active-directory/develop/active-directory-dev-glossary#web-client) e públicas [baseada no utilizador-agente clientes](https://docs.microsoft.com/azure/active-directory/develop/active-directory-dev-glossary#user-agent-based-client).
-        A mesma aplicação também pode expor um cliente e um recurso/API.
-    -   **Início de sessão no URL**: Para aplicações de aplicação/API da Web, indique o URL de base da sua aplicação. Por exemplo, **http://localhost:31544** pode ser o URL para uma aplicação web em execução no seu computador local. Os utilizadores, em seguida, usaria este URL para iniciar sessão a uma aplicação de cliente da web.
-    -   **URI de redirecionamento**: Para aplicações nativas, forneça o URI utilizado pelo Azure AD para devolver respostas token. Introduza um valor específico para seu aplicativo, por exemplo **http://MyFirstAADApp**.
+4. Na página de criar, introduza o seu aplicativo\'informações de registo de s:
+   - **Nome**: Introduza um nome de aplicação com significado
+   - **Tipo de aplicação**: 
+     - Selecione **Nativa** para [aplicações cliente](https://docs.microsoft.com/azure/active-directory/develop/active-directory-dev-glossary#client-application) que estejam instaladas localmente num dispositivo. Esta definição é utilizada para [clientes nativos](https://docs.microsoft.com/azure/active-directory/develop/active-directory-dev-glossary#native-client) públicos de OAuth.
+     - Selecione **aplicação Web / API** para [aplicativos cliente](https://docs.microsoft.com/azure/active-directory/develop/active-directory-dev-glossary#client-application) e [aplicações de API derecursos/](https://docs.microsoft.com/azure/active-directory/develop/active-directory-dev-glossary#resource-server) que são instaladas num servidor seguro. Esta definição é utilizada para OAuth confidencial [clientes web](https://docs.microsoft.com/azure/active-directory/develop/active-directory-dev-glossary#web-client) e públicas [baseada no utilizador-agente clientes](https://docs.microsoft.com/azure/active-directory/develop/active-directory-dev-glossary#user-agent-based-client).
+     A mesma aplicação também pode expor um cliente e um recurso/API.
+   - **Início de sessão no URL**: Para aplicações de aplicação/API da Web, indique o URL de base da sua aplicação. Por exemplo, **http:\//localhost:31544** pode ser o URL para uma aplicação web em execução no seu computador local. Os utilizadores, em seguida, usaria este URL para iniciar sessão a uma aplicação de cliente da web.
+   - **URI de redirecionamento**: Para aplicações nativas, forneça o URI utilizado pelo Azure AD para devolver respostas token. Introduza um valor específico para seu aplicativo, por exemplo **http:\//MyFirstAADApp**.
 
-        ![Registos de aplicações do AD de SaaS](./media/saas-offer-app-registration-v1-2.png)
+     ![Registos de aplicações do AD de SaaS](./media/saas-offer-app-registration-v1-2.png)
 
-        Para obter exemplos específicos de aplicações web ou de aplicativos nativos, check-out de início rápido orientada instalações que estão disponíveis na secção começar a utilizar o [guia para programadores do Azure AD](https://docs.microsoft.com/azure/active-directory/develop/active-directory-developers-guide).
+     Para obter exemplos específicos de aplicações web ou de aplicativos nativos, check-out de início rápido orientada instalações que estão disponíveis na secção começar a utilizar o [guia para programadores do Azure AD](https://docs.microsoft.com/azure/active-directory/develop/active-directory-developers-guide).
 
-5.  Quando terminar, clique em **Criar**. Azure AD atribui um ID de aplicação exclusivo para seu aplicativo e\'re direcionado para seu aplicativo\'página registo principal. Dependendo de se a sua aplicação é do tipo nativo ou Web, dispõe de várias opções para lhe adicionar mais capacidades.
+5. Quando terminar, clique em **Criar**. Azure AD atribui um ID de aplicação exclusivo para seu aplicativo e\'re direcionado para seu aplicativo\'página registo principal. Dependendo de se a sua aplicação é do tipo nativo ou Web, dispõe de várias opções para lhe adicionar mais capacidades.
 
 >[!Note]
 >Por predefinição, a aplicação recentemente registada é configurada para permitir que apenas os utilizadores a partir do mesmo inquilino para iniciar sessão na sua aplicação.
@@ -511,6 +511,7 @@ Assine a ação de Get no ponto final permite que um utilizador a obter uma subs
     "lastModified": ""
 }
 ```
+
 | **Parameter name** (Nome do parâmetro)     | **Tipo de dados** | **Descrição**                               |
 |------------------------|---------------|-----------------------------------------------|
 | ID                     | String        | Recursos de subscrição de ID de SaaS no Azure.    |

@@ -15,14 +15,14 @@ ms.workload: NA
 ms.date: 05/11/2018
 ms.author: dastanfo
 ms.custom: mvc
-ms.openlocfilehash: b740aa205982bc0c1104b59e3ea89e2d5980d461
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
-ms.translationtype: HT
+ms.openlocfilehash: e4995890a1f2ceec8ddf5d4dafafdd13382864db
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51240346"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58311463"
 ---
-# <a name="tutorial-install-and-create-service-fabric-cluster"></a>Tutorial: Instalar e criar cluster do Service Fabric
+# <a name="tutorial-install-and-create-service-fabric-cluster"></a>Tutorial: Instalar e criar o cluster do Service Fabric
 
 Os clusters autónomos do Service Fabric oferecem a opção de escolher o seu ambiente e criar um cluster como parte da abordagem "qualquer SO, qualquer cloud" que o Service Fabric está a realizar. Nesta série de tutoriais, vai criar um cluster autónomo alojado no AWS e instale uma aplicação no mesmo.
 
@@ -129,7 +129,7 @@ Your cluster is successfully created! You can connect and manage your cluster us
 
 ### <a name="bring-up-service-fabric-explorer"></a>Apresentação do Service Fabric Explorer
 
-Agora pode ligar ao cluster com o Service Fabric Explorer diretamente a partir de uma das máquinas com http://localhost:19080/Explorer/index.html ou remotamente com http://<*IPAddressofaMachine*>:19080/Explorer/index.html.
+Agora pode ligar ao cluster com o Service Fabric Explorer diretamente a partir de uma das máquinas com http:\//localhost:19080/Explorer/index.html ou remotamente com o http:\/ /<  *IPAddressofaMachine*>: 19080/Explorer/index.html.
 
 ## <a name="add-and-remove-nodes"></a>Adicionar e remover nós
 

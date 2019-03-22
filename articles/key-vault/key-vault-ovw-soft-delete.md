@@ -6,13 +6,13 @@ ms.topic: conceptual
 author: msmbaldwin
 ms.author: mbaldwin
 manager: barbkess
-ms.date: 09/25/2017
-ms.openlocfilehash: 526b0b135c8d5c1741ddf5f3fe6fb32f259a3e2c
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.date: 03/19/2019
+ms.openlocfilehash: f222b37e8ca6efcfe28146ee948511d887f547a4
+ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58092995"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58339147"
 ---
 # <a name="azure-key-vault-soft-delete-overview"></a>Descrição geral da eliminação de forma recuperável de Cofre de chaves do Azure
 
@@ -23,9 +23,7 @@ Funcionalidade de eliminação de forma recuperável do Key Vault permite que a 
 
 ## <a name="supporting-interfaces"></a>Interfaces de suporte
 
-A funcionalidade de eliminação de forma recuperável está inicialmente disponível através de REST, .NET / c#, interfaces de PowerShell e, a CLI.
-
-Para obter informações gerais, consulte as referências para estas para obter mais detalhes, [referência do Cofre de chave](https://docs.microsoft.com/azure/key-vault/).
+A funcionalidade de eliminação de forma recuperável está inicialmente disponível através da [REST](/rest/api/keyvault/), [CLI](key-vault-soft-delete-cli.md), [PowerShell](key-vault-soft-delete-powershell.md) e [.NET /C# ](/dotnet/api/microsoft.azure.keyvault?view=azure-dotnet) interfaces.
 
 ## <a name="scenarios"></a>Cenários
 
@@ -39,26 +37,21 @@ O Azure Key Vaults são recursos controlados, geridos pelo Azure Resource Manage
 
 Com esta funcionalidade, a operação de eliminação num cofre de chaves ou o objeto do Cofre de chaves é uma eliminação de forma recuperável, com eficiência que contém os recursos para um período de retenção especificado (90 dias), dando a aparência que o objeto é eliminado. O serviço ainda mais fornece um mecanismo para recuperar o objeto excluído, desfazendo, essencialmente, a eliminação. 
 
-É um comportamento opcional do Cofre de chaves de eliminação de forma recuperável sendo **não ativada por predefinição** nesta versão. 
+É um comportamento opcional do Cofre de chaves de eliminação de forma recuperável sendo **não ativada por predefinição** nesta versão. Ele pode ser ativado através de [CLI](key-vault-soft-delete-cli.md) ou [Powershell](key-vault-soft-delete-powershell.md).
 
-### <a name="purge-protection--flag"></a>Limpar sinalizador de proteção
-Remover a proteção (**– enable--proteção contra remoção** na CLI do Azure) sinalizador está desativada por predefinição. Quando esse sinalizador estiver ativado, um cofre ou um objeto no estado de eliminado, não é possível limpar até ter passado o período de retenção de 90 dias. Esse cofre ou o objeto ainda pode ser recuperado. Este sinalizador oferece mais segurança para os clientes que um cofre ou um objeto pode nunca ser permanentemente eliminado até que tenha passado o período de retenção. Pode ativar o sinalizador de proteção de remoção somente se o sinalizador de eliminação de forma recuperável está ativada ou durante a criação do cofre ativar ambas as eliminação de forma recuperável e remover a proteção.
+### <a name="purge-protection"></a>Remover proteção 
 
-> [!NOTE]
->    O pré-requisito para ativar a proteção contra remoção é que deve ter a eliminação de forma recuperável ativada.
-> É o comando para fazer isso em 2 de CLI do Azure
+Quando remover a proteção está num cofre ou não é possível limpar um objeto no estado de eliminado, até que tenha passado o período de retenção de 90 dias. Estes cofres e os objetos podem ainda ser recuperados, os clientes de garantir que a política de retenção será seguida. 
 
-```
-az keyvault create --name "VaultName" --resource-group "ResourceGroupName" --location westus --enable-soft-delete true --enable-purge-protection true
-```
+Remover a proteção é um comportamento opcional do Key Vault sendo **não ativada por predefinição**. Ele pode ser ativado através de [CLI](key-vault-soft-delete-cli.md#enabling-purge-protection) ou [Powershell](key-vault-soft-delete-powershell.md#enabling-purge-protection).
 
 ### <a name="permitted-purge"></a>Remoção permitida
 
 Permanentemente a eliminar, remoção, um cofre de chaves é possível através de uma operação de publicação do recurso de proxy e exija privilégios especiais. Em geral, apenas o proprietário da subscrição será capaz de remover um cofre de chaves. A operação de publicação aciona a eliminação de imediata e irrecuperável desse cofre. 
 
-Um exceções a isso são
-- o caso quando a subscrição do Azure foi marcada como *undeletable*. Neste caso, apenas o serviço, em seguida, pode executar a eliminação real e faz isso como um processo agendado. 
-- Quando – o sinalizador de enable--proteção contra remoção está ativado no próprio cofre. Neste caso, o Key Vault aguardará durante 90 dias do quando o objeto secreto original foi marcado para eliminação eliminar permanentemente o objeto.
+As exceções são:
+- Quando a subscrição do Azure foi marcada como *undeletable*. Neste caso, apenas o serviço, em seguida, pode executar a eliminação real e faz isso como um processo agendado. 
+- Quando a-- enable--proteção contra remoção sinalizador estiver ativado no próprio cofre. Neste caso, o Key Vault aguardará durante 90 dias do quando o objeto secreto original foi marcado para eliminação eliminar permanentemente o objeto.
 
 ### <a name="key-vault-recovery"></a>Recuperação de Cofre de chaves
 
@@ -66,7 +59,7 @@ Após eliminar um cofre de chaves, o serviço cria um recurso de proxy na subscr
 
 ### <a name="key-vault-object-recovery"></a>Recuperação de objeto do Cofre de chaves
 
-Após a eliminação de um objeto de Cofre de chaves, como uma chave, o serviço irá colocar o objeto num Estado eliminado, tornando então inacessível para quaisquer operações de obtenção. Enquanto estiver neste estado, o objeto do Cofre de chaves pode apenas ser apresentado, recuperados ou forçadamente/permanentemente eliminado. 
+Após a eliminação de um objeto de Cofre de chaves, como uma chave, o serviço irá colocar o objeto num Estado eliminado, tornando inacessível para quaisquer operações de obtenção. Enquanto estiver neste estado, o objeto do Cofre de chaves pode apenas ser apresentado, recuperados ou forçadamente/permanentemente eliminado. 
 
 Ao mesmo tempo, o Key Vault agendará a eliminação dos dados subjacentes correspondente para o Cofre de chaves eliminado ou o objeto do Cofre de chaves para execução após um intervalo de retenção predeterminado. O registo DNS correspondentes para o Cofre também é retido durante o intervalo de retenção.
 

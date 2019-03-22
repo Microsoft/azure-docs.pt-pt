@@ -13,12 +13,12 @@ ms.workload: infrastructure-services
 ms.date: 08/15/2018
 ms.author: sumeet.mittal
 ms.custom: ''
-ms.openlocfilehash: ac166161624840aae39e84aa4b149fe58a6c978e
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 72cbf71077a8df2b81b366d9f29ae006100da471
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57780869"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58310545"
 ---
 # <a name="virtual-network-service-endpoints"></a>Pontos Finais de Serviço de Rede Virtual
 
@@ -42,6 +42,7 @@ Esta funcionalidade está disponível para os seguintes serviços e regiões do 
 **Pré-visualização pública**
 
 - **[Base de dados do Azure para MariaDB](https://docs.microsoft.com/azure/mariadb/concepts-data-access-security-vnet)**: A pré-visualização está disponível em todas as regiões do Azure onde a base de dados do Azure para MariaDB está disponível.
+- **[Azure Container Registry](../container-registry/container-registry-vnet.md)**: A pré-visualização está disponível em todas as regiões do Azure onde o Azure Container Registry está disponível.
 
 Para obter as notificações mais atualizadas, veja a página [Atualizações da Rede Virtual do Azure](https://azure.microsoft.com/updates/?product=virtual-network).
 

@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 02/11/2019
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: a85fb65ad971bfc70bdab0689e99921e616b56ac
-ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
+ms.openlocfilehash: 07fdaa22532f48cc39b6c524d85fdfe625f8b80c
+ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56308864"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58337144"
 ---
 # <a name="categorize-images"></a>Categorizar imagens
 
@@ -24,7 +24,7 @@ Para além das etiquetas e uma descrição, imagem digitalizada devolve as categ
 
 ## <a name="the-86-category-concept"></a>O conceito de 86 categorias
 
-Imagem digitalizada pode categorizar uma imagem amplamente ou especificamente, utilizando a lista de 86 categroies no diagrama seguinte. Para obter a taxonomia completa no formato de texto, veja [Taxonomia de 86 Categorias](category-taxonomy.md).
+Imagem digitalizada pode categorizar uma imagem amplamente ou especificamente, utilizando a lista de 86 categorias no diagrama seguinte. Para obter a taxonomia completa no formato de texto, veja [Taxonomia de 86 Categorias](category-taxonomy.md).
 
 ![listas agrupadas de todas as categorias a taxonomia da categoria](./Images/analyze_categories-v2.png)
 

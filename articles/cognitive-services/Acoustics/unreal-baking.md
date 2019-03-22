@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: acoustics
 ms.topic: tutorial
-ms.date: 03/13/2019
+ms.date: 03/20/2019
 ms.author: michem
-ms.openlocfilehash: afe4421bea27ff029bd4a1a7808241a54027a6ac
-ms.sourcegitcommit: f68b0e128f0478444740172f54e92b453df696be
+ms.openlocfilehash: 544de5a3ac48c12d75f05a1c9adb56f48bb540f4
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58136396"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58311575"
 ---
 # <a name="project-acoustics-unreal-bake-tutorial"></a>Tutorial do projeto Acoustics Unreal criar
 Este documento descreve o processo de submissão de um criar acoustics usando a extensão de Unreal editor.
@@ -32,7 +32,7 @@ Existem cinco passos para fazer uma criar:
 
 Importe o pacote de plug-in do projeto Acoustics ao seu projeto. Para obter ajuda com isso, consulte a [integração Unreal](unreal-integration.md) tópico. Assim que o plug-in é integrado, abra a interface do Usuário de Acoustics clicando no ícone do modo de Acoustics novo.
 
-![Modo de Acoustics aberto](media/acoustics-mode.png)
+![Opção de captura de ecrã do Editor de Unreal Acoustics modo](media/acoustics-mode.png)
 
 ## <a name="tag-actors-for-acoustics"></a>Atores de marca para acoustics
 
@@ -42,7 +42,7 @@ Selecione um ou mais objetos no Outliner mundo, ou utilizar o **seleção em mas
 
 ### <a name="for-reference-the-objects-tab-parts"></a>Para referência: As partes de separador de objetos
 
-![Objetos Unreal separador Detalhes](media/unreal-objects-tab-details.png)
+![Separador de captura de ecrã de Acoustics objetos no Unreal](media/unreal-objects-tab-details.png)
 
 1. Os botões de seleção da guia (**objetos** separador selecionado). Utilize estes botões para percorrer as diversas etapas de fazer um criar acoustics, de cima para baixo.
 2. Uma breve descrição sobre o que precisa fazer usando esta página.
@@ -75,11 +75,11 @@ Os materiais acústicos controlam a quantidade de energia som refletida novament
 
 O tempo de reverberation de um determinado material numa sala inversamente está relacionado ao seu coeficiente de absorption, com a maioria dos materiais ter valores absorption no intervalo 0,01 para 0,20. Materiais com coeficientes absorption acima deste intervalo são muito absorbent. Por exemplo, se sons de sala demasiado reverberant, altere o material acústico do paredes, piso ou limite para algo absorptivity superior. A atribuição de material acústica se aplica a todos os atores que utilizam esse material de cena.
 
-![Gráfico de tempos de reverberação](media/reverb-time-graph.png)
+![Gráfico que mostra a correlação negativa de tempo de reverberation com coeficiente de absorption](media/reverb-time-graph.png)
 
 ### <a name="for-reference-parts-of-the-materials-tab"></a>Para referência: Partes do separador de materiais
 
-![Objetos Unreal separador Detalhes](media/unreal-materials-tab-details.png)
+![Separador de captura de ecrã de Acoustics objetos no Unreal](media/unreal-materials-tab-details.png)
 
 1. O **materiais** botão de separador, usado para exibir esta página.
 2. Uma breve descrição sobre o que precisa fazer usando esta página.
@@ -94,7 +94,7 @@ Depois de atribuir os materiais, mude para o **sondas** separador.
 
 ### <a name="for-reference-parts-of-the-probes-tab"></a>Para referência: Partes do separador de sondas
 
-![Detalhe do separador de sondas](media/unreal-probes-tab-details.png)
+![Captura de ecrã de sondas de Acoustics separador Unreal](media/unreal-probes-tab-details.png)
 
 1. O **sondas** botão de separador usado para exibir esta página
 2. Uma breve descrição sobre o que precisa fazer usando esta página
@@ -124,11 +124,11 @@ Depois que esses cálculos forem concluídos, pode visualizar os dados de voxel 
 
 Após a conclusão do cálculo de pesquisa, um ator novo irá aparecer no Outliner mundo chamado **AcousticsDebugRenderer**. A verificar a **renderizar sondas** e **renderizar Voxels** caixas de seleção permitirá que a exibição de depuração dentro da janela viewport do editor.
 
-![Compositor de depurar Acoustics](media/acoustics-debug-renderer.png)
+![Captura de ecrã com ator de processador de depurar Acoustics no Editor de Unreal](media/acoustics-debug-renderer.png)
 
 Se não vir qualquer voxels ou sobrepostas seu nível de sondas, certifique-se de processamento em tempo real está ativado da janela viewport.
 
-![Ativar o processamento em tempo real](media/unreal-real-time-rendering.png)
+![Captura de ecrã da opção de processamento em tempo real em Unreal](media/unreal-real-time-rendering.png)
 
 ### <a name="voxels"></a>Voxels
 
@@ -137,7 +137,7 @@ Mover-se a sua cena e certifique-se de que a geometria acoustically occluding te
 
 Se comparar o voxels criado com resolução fina do vs resolução genérico, verá que o voxels genérico duas vezes são tão grandes.
 
-![Pré-visualização do Voxel](media/unreal-voxel-preview.png)
+![Pré-visualização voxels de captura de ecrã de Acoustics no Unreal editor](media/unreal-voxel-preview.png)
 
 ### <a name="probe-points"></a>Pontos de sonda
 
@@ -145,7 +145,7 @@ Pontos de sonda são sinônimos de localizações de player possíveis (serviço
 
 É importante verificar que, pontos de sonda existam qualquer lugar, que espera-se que o jogador percorre a cena. Pontos de sonda são colocados em malha navegação pelo mecanismo de Acoustics de projeto e não não possível mover ou editá-lo, por isso, certifique-se de bastidores de malha navegação todas as localizações de player possível inspecionando os pontos de sonda.
 
-![Pré-visualização de sondas](media/unreal-probes-preview.png)
+![Captura de ecrã de Acoustics sondas pré-visualização em Unreal](media/unreal-probes-preview.png)
 
 ### <a name="Coarse-vs-Fine-Resolution"></a>Resolução vs genérico
 
@@ -159,9 +159,9 @@ Embora isso possa parecer simple, tem várias implicações na simulação acús
 * Origens de som não podem estar localizadas dentro de "preenchido" voxels, que é voxels que contêm a geometria - isso resulta em nenhum som. É mais difícil colocar as origens de som para que não estejam dentro o voxels maiores de genérico que é quando utiliza a definição adequada.
 * O maior voxels será atrapalham a mais em portais, conforme mostrado abaixo. A primeira imagem foi criada com genérico, enquanto o segundo é a mesma porta com resolução fina. Conforme indicado pelas marcas de vermelhas, há muito menos intrusões a porta através da definição tudo bem. A linha azul é a porta, conforme definido por geometry, enquanto a linha vermelha é o portal de acústico eficaz definido pelo tamanho voxel. Como esta invasão papel em determinada situação depende completamente como os voxels alinhar com a geometria do portal, que é determinado pelo tamanho e localizações de seus objetos na cena.
 
-![Porta genérico](media/unreal-coarse-bake.png)
+![Captura de ecrã do voxels genérico preenchendo uma porta no Unreal](media/unreal-coarse-bake.png)
 
-![Porta adequada](media/unreal-fine-bake.png)
+![Captura de ecrã do voxels bem numa porta no Unreal](media/unreal-fine-bake.png)
 
 ## <a name="bake-your-level-using-azure-batch"></a>Inserir o seu nível com o Azure Batch
 
@@ -169,7 +169,7 @@ Pode incluir sua cena com um cluster de computação na cloud com o serviço Azu
 
 ### <a name="for-reference-parts-of-the-bake-tab"></a>Para referência: Partes do separador de criar
 
-![Inserir o detalhe do separador](media/unreal-bake-tab-details.png)
+![Captura de ecrã de Acoustics inserir separador Unreal](media/unreal-bake-tab-details.png)
 
 1. O botão de separador Inserir usado para exibir esta página.
 2. Uma breve descrição do que fazer nesta página.

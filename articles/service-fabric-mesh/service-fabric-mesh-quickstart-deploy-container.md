@@ -3,18 +3,18 @@ title: Início Rápido - Implementar o Hello World no Azure Service Fabric Mesh 
 description: Este início rápido mostra como implementar uma aplicação do Service Fabric Mesh no Azure Service Fabric Mesh.
 services: service-fabric-mesh
 keywords: Não adicione nem edite as palavras-chave sem consultar o perito em SEO.
-author: rwike77
-ms.author: ryanwi
+author: dkkapur
+ms.author: dekapur
 ms.date: 11/27/2018
 ms.topic: quickstart
 ms.service: service-fabric-mesh
 manager: timlt
-ms.openlocfilehash: 2f54f11ffc6db9af4c7d74ef6c0806a8b8b8fe74
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.openlocfilehash: 5ca622602c71976917a07005bf349dd98086327c
+ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55754766"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58336988"
 ---
 # <a name="quickstart-deploy-hello-world-to-service-fabric-mesh"></a>Início rápido: Implementar o Hello World no Service Fabric mesh
 

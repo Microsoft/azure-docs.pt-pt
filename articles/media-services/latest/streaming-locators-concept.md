@@ -9,14 +9,14 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 02/03/2019
+ms.date: 03/20/2019
 ms.author: juliako
-ms.openlocfilehash: be66dcf8115258b6f593ec913e75785a3f8dbe1f
-ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
+ms.openlocfilehash: 51aa33e4ff387a1030dac42bce8d12cf72343b35
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55743485"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58317481"
 ---
 # <a name="streaming-locators"></a>Localizadores de Transmissão em Fluxo
 
@@ -32,7 +32,11 @@ Se pretender especificar opções de encriptação no seu fluxo, crie o [políti
 > * Propriedades de **localizadores de transmissão em fluxo** que são de Datetime tipo são sempre em formato UTC.
 > * Deve criar um conjunto limitado de políticas para a sua conta de serviço de multimédia e reutilizá-los para os localizadores de transmissão em fluxo sempre que as mesmas opções são necessárias. 
 
-## <a name="filtering-ordering-paging"></a>Paginação de filtragem, ordenação,
+## <a name="associate-filters-with-streaming-locators"></a>Associar filtros localizadores de transmissão em fluxo
+
+Pode especificar uma lista de [filtros de conta ou asset](filters-concept.md), que seria se aplicam a seu [localizador de transmissão em fluxo](https://docs.microsoft.com/rest/api/media/streaminglocators/create#request-body). O [packager dinâmica](dynamic-packaging-overview.md) aplica-se esta lista de filtros em conjunto com o seu cliente especifica no URL. Esta combinação gera uma [dyanamic manifesto](filters-dynamic-manifest-overview.md), que se baseia em filtros no URL + filtros que especificar no localizador de transmissão em fluxo. Recomendamos que utilize esta funcionalidade se pretenda aplicar filtros, mas não pretende expor os nomes de filtro no URL.
+
+## <a name="filter-order-page-streaming-locator-entities"></a>Filtrar, ordem, entidades de localizador de transmissão em fluxo de página
 
 Ver [filtragem, ordenação, a paginação de entidades de serviços de multimédia](entities-overview.md).
 

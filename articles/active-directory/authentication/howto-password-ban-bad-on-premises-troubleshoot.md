@@ -1,5 +1,5 @@
 ---
-title: Resolução de problemas na proteção de palavra-passe do Azure AD
+title: Resolução de problemas na proteção de palavra-passe do Azure AD - Azure Active Directory
 description: Compreender o Azure AD palavra-passe proteção comum de resolução de problemas
 services: active-directory
 ms.service: active-directory
@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7ac97d7bda56a871e0b8f6de6d5d7262f3f44667
-ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
-ms.translationtype: HT
+ms.openlocfilehash: 51f214688aa1e33bd58e8460baab75228d7c5d1a
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58285705"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58317243"
 ---
 # <a name="azure-ad-password-protection-troubleshooting"></a>Resolução de problemas de proteção de palavra-passe do AD do Azure
 

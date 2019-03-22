@@ -1,5 +1,5 @@
 ---
-title: Operações de proteção de palavra-passe do AD do Azure e relatórios
+title: Operações de proteção de palavra-passe do AD do Azure e relatórios - Azure Active Directory
 description: Operações de pós-implementação de proteção de palavra-passe do AD do Azure e relatórios
 services: active-directory
 ms.service: active-directory
@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ac91a70465d79b235ae43681a1375d47e7691efe
-ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
-ms.translationtype: HT
+ms.openlocfilehash: ca85007bb016cc98d1be61ce08865945e699ad4a
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58285807"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58312432"
 ---
 # <a name="azure-ad-password-protection-operational-procedures"></a>Procedimentos operacionais de proteção de palavra-passe do AD do Azure
 

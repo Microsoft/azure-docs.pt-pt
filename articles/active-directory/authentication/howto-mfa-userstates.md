@@ -1,5 +1,5 @@
 ---
-title: Estados do utilizador multi-factor Authentication do Microsoft Azure
+title: Estados de utilizador de multi-factor Authentication do Azure - Azure Active Directory
 description: Saiba mais sobre os Estados do utilizador no multi-factor Authentication.
 services: multi-factor-authentication
 ms.service: active-directory
@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 39659df99951850ced07be14f81348ae9c1c1be5
-ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
+ms.openlocfilehash: 5411770e6f9d660557ab9360f026efe4c28a9256
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56428607"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58314387"
 ---
 # <a name="how-to-require-two-step-verification-for-a-user"></a>Como requerer verificação de dois passos para um utilizador
 

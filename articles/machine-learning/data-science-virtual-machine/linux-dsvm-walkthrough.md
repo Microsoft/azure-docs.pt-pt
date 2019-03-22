@@ -17,12 +17,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 07/16/2018
 ms.author: gokuma
-ms.openlocfilehash: 0ca3cee0c818bf9d5dda4a7ea8a1f356ed017973
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 6e8883870cc0f035df5122e91449f04203836218
+ms.sourcegitcommit: 5e4ca656baf3c7d370ab3c0fbad0278aa2c9f1e6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57891091"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58319470"
 ---
 # <a name="data-science-with-a-linux-data-science-virtual-machine-on-azure"></a>Ciência de dados com uma Data Science Máquina Virtual do Linux no Azure
 Estas instruções mostram como realizar várias tarefas de ciência de dados comuns com a VM de ciência de dados do Linux. A Máquina Virtual de ciência de dados de Linux (DSVM) é uma imagem de máquina virtual disponível no Azure que está pré-instalado com uma coleção de ferramentas utilizadas para análise de dados e machine learning. Os componentes de software importantes estão descritos a [aprovisionar a máquina de Virtual de ciência de dados do Linux](linux-dsvm-intro.md) tópico. A imagem de VM torna mais fácil começar a fazer ciência de dados em minutos, sem ter de instalar e configurar cada uma das ferramentas individualmente. Pode facilmente aumentar verticalmente a VM, se necessário e pará-la quando não está em utilização. Portanto, este recurso é económico e flexível.
@@ -423,7 +423,7 @@ Um dos recursos interessantes de Rattle é sua capacidade de executar vários m�
 Quando tiver terminado de criação de modelos, selecione o **Log** separador para ver o código de R são executado por Rattle durante a sessão. Pode selecionar o **exportar** botão para guardá-lo.
 
 > [!NOTE]
-> Há um bug na versão atual do Rattle. Para modificar o script ou utilizá-lo a repetir os passos mais tarde, tem de inserir um caractere # à frente do * exportar este registo... * no texto do registo.
+> Há um bug na versão atual do Rattle. Para modificar o script ou utilizá-lo a repetir os passos mais tarde, tem de inserir um caractere # à frente do *exportar este registo...*  no texto do registo.
 >
 >
 

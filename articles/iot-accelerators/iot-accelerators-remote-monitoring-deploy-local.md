@@ -8,12 +8,12 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.date: 01/17/2019
 ms.topic: conceptual
-ms.openlocfilehash: e4a48312dc516010b7a7fe1471ba7e555a2f92f2
-ms.sourcegitcommit: ba9f95cf821c5af8e24425fd8ce6985b998c2982
+ms.openlocfilehash: fdb9b6c09e81ce29d2587fb0faca1aa80d28ea38
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54382257"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58309984"
 ---
 # <a name="deploy-the-remote-monitoring-solution-accelerator-locally---visual-studio"></a>Implementar o monitorização remota acelerador de soluções localmente - Visual Studio
 
@@ -96,7 +96,7 @@ npm install
 npm start
 ```
 
-Quando o início for concluído, o browser apresenta a página **http://localhost:3000/dashboard**. Espera-se os erros nesta página. Para ver a aplicação sem erros, conclua o passo seguinte.
+Quando o início for concluído, o browser apresenta a página **http:\//localhost:3000 / dashboard**. Espera-se os erros nesta página. Para ver a aplicação sem erros, conclua o passo seguinte.
 
 ### <a name="configure-and-run-nginx"></a>Configurar e executar o NGINX
 
@@ -109,7 +109,7 @@ Para obter mais informações sobre como executar **nginx**, consulte [nginx par
 
 ### <a name="connect-to-the-dashboard"></a>Ligar ao dashboard
 
-Para aceder ao dashboard de solução de monitorização remota, navegue até [ http://localhost:9000 ](http://localhost:9000) no seu browser.
+Para aceder ao dashboard de solução de monitorização remota, navegue para o http:\//localhost:9000 no seu browser.
 
 ## <a name="clean-up"></a>Limpeza
 

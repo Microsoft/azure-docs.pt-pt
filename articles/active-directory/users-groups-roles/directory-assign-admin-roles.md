@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f06446cb6af1fa145e5fcec41cc85a1452af207a
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 5202d2775e830264543719cafefb5c48fca822d6
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57839258"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58316427"
 ---
 # <a name="administrator-role-permissions-in-azure-active-directory"></a>Permissões de função de administrador no Azure Active Directory
 
@@ -134,7 +134,7 @@ As seguintes funções de administrador estão disponíveis:
 
 * **[Suporte de escalão 2 de parceiros](#partner-tier2-support)**: Não utilize. Esta função foi preterida e será removida do Azure AD no futuro. Esta função é destinada à utilização por um pequeno número de parceiros de revenda da Microsoft e não se destina a utilização geral.
 
-* **[Palavra-passe de administrador / administrador de suporte técnico](#helpdesk-administrator)**: Os utilizadores com esta função podem alterar palavras-passe, invalidar os tokens de atualização, gerir pedidos de serviço e monitorizar o estado de funcionamento do serviço. Invalidar um token de atualização força o utilizador iniciar sessão novamente. Os administradores de suporte técnico podem repor palavras-passe e invalidar os tokens de atualização de outros utilizadores que são não-administradores ou atribuída apenas as seguintes funções:
+* **[Administrador de suporte técnico (palavra-passe)](#helpdesk-administrator)**: Os utilizadores com esta função podem alterar palavras-passe, invalidar os tokens de atualização, gerir pedidos de serviço e monitorizar o estado de funcionamento do serviço. Invalidar um token de atualização força o utilizador iniciar sessão novamente. Os administradores de suporte técnico podem repor palavras-passe e invalidar os tokens de atualização de outros utilizadores que são não-administradores ou atribuída apenas as seguintes funções:
   * Leitores de Diretório
   * Utilizador Que Convida Convidados
   * Administrador de Suporte Técnico
@@ -149,7 +149,7 @@ As seguintes funções de administrador estão disponíveis:
   * Os não administradores como executivos, assessores jurídicos e funcionários de recursos humanos que podem ter acesso a informações confidenciais ou privadas.
 
   > [!NOTE]
-  > No Microsoft Graph API, o Azure AD Graph API e o Azure AD PowerShell, esta função é identificada como "Administrador de suporte técnico". É "Administrador de palavras-passe" na [portal do Azure](https://portal.azure.com/).
+  > Esta função anteriormente chamada "administrador de palavras-passe" [portal do Azure](https://portal.azure.com/). Estamos a alterar o nome para "Administrador de suporte técnico" de acordo com o respetivo nome no Azure AD PowerShell, o Azure AD Graph API e o Microsoft Graph API. Para um curto período de tempo, iremos alterar o nome para "Administrador de suporte técnico (palavra-passe)" no portal do Azure antes da alteração para o "Administrador de suporte técnico".
   >
   
 * **[Administrador do Power BI](#power-bi-service-administrator)**: Os utilizadores com esta função possuem permissões globais dentro do Microsoft Power BI, quando o serviço está presente, bem como a capacidade para gerir pedidos de suporte e monitorizar o estado de funcionamento do serviço. Mais informações em [compreender a função de administrador do Power BI](https://docs.microsoft.com/power-bi/service-admin-role).
@@ -164,7 +164,7 @@ As seguintes funções de administrador estão disponíveis:
 
   <b>Importante</b>: Esta função concede a capacidade de gerenciar atribuições para todas as funções do Azure AD, incluindo a função de Administrador Global. Esta função não inclui quaisquer outras capacidades com privilégios no Azure AD, como a criação ou atualização dos utilizadores. No entanto, os utilizadores atribuídos a esta função podem conceder próprios ou outros privilégios adicionais através da atribuição de funções adicionais.
 
-* **[Leitor de relatórios](#reports-reader)**: Os utilizadores com esta função podem ver os dados de relatórios de utilização e o dashboard de relatórios no Centro de administração do Office 365 e o contexto de adoção do pacote no Power BI. Além disso, a função fornece acesso de início de sessão relatórios e a atividade no Azure AD e a API de relatórios de dados devolvidos pelo Microsoft Graph. Pode aceder a um utilizador atribuído à função do leitor de relatórios apenas utilização relevante e métricas de adoção. Eles não tem quaisquer permissões de administrador para configurar as definições ou o acesso que do Centro de administração da específicos de produtos como o Exchange. Esta função não tem acesso para ver, criar ou gerir pedidos de suporte.
+* **[Leitor de relatórios](#reports-reader)**: Os utilizadores com esta função podem ver os dados de relatórios de utilização e o dashboard de relatórios no Centro de administração do Microsoft 365 e o contexto de adoção do pacote no Power BI. Além disso, a função fornece acesso de início de sessão relatórios e a atividade no Azure AD e a API de relatórios de dados devolvidos pelo Microsoft Graph. Pode aceder a um utilizador atribuído à função do leitor de relatórios apenas utilização relevante e métricas de adoção. Eles não tem quaisquer permissões de administrador para configurar as definições ou o acesso que do Centro de administração da específicos de produtos como o Exchange. Esta função não tem acesso para ver, criar ou gerir pedidos de suporte.
 
 * **[Administrador de segurança](#security-administrator)**: Os utilizadores com esta função têm permissões para gerir as funcionalidades relacionadas com a segurança no Centro de segurança do Microsoft 365, Azure Active Directory Identity Protection, Azure Information Protection e segurança do Office 365 e Centro de conformidade. Obter mais informações sobre as permissões do Office 365 estão disponíveis em [permissões no Centro de conformidade de segurança do Office 365 e](https://support.office.com/article/Permissions-in-the-Office-365-Security-Compliance-Center-d10608af-7934-490a-818e-e68f17d0e9c1).
   
@@ -208,9 +208,9 @@ As seguintes funções de administrador estão disponíveis:
   [Centro de Segurança do Azure](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles) | Pode ver recomendações e alertas, políticas de segurança, visualizar os Estados de segurança, mas não pode fazer alterações de vista
   [Estado de funcionamento do serviço do Office 365](https://docs.microsoft.com/office365/enterprise/view-service-health) | Ver o estado de funcionamento dos serviços do Office 365
 
-* **[Administrador de assistência técnica](#service-support-administrator)**: Os utilizadores com esta função podem abrir pedidos de suporte com os serviços Microsoft para o Azure e o Office 365, bem como visualizar o dashboard de serviço e o centro de mensagens no portal do Azure e no portal de administração do Office 365. Mais informações em [funções de administrador sobre o Office 365](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d).
+* **[Administrador de assistência técnica](#service-support-administrator)**: Os utilizadores com esta função podem abrir pedidos de suporte com a Microsoft para serviços do Azure e do Office 365 e vistas do dashboard de serviço e a mensagem center no [portal do Azure](https://portal.azure.com) e [Centro de administração do Microsoft 365](https://admin.microsoft.com). Mais informações em [funções de administrador sobre o Office 365](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d).
   > [!NOTE]
-  > No Microsoft Graph API, o Azure AD Graph API e o Azure AD PowerShell, esta função é identificada como "administrador de assistência técnica." É "Administrador de serviço" no [portal do Azure](https://portal.azure.com), o portal de administração do Office 365 e o portal do Intune.
+  > No Microsoft Graph API, o Azure AD Graph API e o Azure AD PowerShell, esta função é identificada como "administrador de assistência técnica." É "Administrador de serviço" no [portal do Azure](https://portal.azure.com), o [Centro de administração do Microsoft 365](https://admin.microsoft.com)e o portal do Intune.
 
 * **[Administrador do SharePoint](#sharepoint-service-administrator)**: Os utilizadores com esta função possuem permissões globais dentro do Microsoft SharePoint Online, quando o serviço está presente, bem como a capacidade de criar e gerir todos os grupos do Office 365, gerir pedidos de suporte e monitorizar o estado de funcionamento do serviço. Mais informações em [funções de administrador sobre o Office 365](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d).
   > [!NOTE]

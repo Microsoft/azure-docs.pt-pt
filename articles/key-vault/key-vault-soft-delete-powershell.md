@@ -5,14 +5,14 @@ author: msmbaldwin
 manager: barbkess
 ms.service: key-vault
 ms.topic: conceptual
-ms.date: 02/01/2018
+ms.date: 03/19/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 3da4662885b2b09c6474a1a6ceafd627e71cf236
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: d34ef1bb5bea6f5f099f7fa2a24ddec2362b44ea
+ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58081037"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58336189"
 ---
 # <a name="how-to-use-key-vault-soft-delete-with-powershell"></a>Como utilizar a eliminação de forma recuperável do Key Vault com o PowerShell
 
@@ -101,7 +101,7 @@ Com a eliminação de forma recuperável ativada:
 Pode visualizar cofres de chaves de estado de eliminado, associados à subscrição, utilizando o seguinte comando:
 
 ```powershell
-PS C:\> Get-AzKeyVault -InRemovedState 
+Get-AzKeyVault -InRemovedState 
 ```
 
 - *ID* pode ser utilizado para identificar o recurso quando recuperar ou remoção. 
@@ -233,8 +233,27 @@ A listagem de objetos de Cofre de chaves eliminado também mostra quando eles es
 >[!IMPORTANT]
 >Um objeto de cofre eliminados, acionado por seus *data de remoção agendada* campo, é eliminado permanentemente. Não é recuperável!
 
+## <a name="enabling-purge-protection"></a>Ativar a proteção contra remoção
+
+Quando a proteção contra remoção está ativada, um cofre ou num objeto eliminada não é possível limpar estado até que tenha passado o período de retenção de 90 dias. Esse cofre ou o objeto ainda pode ser recuperado. Esse recurso oferece maior garantia que um cofre ou um objeto nunca pode ser permanentemente eliminados até que o período de retenção período tenha passado.
+
+Pode ativar a proteção contra remoção apenas se a eliminação de forma recuperável também está ativada. 
+
+Para ativar a ambos os eliminação de forma recuperável e remover a proteção ao criar um cofre, utilize o [New-AzKeyVault](/powershell/module/az.keyvault/new-azkeyvault?view=azps-1.5.0) cmdlet:
+
+```powershell
+New-AzKeyVault -Name ContosoVault -ResourceGroupName ContosoRG -Location westus -EnableSoftDelete -EnablePurgeProtection
+```
+
+Adicionar proteção contra remoção para um cofre existente (que já tenha a eliminação de forma recuperável ativada), utilize o [Get-AzKeyVault](/powershell/module/az.keyvault/Get-AzKeyVault?view=azps-1.5.0), [Get-AzResource](/powershell/module/az.resources/get-azresource?view=azps-1.5.0), e [Set-AzResource](/powershell/module/az.resources/set-azresource?view=azps-1.5.0) cmdlets:
+
+```
+($resource = Get-AzResource -ResourceId (Get-AzKeyVault -VaultName "ContosoVault").ResourceId).Properties | Add-Member -MemberType "NoteProperty" -Name "enablePurgeProtection" -Value "true"
+
+Set-AzResource -resourceid $resource.ResourceId -Properties $resource.Properties
+```
+
 ## <a name="other-resources"></a>Outros recursos
 
 - Para uma descrição geral da funcionalidade de eliminação de forma recuperável do Key Vault, consulte [descrição geral da eliminação de forma recuperável do Azure Key Vault](key-vault-ovw-soft-delete.md).
-- Para obter uma visão geral da utilização do Azure Key Vault, consulte [o que é o Azure Key Vault?](key-vault-overview.md).
-
+- Para obter uma visão geral da utilização do Azure Key Vault, consulte [o que é o Azure Key Vault?](key-vault-overview.md). ar = Succeeded}

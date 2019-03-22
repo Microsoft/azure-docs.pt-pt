@@ -9,16 +9,18 @@ ms.date: 09/11/2018
 ms.topic: conceptual
 description: Desenvolvimento rápido da Kubernetes com contentores e microsserviços no Azure
 keywords: 'Docker, o Kubernetes, o Azure, o AKS, o serviço Kubernetes do Azure, contentores, Helm, a malha de serviço, roteamento de malha do serviço, kubectl, k8s '
-ms.openlocfilehash: 1ccb96bc8682ad505bc4b21e90951ea25c4c9954
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
-ms.translationtype: HT
+ms.openlocfilehash: eff7f88ec6cbf8064df42fa3b22d61bb44baa451
+ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57898087"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58339589"
 ---
 # <a name="troubleshooting-guide"></a>Guia de resolução de problemas
 
 Este guia contém informações sobre problemas comuns que poderá ter quando utilizar espaços de desenvolvimento do Azure.
+
+Se tiver um problema quando utilizar espaços de desenvolvimento do Azure, crie uma [problema no repositório do GitHub do Azure Dev espaços](https://github.com/Azure/dev-spaces/issues).
 
 ## <a name="enabling-detailed-logging"></a>Ativar o registo detalhado
 
@@ -262,11 +264,13 @@ az provider register --namespace Microsoft.DevSpaces
 ## <a name="dev-spaces-times-out-at-waiting-for-container-image-build-step-with-aks-virtual-nodes"></a>Espaços de desenvolvimento exceder o tempo limite em *a aguardar a criação da imagem do contentor...*  passo connosco virtuais de AKS
 
 ### <a name="reason"></a>Razão
-Isto ocorre quando está tentando utilizar espaços de desenvolvimento para executar um serviço que está configurado para ser executado [nó virtual de AKS](https://docs.microsoft.com/azure/aks/virtual-nodes-portal). Espaços de desenvolvimento não suporta atualmente a criar ou a depuração de serviços em nós virtuais.
+Este tempo limite ocorre quando tenta utilizar espaços de desenvolvimento para executar um serviço que está configurado para ser executado [nó virtual de AKS](https://docs.microsoft.com/azure/aks/virtual-nodes-portal). Espaços de desenvolvimento não suporta atualmente a criar ou a depuração de serviços em nós virtuais.
 
 Se executar `azds up` com o `--verbose` comutador ou ativar o registo verboso no Visual Studio, verá detalhes adicionais:
 
 ```cmd
+$ azds up --verbose
+
 Installed chart in 2s
 Waiting for container image build...
 pods/mywebapi-76cf5f69bb-lgprv: Scheduled: Successfully assigned default/mywebapi-76cf5f69bb-lgprv to virtual-node-aci-linux
@@ -274,7 +278,7 @@ Streaming build container logs for service 'mywebapi' failed with: Timed out aft
 Container image build failed
 ```
 
-Isto mostra que o pod do serviço foi atribuído a *virtual-nó-aci-linux*, que é um nó virtual.
+O comando acima mostra que o pod do serviço foi atribuído a *virtual-nó-aci-linux*, que é um nó virtual.
 
 ### <a name="try"></a>Experimente:
 Atualizar o gráfico Helm para o serviço de remover quaisquer *nodeSelector* e/ou *tolerations* valores que permitem que o serviço para executar num nó virtual. Estes valores normalmente são definidos do gráfico `values.yaml` ficheiro.

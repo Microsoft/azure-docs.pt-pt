@@ -10,12 +10,12 @@ ms.date: 03/04/2019
 ms.topic: conceptual
 description: Descreve os processos que espaços de desenvolvimento do Azure power e como eles são configurados no arquivo de configuração de azds.yaml
 keywords: azds.yaml, Azure Dev Spaces, Dev Spaces, Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, containers
-ms.openlocfilehash: 4d0b2d24335b03fb1afc729e4cb8f7fc07f8a77e
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 8d17be31acc6868399e8f785255d28fa2314d48c
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57456875"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58316121"
 ---
 # <a name="how-azure-dev-spaces-works-and-is-configured"></a>Como os espaços de desenvolvimento do Azure funciona e é configurado
 
@@ -59,7 +59,7 @@ As ferramentas do lado do cliente permite que o usuário:
 
 Enquanto a aplicação está em execução, o lado do cliente de ferramentas também:
 * Recebe e apresenta o stdout e stderr do seu aplicativo em execução no AKS.
-* Utiliza [porta-forward](https://kubernetes.io/docs/tasks/access-application-cluster/port-forward-access-application-cluster/) para permitir o acesso web ao seu aplicativo com http://locahost.
+* Utiliza [porta-forward](https://kubernetes.io/docs/tasks/access-application-cluster/port-forward-access-application-cluster/) para permitir o acesso web à sua aplicação através de http:\//localhost.
 * Anexa um depurador a sua aplicação em execução no AKS.
 * Sincronizações código-fonte para seu espaço de desenvolvimento quando é detetada uma alteração para as compilações incrementais, permitindo a rápida iteração.
 

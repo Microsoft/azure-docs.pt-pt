@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: tbd
 ms.date: 9/20/2017
 ms.author: raiye
-ms.openlocfilehash: 6068f054a2ce695a889351b1f959319c64eb73fd
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 6e4a83eb8b3488c4ce2816151ca31b4a594dd742
+ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51235603"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58338637"
 ---
 # <a name="azure-guest-os-supportability-and-retirement-policy"></a>Política do Azure de Suportabilidade e extinção de SO convidado
 As informações nesta página se relaciona com o sistema operativo convidado do Azure ([SO convidado](cloud-services-guestos-update-matrix.md)) para funções dos serviços Cloud web e de trabalho (PaaS). Não é aplicável a máquinas virtuais (IaaS).
@@ -55,7 +55,9 @@ Versões de SO convidado são lançadas mensalmente. Devido a taxa de lançament
 
 Em 60 dias para o tempo de vida, é uma versão "*desativada*". "Desativado" significa que a versão é removida do portal. Já não pode ser definida a versão do arquivo de configuração de CSCFG. As implementações existentes são mantidas em execução. Mas novas Implantações e atualizações de código e a configuração para as implementações existentes não serão permitidas.
 
-Algum tempo depois da tornar-se "desativado", a versão de SO convidado "*expira*" e quaisquer instalações ainda executando essa versão são força atualizado e definido para atualizar automaticamente o SO convidado no futuro. Expiração é efetuada em lotes para que o período de tempo de desabilitação para expiração pode variar.
+Algum tempo depois da tornar-se "desativado", a versão de SO convidado "expirar" e quaisquer instalações ainda em execução que a versão expirada estão expostas a segurança e problemas de vulnerabilidade. Em geral, a expiração é feita em lotes, para que o período de desabilitação para expiração pode variar.
+
+Os clientes que configurar seus serviços para atualizar o SO convidado manualmente, deve certificar-se de que as respetivas implementações estão em execução num SO convidado suportados. Se um serviço estiver configurado para atualizar automaticamente o SO convidado, a plataforma subjacente será garantir a conformidade e irá atualizar para o SO convidado mais recente.
 
 Estes períodos poderão ser estabelecidos mais tempo a critério da Microsoft para facilitar as transições de cliente. Quaisquer alterações serão comunicadas no [versões do SO convidado do Azure e matriz de compatibilidade de SDK](cloud-services-guestos-update-matrix.md).
 

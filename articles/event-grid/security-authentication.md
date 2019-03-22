@@ -8,12 +8,12 @@ ms.service: event-grid
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: babanisa
-ms.openlocfilehash: ea41f09269e3ad46db1f254965fd7d7df25232be
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: d66db88dd1e962acc63c960270bb5685218aa391
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58095607"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58316076"
 ---
 # <a name="event-grid-security-and-authentication"></a>Autenticação e segurança do Event Grid 
 
@@ -88,7 +88,7 @@ Para obter um exemplo de manipular o handshake de validação de assinatura, con
 
 ### <a name="checklist"></a>Lista de verificação
 
-Durante a criação de subscrição de evento, se estiver a ver uma mensagem de erro, como "a tentativa de validar o ponto final fornecido https://your-endpoint-here falhou. Para obter mais detalhes, visite https://aka.ms/esvalidation", ele indica que existe uma falha no handshake de validação. Para resolver este erro, verifique se os seguintes aspetos:
+Durante a criação de subscrição de evento, se estiver a ver uma mensagem de erro, como "a tentativa de validar o https de ponto final fornecido:\//your-endpoint-here falhou. Para obter mais detalhes, visite https:\//aka.ms/esvalidation ", ele indica que existe uma falha no handshake de validação. Para resolver este erro, verifique se os seguintes aspetos:
 
 * Tem controle de código da aplicação no ponto de extremidade de destino? Por exemplo, se estiver escrevendo um acionador HTTP com base em função do Azure, tem acesso ao código do aplicativo para fazer alterações ao mesmo?
 * Se tiver acesso ao código do aplicativo, implemente o mecanismo de handshake ValidationCode com base, conforme mostrado no exemplo acima.

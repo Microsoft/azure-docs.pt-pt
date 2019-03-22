@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/06/2018
 ms.author: shvija
-ms.openlocfilehash: 242c2f63735be33fe933ae3229f7aa28356ea697
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: e7f292db06d4da9206aabd14a68e6acde867f92d
+ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57548392"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58337005"
 ---
 # <a name="features-and-terminology-in-azure-event-hubs"></a>Funcionalidades e a terminologia nos Hubs de eventos do Azure
 
@@ -79,7 +79,7 @@ Os Hubs de eventos retém os dados durante um período de retenção configurado
 
 O número de partições é especificado durante a criação e deve ser entre 2 e 32. O número de partições não é alterável, pelo que deve considerar uma escala a longo prazo quando definir o número de partições. As partições são um mecanismo de organização de dados relacionado com o paralelismo a jusante necessário nas aplicações de consumo. O número de partições num hub de eventos está diretamente relacionado com o número de leitores simultâneos que espera ter. Pode aumentar o número de partições além de 32 ao contactar a equipa do Event Hubs.
 
-Enquanto as partições serem identificáveis e poderem ser enviadas diretamente, enviando diretamente para uma partição não é recomendado. Em vez disso, pode utilizar construções de nível superior, apresentadas nas secções [Publicador de eventos](#event-publishers) e [Capacidade](#capacity). 
+Enquanto as partições serem identificáveis e poderem ser enviadas diretamente, enviando diretamente para uma partição não é recomendado. Em vez disso, pode utilizar construções de nível superior, apresentadas na [publicador de eventos](#event-publishers) e seções de capacidade. 
 
 As partições são preenchidas com uma seqüência de dados de eventos que contêm o corpo do evento, uma matriz de propriedades definida pelo utilizador e metadados, como o desvio na partição e o respetivo número na sequência de transmissão.
 
@@ -152,13 +152,15 @@ Dados do evento:
 
 É da sua responsabilidade gerir o desvio.
 
-## <a name="capacity"></a>Capacidade
+## <a name="scaling-with-event-hubs"></a>Dimensionar com os Hubs de eventos
 
-O Event Hubs tem uma arquitetura paralela altamente escalável e existem vários fatores principais a considerar no tamanho e dimensionamento.
+Existem dois fatores que influenciam o dimensionamento com os Hubs de eventos.
+*   Unidades de débito
+*   Partições
 
 ### <a name="throughput-units"></a>Unidades de débito
 
-A capacidade de débito do Event Hubs é controlada por *unidades de débito*. As unidades de débito são unidades de capacidade previamente compradas. Uma única unidade de débito inclui a seguinte capacidade:
+A capacidade de débito do Event Hubs é controlada por *unidades de débito*. As unidades de débito são unidades de capacidade previamente compradas. Uma taxa de transferência única permite-lhe:
 
 * Entrada: Até 1 MB por segundo ou 1000 eventos por segundo (o que acontecer primeiro).
 * Saída: Até 2 MB por segundo ou 4096 eventos por segundo.
@@ -167,9 +169,13 @@ Além da capacidade das unidades de débito adquiridas, a entrada é limitada e 
 
 Unidades de débito são previamente adquiridas e são faturadas por hora. Assim que forem adquiridas, as unidades de débito são faturadas por um mínimo de uma hora. Débito até 20 unidades podem ser adquiridas para um espaço de nomes de Hubs de eventos e são partilhadas entre todos os hubs de eventos nesse espaço de nomes.
 
-Pode comprar mais unidades de débito em blocos de 20, até 100 unidades de débito, ao contactar o suporte do Azure. Além do limite, pode comprar blocos de 100 unidades de débito.
+### <a name="partitions"></a>Partições
 
-Recomendamos que equilibre as unidades de débito e as partições para alcançar a escala ideal. Uma única partição tem um mínimo de dimensionamento de uma unidade de débito. O número de unidades de débito deve ser inferior ou igual ao número de partições num hub de eventos.
+As partições permitem-lhe dimensionamento para seu processamento a jusante. Por causa do modelo de consumidor particionado dos Hubs de eventos oferece com partições, pode aumentar horizontalmente ao processar seus eventos em simultâneo. Um Hub de eventos pode ter até 32 partições.
+
+Recomendamos que equilibre as unidades de débito de 1:1 e as partições para alcançar a escala ideal. Uma única partição tem uma entrada e de saída até uma unidade de débito garantido. Embora possa ser capaz de alcançar um débito mais elevado numa partição, o desempenho não é garantido. É por isso é altamente recomendável que o número de partições num hub de eventos de ser maior que ou igual ao número de unidades de débito.
+
+Tendo em conta o débito total que tencione necessidade, sabe o número de unidades de débito que necessita e o número mínimo de partições, mas o número de partições que deve ter? Escolha o número de partições com base em quer atingir o paralelismo a jusante, bem como as suas necessidades de débito futuras. Não existe nenhum custo associado para o número de partições que tem dentro de um Hub de eventos.
 
 Para obter informações detalhadas sobre os preços dos Hubs de Eventos, veja [Preços de Hubs de Eventos](https://azure.microsoft.com/pricing/details/event-hubs/).
 

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 01/09/2019
 ms.author: cherylmc
 Customer intent: As someone with a networking background, I want to work with routing tables for NVA.
-ms.openlocfilehash: ac1384827ceede0f66fd08c6c08fa8e934b1ae42
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: fc8dd6770efa1c057a56374ddc0094c2d88d2eb5
+ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58076161"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58335741"
 ---
 # <a name="create-a-virtual-hub-route-table-to-steer-traffic-to-a-network-virtual-appliance"></a>Criar uma tabela de rotas de Virtual Hub para conduzir o tráfego para uma aplicação Virtual de rede
 
@@ -36,9 +36,9 @@ Neste artigo, vai aprender a:
 
 Certifique-se de que cumpriu os seguintes critérios:
 
-1. Tem uma aplicação Virtual de rede (NVA) é um software de terceiros à sua escolha, que normalmente é aprovisionado do Azure Marketplace (ligação) numa rede virtual.
+1. Tem uma aplicação Virtual de rede (NVA). Este é um software de terceiros à sua escolha, que normalmente é aprovisionado do Azure Marketplace numa rede virtual.
 2. Tem um IP privado atribuído à interface de rede NVA. 
-3. NVA não pode ser implementada no virtual hub. Tem de ser implementada numa VNet separada. Neste artigo, a VNet NVA é referida como "VNet de rede de Perímetro".
+3. A NVA não pode ser implementada no virtual hub. Tem de ser implementada numa VNet separada. Neste artigo, a VNet NVA é referida como "VNet de rede de Perímetro".
 4. A "rede de Perímetro VNet' pode ter uma ou várias redes virtuais ligadas à mesma. Neste artigo, nesta VNet é referida como 'VNet spoke Indireta'. Nestas VNets podem ser ligadas à vnet de rede de Perímetro, utilização de VNet peering.
 5. Certifique-se de que tem 2 VNets já criadas. Serão utilizados como spoke VNets. Neste artigo, os espaços de endereços do VNet spoke são 10.0.2.0/24 e 10.0.3.0/24. Se precisar de informações sobre como criar uma VNet, veja [criar uma rede virtual com o PowerShell](../virtual-network/quick-create-powershell.md).
 6. Certifique-se de que não há nenhum gateways de rede virtual em qualquer VNets.
@@ -117,14 +117,6 @@ Confirme as alterações para o hub virtual.
 
 ```powershell
 Update-AzVirtualHub -VirtualWanId $virtualWan.Id -ResourceGroupName "testRG" -Name "westushub" -RouteTable $routeTable
-```
-
-## <a name="cleanup"></a>Limpar recursos
-
-Quando já não precisa destes recursos, pode utilizar [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) para remover o grupo de recursos e todos os recursos nele contidos. Substitua "myResourceGroup" pelo nome do grupo de recursos e execute o seguinte comando do PowerShell:
-
-```azurepowershell-interactive
-Remove-AzResourceGroup -Name myResourceGroup -Force
 ```
 
 ## <a name="next-steps"></a>Passos Seguintes

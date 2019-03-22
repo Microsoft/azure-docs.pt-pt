@@ -9,19 +9,22 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 03/13/2019
+ms.date: 03/20/2019
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: d3cea9f3bc5645aeaefc5bb376557d365681df56
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: e4a79d7528f2e814e6370a5ead7d77a19057ebbb
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57994097"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58311276"
 ---
 # <a name="media-services-concepts"></a>Conceitos de serviços de multimédia
 
 Este tópico fornece uma breve descrição geral dos conceitos de Media Services do Azure e fornece ligações para artigos com uma explicação detalhada sobre funcionalidades e conceitos do serviços de multimédia v3. Os conceitos fundamentais descritos nos seguintes tópicos devem ser revistos antes de iniciar o desenvolvimento.
+
+> [!NOTE]
+> Atualmente, não é possível utilizar o portal do Azure para gerir os recursos de v3. Utilize o [REST API](https://aka.ms/ams-v3-rest-ref), [CLI](https://aka.ms/ams-v3-cli-ref), ou um suportadas [SDKs](developers-guide.md).
 
 ## <a name="cloud-upload-and-storage"></a>Carregamento e armazenamento na cloud
 

@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/27/2018
+ms.date: 03/21/2018
 ms.author: sethm
 ms.reviewer: efemmano
 ms.lastreviewed: 11/27/2018
-ms.openlocfilehash: 2845bb09fa44c3bd9cee914e2446403b4182b0d5
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: 29e4bb23b4b80f6e472d2dcb27fe5e5279a35890
+ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56871048"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58337719"
 ---
 # <a name="region-management-in-azure-stack"></a>Gestão da região no Azure Stack
 
@@ -29,7 +29,7 @@ ms.locfileid: "56871048"
 
 O Azure Stack usa o conceito de *regiões*, que são entidades lógicas compostas os recursos de hardware que compõem a infraestrutura do Azure Stack. Na gestão de região, pode encontrar todos os recursos necessários para operar com êxito a infraestrutura do Azure Stack.
 
-Integrada uma implementação do sistema (conhecido como um *cloud do Azure Stack*) constitui uma única região. Cada Development Kit do Azure Stack tem uma região, com o nome **local**. Se implementar um segundo sistema integrado do Azure Stack ou configurar outra instância do kit de desenvolvimento num hardware separado, esta nuvem do Azure Stack é uma região diferente.
+Integrada uma implementação do sistema (conhecido como um *cloud do Azure Stack*) constitui uma única região. Cada ferramenta do Azure Stack Development Kit (ASDK) tem uma região, com o nome **local**. Se implementar um segundo sistema integrado do Azure Stack ou configurar outra instância do kit de desenvolvimento num hardware separado, esta nuvem do Azure Stack é uma região diferente.
 
 ## <a name="information-available-through-the-region-management-tile"></a>Informações disponíveis por meio do mosaico de gestão da região
 
@@ -43,7 +43,7 @@ Se clicar numa região no **gestão da região** mosaico, pode acessar as seguin
 
 1. **Menu de recursos**. Acessar áreas de gerenciamento de infra-estrutura específicas e ver e gerir recursos de utilizador, como contas de armazenamento e redes virtuais.
 
-2. **Alertas**. Apresenta uma lista de alertas de todo o sistema e fornece detalhes sobre cada um dos alertas.
+2. **Alertas**. Liste os alertas de todo o sistema e fornecem detalhes sobre cada um dos alertas.
 
 3. **Atualizações**. Ver a versão atual da sua infraestrutura do Azure Stack, as atualizações disponíveis e o histórico de atualização. Também pode atualizar o seu sistema integrado.
 

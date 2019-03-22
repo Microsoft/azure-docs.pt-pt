@@ -11,14 +11,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/08/2019
+ms.date: 03/20/2019
 ms.author: juliako
-ms.openlocfilehash: a016cfb84f7c41ff47b1811e1d6b68b4d2be2ae3
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 37fd131e570fa9f50df2479503b35407d67410cb
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57863428"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58311531"
 ---
 # <a name="import-a-postman-collection-with-on-demand-streaming-operations"></a>Importar uma coleção do Postman com operações sob demanda de transmissão em fluxo 
 

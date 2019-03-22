@@ -1,46 +1,29 @@
 ---
-title: Interoperabilidade de cópia de segurança do Azure Site Recovery - | Documentos da Microsoft
+title: Suporte para utilizar o Azure Site Recovery com o Azure Backup | Documentos da Microsoft
 description: Fornece uma descrição geral de como Azure Site Recovery e o Azure Backup podem ser utilizado em conjunto.
 services: site-recovery
 author: sideeksh
 manager: rochakm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 02/26/2019
+ms.date: 03/18/2019
 ms.author: sideeksh
-ms.openlocfilehash: 6658ab8c967c70ac1deaeba3d1dfeac602515591
-ms.sourcegitcommit: 1902adaa68c660bdaac46878ce2dec5473d29275
+ms.openlocfilehash: e902f70225ec0eb0caa98f7e19a16c87220cb6f9
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/11/2019
-ms.locfileid: "57731877"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58312891"
 ---
-# <a name="about-site-recovery-and-backup-interoperability"></a>Sobre o Site Recovery e interoperabilidade de cópia de segurança
+# <a name="support-for-using-site-recovery-with-azure-backup"></a>Suporte para utilizar o Site Recovery com o Azure Backup
 
-Este artigo fornece orientações para a recuperação de desastre a cópia de segurança de VM de IaaS do Azure e a VM do Azure a utilizar com êxito.
+Este artigo resume o suporte para utilizar o [serviço Site Recovery](site-recovery-overview.md) em conjunto com o [serviço de cópia de segurança do Azure](https://docs.microsoft.com/azure/backup/backup-overview).
 
-## <a name="azure-backup"></a>Azure Backup
-
-O Azure Backup ajuda a proteger os dados para servidores no local, máquinas virtuais, cargas de trabalho virtualizadas, servidores do SQL Server, servidores do SharePoint e muito mais. O Azure Site Recovery orquestra e gere a recuperação após desastre para VMs do Azure, VMs no local e servidores físicos.
-
-## <a name="azure-site-recovery"></a>Azure Site Recovery
-
-É possível configurar a cópia de segurança do Azure e Azure Site Recovery numa VM ou um grupo de VMs. Ambos os produtos são interoperáveis. Seguem-se alguns cenários em que a interoperabilidade entre a cópia de segurança e recuperação de sites do Azure torna-se importantes:
-
-### <a name="file-backuprestore"></a>Cópia de segurança/restauro de ficheiros
-
-Se a cópia de segurança e de replicação estão ativadas e é feita uma cópia de segurança, não existe nenhum problema com o restauro de qualquer ficheiro (s) na VM de origem lado ou do grupo de VMs. Replicação continuará como de costume, sem qualquer alteração no estado de funcionamento de replicação.
-
-### <a name="disk-backuprestore"></a>Cópia de segurança/restauro de disco
-
-Se restaurar o disco a partir da cópia de segurança, em seguida, a proteção da máquina virtual tem de ser ativada novamente.
-
-### <a name="vm-backuprestore"></a>Cópia de segurança/restauro de VMS
-
-Não é suportada a cópia de segurança e restauro de uma VM ou um grupo de VMs. Para fazê-lo funcionar, proteção tem de ser ativada novamente.
-
-**Cenário** | **Suportado pelo Azure Site Recovery?** | **Solução alternativa, se aplicável**  
+**Ação** | **Suporte de recuperação de site** | **Detalhes**
 --- | --- | ---
-Cópia de segurança do ficheiro/pasta | Sim | Não Aplicável
-Cópia de segurança do disco | Atualmente, não é | Desativar e ativar a proteção
-Cópia de segurança VM | Não | Desativar e ativar a proteção
+**Implementar serviços em conjunto** | Suportadas | Os serviços são interoperáveis e podem ser configurados em conjunto.
+**Cópia de segurança/restauro de ficheiros** | Suportadas | Quando a cópia de segurança e de replicação estão ativadas para uma VM e backups são feitos, não existe nenhum problema no restauro de ficheiros no lado da origem VMs ou o grupo de VMs. Replicação como de costume continua sem qualquer alteração no estado de funcionamento de replicação.
+**Cópia de segurança/restauro de disco** | Não há suporte atual | Se restaurar um disco de cópia de segurança, terá de desativar e reativar a replicação novamente para a VM.
+**Cópia de segurança/restauro de VMS** | Não há suporte atual | Se criar cópias de segurança ou restaurar uma VM ou um grupo de VMs, terá de desativar e reativar a replicação para a VM.  
+
+

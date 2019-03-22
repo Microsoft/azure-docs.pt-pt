@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 06/27/2017
 ms.author: yuemlu
 ms.subservice: common
-ms.openlocfilehash: 5f2052576d0c6a1e663e3b84534fa0784a26e175
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: fd72e2a75c00c30fdc5497e0d88e9c83dc5fcad8
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58006510"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58317362"
 ---
 # <a name="migrating-to-azure-premium-storage-unmanaged-disks"></a>Migrar para o armazenamento Premium do Azure (discos não geridos)
 
@@ -158,7 +158,7 @@ Crie uma conta de armazenamento para a manutenção dos VHDs. Quando planear ond
 Para discos de dados, pode optar por manter alguns discos de dados numa conta de armazenamento standard (por exemplo, os discos que têm o armazenamento mais esporádica), mas, recomendamos vivamente que mover todos os dados para a carga de trabalho de produção utilizar o armazenamento premium.
 
 #### <a name="copy-vhd-with-azcopy-or-powershell"></a>Passo 3. Copie o VHD com o AzCopy ou o PowerShell
-Precisará localizar a chave de conta de contentor caminho e o armazenamento, para processar uma destas duas opções. Chave de conta de armazenamento e o caminho do contentor pode ser encontrada na **Portal do Azure** > **armazenamento**. O contentor de URL vai ser, como "https://myaccount.blob.core.windows.net/mycontainer/".
+Precisará localizar a chave de conta de contentor caminho e o armazenamento, para processar uma destas duas opções. Chave de conta de armazenamento e o caminho do contentor pode ser encontrada na **Portal do Azure** > **armazenamento**. O contentor de URL vai ser, como "https:\//myaccount.blob.core.windows.net/mycontainer/".
 
 ##### <a name="option-1-copy-a-vhd-with-azcopy-asynchronous-copy"></a>Opção 1: Copiar um VHD com o AzCopy (cópia assíncrona)
 Utilizar o AzCopy, pode carregar facilmente o VHD através da Internet. Dependendo do tamanho dos VHDs, isto pode demorar tempo. Não se esqueça de verificar os limites de entrada/saída de conta de armazenamento ao utilizar esta opção. Ver [metas de desempenho e escalabilidade do armazenamento do Azure](storage-scalability-targets.md) para obter detalhes.

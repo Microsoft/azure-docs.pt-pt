@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 1/4/2019
 ms.author: aljo
-ms.openlocfilehash: 78bf30c01bc240d4fc7439ab14868bf7be90b17e
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: HT
+ms.openlocfilehash: c27938ad28abc62f42024faae7931196704b9b1b
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57895836"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58314574"
 ---
 # <a name="create-your-first-service-fabric-container-application-on-linux"></a>Criar a sua primeira aplicação de contentor do Service Fabric no Linux
 > [!div class="op_single_selector"]
@@ -122,7 +122,7 @@ docker run -d -p 4000:80 --name my-web-site helloworldapp
 
 *nome* dá um nome ao contentor em execução (em vez do ID do contentor).
 
-Ligue-se ao contentor em execução. Abra um browser que aponte para o endereço IP devolvido na porta 4000, como, por exemplo "http://localhost:4000". Deverá ver o cabeçalho "Hello World!" apresentado no browser.
+Ligue-se ao contentor em execução. Abra um browser que aponte para o endereço IP devolvido na porta 4000, por exemplo "http:\//localhost:4000". Deverá ver o cabeçalho "Hello World!" apresentado no browser.
 
 ![Hello World!][hello-world]
 
@@ -271,9 +271,9 @@ Utilize o script de instalação fornecido nos modelos em https://github.com/Azu
 ./install.sh
 ```
 
-Abra um browser e navegue para o Service Fabric Explorer, em http://localhost:19080/Explorer (substitua localhost pelo IP privado da VM se estiver a utilizar Vagrant em Mac OS X). Expanda o nó Aplicações e repare que há, agora, uma entrada para o tipo de aplicação e outra para a primeira instância desse tipo.
+Abra um browser e navegue para o Service Fabric Explorer em http:\//localhost:19080 / Explorer (substitua localhost pelo IP privado da VM se estiver a utilizar Vagrant em Mac OS X). Expanda o nó Aplicações e repare que há, agora, uma entrada para o tipo de aplicação e outra para a primeira instância desse tipo.
 
-Ligue-se ao contentor em execução. Abra um browser que aponte para o endereço IP devolvido na porta 4000, como, por exemplo "http://localhost:4000". Deverá ver o cabeçalho "Hello World!" apresentado no browser.
+Ligue-se ao contentor em execução. Abra um browser que aponte para o endereço IP devolvido na porta 4000, por exemplo "http:\//localhost:4000". Deverá ver o cabeçalho "Hello World!" apresentado no browser.
 
 ![Hello World!][hello-world]
 

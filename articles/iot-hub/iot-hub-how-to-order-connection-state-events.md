@@ -7,12 +7,12 @@ author: ash2017
 ms.topic: conceptual
 ms.date: 07/06/2018
 ms.author: asrastog
-ms.openlocfilehash: 5580d67f796efc809ef536818419ab91e8ee54a2
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: edaa0cdcd98ce529ccbf9bf6aafaacf57a3ea383
+ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57540016"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58337532"
 ---
 # <a name="order-device-connection-events-from-azure-iot-hub-using-azure-cosmos-db"></a>Ordenar dispositivo eventos de ligação do IoT Hub com o Azure Cosmos DB
 
@@ -24,9 +24,9 @@ O número de sequência é uma representação de cadeia de caracteres de um nú
 
 * Uma conta ativa do Azure. Se não tiver uma, pode [criar uma conta gratuita](https://azure.microsoft.com/pricing/free-trial/).
 
-* Uma conta ativa do Azure Cosmos DB SQL API. Se ainda não criou uma, veja [criar uma conta de base de dados](https://docs.microsoft.com/azure/cosmos-db/create-sql-api-dotnet#create-a-database-account) para obter instruções.
+* Uma conta ativa do Azure Cosmos DB SQL API. Se ainda não criou uma, veja [criar uma conta de base de dados](https://docs.microsoft.com/azure/cosmos-db/create-sql-api-dotnet#create-an-account) para obter instruções.
 
-* Uma coleção na sua base de dados. Ver [adicionar uma coleção](https://docs.microsoft.com/azure/cosmos-db/create-sql-api-dotnet#add-a-collection) para obter instruções.
+* Uma coleção na sua base de dados. Ver [adicionar uma coleção](https://docs.microsoft.com/azure/cosmos-db/create-sql-api-dotnet#add-a-database-and-a-collection) para obter instruções.
 
 * Um Hub IoT no Azure. Se ainda não criou um, consulte [Introdução ao Hub IoT](../iot-hub/iot-hub-csharp-csharp-getstarted.md) para obter instruções. 
 
@@ -350,5 +350,3 @@ Para remover uma conta do Azure Cosmos DB no portal do Azure, faça duplo clique
 * [Experimente o tutorial de eventos do IoT Hub](../event-grid/publish-iot-hub-events-to-logic-apps.md)
 
 * Saiba mais sobre o que mais pode fazer com [Event Grid](../event-grid/overview.md)
-
-

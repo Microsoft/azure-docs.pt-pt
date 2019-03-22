@@ -6,14 +6,14 @@ manager: carmonm
 services: site-recovery
 ms.service: site-recovery
 ms.topic: article
-ms.date: 12/27/2018
+ms.date: 03/18/2019
 ms.author: raynew
-ms.openlocfilehash: 053d400a9986d0997344b2be09140d8afb0e1faf
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 1824c0a4c129fa5612c990447a13aef6b230e71f
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57996363"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58310171"
 ---
 # <a name="about-recovery-plans"></a>Acerca dos planos de recuperação
 

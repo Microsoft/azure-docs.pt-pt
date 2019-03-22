@@ -1,7 +1,7 @@
 ---
-title: Experimentações de controlar e métricas de treinamento
+title: Métricas de registo durante as execuções de preparações
 titleSuffix: Azure Machine Learning service
-description: Com o serviço Azure Machine Learning, pode controlar suas experimentações e monitorizar as métricas para melhorar o processo de criação de modelo. Saiba como adicionar registos ao seu script de treinamento, como submeter a experimentação, como verificar o progresso de uma tarefa em execução e como visualizar os resultados de uma execução.
+description: Pode controlar suas experimentações e monitorizar as métricas para melhorar o processo de criação de modelo. Saiba como adicionar registos ao seu script de treinamento, como submeter a experimentação, como verificar o progresso de uma tarefa em execução e como visualizar os resultados de uma execução.
 services: machine-learning
 author: heatherbshapiro
 ms.author: hshapiro
@@ -11,14 +11,14 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 12/04/2018
 ms.custom: seodec18
-ms.openlocfilehash: 79247c4c1f26fadcd5f0291b55c9dd8d4d9aa2af
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 835d1f41ffe940422554a8ca59d0a91ac8e98607
+ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58008831"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58336600"
 ---
-# <a name="track-experiments-and-training-metrics-in-azure-machine-learning"></a>Controle experimentações e métricas de formação no Azure Machine Learning
+# <a name="log-metrics-during-training-runs-in-azure-machine-learning"></a>Métricas de registo durante o treinamento é executado no Azure Machine Learning
 
 No serviço do Azure Machine Learning, pode controlar suas experimentações e monitorizar as métricas para melhorar o processo de criação de modelo. Neste artigo, saiba como adicionar registos ao seu script de treinamento, submeter uma execução de experimentação, monitorizar a execução e ver os resultados de uma execução.
 
@@ -218,7 +218,7 @@ Este exemplo Expande o modelo básico de sklearn Ridge acima. Ele faz um parâme
    ```
 
 ## <a name="cancel-a-run"></a>Cancelar uma execução
-Após uma execução é submetido, pode cancelá-lo, mesmo se perder a referência de objeto, desde que souber o nome de experimentação e id de execução. 
+Depois de uma execução é submetida, pode cancelá-lo, mesmo se perder a referência de objeto, desde que souber o nome de experimentação e id de execução. 
 
 ```python
 from azureml.core import Experiment

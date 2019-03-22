@@ -1,5 +1,5 @@
 ---
-title: O Azure AD self-service palavra-passe reposta Windows 7 e 8.1
+title: O Azure AD self-service palavra-passe reposta Windows 7 e 8.1 - Azure Active Directory
 description: Como ativar as senhas de auto-atendimento repor usando Esqueci-me da palavra-passe no ecrã de início de sessão 8.1 ou Windows 7
 services: active-directory
 ms.service: active-directory
@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 933ac9b8f7d381db0111ee50385f11e8a22d92f1
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 7a7752fac54f9dfb2f8fb0aecd3b6249c52c3bcf
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56217824"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58316359"
 ---
 # <a name="how-to-enable-password-reset-from-windows-7-8-and-81"></a>Como: Ativar a reposição do Windows 7, 8 e 8.1 palavra-passe
 

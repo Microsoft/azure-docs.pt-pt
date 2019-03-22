@@ -11,14 +11,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 02/25/2019
+ms.date: 03/20/2019
 ms.author: juliako
-ms.openlocfilehash: 60623ab4b41c343cab0f9be1abd8ab45051b3f9e
-ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
+ms.openlocfilehash: 78d6ac0a4ecde8d60a0ef3aa22515c7ce1ea4e07
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56889363"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58309543"
 ---
 # <a name="define-account-filters-and-asset-filters"></a>Definir filtros de conta e filtros de elemento  
 
@@ -88,7 +88,11 @@ Condições de propriedade de controle de filtro descrevem os tipos de controlo,
 |**Nome**|Utilize o nome da faixa para filtragem.|
 |**Tipo**|Utilize o tipo da faixa para filtragem.<br/><br/>São permitidos os seguintes valores: "vídeo", "áudio" ou "text".|
 
-## <a name="example"></a>Exemplo
+## <a name="associate-filters-with-streaming-locator"></a>Associar filtros localizador de transmissão em fluxo
+
+Pode especificar uma lista dos filtros de ativo ou a conta, que seria aplicada para o localizador de transmissão em fluxo. O [packager dinâmica](dynamic-packaging-overview.md) aplica-se esta lista de filtros em conjunto com o seu cliente especifica no URL. Esta combinação gera uma [dyanamic manifesto](filters-dynamic-manifest-overview.md), que se baseia em filtros no URL + filtros que especificar no localizador de transmissão em fluxo. Recomendamos que utilize esta funcionalidade se pretenda aplicar filtros, mas não pretende expor os nomes de filtro no URL.
+
+## <a name="definition-example"></a>Exemplo de definição
 
 ```json
 {

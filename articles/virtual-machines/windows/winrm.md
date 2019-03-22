@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/16/2016
 ms.author: kasing
-ms.openlocfilehash: 77b575de3a84d582c11fb31952120e1079e23ffb
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 89739aa51748e7bc69fc42b8b745994bbe50e39d
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58091108"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58309806"
 ---
 # <a name="setting-up-winrm-access-for-virtual-machines-in-azure-resource-manager"></a>Como configurar o acesso de WinRM para máquinas virtuais no Azure Resource Manager
 
@@ -83,7 +83,7 @@ Set-AzureKeyVaultSecret -VaultName "<vault name>" -Name "<secret name>" -SecretV
 O fornecedor de recursos Microsoft. Compute tem um URL para o segredo no interior do Cofre de chaves durante o aprovisionamento da VM. Isto permite que o fornecedor de recursos Microsoft. Compute transferir o segredo e criar o certificado equivalente na VM.
 
 > [!NOTE]
-> O URL do segredo do deve incluir também a versão. Um URL de exemplo é semelhante a abaixo https://contosovault.vault.azure.net:443/secrets/contososecret/01h9db0df2cd4300a20ence585a6s7ve
+> O URL do segredo do deve incluir também a versão. Um exemplo de URL é semelhante a abaixo https:\//contosovault.vault.azure.net:443/secrets/contososecret/01h9db0df2cd4300a20ence585a6s7ve
 
 #### <a name="templates"></a>Modelos
 Pode obter a ligação para o URL no modelo, utilizando o abaixo código

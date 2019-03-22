@@ -13,12 +13,12 @@ ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
 ms.date: 02/12/2019
-ms.openlocfilehash: 5c5b32eaf3066abe4489d909e224d2aa65e884a7
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
+ms.openlocfilehash: efdb82f891b21fa03a338c56d3f3e897e684bdf6
+ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56238033"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58337075"
 ---
 # <a name="quickstart-use-sql-server-management-studio-to-connect-and-query-an-azure-sql-database"></a>Início rápido: Utilizar o SQL Server Management Studio para se ligar e consultar uma base de dados SQL do Azure
 
@@ -142,17 +142,18 @@ Executar isso [inserir](https://msdn.microsoft.com/library/ms174335.aspx) códig
    ```sql
    SELECT * FROM [SalesLT].[Product] 
    WHERE Name='myNewProduct' 
+   ```
+   
+2. Selecione **Executar**. O resultado seguinte é apresentada. 
 
-2. Select **Execute**. The following result appears. 
-
-   ![result](./media/sql-database-connect-query-ssms/result.png)
+   ![Resultado](./media/sql-database-connect-query-ssms/result.png)
 
  
-## Update data
+## <a name="update-data"></a>Atualizar dados
 
-Run this [UPDATE](https://msdn.microsoft.com/library/ms177523.aspx) Transact-SQL code to modify your new product.
+Executar isso [ATUALIZAÇÃO](https://msdn.microsoft.com/library/ms177523.aspx) código Transact-SQL para modificar o seu novo produto.
 
-1. Replace the previous query with this one.
+1. Substitua a consulta anterior este.
 
    ```sql
    UPDATE [SalesLT].[Product]

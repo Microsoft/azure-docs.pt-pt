@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 01/11/2018
-ms.openlocfilehash: 175fdcc1bf8d28c0eeb6eeccaa54c996c837ef81
-ms.sourcegitcommit: 21466e845ceab74aff3ebfd541e020e0313e43d9
+ms.openlocfilehash: b5e7864eae56a6f066590191373d35cb57693f37
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53744450"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58311684"
 ---
 # <a name="operationalize-a-data-analytics-pipeline"></a>Operacionalizar um pipeline de análise de dados
 
@@ -150,7 +150,7 @@ Para utilizar a consola Web do Oozie para ver o estado das coordenador e das ins
 
 2. Certifique-se de que o túnel está operacional ao navegar para Ambari no seu nó principal, ao navegar para:
 
-    http://headnodehost:8080
+    http:\//headnodehost:8080
 
 3. Para aceder a **consola da Web de Oozie** na Ambari, selecione **Oozie**, **ligações rápidas**e, em seguida, selecione **consola da Web de Oozie**.
 
@@ -176,7 +176,7 @@ Pode copiar o ficheiro com o SCP no seu `bash` sessão de shell.
 
 Os dados de exemplo já estão disponíveis. No entanto, o pipeline requer duas tabelas do Hive para processar, um para os dados de entrada (`rawFlights`) e outro para os dados resumidos (`flights`). Crie essas tabelas no Ambari da seguinte forma.
 
-1. Inicie sessão no Ambari ao navegar até [ http://headnodehost:8080 ](http://headnodehost:8080).
+1. Inicie sessão no Ambari ao navegar para o http:\//headnodehost:8080.
 2. Na lista de serviços, selecione **Hive**.
 
     ![Selecionar o ramo de registo no Ambari](./media/hdinsight-operationalize-data-pipeline/hdi-ambari-services-hive.png)
@@ -414,11 +414,11 @@ A tabela seguinte resume a cada uma das propriedades e indica onde é possível 
 
 | Propriedade | Origem de valor |
 | --- | --- |
-| NameNode | O caminho completo para o contentor de armazenamento do Azure ligado ao seu cluster do HDInsight. |
+| nameNode | O caminho completo para o contentor de armazenamento do Azure ligado ao seu cluster do HDInsight. |
 | jobTracker | O nome de anfitrião interno para YARN do seu Active Directory cluster aceda nó. Na home page do Ambari, selecione YARN a partir da lista de serviços, em seguida, escolha o Gestor de recursos do Active Directory. O nome de anfitrião URI é apresentado na parte superior da página. Acrescente a porta 8050. |
 | queueName | O nome da fila YARN utilizado durante o agendamento de ações do Hive. Deixe como predefinição. |
 | oozie.use.system.libpath | Deixe como true. |
-| Základu | O caminho para a subpasta no armazenamento do Azure para implementar o fluxo de trabalho do Oozie e ficheiros de suporte. |
+| appBase | O caminho para a subpasta no armazenamento do Azure para implementar o fluxo de trabalho do Oozie e ficheiros de suporte. |
 | oozie.wf.application.path | A localização do fluxo de trabalho Oozie `workflow.xml` para executar. |
 | hiveScriptLoadPartition | O caminho no armazenamento do Azure para o ficheiro de consulta do Hive `hive-load-flights-partition.hql`. |
 | hiveScriptCreateDailyTable | O caminho no armazenamento do Azure para o ficheiro de consulta do Hive `hive-create-daily-summary-table.hql`. |

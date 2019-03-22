@@ -9,12 +9,12 @@ ms.author: deli
 ms.reviewer: klam, estfan, LADocs
 ms.topic: article
 ms.date: 01/13/2019
-ms.openlocfilehash: c5128e904e540deeb3293fb687da4e8cafcfa1e0
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: a933824e9553ee7f638da495b46ebed19e04169d
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57870999"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58316971"
 ---
 # <a name="connect-to-on-premises-file-systems-with-azure-logic-apps"></a>Ligar a sistemas de ficheiros no local com o Azure Logic Apps
 
@@ -48,7 +48,7 @@ Para seguir o exemplo, precisa destes itens:
 
 1. Inicie sessão para o [portal do Azure](https://portal.azure.com)e abra a aplicação lógica no Estruturador da aplicação lógica, se não estiver já abrir.
 
-1. Na caixa de pesquisa, introduza "dropbox" como o filtro. Na lista de disparadores, selecione este acionador: **Quando é criado um ficheiro** 
+1. Na caixa de pesquisa, introduza "dropbox" como o filtro. Na lista de disparadores, selecione este acionador: **Quando é criado um ficheiro**
 
    ![Selecione o acionador do Dropbox](media/logic-apps-using-file-connector/select-dropbox-trigger.png)
 
@@ -78,7 +78,7 @@ Para seguir o exemplo, precisa destes itens:
    | **gateway** | Sim | <*installed-gateway-name*> | O nome para o seu gateway instalado anteriormente | 
    ||| 
 
-1. Quando tiver terminado, escolha **Create** (Criar). 
+1. Quando tiver terminado, escolha **Create** (Criar).
 
    O Logic Apps configura e testa a ligação, certificar-se de que a ligação funciona corretamente. 
    Se a ligação está configurada corretamente, são apresentadas as opções para a ação que selecionou anteriormente. 

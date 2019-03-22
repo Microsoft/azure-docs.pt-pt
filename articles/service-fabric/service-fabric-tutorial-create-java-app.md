@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 09/01/2018
 ms.author: suhuruli
 ms.custom: mvc
-ms.openlocfilehash: 5ad3d7c27b003fb3963333471bceb3226655a5eb
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 559c02e74e97093a15b1d768eb5a3b32502db64e
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57874886"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58314591"
 ---
 # <a name="tutorial-create-an-application-with-a-java-web-api-front-end-service-and-a-stateful-back-end-service-on-service-fabric"></a>Tutorial: Crie uma aplicação com um serviço de front-end de API da web de Java e um serviço de back-end com monitorização de estado no Service Fabric
 
@@ -912,7 +912,7 @@ Neste momento, a aplicação está pronta para ser implementada num cluster do S
 
 4. No Package Explorer do Eclipse, clique com o botão direito do rato no projeto **Voting** e clique em **Service Fabric -> Publish Application... (Publicar Aplicação...)** 
 5. Na janela **Publicar a Aplicação**, selecione **Local.json** na lista pendente e clique em **Publicar**.
-6. Aceda ao seu navegador da web e acesso `http://localhost:8080` para ver a sua aplicação em execução no cluster do Service Fabric local. 
+6. Aceda ao web browser e o acesso http:\//localhost:8080 para ver a sua aplicação em execução no cluster do Service Fabric local. 
 
 ## <a name="next-steps"></a>Passos Seguintes
 

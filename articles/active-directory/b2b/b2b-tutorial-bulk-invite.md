@@ -10,12 +10,13 @@ ms.author: mimart
 author: msmimart
 ms.reviewer: mal
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3a30281012d28489a40e3366585164628d87c220
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ROBOTS: NOINDEX
+ms.openlocfilehash: 897fa353061d5b3e59f5613ea46e47afba0e3efa
+ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57994600"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58337804"
 ---
 # <a name="tutorial-bulk-invite-azure-ad-b2b-collaboration-users"></a>Tutorial: Em massa convidar utilizadores de colaboração B2B do Azure AD
 

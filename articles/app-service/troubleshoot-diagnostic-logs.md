@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 06/06/2016
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 7d877f467f06768c31679752d9deff1ca19d0003
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: 023d12764e3dcfcf2f5471cb431528a14fbc1fed
+ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56882880"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58339640"
 ---
 # <a name="enable-diagnostics-logging-for-apps-in-azure-app-service"></a>Ativar registo de diagnósticos para aplicações no serviço de aplicações do Azure
 ## <a name="overview"></a>Descrição geral
@@ -115,7 +115,7 @@ Para transferir os ficheiros de registo utilizando a Interface de linha de coman
 
     az webapp log download --resource-group resourcegroupname --name appname
 
-Este comando guarda os registos para a aplicação com o nome "appname" num ficheiro denominado **diagnostics.zip** no diretório atual.
+Este comando guarda os registos para a aplicação com o nome "appname" num ficheiro denominado **webapp_logs.zip** no diretório atual.
 
 > [!NOTE]
 > Se ainda não instalou a CLI do Azure, ou ainda não configurado para utilizar a sua subscrição do Azure, veja [como utilizar o Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli?view=azure-cli-latest).

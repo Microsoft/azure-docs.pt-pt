@@ -1,5 +1,5 @@
 ---
-title: Azure MFA software development kit para aplicações personalizadas
+title: Azure MFA software development kit para aplicações personalizadas - Azure Active Directory
 description: Este artigo mostra-lhe como transferir e utilizar o SDK de MFA do Azure para ativar a verificação de dois passos para as suas aplicações personalizadas.
 services: multi-factor-authentication
 ms.service: active-directory
@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 46287e75a4f4717722c398cf4133b6409c75aa8e
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 8b6f5def70dcb2564e92c04e53b5d2ef5f0631fd
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56178928"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58310868"
 ---
 # <a name="building-multi-factor-authentication-into-custom-apps-sdk"></a>Criando o multi-factor Authentication nas aplicações personalizadas (SDK)
 

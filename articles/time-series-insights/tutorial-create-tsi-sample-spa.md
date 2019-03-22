@@ -8,12 +8,12 @@ ms.date: 06/14/2018
 ms.author: anshan
 manager: cshankar
 ms.custom: seodec18
-ms.openlocfilehash: 9d18b1382bdb421afcc8aee92fd99b7ef0d09e32
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.openlocfilehash: a9baf36221c99ece0703e2caa3f3e6c3b9364480
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53540151"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58312211"
 ---
 # <a name="tutorial-create-an-azure-time-series-insights-single-page-web-app"></a>Tutorial: Criar uma aplicação Web de página única do Azure Time Series Insights
 
@@ -54,7 +54,7 @@ Antes de criar a aplicação, tem de registá-la com o Azure AD. O registo forne
    ---|---
    **Nome** | Forneça um nome de registo significativo.  
    **Tipo de Aplicação** | Uma vez que está a criar uma aplicação Web SPA, deixe como “Aplicação Web/API”.
-   **URL de início de sessão** | Introduza o URL para a página homepage /início de sessão da aplicação. Uma vez que a aplicação será alojada no Serviço de Aplicações do Azure(mais tarde), tem de utilizar um URL dentro do domínio "https://azurewebsites.net". Neste exemplo, o nome baseia-se no nome do registo.
+   **URL de início de sessão** | Introduza o URL para a página homepage /início de sessão da aplicação. Uma vez que a aplicação será alojada no serviço de aplicações do Azure (mais tarde), tem de utilizar um URL dentro de "https:\//azurewebsites.net" domínio. Neste exemplo, o nome baseia-se no nome do registo.
 
    Quando terminar, clique em **Criar** para criar o novo registo de aplicação.
 

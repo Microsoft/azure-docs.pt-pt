@@ -16,12 +16,12 @@ ms.date: 11/14/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8de47aab231c66f3539c2d2f0f0e4c535a04038a
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 4822de6f6470547b47ecaa3874bed0df4ad20cf6
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58085376"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58309593"
 ---
 # <a name="azure-active-directory-seamless-single-sign-on-frequently-asked-questions"></a>O Azure Active Directory totalmente integrada início de sessão único: Perguntas mais frequentes
 
@@ -45,16 +45,16 @@ Abaixo encontra uma lista parcial das aplicações que pode enviar estes parâme
 
 | Nome da aplicação | URL da aplicação a ser utilizado |
 | -- | -- |
-| Painel de acesso | https://myapps.microsoft.com/contoso.com |
-| Outlook na Web | https://outlook.office365.com/contoso.com |
-| Portais do Office 365 | <https://portal.office.com?domain_hint=contoso.com>, <https://www.office.com?domain_hint=contoso.com> |
+| Painel de acesso | https:\//myapps.microsoft.com/contoso.com |
+| Outlook na Web | https:\//outlook.office365.com/contoso.com |
+| Portais do Office 365 | https:\//portal.office.com?domain_hint=contoso.com, https:\//www.office.com?domain_hint=contoso.com |
 
-Além disso, os utilizadores obtêm uma experiência de início de sessão silenciosa se uma aplicação envia pedidos de início de sessão para os pontos finais do Azure AD configurar como os inquilinos - ou seja, https://login.microsoftonline.com/contoso.com/<..> ou https://login.microsoftonline.com/<tenant_ID>/<..> - em vez ponto de extremidade comum do Azure AD - ou seja, https://login.microsoftonline.com/common/<...>. Abaixo encontra uma lista parcial de aplicativos que realizar estes tipos de pedidos de início de sessão.
+Além disso, os utilizadores obtêm uma experiência de início de sessão silenciosa se uma aplicação envia pedidos de início de sessão para os pontos finais do Azure AD configurar como os inquilinos - ou seja, https:\//login.microsoftonline.com/contoso.com/ <.... > ou https:\//login.microsoftonline.com/ < tenant_ID > / <.... > - em vez ponto de extremidade comum do Azure AD - ou seja, https:\//login.microsoftonline.com/common/ <... >. Abaixo encontra uma lista parcial de aplicativos que realizar estes tipos de pedidos de início de sessão.
 
 | Nome da aplicação | URL da aplicação a ser utilizado |
 | -- | -- |
-| SharePoint Online | https://contoso.sharepoint.com |
-| Portal do Azure | https://portal.azure.com/contoso.com |
+| SharePoint Online | https:\//contoso.sharepoint.com |
+| Portal do Azure | https:\//portal.azure.com/contoso.com |
 
 Nas tabelas acima, substitua "contoso.com" com o seu nome de domínio para obter os URLs de aplicativo adequado para o seu inquilino.
 

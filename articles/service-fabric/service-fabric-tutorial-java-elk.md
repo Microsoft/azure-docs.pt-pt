@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 02/26/2018
 ms.author: suhuruli
 ms.custom: mvc
-ms.openlocfilehash: 938d8efeaa88cc5bebbf33e525132a030f1b3c7c
-ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
-ms.translationtype: HT
+ms.openlocfilehash: 689207339db0250d42fc64c33f43c42c18317d41
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37112508"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58313010"
 ---
 # <a name="tutorial-monitor-your-service-fabric-applications-using-elk"></a>Tutorial: Monitorizar as aplicações do Service Fabric com o ELK
 
@@ -109,7 +109,7 @@ Pode utilizar um ambiente ELK pré-configurado para este tutorial e, se já tive
     logstash-plugin install logstash-input-azureeventhub
     ```
 
-4. Crie ou modifique o ficheiro de configuração do Logstash existente com o seguinte conteúdo: se estiver a criar o ficheiro, tem de ser criado em ```/opt/bitnami/logstash/conf/access-log.conf``` se utilizar a imagem do ELK Bitnami no Azure.
+4. Criar ou modificar o ficheiro de configuração do Logstash existente com o seguinte conteúdo: Se estiver a criar o ficheiro, tem de ser criado em ```/opt/bitnami/logstash/conf/access-log.conf``` se utilizar a imagem do ELK Bitnami no Azure.
 
     ```json
     input
@@ -149,7 +149,7 @@ Pode utilizar um ambiente ELK pré-configurado para este tutorial e, se já tive
     curl 'localhost:9200/_cat/indices?v'
     ```
 
-8. Aceda ao dashboard do Kibana em **http://SERVER-IP** e introduza o nome de utilizador e a palavra-passe do Kibana. Se utilizou a imagem do ELK no Azure, o nome de utilizador predefinido é "user" e a palavra-passe é a obtida nos **Diagnósticos de Arranque**.
+8. Aceda ao seu dashboard do Kibana em **http:\//SERVER-IP** e introduza o nome de utilizador e a palavra-passe do Kibana. Se utilizou a imagem do ELK no Azure, o nome de utilizador predefinido é "user" e a palavra-passe é a obtida nos **Diagnósticos de Arranque**.
 
     ![Kibana](./media/service-fabric-tutorial-java-elk/kibana.png)
 

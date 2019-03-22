@@ -7,12 +7,12 @@ ms.service: key-vault
 ms.topic: conceptual
 ms.date: 02/01/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 4311d71775ef877e0090abca9c6caabab503ef08
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: aa9b89b9afec069e97236b7652e0f1d37644f5cf
+ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58097615"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58336081"
 ---
 # <a name="how-to-use-key-vault-soft-delete-with-cli"></a>Como utilizar a eliminação de forma recuperável do Key Vault com a CLI
 
@@ -222,6 +222,24 @@ A listagem de objetos de Cofre de chaves eliminado também mostra quando eles es
 
 >[!IMPORTANT]
 >Um objeto de cofre eliminados, acionado por seus *data de remoção agendada* campo, é eliminado permanentemente. Não é recuperável!
+
+## <a name="enabling-purge-protection"></a>Ativar a proteção contra remoção
+
+Quando a proteção contra remoção está ativada, um cofre ou num objeto eliminada não é possível limpar estado até que tenha passado o período de retenção de 90 dias. Esse cofre ou o objeto ainda pode ser recuperado. Esse recurso oferece maior garantia que um cofre ou um objeto nunca pode ser permanentemente eliminados até que o período de retenção período tenha passado.
+
+Pode ativar a proteção contra remoção apenas se a eliminação de forma recuperável também está ativada. 
+
+Para ativar a ambos os eliminação de forma recuperável e remover a proteção ao criar um cofre, utilize o [az keyvault criar](/cli/azure/keyvault?view=azure-cli-latest#az-keyvault-create) comando:
+
+```
+az keyvault create --name ContosoVault --resource-group ContosoRG --location westus --enable-soft-delete true --enable-purge-protection true
+```
+
+Adicionar proteção contra remoção para um cofre existente (que já tenha a eliminação de forma recuperável ativada), utilize o [atualização do Cofre de chaves de az](/cli/azure/keyvault?view=azure-cli-latest#az-keyvault-update) comando:
+
+```
+az keyvault update --name ContosoVault --resource-group ContosoRG --enable-purge-protection true
+```
 
 ## <a name="other-resources"></a>Outros recursos
 

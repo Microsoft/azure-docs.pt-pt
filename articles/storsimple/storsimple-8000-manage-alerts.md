@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 03/14/2019
 ms.author: alkohli
-ms.openlocfilehash: 4128ad53f30e74fb72f6256b78587cc222f4c282
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 38d403be1dc35b8ab4cd1b15fa259b5e6917197c
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57838719"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58314455"
 ---
 # <a name="use-the-storsimple-device-manager-service-to-view-and-manage-storsimple-alerts"></a>Utilizar o serviço StorSimple Device Manager para ver e gerir alertas do StorSimple
 
@@ -202,7 +202,7 @@ Se falhar a conectividade de cloud no seu dispositivo de produção do StorSimpl
 | Não foi possível iniciar o(s) serviço(s) do StorSimple. |Erro de DataPath |Se o problema persistir, contacte o Suporte da Microsoft. |
 | Endereço IP duplicado detetado para 'Data0'. | |O sistema detetou um conflito no endereço IP "10.0.0.1". O recurso de rede 'Data0' no dispositivo *<device1>* está offline. Certifique-se de que este endereço IP não está a ser utilizado por qualquer outra entidade nesta rede. Para resolver problemas de rede, aceda a [resolver problemas com o cmdlet Get-NetAdapter](storsimple-8000-troubleshoot-deployment.md#troubleshoot-with-the-get-netadapter-cmdlet). Contacte o administrador de rede para ajudar a resolver este problema. Se o problema persistir, contacte o Suporte da Microsoft. |
 | Endereço IPv4 (ou IPv6) para 'Data0' está offline. | |O recurso de rede 'Data0' com o endereço IP "10.0.0.1". e o comprimento "22" no dispositivo do prefixo *<device1>* está offline. Certifique-se de que as portas de comutador a que esta interface está ligada estão operacionais. Para resolver problemas de rede, aceda a [resolver problemas com o cmdlet Get-NetAdapter](storsimple-8000-troubleshoot-deployment.md#troubleshoot-with-the-get-netadapter-cmdlet). |
-| Não foi possível ligar ao serviço de autenticação. |Erro de DataPath |O URLthat é utilizado para autenticar não está acessível. Certifique-se de que as regras da firewall incluem os padrões de URL especificados para o dispositivo StorSimple. Para obter mais informações sobre padrões de URL no portal do Azure, aceda a https://aka.ms/ss-8000-network-reqs. Se utilizar o Azure Government Cloud, vá para os padrões de URL no https://aka.ms/ss8000-gov-network-reqs.|
+| Não foi possível ligar ao serviço de autenticação. |Erro de DataPath |O URLthat é utilizado para autenticar não está acessível. Certifique-se de que as regras da firewall incluem os padrões de URL especificados para o dispositivo StorSimple. Para obter mais informações sobre padrões de URL no portal do Azure, aceda a https:\//aka.ms/ss-8000-network-reqs. Se utilizar o Azure Government Cloud, vá para os padrões de URL em https:\//aka.ms/ss8000-gov-network-reqs.|
 
 ### <a name="performance-alerts"></a>Alertas de desempenho
 

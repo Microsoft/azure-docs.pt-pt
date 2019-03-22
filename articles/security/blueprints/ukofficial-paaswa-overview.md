@@ -8,12 +8,12 @@ ms.service: security
 ms.topic: article
 ms.date: 07/13/2018
 ms.author: jomolesk
-ms.openlocfilehash: 7ac210d9b30a05fd5dbfd46c41c3e62a1d610357
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: b30ef7d0b373f0d9a440b6649f819e429e28328c
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57891108"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58314931"
 ---
 # <a name="azure-security-and-compliance-blueprint-paas-web-application-hosting-for-uk-official-workloads"></a>Azure Security and Compliance Blueprint: Aplicação Web de PaaS de alojamento para cargas de trabalho oficial do Reino Unido
 
@@ -119,7 +119,7 @@ Este modelo implementa as seguintes funcionalidades do serviço de aplicações:
 
 #### <a name="azure-sql-database"></a>Base de Dados SQL do Azure
 
-A Base de Dados SQL é um serviço gerido de bases de dados relacionais para fins gerais do Microsoft Azure que suporta estruturas como dados relacionados, JSON, espaciais e XML. Ofertas de base de dados SQL únicas bases de dados SQL geridas, bases de dados SQL no geridas uma [conjunto elástico](https://docs.microsoft.com/azure/sql-database/sql-database-elastic-pool)e o SQL [instâncias geridas](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance) (em pré-visualização pública). Ele fornece [desempenho dimensionável de forma dinâmica])https://docs.microsoft.com/azure/sql-database/sql-database-service-tiers) e disponibiliza opções como [índices columnstore](https://docs.microsoft.com/sql/relational-databases/indexes/columnstore-indexes-overview) para extreme análises e relatórios, e [OLTP dentro da memória](https://docs.microsoft.com/azure/sql-database/sql-database-in-memory) para extremo processamento de transações. A Microsoft lida com a aplicação de patches e a atualização da base de código do SQL ininterruptamente e abstrai toda a gestão da infraestrutura subjacente.
+A Base de Dados SQL é um serviço gerido de bases de dados relacionais para fins gerais do Microsoft Azure que suporta estruturas como dados relacionados, JSON, espaciais e XML. Ofertas de base de dados SQL únicas bases de dados SQL geridas, bases de dados SQL no geridas uma [conjunto elástico](https://docs.microsoft.com/azure/sql-database/sql-database-elastic-pool)e o SQL [instâncias geridas](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance) (em pré-visualização pública). Proporciona [desempenho dimensionável de forma dinâmica](https://docs.microsoft.com/azure/sql-database/sql-database-service-tiers) e disponibiliza opções como [índices columnstore](https://docs.microsoft.com/sql/relational-databases/indexes/columnstore-indexes-overview) para análises e relatórios aprofundados e [OLTP](https://docs.microsoft.com/azure/sql-database/sql-database-in-memory) dentro da memória para processamento transacional avançado. A Microsoft lida com a aplicação de patches e a atualização da base de código do SQL ininterruptamente e abstrai toda a gestão da infraestrutura subjacente.
 
 Base de dados de SQL do Azure neste esquema
 

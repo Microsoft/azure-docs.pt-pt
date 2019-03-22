@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: jingwang
-ms.openlocfilehash: 68ac03a8aba4042a842b5e740d67ab4198236275
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: f22311af277f860c1501287b5be0f5dc149880b9
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54013167"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58317736"
 ---
 # <a name="copy-data-from-square-using-azure-data-factory-preview"></a>Copiar dados do quadrado com o Azure Data Factory (pré-visualização)
 
@@ -48,7 +48,7 @@ As seguintes propriedades são suportadas para o serviço ligado quadrado:
 | anfitrião | O URL da instância do quadrado. (ou seja, mystore.mysquare.com)  | Sim |
 | clientId | O ID de cliente associado à sua aplicação quadrada.  | Sim |
 | clientSecret | O segredo do cliente associado à sua aplicação quadrada. Marcar esse campo como uma SecureString armazena de forma segura na fábrica de dados, ou [referenciar um segredo armazenado no Azure Key Vault](store-credentials-in-key-vault.md). | Sim |
-| redirectUri | O URL de redirecionamento atribuído no dashboard do quadrado do aplicativo. (ou seja http://localhost:2500)  | Sim |
+| redirectUri | O URL de redirecionamento atribuído no dashboard do quadrado do aplicativo. (ou seja, http:\//localhost:2500)  | Sim |
 | useEncryptedEndpoints | Especifica se os pontos de extremidade de origem de dados são encriptados através de HTTPS. O valor predefinido é verdadeiro.  | Não |
 | useHostVerification | Especifica se exige o nome de anfitrião no certificado do servidor de acordo com o nome de anfitrião do servidor ao ligar-se através de SSL. O valor predefinido é verdadeiro.  | Não |
 | usePeerVerification | Especifica se pretende verificar a identidade do servidor ao ligar-se através de SSL. O valor predefinido é verdadeiro.  | Não |

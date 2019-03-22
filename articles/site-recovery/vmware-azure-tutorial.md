@@ -6,22 +6,28 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 3/3/2019
+ms.date: 3/18/2019
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: ccd62c0b0832622bbc74542674c1d09f59ea301b
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 06d18ccd6f14f0a2b31f579b0ed7250b2c4f0c92
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57848835"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58310596"
 ---
 # <a name="set-up-disaster-recovery-to-azure-for-on-premises-vmware-vms"></a>Configurar a recuperação após desastre para o Azure das VMs VMware no local
 
 O [Azure Site Recovery](site-recovery-overview.md) contribui para a sua estratégia de continuidade comercial e recuperação após desastre (BCDR) ao manter as suas aplicações empresariais em funcionamento durante falhas planeadas e não planeadas. O Site Recovery gere e orquestra a recuperação após desastre de computadores no local e máquinas virtuais (VMs) do Azure, incluindo replicação, ativação pós-falha e recuperação.
 
 
-Neste tutorial, vamos mostrar-lhe como configurar e ativar a replicação de uma VM de VMware para o Azure com o Azure Site Recovery. Os tutoriais foram criados para lhe mostrar como implementar o Site Recovery com definições básicas. Eles utilizam o caminho mais simples e não mostram todas as opções. Neste tutorial, ficará a saber como:
+Este tutorial mostra-lhe como implementar a recuperação de sites com as definições básicas, sem personalização. Para obter opções mais complexas, reveja os artigos em procedimentos.
+
+    - Configure a [origem de replicação](vmware-azure-set-up-source.md) e o [servidor de configuração](vmware-azure-deploy-configuration-server.md).
+    - Configure o [destino da replicação](vmware-azure-set-up-target.md).
+    - Configure uma [política de replicação](vmware-azure-set-up-replication.md) e [ative a replicação](vmware-azure-enable-replication.md).
+
+Neste tutorial, ficará a saber como:
 
 > [!div class="checklist"]
 > * Introduza a origem e o destino da replicação.
@@ -37,14 +43,10 @@ Antes de começar, deve:
 - Se quiser saber mais sobre como configurar a recuperação após desastre para as VMs de VMware com mais detalhe, reveja e utilize os seguintes recursos:
     - [Leia perguntas comuns](vmware-azure-common-questions.md) sobre a recuperação após desastre do VMware.
     - [Saiba](vmware-physical-azure-support-matrix.md) o que o VMware suporta e precisa.
--  Leia os nossos **Guias de Procedimentos** para obter instruções detalhadas que abrangem todas as opções de implementação para VMware:
-    - Configure a [origem de replicação](vmware-azure-set-up-source.md) e o [servidor de configuração](vmware-azure-deploy-configuration-server.md).
-    - Configure o [destino da replicação](vmware-azure-set-up-target.md).
-    - Configure uma [política de replicação](vmware-azure-set-up-replication.md) e [ative a replicação](vmware-azure-enable-replication.md).
 - Neste tutorial mostramos como replicar uma VM única. Se estiver a implementar várias VMs deve utilizar o [ferramenta Planeador de implementações](https://aka.ms/asr-deployment-planner) para ajudar a planejar sua implantação. [Saiba mais](site-recovery-deployment-planner.md) sobre esta ferramenta.
 
 E reveja estas dicas:
-- Este tutorial utiliza um modelo OVA para criar o servidor de configuração da VM de VMware. Se não conseguir fazê-lo, siga [estes instructins](physical-manage-configuration-server.md) configurar manualmente o servidor de configuração.
+- Este tutorial utiliza um modelo OVA para criar o servidor de configuração da VM de VMware. Se não conseguir fazê-lo, siga [estas instruções](physical-manage-configuration-server.md) configurar manualmente o servidor de configuração.
 - Neste tutorial, o Site Recovery transfere e instala o MySQL para o servidor de configuração. Se preferir, pode configurá-lo manualmente em vez disso. [Saiba mais](vmware-azure-deploy-configuration-server.md#configure-settings).
   >Pode transferir a versão mais recente do modelo do servidor de configuração diretamente do [Centro de Transferências da Microsoft](https://aka.ms/asrconfigurationserver).
   A licença fornecida com o modelo OVF é uma licença de avaliação válida por 180 dias. Windows em execução na VM tem de ser ativado com a licença necessária. 

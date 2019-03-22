@@ -4,18 +4,16 @@ description: Saiba como utilizar o cliente de Beeline para executar consultas do
 services: hdinsight
 author: hrasheed-msft
 ms.reviewer: jasonh
-keywords: hive beeline, beeline do hive
 ms.service: hdinsight
-ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 04/20/2018
 ms.author: hrasheed
-ms.openlocfilehash: ba9746566f0f69ea2131b8f77a14939ea561638a
-ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
+ms.openlocfilehash: 00cf441247b9adf8547f373891bba4db29029d3f
+ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58200486"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58336002"
 ---
 # <a name="use-the-apache-beeline-client-with-apache-hive"></a>Utilizar o cliente do Apache Beeline com Apache Hive
 
@@ -24,8 +22,11 @@ Aprenda a usar [Apache Beeline](https://cwiki.apache.org/confluence/display/Hive
 Beeline é um cliente de ramo de registo que está incluído nos nós principais do cluster do HDInsight. Beeline utiliza JDBC para ligar ao HiveServer2, um serviço hospedado no seu cluster do HDInsight. Também pode utilizar Beeline para acessar o Hive no HDInsight remotamente através da internet. Os exemplos seguintes mostram as cadeias de ligação mais comuns utilizadas para ligar ao HDInsight a partir Beeline:
 
 * __Utilizar Beeline a partir de uma ligação de SSH para um nó de nó principal ou de extremidade__: `-u 'jdbc:hive2://headnodehost:10001/;transportMode=http'`
+
 * __Utilizar Beeline num cliente, ligar ao HDInsight através de uma rede Virtual do Azure__: `-u 'jdbc:hive2://<headnode-FQDN>:10001/;transportMode=http'`
-* __Utilizar Beeline num cliente, ligação a um cluster de HDInsight pacote de segurança da empresa (ESP) através de uma rede Virtual do Azure__: `-u 'jdbc:hive2://<headnode-FQDN>:10001/default;principal=hive/_HOST@<AAD-Domain>;auth-kerberos;transportMode=http' -n <username>`
+
+* __Utilizar Beeline num cliente, ligação a um cluster de HDInsight pacote de segurança da empresa (ESP) através de uma rede Virtual do Azure__: `-u 'jdbc:hive2://<headnode-FQDN>:10001/default;principal=hive/_HOST@<AAD-DOMAIN>;auth-kerberos;transportMode=http' -n <username>` 
+
 * __Utilizar Beeline num cliente, ligar ao HDInsight através da internet pública__: `-u 'jdbc:hive2://clustername.azurehdinsight.net:443/;ssl=true;transportMode=http;httpPath=/hive2' -n admin -p password`
 
 > [!NOTE]  
@@ -37,7 +38,7 @@ Beeline é um cliente de ramo de registo que está incluído nos nós principais
 >
 > Ao ligar ao cluster através de uma rede virtual, substitua `<headnode-FQDN>` com o nome de domínio completamente qualificado de um nó principal do cluster.
 >
-> Ao ligar a um cluster de pacote de segurança da empresa (ESP), substitua `<AAD-Domain>` com o nome do Azure Active Directory (AAD) que o cluster está associado. Substitua `<username>` com o nome de uma conta no domínio com permissões para aceder ao cluster.
+> Ao ligar a um cluster de pacote de segurança da empresa (ESP), substitua `<AAD-DOMAIN>` com o nome do Azure Active Directory (AAD) que o cluster está associado. Utilize uma cadeia em maiúsculas para o `<AAD-DOMAIN>` valor, caso contrário, não é possível localizar a credencial. Verificar `/etc/krb5.conf` para os nomes de realm se for necessário. Substitua `<username>` com o nome de uma conta no domínio com permissões para aceder ao cluster. 
 
 ## <a id="prereq"></a>Pré-requisitos
 

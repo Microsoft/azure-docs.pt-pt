@@ -16,12 +16,12 @@ ms.author: celested
 ms.reviewer: japere
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ef5679ba2a6a62955f5402e8bfaa4f1884df722d
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: HT
+ms.openlocfilehash: 415b33dce42945c40aedd996d4dcfa5c6b987b44
+ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57840601"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58336223"
 ---
 # <a name="saml-single-sign-on-for-on-premises-applications-with-application-proxy-preview"></a>SAML início de sessão único para aplicações no local com o Proxy de aplicações (pré-visualização)
 
@@ -54,8 +54,8 @@ Tenha em atenção o seguinte quando vai o tutorial:
 
      ![Introduzir dados de configuração básicos do SAML](./media/application-proxy-configure-single-sign-on-on-premises-apps/basic-saml-configuration.png)
 
-     > [!NOTE]
-     > Se a aplicação de back-end espera que o **URL de resposta** para ser o URL interno, terá de instalar a extensão de-de início de sessão segura das minhas aplicações nos dispositivos dos utilizadores. Esta extensão será automaticamente redirecionada para o serviço de Proxy de aplicação apropriado. Para instalar a extensão, consulte [extensão de início de sessão de proteger as minhas aplicações](../user-help/active-directory-saas-access-panel-introduction.md#my-apps-secure-sign-in-extension).
+    > [!NOTE]
+    > Se a aplicação de back-end espera que o **URL de resposta** para ser o URL interno, terá de instalar a extensão de-de início de sessão segura das minhas aplicações nos dispositivos dos utilizadores. Esta extensão será automaticamente redirecionada para o serviço de Proxy de aplicação apropriado. Para instalar a extensão, consulte [extensão de início de sessão de proteger as minhas aplicações](../user-help/my-apps-portal-end-user-access.md#download-and-install-the-my-apps-secure-sign-in-extension).
 
 ## <a name="test-your-app"></a>Testar a aplicação
 

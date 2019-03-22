@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 03/20/2019
 ms.author: absha
-ms.openlocfilehash: 61b3a9e066a3ee20effa97f1c6c7a0bd1ae90ac0
-ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
-ms.translationtype: HT
+ms.openlocfilehash: 18013050546cc5e204d9cc07a2f499388596164c
+ms.sourcegitcommit: 5e4ca656baf3c7d370ab3c0fbad0278aa2c9f1e6
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58285843"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58319453"
 ---
 # <a name="application-gateway-configuration-overview"></a>Descrição geral de configuração do Gateway de aplicação
 
@@ -33,9 +33,9 @@ Gateway de aplicação é uma implementação dedicada na sua rede virtual. Na s
 
 #### <a name="size-of-the-subnet"></a>Tamanho da sub-rede
 
-Gateway de aplicação consome um endereço IP privado por instância, além de outro endereço IP privado, se uma configuração de IP de front-end privado está configurada. Além disso, o Azure reserva os primeiros quatro e o último endereço IP em cada sub-rede para utilização interna. Por exemplo, se um gateway de aplicação é definido como três instâncias e não existe nenhum IP de front-end privado, em seguida, pelo menos, oito endereços IP precisará na sub-rede - cinco endereços IP para utilização interna e os três endereços IP para as três instâncias de gateway de aplicação. Portanto, neste caso, / 29 sub-rede tamanho ou superior é necessária. Se tiver três instâncias e um de endereços IP para a configuração de IP de front-end privado, em seguida, endereços IP nove será necessários - três endereços IP para as três instâncias de gateway de aplicação, um endereço IP para IP de front-end privado e IP cinco endereços para utilização interna. Portanto, neste caso, / 28 sub-rede tamanho ou superior é necessária.
+Gateway de aplicação consome um endereço IP privado por instância, além de outro endereço IP privado, se uma configuração de IP de front-end privado está configurada. Além disso, o Azure reserva cinco endereços IP - os quatro primeiros e últimos de endereços IP - em cada sub-rede para utilização interna. Por exemplo, se um gateway de aplicação é definido como 15 instâncias e não existe nenhum IP de front-end privado, pelo menos de 20 endereços IP serão necessário na sub-rede - cinco endereços IP para utilização interna e 15 endereços IP para as 15 instâncias de gateway de aplicação. Portanto, neste caso, / 27 sub-rede tamanho ou superior é necessária. Se tiver 27 instâncias e um de endereços IP para o front-end privado configuração de IP, em seguida, 33 endereços IP que será necessários - 27 endereços IP para as instâncias de 27 de gateway de aplicação, um endereço IP para IP de front-end privado e IP cinco endereços para utilização interna. Portanto, neste caso, um /26 sub-rede tamanho ou superior é necessária.
 
-Como melhor prática, utilize pelo menos/28 tamanho da sub-rede. Isto dá-lhe 11 endereços utilizáveis suficientes. Se a carga de aplicação necessitar de mais de 10 instâncias, deve considerar/27 ou/26 tamanho da sub-rede.
+É recomendado que utilize, pelo menos, / 28 tamanho da sub-rede. Isto dá-lhe 11 endereços utilizáveis suficientes. Se a carga de aplicação necessitar de mais de 10 instâncias, deve considerar/27 ou/26 tamanho da sub-rede.
 
 #### <a name="network-security-groups-supported-on-the-application-gateway-subnet"></a>Grupos de segurança de rede suportados na sub-rede de Gateway de aplicação
 

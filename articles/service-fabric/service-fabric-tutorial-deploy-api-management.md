@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 9/26/2018
 ms.author: ryanwi
 ms.custom: mvc
-ms.openlocfilehash: 4685c4213ad992e8d0fcffdf91a039cd04b426ee
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 813a81e3812f9bb95ab11deec35adc6c05f1b58e
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57844212"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58312228"
 ---
 # <a name="integrate-api-management-with-service-fabric-in-azure"></a>Integrar a gestão de API com o Service Fabric no Azure
 
@@ -142,7 +142,7 @@ Introduza um **displayName** (nome a apresentar) e uma **description** (descriç
 
 * **displayName** pode ser qualquer nome para a API. Neste artigo, utilize "Service Fabric App".
 * **name** indica um nome exclusivo e descritivo para a API, como "service-fabric-app". É apresentado no portais do programador e do editor.
-* **serviceUrl** referencia o serviço HTTP que implementa a API. A API de Gestão reencaminha os pedidos para este endereço. Nos back-ends do Service Fabric, o valor do URL não é utilizado. Pode pôr qualquer valor aqui. Neste artigo, por exemplo "<http://servicefabric>".
+* **serviceUrl** referencia o serviço HTTP que implementa a API. A API de Gestão reencaminha os pedidos para este endereço. Nos back-ends do Service Fabric, o valor do URL não é utilizado. Pode pôr qualquer valor aqui. Neste artigo, por exemplo "http:\//servicefabric".
 * **path** é anexado ao URL base do serviço Gestão de API. O URL base é comum a todas as APIs alojadas por uma instância do serviço Gestão de API. A Gestão de API distingue as APIs pelo respetivo sufixo, pelo que cada API tem de ter o seu sufixo exclusivo para um determinado editor.
 * O campo **protocols** determina que protocolos podem ser utilizados para aceder à API. Neste artigo, listar **http** e **https**.
 * **path** é um sufixo para a API. Neste artigo, utilize "myapp".

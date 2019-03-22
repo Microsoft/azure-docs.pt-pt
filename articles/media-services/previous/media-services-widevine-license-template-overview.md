@@ -12,14 +12,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/08/2019
+ms.date: 03/20/2019
 ms.author: juliako
-ms.openlocfilehash: 4b5196a995576e5b00a988e14183eb720d5b2eae
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: d0bb72361e1bff3615f6785ac4c91a10ea773498
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55989876"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58312976"
 ---
 # <a name="widevine-license-template-overview"></a>Descrição geral do modelo de licença do Widevine 
 Pode utilizar os serviços de multimédia do Azure para configurar e solicitam licenças do Widevine da Google. Quando o jogador tenta reproduzir os conteúdos protegidos pelo Widevine, é enviado um pedido para o serviço de entrega de licença para obter uma licença. Se o serviço de licença aprovar o pedido, o serviço emite a licença. Ele é enviado para o cliente e é utilizado para desencriptar e reproduzir o conteúdo especificado.
@@ -63,8 +63,8 @@ Um pedido de licença do Widevine é formatado como uma mensagem JSON.
 | --- | --- | --- |
 | payload |Cadeia de caracteres codificada em Base64 |O pedido de licença enviado por um cliente. |
 | content_id |Cadeia de caracteres codificada em Base64 |Identificador utilizado para derivar o ID de chave e o conteúdo chave para cada content_key_specs.track_type. |
-| Fornecedor |cadeia |Utilizado para pesquisar chaves de conteúdo e políticas. Se a entrega de chave da Microsoft é utilizada para entrega de licenças do Widevine, este parâmetro é ignorado. |
-| policy_name |cadeia |Nome de uma política registrado anteriormente. Opcional. |
+| fornecedor |string |Utilizado para pesquisar chaves de conteúdo e políticas. Se a entrega de chave da Microsoft é utilizada para entrega de licenças do Widevine, este parâmetro é ignorado. |
+| policy_name |string |Nome de uma política registrado anteriormente. Opcional. |
 | allowed_track_types |Enum |SD_ONLY ou SD_HD. Controles que as chaves de conteúdo são incluídos numa licença. |
 | content_key_specs |Matriz de JSON estruturas, consulte a secção "Especificações de chave Conteúdas."  |Um controlo mais refinado sobre as chaves de conteúdo para retornar. Para obter mais informações, consulte a secção "Especificações de chave Conteúdas." Apenas um dos valores allowed_track_types e content_key_specs pode ser especificado. |
 | use_policy_overrides_exclusively |Booleano, VERDADEIRO ou FALSO |Utilizar atributos de política especificados por policy_overrides e omitir a diretiva de todos os anteriormente armazenada. |
@@ -79,7 +79,7 @@ Cada valor de content_key_specs tem de ser especificado para todas as faixas, in
 
 | Name | Value | Descrição |
 | --- | --- | --- |
-| content_key_specs. track_type |cadeia |Um nome de tipo de controle. Se content_key_specs é especificado no pedido de licença, certifique-se de especificar que todos os tipos de controlar explicitamente. Falha ao fazer isso resulta em falha para reproduzir após 10 segundos. |
+| content_key_specs. track_type |string |Um nome de tipo de controle. Se content_key_specs é especificado no pedido de licença, certifique-se de especificar que todos os tipos de controlar explicitamente. Falha ao fazer isso resulta em falha para reproduzir após 10 segundos. |
 | content_key_specs  <br/> security_level |uint32 |Define os requisitos da robustez do cliente para a reprodução. <br/> -É necessária a criptografia de caixa branca baseada em software. <br/> -Criptografia de software e um Decodificador oculto são necessários. <br/> -As operações de criptografia e material de chave devem ser executadas dentro de um ambiente de execução de confiança de hardware de segurança. <br/> -A criptografia e a decodificação de conteúdo tem de ser efetuadas dentro de um ambiente de execução de confiança de hardware de segurança.  <br/> -A criptografia, decodificar e manipulação de todos os de suporte de dados (comprimidos e descomprimidos) deve ser tratados dentro de um ambiente de execução de confiança de hardware de segurança. |
 | content_key_specs <br/> required_output_protection.hdc |cadeia de caracteres, um dos HDCP_V2 HDCP_NONE, HDCP_V1, |Indica se a HDCP é necessária. |
 | content_key_specs <br/>key |Base64-<br/>cadeia de caracteres codificada |Chave de conteúdo a utilizar para este Roteiro. Se for especificado, é necessário o track_type ou key_id. O fornecedor de conteúdos pode utilizar esta opção para inserir a chave de conteúdo para este Roteiro em vez de permitir que o servidor de licenças do Widevine gerar ou pesquisar uma chave. |
@@ -94,7 +94,7 @@ Cada valor de content_key_specs tem de ser especificado para todas as faixas, in
 | policy_overrides. license_duration_seconds |int64 |Indica a janela de tempo para esta licença específica. Um valor de 0 indica que não existe nenhum limite para a duração. A predefinição é 0. |
 | policy_overrides. rental_duration_seconds |int64 |Indica a janela de tempo enquanto reprodução é permitida. Um valor de 0 indica que não existe nenhum limite para a duração. A predefinição é 0. |
 | policy_overrides. playback_duration_seconds |int64 |A janela de visualização de tempo depois de reprodução começar dentro da duração de licença. Um valor de 0 indica que não existe nenhum limite para a duração. A predefinição é 0. |
-| policy_overrides. renewal_server_url |cadeia |Todos os pedidos de heartbeat (renovação) para esta licença são direcionados para o URL especificado. Este campo é utilizado apenas se can_renew for verdadeira. |
+| policy_overrides. renewal_server_url |string |Todos os pedidos de heartbeat (renovação) para esta licença são direcionados para o URL especificado. Este campo é utilizado apenas se can_renew for verdadeira. |
 | policy_overrides. renewal_delay_seconds |int64 |Quantos segundos após license_start_time antes de renovação em primeiro lugar é tentada. Este campo é utilizado apenas se can_renew for verdadeira. A predefinição é 0. |
 | policy_overrides. renewal_retry_interval_seconds |int64 |Especifica o atraso em segundos entre pedidos de renovação de licença subsequentes, em caso de falha. Este campo é utilizado apenas se can_renew for verdadeira. |
 | policy_overrides. renewal_recovery_duration_seconds |int64 |A janela de tempo no qual a reprodução pode continuar enquanto renovação é tentada, mas sem êxito devido a problemas de back-end com o servidor de licenças. Um valor de 0 indica que não existe nenhum limite para a duração. Este campo é utilizado apenas se can_renew for verdadeira. |

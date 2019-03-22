@@ -8,21 +8,21 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: acoustics
 ms.topic: quickstart
-ms.date: 03/14/2019
+ms.date: 03/20/2019
 ms.author: kegodin
-ms.openlocfilehash: b4eedabbc47738eb2f5797ffd67a3e3ebc9529ca
-ms.sourcegitcommit: f68b0e128f0478444740172f54e92b453df696be
+ms.openlocfilehash: 468c5584d21c226d6ffce55ff3981e629d872c56
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58136228"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58317192"
 ---
 # <a name="project-acoustics-unity-quickstart"></a>Guia de introdução do projeto Acoustics Unity
 Utilize Acoustics de projeto de exemplo conteúdo para Unity fazer experiências com controles de design de simulação com cópia de segurança.
 
 Requisitos de software:
 * [Unity 2018.2 +](http://unity3d.com) para Windows
-* [Pacote de conteúdos de exemplo do projeto Acoustics](https://www.microsoft.com/en-us/download/details.aspx?id=57346)
+* [Pacote de conteúdos de exemplo do projeto Acoustics](https://www.microsoft.com/download/details.aspx?id=57346)
 
 O que está incluído no pacote de exemplo?
 * Cena Unity com geometry, origens de som e controles de jogo
@@ -33,7 +33,7 @@ O que está incluído no pacote de exemplo?
 Importe o pacote de exemplo para um novo projeto do Unity. 
 * No Unity, aceda a **ativos > Importar pacote > pacote personalizado...**
 
-    ![Importar pacote](media/import-package.png)  
+    ![Opções de captura de ecrã do Unity importar pacote](media/import-package.png)  
 
 * Escolha **ProjectAcoustics.unitypackage**
 
@@ -44,23 +44,23 @@ A parte de criar o Kit de ferramentas de acoustics requer a versão de tempo de 
 
 Pode verificar esta definição demorou efeito abrindo o **as definições do leitor**:
 
-![Definições do leitor](media/player-settings.png)
+![Painel de definições de leitor captura de ecrã do Unity](media/player-settings.png)
 
-![.NET 4.5](media/net45.png)
+![Painel de captura de ecrã do Unity as definições do leitor com o .NET 4.5 selecionado](media/net45.png)
 
 ## <a name="experiment-with-design-controls"></a>Experimente com controles de design
 Abra a cena de exemplo na **ProjectAcousticsSample** pasta e clique em play botão no editor do Unity. Utilize W, A, S, D e o mouse para mover-se. Para comparar a forma como a cena parece com e sem acoustics, prima a **R** botão até que o texto de sobreposição muda para vermelho e diz "Acoustics: Desativada." Para ver os atalhos de teclado para obter mais controlos, prima **F1**. Os controles são também pode ser utilizados ao clicar para selecionar a ação a realizar, à esquerda, em seguida, clicar para executar a ação.
 
 O script **AcousticsAdjust** está ligado a origens de som da cena de exemplo, o que permite que os parâmetros de design de código-fonte. 
 
-![AcousticsAdjust](media/acoustics-adjust.png)
+![Captura de ecrã do Unity AcousticsAdjust script](media/acoustics-adjust.png)
 
 O seguinte, explora alguns dos efeitos que podem ser produzidos com os controles fornecidos. Para obter informações detalhadas sobre cada controle, consulte a [Tutorial de Design do projeto Acoustics Unity](unreal-workflow.md).
 
 ### <a name="modify-distance-based-attenuation"></a>Modificar a atenuação com base na distância
 O áudio DSP fornecida pelos **projeto Acoustics** Plug-in do Unity spatializer respeita a atenuação de com base na distância do código-fonte criada no Editor do Unity. Controlos de atenuação com base na distância estão no **origem de áudio** componente encontrado no **Inspetor** origens de painel de som, em **definições de som 3D**:
 
-![Atenuação de distância](media/distance-attenuation.png)
+![Painel de opções de atenuação de distância de captura de ecrã do Unity](media/distance-attenuation.png)
 
 Projeto Acoustics executa cálculo numa caixa "região de simulação" centrada a localização de player. Uma vez que os ativos de acoustics no pacote de exemplo foram integrados com um tamanho de região de simulação de 45m em torno do jogador, a atenuação de som deve ser projetada para ser de 0 em cerca de 45 m.
 

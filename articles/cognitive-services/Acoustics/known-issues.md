@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: acoustics
 ms.topic: resources
-ms.date: 08/17/2018
+ms.date: 03/20/2019
 ms.author: kylestorck
-ms.openlocfilehash: 4cbede768409596365bea0cdbbb451cc5195ac4b
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 50de4d983ed24440d655cf5b9ba3fb5e33d8d7cd
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58136264"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58309950"
 ---
 # <a name="project-acoustics-known-issues"></a>Problemas conhecidos do projeto Acoustics
 Poderá encontrar os seguintes problemas conhecidos ao utilizar a pré-visualização do Designer para Acoustics do projeto.
@@ -28,8 +28,9 @@ Se renomear uma cena, todos os parâmetros acústicos que pertencem a essa cena 
 
 Nas versões mais recentes do Unity (2018.2 +), há um bug conhecido onde Unity falhará ao fechar seu projeto. Isso é controlado [nesta edição do Unity](https://issuetracker.unity3d.com/issues/crash-on-assetdatabase-getassetimporterversions-when-closing-a-specific-unity-project).
 
-## <a name="trouble-deploying-to-android"></a>Problemas de implementação para Android
-Para utilizar o projeto Acoustics no Android, altere o destino de compilação para o Android. Algumas versões do Unity tem um bug com a implantação de plug-ins de áudio. Certifique-se de que não está a utilizar uma versão afetada por [este bug](https://issuetracker.unity3d.com/issues/android-ios-audiosource-playing-through-google-resonance-audio-sdk-with-spatializer-enabled-does-not-play-on-built-player).
+## <a name="deploying-to-android-from-some-unity-versions"></a>Implementar para o Android a partir de algumas versões do Unity
+
+Algumas versões do Unity tem um bug com a implantação de plug-ins de áudio para o Android. Certifique-se de que não está a utilizar uma versão afetada por [este bug](https://issuetracker.unity3d.com/issues/android-ios-audiosource-playing-through-google-resonance-audio-sdk-with-spatializer-enabled-does-not-play-on-built-player).
 
 ## <a name="i-get-an-error-that-could-not-find-metadata-file-systemsecuritydll"></a>Recebo uma mensagem de erro que "não foi possível localizar o ficheiro de metadados System.Security.dll'
 

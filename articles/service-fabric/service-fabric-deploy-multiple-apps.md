@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 02/23/2018
 ms.author: mikhegn
-ms.openlocfilehash: 4d9dfbcfc1dd00209a90386bf75f0c2515a28060
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: HT
+ms.openlocfilehash: ed8159f38e2763cb897212ae4f51fecb7343a683
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57854471"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58315596"
 ---
 # <a name="deploy-multiple-guest-executables"></a>Implementar vários executáveis convidados
 Este artigo mostra como empacotar e implementar vários executáveis convidados para o Azure Service Fabric. Para criar e implementar um único pacote de recursos de infraestrutura do serviço Leia como a [implementar um executável de convidado no Service Fabric](service-fabric-deploy-existing-app.md).
@@ -204,7 +204,7 @@ Register-ServiceFabricApplicationType -ApplicationPathInImageStore 'NodeAppType'
 New-ServiceFabricApplication -ApplicationName 'fabric:/NodeApp' -ApplicationTypeName 'NodeAppType' -ApplicationTypeVersion 1.0  
 ```
 
-Assim que a aplicação é publicada com êxito para o cluster local, pode aceder a aplicação node. js na porta entraram no manifesto do serviço de aplicação node. js, por exemplo http://localhost:3000.
+Assim que a aplicação é publicada com êxito para o cluster local, pode aceder a aplicação node. js na porta que entramos no manifesto do serviço da aplicação node. js, por exemplo, http:\//localhost:3000.
 
 Neste tutorial, viu como empacotar facilmente dois aplicativos existentes como uma aplicação do Service Fabric. Também aprendeu como implementá-la para o Service Fabric, para que ele pode beneficiar de alguns dos recursos do Service Fabric, como elevada disponibilidade e a integração do sistema de estado de funcionamento.
 

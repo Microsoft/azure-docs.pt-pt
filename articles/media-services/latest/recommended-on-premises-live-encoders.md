@@ -9,12 +9,12 @@ ms.author: johndeu
 ms.date: 01/17/2019
 ms.topic: article
 ms.service: media-services
-ms.openlocfilehash: cc55466dac7344053e0cce3cad5f8161cef5226a
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: c7d895cd87122374a79a520643580a179961fba3
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57438130"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58317328"
 ---
 # <a name="recommended-live-streaming-encoders"></a>Recomendado codificadores de transmissão em fluxo em direto
 
@@ -34,8 +34,7 @@ Para obter informações detalhadas sobre o live encoding com Media Services, co
 Serviços de multimédia recomenda o uso de um dos seguintes codificadores em direto que tenham RTMP como saída. Os esquemas de URL suportados são `rtmp://` ou `rtmps://`.
 
 > [!NOTE]
- > Quando a transmissão em fluxo através de RTMP, verifique as definições de firewall e/ou proxy para confirmar que as portas TCP de saída 1935 e 1936 estão abertas.<br/>
- Quando a transmissão em fluxo através de RTMPS, verifique as definições de firewall e/ou proxy para confirmar que as portas TCP de saída 2935 e 2936 estão abertas.
+> Quando a transmissão em fluxo através de RTMP, verifique as definições de firewall e/ou proxy para confirmar que as portas TCP de saída 1935 e 1936 estão abertas.
 
 - Suporte de dados de Adobe Flash Live Encoder 3.2
 - Haivision KB

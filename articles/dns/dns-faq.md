@@ -5,14 +5,14 @@ services: dns
 author: vhorne
 ms.service: dns
 ms.topic: article
-ms.date: 3/11/2019
+ms.date: 3/21/2019
 ms.author: victorh
-ms.openlocfilehash: d0c5260fcc2e7ac2acbeec308c6a0cba7d6a81be
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 1d0506179f9f0044f9f05edd3395d2677310c2d0
+ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58098098"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58337121"
 ---
 # <a name="azure-dns-faq"></a>FAQ sobre DNS do Azure
 
@@ -103,9 +103,11 @@ Esse suporte atualmente não está disponível para registos TXT criados a parti
 ## <a name="alias-records"></a>Registos de alias
 
 ### <a name="what-are-some-scenarios-where-alias-records-are-useful"></a>Quais são alguns cenários em que os registos de alias são úteis?
+
 Consulte os cenários de secção a [DNS do Azure registos descrição geral de alias](dns-alias.md).
 
 ### <a name="what-record-types-are-supported-for-alias-record-sets"></a>Que tipos de registo são suportados para conjuntos de registos de alias?
+
 Conjuntos de registos de alias são suportados para os seguintes tipos de registos numa zona de DNS do Azure:
  
 - A 
@@ -116,30 +118,36 @@ Conjuntos de registos de alias são suportados para os seguintes tipos de regist
 
 - **Ponto para um recurso IP público a partir de um conjunto de registos de A/AAAA de DNS.** Pode criar um conjunto de registos A/AAAA e torná-lo um conjunto de registos de alias para apontar para um recurso IP público.
 - **Ponto para um perfil do Gestor de tráfego a partir de um conjunto de registos DNS A/AAAA/CNAME.** Pode apontar para o CNAME de um perfil do Gestor de tráfego de um conjunto de registos CNAME no DNS. Um exemplo é contoso.trafficmanager.net. Agora, também pode apontar para um perfil de Gestor de tráfego que tem pontos finais externos a partir de um conjunto na sua zona DNS de registos A ou AAAA.
+- **Aponte para um ponto de extremidade de rede de entrega conteúdo (CDN)**. Isto é útil quando criar os Web sites estáticos com o armazenamento do Azure e CDN do Azure.
 - **Aponte para outro conjunto de registos de DNS na mesma zona.** Registos de alias podem fazer referência a outros conjuntos de registos do mesmo tipo. Por exemplo, pode ter um conjunto de registos CNAME do DNS que funciona como alias de outro conjunto de registos CNAME do mesmo tipo. Essa disposição é útil se desejar alguns conjuntos de registos para ser aliases e alguns não aliases.
 
 ### <a name="can-i-create-and-update-alias-records-from-the-azure-portal"></a>Pode criar e atualizar alias registos a partir do portal do Azure?
+
 Sim. Pode criar ou gerir os registos de alias no portal do Azure, juntamente com as APIs de REST do Azure, PowerShell, CLI e SDKs.
 
 ### <a name="will-alias-records-help-to-make-sure-my-dns-record-set-is-deleted-when-the-underlying-public-ip-is-deleted"></a>Registos de alias ajudará a certificar-se de que meu conjunto de registos de DNS é eliminado quando o IP público subjacente é eliminado?
+
 Sim. Esta funcionalidade é um dos principais recursos de registos de alias. Ele ajuda a evitar potenciais falhas para os utilizadores da sua aplicação.
 
 ### <a name="will-alias-records-help-to-make-sure-my-dns-record-set-is-updated-to-the-correct-ip-address-when-the-underlying-public-ip-address-changes"></a>Será o alias regista a ajuda para se certificar de que o meu conjunto de registos de DNS é atualizado para o endereço IP correto quando o endereço IP público subjacente é alterada?
+
 Sim. Esta funcionalidade é um dos principais recursos de registos de alias. Ele ajuda a evitar potenciais falhas ou os riscos de segurança para a sua aplicação.
 
 ### <a name="are-there-any-restrictions-when-using-alias-record-sets-for-a-or-aaaa-records-to-point-to-traffic-manager"></a>Existem restrições ao utilizar o registo de alias conjuntos para A ou AAAA regista para apontar para o Gestor de tráfego?
+
 Sim. Para apontar para um perfil do Gestor de tráfego, como um alias de um A ou AAAA conjunto de registos, o Gestor de tráfego perfil tem de utilizar apenas pontos finais externos. Quando cria os pontos finais externos no Gestor de tráfego, forneça os endereços IP reais dos pontos finais.
 
 ### <a name="is-there-an-additional-charge-to-use-alias-records"></a>Existe um custo adicional para utilizar os registos de alias?
+
 Os registos de alias são uma qualificação por um conjunto de registos de DNS válido. Há uma faturação sem adicional para os registos de alias.
 
 ## <a name="use-azure-dns"></a>Utilizar o DNS do Azure
 
-### <a name="can-i-cohost-a-domain-by-using-azure-dns-and-another-dns-provider"></a>Pode cohost um domínio com o DNS do Azure e de outro fornecedor DNS?
+### <a name="can-i-co-host-a-domain-by-using-azure-dns-and-another-dns-provider"></a>Posso coalojar um domínio com o DNS do Azure e de outro fornecedor DNS?
 
-Sim. O DNS do Azure suporta cohosting domínios com outros serviços DNS.
+Sim. O DNS do Azure suporta domínios co-hospedagem com outros serviços DNS.
 
-Para configurar a cohosting, modificar os registos NS para o domínio para que apontem para os servidores de nomes de ambos os fornecedores. O servidor de nomes (NS) regista o controle de quais fornecedores recebem consultas DNS para o domínio. Pode modificar estes registos NS no DNS do Azure, o outro fornecedor e na zona principal. Zona principal é normalmente configurada a entidade de registo de nome de domínio. Para obter mais informações sobre delegação de DNS, consulte [delegação de domínio DNS](dns-domain-delegation.md).
+Para configurar a co-hospedagem, modificar os registos NS para o domínio para que apontem para os servidores de nomes de ambos os fornecedores. O servidor de nomes (NS) regista o controle de quais fornecedores recebem consultas DNS para o domínio. Pode modificar estes registos NS no DNS do Azure, o outro fornecedor e na zona principal. Zona principal é normalmente configurada a entidade de registo de nome de domínio. Para obter mais informações sobre delegação de DNS, consulte [delegação de domínio DNS](dns-domain-delegation.md).
 
 Além disso, certifique-se de que os registos DNS para o domínio são sincronizados entre os dois provedores DNS. O DNS do Azure atualmente não suporta transferências de zona DNS. Registos DNS têm de ser sincronizados através do [portal de gestão do DNS do Azure](dns-operations-recordsets-portal.md), [REST API](https://docs.microsoft.com/powershell/module/azurerm.dns), [SDK](dns-sdk.md), [cmdlets do PowerShell](dns-operations-recordsets.md), ou o [Ferramenta CLI](dns-operations-recordsets-cli.md).
 
@@ -271,10 +279,9 @@ Zonas privadas já criadas através de APIs, PowerShell, CLI e SDKs são visíve
 ## <a name="next-steps"></a>Passos Seguintes
 
 - [Saiba mais sobre o DNS do Azure](dns-overview.md).
-<br>
-- [Saiba mais sobre como utilizar o DNS do Azure para domínios privados](private-dns-overview.md).
-<br>
-- [Saiba mais sobre zonas DNS e registos](dns-zones-records.md).
-<br>
-- [Introdução ao Azure DNS](dns-getstarted-portal.md).
 
+- [Saiba mais sobre como utilizar o DNS do Azure para domínios privados](private-dns-overview.md).
+
+- [Saiba mais sobre zonas DNS e registos](dns-zones-records.md).
+
+- [Introdução ao Azure DNS](dns-getstarted-portal.md).

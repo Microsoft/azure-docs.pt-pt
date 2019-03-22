@@ -6,16 +6,16 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 01/17/2019
+ms.date: 03/18/2019
 ms.author: raynew
-ms.openlocfilehash: 16233c9013e97a7db7ef799b79526abac4741612
-ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
+ms.openlocfilehash: 6f178ef1a0aec7f742bce4c2570962b995876026
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54318445"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58316274"
 ---
-# <a name="overview-of-failback"></a>Descrição geral da reativação pós-falha
+# <a name="failback-after-disaster-recovery-of-vmware-vms"></a>Reativação pós-falha após a recuperação após desastre de VMs de VMware
 
 Depois de ter ativação pós-falha para o Azure como parte do seu processo de recuperação após desastre, pode efetuar a ativação para seu site no local. Existem dois tipos diferentes de reativação pós-falha que são possíveis com o Azure Site Recovery: 
 
@@ -25,7 +25,7 @@ Depois de ter ativação pós-falha para o Azure como parte do seu processo de r
 Se efetuar a ativação pós-falha de uma máquina virtual VMware, pode fazer a reativação a mesma máquina de virtual no local de origem se ainda existir. Neste cenário, apenas as alterações são replicadas novamente. Este cenário é conhecido como **recuperação de localização original**. Se a máquina de virtual no local não existir, o cenário é um **alternativo a recuperação de localização**.
 
 > [!NOTE]
-> Pode apenas a reativação pós-falha para o original vCenter e o servidor de configuração. Não é possível implementar um novo servidor de configuração e falham utilizá-lo de volta. Além disso, não é possível adicionar um novo vCenter para o servidor de configuração existente e a reativação pós-falha para o vCenter novo.
+> Apenas pode efetuar a ativação pós-falha para o original vCenter e o servidor de configuração. Não é possível implementar um novo servidor de configuração e falham utilizá-lo de volta. Além disso, não é possível adicionar um novo vCenter para o servidor de configuração existente e a reativação pós-falha para o vCenter novo.
 
 ## <a name="original-location-recovery-olr"></a>Recuperação de localização original (OLR)
 Se escolher para a reativação pós-falha da máquina virtual original, as seguintes condições devem ser atendidas:

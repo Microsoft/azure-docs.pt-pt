@@ -12,14 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/17/2018
+ms.date: 03/21/2019
 ms.author: spelluru
-ms.openlocfilehash: 8b5c5f316ff2c3ada035736755c7898270c49dee
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 3752e9c227e4db0f583b2f6b21d6c0aa3106d248
+ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57551828"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58337702"
 ---
 # <a name="azure-devtest-labs-faq"></a>FAQ de Azure DevTest Labs
 Obtenha respostas para algumas das perguntas mais comuns sobre o Azure DevTest Labs.
@@ -27,8 +27,27 @@ Obtenha respostas para algumas das perguntas mais comuns sobre o Azure DevTest L
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 **Geral**
+
+## <a name="blog-post"></a>Mensagem do blogue
+O blog da equipe de laboratórios DevTest foi preterido a partir de 20 de Março de 2019. 
+
+### <a name="where-can-i-track-feature-updates-going-forward"></a>Onde posso rastrear as atualizações de funcionalidade no futuro?
+Daqui em diante, publicaremos atualizações de funcionalidades e/ou de postagens de blog informativo no blogue do Azure e Azure atualiza. Estas publicações no blogue também vão ligar a nossa documentação onde necessário.
+
+Subscrever o [Blog de Azure DevTest Labs](https://azure.microsoft.com/blog/tag/azure-devtest-labs/) e [DevTest Labs Azure atualiza](https://azure.microsoft.com/updates/?product=devtest-lab) para se manter informado sobre as novas funcionalidades no DevTest Labs.
+
+### <a name="what-happens-to-the-existing-blog-posts"></a>O que acontece com as postagens de blog existente?
+Estamos atualmente a trabalhar na migração postagens de blog existente (excluindo as atualizações de interrupção) para nosso [documentação dos laboratórios DevTest](devtest-lab-overview.md). Quando o blog do MSDN foi preterido, ele será redirecionado para a descrição geral da documentação para os laboratórios DevTest. Depois de redirecionada, pode procurar o artigo que está procurando no título "Filtrar por". Tenha em atenção que, ainda não migradas todas as mensagens, mas deve ser feitas ao final deste mês. 
+
+
+### <a name="where-do-i-see-outage-updates"></a>Onde posso ver as atualizações de indisponibilidade?
+Publicaremos atualizações de interrupção usando nosso identificador do Twitter no futuro. Siga-no Twitter para obter as atualizações mais recentes sobre as falhas e erros conhecidos.
+
+### <a name="twitter"></a>Twitter 
+Nosso identificador do Twitter: azlabservices
+
 ## <a name="what-if-my-question-isnt-answered-here"></a>E se minha pergunta não respondida aqui?
-Se a sua pergunta não estiver listada aqui, conte para nós, portanto, podemos ajudar a encontrar uma resposta.
+Se a sua pergunta não estiver listada aqui, conte para nós e pode ajudá-lo a encontrar uma resposta.
 
 * Poste uma pergunta no final nestas perguntas frequentes. Interaja com a equipe de Cache do Azure e outros membros da Comunidade sobre este artigo.
 * Para aceder um vasto público, postar uma pergunta sobre o [fórum MSDN do Azure DevTest Labs](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureDevTestLabs). Interaja com a equipe de laboratórios DevTest do Azure e outros membros da Comunidade.
@@ -106,8 +125,8 @@ Para outra integração contínua (CI) / cadeias de ferramentas de entrega cont�
 
 
 **Máquinas virtuais**
-## <a name="why-cant-i-see-vms-on-the-virtual-machines-blade-that-i-see-in-devtest-labs"></a>Por que motivo não vejo as VMs no painel de máquinas virtuais que vejo no DevTest Labs?
-Quando cria uma VM no DevTest Labs, tem permissão para aceder a essa VM. Pode ver a VM no painel de laboratórios e no **máquinas virtuais** painel. Utilizadores atribuídos à função de utilizador do laboratório DevTest Labs, podem ver todas as VMs que foram criadas no laboratório do laboratório **todas as máquinas virtuais** painel. No entanto, os utilizadores que têm a função de utilizador de laboratório do DevTest Labs não recebem automaticamente acesso de leitura aos recursos da VM que outros usuários tenham criado. Portanto, essas VMs não são apresentadas no **máquinas virtuais** painel.
+## <a name="why-cant-i-see-vms-on-the-virtual-machines-page-that-i-see-in-devtest-labs"></a>Por que motivo não vejo as VMs na página de máquinas virtuais que vejo no DevTest Labs?
+Quando cria uma VM no DevTest Labs, tem permissão para aceder a essa VM. Pode ver a VM na página de laboratórios e no **máquinas virtuais** página. Utilizadores atribuídos à função de utilizador do laboratório DevTest Labs, podem ver todas as VMs que foram criadas no laboratório do laboratório **todas as máquinas virtuais** página. No entanto, os utilizadores que têm a função de utilizador de laboratório do DevTest Labs não recebem automaticamente acesso de leitura aos recursos da VM que outros usuários tenham criado. Portanto, essas VMs não são apresentadas no **máquinas virtuais** página.
 
 ## <a name="what-is-the-difference-between-a-custom-image-and-a-formula"></a>O que é a diferença entre uma imagem personalizada e uma fórmula?
 Uma imagem personalizada é um disco rígido virtual (VHD). Uma fórmula é uma imagem que pode ser configurado com definições adicionais e, em seguida, salvar e reproduzir. Uma imagem personalizada poderá ser preferível se pretender criar rapidamente vários ambientes usando a mesma imagem básica, imutável. Uma fórmula pode ser melhor se pretender reproduzir a configuração da sua VM com os bits mais recentes, como parte de uma rede virtual ou sub-rede, ou como uma VM de um tamanho específico. Para obter uma explicação mais aprofundada, veja [comparar imagens personalizadas e fórmulas no DevTest Labs](devtest-lab-comparing-vm-base-image-types.md).
@@ -184,7 +203,7 @@ Pode eliminar as VMs a partir do seu laboratório no portal do Azure. Também po
 
 **Artefactos**
 ## <a name="what-are-artifacts"></a>Quais são os artefactos?
-Artefactos são elementos personalizáveis, que pode utilizar para implementar os bits mais recentes ou implementar as suas ferramentas de desenvolvimento a uma VM. Anexe artefactos para a VM ao criar a VM. Depois da VM está aprovisionada, os artefactos de implementar e configurar a sua VM. Vários artefactos preexistentes estão disponíveis no nosso [repositório do GitHub público](https://github.com/Azure/azure-devtestlab/tree/master/Artifacts). Também pode [criar artefactos da sua própria](devtest-lab-artifact-author.md).
+Artefactos são elementos personalizáveis, que pode utilizar para implementar os bits mais recentes ou implementar as suas ferramentas de desenvolvimento a uma VM. Anexe artefactos para a VM ao criar a VM. Depois da VM está aprovisionada, os artefactos de implementar e configurar a sua VM. Vários artefactos existentes estão disponíveis no nosso [repositório do GitHub público](https://github.com/Azure/azure-devtestlab/tree/master/Artifacts). Também pode [criar artefactos da sua própria](devtest-lab-artifact-author.md).
 
 
 **Configuração do laboratório**
@@ -232,7 +251,7 @@ Quando um recurso é um elemento principal para outro recurso, o recurso princip
 As VMs são recursos subordinados num laboratório num grupo de recursos. Ao utilizar modelos do Resource Manager para implementar VMs com o PowerShell, o nome do grupo de recursos fornecido no script do PowerShell deve ser o nome do grupo de recursos do laboratório. Para obter mais informações, consulte [resolver erros comuns de implementação do Azure](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-common-deployment-errors).
 
 ## <a name="where-can-i-find-more-error-information-if-a-vm-deployment-fails"></a>Onde posso encontrar mais informações sobre o erro se uma implementação de VM falhar?
-Erros de implementação de VM são capturados nos registos de atividades. Pode encontrar registos de atividade da VM no laboratório **registos de auditoria** ou **diagnósticos de máquinas virtuais** no menu de recursos no painel VM do laboratório (no painel que aparece depois de selecionar a VM a partir do **meu virtual máquinas** lista).
+Erros de implementação de VM são capturados nos registos de atividades. Pode encontrar registos de atividade da VM no laboratório **registos de auditoria** ou **diagnósticos de máquinas virtuais** no menu de recursos na página VM do laboratório (a página é apresentada depois de selecionar a VM a partir do **meu virtual máquinas** lista).
 
 Às vezes, o erro de implementação ocorre antes do início da implementação da VM. Um exemplo é quando o limite de subscrição de um recurso que foi criado com a VM foi excedido. Neste caso, os detalhes do erro são capturados nos registos de atividades de nível de laboratório. Registos de atividades estão localizados na parte inferior a **Konfigurace a zásady** definições. Para obter mais informações sobre como utilizar a atividade de registos no Azure, consulte [ver registos de atividades para auditar as ações em recursos](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-audit).
 

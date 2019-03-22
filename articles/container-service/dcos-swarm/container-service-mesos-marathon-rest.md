@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 04/04/2017
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: 567890f3beec1eff30effeec0ce23284c5fee141
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
-ms.translationtype: HT
+ms.openlocfilehash: fd109a72b092e963bc4fda7894bf67f998b7d0c5
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58109295"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58309816"
 ---
 # <a name="deprecated-dcos-container-management-through-the-marathon-rest-api"></a>(PRETERIDO) Gestão de contentores DC/OS através da API de REST do Marathon
 
@@ -30,7 +30,7 @@ Antes de avançarmos, necessita de um cluster DC/OS configurado no Serviço de C
 * [Ligar a um cluster do Azure Container Service](../container-service-connect.md)
 
 ## <a name="access-the-dcos-apis"></a>Aceder às APIs do DC/OS
-Assim que estiver ligado ao cluster do Azure Container Service, pode acessar o DC/OS e APIs REST relacionadas através de http://localhost:local-port. Os exemplos neste documento partem do princípio de que está a utilizar um túnel na porta 80. Por exemplo, os pontos de extremidade do Marathon podem ser contatados pelo URIs a partir do `http://localhost/marathon/v2/`. 
+Assim que estiver ligado ao cluster do Azure Container Service, pode aceder a DC/OS e às APIs REST relacionadas através de http:\//localhost:local-porta. Os exemplos neste documento partem do princípio de que está a utilizar um túnel na porta 80. Por exemplo, os pontos de extremidade do Marathon podem ser contatados pelo URIs a partir do http: \/ /localhost/marathon/v2 /. 
 
 Para obter mais informações sobre as diversas APIs, consulte a documentação do Mesosphere da [API do Marathon](https://mesosphere.github.io/marathon/docs/rest-api.html) e da [API do Chronos](https://mesos.github.io/chronos/docs/api.html), bem como a documentação do Apache da [API do Mesos Scheduler](http://mesos.apache.org/documentation/latest/scheduler-http-api/).
 
@@ -123,7 +123,7 @@ Pode utilizar a API do Marathon para aumentar ou reduzir horizontalmente em impl
 A partir da sua ligação de túnel, execute o seguinte comando para aumentar horizontalmente a aplicação.
 
 > [!NOTE]
-> O URI é http://localhost/marathon/v2/apps/ seguido do ID de aplicação para dimensionamento. Se estiver a utilizar o exemplo Nginx for fornecido aqui, o URI seria http://localhost/marathon/v2/apps/nginx.
+> O URI é http: \/ /localhost/marathon/v2/apps/seguido do ID de aplicação para dimensionamento. Se estiver a utilizar o exemplo Nginx for fornecido aqui, o URI seria http:\//localhost/marathon/v2/apps/nginx.
 
 ```bash
 curl http://localhost/marathon/v2/apps/nginx -H "Content-type: application/json" -X PUT -d @scale.json
@@ -180,7 +180,7 @@ Também pode utilizar a API do Marathon para aumentar ou reduzir horizontalmente
 Execute o seguinte comando para aumentar horizontalmente a aplicação:
 
 > [!NOTE]
-> O URI é http://localhost/marathon/v2/apps/ seguido do ID de aplicação para dimensionamento. Se estiver a utilizar o exemplo Nginx facultado aqui, o URI seria http://localhost/marathon/v2/apps/nginx.
+> O URI é http: \/ /localhost/marathon/v2/apps/seguido do ID de aplicação para dimensionamento. Se estiver a utilizar o exemplo Nginx facultado aqui, o URI seria http:\//localhost/marathon/v2/apps/nginx.
 
 ```powershell
 Invoke-WebRequest -Method Put -Uri http://localhost/marathon/v2/apps/nginx -ContentType application/json -InFile 'c:\scale.json'

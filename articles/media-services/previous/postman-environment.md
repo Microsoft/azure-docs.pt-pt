@@ -11,14 +11,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/08/2019
+ms.date: 03/20/2019
 ms.author: juliako
-ms.openlocfilehash: 99ed30809e49e36012263255c8cd0884cf6bbce8
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: 6813dfca4a89263a10887ef4fa58c7403a9b1294
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55992063"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58312500"
 ---
 # <a name="import-the-postman-environment"></a>Importar o ambiente do Postman  
 

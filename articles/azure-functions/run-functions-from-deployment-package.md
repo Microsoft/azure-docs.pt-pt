@@ -10,12 +10,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 02/26/2019
 ms.author: glenga
-ms.openlocfilehash: 292b25987f183df2091667312d4e6730b7f40dda
-ms.sourcegitcommit: f7f4b83996640d6fa35aea889dbf9073ba4422f0
+ms.openlocfilehash: 57126c87879da9f99d224457433bbbd5f95ef021
+ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56990905"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58336733"
 ---
 # <a name="run-your-azure-functions-from-a-package-file"></a>Execute as suas funções do Azure a partir de um ficheiro de pacote
 
@@ -44,7 +44,7 @@ Para ativar a sua aplicação de funções para execução a partir de um pacote
 
 | Value  | Descrição  |
 |---------|---------|
-| **`1`**  | Recomendado para aplicações de funções em execução no Windows. Execute a partir de um ficheiro de pacote no `d:\home\data\SitePackages` pasta da sua aplicação de função. Se não for [implementar com o zip implementar] (#integration-com-zip-implementação], esta opção requer que a pasta para também tem um arquivo chamado `packagename.txt`. Este ficheiro contém apenas o nome do ficheiro de pacote na pasta, sem quaisquer espaços em branco. |
+| **`1`**  | Recomendado para aplicações de funções em execução no Windows. Execute a partir de um ficheiro de pacote no `d:\home\data\SitePackages` pasta da sua aplicação de função. Se não for [implementar com o zip implementar](#integration-with-zip-deployment), esta opção requer que a pasta para também tem um arquivo chamado `packagename.txt`. Este ficheiro contém apenas o nome do ficheiro de pacote na pasta, sem quaisquer espaços em branco. |
 |**`<url>`**  | Localização de um ficheiro de pacote específico que pretende executar. Ao utilizar o armazenamento de BLOBs, deve usar um contêiner privado com um [assinatura de acesso partilhado (SAS)](../vs-azure-tools-storage-manage-with-storage-explorer.md#attach-a-storage-account-by-using-a-shared-access-signature-sas) para ativar o runtime das funções aceder ao pacote. Pode utilizar o [Explorador de armazenamento do Azure](https://azure.microsoft.com/features/storage-explorer/) para carregar ficheiros de pacote para a conta de armazenamento de Blobs.         |
 
 > [!CAUTION]

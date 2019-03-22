@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: article
-ms.date: 01/23/2019
+ms.date: 03/19/2019
 ms.author: diberry
-ms.openlocfilehash: 73f962cc8e0d4605c0c5f0bace79553033ebe082
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: f615a07352faccc8096752e5ba60360144834907
+ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58110907"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58338246"
 ---
 # <a name="use-versions-to-edit-and-test-without-impacting-staging-or-production-apps"></a>Utilizar uma versão para editar e teste sem afetar as aplicações de teste ou de produção
 
@@ -56,6 +56,10 @@ Selecione uma versão da lista, em seguida, selecione **tornar Active** da barra
     ![Gerir a seção, página de versões, importar a nova versão](./media/luis-how-to-manage-versions/versions-import-pop-up.png)
 
     Depois de importar uma versão, a nova versão torna-se a versão do Active Directory.
+
+### <a name="import-errors"></a>Importar erros
+
+* Erros de atomizador: Se obtiver um **erro atomizador** ao importar, está a tentar importar uma versão que utiliza outra [atomizador](luis-language-support.md#custom-tokenizer-versions) que a aplicação utiliza atualmente. Para corrigir este problema, tem duas opções. Ver [migrar entre versões atomizador](luis-language-support.md#migrating-between-tokenizer-versions) para obter mais informações.
 
 <a name = "export-version"></a>
 

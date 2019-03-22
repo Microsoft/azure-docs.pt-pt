@@ -5,33 +5,33 @@ keywords: ''
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 12/17/2018
+ms.date: 03/17/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: b11f11aa3966bc57caa5b8dd0379f4d5c59c8375
-ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
+ms.openlocfilehash: a3dd7f78362b5f5c99dc4a74fe0a32c4d26be5b7
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56672904"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58311922"
 ---
 # <a name="update-the-iot-edge-security-daemon-and-runtime"></a>O daemon de segurança de IoT Edge e o tempo de execução de atualização
 
-Como o serviço de IoT Edge versões novas versões, convém atualizar os seus dispositivos IoT Edge para ter as mais recentes funcionalidades e melhorias de segurança. Este artigo fornece informações sobre como atualizar os seus dispositivos IoT Edge quando uma nova versão estiver disponível. 
+Como o serviço de IoT Edge versões novas versões, convém atualizar os seus dispositivos IoT Edge para as mais recentes funcionalidades e melhorias de segurança. Este artigo fornece informações sobre como atualizar os seus dispositivos IoT Edge quando uma nova versão estiver disponível. 
 
 Dois componentes de um dispositivo IoT Edge precisam ser atualizados, se pretender mover para uma versão mais recente. A primeira é o daemon de segurança, o que é executado no dispositivo e inicia os módulos de tempo de execução quando o dispositivo é iniciado. Atualmente, o daemon de segurança só pode ser atualizado partir do próprio dispositivo. O segundo componente é o tempo de execução, constituído pelo hub do IoT Edge e os módulos de agente do IoT Edge. Dependendo da forma como estrutura sua implementação, o tempo de execução pode ser atualizado do dispositivo ou remotamente. 
+
+Para obter a versão mais recente do Azure IoT Edge, veja [versões do Azure IoT Edge](https://github.com/Azure/azure-iotedge/releases).
 
 >[!IMPORTANT]
 >Se estiver a executar o Azure IoT Edge num dispositivo Windows, não atualize para versão 1.0.5 se um dos seguintes se aplicar ao seu dispositivo: 
 >* Não tiver atualizado o seu dispositivo para o Windows compilação 17763. Versão do IoT Edge 1.0.5 não suporta o Windows baseia-se com mais de 17763.
 >* Executar os módulos de Java ou node. js no seu dispositivo Windows. Ignore versão 1.0.5, mesmo se tiver atualizado o seu dispositivo Windows para a compilação mais recente. 
 >
->Para obter mais informações sobre versão 1.0.5 do IoT Edge, veja [notas de versão 1.0.5](https://github.com/Azure/azure-iotedge/releases/tag/1.0.5). Para obter mais informações sobre como manter as ferramentas de programação de atualizar para a versão mais recente, consulte [o blogue para programadores IoT](https://devblogs.microsoft.com/iotdev/).
+>Para obter mais informações sobre versão 1.0.5 do IoT Edge, veja [notas de versão 1.0.5](https://github.com/Azure/azure-iotedge/releases/tag/1.0.5). Para obter mais informações sobre como impedir as ferramentas de programação de atualizar para a versão mais recente, consulte [o blogue para programadores IoT](https://devblogs.microsoft.com/iotdev/).
 
-
-Para obter a versão mais recente do Azure IoT Edge, veja [versões do Azure IoT Edge](https://github.com/Azure/azure-iotedge/releases).
 
 ## <a name="update-the-security-daemon"></a>Atualizar o daemon de segurança
 
@@ -59,9 +59,9 @@ Desinstale o daemon de segurança numa sessão do PowerShell de administrador.
 Uninstall-SecurityDaemon
 ```
 
-A executar o `Uninstall-SecurityDaemon` comando sem quaisquer parâmetros Remove o daemon de segurança do seu dispositivo, juntamente com as duas imagens de contentor do tempo de execução. O ficheiro de config.yaml encontram-se no dispositivo, bem como dados do motor de contentor Moby. Preservando a configuração significa que não precisa fornecer a cadeia de ligação ou informações de serviço aprovisionamento de dispositivos para o seu dispositivo novamente durante o processo de instalação. 
+A executar o `Uninstall-SecurityDaemon` comando sem quaisquer parâmetros remove apenas o daemon de segurança do seu dispositivo, juntamente com as duas imagens de contentor do tempo de execução. O ficheiro de config.yaml encontram-se no dispositivo, bem como dados do motor de contentor Moby. Manter o meio de informações de configuração que não precisa fornecer a cadeia de ligação ou informações de serviço aprovisionamento de dispositivos para o seu dispositivo novamente durante o processo de instalação. 
 
-Reinstale o daemon de segurança, dependendo se o seu dispositivo IoT Edge utiliza contentores do Windows ou de contentores do Linux. Substituir a frase **\<Windows ou Linux\>** com um dos sistemas de operativos contentor. Utilize o **- ExistingConfig** sinalizador para apontar para o ficheiro de config.yaml existente no seu dispositivo. 
+Reinstale o daemon de segurança, dependendo se o seu dispositivo IoT Edge utiliza contentores do Windows ou de contentores do Linux. Substituir a frase **\<Windows ou Linux\>** com os sistemas de operativos do contentor adequado. Utilize o **- ExistingConfig** sinalizador para apontar para o ficheiro de config.yaml existente no seu dispositivo. 
 
 ```powershell
 . {Invoke-WebRequest -useb aka.ms/iotedge-win} | Invoke-Expression; `
@@ -91,7 +91,7 @@ Se utilizar etiquetas sem interrupções na sua implementação (por exemplo, mc
 
 Elimine a versão local da imagem do seu dispositivo IoT Edge. Nas máquinas do Windows, desinstalar o daemon de segurança também remove as imagens de tempo de execução, pelo que não precisa de efetuar este passo novamente. 
 
-```cmd/sh
+```bash
 docker rmi mcr.microsoft.com/azureiotedge-hub:1.0
 docker rmi mcr.microsoft.com/azureiotedge-agent:1.0
 ```
@@ -106,7 +106,7 @@ Se utilizar etiquetas específicas na sua implementação (por exemplo, mcr.micr
 
 No portal do Azure, as imagens de implantação de tempo de execução são declaradas na **configurar definições de Runtime do Edge avançadas** secção. 
 
-[Configurar definições de tempo de execução avançadas do edge](./media/how-to-update-iot-edge/configure-runtime.png)
+![Configurar definições de tempo de execução avançadas do edge](./media/how-to-update-iot-edge/configure-runtime.png)
 
 Num manifesto de implantação de JSON, Atualize as imagens de módulo no **systemModules** secção. 
 

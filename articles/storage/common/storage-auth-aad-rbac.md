@@ -1,19 +1,19 @@
 ---
-title: Utilizar o portal do Azure para gerir os direitos de acesso do Azure AD para contentores e filas com RBAC (pré-visualização) - armazenamento do Azure | Documentos da Microsoft
+title: Utilizar o portal do Azure para gerir os direitos de acesso do Azure AD para contentores e filas com RBAC (pré-visualização) - armazenamento do Azure
 description: Utilize o controlo de acesso baseado em funções (RBAC) do portal do Azure para atribuir acesso a contentores e filas para entidades de segurança. O armazenamento do Azure suporta funções do RBAC incorporadas e personalizadas para a autenticação através do Azure AD.
 services: storage
 author: tamram
 ms.service: storage
 ms.topic: article
-ms.date: 03/01/2019
+ms.date: 03/19/2019
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: 8050027bac3d2f13ac457edcdad9275c040305da
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: a38cce7d15b4796bb66803d06f3589569985cb37
+ms.sourcegitcommit: 5e4ca656baf3c7d370ab3c0fbad0278aa2c9f1e6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57431861"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58319504"
 ---
 # <a name="grant-access-to-azure-containers-and-queues-with-rbac-in-the-azure-portal-preview"></a>Conceder acesso a contentores do Azure e filas com RBAC no portal do Azure (pré-visualização)
 
@@ -101,14 +101,6 @@ Siga estes passos para atribuir a **leitor** função para que um utilizador pod
 
 > [!NOTE]
 > A atribuição de função do leitor é necessária apenas para os utilizadores que precisam de aceder a blobs ou filas com o portal do Azure. 
-
-## <a name="use-azure-ad-credentials-with-the-portal"></a>Utilizar credenciais do Azure AD com o portal
-
-Para aceder a blobs ou filas no portal do Azure com as suas credenciais do Azure AD, utilize as ligações de pré-visualização, mostradas na imagem seguinte:
-
-![Aceder a blobs ou filas com credenciais do Azure AD no portal](media/storage-auth-aad-rbac/access-data-azure-ad.png)
-
-Se aceder a dados de BLOBs ou filas com as ligações de produção, em vez das ligações de pré-visualização, portal do Azure utiliza a chave da conta para autorizar o acesso, em vez de utilizar o Azure AD.
 
 ## <a name="next-steps"></a>Passos Seguintes
 

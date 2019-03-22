@@ -8,12 +8,12 @@ ms.service: event-grid
 ms.topic: conceptual
 ms.date: 11/07/2018
 ms.author: babanisa
-ms.openlocfilehash: 1eab0be59de90ad68cbf9601b7e2200e640875f4
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 0195ce82396a7b05335242a38a2881e1b2d1afb3
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58178072"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58317498"
 ---
 # <a name="use-cloudevents-schema-with-event-grid"></a>Utilizar o esquema do CloudEvents com o Event Grid
 
@@ -70,7 +70,7 @@ Do CloudEvents v0.1 tem as seguintes propriedades disponíveis:
 | source             | URI      | "/mycontext"                     | Descreve o produtor de eventos                                       | topic#subject
 | eventID            | String   | "1234-1234-1234"                 | ID do evento                                                    | ID
 | eventTime          | Carimbo de data/hora| "2018-04-05T17:31:00Z"           | Timestamp de quando o evento ocorreu (opcional)                    | eventTime
-| schemaURL          | URI      | "https://myschema.com"           | Uma ligação para o esquema que seguem o atributo de dados (opcional) | *não utilizado*
+| schemaURL          | URI      | "https:\//myschema.com"           | Uma ligação para o esquema que seguem o atributo de dados (opcional) | *não utilizado*
 | contentType        | String   | "application/json"               | Descrever o formato de codificação de dados (opcional)                       | *não utilizado*
 | Extensões         | Mapa      | { "extA": "vA", "extB", "vB" }  | Quaisquer metadados adicionais (opcional)                                 | *não utilizado*
 | dados               | Object   | { "objA": "vA", "objB", "vB" }  | O payload do evento (opcional)                                       | dados

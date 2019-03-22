@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 11/03/2016
 ms.author: estfan
 ms.openlocfilehash: 3f4430631a664f81f53f9df1f46ebc27c635de36
-ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
+ms.sourcegitcommit: 5e4ca656baf3c7d370ab3c0fbad0278aa2c9f1e6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50133035"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58319691"
 ---
 ### <a name="prerequisites"></a>Pré-requisitos
 * R [Dropbox](https://www.Dropbox.com/) conta 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 12/11/2018
 ms.author: aljo
-ms.openlocfilehash: dc0e326cf3b188a51708115e5496cfbb52a95611
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: HT
+ms.openlocfilehash: 46da7c7931eaf163c24f057bac5de35f3c727519
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57836968"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58311871"
 ---
 # <a name="customize-service-fabric-cluster-settings"></a>Personalize as configurações de cluster do Service Fabric
 Este artigo descreve as várias configurações de recursos de infraestrutura para o seu cluster do Service Fabric que pode personalizar. Para clusters alojados no Azure, pode personalizar as definições através da [portal do Azure](https://portal.azure.com) ou utilizando um modelo Azure Resource Manager. Para obter mais informações, consulte [atualizar a configuração de um cluster do Azure](service-fabric-cluster-config-upgrade-azure.md). Para clusters autónomos, personalizar as definições ao atualizar o *ClusterConfig.json* de atualização de ficheiro e efetuar uma configuração no seu cluster. Para obter mais informações, consulte [atualizar a configuração de um cluster autónomo](service-fabric-cluster-config-upgrade-windows-server.md).
@@ -614,13 +614,13 @@ Segue-se uma lista dos recursos de infraestrutura, as definições que pode pers
 ## <a name="security"></a>Segurança
 | **Parâmetro** | **Valores permitidos** |**Política de atualização**| **Documentação de orientação ou descrição breve** |
 | --- | --- | --- | --- |
-|AADCertEndpointFormat|cadeia de caracteres, a predefinição é ""|Estático|AAD Cert ponto final de formato, Azure Commercial, do padrão especificado para o ambiente de não-padrão, como o Azure Government "https://login.microsoftonline.us/{0}/federationmetadata/2007-06/federationmetadata.xml" |
+|AADCertEndpointFormat|cadeia de caracteres, a predefinição é ""|Estático|AAD Cert ponto final de formato, Azure Commercial, do padrão especificado para o ambiente de não-padrão, como o Azure Government "https:\//login.microsoftonline.us/{0}/federationmetadata/2007-06/federationmetadata.xml" |
 |AADClientApplication|cadeia de caracteres, a predefinição é ""|Estático|Nome da aplicação cliente nativo ou ID que representam os clientes de recursos de infraestrutura |
 |AADClusterApplication|cadeia de caracteres, a predefinição é ""|Estático|Nome da aplicação Web API ou o ID que representa o cluster |
-|AADLoginEndpoint|cadeia de caracteres, a predefinição é ""|Estático|AAD início de sessão do ponto de extremidade, padrão do Azure comercial, especificado para o ambiente de não-padrão, como o Azure Government "https://login.microsoftonline.us" |
+|AADLoginEndpoint|cadeia de caracteres, a predefinição é ""|Estático|AAD início de sessão do ponto de extremidade, padrão do Azure comercial, especificado para o ambiente de não-padrão, como o Azure Government "https:\//login.microsoftonline.us" |
 |AADTenantId|cadeia de caracteres, a predefinição é ""|Estático|ID do inquilino (GUID) |
 |AdminClientCertThumbprints|cadeia de caracteres, a predefinição é ""|Dinâmica|Thumbprints dos certificados utilizados pelos clientes na função de administrador. É uma lista de nomes separados por vírgulas. |
-|AADTokenEndpointFormat|cadeia de caracteres, a predefinição é ""|Estático|AAD ponto final do Token, Azure Commercial, do padrão especificado para o ambiente de não-padrão, como o Azure Government "https://login.microsoftonline.us/{0}" |
+|AADTokenEndpointFormat|cadeia de caracteres, a predefinição é ""|Estático|AAD ponto final do Token, Azure Commercial, do padrão especificado para o ambiente de não-padrão, como o Azure Government "https:\//login.microsoftonline.us/{0}" |
 |AdminClientClaims|cadeia de caracteres, a predefinição é ""|Dinâmica|Todos os possíveis declarações esperadas de clientes da administração; o mesmo formato que ClientClaims; Esta lista internamente é adicionada à ClientClaims; portanto, não é necessário também adicionar as entradas do mesmo a ClientClaims. |
 |AdminClientIdentities|cadeia de caracteres, a predefinição é ""|Dinâmica|Identidades do Windows de clientes de recursos de infraestrutura na função de administrador utilizado para autorizar as operações de recursos de infraestrutura com privilégios. É uma lista separada por vírgulas; cada entrada é um nome de conta de domínio ou o nome do grupo. Para sua comodidade; a conta que executa fabric.exe é atribuída automaticamente a função de administrador portanto, é agrupar ServiceFabricAdministrators. |
 |AppRunAsAccountGroupX509Folder|cadeia de caracteres, predefinido é /home/sfuser/sfusercerts |Estático|Pasta onde se encontram AppRunAsAccountGroup X509 certificados e chaves privadas |

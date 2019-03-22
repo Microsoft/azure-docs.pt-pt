@@ -1,5 +1,5 @@
 ---
-title: Recolha de dados de utilizador multi-factor Authentication do Azure
+title: Recolha de Azure dados de utilizador do multi-factor Authentication - Azure Active Directory
 description: As informações que são utilizadas para autenticar os utilizadores ao Azure multi-factor Authentication?
 services: multi-factor-authentication
 ms.service: active-directory
@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6a42a25afc03b07393234014d7237c5419095b2b
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: b0c22d4421aa984a9862f83b9be1095d548e5841
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56201505"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58314490"
 ---
 # <a name="azure-multi-factor-authentication-user-data-collection"></a>Recolha de dados de utilizador multi-factor Authentication do Azure
 

@@ -16,12 +16,12 @@ ms.workload: iaas-sql-server
 ms.date: 02/17/2017
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 3711277ca11346cf73ff37c37ef4185d8bfdf6b9
-ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
+ms.openlocfilehash: e20e2a094e1fd88dfc2a25b586dc6c894f92b418
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54329876"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58312449"
 ---
 # <a name="configure-azure-key-vault-integration-for-sql-server-on-azure-virtual-machines-classic"></a>Configurar a integração do Cofre de chaves do Azure para o SQL Server em máquinas virtuais do Azure (clássico)
 > [!div class="op_single_selector"]
@@ -53,7 +53,7 @@ A tabela seguinte lista os parâmetros necessários para executar o script do Po
 
 | Parâmetro | Descrição | Exemplo |
 | --- | --- | --- |
-| **$akvURL** |**O URL do Cofre de chaves** |"https://contosokeyvault.vault.azure.net/" |
+| **$akvURL** |**O URL do Cofre de chaves** |"https:\//contosokeyvault.vault.azure.net/" |
 | **$spName** |**Nome do Principal de serviço** |"fde2b411-33d5-4e11-af04eb07b669ccf2" |
 | **$spSecret** |**Segredo do Principal de serviço** |"9VTJSQwzlFepD8XODnzy8n2V01Jd8dAjwm/azF1XDKM=" |
 | **$credName** |**Nome da credencial**: A integração AKV cria uma credencial dentro do SQL Server, permitindo que a VM tem acesso ao Cofre de chaves. Escolha um nome para esta credencial. |"mycred1" |
@@ -65,7 +65,7 @@ O **New-AzureVMSqlServerKeyVaultCredentialConfig** cmdlet cria um objeto de conf
 
 1. No Azure PowerShell, primeiro de configurar os parâmetros de entrada com os seus valores específicos, tal como descrito nas secções anteriores deste tópico. O script seguinte é um exemplo.
    
-        $akvURL = "https://contosokeyvault.vault.azure.net/"
+        $akvURL = "https:\//contosokeyvault.vault.azure.net/"
         $spName = "fde2b411-33d5-4e11-af04eb07b669ccf2"
         $spSecret = "9VTJSQwzlFepD8XODnzy8n2V01Jd8dAjwm/azF1XDKM="
         $credName = "mycred1"

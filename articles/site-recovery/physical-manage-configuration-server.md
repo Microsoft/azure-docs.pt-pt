@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 02/28/2019
 ms.author: mayg
-ms.openlocfilehash: 11b1b46e29ac9a4147c4dc319753edd0fadce8bc
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 338c4a97bced7d9e524f96fcd82f19e5230ff143
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58088915"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58317345"
 ---
 # <a name="manage-the-configuration-server-for-physical-server-disaster-recovery"></a>Gerir o servidor de configuração para a recuperação de desastres do servidor físico
 
@@ -149,7 +149,7 @@ ProxyPassword="Password"
 Pode modificar as definições de proxy para a máquina do servidor de configuração da seguinte forma:
 
 1. Inicie sessão no servidor de configuração.
-2. Inicie o cspsconfigtool.exe usando o atalho no seu.
+2. Inicie o cspsconfigtool.exe usando o atalho no ambiente de trabalho.
 3. Clique nas **registo de cofre** separador.
 4. Transfira um novo ficheiro de registo do cofre a partir do portal e fornecê-lo como entrada para a ferramenta.
 

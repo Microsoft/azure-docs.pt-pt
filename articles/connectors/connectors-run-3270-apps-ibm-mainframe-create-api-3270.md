@@ -10,12 +10,12 @@ ms.reviewer: estfan, valthom
 ms.topic: article
 ms.date: 03/06/2019
 tags: connectors
-ms.openlocfilehash: ebf858ba86758b11ee896d745d70bdf2f0d0cde6
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 7388dc0c61dad9c31da0c178febcee4c8481bc50
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57878385"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58313197"
 ---
 # <a name="integrate-3270-screen-driven-apps-on-ibm-mainframes-with-azure-by-using-azure-logic-apps-and-ibm-3270-connector"></a>Integre 3270 aplicações baseadas em tela em IBM mainframes no Azure utilizando o conector Azure Logic Apps e o IBM 3270
 
@@ -402,7 +402,7 @@ Quando terminar de todos estes passos, pode utilizar a ação que criar na sua a
 1. Quando tiver terminado, guarde e executar a aplicação lógica.
 
    Após a sua lógica de aplicação termina em execução, os passos da execução aparecem. 
-   Passos bem-sucedida mostram marcas de verificação, enquanto passos sem êxito mostram a letra "X".
+   Passos bem-sucedida mostram marcas de seleção, enquanto passos sem êxito mostram a letra "X".
 
 1. Para rever as entradas e saídas de cada passo, expanda esse passo.
 
@@ -410,7 +410,7 @@ Quando terminar de todos estes passos, pode utilizar a ação que criar na sua a
 
 ## <a name="connector-reference"></a>Referência do conector
 
-Para obter detalhes técnicos sobre o limite, ações e acionadores, que é descrito através OpenAPI do conector (anteriormente Swagger) descrição, reveja a página de referência do conector: [ https://docs.microsoft.com/connectors/<replace-with-api-topic-file-name> ](/connectors/).
+Para obter detalhes técnicos sobre o limite, ações e acionadores, que é descrito através OpenAPI do conector (anteriormente Swagger) descrição, reveja os [página de referência do conector](/connectors/si3270/).
 
 ## <a name="get-support"></a>Obter suporte
 

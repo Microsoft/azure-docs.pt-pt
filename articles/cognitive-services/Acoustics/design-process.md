@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: acoustics
 ms.topic: conceptual
-ms.date: 08/17/2018
+ms.date: 03/20/2019
 ms.author: kegodin
-ms.openlocfilehash: dd27b660dfdd1f4bcec89291b10fd87750ad4c49
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 4a1a0b15da091a1c020eb132f6b14b9ee14d334c
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58136161"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58316087"
 ---
 # <a name="project-acoustics-design-process-concepts"></a>Conceitos de processo de Design do projeto Acoustics
 
@@ -29,7 +29,7 @@ Num título de interativo, como os sons e o serviço de escuta de passar por tod
 
 Títulos 3D utilizam sistemas de física iluminação e kinematic que estão motivados de física, mas designer ajustado para atingir uma combinação dos objetivos de imersão e o jogo. Um designer visual não define os valores de pixel individuais, mas em vez disso, se ajusta modelos 3D, materiais e sistemas de transporte leves tudo fisicamente baseadas para trade estética visual e os custos de CPU. O que seria o processo equivalente para áudio? Projeto Acoustics é um primeiro passo para a exploração dessa pergunta. Em primeiro lugar mencionaremos o que significa acoustical energia por meio de um espaço de transporte.
 
-![zonas de reverberação](media/reverb-zones-altspace.png)
+![Cena de captura de ecrã de AltSpace recoberta com zonas de reverberação](media/reverb-zones-altspace.png)
 
 ## <a name="impulse-responses-acoustically-connecting-two-points-in-space"></a>Respostas de impulso: Acoustically ligar dois pontos no espaço
 
@@ -45,7 +45,7 @@ Uma resposta de impulso contém todos os interessantes (e cada desinteressante) 
 
 Mas se a simulação é ligada diretamente para os parâmetros DSP áudio, em que é o ajuste de designer? O que obtemos de? Bem, obtemos uma quantidade significativa de memória volta ao descartar as respostas de impulso e manter alguns parâmetros DSP. E para dar o designer de algum poder sobre o resultado final, tem de localizar apenas uma forma de inserir o designer entre a simulação e o áudio DSP.
 
-![parâmetros de resposta de impulso](media/acoustic-parameters.png)
+![Criar um gráfico com a resposta de impulso stylized com parâmetros sobrepostos](media/acoustic-parameters.png)
 
 ## <a name="sound-design-by-transforming-audio-dsp-parameters-from-simulation"></a>Estrutura sólida, transformando os parâmetros DSP áudio de simulação
 

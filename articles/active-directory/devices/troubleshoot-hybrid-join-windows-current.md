@@ -16,12 +16,12 @@ ms.date: 11/08/2017
 ms.author: markvi
 ms.reviewer: jairoc
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4ee5620bfcd421dcb108ce330be3a21cb8ba4a43
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: fae53d8b0de6c9d73eb43524e31a2f55690390c3
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56187173"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58004955"
 ---
 # <a name="troubleshooting-hybrid-azure-active-directory-joined-windows-10-and-windows-server-2016-devices"></a>Resolução de problemas híbrida do Azure Active Directory associados a dispositivos Windows 10 e Windows Server 2016 
 
@@ -56,21 +56,50 @@ Para Windows 10 e Windows Server 2016, híbrido associação do Azure Active Dir
 
 
 
-    +----------------------------------------------------------------------+
-    | Estado do dispositivo |  +----------------------------------------------------------------------+
-    
-        AzureAdJoined: YES
-     EnterpriseJoined: Não existem DeviceId: 5820fbe9-60c8-43b0-bb11-44aee233e4e7 Thumbprint: B753A6679CE720451921302CA873794D94C6204A KeyContainerId: bae6a60b-1d2f-4d2a-a298-33385f6d05e9 KeyProvider: TpmProtected de fornecedor de criptografia da plataforma da Microsoft: Sim KeySignTest:: TEM de executar elevada para testar.
-                  IDP: TenantId login.windows.net: 72b988bf-86f1-41af-91ab-2d7cd011db47 TenantName: Contoso AuthCodeUrl: https://login.microsoftonline.com/msitsupp.microsoft.com/oauth2/authorize AccessTokenUrl: https://login.microsoftonline.com/msitsupp.microsoft.com/oauth2/token MdmUrl: https://enrollment.manage-beta.microsoft.com/EnrollmentServer/Discovery.svc MdmTouUrl: https://portal.manage-beta.microsoft.com/TermsOfUse.aspx dmComplianceUrl: https://portal.manage-beta.microsoft.com/?portalAction=Compliance SettingsUrl: eyJVcmlzIjpbImh0dHBzOi8va2FpbGFuaS5vbmUubWljcm9zb2Z0LmNvbS8iLCJodHRwczovL2thaWxhbmkxLm9uZS5taWNyb3NvZnQuY29tLyJdfQ== JoinSrvVersion: 1.0 JoinSrvUrl: https://enterpriseregistration.windows.net/EnrollmentServer/device/ JoinSrvId: urn: ms-drs:enterpriseregistration.windows.net KeySrvVersion: 1.0 KeySrvUrl: https://enterpriseregistration.windows.net/EnrollmentServer/key/ KeySrvId: urn: ms-drs:enterpriseregistration.windows.net DomainJoined: Sim DomainName: CONTOSO
-    
-    +----------------------------------------------------------------------+
-    | Estado do utilizador |  +----------------------------------------------------------------------+
-    
-                 NgcSet: YES
-               NgcKeyId: {C7A9AEDC-780E-4FDA-B200-1AE15561A46B}
-        WorkplaceJoined: NO
-          WamDefaultSet: YES
-    WamDefaultAuthority: organizations         WamDefaultId: https://login.microsoft.com       WamDefaultGUID: {B16898C6-A148-4967-9171-64D755DA8520} (AzureAd)           AzureAdPrt: SIM
+```
++----------------------------------------------------------------------+
+| Device State                                                         |
++----------------------------------------------------------------------+
+
+    AzureAdJoined: YES
+ EnterpriseJoined: NO
+         DeviceId: 5820fbe9-60c8-43b0-bb11-44aee233e4e7
+       Thumbprint: B753A6679CE720451921302CA873794D94C6204A
+   KeyContainerId: bae6a60b-1d2f-4d2a-a298-33385f6d05e9
+      KeyProvider: Microsoft Platform Crypto Provider
+     TpmProtected: YES
+     KeySignTest: : MUST Run elevated to test.
+              Idp: login.windows.net
+         TenantId: 72b988bf-86f1-41af-91ab-2d7cd011db47
+       TenantName: Contoso
+      AuthCodeUrl: https://login.microsoftonline.com/msitsupp.microsoft.com/oauth2/authorize
+   AccessTokenUrl: https://login.microsoftonline.com/msitsupp.microsoft.com/oauth2/token
+           MdmUrl: https://enrollment.manage-beta.microsoft.com/EnrollmentServer/Discovery.svc
+        MdmTouUrl: https://portal.manage-beta.microsoft.com/TermsOfUse.aspx
+  dmComplianceUrl: https://portal.manage-beta.microsoft.com/?portalAction=Compliance
+      SettingsUrl: eyJVcmlzIjpbImh0dHBzOi8va2FpbGFuaS5vbmUubWljcm9zb2Z0LmNvbS8iLCJodHRwczovL2thaWxhbmkxLm9uZS5taWNyb3NvZnQuY29tLyJdfQ==
+   JoinSrvVersion: 1.0
+       JoinSrvUrl: https://enterpriseregistration.windows.net/EnrollmentServer/device/
+        JoinSrvId: urn:ms-drs:enterpriseregistration.windows.net
+    KeySrvVersion: 1.0
+        KeySrvUrl: https://enterpriseregistration.windows.net/EnrollmentServer/key/
+         KeySrvId: urn:ms-drs:enterpriseregistration.windows.net
+     DomainJoined: YES
+       DomainName: CONTOSO
+
++----------------------------------------------------------------------+
+| User State                                                           |
++----------------------------------------------------------------------+
+
+             NgcSet: YES
+           NgcKeyId: {C7A9AEDC-780E-4FDA-B200-1AE15561A46B}
+    WorkplaceJoined: NO
+      WamDefaultSet: YES
+WamDefaultAuthority: organizations
+       WamDefaultId: https://login.microsoft.com
+     WamDefaultGUID: {B16898C6-A148-4967-9171-64D755DA8520} (AzureAd)
+         AzureAdPrt: YES
+```
 
 
 

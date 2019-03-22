@@ -9,12 +9,12 @@ ms.service: search
 ms.topic: conceptual
 ms.date: 02/13/2019
 ms.custom: seodec2018
-ms.openlocfilehash: 1a07661d97561319b847323981dd2aa8522b0e84
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 645f3177913b903e8262c1fec08c452130e2a671
+ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57537597"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58337872"
 ---
 # <a name="create-a-basic-index-in-azure-search"></a>Criar um índice básico no Azure Search
 
@@ -46,7 +46,7 @@ A chegar ao design à direita é geralmente obtida por meio de várias iteraçõ
 
 6. Continue a utilizar o código para iterar o design.  
 
-Porque estruturas físicas são criadas no serviço, [remover e recriar índices](search-howto-reindex.md) é necessário sempre que fizer alterações materiais à definição de campo existente ab. Isso significa que durante o desenvolvimento, deve planejar a recompilações frequentes. Pode optar por trabalhar com um subconjunto dos seus dados para tornar recria ir mais rápido. 
+Porque estruturas físicas são criadas no serviço, [remover e recriar índices](search-howto-reindex.md) é necessário sempre que fizer alterações materiais a uma definição de campo existente. Isso significa que durante o desenvolvimento, deve planejar a recompilações frequentes. Pode optar por trabalhar com um subconjunto dos seus dados para tornar recria ir mais rápido. 
 
 Código, em vez de uma abordagem de portal, recomenda-se para o projeto iterativo. Se contar com o portal para a definição de índice, terá de preencher a definição do índice em cada reconstrução. Como alternativa, ferramentas como o [Postman e a API REST](search-fiddler.md) são úteis para quando os projetos de desenvolvimento ainda se encontram em fases iniciais de teste de prova de conceito. Pode efetuar alterações incrementais para uma definição de índice num corpo de pedido e, em seguida, enviar a solicitação ao seu serviço para recriar um índice com um esquema atualizado.
 

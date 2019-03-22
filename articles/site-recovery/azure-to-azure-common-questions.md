@@ -4,30 +4,19 @@ description: Este artigo resume as perguntas mais comuns ao configurar a recuper
 author: asgang
 manager: rochakm
 ms.service: site-recovery
-ms.date: 12/12/2018
+ms.date: 03/18/2019
 ms.topic: conceptual
 ms.author: asgang
-ms.openlocfilehash: bf7a8ea00fe94e6896c097b8e27c22c0831f71da
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
-ms.translationtype: HT
+ms.openlocfilehash: 2c1890570f153de68d187c37dc0a7bca156c2d47
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58008648"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58312058"
 ---
 # <a name="common-questions-azure-to-azure-replication"></a>Perguntas mais comuns: Replicação do Azure para o Azure
 
 Este artigo fornece respostas a perguntas comuns sobre a implementação de recuperação após desastre (DR) de VMs do Azure para outra região do Azure com o Azure Site Recovery. Se tiver questões depois de ler este artigo, publique o [fórum dos serviços de recuperação do Azure](https://social.msdn.microsoft.com/Forums/azure/home?forum=hypervrecovmgr).
-
-
-## <a name="in-this-article"></a>Neste artigo 
-1.  **[Perguntas gerais sobre o Azure para o Azure](#general)** 
-1.  **[Replicação](#replication)** 
-1.  **[Política de replicação](#replication-policy)** 
-1.  **[Consistência de multi-VMS](#multi-vm-consistency)** 
-1.  **[Plano de recuperação](#recovery-plan)** 
-1.  **[Reproteção e reativação pós-falha](#reprotection-and-failback)** 
-2.  **[Capacidade](#capacity)**
-1.  **[Segurança](#security)** 
 
 
 ## <a name="general"></a>Geral
@@ -136,7 +125,7 @@ O primeiro ponto de recuperação que é gerado tem a cópia completa. Pontos de
 ### <a name="does-increasing-the-retention-period-of-recovery-points-increase-the-storage-cost"></a>Aumentar o período de retenção de pontos de recuperação aumenta o custo de armazenamento?
 Sim. Se aumentar o período de retenção de 24 horas para 72 horas, o Site Recovery irá guardar os pontos de recuperação para um adicional de 48 horas. O tempo extra incorre em custos de armazenamento. Por exemplo, se um ponto de recuperação de único tem alterações de delta de 10 GB e o custo por GB é de US $0.16 por mês, os encargos adicionais seria US $1.6 * 48 por mês.
 
-## <a name="multi-vm-consistency"></a>Consistência de multi-VMS 
+## <a name="multi-vm-consistency"></a>Consistência de multi-VMs 
 
 ### <a name="what-is-multi-vm-consistency"></a>O que é a consistência multi-VM?
 Isso significa certificar-se de que o ponto de recuperação é consistente em todas as máquinas virtuais replicadas.
@@ -186,7 +175,7 @@ Pode acionar uma ativação pós-falha após a falha. Recuperação de sites nã
 ### <a name="what-is-a-rto-of-a-virtual-machine-failover-"></a>O que é um RTO de uma ativação pós-falha de máquinas virtuais?
 Site Recovery tem um [RTO SLA de 2 horas](https://azure.microsoft.com/support/legal/sla/site-recovery/v1_2/). No entanto, a maioria das vezes, a recuperação de Site a ativação pós-falha máquinas virtuais em minutos. Pode calcular o RTO indo para a ativação pós-falha de tarefas que mostra o tempo que levou para criar a VM. Para a recuperação planear RTO, consulte abaixo de secção. 
 
-## <a name="recovery-plan"></a>Plano de recuperação
+## <a name="recovery-plans"></a>Planos de recuperação
 
 ### <a name="what-is-a-recovery-plan"></a>O que é um plano de recuperação?
 Um plano de recuperação no Site Recovery organiza a recuperação de ativação pós-falha de VMs. Ele ajuda a tornar a recuperação consistentemente precisos, repetíveis e automatizadas. Um plano de recuperação aborda as seguintes necessidades para o utilizador:

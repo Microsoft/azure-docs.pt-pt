@@ -16,12 +16,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/11/2017
 ms.author: gokuma
-ms.openlocfilehash: dd60c5d0210ffba373839fd0f194496c5dbcc20d
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 7983169c2b1123c57a48471e3f4d9ad6f19c84dc
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57999399"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58314727"
 ---
 # <a name="development-tools-on-the-data-science-virtual-machine"></a>Ferramentas de desenvolvimento na máquina de Virtual de ciência de dados
 
@@ -65,7 +65,7 @@ A Máquina Virtual de ciência de dados (DSVM) fornece um ambiente produtivo par
 | O que é?   | IDE baseado na Web para R    |
 | Versões suportadas DSVM      | Linux      |
 | Utilizações típicas      |  Desenvolvimento de R     |
-| Como utilizar / executá-lo?      | Ativar o serviço com _systemctl ativar r Studio server_, em seguida, inicie o serviço com _systemctl iniciar rstudio server_. Em seguida, pode iniciar sessão RStudio Server na http://your-vm-ip:8787.       |
+| Como utilizar / executá-lo?      | Ativar o serviço com _systemctl ativar r Studio server_, em seguida, inicie o serviço com _systemctl iniciar rstudio server_. Pode, em seguida, inicie sessão no RStudio Server em http:\// o seu-vm-ip:8787.       |
 | Ferramentas relacionadas na DSVM      |   Visual Studio 2017, Visual Studio Code, ambiente de trabalho do RStudio      |
 
 ## <a name="juno"></a>Juno 

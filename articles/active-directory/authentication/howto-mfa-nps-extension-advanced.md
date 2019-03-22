@@ -1,5 +1,5 @@
 ---
-title: Configurar a extensão NPS da MFA do Azure | Documentos da Microsoft
+title: Configurar a extensão NPS da MFA do Azure - Azure Active Directory
 description: Depois de instalar a extensão NPS, utilize estes passos para configuração avançada, como listas de permissões de IP e substituição de UPN.
 services: multi-factor-authentication
 ms.service: active-directory
@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2690cb4243597c942b6679b5864016bf14fcbad1
-ms.sourcegitcommit: 1902adaa68c660bdaac46878ce2dec5473d29275
+ms.openlocfilehash: 5bfae3b3be7812ff50ed90a61d495877141bbc7e
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/11/2019
-ms.locfileid: "57732428"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58309713"
 ---
 # <a name="advanced-configuration-options-for-the-nps-extension-for-multi-factor-authentication"></a>Opções de configuração avançada para a extensão NPS para multi-factor Authentication
 
@@ -33,7 +33,7 @@ Para configurar os IDs de início de sessão alternativo, aceda a `HKLM\SOFTWARE
 | Name | Type | Valor predefinido | Descrição |
 | ---- | ---- | ------------- | ----------- |
 | LDAP_ALTERNATE_LOGINID_ATTRIBUTE | string | Vazio | Designe o nome de atributo do Active Directory que pretende utilizar em vez do UPN. Este atributo é utilizado como o atributo AlternateLoginId. Se este valor de registo é definido como um [atributo válido do Active Directory](https://msdn.microsoft.com/library/ms675090.aspx) (por exemplo, email ou displayName), em seguida, o valor desse atributo é utilizado em vez de UPN do utilizador para autenticação. Se este valor de registo está vazio ou não configurado, em seguida, AlternateLoginId está desativada e o UPN dos utilizadores é utilizado para autenticação. |
-| LDAP_FORCE_GLOBAL_CATALOG | booleano | Falso | Utilize este sinalizador para forçar a utilização de Catálogo Global para pesquisas LDAP ao procurar o AlternateLoginId. Configurar um controlador de domínio como um Catálogo Global, adicione o atributo AlternateLoginId ao Catálogo Global e, em seguida, ativar este sinalizador. <br><br> Se LDAP_LOOKUP_FORESTS estiver configurada (não vazio), **este sinalizador é imposto como true**, independentemente do valor da configuração do Registro. Neste caso, a extensão NPS requer que o Catálogo Global ser configurado com o atributo AlternateLoginId para cada floresta. |
+| LDAP_FORCE_GLOBAL_CATALOG | boolean | Falso | Utilize este sinalizador para forçar a utilização de Catálogo Global para pesquisas LDAP ao procurar o AlternateLoginId. Configurar um controlador de domínio como um Catálogo Global, adicione o atributo AlternateLoginId ao Catálogo Global e, em seguida, ativar este sinalizador. <br><br> Se LDAP_LOOKUP_FORESTS estiver configurada (não vazio), **este sinalizador é imposto como true**, independentemente do valor da configuração do Registro. Neste caso, a extensão NPS requer que o Catálogo Global ser configurado com o atributo AlternateLoginId para cada floresta. |
 | LDAP_LOOKUP_FORESTS | string | Vazio | Forneça uma lista de ponto e vírgula separada de florestas para procurar. Por exemplo, *contoso.com;foobar.com*. Se este valor de registo estiver configurada, a extensão NPS pesquisa iterativamente todas as florestas na ordem em que eles foram listados e devolve o primeiro valor AlternateLoginId com êxito. Se este valor de registo não estiver configurada, a pesquisa de AlternateLoginId está limitada a domínio atual.|
 
 Para solucionar problemas de início de sessão alternativo IDs, utilize os passos recomendados para [alternativo erros de ID de início de sessão](howto-mfa-nps-extension-errors.md#alternate-login-id-errors).

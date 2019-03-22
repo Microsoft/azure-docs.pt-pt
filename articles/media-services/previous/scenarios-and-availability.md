@@ -11,14 +11,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 02/10/2019
+ms.date: 03/20/2019
 ms.author: juliako
-ms.openlocfilehash: f62e2d482ca6258821cb800d2650a5f0c6a27e7c
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 3576a50cd1510a4da562981ff9ae98e12a357fc9
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57762525"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58317020"
 ---
 # <a name="scenarios-and-availability-of-media-services-features-across-datacenters"></a>Cenários e disponibilidade das funcionalidades dos Serviços de Multimédia em datacenters
 
@@ -168,7 +168,7 @@ Esta secção mostra detalhes sobre a disponibilidade das funcionalidades dos Se
 
 Para determinar se os Serviços de Multimédia estão disponíveis num datacenter, navegue até https://azure.microsoft.com/status/ e desloque-se até à tabela MULTIMÉDIA.
 
-### <a name="streaming-endpoints"></a>Pontos finais de transmissão em fluxo 
+### <a name="streaming-endpoints"></a>Pontos finais de transmissões em fluxo 
 
 Os clientes dos Serviços de Multimédia podem escolher um ponto final de transmissão em fluxo **Standard** ou **Premium**. Para obter mais informações, veja a secção [Dimensionamento](#scaling).
 
@@ -176,8 +176,8 @@ Os clientes dos Serviços de Multimédia podem escolher um ponto final de transm
 
 |Name|Estado|Datacenters
 |---|---|---|
-|Standard|GA (Geographic Availability, Disponibilidade Geográfica)|Tudo|
-|Premium|GA (Geographic Availability, Disponibilidade Geográfica)|Tudo|
+|Standard|GA|Todos|
+|Premium|GA|Todos|
 
 ### <a name="live-encoding"></a>Live Encoding
 
@@ -193,7 +193,7 @@ O AMS oferece dois codificadores a pedido, o **Media Encoder Standard** e o **Me
 
 |Nome do processador de mulitmédia|Estado|Datacenters
 |---|---|---|
-|Media Encoder Standard|GA (Geographic Availability, Disponibilidade Geográfica)|Tudo|
+|Media Encoder Standard|GA|Todos|
 |Fluxo de Trabalho Premium de Codificador de Multimédia|GA|Tudo, exceto a China|
 
 ### <a name="analytics-media-processors"></a>Processadores de multimédia de análise
@@ -204,14 +204,14 @@ A Análise de Multimédia é um conjunto de componentes de voz e visão que faci
 
 |Nome do processador de mulitmédia|Estado|Datacenters
 |---|---|---|
-|Azure Media Face Detector|Pré-visualização|Tudo|
-|Azure Media Hyperlapse|Pré-visualização|Tudo|
-|Azure Media Indexer|GA (Geographic Availability, Disponibilidade Geográfica)|Tudo|
-|Azure Media Motion Detector|Pré-visualização|Tudo|
-|Azure Media OCR|Pré-visualização|Tudo|
-|Azure Media Redactor|Pré-visualização|Tudo|
-|Azure Media Stabilizer|Pré-visualização|Tudo|
-|Azure Media Video Thumbnails|Pré-visualização|Tudo|
+|Azure Media Face Detector|Pré-visualização|Todos|
+|Azure Media Hyperlapse|Pré-visualização|Todos|
+|Azure Media Indexer|GA|Todos|
+|Azure Media Motion Detector|Pré-visualização|Todos|
+|Azure Media OCR|Pré-visualização|Todos|
+|Azure Media Redactor|Pré-visualização|Todos|
+|Azure Media Stabilizer|Pré-visualização|Todos|
+|Azure Media Video Thumbnails|Pré-visualização|Todos|
 |Azure Media Indexer 2|Pré-visualização|Tudo, exceto a China e a região do Governo Federal|
 
 ### <a name="protection"></a>Proteção
@@ -222,11 +222,11 @@ Os Serviços de Multimédia do Microsoft Azure permite-lhe proteger os seus elem
 
 |Encriptação|Estado|Datacenters|
 |---|---|---| 
-|Armazenamento|GA (Geographic Availability, Disponibilidade Geográfica)|Tudo|
-|Chaves AES-128|GA (Geographic Availability, Disponibilidade Geográfica)|Tudo|
-|Fairplay|GA (Geographic Availability, Disponibilidade Geográfica)|Tudo|
-|PlayReady|GA (Geographic Availability, Disponibilidade Geográfica)|Tudo|
-|Widevine|GA (Geographic Availability, Disponibilidade Geográfica)|Todos, exceto Alemanha, Federal Government e China.
+|Armazenamento|GA|Todos|
+|Chaves AES-128|GA|Todos|
+|Fairplay|GA|Todos|
+|PlayReady|GA|Todos|
+|Widevine|GA|Todos, exceto Alemanha, Federal Government e China.
 
 ### <a name="reserved-units-rus"></a>Unidades reservadas (RUs)
 
@@ -248,9 +248,9 @@ Para obter mais informações, veja a secção [Dimensionamento](#scaling).
 
 |Nome do tipo do RU|Estado|Datacenters
 |---|---|---|
-|S1|GA (Geographic Availability, Disponibilidade Geográfica)|Tudo|
-|S2|GA (Geographic Availability, Disponibilidade Geográfica)|Todos, exceto Sul BR e Oeste da Índia|
-|S3|GA (Geographic Availability, Disponibilidade Geográfica)|Todos, exceto Oeste da Índia|
+|S1|GA|Todos|
+|S2|GA|Todos, exceto Sul BR e Oeste da Índia|
+|S3|GA|Todos, exceto Oeste da Índia|
 
 ## <a name="next-steps"></a>Passos Seguintes
 

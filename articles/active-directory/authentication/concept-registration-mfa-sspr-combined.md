@@ -1,5 +1,5 @@
 ---
-title: Registo combinado para SSPR do Azure AD e MFA (pré-visualização)
+title: Registo combinado para SSPR do Azure AD e MFA (pré-visualização) - Azure Active Directory
 description: AD multi-factor Authentication do Azure e palavra-passe self-service de reposição do registo (pré-visualização)
 services: active-directory
 ms.service: active-directory
@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6399f5b208bc4d7182622f29bd522cfc9a088e9d
-ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
-ms.translationtype: HT
+ms.openlocfilehash: 2865c19e747ca1c5b0a6cda84b8be18bfaeb9335
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58224554"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58317668"
 ---
 # <a name="combined-security-information-registration-preview"></a>Registo de informações de segurança combinados (pré-visualização)
 
