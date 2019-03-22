@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 12/15/2017
 ms.author: cynthn
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: d4b8cd07e50697139f68084f47c847ef8728c429
-ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
+ms.openlocfilehash: 00357641f51be703d2e5c52c5b9cc6187ce05ff6
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54888965"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58002679"
 ---
 # <a name="example-azure-infrastructure-walkthrough-for-linux-vms"></a>Infraestrutura do Azure de exemplo passo a passo para VMs do Linux
 Este artigo explica-criar uma infraestrutura de aplicativo de exemplo. Vamos detalhar a estruturar uma infraestrutura para uma loja online simple, que reúne todas as diretrizes e as decisões sobre as convenções de nomenclatura, conjuntos de disponibilidade, redes virtuais e Balanceadores de carga e realmente implantar suas máquinas virtuais (VMs).
@@ -54,7 +54,7 @@ Todos os anteriores, siga essas convenções de nomenclatura:
 
 * Adventure Works Cycles utiliza **[carga de trabalho do IT]-[local]-[recursos do Azure]** como um prefixo
   * Neste exemplo, "**azos**" (Azure on-line Store) é o nome da carga de trabalho de TI e "**utilizar**" (E.U.A. Leste 2) é a localização
-* Redes virtuais utilizam AZOS-USE-VN **[número]**
+* Redes virtuais utilizam AZOS-USE-VN<strong>[número]</strong>
 * Conjuntos de disponibilidade utilizam azos-use-como-**[função]**
 * Nomes de máquina virtual utilizam azos-use-vm -**[vmname]**
 

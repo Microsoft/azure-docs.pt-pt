@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 01/08/2019
 ms.author: raynew
-ms.openlocfilehash: 914dcd02f2d35d56b50169967ca1f5c251a6e6f3
-ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
+ms.openlocfilehash: 420c81f6206c777efc303924d81763f5984aba4c
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57408620"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57993397"
 ---
 # <a name="azure-backup---frequently-asked-questions"></a>Cópia de segurança do Azure - perguntas mais frequentes
 Este artigo responde a perguntas comuns sobre o serviço de cópia de segurança do Azure.
@@ -93,7 +93,7 @@ Sim.
 ### <a name="what-operating-systems-are-supported-for-backup"></a>Que sistemas operativos são suportados para cópia de segurança?
 O Azure Backup suporta estes sistemas operativos para criar cópias de segurança de ficheiros e pastas e aplicações protegidas pelo servidor de cópia de segurança do Azure e o DPM.
 
-**OS**| **SKU** |**Detalhes**
+**OS** | **SKU** | **Detalhes**
 --- | --- | ---
 Estação de trabalho | |
 Windows 10 64 bit | Enterprise, Pro, Home | Máquinas devem estar a executar os pacotes de serviços mais recentes e as atualizações.
@@ -118,7 +118,7 @@ Para cópias de segurança do Linux de VM do Azure, o Azure Backup suporta [a li
 Limites de tamanhos-se da seguinte forma:
 
 SO/máquina | Limite de tamanho da origem de dados
---- | --- | ---
+--- | --- 
 Windows 8 ou posterior | 54 400 GB
 Windows 7 |1700 GB
 Windows Server 2012 ou posterior | 54 400 GB

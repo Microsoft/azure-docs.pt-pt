@@ -1,7 +1,7 @@
 ---
-title: Diretrizes de transcrição para o treinamento do serviço de voz
+title: Diretrizes de transcrição para modelos de serviços de voz de formação
 titleSuffix: Azure Cognitive Services
-description: Saiba como preparar o texto para personalizar acústicos e modelos de linguagem e tipos de voz para o serviço de voz.
+description: Saiba como preparar o texto para personalizar acústicos e modelos de linguagem e vozes para os serviços de voz.
 services: cognitive-services
 author: PanosPeriorellis
 manager: nitinme
@@ -10,18 +10,18 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 07/01/2018
 ms.author: panosper
-ms.openlocfilehash: 31813cbbe4bdb647d43e99e7585d1eb3bb6e8a5c
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 0d7508ed9cf1807fa05c57a1d60c804af7d2244f
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55857180"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57897219"
 ---
 # <a name="transcription-guidelines-for-using-the-speech-service"></a>Diretrizes de transcrição para utilizar o serviço de voz
 
 Para personalizar **conversão de voz em texto** ou **texto em voz**, tem de fornecer o texto, juntamente com a conversão de voz. Cada linha no texto corresponde a uma única expressão. O texto deve corresponder a voz mais próximo possível. O texto é chamado um *transcrição*, e deverá criá-la num formato específico.
 
-O serviço de voz normaliza a entrada para manter o texto consistente. 
+Os serviços de voz normalizar a entrada para manter o texto consistente.
 
 Este artigo descreve os dois tipos de normalizations. As diretrizes são ligeiramente diferentes para vários idiomas.
 
@@ -39,7 +39,7 @@ Evite o uso de expandida (Latim 1) ou carateres de pontuação do Unicode. Esses
 
 ### <a name="text-normalization-rules-for-english"></a>Regras de normalização do texto para inglês
 
-O serviço de voz realiza as seguintes regras de normalização:
+Os serviços de voz realizar as seguintes regras de normalização:
 
 * Utilizar letras minúsculas para todo o texto
 * Remover todos os pontuação, exceto apóstrofos internas do word
@@ -64,7 +64,7 @@ Aplicam-se a normalização seguinte para suas transcrições de texto:
 * Cadeias de caracteres numéricas não padrão (por exemplo, alguns data ou formulários de contabilidade) devem ser escritas em palavras.
 * Palavras com carateres não alfabéticos ou caracteres mistos de alfanuméricos devem ser transcrito tão pronunciados.
 * Deixe as abreviaturas que são pronunciadas como palavras inalteradas (por exemplo, "planos", "laser," "RAM" ou "NATO").
-* Escrever as letras abreviaturas que são pronunciadas como separadas, com letras separadas por espaços (por exemplo, "IBM," "CPU", "FBI", "TBD" ou "NaN"). 
+* Escrever as letras abreviaturas que são pronunciadas como separadas, com letras separadas por espaços (por exemplo, "IBM," "CPU", "FBI", "TBD" ou "NaN").
 
 Eis alguns exemplos:
 
@@ -83,7 +83,7 @@ Eis alguns exemplos:
 
 ## <a name="chinese-zh-cn"></a>Chinês (zh-cn)
 
-Dados de texto que são carregados para o serviço de voz personalizada devem usar a codificação UTF-8 com um marcador de ordem de byte. O ficheiro deve ser escrito de uma expressão por linha.
+Dados de texto que são carregados para os serviços de voz personalizada devem usar a codificação UTF-8 com um marcador de ordem de byte. O ficheiro deve ser escrito de uma expressão por linha.
 
 Evite a utilização de carateres de pontuação de meia largura. Esses caracteres podem ser incluídos inadvertidamente quando preparar os dados num programa de processamento de texto ou extrair dados de páginas Web. Substituí-los com as substituições apropriadas das largura total. Por exemplo:
 
@@ -94,7 +94,7 @@ Evite a utilização de carateres de pontuação de meia largura. Esses caracter
 
 ### <a name="text-normalization-rules-for-chinese"></a>Regras de normalização do texto para chinês
 
-O serviço de voz realiza as seguintes regras de normalização:
+Os serviços de voz realizar as seguintes regras de normalização:
 
 * Remover todos os pontuação
 * Expandir números ao formulário falado
@@ -134,7 +134,7 @@ Texto de dados carregados para o **conversão de voz em texto** serviço deve us
 
 ### <a name="text-normalization-rules-for-german"></a>Regras de normalização do texto para o alemão
 
-O serviço de voz realiza as seguintes regras de normalização:
+Os serviços de voz realizar as seguintes regras de normalização:
 
 * Utilizar letras minúsculas para todo o texto
 * Remover todos os pontuação, incluindo vários tipos de aspas ("teste", "teste", "teste" e «testar» está OK)
@@ -162,13 +162,13 @@ Antes de importar o seu texto, aplicam-se a normalização seguinte à mesma:
 
 Eis alguns exemplos:
 
-| Texto original | Depois de normalização do utilizador | Depois de normalização de sistema
+| Texto original | Depois de normalização do utilizador | Depois de normalização de sistema |
 |--------  | ----- | -------- |
 | Es ist 12.23 Uhr | Es ist 12:23 Uhr | es ist zwölf uhr drei und zwanzig uhr |
-| {12.45} | {12,45} | zwölf komma vier fünf ||
+| {12.45} | {12,45} | zwölf komma vier fünf |
 | 2 + 3 - 4 | 2 e 3 menos 4 | zwei plus drei minus vier|
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-- [Obter a sua subscrição de avaliação do Serviço de Voz](https://azure.microsoft.com/try/cognitive-services/)
+- [Obter a subscrição de avaliação dos Serviços de Voz](https://azure.microsoft.com/try/cognitive-services/)
 - [Reconhecer voz em C#](quickstart-csharp-dotnet-windows.md)

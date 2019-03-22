@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 01/18/2019
 ms.author: borisb
-ms.openlocfilehash: fd73863dacd7914e23199ba92211ea67e68f7d0d
-ms.sourcegitcommit: c31a2dd686ea1b0824e7e695157adbc219d9074f
+ms.openlocfilehash: d42349de4324428103ccca3ef270ceb9109ca0c7
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/18/2019
-ms.locfileid: "54402154"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58011661"
 ---
 # <a name="red-hat-enterprise-linux-images-in-azure"></a>Imagens de Red Hat Enterprise Linux no Azure
 Este artigo descreve as imagens de Red Hat Enterprise Linux (RHEL) disponíveis no Azure Marketplace, juntamente com as políticas em torno de seus nomenclatura e retenção.
@@ -74,6 +74,7 @@ A limitação é o fato de que quando um não-seletiva `yum update` é executada
 > RHEL 6 conjunto de imagens não foram movidas para a nova Convenção de nomenclatura.
 
 As seguintes ofertas são que SKUs estão atualmente disponíveis para utilização geral:
+
 Oferta| SKU | Criação de partições | Aprovisionamento | Notas
 :----|:----|:-------------|:-------------|:-----
 RHEL | 7-RAW | RAW | Agente Linux | Família do RHEL 7 de imagens

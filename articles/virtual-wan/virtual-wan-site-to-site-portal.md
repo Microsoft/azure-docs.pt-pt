@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 02/26/2019
 ms.author: cherylmc
 Customer intent: As someone with a networking background, I want to connect my local site to my VNets using Virtual WAN and I don't want to go through a Virtual WAN partner.
-ms.openlocfilehash: 689f9ccc12769ac93f30d112b3f6066d509d93e1
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
-ms.translationtype: MT
+ms.openlocfilehash: ca18042985669899247c3a0a16b41a98c5c6d1ee
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57544499"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58075173"
 ---
 # <a name="tutorial-create-a-site-to-site-connection-using-azure-virtual-wan"></a>Tutorial: Criar uma ligação de Site a Site com WAN Virtual do Azure
 
@@ -64,12 +64,12 @@ Crie tantos sites qantos necessários para corresponder às suas localizações 
 2. Na página **Sites de VPN**, clique em **+Criar site**.
 3. Na página **Criar site**, preencha os seguintes campos:
 
-  * **Name** (Nome) - é o nome pelo qual se quer referir ao site no local.
-  * **Public IP address** (endereço IP público) - é o endereço IP público do dispositivo VPN que reside no site no local.
-  * **Private address space** (espaço de endereços privados) - é o espaço de endereços IP que está localizado no site no local. O tráfego destinado a este espaço de endereços é encaminhado para o site local.
-  * **Subscription** (Subscrição) - verifique a subscrição.
-  * **Resource Group** (Grupo de Recursos) - o grupo de recursos que quer utilizar.
-  * **Localização**.
+   * **Name** (Nome) - é o nome pelo qual se quer referir ao site no local.
+   * **Public IP address** (endereço IP público) - é o endereço IP público do dispositivo VPN que reside no site no local.
+   * **Private address space** (espaço de endereços privados) - é o espaço de endereços IP que está localizado no site no local. O tráfego destinado a este espaço de endereços é encaminhado para o site local.
+   * **Subscription** (Subscrição) - verifique a subscrição.
+   * **Resource Group** (Grupo de Recursos) - o grupo de recursos que quer utilizar.
+   * **Localização**.
 4. Clique em **Mostrar avançadas** para ver mais definições. Pode selecionar **BGP** para ativar o BGP, o que ativará esta funcionalidade em todas as ligações criadas para este site no Azure. Também pode introduzir **Informações do dispositivo** (campos opcionais). Essas informações podem ajudar a Equipa do Azure a compreender melhor o seu ambiente de modo a acrescentar possibilidades de otimização adicionais no futuro ou a ajudá-lo a resolver problemas.
 5. Clique em **Confirmar**.
 6. Depois de clicar em **Confirmar**, veja o estado na página de sites de VPN. O site será alterado de **A aprovisionar** para **Aprovisionado**.

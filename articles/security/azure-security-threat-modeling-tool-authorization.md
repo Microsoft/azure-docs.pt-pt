@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/07/2017
 ms.author: jegeib
-ms.openlocfilehash: ddf40538fc3d6e39fe48ff49311f86314008b4ce
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.openlocfilehash: 3c078f7246140ee966f1d202d2248758dde49059
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52994763"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57888473"
 ---
 # <a name="security-frame-authorization--mitigations"></a>Quadro de segurança: Autorização | Atenuações 
 | Produtos/serviços | Artigo |
@@ -43,7 +43,7 @@ ms.locfileid: "52994763"
 
 ## <a id="acl-restricted-access"></a>Certifique-se de que as ACLs adequadas estão configuradas para restringir o acesso não autorizado aos dados no dispositivo
 
-| Cargo                   | Detalhes      |
+| Título                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | Limite de fidedignidade de máquina | 
 | **Fase do SDL**               | Implementação |  
@@ -54,7 +54,7 @@ ms.locfileid: "52994763"
 
 ## <a id="sensitive-directory"></a>Certifique-se de que o conteúdo da aplicação do confidenciais específicas do usuário é armazenado no diretório do perfil de utilizador
 
-| Cargo                   | Detalhes      |
+| Título                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | Limite de fidedignidade de máquina | 
 | **Fase do SDL**               | Implementação |  
@@ -65,7 +65,7 @@ ms.locfileid: "52994763"
 
 ## <a id="deployed-privileges"></a>Certifique-se de que os aplicativos implantados são executados com privilégios mínimos
 
-| Cargo                   | Detalhes      |
+| Título                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | Limite de fidedignidade de máquina | 
 | **Fase do SDL**               | Implementação |  
@@ -76,7 +76,7 @@ ms.locfileid: "52994763"
 
 ## <a id="sequential-logic"></a>Impor a ordem sequencial passo durante o processamento de fluxos de lógica de negócio
 
-| Cargo                   | Detalhes      |
+| Título                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | Aplicação Web | 
 | **Fase do SDL**               | Compilação |  
@@ -87,7 +87,7 @@ ms.locfileid: "52994763"
 
 ## <a id="rate-enumeration"></a>Implementar o mecanismo para impedir que a enumeração de limitação de taxas
 
-| Cargo                   | Detalhes      |
+| Título                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | Aplicação Web | 
 | **Fase do SDL**               | Compilação |  
@@ -98,7 +98,7 @@ ms.locfileid: "52994763"
 
 ## <a id="principle-least-privilege"></a>Certifique-se de que a autorização adequada se estiver em vigor e seguido do princípio de menos privilégios
 
-| Cargo                   | Detalhes      |
+| Título                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | Aplicação Web | 
 | **Fase do SDL**               | Compilação |  
@@ -109,7 +109,7 @@ ms.locfileid: "52994763"
 
 ## <a id="logic-request-parameters"></a>Lógica e os recursos acesso autorização decisões de negócios não devem ser baseadas em parâmetros de pedido de entrada
 
-| Cargo                   | Detalhes      |
+| Título                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | Aplicação Web | 
 | **Fase do SDL**               | Compilação |  
@@ -128,7 +128,7 @@ Agora, um invasor possível pode não adulteração e alterar a operação de ap
 
 ## <a id="enumerable-browsing"></a>Certifique-se de que o conteúdo e recursos não estão acessíveis através de navegação forçadas ou enumerable
 
-| Cargo                   | Detalhes      |
+| Título                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | Aplicação Web | 
 | **Fase do SDL**               | Compilação |  
@@ -139,7 +139,7 @@ Agora, um invasor possível pode não adulteração e alterar a operação de ap
 
 ## <a id="privileged-server"></a>Certifique-se de que as contas com privilégios mínimos são utilizadas para ligar ao servidor de base de dados
 
-| Cargo                   | Detalhes      |
+| Título                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | Base de Dados | 
 | **Fase do SDL**               | Compilação |  
@@ -150,11 +150,11 @@ Agora, um invasor possível pode não adulteração e alterar a operação de ap
 
 ## <a id="rls-tenants"></a>Implementar a RLS de segurança de nível de linha para impedir que os inquilinos acedem aos dados uns dos outros
 
-| Cargo                   | Detalhes      |
+| Título                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | Base de Dados | 
 | **Fase do SDL**               | Compilação |  
-| **Tecnologias aplicáveis** | O SQL Azure, OnPrem |
+| **Tecnologias aplicáveis** | Sql Azure, OnPrem |
 | **Atributos**              | MsSQL2016 de versão - V12, versão do SQL - SQL |
 | **Referências**              | [Segurança ao nível da linha (RLS) do SQL Server](https://msdn.microsoft.com/library/azure/dn765131.aspx) |
 | **Passos** | <p>A Segurança ao Nível da Linha permite aos clientes controlar o acesso às linhas numa tabela de base de dados com base nas características do utilizador que executa uma consulta (por exemplo, associação a um grupo ou contexto de execução).</p><p>Segurança ao nível da linha (RLS) simplifica o design e programação da segurança na sua aplicação. O RLS permite-lhe implementar restrições ao acesso à linha de dados. É possível, por exemplo, garantir que os colaboradores só têm acesso às linhas de dados que são pertinentes para o departamento deles ou limitar o acesso a dados por parte de um cliente apenas àqueles que são relevantes para a empresa dele.</p><p>A lógica de restrição de acesso está localizado na camada de base de dados em vez de ausente dos dados na outra camada de aplicativos. O sistema de base de dados aplica as restrições de acesso sempre que esse acesso a dados é tentado a partir de qualquer camada. Isso faz com que o sistema de segurança mais robusta e confiável, reduzindo a área de superfície do sistema de segurança.</p><p>|
@@ -163,7 +163,7 @@ Tenha em atenção que RLS como uma funcionalidade de base de dados de out-of-th
 
 ## <a id="sysadmin-users"></a>Função de administrador do sistema deverá ter apenas os utilizadores necessários válidos
 
-| Cargo                   | Detalhes      |
+| Título                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | Base de Dados | 
 | **Fase do SDL**               | Compilação |  
@@ -174,7 +174,7 @@ Tenha em atenção que RLS como uma funcionalidade de base de dados de out-of-th
 
 ## <a id="cloud-least-privileged"></a>Ligar ao Gateway de Cloud com os tokens de acesso com privilégios mínimos
 
-| Cargo                   | Detalhes      |
+| Título                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | Gateway de Cloud da IoT | 
 | **Fase do SDL**               | Implementação |  
@@ -185,7 +185,7 @@ Tenha em atenção que RLS como uma funcionalidade de base de dados de out-of-th
 
 ## <a id="sendonly-sas"></a>Utilizar um permissões só de envio da chave SAS para gerar tokens de dispositivo
 
-| Cargo                   | Detalhes      |
+| Título                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | Hub de Eventos do Azure | 
 | **Fase do SDL**               | Compilação |  
@@ -196,7 +196,7 @@ Tenha em atenção que RLS como uma funcionalidade de base de dados de out-of-th
 
 ## <a id="access-tokens-hub"></a>Não utilize tokens de acesso que fornecem acesso direto ao Hub de eventos
 
-| Cargo                   | Detalhes      |
+| Título                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | Hub de Eventos do Azure | 
 | **Fase do SDL**               | Compilação |  
@@ -207,7 +207,7 @@ Tenha em atenção que RLS como uma funcionalidade de base de dados de out-of-th
 
 ## <a id="sas-minimum-permissions"></a>Ligar ao Hub de eventos utilizando chaves SAS com as permissões mínimas necessárias
 
-| Cargo                   | Detalhes      |
+| Título                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | Hub de Eventos do Azure | 
 | **Fase do SDL**               | Compilação |  
@@ -218,7 +218,7 @@ Tenha em atenção que RLS como uma funcionalidade de base de dados de out-of-th
 
 ## <a id="resource-docdb"></a>Utilizar tokens de recurso para ligar ao Cosmos DB, sempre que possível
 
-| Cargo                   | Detalhes      |
+| Título                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | DB de documentos do Azure | 
 | **Fase do SDL**               | Compilação |  
@@ -229,7 +229,7 @@ Tenha em atenção que RLS como uma funcionalidade de base de dados de out-of-th
 
 ## <a id="grained-rbac"></a>Ativar a gestão de acessos detalhada para a subscrição do Azure através do RBAC
 
-| Cargo                   | Detalhes      |
+| Título                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | Limite de fidedignidade do Azure | 
 | **Fase do SDL**               | Compilação |  
@@ -240,7 +240,7 @@ Tenha em atenção que RLS como uma funcionalidade de base de dados de out-of-th
 
 ## <a id="cluster-rbac"></a>Restringir o acesso do cliente para operações de cluster utilizando o RBAC
 
-| Cargo                   | Detalhes      |
+| Título                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | Limite de fidedignidade do Service Fabric | 
 | **Fase do SDL**               | Implementação |  
@@ -251,7 +251,7 @@ Tenha em atenção que RLS como uma funcionalidade de base de dados de out-of-th
 
 ## <a id="modeling-field"></a>Execute a Modelagem de segurança e usar a segurança de nível de campo onde for necessário
 
-| Cargo                   | Detalhes      |
+| Título                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | Dynamics CRM | 
 | **Fase do SDL**               | Compilação |  
@@ -262,7 +262,7 @@ Tenha em atenção que RLS como uma funcionalidade de base de dados de out-of-th
 
 ## <a id="portal-security"></a>Execute a Modelagem de segurança de contas portais tendo em mente que o modelo de segurança para o portal é diferente do restante do CRM
 
-| Cargo                   | Detalhes      |
+| Título                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | Portal do Dynamics CRM | 
 | **Fase do SDL**               | Compilação |  
@@ -273,7 +273,7 @@ Tenha em atenção que RLS como uma funcionalidade de base de dados de out-of-th
 
 ## <a id="permission-entities"></a>Conceder permissão detalhada numa ampla gama de entidades no armazenamento de tabelas do Azure
 
-| Cargo                   | Detalhes      |
+| Título                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | Storage do Azure | 
 | **Fase do SDL**               | Compilação |  
@@ -284,7 +284,7 @@ Tenha em atenção que RLS como uma funcionalidade de base de dados de out-of-th
 
 ## <a id="rbac-azure-manager"></a>Ativar com base em função de controlo de acesso (RBAC) para a conta de armazenamento do Azure com o Azure Resource Manager
 
-| Cargo                   | Detalhes      |
+| Título                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | Storage do Azure | 
 | **Fase do SDL**               | Compilação |  
@@ -295,18 +295,18 @@ Tenha em atenção que RLS como uma funcionalidade de base de dados de out-of-th
 
 ## <a id="rooting-detection"></a>Implementar jailbreak implícita ou embota deteção
 
-| Cargo                   | Detalhes      |
+| Título                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | Cliente móvel | 
 | **Fase do SDL**               | Compilação |  
 | **Tecnologias aplicáveis** | Genérico |
 | **Atributos**              | N/A  |
 | **Referências**              | N/A  |
-| **Passos** | <p>Aplicação deve salvaguardar os seus próprios dados de utilizador e a configuração no caso se o telefone está enraizado ou desbloqueado por jailbreak. Embota/desbloqueado por recentes implica o acesso não autorizado, os utilizadores que normal não fará em seus próprios telemóveis. Portanto o aplicativo deve ter a lógica de deteção implícita na inicialização do aplicativo, para detetar se o telefone foi desbloqueado por Root.</p><p>A lógica de deteção pode ser simplesmente aceder a ficheiros que utilizador raiz normalmente só pode aceder, por exemplo:</p><ul><li>/System/App/SuperUser.apk</li><li>/sbin/su</li><li>/system/bin/su</li><li>/system/xbin/su</li><li>/data/local/xbin/su</li><li>/data/local/bin/su</li><li>/System/SD/xbin/su</li><li>/system/bin/failsafe/su</li><li>/data/local/su</li></ul><p>Se a aplicação pode aceder a qualquer um desses arquivos, ele indica que a aplicação está em execução como utilizador raiz.</p>|
+| **Passos** | <p>Aplicação deve salvaguardar os seus próprios dados de utilizador e a configuração no caso se o telefone está enraizado ou desbloqueado por jailbreak. Embota/desbloqueado por recentes implica o acesso não autorizado, os utilizadores que normal não fará em seus próprios telemóveis. Portanto o aplicativo deve ter a lógica de deteção implícita na inicialização do aplicativo, para detetar se o telefone foi desbloqueado por Root.</p><p>A lógica de deteção pode ser simplesmente aceder a ficheiros que utilizador raiz normalmente só pode aceder, por exemplo:</p><ul><li>/System/App/SuperUser.apk</li><li>/sbin/su</li><li>/system/bin/su</li><li>/system/xbin/su</li><li>/data/local/xbin/su</li><li>/data/local/bin/su</li><li>/system/sd/xbin/su</li><li>/system/bin/failsafe/su</li><li>/data/local/su</li></ul><p>Se a aplicação pode aceder a qualquer um desses arquivos, ele indica que a aplicação está em execução como utilizador raiz.</p>|
 
 ## <a id="weak-class-wcf"></a>Referência de classe fracos no WCF
 
-| Cargo                   | Detalhes      |
+| Título                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | WCF | 
 | **Fase do SDL**               | Compilação |  
@@ -343,7 +343,7 @@ O `<behaviorExtensions/>` elemento do ficheiro de configuração de WCF abaixo I
 
 ## <a id="wcf-authz"></a>Controlo de autorização de implementar do WCF
 
-| Cargo                   | Detalhes      |
+| Título                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | WCF | 
 | **Fase do SDL**               | Compilação |  
@@ -391,13 +391,13 @@ return result;
 
 ## <a id="authz-aspnet"></a>Implementar o mecanismo de autorização adequada na ASP.NET Web API
 
-| Cargo                   | Detalhes      |
+| Título                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | API Web | 
 | **Fase do SDL**               | Compilação |  
 | **Tecnologias aplicáveis** | Genérico, MVC5 |
 | **Atributos**              | N/d, fornecedor de identidade do fornecedor - ADFS, de identidade - Azure AD |
-| **Referências**              | [Autenticação e autorização na ASP.NET Web API](http://www.asp.net/web-api/overview/security/authentication-and-authorization-in-aspnet-web-api) |
+| **Referências**              | [Autenticação e autorização na ASP.NET Web API](https://www.asp.net/web-api/overview/security/authentication-and-authorization-in-aspnet-web-api) |
 | **Passos** | <p>Informações de função para os utilizadores da aplicação podem ser derivadas do Azure AD ou afirmações ADFS, se o aplicativo baseia-se nos mesmos como fornecedor de identidade ou a própria aplicação poderá fornecido-lo. Em qualquer um desses casos, a implementação de autorização personalizado deve validar as informações de função de utilizador.</p><p>Informações de função para os utilizadores da aplicação podem ser derivadas do Azure AD ou afirmações ADFS, se o aplicativo baseia-se nos mesmos como fornecedor de identidade ou a própria aplicação poderá fornecido-lo. Em qualquer um desses casos, a implementação de autorização personalizado deve validar as informações de função de utilizador.</p>
 
 ### <a name="example"></a>Exemplo
@@ -442,7 +442,7 @@ public class CustomController : ApiController
 
 ## <a id="device-permission"></a>Executar verificações de autorização no dispositivo, se ele oferece suporte a várias ações que exigem níveis de permissão diferentes
 
-| Cargo                   | Detalhes      |
+| Título                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | Dispositivo IoT | 
 | **Fase do SDL**               | Compilação |  
@@ -453,7 +453,7 @@ public class CustomController : ApiController
 
 ## <a id="field-permission"></a>Executar verificações de autorização no Gateway de campo, se ele oferece suporte a várias ações que exigem níveis de permissão diferentes
 
-| Cargo                   | Detalhes      |
+| Título                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | Gateway de campo de IoT | 
 | **Fase do SDL**               | Compilação |  

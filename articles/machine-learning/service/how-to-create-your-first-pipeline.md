@@ -11,12 +11,12 @@ ms.author: sanpil
 author: sanpil
 ms.date: 01/08/2019
 ms.custom: seodec18
-ms.openlocfilehash: b1544d73478f30c7501e76a8e20975f975f9708d
-ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
+ms.openlocfilehash: 8fe8b365974086ef530b83988c63eda338a6079f
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57215052"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58014594"
 ---
 # <a name="create-and-run-a-machine-learning-pipeline-by-using-azure-machine-learning-sdk"></a>Criar e executar um pipeline de machine learning com o Azure Machine Learning SDK
 
@@ -26,7 +26,7 @@ Os pipelines que cria são visíveis para os membros do seu serviço Azure Machi
 
 Pipelines usar destinos de computação remoto para computação e o armazenamento dos dados intermediários e finais associados a esse pipeline. Pipelines podem ler e suporte de dados de escrita de e para [armazenamento do Azure](https://docs.microsoft.com/azure/storage/) localizações.
 
-Se não tiver uma subscrição do Azure, crie uma conta gratuita antes de começar. Experimente o [uma versão gratuita ou paga do serviço Azure Machine Learning](http://aka.ms/AMLFree).
+Se não tiver uma subscrição do Azure, crie uma conta gratuita antes de começar. Experimente o [uma versão gratuita ou paga do serviço Azure Machine Learning](https://aka.ms/AMLFree).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -34,14 +34,14 @@ Se não tiver uma subscrição do Azure, crie uma conta gratuita antes de começ
 
 * Criar uma [área de trabalho do Azure Machine Learning](how-to-configure-environment.md#workspace) para conter todos os seus recursos do pipeline. 
 
- ```python
- ws = Workspace.create(
+  ```python
+  ws = Workspace.create(
      name = '<workspace-name>',
      subscription_id = '<subscription-id>',
      resource_group = '<resource-group>',
      location = '<workspace_region>',
      exist_ok = True)
- ```
+  ```
 
 ## <a name="set-up-machine-learning-resources"></a>Configurar recursos de aprendizado de máquina
 
@@ -313,23 +313,23 @@ Pode publicar um pipeline para executá-lo mais tarde com entradas diferentes. P
 
 1. Para criar um parâmetro de pipeline, utilize um [PipelineParameter](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.graph.pipelineparameter?view=azure-ml-py) objeto com um valor predefinido.
 
- ```python
- pipeline_param = PipelineParameter(
+   ```python
+   pipeline_param = PipelineParameter(
      name="pipeline_arg", 
      default_value=10)
- ```
+   ```
 
 2. Adicionar isso `PipelineParameter` objeto como um parâmetro para qualquer uma das etapas no pipeline da seguinte forma:
 
- ```python
- compareStep = PythonScriptStep(
+   ```python
+   compareStep = PythonScriptStep(
      script_name="compare.py",
      arguments=["--comp_data1", comp_data1, "--comp_data2", comp_data2, "--output_data", out_data3, "--param1", pipeline_param],
      inputs=[ comp_data1, comp_data2],
      outputs=[out_data3],    
      target=compute_target, 
      source_directory=project_folder)
- ```
+   ```
 
 3. Publica este pipeline, que aceita um parâmetro, quando invocado.
 

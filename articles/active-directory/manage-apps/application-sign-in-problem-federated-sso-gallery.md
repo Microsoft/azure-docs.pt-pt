@@ -16,12 +16,12 @@ ms.date: 02/18/2019
 ms.author: celested
 ms.reviewer: luleon, asteen
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7c5b61dbb3c6dde8dfcabdba015ee41e968cc5dd
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
-ms.translationtype: MT
+ms.openlocfilehash: 225676b144d042c51a97fe14a20a5a78f0a77244
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56817087"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58013087"
 ---
 # <a name="problems-signing-in-to-a-gallery-application-configured-for-federated-single-sign-on"></a>Problemas ao iniciar sessão numa aplicação de galeria configurada para início de sessão único federado
 
@@ -93,7 +93,7 @@ Depois de atualizou o valor de URL de resposta no Azure AD, e ele corresponde ao
 
 ## <a name="user-not-assigned-a-role"></a>Não atribuído uma função de utilizador
 
-*Error AADSTS50105: O utilizador com sessão iniciada "brian@contoso.com" não está atribuído a uma função para a aplicação*.
+*Error AADSTS50105: O utilizador com sessão iniciada "brian\@contoso.com' não está atribuído a uma função para a aplicação*.
 
 **Causa possível**
 
@@ -145,14 +145,14 @@ Após um curto período de tempo, os utilizadores que selecionou será capazes d
 
 Azure AD não suporta o pedido SAML enviado pela aplicação para início de sessão único. Alguns problemas comuns são:
 
--   Campos necessários no pedido de SAML em falta
--   Método de codificação do pedido SAML
+-   Faltam campos obrigatórios no pedido SAML
+-   Método codificado de pedido SAML
 
 **Resolução**
 
-1.  Capture o pedido SAML. Siga o tutorial [como depurar baseado em SAML início de sessão único para aplicações no Azure AD](../develop/howto-v1-debug-saml-sso-issues.md) para saber como capturar o pedido SAML.
+1. Capture o pedido SAML. Siga o tutorial [como depurar baseado em SAML início de sessão único para aplicações no Azure AD](../develop/howto-v1-debug-saml-sso-issues.md) para saber como capturar o pedido SAML.
 
-1.  Contacte o fabricante da aplicação e partilhe as seguintes informações:
+1. Contacte o fabricante da aplicação e partilhe as seguintes informações:
 
    -   Pedido SAML
 

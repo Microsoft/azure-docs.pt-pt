@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/07/2017
 ms.author: jegeib
-ms.openlocfilehash: 93beef5702df9b4cf0a51a01fb286a3f023f9839
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: 27028903daeaf62a25584300944538341a861c80
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56876624"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57905227"
 ---
 # <a name="security-frame-sensitive-data--mitigations"></a>Quadro de segurança: Dados confidenciais | Atenuações 
 | Produtos/serviços | Artigo |
@@ -141,7 +141,7 @@ public override void OnActionExecuting(ActionExecutingContext filterContext)
 | **Fase do SDL**               | Compilação |  
 | **Tecnologias aplicáveis** | Genérico |
 | **Atributos**              | N/A  |
-| **Referências**              | [MSDN: atributo de autocompletar](https://msdn.microsoft.com/library/ms533486(VS.85).aspx), [usando o preenchimento automático em HTML](https://msdn.microsoft.com/library/ms533032.aspx), [vulnerabilidade de limpeza de HTML](https://technet.microsoft.com/security/bulletin/MS10-071), [preenchimento automático., novamente?!](http://blog.mindedsecurity.com/2011/10/autocompleteagain.html) |
+| **Referências**              | [MSDN: atributo de autocompletar](https://msdn.microsoft.com/library/ms533486(VS.85).aspx), [usando o preenchimento automático em HTML](https://msdn.microsoft.com/library/ms533032.aspx), [vulnerabilidade de limpeza de HTML](https://technet.microsoft.com/security/bulletin/MS10-071), [preenchimento automático., novamente?!](https://blog.mindedsecurity.com/2011/10/autocompleteagain.html) |
 | **Passos** | O atributo de autocompletar Especifica se um formulário deve ter a conclusão automática ativada ou desativada. Quando o preenchimento automático está ativado, o navegador concluir automaticamente valores com base nos valores que o utilizador introduziu antes. Por exemplo, quando um novo nome e a palavra-passe é introduzida num formulário e o formulário é submetido, o browser pede-se a palavra-passe deve ser salvos. Posteriormente, quando o formulário é exibido, o nome e a palavra-passe são preenchidos automaticamente ou são concluídas, como o nome é introduzido. Um invasor com acesso local foi possível obter a palavra-passe de texto não encriptado da cache do navegador. Por predefinição o preenchimento automático está ativado e explicitamente devem ser desativada. |
 
 ### <a name="example"></a>Exemplo
@@ -182,7 +182,7 @@ public override void OnActionExecuting(ActionExecutingContext filterContext)
 | **Fase do SDL**               | Compilação |  
 | **Tecnologias aplicáveis** | Genérico |
 | **Atributos**              | N/A  |
-| **Referências**              | [Hashing de palavra-passe com APIs de criptografia do .NET](http://docs.asp.net/en/latest/security/data-protection/consumer-apis/password-hashing.html) |
+| **Referências**              | [Hashing de palavra-passe com APIs de criptografia do .NET](https://docs.asp.net/en/latest/security/data-protection/consumer-apis/password-hashing.html) |
 | **Passos** | As palavras-passe não devem ser armazenadas em bases de dados de arquivo de utilizador personalizada. Os hashes de palavra-passe devem ser armazenados em vez disso, com valores de salt. Certificar-se de que o salt para o utilizador é sempre único e aplicar b-crypt, s-crypt ou PBKDF2 antes de armazenar a palavra-passe, com uma contagem de iteração do fator de trabalho mínimo de 150 000 loops para eliminar a possibilidade de força bruta às.| 
 
 ## <a id="db-encrypted"></a>Certifique-se de que os dados confidenciais nas colunas de base de dados são encriptados
@@ -399,7 +399,7 @@ Se a aplicação não é uma aplicação empresarial, em seguida, utilizar keyst
 | **Fase do SDL**               | Compilação |  
 | **Tecnologias aplicáveis** | Genérico |
 | **Atributos**              | N/A  |
-| **Referências**              | [Criptografia Ofuscação para .net](http://www.ssware.com/cryptoobfuscator/obfuscator-net.htm) |
+| **Referências**              | [Criptografia Ofuscação para .net](https://www.ssware.com/cryptoobfuscator/obfuscator-net.htm) |
 | **Passos** | Binários gerados (assemblies da apk) devem estar ocultados para parar a engenharia reversa de assemblies. Ferramentas como o `CryptoObfuscator` podem ser utilizados para esta finalidade. |
 
 ## <a id="cert"></a>Definir clientCredentialType para o certificado ou do Windows
@@ -429,7 +429,7 @@ Definir clientCredentialType para o certificado ou Windows.
 | **Fase do SDL**               | Compilação |  
 | **Tecnologias aplicáveis** | Genérico, o .NET Framework 3 |
 | **Atributos**              | Mensagem de modo - transporte, modo de segurança - segurança |
-| **Referências**              | [MSDN](https://msdn.microsoft.com/library/ff648500.aspx), [Reforçamos Unido](https://vulncat.fortify.com/en/detail?id=desc.config.dotnet.wcf_misconfiguration_weak_class_reference), [Noções básicas de segurança do WCF CoDe Magazine](http://www.codemag.com/article/0611051) |
+| **Referências**              | [MSDN](https://msdn.microsoft.com/library/ff648500.aspx), [Reforçamos Unido](https://vulncat.fortify.com/en/detail?id=desc.config.dotnet.wcf_misconfiguration_weak_class_reference), [Noções básicas de segurança do WCF CoDe Magazine](https://www.codemag.com/article/0611051) |
 | **Passos** | Não foi definida nenhuma segurança de transporte ou de mensagens. Aplicativos que transmitir mensagens sem transporte ou mensagem de segurança não pode garantir a integridade ou confidencialidade das mensagens. Quando uma associação de segurança do WCF é definida como None, a segurança de transporte e de mensagem estão desativadas. |
 
 ### <a name="example"></a>Exemplo
@@ -453,8 +453,8 @@ Modo de segurança em todos os enlaces de serviço lá são cinco modos de segur
 * Ambos. Permite-lhe fornecer definições para transporte e de segurança de nível de mensagem (MSMQ só oferece suporte a isso). 
 * TransportWithMessageCredential. As credenciais são passadas com a mensagem e a proteção de mensagem e autenticação de servidor são fornecidos pela camada de transporte. 
 * TransportCredentialOnly. Credenciais de cliente são passadas com a camada de transporte e sem proteção de mensagem é aplicada. Utilize segurança de transporte e de mensagem para proteger a integridade e confidencialidade das mensagens. A configuração abaixo indica ao serviço para utilizar a segurança de transporte com credenciais de mensagem.
-```
-<system.serviceModel>
+  ```
+  <system.serviceModel>
   <bindings>
     <wsHttpBinding>
     <binding name=""MyBinding""> 
@@ -462,5 +462,5 @@ Modo de segurança em todos os enlaces de serviço lá são cinco modos de segur
     <message clientCredentialType=""Windows""/> 
     </binding> 
   </bindings> 
-</system.serviceModel> 
-```
+  </system.serviceModel> 
+  ```

@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 95a29a458fc9333515ef29aaaed9a47e93cf3a8d
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 8e104d67d5a16dde3229380a78a06f9c4a87f19c
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57546182"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58075020"
 ---
 # <a name="tutorial-use-azure-resource-manager-template-to-create-a-data-factory-pipeline-to-copy-data"></a>Tutorial: Utilizar o modelo Azure Resource Manager para criar um pipeline do Data Factory para copiar dados 
 > [!div class="op_single_selector"]
@@ -321,19 +321,19 @@ Crie um ficheiro JSON com o nome **ADFCopyTutorialARM Parameters.json** que cont
 1. Inicie o **Azure PowerShell** e execute o seguinte comando:
    * Execute o comando seguinte e introduza o nome de utilizador e a palavra-passe que utiliza para iniciar sessão no portal do Azure.
    
-    ```PowerShell
-    Connect-AzAccount       
-    ```  
+     ```PowerShell
+     Connect-AzAccount       
+     ```  
    * Execute o comando seguinte para ver todas as subscrições para esta conta.
    
-    ```PowerShell
-    Get-AzSubscription
-    ```   
+     ```PowerShell
+     Get-AzSubscription
+     ```   
    * Execute o comando seguinte para selecionar a subscrição com a qual pretende trabalhar.
     
-    ```PowerShell
-    Get-AzSubscription -SubscriptionName <SUBSCRIPTION NAME> | Set-AzContext
-    ```    
+     ```PowerShell
+     Get-AzSubscription -SubscriptionName <SUBSCRIPTION NAME> | Set-AzContext
+     ```    
 2. Execute o seguinte comando para implementar as entidades do Data Factory com o modelo do Resource Manager que criou no Passo 1.
 
     ```PowerShell   

@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 10/08/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d86dc27822c91bd6b2b1cb3ec53b07978061cc7d
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: e9cd97bc226ec69441b933a9f7bf3caec17f1478
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57437365"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57877127"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-ringcentral"></a>Tutorial: Integração do Active Directory do Azure com RingCentral
 
@@ -127,6 +127,7 @@ Nesta secção, pode ativar o Azure AD início de sessão único no portal do Az
     ![image](./media/ringcentral-tutorial/b21-domains_and_urls.png)
 
     d. Na **iniciar sessão no URL** caixa de texto, escreva um URL:
+
     | |
     |--|
     | `https://service.ringcentral.com` |
@@ -140,6 +141,7 @@ Nesta secção, pode ativar o Azure AD início de sessão único no portal do Az
 6. Se não tiver **ficheiro de metadados do fornecedor de serviços**, execute os seguintes passos:
 
     a. Na **iniciar sessão no URL** caixa de texto, escreva um URL:
+
     | |
     |--|
     | `https://service.ringcentral.com` |
@@ -148,12 +150,14 @@ Nesta secção, pode ativar o Azure AD início de sessão único no portal do Az
     | `https://service.ringcentral.eu` |
 
     b. Na **identificador** caixa de texto, escreva um URL:
+
     | |
     |--|
     |  `https://sso.ringcentral.com` |
     | `https://ssoeuro.ringcentral.com` |
 
     c. Na **URL de resposta** caixa de texto, escreva um URL:
+    
     | |
     |--|
     | `https://sso.ringcentral.com/sp/ACS.saml2` |
@@ -223,7 +227,7 @@ O objetivo desta secção é criar um utilizador de teste no portal do Azure cha
 
     a. Na **Name** campo introduza **BrittaSimon**.
   
-    b. Na **nome de utilizador** tipo de campo **brittasimon@yourcompanydomain.extension**  
+    b. Na **nome de utilizador** tipo de campo **brittasimon\@yourcompanydomain.extension**  
     Por exemplo, BrittaSimon@contoso.com
 
     c. Selecione **propriedades**, selecione a **palavra-passe de Show** caixa de verificação e, em seguida, anote o valor que é apresentado na caixa de palavra-passe.

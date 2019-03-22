@@ -14,14 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/07/2017
 ms.author: jegeib
-ms.openlocfilehash: 947740ed28deea9682d10eecf9a66dab7540669e
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: 608792d8389a87bad3521d3a48947b20dd036d67
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56880313"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57887107"
 ---
 # <a name="security-frame-cryptography--mitigations"></a>Quadro de segurança: Criptografia | Atenuações 
+
 | Produtos/serviços | Artigo |
 | --------------- | ------- |
 | **Aplicação Web** | <ul><li>[Utilizar apenas as codificações de bloco simétrica aprovados e comprimentos de chave](#cipher-length)</li><li>[Uso aprovado modos de codificação de bloco e de vetores de inicialização para cifras simétricas](#vector-ciphers)</li><li>[Uso aprovado assimétricos algoritmos, comprimentos de chave e preenchimento](#padding)</li><li>[Uso aprovado geradores de números aleatórios](#numgen)</li><li>[Não utilize cifras stream simétrica](#stream-ciphers)</li><li>[Utilize algoritmos de hash MAC/HMAC/codificadas aprovados](#mac-hash)</li><li>[Utilizar apenas as funções de hash criptográficos aprovados](#hash-functions)</li></ul> |
@@ -96,7 +97,7 @@ ms.locfileid: "56880313"
 | **Tecnologias aplicáveis** | Genérico |
 | **Atributos**              | N/A  |
 | **Referências**              | N/A  |
-| **Passos** | <p>Produtos tem de utilizar apenas aprovado, o código de autenticação de mensagem (MAC) ou algoritmos de código (HMAC) de autenticação de mensagens baseada em hash.</p><p>Um código de autenticação de mensagem (MAC) é uma informação anexados a uma mensagem que permite que seu destinatário verificar a autenticidade do remetente de ambos os e a integridade da mensagem com uma chave secreta. O uso de qualquer um de um MAC com base em hash ([HMAC](http://csrc.nist.gov/publications/nistpubs/800-107-rev1/sp800-107-rev1.pdf)) ou [bloco cifrado-com base em MAC](http://csrc.nist.gov/publications/nistpubs/800-38B/SP_800-38B.pdf) é permitido como desde que o hash de todas as subjacente ou a criptografia simétrica algoritmos também são aprovados para utilização; atualmente inclui as funções de HMAC SHA2 (HMAC-SHA256, HMAC SHA384 e HMAC-SHA512) e o CMAC/OMAC1 e OMAC2 bloqueiam os MACs de com base na codificação de mensagens em fila (eles se baseiam em AES).</p><p>Utilização de HMAC-SHA1 pode ser permitida para compatibilidade de plataforma, mas será solicitado a uma exceção a este procedimento de ficheiros e tem de passar pela revisão de criptografia da sua organização. Não é permitida a truncagem de HMACs para menos de 128 bits. Usando os métodos de hash de uma chave e os dados não está aprovada e devem passar por quadro de criptografia da sua organização ler antes de utilização do cliente.</p>|
+| **Passos** | <p>Produtos tem de utilizar apenas aprovado, o código de autenticação de mensagem (MAC) ou algoritmos de código (HMAC) de autenticação de mensagens baseada em hash.</p><p>Um código de autenticação de mensagem (MAC) é uma informação anexados a uma mensagem que permite que seu destinatário verificar a autenticidade do remetente de ambos os e a integridade da mensagem com uma chave secreta. O uso de qualquer um de um MAC com base em hash ([HMAC](https://csrc.nist.gov/publications/nistpubs/800-107-rev1/sp800-107-rev1.pdf)) ou [bloco cifrado-com base em MAC](https://csrc.nist.gov/publications/nistpubs/800-38B/SP_800-38B.pdf) é permitido como desde que o hash de todas as subjacente ou a criptografia simétrica algoritmos também são aprovados para utilização; atualmente inclui as funções de HMAC SHA2 (HMAC-SHA256, HMAC SHA384 e HMAC-SHA512) e o CMAC/OMAC1 e OMAC2 bloqueiam os MACs de com base na codificação de mensagens em fila (eles se baseiam em AES).</p><p>Utilização de HMAC-SHA1 pode ser permitida para compatibilidade de plataforma, mas será solicitado a uma exceção a este procedimento de ficheiros e tem de passar pela revisão de criptografia da sua organização. Não é permitida a truncagem de HMACs para menos de 128 bits. Usando os métodos de hash de uma chave e os dados não está aprovada e devem passar por quadro de criptografia da sua organização ler antes de utilização do cliente.</p>|
 
 ## <a id="hash-functions"></a>Utilizar apenas as funções de hash criptográficos aprovados
 

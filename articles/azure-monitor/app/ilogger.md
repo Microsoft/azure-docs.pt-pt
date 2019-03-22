@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 02/19/2019
 ms.reviewer: mbullwin
 ms.author: cithomas
-ms.openlocfilehash: c456f8f7f08fdbd0020bfc49ceeec262fa0ac773
-ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
+ms.openlocfilehash: 14c9a453913a9a8080c840df3f23751487b86c34
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56457980"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58006163"
 ---
 # <a name="ilogger"></a>ILogger
 
@@ -219,6 +219,26 @@ services.AddApplicationInsightsTelemetry("ikeyhere");
 Neste exemplo, a configuração utilizado pelo `ApplicationInsightsLoggerProvider` é igual ao utilizado pela monitorização de aplicações regular. Por isso ambos `ILogger` rastreios e outra telemetria (pedidos, etc. de dependências) que irão estar a executar o mesmo conjunto de `TelemetryInitializers`, `TelemetryProcessors`, e `TelemetryChannel`. Irá ser correlacionados e amostragem de objeto de amostragem/não da mesma forma.
 
 No entanto, existe uma exceção a este comportamento. A predefinição `TelemetryConfiguration` não está totalmente quando configurar a registar algo a partir do `Program.cs` ou `Startup.cs` em si, para que esses registos não tenham a configuração predefinida. No entanto, cada registo (por exemplo, registos de controladores, etc. de modelos) compartilhariam a configuração.
+
+## <a name="control-logging-level"></a>Nível de registo de controlo
+
+Para além de filtragem de registos no código como nos exemplos acima, também é possível controlar o nível de registo do Application Insights captura, modificando o `appsettings.json`. O [registo de documentação de conceitos básicos do ASP.NET](https://docs.microsoft.com/aspnet/core/fundamentals/logging/?view=aspnetcore-2.2#log-filtering) mostra como fazer isso. Especificamente para o Application Insights, o nome do alias do fornecedor é `ApplicationInsights`, como mostra o exemplo que configura abaixo `ApplicationInsights` para capturar apenas os registos de `Warning` e acima de todas as categorias.
+
+```json
+{
+  "Logging": {
+    "ApplicationInsights": {
+      "LogLevel": {
+        "Default": "Warning"
+      }
+    },
+    "LogLevel": {
+      "Default": "Warning"
+    }
+  },
+  "AllowedHosts": "*"
+}
+```
 
 ## <a name="next-steps"></a>Passos Seguintes
 

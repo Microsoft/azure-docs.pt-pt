@@ -15,12 +15,12 @@ ms.date: 01/14/2019
 ms.author: mabrigg
 ms.reviewer: anajod
 ms.lastreviewed: 01/14/2019
-ms.openlocfilehash: a8c4ef5df586c87862ea8e1634e9a72356401d0b
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: bcb538cf2e546e4913ccb223e143c2343e114de7
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55247430"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57896199"
 ---
 # <a name="tutorial-create-cross-cloud-scaling-solutions-with-azure"></a>Tutorial: Criar soluções entre Clouds de dimensionamento com o Azure
 
@@ -128,7 +128,7 @@ Repositórios do Azure
 
 1. Definições de compilação do registo em Pipelines do Azure para confirmar a capacidade de criar.
 
-2. Adicione **win10-x64 - r** código. Isso é necessário para acionar uma implementação independente com .net Core.
+2. Adicione **win10-x64 - r** código. Isso é necessário para acionar uma implementação independente com .NET Core.
 
     ![Texto alternativo](media/azure-stack-solution-cloud-burst/image4.png)
 
@@ -266,7 +266,7 @@ Agora que as informações de ponto final existem, os Pipelines do Azure para a 
 
 Uso [modelos do Azure Resource Manager, como web](https://azure.microsoft.com/resources/templates/) dos repositórios do Azure para implementar em ambas as nuvens de código da aplicação.
 
-### <a name="add-code-to-a-azure-repos-project"></a>Adicione o código para um projeto de Repos do Azure
+### <a name="add-code-to-an-azure-repos-project"></a>Adicione o código para um projeto de Repos do Azure
 
 1.  Inicie sessão no Azure repositórios com uma conta que tenha direitos de criação do projeto no Azure Stack. Captura de ecrã seguinte mostra como ligar ao projeto HybridCICD.
 
@@ -286,7 +286,7 @@ Uso [modelos do Azure Resource Manager, como web](https://azure.microsoft.com/re
 
 2.  Navegue para o **Criar aplicação Web** página para o projeto.
 
-3.  Na **argumentos**, adicione **win10-x64 - r** código. Isto é necessário para acionar uma implementação independente com .net Core.
+3.  Na **argumentos**, adicione **win10-x64 - r** código. Isto é necessário para acionar uma implementação independente com .NET Core.
 
 4.  Execute a compilação. O [compilação de implementação autónoma e contém](https://docs.microsoft.com/dotnet/core/deploying/#self-contained-deployments-scd) processo irá publicar artefactos que podem ser executadas no Azure e no Azure Stack.
 

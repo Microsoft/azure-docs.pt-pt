@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 02/26/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 22347ce7296dc55d98f1ee6d4458fa6d7c5a21e6
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 6b5ef0f165433e2dd0685aa0e4f64bd04bf5c823
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57551294"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57902251"
 ---
 # <a name="startstop-vms-during-off-hours-solution-in-azure-automation"></a>Iniciar/parar VMs durante a solução de horário comercial na automatização do Azure
 
@@ -73,7 +73,7 @@ Execute os seguintes passos para adicionar a iniciar/parar VMs durante a soluç�
 6. Sobre o **Adicionar solução** página, selecione **conta de automatização**. Se estiver a criar uma nova área de trabalho do Log Analytics, pode criar uma nova conta de automatização a ser associado ele ou selecione uma conta de automatização existente que já não está ligada a uma área de trabalho do Log Analytics. Selecione uma conta de automatização existente ou clique em **criar uma conta de automatização**e, no **adicionar conta de automatização** página, forneça as seguintes informações:
    - No campo **Nome**, introduza o nome da conta de Automatização.
 
-    Todas as outras opções são preenchidas automaticamente com base na área de trabalho da Log Analytics selecionada. Estas opções não podem ser modificadas. O método de autenticação predefinido para os runbooks incluídos nesta solução é a conta Run As do Azure. Depois de clicar em **OK**, as opções de configuração são validadas e a conta de automatização é criada. Pode acompanhar o progresso em **Notificações**, no menu.
+     Todas as outras opções são preenchidas automaticamente com base na área de trabalho da Log Analytics selecionada. Estas opções não podem ser modificadas. O método de autenticação predefinido para os runbooks incluídos nesta solução é a conta Run As do Azure. Depois de clicar em **OK**, as opções de configuração são validadas e a conta de automatização é criada. Pode acompanhar o progresso em **Notificações**, no menu.
 
 7. Por fim, sobre o **Adicionar solução** página, selecione **configuração**. O **parâmetros** é apresentada a página.
 
@@ -289,8 +289,8 @@ A tabela seguinte disponibiliza pesquisas de registos de exemplo para registos d
 
 |Consulta | Descrição|
 |----------|----------|
-|Localizar trabalhos para o runbook ScheduledStartStop_Parent que tiver concluído com êxito | ```search Category == "JobLogs" | where ( RunbookName_s == "ScheduledStartStop_Parent" ) | where ( ResultType == "Completed" )  | resumir |AggregatedValue = count() by ResultType, bin(TimeGenerated, 1h) | Ordenar por TimeGenerated desc ' '|
-|Localizar trabalhos para o runbook SequencedStartStop_Parent que tiver concluído com êxito | ```search Category == "JobLogs" | where ( RunbookName_s == "SequencedStartStop_Parent" ) | where ( ResultType == "Completed" ) | resumir |AggregatedValue = count() by ResultType, bin(TimeGenerated, 1h) | Ordenar por TimeGenerated desc ' '|
+|Localizar trabalhos para o runbook ScheduledStartStop_Parent que tiver concluído com êxito | <code>search Category == "JobLogs" <br>&#124;  where ( RunbookName_s == "ScheduledStartStop_Parent" ) <br>&#124;  where ( ResultType == "Completed" )  <br>&#124;  summarize <br>&#124; AggregatedValue = count() by ResultType, bin(TimeGenerated, 1h) <br>&#124;  sort by TimeGenerated desc</code>|
+|Localizar trabalhos para o runbook SequencedStartStop_Parent que tiver concluído com êxito | <code>search Category == "JobLogs" <br>&#124;  where ( RunbookName_s == "SequencedStartStop_Parent" ) <br>&#124;  where ( ResultType == "Completed" ) <br>&#124;  summarize <br>&#124; AggregatedValue = count() by ResultType, bin(TimeGenerated, 1h) <br>&#124;  sort by TimeGenerated desc```|
 
 ## <a name="viewing-the-solution"></a>Visualizar a solução
 

@@ -6,12 +6,12 @@ ms.service: signalr
 ms.topic: tutorial
 ms.date: 03/01/2019
 ms.author: zhshang
-ms.openlocfilehash: 52bdbd1f7fb02c33e9cd6eef862d5be299bf1dad
-ms.sourcegitcommit: d89b679d20ad45d224fd7d010496c52345f10c96
+ms.openlocfilehash: c18597fde157e0308138348432d63d56446931b7
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57792349"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58012571"
 ---
 # <a name="tutorial-azure-signalr-service-authentication-with-azure-functions"></a>Tutorial: Autenticação de serviço SignalR do Azure com as funções do Azure
 
@@ -74,12 +74,12 @@ Vai criar e testar a aplicação Funções do Azure localmente. A aplicação ac
 1. Numa nova janela do VS Code, utilize `File > Open Folder` no menu para criar e abrir uma pasta vazia numa localização adequada. Será a pasta de projetos principal da aplicação que vai criar.
 
 1. Através da extensão das Funções do Azure no VS Code, inicialize uma aplicação de Funções na pasta de projetos principal.
-    1. Abra a Paleta de Comandos no VS Code ao selecionar **View > Command Palette** (Ver > Paleta de Comandos) no menu (atalho `Ctrl-Shift-P`, macOS: `Cmd-Shift-P`).
-    1. Procure o **as funções do Azure: Criar novo projeto** de comandos e selecioná-lo.
-    1. Deverá aparecer a pasta de projetos principal. Selecione-a (ou utilize a opção "Procurar" para localizá-la).
-    1. Na linha de comandos para escolher um idioma, selecione **JavaScript**.
+   1. Abra a Paleta de Comandos no VS Code ao selecionar **View > Command Palette** (Ver > Paleta de Comandos) no menu (atalho `Ctrl-Shift-P`, macOS: `Cmd-Shift-P`).
+   1. Procure o **as funções do Azure: Criar novo projeto** de comandos e selecioná-lo.
+   1. Deverá aparecer a pasta de projetos principal. Selecione-a (ou utilize a opção "Procurar" para localizá-la).
+   1. Na linha de comandos para escolher um idioma, selecione **JavaScript**.
 
-    ![Criar uma aplicação de função](media/signalr-tutorial-authenticate-azure-functions/signalr-create-vscode-app.png)
+      ![Criar uma aplicação de função](media/signalr-tutorial-authenticate-azure-functions/signalr-create-vscode-app.png)
 
 ### <a name="install-function-app-extensions"></a>Instalar as extensões da aplicação de funções
 
@@ -119,14 +119,14 @@ Quando executar e depurar o runtime das Funções do Azure localmente, as defini
     }
     ```
 
-    * Introduza a cadeia de ligação do Azure SignalR Service para uma definição chamada `AzureSignalRConnectionString`. Obtenha o valor a partir da página **Keys** (Chaves) no recurso do Azure SignalR Service no portal do Azure; pode ser utilizada a cadeia de ligação primária ou secundária.
-    * A definição `WEBSITE_NODE_DEFAULT_VERSION` não é utilizada localmente, mas é necessária quando for implementada no Azure.
-    * A secção `Host` configura as definições de porta e CORS do anfitrião local das Funções (esta definição não tem efeito quando estiver em execução no Azure).
+   * Introduza a cadeia de ligação do Azure SignalR Service para uma definição chamada `AzureSignalRConnectionString`. Obtenha o valor a partir da página **Keys** (Chaves) no recurso do Azure SignalR Service no portal do Azure; pode ser utilizada a cadeia de ligação primária ou secundária.
+   * A definição `WEBSITE_NODE_DEFAULT_VERSION` não é utilizada localmente, mas é necessária quando for implementada no Azure.
+   * A secção `Host` configura as definições de porta e CORS do anfitrião local das Funções (esta definição não tem efeito quando estiver em execução no Azure).
 
-        > [!NOTE]
-        > Servidor ao vivo normalmente é configurado para servir conteúdo a partir de http://127.0.0.1:5500. Se achar que está a utilizar um URL diferente ou se estiver a utilizar um servidor diferente do HTTP, altere o `CORS` definição para refletir a origem correta.
+       > [!NOTE]
+       > Servidor ao vivo normalmente é configurado para servir conteúdo a partir de `http://127.0.0.1:5500`. Se achar que está a utilizar um URL diferente ou se estiver a utilizar um servidor diferente do HTTP, altere o `CORS` definição para refletir a origem correta.
 
-    ![Obter a chave do SignalR Service](media/signalr-tutorial-authenticate-azure-functions/signalr-get-key.png)
+     ![Obter a chave do SignalR Service](media/signalr-tutorial-authenticate-azure-functions/signalr-get-key.png)
 
 1. Guarde o ficheiro.
 

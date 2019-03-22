@@ -11,12 +11,12 @@ ms.author: patricka
 ms.reviewer: fiseraci
 ms.lastreviewed: 01/28/2019
 keywords: ''
-ms.openlocfilehash: 7dff82538448b27f14dd81e2862cd63d4dd56a9b
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: a47b38acc372e6c1d215c7440657486b5babf3bb
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55247107"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58009487"
 ---
 # <a name="azure-stack-datacenter-integration---syslog-forwarding"></a>Integração de datacenter do Azure Stack - reencaminhamento do syslog
 
@@ -63,8 +63,8 @@ Parâmetros para *Set-SyslogServer* cmdlet:
 
 | Parâmetro | Descrição | Type | Necessário |
 |---------|---------|---------|---------|
-|*ServerName* | Endereço IP ou FQDN do servidor syslog | Cadeia | sim|
-|*ServerPort* | Está a escutar o número de porta do servidor syslog | Cadeia | sim|
+|*ServerName* | Endereço IP ou FQDN do servidor syslog | String | sim|
+|*ServerPort* | Está a escutar o número de porta do servidor syslog | String | sim|
 |*NoEncryption*| Forçar o cliente para enviar mensagens do syslog em texto não encriptado | Sinalizador | não|
 |*SkipCertificateCheck*| Ignorar a validação do certificado fornecido pelo servidor syslog durante o handshake TLS inicial | Sinalizador | não|
 |*SkipCNCheck*| Ignorar a validação do valor de nome comum do certificado fornecido pelo servidor syslog durante o handshake TLS inicial | Sinalizador | não|
@@ -72,6 +72,7 @@ Parâmetros para *Set-SyslogServer* cmdlet:
 |*remover*| Remover a configuração do servidor do cliente e parar o reencaminhamento do syslog| Sinalizador | não|
 
 Parâmetros para *Set-SyslogClient* cmdlet:
+
 | Parâmetro | Descrição | Type |
 |---------|---------| ---------|
 | *pfxBinary* | ficheiro PFX que contenha o certificado a ser utilizada pelo cliente como identidade para autenticar o servidor syslog  | Byte[] |
@@ -287,6 +288,7 @@ Tabela de eventos para o ponto final de recuperação:
 |RecoveryEndpointClosed |1016|RecoveryEndpointClosedEvent|5|
 
 Tabela de representante gravidade:
+
 | Gravidade | Nível | Valor numérico |
 |----------|-------| ----------------|
 |0|Não definido|Valor: 0. Indica os registos em todos os níveis|
@@ -306,6 +308,7 @@ Tabela de representante gravidade:
 ```
 
 Tabela de gravidade para eventos do Windows:
+
 | Valor de gravidade CEF | Nível de evento do Windows | Valor numérico |
 |--------------------|---------------------| ----------------|
 |0|Não definido|Valor: 0. Indica os registos em todos os níveis|
@@ -316,6 +319,7 @@ Tabela de gravidade para eventos do Windows:
 |0|Verboso|Valor: 5. Indica os registos em todos os níveis|
 
 Tabela de extensão personalizada para eventos do Windows no Azure Stack:
+
 | Nome da extensão personalizada | Exemplo de eventos do Windows | 
 |-----------------------|---------|
 |MasChannel | Sistema|
@@ -352,6 +356,7 @@ Tabela de extensão personalizada para eventos do Windows no Azure Stack:
 ```
 
 Tabela de gravidade de alertas:
+
 | Gravidade | Nível |
 |----------|-------|
 |0|Não definido|
@@ -359,6 +364,7 @@ Tabela de gravidade de alertas:
 |5|Aviso|
 
 Tabela de extensão personalizada para os alertas criados no Azure Stack:
+
 | Nome da extensão personalizada | Exemplo | 
 |-----------------------|---------|
 |MasEventDescription|DESCRIÇÃO: Uma conta de utilizador \<TestUser\> foi criado para \<TestDomain\>. É um potencial risco de segurança. – REMEDIAÇÃO: Contacte o suporte. Assistência de cliente é necessária para resolver este problema. Não tente resolver este problema sem sua assistência. Antes de abrir um pedido de suporte, iniciar o processo de recolha de ficheiros de registo através da orientação do https://aka.ms/azurestacklogfiles |

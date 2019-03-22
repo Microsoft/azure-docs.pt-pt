@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 10/23/2018
 ms.author: genli
-ms.openlocfilehash: 3d747f3b8f54dfefe7e96c378eddbce320bcc8f7
-ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
+ms.openlocfilehash: 8dc3dcbe3a84a0c35c1e3fc6e367c63393bebb70
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54215121"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58003136"
 ---
 # <a name="remote-desktop-services-isnt-starting-on-an-azure-vm"></a>Não é a partir de serviços de ambiente de trabalho remoto numa VM do Azure
 
@@ -99,7 +99,8 @@ Para resolver este problema, utilize a consola de série. Ou outro [Repare a VM 
 
     |  Erro |  Sugestão |
     |---|---|
-    |5 - ACESSO NEGADO |Ver [TermService serviço está parado devido a um erro de acesso negado](#termService-service-is-stopped-because-of-an-access-denied-problem). |   |1053 - ERROR_SERVICE_REQUEST_TIMEOUT  |Ver [TermService serviço for desativado](#termService-service-is-disabled).  |  
+    |5 - ACESSO NEGADO |Ver [TermService serviço está parado devido a um erro de acesso negado](#termService-service-is-stopped-because-of-an-access-denied-problem). |
+    |1053 - ERROR_SERVICE_REQUEST_TIMEOUT  |Ver [TermService serviço for desativado](#termService-service-is-disabled).  |  
     |1058 - ERROR_SERVICE_DISABLED  |Ver [TermService serviço falhas ou paradas](#termService-service-crashes-or-hangs).  |
     |1059 - ERROR_CIRCULAR_DEPENDENCY |[Contacte o suporte](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) para a sua questão resolvidos rapidamente.|
     |1067 - ERROR_PROCESS_ABORTED  |Ver [TermService serviço falhas ou paradas](#termService-service-crashes-or-hangs).  |
@@ -108,7 +109,7 @@ Para resolver este problema, utilize a consola de série. Ou outro [Repare a VM 
     |1070 - ERROR_SERVICE_START_HANG   | Ver [TermService serviço falhas ou paradas](#termService-service-crashes-or-hangs). |
     |1077 - ERROR_SERVICE_NEVER_STARTED   | Ver [TermService serviço for desativado](#termService-service-is-disabled).  |
     |1079 - ERROR_DIFERENCE_SERVICE_ACCOUNT   |[Contacte o suporte](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) para a sua questão resolvidos rapidamente. |
-    |1753   |[Contacte o suporte](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) para a sua questão resolvidos rapidamente.   |   |5 - ACESSO NEGADO |Ver [TermService serviço está parado devido a um erro de acesso negado](#termService-service-is-stopped-because-of-an-access-denied-error). |
+    |1753   |[Contacte o suporte](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) para a sua questão resolvidos rapidamente.   |
     
 #### <a name="termservice-service-is-stopped-because-of-an-access-denied-problem"></a>O serviço de TermService está parado devido a um problema de acesso negado
 
@@ -205,7 +206,7 @@ Para resolver este problema, utilize a consola de série. Ou outro [Repare a VM 
 
 1. [Anexar o disco do SO a uma VM de recuperação](../windows/troubleshoot-recovery-disks-portal.md).
 2. Inicie uma ligação de ambiente de trabalho remoto para a VM de recuperação. Certifique-se de que o disco ligado é sinalizado de forma **Online** no console de gerenciamento de disco. Tenha em atenção a letra de unidade que está atribuída ao disco do SO anexado.
-3.  Abra uma instância de linha de comandos elevada (**executar como administrador**). Em seguida, execute o seguinte script. Partimos do princípio de que é a letra de unidade que está atribuída ao disco do SO anexado **F**. Substitua-o com o valor apropriado na sua VM. 
+3. Abra uma instância de linha de comandos elevada (**executar como administrador**). Em seguida, execute o seguinte script. Partimos do princípio de que é a letra de unidade que está atribuída ao disco do SO anexado **F**. Substitua-o com o valor apropriado na sua VM. 
 
    ```
    reg load HKLM\BROKENSYSTEM F:\windows\system32\config\SYSTEM.hiv

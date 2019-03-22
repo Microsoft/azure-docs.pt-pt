@@ -8,12 +8,12 @@ ms.subservice: pod
 ms.topic: overview
 ms.date: 01/25/2019
 ms.author: alkohli
-ms.openlocfilehash: b3d79f106554bf4a80df835ac880fbb7a72c8bfe
-ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
+ms.openlocfilehash: 9e4308eea3384b20f21ffcf378f711a705f9f9e8
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56268401"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58077348"
 ---
 # <a name="azure-data-box-frequently-asked-questions"></a>Azure Data Box: Perguntas Mais Frequentes
 
@@ -209,10 +209,10 @@ R.  Quando o estado da encomenda para **Cópia de Dados** aparecer como **Conclu
 
 ### <a name="q-where-is-my-data-located-in-azure-after-the-upload"></a>P. Depois do carregamento, onde é que os meus dados ficam localizados no Azure?
 R.  Quando copiar os dados para o Data Box, dependendo se os dados são o blob de blocos ou BLOBs de páginas ou os ficheiros do Azure, os dados são carregados para um dos seguintes caminhos na sua conta de armazenamento do Azure.
- - `https://<storage_account_name>.blob.core.windows.net/<containername>` 
- -  `https://<storage_account_name>.file.core.windows.net/<sharename>`
+- `https://<storage_account_name>.blob.core.windows.net/<containername>` 
+- `https://<storage_account_name>.file.core.windows.net/<sharename>`
  
- Em alternativa, pode aceder à sua conta de armazenamento do Azure no portal do Azure e navegar a partir daí.
+  Em alternativa, pode aceder à sua conta de armazenamento do Azure no portal do Azure e navegar a partir daí.
 
 ### <a name="q-i-just-noticed-that-i-did-not-follow-the-azure-naming-requirements-for-my-containers-will-my-data-fail-to-upload-to-azure"></a>P. Acabei de reparar que não segui os requisitos de nomenclatura do Azure nos meus contentores. O carregamento dos meus dados para o Azure vai falhar?
 R.  Se os nomes de contentor têm Letra maiúscula, em seguida, esses nomes são automaticamente convertidos em minúsculas. Se os nomes não estiverem em conformidade por outros motivos (carateres especiais, outros idiomas, etc.), o carregamento falhará. Para obter mais informações sobre as melhores práticas de nomenclatura de partilhas, contentores e ficheiros, aceda a:

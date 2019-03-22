@@ -17,12 +17,12 @@ ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b50b8f6c54cbefde2120dd61643c23f5175927c9
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: e8706e839005d43ab9fa2662d13d7d3c3994c136
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56211755"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58077756"
 ---
 # <a name="tutorial-archive-azure-ad-logs-to-an-azure-storage-account-preview"></a>Tutorial: Arquivar registos do Azure AD para uma conta de armazenamento do Azure (pré-visualização)
 
@@ -45,11 +45,11 @@ Para utilizar esta funcionalidade, precisa de:
 3. Selecione **Exportar Definições**. 
 
 4. No painel **Definições de diagnósticos**, escolha uma das opções abaixo:
-    * Para alterar as definições existentes, selecione **Editar definição**.
-    * Para adicionar definições novas, selecione **Adicionar definição de diagnósticos**.  
-      Pode ter até três definições. 
+   * Para alterar as definições existentes, selecione **Editar definição**.
+   * Para adicionar definições novas, selecione **Adicionar definição de diagnósticos**.  
+     Pode ter até três definições. 
 
-    ![Exportar definições](./media/quickstart-azure-monitor-route-logs-to-storage-account/ExportSettings.png)
+     ![Exportar definições](./media/quickstart-azure-monitor-route-logs-to-storage-account/ExportSettings.png)
 
 5. Introduza um nome amigável para a definição e que lhe lembre do propósito da mesma (por exemplo, *Enviar para conta de armazenamento do Azure*). 
 

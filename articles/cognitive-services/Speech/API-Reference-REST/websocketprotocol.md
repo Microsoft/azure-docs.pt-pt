@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 09/18/2018
 ms.author: zhouwang
 ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: 304df5cc96e7cf12cf74c319bee39f2369fc63e1
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: d6601f57d87b518b2061df64174818432b822755
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57546352"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58076195"
 ---
 # <a name="bing-speech-websocket-protocol"></a>Protocolo WebSocket de voz do Bing
 
@@ -100,9 +100,9 @@ Os clientes *tem* utilizar um ponto final adequado do serviço de voz. O ponto f
 
 | Modo | Caminho | URI de serviço |
 | -----|-----|-----|
-| Interativo | /speech/recognition/interactive/cognitiveservices/v1 |https://speech.platform.bing.com/speech/recognition/interactive/cognitiveservices/v1?language=pt-BR |
-| Conversação | /speech/recognition/conversation/cognitiveservices/v1 |https://speech.platform.bing.com/speech/recognition/conversation/cognitiveservices/v1?language=en-US |
-| ditado | /speech/recognition/dictation/cognitiveservices/v1 |https://speech.platform.bing.com/speech/recognition/dictation/cognitiveservices/v1?language=fr-FR |
+| Interativo | /speech/recognition/interactive/cognitiveservices/v1 | https://speech.platform.bing.com/speech/recognition/interactive/cognitiveservices/v1?language=pt-BR |
+| Conversação | /speech/recognition/conversation/cognitiveservices/v1 | https://speech.platform.bing.com/speech/recognition/conversation/cognitiveservices/v1?language=en-US |
+| ditado | /speech/recognition/dictation/cognitiveservices/v1 | https://speech.platform.bing.com/speech/recognition/dictation/cognitiveservices/v1?language=fr-FR |
 
 Para obter mais informações, consulte a [URI de serviço](../GetStarted/GetStartedREST.md#service-uri) página.
 

@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 4/23/2018
 ms.author: victorh
-ms.openlocfilehash: 759f5e8441ec62ef11d4be93921e3c4f2629145c
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: ee0267146140d095487b293331a7de493ba151c6
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57774167"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57895588"
 ---
 # <a name="azure-application-gateway-url-path-based-routing-overview"></a>Descrição geral do encaminhamento baseado no caminho do URL do Gateway de Aplicação do Azure
 
@@ -29,7 +29,7 @@ No exemplo a seguir, o Gateway de aplicação está a enviar tráfego para conto
 
 ![imageURLroute](./media/url-route-overview/figure1.png)
 
-Os pedidos para http://contoso.com/video/* são encaminhados para VideoServerPool e os pedidos para http://contoso.com/images/* são encaminhados para ImageServerPool. É selecionado o DefaultServerPool se nenhum dos padrões de caminho corresponder.
+Pedidos para <http://contoso.com/video/*> são encaminhados para VideoServerPool, e <http://contoso.com/images/*> são encaminhados para ImageServerPool. É selecionado o DefaultServerPool se nenhum dos padrões de caminho corresponder.
 
 > [!IMPORTANT]
 > As regras são processadas pela ordem em que são apresentadas no portal. Antes de configurar um serviço de escuta básico, recomenda-se vivamente que configure serviços de escuta de múltiplos sites.  Desta forma, assegura que o tráfego é encaminhado para o back-end certo. Se for apresentado primeiro um serviço de escuta básico e este corresponde a um pedido de entrada, o pedido é processado por esse serviço de escuta.

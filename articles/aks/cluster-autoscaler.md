@@ -7,21 +7,23 @@ ms.service: container-service
 ms.topic: article
 ms.date: 01/29/2019
 ms.author: iainfou
-ms.openlocfilehash: 841c9ae933dfa6d94eaf265549c7e697caf3dc02
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: dd66ac6392c0afb88d43a8814cef07ec590f6a55
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57782518"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57990758"
 ---
-# <a name="automatically-scale-a-cluster-to-meet-application-demands-on-azure-kubernetes-service-aks"></a>Dimensionar automaticamente um cluster para atender às necessidades de aplicações no Azure Kubernetes Service (AKS)
+# <a name="preview---automatically-scale-a-cluster-to-meet-application-demands-on-azure-kubernetes-service-aks"></a>Pré-visualizar - Dimensionar automaticamente um cluster para atender às necessidades de aplicações no Azure Kubernetes Service (AKS)
 
 Para se manter atualizado com pedidos de aplicações no Azure Kubernetes Service (AKS), terá de ajustar o número de nós que executam cargas de trabalho. O componente de dimensionamento automático do cluster pode ver para pods no seu cluster que não é possível agendar devido a restrições de recursos. Quando forem detetados problemas, aumenta o número de nós para satisfazer a procura da aplicação. Nós também regularmente são verificados relativamente à falta de execução pods, com o número de nós, em seguida, diminuída conforme necessário. Essa capacidade de dimensionar automaticamente ou reduzir verticalmente o número de nós no cluster do AKS permite-lhe executar um cluster de eficiente e econômico.
 
 Este artigo mostra como ativar e gerir o dimensionamento automático de cluster num cluster do AKS.
 
 > [!IMPORTANT]
-> Esta funcionalidade encontra-se em pré-visualização. As pré-visualizações ser-lhe-ão disponibilizadas na condição de concordar com os [termos suplementares de utilização][terms-of-use]. Alguns aspetos desta funcionalidade podem alterar-se após a disponibilidade geral (GA).
+> Funcionalidades de pré-visualização do AKS são self-service e participar. Pré-visualizações são fornecidas para recolher comentários e bugs de nossa Comunidade. No entanto, não são suportados pelo suporte técnico do Azure. Se cria um cluster ou adicionar esses recursos em clusters existentes, esse cluster não é suportado até que a funcionalidade não se encontra em pré-visualização e é formado para disponibilidade geral (GA).
+>
+> Se tiver problemas com funcionalidades de pré-visualização [abra um problema no repositório GitHub do AKS] [ aks-github] com o nome da funcionalidade de pré-visualização no título do bug.
 
 ## <a name="before-you-begin"></a>Antes de começar
 
@@ -36,7 +38,7 @@ az extension add --name aks-preview
 ```
 
 > [!NOTE]
-> Ao instalar o *pré-visualização do aks* utiliza a extensão, cada cluster do AKS é criar o modelo de implementação de pré-visualização de conjunto de dimensionamento. Para optar por sair e regulares e criar clusters totalmente suportadas, remover a extensão com `az extension remove --name aks-preview`.
+> Se tiver instalado anteriormente a *pré-visualização do aks* extensão, instale qualquer disponível atualizações com o o `az extension update --name aks-preview` comando.
 
 ### <a name="register-scale-set-feature-provider"></a>Registar o fornecedor de recursos de conjunto de dimensionamento
 
@@ -87,7 +89,7 @@ Os dois autoscalers podem trabalhar em conjunto e são, muitas vezes, ambos impl
 Se precisar de criar um cluster do AKS, utilize o [criar az aks] [ az-aks-create] comando. Especifique um *kubernetes--version* que atenda ou exceda o número de versão mínima necessário, conforme descrito na anterior [antes de começar](#before-you-begin) secção. Para ativar e configurar o dimensionamento automático de cluster, utilize o *– enable-cluster-dimensionamento automático* parâmetro e especificar um nó *– min-count* e *– contagem máxima*.
 
 > [!IMPORTANT]
-> O dimensionamento automático do cluster é um componente de Kubernetes. Embora o cluster do AKS utiliza um conjunto para os nós de dimensionamento de máquina virtual, manualmente não ativar ou editar as definições do dimensionamento automático do conjunto de dimensionamento no portal do Azure ou ao utilizar a CLI do Azure. Permitir que o cluster de Kubernetes dimensionamento automático gerir as definições de dimensionamento necessário. Para obter mais informações, consulte [posso modificar os recursos do AKS no grupo de recursos MC_?](faq.md#can-i-modify-tags-and-other-properties-of-the-aks-resources-in-the-mc-resource-group)
+> O dimensionamento automático do cluster é um componente de Kubernetes. Embora o cluster do AKS utiliza um conjunto para os nós de dimensionamento de máquina virtual, manualmente não ativar ou editar as definições do dimensionamento automático do conjunto de dimensionamento no portal do Azure ou ao utilizar a CLI do Azure. Permitir que o cluster de Kubernetes dimensionamento automático gerir as definições de dimensionamento necessário. Para obter mais informações, consulte [posso modificar os recursos do AKS no grupo de recursos MC_?](faq.md#can-i-modify-tags-and-other-properties-of-the-aks-resources-in-the-mc_-resource-group)
 
 O exemplo seguinte cria um cluster do AKS com o conjunto de dimensionamento de máquina virtual e o dimensionamento automático de cluster ativada e utiliza um mínimo de *1* e máximo dos *3* nós:
 
@@ -174,6 +176,7 @@ Este artigo mostrou como Dimensionar automaticamente o número de nós do AKS. T
 [az-feature-register]: /cli/azure/feature#az-feature-register
 [az-feature-list]: /cli/azure/feature#az-feature-list
 [az-provider-register]: /cli/azure/provider#az-provider-register
+[aks-github]: https://github.com/azure/aks/issues]
 
 <!-- LINKS - external -->
 [az-aks-update]: https://github.com/Azure/azure-cli-extensions/tree/master/src/aks-preview

@@ -7,14 +7,14 @@ ms.topic: conceptual
 ms.date: 11/08/2018
 ms.author: dharmas
 ms.reviewer: sngun
-ms.openlocfilehash: 85d8b531f19ac35f091f54c2627f7fe6d3a62a42
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: c7288b112ce2fd062a67cb673a1efa6028ec7d57
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55468143"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57888524"
 ---
-# <a name="work-with-databases-containers-and-items"></a>Trabalhar com bancos de dados, contentores e itens
+# <a name="work-with-databases-containers-and-items"></a>Trabalhar com bases de dados, contentores e itens
 
 Depois de criar uma [conta do Azure Cosmos DB](account-overview.md) na sua subscrição do Azure, pode gerir dados na sua conta através da criação de bases de dados, contentores e itens. Este artigo descreve cada uma delas: bases de dados, contentores e itens. A imagem seguinte mostra a hierarquia de entidades diferentes numa conta do Cosmos do Azure:
 
@@ -92,7 +92,7 @@ Um contentor do Cosmos do Azure tem um conjunto de propriedades do sistema defin
 Um contentor do Cosmos do Azure suporta as seguintes operações através de qualquer uma das APIs do Cosmos do Azure.
 
 | **Operação** | **CLI do Azure** | **API DE SQL** | **API para Cassandra** | **API do Azure Cosmos DB para o MongoDB** | **API do gremlin** | **API de Tabela** |
-| --- | --- | --- | --- | --- | --- | --- | --- |
+| --- | --- | --- | --- | --- | --- | --- |
 | Enumerar contentores numa base de dados | Sim* | Sim | Sim | Sim | ND | ND |
 | Ler um contentor | Sim | Sim | Sim | Sim | ND | ND |
 | Criar novo contentor | Sim | Sim | Sim | Sim | ND | ND |
@@ -125,14 +125,14 @@ Todos os itens do Cosmos do Azure tem as seguintes propriedades do sistema defin
 Item do Cosmos do Azure suporta as seguintes operações que podem ser efetuadas através de qualquer uma das APIs do Cosmos do Azure.
 
 | **Operação** | **CLI do Azure** | **API DE SQL** | **API para Cassandra** | **API do Azure Cosmos DB para o MongoDB** | **API do gremlin** | **API de Tabela** |
-| --- | --- | --- | --- | --- | --- | --- | --- |
+| --- | --- | --- | --- | --- | --- | --- |
 | Inserir, substituir, eliminar, Upsert, leitura | Não | Sim | Sim | Sim | Sim | Sim |
 
 ## <a name="next-steps"></a>Passos Seguintes
 
 Agora, pode avançar para saber como aprovisionar o débito na conta do Cosmos do Azure ou veja outros conceitos:
 
-* [Como configurar o débito aprovisionado num banco de dados do Cosmos do Azure](how-to-provision-database-throughput.md)
+* [Como configurar o débito aprovisionado numa base de dados do Cosmos do Azure](how-to-provision-database-throughput.md)
 * [Como configurar o débito aprovisionado num contentor do Cosmos do Azure](how-to-provision-container-throughput.md)
 * [Partições lógicas](partition-data.md)
 * [Como configurar o TTL num contentor do Cosmos do Azure](how-to-time-to-live.md)

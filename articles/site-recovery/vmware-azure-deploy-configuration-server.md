@@ -8,19 +8,19 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 03/06/2019
 ms.author: ramamill
-ms.openlocfilehash: 3f500abe0ea37b35236547824c655adc1a4c4d93
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: ef0e29217e03b3c5d1b2880a6ce755c6cc02ceba
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57448837"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58004453"
 ---
 # <a name="deploy-a-configuration-server"></a>Implementar um servidor de configuração
 
 Implementar um servidor de configuração no local quando utiliza [do Azure Site Recovery](site-recovery-overview.md) para recuperação após desastre de VMs de VMware e servidores físicos para o Azure. As comunicações de coordenadas do servidor de configuração entre locais VMware e o Azure. Ele também gerencia a replicação de dados. Este artigo orienta-o pelos passos necessários para implementar o servidor de configuração quando está a replicar VMs de VMware para o Azure. [Siga este artigo](physical-azure-set-up-source.md) se precisar de configurar um servidor de configuração para a replicação de servidor físico.
 
->[!TIP]
-Pode aprender sobre a função do servidor de configuração como parte da arquitetura do Azure Site Recovery [aqui](vmware-azure-architecture.md).
+> [!TIP]
+> Pode aprender sobre a função do servidor de configuração como parte da arquitetura do Azure Site Recovery [aqui](vmware-azure-architecture.md).
 
 ## <a name="deployment-of-configuration-server-through-ova-template"></a>Implementação do servidor de configuração através do modelo de OVA
 
@@ -46,7 +46,7 @@ Exige um utilizador com **um dos seguintes** permissões que definiu no AAD (Azu
    1. Navegue para o Azure Active Directory > definições do utilizador
    1. Em * * registos das aplicações ","Os utilizadores podem registar aplicações"deve ser escolhido como"Sim".
 
-    ![AAD_application_permission](media/vmware-azure-deploy-configuration-server/AAD_application_permission.png)
+      ![AAD_application_permission](media/vmware-azure-deploy-configuration-server/AAD_application_permission.png)
 
 > [!NOTE]
 > É Services(ADFS) de Federação do Active Directory **nepodporuje**. Utilize uma conta gerida através de [do Azure Active Directory](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-whatis).
@@ -70,11 +70,11 @@ Se estiver a replicar mais do que uma VM de VMware, leia [considerações de pla
 3. Em **Adicionar Servidor**, verifique se o **Servidor de configuração para VMware** é apresentado no **Tipo de servidor**.
 4. Transfira o modelo de aplicativo de Virtualização aberto (OVA) para o servidor de configuração.
 
-  > [!TIP]
->Também pode transferir a versão mais recente do modelo de servidor de configuração diretamente a partir [Microsoft Download Center](https://aka.ms/asrconfigurationserver).
+   > [!TIP]
+   >Também pode transferir a versão mais recente do modelo de servidor de configuração diretamente a partir [Microsoft Download Center](https://aka.ms/asrconfigurationserver).
 
->[!NOTE]
-A licença fornecida com o modelo de OVA é uma licença de avaliação válida por 180 dias. Publicar este período, cliente tem de ativar o windows com uma licença procured.
+> [!NOTE]
+> A licença fornecida com o modelo de OVA é uma licença de avaliação válida por 180 dias. Publicar este período, cliente tem de ativar o windows com uma licença procured.
 
 ## <a name="import-the-template-in-vmware"></a>Importar o modelo no VMware
 
@@ -136,6 +136,7 @@ Se pretender adicionar outro NIC ao servidor de configuração, adicione-o antes
     |Pode transferir e instalar manualmente o MySQL?     |  Sim. Transferir a aplicação do MySQL e coloque-o na pasta **C:\Temp\ASRSetup**, em seguida, instale manualmente. Agora, quando aceitar os termos de > clique em **transfira e instale**, o portal indica *já instalada*. Pode avançar para o passo seguinte.       |
     |Posso evitar a transferência do MySQL online?     |   Sim. Coloque a sua aplicação de instalador do MySQL na pasta **C:\Temp\ASRSetup**. Aceite os termos > clique em **transferir e instalar**, o portal irá utilizar o instalador adicionado por e instalará o aplicativo. Pode avançar para a instalação de postagem de passo seguinte.    |
     |Eu gostaria de transferir e instalar o MySQL através do Azure Site Recovery     |  Aceitar o contrato de licença e clique em **transferir e instalar**. Em seguida, pode avançar para a instalação de postagem de passo seguinte.       |
+
 5. Em **Validar configuração da aplicação**, os pré-requisitos são verificados antes de continuar.
 6. Em **Configurar servidor vCenter Server/vSphere ESXi**, introduza o FQDN ou endereço IP do servidor vCenter ou anfitrião vSphere onde estão localizadas as VMs que pretende replicar. Introduza a porta em que o servidor está a escutar. Introduza um nome amigável a utilizar para o servidor VMware no cofre.
 7. Introduza as credenciais que o servidor de configuração irá utilizar para ligar ao servidor VMware. O Site Recovery utiliza estas credenciais para detetar automaticamente as VMs VMware que estão disponíveis para replicação. Selecione **adicione**e, em seguida **continuar**. As credenciais introduzidas aqui localmente são guardadas.

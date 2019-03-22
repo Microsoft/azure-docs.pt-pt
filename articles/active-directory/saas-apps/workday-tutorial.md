@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/04/2019
 ms.author: jeedes
-ms.openlocfilehash: ed2792c3bb599a0e5654be836d440b61fc803012
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 9bcc74e395746ae82867d915ea37962bf8880a3e
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57780308"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57857186"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-workday"></a>Tutorial: Integração do Active Directory do Azure com o Workday
 
@@ -104,7 +104,7 @@ Para configurar o Azure AD início de sessão único com o Workday, execute os s
 
     ![Workday URLs de domínio e única informações de início de sessão](common/sp-identifier.png)
 
-    a. Na **URL de início de sessão** caixa de texto, escreva um URL com o seguinte padrão: `https://impl.workday.com/<tenant>/login-saml2.flex`
+    a. Na **URL de início de sessão** caixa de texto, escreva um URL com o seguinte padrão: `https:\//impl.workday.com/<tenant>/login-saml2.flex`
 
     b. Na **identificador** caixa de texto, escreva um URL com o seguinte padrão: `https://www.workday.com`
 
@@ -112,15 +112,15 @@ Para configurar o Azure AD início de sessão único com o Workday, execute os s
 
     ![Workday URLs de domínio e única informações de início de sessão](./media/workday-tutorial/reply.png)
 
-    Na **URL de resposta** caixa de texto, escreva um URL com o seguinte padrão:  `https://impl.workday.com/<tenant>/login-saml.htmld`
+    Na **URL de resposta** caixa de texto, escreva um URL com o seguinte padrão:  `https:\//impl.workday.com/<tenant>/login-saml.htmld`
 
     > [!NOTE]
     > Estes valores não são o real. Atualize estes valores com o URL de início de sessão real e o URL de resposta. O URL de resposta tem de ter um subdomínio por exemplo: www, wd2, wd3, wd3 impl, wd5, wd5 impl).
-    > Através de algo como "*http://www.myworkday.com*" funciona, mas "*http://myworkday.com*" não existir. Contacte [equipa de suporte de cliente do Workday](https://www.workday.com/en-us/partners-services/services/support.html) obter esses valores. Também pode consultar os padrões mostrados a **configuração básica de SAML** secção no portal do Azure.
+    > Através de algo como `http://www.myworkday.com` funciona, mas `http://myworkday.com` não existir. Contacte [equipa de suporte de cliente do Workday](https://www.workday.com/en-us/partners-services/services/support.html) obter esses valores. Também pode consultar os padrões mostrados a **configuração básica de SAML** secção no portal do Azure.
 
 6. A aplicação de dia de trabalho espera que as asserções SAML num formato específico, o que requer a adição de mapeamentos de atributos personalizado à sua configuração de atributos de token SAML. Captura de ecrã seguinte mostra a lista de atributos predefinidos, em que **nameidentifier** está mapeada com **user.userprincipalname**. Aplicação workday espera **nameidentifier** seja mapeado com **user.mail**, **UPN** etc, por isso terá de editar o mapeamento do atributo clicando no **editar**  ícone e altere o mapeamento do atributo.
 
-    ![imagem](common/edit-attribute.png)
+    ![image](common/edit-attribute.png)
 
     > [!NOTE]
     > Aqui estamos tiver mapeado a ID de nome com o UPN (user.userprincipalname) como predefinição. Tem de mapear o ID de nome com o ID de utilizador real na sua conta do Workday (seu e-mail, etc. UPN) para trabalhar com êxito do SSO.
@@ -159,10 +159,10 @@ Para configurar o Azure AD início de sessão único com o Workday, execute os s
 
     d. Na **utilizado para ambientes** caixa de texto, selecione o nome do ambiente.  
 
-    >[!NOTE]
-    > O valor do atributo de ambiente está associado ao valor do URL de inquilino:  
-    >-Se o nome de domínio do URL de inquilino do Workday começa com impl por exemplo: *https://impl.workday.com/\<tenant\>/login-saml2.flex*), o **ambiente** atributo tem de ser definido para a implementação.  
-    >– Se o nome de domínio é iniciado com algo mais, terá de contactar [equipa de suporte de cliente do Workday](https://www.workday.com/en-us/partners-services/services/support.html) para obter a correspondência **ambiente** valor.
+   > [!NOTE]
+   > O valor do atributo de ambiente está associado ao valor do URL de inquilino:  
+   > -Se o nome de domínio do URL de inquilino do Workday começa com impl por exemplo: *https:\//impl.workday.com/\<inquilino\>/login-saml2.flex*), o **ambiente**atributo tem de ser definido para a implementação.  
+   > – Se o nome de domínio é iniciado com algo mais, terá de contactar [equipa de suporte de cliente do Workday](https://www.workday.com/en-us/partners-services/services/support.html) para obter a correspondência **ambiente** valor.
 
 4. Na **programa de configuração de SAML** secção, execute os seguintes passos:
 
@@ -254,7 +254,7 @@ O objetivo desta secção é criar um utilizador de teste no portal do Azure cha
 
     a. Na **Name** campo introduza **BrittaSimon**.
   
-    b. Na **nome de utilizador** tipo de campo **brittasimon@yourcompanydomain.extension**  
+    b. Na **nome de utilizador** tipo de campo **brittasimon\@yourcompanydomain.extension**  
     Por exemplo, BrittaSimon@contoso.com
 
     c. Selecione **palavra-passe de Show** caixa de verificação e, em seguida, anote o valor que é apresentado na caixa de palavra-passe.
@@ -291,7 +291,7 @@ Nesta secção, vai ativar Eduarda Almeida utilizar do Azure-início de sessão 
 
 Nesta secção, vai criar um usuário chamado Eduarda Almeida no Workday. Trabalhar com [equipa de suporte de cliente do Workday](https://www.workday.com/en-us/partners-services/services/support.html) para adicionar os utilizadores na plataforma do Workday. Os utilizadores tem de ser criados e ativados antes de utilizar o início de sessão único.
 
-### <a name="test-single-sign-on"></a>Testar início de sessão único 
+### <a name="test-single-sign-on"></a>Testar o início de sessão único 
 
 Nesta secção, vai testar a configuração do Azure AD única início de sessão com o painel de acesso.
 

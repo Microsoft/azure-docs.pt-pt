@@ -10,14 +10,14 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 04/02/2018
+ms.date: 01/14/2018
 ms.author: mbullwin
-ms.openlocfilehash: 4e9e9b76469554f5519626eed37a5b64586f5eb4
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
+ms.openlocfilehash: eaade5f9ec9db7e8d224305147dafc264916d9c5
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54265401"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57995596"
 ---
 # <a name="troubleshooting-and-q-and-a-for-application-insights-for-java"></a>Resolução de problemas e Perguntas e Respostas para o Application Insights para Java
 Perguntas ou problemas com [do Azure Application Insights no Java][java]? Eis algumas sugestões.
@@ -105,18 +105,39 @@ Usando o método XML, terá de reiniciar a aplicação quando altera o valor.
 
 Para obter mais informações sobre o que está acontecendo na API, adicione `<SDKLogger/>` sob o nó de raiz do ficheiro de configuração applicationinsights. XML.
 
+### <a name="applicationinsightsxml"></a>ApplicationInsights.xml
+
 Também pode instruir o agente de log de saída para um ficheiro:
 
 ```XML
-
-    <SDKLogger type="FILE">
-      <enabled>True</enabled>
-      <UniquePrefix>JavaSDKLog</UniquePrefix>
-    </SDKLogger>
+  <SDKLogger type="FILE">
+    <Level>TRACE</Level>
+    <UniquePrefix>AI</UniquePrefix>
+    <BaseFolderPath>C:/agent/AISDK</BaseFolderPath>
+</SDKLogger>
 ```
 
-Os ficheiros podem ser encontrados em `%temp%\javasdklogs` ou `java.io.tmpdir` em caso de servidor Tomcat.
+### <a name="spring-boot-starter"></a>Spring Boot Starter
 
+Para ativar o registo do SDK com Spring Boot aplicações que utilizam o Application Insights Spring Boot Starter, adicione o seguinte para o `application.properties` ficheiro.:
+
+```yaml
+azure.application-insights.logger.type=file
+azure.application-insights.logger.base-folder-path=C:/agent/AISDK
+azure.application-insights.logger.level=trace
+```
+
+### <a name="java-agent"></a>Agente de Java
+
+Para ativar o registo do agente de JVM update a [ficheiros de IA Agent.xml](java-agent.md).
+
+```xml
+<AgentLogger type="FILE">
+    <Level>TRACE</Level>
+    <UniquePrefix>AI</UniquePrefix>
+    <BaseFolderPath>C:/agent/AIAGENT</BaseFolderPath>
+</AgentLogger>
+```
 
 ## <a name="the-azure-start-screen"></a>O ecrã de início do Azure
 **Estou a olhar [do portal do Azure](https://portal.azure.com). O mapa me dizer algo sobre a minha aplicação?**

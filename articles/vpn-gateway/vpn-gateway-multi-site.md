@@ -1,5 +1,5 @@
 ---
-title: 'Ligar uma rede virtual para vários sites com o Gateway de VPN e o PowerShell: clássico | Documentos da Microsoft'
+title: 'Ligar uma rede virtual para vários sites com o Gateway de VPN e o PowerShell: Clássico | Documentos da Microsoft'
 description: Ligar vários sites no local a uma rede virtual clássica a utilizar um Gateway de VPN.
 services: vpn-gateway
 documentationcenter: na
@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/14/2018
 ms.author: yushwang
-ms.openlocfilehash: 768f06c9d007e716f89ca61ccd9f8a2ccd575efd
-ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
+ms.openlocfilehash: 77f8b7094c96e507eef1d360a26240627bc0e350
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52160873"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57994013"
 ---
 # <a name="add-a-site-to-site-connection-to-a-vnet-with-an-existing-vpn-gateway-connection-classic"></a>Adicionar uma ligação Site a Site a uma VNet com uma ligação de gateway VPN existente (clássica)
 
@@ -75,8 +75,8 @@ Se já tiver uma VPN de Site a Site com um gateway de encaminhamento dinâmico, 
 2. Configurar o novo gateway e criar o túnel VPN. Para obter instruções, para obter instruções, consulte [especifique o tipo SKU e a VPN](vpn-gateway-howto-site-to-site-classic-portal.md#sku). Certifique-se de que especificar o tipo de encaminhamento de mensagens em fila 'Dynamic' como.
 
 ### <a name="if-you-dont-have-a-site-to-site-virtual-network"></a>Se não tiver uma rede virtual Site a Site:
-1. Criar a rede virtual do Site a Site a utilizar estas instruções: [criar uma rede Virtual com uma ligação de VPN de Site a Site](vpn-gateway-site-to-site-create.md).  
-2. Configurar um gateway de encaminhamento dinâmico utilizando estas instruções: [configurar um Gateway de VPN](vpn-gateway-configure-vpn-gateway-mp.md). Verifique se seleciona **encaminhamento dinâmico** para o seu tipo de gateway.
+1. Crie a rede virtual do Site a Site a utilizar estas instruções: [Criar uma rede Virtual com uma ligação VPN de Site a Site](vpn-gateway-site-to-site-create.md).  
+2. Configure um gateway de encaminhamento dinâmico utilizando estas instruções: [Configurar um Gateway de VPN](vpn-gateway-configure-vpn-gateway-mp.md). Verifique se seleciona **encaminhamento dinâmico** para o seu tipo de gateway.
 
 ## <a name="export"></a>2. Exportar o ficheiro de configuração de rede
 Exporte o ficheiro de configuração de rede do Azure ao executar o comando seguinte. Pode alterar a localização do ficheiro a exportar para uma localização diferente, se necessário.
@@ -88,7 +88,7 @@ Get-AzureVNetConfig -ExportToFile C:\AzureNet\NetworkConfig.xml
 ## <a name="3-open-the-network-configuration-file"></a>3. Abra o ficheiro de configuração de rede
 Abra o ficheiro de configuração de rede que transferiu no último passo. Utilize o editor de xml que desejar. O ficheiro deve ter um aspeto semelhante ao seguinte:
 
-        <NetworkConfiguration xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.microsoft.com/ServiceHosting/2011/07/NetworkConfiguration">
+        <NetworkConfiguration xmlns:xsd="https://www.w3.org/2001/XMLSchema" xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.microsoft.com/ServiceHosting/2011/07/NetworkConfiguration">
           <VirtualNetworkConfiguration>
             <LocalNetworkSites>
               <LocalNetworkSite name="Site1">

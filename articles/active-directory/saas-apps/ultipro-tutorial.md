@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 12/24/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 68748175336e8efc5f6642cff58f0bebf70befa7
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 77d2312c5a20aa6b90586d47ee120593e807295e
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57762319"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57893582"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-ultipro"></a>Tutorial: Integração do Active Directory do Azure com UltiPro
 
@@ -106,6 +106,7 @@ Para configurar o Azure AD início de sessão único com UltiPro, execute os seg
     ![UltiPro domínio e URLs únicas início de sessão em informações](common/sp-identifier-reply.png)
 
     a. Na **URL de início de sessão** caixa de texto, escreva um URL com o seguinte padrão:
+
     | |
     |--|
     | `https://<companyname>.ultipro.com/`|
@@ -113,6 +114,7 @@ Para configurar o Azure AD início de sessão único com UltiPro, execute os seg
     | ` https://<companyname>.ultipro.ca`|
     
     b. Na **identificador** caixa de texto, escreva um URL com o seguinte padrão:
+
     | |
     |--|
     | `https://<companyname>.ultipro.com/adfs/services/trust`|
@@ -120,6 +122,7 @@ Para configurar o Azure AD início de sessão único com UltiPro, execute os seg
     | `https://<companyname>.ultipro.ca/adfs/services/trust`|
     
     c. Na **URL de resposta** caixa de texto, escreva um URL com o seguinte padrão:
+    
     | |
     |--|
     | `https://<companyname>.ultipro.com/<instancename>`|
@@ -165,7 +168,7 @@ O objetivo desta secção é criar um utilizador de teste no portal do Azure cha
 
     a. Na **Name** campo introduza **BrittaSimon**.
   
-    b. Na **nome de utilizador** tipo de campo **brittasimon@yourcompanydomain.extension**  
+    b. Na **nome de utilizador** tipo de campo **brittasimon\@yourcompanydomain.extension**  
     Por exemplo, BrittaSimon@contoso.com
 
     c. Selecione **palavra-passe de Show** caixa de verificação e, em seguida, anote o valor que é apresentado na caixa de palavra-passe.

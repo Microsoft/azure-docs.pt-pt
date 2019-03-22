@@ -7,18 +7,18 @@ ms.topic: overview
 ms.author: jmartens
 author: j-martens
 ms.date: 2/28/2019
-ms.openlocfilehash: 5bc01ad6811cc5661d74770ce36281c9acba8912
-ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
+ms.openlocfilehash: e495ed06c640601c0500d14b42070a264fd687a9
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57196264"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57862119"
 ---
 # <a name="migrating-from-batch-ai-to-azure-machine-learning-service"></a>Migrando do Batch AI para o serviço Azure Machine Learning
 
 **O serviço Azure Batch AI está desativando em Março.** A preparação de à escala e classificação de recursos do Batch AI estão agora disponíveis na [serviço Azure Machine Learning](../machine-learning/service/overview-what-is-azure-ml.md), que foi disponibilizado no dia 4 de Dezembro de 2018.
 
-Juntamente com muitas outras capacidades de machine learning, o serviço Azure Machine Learning inclui um destino de computação gerida baseado na nuvem para treinamento, implementação e modelos de aprendizagem automática de classificação. Este destino de computação é chamado [computação do Azure Machine Learning](../machine-learning/service/how-to-set-up-training-targets.md#amlcompute). [Começar a migrar e usá-lo hoje](#migrate). Pode interagir com o serviço Azure Machine Learning através da respetiva [SDKs de Python](../machine-learning/service/quickstart-create-workspace-with-python.md), interface de linha de comandos e o [portal do Azure](../machine-learning/service/quickstart-get-started.md).
+Juntamente com muitas outras capacidades de machine learning, o serviço Azure Machine Learning inclui um destino de computação gerida baseado na nuvem para treinamento, implementação e modelos de aprendizagem automática de classificação. Este destino de computação é chamado [computação do Azure Machine Learning](../machine-learning/service/how-to-set-up-training-targets.md#amlcompute). Comece a migrar e usá-lo hoje mesmo. Pode interagir com o serviço Azure Machine Learning através da respetiva [SDKs de Python](../machine-learning/service/quickstart-create-workspace-with-python.md), interface de linha de comandos e o [portal do Azure](../machine-learning/service/quickstart-get-started.md).
 
 A atualização do Batch AI a pré-visualização para o serviço GA'ed do Azure Machine Learning dá-lhe uma experiência melhor os conceitos que são mais fáceis de usar como avaliadores e arquivos de dados. Esta ação garante também GA SLAs de nível de serviço do Azure e o suporte ao cliente.
 

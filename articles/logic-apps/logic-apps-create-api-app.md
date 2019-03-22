@@ -10,12 +10,12 @@ ms.reviewer: klam, jehollan, LADocs
 ms.topic: article
 ms.assetid: bd229179-7199-4aab-bae0-1baf072c7659
 ms.date: 05/26/2017
-ms.openlocfilehash: 25b33242b9f7bddf0497067f111ca3fb4a1ea570
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.openlocfilehash: 620ede672d71338abeff5198fd5f94e92dc193d0
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53600726"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57895860"
 ---
 # <a name="create-custom-apis-you-can-call-from-azure-logic-apps"></a>Criar APIs personalizadas, pode chamar a partir do Azure Logic Apps
 
@@ -25,7 +25,7 @@ Embora o Azure Logic Apps oferece [mais de 100 conectores incorporados](../conne
 * Ajude os clientes a utilizar o seu serviço para gerir as tarefas pessoais ou profissionais.
 * Expanda o alcance, a capacidade de deteção e a utilização para o seu serviço.
 
-Basicamente, os conectores são web APIs que utilizar REST para interfaces de conectáveis [formato de metadados do Swagger](http://swagger.io/specification/) para documentação e JSON como seu formato de troca de dados. Como os conectores são APIs REST que comunicam através de pontos finais HTTP, pode utilizar qualquer linguagem, como .NET, Java ou node. js, para a criação de conectores. Também pode alojar as suas APIs num [App Service do Azure](../app-service/overview.md), uma plataforma-como-um-serviço (PaaS que fornece uma das formas melhores, mais fácil e mais escaláveis para alojar a API da oferta). 
+Basicamente, os conectores são web APIs que utilizar REST para interfaces de conectáveis [formato de metadados do Swagger](https://swagger.io/specification/) para documentação e JSON como seu formato de troca de dados. Como os conectores são APIs REST que comunicam através de pontos finais HTTP, pode utilizar qualquer linguagem, como .NET, Java ou node. js, para a criação de conectores. Também pode alojar as suas APIs num [App Service do Azure](../app-service/overview.md), uma plataforma-como-um-serviço (PaaS que fornece uma das formas melhores, mais fácil e mais escaláveis para alojar a API da oferta). 
 
 Para obter APIs personalizadas trabalhar com o logic apps, pode fornecer a sua API [ *ações* ](./logic-apps-overview.md#logic-app-concepts) que realizam tarefas específicas em fluxos de trabalho de aplicação de lógica. A API pode também agir como um [ *acionador* ](./logic-apps-overview.md#logic-app-concepts) que inicia um fluxo de trabalho de aplicação lógica quando novos dados ou um evento cumpre uma condição especificada. Este tópico descreve os padrões comuns que pode seguir para a criação de ações e acionadores na sua API, com base no comportamento que pretende que a API para fornecer.
 
@@ -41,11 +41,11 @@ Pode alojar as suas APIs num [App Service do Azure](../app-service/overview.md),
 > * [python](../app-service/containers/quickstart-python.md)
 > * [Ruby](../app-service/containers/quickstart-ruby.md)
 >
-> Para exemplos de aplicações de API criados para o logic apps, visite o [repositório do GitHub do Azure Logic Apps](http://github.com/logicappsio) ou [blog](https://aka.ms/logicappsblog).
+> Para exemplos de aplicações de API criados para o logic apps, visite o [repositório do GitHub do Azure Logic Apps](https://github.com/logicappsio) ou [blog](https://aka.ms/logicappsblog).
 
 ## <a name="how-do-custom-apis-differ-from-custom-connectors"></a>Como a APIs personalizadas diferem dos conectores personalizados?
 
-APIs personalizadas e [conectores personalizados](../logic-apps/custom-connector-overview.md) são APIs que utilizar REST para interfaces conectáveis, web [formato de metadados do Swagger](http://swagger.io/specification/) para documentação e JSON como seu formato de troca de dados. E como essas APIs e conectores são APIs REST que comunicam através de pontos finais HTTP, pode utilizar qualquer linguagem, como .NET, Java ou node. js, para a criação de conectores e APIs personalizadas.
+APIs personalizadas e [conectores personalizados](../logic-apps/custom-connector-overview.md) são APIs que utilizar REST para interfaces conectáveis, web [formato de metadados do Swagger](https://swagger.io/specification/) para documentação e JSON como seu formato de troca de dados. E como essas APIs e conectores são APIs REST que comunicam através de pontos finais HTTP, pode utilizar qualquer linguagem, como .NET, Java ou node. js, para a criação de conectores e APIs personalizadas.
 
 APIs personalizadas permitem chamar as APIs que não são conectores e fornecer pontos de extremidade que pode chamar com HTTP + Swagger, gestão de API do Azure ou serviços de aplicações. Conectores personalizados funcionam como APIs personalizadas, mas também tem estes atributos:
 
@@ -63,7 +63,7 @@ Para obter mais informações sobre conectores personalizados, consulte
 
 ## <a name="helpful-tools"></a>Ferramentas úteis
 
-Uma API personalizada funciona melhor com o logic apps quando a API também tem um [documento Swagger](http://swagger.io/specification/) que descreve a API de operações e os parâmetros.
+Uma API personalizada funciona melhor com o logic apps quando a API também tem um [documento Swagger](https://swagger.io/specification/) que descreve a API de operações e os parâmetros.
 Muitas bibliotecas, como [Swashbuckle](https://github.com/domaindrivendev/Swashbuckle), pode gerar automaticamente o ficheiro Swagger para. Anotar o ficheiro de Swagger para os nomes a apresentar, tipos de propriedade e assim por diante, também pode utilizar [TRex](https://github.com/nihaue/TRex) para que o ficheiro Swagger funciona bem com o logic apps.
 
 <a name="actions"></a>
@@ -167,7 +167,7 @@ Aqui estão algumas etapas específicas para um acionador de consulta, descrito 
 
 | Foram encontrados novos dados ou eventos?  | Resposta da API | 
 | ------------------------- | ------------ |
-| Foi encontrado | Devolver um HTTP `200 OK` Estado com o payload de resposta (entrada para o passo seguinte). <br/>Esta resposta cria uma instância da aplicação lógica e inicia o fluxo de trabalho. | 
+| Localizado | Devolver um HTTP `200 OK` Estado com o payload de resposta (entrada para o passo seguinte). <br/>Esta resposta cria uma instância da aplicação lógica e inicia o fluxo de trabalho. | 
 | Não encontrado | Devolver um HTTP `202 ACCEPTED` Estado com um `location` cabeçalho e uma `retry-after` cabeçalho. <br/>Para acionadores, o `location` cabeçalho deve conter também uma `triggerState` parâmetro de consulta, que é normalmente um "timestamp". A API pode utilizar este identificador para controlar a última vez que a aplicação lógica foi acionada. | 
 ||| 
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/04/2017
 ms.author: alkohli
-ms.openlocfilehash: 428bc3504416f3a99518572f9f5bcb39423295b2
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 66b881ab13e27ee457af4fa1bafb82ad14e9674d
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51261609"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58014164"
 ---
 # <a name="safely-install-and-operate-your-storsimple-device"></a>Instalar e operar o dispositivo StorSimple em segurança
 ![Ícone de aviso](./media/storsimple-safety/IC740879.png)
@@ -145,7 +145,7 @@ Para reduzir o risco de caras, fire, explosão, lesão ou morte:
 
 ![Observe o ícone](./media/storsimple-safety/IC740881.png) **aviso:**
 
-Quando envio ou caso contrário, transportar as baterias pelo ar, siga o documento de orientação de bateria do Lithium IATA disponível em [http://www.iata.org/whatwedo/cargo/dgr/Pages/lithium-batteries.aspx](http://www.iata.org/whatwedo/cargo/dgr/Pages/lithium-batteries.aspx)
+Quando envio ou caso contrário, transportar as baterias pelo ar, siga o documento de orientação de bateria do Lithium IATA disponível em [https://www.iata.org/whatwedo/cargo/dgr/Pages/lithium-batteries.aspx](https://www.iata.org/whatwedo/cargo/dgr/Pages/lithium-batteries.aspx)
 
 Depois de rever estes avisos de segurança, os passos seguintes são para descompactar, montar e ligar o seu dispositivo.
 

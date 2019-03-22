@@ -14,12 +14,12 @@ ms.workload: infrastructure
 ms.date: 03/05/2019
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 5bdf23d1a2142e5c83ceeb72a79ca4fbea65d09c
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 5b6c636366d494901a34078100290084298de686
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57534281"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57999832"
 ---
 # <a name="how-to-install-and-configure-sap-hana-large-instances-on-azure"></a>Como instalar e configurar o SAP HANA (instâncias grandes) no Azure
 
@@ -96,11 +96,11 @@ Segue-se SAP adicional e útil em ligações de SUSE:
 
 - [SAP HANA no site do SUSE Linux](https://wiki.scn.sap.com/wiki/display/ATopics/SAP+on+SUSE)
 - [Melhores práticas para SAP: Colocar em fila replicação – SAP NetWeaver no SUSE Linux Enterprise 12](https://www.suse.com/docrepcontent/container.jsp?containerId=9113)
-- [ClamSAP – proteção contra vírus SLES para SAP](http://scn.sap.com/community/linux/blog/2014/04/14/clamsap--suse-linux-enterprise-server-integrates-virus-protection-for-sap) (incluindo 12 do SLES para SAP applications)
+- [ClamSAP – proteção contra vírus SLES para SAP](https://scn.sap.com/community/linux/blog/2014/04/14/clamsap--suse-linux-enterprise-server-integrates-virus-protection-for-sap) (incluindo 12 do SLES para SAP applications)
 
 Seguem-se notas de suporte do SAP que são aplicáveis a implementação de SAP HANA no SLES 12:
 
-- [SAP suporte Nota #1944799 – diretrizes de SAP HANA para a instalação de sistema operativo do SLES](http://go.sap.com/documents/2016/05/e8705aae-717c-0010-82c7-eda71af511fa.html)
+- [SAP suporte Nota #1944799 – diretrizes de SAP HANA para a instalação de sistema operativo do SLES](https://go.sap.com/documents/2016/05/e8705aae-717c-0010-82c7-eda71af511fa.html)
 - [Suporte a nota SAP #2205917 – SAP HANA DB as definições de sistema operacional para o SLES 12 para aplicações SAP recomendada](https://launchpad.support.sap.com/#/notes/2205917/E)
 - [Suporte a nota SAP #1984787 – SUSE Linux Enterprise Server 12: observações de instalação](https://launchpad.support.sap.com/#/notes/1984787)
 - [SAP suporte Nota #171356 – software SAP no Linux:  Informações gerais](https://launchpad.support.sap.com/#/notes/1984787)
@@ -131,7 +131,7 @@ Para o SAP HANA no Azure (instâncias grandes), sincronização de hora que fez 
 Como resultado, tem de configurar um servidor de time separadas que pode ser utilizado por servidores de aplicações SAP em execução em VMs do Azure e as instâncias de base de dados do SAP HANA em execução nas instâncias grandes do HANA. A infraestrutura de armazenamento em carimbos de data / instância grande é a hora sincronizada com os servidores NTP.
 
 
-## <a name="networking"></a>Funcionamento em Rede
+## <a name="networking"></a>Redes
 Partimos do princípio de que seguiu as recomendações na criação de redes virtuais do Azure e na conexão essas redes virtuais com o HANA nas instâncias grandes, conforme descrito nos seguintes documentos:
 
 - [Descrição geral do SAP HANA (instância grande) e a arquitetura no Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-architecture)
@@ -143,7 +143,7 @@ Para obter mais informações sobre os detalhes de Ethernet para a sua arquitetu
 
 ## <a name="storage"></a>Armazenamento
 
-O esquema de armazenamento para o SAP HANA no Azure (instâncias grandes) é configurado pelo SAP HANA na gestão de serviço do Azure através de SAP diretrizes recomendada. Essas diretrizes estão documentadas no [requisitos de armazenamento do SAP HANA](http://go.sap.com/documents/2015/03/74cdb554-5a7c-0010-82c7-eda71af511fa.html) white paper. 
+O esquema de armazenamento para o SAP HANA no Azure (instâncias grandes) é configurado pelo SAP HANA na gestão de serviço do Azure através de SAP diretrizes recomendada. Essas diretrizes estão documentadas no [requisitos de armazenamento do SAP HANA](https://go.sap.com/documents/2015/03/74cdb554-5a7c-0010-82c7-eda71af511fa.html) white paper. 
 
 Os tamanhos aproximados dos volumes diferentes com SKUs diferentes instâncias grandes de HANA está documentado no [descrição geral do SAP HANA (instâncias grandes) e a arquitetura no Azure](hana-overview-architecture.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
@@ -207,10 +207,10 @@ O armazenamento utilizado nas instâncias grandes do HANA tem uma limitação de
 > [!IMPORTANT]
 > Para impedir que o HANA tentando aumentar os arquivos de dados além do limite de tamanho de ficheiro de 16 TB de armazenamento de instâncias grandes do HANA, tem de definir os seguintes parâmetros no ficheiro de configuração global.ini SAP HANA
 > 
-- datavolume_striping=true
-- datavolume_striping_size_gb = 15000
-- Consulte também a SAP note [#2400005](https://launchpad.support.sap.com/#/notes/2400005)
-- Tenha em atenção a nota SAP [#2631285](https://launchpad.support.sap.com/#/notes/2631285)
+> - datavolume_striping=true
+> - datavolume_striping_size_gb = 15000
+> - Consulte também a SAP note [#2400005](https://launchpad.support.sap.com/#/notes/2400005)
+> - Tenha em atenção a nota SAP [#2631285](https://launchpad.support.sap.com/#/notes/2631285)
 
 
 Com o SAP HANA 2.0, a estrutura de hdbparam foi preterida. Como resultado, tem de definir os parâmetros com comandos SQL. Para obter mais informações, consulte [a nota SAP #2399079: Eliminação de hdbparam no HANA 2](https://launchpad.support.sap.com/#/notes/2399079).

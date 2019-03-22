@@ -9,12 +9,12 @@ manager: jeconnoc
 ms.author: vaangadi
 ms.topic: tutorial
 ms.date: 03/01/2019
-ms.openlocfilehash: fedd83276a0182ecf2d39e43382bc264c6f88de5
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 435ee13de28fb1591a5579761ecc7ad5bf9f9d76
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57761690"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58000835"
 ---
 # <a name="tutorial-create-on-premises-virtual-network-with-terraform-in-azure"></a>Tutorial: Criar rede virtual no local com o Terraform no Azure
 
@@ -36,7 +36,7 @@ Este tutorial abrange as seguintes tarefas:
 
 Para simular uma rede no local, crie uma rede virtual do Azure. A demonstração VNet ocupa o lugar de uma rede privada no local real. Para fazer o mesmo com a sua rede no local existentes, mapear os endereços IP apropriados nas sub-redes.
 
-1. Navegue para o [portal do Azure](http://portal.azure.com).
+1. Navegue para o [portal do Azure](https://portal.azure.com).
 
 1. Abra o [Azure Cloud Shell](/azure/cloud-shell/overview). Se ainda não tiver selecionado um ambiente, selecione **Bash** como o seu ambiente.
 

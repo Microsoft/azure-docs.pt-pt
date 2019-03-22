@@ -4,19 +4,19 @@ ms.author: diberry
 ms.service: cognitive-services
 ms.topic: include
 ms.date: 01/22/2019
-ms.openlocfilehash: 493810e85ef535005e75f4ac37fcb1920e5d8549
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: 0745e4987ca602a41f2d93ddc0a93cb061ce127d
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56740767"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58051672"
 ---
 Se precisar de configurar um proxy HTTP para fazer pedidos de saída, utilize estes dois argumentos:
 
 | Name | Tipo de dados | Descrição |
 |--|--|--|
-|HTTP_PROXY|cadeia|o proxy a utilizar, por exemplo, http://proxy:8888|
-|HTTP_PROXY_CREDS|cadeia|quaisquer credenciais necessárias para autenticar o proxy, por exemplo, username:password.|
+|HTTP_PROXY|string|o proxy a utilizar, por exemplo, `http://proxy:8888`|
+|HTTP_PROXY_CREDS|string|quaisquer credenciais necessárias para autenticar o proxy, por exemplo, username:password.|
 
 ```bash
 docker run --rm -it -p 5000:5000 --memory 2g --cpus 1 \

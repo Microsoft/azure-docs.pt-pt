@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 4/12/2018
 ms.author: dukek
 ms.subservice: logs
-ms.openlocfilehash: 9bd5ec3471fc3447d1e29d875c154793daf8e9e5
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: ab4aa2f37d5a883c83b8ee09b5de6551ebf13d2e
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54474035"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57995159"
 ---
 # <a name="view-service-health-notifications-by-using-the-azure-portal"></a>Ver notificações do Estado de funcionamento de serviço com o portal do Azure
 
@@ -60,24 +60,24 @@ Properties.communicationId | A comunicação com o qual este evento está associ
 ### <a name="details-on-service-health-level-information"></a>Informações de nível de detalhes sobre o service health
 
 **É necessária qualquer ação** (properties.incidentType = = ação necessária)
-    - Informativo - necessário para evitar o impacto para os serviços existentes de ação do administrador
+- Informativo - necessário para evitar o impacto para os serviços existentes de ação do administrador
     
 **Manutenção** (properties.incidentType = = manutenção)
-    - Aviso - manutenção de emergência
-    - Informativo - manutenção planeada padrão
+- Aviso - manutenção de emergência
+- Informativo - manutenção planeada padrão
 
 **Informações** (properties.incidentType = = informações)
-    - Informativa - administrador, pode ser necessário para evitar o impacto para os serviços existentes
+- Informativa - administrador, pode ser necessário para evitar o impacto para os serviços existentes
 
 **Segurança** (properties.incidentType = = segurança)
-    - Erro - problemas de amplo acesso a vários serviços em várias regiões estão a afetar um vasto leque de clientes.
-    - Aviso - problemas de serviços específicos ao aceder ao e/ou regiões específicos estejam a afetar um subconjunto de clientes.
-    - Informativo - problemas que podem afetar as operações de gestão e/ou latência, não com impacto na disponibilidade do serviço.
+- Erro - problemas de amplo acesso a vários serviços em várias regiões estão a afetar um vasto leque de clientes.
+- Aviso - problemas de serviços específicos ao aceder ao e/ou regiões específicos estejam a afetar um subconjunto de clientes.
+- Informativo - problemas que podem afetar as operações de gestão e/ou latência, não com impacto na disponibilidade do serviço.
 
 **Problemas de serviço** (properties.incidentType = = incidente)
-    - Erro - problemas de amplo acesso a vários serviços em várias regiões estão a afetar um vasto leque de clientes.
-    - Aviso - problemas de serviços específicos ao aceder ao e/ou regiões específicos estejam a afetar um subconjunto de clientes.
-    - Informativo - problemas que podem afetar as operações de gestão e/ou latência, não com impacto na disponibilidade do serviço.
+- Erro - problemas de amplo acesso a vários serviços em várias regiões estão a afetar um vasto leque de clientes.
+- Aviso - problemas de serviços específicos ao aceder ao e/ou regiões específicos estejam a afetar um subconjunto de clientes.
+- Informativo - problemas que podem afetar as operações de gestão e/ou latência, não com impacto na disponibilidade do serviço.
 
 
 ## <a name="view-your-service-health-notifications-in-the-azure-portal"></a>Ver as notificações de estado de funcionamento do serviço no portal do Azure
