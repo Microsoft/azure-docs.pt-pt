@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/21/2017
 ms.author: rli
-ms.openlocfilehash: 3ebc4d94e0bbf24895be0aeba9fef1cc7aacd6b9
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: 1e17ec48c35a7e01ca87016406fb416a05544b41
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56736717"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58087198"
 ---
 # <a name="azure-cdn-rules-engine-match-conditions"></a>Condições de correspondência do motor de regras CDN do Azure 
 Este artigo apresenta uma lista de descrições detalhadas das condições de correspondência disponíveis para a rede do Azure da entrega de conteúdos (CDN) [motor de regras](cdn-rules-engine.md).
@@ -532,16 +532,16 @@ Informações da chave:
 - Um URL de CNAME do edge é reescrito para um URL de CDN antes da comparação de URL.
 
     Por exemplo, ambos os seguintes URLs apontam para o mesmo elemento e, portanto, tem o mesmo caminho de URL.
-    - URL de CDN: http:\//wpc.0001.&lt; domínio&gt;/800001/CustomerOrigin/path/asset.htm
+  - URL de CDN: http:\//wpc.0001.&lt; domínio&gt;/800001/CustomerOrigin/path/asset.htm
     
-    - URL de CNAME do Edge: http:\//&lt;endpoint&gt;.azureedge.net/path/asset.htm
+  - URL de CNAME do Edge: http:\//&lt;endpoint&gt;.azureedge.net/path/asset.htm
     
     Informações adicionais:
-    - Domínio personalizado: https:\//my.domain.com/path/asset.htm
+  - Domínio personalizado: https:\//my.domain.com/path/asset.htm
     
-    - Caminho do URL (relativo à raiz do): / / 800001 CustomerOrigin/caminho /
+  - Caminho do URL (relativo à raiz do): / / 800001 CustomerOrigin/caminho /
     
-    - Caminho do URL (relativo ao origin): /path/
+  - Caminho do URL (relativo ao origin): /path/
 
 - A parte do URL que é utilizado para as extremidades de comparação de URL apenas antes do nome de ficheiro do recurso solicitado. Uma barra à direita é o último caráter neste tipo de caminho.
     
@@ -639,27 +639,27 @@ Informações da chave:
 - Utilize o **relativamente à** opção para especificar se o ponto de comparação de URL começa antes ou depois do ponto de acesso ao conteúdo. 
 
     Os seguintes valores estão disponíveis para o **relativamente à** opção:
-     - **Raiz**: Indica que o ponto de comparação de URL começa imediatamente após o nome de anfitrião do CDN.
+  - **Raiz**: Indica que o ponto de comparação de URL começa imediatamente após o nome de anfitrião do CDN.
 
-       Por exemplo: http:\//wpc.0001.&lt; domínio&gt;/**800001/myorigin/myfolder/index.htm**
+    Por exemplo: http:\//wpc.0001.&lt; domínio&gt;/**800001/myorigin/myfolder/index.htm**
 
-     - **Origin**: Indica que o ponto de comparação de URL começa depois do ponto de acesso ao conteúdo (por exemplo, myorigin /000001 ou/800001 /). Uma vez que o \*. azureedge.net CNAME é criado relativos ao diretório de origem no nome do anfitrião de CDN da Verizon por predefinição, os utilizadores da CDN do Azure devem utilizar o **origem** valor. 
+  - **Origin**: Indica que o ponto de comparação de URL começa depois do ponto de acesso ao conteúdo (por exemplo, myorigin /000001 ou/800001 /). Uma vez que o \*. azureedge.net CNAME é criado relativos ao diretório de origem no nome do anfitrião de CDN da Verizon por predefinição, os utilizadores da CDN do Azure devem utilizar o **origem** valor. 
 
-       Por exemplo: https:\//&lt;ponto final&gt;.azureedge.net/**myfolder/index.htm**
+    Por exemplo: https:\//&lt;ponto final&gt;.azureedge.net/**myfolder/index.htm**
 
-     Este URL aponta para o nome de anfitrião de CDN da Verizon seguinte: http:\//wpc.0001.&lt; domínio&gt;/800001/myorigin/**myfolder/index.htm**
+    Este URL aponta para o nome de anfitrião de CDN da Verizon seguinte: http:\//wpc.0001.&lt; domínio&gt;/800001/myorigin/**myfolder/index.htm**
 
 - Um URL de CNAME do edge é reescrito para um URL de CDN antes de uma comparação de URL.
 
     Por exemplo, ambos os seguintes URLs apontam para o mesmo elemento e, portanto, tem o mesmo caminho de URL:
-    - URL de CDN: http:\//wpc.0001.&lt; domínio&gt;/800001/CustomerOrigin/path/asset.htm
-    - URL de CNAME do Edge: http:\//&lt;endpoint&gt;.azureedge.net/path/asset.htm
+  - URL de CDN: http:\//wpc.0001.&lt; domínio&gt;/800001/CustomerOrigin/path/asset.htm
+  - URL de CNAME do Edge: http:\//&lt;endpoint&gt;.azureedge.net/path/asset.htm
     
     Informações adicionais:
     
-    - Caminho do URL (relativo à raiz do): /800001/CustomerOrigin/path/asset.htm
+  - Caminho do URL (relativo à raiz do): /800001/CustomerOrigin/path/asset.htm
    
-    - Caminho do URL (relativo ao origin): /path/asset.htm
+  - Caminho do URL (relativo ao origin): /path/asset.htm
 
 - Cadeias de caracteres de consulta no URL são ignoradas.
 - Utilize o **ignorar caso** a opção de controle se é efetuada uma comparação diferenciando maiúsculas de minúsculas.
@@ -684,13 +684,13 @@ Informações da chave:
  
     Por exemplo, ambos os URLs de apontam para o mesmo elemento e, portanto, tem o mesmo caminho de URL.
 
-     - URL de CDN: http:\//wpc.0001.&lt; domínio&gt;/800001/CustomerOrigin/path/asset.htm
+  - URL de CDN: http:\//wpc.0001.&lt; domínio&gt;/800001/CustomerOrigin/path/asset.htm
 
-     - URL de CNAME do Edge: http:\//my.domain.com/path/asset.htm
+  - URL de CNAME do Edge: http:\//my.domain.com/path/asset.htm
     
     Informações adicionais:
     
-     - Caminho do URL: /800001/CustomerOrigin/path/asset.htm
+  - Caminho do URL: /800001/CustomerOrigin/path/asset.htm
 
 - Cadeias de caracteres de consulta no URL são ignoradas.
     
@@ -714,27 +714,27 @@ Informações da chave:
 - **Relativamente à** opção: Esta opção determina se o ponto de comparação de URL começa antes ou depois do ponto de acesso ao conteúdo.
 
    Esta opção pode ter os seguintes valores:
-     - **Raiz**: Indica que o ponto de comparação de URL começa imediatamente após o nome de anfitrião do CDN.
+  - **Raiz**: Indica que o ponto de comparação de URL começa imediatamente após o nome de anfitrião do CDN.
 
-       Por exemplo: http:\//wpc.0001.&lt; domínio&gt;/**800001/myorigin/myfolder/index.htm**
+    Por exemplo: http:\//wpc.0001.&lt; domínio&gt;/**800001/myorigin/myfolder/index.htm**
 
-     - **Origin**: Indica que o ponto de comparação de URL começa depois do ponto de acesso ao conteúdo (por exemplo, myorigin /000001 ou/800001 /). Uma vez que o \*. azureedge.net CNAME é criado relativos ao diretório de origem no nome do anfitrião de CDN da Verizon por predefinição, os utilizadores da CDN do Azure devem utilizar o **origem** valor. 
+  - **Origin**: Indica que o ponto de comparação de URL começa depois do ponto de acesso ao conteúdo (por exemplo, myorigin /000001 ou/800001 /). Uma vez que o \*. azureedge.net CNAME é criado relativos ao diretório de origem no nome do anfitrião de CDN da Verizon por predefinição, os utilizadores da CDN do Azure devem utilizar o **origem** valor. 
 
-       Por exemplo: https:\//&lt;ponto final&gt;.azureedge.net/**myfolder/index.htm**
+    Por exemplo: https:\//&lt;ponto final&gt;.azureedge.net/**myfolder/index.htm**
 
-     Este URL aponta para o nome de anfitrião de CDN da Verizon seguinte: http:\//wpc.0001.&lt; domínio&gt;/800001/myorigin/**myfolder/index.htm**
+    Este URL aponta para o nome de anfitrião de CDN da Verizon seguinte: http:\//wpc.0001.&lt; domínio&gt;/800001/myorigin/**myfolder/index.htm**
 
 - Um URL de CNAME do edge é reescrito para um URL de CDN antes de comparação de URL.
 
     Por exemplo, ambos os seguintes URLs apontam para o mesmo elemento e, portanto, tem o mesmo caminho de URL:
-     - URL de CDN: http://wpc.0001.&lt; domínio&gt;/800001/CustomerOrigin/path/asset.htm
-     - URL de CNAME do Edge: http:\//&lt;endpoint&gt;.azureedge.net/path/asset.htm
+  - URL de CDN: http://wpc.0001.&lt; domínio&gt;/800001/CustomerOrigin/path/asset.htm
+  - URL de CNAME do Edge: http:\//&lt;endpoint&gt;.azureedge.net/path/asset.htm
     
     Informações adicionais:
     
-     - Caminho do URL (relativo à raiz do): /800001/CustomerOrigin/path/asset.htm
+  - Caminho do URL (relativo à raiz do): /800001/CustomerOrigin/path/asset.htm
     
-     - Caminho do URL (relativo ao origin): /path/asset.htm
+  - Caminho do URL (relativo ao origin): /path/asset.htm
     
 - Especifica vários caminhos de URL, cada um com um único espaço de delimitação.
 

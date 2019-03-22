@@ -15,16 +15,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2018
 ms.author: za-rhoads
-ms.openlocfilehash: 06fb4b9c39b773393d7a58bba44f240265e2200f
-ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
+ms.openlocfilehash: 19f53449e21b39eb212f94b100eaf5d26ca4cf13
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55893706"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58006660"
 ---
 # <a name="install-mysql-on-a-virtual-machine-running-opensuse-linux-in-azure"></a>Instalar o MySQL numa máquina virtual com o OpenSUSE Linux no Azure
 
-[MySQL](http://www.mysql.com) é uma base de dados do SQL popular, código-fonte aberto. Este tutorial mostra-lhe como criar uma máquina virtual OpenSUSE Linux, em seguida, instalar o MySQL.
+[MySQL](https://www.mysql.com) é uma base de dados do SQL popular, código-fonte aberto. Este tutorial mostra-lhe como criar uma máquina virtual OpenSUSE Linux, em seguida, instalar o MySQL.
 
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
@@ -163,7 +163,7 @@ quit
 
 
 ## <a name="next-steps"></a>Passos Seguintes
-Para obter detalhes sobre o MySQL, consulte a [MySQL documentação](http://dev.mysql.com/doc).
+Para obter detalhes sobre o MySQL, consulte a [MySQL documentação](https://dev.mysql.com/doc).
 
 
 

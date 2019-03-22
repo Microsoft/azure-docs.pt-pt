@@ -13,12 +13,12 @@ ms.devlang: na
 ms.date: 03/02/2018
 ms.author: celested
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d43a8a316ff28d2cdb9e231057aea3de85d7d444
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: f2739b5d2d944ea9a8b8cefdcc741abc8a2b632a
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56205584"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58113406"
 ---
 # <a name="move-applications-from-ad-fs-to-azure-ad"></a>Mover aplicações do AD FS para o Azure AD 
 
@@ -99,7 +99,7 @@ A migração começa com a avaliação da forma como a aplicação está configu
 |Elemento de configuração da aplicação|Descrição|Localização na configuração do AD FS|Localização correspondente na configuração do Azure AD|Elemento de token SAML|
 |-----|-----|-----|-----|-----|
 |URL de início de sessão da aplicação|URL da página de início de sessão desta aplicação. É aonde o utilizador acede para iniciar sessão na aplicação num fluxo SAML iniciado por SP.|N/A|No Azure AD, o URL de início de sessão é configurado no portal do Azure, nas Propriedades de **Início de Sessão Único** da aplicação, como o URL de início de sessão.</br></br>(Poderá ter de clicar em **Mostrar definições de URL avançadas** para ver o URL de início de sessão).|N/A|
-|URL de resposta da aplicação|URL da aplicação na perspetiva do fornecedor de identidade (IdP). É para aqui que o utilizador e o token são enviados depois de o utilizador iniciar sessão no IdP.</br></br> Por vezes, é denominado “ponto final de consumidor de asserção de SAML”.|Está disponível na fidedignidade da entidade confiadora do AD FS da aplicação. Clique com o botão direito do rato na entidade confiadora, selecione **Propriedades** e selecione o separador **Pontos Finais**.|No Azure AD, o URL de resposta é configurado no portal do Azure, nas Propriedades **Início de Sessão Único** da aplicação, como o URL de resposta.</br></br>(Poderá ter de selecionar **Mostrar definições de URL avançadas** para ver o URL de resposta).|É mapeado para o elemento **Destino** no token SAML.</br></br> Valor de exemplo: https://contoso.my.salesforce.com|
+|URL de resposta da aplicação|URL da aplicação na perspetiva do fornecedor de identidade (IdP). É para aqui que o utilizador e o token são enviados depois de o utilizador iniciar sessão no IdP.</br></br> Por vezes, é denominado “ponto final de consumidor de asserção de SAML”.|Está disponível na fidedignidade da entidade confiadora do AD FS da aplicação. Clique com o botão direito do rato na entidade confiadora, selecione **Propriedades** e selecione o separador **Pontos Finais**.|No Azure AD, o URL de resposta é configurado no portal do Azure, nas Propriedades **Início de Sessão Único** da aplicação, como o URL de resposta.</br></br>(Poderá ter de selecionar **Mostrar definições de URL avançadas** para ver o URL de resposta).|É mapeado para o elemento **Destino** no token SAML.</br></br> Valor de exemplo: `https://contoso.my.salesforce.com`|
 |URL de fim de sessão da aplicação|URL para o qual são enviados os pedidos de “limpeza de fim de sessão” quando o utilizador termina sessão numa aplicação, para terminar sessão em todas as outras aplicações nas quais o IdP tenha iniciado sessão pelo utilizador.|Está disponível na Gestão do AD FS em **Fidedignidades da Entidade Confiadora**. Clique com o botão direito do rato na entidade confiadora, selecione **Propriedades** e selecione o separador **Pontos Finais**.|N/D. O Azure AD não suporta o “fim de sessão único”, o que significa terminar sessão em todas as aplicações. Simplesmente termina a sessão do utilizador do próprio Azure AD.|N/A|
 |Identificador de aplicação|O identificador da aplicação na perspetiva do IdP. O valor do URL de início de sessão é, muitas vezes, utilizado como o identificador (mas não sempre).</br></br> Por vezes, a aplicação refere-se a este identificador como "ID da entidade".|No AD FS, este é o ID da entidade confiadora. Clique com o botão direito do rato na entidade confiadora, selecione **Propriedades** e selecione o separador **Identificadores**.|No Azure AD, o identificador é configurado no portal do Azure, nas Propriedades **Início de Sessão Único** da aplicação, como o identificador em **Domínio e URLs**. (Poderá ter de clicar na caixa de verificação **Mostrar definições de URL avançadas**.)|Corresponde ao elemento **Audiência** no token SAML.|
 |Metadados de federação da aplicação|Localização dos metadados de federação da aplicação. O IdP utiliza-os para atualizar automaticamente definições de configuração específicas, como pontos finais ou certificados de encriptação.|O URL dos metadados de federação da aplicação estão disponíveis na fidedignidade da entidade confiadora do AD FS da aplicação. Clique com o botão direito do rato na confiança, selecione **Propriedades** e selecione o separador **Monitorização**.|N/D. O Azure AD não suporta o consumo direto dos metadados de federação da aplicação.|N/A|

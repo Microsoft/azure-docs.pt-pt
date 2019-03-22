@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/16/2018
 ms.author: hrasheed
-ms.openlocfilehash: a7b657d11e829d636063639e26a90d671a5d1473
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
+ms.openlocfilehash: ad716e2ef5e597424c860378e7a63d5c2de53f54
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53438358"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57834562"
 ---
 # <a name="run-apache-sqoop-jobs-with-hadoop-in-hdinsight-with-curl"></a>Executar tarefas de Apache Sqoop com o Hadoop no HDInsight com Curl
 [!INCLUDE [sqoop-selector](../../../includes/hdinsight-selector-use-sqoop.md)]
@@ -68,19 +68,19 @@ Para concluir os passos neste artigo, precisará do seguinte:
 
     Os parâmetros utilizados neste comando são os seguintes:
 
-    * **-d** – desde `-G` não for utilizado, o pedido é predefinido para o método POST. `-d` Especifica os valores de dados que são enviados com o pedido.
+   * **-d** – desde `-G` não for utilizado, o pedido é predefinido para o método POST. `-d` Especifica os valores de dados que são enviados com o pedido.
 
-        * **User.name** -o utilizador que está a executar o comando.
+       * **User.name** -o utilizador que está a executar o comando.
 
-        * **comando** -Sqoop o comando a executar.
+       * **comando** -Sqoop o comando a executar.
 
-        * **statusdir** -o diretório que o estado para esta tarefa de escrita.
+       * **statusdir** -o diretório que o estado para esta tarefa de escrita.
 
-    Este comando deverá devolver um ID da tarefa que pode ser utilizado para verificar o estado da tarefa.
+     Este comando deverá devolver um ID da tarefa que pode ser utilizado para verificar o estado da tarefa.
 
-        ```json
-        {"id":"job_1415651640909_0026"}
-        ```
+       ```json
+       {"id":"job_1415651640909_0026"}
+       ```
 
 3. Para verificar o estado da tarefa, utilize o seguinte comando. Substitua **JOBID** com o valor devolvido no passo anterior. Por exemplo, se o valor de retorno foi `{"id":"job_1415651640909_0026"}`, em seguida, **JOBID** seria `job_1415651640909_0026`.
 

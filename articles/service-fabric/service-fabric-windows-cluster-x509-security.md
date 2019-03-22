@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/15/2017
 ms.author: dekapur
-ms.openlocfilehash: b23b2c46098fb53a3a08ff86c46cc6b6c9b936bb
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 17dd2a8cf58066fda7f82ba53b048df8e9b89da8
+ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51228577"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58285252"
 ---
 # <a name="secure-a-standalone-cluster-on-windows-by-using-x509-certificates"></a>Proteger um cluster autónomo no Windows com certificados X.509
 Este artigo descreve como proteger a comunicação entre os vários nós do seu cluster autónomo do Windows. Também descreve como autenticar clientes que se ligam a este cluster, utilizando certificados X.509. Autenticação garante que apenas os utilizadores autorizados podem aceder ao cluster e as aplicações implementadas e efetuar tarefas de gestão. Segurança do certificado deve ser ativada no cluster, quando o cluster é criado.  
@@ -175,7 +175,7 @@ Eis um exemplo de configuração de cluster em que foram fornecidos o cluster, s
         "storeType": "FileShare",
         "IsEncrypted": "false",
         "connectionstring": "c:\\ProgramData\\SF\\DiagnosticsStore"
-        }
+        },
         "security": {
             "metadata": "The Credential type X509 indicates this cluster is secured by using X509 certificates. The thumbprint format is d5 ec 42 3b 79 cb e5 07 fd 83 59 3c 56 b9 d5 31 24 25 42 64.",
             "ClusterCredentialType": "X509",

@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 05/24/2017
 ms.author: huishao
-ms.openlocfilehash: 332382282c2b55b52bb23f278a25868c09360619
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
+ms.openlocfilehash: d8640881e83084dac7f4725115f48dcf7d29e787
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55729358"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58007601"
 ---
 # <a name="create-and-upload-an-openbsd-disk-image-to-azure"></a>Criar e carregar uma imagem de disco OpenBSD para o Azure
 Este artigo mostra-lhe como criar e carregar um disco rígido virtual (VHD) que contém o sistema de operativo OpenBSD. Depois de carregá-lo, pode utilizá-lo como sua própria imagem para criar uma máquina virtual (VM) no Azure através da CLI do Azure.
@@ -56,7 +56,7 @@ Na VM onde instalou o sistema de operativo OpenBSD 6.1, que adicionou o Hyper-V 
     echo "https://ftp.openbsd.org/pub/OpenBSD" > /etc/installurl
     ```
    
-4. Por predefinição, o `root` utilizador é desativado em máquinas virtuais no Azure. Os utilizadores podem executar comandos com privilégios elevados ao utilizar o `doas` comando OpenBSD VM. Doas está ativada por predefinição. Para obter mais informações, consulte [doas.conf](http://man.openbsd.org/doas.conf.5). 
+4. Por predefinição, o `root` utilizador é desativado em máquinas virtuais no Azure. Os utilizadores podem executar comandos com privilégios elevados ao utilizar o `doas` comando OpenBSD VM. Doas está ativada por predefinição. Para obter mais informações, consulte [doas.conf](https://man.openbsd.org/doas.conf.5). 
 
 5. Instalar e configurar os pré-requisitos para o agente do Azure da seguinte forma:
 
@@ -175,6 +175,6 @@ ssh azureuser@<ip address>
 
 
 ## <a name="next-steps"></a>Passos Seguintes
-Se quiser saber mais sobre o suporte de Hyper-V no OpenBSD6.1, leia [OpenBSD 6.1](https://www.openbsd.org/61.html) e [hyperv.4](http://man.openbsd.org/hyperv.4).
+Se quiser saber mais sobre o suporte de Hyper-V no OpenBSD6.1, leia [OpenBSD 6.1](https://www.openbsd.org/61.html) e [hyperv.4](https://man.openbsd.org/hyperv.4).
 
 Se quiser criar uma VM a partir de disco gerido, leia [disco az](/cli/azure/disk). 

@@ -8,12 +8,12 @@ ms.author: crtreasu
 ms.date: 02/24/2019
 ms.topic: overview
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: f5d54f90c0b53105953726b1f26dab98192b40a6
-ms.sourcegitcommit: e88188bc015525d5bead239ed562067d3fae9822
+ms.openlocfilehash: 24a35b387a8b47d44f742303ddde0a0e8fb47fe6
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/24/2019
-ms.locfileid: "56752280"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57833803"
 ---
 # <a name="azure-spatial-anchors-overview"></a>Descrição geral de âncoras espaciais do Azure
 
@@ -30,7 +30,7 @@ Alguns casos de utilização de exemplo ativados por âncoras geográficos inclu
 
 - [Way-finding](concepts/anchor-relationships-way-finding.md). Os programadores também podem ligar âncoras geográficos em conjunto, criar relações entre elas. Por exemplo, uma aplicação pode incluir uma experiência que tem dois ou mais pontos de interesse que um utilizador tem de interagir com para concluir uma tarefa. Esses pontos de interesse podem ser criados de maneira conectada. Mais tarde, quando o utilizador está a concluir a tarefa de várias etapa, a aplicação pode pedir as âncoras de que estão próximos aquele atual para direcionar o utilizador para a próxima etapa na tarefa.
 
-- [Conteúdo virtual persistente do mundo real](concepts/create-locate-anchors-unity.md#creating-a-cloud-spatial-anchor). Uma aplicação pode permitir que um usuário colocar um calendário virtual na parede de sala de conferência, que as pessoas possam ver utiliza uma aplicação de telefone ou um dispositivo de HoloLens. Numa definição industrial, um utilizador pode receber informações contextuais sobre uma máquina ao apontar uma câmara de dispositivo com suporte para ele.
+- [Conteúdo virtual persistente do mundo real](concepts/create-locate-anchors-unity.md#create-a-cloud-spatial-anchor). Uma aplicação pode permitir que um usuário colocar um calendário virtual na parede de sala de conferência, que as pessoas possam ver utiliza uma aplicação de telefone ou um dispositivo de HoloLens. Numa definição industrial, um utilizador pode receber informações contextuais sobre uma máquina ao apontar uma câmara de dispositivo com suporte para ele.
 
 Âncoras espaciais do Azure é composta por um serviço gerido e SDKs de cliente para plataformas de dispositivos suportados. As secções seguintes fornecem informações sobre como começar a criar aplicações com o âncoras espaciais do Azure.
 

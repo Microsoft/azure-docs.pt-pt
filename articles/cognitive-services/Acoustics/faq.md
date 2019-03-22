@@ -1,5 +1,5 @@
 ---
-title: Perguntas mais frequentes sobre o projeto Acoustics
+title: Projeto Acoustics perguntas mais frequentes
 titlesuffix: Azure Cognitive Services
 description: Esta página fornece respostas às perguntas mais frequentes com frequência sobre Acoustics de projeto, incluindo instruções para download e inserir o processo.
 services: cognitive-services
@@ -7,25 +7,29 @@ author: kegodin
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: acoustics
-ms.topic: conceptual
+ms.topic: resources
 ms.date: 08/17/2018
 ms.author: kegodin
-ms.openlocfilehash: 12dda5d7af1236ec2d7eddbe025b8fdba47d7bca
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: MT
+ms.openlocfilehash: c43c81d42a39bda504b02eb6c053a16a2cf53aec
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55881079"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58138053"
 ---
-# <a name="frequently-asked-questions"></a>Perguntas mais frequentes
+# <a name="project-acoustics-frequently-asked-questions"></a>Projeto Acoustics perguntas mais frequentes
 
 ## <a name="what-is-project-acoustics"></a>O que é o Projeto Acoustics?
 
-O plug-in do projeto Acoustics Unity é um sistema de acoustics que calcula o comportamento de som wave antes do tempo de execução, semelhante a iluminação estático. A cloud faz o trabalho pesado de onda computações de física, para que o custo de tempo de execução da CPU é baixo.  
+O conjunto de Acoustics de projeto de plug-ins é um sistema de acoustics que calcula o comportamento de som wave antes do tempo de execução, semelhante a iluminação estático. A cloud faz o trabalho pesado de onda computações de física, para que o custo de tempo de execução da CPU é baixo.  
 
 ## <a name="where-can-i-download-the-plugin"></a>Onde posso transferir o plug-in?
 
-Se tiver interesse em avaliar o plug-in de acústica, registe-se [aqui](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbRwMoAEhDCLJNqtVIPwQN6rpUOFRZREJRR0NIQllDOTQ1U0JMNVc4OFNFSy4u) para aderir à Pré-visualização do Designer.
+Pode baixar o projeto Acoustics do [página do Centro de Download do projeto Acoustics](https://www.microsoft.com/en-us/download/details.aspx?id=57346).
+
+## <a name="does-project-acoustics-support-x-platform"></a>Oferece suporte a projeto Acoustics <x> plataforma?
+
+Suporte de plataforma do projeto Acoustics evolui com base nas necessidades dos clientes. Contacte-na [fóruns de projeto Acoustics](https://social.msdn.microsoft.com/Forums/en-US/home?forum=projectacoustics) para se informar sobre o suporte para plataformas adicionais.
 
 ## <a name="is-azure-used-at-runtime"></a>O Azure é utilizado no tempo de execução?
 
@@ -45,17 +49,17 @@ Não. O sistema será ingerir geometry nível detalhada diretamente. Será voxel
  
 ## <a name="whats-in-the-runtime-lookup-table"></a>O que inclui a tabela de pesquisa de tempo de execução?
 
-O ficheiro ACE é uma tabela de parâmetros acústicos entre vários pares de localização de origem e o serviço de escuta.
+O arquivo ACE inclui é uma tabela de parâmetros acústicos entre vários origem e pares de localização de serviço de escuta, bem como geometria da cena de voxelized utilizado para a interpolação de parâmetro.
  
-## <a name="can-it-handle-moving-sources"></a>Pode processar mover origens?
+## <a name="can-project-acoustics-handle-moving-sources"></a>Projeto Acoustics pode lidar com o mover origens?
 
-Sim, o **Microsoft Acoustics** Plug-in do Unity spatializer consulta a tabela de pesquisa em cada marca de processamento de áudio com as localizações de origem e o serviço de escuta atuais. O spatializer DSP suavemente atualiza os parâmetros de processamento acústico em todas as marcas.
+Sim, o projeto Acoustics consulta a tabela de pesquisa e atualiza o áudio DSP em todas as marcas, de modo que possa manipular mover origens e o serviço de escuta.
  
-## <a name="can-it-handle-dynamic-geometry-closing-doors-walls-blown-away"></a>Ele processa geometria dinâmica? Fechar portas? Paredes hoje mesmo?
+## <a name="can-project-acoustics-handle-dynamic-geometry-closing-doors-walls-blown-away"></a>Projeto Acoustics pode lidar com o geometry dinâmica? Fechar portas? Paredes hoje mesmo?
 
-Não. Os parâmetros acústicos são calculados com base no estado estático de um nível de jogo. Podemos sugerir deixando a geometria de porta fora acoustics e, em seguida, aplicar oclusão adicional com base no estado de objetos do jogo destructible e movível usando técnicas estabelecidas.
+Não. Os parâmetros acústicos são calculados com base no estado estático de um nível de jogo. Sugerimos que deixar a geometria de porta fora acoustics e, em seguida, aplicar oclusão adicional com base no estado de destructible e objetos do jogo móvel usando estabelecida técnicas.
  
-## <a name="does-it-handle-materials"></a>Processar materiais?
+## <a name="does-project-acoustics-use-acoustic-materials"></a>O projeto Acoustics usa materiais acústicos?
 
 Sim. Materiais são escolhidos dos físicos materiais nomes no seu nível, orientando absorptivity.
  
@@ -65,12 +69,12 @@ As pesquisas são uma amostragem dos locais de player possíveis. Cada pesquisa 
  
 ## <a name="why-spend-so-much-compute-in-the-cloud-what-does-it-buy-me"></a>Por que gastar muito computação na cloud? O que isso compre-me?
 
-Projeto Acoustics fornece parâmetros acústicos precisos e confiáveis mesmo para ambientes virtuais complexos Ultra, tendo cada aspecto da arquitetura em conta. Ele fornece smooth oclusão/obstrução sem todo o trabalho manual e variação de reverberação dinâmica sem volumes de desenho. Enquanto o restante uma luz sobre CPU durante o tempo de execução.
+Projeto Acoustics fornece parâmetros acústicos precisos e confiáveis mesmo para ambientes virtuais complexos Ultra, tendo cada aspecto da arquitetura em conta. Ele fornece oclusão uniforme e obstrução e variação de reverberação dinâmica sem o trabalho manual de volumes de desenho. Enquanto o restante uma luz sobre CPU durante o tempo de execução.
 
 ## <a name="what-exactly-happens-during-baking"></a>Exatamente o que acontece durante a "implantando"?
 
-O sistema considera potenciais localizações de player para gerar um conjunto de posições de exemplo "pesquisa" espaçadas uniformemente. Um criar para um nível de consiste em tarefas independentes para cada sonda: O sistema considera um cuboid "Simulação região" centralizado na sonda e faz uma simulação de onda de detalhado dentro dessa região em até 25 resolução do cm.
+Um criar consiste em simulações de acústico onda de regiões de simulação cuboid centra-se em cada pesquisa de serviço de escuta.
 
-## <a name="next-steps"></a>Próximos Passos
-* Explorar o [cena de exemplo](sample-walkthrough.md)
+## <a name="next-steps"></a>Passos Seguintes
+* Experimente o [conteúdo de exemplo de projeto Acoustics Unity](unity-quickstart.md) ou [conteúdos de exemplo Unreal](unreal-quickstart.md)
 

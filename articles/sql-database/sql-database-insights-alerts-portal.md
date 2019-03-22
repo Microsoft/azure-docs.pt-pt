@@ -12,12 +12,12 @@ ms.author: aamalvea
 ms.reviewer: jrasnik, carlrab
 manager: craigg
 ms.date: 11/02/2018
-ms.openlocfilehash: dea9a73d7ac868e45d3abf2ee3ff8366fc7b65cd
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 93337e39a117c1f8d38f24dc416ff8ae95513a34
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57783096"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57855593"
 ---
 # <a name="create-alerts-for-azure-sql-database-and-data-warehouse-using-azure-portal"></a>Criar alertas para o Azure SQL Database e o armazém de dados com o portal do Azure
 
@@ -59,7 +59,7 @@ Pode configurar e obtenha informações sobre como utilizar as regras de alerta
 4. **Nome** seu alerta da regra e escolha uma **Descrição**, que mostra também nos e-mails de notificação.
 5. Selecione o **métrica** que pretende monitorizar, em seguida, escolha um **condição** e **limiar** valor para a métrica. Escolha também os **período** de tempo que a regra de métrica deve ser satisfeita antes dos acionadores de alerta. Por exemplo, se usar o período de "PT5M" e o alerta procura por CPU superior a 80%, o alerta for acionado quando o **média** CPU já esteve acima de 80% durante 5 minutos. Depois de ocorre o primeiro acionador, novamente aciona quando a CPU média é inferior a 80% mais de 5 minutos. A medição de CPU ocorre a cada 1 minuto. Consulte a tabela abaixo para janelas de tempo suportado e a agregação escreva cada alertar a utilizações e não todos os alertas, use o valor médio.   
 6. Verificar **os proprietários de E-Mail...**  se pretender que os administradores e coadministradores, para ser enviado por e-mail quando o alerta é acionado.
-7. Se pretender que os e-mails adicionais para receber uma notificação quando o alerta é acionado, adicione-os na **adicionais do administrador email(s)** campo. Separe várias mensagens de correio eletrónico com ponto e vírgula -  *email@contoso.com;email2@contoso.com*
+7. Se pretender que os e-mails adicionais para receber uma notificação quando o alerta é acionado, adicione-os na **adicionais do administrador email(s)** campo. Separe várias mensagens de correio eletrónico com ponto e vírgula - *e-mail\@contoso.com;email2\@contoso.com*
 8. Colocar num URI válido no **Webhook** campo se desejar que ele chamado quando o alerta é acionado.
 9. Selecione **OK** quando terminar de criar o alerta.   
 
@@ -79,7 +79,7 @@ Assim que tiver criado um alerta, pode selecioná-lo e:
 | --- | --- | --- | --- | --- |
 | Base de dados SQL | cpu_percent | Percentagem de CPU | Média | 5 minutos |
 | Base de dados SQL | physical_data_read_percent | Percentagem de ES de Dados | Média | 5 minutos |
-| Base de dados SQL | log_write_percent | Percentagem de e/s de registo | Média | 5 minutos |
+| Base de dados SQL | log_write_percent | Percentagem de E/S de Registo | Média | 5 minutos |
 | Base de dados SQL | dtu_consumption_percent | Percentagem de DTU | Média | 5 minutos |
 | Base de dados SQL | armazenamento | Tamanho total da base de dados | Máximo | 30 minutos |
 | Base de dados SQL | connection_successful | Ligações com êxito | Total | 10 minutos |
@@ -95,7 +95,7 @@ Assim que tiver criado um alerta, pode selecioná-lo e:
 ||||||
 | Conjunto elástico | cpu_percent | Percentagem de CPU | Média | 10 minutos |
 | Conjunto elástico | physical_data_read_percent | Percentagem de ES de Dados | Média | 10 minutos |
-| Conjunto elástico | log_write_percent | Percentagem de e/s de registo | Média | 10 minutos |
+| Conjunto elástico | log_write_percent | Percentagem de E/S de Registo | Média | 10 minutos |
 | Conjunto elástico | dtu_consumption_percent | Percentagem de DTU | Média | 10 minutos |
 | Conjunto elástico | storage_percent | Percentagem de armazenamento | Média | 10 minutos |
 | Conjunto elástico | workers_percent | Percentagem de funções de trabalho | Média | 10 minutos |

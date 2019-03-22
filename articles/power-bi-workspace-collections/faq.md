@@ -10,12 +10,12 @@ ms.topic: article
 ms.workload: powerbi
 ms.date: 09/25/2017
 ms.author: maghan
-ms.openlocfilehash: 83f4ebd9c3f5ad05173b045b3fa15804ddc88df6
-ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
+ms.openlocfilehash: 08d0a446fc29bf58da2583cbee8576831914ac09
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54157569"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57862725"
 ---
 # <a name="power-bi-workspace-collections-faq"></a>Coleções de área de trabalho do BI Power FAQ
 
@@ -77,7 +77,7 @@ No modelo de coleções de área de trabalho do Power BI, não existe nenhum req
 Os desenvolvedores/funcionários a trabalhar ou criar a sua aplicação tem de ter uma conta de utilizador do AAD quando estão a gerir a sua subscrição do Azure e a coleções de área de trabalho através do portal do Azure. APIs programáticas para habilitar desenvolvedores a importar relatórios, modificar as cadeias de ligação e obtenha incorporar o aproveitamento de URLs de Tokens de aplicação para autenticação em vez disso e assim não necessitam de um AAD.
 
 ## <a name="where-can-i-learn-more"></a>Onde posso saber mais?
-Pode visitar o [página de documentação de coleções de área de trabalho do Power BI](get-started.md). Pode manter-se atualizado sobre este serviço, visite o [blogue do Power BI](https://powerbi.microsoft.com/blog/) ou visitando o Centro de programadores do Power BI em dev.powerbi.com. Também pode fazer perguntas no [Stack Overflow](http://stackoverflow.com/questions/tagged/powerbi).
+Pode visitar o [página de documentação de coleções de área de trabalho do Power BI](get-started.md). Pode manter-se atualizado sobre este serviço, visite o [blogue do Power BI](https://powerbi.microsoft.com/blog/) ou visitando o Centro de programadores do Power BI em dev.powerbi.com. Também pode fazer perguntas no [Stack Overflow](https://stackoverflow.com/questions/tagged/powerbi).
 
 ## <a name="how-do-i-get-started"></a>Como posso começar?
 Pode começar a utilizar gratuitamente agora! Se tiver uma subscrição do Azure, pode agora aprovisionar coleções de área de trabalho do Power BI no portal do Azure diretamente. Também pode criar sua [conta gratuita do Azure](https://azure.microsoft.com/free/). Depois de ter aprovisionado o serviço de coleções de área de trabalho do Power BI, pode facilmente usar APIs de REST do Power BI diretamente, ou utilizar o SDK, disponível de desenvolvedor [GitHub](https://go.microsoft.com/fwlink/?LinkID=746472). São fornecidos exemplos de como aproveitar o SDK de desenvolvedor.
@@ -89,5 +89,5 @@ Pode começar a utilizar gratuitamente agora! Se tiver uma subscrição do Azure
 [introdução com exemplo](get-started-sample.md)   
 [Exemplo de Incorporação de JavaScript](https://microsoft.github.io/PowerBI-JavaScript/demo/)  
 
-Mais perguntas? [Tente a Comunidade do Power BI](http://community.powerbi.com/)
+Mais perguntas? [Tente a Comunidade do Power BI](https://community.powerbi.com/)
 

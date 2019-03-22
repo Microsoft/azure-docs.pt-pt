@@ -10,12 +10,12 @@ ms.subservice: bing-entity-search
 ms.topic: quickstart
 ms.date: 02/01/2019
 ms.author: aahi
-ms.openlocfilehash: eff9375919fa946bc74fa6db15cddbebff348717
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 8007d576a6b896f12423087cfd4a483d9171abc5
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57541167"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58104374"
 ---
 # <a name="quickstart-send-a-search-request-to-the-bing-entity-search-rest-api-using-nodejs"></a>Início rápido: Enviar um pedido de pesquisa para a API de REST do Search do Bing entidade com node. js
 
@@ -87,24 +87,24 @@ Embora esse aplicativo é escrito em JavaScript, a API é um serviço RESTful We
 
 1. Criar uma função chamada `Search` para enviar uma solicitação de pesquisa. Nela, execute os seguintes passos.
 
-    1. Criar um objeto JSON que contém os parâmetros do pedido: utilizar `Get` para o método e adicione as suas informações de anfitrião e caminho. Adicionar a chave de subscrição para o `Ocp-Apim-Subscription-Key` cabeçalho. 
-    2. Utilize `https.request()` para enviar o pedido com o manipulador de resposta criado anteriormente e seus parâmetros de pesquisa.
+   1. Criar um objeto JSON que contém os parâmetros do pedido: utilizar `Get` para o método e adicione as suas informações de anfitrião e caminho. Adicionar a chave de subscrição para o `Ocp-Apim-Subscription-Key` cabeçalho. 
+   2. Utilize `https.request()` para enviar o pedido com o manipulador de resposta criado anteriormente e seus parâmetros de pesquisa.
     
-    ```javascript
-    let Search = function () {
-        let request_params = {
-            method : 'GET',
-            hostname : host,
-            path : path + query,
-            headers : {
-                'Ocp-Apim-Subscription-Key' : subscriptionKey,
-            }
-        };
+      ```javascript
+      let Search = function () {
+       let request_params = {
+           method : 'GET',
+           hostname : host,
+           path : path + query,
+           headers : {
+               'Ocp-Apim-Subscription-Key' : subscriptionKey,
+           }
+       };
     
-        let req = https.request (request_params, response_handler);
-        req.end ();
-    }
-    ```
+       let req = https.request (request_params, response_handler);
+       req.end ();
+      }
+      ```
 
 2. Chamar o `Search()` função.
 

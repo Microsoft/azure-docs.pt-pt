@@ -5,17 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 12/17/2018
+ms.date: 03/18/2019
 ms.topic: conceptual
 ms.service: cost-management
 manager: benshy
 ms.custom: seodec18
-ms.openlocfilehash: db24cb1e1b303fbd3f0981390940732685c98baf
-ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
+ms.openlocfilehash: 484b39de52cef4e4772745eed38e8461a5594601
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53558809"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58182528"
 ---
 # <a name="reports-available-in-the-cloudyn-portal"></a>Relatórios disponíveis no portal do Cloudyn
 

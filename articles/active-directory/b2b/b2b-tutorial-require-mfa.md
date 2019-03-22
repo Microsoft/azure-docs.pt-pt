@@ -9,14 +9,15 @@ ms.date: 06/25/2018
 ms.author: mimart
 author: msmimart
 manager: daveba
-ms.reviewer: sasubram
+ms.reviewer: mal
+ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5a4ed93bee091bf0a40718a47ffb7cd97a85147c
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 94e5f4eaf32815dd0342ef73705efb2c575b71bc
+ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57993497"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58293997"
 ---
 # <a name="tutorial-enforce-multi-factor-authentication-for-b2b-guest-users"></a>Tutorial: Impor o multi-factor authentication para utilizadores convidados B2B
 
@@ -24,7 +25,7 @@ Ao colaborar com utilizadores convidados B2B externos, é recomendado proteger a
 
 Exemplo:
 
-![Aplicação B2B a exigir a MFA](media/tutorial-mfa/aad-b2b-mfa-example.png)
+![Diagrama que mostra um utilizador convidado de assinatura em aplicações da empresa](media/tutorial-mfa/aad-b2b-mfa-example.png)
 
 1.  Um administrador ou colaborador na Empresa A convida um utilizador para utilizar uma aplicação no local ou na cloud configurada para exigir a MFA para aceder.
 2.  O utilizador convidado inicia sessão com a respetiva identidade das redes sociais, da escola ou do trabalho. 
@@ -56,11 +57,11 @@ Para concluir o cenário deste tutorial, precisa de:
 3.  Em **Gerir**, selecione **Utilizadores**.
 4.  Selecione **Novo utilizador convidado**.
 
-    ![Selecione Azure Active Directory](media/tutorial-mfa/tutorial-mfa-user-3.png)
+    ![Captura de ecrã que mostra onde pode selecionar a opção de utilizador novo convidado](media/tutorial-mfa/tutorial-mfa-user-3.png)
 
 5.  Em **Nome de utilizador**, introduza o endereço de e-mail do utilizador externo. Também tem a opção de incluir uma mensagem de boas-vindas. 
 
-    ![Selecione Azure Active Directory](media/tutorial-mfa/tutorial-mfa-user-4.png)
+    ![Captura de ecrã que mostra onde pode introduzir a mensagem de convite de convidado](media/tutorial-mfa/tutorial-mfa-user-4.png)
 
 6.  Selecione **Convidar** para enviar automaticamente o convite ao utilizador convidado. Será apresentada a mensagem **Utilizador convidado com sucesso**. 
 7.  Após enviar o convite, a conta do utilizador será automaticamente adicionada ao diretório como convidada.
@@ -79,26 +80,26 @@ Para concluir o cenário deste tutorial, precisa de:
 6.  Na secção **Atribuições**, selecione **Utilizadores e grupos**.
 7.  Na página **Utilizadores e grupos**, selecione **Selecione utilizadores e grupos** e, em seguida, selecione **Todos os utilizadores convidados (pré-visualização)**.
 
-    ![Selecione Azure Active Directory](media/tutorial-mfa/tutorial-mfa-policy-6.png)
+    ![Captura de ecrã mostra a seleção de todos os utilizadores convidados](media/tutorial-mfa/tutorial-mfa-policy-6.png)
 9.  Selecione **Done** (Concluído).
 10. Na página **Novo**, na secção **Atribuições**, selecione **Aplicações na cloud**.
 11. Na página **Aplicações na cloud**, selecione **Selecionar aplicações** e, em seguida, selecione **Selecionar**.
 
-    ![Selecione Azure Active Directory](media/tutorial-mfa/tutorial-mfa-policy-10.png)
+    ![Captura de ecrã que mostra a página de aplicações na Cloud e a opção Select](media/tutorial-mfa/tutorial-mfa-policy-10.png)
 
 12. Na página **Selecionar**, selecione **Microsoft Azure Management** e, em seguida, selecione **Selecionar**.
 
-    ![Selecione Azure Active Directory](media/tutorial-mfa/tutorial-mfa-policy-11.png)
+    ![Captura de ecrã que mostra a aplicação de gestão do Microsoft Azure selecionado](media/tutorial-mfa/tutorial-mfa-policy-11.png)
 
 13. Na página **Aplicações na cloud**, selecione **Concluído**.
 14. Na página **Novo**, na secção **Controlos de acesso**, selecione **Conceder**.
 15. Na página **Conceder**, selecione **Conceder acesso**, selecione a caixa de verificação **Exigir autenticação multifator** e, em seguida, selecione **Selecionar**.
 
-    ![Selecione Azure Active Directory](media/tutorial-mfa/tutorial-mfa-policy-13.png)
+    ![Captura de ecrã com a exigir a opção de autenticação multifator](media/tutorial-mfa/tutorial-mfa-policy-13.png)
 
 16. Em **Ativar política**, selecione **Ativado**.
 
-    ![Selecione Azure Active Directory](media/tutorial-mfa/tutorial-mfa-policy-14.png)
+    ![Captura de ecrã que mostra a opção de política de ativação definida como ativado](media/tutorial-mfa/tutorial-mfa-policy-14.png)
 
 17. Selecione **Criar**.
 
@@ -106,27 +107,27 @@ Para concluir o cenário deste tutorial, precisa de:
 
 1.  Na página **Acesso condicional – Políticas**, selecione **What If**. 
 
-    ![Selecione Azure Active Directory](media/tutorial-mfa/tutorial-mfa-whatif-1.png)
+    ![Captura de ecrã que mostra onde pode selecionar o que se opção](media/tutorial-mfa/tutorial-mfa-whatif-1.png)
 
 2.  Selecione **Utilizador**, selecione o seu utilizador convidado de teste e, em seguida, selecione **Selecionar**.
 
-    ![Selecione Azure Active Directory](media/tutorial-mfa/tutorial-mfa-whatif-2.png)
+    ![Captura de ecrã que mostra um utilizador convidado selecionado](media/tutorial-mfa/tutorial-mfa-whatif-2.png)
 
 3.  Selecione **Aplicações na cloud**.
 4.  Na página **Aplicações na cloud**, selecione **Selecionar aplicações** e, em seguida, selecione **Selecionar**. Na lista de aplicações, selecione **Microsoft Azure Management** e, em seguida, selecione **Selecionar**. 
 
-    ![Selecione Azure Active Directory](media/tutorial-mfa/tutorial-mfa-whatif-3.png)
+    ![Captura de ecrã que mostra a aplicação de gestão do Microsoft Azure selecionado](media/tutorial-mfa/tutorial-mfa-whatif-3.png)
 
 5.  Na página **Aplicações na cloud**, selecione **Concluído**.
 6.  Selecione **What If** e verifique se a sua nova política é apresentada em **Resultados da avaliação** no separador **Políticas que serão aplicadas**.
 
-    ![Selecione Azure Active Directory](media/tutorial-mfa/tutorial-mfa-whatif-4.png)
+    ![Captura de ecrã que mostra onde pode selecionar o que se opção](media/tutorial-mfa/tutorial-mfa-whatif-4.png)
 
 ## <a name="test-your-conditional-access-policy"></a>Testar a sua política de acesso condicional
 1.  Utilize o seu nome de utilizador e palavra-passe de teste para iniciar sessão no [portal do Azure](https://portal.azure.com/).
 2.  Deverá ver um pedido de métodos de autenticação adicionais. Tenha em atenção que poderá demorar algum tempo até que a política entre em vigor.
 
-    ![Selecione Azure Active Directory](media/tutorial-mfa/mfa-required.png)
+    ![Captura de ecrã a mostrar a mensagem de necessárias mais informações](media/tutorial-mfa/mfa-required.png)
  
 3.  Termine a sessão.
 

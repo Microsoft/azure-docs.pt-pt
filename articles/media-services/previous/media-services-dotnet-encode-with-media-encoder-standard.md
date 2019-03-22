@@ -12,14 +12,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/09/2019
+ms.date: 03/18/2019
 ms.author: juliako;anilmur
-ms.openlocfilehash: d2d910c5f031329e952f4892431877ec690c2a5a
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: d3eb2affe76374eb35ac724dff0204f43b567e09
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55991197"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58183480"
 ---
 # <a name="encode-an-asset-with-media-encoder-standard-using-net"></a>Codificar um recurso com o Media Encoder Standard com .NET  
 

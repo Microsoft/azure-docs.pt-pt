@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/05/2018
 ms.author: tomfitz
-ms.openlocfilehash: 2886dbafe6bf20718f4e3cd2976764fc432dbb04
-ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
+ms.openlocfilehash: 92a5f7c058904015cb22a239b7e7c4938ae1fdae
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "44021757"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57895257"
 ---
 # <a name="microsoftcommonfileupload-ui-element"></a>Elemento de interface do Usuário de Microsoft.Common.FileUpload
 Um controlo que permite que um usuário especificar um ou mais ficheiros para carregar.
@@ -48,7 +48,7 @@ Um controlo que permite que um usuário especificar um ou mais ficheiros para ca
 ```
 
 ## <a name="remarks"></a>Observações
-- `constraints.accept` Especifica os tipos de ficheiros que são mostrados na caixa de diálogo de arquivo do navegador. Consulte a [especificação do HTML5](http://www.w3.org/TR/html5/forms.html#attr-input-accept) para os valores permitidos. O valor predefinido é **nulo**.
+- `constraints.accept` Especifica os tipos de ficheiros que são mostrados na caixa de diálogo de arquivo do navegador. Consulte a [especificação do HTML5](https://www.w3.org/TR/html5/forms.html#attr-input-accept) para os valores permitidos. O valor predefinido é **nulo**.
 - Se `options.multiple` está definido como **true**, o utilizador tem permissão para selecionar mais de um ficheiro na caixa de diálogo de arquivo do navegador. O valor predefinido é **false**.
 - Este elemento suporta carregar arquivos em dois modos com base no valor de `options.uploadMode`. Se **ficheiro** for especificado, o resultado tem o conteúdo do ficheiro como um blob. Se **url** for especificada, em seguida, o ficheiro é carregado para uma localização temporária, e o resultado tem o URL do blob. Blobs temporários serão removidos após 24 horas. O valor predefinido é **ficheiro**.
 - Um ficheiro carregado está protegido. O URL de saída inclui um [SAS token](../storage/common/storage-dotnet-shared-access-signature-part-1.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) para acessar o arquivo durante a implementação.

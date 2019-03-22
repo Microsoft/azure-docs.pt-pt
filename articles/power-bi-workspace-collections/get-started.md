@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.workload: powerbi
 ms.date: 09/25/2017
 ms.author: maghan
-ms.openlocfilehash: c736a9b4962de26f43dc79773149e834c37cbe85
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 944f008d0243d974a5d439438a5a645b7f3ca248
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51233410"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57856795"
 ---
 # <a name="get-started-with-microsoft-power-bi-workspace-collections"></a>Introdução às Coleções de Áreas de Trabalho do Microsoft Power BI
 
@@ -37,7 +37,7 @@ Uma **Coleção de Área de Trabalho** é o recurso mais superior do Azure e um 
 
 Vamos guiá-lo pelos passos para criar uma **Coleção de Áreas de Trabalho** através do portal do Azure.
 
-1. Abra e Inicie sessão no **portal do Azure**: [http://portal.azure.com](http://portal.azure.com).
+1. Abra e Inicie sessão no **portal do Azure**: [https://portal.azure.com](https://portal.azure.com).
 2. Selecione **+ Novo** no painel superior.
    
    ![+ Novo no portal do Azure](media/get-started/create-workspace-1.png)
@@ -119,5 +119,5 @@ Pode criar um relatório a partir de um conjunto de dados diretamente na aplica�
 [Power BI Desktop](https://powerbi.microsoft.com/documentation/powerbi-desktop-get-the-desktop/)  
 [Exemplo de Incorporação de JavaScript](https://microsoft.github.io/PowerBI-JavaScript/demo/)  
 
-Mais perguntas? [Tente a Comunidade do Power BI](http://community.powerbi.com/)
+Mais perguntas? [Tente a Comunidade do Power BI](https://community.powerbi.com/)
 

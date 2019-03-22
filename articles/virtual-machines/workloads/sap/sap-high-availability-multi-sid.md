@@ -17,12 +17,12 @@ ms.workload: infrastructure-services
 ms.date: 05/05/2017
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 05fda1b4f71f67714b4723e15533d3555d497249
-ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
+ms.openlocfilehash: e5d8357d17f8a6b463546789dd4627b74924a763
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54321675"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58081003"
 ---
 # <a name="create-an-sap-netweaver-multi-sid-configuration"></a>Criar uma configuração de múltiplos SID SAP NetWeaver
 
@@ -88,7 +88,7 @@ O cenário completo com dois sistemas SAP de elevada disponibilidade teria o seg
 ## <a name="prepare-the-infrastructure"></a>Preparar a infraestrutura
 Para preparar a infraestrutura, pode instalar uma instância do SAP ASCS/SCS adicional com os seguintes parâmetros:
 
-| Nome do parâmetro | Valor |
+| Nome do parâmetro | Value |
 | --- | --- |
 | SAP ASCS/SCS SID |pr1-lb-ascs |
 | Balanceador de carga interno do SAP DBMS | PR5 |
@@ -114,7 +114,7 @@ Pode instalar instâncias adicionais do SAP ASCS/SCS do cluster de WSFC existent
 Pode criar uma entrada DNS para o nome de anfitrião virtual de instância do ASCS/SCS utilizando os seguintes parâmetros:
 
 | Novo nome de anfitrião virtual SAP ASCS/SCS | Endereço IP associado |
-| --- | --- | --- |
+| --- | --- |
 |pr5-sap-cl |10.0.0.50 |
 
 O novo nome de anfitrião e endereço IP são apresentados no Gestor de DNS, conforme mostrado na captura de ecrã seguinte:

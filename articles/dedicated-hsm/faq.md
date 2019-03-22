@@ -11,14 +11,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 3/11/2019
+ms.date: 3/19/2019
 ms.author: barclayn
-ms.openlocfilehash: cd3228b66dbbf19b574c390733340c0ea2fb5a78
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: HT
+ms.openlocfilehash: b28d9607bf35d37e252d7d0bc59d1ce808e38665
+ms.sourcegitcommit: aa3be9ed0b92a0ac5a29c83095a7b20dd0693463
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57846893"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58259997"
 ---
 # <a name="frequently-asked-questions-faq"></a>Perguntas Mais Frequentes (FAQ)
 
@@ -164,7 +164,7 @@ Sim. Pode enviar registos a partir da aplicação do HSM para um servidor syslog
 
 ### <a name="q-is-it-possible-to-configure-high-availability-in-the-same-region-or-across-multiple-regions"></a>P: É possível configurar a elevada disponibilidade na mesma região ou em várias regiões?
 
-Sim. Configuração de elevada disponibilidade e o programa de configuração são executadas no software de cliente HSM fornecido pelo Gemalto. HSMs da mesma VNET ou de outras VNETs na mesma região ou em várias regiões ou no local HSMs ligado a uma VNET com o site a site ou VPN de ponto a ponto pode ser adicionado a mesma configuração de elevada disponibilidade.
+Sim. Configuração de elevada disponibilidade e o programa de configuração são executadas no software de cliente HSM fornecido pelo Gemalto. HSMs da mesma VNET ou de outras VNETs na mesma região ou em várias regiões ou no local HSMs ligado a uma VNET com o site a site ou VPN de ponto a ponto pode ser adicionado a mesma configuração de elevada disponibilidade. É importante observar que sincroniza apenas a material de chave e itens de configuração não específico, como funções.
 
 ### <a name="q-can-i-add-hsms-from-my-on-premises-network-to-a-high-availability-group-with-azure-dedicated-hsm"></a>P: Posso adicionar HSMs de minha rede no local para um grupo de elevada disponibilidade com o HSM do Azure dedicado?
 
@@ -176,13 +176,13 @@ Não.
 
 ### <a name="q-how-many-hsms-can-i-add-to-the-same-high-availability-configuration-from-one-single-application"></a>P: HSMs quantos posso adicionar para a mesma configuração de elevada disponibilidade de um único aplicativo?
 
-16\.
+16 membros de um grupo HA tem em foram, Acelerador completo de teste com resultados excelentes.
 
 ## <a name="support"></a>Suporte
 
 ### <a name="q-what-is-the-sla-for-dedicated-hsm-service"></a>P: O que é o SLA para o serviço HSM dedicados?
 
-Neste momento, não existe nenhum SLA fornecido para o serviço HSM dedicados. Microsoft irá garantir o acesso de nível de rede para o dispositivo e, por conseguinte, aplicam o padrão SLAs de rede do Azure.
+Não há nenhum guarentee de tempo de atividade específica fornecido para o serviço de HSM dedicados. Microsoft irá garantir o acesso de nível de rede para o dispositivo e, por conseguinte, aplicam o padrão SLAs de rede do Azure.
 
 ### <a name="q-how-are-the-hsms-used-in-azure-dedicated-hsm-protected"></a>P: Como os HSMs são usados no Azure dedicado protegidas por HSM?
 
@@ -198,15 +198,19 @@ Serviço HSM dedicado utiliza aplicações de 7 de HSM de rede SafeNet. Estas ap
 
 ### <a name="q-how-do-i-get-support-for-dedicated-hsm"></a>P: Como posso obter suporte para o HSM dedicados?
 
-Da mesma forma que obtenha suporte para todos os outros serviços do Azure. A equipa de suporte do Azure irá escalonar a Gemalto suporte conforme necessário, consoante o caso.
+O suporte é fornecido pela Microsoft e da Gemalto.  Se tiver um problema com o hardware ou acesso de rede, faça um pedido de suporte com a Microsoft e caso tenha um problema com o desenvolvimento de aplicações, software e configuração de HSM entre rasie pedido de suporte com Gemalto. Se tiver um problema indeterminado, emitir um withg de pedido de suporte Microsoft e, em seguida, Gemalto pode ser combinada como necessário. 
 
-### <a name="q-how-do-i-get-access-to-dedicated-hsm-client-software-documentation-firmware-images"></a>P: Como posso obter acesso a software de cliente de HSM dedicados, documentação, imagens de firmware?
+### <a name="q-how-do-i-get-the-client-software-documentation-and-access-to-integration-guidance-for-the-safenet-luna-7-hsm"></a>P: Como obtenho o cliente de software, documentação e acesso a orientação de integração para o HSM do SafeNet Luna 7?
 
-Cliente tem de trabalhar diretamente com a Gemalto para obter acesso a software de cliente HSM, a documentação e imagens de SO/firmware.
+Depois de se registrar para o serviço, um ID de cliente da Gemalto será fornecida permitindo que para o registo no portal de suporte de cliente do Gemalto. Isto irá permitir o acesso a todos os software e documentação, bem como ativar pedidos de suporte diretamente com a Gemalto.
 
 ### <a name="q-if-there-is-a-security-vulnerability-found-and-a-patch-is-released-by-gemalto-who-is-responsible-for-upgradingpatching-osfirmware"></a>P: Se houver uma vulnerabilidade de segurança encontrada e um patch é lançado pela Gemalto, que é responsável pela aplicação de patches e atualizar o sistema operacional/Firmware?
 
 Microsoft não tem a capacidade de conexão para HSMs alocadas para os clientes. Os clientes tem de atualizar e aplicar um patch seus HSMs.
+
+### <a name="q-what-if-i-need-to-reboot-my-hsm"></a>P: E se eu precisar de reiniciar a minha HSM?
+
+ O HSM tem uma opção de reinício de linha de comandos e é importante observar que a opção de "reinício" tem de ser utilizada. Se isso falhar por algum motivo, faça um pedido de suporte com a Microsoft e podemos ter o dispositivo fisicamente reiniciado. 
 
 ## <a name="cryptography-and-standards"></a>Padrões e criptografia
 
@@ -262,15 +266,13 @@ Aplicações de provisões 7 de HSM de rede SafeNet HSM dedicadas (modelo A790).
 
 ### <a name="q-how-many-partitions-can-be-created-in-dedicated-hsm"></a>P: Quantas partições podem ser criadas no HSM dedicados?
 
-Com base no modelo específico de HSM utilizado, há 10 partições disponíveis.
+O modelo de SafeNet Luna HSM 7 que a790 utilizado inclui uma licença para 10 partições no custo do serviço. O dispositivo tem um limite de 100 partições e adicionar partições até esse limite poderia incorrer em custos de licenciamento extra e exigir a instalação de um novo ficheiro de licença no dispositivo.
 
 ### <a name="q-how-many-keys-can-be-supported-in-dedicated-hsm"></a>P: Suporte ao número de chaves HSM dedicados?
 
-Número máximo de chaves. Esses números também são aplicáveis aos pares de chaves, se utilizar as chaves assimétricas.
+O número máximo de chaves é uma função de memória disponível. O modelo SafeNet Luna 7 A790 utilizado tem 32MB de memória. Os números a seguir também são aplicáveis aos pares de chaves, se utilizar as chaves assimétricas.
 
 * RSA 2048 - 19,000
 * ECC-P256 - 91,000
-* AES-256 - 218,000
 
 Capacidade irá variar de acordo com os atributos chave específicos definidos no modelo de geração de chaves e número de partições.
-

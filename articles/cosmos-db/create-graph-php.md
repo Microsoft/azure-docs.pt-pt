@@ -8,12 +8,12 @@ ms.devlang: php
 ms.topic: quickstart
 ms.date: 01/05/2018
 ms.author: lbosq
-ms.openlocfilehash: e7ca026d47952721c7aa28de401738ef50b697c6
-ms.sourcegitcommit: 7723b13601429fe8ce101395b7e47831043b970b
+ms.openlocfilehash: aace9b61ae7625f1d3bbed5181fd88e367ea8f12
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56586721"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58082760"
 ---
 # <a name="quickstart-create-a-graph-database-in-azure-cosmos-db-using-php-and-the-azure-portal"></a>Início rápido: Criar uma base de dados no Azure Cosmos DB com o PHP e o portal do Azure
 
@@ -239,17 +239,17 @@ Agora, pode voltar ao Data Explorer e ver os vértices adicionados ao gráfico e
 
 12. Agora, pode ligar rakesh e ashley. Confirme que **ashley** está selecionada na lista **Resultados** e clique no botão Editar junto a **Destinos**, no canto inferior direito. Poderá ter de alargar a janela para ver a área **Propriedades**.
 
-   ![Alterar o destino de um vértice de um gráfico](./media/create-graph-php/azure-cosmosdb-data-explorer-edit-target.png)
+    ![Alterar o destino de um vértice de um gráfico](./media/create-graph-php/azure-cosmosdb-data-explorer-edit-target.png)
 
 13. Na caixa **Destino**, escreva *rakesh*, na caixa **Etiqueta da extremidade**, escreva *Conhece* e clique no visto.
 
-   ![Adicionar uma ligação entre ashley e rakesh no Data Explorer](./media/create-graph-php/azure-cosmosdb-data-explorer-set-target.png)
+    ![Adicionar uma ligação entre ashley e rakesh no Data Explorer](./media/create-graph-php/azure-cosmosdb-data-explorer-set-target.png)
 
 14. Agora, selecione **rakesh** na lista de resultados e veja se ashley e rakesh estão ligados. 
 
-   ![Dois vértices ligados no Data Explorer](./media/create-graph-php/azure-cosmosdb-graph-explorer.png)
+    ![Dois vértices ligados no Data Explorer](./media/create-graph-php/azure-cosmosdb-graph-explorer.png)
 
-   Esta ação conclui a parte da criação de recursos deste início rápido. Pode continuar a adicionar vértices ao seu gráfico, modificar os vértices existentes ou alterar as consultas. Agora vamos rever as métricas que o Azure Cosmos DB oferece e, em seguida, limpar os recursos. 
+    Esta ação conclui a parte da criação de recursos deste início rápido. Pode continuar a adicionar vértices ao seu gráfico, modificar os vértices existentes ou alterar as consultas. Agora vamos rever as métricas que o Azure Cosmos DB oferece e, em seguida, limpar os recursos. 
 
 ## <a name="review-slas-in-the-azure-portal"></a>Rever os SLAs no portal do Azure
 

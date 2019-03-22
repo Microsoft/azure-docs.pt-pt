@@ -1,0 +1,56 @@
+### YamlMime:YamlDocument
+ms.openlocfilehash: 18be472dfc6a9928b8ceea72fe1b277d77311a63
+ms.sourcegitcommit: b8f9200112cae265155b8877f7e1621c4bcc53fc
+ms.translationtype: MT
+ms.contentlocale: pt-PT
+ms.lasthandoff: 03/14/2019
+ms.locfileid: "57909175"
+documentType: LandingData
+title: Base de dados SQL do Azure - recursos
+metadata:
+  document_id: 36d89c48-3646-380e-34a0-ae3ac62e2641
+  title: Base de dados SQL do Azure - recursos
+  meta.description: Learn about the features in Azure SQL Database.
+  services: sql-database
+  author: jovanpop-msft
+  manager: craigg
+  ms.service: sql-database
+  ms.tgt_pltfrm: na
+  ms.devlang: 
+  ms.topic: overview
+  ms.date: 02/06/2019
+  ms.author: jovanpop-msft
+sections:
+- items:
+  - type: paragraph
+    text: Base de dados SQL do Azure é mais do que um mecanismo de banco de dados relacional clássico que permite-lhe para consultar dados com a linguagem SQL. Recursos de banco de dados na base de dados do Azure SQL permitem-lhe fazer mais powerfull operações e a implementar cenários avançados.
+  - type: list
+    style: cards
+    className: cardsM
+    columns: 3
+    items:
+    - title: Tecnologias dentro da memória
+      href: /azure/sql-database/sql-database-in-memory
+      html: <p>Implementar aplicações de alto desempenho com tecnologias dentro da memória.</p>
+    - title: Capacidades de vários modelos
+      href: /azure/sql-database/sql-database-multi-model-features
+      html: <p>Saiba mais sobre o gráfico, JSON, XML, recursos espaciais do SQL Database do Azure.</p>
+    - title: Replicação transacional
+      href: /azure/sql-database/sql-database-managed-instance-transactional-replication
+      html: <p>Replicar os seus dados entre as tabelas de base de dados do Azure SQL e o SQL Server.</p>
+    - title: Sincronização de Dados
+      href: /azure/sql-database/sql-database-sync-data
+      html: <p>Sincronize os dados em várias bases de dados SQL e instâncias do SQL Server.</p>
+    - title: Automatização de tarefas
+      href: /azure/sql-database/sql-database-job-automation-overview
+      html: <p>Agende tarefas repetitivas com tarefas de agente do SQL e elástica.</p>
+    - title: Tabelas temporais
+      href: /azure/sql-database/sql-database-temporal-tables
+      html: <p>Controle e analise o histórico completo das alterações nos seus dados.</p>
+- title: Mais recursos
+  items:
+  - type: list
+    style: ordered
+    items:
+    - html: Saiba mais sobre o <a href="/azure/sql-database/sql-database-features">funcionalidades da base de dados de diferenças entre o SQL Server e SQL do Azure</a>.
+    - html: Saiba como utilizar estas funcionalidades <a href="/azure/sql-database/sql-database-howto">guias de tutoriais sobre como</a>.

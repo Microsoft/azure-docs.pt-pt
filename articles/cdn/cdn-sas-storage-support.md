@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/21/2018
 ms.author: magattus
-ms.openlocfilehash: 57891bcce289c30d7dce1cd00c301064aa9b97cc
-ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
+ms.openlocfilehash: ee64b4cbfd024c91b226736bc8cac0b9b33f964e
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49955240"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58170399"
 ---
 # <a name="using-azure-cdn-with-sas"></a>Utilizar a CDN do Azure com SAS
 
@@ -48,9 +48,9 @@ Para obter mais informações sobre parâmetros de configuração, consulte [con
 
 ![Definições de SAS de CDN](./media/cdn-sas-storage-support/cdn-sas-settings.png)
 
-### <a name="option-1-using-sas-with-pass-through-to-blob-storage-from-azure-cdn"></a>Opção 1: Utilizar a SAS com pass-through para armazenamento de Blobs do CDN do Azure
+### <a name="option-1-using-sas-with-pass-through-to-blob-storage-from-azure-cdn"></a>Opção 1: Utilizar a SAS com pass-through para armazenamento de Blobs do Azure CDN
 
-Esta opção é a mais simples e utiliza um único token SAS, que é transmitido a partir da CDN do Azure para o servidor de origem. É suportado pelo **CDN do Azure Standard da Verizon** e **CDN do Azure Standard da Akamai** perfis. 
+Esta opção é a mais simples e utiliza um único token SAS, que é transmitido a partir da CDN do Azure para o servidor de origem.
  
 1. Selecione um ponto de extremidade, selecione **regras de colocação em cache**, em seguida, selecione **colocar em Cache todos os URL exclusivos** partir os **colocação em cache de cadeia de caracteres de consulta** lista.
 
@@ -67,7 +67,7 @@ Esta opção é a mais simples e utiliza um único token SAS, que é transmitido
    
 3. Ajustar a duração de cache, ao utilizar regras de colocação em cache ou adicionando `Cache-Control` cabeçalhos para o servidor de origem. Como o CDN do Azure trata o token SAS, como uma cadeia de consulta simples, como melhor prática que deve configurar uma duração de colocação em cache que expire em ou antes da hora de expiração de SAS. Caso contrário, se um arquivo é armazenado em cache durante um longo período que o Active Directory a SAS, o ficheiro poderá estar acessível a partir do servidor de origem da CDN do Azure, após a hora de expiração de SAS decorrido. Se esta situação ocorre e pretender disponibilizar o ficheiro em cache inacessível, tem de efetuar uma operação de remoção do ficheiro de limpá-la a partir da cache. Para obter informações sobre como definir a duração de cache no CDN do Azure, consulte [comportamento de cache com regras de colocação em cache de CDN do Azure de controle](cdn-caching-rules.md).
 
-### <a name="option-2-hidden-cdn-sas-token-using-a-rewrite-rule"></a>Opção 2: Oculta utilizando uma regra de reescrita de token de SAS de CDN
+### <a name="option-2-hidden-cdn-sas-token-using-a-rewrite-rule"></a>Opção 2: Token de SAS de CDN oculta, utilizando uma regra de reescrita
  
 Esta opção só está disponível para **CDN do Azure Premium da Verizon** perfis. Com esta opção, pode proteger o armazenamento de BLOBs para o servidor de origem. Pode querer utilizar esta opção se não precisa de restrições de acesso específico para o ficheiro, mas quer impedir que os utilizadores acedam a origem de armazenamento diretamente para melhorar os tempos de descarga da CDN do Azure. O token SAS, o que é desconhecido para o usuário, é necessário para todas as pessoas a aceder a ficheiros no contentor especificado do servidor de origem. No entanto, devido a regra de reescrita de URLs, o token SAS não é necessário no ponto final da CDN.
  
@@ -144,6 +144,6 @@ Como parâmetros SAS não são visíveis para a CDN do Azure, a CDN do Azure nã
 
 Para obter mais informações sobre SAS, consulte os artigos seguintes:
 - [Utilizar assinaturas de acesso partilhado (SAS)](https://docs.microsoft.com/azure/storage/common/storage-dotnet-shared-access-signature-part-1)
-- [Partilhado assinaturas de acesso, parte 2: Criar e utilizar um SAS com armazenamento de BLOBs](https://docs.microsoft.com/azure/storage/blobs/storage-dotnet-shared-access-signature-part-2)
+- [Assinaturas de acesso, parte 2 de partilhado: Criar e utilizar um SAS com armazenamento de BLOBs](https://docs.microsoft.com/azure/storage/blobs/storage-dotnet-shared-access-signature-part-2)
 
 Para obter mais informações sobre como configurar a autenticação de token, consulte [recursos de proteger conteúdo rede de entrega Azure com a autenticação de token](https://docs.microsoft.com/azure/cdn/cdn-token-auth).

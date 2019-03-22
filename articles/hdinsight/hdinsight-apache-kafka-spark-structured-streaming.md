@@ -9,12 +9,12 @@ ms.custom: hdinsightactive,seodec18
 ms.topic: tutorial
 ms.date: 11/06/2018
 ms.author: hrasheed
-ms.openlocfilehash: 4dcf482e02d38e18b7b86fc57565a47510627d44
-ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
+ms.openlocfilehash: e470f9d6f33e8b534be22132881f4806bed85f5d
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/20/2018
-ms.locfileid: "53652869"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58078368"
 ---
 # <a name="tutorial-use-apache-spark-structured-streaming-with-apache-kafka-on-hdinsight"></a>Tutorial: Utilizar o Apache Spark estruturado de transmissão em fluxo com o Apache Kafka no HDInsight
 
@@ -131,12 +131,12 @@ Para criar uma Rede Virtual do Azure e, em seguida, criar os clusters do Kafka e
 
     Este modelo cria os seguintes recursos:
 
-    * Um cluster do Kafka no HDInsight 3.6.
-    * Um cluster do Spark 2.2.0 no HDInsight 3.6.
-    * Uma Rede Virtual do Azure, que contém os clusters do HDInsight.
+   * Um cluster do Kafka no HDInsight 3.6.
+   * Um cluster do Spark 2.2.0 no HDInsight 3.6.
+   * Uma Rede Virtual do Azure, que contém os clusters do HDInsight.
 
-    > [!IMPORTANT]  
-    > O bloco de notas de transmissão em fluxo estruturada utilizado neste tutorial requer o Spark 2.2.0 no HDInsight 3.6. Se utilizar uma versão anterior do Spark no HDInsight, irá receber mensagens de erro ao utilizar o bloco de notas.
+     > [!IMPORTANT]  
+     > O bloco de notas de transmissão em fluxo estruturada utilizado neste tutorial requer o Spark 2.2.0 no HDInsight 3.6. Se utilizar uma versão anterior do Spark no HDInsight, irá receber mensagens de erro ao utilizar o bloco de notas.
 
 2. Utilize as seguintes informações para preencher as entradas da secção **Modelo personalizado**:
 

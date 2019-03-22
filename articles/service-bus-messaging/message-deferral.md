@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2019
 ms.author: aschhab
-ms.openlocfilehash: 4471b556dc1ac5f520185d7ad586fb489c6d8f30
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
+ms.openlocfilehash: 11ea10f1deba5a21b98dea875a1b7dc94998aa00
+ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54856813"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58225169"
 ---
 # <a name="message-deferral"></a>Diferimento de mensagens
 
@@ -36,7 +36,7 @@ A API é [BrokeredMessage.Defer](/dotnet/api/microsoft.servicebus.messaging.brok
 
 Mensagens diferidas permanecem na fila de principal, juntamente com todas as outras mensagens Active Directory (ao contrário de mensagens não entregues que residem numa subfila), mas já não pode ser recebidos usando as funções de recebimento/ReceiveAsync regulares. Mensagens diferidas possam ser detetadas através de [navegação de mensagens](message-browsing.md) se um aplicativo perder o controle deles.
 
-Para obter uma mensagem diferida, o respetivo proprietário é responsável por tendo em conta a [SequenceNumber](/dotnet/api/microsoft.azure.servicebus.message.systempropertiescollection.sequencenumber#Microsoft_Azure_ServiceBus_Message_SystemPropertiesCollection_SequenceNumber) como ele difere-lo. Qualquer recetor que sabe o número de sequência de uma mensagem diferida mais tarde pode receber a mensagem explicitamente com `Receive(sequenceNumber)`.
+Para obter uma mensagem diferida, o respetivo proprietário é responsável por tendo em conta a [SequenceNumber](/dotnet/api/microsoft.azure.servicebus.message.systempropertiescollection.sequencenumber#Microsoft_Azure_ServiceBus_Message_SystemPropertiesCollection_SequenceNumber) como ele difere-lo. Qualquer recetor que sabe o número de sequência de uma mensagem diferida mais tarde pode receber a mensagem explicitamente com `Receive(sequenceNumber)`. Para as filas, pode utilizar o [QueueClient](/dotnet/api/microsoft.servicebus.messaging.queueclient), subscrições de tópicos de utilizar o [SubscriptionClient](/dotnet/api/microsoft.servicebus.messaging.subscriptionclient).
 
 Se uma mensagem não é possível processar porque um recurso específico para processar essa mensagem está temporariamente indisponível, mas o processamento de mensagem não deve ser suspenso summarily, uma forma de colocar essa mensagem no lado durante alguns minutos, é se lembrar do  **SequenceNumber** num [mensagem agendada](message-sequencing.md) publicadas em alguns minutos e, novamente obter a mensagem diferida quando chega a mensagem agendada. Se um manipulador de mensagens depende de uma base de dados para todas as operações e essa base de dados está temporariamente indisponível, ele deve não utilizar diferimento, mas em vez disso, suspender o recebimento de mensagens totalmente até que a base de dados estiver novamente disponível.
 

@@ -10,12 +10,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 08/12/2018
 ms.author: glenga
-ms.openlocfilehash: 03cb9384beba1afcb97a765824e63e79ca34aa62
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.openlocfilehash: 2762e5c4f2b67415a0e42e80a34ae5b34c57adc9
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44717223"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58086586"
 ---
 # <a name="zip-deployment-for-azure-functions"></a>Implementação de zip para as funções do Azure
 
@@ -51,13 +51,13 @@ No entanto, pode ter criado as suas funções com o editor no portal do Azure. P
 
 + **No portal do Azure:**
 
-    1. Inicie sessão para o [portal do Azure](https://portal.azure.com)e, em seguida, vá para a aplicação de funções.
+  1. Inicie sessão para o [portal do Azure](https://portal.azure.com)e, em seguida, vá para a aplicação de funções.
 
-    2. Sobre o **descrição geral** separador, selecione **transferir conteúdo da aplicação**. Selecione as opções de download e, em seguida, selecione **transferir**.
+  2. Sobre o **descrição geral** separador, selecione **transferir conteúdo da aplicação**. Selecione as opções de download e, em seguida, selecione **transferir**.
 
-        ![Transfira o projeto de aplicação de função](./media/deployment-zip-push/download-project.png)
+      ![Transfira o projeto de aplicação de função](./media/deployment-zip-push/download-project.png)
 
-    O ficheiro. zip transferido está no formato correto para ser publicada novamente para a sua aplicação de função utilizando a implementação de push. zip. O download do portal, também pode adicionar os arquivos necessários para abrir a aplicação de funções diretamente no Visual Studio.
+     O ficheiro. zip transferido está no formato correto para ser publicada novamente para a sua aplicação de função utilizando a implementação de push. zip. O download do portal, também pode adicionar os arquivos necessários para abrir a aplicação de funções diretamente no Visual Studio.
 
 + **Utilizar REST APIs:**
 

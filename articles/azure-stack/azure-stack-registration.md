@@ -16,12 +16,12 @@ ms.date: 03/11/2019
 ms.author: jeffgilb
 ms.reviewer: brbartle
 ms.lastreviewed: 03/04/2019
-ms.openlocfilehash: 2ed9598ecfb45323505e8527cfb3ab9fe7d8b58e
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
-ms.translationtype: MT
+ms.openlocfilehash: 1f6edd871d6815dab93bf9e8d582b0cb1ba6c78f
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57764732"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58109244"
 ---
 # <a name="register-azure-stack-with-azure"></a>Registar o Azure Stack com o Azure
 
@@ -173,7 +173,7 @@ Podem aceder a ambientes conectados à internet e Azure. Para estes ambientes, t
    ```
    Para obter mais informações sobre o cmdlet Set-AzsRegistration, consulte [referência de registo](#registration-reference).
 
-  O processo demora entre 10 a 15 minutos. Quando o comando for concluído, verá a mensagem **"o seu ambiente está agora registado e ativado usando os parâmetros fornecidos."**
+   O processo demora entre 10 a 15 minutos. Quando o comando for concluído, verá a mensagem **"o seu ambiente está agora registado e ativado usando os parâmetros fornecidos."**
 
 ## <a name="register-connected-with-capacity-billing"></a>Registre-se conectado com a faturação de capacidade
 
@@ -210,20 +210,20 @@ Podem aceder a ambientes conectados à internet e Azure. Para estes ambientes, t
 
 5. Inicie o ISE do PowerShell como administrador e navegue para o **registo** pasta na **AzureStack-Tools-mestre** diretório criado quando transferiu as ferramentas do Azure Stack. Importar os **RegisterWithAzure.psm1** módulo com o PowerShell:
 
-  ```PowerShell  
-  $CloudAdminCred = Get-Credential -UserName <Privileged endpoint credentials> -Message "Enter the cloud domain credentials to access the privileged endpoint."
-  $RegistrationName = "<unique-registration-name>"
-  Set-AzsRegistration `
+   ```PowerShell  
+   $CloudAdminCred = Get-Credential -UserName <Privileged endpoint credentials> -Message "Enter the cloud domain credentials to access the privileged endpoint."
+   $RegistrationName = "<unique-registration-name>"
+   Set-AzsRegistration `
       -PrivilegedEndpointCredential $CloudAdminCred `
       -PrivilegedEndpoint <PrivilegedEndPoint computer name> `
       -AgreementNumber <EA agreement number> `
       -BillingModel Capacity `
       -RegistrationName $RegistrationName
-  ```
+   ```
    > [!Note]  
    > Pode desativar a utilização de relatórios com o parâmetro UsageReportingEnabled para o **Set-AzsRegistration** cmdlet, definindo o parâmetro como false. 
    
-  Para obter mais informações sobre o cmdlet Set-AzsRegistration, consulte [referência de registo](#registration-reference).
+   Para obter mais informações sobre o cmdlet Set-AzsRegistration, consulte [referência de registo](#registration-reference).
 
 ## <a name="register-disconnected-with-capacity-billing"></a>Registre-se desligado com a faturação de capacidade
 
@@ -321,7 +321,7 @@ Pode utilizar o **gestão da região** mosaico para verificar se o registo do Az
 4. Utilize o portal do Azure para ver os registos de aplicações do Azure Stack. Inicie sessão no portal do Azure com uma conta associada à subscrição utilizada para registar o Azure Stack. Mudar para o inquilino associado com o Azure Stack.
 5. Navegue para **do Azure Active Directory > registos de aplicações > ver todas as aplicações**.
 
-    ![Registos das aplicações](media/azure-stack-registration/app-registrations.png)
+    ![Registos de aplicações](media/azure-stack-registration/app-registrations.png)
 
     Registos de aplicações do Azure Stack têm o prefixo **do Azure Stack**.
 

@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 02/21/2019
 ms.author: kumud
 ms:custom: seodec18
-ms.openlocfilehash: 39bfea8e3b04be2a5444945356f2c487ea2423e3
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 0bdad2d59528775d23d882831cfdbdc09471e12e
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57443305"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58109802"
 ---
 # <a name="get-started"></a>Início rápido: Criar um balanceador de carga público com o Azure PowerShell
 
@@ -295,18 +295,18 @@ Instale o IIS com uma página Web personalizada em ambas as VMs de back-end da s
 
 1. Obtenha o endereço IP público do Balanceador de Carga. Obtenha o endereço IP público do Balanceador de Carga com `Get-AzPublicIPAddress`.
 
-  ```azurepowershell-interactive
+   ```azurepowershell-interactive
     Get-AzPublicIPAddress `
     -ResourceGroupName "myResourceGroupLB" `
     -Name "myPublicIP" | select IpAddress
-  ```
+   ```
 2. Crie uma ligação de ambiente de trabalho remoto a VM1 com o endereço IP público que obteve no passo anterior. 
 
-  ```azurepowershell-interactive
+   ```azurepowershell-interactive
 
       mstsc /v:PublicIpAddress:4221  
   
-  ```
+   ```
 3. Introduza as credenciais para *VM1* para iniciar a sessão de RDP.
 4. Inicie o Windows PowerShell na VM1 e utilize os seguintes comandos para instalar o servidor de ISS e atualizar o ficheiro html predefinido.
     ```azurepowershell-interactive

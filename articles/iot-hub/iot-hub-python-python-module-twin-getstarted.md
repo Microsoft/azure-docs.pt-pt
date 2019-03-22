@@ -9,12 +9,12 @@ ms.devlang: python
 ms.topic: conceptual
 ms.date: 04/26/2018
 ms.author: menchi
-ms.openlocfilehash: 904598573b79640bf6547bb172702b3a1b200a49
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 1d7c8d8a02358b4eb9f52f1a9bd04b797fcd934f
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57531770"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58110805"
 ---
 # <a name="get-started-with-iot-hub-module-identity-and-module-twin-using-python-back-end-and-python-device"></a>Introdução ao IoT Hub módulo identidade e o módulo duplo com Python back-end e de dispositivo Python
 
@@ -87,7 +87,7 @@ Nesta secção, vai criar um Python propriedades comunicadas de aplicação no s
 
 1. **Obtenha a sua cadeia de ligação do módulo** – agora, se iniciar sessão no [portal do Azure][lnk-portal]. Navegue até ao seu Hub IoT e clique em Dispositivos IoT. Encontre myFirstDevice, abra-lo e ver myFirstModule foi criado com êxito. Copie a cadeia de ligação do módulo. É necessária para o próximo passo.
 
-  ![Detalhe do módulo no portal do Azure][15]
+   ![Detalhe do módulo no portal do Azure][15]
 
 1. **Criar aplicação UpdateModuleTwinReportedProperties** adicione as seguintes `using` declarações na parte superior a **Program.cs** ficheiro:
 

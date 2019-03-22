@@ -10,12 +10,12 @@ ms.reviewer: klam, LADocs
 manager: jeconnoc
 ms.date: 01/05/2019
 ms.topic: article
-ms.openlocfilehash: 7237a9a6a99b57401af40512a6d2e21a3fe49e53
-ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
+ms.openlocfilehash: c37e41bce481fff5e172687907cce527c10ae006
+ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54159490"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58225013"
 ---
 # <a name="create-loops-that-repeat-workflow-actions-or-process-arrays-in-azure-logic-apps"></a>Criar ciclos que repetir ações de fluxo de trabalho ou processam matrizes no Azure Logic Apps
 
@@ -166,7 +166,8 @@ Começando pelo 8:00, todos os dias, esta aplicação de lógica de exemplo incr
 > Estes passos utilizam o Outlook do Office 365, mas pode utilizar qualquer fornecedor de e-mail que suporta o Logic Apps. 
 > [Verifique a lista de conectores aqui](https://docs.microsoft.com/connectors/). Se utilizar outra conta de e-mail, os passos gerais são os mesmos, mas sua interface do Usuário poderá parecer ligeiramente diferente. 
 
-1. Criar uma aplicação lógica em branco. No Estruturador da aplicação lógica, na caixa de pesquisa, escolha **todos os**. Procure "periodicidade". Na lista de disparadores, selecione este acionador: **Periodicidade - agenda**
+1. Criar uma aplicação lógica em branco. No Estruturador da aplicação lógica, na caixa de pesquisa, escolha **todos os**. Procure "periodicidade". 
+   Na lista de disparadores, selecione este acionador: **Periodicidade - agenda**
 
    ![Adicionar acionador "– de periodicidade"](./media/logic-apps-control-flow-loops/do-until-loop-add-trigger.png)
 
@@ -174,14 +175,15 @@ Começando pelo 8:00, todos os dias, esta aplicação de lógica de exemplo incr
 
    ![Configurar a agenda de periodicidade](./media/logic-apps-control-flow-loops/do-until-loop-set-trigger-properties.png)
 
-   | Propriedade | Valor |
+   | Propriedade | Value |
    | -------- | ----- |
    | **Intervalo** | 1 | 
    | **Frequência** | Dia |
    | **At these hours** (A estas horas) | 8 |
    ||| 
 
-1. No acionador, escolha **novo passo**. Procure "variables" e selecione a ação: **Inicializar variável - variáveis**
+1. No acionador, escolha **novo passo**. 
+   Procure "variables" e selecione a ação: **Inicializar variável - variáveis**
 
    ![Adicionar ação de "Initialize variável - variáveis"](./media/logic-apps-control-flow-loops/do-until-loop-add-variable.png)
 
@@ -189,7 +191,7 @@ Começando pelo 8:00, todos os dias, esta aplicação de lógica de exemplo incr
 
    ![Definir propriedades de variável](./media/logic-apps-control-flow-loops/do-until-loop-set-variable-properties.png)
 
-   | Propriedade | Valor | Descrição |
+   | Propriedade | Value | Descrição |
    | -------- | ----- | ----------- |
    | **Nome** | Limite | Nome da variável | 
    | **Tipo** | Número inteiro | Tipo de dados da variável | 
@@ -202,7 +204,8 @@ Começando pelo 8:00, todos os dias, esta aplicação de lógica de exemplo incr
 
    ![Adicionar "Até" loop](./media/logic-apps-control-flow-loops/do-until-loop-add-until-loop.png)
 
-1. Criar a condição de saída do ciclo, selecionando o **limite** variável e o **equivale** operador. Introduza **10** como o valor de comparação.
+1. Criar a condição de saída do ciclo, selecionando o **limite** variável e o **equivale** operador. 
+   Introduza **10** como o valor de comparação.
 
    ![Criar a condição de saída para interromper o loop](./media/logic-apps-control-flow-loops/do-until-loop-settings.png)
 
@@ -214,32 +217,33 @@ Começando pelo 8:00, todos os dias, esta aplicação de lógica de exemplo incr
 
 1. Para **Name**, selecione a **limite** variável. Para **valor**, introduza "1". 
 
-   ![Incremento "Limite" em 1](./media/logic-apps-control-flow-loops/do-until-loop-increment-variable-settings.png)
+     ![Incremento "Limite" em 1](./media/logic-apps-control-flow-loops/do-until-loop-increment-variable-settings.png)
 
 1. Fora e sob o loop, escolher **novo passo**. 
 
-1. Na caixa de pesquisa, escolha **todos os**. Localize e adicione uma ação que envia um e-mail, por exemplo: 
+1. Na caixa de pesquisa, escolha **todos os**. 
+     Localize e adicione uma ação que envia um e-mail, por exemplo: 
 
-   ![Adicionar ação que envia um e-mail](media/logic-apps-control-flow-loops/do-until-loop-send-email.png)
+     ![Adicionar ação que envia um e-mail](media/logic-apps-control-flow-loops/do-until-loop-send-email.png)
 
 1. Se tal lhe for solicitado, inicie sessão na sua conta de e-mail.
 
 1. Defina propriedades da ação de e-mail. Adicionar a **limite** variável para o assunto. Dessa forma, pode confirmar que valor atual da variável cumpre a condição especificada, por exemplo:
 
-    ![Configurar propriedades de e-mail](./media/logic-apps-control-flow-loops/do-until-loop-send-email-settings.png)
+      ![Configurar propriedades de e-mail](./media/logic-apps-control-flow-loops/do-until-loop-send-email-settings.png)
 
-    | Propriedade | Valor | Descrição |
-    | -------- | ----- | ----------- | 
-    | **Para** | *<email-address@domain>* | endereço de e-mail do destinatário. Para fins de teste, utilize o seu endereço de e-mail. | 
-    | **Assunto** | O valor atual para "Limite de" é **limite** | Especifique o assunto do e-mail. Neste exemplo, certifique-se de que inclui a **limite** variável. | 
-    | **Corpo** | <*email-content*> | Especifique o conteúdo da mensagem de e-mail que pretende enviar. Neste exemplo, introduza qualquer texto que desejar. | 
-    |||| 
+      | Propriedade | Value | Descrição |
+      | -------- | ----- | ----------- | 
+      | **Para** | *< endereço de e-mail\@domínio >* | endereço de e-mail do destinatário. Para fins de teste, utilize o seu endereço de e-mail. | 
+      | **Assunto** | O valor atual para "Limite de" é **limite** | Especifique o assunto do e-mail. Neste exemplo, certifique-se de que inclui a **limite** variável. | 
+      | **Corpo** | <*email-content*> | Especifique o conteúdo da mensagem de e-mail que pretende enviar. Neste exemplo, introduza qualquer texto que desejar. | 
+      |||| 
 
 1. Guarde a aplicação lógica. Para testar manualmente a sua aplicação lógica, na barra de ferramentas da estruturador, escolha **executar**.
 
-    Depois da lógica entrar em execução, receberá um e-mail com o conteúdo que especificou:
+      Depois da lógica entrar em execução, receberá um e-mail com o conteúdo que especificou:
 
-    ![E-mail recebido](./media/logic-apps-control-flow-loops/do-until-loop-sent-email.png)
+      ![E-mail recebido](./media/logic-apps-control-flow-loops/do-until-loop-sent-email.png)
 
 ## <a name="prevent-endless-loops"></a>Impedir que os loops intermináveis
 

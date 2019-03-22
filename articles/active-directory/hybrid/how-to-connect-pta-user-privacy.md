@@ -17,12 +17,12 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.custom: seohack1
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e1f2b717043394634f437caf7dd57411260fd7be
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: f1a7b740a6b248a12fa3d95f85f602ef7a8b2fa5
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56191100"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58098064"
 ---
 # <a name="user-privacy-and-azure-active-directory-pass-through-authentication"></a>Autenticação de pass-through do Active Directory do Azure e de privacidade do utilizador
 
@@ -107,4 +107,4 @@ Se o registo de auditoria é ativado, este produto pode gerar registos de segura
 
 ## <a name="next-steps"></a>Passos Seguintes
 * [Rever a política de Privacy da Microsoft no Centro de fidedignidade](https://www.microsoft.com/trustcenter)
-- [**Resolução de problemas** ](tshoot-connect-pass-through-authentication.md) -Saiba como resolver problemas comuns com a funcionalidade.
+* [**Resolução de problemas** ](tshoot-connect-pass-through-authentication.md) -Saiba como resolver problemas comuns com a funcionalidade.

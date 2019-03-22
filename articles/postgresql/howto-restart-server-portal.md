@@ -1,19 +1,19 @@
 ---
 title: Reinicie a base de dados do Azure para o servidor PostgreSQL com o portal do Azure
-description: Este artigo descreve como pode reiniciar uma base de dados do Azure para o servidor PostgreSQL com o Portal do Azure.
+description: Este artigo descreve como pode reiniciar uma base de dados do Azure para o servidor PostgreSQL no portal do Azure.
 author: ajlam
 ms.author: andrela
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 2/7/2019
-ms.openlocfilehash: cc5957da97d9a8801583564bdf51f0483ab8e004
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.date: 3/18/2019
+ms.openlocfilehash: 83947571ed835c53c6cf8da6e73deb8dceabdd62
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56865795"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58168780"
 ---
-# <a name="restart-azure-database-for-postgresql-server-using-azure-portal"></a>Reinicie a base de dados do Azure para o servidor PostgreSQL com o portal do Azure
+# <a name="restart-azure-database-for-postgresql-server-using-the-azure-portal"></a>Reinicie a base de dados do Azure para o servidor PostgreSQL no portal do Azure
 Este tópico descreve como pode reiniciar uma base de dados do Azure para o servidor PostgreSQL. Terá de reiniciar o servidor por motivos de manutenção, o que faz com que uma interrupção curta como o servidor executa a operação.
 
 O reinício do servidor será bloqueado se o serviço está ocupado. Por exemplo, o serviço poderá estar a processar uma operação de pedido anteriormente, como o dimensionamento vCores.
@@ -28,7 +28,7 @@ Para concluir este guia de procedimentos, terá de:
 
 Os seguintes passos de reiniciar o servidor PostgreSQL:
 
-1. No portal do Azure, selecione a base de dados do Azure para o servidor PostgreSQL.
+1. Na [portal do Azure](https://portal.azure.com/), selecione a sua base de dados do Azure para o servidor PostgreSQL.
 
 2. Na barra de ferramentas do servidor **descrição geral** página, clique em **reiniciar**.
 
@@ -48,4 +48,4 @@ Os seguintes passos de reiniciar o servidor PostgreSQL:
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-[Quickstart: Criar base de dados do Azure para o servidor PostgreSQL com o portal do Azure](./quickstart-create-server-database-portal.md)
+Saiba mais sobre [como definir parâmetros na base de dados do Azure para PostgreSQL](howto-configure-server-parameters-using-portal.md)

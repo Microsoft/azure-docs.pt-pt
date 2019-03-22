@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/13/2018
 ms.author: rkarlin
-ms.openlocfilehash: 0a8680fbc8a3a051906f223d8b2476891c92d110
-ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
+ms.openlocfilehash: e3b4da1c1d835e9d630c000055af058aa7b45968
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56888207"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58109193"
 ---
 # <a name="managing-security-recommendations-in-azure-security-center"></a>Gerir recomendações de segurança no Centro de segurança do Azure
 Este documento explica como utilizar as recomendações no Centro de segurança do Azure para o ajudar a proteger os seus recursos do Azure.
@@ -68,10 +68,10 @@ Pode filtrar recomendações. Para filtrar as recomendações, selecione **filtr
 
 > [!NOTE]
 > Vai querer compreender a [clássico e modelos de implementação do Resource Manager](../azure-classic-rm.md) para recursos do Azure.
->
->
-### <a name="apply-recommendations"></a>Aplicar recomendações
-Depois de rever todas as recomendações, decida que um deve aplicar primeiro. Recomendamos que utilize a classificação de gravidade, como o parâmetro principal para avaliar quais recomendações deve ser aplicado primeiro.
+> 
+> 
+> ### <a name="apply-recommendations"></a>Aplicar recomendações
+> Depois de rever todas as recomendações, decida que um deve aplicar primeiro. Recomendamos que utilize a classificação de gravidade, como o parâmetro principal para avaliar quais recomendações deve ser aplicado primeiro.
 
 
 

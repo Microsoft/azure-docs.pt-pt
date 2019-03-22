@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 3/14/2019
 ms.author: monhaber
-ms.openlocfilehash: 98fffbc7a3b287dd59cfc681beec2107a5fd4ed6
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: d99ef6026f3605f4081393811d840ba3fe2892ba
+ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58085053"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58226118"
 ---
 # <a name="working-with-security-policies"></a>Trabalhar com políticas de segurança
 
@@ -119,8 +119,8 @@ Para obter mais informações sobre as recomendações, veja [recomendações de
 
    ![Desativar política](./media/tutorial-security-policy/disable-policy.png)
 1. Clique em **Guardar**.
-> [!Note]
-> As alterações de política de desactivação podem demorar até 12 horas para entrar em vigor.
+   > [!Note]
+   > As alterações de política de desactivação podem demorar até 12 horas para entrar em vigor.
 
 
 ### <a name="configure-a-security-policy-using-the-rest-api"></a>Configurar uma política de segurança com a API REST

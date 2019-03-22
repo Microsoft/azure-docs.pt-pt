@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/03/2019
 ms.author: v-ant
-ms.openlocfilehash: ca9a569d28e42baafeabc15f49fb7f5206566730
-ms.sourcegitcommit: dd1a9f38c69954f15ff5c166e456fda37ae1cdf2
+ms.openlocfilehash: ff6a111663df5d7e7f4f517446084ef75b009e59
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57572543"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58092706"
 ---
 # <a name="tutorial-configure-atlassian-cloud-for-automatic-user-provisioning"></a>Tutorial: Configurar a Cloud da Atlassian para aprovisionamento automático de utilizadores
 
@@ -28,7 +28,7 @@ O objetivo deste tutorial é demonstrar as etapas a serem executadas na Cloud de
 
 > [!NOTE]
 > Este tutorial descreve um conector assentes no serviço de aprovisionamento de utilizador do Azure AD. Para obter detalhes importantes sobre o que faz este serviço, como ele funciona e perguntas mais frequentes, consulte [automatizar o aprovisionamento de utilizador e a aplicações SaaS com o Azure Active Directory de desaprovisionamento](../manage-apps/user-provisioning.md).
-
+> 
 > Este conector está atualmente em pré-visualização pública. Para obter mais informações sobre os Microsoft Azure termos de utilização gerais para funcionalidades de pré-visualização, veja [termos de utilização suplementares para pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## <a name="prerequisites"></a>Pré-requisitos
@@ -108,9 +108,9 @@ Esta secção orienta-o pelos passos para configurar o Azure AD do serviço de a
 
 5. Sob o **credenciais de administrador** secção, de entrada a **URL de inquilino** e **segredo de Token** da conta de sua nuvem da Atlassian. Exemplos destes valores são:
 
-    *   Na **URL de inquilino** campo, preencha o ponto de extremidade de inquilino específico, receberá da Atlassian, conforme descrito no passo 6. Por exemplo: **https://api.atlassian.com/scim/directory/{directoryId}**
+   * Na **URL de inquilino** campo, preencha o ponto de extremidade de inquilino específico, receberá da Atlassian, conforme descrito no passo 6. Por exemplo: **https://api.atlassian.com/scim/directory/{directoryId}**
 
-    *   Na **segredo de Token** campo, preencha o token SECRETO, conforme descrito no passo 6.
+   * Na **segredo de Token** campo, preencha o token SECRETO, conforme descrito no passo 6.
 
 6. Navegue para [Gestor de organização da Atlassian](https://admin.atlassian.com) **> aprovisionamento de utilizadores** e clique em **criar um Token**. Copiar o **URL de base do diretório** e **Token de portador** para o **URL de inquilino** e **segredo de Token** campos, respetivamente.
 

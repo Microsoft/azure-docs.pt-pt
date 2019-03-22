@@ -12,12 +12,12 @@ author: swinarko
 ms.author: sawinark
 ms.reviewer: douglasl
 manager: craigg
-ms.openlocfilehash: 24e2d7be0dfc32e499bc864f2fdf7e2b1c108969
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 6c01232c9bdb685fbc54e5ebe1e1f9fa83073dc2
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57440221"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58107802"
 ---
 # <a name="join-an-azure-ssis-integration-runtime-to-a-virtual-network"></a>Junte-se a um runtime de integração Azure-SSIS a uma rede virtual
 Associe o runtime de integração (IR) Azure-SSIS a uma rede virtual do Azure nos seguintes cenários: 
@@ -26,7 +26,7 @@ Associe o runtime de integração (IR) Azure-SSIS a uma rede virtual do Azure no
 
 - Está a alojar o SQL Server Integration Services (SSIS) catálogo da base de dados na base de dados do Azure SQL com pontos finais do serviço de rede virtual/gerida instância. 
 
- O Azure Data Factory permite-lhe associar o runtime de integração Azure-SSIS a uma rede virtual criada através do modelo de implementação clássica ou o modelo de implementação Azure Resource Manager. 
+  O Azure Data Factory permite-lhe associar o runtime de integração Azure-SSIS a uma rede virtual criada através do modelo de implementação clássica ou o modelo de implementação Azure Resource Manager. 
 
 > [!IMPORTANT]
 > A rede virtual clássica está atualmente a ser preterida, pelo que deve utilizar o Azure Resource Manager virtual de rede em vez disso.  Se já utilizar a rede virtual clássica, mude para utilizar a rede virtual do Azure Resource Manager logo que possível.

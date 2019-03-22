@@ -11,16 +11,16 @@ ms.topic: conceptual
 ms.date: 2/20/2019
 ms.author: wolfma
 ms.custom: seodec18
-ms.openlocfilehash: 1d81426853a9a8e28fa04e34fada3ce64798ccfd
-ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
+ms.openlocfilehash: 73dcddf796faa3b39dbb124fe6c528bb19eda3a9
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56958155"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57841230"
 ---
 # <a name="about-the-speech-sdk"></a>Informações sobre o SDK de voz
 
-A conversão de voz Software Development Kit (SDK) dá-seus aplicativos nativo acesso para as funções do serviço de voz, tornando mais fácil desenvolver software. Atualmente, o SDK fornece acesso ao **conversão de voz em texto**, **tradução por voz**, e **reconhecimento da intenção**.
+A conversão de voz Software Development Kit (SDK) proporciona o acesso de aplicações para as funções dos serviços de voz, tornando-o mais fácil de desenvolver software habilitado para fala. Atualmente, os SDKs fornecem acesso ao **conversão de voz em texto**, **tradução por voz**, e **reconhecimento da intenção**. Uma visão geral sobre as capacidades e plataformas suportadas pode ser encontrada na documentação do [página de entrada](https://aka.ms/csspeech).
 
 [!INCLUDE [Speech SDK Platforms](../../../includes/cognitive-services-speech-service-speech-sdk-platforms.md)]
 

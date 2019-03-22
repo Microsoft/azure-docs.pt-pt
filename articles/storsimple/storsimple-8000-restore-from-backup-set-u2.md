@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 05/23/2017
 ms.author: alkohli
-ms.openlocfilehash: 57290971185d1fd64b3b5ca6ac37535070ddab9e
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.openlocfilehash: 6a2e022697ced90d968075b7a4abe4163be7a539
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55496487"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58082811"
 ---
 # <a name="restore-a-storsimple-volume-from-a-backup-set"></a>Restaurar um volume StorSimple a partir de um conjunto de cópia de segurança
 
@@ -110,9 +110,9 @@ Pode utilizar o **catálogo de cópia de segurança** painel para restaurar o vo
    3. Na lista pendente, escolha a política de cópia de segurança ou de volume para a cópia de segurança que pretende selecionar.
    4. Clique em **aplicar** para executar esta consulta.
 
-    As cópias de segurança associadas com o volume selecionado ou política de cópia de segurança deverá aparecer na lista de conjuntos de cópia de segurança.
+      As cópias de segurança associadas com o volume selecionado ou política de cópia de segurança deverá aparecer na lista de conjuntos de cópia de segurança.
    
-    ![Lista de conjuntos de cópia de segurança](./media/storsimple-8000-restore-from-backup-set-u2/bucatalog.png)     
+      ![Lista de conjuntos de cópia de segurança](./media/storsimple-8000-restore-from-backup-set-u2/bucatalog.png)     
      
 3. Expanda a cópia de segurança definida para ver os volumes associados. Estes volumes devem ser colocados offline no anfitrião e do dispositivo antes de pode restaurá-las. Aceder aos volumes no **Volumes** painel do seu dispositivo e, em seguida, siga os passos [colocar um volume offline](storsimple-8000-manage-volumes-u2.md#take-a-volume-offline) levá-las offline.
    
@@ -127,9 +127,9 @@ Pode utilizar o **catálogo de cópia de segurança** painel para restaurar o vo
    
     ![Página de confirmação](./media/storsimple-8000-restore-from-backup-set-u2/restorebu2.png)
 
-7.  Clique em **restaurar**. Esta ação inicia uma tarefa de restauro que pode ver ao aceder a **tarefas** página.
+7. Clique em **restaurar**. Esta ação inicia uma tarefa de restauro que pode ver ao aceder a **tarefas** página.
 
-    ![Página de confirmação](./media/storsimple-8000-restore-from-backup-set-u2/restorebu5.png)
+   ![Página de confirmação](./media/storsimple-8000-restore-from-backup-set-u2/restorebu5.png)
 
 8. Depois do restauro estiver concluído, certifique-se de que o conteúdo do seus volumes é substituído por volumes da cópia de segurança.
 

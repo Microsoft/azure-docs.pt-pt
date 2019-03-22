@@ -7,12 +7,12 @@ ms.topic: tutorial
 ms.date: 11/02/2018
 ms.author: dech
 ms.reviewer: sngun
-ms.openlocfilehash: b4d8214608e8193172da078fc352c66145253ada
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: c8f7e3cd6a2b4b6105547d7a4429803a00f6999f
+ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56878970"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58285518"
 ---
 # <a name="set-up-a-cicd-pipeline-with-the-azure-cosmos-db-emulator-build-task-in-azure-devops"></a>Configurar um pipeline CI/CD com a tarefa de compilação do emulador do Azure Cosmos DB no DevOps do Azure
 
@@ -31,15 +31,15 @@ Para utilizar a tarefa de compilação, tem de a instalar primeiro na sua organi
 Em seguida, selecione a organização em que pretende instalar a extensão. 
 
 > [!NOTE]
-> Para instalar uma extensão numa organização do DevOps do Azure, tem de ser proprietário de uma conta ou administrador de uma coleção de projetos. Se não tiver permissões mas for membro de uma conta, terá a opção de pedir extensões. [Saiba mais.](https://docs.microsoft.com/azure/devops/marketplace/faq-extensions?view=vsts#install-request-assign-and-access-extensions)
+> Para instalar uma extensão para uma organização de DevOps do Azure, tem de ser um proprietário da conta ou administrador da coleção de projetos. Se não tiver permissões mas for membro de uma conta, terá a opção de pedir extensões. [Saiba mais.](https://docs.microsoft.com/azure/devops/marketplace/faq-extensions?view=vsts#install-request-assign-and-access-extensions)
 
-![Selecionar uma organização do DevOps do Azure para instalar uma extensão](./media/tutorial-setup-ci-cd/addExtension_2.png)
+![Escolha uma organização de DevOps do Azure na qual pretende instalar uma extensão](./media/tutorial-setup-ci-cd/addExtension_2.png)
 
 ## <a name="create-a-build-definition"></a>Criar uma definição de compilação
 
 Agora que a extensão está instalada, inicie sessão na sua conta do Azure DevOps e encontre o seu projeto no dashboard de projetos. Pode adicionar um [pipeline de compilação](https://docs.microsoft.com/azure/devops/pipelines/get-started-designer?view=vsts&tabs=new-nav) ao seu projeto ou modificar um pipeline de compilação existente. Se já tem um pipeline de compilação, pode avançar para [Adicionar a tarefa de compilação do Emulador à definição de compilação](#addEmulatorBuildTaskToBuildDefinition).
 
-1. Para criar uma nova definição de compilação, navegue até ao separador **Compilações** no DevOps do Azure. Selecione **+New** (+Novo). > **Novo pipeline de compilação**
+1. Para criar uma nova definição de compilação, navegue até ao separador **Compilações** no DevOps do Azure. Selecione **+New** (+Novo). \> **Novo pipeline de compilação**
 
    ![Criar um novo pipeline de compilação](./media/tutorial-setup-ci-cd/CreateNewBuildDef_1.png)
 

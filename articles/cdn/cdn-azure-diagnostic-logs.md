@@ -14,19 +14,19 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/06/2018
 ms.author: magattus
-ms.openlocfilehash: 5b80dcfa5cef116bb2558f154a54d343e467ae83
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: a5fab3e2bf9908fa35cf5f5485df3116b7718d8c
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57546658"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57881134"
 ---
 # <a name="azure-diagnostic-logs"></a>Registos de diagnóstico do Azure
 
 Com os registos de diagnóstico do Azure, pode ver a análise de núcleo e salvá-los num ou mais destinos, incluindo:
 
- - Conta de Armazenamento do Azure
- - Hubs de Eventos do Azure
+ - Conta de armazenamento do Azure
+ - Azure Event Hubs
  - [Área de trabalho do Log Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-get-started)
  
 Esta funcionalidade está disponível nos pontos finais CDN para todos os escalões de preço. 
@@ -191,7 +191,7 @@ Registos de análise de núcleo são gerados a cada hora e os dados são recolhi
 
 |Value|Descrição|
 |-------|---------|
-|ID de Subscrição    |ID da subscrição do Azure no formato Guid.|
+|ID da subscrição    |ID da subscrição do Azure no formato Guid.|
 |Nome do Grupo de Recursos |Nome do grupo de recursos ao qual pertencem os recursos do CDN.|
 |Profile Name (Nome do Perfil) |Nome do perfil da CDN|
 |Nome do ponto final |Nome do ponto final da CDN|
@@ -229,7 +229,7 @@ Pode exibir os dados numa variedade de formas usando soluções de gestão. Pode
 
 Pode instalar soluções de monitorização do Azure marketplace, selecionando o **obter agora** link na parte inferior de cada solução.
 
-### <a name="add-a-azure-monitor-cdn-monitoring-solution"></a>Adicionar uma CDN de Monitor do Azure, solução de monitorização
+### <a name="add-an-azure-monitor-cdn-monitoring-solution"></a>Adicionar uma solução de monitorização do Azure Monitor CDN
 
 Siga estes passos para adicionar uma solução de monitorização do Azure Monitor:
 
@@ -238,7 +238,7 @@ Siga estes passos para adicionar uma solução de monitorização do Azure Monit
 
 2. Na **New** página, em **Marketplace**, selecione **monitorização + gestão**.
 
-    ![Mercado](./media/cdn-diagnostics-log/14_Marketplace.png)
+    ![Marketplace](./media/cdn-diagnostics-log/14_Marketplace.png)
 
 3. Na **monitorização + gestão** página, selecione **ver tudo**.
 
@@ -300,11 +300,11 @@ Pode ver, ofertas e os escalões de preços para soluções de gestão [aqui](ht
 
 Pode personalizar a exibição sobre os seus dados ao utilizar o **estruturador de vistas**. Para começar a projetar, aceda à sua área de trabalho do Log Analytics e selecione o **estruturador de vistas** mosaico.
 
-![Ver Estruturador](./media/cdn-diagnostics-log/27_Designer.png)
+![Estruturador de Vista](./media/cdn-diagnostics-log/27_Designer.png)
 
 Arrastar e largar os tipos de gráficos e preencha os dados de detalhes pretende analisar.
 
-![Ver Estruturador](./media/cdn-diagnostics-log/28_Designer.png)
+![Estruturador de Vista](./media/cdn-diagnostics-log/28_Designer.png)
 
     
 ## <a name="log-data-delays"></a>Atrasos de dados de registo

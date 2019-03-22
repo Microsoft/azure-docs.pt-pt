@@ -16,12 +16,12 @@ ms.date: 01/14/2019
 ms.author: patricka
 ms.reviewer: fiseraci
 ms.lastreviewed: 01/14/2019
-ms.openlocfilehash: 564c4b011b26f2bc6b034233d014542172a4a739
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 665f8ac9a8b0738ed23649673c548bc6b1774d2d
+ms.sourcegitcommit: aa3be9ed0b92a0ac5a29c83095a7b20dd0693463
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57885305"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58259963"
 ---
 # <a name="overview-of-identity-for-azure-stack"></a>Descrição geral de identidade para o Azure Stack
 
@@ -65,7 +65,7 @@ No Azure Stack, contas de utilizador:
 - São restritos para o diretório onde eles primeiro Registre-se, que é o diretório da sua organização.
 - Podem ser importados a partir de seus diretórios no local. Para obter mais informações, consulte [integrar seus diretórios no local com o Azure Active Directory](/azure/active-directory/connect/active-directory-aadconnect).
 
-Quando inicia sessão no portal de inquilinos da sua organização, utilize o *https://portal.local.azurestack.external* URL. Ao iniciar sessão no portal do Azure Stack de domínios que não seja utilizada para registar o Azure Stack, o nome de domínio utilizado para registar o Azure Stack deve ser acrescentado ao portal do url. Por exemplo, se o Azure Stack foi registado com fabrikam.onmicrosoft.com e a conta de utilizador iniciar sessão está admin@contoso.com, o url a utilizar para iniciar sessão no portal de utilizador seria: https://portal.local.azurestack.external/fabrikam.onmicrosoft.com.
+Quando inicia sessão no portal de inquilinos da sua organização, utilize o *https:\//portal.local.azurestack.external* URL. Ao iniciar sessão no portal do Azure Stack de domínios que não seja utilizada para registar o Azure Stack, o nome de domínio utilizado para registar o Azure Stack deve ser acrescentado ao portal do url. Por exemplo, se o Azure Stack foi registado com fabrikam.onmicrosoft.com e a conta de utilizador iniciar sessão está admin@contoso.com, o url a utilizar para iniciar sessão no portal de utilizador seria: https:\//portal.local.azurestack.external/ Fabrikam.onmicrosoft.com.
 
 ### <a name="guest-users"></a>Utilizadores convidados
 
@@ -73,7 +73,7 @@ Os utilizadores convidados são contas de utilizador de outros inquilinos do dir
 
 Convidar utilizadores convidados, os operadores da nuvem e os utilizadores podem utilizar [colaboração B2B do Azure AD](/azure/active-directory/active-directory-b2b-what-is-azure-ad-b2b). Utilizadores convidados obtém acesso a documentos, recursos e aplicações a partir de seu diretório e mantém o controlo sobre os seus próprios recursos e dados. 
 
-Como um utilizador convidado, podem iniciar sessão inquilino do diretório de outra organização. Para fazer isso, acrescentar o nome do diretório dessa organização para o portal de URL. Por exemplo, se pertence à organização Contoso e pretende iniciar sessão para o diretório da Fabrikam, utilizar https://portal.local.azurestack.external/fabrikam.onmicrosoft.com.
+Como um utilizador convidado, podem iniciar sessão inquilino do diretório de outra organização. Para fazer isso, acrescentar o nome do diretório dessa organização para o portal de URL. Por exemplo, se pertence à organização Contoso e pretende iniciar sessão para o diretório da Fabrikam, utilizar o https:\//portal.local.azurestack.external/fabrikam.onmicrosoft.com.
 
 ### <a name="applications"></a>Aplicações
 
@@ -156,10 +156,10 @@ Para aplicações e utilizadores, a arquitetura do Azure Stack é descrita por q
 
 Para autenticar com o fornecedor de identidade e receber um JSON Web Token, tem de ter as seguintes informações:
 
-1. **URL para o sistema de identidade (autoridade)**: O URL em que o seu fornecedor de identidade pode ser contatado. Por exemplo, *https://login.windows.net*.
+1. **URL para o sistema de identidade (autoridade)**: O URL em que o seu fornecedor de identidade pode ser contatado. Por exemplo, *https:\//login.windows.net*.
 2. **O URI de ID de aplicação para o Azure Resource Manager**: O identificador exclusivo para o Azure Resource Manager que está registada no fornecedor de identidade. Também é exclusivo para cada instalação do Azure Stack.
 3. **credenciais**: A credencial que é utilizada para autenticar com o fornecedor de identidade.
-4. **URL para o Azure Resource Manager**: O URL é a localização do serviço do Azure Resource Manager. Por exemplo, *https://management.azure.com* ou *https://management.local.azurestack.external*.
+4. **URL para o Azure Resource Manager**: O URL é a localização do serviço do Azure Resource Manager. Por exemplo, *https:\//management.azure.com* ou *https:\//management.local.azurestack.external*.
 
 Quando uma entidade de segurança (um cliente, aplicativo ou usuário) faz um pedido de autenticação para aceder a um recurso, o pedido tem de incluir:
 

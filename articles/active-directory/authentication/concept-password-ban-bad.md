@@ -11,19 +11,14 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ccad4f9aaa85d528697c1bcf34e1b034eeabe9e1
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: MT
+ms.openlocfilehash: b7dcac665dadef7f3f192e7f0e359b6b7c244bde
+ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57996006"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58287031"
 ---
 # <a name="eliminate-bad-passwords-in-your-organization"></a>Eliminar palavras-passe incorretas na sua organização
-
-|     |
-| --- |
-| Proteção de palavra-passe do Azure AD e a lista de palavras-passe banidas personalizadas são funcionalidades de pré-visualização pública do Azure Active Directory. Para obter mais informações sobre pré-visualizações, consulte [termos de utilização suplementares para pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)|
-|     |
 
 Líderes da indústria a informá-lo para não utilizar a mesma palavra-passe em vários locais, para que seja complexo e não torná-lo simples como Password123. Como as organizações a garantir que seus usuários estão seguindo orientação? Como eles tornar-se de que os utilizadores não estiverem a utilizar as palavras-passe ou palavras-passe que são conhecidas a serem incluídos na recente violações de dados comuns?
 
@@ -31,7 +26,7 @@ Líderes da indústria a informá-lo para não utilizar a mesma palavra-passe em
 
 A Microsoft está sempre a trabalhar para estar um passo à frente dos cibercriminosos. Portanto a equipa do Azure AD Identity Protection continuamente procure palavras-passe comprometidas e comumente utilizadas. Eles bloqueiam, em seguida, essas palavras-passe que são consideradas muito comuns em que é chamado a lista de palavra-passe banidas global. Os cibercriminosos também utilizam estratégias semelhantes em seus ataques, portanto Microsoft não publica o conteúdo desta lista publicamente. Estas palavras-passe vulneráveis é bloqueados antes de se tornarem uma ameaça real aos clientes da Microsoft. Para obter mais informações sobre os esforços de segurança atual, consulte a [Microsoft Security Intelligence Report](https://www.microsoft.com/security/operations/security-intelligence-report).
 
-## <a name="preview-custom-banned-password-list"></a>Pré-visualização: Lista de palavras-passe banidas personalizada
+## <a name="custom-banned-password-list"></a>Lista de palavras-passe banidas personalizada
 
 Algumas organizações poderão querer tirar ainda mais a etapa de segurança um adicionando suas próprias personalizações na parte superior da lista de palavra-passe banidas global em que a Microsoft chama a lista de palavras-passe banidas personalizado. Clientes empresariais, como a Contoso, em seguida, pode optar por bloquear variantes de seus nomes de marca, termos específicos da empresa ou outros itens.
 
@@ -41,7 +36,7 @@ O personalizado banido a lista de palavra-passe e a capacidade de ativar no loca
 
 ## <a name="on-premises-hybrid-scenarios"></a>Cenários híbridos no local
 
-Proteger contas apenas na cloud é útil, mas muitas organizações mantêm cenários híbridos, incluindo no local Windows Server Active Directory. É possível instalar a proteção de palavra-passe do Azure AD para o Windows Server Active Directory (pré-visualização) agentes no local expandir as listas de palavra-passe banidas à sua infraestrutura existente. Agora, os utilizadores e administradores que alterar, definir ou repor palavras-passe no local é necessário para estar em conformidade com a mesma política de palavra-passe como os utilizadores apenas na cloud.
+Proteger contas apenas na cloud é útil, mas muitas organizações mantêm cenários híbridos, incluindo no local Windows Server Active Directory. É possível instalar a proteção de palavra-passe do Azure AD para o Windows Server Active Directory agentes no local expandir as listas de palavra-passe banidas à sua infraestrutura existente. Agora, os utilizadores e administradores que alterar, definir ou repor palavras-passe no local é necessário para estar em conformidade com a mesma política de palavra-passe como os utilizadores apenas na cloud.
 
 ## <a name="how-are-passwords-evaluated"></a>Como são avaliadas as palavras-passe
 

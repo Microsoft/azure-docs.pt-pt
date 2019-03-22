@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 03/10/2017
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 67cc955e4a265a2b29893bd0484dd905f4f2c2b2
-ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
+ms.openlocfilehash: f1d557396f17357afd6f9e5d701e946668fcee65
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53632438"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57861048"
 ---
 # <a name="how-to-implement-faceted-navigation-in-azure-search"></a>Como implementar a navegação por facetas no Azure Search
 Navegação por facetas é um mecanismo de filtragem que fornece navegação de Detalhamento auto-direcionada em aplicativos de pesquisa. O termo 'navegação por facetas' pode estar familiarizado, mas provavelmente usou antes. Como mostra o exemplo seguinte, a navegação por facetas é nada mais do que as categorias, utilizadas para filtrar os resultados.
@@ -67,10 +67,10 @@ No Azure Search, um pedido é especificado por meio de um ou mais parâmetros de
 
 Precisão, entendido como a capacidade para filtrar os resultados irrelevantes, é possível por meio de um ou ambos estas expressões:
 
--   **Search =**  
+-   **search=**  
     O valor deste parâmetro constitui a expressão de pesquisa. Pode ser uma única parte do texto, ou uma expressão de pesquisa complexas que inclui vários termos e operadores. No servidor, é utilizada uma expressão de pesquisa para pesquisa em texto completo, consultar os campos pesquisáveis no índice para efetuar a correspondência de termos, retornando resultados na ordem de classificação. Se definir `search` como nulo, a consulta de execução está sobre o índice completo (ou seja, `search=*`). Neste caso, outros elementos da consulta, por exemplo, um `$filter` ou o perfil de classificação são fatores principais que afetam os documentos que são devolvidos `($filter`) e por que ordem (`scoringProfile` ou `$orderby`).
 
--   **$filter =**  
+-   **$filter=**  
     Um filtro é um mecanismo poderoso para limitar o tamanho dos resultados da pesquisa com base nos valores de atributos de documento específico. A `$filter` é avaliada em primeiro lugar, seguido de lógica de facetamento que gera os valores disponíveis e contagens correspondentes para cada valor
 
 As expressões de pesquisa complexa diminuir o desempenho da consulta. Sempre que possível, utilize expressões de filtro bem construído para aumentar a precisão e melhorar o desempenho de consulta.
@@ -435,7 +435,7 @@ Para obter mais informações sobre os princípios de design para navegação po
 [Create your first application]: search-create-first-solution.md
 [OData expression syntax (Azure Search)]: https://docs.microsoft.com/rest/api/searchservice/odata-expression-syntax-for-azure-search
 [Azure Search Adventure Works Demo]: https://azuresearchadventureworksdemo.codeplex.com/
-[http://www.odata.org/documentation/odata-version-2-0/overview/]: http://www.odata.org/documentation/odata-version-2-0/overview/ 
+[https://www.odata.org/documentation/odata-version-2-0/overview/]: https://www.odata.org/documentation/odata-version-2-0/overview/ 
 [Faceting on Azure Search forum post]: ../faceting-on-azure-search.md?forum=azuresearch
 [Search Documents (Azure Search API)]: https://docs.microsoft.com/rest/api/searchservice/Search-Documents
 

@@ -10,12 +10,12 @@ ms.devlang: csharp
 ms.topic: quickstart
 ms.custom: mvc
 ms.date: 02/22/2019
-ms.openlocfilehash: ca1778688f160fc918bd456f92ebe8935bb05d03
-ms.sourcegitcommit: 15e9613e9e32288e174241efdb365fa0b12ec2ac
+ms.openlocfilehash: a24f0810a5b785a57a8a255f3f762f2d2a8e6ee4
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "57008751"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58170824"
 ---
 # <a name="quickstart-control-a-device-connected-to-an-iot-hub-net"></a>Início rápido: Controlar um dispositivo ligado a um hub IoT (.NET)
 
@@ -93,7 +93,7 @@ Se concluiu o anterior [início rápido: Enviar telemetria a partir de um dispos
 Também precisa de uma _cadeia de ligação do serviço_ do seu hub IoT para permitir que a aplicação back-end se ligue ao seu hub e obtenha as mensagens. O seguinte comando obtém a cadeia de ligação do serviço do seu hub IoT:
 
 ```azurecli-interactive
-az iot hub show-connection-string --hub-name YourIoTHubName --output table
+az iot hub show-connection-string --name YourIoTHubName --output table
 ```
 
 Anote a cadeia de ligação do serviço, que se parece com:

@@ -11,16 +11,16 @@ ms.date: 09/18/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1ccc2941e1f3bbc4df0bf4dfbf55311c9e095fc8
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: b951cc81d2f957214eb4c78125bde36b61ff64b8
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57548317"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58098047"
 ---
 # <a name="tutorial--integrate-a-single-ad-forest-using-pass-through-authentication-pta"></a>Tutorial:  Integrar uma única floresta do AD através da autenticação pass-through (PTA)
 
-![Create](media/tutorial-passthrough-authentication/diagram.png)
+![Criar](media/tutorial-passthrough-authentication/diagram.png)
 
 O tutorial seguinte irá guiá-lo através da criação de um ambiente de identidade híbrido através da autenticação pass-through.  Neste ambiente, em seguida, pode ser utilizado para fins de teste ou para obter mais familiarizado com o funcionamento de uma identidade híbrida.
 
@@ -39,7 +39,7 @@ Seguem-se os pré-requisitos necessários para a conclusão deste tutorial
 >
 > Cópias dos scripts do PowerShell que são utilizados neste tutorial estão disponíveis no GitHub [aqui](https://github.com/billmath/tutorial-phs).
 
-## <a name="create-a-virtual-machine"></a>Crie uma máquina virtual
+## <a name="create-a-virtual-machine"></a>Criar uma máquina virtual
 A primeira coisa que precisamos para o fazer, para que o nosso ambiente de identidade híbrida a cópia de segurança e em execução é criar uma máquina virtual que será utilizada como nosso servidor do Active Directory no local.  
 
 >[!NOTE]
@@ -80,7 +80,7 @@ Para concluir a criação da máquina virtual, é necessário concluir a instala
 
 1. Gestor de Hyper-V, faça duplo clique na máquina virtual
 2. Clique no botão Iniciar.
-3.  Será solicitado a 'Pressione qualquer tecla para inicializar a partir de CD ou DVD'. Vá em frente e fazê-lo.
+3. Será solicitado a 'Pressione qualquer tecla para inicializar a partir de CD ou DVD'. Vá em frente e fazê-lo.
 4. No ecrã de arranque do Windows Server selecione seu idioma e clique em **seguinte**.
 5. Clique em **instalar agora**.
 6. Introduza a chave de licença e clique em **seguinte**.
@@ -250,9 +250,9 @@ Agora iremos confirmar que os utilizadores que tínhamos no nosso diretório no 
 
 ## <a name="test-signing-in-with-one-of-our-users"></a>Testar início de sessão com um dos nossos usuários
 
-1.  Navegue para [https://myapps.microsoft.com](https://myapps.microsoft.com)
+1. Navegue para [https://myapps.microsoft.com](https://myapps.microsoft.com)
 2. Inicie sessão com uma conta de utilizador que foi criada no nosso novo inquilino.  Terá de início de sessão com o seguinte formato: (user@domain.onmicrosoft.com). Utilizar a mesma palavra-passe que o utilizador utiliza para iniciar sessão no local.
-![Certifique-se](media/tutorial-password-hash-sync/verify1.png)
+   ![Certifique-se](media/tutorial-password-hash-sync/verify1.png)
 
 Agora tem com êxito um ambiente de identidade híbrida que pode utilizar para testar e familiarizar-se com o Azure tem para oferecer a configuração.
 

@@ -16,16 +16,16 @@ ms.author: celested
 ms.reviewer: japere
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0a6f385cae99e5bb605b75f84e642e17e01d0f54
-ms.sourcegitcommit: d89b679d20ad45d224fd7d010496c52345f10c96
-ms.translationtype: MT
+ms.openlocfilehash: ef5679ba2a6a62955f5402e8bfaa4f1884df722d
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57792889"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57840601"
 ---
 # <a name="saml-single-sign-on-for-on-premises-applications-with-application-proxy-preview"></a>SAML início de sessão único para aplicações no local com o Proxy de aplicações (pré-visualização)
 
-Pode fornecer início de sessão único (SSO) para on-premises aplicações publicadas através do Proxy de aplicações que estão protegidos por autenticação SAML. Com o SAML início de sessão único, o Azure Active Directory (Azure AD) autentica para o aplicativo utilizando a conta de utilizador do Azure AD. O Azure AD comunica as informações de início de sessão para a aplicação através de um protocolo de ligação. Com baseado em SAML início de sessão único, pode mapear os utilizadores a funções de aplicação específica, com base nas regras que definir nas afirmações SAML.
+Pode fornecer início de sessão único (SSO) para aplicações no local que estão protegidas com autenticação SAML e fornecem acesso remoto a estas aplicações através do Proxy de aplicações. Com o SAML início de sessão único, o Azure Active Directory (Azure AD) autentica para o aplicativo utilizando a conta de utilizador do Azure AD. O Azure AD comunica as informações de início de sessão para a aplicação através de um protocolo de ligação. Também pode mapear os utilizadores a funções de aplicação específica, com base nas regras que definir nas afirmações SAML. Ao ativar o Proxy de aplicações, além de SAML SSO, os utilizadores terão acesso externo para o aplicativo e uma experiência SSO totalmente integrada.
 
 Os aplicativos tem de ser capazes de consumir tokens SAML emitidos pelo **do Azure Active Directory**. Esta configuração não se aplica a aplicações através de um fornecedor de identidade no local. Para esses cenários é recomendável rever [recursos para a migração de aplicativos para o Azure AD](migration-resources.md).
 
@@ -50,12 +50,12 @@ Tenha em atenção o seguinte quando vai o tutorial:
 1. Selecione **SAML** como o método de início de sessão único.
 1. No **definido no início de sessão único com o SAML** página, edite a **configuração básica de SAML** dados e siga os passos [Enter básicas de configuração de SAML](configure-single-sign-on-non-gallery-applications.md#saml-based-single-sign-on) configurar baseado em SAML autenticação da aplicação.
 
-    * Certifique-se de que o **URL de resposta** raiz corresponda ao ou é um caminho sob a **URL externo** para a aplicação no local que adicionou para acesso remoto através do Proxy de aplicações no Azure AD.
+   * Certifique-se de que o **URL de resposta** raiz corresponda ao ou é um caminho sob a **URL externo** para a aplicação no local que adicionou para acesso remoto através do Proxy de aplicações no Azure AD.
 
-    ![Introduzir dados de configuração básicos do SAML](./media/application-proxy-configure-single-sign-on-on-premises-apps/basic-saml-configuration.png)
+     ![Introduzir dados de configuração básicos do SAML](./media/application-proxy-configure-single-sign-on-on-premises-apps/basic-saml-configuration.png)
 
-    > [!NOTE]
-    > Se a aplicação de back-end espera que o **URL de resposta** para ser o URL interno, terá de instalar a extensão de-de início de sessão segura das minhas aplicações nos dispositivos dos utilizadores. Esta extensão será automaticamente redirecionada para o serviço de Proxy de aplicação apropriado. Para instalar a extensão, consulte [extensão de início de sessão de proteger as minhas aplicações](../user-help/active-directory-saas-access-panel-introduction.md#my-apps-secure-sign-in-extension).
+     > [!NOTE]
+     > Se a aplicação de back-end espera que o **URL de resposta** para ser o URL interno, terá de instalar a extensão de-de início de sessão segura das minhas aplicações nos dispositivos dos utilizadores. Esta extensão será automaticamente redirecionada para o serviço de Proxy de aplicação apropriado. Para instalar a extensão, consulte [extensão de início de sessão de proteger as minhas aplicações](../user-help/active-directory-saas-access-panel-introduction.md#my-apps-secure-sign-in-extension).
 
 ## <a name="test-your-app"></a>Testar a aplicação
 

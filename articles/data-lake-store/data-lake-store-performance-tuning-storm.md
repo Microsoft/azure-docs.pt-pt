@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/19/2016
 ms.author: stewu
-ms.openlocfilehash: aa4d42a53e6fb8ea236a9d544102aab3dff19013
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.openlocfilehash: 8066a759cf80be6e9ca232bcd3693a5fa4d2f2f9
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46129238"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58084815"
 ---
 # <a name="performance-tuning-guidance-for-storm-on-hdinsight-and-azure-data-lake-storage-gen1"></a>Guia para o Storm no HDInsight e Azure Data Lake Storage Gen1 de sintonização de desempenho
 
@@ -82,7 +82,7 @@ Pode modificar as seguintes definições para otimizar o spout.
 
 - **Spout de Max pendentes: topology.max.spout.pending**. Esta definição determina o número de tuplas em podem ser um voo (ainda não reconhecido em todos os nós na topologia) por thread de spout em qualquer altura.
 
- Um bom cálculo para o fazer é estimar o tamanho de cada uma de suas cadeias de identificação. Em seguida, descobrir thread de um spout quanta memória tem. Total de memória atribuída a um thread, dividido por este valor, deverá dar-lhe o limite superior para o máximo spout pendentes parâmetro.
+  Um bom cálculo para o fazer é estimar o tamanho de cada uma de suas cadeias de identificação. Em seguida, descobrir thread de um spout quanta memória tem. Total de memória atribuída a um thread, dividido por este valor, deverá dar-lhe o limite superior para o máximo spout pendentes parâmetro.
 
 ## <a name="tune-the-bolt"></a>Otimizar o bolt
 Ao escrever para a geração 1 de armazenamento do Data Lake, defina uma política de sincronização de tamanho (buffer no lado do cliente) para 4 MB. Um liberá-lo ou hsync(), em seguida, é realizada apenas quando o tamanho do buffer é a este valor. O driver de geração 1 de armazenamento do Data Lake na função de trabalho VM faz automaticamente esta colocação em memória intermédia, a menos que explicitamente executar uma hsync().
@@ -98,7 +98,7 @@ No Storm, um spout mantém tupla até que ele explicitamente é reconhecido pelo
 Para obter melhor desempenho na geração 1 de armazenamento do Data Lake, ter o bolt memória intermédia de 4 MB de dados de cadeia de identificação. Em seguida, escreva para a geração de 1 de armazenamento do Data Lake volta final como uma gravação de 4 MB. Depois dos dados foram escritos com êxito para o arquivo (por chamada hflush()), o bolt pode reconhecer os dados de volta para o spout. Este é o que faz o bolt de exemplo fornecido aqui. Também é aceitável para manter um grande número de tuplas antes da chamada de hflush() é feita e as tuplas confirmadas. No entanto, isso aumenta o número de tuplas em trânsito, que o spout precisa ser e, portanto, aumenta a quantidade de memória necessária por JVM.
 
 > [!NOTE]
-Aplicações podem ter um requisito para reconhecer cadeias de identificação com mais frequência (em tamanhos de dados inferior a 4 MB) por outros motivos de desempenho não. No entanto, que podem afetar o débito de e/s para o back-end de armazenamento. Pondere cuidadosamente essa compensação contra o desempenho de e/s do bolt.
+> Aplicações podem ter um requisito para reconhecer cadeias de identificação com mais frequência (em tamanhos de dados inferior a 4 MB) por outros motivos de desempenho não. No entanto, que podem afetar o débito de e/s para o back-end de armazenamento. Pondere cuidadosamente essa compensação contra o desempenho de e/s do bolt.
 
 Se não for alta à taxa de entrada de cadeias de identificação, então, a memória intermédia de 4 MB demora muito tempo para preencher, considere a mitigar isto ao:
 * Reduzindo o número de bolts, portanto, há menos buffers para preencher.

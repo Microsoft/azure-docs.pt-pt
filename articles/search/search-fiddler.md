@@ -1,5 +1,5 @@
 ---
-title: Explorar as APIs REST no Postman ou Fiddler web HTTP ferramentas de teste - Azure Search
+title: Explorar as APIs REST no Postman ou Fiddler - o Azure Search
 description: Como utilizar o Postman ou Fiddler para emitir pedidos HTTP e a REST API chama-se para o Azure Search.
 author: HeidiSteen
 manager: cgronlun
@@ -10,14 +10,14 @@ ms.topic: quickstart
 ms.date: 03/12/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: ffa47a2e14ba49630aa8b7017a3b0c557421da57
-ms.sourcegitcommit: d89b679d20ad45d224fd7d010496c52345f10c96
+ms.openlocfilehash: 946d8196fbe49e452dab8fa36e4c746a1bcaf490
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57792077"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58137628"
 ---
-# <a name="explore-azure-search-rest-apis-using-postman-or-fiddler"></a>Explorar as APIs REST de pesquisa do Azure com o Postman ou Fiddler
+# <a name="quickstart-explore-azure-search-rest-apis-using-postman-or-fiddler"></a>Início rápido: Explorar as APIs REST de pesquisa do Azure com o Postman ou Fiddler
 
 Uma das formas mais simples de explorar a [API REST da Azure Search](https://docs.microsoft.com/rest/api/searchservice) está a utilizar o Postman ou Fiddler para formular pedidos HTTP e inspecionar as respostas. Com as ferramentas certas e estas instruções, pode enviar pedidos e ver respostas antes de escrever código.
 
@@ -42,11 +42,13 @@ As ferramentas que se seguem são amplamente utilizadas na programação Web, ma
 
 As chamadas à API precisam do URL de serviço e de uma chave de acesso em todos os pedidos. É criado um serviço de pesquisa com ambos os elementos, pelo que, se tiver adicionado o Azure Search à sua subscrição, siga estes passos para obter as informações necessárias:
 
-1. No portal do Azure, abra a página do serviço de pesquisa a partir do dashboard ou [encontre o seu serviço](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) na lista de serviços.
-2. Obter o ponto de final do URL **descrição geral**. Um ponto final de exemplo poderá ser parecido com `https://my-service-name.search.windows.net`.
-3. Obtenha a chave de api em **Definições** > **Chaves**. Existem duas chaves administrativas para redundância, caso pretenda reverter as chaves. As chaves administrativas concedem as permissões de escrita no seu serviço, as quais são necessárias para criar e carregar índices. Pode utilizar a chave primária ou secundária para operações de escrita.
+1. No portal do Azure, no seu serviço de pesquisa **descrição geral** página, obter o URL. Um ponto final de exemplo poderá ser parecido com `https://my-service-name.search.windows.net`.
+
+2. Na **configurações** > **chaves**, obter uma chave de administrador para todos os direitos no serviço. Existem duas chaves de administração intercambiáveis, fornecidas para a continuidade do negócio, caso seja necessário fazer o rollover um. Pode utilizar tanto a chave primária ou secundária em pedidos para adicionar, modificar e eliminar objetos.
 
 ![Obter uma chave de acesso e de ponto final HTTP](media/search-fiddler/get-url-key.png "obter uma chave de acesso e de ponto final HTTP")
+
+Todos os pedidos requerem uma chave de api em cada pedido enviado ao seu serviço. Ter uma chave válida estabelece fidedignidade, numa base por pedido, entre a aplicação a enviar o pedido e o serviço que o processa.
 
 
 ## <a name="configure-headers"></a>Configurar cabeçalhos
@@ -83,7 +85,7 @@ Formule um pedido parecido com a seguinte captura de ecrã. Escolha **PUT** como
 > [!Tip]
 > Desative o tráfego da web para ocultar atividades HTTP de estranhas, não relacionadas. Do Fiddler **arquivo** menu, desativar **capturar tráfego**. 
 
-## <a name="1---create-the-index"></a>1 - criar o índice
+## <a name="1---create-an-index"></a>1 - Criar um índice
 
 O corpo do pedido contém a definição do índice. Adicionar o corpo do pedido completa o pedido que produz o seu índice.
 
@@ -217,7 +219,7 @@ Altere o verbo para **POST**. Altere o URL para incluir `/docs/index`. Copie os 
 
 ![Payload de pedido do Fiddler][9]
 
-## <a name="3---query-the-index"></a>3 - consultar o índice
+## <a name="3---search-an-index"></a>3 - Pesquisar um índice
 Agora que um índice e os documentos são carregados, pode emitir consultas contra eles usando [documentos sobre pesquisa](https://docs.microsoft.com/rest/api/searchservice/search-documents) REST API.
 
 + Neste passo, altere o verbo para **GET**.
@@ -260,9 +262,8 @@ No Fiddler, clique no separador **Inspectors** (Inspetores), clique no separador
 
 Os clientes REST são indispensáveis para explorações improvisadas, mas agora que já sabe como é que as APIs REST funcionam, pode avançar com código. Para os passos seguintes, veja as ligações abaixo:
 
-+ [Criar um índice (REST)](search-create-index-rest-api.md)
-+ [Importar dados (REST)](search-import-data-rest-api.md)
-+ [Consultar um índice (REST)](search-query-rest-api.md)
++ [Quickstart: Criar um índice com o .NET SDK](search-create-index-dotnet.md)
++ [Quickstart: Criar um índice (REST) com o PowerShell](search-create-index-rest-api.md)
 
 <!--Image References-->
 [1]: ./media/search-fiddler/fiddler-url.png

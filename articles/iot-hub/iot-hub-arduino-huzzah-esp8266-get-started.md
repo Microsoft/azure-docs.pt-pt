@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.tgt_pltfrm: arduino
 ms.date: 04/11/2018
 ms.author: rangv
-ms.openlocfilehash: ae123638e26c9fb6c82666efddabf06874c7b7a8
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 65f9b392f3ae57c1eaad7454434b4870954f36f8
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57539965"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58085104"
 ---
 # <a name="connect-adafruit-feather-huzzah-esp8266-to-azure-iot-hub-in-the-cloud"></a>Ligar o Adafruit Feather HUZZAH ESP8266 ao IoT Hub do Azure na cloud
 
@@ -180,15 +180,15 @@ O aplicativo de exemplo está alojado no GitHub. Clone o repositório de exemplo
 
 12. Clique em **instalar** botão para esp8266.
 
-   Gestor de quadros indica que ESP8266 com uma versão do 2.2.0 ou posterior está instalado.
+    Gestor de quadros indica que ESP8266 com uma versão do 2.2.0 ou posterior está instalado.
 
-   ![O pacote de esp8266 está instalado](media/iot-hub-arduino-huzzah-esp8266-get-started/13_vscode-esp8266-installed.png)
+    ![O pacote de esp8266 está instalado](media/iot-hub-arduino-huzzah-esp8266-get-started/13_vscode-esp8266-installed.png)
 
 13. Introduza `F1`, em seguida, escreva **Arduino** e selecione **Arduino: Configuração de quadro**.
 
 14. Clique em caixa de **quadro selecionado:** e escreva **esp8266**, em seguida, selecione **Adafruit HUZZAH ESP8266 (esp8266)**.
 
-   ![Selecionar o quadro de esp8266](media/iot-hub-arduino-huzzah-esp8266-get-started/14_vscode-select-esp8266.png)
+    ![Selecionar o quadro de esp8266](media/iot-hub-arduino-huzzah-esp8266-get-started/14_vscode-select-esp8266.png)
 
 ### <a name="install-necessary-libraries"></a>Instalar as bibliotecas necessárias
 

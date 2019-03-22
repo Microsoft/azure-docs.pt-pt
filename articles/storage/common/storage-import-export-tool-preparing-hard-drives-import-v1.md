@@ -8,25 +8,25 @@ ms.topic: article
 ms.date: 01/15/2017
 ms.author: muralikk
 ms.subservice: common
-ms.openlocfilehash: 5ea510d8335437cb43f3e8824ec73175c35dcd03
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
-ms.translationtype: MT
+ms.openlocfilehash: 7db50e8bd1de609256bad58b293af8b7b1ea5dbb
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57452373"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58086722"
 ---
 # <a name="preparing-hard-drives-for-an-import-job"></a>Preparar as unidades de disco rígido para uma tarefa de importação
 Para preparar um ou mais unidades de disco rígido para uma tarefa de importação, siga estes passos:
 
--   Identificar os dados para importar para o serviço de BLOBs
+- Identificar os dados para importar para o serviço de BLOBs
 
--   Identificar os diretórios virtuais de destino e os blobs no serviço de BLOBs
+- Identificar os diretórios virtuais de destino e os blobs no serviço de BLOBs
 
--   Determinar quantas unidades, terá de
+- Determinar quantas unidades, terá de
 
--   Copiar os dados para cada uma das suas unidades de disco rígido
+- Copiar os dados para cada uma das suas unidades de disco rígido
 
- Para um fluxo de trabalho de exemplo, consulte [fluxo de trabalho de exemplo para preparar os discos rígidos para uma tarefa de importação](storage-import-export-tool-sample-preparing-hard-drives-import-job-workflow-v1.md).
+  Para um fluxo de trabalho de exemplo, consulte [fluxo de trabalho de exemplo para preparar os discos rígidos para uma tarefa de importação](storage-import-export-tool-sample-preparing-hard-drives-import-job-workflow-v1.md).
 
 ## <a name="identify-the-data-to-be-imported"></a>Identificar os dados a serem importados
  O primeiro passo para criar uma tarefa de importação é determinar a quais diretórios e arquivos que pretende importar. Isso pode ser uma lista de diretórios, uma lista de ficheiros exclusivos ou uma combinação dessas duas. Quando um diretório está incluído, todos os ficheiros no diretório e respetivos subdiretórios vão fazer parte da tarefa de importação.
@@ -51,11 +51,11 @@ Para preparar um ou mais unidades de disco rígido para uma tarefa de importaç�
 ## <a name="determine-how-many-drives-are-needed"></a>Determinar quantas unidades são necessários
  Em seguida, terá de determinar:
 
--   O número de unidades de disco rígido necessário para armazenar os dados.
+- O número de unidades de disco rígido necessário para armazenar os dados.
 
--   Os diretórios e/ou arquivos autônomos que vão ser copiados para cada disco rígido.
+- Os diretórios e/ou arquivos autônomos que vão ser copiados para cada disco rígido.
 
- Certifique-se de que tem o número de unidades de disco rígido, que terá de armazenar os dados que estiver a transferir.
+  Certifique-se de que tem o número de unidades de disco rígido, que terá de armazenar os dados que estiver a transferir.
 
 ## <a name="copy-data-to-your-hard-drive"></a>Copiar dados para o seu disco rígido
  Esta secção descreve como chamar a ferramenta de importação/exportação do Azure para copiar os dados para um ou mais unidades de disco rígido. Sempre que chamar a ferramenta de importação/exportação do Azure, criar um novo *copiar sessão*. Criar sessão, pelo menos, uma cópia para cada unidade para o qual copiar dados. em alguns casos, poderá ter mais do que uma sessão de cópia para copiar todos os seus dados para uma única unidade. Aqui estão algumas razões que poderá ter várias sessões de cópia:

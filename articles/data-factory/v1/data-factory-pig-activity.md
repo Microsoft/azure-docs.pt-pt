@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: fe1ef8c141c4a4daa443f800181f8e6e3199d0cc
-ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
+ms.openlocfilehash: 78ee2c1ce402a29f1a9dfdd29f31daef09134eba
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54331304"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57997014"
 ---
 # <a name="transform-data-using-pig-activity-in-azure-data-factory"></a>Transformar dados com atividade Pig no Azure Data Factory
 > [!div class="op_single_selector" title1="Transformation Activities"]
@@ -82,6 +82,7 @@ A atividade Pig do HDInsight numa fábrica de dados [pipeline](data-factory-crea
 ```
 
 ## <a name="syntax-details"></a>Detalhes da sintaxe
+
 | Propriedade | Descrição | Necessário |
 | --- | --- | --- |
 | nome |Nome da atividade |Sim |
@@ -90,7 +91,7 @@ A atividade Pig do HDInsight numa fábrica de dados [pipeline](data-factory-crea
 | entradas |Uma ou mais entradas consumidas pela atividade Pig |Não |
 | saídas |Um ou mais saídas produzidas pela atividade Pig |Sim |
 | linkedServiceName |Referência para o cluster de HDInsight registado como um serviço ligado no Data Factory |Sim |
-| script |Especifique o inline de script Pig |Não |
+| Script |Especifique o inline de script Pig |Não |
 | caminho do script |Store o script Pig num armazenamento de Blobs do Azure e forneça o caminho para o ficheiro. Utilize a propriedade "script" ou 'scriptPath'. Não podem ser utilizados em conjunto. O nome de ficheiro diferencia maiúsculas de minúsculas. |Não |
 | Define |Especifique parâmetros como pares chave/valor para fazer referência no Pig script |Não |
 
@@ -124,7 +125,7 @@ Para executar este script Pig no pipeline do Data Factory, siga os passos abaixo
 1. Criar um serviço ligado para registrar [cluster de cálculo do seu próprio HDInsight](data-factory-compute-linked-services.md#azure-hdinsight-linked-service) ou configure [cluster de cálculo do HDInsight a pedido](data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service). Vamos chamar este serviço ligado **HDInsightLinkedService**.
 2. Criar uma [serviço ligado](data-factory-azure-blob-connector.md) para configurar a ligação para o armazenamento de Blobs do Azure que aloja os dados. Vamos chamar este serviço ligado **StorageLinkedService**.
 3. Crie [conjuntos de dados](data-factory-create-datasets.md) apontando para a entrada e os dados de saída. Vamos chamar o conjunto de dados de entrada **PigSampleIn** e o conjunto de dados de saída **PigSampleOut**.
-4. Copie a consulta de Pig num arquivo de armazenamento de Blobs do Azure configurada no passo 2 de #. Se o armazenamento do Azure que aloja os dados é diferente da que é que aloja o arquivo de consulta, crie um serviço ligado do armazenamento do Azure separado. Consulte o serviço ligado na configuração da atividade. Utilize * * scriptPath * * para especificar o caminho para o ficheiro de script pig e **scriptLinkedService**. 
+4. Copie a consulta de Pig num arquivo de armazenamento de Blobs do Azure configurada no passo 2 de #. Se o armazenamento do Azure que aloja os dados é diferente da que é que aloja o arquivo de consulta, crie um serviço ligado do armazenamento do Azure separado. Consulte o serviço ligado na configuração da atividade. Uso **scriptPath** para especificar o caminho para o ficheiro de script pig e **scriptLinkedService**. 
    
    > [!NOTE]
    > Também pode fornecer o inline de script Pig na definição da atividade, utilizando o **script** propriedade. No entanto, não recomendamos esta abordagem como todos os carateres especiais nas necessidades de script de caracteres de escape e pode causar problemas de depuração. A prática recomendada é seguir o passo 4 de #.

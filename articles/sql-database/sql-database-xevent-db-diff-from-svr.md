@@ -12,12 +12,12 @@ ms.author: genemi
 ms.reviewer: jrasnik
 manager: craigg
 ms.date: 12/19/2018
-ms.openlocfilehash: 5de5a58f936547d04fbce9eb84422652e23b82bd
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
+ms.openlocfilehash: 2dd3b9f0d1d8d61b2311977774c8b0f7267caa9e
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55564885"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58090615"
 ---
 # <a name="extended-events-in-sql-database"></a>Eventos expandidos na base de dados SQL
 [!INCLUDE [sql-database-xevents-selectors-1-include](../../includes/sql-database-xevents-selectors-1-include.md)]
@@ -116,7 +116,7 @@ Para eventos expandidos há DMVs adicionais que são comuns a base de dados do A
 - **sys.dm_xe_objects**
 - **sys.dm_xe_packages**
 
- <a name="sqlfindseventsactionstargets" id="sqlfindseventsactionstargets"></a>
+  <a name="sqlfindseventsactionstargets" id="sqlfindseventsactionstargets"></a>
 
 ## <a name="find-the-available-extended-events-actions-and-targets"></a>Encontrar o disponíveis estendido de eventos, ações e destinos
 

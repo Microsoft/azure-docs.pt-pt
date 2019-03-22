@@ -8,12 +8,12 @@ ms.devlang: dotnet
 ms.topic: reference
 ms.date: 01/30/2019
 ms.author: maquaran
-ms.openlocfilehash: 2af3ace68b46c4b6bbe53f8b2cf1c4b53d801f17
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: a878ab1937b06f06a27b18f793fc1bfa190969ed
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57439881"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58090343"
 ---
 # <a name="net-change-feed-processor-sdk-download-and-release-notes"></a>SDK do processador do Feed de alterações de .NET: Transferir e notas de versão
 > [!div class="op_single_selector"]
@@ -44,8 +44,8 @@ ms.locfileid: "57439881"
 ### <a name="a-name226226"></a><a name="2.2.6"/>2.2.6
 * Processamento melhorado de exceções de observador.
 * Obter informações mais detalhadas sobre os erros de observador:
- * Quando um observador é fechado devido a uma exceção gerada pelo ProcessChangesAsync do observador, o CloseAsync agora receberá o parâmetro de motivo definido como ChangeFeedObserverCloseReason.ObserverError.
- * Foi adicionados rastreios para identificar erros no código do usuário num observador.
+  * Quando um observador é fechado devido a uma exceção gerada pelo ProcessChangesAsync do observador, o CloseAsync agora receberá o parâmetro de motivo definido como ChangeFeedObserverCloseReason.ObserverError.
+  * Foi adicionados rastreios para identificar erros no código do usuário num observador.
 
 ### <a name="a-name225225"></a><a name="2.2.5"/>2.2.5
 * Foi adicionado suporte para a manipulação de divisão em coleções que utilizam o débito de base de dados partilhada.

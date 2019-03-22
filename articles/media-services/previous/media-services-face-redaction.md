@@ -11,14 +11,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 02/09/2019
+ms.date: 03/18/2019
 ms.author: juliako;
-ms.openlocfilehash: eee0d5365c515f8a7764b9d5636ae3d1b34cb934
-ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.openlocfilehash: 1fe003ae13bc5f195932f4f140e17c4dc2791959
+ms.sourcegitcommit: f331186a967d21c302a128299f60402e89035a8d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/02/2019
-ms.locfileid: "57240852"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58188259"
 ---
 # <a name="redact-faces-with-azure-media-analytics"></a>Edite rostos com análise de multimédia do Azure 
 ## <a name="overview"></a>Descrição geral
@@ -41,10 +41,10 @@ Isso produz um mp4 eliminadas automaticamente sem qualquer manual de entrada.
 | Elemento de saída |foo_redacted.mp4 |Vídeo com desfocar aplicada |
 
 #### <a name="input-example"></a>Exemplo de entrada:
-[Veja este vídeo](http://ampdemo.azureedge.net/?url=http%3A%2F%2Freferencestream-samplestream.streaming.mediaservices.windows.net%2Fed99001d-72ee-4f91-9fc0-cd530d0adbbc%2FDancing.mp4)
+[Veja este vídeo](https://ampdemo.azureedge.net/?url=https%3A%2F%2Freferencestream-samplestream.streaming.mediaservices.windows.net%2Fed99001d-72ee-4f91-9fc0-cd530d0adbbc%2FDancing.mp4)
 
 #### <a name="output-example"></a>Exemplo de saída:
-[Veja este vídeo](http://ampdemo.azureedge.net/?url=http%3A%2F%2Freferencestream-samplestream.streaming.mediaservices.windows.net%2Fc6608001-e5da-429b-9ec8-d69d8f3bfc79%2Fdance_redacted.mp4)
+[Veja este vídeo](https://ampdemo.azureedge.net/?url=https%3A%2F%2Freferencestream-samplestream.streaming.mediaservices.windows.net%2Fc6608001-e5da-429b-9ec8-d69d8f3bfc79%2Fdance_redacted.mp4)
 
 ### <a name="analyze-mode"></a>Analisar o modo
 O **analisar** pass do fluxo de trabalho dois precisar de uma entrada de vídeo e produz um ficheiro JSON de localizações de rostos e jpg imagens de cada detetado face.
@@ -125,7 +125,7 @@ O resultado da passagem de análise não inclui o vídeo original. O vídeo tem 
 #### <a name="example-output"></a>Exemplo de saída
 Esta é a saída de um IDList com um ID selecionado.
 
-[Veja este vídeo](http://ampdemo.azureedge.net/?url=http%3A%2F%2Freferencestream-samplestream.streaming.mediaservices.windows.net%2Fad6e24a2-4f9c-46ee-9fa7-bf05e20d19ac%2Fdance_redacted1.mp4)
+[Veja este vídeo](https://ampdemo.azureedge.net/?url=https%3A%2F%2Freferencestream-samplestream.streaming.mediaservices.windows.net%2Fad6e24a2-4f9c-46ee-9fa7-bf05e20d19ac%2Fdance_redacted1.mp4)
 
 Foo_IDList.txt de exemplo
  
@@ -373,5 +373,5 @@ namespace FaceRedaction
 ## <a name="related-links"></a>Ligações relacionadas
 [Descrição geral da análise dos serviços de multimédia do Azure](media-services-analytics-overview.md)
 
-[Demonstrações de análise de multimédia do Azure](http://azuremedialabs.azurewebsites.net/demos/Analytics.html)
+[Demonstrações de análise de multimédia do Azure](https://azuremedialabs.azurewebsites.net/demos/Analytics.html)
 

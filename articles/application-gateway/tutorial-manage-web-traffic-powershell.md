@@ -3,19 +3,17 @@ title: Gerir o tráfego da Web - Azure PowerShell
 description: Saiba como criar um gateway de aplicação com um conjunto de dimensionamento de máquinas virtuais para gerir o tráfego da Web com o Azure PowerShell.
 services: application-gateway
 author: vhorne
-manager: jpconnock
 ms.service: application-gateway
 ms.topic: tutorial
-ms.workload: infrastructure-services
-ms.date: 6/5/2018
+ms.date: 3/20/2019
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: f1270234b8c378f2ec19bd0f23ad597d4973e2bb
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.openlocfilehash: 83719ce0cddf3d77325b26fa40dd3cb2decaf921
+ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57317633"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58294812"
 ---
 # <a name="manage-web-traffic-with-an-application-gateway-using-azure-powershell"></a>Gerir o tráfego da Web com um gateway de aplicação com o Azure PowerShell
 
@@ -88,7 +86,7 @@ $vnet = Get-AzVirtualNetwork `
   -ResourceGroupName myResourceGroupAG `
   -Name myVNet
 
-$subnet=$vnet.Subnets[0]
+$subnet=$vnet.Subnets[1]
 
 $gipconfig = New-AzApplicationGatewayIPConfiguration `
   -Name myAGIPConfig `
@@ -183,13 +181,13 @@ $backendPool = Get-AzApplicationGatewayBackendAddressPool `
 
 $ipConfig = New-AzVmssIpConfig `
   -Name myVmssIPConfig `
-  -SubnetId $vnet.Subnets[1].Id `
+  -SubnetId $vnet.Subnets[0].Id `
   -ApplicationGatewayBackendAddressPoolsId $backendPool.Id
 
 $vmssConfig = New-AzVmssConfig `
   -Location eastus `
   -SkuCapacity 2 `
-  -SkuName Standard_DS2 `
+  -SkuName Standard_DS2_v2 `
   -UpgradePolicyMode Automatic
 
 Set-AzVmssStorageProfile $vmssConfig `

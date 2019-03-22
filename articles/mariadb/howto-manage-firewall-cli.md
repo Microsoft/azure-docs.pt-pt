@@ -7,12 +7,12 @@ ms.service: mariadb
 ms.devlang: azurecli
 ms.topic: conceptual
 ms.date: 11/10/2018
-ms.openlocfilehash: a2f0d775f061ab221092c9354d9d04b9241c9430
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.openlocfilehash: f457246b429062625e6542cfdaf00f3526a85209
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53543891"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58083237"
 ---
 # <a name="create-and-manage-azure-database-for-mariadb-firewall-rules-by-using-the-azure-cli"></a>Criar e gerir a base de dados do Azure para regras de firewall da MariaDB com a CLI do Azure
 Regras de firewall ao nível do servidor permitem aos administradores gerir o acesso a uma base de dados do Azure para MariaDB Server de um endereço IP específico ou um intervalo de endereços IP. Usando o convenientes comandos da CLI do Azure, pode criar, atualizar, eliminar, lista e Mostrar regras de firewall para gerir o seu servidor. Para uma descrição geral da base de dados do Azure para MariaDB firewalls, consulte [base de dados do Azure para MariaDB regras de firewall de servidor](./concepts-firewall-rules.md)
@@ -26,19 +26,19 @@ O **az mariadb server firewall-rule** comando é utilizado a partir da CLI do Az
 
 Comandos:
 - **Criar**: Crie uma regra de firewall do servidor de Azure MariaDB.
-- **Eliminar**: Elimine uma regra de firewall do servidor de Azure MariaDB.
-- **Lista**: Liste as regras de firewall do servidor de Azure MariaDB.
+- **delete**: Elimine uma regra de firewall do servidor de Azure MariaDB.
+- **list**: Liste as regras de firewall do servidor de Azure MariaDB.
 - **Mostrar**: Mostre os detalhes de um servidor de Azure MariaDB regra de firewall.
-- **Atualização**: Atualize uma regra de firewall do servidor de Azure MariaDB.
+- **update**: Atualize uma regra de firewall do servidor de Azure MariaDB.
 
 ## <a name="log-in-to-azure-and-list-your-azure-database-for-mariadb-servers"></a>Inicie sessão no Azure e listar a sua base de dados do Azure para MariaDB servidores
 Ligar em segurança a CLI do Azure com a sua conta do Azure utilizando o **início de sessão az** comando.
 
 1. Na linha de comando, execute o seguinte comando:
-```azurecli
-az login
-```
-Esse comando gera um código para utilizar no próximo passo.
+   ```azurecli
+   az login
+   ```
+   Esse comando gera um código para utilizar no próximo passo.
 
 2. Utilize um browser para abrir a página [ https://aka.ms/devicelogin ](https://aka.ms/devicelogin)e, em seguida, introduza o código.
 

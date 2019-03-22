@@ -5,17 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 02/07/2019
+ms.date: 03/14/2019
 ms.topic: conceptual
 ms.service: cost-management
 manager: micflan
 ms.custom: ''
-ms.openlocfilehash: e418cf8d619b55fde56a4d6d7d7cd9a8b36a112e
-ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
+ms.openlocfilehash: 40c08f87a1711ae57ceb8b288851686d1e2ad391
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57339237"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57993944"
 ---
 # <a name="understand-cost-management-data"></a>Compreender os dados do Cost Management
 
@@ -29,12 +29,12 @@ As seguintes informações são apresentadas suportado atualmente [o Microsoft A
 | --- | --- | --- |
 | **O Azure Alemanha** | [Pay as you go do Azure Alemanha](https://azure.microsoft.com/offers/ms-azr-de-0003p/) | MS-AZR-DE-0003P |
 | **Azure Government** | Azure Government Enterprise | MS-AZR-USGOV-0017P |
-| **Contrato Enterprise (EA)** | Enterprise Programador/Teste | MS-AZR-0148P |
+| **Contrato Enterprise (EA)** | Enterprise Dev/Test | MS-AZR-0148P |
 | **Contrato Enterprise (EA)** | [Microsoft Azure Enterprise](https://azure.microsoft.com/offers/enterprise-agreement-support-upgrade/) | MS-AZR-0017P |
 | **Microsoft Developer Network (MSDN)** | [O MSDN Platforms](https://azure.microsoft.com/offers/ms-azr-0062p/) | MS-AZR-0062P |
 | **Pay as you go** | [Pay as you go](https://azure.microsoft.com/offers/ms-azr-0003p/) | MS-AZR-0003P |
 | **Pay as you go** | [Pay as you go programador/teste](https://azure.microsoft.com/offers/ms-azr-0023p/) | MS-AZR-0023P |
-| **Pay as you go** | [Rede de parceiros da Microsoft](https://azure.microsoft.com/offers/ms-azr-0025p/) | MS-AZR-0025P |
+| **Pay as you go** | [Microsoft Partner Network](https://azure.microsoft.com/offers/ms-azr-0025p/) | MS-AZR-0025P |
 | **Pay as you go** | [Versão de avaliação gratuita](https://azure.microsoft.com/offers/ms-azr-0044p/) | MS-AZR-0044P |
 | **Pay as you go** | [Azure no Open](https://azure.microsoft.com/offers/ms-azr-0111p/) | MS-AZR-0111P |
 | **Pay as you go** | [Azure para estudantes](https://azure.microsoft.com/offers/ms-azr-0170p/) | MS-AZR-0170P |
@@ -52,7 +52,7 @@ A tabela seguinte mostra as ofertas não suportadas.
 | **Fornecedor de soluções cloud (CSP)** | Microsoft Azure | MS-AZR-0145P |
 | **Fornecedor de soluções cloud (CSP)** | O Azure Government CSP | MS-AZR-USGOV-0145P |
 | **Fornecedor de soluções cloud (CSP)** | Azure Alemanha no CSP para a Microsoft Cloud Germany | MS-AZR-DE-0145P |
-| **Pay as you go** | Azure para Estudantes Iniciantes | MS-AZR-0144P |
+| **Pay as you go** | Azure for Students Starter | MS-AZR-0144P |
 | **Pay as you go** | [Microsoft Azure Sponsorship](https://azure.microsoft.com/offers/ms-azr-0036p/) | MS-AZR-0036P |
 | **Planos de suporte** | Suporte Padrão | MS-AZR-0041P |
 | **Planos de suporte** | Suporte direto profissional | MS-AZR-0042P |
@@ -95,7 +95,7 @@ As tabelas seguintes mostram os dados que incluiu ou não está no Cost Manageme
 
 ## <a name="rated-usage-data-refresh-schedule"></a>Agenda de atualização de dados de utilização mais votados
 
-Dados de utilização e custos estão disponíveis na gestão de custos + faturação no portal do Azure e [que suportam APIs](https://aka.ms/costmgmt/docs). Tenha os seguintes pontos em mente ao analisar os custos:
+Dados de utilização e custos estão disponíveis na gestão de custos + faturação no portal do Azure e [que suportam APIs](index.yml). Tenha os seguintes pontos em mente ao analisar os custos:
 
 - Estimativa de custos para o período de faturação atual é atualizada seis vezes por dia.
 - Pode alterar a estimativa de custos para o período de faturação atual como pode implicar a utilização de mais.

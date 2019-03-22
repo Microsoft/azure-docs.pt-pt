@@ -4,12 +4,12 @@ ms.service: storsimple
 ms.topic: include
 ms.date: 10/26/2018
 ms.author: alkohli
-ms.openlocfilehash: a95b781d0d08cdca96cf4e98ac9dce43da535d13
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: a3ccf76b2722c04a9353fcc7020ff1387bc454c6
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55889643"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58125053"
 ---
 #### <a name="to-install-an-update-from-the-azure-portal"></a>Para instalar uma atualização a partir do portal do Azure
 
@@ -35,7 +35,7 @@ ms.locfileid: "55889643"
    * **Verificações do estado de funcionamento do componente de hardware** para verificar se todos os componentes de hardware do seu dispositivo StorSimple estão em bom estado de funcionamento.
    * **Verificações de DATA 0** para verificar se DATA 0 está ativado no seu dispositivo. Se esta interface não estiver ativada, terá de ativá-la e, em seguida, tentar novamente.
 
-    A atualização é transferida e instalada apenas se todas as verificações forem concluídas com êxito. Será notificado quando as verificações estiverem em curso. Se o prechecks falharem, em seguida, será fornecido com os motivos da falha. Resolver esses problemas e, em seguida, repita a operação. Poderá ter de contactar o Suporte da Microsoft se não conseguir resolver estes problemas.
+     A atualização é transferida e instalada apenas se todas as verificações forem concluídas com êxito. Será notificado quando as verificações estiverem em curso. Se o prechecks falharem, em seguida, será fornecido com os motivos da falha. Resolver esses problemas e, em seguida, repita a operação. Poderá ter de contactar o Suporte da Microsoft se não conseguir resolver estes problemas.
 
 7. Depois dos prechecks forem concluídas com êxito, é criada uma tarefa de atualização. Será notificado quando a tarefa de atualização for criada com êxito.
    
@@ -53,5 +53,5 @@ ms.locfileid: "55889643"
 
 10. Depois da tarefa estiver concluída, navegue para o **definições do dispositivo > atualizações do dispositivo**. Agora deve ser atualizada a versão do software.
 
-    ![Criação de tarefa de atualização](./media/storsimple-8000-install-update4-via-portal/update9.png)
+   ![Criação de tarefa de atualização](./media/storsimple-8000-install-update4-via-portal/update9.png)
 

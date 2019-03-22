@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: barclayn
-ms.openlocfilehash: d872c4eff3d55ddf5d98243055e831a7a223a8ef
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: aed0eb6ba4cdaa57d282ac4484e0c27c0697afb5
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56115458"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58083135"
 ---
 # <a name="azure-dedicated-hsm-networking"></a>Redes de HSM dedicados do Azure
 
@@ -51,8 +51,8 @@ Um requisito da arquitetura atual é a configuração de um gateway de ER na sub
 Ao criar recursos baseados na nuvem, é um requisito típico para uma ligação privada para o local recursos de TI. No caso de HSM dedicados, este será predominantemente para o software de cliente do HSM configurar os dispositivos HSM e também para atividades, como cópias de segurança e extrair os registos de HSMs para análise. Um ponto de decisão principais aqui é a natureza da conexão, pois existem opções.  A opção mais flexível é VPN Site a Site, como provavelmente haverá vários recursos no local que exigem uma comunicação segura com os recursos (incluindo HSMs) na cloud do Azure. Isso exigirá uma organização do cliente para que um dispositivo VPN para facilitar a ligação. Pode ser utilizada uma ligação VPN ponto a Site, se houver apenas um ponto de extremidade único no local, como uma estação de trabalho de administração único.
 Para obter mais informações sobre as opções de conectividade, consulte [opções de planeamento de Gateway de VPN](../vpn-gateway/vpn-gateway-about-vpngateways.md?toc=%2fazure%2fvirtual-network%2ftoc.json#planningtable).
 
->[!NOTE]
-Neste momento, o ExpressRoute não é uma opção para a ligação a recursos no local. Também deve observar que o Gateway do ExpressRoute utilizado conforme descrito acima, não é para ligações a infraestrutura no local.
+> [!NOTE]
+> Neste momento, o ExpressRoute não é uma opção para a ligação a recursos no local. Também deve observar que o Gateway do ExpressRoute utilizado conforme descrito acima, não é para ligações a infraestrutura no local.
 
 ### <a name="point-to-site-vpn"></a>VPN ponto a Site
 
@@ -80,8 +80,8 @@ Os dispositivos HSM têm a capacidade, por meio de bibliotecas de software, para
 
 Para aplicações distribuídas globalmente ou para cenários de ativação pós-falha de elevada disponibilidade, é necessário para ligar redes virtuais em várias regiões. Com o HSM do Azure dedicado, elevada disponibilidade pode ser conseguida com um Gateway de VPN que fornece um túnel seguro entre as duas redes virtuais. Para obter mais informações sobre ligações de Vnet a Vnet com o Gateway de VPN, consulte o artigo intitulado [o que é o Gateway de VPN?](../vpn-gateway/vpn-gateway-about-vpngateways.md#V2V)
 
->[!NOTE]
-Global Vnet peering não está disponível na conectividade entre regiões, cenários com HSMs dedicados neste momento e o gateway de VPN devem ser utilizados em vez disso. 
+> [!NOTE]
+> Global Vnet peering não está disponível na conectividade entre regiões, cenários com HSMs dedicados neste momento e o gateway de VPN devem ser utilizados em vez disso. 
 
 ![global vnet](media/networking/global-vnet.png)
 

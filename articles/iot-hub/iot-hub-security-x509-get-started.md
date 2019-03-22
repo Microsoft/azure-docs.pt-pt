@@ -8,12 +8,12 @@ ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 10/10/2017
-ms.openlocfilehash: bfacd71e4c5a018fb2d153e8b9683cfa8031a956
-ms.sourcegitcommit: 15e9613e9e32288e174241efdb365fa0b12ec2ac
+ms.openlocfilehash: 80d3d3cf5f386c5f21e1e8fed1071a12c10235cd
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "57010400"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58091618"
 ---
 # <a name="set-up-x509-security-in-your-azure-iot-hub"></a>Configurar a segurança X.509 no seu hub IoT do Azure
 
@@ -65,7 +65,7 @@ Estes passos mostram como adicionar uma nova autoridade de certificação para o
 
 10. Assim que o certificado é carregado com êxito, clique em **Verifique se**. O **STATUS** das suas modificações de certificado **_verificado_** no **certificados** painel. Clique em **atualizar** se não atualizar automaticamente.
 
-   ![Carregar a verificação de certificado](./media/iot-hub-security-x509-get-started/upload-cert-verification.png)  
+    ![Carregar a verificação de certificado](./media/iot-hub-security-x509-get-started/upload-cert-verification.png)  
 
 
 <a id="createdevice"></a>

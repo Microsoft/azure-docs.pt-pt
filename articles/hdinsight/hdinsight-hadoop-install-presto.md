@@ -9,16 +9,16 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 01/01/2019
 ms.author: hrasheed
-ms.openlocfilehash: 60ff63a049f225886d69c1a89a2930671e533d78
-ms.sourcegitcommit: 97d0dfb25ac23d07179b804719a454f25d1f0d46
+ms.openlocfilehash: 435c041bb5fb0a398f92914f943166108cc20080
+ms.sourcegitcommit: aa3be9ed0b92a0ac5a29c83095a7b20dd0693463
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54910918"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58258348"
 ---
 # <a name="install-and-use-presto-on-hadoop-based-hdinsight-clusters"></a>Instalar e utilizar o Presto em clusters do HDInsight baseado no Hadoop
 
-Este artigo explica como instalar prontamente em clusters do HDInsight do Adobe baseado no Hadoop ao utilizar as ações de script. Também irá aprender a instalar Airpal num cluster HDInsight Presto existente.
+Este artigo explica como instalar prontamente em clusters do HDInsight do Azure baseado no Hadoop ao utilizar as ações de script. Também irá aprender a instalar Airpal num cluster HDInsight Presto existente.
 
 HDInsight também oferece o aplicativo Starburst Presto para clusters do Apache Hadoop. Para obter mais informações, consulte [instalar aplicações do Apache Hadoop de terceiros no Azure HDInsight](https://docs.microsoft.com/azure/hdinsight/hdinsight-apps-install-applications).
 
@@ -42,11 +42,11 @@ Esta secção explica como utilizar o script de exemplo, quando cria um novo clu
 
 1. Começar a aprovisionar um cluster através dos passos [baseado em Linux criar clusters no HDInsight com o portal do Azure](hdinsight-hadoop-create-linux-clusters-portal.md). Certifique-se de criar o cluster utilizando o **personalizado** fluxo de criação do cluster. O cluster tem de cumprir os seguintes requisitos:
 
-    * Tem de ser um cluster do Hadoop com o HDInsight versão 3.6.
+   * Tem de ser um cluster do Hadoop com o HDInsight versão 3.6.
 
-    * Terá de utilizar armazenamento do Azure que o arquivo de dados. Utilizar o Presto no cluster que utilize o armazenamento do Azure Data Lake como a opção de armazenamento não é uma opção ainda.
+   * Terá de utilizar armazenamento do Azure que o arquivo de dados. Utilizar o Presto no cluster que utilize o armazenamento do Azure Data Lake como a opção de armazenamento não é uma opção ainda.
 
-    ![HDInsight, personalizado (tamanho, definições, aplicações)](./media/hdinsight-hadoop-install-presto/hdinsight-install-custom.png)
+     ![HDInsight, personalizado (tamanho, definições, aplicações)](./media/hdinsight-hadoop-install-presto/hdinsight-install-custom.png)
 
 2. Na **definições avançadas** área, selecione **ações de Script**. Forneça as seguintes informações. Também pode escolher o **instalar Presto** opção para o tipo de script:
    
@@ -163,7 +163,6 @@ Para personalizar a instalação, siga os passos seguintes:
 
 5. Aguarde que a nova instância esteja pronta. Tome nota do endereço de coordenador Presto:
 
-
     `sudo slider registry --name presto1 --getexp presto`
 
 ## <a name="generate-benchmark-data-for-hdinsight-clusters-that-run-presto"></a>Gerar dados de benchmark para clusters do HDInsight que executam o Presto
@@ -176,8 +175,6 @@ TPC-DS é a norma da indústria para medir o desempenho de muitos sistemas de su
 * [Instalar e utilizar Hue em clusters do HDInsight Hadoop](hdinsight-hadoop-hue-linux.md). Hue é uma interface de Usuário que torna mais fácil criar, executar e guardar Apache Pig e tarefas do Hive do web.
 
 * [Instalar o Apache Giraph nos clusters do Hadoop do HDInsight e utilizar Giraph para processar gráficos em grande escala](hdinsight-hadoop-giraph-install-linux.md). Utilize a personalização de cluster para instalar o Giraph nos clusters do HDInsight baseado no Hadoop. Com o Giraph, pode efetuar o processamento de gráficos com o Hadoop. Também pode ser utilizado com o Azure HDInsight.
-
-* [Instalar e utilizar o Apache Solr nos clusters do HDInsight Hadoop](hdinsight-hadoop-solr-install-linux.md). Utilize a personalização de cluster para instalar o Solr nos clusters do HDInsight baseado no Hadoop. Ao utilizar Solr, pode efetuar operações de pesquisa poderosa em dados armazenados.
 
 [hdinsight-install-r]: hdinsight-hadoop-r-scripts-linux.md
 [hdinsight-cluster-customize]: hdinsight-hadoop-customize-cluster-linux.md

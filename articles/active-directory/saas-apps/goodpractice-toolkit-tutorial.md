@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 12/19/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f5cd4228cf02187accd7240f89ac39058a1b6058
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: fd8453c93b4e48a076d8efbe1d438d15d8131fc9
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57771009"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57864410"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-goodpractice-toolkit"></a>Tutorial: Integração do Active Directory do Azure com o Toolkit de GoodPractice
 
@@ -69,7 +69,7 @@ Para configurar a integração do Toolkit de GoodPractice com o Azure AD, terá 
 4. Na caixa de pesquisa, escreva **GoodPractice Toolkit**, selecione **GoodPractice Toolkit** no painel de resultados, em seguida, clique em **Add** botão para adicionar a aplicação.
 
      ![Kit de ferramentas de GoodPractice na lista de resultados](common/search-new-app.png)
-## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurar e testar o Azure AD início de sessão único
+   ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurar e testar o Azure AD início de sessão único
 
 Nesta secção, configure e teste do Azure AD início de sessão único com o Toolkit de GoodPractice com base num utilizador de teste **Eduarda Almeida**.
 Para o início de sessão único funcionar, uma relação de ligação entre um utilizador do Azure AD e o utilizador relacionado no Kit de ferramentas de GoodPractice deve ser estabelecido.
@@ -146,7 +146,7 @@ O objetivo desta secção é criar um utilizador de teste no portal do Azure cha
 
     a. Na **Name** campo introduza **BrittaSimon**.
   
-    b. Na **nome de utilizador** tipo de campo **brittasimon@yourcompanydomain.extension**  
+    b. Na **nome de utilizador** tipo de campo **brittasimon\@yourcompanydomain.extension**  
     Por exemplo, BrittaSimon@contoso.com
 
     c. Selecione **palavra-passe de Show** caixa de verificação e, em seguida, anote o valor que é apresentado na caixa de palavra-passe.
@@ -183,7 +183,7 @@ Nesta secção, vai ativar Eduarda Almeida utilizar do Azure-início de sessão 
 
 Nesta secção, um usuário chamado Eduarda Almeida é criado no Kit de ferramentas de GoodPractice. Kit de ferramentas de GoodPractice suporta **just-in-time aprovisionamento**, que está ativado por predefinição. Não existe nenhum item de ação para nesta secção. Se um utilizador já não existir no GoodPractice Toolkit, uma nova é criada quando tentar acessar GoodPractice Kit de ferramentas.
 
-### <a name="test-single-sign-on"></a>Testar início de sessão único 
+### <a name="test-single-sign-on"></a>Testar o início de sessão único 
 
 Nesta secção, vai testar a configuração do Azure AD única início de sessão com o painel de acesso.
 

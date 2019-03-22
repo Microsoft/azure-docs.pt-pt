@@ -6,17 +6,16 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: quickstart
-ms.reviewer: sgilley
-author: hning86
-ms.author: haining
+author: sdgilley
+ms.author: sgilley
 ms.date: 01/18/2019
 ms.custom: seodec18
-ms.openlocfilehash: 2dabc331b13bc53a6d8e94d69c64b87c7f175c24
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: a7665066a28343f1d2ca46d5210b210f8f103abd
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57762199"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57896675"
 ---
 # <a name="quickstart-use-the-azure-portal-to-get-started-with-azure-machine-learning"></a>Início rápido: Utilizar o portal do Azure para começar a utilizar com o Azure Machine Learning
 
@@ -37,7 +36,7 @@ Os seguintes recursos do Azure são adicionados automaticamente à sua área de 
 
 Os recursos que criar podem ser utilizados como pré-requisitos para outros tutoriais e artigos de procedimentos do serviço Machine Learning. Tal como noutros serviços do Azure, existem limites em certos recursos associados com Machine Learning. Um exemplo é o tamanho do cluster de computação. Saiba mais sobre o [limites e como aumentar a quota padrão](how-to-manage-quotas.md).
 
-Se não tiver uma subscrição do Azure, crie uma conta gratuita antes de começar. Experimente o [uma versão gratuita ou paga do serviço Azure Machine Learning](http://aka.ms/AMLFree) hoje mesmo.
+Se não tiver uma subscrição do Azure, crie uma conta gratuita antes de começar. Experimente o [uma versão gratuita ou paga do serviço Azure Machine Learning](https://aka.ms/AMLFree) hoje mesmo.
 
 
 ## <a name="create-a-workspace"></a>Criar uma área de trabalho 
@@ -65,11 +64,11 @@ Este exemplo mostra como a área de trabalho pode ajudá-lo a manter o controlo 
 
 1. Na página de área de trabalho, selecione **Explore sua área de trabalho de serviço do Azure Machine Learning**.
 
- ![Explore a área de trabalho](./media/quickstart-get-started/explore_aml.png)
+   ![Explore a área de trabalho](./media/quickstart-get-started/explore_aml.png)
 
 1. Selecione **aberto blocos de notas do Azure** para experimentar a sua primeira experiência em blocos de notas do Azure.  Blocos de notas do Azure é um serviço separado, que permite que execute blocos de notas Jupyter gratuitamente na cloud.  Quando utiliza esta ligação para o serviço, informações sobre como ligar à sua área de trabalho serão adicionadas à biblioteca de que criar em blocos de notas do Azure.
 
- ![Abra o Azure Notebooks](./media/quickstart-get-started/explore_ws.png)
+   ![Abra o Azure Notebooks](./media/quickstart-get-started/explore_ws.png)
 
 1. Inicie sessão em blocos de notas do Azure.  Certifique-se de que iniciar sessão com a mesma conta utilizada para iniciar sessão no portal do Azure. A sua organização poderá precisar de [consentimento de administrador](https://notebooks.azure.com/help/signing-up/work-or-school-account/admin-consent) antes de poder iniciar sessão.
 
@@ -79,7 +78,7 @@ Este exemplo mostra como a área de trabalho pode ajudá-lo a manter o controlo 
 
 1. Selecione **Clone**.
 
- ![Clonar uma biblioteca](./media/quickstart-get-started/clone.png)
+   ![Clonar uma biblioteca](./media/quickstart-get-started/clone.png)
 
 1. Se vir que o status do projeto é parado, clique em **executado no computador livre** para utilizar o servidor de bloco de notas gratuito.
 

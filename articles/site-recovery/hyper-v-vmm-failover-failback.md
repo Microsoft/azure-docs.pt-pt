@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 12/27/2018
 ms.author: raynew
-ms.openlocfilehash: ef360fd56c3530a49c2f36846db34b29ca1cf444
-ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
+ms.openlocfilehash: 3890283f70bfd922d0c436f76b38d7f81d7b8c6f
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/27/2018
-ms.locfileid: "53788023"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58107023"
 ---
 # <a name="fail-over-and-fail-back-hyper-v-vms-replicated-to-your-secondary-on-premises-site"></a>Ativação pós-falha e reativação pós-falha de VMs de Hyper-V replicados para o seu site no local secundário
 
@@ -49,7 +49,7 @@ Pode executar uma ativação pós-falha planeada ou regular para VMs de Hyper-V.
 - Utilize uma ativação pós-falha regular para falhas inesperadas. Quando executa esta ativação pós-falha, o Site Recovery cria uma VM no site secundário e liga-se. Pode ocorrer perda de dados consoante colocar pendentes os dados que ainda não foram sincronizados.
 - Uma ativação pós-falha planeada pode ser utilizada para manutenção ou durante um período de inatividade esperado. Esta opção fornece zero perda de dados. Quando é acionada uma ativação pós-falha planeada, as VMs de origem são encerradas. Dados não sincronizados são sincronizados e a ativação pós-falha é acionada. 
 - 
-Este procedimento descreve como executar uma ativação pós-falha normal.
+  Este procedimento descreve como executar uma ativação pós-falha normal.
 
 
 1. Em **Definições** > **Itens replicados** clique na VM > **Ativação Pós-falha**.

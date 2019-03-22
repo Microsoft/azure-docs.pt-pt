@@ -1,10 +1,10 @@
 ---
-title: Gerir contas de acesso de emergência no Azure AD | Documentos da Microsoft
+title: Gerir contas de administrador de acesso de emergência - Azure Active Directory | Documentos da Microsoft
 description: Este artigo descreve como utilizar contas de acesso de emergência para ajudar a evitar inadvertidamente a ser impedido de aceder ao seu inquilino do Azure Active Directory (Azure AD).
 services: active-directory
 author: markwahl-msft
 ms.author: curtand
-ms.date: 12/21/2018
+ms.date: 03/19/2019
 ms.topic: conceptual
 ms.service: active-directory
 ms.subservice: users-groups-roles
@@ -12,12 +12,12 @@ ms.workload: identity
 ms.custom: it-pro
 ms.reviewer: markwahl-msft
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0bd08f9414353eb6d458494d76654dae7262c524
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: f430a832ffb35b95d0bf4eff2d82be5ecc3d865c
+ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57769204"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58224945"
 ---
 # <a name="manage-emergency-access-accounts-in-azure-ad"></a>Gerir contas de acesso de emergência no Azure AD
 

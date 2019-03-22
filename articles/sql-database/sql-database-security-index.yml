@@ -1,10 +1,10 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: 3d82735a5fcfaaa16efec1578136531fd3a2dd91
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
+ms.openlocfilehash: b97629551823cfc77d0d88dbd6a19fe1a6ba2b70
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56236865"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57852309"
 documentType: LandingData
 title: Base de dados SQL do Azure - segurança avançada
 metadata:
@@ -83,7 +83,7 @@ sections:
       - href: /azure/sql-database/sql-database-firewall-configure#manage-server-level-ip-firewall-rules-using-azure-powershell
     - title: Gerir regras de avaliações de vulnerabilidade
       values:
-      - href: 
+      - href: /azure/sql-database/sql-vulnerability-assessment#implementing-vulnerability-assessment
       - href: 
       - href: /azure/sql-database/sql-vulnerability-assessment#manage-vulnerability-assessments-using-azure-powershell
 - title: Mais recursos

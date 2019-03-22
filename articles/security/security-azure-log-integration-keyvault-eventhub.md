@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 01/14/2019
 ms.author: Barclayn
 ms.custom: AzLog
-ms.openlocfilehash: 22d4a18ad1c6e80baa6e798be399ab2cd4836fbc
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: c199adb9ee1d9e5fbc879441da7395efa16f0d40
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56733412"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58094665"
 ---
 # <a name="azure-log-integration-tutorial-process-azure-key-vault-events-by-using-event-hubs"></a>Tutorial de integração de registos do Azure: Processar os eventos do Azure Key Vault através dos Hubs de eventos
 
@@ -30,8 +30,8 @@ O método preferido para a integração de registos do Azure é utilizando o con
  
 Utilize este tutorial para se familiarizar com como o Azure Log Integration e os Hubs de eventos funcionam em conjunto ao seguir os passos de exemplo e compreender como cada passo suporta a solução. Em seguida, pode tirar o que aprendeu aqui para criar suas próprias etapas para suportar requisitos exclusivos da sua empresa.
 
->[!WARNING]
-As etapas e os comandos neste tutorial não se destina a ser copiado e colado. Eles são apenas exemplos. Não utilize os comandos do PowerShell "como estão" no seu ambiente ao vivo. Será necessário personalizá-los com base no seu ambiente exclusivo.
+> [!WARNING]
+> As etapas e os comandos neste tutorial não se destina a ser copiado e colado. Eles são apenas exemplos. Não utilize os comandos do PowerShell "como estão" no seu ambiente ao vivo. Será necessário personalizá-los com base no seu ambiente exclusivo.
 
 
 Este tutorial explica-lhe o processo de criar atividade do Azure Key Vault com sessão iniciada para um hub de eventos e disponibilizá-lo como ficheiros JSON para o seu sistema SIEM. Em seguida, pode configurar o seu sistema SIEM para processar os ficheiros JSON.

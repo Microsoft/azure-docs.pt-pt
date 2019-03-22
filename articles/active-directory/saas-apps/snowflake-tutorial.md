@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 12/27/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 69b68e5e29d972f95742a28250e07ba69e6a681f
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 617a01fdce71e76cf4783ee6a274ee428b0b3b57
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57766483"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57903571"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-snowflake"></a>Tutorial: Integração do Active Directory do Azure com floco de neve
 
@@ -134,29 +134,29 @@ Para configurar o Azure AD início de sessão único com floco de neve, execute 
 
 ### <a name="configure-snowflake-single-sign-on"></a>Configurar floco de neve início de sessão único
 
-8. Numa janela do browser web diferente, início de sessão para floco de neve como um administrador de segurança.
+1. Numa janela do browser web diferente, início de sessão para floco de neve como um administrador de segurança.
 
-9. **Mudar de função** para **ACCOUNTADMIN**, ao clicar no **perfil** no canto superior direito da página.
+1. **Mudar de função** para **ACCOUNTADMIN**, ao clicar no **perfil** no canto superior direito da página.
 
     > [!NOTE]
     > Isso é separado do contexto que selecionou no canto superior direito em seu nome de utilizador
     
     ![O administrador de Snowflake](./media/snowflake-tutorial/tutorial_snowflake_accountadmin.png)
 
-10. Abra o **transferido o certificado de Base 64** no bloco de notas. Copie o valor entre "---BEGIN CERTIFICATE---" e "---END CERTIFICATE---" e colá-lo para os pontos de exclamação junto a **certificado** abaixo. Na **ssoUrl**, cole **URL de início de sessão** valor que copiou do portal do Azure. Selecione o **todas as consultas** e clique em **executar**.
+1. Abra o **transferido o certificado de Base 64** no bloco de notas. Copie o valor entre "---BEGIN CERTIFICATE---" e "---END CERTIFICATE---" e colá-lo para os pontos de exclamação junto a **certificado** abaixo. Na **ssoUrl**, cole **URL de início de sessão** valor que copiou do portal do Azure. Selecione o **todas as consultas** e clique em **executar**.
 
-    ![Sql floco de neve](./media/snowflake-tutorial/tutorial_snowflake_sql.png)
+   ![Sql floco de neve](./media/snowflake-tutorial/tutorial_snowflake_sql.png)
 
-    ```
-    use role accountadmin;
-    alter account set saml_identity_provider = '{
-    "certificate": "<Paste the content of downloaded certificate from Azure portal>",
-    "ssoUrl":"<Login URL value which you have copied from the Azure portal>",
-    "type":"custom",
-    "label":"AzureAD"
-    }';
-    alter account set sso_login_page = TRUE;
-    ```
+   ```
+   use role accountadmin;
+   alter account set saml_identity_provider = '{
+   "certificate": "<Paste the content of downloaded certificate from Azure portal>",
+   "ssoUrl":"<Login URL value which you have copied from the Azure portal>",
+   "type":"custom",
+   "label":"AzureAD"
+   }';
+   alter account set sso_login_page = TRUE;
+   ```
 
 ### <a name="create-an-azure-ad-test-user"></a>Criar um utilizador de teste do Azure AD 
 
@@ -176,7 +176,7 @@ O objetivo desta secção é criar um utilizador de teste no portal do Azure cha
 
     a. Na **Name** campo introduza **BrittaSimon**.
   
-    b. Na **nome de utilizador** tipo de campo **brittasimon@yourcompanydomain.extension**  
+    b. Na **nome de utilizador** tipo de campo **brittasimon\@yourcompanydomain.extension**  
     Por exemplo, BrittaSimon@contoso.com
 
     c. Selecione **palavra-passe de Show** caixa de verificação e, em seguida, anote o valor que é apresentado na caixa de palavra-passe.
@@ -230,7 +230,7 @@ Para ativar a utilizadores do Azure AD iniciar sessão no floco de neve, tem de 
     CREATE USER britta_simon PASSWORD = '' LOGIN_NAME = 'BrittaSimon@contoso.com' DISPLAY_NAME = 'Britta Simon';
     ```
 
-### <a name="test-single-sign-on"></a>Testar início de sessão único 
+### <a name="test-single-sign-on"></a>Testar o início de sessão único 
 
 Nesta secção, vai testar a configuração do Azure AD única início de sessão com o painel de acesso.
 

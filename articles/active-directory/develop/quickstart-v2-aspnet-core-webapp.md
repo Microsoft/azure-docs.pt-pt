@@ -4,7 +4,7 @@ description: Aprenda a implementar Microsoft início de sessão numa aplicação
 services: active-directory
 documentationcenter: dev-center-name
 author: jmprieur
-manager: mtillman
+manager: CelesteDG
 editor: ''
 ms.assetid: 820acdb7-d316-4c3b-8de9-79df48ba3b06
 ms.service: active-directory
@@ -13,16 +13,16 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 12/05/2018
+ms.date: 03/20/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 35cf4fbe17df05b6d55f3ce309ff8cecbb47d455
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: fed62dfc3f7e7dc974fb709261e363f26ce97c51
+ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56204717"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58200995"
 ---
 # <a name="quickstart-add-sign-in-with-microsoft-to-an-aspnet-core-web-app"></a>Início rápido: Adicionar início de sessão com a Microsoft a uma aplicação web ASP.NET Core
 
@@ -30,8 +30,7 @@ ms.locfileid: "56204717"
 
 Neste início rápido, ficará a saber como uma aplicação web ASP.NET Core pode iniciar sessão em contas pessoais (hotmail.com, outlook.com, outras pessoas) e profissionais e escolares contas a partir de qualquer instância do Azure Active Directory (Azure AD).
 
-![Como funciona a aplicação de exemplo gerada por este início rápido](media/quickstart-v2-aspnet-core-webapp/aspnetcorewebapp-intro.png)
-
+![Mostra como funciona a aplicação de exemplo gerada por este início rápido](media/quickstart-v2-aspnet-core-webapp/aspnetcorewebapp-intro-updated.png)
 
 > [!div renderon="docs"]
 > ## <a name="register-and-download-your-quickstart-app"></a>Registar e transferir a aplicação do início rápido
@@ -143,7 +142,7 @@ A linha que contém `.AddAzureAd` adiciona a autenticação do Azure AD à sua a
 > |Onde  |  |
 > |---------|---------|
 > | ClientId  | ID da aplicação (cliente) da aplicação registada no portal do Azure. |
-> | Autoridade | O ponto de extremidade STS para autenticar o usuário. Normalmente, isto é https://login.microsoftonline.com/{tenant}/v2.0 para a nuvem pública, em que {inquilino} é o nome do seu inquilino ou o ID de inquilino, ou *comuns* para obter uma referência para o ponto de extremidade comum (utilizado para aplicações multi-inquilino) |
+> | Autoridade | O ponto de extremidade STS para autenticar o usuário. Normalmente, isto é <https://login.microsoftonline.com/{tenant}/v2.0> para a nuvem pública, em que {inquilino} é o nome do seu inquilino ou o ID de inquilino, ou *comuns* para obter uma referência para o ponto de extremidade comum (utilizado para aplicações multi-inquilino) |
 > | TokenValidationParameters | Uma lista de parâmetros para a validação do token. Neste caso, `ValidateIssuer` está definido como `false` para indicar que ele pode aceitar inícios de sessão de qualquer pessoais, ou contas escolares ou profissionais. |
 
 ### <a name="protect-a-controller-or-a-controllers-method"></a>Proteger um controlador ou o método de um controlador

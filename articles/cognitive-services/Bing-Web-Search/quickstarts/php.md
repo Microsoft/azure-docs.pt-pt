@@ -8,21 +8,22 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-web-search
 ms.topic: quickstart
-ms.date: 02/12/2019
+ms.date: 03/12/2019
 ms.author: aahi
 ms.custom: seodec2018
-ms.openlocfilehash: 63e4052a2bce6c620180d682d6713d2f1547c956
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: ba132adc6b0fd2b8423a7bce30ad6d52fccc898e
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57536764"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57858206"
 ---
 # <a name="quickstart-use-php-to-call-the-bing-web-search-api"></a>Início rápido: Utilizar o PHP para chamar a API de pesquisa Web Bing  
 
-Utilize este guia de introdução para efetuar a primeira chamada à API de pesquisa Web do Bing e receber a resposta JSON. Esta aplicação node. js envia um pedido de pesquisa para a API e apresenta a resposta. Embora esse aplicativo é escrito em JavaScript, a API é um serviço RESTful Web compatível com a maioria das linguagens de programação.
+Utilize este guia de introdução para efetuar a primeira chamada à API de pesquisa Web do Bing e receber a resposta JSON. Esta aplicação node. js envia um pedido de pesquisa para a API e mostra a resposta. Embora esse aplicativo é escrito em JavaScript, a API é um serviço RESTful Web compatível com a maioria das linguagens de programação.
 
 ## <a name="prerequisites"></a>Pré-requisitos
+
 Aqui estão algumas coisas de que irá precisar antes de executar este início rápido:
 
 * [PHP 5.6.x](https://php.net/downloads.php) ou posterior
@@ -34,11 +35,11 @@ Aqui estão algumas coisas de que irá precisar antes de executar este início r
 
 Antes de começar, encontre `php.ini` e anule os comentários desta linha:
 
-```
-;extension=php_openssl.dll
+```php
+; extension=php_openssl.dll
 ```
 
-## <a name="create-a-project-and-define-variables"></a>Criar um projeto e definir variáveis  
+## <a name="create-a-project-and-define-variables"></a>Criar um projeto e definir variáveis
 
 Crie um novo projeto PHP no seu IDE ou editor preferido. Não se esqueça de adicionar etiquetas de abertura e fecho, `<?php` e `?>`.
 

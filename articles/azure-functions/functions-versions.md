@@ -9,12 +9,12 @@ ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 10/03/2018
 ms.author: glenga
-ms.openlocfilehash: a3a259b9734a1cc313e046d9946a090232cd14a1
-ms.sourcegitcommit: 235cd1c4f003a7f8459b9761a623f000dd9e50ef
+ms.openlocfilehash: 6988fb547b07f81891efea3caad8bf34f4c8a476
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/11/2019
-ms.locfileid: "57727064"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58088422"
 ---
 # <a name="azure-functions-runtime-versions-overview"></a>As funções runtime versões descrição geral do Azure
 
@@ -65,9 +65,9 @@ Na versão 2.x, as seguintes alterações foram feitas:
 
 * O ficheiro de configuração de anfitrião (Host. JSON) deve estar vazio ou tem a cadeia de caracteres `"version": "2.0"`.
 
-* Para melhorar a monitorização, o dashboard de WebJobs no portal, o que é utilizado o [ `AzureWebJobsDashboard` ](functions-app-settings.md#azurewebjobsdashboard) definição é substituída pelo Azure Application Insights, que usa o [ `APPINSIGHTS_INSTRUMENTATIONKEY` ](functions-app-settings.md#appinsightsinstrumentationkey) definição. Para obter mais informações, consulte [as funções do Azure de Monitor](functions-monitoring.md).
+* Para melhorar a monitorização, o dashboard de WebJobs no portal, o que é utilizado o [ `AzureWebJobsDashboard` ](functions-app-settings.md#azurewebjobsdashboard) definição é substituída pelo Azure Application Insights, que usa o [ `APPINSIGHTS_INSTRUMENTATIONKEY` ](functions-app-settings.md#appinsights_instrumentationkey) definição. Para obter mais informações, consulte [as funções do Azure de Monitor](functions-monitoring.md).
 
-* Todas as funções na aplicação de função têm de partilhar o mesmo idioma. Quando cria uma aplicação de funções, tem de escolher uma pilha de runtime para a aplicação. A pilha de tempo de execução é especificada pela [ `FUNCTIONS_WORKER_RUNTIME` ](functions-app-settings.md#functionsworkerruntime) valor existente nas definições de aplicação. Este requisito foi adicionado para melhorar o tempo de requisitos de espaço e de inicialização. Ao desenvolver localmente, esta definição no também tem de incluir o [Settings ficheiro](functions-run-local.md#local-settings-file).
+* Todas as funções na aplicação de função têm de partilhar o mesmo idioma. Quando cria uma aplicação de funções, tem de escolher uma pilha de runtime para a aplicação. A pilha de tempo de execução é especificada pela [ `FUNCTIONS_WORKER_RUNTIME` ](functions-app-settings.md#functions_worker_runtime) valor existente nas definições de aplicação. Este requisito foi adicionado para melhorar o tempo de requisitos de espaço e de inicialização. Ao desenvolver localmente, esta definição no também tem de incluir o [Settings ficheiro](functions-run-local.md#local-settings-file).
 
 * O tempo limite predefinido para funções num plano do serviço de aplicações é alterado para 30 minutos. Pode alterar manualmente o tempo limite para ilimitado, utilizando o [functionTimeout](functions-host-json.md#functiontimeout) definir no Host. JSON.
 
@@ -109,7 +109,7 @@ Para o desenvolvimento do Visual Studio Code, também poderá ter de atualizar a
 
 ### <a name="changing-version-of-apps-in-azure"></a>Alterar versão das aplicações no Azure
 
-A versão do runtime das funções utilizado por aplicações publicadas no Azure é ditada pelos [ `FUNCTIONS_EXTENSION_VERSION` ](functions-app-settings.md#functionsextensionversion) definição da aplicação. Um valor de `~2` destina-se a versão 2.x do runtime e `~1` destina-se o tempo de execução do versão 1.x. Arbitrariamente é não altere esta definição, porque outras alterações de definição de aplicação e as alterações de código nas suas funções são provável que necessário. Para saber mais sobre a forma recomendada para migrar a sua aplicação de funções para uma versão de runtime diferentes, veja [como versões de tempo de execução de funções do Azure de destino](set-runtime-version.md).
+A versão do runtime das funções utilizado por aplicações publicadas no Azure é ditada pelos [ `FUNCTIONS_EXTENSION_VERSION` ](functions-app-settings.md#functions_extension_version) definição da aplicação. Um valor de `~2` destina-se a versão 2.x do runtime e `~1` destina-se o tempo de execução do versão 1.x. Arbitrariamente é não altere esta definição, porque outras alterações de definição de aplicação e as alterações de código nas suas funções são provável que necessário. Para saber mais sobre a forma recomendada para migrar a sua aplicação de funções para uma versão de runtime diferentes, veja [como versões de tempo de execução de funções do Azure de destino](set-runtime-version.md).
 
 ## <a name="bindings"></a>Enlaces
 

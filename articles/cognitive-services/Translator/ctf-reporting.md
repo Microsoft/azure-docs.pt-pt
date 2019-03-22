@@ -10,21 +10,21 @@ ms.subservice: translator-text
 ms.topic: conceptual
 ms.date: 12/14/2017
 ms.author: v-jansko
-ms.openlocfilehash: e1af2ef3be2b6cf4b75357107caf9d74c7199e8d
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: a2f8a9c5ceaac6209391df17f4ec08027991382b
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57539787"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58123424"
 ---
 # <a name="how-to-use-collaborative-translation-framework-ctf-reporting"></a>Como utilizar os relatórios do Collaborative Translation Framework (CTF)
 
 > [!NOTE]
 > Tato metoda se zamítá. Não está disponível no V3.0 da API de texto do Translator.
-
+> 
 > A colaboração traduções Framework (CTF), anteriormente disponível para a versão 2.0 da API de texto do Translator, foi preterido a partir de 1 de Fevereiro de 2018. As funções AddTranslation e AddTranslationArray permitem aos utilizadores ativar correções por meio do Framework de tradução colaborativa. Após 31 de Janeiro de 2018, essas duas funções não aceitou novos envios de sentença e os utilizadores recebem uma mensagem de erro. Essas funções estavam a ser descontinuadas e não serão substituídas.
-
->Uma funcionalidade semelhante está disponível na API de Hub do Translator, que lhe permite criar um sistema de tradução personalizadas com a sua terminologia e estilo, e pode invocá-lo a utilizar o ID de categoria na API de texto do Translator. Hub de tradutor: [ https://hub.microsofttranslator.com ](https://hub.microsofttranslator.com). API do Translator Hub: [ https://hub.microsofttranslator.com/swagger ](https://hub.microsofttranslator.com/swagger).
+> 
+> Uma funcionalidade semelhante está disponível na API de Hub do Translator, que lhe permite criar um sistema de tradução personalizadas com a sua terminologia e estilo, e pode invocá-lo a utilizar o ID de categoria na API de texto do Translator. Hub de tradutor: [ https://hub.microsofttranslator.com ](https://hub.microsofttranslator.com). API do Translator Hub: [ https://hub.microsofttranslator.com/swagger ](https://hub.microsofttranslator.com/swagger).
 
 A API de relatórios de estrutura de tradução colaborativa (CTF) devolve estatísticas e o conteúdo real no arquivo de CTF. Esta API é diferente do método GetTranslations() porque ele:
 * Devolve o conteúdo traduzido e sua contagem total apenas a partir da sua conta (conta do Azure Marketplace ou de appId).
@@ -56,21 +56,21 @@ Este método obtém a contagem de traduções que são criados pelo utilizador. 
 **Sintaxe**
 
 > [!div class="tabbedCodeSnippets"]
-```cs
-UserTranslationCount[]GetUserTranslationCounts(
-           string appId,
-           string uriPrefix,
-           string from,
-           string to,
-           int? minRating,
-           int? maxRating,
-           string user,
-           string category
-           DateTime? minDateUtc,
-           DateTime? maxDateUtc,
-           int? skip,
-           int? take);
-```
+> ```cs
+> UserTranslationCount[]GetUserTranslationCounts(
+>            string appId,
+>            string uriPrefix,
+>            string from,
+>            string to,
+>            int? minRating,
+>            int? maxRating,
+>            string user,
+>            string category
+>            DateTime? minDateUtc,
+>            DateTime? maxDateUtc,
+>            int? skip,
+>            int? take);
+> ```
 
 **Parâmetros**
 
@@ -127,21 +127,21 @@ Este método obtém as traduções que são criadas pelo utilizador. Ele fornece
 **Sintaxe**
 
 > [!div class="tabbedCodeSnippets"]
-```cs
-UserTranslation[] GetUserTranslations (
-            string appId,
-            string uriPrefix,
-            string from,
-            string to,
-            int? minRating,
-            int? maxRating,
-            string user,
-            string category
-            DateTime? minDateUtc,
-            DateTime? maxDateUtc,
-            int? skip,
-            int? take);
-```
+> ```cs
+> UserTranslation[] GetUserTranslations (
+>             string appId,
+>             string uriPrefix,
+>             string from,
+>             string to,
+>             int? minRating,
+>             int? maxRating,
+>             string user,
+>             string category
+>             DateTime? minDateUtc,
+>             DateTime? maxDateUtc,
+>             int? skip,
+>             int? take);
+> ```
 
 **Parâmetros**
 

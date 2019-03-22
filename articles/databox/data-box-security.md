@@ -8,12 +8,12 @@ ms.subservice: pod
 ms.topic: overview
 ms.date: 09/24/2018
 ms.author: alkohli
-ms.openlocfilehash: ee3cbd1526c38a8b61a371f14e0f01ec926a2d5d
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 90004c27463a61de1b36eaea6754215f911f7483
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57543156"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58095862"
 ---
 # <a name="azure-data-box-security-and-data-protection"></a>Proteção de dados e segurança do Azure Data Box
 
@@ -75,16 +75,16 @@ O Azure Data Box recolhe e apresenta informações pessoais nas seguintes instâ
 
 - **Detalhes da encomenda** – Depois de criada a encomenda, o endereço de envio, o e-mail e as informações de contacto dos utilizadores são armazenados no portal do Azure. As informações guardadas incluem:
 
-    - Nome do contacto
-    - Número de telefone
-    - E-mail
-    - Morada
-    - Localidade
-    - Código postal
-    - Estado
-    - País/Província/Região
-    - Número de conta da operadora
-    - Número de controlo de envio
+  - Nome do contacto
+  - Número de telefone
+  - Email
+  - Morada
+  - Localidade
+  - Código postal
+  - Estado
+  - País/Província/Região
+  - Número de conta da operadora
+  - Número de controlo de envio
 
     Os detalhes da encomenda são eliminados pelo serviço Data Box quando a tarefa é concluída ou ao eliminar a encomenda.
 

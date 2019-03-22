@@ -5,21 +5,21 @@ services: azure-stack
 documentationcenter: ''
 author: mattbriggs
 manager: femila
-editor: ''
 ms.service: azure-stack
 ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.author: mabvrigg
+ms.date: 03/20/2019
 ms.reviewer: waltero
-ms.lastreviewed: 01/24/2019
-ms.openlocfilehash: 5436b562b4f9054e0e00e3cc6abb1724797437db
-ms.sourcegitcommit: 1902adaa68c660bdaac46878ce2dec5473d29275
+ms.lastreviewed: 03/20/2019
+ms.openlocfilehash: 01a9405c98160149782ab2cf248f64818d631dde
+ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/11/2019
-ms.locfileid: "57729641"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58293792"
 ---
 # <a name="troubleshoot-your-kubernetes-deployment-to-azure-stack"></a>Resolver problemas relacionados com a implementação de Kubernetes no Azure Stack
 
@@ -66,8 +66,8 @@ O diagrama seguinte mostra o processo geral para implementar o cluster.
 
     O script realiza as seguintes tarefas:
     - Instala etcd, Docker e Kubernetes recursos, tais como kubelet. etcd é um arquivo de chave-valor distribuída que fornece uma forma de armazenar dados num cluster de máquinas. Docker suporta virtualizations de nível do sistema operacional básico conhecidos como contentores. Kubelet é o agente de nó que é executado em cada nó de Kubernetes.
-    - Configura o serviço de etcd.
-    - Configura o serviço de kubelet.
+    - Configura a **etcd** serviço.
+    - Configura a **kubelet** serviço.
     - Inicia kubelet. Esta tarefa envolve os seguintes passos:
         1. Inicia o serviço de API.
         2. Inicia o serviço de controlador.
@@ -77,9 +77,9 @@ O diagrama seguinte mostra o processo geral para implementar o cluster.
 7. Transfira e execute a extensão de script personalizado.
 
 7. Execute o script de agente. O script personalizado do agente faz as seguintes tarefas:
-    - Instala etcd
-    - Configura o serviço de kubelet
-    - Adere ao cluster de Kubernetes
+    - Instala **etcd**.
+    - Configura a **kubelet** serviço.
+    - Adere ao cluster de Kubernetes.
 
 ## <a name="steps-for-troubleshooting"></a>Passos de resolução de problemas
 
@@ -119,65 +119,52 @@ Ao implementar o cluster do Kubernetes, pode rever o estado de implementação p
 
     Cada item tem um ícone de estado de verde ou vermelho.
 
-## <a name="get-logs-from-a-vm"></a>Obter registos a partir de uma VM
+## <a name="review-deployment-logs"></a>Rever os registos de implementação
 
-Para gerar os registos, precisa de ligar ao mestre de VM para o seu cluster, abra uma linha de comandos do bash e, em seguida, executar um script. O mestre de VM pode ser encontrada no seu grupo de recursos do cluster e o nome `k8s-master-<sequence-of-numbers>`. 
+Se o portal do Azure Stack não fornece informações suficientes para resolver problemas ou superar uma falha de implementação, a próxima etapa é examinar os registos do cluster. Para obter manualmente os logs de implantação, normalmente, tem de ligar a uma das máquinas de virtuais de principal do cluster. Uma abordagem alternativa mais simples seria para transferir e executar o seguinte procedimento [script de Bash](https://aka.ms/AzsK8sLogCollectorScript) fornecidos pela equipa do Azure Stack. Este script liga-se para o DVM e máquinas de virtuais do cluster, recolhe registos de cluster e de sistema relevantes e transfere-os para a estação de trabalho.
 
 ### <a name="prerequisites"></a>Pré-requisitos
 
-É necessário um bash linha de comandos no computador que utilizar para gerir o Azure Stack. Utilize o bash para executar os scripts de aceder aos registos. Num computador Windows, pode usar a linha de comandos de bash, que é instalada com o Git. Para obter a versão mais recente do git, veja [transferências Git](https://git-scm.com/downloads).
+Precisará de uma linha de comandos do Bash na máquina que utiliza para gerir o Azure Stack. Num computador Windows, pode obter um Bash prompt instalando [Git para Windows](https://git-scm.com/downloads). Uma vez instalado, procure _Git Bash_ no seu menu Iniciar.
 
-### <a name="get-logs"></a>Obter registos
+### <a name="retrieving-the-logs"></a>A obter os registos
 
-Para obter os registos, siga os passos seguintes:
+Siga estes passos para recolher e transferir os registos do cluster:
 
-1. Abra uma linha de comandos do bash. Se estiver a utilizar o Git num computador Windows, pode abrir uma linha de comandos bash do seguinte caminho: `c:\programfiles\git\bin\bash.exe`.
-2. Execute os seguintes comandos do bash:
+1. Abra uma linha de comandos do Bash. A partir de uma máquina Windows, abra _Git Bash_ ou executar: `C:\Program Files\Git\git-bash.exe`.
+
+2. Transferir o script de recoletor de registo ao executar os comandos seguintes na sua linha de comandos do Bash:
 
     ```Bash  
     mkdir -p $HOME/kuberneteslogs
     cd $HOME/kuberneteslogs
     curl -O https://raw.githubusercontent.com/msazurestackworkloads/azurestack-gallery/master/diagnosis/getkuberneteslogs.sh
-    sudo chmod 744 getkuberneteslogs.sh
+    chmod 744 getkuberneteslogs.sh
     ```
 
-    > [!Note]  
-    > No Windows, não precisa de executar `sudo`. Em vez disso, pode simplesmente usar `chmod 744 getkuberneteslogs.sh`.
+3. Procure as informações necessárias pelo script e executá-lo:
 
-3. Na mesma sessão, execute o seguinte comando com os parâmetros atualizados para corresponder ao seu ambiente:
-
-    ```Bash  
-    ./getkuberneteslogs.sh --identity-file id_rsa --user azureuser --vmd-host 192.168.102.37
-    ```
-
-4. Reveja os parâmetros e defina os valores com base no seu ambiente.
     | Parâmetro           | Descrição                                                                                                      | Exemplo                                                                       |
     |---------------------|------------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------|
-    | -d, --vmd-host       | O IP público ou o FQDN do DVM. O nome da VM começa com `vmd-`.                                                       | IP: 192.168.102.38<br><br>DNS: vmd-dnsk8-frog.local.cloudapp.azurestack.external |
-    | -f, --force | Não pedir antes de carregar a chave privada. | |
-    | -i,-arquivo de identidade | RSA ficheiro de chave privada para ligar a VM principal do Kubernetes. A chave tem de começar com: <br>`-----BEGIN RSA PRIVATE KEY-----` | C:\data\id_rsa.pem                                                        |
-    | -h, --help  | Imprimir a utilização do comando para `getkuberneteslogs.sh` script. | |
-    | -m, --master-host          | O IP público ou o nome de domínio completamente qualificado (FQDN) do mestre de cluster de Kubernetes VM. O nome da VM começa com `k8s-master-`.                       | IP: 192.168.102.37<br><br>FQDN: k8s-12345.local.cloudapp.azurestack.external      |
-    | -u, --user          | O nome de utilizador do mestre de cluster de Kubernetes VM. Este nome é definir quando configurar o item do marketplace.                                                                    | azureuser                                                                     |
+    | -d, --vmd-host      | O IP público ou o nome de domínio completamente qualificado (FQDN) do DVM. Nome da máquina virtual é iniciado com `vmd-`. | IP: 192.168.102.38<br>DNS: vmd-myk8s.local.cloudapp.azurestack.external |
+    | -h, --help  | Imprima a utilização do comando. | |
+    | -i,-arquivo de identidade | O ficheiro de chave privada RSA passado para o item do marketplace, ao criar o cluster de Kubernetes. É necessário para remoto para os nós do Kubernetes. | C:\data\id_rsa.pem (Putty)<br>~/.SSH/id_rsa (SSH)
+    | -m, --master-host   | O IP público ou o nome de domínio completamente qualificado (FQDN) de um nó principal do Kubernetes. Nome da máquina virtual é iniciado com `k8s-master-`. | IP: 192.168.102.37<br>FQDN: k8s-12345.local.cloudapp.azurestack.external      |
+    | -u, --user          | O nome de utilizador passado para o item do marketplace, ao criar o cluster de Kubernetes. Necessário para remoto para os nós do Kubernetes | azureuser (valor predefinido) |
 
 
-
-
-   Ao adicionar os valores dos parâmetros, ele poderia uma aparência semelhante ao seguinte código:
+   Ao adicionar os valores dos parâmetros, o comando pode ser algo semelhante a isto:
 
     ```Bash  
-    ./getkuberneteslogs.sh --identity-file "C:\id_rsa.pem" --user azureuser --vmdhost 192.168.102.37
+    ./getkuberneteslogs.sh --identity-file "C:\id_rsa.pem" --user azureuser --vmd-host 192.168.102.37
      ```
 
-    Uma execução com êxito cria os registos.
+4. Após alguns minutos, o script irá transmitir os registos recolhidos para um diretório chamado `KubernetesLogs_{{time-stamp}}`. Lá encontrará um diretório para cada máquina virtual que pertença ao cluster.
 
-    ![Registos gerados](media/azure-stack-solution-template-kubernetes-trouble/azure-stack-generated-logs.png)
+    O script de recoletor de registo também busca de erros nos ficheiros de registo e incluem os passos de resolução de problemas, caso isso aconteça, encontrar um problema conhecido. Certifique-se de que está a executar a versão mais recente do script para aumentar as chances de encontrar problemas conhecidos.
 
-
-4. Obter os registos nas pastas que foram criados pelo comando. O comando cria novas pastas e tempo apresenta-os.
-    - KubernetesLogs*YYYY-MM-DD-XX-XX-XX-XXX*
-        - Dvmlogs
-        - Acsengine-kubernetes-dvm.log
+> [!Note]  
+> Confira esta GitHub [repositório](https://github.com/msazurestackworkloads/azurestack-gallery/tree/master/diagnosis) para obter mais detalhes sobre o script de recoletor de registo.
 
 ## <a name="next-steps"></a>Passos Seguintes
 

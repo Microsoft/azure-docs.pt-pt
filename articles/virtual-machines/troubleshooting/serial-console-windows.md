@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 10/31/2018
 ms.author: harijay
-ms.openlocfilehash: b280c86b15f7af01b04d41b4c2d625ea4ec4a398
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.openlocfilehash: 57b20f9d694ae0581988762735c35cb65012fd8e
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55104447"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57992363"
 ---
 # <a name="virtual-machine-serial-console-for-windows"></a>Consola de série de máquina virtual para Windows
 
@@ -196,14 +196,14 @@ Todos os dados que são enviados e volta são encriptados na conexão.
 ### <a name="audit-logs"></a>Registos de auditoria
 Todo o acesso à consola de série é iniciado a [diagnósticos de arranque](https://docs.microsoft.com/azure/virtual-machines/linux/boot-diagnostics) registos da máquina virtual. Acesso a estes registos são propriedade e controlado pelo administrador de máquina virtual do Azure.
 
->[!CAUTION]
-Sem palavras-passe de acesso para a consola são registadas. No entanto, se os comandos são executados dentro da consola contém ou palavras-passe, segredos, os nomes de utilizador ou qualquer outra forma de informações de identificação pessoal (PII) de saída, aqueles serão escritos nos registos de diagnóstico de arranque VM. Eles serão escritos, juntamente com todos os outro texto visível, como parte da implementação de volta a rolagem da consola de série função. Estes registos são circulares e apenas indivíduos com permissões de leitura à conta de armazenamento de diagnóstico tem acesso aos mesmos. No entanto, recomendamos que siga a prática recomendada de usar o ambiente de trabalho remoto para tudo o que pode envolver segredos e/ou PII.
+> [!CAUTION]
+> Sem palavras-passe de acesso para a consola são registadas. No entanto, se os comandos são executados dentro da consola contém ou palavras-passe, segredos, os nomes de utilizador ou qualquer outra forma de informações de identificação pessoal (PII) de saída, aqueles serão escritos nos registos de diagnóstico de arranque VM. Eles serão escritos, juntamente com todos os outro texto visível, como parte da implementação de volta a rolagem da consola de série função. Estes registos são circulares e apenas indivíduos com permissões de leitura à conta de armazenamento de diagnóstico tem acesso aos mesmos. No entanto, recomendamos que siga a prática recomendada de usar o ambiente de trabalho remoto para tudo o que pode envolver segredos e/ou PII.
 
 ### <a name="concurrent-usage"></a>Utilização em simultâneo
 Se um usuário estiver conectado à consola de série e outro utilizador com êxito pedidos de acesso a essa mesma máquina virtual, o primeiro utilizador será desligado e o segundo utilizador ligado à mesma sessão.
 
->[!CAUTION]
-Isso significa que um utilizador que está desligado não terminar a sessão. A capacidade de impor um fim de sessão após a desconexão (ao utilizar SIGHUP ou mecanismo similar) ainda está no plano. Para Windows, há um tempo limite automático ativado no SAC; para o Linux, pode configurar a definição de tempo limite de terminal.
+> [!CAUTION]
+> Isso significa que um utilizador que está desligado não terminar a sessão. A capacidade de impor um fim de sessão após a desconexão (ao utilizar SIGHUP ou mecanismo similar) ainda está no plano. Para Windows, há um tempo limite automático ativado no SAC; para o Linux, pode configurar a definição de tempo limite de terminal.
 
 ## <a name="accessibility"></a>Acessibilidade
 A acessibilidade é um foco principal para a consola de série do Azure. Para esse fim, garantimos que a consola de série está acessível para o elemento visual e ouvir reduzida, bem como as pessoas que podem não ser capazes de usar um mouse.
@@ -215,6 +215,7 @@ Utilize o **separador** chave no teclado para navegar na interface de consola de
 A consola de série tem suporte de leitor de ecrã incorporado. Navegação com um leitor de ecrã ativado, permitirá que o texto alternativo para o botão selecionado atualmente a ser lido em voz alta pelo leitor de ecrã.
 
 ## <a name="common-scenarios-for-accessing-the-serial-console"></a>Cenários comuns para aceder à consola de série
+
 Cenário          | Ações na consola de série
 :------------------|:-----------------------------------------
 Regras de firewall incorreta | Aceda a seriais regras de firewall de Windows de consola e correção.
@@ -254,7 +255,7 @@ Consola de série não funciona com um firewall de conta de armazenamento. | Con
 
 **P. Como posso enviar comentários?**
 
-R. Fornecer comentários através da criação de um problema do GitHub https://aka.ms/serialconsolefeedback. Como alternativa (menos preferencial), pode enviar comentários por meio azserialhelp@microsoft.com ou na categoria de máquina virtual de http://feedback.azure.com.
+R. Fornecer comentários através da criação de um problema do GitHub https://aka.ms/serialconsolefeedback. Como alternativa (menos preferencial), pode enviar comentários por meio azserialhelp@microsoft.com ou na categoria de máquina virtual de https://feedback.azure.com.
 
 **P. A consola de série suporta copiar/colar?**
 

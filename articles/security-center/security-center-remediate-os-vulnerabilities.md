@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/28/2018
 ms.author: rkarlin
-ms.openlocfilehash: f3764e5f4a5d6bbc3d6988321a2d7648012825ae
-ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.openlocfilehash: f4558c6fdb1e5e4f0ffb7a4b4fdb1ab62eb4cfa9
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/02/2019
-ms.locfileid: "57242246"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58121286"
 ---
 # <a name="remediate-security-configurations-in-azure-security-center"></a>Remediar configurações de segurança no Centro de segurança do Azure
 Centro de segurança do Azure diariamente analisa o sistema operativo (SO) das suas máquinas virtuais (VMs) e a computadores para uma configuração que poderia fazer com que as VMs e computadores mais vulneráveis a ataques. Centro de segurança recomenda que resolver vulnerabilidades quando a configuração do SO não coincide com as regras de configuração de segurança recomendadas e recomenda alterações de configuração para resolver estas vulnerabilidades.
@@ -31,34 +31,34 @@ Para obter mais informações sobre as configurações específicas que estão a
 
 Este exemplo aborda a recomendação "Remediar configurações de segurança" em **computação e aplicações**.
 1. No Centro de segurança, no painel esquerdo, selecione **computação e aplicações**.  
-  O **computação e aplicações** é aberta a janela.
+   O **computação e aplicações** é aberta a janela.
 
    ![Remediar configurações de segurança][1]
 
 2. Selecione **remediar configurações de segurança**.  
-  O **configurações de segurança** é aberta a janela.
+   O **configurações de segurança** é aberta a janela.
 
    ![A janela de "Configurações de segurança"][2]
 
-  A secção superior de dashboard apresenta:
+   A secção superior de dashboard apresenta:
 
-  - **Regras com falhas por gravidade**: O número total de regras que a configuração do SO falhou em suas VMs e computadores, discriminados por gravidade.
-  - **Regras falhadas por tipo**: O número total de regras que a configuração do SO falhou em suas VMs e computadores, divididas por tipo.
-  - **Regras do Windows com falhas**: O número total de regras com falhas por suas configurações de SO do Windows.
-  - **Regras do Linux com falhas**: O número total de regras com falhas por suas configurações de SO Linux.
+   - **Regras com falhas por gravidade**: O número total de regras que a configuração do SO falhou em suas VMs e computadores, discriminados por gravidade.
+   - **Regras falhadas por tipo**: O número total de regras que a configuração do SO falhou em suas VMs e computadores, divididas por tipo.
+   - **Regras do Windows com falhas**: O número total de regras com falhas por suas configurações de SO do Windows.
+   - **Regras do Linux com falhas**: O número total de regras com falhas por suas configurações de SO Linux.
 
-  Seção inferior do dashboard apresenta uma lista de todas as regras com falhas para as suas VMs e computadores e a gravidade da atualização em falta. A lista contém os seguintes elementos:
+   Seção inferior do dashboard apresenta uma lista de todas as regras com falhas para as suas VMs e computadores e a gravidade da atualização em falta. A lista contém os seguintes elementos:
 
-  - **CCEID**: O identificador exclusivo CCE para a regra. Centro de segurança utiliza a enumeração de configuração comum (CCE) para atribuir os identificadores exclusivos para as regras de configuração.
-  - **Nome**: O nome da regra com falhas.
-  - **Tipo de regra**: O *chave de registo*, *política de segurança*, *política de auditoria*, ou *IIS* tipo de regra.
-  - **Não. de VMs e computadores**: O número total de VMs e computadores que se aplica a regra com falhas.
-  - **Gravidade de regra**: O valor CCE *crítico*, *importante*, ou *aviso*.
-  - **estado**: O estado atual da Recomendação:
+   - **CCEID**: O identificador exclusivo CCE para a regra. Centro de segurança utiliza a enumeração de configuração comum (CCE) para atribuir os identificadores exclusivos para as regras de configuração.
+   - **Nome**: O nome da regra com falhas.
+   - **Tipo de regra**: O *chave de registo*, *política de segurança*, *política de auditoria*, ou *IIS* tipo de regra.
+   - **Não. de VMs e computadores**: O número total de VMs e computadores que se aplica a regra com falhas.
+   - **Gravidade de regra**: O valor CCE *crítico*, *importante*, ou *aviso*.
+   - **estado**: O estado atual da Recomendação:
 
-    - **Abra**: A recomendação ainda não foi tratada.
-    - **Em curso**: A recomendação está atualmente a ser aplicada aos recursos e é necessária nenhuma ação por si.
-    - **Resolvido**: A recomendação foi aplicada. Quando o problema for resolvido, a entrada fica a cinzento.
+     - **Abra**: A recomendação ainda não foi tratada.
+     - **Em curso**: A recomendação está atualmente a ser aplicada aos recursos e é necessária nenhuma ação por si.
+     - **Resolvido**: A recomendação foi aplicada. Quando o problema for resolvido, a entrada fica a cinzento.
 
 3. Para ver os detalhes de uma regra com falhas, selecione-o na lista.
 
@@ -79,17 +79,17 @@ Este exemplo aborda a recomendação "Remediar configurações de segurança" em
    - **Operação de regra**: A operação de regra que é utilizada pelo centro de segurança durante a análise da sua configuração do SO da VM contra a regra.
 
 4. Na parte superior da janela de vista detalhada, selecione **pesquisa**.  
-  Pesquisa abre uma lista de áreas de trabalho têm VMs e computadores com o erro de correspondência de configurações de segurança selecionado. A seleção de área de trabalho é mostrada apenas se a regra selecionada aplica-se a várias VMs que estão ligadas a diferentes áreas de trabalho.
+   Pesquisa abre uma lista de áreas de trabalho têm VMs e computadores com o erro de correspondência de configurações de segurança selecionado. A seleção de área de trabalho é mostrada apenas se a regra selecionada aplica-se a várias VMs que estão ligadas a diferentes áreas de trabalho.
 
    ![Áreas de trabalho listadas][4]
 
 5. Selecione uma área de trabalho.  
-  Uma consulta de pesquisa de registos do Azure Monitor abre filtrado para a área de trabalho com o erro de correspondência de configurações de segurança.
+   Uma consulta de pesquisa de registos do Azure Monitor abre filtrado para a área de trabalho com o erro de correspondência de configurações de segurança.
 
    ![Área de trabalho com a Vulnerabilidade do SO][5]
 
 6. Na lista, selecione um computador.  
-  Um novo resultado da pesquisa é aberto com informações filtradas apenas para esse computador.
+   Um novo resultado da pesquisa é aberto com informações filtradas apenas para esse computador.
 
    ![Informações detalhadas sobre o computador selecionado][6]
 

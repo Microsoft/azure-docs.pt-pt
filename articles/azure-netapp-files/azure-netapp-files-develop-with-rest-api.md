@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/06/2019
 ms.author: b-juche
-ms.openlocfilehash: b67f7a613cd72e7a69b40741d971382276a38334
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 56667b9a47411b2abae30ff159fa6bc555fec070
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57768064"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58104629"
 ---
 # <a name="develop-for-azure-netapp-files-with-rest-api"></a>Programar para os ficheiros NetApp do Azure com a REST API 
 
@@ -29,23 +29,23 @@ A API REST para o serviço de ficheiros do Azure NetApp define operações HTTP 
 
 1. [Instalar a CLI do Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) se ainda não fez isso.
 2. Crie um principal de serviço no Azure Active Directory (Azure AD):
-    1. Certifique-se de que tenha [permissões suficientes](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#required-permissions).
+   1. Certifique-se de que tenha [permissões suficientes](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#required-permissions).
 
-    1. Introduza o seguinte comando na CLI do Azure:  
+   1. Introduza o seguinte comando na CLI do Azure:  
 
-            az ad sp create-for-rbac --name $YOURSPNAMEGOESHERE--password $YOURGENERATEDPASSWORDGOESHERE
+           az ad sp create-for-rbac --name $YOURSPNAMEGOESHERE--password $YOURGENERATEDPASSWORDGOESHERE
 
-    A saída do comando é semelhante ao seguinte exemplo:  
+      A saída do comando é semelhante ao seguinte exemplo:  
 
-            { 
-                "appId": "appIDgoeshere", 
-                "displayName": "APPNAME", 
-                "name": "http://APPNAME", 
-                "password": "supersecretpassword", 
-                "tenant": "tenantIDgoeshere" 
-            } 
+           { 
+               "appId": "appIDgoeshere", 
+               "displayName": "APPNAME", 
+               "name": "http://APPNAME", 
+               "password": "supersecretpassword", 
+               "tenant": "tenantIDgoeshere" 
+           } 
 
-    Mantenha a saída do comando.  Terá do `appId`, `password`, e `tenant` valores. 
+      Mantenha a saída do comando.  Terá do `appId`, `password`, e `tenant` valores. 
 
 3. Um token de acesso de OAuth do pedido:
 

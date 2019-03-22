@@ -10,12 +10,12 @@ ms.reviewer: jonfan, estfan, LADocs
 ms.topic: article
 ms.assetid: 5c1b1e15-3b6c-49dc-98a6-bdbe7cb75339
 ms.date: 07/21/2017
-ms.openlocfilehash: 6a8c4583d86b41e767e8a2057bae4cef8943a1c1
-ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
+ms.openlocfilehash: 80776f9284752e8554486cb458096ccc9319949e
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57193423"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58112318"
 ---
 # <a name="monitor-status-set-up-diagnostics-logging-and-turn-on-alerts-for-azure-logic-apps"></a>Monitorizar o estado, configurar o registo de diagnóstico e ative alertas para o Azure Logic Apps
 
@@ -93,8 +93,8 @@ Antes de começar, tem de ter uma área de trabalho do Log Analytics. Saiba mais
    1. Selecione **enviar para o Log Analytics**. 
    2. Sob **do Log Analytics**, escolha **configurar**. 
    3. Sob **áreas de trabalho do OMS**, selecione a área de trabalho para utilizar para o registo.
-   > [!NOTE]
-   > As áreas de trabalho do OMS são agora referidas como áreas de trabalho do Log Analytics.
+      > [!NOTE]
+      > As áreas de trabalho do OMS são agora referidas como áreas de trabalho do Log Analytics.
    4. Sob **Log**, selecione a **WorkflowRuntime** categoria.
    5. Escolha o intervalo de métrica.
    6. Quando tiver terminado, escolha **Save** (Guardar).

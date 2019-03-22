@@ -16,12 +16,12 @@ ms.date: 05/21/2018
 ms.author: celested
 ms.reviewer: asteen
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 995f9d2bc0ad0a6b985790d75a63866a3a2d55bc
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: f8db5552ad81a1a47db72a5372e643a6fc167888
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57445369"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58091210"
 ---
 # <a name="cant-access-this-corporate-application-error-when-using-an-application-proxy-application"></a>Erro "Não é possível aceder a esta aplicação empresarial" quando utilizar uma aplicação de Proxy de aplicações
 
@@ -75,19 +75,19 @@ Como primeiro passo rápido, confirme e corrigir a URL interna ao abrir a aplica
 
 Para verificar a aplicação é atribuído a um grupo de conectores em funcionamento:
 
-1.  Abra a aplicação no portal, acedendo a **do Azure Active Directory**, clicar em **aplicações empresariais**, em seguida, **todas as aplicações.** Abra a aplicação, em seguida, selecione **Proxy de aplicações** no menu à esquerda.
+1. Abra a aplicação no portal, acedendo a **do Azure Active Directory**, clicar em **aplicações empresariais**, em seguida, **todas as aplicações.** Abra a aplicação, em seguida, selecione **Proxy de aplicações** no menu à esquerda.
 
-2.  Veja o campo de grupo do conector. Se não existirem não existem conectores ativos no grupo, verá um aviso. Se não vir quaisquer avisos, passarei para "verificar todas as portas necessárias estão na lista de permissões".
+2. Veja o campo de grupo do conector. Se não existirem não existem conectores ativos no grupo, verá um aviso. Se não vir quaisquer avisos, passarei para "verificar todas as portas necessárias estão na lista de permissões".
 
-3.  Se o problema é mostrar o grupo do conector, utilize a menu pendente para selecionar o grupo correto e confirme que já não vê quaisquer avisos. Se o grupo do conector prevista é apresentada, clique a mensagem de aviso para abrir a página com a gestão do conector.
+3. Se o problema é mostrar o grupo do conector, utilize a menu pendente para selecionar o grupo correto e confirme que já não vê quaisquer avisos. Se o grupo do conector prevista é apresentada, clique a mensagem de aviso para abrir a página com a gestão do conector.
 
-4.  A partir daqui, existem algumas formas de fazer uma busca ainda mais:
+4. A partir daqui, existem algumas formas de fazer uma busca ainda mais:
 
-  * Mova um conector do Active Directory para o grupo: Se tiver um conector do Active Directory deve pertencer a este grupo e com a linha de visão para a aplicação de back-end de destino, pode mover o conector para o grupo atribuído. Para tal, clique o conector. No campo do "Grupo de conectores", use a menu pendente para selecionar o grupo correto e clique em Guardar.
+   * Mova um conector do Active Directory para o grupo: Se tiver um conector do Active Directory deve pertencer a este grupo e com a linha de visão para a aplicação de back-end de destino, pode mover o conector para o grupo atribuído. Para tal, clique o conector. No campo do "Grupo de conectores", use a menu pendente para selecionar o grupo correto e clique em Guardar.
 
-  * Transferir um novo conector para esse grupo: Nesta página, pode obter a ligação para [transferir um novo conector](https://download.msappproxy.net/Subscription/d3c8b69d-6bf7-42be-a529-3fe9c2e70c90/Connector/Download). Instale o conector num computador com a linha de visão direta para a aplicação de back-end. Normalmente, o conector é instalado no mesmo servidor que o aplicativo. Utilize a ligação de conector de transferência para transferir um conector para o computador de destino. Em seguida, clique o conector e utilize o menu pendente "conector do grupo" para se certificar de que ele pertence ao grupo certo.
+   * Transferir um novo conector para esse grupo: Nesta página, pode obter a ligação para [transferir um novo conector](https://download.msappproxy.net/Subscription/d3c8b69d-6bf7-42be-a529-3fe9c2e70c90/Connector/Download). Instale o conector num computador com a linha de visão direta para a aplicação de back-end. Normalmente, o conector é instalado no mesmo servidor que o aplicativo. Utilize a ligação de conector de transferência para transferir um conector para o computador de destino. Em seguida, clique o conector e utilize o menu pendente "conector do grupo" para se certificar de que ele pertence ao grupo certo.
 
-  * Investigar um conector inativo: Se um conector mostra como inativo, não consegue contactar o serviço. Este erro é normalmente devido a algumas portas necessárias a ser bloqueadas. Para resolver este problema, passarei para "Verifique se todas as portas necessárias estão na lista de permissões".
+   * Investigar um conector inativo: Se um conector mostra como inativo, não consegue contactar o serviço. Este erro é normalmente devido a algumas portas necessárias a ser bloqueadas. Para resolver este problema, passarei para "Verifique se todas as portas necessárias estão na lista de permissões".
 
 Depois de utilizar estes passos para garantir que a aplicação é atribuída a um grupo com a trabalhar de conectores, teste o aplicativo novamente. Se ainda não está funcionando, avance para a secção seguinte.
 

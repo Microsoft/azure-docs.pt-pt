@@ -1,6 +1,6 @@
 ---
-title: Gerir partilhas de matriz Virtual StorSimple | Microsoft Docs
-description: Descreve o Gestor de dispositivos do StorSimple e explica como utilizá-la para gerir partilhas na sua matriz de Virtual StorSimple.
+title: Gerir partilhas de matriz Virtual StorSimple | Documentos da Microsoft
+description: Descreve o StorSimple Device Manager e explica como usá-lo para gerir partilhas em sua matriz Virtual StorSimple.
 services: storsimple
 documentationcenter: ''
 author: manuaery
@@ -14,134 +14,134 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2016
 ms.author: manuaery
-ms.openlocfilehash: e5c62689de36baa175001f5f4f70d87568876ef0
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 82a6cdb6c9a39a0d196049a7ba662681ea06b36a
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "23876272"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58092434"
 ---
-# <a name="use-the-storsimple-device-manager-service-to-manage-shares-on-the-storsimple-virtual-array"></a>Utilizar o serviço StorSimple Manager de dispositivos para gerir partilhas na matriz Virtual StorSimple
+# <a name="use-the-storsimple-device-manager-service-to-manage-shares-on-the-storsimple-virtual-array"></a>Utilizar o serviço StorSimple Device Manager para gerir partilhas na matriz Virtual StorSimple
 
 ## <a name="overview"></a>Descrição geral
 
-Este tutorial explica como utilizar o serviço do Gestor de dispositivos do StorSimple para criar e gerir partilhas na sua matriz de Virtual StorSimple.
+Este tutorial explica como utilizar o serviço StorSimple Device Manager para criar e gerir partilhas em sua matriz Virtual StorSimple.
 
-O serviço do Gestor de dispositivos do StorSimple é uma extensão no portal do Azure permite-lhe gerir solução StorSimple a partir de uma interface web único. Além da gestão de partilhas e os volumes, pode utilizar o serviço StorSimple Manager de dispositivos para ver e gerir dispositivos, ver alertas, gerir políticas de cópia de segurança e gerir o catálogo de cópias de segurança.
+O serviço StorSimple Device Manager é uma extensão no portal do Azure que lhe permite gerir a solução StorSimple a partir de uma interface web único. Além da gestão de compartilhamentos e volumes, pode utilizar o serviço StorSimple Device Manager para ver e gerir dispositivos, ver alertas, gerir políticas de cópia de segurança e gerir o catálogo de cópia de segurança.
 
 ## <a name="share-types"></a>Tipos de partilha
 
-StorSimple partilhas podem ser:
+Partilhas de StorSimple podem ser:
 
-* **Afixado localmente**: dados nestas partilhas permanece na matriz permanente e não transbordam para a nuvem.
-* **Em camadas**: dados nestas partilhas podem transbordam para a nuvem. Quando cria uma partilha em camadas, aproximadamente, 10% do espaço é aprovisionado no escalão local e é aprovisionado 90% do espaço na nuvem. Por exemplo, se aprovisionado uma partilha de 1 TB, 100 GB deverá residir no espaço local e 900 GB seria utilizada na nuvem quando as camadas de dados. Por sua vez Isto implica que se executar a partir do espaço local no dispositivo, não é possível aprovisionar uma partilha em camadas (porque a 10% necessário no escalão local não estará disponível).
+* **Afixado localmente**: Os dados nestas partilhas permanecem na matriz durante todo o tempo e não transbordam para a cloud.
+* **Camadas**: Dados nestas partilhas podem transbordam para a nuvem. Quando cria uma partilha em camadas, aproximadamente 10% do espaço é aprovisionado no escalão local e 90% do espaço é aprovisionado na cloud. Por exemplo, se tiver aprovisionado um compartilhamento de 1 TB, 100 GB seria residem no espaço de local e 900 GB seria usado na cloud quando as camadas de dados. Isso por sua vez, implica que se executar fora de todo o espaço local no dispositivo, não pode aprovisionar uma partilha em camadas (porque a 10% necessário no escalão local não estará disponível).
 
-### <a name="provisioned-capacity"></a>Capacidade de aprovisionamento
+### <a name="provisioned-capacity"></a>Capacidade aprovisionada
 
-Consulte a tabela seguinte para a capacidade máxima de aprovisionado para cada tipo de partilha.
+Consulte a tabela seguinte para máxima capacidade aprovisionada para cada tipo de partilha.
 
 | **Identificador de limite** | **Limite** |
 | --- | --- |
 | Tamanho mínimo de uma partilha em camadas |500 GB |
 | Tamanho máximo de uma partilha em camadas |20 TB |
-| Tamanho mínimo de uma partilha afixado localmente |50 GB |
-| Tamanho máximo de uma partilha afixado localmente |2 TB |
+| Tamanho mínimo de uma partilha de afixado localmente |50 GB |
+| Tamanho máximo de uma partilha de afixado localmente |2 TB |
 
 ## <a name="the-shares-blade"></a>O painel de partilhas
 
-O **partilhas** menu no painel de resumo de serviço do StorSimple mostra uma lista de partilhas de armazenamento numa matriz StorSimple fornecida e permite-lhe geri-los.
+O **partilhas** menu no seu painel de resumo do serviço StorSimple é apresentada a lista de partilhas de armazenamento de uma determinada matriz do StorSimple e permite-lhe geri-los.
 
 ![Painel de partilhas](./media/storsimple-virtual-array-manage-shares/shares-blade.png)
 
-Uma partilha é constituída por uma série de atributos:
+Uma partilha consiste numa série de atributos:
 
-* **Nome da partilha** – um nome descritivo que têm de ser exclusivos e ajuda a identificar a partilha.
-* **Estado** – pode ser online ou offline. Se uma partilha estiver offline, os utilizadores da partilha não será possível aceder à mesma.
-* **Tipo** – indica se a partilha está **em camadas** (predefinição) ou **afixado localmente**.
-* **Capacidade** – Especifica a quantidade de dados utilizadas em comparação com a quantidade total de dados que podem ser armazenados na partilha.
-* **Descrição** – uma definição opcional que o ajuda descrevem a partilha.
-* **Permissões** -permissões do NTFS para a partilha que podem ser geridos através do Explorador do Windows.
+* **Nome da partilha** – um nome descritivo, que tem de ser exclusivo e ajuda a identificar a partilha.
+* **Estado** – pode estar online ou offline. Se uma partilha estiver offline, utilizadores da partilha não será capazes de aceder ao mesmo.
+* **Tipo** – indica se a partilha está **em camadas** (predefinição) ou **localmente afixado**.
+* **Capacidade** – Especifica a quantidade de dados utilizados em comparação com a quantidade total de dados que podem ser armazenados na partilha.
+* **Descrição** – uma definição opcional que o ajuda a descrever a partilha.
+* **Permissões** -permissões de NTFS o para a partilha que podem ser geridas através do Explorador do Windows.
 * **Cópia de segurança** – no caso da matriz Virtual StorSimple, todas as partilhas são ativadas automaticamente para cópia de segurança.
 
 ![Detalhes de partilhas](./media/storsimple-virtual-array-manage-shares/share-details.png)
 
 Utilize as instruções neste tutorial para realizar as seguintes tarefas:
 
-* Adicione uma partilha
+* Adicionar uma partilha
 * Modificar uma partilha
-* Colocar offline uma partilha
+* Colocar uma partilha offline
 * Eliminar uma partilha
 
-## <a name="add-a-share"></a>Adicione uma partilha
+## <a name="add-a-share"></a>Adicionar uma partilha
 
-1. No painel Resumo de serviço do StorSimple, clique em **+ Adicionar partilha** na barra de comando. Isto abre-se a **Adicionar partilha** painel.
+1. No painel Resumo do serviço do StorSimple, clique em **+ Adicionar partilha** na barra de comandos. Esta ação abre o **Adicionar partilha** painel.
 
-    ![Adicionar a partilha](./media/storsimple-virtual-array-manage-shares/add-share.png)
+    ![Adicionar partilha](./media/storsimple-virtual-array-manage-shares/add-share.png)
 
-2. No **Adicionar partilha** painel, efetue o seguinte procedimento:
+2. Na **Adicionar partilha** painel, faça o seguinte:
    
-    1. No **nome da partilha** campo, introduza um nome exclusivo para a partilha. O nome tem de ser uma cadeia que contém 3 e 127 carateres.
+   1. Na **nome da partilha** , insira um nome exclusivo para a sua partilha. O nome tem de ser uma cadeia que contém 3 e 127 carateres.
 
-    2. Opcional **Descrição** para a partilha. A descrição irão ajudá-lo a identificar os proprietários de partilha.
+   2. Opcional **Descrição** para a partilha. A descrição ajudará a identificar os proprietários de partilha.
 
-    3. No **tipo** pendente lista, especifique se pretende criar um **em camadas** ou **afixado localmente** partilhar. Para cargas de trabalho que necessitem de garantias locais, latências baixas e desempenho superior, selecione **afixado localmente partilha**. Para todos os outros dados, selecione **em camadas** partilhar.
+   3. Na **tipo** lista pendente, especifique se pretende criar um **em camadas** ou **localmente afixado** partilhar. Para cargas de trabalho que necessitem de garantias locais, latências baixas e um desempenho mais elevado, selecione **localmente afixado partilha**. Para todos os outros dados, selecione **em camadas** partilhar.
 
-    4. No **capacidade** campo, especifique o tamanho da partilha. Uma partilha em camadas tem de estar entre 500 GB e 20 TB e uma partilha localmente afixada tem de estar entre 50 GB e 2 TB.
+   4. Na **capacidade** campo, especifique o tamanho da partilha. Tem de ser uma partilha em camadas entre 500 GB e 20 TB e um compartilhamento de localmente afixado tem de estar entre 50 GB e 2 TB.
 
-    5. No **predefinir permissões totais** campo, atribua as permissões para o utilizador ou grupo que está a aceder a esta partilha. Especifique o nome de utilizador ou o grupo de utilizadores no  _john@contoso.com_  formato. Recomendamos que utilize um grupo de utilizadores (em vez de um utilizador único) para permitir que os privilégios de administrador para aceder a estas partilhas. Depois de ter de atribuir as permissões aqui, em seguida, pode utilizar o Explorador de ficheiros para modificar estas permissões.
-3. Quando tiver terminado de configurar a partilha, clique em **criar**. Será criada uma partilha com as definições especificadas e verá uma notificação. Por predefinição, será ativada para a partilha de cópia de segurança.
-4. Para confirmar que a partilha foi criada com êxito, vá para o **partilhas** painel. Deverá ver a partilha na lista.
+   5. Na **predefinir todas as permissões** campo, atribua as permissões para o utilizador ou grupo que está a aceder a esta partilha. Especifique o nome do utilizador ou o grupo de utilizadores no _john@contoso.com_ formato. Recomendamos que utilize um grupo de utilizadores (em vez de um único utilizador) para permitir que os privilégios de administrador para aceder a esses compartilhamentos. Depois de ter atribuído as permissões aqui, pode utilizar o Explorador de Ficheiros para modificar estas permissões.
+3. Quando tiver terminado de configurar a partilha, clique em **criar**. Será criado um compartilhamento com as definições especificadas e verá uma notificação. Por predefinição, será ativada para a partilha de cópia de segurança.
+4. Para confirmar que a partilha foi criada com êxito, vá para o **partilhas** painel. Deverá ver a partilha listada.
    
     ![Partilha de criar com êxito](./media/storsimple-virtual-array-manage-shares/share-success.png)
 
 ## <a name="modify-a-share"></a>Modificar uma partilha
 
-Modificar uma partilha quando precisar de alterar a descrição da partilha. Outras propriedades de partilha não podem ser modificadas assim que a partilha for criada.
+Modificar uma partilha quando precisar de alterar a descrição da partilha. Não existem outras propriedades de partilha podem ser modificadas depois de criar a partilha.
 
 #### <a name="to-modify-a-share"></a>Para modificar uma partilha
 
-1. Do **partilhas** definição no painel de resumo de serviço do StorSimple, selecione a matriz virtual no qual reside a partilha que pretende modificar.
-2. **Selecione** a partilha para ver a descrição do atual e modificá-lo.
-3. Guarde as alterações ao clicar no **guardar** barra de comando. As definições especificadas serão aplicadas e verá uma notificação.
+1. Partir do **partilhas** definição no painel de resumo do serviço StorSimple, selecione a matriz virtual no qual reside a partilha que pretende modificar.
+2. **Selecione** a partilha para exibir a descrição do atual e modificá-lo.
+3. Guardar as alterações ao clicar o **guardar** barra de comandos. As definições especificadas serão aplicadas e verá uma notificação.
    
     ![ Editar partilha](./media/storsimple-virtual-array-manage-shares/share-edit.png)
 
-## <a name="take-a-share-offline"></a>Colocar offline uma partilha
+## <a name="take-a-share-offline"></a>Colocar uma partilha offline
 
-Poderá ter de colocar offline uma partilha quando estiver a planear modificá-lo ou eliminá-lo. Quando uma partilha estiver offline, não está disponível para acesso de leitura e escrita. Terá de colocar offline a partilha no anfitrião, bem como no dispositivo.
+Terá de colocar uma partilha offline quando estiver a planear para modificá-lo ou eliminá-lo. Quando uma partilha estiver offline, não está disponível para o acesso de leitura / escrita. Terá de levar a partilha offline no anfitrião, bem como no dispositivo.
 
-#### <a name="to-take-a-share-offline"></a>Para colocar offline uma partilha
+#### <a name="to-take-a-share-offline"></a>Para colocar uma partilha offline
 
-1. Certifique-se de que a partilha em questão não está a ser utilizada antes de colocar-offline.
-2. Efetuar a partilha na matriz offline, efetuando os seguintes passos:
+1. Certifique-se de que a partilha em questão não está a ser utilizada antes de colocar offline.
+2. Colocar a partilha na matriz offline, efetuando os seguintes passos:
    
-    1. Do **partilhas** definição no painel de resumo de serviço do StorSimple, selecione a matriz virtual no qual reside a partilha desejar colocar offline.
+    1. Partir do **partilhas** definição no painel de resumo do serviço StorSimple, selecione a matriz virtual no qual reside a partilha que pretende colocar offline.
 
-    2. **Selecione** de partilha e clique em **...**  (em alternativa com o botão direito nesta linha) e no menu de contexto, selecione **colocar offline**.
+    2. **Selecione** de partilha e clique em **...**  (em alternativa com o botão direito na linha) e no menu de contexto, selecione **colocar offline**.
      
         ![Partilha offline](./media/storsimple-virtual-array-manage-shares/shares-offline.png)
 
-    3. Reveja as informações de **colocar offline** painel e confirme a aceitação da operação. Clique em **colocar offline** para colocar offline a partilha. Verá uma notificação da operação em curso.
+    3. Reveja as informações a **colocar offline** painel e confirme a sua aceitação da operação. Clique em **colocar offline** para colocar a partilha offline. Verá uma notificação da operação em curso.
 
     4. Para confirmar que a partilha com êxito foi colocada offline, vá para o **partilhas** painel. Deverá ver o estado da partilha de como offline.
 
 ## <a name="delete-a-share"></a>Eliminar uma partilha
 
 > [!IMPORTANT]
-> Pode eliminar uma partilha apenas se estiver offline.
+> Pode eliminar uma partilha de apenas se está offline.
 
 
-Conclua os seguintes passos para eliminar uma partilha.
+Conclua os passos seguintes para eliminar uma partilha.
 
-#### <a name="to-delete-a-share"></a>Para eliminar uma partilha
+#### <a name="to-delete-a-share"></a>Eliminar uma partilha
 
-1. Do **partilhas** definição no painel de resumo de serviço do StorSimple, selecione a matriz virtual no qual reside a partilha de que pretende eliminar.
-2. **Selecione** de partilha e clique em **...**  (em alternativa com o botão direito nesta linha) e no menu de contexto, selecione **eliminar**.
+1. Do **partilhas** definição no painel de resumo do serviço StorSimple, selecione a matriz virtual no qual reside a partilha que quer eliminar.
+2. **Selecione** de partilha e clique em **...**  (em alternativa com o botão direito na linha) e no menu de contexto, selecione **eliminar**.
    
-    ![Eliminar a partilha](./media/storsimple-virtual-array-manage-shares/share-delete.png)
-3. Verifique o estado da partilha de que pretende eliminar. Se a partilha de que pretende eliminar não estiver offline, coloque-offline pela primeira vez. Siga os passos no [colocar offline uma partilha](#take-a-share-offline).
-4. Quando lhe for pedido para confirmação no **eliminar** painel, aceite a confirmação e clique em **eliminar**. A partilha agora será eliminada e o **partilhas** painel mostra a lista atualizada de partilhas na matriz virtual.
+    ![Eliminar partilha](./media/storsimple-virtual-array-manage-shares/share-delete.png)
+3. Verificar o estado da partilha que pretende eliminar. Se a partilha que pretende eliminar não estiver offline, colocá-lo offline pela primeira vez. Siga os passos em [colocar uma partilha offline](#take-a-share-offline).
+4. Quando lhe for pedida confirmação no **elimine** painel, aceite a confirmação e clique em **eliminar**. A partilha agora será eliminada e o **partilhas** painel mostra a lista atualizada de partilhas de dentro da matriz virtual.
 
-## <a name="next-steps"></a>Passos seguintes
-Saiba como [clonar uma partilha do StorSimple](storsimple-virtual-array-clone.md).
+## <a name="next-steps"></a>Passos Seguintes
+Saiba como [clonar um compartilhamento de StorSimple](storsimple-virtual-array-clone.md).
 

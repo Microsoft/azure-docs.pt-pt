@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/28/2018
 ms.author: banders
-ms.openlocfilehash: 0f29544890fe10f4914de393a4b153cfe393a2ec
-ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
+ms.openlocfilehash: 66fd42e5aa110b4c9ef686b1d66429ff7dbaf550
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54904306"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57857696"
 ---
 # <a name="understand-azure-reservation-usage-for-your-enterprise-enrollment"></a>Compreender a utilização de reserva do Azure para a inscrição da sua empresa
 
@@ -31,7 +31,7 @@ Se comprasse a reserva num contexto de faturação pay as you go, consulte [comp
 
 Para as secções seguintes, partem do princípio de que está a executar uma VM do Windows Standard_D1_v2 na região Leste região dos EUA e suas informações de reserva parece a tabela seguinte:
 
-| Campo | Valor |
+| Campo | Value |
 |---| --- |
 |ReservationId |8f82d880-d33e-4e0d-bcb5-6bcb5de0c719|
 |Quantidade |1|
@@ -57,7 +57,7 @@ As secções seguintes utilizam o Azure SQL Database como exemplo para descrever
 
 Partem do princípio de que está a executar uma base de dados SQL Gen 4 na região Leste região dos EUA e suas informações de reserva parece a tabela seguinte:
 
-| Campo | Valor |
+| Campo | Value |
 |---| --- |
 |ReservationId |8244e673-83e9-45ad-b54b-3f5295d37cae|
 |Quantidade |2|
@@ -95,5 +95,5 @@ Para saber mais sobre as reservas do Azure, veja os artigos seguintes:
 
 ## <a name="need-help-contact-us"></a>Precisa de ajuda? Contacte-nos.
 
-Se tiver alguma dúvida ou precisar de ajuda, [criar um pedido de suporte](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).
+Se tiver alguma dúvida ou precisar de ajuda, [criar um pedido de suporte](https://go.microsoft.com/fwlink/?linkid=2083458).
 

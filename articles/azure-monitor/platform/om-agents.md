@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 11/23/2018
 ms.author: magoedte
-ms.openlocfilehash: 133e617cd6bac1155ba22276887cf0790221e9de
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: 21294f61c77f0267601c5d0fc1fc9dcf213008e7
+ms.sourcegitcommit: aa3be9ed0b92a0ac5a29c83095a7b20dd0693463
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53186978"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58258836"
 ---
 # <a name="connect-operations-manager-to-log-analytics"></a>Ligar o Operations Manager ao Log Analytics
 Para manter o investimento existente no [System Center Operations Manager](https://docs.microsoft.com/system-center/scom/key-concepts?view=sc-om-1807) e utilizar as capacidades expandidas com o Log Analytics, pode integrar o Operations Manager com a sua área de trabalho do Log Analytics. Desta forma, pode tirar partido das oportunidades do Log Analytics e continuar a utilizar o Operations Manager para:
@@ -132,7 +132,7 @@ Se um servidor proxy interno é entre o grupo de gestão e o serviço do Log Ana
 1. Abra a consola do Operations Manager e selecione a área de trabalho de **Administração**.
 1. Expanda o Operations Management Suite e clique em **Ligações**.
 1. Na vista Ligação OMS, clique em **Configurar Servidor Proxy**.
-1. No **assistente Operations Management Suite: Servidor proxy** página, selecione **utilizar um servidor proxy para aceder ao Operations Management Suite**, e, em seguida, escreva o URL com o número de porta, por exemplo, http://corpproxy:80 e, em seguida, clique em **concluir** .
+1. No **assistente Operations Management Suite: Servidor proxy** página, selecione **utilizar um servidor proxy para aceder ao Operations Management Suite**, e, em seguida, escreva o URL com o número de porta, por exemplo, http:\//corpproxy:80 e clique em  **Concluir**.
 
 Se o servidor proxy requer autenticação, execute os seguintes passos para configurar as credenciais e as definições que têm de ser propagados para computadores geridos que informa ao Log Analytics, no grupo de gestão.
 

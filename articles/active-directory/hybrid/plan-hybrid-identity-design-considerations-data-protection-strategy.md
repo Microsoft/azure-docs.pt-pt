@@ -17,12 +17,12 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.custom: seohack1
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b35060aec8d9d040777fda247c798a42533b2ea4
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 3c5cad3f735494ee74156e22a9bf150911c36eb0
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56182685"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58091482"
 ---
 # <a name="define-data-protection-strategy-for-your-hybrid-identity-solution"></a>Definir a estratégia de proteção de dados para a sua solução de identidade híbrida
 Nesta tarefa, vai definir a estratégia de proteção de dados para a sua solução de identidade híbrida cumprir os requisitos de negócios que definiu no:
@@ -119,9 +119,9 @@ Assim que o utilizador é autenticado com o Azure AD, é importante avaliar o n�
 
 Cada interação no diagrama mostrado na figura X representa um cenário de controlo de acesso que pode ser abrangido pelo Azure AD. Abaixo, pode encontrar uma descrição de cada cenário:
 
-  1. Acesso condicional a aplicações que estão alojadas no local: Pode utilizar dispositivos registados com políticas de acesso para aplicações que estão configuradas para utilizar o AD FS com o Windows Server 2012 R2.
+1. Acesso condicional a aplicações que estão alojadas no local: Pode utilizar dispositivos registados com políticas de acesso para aplicações que estão configuradas para utilizar o AD FS com o Windows Server 2012 R2.
 
-  2. Controlo de acesso ao portal do Azure:  O Azure também permite controlar o acesso ao portal com controlo de acesso baseado em funções (RBAC)). Este método permite que a empresa restringir o número de operações que uma pessoa individual que pode fazer no portal do Azure. Ao utilizar o RBAC para controlar o acesso ao portal, os administradores de TI pode delegar o acesso ao utilizar as seguintes abordagens de gerenciamento de acesso:
+2. Controlo de acesso ao portal do Azure:  O Azure também permite controlar o acesso ao portal com controlo de acesso baseado em funções (RBAC)). Este método permite que a empresa restringir o número de operações que uma pessoa individual que pode fazer no portal do Azure. Ao utilizar o RBAC para controlar o acesso ao portal, os administradores de TI pode delegar o acesso ao utilizar as seguintes abordagens de gerenciamento de acesso:
 
    - Atribuição de função baseado no grupo: Pode atribuir acesso a grupos do Azure AD que podem ser sincronizados do Active Directory local. Isso permite que aproveitar os investimentos existentes que sua organização tornou-se em ferramentas e os processos de gestão de grupos. Também pode utilizar a funcionalidade de gestão de grupo delegada do Azure AD Premium.
    - Utilize funções incorporadas no Azure: Pode utilizar três funções — proprietário, Contribuidor e leitor, para garantir que os utilizadores e grupos têm permissão para realizar apenas as tarefas que precisam para realizar seus trabalhos.
@@ -131,9 +131,9 @@ Cada interação no diagrama mostrado na figura X representa um cenário de cont
    > Se estiver a criar aplicações e desejar personalizar o controlo de acesso para os mesmos, também é possível utilizar funções de aplicação do Azure AD para autorização. Veja esta [exemplo de aplicação Web-RoleClaims-DotNet](https://github.com/AzureADSamples/WebApp-RoleClaims-DotNet) sobre como criar a sua aplicação para utilizar esta capacidade.
 
 
-  3. Acesso condicional para aplicações do Office 365 com o Microsoft Intune:  Os administradores de TI podem aprovisionar políticas de dispositivo de acesso condicional para proteger recursos da empresa, e, ao mesmo tempo permitindo que os operadores de informações em dispositivos em conformidade para aceder aos serviços. 
+3. Acesso condicional para aplicações do Office 365 com o Microsoft Intune:  Os administradores de TI podem aprovisionar políticas de dispositivo de acesso condicional para proteger recursos da empresa, e, ao mesmo tempo permitindo que os operadores de informações em dispositivos em conformidade para aceder aos serviços. 
   
-  4. Acesso condicional para aplicações Saas: [Esta funcionalidade](https://cloudblogs.microsoft.com/enterprisemobility/2015/06/25/azure-ad-conditional-access-preview-update-more-apps-and-blocking-access-for-users-not-at-work/) permite-lhe configurar regras de acesso por aplicação multi-factor authentication e a capacidade de bloquear o acesso para os utilizadores não numa rede fidedigna. Pode aplicar as regras de autenticação multifator para todos os utilizadores que estão atribuídos à aplicação, ou apenas para os utilizadores nos grupos de segurança especificados. Os utilizadores podem ser excluídos do requisito de autenticação multifator, se estão a aceder a aplicação a partir de um endereço IP que no dentro da organização de rede.
+4. Acesso condicional para aplicações Saas: [Esta funcionalidade](https://cloudblogs.microsoft.com/enterprisemobility/2015/06/25/azure-ad-conditional-access-preview-update-more-apps-and-blocking-access-for-users-not-at-work/) permite-lhe configurar regras de acesso por aplicação multi-factor authentication e a capacidade de bloquear o acesso para os utilizadores não numa rede fidedigna. Pode aplicar as regras de autenticação multifator para todos os utilizadores que estão atribuídos à aplicação, ou apenas para os utilizadores nos grupos de segurança especificados. Os utilizadores podem ser excluídos do requisito de autenticação multifator, se estão a aceder a aplicação a partir de um endereço IP que no dentro da organização de rede.
 
 Uma vez que as opções de controlo de acesso utilizam uma abordagem multicamada, comparação entre essas opções não são aplicáveis para esta tarefa. Certifique-se de que vocês estão utilizando todas as opções disponíveis para cada cenário que requer a controlar o acesso aos seus recursos.
 

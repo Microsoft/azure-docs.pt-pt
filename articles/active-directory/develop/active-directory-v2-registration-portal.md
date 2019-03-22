@@ -18,18 +18,18 @@ ms.author: celested
 ms.reviewer: lenalepa
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a90f530febccada5421323dd95461257e0fc5950
-ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
+ms.openlocfilehash: b77b5185056329113ee1fd17fa3ed3f364380ca2
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57194253"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58095879"
 ---
 # <a name="app-registration-reference"></a>Referência de registo de aplicação
 Este documento fornece o contexto e descrições de várias funcionalidades encontradas no [Portal de registo de aplicação](https://apps.dev.microsoft.com/?referrer=https://azure.microsoft.com/).
 
-> [!NOTE] 
-Podemos deixar de suportar a registar e gestão de aplicações de AD convergidas e do Azure no [Portal de registo de aplicação](https://apps.dev.microsoft.com/?referrer=https://azure.microsoft.com/) a partir de Maio de 2019. Recomendamos que gerir as suas aplicações existentes e registar novas aplicações utilizando o [registos de aplicações (pré-visualização)](https://aka.ms/appregistrations) experiência no portal do Azure.
+> [!NOTE]
+> Podemos deixar de suportar a registar e gestão de aplicações de AD convergidas e do Azure no [Portal de registo de aplicação](https://apps.dev.microsoft.com/?referrer=https://azure.microsoft.com/) a partir de Maio de 2019. Recomendamos que gerir as suas aplicações existentes e registar novas aplicações utilizando o [registos de aplicações (pré-visualização)](https://aka.ms/appregistrations) experiência no portal do Azure.
 
 ## <a name="my-applications-or-converged-applications"></a>Meus aplicativos ou aplicativos de convergência
 Esta lista contém todos os seus aplicativos para uso com o ponto de final de v2.0 do Azure AD. Estas aplicações têm a capacidade de iniciar sessão dos utilizadores com contas Microsoft pessoais e contas escolares/do Azure Active Directory. Para saber mais sobre o ponto de final de v2.0 do Azure AD, consulte a [descrição geral de v2.0](active-directory-appmodel-v2-overview.md). Esses aplicativos também podem ser utilizados para integrar com o endpoint de autenticação de conta Microsoft, `https://login.live.com`.

@@ -8,12 +8,12 @@ manager: edprice
 editor: edprice
 tags: ''
 keywords: ''
-ms.openlocfilehash: 2a29b484b58b887981b1879ceba5bf7426bb6c2e
-ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
+ms.openlocfilehash: 733649c2b7f27ec5e80cb77adba708a158fb2c22
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57192009"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58099472"
 ---
 # <a name="set-up-micro-focus-cics-bankdemo-for-micro-focus-enterprise-developer-40-in-azure"></a>Configurar a Micro foco CICS BankDemo para Micro foco Enterprise Developer 4.0 no Azure
 
@@ -69,9 +69,9 @@ Depois de instalar Enterprise Developer 4.0 na VM, tem de configurar a instânci
 
 7. Para **funcionalidades**, verifique **Microsoft .NET framework 4.6**e verifique o seguinte:
 
-    - Ativação de Pipe nomeado
-    - Ativação de TCP
-    - Partilha de portas TCP
+   - Ativação de Pipe nomeado
+   - Ativação de TCP
+   - Partilha de portas TCP
 
      ![Assistente para adicionar funções e funcionalidades: Serviços de função](media/01-demo-roles.png)
 

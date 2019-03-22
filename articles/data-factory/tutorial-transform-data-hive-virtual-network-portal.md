@@ -11,12 +11,12 @@ ms.date: 01/04/2018
 author: nabhishek
 ms.author: abnarain
 manager: craigg
-ms.openlocfilehash: 9c20c141f640ae5f868b350951e132d3a6479af9
-ms.sourcegitcommit: 30a0007f8e584692fe03c0023fe0337f842a7070
+ms.openlocfilehash: 9cea3e7494ee81638923cbcaff9f1b82d08a1ad1
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57576250"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58085036"
 ---
 # <a name="transform-data-in-azure-virtual-network-using-hive-activity-in-azure-data-factory"></a>Transformar dados na Rede Virtual do Azure com a atividade do Hive no Azure Data Factory
 Neste tutorial, vai utilizar o portal do Azure para criar um pipeline do Data Factory que transforma os dados com a Atividade do Hive num cluster HDInsight que se encontra numa Rede Virtual do Azure (VNet). Vai executar os seguintes passos neste tutorial:
@@ -85,24 +85,24 @@ Se não tiver uma subscrição do Azure, crie uma conta [gratuita](https://azure
 3. Selecione a sua subscrição do **Azure** na qual pretende criar a fábrica de dados. 
 4. No **Grupo de Recursos**, siga um destes passos:
      
-      - Selecione **Utilizar existente** e selecione um grupo de recursos já existente na lista pendente. 
-      - Selecione **Criar novo** e introduza o nome de um grupo de recursos.   
+   - Selecione **Utilizar existente** e selecione um grupo de recursos já existente na lista pendente. 
+   - Selecione **Criar novo** e introduza o nome de um grupo de recursos.   
          
-      Para saber mais sobre os grupos de recursos, veja [Utilizar grupos de recursos para gerir os recursos do Azure](../azure-resource-manager/resource-group-overview.md).  
+     Para saber mais sobre os grupos de recursos, veja [Utilizar grupos de recursos para gerir os recursos do Azure](../azure-resource-manager/resource-group-overview.md).  
 4. Selecione **V2** para a **versão**.
 5. Selecione a **localização** da fábrica de dados. Só são mostradas na lista as localizações que são suportadas para a criação de fábricas de dados.
 6. Selecione **Afixar ao dashboard**.     
 7. Clique em **Criar**.
 8. No dashboard, verá o mosaico seguinte com o estado: **Implementar fábrica de dados**. 
 
-    ![Mosaico “implementar a fábrica de dados”](media/tutorial-transform-data-using-hive-in-vnet-portal/deploying-data-factory.png)
+     ![Mosaico “implementar a fábrica de dados”](media/tutorial-transform-data-using-hive-in-vnet-portal/deploying-data-factory.png)
 9. Depois de concluída a criação, vai ver a página **Data Factory**, conforme mostrado na imagem.
    
-   ![Home page da fábrica de dados](./media/tutorial-transform-data-using-hive-in-vnet-portal/data-factory-home-page.png)
+    ![Home page da fábrica de dados](./media/tutorial-transform-data-using-hive-in-vnet-portal/data-factory-home-page.png)
 10. Clique em **Criar e Monitorizar** para iniciar a interface de utilizador (IU) do Data Factory num separador à parte.
 11. Na página **introdução**, mude para o separador **Editar**, no painel do lado esquerdo, conforme mostrado na imagem abaixo: 
 
-   ![Separador Editar](./media/tutorial-transform-data-using-hive-in-vnet-portal/get-started-page.png)
+    ![Separador Editar](./media/tutorial-transform-data-using-hive-in-vnet-portal/get-started-page.png)
 
 ## <a name="create-a-self-hosted-integration-runtime"></a>Criar um integration runtime autoalojado
 Uma vez que o cluster do Hadoop está dentro de uma rede virtual, tem de instalar um runtime de integração (IR) autoalojado nessa rede virtual. Nesta secção, vai criar uma VM nova, associá-la à mesma rede virtual e instalar o IR autoalojado nesta. O IR autoalojado permite ao serviço Data Factory enviar pedidos de processamento para um serviço de computação, como o HDInsight, dentro de uma rede virtual. Também lhe permite mover dados de e para os arquivos de dados que estejam dentro de uma rede virtual do Azure. Utilize um IR autoalojado quando o arquivo de dados ou a computação também está num ambiente no local. 

@@ -15,12 +15,12 @@ ms.date: 05/21/2018
 ms.author: celested
 ms.reviewer: asteen
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9c7a6edab1bc63d8cb1ae6f7de43372304e21ed1
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 950a349506f32405261d90c05312d24aa3deadc5
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56170640"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58089952"
 ---
 # <a name="application-page-does-not-display-correctly-for-an-application-proxy-application"></a>Página de aplicativo não é apresentados corretamente para uma aplicação de Proxy de aplicações
 
@@ -31,7 +31,7 @@ Quando publica uma aplicação de Proxy de aplicações, somente as páginas na 
 
 Pode verificar se a recursos em falta é o problema ao abrir o seu controlador de rede (como o Fiddler ou F12 ferramentas no Internet Explorer/Microsoft Edge), para carregar a página e procurando 404 erros. Que indica as páginas atualmente a não não possível localizar e que tem de publicá-los.
 
-Como um exemplo de neste caso, suponha que publicou um aplicativo de despesas usando a URL interna http://myapps/expenses, mas a aplicação utiliza a folha de estilos http://myapps/style.css. Neste caso, a folha de estilo não é publicada na sua aplicação, para carregar a aplicação de despesas de lançar um erro 404 ao tentar carregar style. css. Neste exemplo, o problema é resolvido ao publicar a aplicação com um URL interno http://myapp/.
+Como um exemplo de neste caso, suponha que publicou um aplicativo de despesas usando a URL interna `http://myapps/expenses`, mas a aplicação utiliza a folha de estilos `http://myapps/style.css`. Neste caso, a folha de estilo não é publicada na sua aplicação, para carregar a aplicação de despesas de lançar um erro 404 ao tentar carregar style. css. Neste exemplo, o problema é resolvido ao publicar a aplicação com um URL interno `http://myapp/`.
 
 ## <a name="problems-with-publishing-as-one-application"></a>Problemas com a publicação de como uma aplicação
 

@@ -9,12 +9,12 @@ ms.date: 01/25/2019
 ms.topic: conceptual
 ms.service: azure-portal
 manager: mtillman
-ms.openlocfilehash: 29c6dc0f7e71508e7b4ecb4e0f1d5c849df7a68c
-ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
+ms.openlocfilehash: ec8cbddda4137656a53fd4968c451cd413959274
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54904848"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58110788"
 ---
 # <a name="use-a-markdown-tile-on-azure-dashboards-to-show-custom-content"></a>Utilize um mosaico de markdown no dashboards do Azure para mostrar o conteúdo personalizado
 
@@ -24,17 +24,17 @@ Pode adicionar um mosaico de markdown para os seus dashboards do Azure para exib
 
 1. Selecione **Dashboard** na barra lateral portal do Azure. Se tiver criado quaisquer dashboards personalizados, na vista do dashboard, utilize a lista pendente para selecionar o dashboard onde deve aparecer no mosaico markdown personalizada. Selecione o ícone de edição para abrir o **Galeria de mosaicos**.
 
-  ![Captura de ecrã a mostrar exibição de edição dashboard](./media/azure-portal-markdown-tile/azure-portal-dashboard-edit.png)
+   ![Captura de ecrã a mostrar exibição de edição dashboard](./media/azure-portal-markdown-tile/azure-portal-dashboard-edit.png)
 
 2. Na **Galeria de mosaicos**, localize o mosaico chamado **Markdown** e clique em **Add**. O mosaico é adicionado ao dashboard e o **editar Markdown** painel abre-se.
 
 1. Editar a **Title**, **subtítulo**, e **conteúdo** campos para personalizar o mosaico. No exemplo mostrado aqui, o mosaico markdown foi editado para apresentar informações de suporte técnico de ajuda personalizada.
 
-  ![Captura de ecrã que mostra a exibição de edição de mosaico markdown](./media/azure-portal-markdown-tile/azure-portal-edit-markdown-tile.png)
+   ![Captura de ecrã que mostra a exibição de edição de mosaico markdown](./media/azure-portal-markdown-tile/azure-portal-edit-markdown-tile.png)
 
 4. Selecione **feito** para descartar a **editar Markdown** painel. Seu conteúdo será apresentado no mosaico Markdown, o que pode ser redimensionado, em seguida, arrastando o identificador no canto inferior direito.
 
-  ![Mosaico de markdown personalizada captura de ecrã a mostrar](./media/azure-portal-markdown-tile/azure-portal-custom-markdown-tile.png)
+   ![Mosaico de markdown personalizada captura de ecrã a mostrar](./media/azure-portal-markdown-tile/azure-portal-custom-markdown-tile.png)
 
 ## <a name="markdown-content-capabilities-and-limitations"></a>Recursos de conteúdo de markdown e limitações
 

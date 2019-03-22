@@ -14,16 +14,16 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/31/2017
 ms.author: banders
-ms.openlocfilehash: 506910ffa46cb3fbd4be9dcecf9df0f9fdd291e5
-ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
+ms.openlocfilehash: 77c1a85136b2117af7396b8eec2d8b92b335d61d
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54901025"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57897457"
 ---
 # <a name="understand-terms-on-your-microsoft-azure-invoice"></a>Compreender os termos na sua fatura do Microsoft Azure
 
-A nota fiscal fornece um resumo dos custos e fornece instruções para pagamento. Está disponível para download no formato de documento (. pdf) portáteis do [portal do Azure](https://portal.azure.com/) ou podem ser enviados por e-mail. Para obter mais informações, consulte [como obter a faturação da nota fiscal e diário de dados de utilização do Azure](billing-download-azure-invoice-daily-usage-date.md).
+A fatura disponibiliza um resumo dos seus custos e instruções para o pagamento. Está disponível para download no formato de documento (. pdf) portáteis do [portal do Azure](https://portal.azure.com/) ou podem ser enviados por e-mail. Para obter mais informações, consulte [como obter a faturação da nota fiscal e diário de dados de utilização do Azure](billing-download-azure-invoice-daily-usage-date.md).
 
 Alguns aspetos a ter em conta:
 
@@ -31,7 +31,7 @@ Alguns aspetos a ter em conta:
 
 -   Até 24 horas de utilização no final do período de faturação anterior pode aparecer na sua fatura atual.
 
--   Os encargos apresentados nos extratos de faturação para os clientes internacionais destinam-se apenas a fins de estimativa. Bancos podem ter custos diferentes para as taxas de câmbio.
+-   Os custos apresentados nos extratos de faturação dos clientes internacionais destinam-se apenas a estimativas. Bancos podem ter custos diferentes para as taxas de câmbio.
 
 >[!VIDEO https://www.youtube.com/embed/jWG1lyJe3Mg]
 
@@ -99,15 +99,15 @@ A tabela seguinte descreve os cabeçalhos de coluna utilização de custos na su
 
 | Termo |Descrição |
 | --- | --- |
-| Nome |Identifica o serviço de nível superior para a utilização |
-| Tipo |Define o tipo de serviço do Azure que pode afetar a tarifa |
+| Name |Identifica o serviço de nível superior para a utilização |
+| Type |Define o tipo de serviço do Azure que pode afetar a tarifa |
 | Recurso |Identifica a unidade de medida para o medidor de consumo |
 | Região |Identifica a localização do datacenter para determinados serviços cujo preço é definido com base na localização do datacenter |
 | Consumido |A quantidade de medidor utilizado durante o período de faturação |
 | Incluída |A quantidade do medidor de que está incluída sem custos no período de faturação atual |
 | A Cobrar |Mostra a diferença entre a quantidade consumida e a quantidade incluída. É-lhe cobrada durante este período. Para as ofertas sem quantidade incluída com a oferta pay as you go, é este total equivale à quantidade consumida |
 | Tarifa |A tarifa que lhe é cobrada por unidade faturável |
-| Valor |Mostra o resultado da multiplicação entre a coluna de quantidade de utilização excedida, a coluna tarifa. Se a quantidade consumida não exceder a quantidade incluída, não é sem encargos, nesta coluna. |
+| Value |Mostra o resultado da multiplicação entre a coluna de quantidade de utilização excedida, a coluna tarifa. Se a quantidade consumida não exceder a quantidade incluída, não é sem encargos, nesta coluna. |
 | Total de secundárias |A soma de todos os seus custos pré-imposto para este período de faturação |
 | Total geral |A soma de todos os custos depois de imposto para este período de faturação |
 
@@ -116,4 +116,4 @@ Se existe uma cobrança na sua fatura que deseja obter mais detalhes, consulte o
 
 ## <a name="need-help-contact-us"></a>Precisa de ajuda? Contacte-nos.
 
-Se tiver alguma dúvida ou precisar de ajuda, [criar um pedido de suporte](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).
+Se tiver alguma dúvida ou precisar de ajuda, [criar um pedido de suporte](https://go.microsoft.com/fwlink/?linkid=2083458).

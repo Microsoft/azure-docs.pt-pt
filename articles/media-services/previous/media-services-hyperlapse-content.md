@@ -12,14 +12,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 02/10/2019
+ms.date: 03/18/2019
 ms.author: adsolank
-ms.openlocfilehash: c3ef977e7e8742f4d6de0f85d2d1684aa7eaa887
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: a57194a0c7b0cd82ce3d9426211b0cf6fc0d1182
+ms.sourcegitcommit: f331186a967d21c302a128299f60402e89035a8d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55993763"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58188055"
 ---
 # <a name="hyperlapse-media-files-with-azure-media-hyperlapse"></a>Ficheiros de Hyperlapse de multimédia com Hyperlapse de multimédia do Azure
 
@@ -52,7 +52,7 @@ Segue-se um exemplo de um ficheiro de configuração compatível em XML e JSON:
 **Configuração predefinida XML:**
 ```xml
     <?xml version="1.0" encoding="utf-16"?>
-    <Preset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" Version="1.0" xmlns="http://www.windowsazure.com/media/encoding/Preset/2014/03">
+    <Preset xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="https://www.w3.org/2001/XMLSchema" Version="1.0" xmlns="https://www.windowsazure.com/media/encoding/Preset/2014/03">
         <Sources>
             <Source StartFrame="0" NumFrames="10000" />
         </Sources>
@@ -219,5 +219,5 @@ O método seguinte carrega um ficheiro de suporte de dados como um recurso e cri
 ## <a name="related-links"></a>Ligações relacionadas
 [Descrição geral da análise dos serviços de multimédia do Azure](media-services-analytics-overview.md)
 
-[Demonstrações de análise de multimédia do Azure](http://azuremedialabs.azurewebsites.net/demos/Analytics.html)
+[Demonstrações de análise de multimédia do Azure](https://azuremedialabs.azurewebsites.net/demos/Analytics.html)
 

@@ -7,20 +7,20 @@ ms.service: dns
 ms.topic: article
 ms.date: 11/3/2018
 ms.author: victorh
-ms.openlocfilehash: 2b14753237e118540da6306fa9f06816f3e58b71
-ms.sourcegitcommit: 1fc949dab883453ac960e02d882e613806fabe6f
+ms.openlocfilehash: b08eae072c2fbe420401424baf97a25b4cbbe87b
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/03/2018
-ms.locfileid: "50979867"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58086331"
 ---
 # <a name="host-load-balanced-azure-web-apps-at-the-zone-apex"></a>Alojar aplicações da web do Azure com balanceamento de carga no vértice da zona
 
-O protocolo DNS impede a atribuição de nada além de um registo A ou AAAA no vértice da zona. Um vértice da zona de exemplo é contoso.com. Esta restrição apresenta um problema para os proprietários da aplicação que tenham aplicações com balanceamento de carga por trás do Gestor de tráfego. Não é possível apontar para o perfil do Gestor de tráfego do registo de apex de zona. Como resultado, os proprietários da aplicação tem de utilizar uma solução alternativa. Um redirecionamento na camada da aplicação tem de redirecionar do vértice da zona para outro domínio. Um exemplo é um redirecionamento de contoso.com para www.contoso.com. Essa organização apresenta um ponto único de falha para a função de redirecionamento.
+O protocolo DNS impede a atribuição de nada além de um registo A ou AAAA no vértice da zona. Um vértice da zona de exemplo é contoso.com. Esta restrição apresenta um problema para os proprietários da aplicação que tenham aplicações com balanceamento de carga por trás do Gestor de tráfego. Não é possível apontar para o perfil do Gestor de tráfego do registo de apex de zona. Como resultado, os proprietários da aplicação tem de utilizar uma solução alternativa. Um redirecionamento na camada da aplicação tem de redirecionar do vértice da zona para outro domínio. Um exemplo é um redirecionamento de contoso.com para www\.contoso.com. Essa organização apresenta um ponto único de falha para a função de redirecionamento.
 
 Com os registros de alias, esse problema deixou de existir. Agora os proprietários de aplicativos podem apontar o respetivo registo de apex de zona para um perfil de Gestor de tráfego que tem pontos finais externos. Os proprietários de aplicativos podem apontar para o mesmo perfil de Gestor de tráfego, que é utilizado para qualquer outro domínio na sua zona DNS.
 
-Por exemplo, contoso.com e www.contoso.com podem apontar para o mesmo perfil de Gestor de tráfego. Esse é o caso, desde que o perfil do Gestor de tráfego tem apenas pontos finais externos configurados.
+Por exemplo, contoso.com e www\.contoso.com pode apontar para o mesmo perfil de Gestor de tráfego. Esse é o caso, desde que o perfil do Gestor de tráfego tem apenas pontos finais externos configurados.
 
 Neste artigo, saiba como criar um registo de alias para o vértice do domínio e configurar os pontos de final de perfil do Gestor de tráfego para as suas aplicações web.
 
@@ -28,11 +28,11 @@ Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Deve ter um nome de domínio disponível que possa alojar no DNS do Azure para testar. Tem de ter controlo total sobre este domínio. Controlo total inclui a capacidade de definir o servidor de nomes (NS) de domínio.
+Deve ter um nome de domínio disponível que possa alojar no DNS do Azure para testar. Deve ter controlo total sobre este domínio. O controlo total inclui a capacidade de definir os registos do servidor de nomes (NS) do domínio.
 
-Para obter instruções sobre como alojar o seu domínio no DNS do Azure, veja [Tutorial: Alojar o seu domínio no DNS do Azure](dns-delegate-domain-azure-dns.md).
+Para obter instruções para alojar o seu domínio no DNS do Azure, consulte [Tutorial: Aloje o seu domínio no DNS do Azure](dns-delegate-domain-azure-dns.md).
 
-O domínio de exemplo utilizado para este tutorial for contoso.com, mas utilizar o seu próprio nome de domínio.
+O domínio de exemplo utilizado para este tutorial é o contoso.com, mas utilize o seu próprio nome de domínio.
 
 ## <a name="create-a-resource-group"></a>Criar um grupo de recursos
 
@@ -43,7 +43,7 @@ Crie um grupo de recursos para conter todos os recursos usados neste artigo.
 Crie dois planos de serviço de aplicações Web no seu grupo de recursos utilizando a seguinte tabela para obter informações de configuração. Para obter mais informações sobre como criar um plano do serviço de aplicações, consulte [gerir um plano do serviço de aplicações no Azure](../app-service/app-service-plan-manage.md).
 
 
-|Nome  |Sistema Operativo  |Localização  |Escalão de Preço  |
+|Name  |Sistema Operativo  |Localização  |Escalão de Preço  |
 |---------|---------|---------|---------|
 |ASP-01     |Windows|EUA Leste|Programador/teste D1 partilhado|
 |ASP-02     |Windows|EUA Central|Programador/teste D1 partilhado|
@@ -58,10 +58,10 @@ Crie duas aplicações web, um em cada plano de serviço de aplicações.
 4. Clique em **Criar**.
 5. Aceite as predefinições e utilize a tabela seguinte para configurar as duas aplicações web:
 
-   |Nome<br>(tem de ser exclusivos. azurewebsites.net)|Grupo de Recursos |Plano do serviço de aplicações/localização
+   |Name<br>(tem de ser exclusivos. azurewebsites.net)|Grupo de Recursos |Plano do serviço de aplicações/localização
    |---------|---------|---------|
    |Aplicações-01|Utilizar existente<br>Selecione o grupo de recursos|ASP 01(East US)|
-   |Aplicações-02|Utilizar existente<br>Selecione o grupo de recursos|ASP 02(Central US)|
+   |App-02|Utilizar existente<br>Selecione o grupo de recursos|ASP 02(Central US)|
 
 ### <a name="gather-some-details"></a>Reunir alguns detalhes
 
@@ -76,7 +76,7 @@ Agora precisa ter em atenção o nome de anfitrião e endereço IP para as aplic
 
 Crie um perfil do Gestor de tráfego no seu grupo de recursos. Utilize as predefinições e escreva um nome exclusivo no espaço de nomes trafficmanager.net.
 
-Para obter informações sobre como criar um perfil do Gestor de tráfego, consulte [início rápido: criar um perfil do Gestor de tráfego para uma aplicação web de elevada disponibilidade](../traffic-manager/quickstart-create-traffic-manager-profile.md).
+Para obter informações sobre como criar um perfil do Gestor de tráfego, consulte [início rápido: Criar um perfil do Gestor de tráfego para uma aplicação web de elevada disponibilidade](../traffic-manager/quickstart-create-traffic-manager-profile.md).
 
 ### <a name="create-endpoints"></a>Criar pontos finais
 
@@ -87,14 +87,14 @@ Agora, pode criar os pontos finais para as duas aplicações web.
 3. Clique em **Adicionar**.
 4. Utilize a tabela seguinte para configurar os pontos de extremidade:
 
-   |Tipo  |Nome  |Destino  |Localização  |Definições personalizadas do cabeçalho|
+   |Type  |Name  |Destino  |Localização  |Definições de Cabeçalho Personalizadas|
    |---------|---------|---------|---------|---------|
    |Ponto final externo     |End-01|Endereço IP que registou para a aplicação-01|EUA Leste|anfitrião:\<o URL que registou para a aplicação-01\><br>Exemplo: **anfitrião: a aplicação-01.azurewebsites.net**|
    |Ponto final externo     |End-02|Endereço IP que registou para a aplicação-02|EUA Central|anfitrião:\<o URL que registou para a aplicação-02\><br>Exemplo: **anfitrião: a aplicação-02.azurewebsites.net**
 
 ## <a name="create-dns-zone"></a>Criar zona DNS
 
-Pode utilizar uma zona DNS existente para fins de teste, ou pode criar uma nova zona. Para criar e delegar uma nova zona DNS no Azure, consulte [Tutorial: alojar o seu domínio no DNS do Azure](dns-delegate-domain-azure-dns.md).
+Pode utilizar uma zona DNS existente para fins de teste, ou pode criar uma nova zona. Para criar e delegar uma nova zona DNS no Azure, consulte [Tutorial: Aloje o seu domínio no DNS do Azure](dns-delegate-domain-azure-dns.md).
 
 ### <a name="add-the-alias-record-set"></a>Adicionar o conjunto de registos de alias
 
@@ -104,9 +104,9 @@ Quando a zona DNS estiver pronta, pode adicionar um registo de alias para o vér
 2. Clique em **Conjunto de registos**.
 3. Adicione o conjunto utilizando a seguinte tabela de registos:
 
-   |Nome  |Tipo  |Conjunto de registos de alias  |Tipo de alias  |Recursos do Azure|
+   |Name  |Type  |Conjunto de registos de alias  |Alias type  |Recurso do Azure|
    |---------|---------|---------|---------|-----|
-   |@     |A|Sim|Recursos do Azure|Gestor de tráfego - seu perfil|
+   |@     |A|Sim|Recurso do Azure|Gestor de tráfego - seu perfil|
 
 ## <a name="add-custom-hostnames"></a>Adicionar nomes de anfitriões personalizados
 

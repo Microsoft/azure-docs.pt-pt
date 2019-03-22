@@ -14,12 +14,12 @@ ms.author: arib
 ms.reviewer: vanto
 manager: craigg
 ms.date: 02/07/2019
-ms.openlocfilehash: 20c893aa0ff5bc1f20ecfd95d33038937f3af466
-ms.sourcegitcommit: 30a0007f8e584692fe03c0023fe0337f842a7070
+ms.openlocfilehash: d283cfa18d31e360aed78ae5262c5416f94c0676
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57576978"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58086059"
 ---
 # <a name="get-started-with-azure-sql-database-managed-instance-auditing"></a>Introdução à auditoria da instância de base de dados do SQL do Azure gerido
 
@@ -50,7 +50,7 @@ A seguinte secção descreve a configuração de auditoria na sua instância ger
 
    1. Fornecem um recipiente **nome**, defina o acesso público ao nível para **privada**e, em seguida, clique em **OK**.
 
-     ![Criar configuração de contentor de BLOBs](./media/sql-managed-instance-auditing/3_create_container_config.png)
+      ![Criar configuração de contentor de BLOBs](./media/sql-managed-instance-auditing/3_create_container_config.png)
 
 1. Depois de criar o contentor da auditoria, registos lá são duas formas de configurá-lo como o destino para os registos de auditoria: [com o T-SQL](#blobtsql) ou [usando o SQL Server Management Studio (SSMS) da interface do Usuário](#blobssms):
 
@@ -113,7 +113,7 @@ A seguinte secção descreve a configuração de auditoria na sua instância ger
         GO
         ```
 
-      1. Continue ao [criação de uma especificação de auditoria de servidor ou a especificação de auditoria de base de dados](#createspec)
+        1. Continue ao [criação de uma especificação de auditoria de servidor ou a especificação de auditoria de base de dados](#createspec)
 
    - <a id="blobssms"></a>Configure o armazenamento de BLOBs para registos de auditoria com o SQL Server Management Studio (SSMS) 18 (pré-visualização):
 
@@ -131,7 +131,7 @@ A seguinte secção descreve a configuração de auditoria na sua instância ger
 
      1. (Opcional) Inicie sessão sua conta do Azure:
 
-        ![Inicie sessão no  Azure](./media/sql-managed-instance-auditing/12_mi_SSMS_sign_in_to_azure.png)
+        ![Iniciar sessão no Azure](./media/sql-managed-instance-auditing/12_mi_SSMS_sign_in_to_azure.png)
 
      1. Selecione uma subscrição, a conta de armazenamento e o contentor de BLOBs as listas pendentes ou criar seu próprio contentor ao clicar em **criar**. Quando terminar de clique **OK**:
 

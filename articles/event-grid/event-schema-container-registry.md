@@ -1,19 +1,19 @@
 ---
 title: Esquema de eventos de registo de contentor de grelha de eventos do Azure
-description: Descreve as propriedades que são fornecidas para eventos de Reigstry de contentor com o Azure Event Grid
+description: Descreve as propriedades que são fornecidas para eventos de registo de contentor com o Azure Event Grid
 services: event-grid
 author: spelluru
 manager: timlt
 ms.service: event-grid
 ms.topic: reference
-ms.date: 01/13/2019
+ms.date: 03/12/2019
 ms.author: spelluru
-ms.openlocfilehash: 6f00d4f249543ece0eb8db4a8e040300d55b2de8
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: c5998ff428c4b6f4c1f7a4087c6ccb27d93773eb
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54462849"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58084332"
 ---
 # <a name="azure-event-grid-event-schema-for-container-registry"></a>Esquema de eventos do Azure Event Grid para o registo de contentor
 
@@ -21,12 +21,14 @@ Este artigo fornece as propriedades e o esquema para eventos de registo de conte
 
 ## <a name="available-event-types"></a>Tipos de eventos disponíveis
 
-Armazenamento de BLOBs emite os seguintes tipos de evento:
+O Azure Container Registry emite os seguintes tipos de evento:
 
 | Tipo de evento | Descrição |
 | ---------- | ----------- |
 | Microsoft.ContainerRegistry.ImagePushed | Gerado quando é enviada por push uma imagem. |
 | Microsoft.ContainerRegistry.ImageDeleted | Desencadeado quando uma imagem é eliminada. |
+| Microsoft.ContainerRegistry.ChartPushed | Desencadeado quando um gráfico do Helm é emitido. |
+| Microsoft.ContainerRegistry.ChartDeleted | Desencadeado quando um gráfico do Helm é eliminado. |
 
 ## <a name="example-event"></a>Evento de exemplo
 
@@ -93,28 +95,84 @@ O esquema para um evento de imagem eliminado é semelhante:
 }]
 ```
 
+O esquema para um gráfico que enviou o evento é semelhante para o esquema para um evento enviada por push com imagem duplicada, mas ele não inclui um objeto de solicitação:
+
+```json
+[{
+  "id": "ea3a9c28-5b17-40f6-a500-3f02b6829277",
+  "topic": "/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.ContainerRegistry/registries/<name>",
+  "subject": "mychart:1.0.0",
+  "eventType": "Microsoft.ContainerRegistry.ChartPushed",
+  "eventTime": "2019-03-12T22:16:31.5164086Z",
+  "data": {
+    "id":"ea3a9c28-5b17-40f6-a500-3f02b682927",
+    "timestamp":"2019-03-12T22:16:31.0087496+00:00",
+    "action":"chart_push",
+    "target":{
+      "mediaType":"application/vnd.acr.helm.chart",
+      "size":25265,
+      "digest":"sha256:7f060075264b5ba7c14c23672698152ae6a3ebac1c47916e4efe19cd624d5fab",
+      "repository":"repo",
+      "tag":"mychart-1.0.0.tgz",
+      "name":"mychart",
+      "version":"1.0.0"
+    }
+  },
+  "dataVersion": "1.0",
+  "metadataVersion": "1"
+}]
+```
+
+O esquema para um evento de gráfico eliminado é semelhante para o esquema para um evento eliminado imagem, mas ele não inclui um objeto de solicitação:
+
+```json
+[{
+  "id": "39136b3a-1a7e-416f-a09e-5c85d5402fca",
+  "topic": "/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.ContainerRegistry/registries/<name>",
+  "subject": "mychart:1.0.0",
+  "eventType": "Microsoft.ContainerRegistry.ChartDeleted",
+  "eventTime": "019-03-12T22:42:08.7034064Z",
+  "data": {
+    "id":"ea3a9c28-5b17-40f6-a500-3f02b682927",
+    "timestamp":"2019-03-12T22:42:08.3783775+00:00",
+    "action":"chart_delete",
+    "target":{
+      "mediaType":"application/vnd.acr.helm.chart",
+      "size":25265,
+      "digest":"sha256:7f060075264b5ba7c14c23672698152ae6a3ebac1c47916e4efe19cd624d5fab",
+      "repository":"repo",
+      "tag":"mychart-1.0.0.tgz",
+      "name":"mychart",
+      "version":"1.0.0"
+    }
+  },
+  "dataVersion": "1.0",
+  "metadataVersion": "1"
+}]
+```
+
 ## <a name="event-properties"></a>Propriedades do evento
 
 Um evento tem os seguintes dados de nível superior:
 
 | Propriedade | Tipo | Descrição |
 | -------- | ---- | ----------- |
-| tópico | cadeia | Caminho de recurso completo para a origem do evento. Este campo não é gravável. Event Grid fornece este valor. |
-| assunto | cadeia | Caminho definidos pelo publicador para o assunto de evento. |
-| eventType | cadeia | Um dos tipos de eventos registrados para esta origem de evento. |
-| eventTime | cadeia | O tempo que o evento é gerado com base no fuso horário UTC do fornecedor. |
-| ID | cadeia | Identificador exclusivo para o evento. |
+| tópico | string | Caminho de recurso completo para a origem do evento. Este campo não é gravável. Event Grid fornece este valor. |
+| assunto | string | Caminho definidos pelo publicador para o assunto de evento. |
+| eventType | string | Um dos tipos de eventos registrados para esta origem de evento. |
+| eventTime | string | O tempo que o evento é gerado com base no fuso horário UTC do fornecedor. |
+| ID | string | Identificador exclusivo para o evento. |
 | dados | objeto | Dados de eventos de armazenamento de Blobs. |
-| dataVersion | cadeia | A versão do esquema do objeto de dados. O publicador define a versão do esquema. |
-| metadataVersion | cadeia | A versão do esquema dos metadados do evento. Grelha de eventos define o esquema das propriedades de nível superior. Event Grid fornece este valor. |
+| dataVersion | string | A versão do esquema do objeto de dados. O publicador define a versão do esquema. |
+| metadataVersion | string | A versão do esquema dos metadados do evento. Grelha de eventos define o esquema das propriedades de nível superior. Event Grid fornece este valor. |
 
 O objeto de dados tem as seguintes propriedades:
 
 | Propriedade | Tipo | Descrição |
 | -------- | ---- | ----------- |
-| ID | cadeia | O ID de evento. |
-| carimbo de data/hora | cadeia | A hora em que ocorreu o evento. |
-| action | cadeia | A ação que abrange o evento fornecido. |
+| ID | string | O ID de evento. |
+| carimbo de data/hora | string | A hora em que ocorreu o evento. |
+| action | string | A ação que abrange o evento fornecido. |
 | destino | objeto | O destino do evento. |
 | pedido | objeto | O pedido que gerou o evento. |
 
@@ -122,22 +180,24 @@ O objeto de destino tem as seguintes propriedades:
 
 | Propriedade | Tipo | Descrição |
 | -------- | ---- | ----------- |
-| mediaType | cadeia | O tipo MIME do objeto referenciado. |
+| mediaType | string | O tipo MIME do objeto referenciado. |
 | tamanho | inteiro | O número de bytes do conteúdo. Mesmo que o campo de comprimento. |
-| Resumo | cadeia | O resumo do conteúdo, conforme definido pela especificação de API de HTTP do registo V2. |
+| Resumo | string | O resumo do conteúdo, conforme definido pela especificação de API de HTTP do registo V2. |
 | Comprimento | inteiro | O número de bytes do conteúdo. Mesmo que o campo de tamanho. |
-| Repositório | cadeia | O nome do repositório. |
-| etiqueta | cadeia | O nome da etiqueta. |
+| Repositório | string | O nome do repositório. |
+| etiqueta | string | O nome da etiqueta. |
+| nome | string | O nome do gráfico. |
+| versão | string | A versão de gráfico. |
 
 O objeto de solicitação tem as seguintes propriedades:
 
 | Propriedade | Tipo | Descrição |
 | -------- | ---- | ----------- |
-| ID | cadeia | O ID do pedido que deu início ao evento. |
-| addr | cadeia | O IP ou nome de anfitrião e, possivelmente, porta da ligação de cliente que deu início ao evento. Este valor é o RemoteAddr no pedido de http padrão. |
-| anfitrião | cadeia | O nome de anfitrião acessível externamente da instância do Registro, conforme especificado pelo cabeçalho de anfitrião http em solicitações de entrada. |
-| método | cadeia | O método de pedido que gerou o evento. |
-| useragent | cadeia | O cabeçalho do agente de utilizador do pedido. |
+| ID | string | O ID do pedido que deu início ao evento. |
+| addr | string | O IP ou nome de anfitrião e, possivelmente, porta da ligação de cliente que deu início ao evento. Este valor é o RemoteAddr no pedido de http padrão. |
+| anfitrião | string | O nome de anfitrião acessível externamente da instância do Registro, conforme especificado pelo cabeçalho de anfitrião http em solicitações de entrada. |
+| método | string | O método de pedido que gerou o evento. |
+| useragent | string | O cabeçalho do agente de utilizador do pedido. |
 
 ## <a name="next-steps"></a>Passos Seguintes
 

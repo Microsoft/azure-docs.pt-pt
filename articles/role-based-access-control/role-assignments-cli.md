@@ -14,12 +14,12 @@ ms.workload: identity
 ms.date: 02/20/2019
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: d7888fd52495f7d2a195b729fae6d0411cfbd64c
-ms.sourcegitcommit: 7723b13601429fe8ce101395b7e47831043b970b
+ms.openlocfilehash: 8e75a6344e517fb0343343f557cb7211f49cfed8
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56587961"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57838326"
 ---
 # <a name="manage-access-to-azure-resources-using-rbac-and-azure-cli"></a>Gerir o acesso aos recursos do Azure através do RBAC e CLI do Azure
 
@@ -194,7 +194,7 @@ az role assignment list --assignee <assignee>
 
 Por predefinição, serão apresentadas apenas as atribuições de âmbito para a subscrição. Para ver as atribuições de âmbito por recurso ou grupo, utilize `--all`.
 
-O exemplo seguinte lista as atribuições de funções que são atribuídas diretamente para o *patlong@contoso.com* utilizador:
+O exemplo seguinte lista as atribuições de funções que são atribuídas diretamente para o *patlong\@contoso.com* utilizador:
 
 ```azurecli
 az role assignment list --all --assignee patlong@contoso.com --output json | jq '.[] | {"principalName":.principalName, "roleDefinitionName":.roleDefinitionName, "scope":.scope}'
@@ -252,7 +252,7 @@ Para criar uma atribuição de função para um utilizador no âmbito do grupo d
 az role assignment create --role <role> --assignee <assignee> --resource-group <resource_group>
 ```
 
-O exemplo seguinte atribui o *contribuinte de Máquina Virtual* função *patlong@contoso.com* utilizador no *pharma-vendas-projectforecast* âmbito do grupo de recursos:
+O exemplo seguinte atribui o *contribuinte de Máquina Virtual* função *patlong\@contoso.com* utilizador no *pharma-vendas-projectforecast* âmbito do grupo de recursos:
 
 ```azurecli
 az role assignment create --role "Virtual Machine Contributor" --assignee patlong@contoso.com --resource-group pharma-sales-projectforecast
@@ -300,7 +300,7 @@ No RBAC, para remover o acesso, remover uma atribuição de função usando [eli
 az role assignment delete --assignee <assignee> --role <role> --resource-group <resource_group>
 ```
 
-O exemplo seguinte remove o *contribuinte de Máquina Virtual* atribuição de função da *patlong@contoso.com* utilizador na *pharma-vendas-projectforecast* recursos grupo:
+O exemplo seguinte remove o *contribuinte de Máquina Virtual* atribuição de função da *patlong\@contoso.com* utilizador no *pharma-vendas-projectforecast* grupo de recursos:
 
 ```azurecli
 az role assignment delete --assignee patlong@contoso.com --role "Virtual Machine Contributor" --resource-group pharma-sales-projectforecast

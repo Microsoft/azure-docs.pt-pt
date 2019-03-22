@@ -1,18 +1,18 @@
 ---
 title: Resolução de problemas - Azure Disk Encryption para IaaS VMs | Documentos da Microsoft
 description: Este artigo fornece sugestões de resolução de problemas para o Microsoft Azure disco encriptação para Windows e VMs de IaaS Linux.
-author: mestew
+author: msmbaldwin
 ms.service: security
 ms.topic: article
-ms.author: mstewart
-ms.date: 03/04/2019
+ms.author: mbaldwin
+ms.date: 03/12/2019
 ms.custom: seodec18
-ms.openlocfilehash: 7e2fa8c526a1016e5b8157f5f8b3ecb38bf8ef15
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 48cf0f2e219d141a039f508f0ea948aa5c78b882
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57779968"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57838277"
 ---
 # <a name="azure-disk-encryption-troubleshooting-guide"></a>Guia de resolução de problemas de encriptação de disco do Azure
 
@@ -112,15 +112,15 @@ Para contornar este problema, copie os seguintes ficheiros de quatro a partir de
    \windows\system32\en-US\bdehdcfg.exe.mui
    ```
 
-   2. Introduza o seguinte comando:
+1. Introduza o seguinte comando:
 
    ```
    bdehdcfg.exe -target default
    ```
 
-   3. Este comando cria uma partição do sistema de 550 MB. Reinicialize o sistema.
+1. Este comando cria uma partição do sistema de 550 MB. Reinicialize o sistema.
 
-   4. Use o DiskPart para verificar os volumes e, em seguida, avançar.  
+1. Use o DiskPart para verificar os volumes e, em seguida, avançar.  
 
 Por exemplo:
 

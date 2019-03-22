@@ -3,7 +3,7 @@ title: Os contentores do Azure oferecem a pré-requisitos | Documentos da Micros
 description: Pré-requisitos para a publicação de um contentor do Azure.
 services: Azure, Marketplace, Cloud Partner Portal,
 documentationcenter: ''
-author: dan-wesley
+author: v-miclar
 manager: Patrick.Butler
 editor: ''
 ms.assetid: ''
@@ -12,18 +12,18 @@ ms.workload: ''
 ms.tgt_pltfrm: ''
 ms.devlang: ''
 ms.topic: conceptual
-ms.date: 11/01/2018
+ms.date: 03/13/2019
 ms.author: pbutlerm
-ms.openlocfilehash: fd308c645593a401736a0a1ab1d336d63d900217
-ms.sourcegitcommit: 1fc949dab883453ac960e02d882e613806fabe6f
+ms.openlocfilehash: 09c9afcf3126f7f84c20f5514bc038a65b2ea1b2
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/03/2018
-ms.locfileid: "50979816"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57990729"
 ---
 # <a name="container-publishing-prerequisites"></a>Pré-requisitos de publicação do contentor
 
-Este artigo descreve os pré-requisitos para a publicação de uma oferta de contentor no Azure Marketplace.
+Este artigo descreve os pré-requisitos para a publicação de uma oferta de contentor no Azure Marketplace.  Se ainda não o fez, deve rever o [guia de publicação da oferta de contentores](../../marketplace-containers.md).
 
 ## <a name="publishing-prerequisites"></a>Publicação de pré-requisitos
 
@@ -36,11 +36,10 @@ Para publicar uma nova imagem de contentor, terá de cumprir os seguintes pré-r
   - Um título
   - Uma descrição (no formato HTML)
   - Uma imagem de logótipo (no formato PNG) e nestes corrigido tamanhos de imagem: 40 x 40 px, 90 x 90 px, 115 x 115 px e 255 x 115 px.
-- Termos de utilização e uma política de privacidade
-- Documentação
+- R *termos de utilização* e uma *política de privacidade* instruções
+- Documentação da solução de contentor
 - Contactos de suporte
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-- [Preparar o seu contentor ativos técnicos](./cpp-create-technical-assets.md)
-- [Criar a sua oferta de contentor](./cpp-create-offer.md) 
+Se ainda não o fez, deve [preparar o seu contentor ativos técnicos](./cpp-create-technical-assets.md) antes de [criar a sua oferta de contentor](./cpp-create-offer.md).  

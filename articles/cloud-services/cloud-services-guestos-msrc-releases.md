@@ -11,22 +11,65 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 2/20/2019
+ms.date: 3/14/2019
 ms.author: raiye
-ms.openlocfilehash: 9a54a7676b874eee601ac2b673021bb7ff161ba8
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: ec50cff2a2d3323b988632fd7ee96b73f60117b1
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57532955"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57887294"
 ---
 # <a name="azure-guest-os"></a>SO convidado do Azure
 As tabelas seguintes mostram as atualizações do Microsoft Security Response Center (MSRC) aplicadas ao SO convidado do Azure. Pesquise este artigo para determinar se uma atualização específica se aplica ao SO convidado do que está a utilizar. Atualizações sempre transitar para o determinado [família] [ family-explain] eles foram introduzidos no.
 
-## <a name="february-2019-guest-os"></a>SO de convidado de Fevereiro de 2019
-
 >[!NOTE]
->O sistema operacional convidado de Fevereiro é implementado para VMs do serviço Cloud que estão configurados para as atualizações automáticas. Quando a implementação estiver concluída, esta versão será disponibilizada das atualizações manuais nos ficheiros de configuração e o portal do Azure. Os patches seguintes estão incluídos no SO convidado Fevereiro. Esta lista está sujeita a alterações.
+>O sistema operacional convidado de Março é implementado para VMs do serviço Cloud que estão configurados para as atualizações automáticas. Quando a implementação estiver concluída, esta versão será disponibilizada das atualizações manuais nos ficheiros de configuração e o portal do Azure. Os patches seguintes estão incluídos no SO de Março. Esta lista está sujeita a alterações.
+
+
+## <a name="march-2019-guest-os"></a>SO de convidado de Março de 2019
+
+| Categoria do Produto | Artigo principal KB | Descrição da vulnerabilidade | SO convidado | Data introduzida pela primeira vez |
+| --- | --- | --- | --- | --- |
+| Rel 19-03 | [4489873] | Internet Explorer | 2.84, 3.71, 4.64 | 12 de Março de 2019 |
+| Rel 19-03 | [4489907] | Flash | 3.71, 4.64, 5.29, 6.5 | 12 de Março de 2019 |
+| Rel 19-03 | [4489885] | Segurança do Windows | 2.84 | 12 de Março de 2019 |
+| Rel 19-03 | [4489884] | Segurança do Windows | 3.71 | 12 de Março de 2019 |
+| Rel 19-03 | [4489883] | Segurança do Windows | 4.64 | 12 de Março de 2019 |
+| Rel 19-03 | [4489882] | Segurança do Windows 10 | 5.29 | 12 de Março de 2019 |
+| Rel 19-03 | [4489899] | Segurança do Windows 10 | 6.5 | 12 de Março de 2019 |
+| Rel 19-03 | [4486563] | Rollup de Fevereiro sem segurança | 2.84 | 12 de Fevereiro de 2019 |
+| Rel 19-03 | [4483458] | Rollup de Fevereiro sem segurança .NET 3.x | 2.84 | 12 de Fevereiro de 2019 |
+| Rel 19-03 | [4483455] | Rollup de Fevereiro sem segurança .NET 4.x | 2.84 | 12 de Fevereiro de 2019 |
+| Rel 19-03 | [4487025] | Rollup de Fevereiro sem segurança | 3.71 | 12 de Fevereiro de 2019 |
+| Rel 19-03 | [4483456] | Rollup de Fevereiro sem segurança .NET 3.x | 3.71 | 12 de Fevereiro de 2019 |
+| Rel 19-03 | [4483454] | Rollup de Fevereiro sem segurança .NET 4.x | 3.71 | 12 de Fevereiro de 2019 |
+| Rel 19-03 | [4487000] | Rollup de Fevereiro sem segurança | 4.64 | 12 de Fevereiro de 2019 |
+| Rel 19-03 | [4483459] | Rollup de Fevereiro sem segurança .NET 3.x | 4.64 | 12 de Fevereiro de 2019 |
+| Rel 19-03 | [4483453] | Rollup de Fevereiro sem segurança .NET 4.x | 4.64 | 12 de Fevereiro de 2019 |
+| Rel 19-03 | [4485447] | Atualização de pilha de manutenção de Fevereiro | 5.29 | 12 de Fevereiro de 2019 |
+| Rel 19-03 | [4486459] | Atualização de fuso horário | 2.84, 3.71, 4.64 | 12 de Fevereiro de 2019 |
+
+[4489873]: https://support.microsoft.com/kb/4489873
+[4489907]: https://support.microsoft.com/kb/4489907
+[4489885]: https://support.microsoft.com/kb/4489885
+[4489884]: https://support.microsoft.com/kb/4489884
+[4489883]: https://support.microsoft.com/kb/4489883
+[4489882]: https://support.microsoft.com/kb/4489882
+[4489899]: https://support.microsoft.com/kb/4489899
+[4486563]: https://support.microsoft.com/kb/4486563
+[4483458]: https://support.microsoft.com/kb/4483458
+[4483455]: https://support.microsoft.com/kb/4483455
+[4487025]: https://support.microsoft.com/kb/4487025
+[4483456]: https://support.microsoft.com/kb/4483456
+[4483454]: https://support.microsoft.com/kb/4483454
+[4487000]: https://support.microsoft.com/kb/4487000
+[4483459]: https://support.microsoft.com/kb/4483459
+[4483453]: https://support.microsoft.com/kb/4483453
+[4485447]: https://support.microsoft.com/kb/4485447
+[4486459]: https://support.microsoft.com/kb/4486459
+
+## <a name="february-2019-guest-os"></a>SO de convidado de Fevereiro de 2019
 
 | Categoria do Produto | Artigo principal KB | Descrição da vulnerabilidade | SO convidado | Data introduzida pela primeira vez |
 | --- | --- | --- | --- | --- |
@@ -87,13 +130,13 @@ As tabelas seguintes mostram as atualizações do Microsoft Security Response Ce
 | Rel 19-01 | [4480964] | Segurança do Windows | 4.62 | 8 de Janeiro de 2019 |
 | Rel 19-01 | [4480972] | Segurança do Windows | 3.69 | 8 de Janeiro de 2019 |
 | Rel 19-01 | [4480960] | Segurança do Windows | 2.82 | 8 de Janeiro de 2019 |
-| Rel 19-01 | [4480056] | Segurança do .net | 6.3 | 8 de Janeiro de 2019 |
-| Rel 19-01 | [4480074] | Segurança do .net 4.x | 4.62 | 8 de Janeiro de 2019 |
-| Rel 19-01 | [4480075] | Segurança do .net 4.x | 3.69 | 8 de Janeiro de 2019 |
-| Rel 19-01 | [4480076] | Segurança do .net 4.x | 2.82 | 8 de Janeiro de 2019 |
-| Rel 19-01 | [4480086] | Segurança do .net 3.x | 4.62 | 8 de Janeiro de 2019 |
-| Rel 19-01 | [4480083] | Segurança do .net 3.x | 3.69 | 8 de Janeiro de 2019 |
-| Rel 19-01 | [4480085] | Segurança do .net 3.x | 2.82 | 8 de Janeiro de 2019 |
+| Rel 19-01 | [4480056] | Segurança do .NET | 6.3 | 8 de Janeiro de 2019 |
+| Rel 19-01 | [4480074] | Segurança do .NET 4.x | 4.62 | 8 de Janeiro de 2019 |
+| Rel 19-01 | [4480075] | Segurança do .NET 4.x | 3.69 | 8 de Janeiro de 2019 |
+| Rel 19-01 | [4480076] | Segurança do .NET 4.x | 2.82 | 8 de Janeiro de 2019 |
+| Rel 19-01 | [4480086] | Segurança do .NET 3.x | 4.62 | 8 de Janeiro de 2019 |
+| Rel 19-01 | [4480083] | Segurança do .NET 3.x | 3.69 | 8 de Janeiro de 2019 |
+| Rel 19-01 | [4480085] | Segurança do .NET 3.x | 2.82 | 8 de Janeiro de 2019 |
 | Rel 19-01 | [4480979] | Flash | 3.69, 4.62, 5.27, 6.3 | 8 de Janeiro de 2019 |
 | Rel 19-01 | [4480965] | Internet Explorer | 2.82, 3.69, 4.62 | 8 de Janeiro de 2019 |
 | N/A | [4471318] | Rollup de Dezembro sem segurança | 2.82 | 11 de Dezembro de 2018 |
@@ -138,12 +181,12 @@ As tabelas seguintes mostram as atualizações do Microsoft Security Response Ce
 | Rel 18-12 | [4471328] | Segurança do Windows   | 2.81 | 11 de Dezembro de 2018 |
 | Rel 18-12 | [4471326] | Segurança do Windows   | 3.68 | 11 de Dezembro de 2018 |
 | Rel 18-12 | [4471322] | Segurança do Windows   | 4.61 | 11 de Dezembro de 2018 |
-| Rel 18-12 | [4470600] | Segurança do .net 3.x  | 2.81 | 11 de Dezembro de 2018 |
-| Rel 18-12 | [4470601] | Segurança do .net 3.x  | 3.68 | 11 de Dezembro de 2018|
-| Rel 18-12 | [4470602] | Segurança do .net 3.x  | 4.61 | 11 de Dezembro de 2018 |
-| Rel 18-12 | [4470493] | Segurança do .net 4.x  | 2.81 | 11 de Dezembro de 2018 |
-| Rel 18-12 | [4470492] | Segurança do .net 4.x  | 3.68 | 11 de Dezembro de 2018 |
-| Rel 18-12 | [4470491] | Segurança do .net 4.x  | 4.61| 11 de Dezembro de 2018 |
+| Rel 18-12 | [4470600] | Segurança do .NET 3.x  | 2.81 | 11 de Dezembro de 2018 |
+| Rel 18-12 | [4470601] | Segurança do .NET 3.x  | 3.68 | 11 de Dezembro de 2018|
+| Rel 18-12 | [4470602] | Segurança do .NET 3.x  | 4.61 | 11 de Dezembro de 2018 |
+| Rel 18-12 | [4470493] | Segurança do .NET 4.x  | 2.81 | 11 de Dezembro de 2018 |
+| Rel 18-12 | [4470492] | Segurança do .NET 4.x  | 3.68 | 11 de Dezembro de 2018 |
+| Rel 18-12 | [4470491] | Segurança do .NET 4.x  | 4.61| 11 de Dezembro de 2018 |
 | Rel 18-12 | [4471331] | Flash  | 3.68, 4.61, 5.26 | 5 de Dezembro de 2018  |
 | Rel 18-12 | [4470199] | Internet Explorer  | 2.81, 3.68, 4.61 | 11 de Dezembro de 2018 |
 | N/A | [4468323] | Atualização de fuso horário    | 2.81, 3.68, 4.61 | 13 de Dezembro de 2018 |
@@ -520,7 +563,7 @@ As tabelas seguintes mostram as atualizações do Microsoft Security Response Ce
 | Rel 05 de 17 | [4010323] |Consultoria de SHA1 |2.62, 4.42, 5.7 | 9 de Maio de 2017 |
 | Rel 05 de 17 | [4022344] |Consultoria de segurança da Microsoft |5.7 | 9 de Maio de 2017 |
 | Rel 05 de 17 | [4022345] |Consultoria de segurança da Microsoft |5.7 | 9 de Maio de 2017 |
-| Rel 05 de 17 | [4021279] |Consultoria de núcleo do .net /ASP.Net |2.62, 3.49, 4.42, 5.7 | 9 de Maio de 2017 |
+| Rel 05 de 17 | [4021279] |Consultoria de núcleo do .NET /ASP.NET |2.62, 3.49, 4.42, 5.7 | 9 de Maio de 2017 |
 | N/A | [4012864] |Atualização de fuso horário |2.62, 3.49, 4.42 | 9 de Maio de 2017 |
 | N/A | [4014565] |Agregação de não-segurança de Abril .NET |2.62 | 11 de Abril de 2017 |
 | N/A | [4014559] |Agregação de não-segurança de Abril .NET |2.62 | 11 de Abril de 2017 |
@@ -851,7 +894,7 @@ As tabelas seguintes mostram as atualizações do Microsoft Security Response Ce
 | MS15-075 |[3072633] |Vulnerabilidades no OLE poderiam permitir elevação de privilégios |4.22, 3.29, 2.41 |14 de Julho de 2015 |
 | MS15-076 |[3067505] |Vulnerabilidade na chamada de procedimento remoto do Windows poderia permitir elevação de privilégios |4.22, 3.29, 2.41 |14 de Julho de 2015 |
 | MS15-077 |[3077657] |Vulnerabilidade no Driver de tipo de letra de ATM poderia permitir elevação de privilégios |4.22, 3.29, 2.41 |14 de Julho de 2015 |
-| N/D |[3057154] |Atualizar para restringir a utilização da encriptação DES |4.22, 3.29, 2.41 |14 de Julho de 2015 |
+| ND |[3057154] |Atualizar para restringir a utilização da encriptação DES |4.22, 3.29, 2.41 |14 de Julho de 2015 |
 
 ## <a name="june-2015-guest-os"></a>SO de convidado de Junho de 2015
 | ID do boletim | Artigo principal KB | Descrição da vulnerabilidade | SO convidado | Data introduzida pela primeira vez |
@@ -884,7 +927,7 @@ As tabelas seguintes mostram as atualizações do Microsoft Security Response Ce
 | MS15-040 |[3045711] |Vulnerabilidade no AD FS poderia permitir a divulgação de informações |4.20, 3.27, 2.39 |17 de Abril de 2015 |
 | MS15-041 |[3048010] |Vulnerabilidade no .NET Framework poderia permitir a divulgação de informações |4.20, 3.27, 2.39 |17 de Abril de 2015 |
 | MS15-042 |[3047234] |Vulnerabilidade no Windows Hyper-V poderia permitir Negação de serviço |4.20, 3.27, 2.39 |17 de Abril de 2015 |
-| N/D |[3045755] |Atualização para melhorar de autenticação PKU2U |4.20, 3.27, 2.39 |17 de Abril de 2015 |
+| ND |[3045755] |Atualização para melhorar de autenticação PKU2U |4.20, 3.27, 2.39 |17 de Abril de 2015 |
 
 ## <a name="april-2015-guest-os"></a>SO de convidado de Abril de 2015
 | ID do boletim | Artigo principal KB | Descrição da vulnerabilidade | SO convidado | Data introduzida pela primeira vez |

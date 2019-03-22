@@ -16,12 +16,12 @@ ms.date: 02/25/2019
 ms.author: jeffgilb
 ms.reviewer: quying
 ms.lastreviewed: 10/23/2018
-ms.openlocfilehash: ed149398a1244ad0cb09c3e0fe128973c6caa00d
-ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
+ms.openlocfilehash: b61bf4f05f52b9d28ee09bb6c0de30544396e815
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57408008"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58091601"
 ---
 # <a name="tutorial-offer-highly-available-sql-databases"></a>Tutorial: Oferecem elevada disponibilidade bases de dados do SQL
 
@@ -65,7 +65,7 @@ Utilize os passos nesta secção para implementar o grupo de Disponibilidade Alw
 - Um conjunto que contém o testemunho de partilha ficheiros e SQL VMs de disponibilidade  
 
 1. 
-[!INCLUDE [azs-admin-portal](../../includes/azs-admin-portal.md)]
+   [!INCLUDE [azs-admin-portal](../../includes/azs-admin-portal.md)]
 
 2. Selecione **\+** **criar um recurso** > **personalizado**e, em seguida, **implementação do modelo**.
 
@@ -156,7 +156,7 @@ Depois do SQL AlwaysOn grupo de disponibilidade foi criado, configurado e adicio
 > Execute estes passos a partir do portal de utilizador do Azure Stack como um utilizador do inquilino com uma assinatura do fornecimento de capacidades do SQL Server (Microsoft.SQLAdapter serviço).
 
 1. 
-[!INCLUDE [azs-user-portal](../../includes/azs-user-portal.md)]
+   [!INCLUDE [azs-user-portal](../../includes/azs-user-portal.md)]
 
 2. Selecione **\+** **criar um recurso** > **dados \+ armazenamento**e, em seguida, **base de dados SQL**.<br><br>Forneça as informações de propriedade da base de dados necessários, incluindo o nome, agrupamento, tamanho máximo e a subscrição, grupo de recursos e localização para utilizar na implementação. 
 

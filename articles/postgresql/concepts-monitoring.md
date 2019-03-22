@@ -6,12 +6,12 @@ ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 11/05/2018
-ms.openlocfilehash: bdfeb41c7881bfbd577cdf1a9190617e09979a7f
-ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
+ms.openlocfilehash: 0d5508fe6b07bd5664bd0708960559537d8f6be1
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56961028"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58098496"
 ---
 # <a name="monitor-and-tune"></a>Monitorizar e otimizar
 Dados sobre os servidores de monitorização ajuda-o a resolver problemas e otimizar a sua carga de trabalho. Base de dados do Azure para PostgreSQL fornece várias opções de monitorização para fornecer informações sobre o comportamento do seu servidor.
@@ -23,7 +23,7 @@ Base de dados do Azure para PostgreSQL fornece várias métricas que lhe dar inf
 Estas métricas estão disponíveis para a base de dados do Azure para PostgreSQL:
 
 |Métrica|Nome a apresentar de métrica|Unidade|Descrição|
-|---|---|---|---|---|
+|---|---|---|---|
 |cpu_percent|Percentagem de CPU|Percentagem|A percentagem de CPU em utilização.|
 |memory_percent|Percentagem de memória|Percentagem|A percentagem de memória em utilização.|
 |io_consumption_percent|Percentagem de e/s|Percentagem|A percentagem de e/s em utilização.|
@@ -35,8 +35,8 @@ Estas métricas estão disponíveis para a base de dados do Azure para PostgreSQ
 |serverlog_storage_limit|Limite de armazenamento de registo do servidor|Bytes|O armazenamento de registo de servidor máxima para este servidor.|
 |active_connections|Ligações ativas|Contagem|O número de ligações ativas para o servidor.|
 |connections_failed|Ligações com Falhas|Contagem|O número de ligações falhadas para o servidor.|
-|network_bytes_egress|Saída de Rede|Bytes|Rede horizontalmente através de ligações de Active Directory.|
-|network_bytes_ingress|Entrada de Rede|Bytes|Rede no através de ligações de Active Directory.|
+|network_bytes_egress|Saída da Rede|Bytes|Rede horizontalmente através de ligações de Active Directory.|
+|network_bytes_ingress|Entrada na Rede|Bytes|Rede no através de ligações de Active Directory.|
 |backup_storage_used|Armazenamento de cópia de segurança utilizado|Bytes|A quantidade de armazenamento de cópia de segurança utilizado.|
 
 ## <a name="server-logs"></a>Registos do servidor

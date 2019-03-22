@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 2/28/2019
+ms.date: 3/12/2019
 ms.author: rkarlin
-ms.openlocfilehash: c711ea3636a3ea045b4a145481f9da156b8c5bfc
-ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.openlocfilehash: 30f6d08594bdf2e5d78bc8c7881a135d6e57f397
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/02/2019
-ms.locfileid: "57246989"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57852228"
 ---
 # <a name="on-board-azure-sentinel-preview"></a>Pré-visualização de acumular Sentinel do Azure
 
@@ -43,8 +43,9 @@ Depois de ligar as origens de dados, escolha a partir de uma galeria de criado c
 - Permissões de Contribuidor para o seu inquilino para ativar o Azure sentinela
 
 - Inquilino global ou permissões de administrador de segurança
+ 
 
-## <a name="enable-azure-sentinel"></a>Ativar Sentinel do Azure
+## Ativar Sentinel do Azure <a name="enable"></a>
 
 1. Ir para o portal do Azure.
 2. Certifique-se de que a subscrição na qual o Azure sentinela é criado, está selecionado. 
@@ -56,9 +57,10 @@ Depois de ligar as origens de dados, escolha a partir de uma galeria de criado c
 
    ![procurar](./media/quickstart-onboard/choose-workspace.png)
 
-  >[!NOTE] 
-  > - **Localização da área de trabalho** é importante compreender que todos os dados que os transmitir para o Azure sentinela é armazenado na localização geográfica da área de trabalho que selecionou.  
-  > - Áreas de trabalho predefinida criadas pelo centro de segurança do Azure não irão aparecer na lista; Não é possível instalar o Azure sentinela nos mesmos.
+   >[!NOTE] 
+   > - **Localização da área de trabalho** é importante compreender que todos os dados que os transmitir para o Azure sentinela é armazenado na localização geográfica da área de trabalho que selecionou.  
+   > - Áreas de trabalho predefinida criadas pelo centro de segurança do Azure não irão aparecer na lista; Não é possível instalar o Azure sentinela nos mesmos.
+   > - Sentinel do Azure pode ser executado em áreas de trabalho que são implementadas em qualquer uma das seguintes regiões:  Sudeste da Austrália, Canadá Central, Índia Central, E.U.A. leste, E.U.A. Leste 2 EUAP (Canárias), leste do Japão, Sudeste asiático, do Reino Unido Sul, Europa Ocidental, oeste dos E.U.A. 2.
 
 6. Clique em **adicionar Azure Sentinel**.
   

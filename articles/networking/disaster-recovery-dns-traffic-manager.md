@@ -15,31 +15,31 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/08/2018
 ms.author: kumud
-ms.openlocfilehash: ce3e8f31c7fee6afdeabf931485a49934e98f81b
-ms.sourcegitcommit: 794bfae2ae34263772d1f214a5a62ac29dcec3d2
+ms.openlocfilehash: ec252c1f45e5c27f17b725f6ab68cc94f67897c4
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44391356"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58120742"
 ---
 # <a name="disaster-recovery-using-azure-dns-and-traffic-manager"></a>Recuperação após desastre com o DNS do Azure e o Gestor de Tráfego
 
 Recuperação após desastre se concentra em recuperar de uma grave perda de funcionalidade do aplicativo. Para escolher uma solução de recuperação após desastre, os proprietários de negócios e tecnologia devem primeiro determinar o nível de funcionalidade que é necessário durante um desastre, por exemplo, -, indisponível, parcialmente disponível por meio de funcionalidade reduzida ou da disponibilidade atrasada, ou estão totalmente disponíveis.
 A maioria dos clientes de empresas estão optando uma arquitetura de várias regiões para resiliência contra um aplicativo ou a ativação pós-falha ao nível de infraestrutura. Os clientes podem escolher várias abordagens em meu questionamento para alcançar a ativação pós-falha e a elevada disponibilidade através de arquitetura redundante. Aqui estão algumas das abordagens populares:
 
-- **Modo ativo-passivo com reserva progressiva**: nesta solução de ativação pós-falha, as VMs e outros dispositivos em execução na região em modo de espera não estão ativos até que haja uma necessidade de ativação pós-falha. No entanto, o ambiente de produção é replicado na forma de cópias de segurança, de imagens VM ou modelos do Resource Manager, para uma região diferente. Esse mecanismo de ativação pós-falha é económico, mas demora mais tempo para realizar uma ativação pós-falha concluída.
+- **Modo ativo-passivo com reserva progressiva**: Nesta solução de ativação pós-falha, as VMs e outros dispositivos em execução na região em modo de espera não estão ativos até que haja uma necessidade de ativação pós-falha. No entanto, o ambiente de produção é replicado na forma de cópias de segurança, de imagens VM ou modelos do Resource Manager, para uma região diferente. Esse mecanismo de ativação pós-falha é económico, mas demora mais tempo para realizar uma ativação pós-falha concluída.
  
     ![Ativo/passivo com reserva progressiva](./media/disaster-recovery-dns-traffic-manager/active-passive-with-cold-standby.png)
     
     *Figura - ativo/passivo com a configuração da recuperação após desastre de reserva dinâmica frio*
 
-- **Ativo/passivo com piloto light**: nesta solução de ativação pós-falha, o ambiente em espera é configurado com uma configuração mínima. A configuração tem apenas os serviços necessários para suportar apenas um mínimo e crítico conjunto de aplicações a executar. No seu formato nativo, este cenário pode apenas executar a funcionalidade mínima, mas pode aumentar verticalmente e gerar serviços adicionais para tomar medidas em volume da carga de produção, se ocorrer uma ativação pós-falha.
+- **Ativo/passivo com piloto light**: Nesta solução de ativação pós-falha, o ambiente em espera é configurado com uma configuração mínima. A configuração tem apenas os serviços necessários para suportar apenas um mínimo e crítico conjunto de aplicações a executar. No seu formato nativo, este cenário pode apenas executar a funcionalidade mínima, mas pode aumentar verticalmente e gerar serviços adicionais para tomar medidas em volume da carga de produção, se ocorrer uma ativação pós-falha.
     
     ![Ativo/passivo com light piloto](./media/disaster-recovery-dns-traffic-manager/active-passive-with-pilot-light.png)
     
     *Figura: Ativo/passivo com a configuração de recuperação após desastre de luz do piloto*
 
-- **Ativo/passivo com reserva quente**: nesta solução de ativação pós-falha, a região em modo de espera é previamente preparada e está pronta para a carga de base, dimensionamento automático está ativado e todas as instâncias estão em execução. Esta solução não é dimensionada para assumir a carga de produção total, mas está funcional e todos os serviços estão em execução. Esta solução é uma versão aumentada da abordagem de luz do piloto.
+- **Ativo/passivo com reserva quente**: Nesta solução de ativação pós-falha, a região em modo de espera é previamente warmed e está pronta para a carga de base, dimensionamento automático está ativado e todas as instâncias estão em execução. Esta solução não é dimensionada para assumir a carga de produção total, mas está funcional e todos os serviços estão em execução. Esta solução é uma versão aumentada da abordagem de luz do piloto.
     
     ![Ativo/passivo com reserva quente](./media/disaster-recovery-dns-traffic-manager/active-passive-with-warm-standby.png)
     
@@ -71,15 +71,16 @@ A solução de ativação pós-falha manual do DNS do Azure para recuperação a
 *Figura - ativação pós-falha Manual através de DNS do Azure*
 
 As suposições feitas para a solução são:
--   Pontos de extremidade primários e secundários têm IPs estáticos que não são alterados frequentemente. Digamos que, para o site primário, o IP é 100.168.124.44 e o IP para o site secundário é 100.168.124.43.
--   Existe uma zona DNS do Azure para o site primário e secundário. Digamos para o site primário, o ponto final é prod.contoso.com e para o site de cópia de segurança é dr.contoso.com. Também existe um registo DNS para a aplicação principal, conhecido como www.contoso.com.   
--   O valor de TTL é igual ou abaixo do SLA RTO definido na organização. Por exemplo, se uma empresa define o RTO da resposta de desastres de aplicativo a ser 60 minutos, em seguida, o valor de TTL deve ser inferior a 60 minutos, de preferência a inferior melhor. Pode configurar DNS do Azure para ativação pós-falha manual da seguinte forma:
-1. Criar uma zona DNS
-2. Criar registos de zona DNS
-3. Atualizar o registo CNAME
+- Pontos de extremidade primários e secundários têm IPs estáticos que não são alterados frequentemente. Digamos que, para o site primário, o IP é 100.168.124.44 e o IP para o site secundário é 100.168.124.43.
+- Existe uma zona DNS do Azure para o site primário e secundário. Digamos para o site primário, o ponto final é prod.contoso.com e para o site de cópia de segurança é dr.contoso.com. Um registo DNS para a aplicação principal, conhecido como www\.contoso.com também existe.   
+- O valor de TTL é igual ou abaixo do SLA RTO definido na organização. Por exemplo, se uma empresa define o RTO da resposta de desastres de aplicativo a ser 60 minutos, em seguida, o valor de TTL deve ser inferior a 60 minutos, de preferência a inferior melhor. 
+  Pode configurar DNS do Azure para ativação pós-falha manual da seguinte forma:
+- Criar uma zona DNS
+- Criar registos de zona DNS
+- Atualizar o registo CNAME
 
 ### <a name="step-1-create-a-dns"></a>Passo 1: Criar um DNS
-Crie uma zona DNS (por exemplo, www.contoso.com), conforme mostrado abaixo:
+Criar uma zona DNS (por exemplo, www\.contoso.com) conforme mostrado abaixo:
 
 ![Criar uma zona DNS no Azure](./media/disaster-recovery-dns-traffic-manager/create-dns-zone.png)
 
@@ -87,13 +88,13 @@ Crie uma zona DNS (por exemplo, www.contoso.com), conforme mostrado abaixo:
 
 ### <a name="step-2-create-dns-zone-records"></a>Passo 2: Criar registos de zona DNS
 
-Dentro desta zona crie registos de três (por exemplo, www.contoso.com, prod.contoso.com e dr.consoto.com) como mostrados abaixo.
+Dentro desta zona criar registos de três (por exemplo, www\.contoso.com, prod.contoso.com e dr.consoto.com) como mostrados abaixo.
 
 ![Criar registos de zona DNS](./media/disaster-recovery-dns-traffic-manager/create-dns-zone-records.png)
 
 *Figura - criar registos de zona DNS no Azure*
 
-Neste cenário, site, www.contoso.com tem um valor de TTL 30 minutos, que é bem abaixo o RTO declarado e está a apontar para o prod.contoso.com de site de produção. Esta configuração é durante operações comerciais normais. O valor de TTL de prod.contoso.com e dr.contoso.com foi definida como 300 segundos ou 5 minutos. Pode utilizar um serviço, como o Azure Monitor ou o Azure App Insights de monitorização do Azure ou qualquer parceiro de soluções, como a Dynatrace de monitorização, ainda pode utilizar as soluções aumenta domésticas que podem monitorar ou detetar a aplicação ou falhas de nível de infra-estrutura virtual.
+Este cenário, o site, o www\.contoso.com tem um valor de TTL 30 minutos, que é bem abaixo o RTO declarado e está a apontar para o prod.contoso.com de site de produção. Esta configuração é durante operações comerciais normais. O valor de TTL de prod.contoso.com e dr.contoso.com foi definida como 300 segundos ou 5 minutos. Pode utilizar um serviço, como o Azure Monitor ou o Azure App Insights de monitorização do Azure ou qualquer parceiro de soluções, como a Dynatrace de monitorização, ainda pode utilizar as soluções aumenta domésticas que podem monitorar ou detetar a aplicação ou falhas de nível de infra-estrutura virtual.
 
 ### <a name="step-3-update-the-cname-record"></a>Passo 3: Atualizar o registo CNAME
 
@@ -103,7 +104,7 @@ Depois de detetada falha, altere o valor de registo para apontar para dr.contoso
 
 *Figura - atualizar o registo CNAME no Azure*
 
-Dentro de 30 minutos, durante o qual a maioria das resoluções atualizará o ficheiro de zona em cache, será redirecionada para dr.contoso.com qualquer consulta para www.contoso.com.
+Dentro de 30 minutos, durante o qual a maioria das resoluções atualizará o ficheiro de zona em cache, de qualquer consulta para www\.contoso.com será redirecionado para dr.contoso.com.
 Também pode executar o seguinte comando da CLI do Azure para alterar o valor CNAME:
  ```azurecli
    az network dns record-set cname set-record \
@@ -153,7 +154,7 @@ Da mesma forma, crie o desastre recuperação ponto final dentro do Gestor de tr
 
 ### <a name="step-3-set-up-health-check-and-failover-configuration"></a>Passo 3: Definir a configuração de verificação e ativação pós-falha do Estado de funcionamento
 
-Neste passo, definir o valor de TTL de DNS para 10 segundos, que é honradas pela maioria das resoluções de recursiva de acesso à internet. Esta configuração significa que nenhum resolvedor DNS colocarão em cache as informações de mais de 10 segundos. Para as definições do monitor de ponto final, o caminho é o conjunto atual em / ou de raiz, mas pode personalizar as definições de ponto final para avaliar um caminho, por exemplo, prod.contoso.com/index. O exemplo abaixo mostra a **https** como o protocolo de pesquisa. No entanto, pode escolher **http** ou **tcp** também. A escolha do protocolo depende a aplicação de end. O intervalo de pesquisa está definido para 10 segundos, que permite a pesquisa rápida e a repetição é definida como 3. Como resultado, o Gestor de tráfego efetuará a ativação pós-falha para o segundo ponto de extremidade se uma falha de se registar três intervalos consecutivos. A fórmula seguinte define o tempo total de failover automático: tempo de ativação pós-falha = TTL + Repita * intervalo de Probing e nesse caso, o valor é 10 + 3 * 10 = 40 segundos (máx.).
+Neste passo, definir o valor de TTL de DNS para 10 segundos, que é honradas pela maioria das resoluções de recursiva de acesso à internet. Esta configuração significa que nenhum resolvedor DNS colocarão em cache as informações de mais de 10 segundos. Para as definições do monitor de ponto final, o caminho é o conjunto atual em / ou de raiz, mas pode personalizar as definições de ponto final para avaliar um caminho, por exemplo, prod.contoso.com/index. O exemplo abaixo mostra a **https** como o protocolo de pesquisa. No entanto, pode escolher **http** ou **tcp** também. A escolha do protocolo depende a aplicação de end. O intervalo de pesquisa está definido para 10 segundos, que permite a pesquisa rápida e a repetição é definida como 3. Como resultado, o Gestor de tráfego efetuará a ativação pós-falha para o segundo ponto de extremidade se uma falha de se registar três intervalos consecutivos. A fórmula seguinte define o tempo total de failover automático: Hora de ativação pós-falha = TTL + Repita * intervalo de Probing e nesse caso, o valor é 10 + 3 * 10 = 40 segundos (máx.).
 Se a repetição está definida como 1 e o TTL é definida para 10 segundos, em seguida, o tempo de ativação pós-falha 10 + 1 * 10 = 20 segundos. Defina a repetição para um valor maior do que **1** para eliminar as possibilidades de ativações pós-falha devido a falsos positivos ou qualquer blips de rede secundárias. 
 
 

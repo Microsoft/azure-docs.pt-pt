@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/15/2019
 ms.author: b-juche
-ms.openlocfilehash: 8bc2d655f7c6b20cabfadbf9dffca8622a24674f
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 9154add96084142ca1f93ad61c6418e3b487fb83
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57778673"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58090921"
 ---
 # <a name="manage-snapshots-by-using-azure-netapp-files"></a>Gerir instantâneos com ficheiros de NetApp do Azure
 
@@ -77,9 +77,9 @@ Atualmente, pode restaurar um instantâneo apenas para um novo volume.
     * **Sub-rede**  
         Especifique a sub-rede que pretende utilizar para o volume.  
         A sub-rede que especificar deve ser delegada para o serviço de ficheiros do Azure NetApp. Pode criar uma nova sub-rede, selecionando **criar novo** sob o campo de sub-rede.  
-<!--
+   <!--
     ![Restored new volume](../media/azure-netapp-files/azure-netapp-files-snapshot-new-volume.png) 
--->
+   -->
 
 5. Clique em **OK**.   
     O novo volume para que o instantâneo é restaurado aparece no painel do Volumes.

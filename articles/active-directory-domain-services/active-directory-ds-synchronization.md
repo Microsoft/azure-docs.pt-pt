@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/30/2018
 ms.author: ergreenl
-ms.openlocfilehash: 23d30d3b881fbe5aab4e537073b2582eb01bfe7c
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: b5544be37015368173f3f8eb39288b7a97ae11c6
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55183429"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58085002"
 ---
 # <a name="synchronization-in-an-azure-ad-domain-services-managed-domain"></a>Sincronização num domínio gerido do Azure AD Domain Services
 O diagrama seguinte ilustra como funciona a sincronização no Azure AD Domain Services domínios geridos.
@@ -70,8 +70,6 @@ A tabela seguinte lista alguns atributos comuns e descreve como eles são sincro
 
 > [!NOTE]
 > **Inicie sessão no domínio gerido com o formato UPN:** O atributo SAMAccountName pode ser gerado automaticamente para algumas contas de utilizador no seu domínio gerido. Se vários usuários têm o mesmo atributo mailNickname ou os utilizadores têm prefixos UPN demasiado longos, SAMAccountName para estes utilizadores pode ser geradas automaticamente. Por conseguinte, o formato de SAMAccountName (por exemplo, "CONTOSO100\joeuser') nem sempre é uma forma fiável para iniciar sessão domínio. SAMAccountName de gerado automaticamente dos utilizadores pode ser diferente do seu prefixo UPN. Utilize o formato UPN (por exemplo, "joeuser@contoso100.com") para iniciar sessão no domínio gerido com confiança.
->
->
 
 ### <a name="attribute-mapping-for-user-accounts"></a>Mapeamento do atributo para contas de utilizador
 A tabela seguinte ilustra os atributos como específicos para os objetos no inquilino do Azure AD são sincronizados com atributos correspondentes no seu domínio gerido do utilizador.

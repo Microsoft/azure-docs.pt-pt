@@ -6,12 +6,12 @@ ms.service: avere-vfxt
 ms.topic: conceptual
 ms.date: 10/31/2018
 ms.author: v-erkell
-ms.openlocfilehash: 30c03d52e31f70448eef07b4567083061605d8dd
-ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
+ms.openlocfilehash: f989f4d103efecf2b6e206287dd8b7b300a1796d
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55300477"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57856846"
 ---
 # <a name="access-the-vfxt-cluster"></a>Aceder ao cluster vFXT
 
@@ -31,7 +31,7 @@ Antes de ligar, certifique-se de que o par de chaves o SSH públicas/privadas qu
 
 Se utilizar um cliente baseado em Linux, utilize um comando com esta forma de túnel SSH: 
 
-ssh -L *local_port*:*cluster_mgmt_ip*:443 *controller_username*@*controller_public_IP*
+ssh -L *local_port*:*cluster_mgmt_ip*:443 *controller_username*\@*controller_public_IP*
 
 Este comando liga ao endereço IP de gestão do cluster através do endereço IP do controlador cluster.
 
@@ -47,7 +47,7 @@ A autenticação é automática, se utilizou a chave pública SSH para criar o c
 
 Este exemplo utiliza o comuns baseados em Windows terminal utilitário, PuTTY.
 
-Preencha o PuTTY **hostname** campo com o nome de utilizador do controlador de cluster e o respetivo endereço IP: *your_username*@*controller_public_IP*.
+Preencha o PuTTY **hostname** campo com o nome de utilizador do controlador de cluster e o respetivo endereço IP: *your_username*\@*controller_public_IP*.
 
 Exemplo: ``azureuser@203.0.113.51``
 
@@ -69,7 +69,7 @@ A autenticação é automática, se utilizou a chave pública SSH para criar o c
 
 Este passo utiliza um navegador da web para ligar para o utilitário de configuração em execução no vFXT cluster.
 
-* Para uma ligação de túnel SSH, abra o browser e navegue para https://127.0.0.1:8443. 
+* Para uma ligação de túnel SSH, abra o browser e navegue para `https://127.0.0.1:8443`. 
 
   Ligado ao cluster do endereço IP quando criou o túnel, portanto, só precisa de utilizar o endereço IP de localhost no browser. Se tiver utilizado uma porta local diferente 8443, em vez disso, a utilizar o seu número de porta.
 

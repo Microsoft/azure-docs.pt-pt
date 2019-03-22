@@ -4,17 +4,17 @@ description: Neste guia de introdução, saiba como criar um dispositivo IoT Edg
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 02/28/2019
+ms.date: 03/19/2019
 ms.topic: quickstart
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc, seodec18
-ms.openlocfilehash: cb8d686b32aae295e47b127f0312ba6eba9f77e3
-ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
+ms.openlocfilehash: 039ef05f7c0cbb9809a51efc3deef978e2970cf4
+ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57408552"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58224571"
 ---
 # <a name="quickstart-deploy-your-first-iot-edge-module-to-a-linux-device"></a>Início rápido: Implementar o seu primeiro módulo do IoT Edge num dispositivo de Linux
 
@@ -109,7 +109,7 @@ Uma vez que os dispositivos do IoT Edge se comportar e podem ser geridos de form
    az iot hub device-identity show-connection-string --device-id myEdgeDevice --hub-name {hub_name}
    ```
 
-3. Copie o valor do `cs` da chave a partir da saída do JSON e guarde-o. Este valor é a cadeia de ligação do dispositivo. Usará esta cadeia de ligação para configurar o runtime do IoT Edge na próxima seção.
+3. Copie o valor do `connectionString` da chave a partir da saída do JSON e guarde-o. Este valor é a cadeia de ligação do dispositivo. Usará esta cadeia de ligação para configurar o runtime do IoT Edge na próxima seção.
 
    ![Obter cadeia de ligação da saída da CLI](./media/quickstart/retrieve-connection-string.png)
 

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 05/30/2018
 ms.author: johnkem
 ms.subservice: logs
-ms.openlocfilehash: ad3b672a2db9bccaf5124d4bc897e85806966255
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.openlocfilehash: fb3ed970b7f92e1cc06a9d1023e01f5888915e94
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57312805"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58088677"
 ---
 # <a name="monitor-subscription-activity-with-the-azure-activity-log"></a>Monitorizar a atividade de subscrição com o registo de atividades do Azure
 
@@ -118,10 +118,10 @@ Pode transmitir o registo de atividade para um Hub de eventos ou armazená-los n
 
     ![Botão de exportação no portal](./media/activity-logs-overview/activity-logs-portal-export-v2.png)
 3. No painel que aparece, pode selecionar:  
-  * regiões para o qual pretende exportar eventos
-  * a conta de armazenamento para o qual pretende guardar os eventos
-  * o número de dias que pretenda manter esses eventos em armazenamento. Uma definição de 0 dias retém os registos para sempre.
-  * o Namespace de barramento de serviço no qual gostaria de ter um Hub de eventos a ser criado para esses eventos de transmissão em fluxo.
+   * regiões para o qual pretende exportar eventos
+   * a conta de armazenamento para o qual pretende guardar os eventos
+   * o número de dias que pretenda manter esses eventos em armazenamento. Uma definição de 0 dias retém os registos para sempre.
+   * o Namespace de barramento de serviço no qual gostaria de ter um Hub de eventos a ser criado para esses eventos de transmissão em fluxo.
 
      ![Painel de registo de atividades de exportação](./media/activity-logs-overview/activity-logs-portal-export-blade.png)
 4. Clique em **guardar** para salvar essas configurações. As definições são imediatamente aplicadas à sua subscrição.

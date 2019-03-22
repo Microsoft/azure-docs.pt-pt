@@ -1,6 +1,6 @@
 ---
 title: O que é o Azure IoT Central | Microsoft Docs
-description: O Azure IoT Central é uma solução de SaaS ponto a ponto, que pode utilizar para criar e gerir a sua solução de IoT personalizada. Este artigo disponibiliza uma descrição geral do Azure IoT Central.
+description: Azure IoT Central é uma solução de SaaS ponto-a-ponto, que pode usar para criar e gerir a sua solução de IoT personalizada. Este artigo disponibiliza uma descrição geral do Azure IoT Central.
 author: dominicbetts
 ms.author: dobett
 ms.date: 11/30/2017
@@ -9,12 +9,12 @@ ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: timlt
-ms.openlocfilehash: 8240cf5beb50ef16aa2bd03415e6bbff9a2f4250
-ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
-ms.translationtype: HT
+ms.openlocfilehash: 9fc565996797c90a6d2ac9b3851ac3408f1842c7
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50158147"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58183276"
 ---
 <!---
 Purpose of an Overview article: 
@@ -106,7 +106,7 @@ Um construtor pode definir regras e ações personalizadas que funcionam atravé
 
 Os administradores podem gerir o acesso à sua aplicação com [funções e permissões de utilizador](howto-administer.md).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Agora que tem uma descrição geral do Azure IoT Central, eis os passos sugeridos:
 

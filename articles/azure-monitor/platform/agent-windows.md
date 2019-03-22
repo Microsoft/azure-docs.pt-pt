@@ -11,14 +11,14 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 02/05/2019
+ms.date: 03/12/2019
 ms.author: magoedte
-ms.openlocfilehash: d4204d4937b8eca2dcb3f656659f185f30c8bddf
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.openlocfilehash: d433a480165424e47d4d84e67e7fd02648ebe2d1
+ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55755046"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58223432"
 ---
 # <a name="connect-windows-computers-to-the-log-analytics-service-in-azure"></a>Ligar computadores Windows ao serviço Log Analytics no Azure
 
@@ -32,6 +32,10 @@ O agente pode ser instalado utilizando um dos seguintes métodos. A maioria das 
 * O Azure Automation Desired State Configuration (DSC). Utilizar a DSC na automatização do Azure com um script de Windows computadores já implantados no seu ambiente.  
 * Script do PowerShell.
 * Modelo do Resource Manager para máquinas virtuais em execução no local do Windows no Azure Stack.  
+
+>[!NOTE]
+>Centro de segurança do Azure (ASC) depende do Microsoft Monitoring Agent (também referido como o agente do Log Analytics Windows) e irão instalar e configurá-lo para comunicar-se para uma área de trabalho do Log Analytics como parte da sua implementação. ASC inclui uma opção de aprovisionamento automática que permite que a instalação automática do agente do Log Analytics Windows em todas as VMs na sua subscrição e configura-o para reportar a uma área de trabalho específica. Para obter mais informações sobre esta opção, consulte [ativar o aprovisionamento automático do agente do Log Analytics](../../security-center/security-center-enable-data-collection.md#enable-automatic-provisioning-of-microsoft-monitoring-agent-).
+>
 
 Para compreender a configuração suportada, consulte [sistemas operativos Windows suportados](log-analytics-agent.md#supported-windows-operating-systems) e [configuração de firewall de rede](log-analytics-agent.md#network-firewall-requirements).
 

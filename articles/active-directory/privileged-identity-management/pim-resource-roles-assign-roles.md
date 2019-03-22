@@ -15,12 +15,12 @@ ms.date: 08/30/2018
 ms.author: rolyon
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 87c92387c14cd0b82ec26acb411609c794c2601e
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: ee09526c2bf1ebf9821e1f84dc99bfc8635b9ee2
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56171269"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58086195"
 ---
 # <a name="assign-azure-resource-roles-in-pim"></a>Atribuir funções de recursos do Azure no PIM
 
@@ -32,8 +32,8 @@ PIM do Azure AD pode gerir as funções de recursos do Azure incorporadas, bem c
 - Administrador de Segurança
 - Gestor de segurança e muito mais
 
->[!NOTE]
-Os utilizadores ou membros de um grupo atribuídas às funções de proprietário ou administrador de acesso de utilizadores e os administradores globais que permitem a gestão de subscrições no Azure AD são administradores de recursos. Estes administradores podem atribuir funções, configure definições de função e rever o acesso a utilizar o PIM para recursos do Azure. Ver a lista de [funções incorporadas para recursos do Azure](../../role-based-access-control/built-in-roles.md).
+> [!NOTE]
+> Os utilizadores ou membros de um grupo atribuídas às funções de proprietário ou administrador de acesso de utilizadores e os administradores globais que permitem a gestão de subscrições no Azure AD são administradores de recursos. Estes administradores podem atribuir funções, configure definições de função e rever o acesso a utilizar o PIM para recursos do Azure. Ver a lista de [funções incorporadas para recursos do Azure](../../role-based-access-control/built-in-roles.md).
 
 ## <a name="assign-a-role"></a>Atribuir uma função
 

@@ -9,12 +9,12 @@ ms.date: 09/11/2018
 ms.topic: conceptual
 description: Desenvolvimento rápido da Kubernetes com contentores e microsserviços no Azure
 keywords: 'Docker, o Kubernetes, o Azure, o AKS, o serviço Kubernetes do Azure, contentores, Helm, a malha de serviço, roteamento de malha do serviço, kubectl, k8s '
-ms.openlocfilehash: 7a944b87192236ba7401fe62d52275bea8be5076
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
-ms.translationtype: MT
+ms.openlocfilehash: 1ccb96bc8682ad505bc4b21e90951ea25c4c9954
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57769800"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57898087"
 ---
 # <a name="troubleshooting-guide"></a>Guia de resolução de problemas
 
@@ -141,7 +141,7 @@ Inicie o VS Code a partir de um prompt de comando em que a variável de ambiente
 
 Verá este erro no Visual Studio Code, se tiver uma versão mais recente da extensão do VS Code para espaços de desenvolvimento do Azure, mas uma versão mais antiga da CLI de espaços de desenvolvimento do Azure.
 
-### <a name="try"></a>Experimentar
+### <a name="try"></a>Experimente
 
 Transfira e instale a versão mais recente da CLI de espaços de desenvolvimento do Azure:
 
@@ -209,7 +209,7 @@ A iniciar o depurador do VS Code, às vezes, pode resultar em erro.
 Executar o depurador do VS Code reporta o erro: `Failed to find debugger extension for type:coreclr.`
 
 ### <a name="reason"></a>Razão
-Não tem a extensão do VS Code para c# instalado no computador de desenvolvimento. A extensão c# inclui a depuração de suporte para .net Core (CoreCLR).
+Não tem a extensão do VS Code para c# instalado no computador de desenvolvimento. O C# extensão inclui suporte para .NET Core (CoreCLR) de depuração.
 
 ### <a name="try"></a>Experimente:
 Instalar o [extensão do VS Code para c#](https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp).

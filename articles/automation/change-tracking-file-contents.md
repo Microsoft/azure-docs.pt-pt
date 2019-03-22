@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 07/03/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: f974d446337b8c962d60be9aab964c6d2ebb535b
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.openlocfilehash: dae0ea3e564a3dfafcd7f072f9b0d8854df17ed7
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56821076"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58074748"
 ---
 # <a name="view-contents-of-a-file-that-is-being-tracked-with-change-tracking"></a>Ver o conteúdo de um ficheiro que está a ser controlada com controlo de alterações
 
@@ -62,11 +62,11 @@ Os seguintes passos guiá-lo por meio de ativar o controlo de alterações para 
 
 1. Sobre o **alterar detalhes** página, verá o padrão antes e depois do ficheiro informações, no canto superior esquerdo, clique em **alterações de conteúdo do ficheiro de vista de** para ver o conteúdo do ficheiro.
 
-  ![Detalhes de alteração](./media/change-tracking-file-contents/change-details.png)
+   ![Detalhes de alteração](./media/change-tracking-file-contents/change-details.png)
 
 1. A nova página mostra o conteúdo do arquivo numa exibição lado a lado. Também pode selecionar **Inline** para ver uma vista de inline das alterações.
 
-  ![alterações de vista de ficheiro](./media/change-tracking-file-contents/view-file-changes.png)
+   ![alterações de vista de ficheiro](./media/change-tracking-file-contents/view-file-changes.png)
 
 ## <a name="next-steps"></a>Passos Seguintes
 

@@ -7,12 +7,12 @@ ms.service: container-registry
 ms.topic: article
 ms.date: 08/30/2018
 ms.author: danlep
-ms.openlocfilehash: 3f058a68057d6b84cbbb2dfdb08ea8c2cb12b0b9
-ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
+ms.openlocfilehash: 8fc364eac619c2f23ad2db1051a9b3ffa1bd38d6
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53322100"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58138087"
 ---
 # <a name="azure-container-registry-skus"></a>SKUs de registo de contentor do Azure
 
@@ -22,7 +22,7 @@ O Azure Container Registry (ACR) está disponível em vários escalões de servi
 | --- | :-------: | ----------- |
 | **Básica** | Sim | Um ponto de entrada com otimização de custos para os programadores que estão a aprender sobre o Azure Container Registry. Registos básicos tenham as mesmas capacidades programáticas como Standard e Premium (integração de autenticação do Azure Active Directory, a eliminação de imagem e webhooks). No entanto, o armazenamento incluído e o débito de imagem são mais adequadas para cenários de utilização mais baixos. |
 | **Standard** | Sim | Registos padrão oferecem as mesmas capacidades do básico, com maior débito de armazenamento e de imagem incluído. Os registos Standard devem satisfazer as necessidades da maioria dos cenários de produção. |
-| **Premium** | Sim | Registos Premium fornecem a quantidade máxima de armazenamento incluído e operações simultâneas, permitir cenários de grande volume. Além de débito mais elevado de imagem, o Premium adiciona funcionalidades como a [georreplicação] [ container-registry-geo-replication] para gerir um registo único em várias regiões, e [confiança (pré-visualização)deconteúdos](container-registry-content-trust.md)para a assinatura da tag de imagem. |
+| **Premium** | Sim | Registos Premium fornecem a quantidade máxima de armazenamento incluído e operações simultâneas, permitir cenários de grande volume. Além de débito mais elevado de imagem, o Premium adiciona funcionalidades, incluindo [georreplicação] [ container-registry-geo-replication] para gerir um registo único em várias regiões, [confiança (pré-visualização)deconteúdo](container-registry-content-trust.md) para a assinatura de etiqueta de imagem, e [firewalls e redes virtuais (pré-visualização)](container-registry-vnet.md) para restringir o acesso ao registo. |
 | Clássico<sup>1</sup> | Não | Este SKU ativada na versão inicial do serviço do Azure Container Registry no Azure. Registos de clássicos são apoiados por uma conta de armazenamento que o Azure cria na sua subscrição, o que limita a capacidade para o ACR fornecer capacidades de nível mais alto, como o maior débito e a georreplicação. |
 
 <sup>1</sup> será o SKU clássica **preterido** no **Março de 2019**. Utilize o básico, Standard ou Premium para todos os registos de contentores de novo.

@@ -7,12 +7,12 @@ ms.service: event-grid
 ms.topic: tutorial
 ms.date: 01/16/2018
 ms.author: babanisa
-ms.openlocfilehash: 80f3574fb19d1829ebeac124788c240263c66812
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: fa0ffa9ad913f0dc3afe8dc31aeaa0254fa2d241
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57548426"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57863173"
 ---
 # <a name="build-your-own-disaster-recovery-for-custom-topics-in-event-grid"></a>Criar seu próprio recuperação após desastre para tópicos personalizados no Event Grid
 
@@ -54,10 +54,10 @@ Primeiro, crie dois tópicos do Event Grid. Estes tópicos atuará como seu prin
 
 1. No Menu de tópicos do eventos Grid, selecione **+ adicionar** para criar um tópico principal.
 
-    * Dê um nome lógico ao tópico e adicione "-primário" como sufixo torna mais fácil de controlar.
-    * Região deste tópico será sua região primária.
+   * Dê um nome lógico ao tópico e adicione "-primário" como sufixo torna mais fácil de controlar.
+   * Região deste tópico será sua região primária.
 
-    ![Tópico do Event Grid principal criar caixa de diálogo](./media/custom-disaster-recovery/create-primary-topic.png)
+     ![Tópico do Event Grid principal criar caixa de diálogo](./media/custom-disaster-recovery/create-primary-topic.png)
 
 1. Depois do tópico ter sido criado, navegue para o mesmo e copie os **ponto final do tópico**. será necessário o URI mais tarde.
 
@@ -69,11 +69,11 @@ Primeiro, crie dois tópicos do Event Grid. Estes tópicos atuará como seu prin
 
 1. No painel do tópico, clique em **+ subscrição de evento** para criar uma subscrição ligar-se de que sua assinatura o site do receptor de evento que tomou em pré-requisitos para o tutorial.
 
-    * Dê um nome lógico à subscrição de evento e adicione "-primário" como sufixo torna mais fácil de controlar.
-    * Selecione o Hook de Web do tipo de ponto final.
-    * Definir o ponto final para o URL de eventos do receptor de eventos, o que deve ser algo como: `https://<your-event-reciever>.azurewebsites.net/api/updates`
+   * Dê um nome lógico à subscrição de evento e adicione "-primário" como sufixo torna mais fácil de controlar.
+   * Selecione o Hook de Web do tipo de ponto final.
+   * Definir o ponto final para o URL de eventos do receptor de eventos, o que deve ser algo como: `https://<your-event-reciever>.azurewebsites.net/api/updates`
 
-    ![Subscrição de eventos primário do Event Grid](./media/custom-disaster-recovery/create-primary-es.png)
+     ![Subscrição de eventos primário do Event Grid](./media/custom-disaster-recovery/create-primary-es.png)
 
 1. Repita o mesmo fluxo para criar o seu tópico secundário e a subscrição. Desta vez, substitua o "-primário" sufixo com "-secundário" para o controlo de mais fácil. Por fim, certifique-se de que colocá-la numa região do Azure diferente. Enquanto pode colocá-lo em qualquer lugar que desejar, recomenda-se que utilize o [regiões emparelhadas do Azure](../best-practices-availability-paired-regions.md). Colocar o tópico secundário e a subscrição numa região diferente garante que os seus novos eventos irão fluir, mesmo que a região primária fica inativo.
 
@@ -91,7 +91,7 @@ Agora que tem um par regional redundante do programa de configuração de tópic
 
 ### <a name="basic-client-side-implementation"></a>Implementação básica do lado do cliente
 
-O código de exemplo seguinte é um simples editor de .net que sempre irá tentar publicar para o seu tópico principal primeiro. Se não tiver êxito, irá, em seguida, ativação pós-falha do tópico secundário. Em ambos os casos, ele também verifica o estado de funcionamento api do outro tópico, fazendo um GET no `https://<topic-name>.<topic-region>.eventgrid.azure.net/api/health`. Um tópico de bom estado de funcionamento sempre deverá responder com **200 OK** quando um GET é feito no **estado defuncionamento/api/** ponto final.
+O código de exemplo seguinte é um simple Editor de .NET que sempre irá tentar publicar para o seu tópico principal primeiro. Se não tiver êxito, irá, em seguida, ativação pós-falha do tópico secundário. Em ambos os casos, ele também verifica o estado de funcionamento api do outro tópico, fazendo um GET no `https://<topic-name>.<topic-region>.eventgrid.azure.net/api/health`. Um tópico de bom estado de funcionamento sempre deverá responder com **200 OK** quando um GET é feito no **estado defuncionamento/api/** ponto final.
 
 ```csharp
 using System;

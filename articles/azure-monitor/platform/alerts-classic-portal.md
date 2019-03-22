@@ -6,12 +6,12 @@ ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 09/18/2018
 ms.author: snmuvva
-ms.openlocfilehash: 3e5fa15bbd6890bc6f36c97aadf3aeaa980b5031
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.openlocfilehash: 65064707374ba76701566e061b77bfd6cdf520ca
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57310323"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57833390"
 ---
 # <a name="create-view-and-manage-classic-metric-alerts-using-azure-monitor"></a>Criar, ver e gerir alertas de métrica clássicas com o Azure Monitor
 
@@ -35,7 +35,7 @@ Alertas de métricas clássicas no Azure Monitor oferecem uma forma de ser notif
 
 6. Selecione **os proprietários de E-Mail...**  se pretender que os administradores e coadministradores para receber notificações por e-mail quando o alerta é acionado.
 
-7. Se pretender enviar notificações para os endereços de e-mail adicionais quando o alerta é acionado, adicione-os na **adicionais do administrador email(s)** campo. Separe várias mensagens de correio eletrónico com ponto e vírgula, no seguinte formato:  *email@contoso.com;email2@contoso.com*
+7. Se pretender enviar notificações para os endereços de e-mail adicionais quando o alerta é acionado, adicione-os na **adicionais do administrador email(s)** campo. Separe várias mensagens de correio eletrónico com ponto e vírgula, no seguinte formato: *e-mail\@contoso.com;email2\@contoso.com*
 
 8. Colocar num URI válido no **Webhook** campo se desejar que ela seja chamada quando o alerta é acionado.
 
@@ -127,7 +127,7 @@ Estas secções mostram como utilizar o PowerShell comandos criar, ver e gerir a
     Get-AzAlertRule -ResourceGroup montest -TargetResourceId /subscriptions/s1/resourceGroups/montest/providers/Microsoft.Compute/virtualMachines/testconfig
     ```
 
-8. Já não podem ser criadas regras de alerta clássicas através do PowerShell. Para criar uma regra de alerta tem de utilizar a nova ['Add-AzMetricAlertRule'](https://docs.microsoft.com/powershell/module/az.insights/add-azmetricalertrule?view=azurermps-6.13.0) comando.
+8. Já não podem ser criadas regras de alerta clássicas através do PowerShell. Para criar uma regra de alerta tem de utilizar a nova ['Add-AzMetricAlertRule'](/powershell/module/az.monitor/add-azmetricalertrule) comando.
 
 ## <a name="next-steps"></a>Passos Seguintes
 

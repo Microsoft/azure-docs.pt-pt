@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/17/2017
 ms.author: cawa
-ms.openlocfilehash: 9917901146eb0a050531a66ab24fbd88c91c02c9
-ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
+ms.openlocfilehash: 61bb5601cf20e9f6e4fba1300d8f84c9d039e564
+ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56311210"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58225098"
 ---
 # <a name="get-started-with-storage-explorer"></a>Introdução ao Explorador de armazenamento
 
@@ -55,18 +55,13 @@ Explorador de armazenamento do Azure é suportado nas seguintes versões do macO
 
 Explorador de armazenamento do Azure tem suporte nas seguintes distribuições do Linux:
 
-* Ubuntu 16.04 x64 (recomendado)
-* Ubuntu 17.10 x64
+* Ubuntu 18.04 x64
+* Ubuntu 16.04 x64
 * Ubuntu 14.04 x64
 
 Explorador de armazenamento do Azure podem funcionar em outras distribuições, mas são suportados oficialmente únicos listados acima.
 
-Também tem de ter as seguintes dependências/bibliotecas instaladas para executar o Explorador de armazenamento do Azure no Linux:
-
-* [.NET Core 2.x](https://docs.microsoft.com/dotnet/core/linux-prerequisites?tabs=netcore2x)
-* libsecret (Nota: libsecret 1.so.0 tem de estar disponível no seu computador. Se tiver uma versão diferente do libsecret instalado, pode tentar por software ligar o seu ficheiro. SO a libsecret 1.so.0)
-* libgconf-2-4
-* GCC atualizado
+Para obter mais ajuda a instalar o Explorador de armazenamento no Linux, consulte a [guia de resolução de problemas](https://docs.microsoft.com/en-us/azure/storage/common/storage-explorer-troubleshooting#linux-dependencies).
 
 O Azure Storage Explorer [notas de versão](https://go.microsoft.com/fwlink/?LinkId=838275&clcid=0x409) conter passos específicos para algumas distribuições.
 

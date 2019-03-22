@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/21/2018
 ms.author: roiyz
-ms.openlocfilehash: 159ce1b565068e2cfdb3cb1cb2e5b5f72ff6848f
-ms.sourcegitcommit: f31bfb398430ed7d66a85c7ca1f1cc9943656678
+ms.openlocfilehash: 6bd3ea4e664523fe8014be40c51d573ed5158ecf
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47451362"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58089170"
 ---
 # <a name="chef-vm-extension-for-linux-and-windows"></a>Extensão de VM do chef para Linux e Windows
 
@@ -68,26 +68,26 @@ O JSON seguinte mostra o esquema para a extensão de VM da Chef. A extensão req
 
 ### <a name="core-property-values"></a>Valores de propriedades de núcleo
 
-| Nome | Valor / exemplo | Tipo de Dados
-| ---- | ---- | ---- | ----
+| Name | Valor / exemplo | Tipo de Dados
+| ---- | ---- | ---- 
 | apiVersion | `2017-12-01` | a cadeia de caracteres (data) |
-| publicador | `Chef.Bootstrap.WindowsAzure` | cadeia |
-| tipo | `LinuxChefClient` (Linux), `ChefClient` (Windows) | cadeia |
+| publicador | `Chef.Bootstrap.WindowsAzure` | string |
+| tipo | `LinuxChefClient` (Linux), `ChefClient` (Windows) | string |
 | typeHandlerVersion | `1210.12` | a cadeia de caracteres (double) |
 
 ### <a name="settings"></a>Definições
 
-| Nome | Valor / exemplo | Tipo de Dados | Necessário?
+| Name | Valor / exemplo | Tipo de Dados | Necessário?
 | ---- | ---- | ---- | ----
-| definições/bootstrap_options/chef_server_url | `https://api.chef.io/organizations/myorg` | a cadeia de caracteres (url) | S |
-| definições/bootstrap_options/validation_client_name | `myorg-validator` | cadeia | S |
-| definições/runlist | `recipe[mycookbook::default]` | cadeia | S |
+| settings/bootstrap_options/chef_server_url | `https://api.chef.io/organizations/myorg` | a cadeia de caracteres (url) | S |
+| settings/bootstrap_options/validation_client_name | `myorg-validator` | string | S |
+| settings/runlist | `recipe[mycookbook::default]` | string | S |
 
 ### <a name="protected-settings"></a>Definições protegidas
 
-| Nome | Exemplo | Tipo de Dados | Necessário?
+| Name | Exemplo | Tipo de Dados | Necessário?
 | ---- | ---- | ---- | ---- |
-| protectedSettings/validation_key | `-----BEGIN RSA PRIVATE KEY-----\nKEYDATA\n-----END RSA PRIVATE KEY-----` | cadeia | S |
+| protectedSettings/validation_key | `-----BEGIN RSA PRIVATE KEY-----\nKEYDATA\n-----END RSA PRIVATE KEY-----` | string | S |
 
 <!--
 ### Linux-specific settings

@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/02/2018
 ms.author: ergreenl
-ms.openlocfilehash: c71528ed8453bcde05e29eb609ca2cde64bad8de
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.openlocfilehash: 7d99f5a5d027c825fa1145328bb9576229ce39b4
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57309422"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58122000"
 ---
 # <a name="azure-ad-domain-services---troubleshoot-alerts"></a>Serviços de domínio do Azure AD - alertas de resolução de problemas
 Este artigo fornece os guias de resolução de problemas para todos os alertas que poderá notar no seu domínio gerido.
@@ -103,13 +103,13 @@ Dentro da rede virtual, as máquinas podem efetuar pedidos aos recursos do Azure
 
 1. [Eliminar o seu domínio gerido](active-directory-ds-disable-aadds.md) do diretório.
 2. Corrigir o intervalo de endereços IP para a sub-rede
-  1. Navegue para o [página de redes virtuais no portal do Azure](https://portal.azure.com/?feature.canmodifystamps=true&Microsoft_AAD_DomainServices=preview#blade/HubsExtension/Resources/resourceType/Microsoft.Network%2FvirtualNetworks).
-  2. Selecione a rede virtual que pretende utilizar para o Azure AD Domain Services.
-  3. Clique em **espaço de endereços** em definições
-  4. Atualize o intervalo de endereços ao clicar no intervalo de endereços existente e editá-lo ou adicionar um intervalo de endereços adicionais. Certificar-se de que o novo intervalo de endereços está num intervalo de IP privados. Guarde as alterações.
-  5. Clique em **sub-redes** no painel de navegação esquerdo.
-  6. Clique na sub-rede que pretende editar na tabela.
-  7. Atualizar o intervalo de endereços e guarde as alterações.
+   1. Navegue para o [página de redes virtuais no portal do Azure](https://portal.azure.com/?feature.canmodifystamps=true&Microsoft_AAD_DomainServices=preview#blade/HubsExtension/Resources/resourceType/Microsoft.Network%2FvirtualNetworks).
+   2. Selecione a rede virtual que pretende utilizar para o Azure AD Domain Services.
+   3. Clique em **espaço de endereços** em definições
+   4. Atualize o intervalo de endereços ao clicar no intervalo de endereços existente e editá-lo ou adicionar um intervalo de endereços adicionais. Certificar-se de que o novo intervalo de endereços está num intervalo de IP privados. Guarde as alterações.
+   5. Clique em **sub-redes** no painel de navegação esquerdo.
+   6. Clique na sub-rede que pretende editar na tabela.
+   7. Atualizar o intervalo de endereços e guarde as alterações.
 3. Siga [guia de introdução ao utilizar o Azure AD Domain Services](active-directory-ds-getting-started.md) para recriar o seu domínio gerido. Certifique-se de que escolha uma rede virtual com um intervalo de endereços IP privados.
 4. A associação ao domínio suas máquinas virtuais para o novo domínio, siga [este guia](active-directory-ds-admin-guide-join-windows-vm-portal.md).
 8. Para garantir que o alerta é resolvido, verifique o estado de funcionamento do seu domínio nas duas horas.
@@ -160,13 +160,13 @@ Pode optar por mover a subscrição associada do Azure AD Domain Services no dir
 
 O Azure AD Domain Services cria recursos específicos ao implementar para funcionar corretamente, incluindo endereços IP públicos, NICs e um balanceador de carga. Se qualquer um das com nome são eliminados, isso faz com que o seu domínio gerido estar num Estado não suportado e impede que o seu domínio a ser gerido. Este alerta é encontrado quando alguém que consiga editar os recursos do Azure AD Domain Services elimina um recurso necessário. Os passos seguintes descrevem como restaurar o seu domínio gerido.
 
-1.  Navegue para a página de estado de funcionamento do Azure AD Domain Services
-  1.    Viajar para o [página do Azure AD Domain Services](https://portal.azure.com/#blade/HubsExtension/Resources/resourceType/Microsoft.AAD%2FdomainServices) no portal do Azure.
-  2.    No painel de navegação esquerdo, clique em **estado de funcionamento**
-2.  Verificar se o alerta é menos de 4 horas
-  1.    Na página de estado de funcionamento, clique no alerta com o ID de **AADDS109**
-  2.    O alerta irá ter um carimbo para quando primeiro foi encontrado. Se esse timestamp há menos de 4 horas, é provável que o Azure AD Domain Services pode recriar o recurso foi eliminado.
-3.  Se o alerta é a mais de 4 horas, o domínio gerido está num Estado irrecuperável. Tem de eliminar e recriar o Azure AD Domain Services.
+1. Navegue para a página de estado de funcionamento do Azure AD Domain Services
+   1.    Viajar para o [página do Azure AD Domain Services](https://portal.azure.com/#blade/HubsExtension/Resources/resourceType/Microsoft.AAD%2FdomainServices) no portal do Azure.
+   2.    No painel de navegação esquerdo, clique em **estado de funcionamento**
+2. Verificar se o alerta é menos de 4 horas
+   1.    Na página de estado de funcionamento, clique no alerta com o ID de **AADDS109**
+   2.    O alerta irá ter um carimbo para quando primeiro foi encontrado. Se esse timestamp há menos de 4 horas, é provável que o Azure AD Domain Services pode recriar o recurso foi eliminado.
+3. Se o alerta é a mais de 4 horas, o domínio gerido está num Estado irrecuperável. Tem de eliminar e recriar o Azure AD Domain Services.
 
 
 ## <a name="aadds110-the-subnet-associated-with-your-managed-domain-is-full"></a>AADDS110: A sub-rede associada do seu domínio gerido está cheio
@@ -203,13 +203,13 @@ Nossos principais de serviço precisam de acesso para poder gerir e criar recurs
 
 1. Elimine o seu domínio gerido do inquilino.
 2. Corrigir o intervalo de endereços IP para a sub-rede
-  1. Navegue para o [página de redes virtuais no portal do Azure](https://portal.azure.com/?feature.canmodifystamps=true&Microsoft_AAD_DomainServices=preview#blade/HubsExtension/Resources/resourceType/Microsoft.Network%2FvirtualNetworks).
-  2. Selecione a rede virtual que pretende utilizar para o Azure AD Domain Services.
-  3. Clique em **espaço de endereços** em definições
-  4. Atualize o intervalo de endereços ao clicar no intervalo de endereços existente e editá-lo ou adicionar um intervalo de endereços adicionais. Guarde as alterações.
-  5. Clique em **sub-redes** no painel de navegação esquerdo.
-  6. Clique na sub-rede que pretende editar na tabela.
-  7. Atualizar o intervalo de endereços e guarde as alterações.
+   1. Navegue para o [página de redes virtuais no portal do Azure](https://portal.azure.com/?feature.canmodifystamps=true&Microsoft_AAD_DomainServices=preview#blade/HubsExtension/Resources/resourceType/Microsoft.Network%2FvirtualNetworks).
+   2. Selecione a rede virtual que pretende utilizar para o Azure AD Domain Services.
+   3. Clique em **espaço de endereços** em definições
+   4. Atualize o intervalo de endereços ao clicar no intervalo de endereços existente e editá-lo ou adicionar um intervalo de endereços adicionais. Guarde as alterações.
+   5. Clique em **sub-redes** no painel de navegação esquerdo.
+   6. Clique na sub-rede que pretende editar na tabela.
+   7. Atualizar o intervalo de endereços e guarde as alterações.
 3. Siga [guia de introdução ao utilizar o Azure AD Domain Services](https://docs.microsoft.com/azure/active-directory-domain-services/active-directory-ds-getting-started) para recriar o seu domínio gerido. Certifique-se de que escolha uma rede virtual com um intervalo de endereços IP privados.
 4. A associação ao domínio suas máquinas virtuais para o novo domínio, siga [este guia](https://docs.microsoft.com/azure/active-directory-domain-services/active-directory-ds-admin-guide-join-windows-vm-portal).
 5. Verifique o estado de funcionamento do seu domínio nas duas horas para se certificar de que concluiu os passos corretamente.

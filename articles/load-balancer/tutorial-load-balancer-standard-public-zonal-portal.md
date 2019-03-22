@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 02/27/2019
 ms.author: kumud
 ms.custom: seodec18
-ms.openlocfilehash: 5f3b9b48fc5f15738c3de9928ca0bb220a66db12
-ms.sourcegitcommit: 1afd2e835dd507259cf7bb798b1b130adbb21840
+ms.openlocfilehash: 563b54fe9b4ab65cd8d3008e9d3955618194031f
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56985993"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57899551"
 ---
 # <a name="tutorial-load-balance-vms-within-an-availability-zone-with-standard-load-balancer-by-using-the-azure-portal"></a>Tutorial: Balancear carga de VMs dentro de uma zona de disponibilidade com o Balanceador de carga Standard com o portal do Azure
 
@@ -41,7 +41,7 @@ Se preferir, utilize a [CLI do Azure](load-balancer-standard-public-zonal-cli.md
 
 ## <a name="sign-in-to-azure"></a>Iniciar sessão no Azure
 
-Inicie sessão no Portal do Azure em [http://portal.azure.com](http://portal.azure.com).
+Inicie sessão no Portal do Azure em [https://portal.azure.com](https://portal.azure.com).
 
 ## <a name="create-a-public-standard-load-balancer-instance"></a>Criar uma instância do Balanceador de Carga Standard pública
 
@@ -63,7 +63,7 @@ O Balanceador de Carga Standard só suporta endereços IP públicos padrão. Qua
     |Zona de disponibilidade| Selecione **1**.    |
 3. Na **rever + criar** separador, clique em **criar**.   
 
- ## <a name="create-backend-servers"></a>Criar servidores de back-end
+   ## <a name="create-backend-servers"></a>Criar servidores de back-end
 
 Nesta secção, vai criar uma rede virtual. Também vai criar duas máquinas virtuais na mesma zona (nomeadamente, na zona 1) da região para adicionar ao conjunto de back-ends do seu balanceador de carga. Em seguida, vai instalar o IIS nas máquinas virtuais para ajudar a testar o balanceador de carga com redundância entre zonas. Se uma VM falhar, a sonda de estado de funcionamento da VM na mesma zona falha. O tráfego continua a ser servido pelas outras VMs na mesma zona.
 
@@ -80,8 +80,8 @@ Nesta secção, vai criar uma rede virtual. Também vai criar duas máquinas vir
 
 1. No canto superior esquerdo do ecrã, selecione **Criar um recurso**. Na caixa de pesquisa, introduza **Grupo de Segurança de Rede**. Na página do grupo de segurança de rede, selecione **Criar**.
 2. Na página **Criar grupo de segurança de rede**, introduza estes valores:
-    - **myNetworkSecurityGroup**, no nome do grupo de segurança de rede.
-    - **myResourceGroupLBAZ**, no nome do grupo de recursos existente.
+   - **myNetworkSecurityGroup**, no nome do grupo de segurança de rede.
+   - **myResourceGroupLBAZ**, no nome do grupo de recursos existente.
    
      ![Criar um grupo de segurança de rede](./media/tutorial-load-balancer-standard-zonal-portal/create-network-security-group.png)
 

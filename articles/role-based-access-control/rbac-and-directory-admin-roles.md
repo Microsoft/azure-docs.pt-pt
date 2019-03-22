@@ -15,12 +15,12 @@ ms.date: 02/22/2019
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: it-pro;
-ms.openlocfilehash: c53b9f13c365a5ace227f792f5b0c80ae8fac6ff
-ms.sourcegitcommit: 7f7c2fe58c6cd3ba4fd2280e79dfa4f235c55ac8
+ms.openlocfilehash: 1b7183da84b994da8694440183e367f143722002
+ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/25/2019
-ms.locfileid: "56807359"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58295182"
 ---
 # <a name="classic-subscription-administrator-roles-azure-rbac-roles-and-azure-ad-administrator-roles"></a>Funções de administrador de subscrição clássica, funções RBAC do Azure e funções de administrador do Azure AD
 
@@ -81,7 +81,7 @@ As restantes funções incorporadas permitem a gestão de recursos específicos 
 
 Apenas o portal do Azure e as APIs do Azure Resource Manager suportam o RBAC. Os utilizadores, grupos e aplicações com funções RBAC atribuídas não podem utilizar as [APIs do modelo de implementação clássica do Azure](../azure-resource-manager/resource-manager-deployment-model.md).
 
-No portal do Azure, as atribuições de funções através do RBAC aparecem no painel **Controlo de acesso (IAM)**. Neste painel pode encontradas em todo o portal, como grupos de gestão, subscrições, grupos de recursos e vários recursos.
+No portal do Azure, as atribuições de funções através do RBAC aparecem no painel **Controlo de acesso (IAM)**. Neste painel pode ser encontrado em todo o portal, como grupos de gestão, subscrições, grupos de recursos e vários recursos.
 
 ![Painel de controlo de acesso (IAM) no portal do Azure](./media/rbac-and-directory-admin-roles/access-control-role-assignments.png)
 
@@ -98,7 +98,7 @@ As funções Administrador do AD Azure são utilizadas para gerir os recursos do
 | Função de administrador do Azure AD | Permissões | Notas |
 | --- | --- | --- |
 | [Administrador Global](../active-directory/users-groups-roles/directory-assign-admin-roles.md#company-administrator) | <ul><li>Gerir o acesso a todas as funcionalidades administrativas no Azure Active Directory, bem como serviços com federação para o Azure Active Directory</li><li>Atribuir funções de administrador a outras pessoas</li><li>Repor a palavra-passe para qualquer utilizador e todos os outros administradores</li></ul> | A pessoa que se inscreve no inquilino do Azure Active Directory torna-se um Administrador Global. |
-| [Administrador de Utilizadores](../active-directory/users-groups-roles/directory-assign-admin-roles.md#user-account-administrator) | <ul><li>Criar e gerir todos os aspetos de utilizadores e grupos</li><li>Gerir pedidos de suporte</li><li>Monitorizar o estado de funcionamento do serviço</li><li>Alterar palavras-passe para utilizadores, administradores de suporte técnico e outros Administradores de Utilizadores</li></ul> |  |
+| [Administrador de Utilizadores](../active-directory/users-groups-roles/directory-assign-admin-roles.md#user-administrator) | <ul><li>Criar e gerir todos os aspetos de utilizadores e grupos</li><li>Gerir pedidos de suporte</li><li>Monitorizar o estado de funcionamento do serviço</li><li>Alterar palavras-passe para utilizadores, administradores de suporte técnico e outros Administradores de Utilizadores</li></ul> |  |
 | [Administrador de Faturação](../active-directory/users-groups-roles/directory-assign-admin-roles.md#billing-administrator) | <ul><li>Efetuar compras</li><li>Gerir subscrições</li><li>Gerir pedidos de suporte</li><li>Monitoriza o estado de funcionamento do serviço</li></ul> |  |
 
 No portal do Azure, pode ver a lista de funções de administrador do Azure AD no painel **Funções e administradores**. Para obter uma lista de todas as funções de administrador do Azure AD, consulte [permissões da função de administrador no Azure Active Directory](../active-directory/users-groups-roles/directory-assign-admin-roles.md).
@@ -114,7 +114,7 @@ A um nível elevado, as funções RBAC do Azure controlam as permissões para ge
 | Gerir o acesso aos recursos do Azure | Gerir o acesso aos recursos do Azure Active Directory |
 | Suporta funções personalizadas | Não pode criar as suas próprias funções |
 | O âmbito pode ser especificado em vários níveis (grupo de gestão, subscrição, grupo de recursos, recurso) | O âmbito está ao nível do inquilino |
-| As informações das funções podem ser acedidas no portal do Azure, CLI do Azure, Azure PowerShell, modelos do Azure Resource Manager, API REST | As informações das funções podem ser acedidas no portal de administração do Azure, portal de administração do Office 365, Microsoft Graph, AzureAD PowerShell |
+| As informações das funções podem ser acedidas no portal do Azure, CLI do Azure, Azure PowerShell, modelos do Azure Resource Manager, API REST | Informações de função podem ser acedidas no Centro de administração de Microsoft 365 portal, do administrador do Azure, Microsoft Graph, AzureAD PowerShell |
 
 ### <a name="do-azure-rbac-roles-and--azure-ad-administrator-roles-overlap"></a>As funções RBAC do Azure e as funções de administrador do Azure AD sobrepõem-se?
 
@@ -127,5 +127,5 @@ Várias funções de administrador do Azure AD expandem-se ao Azure AD e ao Micr
 ## <a name="next-steps"></a>Passos Seguintes
 
 - [O que é o controlo de acesso baseado em funções (RBAC) para recursos do Azure?](overview.md)
-- [Permissões de função de administrador no Azure Active Directory](../active-directory/users-groups-roles/directory-assign-admin-roles.md)
+- [Administrator role permissions in Azure Active Directory](../active-directory/users-groups-roles/directory-assign-admin-roles.md) (Permissões de cargos de administrador no Azure Active Directory)
 - [Administradores de subscrição clássica do Azure](classic-administrators.md)

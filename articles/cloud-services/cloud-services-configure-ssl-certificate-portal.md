@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/26/2017
 ms.author: jeconnoc
-ms.openlocfilehash: cf2fe10d6a0ab81ff71c948ee2defe6bc7edfd70
-ms.sourcegitcommit: d372d75558fc7be78b1a4b42b4245f40f213018c
+ms.openlocfilehash: 2a9879ebc55a5f25c1a358e386697dce1c55ec90
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/09/2018
-ms.locfileid: "51300198"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58084349"
 ---
 # <a name="configuring-ssl-for-an-application-in-azure"></a>Configurar o SSL para uma aplicação no Azure
 
@@ -40,7 +40,7 @@ O certificado tem de cumprir os seguintes requisitos para certificados SSL no Az
 
 * O certificado tem de conter uma chave privada.
 * O certificado tem de ser criado para troca de chaves, exportável para um ficheiro Personal Information Exchange (. pfx).
-* Nome do requerente do certificado tem de corresponder o domínio utilizado para aceder ao serviço cloud. Não é possível obter um certificado SSL de uma autoridade de certificação (AC) para o domínio cloudapp.net. Tem de adquirir um nome de domínio personalizado para utilizar quando aceder ao seu serviço. Quando pedir um certificado a partir de uma AC, nome do requerente do certificado tem de corresponder ao nome de domínio personalizado utilizado para aceder à sua aplicação. Por exemplo, se o nome de domínio personalizado for **contoso.com** poderia solicitar um certificado da AC para ***. contoso.com** ou ** **www.contoso.com**.
+* Nome do requerente do certificado tem de corresponder o domínio utilizado para aceder ao serviço cloud. Não é possível obter um certificado SSL de uma autoridade de certificação (AC) para o domínio cloudapp.net. Tem de adquirir um nome de domínio personalizado para utilizar quando aceder ao seu serviço. Quando pedir um certificado a partir de uma AC, nome do requerente do certificado tem de corresponder ao nome de domínio personalizado utilizado para aceder à sua aplicação. Por exemplo, se o nome de domínio personalizado for **contoso.com** poderia solicitar um certificado da AC para ***. contoso.com** ou **www\.contoso.com**.
 * O certificado tem de utilizar um mínimo de encriptação de 2048 bits.
 
 Para fins de teste, pode [criar](cloud-services-certs-create.md) e utilizar um certificado autoassinado. Um certificado autoassinado não é autenticado por meio de uma autoridade de certificação e pode utilizar o domínio cloudapp.net, como o URL do Web site. Por exemplo, a seguinte tarefa utiliza um certificado autoassinado em que é o nome comum (CN) utilizado no certificado **sslexample.cloudapp.net**.

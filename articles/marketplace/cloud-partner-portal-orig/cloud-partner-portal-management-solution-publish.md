@@ -14,14 +14,14 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 09/13/2018
 ms.author: pbutlerm
-ms.openlocfilehash: acb9a30a0aeeb7f32858ff8b68807384e92fe85f
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
+ms.openlocfilehash: 174edc2bb1424264ac9e82983669ed775b1ea330
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48810762"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58181525"
 ---
-<a name="publish-a-azure-management-solution-to-azure-marketplace"></a>Publicar uma solução de gestão do Azure no Azure Marketplace 
+<a name="publish-an-azure-management-solution-to-azure-marketplace"></a>Publicar uma solução de gestão do Azure no Azure Marketplace 
 ========================================================
 
 > [!IMPORTANT]

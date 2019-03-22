@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 09/11/2018
 ms.author: robinsh
 ms.custom: mvc
-ms.openlocfilehash: df98be4dbb65088951968a16198b41d3d6d0bb67
-ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
+ms.openlocfilehash: 87d0339de117330bf6d586cd653b0d4d16a8cbca
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57410218"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58087708"
 ---
 # <a name="tutorial-configure-message-routing-with-iot-hub"></a>Tutorial: Configurar o encaminhamento de mensagens com o IoT Hub
 
@@ -144,7 +144,7 @@ echo "Service Bus namespace = " $sbNameSpace
 az servicebus namespace create --resource-group $resourceGroup \
     --name $sbNameSpace \
     --location $location
-    
+
 # The Service Bus queue name must be globally unique, so add a random number to the end.
 sbQueueName=ContosoSBQueue$RANDOM
 echo "Service Bus queue name = " $sbQueueName
@@ -301,10 +301,9 @@ Por predefinição, os dados são escritos para o blob de armazenamento no forma
    > 
    > Por exemplo, ao utilizar o formato de nome de ficheiro blob predefinido, se o nome do hub for ContosoTestHub e a data/hora for 30 de outubro de 2018 à 10:56, o nome do blob ficará assim: `ContosoTestHub/0/2018/10/30/10/56`.
    > 
-   > Por predefinição, os blobs são escritos no formato Avro. Pode optar por gravar arquivos no formato JSON. A capacidade de codificar o formato JSON está em pré-visualização em todas as regiões que IOT Hub está disponível, exceto E.U.A. leste, E.U.A. oeste e Europa Ocidental. Veja [documentação de orientação sobre o encaminhamento para o armazenamento de BLOBs] (iot-hub-devguide-messages-d2c.md#azure-blob-storage).
+   > Por predefinição, os blobs são escritos no formato Avro. Pode optar por gravar arquivos no formato JSON. A capacidade de codificar o formato JSON está em pré-visualização em todas as regiões que IOT Hub está disponível, exceto E.U.A. leste, E.U.A. oeste e Europa Ocidental. Ver [documentação de orientação sobre o encaminhamento para o armazenamento de BLOBs](iot-hub-devguide-messages-d2c.md#azure-blob-storage).
    > 
    > Quando o encaminhamento para o armazenamento de BLOBs, recomendamos que inscrever os blobs e, em seguida, iterar sobre os mesmos, para garantir que todos os contentores são lidas sem fazer suposições de partição. O intervalo de partição pode potencialmente alterar durante um [iniciada pelo Microsoft ativação pós-falha](iot-hub-ha-dr.md#microsoft-initiated-failover) ou o IoT Hub [ativação pós-falha manual](iot-hub-ha-dr.md#manual-failover-preview). Para saber como enumere a lista de blobs consulte [encaminhamento para o armazenamento de BLOBs](iot-hub-devguide-messages-d2c.md#azure-blob-storage)
-   >
 
 8. Clique em **Criar** para criar o ponto final de armazenamento e adicioná-lo à rota. Volta ao painel **Adicionar uma rota**.
 
@@ -313,15 +312,15 @@ Por predefinição, os dados são escritos para o blob de armazenamento no forma
    **Nome**: Introduza um nome para a consulta de encaminhamento. Este tutorial utiliza **StorageRoute**.
 
    **Ponto final**: Isso mostra o ponto final que acabou de configurar. 
-   
+
    **Origem de dados**: Selecione **mensagens de telemetria do dispositivo** na lista pendente.
 
    **Ativar a rota**: Certifique-se de que esta opção estiver ativada.
-   
+
    **Consulta de encaminhamento**: Introduza `level="storage"` como a cadeia de consulta. 
 
    ![Captura de ecrã que mostra a criação de uma consulta de encaminhamento para a conta de armazenamento.](./media/tutorial-routing/message-routing-finish-route-storage-ep.png)  
-   
+
    Clique em **Guardar**. Quando terminar, volta ao painel Encaminhamento de Mensagens, onde pode ver a nova consulta de encaminhamento do armazenamento. Feche o painel Rotas para voltar para a página Grupo de recursos.
 
 ### <a name="routing-to-a-service-bus-queue"></a>Encaminhar para uma fila do Service Bus 
@@ -339,14 +338,14 @@ Agora configure o encaminhamento para a fila do Service Bus. Vá para o painel E
 4. Preencha os campos:
 
    **Nome do ponto final**: Introduza um nome para o ponto final. Este tutorial utiliza **CriticalQueue**.
-   
+
    **Espaço de nomes do barramento de serviço**: Clique neste campo para revelar a lista suspensa; Selecione o espaço de nomes de barramento do serviço que configurar os passos de preparação. Este tutorial utiliza **ContosoSBNamespace**.
 
    **Fila do Service Bus**: Clique neste campo para revelar a lista suspensa; Selecione a fila do Service Bus na lista pendente. Este tutorial utiliza **contososbqueue**.
 
 5. Clique em **Criar** para adicionar o ponto final da fila do Service Bus. Volta ao painel **Adicionar uma rota**. 
 
-6.  Agora, preencha o resto das informações da consulta de encaminhamento. Esta consulta especifica os critérios para enviar mensagens para a fila do Service Bus que acabou de adicionar como ponto final. Preencha os campos no ecrã. 
+6. Agora, preencha o resto das informações da consulta de encaminhamento. Esta consulta especifica os critérios para enviar mensagens para a fila do Service Bus que acabou de adicionar como ponto final. Preencha os campos no ecrã. 
 
    **Nome**: Introduza um nome para a consulta de encaminhamento. Este tutorial utiliza **SBQueueRoute**. 
 
@@ -403,7 +402,7 @@ A fila do Service Bus serve para receber mensagens designadas como críticas. Co
    ![Captura de ecrã que mostra como configurar a ligação para a fila do Service Bus.](./media/tutorial-routing/logic-app-define-connection.png)
 
    Clique no espaço de nomes do Service Bus. Este tutorial utiliza **ContosoSBNamespace**. Quando seleciona o espaço de nomes, o portal consulta o espaço de nomes do Service Bus para obter as chaves. Selecione **RootManageSharedAccessKey** e clique em **Criar**. 
-   
+
    ![Captura de ecrã que mostra como configurar a ligação.](./media/tutorial-routing/logic-app-finish-connection.png)
 
 6. No ecrã seguinte, selecione o nome da fila na lista pendente (este tutorial utiliza **contososbqueue**). Pode utilizar as predefinições no resto dos campos. 
@@ -444,9 +443,9 @@ Para ver os dados numa visualização do Power BI, configure primeiro uma taref
 
 ### <a name="add-an-input-to-the-stream-analytics-job"></a>Adicionar uma entrada à tarefa do Stream Analytics
 
-4. Em **Topologia da Tarefa**, clique em **Entradas**.
+1. Em **Topologia da Tarefa**, clique em **Entradas**.
 
-5. No painel **Entradas**, clique em **Adicionar entrada de fluxo** e selecione o Hub IoT. No ecrã apresentado, preencha os campos seguintes:
+1. No painel **Entradas**, clique em **Adicionar entrada de fluxo** e selecione o Hub IoT. No ecrã apresentado, preencha os campos seguintes:
 
    **O alias de entrada**: Este tutorial utiliza **contosoinputs**.
 
@@ -459,12 +458,12 @@ Para ver os dados numa visualização do Power BI, configure primeiro uma taref
    **Nome da política de acesso partilhado**: Selecione **iothubowner**. O portal preenche a Chave da Política de Acesso Partilhado por si.
 
    **Grupo de consumidores**: Selecione o grupo de consumidores que criou anteriormente. Este tutorial utiliza **contosoconsumers**.
-   
+
    Para o resto dos campos, aceite as predefinições. 
 
    ![Captura de ecrã que mostra como configurar a tarefa do Stream Analytics.](./media/tutorial-routing/stream-analytics-job-inputs.png)
 
-6. Clique em **Guardar**.
+1. Clique em **Guardar**.
 
 ### <a name="add-an-output-to-the-stream-analytics-job"></a>Adicionar uma saída à tarefa do Stream Analytics
 
@@ -633,4 +632,4 @@ Neste tutorial, aprendeu a utilizar o encaminhamento de mensagens para encaminha
 Avance para o tutorial seguinte para aprender a gerir o estado de um dispositivo IoT. 
 
 > [!div class="nextstepaction"]
-[Configurar e utilizar métricas e diagnósticos com um IoT Hub](tutorial-use-metrics-and-diags.md)
+> [Configurar e utilizar métricas e diagnósticos com um IoT Hub](tutorial-use-metrics-and-diags.md)

@@ -12,15 +12,15 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 11/19/2018
 ms.author: jingwang
-ms.openlocfilehash: c51804748e4313d79cc3a369b659974d2d32e2e2
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: f14c8f8ef9f0e59ac35dd7346bf37cc07f2cfb19
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54014272"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58163859"
 ---
 # <a name="copy-data-from-and-to-odbc-data-stores-using-azure-data-factory"></a>Copiar dados entre arquivos de dados ODBC com o Azure Data Factory
-> [!div class="op_single_selector" title1="Selecione a versão do serviço Data Factory que você está usando:"]
+> [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
 > * [Versão 1](v1/data-factory-odbc-connector.md)
 > * [Versão atual](connector-odbc.md)
 
@@ -51,7 +51,7 @@ As seguintes propriedades são suportadas para o serviço ligado do ODBC:
 
 | Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
-| tipo | A propriedade de tipo tem de ser definida como: **ODBC** | Sim |
+| tipo | A propriedade de tipo tem de ser definida como: **Odbc** | Sim |
 | connectionString | A cadeia de ligação, excluindo a parte de credencial. Pode especificar a cadeia de ligação com o padrão como `"Driver={SQL Server};Server=Server.database.windows.net; Database=TestDatabase;"`, ou usar o sistema de DSN (nome da origem de dados) que configurou na máquina do Integration Runtime com `"DSN=<name of the DSN on IR machine>;"` (precisa ainda especificar a parte da credencial no serviço ligado em conformidade).<br>Marcar esse campo como uma SecureString armazena de forma segura na fábrica de dados, ou [referenciar um segredo armazenado no Azure Key Vault](store-credentials-in-key-vault.md).| Sim |
 | authenticationType | Tipo de autenticação utilizado para ligar ao arquivo de dados ODBC.<br/>Valores permitidos são: **Básica** e **anônimo**. | Sim |
 | userName | Especifique o nome de utilizador se estiver a utilizar autenticação básica. | Não |
@@ -232,7 +232,7 @@ Para copiar dados para o arquivo de dados compatível com ODBC, defina o tipo de
 ]
 ```
 
-## <a name="ibm-informix-source"></a>Origem da IBM Informix
+## <a name="ibm-informix-source"></a>IBM Informix source
 
 Pode copiar dados da base de dados IBM Informix através do conector genérico do ODBC.
 

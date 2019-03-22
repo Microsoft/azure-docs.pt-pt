@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: a1dba3b497807841f9b86d685f5bb560ebdd9316
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 9a549221a9e1864e1b7565f35139cb4c2a6ca65e
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57532430"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58093131"
 ---
 # <a name="create-and-provision-an-iot-edge-device-with-a-virtual-tpm-on-a-linux-virtual-machine"></a>Criar e aprovisionar um dispositivo IoT Edge com um TPM virtual numa máquina virtual Linux
 
@@ -234,17 +234,17 @@ Pode conceder acesso TPM para o runtime do IoT Edge ao substituir as definiçõe
 
 11. Certifique-se de que a substituição foi concluída com êxito.
 
-   ```bash
-   sudo systemctl cat iotedge.service
-   ```
+    ```bash
+    sudo systemctl cat iotedge.service
+    ```
 
-   Saída com êxito apresenta a **iotedge** predefinido variáveis de serviço e, em seguida, mostra a variável de ambiente que defina **override.conf**. 
+    Saída com êxito apresenta a **iotedge** predefinido variáveis de serviço e, em seguida, mostra a variável de ambiente que defina **override.conf**. 
 
 12. Volte a carregar as definições.
 
-   ```bash
-   sudo systemctl daemon-reload
-   ```
+    ```bash
+    sudo systemctl daemon-reload
+    ```
 
 ## <a name="restart-the-iot-edge-runtime"></a>Reiniciar o runtime do IoT Edge
 

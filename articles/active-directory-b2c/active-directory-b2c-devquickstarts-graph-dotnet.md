@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 08/07/2017
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: d1f1ec45e1d4fc2fc6091a2f946caf6bc59441a9
-ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
+ms.openlocfilehash: a516f99af05ba3f3bb7ab98d3def123a488e0d9d
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/19/2019
-ms.locfileid: "56417062"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58075906"
 ---
 # <a name="azure-ad-b2c-use-the-azure-ad-graph-api"></a>Azure AD B2C: Utilizar a Graph API do Azure AD
 
@@ -45,7 +45,7 @@ Depois de ter um inquilino de B2C, tem de registar a sua aplicação utilizando 
 3. No painel de navegação do lado esquerdo, escolha **todos os serviços**, clique em **registos das aplicações**e clique em **Add**.
 4. Siga os avisos e crie uma nova aplicação. 
     1. Selecione **aplicação Web / API** como o tipo de aplicação.    
-    2. Fornecer **qualquer URL de início de sessão** (por exemplo, https://B2CGraphAPI) dado que não é relevante para este exemplo.  
+    2. Fornecer **qualquer URL de início de sessão** (por exemplo, `https://B2CGraphAPI`) porque não é relevante para este exemplo.  
 5. O aplicação irá agora apresentados na lista de aplicações, clique no mesmo para obter o **ID da aplicação** (também conhecido como ID de cliente). Copie-o à medida que vai precisar numa seção posterior.
 6. No menu de definições, clique em **chaves**.
 7. Na **palavras-passe** secção, introduza a descrição da chave e selecione uma duração e, em seguida, clique em **guardar**. Copie o valor da chave (também conhecida como segredo do cliente) para utilização numa secção posterior.

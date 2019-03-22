@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/27/2018
 ms.author: chackdan
-ms.openlocfilehash: 5fb8f54f50d821e53ec260c67ad5cf56c7f5671b
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.openlocfilehash: 82910f7b29789fa777f6deb2c185c57e847e1c88
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56816543"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58109261"
 ---
 # <a name="service-fabric-cluster-capacity-planning-considerations"></a>Considerações de planeamento de capacidade do cluster de Service Fabric
 Para qualquer implementação de produção, planeamento de capacidade é um passo importante. Aqui estão alguns dos itens que deve considerar como parte desse processo.
@@ -82,16 +82,16 @@ O escalão de durabilidade é utilizado para indicar ao sistema os privilégios 
 
 > [!WARNING]
 > Obter tipos de nós em execução com durabilidade de Bronze _sem privilégios_. Isso significa que as tarefas de infraestrutura que afetam as cargas de trabalho sem monitorização de estado serão não ser paradas ou atrasadas, que podem afetar as suas cargas de trabalho. Utilize apenas Bronze para tipos de nós que executam apenas as cargas de trabalho sem monitorização de estado. Para cargas de trabalho de produção, em execução Silver ou superior é recomendado. 
-
+> 
 > Independentemente de qualquer nível de durabilidade [Desalocação](https://docs.microsoft.com/rest/api/compute/virtualmachinescalesets/deallocate) operação no conjunto de dimensionamento de VM irá destruir o cluster
 
 **Vantagens da utilização de níveis de durabilidade de Gold ou Silver**
- 
+ 
 - Reduz o número de passos necessários numa operação de redução horizontal (ou seja, a desativação de nó e Remove-ServiceFabricNodeState é chamado automaticamente).
 - Reduz o risco de perda de dados devido a operações de infraestrutura do Azure ou de operação de alteração um SKU de VM de in-loco iniciadas pelo cliente.
 
 **Desvantagens da utilização de níveis de durabilidade de Gold ou Silver**
- 
+ 
 - As implementações para o dimensionamento de máquinas virtuais, defina e outro relacionados com recursos do Azure podem ser atrasados, podem esgotar o tempo limite ou podem ser bloqueados totalmente por problemas no seu cluster ou ao nível da infraestrutura. 
 - Aumenta o número de [eventos de ciclo de vida de réplica](service-fabric-reliable-services-lifecycle.md) (por exemplo, trocas primárias) devido a automatizada desativações nó durante as operações de infraestrutura do Azure.
 - Se nós fora de serviço por períodos de tempo enquanto as atualizações de software de plataforma do Azure ou a manutenção de hardware atividades estão a ocorrer. Poderá ver nós com o estado de desabilitar/desativado durante essas atividades. Isso reduz a capacidade do seu cluster temporariamente, mas não deve afetar a disponibilidade das suas aplicações ou de cluster.

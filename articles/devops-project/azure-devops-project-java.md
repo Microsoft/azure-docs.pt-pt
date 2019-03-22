@@ -17,12 +17,12 @@ ms.date: 07/09/2018
 ms.author: mlearned
 ms.custom: mvc
 monikerRange: vsts
-ms.openlocfilehash: 4f3f82f329e3ac8774978f6116629a4928c142ad
-ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
+ms.openlocfilehash: 38be92a006ae6dbb7a550d2d91d886df820fb883
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52261331"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58093570"
 ---
 # <a name="create-a-cicd-pipeline-for-java-with-azure-devops-projects"></a>Criar um pipeline de CI/CD para Java com projetos de DevOps do Azure
 
@@ -65,7 +65,7 @@ Os exemplos de Java incluem várias opções de arquiteturas de aplicações.
 
     ![Vista do Dashboard](_img/azure-devops-project-java/dashboardnopreview.png) 
     
- Projetos de DevOps configurado automaticamente uma compilação CI e a versão de Acionador.  Agora, está pronto para colaborar com uma equipa na sua aplicação Java com um processo de CI/CD que implementa automaticamente o seu trabalho mais recente no seu site.
+   Projetos de DevOps configurado automaticamente uma compilação CI e a versão de Acionador.  Agora, está pronto para colaborar com uma equipa na sua aplicação Java com um processo de CI/CD que implementa automaticamente o seu trabalho mais recente no seu site.
 
 ## <a name="commit-code-changes-and-execute-cicd"></a>Consolidar as alterações de código e executar o CI/CD
 

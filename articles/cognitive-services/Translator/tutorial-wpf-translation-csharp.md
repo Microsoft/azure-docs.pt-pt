@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: tutorial
 ms.date: 02/13/2019
 ms.author: erhopf
-ms.openlocfilehash: 97766472ea5f7b62a452e6cc5a71a77426e975ad
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
+ms.openlocfilehash: f7f8e86f17b0fdb715afc96dba80db0746440cef
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56235415"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58078130"
 ---
 # <a name="tutorial-create-a-translation-app-with-wpf"></a>Tutorial: Criar uma aplicação de tradução com WPF
 
@@ -240,7 +240,7 @@ Todo o nosso projeto do é encapsulado no `MainWindow : Window` classe. Vamos co
    // In the following sections, we'll add code below this.
    }
    ```
-   4. Adicione a chave de subscrição de serviços cognitivos e guarde.
+   1. Adicione a chave de subscrição de serviços cognitivos e guarde.
 
 Este bloco de código, vamos declarar duas variáveis de membro que contêm informações sobre idiomas de disponíveis para a tradução:
 

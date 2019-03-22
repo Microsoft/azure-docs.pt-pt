@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 04/04/2018
 ms.author: spelluru
 ms.custom: include file
-ms.openlocfilehash: 9a94f76e2d1fe930d2d6d43e81a756f0cb15d23d
-ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
+ms.openlocfilehash: 8413044beff68390dbccdf16c4477e113a85f81b
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54453074"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58125277"
 ---
 ## <a name="create-the-webapi-project"></a>Criar o projeto WebAPI
 
@@ -55,7 +55,7 @@ Crie o novo back-end de ASP.NET WebAPI através das seguintes ações:
     * Selecione um plano do serviço de aplicações que já tenha criado.
     * Selecione **Criar um novo plano do serviço de aplicações** e, em seguida, crie um.
 
-  Não precisa de uma base de dados para este tutorial. Depois de selecionar o seu plano do serviço de aplicações, selecione **OK** para criar o projeto.
+   Não precisa de uma base de dados para este tutorial. Depois de selecionar o seu plano do serviço de aplicações, selecione **OK** para criar o projeto.
 
     ![A janela Configurar Aplicação Web do Microsoft Azure][B5]
 
@@ -84,9 +84,9 @@ Nesta secção, crie uma nova classe de processadores de mensagens com o nome **
    * O pedido utiliza a autenticação *básica*.
    * A cadeia de nome de utilizador e a cadeia de palavra-passe são a mesma cadeia.
 
-  Caso contrário, o pedido é rejeitado. Esta autenticação não é uma verdadeira abordagem de autenticação e autorização. É apenas um exemplo simples para este tutorial.
+   Caso contrário, o pedido é rejeitado. Esta autenticação não é uma verdadeira abordagem de autenticação e autorização. É apenas um exemplo simples para este tutorial.
 
-  Se `AuthenticationTestHandler` autenticar e autorizar a mensagem do pedido, o utilizador de autenticação básica é anexado ao pedido atual em [HttpContext](https://msdn.microsoft.com/library/system.web.httpcontext.current.aspx). As informações do utilizador em HttpContext serão utilizadas por outro controlador (RegisterController) mais tarde, para adicionar uma [etiqueta](https://msdn.microsoft.com/library/azure/dn530749.aspx) ao pedido de registo de notificação.
+   Se `AuthenticationTestHandler` autenticar e autorizar a mensagem do pedido, o utilizador de autenticação básica é anexado ao pedido atual em [HttpContext](https://msdn.microsoft.com/library/system.web.httpcontext.current.aspx). As informações do utilizador em HttpContext serão utilizadas por outro controlador (RegisterController) mais tarde, para adicionar uma [etiqueta](https://msdn.microsoft.com/library/azure/dn530749.aspx) ao pedido de registo de notificação.
 
     ```csharp
     public class AuthenticationTestHandler : DelegatingHandler

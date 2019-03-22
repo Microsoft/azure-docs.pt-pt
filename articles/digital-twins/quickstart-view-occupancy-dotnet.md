@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.custom: mvc seodec18
 ms.date: 12/17/2018
 ms.author: alinast
-ms.openlocfilehash: 9426fb1df38797ffbb9cc457ba4fe9eb62cfba40
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 4c41fbaa00dc3460df3f94433428c448a7b41250
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57544278"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58089707"
 ---
 # <a name="quickstart-find-available-rooms-by-using-azure-digital-twins"></a>Início rápido: Salas disponíveis ao utilizar o gémeos Digital do Azure
 
@@ -115,8 +115,8 @@ O exemplo de sensor simula os valores de dados aleatórios para dois sensores. E
 1. Examinar esse prompt de comando e de linha de comandos de dados do sensor lado a lado.
 
     Um prompt de comando envia dados de movimento e emissões de dióxido de carbono simulados para Digital Twins cada cinco segundos. O outro comando lê o gráfico em tempo real para descobrir os ambientes disponíveis com ar fresco com base nos dados simulados aleatórios. Apresenta uma dessas condições em tempo real com base nos dados de sensor que foi enviados pela última vez:
-    - Salas disponíveis com ar fresco.
-    - Sala ocupada ou com má qualidade de ar.
+   - Salas disponíveis com ar fresco.
+   - Sala ocupada ou com má qualidade de ar.
 
      ![Obter espaços disponíveis com ar fresco][3]
 

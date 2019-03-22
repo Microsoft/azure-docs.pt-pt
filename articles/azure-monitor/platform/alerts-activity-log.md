@@ -7,12 +7,12 @@ ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 09/15/2018
 ms.author: vinagara
-ms.openlocfilehash: da7556b909ec4eb544a6b4e4fab7af4a0919a158
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.openlocfilehash: 2b069e55d98da824363dc480c211cde0fcc2518c
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57308181"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58090819"
 ---
 # <a name="create-view-and-manage-activity-log-alerts-using-azure-monitor"></a>Criar, ver e gerir alertas de registo de atividade através do Azure Monitor  
 
@@ -27,13 +27,13 @@ Estes alertas são recursos do Azure, podem ser criadas com um modelo Azure Reso
 ## <a name="azure-portal"></a>Portal do Azure
 
 > [!NOTE]
-
+> 
 >  Ao criar as regras de alerta, certifique-se ao seguinte:
-
+> 
 > - Subscrição no âmbito não é diferente da subscrição em que o alerta é criado.
-- Critérios de tem de ser nível/Estado/chamador / grupo de recursos / id de recurso / tipo de recurso / categoria de evento no qual o alerta está configurado.
-- Não existe "anyOf" condição ou condições aninhadas na configuração do alerta JSON (basicamente, tudo apenas uma é permitido com não mais tudo/anyOf).
-- Quando a categoria é "administrativa". Tem de especificar, pelo menos, um dos critérios anteriores no seu alerta. Não pode criar um alerta que é ativado sempre que for criado um evento nos registos de atividade.
+> - Critérios de tem de ser nível/Estado/chamador / grupo de recursos / id de recurso / tipo de recurso / categoria de evento no qual o alerta está configurado.
+> - Não existe "anyOf" condição ou condições aninhadas na configuração do alerta JSON (basicamente, tudo apenas uma é permitido com não mais tudo/anyOf).
+> - Quando a categoria é "administrativa". Tem de especificar, pelo menos, um dos critérios anteriores no seu alerta. Não pode criar um alerta que é ativado sempre que for criado um evento nos registos de atividade.
 
 ### <a name="create-with-azure-portal"></a>Criar com o portal do Azure
 
@@ -50,35 +50,36 @@ Utilize o seguinte procedimento:
 
 3. **Na condição de alerta definir,** forneça as seguintes informações e clique em **feito**.
 
-    - **Destino do alerta:** Para ver e selecionar o destino para o novo alerta, utilize **filtrar por subscrição** / **filtrar por tipo de recurso** e selecione o recurso ou grupo de recursos na lista apresentada.
+   - **Destino do alerta:** Para ver e selecionar o destino para o novo alerta, utilize **filtrar por subscrição** / **filtrar por tipo de recurso** e selecione o recurso ou grupo de recursos na lista apresentada.
 
-    > [!NOTE]
+     > [!NOTE]
+     > 
+     > pode selecionar um recurso, grupo de recursos ou uma subscrição completa para o sinal de registo de atividade.
 
-    > pode selecionar um recurso, grupo de recursos ou uma subscrição completa para o sinal de registo de atividade.
+     **Vista de destino de exemplo de alerta**
+     ![selecionar destino](media/alerts-activity-log/select-target.png)
 
-    **Vista de destino de exemplo de alerta** ![selecionar destino](media/alerts-activity-log/select-target.png)
+   - Sob **critérios de destino**, clique em **adicionar critérios** e todos os sinais disponíveis para o destino são apresentados, incluindo aqueles de várias categorias de **registo de atividades**; com nome da categoria anexado no **monitorizar serviço** nome.
 
-    - Sob **critérios de destino**, clique em **adicionar critérios** e todos os sinais disponíveis para o destino são apresentados, incluindo aqueles de várias categorias de **registo de atividades**; com nome da categoria anexado no **monitorizar serviço** nome.
+   - Selecione o sinal na lista apresentada de diversas operações possíveis para o tipo **registo de atividades**.
 
-    - Selecione o sinal na lista apresentada de diversas operações possíveis para o tipo **registo de atividades**.
+     Pode selecionar a linha de tempo do histórico de registos e a lógica de alerta correspondente para este sinal de destino:
 
-    Pode selecionar a linha de tempo do histórico de registos e a lógica de alerta correspondente para este sinal de destino:
+     **Adicionar ecrã de critérios**
 
-    **Adicionar ecrã de critérios**
+     ![adicionar critérios](media/alerts-activity-log/add-criteria.png)
 
-    ![adicionar critérios](media/alerts-activity-log/add-criteria.png)
+     **Tempo do histórico**: Eventos disponíveis para a operação selecionada é podem ser plotados durante as últimas 6/12/24 horas (ou) durante a semana passada.
 
-    **Tempo do histórico**: Eventos disponíveis para a operação selecionada é podem ser plotados durante as últimas 6/12/24 horas (ou) durante a semana passada.
-
-    **Lógica de alerta**:
+     **Lógica de alerta**:
 
      - **Nível do evento**-o nível de gravidade do evento. _Verboso_, _informativa_, _aviso_, _erro_, ou _críticos_.
      - **Estado**: O estado do evento. _Iniciado_, _falha_, ou _foi concluída com êxito_.
      - **Evento iniciado por**: Também conhecido como o autor da chamada; O endereço de e-mail ou o identificador do Azure Active Directory do utilizador que executou a operação.
 
-        Gráfico de sinal de exemplo com lógica de alerta aplicada:
+       Gráfico de sinal de exemplo com lógica de alerta aplicada:
 
-        ![ critérios selecionados](media/alerts-activity-log/criteria-selected.png)
+       ![ critérios selecionados](media/alerts-activity-log/criteria-selected.png)
 
 4. Sob **definir os detalhes de regras de alerta**, indique a seguinte informação:
 
@@ -115,15 +116,15 @@ Em alternativa, uma analogia simple para condições de noções básicas sobre 
 
     Pode utilizar os filtros disponíveis - _subscrição_, _grupo de recursos_, _recurso_, _tipo de sinal_, ou _Estado_  para encontrar a regra de atividade que pretende editar.
 
-    > [!NOTE]
+   > [!NOTE]
+   > 
+   > Pode editar apenas **Descrição** , **critérios de destino** e **grupos de ação**.
 
-    > Pode editar apenas **Descrição** , **critérios de destino** e **grupos de ação**.
+3. Selecione a regra e faça duplo clique para editar as opções de regra. Faça as alterações necessárias e, em seguida, clique em **guardar**.
 
-3.  Selecione a regra e faça duplo clique para editar as opções de regra. Faça as alterações necessárias e, em seguida, clique em **guardar**.
+   ![ Gerir regras de alerta](media/alerts-activity-log/activity-log-rule-edit-page.png)
 
-    ![ Gerir regras de alerta](media/alerts-activity-log/activity-log-rule-edit-page.png)
-
-4.  Pode desativar, ativar ou eliminar uma regra. Selecione a opção adequada na parte superior da janela, depois de selecionar a regra conforme detalhado no passo 2.
+4. Pode desativar, ativar ou eliminar uma regra. Selecione a opção adequada na parte superior da janela, depois de selecionar a regra conforme detalhado no passo 2.
 
 
 ## <a name="azure-resource-template"></a>Modelo de recursos do Azure

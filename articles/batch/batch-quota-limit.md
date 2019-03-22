@@ -12,15 +12,15 @@ ms.workload: big-compute
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/18/2018
+ms.date: 03/20/2019
 ms.author: lahugh
 ms.custom: seodec18
-ms.openlocfilehash: f8941f84e85f330713cb4b263f2154acb80b520c
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 51be74d0adbd5ce75234be2a5b7c99fcd36ca91c
+ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57532409"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58295271"
 ---
 # <a name="batch-service-quotas-and-limits"></a>Quotas e limites do serviço Batch
 
@@ -65,6 +65,7 @@ Se tiver criado uma conta do Batch com o modo de alocação de conjuntos definid
 | [Tarefas simultâneas](batch-parallel-node-tasks.md) por nó de computação | 4 x número de núcleos do nó |
 | [Aplicativos](batch-application-packages.md) por conta do Batch | 20 |
 | Pacotes de aplicação por aplicação | 40 |
+| Pacotes de aplicações por conjunto | 10 |
 | Duração de tarefa máximo | 180 dias<sup>1</sup> |
 
 <sup>1</sup> a duração máxima de uma tarefa, quando é adicionado à tarefa para quando for concluída, é de 180 dias. As tarefas concluídas mantêm durante sete dias; dados de tarefas não concluídas dentro da duração máxima não estão acessíveis.

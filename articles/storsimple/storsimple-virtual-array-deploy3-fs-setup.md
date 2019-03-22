@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 04/17/2017
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: f699e40a4a31b6d57b12a43ae307806d3f010015
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
+ms.openlocfilehash: a931b303e40e41bc23e8b586e1d37e600625b1a8
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54267186"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57881066"
 ---
 # <a name="deploy-storsimple-virtual-array---set-up-as-file-server-via-azure-portal"></a>Implementar a matriz Virtual StorSimple - conjunto de cópia de segurança como servidor de ficheiros através do portal do Azure
 ![](./media/storsimple-virtual-array-deploy3-fs-setup/fileserver4.png)
@@ -129,15 +129,15 @@ Execute os seguintes passos no [portal do Azure](https://portal.azure.com/) para
     ![Configurar um servidor de ficheiros](./media/storsimple-virtual-array-deploy3-fs-setup/deployfs3m.png)
 3. Clique em **configurar** na barra de comandos. Esta ação abre o **configurar** painel. Na **configurar** painel, faça o seguinte:
    
-    1. O nome do servidor de ficheiros é preenchido automaticamente.
+   1. O nome do servidor de ficheiros é preenchido automaticamente.
     
-    2. Certifique-se a encriptação de armazenamento na cloud está definida como **ativado**. Isto vai encriptar todos os dados que são enviados para a cloud. 
+   2. Certifique-se a encriptação de armazenamento na cloud está definida como **ativado**. Isto vai encriptar todos os dados que são enviados para a cloud. 
     
-    3. Uma chave AES de 256 bits é utilizada com a chave de acesso definidas pelo utilizador para a encriptação. Especifique uma chave de 32 carateres e, em seguida, reintroduza a chave para confirmar que este. Registe a chave num aplicativo de gerenciamento de chaves para referência futura.
+   3. Uma chave AES de 256 bits é utilizada com a chave de acesso definidas pelo utilizador para a encriptação. Especifique uma chave de 32 carateres e, em seguida, reintroduza a chave para confirmar que este. Registe a chave num aplicativo de gerenciamento de chaves para referência futura.
     
-    4. Clique em **configurar definições necessárias** para especificar as credenciais da conta de armazenamento a ser utilizado com o seu dispositivo. Clique em **adicionar novo** se existem não existem credenciais de conta de armazenamento configurados. **Certifique-se de que a conta de armazenamento que utiliza suporta blobs de blocos. Blobs de páginas não são suportados.** Obter mais informações sobre [bloqueia a blobs e blobs de páginas](https://docs.microsoft.com/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs).
+   4. Clique em **configurar definições necessárias** para especificar as credenciais da conta de armazenamento a ser utilizado com o seu dispositivo. Clique em **adicionar novo** se existem não existem credenciais de conta de armazenamento configurados. **Certifique-se de que a conta de armazenamento que utiliza suporta blobs de blocos. Blobs de páginas não são suportados.** Obter mais informações sobre [bloqueia a blobs e blobs de páginas](https://docs.microsoft.com/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs).
    
-    ![Configurar um servidor de ficheiros](./media/storsimple-virtual-array-deploy3-fs-setup/deployfs6m.png) 
+      ![Configurar um servidor de ficheiros](./media/storsimple-virtual-array-deploy3-fs-setup/deployfs6m.png) 
 4. Na **adicionar uma credenciais de conta de armazenamento** painel, faça o seguinte: 
 
     1. Escolha a subscrição atual se a conta de armazenamento está na mesma subscrição que o serviço. Especifique outro é o armazenamento de conta está fora da subscrição do serviço. 
@@ -175,26 +175,26 @@ Execute os seguintes passos no [portal do Azure](https://portal.azure.com/) para
    ![Adicionar uma partilha](./media/storsimple-virtual-array-deploy3-fs-setup/deployfs15m.png)
 2. Especifique as seguintes definições de partilha:
 
-    1. Um nome exclusivo para a sua partilha. O nome tem de ser uma cadeia que contém 3 e 127 carateres.
+   1. Um nome exclusivo para a sua partilha. O nome tem de ser uma cadeia que contém 3 e 127 carateres.
     
-    2. Opcional **Descrição** para a partilha. A descrição ajudará a identificar os proprietários de partilha.
+   2. Opcional **Descrição** para a partilha. A descrição ajudará a identificar os proprietários de partilha.
     
-    3. R **tipo** para a partilha. O tipo pode ser **em camadas** ou **localmente afixado**, com camadas que está a ser a predefinição. Para cargas de trabalho que necessitem de garantias locais, latências baixas e um desempenho mais elevado, selecione um **localmente afixado** partilhar. Para todos os outros dados, selecione um **em camadas** partilhar.
-    Um compartilhamento de localmente afixado é fortemente aprovisionado e assegura que os dados primários no compartilhamento permanecem locais no dispositivo e não transbordam para a cloud. Uma partilha em camadas por outro lado é fracamente aprovisionada. Quando cria uma partilha em camadas, 10% do espaço é aprovisionado no escalão local e 90% do espaço é aprovisionado na cloud. Por exemplo, se tiver aprovisionado um volume de 1 TB, 100 GB seria residem no espaço de local e 900 GB seria usado na cloud quando as camadas de dados. Isso por sua vez, implica que, se executar fora de todo o espaço local no dispositivo, não é possível aprovisionar uma partilha em camadas.
+   3. R **tipo** para a partilha. O tipo pode ser **em camadas** ou **localmente afixado**, com camadas que está a ser a predefinição. Para cargas de trabalho que necessitem de garantias locais, latências baixas e um desempenho mais elevado, selecione um **localmente afixado** partilhar. Para todos os outros dados, selecione um **em camadas** partilhar.
+      Um compartilhamento de localmente afixado é fortemente aprovisionado e assegura que os dados primários no compartilhamento permanecem locais no dispositivo e não transbordam para a cloud. Uma partilha em camadas por outro lado é fracamente aprovisionada. Quando cria uma partilha em camadas, 10% do espaço é aprovisionado no escalão local e 90% do espaço é aprovisionado na cloud. Por exemplo, se tiver aprovisionado um volume de 1 TB, 100 GB seria residem no espaço de local e 900 GB seria usado na cloud quando as camadas de dados. Isso por sua vez, implica que, se executar fora de todo o espaço local no dispositivo, não é possível aprovisionar uma partilha em camadas.
    
-    4. Na **predefinir todas as permissões** campo, atribua as permissões para o utilizador ou grupo que está a aceder a esta partilha. Especifique o nome do utilizador ou o grupo de utilizadores no *john@contoso.com* formato. Recomendamos que utilize um grupo de utilizadores (em vez de um único utilizador) para permitir que os privilégios de administrador para aceder a esses compartilhamentos. Depois de ter atribuído as permissões aqui, pode utilizar o Explorador de Ficheiros para modificar estas permissões.
+   4. Na **predefinir todas as permissões** campo, atribua as permissões para o utilizador ou grupo que está a aceder a esta partilha. Especifique o nome do utilizador ou o grupo de utilizadores no *john\@contoso.com* formato. Recomendamos que utilize um grupo de utilizadores (em vez de um único utilizador) para permitir que os privilégios de administrador para aceder a esses compartilhamentos. Depois de ter atribuído as permissões aqui, pode utilizar o Explorador de Ficheiros para modificar estas permissões.
    
-    5. Clique em **adicionar** para criar a partilha. 
+   5. Clique em **adicionar** para criar a partilha. 
     
-        ![Adicionar uma partilha](./media/storsimple-virtual-array-deploy3-fs-setup/deployfs18m.png)
+       ![Adicionar uma partilha](./media/storsimple-virtual-array-deploy3-fs-setup/deployfs18m.png)
    
-        Será notificado de que a criação da partilha está em curso.
+       Será notificado de que a criação da partilha está em curso.
    
-        ![Adicionar uma partilha](./media/storsimple-virtual-array-deploy3-fs-setup/deployfs19m.png)
+       ![Adicionar uma partilha](./media/storsimple-virtual-array-deploy3-fs-setup/deployfs19m.png)
    
-    Depois de criar a partilha com as definições especificadas, o **partilhas** painel será atualizado para refletir a nova partilha. Por predefinição, a monitorização e de cópia de segurança estão ativadas para a partilha.
+      Depois de criar a partilha com as definições especificadas, o **partilhas** painel será atualizado para refletir a nova partilha. Por predefinição, a monitorização e de cópia de segurança estão ativadas para a partilha.
    
-    ![Adicionar uma partilha](./media/storsimple-virtual-array-deploy3-fs-setup/deployfs22m.png)
+      ![Adicionar uma partilha](./media/storsimple-virtual-array-deploy3-fs-setup/deployfs22m.png)
 
 ## <a name="step-4-connect-to-the-share"></a>Passo 4: Ligar à partilha
 Agora terá de ligar a uma ou mais partilhas que criou no passo anterior. Efetue estes passos no anfitrião do Windows Server ligado à sua matriz Virtual StorSimple.

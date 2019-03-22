@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 12/11/2018
 ms.author: raynew
-ms.openlocfilehash: c0b317019d69d5d66e5a85304f739c92b761217c
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
-ms.translationtype: MT
+ms.openlocfilehash: b323836ff804d9e4af3765a2d4ea713a34bcf284
+ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58087657"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58226526"
 ---
 # <a name="back-up-vmware-vms-with-azure-backup-server"></a>Fazer uma cópia de segurança de VMs de VMware no servidor de cópia de segurança do Azure
 
@@ -327,31 +327,31 @@ Adicione VMs de VMware para cópia de segurança. Grupos de proteção reunir v�
      ![Escolher método de criação de réplica](./media/backup-azure-backup-server-vmware/replica-creation.png)
 
 1. Na **opções de verificação de consistência**, selecione como e quando automatizar as verificações de consistência. Clique depois em **Seguinte**.
-     - Pode executar verificações de consistência quando os dados de réplica se tornar inconsistentes ou numa agenda definida.
-     - Se não quiser configurar verificações de consistência automáticas, pode executar uma verificação manual. Para tal, clique com botão direito do grupo de proteção > **efetuar verificação de consistência**.
+      - Pode executar verificações de consistência quando os dados de réplica se tornar inconsistentes ou numa agenda definida.
+      - Se não quiser configurar verificações de consistência automáticas, pode executar uma verificação manual. Para tal, clique com botão direito do grupo de proteção > **efetuar verificação de consistência**.
 
 1. Na **especificar dados da proteção Online** , selecione a VM de VMs ou pastas que pretende criar cópias de segurança. Pode selecionar os membros individualmente, ou clique em **Selecionar tudo** escolher todos os membros. Clique depois em **Seguinte**.
 
-     ![Especificar dados da proteção online](./media/backup-azure-backup-server-vmware/select-data-to-protect.png)
+      ![Especificar dados da proteção online](./media/backup-azure-backup-server-vmware/select-data-to-protect.png)
 
 1. Sobre o **Especificar agenda de cópia de segurança Online** , especifique a frequência com que pretende fazer uma cópia de segurança de dados do armazenamento local para o Azure.
 
     - Pontos de recuperação na cloud para os dados serão gerados, de acordo com a agenda. Clique depois em **Seguinte**.
     - Depois do ponto de recuperação é gerado, é transferido para o Cofre de serviços de recuperação no Azure.
 
-    ![Especifique a agenda de cópia de segurança online](./media/backup-azure-backup-server-vmware/online-backup-schedule.png)
+      ![Especifique a agenda de cópia de segurança online](./media/backup-azure-backup-server-vmware/online-backup-schedule.png)
 
 1. Sobre o **especificar política de retenção Online** página, indique o período de tempo pretende manter os pontos de recuperação criados a partir de cópias de segurança diárias/semanais/mensais/anuais para o Azure. Em seguida, clique em **seguinte**.
 
     - Não existe nenhum limite de tempo para o tempo que pode manter os dados no Azure.
     - O único limite é que não pode ter mais de 9999 pontos de recuperação por instância protegida. Neste exemplo, a instância protegida é o servidor VMware.
 
-    ![Especificar Política de retenção online](./media/backup-azure-backup-server-vmware/retention-policy.png)
+      ![Especificar Política de retenção online](./media/backup-azure-backup-server-vmware/retention-policy.png)
 
 
 1. Sobre o **resumo** página, reveja as definições e, em seguida, clique em **criar grupo**.
 
-    ![Membro do grupo de proteção e o resumo de definição](./media/backup-azure-backup-server-vmware/protection-group-summary.png)
+     ![Membro do grupo de proteção e o resumo de definição](./media/backup-azure-backup-server-vmware/protection-group-summary.png)
 
 ## <a name="vmware-vsphere-67"></a>VMWare vSphere 6.7
 

@@ -12,18 +12,18 @@ manager: daveba
 ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 43fa8148fff1389982d967b2e69f4a9425841c91
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 7015abcfe3c53e2180d617bd2c78ecd44c42af7a
+ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58014911"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58295628"
 ---
 # <a name="the-elements-of-the-b2b-collaboration-invitation-email---azure-active-directory"></a>Os elementos da mensagem de e-mail de convite de colaboração B2B - Azure Active Directory
 
 E-mails de convite são uma componente fundamental para colocar os parceiros na organização como utilizadores de colaboração B2B no Azure AD. Pode usá-los para aumentar a confiança do destinatário. Pode adicionar a legitimidade e prova de redes sociais para o e-mail, para se certificar de que o destinatário sente confortável selecionando o **começar** botão para aceitar o convite. Esta demonstração de confiança é uma chave significa que reduzir o atrito partilha. E também queira fazer o e-mail ótimo!
 
-![E-mail de convite do Azure AD B2b](media/invitation-email-elements/invitation-email.png)
+![Captura de ecrã que mostra o e-mail de convite de B2B](media/invitation-email-elements/invitation-email.png)
 
 ## <a name="explaining-the-email"></a>Explicar a mensagem de e-mail
 Vamos examinar alguns elementos da mensagem de e-mail para que saiba a melhor maneira de usar seus recursos.
@@ -51,12 +51,12 @@ Nome a apresentar na máquina é incluído no e-mail. E, além disso, se tiver c
 
 Se ainda não configurou a sua imagem do perfil, é apresentado um ícone com iniciais na máquina no lugar da imagem:
 
-  ![Exibindo iniciais na máquina](media/invitation-email-elements/inviters-initials.png)
+  ![Captura de ecrã que mostra o convite com o autor do convite iniciais apresentadas](media/invitation-email-elements/inviters-initials.png)
 
 ### <a name="body"></a>Corpo
 O corpo contém a mensagem que o autor do convite compõe quando [convidar um utilizador convidado ao diretório, grupo ou aplicação](add-users-administrator.md) ou [ao utilizar o API de convite](customize-invitation-api.md). É uma área de texto, para que ele não processa tags de HTML por motivos de segurança.
 
-  ![imagem do corpo do e-mail](media/invitation-email-elements/invitation-email-body.png)
+  ![Captura de ecrã que mostra o corpo da mensagem de e-mail de convite](media/invitation-email-elements/invitation-email-body.png)
 
 ### <a name="footer-section"></a>Secção de rodapé
 O rodapé contém a marca da empresa do Microsoft e permite ao destinatário saber se o e-mail foi enviado a partir de um alias não monitorizado. 
@@ -65,12 +65,12 @@ Casos especiais:
 
 - O autor do convite não tiver um endereço de e-mail no inquilino de convite
 
-  ![imagem do autor do convite não tiver um endereço de e-mail no inquilino de convite](media/invitation-email-elements/inviter-no-email.png)
+  ![Captura de ecrã quando um autor do convite não tem o e-mail no inquilino de convite](media/invitation-email-elements/inviter-no-email.png)
 
 
 - O destinatário não precisa resgatar o convite
 
-  ![Quando o destinatário não precisa resgatar o convite](media/invitation-email-elements/when-recipient-doesnt-redeem.png)
+  ![Captura de ecrã quando o destinatário não necessário resgatar o convite](media/invitation-email-elements/when-recipient-doesnt-redeem.png)
 
 ## <a name="how-the-language-is-determined"></a>Como o idioma é determinado
 A linguagem apresentada ao utilizador convidado no e-mail de convite é determinada pelas seguintes definições. Estas definições estão listadas na ordem de precedência. Se uma definição não estiver configurada, a definição seguinte na lista determina o idioma. 

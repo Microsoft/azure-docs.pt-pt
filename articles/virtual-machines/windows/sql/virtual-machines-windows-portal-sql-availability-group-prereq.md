@@ -16,12 +16,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 03/29/2018
 ms.author: mikeray
-ms.openlocfilehash: abe211ad4745564cb2698aa1261a1aeb6dd63af7
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 1d0f3bfa03eb4bafdd10222e28782c318848b7f7
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57781736"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57995186"
 ---
 # <a name="complete-the-prerequisites-for-creating-always-on-availability-groups-on-azure-virtual-machines"></a>Concluir os pré-requisitos para a criação de grupos de disponibilidade Always On em máquinas virtuais do Azure
 
@@ -42,7 +42,7 @@ Este tutorial parte do princípio de que tem uma noção básica dos grupos de d
 Precisa de uma conta do Azure. Pode [abrir uma conta do Azure gratuita](https://signup.azure.com/signup?offer=ms-azr-0044p&appId=102&ref=azureplat-generic&redirectURL=https:%2F%2Fazure.microsoft.com%2Fget-started%2Fwelcome-to-azure%2F&correlationId=24f9d452-1909-40d7-b609-2245aa7351a6&l=en-US) ou [ativar benefícios de subscritor do Visual Studio](https://docs.microsoft.com/visualstudio/subscriptions/subscriber-benefits).
 
 ## <a name="create-a-resource-group"></a>Criar um grupo de recursos
-1. Inicie sessão no [portal do Azure](http://portal.azure.com).
+1. Inicie sessão no [portal do Azure](https://portal.azure.com).
 2. Clique em **+** para criar um novo objeto no portal.
 
    ![Novo objeto](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/01-portalplus.png)
@@ -292,14 +292,14 @@ Depois de reinicia o controlador de domínio primário, pode configurar o contro
 15. Clique nas **mais** ligação na barra de aviso amarelo.
 16. Na **ação** coluna da **todos os detalhes da tarefa de servidor de** caixa de diálogo, clique em **promover este servidor a controlador de domínio**.
 17. Sob **configuração da implementação**, selecione **adicionar um controlador de domínio a um domínio existente**.
-   ![Configuração de implementação](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/28-deploymentconfig.png)
+    ![Configuração de implementação](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/28-deploymentconfig.png)
 18. Clique em **Selecionar**.
 19. Ligar utilizando a conta de administrador (**Corp. CONTOSO.COM\domainadmin**) e palavra-passe (**Contoso! 0000**).
 20. Na **selecionar um domínio da floresta**, clique no seu domínio e, em seguida, clique em **OK**.
 21. Na **opções de controlador de domínio**, utilize os valores predefinidos e defina uma palavra-passe do DSRM.
 
-   >[!NOTE]
-   >O **opções DNS** página poderá avisá-lo que não é possível criar uma delegação para este servidor DNS. Pode ignorar este aviso em ambientes de não produção.
+    >[!NOTE]
+    >O **opções DNS** página poderá avisá-lo que não é possível criar uma delegação para este servidor DNS. Pode ignorar este aviso em ambientes de não produção.
 22. Clique em **próxima** até atinge a caixa de diálogo a **pré-requisitos** verificar. Em seguida, clique em **Instalar**.
 
 Depois do servidor concluir as alterações de configuração, reinicie o servidor.

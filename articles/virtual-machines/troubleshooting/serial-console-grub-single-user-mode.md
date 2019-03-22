@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 08/14/2018
 ms.author: alsin
-ms.openlocfilehash: 135741a8bf385388fa1b3ac75a45e4c4678bf196
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: ca2523a1101a21740a318a304f9bec491d4de2f9
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55814476"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58106241"
 ---
 # <a name="use-serial-console-to-access-grub-and-single-user-mode"></a>Utilizar a consola de série para aceder a GRUB e modo de utilizador único
 GRUB é o GRand Unified carregador de inicialização, que é provável que a primeira coisa que verá quando se reinicia uma VM. Uma vez que ele exibe antes do sistema operativo foi iniciado, não está acessível através de SSH. Em GRUB está capaz de modificar a configuração de arranque para inicializar em modo de utilizador único, entre outras coisas.
@@ -187,7 +187,7 @@ Se o SLES não conseguem arrancar normalmente será automaticamente colocada num
 1. Procure a linha de kernel iniciará com `linux`
 1. Acrescentar `systemd.unit=emergency.target` ao final da linha
 1. Prima Ctrl + X para reiniciar com estas definições e introduza o shell de emergência
-> Tenha em atenção que irá ser deixado no shell de emergência com um _só de leitura_ sistema de ficheiros. Se desejar fazer qualquer edições em todos os ficheiros, terá de voltar a montar o sistema de ficheiros com permissões de leitura / escrita. Para tal, introduza `mount -o remount,rw /` no shell
+   > Tenha em atenção que irá ser deixado no shell de emergência com um _só de leitura_ sistema de ficheiros. Se desejar fazer qualquer edições em todos os ficheiros, terá de voltar a montar o sistema de ficheiros com permissões de leitura / escrita. Para tal, introduza `mount -o remount,rw /` no shell
 
 ## <a name="access-for-oracle-linux"></a>Acesso para Oracle Linux
 Muito como Red Hat Enterprise Linux, modo de utilizador único no Oracle Linux requer GRUB e o utilizador raiz seja ativado.

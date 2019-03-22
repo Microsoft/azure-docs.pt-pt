@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 10/01/2017
 ms.author: abnarain
 robots: noindex
-ms.openlocfilehash: dcbf011d6e5f035a1934b69f94cf95b2318491f0
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: 0559d89bd691323a95713d518df05e58283cef39
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55813845"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58119348"
 ---
 # <a name="troubleshoot-issues-with-using-data-management-gateway"></a>Utilizar o Data Management Gateway para resolver problemas
 Este artigo fornece informações sobre como resolver problemas com o Data Management Gateway.
@@ -169,8 +169,8 @@ Gateway não é possível ligar ao serviço cloud através do Service Bus.
 Siga estes passos para obter o gateway online:
 
 1. Permitir o endereço IP regras de saída no computador gateway e do firewall Corporativo. Pode localizar endereços IP a partir do registo de eventos do Windows (ID = = 401): Foi efetuada uma tentativa de aceder a um soquete de uma forma proibido por suas permissões de acesso XX. XX. XX. XX:9350.
-* Configure definições de proxy no gateway. Consulte a secção de considerações do servidor de Proxy para obter detalhes.
-* Ative as portas de saída 5671 e 9350 a 9354 em ambos os o Firewall do Windows no computador gateway e do firewall Corporativo. Consulte a secção de firewall para obter detalhes e de portas. Este passo é opcional, mas é recomendada para consideração de desempenho.
+1. Configure definições de proxy no gateway. Consulte a secção de considerações do servidor de Proxy para obter detalhes.
+1. Ative as portas de saída 5671 e 9350 a 9354 em ambos os o Firewall do Windows no computador gateway e do firewall Corporativo. Consulte a secção de firewall para obter detalhes e de portas. Este passo é opcional, mas é recomendada para consideração de desempenho.
 
 ### <a name="3-problem"></a>3. Problema
 Consulte o seguinte erro.
@@ -184,7 +184,7 @@ Um erro transitório na conectividade de rede.
 Siga estes passos para obter o gateway online:
 
 1. Aguarde alguns minutos, a conectividade vai ser recuperada automaticamente quando o erro já não existe.
-* Se o erro persistir, reinicie o serviço de gateway.
+1. Se o erro persistir, reinicie o serviço de gateway.
 
 ## <a name="failed-to-author-linked-service"></a>Falha ao criar o serviço ligado
 ### <a name="problem"></a>Problema
@@ -282,6 +282,6 @@ Pode encontrar informações de registo do gateway detalhadas nos registos de ev
 1. Iniciar o Windows **Visualizador de eventos**.
 2. Localize os registos no **registos de serviços e aplicativos** > **Data Management Gateway** pasta.
 
- Quando estiver a resolver problemas relacionados com o gateway de problemas, procure eventos de nível de erro de evento Visualizador.
+   Quando estiver a resolver problemas relacionados com o gateway de problemas, procure eventos de nível de erro de evento Visualizador.
 
 ![Registos do Gateway de gestão de dados no Visualizador de eventos](media/data-factory-troubleshoot-gateway-issues/gateway-logs-event-viewer.png)

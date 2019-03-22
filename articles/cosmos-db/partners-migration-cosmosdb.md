@@ -6,12 +6,12 @@ ms.author: sngun
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 10/07/2018
-ms.openlocfilehash: 748f4562e1efd613b87dd5ab44a83d3d50171f67
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 3126be88e272ab3891caa94ee15b622b0dfbdbdf
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57539926"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57860504"
 ---
 # <a name="azure-cosmos-db-nosql-migration-and-application-development-partners"></a>Parceiros do Azure Cosmos DB NoSQL migração e aplicação de desenvolvimento
 
@@ -32,10 +32,10 @@ Da migração do NoSQL para desenvolvimento de aplicativos, pode escolher entre 
 |![Desenvolvimento de Altoros LLC][3]    |  Migração de NoSQL, <br/> Inovação das aplicações (aplicações existentes), <br/> Desenvolver novos aplicativos |   Dos E.U.A., Noruega, Finlândia, Bielorrússia, Argentina |  [Web site](https://www.altoros.com/)     |
 |![Attunix Redapt][4]     |   Migração de NoSQL, <br/> Inovação das aplicações (aplicações existentes), <br/> Desenvolver novos aplicativos      |    EUA     |  [Web site](https://www.attunix.com/)       |
 | ![Avanade][26] | Desenvolver novos aplicativos, <br/> Inovação das aplicações (aplicações existentes) | Áustria, Alemanha, Suíça, Itália, Noruega, Espanha, Reino Unido | [Web site](https://www.avanade.com/)
-|![Bluemetal Architects][5]     |  Migração de NoSQL, <br/> Inovação das aplicações (aplicações existentes), <br/> Desenvolver novos aplicativos       |    América do Norte, Ásia-Pacífico     |  [Web site](http://www.bluemetal.com/)       |
+|![Bluemetal Architects][5]     |  Migração de NoSQL, <br/> Inovação das aplicações (aplicações existentes), <br/> Desenvolver novos aplicativos       |    América do Norte, Ásia-Pacífico     |  [Web site](https://www.bluemetal.com/)       |
 |![Capax Global LLC][6]     |  Migração de NoSQL, <br/> Inovação das aplicações (aplicações existentes), <br/> Desenvolver novos aplicativos       |    EUA     |  [Web site](https://www.capaxglobal.com/)       |
 | ![Capgemini][14] | Migração de NoSQL; Inovação das aplicações (aplicações existentes). Desenvolver novos aplicativos | Dos E.U.A., França, Reino Unido, Países Baixos, Finlândia  | [Web site](https://www.capgemini.com/) | 
-|![Coeo][7]     |   Inovação das aplicações (aplicações existentes), <br/> Desenvolver novos aplicativos |    RU     |  [Web site](http://www.coeo.com/)       |
+|![Coeo][7]     |   Inovação das aplicações (aplicações existentes), <br/> Desenvolver novos aplicativos |    RU     |  [Web site](https://www.coeo.com/)       |
 | ![Cognizant][15] | Migração do NoSQL |Dos Estados Unidos, Canadá, Reino Unido, Dinamarca, Países Baixos, Suíça, Austrália, Japão | [Web site](https://www.cognizant.com/)|
 |![Infosys][8]     |  Migração do NoSQL       |    Global     |  [Web site](https://www.infosys.com/)       |
 | ![Lagash][16] | Migração de NoSQL, <br/> Desenvolver novos aplicativos | Argentina, Chile, Colômbia, México| [Web site](https://www.lagash.com/)|

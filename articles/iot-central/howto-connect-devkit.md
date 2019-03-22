@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: philmea
-ms.openlocfilehash: 150f2b9155d5e920a7394e2fa55ce28701497868
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 44af0ccab45f1335d9dfec06287303a34391eded
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57763015"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58113202"
 ---
 # <a name="connect-an-mxchip-iot-devkit-device-to-your-azure-iot-central-application"></a>Ligar um dispositivo de MXChip IoT DevKit a sua aplicação do Azure IoT Central
 
@@ -45,10 +45,10 @@ Na aplicação do Azure IoT Central, adicionar um dispositivo real a partir do *
 
 1. Adicionar uma **dispositivo real** a partir do Device Explorer, selecione **+ novo > Real** para adicionar um dispositivo real.
 
-    * Introduza o Id de dispositivo **<span style="color:Red">(deve ser minúscula)</span>** ou utilize o ID de dispositivo sugerido.
-    * Introduza o nome do dispositivo ou utilize o nome sugerido
+   * Introduza o Id de dispositivo **<span style="color:Red">(deve ser minúscula)</span>** ou utilize o ID de dispositivo sugerido.
+   * Introduza o nome do dispositivo ou utilize o nome sugerido
 
-    ![Adicionar Dispositivo](media/howto-connect-devkit/add-device.png)
+     ![Adicionar Dispositivo](media/howto-connect-devkit/add-device.png)
 
 1. Obter os detalhes de ligação, tal como **chave de ID de âmbito, o ID de dispositivo e o primário** para o dispositivo foi adicionado ao selecionar **Connect** na página do dispositivo.
 

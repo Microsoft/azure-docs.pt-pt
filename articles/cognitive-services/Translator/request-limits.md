@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: conceptual
 ms.date: 02/21/2019
 ms.author: erhopf
-ms.openlocfilehash: 96ee65bfe8792bd56feb39f48659397cb517471a
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: 97b0b6256b7aaf7b42565fe9453fb87a0c414569
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56735371"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57861575"
 ---
 # <a name="request-limits-for-translator-text"></a>Limites de pedido para o texto do tradutor
 
@@ -43,7 +43,7 @@ Estes limites são restritas aos sistemas de genéricos da Microsoft. Sistemas d
 
 ## <a name="latency"></a>Latência
 
-Texto do tradutor tem uma latência máxima de 13 segundos. Agora irá receber um resultado ou uma resposta de tempo limite. Normalmente, as respostas são devolvidas em 150 milissegundos para 300 milissegundos. Tempos de resposta irão variar consoante o tamanho ou o par de solicitação e de idioma.
+A API de texto de tradutor tem uma latência máxima de 15 segundos com modelos padrão. Utilizar modelos personalizados de tradução tem uma latência máxima de 25 segundos. Agora irá receber um resultado ou uma resposta de tempo limite. Normalmente, as respostas são devolvidas em 150 milissegundos para 300 milissegundos. Tempos de resposta irão variar consoante o tamanho do par de solicitação e de idioma. Se não receber uma tradução ou uma [resposta de erro](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#errors) durante esse período de tempo, deve verificar a ligação de rede e tente novamente.
 
 ## <a name="sentence-length-limits"></a>Limites de tamanho de frase
 
