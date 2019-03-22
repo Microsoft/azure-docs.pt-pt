@@ -202,8 +202,6 @@ items:
     items:
     - name: API REST de Faturação do Azure
       href: https://docs.microsoft.com/rest/api/billing
-    - name: Solução de parceiro – Cloud Cruiser
-      href: billing-usage-rate-card-partner-solution-cloudcruiser.md
   - name: Descrição geral da API de Consumo do Azure
     href: billing-consumption-api-overview.md
     items:
@@ -218,9 +216,9 @@ items:
     items:
     - name: API REST dos relatórios empresariais
       href: https://docs.microsoft.com/rest/api/billing/enterprise/billing-enterprise-api-balance-summary
-ms.openlocfilehash: 5d56504730be60d872c9d1345850925a645c664e
-ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.openlocfilehash: b6b66662fef4624a83f3eb8da56848d3005dc47e
+ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/02/2019
-ms.locfileid: "57241651"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58336793"

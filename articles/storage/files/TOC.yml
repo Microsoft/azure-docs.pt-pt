@@ -65,9 +65,9 @@ items:
       href: /rest/api/storageservices/Authorization-for-the-Azure-Storage-Services
     - name: Assinaturas de acesso partilhado (SAS)
       href: ../common/storage-dotnet-shared-access-signature-part-1.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
-  - name: Métricas
+  - name: Monitorizar e resolver problemas
     items:
-    - name: Diagnóstico
+    - name: Monitorizar, diagnosticar e resolver problemas
       href: ../common/storage-monitoring-diagnosing-troubleshooting.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
     - name: Métricas no Azure Monitor
       href: ../common/storage-metrics-in-azure-monitor.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
@@ -116,12 +116,6 @@ items:
     items:
     - name: Monitorizar o Azure File Sync
       href: storage-sync-files-monitoring.md
-    - name: Métricas e registo
-      items:
-      - name: Migrar para a nova métrica
-        href: ../common/storage-metrics-migration.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-      - name: Ativar e ver métricas (clássico)
-        href: ../common/storage-enable-and-view-metrics.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
   - name: Migrar
     items:
     - name: Migrar para o Azure File Sync
@@ -259,9 +253,9 @@ items:
       href: https://github.com/Azure/azure-storage-cpp
     - name: Python
       href: https://github.com/Azure/azure-storage-python
-ms.openlocfilehash: 0dea31dd8e5a8886dfe658513818a0d1670b0c7d
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 0a54ca870727e64af7fffb0431145df1494140fe
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57892426"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58312551"

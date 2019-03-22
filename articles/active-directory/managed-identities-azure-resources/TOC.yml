@@ -152,14 +152,14 @@ items:
   - name: FAQ e problemas conhecidos
     href: known-issues.md
   - name: Serviços do Azure que suportam identidades geridas para os recursos do Azure
-    href: services-support-msi.md
+    href: services-support-managed-identities.md
   - name: Stack Overflow
     href: https://stackoverflow.com/questions/tagged/azure-msi
   - name: Fórum de Programadores do AAD
     href: https://feedback.azure.com/forums/169401-azure-active-directory/category/164757-developer-experiences
-ms.openlocfilehash: d3acf08588861f735583cf72541051809c31bc9b
-ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
+ms.openlocfilehash: 29ba42df28aff29b9ff4be873e6549006cc66a88
+ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58224605"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58336121"

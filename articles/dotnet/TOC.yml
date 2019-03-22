@@ -1,0 +1,17 @@
+items:
+- name: Descrição geral
+  href: index.md
+- name: Referência
+  href: https://docs.microsoft.com/dotnet/api/?term=Microsoft.Azure
+- name: Recursos
+  items:
+  - name: Mapa do Azure
+    href: https://azure.microsoft.com/roadmap/
+  - name: Calculadora de preços
+    href: https://azure.microsoft.com/pricing/calculator/
+ms.openlocfilehash: e870ae4247a72c429ad1c3c140688f8214426d36
+ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
+ms.translationtype: HT
+ms.contentlocale: pt-PT
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58340766"

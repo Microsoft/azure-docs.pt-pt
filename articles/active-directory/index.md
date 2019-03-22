@@ -277,7 +277,7 @@ ms.collection: M365-identity-device-management
                                                         <p>
                                                             <a href="managed-identities-azure-resources/tutorial-windows-vm-access-sql.md">Utilizar uma VM do Windows para aceder ao Azure SQL</a><br>
                                                             <a href="managed-identities-azure-resources/how-to-use-vm-token.md">Utilizar VM do Azure para a aquisição de tokens</a><br>
-                                                            <a href="managed-identities-azure-resources/services-support-msi.md">Serviços que suportam a identidade gerida</a><br>
+                                                            <a href="managed-identities-azure-resources/services-support-managed-identities.md">Serviços que suportam a identidade gerida</a><br>
                                                             <a href="managed-identities-azure-resources/index.yml"><i>Ver mais &gt;</i></a>
                                                         </p>
                                                         <br><br>

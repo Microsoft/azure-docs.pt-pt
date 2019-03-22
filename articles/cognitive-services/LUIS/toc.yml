@@ -103,9 +103,10 @@ items:
     - name: Ciclo de criação
       href: luis-concept-app-iteration.md
     - name: Colaboração
-      displayName: shared, transfer, ownership, author, access
+      displayName: shared, transfer, ownership, author, access, import
       href: luis-concept-collaborator.md
     - name: Controlo de versões
+      displayName: import
       href: luis-concept-version.md
   - name: Modelo de Design
     items:
@@ -149,17 +150,19 @@ items:
   - name: Enterprise
     items:
     - name: Estratégias de design
+      displayName: import
       href: luis-concept-enterprise.md
   - name: Segurança
     items:
     - name: Acesso da aplicação
-      displayName: public, public app, AAD, compliance, ISO, certification, trust center
+      displayName: public, public app, AAD, compliance, ISO, certification, trust center, import
       href: luis-concept-security.md
     - name: Chaves de criação e ponto final
       href: luis-concept-keys.md
 - name: Guias de procedimentos
   items:
   - name: Iniciar uma nova aplicação
+    displayName: import
     href: luis-how-to-start-new-app.md
   - name: Criar o Modelo
     items:
@@ -168,6 +171,7 @@ items:
     - name: Adicionar entidade à expressão
       href: luis-how-to-add-example-utterances.md
     - name: Adicionar entidade sem expressão
+      displayName: import
       href: luis-how-to-add-entities.md
     - name: Utilizar modelos pré-concebidos
       items:
@@ -225,6 +229,7 @@ items:
     - name: Testes interativos
       href: luis-interactive-test.md
     - name: Testes em lote
+      displayName: import
       href: luis-how-to-batch-test.md
   - name: Publicar
     href: luis-how-to-publish-app.md
@@ -238,8 +243,9 @@ items:
       href: luis-how-to-azure-subscription.md
     - name: Gerir versões
       href: luis-how-to-manage-versions.md
+      diplayName: import
     - name: Gerir os autores e colaboradores
-      displayName: access, transfer, AAD, tenant, Azure AD, consent, RBAC, admin, role-based access control, ownership
+      displayName: access, transfer, AAD, tenant, Azure AD, consent, RBAC, admin, role-based access control, ownership, import
       href: luis-how-to-collaborate.md
     - name: Gerir a chave de criação
       href: luis-how-to-account-settings.md
@@ -250,7 +256,7 @@ items:
   - name: Utilizar contentores
     items:
     - name: Instalar e executar contentores
-      displayName: docker, container, package, packaged app, swagger, open api, openapi, train, publish, az, acr, cli, tps, core, curl, try it now
+      displayName: docker, container, package, packaged app, swagger, open api, openapi, train, publish, az, acr, cli, tps, core, curl, try it now, import, pull
       href: luis-container-howto.md
     - name: Configurar contentores
       href: luis-container-configuration.md
@@ -390,6 +396,7 @@ items:
   - name: Glossário
     href: luis-glossary.md
   - name: Resolução de problemas
+    displayName: FAQ, import
     href: troubleshooting.md
   - name: Preços e limites
     href: https://azure.microsoft.com/pricing/details/cognitive-services/language-understanding-intelligent-services/
@@ -403,9 +410,9 @@ items:
     href: https://blog.botframework.com/category/luis/
   - name: Base de Dados de Conhecimento
     href: https://cognitive.uservoice.com/knowledgebase/topics/127872-luis-language-understanding-intelligent-service
-ms.openlocfilehash: 59950ced82f3b50ec5d0fe340157016954d2ff0b
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 8e684b58a3c7106f8ceca3e225b0b904d243984b
+ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57779764"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58337906"

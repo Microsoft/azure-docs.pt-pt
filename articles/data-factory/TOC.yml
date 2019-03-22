@@ -537,14 +537,12 @@ items:
       href: how-to-clean-up-ssisdb-logs-with-elastic-jobs.md
   - name: Criar acionadores
     items:
+    - name: Criar um acionador baseado em eventos
+      href: how-to-create-event-trigger.md
     - name: Criar um acionador de agenda
       href: how-to-create-schedule-trigger.md
     - name: Criar um acionador de janela em cascata
       href: how-to-create-tumbling-window-trigger.md
-    - name: Criar uma dependência de acionamento de janela em cascata
-      href: tumbling-window-trigger-dependency.md
-    - name: Criar um acionador baseado em eventos
-      href: how-to-create-event-trigger.md
   - name: Modelos
     items:
     - name: Descrição geral dos modelos
@@ -589,9 +587,9 @@ items:
     href: https://azure.microsoft.com/global-infrastructure/services/
   - name: Opções de suporte
     href: https://azure.microsoft.com/support/options/
-ms.openlocfilehash: 32411c9ec042a8504ef08ece1359ea9e5ee7ebda
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: ac130165fbad1b43cfef531ac6c3aa69a373d82d
+ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57858899"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58337040"
