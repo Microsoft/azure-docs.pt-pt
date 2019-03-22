@@ -11,13 +11,13 @@ author: jovanpop-msft
 ms.author: jovanpop-msft
 ms.reviewer: ''
 manager: craigg
-ms.date: 03/07/2019
-ms.openlocfilehash: 416a989f672aadcec2f1871bcea635500d1d0a93
-ms.sourcegitcommit: 30a0007f8e584692fe03c0023fe0337f842a7070
+ms.date: 03/12/2019
+ms.openlocfilehash: 33a0e90f1a0b63138168c44b87385c05aac39c69
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57575703"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57869766"
 ---
 # <a name="use-powershell-with-azure-resource-manager-template-to-create-a-managed-instance-in-azure-sql-database"></a>Utilize o PowerShell com o modelo Azure Resource Manager para criar uma instância gerida na base de dados do Azure SQL
 
@@ -48,13 +48,13 @@ Install-Module AzureRM.Network
 Install-Module AzureRM.Resources
 ```
 
-## <a name="azure-resource-manager-template"></a>Modelo do Azure Resource Manager
+## <a name="azure-resource-manager-template"></a>Modelo Azure Resource Manager
 
 O seguinte conteúdo deve ser colocado num arquivo que representa um modelo que será utilizado para criar a instância:
 
 ```
 {
-    "$schema": "http://schema.management.azure.com/schemas/2014-04-01-preview/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2014-04-01-preview/deploymentTemplate.json#",
     "contentVersion": "1.0.0.1",
     "parameters": {
         "instance": {

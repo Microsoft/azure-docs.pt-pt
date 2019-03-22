@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/06/2016
 ms.author: hkanna
-ms.openlocfilehash: f06b74493bad546997f82ed6eef0a89cffb7c75b
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: e7659cca9081834d41f64ef0fbd8ea3686044bfd
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51261983"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58012005"
 ---
 # <a name="storsimple-as-a-backup-target-with-veeam"></a>StorSimple como um destino de cópia de segurança com Veeam
 
@@ -81,7 +81,7 @@ O StorSimple oferece estes benefícios:
 
 Embora o StorSimple apresenta dois cenários de implementação principal (destino de cópia de segurança primário e secundário destino de cópia de segurança), fundamentalmente, é um simples, dispositivo de armazenamento de blocos. StorSimple faz todas as a compressão e a eliminação de duplicados. Forma totalmente integrada envia e recupera dados entre a cloud e o aplicativo e sistema de ficheiros.
 
-Para obter mais informações sobre o StorSimple, consulte [série StorSimple 8000: solução de armazenamento na cloud híbrida](storsimple-overview.md). Além disso, pode rever o [as especificações da série StorSimple 8000 técnicas](storsimple-technical-specifications-and-compliance.md).
+Para obter mais informações sobre o StorSimple, consulte [série 8000 do StorSimple: Solução de armazenamento na cloud híbrida](storsimple-overview.md). Além disso, pode rever o [as especificações da série StorSimple 8000 técnicas](storsimple-technical-specifications-and-compliance.md).
 
 > [!IMPORTANT]
 > Usando um StorSimple dispositivo como um destino de cópia de segurança só é suportado para atualização 3 do StorSimple 8000 e versões posteriores.
@@ -186,7 +186,7 @@ Nesta secção, vamos demonstrar alguns exemplos de configuração. Os exemplos 
 
 | Tarefas de implementação do StorSimple  | Comentários adicionais |
 |---|---|
-| Implemente o dispositivo StorSimple no local. | Versões suportadas: atualizar versões 3 e posteriores. |
+| Implemente o dispositivo StorSimple no local. | Versões suportadas: A atualização 3 e versões posteriores. |
 | Ative o destino de cópia de segurança. | Utilize estes comandos para ativar ou desativar o modo de destino de cópia de segurança e ao obter o estado. Para obter mais informações, consulte [ligar remotamente ao dispositivo StorSimple](storsimple-remote-connect.md).</br> Para ativar o modo de cópia de segurança: `Set-HCSBackupApplianceMode -enable`. </br> Para desativar o modo de cópia de segurança: `Set-HCSBackupApplianceMode -disable`. </br> Para obter o estado atual de definições do modo de cópia de segurança: `Get-HCSBackupApplianceMode`. |
 | Crie um contentor de volume comuns para o volume que armazena os dados de cópia de segurança. Todos os dados num contentor do volume tem eliminação de duplicados. | Contentores de volumes do StorSimple definem domínios de eliminação de duplicados.  |
 | Crie volumes do StorSimple. | Crie volumes com tamanhos como próximo a utilização antecipada possível, porque o tamanho do volume afeta o tempo de duração do instantâneo de cloud. Para obter informações sobre como dimensionar um volume, leia sobre [políticas de retenção](#retention-policies).</br> </br> Utilize o StorSimple volumes em camadas e selecione o **utilizar este volume para menos dados de arquivo acedidos com frequência** caixa de verificação. </br> Não é suportada a utilizar apenas volumes afixados localmente. |
@@ -209,16 +209,16 @@ Configurar a solução, de acordo com as diretrizes a seguir algumas secções.
 
 ### <a name="operating-system-best-practices"></a>Práticas recomendadas do sistema operativo
 
--   Desative a encriptação do Windows Server e a eliminação de duplicados para o sistema de ficheiros NTFS.
--   Desative a desfragmentação do Windows Server nos volumes do StorSimple.
--   Desative a indexação do Windows Server nos volumes do StorSimple.
--   Execute uma verificação antivírus o anfitrião de origem (não em relação os volumes do StorSimple).
--   Desativar a predefinição [manutenção do Windows Server](https://msdn.microsoft.com/library/windows/desktop/hh848037.aspx) no Gerenciador de tarefas. Fazer isso em uma das seguintes formas:
-    - Desative o configurator de manutenção no agendador de tarefas do Windows.
-    - Baixe [PsExec](https://technet.microsoft.com/sysinternals/bb897553.aspx) do Windows Sysinternals. Depois de transferir o PsExec, execute o Windows PowerShell como um administrador e escreva:
-      ```powershell
-      psexec \\%computername% -s schtasks /change /tn “MicrosoftWindowsTaskSchedulerMaintenance Configurator" /disable
-      ```
+- Desative a encriptação do Windows Server e a eliminação de duplicados para o sistema de ficheiros NTFS.
+- Desative a desfragmentação do Windows Server nos volumes do StorSimple.
+- Desative a indexação do Windows Server nos volumes do StorSimple.
+- Execute uma verificação antivírus o anfitrião de origem (não em relação os volumes do StorSimple).
+- Desativar a predefinição [manutenção do Windows Server](https://msdn.microsoft.com/library/windows/desktop/hh848037.aspx) no Gerenciador de tarefas. Fazer isso em uma das seguintes formas:
+  - Desative o configurator de manutenção no agendador de tarefas do Windows.
+  - Baixe [PsExec](https://technet.microsoft.com/sysinternals/bb897553.aspx) do Windows Sysinternals. Depois de transferir o PsExec, execute o Windows PowerShell como um administrador e escreva:
+    ```powershell
+    psexec \\%computername% -s schtasks /change /tn “MicrosoftWindowsTaskSchedulerMaintenance Configurator" /disable
+    ```
 
 ### <a name="storsimple-best-practices"></a>Práticas recomendadas do StorSimple
 
@@ -265,6 +265,7 @@ Com base nas suposições anteriores, crie um TiB de 26 volume para as cópias d
 | Total anual | 1  | 10 | 10 |
 | Requisito de GFS |   | 38 |   |
 | Quota adicional  | 4  |   | requisito de GFS 42 total  |
+
 \* O multiplicador GFS é o número de cópias que tem de proteger e manter-se para cumprir os requisitos de política de cópia de segurança.
 
 ## <a name="set-up-veeam-storage"></a>Configurar o armazenamento de Veeam
@@ -318,8 +319,8 @@ Eis um exemplo de uma agenda de rotação GFS para quatro semanas, mensais e anu
 | Tipo de frequência/cópia de segurança | Completo | Incremental (1 a 5 de dias)  |   
 |---|---|---|
 | Semanal (1 a 4 de semanas) | Sábado | De segunda a sexta-feira |
-| Custo  | Sábado  |   |
-| Anualmente | Sábado  |   |   |
+| Mensalmente  | Sábado  |   |
+| Anualmente | Sábado  |   |
 
 
 ### <a name="assign-storsimple-volumes-to-a-veeam-backup-job"></a>Atribuir volumes do StorSimple para uma tarefa de cópia de segurança Veeam
@@ -384,6 +385,7 @@ A tabela seguinte mostra como configurar as cópias de segurança para executar 
 | Total mensal |Disco do StorSimple (longo prazo) | 1 | 12 | 12 |
 | Total anual |Disco do StorSimple (longo prazo) | 1 | 1 | 1 |
 |Requisito de tamanho de volumes GFS |  |  |  | 18*|
+
 \* Capacidade total inclui 17 TiB de StorSimple discos e de 1 TiB de volume RAID local.
 
 
@@ -397,8 +399,8 @@ Rotação de GFS agenda semanal, mensal e anual
 | Semana de 2 | 2 a 4 do StorSimple semanas |   |   |   |   |   |
 | Semana de 3 | 2 a 4 do StorSimple semanas |   |   |   |   |   |
 | Semana de 4 | 2 a 4 do StorSimple semanas |   |   |   |   |   |
-| Custo | StorSimple mensalmente |   |   |   |   |   |
-| Anualmente | StorSimple anuais  |   |   |   |   |   |   |
+| Mensalmente | StorSimple mensalmente |   |   |   |   |   |
+| Anualmente | StorSimple anuais  |   |   |   |   |   |
 
 ### <a name="assign-storsimple-volumes-to-a-veeam-copy-job"></a>Atribuir volumes do StorSimple para uma tarefa de cópia de Veeam
 
@@ -469,9 +471,9 @@ A seguinte secção descreve como criar um script curto para iniciar e eliminar 
 1. [Instalar o Azure PowerShell](/powershell/azure/overview).
 2. Transferir e configurar [gerir CloudSnapshots.ps1](https://github.com/anoobbacker/storsimpledevicemgmttools/blob/master/Manage-CloudSnapshots.ps1) script do PowerShell.
 3. No servidor que executa o script, execute o PowerShell como administrador. Certifique-se de que executa o script com `-WhatIf $true` ver quais alterações que o script fará. Depois de concluída a validação, passar `-WhatIf $false`. Execute o comando abaixo:
-```powershell
-.\Manage-CloudSnapshots.ps1 -SubscriptionId [Subscription Id] -TenantId [Tenant ID] -ResourceGroupName [Resource Group Name] -ManagerName [StorSimple Device Manager Name] -DeviceName [device name] -BackupPolicyName [backup policyname] -RetentionInDays [Retention days] -WhatIf [$true or $false]
-```
+   ```powershell
+   .\Manage-CloudSnapshots.ps1 -SubscriptionId [Subscription Id] -TenantId [Tenant ID] -ResourceGroupName [Resource Group Name] -ManagerName [StorSimple Device Manager Name] -DeviceName [device name] -BackupPolicyName [backup policyname] -RetentionInDays [Retention days] -WhatIf [$true or $false]
+   ```
 4. Para adicionar o script para a sua tarefa de cópia de segurança, edite o seu trabalho Veeam opções avançadas.
 
     ![Guia de scripts de cópia de segurança de configurações avançadas de Veeam](./media/storsimple-configure-backup-target-using-veeam/veeamimage22.png)
@@ -510,7 +512,7 @@ Após um desastre pode ser causado por uma variedade de fatores. A tabela seguin
 Os seguintes documentos foram referenciados neste artigo:
 
 - [Configuração do StorSimple multipath e/s](storsimple-configure-mpio-windows-server.md)
-- [Cenários de armazenamento: aprovisionamento dinâmico](https://msdn.microsoft.com/library/windows/hardware/dn265487.aspx)
+- [Cenários de armazenamento: Aprovisionamento dinâmico](https://msdn.microsoft.com/library/windows/hardware/dn265487.aspx)
 - [Utilizar o GPT unidades](https://msdn.microsoft.com/windows/hardware/gg463524.aspx#EHD)
 - [Configurar cópias de sombra para pastas partilhadas](https://technet.microsoft.com/library/cc771893.aspx)
 

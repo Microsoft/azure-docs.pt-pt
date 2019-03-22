@@ -10,12 +10,12 @@ ms.subservice: bing-autosuggest
 ms.topic: conceptual
 ms.date: 02/20/2019
 ms.author: scottwhi
-ms.openlocfilehash: 4768e96b9f29983e07edd4449bc24131cc3206ad
-ms.sourcegitcommit: 15e9613e9e32288e174241efdb365fa0b12ec2ac
+ms.openlocfilehash: 51f057a1dd0da866a50a0219574c70c3c805882e
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "57008463"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58000001"
 ---
 # <a name="autosuggest-api-upgrade-guide"></a>Guia de atualização de API de sugestão automática
 
@@ -25,7 +25,7 @@ Este guia de atualização identifica as alterações entre a versão 5 e a vers
 
 ### <a name="endpoints"></a>Pontos Finais
 
-- Número da versão do ponto final foi alterado de v5 para v7. Por exemplo, https://api.cognitive.microsoft.com/bing/\ * \*v7.0 * * / sugestões.
+- Número da versão do ponto final foi alterado de v5 para v7. Por exemplo, https:\//api.cognitive.microsoft.com/bing/\*\*v7.0 * * / sugestões.
 
 ### <a name="error-response-objects-and-error-codes"></a>Objetos de resposta de erro e códigos de erro
 

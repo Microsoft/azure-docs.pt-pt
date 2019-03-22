@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/11/2017
 ms.author: rkarlin
-ms.openlocfilehash: 7fae267b74677e93527b4e185c5b52d421ef149e
-ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.openlocfilehash: 6cbf3d70bd835ce1b838b19c93507f7d9487a418
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/02/2019
-ms.locfileid: "57244949"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58074510"
 ---
 # <a name="azure-security-center-search"></a>Pesquisa do Centro de segurança do Azure
 Centro de segurança do Azure utiliza [pesquisa de registos do Azure Monitor](../log-analytics/log-analytics-log-searches.md) para recuperar e analisar os seus dados de segurança. Registos de Monitor do Azure inclui uma linguagem de consulta para obter e consolidar os dados rapidamente. No Centro de segurança, pode aproveitar a pesquisa de registos do Azure Monitor para construir consultas e analisar os dados recolhidos.
@@ -35,19 +35,19 @@ Pesquisa está disponível no escalão gratuito e escalão Standard do Centro de
 ## <a name="access-search"></a>Pesquisa de acesso
 1. No menu principal do Centro de segurança, selecione **pesquisa**.
 
-  ![Selecione a pesquisa de registos][1]
+   ![Selecione a pesquisa de registos][1]
 
 2. Centro de segurança apresenta uma lista de todas as áreas de trabalho em suas subscrições do Azure. Selecione uma área de trabalho. (Se tiver apenas uma área de trabalho, este Seletor de área de trabalho não serão apresentados.)
 
-  ![Selecione uma área de trabalho][2]
+   ![Selecione uma área de trabalho][2]
 
 3. **Pesquisa de registos** abre. Para consultar mais dados na área de trabalho selecionado, introduza esta consulta de exemplo:
 
-  SecurityEvent | onde EventID = = 4625 | resumir count () by TargetAccount
+   SecurityEvent | onde EventID = = 4625 | resumir count () by TargetAccount
 
-  Resultado mostra todas as contas que falharam ao início de sessão (evento 4625).
+   Resultado mostra todas as contas que falharam ao início de sessão (evento 4625).
 
-  ![Resultados da pesquisa][3]
+   ![Resultados da pesquisa][3]
 
 Ver [linguagem de consulta de Kusto](../log-analytics/log-analytics-search-reference.md) para obter mais informações sobre como consultar os dados na área de trabalho selecionada.
 

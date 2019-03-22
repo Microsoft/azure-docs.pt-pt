@@ -5,14 +5,14 @@ services: application-gateway
 author: abshamsft
 ms.service: application-gateway
 ms.topic: article
-ms.date: 03/04/2019
+ms.date: 03/20/2019
 ms.author: absha
-ms.openlocfilehash: 7bc3ea054056ac67cf0a116fb1538bc1483ab4d4
-ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
-ms.translationtype: MT
+ms.openlocfilehash: 61b3a9e066a3ee20effa97f1c6c7a0bd1ae90ac0
+ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
+ms.translationtype: HT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 03/20/2019
-ms.locfileid: "58223534"
+ms.locfileid: "58285843"
 ---
 # <a name="application-gateway-configuration-overview"></a>Descrição geral de configuração do Gateway de aplicação
 
@@ -33,7 +33,9 @@ Gateway de aplicação é uma implementação dedicada na sua rede virtual. Na s
 
 #### <a name="size-of-the-subnet"></a>Tamanho da sub-rede
 
-Em caso de SKU do v1, Gateway de aplicação consome um endereço IP privado por instância, além de outro endereço IP privado se estiver configurada uma configuração de IP de front-end privado. Além disso, o Azure reserva os primeiros quatro e o último endereço IP em cada sub-rede para utilização interna. Por exemplo, se um gateway de aplicação está definido como três instâncias e não existe nenhum IP de front-end privado, em seguida, / 29 sub-rede tamanho ou superior é necessária. Neste caso, o gateway de aplicação utiliza três endereços IP. Se tiver três instâncias e um endereço IP para a configuração de IP de front-end privado, em seguida, / 28 sub-rede tamanho ou superior é necessário porque são necessários quatro endereços IP.
+Gateway de aplicação consome um endereço IP privado por instância, além de outro endereço IP privado, se uma configuração de IP de front-end privado está configurada. Além disso, o Azure reserva os primeiros quatro e o último endereço IP em cada sub-rede para utilização interna. Por exemplo, se um gateway de aplicação é definido como três instâncias e não existe nenhum IP de front-end privado, em seguida, pelo menos, oito endereços IP precisará na sub-rede - cinco endereços IP para utilização interna e os três endereços IP para as três instâncias de gateway de aplicação. Portanto, neste caso, / 29 sub-rede tamanho ou superior é necessária. Se tiver três instâncias e um de endereços IP para a configuração de IP de front-end privado, em seguida, endereços IP nove será necessários - três endereços IP para as três instâncias de gateway de aplicação, um endereço IP para IP de front-end privado e IP cinco endereços para utilização interna. Portanto, neste caso, / 28 sub-rede tamanho ou superior é necessária.
+
+Como melhor prática, utilize pelo menos/28 tamanho da sub-rede. Isto dá-lhe 11 endereços utilizáveis suficientes. Se a carga de aplicação necessitar de mais de 10 instâncias, deve considerar/27 ou/26 tamanho da sub-rede.
 
 #### <a name="network-security-groups-supported-on-the-application-gateway-subnet"></a>Grupos de segurança de rede suportados na sub-rede de Gateway de aplicação
 
@@ -41,7 +43,7 @@ Grupos de segurança de rede (NSGs) são suportados na sub-rede de Gateway de ap
 
 - Exceções tiver de ser colocadas no tráfego de entrada nas portas 65503 65534 para o Gateway de aplicação v1 SKU e portas 65200-65535 para o SKU de v2. Este intervalo de portas é necessário para a comunicação de infraestrutura do Azure. Estão protegidas (bloqueadas) pelos certificados do Azure. Sem os certificados adequados, as entidades externas, incluindo os clientes desses gateways, não são possível iniciar quaisquer alterações nesses pontos finais.
 
-- Conectividade de internet de saída não pode ser bloqueada.
+- Conectividade de internet de saída não pode ser bloqueada. Regras de saída padrão no NSG já permitem a conectividade à internet. Recomendamos que não remove as regras de saída predefinido e que não criar outras regras de saída que negam conectividade de internet de saída.
 
 - Tráfego a partir da etiqueta AzureLoadBalancer têm de ser permitido.
 
@@ -57,11 +59,12 @@ Este cenário pode ser feito com NSGs na sub-rede de gateway de aplicação. As 
 
 #### <a name="user-defined-routes-supported-on-the-application-gateway-subnet"></a>Rotas definidas pelo utilizador suportadas na sub-rede de Gateway de aplicação
 
-Em caso de SKU do v1, as rotas definidas pelo utilizador (UDRs) são suportadas na sub-rede de gateway de aplicação, desde que elas não alteram a comunicação de ponto-a-ponto de solicitação/resposta.
-
-Por exemplo, pode configurar um UDR na sub-rede de gateway de aplicação para apontar para um dispositivo de firewall para a inspeção de pacotes, mas tem de garantir que o pacote pode contactar a inspeção de mensagem do seu destino pretendido. Falha ao fazer isso pode resultar em comportamento do encaminhamento sonda ou tráfego de estado de funcionamento incorreto. Isto inclui as rotas aprendidas ou rotas predefinidas que 0.0.0.0/0 propagadas pelo ExpressRoute ou Gateways de VPN na rede virtual.
+Em caso de SKU do v1, as rotas definidas pelo utilizador (UDRs) são suportadas na sub-rede de gateway de aplicação, desde que elas não alteram a comunicação de ponto-a-ponto de solicitação/resposta. Por exemplo, pode configurar um UDR na sub-rede de gateway de aplicação para apontar para um dispositivo de firewall para a inspeção de pacotes, mas tem de garantir que o pacote pode contactar a inspeção de mensagem do seu destino pretendido. Falha ao fazer isso pode resultar em comportamento do encaminhamento sonda ou tráfego de estado de funcionamento incorreto. Isto inclui as rotas aprendidas ou rotas predefinidas que 0.0.0.0/0 propagadas pelo ExpressRoute ou Gateways de VPN na rede virtual.
 
 Em caso de v2 SKU, UDRs na sub-rede de gateway de aplicação não são suportadas. Para obter mais informações, consulte [dimensionamento automático e o Gateway de aplicação com redundância de zona (pré-visualização pública)](https://docs.microsoft.com/azure/application-gateway/application-gateway-autoscaling-zone-redundant#known-issues-and-limitations).
+
+> [!NOTE]
+> Utilizar as UDRs na sub-rede de gateway de aplicação, fará com que o estado de funcionamento no [vista de estado de funcionamento do back-end](https://docs.microsoft.com/azure/application-gateway/application-gateway-diagnostics#back-end-health) a ser apresentado como **desconhecido** e também irá resultar em failue de geração de registos do gateway de aplicação e métricas. Recomenda-se que não utilizar UDRs na sub-rede de gateway de aplicação para poder ver o estado de funcionamento do back-end, registos e métricas.
 
 ## <a name="frontend-ip"></a>IP de front-end
 
@@ -87,10 +90,11 @@ Pode escolher entre [serviço de escuta básico ou de vários locais](https://do
 
 - Se estiver a configurar mais de um aplicativo web ou vários subdomínios do mesmo domínio principal na mesma instância de gateway de aplicação, em seguida, escolha o serviço de escuta de múltiplos site. Para o serviço de escuta de múltiplos site, além disso terá de introduzir um nome de anfitrião. Isto acontece porque o Gateway de aplicação baseia-se em cabeçalhos de anfitrião HTTP 1.1 para alojar mais do que um site no mesmo endereço IP público e porta.
 
-> [!NOTE]
-> Em caso de v1 SKUs, serviços de escuta são processados na ordem em que forem sendo apresentados. Por esse motivo se uma solicitação de entrada corresponder a um serviço de escuta básico processa-lo primeiro. Por conseguinte, os serviços de escuta de múltiplos sites devem ser configurados antes de um serviço de escuta básico para garantir que o tráfego é encaminhado para o back-end correto.
->
-> Em caso de v2 SKUs, serviços de escuta de múltiplos sites são processados antes de serviços de escuta básicos.
+#### <a name="order-of-processing-listeners"></a>Ordem de processamento de serviços de escuta
+
+Em caso de v1 SKUs, serviços de escuta são processados na ordem em que forem sendo apresentados. Por esse motivo se uma solicitação de entrada corresponder a um serviço de escuta básico processa-lo primeiro. Por conseguinte, os serviços de escuta de múltiplos sites devem ser configurados antes de um serviço de escuta básico para garantir que o tráfego é encaminhado para o back-end correto.
+
+Em caso de v2 SKUs, serviços de escuta de múltiplos sites são processados antes de serviços de escuta básicos.
 
 ### <a name="frontend-ip"></a>IP de front-end
 
@@ -110,9 +114,9 @@ Tem de escolher entre o protocolo HTTP e HTTPS.
 
   Para configurar a terminação de Secure Sockets Layer (SSL) e a encriptação SSL ponto a ponto, é necessário um certificado a ser adicionado para o serviço de escuta de modo a permitir o Gateway de aplicação derivar uma chave simétrica de acordo com a especificação de protocolo SSL. A chave simétrica, em seguida, é utilizada para encriptar e desencriptar o tráfego enviado para o gateway. O certificado de gateway tem de estar no formato Personal Information Exchange (PFX). Esse formato de arquivo permite-lhe exportar a chave privada que é necessário pelo gateway de aplicação para efetuar a encriptação e desencriptação de tráfego. 
 
-#### <a name="supported-certs"></a>Certificados suportados
+#### <a name="supported-certificates"></a>Certificados suportados
 
-São suportados certificados Autoassinados, certificados de AC, certificados de caráter universal e certificados EV.
+Ver [certificados suportados para a terminação de SSL](https://docs.microsoft.com/azure/application-gateway/ssl-overview#certificates-supported-for-ssl-termination).
 
 ### <a name="additional-protocol-support"></a>Suporte de protocolos adicionais
 
@@ -160,11 +164,11 @@ Pode escolher entre [regra básica ou baseada em caminho](https://docs.microsoft
 - Escolha baseado no caminho do serviço de escuta se quiser encaminhar pedidos com o caminho do URL especificado para conjuntos de back-end específicas. O padrão de caminho é aplicado apenas para o caminho do URL, não para seus parâmetros de consulta.
 
 
-> [!NOTE]
->
-> Em caso de v1 SKUs, a correspondência de padrão do pedido a receber é processada pela ordem em que os caminhos estão listados no mapa de caminho de URL da regra com base no caminho. Por esse motivo, se um pedido corresponde ao padrão em duas ou mais caminhos do mapa do caminho de URL, em seguida, o caminho que está listado primeiro será correspondido e o pedido será reencaminhado para o back-end associado a esse caminho.
->
-> Em caso de v2 SKUs, uma correspondência exata mantém maior prioridade sobre a ordem na qual os caminhos estão listados no mapa do caminho de URL. Para que o motivo, se um pedido corresponde ao padrão em duas ou mais caminhos, em seguida, o pedido será reencaminhado para o back-end associadas com que o caminho que corresponde exatamente com o pedido. Se o caminho no pedido de entrada não exatamente corresponde a qualquer caminho no mapa do caminho de URL, em seguida, a correspondência de padrão do pedido a receber é processada pela ordem em que os caminhos estão listados no mapa de caminho de URL da regra com base no caminho.
+#### <a name="order-of-processing-rules"></a>Ordem das regras de processamento
+
+Em caso de v1 SKUs, a correspondência de padrão do pedido a receber é processada pela ordem em que os caminhos estão listados no mapa de caminho de URL da regra com base no caminho. Por esse motivo, se um pedido corresponde ao padrão em duas ou mais caminhos do mapa do caminho de URL, em seguida, o caminho que está listado primeiro será correspondido e o pedido será reencaminhado para o back-end associado a esse caminho.
+
+Em caso de v2 SKUs, uma correspondência exata mantém maior prioridade sobre a ordem na qual os caminhos estão listados no mapa do caminho de URL. Para que o motivo, se um pedido corresponde ao padrão em duas ou mais caminhos, em seguida, o pedido será reencaminhado para o back-end associadas com que o caminho que corresponde exatamente com o pedido. Se o caminho no pedido de entrada não exatamente corresponde a qualquer caminho no mapa do caminho de URL, em seguida, a correspondência de padrão do pedido a receber é processada pela ordem em que os caminhos estão listados no mapa de caminho de URL da regra com base no caminho.
 
 ### <a name="associated-listener"></a>Serviço de escuta associado
 
@@ -176,7 +180,7 @@ Associe o conjunto de back-end que contém os destinos de back-end que irão ser
 
 ### <a name="associated-backend-http-setting"></a>Definição de HTTP de back-end associados
 
-Adicione uma definição de HTTP de back-end para cada regra. Os pedidos serão encaminhados a partir do Gateway de aplicação para os destinos de back-end com o número de porta, protocolo e outras definições especificadas nesta definição. Em caso de uma regra básica, apenas uma definição de HTTP de back-end é permitida uma vez que todos os pedidos no serviço de escuta associado serão reencaminhados para os destinos de back-end correspondente utiliza esta definição de HTTP. Em caso de uma regra com base no caminho, adicione várias definições de HTTP de back-end correspondente a cada caminho de URL. Os pedidos que corresponde ao caminho do URL introduzido aqui, serão reencaminhados para os destinos de back-end correspondente com as definições de HTTP correspondente a cada caminho de URL. Além disso, adicione um predefinições de HTTP, uma vez que os pedidos que não correspondam a qualquer caminho de URL introduzido nesta regra serão reencaminhados para o conjunto de back-end predefinido através das predefinições de HTTP.
+Adicione uma definição de HTTP de back-end para cada regra. Os pedidos serão encaminhados a partir do Gateway de aplicação para os destinos de back-end com o número de porta, protocolo e outras definições especificadas nesta definição. Em caso de uma regra básica, apenas uma definição de HTTP de back-end é permitida uma vez que todos os pedidos no serviço de escuta associado serão reencaminhados para os destinos de back-end correspondente utiliza esta definição de HTTP. Em caso de uma regra com base no caminho, adicione várias definições de HTTP de back-end correspondente a cada caminho de URL. Os pedidos que corresponde ao caminho do URL introduzido aqui, serão reencaminhados para os destinos de back-end correspondente com as definições de HTTP correspondente a cada caminho de URL. Além disso, adicione uma definição de HTTP padrão, uma vez que os pedidos que não correspondam a qualquer caminho de URL introduzido nesta regra serão reencaminhados para o conjunto de back-end predefinido a utilizar a predefinição de HTTP.
 
 ### <a name="redirection-setting"></a>Configuração de redirecionamento
 
@@ -186,7 +190,7 @@ Para obter informações sobre a capacidade de redirecionamento, veja [descriç�
 
 - #### <a name="redirection-type"></a>Tipo de redirecionamento
 
-  Escolha o tipo de redirecionamento necessário a partir de: Permanente, temporária, foi encontrado ou ver outros.
+  Escolha o tipo de redirecionamento necessário a partir de: Other(303) Permanent(301), Temporary(307), Found(302) ou consulte.
 
 - #### <a name="redirection-target"></a>Destino de redirecionamento
 
@@ -236,14 +240,14 @@ O número de segundos que o gateway de aplicação aguarda para receber a respos
 
 Esta definição permite-lhe configurar um caminho de encaminhamento personalizado opcional para utilizar quando a solicitação é encaminhada para o back-end. Isto irá copiar qualquer parte do caminho de entrada que corresponde ao caminho personalizado especificado no **substituir o caminho de back-end** campo para o caminho reencaminhado. Consulte a tabela abaixo para compreender como funciona a capacidade.
 
-- Quando as definições de HTTP está ligado a uma regra de encaminhamento de pedido básico:
+- Quando a definição de HTTP está ligada a uma regra de encaminhamento de pedido básico:
 
   | Solicitação original  | Substituir caminho de back-end | Pedido reencaminhado para o back-end |
   | ----------------- | --------------------- | ---------------------------- |
   | /Home/            | /override/            | / Substituir/home /              |
   | / home/secondhome / | /override/            | / substituição/home/secondhome /   |
 
-- Quando as definições de HTTP está ligado a uma regra de encaminhamento baseado no caminho do pedido:
+- Quando a definição de HTTP está ligada a uma regra de encaminhamento baseado no caminho do pedido:
 
   | Solicitação original           | Regra de caminho       | Substituir caminho de back-end | Pedido reencaminhado para o back-end |
   | -------------------------- | --------------- | --------------------- | ---------------------------- |

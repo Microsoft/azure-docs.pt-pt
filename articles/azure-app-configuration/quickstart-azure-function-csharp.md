@@ -14,24 +14,24 @@ ms.tgt_pltfrm: Azure Functions
 ms.workload: tbd
 ms.date: 02/24/2019
 ms.author: yegu
-ms.openlocfilehash: 5f28e213a5f824562df62a05b98f0f92f71bc591
-ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
+ms.openlocfilehash: 22ec05660682f000d8bc3b9780732d5adf9b5c24
+ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56957441"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58226713"
 ---
 # <a name="quickstart-create-an-azure-function-with-app-configuration"></a>Início rápido: Criar uma função do Azure com configuração de aplicações
 
-Configuração de aplicações do Azure é um serviço de configuração gerida no Azure. Permite-lhe armazenar e gerir todas as suas definições de aplicação num único local que é separada do seu código facilmente. Este guia de introdução mostra-lhe como incorporar o serviço numa função do Azure. 
+Configuração de aplicações do Azure é um serviço de configuração gerida no Azure. Pode usá-lo facilmente armazenar e gerir todas as suas definições de aplicação num único local que é separada a partir do código. Este guia de introdução mostra-lhe como incorporar o serviço numa função do Azure. 
 
-Pode utilizar qualquer editor de código para concluir os passos deste início rápido. No entanto, o [Visual Studio Code](https://code.visualstudio.com/) é uma excelente opção, disponível nas plataformas Windows, macOS e Linux.
+Pode utilizar qualquer editor de código para realizar os passos neste guia de introdução. [Visual Studio Code](https://code.visualstudio.com/) é uma excelente opção disponível no Windows, macOS e plataformas Linux.
 
-![Início rápido concluído no local](./media/quickstarts/dotnet-core-function-launch-local.png)
+![Local completa do guia de introdução](./media/quickstarts/dotnet-core-function-launch-local.png)
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Para concluir este início rápido, instale [Visual Studio 2017](https://visualstudio.microsoft.com/vs) (e certifique-se de que o **desenvolvimento do Azure** carga de trabalho também é instalada) e o [mais recentes ferramentas de funções do Azure](../azure-functions/functions-develop-vs.md#check-your-tools-version).
+Para fazer este início rápido, instale [Visual Studio 2017](https://visualstudio.microsoft.com/vs). Certifique-se de que o **desenvolvimento do Azure** carga de trabalho também é instalada. Também instalar o [mais recentes ferramentas de funções do Azure](../azure-functions/functions-develop-vs.md#check-your-tools-version).
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
@@ -43,9 +43,9 @@ Para concluir este início rápido, instale [Visual Studio 2017](https://visuals
 
 [!INCLUDE [Create a project using the Azure Functions template](../../includes/functions-vstools-create.md)]
 
-## <a name="connect-to-app-configuration-store"></a>Ligar ao arquivo de configuração de aplicação
+## <a name="connect-to-an-app-configuration-store"></a>Ligar a um arquivo de configuração de aplicação
 
-1. Open *Function1.cs* e adicione uma referência ao fornecedor de configuração de configuração de aplicações .NET Core.
+1. Open *Function1.cs*e adicione uma referência a um fornecedor de configuração de configuração de aplicações .NET Core.
 
     ```csharp
     using Microsoft.Extensions.Configuration.AzureAppConfiguration;
@@ -77,25 +77,25 @@ Para concluir este início rápido, instale [Visual Studio 2017](https://visuals
 
 ## <a name="test-the-function-locally"></a>Testar localmente a função
 
-1. Definir uma variável de ambiente com o nome **ConnectionString** e defini-lo para a chave de acesso ao seu arquivo de configuração de aplicação. Se estiver a utilizar o Prompt de comando do Windows, execute o seguinte comando e reinicie o Prompt de comando para permitir que a alteração tenha efeito:
+1. Definir uma variável de ambiente com o nome **ConnectionString**e defina-o para a chave de acesso ao seu arquivo de configuração de aplicação. Se utilizar a linha de comandos do Windows, execute o seguinte comando e reinicie o prompt de comando para permitir que a alteração tenha efeito:
 
         setx ConnectionString "connection-string-of-your-app-configuration-store"
 
-    Se estiver a utilizar o Windows PowerShell, execute o seguinte comando:
+    Se utilizar o Windows PowerShell, execute o seguinte comando:
 
         $Env:ConnectionString = "connection-string-of-your-app-configuration-store"
 
-    Se estiver a utilizar o macOS ou Linux, execute o seguinte comando:
+    Se usar o macOS ou Linux, execute o seguinte comando:
 
         export ConnectionString='connection-string-of-your-app-configuration-store'
 
-2. Para testar a sua função, prima **F5**. Se lhe for solicitado, aceite o pedido do Visual Studio para transferir e instalar **núcleo de funções do Azure (CLI)** ferramentas. Também poderá ativar a exceção da firewall para que todas as ferramentas possam aceitar os pedidos de HTTP.
+2. Para testar a sua função, prima F5. Se lhe for solicitado, aceite o pedido do Visual Studio para transferir e instalar **núcleo de funções do Azure (CLI)** ferramentas. Poderá também ter de ativar a exceção da firewall para que as ferramentas podem processar pedidos de HTTP.
 
 3. Copie o URL da sua função na saída do tempo de execução das funções do Azure.
 
     ![Função de início rápido de depuração no VS](./media/quickstarts/function-visual-studio-debugging.png)
 
-4. Cole o URL do pedido HTTP na barra de endereço do browser. O exemplo apresentado em seguida mostra a resposta no browser relativamente ao pedido GET devolvido retornado pela função:
+4. Cole o URL do pedido HTTP na barra de endereço do browser. A imagem seguinte mostra a resposta no browser para relativamente ao pedido GET devolvido pela função.
 
     ![Local de lançamento de função de início rápido](./media/quickstarts/dotnet-core-function-launch-local.png)
 

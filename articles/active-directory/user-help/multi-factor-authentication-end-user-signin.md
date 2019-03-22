@@ -15,12 +15,12 @@ ms.author: lizross
 ms.reviewer: librown
 ms.custom: end-user, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cd109637379f1fd2cdb108fbbb6c6c47224e00a2
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 1350b2d86e18f213d99f1c27d64e371451f5f9b7
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57431772"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57840884"
 ---
 # <a name="the-sign-in-experience-with-azure-multi-factor-authentication"></a>A experiência de início de sessão com o Azure multi-factor Authentication
 > [!NOTE]
@@ -34,7 +34,7 @@ Sua experiência de início de sessão é diferente consoante aquilo que escolhe
 | [Com uma chamada telefónica para meu telefone mobile ou o office](#signing-in-with-a-phone-call) |
 | [Com uma mensagem de texto para o meu telemóvel](#signing-in-with-a-text-message)
 | [Com as notificações a partir da aplicação Microsoft Authenticator](#to-sign-in-with-a-notification-from-the-microsoft-authenticator-app) |
-| [Com os códigos de verificação a partir da aplicação Microsoft Authenticator](#to-sign-in-using-a-verification-with-the-microsoft-authenticator-app) |
+| Com os códigos de verificação a partir da aplicação Microsoft Authenticator |
 | [Com um método alternativo, porque eu não é possível utilizar o meu método preferido de neste momento](#signing-in-with-an-alternate-method) |
 
 ## <a name="signing-in-with-a-phone-call"></a>Iniciar sessão com uma chamada telefónica
@@ -58,7 +58,7 @@ As informações seguintes descrevem a experiência de utilização da aplicaç�
 1. Inicie sessão para uma aplicação ou serviço como o Office 365 com o seu nome de utilizador e palavra-passe.
 2. A Microsoft envia uma notificação para a aplicação Microsoft Authenticator no seu dispositivo.
 
-  ![A Microsoft envia a notificação](./media/multi-factor-authentication-end-user-signin/notify.png)
+   ![A Microsoft envia a notificação](./media/multi-factor-authentication-end-user-signin/notify.png)
 
 3. Abra a notificação no seu telemóvel e selecione o **Verifique se** chave. Se a sua empresa exigir um PIN, introduza-o aqui.
 4. Deve agora ser conectado.
@@ -70,7 +70,7 @@ Se utilizar a aplicação Microsoft Authenticator para obter códigos de verific
 1. Inicie sessão para uma aplicação ou serviço como o Office 365 com o seu nome de utilizador e palavra-passe.
 2. Microsoft pede-lhe um código de verificação.
 
-  ![Introduzir código de verificação](./media/multi-factor-authentication-end-user-signin/verify3.png)
+   ![Introduzir código de verificação](./media/multi-factor-authentication-end-user-signin/verify3.png)
 
 3. Abra a aplicação Microsoft Authenticator no seu telemóvel e introduza o código na caixa de onde estiver a iniciar sessão.
 
@@ -81,7 +81,7 @@ Por vezes, não tem o telefone ou o dispositivo que configurou como o seu métod
 2. Selecione **utilizar outra opção de verificação**. Ver opções de verificação diferente com base no número tiver configurado.
 3. Escolha um método alternativo e iniciar sessão.
 
-  ![Utilize o método alternativo](./media/multi-factor-authentication-end-user-signin/alt.png)
+   ![Utilize o método alternativo](./media/multi-factor-authentication-end-user-signin/alt.png)
 
 ## <a name="next-steps"></a>Passos Seguintes
 - Se tiver problemas ao iniciar sessão com a verificação de dois passos, obter mais informações em [a ter problemas com o Azure multi-factor Authentication](multi-factor-authentication-end-user-troubleshoot.md).

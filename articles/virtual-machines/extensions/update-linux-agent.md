@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/02/2017
 ms.author: roiyz
-ms.openlocfilehash: 7f1b84f62bae3640e7ac20c2e4a395033d1d687c
-ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
+ms.openlocfilehash: 5d53f34ea6b0983d0687cdaf6ec6271c703bb055
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54319359"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57998525"
 ---
 # <a name="how-to-update-the-azure-linux-agent-on-a-vm"></a>Como atualizar o agente do Linux do Azure numa VM
 
@@ -367,8 +367,8 @@ Para máquinas de virtuais de Oracle Linux 6:
 ```sh
 [ol6_addons]
 name=Add-Ons for Oracle Linux $releasever ($basearch)
-baseurl=http://public-yum.oracle.com/repo/OracleLinux/OL6/addons/x86_64
-gpgkey=http://public-yum.oracle.com/RPM-GPG-KEY-oracle-ol6
+baseurl=https://public-yum.oracle.com/repo/OracleLinux/OL6/addons/x86_64
+gpgkey=https://public-yum.oracle.com/RPM-GPG-KEY-oracle-ol6
 gpgcheck=1
 enabled=1
 ```

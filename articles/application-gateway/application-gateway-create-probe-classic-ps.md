@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/26/2017
 ms.author: victorh
-ms.openlocfilehash: 2b661968fd64f4d2a61bc59f9b99b1eea6b01f86
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.openlocfilehash: 17893a37bbaf67014c9b34dd446af204b907ff24
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52997277"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58004981"
 ---
 # <a name="create-a-custom-probe-for-azure-application-gateway-classic-by-using-powershell"></a>Criar uma sonda personalizada para o Gateway de aplicação do Azure (clássico) com o PowerShell
 
@@ -151,7 +151,7 @@ Os parâmetros de configuração são:
 |Parâmetro|Descrição|
 |---|---|
 |**Nome** |Nome de referência para a sonda personalizada. |
-* **Protocolo** | Protocolo utilizado (os valores possíveis são HTTP ou HTTPS).|
+| **Protocolo** | Protocolo utilizado (os valores possíveis são HTTP ou HTTPS).|
 | **Host** e **caminho** | Caminho do URL completo que é invocado por gateway de aplicação para determinar o estado de funcionamento da instância. Por exemplo, se tiver um Web site http://contoso.com/, a sonda personalizada pode ser configurada para "http://contoso.com/path/custompath.htm" para a sonda verifica para ter uma resposta HTTP com êxito.|
 | **Intervalo** | Configura as verificações de intervalo de sonda em segundos.|
 | **Tempo limite** | Define o limite de tempo de pesquisa para uma verificação de resposta HTTP.|
@@ -161,18 +161,18 @@ O nome da sonda é referenciado no \<BackendHttpSettings\> configuração para a
 
 ## <a name="add-a-custom-probe-to-an-existing-application-gateway"></a>Adicionar uma sonda personalizada para um gateway de aplicação existente
 
-Alteração da configuração atual de um gateway de aplicação requer três passos: obter o ficheiro de configuração XML atual, modificar a ter uma sonda personalizada e configurar o gateway de aplicação com as novas definições de XML.
+Alteração da configuração atual de um gateway de aplicação requer três passos: Obter o ficheiro de configuração atual do XML e modificar para ter uma sonda personalizada para configurar o gateway de aplicação com as novas definições de XML.
 
 1. Obter o arquivo XML usando `Get-AzureApplicationGatewayConfig`. Este cmdlet exporta o XML modificado para adicionar uma definição de sonda de configuração.
 
-  ```powershell
-  Get-AzureApplicationGatewayConfig -Name "<application gateway name>" -Exporttofile "<path to file>"
-  ```
+   ```powershell
+   Get-AzureApplicationGatewayConfig -Name "<application gateway name>" -Exporttofile "<path to file>"
+   ```
 
 1. Abra o ficheiro XML num editor de texto. Adicionar uma `<probe>` secção após `<frontendport>`.
 
-  ```xml
-<Probes>
+   ```xml
+   <Probes>
     <Probe>
         <Name>Probe01</Name>
         <Protocol>Http</Protocol>
@@ -182,12 +182,12 @@ Alteração da configuração atual de um gateway de aplicação requer três pa
         <Timeout>15</Timeout>
         <UnhealthyThreshold>5</UnhealthyThreshold>
     </Probe>
-</Probes>
-  ```
+   </Probes>
+   ```
 
-  Na secção backendHttpSettings do XML, adicione o nome da sonda, conforme mostrado no exemplo a seguir:
+   Na secção backendHttpSettings do XML, adicione o nome da sonda, conforme mostrado no exemplo a seguir:
 
-  ```xml
+   ```xml
     <BackendHttpSettings>
         <Name>setting1</Name>
         <Port>80</Port>
@@ -196,9 +196,9 @@ Alteração da configuração atual de um gateway de aplicação requer três pa
         <RequestTimeout>120</RequestTimeout>
         <Probe>Probe01</Probe>
     </BackendHttpSettings>
-  ```
+   ```
 
-  Guarde o ficheiro XML.
+   Guarde o ficheiro XML.
 
 1. Atualizar a configuração do gateway de aplicação com o novo arquivo XML com `Set-AzureApplicationGatewayConfig`. Este cmdlet atualiza o gateway de aplicação com a nova configuração.
 

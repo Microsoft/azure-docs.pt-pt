@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 01/07/2019
 ms.reviewer: sergkanz
 ms.author: mbullwin
-ms.openlocfilehash: d39ec71315bec98c35ac7fb76ed9a88a094817ca
-ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
+ms.openlocfilehash: fef016d87cc60bc916fdcb08f92171e115221fe5
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54117151"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57884125"
 ---
 # <a name="request-telemetry-application-insights-data-model"></a>Telemetria de pedido: Modelo de dados do Application Insights
 
@@ -25,11 +25,11 @@ Um item de telemetria de pedido (no [Application Insights](../../azure-monitor/a
 
 Pedido de telemetria suporta o modelo de extensibilidade padrão usando custom `properties` e `measurements`.
 
-## <a name="name"></a>Nome
+## <a name="name"></a>Name
 
 Nome do pedido representa o caminho de código para processar o pedido. Valor de cardinalidade baixa para permitir a melhor de agrupamento de pedidos. Para solicitações de HTTP, ele representa o método HTTP e o modelo de caminho de URL, como `GET /values/{id}` sem o real `id` valor.
 
-Web do Application Insights SDK envia o nome do pedido "como estão" com respeito entre maiúsculas/minúsculas. Agrupamento pela interface do Usuário diferencia maiúsculas de minúsculas, de modo `GET /Home/Index` são contadas em separado da `GET /home/INDEX` , apesar de muitas vezes eles resultam na execução de controlador e ação mesmo. O motivo disso é que em geral são urls [diferencia maiúsculas de minúsculas](https://www.w3.org/TR/WD-html40-970708/htmlweb.html). Pode querer ver se todos os `404` aconteceu para os urls de tipos em maiúsculas. Pode ler mais coleção do nome do pedido ativado pelo SDK de Web de ASP.Net no [mensagem de blogue](https://apmtips.com/blog/2015/02/23/request-name-and-url/).
+Web do Application Insights SDK envia o nome do pedido "como estão" com respeito entre maiúsculas/minúsculas. Agrupamento pela interface do Usuário diferencia maiúsculas de minúsculas, de modo `GET /Home/Index` são contadas em separado da `GET /home/INDEX` , apesar de muitas vezes eles resultam na execução de controlador e ação mesmo. O motivo disso é que em geral são urls [diferencia maiúsculas de minúsculas](https://www.w3.org/TR/WD-html40-970708/htmlweb.html). Pode querer ver se todos os `404` aconteceu para os urls de tipos em maiúsculas. Pode ler mais coleção do nome do pedido ativado pelo SDK de Web de ASP.NET no [mensagem de blogue](https://apmtips.com/blog/2015/02/23/request-name-and-url/).
 
 Comprimento máximo: 1024 carateres
 

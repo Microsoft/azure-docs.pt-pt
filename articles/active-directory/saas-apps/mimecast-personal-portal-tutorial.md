@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 12/24/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 37ffea61df1091cb7517014c4796537cdd40d62b
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: ed7d8d1a2c2f8c515fa520f6701068e4655cad35
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57765301"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57898589"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-mimecast-personal-portal"></a>Tutorial: Integração do Active Directory do Azure com o Portal de pessoal de Mimecast
 
@@ -208,7 +208,7 @@ O objetivo desta secção é criar um utilizador de teste no portal do Azure cha
 
     a. Na **Name** campo introduza **BrittaSimon**.
   
-    b. Na **nome de utilizador** tipo de campo **brittasimon@yourcompanydomain.extension**  
+    b. Na **nome de utilizador** tipo de campo **brittasimon\@yourcompanydomain.extension**  
     Por exemplo, BrittaSimon@contoso.com
 
     c. Selecione **palavra-passe de Show** caixa de verificação e, em seguida, anote o valor que é apresentado na caixa de palavra-passe.
@@ -267,7 +267,7 @@ Para permitir que os utilizadores do Azure AD inicie sessão no Portal de pessoa
    
     ![Save](./media/mimecast-personal-portal-tutorial/ic795006.png "Save")
    
-    a. Na **endereço de E-Mail** caixa de texto, tipo **endereço de E-Mail** do utilizador como **BrittaSimon@contoso.com**.
+    a. Na **endereço de E-Mail** caixa de texto, tipo **endereço de E-Mail** do utilizador como **BrittaSimon\@contoso.com**.
     
     b. Na **nome Global** caixa de texto, tipo a **nome de utilizador** como **BrittaSimon**.
 
@@ -278,7 +278,7 @@ Para permitir que os utilizadores do Azure AD inicie sessão no Portal de pessoa
 >[!NOTE]
 >Pode utilizar quaisquer outras ferramentas de criação da conta de utilizador de Portal Mimecast de pessoais ou APIs fornecidas pelo Portal de pessoal de Mimecast para aprovisionar contas de utilizador do Azure AD.
 
-### <a name="test-single-sign-on"></a>Testar início de sessão único 
+### <a name="test-single-sign-on"></a>Testar o início de sessão único 
 
 Nesta secção, vai testar a configuração do Azure AD única início de sessão com o painel de acesso.
 

@@ -6,12 +6,12 @@ ms.service: signalr
 ms.topic: conceptual
 ms.date: 03/01/2019
 ms.author: zhshang
-ms.openlocfilehash: 8c66b603bd8c974bcaa63ee2aad58f7fd8fe04e6
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 7660e1405598676599cab30467d22ac979438deb
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57555244"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58003694"
 ---
 # <a name="azure-signalr-service-authentication"></a>Autenticação de serviço SignalR do Azure
 
@@ -61,9 +61,9 @@ Para concluir este tutorial, deve ter os seguintes pré-requisitos:
     | Nome da Definição | Valor sugerido | Descrição |
     | ------------ | --------------- | ----------- |
     | Nome da aplicação | *Chat to Azure SignalR* | O utilizador do GitHub deve ser capaz de reconhecer e confiar no aplicativo que se estão a autenticar.   |
-    | URL da home page | *http://localhost:5000/home* | |
+    | URL da home page | `http://localhost:5000/home` | |
     | Descrição da aplicação | *Um exemplo de sala de bate-papo com o serviço Azure SignalR com a autenticação do GitHub* | Uma descrição útil da aplicação que vai ajudar os utilizadores da aplicação a compreender o contexto da autenticação que está a ser utilizada. |
-    | URL da chamada de retorno da autorização | *http://localhost:5000/signin-github* | Esta é a definição mais importante para a sua aplicação de OAuth. É o URL de chamada de retorno que o GitHub devolve ao utilizador após a autenticação com êxito. Neste tutorial, tem de utilizar o URL de chamada de retorno predefinido para o pacote *AspNet.Security.OAuth.GitHub*, */signin-github*.  |
+    | URL da chamada de retorno da autorização | `http://localhost:5000/signin-github` | Esta é a definição mais importante para a sua aplicação de OAuth. É o URL de chamada de retorno que o GitHub devolve ao utilizador após a autenticação com êxito. Neste tutorial, tem de utilizar o URL de chamada de retorno predefinido para o pacote *AspNet.Security.OAuth.GitHub*, */signin-github*.  |
 
 4. Assim que o registo da aplicação de OAuth nova estiver concluído, adicione o *Client ID* (ID de Cliente) e o *Client Secret* (Segredo de Cliente) ao Secret Manager com os seguintes comandos. Substitua *Your_GitHub_Client_Id* (Seu_Id_de_cliente_do_GitHub) *Your_GitHub_Client_Secret* (Seu_Segredo_de_cliente_do_GitHub) pelos valores da sua aplicação de OAuth.
 

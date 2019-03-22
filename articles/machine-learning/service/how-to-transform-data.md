@@ -12,12 +12,12 @@ manager: cgronlun
 ms.reviewer: jmartens
 ms.date: 12/04/2018
 ms.custom: seodec18
-ms.openlocfilehash: fa6d90866be93645625fa82410f8dd0e3bd33d00
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 12a914b2cdef0a40493dac1a539cf0c2a7703093
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57774290"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57999821"
 ---
 # <a name="transform-data-with-the-azure-machine-learning-data-prep-sdk"></a>Transformar dados com o SDK de preparação de dados do Azure Machine Learning
 
@@ -45,7 +45,7 @@ dflow.head(3)
 
 ||ID|Número de caso|Date|Bloquear|IUCR|Tipo de principal|Descrição|Descrição de localização|Prisão|Nacionais|...|Ward|Área de Comunidade|Código do FBI|Coordenada x|Coordenada Y|Ano|Atualizado em|Latitude|Longitude|Localização|
 |-------|-------|-------|-------|-------|-------|-------|-------|-------|-------|-------|-------|-------|-------|-------|-------|-------|-------|-------|-------|-------|-------|
-|0|10140490|HY329907|05/07/2015 50: 11:00 PM|050XX N NEWLAND AVE|0820|ROUBO|US $500 E, EM|RUA|false|false|...|41|10|06|1129230|1933315|2015|12/07/2015 |42:46 12:00 DE|41.973309466|-87.800174996|(41.973309466,-87.800174996)|
+|0|10140490|HY329907|05/07/2015 50: 11:00 PM|050XX N NEWLAND AVE|0820|ROUBO|US $500 E, EM|RUA|false|false|...|41|10|06|1129230|1933315|2015|12/07/2015 42:46 12:00 DE|41.973309466|-87.800174996|(41.973309466,-87.800174996)|
 |1|10139776|HY329265|05/07/2015 30: 11:00 PM|011XX W MORSE AVE|0460|BATERIA|SIMPLES|RUA|false|true|...|49|1|08B|1167370|1946271|2015|12/07/2015 42:46 12:00 DE|42.008124017|-87.65955018|(42.008124017,-87.65955018)|
 |2|10140270|HY329253|05/07/2015 20: 11:00 PM|121XX S FRONT AVE|0486|BATERIA|BATERIA NACIONAL SIMPLE|RUA|false|true|...|9|53|08B|||2015|12/07/2015 42:46 12:00 DE|
 
@@ -60,9 +60,9 @@ case_category = dflow.add_column(new_column_name='Case Category',
 case_category.head(3)
 ```
 
-||ID|Número de caso|Categoria de caso|Date|Bloquear|IUCR|Tipo de principal|Descrição|Descrição de localização|Prisão|...|Ward|Área de Comunidade|Código do FBI|Coordenada x|Coordenada Y|Ano|Atualizado em|Latitude|Longitude|Localização|
+||ID|Número de caso|Categoria de caso|Date|Bloquear|IUCR|Tipo de principal|Descrição|Descrição de localização|Prisão|Nacionais|...|Ward|Área de Comunidade|Código do FBI|Coordenada x|Coordenada Y|Ano|Atualizado em|Latitude|Longitude|Localização|
 |-------|-------|-------|-------|-------|-------|-------|-------|-------|-------|-------|-------|-------|-------|-------|-------|-------|-------|-------|-------|-------|-------|------|
-|0|10140490|HY329907|HY|05/07/2015 50: 11:00 PM|050XX N NEWLAND AVE|0820|ROUBO|US $500 E, EM|RUA|false|false|...|41|10|06|1129230|1933315|2015|12/07/2015 |42:46 12:00 DE|41.973309466|-87.800174996|(41.973309466,-87.800174996)|
+|0|10140490|HY329907|HY|05/07/2015 50: 11:00 PM|050XX N NEWLAND AVE|0820|ROUBO|US $500 E, EM|RUA|false|false|...|41|10|06|1129230|1933315|2015|12/07/2015 42:46 12:00 DE|41.973309466|-87.800174996|(41.973309466,-87.800174996)|
 |1|10139776|HY329265|HY|05/07/2015 30: 11:00 PM|011XX W MORSE AVE|0460|BATERIA|SIMPLES|RUA|false|true|...|49|1|08B|1167370|1946271|2015|12/07/2015 42:46 12:00 DE|42.008124017|-87.65955018|(42.008124017,-87.65955018)|
 |2|10140270|HY329253|HY|05/07/2015 20: 11:00 PM|121XX S FRONT AVE|0486|BATERIA|BATERIA NACIONAL SIMPLE|RUA|false|true|...|9|53|08B|||2015|12/07/2015 42:46 12:00 DE|
 
@@ -236,6 +236,7 @@ builder.preview(skip=75, count=5)
 builder.add_example(source_data=dflow.iloc[77], example_value='Jan 29, 2015 6AM-8AM')
 builder.preview(skip=75, count=5)
 ```
+
 ||DATA|date_timerange|
 |-----|-----|-----|
 |0|1/3/2015 7:00|3 de Janeiro de 2015 6 da Manhã - 8 AM|
@@ -409,7 +410,7 @@ dflow.head(2)
 ```
 
 | |stnam|fipst|leaid|leanm10|ncessch|MAM_MTH00numvalid_1011|
-|-----|-------|---------| -------|------|-----|------|-----|
+|-----|-------|---------| -------|------|-----|------|
 |0|ALABAMA|1|101710|CONDADO Hale|10171002158| |
 |1|ALABAMA|1|101710|CONDADO Hale|10171002162| |
 
@@ -423,7 +424,7 @@ dflow.head(2)
 ```
 
 | |stnam|leanm10|ncessch|MAM_MTH00numvalid_1011|
-|-----|-------|---------| -------|------|-----|
+|-----|-------|---------| -------|------|
 |0|ALABAMA|CONDADO Hale|1.017100e + 10|Nenhuma|
 |1|ALABAMA|CONDADO Hale|1.017100e + 10|Nenhuma|
 
@@ -434,7 +435,7 @@ dflow.filter(col('MAM_MTH00numvalid_1011').is_null()).head(2)
 ```
 
 | |stnam|leanm10|ncessch|MAM_MTH00numvalid_1011|
-|-----|-------|---------| -------|------|-----|
+|-----|-------|---------| -------|------|
 |0|ALABAMA|CONDADO Hale|1.017100e + 10|Nenhuma|
 |1|ALABAMA|CONDADO Hale|1.017100e + 10|Nenhuma|
 
@@ -454,7 +455,7 @@ df.head(2)
 ```
 
 ||stnam|leanm10|ncessch|MAM_MTH00numvalid_1011|
-|-----|-------|---------| -------|------|-----|
+|-----|-------|---------| -------|------|
 |0|ALABAMA|CONDADO Hale|1.017100e + 10|0.0|
 |1|ALABAMA|CONDADO Hale|1.017100e + 10|0.0|
 

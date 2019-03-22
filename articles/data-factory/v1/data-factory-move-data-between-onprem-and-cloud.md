@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: abnarain
 robots: noindex
-ms.openlocfilehash: 94c464733d731505cde0327ce9a295d3b4ab68de
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 72e93b99783441bda97c52ff295a89b0fcf4e629
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57538702"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57995902"
 ---
 # <a name="move-data-between-on-premises-sources-and-the-cloud-with-data-management-gateway"></a>Mover dados entre origens no local e a nuvem com o Data Management Gateway
 > [!NOTE]
@@ -359,7 +359,7 @@ Neste passo, vai criar um **pipeline** com um **atividade de cópia** que utiliz
 
    * Na secção Atividades, existe apenas atividade cuja **tipo** está definida como **cópia**.
    * **Entrada** a atividade está definida como **EmpOnPremSQLTable** e **saída** a atividade está definida como **OutputBlobTable**.
-   * Na **typeProperties** secção, **SqlSource** está especificado como o **tipo de origem** e * * BlobSink * * é especificado como o **tipo de sink**.
+   * Na **typeProperties** secção, **SqlSource** está especificado como o **tipo de origem** e **BlobSink** é especificado como o **tipo de sink**.
    * Consulta SQL `select * from emp` é especificado para o **sqlReaderQuery** propriedade **SqlSource**.
 
    Tanto o datetime de início como de fim têm de estar no [formato ISO](https://en.wikipedia.org/wiki/ISO_8601). Por exemplo: 2014-10-14T16:32:41Z. O tempo **end** é opcional, mas iremos utilizá-lo neste tutorial.
@@ -409,7 +409,7 @@ Neste passo, irá utilizar o portal do Azure para monitorizar os acontecimentos 
 8. (opcional) Clique em **Pipelines**, clique em **ADFTutorialOnPremDF**e fazer uma busca tabelas de entrada (**consumida**) ou conjuntos de dados de saída (**produzido**).
 9. Utilize ferramentas como [Explorador de armazenamento do Microsoft](https://storageexplorer.com/) para verificar se um ficheiro/blob é criado para cada hora.
 
-   ![Explorador do Armazenamento do Azure](./media/data-factory-move-data-between-onprem-and-cloud/OnPremAzureStorageExplorer.png)
+   ![Explorador do Storage do Azure](./media/data-factory-move-data-between-onprem-and-cloud/OnPremAzureStorageExplorer.png)
 
 ## <a name="next-steps"></a>Passos Seguintes
 * Ver [Data Management Gateway](data-factory-data-management-gateway.md) artigo para todos os detalhes sobre o Data Management Gateway.

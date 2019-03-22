@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 10/12/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8716d018756d1e6eadcd6ebeeaf4f67ad0bc4741
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 97f375c6f48d3dc497eb59e76f19fc64cf906b56
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56211160"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57886512"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-workspot-control"></a>Tutorial: Integração do Active Directory do Azure com o controlo de Workspot
 
@@ -179,7 +179,7 @@ O objetivo desta secção é criar um utilizador de teste no portal do Azure cha
 
     a. Na **Name** campo introduza **BrittaSimon**.
   
-    b. Na **nome de utilizador** tipo de campo **brittasimon@yourcompanydomain.extension**  
+    b. Na **nome de utilizador** tipo de campo **brittasimon\@yourcompanydomain.extension**  
     Por exemplo, BrittaSimon@contoso.com
 
     c. Selecione **propriedades**, selecione a **palavra-passe de Show** caixa de verificação e, em seguida, anote o valor que é apresentado na caixa de palavra-passe.
@@ -206,7 +206,7 @@ Para ativar a utilizadores do Azure AD iniciar sessão no controle de Workspot, 
 
     b. Na **sobrenome** texto, digite o apelido do utilizador, como **simon**.
 
-    c. Na **E-Mail** texto, introduza o e-mail do utilizador, como **Brittasimon@contoso.com**.
+    c. Na **E-Mail** texto, introduza o e-mail do utilizador, como **Brittasimon\@contoso.com**.
 
     d. Selecione a função de utilizador adequada do **função** lista pendente.
 

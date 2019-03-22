@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 02/13/2019
 ms.author: lizross
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 831b17eefb971a5ed617e5cb30730ce23c87e374
-ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
+ms.openlocfilehash: 3e5d1546c658631911f25c43e94275f00c7a5140
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57340463"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57901887"
 ---
 # <a name="set-up-security-info-preview-to-use-security-questions"></a>Definir informações de segurança (pré-visualização) para utilizar perguntas de segurança
 Pode seguir estes passos para adicionar o que método de repor a palavra-passe. Depois de ter configurado isso pela primeira vez, pode retornar para o **informações de segurança** página para adicionar, atualizar ou eliminar as suas informações de segurança.
@@ -31,10 +31,12 @@ Dependendo das definições da sua organização, poderá escolher e responder a
 
 Se utilizar perguntas de segurança, recomendamos que utilize-os em conjunto com outro método. Perguntas de segurança podem ser menos seguras do que outros métodos, porque algumas pessoas podem saber as respostas para suas perguntas.
 
->[!Note]
->Perguntas de segurança são armazenadas em privado e segura num objeto de utilizador no diretório e apenas podem ser respondidas por si durante o registo. Não é possível para o administrador para ler ou modificar as suas perguntas ou respostas.
-
->Se não vir a opção de perguntas de segurança, é possível que a sua organização não permite-lhe utilizar perguntas de segurança para a verificação. Se for este o caso, terá de escolher outro método ou contacte o administrador para obter mais ajuda.
+> [!Note]
+> Perguntas de segurança são armazenadas em privado e segura num objeto de utilizador no diretório e apenas podem ser respondidas por si durante o registo. Não é possível para o administrador para ler ou modificar as suas perguntas ou respostas.
+> 
+> Se não vir a opção de perguntas de segurança, é possível que a sua organização não permite-lhe utilizar perguntas de segurança para a verificação. Se for este o caso, terá de escolher outro método ou contacte o administrador para obter mais ajuda.
+> 
+> As contas de administrador não têm permissão para utilizar perguntas de segurança como método de reposição de uma palavra-passe. Se estiver conectado como uma conta de nível de administrador que não verá estas opções.
 
 ### <a name="to-set-up-your-security-questions"></a>Para configurar as perguntas de segurança
 

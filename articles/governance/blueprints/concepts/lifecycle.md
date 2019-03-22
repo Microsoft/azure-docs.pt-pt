@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: blueprints
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: c1e596516136240b1d1d08b4e8386e9cf5ef48e5
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.openlocfilehash: 71a5233c6d5af21d7bc5430cda14e156e16d5cd4
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56819127"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58001569"
 ---
 # <a name="understand-the-lifecycle-of-an-azure-blueprint"></a>Compreender o ciclo de vida de um esquema do Azure
 
@@ -103,8 +103,8 @@ Para saber como, veja [atualizar atribuições existentes](../how-to/update-exis
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-- Compreender como utilizar [parâmetros estáticos e dinâmicos](parameters.md)
-- Aprender a personalizar a [ordem de sequenciação do esquema](sequencing-order.md)
-- Saber como utilizar o [bloqueio de recursos de esquema](resource-locking.md)
-- Saber como [atualizar as atribuições existentes](../how-to/update-existing-assignments.md)
-- Resolver problemas durante a atribuição de um esquema com [resolução de problemas gerais](../troubleshoot/general.md)
+- Compreenda como utilizar [parâmetros estáticos e dinâmicos](parameters.md).
+- Aprenda a personalizar a [ordem de sequenciação do esquema](sequencing-order.md).
+- Saiba como utilizar o [bloqueio de recursos de esquema](resource-locking.md).
+- Saiba como [atualizar as atribuições existentes](../how-to/update-existing-assignments.md).
+- Resolva problemas durante a atribuição de um esquema com a [resolução de problemas gerais](../troubleshoot/general.md).

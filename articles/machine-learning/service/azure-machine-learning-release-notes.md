@@ -6,17 +6,16 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: reference
-author: hning86
-ms.author: haining
-ms.reviewer: j-martens
+ms.author: larryfr
+author: Blackmist
 ms.date: 03/11/2019
 ms.custom: seodec18
-ms.openlocfilehash: bb074dd848ce5e752ba8e4ca1d3a8ee533a2f5d2
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 2a2817501628d55d7ccc84979700ea53e4114eed
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57777452"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57860640"
 ---
 # <a name="azure-machine-learning-service-release-notes"></a>Notas de versão de serviço do Azure Machine Learning
 
@@ -30,6 +29,7 @@ Neste artigo, saiba mais sobre as versões de serviço do Azure Machine Learning
 
  + **Alterações**
    + O pacote do azureml tensorboard substitui azureml-contrib-tensorboard.
+   + Com esta versão, pode configurar uma conta de utilizador no seu cluster de computação gerida (amlcompute), ao criá-lo. Isso pode ser feito simplesmente passar essas propriedades na configuração provisoning. Pode encontrar mais detalhes a [documentação de referência do SDK](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.amlcompute.amlcompute?view=azure-ml-py#provisioning-configuration-vm-size-----vm-priority--dedicated---min-nodes-0--max-nodes-none--idle-seconds-before-scaledown-none--admin-username-none--admin-user-password-none--admin-user-ssh-key-none--vnet-resourcegroup-name-none--vnet-name-none--subnet-name-none--tags-none--description-none-).
 
 ### <a name="azure-machine-learning-data-prep-sdk-v1017"></a>SDK v1.0.17 de preparação de dados do Azure Machine Learning
 

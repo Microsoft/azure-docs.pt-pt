@@ -6,14 +6,14 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.devlang: java
 ms.topic: reference
-ms.date: 11/29/2018
+ms.date: 03/13/2019
 ms.author: sngun
-ms.openlocfilehash: ebb6fe9f583c2658f187d3cca1185f1525fb1bf5
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: c2b0c52ca78f2b9c4273280aa9da16a5ef1bbc00
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55811040"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58003241"
 ---
 # <a name="azure-cosmos-db-java-sdk-for-sql-api-release-notes-and-resources"></a>Azure Cosmos DB Java SDK para a API de SQL: Notas de versão e recursos
 > [!div class="op_single_selector"]
@@ -43,12 +43,23 @@ O SDK de Java API do SQL oferece suporte a operações síncronas. Para obter su
 
 ## <a name="release-notes"></a>Notas de versão
 
+### <a name="a-name210213"></a><a name="2.1.0"/>2.1.3
+* Foi corrigido o erro no PartitionKey para V2 de Hash.
+
+### <a name="a-name210212"></a><a name="2.1.0"/>2.1.2
+* Foi adicionado suporte para índices compostos.
+* Foi corrigido o erro no Gestor de ponto final global para forçar a atualização.
+* Foi corrigido o erro para upserts com condições anteriores no modo direto.
+
+### <a name="a-name210211"></a><a name="2.1.0"/>2.1.1
+* Foi corrigido o erro na cache do endereço de gateway.
+
 ### <a name="a-name210210"></a><a name="2.1.0"/>2.1.0
 * Foi adicionado para o modo direto de um suporte de escrita de várias regiões.
 * Foi adicionado suporte para lidar com IOExceptions lançada como ServiceUnavailable exceções, a partir de um proxy.
 * Foi corrigido um erro na política de repetição de deteção de ponto final.
 * Foi corrigido um erro para garantir que exceções não são geradas no BaseDatabaseAccountConfigurationProvider de ponteiro nulo.
-* Foi corrigido um erro para garantir que o iterador de consulta não devolver valores nulos.
+* Foi corrigido um erro para garantir a que queryiterator não devolver valores nulos.
 * Foi corrigido um erro para garantir que é permitido PartitionKey grandes
 
 ### <a name="a-name200200"></a><a name="2.0.0"/>2.0.0
@@ -212,7 +223,10 @@ Qualquer pedido ao Cosmos DB com um SDK extinto será rejeitado pelo serviço.
 
 | Versão | Data de lançamento | Data de retirada |
 | --- | --- | --- |
-| 2.1.1 |21 de Novembro de 2018 |--- |
+| [2.1.3](#2.1.3) |13 de Março de 2018 |--- |
+| [2.1.2](#2.1.2) |Mar 09, 2018 |--- |
+| [2.1.1](#2.1.1) |13 de Dezembro de 2018 |--- |
+| [2.1.0](#2.1.0) |20 de Novembro de 2018 |--- |
 | [2.0.0](#2.0.0) |21 de Setembro de 2018 |--- |
 | [1.16.4](#1.16.4) |10 de Setembro de 2018 |--- |
 | [1.16.3](#1.16.3) |09 de Setembro de 2018 |--- |

@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 727a503a2fd942e6fbef9009c760a39f90828d2f
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: e275411f9fd9dfb672bb0815e83e37bcd5d1dda9
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57433132"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58077025"
 ---
 # <a name="load-1-tb-into-azure-sql-data-warehouse-under-15-minutes-with-data-factory"></a>Carregar 1 TB para o Azure SQL Data Warehouse menos de 15 minutos com o Data Factory
 > [!NOTE]
@@ -109,7 +109,7 @@ Este artigo fornece instruções passo a passo para mover dados para o Azure SQL
         CLUSTERED COLUMNSTORE INDEX
     )
     ```
-Com os passos de pré-requisitos foi concluídos, podemos agora está prontos para configurar a atividade de cópia com o Assistente para copiar.
+  Com os passos de pré-requisitos foi concluídos, podemos agora está prontos para configurar a atividade de cópia com o Assistente para copiar.
 
 ## <a name="launch-copy-wizard"></a>Inicie o Assistente de Cópia
 1. Inicie sessão no [Portal do Azure](https://portal.azure.com).

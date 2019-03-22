@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 01/03/2019
 ms.author: pbutlerm
-ms.openlocfilehash: 66119ffab8c6117e223468834b59e6d6b19409a0
-ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
+ms.openlocfilehash: f9cbf5033d0ffb84959de94db052626dd1d131c8
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54445067"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57997946"
 ---
 # <a name="dynamics-365-for-customer-engagement-storefront-details-tab"></a>Dynamics 365 para o separador de detalhes de Vitrine de envolvimento do cliente
 
@@ -56,7 +56,7 @@ Em que a tabela seguinte descreve os campos neste separador:
 |  Tipo de aplicação             | Selecione o tipo de versão de avaliação que está ativada para a aplicação no AppSource. **Gratuito** indica a sua aplicação pode ser utilizada sem custos; **Avaliação** indica que os clientes podem experimentar a aplicação durante um curto período sem custos; e **contactar-me** indica que os clientes podem solicitar uma versão de avaliação da aplicação no AppSource.  |
 | Ligação de ajuda para a sua aplicação | URL para a documentação online ou outro recurso de ajuda para a aplicação.  |
 | Países/regiões suportados | Uma caixa de diálogo de pop-up permite a seleção das regiões geográficas em que a aplicação está disponível.  Distribuição em todo o mundo é o padrão. |
-| Linguagens suportadas   | Selecione os idiomas que oferece suporte a sua aplicação. Atualmente apenas alguns idiomas as opções são suportadas.  (Se a sua aplicação suportar outros idiomas que não estejam na lista, continuar a publicar a sua oferta e enviar estas informações para: appsource@microsoft.com.)  |
+| Linguagens suportadas   | Selecione os idiomas que oferece suporte a sua aplicação. Atualmente apenas alguns idiomas as opções são suportadas.  (Se a sua aplicação suportar outros idiomas que não estejam na lista, continuar a publicar a sua oferta e enviar estas informações para: appsource\@microsoft.com.)  |
 | Versão da aplicação           | Número de versão da aplicação    |
 | Data de lançamento de aplicação      | Data de lançamento/publicação da aplicação |
 | Produtos a sua aplicação funciona com | Produtos ou serviços que a aplicação entre opera com. Pode listar o máximo de três produtos. Para listar um produto, clique em **+ novo** e introduza o nome de um produto na caixa de texto.  |

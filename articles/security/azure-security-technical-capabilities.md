@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/01/2017
 ms.author: TomSh
-ms.openlocfilehash: aa003d5c56e374c99b26beb884fce27b9b16298e
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 76944d98d6a5fe7c3f83ce12bb2fdf1a34d5e234
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57440068"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57839105"
 ---
 # <a name="azure-security-technical-capabilities"></a>Capacidades técnicas de segurança do Azure
 
@@ -75,7 +75,7 @@ Benefícios de segurança do Azure Active Directory (Azure AD) incluem a capacid
 
 - Aprovisionar o acesso remoto seguro a aplicativos da web no local através do Proxy de aplicações do Azure AD.
 
-O [portal do Azure Active Directory](http://aad.portal.azure.com/) está disponível uma parte do portal do Azure. Neste dashboard, pode obter uma descrição geral do Estado da sua organização e aprofundar facilmente gerir o diretório, os usuários ou acesso à aplicação.
+O [portal do Azure Active Directory](https://aad.portal.azure.com/) está disponível uma parte do portal do Azure. Neste dashboard, pode obter uma descrição geral do Estado da sua organização e aprofundar facilmente gerir o diretório, os usuários ou acesso à aplicação.
 
 ![Azure Active Directory](media/azure-security-technical-capabilities/azure-security-technical-capabilities-fig2.png)
 
@@ -113,7 +113,7 @@ Não só os utilizadores não têm de gerir vários conjuntos de nomes de utiliz
 
 Monitorização de segurança e alertas e relatórios baseados em aprendizagem de máquina identificam padrões de acesso inconsistentes podem ajudar a proteger a sua empresa. Pode utilizar relatórios de utilização e de acesso do Azure Active Directory para obter visibilidade sobre a integridade e segurança de diretório da sua organização. Com essas informações, um administrador do pode determinar melhor onde podem existir possíveis riscos de segurança para que eles podem planear adequadamente atenuar esses riscos.
 
-No portal do Azure ou através da [portal do Azure Active Directory](http://aad.portal.azure.com/), [relatórios](https://docs.microsoft.com/azure/active-directory/active-directory-reporting-guide) são categorizados das seguintes formas:
+No portal do Azure ou através da [portal do Azure Active Directory](https://aad.portal.azure.com/), [relatórios](https://docs.microsoft.com/azure/active-directory/active-directory-reporting-guide) são categorizados das seguintes formas:
 
 - Relatórios de anomalias – contém eventos que Descobrimos ser anómala de início de sessão. Nosso objetivo é conscientizá-lo de tal atividade e permitem que poderá decidir sobre se um evento está suspeito.
 
@@ -274,7 +274,7 @@ Pode saber mais sobre a opção de VPN do Azure ao ler o artigo [planear e conce
 
 [O Azure RMS](https://technet.microsoft.com/library/jj585026.aspx) utiliza políticas de encriptação, identidade e autorização para ajudar a proteger os ficheiros e e-mail. O Azure RMS funciona em vários dispositivos — telemóveis, tablets e PCs ao proteger tanto dentro da sua organização e fora da sua organização. Esta capacidade é possível porque o Azure RMS adiciona um nível de proteção permanece com os dados, mesmo quando sai dos limites da organização.
 
-Ao utilizar o Azure RMS para proteger os seus ficheiros, vai utilizar criptografia de norma da indústria com suporte total de [FIPS 140-2](http://csrc.nist.gov/groups/STM/cmvp/standards.html). Ao tirar partido do Azure RMS para proteção de dados, tem a garantia de que a proteção permanece com o ficheiro, mesmo que seja copiado para o armazenamento que não esteja sob o controlo de TI, tal como um serviço de armazenamento na cloud. O mesmo ocorre para ficheiros partilhados por email, o ficheiro está protegido como um anexo a uma mensagem de e-mail com instruções sobre como abrir o anexo protegido.
+Ao utilizar o Azure RMS para proteger os seus ficheiros, vai utilizar criptografia de norma da indústria com suporte total de [FIPS 140-2](https://csrc.nist.gov/groups/STM/cmvp/standards.html). Ao tirar partido do Azure RMS para proteção de dados, tem a garantia de que a proteção permanece com o ficheiro, mesmo que seja copiado para o armazenamento que não esteja sob o controlo de TI, tal como um serviço de armazenamento na cloud. O mesmo ocorre para ficheiros partilhados por email, o ficheiro está protegido como um anexo a uma mensagem de e-mail com instruções sobre como abrir o anexo protegido.
 Quando planear a adoção do Azure RMS, recomendamos o seguinte:
 
 - Instalar o [aplicação de partilha RMS](https://technet.microsoft.com/library/dn339006.aspx). Esta aplicação se integra com o Office aplicações através da instalação de um escritório suplemento para que os utilizadores possam facilmente proteger ficheiros diretamente.
@@ -406,11 +406,11 @@ Segurança operacional do Azure baseia-se uma estrutura que incorpore os dados r
 
 Com o Azure Monitor, pode gerenciar qualquer instância em qualquer cloud, incluindo no local, Azure, AWS, Windows Server, Linux, VMware e OpenStack, a um custo menor do que soluções competitivas. Criado para o mundo de cloud em primeiro lugar, o Azure Monitor oferece uma nova abordagem para gerir a sua empresa que é a forma mais rápida e rentável para atender aos novos desafios de negócios e acomodar novas cargas de trabalho, aplicações e ambientes na cloud.
 
-### <a name="azure-monitor-logs"></a>Registos de Monitor do Azure
+### <a name="azure-monitor-logs"></a>Registos do Azure Monitor
 
 [Registos de Monitor do Azure](https://azure.microsoft.com/documentation/services/log-analytics) fornece serviços de monitorização através da recolha de dados de recursos geridos num repositório central. Estes dados podem incluir dados de eventos ou de desempenho ou dados personalizados fornecidos através da API. Depois de recolhidos, os dados estão disponíveis para alertas, análises e exportação.
 
-![Registos de Monitor do Azure](media/azure-security-technical-capabilities/azure-security-technical-capabilities-fig9.png)
+![Registos do Azure Monitor](media/azure-security-technical-capabilities/azure-security-technical-capabilities-fig9.png)
 
 Este método permite-lhe consolidar os dados de uma variedade de origens, para que pode combinar dados dos seus serviços do Azure com os seus existentes ambiente no local. Também separa claramente a recolha dos dados das ações tomadas em relação aos mesmos, para que todas as ações estejam disponíveis para todos os tipos de dados.
 

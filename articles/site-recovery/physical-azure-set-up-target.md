@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: ramamill
-ms.openlocfilehash: 43276aad26bc06400c1bc4b5feaace0d5646c213
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 41220ccdca945610d7d8ca87af0857114e2cef85
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52849246"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57866297"
 ---
 # <a name="prepare-target-vmware-to-azure"></a>Preparar o destino (VMware para o Azure)
 
@@ -21,17 +21,17 @@ Este artigo descreve como preparar seu ambiente do Azure para começar a replica
 ## <a name="prerequisites"></a>Pré-requisitos
 
 O artigo supõe:
-- Criou um cofre dos serviços de recuperação para proteger os seus servidores físicos. Pode criar um cofre dos serviços de recuperação do [portal do Azure](http://portal.azure.com "portal do Azure").
+- Criou um cofre dos serviços de recuperação para proteger os seus servidores físicos. Pode criar um cofre dos serviços de recuperação do [portal do Azure](https://portal.azure.com "portal do Azure").
 - Tiver [configure o ambiente no local](physical-azure-disaster-recovery.md) para replicar servidores físicos para o Azure.
 
 ## <a name="prepare-target"></a>Preparar o destino
 
-Depois de concluir o **objetivo de proteção do passo 1:Select** e **passo 2: preparar origem**, é direcionado para **passo 3: destino**
+Depois de concluir o **objetivo de proteção do passo 1:Select** e **passo 2: preparar origem**, é direcionado para **passo 3: Destino**
 
 ![Preparar o destino](./media/physical-azure-set-up-target/prepare-target-physical-to-azure.png)
 
-1. **Subscrição:** no menu pendente, selecione a subscrição que pretende replicar os seus servidores físicos para.
-2. **Modelo de implementação:** selecione o modelo de implementação (clássico ou do Resource Manager)
+1. **Subscrição:** No menu pendente, selecione a subscrição que pretende replicar os seus servidores físicos para.
+2. **Modelo de implementação:** Selecione o modelo de implementação (clássico ou do Resource Manager)
 
 Com base no modelo de implementação escolhida, é executada uma validação para garantir que tenha pelo menos uma conta de armazenamento compatíveis e a rede virtual na subscrição de destino para replicar e ativação pós-falha seus servidores físicos para.
 

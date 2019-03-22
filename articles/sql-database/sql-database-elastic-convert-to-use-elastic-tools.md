@@ -12,12 +12,12 @@ ms.author: sstein
 ms.reviewer: ''
 manager: craigg
 ms.date: 01/25/2019
-ms.openlocfilehash: 8449462f144590e4fe7048366a21090c95a303cb
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 49686e407b2d733c04bad31706c6c4f315bf28bf
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55455597"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58008676"
 ---
 # <a name="migrate-existing-databases-to-scale-out"></a>Migrar bases de dados existentes para aumentar horizontalmente
 Gerencie facilmente sua aumentadas horizontalmente em partição horizontal bases de dados existentes com as ferramentas de base de dados de base de dados do Azure SQL (por exemplo, o [biblioteca de clientes de bases de dados elásticas](sql-database-elastic-database-client-library.md)). Comece por converter um conjunto existente de bases de dados para utilizar o [Gestor de mapas de partições horizontais](sql-database-elastic-scale-shard-map-management.md). 
@@ -30,7 +30,7 @@ Para migrar uma base de dados em partição horizontal existente:
 3. Prepare-se as partições horizontais individuais.  
 4. Adicione mapeamentos para o mapa de partições horizontais.
 
-Essas técnicas podem ser implementadas através de um a [biblioteca de cliente do .NET Framework](http://www.nuget.org/packages/Microsoft.Azure.SqlDatabase.ElasticScale.Client/), ou os scripts do PowerShell adrese [BD SQL do Azure - scripts de ferramentas de bases de dados elásticas](https://gallery.technet.microsoft.com/scriptcenter/Azure-SQL-DB-Elastic-731883db). Os exemplos aqui utilizam scripts do PowerShell.
+Essas técnicas podem ser implementadas através de um a [biblioteca de cliente do .NET Framework](https://www.nuget.org/packages/Microsoft.Azure.SqlDatabase.ElasticScale.Client/), ou os scripts do PowerShell adrese [BD SQL do Azure - scripts de ferramentas de bases de dados elásticas](https://gallery.technet.microsoft.com/scriptcenter/Azure-SQL-DB-Elastic-731883db). Os exemplos aqui utilizam scripts do PowerShell.
 
 Para obter mais informações sobre o ShardMapManager, consulte [gestão de mapas de partições horizontais](sql-database-elastic-scale-shard-map-management.md). Para uma descrição geral das ferramentas de bases de dados elásticas, consulte [visão geral dos recursos de bases de dados elásticas](sql-database-elastic-scale-introduction.md).
 

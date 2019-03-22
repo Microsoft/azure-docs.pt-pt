@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/15/2016
 ms.author: apimpm
-ms.openlocfilehash: f0050a91ca8ed380c838c96cf1e485a80a0c9297
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.openlocfilehash: c15dc83929aeaf6811f4d19bfca462abfacf4014
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52445400"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57892460"
 ---
 # <a name="how-to-delegate-user-registration-and-product-subscription"></a>Como delegar subscrição do produto e de registo de utilizador
 A delegação permite-lhe utilizar o seu Web site existente para a manipulação de desenvolvedor início de sessão-em/inscrever-se e subscrição aos produtos em vez de utilizar a funcionalidade interna no portal do programador. Isto permite que o seu Web site para os dados de utilizador e realizar a validação dos seguintes passos de forma personalizada.
@@ -47,7 +47,7 @@ Agora precisa para criar o **ponto final de delegação**. Tem de executar vári
 
 1. Receba um pedido no seguinte formato:
    
-   > *http://www.yourwebsite.com/apimdelegation?operation=SignIn&returnUrl={URL da página de origem} & salt = {string} & sig = {string}*
+   > *http:\//www.yourwebsite.com/apimdelegation?operation=SignIn & returnUrl = {URL da página de origem} & salt = {string} & sig = {string}*
    > 
    > 
    
@@ -61,7 +61,7 @@ Agora precisa para criar o **ponto final de delegação**. Tem de executar vári
    
    * Computar um hash HMAC-SHA512 de uma cadeia de caracteres com base na **returnUrl** e **salt** parâmetros de consulta ([código de exemplo fornecido abaixo]):
      
-     > HMAC (**salt** + '\n' + **returnUrl**)
+     > HMAC(**salt** + '\n' + **returnUrl**)
      > 
      > 
    * Comparar o hash calculado acima para o valor do **sig** parâmetro de consulta. Se os dois hashes corresponderem, avançar para a próxima etapa, caso contrário, negar o pedido.
@@ -104,7 +104,7 @@ Em seguida, certifique-se do que ponto final de delegação executa as seguintes
 
 1. Receba um pedido no seguinte formato:
    
-   > *http://www.yourwebsite.com/apimdelegation?operation={operation}&productId={product Para subscrever} & userId = {user fazer pedido} & salt = {string} & sig = {string}*
+   > *http:\//www.yourwebsite.com/apimdelegation?operation= {operation} & productId = {product para subscrever} & userId = {user fazer pedido} & salt = {string} & sig = {string}*
    > 
    > 
    
@@ -120,7 +120,7 @@ Em seguida, certifique-se do que ponto final de delegação executa as seguintes
    * **SIG**: um valor de hash calculada de segurança a ser utilizado para comparar com a sua própria de hash calculado
 2. Certifique-se de que a solicitação é proveniente API Management do Azure (opcional, mas altamente recomendado de segurança)
    
-   * Um HMAC-SHA512 de uma cadeia de caracteres com base de computação a **productId**, * * userId, e **salt** parâmetros de consulta:
+   * Um HMAC-SHA512 de uma cadeia de caracteres com base de computação a **productId**, **userId**, e **salt** parâmetros de consulta:
      
      > HMAC (**salt** + '\n' + **productId** + '\n' + **userId**)
      > 

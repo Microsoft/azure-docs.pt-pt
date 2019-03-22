@@ -12,12 +12,12 @@ ms.author: arib
 ms.reviewer: vanto
 manager: craigg
 ms.date: 01/03/2019
-ms.openlocfilehash: 915ccc60216f3f206bcdc53825decac4d6d020d0
-ms.sourcegitcommit: 15e9613e9e32288e174241efdb365fa0b12ec2ac
+ms.openlocfilehash: 0fefe01e413e30e4aa3c1fa90de77cbdece39c38
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "57012029"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58001682"
 ---
 # <a name="sql-database-audit-log-format"></a>Formato de registo de auditoria de base de dados SQL
 
@@ -35,7 +35,7 @@ Por exemplo, para a base de dados `Database1` no `Server1` segue-se um caminho v
 
 ### <a name="event-hub"></a>Hub de Eventos
 
-Eventos de auditoria são escritos para o hub de eventos e de espaço de nomes que foi definido durante a configuração de auditoria e é capturado no corpo da [Apache Avro](http://avro.apache.org/) eventos e armazenados através de formatação do JSON com codificação UTF-8. Para ler os registos de auditoria, pode usar [Avro ferramentas](https://docs.microsoft.com/azure/event-hubs/event-hubs-capture-overview#use-avro-tools) ou ferramentas similares que processam neste formato.
+Eventos de auditoria são escritos para o hub de eventos e de espaço de nomes que foi definido durante a configuração de auditoria e é capturado no corpo da [Apache Avro](https://avro.apache.org/) eventos e armazenados através de formatação do JSON com codificação UTF-8. Para ler os registos de auditoria, pode usar [Avro ferramentas](https://docs.microsoft.com/azure/event-hubs/event-hubs-capture-overview#use-avro-tools) ou ferramentas similares que processam neste formato.
 
 ### <a name="log-analytics"></a>Log Analytics
 

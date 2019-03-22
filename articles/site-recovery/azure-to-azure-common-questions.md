@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.date: 12/12/2018
 ms.topic: conceptual
 ms.author: asgang
-ms.openlocfilehash: c251a159ec28d7fb03009ebcdc84056da739f937
-ms.sourcegitcommit: 7723b13601429fe8ce101395b7e47831043b970b
-ms.translationtype: MT
+ms.openlocfilehash: bf7a8ea00fe94e6896c097b8e27c22c0831f71da
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56587434"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58008648"
 ---
 # <a name="common-questions-azure-to-azure-replication"></a>Perguntas mais comuns: Replicação do Azure para o Azure
 
@@ -26,6 +26,7 @@ Este artigo fornece respostas a perguntas comuns sobre a implementação de recu
 1.  **[Consistência de multi-VMS](#multi-vm-consistency)** 
 1.  **[Plano de recuperação](#recovery-plan)** 
 1.  **[Reproteção e reativação pós-falha](#reprotection-and-failback)** 
+2.  **[Capacidade](#capacity)**
 1.  **[Segurança](#security)** 
 
 
@@ -35,7 +36,7 @@ Este artigo fornece respostas a perguntas comuns sobre a implementação de recu
 Revisão [preços do Azure Site Recovery](https://azure.microsoft.com/blog/know-exactly-how-much-it-will-cost-for-enabling-dr-to-your-azure-vm/) detalhes.
 ### <a name="how-does-the-free-tier-for-azure-site-recovery-work"></a>Como funciona o escalão gratuito do Azure Site Recovery?
 Todas as instâncias protegidas pelo Azure Site Recovery são gratuitas nos primeiros 31 dias de proteção. A partir do 32.º dia, a proteção para a instância é cobrada aos preços acima.
-###<a name="during-the-first-31-days-will-i-incur-any-other-azure-charges"></a>Durante os primeiros 31 dias, terei quaisquer outros custos com o Azure?
+### <a name="during-the-first-31-days-will-i-incur-any-other-azure-charges"></a>Durante os primeiros 31 dias, terei quaisquer outros custos com o Azure?
 Sim, embora o Azure Site Recovery seja gratuito durante os primeiros 31 dias de uma instância protegida, pode incorrer em custos de Armazenamento do Azure, de transações de armazenamento e de transferência de dados. Uma máquina virtual recuperada também pode ter custos de computação do Azure. Obter detalhes completos sobre os preços [aqui](https://azure.microsoft.com/pricing/details/site-recovery)
 
 ### <a name="what-are-the-best-practices-for-configuring-site-recovery-on-azure-vms"></a>Quais são as melhores práticas para configuração da recuperação de Site em VMs do Azure?
@@ -117,7 +118,7 @@ Captura de ecrã seguinte ilustra o exemplo. Na captura de ecrã:
 1. Por tempo inferior a última 1 hora, isso significa que existem pontos de recuperação com uma frequência de 5 minutos.
 2. Por tempo além da última 1 hora, o Site Recovery mantém ponto de recuperação apenas 1.
 
-  ![Lista de pontos de recuperação gerada](./media/azure-to-azure-troubleshoot-errors/recoverypoints.png)
+   ![Lista de pontos de recuperação gerada](./media/azure-to-azure-troubleshoot-errors/recoverypoints.png)
 
 
 ### <a name="how-far-back-can-i-recover"></a>Qual a amplitude posso recuperar?
@@ -220,7 +221,12 @@ Depende da situação. Por exemplo, se a região de origem VM existir, apenas as
 ### <a name="how-much-time-does-it-take-to-fail-back"></a>Quanto tempo isso take para a reativação pós-falha?
 Após a nova proteção, a quantidade de tempo para a reativação pós-falha é, normalmente, semelhante a hora de ativação pós-falha da região primária para uma região secundária. 
 
-## <a name="a-namesecuritysecurity"></a><a name="security">Segurança
+## <a name="capacity"></a>Capacidade
+### <a name="does-site-recovery-work-with-reserved-instance"></a>Site Recovery funciona com a instância reservada?
+Sim, pode comprar [reservar instâncias](https://azure.microsoft.com/pricing/reserved-vm-instances/) a DR região e as operações de ativação pós-falha do ASR utilizará-los. </br> Nenhuma configuração adicional é necessária dos clientes.
+
+
+## <a name="security"></a>Segurança
 ### <a name="is-replication-data-sent-to-the-site-recovery-service"></a>Os dados de replicação são enviados para o serviço de Recuperação de Sites?
 Não, recuperação de sites não interceta os dados replicados, e ele não tem quaisquer informações sobre o que está em execução nas suas máquinas virtuais. Apenas os metadados necessários para orquestrar a replicação e a ativação pós-falha são enviados para o serviço de Recuperação de Sites.  
 Site Recovery é ISO 27001:2013, 27018, HIPAA, DPA certified e está no processo de SOC2 e FedRAMP JAB.

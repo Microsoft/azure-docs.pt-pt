@@ -12,14 +12,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 02/10/2019
+ms.date: 03/18/2019
 ms.author: cenkd;juliako
-ms.openlocfilehash: c982707b24f18e840e866b1dcc858fe2aceb686e
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
-ms.translationtype: MT
+ms.openlocfilehash: 4f72738d0ca9b8c6dc170892a985d821923a4405
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56000015"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57894024"
 ---
 # <a name="filters-and-dynamic-manifests"></a>Filtros e dos manifestos dinâmicos
 
@@ -34,7 +34,7 @@ Este tópico aborda cenários comuns nos quais usando filtros de representaria u
 ## <a name="overview"></a>Descrição geral
 Quando a entrega de conteúdo aos clientes (transmissão em fluxo eventos em direto ou de vídeo a pedido) o seu objetivo é fornecer um vídeo de alta qualidade para vários dispositivos em condições de rede diferentes. Para alcançar este proceda de objetivo do seguinte:
 
-* codifique a transmissão de velocidade de transmissão ([velocidade de transmissão adaptável](http://en.wikipedia.org/wiki/Adaptive_bitrate_streaming)) (isso se encarregará de condições de qualidade e de rede) de fluxo de vídeo e 
+* codifique a transmissão de velocidade de transmissão ([velocidade de transmissão adaptável](https://en.wikipedia.org/wiki/Adaptive_bitrate_streaming)) (isso se encarregará de condições de qualidade e de rede) de fluxo de vídeo e 
 * utilizar os Media Services [empacotamento dinâmico](media-services-dynamic-packaging-overview.md) para dinamicamente novamente o pacote sua transmissão em fluxo para protocolos diferentes (isso se encarregará de transmissão em fluxo em diferentes dispositivos). Serviços de multimédia suportam a distribuição das seguinte velocidade de transmissão adaptável tecnologias de transmissão em fluxo: HTTP Live Streaming (HLS), Smooth Streaming e MPEG DASH. 
 
 ### <a name="manifest-files"></a>Ficheiros de manifesto

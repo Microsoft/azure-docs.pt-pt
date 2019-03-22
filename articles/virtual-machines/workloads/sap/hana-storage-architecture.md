@@ -14,16 +14,16 @@ ms.workload: infrastructure
 ms.date: 03/05/2019
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 5c5f1d8d7a9c84d807db53933f0cbb176f9fb7f2
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 02272ee16cf3303890a8ba6d35d38676e98c788c
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57551973"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58006101"
 ---
 # <a name="sap-hana-large-instances-storage-architecture"></a>Arquitetura de armazenamento do SAP HANA (instâncias grandes)
 
-O esquema de armazenamento para o SAP HANA no Azure (instâncias grandes) é configurado pelo SAP HANA no modelo de implementação clássica por SAP diretrizes recomendada. As diretrizes estão documentadas no [requisitos de armazenamento do SAP HANA](http://go.sap.com/documents/2015/03/74cdb554-5a7c-0010-82c7-eda71af511fa.html) white paper.
+O esquema de armazenamento para o SAP HANA no Azure (instâncias grandes) é configurado pelo SAP HANA no modelo de implementação clássica por SAP diretrizes recomendada. As diretrizes estão documentadas no [requisitos de armazenamento do SAP HANA](https://go.sap.com/documents/2015/03/74cdb554-5a7c-0010-82c7-eda71af511fa.html) white paper.
 
 Instância grande do HANA, do tipo de classe que é fornecido com quatro vezes o volume de memória como volume de armazenamento. Para a classe de tipo II de unidades de instância grande do HANA, o armazenamento não mais de quatro vezes. As unidades são fornecidos com um volume que pretende armazenar os backups de log de transação do HANA. Para obter mais informações, consulte [instalar e configurar o SAP HANA (instâncias grandes) no Azure](hana-installation.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
@@ -100,10 +100,10 @@ O armazenamento utilizado nas instâncias grandes do HANA tem uma limitação de
 > [!IMPORTANT]
 > Para impedir que o HANA tentando aumentar os arquivos de dados além do limite de tamanho de ficheiro de 16 TB de armazenamento de instâncias grandes do HANA, tem de definir os seguintes parâmetros no ficheiro de configuração global.ini do HANA
 > 
-- datavolume_striping=true
-- datavolume_striping_size_gb = 15000
-- Consulte também a SAP note [#2400005](https://launchpad.support.sap.com/#/notes/2400005)
-- Tenha em atenção a nota SAP [#2631285](https://launchpad.support.sap.com/#/notes/2631285)
+> - datavolume_striping=true
+> - datavolume_striping_size_gb = 15000
+> - Consulte também a SAP note [#2400005](https://launchpad.support.sap.com/#/notes/2400005)
+> - Tenha em atenção a nota SAP [#2631285](https://launchpad.support.sap.com/#/notes/2631285)
 
 
 

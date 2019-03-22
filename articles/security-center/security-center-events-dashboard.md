@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/05/2017
 ms.author: rkarlin
-ms.openlocfilehash: 2b9426043619887d99003677fd6e8488cb56cce2
-ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.openlocfilehash: 01f6da4f5ad6b618c444949fce8d2b7aa3367e17
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/02/2019
-ms.locfileid: "57241073"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58075770"
 ---
 # <a name="monitoring-and-processing-security-events-in-azure-security-center"></a>Monitorização e a processar eventos de segurança no Centro de segurança do Azure
 O dashboard de eventos fornece uma descrição geral do número de eventos de segurança recolhidos ao longo do tempo e uma lista de eventos notáveis que podem exigir a sua atenção.  
@@ -57,30 +57,30 @@ O **dashboard de eventos** fornece uma descrição geral do número de horas ext
 1. Sob o **Centro de segurança** menu principal, selecione **eventos**.
 2. O **dashboard de eventos** pode abrir o Seletor de área de trabalho. Se tiver apenas uma área de trabalho, este Seletor de área de trabalho não aparece. Se tiver mais do que uma área de trabalho, tem de selecionar uma área de trabalho para ver os detalhes de eventos processados. Selecione uma área de trabalho na lista se tiver mais do que uma área de trabalho.
 
-  ![Lista de área de trabalho][3]
+   ![Lista de área de trabalho][3]
 
 3. O **dashboard de eventos** aberta que mostra detalhes do evento para a área de trabalho selecionada. Pode ver os eventos notáveis e todos os eventos por tipo.  Neste exemplo, selecionamos **eventos notáveis**.
 
-  ![Evento notável][4]
+   ![Evento notável][4]
 
 4. Pode consultar para obter mais dados na área de trabalho ao selecionar um tipo de evento. Neste exemplo, selecionamos **SecurityEvent**.
 
-  ![Selecionar um tipo de evento][5]
+   ![Selecionar um tipo de evento][5]
 
 5. **Pesquisa de registos** abre-se com detalhes adicionais sobre o tipo de evento.
 
-  ![Pesquisas de registos][6]
+   ![Pesquisas de registos][6]
 
 ## <a name="add-a-notable-event"></a>Adicionar um evento notável
 Centro de segurança fornece eventos notáveis de out-of-the-box. Pode adicionar eventos notáveis, com base na sua própria consulta utilizando o [linguagem de consulta de Kusto](../log-analytics/log-analytics-search-reference.md). Vamos voltar à **dashboard de eventos** para adicionar um evento notável.
 
 1. Selecione **adicionar evento notável**.
 
-  ![Adicionar um evento notável][7]
+   ![Adicionar um evento notável][7]
 
 2. **Adicionar evento notável personalizado** abre.  Sob **nome a apresentar**, introduza um nome para seu evento notável. Sob **consulta de pesquisa**, introduza a consulta para o evento.
 
-  ![Introduza a sua consulta][8]
+   ![Introduza a sua consulta][8]
 
 4. Selecione **OK**.
 
@@ -104,19 +104,19 @@ Se a linha de área de trabalho:
 1. Selecione uma área de trabalho que **requer ATUALIZAÇÃO**.
 2. **Pesquisar atualização** abre. Selecione **atualizar agora**.
 
-  ![Atualizar agora][10]
+   ![Atualizar agora][10]
 
 ## <a name="upgrade-to-security-centers-standard-tier"></a>Atualizar para o escalão Standard do Centro de segurança
 1. Selecione uma área de trabalho com **ATUALIZAR plano**.
 2. **Dashboard de eventos** abre. Selecione **dashboard de eventos tente**.
 
-  ![Experimentar dashboard][11]
+   ![Experimentar dashboard][11]
 
 3. Sob **inclusão de segurança avançada**, selecione a área de trabalho que está a atualizar.
 4. Sob **preços**, selecione **padrão**.
 5. Selecione **Guardar**.
 
-  ![Atualizar para o escalão Standard][12]
+   ![Atualizar para o escalão Standard][12]
 
 ## <a name="next-steps"></a>Passos Seguintes
 Neste artigo, aprendeu como utilizar o dashboard de eventos do Centro de segurança. Para saber mais sobre como funciona o dashboard e escrever suas próprias consultas de eventos, consulte:

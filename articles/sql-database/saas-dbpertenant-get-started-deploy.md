@@ -12,12 +12,12 @@ ms.author: genemi
 ms.reviewer: sstein
 manager: craigg
 ms.date: 01/25/2019
-ms.openlocfilehash: 957652a63768d25e6b180feb826551ec340b9bf0
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 97570a16c7d87a3c8182909b61c04fde30b3fe9b
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55453676"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58000201"
 ---
 # <a name="deploy-and-explore-a-multitenant-saas-app-that-uses-the-database-per-tenant-pattern-with-sql-database"></a>Implementar e explorar uma aplicação SaaS multi-inquilino que utiliza o padrão de base de dados por inquilino com a base de dados SQL
 
@@ -56,7 +56,7 @@ Escolha os nomes de agora e anotá-las.
 
 1. Para abrir o modelo de implementação de base de dados por inquilino Wingtip Tickets SaaS no portal do Azure, selecione **implementar no Azure**.
 
-   <a href="https://aka.ms/deploywingtipdpt" target="_blank"><img src="http://azuredeploy.net/deploybutton.png"/></a>
+   <a href="https://aka.ms/deploywingtipdpt" target="_blank"><img src="https://azuredeploy.net/deploybutton.png"/></a>
 
 1. Introduza os valores no modelo para os parâmetros necessários.
 
@@ -186,9 +186,9 @@ Se quiser controlar e monitorizar as tarefas em segundo plano, utilize os seguin
 
 4. Se `$OneTime = $false`, o gerador de carga inicia as tarefas em segundo plano e, em seguida, continua a ser executado. Cada 10 segundos, que monitoriza para quaisquer novos inquilinos aprovisionados. Se definir `$OneTime = $true`, o LoadGenerator inicia as tarefas em segundo plano e, em seguida, pára em execução em primeiro plano. Para este tutorial, deixe `$OneTime = $false`.
 
-  Utilize Ctrl-C ou Ctrl-Break de operação de parar, se pretender parar ou reiniciar o gerador de carga.
+   Utilize Ctrl-C ou Ctrl-Break de operação de parar, se pretender parar ou reiniciar o gerador de carga.
 
-  Se deixar o gerador de carga em execução em primeiro plano, utilize outra instância do ISE do PowerShell para executar outros scripts do PowerShell.
+   Se deixar o gerador de carga em execução em primeiro plano, utilize outra instância do ISE do PowerShell para executar outros scripts do PowerShell.
 
 &nbsp;
 
@@ -221,7 +221,7 @@ Atualize o Hub de eventos para tornar o novo inquilino são apresentados na list
 
 Agora que começou a executar uma carga na coleção de inquilinos, vamos analisar alguns dos recursos que foram implementados.
 
-1. Na [portal do Azure](http://portal.azure.com), navegue até à sua lista de servidores SQL. Em seguida, abra a **catálogo-dpt -&lt;USUÁRIO&gt;** server.
+1. Na [portal do Azure](https://portal.azure.com), navegue até à sua lista de servidores SQL. Em seguida, abra a **catálogo-dpt -&lt;USUÁRIO&gt;** server.
     - O servidor de catálogo contém duas bases de dados **tenantcatalog** e **basetenantdb** (um modelo base de dados que é copiado para criar novos inquilinos).
 
    ![Bases de Dados](./media/saas-dbpertenant-get-started-deploy/databases.png)

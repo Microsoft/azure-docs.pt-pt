@@ -12,18 +12,29 @@ ms.author: jovanpop
 ms.reviewer: ''
 manager: craigg
 ms.date: 12/17/2018
-ms.openlocfilehash: 69ca51776a61b43768ce7cb1565451c4f118de6e
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.openlocfilehash: f3bb6fa93a96adcd2c1995b6874aa0b36b2ce320
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57316528"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57884528"
 ---
 # <a name="multi-model-capabilities-of-azure-sql-database"></a>Capacidades de vários modelos de base de dados do Azure SQL
 
 Bases de dados com múltiplos modelos permitem-lhe armazenar e trabalhar com dados representados em vários formatos de dados como dados relacionais, gráficos, documentos JSON/XML, pares chave-valor, etc.
 
-Base de dados SQL do Azure foi concebido para trabalhar com o modelo relacional que fornece o melhor desempenho na maioria dos casos para uma variedade de aplicativos para fins gerais. No entanto, a base de dados do Azure SQL não está limitado a relacional-apenas dados. Base de dados SQL do Azure permite-lhe utilizar uma variedade de formatos não relacionais que estão completamente integrados no modelo relacional. SQL do Azure fornece as seguintes funcionalidades com vários modelos:
+## <a name="when-to-use-multi-model-capabilities"></a>Quando utilizar capacidades com vários modelos
+
+Base de dados SQL do Azure foi concebido para trabalhar com o modelo relacional que fornece o melhor desempenho na maioria dos casos para uma variedade de aplicativos para fins gerais. No entanto, a base de dados do Azure SQL não está limitado a relacional-apenas dados. Base de dados SQL do Azure permite-lhe utilizar uma variedade de formatos não relacionais que estão completamente integrados no modelo relacional.
+Deve considerar a utilização de recursos com vários modelos de base de dados SQL do Azure nos seguintes casos:
+- Tem algumas informações ou estruturas que estão se ajustar melhor para modelos de NoSQL e não quiser utilizar a base de dados NoSQL separada.
+- A maioria dos seus dados é adequada para o modelo relacional, e precisa modelar algumas partes dos seus dados em estilo de NoSQL.
+- Pretende tirar partido avançado a idiomas Transact-SQL para consultar e analisar relacionais e dados NoSQL e integrá-lo com uma variedade de ferramentas e aplicações que podem utilizar a linguagem SQL.
+- Deseja aplicar funcionalidades de base de dados, tal como [tecnologias dentro da memória](sql-database-in-memory.md) para melhorar o desempenho da sua análise ou processamento de seu strucutres de dados NoSQL, utilize [replicação transacional](sql-database-managed-instance-transactional-replication.md) ou [réplicas legíveis](sql-database-read-scale-out.md) para criar a cópia dos seus dados em outro e descarregar algumas cargas de trabalho de análise da base de dados primário.
+
+## <a name="overview"></a>Descrição geral
+
+SQL do Azure fornece as seguintes funcionalidades com vários modelos:
 - [Funcionalidades da Graph](#graph-features) permitem-lhe representar os seus dados como conjunto de nós e limites e utilizar consultas padrão do Transact-SQL melhoradas com gráfico `MATCH` operador para consultar os dados de gráfico.
 - [Funcionalidades JSON](#json-features) permitem que coloque documentos JSON nas tabelas, transformar dados relacionais para documentos JSON e vice-versa. Pode utilizar o idioma padrão do Transact-SQL melhorado com funções JSON para analisar documentos e utilize índices não agrupados, os índices columnstore ou tabelas com otimização de memória, para otimizar as suas consultas.
 - [Recursos espaciais](#spatial-features) permite-lhe armazenar dados geométricos e geográficos, índice-las com os índices espaciais e recuperar os dados através de consultas espaciais.
@@ -56,7 +67,7 @@ Não há nada que pode obter uma base de dados, que não pode ser obtido usando 
 
 ## <a name="json-features"></a>Funcionalidades JSON
 
-Azure base de dados SQL permite-lhe analisa e consulta dados representados no JavaScript Object Notation [(JSON)](http://www.json.org/) formate e exportar os seus dados relacionais como texto JSON.
+Azure base de dados SQL permite-lhe analisa e consulta dados representados no JavaScript Object Notation [(JSON)](https://www.json.org/) formate e exportar os seus dados relacionais como texto JSON.
 
 JSON é um formato de dados populares usado na troca de dados em aplicações web modernos e móveis. JSON também é utilizado para armazenar dados semi-estruturados nos ficheiros de registo ou em bases de dados NoSQL, como [do Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/). Muitos serviços da web REST devolve resultados formatados como texto JSON ou aceitam dados formatados como JSON. A maioria dos Azure dos serviços, como [Azure Search](https://azure.microsoft.com/services/search/), [armazenamento do Azure](https://azure.microsoft.com/services/storage/), e [do Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/) ter REST pontos de extremidade que devolverem ou consumam JSON.
 

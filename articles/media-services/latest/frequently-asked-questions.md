@@ -11,12 +11,12 @@ ms.workload: ''
 ms.topic: article
 ms.date: 02/20/2019
 ms.author: juliako
-ms.openlocfilehash: c0dc67ddf0f1de9ca72fd14a9113219209a6bda0
-ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
-ms.translationtype: MT
+ms.openlocfilehash: 5b49db8d7e8360837dc209e98123eeccd5542769
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56674215"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57837750"
 ---
 # <a name="azure-media-services-v3-frequently-asked-questions"></a>Serviços de multimédia do Azure v3 perguntas mais frequentes
 
@@ -53,8 +53,8 @@ Pode utilizar um [locais codificador em direto](recommended-on-premises-live-enc
 1. Para a produção, tem de ter um Secure Token serviços (STS) (serviço web) que emite o token JWT mediante um pedido HTTPS. Para teste, poderia usar o código mostrado na **GetTokenAsync** método definido na [Program.cs](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/master/AMSV3Tutorials/EncryptWithDRM/Program.cs).
 2. Leitor terá de fazer um pedido, após um utilizador é autenticado, para o STS para esse token e atribua-a como o valor do token. Pode utilizar o [API de leitor de multimédia do Azure](https://amp.azure.net/libs/amp/latest/docs/).
 
-* Para obter um exemplo de execução do STS, com a chave simétrica e assimétrica, consulte [ http://aka.ms/jwt ](https://aka.ms/jwt). 
-* Para obter um exemplo de um player com base no leitor de multimédia do Azure com esse token JWT, consulte [ http://aka.ms/amtest ](https://aka.ms/amtest) (expandir a ligação de "player_settings" para ver a entrada de token).
+* Para obter um exemplo de execução do STS, com a chave simétrica e assimétrica, consulte [ https://aka.ms/jwt ](https://aka.ms/jwt). 
+* Para obter um exemplo de um player com base no leitor de multimédia do Azure com esse token JWT, consulte [ https://aka.ms/amtest ](https://aka.ms/amtest) (expandir a ligação de "player_settings" para ver a entrada de token).
 
 ### <a name="how-do-you-authorize-requests-to-stream-videos-with-aes-encryption"></a>Como autorizar pedidos para transmitir vídeos em fluxo com encriptação AES?
 

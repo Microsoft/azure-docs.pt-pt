@@ -10,12 +10,12 @@ ms.reviewer: jonfan, estfan, LADocs
 ms.topic: article
 ms.assetid: c9b7e1a9-4791-474c-855f-988bd7bf4b7f
 ms.date: 06/08/2017
-ms.openlocfilehash: 2604cdd6bf758858328c2d30fc4cde535f0a7148
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
+ms.openlocfilehash: 3413b235d9202530eb1a3129637e3746bbe6585b
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43124667"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57872582"
 ---
 # <a name="exchange-as2-messages-for-b2b-enterprise-integration-in-azure-logic-apps-with-enterprise-integration-pack"></a>Trocar mensagens AS2 para enterprise integração B2B no Azure Logic Apps Enterprise Integration Pack
 
@@ -35,7 +35,7 @@ Depois de [criar uma conta de integração](../logic-apps/logic-apps-enterprise-
 
 ## <a name="create-an-as2-agreement"></a>Crie um contrato de AS2
 
-1.  Inicie sessão no [portal do Azure](http://portal.azure.com "portal do Azure").  
+1.  Inicie sessão no [portal do Azure](https://portal.azure.com "portal do Azure").  
 
 2. No menu principal do Azure, selecione **todos os serviços**. Na caixa de pesquisa, introduza "integração" e, em seguida, selecione **contas de integração**.
 
@@ -62,7 +62,7 @@ Depois de [criar uma conta de integração](../logic-apps/logic-apps-enterprise-
 
     | Propriedade | Descrição |
     | --- | --- |
-    | Nome |Nome do contrato |
+    | Name |Nome do contrato |
     | Tipo de Contrato | Deve ser AS2 |
     | Parceiro do Anfitrião |Tem de um contrato de parceiro de um anfitrião e convidado. O parceiro do anfitrião representa a organização que configura o contrato. |
     | Identidade do Anfitrião |Um identificador para o parceiro do anfitrião |

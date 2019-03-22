@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 06/03/2017
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: d1eac8f79ea53643659f8780ee03f8ced13c7dcd
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 411b43ec631c77246da1ee55f2532486f8b55ffc
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55452231"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58006624"
 ---
 # <a name="azure-storage-samples"></a>Exemplos de Armazenamento do Azure
 
@@ -63,8 +63,8 @@ Para explorar os exemplos de C++, transfira o [biblioteca de clientes de armazen
 |----------|---------------|-------------|
 | .NET | [Referência da biblioteca cliente .NET](https://msdn.microsoft.com/library/azure/mt347887.aspx) | [Código-fonte para a biblioteca de cliente de armazenamento .NET](https://github.com/Azure/azure-storage-net) |
 | Java | [Referência da biblioteca de cliente Java](https://docs.microsoft.com/java/api/overview/azure/storage) | [Código-fonte para a biblioteca de cliente de armazenamento de Java](https://github.com/azure/azure-storage-java) |
-| Node.js | [Referência da biblioteca de cliente node. js](http://azure.github.io/azure-storage-node) | [Código-fonte para a biblioteca de cliente de armazenamento de node. js](https://github.com/Azure/azure-storage-node) |
-| C++ | [Referência da biblioteca de cliente do C++](http://azure.github.io/azure-storage-cpp/) | [Código-fonte para a biblioteca de cliente de armazenamento do C++](https://github.com/Azure/azure-storage-cpp)|
+| Node.js | [Referência da biblioteca de cliente node. js](https://azure.github.io/azure-storage-node) | [Código-fonte para a biblioteca de cliente de armazenamento de node. js](https://github.com/Azure/azure-storage-node) |
+| C++ | [Referência da biblioteca de cliente do C++](https://azure.github.io/azure-storage-cpp/) | [Código-fonte para a biblioteca de cliente de armazenamento do C++](https://github.com/Azure/azure-storage-cpp)|
 
 ## <a name="next-steps"></a>Passos Seguintes
 

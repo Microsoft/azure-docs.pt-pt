@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 01/17/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 06bfc29b1efdd9263ca4a568dda700ed100731c4
-ms.sourcegitcommit: 1902adaa68c660bdaac46878ce2dec5473d29275
+ms.openlocfilehash: 9a1b0763e33607367939476ca155040295de864c
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/11/2019
-ms.locfileid: "57732496"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57837988"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-cisco-umbrella"></a>Tutorial: Integração do Active Directory do Azure com o guarda-chuva de Cisco
 
@@ -173,7 +173,7 @@ O objetivo desta secção é criar um utilizador de teste no portal do Azure cha
 
     a. Na **Name** campo introduza **BrittaSimon**.
   
-    b. Na **nome de utilizador** tipo de campo **brittasimon@yourcompanydomain.extension**  
+    b. Na **nome de utilizador** tipo de campo **brittasimon\@yourcompanydomain.extension**  
     Por exemplo, BrittaSimon@contoso.com
 
     c. Selecione **palavra-passe de Show** caixa de verificação e, em seguida, anote o valor que é apresentado na caixa de palavra-passe.
@@ -229,7 +229,7 @@ No caso de síntese da Cisco, o aprovisionamento é uma tarefa manual.
 
     c. Partir do **escolha função de administrador delegado**, selecione a sua função.
   
-    d. Na **endereço de E-Mail** , insira o endereço de correio eletrónico do utilizador, como **brittasimon@contoso.com**.
+    d. Na **endereço de E-Mail** , insira o endereço de correio eletrónico do utilizador, como **brittasimon\@contoso.com**.
 
     e. Na **palavra-passe** campo, introduza a palavra-passe.
 
@@ -237,7 +237,7 @@ No caso de síntese da Cisco, o aprovisionamento é uma tarefa manual.
 
     g. Clique em **criar**.
 
-### <a name="test-single-sign-on"></a>Testar início de sessão único
+### <a name="test-single-sign-on"></a>Testar o início de sessão único
 
 Nesta secção, vai testar a configuração do Azure AD única início de sessão com o painel de acesso.
 

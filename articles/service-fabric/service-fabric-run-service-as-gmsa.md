@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 03/29/2018
 ms.author: mfussell
-ms.openlocfilehash: 56a7478ab7221a1ccb4394a245540d3181e4ad8e
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 8d14d9191e74cb59c6696568ead425fca61d6f7c
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55155583"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57873908"
 ---
 # <a name="run-a-service-as-a-group-managed-service-account"></a>Executar um serviço como uma Conta de Serviço Gerida de grupo
 Num cluster autónomo do Windows Server, pode executar um serviço como um grupo de conta de serviço gerida (gMSA) através de uma política de RunAs.  Por predefinição, as aplicações do Service Fabric executam sob a conta que o processo de Fabric.exe é executado em. Execução de aplicativos sob diferentes contas, mesmo num ambiente de hospedagem compartilhado, torna mais seguro umas das outras. Tenha em atenção que isto utiliza o Active Directory no local dentro de seu domínio e não do Azure Active Directory (Azure AD). Ao utilizar uma gMSA, não existe nenhuma palavra-passe ou a palavra-passe encriptada armazenado no manifesto do aplicativo.  Também pode executar um serviço como um [utilizador ou grupo do Active Directory](service-fabric-run-service-as-ad-user-or-group.md).
@@ -48,7 +48,7 @@ Pré-requisitos:
     
     ```xml
     <?xml version="1.0" encoding="utf-8"?>
-    <ApplicationManifest xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" ApplicationTypeName="MyApplicationType" ApplicationTypeVersion="1.0.0" xmlns="http://schemas.microsoft.com/2011/01/fabric">
+    <ApplicationManifest xmlns:xsd="https://www.w3.org/2001/XMLSchema" xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance" ApplicationTypeName="MyApplicationType" ApplicationTypeVersion="1.0.0" xmlns="http://schemas.microsoft.com/2011/01/fabric">
         <ServiceManifestImport>
           <ServiceManifestRef ServiceManifestName="MyServiceTypePkg" ServiceManifestVersion="1.0.0" />
           <ConfigOverrides />
@@ -68,7 +68,8 @@ Pré-requisitos:
 > Se aplicar uma política de RunAs para um serviço e o manifesto do serviço declara os recursos de ponto final com o protocolo HTTP, tem de especificar um **SecurityAccessPolicy**.  Para obter mais informações, consulte [atribuir uma política de acesso de segurança para pontos finais HTTP e HTTPS](service-fabric-assign-policy-to-endpoint.md). 
 >
 
-<!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged--> Como passo seguinte, leia os artigos seguintes:
+<!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
+Como passo seguinte, leia os artigos seguintes:
 * [Compreender o modelo de aplicativo](service-fabric-application-model.md)
 * [Especificar recursos num manifesto do serviço](service-fabric-service-manifest-resources.md)
 * [Implementar uma aplicação](service-fabric-deploy-remove-applications.md)

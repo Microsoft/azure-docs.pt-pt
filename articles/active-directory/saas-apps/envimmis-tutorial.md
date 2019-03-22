@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 02/06/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 08aab209d4772435c8b349026f036ce15ff73ced
-ms.sourcegitcommit: 1902adaa68c660bdaac46878ce2dec5473d29275
+ms.openlocfilehash: 7bc40c5043cefad7892eaead8fe8058ac3707865
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/11/2019
-ms.locfileid: "57731611"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57904716"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-envi-mmis"></a>Tutorial: Integração do Active Directory do Azure com Envi MMIS
 
@@ -184,7 +184,7 @@ O objetivo desta secção é criar um utilizador de teste no portal do Azure cha
 
     a. Na **Name** , insira **BrittaSimon**.
   
-    b. Na **nome de utilizador** , digite **brittasimon@yourcompanydomain.extension**  
+    b. Na **nome de utilizador** , digite **brittasimon\@yourcompanydomain.extension**  
     Por exemplo, BrittaSimon@contoso.com
 
     c. Selecione **palavra-passe de Show** caixa de verificação e, em seguida, anote o valor que é apresentado na caixa de palavra-passe.
@@ -237,7 +237,7 @@ Para ativar a utilizadores do Azure AD iniciar sessão no Envi MMIS, tem de ser 
 
     ![Adicionar o funcionário](./media/envimmis-tutorial/user3.png)
 
-    a. Na **nome de utilizador** caixa de texto, como o tipo o nome de utilizador da conta da Eduarda Almeida **brittasimon@contoso.com**.
+    a. Na **nome de utilizador** caixa de texto, como o tipo o nome de utilizador da conta da Eduarda Almeida **brittasimon\@contoso.com**.
     
     b. Na **nome próprio** como a caixa de texto, o primeiro nome typu BrittaSimon **Eduarda**.
 
@@ -245,13 +245,13 @@ Para ativar a utilizadores do Azure AD iniciar sessão no Envi MMIS, tem de ser 
 
     d. Introduza o título do utilizador no **Title** da caixa de texto.
     
-    e. Na **endereço de E-Mail** caixa de texto, como o tipo de endereço de e-mail da conta da Eduarda Almeida **brittasimon@contoso.com**.
+    e. Na **endereço de E-Mail** caixa de texto, como o tipo de endereço de e-mail da conta da Eduarda Almeida **brittasimon\@contoso.com**.
 
-    f. Na **nome de utilizador de SSO** caixa de texto, como o tipo o nome de utilizador da conta da Eduarda Almeida **brittasimon@contoso.com**.
+    f. Na **nome de utilizador de SSO** caixa de texto, como o tipo o nome de utilizador da conta da Eduarda Almeida **brittasimon\@contoso.com**.
 
     g. Clique em **Guardar**.
 
-### <a name="test-single-sign-on"></a>Testar início de sessão único 
+### <a name="test-single-sign-on"></a>Testar o início de sessão único 
 
 Nesta secção, vai testar a configuração do Azure AD única início de sessão com o painel de acesso.
 

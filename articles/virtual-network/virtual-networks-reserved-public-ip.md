@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/12/2018
 ms.author: genli
-ms.openlocfilehash: bd2b28a7f8d0a765e10ffa58b5a72b4bd5bc47b0
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 543135db8df69db7e0e6182c9d52b9c956ee80b1
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51228186"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57996974"
 ---
 # <a name="reserved-ip-addresses-classic-deployment"></a>Endereços IP reservados (implementação clássica)
 
@@ -28,7 +28,7 @@ ms.locfileid: "51228186"
 Para impedir que os endereços IP a alteração, pode reservar um endereço IP. IPs reservados pode ser utilizado apenas como um VIP, garantindo que o endereço IP para o serviço em nuvem permanece a mesma, mesmo quando os recursos são encerrar ou parados (desalocados). Além disso, pode converter os IPs dinâmicos existente utilizado como um VIP para um endereço IP reservado.
 
 > [!IMPORTANT]
-> O Azure tem dois modelos de implementação diferentes para criar e trabalhar com os recursos: [Resource Manager e clássico](../azure-resource-manager/resource-manager-deployment-model.md). Este artigo cobre a utilização do modelo de implementação clássica. A Microsoft recomenda que as implementações mais novas utilizem o modelo Resource Manager. Aprenda a reservar um estático público endereço IP com o [modelo de implementação do Resource Manager](virtual-network-ip-addresses-overview-arm.md).
+> O Azure tem dois modelos de implementação diferentes para criar e trabalhar com recursos:  [Resource Manager e clássica](../azure-resource-manager/resource-manager-deployment-model.md). Este artigo cobre a utilização do modelo de implementação clássica. A Microsoft recomenda que as implementações mais novas utilizem o modelo Resource Manager. Aprenda a reservar um estático público endereço IP com o [modelo de implementação do Resource Manager](virtual-network-ip-addresses-overview-arm.md).
 
 Para saber mais sobre endereços IP no Azure, leia os [endereços IP](virtual-network-ip-addresses-overview-classic.md) artigo.
 
@@ -83,7 +83,7 @@ Resultado esperado:
     OperationStatus      : Succeeded
 
 >[!NOTE]
->Quando cria um endereço IP reservado com o PowerShell, não é possível especificar um grupo de recursos para criar o IP reservado no. Locais do Azure, num grupo de recursos denominado *sistema de rede padrão* automaticamente. Se criar o IP reservado usando o [portal do Azure](http://portal.azure.com), pode especificar qualquer grupo de recursos que escolher. Se criar o IP reservado num grupo de recursos diferente de *predefinição-redes* no entanto, sempre que referencia o IP reservado com comandos como `Get-AzureReservedIP` e `Remove-AzureReservedIP`, tem de referenciar o nome  *Reservado nome de grupo de recursos-ip-nome do grupo*.  Por exemplo, se criar um IP reservado com o nome *myReservedIP* num grupo de recursos com o nome *myResourceGroup*, tem de referenciar o nome do IP reservado como *grupo myResourceGroup myReservedIP*.   
+>Quando cria um endereço IP reservado com o PowerShell, não é possível especificar um grupo de recursos para criar o IP reservado no. Locais do Azure, num grupo de recursos denominado *sistema de rede padrão* automaticamente. Se criar o IP reservado usando o [portal do Azure](https://portal.azure.com), pode especificar qualquer grupo de recursos que escolher. Se criar o IP reservado num grupo de recursos diferente de *predefinição-redes* no entanto, sempre que referencia o IP reservado com comandos como `Get-AzureReservedIP` e `Remove-AzureReservedIP`, tem de referenciar o nome  *Reservado nome de grupo de recursos-ip-nome do grupo*.  Por exemplo, se criar um IP reservado com o nome *myReservedIP* num grupo de recursos com o nome *myResourceGroup*, tem de referenciar o nome do IP reservado como *grupo myResourceGroup myReservedIP*.   
 
 
 Depois de um IP é reservado, continua a ser associado à sua subscrição até os eliminar. Elimina um IP reservado da seguinte forma:

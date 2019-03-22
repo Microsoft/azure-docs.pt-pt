@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 02/25/2019
 ms.author: jeedes
-ms.openlocfilehash: 592628cb036972cdae2ab14501fc09fa8ddcb7cc
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 5d802bbf9766e7b85a739d9a14e8c790fee1b9fc
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57761724"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57855806"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-mindflash"></a>Tutorial: Integração do Active Directory do Azure com Mindflash
 
@@ -147,7 +147,7 @@ O objetivo desta secção é criar um utilizador de teste no portal do Azure cha
 
     a. Na **Name** campo introduza **BrittaSimon**.
   
-    b. Na **nome de utilizador** tipo de campo **brittasimon@yourcompanydomain.extension**  
+    b. Na **nome de utilizador** tipo de campo **brittasimon\@yourcompanydomain.extension**  
     Por exemplo, BrittaSimon@contoso.com
 
     c. Selecione **palavra-passe de Show** caixa de verificação e, em seguida, anote o valor que é apresentado na caixa de palavra-passe.
@@ -202,7 +202,7 @@ Para habilitar logon Mindflash de utilizadores do Azure AD, tem de ser aprovisio
 
     b. Na **Apelido** caixa de texto, tipo **Apelido** do utilizador como **Simon**.
     
-    c. Na **E-Mail** caixa de texto, tipo **endereço de E-Mail** do utilizador como **BrittaSimon@contoso.com**.
+    c. Na **E-Mail** caixa de texto, tipo **endereço de E-Mail** do utilizador como **BrittaSimon\@contoso.com**.
 
     b. Clique em **Adicionar**.
 
@@ -210,7 +210,7 @@ Para habilitar logon Mindflash de utilizadores do Azure AD, tem de ser aprovisio
 >Pode utilizar quaisquer outras Mindflash utilizador conta criação ferramentas ou APIs fornecidas pelo Mindflash para aprovisionar contas de utilizador do AAD. 
 > 
 
-### <a name="test-single-sign-on"></a>Testar início de sessão único 
+### <a name="test-single-sign-on"></a>Testar o início de sessão único 
 
 Nesta secção, vai testar a configuração do Azure AD única início de sessão com o painel de acesso.
 

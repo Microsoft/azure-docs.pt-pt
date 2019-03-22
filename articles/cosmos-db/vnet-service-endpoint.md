@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 11/06/2018
 ms.author: govindk
 ms.reviewer: sngun
-ms.openlocfilehash: d0bb9ad5c3a39f4065a81fb218a4b167f6fde9b1
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 4e609bf6d96fa9cc3f2dc179157ecd27178608f9
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57447562"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57860368"
 ---
 # <a name="access-azure-cosmos-db-from-virtual-networks-vnet"></a>Acesso do Azure Cosmos DB a partir de redes virtuais (VNet)
 

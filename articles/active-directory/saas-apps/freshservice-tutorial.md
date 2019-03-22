@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 12/25/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 91ea7deb909f4ab1a57f5889c52c83384c45e96b
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 26f41165b94db8252d0094f2b082f3fc98cf01a7
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57760312"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57878028"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-freshservice"></a>Tutorial: Integração do Active Directory do Azure ao Freshservice
 
@@ -156,7 +156,7 @@ Para configurar o Azure AD início de sessão único ao Freshservice, execute os
 
     e. Na **impressão digital do certificado de segurança** caixa de texto, colar a **THUMBPRINT** valor do certificado que copiou do portal do Azure.
 
-    f. Clique em **Guardar**
+    f. Clicar em **Guardar**
 
 ### <a name="create-an-azure-ad-test-user"></a>Criar um utilizador de teste do Azure AD
 
@@ -176,7 +176,7 @@ O objetivo desta secção é criar um utilizador de teste no portal do Azure cha
 
     a. Na **Name** campo introduza **BrittaSimon**.
   
-    b. Na **nome de utilizador** tipo de campo **brittasimon@yourcompanydomain.extension**  
+    b. Na **nome de utilizador** tipo de campo **brittasimon\@yourcompanydomain.extension**  
     Por exemplo, BrittaSimon@contoso.com
 
     c. Selecione **palavra-passe de Show** caixa de verificação e, em seguida, anote o valor que é apresentado na caixa de palavra-passe.
@@ -244,7 +244,7 @@ Para ativar a utilizadores do Azure AD iniciar sessão ao FreshService, tem de s
 > [!NOTE]
 > Pode utilizar quaisquer outras ao FreshService utilizador conta criação ferramentas ou APIs fornecidas ao FreshService para aprovisionar contas de utilizador do AAD.
 
-### <a name="test-single-sign-on"></a>Testar início de sessão único
+### <a name="test-single-sign-on"></a>Testar o início de sessão único
 
 Nesta secção, vai testar a configuração do Azure AD única início de sessão com o painel de acesso.
 

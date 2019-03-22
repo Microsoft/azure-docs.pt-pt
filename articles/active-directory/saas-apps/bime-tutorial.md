@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 02/06/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5820bb1af496e309aa97b690af1146365a33766b
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 6c0d595bcd96bb38021a2128138f7ee49f9b8354
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57442720"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57884817"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-bime"></a>Tutorial: Integração do Active Directory do Azure com Bime
 
@@ -168,7 +168,7 @@ O objetivo desta secção é criar um utilizador de teste no portal do Azure cha
 
     a. Na **Name** campo introduza **BrittaSimon**.
   
-    b. Na **nome de utilizador** tipo de campo **brittasimon@yourcompanydomain.extension**  
+    b. Na **nome de utilizador** tipo de campo **brittasimon\@yourcompanydomain.extension**  
     Por exemplo, BrittaSimon@contoso.com
 
     c. Selecione **palavra-passe de Show** caixa de verificação e, em seguida, anote o valor que é apresentado na caixa de palavra-passe.
@@ -225,7 +225,7 @@ Para habilitar os utilizadores do Azure AD iniciar sessão no Bime, tem de ser a
 
     b. Na **Apelido** caixa de texto, introduza o apelido do utilizador, como **Simon**.
 
-    c. Na **E-Mail** caixa de texto, introduza o e-mail do utilizador, como **brittasimon@contoso.com**.
+    c. Na **E-Mail** caixa de texto, introduza o e-mail do utilizador, como **brittasimon\@contoso.com**.
 
     d. Clique em **Guardar**.
 

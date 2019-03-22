@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 06/27/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cab9750620d6d7c34de1d6e3404b4ea721f330ed
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 3de8422efdbb7802e0532503e2733518e8050f6d
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56203918"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57842537"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-riskware"></a>Tutorial: Integração do Active Directory do Azure com Riskware
 
@@ -110,6 +110,7 @@ Nesta secção, pode ativar o Azure AD início de sessão único no portal do Az
     ![Riskware domínio e URLs únicas início de sessão em informações](./media/riskware-tutorial/tutorial_riskware_url.png)
 
     a. Na **iniciar sessão no URL** caixa de texto, escreva um URL com o seguinte padrão:
+
     | Ambiente| Padrão de URL|
     |--|--|
     | UAT|  `https://riskcloud.net/uat?ccode=<COMPANYCODE>` |
@@ -118,6 +119,7 @@ Nesta secção, pode ativar o Azure AD início de sessão único no portal do Az
     |||
 
     b. Na **identificador (ID de entidade)** caixa de texto, escreva um URL:
+    
     | Ambiente| Padrão de URL|
     |--|--|
     | UAT| `https://riskcloud.net/uat` |
@@ -247,7 +249,7 @@ Para ativar a utilizadores do Azure AD iniciar sessão no Riskware, tem de ser a
 
     a. Sob **autenticação** secção, selecione a **autenticação** modo, o que tem a configuração, como a configuração do AZURE para SSO.
 
-    b. Sob **detalhes de início de sessão** secção, além do **ID de utilizador** caixa de texto, introduza o e-mail do utilizador, como **brittasimon@contoso.com**.
+    b. Sob **detalhes de início de sessão** secção, além do **ID de utilizador** caixa de texto, introduza o e-mail do utilizador, como **brittasimon\@contoso.com**.
 
     c. Na **palavra-passe** caixa de texto, introduza a palavra-passe do utilizador.
 

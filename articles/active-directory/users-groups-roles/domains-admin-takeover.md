@@ -1,5 +1,5 @@
 ---
-title: Obtenção de controlo de um diretório não gerido - administrador - Azure Active Directory | Documentos da Microsoft
+title: Obtenção de controlo de administrador de um diretório não gerido - Azure Active Directory | Documentos da Microsoft
 description: Como assumir um nome de domínio DNS num diretório não gerido (inquilino de cópias de sombra) no Azure Active Directory.
 services: active-directory
 documentationcenter: ''
@@ -10,19 +10,20 @@ ms.service: active-directory
 ms.subservice: users-groups-roles
 ms.topic: article
 ms.workload: identity
-ms.date: 01/28/2019
+ms.date: 03/18/2019
 ms.author: curtand
 ms.reviewer: elkuzmen
 ms.custom: it-pro;seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f166555e2f21ed38e78e659ec181c2d5d90d6bf2
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 3f9a33b6bce8cef5bf790efeb43259dfb8013487
+ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57887005"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58202491"
 ---
 # <a name="take-over-an-unmanaged-directory-as-administrator-in-azure-active-directory"></a>Assumir um diretório não gerido como administrador no Azure Active Directory
+
 Este artigo descreve duas formas de assumir um nome de domínio DNS num diretório não gerido no Azure Active Directory (Azure AD). Quando um utilizador autónomo se inscreve num serviço cloud que utiliza o Azure AD, é adicionado a um diretório do Azure AD não gerido, com base no domínio do respetivo e-mail Para mais informações sobre o Self-Service ou "viral" inscrever-se de um serviço, consulte [o que é a inscrição self-service do Azure Active Directory?](directory-self-service-signup.md)
 
 ## <a name="decide-how-you-want-to-take-over-an-unmanaged-directory"></a>Decidir como pretende assumir um diretório não gerido
@@ -42,7 +43,7 @@ Alguns produtos que incluem o SharePoint e o OneDrive, como o Office 365, não s
 
 3. No e-mail de confirmação do Power BI, selecione **Sim, sou eu**.
 
-4. Inicie sessão para o [Centro de administração do Office 365](https://portal.office.com/admintakeover) com a conta de utilizador do Power BI. Receberá uma mensagem que instrui lhe **tornar-se o administrador** de nome de domínio que já foi verificado o inquilino não gerido. Selecione **Sim, pretendo ser o administrador**.
+4. Inicie sessão para o [Centro de administração do Microsoft 365](https://admin.microsoft.com) com a conta de utilizador do Power BI. Receberá uma mensagem que instrui lhe **tornar-se o administrador** de nome de domínio que já foi verificado o inquilino não gerido. Selecione **Sim, pretendo ser o administrador**.
   
    ![captura de ecrã primeiro para tornar-se o administrador](./media/domains-admin-takeover/become-admin-first.png)
   
@@ -56,10 +57,10 @@ Quando concluir os passos anteriores, está agora o administrador global do inqu
 
 ### <a name="adding-the-domain-name-to-a-managed-tenant-in-azure-ad"></a>Adicionar o nome de domínio para um inquilino gerido no Azure AD
 
-1. Abra o [Centro de administração do Office 365](https://portal.office.com/admintakeover).
+1. Abra o [Centro de administração do Microsoft 365](https://admin.microsoft.com).
 2. Selecione **usuários** separador e criar uma nova conta de utilizador com um nome como *utilizador\@fourthcoffeexyz.onmicrosoft.com* que não utiliza o nome de domínio personalizado. 
 3. Certifique-se de que a nova conta de utilizador tem privilégios de administrador global do inquilino do Azure AD.
-4. Open **domínios** separador no Centro de administração do Office 365, selecione o nome de domínio e selecione **remover**. 
+4. Open **domínios** separador no Centro de administração do Microsoft 365, selecione o nome de domínio e selecione **remover**. 
   
    ![Remova o nome de domínio do Office 365](./media/domains-admin-takeover/remove-domain-from-o365.png)
   
@@ -69,7 +70,7 @@ Quando concluir os passos anteriores, está agora o administrador global do inqu
   
 7. Selecione **nomes de domínio personalizado**, em seguida, adicione o nome de domínio. Terá de introduzir os registos TXT de DNS para verificar a propriedade do nome do domínio. 
   
-   ![domínio adicionado para o Azure AD](./media/domains-admin-takeover/add-domain-to-azure-ad.png)
+   ![domínio verificado como adicionada ao Azure AD](./media/domains-admin-takeover/add-domain-to-azure-ad.png)
   
 > [!NOTE]
 > Qualquer usuário do serviço Power BI ou o Azure Rights Management que possuem licenças atribuídas no inquilino do Office 365 deve salvar seus dashboards, se o nome de domínio for removido. Tem de iniciar sessão com um nome de utilizador, como *usuário\@fourthcoffeexyz.onmicrosoft.com* vez *utilizador\@fourthcoffee.xyz*.
@@ -132,7 +133,7 @@ cmdlet | Utilização
 ### <a name="powershell-example"></a>Exemplo do PowerShell
 
 1. Ligar ao Azure AD com as credenciais que foram usadas para responder à oferta self-service:
-   ```
+   ```powershell
     Install-Module -Name MSOnline
     $msolcred = get-credential
     
@@ -140,11 +141,11 @@ cmdlet | Utilização
    ```
 2. Obter uma lista de domínios:
   
-   ```
+   ```powershell
     Get-MsolDomain
    ```
 3. Execute o cmdlet Get-MsolDomainVerificationDns para criar um desafio:
-   ```
+   ```powershell
     Get-MsolDomainVerificationDns –DomainName *your_domain_name* –Mode DnsTxtRecord
   
     For example:
@@ -153,25 +154,26 @@ cmdlet | Utilização
    ```
 
 4. Copie o valor (o desafio), que é devolvido a partir deste comando. Por exemplo:
-   ```
+   ```powershell
     MS=32DD01B82C05D27151EA9AE93C5890787F0E65D9
    ```
 5. No espaço de nomes DNS público, crie um registo txt DNS que contém o valor que copiou no passo anterior. O nome para este registo é o nome do domínio pai, portanto, se criar este registo de recursos ao utilizar a função DNS do Windows Server, deixe colar registo nome em branco e apenas o valor na caixa de texto.
 6. Execute o cmdlet Confirm-MsolDomain para verificar o desafio:
   
-   ```
+   ```powershell
     Confirm-MsolEmailVerifiedDomain -DomainName *your_domain_name*
    ```
   
    Por exemplo:
   
-   ```
+   ```powershell
     Confirm-MsolEmailVerifiedDomain -DomainName contoso.com
    ```
 
 Um desafio com êxito retorna à linha de comandos sem erros.
 
 ## <a name="next-steps"></a>Passos Seguintes
+
 * [Adicionar um nome de domínio personalizado ao Azure AD](../fundamentals/add-custom-domain.md)
 * [Como instalar e configurar o Azure PowerShell](/powershell/azure/overview)
 * [Azure PowerShell](/powershell/azure/overview)

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/09/2018
 ms.author: magattus
-ms.openlocfilehash: 70154a50086fabc84671e7e540d8496490ab5b2d
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 42fd28f2a18ecf81c7846abdc7b3159a275a9cd7
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57436634"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58013555"
 ---
 # <a name="http-variables-for-azure-cdn-rules-engine"></a>Variáveis HTTP para o motor de regras de CDN do Azure
 As variáveis HTTP fornecem os meios através dos quais pode recuperar os metadados de solicitação e resposta HTTP. Estes metadados, em seguida, podem ser utilizado para alterar dinamicamente uma solicitação ou uma resposta. A utilização de variáveis HTTP é restrita para as seguintes funcionalidades do motor de regras:
@@ -54,10 +54,10 @@ A tabela seguinte descreve as variáveis HTTP suportadas. Um valor em branco é 
 | Foi encontrado um parâmetro de cadeia de consulta | %{is_amp} | O valor desta variável varia de acordo com se o pedido contém, pelo menos, um parâmetro de cadeia de caracteres de consulta.<br /><br />-Parâmetro encontrado: &<br />-Sem parâmetros: NULL | & |
 | Valor do parâmetro de cadeia de caracteres de consulta | %{arg_&lt;parameter&gt;} | Devolve o valor correspondente para o parâmetro de cadeia de caracteres de consulta identificado pelos &lt;parâmetro&gt; termo. | Utilização de exemplo: <br />%{arg_language}<br /><br />Parâmetro de cadeia de caracteres de consulta de exemplo: <br />?language=en<br /><br />Valor de exemplo: en |
 | Valor de cadeia de caracteres de consulta | %{query_string} | Indica o valor de cadeia de caracteres de consulta inteira definido no URL do pedido. |key1=val1&key2=val2&key3=val3 |
-| Referrer Domain | %{referring_domain} | Indica o domínio definido no cabeçalho de pedido de referência. | www.google.com |
+| Referrer Domain | %{referring_domain} | Indica o domínio definido no cabeçalho de pedido de referência. | <www.google.com> |
 | Região (autor do pedido) | %{geo_region} | Indica a região do autor do pedido (por exemplo, estado ou província) por meio de sua abreviação de alfanumérica. | CA |
 | Valor de cabeçalho do pedido | %{http_RequestHeader} | Devolve o valor correspondente para o cabeçalho do pedido identificado pelo termo RequestHeader. <br /><br />Se o nome do cabeçalho do pedido contém um travessão (por exemplo, agente do usuário), substitua-o com um caráter de sublinhado (por exemplo, User_Agent).| Utilização de exemplo: % {http_Connection}<br /><br />Valor de exemplo: Keep-Alive | 
-| Anfitrião do pedido | %{host} | Indica o anfitrião definido no URL do pedido. | www.mydomain.com |
+| Anfitrião do pedido | %{host} | Indica o anfitrião definido no URL do pedido. | <www.mydomain.com> |
 | Protocolo de pedido | %{request_protocol} | Indica o protocolo de pedido. | HTTP/1.1 |
 | Esquema de pedido | %{scheme} | Indica o esquema de pedido. |http |
 | Pedido de URI (relativo) | %{request_uri} | Indica o caminho relativo, incluindo a cadeia de consulta, definida no URI do pedido. | /marketing/foo.js?loggedin=true |
@@ -187,8 +187,8 @@ Neste cenário de exemplo, o *request_uri* variável é definida como:
 
 A tabela a seguir demonstra como funciona esta sintaxe.
 
-| Sintaxe de exemplo | Resultados |
-| ------------- | ------- |
+| Sintaxe de exemplo | Resultados | |
+| ------------- | ------- | --- |
 | %{request_uri#/800001}/customerorigin | /customerorigin/myorigin/marketing/product.html?language=en-US | Uma vez que a variável é iniciado com o padrão, foi substituído. |
 | %{request_uri%html}htm | /800001/myorigin/marketing/product.html?language=en-US | Uma vez que a variável não termina com o padrão, não havia nenhuma alteração.|
 

@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.date: 11/27/2018
 ms.topic: conceptual
 ms.author: sutalasi
-ms.openlocfilehash: d73c0e3f62d30764cba8866d7e731c5ea67d3057
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: aa8292aac82f478422f9214c26d974825872eed6
+ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56878273"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58226340"
 ---
 # <a name="set-up-disaster-recovery-of-vmware-vms-to-azure-with-powershell"></a>Configurar a recuperação após desastre de VMs de VMware para o Azure com o PowerShell
 
@@ -26,7 +26,7 @@ Saiba como:
 > - Configure a replicação, incluindo uma política de replicação. Adicione o servidor vCenter e detetar VMs. 
 > - Adicionar um servidor vCenter e detetar 
 > - Criar contas de armazenamento para armazenar dados de replicação e replicar as VMs.
-> - Executar uma ativação pós-falha. Configurar definições de ativação pós-falha, efetue uma definição de e para replicar máquinas virtuais.
+> - Executar uma ativação pós-falha. Configurar definições de ativação pós-falha, efetue um definições para replicar máquinas virtuais.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -61,7 +61,7 @@ Select-AzureRmSubscription -SubscriptionName "ASR Test Subscription"
    ProvisioningState : Succeeded
    Tags              :
    ResourceId        : /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/VMwareDRtoAzurePS
-```
+   ```
    
 2. Crie um cofre dos serviços de recuperação. No exemplo abaixo, o Cofre dos serviços de recuperação com o nome VMwareDRToAzurePs e é criado na região Ásia Oriental e no grupo de recursos criado no passo anterior.
 

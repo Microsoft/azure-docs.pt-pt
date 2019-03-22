@@ -15,12 +15,12 @@ ms.tgt_pltfrm: ''
 ms.workload: infrastructure
 ms.date: 08/24/2018
 ms.author: mibender
-ms.openlocfilehash: c1840e2102a0a08e73490319a5633d4db8e0f0bd
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 5e879395e034813f954d1046e4a69e21534f3968
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57767945"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58077161"
 ---
 # <a name="get-started-for-azure-it-operators"></a>Começar a utilizar para os operadores de TI do Azure
 
@@ -481,9 +481,9 @@ Existem várias opções para implementar uma rede virtual.
 
 - Modelos Azure Resource Manager
 
->**Quando utilizar**: Sempre que estiver a trabalhar com VMs no Azure, irá trabalhar com redes virtuais. Assim, para segmentar as suas VMs em datacenters no local semelhante do sub-redes públicas e privadas.
-
->**Introdução ao**: A implementação de uma rede virtual do Azure com o portal do Azure requer apenas uma subscrição do Azure Active Directory e o acesso a um navegador da web. Pode implementar uma nova rede virtual para um grupo de recursos novo ou existente. Quando estiver a criar uma nova máquina virtual do portal, pode selecionar uma rede virtual existente ou crie um novo. Começar a utilizar e [criar uma rede virtual com o portal do Azure](../../virtual-network/quick-create-portal.md).
+> **Quando utilizar**: Sempre que estiver a trabalhar com VMs no Azure, irá trabalhar com redes virtuais. Assim, para segmentar as suas VMs em datacenters no local semelhante do sub-redes públicas e privadas.
+> 
+> **Introdução ao**: A implementação de uma rede virtual do Azure com o portal do Azure requer apenas uma subscrição do Azure Active Directory e o acesso a um navegador da web. Pode implementar uma nova rede virtual para um grupo de recursos novo ou existente. Quando estiver a criar uma nova máquina virtual do portal, pode selecionar uma rede virtual existente ou crie um novo. Começar a utilizar e [criar uma rede virtual com o portal do Azure](../../virtual-network/quick-create-portal.md).
 
 ### <a name="access-and-security-for-virtual-networks"></a>Acesso e segurança para redes virtuais
 

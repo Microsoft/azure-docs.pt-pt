@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 02/08/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 36da69b61ffd4df6d4093023e69887b27dbae243
-ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
+ms.openlocfilehash: 7914bc3775631f3cc5d6ae68fed10c6d5fecb853
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57405288"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57838057"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-alertops"></a>Tutorial: Integração do Active Directory do Azure com AlertOps
 
@@ -176,7 +176,7 @@ O objetivo desta secção é criar um utilizador de teste no portal do Azure cha
 
     a. Na **Name** campo introduza **BrittaSimon**.
   
-    b. Na **nome de utilizador** tipo de campo **brittasimon@yourcompanydomain.extension**  
+    b. Na **nome de utilizador** tipo de campo **brittasimon\@yourcompanydomain.extension**  
     Por exemplo, BrittaSimon@contoso.com
 
     c. Selecione **palavra-passe de Show** caixa de verificação e, em seguida, anote o valor que é apresentado na caixa de palavra-passe.
@@ -227,7 +227,7 @@ Nesta secção, vai ativar Eduarda Almeida utilizar o Azure início de sessão �
 
     a. Na **nome de utilizador de início de sessão** caixa de texto, introduza o nome de utilizador do utilizador, como **Brittasimon**.
 
-    b. Na **E-Mail oficial** caixa de texto, introduza o endereço de e-mail do utilizador, como **Brittasimon@contoso.com**.
+    b. Na **E-Mail oficial** caixa de texto, introduza o endereço de e-mail do utilizador, como **Brittasimon\@contoso.com**.
 
     c. Na **nome próprio** caixa de texto, introduza o nome de utilizador, como **Eduarda**.
 

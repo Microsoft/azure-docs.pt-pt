@@ -10,12 +10,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 02/08/2019
-ms.openlocfilehash: 513cc1f0155c5e5499d0bf076d21aff46756d769
-ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
+ms.openlocfilehash: 820bb22fee75e5c1159ba90f23b478339f6345b5
+ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56312179"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58201930"
 ---
 # <a name="upload-data-for-apache-hadoop-jobs-in-hdinsight"></a>Carregar dados para as tarefas do Apache Hadoop no HDInsight
 
@@ -53,10 +53,7 @@ A Microsoft fornece os seguintes utilitários para trabalhar com o armazenamento
 ## <a id="commandline"></a>Linha de comandos do Hadoop
 A linha de comandos do Hadoop só é útil para armazenar dados em BLOBs de armazenamento do Azure quando os dados já estão presentes no nó principal do cluster.
 
-Para utilizar o comando de Hadoop, primeiro tem de ligar ao nó principal através de um dos seguintes métodos:
-
-* **HDInsight baseado em Windows**: [Ligar com o ambiente de trabalho remoto](hdinsight-administer-use-management-portal.md#connect-to-clusters-using-rdp)
-* **HDInsight baseado em Linux**: Ligar com [SSH ou PuTTY](hdinsight-hadoop-linux-use-ssh-unix.md).
+Para utilizar o comando de Hadoop, primeiro tem de ligar para o nó principal, com [SSH ou PuTTY](hdinsight-hadoop-linux-use-ssh-unix.md).
 
 Assim que estiver ligado, pode utilizar a sintaxe seguinte para carregar um ficheiro para o armazenamento.
 

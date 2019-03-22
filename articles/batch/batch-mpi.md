@@ -11,15 +11,15 @@ ms.service: batch
 ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: ''
-ms.date: 06/12/2018
+ms.date: 03/13/2019
 ms.author: lahugh
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 826b0d2e56034a99130962f259c5c4297a31daf7
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 7fe75dabe098cf98f0c3c04d592a32d6a44cebf8
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57537274"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57905026"
 ---
 # <a name="use-multi-instance-tasks-to-run-message-passing-interface-mpi-applications-in-batch"></a>Utilizar tarefas de várias instâncias para executar aplicações Message Passing Interface (MPI) no Batch
 
@@ -52,7 +52,7 @@ Ao submeter uma tarefa com definições de várias instâncias para uma tarefa, 
 Um conjunto de com para realizar tarefas de várias instâncias **ativada a comunicação entre nós**e com **desativada a execução da tarefa em simultâneo**. Para desativar a execução da tarefa em simultâneo, defina o [CloudPool.MaxTasksPerComputeNode](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.cloudpool) propriedade como 1.
 
 > [!NOTE]
-> Batch [limites](batch-quota-limit.md#other-limits) o tamanho de um conjunto que tenha ativada a comunicação entre nós.
+> Batch [limites](batch-quota-limit.md#pool-size-limits) o tamanho de um conjunto que tenha ativada a comunicação entre nós.
 
 
 Este fragmento de código mostra como criar um conjunto para tarefas de várias instâncias com a biblioteca .NET do Batch.

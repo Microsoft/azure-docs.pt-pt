@@ -8,12 +8,12 @@ ms.devlang: c
 ms.topic: conceptual
 ms.date: 08/25/2017
 ms.author: yizhon
-ms.openlocfilehash: fe34668577efb1552731af7760896bccbb99cf67
-ms.sourcegitcommit: 15e9613e9e32288e174241efdb365fa0b12ec2ac
+ms.openlocfilehash: a0099fa085e21c381b74dc2690ffcf0870345f21
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "57009193"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57992356"
 ---
 # <a name="azure-iot-device-sdk-for-c"></a>O Azure IoT-device SDK para C
 
@@ -89,7 +89,7 @@ Se não estiver familiarizado com a ferramenta Explorador do dispositivo, o proc
 
 1. Quando executar o programa, verá essa interface:
 
-  ![Captura de ecrã do Device Explorer duplo](./media/iot-hub-device-sdk-c-intro/DeviceExplorerTwinConfigTab.png)
+   ![Captura de ecrã do Device Explorer duplo](./media/iot-hub-device-sdk-c-intro/DeviceExplorerTwinConfigTab.png)
 
 1. Introduza o seu **cadeia de ligação do Hub IoT** no primeiro campo e clique **atualização**. Este passo configura a ferramenta, para que este possa comunicar com IoT Hub. 
 
@@ -97,17 +97,17 @@ O **cadeia de ligação** pode ser encontrado na **serviço Hub IoT** > **defini
 
 1. Quando a cadeia de ligação do IoT Hub é configurada, clique nas **gestão** separador:
 
-  ![Device Explorer duplo / captura de ecrã de gestão](./media/iot-hub-device-sdk-c-intro/DeviceExplorerTwinManagementTab.png)
+   ![Device Explorer duplo / captura de ecrã de gestão](./media/iot-hub-device-sdk-c-intro/DeviceExplorerTwinManagementTab.png)
 
 Este separador é onde gerir os dispositivos registados no IoT hub.
 
 1. Criar um dispositivo ao clicar o **criar** botão. Uma caixa de diálogo é apresentada com um conjunto de chaves preenchidas previamente (primários e secundários). Introduza um **ID do dispositivo** e, em seguida, clique em **criar**.
 
-  ![Criar a captura de ecrã do dispositivo](./media/iot-hub-device-sdk-c-intro/CreateDevice.png)
+   ![Criar a captura de ecrã do dispositivo](./media/iot-hub-device-sdk-c-intro/CreateDevice.png)
 
 1. Quando o dispositivo é criado, os dispositivos listam atualizações com todos os dispositivos registados, incluindo o que acabou de criar. Se clique no seu dispositivo novo, vê esse menu:
 
-  ![Resultado do Device Explorer duplo de contexto](./media/iot-hub-device-sdk-c-intro/DeviceExplorerTwinManagementTab_RightClick.png)
+   ![Resultado do Device Explorer duplo de contexto](./media/iot-hub-device-sdk-c-intro/DeviceExplorerTwinManagementTab_RightClick.png)
 
 1. Se escolher **copiar a cadeia de ligação para o dispositivo selecionado**, a cadeia de ligação do dispositivo é copiada para a área de transferência. Mantenha uma cópia da cadeia de ligação do dispositivo. Irá precisar dele quando executar os aplicativos de exemplo descritos nas seções a seguir.
 
@@ -351,7 +351,7 @@ Tal como acontece com o exemplo anterior, este inclui vários pacotes de NuGet:
 
 Viu que a maioria desses pacotes no exemplo anterior, mas **Microsoft.Azure.IoTHub.Serializer** há de novo. Este pacote é necessário quando utiliza a **serializador** biblioteca.
 
-Pode encontrar a implementação do exemplo de aplicativo no ***iothub_client\_amostras\_iothub_convenience_sample** ficheiro.
+Pode encontrar a implementação do exemplo de aplicativo no **iothub_client\_amostras\_iothub_convenience_sample** ficheiro.
 
 As secções seguintes guiá-lo pelas principais partes deste exemplo.
 

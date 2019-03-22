@@ -10,12 +10,12 @@ ms.service: billing
 ms.topic: article
 ms.date: 12/10/2018
 ms.author: byvinyal
-ms.openlocfilehash: 21a6734ab8af2e35643f6e9b25500dad2418a8c2
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: a32ebb3fc2448b189aa5970446e2ceb29aed51e2
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57772040"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57838787"
 ---
 # <a name="azure-subscription-and-service-limits-quotas-and-constraints"></a>Subscrição do Azure e limites de serviço, quotas e restrições
 Este documento lista algumas das limitações mais comuns do Microsoft Azure, que também são chamadas quotas. Este documento atualmente não abrange todos os serviços do Azure. Ao longo do tempo, a lista será expandida e atualizada para abordar mais serviços.
@@ -48,7 +48,7 @@ Na lista seguinte de limites, uma nova tabela reflete as diferenças em limites 
 * [Application Insights](#application-insights-limits)
 * [Automatização](#automation-limits)
 * [Cache do Azure para Redis](#azure-cache-for-redis-limits)
-* [Serviços em Nuvem do Azure](#azure-cloud-services-limits)
+* [Azure Cloud Services](#azure-cloud-services-limits)
 * [BD do Cosmos para o Azure](#azure-cosmos-db-limits)
 * [Base de Dados do Azure para MySQL](#azure-database-for-mysql)
 * [Base de Dados do Azure para PostgreSQL](#azure-database-for-postgresql)
@@ -344,12 +344,12 @@ Para saber mais sobre os limites num nível mais granular, tais como o tamanho d
 [!INCLUDE [role-based-access-control-limits](../includes/role-based-access-control-limits.md)]
 
 ### <a name="sql-database-limits"></a>Limites de base de dados SQL
-Para limites de base de dados SQL, consulte [limites de recursos de base de dados SQL para bases de dados individuais](sql-database/sql-database-vcore-resource-limits-single-databases.md) e [limites de recursos de base de dados SQL para conjuntos elásticos e bases de dados agrupadas](sql-database/sql-database-vcore-resource-limits-elastic-pools.md).
+Para limites de base de dados SQL, consulte [limites de recursos de base de dados SQL para bases de dados individuais](sql-database/sql-database-vcore-resource-limits-single-databases.md), [limites de recursos de base de dados SQL para conjuntos elásticos e bases de dados agrupadas](sql-database/sql-database-vcore-resource-limits-elastic-pools.md), e [limites de recursos da base de dados SQL para instâncias geridas](sql-database/sql-database-managed-instance-resource-limits.md).
 
 ### <a name="sql-data-warehouse-limits"></a>Limites do SQL Data Warehouse
 Para os limites do SQL Data Warehouse, consulte [limites de recursos do SQL Data Warehouse](sql-data-warehouse/sql-data-warehouse-service-capacity-limits.md).
 
-## <a name="see-also"></a>Ver também
+## <a name="see-also"></a>Consulte também
 - [Compreender os limites do Azure e aumenta](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/)
 - [Máquina virtual e cloud tamanhos do serviço do Azure](virtual-machines/linux/sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 - [Tamanhos de serviços Cloud do Azure](cloud-services/cloud-services-sizes-specs.md)

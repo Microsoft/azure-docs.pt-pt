@@ -12,12 +12,12 @@ ms.author: genemi
 ms.reviewer: sstein
 manager: craigg
 ms.date: 11/07/2018
-ms.openlocfilehash: 7609f3b0c04bdf74c87123f1125973219e6dda17
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
+ms.openlocfilehash: 4dbf53df4d3f34e80757f9575981b4b053587d97
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55567218"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58012661"
 ---
 # <a name="deploy-and-explore-a-standalone-single-tenant-application-that-uses-azure-sql-database"></a>Implementar e explorar uma aplicação de inquilino único autónoma que utiliza a base de dados do Azure SQL
 
@@ -76,11 +76,11 @@ A aplicação apresenta os locais que alojam os eventos.  Os locais são inquili
 
 1. Abra a página de eventos para cada um dos três inquilinos no separadores de browser separados:
 
-    - http://events.contosoconcerthall.&lt;user&gt;.trafficmanager.net
-    - http://events.dogwooddojo.&lt;user&gt;.trafficmanager.net
-    - http://events.fabrikamjazzclub.&lt;user&gt;.trafficmanager.net
+   - http://events.contosoconcerthall.&lt;user&gt;.trafficmanager.net
+   - http://events.dogwooddojo.&lt;user&gt;.trafficmanager.net
+   - http://events.fabrikamjazzclub.&lt;user&gt;.trafficmanager.net
 
-    (No cada URL, substitua &lt;utilizador&gt; com valor de utilizador da sua implementação.)
+     (No cada URL, substitua &lt;utilizador&gt; com valor de utilizador da sua implementação.)
 
    ![Eventos](./media/saas-standaloneapp-get-started-deploy/fabrikam.png)
 
@@ -96,7 +96,7 @@ Ambiente de produção, normalmente vai criar um registo CNAME DNS [ *apontar um
 
 Vamos examinar alguns dos recursos que foram implementados:
 
-1. Na [portal do Azure](http://portal.azure.com), navegue para a lista de grupos de recursos.
+1. Na [portal do Azure](https://portal.azure.com), navegue para a lista de grupos de recursos.
 2. Deverá ver os grupos de recursos de três inquilino.
 3. Abra o **wingtip-sa-fabrikam -&lt;usuário&gt;**  grupo de recursos que contém os recursos para a implementação da Fabrikam Jazz Club.  O **fabrikamjazzclub -&lt;usuário&gt;**  servidor contém o **fabrikamjazzclub** base de dados.
 

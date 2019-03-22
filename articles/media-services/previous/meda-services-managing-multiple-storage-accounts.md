@@ -11,14 +11,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/08/2019
+ms.date: 03/14/2019
 ms.author: juliako
-ms.openlocfilehash: e25da238648b32edcbfaefbdcf1a6240df97916f
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: 252d5e551dad56108ad952eb0c7c3b39df0585d5
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56728332"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57855304"
 ---
 # <a name="managing-media-services-assets-across-multiple-storage-accounts"></a>Gerir recursos de serviços de multimédia em várias contas de armazenamento  
 
@@ -42,7 +42,7 @@ Ao anexar várias contas de armazenamento à sua conta de Media Services, aplica
 
 Outras considerações:
 
-Serviços de multimédia utiliza o valor do **IAssetFile.Name** propriedade ao criar os URLs para o conteúdo de transmissão em fluxo (por exemplo, http://{WAMSAccount}.origin.mediaservices.windows.net/{GUID}/{IAssetFile.Name}/ streamingParameters.) Por esse motivo, por cento de codificação não é permitida. O valor da propriedade do nome não pode ter qualquer um dos seguintes [por cento de codificação-reservados carateres](http://en.wikipedia.org/wiki/Percent-encoding#Percent-encoding_reserved_characters):! *' ();: @& = + $, /? [] # ". Além disso, só pode existir um '.' para a extensão de nome de ficheiro.
+Serviços de multimédia utiliza o valor do **IAssetFile.Name** propriedade ao criar os URLs para o conteúdo de transmissão em fluxo (por exemplo, http://{WAMSAccount}.origin.mediaservices.windows.net/{GUID}/{IAssetFile.Name}/ streamingParameters.) Por esse motivo, por cento de codificação não é permitida. O valor da propriedade do nome não pode ter qualquer um dos seguintes [por cento de codificação-reservados carateres](https://en.wikipedia.org/wiki/Percent-encoding#Percent-encoding_reserved_characters):! *' ();: @& = + $, /? [] # ". Além disso, só pode existir um '.' para a extensão de nome de ficheiro.
 
 ## <a name="to-attach-storage-accounts"></a>Para anexar a contas de armazenamento  
 

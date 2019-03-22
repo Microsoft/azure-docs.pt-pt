@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 10/30/2018
 ms.author: yili
 ms.custom: seodec18
-ms.openlocfilehash: a12d3708cdb547cc036b249bebf901d2ec5121c3
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
-ms.translationtype: MT
+ms.openlocfilehash: 4c2ed5fa65528a690d618e45c118d2433820ddc6
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55729324"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57871498"
 ---
 # <a name="azure-app-service-on-linux-faq"></a>Serviço de aplicações do Azure no Linux FAQ
 
@@ -35,9 +35,17 @@ Se tiver dúvidas, comentários sobre este artigo.
 
 Pode encontrar todos os ficheiros de Docker no [GitHub](https://github.com/azure-app-service). Encontrará todos os contentores do Docker [Docker Hub](https://hub.docker.com/u/appsvc/).
 
+<a id="#startup-file"></a>
+
 **Quais são os valores esperados para a secção do ficheiro de arranque quando posso configurar a pilha de tempo de execução?**
 
-Para node. js, especifique o ficheiro de configuração PM2 ou do seu ficheiro de script. Para .NET Core, especifique o nome DLL compilado como `dotnet <myapp>.dll`. Para Ruby, pode especificar o script de Ruby que deseja inicializar a sua aplicação com.
+| Pilha     | Valor esperado                                                                |
+|-----------|-------------------------------------------------------------------------------|
+| Java SE   | um comando para iniciar seu `.jar` aplicação                                    |
+| Tomcat    | a localização de um script para executar qualquer configruations necessário para a sua aplicação |
+| Node.js   | o ficheiro de configuração PM2 ou do seu ficheiro de script                                |          
+| .Net Core | o nome DLL compilado como `dotnet <myapp>.dll`                                 |
+| Ruby      | o script de Ruby que deseja inicializar a sua aplicação com                     
 
 ## <a name="management"></a>Gestão
 
@@ -75,7 +83,7 @@ Sim, precisa definir uma aplicação chamada `WEBSITE_WEBDEPLOY_USE_SCM` para *f
 
 Se falhar a implementação do Git para a sua aplicação web do Linux, escolha uma das seguintes opções para implementar o código da aplicação:
 
-- Utilize a funcionalidade de entrega contínua (pré-visualização): Pode armazenar o código-fonte da sua aplicação num repositório de Git de DevOps do Azure ou um repositório do GitHub para utilizar a entrega contínua do Azure. Para obter mais informações, consulte [como configurar a entrega contínua para aplicação web do Linux](https://blogs.msdn.microsoft.com/devops/2017/05/10/use-azure-portal-to-setup-continuous-delivery-for-web-app-on-linux/).
+- Utilize a funcionalidade de entrega contínua (pré-visualização): Pode armazenar o código-fonte da sua aplicação num repositório de Git de DevOps do Azure ou o repositório do GitHub para utilizar a entrega contínua do Azure. Para obter mais informações, consulte [como configurar a entrega contínua para aplicação web do Linux](https://blogs.msdn.microsoft.com/devops/2017/05/10/use-azure-portal-to-setup-continuous-delivery-for-web-app-on-linux/).
 
 - Utilize o [ZIP implementar API](https://github.com/projectkudu/kudu/wiki/Deploying-from-a-zip-file): Para utilizar esta API, [SSH na sua aplicação web](https://docs.microsoft.com/azure/app-service/containers/app-service-linux-ssh-support) e aceda à pasta onde pretende implementar o seu código. Execute o seguinte código:
 
@@ -92,7 +100,7 @@ Se falhar a implementação do Git para a sua aplicação web do Linux, escolha 
 Sim, desativar `perMessageDeflate` em seu código do lado do servidor node. js. Por exemplo, se estiver a utilizar o socket.io, utilize o seguinte código:
 
 ```nodejs
-var io = require('socket.io')(server,{
+const io = require('socket.io')(server,{
   perMessageDeflate :false
 });
 ```

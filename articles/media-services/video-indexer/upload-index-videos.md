@@ -9,12 +9,12 @@ ms.service: media-services
 ms.topic: article
 ms.date: 03/05/2019
 ms.author: juliako
-ms.openlocfilehash: c11a206316cfb7b2d9e96b631fce01701da93565
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: e7f39b6298dd950147fea7ac21969c53e1b58e2e
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57550487"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57877875"
 ---
 # <a name="upload-and-index-your-videos"></a>Carregar e indexar vídeos  
 
@@ -26,7 +26,7 @@ Ao carregar vídeos com a API do Video Indexer, tem as seguintes opções de car
 
 O artigo mostra como utilizar a API [Carregar vídeo](https://api-portal.videoindexer.ai/docs/services/operations/operations/Upload-video?) para carregar e indexar os seus vídeos com base num URL. O exemplo de código neste artigo inclui o código comentado que mostra como carregar a matriz de bytes. <br/>O artigo também aborda alguns dos parâmetros que pode definir na API para alterar o processo e o resultado da API.
 
-Assim que o seu vídeo foi carregado, o indexador de vídeos, codifica opcionalmente o vídeo (discutido no artigo). Quando criar uma conta do Video Indexer, pode optar por uma conta de avaliação gratuita (através da qual obtém um determinado número de minutos de indexação gratuitos) ou uma opção paga (não fica limitado pela quota). Com a avaliação gratuita, o Video Indexer fornece até 600 minutos de indexação gratuita a utilizadores de sites e até 2400 minutos de indexação gratuita a utilizadores de APIs. Com a opção paga, pode criar uma conta do Video Indexer que está [ligada à sua subscrição do Azure e uma conta dos Serviços de Multimédia do Azure](connect-to-azure.md). Irá pagar pelos minutos indexados, bem como pelas cobranças relacionadas com a Conta de Multimédia. 
+Assim que o seu vídeo foi carregado, o indexador de vídeos, codifica opcionalmente o vídeo (discutido no artigo). Quando criar uma conta do Video Indexer, pode optar por uma conta de avaliação gratuita (através da qual obtém um determinado número de minutos de indexação gratuitos) ou uma opção paga (não fica limitado pela quota). Com a avaliação gratuita, o Video Indexer fornece até 600 minutos de indexação gratuita a utilizadores de sites e até 2400 minutos de indexação gratuita a utilizadores de APIs. Com uma opção paga, cria uma conta do Video Indexer que seja [ligado à sua subscrição do Azure e uma conta de Media Services do Azure](connect-to-azure.md). Irá pagar pelos minutos indexados, bem como pelas cobranças relacionadas com a Conta de Multimédia. 
 
 ## <a name="uploading-considerations"></a>Considerações de carregamento
 
@@ -64,16 +64,16 @@ Um URL que é utilizado para notificar o cliente (usando um pedido POST) sobre o
         |state|O estado de vídeo|  
     - Exemplo: https://test.com/notifyme?projectName=MyProject&id=1234abcd&state=Processed
 - Pessoa identificada no vídeo:
-    - Propriedades
+  - Propriedades
     
-        |Name|Descrição|
-        |---|---|
-        |ID| O ID do vídeo|
-        |faceId|O ID de rostos que aparece no índice de vídeos|
-        |knownPersonId|O ID da pessoa que seja exclusivo dentro de um modelo de rostos|
-        |personName|O nome da pessoa|
+      |Name|Descrição|
+      |---|---|
+      |ID| O ID do vídeo|
+      |faceId|O ID de rostos que aparece no índice de vídeos|
+      |knownPersonId|O ID da pessoa que seja exclusivo dentro de um modelo de rostos|
+      |personName|O nome da pessoa|
         
-     - Exemplo: https://test.com/notifyme?projectName=MyProject&id=1234abcd&faceid=12&knownPersonId=CCA84350-89B7-4262-861C-3CAC796542A5&personName=Inigo_Montoya 
+    - Exemplo: https://test.com/notifyme?projectName=MyProject&id=1234abcd&faceid=12&knownPersonId=CCA84350-89B7-4262-861C-3CAC796542A5&personName=Inigo_Montoya 
 
 #### <a name="notes"></a>Notas
 

@@ -1,6 +1,6 @@
 ---
-title: Como atualizar uma atribuição existente
-description: Saiba mais sobre o mecanismo para a atualização de uma atribuição existente no Azure esquemas.
+title: Como atualizar uma atribuição existente no portal
+description: Saiba mais sobre o mecanismo para a atualização de uma atribuição existente a partir do portal em esquemas do Azure.
 services: blueprints
 author: DCtheGeek
 ms.author: dacoulte
@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: blueprints
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: edfc14e837c92cac5bab589e33069bb771a53cb7
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.openlocfilehash: 572a962e98332fc70c276346f497ed2e67e3c329
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56818260"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57999843"
 ---
 # <a name="how-to-update-an-existing-blueprint-assignment"></a>Como atualizar uma existente da atribuição do esquema
 
@@ -69,8 +69,8 @@ Não existe nenhum limite no número de vezes que uma atribuição pode ser atua
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-- Saber mais sobre o [ciclo de vida do esquema](../concepts/lifecycle.md)
-- Compreender como utilizar [parâmetros estáticos e dinâmicos](../concepts/parameters.md)
-- Aprender a personalizar a [ordem de sequenciação do esquema](../concepts/sequencing-order.md)
-- Saber como utilizar o [bloqueio de recursos de esquema](../concepts/resource-locking.md)
-- Resolver problemas durante a atribuição de um esquema com [resolução de problemas gerais](../troubleshoot/general.md)
+- Saiba mais sobre o [ciclo de vida de um esquema](../concepts/lifecycle.md).
+- Compreenda como utilizar [parâmetros estáticos e dinâmicos](../concepts/parameters.md).
+- Aprenda a personalizar a [ordem de sequenciação do esquema](../concepts/sequencing-order.md).
+- Saiba como utilizar o [bloqueio de recursos de esquema](../concepts/resource-locking.md).
+- Resolva problemas durante a atribuição de um esquema com a [resolução de problemas gerais](../troubleshoot/general.md).

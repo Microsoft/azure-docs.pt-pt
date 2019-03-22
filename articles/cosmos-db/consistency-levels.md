@@ -5,25 +5,25 @@ author: markjbrown
 ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 03/27/2018
-ms.openlocfilehash: cbe7b0e243f34d9b48e837c1211b5a186946f69f
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: HT
+ms.date: 03/18/2019
+ms.openlocfilehash: b43fe513b15d55ee595acaa6733d96cdb58f4e83
+ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57903713"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58294516"
 ---
 # <a name="consistency-levels-in-azure-cosmos-db"></a>Níveis de consistência no Azure Cosmos DB
 
-Bases de dados distribuídas que dependem de replicação para elevada disponibilidade, latência baixa ou ambos, tornam o compromisso fundamental entre a consistência de leitura versus disponibilidade, latência e débito. A maioria dos comercialmente disponíveis bases de dados distribuídas perguntar aos desenvolvedores escolher entre os dois modelos de consistência extreme: consistência forte e consistência eventual. O [transação atómica](https://cs.brown.edu/~mph/HerlihyW90/p463-herlihy.pdf) ou o modelo de consistência forte é o padrão-ouro da programação de dados. Mas adiciona um preço acentuado de latência superior (em estado de repouso) e disponibilidade reduzida (durante falhas). Por outro lado, a consistência eventual oferece maior disponibilidade e um melhor desempenho, mas é difícil de se programar aplicativos. 
+Bases de dados distribuídas que dependem de replicação para elevada disponibilidade, latência baixa ou ambos, tornam o compromisso fundamental entre a consistência de leitura versus disponibilidade, latência e débito. A maioria dos comercialmente disponíveis bases de dados distribuídas perguntar aos desenvolvedores escolher entre os dois modelos de consistência extreme: *forte* consistência e *eventual* consistência. O  [transação atómica](https://cs.brown.edu/~mph/HerlihyW90/p463-herlihy.pdf) ou o modelo de consistência forte é o padrão-ouro da programação de dados. Mas adiciona um preço de latência superior (em estado de repouso) e disponibilidade reduzida (durante falhas). Por outro lado, a consistência eventual oferece maior disponibilidade e um melhor desempenho, mas fica difícil de se programar aplicativos. 
 
-O Azure Cosmos DB se aproxima de consistência de dados como uma gama de opções em vez de dois extremos. Consistência forte e consistência eventual são das extremidades, mas há muitas escolhas de consistência ao longo do espetro. Os programadores podem utilizar estas opções para fazer escolhas precisas e granulares compromissos em relação a elevada disponibilidade ou desempenho. 
+O Azure Cosmos DB se aproxima de consistência de dados como uma gama de opções em vez de dois extremos. Consistência forte e consistência eventual estão nas extremidades do espectro, mas há muitas escolhas de consistência ao longo do espetro. Os programadores podem utilizar estas opções para fazer escolhas precisas e granulares compromissos em relação a elevada disponibilidade e desempenho. 
 
-Com o Azure Cosmos DB, os desenvolvedores podem escolher entre cinco modelos de consistência bem definidos do espetro de consistência. A partir de mais forte para o mais fraco, os modelos são forte, estagnação limitada, sessão, prefixo consistente e eventual. Os modelos são bem definidas e intuitiva. Eles podem ser usados para cenários específicos do mundo real. Cada modelo fornece [vantagens e desvantagens de desempenho e disponibilidade](consistency-levels-tradeoffs.md) apoiado por SLAs abrangentes. A imagem seguinte mostra os níveis de consistência diferentes como um espectro.
+Com o Azure Cosmos DB, os desenvolvedores podem escolher entre cinco modelos de consistência bem definidos do espetro de consistência. No mais forte para o mais Relaxada, os modelos incluem *forte*, *estagnação limitada*, *sessão*, *prefixo consistente*e o *eventual* consistência. Os modelos são bem definidas e intuitiva e podem ser utilizados para cenários específicos do mundo real. Cada modelo fornece [vantagens e desvantagens de desempenho e disponibilidade](consistency-levels-tradeoffs.md) apoiado pelos SLAs. A imagem seguinte mostra os níveis de consistência diferentes, como um espectro.
 
 ![Consistência como um espectro](./media/consistency-levels/five-consistency-levels.png)
 
-Os níveis de consistência são região desconhecida. O nível de consistência da sua conta do Cosmos do Azure é garantido para todas as operações, independentemente da região a partir do qual as leituras e gravações são enviadas e o número de regiões à sua conta do Cosmos do Azure, de leitura ou se a sua conta está configurada com um única ou várias regiões de escrita.
+Os níveis de consistência são agnósticos relativamente à região e são garantidos para todas as operações, independentemente da região a partir do qual as leituras e gravações são enviadas e o número de regiões à sua conta do Cosmos do Azure, ou se a sua conta está configurada com um único ou várias regiões de escrita.
 
 ## <a name="scope-of-the-read-consistency"></a>Âmbito de consistência de leitura
 

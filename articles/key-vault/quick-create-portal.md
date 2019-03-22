@@ -11,14 +11,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.topic: quickstart
 ms.custom: mvc
-ms.date: 01/07/2019
+ms.date: 03/14/2019
 ms.author: barclayn
-ms.openlocfilehash: 4e31e5d6f1f08012c2ab0dbccb7a0f6c2df89a9a
-ms.sourcegitcommit: 1902adaa68c660bdaac46878ce2dec5473d29275
+ms.openlocfilehash: 0902e3fb64a73a095b457306aa561c13519e4066
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/11/2019
-ms.locfileid: "57728872"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58000607"
 ---
 # <a name="quickstart-set-and-retrieve-a-secret-from-azure-key-vault-using-the-azure-portal"></a>Início rápido: Definir e obter um segredo no Azure Key Vault com o portal do Azure
 
@@ -26,7 +26,7 @@ O Azure Key Vault é um serviço cloud que funciona como um arquivo de segredos 
 
 Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
-## <a name="sign-in-to-azure"></a>Inicie sessão no  Azure
+## <a name="sign-in-to-azure"></a>Iniciar sessão no Azure
 
 Inicie sessão no portal do Azure em https://portal.azure.com.
 
@@ -43,7 +43,6 @@ Inicie sessão no portal do Azure em https://portal.azure.com.
     - **Subscrição**: Escolha uma subscrição.
     - Em **Grupo de Recursos**, selecione **Criar novo** e introduza um nome de grupo de recursos.
     - No menu pendente **Localização**, selecione uma localização.
-    - Marque a caixa de verificação **Afixar ao dashboard**.
     - Deixe as outras opções com os valores predefinidos.
 6. Depois de fornecer as informações acima, selecione **Criar**.
 

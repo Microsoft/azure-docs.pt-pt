@@ -15,12 +15,12 @@ ms.workload: na
 ms.custom: seodec18
 ms.date: 12/06/2018
 ms.author: shvija
-ms.openlocfilehash: d273e963c6191fdc87c4f19c6465d8a9026a074e
-ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
+ms.openlocfilehash: 268b94cb77c238c0d6e0d3fe51a059e3a6602c80
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56959413"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58003157"
 ---
 # <a name="azure-event-hubs-metrics-in-azure-monitor"></a>Métricas de Hubs de eventos do Azure no Azure Monitor
 
@@ -40,7 +40,7 @@ Pode monitorizar as métricas ao longo do tempo na [portal do Azure](https://por
 
 ![Ver métricas de sucesso][1]
 
-Também pode aceder a métricas diretamente através do espaço de nomes. Para tal, selecione o seu espaço de nomes e, em seguida, clique em * * métricas * *. Para apresentar métricas filtradas para o escopo do hub de eventos, selecione o hub de eventos e, em seguida, clique em **métricas**.
+Também pode aceder a métricas diretamente através do espaço de nomes. Para tal, selecione o seu espaço de nomes e, em seguida, clique em **métricas**. Para apresentar métricas filtradas para o escopo do hub de eventos, selecione o hub de eventos e, em seguida, clique em **métricas**.
 
 Para as métricas que suporta dimensões, tem de filtrar com o valor de dimensão pretendida, conforme mostrado no exemplo a seguir:
 

@@ -11,12 +11,12 @@ ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 01/26/2018
 ms.author: victorh
-ms.openlocfilehash: d89e5d6fd21fdc37bffcc730fb20bae30ecc4f7c
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.openlocfilehash: 510a243b9133fe0ef0fe33b4dccce97f9d65e301
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57315032"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58074969"
 ---
 # <a name="create-an-application-gateway-with-a-web-application-firewall-using-the-azure-portal"></a>Criar um gateway de aplicação com uma firewall de aplicações web no portal do Azure
 
@@ -45,21 +45,21 @@ Uma rede virtual é necessária para a comunicação entre os recursos que criar
 2. Selecione **Rede** e, em seguida, selecione **Gateway de Aplicação** na lista Destaques.
 3. Introduza estes valores para o gateway de aplicação:
 
-    - *myAppGateway* - para o nome do gateway de aplicação.
-    - *myResourceGroupAG* - para o novo grupo de recursos.
-    - Selecione *WAF* para o escalão do gateway de aplicação.
+   - *myAppGateway* - para o nome do gateway de aplicação.
+   - *myResourceGroupAG* - para o novo grupo de recursos.
+   - Selecione *WAF* para o escalão do gateway de aplicação.
 
-    ![Criar um novo gateway de aplicação](./media/application-gateway-web-application-firewall-portal/application-gateway-create.png)
+     ![Criar um novo gateway de aplicação](./media/application-gateway-web-application-firewall-portal/application-gateway-create.png)
 
 4. Aceite os valores predefinidos para as outras definições e, em seguida, clique em **OK**.
 5. Clique em **escolher uma rede virtual**, clique em **criar nova**e, em seguida, introduza estes valores para a rede virtual:
 
-    - *myVNet* - para o nome da rede virtual.
-    - *10.0.0.0/16* - para o espaço de endereços de rede virtual.
-    - *myAGSubnet* - para o nome da sub-rede.
-    - *10.0.0.0/24* - para o espaço de endereço da sub-rede.
+   - *myVNet* - para o nome da rede virtual.
+   - *10.0.0.0/16* - para o espaço de endereços de rede virtual.
+   - *myAGSubnet* - para o nome da sub-rede.
+   - *10.0.0.0/24* - para o espaço de endereço da sub-rede.
 
-    ![Criar a rede virtual](./media/application-gateway-web-application-firewall-portal/application-gateway-vnet.png)
+     ![Criar a rede virtual](./media/application-gateway-web-application-firewall-portal/application-gateway-vnet.png)
 
 6. Clique em **OK** para criar a rede virtual e a sub-rede.
 7. Clique em **escolher um endereço IP público**, clique em **criar nova**e, em seguida, introduza o nome do endereço IP público. Neste exemplo, o endereço IP público tem o nome *myAGPublicIPAddress*. Aceite os valores predefinidos para as outras definições e, em seguida, clique em **OK**.

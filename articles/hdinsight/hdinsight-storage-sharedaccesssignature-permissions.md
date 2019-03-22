@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 04/23/2018
 ms.author: hrasheed
-ms.openlocfilehash: c3cb9b7988269f394615b6498bbe7af5bb0ab1e1
-ms.sourcegitcommit: 21466e845ceab74aff3ebfd541e020e0313e43d9
+ms.openlocfilehash: 1e55552e238e16f2221b138b6e12afa5635d2ab2
+ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53743362"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58202678"
 ---
 # <a name="use-azure-storage-shared-access-signatures-to-restrict-access-to-data-in-hdinsight"></a>Utilizar assinaturas de acesso partilhado do Azure Storage para restringir o acesso aos dados no HDInsight
 
@@ -101,11 +101,11 @@ Para obter mais informações sobre assinaturas de acesso partilhado, consulte [
 
    * política\_nome: O nome a utilizar para a política armazenada para criar.
 
-   * armazenamento\_conta\_nome: O nome da conta de armazenamento.
+   * storage\_account\_name: O nome da conta de armazenamento.
 
    * armazenamento\_conta\_chave: A chave para a conta de armazenamento.
 
-   * armazenamento\_contentor\_nome: O contentor na conta de armazenamento que pretende restringir o acesso ao.
+   * storage\_container\_name: O contentor na conta de armazenamento que pretende restringir o acesso ao.
 
    * exemplo\_ficheiro\_caminho: O caminho para um ficheiro que é carregado para o contentor.
 
@@ -199,7 +199,7 @@ Se tiver um cluster baseado em Linux, pode adicionar a SAS para o **core-site** 
 
 4. Expanda a **core-site personalizado** secção, em seguida, desloque-se para o final e selecione o **Adicionar propriedade...**  ligação. Utilize os seguintes valores para o **chave** e **valor** campos:
 
-   * **Chave**: fs.azure.sas.CONTAINERNAME.STORAGEACCOUNTNAME.blob.core.windows.net
+   * **Key**: fs.azure.sas.CONTAINERNAME.STORAGEACCOUNTNAME.blob.core.windows.net
    * **Valor**: A SAS devolvido pelo C# ou a aplicação de Python que executou anteriormente
 
      Substitua **CONTAINERNAME** com o nome do contentor utilizados com o aplicativo em C# ou SAS. Substitua **STORAGEACCOUNTNAME** com o nome de conta de armazenamento que utilizou.
@@ -219,13 +219,7 @@ Se tiver um cluster baseado em Linux, pode adicionar a SAS para o **core-site** 
 
 ## <a name="test-restricted-access"></a>Testar o acesso restrito
 
-Para verificar que tenham acesso restrito, utilize os seguintes métodos:
-
-* Para **baseado em Windows** clusters do HDInsight, utilize o ambiente de trabalho remoto para ligar ao cluster. Para obter mais informações, consulte [ligar ao HDInsight através de RDP](hdinsight-administer-use-management-portal.md#connect-to-clusters-using-rdp).
-
-    Assim que estiver ligado, utilize o **da linha de comandos do Hadoop** ícone na área de trabalho para abrir um prompt de comando.
-
-* Para **baseado em Linux** clusters do HDInsight, utilize SSH para ligar ao cluster. Para obter mais informações, veja [Utilizar SSH com o HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md).
+Para verificar que tenham acesso restrito, utilize SSH para ligar ao cluster. Para obter mais informações, veja [Utilizar SSH com o HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md).
 
 Assim que estiver ligado ao cluster, utilize os seguintes passos para verificar que o utilizador pode apenas leitura e a lista de itens na conta de armazenamento SAS:
 
@@ -286,7 +280,7 @@ Assim que estiver ligado ao cluster, utilize os seguintes passos para verificar 
         + CategoryInfo          : NotSpecified: (:) [New-AzureRmHDInsightCluster], CloudException
         + FullyQualifiedErrorId : Hyak.Common.CloudException,Microsoft.Azure.Commands.HDInsight.NewAzureHDInsightClusterCommand
 
-**Causa**: Este erro pode ocorrer se usar uma palavra-passe para o utilizador de administrador/HTTP para o cluster, ou (para clusters baseados em Linux) o utilizador SSH.
+**Motivo**: Este erro pode ocorrer se usar uma palavra-passe para o utilizador de administrador/HTTP para o cluster, ou (para clusters baseados em Linux) o utilizador SSH.
 
 **Resolução**: Utilize uma palavra-passe que cumpra os seguintes critérios:
 

@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 2/28/2019
 ms.author: rkarlin
-ms.openlocfilehash: c2d9e83b28ac18f08ca67e9c4f675b1fe9d5d17c
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: a1c74f0ed9fd9b9abccfb7c2762cadf948c8fce0
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57431789"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57884800"
 ---
 # <a name="connect-data-sources"></a>Ligar a origens de dados
 
@@ -70,7 +70,7 @@ Os seguintes métodos de recolha de dados são suportados pelo Azure sentinela:
     
 ## Opções de ligação do agente<a name="agent-options"></a>
 
-Para ligar a sua aplicação da externa ao sentinela do Azure, o agente tem de ser implementado numa máquina dedicada (VM ou no local) para suportar a comunicação entre a aplicação e, em seguida, sentinela do Azure. Pode deploly o agente manualmente ou automaticamente. Implementação automática só está disponível se a sua máquina dedicada é uma nova VM que está a criar no Azure. 
+Para ligar a sua aplicação da externa ao sentinela do Azure, o agente tem de ser implementado numa máquina dedicada (VM ou no local) para suportar a comunicação entre a aplicação e, em seguida, sentinela do Azure. Pode implementar o agente manualmente ou automaticamente. Implementação automática só está disponível se a sua máquina dedicada é uma nova VM que está a criar no Azure. 
 
 
 ![CEF no Azure](./media/connect-cef/cef-syslog-azure.png)
