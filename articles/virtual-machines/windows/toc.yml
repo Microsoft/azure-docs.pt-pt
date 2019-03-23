@@ -147,6 +147,7 @@ items:
     - name: Utilizar Python
       href: python.md
     - name: Utilizar um modelo
+      displayName: Azure Resource Manager template, ARM
       href: ps-template.md
     - name: Ligar a uma VM
       href: connect-logon.md
@@ -441,6 +442,7 @@ items:
   - name: REST dos Managed Disks
     href: /rest/api/compute/disks
   - name: Modelo do Resource Manager
+    displayName: ARM
     href: /azure/templates/microsoft.compute/allversions
 - name: Recursos
   items:
@@ -462,9 +464,9 @@ items:
     href: https://azure.microsoft.com/documentation/videos/index/?services=virtual-machines
   - name: FAQ
     href: faq.md
-ms.openlocfilehash: 388035cfbbb95fcd16effd45fac8022c27a979fb
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: b6e86980e854e336373907f6aeaba2a72dd29b7c
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58004429"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58372556"

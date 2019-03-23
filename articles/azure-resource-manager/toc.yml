@@ -62,8 +62,6 @@ items:
     href: templates-cloud-consistency.md
   - name: Fornecedores e tipos de recursos
     href: resource-manager-supported-services.md
-  - name: Grupos de gestão
-    href: management-groups-overview.md
   - name: Gestor de Implementação
     href: deployment-manager-overview.md
   - name: Modos de implementação
@@ -251,9 +249,9 @@ items:
     href: resource-manager-personal-data.md
   - name: Vídeos
     href: https://azure.microsoft.com/documentation/videos/index/?services=azure-resource-manager
-ms.openlocfilehash: 432cb5e4fb1e9b2ed2aa6e35e6e14ab68d78aa72
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: c84e93cbc0a74ca59a2f25e467780378ee3d1e19
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58181933"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58372153"

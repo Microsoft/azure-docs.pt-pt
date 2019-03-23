@@ -1,6 +1,6 @@
 items:
 - name: Serviços de Multimédia do Azure v3
-  href: latest/media-services-overview.md
+  href: latest/
 - name: Serviços de Multimédia do Azure v2 (legado)
   href: previous/media-services-overview.md
 - name: Indexador de Vídeos
@@ -11,9 +11,9 @@ items:
     href: https://azure.microsoft.com/roadmap/?category=media
   - name: Calculadora de preços
     href: https://azure.microsoft.com/pricing/calculator/
-ms.openlocfilehash: dbb4907dea27226972006e449937537973e3fcb7
-ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
+ms.openlocfilehash: 4b965b05378c8542c35e8780dfda0410f1217287
+ms.sourcegitcommit: 87bd7bf35c469f84d6ca6599ac3f5ea5545159c9
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55745746"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58349676"

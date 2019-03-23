@@ -56,22 +56,22 @@ items:
       href: billing-save-compute-costs-reservations.md
     - name: Comprar uma reserva
       items:
+      - name: Máquina virtual
+        href: ../virtual-machines/windows/prepay-reserved-vm-instances.md?toc=/azure/billing/TOC.json
       - name: BD do Cosmos
         href: ../cosmos-db/cosmos-db-reserved-capacity.md?toc=/azure/billing/TOC.json
       - name: SQL Database
         href: ../sql-database/sql-database-reserved-capacity.md?toc=/azure/billing/TOC.json
       - name: Software SUSE Linux
         href: ../virtual-machines/linux/prepay-suse-software-charges.md?toc=/azure/billing/TOC.json
-      - name: Máquina virtual
-        href: ../virtual-machines/windows/prepay-reserved-vm-instances.md?toc=/azure/billing/TOC.json
     - name: Como é aplicado o desconto
       items:
       - name: Instâncias de VM Reservada
         href: billing-understand-vm-reservation-charges.md
-      - name: Capacidade de reserva da Base de Dados SQL
-        href: billing-understand-reservation-charges.md
       - name: Capacidade reservada do Cosmos DB
         href: billing-understand-cosmosdb-reservation-charges.md
+      - name: Capacidade de reserva da Base de Dados SQL
+        href: billing-understand-reservation-charges.md
       - name: Planos de software SUSE Linux
         href: billing-understand-suse-reservation-charges.md
     - name: Custos de software não incluídos
@@ -216,9 +216,9 @@ items:
     items:
     - name: API REST dos relatórios empresariais
       href: https://docs.microsoft.com/rest/api/billing/enterprise/billing-enterprise-api-balance-summary
-ms.openlocfilehash: b6b66662fef4624a83f3eb8da56848d3005dc47e
-ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
+ms.openlocfilehash: 0fcf799513ec6288253c67406599f7c079152d4c
+ms.sourcegitcommit: 87bd7bf35c469f84d6ca6599ac3f5ea5545159c9
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58336793"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58349812"

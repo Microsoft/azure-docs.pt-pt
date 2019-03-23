@@ -88,7 +88,7 @@ items:
         - name: Requisitos de licença do FairPlay
           href: fairplay-license-overview.md
     - name: Pontos Finais de Transmissão em fluxo
-      displayName: Origins
+      displayName: origins, cdn
       href: streaming-endpoint-concept.md
     - name: Localizadores de Transmissão em Fluxo
       displayName: URLs
@@ -257,9 +257,9 @@ items:
     href: frequently-asked-questions.md
   - name: Regiões e clouds do Azure
     href: azure-clouds-regions.md
-ms.openlocfilehash: f67429869b07eba8deafec29189b6784a0eae9db
-ms.sourcegitcommit: f331186a967d21c302a128299f60402e89035a8d
+ms.openlocfilehash: 7810fb88062d540a141e8af59971fa9452b486dc
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58187715"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58372510"
