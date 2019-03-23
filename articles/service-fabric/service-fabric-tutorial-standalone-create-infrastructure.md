@@ -3,7 +3,7 @@ title: Tutorial para criar a infraestrutura para um cluster do Service Fabric no
 description: Neste tutorial, vai aprender a configurar a infraestrutura do AWS para executar um cluster do Service Fabric.
 services: service-fabric
 documentationcenter: .net
-author: david-stanford
+author: dkkapur
 manager: timlt
 editor: ''
 ms.assetid: ''
@@ -13,18 +13,18 @@ ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 05/11/2018
-ms.author: dastanfo
+ms.author: dekapur
 ms.custom: mvc
-ms.openlocfilehash: 6b7d2223d33abb429ab5f59b14c80d43c70598dc
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
-ms.translationtype: HT
+ms.openlocfilehash: 9a0c56ecb20857b8fe2f5e55851e5d0d98ed3038
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34209655"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58369122"
 ---
-# <a name="tutorial-create-aws-infrastructure-to-host-a-service-fabric-cluster"></a>Tutorial: Criar a infraestrutura do AWS para alojar um cluster do Service Fabric
+# <a name="tutorial-create-aws-infrastructure-to-host-a-service-fabric-cluster"></a>Tutorial: Criar a infraestrutura AWS para alojar um cluster do Service Fabric
 
-Os clusters autónomos do Service Fabric oferecem a opção de escolher o seu ambiente e criar um cluster como parte da abordagem "qualquer SO, qualquer cloud" que o Service Fabric está a realizar. Nesta série de tutoriais, crie um cluster autónomo alojado no AWS e instale uma aplicação no mesmo.
+Os clusters autónomos do Service Fabric oferecem a opção de escolher o seu ambiente e criar um cluster como parte da abordagem "qualquer SO, qualquer cloud" que o Service Fabric está a realizar. Nesta série de tutoriais, vai criar um cluster autónomo alojado no AWS e instale uma aplicação no mesmo.
 
 Este tutorial é a primeira parte de uma série. Neste artigo, vai gerir os recursos do AWS necessários para alojar o cluster autónomo do Service Fabric. Em artigos futuros, terá de instalar o conjunto autónomo do Service Fabric, instalar uma aplicação de exemplo no cluster e, por fim, limpar o cluster.
 
@@ -50,7 +50,7 @@ Selecione **Iniciar Instância** e, no ecrã seguinte, **Selecionar** junto a Mi
 
 ![Seleção de instâncias do EC2][aws-ec2instance]
 
-Selecione **t2.medium** e, em seguida, **Seguinte: Configurar Detalhes de Instâncias**. No ecrã seguinte, alterar o número de instâncias para `3` e, em seguida, selecione **Detalhes Avançados** para expandir essa secção.
+Selecione **t2.medium**, em seguida, selecione **seguinte: Configure os detalhes de instância**, no ecrã seguinte alterar o número de instâncias para `3`, em seguida, selecione **Advanced detalhes** para expandir essa secção.
 
 Para ligar as suas máquinas virtuais entre si no Service Fabric, as VMs que alojam a infraestrutura precisam de ter as mesmas credenciais.  Existem duas formas comuns de obter credenciais consistentes: associá-las a todas ao mesmo domínio ou definir a mesma palavra-passe de administrador em cada VM.  Para este tutorial, pode utilizar um script de dados de utilizador para definir as instâncias do EC2 para terem todas a mesma palavra-passe.  Num ambiente de produção, é mais seguro associar os anfitriões a um domínio do Windows.
 
@@ -110,7 +110,7 @@ Depois de ter todos os endereços IP, selecione uma das instâncias à qual liga
 
 Depois de ter ligado com êxito à sua instância, valide que podem ser ligadas entre si, bem como partilhar ficheiros.  Depois de recolher os endereços IP para todas as instâncias, selecione aquele a que não está atualmente ligado. Aceda a **Iniciar**, introduza `cmd` e selecione **Linha de Comandos**.
 
-Nestes exemplos, foi estabelecida uma ligação RDP ao seguinte endereço IP: 172.31.21.141. Em seguida, ocorrem todos os testes de conectividade para o endereço IP: 172.31.20.163.
+Nestes exemplos foi estabelecida a ligação de RDP para o seguinte endereço IP: 172.31.21.141. Toda a conectividade de teste, em seguida, ocorrem para outro endereço IP: 172.31.20.163.
 
 Para validar que a conectividade básica funciona, utilize o comando ping.
 
@@ -144,7 +144,7 @@ Para abrir as portas na firewall, o comando do PowerShell é:
 New-NetFirewallRule -DisplayName "Service Fabric Ports" -Direction Inbound -Action Allow -RemoteAddress LocalSubnet -Protocol TCP -LocalPort 135, 137-139, 445
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Na primeira parte da série, aprendeu a iniciar três instâncias do EC2 e a configurá-las para a instalação do Service Fabric:
 

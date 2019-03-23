@@ -1,7 +1,7 @@
 ---
 title: Tipos de entidade
 titleSuffix: Language Understanding - Azure Cognitive Services
-description: Adicione entidades (dados de chave no domínio de seu aplicativo) em aplicações de Language Understanding Intelligent Service (LUIS).
+description: 'Entidades extrair dados da expressão. Tipos de entidade dão-lhe previsível extração de dados. Existem dois tipos de entidades: aprendeu de máquina e não aprendidas máquina. É importante saber que tipo de entidade, está trabalhando com expressões com.'
 services: cognitive-services
 author: diberry
 manager: nitinme
@@ -9,18 +9,18 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 01/02/2019
+ms.date: 03/22/2019
 ms.author: diberry
-ms.openlocfilehash: c8d2ccc197eb8818cfe3fc54449ee982bbe0c087
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: d12ea20f9f510b0e2d3d3512d8d8c71a3fb96eec
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57844593"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58372527"
 ---
 # <a name="entity-types-and-their-purposes-in-luis"></a>Tipos de entidade e suas finalidades no LUIS
 
-As entidades são palavras ou frases em expressões que são dados de chave no domínio da sua aplicação.
+Entidades extrair dados da expressão. Tipos de entidade dão-lhe previsível extração de dados. Existem dois tipos de entidades: aprendeu de máquina e não aprendidas máquina. É importante saber que tipo de entidade, está trabalhando com expressões com. 
 
 ## <a name="entity-compared-to-intent"></a>Em comparação comparada a intenção de entidade
 
@@ -190,7 +190,7 @@ A entidade é uma boa ajustar quando:
 
 * Os dados corresponde a um caso de utilização comuns suportado pelo entidades previamente concebidas para a cultura do idioma. 
 
-Entidades pré-concebidas podem ser adicionadas e removidas em qualquer altura. Se encontrar que uma entidade pré-criados for detetada numa expressão de exemplo, impossibilitando a marcação de sua entidade personalizada, remova a entidade pré-criados a partir da aplicação, marcar a sua entidade e adicionar a entidade pré-criados novamente. 
+Entidades pré-concebidas podem ser adicionadas e removidas em qualquer altura.
 
 ![Entidade pré-criados numérica](./media/luis-concept-entities/number-entity.png)
 
@@ -198,6 +198,29 @@ Entidades pré-concebidas podem ser adicionadas e removidas em qualquer altura. 
 [Resposta JSON de exemplo para a entidade](luis-concept-data-extraction.md#prebuilt-entity-data)
 
 Algumas destas entidades criados previamente definidas no código aberto [reconhecedores texto](https://github.com/Microsoft/Recognizers-Text) projeto. Se sua cultura específica ou a entidade não é atualmente suportada, contribuem para o projeto. 
+
+### <a name="troubleshooting-prebuilt-entities"></a>Resolução de problemas de entidades pré-concebidas
+
+No portal do LUIS, se uma entidade pré-criados é marcada em vez de sua entidade personalizada, tem algumas opções de como corrigir este problema.
+
+As entidades criados previamente adicionadas à aplicação serão _sempre_ retornado, mesmo que a expressão deve extrair entidades personalizadas para o mesmo texto. 
+
+#### <a name="change-tagged-entity-in-example-utterance"></a>Alterar a entidade marcada na expressão de exemplo
+
+Se a entidade pré-criados é o mesmo texto ou tokens como a entidade personalizada, selecione o texto na expressão de exemplo e alterar a expressão marcada. 
+
+Se a entidade pré-criados é marcada com mais de texto ou tokens que a entidade personalizada, tem algumas opções de como corrigir este problema:
+
+* [Remover a expressão de exemplo](#remove-example-utterance-to-fix-tagging) método
+* [Remover entidade pré-criados](#remove-prebuilt-entity-to-fix-tagging) método
+
+#### <a name="remove-example-utterance-to-fix-tagging"></a>Remover a expressão de exemplo para corrigir a etiquetagem 
+
+Sua primeira opção consiste em eliminar a expressão de exemplo e voltar a preparar a aplicação. Adicionar novamente apenas a palavra ou frase, ou seja, a entidade como uma expressão de exemplo e, em seguida, marcar a entidade e train. Agora, adicione novamente a entidade criados previamente e a expressão de exemplo original. A entidade personalizada deve continuar a ser marcado em vez da entidade pré-criados. 
+
+#### <a name="remove-prebuilt-entity-to-fix-tagging"></a>Remover entidade criados previamente para corrigir a etiquetagem
+
+A segunda opção consiste em remover a entidade pré-concebidos a partir da aplicação, em seguida, marcar a entidade personalizada na expressão de exemplo e depois adicione a entidade pré-criados novamente para a aplicação. Esta correção pressupõe que a entidade pré-criados não faz parte de uma entidade composta. 
 
 ## <a name="regular-expression-entity"></a>Entidade de expressão regular 
 

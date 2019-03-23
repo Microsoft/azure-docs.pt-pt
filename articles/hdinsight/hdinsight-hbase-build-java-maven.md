@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 02/05/2017
 ms.author: hrasheed
 ROBOTS: NOINDEX
-ms.openlocfilehash: ea2fe0f7e326db00a63529c0279c9c15d30c744c
-ms.sourcegitcommit: 21466e845ceab74aff3ebfd541e020e0313e43d9
+ms.openlocfilehash: c0ecfd3f148cecae713740ef37d4fe7a2e2f184f
+ms.sourcegitcommit: 223604d8b6ef20a8c115ff877981ce22ada6155a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53744824"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58361817"
 ---
 # <a name="use-apache-maven-to-build-java-applications-that-use-apache-hbase-with-windows-based-hdinsight-apache-hadoop"></a>Utilizar o Apache Maven para construir aplicações Java que utilizam o HBase do Apache com o HDInsight baseado em Windows (Apache Hadoop)
 Saiba como criar e compilar um [Apache HBase](https://hbase.apache.org/) aplicação em Java utilizando o Apache Maven. Em seguida, utilize a aplicação com o Azure HDInsight (Apache Hadoop).
@@ -25,6 +25,9 @@ Saiba como criar e compilar um [Apache HBase](https://hbase.apache.org/) aplica�
 > Os passos neste documento exigem um cluster do HDInsight que utiliza o Windows. O Linux é o único sistema operativo utilizado na versão 3.4 ou superior do HDInsight. Para obter mais informações, veja [HDInsight retirement on Windows](hdinsight-component-versioning.md#hdinsight-windows-retirement) (Desativação do HDInsight no Windows).
 
 ## <a name="requirements"></a>Requisitos
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 * [A plataforma Java JDK](https://aka.ms/azure-jdks) 7 ou posterior
 * [Apache Maven](https://maven.apache.org/)
 * Um cluster do HDInsight baseado em Windows com o HBase
@@ -40,8 +43,8 @@ Saiba como criar e compilar um [Apache HBase](https://hbase.apache.org/) aplica�
 
     Este comando cria um diretório no local atual, com o nome especificado pelos **artifactID** parâmetro (**hbaseapp** neste exemplo.) Esse diretório contém os seguintes itens:
 
-   * **pom. XML**:  O modelo de objeto de projeto ([POM](https://maven.apache.org/guides/introduction/introduction-to-the-pom.html)) contém os detalhes de configuração e informações usados para compilar o projeto.
-   * **SRC**: O diretório que contém o **main\java\com\microsoft\examples** directory, onde irá criar a aplicação.
+   * **pom.xml**:  O modelo de objeto de projeto ([POM](https://maven.apache.org/guides/introduction/introduction-to-the-pom.html)) contém os detalhes de configuração e informações usados para compilar o projeto.
+   * **src**: O diretório que contém o **main\java\com\microsoft\examples** directory, onde irá criar a aplicação.
 3. Eliminar a **src\test\java\com\microsoft\examples\apptest.java** porque não está a ser utilizado neste exemplo de ficheiro.
 
 ## <a name="update-the-project-object-model"></a>Atualizar o modelo de objeto de projeto
@@ -420,32 +423,32 @@ Existem várias formas para carregar um ficheiro ao seu cluster do HDInsight, co
         $jarFile = "wasb:///example/jars/hbaseapp-1.0-SNAPSHOT.jar"
 
         # The job definition
-        $jobDefinition = New-AzureRmHDInsightMapReduceJobDefinition `
+        $jobDefinition = New-AzHDInsightMapReduceJobDefinition `
             -JarFile $jarFile `
             -ClassName $className `
             -Arguments $emailRegex
 
         # Get the job output
-        $job = Start-AzureRmHDInsightJob `
+        $job = Start-AzHDInsightJob `
             -ClusterName $clusterName `
             -JobDefinition $jobDefinition `
             -HttpCredential $creds
         Write-Host "Wait for the job to complete ..." -ForegroundColor Green
-        Wait-AzureRmHDInsightJob `
+        Wait-AzHDInsightJob `
             -ClusterName $clusterName `
             -JobId $job.JobId `
             -HttpCredential $creds
         if($showErr)
         {
         Write-Host "STDERR"
-        Get-AzureRmHDInsightJobOutput `
+        Get-AzHDInsightJobOutput `
                     -Clustername $clusterName `
                     -JobId $job.JobId `
                     -HttpCredential $creds `
                     -DisplayOutputType StandardError
         }
         Write-Host "Display the standard output ..." -ForegroundColor Green
-        Get-AzureRmHDInsightJobOutput `
+        Get-AzHDInsightJobOutput `
                     -Clustername $clusterName `
                     -JobId $job.JobId `
                     -HttpCredential $creds
@@ -506,7 +509,7 @@ Existem várias formas para carregar um ficheiro ao seu cluster do HDInsight, co
             $storage = GetStorage -clusterName $clusterName
 
             # Upload file to storage, overwriting existing files if -force was used.
-            Set-AzureStorageBlobContent -File $localPath `
+            Set-AzStorageBlobContent -File $localPath `
                 -Blob $destinationPath `
                 -force:$force `
                 -Container $storage.container `
@@ -515,10 +518,10 @@ Existem várias formas para carregar um ficheiro ao seu cluster do HDInsight, co
 
         function FindAzure {
             # Is there an active Azure subscription?
-            $sub = Get-AzureRmSubscription -ErrorAction SilentlyContinue
+            $sub = Get-AzSubscription -ErrorAction SilentlyContinue
             if(-not($sub))
             {
-                throw "No active Azure subscription found! If you have a subscription, use the Connect-AzureRmAccount cmdlet to login to your subscription."
+                throw "No active Azure subscription found! If you have a subscription, use the Connect-AzAccount cmdlet to login to your subscription."
             }
         }
 
@@ -527,7 +530,7 @@ Existem várias formas para carregar um ficheiro ao seu cluster do HDInsight, co
                 [Parameter(Mandatory = $true)]
                 [String]$clusterName
             )
-            $hdi = Get-AzureRmHDInsightCluster -ClusterName $clusterName
+            $hdi = Get-AzHDInsightCluster -ClusterName $clusterName
             # Does the cluster exist?
             if (!$hdi)
             {
@@ -541,14 +544,14 @@ Existem várias formas para carregar um ficheiro ao seu cluster do HDInsight, co
             $resourceGroup = $hdi.ResourceGroup
             $storageAccountName=$hdi.DefaultStorageAccount.split('.')[0]
             $container=$hdi.DefaultStorageContainer
-            $storageAccountKey=(Get-AzureRmStorageAccountKey `
+            $storageAccountKey=(Get-AzStorageAccountKey `
                 -Name $storageAccountName `
             -ResourceGroupName $resourceGroup)[0].Value
             # Get the resource group, in case we need that
             $return.resourceGroup = $resourceGroup
             # Get the storage context, as we can't depend
             # on using the default storage context
-            $return.context = New-AzureStorageContext -StorageAccountName $storageAccountName -StorageAccountKey $storageAccountKey
+            $return.context = New-AzStorageContext -StorageAccountName $storageAccountName -StorageAccountKey $storageAccountKey
             # Get the container, so we know where to
             # find/store blobs
             $return.container = $container

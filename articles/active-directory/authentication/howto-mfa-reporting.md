@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7dd26bbb06310439aae065349c14c6df1c1c12e6
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: 1f78a3135fca290d50370652b33fe0a4d16a6f83
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58316937"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58369059"
 ---
 # <a name="reports-in-azure-multi-factor-authentication"></a>Relatórios no Azure multi-factor Authentication
 
@@ -36,9 +36,7 @@ O Azure multi-factor Authentication fornece diversos relatórios que podem ser u
 2. No lado esquerdo, selecione **do Azure Active Directory** > **servidor MFA**.
 3. Selecione o relatório que pretende ver.
 
-   <center>
-   
-   ![Cloud](./media/howto-mfa-reporting/report.png)</center>
+   ![Relatório de estado do servidor MFA server no portal do Azure](./media/howto-mfa-reporting/report.png)
 
 ## <a name="azure-ad-sign-ins-report"></a>Relatório de inícios de sessão do Azure AD
 
@@ -55,7 +53,7 @@ O relatório de inícios de sessão pode fornecer informações sobre a utiliza�
 
 Estes dados estão disponíveis através da [portal do Azure](https://portal.azure.com) e o [API de relatórios](../reports-monitoring/concept-reporting-api.md).
 
-![Nuvem](./media/howto-mfa-reporting/sign-in-report.png)
+![Relatório de inícios de sessão do AD do Azure no portal do Azure](./media/howto-mfa-reporting/sign-in-report.png)
 
 ### <a name="sign-ins-report-structure"></a>Estrutura de relatório de inícios de sessão
 

@@ -7,12 +7,12 @@ ms.service: container-instances
 ms.topic: article
 ms.date: 01/03/2019
 ms.author: danlep
-ms.openlocfilehash: 5382c565e5afc42d65a3198d797b51d1b1a9dde6
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: c6c82ee26fdbd824bdf42720ed7fc08135a872da
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57550775"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58372417"
 ---
 # <a name="deploy-container-instances-into-an-azure-virtual-network"></a>Implementar instâncias de contentor numa rede virtual do Azure
 
@@ -48,7 +48,7 @@ Limites de recursos de contentor podem ser diferente do limites para as instânc
 
 ### <a name="unsupported-network-resources-and-features"></a>Funcionalidades e recursos de rede não suportada
 
-* Balanceador de Carga do Azure
+* Azure Load Balancer
 * Peering de rede virtual
 
 **Eliminação do recurso de rede** requer [passos adicionais](#delete-network-resources) após a implantação de grupos de contentores para a rede virtual.
@@ -87,7 +87,7 @@ Para implementar uma nova rede virtual e que o Azure crie automaticamente os rec
 
 * Nome da rede virtual:
 * Prefixo de endereço de rede virtual no formato CIDR
-* Nome de sub-rede
+* Nome da sub-rede
 * Prefixo de endereço de sub-rede no formato CIDR
 
 A rede virtual e os prefixos de endereço de sub-rede especificam os espaços de endereços para a rede virtual e sub-rede, respectivamente. Estes valores são representados na notação de Classless entre domínios encaminhamento (CIDR), por exemplo `10.0.0.0/16`. Para obter mais informações sobre como trabalhar com sub-redes, veja [adicionar, alterar ou eliminar uma sub-rede de rede virtual](../virtual-network/virtual-network-manage-subnet.md).
@@ -114,13 +114,13 @@ As secções seguintes descrevem como implementar grupos de contentores a uma re
 
 Em primeiro lugar, implemente um grupo de contentores e especificar os parâmetros para uma nova rede virtual e uma sub-rede. Quando especificar estes parâmetros, o Azure cria a rede virtual e sub-rede, delega a sub-rede para o Azure Container instances e também cria um perfil de rede. Estes recursos são criados, seu grupo de contentores é implementado para a sub-rede.
 
-Execute o seguinte [criar contentor de az] [ az-container-create] comando que especifica definições para uma nova rede virtual e uma sub-rede. Precisa fornecer o nome do grupo de recursos que foi criado numa região que [suporta](#preview-limitations) grupos de contentores numa rede virtual. Este comando implementa o [microsoft/aci-helloworld] [ aci-helloworld] contentor que executa um servidor de Web do node. js pequeno que serve uma página web estática. Na secção seguinte, irá implementar um segundo grupo de contentores à mesma sub-rede e testar a comunicação entre as instâncias de contentores de dois.
+Execute o seguinte [criar contentor de az] [ az-container-create] comando que especifica definições para uma nova rede virtual e uma sub-rede. Precisa fornecer o nome do grupo de recursos que foi criado numa região que [suporta](#preview-limitations) grupos de contentores numa rede virtual. Este comando implementa o Microsoft público [aci-helloworld] [ aci-helloworld] contentor que executa um servidor de Web do node. js pequeno que serve uma página web estática. Na secção seguinte, irá implementar um segundo grupo de contentores à mesma sub-rede e testar a comunicação entre as instâncias de contentores de dois.
 
 ```azurecli
 az container create \
     --name appcontainer \
     --resource-group myResourceGroup \
-    --image microsoft/aci-helloworld \
+    --image mcr.microsoft.com/azuredocs/aci-helloworld \
     --vnet aci-vnet \
     --vnet-address-prefix 10.0.0.0/16 \
     --subnet aci-subnet \
@@ -210,7 +210,7 @@ properties:
   containers:
   - name: appcontaineryaml
     properties:
-      image: microsoft/aci-helloworld
+      image: mcr.microsoft.com/azuredocs/aci-helloworld
       ports:
       - port: 80
         protocol: TCP
@@ -241,9 +241,9 @@ Depois de concluída a implementação, execute o [show de contentor az] [ az-co
 
 ```console
 $ az container show --resource-group myResourceGroup --name appcontaineryaml --output table
-Name              ResourceGroup    Status    Image                     IP:ports     Network    CPU/Memory       OsType    Location
-----------------  ---------------  --------  ------------------------  -----------  ---------  ---------------  --------  ----------
-appcontaineryaml  myResourceGroup  Running   microsoft/aci-helloworld  10.0.0.5:80  Private    1.0 core/1.5 gb  Linux     westus
+Name              ResourceGroup    Status    Image                                       IP:ports     Network    CPU/Memory       OsType    Location
+----------------  ---------------  --------  ------------------------------------------  -----------  ---------  ---------------  --------  ----------
+appcontaineryaml  myResourceGroup  Running   mcr.microsoft.com/azuredocs/aci-helloworld  10.0.0.5:80  Private    1.0 core/1.5 gb  Linux     westus
 ```
 
 ## <a name="clean-up-resources"></a>Limpar recursos
@@ -310,7 +310,7 @@ Vários recursos de rede virtual e funcionalidades foram abordadas neste artigo,
 [aci-vnet-01]: ./media/container-instances-vnet/aci-vnet-01.png
 
 <!-- LINKS - External -->
-[aci-helloworld]: https://hub.docker.com/r/microsoft/aci-helloworld/
+[aci-helloworld]: https://hub.docker.com/_/microsoft-azuredocs-aci-helloworld
 [terms-of-use]: https://azure.microsoft.com/support/legal/preview-supplemental-terms/
 
 <!-- LINKS - Internal -->

@@ -9,16 +9,18 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 10/25/2018
 ms.author: hrasheed
-ms.openlocfilehash: 1a8c0ec8a7926d443963075fec576b9e2168d41f
-ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
+ms.openlocfilehash: 6c57b62d63be55abc51b85327957afffa5dd3a42
+ms.sourcegitcommit: 223604d8b6ef20a8c115ff877981ce22ada6155a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54052637"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58360202"
 ---
 # <a name="migrate-on-premises-apache-hadoop-clusters-to-azure-hdinsight---infrastructure-best-practices"></a>Migrar clusters do Apache Hadoop no local para o Azure HDInsight - práticas recomendadas de infraestrutura
 
 Este artigo fornece recomendações para a gestão da infraestrutura do Azure HDInsight clusters. É parte de uma série que fornece as práticas recomendadas para ajudar a migrar sistemas de Apache Hadoop no local para Azure HDInsight.
+
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 ## <a name="plan-for-hdinsight-cluster-capacity"></a>Planejamento de capacidade de cluster do HDInsight
 
@@ -49,7 +51,7 @@ Aplicativos ou componentes que estavam disponíveis em clusters no local, mas n�
 |Alluxio|IaaS  
 |Arcadia|IaaS 
 |Atlas|Nenhum (apenas HDP)
-|Datameer|Nó de extremidade do HDInsight
+|Datameer|HDInsight Edge node
 |Datastax (Cassandra)|IaaS (CosmosDB alternativa no Azure)
 |DataTorrent|IaaS 
 |Drill|IaaS 
@@ -65,8 +67,8 @@ Aplicativos ou componentes que estavam disponíveis em clusters no local, mas n�
 |SAS|IaaS 
 |Vertica|IaaS (SQL dw alternativa no Azure)
 |Tableau|IaaS 
-|Waterline|Nó de extremidade do HDInsight
-|StreamSets|Edge do HDInsight 
+|Waterline|HDInsight Edge node
+|StreamSets|HDInsight Edge 
 |Palantir|IaaS 
 |Sailpoint|Iaas 
 
@@ -109,14 +111,14 @@ Por exemplo, é alterado para configurações nos ficheiros de configuração `c
 # hive-site.xml configuration
 $hiveConfigValues = @{"hive.metastore.client.socket.timeout"="90"}
 
-$config = New—AzureRmHDInsightClusterConfig '
-    | Set—AzureRmHDInsightDefaultStorage
+$config = New—AzHDInsightClusterConfig '
+    | Set—AzHDInsightDefaultStorage
     —StorageAccountName "$defaultStorageAccountName.blob. core.windows.net" `
     —StorageAccountKey "defaultStorageAccountKey " `
-    | Add—AzureRmHDInsightConfigValues `
+    | Add—AzHDInsightConfigValues `
         —HiveSite $hiveConfigValues
 
-New—AzureRmHDInsightCluster `
+New—AzHDInsightCluster `
     —ResourceGroupName $existingResourceGroupName `
     —Cluster-Name $clusterName `
     —Location $location `
@@ -153,7 +155,7 @@ Dimensionamento do cluster pode ser automatizado através dos seguintes métodos
 ### <a name="powershell-cmdlet"></a>Cmdlet do PowerShell
 
 ```powershell
-Set-AzureRmHDInsightClusterSize -ClusterName <Cluster Name> -TargetInstanceCount <NewSize>
+Set-AzHDInsightClusterSize -ClusterName <Cluster Name> -TargetInstanceCount <NewSize>
 ```
 
 ### <a name="azure-cli"></a>CLI do Azure

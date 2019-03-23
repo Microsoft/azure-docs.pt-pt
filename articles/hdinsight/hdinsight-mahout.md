@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 04/23/2018
 ms.author: hrasheed
-ms.openlocfilehash: de88fbc2960be452df0c9067dca3715d9f6febb0
-ms.sourcegitcommit: 21466e845ceab74aff3ebfd541e020e0313e43d9
+ms.openlocfilehash: df8e15bbde5ad60d2e5cb90ba37892c135070f41
+ms.sourcegitcommit: 223604d8b6ef20a8c115ff877981ce22ada6155a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53744042"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58359301"
 ---
 # <a name="generate-movie-recommendations-by-using-apache-mahout-with-apache-hadoop-in-hdinsight-powershell"></a>Gerar recomendações de filmes com o Apache Mahout com o Apache Hadoop no HDInsight (PowerShell)
 
@@ -23,6 +23,8 @@ ms.locfileid: "53744042"
 Saiba como utilizar o [Apache Mahout](https://mahout.apache.org) biblioteca de machine learning com o Azure HDInsight para gerar recomendações de filmes. O exemplo neste documento utiliza o Azure PowerShell para executar tarefas de Mahout.
 
 ## <a name="prerequisites"></a>Pré-requisitos
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 * Um cluster do HDInsight baseado em Linux. Para obter informações sobre como criar um, consulte [começar a utilizar o Hadoop baseado em Linux no HDInsight][getstarted].
 
@@ -42,9 +44,9 @@ Uma das funções que é fornecida pelo Mahout é um motor de recomendação. Es
 
 O exemplo seguinte é um passo a passo simplificada de como funciona o processo de recomendação:
 
-* **Ocorrência conjunta**: Joe, Alice e Bob, todos os gostos *estrela personagens da guerra*, *The império Strikes volta*, e *retorno do Jedi*. Mahout determina que os utilizadores que, como qualquer um desses filmes também como os outros dois.
+* **co-occurrence**: Joe, Alice e Bob, todos os gostos *estrela personagens da guerra*, *The império Strikes volta*, e *retorno do Jedi*. Mahout determina que os utilizadores que, como qualquer um desses filmes também como os outros dois.
 
-* **Ocorrência conjunta**: Também gostaram BOB e Alice *o fantasma Menace*, *ataque dos Clones*, e *Revenge do Sith*. Mahout determina que os utilizadores que gostaram três filmes anteriores também como esses filmes.
+* **co-occurrence**: Também gostaram BOB e Alice *o fantasma Menace*, *ataque dos Clones*, e *Revenge do Sith*. Mahout determina que os utilizadores que gostaram três filmes anteriores também como esses filmes.
 
 * **Recomendação de semelhança**: Uma vez que o João gostou os primeiros três filmes, Mahout analisa filmes que outras pessoas com as preferências semelhante que gostou, mas Joe não já viu (gostou/classificados). Neste caso, recomenda a Mahout *o fantasma Menace*, *ataque dos Clones*, e *Revenge do Sith*.
 
@@ -141,10 +143,10 @@ Para evitar erros durante a execução de trabalhos de Mahout, elimine ficheiros
 ```powershell
 # Login to your Azure subscription
 # Is there an active Azure subscription?
-$sub = Get-AzureRmSubscription -ErrorAction SilentlyContinue
+$sub = Get-AzSubscription -ErrorAction SilentlyContinue
 if(-not($sub))
 {
-    Connect-AzureRmAccount
+    Connect-AzAccount
 }
 
 # Get cluster info
@@ -152,32 +154,32 @@ $clusterName = Read-Host -Prompt "Enter the HDInsight cluster name"
 $creds=Get-Credential -Message "Enter the login for the cluster"
 
 #Get the cluster info so we can get the resource group, storage, etc.
-$clusterInfo = Get-AzureRmHDInsightCluster -ClusterName $clusterName
+$clusterInfo = Get-AzHDInsightCluster -ClusterName $clusterName
 $resourceGroup = $clusterInfo.ResourceGroup
 $storageAccountName = $clusterInfo.DefaultStorageAccount.split('.')[0]
 $container = $clusterInfo.DefaultStorageContainer
-$storageAccountKey = (Get-AzureRmStorageAccountKey `
+$storageAccountKey = (Get-AzStorageAccountKey `
     -Name $storageAccountName `
 -ResourceGroupName $resourceGroup)[0].Value
 
 #Create a storage context and upload the file
-$context = New-AzureStorageContext `
+$context = New-AzStorageContext `
     -StorageAccountName $storageAccountName `
     -StorageAccountKey $storageAccountKey
 
 #Azure PowerShell can't delete blobs using wildcard,
 #so have to get a list and delete one at a time
 # Start with the output
-$blobs = Get-AzureStorageBlob -Container $container -Context $context -Prefix "example/out"
+$blobs = Get-AzStorageBlob -Container $container -Context $context -Prefix "example/out"
 foreach($blob in $blobs)
 {
-    Remove-AzureStorageBlob -Blob $blob.Name -Container $container -context $context
+    Remove-AzStorageBlob -Blob $blob.Name -Container $container -context $context
 }
 # Next the temp files
-$blobs = Get-AzureStorageBlob -Container $container -Context $context -Prefix "example/temp"
+$blobs = Get-AzStorageBlob -Container $container -Context $context -Prefix "example/temp"
 foreach($blob in $blobs)
 {
-    Remove-AzureStorageBlob -Blob $blob.Name -Container $container -context $context
+    Remove-AzStorageBlob -Blob $blob.Name -Container $container -context $context
 }
 ```
 

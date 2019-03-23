@@ -12,12 +12,12 @@ ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: e4a79d7528f2e814e6370a5ead7d77a19057ebbb
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: d8790eac93b288d5d5254f188fe5c901b5d5df14
+ms.sourcegitcommit: 87bd7bf35c469f84d6ca6599ac3f5ea5545159c9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58311276"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58351495"
 ---
 # <a name="media-services-concepts"></a>Conceitos de serviços de multimédia
 
@@ -102,6 +102,8 @@ Para ver o progresso da tarefa, deve usar **Event Grid**. Serviços de multiméd
 
 - [Processamento de eventos do Event Grid](reacting-to-media-services-events.md)
 - [Schemas](media-services-event-schemas.md)
+- [Métricas e registos de diagnóstico](media-services-metrics-diagnostic-logs.md)
+- [Esquemas de registos de diagnóstico](media-services-diagnostic-logs-schema.md)
 
 ## <a name="player-clients"></a>Clientes de leitores
 

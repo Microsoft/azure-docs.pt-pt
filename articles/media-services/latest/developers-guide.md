@@ -13,15 +13,15 @@ ms.devlang: multiple
 ms.topic: overview
 ms.tgt_pltfrm: multiple
 ms.workload: media
-ms.date: 02/22/2019
+ms.date: 03/20/2019
 ms.author: juliako
 ms.custom: ''
-ms.openlocfilehash: b9c89b6cb6dbc6cb217be671eb0e52c0416811ed
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: cda6c9cd1f9c8b9305349f0904aeb744ba373711
+ms.sourcegitcommit: 87bd7bf35c469f84d6ca6599ac3f5ea5545159c9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57889850"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58350254"
 ---
 # <a name="start-developing-with-media-services-v3-api-using-sdkstools"></a>Comece a desenvolver com os serviços de multimédia v3 API usando ferramentas/SDKs
 
@@ -34,6 +34,7 @@ Este tópico fornece ligações para os SDKs, ferramentas, documentação. Ele t
 Para começar a desenvolver em relação a serviços de multimédia, terá de:
 
 - Uma subscrição ativa do Azure. Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) antes de começar.
+- [Saiba mais sobre os conceitos fundamentais](concepts-overview.md)
 - [Criar uma conta de serviços de multimédia](create-account-cli-how-to.md)
 
 ## <a name="start-developing"></a>Começar a desenvolver

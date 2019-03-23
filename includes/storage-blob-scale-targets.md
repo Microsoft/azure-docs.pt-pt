@@ -2,16 +2,16 @@
 author: tamram
 ms.service: storage
 ms.topic: include
-ms.date: 10/26/2018
+ms.date: 3/23/2019
 ms.author: tamram
-ms.openlocfilehash: 2f46d1ddc8eeefd7d05c51c1d0640f69774746c4
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: c4c62876ac2483851a1f60835eeee17b4ae47f13
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57554162"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58395516"
 ---
-| Recurso | Destino |
+| Recurso | Destino        |
 |----------|---------------|
 | Tamanho máximo do contentor de BLOBs único | Mesmo que a capacidade das contas de armazenamento máximo |
 | Número máximo de blocos num bloco de BLOBs ou blob de acréscimo | 50 000 blocos |
@@ -21,4 +21,3 @@ ms.locfileid: "57554162"
 | Tamanho máximo de um blob de acréscimo | 50 000 x 4 MiB (aproximadamente, 195 GiB) |
 | Tamanho máximo de um blob de página | 8 TiB |
 | Número máximo de políticas de acesso armazenadas por contentor de BLOBs | 5 |
-| Taxa de transferência de destino para o blob único | Até 60 MiB por segundo, ou até 500 pedidos por segundo |

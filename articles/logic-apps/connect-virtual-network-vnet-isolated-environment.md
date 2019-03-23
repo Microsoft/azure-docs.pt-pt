@@ -9,12 +9,12 @@ ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: article
 ms.date: 03/12/2019
-ms.openlocfilehash: 8bbbe7a924c98c9628ce967892177599a1d13017
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 9cb3abff10482ec7e58b4b049f051e99178cb742
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57854998"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58371991"
 ---
 # <a name="connect-to-azure-virtual-networks-from-azure-logic-apps-by-using-an-integration-service-environment-ise"></a>Ligar a redes virtuais do Azure do Azure Logic Apps com um ambiente de serviço de integração (ISE)
 
@@ -46,7 +46,14 @@ Para obter mais informações sobre os ambientes de serviço de integração, co
 
 * Uma [rede virtual do Azure](../virtual-network/virtual-networks-overview.md). Se não tiver uma rede virtual, saiba como [criar uma Azure virtual network](../virtual-network/quick-create-portal.md). 
 
-  * A rede virtual tem de ter quatro *vazio* sub-redes para a implantação e criação de recursos no seu ISE. Pode criar estas sub-redes com antecedência, ou pode aguardar até que criar seu ISE onde pode criar sub-redes, ao mesmo tempo. Saiba mais sobre [requisitos de sub-rede](#create-subnet).
+  * A rede virtual tem de ter quatro *vazio* sub-redes para a implantação e criação de recursos no seu ISE. Pode criar estas sub-redes com antecedência, ou pode aguardar até que criar seu ISE onde pode criar sub-redes, ao mesmo tempo. Saiba mais sobre [requisitos de sub-rede](#create-subnet). 
+  
+    > [!NOTE]
+    > Se usar [ExpressRoute](../expressroute/expressroute-introduction.md), que fornece uma ligação privada com serviços cloud da Microsoft, deve [adicione a seguinte rota a cada sub-rede](../virtual-network/virtual-network-manage-subnet.md) utilizado pelo seu ISE. Se usar uma tabela de rotas com as sub-redes [adicionar a rota seguinte à sua tabela de rota](../virtual-network/manage-route-table.md):
+    > 
+    > **Nome**: D3655BASE-route<br>
+    > **Prefixo de endereço**: 0.0.0.0/0<br>
+    > **Do próximo salto**: Internet
 
   * Certifique-se de que a rede virtual [disponibiliza estas portas](#ports) para que seu ISE funciona corretamente e permanece acessível.
 
@@ -138,6 +145,12 @@ Na lista de resultados, selecione **o ambiente de serviço de integração (pré
      * `10.0.0.0/28` tem apenas 16 endereços e é muito pequeno porque 2<sup>(32-28)</sup> é 2<sup>4</sup> ou 16.
 
      Para saber mais sobre o cálculo de endereços, veja [blocos CIDR de IPv4](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing#IPv4_CIDR_blocks).
+
+   * Se usar [ExpressRoute](../expressroute/expressroute-introduction.md), não se esqueça [adicione a seguinte rota a cada sub-rede](../virtual-network/virtual-network-manage-subnet.md) utilizado pelo seu ISE. Se usar uma tabela de rotas com as sub-redes [adicionar a rota seguir a essa tabela de rota](../virtual-network/manage-route-table.md):
+
+     **Nome**: D3655BASE-route<br>
+     **Prefixo de endereço**: 0.0.0.0/0<br>
+     **Do próximo salto**: Internet
 
    1. Sob o **sub-redes** lista, escolha **configuração de sub-rede de gerir**.
 

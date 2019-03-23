@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7f508475166346c56b3bd0c8607c27beb7aba66c
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: 0abf2eca52616638f0c4dce89691c0d4f7875106
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58316478"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58371533"
 ---
 # <a name="securing-cloud-resources-with-azure-multi-factor-authentication-and-ad-fs"></a>Proteger recursos da nuvem com o Multi-Factor Authentication do Azure e o AD FS
 
@@ -30,15 +30,15 @@ Para proteger o recurso da cloud, configure uma regra de afirmações para que o
 2. À esquerda, selecione **Confianças de Entidades Confiadoras**.
 3. Clique com o botão direito do rato na **Plataforma de Identidade do Microsoft Office 365** e selecione **Editar Regras de Afirmação**.
 
-   ![Nuvem](./media/howto-mfa-adfs/trustedip1.png)
+   ![Consola ADFS - confianças de entidades Confiadoras](./media/howto-mfa-adfs/trustedip1.png)
 
 4. Em Regras de Transformação da Emissão, clique em **Adicionar Regra**.
 
-   ![Nuvem](./media/howto-mfa-adfs/trustedip2.png)
+   ![Editar regras de transformação de emissão](./media/howto-mfa-adfs/trustedip2.png)
 
 5. No Assistente para Adicionar Regra de Afirmação de Transformação, selecione **Passar ou Filtrar uma Afirmação de Entrada** no menu pendente e clique em **Seguinte**.
 
-   ![Nuvem](./media/howto-mfa-adfs/trustedip3.png)
+   ![Adicionar Assistente de regra de afirmação de transformação](./media/howto-mfa-adfs/trustedip3.png)
 
 6. Dê um nome à sua regra. 
 7. Selecione **Referências de Métodos de Autenticação** como o tipo de Afirmação de entrada.
@@ -58,15 +58,15 @@ A primeira coisa a fazer é configurar as afirmações do AD FS. Crie duas regra
 
 1. Abra a Gestão do AD FS.
 2. À esquerda, selecione **Confianças de Entidades Confiadoras**.
-3. Clique com o botão direito do rato na **Plataforma de Identidade do Microsoft Office 365** e selecione **Editar Regras de Afirmação**
-   ![Cloud](./media/howto-mfa-adfs/trustedip1.png)
-4. Em Regras de Transformação da Emissão, clique em **Adicionar Regra.**
-   ![Cloud](./media/howto-mfa-adfs/trustedip2.png)
+3. Com o botão direito no **plataforma de identidade do Microsoft Office 365** e selecione **editar regras de afirmação... ** 
+    ![ADFS Console – editar regras de afirmação](./media/howto-mfa-adfs/trustedip1.png)
+4. Em regras de transformação de emissão, clique em **Adicionar regra.** 
+    ![Adicionar uma regra de afirmação](./media/howto-mfa-adfs/trustedip2.png)
 5. No Assistente para Adicionar Regra de Afirmação de Transformação, selecione **Passar ou Filtrar uma Afirmação de Entrada** no menu pendente e clique em **Seguinte**.
-   ![Cloud](./media/howto-mfa-adfs/trustedip3.png)
+   ![Assistente para Adicionar Regra de Afirmação de Transformação](./media/howto-mfa-adfs/trustedip3.png)
 6. Na caixa junto ao nome da regra de afirmação, atribua um nome à regra. Por exemplo: InsideCorpNet.
 7. No menu pendente, junto ao tipo de afirmação de entrada, selecione **Dentro da Rede da Empresa**.
-   ![Cloud](./media/howto-mfa-adfs/trustedip4.png)
+   ![Declaração de adição dentro da rede empresarial](./media/howto-mfa-adfs/trustedip4.png)
 8. Clique em **Concluir**.
 9. Em Regras de Transformação da Emissão, clique em **Adicionar Regra**.
 10. No Assistente para Adicionar Regra de Afirmação de Transformação, selecione **Enviar Afirmações Utilizando uma Regra Personalizada** no menu pendente e clique em **Seguinte**.
@@ -75,7 +75,7 @@ A primeira coisa a fazer é configurar as afirmações do AD FS. Crie duas regra
 
         c:[Type == "http://schemas.microsoft.com/2014/03/psso"]
             => issue(claim = c);
-    ![Nuvem](./media/howto-mfa-adfs/trustedip5.png)
+    ![Criar uma afirmação personalizada para manter os utilizadores com sessão iniciados](./media/howto-mfa-adfs/trustedip5.png)
 13. Clique em **Concluir**.
 14. Clique em **Aplicar**.
 15. Clique em **OK**.

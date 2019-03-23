@@ -12,12 +12,12 @@ ms.topic: tutorial
 ms.date: 12/21/2018
 ms.author: pryerram
 ms.custom: mvc
-ms.openlocfilehash: 18c95978af3ce1e3451cac84db367f55acd392b4
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 2c2bb3e4064294bb8d4a63b009069fd6834ca31e
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57455994"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58370895"
 ---
 # <a name="tutorial-use-azure-key-vault-with-an-azure-web-app-in-net"></a>Tutorial: Utilizar o Azure Key Vault com uma aplicação web do Azure no .NET
 
@@ -158,31 +158,20 @@ Também pode ver este vídeo:
             bool retry = false;
             try
             {
-                /* The next four lines of code show you how to use AppAuthentication library to fetch secrets from your key vault*/
+                /* The next four lines of code show you how to use AppAuthentication library to fetch secrets from your key vault */
                 AzureServiceTokenProvider azureServiceTokenProvider = new AzureServiceTokenProvider();
                 KeyVaultClient keyVaultClient = new KeyVaultClient(new KeyVaultClient.AuthenticationCallback(azureServiceTokenProvider.KeyVaultTokenCallback));
                 var secret = await keyVaultClient.GetSecretAsync("https://<YourKeyVaultName>.vault.azure.net/secrets/AppSecret")
                         .ConfigureAwait(false);
                 Message = secret.Value;
-
-                /* The following *do while* logic is to handle throttling errors thrown by Azure Key Vault. It shows how to do exponential backoff, which is the recommended client side throttling*/
-                do
-                {
-                    long waitTime = Math.Min(getWaitTime(retries), 2000000);
-                    secret = await keyVaultClient.GetSecretAsync("https://<YourKeyVaultName>.vault.azure.net/secrets/AppSecret")
-                        .ConfigureAwait(false);
-                    retry = false;
-                } 
-                while(retry && (retries++ < 10));
             }
+            /* If you have throttling errors see this tutorial https://docs.microsoft.com/azure/key-vault/tutorial-net-create-vault-azure-web-app */
             /// <exception cref="KeyVaultErrorException">
             /// Thrown when the operation returned an invalid status code
             /// </exception>
             catch (KeyVaultErrorException keyVaultException)
             {
                 Message = keyVaultException.Message;
-                if((int)keyVaultException.Response.StatusCode == 429)
-                    retry = true;
             }
         }
 

@@ -8,12 +8,12 @@ ms.service: container-instances
 ms.topic: article
 ms.date: 11/29/2018
 ms.author: danlep
-ms.openlocfilehash: f35b2cd8d360bd46913eaa34b91e1fd19bc1ba9b
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: cc47ca07a843daf5cc35d23b838761166d39bdcc
+ms.sourcegitcommit: 87bd7bf35c469f84d6ca6599ac3f5ea5545159c9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57533600"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58351376"
 ---
 # <a name="deploy-container-instances-that-use-gpu-resources"></a>Implementar instâncias de contentor que utilizam recursos GPU
 
@@ -179,7 +179,7 @@ az group deployment create --resource-group myResourceGroup --template-file gpud
 A conclusão da implementação demora vários minutos. Em seguida, o contentor é iniciado e executa a tarefa do TensorFlow. Executar o [registos de contentor az] [ az-container-logs] comando para ver a saída de registo:
 
 ```azurecli
-az container logs --resource-group myResourceGroup --name gpucontainergroup --container-name gpucontainer
+az container logs --resource-group myResourceGroup --name gpucontainergrouprm --container-name gpucontainer
 ```
 
 Saída:

@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/20/2019
+ms.date: 03/23/2019
 ms.author: sethm
 ms.reviewer: adepue
-ms.lastreviewed: 03/20/2019
-ms.openlocfilehash: 6f8cf8a597bc50bb52818968c6f6ea0e7a6941a4
-ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
+ms.lastreviewed: 03/23/2019
+ms.openlocfilehash: fbf9f4aa79af32cf0e73f4e383130c565de16f53
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58225336"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58372375"
 ---
 # <a name="azure-stack-1902-update"></a>Atualização de 1902 de pilha do Azure
 
@@ -51,8 +51,8 @@ Correções de pilha do Azure só são aplicáveis a sistemas integrados do Azur
 
 - **1809**: [KB 4481548 – o Azure Stack correção 1.1809.12.114](https://support.microsoft.com/help/4481548/)
 - **1811**: Sem correções atual disponível.
-- **1901**: [KB 4481548 – o Azure Stack correção 1.1901.2.103](https://support.microsoft.com/help/4494720)
-- **1902**: [KB 4481548 – o Azure Stack correção 1.1902.2.73](https://support.microsoft.com/help/4494719)
+- **1901**: [KB 4495662 – o Azure Stack correção 1.1901.3.105](https://support.microsoft.com/help/4495662)
+- **1902**: [KB 4494719 – o Azure Stack correção 1.1902.2.73](https://support.microsoft.com/help/4494719)
 
 ## <a name="prerequisites"></a>Pré-requisitos
 

@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 12/29/2018
 ms.author: hrasheed
-ms.openlocfilehash: 40bfa8317effd25cf3d9aa28b8f63e292213a83b
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: 8b65cb05643ffca3cbf25a207dce683d2d60fd64
+ms.sourcegitcommit: 223604d8b6ef20a8c115ff877981ce22ada6155a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54425987"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58361579"
 ---
 # <a name="tutorial-create-on-demand-apache-hadoop-clusters-in-hdinsight-using-azure-data-factory"></a>Tutorial: Criar clusters do Apache Hadoop a pedido no HDInsight com o Azure Data Factory
 [!INCLUDE [selector](../../includes/hdinsight-create-linux-cluster-selector.md)]
@@ -37,7 +37,9 @@ Se não tiver uma subscrição do Azure, [crie uma conta gratuita](https://azure
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-- Azure PowerShell. Para obter instruções, consulte [instalar e configurar o Azure PowerShell](https://docs.microsoft.com/powershell/azure/azurerm/install-azurerm-ps?view=azurermps-5.7.0).
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
+- Azure PowerShell. Para obter instruções, consulte [instalar e configurar o Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-az-ps).
 
 - Um principal de serviço do Azure Active Directory. Depois de criar o principal de serviço, certifique-se obter o **ID da aplicação** e **chave de autenticação** com as instruções no artigo ligado. Vai precisar destes valores mais tarde neste tutorial. Além disso, certifique-se de que o principal de serviço é um membro do *contribuinte* função da subscrição ou o grupo de recursos no qual o cluster é criado. Para obter instruções obter os valores necessários e atribua as funções certas, consulte [criar um Azure Active Directory, principal de serviço](../active-directory/develop/howto-create-service-principal-portal.md).
 
@@ -75,7 +77,7 @@ $destContainerName = "adfgetstarted" # don't change this value.
 ####################################
 #region - Connect to Azure subscription
 Write-Host "`nConnecting to your Azure subscription ..." -ForegroundColor Green
-Login-AzureRmAccount
+Login-AzAccount
 #endregion
 
 ####################################
@@ -85,25 +87,25 @@ Login-AzureRmAccount
 #region - create Azure resources
 Write-Host "`nCreating resource group, storage account and blob container ..." -ForegroundColor Green
 
-New-AzureRmResourceGroup -Name $resourceGroupName -Location $location
-New-AzureRmStorageAccount `
+New-AzResourceGroup -Name $resourceGroupName -Location $location
+New-AzStorageAccount `
     -ResourceGroupName $resourceGroupName `
     -Name $destStorageAccountName `
     -type Standard_LRS `
     -Location $location
 
-$destStorageAccountKey = (Get-AzureRmStorageAccountKey `
+$destStorageAccountKey = (Get-AzStorageAccountKey `
     -ResourceGroupName $resourceGroupName `
     -Name $destStorageAccountName)[0].Value
 
-$sourceContext = New-AzureStorageContext `
+$sourceContext = New-AzStorageContext `
     -StorageAccountName $sourceStorageAccountName `
     -Anonymous
-$destContext = New-AzureStorageContext `
+$destContext = New-AzStorageContext `
     -StorageAccountName $destStorageAccountName `
     -StorageAccountKey $destStorageAccountKey
 
-New-AzureStorageContainer -Name $destContainerName -Context $destContext
+New-AzStorageContainer -Name $destContainerName -Context $destContext
 #endregion
 
 ####################################
@@ -112,16 +114,16 @@ New-AzureStorageContainer -Name $destContainerName -Context $destContext
 #region - copy files
 Write-Host "`nCopying files ..." -ForegroundColor Green
 
-$blobs = Get-AzureStorageBlob `
+$blobs = Get-AzStorageBlob `
     -Context $sourceContext `
     -Container $sourceContainerName
 
-$blobs|Start-AzureStorageBlobCopy `
+$blobs|Start-AzStorageBlobCopy `
     -DestContext $destContext `
     -DestContainer $destContainerName
 
 Write-Host "`nCopied files ..." -ForegroundColor Green
-Get-AzureStorageBlob -Context $destContext -Container $destContainerName
+Get-AzStorageBlob -Context $destContext -Container $destContainerName
 #endregion
 
 Write-host "`nYou will use the following values:" -ForegroundColor Green
@@ -239,8 +241,8 @@ Nesta secção, vai criar dois serviços ligados na sua fábrica de dados.
 
     | Propriedade | Descrição |
     | --- | --- |
-    | Nome | Introduza um nome para o serviço ligado do HDInsight |
-    | Tipo | Selecione **HDInsight a pedido** |
+    | Name | Introduza um nome para o serviço ligado do HDInsight |
+    | Type | Selecione **HDInsight a pedido** |
     | Serviço Ligado do Storage do Azure | Selecione o serviço ligado de armazenamento que criou anteriormente. |
     | Tipo de cluster | Selecione **hadoop** |
     | Time to live | Forneça a duração para o qual pretende que o cluster do HDInsight para estar disponível antes de ser eliminado automaticamente.|

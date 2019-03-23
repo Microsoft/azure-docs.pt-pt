@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 03/14/2019
 ms.reviewer: vitalyg
 ms.author: cithomas
-ms.openlocfilehash: 83c286be6429376d4d0b4009b18c5f751a4b158f
-ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
+ms.openlocfilehash: cd0369f45529082ac929b1d87608204033cd78f6
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58226696"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58370521"
 ---
 # <a name="sampling-in-application-insights"></a>Amostragem no Application Insights
 
@@ -517,7 +517,14 @@ O lado do cliente (JavaScript) SDK participa de amostragem de taxa fixa em conju
 
 *Existem determinados eventos raros, que quero ver sempre. Como posso obtê-los após o módulo de amostragem?*
 
-* Inicialize uma instância separada do TelemetryClient com um novo TelemetryConfiguration (não a predefinição ativa). Usá-lo para enviar seus eventos raros.
+* A melhor forma de conseguir isso é escrever um personalizado [TelemetryProcessor](../../azure-monitor/app/api-filtering-sampling.md#filtering), que define o `SamplingPercentage` para 100 no item de telemetria pretende retida, conforme mostrado abaixo. Isto garante que todas as técnicas de amostragem irão ignorar este item de quaisquer considerações de amostragem.
+
+```csharp
+    if(somecondition)
+    {
+        ((ISupportSampling)item).SamplingPercentage = 100;
+    }
+```
 
 ## <a name="next-steps"></a>Passos Seguintes
 

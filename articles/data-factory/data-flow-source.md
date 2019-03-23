@@ -7,12 +7,12 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 02/12/2019
-ms.openlocfilehash: 20491981cb02e428ff4114b9456d74b0de651be8
-ms.sourcegitcommit: dd1a9f38c69954f15ff5c166e456fda37ae1cdf2
+ms.openlocfilehash: 54302f97913fd01dc8f8e4a8d987a407c8bdf9a7
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57569030"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58369178"
 ---
 # <a name="mapping-data-flow-source-transformation"></a>Transformação de origem de fluxo de dados de mapeamento
 
@@ -63,7 +63,7 @@ No separador de otimização para a transformação de origem, verá um tipo de 
 
 A criação de partições de dados na sua origem de BD SQL é opcional, mas é útil para consultas grandes. Tem duas opções:
 
-### <a name="column"></a>colunas
+### <a name="column"></a>Coluna
 
 Selecione uma coluna para a partição da sua tabela de origem. Também tem de definir o número máximo de ligações.
 
@@ -74,7 +74,7 @@ Opcionalmente, pode optar por ligações com base numa consulta de partição. P
 ## <a name="source-file-management"></a>Gestão de ficheiros de origem
 ![Novas definições de origem](media/data-flow/source2.png "novas definições")
 
-* Caminho de caráter universal para escolher uma série de ficheiros da sua pasta de origem que correspondem a um padrão. Isto irá substituir qualquer ficheiro que definiu na sua definição de conjunto de dados.
+* Caminho de carateres universais para recolher uma série de ficheiros da sua pasta de origem que correspondem a um padrão. Isto irá substituir qualquer ficheiro que definiu na sua definição de conjunto de dados.
 * Lista de ficheiros. Mesmo que um conjunto de ficheiros. Aponte para um arquivo de texto que criar uma lista de ficheiros de caminho relativo a processar.
 * Coluna para armazenar o nome de ficheiro irá armazenar o nome do ficheiro da origem numa coluna nos seus dados. Introduza um novo nome aqui para armazenar a cadeia de caracteres de nome de ficheiro.
 * Após a conclusão (pode optar por não fazer nada com o ficheiro de origem depois do fluxo de dados é executado, elimine o ficheiro ou ficheiros de origem ou mover os ficheiros de origem. Os caminhos para mudança são caminhos relativos.
@@ -83,7 +83,7 @@ Opcionalmente, pode optar por ligações com base numa consulta de partição. P
 
 Quando estiver a utilizar o BD SQL do Azure ou o Azure SQL DW da sua origem, terá opções adicionais.
 
-* Consulta: Introduza uma consulta SQL para a sua origem. Definir uma consulta irá substituir qualquer tabela que escolheu no conjunto de dados. Tenha em atenção que Order By não são suportadas cláusulas aqui.
+* Consulta: Introduza uma consulta SQL para a sua origem. Definir uma consulta irá substituir qualquer tabela que escolheu no conjunto de dados. Tenha em atenção que Order By não são suportadas cláusulas aqui. No entanto, pode, definir uma instrução SELECT FROM completa aqui.
 
 * Tamanho do lote: Introduza um tamanho de lote para colocar partes de dados grandes em leituras de tamanho de lote.
 

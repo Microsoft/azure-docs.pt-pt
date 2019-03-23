@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry, michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e6bd67e500756fe5a7ba5ee29db88b9aedb103e4
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: 3e21f7a67b11caf0180959de68d698f0ff4a1af1
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58315985"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58371864"
 ---
 # <a name="what-are-authentication-methods"></a>Quais são os métodos de autenticação?
 
@@ -155,13 +155,13 @@ Os utilizadores podem ter uma combinação de até 5 tokens de hardware OATH ou 
 
 OATH é um padrão aberto que especifica como uma única vez códigos de palavra-passe (OTP) são gerados. O Azure AD irá suportar a utilização de tokens OATH-TOTP SHA-1 da gama 30 segundos ou 60 segundos. Os clientes podem obter estes tokens do fornecedor de sua preferência. Tenha em atenção que as chaves secretas são limitadas a 128 carateres que podem não ser compatíveis com todos os tokens.
 
-![OATH tokens a carregar para o painel de tokens OATH de servidor de MFA no portal do Azure](media/concept-authentication-methods/oath-tokens-azure-ad.png)
+![OATH tokens a carregar para o painel de tokens OATH de servidor de MFA](media/concept-authentication-methods/oath-tokens-azure-ad.png)
 
 Tokens de hardware OATH estão a ser suportados como parte da pré-visualização pública. Para obter mais informações sobre pré-visualizações, consulte [termos de utilização suplementares para pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)
 
 Depois de tokens são adquiridos têm de ser carregados num formato de ficheiro de valores separados por vírgulas (CSV), incluindo o UPN, número de série, chave secreta, intervalo de tempo, fabricante e modelo do exemplo abaixo mostra.
 
-```
+```csv
 upn,serial number,secret key,timeinterval,manufacturer,model
 Helga@contoso.com,1234567,1234567890abcdef1234567890abcdef,60,Contoso,HardwareKey
 ```

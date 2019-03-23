@@ -14,19 +14,21 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 01/09/2019
 ms.author: pbutlerm
-ms.openlocfilehash: 7b4ee33d3e231dc59ce1d7b4ae6337efb11e96bc
-ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
+ms.openlocfilehash: f26597022b89bcd113ee250db75a842c634273eb
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54355856"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58371388"
 ---
 # <a name="delete-azure-marketplace-and-appsource-offers-or-skus"></a>Eliminar ofertas do Azure Marketplace e AppSource ou SKUs
 
 Por vários motivos, pode decidir retirar a oferta do seu Microsoft marketplace, que pode assumir duas formas:
 
 - *Remoção da oferta* garante que os novos clientes já não podem comprar ou implementar a sua oferta, mas não afeta os clientes existentes, quem tem de suportar, de acordo com seu contrato de licença e leis pertinentes. 
-- *Cessação da oferta* é o processo de extinção do serviço e/ou contrato de licenciamento entre e seus clientes existentes. Documentação de orientação e as políticas relacionadas com a remoção e extinção da oferta são regidas pelos [contrato de publicador do Microsoft Marketplace](https://go.microsoft.com/fwlink/?LinkID=699560) (secção 7) e o [políticas de participação](https://azure.microsoft.com/support/legal/marketplace/participation-policies/) (secção 6.2). 
+- *Cessação da oferta* é o processo de extinção do serviço e/ou contrato de licenciamento entre e seus clientes existentes. 
+
+Documentação de orientação e as políticas relacionadas com a remoção e extinção da oferta são regidas pelos [contrato de publicador do Microsoft Marketplace](https://go.microsoft.com/fwlink/?LinkID=699560) (secção 7) e o [políticas de participação](https://azure.microsoft.com/support/legal/marketplace/participation-policies/) (secção [ Remoção e suspensão da oferta](https://docs.microsoft.com/en-us/legal/marketplace/participation-policy#offering-suspension-and-removal)). 
 
 Fala este artigo sobre os diferentes suportadas cenários de exclusão e os passos necessários para executar cada um deles.  
 

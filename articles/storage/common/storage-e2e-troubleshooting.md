@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 03/15/2017
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: ac30888c9f54c5dc88cb72aeec0f3db81d5a99dc
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: f88a560d4fa819a055534530ddc0862e4aa330fe
+ms.sourcegitcommit: 87bd7bf35c469f84d6ca6599ac3f5ea5545159c9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58004948"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58351886"
 ---
 # <a name="end-to-end-troubleshooting-using-azure-storage-metrics-and-logging-azcopy-and-message-analyzer"></a>Resolução de problemas de ponto a ponto com métricas de armazenamento do Azure e o Registro em log, o AzCopy e o analisador de mensagens
 [!INCLUDE [storage-selector-portal-e2e-troubleshooting](../../../includes/storage-selector-portal-e2e-troubleshooting.md)]
@@ -29,12 +29,12 @@ Este tutorial disponibiliza uma exploração prática de um cenário de resoluç
 Para resolver problemas de aplicativos cliente usando o armazenamento do Microsoft Azure, pode utilizar uma combinação de ferramentas para determinar quando ocorreu um problema e o que pode ser a causa do problema. Estas ferramentas incluem:
 
 * **Análise de armazenamento do Azure**. [Análise de armazenamento do Azure](/rest/api/storageservices/Storage-Analytics) fornece métricas e registo do armazenamento do Azure.
-  
+
   * **Métricas de armazenamento** controla as métricas de transação e métricas de capacidade para a sua conta de armazenamento. Uso de métricas, pode determinar o desempenho do seu aplicativo, de acordo com uma variedade de medidas diferentes. Ver [esquema de tabela de métricas de análise de armazenamento](/rest/api/storageservices/Storage-Analytics-Metrics-Table-Schema) para obter mais informações sobre os tipos de métricas rastreadas pela análise de armazenamento.
   * **Registo de armazenamento** registos de cada solicitação para os serviços de armazenamento do Azure para um registo do lado do servidor. O registo de controla dados detalhados para cada pedido, incluindo a operação realizada, o estado da operação e informações de latência. Ver [formato de registo de análise de armazenamento](/rest/api/storageservices/Storage-Analytics-Log-Format) para obter mais informações sobre os dados de solicitação e resposta, que são escritos nos registos pela análise de armazenamento.
 
 * **Portal do Azure**. Pode configurar métricas e registo para a sua conta de armazenamento na [portal do Azure](https://portal.azure.com). Também pode ver tabelas e gráficos que mostram como seu aplicativo está sendo executada ao longo do tempo e configurar alertas para notificá-lo se seu aplicativo executa de forma diferente do que o esperado para uma métrica especificada.
-  
+
     Ver [monitorizar uma conta de armazenamento no portal do Azure](storage-monitor-storage-account.md) para obter informações sobre como configurar a monitorização no portal do Azure.
 * **AzCopy**. Os registos do servidor do armazenamento do Azure são armazenados como blobs, pelo que pode utilizar o AzCopy para copiar os blobs de registo para um diretório local para análise com o Microsoft Message Analyzer. Ver [transferir dados com o utilitário de linha de comandos do AzCopy](storage-use-azcopy.md) para obter mais informações sobre o AzCopy.
 * **Microsoft Message Analyzer**. Analisador de mensagens é uma ferramenta que consome os ficheiros de registo e apresenta dados de registo num formato visual que torna mais fácil para os dados de registo de grupo, pesquisa e filtro em conjuntos útil que pode usar para analisar os erros e problemas de desempenho. Ver [operacional Guia do analisador de mensagens Microsoft](https://technet.microsoft.com/library/jj649776.aspx) para obter mais informações sobre o analisador de mensagens.
@@ -79,51 +79,7 @@ Neste tutorial, vamos utilizar Message Analyzer para trabalhar com três tipos d
 * O **registo de rastreio de rede HTTP**, que recolhe dados sobre HTTP/HTTPS solicitação e resposta de dados, incluindo para operações de armazenamento do Azure. Neste tutorial, iremos gerar o rastreio de rede por meio do analisador de mensagens.
 
 ### <a name="configure-server-side-logging-and-metrics"></a>Configurar o registo do lado do servidor e as métricas
-Em primeiro lugar, precisamos configurar o registo de armazenamento do Azure e as métricas, para que tenhamos que os dados da aplicação cliente para analisar. Pode configurar o registo e as métricas de diversas formas - através da [portal do Azure](https://portal.azure.com), com o PowerShell, ou por meio de programação. Ver [ativar as métricas de armazenamento e visualização de dados de métricas](https://msdn.microsoft.com/library/azure/dn782843.aspx) e [ativar o registo de armazenamento e acesso a dados de registo](https://msdn.microsoft.com/library/azure/dn782840.aspx) no MSDN para obter detalhes sobre como configurar o registo e as métricas.
-
-**Através do portal do Azure**
-
-Para configurar o registo e métricas para o seu armazenamento de contas utilizando o [portal do Azure](https://portal.azure.com), siga as instruções em [monitorizar uma conta de armazenamento no portal do Azure](storage-monitor-storage-account.md).
-
-> [!NOTE]
-> Não é possível definir a métrica de minuto com o portal do Azure. No entanto, recomendamos que defini-los para efeitos deste tutorial e para investigar problemas de desempenho com a sua aplicação. Pode definir a métrica de minuto com o PowerShell, conforme mostrado abaixo, ou usando programaticamente a biblioteca de cliente de armazenamento.
-> 
-> Tenha em atenção que o portal do Azure não é possível apresentar a métrica de minuto, apenas as métricas por hora.
-> 
-> 
-
-**Via PowerShell**
-
-[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
-
-Para começar a utilizar com o PowerShell para o Azure, veja [como instalar e configurar o Azure PowerShell](/powershell/azure/overview).
-
-1. Utilize o [Add-AzAccount](/powershell/module/servicemanagement/azure/add-azureaccount) cmdlet para adicionar a sua conta de utilizador do Azure para a janela do PowerShell:
-   
-    ```powershell
-    Add-AzAccount
-    ```
-
-2. Na **iniciar sessão no Microsoft Azure** janela, escreva o endereço de e-mail e a palavra-passe associada à sua conta. O Azure autentica e guarda as informações das credenciais e, em seguida, fecha a janela.
-3. Defina a conta de armazenamento predefinida para a conta de armazenamento que está a utilizar para o tutorial ao executar estes comandos na janela do PowerShell:
-   
-    ```powershell
-    $SubscriptionName = 'Your subscription name'
-    $StorageAccountName = 'yourstorageaccount'
-    Set-AzSubscription -CurrentStorageAccountName $StorageAccountName -SubscriptionName $SubscriptionName
-    ```
-
-4. Ative o registo de armazenamento para o serviço de BLOBs:
-   
-    ```powershell
-    Set-AzStorageServiceLoggingProperty -ServiceType Blob -LoggingOperations Read,Write,Delete -PassThru -RetentionDays 7 -Version 1.0
-    ```
-
-5. Ativar as métricas de armazenamento para o serviço de BLOBs, certificar-se de que defina **- MetricsType** para `Minute`:
-   
-    ```powershell
-    Set-AzStorageServiceMetricsProperty -ServiceType Blob -MetricsType Minute -MetricsLevel ServiceAndApi -PassThru -RetentionDays 7 -Version 1.0
-    ```
+Em primeiro lugar, precisamos configurar o registo de armazenamento do Azure e as métricas, para que tenhamos de dados do lado do serviço para analisar. Pode configurar o registo e as métricas de diversas formas - através da [portal do Azure](https://portal.azure.com), com o PowerShell, ou por meio de programação. Ver [ativar as métricas](storage-analytics-metrics.md#enable-metrics-using-the-azure-portal) e [ativar o registo](storage-analytics-logging.md#enable-storage-logging) para obter detalhes sobre como configurar o registo e as métricas.
 
 ### <a name="configure-net-client-side-logging"></a>Configurar o registo do lado do cliente de .NET
 Para configurar o registo do lado do cliente para um aplicativo .NET, ative o diagnóstico de .NET no ficheiro de configuração do aplicativo (Web. config ou App. config). Ver [lado do cliente de registo com a biblioteca de cliente de armazenamento de .NET](https://msdn.microsoft.com/library/azure/dn782839.aspx) e [lado do cliente de registo com o Microsoft Azure Storage SDK para Java](https://msdn.microsoft.com/library/azure/dn782844.aspx) no MSDN para obter detalhes.
@@ -159,8 +115,8 @@ Para este tutorial, recolher e guardar um rastreio de rede pela primeira vez no 
 
 > [!NOTE]
 > Depois de concluir a recolha de rastreio de rede, recomendamos vivamente que reverter as definições que pode ter alterado no Fiddler para desencriptar o tráfego HTTPS. Na caixa de diálogo Opções do Fiddler, desmarcar a **capturar liga-se de HTTPS** e **desencriptar o tráfego HTTPS** caixas de verificação.
-> 
-> 
+>
+>
 
 Ver [usando os recursos de rastreio de rede](https://technet.microsoft.com/library/jj674819.aspx) no Technet para obter mais detalhes.
 
@@ -175,8 +131,8 @@ Para obter mais detalhes sobre como adicionar e personalizar gráficos de métri
 
 > [!NOTE]
 > Pode demorar algum tempo para os seus dados de métricas a aparecer no portal do Azure depois de ativar as métricas de armazenamento. Isto acontece porque as métricas de hora a hora para a hora anterior não são apresentadas no portal do Azure até que a hora atual tiver sido decorrido. Além disso, métrica de minuto atualmente não é apresentada no portal do Azure. Por isso, dependendo de quando ativar as métricas, pode demorar até duas horas para ver os dados de métricas.
-> 
-> 
+>
+>
 
 ## <a name="use-azcopy-to-copy-server-logs-to-a-local-directory"></a>Utilizar o AzCopy para copiar os registos do servidor para um diretório local
 O armazenamento do Azure escreve dados de registo do servidor blobs, enquanto as métricas são escritas tabelas. Blobs de registo estão disponíveis no bem conhecidos `$logs` contentor para a sua conta de armazenamento. Blobs de registo são nomeados hierarquicamente por ano, mês, dia e hora, para que possa localizar facilmente o intervalo de tempo que pretende investigar. Por exemplo, no `storagesample` é a conta, o contentor para os blobs de registo para 01/02/2015, de 8 a 9 am, `https://storagesample.blob.core.windows.net/$logs/blob/2015/01/08/0800`. Os blobs individuais neste contentor são nomeados sequencialmente, começando com `000000.log`.
@@ -211,8 +167,8 @@ Analisador de mensagens inclui recursos para o armazenamento do Azure que o ajud
 
 > [!NOTE]
 > Instale todos os recursos de armazenamento do Azure mostrados para efeitos deste tutorial.
-> 
-> 
+>
+>
 
 ### <a name="import-your-log-files-into-message-analyzer"></a>Importar os ficheiros de registo para o analisador de mensagens
 Pode importar todos os ficheiros de registo guardadas (lado do servidor, do lado do cliente e rede) para uma única sessão no Microsoft Message Analyzer para análise.
@@ -255,8 +211,8 @@ A imagem abaixo mostra esta vista de esquema aplicada para os dados de registo d
 
 > [!NOTE]
 > Ficheiros de registo diferentes têm colunas diferentes, portanto, quando os dados de vários ficheiros de registo são exibidos na grade de análise, algumas colunas não podem conter quaisquer dados para uma determinada linha. Por exemplo, na imagem acima, as linhas de registo de cliente não mostrar todos os dados para o **Timestamp**, **TimeElapsed**, **origem**, e **destino**colunas, uma vez que estas colunas não existem no registo de cliente, mas existem no rastreio de rede. Da mesma forma, o **Timestamp** coluna apresenta dados de timestamp de registo do servidor, mas não serem apresentados dados para o **TimeElapsed**, **origem**, e  **Destino** colunas, que não fazem parte do registo do servidor.
-> 
-> 
+>
+>
 
 Além de utilizar as esquemas de vista de armazenamento do Azure, também pode definir e salvar seus próprios esquemas de vista. Pode selecionar outros campos pretendidos para o agrupamento de dados e guardar o agrupamento como parte do seu esquema personalizado também.
 
@@ -289,12 +245,12 @@ Depois de aplicar este filtro, verá que linhas do registo de cliente são exclu
 
 > [!NOTE]
 > Pode filtrar os **StatusCode** coluna e, ainda, com dados de exibição de todos os registos de três, incluindo o registo de cliente, se adicionar uma expressão para o filtro que inclui entradas de registo em que o código de estado é nulo. Para construir esta expressão de filtro, utilize:
-> 
+>
 > <code>&#42;StatusCode >= 400 or !&#42;StatusCode</code>
-> 
+>
 > Este filtro devolve todas as linhas do cliente no registo e apenas as linhas do registo de servidor e o registo HTTP em que o código de estado é maior do que 400. Se aplicá-lo para o esquema de vista agrupado por ID de pedido de cliente e o módulo, pode procurar ou desloque-se através de entradas de registo para encontrar aqueles em que todos os três logs são representados.   
-> 
-> 
+>
+>
 
 ### <a name="filter-log-data-to-find-404-errors"></a>Filtrar dados de registo para localizar 404 erros
 Os recursos de armazenamento incluir filtros predefinidos que pode utilizar para limitar os dados de registo para localizar o erros ou tendências que procura. Em seguida, vamos aplicar dois filtros predefinidos: uma que filtra o servidor e os registos de rastreio de rede para 404 erros e outra que filtra os dados num intervalo de tempo especificado.

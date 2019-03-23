@@ -12,18 +12,18 @@ manager: daveba
 ms.reviewer: librown
 ms.custom: seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 26dd1bd6717fe0216545d6b3aa729ac2cb19dc9d
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: 47e8541b82a1cd38f07684508a96b9789df20e92
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58313333"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58370394"
 ---
 # <a name="password-less-phone-sign-in-with-the-microsoft-authenticator-app-public-preview"></a>Palavra-passe sem início de sessão no telefone com a aplicação Microsoft Authenticator (pré-visualização pública)
 
 A aplicação Microsoft Authenticator pode ser utilizada para iniciar sessão em qualquer conta do Azure AD sem utilizar uma palavra-passe. Similar à tecnologia de [Windows Hello para empresas](/windows/security/identity-protection/hello-for-business/hello-identity-verification), o Microsoft Authenticator utiliza autenticação baseada em chave para ativar uma credencial de utilizador que está associada a um dispositivo e utiliza um biometria ou PIN.
 
-![Exemplo de um browser início de sessão pedindo o usuário aprove a tentativa de início de sessão na sua aplicação Microsoft Authenticator](./media/howto-authentication-phone-sign-in/phone-sign-in-microsoft-authenticator-app.png)
+![Exemplo de um browser início de sessão pedir ao utilizador aprovar o início de sessão](./media/howto-authentication-phone-sign-in/phone-sign-in-microsoft-authenticator-app.png)
 
 Em vez de ver um pedido para uma palavra-passe depois de introduzir um nome de utilizador, uma pessoa que ativou o início de sessão no telefone na aplicação Microsoft Authenticator irá ver uma mensagem que indica para toque num número na respetiva aplicação. Na aplicação, o utilizador tem de corresponder ao número, escolha aprovar, em seguida, fornecer o PIN ou biométrico, em seguida, a autenticação será concluída.
 
@@ -40,17 +40,20 @@ Para a pré-visualização pública, um administrador tem, primeiro, adicione um
 ### <a name="steps-to-enable"></a>Passos para ativar
 
 1. Certifique-se de que tem a versão mais recente da versão de pré-visualização pública do módulo PowerShell do Azure Active Directory V2. Pode pretender desinstalar e reinstalar para confirmar isso executando os seguintes comandos:
+
     ```powershell
     Uninstall-Module -Name AzureADPreview
     Install-Module -Name AzureADPreview
     ```
 
 2. Autenticar para o inquilino do Azure AD para utilizar o módulo do Azure AD V2 PowerShell. A conta utilizada tem de ser um administrador de segurança ou Administrador Global.
+
     ```powershell
     Connect-AzureAD
     ```
 
 3. Crie a política de autenticação de sessão:
+
     ```powershell
     New-AzureADPolicy -Type AuthenticatorAppSignInPolicy -Definition '{"AuthenticatorAppSignInPolicy":{"Enabled":true}}' -isOrganizationDefault $true -DisplayName AuthenticatorAppSignIn
     ```

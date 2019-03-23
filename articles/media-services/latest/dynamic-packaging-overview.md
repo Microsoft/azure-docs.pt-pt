@@ -11,20 +11,20 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/26/2019
+ms.date: 03/20/2019
 ms.author: juliako
-ms.openlocfilehash: d9c59bdb2e8a7b115761554f70ebedeecaf5d04e
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 9ba1b5a9b231822fd12d5a349e2518bc77669274
+ms.sourcegitcommit: 87bd7bf35c469f84d6ca6599ac3f5ea5545159c9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57901744"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58351410"
 ---
 # <a name="dynamic-packaging"></a>Empacotamento dinâmico
 
 Serviços de multimédia do Microsoft Azure podem ser utilizados para disponibilizar formatos de muitos arquivos de origem do suporte de dados, suportes de dados em fluxo em formatos, e a proteção de conteúdo formata a uma variedade de tecnologias de cliente (por exemplo, iOS e XBOX). Estes clientes compreender protocolos diferentes, por exemplo iOS requer que um formato de HTTP Live Streaming (HLS) e o Xbox necessitam de transmissão em fluxo uniforme. Se tiver um conjunto de velocidade de transmissão adaptável (múltipla) MP4 ou um conjunto de arquivos transmissão em fluxo uniforme de velocidade de transmissão adaptável que deve servir para clientes que compreender HLS, MPEG DASH ou transmissão em fluxo uniforme de ficheiros (ISO Base Media 14496-12), pode tirar partido de dinâmico Empacotamento. O empacotamento é agnóstico para a resolução de vídeo, SD/HD/UHD - 4K são suportados.
 
-[Pontos finais de transmissão em fluxo](streaming-endpoint-concept.md) é o serviço de empacotamento dinâmico dos serviços de multimédia utilizadas para disponibilizar conteúdo multimédia para jogadores do cliente. Empacotamento dinâmico é uma funcionalidade que vem padrão em todos os **pontos finais de transmissão em fluxo** (Standard ou Premium). Não existe nenhum extra custo associado esta funcionalidade em serviços de multimédia v3. 
+[Pontos finais de transmissão em fluxo](streaming-endpoint-concept.md) é o serviço de empacotamento dinâmico dos serviços de multimédia utilizadas para disponibilizar conteúdo multimédia para jogadores do cliente. Empacotamento dinâmico é uma funcionalidade que vem padrão em todos os **pontos finais de transmissão em fluxo** (Standard ou Premium). 
 
 Para tirar partido das **empacotamento dinâmico**, tem de ter um **Asset** com um conjunto de ficheiros MP4 de velocidade de transmissão adaptável e ficheiros de configuração de transmissão em fluxo necessários pelo empacotamento dinâmico de serviços de multimédia. É uma forma de obter os ficheiros codificar o (origem) mezanino com os Media Services. Para disponibilizar vídeos no elemento codificado para os clientes para a reprodução, tem de criar uma **localizador de transmissão em fluxo** e criar URLs de transmissão em fluxo. Em seguida, com base no formato especificado no manifesto cliente streaming (HLS, TRAÇO ou uniforme), receberá o fluxo no protocolo que escolheu.
 
@@ -34,24 +34,8 @@ Nos serviços de multimédia, o empacotamento dinâmico é utilizado se são tra
 
 ![Empacotamento dinâmico](./media/dynamic-packaging-overview/media-services-dynamic-packaging.svg)
 
-## <a name="common-video-on-demand-workflow"></a>Vídeo a pedido fluxo de trabalho comum
-
-Segue-se um comuns dos serviços de multimédia de transmissão em fluxo fluxo de trabalho em que é utilizado o empacotamento dinâmico.
-
-1. Carregar um ficheiro de entrada (chamado de um ficheiro de mezanino). Por exemplo, H.264, MP4 ou WMV (para obter a lista dos formatos suportados, consulte [formatos suportados pelo Media Encoder Standard](media-encoder-standard-formats.md).
-2. Codificar o ficheiro de mezanino para os conjuntos H.264 MP4 de velocidade de transmissão adaptável.
-3. Publique o elemento que contém a conjunto MP4 de velocidade de transmissão adaptável. Publicar através da criação de um **localizador de transmissão em fluxo**.
-4. Crie os URLs que visam diferentes formatos (HLS, traço e transmissão em fluxo uniforme). O **ponto final de transmissão em fluxo** cuidar do que serve o manifesto correto e os pedidos para todos esses formatos diferentes.
-
-## <a name="encode-to-adaptive-bitrate-mp4s"></a>Codificar em MP4s de velocidade de transmissão adaptável
-
-Para obter informações sobre [como codificar um vídeo com os Media Services](encoding-concept.md), veja os exemplos seguintes:
-
-* [Codificar a partir de um URL HTTPS com configurações predefinidas incorporadas](job-input-from-http-how-to.md)
-* [Codificar um arquivo local usando as configurações predefinidas incorporadas](job-input-from-local-file-how-to.md)
-* [Criar um personalizado predefinido para seus requisitos específicos de cenário ou dispositivo de destino](customize-encoder-presets-how-to.md)
-
-Para obter uma lista de formatos e codecs Media Encoder Standard, veja [formatos e codecs do](media-encoder-standard-formats.md)
+> [!NOTE]
+> Atualmente, não é possível utilizar o portal do Azure para gerir os recursos de v3. Utilize o [REST API](https://aka.ms/ams-v3-rest-ref), [CLI](https://aka.ms/ams-v3-cli-ref), ou um suportadas [SDKs](developers-guide.md).
 
 ## <a name="delivery-protocols"></a>Protocolos de entrega
 
@@ -64,13 +48,60 @@ Para obter uma lista de formatos e codecs Media Encoder Standard, veja [formatos
 |MPEG DASH CMAF|`https://amsv3account-usw22.streaming.media.azure.net/21b17732-0112-4d76-b526-763dcd843449/ignite.ism/manifest(format=mpd-time-cmaf)` |
 |Transmissão em Fluxo Uniforme| `https://amsv3account-usw22.streaming.media.azure.net/21b17732-0112-4d76-b526-763dcd843449/ignite.ism/manifest`|
 
+## <a name="common-on-demand-workflow"></a>Fluxo de trabalho comum do sob demanda
+
+Segue-se um comuns dos serviços de multimédia de transmissão em fluxo fluxo de trabalho em que é utilizado o empacotamento dinâmico.
+
+1. Carregar um ficheiro de entrada (chamado de um ficheiro de mezanino). Por exemplo, H.264, MP4 ou WMV (para obter a lista dos formatos suportados, consulte [formatos suportados pelo Media Encoder Standard](media-encoder-standard-formats.md).
+2. Codificar o ficheiro de mezanino para os conjuntos H.264 MP4 de velocidade de transmissão adaptável.
+3. Publique o elemento que contém a conjunto MP4 de velocidade de transmissão adaptável. Publicar através da criação de um **localizador de transmissão em fluxo**.
+4. Crie os URLs que visam diferentes formatos (HLS, traço e transmissão em fluxo uniforme). O **ponto final de transmissão em fluxo** cuidar do que serve o manifesto correto e os pedidos para todos esses formatos diferentes.
+
+### <a name="encode-to-adaptive-bitrate-mp4s"></a>Codificar em MP4s de velocidade de transmissão adaptável
+
+Para obter informações sobre [como codificar um vídeo com os Media Services](encoding-concept.md), veja os exemplos seguintes:
+
+* [Codificar a partir de um URL HTTPS com configurações predefinidas incorporadas](job-input-from-http-how-to.md)
+* [Codificar um arquivo local usando as configurações predefinidas incorporadas](job-input-from-local-file-how-to.md)
+* [Criar um personalizado predefinido para seus requisitos específicos de cenário ou dispositivo de destino](customize-encoder-presets-how-to.md)
+
+Para obter uma lista de formatos e codecs Media Encoder Standard, veja [formatos e codecs do](media-encoder-standard-formats.md)
+
+## <a name="common-live-streaming-workflow"></a>Workflow comum de transmissão em fluxo em direto
+
+Eis os passos para um fluxo de trabalho de transmissão em fluxo em direto:
+
+1. Criar uma [evento em direto](live-events-outputs-concept.md).
+1. Obtenha os URLs de ingestão e configurar seu codificador no local para utilizar o URL para enviar a contribuição do feed.
+1. Obter o URL de pré-visualização e utilizá-lo para verificar que a entrada do codificador, na verdade, está a ser recebida.
+1. Criar uma nova **Asset**.
+1. Criar uma **Live saída** e utilize o nome de recurso que criou.<br/>O **saída Live** irá arquivar a transmissão para o **Asset**.
+1. Criar uma **localizador de transmissão em fluxo** com o incorporado **política de transmissão em fluxo** tipos.<br/>Se pretende encriptar o seu conteúdo, consulte [descrição geral da proteção de conteúdo](content-protection-overview.md).
+1. Lista os caminhos a **localizador de transmissão em fluxo** para recuperar os URLs para utilizar.
+1. Obter o nome do anfitrião para o **ponto final de transmissão em fluxo** que deseja transmitir em fluxo do.
+1. Crie os URLs que visam diferentes formatos (HLS, traço e transmissão em fluxo uniforme). O **ponto final de transmissão em fluxo** cuidar do que serve o manifesto correto e os pedidos para todos esses formatos diferentes.
+
+Um evento em direto pode ser um dos dois tipos: codificação de pass-through e em direto. Para obter detalhes sobre a transmissão em fluxo em direto no Serviços de multimédia v3, consulte [descrição geral de transmissão em direto](live-streaming-overview.md).
+
+O diagrama seguinte mostra a transmissão em direto com o fluxo de trabalho de empacotamento dinâmico.
+
+![pass-through](./media/live-streaming/pass-through.svg)
+
+## <a name="dynamic-encryption"></a>Encriptação dinâmica
+
+**A encriptação dinâmica** permite-lhe encriptar dinamicamente o seu conteúdo ao vivo ou sob demanda com AES-128 ou qualquer um dos sistemas de gestão (DRM) três direitos digitais principais: Microsoft PlayReady, Widevine da Google e Apple FairPlay. Serviços de multimédia também fornecem um serviço para entrega de chaves AES e o DRM (PlayReady, Widevine e FairPlay) licenças para os clientes autorizados. Para obter mais informações, consulte [encriptação dinâmica](content-protection-overview.md).
+
+## <a name="dynamic-manifest"></a>Manifesto dinâmico
+
+Filtragem dinâmica é utilizado para controlar o número de faixas, formatos, velocidades de transmissão e janelas de tempo de apresentação que são enviadas para os jogadores. Para obter mais informações, consulte [filtros e dos manifestos dinâmicos](filters-dynamic-manifest-overview.md).
+
 ## <a name="video-codecs-supported-by-dynamic-packaging"></a>Codecs de vídeo suportado pelo empacotamento dinâmico
 
 Empacotamento dinâmico suporta ficheiros MP4, que contêm vídeo codificado com [H.264](https://en.m.wikipedia.org/wiki/H.264/MPEG-4_AVC) (MPEG-4 AVC ou AVC1), [H.265](https://en.m.wikipedia.org/wiki/High_Efficiency_Video_Coding) (HEVC, hev1 ou hvc1).
 
 ## <a name="audio-codecs-supported-by-dynamic-packaging"></a>Codecs de áudio suportado pelo empacotamento dinâmico
 
-Suporta ficheiros MP4, que contêm áudio codificado com o empacotamento dinâmico [AAC](https://en.wikipedia.org/wiki/Advanced_Audio_Coding) (AAC-LC, HE-AAC v1, v2 HE-AAC), [Dolby Digital Plus](https://en.wikipedia.org/wiki/Dolby_Digital_Plus) (3 de AC avançada ou E AC3), ou [DTS](https://en.wikipedia.org/wiki/DTS_%28sound_system%29) (DTS Express, LBR de DTS, DTS HD, HD DTS sem perdas).
+Suporta ficheiros MP4, que contêm áudio codificado com o empacotamento dinâmico [AAC](https://en.wikipedia.org/wiki/Advanced_Audio_Coding) (AAC-LC, HE-AAC v1, v2 HE-AAC), [Dolby Digital Plus](https://en.wikipedia.org/wiki/Dolby_Digital_Plus)(3 de AC avançada ou E AC3), Dolby Atmos, ou [DTS](https://en.wikipedia.org/wiki/DTS_%28sound_system%29) (DTS Express, LBR de DTS, DTS HD, HD DTS sem perdas). Transmissão em fluxo de conteúdo de Dolby Atmos é suportada para padrões como o protocolo de MPEG-DASH com o formato de transmissão em fluxo comuns (CSF) ou o formato comum de aplicativo de suporte de dados (CMAF) real de MP4 fragmentado e através de HTTP Live Streaming (HLS) com CMAF.
 
 > [!NOTE]
 > Empacotamento dinâmico não suporta ficheiros que contêm [Dolby Digital](https://en.wikipedia.org/wiki/Dolby_Digital) áudio (AC3) (é um codec herdado).

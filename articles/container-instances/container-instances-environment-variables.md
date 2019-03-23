@@ -5,20 +5,20 @@ services: container-instances
 author: dlepow
 ms.service: container-instances
 ms.topic: article
-ms.date: 11/19/2018
+ms.date: 03/21/2019
 ms.author: danlep
-ms.openlocfilehash: 0c43c81528c2de656e1d788f6af6ba337d7aacb8
-ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
+ms.openlocfilehash: 3e7e292f36296ce09af89f03e8b154b57e18b55c
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57403027"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58370003"
 ---
 # <a name="set-environment-variables"></a>Definir variáveis de ambiente
 
 Definir variáveis de ambiente nas instâncias de contentor permite-lhe fornecer configuração dinâmica da aplicação ou o contentor de execução do script. Para definir as variáveis de ambiente num contentor, especificá-los quando cria uma instância de contentor. Pode definir variáveis de ambiente quando inicia um contentor com o [CLI do Azure](#azure-cli-example), [Azure PowerShell](#azure-powershell-example)e o [portal do Azure](#azure-portal-example).
 
-Por exemplo, se executar o [aci/microsoft-wordcount] [ aci-wordcount] imagem de contentor, pode modificar seu comportamento ao especificar as seguintes variáveis de ambiente:
+Por exemplo, se executar o Microsoft [aci-wordcount] [ aci-wordcount] imagem de contentor, pode modificar seu comportamento ao especificar as seguintes variáveis de ambiente:
 
 *NumWords*: O número de palavras enviado para STDOUT.
 
@@ -28,13 +28,13 @@ Se precisar de passar segredos como variáveis de ambiente, o Azure Container In
 
 ## <a name="azure-cli-example"></a>Exemplo da CLI do Azure
 
-Para ver a saída padrão do [aci/microsoft-wordcount] [ aci-wordcount] contentor, primeiro a executá-lo com isso [criar contentor de az] [ az-container-create] comando (não variáveis de ambiente especificadas):
+Para ver a saída padrão do [aci-wordcount] [ aci-wordcount] contentor, primeiro a executá-lo com isso [criar contentor de az] [ az-container-create] comando (não variáveis de ambiente especificadas):
 
 ```azurecli-interactive
 az container create \
     --resource-group myResourceGroup \
     --name mycontainer1 \
-    --image microsoft/aci-wordcount:latest \
+    --image mcr.microsoft.com/azuredocs/aci-wordcount:latest \
     --restart-policy OnFailure
 ```
 
@@ -44,7 +44,7 @@ Para modificar a saída, iniciar um segundo contentor com o `--environment-varia
 az container create \
     --resource-group myResourceGroup \
     --name mycontainer2 \
-    --image microsoft/aci-wordcount:latest \
+    --image mcr.microsoft.com/azuredocs/aci-wordcount:latest \
     --restart-policy OnFailure \
     --environment-variables 'NumWords'='5' 'MinLength'='8'
 ```
@@ -83,13 +83,13 @@ azureuser@Azure:~$ az container logs --resource-group myResourceGroup --name myc
 
 Definir variáveis de ambiente no PowerShell é semelhante da CLI, mas utiliza o `-EnvironmentVariable` argumento da linha de comandos.
 
-Primeiro, inicie o [aci/microsoft-wordcount] [ aci-wordcount] contentor na respetiva configuração predefinida, com isso [New-AzContainerGroup] [ new-Azcontainergroup] comando:
+Primeiro, inicie o [aci-wordcount] [ aci-wordcount] contentor na respetiva configuração predefinida, com isso [New-AzContainerGroup] [ new-Azcontainergroup] comando:
 
 ```azurepowershell-interactive
 New-AzContainerGroup `
     -ResourceGroupName myResourceGroup `
     -Name mycontainer1 `
-    -Image microsoft/aci-wordcount:latest
+    -Image mcr.microsoft.com/azuredocs/aci-wordcount:latest
 ```
 
 Agora, execute o seguinte procedimento [New-AzContainerGroup] [ new-Azcontainergroup] comando. Isso Especifica o *NumWords* e *MinLength* variáveis de ambiente depois de preencher uma variável de matriz, `envVars`:
@@ -99,7 +99,7 @@ $envVars = @{'NumWords'='5';'MinLength'='8'}
 New-AzContainerGroup `
     -ResourceGroupName myResourceGroup `
     -Name mycontainer2 `
-    -Image microsoft/aci-wordcount:latest `
+    -Image mcr.microsoft.com/azuredocs/aci-wordcount:latest `
     -RestartPolicy OnFailure `
     -EnvironmentVariable $envVars
 ```
@@ -143,7 +143,7 @@ Para definir as variáveis de ambiente quando inicia um contentor no portal do A
 
 Quando implementar com o portal, está atualmente limitado a três variáveis e tem de introduzi-los no seguinte formato: `"variableName":"value"`
 
-Para ver um exemplo, inicie o [aci/microsoft-wordcount] [ aci-wordcount] contentor com o *NumWords* e *MinLength* variáveis.
+Para ver um exemplo, inicie o [aci-wordcount] [ aci-wordcount] contentor com o *NumWords* e *MinLength* variáveis.
 
 1. Na **Configuration**, defina o **política de reinício** para *em caso de falha*
 2. Introduza `"NumWords":"5"` para a primeira variável, selecione **Sim** sob **adicionar variáveis de ambiente adicionais**e introduza `"MinLength":"8"` para a segunda variável. Selecione **OK** para verificar e, em seguida, implementar o contentor.
@@ -246,7 +246,7 @@ Cenários de baseado em tarefas, como um grande conjunto de dados com vários co
 [portal-env-vars-02]: ./media/container-instances-environment-variables/portal-env-vars-02.png
 
 <!-- LINKS - External -->
-[aci-wordcount]: https://hub.docker.com/r/microsoft/aci-wordcount/
+[aci-wordcount]: https://hub.docker.com/_/microsoft-azuredocs-aci-wordcount
 
 <!-- LINKS Internal -->
 [az-container-create]: /cli/azure/container#az-container-create

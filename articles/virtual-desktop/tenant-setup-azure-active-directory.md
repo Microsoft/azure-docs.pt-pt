@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: tutorial
 ms.date: 03/21/2019
 ms.author: helohr
-ms.openlocfilehash: 2dafb58a805a2da89852c84ebad08f1c495adb83
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: 26bcae12ee5e053289dd18c9f378eff43a0b0e04
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58318121"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58368175"
 ---
 # <a name="tutorial-create-a-tenant-in-windows-virtual-desktop-preview"></a>Tutorial: Criar um inquilino na área de Trabalho Virtual do Windows (pré-visualização)
 
@@ -53,16 +53,16 @@ Para conceder as permissões de serviço:
 
 ## <a name="assign-the-tenantcreator-application-role-to-a-user-in-your-azure-active-directory-tenant"></a>Atribuir a função de aplicação TenantCreator a um utilizador no seu inquilino do Azure Active Directory
 
-Atribuir um utilizador do Azure Active Directory a função de aplicação de TenantCreator permite que o utilizador criar um inquilino de área de Trabalho Virtual do Windows associado com o Azure Active Directory. Terá de atribuir a função de TenantCreator à sua conta de administrador global.
+Atribuir um utilizador do Azure Active Directory a função de aplicação de TenantCreator permite que o utilizador criar um inquilino de área de Trabalho Virtual do Windows associado com o Azure Active Directory. Terá de utilizar a sua conta de administrador global para atribuir a função de TenantCreator.
 
-Para atribuir a função de aplicação TenantCreator à sua conta de administrador global:
+Para atribuir a função de aplicação TenantCreator com a sua conta de administrador global:
 
 1. Abra um browser e ligue-se para o [portal do Azure Active Directory](https://aad.portal.azure.com) com a sua conta de administrador global.
    - Se estiver a trabalhar com vários inquilinos do Azure AD, é melhor prática para abrir uma sessão de browser privada e copie e cole URLs no endereço.
-2. Selecione **aplicações empresariais**, procure **área de Trabalho Virtual do Windows** e selecionar a aplicação.
+2. Selecione **aplicações empresariais**, procure **área de Trabalho Virtual do Windows**. Verá as duas aplicações que forneceu o consentimento na secção anterior. Uma destas duas aplicações, selecione **área de Trabalho Virtual do Windows**.
 3. Selecione **utilizadores e grupos**, em seguida, selecione **adicionar utilizador**.
 4. Selecionar utilizadores e grupos no **adicionar atribuição** painel
-5. Procurar por uma conta de utilizador que irá criar o seu inquilino de área de Trabalho Virtual do Windows. 
+5. Procurar por uma conta de utilizador que irá criar o seu inquilino de área de Trabalho Virtual do Windows.
    - Para simplificar, isso pode ser a conta de administrador global.
 6. Selecione a conta de utilizador, clique nas **selecionar** e, em seguida, selecione **atribuir**.
 

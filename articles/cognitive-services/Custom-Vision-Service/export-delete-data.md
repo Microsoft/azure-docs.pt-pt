@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: custom-vision
 ms.topic: conceptual
-ms.date: 03/11/2019
+ms.date: 03/21/2019
 ms.author: pafarley
-ms.openlocfilehash: 4c395a062b1132710f888cc5a315529db082a805
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: e662e61a9df45cf3d57d5698337a26b7b8fc55a3
+ms.sourcegitcommit: 87bd7bf35c469f84d6ca6599ac3f5ea5545159c9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57850031"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58349744"
 ---
 # <a name="export-or-delete-user-data-in-custom-vision"></a>Exportar ou eliminar dados de utilizador na visão personalizada
 

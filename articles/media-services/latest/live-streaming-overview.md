@@ -11,14 +11,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 02/01/2019
+ms.date: 03/20/2019
 ms.author: juliako
-ms.openlocfilehash: 67876532496aa0a295bf32692534b16d38599492
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: a31cd950ae241eb55c840c716f4679c5a67b1379
+ms.sourcegitcommit: 87bd7bf35c469f84d6ca6599ac3f5ea5545159c9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57839513"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58350017"
 ---
 # <a name="live-streaming-with-azure-media-services-v3"></a>Transmissão em direto com Media Services do Azure v3
 
@@ -28,23 +28,46 @@ Serviços de multimédia do Azure permite-lhe fornecer eventos em direto aos seu
 - Um codificador vídeo em direto que converte sinais de uma câmera (ou outro dispositivo, como um laptop) numa contribuição feed, que é enviada para os serviços de multimédia. O feed de contribuição pode incluir sinais relacionadas com a publicidade, como marcadores SCTE 35.<br/>Para obter uma lista de recomendados codificadores de transmissão em fluxo em direto, consulte [live codificadores de transmissão em fluxo](recommended-on-premises-live-encoders.md). Além disso, consulte este blogue: [Transmissão em fluxo em direto em produção com OBS](https://link.medium.com/ttuwHpaJeT).
 - Componentes nos serviços de multimédia, permitem-lhe ingerir, pré-visualização, do pacote, gravam, encriptar e transmitir o evento em direto para os seus clientes ou para uma CDN para uma maior distribuição.
 
-Com os Media Services, pode aproveitar **empacotamento dinâmico**, que permite-lhe visualizar e difusão de transmissões em direto no [formatos MPEG DASH, HLS e Smooth Streaming](https://en.wikipedia.org/wiki/Adaptive_bitrate_streaming) de contribuição de feed que são enviados para o serviço. Os visualizadores têm acesso podem reproduzir a transmissão em direto com qualquer leitores compatível com HLS, TRAÇO ou transmissão em fluxo uniforme. Pode usar [leitor de multimédia do Azure](https://amp.azure.net/libs/amp/latest/docs/index.html) no seu web ou aplicações móveis para fornecer a sua transmissão em fluxo em qualquer um desses protocolos.
+Este artigo fornece uma descrição geral e a documentação de orientação de transmissão em fluxo em direto com serviços de multimédia e links para outros artigos relevantes.
 
-Serviços de multimédia permite-lhe forneça o conteúdo encriptado dinamicamente (**encriptação dinâmica**) com o Advanced Encryption Standard (AES-128) ou qualquer um dos três sistemas de gestão (DRM) de direitos digitais principais: Microsoft PlayReady, Widevine da Google e Apple FairPlay. Serviços de multimédia também fornecem um serviço para entregar licenças DRM e de chaves AES para os clientes autorizados. Para obter mais informações sobre como encriptar o seu conteúdo com os Media Services, consulte [proteger descrição geral do conteúdo](content-protection-overview.md)
+> [!NOTE]
+> Atualmente, não é possível utilizar o portal do Azure para gerir os recursos de v3. Utilize o [REST API](https://aka.ms/ams-v3-rest-ref), [CLI](https://aka.ms/ams-v3-cli-ref), ou um suportadas [SDKs](developers-guide.md).
 
-Também pode aplicar filtragem dinâmica, que podem ser utilizadas para controlar o número de faixas, formatos, velocidades de transmissão, e janelas de tempo de apresentação que são enviadas para os jogadores. Para obter mais informações, consulte [filtros e dos manifestos dinâmicos](filters-dynamic-manifest-overview.md).
+## <a name="dynamic-packaging"></a>Empacotamento dinâmico
 
-Este artigo fornece uma descrição geral e a documentação de orientação de transmissão em fluxo em direto com os serviços de multimédia.
+Com os serviços de multimédia, pode tirar partido de Packaging](dynamic-packaging-overview.md) dinâmica, o que permite-lhe visualizar e difusão de transmissões em direto no [formatos MPEG DASH, HLS e Smooth Streaming](https://en.wikipedia.org/wiki/Adaptive_bitrate_streaming) de contribuição feed que envia para o serviço. Os visualizadores têm acesso podem reproduzir a transmissão em direto com qualquer leitores compatível com HLS, TRAÇO ou transmissão em fluxo uniforme. Pode usar [leitor de multimédia do Azure](https://amp.azure.net/libs/amp/latest/docs/index.html) no seu web ou aplicações móveis para fornecer a sua transmissão em fluxo em qualquer um desses protocolos.
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="dynamic-encryption"></a>Encriptação dinâmica
 
-Para compreender o fluxo de trabalho de transmissão em fluxo em direto em serviços de multimédia v3, terá de analisar e compreender os seguintes conceitos: 
+A encriptação dinâmica permite-lhe encriptar dinamicamente o seu conteúdo ao vivo ou sob demanda com AES-128 ou qualquer um dos três sistemas de gestão (DRM) de direitos digitais principais: Microsoft PlayReady, Widevine da Google e Apple FairPlay. Serviços de multimédia também fornecem um serviço para entrega de chaves AES e o DRM (PlayReady, Widevine e FairPlay) licenças para os clientes autorizados. Para obter mais informações, consulte [encriptação dinâmica](content-protection-overview.md).
+
+## <a name="dynamic-manifest"></a>Manifesto dinâmico
+
+Filtragem dinâmica é utilizado para controlar o número de faixas, formatos, velocidades de transmissão e janelas de tempo de apresentação que são enviadas para os jogadores. Para obter mais informações, consulte [filtros e dos manifestos dinâmicos](filters-dynamic-manifest-overview.md).
+
+## <a name="live-event-types"></a>Tipos de evento em direto
+
+Um evento em direto pode ser um dos dois tipos: codificação de pass-through e em direto. Para obter detalhes sobre a transmissão em fluxo em direto no Serviços de multimédia v3, consulte [eventos ao vivo e saídas de Live](live-events-outputs-concept.md).
+
+### <a name="pass-through"></a>Pass-through
+
+![pass-through](./media/live-streaming/pass-through.svg)
+
+Ao utilizar o pass-through **evento em direto**, contar com o codificador em direto de locais para gerar um fluxo de vídeo de velocidade de transmissão múltiplas e enviar como a contribuição feed para o evento em direto (usando o protocolo RTMP ou MP4 fragmentado). O evento em direto, em seguida, continua até os fluxos de vídeo de entrada sem qualquer processamento adicional. Tal um pass-through evento em direto é otimizado para eventos em direto de longa execução ou transmissão em direto lineares 24 x 365. 
+
+### <a name="live-encoding"></a>Live Encoding  
+
+![codificação do Live](./media/live-streaming/live-encoding.svg)
+
+Ao utilizar o live encoding com Media Services, poderia configurar a seu codificador em direto de locais para enviar uma velocidade de transmissão única vídeo como a contribuição de feed para o evento em direto (usando o protocolo RTMP ou Mp4 fragmentado). O evento Live codifica essa entrada velocidade de transmissão única transmitir para um [vários transmissão em fluxo vídeo](https://en.wikipedia.org/wiki/Adaptive_bitrate_streaming), torna-o disponível para entrega ao reproduzir os dispositivos através de protocolos como MPEG-DASH, HLS e Smooth Streaming. 
+
+## <a name="live-streaming-workflow"></a>Fluxo de trabalho de transmissão em fluxo em direto
+
+Para compreender o fluxo de trabalho de transmissão em fluxo em direto em serviços de multimédia v3, tem de primeira revisão e compreender os seguintes conceitos: 
 
 - [Pontos finais de transmissão em fluxo](streaming-endpoint-concept.md)
 - [Eventos em direto e saídas em direto](live-events-outputs-concept.md)
 - [Localizadores de transmissão em fluxo](streaming-locators-concept.md)
-
-## <a name="live-streaming-workflow"></a>Fluxo de trabalho de transmissão em fluxo em direto
 
 Eis os passos para um fluxo de trabalho de transmissão em fluxo em direto:
 

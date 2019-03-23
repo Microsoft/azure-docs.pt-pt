@@ -11,12 +11,12 @@ ms.author: nilesha
 ms.reviewer: trbye
 ms.date: 02/05/2019
 ms.custom: seodec18
-ms.openlocfilehash: e30e65ba2efaf60a0e2d0a6df409c96db4d6285e
-ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
+ms.openlocfilehash: 8fa77409f1f5c32bc1e8f8644111c38f6115a92d
+ms.sourcegitcommit: 223604d8b6ef20a8c115ff877981ce22ada6155a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58295815"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58362055"
 ---
 # <a name="tutorial-use-automated-machine-learning-to-build-your-regression-model"></a>Tutorial: Utilizar automatizada de machine learning para criar o seu modelo de regressão
 
@@ -67,22 +67,11 @@ Depois de concluir os passos abaixo, execute o **tutoriais/regressão-parte 2-au
 
 ### <a name="server"></a>Utilizar o seu próprio servidor de bloco de notas do Jupyter
 
-Utilize estes passos para criar um servidor de bloco de notas Jupyter local no seu computador.  Depois de concluir os passos, execute o **tutoriais/regressão-parte 2-automatizada-ml.ipynb** bloco de notas.
+Utilize estes passos para criar um servidor de bloco de notas Jupyter local no seu computador.  Certifique-se de que instale `matplotlib` e o `automl` e `notebooks` extras no seu ambiente.
 
-1. Concluir o [guia de início rápido do Azure Machine Learning Python](quickstart-create-workspace-with-python.md) para criar um ambiente de Miniconda e criar uma área de trabalho.
-1. Instalar o `automl` e `notebooks` extras no seu ambiente utilizando `pip install azureml-sdk[automl,notebooks]`.
-1. Instale `maplotlib` usando `pip install maplotlib`.
-1. Clone o [repositório do GitHub](https://aka.ms/aml-notebooks).
+[!INCLUDE [aml-your-server](../../../includes/aml-your-server.md)]
 
-    ```
-    git clone https://github.com/Azure/MachineLearningNotebooks.git
-    ```
-
-1. Inicie o servidor de blocos de notas a partir do diretório clonado.
-
-    ```shell
-    jupyter notebook
-    ```
+Depois de concluir os passos, execute o **tutoriais/regressão-parte 2-automatizada-ml.ipynb** bloco de notas.
 
 ## <a name="start"></a>Configurar o ambiente de desenvolvimento
 

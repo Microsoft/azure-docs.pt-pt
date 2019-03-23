@@ -7,26 +7,26 @@ author: anrothMSFT
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: custom-vision
-ms.topic: sample
-ms.date: 05/03/2018
+ms.topic: article
+ms.date: 03/21/2019
 ms.author: anroth
-ms.openlocfilehash: a285bc4c6eecf1a8cdda758af9df1a697c374b5a
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: e50933ea0231b4be22c2d0f82d33fd02dd0918f5
+ms.sourcegitcommit: 87bd7bf35c469f84d6ca6599ac3f5ea5545159c9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57533974"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58351614"
 ---
-# <a name="use-the-prediction-endpoint-to-test-images-programmatically-with-a-custom-vision-service-classifier"></a>Utilizar o ponto final de predição para testar imagens de forma programática com o classificador Serviço de Visão Personalizada
+# <a name="use-the-prediction-endpoint-to-test-images-programmatically"></a>Utilizar o ponto de final de predição para testar as imagens por meio de programação
 
-Após preparar o seu modelo, pode testar imagens de forma programática ao enviá-las para a API de Predição. 
+Após preparar o seu modelo, pode testar imagens de forma programática ao enviá-las para a API de Predição.
 
 > [!NOTE]
 > Este documento demonstra como utilizar a linguagem de programação C# para enviar uma imagem para a API de Predição. Para obter mais informações e exemplos sobre como utilizar a API, veja a [referência da API de Predição](https://go.microsoft.com/fwlink/?linkid=865445).
 
 ## <a name="get-the-url-and-prediction-key"></a>Obter o URL e a chave de predição
 
-Na [página Web do Serviço de Visão Personalizada](https://customvision.ai), selecione o seu projeto e, em seguida, selecione o separador __Performance__ (Desempenho). Para apresentar informações sobre como utilizar a API de Predição, incluindo a __chave de Predição__, selecione __Prediction URL__ (URL de Predição). Para os projetos anexados a um Recurso do Azure, a sua __chave de Predição__ também se encontra na página do [Portal do Azure](https://portal.azure.com) do Recurso do Azure associado, em __Chaves__. Copie as seguintes informações para utilizar na aplicação:
+Na [página Web do Serviço de Visão Personalizada](https://customvision.ai), selecione o seu projeto e, em seguida, selecione o separador __Performance__ (Desempenho). Para apresentar informações sobre como utilizar a API de Predição, incluindo a __chave de Predição__, selecione __Prediction URL__ (URL de Predição). Para projetos anexados a um recurso do Azure, sua __chave de predição__ também podem ser encontrados no [portal do Azure](https://portal.azure.com) página de recursos do Azure associados sob __chaves__. Copie as seguintes informações para utilizar na aplicação:
 
 * O __URL__ para utilizar um __ficheiro de imagem__.
 * O valor da __chave de Predição__.
@@ -40,7 +40,7 @@ Na [página Web do Serviço de Visão Personalizada](https://customvision.ai), s
 
 1. No Visual Studio, crie uma nova aplicação de consola C#.
 
-2. Utilize o seguinte código como o corpo do ficheiro __Program.cs__.
+1. Utilize o seguinte código como o corpo do ficheiro __Program.cs__.
 
     > [!IMPORTANT]
     > Altere as seguintes informações:

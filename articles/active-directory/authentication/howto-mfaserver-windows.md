@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 43c21fb3c3e7c00ecdbadb1e730ba5ce303dc869
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: 36172850c345fc190c3326413f2883dc2b070e98
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58312194"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58367903"
 ---
 # <a name="windows-authentication-and-azure-multi-factor-authentication-server"></a>Autenticação do Windows e Servidor Multi-Factor Authentication do Azure
 
@@ -29,9 +29,10 @@ Utilize a secção Autenticação do Windows do Servidor Multi-Factor Authentica
 > [!NOTE]
 > Esta funcionalidade não é suportada para proteger os Serviços de Terminal no Windows Server 2012 R2.
 
-## <a name="to-secure-an-application-with-windows-authentication-use-the-following-procedure"></a>Para proteger uma aplicação com a Autenticação do Windows, utilize o procedimento seguinte.
+## <a name="to-secure-an-application-with-windows-authentication-use-the-following-procedure"></a>Para proteger uma aplicação com a autenticação do Windows, utilize o procedimento seguinte
+
 1. No Servidor Multi-Factor Authentication do Azure, clique no ícone Autenticação do Windows.
-   ![Autenticação do Windows](./media/howto-mfaserver-windows/windowsauth.png)
+   ![Autenticação do Windows no servidor MFA](./media/howto-mfaserver-windows/windowsauth.png)
 2. Selecione a caixa de verificação **Ativar Autenticação do Windows**. Por predefinição, esta caixa está desmarcada.
 3. O separador Aplicações permite ao administrador configurar uma ou mais aplicações para a Autenticação do Windows.
 4. Selecione um servidor ou uma aplicação e especifique se o servidor/aplicação está ativado. Clique em **OK**.

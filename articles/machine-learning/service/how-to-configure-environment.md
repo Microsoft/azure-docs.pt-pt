@@ -11,12 +11,12 @@ ms.reviewer: larryfr
 ms.topic: conceptual
 ms.date: 02/24/2019
 ms.custom: seodec18
-ms.openlocfilehash: 6a51e57cfac326663d41b545c9f2883a446467d3
-ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
+ms.openlocfilehash: 1d4144a2a6cf41d594ee096d8802ccc5b29009a5
+ms.sourcegitcommit: 223604d8b6ef20a8c115ff877981ce22ada6155a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57340767"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58361800"
 ---
 # <a name="configure-a-development-environment-for-azure-machine-learning"></a>Configurar um ambiente de desenvolvimento do Azure Machine Learning
 
@@ -40,7 +40,7 @@ Se já tiver um ambiente de Python 3 ou deseja apenas os passos básicos para in
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-- Uma área de trabalho de serviço do Azure Machine Learning. Para criar a área de trabalho, consulte [introdução ao serviço Azure Machine Learning](quickstart-get-started.md).
+- Uma área de trabalho de serviço do Azure Machine Learning. Para criar a área de trabalho, consulte [criar uma área de trabalho do serviço do Azure Machine Learning](setup-create-workspace.md).
 
 - Ambos os [Anaconda](https://www.anaconda.com/download/) ou [Miniconda](https://conda.io/miniconda.html) Gestor de pacotes.
 
@@ -61,7 +61,7 @@ Se já tiver um ambiente de Python 3 ou deseja apenas os passos básicos para in
 * Já está instalado o SDK do Azure Machine Learning.
 * Depois de criar uma área de trabalho do serviço do Azure Machine Learning no portal do Azure, pode clicar num botão para configurar automaticamente o ambiente de bloco de notas do Azure para trabalhar com a área de trabalho.
 
-Para começar a desenvolver com blocos de notas do Azure, veja [introdução ao serviço Azure Machine Learning](quickstart-get-started.md).
+Para começar a desenvolver com blocos de notas do Azure, veja [introdução ao serviço Azure Machine Learning](quickstart-run-cloud-notebook.md).
 
 Por predefinição, os blocos de notas do Azure utiliza uma camada de serviço gratuito que está limitada a 4GB de memória e 1GB de dados. Pode, no entanto, remover estes limites ao anexar uma instância de máquina de Virtual de ciência de dados para o projeto de blocos de notas do Azure. Para obter mais informações, consulte [gerir e configurar projetos de blocos de notas do Azure - camada de computação](/azure/notebooks/configure-manage-azure-notebooks-projects#compute-tier).
 
@@ -350,7 +350,7 @@ Para utilizar este ficheiro a partir do código, utilize `ws=Workspace.from_conf
 
 Pode criar o ficheiro de configuração de três formas:
 
-* **Siga os [guia de início rápido do Azure Machine Learning](quickstart-get-started.md)**: R *config* ficheiro é criado na sua biblioteca de blocos de notas do Azure. O ficheiro contém as informações de configuração para a área de trabalho. Pode transferir ou copiar o *config* para outros ambientes de desenvolvimento.
+* **Siga os passos em [criar uma área de trabalho do serviço do Azure Machine Learning](setup-create-workspace.md#sdk)**: R *config* ficheiro é criado na sua biblioteca de blocos de notas do Azure. O ficheiro contém as informações de configuração para a área de trabalho. Pode transferir ou copiar o *config* para outros ambientes de desenvolvimento.
 
 * **Criar o ficheiro manualmente**: Com este método, utilize um editor de texto. Pode encontrar os valores que ir para o ficheiro de configuração ao visitar a sua área de trabalho do [portal do Azure](https://portal.azure.com). Copie o nome de área de trabalho, grupo de recursos e os valores de ID de subscrição e utilizá-los no ficheiro de configuração.
 

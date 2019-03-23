@@ -10,36 +10,37 @@ ms.subservice: face-api
 ms.topic: conceptual
 ms.date: 01/26/2017
 ms.author: sbowles
-ms.openlocfilehash: ceaffebde65402db385ff8b906d77c2ddadc6f97
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 47ce80e1b0cefc01752d2445b751ebe1c2d65d08
+ms.sourcegitcommit: 87bd7bf35c469f84d6ca6599ac3f5ea5545159c9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55860955"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58351342"
 ---
 # <a name="face-api-frequently-asked-questions"></a>Face API perguntas mais frequentes
 
-### <a name="if-you-cant-find-answers-to-your-questions-in-this-faq-try-asking-the-face-api-community-on-stackoverflowhttpsstackoverflowcomquestionstaggedproject-oxfordormicrosoft-cognitive-or-contact-help-and-support-on-uservoicehttpscognitiveuservoicecom"></a>Se não conseguir encontrar respostas para suas perguntas neste FAQ, experimente perguntar à Comunidade de API de rostos em [Stack Overflow](https://stackoverflow.com/questions/tagged/project-oxford+or+microsoft-cognitive) ou contacte ajuda e suporte no [UserVoice](https://cognitive.uservoice.com/).
+> [!TIP]
+> Se não conseguir encontrar respostas para suas perguntas neste FAQ, experimente perguntar à Comunidade de API de rostos em [Stack Overflow](https://stackoverflow.com/questions/tagged/project-oxford+or+microsoft-cognitive) ou contacte ajuda e suporte no [UserVoice](https://cognitive.uservoice.com/).
 
 -----
 **Pergunta**: Que fatores podem reduzir a precisão da API de rostos para reconhecimento, verificação ou encontrar semelhante?
 
-**resposta**: Geralmente é os mesmo casos em que os humanos têm dificuldades em identificar alguém incluindo;
+**resposta**: Em geral é os mesmo casos em que os humanos têm dificuldades em identificar alguém incluindo:
 * Obstructions um ou ambos os olhos de bloqueio
-* Backlighting Harsh iluminação, por exemplo, grave
+* Iluminação harsh (por exemplo, grave backlighting)
 * Alterações de cabelo de cabelo estilo ou facial
 * Alterações à idade
-* Expressões faciais Extreme (por exemplo, alegam)
+* Extreme expressões faciais (por exemplo, alegam)
 
-Face API, muitas vezes, é efetuada com êxito num desafio casos como esses, mas pode ser reduzida a precisão. Para tornar o reconhecimento mais robusto e enfrentar esses desafios, Treine as pessoas com fotos que incluem uma diversidade de ângulos e de iluminação.
+Face API, muitas vezes, é efetuada com êxito num desafio casos como o anterior, mas pode ser reduzida a precisão. Para tornar o reconhecimento mais robusto e enfrentar esses desafios, Treine as pessoas com fotos que incluem uma diversidade de ângulos e de iluminação.
 
 -----
 **Pergunta**:  Estou passando os dados de imagem binária na mas recebo um erro de "imagem da face inválido".
 
-**resposta**:  Isso implica que o algoritmo tinha um problema ao analisar a imagem. As causas incluem:
+**resposta**:  Este erro indica que o algoritmo tinha um problema ao analisar a imagem. As causas incluem:
 * Os formatos de entrada de imagem suportados inclui JPEG, PNG, GIF (o primeiro quadro), BMP.
-* Tamanho do ficheiro de imagem deve ser não maior do que 4MB
-* O intervalo de tamanho de face detetável é 36 x 36 para 4096 x 4096 pixels. Rostos fora deste intervalo não serão detetados
-* Alguns rostos poderão não ser detetados devido a desafios técnicos, por exemplo, muito grandes de face de ângulos (head-representam), oclusão grandes. Rostos frontal e quase frontal tem os melhores resultados
+* Tamanho do ficheiro de imagem deve ser não maior do que 4 MB
+* O intervalo de tamanho de face detetável é 36 x 36 para 4096 x 4096 pixels. Não seja detectados rostos fora deste intervalo
+* Alguns rostos poderão não ser detetados por causa de desafios técnicos, por exemplo, de grande de face de ângulos (head-representam), oclusão grandes. Rostos frontal e quase frontal tem os melhores resultados
 
 -----

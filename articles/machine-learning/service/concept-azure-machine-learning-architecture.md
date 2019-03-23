@@ -10,12 +10,12 @@ ms.author: larryfr
 author: Blackmist
 ms.date: 12/04/2018
 ms.custom: seodec18
-ms.openlocfilehash: 1640b1cdb9410f33f6556667f36aafcfe575a082
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: ec35e383a182cf783c253b9242e6abb73e39385d
+ms.sourcegitcommit: 223604d8b6ef20a8c115ff877981ce22ada6155a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58080327"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58361103"
 ---
 # <a name="how-azure-machine-learning-service-works-architecture-and-concepts"></a>Como funciona o serviço Azure Machine Learning: Conceitos e arquitetura
 
@@ -70,7 +70,7 @@ Uma taxonomia da área de trabalho é ilustrada no diagrama seguinte:
 
 Uma experimentação é um agrupamento de várias execuções de um script especificado. Sempre pertence a uma área de trabalho. Quando submete uma execução, fornece um nome de experimentação. Informações para a execução são armazenadas desse experimento. Se submeter uma execução e especifique um nome de experimentação que não existe, é automaticamente criada uma nova experimentação com esse nome recentemente especificado.
 
-Para obter um exemplo da utilização de uma experimentação, consulte [início rápido: Introdução ao serviço Azure Machine Learning](quickstart-get-started.md).
+Para obter um exemplo da utilização de uma experimentação, consulte [início rápido: Introdução ao serviço Azure Machine Learning](quickstart-run-cloud-notebook.md).
 
 ## <a name="model"></a>Modelo
 
@@ -80,7 +80,7 @@ Um modelo é produzido por uma execução no Azure Machine Learning. Também pod
 
 O serviço do Azure Machine Learning é agnóstico quanto a estrutura. Quando cria um modelo, pode utilizar qualquer estrutura de aprendizado de máquina populares, como Scikit-saiba, XGBoost, PyTorch, TensorFlow, Chainer e Microsoft Cognitive Toolkit (anteriormente designado CNTK).
 
-Para obter um exemplo de preparar um modelo, consulte [início rápido: Criar uma área de trabalho do serviço de Machine Learning](quickstart-get-started.md).
+Para obter um exemplo de preparar um modelo, consulte [Tutorial: Preparar um modelo de classificação de imagem com o serviço Azure Machine Learning](tutorial-train-models-with-aml.md).
 
 ### <a name="model-registry"></a>Registo de modelo
 
@@ -143,7 +143,7 @@ Para obter informações sobre como selecionar um destino de computação para a
 
 Para preparar um modelo, especifique o diretório que contém o script de formação e os ficheiros associados. Também especificar um nome de experimentação, o que é utilizado para armazenar informações que são recolhidas durante o treinamento. Durante o treinamento, o diretório é copiado para o ambiente de treinamento (destino de computação) e o script que é especificado pela configuração de execução é iniciado. Um instantâneo do diretório também é armazenado abaixo a experimentação na área de trabalho.
 
-Por exemplo, veja [criar uma área de trabalho com o Python](quickstart-get-started.md).
+Por exemplo, veja [Tutorial: Preparar um modelo de classificação de imagem com o serviço Azure Machine Learning](tutorial-train-models-with-aml.md).
 
 ## <a name="run"></a>Executar
 
@@ -156,7 +156,7 @@ Uma execução é um registo que contém as seguintes informações:
 
 Produzir uma execução ao submeter um script para preparar um modelo. Uma execução pode ter zero ou mais execuções de subordinados. Por exemplo, a execução de nível superior pode ter duas execuções de subordinados, cada um dos quais pode ter seu próprio filho em execução.
 
-Para obter um exemplo de execuções que são produzidas por preparar um modelo de exibição, consulte [início rápido: Introdução ao serviço Azure Machine Learning](quickstart-get-started.md).
+Para obter um exemplo de execuções que são produzidas por preparar um modelo de exibição, consulte [início rápido: Introdução ao serviço Azure Machine Learning](quickstart-run-cloud-notebook.md).
 
 ## <a name="snapshot"></a>Instantâneo
 
@@ -227,6 +227,6 @@ Quando desenvolver a sua solução, utilize o SDK de Python do Azure Machine Lea
 Para começar a utilizar com o serviço Azure Machine Learning, veja:
 
 * [O que é o serviço Azure Machine Learning?](overview-what-is-azure-ml.md)
-* [Quickstart: Criar uma área de trabalho com Python](quickstart-get-started.md)
+* [Criar uma área de trabalho do serviço do Azure Machine Learning](setup-create-workspace.md)
 * [Tutorial: Preparar um modelo](tutorial-train-models-with-aml.md)
-* [Criar uma área de trabalho com um modelo do resource manager](how-to-create-workspace-template.md)
+* [Criar uma área de trabalho com um modelo do Resource Manager](how-to-create-workspace-template.md)

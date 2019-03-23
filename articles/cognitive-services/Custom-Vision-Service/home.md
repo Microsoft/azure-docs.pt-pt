@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: custom-vision
 ms.topic: overview
-ms.date: 02/20/2019
+ms.date: 03/21/2019
 ms.author: pafarley
-ms.openlocfilehash: 6cbc6e351147ed5b4c31463b5cf319417f34da34
-ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
+ms.openlocfilehash: 50935aca20af931eec63717921ef7a73267d2373
+ms.sourcegitcommit: 87bd7bf35c469f84d6ca6599ac3f5ea5545159c9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56456780"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58350475"
 ---
 # <a name="what-is-azure-custom-vision"></a>O que é a Visão Personalizada do Azure?
 
@@ -25,17 +25,18 @@ Visão de personalizado do Azure é um serviço cognitivo que lhe permite criar,
 
 O serviço de visão personalizada utiliza um algoritmo de aprendizagem para aplicar etiquetas a imagens. , O desenvolvedor, tem de submeter grupos de imagens que apresentam um e não têm as características em questão. Coloca uma etiqueta as imagens por conta própria no momento da submissão. Em seguida, o algoritmo prepara a estes dados e calcula seu próprio precisão ao testar em si nessas imagens mesmo. Assim que o algoritmo é preparado, pode testar, voltar a preparar e, eventualmente, utilizá-lo para classificar as novas imagens de acordo com as necessidades da sua aplicação. Também pode exportar o próprio modelo para utilização offline.
 
-## <a name="classification-and-object-detection"></a>Classificação e deteção de objetos
+### <a name="classification-and-object-detection"></a>Classificação e deteção de objetos
 
 A funcionalidade de Visão Personalizada pode ser dividida em duas funcionalidades. **Classificação de imagens** aplica-se uma ou mais etiquetas para uma imagem. **Deteção de objeto** é semelhante, mas também devolve as coordenadas na imagem em que pode ser encontrado o label(s) aplicada.
 
-## <a name="optimization"></a>Otimização
+### <a name="optimization"></a>Otimização
 
 O serviço de visão personalizada está otimizado para reconhece rapidamente as principais diferenças entre as imagens. Isto permite-lhe para iniciar a criação de protótipos seu modelo com uma pequena quantidade de dados. 50 imagens por etiqueta geralmente são um bom começo. Isto significa que, no entanto, o serviço não é ideal para a deteção de diferenças subtis nas imagens (por exemplo, detetar falhas pequenas ou dents em cenários de garantia de qualidade).
 
 Além disso, pode escolher entre diversas variedades do algoritmo de visão personalizada que estão otimizadas para imagens com determinados material de assunto&mdash;por exemplo, os pontos de referência ou itens de varejo. Veja o guia [Criar um classificador](getting-started-build-a-classifier.md) para obter mais informações sobre os mesmos.
 
 ## <a name="what-it-includes"></a>O que inclui
+
 O Serviço de Visão Personalizada está disponível como um conjunto de SDKs nativos, bem como através de uma interface baseada na Web sobre a [home page de Visão Personalizada](https://customvision.ai/). Pode criar, testar e formar um modelo através de qualquer interface ou utilizar ambos em conjunto.
 
 ![Home page da Visão Personalizada numa janela do browser Chrome](media/browser-home.png)

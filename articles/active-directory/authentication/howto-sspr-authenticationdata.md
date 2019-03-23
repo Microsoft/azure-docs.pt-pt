@@ -11,18 +11,19 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 580c9080bb2b019e120ea57e5fe4444a71c24e76
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: 5a0d7edb6c7faafcad55e827c2d9e3d2eeea40f5
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58314795"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58371371"
 ---
 # <a name="deploy-password-reset-without-requiring-end-user-registration"></a>Implementar sem a necessidade de registo do utilizador final de reposição de palavra-passe
 
 Para implementar a reposição de palavra-passe self-service (SSPR) do Azure Active Directory (Azure AD), dados de autenticação têm de estar presente. Algumas organizações têm seus usuários, introduza os seus próprios dados de autenticação. Mas muitas organizações preferem sincronizar com os dados que já existe no Active Directory. Os dados sincronizados são disponibilizados para o Azure AD e SSPR sem a necessidade de interação do usuário se:
-   * Formate corretamente os dados no seu diretório no local.
-   * Configurar [do Azure AD Connect com as definições express](../hybrid/how-to-connect-install-express.md).
+
+* Formate corretamente os dados no seu diretório no local.
+* Configurar [do Azure AD Connect com as definições express](../hybrid/how-to-connect-install-express.md).
 
 Para funcionarem corretamente, os números de telefone tem de ser no formato *+ indicativo do país PhoneNumber*, por exemplo, + 1 4255551234.
 
@@ -46,7 +47,7 @@ Quando o utilizador verifica o número de telemóvel, no campo de telefone em in
 
 Um Administrador Global pode definir manualmente as informações de contacto de autenticação para um utilizador, tal como apresentado na seguinte captura de ecrã.
 
-![Contact][Contact]
+![Informações sobre um usuário de contacto de autenticação no Azure AD][Contact]
 
 Se o campo de telefone é preenchido e celular está ativado na política de SSPR, o utilizador irá ver que o número na página de registo de reposição de palavra-passe e durante a palavra-passe reposta fluxo de trabalho.
 
@@ -84,7 +85,7 @@ Para começar, precisa [transferir e instalar o módulo Azure AD PowerShell](htt
 
 #### <a name="set-the-authentication-data-with-powershell-version-1"></a>Defina os dados de autenticação com o PowerShell versão 1
 
-```
+```PowerShell
 Connect-MsolService
 
 Set-MsolUser -UserPrincipalName user@domain.com -AlternateEmailAddresses @("email@domain.com")
@@ -96,7 +97,7 @@ Set-MsolUser -UserPrincipalName user@domain.com -AlternateEmailAddresses @("emai
 
 #### <a name="read-the-authentication-data-with-powershell-version-1"></a>Ler os dados de autenticação com o PowerShell versão 1
 
-```
+```PowerShell
 Connect-MsolService
 
 Get-MsolUser -UserPrincipalName user@domain.com | select AlternateEmailAddresses
@@ -110,7 +111,7 @@ Get-MsolUser | select DisplayName,UserPrincipalName,AlternateEmailAddresses,Mobi
 
 Para ler os **telefone de autenticação** e **E-Mail de autenticação** quando utilizar o PowerShell versão 1, utilize os seguintes comandos:
 
-```
+```PowerShell
 Connect-MsolService
 Get-MsolUser -UserPrincipalName user@domain.com | select -Expand StrongAuthenticationUserDetails | select PhoneNumber
 Get-MsolUser -UserPrincipalName user@domain.com | select -Expand StrongAuthenticationUserDetails | select Email
@@ -122,7 +123,7 @@ Para começar, precisa [transferir e instalar o módulo do PowerShell versão 2 
 
 Para instalar rapidamente a partir de versões recentes do PowerShell que suportam o Install-Module, execute os seguintes comandos. (A primeira linha verifica se o módulo já está instalado.)
 
-```
+```PowerShell
 Get-Module AzureADPreview
 Install-Module AzureADPreview
 Connect-AzureAD
@@ -130,7 +131,7 @@ Connect-AzureAD
 
 #### <a name="set-the-authentication-data-with-powershell-version-2"></a>Defina os dados de autenticação com o PowerShell versão 2
 
-```
+```PowerShell
 Connect-AzureAD
 
 Set-AzureADUser -ObjectId user@domain.com -OtherMails @("email@domain.com")
@@ -142,7 +143,7 @@ Set-AzureADUser -ObjectId user@domain.com -OtherMails @("emails@domain.com") -Mo
 
 #### <a name="read-the-authentication-data-with-powershell-version-2"></a>Ler os dados de autenticação com o PowerShell versão 2
 
-```
+```PowerShell
 Connect-AzureAD
 
 Get-AzureADUser -ObjectID user@domain.com | select otherMails

@@ -10,12 +10,12 @@ ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 03/22/2018
 ms.author: hrasheed
-ms.openlocfilehash: 84251b16d91ca74e11298c7aa54c9a7a8b7fd6d6
-ms.sourcegitcommit: 30a0007f8e584692fe03c0023fe0337f842a7070
+ms.openlocfilehash: ca6b072ba81f55802bc01d61ed44b06680cedbb2
+ms.sourcegitcommit: 223604d8b6ef20a8c115ff877981ce22ada6155a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57576723"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58362004"
 ---
 # <a name="availability-and-reliability-of-apache-hadoop-clusters-in-hdinsight"></a>Disponibilidade e fiabilidade de clusters do Apache Hadoop no HDInsight
 
@@ -248,6 +248,8 @@ Na IU da Web do Ambari, selecione o serviço que pretende ver os registos para (
 
 ## <a name="how-to-configure-the-node-size"></a>Como configurar o tamanho de nó
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 O tamanho de um nó só pode ser selecionado durante a criação do cluster. Pode encontrar uma lista de tamanhos de VM diferentes disponíveis para o HDInsight no [página de preços do HDInsight](https://azure.microsoft.com/pricing/details/hdinsight/).
 
 Ao criar um cluster, pode especificar o tamanho de nós. As seguintes informações fornecem orientações sobre como especificar o tamanho a utilizar o [portal do Azure][preview-portal], [Azure PowerShell][azure-powershell]e o [CLI clássica do azure][azure-cli]:
@@ -258,7 +260,7 @@ Ao criar um cluster, pode especificar o tamanho de nós. As seguintes informaç�
 
 * **Azure CLI clássica**: Ao utilizar o `azure hdinsight cluster create` comando, pode definir o tamanho do cabeçalho, trabalho e nós ZooKeeper, utilizando o `--headNodeSize`, `--workerNodeSize`, e `--zookeeperNodeSize` parâmetros.
 
-* **Azure PowerShell**: Ao utilizar o `New-AzureRmHDInsightCluster` cmdlet, pode definir o tamanho do cabeçalho, trabalho e nós ZooKeeper, utilizando o `-HeadNodeVMSize`, `-WorkerNodeSize`, e `-ZookeeperNodeSize` parâmetros.
+* **Azure PowerShell**: Ao utilizar o `New-AzHDInsightCluster` cmdlet, pode definir o tamanho do cabeçalho, trabalho e nós ZooKeeper, utilizando o `-HeadNodeVMSize`, `-WorkerNodeSize`, e `-ZookeeperNodeSize` parâmetros.
 
 ## <a name="next-steps"></a>Passos Seguintes
 

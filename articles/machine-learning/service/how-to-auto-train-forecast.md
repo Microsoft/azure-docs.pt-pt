@@ -10,12 +10,12 @@ ms.subservice: core
 ms.reviewer: trbye
 ms.topic: conceptual
 ms.date: 03/19/2019
-ms.openlocfilehash: cc5aae0e46e181e8063a4e01a832e68eab0eae0e
-ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
+ms.openlocfilehash: 32f96a28e027bfd0e65d934bb47bb98400af459d
+ms.sourcegitcommit: 223604d8b6ef20a8c115ff877981ce22ada6155a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58226621"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58360729"
 ---
 # <a name="auto-train-a-time-series-forecast-model"></a>Auto-preparar um modelo de previsão de séries de tempo
 
@@ -27,7 +27,7 @@ Neste artigo, irá aprender a preparar um modelo de previsão de séries de temp
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* Uma área de trabalho de serviço do Azure Machine Learning. Para criar a área de trabalho, consulte [introdução ao serviço Azure Machine Learning](quickstart-get-started.md).
+* Uma área de trabalho de serviço do Azure Machine Learning. Para criar a área de trabalho, consulte [criar uma área de trabalho do serviço do Azure Machine Learning](setup-create-workspace.md).
 * Este artigo pressupõe uma familiaridade básica com a configuração de uma experimentação de aprendizagem automática. Siga os [tutorial](tutorial-auto-train-models.md) ou [procedimentos](how-to-configure-auto-train.md) para ver a máquina automatizada básica aprender os padrões de design de experimentação.
 
 ## <a name="preparing-data"></a>Preparação de dados

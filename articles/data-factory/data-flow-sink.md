@@ -6,12 +6,12 @@ ms.author: makromer
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 02/03/2019
-ms.openlocfilehash: 3829fb3c045b149552d3f022e31f30f9cfae8182
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: a56f391aa76bd1216fd51d516adb836a2093bcba
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57852445"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58371144"
 ---
 # <a name="mapping-data-flow-sink-transformation"></a>Transformação de Sink de fluxo de dados de mapeamento
 
@@ -57,7 +57,7 @@ Se pretende repor os mapeamentos de colunas, prima o botão "Mapear novamente" p
 ## <a name="file-name-options"></a>Opções de nome de ficheiro
 
    * Predefinição: Permitir que o Spark para nomear arquivos com base nas predefinições de parte
-   * Pattern: Introduza um nome para os seus ficheiros de saída
+   * Pattern: Introduza um padrão para os seus ficheiros de saída. Por exemplo, "empréstimos [n]" criará loans1.csv, loans2.csv,...
    * Por partição: Introduza um nome de ficheiro por partição
    * Como os dados na coluna: Definir o ficheiro de saída para o valor de uma coluna
 
@@ -66,11 +66,16 @@ Se pretende repor os mapeamentos de colunas, prima o botão "Mapear novamente" p
 
 ## <a name="database-options"></a>Opções de base de dados
 
-* Permita insert, update, delete, upserts. A predefinição é permitir que inserções. Se desejar de atualização, upsert ou inserir linhas, primeiro tem de adicionar uma transformação de linha de alter para linhas de etiqueta para essas ações específicas.
+* Permita insert, update, delete, upserts. A predefinição é permitir que inserções. Se desejar de atualização, upsert ou eliminação de linhas, primeiro tem de adicionar uma transformação de linha de alter para linhas de etiqueta para essas ações específicas. Desativar "Permitir insert" irá parar ADF de inserir novas linhas da sua origem.
 * Truncar a tabela (remove todas as linhas da tabela de destino antes de concluir o fluxo de dados)
 * Recrie a tabela (executa a queda/criação da sua tabela de destino de antes de concluir o fluxo de dados)
 * Tamanho do lote para grandes cargas de dados. Introduza um número a escritas de bucket em segmentos
 * Ative o teste: Isso instruirá o ADF para utilizar o Polybase ao carregar o armazém de dados do Azure como o conjunto de dados de sink
+
+> [!NOTE]
+> No fluxo de dados, pode pedir o ADF para criar uma nova definição de tabela na base de dados de destino através da definição de um conjunto de dados na transformação de Sink, que tem um novo nome de tabela. No conjunto de dados SQL, clique em "Editar" abaixo o nome da tabela e introduza um novo nome de tabela. Em seguida, na transformação de Sink, ative "Permitir Descompassos de esquema". Seth a definição de "Importar esquema" como None.
+
+![Esquema de transformação de origem](media/data-flow/dataset2.png "esquema SQL")
 
 ![Opções de Sink do SQL](media/data-flow/alter-row2.png "opções de SQL")
 

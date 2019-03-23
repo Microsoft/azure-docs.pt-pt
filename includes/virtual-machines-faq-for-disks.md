@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 01/30/2018
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 03e10497b033fc3d97fde4cd524b358c05fdc943
-ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
+ms.openlocfilehash: 94893a5b5716c9bd207ad2a8bc8ca457974dddd4
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57458023"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58395546"
 ---
 # <a name="frequently-asked-questions-about-azure-iaas-vm-disks-and-managed-and-unmanaged-premium-disks"></a>Perguntas mais frequentes acerca dos discos de VM de IaaS do Azure e discos geridos e não geridos premium
 
@@ -105,7 +105,7 @@ Sim, os discos geridos e não são suportados. Recomendamos que utilize discos g
 
 Não.
 
-**Se eu criar um disco de 128 GB e, em seguida, aumente o tamanho para 130 GiB, vou ser cobrado para o próximo tamanho de disco (256gib)?**
+**Se eu criar um disco de 128 GB e, em seguida, aumente o tamanho para 130 gibibytes (GiB), vou ser cobrado para o próximo tamanho de disco (256gib)?**
 
 Sim.
 
@@ -115,7 +115,7 @@ Atualmente, o Managed Disks do Azure suporta discos de armazenamento apenas loca
 
 **Pode reduzir ou atividade meus discos geridos?**
 
-Não. Esta funcionalidade não é suportada atualmente. 
+Não. Esta funcionalidade não é suportada atualmente.
 
 **Pode quebrar uma concessão no meu disco?**
 
@@ -153,7 +153,7 @@ Todas as regiões do Azure suportam agora os discos Standard SSD.
 Sim, cópia de segurança do Azure está agora disponível.
 
 **Como posso criar discos Standard SSD?**
-Pode criar discos Standard SSD utilizando modelos do Azure Resource Manager, SDK, PowerShell ou a CLI. Seguem-se os parâmetros necessários no modelo do Resource Manager para criar os discos de SSD Standard:
+Pode criar discos Standard SSD utilizando modelos do Azure Resource Manager, SDK, o PowerShell ou CLI. Seguem-se os parâmetros necessários no modelo do Resource Manager para criar os discos de SSD Standard:
 
 * *apiVersion* para a Microsoft. Compute tem de ser definido como `2018-04-01` (ou posterior)
 * Especifique *managedDisk.storageAccountType* como `StandardSSD_LRS`
@@ -179,7 +179,7 @@ Sim, pode. Consulte a [converter geridas do Azure o armazenamento de discos de s
 -AccountType StandardSSD_LRS
 
 **O que é a vantagem de utilizar discos de SSD padrão em vez de HDD?**
-Os discos Standard SSD entregar melhor latência, consistência, disponibilidade e fiabilidade em comparação comparada discos HDD. Cargas de trabalho de aplicação executam muito mais facilidade em Standard SSD por causa disso. Tenha em atenção de que os discos de Premium SSD são a solução recomendada para a maioria das cargas de trabalho de produção de e/s intensiva. 
+Os discos Standard SSD entregar melhor latência, consistência, disponibilidade e fiabilidade em comparação comparada discos HDD. Cargas de trabalho de aplicação executam muito mais facilidade em Standard SSD por causa disso. Tenha em atenção de que os discos de Premium SSD são a solução recomendada para a maioria das cargas de trabalho de produção de e/s intensiva.
 
 **Pode utilizar SSDs padrão como discos não geridos?**
 Não, os discos Standard SSDs só estão disponíveis como Managed Disks.
@@ -191,7 +191,7 @@ Não, SSDs padrão não tem SLA de VM de instância única. Utilize discos de Pr
 
 **Existe qualquer impacto da migração sobre o desempenho de Managed Disks?**
 
-A migração envolve a movimentação do disco de uma localização de armazenamento para outro. Isso é orquestrado por meio de cópia em segundo plano de dados que podem demorar várias horas a concluir, normalmente, menos de 24 horas, dependendo da quantidade de dados nos discos. Durante esse tempo seu aplicativo pode assistir superior do que a latência de leitura normal como algumas leituras podem obter redirecionadas para a localização original e podem demorar mais tempo a concluir. Não é afetado na latência de escrita durante este período.  
+A migração envolve a movimentação do disco de uma localização de armazenamento para outro. Isso é orquestrado por meio de cópia em segundo plano de dados, que podem demorar várias horas a concluir, normalmente, menos de 24 horas, dependendo da quantidade de dados nos discos. Durante esse tempo seu aplicativo pode assistir superior do que a latência de leitura normal como algumas leituras podem obter redirecionadas para a localização original e podem demorar mais tempo a concluir. Não é afetado na latência de escrita durante este período.  
 
 **As alterações que são necessárias numa já existente do Azure Backup serviço antes/depois de migração de configuração para os Managed Disks?**
 
@@ -205,7 +205,7 @@ Sim, as cópias de segurança funcionam perfeitamente.
 
 Não são necessárias alterações.
 
-**É a migração automática de um dimensionamento de máquinas virtuais existentes conjuntos de discos não geridos para Managed Disks suportada?**
+**É migração automatizada de um dimensionamento de máquinas virtuais existentes do conjunto de discos não geridos para Managed Disks suportada?**
 
 Não. Pode criar um novo conjunto de dimensionamento com discos geridos com a imagem a partir do antigo conjunto de dimensionamento com discos não geridos.
 
@@ -333,25 +333,29 @@ Premium pequenas existente discos menor do que 64 GiB continua a ser faturado de
 
 Pode tirar um instantâneo dos seus discos pequenos e, em seguida, criar um disco mude automaticamente o escalão de preço para P4 ou P6 com base no tamanho aprovisionado.
 
-**Pode redimensionar discos geridos existentes de tamanhos de menos de 4 TiB para novos tamanhos de disco recém-lançado até 32 TiB?**
+**Pode redimensionar discos geridos existentes de tamanhos de menos de 4 tebibytes (TiB) para novos tamanhos de disco recém-lançado até 32 TiB?**
 
 Novos tamanhos de disco gerido 8 TiB TiB de 16 e 32 TiB estão atualmente em pré-visualização. Ainda não suportamos redimensionamento de tamanhos de disco existente para os novos tamanhos de disco.
 
-**O que é o tamanho maior de disco suportado pelo serviço de cópia de segurança do Azure e o Azure Site Recovery?**
+**Quais são os maiores tamanhos de disco suportados pelo serviço de cópia de segurança do Azure e o Azure Site Recovery?**
 
 O maior tamanho de disco suportado pelo Azure Backup e o serviço Azure Site Recovery é 4 TiB.
 
-**O que são VM recomendado tamanhos para tamanhos de discos grandes (> 4TiB) para discos Standard HDD e Standard SSD para alcançar otimizado de disco IOPS e largura de banda?**
+**O que são VM recomendado tamanhos para tamanhos de disco maiores (> 4 TiB) para discos Standard HDD e Standard SSD para alcançar otimizado de disco IOPS e largura de banda?**
 
-Para alcançar o débito de disco de tamanhos de disco grande padrão SSD e HDD padrão (> 4TB) para além dos 500 IOPS e 60 MiB/s, deve usar um dos seguintes tamanhos de VM para otimizar o desempenho: Série B, série DSv2, série Dsv3, série ESv3, Fs-, Fsv2, série M, série GS, NCv2-séries, série NCv3 ou VMs da série Ls.
+Para alcançar o débito de disco de tamanhos de disco grande padrão SSD e HDD padrão (> 4 TiB) para além dos 500 IOPS e 60 MiB/s, recomendamos que implantar uma nova VM a partir de um dos seguintes tamanhos de VM para otimizar o desempenho: Série B, série DSv2, série Dsv3, série ESv3, Fs-, Fsv2, série M, série GS, NCv2-séries, série NCv3 ou VMs da série Ls. Anexar discos grandes para VMs que não estiver a utilizar os tamanhos recomendados acima ou VMs existentes, pode ter um desempenho inferior.
 
-**Que regiões são os tamanhos de disco gerido maiores do que 4 TiB suportados no?**
+**Como posso atualizar meus discos (> 4 TiB) que foram implementadas durante a pré-visualização de tamanhos de disco maior para obter o IOPS e largura de banda superior em disponibilidade geral?**
 
-A pré-visualização de tamanhos de disco gerido para além dos 4 TiB são suportadas em todas as regiões de produção do Azure, exceto Gov, China e a Alemanha. 
+Pode parar e iniciar a VM que o disco está ligado à ou, desligar e voltar a anexar o disco. As metas de desempenho de tamanhos de disco maiores foram aumentadas para premium SSDs e standard SSDs em GA.
 
-**Suportamos ativar a colocação em cache do anfitrião sobre os tamanhos de disco mais recente?**
+**O que regiões são os tamanhos de disco gerido de 8 TiB, TiB de 16 e 32 TiB, heterogenních doménách aplikace?**
 
-Suportamos o anfitrião de colocação em cache de só de leitura e de leitura/gravação em tamanhos de disco menor do que 4TiB. Para tamanhos de disco mais do que 4 TiB, não é suportado definir a opção que não seja None a colocação em cache. Recomendamos a tirar partido da colocação em cache para tamanhos de disco mais pequenos, onde pode esperar para observar o aumento do desempenho melhor com dados armazenados em cache para a VM.
+O TiB de 8, TiB de 16 e 32 SKUs de disco de TiB são suportadas em todas as regiões em global Azure. Suporte para o Microsoft Azure Government e Azure China 21Vianet ainda não está disponível.
+
+**Suportamos ativar a colocação em cache do anfitrião de mensagens em fila em todos os tamanhos de disco?**
+
+Suportamos o anfitrião de colocação em cache de só de leitura e de leitura/gravação tamanhos de disco TiB inferior a 4. Para tamanhos de disco mais do que 4 TiB, não é suportado definir a opção que não seja None a colocação em cache. Recomendamos a tirar partido da colocação em cache para tamanhos de disco mais pequenos, onde pode esperar para observar o aumento do desempenho melhor com dados armazenados em cache para a VM.
 
 ## <a name="what-if-my-question-isnt-answered-here"></a>E se minha pergunta não respondida aqui?
 

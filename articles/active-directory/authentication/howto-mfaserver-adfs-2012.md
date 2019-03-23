@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 213a55cb02c718628a4a2d64bdee98ab66af5ce3
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: 970e570d9ad27da2690cd38fe480823128322db0
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58317056"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58370708"
 ---
 # <a name="configure-azure-multi-factor-authentication-server-to-work-with-ad-fs-in-windows-server"></a>Configurar o Servidor Multi-Factor Authentication do Azure para trabalhar com o AD FS no Windows Server
 
@@ -45,30 +45,22 @@ Antes de começar, tenha em atenção as seguintes informações:
 2. Na consola de gestão do Servidor Multi-Factor Authentication do Azure, clique no ícone **AD FS**. Selecione as opções **Permitir inscrição de utilizadores** e **Permitir que os utilizadores selecionem o método**.
 3. Selecione outras opções adicionais que pretende especificar para a sua organização.
 4. Clique em **Instalar Adaptador AD FS**.
-   
-   <center>
-   
-   ![Cloud](./media/howto-mfaserver-adfs-2012/server.png)</center>
+
+   ![Instalar o adaptador ADFS a partir da consola do servidor MFA](./media/howto-mfaserver-adfs-2012/server.png)
 
 5. Se for apresentada a janela do Active Directory, poderá significar duas coisas. O seu computador está associado a um domínio e a configuração do Active Directory para proteger a comunicação entre o adaptador AD FS e o serviço Multi-Factor Authentication está incompleta. Clique em **Seguinte** para concluir esta configuração automaticamente ou selecione a caixa de verificação **Ignorar configuração automática do Active Directory e configurar as definições manualmente**. Clique em **Seguinte**.
 6. Se for apresentada a janela do Grupo Local, poderá significar duas coisas. O seu computador não está associado a um domínio e a configuração do grupo local para proteger a comunicação entre o adaptador AD FS e o serviço Multi-Factor Authentication está incompleta. Clique em **Seguinte** para concluir esta configuração automaticamente ou selecione a caixa de verificação **Ignorar configuração automática do Grupo Local e configurar as definições manualmente**. Clique em **Seguinte**.
 7. No assistente de instalação, clique em **Seguinte**. O Servidor Multi-Factor Authentication do Azure cria o grupo PhoneFactor Admins e adiciona a conta de serviço do AD FS ao mesmo.
-   <center>
-   
-   ![Cloud](./media/howto-mfaserver-adfs-2012/adapter.png)</center>
 8. Na página **Iniciar o Instalador**, clique em **Seguinte**.
 9. No instalador do adaptador AD FS do Multi-Factor Authentication, clique em **Seguinte**.
 10. Clique em **Fechar** quando a instalação estiver terminada.
-11. Quando o adaptador estiver instalado, precisa de o registar no AD FS. Abra o Windows PowerShell e execute o seguinte comando:<br>
+11. Quando o adaptador estiver instalado, precisa de o registar no AD FS. Abra o Windows PowerShell e execute o seguinte comando:
+
     `C:\Program Files\Multi-Factor Authentication Server\Register-MultiFactorAuthenticationAdfsAdapter.ps1`
-    <center>
-    
-    ![Cloud](./media/howto-mfaserver-adfs-2012/pshell.png)</center>
+
 12. Para utilizar o adaptador recém-registado, edite a política de autenticação global do AD FS. Na consola de gestão do AD FS, aceda ao nó **Políticas de Autenticação**. Na secção **Multi-Factor Authentication**, clique na ligação **Editar** junto à secção **Definições Globais**. Na janela **Editar Política de Autenticação Global**, selecione **Multi-Factor Authentication** como método de autenticação adicional e, em seguida, clique em **OK**. O adaptador está registado como WindowsAzureMultiFactorAuthentication. Reinicie o serviço AD FS para o registo ser aplicado.
 
-<center>
-
-![Cloud](./media/howto-mfaserver-adfs-2012/global.png)</center>
+![Editar política de autenticação global](./media/howto-mfaserver-adfs-2012/global.png)
 
 Neste momento, o Servidor Multi-Factor Authentication está configurado para ser um fornecedor de autenticação adicional para utilização com o AD FS.
 
@@ -85,6 +77,7 @@ Neste momento, o Servidor Multi-Factor Authentication está configurado para ser
 5. Clique em **Fechar** quando a instalação estiver terminada.
 
 ## <a name="edit-the-multifactorauthenticationadfsadapterconfig-file"></a>Editar o ficheiro MultiFactorAuthenticationAdfsAdapter.con fig
+
 Siga estes passos para editar o ficheiro MultiFactorAuthenticationAdfsAdapter.config:
 
 1. Defina o nó **UseWebServiceSdk** como **true**.  
@@ -138,20 +131,22 @@ Para proteger o recurso da cloud, configure uma regra de afirmações para que o
 2. À esquerda, selecione **Confianças de Entidades Confiadoras**.
 3. Clique com o botão direito do rato na **Plataforma de Identidade do Microsoft Office 365** e selecione **Editar Regras de Afirmação...**
 
-   ![Nuvem](./media/howto-mfaserver-adfs-2012/trustedip1.png)
+   ![Editar regras de afirmação na consola do AD FS](./media/howto-mfaserver-adfs-2012/trustedip1.png)
 
 4. Em Regras de Transformação da Emissão, clique em **Adicionar Regra.**
 
-   ![Nuvem](./media/howto-mfaserver-adfs-2012/trustedip2.png)
+   ![Editar regras de transformação na consola do AD FS](./media/howto-mfaserver-adfs-2012/trustedip2.png)
 
 5. No Assistente para Adicionar Regra de Afirmação de Transformação, selecione **Passar ou Filtrar uma Afirmação de Entrada** no menu pendente e clique em **Seguinte**.
 
-   ![Nuvem](./media/howto-mfaserver-adfs-2012/trustedip3.png)
+   ![Adicionar Assistente de regra de afirmação de transformação](./media/howto-mfaserver-adfs-2012/trustedip3.png)
 
 6. Dê um nome à sua regra.
 7. Selecione **Referências de Métodos de Autenticação** como o tipo de Afirmação de entrada.
 8. Selecione **Passar todos os valores de afirmação**.
-    ![Assistente para Adicionar Regra de Afirmação de Transformação](./media/howto-mfaserver-adfs-2012/configurewizard.png)
+
+    ![Adicionar Assistente de regra de afirmação de transformação](./media/howto-mfaserver-adfs-2012/configurewizard.png)
+
 9. Clique em **Concluir**. Feche a consola de Gestão do AD FS.
 
 ## <a name="troubleshooting-logs"></a>Registos de resolução de problemas

@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 36959582a3866426f8dc0e9969210e29e751ea60
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: 4d9055ef11bc5c117efc6d4de87d4ca8ec73a661
+ms.sourcegitcommit: 223604d8b6ef20a8c115ff877981ce22ada6155a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58311905"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58360508"
 ---
 # <a name="password-policies-and-restrictions-in-azure-active-directory"></a>Políticas de palavra-passe e restrições no Azure Active Directory
 
@@ -93,7 +93,7 @@ A tabela seguinte descreve as definições de política de palavra-passe aplicad
 
 ## <a name="set-password-expiration-policies-in-azure-ad"></a>Definir políticas de expiração de palavra-passe no Azure AD
 
-Um administrador global para um serviço cloud da Microsoft pode utilizar o módulo do Microsoft Azure AD para o Windows PowerShell para definir palavras-passe de utilizador não a expirar. Também pode utilizar cmdlets do Windows PowerShell para remover o nunca-expira a configuração ou para ver o que utilizador palavras-passe são definidas para nunca expirar. 
+Um administrador global ou administrador de utilizadores para um serviço cloud da Microsoft pode utilizar o módulo do Microsoft Azure AD para o Windows PowerShell para definir palavras-passe de utilizador não a expirar. Também pode utilizar cmdlets do Windows PowerShell para remover o nunca-expira a configuração ou para ver o que utilizador palavras-passe são definidas para nunca expirar. 
 
 Esta orientação aplica-se para outros fornecedores, como o Intune e Office 365, que também dependem do Azure AD para os serviços de identidade e de diretório. Expiração de palavra-passe é a única parte da política que pode ser alterada.
 
@@ -107,7 +107,7 @@ Para começar, precisa [transferir e instalar o módulo Azure AD PowerShell](htt
 
 ### <a name="check-the-expiration-policy-for-a-password"></a>Verifique a política de expiração para uma palavra-passe
 
-1. Ligar ao Windows PowerShell com suas credenciais de administrador da empresa.
+1. Ligar para o Windows PowerShell com o seu administrador de utilizadores ou credenciais de administrador da empresa.
 1. Execute um dos seguintes comandos:
 
    * Para ver se a palavra-passe de um único utilizador está definida para nunca expirar, execute o seguinte cmdlet através do UPN (por exemplo, *aprilr\@contoso.onmicrosoft.com*) ou o ID de utilizador do utilizador que pretende verificar: `Get-AzureADUser -ObjectId <user ID> | Select-Object @{N="PasswordNeverExpires";E={$_.PasswordPolicies -contains "DisablePasswordExpiration"}}`
@@ -115,7 +115,7 @@ Para começar, precisa [transferir e instalar o módulo Azure AD PowerShell](htt
 
 ### <a name="set-a-password-to-expire"></a>Definir uma palavra-passe a expirar
 
-1. Ligar ao Windows PowerShell com suas credenciais de administrador da empresa.
+1. Ligar para o Windows PowerShell com o seu administrador de utilizadores ou credenciais de administrador da empresa.
 1. Execute um dos seguintes comandos:
 
    * Para definir a palavra-passe de um utilizador para que a palavra-passe expirar, execute o seguinte cmdlet com o UPN ou o ID de utilizador do utilizador: `Set-AzureADUser -ObjectId <user ID> -PasswordPolicies None`
@@ -123,7 +123,7 @@ Para começar, precisa [transferir e instalar o módulo Azure AD PowerShell](htt
 
 ### <a name="set-a-password-to-never-expire"></a>Definir uma palavra-passe para nunca expirar
 
-1. Ligar ao Windows PowerShell com suas credenciais de administrador da empresa.
+1. Ligar para o Windows PowerShell com o seu administrador de utilizadores ou credenciais de administrador da empresa.
 1. Execute um dos seguintes comandos:
 
    * Para definir a palavra-passe de um utilizador para nunca expirar, execute o cmdlet seguinte ao utilizar o UPN ou o ID de utilizador do utilizador: `Set-AzureADUser -ObjectId <user ID> -PasswordPolicies DisablePasswordExpiration`

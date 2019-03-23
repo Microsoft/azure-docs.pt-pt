@@ -16,12 +16,12 @@ ms.date: 03/22/2019
 ms.author: sethm
 ms.reviewer: xiaofmao
 ms.lastreviewed: 12/07/2018
-ms.openlocfilehash: aff9dade7fe0238c0ea8ccc3ae5bba57437c6f89
-ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
+ms.openlocfilehash: 3d9376ba5945c97d18f6cf68c242d5217beee679
+ms.sourcegitcommit: 87bd7bf35c469f84d6ca6599ac3f5ea5545159c9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58339572"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58349710"
 ---
 # <a name="quota-types-in-azure-stack"></a>Tipos de ficheiro no Azure Stack
 
@@ -40,7 +40,10 @@ ms.locfileid: "58339572"
 | Capacidade máxima (em GB) de disco gerido standard | 2048 | A capacidade máxima de discos geridos padrão que podem ser criadas nesta localização. |
 | Capacidade máxima (em GB) de um disco gerido premium | 2048 | A capacidade máxima do premium geridos os discos que podem ser criados nesta localização. |
 
-## <a name="storage-quota-types"></a>Tipos de quota de armazenamento
+> [!NOTE]  
+> Máximo de capacidade do disco não gerido (blobs de páginas) é separada da quota de disco gerido, deve ser definida na Quota de armazenamento.
+
+## <a name="storage-quota-types"></a>Tipos de quota de armazenamento 
 
 | **Item** | **Default value** (Valor predefinido) | **Descrição** |
 | --- | --- | --- |
@@ -48,7 +51,7 @@ ms.locfileid: "58339572"
 | Número total de contas de armazenamento |20 |O número máximo de contas de armazenamento que uma subscrição pode criar nesta localização. |
 
 > [!NOTE]  
-> Pode demorar até duas horas antes de uma quota de armazenamento é imposta.
+> Pode demorar até duas horas antes de uma quota de armazenamento é imposta. Máximo de capacidade de disco gerido está separada de quota de armazenamento total, deve ser definida da Quota de computação.
 
 ## <a name="network-quota-types"></a>Tipos de quota de rede
 

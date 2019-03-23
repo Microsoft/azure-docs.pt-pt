@@ -13,15 +13,15 @@ ms.devlang: multiple
 ms.topic: overview
 ms.tgt_pltfrm: multiple
 ms.workload: media
-ms.date: 03/14/2019
+ms.date: 03/20/2019
 ms.author: juliako
 ms.custom: mvc
-ms.openlocfilehash: 251a2a3fed57e957de11a20189b6b6d553d98a78
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: 88113fee64251344bd84085caedc9dfccfa10933
+ms.sourcegitcommit: 87bd7bf35c469f84d6ca6599ac3f5ea5545159c9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58310273"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58351461"
 ---
 # <a name="what-is-azure-media-services-v3"></a>O que são os Serviços de Multimédia do Azure v3?
 
@@ -77,24 +77,11 @@ Alguns exemplos incluem
 
 Consulte a [obter a política de chave conteúda - .NET](get-content-key-policy-dotnet-howto.md) exemplo.
 
-## <a name="how-can-i-get-started-with-v3"></a>Como posso começar a utilizar a v3?
-
-Para obter informações sobre como começar a desenvolver com a API de v3 de serviços de multimédia com várias ferramentas e SDKs, consulte [começar a desenvolver](developers-guide.md).
-
-## <a name="v3-content-map"></a>v3 content map
-
-Os conteúdos de v3 de serviços de multimédia são organizados de acordo com a seguinte estrutura (também refletida no índice):
-
-|Secções| Descrição|
-|---|---|
-| Descrição geral | Explica a funcionalidade de serviços de multimédia e o que pode fazer com o serviço.|
-| Inícios rápidos | Mostre instruções de 1 dia fundamentais para os novos clientes experimentar rapidamente o serviços de multimédia.|
-| Tutoriais | Mostre baseados em cenários de procedimentos para algumas das tarefas principais de serviços de multimédia.|
-| Amostras | Ligações para exemplos de código. |
-| Conceitos | Contêm uma explicação detalhada das [funcionalidades e conceitos do serviços de multimédia v3](concepts-overview.md). Os conceitos fundamentais descritos nos seguintes tópicos devem ser revistos antes de iniciar o desenvolvimento.<br/><br/>* Carregamento e o armazenamento de cloud<br/>* A codificação<br/>* Análise de multimédia<br/>* Empacotamento, entrega, proteção<br/>* Transmissão em direto<br/>* A monitorização<br/>* Os clientes de Player<br/><br/>e muito mais. |
-| Guias de procedimentos | Demonstre como concluir uma tarefa.|
-
 ## <a name="next-steps"></a>Passos Seguintes
 
-Para ver como é fácil começar a codificar e a transmitir ficheiros de vídeo, veja [Stream files](stream-files-dotnet-quickstart.md) (Transmitir ficheiros). 
+Como posso começar a utilizar a v3? 
+
+> [!div class="nextstepaction"]
+> [Saiba mais sobre os conceitos fundamentais](concepts-overview.md)<br/>
+> [Desenvolver com a API de v3 de serviços de multimédia através de SDKs](developers-guide.md) 
 

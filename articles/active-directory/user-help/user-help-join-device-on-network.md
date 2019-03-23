@@ -13,12 +13,12 @@ ms.date: 08/03/2018
 ms.author: lizross
 ms.reviewer: jairoc
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b433d8556377206ea53ece2764e251dcb266eb95
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: e2ba6b2d33c3fb5d9fda6821718ac61513a958b7
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56192358"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58369144"
 ---
 # <a name="join-your-work-device-to-your-organizations-network"></a>Associar o seu dispositivo de trabalho para a rede da sua organização
 Associe o seu dispositivo de Windows 10 pertencentes à trabalho à rede da sua organização para que possa aceder a recursos potencialmente restritos.
@@ -26,7 +26,7 @@ Associe o seu dispositivo de Windows 10 pertencentes à trabalho à rede da sua 
 ## <a name="what-happens-when-you-join-your-device"></a>O que acontece quando associar o seu dispositivo
 Enquanto estiver ingressando em seu dispositivo Windows 10 para a rede da sua organização, irão ocorrer as seguintes ações:
 
-- Registros de Windows seu dispositivo à rede da sua organização, permitindo-lhe pode aceder aos seus recursos com a sua conta pessoal. Depois do dispositivo estiver registado, Windows, em seguida, junta-se o dispositivo à rede, pelo que pode utilizar a sua organização nome de utilizador e palavra-passe para iniciar sessão e aceder aos recursos restritos.
+- Windows regista o dispositivo à rede da sua organização, permitindo-lhe aceder aos recursos com a sua conta pessoal. Depois do dispositivo estiver registado, Windows, em seguida, junta-se o dispositivo à rede, pelo que pode utilizar a sua organização nome de utilizador e palavra-passe para iniciar sessão e aceder aos recursos restritos.
 
 - Opcionalmente, com base nas opções da sua organização, poderá ser-lhe pedido para configurar a verificação de dois passos através de um [multi-factor Authentication](multi-factor-authentication-end-user-first-time.md) ou [informações de segurança](user-help-security-info-overview.md).
 

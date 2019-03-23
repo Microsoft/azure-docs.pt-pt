@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/06/2018
 ms.author: hrasheed
-ms.openlocfilehash: ccb408a427680cffc339797bd3421ed9f53af640
-ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
+ms.openlocfilehash: 80c2d25fa24acff92a462f0289259792f217fbfd
+ms.sourcegitcommit: 223604d8b6ef20a8c115ff877981ce22ada6155a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58200689"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58361698"
 ---
 # <a name="customize-linux-based-hdinsight-clusters-by-using-script-actions"></a>Personalizar clusters do HDInsight baseado em Linux utilizando as ações de script
 
@@ -26,6 +26,8 @@ O Azure HDInsight fornece um método de configuração chamado **ações de scri
 > Linux é o único sistema operativo utilizado no HDInsight versão 3.4 ou posterior. Para obter mais informações, consulte [reforma do Windows HDInsight](hdinsight-component-versioning.md#hdinsight-windows-retirement).
 
 Ações de script também podem ser publicadas no Azure Marketplace como uma aplicação do HDInsight. Para obter mais informações sobre aplicações do HDInsight, consulte [publicar uma aplicação de HDInsight no Azure Marketplace](hdinsight-apps-publish-applications.md).
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="permissions"></a>Permissões
 
@@ -131,7 +133,7 @@ Uma falha num script a executar num cluster já esteja sendo executado automatic
 >
 > Executam as ações de scripts com privilégios de raiz. Certifique-se de que compreende o que faz um script antes de aplicá-la ao seu cluster.
 
-Quando aplica um script para um cluster, o estado do cluster é alterado de **em execução** ao **aceites**. Em seguida, ele é alterado para **configuração do HDInsight** e, finalmente, voltar ao **em execução** para scripts com êxito. O estado do script é registado no histórico de ação de script. Estas informações indica se o script com êxito ou falhadas. Por exemplo, o `Get-AzureRmHDInsightScriptActionHistory` cmdlet do PowerShell mostra o estado de um script. Devolve informações semelhantes ao seguinte texto:
+Quando aplica um script para um cluster, o estado do cluster é alterado de **em execução** ao **aceites**. Em seguida, ele é alterado para **configuração do HDInsight** e, finalmente, voltar ao **em execução** para scripts com êxito. O estado do script é registado no histórico de ação de script. Estas informações indica se o script com êxito ou falhadas. Por exemplo, o `Get-AzHDInsightScriptActionHistory` cmdlet do PowerShell mostra o estado de um script. Devolve informações semelhantes ao seguinte texto:
 
     ScriptExecutionId : 635918532516474303
     StartTime         : 8/14/2017 7:40:55 PM
@@ -223,7 +225,7 @@ Obter mais informações sobre como implementar um modelo:
 
 ### <a name="use-a-script-action-during-cluster-creation-from-azure-powershell"></a>Utilize uma ação de script durante a criação do cluster do Azure PowerShell
 
-Nesta secção, vai utilizar o [Add-AzureRmHDInsightScriptAction](https://docs.microsoft.com/powershell/module/azurerm.hdinsight/add-azurermhdinsightscriptaction) cmdlet para invocar scripts para personalizar um cluster. Antes de começar, certifique-se de instalar e configurar o Azure PowerShell. Para obter informações sobre como configurar uma estação de trabalho para executar os cmdlets do PowerShell do HDInsight, consulte [descrição geral do Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview?view=azps-1.1.0#run-or-install).
+Nesta secção, vai utilizar o [Add-AzHDInsightScriptAction](https://docs.microsoft.com/powershell/module/az.hdinsight/add-azhdinsightscriptaction) cmdlet para invocar scripts para personalizar um cluster. Antes de começar, certifique-se de instalar e configurar o Azure PowerShell. Para obter informações sobre como configurar uma estação de trabalho para executar os cmdlets do PowerShell do HDInsight, consulte [descrição geral do Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview?view=azps-1.1.0#run-or-install).
 
 O script seguinte mostra como aplicar uma ação de script, quando criar um cluster com o PowerShell:
 
@@ -368,13 +370,13 @@ Para obter um exemplo com o SDK .NET para aplicar os scripts a um cluster, consu
 
 | cmdlet | Função |
 | --- | --- |
-| `Get-AzureRmHDInsightPersistedScriptAction` |Obter informações sobre ações de script persistentes. |
-| `Get-AzureRmHDInsightScriptActionHistory` |Obter um histórico das ações de script aplicados ao cluster ou de detalhes de um script específico. |
-| `Set-AzureRmHDInsightPersistedScriptAction` |Promova uma ação de script ad hoc para uma ação de script persistentes. |
-| `Remove-AzureRmHDInsightPersistedScriptAction` |Despromova uma ação de script persistentes a uma ação ad hoc. |
+| `Get-AzHDInsightPersistedScriptAction` |Obter informações sobre ações de script persistentes. |
+| `Get-AzHDInsightScriptActionHistory` |Obter um histórico das ações de script aplicados ao cluster ou de detalhes de um script específico. |
+| `Set-AzHDInsightPersistedScriptAction` |Promova uma ação de script ad hoc para uma ação de script persistentes. |
+| `Remove-AzHDInsightPersistedScriptAction` |Despromova uma ação de script persistentes a uma ação ad hoc. |
 
 > [!IMPORTANT]  
-> `Remove-AzureRmHDInsightPersistedScriptAction` não anular as ações executadas por um script. Este cmdlet Remove apenas o sinalizador persistente.
+> `Remove-AzHDInsightPersistedScriptAction` não anular as ações executadas por um script. Este cmdlet Remove apenas o sinalizador persistente.
 
 O script de exemplo seguinte demonstra como utilizar os cmdlets para promover e, em seguida, despromover um script.
 

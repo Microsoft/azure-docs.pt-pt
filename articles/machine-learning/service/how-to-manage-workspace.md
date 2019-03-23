@@ -11,12 +11,12 @@ ms.author: shipatel
 author: shivp950
 ms.date: 09/24/2018
 ms.custom: seodec18
-ms.openlocfilehash: c7dd2fba852881680b43ceabafec2ac6b2751df4
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: e65f739a9641181381205c7255d0472325e8055c
+ms.sourcegitcommit: 223604d8b6ef20a8c115ff877981ce22ada6155a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57839598"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58359925"
 ---
 # <a name="create-and-manage-azure-machine-learning-service-workspaces"></a>Criar e gerir áreas de trabalho do serviço Azure Machine Learning
 
@@ -28,24 +28,19 @@ Para criar uma área de trabalho, precisa de uma subscrição do Azure. Se não 
 
 [!INCLUDE [aml-create-portal](../../../includes/aml-create-in-portal.md)]
 
-## <a name="view-a-workspace"></a>Ver uma área de trabalho
+## <a name="view"></a>Ver uma área de trabalho
 
 1. No canto superior esquerdo do portal, selecione **todos os serviços**. 
 
-1. Na **todos os serviços** campo de filtro, escreva **área de trabalho do Machine Learning serviço**.  
+1. Na **todos os serviços** campo de filtro, escreva **do machine learning serviço**.  
 
-   ![Procure a área de trabalho do serviço Azure Machine Learning](media/how-to-manage-workspace/allservices-search1.png)
+1. Selecione **áreas de trabalho do Machine Learning serviço**.
 
-1. Nos resultados de filtro, selecione **área de trabalho do Machine Learning serviço** para apresentar uma lista as áreas de trabalho. 
-
-   ![Lista de áreas de trabalho do serviço Azure Machine Learning](media/how-to-manage-workspace/allservices-search.PNG)
+   ![Procure a área de trabalho do serviço Azure Machine Learning](media/how-to-manage-workspace/all-services.png)
 
 1. Consultar a lista de áreas de trabalho foi encontrado. Pode filtrar com base na subscrição, grupos de recursos e localizações.  
 
-   ![Áreas de trabalho do Vista](media/how-to-manage-workspace/allservices_view_workspace.PNG)
-
-1. Selecione a área de trabalho que acabou de criar para apresentar as respetivas propriedades.
-
+1. Selecione uma área de trabalho para apresentar as respetivas propriedades.
    ![Propriedades da área de trabalho](media/how-to-manage-workspace/allservices_view_workspace_full.PNG)
 
 ## <a name="delete-a-workspace"></a>Eliminar uma área de trabalho

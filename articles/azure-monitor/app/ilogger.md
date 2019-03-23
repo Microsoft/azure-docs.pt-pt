@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 02/19/2019
 ms.reviewer: mbullwin
 ms.author: cithomas
-ms.openlocfilehash: 14c9a453913a9a8080c840df3f23751487b86c34
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: deaddfbd27c4ffe6738988c6368ce4f9c3a7fa78
+ms.sourcegitcommit: 223604d8b6ef20a8c115ff877981ce22ada6155a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58006163"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58359148"
 ---
 # <a name="ilogger"></a>ILogger
 
@@ -78,7 +78,7 @@ public class Program
     {
         var host = BuildWebHost(args);
         var logger = host.Services.GetRequiredService<ILogger<Program>>();
-        logger.LogInformation("From Program. Running the host now.."); // This will be picked up up by AI
+        logger.LogInformation("From Program. Running the host now.."); // This will be picked up by AI
         host.Run();
     }
 
@@ -119,7 +119,7 @@ public class Startup
     {
         services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
     
-    // The following be picked up up by Application Insights.
+    // The following be picked up by Application Insights.
         _logger.LogInformation("From ConfigureServices. Services.AddMVC invoked"); 
     }
 
@@ -128,13 +128,13 @@ public class Startup
     {
         if (env.IsDevelopment())
         {
-        // The following be picked up up by Application Insights.   
+        // The following be picked up by Application Insights.  
             _logger.LogInformation("Configuring for Development environment");
             app.UseDeveloperExceptionPage();
         }
         else
         {
-            // The following be picked up up by Application Insights.
+            // The following be picked up by Application Insights.
             _logger.LogInformation("Configuring for Production environment");
         }
 
@@ -157,7 +157,7 @@ public class ValuesController : ControllerBase
     [HttpGet]
     public ActionResult<IEnumerable<string>> Get()
     {
-        // All the following logs will be picked upby Application Insights.
+        // All the following logs will be picked up by Application Insights.
     // and all have ("MyKey", "MyValue") in Properties.
     using (_logger.BeginScope(new Dictionary<string, object> { { "MyKey", "MyValue" } }))
         {           

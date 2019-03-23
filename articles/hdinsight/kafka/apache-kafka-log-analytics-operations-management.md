@@ -9,18 +9,20 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 06/15/2018
-ms.openlocfilehash: 281b4b8d20957cbbbf0f4ff52166e8c3a78b3e7d
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 5154058bb1562b670e24f8813e979588a536f086
+ms.sourcegitcommit: 223604d8b6ef20a8c115ff877981ce22ada6155a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58108142"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58359862"
 ---
 # <a name="analyze-logs-for-apache-kafka-on-hdinsight"></a>Analisar registos para o Apache Kafka no HDInsight
 
 Saiba como utilizar os registos do Azure Monitor para analisar os registos gerados pelo Apache Kafka no HDInsight.
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-log-analytics-rebrand.md)]
+
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 ## <a name="enable-azure-monitor-logs-for-apache-kafka"></a>Ativar registos de Azure Monitor para o Apache Kafka
 
@@ -33,7 +35,7 @@ Os passos para ativar registos de Monitor do Azure para HDInsight são os mesmos
 3. Configure o cluster de Kafka utilizar registos do Azure Monitor. Para obter mais informações, consulte a [registos de utilização do Azure Monitor para monitorizar o HDInsight](../hdinsight-hadoop-oms-log-analytics-tutorial.md) documento.
 
     > [!NOTE]  
-    > Também pode configurar o cluster utilize registos do Azure Monitor, utilizando o `Enable-AzureRmHDInsightOperationsManagementSuite` cmdlet. Este cmdlet requer as seguintes informações:
+    > Também pode configurar o cluster utilize registos do Azure Monitor, utilizando o `Enable-AzHDInsightOperationsManagementSuite` cmdlet. Este cmdlet requer as seguintes informações:
     >
     > * O nome do cluster do HDInsight.
     > * O ID de área de trabalho para os registos do Azure Monitor. Pode encontrar o ID de área de trabalho na sua área de trabalho do Log Analytics.

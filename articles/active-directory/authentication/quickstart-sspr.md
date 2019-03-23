@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: eabc30b28ec6c32295c5eeff0f19b31fba622056
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 58e3254d499e013dc686bf6b7d53f919a457c901
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58095624"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58371289"
 ---
 # <a name="quickstart-self-service-password-reset"></a>Início rápido: Reposição personalizada de palavra-passe
 
@@ -46,7 +46,7 @@ Neste início rápido, vai percorrer a configuração da reposição personaliza
       * **Código de aplicação móvel (pré-visualização)**
    * Clique em **Guardar**.
 
-     ![Autenticação][Authentication]
+     ![Escolher métodos de autenticação para SSPR][Authentication]
 
 4. Na página **Registo**, selecione as seguintes opções:
    * Exigir que os utilizadores se registem quando iniciam sessão: **Sim**

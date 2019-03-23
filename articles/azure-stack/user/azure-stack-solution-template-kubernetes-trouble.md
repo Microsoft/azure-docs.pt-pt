@@ -10,16 +10,16 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.author: mabvrigg
+ms.author: mabrigg
 ms.date: 03/20/2019
 ms.reviewer: waltero
 ms.lastreviewed: 03/20/2019
-ms.openlocfilehash: 01a9405c98160149782ab2cf248f64818d631dde
-ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
+ms.openlocfilehash: 9af4b7a622bfb47d44c3da0edcece8c9528b08c4
+ms.sourcegitcommit: 223604d8b6ef20a8c115ff877981ce22ada6155a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58293792"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58361545"
 ---
 # <a name="troubleshoot-your-kubernetes-deployment-to-azure-stack"></a>Resolver problemas relacionados com a implementação de Kubernetes no Azure Stack
 

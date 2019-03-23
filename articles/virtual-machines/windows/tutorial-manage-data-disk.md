@@ -17,12 +17,12 @@ ms.date: 11/29/2018
 ms.author: cynthn
 ms.custom: mvc
 ms.subservice: disks
-ms.openlocfilehash: 50470edff81194b9c8885aa94d1eab1e6c18ad88
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
+ms.openlocfilehash: be6375972747c5c962bf1a8ef9b9b0093402bb7a
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55984091"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58368260"
 ---
 # <a name="tutorial---manage-azure-disks-with-azure-powershell"></a>Tutorial – Gerir discos do Azure com o Azure PowerShell
 
@@ -49,12 +49,9 @@ Quando uma máquina virtual do Azure é criada, dois discos são automaticamente
 
 **Disco temporário** - os discos temporários utilizam uma unidade de estado sólido que está localizada no mesmo anfitrião da VM do Azure. Os discos temporários são de elevado desempenho e servem para operações como o processamento de dados temporários. No entanto, se a VM for movida para um novo anfitrião, todos os dados armazenados num disco temporário são removidos. O tamanho do disco temporário é determinado pelo [tamanho da VM](sizes.md). Os discos temporários estão atribuídos a uma letra de unidade de *D:* por predefinição.
 
-
-
 ## <a name="azure-data-disks"></a>Discos de dados do Azure
 
-Podem ser adicionados mais discos para instalar aplicações e armazenar dados. Os discos de dados devem ser utilizados em qualquer situação em que seja preciso armazenamento de dados duradouro e reativo. Cada disco de dados tem a capacidade máxima de 4 terabytes. O tamanho da máquina virtual determina quantos discos de dados podem ser expostos a uma VM. Para cada vCPU de VM, podem ser expostos quatro discos de dados. 
-
+Podem ser adicionados mais discos para instalar aplicações e armazenar dados. Os discos de dados devem ser utilizados em qualquer situação em que seja preciso armazenamento de dados duradouro e reativo. Cada disco de dados tem a capacidade máxima de 4 terabytes. O tamanho da máquina virtual determina quantos discos de dados podem ser expostos a uma VM. Para cada vCPU de VM, podem ser expostos quatro discos de dados.
 
 ## <a name="vm-disk-types"></a>Tipos de disco de VM
 
@@ -65,12 +62,7 @@ O Azure oferece dois tipos de discos.
 **Discos Premium** - são apoiados por um disco de elevado desempenho baseado em SSD e de baixa latência. São perfeitos para as VMs com carga de trabalho de produção. O Armazenamento Premium suporta VMs da série DS, série DSv2, série GS e série FS. Os discos Premium são fornecidos em cinco tipos (P10, P20, P30, P40, P50), e o tamanho do disco determina o tipo de disco. Ao selecionar um tamanho de disco, o valor é arredondado para o tipo seguinte. Por exemplo, se o tamanho for inferior a 128 GB, o tipo de disco é P10 ou entre 129 GB e 512 GB, o disco é P20.
 
 ### <a name="premium-disk-performance"></a>Desempenho do disco Premium
-
-|Tipo de disco de armazenamento Premium | P4 | P6 | P10 | P20 | P30 | P40 | P50 | p60 |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| Tamanho do disco (arredondado) | 32 GiB | 64 GiB | 128 GiB | 512 GiB | 1.024 GiB (1 TiB) | 2.048 GiB (2 TiB) | 4.095 GiB (4 TiB) | 8.192 GiB (8 TiB)
-| IOPs Máx por disco | 120 | 240 | 500 | 2.300 | 5.000 | 7.500 | 7.500 | 12.500 |
-Débito por disco | 25 MB/s | 50 MB/s | 100 MB/s | 150 MB/s | 200 MB/s | 250 MB/s | 250 MB/s | 480 MB/s |
+[!INCLUDE [disk-storage-premium-ssd-sizes](../../../includes/disk-storage-premium-ssd-sizes.md)]
 
 Enquanto a tabela acima identifica o IOPS máximo por disco, um nível mais elevado de desempenho pode ser alcançado ao repartir vários discos de dados. Por exemplo, podem ser anexados 64 discos de dados à VM Standard_GS5. Se cada um destes discos for dimensionado como um P30, pode ser alcançado um máximo de 80.000 IOPS. Para obter informações detalhadas sobre o IOPS máximo por VM, veja [Tipos e tamanhos de VMs](./sizes.md).
 

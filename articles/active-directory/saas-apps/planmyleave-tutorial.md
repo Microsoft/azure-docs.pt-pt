@@ -4,146 +4,147 @@ description: Saiba como configurar o início de sessão único entre o Azure Act
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: daveba
-ms.reviewer: joflore
+manager: mtillman
+ms.reviewer: barbkess
 ms.assetid: b0d31cbe-7ae2-488b-9cf3-4927391fa744
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 08/16/2017
+ms.topic: tutorial
+ms.date: 03/14/2019
 ms.author: jeedes
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: d578367ef3b1f55715841bf51a3baeef28f198e9
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: a5968710a919d96b9aee1d5acbd2366be76aa9e8
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56207046"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58371820"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-planmyleave"></a>Tutorial: Integração do Active Directory do Azure com PlanMyLeave
 
 Neste tutorial, saiba como integrar PlanMyLeave com o Azure Active Directory (Azure AD).
-
 Integrar PlanMyLeave no Azure AD fornece as seguintes vantagens:
 
-- Pode controlar no Azure AD que tenha acesso ao PlanMyLeave.
-- Pode permitir que os utilizadores automaticamente obter com sessão iniciada para PlanMyLeave (Single Sign-On) com as suas contas do Azure AD.
-- Pode gerir as suas contas num local central – portal do Azure.
+* Pode controlar no Azure AD que tenha acesso ao PlanMyLeave.
+* Pode permitir que os utilizadores ser automaticamente sessão iniciada para PlanMyLeave (Single Sign-On) com as suas contas do Azure AD.
+* Pode gerir as suas contas num local central – portal do Azure.
 
-Se quiser saber mais detalhes sobre a integração de aplicações SaaS com o Azure AD, veja [o que é o acesso a aplicações e início de sessão único com o Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
+Se quiser saber mais detalhes sobre a integração de aplicações SaaS com o Azure AD, veja [o que é o acesso a aplicações e início de sessão único com o Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+Se não tiver uma subscrição do Azure, [crie uma conta gratuita](https://azure.microsoft.com/free/) antes de começar.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 Para configurar a integração do Azure AD com PlanMyLeave, terá dos seguintes itens:
 
-- Uma subscrição do Azure
-- Um PlanMyLeave logon único habilitado subscrição
-
-> [!NOTE]
-> Para testar os passos neste tutorial, recomendamos que não utilize um ambiente de produção.
-
-Para testar os passos neste tutorial, deve seguir estas recomendações:
-
-- Não utilize o seu ambiente de produção, a menos que seja necessário.
-- Se não tiver um ambiente de avaliação do Azure AD, pode [obtenha uma avaliação de um mês](https://azure.microsoft.com/pricing/free-trial/).
+* Uma subscrição do Azure AD. Se não tiver um ambiente do Azure AD, pode obter a versão de avaliação de um mês [aqui](https://azure.microsoft.com/pricing/free-trial/)
+* PlanMyLeave logon único habilitado subscrição
 
 ## <a name="scenario-description"></a>Descrição do cenário
-Neste tutorial, vai testar do Azure AD início de sessão único num ambiente de teste. O cenário descrito neste tutorial consiste em dois blocos de construção principais:
 
-1. Adicionando PlanMyLeave da Galeria
-1. Configuração e teste do Azure AD início de sessão único
+Neste tutorial, configure e teste do Azure AD início de sessão único num ambiente de teste.
+
+* Suporta PlanMyLeave **SP** iniciada SSO
+
+* Suporta PlanMyLeave **Just In Time** aprovisionamento de utilizadores
 
 ## <a name="adding-planmyleave-from-the-gallery"></a>Adicionando PlanMyLeave da Galeria
+
 Para configurar a integração do PlanMyLeave com o Azure AD, terá de adicionar PlanMyLeave a partir da Galeria à sua lista de aplicações de SaaS geridas.
 
 **Para adicionar PlanMyLeave a partir da galeria, execute os seguintes passos:**
 
-1. Na **[portal do Azure](https://portal.azure.com)**, no painel de navegação esquerdo, clique em **Azure Active Directory** ícone. 
+1. Na **[portal do Azure](https://portal.azure.com)**, no painel de navegação esquerdo, clique em **Azure Active Directory** ícone.
 
-    ![O botão do Azure Active Directory][1]
+    ![O botão do Azure Active Directory](common/select-azuread.png)
 
-1. Navegue para **aplicações empresariais**. Em seguida, aceda a **todos os aplicativos**.
+2. Navegue para **aplicações empresariais** e, em seguida, selecione a **todos os aplicativos** opção.
 
-    ![O painel de aplicações empresariais][2]
-    
-1. Para adicionar nova aplicação, clique em **nova aplicação** botão na parte superior de caixa de diálogo.
+    ![O painel de aplicações empresariais](common/enterprise-applications.png)
 
-    ![O novo botão de aplicativo][3]
+3. Para adicionar nova aplicação, clique em **nova aplicação** botão na parte superior de caixa de diálogo.
 
-1. Na caixa de pesquisa, escreva **PlanMyLeave**, selecione **PlanMyLeave** no painel de resultados, em seguida, clique em **Add** botão para adicionar a aplicação.
+    ![O novo botão de aplicativo](common/add-new-app.png)
 
-    ![PlanMyLeave na lista de resultados](./media/planmyleave-tutorial/tutorial_planmyleave_addfromgallery.png)
+4. Na caixa de pesquisa, escreva **PlanMyLeave**, selecione **PlanMyLeave** no painel de resultados, em seguida, clique em **Add** botão para adicionar a aplicação.
+
+     ![PlanMyLeave na lista de resultados](common/search-new-app.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurar e testar o Azure AD início de sessão único
 
-Nesta secção, configure e teste do Azure AD início de sessão único com PlanMyLeave com base num utilizador de teste chamado "Eduarda Almeida".
-
-Para o início de sessão único funcione, o Azure AD precisa saber qual é o utilizador de contraparte no PlanMyLeave a um utilizador no Azure AD. Em outras palavras, uma relação de ligação entre um utilizador do Azure AD e o utilizador relacionado no PlanMyLeave deve ser estabelecido.
-
-PlanMyLeave, atribua o valor do **nome de utilizador** no Azure AD como o valor do **Username** para estabelecer a relação de ligação.
+Nesta secção, configure e teste do Azure AD início de sessão único com PlanMyLeave com base num utilizador de teste **Eduarda Almeida**.
+Para o início de sessão único funcionar, uma relação de ligação entre um utilizador do Azure AD e o utilizador relacionado no PlanMyLeave deve ser estabelecido.
 
 Para configurar e testar o Azure AD início de sessão único com PlanMyLeave, tem de concluir os seguintes blocos de construção:
 
 1. **[Configurar o Azure AD início de sessão único](#configure-azure-ad-single-sign-on)**  - para permitir que os utilizadores utilizar esta funcionalidade.
-1. **[Criar um utilizador de teste do Azure AD](#create-an-azure-ad-test-user)**  - para testar o Azure AD início de sessão único com Eduarda Almeida.
-1. **[Criar um utilizador de teste PlanMyLeave](#create-a-planmyleave-test-user)**  - para ter um equivalente da Eduarda Almeida na PlanMyLeave que está ligado à representação de utilizador do Azure AD.
-1. **[Atribua o utilizador de teste do Azure AD](#assign-the-azure-ad-test-user)**  - para ativar a Eduarda Almeida utilizar o Azure AD início de sessão único.
-1. **[Testar início de sessão único](#test-single-sign-on)**  - para verificar se a configuração funciona.
+2. **[Configurar PlanMyLeave Single Sign-On](#configure-planmyleave-single-sign-on)**  - para configurar as definições de início de sessão único no lado do aplicativo.
+3. **[Criar um utilizador de teste do Azure AD](#create-an-azure-ad-test-user)**  - para testar o Azure AD início de sessão único com Eduarda Almeida.
+4. **[Atribua o utilizador de teste do Azure AD](#assign-the-azure-ad-test-user)**  - para ativar a Eduarda Almeida utilizar o Azure AD início de sessão único.
+5. **[Criar utilizador de teste PlanMyLeave](#create-planmyleave-test-user)**  - para ter um equivalente da Eduarda Almeida na PlanMyLeave que está ligado à representação de utilizador do Azure AD.
+6. **[Testar início de sessão único](#test-single-sign-on)**  - para verificar se a configuração funciona.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Configurar o Azure AD início de sessão único
 
-Nesta secção, pode ativar o Azure AD início de sessão único no portal do Azure e configurar início de sessão único em seu aplicativo PlanMyLeave.
+Nesta secção, vai ativar o Azure AD início de sessão único no portal do Azure.
 
-**Para configurar o Azure AD início de sessão único com PlanMyLeave, execute os seguintes passos:**
+Para configurar o Azure AD início de sessão único com PlanMyLeave, execute os seguintes passos:
 
-1. No portal do Azure, sobre o **PlanMyLeave** página de integração de aplicação, clique em **início de sessão único**.
+1. Na [portal do Azure](https://portal.azure.com/), na **PlanMyLeave** página de integração de aplicações, selecione **início de sessão único**.
 
-    ![Configurar a ligação de início de sessão única][4]
+    ![Configurar a ligação de início de sessão única](common/select-sso.png)
 
-1. Sobre o **início de sessão único** caixa de diálogo, selecione **modo** como **baseado em SAML logon** para ativar o início de sessão único.
- 
-    ![Caixa de diálogo de início de sessão único](./media/planmyleave-tutorial/tutorial_planmyleave_samlbase.png)
+2. Sobre o **selecionar um método de início de sessão único** caixa de diálogo, selecione **SAML/WS-Fed** modo para ativar o início de sessão único.
 
-1. Sobre o **PlanMyLeave domínio e URLs** secção, execute os seguintes passos:
+    ![Único início de sessão em modo de seleção](common/select-saml-option.png)
 
-    ![PlanMyLeave domínio e URLs únicas início de sessão em informações](./media/planmyleave-tutorial/tutorial_planmyleave_url.png)
+3. Sobre o **definir a segurança de início de sessão único com o SAML** página, clique em **editar** ícone para abrir **configuração básica de SAML** caixa de diálogo.
 
-    a. Na **URL de início de sessão** caixa de texto, escreva um URL com o seguinte padrão: `https://<company-name>.planmyleave.com/Login.aspx`
+    ![Editar a configuração SAML do básico](common/edit-urls.png)
 
-    b. Na **identificador** caixa de texto, escreva um URL com o seguinte padrão: `https://<company-name>.planmyleave.com`
+4. Sobre o **configuração básica de SAML** secção, execute os seguintes passos:
 
-    > [!NOTE] 
-    > Estes valores não são reais. Atualize estes valores com o URL de início de sessão e o identificador real. Contacte [equipa de suporte de cliente PlanMyLeave](mailto:support@planmyleave.com) obter esses valores. 
- 
-1. Sobre o **certificado de assinatura SAML** secção, clique em **XML de metadados** e, em seguida, guarde o ficheiro de metadados no seu computador.
+    ![PlanMyLeave domínio e URLs únicas início de sessão em informações](common/sp-identifier.png)
 
-    ![O link de download de certificado](./media/planmyleave-tutorial/tutorial_planmyleave_certificate.png) 
+    a. Na **iniciar sessão no URL** caixa de texto, escreva um URL com o seguinte padrão: `https://<company-name>.planmyleave.com/Login.aspx`
 
-1. Clique em **guardar** botão.
+    b. Na **identificador (ID de entidade)** caixa de texto, escreva um URL com o seguinte padrão: `https://<company-name>.planmyleave.com`
 
-    ![Configurar o botão único início de sessão em Guardar](./media/planmyleave-tutorial/tutorial_general_400.png)
+    > [!NOTE]
+    > Estes valores não são reais. Atualize estes valores com o início de sessão real URL e o identificador. Contacte [equipa de suporte de cliente PlanMyLeave](mailto:support@planmyleave.com) obter esses valores. Também pode consultar os padrões mostrados a **configuração básica de SAML** secção no portal do Azure.
 
-1. Sobre o **PlanMyLeave configuração** secção, clique em **configurar PlanMyLeave** para abrir **configurar início de sessão** janela. Cópia a **SAML único início de sessão no URL do serviço** partir o **secção de referência rápida.**
+5. No **definido no início de sessão único com o SAML** página, além do **certificado de assinatura SAML** secção, clique em **transferir** para transferir o **XML de metadados de Federação**  entre as opções de determinado de acordo com seus requisitos e guarde-o no seu computador.
 
-    ![Configuração de PlanMyLeave](./media/planmyleave-tutorial/tutorial_planmyleave_configure.png) 
+    ![O link de download de certificado](common/metadataxml.png)
+
+6. Sobre o **configurar PlanMyLeave** secção, copie os URLs apropriados de acordo com seus requisitos.
+
+    ![URLs de configuração de cópia](common/copy-configuration-urls.png)
+
+    a. URL de início de sessão
+
+    b. Identificador do Azure AD
+
+    c. URL de fim de sessão
+
+### <a name="configure-planmyleave-single-sign-on"></a>Configurar PlanMyLeave Single Sign-On
+
 1. Numa janela do browser web diferente, inicie sessão no seu inquilino PlanMyLeave como administrador.
 
-1. Aceda a **configuração do System**. Em seguida, na **gerenciamento de segurança** secção clique **definições da empresa SAML** .
+2. Aceda a **configuração do System**. Em seguida, na **gerenciamento de segurança** secção clique **definições da empresa SAML** .
 
     ![Configurar o início de sessão único no lado de aplicação](./media/planmyleave-tutorial/tutorial_planmyleave_002.png) 
 
-1. Sobre o **definições de SAML** secção, clique em editor ícone.
+3. Sobre o **definições de SAML** secção, clique em editor ícone.
 
     ![Configurar o início de sessão único no lado de aplicação](./media/planmyleave-tutorial/tutorial_planmyleave_003.png)
 
-1. Sobre o **definições de atualização de SAML** secção, execute os seguintes passos:
+4. Sobre o **definições de atualização de SAML** secção, execute os seguintes passos:
 
     ![Configurar o início de sessão único no lado de aplicação](./media/planmyleave-tutorial/tutorial_planmyleave_004.png)
 
-    a.  Na **URL de início de sessão** caixa de texto, colar **SAML único início de sessão no URL do serviço** que copiou do portal do Azure.
+    a.  Na **URL de início de sessão** caixa de texto, colar **URL de início de sessão** que copiou do portal do Azure.
 
     b.  Abrir seus metadados baixado, cópia **X509Certificate** valor e, em seguida, cole-os para o **certificado** caixa de texto.
 
@@ -151,105 +152,75 @@ Nesta secção, pode ativar o Azure AD início de sessão único no portal do Az
 
     d. Clique em **Guardar**. 
 
-> [!TIP]
-> Agora pode ler uma versão concisa destas instruções dentro do [portal do Azure](https://portal.azure.com), enquanto estiver a configurar a aplicação!  Depois de adicionar esta aplicação a partir da **do Active Directory > aplicações empresariais** secção, basta clicar o **Single Sign-On** separador e a documentação do embedded através de acesso a  **Configuração** seção na parte inferior. Pode ler mais sobre a funcionalidade de documentação do embedded aqui: [Documentação do Azure AD incorporado]( https://go.microsoft.com/fwlink/?linkid=845985)
-
-### <a name="create-an-azure-ad-test-user"></a>Criar um utilizador de teste do Azure AD
+### <a name="create-an-azure-ad-test-user"></a>Criar um utilizador de teste do Azure AD 
 
 O objetivo desta secção é criar um utilizador de teste no portal do Azure chamado Eduarda Almeida.
 
-   ![Criar um utilizador de teste do Azure AD][100]
+1. No portal do Azure, no painel esquerdo, selecione **do Azure Active Directory**, selecione **utilizadores**e, em seguida, selecione **todos os utilizadores**.
 
-**Para criar um utilizador de teste no Azure AD, execute os seguintes passos:**
+    !["Os utilizadores e grupos" e os links de "Todos os utilizadores"](common/users.png)
 
-1. No portal do Azure, no painel esquerdo, clique nas **do Azure Active Directory** botão.
+2. Selecione **novo utilizador** na parte superior do ecrã.
 
-    ![O botão do Azure Active Directory](./media/planmyleave-tutorial/create_aaduser_01.png)
+    ![Novo utilizador botão](common/new-user.png)
 
-1. Para apresentar a lista de utilizadores, aceda a **utilizadores e grupos**e, em seguida, clique em **todos os utilizadores**.
+3. Nas propriedades do utilizador, execute os seguintes passos.
 
-    !["Os utilizadores e grupos" e os links de "Todos os utilizadores"](./media/planmyleave-tutorial/create_aaduser_02.png)
+    ![A caixa de diálogo de utilizador](common/user-properties.png)
 
-1. Para abrir o **usuário** caixa de diálogo, clique em **Add** na parte superior a **todos os utilizadores** caixa de diálogo.
+    a. Na **Name** campo introduza **BrittaSimon**.
+  
+    b. Na **nome de utilizador** tipo de campo **brittasimon@yourcompanydomain.extension**  
+    Por exemplo, BrittaSimon@contoso.com
 
-    ![Botão Adicionar](./media/planmyleave-tutorial/create_aaduser_03.png)
-
-1. Na **utilizador** diálogo caixa, execute os seguintes passos:
-
-    ![A caixa de diálogo de utilizador](./media/planmyleave-tutorial/create_aaduser_04.png)
-
-    a. Na **Name** , escreva **BrittaSimon**.
-
-    b. Na **nome de utilizador** , escreva o endereço de e-mail do utilizador Eduarda Almeida.
-
-    c. Selecione o **mostrar palavra-passe** caixa de verificação e, em seguida, anote o valor que é apresentado na **palavra-passe** caixa.
+    c. Selecione **palavra-passe de Show** caixa de verificação e, em seguida, anote o valor que é apresentado na caixa de palavra-passe.
 
     d. Clique em **Criar**.
- 
-### <a name="create-a-planmyleave-test-user"></a>Criar um utilizador de teste PlanMyLeave
-
-O objetivo desta secção é criar um usuário chamado Eduarda Almeida no PlanMyLeave. PlanMyLeave suporta o aprovisionamento de just-in-time, que está por predefinição, ativada.
-
-Não existe nenhum item de ação para nesta secção. Durante uma tentativa de aceder PlanMyLeave se não existir ainda será criado um novo utilizador.
-
-> [!NOTE]
-> Se precisar de criar manualmente um utilizador, terá de contactar [equipa de suporte de PlanMyLeave](mailto:support@planmyleave.com).
 
 ### <a name="assign-the-azure-ad-test-user"></a>Atribua o utilizador de teste do Azure AD
 
 Nesta secção, vai ativar Eduarda Almeida utilizar o Azure início de sessão único ao conceder acesso para PlanMyLeave.
 
-![Atribuir a função de utilizador][200] 
+1. No portal do Azure, selecione **aplicações empresariais**, selecione **todos os aplicativos**, em seguida, selecione **PlanMyLeave**.
 
-**Para atribuir a Eduarda Almeida a PlanMyLeave, execute os seguintes passos:**
+    ![Painel de aplicações empresariais](common/enterprise-applications.png)
 
-1. No portal do Azure, abra a vista de aplicativos e, em seguida, navegue para a vista de diretório e aceda a **aplicações empresariais** , em seguida, clique em **todos os aplicativos**.
+2. Na lista de aplicações, selecione **PlanMyLeave**.
 
-    ![Atribuir utilizador][201] 
+    ![A ligação de PlanMyLeave na lista de aplicações](common/all-applications.png)
 
-1. Na lista de aplicações, selecione **PlanMyLeave**.
+3. No menu à esquerda, selecione **utilizadores e grupos**.
 
-    ![A ligação de PlanMyLeave na lista de aplicações](./media/planmyleave-tutorial/tutorial_planmyleave_app.png)  
+    ![A ligação "Utilizadores e grupos"](common/users-groups-blade.png)
 
-1. No menu à esquerda, clique em **utilizadores e grupos**.
+4. Clique nas **adicionar utilizador** botão, em seguida, selecione **utilizadores e grupos** no **adicionar atribuição** caixa de diálogo.
 
-    ![A ligação "Utilizadores e grupos"][202]
+    ![O painel Adicionar atribuição](common/add-assign-user.png)
 
-1. Clique em **adicionar** botão. Em seguida, selecione **utilizadores e grupos** nos **adicionar atribuição** caixa de diálogo.
+5. Na **utilizadores e grupos** caixa de diálogo select **Eduarda Almeida** na lista de utilizadores, em seguida, clique o **selecionar** na parte inferior do ecrã.
 
-    ![O painel Adicionar atribuição][203]
+6. Se está esperando a qualquer valor de função a asserção de SAML, em seguida, no **selecionar função** caixa de diálogo selecione a função adequada para o utilizador na lista, em seguida, clique o **selecione** na parte inferior do ecrã.
 
-1. No **utilizadores e grupos** caixa de diálogo, selecione **Eduarda Almeida** na lista utilizadores.
+7. Na **adicionar atribuição** clique da caixa de diálogo a **atribuir** botão.
 
-1. Clique em **selecionar** botão **utilizadores e grupos** caixa de diálogo.
+### <a name="create-planmyleave-test-user"></a>Criar utilizador de teste PlanMyLeave
 
-1. Clique em **atribua** botão **adicionar atribuição** caixa de diálogo.
-    
-### <a name="test-single-sign-on"></a>Testar o início de sessão único
+Nesta secção, um usuário chamado Eduarda Almeida é criado na PlanMyLeave. PlanMyLeave suporta o aprovisionamento de utilizadores de just-in-time, que está ativado por predefinição. Não existe nenhum item de ação para nesta secção. Se um utilizador já não existir no PlanMyLeave, é criado um novo após a autenticação.
+
+> [!NOTE]
+> Se precisar de criar manualmente um utilizador, terá de contactar [equipa de suporte de PlanMyLeave](mailto:support@planmyleave.com).
+
+### <a name="test-single-sign-on"></a>Testar o início de sessão único 
 
 Nesta secção, vai testar a configuração do Azure AD única início de sessão com o painel de acesso.
 
-Quando clica no mosaico PlanMyLeave no painel de acesso, deve obter automaticamente sessão iniciada em seu aplicativo PlanMyLeave.
-Para obter mais informações sobre o painel de acesso, consulte [introdução ao painel de acesso](../user-help/active-directory-saas-access-panel-introduction.md). 
+Quando clica no mosaico PlanMyLeave no painel de acesso, deve ser automaticamente sessão iniciada no PlanMyLeave para o qual configura o SSO. Para obter mais informações sobre o painel de acesso, consulte [introdução ao painel de acesso](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
-## <a name="additional-resources"></a>Recursos adicionais
+## <a name="additional-resources"></a>Recursos Adicionais
 
-* [Lista de tutoriais sobre como integrar aplicações SaaS com o Azure Active Directory](tutorial-list.md)
-* [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md) (O que é o acesso a aplicações e o início de sessão único com o Azure Active Directory?)
+- [ Lista de tutoriais sobre como integrar aplicações SaaS com o Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
+- [O que é o acesso a aplicações e início de sessão único com o Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-
-<!--Image references-->
-
-[1]: ./media/planmyleave-tutorial/tutorial_general_01.png
-[2]: ./media/planmyleave-tutorial/tutorial_general_02.png
-[3]: ./media/planmyleave-tutorial/tutorial_general_03.png
-[4]: ./media/planmyleave-tutorial/tutorial_general_04.png
-
-[100]: ./media/planmyleave-tutorial/tutorial_general_100.png
-
-[200]: ./media/planmyleave-tutorial/tutorial_general_200.png
-[201]: ./media/planmyleave-tutorial/tutorial_general_201.png
-[202]: ./media/planmyleave-tutorial/tutorial_general_202.png
-[203]: ./media/planmyleave-tutorial/tutorial_general_203.png
+- [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

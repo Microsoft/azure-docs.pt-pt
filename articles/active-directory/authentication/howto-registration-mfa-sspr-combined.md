@@ -11,18 +11,18 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 25450d49fd32adf12ac6c8a71671a9cb796b06c4
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: c5d7f9623a7594aaa79c4cff187486360b1befc8
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58317447"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58369025"
 ---
 # <a name="enable-combined-security-information-registration-preview"></a>Registo de informações de segurança para ativar combinado (pré-visualização)
 
 Antes de ativar a nova experiência, consulte o artigo [combinado de registo de informações de segurança (pré-visualização)](concept-registration-mfa-sspr-combined.md) para garantir que compreende a funcionalidade e o impacto desse recurso.
 
-![Registo de informações de segurança combinado avançada experiência pedir mais informações em início de sessão. Exemplo mostra a registar a aplicação Microsoft Authenticator como o primeiro método.](media/howto-registration-mfa-sspr-combined/combined-security-info-more-required.png)
+![Experiência aprimorada de registo de informações de segurança combinada](media/howto-registration-mfa-sspr-combined/combined-security-info-more-required.png)
 
 |     |
 | --- |
@@ -37,7 +37,7 @@ Conclua os seguintes passos para ativar o registo combinado:
 2. Navegue até **do Azure Active Directory** > **definições de utilizador** > **gerir as definições para as funcionalidades de pré-visualização do painel de acesso**.
 3. Sob **os utilizadores podem utilizar funcionalidades para registar e gerir informações de segurança de pré-visualização - atualizar**, optar por ativar para um **selecionados** grupo de utilizadores ou para **todos os** utilizadores.
 
-![Ativar a experiência de pré-visualização de informações de segurança combinado para todos os utilizadores no portal do Azure AD](media/howto-registration-mfa-sspr-combined/combined-security-info-enable.png)
+![Ativar a experiência de pré-visualização de informações de segurança combinado para todos os utilizadores](media/howto-registration-mfa-sspr-combined/combined-security-info-enable.png)
 
 > [!IMPORTANT]
 > A partir de Março de 2019 as opções de chamada telefónica não estarão disponível para os utilizadores do MFA e o SSPR em inquilinos gratuitos/avaliação do Azure AD. Mensagens SMS não são afetadas por esta alteração. Chamada telefónica continuará a estar disponíveis para os utilizadores na pago inquilinos do Azure AD. Esta alteração só afeta o inquilinos gratuitos/avaliação do Azure AD.

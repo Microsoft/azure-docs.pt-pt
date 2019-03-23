@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 02/24/2019
 ms.author: raynew
-ms.openlocfilehash: 637ec63d1c3e5a3eb1ce26765b1ab22e9823e9a1
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: 63821ef5ebc36f49d4f3a43a7fbfbcf8fda12c50
+ms.sourcegitcommit: 87bd7bf35c469f84d6ca6599ac3f5ea5545159c9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58317430"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58352039"
 ---
 # <a name="support-matrix-for-azure-vm-backup"></a>Matriz de suporte para cópia de segurança de VM do Azure
 Pode utilizar o [serviço de cópia de segurança do Azure](backup-overview.md) para fazer uma cópia de segurança de máquinas no local e cargas de trabalho e máquinas virtuais do Azure (VMs). Este artigo resume as definições de suporte e limitações quando cria cópias de segurança de VMs do Azure com o Azure Backup.
@@ -82,7 +82,7 @@ Para cópias de segurança do Linux de VM do Azure, o Azure Backup suporta a lis
 - O Azure Backup não suporta Core OS Linux.
 - O Azure Backup não suporta sistemas operativos de 32 bits.
 - Outras distribuições do Linux bring-your-own podem funcionar, desde o [agente de VM do Azure para Linux](https://docs.microsoft.com/azure/virtual-machines/extensions/agent-linux) está disponível na VM e, desde que o Python seja suportado.
-- O Azure Backup não suporta o VM em execução  **Python versão 2.6* apenas** com o proxy configurado.
+- O Azure Backup não suporta o VM a executar o Python versão 2.6* apenas com o proxy configurado.
 
 
 

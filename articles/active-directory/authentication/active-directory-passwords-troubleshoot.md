@@ -12,12 +12,12 @@ manager: daveba
 ms.reviewer: sahenry
 ms.custom: seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 297d32311b6b697b0141488878d170b3f2f4c359
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: 81519a9452bf578c2640b547b2102b8e162e2878
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58315492"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58369790"
 ---
 # <a name="troubleshoot-self-service-password-reset"></a>Resolver problemas de reposição de palavra-passe self-service
 
@@ -35,7 +35,6 @@ Está a ter um problema com a reposição de palavra-passe self-service (SSPR) d
 | UserNotProperlyConfigured = 14 | Lamentamos, que não é possível repor a palavra-passe neste momento porque faltam informações necessárias da sua conta. Não existe nenhuma outra ação que possa realizar para resolver esta situação. . Contacte o administrador e peça-lhe para repor a palavra-passe por si. Depois de ter novamente acesso à sua conta, terá de registar as informações necessárias. Para registar informações, siga os passos a [registar para a reposição de palavra-passe self-service](https://docs.microsoft.com/azure/active-directory/active-directory-passwords-reset-register) artigo. | SSPR_0014: Informações de segurança adicional é necessária para repor a palavra-passe. Para continuar, contacte o administrador e peça-lhe para repor a palavra-passe. Depois de ter acesso à sua conta, pode registar informações de segurança adicionais em https://aka.ms/ssprsetup. O administrador pode adicionar informações de segurança adicionais à sua conta ao seguir os passos em [conjunto e dados de autenticação de leitura para a reposição de palavra-passe](howto-sspr-authenticationdata.md). |
 | OnPremisesAdminActionRequired = 29 | Lamentamos, que não podemos repor a palavra-passe neste momento devido a um problema com a configuração de reposição de palavra-passe da sua organização. Não existe nenhuma outra ação que possa realizar para resolver esta situação. Contacte o administrador e peça-lhe para investigar. Para saber mais sobre o potencial problema, consulte [resolver problemas de repetição de escrita de palavra-passe](https://docs.microsoft.com/azure/active-directory/active-directory-passwords-troubleshoot#troubleshoot-password-writeback). | SSPR_0029: Não é possível repor a palavra-passe devido a um erro na sua configuração no local. Contacte o administrador e peça-lhe para investigar. |
 | OnPremisesConnectivityError = 30 | Lamentamos, que não podemos repor a palavra-passe neste momento devido a problemas de conectividade à sua organização. Não existe nenhuma ação necessária neste momento, mas o problema poderá ser resolvido se tentar novamente mais tarde. Se o problema persistir, contacte o administrador e peça-lhe para investigar. Para obter mais informações sobre problemas de conectividade, veja [resolver problemas de conectividade da repetição de escrita de palavra-passe](https://docs.microsoft.com/azure/active-directory/active-directory-passwords-troubleshoot#troubleshoot-password-writeback-connectivity). | SSPR_0030: Não podemos repor a palavra-passe devido a uma má ligação ao seu ambiente no local. Contacte o administrador e peça-lhe para investigar.|
-
 
 ## <a name="troubleshoot-the-password-reset-configuration-in-the-azure-portal"></a>Resolver problemas relacionados com a configuração de reposição de palavra-passe no portal do Azure
 
@@ -94,7 +93,7 @@ Está a ter um problema com a reposição de palavra-passe self-service (SSPR) d
 
 ## <a name="password-writeback-event-log-error-codes"></a>Códigos de erro de registo de eventos de repetição de escrita de palavra-passe
 
-É recomendado quando resolver problemas com a repetição de escrita de palavra-passe inspecionar o registo de eventos de aplicações no seu computador do Azure AD Connect. Este registo de eventos contém eventos de duas origens de interesse para repetição de escrita de palavra-passe. A origem de PasswordResetService descreve as operações e problemas relacionados com a operação de repetição de escrita de palavra-passe. A origem do ADSync descreve as operações e problemas relacionados com a definição de palavras-passe no seu ambiente do Active Directory.
+É recomendado quando resolver problemas com a repetição de escrita de palavra-passe inspecionar o log de eventos do aplicativo, no seu computador do Azure AD Connect. Este registo de eventos contém eventos de duas origens de interesse para repetição de escrita de palavra-passe. A origem de PasswordResetService descreve as operações e problemas relacionados com a operação de repetição de escrita de palavra-passe. A origem do ADSync descreve as operações e problemas relacionados com a definição de palavras-passe no seu ambiente do Active Directory.
 
 ### <a name="if-the-source-of-the-event-is-adsync"></a>Se a origem do evento é ADSync
 
@@ -168,8 +167,8 @@ O ponto mais comuns de falha é que a firewall e de ou portas de proxy e limites
 
 Para o Azure AD Connect versão 1.1.443.0 e posteriores, necessitar de HTTPS de saída acesso ao seguinte:
 
-   - passwordreset.microsoftonline.com
-   - servicebus.windows.net
+* passwordreset.microsoftonline.com
+* servicebus.windows.net
 
 Para mais granularidade, veja a lista atualizada de [intervalos de IP do Microsoft Azure Datacenter](https://www.microsoft.com/download/details.aspx?id=41653) atualizado a cada quarta-feira e entra em vigor a próxima segunda-feira.
 
@@ -184,7 +183,7 @@ Para resolver problemas de conectividade ou outros problemas temporários com o 
 1. Procure o **Microsoft Azure AD Sync** entrada.
 1. A entrada de serviço com o botão direito, selecione **reiniciar**e, em seguida, aguarde a conclusão da operação.
 
-   ![Reinicie o serviço do Azure AD Sync][Service restart]
+   ![Reiniciar o serviço de sincronização do Azure AD utilizando o GUI][Service restart]
 
 Estes passos restabelecer a ligação com o serviço cloud e resolva quaisquer interrupções que possam estar a ter. Se reiniciar o serviço ADSync não resolver seu problema, recomendamos que tente desativar e, em seguida, volte a ativar a funcionalidade de repetição de escrita de palavra-passe.
 
@@ -215,7 +214,6 @@ Recomendamos que efetue este passo apenas depois de tentar as duas primeiras eta
 
 > [!WARNING]
 > Se tiver personalizado as regras de sincronização de out-of-the-box, *o backup deles antes de continuar com a atualização e, em seguida, voltá-los manualmente depois de terminar.*
->
 
 1. Baixe a versão mais recente do Azure AD Connect do [Microsoft Download Center](https://go.microsoft.com/fwlink/?LinkId=615771).
 1. Uma vez que já tenha instalado o Azure AD Connect, terá de efetuar uma atualização in-loco para atualizar a instalação do Azure AD Connect para a versão mais recente.
@@ -231,33 +229,27 @@ O Azure AD Connect requer o Active Directory **Repor palavra-passe** permissão 
 
 1. Inicie sessão no servidor do Azure AD Connect e iniciar o **Synchronization Service Manager** ao selecionar **iniciar** > **serviço de sincronização**.
 1. Sob o **conectores** separador, selecione no local **serviços de domínio do Active Directory** conector e, em seguida, selecione **propriedades**.  
-   ![Permissão efetiva - passo 2](./media/active-directory-passwords-troubleshoot/checkpermission01.png)  
+   ![Gestor de serviço de sincronização que mostra como editar as propriedades](./media/active-directory-passwords-troubleshoot/checkpermission01.png)  
   
 1. Na janela de pop-up, selecione **ligar à floresta do Active Directory** e anote o **nome de utilizador** propriedade. Esta propriedade é a conta de AD DS utilizada pelo Azure AD Connect para efetuar a sincronização de diretórios. Para o Azure AD Connect efetuar a repetição de escrita de palavra-passe, a conta do AD DS tem de ter a repor a permissão de palavra-passe.  
-   
-   ![Permissão efetiva - passo 3](./media/active-directory-passwords-troubleshoot/checkpermission02.png) 
+
+   ![Localizar a conta de utilizador de Active Directory de serviço de sincronização](./media/active-directory-passwords-troubleshoot/checkpermission02.png) 
   
 1. Inicie sessão para um controlador de domínio no local e inicie o **Active Directory Users and Computers** aplicação.
 1. Selecione **View** e certifique-se a **funcionalidades avançadas** opção está ativada.  
-   
-   ![Permissão efetiva - passo 5](./media/active-directory-passwords-troubleshoot/checkpermission03.png) 
+
+   ![Computadores e utilizadores do Active Directory mostram funcionalidades avançadas](./media/active-directory-passwords-troubleshoot/checkpermission03.png) 
   
 1. Procure a conta de utilizador do Active Directory que pretende verificar. O nome da conta com o botão direito e selecione **propriedades**.  
-   
-   ![Permissão efetiva - passo 6](./media/active-directory-passwords-troubleshoot/checkpermission04.png) 
-
 1. Na janela de pop-up, vá para o **Security** separador e selecione **avançadas**.  
-   
-   ![Permissão efetiva - passo 7](./media/active-directory-passwords-troubleshoot/checkpermission05.png) 
-   
 1. Na **definições avançadas de segurança de administrador** janela de pop-up, vá para o **acesso Efetivo** separador.
 1. Selecione **selecionar um utilizador**, selecione a conta do AD DS utilizada pelo Azure AD Connect (ver passo 3) e, em seguida, selecione **ver acesso Efetivo**.
 
-   ![Permissão efetiva - passo 9](./media/active-directory-passwords-troubleshoot/checkpermission06.png) 
+   ![Separador de acesso Efetivo que mostra a conta de sincronização](./media/active-directory-passwords-troubleshoot/checkpermission06.png) 
   
 1. Desloque para baixo e procure **Repor palavra-passe**. Se a entrada tem uma marca de verificação, a conta do AD DS tem permissão para repor a palavra-passe da conta de utilizador do Active Directory selecionada.  
-   
-   ![Permissão efetiva - passo 10](./media/active-directory-passwords-troubleshoot/checkpermission07.png)  
+
+   ![A validar que a conta de sincronização tem a permissão de palavra-passe de reposição](./media/active-directory-passwords-troubleshoot/checkpermission07.png)  
 
 ## <a name="azure-ad-forums"></a>Fóruns do Azure AD
 
@@ -272,17 +264,17 @@ Para o ajudar corretamente, pedimos que forneçam tantos detalhes quanto possív
 * **Descrição geral do erro**: O que é o erro? Qual era o comportamento que foi reparado? Como podemos reproduzir o erro? Fornece tantos detalhes quanto possível.
 * **Página**: Qual página estava quando notou que o erro? Inclua o URL, se pode e uma captura de ecrã da página.
 * **Suporte a código**: Qual era o código de suporte que foi gerado quando o usuário viu o erro?
-  * Para localizar este código, reproduzir o erro, em seguida, selecione o **suportar código** link na parte inferior do ecrã e enviar o engenheiro de suporte o GUID que resulta.
+   * Para localizar este código, reproduzir o erro, em seguida, selecione o **suportar código** link na parte inferior do ecrã e enviar o engenheiro de suporte o GUID que resulta.
 
-    ![Encontrar o código de suporte na parte inferior do ecrã][Support code]
+   ![Encontrar o código de suporte na parte inferior do ecrã][Support code]
 
   * Se estiver numa página sem um suporte de código na parte inferior, selecione a tecla F12 e procure o SID e CID e enviar esses dois resultados para o engenheiro de suporte.
 * **Data, hora e fuso horário**: Incluir a precisa data e hora *com o fuso horário* que ocorreu o erro.
 * **ID de utilizador**: Quem foi o utilizador que viu o erro? Um exemplo é *usuário\@contoso.com*.
-    * Este é um utilizador federado?
-    * Este é um utilizador de autenticação pass-through?
-    * Este é um utilizador sincronizados de hash de palavra-passe?
-    * Este é um utilizador apenas na cloud?
+   * Este é um utilizador federado?
+   * Este é um utilizador de autenticação pass-through?
+   * Este é um utilizador sincronizados de hash de palavra-passe?
+   * Este é um utilizador apenas na cloud?
 * **Licenciamento**: O utilizador tem uma licença do Azure AD Premium ou do Azure AD básico atribuída?
 * **Registo de eventos do aplicativo**: Se estiver a utilizar a repetição de escrita de palavra-passe e o erro é na sua infraestrutura no local, inclua uma cópia zipada do seu registo de eventos de aplicativo do servidor do Azure AD Connect.
 

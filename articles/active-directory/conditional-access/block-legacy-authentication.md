@@ -14,16 +14,16 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 03/11/2019
+ms.date: 03/22/2019
 ms.author: markvi
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 97e5976603ee1574e8410702069b97a9f0ef6198
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: be66ead6521bdb21626caaecd582fac4da6f664b
+ms.sourcegitcommit: 87bd7bf35c469f84d6ca6599ac3f5ea5545159c9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57768759"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58351274"
 ---
 # <a name="how-to-block-legacy-authentication-to-azure-ad-with-conditional-access"></a>Como: Autenticação de legado de bloco para o Azure AD com o acesso condicional   
 
@@ -54,6 +54,8 @@ O Azure AD suporta vários protocolos de autenticação e autorização mais amp
 Autenticação de fator único (por exemplo, nome de utilizador e palavra-passe) não é suficiente nos dias de hoje. As palavras-passe que são ruins à medida que são fáceis de adivinhar e nós (humanos) que são ruins da escolha de palavras-passe boa. As palavras-passe também são vulneráveis a uma variedade de ataques, como spray de phishing e a palavra-passe. Uma das coisas mais fácil, que pode fazer para proteger contra ameaças de palavra-passe é implementar o MFA. Com a MFA, mesmo que um atacante obtém na posse de palavra-passe de um utilizador, a palavra-passe sozinha não é suficiente para autenticar e acessar os dados com êxito.
 
 Como pode impedir a aplicações que utilizam autenticação legada de aceder a recursos do seu inquilino? A recomendação é simplesmente bloqueá-los com uma política de acesso condicional. Se necessário, permite que apenas determinados utilizadores e localizações de rede específicas utilizar as aplicações que se baseiam em antigos de autenticação.
+
+Políticas de acesso condicional são aplicadas após o primeiro--factor authentication foi concluído. Por conseguinte, acesso condicional não se destina como uma defesa de linha de primeira para cenários como denial-of-service (DoS) distribuídos, mas pode utilizar os sinais desses eventos (por exemplo, o nível de risco de início de sessão, a localização do pedido e assim por diante) para determinar o acesso.
 
 
 

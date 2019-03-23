@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 03/11/2019
 ms.author: fryu
 ms.subservice: common
-ms.openlocfilehash: ab235c67e3a0e60999a0348d03a6e938944f7030
-ms.sourcegitcommit: aa3be9ed0b92a0ac5a29c83095a7b20dd0693463
+ms.openlocfilehash: a350576742a9bcb899405aae19c032cc9b966975
+ms.sourcegitcommit: 87bd7bf35c469f84d6ca6599ac3f5ea5545159c9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58260196"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58351334"
 ---
 # <a name="azure-storage-analytics-logging"></a>Registo de análise de armazenamento do Azure
 
@@ -144,15 +144,13 @@ Pode especificar os serviços de armazenamento que pretende iniciar sessão e o 
  O comando seguinte muda o registo de leitura, escrita e eliminação de pedidos no serviço fila na sua conta de armazenamento padrão com uma retenção de cinco dias:  
 
 ```  
-Set-AzureStorageServiceLoggingProperty -ServiceType Queue   
--LoggingOperations read,write,delete -RetentionDays 5  
+Set-AzureStorageServiceLoggingProperty -ServiceType Queue -LoggingOperations read,write,delete -RetentionDays 5  
 ```  
 
  O comando seguinte muda desativar o registo para o serviço de tabela na sua conta de armazenamento predefinida:  
 
 ```  
-Set-AzureStorageServiceLoggingProperty -ServiceType Table   
--LoggingOperations none  
+Set-AzureStorageServiceLoggingProperty -ServiceType Table -LoggingOperations none  
 ```  
 
  Para obter informações sobre como configurar os cmdlets do PowerShell do Azure para trabalhar com a sua subscrição do Azure e como selecionar a conta de armazenamento predefinida a utilizar, consulte: [Como instalar e configurar o Azure PowerShell](https://azure.microsoft.com/documentation/articles/install-configure-powershell/).  

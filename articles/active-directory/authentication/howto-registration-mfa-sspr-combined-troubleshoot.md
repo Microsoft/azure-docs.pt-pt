@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8f799b671e6216b402aa988aa66da4c2cfc44693
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: d926f7312b62e788289939dfd81c236a33503b43
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58317532"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58370470"
 ---
 # <a name="troubleshooting-combined-security-information-registration-preview"></a>Resolução de problemas combinados o registo de informações de segurança (pré-visualização)
 
@@ -31,7 +31,7 @@ As informações fornecidas neste artigo podem orientar os administradores que e
 
 Os eventos registados para o registo combinado estão sob a categoria "Métodos de autenticação" no Azure AD registos de auditoria.
 
-![Interface mostrando algumas segurança eventos de registo de informações para um novo utilizador no diretório de registos de auditoria do Azure AD](media/howto-registration-mfa-sspr-combined-troubleshoot/combined-security-info-audit-log.png)
+![Eventos de registo que mostra de interface de registos de auditoria do Azure AD](media/howto-registration-mfa-sspr-combined-troubleshoot/combined-security-info-audit-log.png)
 
 A seguir listam-se todos os eventos de auditoria gerados pelo registo combinado:
 
@@ -162,4 +162,4 @@ Os utilizadores já não serão pedidos para se registar com a experiência de p
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-[Saiba mais sobre a pré-visualização pública do combinado de registo para reposição de palavra-passe self-service e o Azure multi-factor Authentication](concept-registration-mfa-sspr-combined.md)
+* [Saiba mais sobre a pré-visualização pública do combinado de registo para reposição de palavra-passe self-service e o Azure multi-factor Authentication](concept-registration-mfa-sspr-combined.md)

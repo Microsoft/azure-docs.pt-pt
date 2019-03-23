@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 03/18/2019
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 0daa25cce434b2e97995963918e52df974e2ef9c
-ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
+ms.openlocfilehash: 31d08c0dac63662568bf55a021e85ec414c61e52
+ms.sourcegitcommit: 223604d8b6ef20a8c115ff877981ce22ada6155a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58336553"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58360372"
 ---
 # <a name="migrate-on-premises-machines-to-azure"></a>Migrar máquinas no local para o Azure
 
@@ -38,7 +38,7 @@ Este é o terceiro tutorial de uma série. Este tutorial parte do princípio de 
 Antes de começar, é útil rever as arquiteturas do [VMware](vmware-azure-architecture.md) ou [Hyper-V](hyper-v-azure-architecture.md) para a recuperação após desastre.
 
 > [!TIP]
-> À procura de uma forma sem agente migrar VMs de VMware para o Azure? [Clique aqui](https://aka.ms/migrateVMs-signup)
+> Quer participar na nossa nova experiência sem agente para migrar VMs de VMware para o Azure? [Saiba mais](https://aka.ms/migrateVMs-signup).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -129,7 +129,7 @@ Em alguns cenários, a ativação pós-falha requer processamento adicional, que
 
 Depois de migrar os computadores para o Azure, tem de concluir uma série de passos.
 
-Alguns passos podem ser automatizados como parte do processo de migração através da funcionalidade de scripts de automatização incorporados nos [planos de recuperação]( https://docs.microsoft.com/azure/site-recovery/site-recovery-runbook-automation).   
+Alguns passos podem ser automatizados como parte do processo de migração através da funcionalidade de scripts de automatização incorporados nos [planos de recuperação](site-recovery-runbook-automation.md).   
 
 
 ### <a name="post-migration-steps-in-azure"></a>Passos de pós-migração no Azure
@@ -140,7 +140,7 @@ Alguns passos podem ser automatizados como parte do processo de migração atrav
     - Se estiver a migrar as máquinas do VMware e os servidores físicos, o instalador do Serviço de Mobilidade instala o agente de VM do Azure em computadores Windows. Nas VMs do Linux, recomendamos que instale o agente após a ativação pós-falha.
     - Se estiver a migrar VMs do Azure para uma região secundária, o agente de VM do Azure tem de ser aprovisionado na VM antes da migração.
     - Se estiver a migrar VMs do Hyper-V para o Azure, instale o agente de VM do Azure na VM do Azure após a migração.
-- Remova manualmente qualquer fornecedor/agente do Site Recovery da VM. Se migrar VMs do VMware ou servidores físicos, [desinstale o serviço de Mobilidade][vmware-azure-install-mobility-service.md#uninstall-mobility-service-on-a-windows-server-computer] a partir da VM do Azure.
+- Remova manualmente qualquer fornecedor/agente do Site Recovery da VM. Se migrar VMs de VMware ou servidores físicos, desinstale o serviço de mobilidade da VM.
 - Para uma maior resiliência:
     - Mantenha os dados seguros ao fazer uma cópia de segurança das VMs do Azure através do serviço Azure Backup. [Saiba mais]( https://docs.microsoft.com/azure/backup/quick-backup-vm-portal).
     - Mantenha as cargas de trabalho em execução e continuamente disponíveis ao replicar VMs do Azure para uma região secundária com o Site Recovery. [Saiba mais](azure-to-azure-quickstart.md).

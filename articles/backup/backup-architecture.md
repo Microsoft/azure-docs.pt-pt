@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 02/19/2019
 ms.author: raynew
-ms.openlocfilehash: b12809627bc7a3ab3f17f4c3b11bc3a899fd0485
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 98ffe145103b4be04014627ed04d04dcf7542015
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57849929"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58368964"
 ---
 # <a name="azure-backup-architecture"></a>Arquitetura de cópia de segurança do Azure
 
@@ -179,7 +179,7 @@ Para obter mais informações sobre o armazenamento de disco e os tipos de disco
 Pode fazer backup de VMs do Azure com o armazenamento premium com o Azure Backup:
 
 - Durante o processo de cópia de segurança de VMs com o armazenamento premium, o serviço de cópia de segurança cria uma localização de transição temporária, com o nome *AzureBackup -*, na conta de armazenamento. O tamanho da localização de transição é igual ao tamanho do instantâneo de ponto de recuperação.
-- Certifique-se de que a conta de armazenamento premium tem espaço livre suficiente para acomodar a localização de transição temporária. [Saiba mais](../storage/common/storage-scalability-targets.md#premium-storage-account-scale-limits). Não modifique a localização de transição.
+- Certifique-se de que a conta de armazenamento premium tem espaço livre suficiente para acomodar a localização de transição temporária. [Saiba mais](../storage/common/storage-scalability-targets.md#premium-performance-storage-account-scale-limits). Não modifique a localização de transição.
 - Depois de concluída a tarefa de cópia de segurança, a localização de transição é eliminada.
 - O preço de armazenamento utilizado para a localização de transição é consistente com [preços de armazenamento premium](../virtual-machines/windows/disks-types.md#billing).
 

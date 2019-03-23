@@ -5,14 +5,14 @@ services: container-instances
 author: dlepow
 ms.service: container-instances
 ms.topic: article
-ms.date: 12/10/2018
+ms.date: 03/21/2019
 ms.author: danlep
-ms.openlocfilehash: b254adb050aa9826170c0849c3811380db6d9b38
-ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
+ms.openlocfilehash: ef34985e7897aa751275231a28c6031d6c9747b0
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53321038"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58369981"
 ---
 # <a name="run-containerized-tasks-with-restart-policies"></a>Executar tarefas em contentores com políticas de reinício
 
@@ -46,7 +46,7 @@ az container create \
 
 ## <a name="run-to-completion-example"></a>Executar o exemplo de conclusão
 
-Para ver a política de reinício em ação, crie uma instância de contentor a partir do [aci/microsoft-wordcount] [ aci-wordcount-image] de imagem e especificar o `OnFailure` política de reinício. Este contentor de exemplo executa um script de Python que, por predefinição, analisa o texto do de Shakespeare [Mítico](http://shakespeare.mit.edu/hamlet/full.html), escreve as 10 palavras mais comuns para STDOUT e, em seguida, sai.
+Para ver a política de reinício em ação, crie uma instância de contentor da Microsoft [aci-wordcount] [ aci-wordcount-image] de imagem e especificar o `OnFailure` política de reinício. Este contentor de exemplo executa um script de Python que, por predefinição, analisa o texto do de Shakespeare [Mítico](http://shakespeare.mit.edu/hamlet/full.html), escreve as 10 palavras mais comuns para STDOUT e, em seguida, sai.
 
 Execute o contentor de exemplo com o seguinte procedimento [criar contentor de az] [ az-container-create] comando:
 
@@ -54,7 +54,7 @@ Execute o contentor de exemplo com o seguinte procedimento [criar contentor de a
 az container create \
     --resource-group myResourceGroup \
     --name mycontainer \
-    --image microsoft/aci-wordcount:latest \
+    --image mcr.microsoft.com/azuredocs/aci-wordcount:latest \
     --restart-policy OnFailure
 ```
 
@@ -129,7 +129,7 @@ Por exemplo, pode modificar o comportamento do script no contentor de exemplo ao
 az container create \
     --resource-group myResourceGroup \
     --name mycontainer2 \
-    --image microsoft/aci-wordcount:latest \
+    --image mcr.microsoft.com/azuredocs/aci-wordcount:latest \
     --restart-policy OnFailure \
     --environment-variables NumWords=5 MinLength=8
 ```
@@ -164,7 +164,7 @@ Por exemplo, para determinar as palavras de cinco letras 3 principais na *Romeu 
 az container create \
     --resource-group myResourceGroup \
     --name mycontainer3 \
-    --image microsoft/aci-wordcount:latest \
+    --image mcr.microsoft.com/azuredocs/aci-wordcount:latest \
     --restart-policy OnFailure \
     --environment-variables NumWords=3 MinLength=5 \
     --command-line "python wordcount.py http://shakespeare.mit.edu/romeo_juliet/full.html"
@@ -189,7 +189,7 @@ Saída:
 Para obter detalhes sobre como manter a saída de seus contentores que são executados até a conclusão, consulte [montar uma partilha de ficheiros do Azure com o Azure Container Instances](container-instances-mounting-azure-files-volume.md).
 
 <!-- LINKS - External -->
-[aci-wordcount-image]: https://hub.docker.com/r/microsoft/aci-wordcount/
+[aci-wordcount-image]: https://hub.docker.com/_/microsoft-azuredocs-aci-wordcount
 
 <!-- LINKS - Internal -->
 [az-container-create]: /cli/azure/container?view=azure-cli-latest#az-container-create

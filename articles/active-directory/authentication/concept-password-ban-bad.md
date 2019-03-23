@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 645dd7fe35ba3e7d83a3ee374d7ab566ad193cc2
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: 795abcadb1cee7599665f7bc3b8e0d3e08a3da05
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58314132"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58369076"
 ---
 # <a name="eliminate-bad-passwords-in-your-organization"></a>Eliminar palavras-passe incorretas na sua organização
 
@@ -32,7 +32,7 @@ Algumas organizações poderão querer tirar ainda mais a etapa de segurança um
 
 O personalizado banido a lista de palavra-passe e a capacidade de ativar no local do Active Directory, integração é gerida no portal do Azure.
 
-![Modificar a lista de palavras-passe banidas personalizadas em métodos de autenticação no portal do Azure](./media/concept-password-ban-bad/authentication-methods-password-protection.png)
+![Modificar a lista de palavras-passe banidas personalizadas em métodos de autenticação](./media/concept-password-ban-bad/authentication-methods-password-protection.png)
 
 ## <a name="on-premises-hybrid-scenarios"></a>Cenários híbridos no local
 

@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: custom-vision
 ms.topic: quickstart
-ms.date: 11/2/2018
+ms.date: 03/21/2019
 ms.author: areddish
-ms.openlocfilehash: 66fc773dd354f80428d6fd65906610b901260a59
-ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
+ms.openlocfilehash: 43c9e155a16ab5d1cc907ecd849ef109f2507782
+ms.sourcegitcommit: 87bd7bf35c469f84d6ca6599ac3f5ea5545159c9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57407039"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58351699"
 ---
 # <a name="quickstart-create-an-image-classification-project-with-the-custom-vision-python-sdk"></a>Início rápido: Criar um projeto de classificação de imagem com o SDK de Python de visão personalizada
 
@@ -156,7 +156,7 @@ python sample.py
 
 O resultado da aplicação deverá ser semelhante ao seguinte texto:
 
-```
+```console
 Creating project...
 Adding images...
 Training...

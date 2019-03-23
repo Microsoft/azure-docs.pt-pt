@@ -8,18 +8,18 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: custom-vision
 ms.topic: quickstart
-ms.date: 10/31/2018
+ms.date: 03/21/2019
 ms.author: areddish
-ms.openlocfilehash: a9ff0ae5488dfcda747d25724ef9917ba1a1f472
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 7e401fe099a4e18573ccfe2aacda6068c37abfb7
+ms.sourcegitcommit: 87bd7bf35c469f84d6ca6599ac3f5ea5545159c9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55872293"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58352056"
 ---
 # <a name="quickstart-create-an-object-detection-project-with-the-custom-vision-sdk-for-java"></a>Início rápido: Criar um projeto de deteção de objeto com o SDK de visão personalizada para Java
 
-Este artigo apresenta informações e código de exemplo para ajudá-lo a começar a utilizar o SDK de Visão Personalizada com o Java para criar um modelo de deteção de objeto. Depois de criado, pode adicionar regiões etiquetadas, carregar imagens, preparar o projeto, obter o URL de ponto final de predição predefinido do projeto e utilizar o ponto final para testar uma imagem através de programação. Utilize este exemplo como um modelo para compilar a sua aplicação de Java. 
+Este artigo apresenta informações e código de exemplo para ajudá-lo a começar a utilizar o SDK de Visão Personalizada com o Java para criar um modelo de deteção de objeto. Depois de criado, pode adicionar regiões etiquetadas, carregar imagens, preparar o projeto, obter o URL de ponto final de predição predefinido do projeto e utilizar o ponto final para testar uma imagem através de programação. Utilize este exemplo como um modelo para compilar a sua aplicação de Java.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -28,11 +28,12 @@ Este artigo apresenta informações e código de exemplo para ajudá-lo a começ
 - O Maven instalado
 
 ## <a name="get-the-custom-vision-sdk-and-sample-code"></a>Obter o SDK de Visão Personalizada e o exemplo de código
+
 Para escrever uma aplicação de Java que utilize a Visão Personalizada, precisa dos pacotes maven da Visão Personalizada. Estes pacotes estão incluídos no projeto de exemplo que transferiu, mas pode aceder individualmente aos mesmos aqui.
 
 Pode instalar o SDK de Visão Personalizada a partir do repositório central maven:
-* [SDK de Preparação](https://mvnrepository.com/artifact/com.microsoft.azure.cognitiveservices/azure-cognitiveservices-customvision-training)
-* [SDK de Predição](https://mvnrepository.com/artifact/com.microsoft.azure.cognitiveservices/azure-cognitiveservices-customvision-prediction)
+- [SDK de Preparação](https://mvnrepository.com/artifact/com.microsoft.azure.cognitiveservices/azure-cognitiveservices-customvision-training)
+- [SDK de Predição](https://mvnrepository.com/artifact/com.microsoft.azure.cognitiveservices/azure-cognitiveservices-customvision-prediction)
 
 Clone ou transfira o projeto [Cognitive Services Java SDK Samples](https://github.com/Azure-Samples/cognitive-services-java-sdk-samples/tree/master) (Exemplos do SDK dos Serviços Cognitivos para Java). Navegue para a pasta **Vision/CustomVision/**.
 

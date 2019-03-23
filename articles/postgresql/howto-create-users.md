@@ -1,17 +1,17 @@
 ---
 title: Criar utilizadores na base de dados do Azure para o servidor PostgreSQL
 description: Este artigo descreve como pode criar novas contas de usuário para interagir com uma base de dados do Azure para o servidor PostgreSQL.
-author: jasonwhowell
-ms.author: jasonh
+author: rachel-msft
+ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 10/16/2018
-ms.openlocfilehash: 8b1bf6f1eccefb9235751c9e113c90566dfdff79
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.openlocfilehash: 33c107c46b314136fa3d43f8e7881e096afa374c
+ms.sourcegitcommit: 87bd7bf35c469f84d6ca6599ac3f5ea5545159c9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53540830"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58351087"
 ---
 # <a name="create-users-in-azure-database-for-postgresql-server"></a>Criar utilizadores na base de dados do Azure para o servidor PostgreSQL 
 Este artigo descreve como pode criar os utilizadores numa base de dados do Azure para o servidor PostgreSQL.
@@ -26,7 +26,7 @@ A base de dados do Azure para o servidor PostgreSQL é criado com as funções d
 
 O utilizador de administrador do servidor é um membro da função azure_pg_admin. No entanto, a conta de administrador do servidor não é parte da função azure_superuser. Uma vez que este serviço é um serviço gerido de PaaS, apenas a Microsoft faz parte da função de Superutilizador. 
 
-O motor de PostgreSQL utiliza privilégios para controlar o acesso a objetos de base de dados, como explicado no [documentação de produto do PostgreSQL](https://www.postgresql.org/docs/current/static/sql-createrole.html). Na base de dados do Azure para PostgreSQL, o utilizador de administrador do servidor é concedido esses privilégios: INÍCIO DE SESSÃO, NOSUPERUSER, HERDAR, CREATEDB, CREATEROLE, NOREPLICATION
+O motor de PostgreSQL utiliza privilégios para controlar o acesso a objetos de base de dados, como explicado no [documentação de produto do PostgreSQL](https://www.postgresql.org/docs/current/static/sql-createrole.html). Na base de dados do Azure para PostgreSQL, o utilizador de administrador do servidor é concedido esses privilégios: LOGIN, NOSUPERUSER, INHERIT, CREATEDB, CREATEROLE, NOREPLICATION
 
 A conta de utilizador de administrador do servidor pode ser utilizada para criar mais utilizadores e conceder aos utilizadores para a função de azure_pg_admin. Além disso, pode servir-se a conta de administrador do servidor para criar com menos privilégios de utilizadores e funções que têm acesso a bancos de dados individuais e esquemas.
 

@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/14/2018
 ms.author: hrasheed
-ms.openlocfilehash: fe653d36b2c527391a2f6d4ce33b89ba8dd648ac
-ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
+ms.openlocfilehash: a2cd6a59ffd55b826ef00f9e2b5f30808911f507
+ms.sourcegitcommit: 223604d8b6ef20a8c115ff877981ce22ada6155a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58202797"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58359845"
 ---
 # <a name="customize-hdinsight-clusters-using-bootstrap"></a>Personalizar clusters do HDInsight com o arranque de
 
@@ -43,6 +43,8 @@ Existem três métodos para utilizar o arranque de:
 * Utilizar o .NET SDK
 * Utilizar o modelo do Azure Resource Manager
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 [!INCLUDE [upgrade-powershell](../../includes/hdinsight-use-latest-powershell.md)]
 
 Para obter informações sobre como instalar componentes adicionais no cluster de HDInsight durante a hora de criação, consulte:
@@ -56,14 +58,14 @@ O seguinte código de PowerShell personaliza uma [Apache Hive](https://hive.apac
 # hive-site.xml configuration
 $hiveConfigValues = @{ "hive.metastore.client.socket.timeout"="90" }
 
-$config = New-AzureRmHDInsightClusterConfig `
-    | Set-AzureRmHDInsightDefaultStorage `
+$config = New-AzHDInsightClusterConfig `
+    | Set-AzHDInsightDefaultStorage `
         -StorageAccountName "$defaultStorageAccountName.blob.core.windows.net" `
         -StorageAccountKey $defaultStorageAccountKey `
-    | Add-AzureRmHDInsightConfigValues `
+    | Add-AzHDInsightConfigValues `
         -HiveSite $hiveConfigValues 
 
-New-AzureRmHDInsightCluster `
+New-AzHDInsightCluster `
     -ResourceGroupName $existingResourceGroupName `
     -ClusterName $clusterName `
     -Location $location `
@@ -182,8 +184,8 @@ $ErrorActionPreference = "Stop"
 ####################################
 #region - Connect to Azure subscription
 Write-Host "`nConnecting to your Azure subscription ..." -ForegroundColor Green
-try{Get-AzureRmContext}
-catch{Connect-AzureRmAccount}
+try{Get-AzContext}
+catch{Connect-AzAccount}
 #endregion
 
 #region - Create an HDInsight cluster
@@ -191,24 +193,24 @@ catch{Connect-AzureRmAccount}
 # Create dependent components
 ####################################
 Write-Host "Creating a resource group ..." -ForegroundColor Green
-New-AzureRmResourceGroup `
+New-AzResourceGroup `
     -Name  $resourceGroupName `
     -Location $location
 
 Write-Host "Creating the default storage account and default blob container ..."  -ForegroundColor Green
-New-AzureRmStorageAccount `
+New-AzStorageAccount `
     -ResourceGroupName $resourceGroupName `
     -Name $defaultStorageAccountName `
     -Location $location `
     -Type Standard_GRS
 
-$defaultStorageAccountKey = (Get-AzureRmStorageAccountKey `
+$defaultStorageAccountKey = (Get-AzStorageAccountKey `
                                 -ResourceGroupName $resourceGroupName `
                                 -Name $defaultStorageAccountName)[0].Value
-$defaultStorageContext = New-AzureStorageContext `
+$defaultStorageContext = New-AzStorageContext `
                                 -StorageAccountName $defaultStorageAccountName `
                                 -StorageAccountKey $defaultStorageAccountKey
-New-AzureStorageContainer `
+New-AzStorageContainer `
     -Name $defaultBlobContainerName `
     -Context $defaultStorageContext #use the cluster name as the container name
 
@@ -217,11 +219,11 @@ New-AzureStorageContainer `
 ####################################
 $hiveConfigValues = @{ "hive.metastore.client.socket.timeout"="90" }
 
-$config = New-AzureRmHDInsightClusterConfig `
-    | Set-AzureRmHDInsightDefaultStorage `
+$config = New-AzHDInsightClusterConfig `
+    | Set-AzHDInsightDefaultStorage `
         -StorageAccountName "$defaultStorageAccountName.blob.core.windows.net" `
         -StorageAccountKey $defaultStorageAccountKey `
-    | Add-AzureRmHDInsightConfigValues `
+    | Add-AzHDInsightConfigValues `
         -HiveSite $hiveConfigValues 
 
 ####################################
@@ -233,7 +235,7 @@ $httpCredential = New-Object System.Management.Automation.PSCredential($httpUser
 $sshPW = ConvertTo-SecureString -String $sshPassword -AsPlainText -Force
 $sshCredential = New-Object System.Management.Automation.PSCredential($sshUserName,$sshPW)
 
-New-AzureRmHDInsightCluster `
+New-AzHDInsightCluster `
     -ResourceGroupName $resourceGroupName `
     -ClusterName $hdinsightClusterName `
     -Location $location `
@@ -248,7 +250,7 @@ New-AzureRmHDInsightCluster `
 ####################################
 # Verify the cluster
 ####################################
-Get-AzureRmHDInsightCluster -ClusterName $hdinsightClusterName
+Get-AzHDInsightCluster -ClusterName $hdinsightClusterName
 
 #endregion
 ```

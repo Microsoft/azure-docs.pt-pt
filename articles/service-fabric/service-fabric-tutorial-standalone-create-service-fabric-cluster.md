@@ -3,7 +3,7 @@ title: Tutorial de Instalação de Cliente autónomo do Service Fabric - Azure S
 description: Neste tutorial irá aprender a instalar o cliente autónomo do Service Fabric no cluster que criou no artigo do tutorial anterior.
 services: service-fabric
 documentationcenter: .net
-author: david-stanford
+author: dkkapur
 manager: timlt
 editor: ''
 ms.assetid: ''
@@ -13,14 +13,14 @@ ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 05/11/2018
-ms.author: dastanfo
+ms.author: dekapur
 ms.custom: mvc
-ms.openlocfilehash: e4995890a1f2ceec8ddf5d4dafafdd13382864db
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: 9563faf5e72bdef2e43afe26d5e8ae0f3d1c67ad
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58311463"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58370419"
 ---
 # <a name="tutorial-install-and-create-service-fabric-cluster"></a>Tutorial: Instalar e criar o cluster do Service Fabric
 

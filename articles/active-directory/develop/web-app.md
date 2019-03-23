@@ -17,12 +17,12 @@ ms.author: celested
 ms.reviewer: saeeda, jmprieur, andret
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4e9704ce014e520350360c336c7a17940cae95fb
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 0337f3de40e75ada86c0a5265fc99b34f1c2ecae
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56197900"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58367921"
 ---
 # <a name="web-apps"></a>Web Apps
 
@@ -48,7 +48,7 @@ Veja os exemplos de código para o navegador da web para cenários de aplicativo
 Para registar uma aplicação web, consulte [registar uma aplicação com o ponto de final do Azure AD v1.0](quickstart-v1-add-azure-ad-app.md).
 
 * Inquilino único, se estiver a criar uma aplicação apenas para a sua organização, tem de ser registado no diretório da sua empresa com o portal do Azure.
-* Multi-tenan - se estiver criando um aplicativo que pode ser utilizado por utilizadores fora da sua organização, ela deve ser registrada no diretório da sua empresa, mas também tem de estar registrada no diretório de cada organização que irá utilizar a aplicação. Para disponibilizar a aplicação no seu diretório, pode incluir um processo de inscrição para os seus clientes, que permite autorizar a aplicação. Quando se inscrevem no seu aplicativo, serão apresentadas com uma caixa de diálogo que mostra as permissões que a aplicação requer e, em seguida, a opção para dar consentimento. Consoante as permissões necessárias, um administrador da outra organização poderá ser necessário para dar consentimento. Quando o utilizador ou administrador autorizar, o aplicativo está registado no seu diretório.
+* Multi-inquilino - se estiver criando um aplicativo que pode ser utilizado por utilizadores fora da sua organização, ela deve ser registrada no diretório da sua empresa, mas também tem de estar registrada no diretório de cada organização que irá utilizar a aplicação. Para disponibilizar a aplicação no seu diretório, pode incluir um processo de inscrição para os seus clientes, que permite autorizar a aplicação. Quando se inscrevem no seu aplicativo, serão apresentadas com uma caixa de diálogo que mostra as permissões que a aplicação requer e, em seguida, a opção para dar consentimento. Consoante as permissões necessárias, um administrador da outra organização poderá ser necessário para dar consentimento. Quando o utilizador ou administrador autorizar, o aplicativo está registado no seu diretório.
 
 ## <a name="token-expiration"></a>Expiração do token
 

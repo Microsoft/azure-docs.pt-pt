@@ -10,12 +10,12 @@ ms.subservice: face-api
 ms.topic: quickstart
 ms.date: 02/06/2019
 ms.author: pafarley
-ms.openlocfilehash: eaaeda1460ecffc2b1a53bb46901aedc2e9563c4
-ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
+ms.openlocfilehash: e9f613b6cd02bd1e85b75db7a3b2c2b4adccce3f
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56313318"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58372136"
 ---
 # <a name="quickstart-detect-faces-in-an-image-using-the-face-net-sdk"></a>Início rápido: Detetar rostos numa imagem usando o .NET SDK de rostos
 
@@ -32,8 +32,11 @@ Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure
 
 1. No Visual Studio, crie um novo **aplicação de consola (.NET Framework)** do projeto e nomeie- **FaceDetection**. 
 1. Se houver outros projetos na sua solução, selecione esta como o único projeto de arranque.
-1. Obtenha os pacotes NuGet necessários. Com o botão direito no seu projeto no Solution Explorer e selecione **gerir pacotes NuGet**. Clique nas **navegue** separador e selecione **incluir pré-lançamento**; em seguida, localizar e instalar o pacote seguinte:
+1. Obtenha os pacotes NuGet necessários. Com o botão direito no seu projeto no Solution Explorer e selecione **gerir pacotes NuGet**. Clique nas **navegue** separador e selecione **incluir pré-lançamento**; em seguida, localize e instale os seguintes pacotes:
     - [Microsoft.Azure.CognitiveServices.Vision.Face 2.2.0-preview](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Vision.Face/2.2.0-preview)
+    - Microsoft.Rest.ClientRuntime
+    - Microsoft.Rest.ClientRuntime.Azure
+    - Newtonsoft.Json
 
 ## <a name="add-face-detection-code"></a>Adicione o código de detecção de rostos
 

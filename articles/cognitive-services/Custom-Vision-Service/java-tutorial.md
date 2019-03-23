@@ -8,31 +8,33 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: custom-vision
 ms.topic: quickstart
-ms.date: 10/31/2018
+ms.date: 03/21/2019
 ms.author: areddish
-ms.openlocfilehash: f6695e1c141d329b3f3d4defe9f01d3a05355908
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 89683b0fe5d401a92dc8575fd1ddc81d74d594b6
+ms.sourcegitcommit: 87bd7bf35c469f84d6ca6599ac3f5ea5545159c9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55880313"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58351155"
 ---
 # <a name="quickstart-create-an-image-classification-project-with-the-custom-vision-sdk-for-java"></a>Início rápido: Criar um projeto de classificação de imagem com o SDK de visão personalizada para Java
 
 Este artigo apresenta informações e código de exemplo para o ajudar a começar a utilizar o SDK da Visão Personalizada para Java e compilar um modelo d classificação de imagens. Depois de criado, poderá adicionar etiquetas, carregar imagens, preparar o projeto, obter o URL de ponto final de predição predefinido do projeto e utilizar o ponto final para testar uma imagem de forma programática. Utilize este exemplo como um modelo para compilar a sua aplicação de Java. Se quiser percorrer o processo de compilar e utilizar um modelo de classificação _sem_ recorrer a código, veja antes as [orientações baseadas no browser](getting-started-build-a-classifier.md).
 
 ## <a name="prerequisites"></a>Pré-requisitos
+
 - Um IDE Java à sua escolha
 - [JDK 7 ou 8](https://aka.ms/azure-jdks) instalado.
 - O Maven instalado
 
-
 ## <a name="get-the-custom-vision-sdk-and-sample-code"></a>Obter o SDK de Visão Personalizada e o exemplo de código
+
 Para escrever uma aplicação de Java que utilize a Visão Personalizada, precisa dos pacotes maven da Visão Personalizada. Estes pacotes estão incluídos no projeto de exemplo que transferiu, mas pode aceder individualmente aos mesmos aqui.
 
 Pode instalar o SDK de Visão Personalizada a partir do repositório central maven:
-* [SDK de Preparação](https://mvnrepository.com/artifact/com.microsoft.azure.cognitiveservices/azure-cognitiveservices-customvision-training)
-* [SDK de Predição](https://mvnrepository.com/artifact/com.microsoft.azure.cognitiveservices/azure-cognitiveservices-customvision-prediction)
+
+- [SDK de Preparação](https://mvnrepository.com/artifact/com.microsoft.azure.cognitiveservices/azure-cognitiveservices-customvision-training)
+- [SDK de Predição](https://mvnrepository.com/artifact/com.microsoft.azure.cognitiveservices/azure-cognitiveservices-customvision-prediction)
 
 Clone ou transfira o projeto [Cognitive Services Java SDK Samples](https://github.com/Azure-Samples/cognitive-services-java-sdk-samples/tree/master) (Exemplos do SDK dos Serviços Cognitivos para Java). Navegue para a pasta **Vision/CustomVision/**.
 
@@ -49,7 +51,7 @@ $env:AZURE_CUSTOMVISION_PREDICTION_API_KEY ="<your prediction api key>"
 
 ## <a name="understand-the-code"></a>Compreender o código
 
-Carregue o projeto `Vision/CustomVision` no IDE Java e abra o ficheiro _CustomVisionSamples.java_. Localize o método **runSample** e comente a chamada do método **ObjectDetection_Sample** &mdash; esta ação executa o cenário de deteção de objetos, que não é abordado neste guia. O método **ImageClassification_Sample** implementa a funcionalidade principal deste exemplo; navegue para a respetiva definição e inspecione o código. 
+Carregue o projeto `Vision/CustomVision` no IDE Java e abra o ficheiro _CustomVisionSamples.java_. Localize o método **runSample** e comente a chamada do método **ObjectDetection_Sample** &mdash; esta ação executa o cenário de deteção de objetos, que não é abordado neste guia. O método **ImageClassification_Sample** implementa a funcionalidade principal deste exemplo; navegue para a respetiva definição e inspecione o código.
 
 ### <a name="create-a-custom-vision-service-project"></a>Criar um projeto do Serviço de Visão Personalizada
 
@@ -93,7 +95,7 @@ mvn compile exec:java
 
 A saída da consola da aplicação deve ser semelhante ao seguinte texto:
 
-```
+```console
 Creating project...
 Adding images...
 Adding image: hemlock_1.jpg

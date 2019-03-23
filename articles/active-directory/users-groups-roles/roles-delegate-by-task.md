@@ -15,12 +15,12 @@ ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8e81d5513f43882093883256cf9eab4a22e9ca01
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 59c06ae83327683942885190e4b401617dc020f9
+ms.sourcegitcommit: 223604d8b6ef20a8c115ff877981ce22ada6155a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57875279"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58361375"
 ---
 # <a name="administrator-roles-by-admin-task-in-azure-active-directory"></a>Funções de administrador pela tarefa de administração no Azure Active Directory
 
@@ -235,13 +235,13 @@ Leia toda a configuração | Administrador Global |
 
 Tarefa | Função com privilégios mínimos | Funções adicionais
 ---- | --------------------- | ----------------
-Configurar métodos de autenticação | Administrador Global | 
-Configurar a personalização | Administrador Global | 
-Configurar notificação | Administrador Global | 
-Configurar a integração no local | Administrador Global | 
-Configurar propriedades de reposição de palavra-passe | Administrador Global | 
-Configurar registo | Administrador Global | 
-Leia toda a configuração | Administrador de utilizador de administrador de segurança | 
+Configurar métodos de autenticação | Administrador Global |
+Configurar a personalização | Administrador Global |
+Configurar notificação | Administrador Global |
+Configurar a integração no local | Administrador Global |
+Configurar propriedades de reposição de palavra-passe | Administrador de Utilizadores | Administrador Global
+Configurar registo | Administrador Global |
+Leia toda a configuração | Administrador de Segurança | Administrador de Utilizadores |
 
 ## <a name="privileged-identity-management"></a>Privileged Identity Management
 

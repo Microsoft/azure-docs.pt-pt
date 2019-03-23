@@ -5,15 +5,15 @@ services: container-instances
 author: dlepow
 ms.service: container-instances
 ms.topic: quickstart
-ms.date: 10/02/2018
+ms.date: 03/21/2019
 ms.author: danlep
 ms.custom: seodec18, mvc
-ms.openlocfilehash: 41313a8b140886247b830db7ca9b34a22257de96
-ms.sourcegitcommit: 1902adaa68c660bdaac46878ce2dec5473d29275
+ms.openlocfilehash: f4d232d4d6043ede3979db67e5cd35130d931bef
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/11/2019
-ms.locfileid: "57729157"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58369450"
 ---
 # <a name="quickstart-deploy-a-container-instance-in-azure-using-the-azure-portal"></a>Início rápido: Implementar uma instância de contentor no Azure com o portal do Azure
 
@@ -23,7 +23,7 @@ Neste início rápido, utilize o portal do Azure para implementar um contentor d
 
 ![Aplicação implementada com o Azure Container Instances vista no browser][aci-portal-07]
 
-## <a name="sign-in-to-azure"></a>Inicie sessão no  Azure
+## <a name="sign-in-to-azure"></a>Iniciar sessão no Azure
 
 Inicie sessão no portal do Azure em https://portal.azure.com.
 
@@ -38,12 +38,12 @@ Selecione **Criar um recurso** > **Contentores** >  **Container Instances**.
 Introduza os seguintes valores nas caixas de texto **Nome do contentor**, **Imagem do contentor** e **Grupo de recursos**. Deixe os outros valores nas predefinições e, em seguida, selecione **OK**.
 
 * Nome do contentor: `mycontainer`
-* Imagem de contentor: `microsoft/aci-helloworld`
+* Imagem de contentor: `mcr.microsoft.com/azuredocs/aci-helloworld`
 * Grupo de recursos: **Criar um novo** > `myResourceGroup`
 
 ![Configurar definições básicas para uma nova instância do contentor no portal do Azure][aci-portal-03]
 
-Neste início rápido, deixe a predefinição de **pública** para implementar o público `microsoft/aci-helloworld` imagem. Esta imagem de pacotes de uma pequena aplicação web escrita em node. js, que serve uma página HTML estática.
+Neste início rápido, deixe a predefinição de **pública** para implementar o Microsoft público `aci-helloworld` imagem. Esta imagem de pacotes de uma pequena aplicação web escrita em node. js, que serve uma página HTML estática.
 
 Em **Configuração**, especifique uma **Etiqueta de nome DNS** para o contentor. O nome tem de ser exclusivo dentro da região do Azure, onde cria a instância de contentor. O contentor estará publicamente acessível em `<dns-name-label>.<region>.azurecontainer.io`. Se receber uma mensagem de erro "A etiqueta de nome DNS não está disponível ", experimente uma etiqueta de nome DNS diferente.
 
@@ -69,7 +69,7 @@ Quando o **Estado** for *Em execução*, navegue para o FQDN do contentor no seu
 
 Parabéns! Ao configurar apenas algumas definições, implementou uma aplicação acessível publicamente no Azure Container Instances.
 
-## <a name="view-container-logs"></a>Ver registos do contentor
+## <a name="view-container-logs"></a>Ver registos de contentor
 
 Ver os registos de uma instância de contentor é útil quando estiver a resolver problemas no contentor ou na aplicação nele executada.
 
@@ -89,7 +89,7 @@ Selecione **Sim** quando caixa de diálogo de confirmação for apresentada.
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-Neste início rápido, criou uma instância de contentor do Azure a partir de uma imagem no registo do Hub do Docker público. Se deseja criar uma imagem do contentor e implementá-la partir de um registo de contentor privado do Azure, prossiga para o tutorial do Azure Container Instances.
+Neste início rápido, criou uma instância de contentor do Azure a partir de uma imagem pública da Microsoft. Se deseja criar uma imagem do contentor e implementá-la partir de um registo de contentor privado do Azure, prossiga para o tutorial do Azure Container Instances.
 
 > [!div class="nextstepaction"]
 > [Tutorial do Azure Container Instances](./container-instances-tutorial-prepare-app.md)

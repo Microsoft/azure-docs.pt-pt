@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 338032b19d22432c34891de68c6a5ba71de60555
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: cb9333845a78204ea1c6e56e17b3b6f9e5513c9c
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56170691"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58370691"
 ---
 # <a name="how-to-successfully-roll-out-self-service-password-reset"></a>Como implementar com êxito a reposição personalizada de palavras-passe
 
@@ -49,7 +49,7 @@ Muitos clientes consideram que a forma mais fácil de pôr os utilizadores a uti
 * **Tents de tabela de SSPR**: Cartões de tabela é possível colocar na sala do almoço, salas de conferência, ou em escrivaninhas encorajar os utilizadores para concluir o registo.
 * **Autocolantes SSPR**: Modelos de autocolante pode personalizar e imprimir para colocar os computadores portáteis, monitores, teclados ou celulares de lembrar como aceder à SSPR.
 
-![Exemplos de E-Mail SSPR][Email]
+![Exemplos de e-mail SSPR para a implementação aos utilizadores][Email]
 
 ## <a name="create-your-own-password-portal"></a>Criar o seu próprio portal de palavras-passe
 

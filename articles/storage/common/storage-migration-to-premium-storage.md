@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 06/27/2017
 ms.author: yuemlu
 ms.subservice: common
-ms.openlocfilehash: fd72e2a75c00c30fdc5497e0d88e9c83dc5fcad8
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: fdca10c54c798bd47a34eb0f8af091908bcc2711
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58317362"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58372323"
 ---
 # <a name="migrating-to-azure-premium-storage-unmanaged-disks"></a>Migrar para o armazenamento Premium do Azure (discos não geridos)
 
@@ -69,10 +69,10 @@ Os seguintes destinos de escalabilidade, além de ter contas de armazenamento Pr
 |:--- |:--- |
 | Capacidade do disco: 35TB<br />Capacidade do instantâneo: 10 TB |Máximo de 50 gigabits por segundo para entrada + saída |
 
-Para obter mais informações sobre especificações do Premium Storage, confira [metas de escalabilidade e desempenho do armazenamento do Azure](storage-scalability-targets.md#premium-storage-account-scale-limits).
+Para obter mais informações sobre especificações do Premium Storage, confira [metas de escalabilidade e desempenho do armazenamento do Azure](storage-scalability-targets.md#premium-performance-storage-account-scale-limits).
 
 #### <a name="disk-caching-policy"></a>Política de colocação em cache do disco
-Por predefinição, é a política de colocação em cache *só de leitura* em todos os discos de dados de Premium, e *leitura-escrita* para o disco de sistema operativo Premium ligados à VM. Esta definição de configuração é recomendada para alcançar o desempenho ideal para a IOs sua aplicação. Para discos de dados de escrita intensiva ou só de escrita (por exemplo, ficheiros de registo do SQL Server), desative o cache em disco para que pode obter um melhor desempenho do aplicativo. As definições de cache para discos de dados existente podem ser atualizadas utilizando [Portal do Azure](https://portal.azure.com) ou o *- HostCaching* parâmetro do *conjunto AzureDataDisk* cmdlet.
+Por predefinição, é a política de colocação em cache *só de leitura* em todos os discos de dados de Premium, e *leitura-escrita* para o disco de sistema operativo Premium ligados à VM. Esta definição de configuração é recomendada para alcançar o desempenho ideal para a IOs sua aplicação. Para discos de dados de escrita intensiva ou só de escrita (por exemplo, ficheiros de registo do SQL Server), desative o cache em disco para que pode obter um melhor desempenho do aplicativo. As definições de cache para discos de dados existentes podem ser atualizadas utilizando o [portal do Azure](https://portal.azure.com) ou o *- HostCaching* parâmetro do *AzureDataDisk conjunto* cmdlet.
 
 #### <a name="location"></a>Localização
 Escolha uma localização onde o armazenamento Premium do Azure está disponível. Ver [serviços do Azure por região](https://azure.microsoft.com/regions/#services) para obter informações atualizadas sobre localizações disponíveis. VMs localizadas na mesma região que a conta de armazenamento que armazena os discos da VM dará um desempenho muito melhor do que se eles estão em regiões separadas.

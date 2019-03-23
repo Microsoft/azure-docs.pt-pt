@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7a7752fac54f9dfb2f8fb0aecd3b6249c52c3bcf
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: 57d3e955059724756eb7102c1b9fbbf55ed203ab
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58316359"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58370453"
 ---
 # <a name="how-to-enable-password-reset-from-windows-7-8-and-81"></a>Como: Ativar a reposição do Windows 7, 8 e 8.1 palavra-passe
 
@@ -46,7 +46,7 @@ Ao contrário de máquinas do Windows 10, Windows 7, 8 e 8.1 computadores não t
 1. Após a reinicialização, no ecrã de início de sessão escolhe um utilizador e clique em "Esqueci-me da palavra-passe?" para iniciar a palavra-passe de reposição de fluxo de trabalho.
 1. Conclua o fluxo de trabalho seguindo os passos na tela para repor a palavra-passe.
 
-![Exemplo Windows 7 clicou em "Esqueci-me da palavra-passe?" fluxo de reposição de palavra-passe self-service](media/howto-sspr-windows-7-8/windows-7-sspr.png)
+![Exemplo Windows 7 clicou em "Esqueci-me da palavra-passe?" Fluxo SSPR](media/howto-sspr-windows-7-8/windows-7-sspr.png)
 
 ### <a name="silent-installation"></a>Instalação silenciosa
 
@@ -67,13 +67,11 @@ Eventos serão registados no computador e no Azure AD.
 
 Eventos do Azure AD irão incluir informações sobre o endereço IP e ClientType onde ocorreu a reposição de palavra-passe.
 
-![Exemplo 7 do Windows início de sessão ecrã reposição palavra-passe no log de auditoria do Azure AD](media/howto-sspr-windows-7-8/windows-7-sspr-azure-ad-audit-log.png)
+![Exemplo 7 do Windows reposição palavra-passe no log de auditoria do Azure AD](media/howto-sspr-windows-7-8/windows-7-sspr-azure-ad-audit-log.png)
 
 Se o registo adicional é necessário, uma chave de registo na máquina pode ser alterada para ativar o registo verboso. Ative o registo verboso para apenas para fins de resolução de problemas.
 
-```
-HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Authentication\Credential Providers\{86D2F0AC-2171-46CF-9998-4E33B3D7FD4F}
-```
+`HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Authentication\Credential Providers\{86D2F0AC-2171-46CF-9998-4E33B3D7FD4F}`
 
 * Para ativar o registo verboso, crie REG_DWORD: "EnableLogging" e defina-o como 1.
 * Para desativar o registo verboso, altere o REG_DWORD "EnableLogging" para 0.
@@ -82,4 +80,4 @@ Se as máquinas do Windows 7, 8 e 8.1 estiverem atrás de um servidor proxy ou f
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-[Permitir que os utilizadores de Windows 10 para repor a palavra-passe no ecrã de início de sessão](tutorial-sspr-windows.md)
+* [Permitir que os utilizadores de Windows 10 para repor a palavra-passe no ecrã de início de sessão](tutorial-sspr-windows.md)

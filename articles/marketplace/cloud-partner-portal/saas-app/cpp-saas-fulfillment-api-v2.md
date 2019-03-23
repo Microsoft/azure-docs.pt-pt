@@ -14,14 +14,14 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 02/27/2019
 ms.author: pbutlerm
-ms.openlocfilehash: 7e1fa82e71738ac113bfe748a7117d0c3a10b14b
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.openlocfilehash: 81213d1f7cfeb7ea10cdadfb124047ecb76aa7d4
+ms.sourcegitcommit: 87bd7bf35c469f84d6ca6599ac3f5ea5545159c9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57318762"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58352090"
 ---
-# <a name="saas-fulfillment-api-version-2"></a>Versão de API de preenchimento do SaaS 2
+# <a name="saas-fulfillment-api"></a>Preenchimento de SaaS API
 
 Este artigo fornece detalhes sobre a API que permite aos fornecedores de software independentes (ISVs) para integrar as suas aplicações SaaS com o Azure Marketplace. Esta API permite que os aplicativos de ISV participar em todos os canais de comércio ativado: direto, liderada por parceiros (revendedor) e orientado por campo.  Esta API é um requisito para listagem que transactable SaaS oferece no Azure Marketplace.
 

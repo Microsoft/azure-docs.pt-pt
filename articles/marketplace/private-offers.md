@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 11/1/2018
 ms.author: qianw211
-ms.openlocfilehash: 1efe65feaac6e71437958451e8c1a44027495fce
-ms.sourcegitcommit: eba6841a8b8c3cb78c94afe703d4f83bf0dcab13
+ms.openlocfilehash: c3294aaa2b6c88e08028c8958d2ab3a7297aea74
+ms.sourcegitcommit: 87bd7bf35c469f84d6ca6599ac3f5ea5545159c9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52620018"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58351818"
 ---
 # <a name="private-offers"></a>Ofertas privadas
 
@@ -55,6 +55,9 @@ Ofertas privadas são apenas Detetáveis através da [portal do Azure](https://a
 ![[Ofertas privadas]](./media/marketplace-publishers-guide/private-offer.png)
 
 Ofertas privadas também serão apresentada nos resultados da pesquisa. Apenas procure do distintivo "Private".
+
+> [!Note]
+> Ofertas privadas não são suportadas com subscrições estabelecidas através de um revendedor do programa fornecedor de soluções Cloud (CSP).
 
 ## <a name="next-steps"></a>Passos Seguintes
 

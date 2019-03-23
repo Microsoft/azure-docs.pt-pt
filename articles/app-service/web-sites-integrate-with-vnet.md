@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 11/12/2018
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: ed99bd3626bb44bff68e4122d6b50523f19e1797
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 768179f8569eac14166bcbb0a888e1cdbe41d497
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58112624"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58369705"
 ---
 # <a name="integrate-your-app-with-an-azure-virtual-network"></a>Integrar a sua aplicação com uma rede Virtual do Azure
 Este documento descreve a funcionalidade de integração de rede virtual do App Service do Azure e mostra como configurá-lo com as aplicações no [App Service do Azure](https://go.microsoft.com/fwlink/?LinkId=529714). [Redes virtuais do Azure] [ VNETOverview] (VNets) permitem-lhe colocar muitos dos seus recursos do Azure numa rede de endereçáveis não internet. Estas redes, em seguida, podem ser ligadas às suas redes no local usando as tecnologias VPN. 
@@ -247,7 +247,7 @@ Existem três recursos que permitem o acesso aos recursos da VNet alojado. São:
 
 Ligações híbridas necessitam que instale um agente de retransmissão chamado Manager(HCM) de ligação híbrida na sua rede. O HCM tem de conseguir ligar-se para o Azure e também a sua aplicação. Ligações híbridas não requer um entrada internet ponto final de acesso para a sua rede remota, como é necessário para uma ligação VPN. O HCM só é executado no Windows e pode ter até cinco instâncias em execução para proporcionar elevada disponibilidade. Ligações híbridas só suporta TCP no entanto, e cada ponto de final do HC tem a correspondência com uma combinação de anfitrião: porta específica. 
 
-A funcionalidade Ambiente de serviço de aplicações permite-lhe executar uma instância de único inquilino do serviço de aplicações do Azure na sua VNet. Se as suas aplicações estão num ambiente de serviço de aplicações, em seguida, as suas aplicações podem aceder aos recursos na sua VNet sem quaisquer etapas extras. Com e o ambiente de serviço de aplicações, as suas aplicações executam em funções de trabalho mais potentes e podem ser dimensionado até 100 instâncias ASP. Ambientes de serviço de aplicações funcionam com todos os recursos de rede, incluindo o ExpressRoute e de pontos finais de serviço.  
+A funcionalidade Ambiente de serviço de aplicações permite-lhe executar uma instância de único inquilino do serviço de aplicações do Azure na sua VNet. Se as suas aplicações estão num ambiente de serviço de aplicações, em seguida, as suas aplicações podem aceder aos recursos na sua VNet sem quaisquer etapas extras. Com um ambiente de serviço de aplicações, as suas aplicações executam em mais poderosas funções de trabalho e podem ser dimensionado até 100 instâncias ASP. Ambientes de serviço de aplicações funcionam com todos os recursos de rede, incluindo o ExpressRoute e de pontos finais de serviço.  
 
 Embora haja que algumas utilizam a sobreposição de caso, nenhum desses recursos pode substituir qualquer um dos outros. Saber que o recurso a usar está associado às suas necessidades. Por exemplo:
 

@@ -12,16 +12,16 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 03/12/2019
+ms.date: 03/22/2019
 ms.author: markvi
 ms.reviewer: spunukol
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b475eae337b7e6a7e26b3e5a7518be0e461c9fa4
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 6a303319a3f87f684b72bcddd8d30cd4a2c60642
+ms.sourcegitcommit: 87bd7bf35c469f84d6ca6599ac3f5ea5545159c9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58170620"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58351529"
 ---
 # <a name="azure-active-directory-conditional-access-settings-reference"></a>Referência de definições de acesso condicional do Azure Active Directory
 
@@ -144,20 +144,25 @@ Na sua política de acesso condicional, pode selecionar **navegadores** como apl
 Esta definição funciona com todos os navegadores. No entanto, para satisfazer uma política de dispositivo, como um requisito de dispositivo em conformidade, os seguintes sistemas operativos e browsers são suportados:
 
 
-| SO                     | Browsers                            | Suporte     |
-| :--                    | :--                                 | :-:         |
-| Windows 10             | Internet Explorer, Microsoft Edge, Chrome     | ![Marcar][1] |
-| Windows 8 / 8.1        | Internet Explorer, Chrome           | ![Marcar][1] |
-| Windows 7              | Internet Explorer, Chrome           | ![Marcar][1] |
-| iOS                    | Safari, Browser gerido do Intune      | ![Marcar][1] |
-| Android                | Chrome, o Intune Managed Browser      | ![Marcar][1] |
-| Windows Phone          | Internet Explorer, Microsoft Edge             | ![Marcar][1] |
-| Windows Server 2016    | Internet Explorer, Microsoft Edge             | ![Marcar][1] |
-| Windows Server 2016    | Chrome                              | Brevemente |
-| Windows Server 2012 R2 | Internet Explorer, Chrome           | ![Marcar][1] |
-| Windows Server 2008 R2 | Internet Explorer, Chrome           | ![Marcar][1] |
-| macOS                  | Chrome, o Safari                      | ![Marcar][1] |
+| SO                     | Browsers                                      |
+| :--                    | :--                                           |
+| Windows 10             | Internet Explorer, Microsoft Edge, Chrome     |
+| Windows 8 / 8.1        | Internet Explorer, Chrome                     |
+| Windows 7              | Internet Explorer, Chrome                     |
+| iOS                    | Safari, Browser gerido do Intune                |
+| Android                | Chrome, o Intune Managed Browser                |
+| Windows Phone          | Internet Explorer, Microsoft Edge             |
+| Windows Server 2016    | Internet Explorer, Microsoft Edge             |
+| Windows Server 2016    | Chrome                                        |
+| Windows Server 2012 R2 | Internet Explorer, Chrome                     |
+| Windows Server 2008 R2 | Internet Explorer, Chrome                     |
+| macOS                  | Chrome, o Safari                                |
+ 
 
+
+#### <a name="why-do-i-see-a-certificate-prompt-in-the-browser"></a>Por que vejo um certificado de linha de comandos no navegador
+
+No Windows 7, iOS, Android e macOS do Azure AD identifica o dispositivo com um certificado de cliente que está aprovisionado quando o dispositivo está registado com o Azure AD.  Quando um utilizador inicia pela primeira vez por meio do navegador é pedido ao utilizador para selecionar o certificado. O utilizador tem de selecionar este certificado antes de utilizar o browser.
 
 
 #### <a name="chrome-support"></a>Suporte do Chrome

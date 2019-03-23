@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/26/2018
 ms.author: sasolank
-ms.openlocfilehash: 00cdc8de45d2f0177cd1f097fb874cbe67f7e442
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 46678590366021ff0f3ddb714d439c18addc578b
+ms.sourcegitcommit: 223604d8b6ef20a8c115ff877981ce22ada6155a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58120130"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58361083"
 ---
 # <a name="integrate-api-management-in-an-internal-vnet-with-application-gateway"></a>Integrar a gestão de API numa VNET interna com o Gateway de aplicação
 
@@ -93,7 +93,7 @@ Neste guia, também expõe os **portal do programador** a públicos externos atr
 Iniciar sessão no Azure
 
 ```powershell
-Login-AzAccount
+Connect-AzAccount
 ```
 
 Autenticar com as suas credenciais.
@@ -165,7 +165,7 @@ O exemplo seguinte mostra como criar um serviço de gestão de API numa VNET con
 Crie um objeto de rede Virtual de gestão de API com a sub-rede $apimsubnetdata criada acima.
 
 ```powershell
-$apimVirtualNetwork = New-AzApiManagementVirtualNetwork -Location $location -SubnetResourceId $apimsubnetdata.Id
+$apimVirtualNetwork = New-AzApiManagementVirtualNetwork -SubnetResourceId $apimsubnetdata.Id
 ```
 
 ### <a name="step-2"></a>Passo 2
@@ -185,7 +185,7 @@ Depois do comando acima for concluída com êxito, consulte a [necessária confi
 
 ### <a name="step-1"></a>Passo 1
 
-Carregue os certificados com chaves privadas para os domínios. Neste exemplo, utilizamos `api.contoso.net` e `portal.contoso.net`.  
+Inicialize as seguintes variáveis com os detalhes dos certificados com chaves privadas para os domínios. Neste exemplo, utilizamos `api.contoso.net` e `portal.contoso.net`.  
 
 ```powershell
 $gatewayHostname = "api.contoso.net"                 # API gateway host
@@ -196,18 +196,21 @@ $portalCertPfxPath = "C:\Users\Contoso\portal.pfx"   # full path to portal.conto
 $gatewayCertPfxPassword = "certificatePassword123"   # password for api.contoso.net pfx certificate
 $portalCertPfxPassword = "certificatePassword123"    # password for portal.contoso.net pfx certificate
 
-$certUploadResult = Import-AzApiManagementHostnameCertificate -ResourceGroupName $resGroupName -Name $apimServiceName -HostnameType "Proxy" -PfxPath $gatewayCertPfxPath -PfxPassword $gatewayCertPfxPassword -PassThru
-$certPortalUploadResult = Import-AzApiManagementHostnameCertificate -ResourceGroupName $resGroupName -Name $apimServiceName -HostnameType "Proxy" -PfxPath $portalCertPfxPath -PfxPassword $portalCertPfxPassword -PassThru
+$certPwd = ConvertTo-SecureString -String $gatewayCertPfxPassword -AsPlainText -Force
+$certPortalPwd = ConvertTo-SecureString -String $portalCertPfxPassword -AsPlainText -Force
 ```
 
 ### <a name="step-2"></a>Passo 2
 
-Depois dos certificados são carregados, crie nome de anfitrião objetos de configuração para o proxy de e para o portal.  
+Crie e defina o nome de anfitrião objetos de configuração para o proxy de e para o portal.  
 
 ```powershell
-$proxyHostnameConfig = New-AzApiManagementHostnameConfiguration -CertificateThumbprint $certUploadResult.Thumbprint -Hostname $gatewayHostname
-$portalHostnameConfig = New-AzApiManagementHostnameConfiguration -CertificateThumbprint $certPortalUploadResult.Thumbprint -Hostname $portalHostname
-$result = Set-AzApiManagementHostnames -Name $apimServiceName -ResourceGroupName $resGroupName –PortalHostnameConfiguration $portalHostnameConfig -ProxyHostnameConfiguration $proxyHostnameConfig
+$proxyHostnameConfig = New-AzApiManagementCustomHostnameConfiguration -Hostname $gatewayHostname -HostnameType Proxy -PfxPath $gatewayCertPfxPath -PfxPassword $certPwd
+$portalHostnameConfig = New-AzApiManagementCustomHostnameConfiguration -Hostname $portalHostname -HostnameType Portal -PfxPath $portalCertPfxPath -PfxPassword $certPortalPwd
+
+$apimService.ProxyCustomHostnameConfiguration = $proxyHostnameConfig
+$apimService.PortalCustomHostnameConfiguration = $portalHostnameConfig
+Set-AzApiManagement -InputObject $apimService
 ```
 
 ## <a name="create-a-public-ip-address-for-the-front-end-configuration"></a>Criar um endereço IP público para a configuração de front-end
@@ -253,9 +256,7 @@ $fipconfig01 = New-AzApplicationGatewayFrontendIPConfig -Name "frontend1" -Publi
 Configure os certificados para o Gateway de aplicação, que será utilizado para desencriptar e reencriptar o tráfego passa pelas.
 
 ```powershell
-$certPwd = ConvertTo-SecureString $gatewayCertPfxPassword -AsPlainText -Force
 $cert = New-AzApplicationGatewaySslCertificate -Name "cert01" -CertificateFile $gatewayCertPfxPath -Password $certPwd
-$certPortalPwd = ConvertTo-SecureString $portalCertPfxPassword -AsPlainText -Force
 $certPortal = New-AzApplicationGatewaySslCertificate -Name "cert02" -CertificateFile $portalCertPfxPath -Password $certPortalPwd
 ```
 

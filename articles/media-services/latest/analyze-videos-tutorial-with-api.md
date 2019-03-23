@@ -9,15 +9,15 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: tutorial
-ms.date: 02/18/2019
+ms.date: 03/21/2019
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: 9dbe641c5e22129f7db3d3f3b886fea4501300b0
-ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
+ms.openlocfilehash: 6508e90f76a374d628fdd5032c475e4dde8ffa78
+ms.sourcegitcommit: 87bd7bf35c469f84d6ca6599ac3f5ea5545159c9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/19/2019
-ms.locfileid: "56416144"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58351784"
 ---
 # <a name="tutorial-analyze-videos-with-media-services-v3-using-net"></a>Tutorial: Analisar vídeos com os serviços de multimédia v3 através do .NET
 
@@ -66,7 +66,7 @@ O exemplo realiza as seguintes ações:
 6. Transfere os ficheiros que resultaram da execução da tarefa. 
 
 > [!NOTE]
-> Quando utilizar uma predefinição do Analisador de Vídeo ou Áudio, utilize o portal do Azure para definir a sua conta para ter 10 Unidades Reservadas de Multimédia S3. Para obter mais informações, veja [Dimensionar o processamento de multimédia](../previous/media-services-scale-media-processing-overview.md).
+> Quando utilizar uma predefinição do Analisador de Vídeo ou Áudio, utilize o portal do Azure para definir a sua conta para ter 10 Unidades Reservadas de Multimédia S3. Para obter mais informações, veja [Dimensionar o processamento de multimédia](media-reserved-units-cli-how-to.md).
 
 ### <a name="start-using-media-services-apis-with-net-sdk"></a>Começar a utilizar as APIs dos Serviços de Multimédia com o SDK .NET
 

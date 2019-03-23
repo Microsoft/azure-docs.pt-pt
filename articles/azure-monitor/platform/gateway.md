@@ -13,39 +13,39 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 03/04/2019
 ms.author: magoedte
-ms.openlocfilehash: a497662ac7a885b53e69bb8c86a646045bd2eef7
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.openlocfilehash: 47b589d32accc4a699e7260b9e4b2de4cca58f2b
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57314675"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58369620"
 ---
-# <a name="connect-computers-without-internet-access-by-using-the-log-analytics-gateway"></a>Ligar computadores sem acesso à internet com o gateway do Log Analytics
+# <a name="connect-computers-without-internet-access-by-using-the-log-analytics-gateway-in-azure-monitor"></a>Ligar computadores sem acesso à internet com o gateway do Log Analytics no Azure Monitor
 
 >[!NOTE]
 >Como o Microsoft Operations Management Suite (OMS) faz a transição para o Microsoft Azure Monitor, a terminologia está mudando. Este artigo se refira ao Gateway de OMS que o gateway do Azure Log Analytics. 
 >
 
-Este artigo descreve como configurar a comunicação com a automatização do Azure e o Log Analytics ao utilizar o gateway do Log Analytics, quando os computadores que estejam diretamente ligados ou que são monitorizados pelo Operations Manager têm sem acesso à internet. 
+Este artigo descreve como configurar a comunicação com a automatização do Azure e o Azure Monitor, utilizando o gateway do Log Analytics, quando os computadores que estejam diretamente ligados ou que são monitorizados pelo Operations Manager têm sem acesso à internet. 
 
-O gateway do Log Analytics é um proxy de encaminhamento de HTTP que suporte a HTTP o túnel com o comando de ligação HTTP. Este gateway pode recolher dados e enviá-lo para a automatização do Azure e o Log Analytics em nome dos computadores que não estão ligados à internet.  
+O gateway do Log Analytics é um proxy de encaminhamento de HTTP que suporte a HTTP o túnel com o comando de ligação HTTP. Este gateway pode recolher dados e enviá-lo para a automatização do Azure e uma área de trabalho do Log Analytics no Azure Monitor em nome dos computadores que não estão ligados à internet.  
 
 O gateway do Log Analytics suporta:
 
 * Relatórios, até mesmo quatro do Log Analytics, agentes da área de trabalho que estão por trás dele e que estão configurados com o Azure Automation Hybrid Runbook Workers.  
-* Computadores do Windows em que o Microsoft Monitoring Agent está diretamente ligado a uma área de trabalho do Log Analytics.
-* Computadores com Linux no qual um agente do Log Analytics para Linux está diretamente ligado a uma área de trabalho do Log Analytics.  
+* Computadores do Windows em que o Microsoft Monitoring Agent está diretamente ligado a uma área de trabalho do Log Analytics no Azure Monitor.
+* Computadores com Linux no qual um agente do Log Analytics para Linux está diretamente ligado a uma área de trabalho do Log Analytics no Azure Monitor.  
 * System Center Operations Manager 2012 SP1 UR7, Operations Manager 2012 R2 com o UR3 ou um grupo de gestão no Operations Manager 2016 ou posterior que está integrada com o Log Analytics.  
 
-Algumas políticas de segurança de TI não permitem a ligação à internet para computadores de rede. Estes computadores solução desligadas poderiam ser o ponto de dispositivos de venda (POS) ou servidores que suportam serviços de TI, por exemplo. Para ligar estes dispositivos a automatização do Azure ou do Log Analytics para que possa gerir e monitorizar, configurá-las para se comunicar diretamente com o gateway do Log Analytics. O gateway do Log Analytics pode receber informações de configuração e reencaminhar dados em seu nome. Se os computadores são configurados com o agente do Log Analytics para ligar diretamente a uma área de trabalho do Log Analytics, os computadores em vez disso, se comunicar com o gateway do Log Analytics.  
+Algumas políticas de segurança de TI não permitem a ligação à internet para computadores de rede. Estes computadores solução desligadas poderiam ser o ponto de dispositivos de venda (POS) ou servidores que suportam serviços de TI, por exemplo. Para ligar estes dispositivos a automatização do Azure ou uma área de trabalho do Log Analytics para que possa gerir e monitorizar, configurá-las para se comunicar diretamente com o gateway do Log Analytics. O gateway do Log Analytics pode receber informações de configuração e reencaminhar dados em seu nome. Se os computadores são configurados com o agente do Log Analytics para ligar diretamente a uma área de trabalho do Log Analytics, os computadores em vez disso, se comunicar com o gateway do Log Analytics.  
 
 O gateway do Log Analytics transfere dados dos agentes para o serviço diretamente. Ele não analisa a quaisquer dados em trânsito.
 
 Quando um grupo de gestão do Operations Manager está integrado com o Log Analytics, os servidores de gestão podem ser configurados para ligar ao gateway do Log Analytics para receber informações de configuração e enviar os dados recolhidos, consoante a solução que tiver ativado .  Agentes do Operations Manager enviam alguns dados para o servidor de gestão. Por exemplo, agentes poderão enviar alertas do Operations Manager, os dados de avaliação de configuração, dados de espaço de instância e dados de capacidade. Outros dados de grande volume, como registos de serviços de informação Internet (IIS), dados de desempenho e eventos de segurança, são enviados diretamente para o gateway do Log Analytics. 
 
-Se um ou mais servidores de Gateway do Operations Manager são implementados para monitorizar os sistemas não fidedignos na rede de perímetro ou uma rede isolada, esses servidores não consegue comunicar com um gateway do Log Analytics.  Servidores de Gateway do Gestor de operações podem comunicar-se apenas a um servidor de gestão.  Quando um grupo de gestão do Operations Manager estiver configurado para comunicar com o gateway do Log Analytics, as informações de configuração de proxy é automaticamente distribuídas a todos os computadores geridos por agente que está configurado para recolher dados para o Log Analytics, até mesmo Se a definição está vazia.    
+Se um ou mais servidores de Gateway do Operations Manager são implementados para monitorizar os sistemas não fidedignos na rede de perímetro ou uma rede isolada, esses servidores não consegue comunicar com um gateway do Log Analytics.  Servidores de Gateway do Gestor de operações podem comunicar-se apenas a um servidor de gestão.  Quando um grupo de gestão do Operations Manager estiver configurado para comunicar com o gateway do Log Analytics, as informações de configuração de proxy é automaticamente distribuídas a todos os computadores geridos por agente que está configurado para recolher dados de registo para o Azure Monitor, mesmo que a definição está vazia.    
 
-Para fornecer elevada disponibilidade para diretamente ligado ou grupos de gestão de operações que comunicam com o Log Analytics através do gateway, utilize a rede balanceamento de carga (NLB) para redirecionar e distribuir o tráfego entre múltiplos servidores de gateway. Dessa forma, se um servidor de gateway ficar inativo, o tráfego será redirecionado para outro nó disponível.  
+Para fornecer elevada disponibilidade para diretamente ligado ou grupos de gestão de operações que comunicam com uma área de trabalho do Log Analytics através do gateway, utilize a rede balanceamento de carga (NLB) para redirecionar e distribuir o tráfego entre múltiplos servidores de gateway. Dessa forma, se um servidor de gateway ficar inativo, o tráfego será redirecionado para outro nó disponível.  
 
 O computador que executa o gateway do Log Analytics requer que o agente do Windows do Log Analytics identificar os pontos de extremidade de serviço que precisa se comunicar com o gateway. O agente também tem de direcionar o gateway para comunicar a áreas de trabalho mesmo que os agentes ou grupo de gestão do Operations Manager por trás do gateway estão configurados com. Esta configuração permite que o gateway e o agente para comunicar com a sua área de trabalho atribuída.
 

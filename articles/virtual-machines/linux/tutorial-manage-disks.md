@@ -17,16 +17,16 @@ ms.date: 11/14/2018
 ms.author: cynthn
 ms.custom: mvc
 ms.subservice: disks
-ms.openlocfilehash: e483df4e3392d64619cc074d21ee560ef3c5df5d
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: da70b77edeb483cae0e74400e739f018f78d0993
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55459207"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58370810"
 ---
 # <a name="tutorial---manage-azure-disks-with-the-azure-cli"></a>Tutorial - Gerir discos do Azure com a CLI do Azure
 
-As máquinas virtuais (VMs) do Azure utilizam discos para armazenar o sistema operativo, as aplicações e os dados. Quando cria a VM, é importante escolher um tamanho de disco e configuração adequados para a carga de trabalho esperada. Este tutorial mostra como implementar e gerir discos de VM. Vai obter informações sobre:
+As máquinas virtuais (VMs) do Azure utilizam discos para armazenar o sistema operativo, as aplicações e os dados. Quando cria uma VM, é importante escolher um tamanho de disco e a configuração adequados para a carga de trabalho esperada. Este tutorial mostra como implementar e gerir discos de VM. Vai obter informações sobre:
 
 > [!div class="checklist"]
 > * Discos de SO e discos temporários
@@ -65,21 +65,15 @@ O Armazenamento Standard está protegido por HDDs e fornece armazenamento econó
 Os discos Premium são apoiados por um disco de elevado desempenho baseado em SSD e de baixa latência. São perfeitos para as VMs com carga de trabalho de produção. O Armazenamento Premium suporta VMs da série DS, série DSv2, série GS e série FS. Quando selecionar um tamanho de disco, o valor é arredondado para o tipo seguinte. Por exemplo, se o tamanho do disco for inferior a 128 GB, o tipo de disco é P10. Se o tamanho do disco estiver entre 129 GB e 512 GB, o tamanho é P20. Acima de 512 GB, o tamanho é P30.
 
 ### <a name="premium-disk-performance"></a>Desempenho do disco Premium
-
-|Tipo de disco de armazenamento Premium | P4 | P6 | P10 | P20 | P30 | P40 | P50 | p60 |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| Tamanho do disco (arredondado) | 32 GiB | 64 GiB | 128 GiB | 512 GiB | 1.024 GiB (1 TiB) | 2.048 GiB (2 TiB) | 4.095 GiB (4 TiB) | 8.192 GiB (8 TiB)
-| IOPs Máx por disco | 120 | 240 | 500 | 2.300 | 5.000 | 7.500 | 7.500 | 12.500 |
-Débito por disco | 25 MB/s | 50 MB/s | 100 MB/s | 150 MB/s | 200 MB/s | 250 MB/s | 250 MB/s | 480 MB/s |
+[!INCLUDE [disk-storage-premium-ssd-sizes](../../../includes/disk-storage-premium-ssd-sizes.md)]
 
 Enquanto a tabela acima identifica o IOPS máximo por disco, um nível mais elevado de desempenho pode ser alcançado ao repartir vários discos de dados. Por exemplo, uma VM Standard_GS5 pode atingir o máximo de 80 000 IOPS. Para obter informações detalhadas sobre o IOPS máximo por VM, consulte [Tamanhos de VM do Linux](sizes.md).
 
-
 ## <a name="launch-azure-cloud-shell"></a>Iniciar o Azure Cloud Shell
 
-O Azure Cloud Shell é um shell interativo gratuito que pode utilizar para executar os passos neste artigo. Tem as ferramentas comuns do Azure pré-instaladas e configuradas para utilização com a sua conta. 
+O Azure Cloud Shell é um shell interativo gratuito que pode utilizar para executar os passos neste artigo. Tem as ferramentas comuns do Azure pré-instaladas e configuradas para utilização com a sua conta.
 
-Para abrir o Cloud Shell, basta selecionar **Experimentar** no canto superior direito de um bloco de código. Também pode iniciar o Cloud Shell num separador do browser separado ao aceder a [https://shell.azure.com/powershell](https://shell.azure.com/bash). Selecione **Copiar** para copiar os blocos de código, cole-o no Cloud Shell e prima Enter para executá-lo.
+Para abrir o Cloud Shell, selecione **experimente** do canto superior direito de um bloco de código. Também pode iniciar o Cloud Shell num separador do browser separado ao aceder a [https://shell.azure.com/powershell](https://shell.azure.com/bash). Selecione **Copiar** para copiar os blocos de código, cole-o no Cloud Shell e prima Enter para executá-lo.
 
 ## <a name="create-and-attach-disks"></a>Criar e anexar discos
 
@@ -187,8 +181,7 @@ Agora que o disco foi configurado, feche a sessão SSH.
 exit
 ```
 
-
-## <a name="snapshot-a-disk"></a>Tirar um instantâneo de um disco
+## <a name="take-a-disk-snapshot"></a>Tirar um instantâneo do disco
 
 Quando tira um instantâneo de disco, o Azure cria uma cópia só de leitura de um ponto no tempo do disco. Os instantâneos de VM do Azure são úteis para guardar rapidamente o estado de uma VM antes de efetuar alterações de configuração. Em caso de problema ou erro, VM pode ser restaurada utilizando um instantâneo. Quando uma VM tiver mais do que um disco, é tirado um instantâneo de cada disco independentemente dos outros. Para fazer cópias de segurança da aplicação, considere parar a VM antes de tirar instantâneos do disco. Em alternativa, utilize o [Serviço Azure Backup](/azure/backup/), que permite efetuar cópias de segurança automatizadas enquanto a VM está em execução.
 

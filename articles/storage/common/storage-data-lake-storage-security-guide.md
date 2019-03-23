@@ -5,15 +5,15 @@ services: storage
 author: roygara
 ms.service: storage
 ms.topic: article
-ms.date: 02/07/2019
+ms.date: 03/21/2019
 ms.author: rogarana
 ms.subservice: common
-ms.openlocfilehash: 22b070e6d70208057c85ad6a2322cc440d12a0fa
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: ce01301455c7abcd26006e622fcfbb8127e1c511
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58008206"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58372493"
 ---
 # <a name="azure-data-lake-storage-gen2-security-guide"></a>Guia de segurança de geração 2 de armazenamento do Data Lake do Azure
 
@@ -134,7 +134,7 @@ Segurança de plano de dados refere-se para os métodos usados para proteger os 
 Tem três opções para autorizar o acesso a objetos de dados no armazenamento do Azure, incluindo:
 
 - Utilizar o Azure AD para autorizar o acesso a sistemas de ficheiros e filas. O Azure AD proporciona vantagens em relação a outras abordagens para autorização, incluindo a remover a necessidade de armazenar segredos no seu código. Para obter mais informações, consulte [autenticar o acesso ao armazenamento do Azure com o Azure Active Directory](storage-auth-aad.md). 
-- As chaves de conta de armazenamento a utilizar para autorizar o acesso por meio da chave partilhada. Autorizar através de chave partilhada requer a armazenar as chaves de conta de armazenamento na sua aplicação, para que a Microsoft recomenda a utilização do Azure AD em vez disso, sempre que possível. Para aplicações de produção ou para autorizar o acesso a ficheiros e de tabelas do Azure, continue a utilizar a chave partilhada enquanto a integração do Azure AD está em pré-visualização.
+- As chaves de conta de armazenamento a utilizar para autorizar o acesso por meio da chave partilhada. Autorizar através de chave partilhada requer a armazenar as chaves de conta de armazenamento na sua aplicação, para que a Microsoft recomenda a utilização do Azure AD em vez disso, sempre que possível.
 - Utilização de assinaturas de acesso partilhado para conceder permissões controladas para objetos de dados específicos para um período de tempo específico.
 
 Além de limitar o acesso por meio de autorização, também pode utilizar [Firewalls e redes virtuais](storage-network-security.md) para limitar o acesso à conta de armazenamento com base nas regras de rede.  Esta permite que a abordagem negar o acesso ao tráfego da internet pública e conceder acesso apenas a determinados redes virtuais do Azure ou da internet pública intervalos de endereços IP.

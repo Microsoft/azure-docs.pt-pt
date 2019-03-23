@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 65c64e420bd22498fa2d778095def96cce218055
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: 47a6f475b5f1152850ec918b196883c6974f4d95
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58313962"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58370011"
 ---
 # <a name="how-it-works-azure-ad-self-service-password-reset"></a>Como funciona: Redefinição de senha de autoatendimento de AD do Azure
 
@@ -76,7 +76,7 @@ Os utilizadores só podem repor a palavra-passe, se tiverem dados presentes nos 
 > [!WARNING]
 > Contas atribuídas funções de administrador do Azure será necessárias usar métodos, conforme definido na secção [diferenças de política de reposição de administrador](concept-sspr-policy.md#administrator-reset-policy-differences).
 
-![Autenticação][Authentication]
+![Seleção de métodos de autenticação no portal do Azure][Authentication]
 
 ### <a name="number-of-authentication-methods-required"></a>Número de métodos de autenticação necessários
 
@@ -160,7 +160,7 @@ Exemplo: Existem quatro administradores num ambiente. O administrador A repõe a
 
 Se instalar, configura e ativar o Azure AD Connect, tem as seguintes opções adicionais para integrações no local. Se estas opções são desativadas, em seguida, repetição de escrita não foi corretamente configurada. Para obter mais informações, consulte [configurar a repetição de escrita de palavra-passe](howto-sspr-writeback.md).
 
-![Repetição de escrita][Writeback]
+![A validar a repetição de escrita de palavra-passe está ativada e a funcionar][Writeback]
 
 Esta página fornece um rápido status do cliente de repetição de escrita no local, uma das duas mensagens seguintes é apresentada com base na configuração atual:
 
@@ -180,7 +180,7 @@ Esse controle determina se a repetição de escrita de palavra-passe está ativa
 
 ### <a name="allow-users-to-unlock-accounts-without-resetting-their-password"></a>Permitir que os utilizadores desbloqueiem as contas sem repor a palavra-passe
 
-Esse controle designa se os usuários que visitam o portal de reposição de palavra-passe devem ser dada a opção para desbloquear suas contas do Active Directory no local sem ter de repor a palavra-passe. Por predefinição, o Azure AD desbloqueia contas quando ele efetuar uma reposição de palavra-passe. Utilize esta definição para separar as duas operações. 
+Esse controle designa se os usuários que visitam o portal de reposição de palavra-passe devem ser dada a opção para desbloquear suas contas do Active Directory no local sem ter de repor a palavra-passe. Por predefinição, o Azure AD desbloqueia contas quando ele efetuar uma reposição de palavra-passe. Utilize esta definição para separar as duas operações.
 
 * Se definido como **Sim**, em seguida, os utilizadores recebem a opção para repor a palavra-passe e desbloquear a conta de ou para desbloquear a conta sem ter de repor a palavra-passe.
 * Se definido como **não**, em seguida, os utilizadores são só poderá efetuar uma reposição de palavra-passe combinado e operação de desbloqueio de conta.
@@ -193,9 +193,9 @@ O Azure AD self-service palavra-passe reposição executa o equivalente a um ini
 
 Alteração e reposição de palavra-passe são totalmente suportadas em todas as configurações do empresa-empresa (B2B). Reposição de palavra-passe de utilizador B2B é suportada nos seguintes três casos:
 
-   * **Os utilizadores de uma organização de parceiro com um inquilino do Azure AD existente**: Se nossa parceria com a organização tiver um inquilino do Azure AD existente, podemos *respeitar quaisquer políticas de reposição de palavra-passe estão ativadas nesse inquilino*. Palavra-passe reposta para trabalhar, a organização de parceiro precisa apenas Certifique-se de que o Azure AD SSPR está ativado. Não incorre em encargos adicionais para os clientes do Office 365 e pode ser ativada ao seguir os passos no nosso [introdução à gestão de palavra-passe](https://azure.microsoft.com/documentation/articles/active-directory-passwords-getting-started/#enable-users-to-reset-or-change-their-aad-passwords) guia.
-   * **Os utilizadores que se inscrevam através de** inscrição Self-Service: Utilizado se a organização nossa parceria com o [inscrição Self-Service](../users-groups-roles/directory-self-service-signup.md) de recursos para obter um inquilino, nós deixamos que eles repor a palavra-passe com a mensagem de e-mail que registado.
-   * **Utilizadores B2B**: Quaisquer novos utilizadores B2B criados com a nova [capacidades do Azure AD B2B](../active-directory-b2b-what-is-azure-ad-b2b.md) também poderão repor as palavras-passe com a mensagem de e-mail que registado durante o processo de convite.
+* **Os utilizadores de uma organização de parceiro com um inquilino do Azure AD existente**: Se nossa parceria com a organização tiver um inquilino do Azure AD existente, podemos *respeitar quaisquer políticas de reposição de palavra-passe estão ativadas nesse inquilino*. Palavra-passe reposta para trabalhar, a organização de parceiro precisa apenas Certifique-se de que o Azure AD SSPR está ativado. Não incorre em encargos adicionais para os clientes do Office 365 e pode ser ativada ao seguir os passos no nosso [introdução à gestão de palavra-passe](https://azure.microsoft.com/documentation/articles/active-directory-passwords-getting-started/#enable-users-to-reset-or-change-their-aad-passwords) guia.
+* **Os utilizadores que se inscrevam através de** inscrição Self-Service: Utilizado se a organização nossa parceria com o [inscrição Self-Service](../users-groups-roles/directory-self-service-signup.md) de recursos para obter um inquilino, nós deixamos que eles repor a palavra-passe com a mensagem de e-mail que registado.
+* **Utilizadores B2B**: Quaisquer novos utilizadores B2B criados com a nova [capacidades do Azure AD B2B](../active-directory-b2b-what-is-azure-ad-b2b.md) também poderão repor as palavras-passe com a mensagem de e-mail que registado durante o processo de convite.
 
 Para testar este cenário, aceda a https://passwordreset.microsoftonline.com com um destes utilizadores de parceiro. Se tiverem um correio eletrónico alternativo ou e-mail de autenticação definidos, a palavra-passe reposição funciona conforme esperado.
 
