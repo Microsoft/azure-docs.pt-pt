@@ -13,16 +13,16 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 03/30/2018
 ms.author: magoedte
-ms.openlocfilehash: 7701ef463124fafd4c750fbb9f23aa03d6bc25ab
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
+ms.openlocfilehash: 963fd1bfd67a20033f0712d3b447091abda40d11
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54262494"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58369910"
 ---
 # <a name="managing-and-maintaining-the-log-analytics-agent-for-windows-and-linux"></a>Gerenciando e mantendo o agente Log Analytics para Windows e Linux
 
-Após a implementação inicial do agente do Windows ou Linux para o Log Analytics, terá de reconfigurar o agente ou removê-lo a partir do computador se atingiu a fase de extinção no seu ciclo de vida. Pode gerir facilmente essas tarefas de manutenção de rotina manualmente ou através da automatização, o que reduz o erro operacional e as despesas.
+Após a implementação inicial do Windows do Log Analytics ou agente do Linux no Azure Monitor, terá de reconfigurar o agente ou removê-lo a partir do computador se atingiu a fase de extinção no seu ciclo de vida. Pode gerir facilmente essas tarefas de manutenção de rotina manualmente ou através da automatização, o que reduz o erro operacional e as despesas.
 
 ## <a name="adding-or-removing-a-workspace"></a>Adicionar ou remover uma área de trabalho
 
@@ -115,7 +115,7 @@ Para configurar o agente para comunicar com o serviço através de um servidor p
 
 #### <a name="update-settings-using-powershell"></a>Definições de atualização com o PowerShell
 
-Copie o código do PowerShell de exemplo seguinte, atualize-o com informações específicas do ambiente e guarde-o com uma extensão de nome de ficheiro PS1. Execute o script em cada computador que se conecta diretamente ao serviço Log Analytics.
+Copie o código do PowerShell de exemplo seguinte, atualize-o com informações específicas do ambiente e guarde-o com uma extensão de nome de ficheiro PS1. Execute o script em cada computador que estabelece ligação direta à área de trabalho do Log Analytics no Azure Monitor.
 
 ```PowerShell
 param($ProxyDomainName="https://proxy.contoso.com:30443", $cred=(Get-Credential))

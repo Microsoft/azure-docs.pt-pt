@@ -1,18 +1,18 @@
 ---
 title: Mapeamento de conjuntos de dados de fluxo de dados de fábrica de dados do Azure
-description: O Azure Data Factory mapeamento de fluxo de dados tem sepecific compatibilidade de conjunto de dados
+description: O Azure Data Factory mapeamento de fluxo de dados tem a compatibilidade do conjunto de dados específico
 author: kromerm
 ms.author: makromer
 ms.reviewer: douglasl
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 02/14/2019
-ms.openlocfilehash: ad6cfdad519ab3901c58979970ea07439b3106e9
-ms.sourcegitcommit: 235cd1c4f003a7f8459b9761a623f000dd9e50ef
+ms.openlocfilehash: 4e36e96947e6a8595230023065eb9f44a5a1f3d2
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/11/2019
-ms.locfileid: "57726928"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58371320"
 ---
 # <a name="mapping-data-flow-datasets"></a>Conjuntos de dados de fluxo de dados de mapeamento
 
@@ -42,6 +42,12 @@ Ao criar um novo conjunto de dados, há uma caixa de seleção rotulada como "Da
 ## <a name="import-schemas"></a>Importar esquemas
 
 Ao importar o esquema de conjuntos de dados de fluxo de dados, verá um botão importar esquema. Ao clicar nesse botão irá apresentar-lhe duas opções: Importar da origem ou importar a partir de um ficheiro local. Na maioria dos casos, irá importar o esquema diretamente da fonte. No entanto, se tiver um ficheiro de esquema existente (ficheiro Parquet ou CSV com cabeçalhos), pode apontar para ficheiro local e o Data Factory irão definir o esquema com base nesse ficheiro de esquema.
+
+## <a name="create-new-table"></a>Criar nova tabela
+
+No fluxo de dados, pode pedir o ADF para criar uma nova definição de tabela na base de dados de destino através da definição de um conjunto de dados na transformação de Sink, que tem um novo nome de tabela. No conjunto de dados SQL, clique em "Editar" abaixo o nome da tabela e introduza um novo nome de tabela. Em seguida, na transformação de Sink, ative "Permitir Descompassos de esquema". Seth a definição de "Importar esquema" como None.
+
+![Esquema de transformação de origem](media/data-flow/dataset2.png "esquema SQL")
 
 ## <a name="delimited-text-dataset"></a>Conjunto de dados de texto delimitado
 

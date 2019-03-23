@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a77c6ce205c40b5814f9b26f9099d868d434d3ce
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: d38d93a1c9716cc3a71d904b7b1a46fb8b1c2ee0
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58316461"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58369229"
 ---
 # <a name="customize-the-azure-ad-functionality-for-self-service-password-reset"></a>Personalizar a funcionalidade do Azure AD para a reposição de palavra-passe self-service
 
@@ -26,12 +26,12 @@ Os profissionais de TI que pretendem implementar a reposição de palavra-passe 
 
 Mesmo se não estiver ativada a SSPR, os usuários ainda têm uma ligação "Contacte o administrador" sobre a palavra-passe, portal de reposição. Se um usuário selecionar esse link, ele de qualquer:
 
-   * Os administradores de e-mails e pede-los para obter assistência na alteração de palavra-passe do utilizador.
-   * Envia os seus utilizadores para uma URL que especificar para obter assistência.
+* Os administradores de e-mails e pede-los para obter assistência na alteração de palavra-passe do utilizador.
+* Envia os seus utilizadores para uma URL que especificar para obter assistência.
 
 Recomendamos que defina esta contacto para algo como um endereço de e-mail ou site que os utilizadores já utilizam para questões de suporte.
 
-![Contact][Contact]
+![Pedido de exemplo para repor o e-mail enviado para o administrador][Contact]
 
 O e-mail de contacto é enviado para os seguintes destinatários pela seguinte ordem:
 
@@ -68,8 +68,8 @@ Os gráficos que escolher são mostrados nas seguintes circunstâncias:
 
 * Depois de um utilizador introduz o respetivo nome de utilizador
 * Se o usuário acessa o URL personalizado:
-    * Passando o `whr` parâmetro para a palavra-passe de reposição de página, como `https://login.microsoftonline.com/?whr=contoso.com`
-    * Passando o `username` parâmetro para a palavra-passe de reposição de página, como `https://login.microsoftonline.com/?username=admin@contoso.com`
+   * Passando o `whr` parâmetro para a palavra-passe de reposição de página, como `https://login.microsoftonline.com/?whr=contoso.com`
+   * Passando o `username` parâmetro para a palavra-passe de reposição de página, como `https://login.microsoftonline.com/?username=admin@contoso.com`
 
 Obter detalhes sobre como configurar a imagem corporativa no artigo [adicionar imagem corporativa à sua página de início de sessão no Azure AD](../fundamentals/customize-branding.md).
 

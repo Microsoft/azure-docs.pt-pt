@@ -5,21 +5,21 @@ services: storage
 author: cbrooksmsft
 ms.service: storage
 ms.topic: article
-ms.date: 02/22/2019
+ms.date: 03/21/2019
 ms.author: cbrooks
 ms.subservice: common
-ms.openlocfilehash: c7f7768406ae64615b46abeb396b5469caf2f6e9
-ms.sourcegitcommit: e88188bc015525d5bead239ed562067d3fae9822
+ms.openlocfilehash: c34af90f946542608eaf20f4f21d4986f3c80e6b
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/24/2019
-ms.locfileid: "56750655"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58369399"
 ---
 # <a name="configure-azure-storage-firewalls-and-virtual-networks"></a>Configurar o armazenamento do Azure firewalls e redes virtuais
 
 O armazenamento do Azure fornece um modelo de segurança em camadas. Este modelo permite-lhe proteger as contas de armazenamento para um conjunto específico de redes suportados. Quando as regras de rede estiverem configuradas, apenas as aplicações pedir dados de mais de mil o conjunto especificado de redes podem aceder a uma conta de armazenamento.
 
-Uma aplicação que acede a uma conta de armazenamento quando as regras de rede estão em vigor requer autorização adequada no pedido. Há suporte para autorização com credenciais do Azure Active Directory (AD) (para blobs e filas) (pré-visualização), uma chave de acesso de conta válido ou um token SAS.
+Uma aplicação que acede a uma conta de armazenamento quando as regras de rede estão em vigor requer autorização adequada no pedido. Autorização é suportada com as credenciais do Azure Active Directory (Azure AD) para blobs e filas, com uma chave de acesso de conta válido ou um token de SAS.
 
 > [!IMPORTANT]
 > Ativar as regras de firewall para a sua conta de armazenamento bloqueia pedidos de entrada de dados por predefinição, a menos que os pedidos provenientes de um serviço que está a funcionar dentro de uma rede Virtual do Azure (VNet). Pedidos que estão bloqueados incluem os de outros serviços do Azure, do portal do Azure, do Registro em log e serviços de métricas e assim por diante.

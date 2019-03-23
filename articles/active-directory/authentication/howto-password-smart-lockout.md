@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 402a2d6afc7b58d4dfc1c9fa67e354b4d157bd4c
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: 5c81a9f3891130f1c6fc2f1a665d7065fb983227
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58310239"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58370195"
 ---
 # <a name="azure-active-directory-smart-lockout"></a>Bloqueio inteligente de Active Directory do Azure
 
@@ -40,8 +40,8 @@ Bloqueio inteligente pode ser integrado em implementações híbridas, com a sin
 
 Ao usar [autenticação pass-through](../hybrid/how-to-connect-pta.md), precisa para se certificar de que:
 
-   * O limiar de bloqueio do Azure AD é **menos** que o limiar de bloqueio de conta do Active Directory. Defina os valores para que o limiar de bloqueio de conta do Active Directory é, pelo menos, dois ou três vezes mais do que o limiar de bloqueio do Azure AD. 
-   * A duração do bloqueio do Azure AD **em segundos** é **mais** que o Active Directory repor o contador de bloqueio de conta após a duração **minutos**.
+* O limiar de bloqueio do Azure AD é **menos** que o limiar de bloqueio de conta do Active Directory. Defina os valores para que o limiar de bloqueio de conta do Active Directory é, pelo menos, dois ou três vezes mais do que o limiar de bloqueio do Azure AD. 
+* A duração do bloqueio do Azure AD **em segundos** é **mais** que o Active Directory repor o contador de bloqueio de conta após a duração **minutos**.
 
 > [!IMPORTANT]
 > Atualmente um administrador não pode desbloquear as contas dos utilizadores na cloud, se foi bloqueadas pela capacidade de bloqueio inteligente. O administrador tem de aguardar a duração do bloqueio a expirar.
@@ -55,7 +55,7 @@ Utilize as instruções seguintes para verificar a sua política de bloqueio de 
 3. Navegue até **configuração do computador** > **políticas** > **definições do Windows** > **as definições de segurança**   >  **Políticas de conta** > **política de bloqueio de conta**.
 4. Verifique se sua **limiar de bloqueio de conta** e **reposição do contador de bloqueio de conta após** valores.
 
-![Modificar a política de bloqueio do conta no local do Active Directory usando um objeto de política de grupo](./media/howto-password-smart-lockout/active-directory-on-premises-account-lockout-policy.png)
+![Modificar a política de bloqueio de conta de Active Directory no local](./media/howto-password-smart-lockout/active-directory-on-premises-account-lockout-policy.png)
 
 ## <a name="manage-azure-ad-smart-lockout-values"></a>Gerir valores de bloqueio inteligente do Azure AD
 
@@ -78,9 +78,7 @@ Quando o limiar de bloqueio inteligente é disparado, obterá a seguinte mensage
 
 **Sua conta está temporariamente bloqueada para evitar utilizações não autorizadas. Tente novamente mais tarde e, se ainda tiver problemas, contacte o administrador.**
 
-
 ## <a name="next-steps"></a>Passos Seguintes
 
-[Descubra como proibir o uso de palavras-passe incorretas na sua organização utilizar o Azure AD.](howto-password-ban-bad.md)
-
-[Configure senhas de auto-atendimento repor para permitir aos utilizadores desbloquear as suas contas.](quickstart-sspr.md)
+* [Descubra como proibir o uso de palavras-passe incorretas na sua organização utilizar o Azure AD.](howto-password-ban-bad.md)
+* [Configure senhas de auto-atendimento repor para permitir aos utilizadores desbloquear as suas contas.](quickstart-sspr.md)

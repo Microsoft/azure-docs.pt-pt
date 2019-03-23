@@ -14,12 +14,12 @@ ms.devlang: python
 ms.topic: article
 ms.date: 09/20/2018
 ms.author: aschhab
-ms.openlocfilehash: 476c51d1835a1be0178faf28e6dd8a3c95371929
-ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.openlocfilehash: a12288de2f9a7682fb433dd0d5c7905cc76c12b9
+ms.sourcegitcommit: 87bd7bf35c469f84d6ca6599ac3f5ea5545159c9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/02/2019
-ms.locfileid: "57240971"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58351667"
 ---
 # <a name="how-to-use-service-bus-topics-and-subscriptions-with-python"></a>Como utilizar tópicos do Service Bus e as subscrições com Python
 
@@ -167,7 +167,7 @@ O Service Bus fornece funcionalidades para ajudar a recuperar corretamente de er
 
 Existe também um tempo limite associado à mensagem bloqueada na subscrição e se a aplicação conseguir processar a mensagem antes do bloqueio de tempo limite expira (por exemplo, se a falha da aplicação), em seguida, do Service Bus desbloqueia automaticamente a mensagem e torna-o disponível para ser recebida novamente.
 
-No caso de falha da aplicação após o processamento da mensagem, mas antes a `delete` método é chamado, em seguida, a mensagem será reenviada para o aplicativo quando ele for reiniciado. Este comportamento é frequentemente designado. Pelo menos uma vez processamento *; ou seja, cada mensagem é processada pelo menos uma vez, mas em determinadas situações a mesma mensagem poderá ser reenviada. Se o cenário não conseguir tolerar o processamento duplicado, os programadores da aplicação devem acrescentar uma lógica adicional à aplicação para processar a entrega da mensagem duplicada. Para tal, pode utilizar o **MessageId** propriedade da mensagem, que permanece constante nas tentativas de entrega.
+No caso de falha da aplicação após o processamento da mensagem, mas antes a `delete` método é chamado, em seguida, a mensagem será reenviada para o aplicativo quando ele for reiniciado. Este comportamento é frequentemente designado. Processamento, pelo menos, uma vez\*; ou seja, cada mensagem é processada pelo menos uma vez, mas em determinadas situações a mesma mensagem poderá ser reenviada. Se o cenário não conseguir tolerar o processamento duplicado, os programadores da aplicação devem acrescentar uma lógica adicional à aplicação para processar a entrega da mensagem duplicada. Para tal, pode utilizar o **MessageId** propriedade da mensagem, que permanece constante nas tentativas de entrega.
 
 ## <a name="delete-topics-and-subscriptions"></a>Eliminar tópicos e subscrições
 

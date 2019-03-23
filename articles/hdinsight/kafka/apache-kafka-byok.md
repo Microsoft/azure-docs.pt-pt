@@ -8,12 +8,12 @@ ms.author: mamccrea
 ms.reviewer: mamccrea
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.openlocfilehash: 26e4b921b4050efa5217e3b599b9dc942a003090
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 61a4be19000265910493963db9f29df143a7e21c
+ms.sourcegitcommit: 223604d8b6ef20a8c115ff877981ce22ada6155a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58173928"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58360355"
 ---
 # <a name="bring-your-own-key-for-apache-kafka-on-azure-hdinsight-preview"></a>Traga a sua própria chave para o Apache Kafka no HDInsight do Azure (pré-visualização)
 
@@ -26,6 +26,8 @@ A criptografia de BYOK é um processo de um passo processado durante a criação
 Todas as mensagens para o cluster de Kafka (incluindo réplicas mantidas pelo Kafka) são encriptadas com uma chave de encriptação do simétrica dados (DEK). O DEK é protegido com a chave de encriptação de chaves (KEK) do seu Cofre de chaves. Os processos de criptografia e descriptografia são manipulados completamente pelo Azure HDInsight. 
 
 Pode utilizar o portal do Azure ou a CLI do Azure para girar em segurança as chaves no Cofre de chaves. Quando uma chave roda, o cluster HDInsight Kafka é iniciado com a nova chave numa questão de minutos. Ative as funcionalidades de proteção de chaves "Fazer remover" e "Eliminar de forma recuperável" proteger contra ransomware cenários e eliminação acidental. Não são suportadas chaves sem esses recursos de proteção.
+
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 ## <a name="get-started-with-byok"></a>Começar com o BYOK
 
@@ -99,7 +101,7 @@ Pode utilizar o portal do Azure ou a CLI do Azure para girar em segurança as ch
 
 **Como recuperar o cluster se as chaves são eliminadas?**
 
-   Uma vez que são suportadas apenas chaves de "Eliminação de forma recuperável" ativada, se as chaves são restauradas no Cofre de chaves, o cluster deve recuperar o acesso às chaves. Para restaurar uma chave de Cofre de chaves do Azure, consulte [restauro-AzureKeyVaultKey](/powershell/module/azurerm.keyvault/restore-azurekeyvaultkey).
+   Uma vez que são suportadas apenas chaves de "Eliminação de forma recuperável" ativada, se as chaves são restauradas no Cofre de chaves, o cluster deve recuperar o acesso às chaves. Para restaurar uma chave de Cofre de chaves do Azure, consulte [restauro AzKeyVaultKey](/powershell/module/az.keyvault/restore-azkeyvaultkey).
 
 **Pode ter aplicações de produtor/consumidor trabalhar com um cluster BYOK e um cluster não BYOK simultaneamente?**
 

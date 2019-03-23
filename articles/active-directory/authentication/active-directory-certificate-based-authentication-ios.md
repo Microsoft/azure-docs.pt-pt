@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: annaba
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f7243249e7aabf588115ef74f838be8ca67a94c7
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: cda1b1c2a484f3aa627b8b9cf486528d13f27be8
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58309508"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58369433"
 ---
 # <a name="azure-active-directory-certificate-based-authentication-on-ios"></a>Autenticação do Azure Active Directory com base em certificado em dispositivos iOS
 
@@ -35,16 +35,16 @@ Esta funcionalidade está disponível em pré-visualização nos planos do Offic
 
 | Aplicações | Suporte |
 | --- | --- |
-| Azure Information Protection app |![Marcar][1] |
-| Portal da empresa do Intune |![Marcar][1] |
-| Microsoft Teams |![Marcar][1] |
-| OneNote |![Marcar][1] |
-| OneDrive |![Marcar][1] |
-| Outlook |![Marcar][1] |
-| Power BI |![Marcar][1] |
-| Skype para Empresas |![Marcar][1] |
-| Word / Excel / PowerPoint |![Marcar][1] |
-| Yammer |![Marcar][1] |
+| Azure Information Protection app |![Marca de verificação que significa suporte para esta aplicação][1] |
+| Portal da empresa do Intune |![Marca de verificação que significa suporte para esta aplicação][1] |
+| Microsoft Teams |![Marca de verificação que significa suporte para esta aplicação][1] |
+| OneNote |![Marca de verificação que significa suporte para esta aplicação][1] |
+| OneDrive |![Marca de verificação que significa suporte para esta aplicação][1] |
+| Outlook |![Marca de verificação que significa suporte para esta aplicação][1] |
+| Power BI |![Marca de verificação que significa suporte para esta aplicação][1] |
+| Skype para Empresas |![Marca de verificação que significa suporte para esta aplicação][1] |
+| Word / Excel / PowerPoint |![Marca de verificação que significa suporte para esta aplicação][1] |
+| Yammer |![Marca de verificação que significa suporte para esta aplicação][1] |
 
 ## <a name="requirements"></a>Requisitos
 

@@ -11,12 +11,12 @@ author: garyericson
 ms.author: garye
 ms.date: 12/04/2018
 ms.custom: seodec18
-ms.openlocfilehash: f8f3da82d5c8747398882fd589e3ff91aaaa9739
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: c9f8e13ad089fd40cde22bb76587b171a1c52c7b
+ms.sourcegitcommit: 223604d8b6ef20a8c115ff877981ce22ada6155a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57849215"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58361902"
 ---
 # <a name="what-is-azure-machine-learning-service"></a>O que é o serviço Azure Machine Learning?
 
@@ -87,7 +87,7 @@ Receberá créditos para gastar em serviços do Azure. Depois de serem utilizado
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-- Criar uma área de trabalho de serviço de Machine Learning para começar a utilizar [com o portal do Azure](quickstart-get-started.md) (não-instalação abordagem) ou [em Python](quickstart-create-workspace-with-python.md) (abordagem de instalação para SDK).
+- [Criar uma área de trabalho do serviço de Machine Learning](setup-create-workspace.md) para começar a utilizar.
 
 - Siga os tutoriais completo: 
   + [Preparar um modelo de classificação de imagem com o serviço Azure Machine Learning](tutorial-train-models-with-aml.md) 
@@ -99,4 +99,4 @@ Receberá créditos para gastar em serviços do Azure. Depois de serem utilizado
 
 - Leia o aprofundada [arquitetura de serviço do Azure Machine Learning e conceitos](concept-azure-machine-learning-architecture.md) artigo.
 
-- Para obter mais informações, consulte [outros produtos da Microsoft de aprendizagem](./overview-more-machine-learning.md).
+- Para obter mais informações, consulte [outros produtos da Microsoft de aprendizagem](/azure/architecture/data-guide/technology-choices/data-science-and-machine-learning).

@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: ''
-ms.date: 03/13/2019
+ms.date: 03/23/2019
 ms.author: jeffgilb
 ms.reviewer: anwestg
-ms.lastreviewed: 03/13/2019
-ms.openlocfilehash: db95be94028fcf16871a9dcfee5f0d87eb5d2cdc
-ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
+ms.lastreviewed: 03/23/2019
+ms.openlocfilehash: 1c105548f19994c4ca0ce161eedcfe11736864c7
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58285671"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58370028"
 ---
 # <a name="deploy-app-service-in-a-highly-available-configuration"></a>Implementar o serviço de aplicações numa configuração de elevada disponibilidade
 
@@ -54,8 +54,7 @@ Antes de utilizar este modelo, certifique-se de que o seguinte procedimento [ite
 ### <a name="deploy-the-app-service-infrastructure"></a>Implementar a infraestrutura do serviço de aplicações
 Utilize os passos nesta secção para criar uma implementação personalizada com o **appservice-partilha de ficheiros-sqlserver-ha** modelo de início rápido do Azure Stack.
 
-1. 
-   [!INCLUDE [azs-admin-portal](../../includes/azs-admin-portal.md)]
+1. [!INCLUDE [azs-admin-portal](../../includes/azs-admin-portal.md)]
 
 2. Selecione **\+** **criar um recurso** > **personalizado**e, em seguida, **implementação do modelo**.
 
@@ -94,8 +93,7 @@ Certifique-se de que Registre cada um desses valores de saída:
 
 Siga estes passos para detetar os valores de saída do modelo:
 
-1. 
-   [!INCLUDE [azs-admin-portal](../../includes/azs-admin-portal.md)]
+1. [!INCLUDE [azs-admin-portal](../../includes/azs-admin-portal.md)]
 
 2. No portal de administração, selecione **grupos de recursos** e, em seguida, o nome do grupo de recursos que criou para a implementação personalizada (**app-service-ha** neste exemplo). 
 
@@ -168,9 +166,20 @@ Para implementar o fornecedor de recursos do serviço de aplicações, siga este
 
     ![Informações de saída de partilha de ficheiros](media/app-service-deploy-ha/07.png)
 
-9. Uma vez que a máquina a ser utilizada para instalar o serviço de aplicações não estiver localizada na mesma VNet como o servidor de ficheiros que está a ser utilizado para alojar a partilha de ficheiros do serviço de aplicações, não será capaz de resolver o nome. Este comportamento está previsto.<br><br>Certifique-se de que as informações de inserido para as informações de contas e o caminho UNC de partilha de ficheiros estão corretas e prima **Sim** da caixa de diálogo de alerta para continuar a instalação do serviço de aplicações.
+9. Uma vez que a máquina a ser utilizada para instalar o serviço de aplicações não estiver localizada na mesma VNet como o servidor de ficheiros que está a ser utilizado para alojar a partilha de ficheiros do serviço de aplicações, não será capaz de resolver o nome. **Este comportamento está previsto**.<br><br>Certifique-se de que as informações de inserido para as informações de contas e o caminho UNC de partilha de ficheiros estão corretas e prima **Sim** da caixa de diálogo de alerta para continuar a instalação do serviço de aplicações.
 
     ![Caixa de diálogo de erro esperados](media/app-service-deploy-ha/08.png)
+
+    Se optar por implementar numa rede virtual existente e um endereço IP interno para se ligar ao seu servidor de ficheiros, tem de adicionar uma regra de segurança de saída, permitindo que o tráfego entre a sub-rede de trabalho e o servidor de ficheiros SMB. Vá para o WorkersNsg no portal de administração e adicionar uma regra de segurança de saída com as seguintes propriedades:
+    - Origem: Qualquer
+    - Intervalo de portas de origem: *
+    - Destino: Endereços IP
+    - Intervalo de endereços IP de destino: Intervalo de IPs para o servidor de ficheiros
+    - Intervalo de portas de destino: 445
+    - Protocolo: TCP
+    - Ação: Permitir
+    - Prioridade: 700
+    - Nome: Outbound_Allow_SMB445
 
 10. Forneça o ID da aplicação de identidade e o caminho e palavras-passe para os certificados de identidade e clique em **seguinte**:
     - Certificado Identity application (no formato **sso.appservice.local.azurestack.external.pfx**)
@@ -189,7 +198,7 @@ Para implementar o fornecedor de recursos do serviço de aplicações, siga este
 
     ![Informações de ligação do SQL Server](media/app-service-deploy-ha/10.png)
 
-12. Uma vez que a máquina a ser utilizada para instalar o serviço de aplicações não estiver localizada na mesma VNet como o SQL server que está a ser utilizado para alojar as bases de dados do serviço de aplicações, não será capaz de resolver o nome.  Este comportamento está previsto.<br><br>Certifique-se de que as informações de inserido para as informações de nome e as contas do SQL Server estão corretas e prima **Sim** para continuar a instalação do serviço de aplicações. Clique em **Seguinte**.
+12. Uma vez que a máquina a ser utilizada para instalar o serviço de aplicações não estiver localizada na mesma VNet como o SQL server que está a ser utilizado para alojar as bases de dados do serviço de aplicações, não será capaz de resolver o nome.  **Este comportamento está previsto**.<br><br>Certifique-se de que as informações de inserido para as informações de nome e as contas do SQL Server estão corretas e prima **Sim** para continuar a instalação do serviço de aplicações. Clique em **Seguinte**.
 
     ![Informações de ligação do SQL Server](media/app-service-deploy-ha/11.png)
 
@@ -231,3 +240,5 @@ Para implementar o fornecedor de recursos do serviço de aplicações, siga este
 [Aumentar horizontalmente o serviço de aplicações](azure-stack-app-service-add-worker-roles.md). Poderá ter de adicionar trabalhos de função do serviço de aplicações infra-estrutura adicionais para atender à demanda de aplicativo esperado no seu ambiente. Por predefinição, o serviço de aplicações no Azure Stack suporta escalões de worker gratuito e partilhado. Para adicionar outros escalões de worker, terá de adicionar mais funções de trabalho.
 
 [Configurar origens de implementação](azure-stack-app-service-configure-deployment-sources.md). Configuração adicional é necessária para suportar a implementação de demanda de vários fornecedores de controle de fonte como GitHub, BitBucket, OneDrive e DropBox.
+
+[Cópia de segurança de serviço de aplicações](app-service-back-up.md). Depois de implantar e configurar o serviço de aplicações, deve certificar-se de todos os componentes necessários para a recuperação de desastres são uma cópia de segurança para evitar a perda de dados e evitar períodos de indisponibilidade do serviço desnecessários durante as operações de recuperação.

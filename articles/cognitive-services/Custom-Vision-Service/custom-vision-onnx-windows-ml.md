@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: custom-vision
 ms.topic: tutorial
-ms.date: 10/16/2018
+ms.date: 03/21/2019
 ms.author: larryfr
-ms.openlocfilehash: 7f123187ea869931b0701fd9d68372deb0b272e1
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: af1b96b4ab47053a6737893832b484372ed37e99
+ms.sourcegitcommit: 87bd7bf35c469f84d6ca6599ac3f5ea5545159c9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55879076"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58351869"
 ---
 # <a name="tutorial-use-an-onnx-model-from-custom-vision-with-windows-ml-preview"></a>Tutorial: Utilizar um modelo ONNX de visão personalizada com o Windows ML (pré-visualização)
 
@@ -51,7 +51,7 @@ A aplicação de exemplo está disponível em [https://github.com/Azure-Samples/
 
 1. Utilize a tecla `F5` para iniciar a aplicação a partir do Visual Studio. Poderá ser-lhe pedido para ativar o modo de Programador. Para obter mais informações, veja o documento [Enable your device for development](https://docs.microsoft.com/windows/uwp/get-started/enable-your-device-for-development) (Ativar o seu dispositivo para programação).
 
-2. Quando a aplicação for iniciada, utilize o botão para selecionar uma imagem para pontuação.
+1. Quando a aplicação for iniciada, utilize o botão para selecionar uma imagem para pontuação.
 
 ## <a name="use-your-own-model"></a>Utilizar o seu próprio modelo
 
@@ -65,8 +65,8 @@ Para utilizar o seu próprio modelo, execute os seguintes passos:
 
 1. No Explorador de Soluções, clique com o botão direito do rato na pasta Assets (Recursos) e selecione __Adicionar Item Existente__. Selecione o ficheiro ONNX.
 
-1. No Explorador de Soluções, selecione o ficheiro ONNX na pasta Assets (Recursos). Altere as propriedades seguintes do ficheiro: 
-    
+1. No Explorador de Soluções, selecione o ficheiro ONNX na pasta Assets (Recursos). Altere as propriedades seguintes do ficheiro:
+
     * __Ação de Compilação__ -> __Conteúdo__
     * __Copiar para Diretório de Saída__ -> __Copiar se for mais recente__
 

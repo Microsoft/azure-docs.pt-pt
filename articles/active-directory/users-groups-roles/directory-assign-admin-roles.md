@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5202d2775e830264543719cafefb5c48fca822d6
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: 9793ad76859fdd14b3194dfeb77e68905ff58fe5
+ms.sourcegitcommit: 223604d8b6ef20a8c115ff877981ce22ada6155a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58316427"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58362072"
 ---
 # <a name="administrator-role-permissions-in-azure-active-directory"></a>Permissões de função de administrador no Azure Active Directory
 
@@ -231,11 +231,11 @@ As seguintes funções de administrador estão disponíveis:
 
 * **[As equipes especialistas de suporte de comunicações](#teams-communications-support-specialist)**: Os utilizadores nesta função podem resolver problemas de comunicação dentro do Microsoft Teams e o Skype para empresas através da chamada de utilizador ferramentas no Microsoft Teams & Skype para o Centro de administração de empresas de resolução de problemas. Os utilizadores nesta função apenas podem ver os detalhes de utilizador na chamada para o usuário específico que tem procurado. Esta função não tem acesso para ver, criar ou gerir pedidos de suporte.
 
-* **[Administrador de utilizadores](#user-account-administrator)**: Os utilizadores com esta função podem criar utilizadores e gerir todos os aspetos de utilizadores com algumas restrições (ver abaixo). Além disso, os utilizadores com esta função podem criar e gerir todos os grupos. Esta função também inclui a capacidade de criar e gerir vistas de utilizador, gerir pedidos de suporte e monitorizar o estado de funcionamento do serviço.
+* **[Administrador de utilizadores](#user-account-administrator)**: Os utilizadores com esta função situação pode criem utilizadores, gerir todos os aspetos de utilizadores com algumas restrições (ver abaixo) e podem atualizar as políticas de expiração de palavra-passe. Além disso, os utilizadores com esta função podem criar e gerir todos os grupos. Esta função também inclui a capacidade de criar e gerir vistas de utilizador, gerir pedidos de suporte e monitorizar o estado de funcionamento do serviço.
 
   | | |
   | --- | --- |
-  |Permissões gerais|<p>Criar utilizadores e grupos</p><p>Criar e gerir vistas de utilizador</p><p>Gerir pedidos de suporte do Office|
+  |Permissões gerais|<p>Criar utilizadores e grupos</p><p>Criar e gerir vistas de utilizador</p><p>Gerir pedidos de suporte do Office<p>Atualizar as políticas de expiração de palavra-passe|
   |<p>Em todos os utilizadores, incluindo todos os administradores</p>|<p>Gerir licenças</p><p>Gerir todas as propriedades de utilizador, exceto o nome Principal de utilizador</p>
   |Apenas em utilizadores que são não-administradores ou em qualquer um dos seguintes limitada funções de administrador:<ul><li>Leitores de Diretório<li>Utilizador Que Convida Convidados<li>Administrador de Suporte Técnico<li>Leitor do Centro de Mensagens<li>Leitor de Relatórios<li>Administrador de Utilizadores|<p>Eliminar e restauro</p><p>Desativar e ativar</p><p>Invalidar Tokens de atualização</p><p>Gerir todas as propriedades de utilizador, incluindo o nome Principal de utilizador</p><p>Repor palavra-passe</p><p>Atualizar as chaves de dispositivo (FIDO)</p>
   

@@ -7,15 +7,15 @@ manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.subservice: implement
-ms.date: 03/18/2019
+ms.date: 03/22/2019
 ms.author: rortloff
 ms.reviewer: igorstan
-ms.openlocfilehash: 859f0d168dcf1cc999f79ef22b5ba6669da79593
-ms.sourcegitcommit: f331186a967d21c302a128299f60402e89035a8d
+ms.openlocfilehash: e7ab09522184f5c2d1c5168b24b2948f58e5189e
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58189569"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58368974"
 ---
 # <a name="maximizing-rowgroup-quality-for-columnstore"></a>Maximizando a qualidade de rowgroup para columnstore
 
@@ -67,7 +67,7 @@ from cte;
 ```
 
 O trim_reason_desc informa se o rowgroup foi removido (trim_reason_desc = NO_TRIM implica não ocorreu nenhuma limitação e grupo de linhas é de qualidade ideal). Pelas seguintes razões corte indicam prematura corte do rowgroup:
-- BULKLOAD: Esta razão de compactação é utilizado quando o lote de entrada de linhas para a carga tinha menos de 1 milhão de linhas. O mecanismo irá criar grupos de linhas comprimido se existirem mais de 100 000 linhas que estão sendo inseridas (em vez de inserção para o arquivo de delta), mas define o motivo de compactação para BULKLOAD. Neste cenário, considere a aumentar sua janela de carga do batch a acumular mais linhas. Além disso, a reavaliar o esquema de partição para garantir que não seja muito granular como grupos de linhas não podem abranger os limites de partição.
+- BULKLOAD: Esta razão de compactação é utilizado quando o lote de entrada de linhas para a carga tinha menos de 1 milhão de linhas. O mecanismo irá criar grupos de linhas comprimido se existirem mais de 100 000 linhas que estão sendo inseridas (em vez de inserção para o arquivo de delta), mas define o motivo de compactação para BULKLOAD. Neste cenário, considere a aumentar a carga de batch para incluir mais linhas. Além disso, a reavaliar o esquema de partição para garantir que não seja muito granular como grupos de linhas não podem abranger os limites de partição.
 - MEMORY_LIMITATION: Para criar grupos de linhas com 1 milhão de linhas, uma determinada quantidade de memória de trabalho é necessário pelo motor. Quando a memória disponível da sessão de carregamento é menor do que a memória necessária do trabalho, os grupos de linhas prematuramente obterem cortados. As secções seguintes explicam como estimar a memória necessária e alocar mais memória.
 - DICTIONARY_SIZE: Esta razão corte indica que a remoção de rowgroup ocorreu devido a pelo menos uma coluna de cadeia de caracteres com cadeias de caracteres de e/ou elevada cardinalidade. O tamanho de dicionário é limitado a 16 MB na memória e quando este limite for atingido o grupo de linhas é comprimido. Caso se depare com essa situação, considere o isolamento da coluna problemática numa tabela separada.
 

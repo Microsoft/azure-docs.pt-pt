@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 03/15/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 85b920767cbdc5ba60c2046563c32e87f6ad7ef8
-ms.sourcegitcommit: aa3be9ed0b92a0ac5a29c83095a7b20dd0693463
+ms.openlocfilehash: 5267467b2874c1cc36c8a9f5f27cc1c348eba7ac
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58259402"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58369773"
 ---
 # <a name="update-management-solution-in-azure"></a>Solução de gestão de atualizações no Azure
 
@@ -172,7 +172,7 @@ Se o agente não consegue comunicar com registos do Azure Monitor e o agente est
 
 Agentes do Linux adicionados recentemente mostram um Estado de **Updated** depois de uma avaliação foi realizada. Este processo pode demorar até seis horas.
 
-Para confirmar que um grupo de gestão do Operations Manager está a comunicar com os registos do Azure Monitor, consulte [integração de validar o Operations Manager com os registos do Azure Monitor](../azure-monitor/platform/om-agents.md#validate-operations-manager-integration-with-log-analytics).
+Para confirmar que um grupo de gestão do Operations Manager está a comunicar com os registos do Azure Monitor, consulte [integração de validar o Operations Manager com os registos do Azure Monitor](../azure-monitor/platform/om-agents.md#validate-operations-manager-integration-with-azure-monitor).
 
 ## <a name="data-collection"></a>Recolha de dados
 

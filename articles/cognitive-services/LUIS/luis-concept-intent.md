@@ -1,7 +1,7 @@
 ---
-title: Intenções dos usuários
+title: Intenções
 titleSuffix: Language Understanding - Azure Cognitive Services
-description: Um objetivo representa uma tarefa ou ação o usuário quer executar. É um objetivo ou objetivo expressado na expressão de um utilizador.
+description: Um objetivo único representa uma tarefa ou ação o usuário quer executar. É um objetivo ou objetivo expressado na expressão de um utilizador. Defina um conjunto de objetivos que corresponde a ações que os usuários querem tirar em seu aplicativo.
 services: cognitive-services
 author: diberry
 manager: nitinme
@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 01/02/2019
 ms.author: diberry
-ms.openlocfilehash: ae1dd16e3296c11d6bce6ea623f590deaee8f65d
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: e635a11cb99d11befc40703d9f5d2abec8559632
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55871358"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58371116"
 ---
 # <a name="concepts-about-intents-in-your-luis-app"></a>Conceitos sobre intenções na sua aplicação LUIS
 
@@ -31,7 +31,7 @@ Objetivos de aplicações de deslocação   |   Expressões de exemplo   |
  CheckWeather | "O que é o clima, como em Boston?" <br/> "Mostre-me a previsão para este fim de semana" |
  Nenhuma         | "Get-me uma receita de cookie"<br>"Os Lakers ganhar?" |
 
-Todas as aplicações vêm com a intenção predefinida, "[None](#none-intent-is-fallback-for-app)" que é a intenção de contingência. 
+Todas as aplicações vêm com a intenção predefinida, "[None](#none-intent-is-fallback-for-app)", que é a intenção de contingência. 
 
 ## <a name="prebuilt-domains-provide-intents"></a>Domínios pré-concebidos fornecem objetivos
 Além de objetivos que definir, pode utilizar os objetivos criados previamente a partir de um dos domínios criados previamente. Para obter mais informações, consulte [utilizar domínios pré-concebidos nas aplicações de LUIS](luis-how-to-use-prebuilt-domains.md) para saber mais sobre como personalizar os objetivos de um domínio pré-criado para utilização na sua aplicação.
@@ -57,7 +57,11 @@ Da mesma forma bem-intencionado [expressões com](luis-concept-utterance.md) cor
 
 [Domínios pré-concebidos](luis-how-to-use-prebuilt-domains.md) ter intenções com expressões com.  
 
-## <a name="none-intent-is-fallback-for-app"></a>Nenhuma a intenção é contingência para a aplicação
+## <a name="none-intent"></a>Intenção None (Nenhuma)
+
+O **None** intenção é importante para todos os aplicativos e não deve ter zero expressões de com.
+
+### <a name="none-intent-is-fallback-for-app"></a>Nenhuma a intenção é contingência para a aplicação
 O **None** intenção é uma intenção catch-all ou de contingência. Ele é usado para ensinar LUIS expressões que não são importantes no domínio de aplicativo (área de assunto). O **None** intenção deve ter entre 10 e 20% das expressões total no aplicativo. Não deixe o None vazio. 
 
 ### <a name="none-intent-helps-conversation-direction"></a>Nenhum intenção ajuda a direção de conversação
@@ -76,6 +80,12 @@ O **None** intenção é um objetivo necessário e não pode ser eliminada ou re
 
 ## <a name="negative-intentions"></a>Intenções negativas 
 Se quiser determinar intenções tanto negativas como positivas, por exemplo, "eu **deseja** um carro" e "eu **não** desejam um carro", pode criar dois objetivos (uma positiva e uma negativa) e adicionar expressões apropriados para cada. Ou pode criar um objetivo único e marcar os dois diferentes positivos e negativos termos como uma entidade.  
+
+## <a name="intents-and-patterns"></a>Objetivos e padrões
+
+Se tiver de expressões de exemplo, o que podem ser definidas em parte ou totalmente como uma expressão regular, considere utilizar o [entidade de expressão regular](luis-concept-entity-types.md#regular-expression-entity) emparelhado com um [padrão](luis-concept-patterns.md). 
+
+Utilizar uma entidade de expressão regular garante a extração de dados para que o padrão é correspondido. Correspondência de padrões garante que uma intenção exata é devolvida. 
 
 ## <a name="intent-balance"></a>Saldo de intenção
 Os objetivos de domínio de aplicação devem ter um equilíbrio entre expressões com entre cada intenção. Não tiver um objetivo com expressões 10 com e o outro objetivo com expressões 500 com. Isso não fosse equilibrado. Se tiver esta situação, reveja a intenção com expressões 500 com para ver se muitos dos objetivos podem reorganizar num [padrão](luis-concept-patterns.md). 
@@ -96,6 +106,8 @@ Saiba mais sobre combinar o LUIS e QnA maker de aplicações com o [modelo de ex
 
 ### <a name="request-help-for-apps-with-significant-number-of-intents"></a>Pedir ajuda para aplicações com o número significativo de intenções
 Se reduzir o número de objetivos ou divisão de suas intenções em várias aplicações não estiver a funcionar, contacte o suporte. Se a sua subscrição do Azure inclui os serviços de suporte, contacte [suporte técnico do Azure](https://azure.microsoft.com/support/options/). 
+
+
 
 ## <a name="next-steps"></a>Passos Seguintes
 

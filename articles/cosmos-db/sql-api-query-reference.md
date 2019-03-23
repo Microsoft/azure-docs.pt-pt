@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: mjbrown
 ms.custom: seodec18
-ms.openlocfilehash: e49b521f625dee8c48c448065096ed027cf6c9b2
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 6664c3d5fde487b7add7c38dc602915d19adb767
+ms.sourcegitcommit: 223604d8b6ef20a8c115ff877981ce22ada6155a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58090037"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58361987"
 ---
 # <a name="sql-language-reference-for-azure-cosmos-db"></a>Referência de linguagem SQL para o Azure Cosmos DB 
 
@@ -1561,7 +1561,7 @@ SELECT
  Aqui está o conjunto de resultados.  
   
 ```  
-[{$1: false, $2: false, $3: false, $4: false, $5: false, $6: true}]  
+[{"$1":false,"$2":false,"$3":false,"$4":false,"$5":false,"$6":true,"$7":false}]
 ```  
   
 ####  <a name="bk_is_bool"></a> IS_BOOL  
@@ -1601,7 +1601,7 @@ SELECT
  Aqui está o conjunto de resultados.  
   
 ```  
-[{$1: true, $2: false, $3: false, $4: false, $5: false, $6: false}]  
+[{"$1":true,"$2":false,"$3":false,"$4":false,"$5":false,"$6":false,"$7":false}]
 ```  
   
 ####  <a name="bk_is_defined"></a> IS_DEFINED  
@@ -1634,10 +1634,7 @@ SELECT IS_DEFINED({ "a" : 5 }.a), IS_DEFINED({ "a" : 5 }.b)
  Aqui está o conjunto de resultados.  
   
 ```  
-[{  
-       "$1": true,    
-       "$2": false   
-   }]  
+[{"$1":true,"$2":false}]  
 ```  
   
 ####  <a name="bk_is_null"></a> IS_NULL  
@@ -1677,7 +1674,7 @@ SELECT
  Aqui está o conjunto de resultados.  
   
 ```  
-[{$1: false, $2: false, $3: false, $4: true, $5: false, $6: false}]  
+[{"$1":false,"$2":false,"$3":false,"$4":true,"$5":false,"$6":false,"$7":false}]
 ```  
   
 ####  <a name="bk_is_number"></a> IS_NUMBER  
@@ -1717,7 +1714,7 @@ SELECT
  Aqui está o conjunto de resultados.  
   
 ```  
-[{$1: false, $2: true, $3: false, $4: false, $5: false, $6: false}]  
+[{"$1":false,"$2":true,"$3":false,"$4":false,"$5":false,"$6":false,"$7":false}]  
 ```  
   
 ####  <a name="bk_is_object"></a> IS_OBJECT  
@@ -1757,7 +1754,7 @@ SELECT
  Aqui está o conjunto de resultados.  
   
 ```  
-[{$1: false, $2: false, $3: false, $4: false, $5: true, $6: false}]  
+[{"$1":false,"$2":false,"$3":false,"$4":false,"$5":true,"$6":false,"$7":false}]
 ```  
   
 ####  <a name="bk_is_primitive"></a> IS_PRIMITIVE  
@@ -1837,7 +1834,7 @@ SELECT
  Aqui está o conjunto de resultados.  
   
 ```  
-[{$1: false, $2: false, $3: true, $4: false, $5: false, $6: false}]  
+[{"$1":false,"$2":false,"$3":true,"$4":false,"$5":false,"$6":false,"$7":false}] 
 ```  
   
 ###  <a name="bk_string_functions"></a> Funções de cadeia  

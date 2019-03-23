@@ -1,25 +1,25 @@
 ---
-title: Autenticar o acesso a blobs e filas com identidades do Azure Active Directory gerida para recursos do Azure (pré-visualização) - armazenamento do Azure | Documentos da Microsoft
+title: Autenticar o acesso a blobs e filas com identidades do Azure Active Directory gerida para recursos do Azure - armazenamento do Azure | Documentos da Microsoft
 description: Armazenamento de BLOBs e filas do Azure suporta a autenticação do Azure Active Directory com identidades geridas para recursos do Azure. Pode utilizar identidades geridas para recursos do Azure para autenticar o acesso a blobs e filas de aplicações em execução em máquinas virtuais do Azure, aplicações de funções, os conjuntos de dimensionamento de máquinas virtuais e outros. Ao utilizar identidades geridas para recursos do Azure e tirar partido do poder de autenticação do Azure AD, pode evitar armazenar credenciais com as aplicações que são executados na cloud.
 services: storage
 author: tamram
 ms.service: storage
 ms.topic: article
-ms.date: 10/15/2018
+ms.date: 03/21/2019
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: 15c37be3f3b1b3f72c32865e095091fa10ee9750
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 4372045590938df701dd00e58a111215f6e8e56d
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55251695"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58369660"
 ---
-# <a name="authenticate-access-to-blobs-and-queues-with-managed-identities-for-azure-resources-preview"></a>Autenticar o acesso a blobs e filas com identidades geridas para recursos do Azure (pré-visualização)
+# <a name="authenticate-access-to-blobs-and-queues-with-managed-identities-for-azure-resources"></a>Autenticar o acesso a blobs e filas com identidades geridas para recursos do Azure
 
 Armazenamento de BLOBs e filas do Azure suporta a autenticação do Azure Active Directory (Azure AD) com [geridos identidades para recursos do Azure](../../active-directory/managed-identities-azure-resources/overview.md). Gerido identidades para recursos do Azure podem autenticar o acesso a blobs e filas com credenciais do Azure AD a partir de aplicações em execução em máquinas virtuais do Azure (VMs), aplicações de funções, os conjuntos de dimensionamento de máquinas virtuais e outros. Ao utilizar identidades geridas para recursos do Azure e tirar partido do poder de autenticação do Azure AD, pode evitar armazenar credenciais com as aplicações que são executados na cloud.  
 
-Para conceder permissões para uma identidade gerida a um contentor de BLOBs ou filas, que atribuir uma função de controlo (RBAC) de acesso baseado em funções para a identidade gerida que abrange as permissões para esse recurso com o âmbito adequado. Para obter mais informações sobre as funções do RBAC no armazenamento, consulte [gerir direitos de acesso aos dados de armazenamento com o RBAC (pré-visualização)](storage-auth-aad-rbac.md). 
+Para conceder permissões para uma identidade gerida a um contentor de BLOBs ou filas, que atribuir uma função de controlo (RBAC) de acesso baseado em funções para a identidade gerida que abrange as permissões para esse recurso com o âmbito adequado. Para obter mais informações sobre as funções do RBAC no armazenamento, consulte [gerir direitos de acesso aos dados de armazenamento com o RBAC](storage-auth-aad-rbac.md). 
 
 Este artigo mostra como autenticar para o armazenamento de Blobs do Azure ou a fila com uma identidade gerida a partir de uma VM do Azure.  
 
@@ -37,7 +37,7 @@ Antes de poder utilizar identidades geridas para recursos do Azure para autentic
 
 ## <a name="assign-an-rbac-role-to-an-azure-ad-managed-identity"></a>Atribuir uma função RBAC para uma identidade do Azure AD gerido
 
-Para autenticar uma identidade gerida a partir da sua aplicação de armazenamento do Azure, primeiro de configurar as definições de controlo (RBAC) de acesso baseado em funções para essa identidade gerida. O armazenamento do Azure define as funções RBAC que abranger permissões para contentores e filas. Quando a função RBAC é atribuída a uma identidade gerida, o que a identidade gerida é concedida acesso a esse recurso. Para obter mais informações, consulte [gerir direitos de acesso aos dados de Blobs do Azure e a fila com o RBAC (pré-visualização)](storage-auth-aad-rbac.md).
+Para autenticar uma identidade gerida a partir da sua aplicação de armazenamento do Azure, primeiro de configurar as definições de controlo (RBAC) de acesso baseado em funções para essa identidade gerida. O armazenamento do Azure define as funções RBAC que abranger permissões para contentores e filas. Quando a função RBAC é atribuída a uma identidade gerida, o que a identidade gerida é concedida acesso a esse recurso. Para obter mais informações, consulte [gerir direitos de acesso aos dados de Blobs do Azure e a fila com o RBAC](storage-auth-aad-rbac.md).
 
 ## <a name="get-a-managed-identity-access-token"></a>Obter token de acesso uma identidade gerida
 
@@ -49,7 +49,7 @@ O exemplo de código parte do princípio de que tem um token de acesso de identi
 
 ### <a name="add-references-and-using-statements"></a>Adicionar referências e instruções "using"  
 
-No Visual Studio, instale a versão de pré-visualização da biblioteca de clientes de armazenamento do Azure. Do **ferramentas** menu, selecione **Gestor de pacotes Nuget**, em seguida, **Package Manager Console**. Escreva o seguinte comando na consola:
+No Visual Studio, instale a biblioteca de cliente de armazenamento do Azure. Do **ferramentas** menu, selecione **Gestor de pacotes Nuget**, em seguida, **Package Manager Console**. Escreva o seguinte comando na consola:
 
 ```
 Install-Package https://www.nuget.org/packages/WindowsAzure.Storage  
@@ -63,7 +63,7 @@ using Microsoft.WindowsAzure.Storage.Auth;
 
 ### <a name="create-credentials-from-the-managed-identity-access-token"></a>Criar credenciais a partir do token de acesso de identidade gerida
 
-Para criar o blob de blocos, utilize o **TokenCredentials** classe fornecida pelo pacote de pré-visualização. Construir uma nova instância do **TokenCredentials**, passando o token de acesso de identidade gerida que obteve anteriormente:
+Para criar o blob de blocos, utilize o **TokenCredentials** classe. Construir uma nova instância do **TokenCredentials**, passando o token de acesso de identidade gerida que obteve anteriormente:
 
 ```dotnet
 // Create storage credentials from your managed identity access token.
@@ -79,7 +79,6 @@ CloudBlockBlob blob = new CloudBlockBlob(new Uri("https://storagesamples.blob.co
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-- Para saber mais sobre as funções do RBAC para o armazenamento do Azure, veja [gerir direitos de acesso aos dados de armazenamento com o RBAC (pré-visualização)](storage-auth-aad-rbac.md).
+- Para saber mais sobre as funções do RBAC para o armazenamento do Azure, veja [gerir direitos de acesso aos dados de armazenamento com o RBAC](storage-auth-aad-rbac.md).
 - Para saber como autorizar o acesso a contentores e filas de dentro dos seus aplicativos de armazenamento, veja [utilize o Azure AD com aplicações de armazenamento](storage-auth-aad-app.md).
-- Para saber como iniciar sessão no CLI do Azure e o PowerShell com uma identidade do Azure AD, veja [utilizar uma identidade do Azure AD para aceder ao armazenamento do Azure com a CLI ou o PowerShell (pré-visualização)](storage-auth-aad-script.md).
-- Para obter mais informações sobre a integração do Azure AD para os Blobs do Azure e filas de mensagens em fila, consulte a postagem no armazenamento do Azure team blog [a autenticação de pré-visualização do Azure AD para o armazenamento do Azure a anunciar](https://azure.microsoft.com/blog/announcing-the-preview-of-aad-authentication-for-storage/).
+- Para saber como iniciar sessão CLI do Azure e o PowerShell com uma identidade do Azure AD, veja [utilizar uma identidade do Azure AD para aceder ao armazenamento do Azure com a CLI ou o PowerShell](storage-auth-aad-script.md).

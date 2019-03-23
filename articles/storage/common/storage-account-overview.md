@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 03/06/2019
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: ce9635c108a948b4773c7d27cb254f01d06896f8
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: ca71fdc8074e56adc8595ee905d5b1db3b60cef1
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57544244"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58371815"
 ---
 # <a name="azure-storage-account-overview"></a>Descrição geral da conta de armazenamento do Azure
 
@@ -84,20 +84,14 @@ Armazenamento do Azure oferece opções diferentes para aceder aos dados de blob
 
 Os escalões de acesso disponíveis são:
 
-> [!NOTE]
-> O [o escalão de acesso de premium (pré-visualização)](../blobs/storage-blob-storage-tiers.md#premium-access-tier), que é otimizado para aplicações confidenciais de desempenho, fornece uma latência baixa e consistente com taxas de transação e débito elevadas. A camada de acesso de premium está disponível apenas com contas de armazenamento de Blob de blocos (pré-visualização). Para obter mais informações, consulte [pré-visualização pública do armazenamento de Blobs do Azure Premium](https://azure.microsoft.com/blog/azure-premium-blob-storage-public-preview/).
-
 * O **frequente** camada de acesso, o que está otimizada para acesso frequente de objetos na conta de armazenamento. Aceder aos dados na camada frequente é mais econômica, enquanto os custos de armazenamento são um pouco mais. Novas contas de armazenamento são criadas de acesso frequente escalão por predefinição.
 * O **esporádico** camada de acesso, o que está otimizada para armazenar grandes quantidades de dados que são acedidos com pouca frequência e armazenados durante, pelo menos, 30 dias. Armazenamento de dados na camada de acesso esporádica é mais rentável, mas o acesso aos dados pode ser um pouco mais dispendioso do que a aceder aos dados na camada frequente.
 * O **arquivo** escalão, o que está disponível apenas para blobs de blocos individuais. A camada de arquivo é otimizada para dados que podem tolerar várias horas de latência de obtenção e irão permanecer na camada de arquivo por, pelo menos, 180 dias. A camada de arquivo é a opção mais económica para armazenar dados, mas o acesso aos dados é mais caro que acedem aos dados na escalões de acesso esporádicas ou frequente. 
 
-
-Se houver uma alteração no padrão de utilização dos seus dados, pode alternar entre estas camadas de acesso em qualquer altura. Para obter mais informações sobre as camadas de acesso, consulte [armazenamento de Blobs do Azure: Premium (pré-visualização), frequente, esporádico e de camadas de armazenamento de arquivo](../blobs/storage-blob-storage-tiers.md).
+Se houver uma alteração no padrão de utilização dos seus dados, pode alternar entre estas camadas de acesso em qualquer altura. Para obter mais informações sobre as camadas de acesso, consulte [armazenamento de Blobs do Azure: frequente, esporádico e de arquivo acesso](../blobs/storage-blob-storage-tiers.md).
 
 > [!IMPORTANT]
 > A alteração da camada de acesso para uma conta de armazenamento existente ou um blob poderá resultar em encargos adicionais. Para obter mais informações, consulte a [conta de armazenamento de faturação secção](#storage-account-billing).
-
-
 
 ## <a name="replication"></a>Replicação
 
@@ -135,7 +129,7 @@ Todos os pedidos efetuados em relação a sua conta de armazenamento tem de ser 
 
 Pode conceder acesso aos dados na sua conta de armazenamento através de qualquer uma das seguintes abordagens:
 
-- **Azure Active Directory:** Utilize as credenciais do Azure Active Directory (Azure AD) para autenticar um utilizador, grupo ou outra identidade para o acesso a dados de BLOBs e filas (pré-visualização). Se a autenticação de uma identidade é efetuada com êxito, o AD do Azure devolve um token para utilizar em autorizar a solicitação para o armazenamento de Blobs do Azure ou o armazenamento de filas. Para obter mais informações, consulte [autenticar o acesso ao armazenamento do Azure com o Azure Active Directory (pré-visualização)](storage-auth-aad.md).
+- **Azure Active Directory:** Utilize as credenciais do Azure Active Directory (Azure AD) para autenticar um utilizador, grupo ou outra identidade de acesso a dados de BLOBs e filas. Se a autenticação de uma identidade é efetuada com êxito, o AD do Azure devolve um token para utilizar em autorizar a solicitação para o armazenamento de Blobs do Azure ou o armazenamento de filas. Para obter mais informações, consulte [autenticar o acesso ao armazenamento do Azure com o Azure Active Directory](storage-auth-aad.md).
 - **Autorização de chave partilhada:** Utilize a chave de acesso da conta de armazenamento para construir uma cadeia de ligação que a aplicação utiliza no tempo de execução para aceder ao armazenamento do Azure. Os valores na cadeia de ligação são utilizados para construir a *autorização* cabeçalho que é passado para o armazenamento do Azure. Para obter mais informações, consulte [cadeias de ligação de configurar o armazenamento do Azure](storage-configure-connection-string.md).
 - **Assinatura de acesso partilhado:** Utilize assinaturas de acesso partilhado para delegar acesso a recursos na sua conta de armazenamento, se não estiver a utilizar autenticação do Azure AD. Uma assinatura de acesso partilhado é um token que encapsula todas as informações necessárias para autorizar um pedido ao armazenamento do Azure no URL. Pode especificar o recurso de armazenamento, as permissões concedidas e o intervalo durante o qual as permissões são válidas como parte da assinatura de acesso partilhado. Para obter mais informações, consulte [Using partilhado assinaturas de acesso (SAS)](storage-dotnet-shared-access-signature-part-1.md).
 

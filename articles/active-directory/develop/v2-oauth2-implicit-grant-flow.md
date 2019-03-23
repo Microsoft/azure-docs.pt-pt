@@ -18,12 +18,12 @@ ms.author: celested
 ms.reviewer: hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cd0ce02a92c0a2e803866b6f070dba113c566f5d
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: d9ce388c53a28d6b04bf7685da397eade4b1fd94
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58112216"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58371779"
 ---
 # <a name="v20-protocols---spas-using-the-implicit-flow"></a>v2.0 protocolos - SPAs com o fluxo implícito
 
@@ -55,7 +55,7 @@ O diagrama seguinte mostra a aparência de todo início de sessão fluxo implíc
 Inicialmente iniciar a sessão do utilizador na sua aplicação, pode enviar um [OpenID Connect](v2-protocols-oidc.md) pedido de autorização e obtenha um `id_token` do ponto final v2.0.
 
 > [!IMPORTANT]
-> Para pedidos com êxito um token de ID, o registo de aplicações no [portal de registo](https://apps.dev.microsoft.com) tem de ter o **permitir fluxo implícito** ativado para o cliente Web. Se não estiver ativada, um `unsupported_response` vai ser devolvido o erro: **O valor fornecido para o parâmetro de entrada "response_type" não é permitido para este cliente. Valor esperado é 'code'**
+> Para pedir com êxito um token de ID, o registo de aplicações no [portal do Azure – registos de aplicações](https://go.microsoft.com/fwlink/?linkid=2083908) página tem de ter o fluxo de concessão implícita ativado corretamente, ao selecionar **tokens de acesso** e **Tokens de ID** sob o **concessão implícita** secção. Se não estiver ativada, um `unsupported_response` vai ser devolvido o erro: **O valor fornecido para o parâmetro de entrada "response_type" não é permitido para este cliente. Valor esperado é 'code'**
 
 ```
 // Line breaks for legibility only
@@ -77,7 +77,7 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 | Parâmetro |  | Descrição |
 | --- | --- | --- |
 | `tenant` | obrigatório |O `{tenant}` valor no caminho do pedido pode ser utilizado para controlar quem pode iniciar sessão na aplicação. Os valores permitidos são `common`, `organizations`, `consumers`e identificadores de inquilinos. Para obter mais detalhes, consulte [Noções básicas de protocolo](active-directory-v2-protocols.md#endpoints). |
-| `client_id` | obrigatório |O Id da aplicação que o portal de registo ([apps.dev.microsoft.com](https://apps.dev.microsoft.com/?referrer=https://azure.microsoft.com/documentation/articles&deeplink=/appList)) atribuído a sua aplicação. |
+| `client_id` | obrigatório |ID de aplicação (cliente) que o [portal do Azure – registos de aplicações](https://go.microsoft.com/fwlink/?linkid=2083908) atribuída à sua aplicação de página. |
 | `response_type` | obrigatório |Tem de incluir `id_token` OpenID Connect para início de sessão. Também pode incluir o response_type `token`. Usando `token` aqui irá permitir que a sua aplicação receber um token de acesso imediatamente a partir do ponto final de autorização sem ter de efetuar um pedido de segundo para o ponto final de autorização. Se utilizar o `token` response_type, o `scope` parâmetro tem de conter um âmbito que indica qual para emitir o token para o recurso. |
 | `redirect_uri` | Recomendado |O redirect_uri da sua aplicação, onde as respostas podem ser enviadas e recebidas pela sua aplicação. Ele deve corresponder exatamente um dos redirect_uris registado no portal, exceto pelo fato tem de ser codificados de url. |
 | `scope` | obrigatório |Uma lista separada por espaço de [âmbitos](v2-permissions-and-consent.md). Para o OpenID Connect, tem de incluir o âmbito `openid`, que traduz-se a permissão "Iniciar sessão" no consentimento da interface do Usuário. Opcionalmente, também poderá incluir a `email` ou `profile` âmbitos para terem acesso aos dados de utilizador adicionais. Também pode incluir outros âmbitos neste pedido para pedir consentimento a vários recursos. |

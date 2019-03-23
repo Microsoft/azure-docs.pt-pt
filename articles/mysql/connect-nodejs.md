@@ -1,21 +1,21 @@
 ---
 title: Ligar à Base de Dados do Azure para MySQL a partir de Node.js
 description: Este guia de início rápido disponibiliza vários exemplos de código Node.js que pode utilizar para se ligar e consultar dados da Base de Dados do Azure para MySQL.
-author: jasonwhowell
-ms.author: jasonh
+author: ajlam
+ms.author: andrela
 ms.service: mysql
 ms.custom: mvc
 ms.devlang: nodejs
 ms.topic: quickstart
 ms.date: 11/21/2018
-ms.openlocfilehash: f5738c3eba3461c6f75884033eb60c54faec8473
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.openlocfilehash: 9806855aff54e72da6ac8336338c63f82ffda736
+ms.sourcegitcommit: 87bd7bf35c469f84d6ca6599ac3f5ea5545159c9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53535510"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58351512"
 ---
-# <a name="azure-database-for-mysql-use-nodejs-to-connect-and-query-data"></a>Base de dados do Azure para MySQL: Utilizar o node. js para ligar e consultar dados
+# <a name="azure-database-for-mysql-use-nodejs-to-connect-and-query-data"></a>Base de Dados do Azure para MySQL: Utilizar o node. js para ligar e consultar dados
 Este guia de início rápido explica como se pode ligar a uma Base de Dados do Azure para MySQL através do [Node.js](https://nodejs.org/) a partir de plataformas Windows, Ubuntu Linux e Mac. Explica como utilizar as instruções SQL para consultar, inserir, atualizar e eliminar dados da base de dados. Este tópico pressupõe que está familiarizado com a programação com Node.js e que nunca trabalhou com a Base de Dados do Azure para MySQL.
 
 ## <a name="prerequisites"></a>Pré-requisitos

@@ -13,18 +13,18 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 03/12/2019
 ms.author: magoedte
-ms.openlocfilehash: d433a480165424e47d4d84e67e7fd02648ebe2d1
-ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
+ms.openlocfilehash: f9df65d143fbb0eaf6276a0f38971e19c0741786
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58223432"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58370963"
 ---
-# <a name="connect-windows-computers-to-the-log-analytics-service-in-azure"></a>Ligar computadores Windows ao serviço Log Analytics no Azure
+# <a name="connect-windows-computers-to-azure-monitor"></a>Ligar computadores Windows para o Azure Monitor
 
-Para monitorizar e gerir máquinas virtuais ou computadores físicos no seu datacenter local ou outro ambiente de cloud com o Log Analytics, terá de implementar o agente do Log Analytics (também referido como o Microsoft Monitoring Agent (MMA)) e configurá-lo para reportar a um ou mais áreas de trabalho do Log Analytics. O agente também suporta a função de trabalho de Runbook híbrida de automatização do Azure.  
+Para monitorizar e gerir máquinas virtuais ou computadores físicos no seu datacenter local ou outro ambiente de cloud com o Azure Monitor, precisa implementar o agente do Log Analytics (também referido como o Microsoft Monitoring Agent (MMA)) e configurá-lo para reportar a um ou mais áreas de trabalho do Log Analytics. O agente também suporta a função de trabalho de Runbook híbrida de automatização do Azure.  
 
-Num computador Windows monitorizado, o agente é listado como o serviço Microsoft Monitoring Agent. O serviço Microsoft Monitoring Agent recolhe os eventos de ficheiros de registo e registo de eventos do Windows, dados de desempenho e outra telemetria. Mesmo quando o agente não consegue comunicar com o serviço do Log Analytics que reporta a, o agente continua a ser executado e coloca em fila os dados recolhidos no disco do computador monitorizado. Quando a ligação é restaurada, o serviço Microsoft Monitoring Agent envia os dados recolhidos para o serviço.
+Num computador Windows monitorizado, o agente é listado como o serviço Microsoft Monitoring Agent. O serviço Microsoft Monitoring Agent recolhe os eventos de ficheiros de registo e registo de eventos do Windows, dados de desempenho e outra telemetria. Mesmo quando o agente não consegue comunicar com o Azure Monitor reporta a, o agente continua a ser executado e coloca em fila os dados recolhidos no disco do computador monitorizado. Quando a ligação é restaurada, o serviço Microsoft Monitoring Agent envia os dados recolhidos para o serviço.
 
 O agente pode ser instalado utilizando um dos seguintes métodos. A maioria das instalações usar uma combinação dos seguintes métodos para instalar diferentes conjuntos de computadores, conforme apropriado.  São fornecidos detalhes sobre como utilizar cada método posteriormente neste artigo.
 
@@ -40,7 +40,7 @@ O agente pode ser instalado utilizando um dos seguintes métodos. A maioria das 
 Para compreender a configuração suportada, consulte [sistemas operativos Windows suportados](log-analytics-agent.md#supported-windows-operating-systems) e [configuração de firewall de rede](log-analytics-agent.md#network-firewall-requirements).
 
 ## <a name="obtain-workspace-id-and-key"></a>Obter o ID e a chave da área de trabalho
-Antes de instalar o agente do Log Analytics para Windows, terá do ID de área de trabalho e a chave para a área de trabalho do Log Analytics.  Estas informações são necessárias durante a configuração de cada método de instalação para configurar corretamente o agente e certifique-se de que pode comunicar com êxito com o Log Analytics no Azure comercial e na cloud do Governo dos EUA.  
+Antes de instalar o agente do Log Analytics para Windows, terá do ID de área de trabalho e a chave para a área de trabalho do Log Analytics.  Estas informações são necessárias durante a configuração de cada método de instalação para configurar corretamente o agente e certifique-se de que pode comunicar com êxito com o Azure Monitor no Azure comercial e na cloud do Governo dos EUA.  
 
 1. No portal do Azure, clique em **All services** (Todos os serviços). Na lista de recursos, escreva **Log Analytics**. À medida que começa a escrever, a lista filtra com base na sua entrada. Selecione **Log Analytics**.
 2. Na sua lista de áreas de trabalho do Log Analytics, selecione a área de trabalho que tenciona sobre como configurar o agente para reportar a.
@@ -68,7 +68,7 @@ Configurar o .NET Framework 4.6 ou posterior para dar suporte seguro criptografi
 5. Reinicie o sistema para as definições entrem em vigor. 
 
 ## <a name="install-the-agent-using-setup-wizard"></a>Instalar o agente utilizando o Assistente de configuração
-Os seguintes passos instale e configure o agente do Log Analytics na cloud do Azure e o Azure Government, utilizando o Assistente de configuração para o agente no seu computador. Se quiser saber como configurar o agente para também reportar a um grupo de gestão do System Center Operations Manager, consulte [implementar o agente do Operations Manager com o Assistente de configuração do agente](https://docs.microsoft.com/system-center/scom/manage-deploy-windows-agent-manually#to-deploy-the-operations-manager-agent-with-the-agent-setup-wizard).
+Os seguintes passos instale e configure o agente Log Analytics na cloud do Azure e o Azure Government, utilizando o Assistente de configuração para o agente no seu computador. Se quiser saber como configurar o agente para também reportar a um grupo de gestão do System Center Operations Manager, consulte [implementar o agente do Operations Manager com o Assistente de configuração do agente](https://docs.microsoft.com/system-center/scom/manage-deploy-windows-agent-manually#to-deploy-the-operations-manager-agent-with-the-agent-setup-wizard).
 
 1. Na área de trabalho do Log Analytics, do **servidores do Windows** página navegada anteriormente, selecionar o **transferir o agente do Windows** versão para transferir consoante a arquitetura de processador do o sistema operativo do Windows.   
 2. Execute a Configuração para instalar o agente no seu computador.
@@ -184,15 +184,14 @@ Após a conclusão da instalação do agente, verificar é ligado com êxito e d
 
 No computador no **painel de controlo**, localize o item **Microsoft Monitoring Agent**.  Selecione-o e, no **do Azure Log Analytics** guia, o agente deve exibir uma mensagem a indicar: **O Microsoft Monitoring Agent foi ligado com êxito para o serviço do Microsoft Operations Management Suite.**<br><br> ![Estado da ligação do MMA ao Log Analytics](media/agent-windows/log-analytics-mma-laworkspace-status.png)
 
-Também pode executar uma pesquisa de registos simples no portal do Azure.  
+Também pode executar uma consulta de registo simples no portal do Azure.  
 
-1. No portal do Azure, clique em **All services** (Todos os serviços). Na lista de recursos, escreva **Log Analytics**. À medida que começa a escrever, a lista filtra com base na sua entrada. Selecione **Log Analytics**.  
-2. Na página de área de trabalho do Log Analytics, selecione a área de trabalho de destino e, em seguida, selecione o **pesquisa de registos** mosaico. 
-2. No painel de pesquisa de registos, no tipo de campo de consulta:  
+1. No portal do Azure, clique em **All services** (Todos os serviços). Na lista de recursos, escreva **do Azure Monitor**. À medida que começa a escrever, a lista filtra com base na sua entrada. Selecione **o Azure Monitor**.  
+2. Selecione **registos** no menu. 
+2. No painel de registos, no tipo de campo de consulta:  
 
     ```
-    search * 
-    | where Type == "Heartbeat" 
+    Heartbeat 
     | where Category == "Direct Agent" 
     | where TimeGenerated > ago(30m)  
     ```

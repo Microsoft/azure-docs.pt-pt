@@ -11,12 +11,12 @@ author: mx-iao
 ms.reviewer: sgilley
 ms.date: 02/25/2019
 ms.custom: seodec18
-ms.openlocfilehash: e6e1b304b90b37c93bed22bcb720a646680ee083
-ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
+ms.openlocfilehash: c171e35c6542febffc666ad5abfab50e093bb698
+ms.sourcegitcommit: 223604d8b6ef20a8c115ff877981ce22ada6155a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58223619"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58359284"
 ---
 # <a name="access-data-from-your-datastores"></a>Aceder a dados a partir de seus arquivos de dados
 
@@ -32,7 +32,7 @@ Nesta explicação de procedimento mostra exemplos para as seguintes tarefas:
 
 Para utilizar arquivos de dados, é necessário um [área de trabalho](concept-azure-machine-learning-architecture.md#workspace) primeiro. 
 
-Comece por qualquer um [criar uma nova área de trabalho](quickstart-create-workspace-with-python.md) ou obtenção de um já existente:
+Comece por qualquer um [criar uma nova área de trabalho](setup-create-workspace.md#sdk) ou obtenção de um já existente:
 
 ```Python
 import azureml.core
@@ -40,8 +40,6 @@ from azureml.core import Workspace, Datastore
 
 ws = Workspace.from_config()
 ```
-
-Ou, [seguir este guia de introdução do Python](quickstart-create-workspace-with-python.md) para utilizar o SDK para criar a sua área de trabalho e começar a utilizar.
 
 <a name="access"></a>
 

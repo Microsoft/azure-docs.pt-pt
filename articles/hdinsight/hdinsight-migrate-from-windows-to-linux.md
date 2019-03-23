@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/30/2018
 ms.author: hrasheed
-ms.openlocfilehash: ea808609add942c5cac36e7f0306e4a27ac3bb3a
-ms.sourcegitcommit: 21466e845ceab74aff3ebfd541e020e0313e43d9
+ms.openlocfilehash: 02f698d531555aa9b5498060918a2a361b28817e
+ms.sourcegitcommit: 223604d8b6ef20a8c115ff877981ce22ada6155a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53743651"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58361256"
 ---
 # <a name="migrate-from-a-windows-based-hdinsight-cluster-to-a-linux-based-cluster"></a>Migrar de um cluster do HDInsight baseado em Windows para um cluster baseado em Linux
 
@@ -24,6 +24,8 @@ Enquanto o HDInsight baseado em Windows fornece uma forma fácil de utilizar o A
 
 > [!NOTE]  
 > Clusters do HDInsight utilizam o suporte de longo prazo do Ubuntu (LTS) como o sistema operativo para os nós do cluster. Para obter informações sobre a versão do Ubuntu disponível com o HDInsight, juntamente com outras informações de controlo de versões de componente, consulte [versões de componente de HDInsight](hdinsight-component-versioning.md).
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="migration-tasks"></a>Tarefas de migração
 
@@ -63,7 +65,7 @@ Utilize os seguintes passos para copiar dados do cluster de produção para o cl
 
     ```powershell
     $clusterName="Your existing HDInsight cluster name"
-    $clusterInfo = Get-AzureRmHDInsightCluster -ClusterName $clusterName
+    $clusterInfo = Get-AzHDInsightCluster -ClusterName $clusterName
     write-host "Storage account name: $clusterInfo.DefaultStorageAccount.split('.')[0]"
     write-host "Default container: $clusterInfo.DefaultStorageContainer"
     ```
@@ -93,7 +95,7 @@ Utilize os seguintes passos para copiar dados do cluster de produção para o cl
 
 #### <a name="direct-copy-between-blobs-in-azure-storage"></a>Cópia direta entre os blobs no armazenamento do Azure
 
-Em alternativa, talvez queira usar o `Start-AzureStorageBlobCopy` cmdlet do PowerShell do Azure para copiar blobs entre contas de armazenamento fora do HDInsight. Para obter mais informações, consulte como gerir a secção de Blobs do Azure de utilizar o Azure PowerShell com armazenamento do Azure.
+Em alternativa, talvez queira usar o `Start-AzStorageBlobCopy` cmdlet do PowerShell do Azure para copiar blobs entre contas de armazenamento fora do HDInsight. Para obter mais informações, consulte como gerir a secção de Blobs do Azure de utilizar o Azure PowerShell com armazenamento do Azure.
 
 ## <a name="client-side-technologies"></a>Tecnologias do lado do cliente
 
@@ -215,7 +217,7 @@ A tabela a seguir fornece orientação sobre como migrar as cargas de trabalho d
 | Mapeador de pontos e reducer componentes c# | Para obter informações sobre a validar a componentes c# com o HDInsight baseado em Linux, consulte [soluções de .NET de migrar para o HDInsight baseado em Linux](hdinsight-hadoop-migrate-dotnet-to-linux.md) |
 | Ficheiros CMD ou scripts no servidor invocados como parte de uma tarefa do Hive |utilizar scripts de Bash |
 
-## <a name="apache-oozie"></a>O Apache Oozie
+## <a name="apache-oozie"></a>Apache Oozie
 
 > [!IMPORTANT]  
 > Se usar um metastore Oozie externo, deve copiar em segurança o metastore antes de o utilizar com o HDInsight baseado em Linux. HDInsight baseado em Linux está disponível com versões mais recentes do Oozie, que pode ter incompatibilidades com metastores criados por versões anteriores.

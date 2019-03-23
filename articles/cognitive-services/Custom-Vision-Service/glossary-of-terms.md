@@ -8,18 +8,18 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: custom-vision
 ms.topic: conceptual
-ms.date: 05/08/2017
+ms.date: 03/21/2019
 ms.author: anroth
-ms.openlocfilehash: e659367ae13026dbe48ed681d0a68058d686e3ec
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 3530dbfe15f6dbdf481df70de6d03979750aa38e
+ms.sourcegitcommit: 87bd7bf35c469f84d6ca6599ac3f5ea5545159c9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55884354"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58352107"
 ---
 # <a name="glossary-of-terms-for-custom-vision-service"></a>Glossário de termos de serviço de visão personalizada
 
-Seguem-se alguns termos utilizados no serviço de visão personalizada e o respetivo significado.
+Seguem-se alguns termos usados no serviço de visão personalizada:
 
 ## <a name="classifier"></a>Classificador
 
@@ -37,33 +37,21 @@ Quando cria um projeto, selecione um "domínio" para esse projeto. O domínio ot
 
 Os modelos gerados pelo **compact domínios** possa ser exportada com a funcionalidade de exportação de iteração. Eles são otimizados para as restrições de classificação em tempo real em dispositivos móveis. Classificadores criadas com um domínio compact poderão ser um pouco menos exatos um domínio padrão com a mesma quantidade de dados de treinamento. A desvantagem é que eles são suficientemente pequenos para serem executados localmente na quase em tempo real. 
 
-## <a name="training-image"></a>Imagem de treinamento
+## <a name="evaluation"></a>Avaliação
 
-Para criar um classificador de alta precisão, o serviço de visão personalizada tem várias imagens de formação. Uma imagem de treinamento é uma fotografia da imagem que pretende que o serviço de visão personalizada para classificar. Por exemplo, para classificar laranjas, precisaria carregar várias imagens de laranjas para o serviço de visão personalizada para permitir que o serviço criar um classificador que possam reconhecer laranjas. Recomendamos, pelo menos, 30 imagens por etiqueta.
+Depois de ter preparado o seu classificador, pode enviar qualquer imagem de avaliação com o ponto final https gerado automaticamente. Seu classificador devolve um conjunto de marcas previstas, por ordem de confiança.
 
 ## <a name="iteration"></a>Iteração
 
 Cada tempo Train ou treinar novamente o seu classificador, criar uma nova iteração do seu modelo. Mantemos várias iterações anteriores para que possa comparar o seu progresso ao longo do tempo. Pode eliminar uma repetição que já não ser úteis. Lembre-se de que a eliminação de uma iteração é permanente e também eliminar as imagens ou as alterações que foram exclusivas para essa iteração. 
 
-## <a name="workspace"></a>Área de trabalho
+## <a name="precision"></a>Precisão
 
-A área de trabalho contém todas as imagens de formação e reflete todas as alterações de sua iteração mais recente como removidas ou adicionadas imagens. Quando preparar o seu classificador, vai criar uma nova iteração do seu classificador, utilizando as imagens presentes na sua área de trabalho.
-
-## <a name="tags"></a>Etiquetas
-
-Utilize etiquetas para os objetos em suas imagens de formação da etiqueta. Se estiver a criar um classificador para identificar cães e ponies, poderia colocar uma marca de "cachorro" nas imagens que contenham cães, uma etiqueta de "pony" nas imagens que contenham ponies e tanto "cachorro" e uma etiqueta de "pony" nas imagens que contêm um cachorro e um pony.
-
-## <a name="evaluation"></a>Avaliação
-
-Depois de ter preparado o seu classificador, pode enviar qualquer imagem de avaliação com o ponto final https gerado automaticamente. Seu classificador devolve um conjunto de marcas previstas, por ordem de confiança.
+Quando classifica uma imagem, o quão provável é o seu classificador para classificar corretamente a imagem? Fora de todas as imagens usadas para treinar o classificador (cães e ponies), que percentagem o modelo de obteve correto? 99 etiquetas corretas fora de 100 imagens dá uma precisão de 99%.
 
 ## <a name="predictions"></a>Previsões
 
 Como o seu classificador aceita novas imagens para classificar, armazena as imagens para. Pode utilizar estas imagens para melhorar a precisão do seu classificador ao marcá corretamente as imagens incorrectamente previstas. Em seguida, pode utilizar estas novas imagens para treinar o seu classificador novamente.
-
-## <a name="precision"></a>Precisão
-
-Quando classifica uma imagem, o quão provável é o seu classificador para classificar corretamente a imagem? Fora de todas as imagens usadas para treinar o classificador (cães e ponies), que percentagem o modelo de obteve correto? 99 etiquetas corretas fora de 100 imagens dá uma precisão de 99%.
 
 ## <a name="recall"></a>Recuperar
 
@@ -73,7 +61,7 @@ Fora de todas as imagens que devem ter sido classificadas corretamente, quantos 
 
 Existem dois tipos de definições, definições de nível de projeto e definições de nível de usuário.
 
-- Definições de nível de projeto: 
+- Definições de nível de projeto:
   
   Definições de nível de projeto são aplicadas a um projeto ou o classificador. Eles incluem:
 
@@ -90,3 +78,15 @@ Existem dois tipos de definições, definições de nível de projeto e definiç
    - Utilização:
       - Número de projetos criados
       - Número de chamadas à API de predição avaliação feitas.
+
+## <a name="tags"></a>Etiquetas
+
+Utilize etiquetas para os objetos em suas imagens de formação da etiqueta. Se estiver a criar um classificador para identificar cães e ponies, poderia colocar uma marca de "cachorro" nas imagens que contenham cães, uma etiqueta de "pony" nas imagens que contenham ponies e tanto "cachorro" e uma etiqueta de "pony" nas imagens que contêm um cachorro e um pony.
+
+## <a name="training-image"></a>Imagem de treinamento
+
+Para criar um classificador de alta precisão, o serviço de visão personalizada tem várias imagens de formação. Uma imagem de treinamento é uma fotografia da imagem que pretende que o serviço de visão personalizada para classificar. Por exemplo, para classificar laranjas, precisaria carregar várias imagens de laranjas para o serviço de visão personalizada para permitir que o serviço criar um classificador que possam reconhecer laranjas. Recomendamos, pelo menos, 30 imagens por etiqueta.
+
+## <a name="workspace"></a>Área de trabalho
+
+A área de trabalho contém todas as imagens de formação e reflete todas as alterações de sua iteração mais recente como removidas ou adicionadas imagens. Quando preparar o seu classificador, vai criar uma nova iteração do seu classificador, utilizando as imagens presentes na sua área de trabalho.
