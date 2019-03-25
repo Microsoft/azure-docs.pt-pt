@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 05/11/2017
 ms.author: fhryo-msft
 ms.subservice: common
-ms.openlocfilehash: 51d8b9bad4bb4a3663b07a711f363b263f5d64db
-ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
-ms.translationtype: HT
+ms.openlocfilehash: 6edb1abae91a675a3fe47b417a112f0951886aaf
+ms.sourcegitcommit: 87bd7bf35c469f84d6ca6599ac3f5ea5545159c9
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58339691"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58351920"
 ---
 # <a name="monitor-diagnose-and-troubleshoot-microsoft-azure-storage"></a>Monitorizar, diagnosticar e resolver problemas do Armazenamento do Microsoft Azure
 [!INCLUDE [storage-selector-portal-monitoring-diagnosing-troubleshooting](../../../includes/storage-selector-portal-monitoring-diagnosing-troubleshooting.md)]
@@ -246,7 +246,7 @@ A biblioteca de cliente de armazenamento gera automaticamente um ID de pedido de
 >
 
 ### <a name="server-request-id"></a>ID de pedido do servidor
-O serviço de armazenamento automaticamente gera ids de pedido do servidor.
+O serviço de armazenamento automaticamente gera IDs de pedido do servidor.
 
 * No registo de registo do armazenamento de servidor, o ID de pedido do servidor é apresentado o **cabeçalho de ID do pedido** coluna.
 * Num rastreamento de rede, como um capturado pelo Fiddler, o ID de pedido do servidor é apresentado nas mensagens de resposta, como o **x-ms-request-id** valor do cabeçalho HTTP.
@@ -814,9 +814,9 @@ Para obter mais informações sobre a análise no armazenamento do Azure, veja e
 * [Monitorizar uma conta de armazenamento no portal do Azure](storage-monitor-storage-account.md)
 * [Análise de armazenamento](storage-analytics.md)
 * [Métricas da análise de armazenamento](storage-analytics-metrics.md)
-* [Esquema de tabela de métricas da análise de armazenamento](/rest/api/storageservices/storage-analytics-metrics-table-schema.md)
+* [Esquema de tabela de métricas da análise de armazenamento](/rest/api/storageservices/storage-analytics-metrics-table-schema)
 * [Registos de análise de armazenamento](storage-analytics-logging.md)
-* [Formato de registo de análise de armazenamento](/rest/api/storageservices/storage-analytics-log-format.md)
+* [Formato de registo de análise de armazenamento](/rest/api/storageservices/storage-analytics-log-format)
 
 <!--Anchors-->
 [Introdução]: #introduction
