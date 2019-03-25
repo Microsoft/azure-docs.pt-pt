@@ -1,19 +1,19 @@
 ---
 title: Parceiros que integram com o Azure Monitor
 description: Saiba mais sobre parceiros do Azure Monitor e como pode acessar a documentação para a integração com os mesmos.
-author: johnkemnetz
+author: rboucher
 services: azure-monitor
 ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 03/14/2019
-ms.author: johnkem
+ms.author: robb
 ms.subservice: ''
-ms.openlocfilehash: babbc6c5983ab4a25a48f43afa48b8eecc6b18d2
-ms.sourcegitcommit: f331186a967d21c302a128299f60402e89035a8d
+ms.openlocfilehash: cf06645ddcb825ca866d88a1f7724fd3b3e7987b
+ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58189262"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58402410"
 ---
 # <a name="azure-monitor-partner-integrations"></a>Integrações de parceiros do Azure Monitor
 
@@ -262,7 +262,7 @@ O Turbonomic entrega uma automação de carga de trabalho para clouds híbridas 
 [pagerduty-doc]: https://www.pagerduty.com/docs/guides/azure-integration-guide/ "Documentação do PagerDuty."
 [qradar-doc]: https://www.ibm.com/support/knowledgecenter/SS42VS_DSM/c_dsm_guide_microsoft_azure_overview.html?cp=SS42VS_7.3.0 "Documentação de QRadar."
 [sciencelogic-doc]: https://www.sciencelogic.com/product/technologies/microsoft/azure "Documentação de ScienceLogic."
-[serverless360-doc]: https://docs.serverless360.com/docs/associating-service-principals "Documentação de Serverless360."
+[serverless360-doc]: https://docs.serverless360.com/docs/ "Documentação de Serverless360."
 [signalfx-doc]: https://docs.signalfx.com/en/latest/getting-started/send-data.html#connect-to-azure "Documentação de SignalFx."
 [signl4-doc]: https://www.signl4.com/blog/mobile-alert-notifications-azure-monitor/ "Documentação de SIGNL4."
 [solarwinds-doc]: https://www.solarwinds.com/topics/azure-monitoring "Documentação de SolarWinds."

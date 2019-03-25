@@ -6,16 +6,16 @@ author: alkohli
 ms.service: databox
 ms.subservice: gateway
 ms.topic: article
-ms.date: 02/04/2019
+ms.date: 03/20/2019
 ms.author: alkohli
-ms.openlocfilehash: be51e6c829c5f12d17c6302bb951039711f12075
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: 73f97128dc7b71179c0b0ab41340af6c0f371da1
+ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56113231"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58402971"
 ---
-# <a name="azure-data-box-gateway-system-requirements-preview"></a>Requisitos de sistema de Gateway de caixa de dados do Azure (pré-visualização)
+# <a name="azure-data-box-gateway-system-requirements"></a>Requisitos de sistema de Gateway de caixa de dados do Azure
 
 Este artigo descreve os requisitos de sistema importante para a sua solução de Gateway de caixa de dados do Microsoft Azure e para os clientes ligar ao Gateway de caixa de dados do Azure. Recomendamos que reveja as informações cuidadosamente antes de implementar o Gateway de caixa de dados e, em seguida, regressar mais tarde a ela conforme necessário durante a implantação e operação subseqüente.
 
@@ -24,8 +24,6 @@ Os requisitos de sistema para o dispositivo virtual de Gateway de caixa de dados
 - **Requisitos de software para anfitriões** -descreve as plataformas suportadas, browsers para a configuração local da interface do Usuário, os clientes do SMB e quaisquer requisitos adicionais para os anfitriões que se ligam ao dispositivo.
 - **Requisitos de rede para o dispositivo** -fornece informações sobre quaisquer requisitos de rede para a operação do dispositivo virtual.
 
-> [!IMPORTANT]
-> O Data Box Gateway está em Pré-visualização. Reveja os [termos de utilização da pré-visualização](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) antes de implementar esta solução. 
 
 ## <a name="specifications-for-the-virtual-device"></a>Especificações para o dispositivo virtual
 

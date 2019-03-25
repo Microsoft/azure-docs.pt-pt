@@ -1,22 +1,22 @@
 ---
-title: Ambiente de área de Trabalho Virtual do Windows (pré-visualização) - Azure
-description: Os elementos básicos de um ambiente de área de Trabalho Virtual do Windows.
+title: Ambiente de pré-visualização de ambiente de Trabalho Virtual do Windows - Azure
+description: Os elementos básicos de um ambiente de pré-visualização de ambiente de Trabalho Virtual do Windows.
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 03/21/2019
 ms.author: helohr
-ms.openlocfilehash: c503f665e3e2f99cd59f207c3fc4823b927eaac3
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: ceed6a8bb74206b7c6689ce542482148800e4ba9
+ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58318453"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58403515"
 ---
-# <a name="windows-virtual-desktop-environment-preview"></a>Ambiente de área de Trabalho Virtual do Windows (pré-visualização)
+# <a name="windows-virtual-desktop-preview-environment"></a>Ambiente de pré-visualização de ambiente de Trabalho Virtual do Windows
 
-Área de Trabalho Virtual do Windows (pré-visualização) é um serviço que dá aos usuários um acesso fácil e seguro aos seus ambientes de trabalho virtualizados e RemoteApps. Este tópico informa um pouco mais sobre a estrutura geral do ambiente de área de Trabalho Virtual do Windows.
+Visualização de ambiente de Trabalho Virtual do Windows é um serviço que dá aos usuários um acesso fácil e seguro aos seus ambientes de trabalho virtualizados e RemoteApps. Este tópico informa um pouco mais sobre a estrutura geral do ambiente de área de Trabalho Virtual do Windows.
 
 ## <a name="tenants"></a>Inquilinos
 
@@ -57,11 +57,11 @@ Depois de atribuir utilizadores para os grupos de aplicações, pode ligar-se pa
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-Saiba mais sobre o acesso delegado e como atribuir funções aos utilizadores no [acesso delegado na área de Trabalho Virtual do Windows](delegated-access-virtual-desktop.md).
+Saiba mais sobre o acesso delegado e como atribuir funções aos utilizadores no [delegado acesso no Windows Virtual Desktop Preview](delegated-access-virtual-desktop.md).
 
-Para saber como configurar o seu inquilino de área de Trabalho Virtual do Windows, veja [criar um inquilino na área de Trabalho Virtual do Windows](tenant-setup-azure-active-directory.md).
+Para saber como configurar o seu inquilino de área de Trabalho Virtual do Windows, veja [criar um inquilino no Windows Virtual Desktop Preview](tenant-setup-azure-active-directory.md).
 
 Para saber como ligar à área de Trabalho Virtual do Windows, consulte um dos seguintes artigos:
 
 - [Ligar para o cliente de ambiente de trabalho remoto no Windows 7 e Windows 10](connect-windows-7-and-10.md)
-- [Ligar para o cliente de web de área de Trabalho Virtual do Windows](connect-web.md)
+- [Ligar para o cliente de web do Windows Virtual Desktop pré-visualização](connect-web.md)

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
-ms.openlocfilehash: ff14afc9e438c2b493219e9fa207b2e8793b3c87
-ms.sourcegitcommit: f331186a967d21c302a128299f60402e89035a8d
+ms.openlocfilehash: 1390d68a93dd3d80b5977bab6665553ea3f8b398
+ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58189211"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58403079"
 ---
 # <a name="embedding-an-mpeg-dash-adaptive-streaming-video-in-an-html5-application-with-dashjs"></a>Incorporar um vídeo de transmissão em fluxo Adaptivo MPEG-DASH numa aplicação HTML5 com dash. js  
 
@@ -55,7 +55,7 @@ A primeira etapa é criar um padrão HTML página que contém o **vídeo** ilust
 ```
 
 ## <a name="adding-the-dashjs-player"></a>Adicionar o jogador dash. js
-Para adicionar a implementação de referência do dash. js para a aplicação, terá de obter o arquivo dash.all.js da 1.0 versão do projeto dash. js. Isso deverá ser salvo na pasta JavaScript do seu aplicativo. Este ficheiro é um arquivo de conveniência que reúne todos os códigos de dash. js necessários num único arquivo. Se tiver uma olhada em todo o repositório de dash. js, encontra os arquivos individuais, testar o código e muito mais, mas se tudo o que deseja fazer é utilizar dash. js, em seguida, o ficheiro de dash.all.js é o que precisa.
+Para adicionar a implementação de referência do dash. js para a aplicação, terá de obter o arquivo dash.all.js da versão mais recente do projeto dash. js. Isso deverá ser salvo na pasta JavaScript do seu aplicativo. Este ficheiro é um arquivo de conveniência que reúne todos os códigos de dash. js necessários num único arquivo. Se tiver uma olhada em todo o repositório de dash. js, encontra os arquivos individuais, testar o código e muito mais, mas se tudo o que deseja fazer é utilizar dash. js, em seguida, o ficheiro de dash.all.js é o que precisa.
 
 Para adicionar o jogador dash. js às suas aplicações, adicione uma marca de script para a seção de cabeçalho basicPlayer.html:
 

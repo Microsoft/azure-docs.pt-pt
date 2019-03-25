@@ -10,17 +10,19 @@ ms.subservice: implement
 ms.date: 04/17/2018
 ms.author: cakarst
 ms.reviewer: igorstan
-ms.openlocfilehash: 29b86d430fb5d65e7f089c616651da5f488b675c
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: ee97f7e5cda8b954fb697f73746e416d88d38c2d
+ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55455988"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58401699"
 ---
 # <a name="assigning-variables-in-azure-sql-data-warehouse"></a>Atribuição de variáveis no Azure SQL Data Warehouse
+
 Sugestões para atribuição de variáveis de T-SQL no Azure SQL Data Warehouse para o desenvolvimento de soluções.
 
 ## <a name="setting-variables-with-declare"></a>Definir variáveis com DECLARE
+
 Variáveis no SQL Data Warehouse são definidas utilizando o `DECLARE` instrução ou o `SET` instrução. A inicializar variáveis com DECLARE é uma das formas mais flexíveis para definir um valor da variável no SQL Data Warehouse.
 
 ```sql
@@ -45,6 +47,7 @@ DECLARE @p1 int = 0
 ```
 
 ## <a name="setting-values-with-set"></a>Valores de definição de conjunto
+
 CONJUNTO é um método comum para a definição de uma única variável.
 
 As instruções seguintes são válidas maneiras de definir uma variável com o conjunto:
@@ -59,8 +62,9 @@ SET     @v +=1;
 Apenas pode definir uma variável de cada vez com o conjunto. No entanto, os operadores compostas são permitidos.
 
 ## <a name="limitations"></a>Limitações
-Não é possível utilizar SELECT ou ATUALIZAÇÃO para atribuição de variáveis.
+
+Não é possível utilizar a ATUALIZAÇÃO para atribuição de variáveis.
 
 ## <a name="next-steps"></a>Passos Seguintes
-Para obter mais sugestões de desenvolvimento, consulte [descrição geral do desenvolvimento](sql-data-warehouse-overview-develop.md).
 
+Para obter mais sugestões de desenvolvimento, consulte [descrição geral do desenvolvimento](sql-data-warehouse-overview-develop.md).

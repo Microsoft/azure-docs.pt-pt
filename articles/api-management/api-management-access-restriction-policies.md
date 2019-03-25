@@ -12,14 +12,14 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/28/2019
+ms.date: 03/21/2019
 ms.author: apimpm
-ms.openlocfilehash: 814becd2092c3603f20cd65152e8183446954ce8
-ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
+ms.openlocfilehash: 41f9ce38124cdee2166b5a573c4ab91a26c5fb8a
+ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57216361"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58402427"
 ---
 # <a name="api-management-access-restriction-policies"></a>Políticas de restrição de acesso de gestão de API
 
@@ -382,7 +382,8 @@ O `validate-jwt` política impõe a existência e a validade de um JWT extraído
     require-expiration-time="true|false"
     require-scheme="scheme"
     require-signed-tokens="true|false"
-    clock-skew="allowed clock skew in seconds">
+    clock-skew="allowed clock skew in seconds"
+    output-token-variable-name="name of a variable to receive a JWT object representing successfully validated token">
   <issuer-signing-keys>
     <key>base64 encoded signing key</key>
     <!-- if there are multiple keys, then add additional key elements -->
@@ -464,43 +465,32 @@ O `validate-jwt` política impõe a existência e a validade de um JWT extraído
 
 #### <a name="authorize-access-to-operations-based-on-token-claims"></a>Autorizar o acesso às operações com base em declarações do token
 
-Este exemplo mostra como utilizar o [validar JWT](api-management-access-restriction-policies.md#ValidateJWT) política para autorizar previamente o acesso às operações com base nas afirmações de token. Para uma demonstração de configurar e utilizar esta política, consulte [177 do Cloud Cover episódio: Mais funcionalidades de gestão de API com Vlad Vinogradsky](https://azure.microsoft.com/documentation/videos/episode-177-more-api-management-features-with-vlad-vinogradsky/) e avanço rápido para 13:50. Voltando para 15:00 para ver as políticas configuradas no editor de políticas e, em seguida, a 18:50 para uma demonstração de chamar uma operação a partir do portal do desenvolvedor com e sem o token de autorização necessário.
+Este exemplo mostra como utilizar o [validar JWT](api-management-access-restriction-policies.md#ValidateJWT) política para autorizar o acesso às operações com base no valor de token de afirmações.
 
 ```xml
-<!-- Copy the following snippet into the inbound section at the api (or higher) level to pre-authorize access to operations based on token claims -->
-<set-variable name="signingKey" value="insert signing key here" />
+<validate-jwt header-name="Authorization" require-scheme="Bearer" output-token-variable-name="jwt">
+    <issuer-signing-keys>
+        <key>{{jwt-signing-key}}</key> <!-- signing key is stored in a named value -->
+    </issuer-signing-keys>
+    <audiences>
+        <audience>@(context.Request.OriginalUrl.Host)</audience>
+    </audiences>
+    <issuers>
+        <issuer>contoso.com</issuer>
+    </issuers>
+    <required-claims>
+        <claim name="group" match="any">
+            <value>finance</value>
+            <value>logistics</value>
+        </claim>
+    </required-claims>
+</validate-jwt>
 <choose>
-  <when condition="@(context.Request.Method.Equals("patch",StringComparison.OrdinalIgnoreCase))">
-    <validate-jwt header-name="Authorization">
-      <issuer-signing-keys>
-        <key>@((string)context.Variables["signingKey"])</key>
-      </issuer-signing-keys>
-      <required-claims>
-        <claim name="edit">
-          <value>true</value>
-        </claim>
-      </required-claims>
-    </validate-jwt>
-  </when>
-  <when condition="@(new [] {"post", "put"}.Contains(context.Request.Method,StringComparer.OrdinalIgnoreCase))">
-    <validate-jwt header-name="Authorization">
-      <issuer-signing-keys>
-        <key>@((string)context.Variables["signingKey"])</key>
-      </issuer-signing-keys>
-      <required-claims>
-        <claim name="create">
-          <value>true</value>
-        </claim>
-      </required-claims>
-    </validate-jwt>
-  </when>
-  <otherwise>
-    <validate-jwt header-name="Authorization">
-      <issuer-signing-keys>
-        <key>@((string)context.Variables["signingKey"])</key>
-      </issuer-signing-keys>
-    </validate-jwt>
-  </otherwise>
+    <when condition="@(context.Request.Method == "POST" && !((Jwt)context.Variables["jwt"]).Claims["group"].Contains("finance"))">
+        <return-response>
+            <set-status code="403" reason="Forbidden" />
+        </return-response>
+    </when>
 </choose>
 ```
 
@@ -550,6 +540,7 @@ Este exemplo mostra como utilizar o [validar JWT](api-management-access-restrict
 | require-signed-tokens           | Valor booleano. Especifica se um token é necessário ter sessão iniciada.                                                                                                                                                                                                                                                                                                                                                                                           | Não                                                                               | true                                                                              |
 | separador                       | cadeia de caracteres. Especifica um separador (por exemplo, ",") a ser utilizado para extrair um conjunto de valores de uma afirmação com múltiplos valor.                                                                                                                                                                                                                                                                                                                                          | Não                                                                               | N/A                                                                               |
 | url                             | Abra o URL de ponto final de configuração de ID de onde os metadados de configuração de Open ID podem ser obtidos. A resposta deve ser de acordo com especificações conforme definido no URL:`https://openid.net/specs/openid-connect-discovery-1_0.html#ProviderMetadata`. Para o Azure Active Directory, utilize o seguinte URL: `https://login.microsoftonline.com/{tenant-name}/.well-known/openid-configuration` substituindo o nome do inquilino do diretório, por exemplo, `contoso.onmicrosoft.com`. | Sim                                                                              | N/A                                                                               |
+nome-do-token-variável de saída|cadeia de caracteres. Nome da variável de contexto que receberá o valor do token como um objeto do tipo [ `Jwt` ](api-management-policy-expressions.md) após a validação do token com êxito|Não|N/A
 
 ### <a name="usage"></a>Utilização
 

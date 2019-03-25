@@ -6,21 +6,18 @@ author: alkohli
 ms.service: databox
 ms.subservice: gateway
 ms.topic: overview
-ms.date: 10/09/2018
+ms.date: 03/20/2019
 ms.author: alkohli
-ms.openlocfilehash: 8adec2986a286e55ee71f0fddca695d1800b5317
-ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
-ms.translationtype: HT
+ms.openlocfilehash: fb61567818196c3b501819534a1e5b406c06e8b9
+ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/12/2018
-ms.locfileid: "49167193"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58403736"
 ---
 # <a name="use-the-azure-portal-to-manage-users-on-your-azure-data-box-gateway"></a>Utilizar o portal do Azure para gerir os utilizadores no Azure Data Box Gateway 
 
 Este artigo descreve como utilizar o portal do Azure para gerir os utilizadores no Azure Data Box Gateway. Pode gerir o Azure Data Box Gateway através do portal do Azure ou da IU da Web local. Utilize o portal do Azure para adicionar, modificar ou eliminar utilizadores.
-
-> [!IMPORTANT]
-> - O Data Box Gateway está em pré-visualização. Reveja os [Termos de serviço do Azure para pré-visualização](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) antes de encomendar e implementar esta solução.
 
 Neste artigo, vai aprender a:
 
@@ -49,10 +46,10 @@ Efetue os seguintes passos no portal do Azure para adicionar um utilizador.
 
 2. Especifique o nome de utilizador e a palavra-passe do utilizador que pretende adicionar. Confirme a palavra-passe e clique em **Adicionar**.
 
-    ![Clique em adicionar utilizador](media/data-box-gateway-manage-users/add-user-2.png)
+    ![Clicar em adicionar utilizador](media/data-box-gateway-manage-users/add-user-2.png)
 
     > [!IMPORTANT] 
-    > Estes utilizadores estão reservados pelo sistema e não devem ser utilizados: Administrador, EdgeUser, EdgeSupport, HcsSetupUser, WDAGUtilityAccount, CLIUSR, DefaultAccount, Convidado.  
+    > Estes utilizadores estão reservados pelo sistema e não devem ser utilizados: Administrator, EdgeUser, EdgeSupport, HcsSetupUser, WDAGUtilityAccount, CLIUSR, DefaultAccount, Guest.  
 
 3. Receberá uma notificação quando a criação do utilizador for iniciada e concluída. Depois de o utilizador ser criado, na barra de comandos, clique em **Atualizar** para ver a lista atualizada de utilizadores.
 
@@ -81,6 +78,6 @@ A lista de utilizadores é atualizada para refletir o utilizador eliminado.
 ![Eliminar um utilizador](media/data-box-gateway-manage-users/delete-user-3.png)
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 - Saiba como [Gerir a largura de banda](data-box-gateway-manage-bandwidth-schedules.md).

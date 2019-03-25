@@ -12,28 +12,27 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/19/2018
+ms.date: 03/20/2018
 ms.author: monhaber
-ms.openlocfilehash: 7be86ae7b425c8497b017672ae2e828ccbf65049
-ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
+ms.openlocfilehash: 2ce3a94b7ea4745ec3727e508cd10bb580a74c98
+ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58223704"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58401021"
 ---
 # <a name="data-collection-in-azure-security-center"></a>Recolha de dados no Centro de segurança do Azure
-Centro de segurança recolhe dados de máquinas virtuais do Azure (VMs), os conjuntos de dimensionamento de máquinas virtuais (VMSS), os contentores de IaaS e computadores não Azure (incluindo no local) para monitorizar ameaças e vulnerabilidades de segurança. Os dados são recolhidos com o Microsoft Monitoring Agent, que lê várias configurações relacionadas com segurança e registos de eventos a partir da máquina e copia os dados para a sua área de trabalho para análise. Exemplos destes dados são: operação sistema tipo e versão, (registos de eventos Windows), de registos de sistema operativo processos em execução, nome da máquina, endereços IP e com sessão iniciada no utilizador. O agente do Microsoft Monitoring Agent também copia os ficheiros de informação de falha para a área de trabalho.
+Centro de segurança recolhe dados de máquinas virtuais do Azure (VMs), os conjuntos de dimensionamento de máquinas virtuais, contentores de IaaS e computadores não Azure (incluindo no local) para monitorizar ameaças e vulnerabilidades de segurança. Os dados são recolhidos com o Microsoft Monitoring Agent, que lê várias configurações relacionadas com segurança e registos de eventos a partir da máquina e copia os dados para a sua área de trabalho para análise. Exemplos destes dados são: operação sistema tipo e versão, (registos de eventos Windows), de registos de sistema operativo processos em execução, nome da máquina, endereços IP e com sessão iniciada no utilizador. O agente do Microsoft Monitoring Agent também copia os ficheiros de informação de falha para a área de trabalho.
 
 Recolha de dados é necessária para fornecer visibilidade em falta atualizações, configurações de segurança de SO configurado incorretamente, ativação de proteção de ponto final e deteções de ameaças e estado de funcionamento. 
 
 Este artigo fornece orientações sobre como instalar um agente de monitorização da Microsoft e definir uma área de trabalho do Log Analytics para armazenar os dados recolhidos. As duas operações são necessários para ativar a recolha de dados. 
 
 > [!NOTE]
-
 > - Recolha de dados só é necessário para recursos de computação (VMs, conjuntos de dimensionamento de máquinas virtuais, contentores de IaaS e computadores não Azure). Pode tirar partido do Centro de segurança do Azure, mesmo se não aprovisionar agentes; No entanto, será tem segurança limitada e os recursos listados acima não são suportados.  
 > - Para obter a lista de plataformas suportadas, consulte [plataformas suportadas no Centro de segurança do Azure](security-center-os-coverage.md).
 > - Recolha de dados para o conjunto de dimensionamento de Máquina Virtual não é atualmente suportada.
-
+> - Armazenamento de dados no Log Analytics, se usar uma área de trabalho nova ou existente, pode incorrer em custos adicionais para o armazenamento de dados, consulte a página de preços para obter mais detalhes.
 
 ## Ativar o aprovisionamento automático do Microsoft Monitoring Agent <a name="auto-provision-mma"></a>
 
@@ -88,7 +87,8 @@ Para selecionar uma área de trabalho criada pelo centro de segurança:
 1. Centro de segurança habilitará automaticamente uma solução de centro de segurança na área de trabalho pelo escalão de preço definido para a subscrição. 
 
 > [!NOTE]
-> Escalão de áreas de trabalho criadas pelo centro de segurança de preços do log analytics não afeta a faturação do Centro de segurança. A faturação do Centro de segurança baseia-se sempre em sua política de segurança do Centro de segurança e as soluções instaladas numa área de trabalho. Para o escalão gratuito, o Centro de segurança permite que o *SecurityCenterFree* solução na área de trabalho predefinida. No escalão Standard, o Centro de segurança permite que o *segurança* solução na área de trabalho predefinida.
+> O escalão de áreas de trabalho criadas pelo centro de segurança de preços do Log Analytics não afeta a faturação do Centro de segurança. A faturação do Centro de segurança baseia-se sempre em sua política de segurança do Centro de segurança e as soluções instaladas numa área de trabalho. Para o escalão gratuito, o Centro de segurança permite que o *SecurityCenterFree* solução na área de trabalho predefinida. No escalão Standard, o Centro de segurança permite que o *segurança* solução na área de trabalho predefinida.
+> Armazenamento de dados no Log Analytics, pode incorrer em custos adicionais para o armazenamento de dados, consulte a página de preços para obter mais detalhes.
 
 Para obter mais informações sobre os preços, consulte [preços do Centro de segurança](https://azure.microsoft.com/pricing/details/security-center/).
 
@@ -102,7 +102,7 @@ Para utilizar a sua área de trabalho do Log Analytics existente, tem de ter de 
 
 > [!NOTE]
 > Soluções ativadas na área de trabalho existente serão aplicadas a VMs do Azure que estão ligados ao mesmo. Para as soluções pagas, isto pode resultar em encargos adicionais. Para considerações de privacidade de dados, certificar-se de que sua área de trabalho selecionada está na região geográfica certa.
->
+> Armazenamento de dados no log analytics, pode incorrer em custos adicionais para o armazenamento de dados, consulte a página de preços para obter mais detalhes.
 
 Para selecionar uma área de trabalho do Log Analytics existente:
 
@@ -211,9 +211,9 @@ Se a área de trabalho configurada é uma área de trabalho do utilizador (não 
 Para máquinas existentes em subscrições integrado ao centro de segurança antes de 2019-03-17, será detetado, quando um agente existente, a extensão do Microsoft Monitoring Agent não será instalada e a máquina não será afetada. Para essas máquinas, consulte a recomendação "Resolver problemas nas suas máquinas de estado de funcionamento do agente de monitorização" para resolver os problemas de instalação do agente nessas máquinas.
 
   
-- Agente do SCOM é instalado na máquina<br>
-Centro de segurança irá instalar a Microsoft Monitoring Agent extensão lado a lado para o SCOM existente. O agente do SCOM existente irá continuar a reportar para o servidor do SCOM normalmente. Tenha em atenção que o agente do SCOM e o Microsoft Monitoring Agent partilham bibliotecas comuns do tempo de execução, que serão atualizadas para a versão de disponibilidade mais recente durante esta processar.
-Tenha em atenção - se o SCOM 2012 a versão do agente estiver instalado, **não** ativar sobre o aprovisionamento automático.<br>
+- Agente do System Center Operations Manager está instalado na máquina<br>
+Centro de segurança irá instalar a Microsoft Monitoring Agent extensão lado a lado para o Operations Manager existente. O agente do Operations Manager existente continuará a ter comunicar ao servidor do Operations Manager normalmente. Tenha em atenção que o agente do Operations Manager e o Microsoft Monitoring Agent partilham bibliotecas comuns do tempo de execução, que serão atualizadas para a versão mais recente durante este processo.
+Tenha em atenção - se o Operations Manager 2012 de versão do agente estiver instalado, **não** ativar sobre o aprovisionamento automático.<br>
 
 - Uma extensão de VM já existente está presente<br>
     - Quando o agente de monitorização é instalado como uma extensão, permite que a configuração da extensão de relatório para apenas uma área de trabalho única. Centro de segurança não substitui as ligações existentes a áreas de trabalho do utilizador. Centro de segurança irá armazenar dados de segurança da VM na área de trabalho já ligada, desde que a solução de "securityFree" ou "segurança" foi instalada no mesmo. Centro de segurança pode atualizar a versão de extensão para a versão mais recente neste processo.  
@@ -225,7 +225,7 @@ Pode desativar aprovisionamento automático de recursos em qualquer altura ao de
 
 
 1. Regresse ao menu principal do Centro de segurança e selecione a política de segurança.
-2. Selecione a subscrição para a qual pretende desativar o aprovisionamento automático.
+2. Clique em **editar as definições de** na linha da subscrição para o qual pretende desativar aprovisionamento automático.
 3. Sobre o **política de segurança – recolha de dados** painel, em **aprovisionamento automático** selecionar **desativar**.
 4. Selecione **Guardar**.
 
@@ -271,7 +271,9 @@ Pode instalar manualmente o agente de monitorização Microsoft, para que o Cent
    > [!NOTE]
    > A secção **recolher dados de eventos e desempenho** é opcional.
    >
-6. Para utilizar o PowerShell para implementar a extensão, utilize o seguinte exemplo do PowerShell:  [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+6. Para utilizar o PowerShell para implementar a extensão, utilize o seguinte exemplo do PowerShell:
+   
+   [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
    
    1. Aceda a **do Log Analytics** e clique em **definições avançadas**.
     
@@ -285,7 +287,6 @@ Pode instalar manualmente o agente de monitorização Microsoft, para que o Cent
      
            $PublicConf = '{
                "workspaceId": "WorkspaceID value",
-               "MultipleConnections": true
            }' 
  
            $PrivateConf = '{

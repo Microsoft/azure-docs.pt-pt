@@ -6,74 +6,77 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: backup
 ms.topic: conceptual
-ms.date: 03/13/2019
+ms.date: 03/22/2019
 ms.author: raynew
-ms.openlocfilehash: c6d6e380cded18a089f624f90d998477a89293be
-ms.sourcegitcommit: aa3be9ed0b92a0ac5a29c83095a7b20dd0693463
+ms.openlocfilehash: 3133f22a4d9ecd8a0ee4bff9f8b0be9c1f4eb705
+ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58259046"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58403668"
 ---
 # <a name="back-up-azure-vms-in-a-recovery-services-vault"></a>Fazer cópias de segurança de VMs do Azure num cofre dos serviços de recuperação
 
-Este artigo descreve como fazer cópias de segurança para a VM do Azure com um [cópia de segurança do Azure](backup-overview.md) ao implantar e ativar a cópia de segurança num cofre dos serviços de recuperação.
+Este artigo descreve como fazer cópias de segurança de VMs do Azure em cofres de serviços de recuperação com o [Azure Backup](backup-overview.md) serviço. 
 
 Neste artigo, vai aprender a:
 
 > [!div class="checklist"]
-> * Certifique-se a cenários suportados e os pré-requisitos.
+> * Certifique-se de que o suporte e pré-requisitos para a cópia de segurança.
 > * Prepare as VMs do Azure. Instalar o agente de VM do Azure se for necessário e verifique se o acesso de saída para as VMs.
 > * Crie um cofre.
-> * Configurar o armazenamento para o Cofre
-> * Detetar VMs, configurar definições de cópia de segurança e a política.
-> * Ativar cópia de segurança para VMs do Azure
+> * Detetar VMs e configurar uma política de cópia de segurança.
+> * Ative cópia de segurança para VMs do Azure.
 
 
 > [!NOTE]
-   > Este artigo descreve como fazer cópias de segurança de VMs do Azure ao configurar um cofre e selecionar VMs para criar cópias de segurança. É útil se quiser fazer uma cópia de segurança de várias VMs. Também pode [cópia de segurança uma VM do Azure](backup-azure-vms-first-look-arm.md) diretamente a partir das definições de VM.
+   > Este artigo descreve como configurar um cofre e selecione as VMs para criar cópias de segurança. É útil se quiser fazer uma cópia de segurança de várias VMs. Em alternativa, pode [cópia de segurança uma única VM do Azure](backup-azure-vms-first-look-arm.md) diretamente a partir das definições de VM.
 
 ## <a name="before-you-start"></a>Antes de começar
 
-O Azure Backup cria cópias de segurança de VMs do Azure ao instalar uma extensão para o agente de VM do Azure em execução na máquina.
 
-1. [Revisão](backup-architecture.md#architecture-direct-backup-of-azure-vms) arquitetura de cópia de segurança de VM do Azure.
-[Saiba mais sobre](backup-azure-vms-introduction.md) cópia de segurança de VM do Azure e a extensão de cópia de segurança.
-2. [Reveja a matriz de suporte](backup-support-matrix-iaas.md) para cópia de segurança de VM do Azure.
-3. Prepare as VMs do Azure. Instalar o agente da VM, se não estiver instalado e verifique se o acesso de saída para VMs que pretende criar cópias de segurança.
+- [Revisão](backup-architecture.md#architecture-direct-backup-of-azure-vms) arquitetura de cópia de segurança de VM do Azure.
+- [Saiba mais sobre](backup-azure-vms-introduction.md) cópia de segurança de VM do Azure e a extensão de cópia de segurança.
+- [Reveja a matriz de suporte](backup-support-matrix-iaas.md) para cópia de segurança de VM do Azure.
 
 
 ## <a name="prepare-azure-vms"></a>Preparar as VMs do Azure
 
-Instale o agente VM, se necessário e verificar o acesso de saída das VMs.
+Em algumas circunstâncias poderá ter de configurar o agente de VM do Azure em VMs do Azure ou de permitir explicitamente o acesso de saída na VM.
 
-### <a name="install-the-vm-agent"></a>Instalar o agente da VM
-Se for necessário, instale o agente da seguinte forma.
+### <a name="install-the-vm-agent"></a>Instalar o agente da VM 
+
+O Azure Backup cria cópias de segurança de VMs do Azure ao instalar uma extensão para o agente de VM do Azure em execução na máquina. Se a VM foi criada a partir de uma imagem do Azure marketplace, o agente está instalado e em execução. Se criar uma VM personalizada ou migrar uma máquina no local, precisará de instalar o agente manualmente, conforme resumido na tabela.
 
 **VM** | **Detalhes**
 --- | ---
-**VMs do Windows** | [Transferir e instalar](https://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409) o ficheiro MSI do agente. Instale com permissões de administrador na máquina.<br/><br/> Para verificar a instalação, na *C:\WindowsAzure\Packages* na VM, com o botão direito do WaAppAgent.exe > **propriedades**, > **detalhes** separador. **Versão do produto** deve ser 2.6.1198.718 ou superior.<br/><br/> Se estiver a atualizar o agente, certifique-se de que não existem operações de cópia de segurança estão em execução, e [reinstale o agente](https://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409).
-**VMs do Linux** | A instalação a utilizar um RPM ou um pacote DEB no repositório de pacotes de sua distribuição é o método preferencial de instalação e atualização do agente Linux do Azure. Todas as a [apoiadas pelo fornecedores de distribuição](https://docs.microsoft.com/azure/virtual-machines/linux/endorsed-distros) integrar o pacote do agente Linux do Azure em suas imagens e repositórios. O agente está disponível no [GitHub](https://github.com/Azure/WALinuxAgent), mas não é recomendada a instalação a partir daí.<br/><br/> Se estiver a atualizar o agente, certifique-se de que nenhuma operação de cópia de segurança está em execução e os binários de atualização.
+**VMs do Windows** | 1. [Transferir e instalar](https://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409) o ficheiro MSI do agente.<br/><br/> 2. Instale com permissões de administrador na máquina.<br/><br/> 3. Certifique-se a instalação. Na *C:\WindowsAzure\Packages* na VM, com o botão direito do WaAppAgent.exe > **propriedades**, > **detalhes** separador. **Versão do produto** deve ser 2.6.1198.718 ou superior.<br/><br/> Se estiver a atualizar o agente, certifique-se de que não existem operações de cópia de segurança estão em execução, e [reinstale o agente](https://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409).
+**VMs do Linux** | Instalação a utilizar um RPM ou um pacote DEB no repositório de pacotes de sua distribuição. Este é o método preferencial para instalar e atualizar o agente Linux do Azure. Todas as a [apoiadas pelo fornecedores de distribuição](https://docs.microsoft.com/azure/virtual-machines/linux/endorsed-distros) integrar o pacote do agente Linux do Azure em suas imagens e repositórios. O agente está disponível no [GitHub](https://github.com/Azure/WALinuxAgent), mas não é recomendada a instalação a partir daí.<br/><br/> Se estiver a atualizar o agente, certifique-se de que não existem operações de cópia de segurança estão em execução e os binários de atualização.
 
 
 ### <a name="establish-network-connectivity"></a>Estabelecer conectividade de rede
 
-A extensão de cópia de segurança em execução na VM tem de ter acesso de saída para os endereços IP públicos do Azure.
+A extensão de cópia de segurança em execução na VM tem acesso de saída para os endereços IP públicos do Azure.
 
-- Sem acesso de rede de saída explícita é necessário para VM do Azure para comunicar com o serviço de cópia de segurança do Azure.
-- No entanto, determinadas mais antigas máquinas de virtuais pode sentir alguns problemas e falhar com o erro **ExtensionSnapshotFailedNoNetwork** quando tentam se conectar. Neste caso, utilize uma das seguintes opções para que a extensão de cópia de segurança pode comunicar com endereços IP públicos do Azure para o tráfego de cópia de segurança.
+- Em geral não precisa de permitir explicitamente o acesso de rede de saída para uma VM do Azure para que ele comunicar com o Azure Backup.
+- Caso se depare com dificuldades com VMs ligar e, se vir o erro **ExtensionSnapshotFailedNoNetwork** ao tentar ligar, deve permitir explicitamente acesso para que a extensão de cópia de segurança pode comunicar com o público do Azure Endereços IP para o tráfego de cópia de segurança.
 
-   **Opção** | **Ação** | **Vantagens** | **Desvantagens**
-   --- | --- | --- | ---
-   **Configurar regras NSG** | Permitir a [intervalos IP do datacenter do Azure](https://www.microsoft.com/download/details.aspx?id=41653).<br/><br/>  Pode adicionar uma regra que permite o acesso para o serviço de cópia de segurança do Azure com um [etiqueta de serviço](backup-azure-arm-vms-prepare.md#set-up-an-nsg-rule-to-allow-outbound-access-to-azure), em vez de individualmente, permitindo e gerir cada intervalo de endereços. [Saiba mais](../virtual-network/security-overview.md#service-tags) sobre as etiquetas de serviço. | Sem custos adicionais. Simples de gerenciar com etiquetas de serviço
-   **Implementar um proxy** | Implemente um servidor de proxy HTTP para o encaminhamento de tráfego. | Fornece acesso a todo do Azure e não apenas armazenamento. É permitido um controle granular sobre os URLs de armazenamento.<br/><br/> Único ponto de acesso à internet para VMs.<br/><br/> Custos adicionais para o proxy.<br/><br/>
-   **Configurar a Firewall do Azure** | Permitir o tráfego através da Firewall do Azure na VM, com uma etiqueta do FQDN para o serviço de cópia de segurança do Azure.|  Fácil de utilizar se tiver o Firewall do Azure numa sub-rede de VNet | Não é possível criar suas próprias etiquetas FQDN ou modificar os FQDNs numa marca.<br/><br/> Se utilizar Managed Disks do Azure, poderá ter de abertura de portas adicionais (porta 8443) nas firewalls.
 
-#### <a name="set-up-an-nsg-rule-to-allow-outbound-access-to-azure"></a>Configurar uma regra NSG para permitir o acesso de saída para o Azure
+#### <a name="explicitly-allow-outbound-access"></a>Permitir explicitamente o acesso de saída
 
-Se a sua VM do Azure tem acesso gerido por um NSG, permita o acesso de saída para o armazenamento de cópia de segurança para as portas e intervalos necessários.
+Se a VM não é possível ligar ao serviço de cópia de segurança, de permitir explicitamente o acesso de saída através de um dos métodos resumidos na tabela.
 
-1. Na VM > **Networking**, clique em **Adicionar regra de saída através da porta**.
+**Opção** | **Ação** | **Detalhes** 
+--- | --- | --- 
+**Configurar regras NSG** | Permitir a [intervalos IP do datacenter do Azure](https://www.microsoft.com/download/details.aspx?id=41653). | Em vez de permitir que e gerir a cada intervalo de endereços, pode adicionar uma regra que permite o acesso para o serviço de cópia de segurança do Azure com um [etiqueta de serviço](backup-azure-arm-vms-prepare.md#set-up-an-nsg-rule-to-allow-outbound-access-to-azure). [Saiba mais](../virtual-network/security-overview.md#service-tags).<br/><br/> Sem custos adicionais.<br/><br/> Simples de gerenciar com etiquetas de serviço.
+**Implementar um proxy** | Implemente um servidor de proxy HTTP para o encaminhamento de tráfego. | Fornece acesso a todo do Azure e não apenas armazenamento.<br/><br/> É permitido um controle granular sobre os URLs de armazenamento.<br/><br/> Único ponto de acesso à internet para VMs.<br/><br/> Custos adicionais para o proxy.
+**Configurar a Firewall do Azure** | Permitir o tráfego através da Firewall do Azure na VM, com uma etiqueta do FQDN para o serviço de cópia de segurança do Azure. |  Fácil de utilizar se tiver o Firewall do Azure numa sub-rede de VNet<br/><br/> Não é possível criar suas próprias etiquetas FQDN ou modificar os FQDNs numa marca.<br/><br/> Se utilizar Managed Disks do Azure, poderá ter de abertura de portas adicionais (porta 8443) nas firewalls.
+
+##### <a name="set-up-an-nsg-rule-to-allow-outbound-access-to-azure"></a>Configurar uma regra NSG para permitir o acesso de saída para o Azure
+
+Se o acesso à VM for gerido por um NSG, permita o acesso de saída para o armazenamento de cópia de segurança, para as portas e intervalos necessários.
+
+1. Nas propriedades da VM > **Networking**, clique em **Adicionar regra de saída através da porta**.
 2. Na **Adicionar regra de segurança de saída**, clique em **avançadas**.
 3. Na **origem**, selecione **VirtualNetwork**.
 4. Na **intervalos de portas de origem**, escreva um asterisco (*) para permitir o acesso de saída de qualquer porta.
@@ -83,30 +86,29 @@ Se a sua VM do Azure tem acesso gerido por um NSG, permita o acesso de saída pa
     - VM não gerida com a conta de armazenamento encriptado: 443 (predefinição)
     - VM gerida: 8443.
 7. Na **protocolo**, selecione **TCP**.
-8. Na **prioridade**, especifique um valor de prioridade inferior a superior quaisquer negar regras. Se tiver uma regra negar o acesso, o novo permite a regra tem de ser superior. Por exemplo, se tem um **Deny_All** conjunto com prioridade 1000, sua nova regra de regras devem ser definida para menos de 1000.
+8. Na **prioridade**, especifique um valor de prioridade inferior a superior quaisquer negar regras.
+   - Se tiver uma regra negar o acesso, o novo permite a regra tem de ser superior.
+   - Por exemplo, se tem um **Deny_All** conjunto com prioridade 1000, sua nova regra de regras devem ser definida para menos de 1000.
 9. Forneça um nome e descrição para a regra e clique em **OK**.
 
-Pode aplicar a regra NSG para várias VMs para permitir o acesso de saída.
-
-Este vídeo o orienta pelo processo.
+Pode aplicar a regra NSG para várias VMs para permitir o acesso de saída. Este vídeo o orienta pelo processo.
 
 >[!VIDEO https://www.youtube.com/embed/1EjLQtbKm1M]
 
 
-#### <a name="route-backup-traffic-through-a-proxy"></a>Encaminhar o tráfego de cópia de segurança através de um proxy
+##### <a name="route-backup-traffic-through-a-proxy"></a>Encaminhar o tráfego de cópia de segurança através de um proxy
 
-Pode encaminhar o tráfego de cópia de segurança através de um proxy e, em seguida, dar o acesso de proxy para os intervalos do Azure necessários.
-Deve configurar o proxy VM para permitir que o seguinte:
+Pode encaminhar o tráfego de cópia de segurança através de um proxy e, em seguida, dar o acesso de proxy para os intervalos do Azure necessários. Configure o proxy de VM para permitir que o seguinte:
 
 - A VM do Azure deve encaminhar todo o tráfego HTTP vinculado para a internet pública através do proxy.
 - O proxy deve permitir tráfego de entrada de VMs na rede virtual (VNet) aplicável.
 - O NSG **NSF bloqueio** necessita de uma regra que permita o tráfego de internet de saída do proxy VM.
 
-##### <a name="set-up-the-proxy"></a>Configurar o proxy
+###### <a name="set-up-the-proxy"></a>Configurar o proxy
+
 Se não tiver um proxy de conta de sistema, configure um da seguinte forma:
 
 1. Baixe [PsExec](https://technet.microsoft.com/sysinternals/bb897553).
-
 2. Execute **PsExec.exe -i -s cmd.exe** para executar a linha de comandos com uma conta do sistema.
 3. Execute o navegador no contexto do sistema. Por exemplo: **%PROGRAMFILES%\Internet Explorer\iexplore.exe** para o Internet Explorer.  
 4. Defina as definições de proxy.
@@ -127,18 +129,22 @@ Se não tiver um proxy de conta de sistema, configure um da seguinte forma:
 
        ```
 
-##### <a name="allow-incoming-connections-on-the-proxy"></a>Permitir ligações de entrada no proxy
+###### <a name="allow-incoming-connections-on-the-proxy"></a>Permitir ligações de entrada no proxy
 
 Permita ligações de entrada nas definições de proxy.
 
-- Por exemplo, abra **Firewall do Windows com segurança avançada**.
-    - Com o botão direito **regras de entrada** > **nova regra**.
-    - Na **tipo de regra** selecionar **personalizada** > **seguinte**.
-    - Na **programa**, selecione **todos os programas** > **seguinte**.
-    - Na **protocolos e portas** definir o tipo como **TCP**, **portas Local** para **portas específicas**, e **porta remota**para **todas as portas**.
-    - Concluir o assistente e especificar um nome para a regra.
+1, no Firewall do Windows, abra **Firewall do Windows com segurança avançada**.
+2. Com o botão direito **regras de entrada** > **nova regra**.
+3. Na **tipo de regra** selecionar **personalizada** > **seguinte**.
+4. Na **programa**, selecione **todos os programas** > **seguinte**.
+5. Na **protocolos e portas**:
+   - Definir o tipo como **TCP**
+   - Definir **portas de locais** para **portas específicas**
+   - Definir **porta remota** ao **todas as portas**.
+  
+6. Concluir o assistente e especificar um nome para a regra.
 
-##### <a name="add-an-exception-rule-to-the-nsg-for-the-proxy"></a>Adicionar uma regra de exceção para o NSG para o proxy
+###### <a name="add-an-exception-rule-to-the-nsg-for-the-proxy"></a>Adicionar uma regra de exceção para o NSG para o proxy
 
 No NSG **NSF bloqueio**, permitir tráfego a partir de qualquer porta no 10.0.0.5 para qualquer endereço internet na porta 80 (HTTP) ou 443 (HTTPS).
 
@@ -157,16 +163,17 @@ Pode configurar a Firewall do Azure para permitir o acesso de saída para o trá
 - [Saiba mais sobre](https://docs.microsoft.com/azure/firewall/tutorial-firewall-deploy-portal) implantar o Firewall do Azure.
 - [Leia sobre](https://docs.microsoft.com/azure/firewall/fqdn-tags) FQDN etiquetas.
 
-## <a name="set-up-storage-replication"></a>Configurar a replicação de armazenamento
+## <a name="modify-storage-replication-settings"></a>Modificar as definições de replicação de armazenamento
 
-Por predefinição, o seu Cofre tem [armazenamento georredundante (GRS)](https://docs.microsoft.com/azure/storage/common/storage-redundancy-grs). Recomendamos GRS para a cópia de segurança primária, mas pode usar[armazenamento localmente redundante](https://docs.microsoft.com/azure/storage/common/storage-redundancy-lrs?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) para uma opção mais barata.
+Por predefinição, o seu Cofre tem [armazenamento georredundante (GRS)](https://docs.microsoft.com/azure/storage/common/storage-redundancy-grs).
 
-Armazenamento para o Cofre lida automaticamente com o Azure Backup. Tem de especificar a forma como os que o armazenamento é replicado.
-Modificar os replicação de armazenamento da seguinte forma:
+- Recomendamos GRS para a cópia de segurança primária.
+- Pode usar [armazenamento localmente redundante (LRS)](https://docs.microsoft.com/azure/storage/common/storage-redundancy-lrs?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) para uma opção mais barata.
 
-1. No painel **Cofres dos Serviços de Recuperação**, clique em novo cofre. Sob o **configurações** secção, clique em **propriedades**.
+Modificar o tipo de replicação de armazenamento da seguinte forma:
+
+1. No portal, clique no novo cofre. Sob o **configurações** secção, clique em **propriedades**.
 2. Na **propriedades**, em **configuração de cópia de segurança**, clique em **atualização**.
-
 3. Selecione o tipo de replicação de armazenamento e clique em **guardar**.
 
       ![Definir a configuração de armazenamento do novo cofre](./media/backup-try-azure-backup-in-10-mins/full-blade.png)
@@ -213,8 +220,7 @@ Depois de ativar a cópia de segurança:
 - Uma cópia de segurança inicial é executada de acordo com sua agenda de cópia de segurança.
 - O serviço de cópia de segurança instala a extensão de cópia de segurança, independentemente da VM está em execução.
     - Uma VM em execução fornece a maior possibilidade de obter um ponto de recuperação consistente com aplicações.
-    -  No entanto, a VM é uma cópia de segurança, mesmo que ele é desativado e não é possível instalar a extensão. Isso é conhecido como *offline VM*. Neste caso, o ponto de recuperação será *consistente com a falha*.
-    Tenha em atenção que o Azure Backup não suporta ajuste automático de relógio para alterações de economia de hora de Verão para cópias de segurança de VM do Azure. Modificar as políticas de cópia de segurança manualmente conforme necessário.
+    -  No entanto, a VM é uma cópia de segurança, mesmo que ele é desativado e não é possível instalar a extensão. Ele é conhecido como uma VM offline. Neste caso, o ponto de recuperação será consistentes de falhas. [Saiba mais]() tenha em atenção que o Azure Backup não suporta ajuste automático de relógio para alterações de economia de hora de Verão para cópias de segurança de VM do Azure. Modificar as políticas de cópia de segurança manualmente conforme necessário.
 
 ## <a name="run-the-initial-backup"></a>Executar a cópia de segurança inicial
 
@@ -231,5 +237,6 @@ A cópia de segurança inicial será executado em conformidade com o agendamento
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-- Resolver quaisquer problemas que ocorrem com o [agentes de VM do Azure](backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout.md) ou [cópia de segurança de VM do Azure](backup-azure-vms-troubleshoot.md).
-- [Fazer cópia de segurança de VMs do Azure](backup-azure-vms-first-look-arm.md)
+- Resolva quaisquer problemas com [agentes de VM do Azure](backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout.md) ou [cópia de segurança de VM do Azure](backup-azure-vms-troubleshoot.md).
+- [Restaurar](backup-azure-arm-restore-vms.md) VMs do Azure.
+

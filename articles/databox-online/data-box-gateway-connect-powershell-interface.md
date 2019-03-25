@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: gateway
 ms.topic: article
-ms.date: 03/05/2019
+ms.date: 03/21/2019
 ms.author: alkohli
-ms.openlocfilehash: 0ca570235ac2a87b62c5d0fcebbd24dc5186e37d
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 67caaa2c6c9bd615d0b88bdd5de3442b46aa32cb
+ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57555106"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58403498"
 ---
 # <a name="manage-an-azure-data-box-gateway-device-via-windows-powershell"></a>Gerir um dispositivo de Gateway de caixa de dados do Azure através do Windows PowerShell
 
@@ -30,18 +30,9 @@ Este artigo inclui os seguintes procedimentos:
 - Efetuar o arranque no ambiente de não-DHCP
 - Ver informações de dispositivo
 
-> [!IMPORTANT]
-> O Gateway de caixa de dados do Azure está atualmente em pré-visualização pública.
-> Esta versão de pré-visualização é disponibiliza sem um contrato de nível de serviço e não é recomendada para cargas de trabalho de produção. Algumas funcionalidades poderão não ser suportadas ou poderão ter capacidades limitadas.
-> Para obter mais informações, veja [Termos Suplementares de Utilização para Pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
-
 ## <a name="connect-to-the-powershell-interface"></a>Ligar a interface do PowerShell
 
 [!INCLUDE [Connect to admin runspace](../../includes/data-box-edge-gateway-connect-minishell.md)]
-
-## <a name="start-a-support-session"></a>Iniciar uma sessão de suporte
-
-[!INCLUDE [Connect to support runspace](../../includes/data-box-edge-gateway-connect-support.md)]
 
 ## <a name="create-a-support-package"></a>Criar um pacote de suporte
 

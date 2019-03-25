@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/19/2019
 ms.author: monhaber
-ms.openlocfilehash: 7e4a4572a53338dc0c7b5d7d11dca7130c8979be
-ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
+ms.openlocfilehash: 276b2815b36f05aa49183681b6c9e622155938e9
+ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58226900"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58401140"
 ---
 # <a name="azure-security-center-frequently-asked-questions-faq"></a>Perguntas mais frequentes (FAQ) do Centro de Segurança do Azure
 Encontre respostas para perguntas sobre o Centro de segurança do Azure, um serviço que o ajuda a prevenir, detetar e responder a ameaças com maior visibilidade e controlo da segurança dos seus recursos do Microsoft Azure.
@@ -291,11 +291,14 @@ Centro de segurança é um serviço do Azure que monitoriza o ambiente do Azure 
 Centro de segurança do Azure monitoriza os seguintes recursos do Azure:
 
 * Máquinas virtuais (VMs) (incluindo [serviços Cloud](../cloud-services/cloud-services-choose-me.md))
+* Conjuntos de dimensionamento de máquina virtual (VMSSs)
 * Redes Virtuais do Azure
 * Serviço SQL do Azure
 * Conta de armazenamento do Azure
 * Aplicações Web do Azure (no [ambiente do serviço de aplicações](../app-service/environment/intro.md))
 * Soluções de parceiro integradas com a sua subscrição do Azure, como uma firewall de aplicações web em VMs e no ambiente de serviço de aplicações
+
+Além disso, os computadores não Azure (incluindo no local) também podem ser monitorizados pelo centro de segurança do Azure (ambos [computadores Windows](./quick-onboard-windows-computer.md) e [computadores Linux](./quick-onboard-linux-computer.md) são suportados)
 
 ## <a name="virtual-machines"></a>Virtual Machines
 ### <a name="what-types-of-virtual-machines-are-supported"></a>Que tipos de máquinas virtuais são suportados?

@@ -1,22 +1,22 @@
 ---
-title: Gerir grupos de aplicações para Windows Virtual Desktop (pré-visualização) - Azure
-description: Descreve como configurar a inquilinos de área de Trabalho Virtual do Windows no Azure Active Directory.
+title: Gerir grupos de aplicações para Windows Virtual Desktop Preview - Azure
+description: Descreve como configurar a inquilinos de pré-visualização de ambiente de Trabalho Virtual do Windows no Azure Active Directory.
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: tutorial
 ms.date: 03/21/2019
 ms.author: helohr
-ms.openlocfilehash: 455e3b4ac4a5020f68b5201bc19f85892ef62cb1
-ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
+ms.openlocfilehash: 2baabe6837d25cce5e9f5d9e1071af8417fe5f4d
+ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58368991"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58401867"
 ---
-# <a name="tutorial-manage-app-groups-for-windows-virtual-desktop-preview"></a>Tutorial: Gerir grupos de aplicações para a área de Trabalho Virtual do Windows (pré-visualização)
+# <a name="tutorial-manage-app-groups-for-windows-virtual-desktop-preview"></a>Tutorial: Gerir grupos de aplicações para Windows Virtual Desktop pré-visualização
 
-O grupo de aplicações predefinido criado para um novo conjunto de anfitrião também publica a área de trabalho completa. Além disso, pode criar um ou mais grupos de aplicações de RemoteApp (pré-visualização) para o conjunto de anfitrião. Siga este tutorial para criar um grupo de aplicações do RemoteApp e publicar aplicações de menu início individuais.
+O grupo de aplicações predefinido criado para um novo conjunto de anfitrião do Windows Virtual Desktop Preview também publica a área de trabalho completa. Além disso, pode criar um ou mais grupos de aplicações de RemoteApp para o conjunto de anfitrião. Siga este tutorial para criar um grupo de aplicações do RemoteApp e publicar aplicações de menu início individuais.
 
 Neste tutorial, ficará a saber como:
 

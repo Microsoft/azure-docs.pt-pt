@@ -10,14 +10,16 @@ ms.workload: identity
 ms.date: 10/12/2018
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: 5bc9e44cc1f1759231d405e64fab097d73d48486
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 51342a7544295b465d1f2dfc3e1b27d8285b3588
+ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55160532"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58403821"
 ---
 # <a name="track-user-behavior-in-azure-active-directory-b2c-using-application-insights"></a>Controlar o comportamento do utilizador no Azure Active Directory B2C com o Application Insights
+
+[!INCLUDE [active-directory-b2c-public-preview](../../includes/active-directory-b2c-public-preview.md)]
 
 Quando utiliza o Azure Active Directory (Azure AD) B2C, juntamente com o Azure Application Insights, pode entrar em detalhes sobre e personalizadas registos de eventos para o seu jornadas de utilizador. Neste artigo, vai aprender a:
 
@@ -25,9 +27,6 @@ Quando utiliza o Azure Active Directory (Azure AD) B2C, juntamente com o Azure A
 * Resolver problemas relacionados com as suas políticas no desenvolvimento ou em produção.
 * Medir o desempenho.
 * Crie notificações do Application Insights.
-
-> [!NOTE]
-> Esta funcionalidade está em pré-visualização.
 
 ## <a name="how-it-works"></a>Como funciona
 

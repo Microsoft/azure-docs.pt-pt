@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: overview
-ms.date: 03/13/2019
+ms.date: 03/24/2019
 ms.author: alkohli
-ms.openlocfilehash: 8128afa7078c396156d2cbffb47effeb7de68a0b
-ms.sourcegitcommit: 4133f375862fdbdec07b70de047d70c66ac29d50
+ms.openlocfilehash: de8ddd0d2886cd7798160e830094b295c62e17e9
+ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/15/2019
-ms.locfileid: "58005059"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58400688"
 ---
 # <a name="manage-compute-on-your-azure-data-box-edge"></a>Gerir a computação no seu limite de caixa de dados do Azure
 
@@ -132,6 +132,23 @@ Siga os passos seguintes no portal do Azure para sincronizar as chaves de acesso
      ![Selecione Sim quando lhe for pedido](media/data-box-edge-manage-compute/refresh-configuration-2.png)
 
 3. Saia da caixa de diálogo depois de a sincronização estar concluída.
+
+## <a name="enable-a-network-interface-for-compute"></a>Ativar uma interface de rede para computação
+
+Terá de aceder a um módulo em execução no seu dispositivo Edge de caixa de dados. Para acessar o módulo externamente, terá de atribuir um endereço IP a uma interface de rede no seu dispositivo. Pode gerir estas definições da web local da interface do Usuário de computação.
+
+Siga os passos seguintes na sua web local da interface do Usuário para configurar as definições de computação.
+
+1. Na IU da web local, aceda a **configuração > definições de computação**.  
+
+2. **Ativar** a interface de rede que pretende utilizar para ligar para os módulos de computação no dispositivo. 
+
+    - Se utilizar endereços IP estáticos, introduza um endereço IP para a interface de rede.
+    - Se utilizar DHCP, em seguida, os endereços IP serão automaticamente atribuídos.
+
+3. Selecione **aplicar** para aplicar as definições.
+
+    ![Ativar as definições de computação](media/data-box-edge-manage-compute/compute-settings-1.png)
 
 
 ## <a name="next-steps"></a>Passos Seguintes

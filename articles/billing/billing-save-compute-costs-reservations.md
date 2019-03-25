@@ -2,23 +2,18 @@
 title: O que é o Azure Reservations? | Microsoft Docs
 description: Saiba mais sobre as reservas do Azure e preços para guardar nas suas máquinas virtuais, bases de dados SQL, Azure Cosmos DB e outros custos do recurso.
 services: billing
-documentationcenter: ''
 author: yashesvi
 manager: yashar
-editor: ''
 ms.service: billing
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 02/06/2019
+ms.date: 03/22/2019
 ms.author: banders
-ms.openlocfilehash: a4ad3574849d3c80f671abc93e463b06454289e4
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 3081ab352152d6d736f20da94ed0b513121e231b
+ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57904172"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58401801"
 ---
 # <a name="what-are-azure-reservations"></a>O que é o Azure Reservations?
 
@@ -44,17 +39,11 @@ Para as máquinas virtuais do Windows e a base de dados SQL, que podem ser cober
 
 ## <a name="whos-eligible-to-purchase-a-reservation"></a>Quem é elegível para comprar uma reserva?
 
-Os clientes do Azure com os seguintes tipos de subscrição podem comprar uma reserva:
+Para comprar um plano, tem de ter uma função de proprietário da subscrição de uma empresa (MS-AZR - 0017P ou MS-AZR - 0148P) ou uma subscrição pay as you go (MS-AZR - 003P ou MS-AZR - 0023P). Fornecedores de soluções cloud, podem utilizar o portal do Azure ou [Centro de parceiros](/partner-center/azure-reservations) comprar reservas do Azure.
 
-- Tipo (MS-AZR - 0017P ou MS-AZR - 0148P) de oferta de subscrição do Enterprise agreement.
-- Pay as you go subscrição o tipo de oferta (MS-AZR - 003P ou MS-AZR - 0023P).
-- Parceiros da cloud Solution Provider (CSP) podem utilizar o portal do Azure ou [Centro de parceiros](https://docs.microsoft.com/partner-center/azure-reservations) comprar reservas do Azure.
+Clientes com contrato EA podem limitar as compras aos administradores EA, desativando a **adicionar as instâncias reservadas** opção no Portal de EA. Os administradores EA tem de ser um proprietário da subscrição pelo menos uma subscrição de EA para comprar uma reserva. A opção é útil para as empresas que querem uma equipe centralizada para comprar reservas para centros de custos diferentes. Após a compra, as equipes centralizadas podem adicionar os proprietários do Centro de custos para as reservas. Os proprietários podem, em seguida, definir o âmbito da reserva para suas assinaturas. A equipe central não precisa ter acesso de proprietário da subscrição em que a reserva é comprada.
 
 Um desconto de reserva aplica-se apenas aos recursos associados a tipos de subscrição Enterprise, pay as you go ou CSP.
-
- Comprar um plano:
-
-- Deve estar numa função de proprietário de, pelo menos, uma empresa ou uma subscrição pay as you go.
 
 ## <a name="how-is-a-reservation-billed"></a>Como é faturada uma reserva?
 

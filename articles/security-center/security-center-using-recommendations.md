@@ -3,7 +3,7 @@ title: Recomendações do Centro de segurança do Azure de utilização para mel
 description: " Saiba como utilizar políticas de segurança e recomendações no Centro de segurança do Azure para ajudar a mitigar um ataque de segurança. "
 services: security-center
 documentationcenter: na
-author: rkarlin
+author: monhaber
 manager: barbkess
 editor: ''
 ms.assetid: ''
@@ -12,19 +12,19 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 1/2/2019
-ms.author: rkarlin
-ms.openlocfilehash: 5ff59a9ed7dc44bb7a4176f7a174be1e7d0ec9b6
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.date: 3/24/2019
+ms.author: monhaber
+ms.openlocfilehash: 8c8108697e39153aef8727942c166a741cb8398c
+ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56104911"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58402767"
 ---
 # <a name="use-azure-security-center-recommendations-to-enhance-security"></a>Recomendações do Centro de segurança do Azure de utilização para melhorar a segurança
-Pode reduzir as chances de um evento de segurança significativos ao configurar uma política de segurança e, em seguida, implementar as recomendações fornecidas pelo centro de segurança do Azure. Este artigo mostra-lhe como utilizar políticas de segurança e recomendações no Centro de segurança para ajudar a mitigar um ataque de segurança.
+Pode reduzir as chances de um evento de segurança significativos ao configurar uma política de segurança e, em seguida, implementar as recomendações fornecidas pelo centro de segurança do Azure. Este artigo mostra-lhe como utilizar políticas de segurança e recomendações no Centro de segurança para ajudar a mitigar um ataque de segurança. 
 
-O Centro de Segurança analisa o estado de segurança dos seus recursos do Azure. Quando o Centro de segurança identifica potenciais vulnerabilidades de segurança, cria recomendações que descreve o processo de configurar os controlos de segurança necessário.
+Centro de segurança é automaticamente executado análises contínuas para analisar o estado de segurança dos seus recursos do Azure. Quando o Centro de segurança identifica potenciais vulnerabilidades de segurança, cria recomendações que descreve o processo de configurar os controlos de segurança necessário. Centro de segurança atualiza as recomendações, uma vez a cada 24 horas.
 
 ## <a name="scenario"></a>Cenário
 Este cenário mostra como utilizar o Centro de segurança para ajudar a reduzir as chances de um incidente de segurança, recomendações do Centro de segurança de monitorização e tomar medidas. O cenário utiliza a empresa fictícia, Contoso e funções apresentadas no Centro de segurança [guia de operações e planeamento](security-center-planning-and-operations-guide.md#security-roles-and-access-controls). Neste cenário, nos concentraremos nas funções das seguintes pessoas:

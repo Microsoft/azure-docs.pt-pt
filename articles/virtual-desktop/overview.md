@@ -1,22 +1,22 @@
 ---
-title: O que é a área de Trabalho Virtual do Windows? (pré-visualização) - Azure
-description: Uma visão geral de área de Trabalho Virtual do Windows.
+title: O que é o Windows Virtual Desktop Preview?  - Azure
+description: Uma visão geral do Windows Virtual Desktop Preview.
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: overview
 ms.date: 03/21/2019
 ms.author: helohr
-ms.openlocfilehash: 679c7d3c84237747fd341f92c5dfcc0588d23be2
-ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
+ms.openlocfilehash: 4443d71d5c0b84ac7dbc18129338229c40323d2c
+ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58338552"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58401042"
 ---
-# <a name="what-is-windows-virtual-desktop"></a>O que é a área de Trabalho Virtual do Windows? 
+# <a name="what-is-windows-virtual-desktop-preview"></a>O que é o Windows Virtual Desktop Preview? 
 
-Agora disponível em pré-visualização pública, área de Trabalho Virtual do Windows é um serviço de Virtualização de área de trabalho e a aplicação que é executado na cloud.
+Agora disponível em pré-visualização pública, o Windows Virtual Desktop Preview é um serviço de Virtualização de área de trabalho e a aplicação que é executado na cloud.
 
 Eis o que pode fazer ao executar o ambiente de Trabalho Virtual do Windows no Azure:
 
@@ -39,7 +39,7 @@ Com o Desktop Virtual do Windows, pode configurar um ambiente escalonável e fle
 
 Pode implementar e gerir ambientes de trabalho virtuais:
 
-* Utilizar as interfaces do Windows PowerShell de ambiente de Trabalho Virtual e REST para configurar os conjuntos de anfitrião, criar grupos de aplicações, atribuir utilizadores e publicar recursos
+* Utilize as interfaces do Windows PowerShell de ambiente de Trabalho Virtual e REST para configurar os conjuntos de anfitrião, criar grupos de aplicações, atribuir utilizadores e publicar recursos.
 * Publicar aplicações remotas completo área de trabalho ou individuais de um conjunto de anfitrião único, crie grupos de aplicações individuais para diferentes conjuntos de utilizadores ou até mesmo atribuir utilizadores a vários grupos de aplicações para reduzir o número de imagens.
 * Como gerir o seu ambiente, utilize o acesso delegado interno para atribuir funções e recolher diagnósticos para compreender os vários erros de configuração ou o utilizador.
 * Utilize o novo serviço de diagnóstico para resolver problemas de erros.
@@ -97,4 +97,4 @@ Visite o [Comunidade tecnológica da área de Trabalho Virtual do Windows](https
 Para começar, terá de criar um inquilino. Para saber mais sobre como criar um inquilino, avance para o tutorial de criação do inquilino.
 
 > [!div class="nextstepaction"]
-> [Criar um inquilino na área de Trabalho Virtual do Windows](tenant-setup-azure-active-directory.md)
+> [Criar um inquilino na pré-visualização de ambiente de Trabalho Virtual do Windows](tenant-setup-azure-active-directory.md)

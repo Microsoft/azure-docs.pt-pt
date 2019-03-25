@@ -6,16 +6,16 @@ author: alkohli
 ms.service: databox
 ms.subservice: gateway
 ms.topic: article
-ms.date: 02/07/2019
+ms.date: 03/20/2019
 ms.author: alkohli
-ms.openlocfilehash: 0ad94799320e25d88f616117f1bfcf9f0513aadf
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: d46d74544181a6b9cbfd049b2f5461b20b928483
+ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55873024"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58401436"
 ---
-# <a name="manage-access-power-and-connectivity-mode-for-your-azure-data-box-gateway-preview"></a>Gerir o acesso, energia e modo de conectividade para o Gateway de caixa de dados do Azure (pré-visualização)
+# <a name="manage-access-power-and-connectivity-mode-for-your-azure-data-box-gateway"></a>Gerir o acesso, energia e modo de conectividade para o Gateway de caixa de dados do Azure
 
 Este artigo descreve como gerir o modo de conectividade, power e acesso para o Gateway de caixa de dados do Azure. Estas operações são efetuadas através da IU da web local ou o portal do Azure.
 
@@ -26,16 +26,13 @@ Neste artigo, vai aprender a:
 > * Gerenciar o modo de conectividade
 > * Gerenciar a energia
 
-> [!IMPORTANT]
-> O Data Box Gateway está em pré-visualização. Reveja os [Termos de serviço do Azure para pré-visualização](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) antes de encomendar e implementar esta solução.
-
 ## <a name="manage-device-access"></a>Gerir o acesso do dispositivo
 
-O acesso ao seu dispositivo de Gateway de caixa de dados é controlado pelo uso de uma palavra-passe de administrador do dispositivo. Pode alterar a palavra-passe de administrador através da IU da web local. Também pode repor a palavra-passe de administrador do dispositivo no portal do Azure.
+O acesso ao seu dispositivo de Gateway de caixa de dados é controlado pelo uso de uma palavra-passe do dispositivo. Pode alterar a palavra-passe através da IU da web local. Também pode repor a palavra-passe do dispositivo no portal do Azure.
 
-### <a name="change-device-administrator-password"></a>Alterar senha de administrador do dispositivo
+### <a name="change-device-password"></a>Alterar a palavra-passe do dispositivo
 
-Siga estes passos na IU do local para alterar a palavra-passe de administrador do dispositivo.
+Siga estes passos na IU do local para alterar a palavra-passe do dispositivo.
 
 1. Na IU da web local, aceda a **manutenção > alteração de palavra-passe**.
 2. Introduza a palavra-passe atual e, em seguida, a nova palavra-passe. A palavra-passe fornecida tem de ter entre 8 e 16 carateres. A palavra-passe tem de ter 3 dos seguintes carateres: carateres em maiúsculas, minúsculas, numéricos e especiais. Certifique-se a nova palavra-passe.
@@ -44,7 +41,7 @@ Siga estes passos na IU do local para alterar a palavra-passe de administrador d
 
 3. Clique em **alterar palavra-passe**.
  
-### <a name="reset-device-administrator-password"></a>Repor palavra-passe de administrador do dispositivo
+### <a name="reset-device-password"></a>Repor palavra-passe do dispositivo
 
 O fluxo de trabalho de reposição não exige que o usuário de recuperar a palavra-passe antiga e é útil quando a palavra-passe é perdida. Este fluxo de trabalho é executado no portal do Azure.
 

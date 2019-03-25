@@ -1,22 +1,22 @@
 ---
-title: Criar um inquilino no Windows Virtual Desktop (pré-visualização) - Azure
-description: Descreve como configurar a inquilinos de área de Trabalho Virtual do Windows no Azure Active Directory.
+title: Criar um inquilino na pré-visualização de ambiente de trabalho virtuais Windows - Azure
+description: Descreve como configurar a inquilinos de pré-visualização de ambiente de Trabalho Virtual do Windows no Azure Active Directory.
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: tutorial
 ms.date: 03/21/2019
 ms.author: helohr
-ms.openlocfilehash: 26bcae12ee5e053289dd18c9f378eff43a0b0e04
-ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
+ms.openlocfilehash: b8b5c2cef1db5018ce0d61e1950f49a3bd215ac2
+ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58368175"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58402903"
 ---
-# <a name="tutorial-create-a-tenant-in-windows-virtual-desktop-preview"></a>Tutorial: Criar um inquilino na área de Trabalho Virtual do Windows (pré-visualização)
+# <a name="tutorial-create-a-tenant-in-windows-virtual-desktop-preview"></a>Tutorial: Criar um inquilino na pré-visualização de ambiente de Trabalho Virtual do Windows
 
-A criação de um inquilino na área de Trabalho Virtual do Windows (pré-visualização) é o primeiro passo na direção de criar sua solução de Virtualização de área de trabalho. Um inquilino é um grupo de um ou mais agrupamentos de anfitrião. Cada pool de host é composta por vários hosts de sessão, em execução como máquinas virtuais no Azure e registados no serviço de área de Trabalho Virtual do Windows. Cada pool de anfitrião também consiste num ou mais grupos de aplicações que são utilizados para publicar recursos de aplicativo remoto e ambiente de trabalho remoto para os utilizadores. Com um inquilino, pode criar conjuntos de anfitrião, criar grupos de aplicações, atribuir utilizadores e fazer conexões através do serviço.
+A criação de um inquilino na pré-visualização de ambiente de Trabalho Virtual do Windows é o primeiro passo na direção de criar sua solução de Virtualização de área de trabalho. Um inquilino é um grupo de um ou mais agrupamentos de anfitrião. Cada pool de host é composta por vários hosts de sessão, em execução como máquinas virtuais no Azure e registados no serviço de área de Trabalho Virtual do Windows. Cada pool de anfitrião também consiste num ou mais grupos de aplicações que são utilizados para publicar recursos de aplicativo remoto e ambiente de trabalho remoto para os utilizadores. Com um inquilino, pode criar conjuntos de anfitrião, criar grupos de aplicações, atribuir utilizadores e fazer conexões através do serviço.
 
 Neste tutorial, ficará a saber como:
 
@@ -32,7 +32,7 @@ Eis o que precisa de configurar o seu inquilino de área de Trabalho Virtual do 
    * Isto também se aplica a organizações de fornecedor de soluções Cloud (CSP), criação de um inquilino de área de Trabalho Virtual do Windows para seus clientes. Se uma organização de CSP, tem de ser capaz de iniciar sessão como administrador global do Azure Active Directory do cliente.
 * Um ID de subscrição do Azure
 
-## <a name="grant-azure-active-directory-permissions-to-the-windows-virtual-desktop-service"></a>Permissões de concessão do Azure Active Directory para o serviço de área de Trabalho Virtual do Windows
+## <a name="grant-azure-active-directory-permissions-to-the-windows-virtual-desktop-preview-service"></a>Permissões de concessão do Azure Active Directory para o serviço de pré-visualização de ambiente de Trabalho Virtual do Windows
 
 Se já concedeu permissões para a área de Trabalho Virtual do Windows para este Azure Active Directory, ignore esta secção.
 
@@ -66,7 +66,7 @@ Para atribuir a função de aplicação TenantCreator com a sua conta de adminis
    - Para simplificar, isso pode ser a conta de administrador global.
 6. Selecione a conta de utilizador, clique nas **selecionar** e, em seguida, selecione **atribuir**.
 
-## <a name="create-a-windows-virtual-desktop-tenant"></a>Criar um inquilino de área de Trabalho Virtual do Windows
+## <a name="create-a-windows-virtual-desktop-preview-tenant"></a>Criar um inquilino de pré-visualização de ambiente de Trabalho Virtual do Windows
 
 Agora que concedidas as permissões de serviço de área de Trabalho Virtual do Windows para consultar o Azure Active Directory e atribuída a função de TenantCreator para uma conta de utilizador, pode criar um inquilino de área de Trabalho Virtual do Windows.
 

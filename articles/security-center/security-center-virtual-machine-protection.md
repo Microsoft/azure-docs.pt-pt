@@ -12,17 +12,17 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 2/25/2019
+ms.date: 3/20/2019
 ms.author: monhaber
-ms.openlocfilehash: dd7dad51f29b4b5034c72085cd789077747faa0b
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: fa664952f3eb7d6f9e611fb87a9e484e97f388a2
+ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58106564"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58403838"
 ---
 # <a name="protecting-your-machines-and-applications-in-azure-security-center"></a>Proteger as máquinas e aplicações no Centro de segurança do Azure
-Centro de segurança do Azure analisa o estado de segurança dos seus recursos do Azure. Quando o Centro de segurança identifica potenciais vulnerabilidades de segurança, cria recomendações que descreve o processo de configuração de controlos necessários. Recomendações se aplicam a tipos de recursos do Azure: máquinas virtuais (VMs) e computadores, aplicações, redes, SQL e identidade e acesso.
+Centro de segurança do Azure analisa o estado de segurança dos seus recursos do Azure, não pertencente ao Azure, máquinas virtuais e servidores. Quando o Centro de segurança identifica potenciais vulnerabilidades de segurança, cria recomendações que descreve o processo de configuração de controlos necessários. Recomendações se aplicam a tipos de recursos do Azure: máquinas virtuais (VMs) e computadores, aplicações, redes, SQL e identidade e acesso.
 
 Este artigo aborda recomendações que se aplicam a máquinas e aplicações.
 
@@ -53,7 +53,7 @@ Para continuar, selecione **computação e aplicações** sob **higiene de troca
 Existem várias secções em cada separador e pode selecionar, em cada uma delas, uma opção individual para ver mais detalhes sobre os passos recomendados para resolver esse problema em concreto.
 
 ### Computadores e VMs não monitorizadas <a name="unmonitored-vms-and-computers"></a>
-Uma VM ou o computador não é monitorizado pelo centro de segurança se a máquina não está em execução a extensão do Microsoft Monitoring Agent. Um computador pode ter um agente local já instalado, por exemplo o OMS direcionar o agente ou o agente do SCOM. As máquinas com estes agentes são identificadas como não monitorizado porque estes agentes não são totalmente suportados no Centro de segurança. Para beneficiar totalmente de todas as capacidades do Centro de Segurança, é necessária a extensão MMA.
+Uma VM ou o computador não é monitorizado pelo centro de segurança se a máquina não está em execução a extensão do Microsoft Monitoring Agent. Um computador pode ter um agente local já instalado, por exemplo o OMS direcionar o agente ou o agente do System Center Operations Manager. As máquinas com estes agentes são identificadas como não monitorizado porque estes agentes não são totalmente suportados no Centro de segurança. Para beneficiar totalmente de todas as capacidades do Centro de Segurança, é necessária a extensão MMA.
 
 Pode instalar a extensão no computador, além do agente local já instalado ou VM não monitorizada. Configure ambos os agentes da mesma forma, ligando-os à mesma área de trabalho. Isto permite ao Centro de Segurança interagir com a extensão MMA e recolher dados. Consulte [Ativar a extensão VM](../azure-monitor/learn/quick-collect-azurevm.md) para obter instruções sobre como instalar a extensão MMA.
 
@@ -103,7 +103,7 @@ Existem quatro tipos de ícones representados nesta lista:
 ![VM clássica do Azure](./media/security-center-virtual-machine-recommendations/security-center-monitoring-icon3.png) VM clássica do Azure.
 
 
-![VMs identificadas a partir da área de trabalho](./media/security-center-virtual-machine-recommendations/security-center-monitoring-icon4.png) VMs que só são identificadas a partir da área de trabalho que faz parte da subscrição vista. Inclui VMs de outras subscrições que reportam à área de trabalho desta subscrição e VMs que foram instaladas com o agente direto do SCOM e não têm ID de recurso.
+![VMs identificadas a partir da área de trabalho](./media/security-center-virtual-machine-recommendations/security-center-monitoring-icon4.png) VMs que só são identificadas a partir da área de trabalho que faz parte da subscrição vista. Isto inclui VMs de outras subscrições esse relatório para a área de trabalho nesta subscrição e VMs que foram instaladas com o agente direto do Operations Manager e não ter nenhum ID de recurso.
 
 O ícone apresentado em cada recomendação ajuda-o a identificar rapidamente a VM e o computador que precisa de atenção e o tipo de recomendação. Também pode utilizar os filtros para procurar a lista por **tipo de recurso** e por **gravidade**.
 
@@ -172,7 +172,7 @@ Para instalar o Microsoft Monitoring Agent:
 
 Se pretender definir conjuntos de dimensionamento de novo para instalar automaticamente o Microsoft Monitoring Agent:
 1. Aceda à política do Azure e clique em **definições**.
-2. Pesquisa para a política **agente de implementar o Log Analytics para conjuntos de dimensionamento de VM do Windows** e clique no mesmo.
+2. Pesquisa para a política **agente de implementar o Log Analytics para conjuntos de dimensionamento de máquinas virtuais do Windows** e clique no mesmo.
 3. Clique em **Atribuir**.
 4. Definir o **âmbito** e **área de trabalho do Log Analytics** e clique em **atribuir**.
 

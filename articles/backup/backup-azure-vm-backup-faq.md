@@ -1,37 +1,60 @@
 ---
-title: Cópia de segurança VM do Azure FAQ
-description: Respostas a perguntas comuns sobre como funcionam as cópias de segurança de VMs do Azure, as limitações e o que ocorre quando há alterações a políticas
+title: Perguntas mais frequentes sobre o backup das VMs do Azure com o Azure Backup
+description: Respostas a perguntas comuns sobre o backup das VMs do Azure com o Azure Backup.
 services: backup
 author: sogup
 manager: vijayts
 ms.service: backup
 ms.topic: conceptual
-ms.date: 8/16/2018
+ms.date: 03/22/2019
 ms.author: sogup
-ms.openlocfilehash: 10b49c5ebcd73010a52da1fada32ba55198b287a
-ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
+ms.openlocfilehash: ef46c37fec3e5438aeb4f9309201d45365a96fdc
+ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56961538"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58402070"
 ---
-# <a name="frequently-asked-questions-azure-backup"></a>Cópia de segurança do Azure de perguntas mais frequentes
+# <a name="frequently-asked-questions-back-up-azure-vms"></a>Perguntas mais frequentes perguntas-cópia de segurança de VMs do Azure
 
-Este artigo responde a perguntas comuns sobre o [Azure Backup](backup-introduction-to-azure-backup.md) serviço.
-
-## <a name="general-questions"></a>Perguntas gerais
-
-### <a name="what-azure-vms-can-you-back-up-using-azure-backup"></a>Quais as VMs do Azure pode lhe fazer cópias de segurança utilizando o Azure Backup?
-[Revisão](backup-azure-arm-vms-prepare.md#before-you-start) sistemas operativos suportados e limitações.
+Este artigo responde a perguntas comuns sobre o backup das VMs do Azure com o [Azure Backup](backup-introduction-to-azure-backup.md) serviço.
 
 
 ## <a name="backup"></a>Cópia de segurança
 
+### <a name="which-vm-images-can-be-enabled-for-backup-when-i-create-them"></a>Quais imagens VM podem ser ativadas para cópia de segurança, quando eu criá-los?
+Quando cria uma VM, pode ativar a cópia de segurança para VMs em execução [sistemas operativos suportados](backup-support-matrix-iaas.md#supported-backup-actions)
+ 
+### <a name="is-the-backup-cost-included-in-the-vm-cost"></a>É o custo de cópia de segurança incluído no custo VM? 
+
+Não. Os custos de cópia de segurança são separados dos custos de uma VM. Saiba mais sobre [preços de cópia de segurança do Azure](https://azure.microsoft.com/pricing/details/backup/).
+ 
+### <a name="which-permissions-are-required-to-enable-backup-for-a-vm"></a>Que permissões são necessárias para ativar a cópia de segurança para uma VM? 
+
+Se for um contribuinte VM, pode ativar a cópia de segurança na VM. Se estiver a utilizar uma função personalizada, terá as seguintes permissões para ativar cópia de segurança na VM: 
+
+- Microsoft.RecoveryServices/Vaults/write 
+- Microsoft.RecoveryServices/Vaults/read 
+- Microsoft.RecoveryServices/locations/* 
+- Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/protectedItems/*/read 
+- Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/protectedItems/read 
+- Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/protectedItems/write 
+- Microsoft.RecoveryServices/Vaults/backupFabrics/backupProtectionIntent/write 
+- Microsoft.RecoveryServices/Vaults/backupPolicies/read 
+- Microsoft.RecoveryServices/Vaults/backupPolicies/write 
+ 
+Se o Cofre de serviços de recuperação e a VM tiverem grupos de recursos diferente, certifique-se de que tem permissões de escrita no grupo de recursos para o Cofre dos serviços de recuperação.  
+
+
+### <a name="what-azure-vms-can-you-back-up-using-azure-backup"></a>Quais as VMs do Azure pode lhe fazer cópias de segurança utilizando o Azure Backup?
+
+Reveja os [matriz de suporte](backup-support-matrix-iaas.md) para detalhes de suporte e limitações.
+
 ### <a name="does-an-on-demand-backup-job-use-the-same-retention-schedule-as-scheduled-backups"></a>Uma tarefa de cópia de segurança a pedido utiliza a mesma agenda de retenção como cópias de segurança agendadas?
-Não. Deve especificar o período de retenção para uma tarefa de cópia de segurança a pedido. Por predefinição, são retido durante 30 dias quando acionado a partir do portal.
+Não. Especifique o intervalo de retenção para uma tarefa de cópia de segurança a pedido. Por predefinição, são retido durante 30 dias quando acionado a partir do portal.
 
 ### <a name="i-recently-enabled-azure-disk-encryption-on-some-vms-will-my-backups-continue-to-work"></a>Ativei recentemente o Azure Disk Encryption em algumas VMs. As minhas cópias de segurança vão continuar a funcionar?
-Tem de fornecer permissões para o Azure Backup aceder ao Key Vault. Especifique as permissões no PowerShell, conforme descrito no **ativar cópia de segurança** secção a [PowerShell de cópia de segurança do Azure](backup-azure-vms-automation.md) documentação.
+Fornece permissões para o Azure Backup aceder ao Key Vault. Especifique as permissões no PowerShell, conforme descrito no **ativar cópia de segurança** secção a [PowerShell de cópia de segurança do Azure](backup-azure-vms-automation.md) documentação.
 
 ### <a name="i-migrated-vm-disks-to-managed-disks-will-my-backups-continue-to-work"></a>Migrei discos VM para discos geridos. As minhas cópias de segurança vão continuar a funcionar?
 Sim, as cópias de segurança funcionam perfeitamente. Não é necessário reconfigurar a nada.
@@ -57,7 +80,7 @@ Não. A data e hora no seu computador local é local com o atual Verão aplicada
 Cópia de segurança do Azure pode fazer uma cópia de segurança de VMs com até 16 discos. Suporte para 16 discos é fornecido no [restaurar instantâneas](backup-instant-restore-capability.md).
 
 ### <a name="does-azure-backup-support-standard-ssd-managed-disk"></a>Faz o suporte de cópia de segurança do Azure SSD discos geridos standard?
-O Azure Backup suporta [discos geridos de standard SSD](https://azure.microsoft.com/blog/announcing-general-availability-of-standard-ssd-disks-for-azure-virtual-machine-workloads/). SSD gerido os discos fornecem um novo tipo de armazenamento durável para VMs do Azure. Suporte para discos gerido de SSD é fornecido no [restaurar instantâneas](backup-instant-restore-capability.md).
+O Azure Backup suporta [discos geridos de standard SSD](https://azure.microsoft.com/blog/announcing-general-availability-of-standard-ssd-disks-for-azure-virtual-machine-workloads/). Os discos geridos de SSD fornecem um novo tipo de armazenamento durável para VMs do Azure. Suporte para discos gerido de SSD é fornecido no [restaurar instantâneas](backup-instant-restore-capability.md).
 
 ### <a name="can-we-back-up-a-vm-with-a-write-accelerator-wa-enabled-disk"></a>Vamos criar uma VM com um disco WA do acelerador de escrita ativado?
 Não não possível efetuar instantâneos no disco habilitados para WA. No entanto, o serviço de cópia de segurança do Azure pode excluir o disco habilitados para WA da cópia de segurança. Exclusão de disco para VMs com discos habilitados para WA só é suportada para subscrições atualizadas para restaurar instantânea.
@@ -65,7 +88,7 @@ Não não possível efetuar instantâneos no disco habilitados para WA. No entan
 ### <a name="i-have-a-vm-with-write-accelerator-wa-disks-and-sap-hana-installed-how-do-i-back-up"></a>Tenho uma VM com discos de acelerador de escrita (WA) e SAP HANA instalado. Como posso fazer cópia de segurança?
 O Azure Backup não é possível criar cópias de segurança do disco habilitados para WA, mas pode excluir da cópia de segurança. No entanto, a cópia de segurança não fornece consistência da base de dados porque as informações no disco WA-ativada não não uma cópia de segurança. Pode fazer backup de discos com esta configuração se pretender que o disco do sistema de operativo cópia de segurança e a cópia de segurança de discos que não são habilitados para WA.
 
-Temos uma pré-visualização privada para uma cópia de segurança do SAP HANA com um RPO de 15 minutos. Baseia-se de forma semelhante, a cópia de segurança de BD SQL e utiliza a interface de backInt para soluções de terceiros certificadas pelo SAP HANA. Se estiver interessado na pré-visualização privada, envie um e-mail para ` AskAzureBackupTeam@microsoft.com ` com o assunto **Inscreva-se para a pré-visualização privada para cópia de segurança do SAP HANA em VMs do Azure**.
+Estamos executando pré-visualização privada para uma cópia de segurança do SAP HANA com um RPO de 15 minutos. Baseia-se de forma semelhante, a cópia de segurança de BD SQL e utiliza a interface de backInt para soluções de terceiros certificadas pelo SAP HANA. Se estiver interessado, envie um e-mail para ` AskAzureBackupTeam@microsoft.com ` com o assunto **Inscreva-se para a pré-visualização privada para cópia de segurança do SAP HANA em VMs do Azure**.
 
 
 ## <a name="restore"></a>Restauro
@@ -75,7 +98,7 @@ Considere um restauro de VM como uma opção de criação rápida para uma VM do
 
 Pode utilizar a opção de disco de restauro para:
   * Personalize as VMS que são criadas. Por exemplo, altere o tamanho.
-  * Adicionar definições de configuração que não estavam lá no momento da cópia de segurança
+  * Adicione definições de configuração que não estavam lá no momento da cópia de segurança.
   * Controle a Convenção de nomenclatura para recursos que são criados.
   * Adicione a VM a um conjunto de disponibilidade.
   * Adicione qualquer outra definição tem de ser configurada com o PowerShell ou um modelo.
@@ -114,6 +137,6 @@ A VM é apoiada utilizando as definições de agendamento e retenção na polít
 
 1. Temporariamente parar a cópia de segurança e manter os dados de cópia de segurança.
 2. Mova a VM para o grupo de recursos de destino.
-3. Cópia de segurança reenabled no mesmo ou novo cofre.
+3. Cópia de segurança ativada novamente no mesmo ou novo cofre.
 
 Pode restaurar a VM a partir de pontos de restauração disponíveis que foram criados antes da operação de movimentação.

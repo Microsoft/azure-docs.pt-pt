@@ -1,22 +1,22 @@
 ---
-title: Criar um conjunto de anfitriões com o PowerShell (pré-visualização) - Azure
-description: Como criar um conjunto de anfitrião na área de Trabalho Virtual do Windows com cmdlets do PowerShell.
+title: Criar um conjunto de anfitrião de pré-visualização de ambiente de trabalho virtuais Windows com o PowerShell - Azure
+description: Como criar um conjunto de anfitrião na pré-visualização de ambiente de trabalho virtuais Windows com cmdlets do PowerShell.
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: how-to
 ms.date: 03/21/2019
 ms.author: helohr
-ms.openlocfilehash: 4b65d7614db94a9cc3fdca3f4b784c2c84ebaef8
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: 7b9b7ffbb034a7fb1256d9cc44048cfa55b02245
+ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58318543"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58402733"
 ---
-# <a name="create-a-host-pool-with-powershell-preview"></a>Criar um conjunto de anfitriões com o PowerShell (pré-visualização)
+# <a name="create-a-host-pool-with-powershell"></a>Criar um conjunto de anfitriões com o PowerShell
 
-Conjuntos de anfitrião são uma coleção de um ou mais máquinas virtuais idênticas em ambientes de inquilino (pré-visualização) de área de Trabalho Virtual do Windows. Cada conjunto de anfitrião pode conter um grupo de aplicações que os usuários podem interagir com como numa área de trabalho física.
+Conjuntos de anfitrião são uma coleção de um ou mais máquinas virtuais idênticas em ambientes de inquilino do Windows Virtual Desktop Preview. Cada conjunto de anfitrião pode conter um grupo de aplicações que os usuários podem interagir com como numa área de trabalho física.
 
 ## <a name="use-your-powershell-client-to-create-a-host-pool"></a>Utilizar o cliente do PowerShell para criar um conjunto de anfitrião
 
@@ -70,12 +70,12 @@ Pode criar uma máquina virtual de várias formas:
 - [Criar uma máquina virtual a partir de uma imagem gerida](https://docs.microsoft.com/azure/virtual-machines/windows/create-vm-generalized-managed)
 - [Criar uma máquina virtual a partir de uma imagem não gerida](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-from-user-image)
 
-## <a name="prepare-the-virtual-machines-for-windows-virtual-desktop-agent-installations"></a>Preparar as máquinas virtuais para instalações de agentes da área de Trabalho Virtual do Windows
+## <a name="prepare-the-virtual-machines-for-windows-virtual-desktop-preview-agent-installations"></a>Preparar as máquinas virtuais para instalações de agentes do Windows Virtual Desktop pré-visualização
 
 Precisa efetue os seguintes procedimentos para preparar as máquinas virtuais antes de poder instalar os agentes da área de Trabalho Virtual do Windows e registe as máquinas virtuais ao agrupamento de anfitrião de área de Trabalho Virtual do Windows:
 
 - Tem a máquina de associação de domínio. Isso permite que os usuários de área de Trabalho Virtual do Windows recebidos ser mapeado a partir da respetiva conta do Azure Active Directory para a conta do Active Directory e com êxito permissão de acesso à máquina virtual.
-- Tem de instalar a função de anfitrião de sessões de ambiente de trabalho remoto (RDSH) (pré-visualização) se a máquina virtual estiver a executar o SO do Windows Server. A função RDSH permite que os agentes da área de Trabalho Virtual do Windows instalar corretamente.
+- Tem de instalar a função de anfitrião de sessões de ambiente de trabalho remoto (RDSH) se a máquina virtual estiver a executar o SO do Windows Server. A função RDSH permite que os agentes da área de Trabalho Virtual do Windows instalar corretamente.
 
 Para com êxito-associação a um domínio, efetue os seguintes procedimentos em cada máquina virtual:
 
@@ -85,7 +85,7 @@ Para com êxito-associação a um domínio, efetue os seguintes procedimentos em
 4. Selecione **domínio** e, em seguida, introduza o domínio do Active Directory na rede virtual.
 5. Autenticar com uma conta de domínio que tenha privilégios para máquinas de associação a um domínio.
 
-## <a name="register-the-virtual-machines-to-the-windows-virtual-desktop-host-pool"></a>Registe as máquinas virtuais ao agrupamento de anfitrião de área de Trabalho Virtual do Windows
+## <a name="register-the-virtual-machines-to-the-windows-virtual-desktop-preview-host-pool"></a>Registe as máquinas virtuais para o conjunto de anfitrião do Windows Virtual Desktop pré-visualização
 
 Registar as máquinas virtuais a um conjunto de anfitrião de área de Trabalho Virtual do Windows é tão simples quanto instalar os agentes da área de Trabalho Virtual do Windows.
 
@@ -114,7 +114,7 @@ Para registar os agentes da área de Trabalho Virtual do Windows, faça o seguin
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-Agora que criou um conjunto de anfitrião, chegou a hora para preenchê-lo com RemoteApps (pré-visualização). Para saber mais sobre como gerir aplicações na área de Trabalho Virtual do Windows, veja o tutorial de grupos de aplicações de gerir.
+Agora que criou um conjunto de host, pode preenchê-lo com aplicativos remotos. Para saber mais sobre como gerir aplicações na área de Trabalho Virtual do Windows, veja o tutorial de grupos de aplicações de gerir.
 
 > [!div class="nextstepaction"]
 > [Gerir o tutorial de grupos de aplicações](./manage-app-groups.md)

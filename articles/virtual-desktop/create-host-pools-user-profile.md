@@ -1,22 +1,22 @@
 ---
-title: Configurar uma partilha do perfil de utilizador para um conjunto de anfitrião - Azure
-description: Como configurar um contentor de perfil FSLogix para um conjunto de anfitrião de área de Trabalho Virtual do Windows (pré-visualização).
+title: Configurar uma partilha do perfil de utilizador para um conjunto de anfitrião do Windows Virtual Desktop Preview - Azure
+description: Como configurar um contentor de perfil FSLogix para um conjunto de anfitrião do Windows Virtual Desktop Preview.
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: how-to
 ms.date: 03/21/2019
 ms.author: helohr
-ms.openlocfilehash: 9dfbda6e17cf954369fd6caa533ba9eef41fd451
-ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
+ms.openlocfilehash: c9c2ca2cc27c5fa757b8ff6846e0a6a8f7087875
+ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58336019"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58403719"
 ---
 # <a name="set-up-a-user-profile-share-for-a-host-pool"></a>Configurar uma partilha do perfil de utilizador para um conjunto de anfitrião
 
-O serviço de área de Trabalho Virtual do Windows (pré-visualização) oferece FSLogix contentores de perfil, como a solução de perfil do usuário recomendada. Não é recomendado utilizar a solução de disco de perfil de utilizador (UDP), e vão ser preterida em versões futuras do ambiente de Trabalho Virtual do Windows.
+O serviço de pré-visualização de ambiente de Trabalho Virtual do Windows oferece FSLogix contentores de perfil, como a solução de perfil do usuário recomendada. Não é recomendado utilizar a solução de disco de perfil de utilizador (UDP), e vão ser preterida em versões futuras do ambiente de Trabalho Virtual do Windows.
 
 Esta secção irá dizer como configurar uma partilha de contentor do perfil de FSLogix para um conjunto de anfitrião.
 

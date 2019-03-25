@@ -1,18 +1,18 @@
 ---
-title: Gateway de caixa de dados do Microsoft Azure usecases | Documentos da Microsoft
-description: Descreve o usecases para o Gateway de caixa de dados do Azure, uma solução de armazenamento de aplicação virtual que permite-lhe transferir dados para o Azure
+title: Casos de utilização do Gateway de caixa de dados do Microsoft Azure | Documentos da Microsoft
+description: Descreve os casos de utilização para o Gateway de caixa de dados do Azure, uma solução de armazenamento de aplicação virtual que permite-lhe transferir dados para o Azure
 services: databox
 author: alkohli
 ms.service: databox
 ms.topic: article
-ms.date: 01/17/2019
+ms.date: 03/2/2019
 ms.author: alkohli
-ms.openlocfilehash: d1367504182eb8d8335796dc37800c30e0a563b8
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: 37ec1d05d07f33343b9ff21380a277d00b242b7c
+ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54438597"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58403804"
 ---
 # <a name="use-cases-for-azure-data-box-gateway"></a>Casos de utilização para o Gateway de caixa de dados do Azure
 
@@ -26,8 +26,6 @@ Utilize o Gateway de caixa de dados para os seguintes cenários:
 
 Cada um destes cenários é descrita detalhadamente nas secções subsequentes.
 
-> [!IMPORTANT]
-> O Data Box Gateway está em Pré-visualização. Reveja os [termos de utilização da pré-visualização](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) antes de implementar esta solução.
 
 ## <a name="continuous-data-ingestion"></a>Ingestão de dados contínua
 

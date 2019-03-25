@@ -6,23 +6,18 @@ author: alkohli
 ms.service: databox
 ms.subservice: gateway
 ms.topic: overview
-ms.date: 02/26/2019
+ms.date: 03/20/2019
 ms.author: alkohli
-ms.openlocfilehash: c07293971c4cadd8b7bccc608f69faa3baa19ba7
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 86cd4190647586ec47519ca481f78267f8999cef
+ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58100858"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58402206"
 ---
 # <a name="troubleshoot-your-azure-data-box-gateway-issues"></a>Resolução de problemas do Azure Data Box Gateway 
 
-Este artigo descreve como resolver problemas no Azure Data Box Gateway. 
-
-> [!IMPORTANT]
-> - O Data Box Gateway está em pré-visualização. Reveja os [Termos de serviço do Azure para pré-visualização](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) antes de encomendar e implementar esta solução.
-
-Neste artigo, vai aprender a:
+Este artigo descreve como resolver problemas no Azure Data Box Gateway. Neste artigo, vai aprender a:
 
 > [!div class="checklist"]
 > * Executar diagnósticos
@@ -53,7 +48,7 @@ Efetue os seguintes passos para recolher um pacote de Suporte.
 
     ![Clicar em adicionar utilizador](media/data-box-gateway-troubleshoot/collect-logs-1.png)
  
-2. Depois de o pacote de Suporte estar criado, clique em **Transferir pacote de Suporte**. Um pacote zipado é transferido no caminho que escolher. Pode deszipar o pacote e ver os ficheiros de registo do sistema.
+2. Depois de o pacote de Suporte estar criado, clique em **Transferir pacote de Suporte**. Um pacote zipado é transferido no caminho que escolher. Pode deszipe o pacote.
 
     ![Clicar em adicionar utilizador](media/data-box-gateway-troubleshoot/collect-logs-2.png)
 

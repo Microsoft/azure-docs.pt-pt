@@ -1,6 +1,6 @@
 ---
 title: Implementar recursos com a REST API e o modelo | Documentos da Microsoft
-description: Utilize o Azure Resource Manager e API de REST do Resource Manager para implementar um recursos no Azure. Os recursos são definidos num modelo do Resource Manager.
+description: Utilize o Azure Resource Manager e API de REST do Resource Manager para implementar recursos no Azure. Os recursos são definidos num modelo do Resource Manager.
 services: azure-resource-manager
 documentationcenter: na
 author: tfitzmac
@@ -10,28 +10,30 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/14/2019
+ms.date: 03/22/2019
 ms.author: tomfitz
-ms.openlocfilehash: bd574eb2d3537d3e5c0774f57e37283817cc7879
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 3468f5b625911cd637b22e2c1d35a47fb7d7b0e4
+ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58112029"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58402835"
 ---
 # <a name="deploy-resources-with-resource-manager-templates-and-resource-manager-rest-api"></a>Implementar recursos com modelos do Resource Manager e API REST do Resource Manager
 
 Este artigo explica como utilizar a API de REST do Resource Manager com modelos do Resource Manager para implementar os seus recursos no Azure.  
 
-> [!TIP]
-> Para obter ajuda com a depuração de um erro durante a implementação, consulte:
-> 
-> * [Ver as operações de implementação](resource-manager-deployment-operations.md) para saber mais sobre a obtenção de informações de que o ajuda a resolver problemas relacionados com o erro
-> * [Resolver erros comuns ao implementar recursos no Azure com o Azure Resource Manager](resource-manager-common-deployment-errors.md) para saber como resolver erros de implementação comuns
-> 
-> 
-
 Pode optar por incluir o modelo no corpo do pedido ou ligação para um ficheiro. Quando utilizar um ficheiro, pode ser um ficheiro local ou um arquivo externo que está disponível através de um URI. Quando o modelo estiver numa conta de armazenamento, pode restringir o acesso ao modelo e fornecer um token de assinatura (SAS) de acesso partilhado durante a implementação.
+
+## <a name="deployment-scope"></a>Escopo da implantação
+
+Pode direcionar a sua implementação para uma subscrição do Azure ou um grupo de recursos numa subscrição. Na maioria dos casos, será o direcionamento de implementação para um grupo de recursos. Utilize implementações de subscrição para aplicar políticas e as atribuições de funções a subscrição. Também utilizar implementações de subscrição para criar um grupo de recursos e implementar recursos no mesmo. Dependendo do escopo da implantação, é usar comandos diferentes.
+
+Para implementar um **grupo de recursos**, utilize [criar implementações -](/rest/api/resources/deployments/createorupdate).
+
+Para implementar um **subscrição**, utilize [implementações - criar no âmbito da subscrição](/rest/api/resources/deployments/createorupdateatsubscriptionscope).
+
+Os exemplos neste artigo utilizam implementações do grupo de recursos. Para obter mais informações sobre implementações de subscrição, veja [criar grupos de recursos e recursos ao nível da subscrição](deploy-to-subscription.md).
 
 ## <a name="deploy-with-the-rest-api"></a>Implementar com a API REST
 1. Definir [parâmetros comuns e os cabeçalhos](/rest/api/azure/), incluindo os tokens de autenticação.

@@ -2,20 +2,20 @@
 title: Analisar dados com o Azure Machine Learning | Microsoft Docs
 description: Utilize o Azure Machine Learning para criar um modelo preditivo de machine learning com base em dados armazenados no Azure SQL Data Warehouse.
 services: sql-data-warehouse
-author: KavithaJonnakuti
+author: anumjs
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.subservice: consume
-ms.date: 04/17/2018
-ms.author: kavithaj
+ms.date: 03/22/2019
+ms.author: anjangsh
 ms.reviewer: igorstan
-ms.openlocfilehash: 8a33d733f4737bf19e7baad6d80d8fa72999268f
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 7f9500adc6871c4c9f81c32bf456bc36cf91db4b
+ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55477663"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58402563"
 ---
 # <a name="analyze-data-with-azure-machine-learning"></a>Analisar dados com o Azure Machine Learning
 > [!div class="op_single_selector"]
@@ -42,9 +42,9 @@ Para seguir este tutorial, é necessário:
 Os dados encontram-se na vista dbo.vTargetMail na base de dados AdventureWorksDW. Para ler estes dados:
 
 1. Inicie sessão no [Azure Machine Learning studio][Azure Machine Learning studio] e clique em as minhas experimentações.
-2. Clique em **+NOVO** e selecione **Experimentação em Branco**.
+2. Clique em **+ novo** no canto inferior esquerdo do ecrã e selecione **experimentação em branco**.
 3. Introduza um nome para a experimentação: Marketing de destino.
-4. Arraste o módulo **Leitor** do painel de módulos para a tela.
+4. Arrastar o **importar dados** módulo a ser **dados de entrada e saída** partir do painel de módulos para a tela.
 5. Especifique os detalhes da sua base de dados SQL Data Warehouse no painel Propriedades.
 6. Especifique a **consulta** de base de dados para ler os dados de interesse.
 
@@ -77,7 +77,7 @@ Depois de a execução da experimentação ser concluída com êxito, clique na 
 ## <a name="2-clean-the-data"></a>2. Limpar os dados
 Para limpar os dados, remova algumas colunas que não sejam relevantes para o modelo. Para efetuar este procedimento:
 
-1. Arraste o módulo **Colunas do Projeto** para a tela.
+1. Arrastar o **Select Columns in Dataset** módulo a ser **transformação de dados < manipulação** para a tela. Ligar este módulo para o **importar dados** módulo.
 2. Clique em **Iniciar seletor de colunas** no painel Propriedades, para especificar as colunas que pretende remover.
    ![Colunas do Projeto][4]
 3. Exclua duas colunas: CustomerAlternateKey e GeographyKey.
@@ -87,21 +87,19 @@ Para limpar os dados, remova algumas colunas que não sejam relevantes para o mo
 Iremos dividir os dados 80-20:: 80% para preparar um modelo de machine learning e 20% para testar o modelo. Iremos utilizar os algoritmos das “Duas Classes” para este problema de classificação binária.
 
 1. Arraste o módulo **Dividir** para a tela.
-2. Introduza 0.8 para a Fração de linhas no primeiro conjunto de dados de saída no painel Propriedades.
+2. No painel de propriedades, introduza 0.8 para a fração de linhas no primeiro conjunto de dados de saída.
    ![Dividir os dados em conjunto de preparação e teste][6]
 3. Arraste o módulo **Árvore de Decisões Elevada de Duas Classes** para a tela.
-4. Arraste o módulo **Preparar Modelo** para a tela e especifique as entradas. Em seguida, clique em **Iniciar seletor de colunas** no painel Propriedades.
-   * Primeira entrada: Algoritmo de ML.
-   * Segunda entrada: Dados para preparar o algoritmo no.
+4. Arrastar o **modelo de formação** módulo para a tela e especificar entradas ao ligá-los para o **árvore de decisões elevada de duas classes** (algoritmo de ML) e **divisão** (dados para preparar o módulos de algoritmo em). 
      ![Ligar o módulo Preparar Modelo][7]
-5. Selecione a coluna **BikeBuyer** como a coluna a prever.
+5. Em seguida, clique em **Iniciar seletor de colunas** no painel Propriedades. Selecione a coluna **BikeBuyer** como a coluna a prever.
    ![Selecionar Coluna a prever][8]
 
 ## <a name="4-score-the-model"></a>4. Pontuar o modelo
 Agora, iremos testar o desempenho do modelo em dados de teste. Iremos comparar o algoritmo escolhido com um algoritmo diferente, para ver qual tem o melhor desempenho.
 
-1. Arraste o módulo **Pontuar Modelo** para a tela.
-    Primeira entrada: Modelo de preparação segunda entrada: Testar dados ![Pontuar o modelo][9]
+1. Arraste **modelo de pontuação** módulo para a tela e ligá-la à **Train Model** e **Split Data** módulos.
+   ![O modelo de pontuação][9]
 2. Arraste a **Máquina do Ponto Bayes de Duas Classes** para a tela de experimentação. Iremos comparar o desempenho deste algoritmo em comparação com a Árvore de Decisões Elevada de Duas Classes.
 3. Copie e cole os módulos Preparar Modelo e Pontuar Modelo na tela.
 4. Arraste o módulo **Avaliar Modelo** para a tela, para comparar os dois algoritmos.
@@ -124,18 +122,18 @@ Ao comparar a coluna BikeBuyer (real) com as Etiquetas Classificadas (predição
 Para saber mais sobre como criar modelos preditivos de machine learning, consulte [Introduction to Machine Learning on Azure (Introdução ao Machine Learning no Azure)][Introduction to Machine Learning on Azure].
 
 <!--Image references-->
-[1]: media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/img1_reader.png
-[2]: media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/img2_visualize.png
-[3]: media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/img3_readerdata.png
-[4]: media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/img4_projectcolumns.png
-[5]: media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/img5_columnselector.png
-[6]: media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/img6_split.png
-[7]: media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/img7_train.png
-[8]: media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/img8_traincolumnselector.png
-[9]: media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/img9_score.png
-[10]: media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/img10_evaluate.png
-[11]: media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/img11_evalresults.png
-[12]: media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/img12_scoreresults.png
+[1]: media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/img1-reader-new.png
+[2]: media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/img2-visualize-new.png
+[3]: media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/img3-readerdata-new.png
+[4]: media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/img4-projectcolumns-new.png
+[5]: media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/img5-columnselector-new.png
+[6]: media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/img6-split-new.png
+[7]: media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/img7-train-new.png
+[8]: media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/img8-traincolumnselector-new.png
+[9]: media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/img9-score-new.png
+[10]: media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/img10-evaluate-new.png
+[11]: media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/img11-evalresults-new.png
+[12]: media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/img12-scoreresults-new.png
 
 
 <!--Article references-->

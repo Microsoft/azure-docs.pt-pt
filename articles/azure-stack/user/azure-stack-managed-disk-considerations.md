@@ -1,6 +1,6 @@
 ---
-title: Diferenças e considerações para o Managed Disks no Azure Stack | Documentos da Microsoft
-description: Saiba mais sobre as diferenças e considerações ao trabalhar com os Managed Disks no Azure Stack.
+title: Diferenças e considerações para discos geridos e geridos de imagens no Azure Stack | Documentos da Microsoft
+description: Saiba mais sobre as diferenças e considerações ao trabalhar com discos geridos e imagens geridas no Azure Stack.
 services: azure-stack
 documentationcenter: ''
 author: sethmanheim
@@ -12,27 +12,27 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/26/2019
+ms.date: 03/23/2019
 ms.author: sethm
 ms.reviewer: jiahan
-ms.lastreviewed: 02/26/2019
-ms.openlocfilehash: 28210048cd007fc10dcd4cf5e92577cbd121e2a3
-ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
+ms.lastreviewed: 03/23/2019
+ms.openlocfilehash: c1975c885efc0a2a22b2ab478f8bc9afbcc8bce3
+ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58368277"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58400366"
 ---
-# <a name="azure-stack-managed-disks-differences-and-considerations"></a>Pilha Managed Disks do Azure: diferenças e considerações
+# <a name="azure-stack-managed-disks-differences-and-considerations"></a>O Azure Stack de discos geridos: diferenças e considerações
 
-Este artigo resume as diferenças conhecidas entre [Managed Disks do Azure Stack](azure-stack-manage-vm-disks.md) e [Managed Disks do Azure](../../virtual-machines/windows/managed-disks-overview.md). Para saber mais sobre das principais diferenças entre o Azure Stack e o Azure, consulte a [considerações da chave](azure-stack-considerations.md) artigo.
+Este artigo resume as diferenças conhecidas entre [discos geridos do Azure Stack](azure-stack-manage-vm-disks.md) e [discos geridos para o Azure](../../virtual-machines/windows/managed-disks-overview.md). Para saber mais sobre das principais diferenças entre o Azure Stack e o Azure, consulte a [considerações da chave](azure-stack-considerations.md) artigo.
 
 Discos geridos simplifica a gestão de discos para IaaS VMs ao gerir o [contas de armazenamento](../azure-stack-manage-storage-accounts.md) associadas aos discos VM.
 
 > [!Note]  
-> Discos geridos no Azure Stack está disponível no 1808 update. Ele é habilitado por padrão durante a criação de máquinas virtuais através do portal do Azure Stack do 1811 update.
+> Discos geridos no Azure Stack está disponível a partir da atualização de 1808. Ele é habilitado por padrão durante a criação de máquinas virtuais através do portal do Azure Stack, a partir da atualização de 1811.
   
-## <a name="cheat-sheet-managed-disk-differences"></a>Referência rápida: Gerido diferenças de disco
+## <a name="cheat-sheet-managed-disk-differences"></a>Referência rápida: geridos diferenças de disco
 
 | Funcionalidade | (Global) do Azure | Azure Stack |
 | --- | --- | --- |
@@ -50,7 +50,7 @@ Discos geridos simplifica a gestão de discos para IaaS VMs ao gerir o [contas d
 |Migração      |Fornecer ferramenta para migrar de não geridos do Azure Resource Manager VMs existentes sem a necessidade de recriar a VM  |Ainda não é suportado |
 
 > [!NOTE]  
-> IOPs de discos geridos e o débito no Azure Stack é um número de limite, em vez de um número aprovisionado, que pode ser afetado pelo hardware e cargas de trabalho em execução no Azure Stack.
+> Managed disks IOPs e débito no Azure Stack é um número de limite, em vez de um número aprovisionado, que pode ser afetado por hardware e cargas de trabalho em execução no Azure Stack.
 
 ## <a name="metrics"></a>Métricas
 
@@ -61,7 +61,7 @@ Também existem diferenças com métricas de armazenamento:
 
 ## <a name="api-versions"></a>Versões da API
 
-Pilha de Managed Disks do Azure suporta as seguintes versões de API:
+O Azure Stack gerida versões suporta a seguinte API de discos:
 
 - 2017-03-30
 - 2017-12-01
@@ -135,26 +135,31 @@ O Azure Stack oferece suporte ao *geridos imagens*, que permitem a criação de 
 - Tem uma VM generalizada gerida e gostaria de criar vários, semelhante de VMs geridas.
 
 ### <a name="step-1-generalize-the-vm"></a>Passo 1: Generalizar a VM
-Para Windows, siga a secção "Generalize o VM do Windows com o Sysprep" aqui: https://docs.microsoft.com/en-us/azure/virtual-machines/windows/capture-image-resource#generalize-the-windows-vm-using-sysprep Para o Linux, siga o passo 1 aqui: https://docs.microsoft.com/en-us/azure/virtual-machines/linux/capture-image#step-1-deprovision-the-vm 
 
-Nota: Não se esqueça de generalizar a VM. Criar uma VM a partir de uma imagem que não tenha sido generalizada corretamente levará a um erro de VMProvisioningTimeout.
+Para Windows, siga os [generalizar a VM do Windows com o Sysprep](/azure/virtual-machines/windows/capture-image-resource#generalize-the-windows-vm-using-sysprep) secção. Para o Linux, siga o passo 1 [aqui](/azure/virtual-machines/linux/capture-image#step-1-deprovision-the-vm).
+
+> [!NOTE]
+> Certifique-se generalizar a VM. Criar uma VM a partir de uma imagem que não tenha sido generalizada corretamente levará a uma **VMProvisioningTimeout** erro.
 
 ### <a name="step-2-create-the-managed-image"></a>Passo 2: Criar a imagem gerida
-Pode utilizar o portal, o powershell ou a cli para fazer isso. Siga o documento do Azure aqui: https://docs.microsoft.com/en-us/azure/virtual-machines/windows/capture-image-resource
 
-### <a name="step-3-choose-the-use-case"></a>Passo 3: Escolha o caso de utilização:
+Pode utilizar o portal, PowerShell ou a CLI para criar a imagem gerida. Siga os passos no artigo do Azure [aqui](/azure/virtual-machines/windows/capture-image-resource).
+
+### <a name="step-3-choose-the-use-case"></a>Passo 3: Escolha o caso de utilização
+
 #### <a name="case-1-migrate-unmanaged-vms-to-managed-disks"></a>Caso 1: Migrar VMs não geridas para discos geridos
-Não se esqueça de generalizar a VM corretamente antes de efetuar este passo. Post generalização, esta VM não pode ser utilizado futher. Criar uma VM a partir de uma imagem que não tenha sido generalizada corretamente levará a um erro de VMProvisioningTimeout. 
 
-Siga as instruções [aqui](../../virtual-machines/windows/capture-image-resource.md#create-an-image-from-a-vhd-in-a-storage-account) para criar uma imagem gerida a partir de um VHD generalizado numa conta de armazenamento. Esta imagem pode ser utilizada para criar VMs gerenciadas no futuro.
+Certifique-se generalizar a VM corretamente antes de executar este passo. Depois de generalização, já não pode utilizar esta VM. Criar uma VM a partir de uma imagem que não tenha sido generalizada corretamente levará a uma **VMProvisioningTimeout** erro.
 
-#### <a name="case-2-create-managed-vm-from-managed-image-using-powershell"></a>Caso 2: Criar a VM gerida de imagem gerida com o Powershell
+Siga as instruções [aqui](../../virtual-machines/windows/capture-image-resource.md#create-an-image-from-a-vhd-in-a-storage-account) para criar uma imagem gerida a partir de um VHD generalizado numa conta de armazenamento. Pode utilizar esta imagem daqui em diante para criar VMs gerenciadas.
 
-Depois de criar uma imagem gerida existente de um disco de VM com o script [aqui](../../virtual-machines/windows/capture-image-resource.md#create-an-image-from-a-managed-disk-using-powershell) , o script de exemplo seguinte cria uma VM do Linux semelhante a partir de um objeto de imagem existente:
+#### <a name="case-2-create-managed-vm-from-managed-image-using-powershell"></a>Caso 2: Criar VM gerida a partir de imagem gerida com o Powershell
 
-Módulo do powershell do Azure Stack 1.7.0 ou acima: Siga as instruções [aqui](../../virtual-machines/windows/create-vm-generalized-managed.md) 
+Depois de criar uma imagem gerida existente de um disco de VM com o script [aqui](../../virtual-machines/windows/capture-image-resource.md#create-an-image-from-a-managed-disk-using-powershell), o script de exemplo seguinte cria uma VM do Linux semelhante a partir de um objeto de imagem existente:
 
-Módulo do powershell do Azure Stack 1.6.0 ou abaixo:
+Módulo do Azure Stack do PowerShell 1.7.0 ou posterior: Siga as instruções [aqui](../../virtual-machines/windows/create-vm-generalized-managed.md).
+
+Módulo do Azure Stack do PowerShell 1.6.0 ou anterior:
 
 ```powershell
 # Variables for common values
@@ -195,6 +200,7 @@ $nic = New-AzureRmNetworkInterface -Name myNic -ResourceGroupName $resourceGroup
   -SubnetId $vnet.Subnets[0].Id -PublicIpAddressId $pip.Id -NetworkSecurityGroupId $nsg.Id
 
 $image = get-azurermimage -ResourceGroupName $imagerg -ImageName $imagename
+
 # Create a virtual machine configuration
 $vmConfig = New-AzureRmVMConfig -VMName $vmName -VMSize Standard_D1 | `
 Set-AzureRmVMOperatingSystem -Linux -ComputerName $vmName -Credential $cred | `

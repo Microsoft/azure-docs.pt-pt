@@ -1,6 +1,6 @@
 ---
-title: Recolher dados da Palo Alto sentinela na pré-visualização no Azure | Documentos da Microsoft
-description: Saiba como recolher dados da Palo Alto em sentinela do Azure.
+title: Recolher dados da Palo Alto Networks sentinela na pré-visualização no Azure | Documentos da Microsoft
+description: Saiba como recolher dados da Palo Alto Networks no sentinela do Azure.
 services: sentinel
 documentationcenter: na
 author: rkarlin
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 3/6/2019
 ms.author: rkarlin
-ms.openlocfilehash: 149b3b813091033bf5c1685e8b0793f955169808
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 6145d77e6485a33ea3a9f9d66a4356587966bc5f
+ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57841213"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58403566"
 ---
 # <a name="connect-your-palo-alto-networks-appliance"></a>Ligar o seu dispositivo da Palo Alto Networks
 
@@ -27,14 +27,14 @@ ms.locfileid: "57841213"
 > Sentinel do Azure está atualmente em pré-visualização pública.
 > Esta versão de pré-visualização é disponibiliza sem um contrato de nível de serviço e não é recomendada para cargas de trabalho de produção. Algumas funcionalidades poderão não ser suportadas ou poderão ter capacidades limitadas. Para obter mais informações, veja [Termos Suplementares de Utilização para Pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-Pode ligar sentinela do Azure para qualquer dispositivo da Palo Alto Networks ao guardar os ficheiros de registo como Syslog CEF. A integração com o Azure sentinela permite-lhe executar facilmente análises e consultas em dados de ficheiro de registo da Palo Alto. Para obter mais informações sobre como o Azure sentinela ingere dados CEF, consulte [aparelhos de ligar o CEF](connect-common-event-format.md).
+Pode ligar sentinela do Azure para qualquer dispositivo da Palo Alto Networks ao guardar os ficheiros de registo como Syslog CEF. A integração com o Azure sentinela permite-lhe executar facilmente análises e consultas em dados de ficheiro de registo da Palo Alto Networks. Para obter mais informações sobre como o Azure sentinela ingere dados CEF, consulte [aparelhos de ligar o CEF](connect-common-event-format.md).
 
 > [!NOTE]
-> - Os dados serão armazenados na localização geográfica da área de trabalho no qual está a executar sentinela do Azure.
+> Os dados serão armazenados na localização geográfica da área de trabalho no qual está a executar sentinela do Azure.
 
-## <a name="step-1-connect-your-palo-alto-appliance-using-an-agent"></a>Passo 1: Ligar a sua aplicação da Palo Alto da utilização de um agente
+## <a name="step-1-connect-your-palo-alto-networks-appliance-using-an-agent"></a>Passo 1: Ligar a sua aplicação da Palo Alto Networks através de um agente
 
-Para ligar o seu dispositivo da Palo Alto para sentinela do Azure, terá de implementar um agente numa máquina dedicada (VM ou no local) para suportar a comunicação entre a aplicação e, em seguida, sentinela do Azure. Pode implementar o agente manualmente ou automaticamente. Implementação automática só está disponível se a sua máquina dedicada é uma nova VM que está a criar no Azure. 
+Para ligar o seu dispositivo da Palo Alto Networks para sentinela do Azure, terá de implementar um agente numa máquina dedicada (VM ou no local) para suportar a comunicação entre a aplicação e, em seguida, sentinela do Azure. Pode implementar o agente manualmente ou automaticamente. Implementação automática só está disponível se a sua máquina dedicada é uma nova VM que está a criar no Azure. 
 
 Em alternativa, pode implementar o agente manualmente numa VM do Azure existente, numa VM noutra cloud ou numa máquina no local.
 
@@ -46,7 +46,7 @@ Para ver um diagrama de rede de ambas as opções, consulte [ligar a origens de 
 1. No portal do Azure sentinela, clique em **recolha de dados** e selecione o tipo de aplicação. 
 
 1. Sob **configuração do agente Linux Syslog**:
-   - Escolher **implementação automática** se pretender criar uma nova máquina que está pré-instalado com o agente do Azure sentinela e inclui todo o necessário de configuração, conforme descrito acima. Selecione **implementação automática** e clique em **implementação automática do agente**. Isto leva-o para a página de compra para uma VM dedicada, que é conectado automaticamente à sua área de trabalho, é. A VM é um **padrão D2s v3 (2 vcpus, 8 GB de memória)** e tem um endereço IP público.
+   - Escolher **implementação automática** se pretender criar uma nova máquina que está pré-instalado com o agente do Azure sentinela e inclui todo o necessário de configuração, conforme descrito acima. Selecione **implementação automática** e clique em **implementação automática do agente**. Isto leva-o para a página de compra para uma VM dedicada, que é conectado automaticamente à sua área de trabalho, é. A VM é um **padrão D2s v3 (2 vCPUs, 8 GB de memória)** e tem um endereço IP público.
       1. Na **implementação personalizada** página, forneça os detalhes da sua e escolha um nome de utilizador e uma palavra-passe e se concordar com os termos e condições, comprar a VM.
       1. Configure a aplicação para enviar registos utilizando as definições indicadas na página de ligação. Para o conector de formato de evento comum genérica, utilize estas definições:
          - Protocolo = UDP
@@ -98,12 +98,12 @@ Se não estiver a utilizar o Azure, implemente manualmente o agente de Azure sen
       1. Reinicie o agente de Syslog utilizando este comando: `sudo /opt/microsoft/omsagent/bin/service_control restart [{workspace GUID}]`
       1. Confirme que não existem erros no registo do agente ao executar este comando: `tail /var/opt/microsoft/omsagent/log/omsagent.log`
  
-## <a name="step-2-forward-palo-alto-logs-to-the-syslog-agent"></a>Passo 2: Reencaminhar registos da Palo Alto para o agente do Syslog
+## <a name="step-2-forward-palo-alto-networks-logs-to-the-syslog-agent"></a>Passo 2: Reencaminhar registos da Palo Alto Networks para o agente do Syslog
 
 Configure da Palo Alto Networks para encaminhar mensagens do Syslog no formato CEF para sua área de trabalho do Azure por meio do agente de Syslog:
-1.  Aceda a [guias de configuração de Common Event Format (CEF)](https://docs.paloaltonetworks.com/resources/cef) e transferir o pdf para o seu tipo de aplicação. Siga todas as instruções no guia de configurar o seu dispositivo da Palo Alto para recolher eventos CEF. 
+1.  Aceda a [guias de configuração de Common Event Format (CEF)](https://docs.paloaltonetworks.com/resources/cef) e transferir o pdf para o seu tipo de aplicação. Siga todas as instruções no guia de configurar a sua aplicação da Palo Alto Networks para recolher eventos CEF. 
 
-1.  Aceda a [configurar Syslog monitorização](https://aka.ms/asi-syslog-paloalto-forwarding) e siga os passos 2 e 3 para configurar o reencaminhamento de eventos CEF do seu dispositivo da Palo Alto para sentinela do Azure.
+1.  Aceda a [configurar Syslog monitorização](https://aka.ms/asi-syslog-paloalto-forwarding) e siga os passos 2 e 3 para configurar o reencaminhamento de eventos CEF da sua aplicação da Palo Alto Networks para sentinela do Azure.
 
     1. Certifique-se de definir o **formato de servidor Syslog** ao **BSD**.
     1. Certifique-se de definir o **número de instalações** para o mesmo valor definido no agente do Syslog.
@@ -130,7 +130,7 @@ Pode demorar mais de 20 minutos até que os seus registos começam a aparecer no
 
 
 ## <a name="next-steps"></a>Passos Seguintes
-Neste documento, aprendeu a ligar dispositivos da Palo Alto para sentinela do Azure. Para saber mais sobre sentinela do Azure, veja os artigos seguintes:
+Neste documento, aprendeu como ligar dispositivos da Palo Alto Networks a sentinela do Azure. Para saber mais sobre sentinela do Azure, veja os artigos seguintes:
 - Saiba como [Obtenha visibilidade sobre os seus dados e a potenciais ameaças](quickstart-get-visibility.md).
 - Começar a utilizar [deteção de ameaças com Azure sentinela](tutorial-detect-threats.md).
 

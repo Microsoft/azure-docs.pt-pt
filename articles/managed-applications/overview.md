@@ -10,12 +10,12 @@ ms.topic: overview
 ms.tgt_pltfrm: na
 ms.date: 10/04/2018
 ms.author: tomfitz
-ms.openlocfilehash: 27db3327e296dafea3af2180eeaadd0ff4680b8d
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
+ms.openlocfilehash: da6c9bb6cbd94ab5078641f25e42ad2203ff7a53
+ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56341960"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58402359"
 ---
 # <a name="azure-managed-applications-overview"></a>Descrição geral das aplicações geridas do Azure
 
@@ -32,6 +32,8 @@ As aplicações geridas permitem-lhe estabelecer uma relação contínua com os 
 Embora os clientes implementem essas aplicações geridas nas respetivas subscrições, não têm de manter, atualizar ou repará-las. Pode confirmar que todos os clientes estão a utilizar versões aprovadas. Os clientes não têm de desenvolver conhecimentos no domínio de aplicações específicas para geri-las. Adquirem automaticamente as atualizações das aplicações sem terem de se preocupar com a resolução e o diagnóstico de problemas com aquelas. 
 
 Para as equipas de TI, as aplicações geridas permitem-lhe oferecer soluções pré-aprovadas aos utilizadores da organização. Sabe que essas soluções estão em conformidade com os padrões da organização.
+
+Aplicações geridas atualmente não suportam [geridos identidades para recursos do Azure](../active-directory/managed-identities-azure-resources/overview.md).
 
 ## <a name="types-of-managed-applications"></a>Tipos de aplicações geridas
 

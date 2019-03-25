@@ -8,22 +8,26 @@ ms.topic: include
 ms.date: 03/30/2018
 ms.author: spelluru
 ms.custom: include file
-ms.openlocfilehash: 19352df7abff23ed44521a11e7907c84c8c0327f
-ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
-ms.translationtype: HT
+ms.openlocfilehash: ce8496596f25b85719b8a6dff849ebf0fc3e5dc3
+ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/05/2018
-ms.locfileid: "33835853"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58405606"
 ---
 Nesta secção, irá enviar notícias de última hora como notificações de modelo etiquetadas a partir da aplicação de consola .NET. 
 
-1. No Visual Studio, crie uma nova aplicação da consola Visual C#
+1. No Visual Studio, crie um novo elemento Visual C# aplicação de consola: um. No menu, selecione **arquivo** > **New** > **projeto**.
+    b. Expanda **Visual C#** e selecione **ambiente de trabalho do Windows**. 
+    c. Selecione **aplicação de consola (.NET Framework)** na lista de modelos. 
+    d. Introduza um **nome** para a aplicação. 
+    e. Selecione um **pasta** para a aplicação.
+    f. Selecione **OK** para criar o projeto. 
+2. No menu principal do Visual Studio, selecione **ferramentas** > **Gestor de pacotes NuGet** > **Package Manager Console** e, em seguida, na janela da consola, Introduza a seguinte cadeia:
    
-      ![A ligação Aplicação de Consola][13]
-
-2. No menu principal do Visual Studio, selecione **Ferramentas** > **Gestor de Pacotes da Biblioteca** > **Consola do Gestor de Pacotes** e, na janela da consola, introduza a seguinte cadeia:
-   
-        Install-Package Microsoft.Azure.NotificationHubs
+    ```
+    Install-Package Microsoft.Azure.NotificationHubs
+    ```
    
 3. Prima **Enter**.  
     Esta ação adiciona uma referência ao SDK dos Hubs de Notificação do Azure mediante a utilização do [Pacote NuGet Microsoft.Azure.Notification Hubs].

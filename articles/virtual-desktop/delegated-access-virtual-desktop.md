@@ -1,22 +1,22 @@
 ---
-title: Acesso delegado no Windows Virtual Desktop (pré-visualização) - Azure
-description: Como delegar capacidades administrativas numa implantação de área de Trabalho Virtual do Windows, incluindo exemplos.
+title: Acesso delegado na pré-visualização de ambiente de trabalho virtuais Windows - Azure
+description: Como delegar capacidades administrativas numa implementação de pré-visualização de ambiente de Trabalho Virtual do Windows, incluindo exemplos.
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 03/21/2019
 ms.author: helohr
-ms.openlocfilehash: 49645b697071abb8a2f8c85ebde1e6761a3536ab
-ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
+ms.openlocfilehash: 250aea52de63a6397ce00e9cadcadf3a8ba39858
+ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58336104"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58399984"
 ---
-# <a name="delegated-access-in-windows-virtual-desktop-preview"></a>Acesso delegado na área de Trabalho Virtual do Windows (pré-visualização)
+# <a name="delegated-access-in-windows-virtual-desktop-preview"></a>Acesso delegado na pré-visualização de ambiente de Trabalho Virtual do Windows
 
-Área de Trabalho Virtual do Windows (pré-visualização) tem um modelo de acesso delegado que permite que defina a quantidade de acesso que um utilizador específico pode ter ao atribuir-lhes uma função. Uma atribuição de função tem três componentes: entidade de segurança, a definição de função e o âmbito. O modelo de acesso delegado de área de Trabalho Virtual do Windows é baseado no modelo de RBAC do Azure. Para obter mais informações sobre atribuições de função específica e os respetivos componentes, consulte [a visão geral de controlo de acesso baseado em função do Azure](https://docs.microsoft.com/azure/active-directory/role-based-access-built-in-roles).
+Visualização de ambiente de Trabalho Virtual do Windows tem um modelo de acesso delegado que permite que defina a quantidade de acesso que um utilizador específico pode ter ao atribuir-lhes uma função. Uma atribuição de função tem três componentes: entidade de segurança, a definição de função e o âmbito. O modelo de acesso delegado de área de Trabalho Virtual do Windows é baseado no modelo de RBAC do Azure. Para obter mais informações sobre atribuições de função específica e os respetivos componentes, consulte [a visão geral de controlo de acesso baseado em função do Azure](https://docs.microsoft.com/azure/active-directory/role-based-access-built-in-roles).
 
 Área de Trabalho Virtual do Windows delegado acesso suporta os seguintes valores para cada elemento da atribuição de função:
 
@@ -66,4 +66,4 @@ Pode modificar os três cmdlets básicos com os seguintes parâmetros:
 
 Para obter uma lista mais completa de cada função pode utilizar cmdlets do PowerShell, consulte a [referência do PowerShell](/powershell/windows-virtual-desktop/overview).
 
-Para obter diretrizes sobre como configurar um ambiente de área de Trabalho Virtual do Windows, consulte [configurar um ambiente de área de Trabalho Virtual do Windows](environment-setup.md).
+Para obter diretrizes sobre como configurar um ambiente de área de Trabalho Virtual do Windows, consulte [ambiente do Windows Virtual Desktop Preview](environment-setup.md).

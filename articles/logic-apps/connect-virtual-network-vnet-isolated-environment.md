@@ -9,12 +9,12 @@ ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: article
 ms.date: 03/12/2019
-ms.openlocfilehash: 9cb3abff10482ec7e58b4b049f051e99178cb742
-ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
+ms.openlocfilehash: 2f84c48092581a313ff7bead7a862221e0fe4eee
+ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58371991"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58400926"
 ---
 # <a name="connect-to-azure-virtual-networks-from-azure-logic-apps-by-using-an-integration-service-environment-ise"></a>Ligar a redes virtuais do Azure do Azure Logic Apps com um ambiente de serviço de integração (ISE)
 
@@ -49,9 +49,9 @@ Para obter mais informações sobre os ambientes de serviço de integração, co
   * A rede virtual tem de ter quatro *vazio* sub-redes para a implantação e criação de recursos no seu ISE. Pode criar estas sub-redes com antecedência, ou pode aguardar até que criar seu ISE onde pode criar sub-redes, ao mesmo tempo. Saiba mais sobre [requisitos de sub-rede](#create-subnet). 
   
     > [!NOTE]
-    > Se usar [ExpressRoute](../expressroute/expressroute-introduction.md), que fornece uma ligação privada com serviços cloud da Microsoft, deve [adicione a seguinte rota a cada sub-rede](../virtual-network/virtual-network-manage-subnet.md) utilizado pelo seu ISE. Se usar uma tabela de rotas com as sub-redes [adicionar a rota seguinte à sua tabela de rota](../virtual-network/manage-route-table.md):
+    > Se usar [ExpressRoute](../expressroute/expressroute-introduction.md), que fornece uma ligação privada com serviços cloud da Microsoft, deve [criar uma tabela de rotas](../virtual-network/manage-route-table.md) que tem o seguinte, encaminhar e ligar essa tabela com cada sub-rede utilizada pelo seu ISE:
     > 
-    > **Nome**: D3655BASE-route<br>
+    > **Nome**: <*nome da rota*><br>
     > **Prefixo de endereço**: 0.0.0.0/0<br>
     > **Do próximo salto**: Internet
 
@@ -146,9 +146,9 @@ Na lista de resultados, selecione **o ambiente de serviço de integração (pré
 
      Para saber mais sobre o cálculo de endereços, veja [blocos CIDR de IPv4](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing#IPv4_CIDR_blocks).
 
-   * Se usar [ExpressRoute](../expressroute/expressroute-introduction.md), não se esqueça [adicione a seguinte rota a cada sub-rede](../virtual-network/virtual-network-manage-subnet.md) utilizado pelo seu ISE. Se usar uma tabela de rotas com as sub-redes [adicionar a rota seguir a essa tabela de rota](../virtual-network/manage-route-table.md):
+   * Se usar [ExpressRoute](../expressroute/expressroute-introduction.md), não se esqueça [criar uma tabela de rotas](../virtual-network/manage-route-table.md) que tem o seguinte, encaminhar e ligar essa tabela com cada sub-rede utilizada pelo seu ISE:
 
-     **Nome**: D3655BASE-route<br>
+     **Nome**: <*nome da rota*><br>
      **Prefixo de endereço**: 0.0.0.0/0<br>
      **Do próximo salto**: Internet
 

@@ -15,14 +15,18 @@ ms.topic: article
 ms.date: 08/24/2018
 ms.author: mahender,cephalin
 ms.custom: seodec18
-ms.openlocfilehash: b66b293e5d6e422c994e2b7cef13fd4100144cbf
-ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
+ms.openlocfilehash: d914e3ad3043b2671e154d1616c6800f34415c11
+ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55297009"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58402750"
 ---
 # <a name="authentication-and-authorization-in-azure-app-service"></a>Autenticação e autorização no Serviço de Aplicações do Azure
+
+> [!NOTE]
+> Neste momento, o AAD V2 (incluindo MSAL) não é suportada para serviços de aplicações do Azure e as funções do Azure. Verifique novamente a existência de atualizações.
+>
 
 Serviço de aplicações do Azure fornece a autenticação e autorização incorporadas suportam, para que possa iniciar sessão dos utilizadores e aceder a dados ao escrever o mínimo ou nenhum código na sua aplicação web, uma RESTful API e um back-end móvel e também [as funções do Azure](../azure-functions/functions-overview.md). Este artigo descreve como o serviço de aplicações ajuda a simplificar a autenticação e autorização para a sua aplicação. 
 

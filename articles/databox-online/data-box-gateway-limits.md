@@ -6,22 +6,18 @@ author: alkohli
 ms.service: databox
 ms.subservice: gateway
 ms.topic: article
-ms.date: 02/14/2019
+ms.date: 03/20/2019
 ms.author: alkohli
-ms.openlocfilehash: 34aac9a589516ace080906095ef3c14b34469bbd
-ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
+ms.openlocfilehash: e80b03f696a78887676e9f16750055a4dcfac230
+ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56311193"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58401568"
 ---
-# <a name="azure-data-box-gateway-limits-preview"></a>Limites do Gateway de caixa de dados do Azure (pré-visualização)
-
+# <a name="azure-data-box-gateway-limits"></a>Limites do Gateway de caixa de dados do Azure
 
 Considere estes limites, como implantar e operar a sua solução de Gateway de caixa de dados do Microsoft Azure. 
-
-> [!IMPORTANT] 
-> O Data Box Gateway está em Pré-visualização. Reveja os [termos de utilização para a pré-visualização](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) antes de implementar esta solução. 
 
 
 ## <a name="data-box-gateway-service-limits"></a>Limites do serviço de Gateway de caixa de dados

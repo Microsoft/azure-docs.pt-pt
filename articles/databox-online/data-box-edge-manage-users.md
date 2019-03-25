@@ -8,19 +8,16 @@ ms.subservice: edge
 ms.topic: overview
 ms.date: 03/11/2019
 ms.author: alkohli
-ms.openlocfilehash: 5642f0c1bcb7d7d8dcb17885aa6d3e9197889685
-ms.sourcegitcommit: b8f9200112cae265155b8877f7e1621c4bcc53fc
+ms.openlocfilehash: 1fae648b4dc946227564e588c6cd9b70b910b2f7
+ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/14/2019
-ms.locfileid: "57887662"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58403447"
 ---
 # <a name="use-the-azure-portal-to-manage-users-on-your-azure-data-box-edge"></a>Utilizar o portal do Azure para gerir utilizadores no seu limite de caixa de dados do Azure
 
 Este artigo descreve como gerir os utilizadores no seu limite de caixa de dados do Azure. Pode gerir o limite de caixa de dados do Azure através do portal do Azure ou através do local da interface do Usuário da web. Utilize o portal do Azure para adicionar, modificar ou eliminar utilizadores.
-
-> [!IMPORTANT]
-> O Data Box Edge está em pré-visualização. Reveja os [Termos de serviço do Azure para pré-visualização](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) antes de encomendar e implementar esta solução.
 
 Neste artigo, vai aprender a:
 

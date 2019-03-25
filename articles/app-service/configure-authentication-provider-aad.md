@@ -15,14 +15,18 @@ ms.topic: article
 ms.date: 02/20/2019
 ms.author: mahender
 ms.custom: seodec18
-ms.openlocfilehash: d0c39462bc046b13a2756d37c089ba0e68c90452
-ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
+ms.openlocfilehash: 0c5ceda99fe35fafff23f2bcf4ea766d7dd42b75
+ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56456644"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58403226"
 ---
 # <a name="configure-your-app-service-app-to-use-azure-active-directory-sign-in"></a>Configurar a sua aplicação de serviço de aplicações para utilizar o início de sessão no Azure Active Directory
+
+> [!NOTE]
+> Neste momento, o AAD V2 (incluindo MSAL) não é suportada para serviços de aplicações do Azure e as funções do Azure. Verifique novamente a existência de atualizações.
+>
 
 [!INCLUDE [app-service-mobile-selector-authentication](../../includes/app-service-mobile-selector-authentication.md)]
 

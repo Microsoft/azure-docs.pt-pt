@@ -6,27 +6,22 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: overview
-ms.date: 11/13/2018
+ms.date: 03/22/2019
 ms.author: alkohli
-ms.openlocfilehash: 60186ee6aa614c83691c9ce4ab9d8124fd5925fd
-ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
+ms.openlocfilehash: 696f4fee95926009ebda0be3c28672838d89edda
+ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51685961"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58400441"
 ---
-# <a name="what-is-azure-data-box-edge-preview"></a>O que é o Azure Data Box Edge (Pré-visualização)? 
+# <a name="what-is-azure-data-box-edge"></a>O que é o Azure Data Box Edge? 
 
 O Azure Data Box Edge é uma solução de armazenamento que permite processar dados e enviá-los através de uma rede para o Azure. Este artigo fornece uma descrição geral da solução Data Box Edge, os benefícios, as principais funções e os cenários nos quais pode implementar este dispositivo. 
 
 O Data Box Edge utiliza um dispositivo físico fornecido pela Microsoft para acelerar a transferência segura de dados. O dispositivo físico reside no local e escreve dados no mesmo com os protocolos NFS e SMB. 
 
 O Data Box Edge possui todas as funções de gateway do Data Box Gateway. Além disso, o Data Box está equipado com funções de computação de ponta ativadas por IA, que ajudam a analisar, processar ou filtrar dados à medida que são movidos para um blob de blocos, blob de páginas ou Ficheiros do Azure.  
-
-> [!IMPORTANT]
-> - O Data Box Edge está em Pré-visualização. [Inscreva-se](#sign-up) neste serviço!
-> - Reveja os [termos de utilização para a pré-visualização](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) antes de implementar esta solução.
-
 
 ## <a name="use-cases"></a>Casos de utilização
 
@@ -76,7 +71,7 @@ O dispositivo físico do Data Box Edge tem as seguintes funcionalidades:
 
 | Funcionalidades/especificações                                          | Descrição              |
 |---------------------------------------------------------|--------------------------|
-| Dimensões   | Largura: 43,8 cm (17.25") Profundidade: 69,2 cm (27.25") Altura: 4,4 cm (1.75")<br>(cabos dos auriculares e da PSU não incluídos)  |            
+| Dimensões   | Largura: 17.25" profundidade: 27.25" altura: 1.75”<br>(cabos dos auriculares e da PSU não incluídos)  |            
 | Espaço em rack|1U quando colocado no rack|
 | Cabos| 2 cabos de alimentação<br>2 cabos RJ45 de 1 Gbps<br>2 cabos de cobre SFP+ de 10 Gbps|
 | Componentes|2 unidades de alimentação de energia (PSUs) incorporadas|

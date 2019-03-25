@@ -6,16 +6,16 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: article
-ms.date: 03/11/2019
+ms.date: 03/22/2019
 ms.author: alkohli
-ms.openlocfilehash: e3a24117cfd01c1c0bd0f08e8eca5adddf5ee7b6
-ms.sourcegitcommit: f596d88d776a3699f8c8cf98415eb874187e2a48
+ms.openlocfilehash: 43de22f7e56178559df4fc45980d064962580d2b
+ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/16/2019
-ms.locfileid: "58119790"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58403396"
 ---
-# <a name="data-box-edge-security-and-data-protection-preview"></a>Segurança de borda de caixa de dados e proteção de dados (pré-visualização)
+# <a name="data-box-edge-security-and-data-protection"></a>Segurança de borda de caixa de dados e proteção de dados
 
 A segurança é uma preocupação importante quando uma nova tecnologia, especialmente se a tecnologia é utilizada com dados confidenciais ou proprietários. Solução de ponta de caixa de dados do Microsoft Azure ajuda a garantir que apenas as entidades autorizadas podem ver, modificar ou eliminar os seus dados.
 
@@ -27,9 +27,6 @@ A solução de borda de caixa de dados do Azure consiste em quatro componentes p
 - **Dispositivo de limite de caixa de dados** – o dispositivo de transferência que é enviado para si para importar os dados no local para o Azure.
 - **Os clientes/anfitriões ligados ao dispositivo** – os clientes na sua infraestrutura de que se ligam para o dispositivo de limite de caixa de dados e contêm dados que precisam ser protegido.
 - **Armazenamento na cloud** – A localização na cloud do Azure onde os dados são armazenados. Esta localização é, normalmente, a conta de armazenamento ligada para o recurso de borda de caixa de dados que criou.
-
-> [!IMPORTANT]
-> O Data Box Edge está em pré-visualização. Antes de pedir e implementar esta solução, reveja os [do Azure termos de serviço para pré-visualização](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). 
 
 
 ## <a name="data-box-edgedata-box-gateway-service-protection"></a>Proteção de serviço de Gateway de caixa de Edge/dados de caixa de dados
@@ -44,7 +41,7 @@ O serviço de Gateway de caixa de Edge/dados de caixa de dados é um serviço de
 O dispositivo de limite de caixa de dados é um dispositivo no local que ajuda a transformar os dados por processá-lo localmente e, em seguida, enviá-la para o Azure. O dispositivo:
 
 - Precisa de uma chave de ativação para aceder ao serviço de Gateway de caixa de Edge/dados de caixa de dados.
-- É protegida sempre por uma palavra-passe de administrador do dispositivo.
+- É protegida sempre por uma palavra-passe do dispositivo.
 - É um dispositivo bloqueado. O dispositivo BMC e BIOS estiver protegido por palavra-passe com acesso de usuário limitado para o BIOS.
 - Tem o arranque seguro ativado.
 - Executa o Windows Defender o Device Guard. O Device Guard permite que execute apenas aplicações fidedignas que define nas suas políticas de integridade de código. 
@@ -68,14 +65,14 @@ As palavras-passe Certifique-se de que os dados estão acessíveis aos utilizado
 Pode:
 
 - Ligar à IU do dispositivo através de um browser da web local e, em seguida, forneça uma palavra-passe para iniciar sessão no dispositivo.
-- Ligar remotamente à interface do PowerShell do dispositivo através de HTTP. Gestão remota está ativada por predefinição. Em seguida, pode fornecer a palavra-passe de administrador do dispositivo para iniciar sessão no dispositivo. Para obter mais informações, aceda a [ligar remotamente ao seu dispositivo Edge de caixa de dados](data-box-edge-connect-powershell-interface.md#connect-to-the-powershell-interface).
+- Ligar remotamente à interface do PowerShell do dispositivo através de HTTP. Gestão remota está ativada por predefinição. Em seguida, pode fornecer a palavra-passe do dispositivo para iniciar sessão no dispositivo. Para obter mais informações, aceda a [ligar remotamente ao seu dispositivo Edge de caixa de dados](data-box-edge-connect-powershell-interface.md#connect-to-the-powershell-interface).
 
 Mantenha as seguintes práticas recomendadas em mente:
 
 - O serviço de dados caixa Edge não é possível obter palavras-passe existentes: ele só pode repô-los através do portal do Azure. Recomendamos que armazene todas as senhas num local seguro para que não é necessário repor uma palavra-passe, se ele é esquecido. Ao repor uma palavra-passe, certifique-se de que notificar todos os utilizadores antes de repor-lo.
 - Utilização da interface do Usuário para o local da web [alterar a palavra-passe](data-box-gateway-manage-access-power-connectivity-mode.md#manage-device-access). Se alterar a palavra-passe, certifique-se de que todos os utilizadores de acesso remoto de notificar para que eles não se deparam com um falha de início de sessão.
 - Pode acessar a interface do Windows PowerShell do seu dispositivo remotamente através de HTTP. Como prática recomendada de segurança, deve usar HTTP apenas em redes fidedignas.
-- Certifique-se de que as palavras-passe de administrador de dispositivo são fortes e bem protegida. Siga os [melhores práticas de palavra-passe](https://docs.microsoft.com/azure/security/azure-security-identity-management-best-practices#enable-password-management).
+- Certifique-se de que as palavras-passe do dispositivo são fortes e bem protegida. Siga os [melhores práticas de palavra-passe](https://docs.microsoft.com/azure/security/azure-security-identity-management-best-practices#enable-password-management).
 
 ## <a name="protect-the-data"></a>Proteger os dados
 

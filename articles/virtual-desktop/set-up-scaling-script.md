@@ -1,22 +1,22 @@
 ---
-title: Dimensionar automaticamente os hosts de sessão - Azure
-description: Descreve como configurar o script de dimensionamento automático para hosts de sessão de área de Trabalho Virtual do Windows (pré-visualização).
+title: Dimensionar automaticamente os hosts de sessão do Windows Virtual Desktop Preview - Azure
+description: Descreve como configurar o script de dimensionamento automático para hosts de sessão do Windows Virtual Desktop Preview.
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: how-to
 ms.date: 03/21/2019
 ms.author: helohr
-ms.openlocfilehash: d800b45310ae476ec0c54460d9719c17e35dfe5a
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: bee02549d68b1dbdba3f0e62477b28bbd475ea32
+ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58318363"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58402495"
 ---
 # <a name="automatically-scale-session-hosts"></a>Dimensionar automaticamente os hosts de sessão
 
-Para muitas implementações de área de Trabalho Virtual do Windows no Azure, os custos de máquina virtual representam uma parte significativa do custo total para a implantação de área de Trabalho Virtual do Windows. Para reduzir os custos, é melhor encerrar e desalocar sessão alojar máquinas virtuais (VMs) durante o horário de pico de utilização, em seguida, reiniciá-las durante horas de pico.
+Para muitas implementações de pré-visualização de ambiente de Trabalho Virtual do Windows no Azure, os custos de máquina virtual representam uma parte significativa do custo total para a implantação de área de Trabalho Virtual do Windows. Para reduzir os custos, é melhor encerrar e desalocar sessão alojar máquinas virtuais (VMs) durante o horário de pico de utilização, em seguida, reiniciá-las durante horas de pico.
 
 Este artigo utiliza um script de dimensionamento simples para dimensionar automaticamente máquinas de virtuais de anfitrião de sessão no seu ambiente de área de Trabalho Virtual do Windows. Para saber mais sobre como funciona o script de dimensionamento, veja a [como funciona o dimensionamento script](#how-the-scaling-script-works) secção.
 

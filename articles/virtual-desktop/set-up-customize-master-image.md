@@ -1,22 +1,22 @@
 ---
 title: Preparar e personalizar uma imagem VHD principal - Azure
-description: Como preparar, personalizar e carregar uma imagem mestre da área de Trabalho Virtual do Windows (pré-visualização) para o Azure.
+description: Como preparar, personalizar e carregar uma imagem mestre da pré-visualização de área de Trabalho Virtual do Windows para o Azure.
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: how-to
 ms.date: 03/21/2019
 ms.author: helohr
-ms.openlocfilehash: 53bf33aad6511cc282f53659bbe43873cacfc3ff
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: ca186090f28f04811030e83b159782a9bfeb87f9
+ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58318423"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58400780"
 ---
 # <a name="prepare-and-customize-a-master-vhd-image"></a>Preparar e personalizar uma imagem VHD principal
 
-Este artigo lhe dirá como preparar uma imagem de disco rígido virtual (VHD) principal para carregamento para o Azure, incluindo como criar máquinas virtuais (VMs) e instalar e configurar o software nos mesmos. Estas instruções destinam-se uma configuração de ambiente de Trabalho Virtual do Windows-específicos (pré-visualização) que pode ser utilizada com os processos existentes da sua organização.
+Este artigo lhe dirá como preparar uma imagem de disco rígido virtual (VHD) principal para carregamento para o Azure, incluindo como criar máquinas virtuais (VMs) e instalar e configurar o software nos mesmos. Estas instruções destinam-se uma configuração específica de pré-visualização de área de Trabalho Virtual do Windows que pode ser utilizada com os processos existentes da sua organização.
 
 ## <a name="create-a-vm"></a>Criar uma VM
 
@@ -370,8 +370,8 @@ As instruções seguintes indicam como carregar sua imagem mestre para uma conta
 
 Agora que possui uma imagem, pode criar ou atualizar conjuntos de anfitrião. Para saber mais sobre como criar e atualizar conjuntos de anfitrião, veja os artigos seguintes:
 
-- [Criar um conjunto de anfitrião com um modelo do Azure Resource Manager (pré-visualização)](create-host-pools-arm-template.md)
-- [Tutorial: Criar um conjunto de anfitriões com o Azure Marketplace (pré-visualização)](create-host-pools-azure-marketplace.md)
-- [Criar um conjunto de anfitriões com o PowerShell (pré-visualização)](create-host-pools-powershell.md)
+- [Criar um conjunto de anfitrião com um modelo Azure Resource Manager](create-host-pools-arm-template.md)
+- [Tutorial: Criar um conjunto de anfitriões com o Azure Marketplace](create-host-pools-azure-marketplace.md)
+- [Criar um conjunto de anfitriões com o PowerShell](create-host-pools-powershell.md)
 - [Configurar uma partilha do perfil de utilizador para um conjunto de anfitrião](create-host-pools-user-profile.md)
 - [Configurar o método de balanceamento de carga de área de Trabalho Virtual do Windows](configure-host-pool-load-balancing.md)

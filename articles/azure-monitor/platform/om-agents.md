@@ -11,14 +11,14 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 11/23/2018
+ms.date: 03/22/2019
 ms.author: magoedte
-ms.openlocfilehash: 3e11c4dc8aa082723223fb998e599aa514febd3b
-ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
+ms.openlocfilehash: d2ecebf47c77baa81193939b64c27348541f7686
+ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58369973"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58403413"
 ---
 # <a name="connect-operations-manager-to-azure-monitor"></a>Ligar o Operations Manager para o Azure Monitor
 
@@ -43,9 +43,10 @@ Se as políticas de segurança de TI não permitir que os computadores na sua re
 ## <a name="prerequisites"></a>Pré-requisitos 
 Antes de começar, reveja os seguintes requisitos.
 
-* O Azure Monitor só suporta o System Center Operations Manager 1807, o Operations Manager 1801, o Operations Manager 2016, o Operations Manager 2012 SP1 UR6 ou posterior e o Operations Manager 2012 R2 UR2 ou posterior. Foi adicionado suporte de proxy ao Operations Manager 2012 SP1 UR7 e ao Operations Manager 2012 R2 UR3.
+* O Azure Monitor só suporta o System Center Operations Manager 2016 ou posterior, do Operations Manager 2012 SP1 UR6 ou posterior e o Operations Manager 2012 R2 UR2 ou posterior. Foi adicionado suporte de proxy ao Operations Manager 2012 SP1 UR7 e ao Operations Manager 2012 R2 UR3.
+* Integração do System Center Operations Manager 2016 com a cloud do Governo dos EUA requer um pacote de gestão do Advisor atualizado incluído com o Update Rollup 2 ou posterior. System Center Operations Manager 2012 R2 necessita de um pacote de gestão do Advisor atualizado incluído com o Update Rollup 3 ou posterior.
 * Todos os agentes do Operations Manager têm de cumprir os requisitos mínimos de suporte. Certifique-se de que agentes estão na mínima atualização, caso contrário a comunicação do agente de Windows pode falhar e gerar erros no registo de eventos do Operations Manager.
-* Uma área de trabalho do Log Analytics. Para obter mais informações, consulte [descrição geral de área de trabalho do Log Analytics](../../azure-monitor/platform/manage-access.md?toc=/azure/azure-monitor/toc.json).
+* Uma área de trabalho do Log Analytics. Para obter mais informações, consulte [descrição geral de área de trabalho do Log Analytics](../../azure-monitor/platform/manage-access.md?toc=/azure/azure-monitor/toc.json).   
 * Autenticar para o Azure com uma conta que seja membro dos [função de Contribuidor do Log Analytics](../../azure-monitor/platform/manage-access.md#manage-accounts-and-users).  
 
 >[!NOTE]

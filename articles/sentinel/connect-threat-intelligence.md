@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 2/28/2019
+ms.date: 3/20/2019
 ms.author: rkarlin
-ms.openlocfilehash: 2c5a7dc08886e21ef8e287540d9139ec555b11a2
-ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.openlocfilehash: bc8a644f99d9a84e1f2c177a87e2668ae9a57868
+ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/02/2019
-ms.locfileid: "57242297"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58400636"
 ---
 # <a name="collect-data-from-threat-intelligence-providers"></a>Recolher dados de fornecedores de inteligência de ameaças 
 
@@ -31,6 +31,8 @@ Depois de transmitir os dados em sentinela do Azure, pode enriquecê-lo com as i
 Para ativar cruzada verificar os alertas e as regras de inteligência de ameaças verdadeiro, por exemplo, se receber um alerta de um endereço IP específico, a integração de fornecedor de inteligência de ameaças poderá informá-lo a se esse endereço IP foi recentemente encontrado por serem mal-intencionados , Permite a integração com o azure Sentinel [fornecedores de inteligência de ameaças](https://aka.ms/graphsecuritytips). 
 
 Pode transmitir em fluxo registos de fornecedores de inteligência de ameaças em sentinela do Azure com um único clique. Esta ligação permite-lhe incorporar indicadores que contém vários tipos de observables, como o endereço IP, domínio, URL e hash de ficheiro para pesquisar e criar regras no Azure sentinela de alertas.  
+> [!NOTE]
+> Pode introduzir indicadores de ameaças personalizado no Azure sentinela para utilização em regras de alerta, dashboards e cenários de arquivo terá ao integrar com o [tiIndicator de segurança do Microsoft Graph](https://aka.ms/graphsecuritytiindicators) entidade ou utilizando um [Microsoft Gráfico de segurança integrado a plataforma de inteligência de ameaças](https://aka.ms/graphsecuritytips).
 
 ## <a name="prerequisites"></a>Pré-requisitos  
 

@@ -10,19 +10,18 @@ ms.topic: conceptual
 ms.date: 11/30/2018
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: 777aca4754d4d5dc893f930994ffe61db18362fd
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: ca3fd76cfeb09fe4e18a04bff38e166928ef38b2
+ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58089340"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58401784"
 ---
 # <a name="configure-the-resource-owner-password-credentials-flow-in-azure-ad-b2c"></a>Configurar o fluxo de credenciais de palavra-passe de proprietário do recurso no Azure AD B2C
 
 O fluxo de credenciais (ROPC) de palavra-passe de proprietário do recurso é um fluxo de autenticação padrão OAuth onde o aplicativo, também conhecido como a entidade confiadora, troca de credenciais válidas, como o ID de utilizador e palavra-passe para um token de ID, o token de acesso e um token de atualização. 
 
-> [!NOTE]
-> Esta funcionalidade está em pré-visualização.
+[!INCLUDE [active-directory-b2c-public-preview](../../includes/active-directory-b2c-public-preview.md)]
 
 No Azure Active Directory (Azure AD) B2C, são suportadas as seguintes opções:
 

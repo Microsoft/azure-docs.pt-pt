@@ -6,22 +6,18 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: overview
-ms.date: 03/11/2019
+ms.date: 03/20/2019
 ms.author: alkohli
-ms.openlocfilehash: 79648e30e832a056016b8842fdc39e27e206c9ee
-ms.sourcegitcommit: b8f9200112cae265155b8877f7e1621c4bcc53fc
+ms.openlocfilehash: ec5fbffdf7df5ef3a952e21b79ab02f355fb8e29
+ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/14/2019
-ms.locfileid: "57896143"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58403651"
 ---
 # <a name="use-the-azure-portal-to-manage-shares-on-your-azure-data-box-edge"></a>Utilizar o portal do Azure para gerir partilhas no seu limite de caixa de dados do Azure
 
 Este artigo descreve como gerir partilhas no seu limite de caixa de dados do Azure. Pode gerir o limite de caixa de dados do Azure através do portal do Azure ou através do local da interface do Usuário da web. Utilize o portal do Azure para adicionar, eliminar, atualizar partilhas ou sincronizar a chave de armazenamento para a conta de armazenamento associada com as partilhas.
-
-> [!IMPORTANT]
-> O Data Box Edge está em pré-visualização. Reveja os [Termos de serviço do Azure para pré-visualização](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) antes de encomendar e implementar esta solução.
-
 
 ## <a name="about-shares"></a>Sobre as partilhas
 
@@ -67,8 +63,10 @@ Efetue os seguintes passos no portal do Azure para criar uma partilha.
 
         ![Adicionar uma partilha NFS](media/data-box-edge-manage-shares/add-nfs-share.png)
 
-7. Clique em **Criar** para criar a partilha. Será notificado de que a criação da partilha está em curso. Depois de criar a partilha com as definições especificadas, o painel **Partilhas** é atualizado para refletir a nova partilha.
- 
+7. Para aceder facilmente às partilhas de módulos de computação do Edge, utilize o ponto de montagem local. Selecione **utilize a partilha com a computação de borda** para que a partilha está automaticamente montado após a criação. Quando esta opção está selecionada, o módulo de borda também pode utilizar a computação com o ponto de montagem local.
+
+8. Clique em **Criar** para criar a partilha. Será notificado de que a criação da partilha está em curso. Depois de criar a partilha com as definições especificadas, o painel **Partilhas** é atualizado para refletir a nova partilha.
+
 ## <a name="add-a-local-share"></a>Adicionar uma partilha local
 
 1. No portal do Azure, aceda ao seu recurso de borda de caixa de dados e, em seguida, aceda a **Gateway > partilhas**. Selecione **+ Adicionar partilha** na barra de comandos.
@@ -93,11 +91,32 @@ Efetue os seguintes passos no portal do Azure para criar uma partilha.
 
     Verá uma notificação a indicar que a criação de partilha está em curso. Depois de criar a partilha com as definições especificadas, o painel **Partilhas** é atualizado para refletir a nova partilha.
 
-    ![Ver o painel de partilhas de atualizações](media/data-box-edge-manage-shares/add-local-share-4.png)
+    ![Ver o painel de partilhas de atualizações](media/data-box-edge-manage-shares/add-local-share-3.png)
     
     Selecione a partilha para ver o ponto de montagem local para os módulos de computação do Edge para esse compartilhamento.
 
     ![Ver detalhes da partilha local](media/data-box-edge-manage-shares/add-local-share-4.png)
+
+
+## <a name="unmount-a-share"></a>Desmonte uma partilha
+
+Execute os seguintes passos no portal do Azure para desmontar uma partilha.
+
+1. No portal do Azure, aceda ao seu recurso de borda de caixa de dados e, em seguida, aceda a **Gateway > partilhas**.
+
+    ![Selecionar partilha](media/data-box-edge-manage-shares/select-share-unmount.png)
+
+2. Na lista de partilhas de, selecione a partilha que pretende desmontar. Pretende certificar-se de que a partilha de que desmontar não é utilizada por quaisquer módulos. Se a partilha é utilizada por um módulo, em seguida, irá ver problemas com o módulo correspondente. Selecione **desmontar**.
+
+    ![Selecione desmontar](media/data-box-edge-manage-shares/select-unmount.png)
+
+3. Quando lhe for pedida confirmação, selecione **Sim**. Isto irá desmontar a partilha.
+
+    ![Confirmar desmontar](media/data-box-edge-manage-shares/confirm-unmount.png)
+
+4. Depois da partilha é desmontada, vá para a lista de partilhas. Verá que **utilizado para computação** coluna mostra o estado de partilha como **desativado**.
+
+    ![Desmontar a partilha](media/data-box-edge-manage-shares/share-unmounted.png)
 
 ## <a name="delete-a-share"></a>Eliminar uma partilha
 

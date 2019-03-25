@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/26/2018
+ms.date: 3/20/2019
 ms.author: rkarlin
-ms.openlocfilehash: 15707e9854e79b3aa05ff9024fc5b3c7a38fa8f2
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: c0c37724e61490c8c33b5e2d37879549bbc6d7ce
+ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56106890"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58402121"
 ---
 # <a name="customize-os-security-configurations-in-azure-security-center-preview"></a>Personalizar as configurações de segurança de SO no Centro de segurança do Azure (pré-visualização)
 
@@ -112,7 +112,7 @@ Cada categoria tem seu próprio conjunto de atributos. Pode alterar os seguintes
 
     - Lista de grupos de utilizadores permitidos, por exemplo: *Os administradores*, *operadores de cópia de segurança*
 
--   **state**: A cadeia de caracteres pode conter as opções *desativada* ou *ativado*. Para esta versão de pré-visualização privada, a cadeia de caracteres diferencia maiúsculas de minúsculas.
+-   **state**: A cadeia de caracteres pode conter as opções *desativada* ou *ativado*. Nesta versão, a cadeia de caracteres diferencia maiúsculas de minúsculas.
 
 Estes são os campos únicos que podem ser configurados. Se violar o formato de ficheiro ou o tamanho, não será possível guardar a alteração. Receberá uma mensagem de erro informando que terá de carregar um ficheiro de configuração JSON válido.
 
@@ -281,7 +281,7 @@ Todos os erros potenciais estão listados na tabela a seguir:
 | BaselineRuleCceIdNotUniqueError          | O ID do CCE *{0}* não é exclusivo.                                                                                                                  |
 | BaselineRuleEmptyProperty                | A propriedade *{0}* está em falta ou é inválido.                                                                                                       |
 | BaselineRuleIdNotInDefault               | A regra tem uma propriedade de origem *Microsoft* mas não foi encontrada no conjunto de regras de predefinição da Microsoft.                                                   |
-| BaselineRuleIdNotUniqueError             | A Id de regra não é exclusiva.                                                                                                                       |
+| BaselineRuleIdNotUniqueError             | O ID da regra não é exclusivo.                                                                                                                       |
 | BaselineRuleInvalidGuid                  | A propriedade *{0}* foi encontrado inválido. O valor não é um GUID válido.                                                                             |
 | BaselineRuleInvalidHive                  | O ramo de registo tem de ser LocalMachine.                                                                                                                   |
 | BaselineRuleNameNotUniqueError           | O nome da regra não é exclusivo.                                                                                                                 |

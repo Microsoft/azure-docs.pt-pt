@@ -6,16 +6,16 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: article
-ms.date: 01/31/2019
+ms.date: 03/19/2019
 ms.author: alkohli
-ms.openlocfilehash: 81407a298ccfe1b9884fc5d5b815ac8c18ffee6a
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 522dddde4994bb019e6547fcd18465b201f048d8
+ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58094682"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58401732"
 ---
-# <a name="develop-a-c-iot-edge-module-to-move-files-on-data-box-edge-preview"></a>Desenvolver um módulo de c# IoT Edge para mover ficheiros do Edge de caixa de dados (pré-visualização)
+# <a name="develop-a-c-iot-edge-module-to-move-files-on-data-box-edge"></a>Desenvolver um C# módulo do IoT Edge para mover ficheiros no limite da caixa de dados
 
 Este artigo descreve como criar um módulo do IoT Edge para a implementação com o seu dispositivo Edge de caixa de dados. O Azure Data Box Edge é uma solução de armazenamento que permite processar dados e enviá-los através de uma rede para o Azure.
 
@@ -27,19 +27,13 @@ Neste artigo, vai aprender a:
 > * Crie um registo de contentores para armazenar e gerir os seus módulos de hardware (imagens do Docker).
 > * Crie um módulo do IoT Edge para implementar no seu dispositivo Edge de caixa de dados.
 
-> [!IMPORTANT]
-> O Data Box Edge está em pré-visualização. Reveja os [Termos de serviço do Azure para pré-visualização](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) antes de encomendar e implementar esta solução. 
 
 ## <a name="about-the-iot-edge-module"></a>Sobre o módulo do IoT Edge
 
 O dispositivo do Edge de caixa de dados pode implementar e executar os módulos do IoT Edge. Módulos do Edge são, essencialmente, os contentores de Docker que executam uma tarefa específica, tal como uma mensagem a partir de um dispositivo de ingestão, transformar uma mensagem ou enviam uma mensagem para um IoT Hub. Neste artigo, irá criar um módulo que copia ficheiros a partir de uma partilha local para uma partilha de cloud no seu dispositivo Edge de caixa de dados.
 
 1. Ficheiros são escritos para a partilha local no seu dispositivo do Edge de caixa de dados.
-2. O gerador de eventos do ficheiro cria um evento de ficheiro para cada ficheiro escrito para a partilha local. Os eventos de ficheiro, em seguida, são enviados para o Hub do IoT Edge (no runtime do IoT Edge).
-
-   > [!IMPORTANT]
-   > Os eventos de ficheiro são gerados apenas para os ficheiros recentemente criados. Modificação de arquivos existentes não gera quaisquer eventos de ficheiro.
-
+2. O gerador de eventos do ficheiro cria um evento de ficheiro para cada ficheiro escrito para a partilha local. Os eventos de arquivo também são gerados quando um ficheiro é modificado. Os eventos de ficheiro, em seguida, são enviados para o Hub do IoT Edge (no runtime do IoT Edge).
 3. O módulo personalizado do IoT Edge processa o evento de arquivo para criar um objeto de evento de ficheiro que também contém um caminho relativo para o ficheiro. O módulo gera um caminho absoluto através do caminho de ficheiro relativo e copia o ficheiro da partilha de local para a partilha de cloud. O módulo, em seguida, elimina o ficheiro da partilha local.
 
 ![Como funciona o módulo do Azure IoT Edge no limite da caixa de dados](./media/data-box-edge-create-iot-edge-module/how-module-works.png)
@@ -52,8 +46,9 @@ Antes de começar, certifique-se de que tem:
 
 - Um dispositivo de limite de caixa de dados que está a executar.
 
-    - O dispositivo também tem um recurso do IoT Hub associado. Para obter mais informações, aceda a [criar um recurso do IoT Hub](data-box-edge-deploy-configure-compute.md#create-an-iot-hub-resource) para dados de caixa de extremidade.
-    - O dispositivo tem o limite configurada de função de computação. Para obter mais informações, aceda a [configurar a função de computação](data-box-edge-deploy-configure-compute.md#set-up-compute-role) na extremidade da caixa de dados.
+    - O dispositivo também tem um recurso do IoT Hub associado.
+    - O dispositivo tem o limite configurada de função de computação.
+    Para obter mais informações, aceda a [configurar computação](data-box-edge-deploy-configure-compute.md#configure-compute) para dados de caixa de extremidade.
 
 - Os seguintes recursos de desenvolvimento:
 
@@ -128,7 +123,7 @@ Crie um modelo de solução C# que pode personalizar com o seu próprio código.
 
 ### <a name="update-the-module-with-custom-code"></a>Atualizar o módulo com o código personalizado
 
-1. No Explorador do VS Code, abra **módulos > CSharpModule > Program.cs**.
+1. No Explorador do VS Code, abra **módulos > FileCopyModule > Program.cs**.
 2. Na parte superior a **FileCopyModule espaço de nomes**, adicione as seguintes instruções "using" para tipos que são utilizados mais tarde. **Microsoft.Azure.Devices.Client.Transport.Mqtt** é um protocolo para enviar mensagens para o Hub do IoT Edge.
 
     ```
@@ -141,12 +136,9 @@ Crie um modelo de solução C# que pode personalizar com o seu próprio código.
     class Program
         {
             static int counter;
-            private const string InputFolderPath = "/home/LocalShare";
-            private const string OutputFolderPath = "/home/CloudShare";
+            private const string InputFolderPath = "/home/input";
+            private const string OutputFolderPath = "/home/output";
     ```
-
-    > [!IMPORTANT]
-    > Anote o `InputFolderPath` e o `OutputFolderPath`. Terá de fornecer estes caminhos, ao implementar este módulo.
 
 4. Adicionar a **MessageBody** classe à classe Program. Estas classes definem o esquema esperado para o corpo das mensagens a receber.
 
@@ -189,7 +181,7 @@ Crie um modelo de solução C# que pode personalizar com o seu próprio código.
 6. Insira o código para **filecopy sem êxito**.
 
     ```
-            /// <summary>
+        /// <summary>
         /// This method is called whenever the module is sent a message from the IoT Edge Hub. 
         /// This method deserializes the file event, extracts the corresponding relative file path, and creates the absolute input file path using the relative file path and the InputFolderPath.
         /// This method also forms the absolute output file path using the relative file path and the OutputFolderPath. It then copies the input file to output file and deletes the input file after the copy is complete.
@@ -241,8 +233,6 @@ Crie um modelo de solução C# que pode personalizar com o seu próprio código.
             Console.WriteLine($"Processed event.");
             return MessageResponse.Completed;
         }
-
-    }
     ```
 
 7. Guarde este ficheiro.
@@ -251,7 +241,8 @@ Crie um modelo de solução C# que pode personalizar com o seu próprio código.
 
 Na secção anterior, criou uma solução de IoT Edge e adicionado o código para o FileCopyModule para copiar ficheiros de partilha local para a partilha de cloud. Agora, tem de criar a solução como uma imagem de contentor e enviá-la para o registo de contentor.
 
-1. Introduza o comando seguinte no terminal integrado do Visual Studio Code e inicie sessão no Docker.
+1. No VSCode, vá para o Terminal > novo Terminal para abrir um novo terminal integrado do Visual Studio Code.
+2. Inicie sessão no Docker, introduzindo o seguinte comando no terminal integrado.
 
     `docker login <ACR login server> -u <ACR username>`
 
@@ -282,4 +273,4 @@ Na secção anterior, criou uma solução de IoT Edge e adicionado o código par
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-Para implementar e executar este módulo do Edge de caixa de dados, veja os passos em [adicionar um módulo personalizado](data-box-edge-deploy-configure-compute.md#add-a-custom-module).
+Para implementar e executar este módulo do Edge de caixa de dados, veja os passos em [adicionar um módulo](data-box-edge-deploy-configure-compute.md#add-a-module).

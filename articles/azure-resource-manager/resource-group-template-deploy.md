@@ -1,6 +1,6 @@
 ---
 title: Implementar recursos com o PowerShell e o modelo | Documentos da Microsoft
-description: Utilize o Azure Resource Manager e o Azure PowerShell para implementar um recursos no Azure. Os recursos são definidos num modelo do Resource Manager.
+description: Utilize o Azure Resource Manager e o Azure PowerShell para implementar recursos no Azure. Os recursos são definidos num modelo do Resource Manager.
 services: azure-resource-manager
 documentationcenter: na
 author: tfitzmac
@@ -10,38 +10,51 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/30/2019
+ms.date: 03/22/2019
 ms.author: tomfitz
-ms.openlocfilehash: daeff897cf284df6e820afbcdd35ee54bf88db08
-ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
+ms.openlocfilehash: 8005b187f300375b62c254516a61f4993675b0b9
+ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57405407"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58403113"
 ---
 # <a name="deploy-resources-with-resource-manager-templates-and-azure-powershell"></a>Implementar recursos com modelos do Resource Manager e do Azure PowerShell
 
 Saiba como utilizar o Azure PowerShell com modelos do Resource Manager para implementar os seus recursos no Azure. Para obter mais informações sobre os conceitos de implantar e gerenciar suas soluções do Azure, consulte [descrição geral do Azure Resource Manager](resource-group-overview.md).
 
-Para implementar um modelo, normalmente, tem duas etapas:
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-1. Crie um grupo de recursos. Grupo de recursos funciona como contêiner para os recursos implementados. O nome do grupo de recursos só pode incluir carateres alfanuméricos, pontos finais, carateres de sublinhado, hífenes e parênteses. Pode ser até 90 carateres. Não pode terminar com um período.
-2. Implemente um modelo. O modelo define os recursos para criar.  A implementação cria os recursos no grupo de recursos especificado.
+## <a name="deployment-scope"></a>Escopo da implantação
 
-Este método de implementação de dois passos é utilizado neste artigo.  A outra opção é implementar um grupo de recursos e os recursos ao mesmo tempo.  Para obter mais informações, consulte [criar o grupo de recursos e implementar recursos](./deploy-to-subscription.md#create-resource-group-and-deploy-resources).
+Pode direcionar a sua implementação para uma subscrição do Azure ou um grupo de recursos numa subscrição. Na maioria dos casos, será o direcionamento de implementação para um grupo de recursos. Utilize implementações de subscrição para aplicar políticas e as atribuições de funções a subscrição. Também utilizar implementações de subscrição para criar um grupo de recursos e implementar recursos no mesmo. Dependendo do escopo da implantação, é usar comandos diferentes.
+
+Para implementar um **grupo de recursos**, utilize [New-AzResourceGroupDeployment](/powershell/module/az.resources/new-azresourcegroupdeployment):
+
+```azurepowershell
+New-AzResourceGroupDeployment -ResourceGroupName <resource-group-name> -TemplateFile <path-to-template>
+```
+
+Para implementar um **subscrição**, utilize [New-AzDeployment](/powershell/module/az.resources/new-azdeployment):
+
+```azurepowershell
+New-AzDeployment -Location <location> -TemplateFile <path-to-template>
+```
+
+Os exemplos neste artigo utilizam implementações do grupo de recursos. Para obter mais informações sobre implementações de subscrição, veja [criar grupos de recursos e recursos ao nível da subscrição](deploy-to-subscription.md).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
+Precisa de um modelo para implementar. Se ainda não tiver uma, transferir e guardar um [modelo de exemplo](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-storage-account-create/azuredeploy.json) do repositório de modelos de início rápido do Azure. O nome de ficheiro local utilizado neste artigo é **c:\MyTemplates\azuredeploy.json**.
+
 A menos que utilize o [do Azure Cloud shell](#deploy-templates-from-azure-cloud-shell) para implementar modelos, tem de instalar o Azure PowerShell e ligue-se para o Azure:
+
 - **Instale cmdlets Azure PowerShell no seu computador local.** Para obter mais informações, veja [Introdução ao Azure PowerShell](/powershell/azure/get-started-azureps).
 - **Ligar ao Azure, utilizando [Connect-AZAccount](/powershell/module/az.accounts/connect-azaccount)**. Se tiver várias subscrições do Azure, também poderá ter de ser executado [Set-AzContext](/powershell/module/Az.Accounts/Set-AzContext). Para obter mais informações, consulte [utilizar várias subscrições do Azure](/powershell/azure/manage-subscriptions-azureps).
-- * A transferir e guardar um [modelo de início rápido](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-storage-account-create/azuredeploy.json) . O nome de ficheiro local utilizado neste artigo é **c:\MyTemplates\azuredeploy.json**.
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+## <a name="deploy-local-template"></a>Implementar o modelo de local
 
-## <a name="deploy-templates-stored-locally"></a>Implementar modelos armazenados localmente
-
-O exemplo seguinte cria um grupo de recursos e implementa um modelo a partir do seu computador local:
+O exemplo seguinte cria um grupo de recursos e implementa um modelo a partir do seu computador local. O nome do grupo de recursos só pode incluir carateres alfanuméricos, pontos finais, carateres de sublinhado, hífenes e parênteses. Pode ser até 90 carateres. Não pode terminar com um período.
 
 ```azurepowershell
 $resourceGroupName = Read-Host -Prompt "Enter the Resource Group name"
@@ -52,11 +65,9 @@ New-AzResourceGroupDeployment -ResourceGroupName $resourceGroupName `
   -TemplateFile c:\MyTemplates\azuredeploy.json
 ```
 
-Tenha em atenção *c:\MyTemplates\azuredeploy.json* é um modelo de início rápido.  Veja [Pré-requisitos](#prerequisites).
-
 A implementação pode demorar alguns minutos a concluir.
 
-## <a name="deploy-templates-stored-externally"></a>Implementar modelos armazenados externamente
+## <a name="deploy-remote-template"></a>Implementar modelo remoto
 
 Em vez de armazenar modelos do Resource Manager no seu computador local, pode armazená-las num local externo. Pode armazenar modelos num repositório de controle de origem (por exemplo, o GitHub). Em alternativa, pode armazená-los numa conta de armazenamento do Azure para acesso partilhado na sua organização.
 
@@ -73,7 +84,7 @@ New-AzResourceGroupDeployment -ResourceGroupName $resourceGroupName `
 
 O exemplo anterior exige um URI publicamente acessível para o modelo, que funciona na maioria dos cenários, porque o modelo não deve incluir dados confidenciais. Se tiver de especificar os dados confidenciais (como uma palavra-passe de administrador), passe esse valor como um parâmetro seguro. No entanto, se não pretender que o modelo para estar acessível publicamente, pode protegê-los armazenando-os num contentor do armazenamento privado. Para obter informações sobre como implementar um modelo que precisa de um token de assinatura (SAS) de acesso partilhado, consulte [implementar modelo privado com o SAS token](resource-manager-powershell-sas-token.md). Para seguir um tutorial, veja [Tutorial: Integrar o Azure Key Vault na implementação de modelo do Resource Manager](./resource-manager-tutorial-use-key-vault.md).
 
-## <a name="deploy-templates-from-azure-cloud-shell"></a>Implementar modelos do Azure Cloud shell
+## <a name="deploy-from-azure-cloud-shell"></a>Implementar a partir do Azure Cloud shell
 
 Pode utilizar o [Azure Cloud Shell](https://shell.azure.com) para implementar o modelo. Para implementar um modelo externo, forneça o URI do modelo. Para implementar um modelo de local, primeiro tem de carregar o modelo para a conta de armazenamento para o Cloud Shell. Para carregar ficheiros para o shell, selecione o **carregar/transferir ficheiros** ícone de menu da janela do shell.
 
@@ -89,10 +100,6 @@ New-AzResourceGroupDeployment -ResourceGroupName $resourceGroupName `
 ```
 
 Colar o código no shell, clique com o botão direito dentro do shell e, em seguida, selecione **colar**.
-
-## <a name="deploy-to-multiple-resource-groups-or-subscriptions"></a>Implementar para vários grupos de recursos ou subscrições
-
-Normalmente, implementa todos os recursos no seu modelo para um grupo de recursos. No entanto, existem cenários onde pretende implementar um conjunto de recursos em conjunto, mas colocá-los em diferentes grupos de recursos ou subscrições. Pode implementar em apenas cinco grupos de recursos numa única implementação. Para obter mais informações, consulte [recursos do Azure implementar a vários grupos de recursos e subscrições](resource-manager-cross-resource-group-deployment.md).
 
 ## <a name="redeploy-when-deployment-fails"></a>Implementar novamente quando ocorre uma falha de implementação
 
