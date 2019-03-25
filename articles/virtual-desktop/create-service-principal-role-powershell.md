@@ -1,22 +1,22 @@
 ---
-title: Criar principais de serviço e as atribuições de funções com o PowerShell (pré-visualização) - Azure
-description: Como criar principais de serviço e atribuir funções com o PowerShell no ambiente de Trabalho Virtual do Windows.
+title: Criar principais de serviço de pré-visualização de ambiente de Trabalho Virtual do Windows e as atribuições de funções com o PowerShell - Azure
+description: Como criar principais de serviço e atribuir funções com o PowerShell no Windows Virtual Desktop Preview.
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: tutorial
 ms.date: 03/21/2019
 ms.author: helohr
-ms.openlocfilehash: 86dafa5ccfb28a174a268c23d7dbc847272aaa3f
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: 1bbe89484d72a21c4432d452d4ddae83ea2d2553
+ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58318149"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58400030"
 ---
 # <a name="tutorial-create-service-principals-and-role-assignments-with-powershell"></a>Tutorial: Criar principais de serviço e as atribuições de funções com o PowerShell
 
-Principais de serviço são identidades que pode criar no Azure Active Directory para atribuir funções e permissões para um fim específico. No Desktop Virtual do Windows (pré-visualização), pode criar um principal de serviço para:
+Principais de serviço são identidades que pode criar no Azure Active Directory para atribuir funções e permissões para um fim específico. No Windows Virtual Desktop Preview, pode criar um serviço principal para:
 
 - Automatizar tarefas de gestão de área de Trabalho Virtual do Windows específicas
 - Utilizar como credenciais em vez de utilizadores necessário de MFA durante a execução de qualquer modelo de Windows Virtual Desktop Azure Resource Manager
@@ -58,7 +58,7 @@ $svcPrincipal = New-AzureADApplication -AvailableToOtherTenants $true -DisplayNa
 $svcPrincipalCreds = New-AzureADApplicationPasswordCredential -ObjectId $svcPrincipal.ObjectId
 ```
 
-## <a name="create-a-role-assignment-in-windows-virtual-desktop"></a>Criar uma atribuição de função na área de Trabalho Virtual do Windows
+## <a name="create-a-role-assignment-in-windows-virtual-desktop-preview"></a>Criar uma atribuição de função no Windows Virtual Desktop pré-visualização
 
 Agora que criou um serviço principal, pode utilizá-lo para iniciar sessão na área de Trabalho Virtual do Windows. Certifique-se de iniciar sessão com uma conta que tenha permissões para criar a atribuição de função.
 
@@ -112,4 +112,4 @@ Seguem-se as credenciais de três que deve escrever para baixo e os cmdlets que 
 Neste tutorial, aprendeu a criar principal de um serviço e inicie sessão na área de Trabalho Virtual do Windows com o mesmo. Para saber mais sobre como iniciar sessão área de Trabalho Virtual do Windows, avance para ligar ao Windows procedimentos de ambiente de Trabalho Virtual.
 
 - [Ligar para o cliente de ambiente de trabalho remoto no Windows 7 e Windows 10](connect-windows-7-and-10.md)
-- [Ligar para o cliente de web de área de Trabalho Virtual do Windows](connect-web.md)
+- [Ligar para o cliente de web do Windows Virtual Desktop pré-visualização](connect-web.md)

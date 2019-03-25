@@ -1,22 +1,22 @@
 ---
-title: Criar um conjunto de anfitriões com o Azure Marketplace (pré-visualização) - Azure
-description: Como criar um conjunto de anfitrião de área de Trabalho Virtual do Windows com o Azure Marketplace.
+title: Criar um conjunto de anfitrião de pré-visualização de ambiente de trabalho virtuais Windows com o Azure Marketplace - Azure
+description: Como criar um conjunto de anfitrião de pré-visualização de ambiente de trabalho virtuais Windows com o Azure Marketplace.
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: tutorial
 ms.date: 03/21/2019
 ms.author: helohr
-ms.openlocfilehash: a1d172f219580b390ba4855928d6f6a68c8269b9
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: cc404c84bf855ab6e49d13207f40b9faa32cdbb2
+ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58318114"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58399877"
 ---
-# <a name="tutorial-create-a-host-pool-with-azure-marketplace-preview"></a>Tutorial: Criar um conjunto de anfitriões com o Azure Marketplace (pré-visualização)
+# <a name="tutorial-create-a-host-pool-with-azure-marketplace"></a>Tutorial: Criar um conjunto de anfitriões com o Azure Marketplace
 
-Conjuntos de anfitrião são uma coleção de um ou mais máquinas virtuais idênticas em ambientes de inquilino (pré-visualização) de área de Trabalho Virtual do Windows. Cada conjunto de anfitrião pode conter um grupo de aplicações que os usuários podem interagir com como numa área de trabalho física.
+Conjuntos de anfitrião são uma coleção de um ou mais máquinas virtuais idênticas em ambientes de inquilino do Windows Virtual Desktop Preview. Cada conjunto de anfitrião pode conter um grupo de aplicações que os usuários podem interagir com como numa área de trabalho física.
 
 Este artigo descreve como criar um conjunto de anfitriões dentro de um inquilino de área de Trabalho Virtual do Windows através de uma oferta do Microsoft Azure Marketplace. Isto inclui a criação de um conjunto de anfitrião no Windows área de Trabalho Virtual, criar um grupo de recursos com as VMs numa subscrição do Azure, adicionar essas VMs ao domínio do Active Directory e registar as VMs com a área de Trabalho Virtual do Windows.
 
@@ -64,7 +64,7 @@ Para o painel de definição de Máquina Virtual:
 3. Selecione a rede virtual que tem conetividade ao servidor do Active Directory, em seguida, escolha uma sub-rede para alojar as máquinas virtuais.
 4. Selecione **OK**.
 
-### <a name="windows-virtual-desktop-tenant-information"></a>Informações de inquilino de área de Trabalho Virtual do Windows
+### <a name="windows-virtual-desktop-preview-tenant-information"></a>Informações de inquilino do Windows Virtual Desktop pré-visualização
 
 Para o painel de informações do inquilino de área de Trabalho Virtual do Windows:
 
