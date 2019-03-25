@@ -1,0 +1,434 @@
+items:
+- name: Documentação do StorSimple
+  href: index.md
+- name: Matriz Virtual do StorSimple
+  items:
+  - name: Descrição geral
+    items:
+    - name: Qual é a solução?
+      href: storsimple-ova-overview.md
+  - name: Introdução
+    items:
+    - name: Planear
+      items:
+      - name: Rever requisitos
+        href: storsimple-ova-system-requirements.md
+      - name: Compreender os limites
+        href: storsimple-ova-limits.md
+      - name: Consultar as melhores práticas
+        href: storsimple-ova-best-practices.md
+    - name: Implementação
+      items:
+      - name: Preparar para implementar
+        href: storsimple-virtual-array-deploy1-portal-prep.md
+        items:
+        - name: Implementar o serviço StorSimple Manager
+          href: storsimple-virtual-array-manage-service.md
+        - name: Nova autenticação
+          href: storsimple-virtual-array-aad-registration-key.md
+      - name: Aprovisionamento no Hyper-V
+        href: storsimple-virtual-array-deploy2-provision-hyperv.md
+      - name: Aprovisionamento no VMware
+        href: storsimple-virtual-array-deploy2-provision-vmware.md
+      - name: Configurar como servidor de ficheiros
+        href: storsimple-virtual-array-deploy3-fs-setup.md
+      - name: Configurar como servidor iSCSI
+        href: storsimple-virtual-array-deploy3-iscsi-setup.md
+  - name: Procedimento
+    items:
+    - name: Gerir através do portal do Azure
+      href: storsimple-virtual-array-manager-service-administration.md
+      items:
+      - name: Instalar a atualização mais recente
+        href: storsimple-virtual-array-install-update-11.md
+        items:
+        - name: Instalar Atualização 1
+          href: storsimple-virtual-array-install-update-1.md
+        - name: Instalar Atualização 0.6
+          href: storsimple-virtual-array-install-update-06.md
+        - name: Arquivo
+          items:
+          - name: Instalar Atualização 0.5
+            href: storsimple-virtual-array-install-update-05.md
+          - name: Instalar Atualização 0.4
+            href: storsimple-virtual-array-install-update-04.md
+          - name: Instalar Atualização 0.3
+            href: storsimple-virtual-array-install-update.md
+      - name: Criar e gerir cópias de segurança
+        href: storsimple-virtual-array-backup.md
+      - name: Clonar a partir de cópias de segurança
+        href: storsimple-virtual-array-clone.md
+      - name: Ativação Pós-falha e DR
+        href: storsimple-virtual-array-failover-dr.md
+      - name: Desativar e eliminar
+        href: storsimple-virtual-array-deactivate-and-delete-device.md
+      - name: Gerir partilhas
+        href: storsimple-virtual-array-manage-shares.md
+      - name: Gerir volumes
+        href: storsimple-virtual-array-manage-volumes.md
+      - name: Ver resumo do serviço
+        href: storsimple-virtual-array-service-summary.md
+      - name: Ver resumo do dispostivo
+        href: storsimple-virtual-array-device-summary.md
+      - name: Gerir contas de armazenamento
+        href: storsimple-virtual-array-manage-storage-accounts.md
+      - name: Gerir ACRs
+        href: storsimple-virtual-array-manage-acrs.md
+      - name: Gerir tarefas
+        href: storsimple-virtual-array-manage-jobs.md
+      - name: Alterar a palavra-passe do dispositivo
+        href: storsimple-virtual-array-change-device-admin-password.md
+      - name: Monitorizar através de alertas
+        href: storsimple-virtual-array-manage-alerts.md
+      - name: Diagnosticar e resolver problemas
+        href: storsimple-virtual-array-diagnose-problems.md
+      - name: Registar Pedido de suporte
+        href: storsimple-virtual-array-log-support-ticket.md
+    - name: Configurar através de uma IU Web local
+      href: storsimple-ova-web-ui-admin.md
+  - name: Notas de versão
+    items:
+    - name: Atualização 1.1 - atual
+      href: storsimple-virtual-array-update-11-release-notes.md
+    - name: Atualização 1
+      href: storsimple-virtual-array-update-1-release-notes.md
+    - name: Atualização 0.6
+      href: storsimple-virtual-array-update-06-release-notes.md
+    - name: Arquivo
+      items:
+      - name: Atualização 0.5
+        href: storsimple-virtual-array-update-05-release-notes.md
+      - name: Atualização 0.4
+        href: storsimple-virtual-array-update-04-release-notes.md
+      - name: Atualização 0.3
+        href: storsimple-ova-update-03-release-notes.md
+      - name: Atualização 0.2 e 0.1
+        href: storsimple-ova-update-01-release-notes.md
+- name: StorSimple Série 8000 (portal do Azure)
+  items:
+  - name: Descrição geral
+    items:
+    - name: Qual é a solução?
+      href: storsimple-overview.md
+    - name: Comparar as opções de transferência de dados
+      href: storsimple-8000-choose-storage-solution.md
+    - name: Mapa de aprendizagem do StorSimple
+      href: https://azure.microsoft.com/documentation/learning-paths/storsimple-typical/
+    - name: Considerações de segurança
+      href: storsimple-8000-security.md
+    - name: Disponibilidade de região
+      href: storsimple-regions.md
+  - name: Introdução
+    items:
+    - name: Planear
+      items:
+      - name: Rever requisitos
+        href: storsimple-8000-system-requirements.md
+      - name: Consultar as especificações técnicas
+        href: storsimple-8000-technical-specifications-and-compliance.md
+      - name: Compreender os limites
+        href: storsimple-8000-limits.md
+      - name: Melhores práticas
+        href: https://gallery.technet.microsoft.com/Azure-StorSimple-8000-72b01b68
+    - name: Instalar
+      items:
+      - name: Consultar segurança
+        href: storsimple-8000-safety.md
+      - name: Descompactar, montar e ligar um 8100
+        href: storsimple-8100-hardware-installation.md
+      - name: Descompactar, montar e ligar um 8600
+        href: storsimple-8600-hardware-installation.md
+      - name: Hardware suportado para interfaces de rede de 10 GbE
+        href: storsimple-supported-hardware-for-10-gbe-network-interfaces.md
+    - name: Implementação
+      items:
+      - name: Serviço de Gestor de Dispositivos do StorSimple
+        href: storsimple-8000-manage-service.md
+      - name: Nova autenticação para o serviço
+        href: storsimple-8000-aad-registration-key.md
+      - name: Dispositivo físico no Azure
+        href: storsimple-8000-deployment-walkthrough-u2.md
+      - name: Dispositivo físico no Portal do Governo
+        href: storsimple-8000-deployment-walkthrough-gov-u2.md
+      - name: Aplicação da cloud no Azure
+        href: storsimple-8000-cloud-appliance-u2.md
+      - name: Snapshot Manager do StorSimple
+        href: storsimple-snapshot-manager-deployment.md
+      - name: Adaptador do StorSimple para o SharePoint
+        href: storsimple-adapter-for-sharepoint.md
+  - name: Procedimento
+    items:
+    - name: Gerir
+      items:
+      - name: Utilizar o serviço StorSimple Manager
+        href: storsimple-8000-manager-service-administration.md
+        items:
+        - name: Restaurar a partir de uma cópia de segurança
+          href: storsimple-8000-restore-from-backup-set-u2.md
+        - name: Clonar um volume
+          href: storsimple-8000-clone-volume-u2.md
+        - name: Ligar remotamente ao seu dispositivo
+          href: storsimple-8000-remote-connect.md
+        - name: Desativar e eliminar o seu dispositivo
+          href: storsimple-8000-deactivate-and-delete-device.md
+        - name: Efetuar a ativação pós-falha do seu dispositivo
+          href: storsimple-8000-device-failover-disaster-recovery.md
+          items:
+          - name: Ativação pós-falha para o dispositivo físico
+            href: storsimple-8000-device-failover-physical-device.md
+          - name: Ativação pós-falha na aplicação da cloud
+            href: storsimple-8000-device-failover-cloud-appliance.md
+          - name: Ativação pós-falha para o mesmo dispositivo
+            href: storsimple-8000-device-failover-same-device.md
+        - name: Gerir catálogo de cópia de segurança
+          href: storsimple-8000-manage-backup-catalog.md
+        - name: Gerir políticas de cópia de segurança
+          href: storsimple-8000-manage-backup-policies-u2.md
+        - name: Gerir contas de armazenamento
+          href: storsimple-8000-manage-storage-accounts.md
+        - name: Gerir contentores de volumes
+          href: storsimple-8000-manage-volume-containers.md
+        - name: Gerir volumes - atual
+          href: storsimple-8000-manage-volumes-u2.md
+          items:
+          - name: 'PERGUNTAS FREQUENTES: volumes afixados localmente'
+            href: storsimple-8000-local-volume-faq.md
+        - name: Controlo de Acesso Baseado em Funções
+          href: storsimple-8000-role-based-access-control.md
+        - name: Gerir ACRs
+          href: storsimple-8000-manage-acrs.md
+        - name: Gerir modelos de largura de banda
+          href: storsimple-8000-manage-bandwidth-templates.md
+        - name: Ver e gerir tarefas
+          href: storsimple-8000-manage-jobs-u2.md
+        - name: Alterar o modo do dispositivo
+          href: storsimple-8000-device-modes.md
+        - name: Alterar a palavra-passe do dispositivo
+          href: storsimple-8000-change-passwords.md
+        - name: Modificar configuração do dispositivo
+          href: storsimple-8000-modify-device-config.md
+        - name: Ativar e desativar
+          href: storsimple-turn-device-on-or-off.md
+        - name: Configurar a MPIO no anfitrião do Windows Server
+          href: storsimple-8000-configure-mpio-windows-server.md
+        - name: Configurar o MPIO no anfitrião Linux
+          href: storsimple-configure-mpio-on-linux.md
+        - name: Configurar o CHAP
+          href: storsimple-8000-configure-chap.md
+      - name: Utilizar o Windows PowerShell para StorSimple
+        href: storsimple-8000-windows-powershell-administration.md
+        items:
+        - name: Gerir o controlador de dispositivo
+          href: storsimple-8000-manage-device-controller.md
+        - name: Configurar proxy Web
+          href: storsimple-8000-configure-web-proxy.md
+        - name: Modificar definições dos DADOS 0
+          href: storsimple-8000-modify-data-0.md
+      - name: Utilizar o Snapshot Manager do StorSimple
+        href: storsimple-snapshot-manager-admin.md
+        items:
+        - name: O que é o Snapshot Manager do StorSimple?
+          href: storsimple-what-is-snapshot-manager.md
+        - name: Sobre a interface do Snapshot Manager do StorSimple
+          href: storsimple-use-snapshot-manager.md
+        - name: Gerir dispositivos através do Snapshot Manager do StorSimple
+          href: storsimple-snapshot-manager-manage-devices.md
+        - name: Gerir políticas de cópia de segurança através do Snapshot Manager do StorSimple
+          href: storsimple-snapshot-manager-manage-backup-policies.md
+        - name: Gerir grupos de volumes através do Snapshot Manager do StorSimple
+          href: storsimple-snapshot-manager-manage-volume-groups.md
+        - name: Gerir catálogos de cópia de segurança através do Snapshot Manager do StorSimple
+          href: storsimple-snapshot-manager-manage-backup-catalog.md
+        - name: Gerir tarefas de cópia de segurança através do Snapshot Manager do StorSimple
+          href: storsimple-snapshot-manager-manage-backup-jobs.md
+        - name: Gerir volumes através do Snapshot Manager do StorSimple
+          href: storsimple-snapshot-manager-manage-volumes.md
+        - name: Utilizar ações de MMC no Snapshot Manager do StorSimple
+          href: storsimple-snapshot-manager-mmc-menu.md
+    - name: Automatizar
+      items:
+      - name: Utilizar scripts de exemplo do Azure PowerShell
+        href: storsimple-8000-automation-azurerm-scripts.md
+      - name: Utilizar runbooks da Automatização do Azure
+        href: storsimple-8000-automation-azurerm-runbook.md
+    - name: Criar soluções
+      items:
+      - name: StorSimple com Veeam
+        href: storsimple-configure-backup-target-veeam.md
+      - name: StorSimple com Exec de Cópia de segurança Veritas
+        href: storsimple-configure-backup-target-using-backup-exec.md
+      - name: StorSimple com NetBackup Veritas
+        href: storsimple-configure-backuptarget-netbackup.md
+      - name: Automatizar DR de servidor de ficheiros para o Azure
+        href: storsimple-disaster-recovery-using-azure-site-recovery.md
+      - name: StorSimple com o Express Route
+        href: https://gallery.technet.microsoft.com/STORESIMPLE-CONFIGURATION-86c04c3b/view/Discussions#content
+      - name: StorSimple com VMware
+        href: https://gallery.technet.microsoft.com/VMWARE-DEPLOYMENT-WITH-2921b463
+      - name: StorSimple com Hyper-V
+        href: https://gallery.technet.microsoft.com/Deploy-Hyper-V-with-Azure-0d1c6df6
+      - name: Espaço de nomes global distribuído
+        href: https://www.microsoft.com/download/details.aspx?id=45507
+    - name: Monitorizar
+      items:
+      - name: Com o resumo do serviço
+        href: storsimple-8000-service-dashboard.md
+      - name: Com o resumo do dispositivo
+        href: storsimple-8000-device-dashboard.md
+      - name: Utilizar gráficos de monitorização
+        href: storsimple-8000-monitor-device.md
+      - name: Utilizar os alertas de serviço
+        href: storsimple-8000-manage-alerts.md
+      - name: Utilizar o estado de hardware
+        href: storsimple-8000-monitor-hardware-status.md
+      - name: Utilizar os LEDs de monitorização
+        href: storsimple-monitoring-indicators.md
+    - name: Resolução de problemas
+      items:
+      - name: Problemas de implementação
+        href: storsimple-8000-troubleshoot-deployment.md
+      - name: Utilizar a ferramenta de diagnóstico
+        href: storsimple-8000-diagnostics.md
+      - name: Problemas operacionais
+        href: storsimple-troubleshoot-operational-device.md
+      - name: Substituição de hardware
+        href: storsimple-8000-hardware-component-replacement.md
+        items:
+        - name: Substituir o controlador de dispositivo
+          href: storsimple-8000-controller-replacement.md
+        - name: Substituir o controlador de EBOD
+          href: storsimple-8000-ebod-controller-replacement.md
+        - name: Substituir o PCM
+          href: storsimple-8000-power-cooling-module-replacement.md
+        - name: Substituir a unidade de disco
+          href: storsimple-8000-disk-drive-replacement.md
+        - name: Substituir a bateria da cópia de segurança
+          href: storsimple-8000-battery-replacement.md
+        - name: Substituir o chassis
+          href: storsimple-8000-chassis-replacement.md
+      - name: Contactar o Suporte
+        href: storsimple-8000-contact-microsoft-support.md
+        items:
+        - name: Criar Pacote de suporte
+          href: storsimple-8000-create-manage-support-package.md
+    - name: Migrar
+      items:
+      - name: Subscrições e contas de armazenamento
+        href: storsimple-8000-migrate-classic-azure-portal.md
+      - name: A partir de dispositivos das séries 5000/7000
+        href: storsimple-8000-migration-options.md
+        items:
+        - name: Para dispositivos da série 8000 do StorSimple
+          href: storsimple-8000-migrate-from-5000-7000.md
+        - name: Para o Azure File Sync
+          href: storsimple-5000-7000-afs-migration.md
+      - name: A partir de outros dispositivos de armazenamento
+        href: https://download.microsoft.com/download/9/4/A/94AB8165-CCC4-430B-801B-9FD40C8DA340/Migrating Data to StorSimple Volumes_09-02-15.pdf
+    - name: Atualizar
+      items:
+      - name: Instalar Atualização 5 - atual
+        href: storsimple-8000-install-update-5.md
+      - name: Instalar Atualização 4
+        href: storsimple-8000-install-update-4.md
+  - name: Notas de versão
+    items:
+    - name: Atualização 5 - atual
+      href: storsimple-update5-release-notes.md
+    - name: Atualização 4
+      href: storsimple-update4-release-notes.md
+    - name: Arquivo
+      items:
+      - name: Atualização 3
+        href: storsimple-update3-release-notes.md
+      - name: Atualização 2.2
+        href: storsimple-update21-release-notes.md
+      - name: Atualização 2
+        href: storsimple-update2-release-notes.md
+      - name: Atualização 1
+        href: storsimple-update1-release-notes.md
+      - name: Atualização 0.3
+        href: storsimple-february-2015-release-notes.md
+      - name: Atualização 0.2
+        href: storsimple-january-2015-release-notes.md
+      - name: Atualização 0.1
+        href: storsimple-october-2014-release-notes.md
+      - name: Versão - GA
+        href: storsimple-july-2014-release-notes.md
+  - name: Referência
+    items:
+    - name: API REST
+      href: https://docs.microsoft.com/rest/api/storsimple
+    - name: Cmdlets do Windows PowerShell para StorSimple
+      href: https://technet.microsoft.com/library/dn688168.aspx
+    - name: Modelo do Resource Manager
+      href: /azure/templates/microsoft.storsimple/allversions
+- name: StorSimple Data Manager
+  items:
+  - name: Descrição geral
+    items:
+    - name: Qual é a solução?
+      href: storsimple-data-manager-overview.md
+  - name: Introdução
+    items:
+    - name: Utilizar Gestor de Dados StorSimple
+      href: storsimple-data-manager-ui.md
+  - name: Procedimento
+    items:
+    - name: Utilizar .NET para iniciar tarefas
+      href: storsimple-data-manager-dotnet-jobs.md
+    - name: Utilizar a Automatização para iniciar tarefas
+      href: storsimple-data-manager-job-using-automation.md
+    - name: Alterar o caminho de blob predefinido
+      href: storsimple-data-manager-change-default-blob-path.md
+- name: StorSimple para parceiros
+  items:
+  - name: Descrição geral
+    items:
+    - name: Qual é a solução?
+      href: storsimple-partner-csp-overview.md
+  - name: Introdução
+    items:
+    - name: Implementar matriz virtual para CSP
+      href: storsimple-partner-csp-deploy.md
+  - name: Notas de versão
+    items:
+    - name: Notas de versão do StorSimple
+      href: https://aka.ms/storsimple-virtual-array-latest-relnote
+    - name: Notas de versão do CSP
+      href: https://partner.microsoft.com/Support/whats-new
+    - name: 'StorSimple para CSP: FAQ'
+      href: storsimple-partner-csp-faq.md
+- name: Relacionado
+  items:
+  - name: StorSimple Série 5000-7000
+    href: http://onlinehelp.storsimple.com
+- name: Recursos
+  items:
+  - name: Mapa do Azure
+    href: https://azure.microsoft.com/roadmap/
+  - name: Blogue de marketing
+    href: http://blogs.technet.com/b/cis/
+  - name: Marketing
+    href: https://www.microsoft.com/server-cloud/products/storsimple/explore.aspx
+  - name: Opções de Suporte do StorSimple
+    href: storsimple-8000-support-options.md
+  - name: Fórum do MSDN
+    href: https://social.msdn.microsoft.com/Forums/azure/home?forum=StorSimple
+  - name: Preços
+    href: https://azure.microsoft.com/pricing/details/storsimple/
+  - name: Calculadora de preços
+    href: https://azure.microsoft.com/pricing/calculator/
+  - name: Atualizações de serviço
+    href: https://azure.microsoft.com/updates/?product=storsimple
+  - name: Blogue de suporte
+    href: https://blogs.msdn.com/b/storsimple/
+  - name: Notificações de terceiros
+    href: https://download.microsoft.com/download/2/0/0/2003271D-69D5-4143-85A2-F1D8EA058F52/StorSimple TPNs.zip
+  - name: Vídeos
+    href: https://azure.microsoft.com/documentation/videos/index/?services=storsimple
+ms.openlocfilehash: 6879dd240dc070483a7d97536a5fa365108af5f1
+ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
+ms.translationtype: HT
+ms.contentlocale: pt-PT
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58341140"

@@ -1,0 +1,235 @@
+items:
+- name: Descrição geral
+  items:
+  - name: Introdução
+    href: get-started.md
+  - name: Certificações
+    href: sap-certifications.md
+- name: SAP HANA no Azure (Instâncias Grandes)
+  items:
+  - name: Descrição geral
+    items:
+    - name: O que é SAP HANA nas Instâncias Grandes do Azure?
+      href: hana-overview-architecture.md
+    - name: Conhecer os termos
+      href: hana-know-terms.md
+    - name: Certificação
+      href: hana-certification.md
+    - name: SKUs Disponíveis para HLI
+      href: hana-available-skus.md
+    - name: Dimensionamento
+      href: hana-sizing.md
+    - name: Requisitos de integração
+      href: hana-onboarding-requirements.md
+    - name: Nós de extensão e colocação de dados em camadas do SAP HANA
+      href: hana-data-tiering-extension-nodes.md
+    - name: Modelo e responsabilidades de operações
+      href: hana-operations-model.md
+  - name: Arquitetura
+    items:
+    - name: Arquitetura geral
+      href: hana-architecture.md
+    - name: Arquitetura de rede
+      href: hana-network-architecture.md
+    - name: Arquitetura de armazenamento
+      href: hana-storage-architecture.md
+    - name: Cenários HLI suportados
+      href: hana-supported-scenario.md
+  - name: Infraestrutura e conectividade
+    items:
+    - name: Implementação de HLI
+      href: hana-overview-infrastructure-connectivity.md
+    - name: Ligar VMs do Azure para Instâncias Grandes do HANA
+      href: hana-connect-azure-vm-large-instances.md
+    - name: Ligar uma VNet para ExpressRoute de Instância Grande do HANA
+      href: hana-connect-vnet-express-route.md
+    - name: Requisitos de rede adicionais
+      href: hana-additional-network-requirements.md
+  - name: Instalar o SAP HANA
+    items:
+    - name: Validar a configuração
+      href: hana-installation.md
+    - name: Instalação do HANA de exemplo
+      href: hana-example-installation.md
+  - name: Elevada disponibilidade e recuperação após desastre
+    items:
+    - name: Opções e considerações
+      href: hana-overview-high-availability-disaster-recovery.md
+    - name: Cópia de segurança e restauro
+      href: hana-backup-restore.md
+    - name: Princípios e preparação
+      href: hana-concept-preparation.md
+    - name: Procedimento de ativação pós-falha de recuperação após desastre
+      href: hana-failover-procedure.md
+  - name: Resolver problemas e monitorizar
+    items:
+    - name: Monitorização HLI
+      href: troubleshooting-monitoring.md
+    - name: Monitorizar e resolver problemas do lado do HANA
+      href: hana-monitor-troubleshoot.md
+  - name: Procedimento
+    items:
+    - name: Configuração HA com STONITH
+      href: ha-setup-with-stonith.md
+    - name: Cópia de segurança de SO para SKUs de Tipo II
+      href: os-backup-type-ii-skus.md
+    - name: Atualização do SO para Instâncias Grandes do HANA
+      href: os-upgrade-hana-large-instance.md
+    - name: Configurar o servidor SMT para SUSE Linux
+      href: hana-setup-smt.md
+- name: SAP HANA nas Máquinas Virtuais do Azure
+  items:
+  - name: Instalação do SAP HANA de instância única
+    href: hana-get-started.md
+  - name: Guia de implementação de S/4 HANA ou de BW/4 HANA SAP CAL
+    href: cal-s4h.md
+  - name: Configurações e operações de infraestrutura do SAP HANA no Azure
+    href: hana-vm-operations.md
+  - name: Disponibilidade do SAP HANA nas Máquinas Virtuais do Azure
+    items:
+    - name: SAP HANA na descrição geral da Disponibilidade do Azure
+      href: sap-hana-availability-overview.md
+    - name: SAP HANA na descrição geral da Disponibilidade do Azure numa região do Azure
+      href: sap-hana-availability-one-region.md
+    - name: SAP HANA na descrição geral da Disponibilidade do Azure pelas regiões do Azure
+      href: sap-hana-availability-across-regions.md
+    - name: Configurar a Replicação do Sistema SAP HANA no SLES
+      href: sap-hana-high-availability.md
+    - name: Configurar a Replicação do Sistema SAP HANA no RHEL
+      href: sap-hana-high-availability-rhel.md
+    - name: Resolver problemas de dimensionamento do SAP HANA e do Pacemaker no SLES
+      href: hana-vm-troubleshoot-scale-out-ha-on-sles.md
+  - name: Descrição geral da cópia de segurança do SAP HANA
+    href: sap-hana-backup-guide.md
+  - name: Cópia de segurança ao nível do ficheiro do SAP HANA
+    href: sap-hana-backup-file-level.md
+  - name: Cópias de segurança de instantâneos de armazenamento do SAP HANA
+    href: sap-hana-backup-storage-snapshots.md
+- name: SAP NetWeaver e Business One em Máquinas Virtuais do Azure
+  items:
+  - name: Lista de verificação de planeamento e implementação de carga de trabalho do SAP
+    href: sap-deployment-checklist.md
+  - name: Planear e implementar o SAP NetWeaver no Azure
+    href: planning-guide.md
+  - name: Guia de implementação do SAP NetWeaver
+    href: deployment-guide.md
+  - name: Guias de implementação do DBMS para a carga de trabalho SAP
+    items:
+    - name: Implementação geral do DBMS para Máquinas Virtuais do Azure para a carga de trabalho SAP
+      href: dbms_guide_general.md
+    - name: Implementação em SQL Server do DBMS para Máquinas Virtuais do Azure para a carga de trabalho SAP
+      href: dbms_guide_sqlserver.md
+    - name: Implementação em Oracle do DBMS para Máquinas Virtuais do Azure para a carga de trabalho SAP
+      href: dbms_guide_oracle.md
+    - name: Implementação em IBM DB2 do DBMS para Máquinas Virtuais do Azure para a carga de trabalho SAP
+      href: dbms_guide_ibm.md
+    - name: Implementação em SAP ASE do DBMS para Máquinas Virtuais do Azure para a carga de trabalho SAP
+      href: dbms_guide_sapase.md
+    - name: Implementação do SAP MaxDB, liveCache e Servidor de Conteúdos no Azure
+      href: dbms_guide_maxdb.md
+    - name: Disponibilidade do SAP HANA nas Máquinas Virtuais do Azure
+      items:
+      - name: SAP HANA na descrição geral da Disponibilidade do Azure
+        href: sap-hana-availability-overview.md
+      - name: SAP HANA na descrição geral da Disponibilidade do Azure numa região do Azure
+        href: sap-hana-availability-one-region.md
+      - name: SAP HANA na descrição geral da Disponibilidade do Azure pelas regiões do Azure
+        href: sap-hana-availability-across-regions.md
+  - name: SAP Business One em Máquinas Virtuais do Azure
+    href: business-one-azure.md
+  - name: Guia de implementação de SAP IDES em SAP CAL no Windows/SQL Server
+    href: cal-ides-erp6-erp7-sp3-sql.md
+  - name: Conector de SAP LaMa para o Azure
+    href: lama-installation.md
+  - name: Elevada Disponibilidade (HA) no Windows e Linux
+    items:
+    - name: Descrição geral
+      href: sap-high-availability-guide-start.md
+    - name: Arquitetura de Elevada Disponibilidade
+      items:
+      - name: Arquitetura e Cenários de HA
+        href: sap-high-availability-architecture-scenarios.md
+      - name: Arquitetura e Cenários de Elevada Disponibilidade
+        href: sap-higher-availability-architecture-scenarios.md
+      - name: Configurações de carga de trabalho de SAP com Zonas de Disponibilidade do Azure
+        href: sap-ha-availability-zones.md
+      - name: HA no Windows com Disco Partilhado para a Instância (A)SCS
+        href: sap-high-availability-guide-wsfc-shared-disk.md
+      - name: HA no Windows com Partilha de Ficheiros SOFS para a Instância (A)SCS
+        href: sap-high-availability-guide-wsfc-file-share.md
+      - name: HA no SUSE Linux para a Instância (A)SCS
+        href: high-availability-guide-suse.md
+      - name: HA no SUSE Linux para a Instância (A)SCS com o Azure NetApp Files
+        href: high-availability-guide-suse-netapp-files.md
+      - name: HA no Red Hat Enterprise Linux para Instância de (A)SCS
+        href: high-availability-guide-rhel.md
+    - name: Preparação da Infraestrutura do Azure
+      items:
+      - name: Windows com Disco Partilhado para a Instância (A)SCS
+        href: sap-high-availability-infrastructure-wsfc-shared-disk.md
+      - name: Windows com Partilha de Ficheiros SOFS para a Instância (A)SCS
+        href: sap-high-availability-infrastructure-wsfc-file-share.md
+      - name: Disponibilidade elevada para NFS nas VMs do Azure no SLES
+        href: high-availability-guide-suse-nfs.md
+      - name: GlusterFS nas VMs do Azure no Red Hat Enterprise Linux para o SAP NetWeaver
+        href: high-availability-guide-rhel-glusterfs.md
+      - name: Pacemaker no SLES
+        href: high-availability-guide-suse-pacemaker.md
+      - name: Pacemaker no RHEL
+        href: high-availability-guide-rhel-pacemaker.md
+    - name: Instalação de SAP
+      items:
+      - name: Windows com Disco Partilhado para a Instância (A)SCS
+        href: sap-high-availability-installation-wsfc-shared-disk.md
+      - name: Windows com Partilha de Ficheiros SOFS para a Instância (A)SCS
+        href: sap-high-availability-installation-wsfc-file-share.md
+      - name: SUSE Linux com NFS para a Instância (A)SCS
+        href: high-availability-guide-suse.md
+      - name: SUSE Linux com NFS para a Instância (A)SCS com o Azure NetApp Files
+        href: high-availability-guide-suse-netapp-files.md
+      - name: Alta disponibilidade para o SAP NetWeaver em Red Hat Enterprise Linux
+        href: high-availability-guide-rhel.md
+    - name: Múltiplos SID SAP
+      items:
+      - name: Windows com Disco Partilhado para a Instância (A)SCS
+        href: sap-ascs-ha-multi-sid-wsfc-shared-disk.md
+      - name: Windows com Partilha de Ficheiros SOFS para a Instância (A)SCS
+        href: sap-ascs-ha-multi-sid-wsfc-file-share.md
+  - name: Azure Site Recovery para Recuperação após Desastre do SAP
+    href: ../../../site-recovery/site-recovery-workload.md#protect-sap
+- name: Integração de Identidade do AAD SAP e Início de Sessão único
+  items:
+  - name: Integração com o SAP Cloud
+    href: ../../../active-directory/saas-apps/sap-customer-cloud-tutorial.md?toc=%2fazure%2fvirtual-machines%2fworkloads%2fsap%2ftoc.json
+  - name: Integração do AAD com a Autenticação de Identidade da Plataforma Cloud do SAP
+    href: ../../../active-directory/saas-apps/sap-hana-cloud-platform-identity-authentication-tutorial.md?toc=%2fazure%2fvirtual-machines%2fworkloads%2fsap%2ftoc.json
+  - name: Configurar o Início de Sessão Único com a Plataforma Cloud do SAP
+    href: ../../../active-directory/saas-apps/sap-hana-cloud-platform-tutorial.md?toc=%2fazure%2fvirtual-machines%2fworkloads%2fsap%2ftoc.json
+  - name: Integração do AAD com o SAP NetWeaver
+    href: ../../../active-directory/saas-apps/sap-netweaver-tutorial.md?toc=%2fazure%2fvirtual-machines%2fworkloads%2fsap%2ftoc.json
+  - name: Integração do AAD com o SAP Business ByDesign
+    href: ../../../active-directory/saas-apps/sapbusinessbydesign-tutorial.md?toc=%2fazure%2fvirtual-machines%2fworkloads%2fsap%2ftoc.json
+  - name: Integração do AAD com o SAP HANA DBMS
+    href: ../../../active-directory/saas-apps/saphana-tutorial.md?toc=%2fazure%2fvirtual-machines%2fworkloads%2fsap%2ftoc.json
+  - name: Início de Sessão Único SAML do SAP Fiori Launchpad com o Azure AD
+    href: https://blogs.sap.com/2017/02/20/your-s4hana-environment-part-7-fiori-launchpad-saml-single-sing-on-with-azure-ad
+- name: Integração de Serviços do Azure ao SAP
+  items:
+  - name: Utilizar o SAP HANA no Power BI Desktop
+    href: https://docs.microsoft.com/power-bi/desktop-sap-hana
+  - name: DirectQuery e SAP HANA
+    href: https://docs.microsoft.com/power-bi/desktop-directquery-sap-hana
+  - name: Utilizar o conector SAP BW no Power BI Desktop
+    href: https://docs.microsoft.com/power-bi/desktop-sap-bw-connector
+  - name: O Azure Data Factory oferece integração de dados do SAP HANA e Business Warehouse
+    href: https://azure.microsoft.com/blog/azure-data-factory-offer-sap-hana-and-business-warehouse-data-integration
+- name: Recursos
+  items:
+  - name: Mapa do Azure
+    href: https://azure.microsoft.com/roadmap/
+ms.openlocfilehash: 6b72c8e10d54035e69e802db14c1a2fb97a89408
+ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
+ms.translationtype: HT
+ms.contentlocale: pt-PT
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58341463"

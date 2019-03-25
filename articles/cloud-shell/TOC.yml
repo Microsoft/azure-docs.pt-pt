@@ -1,0 +1,59 @@
+items:
+- name: Descrição geral
+  href: overview.md
+- name: Início Rápido
+  items:
+  - name: Bash - Início Rápido
+    href: quickstart.md
+  - name: PowerShell - Início Rápido
+    href: quickstart-powershell.md
+- name: Ferramentas e funcionalidades
+  items:
+  - name: Ferramentas e funcionalidades
+    href: features.md
+- name: Tutoriais
+  items:
+  - name: Ansible
+    items:
+    - name: Executar o manual de procedimentos do Ansible
+      href: /azure/ansible/ansible-run-playbook-in-cloudshell?toc=/azure/cloud-shell/toc.json&bc=/azure/bread/toc.json
+    - name: Gerir os seus inventários dinâmicos do Azure
+      href: /azure/ansible/ansible-manage-azure-dynamic-inventories?toc=/azure/cloud-shell/toc.json&bc=/azure/bread/toc.json
+  - name: Terraform
+    items:
+    - name: Criar um plano de execução
+      href: example-terraform-bash.md
+- name: Guias de procedimentos
+  items:
+  - name: Utilizadores do PowerShell Cloud Shell para Windows
+    href: cloud-shell-windows-users.md
+  - name: Manter os ficheiros no armazenamento
+    href: persisting-shell-storage.md
+  - name: Utilize a janela
+    href: using-the-shell-window.md
+  - name: Utilizar MSI no Cloud Shell
+    href: msi-authorization.md
+  - name: Incorporar o Cloud Shell
+    href: embed-cloud-shell.md
+- name: Utilize o editor de Cloud Shell
+  href: using-cloud-shell-editor.md
+- name: Resolução de problemas e limitações
+  href: troubleshooting.md
+- name: Referência
+  items:
+  - name: CLI do Azure
+    href: /cli/azure
+  - name: Azure PowerShell
+    href: /powershell/azure
+- name: Recursos
+  items:
+  - name: Mapa do Azure
+    href: https://azure.microsoft.com/roadmap/?category=monitoring-management
+  - name: Calculadora de preços
+    href: https://azure.microsoft.com/pricing/calculator/
+ms.openlocfilehash: 873308d775fd7451d89bd05771d3a1c5f5e22995
+ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
+ms.translationtype: HT
+ms.contentlocale: pt-PT
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58341310"

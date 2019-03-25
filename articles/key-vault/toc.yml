@@ -17,7 +17,7 @@ items:
     href: quick-create-net.md
   - name: Definir e obter um segredo - Node.js
     href: quick-create-node.md
-  - name: Definir e obter um segredo - modelo
+  - name: Definir e obter um segredo - Modelo do Resource Manager
     displayName: resource manager, resource manager template, arm
     href: quick-create-template.md
   expanded: true
@@ -176,9 +176,9 @@ items:
     href: https://blogs.technet.com/b/kv/
   - name: Comentários sobre o Produto
     href: https://feedback.azure.com/forums/906355-azure-key-vault
-ms.openlocfilehash: e54a60608423e8589dfa79dc70ffd4539bfb8a97
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 7be12b2950e9ddd122fc2ac2da5f18ecd93e82a2
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57834647"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58370759"

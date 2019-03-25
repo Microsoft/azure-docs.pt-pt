@@ -1,0 +1,199 @@
+items:
+- name: Documentação de Armazenamento do Data Lake Ger1
+  href: index.md
+- name: Documentação de Troca do Azure Data Lake Storage Gen2
+  href: https://docs.microsoft.com/azure/storage/data-lake-storage/introduction
+- name: Descrição geral
+  items:
+  - name: Descrição Geral do Armazenamento do Data Lake Ger1
+    href: data-lake-store-overview.md
+  - name: Comparar com o Armazenamento do Azure
+    href: data-lake-store-comparison-with-blob-storage.md
+  - name: Processar macrodados
+    href: data-lake-store-data-scenarios.md
+  - name: Trabalhar com aplicativos open source
+    href: data-lake-store-compatible-oss-other-applications.md
+  - name: Melhores práticas
+    href: data-lake-store-best-practices.md
+- name: Introdução
+  items:
+  - name: Com o Portal do Azure
+    href: data-lake-store-get-started-portal.md
+  - name: Utilizar o Azure PowerShell
+    href: data-lake-store-get-started-powershell.md
+  - name: Utilizar a CLI do Azure
+    href: data-lake-store-get-started-cli-2.0.md
+- name: Procedimento
+  items:
+  - name: Carregar e mover dados
+    items:
+    - name: Utilizar o Azure Data Factory
+      href: ../data-factory/load-azure-data-lake-store.md
+    - name: Utilizar o Explorador do Armazenamento
+      href: data-lake-store-in-storage-explorer.md
+    - name: Utilizar o AdlCopy
+      href: data-lake-store-copy-data-azure-storage-blob.md
+    - name: Utilizar o DistCp
+      href: data-lake-store-copy-data-wasb-distcp.md
+    - name: Utilizar o Sqoop
+      href: data-lake-store-data-transfer-sql-sqoop.md
+    - name: Carregar dados a partir de origens offline
+      href: data-lake-store-offline-bulk-data-upload.md
+    - name: Migrar o Data Lake Storage Gen1 entre regiões
+      href: data-lake-store-migration-cross-region.md
+  - name: Proteger dados
+    items:
+    - name: Descrição geral da segurança
+      href: data-lake-store-security-overview.md
+    - name: Controlo de acesso
+      href: data-lake-store-access-control.md
+    - name: Proteger os dados armazenados
+      href: data-lake-store-secure-data.md
+    - name: Encriptação
+      href: data-lake-store-encryption.md
+    - name: Integração da rede virtual
+      href: data-lake-store-network-security.md
+  - name: Autenticar com o Armazenamento do Data Lake Ger1
+    items:
+    - name: Opções de autenticação
+      href: data-lakes-store-authentication-using-azure-active-directory.md
+    - name: Autenticação de utilizador final
+      href: data-lake-store-end-user-authenticate-using-active-directory.md
+      items:
+      - name: Utilizar o Java
+        href: data-lake-store-end-user-authenticate-java-sdk.md
+      - name: Com o .NET SDK
+        href: data-lake-store-end-user-authenticate-net-sdk.md
+      - name: Com a API REST
+        href: data-lake-store-end-user-authenticate-rest-api.md
+      - name: Utilizar o Python
+        href: data-lake-store-end-user-authenticate-python.md
+    - name: Autenticação serviço a serviço
+      href: data-lake-store-service-to-service-authenticate-using-active-directory.md
+      items:
+      - name: Utilizar o Java
+        href: data-lake-store-service-to-service-authenticate-java.md
+      - name: Com o .NET SDK
+        href: data-lake-store-service-to-service-authenticate-net-sdk.md
+      - name: Com a API REST
+        href: data-lake-store-service-to-service-authenticate-rest-api.md
+      - name: Utilizar o Python
+        href: data-lake-store-service-to-service-authenticate-python.md
+  - name: Trabalhar com o Armazenamento do Data Lake Ger1
+    items:
+    - name: Operações de gestão de conta
+      items:
+      - name: Com o .NET SDK
+        href: data-lake-store-get-started-net-sdk.md
+      - name: Com a API REST
+        href: data-lake-store-get-started-rest-api.md
+      - name: Utilizar o Python
+        href: data-lake-store-get-started-python.md
+    - name: Operações de sistema de ficheiros
+      items:
+      - name: Com o .NET SDK
+        href: data-lake-store-data-operations-net-sdk.md
+      - name: Com o .Java SDK
+        href: data-lake-store-get-started-java-sdk.md
+      - name: Com a API REST
+        href: data-lake-store-data-operations-rest-api.md
+      - name: Utilizar o Python
+        href: data-lake-store-data-operations-python.md
+  - name: Desempenho
+    items:
+    - name: Descrição geral
+      href: data-lake-store-performance-tuning-guidance.md
+    - name: Utilizar o Azure PowerShell
+      href: data-lake-store-performance-tuning-powershell.md
+    - name: Utilizar o Spark no HDInsight
+      href: data-lake-store-performance-tuning-spark.md
+    - name: Utilizar o Hive no HDInsight
+      href: data-lake-store-performance-tuning-hive.md
+    - name: Utilizar o MapReduce no HDInsight
+      href: data-lake-store-performance-tuning-mapreduce.md
+    - name: Utilizar o Storm no HDInsight
+      href: data-lake-store-performance-tuning-storm.md
+  - name: Integrar nos serviços do Azure
+    items:
+    - name: Com o HDInsight
+      items:
+      - name: Com o Portal do Azure
+        href: data-lake-store-hdinsight-hadoop-use-portal.md
+      - name: Utilizar o Azure PowerShell (armazenamento predefinido)
+        href: data-lake-store-hdinsight-hadoop-use-powershell-for-default-storage.md
+      - name: Utilizar o Azure PowerShell (armazenamento adicional)
+        href: data-lake-store-hdinsight-hadoop-use-powershell.md
+      - name: Utilizar o modelo do Azure
+        href: data-lake-store-hdinsight-hadoop-use-resource-manager-template.md
+    - name: Acesso a partir de VMs na VNET do Azure
+      href: data-lake-store-connectivity-from-vnets.md
+    - name: Utilizar com o Data Lake Analytics
+      href: ../data-lake-analytics/data-lake-analytics-get-started-portal.md
+    - name: Utilizar com os Hubs de Eventos do Azure
+      href: data-lake-store-archive-eventhub-capture.md
+    - name: Utilizar com o Data Factory
+      href: ../data-factory/load-azure-data-lake-store.md
+    - name: Utilizar com o Stream Analytics
+      href: data-lake-store-stream-analytics.md
+    - name: Utilizar com o Power BI
+      href: data-lake-store-power-bi.md
+    - name: Utilizar com o Catálogo de Dados
+      href: data-lake-store-with-data-catalog.md
+    - name: Utilizar com o PolyBase no SQL Data Warehouse
+      href: ../sql-data-warehouse/sql-data-warehouse-load-from-azure-data-lake-store.md
+    - name: Utilizar com os SQL Server Integration Services
+      href: https://docs.microsoft.com/sql/integration-services/connection-manager/azure-data-lake-store-connection-manager
+    - name: Mais opções de integração do Azure
+      href: data-lake-store-integrate-with-other-services.md
+  - name: Gerir
+    items:
+    - name: Aceder aos registos de diagnósticos
+      href: data-lake-store-diagnostic-logs.md
+    - name: Plano para elevada disponibilidade
+      href: data-lake-store-disaster-recovery-guidance.md
+- name: Referência
+  items:
+  - name: Exemplos de código
+    href: https://azure.microsoft.com/resources/samples/?service=data-lake-store
+  - name: Azure PowerShell
+    href: /powershell/module/azurerm.datalakestore
+  - name: .NET
+    href: https://docs.microsoft.com/dotnet/api/overview/azure/data-lake-store?view=azure-dotnet
+  - name: Java
+    href: https://docs.microsoft.com/java/api/overview/azure/datalake?view=azure-java-stable
+  - name: Node.js
+    href: https://www.npmjs.com/package/azure-arm-datalake-store
+  - name: Python (Gestão de Conta)
+    href: https://docs.microsoft.com/python/api/azure.mgmt.datalake.store?view=azure-python
+  - name: Python (Gestão do Sistema de Ficheiros)
+    href: https://azure-datalake-store.readthedocs.io/en/latest
+  - name: REST
+    href: /rest/api/datalakestore
+  - name: Modelo do Resource Manager
+    href: /azure/templates/microsoft.datalakestore/allversions
+  - name: CLI do Azure
+    href: https://docs.microsoft.com/cli/azure/dls
+- name: Recursos
+  items:
+  - name: Roteiro do Azure
+    href: https://azure.microsoft.com/updates/?product=data-lake-store
+  - name: Blogue do Data Lake Store
+    href: https://blogs.msdn.microsoft.com/azuredatalake/
+  - name: Enviar comentários sobre o UserVoice
+    href: https://feedback.azure.com/forums/327234-data-lake
+  - name: Fórum MSDN
+    href: https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureDataLake
+  - name: Preços
+    href: https://azure.microsoft.com/pricing/details/data-lake-store/
+  - name: Calculadora de preços
+    href: https://azure.microsoft.com/pricing/calculator/
+  - name: Fórum Stack Overflow
+    href: https://stackoverflow.com/questions/tagged/azure-data-lake
+  - name: Vídeos
+    href: https://azure.microsoft.com/documentation/videos/index/?services=data-lake-store
+ms.openlocfilehash: 8112eab2dc35ba7ff80cd9f1591d999c1d7d6980
+ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
+ms.translationtype: HT
+ms.contentlocale: pt-PT
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58341225"

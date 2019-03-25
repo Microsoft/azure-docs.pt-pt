@@ -53,7 +53,7 @@ items:
         href: connect-barracuda.md
       - name: Ligar a Check Point
         href: connect-checkpoint.md
-      - name: Ligar a Palo Alto
+      - name: Ligar Palo Alto Networks
         href: connect-paloalto.md
       - name: Ligar a Fortinet
         href: connect-fortinet.md
@@ -86,9 +86,9 @@ items:
     href: https://blogs.msdn.com/b/azuresecurity/
   - name: Disponibilidade regional
     href: https://azure.microsoft.com/regions/services/
-ms.openlocfilehash: 51b9a9742b5b8fd80e2ad11ed4de5cdc712e8128
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 44a779cd9d4c32288470ebdcde0a206934783abe
+ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57837257"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58399950"

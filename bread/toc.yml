@@ -661,9 +661,12 @@ items:
   - name: Gateway de VPN
     tocHref: /azure/vpn-gateway/
     topicHref: /azure/vpn-gateway/
-ms.openlocfilehash: 4118aabcc45a87fdb76c0a4e801cc6ad725d3e6b
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+  - name: Windows Virtual Desktop
+    tocHref: /azure/virtual-desktop/
+    topicHref: /azure/virtual-desktop/
+ms.openlocfilehash: e8e0481d3d8d8e9d5e7d0d784bd6d58af6229c66
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57435257"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58317702"

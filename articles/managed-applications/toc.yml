@@ -103,11 +103,13 @@ items:
     href: https://azure.microsoft.com/pricing/details/managed-applications/
   - name: Calculadora de preços
     href: https://azure.microsoft.com/pricing/calculator/
+  - name: Melhores práticas do modelo do Resource Manager
+    href: https://github.com/Azure/azure-quickstart-templates/blob/master/1-CONTRIBUTION-GUIDE/best-practices.md
   - name: Stack Overflow
     href: http://stackoverflow.com/questions/tagged/azure-managedapps
-ms.openlocfilehash: c378a969f181baa25729a8dfa1967769159d937e
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: e5ed2bab25c8140d12517e4757c028a7c6dd85d9
+ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56110137"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58402019"

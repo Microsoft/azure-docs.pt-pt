@@ -1,0 +1,105 @@
+items:
+- name: Azure Resiliency
+  items:
+  - name: Página de funcionalidades do Azure Resiliency
+    href: https://azure.microsoft.com/features/resiliency
+  - name: Conceber aplicações resilientes para o Azure
+    href: https://docs.microsoft.com/azure/architecture/resiliency/
+- name: Elevada Disponibilidade
+  items:
+  - name: Elevada disponibilidade para aplicações do Azure
+    href: https://docs.microsoft.com/azure/architecture/resiliency/high-availability-azure-applications
+  - name: Documentação sobre as Zonas de Disponibilidade
+    items:
+    - name: O que são as Zonas de Disponibilidade?
+      href: az-overview.md
+    - name: Máquinas virtuais
+      items:
+      - name: Criar uma VM do Linux numa Zona de Disponibilidade com a CLI
+        href: ../virtual-machines/linux/create-cli-availability-zone.md
+      - name: Criar uma VM do Windows numa Zona de Disponibilidade com o PowerShell
+        href: ../virtual-machines/windows/create-powershell-availability-zone.md
+      - name: Criar uma VM do Windows numa Zona de Disponibilidade com o portal do Azure
+        href: ../virtual-machines/windows/create-portal-availability-zone.md
+    - name: Managed disks
+      items:
+      - name: Adicionar um disco gerido em Zonas de Disponibilidade com a CLI
+        href: ../virtual-machines/linux/add-disk.md#use-managed-disks
+      - name: Adicionar um disco gerido em Zonas de Disponibilidade com o PowerShell
+        href: ../virtual-machines/windows/attach-disk-ps.md#add-an-empty-data-disk-to-a-virtual-machine
+    - name: Conjuntos de dimensionamento de máquinas virtuais
+      items:
+      - name: Criar um conjunto de dimensionamento numa Zona de Disponibilidade
+        href: ../virtual-machine-scale-sets/virtual-machine-scale-sets-use-availability-zones.md
+    - name: Load balancer
+      items:
+      - name: O que é o Balanceador de Carga?
+        href: ../load-balancer/load-balancer-standard-overview.md
+      - name: Balanceador de Carga Standard e Zonas de Disponibilidade
+        href: ../load-balancer/load-balancer-standard-availability-zones.md
+      - name: Criar um Balanceador de Carga público com redundância de zona
+        href: ../load-balancer/load-balancer-get-started-internet-az-portal.md
+        items:
+        - name: Criar um Standard Balanceador de Carga público com redundância de zona (PowerShell)
+          href: ../load-balancer/load-balancer-get-started-internet-az-powershell.md
+        - name: Criar um Balanceador de Carga Standard público com redundância de zona (CLI)
+          href: ../load-balancer/load-balancer-get-started-internet-az-cli.md
+      - name: Criar um Balanceador de Carga Standard público zonal
+        href: ../load-balancer/load-balancer-get-started-internet-availability-zones-zonal-portal.md
+        items:
+        - name: Criar um Balanceador de Carga Standard público zonal (PowerShell)
+          href: ../load-balancer/load-balancer-get-started-internet-availability-zones-zonal-powershell.md
+        - name: Criar um Balanceador de Carga Standard público redundante zonal (CLI)
+          href: ../load-balancer/load-balancer-get-started-internet-availability-zones-zonal-cli.md
+      - name: Balancear carga de VMs por zonas de disponibilidade
+        href: ../load-balancer/load-balancer-standard-public-availability-zones-portal.md
+        items:
+        - name: Balancear carga de VMs por zonas de disponibilidade com o Azure (CLI)
+          href: ../load-balancer/load-balancer-standard-public-zone-redundant-cli.md
+    - name: Endereço IP público
+      href: ../virtual-network/virtual-network-public-ip-address.md#create-a-public-ip-address
+    - name: SQL Database
+      items:
+      - name: Zonas de disponibilidade com base de dados SQL
+        href: ../sql-database/sql-database-high-availability.md#zone-redundant-configuration
+    - name: Armazenamento
+      items:
+      - name: >
+          Armazenamento com redundância entre zonas
+        href: ../storage/common/storage-redundancy-zrs.md
+    - name: Hubs de Eventos
+      items:
+      - name: Recuperação após desastre geográfica dos Hubs de Eventos
+        href: ../event-hubs/event-hubs-geo-dr.md#availability-zones-preview
+    - name: Service Bus
+      items:
+      - name: Recuperação após desastre geográfica do Service Bus
+        href: ../service-bus-messaging/service-bus-geo-dr.md#availability-zones-preview
+    - name: Gateway de VPN
+      items:
+      - name: Criar um gateway de rede virtual com redundância entre zonas
+        href: ../vpn-gateway/create-zone-redundant-vnet-gateway.md
+    - name: ExpressRoute
+      items:
+      - name: Criar um gateway de rede virtual com redundância entre zonas
+        href: ../vpn-gateway/create-zone-redundant-vnet-gateway.md
+- name: Recuperação Após Desastre
+  items:
+  - name: Utilizar o Azure Site Recovery
+    href: https://docs.microsoft.com/azure/site-recovery/
+- name: Azure Backup
+  items:
+  - name: Utilizar o Azure Backup
+    href: https://docs.microsoft.com/azure/backup/
+- name: Recursos
+  items:
+  - name: Mapa do Azure
+    href: https://azure.microsoft.com/roadmap/
+  - name: Regiões do Azure
+    href: https://azure.microsoft.com/regions/
+ms.openlocfilehash: 45a73ec4d5e3649be38133e5ce055f206ecf80ab
+ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
+ms.translationtype: HT
+ms.contentlocale: pt-PT
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58340681"

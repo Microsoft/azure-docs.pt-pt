@@ -31,11 +31,11 @@ items:
     href: azure-netapp-files-delegate-subnet.md
   - name: Criar um volume para o Azure NetApp Files
     href: azure-netapp-files-create-volumes.md
-  - name: Configurar a política de exportação para um volume
+  - name: Configurar a política de exportação para um volume NFS
     href: azure-netapp-files-configure-export-policy.md
   - name: Gerir volumes
     href: azure-netapp-files-manage-volumes.md
-  - name: Montar ou desmontar um volume para máquinas virtuais
+  - name: Montar ou desmontar um volume para máquinas virtuais Windows ou Linux
     href: azure-netapp-files-mount-unmount-volumes-for-virtual-machines.md
   - name: Gerir instantâneos
     href: azure-netapp-files-manage-snapshots.md
@@ -51,9 +51,9 @@ items:
     href: https://docs.microsoft.com/rest/api/netapp/
   - name: Modelo do Resource Manager
     href: /azure/templates/microsoft.netapp/allversions
-ms.openlocfilehash: 99091c5e5e9a991508c9eb915c8003de60404ae8
-ms.sourcegitcommit: 7723b13601429fe8ce101395b7e47831043b970b
+ms.openlocfilehash: 164a65bb8875d6c46d71ee7875e94e0b09a57c56
+ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56587417"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58401513"

@@ -1,14 +1,14 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: 584407e7c6f2be872c5914d35c62c76f96bc7b3c
-ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
+ms.openlocfilehash: 3d7b9dff034aca6c7602ea72fadfcdc53b11fe15
+ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58295356"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58335883"
 documentType: LandingData
 title: Documentação da Gestão de Aplicações
 metadata:
-  title: Documentação da gestão de aplicações no Azure Active Directory
+  title: Documentação da gestão de aplicações do Azure AD - Azure Active Directory
   description: Saiba como gerir e implementar aplicações no Azure Active Directory.
   services: active-directory
   author: barbkess

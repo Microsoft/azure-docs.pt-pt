@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.date: 05/07/2018
 ms.author: hrasheed
 ms.custom: mvc
-ms.openlocfilehash: 1978f4a2afa2e22eb4182c01d3005f9e5daf5e57
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: f56595abf354d1124a40729ce93f97ab2acdeeeb
+ms.sourcegitcommit: 223604d8b6ef20a8c115ff877981ce22ada6155a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58103014"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58361562"
 ---
 # <a name="quickstart-create-an-apache-spark-cluster-in-hdinsight-using-powershell"></a>Início rápido: Criar um cluster do Apache Spark no HDInsight com o PowerShell
 Saiba como criar [Apache Spark](https://spark.apache.org/) cluster no Azure HDInsight e como executar consultas do Spark SQL relativamente [Apache Hive](https://hive.apache.org/) tabelas. O Apache Spark permite uma análise de dados e computação de clusters rápidas através do processamento dentro da memória. Para obter informações sobre o Spark no HDInsight, consulte [descrição geral: Apache Spark no HDInsight do Azure](apache-spark-overview.md).
@@ -25,6 +25,8 @@ Neste guia de início rápido, irá utilizar o Azure PowerShell para criar um cl
 > A faturação dos clusters do HDInsight é rateada ao minuto, quer esteja a utilizá-los ou não. Confirme que elimina o cluster depois de o utilizar. Para obter mais informações, consulte a secção [Limpar recursos](#clean-up-resources) deste artigo.
 
 Se não tiver uma subscrição do Azure, [crie uma conta gratuita](https://azure.microsoft.com/free/) antes de começar.
+
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 ## <a name="create-an-hdinsight-spark-cluster"></a>Criar um cluster do Spark no HDInsight
 
@@ -56,20 +58,20 @@ Irá utilizar um script do PowerShell para criar os recursos.  Quando executar o
     # Create the resource group
     $resourceGroupName = Read-Host -Prompt "Enter the resource group name"
     $location = Read-Host -Prompt "Enter the Azure region to create resources in, such as 'Central US'"
-    New-AzureRmResourceGroup -Name $resourceGroupName -Location $location
+    New-AzResourceGroup -Name $resourceGroupName -Location $location
     
     $defaultStorageAccountName = Read-Host -Prompt "Enter the default storage account name"
     
     # Create an Azure storae account and container
-    New-AzureRmStorageAccount `
+    New-AzStorageAccount `
         -ResourceGroupName $resourceGroupName `
         -Name $defaultStorageAccountName `
         -Type Standard_LRS `
         -Location $location
-    $defaultStorageAccountKey = (Get-AzureRmStorageAccountKey `
+    $defaultStorageAccountKey = (Get-AzStorageAccountKey `
                                     -ResourceGroupName $resourceGroupName `
                                     -Name $defaultStorageAccountName)[0].Value
-    $defaultStorageContext = New-AzureStorageContext `
+    $defaultStorageContext = New-AzStorageContext `
                                     -StorageAccountName $defaultStorageAccountName `
                                     -StorageAccountKey $defaultStorageAccountKey
     
@@ -90,14 +92,14 @@ Irá utilizar um script do PowerShell para criar os recursos.  Quando executar o
     $defaultBlobContainerName = $clusterName
     
     # Create a blob container. This holds the default data store for the cluster.
-    New-AzureStorageContainer `
+    New-AzStorageContainer `
         -Name $clusterName -Context $defaultStorageContext 
     
     $sparkConfig = New-Object "System.Collections.Generic.Dictionary``2[System.String,System.String]"
     $sparkConfig.Add("spark", "2.3")
     
     # Create the HDInsight cluster
-    New-AzureRmHDInsightCluster `
+    New-AzHDInsightCluster `
         -ResourceGroupName $resourceGroupName `
         -ClusterName $clusterName `
         -Location $location `
@@ -112,7 +114,7 @@ Irá utilizar um script do PowerShell para criar os recursos.  Quando executar o
         -DefaultStorageContainer $clusterName `
         -SshCredential $sshCredentials 
     
-    Get-AzureRmHDInsightCluster -ResourceGroupName $resourceGroupName -ClusterName $clusterName
+    Get-AzHDInsightCluster -ResourceGroupName $resourceGroupName -ClusterName $clusterName
     ```
    A criação do cluster demora cerca de 20 minutos. Tem de criar o cluster antes de poder avançar para a sessão seguinte.
 

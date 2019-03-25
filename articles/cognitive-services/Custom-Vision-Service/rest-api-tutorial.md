@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Utilize a uma API de REST do serviço de visão personalizada'
+title: 'Tutorial: Criar, dar formação e exportar um modelo com a API de REST de visão personalizada'
 titlesuffix: Azure Cognitive Services
 description: Utilize a API REST para criar, preparar, testar e exportar um modelo de visão personalizada.
 services: cognitive-services
@@ -8,18 +8,16 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: custom-vision
 ms.topic: tutorial
-ms.date: 08/07/2018
+ms.date: 03/21/2019
 ms.author: larryfr
-ms.openlocfilehash: e33eb58dd4228bb1093c239bae960f71c0f3788c
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 54b5f7bb16803adf91a0a8ea60cfa68d1e322d07
+ms.sourcegitcommit: 87bd7bf35c469f84d6ca6599ac3f5ea5545159c9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55885001"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58351104"
 ---
-# <a name="tutorial-use-the-custom-vision-rest-api"></a>Tutorial: Utilizar a REST API de visão personalizada
-
-Saiba como utilizar a API REST de Visão Personalizada para criar, preparar, testar e exportar um modelo.
+# <a name="tutorial-create-train-and-export-a-model-with-rest"></a>Tutorial: Criar, dar formação e exportar um modelo com REST
 
 As informações neste documento demonstram como utilizar um cliente REST para trabalhar com a API REST para preparação do Serviço de Visão Personalizada. Os exemplos mostram como utilizar a API através do utilitário `curl` a partir de um ambiente de bash e `Invoke-WebRequest` a partir do Windows PowerShell.
 
@@ -34,9 +32,7 @@ As informações neste documento demonstram como utilizar um cliente REST para t
 ## <a name="prerequisites"></a>Pré-requisitos
 
 * Um conhecimento básico em REST (Representational State Transfer). Este documento não entra em detalhes sobre coisas como verbos HTTP, JSON ou outras coisas geralmente utilizadas com REST.
-
 * Um bash (Bourne Again Shell) com o utilitário [curl](https://curl.haxx.se) ou o Windows PowerShell 3.0 (ou posterior).
-
 * Uma conta de Visão Personalizada. Para obter mais informações, veja o documento [Criar um classificador](getting-started-build-a-classifier.md).
 
 ## <a name="get-keys"></a>Obter chaves
@@ -121,29 +117,29 @@ $resp.Content
 A resposta ao pedido é semelhante ao documento JSON seguinte:
 
 ```json
-[
-    {
-        "id": "ee85a74c-405e-4adc-bb47-ffa8ca0c9f31",
-        "name": "General",
-        "type": "Classification",
-        "exportable": false,
-        "enabled": true
-    },
-    {
-        "id": "c151d5b5-dd07-472a-acc8-15d29dea8518",
-        "name": "Food",
-        "type": "Classification",
-        "exportable": false,
-        "enabled": true
-    },
-    {
-        "id": "ca455789-012d-4b50-9fec-5bb63841c793",
-        "name": "Landmarks",
-        "type": "Classification",
-        "exportable": false,
-        "enabled": true
-    },
-    ...
+[  
+  {  
+    "id":"ee85a74c-405e-4adc-bb47-ffa8ca0c9f31",
+    "name":"General",
+    "type":"Classification",
+    "exportable":false,
+    "enabled":true
+  },
+  {  
+    "id":"c151d5b5-dd07-472a-acc8-15d29dea8518",
+    "name":"Food",
+    "type":"Classification",
+    "exportable":false,
+    "enabled":true
+  },
+  {  
+    "id":"ca455789-012d-4b50-9fec-5bb63841c793",
+    "name":"Landmarks",
+    "type":"Classification",
+    "exportable":false,
+    "enabled":true
+  },
+  ...
 ]
 ```
 
@@ -209,41 +205,41 @@ $resp.Content
 A resposta ao pedido é semelhante ao documento JSON seguinte:
 
 ```json
-{
-    "isBatchSuccessful": true,
-    "images": [
-        {
-            "sourceUrl": "http://myimages/cat.jpg",
-            "status": "OK",
-            "image": {
-                "id": "081adaee-a76b-4d94-a70e-e4fd0935a28f",
-                "created": "2018-08-13T13:24:22.0815638",
-                "width": 640,
-                "height": 480,
-                "imageUri": "https://linktoimage",
-                "thumbnailUri": "https://linktothumbnail",
-                "tags": [
-                    {
-                        "tagId": "ed6f7ab6-5132-47ad-8649-3ec42ee62d43",
-                        "tagName": null,
-                        "created": "2018-08-13T13:24:22.104936"
-                    }
-                ],
-                "regions": [
-                    {
-                        "regionId": "40f206a1-3f8a-4de7-a6c3-c7b4643117df",
-                        "tagName": null,
-                        "created": "2018-08-13T13:24:22.104936",
-                        "tagId": "ed6f7ab6-5132-47ad-8649-3ec42ee62d43",
-                        "left": 119,
-                        "top": 94,
-                        "width": 240,
-                        "height": 140
-                    }
-                ]
-            }
-        }
-    ]
+{  
+  "isBatchSuccessful":true,
+  "images":[  
+    {  
+      "sourceUrl":"http://myimages/cat.jpg",
+      "status":"OK",
+      "image":{  
+        "id":"081adaee-a76b-4d94-a70e-e4fd0935a28f",
+        "created":"2018-08-13T13:24:22.0815638",
+        "width":640,
+        "height":480,
+        "imageUri":"https://linktoimage",
+        "thumbnailUri":"https://linktothumbnail",
+        "tags":[  
+          {  
+            "tagId":"ed6f7ab6-5132-47ad-8649-3ec42ee62d43",
+            "tagName":null,
+            "created":"2018-08-13T13:24:22.104936"
+          }
+        ],
+        "regions":[  
+          {  
+            "regionId":"40f206a1-3f8a-4de7-a6c3-c7b4643117df",
+            "tagName":null,
+            "created":"2018-08-13T13:24:22.104936",
+            "tagId":"ed6f7ab6-5132-47ad-8649-3ec42ee62d43",
+            "left":119,
+            "top":94,
+            "width":240,
+            "height":140
+          }
+        ]
+      }
+    }
+  ]
 }
 ```
 
@@ -305,18 +301,18 @@ $resp.Content
 A resposta ao pedido é semelhante ao documento JSON seguinte:
 
 ```json
-{
-    "id": "369b010b-2a92-4f48-a918-4c1a0af91888",
-    "project": "45d1b19b-69b8-4b22-8e7e-d1ca37504686",
-    "iteration": "23de09d6-42a1-413e-839e-8db6ee6d3496",
-    "created": "2018-08-16T17:39:20.7944508Z",
-    "predictions": [
-        {
-            "probability": 0.8390652,
-            "tagId": "ed6f7ab6-5132-47ad-8649-3ec42ee62d43",
-            "tagName": "cat"
-        }
-    ]
+{  
+  "id":"369b010b-2a92-4f48-a918-4c1a0af91888",
+  "project":"45d1b19b-69b8-4b22-8e7e-d1ca37504686",
+  "iteration":"23de09d6-42a1-413e-839e-8db6ee6d3496",
+  "created":"2018-08-16T17:39:20.7944508Z",
+  "predictions":[  
+    {  
+      "probability":0.8390652,
+      "tagId":"ed6f7ab6-5132-47ad-8649-3ec42ee62d43",
+      "tagName":"cat"
+    }
+  ]
 }
 ```
 
@@ -345,11 +341,11 @@ $resp.Content
 A resposta ao pedido é semelhante ao documento JSON seguinte:
 
 ```json
-{
-    "platform": "CoreML",
-    "status": "Exporting",
-    "downloadUri": null,
-    "flavor": null
+{  
+  "platform":"CoreML",
+  "status":"Exporting",
+  "downloadUri":null,
+  "flavor":null
 }
 ```
 
@@ -374,14 +370,16 @@ $resp.Content
 A resposta ao pedido é semelhante ao documento JSON seguinte:
 
 ```json
-[
-    {
-        "platform": "CoreML",
-        "status": "Done",
-        "downloadUri": "https://linktoexportedmodel",
-        "flavor": null
-    }
+[  
+  {  
+    "platform":"CoreML",
+    "status":"Done",
+    "downloadUri":"https://linktoexportedmodel",
+    "flavor":null
+  }
 ]
 ```
+
+## <a name="next-steps"></a>Passos Seguintes
 
 Para obter mais informações, veja [GetExports](https://southcentralus.dev.cognitive.microsoft.com/docs/services/d0e77c63c39c4259a298830c15188310/operations/5a59953940d86a0f3c7a829a).

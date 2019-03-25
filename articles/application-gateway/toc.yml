@@ -62,10 +62,10 @@ items:
       href: custom-error.md
   - name: SSL
     items:
-    - name: Descrição geral da política SSL
-      href: application-gateway-ssl-policy-overview.md
     - name: Terminação SSL e SSL ponto a ponto
       href: ssl-overview.md
+    - name: Descrição geral da política SSL
+      href: application-gateway-ssl-policy-overview.md
   - name: WAF
     items:
     - name: Firewall de aplicação Web
@@ -88,7 +88,7 @@ items:
     href: application-gateway-faq.md
 - name: Guias de procedimentos
   items:
-  - name: Gerir o tráfego da web
+  - name: Alojar um único site
     items:
     - name: Portal do Azure
       href: tutorial-manage-web-traffic-powershell.md
@@ -100,22 +100,30 @@ items:
       href: configure-application-gateway-with-private-frontend-ip.md
     - name: Azure PowerShell
       href: application-gateway-ilb-arm.md
-  - name: Configurar a terminação de SSL
+  - name: Configurar o SSL
     items:
-    - name: Terminação de SSL - portal
-      href: create-ssl-portal.md
-    - name: Terminação de SSL - PowerShell
-      href: tutorial-ssl-powershell.md
-    - name: SSL de ponta a ponta - Portal
-      href: end-to-end-ssl-portal.md
-    - name: SSL de ponta a ponta - PowerShell
-      href: application-gateway-end-to-end-ssl-powershell.md
-    - name: Criar certificados para o back-end da lista de permissões
-      href: certificates-for-backend-authentication.md
-    - name: Renovar certificados
-      href: renew-certificates.md
-    - name: Configurar a política do SSL
-      href: application-gateway-configure-ssl-policy-powershell.md
+    - name: Terminação de SSL
+      items:
+      - name: Terminação de SSL - portal
+        href: create-ssl-portal.md
+      - name: Terminação de SSL - PowerShell
+        href: tutorial-ssl-powershell.md
+    - name: SSL de ponto a ponto
+      items:
+      - name: SSL de ponta a ponta - Portal
+        href: end-to-end-ssl-portal.md
+      - name: SSL de ponta a ponta - PowerShell
+        href: application-gateway-end-to-end-ssl-powershell.md
+    - name: Gerir certificados
+      items:
+      - name: Criar certificados para o back-end da lista de permissões
+        href: certificates-for-backend-authentication.md
+      - name: Renovar certificados
+        href: renew-certificates.md
+    - name: Política de SSL
+      items:
+      - name: Configurar a política do SSL
+        href: application-gateway-configure-ssl-policy-powershell.md
   - name: Configurar a Firewall de Aplicações Web
     items:
     - name: Portal do Azure
@@ -176,7 +184,7 @@ items:
       href: configure-web-app-portal.md
     - name: Azure PowerShell
       href: create-web-app.md
-  - name: Sondas personalizadas
+  - name: Configurar pesquisas personalizadas
     items:
     - name: Portal
       href: application-gateway-create-probe-portal.md
@@ -228,9 +236,9 @@ items:
     href: https://azure.microsoft.com/regions/services/
   - name: Stack Overflow
     href: https://stackoverflow.com/questions/tagged/azure-application-gateway
-ms.openlocfilehash: 68264afadd3d05e4d11c6b4b98cd7375886e4d20
-ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
+ms.openlocfilehash: cd08a1ac880bb4242f4f57882d0e45133cf26748
+ms.sourcegitcommit: 87bd7bf35c469f84d6ca6599ac3f5ea5545159c9
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58286961"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58350765"

@@ -180,7 +180,7 @@ items:
     href: https://azure.microsoft.com/roadmap/
   - name: Preços e limites
     href: https://aka.ms/qnamaker-pricing
-  - name: Suporte de idioma e região
+  - name: Suporte de idiomas
     href: Overview/language-support.md
   - name: Stack Overflow
     href: https://stackoverflow.com/questions/tagged/QnAMaker
@@ -190,9 +190,9 @@ items:
     href: https://docs.microsoft.com/search/index?search=QnAMaker
   - name: Blogue
     href: https://blog.botframework.com/category/QnAMaker/
-ms.openlocfilehash: 59c69b3436eecd6b3c915ede313eb854ff6af121
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.openlocfilehash: ed9fc89f0f7b16bcdcb9cfe1b8f01078a2608f41
+ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57306651"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58337668"

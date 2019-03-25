@@ -58,6 +58,7 @@ items:
         - name: Encriptar VM - Azure PowerShell
           href: quick-encrypt-vm-powershell.md
       - name: Azure Disk Encryption
+        href: azure-security-disk-encryption-appendix.md
         items:
         - name: Pré-requisitos de encriptação de disco
           href: azure-security-disk-encryption-prerequisites.md
@@ -65,8 +66,9 @@ items:
           href: azure-security-disk-encryption-windows.md
         - name: Encriptação de disco para VMs do Linux
           href: azure-security-disk-encryption-linux.md
-      - name: Apêndice para a encriptação de discos
-        href: azure-security-disk-encryption-appendix.md
+        - name: Encriptação de disco com o sequenciamento de extensão de VMSS
+          href: azure-security-disk-encryption-extension-sequencing.md
+        - name: Apêndice para a encriptação de discos
       - name: FAQ de encriptação de discos
         href: azure-security-disk-encryption-faq.md
       - name: Resolução de problemas
@@ -353,9 +355,9 @@ items:
         href: azure-security-threat-modeling-tool-sensitive-data.md
       - name: Gestão de sessões
         href: azure-security-threat-modeling-tool-session-management.md
-ms.openlocfilehash: 5cb4cbbbeb1773874a0de976f600dbb694cd7bcb
-ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
+ms.openlocfilehash: dc0f98ace10f61a423e72fc0a61899ac1ed4b5b3
+ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55766974"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58402478"

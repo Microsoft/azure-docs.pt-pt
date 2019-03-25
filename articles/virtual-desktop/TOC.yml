@@ -1,0 +1,57 @@
+items:
+- name: Windows Virtual Desktop
+  href: index.yml
+- name: Descrição geral
+  items:
+  - name: O que é o Windows Virtual Desktop?
+    href: overview.md
+- name: Tutoriais
+  items:
+  - name: 1. Criar um inquilino no Windows Virtual Desktop
+    href: tenant-setup-azure-active-directory.md
+  - name: 2. Criar um conjunto de anfitriões com o Azure Marketplace
+    href: create-host-pools-azure-marketplace.md
+  - name: 3. Gerir grupos de aplicações
+    href: manage-app-groups.md
+  - name: 4. Criar principais de serviço e atribuições de funções com o PowerShell
+    href: create-service-principal-role-powershell.md
+- name: Procedimentos
+  items:
+  - name: Ligar a recursos do Windows Virtual Desktop
+    items:
+    - name: Ligar com o Windows 7 e Windows 10
+      href: connect-windows-7-and-10.md
+    - name: Ligar com o cliente web
+      href: connect-web.md
+  - name: Criar um conjunto de anfitriões com um modelo do Azure Resource Manager
+    href: create-host-pools-arm-template.md
+  - name: Criar um conjunto de anfitriões com o PowerShell
+    href: create-host-pools-powershell.md
+  - name: Configurar uma partilha do perfil de utilizador para um conjunto de anfitriões
+    href: create-host-pools-user-profile.md
+  - name: Configurar o método de balanceamento de carga do Windows Virtual Desktop
+    href: configure-host-pool-load-balancing.md
+  - name: Identificar problemas com a funcionalidade de diagnóstico
+    href: diagnostics-role-service.md
+  - name: Preparar e personalizar uma imagem VHD principal
+    href: set-up-customize-master-image.md
+  - name: Dimensionar automaticamente os hosts de sessão
+    href: set-up-scaling-script.md
+- name: Conceitos
+  items:
+  - name: Ambiente do Windows Virtual Desktop
+    href: environment-setup.md
+  - name: Acesso delegado ao Windows Virtual Desktop
+    href: delegated-access-virtual-desktop.md
+  - name: Métodos de balanceamento de carga do agrupamento de anfitriões
+    href: host-pool-load-balancing.md
+- name: Referência
+  items:
+  - name: PowerShell
+    href: /powershell/windows-virtual-desktop/overview
+ms.openlocfilehash: 2f321b25d6ba1ad8545bf161dd37e270890efcec
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.translationtype: HT
+ms.contentlocale: pt-PT
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58318774"

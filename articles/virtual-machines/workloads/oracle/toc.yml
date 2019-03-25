@@ -1,0 +1,35 @@
+items:
+- name: Descrição geral
+  items:
+  - name: Considerações relativas a VMs da Oracle
+    href: oracle-considerations.md
+- name: Inícios rápidos
+  items:
+  - name: Criar BD da Oracle
+    href: oracle-database-quick-create.md
+- name: Tutoriais
+  items:
+  - name: Configurar Oracle ASM
+    href: configure-oracle-asm.md
+  - name: Configurar Oracle DataGuard
+    href: configure-oracle-dataguard.md
+  - name: Configurar Oracle GoldenGate para o Azure
+    href: configure-oracle-golden-gate.md
+- name: Conceitos
+  items:
+  - name: Arquitetar uma base de dados Oracle
+    href: oracle-design.md
+  - name: Estratégia de cópia de segurança para base de dados Oracle
+    href: oracle-backup-recovery.md
+  - name: Opções de recuperação após desastre da Oracle
+    href: oracle-disaster-recovery.md
+- name: Recursos
+  items:
+  - name: Mapa do Azure
+    href: https://azure.microsoft.com/roadmap/
+ms.openlocfilehash: 9c8aba887e728904aed51d3db2db5bb02c03d7b8
+ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
+ms.translationtype: HT
+ms.contentlocale: pt-PT
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58340613"

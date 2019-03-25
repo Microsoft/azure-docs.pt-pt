@@ -1,0 +1,79 @@
+items:
+- name: Espaços de Programador do Azure
+  items:
+  - name: Descrição geral
+    href: index.yml
+  - name: Inícios rápidos
+    items:
+    - name: Java (VS Code e CLI)
+      href: quickstart-java.md
+    - name: .NET Core (VS Code e CLI)
+      href: quickstart-netcore.md
+    - name: .NET Core (Visual Studio 2017)
+      href: quickstart-netcore-visualstudio.md
+    - name: Node.js (VS Code e CLI)
+      href: quickstart-nodejs.md
+  - name: Tutoriais
+    items:
+    - name: Java (VS Code e CLI)
+      items:
+      - name: 1 - Introdução
+        href: get-started-java.md
+      - name: 2 - Desenvolvimento de vários serviços
+        href: multi-service-java.md
+      - name: 3 - Desenvolvimento em equipa
+        href: team-development-java.md
+    - name: .NET Core (VS Code e CLI)
+      items:
+      - name: 1 - Introdução
+        href: get-started-netcore.md
+      - name: 2 - Desenvolvimento de vários serviços
+        href: multi-service-netcore.md
+      - name: 3 - Desenvolvimento em equipa
+        href: team-development-netcore.md
+    - name: .NET Core (Visual Studio 2017)
+      items:
+      - name: 1 - Introdução
+        href: get-started-netcore-visualstudio.md
+      - name: 2 - Desenvolvimento de vários serviços
+        href: multi-service-netcore-visualstudio.md
+      - name: 3 - Desenvolvimento em equipa
+        href: team-development-netcore-visualstudio.md
+    - name: Node.js (VS Code e CLI)
+      items:
+      - name: 1 - Introdução
+        href: get-started-nodejs.md
+      - name: 2 - Desenvolvimento de vários serviços
+        href: multi-service-nodejs.md
+      - name: 3 - Desenvolvimento em equipa
+        href: team-development-nodejs.md
+  - name: Conceitos
+    items:
+    - name: Como funcionam os Espaços de Desenvolvimento
+      href: how-dev-spaces-works.md
+  - name: Procedimento
+    items:
+    - name: Criar um cluster do Kubernetes com o Azure Cloud Shell
+      href: how-to/create-cluster-cloud-shell.md
+    - name: Partilhar os Espaços de Programador do Azure
+      href: how-to/share-dev-spaces.md
+    - name: Gerir segredos
+      href: how-to/manage-secrets.md
+    - name: Utilize um feed personalizado do NuGet
+      href: how-to/use-custom-nuget-feed.md
+    - name: Utilizar o kubectl com Espaços de Programador do Azure
+      href: how-to/use-kubectl-with-azure-dev-spaces.md
+    - name: Atualizar as ferramentas dos Espaços de Programador do Azure
+      href: how-to/upgrade-tools.md
+    - name: Utilizar CI/CD com o Azure Dev Spaces
+      href: how-to/setup-cicd.md
+    - name: Continuidade empresarial e recuperação após desastre para os Espaços de Desenvolvimento do Azure
+      href: how-to/dev-spaces-business-continuity.md
+  - name: Resolução de problemas
+    href: troubleshooting.md
+ms.openlocfilehash: 2584af119ba13e87d4249ce7cc7f605d88baa88e
+ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
+ms.translationtype: HT
+ms.contentlocale: pt-PT
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58341327"

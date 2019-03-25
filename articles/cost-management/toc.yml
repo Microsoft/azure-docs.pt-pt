@@ -27,6 +27,8 @@ items:
       href: understand-cost-mgt-data.md
     - name: Compreender e trabalhar com âmbitos
       href: understand-work-scopes.md
+    - name: Migrar do EA para APIs do MCA
+      href: migrate-cost-management-api.md
   - name: Guias de procedimentos
     items:
     - name: Atribuir acesso aos dados
@@ -115,9 +117,9 @@ items:
         href: cost-mgt-faq.md
       - name: Contactar o apoio ao cliente do Cloudyn
         href: support-request-cost-management.md
-ms.openlocfilehash: 68493e64b38c75332ba571d0bcf877c88a0c0f6a
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: b9e987d0f839b3ea0c13b15cdb27e8cb9de5b5dc
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57529638"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58312517"

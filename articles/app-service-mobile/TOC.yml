@@ -1,0 +1,322 @@
+items:
+- name: Documentação das Aplicações Móveis
+  href: index.md
+- name: Descrição geral
+  items:
+  - name: O que são Mobile Apps?
+    href: app-service-mobile-value-prop.md
+  - name: Planos do Serviço de Aplicações
+    href: ../app-service/overview-hosting-plans.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json
+- name: Inícios rápidos
+  items:
+  - name: Android
+    href: app-service-mobile-android-get-started.md
+  - name: Cordova
+    href: app-service-mobile-cordova-get-started.md
+  - name: iOS
+    href: app-service-mobile-ios-get-started.md
+  - name: Windows
+    href: app-service-mobile-windows-store-dotnet-get-started.md
+  - name: Xamarin.Android
+    href: app-service-mobile-xamarin-android-get-started.md
+  - name: Xamarin.Forms
+    href: app-service-mobile-xamarin-forms-get-started.md
+  - name: Xamarin.iOS
+    href: app-service-mobile-xamarin-ios-get-started.md
+- name: Procedimento
+  items:
+  - name: Planear e conceber
+    items:
+    - name: Autenticação e Autorização nas Aplicações Móveis do Azure
+      href: app-service-mobile-auth.md
+    - name: Sincronização de Dados Offline nas Aplicações Móveis do Azure
+      href: app-service-mobile-offline-data-sync.md
+    - name: Melhores Práticas do Serviço de Aplicações do Azure
+      href: ../app-service/app-service-best-practices.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json
+    - name: Análise dos planos do Serviço de Aplicações
+      href: ../app-service/overview-hosting-plans.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json
+    - name: Alojamento de alta densidade
+      href: ../app-service/manage-scale-per-app.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json
+    - name: Ambiente do Serviço de Aplicações
+      href: ../app-service/environment/app-service-app-service-environment-intro.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json
+  - name: Programar
+    items:
+    - name: Android
+      items:
+      - name: Permitir sincronização offline
+        href: app-service-mobile-android-get-started-offline-data.md
+      - name: Adicionar autenticação
+        href: app-service-mobile-android-get-started-users.md
+      - name: Adicionar notificações push
+        href: app-service-mobile-android-get-started-push.md
+      - name: Trabalhar com o SDK do cliente
+        href: app-service-mobile-android-how-to-use-client-library.md
+    - name: Cordova
+      items:
+      - name: Permitir sincronização offline
+        href: app-service-mobile-cordova-get-started-offline-data.md
+      - name: Adicionar autenticação
+        href: app-service-mobile-cordova-get-started-users.md
+      - name: Adicionar notificações push
+        href: app-service-mobile-cordova-get-started-push.md
+      - name: Trabalhar com o SDK do cliente
+        items:
+        - name: Cordova
+          href: app-service-mobile-cordova-how-to-use-client-library.md
+        - name: JavaScript/HTML
+          href: app-service-mobile-html-how-to-use-client-library.md
+    - name: iOS
+      items:
+      - name: Permitir sincronização offline
+        href: app-service-mobile-ios-get-started-offline-data.md
+      - name: Adicionar autenticação
+        href: app-service-mobile-ios-get-started-users.md
+      - name: Adicionar Notificações Push
+        href: app-service-mobile-ios-get-started-push.md
+      - name: Trabalhar com o SDK do cliente
+        href: app-service-mobile-ios-how-to-use-client-library.md
+    - name: Windows
+      items:
+      - name: Permitir sincronização offline
+        href: app-service-mobile-windows-store-dotnet-get-started-offline-data.md
+      - name: Adicionar autenticação
+        href: app-service-mobile-windows-store-dotnet-get-started-users.md
+      - name: Adicionar notificações push
+        href: app-service-mobile-windows-store-dotnet-get-started-push.md
+      - name: Trabalhar com o SDK do cliente
+        href: app-service-mobile-dotnet-how-to-use-client-library.md
+    - name: Xamarin.Android
+      items:
+      - name: Permitir sincronização offline
+        href: app-service-mobile-xamarin-android-get-started-offline-data.md
+      - name: Adicionar autenticação
+        href: app-service-mobile-xamarin-android-get-started-users.md
+      - name: Adicionar notificações push
+        href: app-service-mobile-xamarin-android-get-started-push.md
+      - name: Trabalhar com o SDK do cliente
+        href: app-service-mobile-dotnet-how-to-use-client-library.md
+    - name: Xamarin.Forms
+      items:
+      - name: Permitir sincronização offline
+        href: app-service-mobile-xamarin-forms-get-started-offline-data.md
+      - name: Adicionar autenticação
+        href: app-service-mobile-xamarin-forms-get-started-users.md
+      - name: Adicionar notificações push
+        href: app-service-mobile-xamarin-forms-get-started-push.md
+      - name: Trabalhar com o SDK do cliente
+        href: app-service-mobile-dotnet-how-to-use-client-library.md
+    - name: Xamarin.iOS
+      items:
+      - name: Permitir sincronização offline
+        href: app-service-mobile-xamarin-ios-get-started-offline-data.md
+      - name: Adicionar autenticação
+        href: app-service-mobile-xamarin-ios-get-started-users.md
+      - name: Adicionar notificações push
+        href: app-service-mobile-xamarin-ios-get-started-push.md
+      - name: Trabalhar com o SDK do cliente
+        href: app-service-mobile-dotnet-how-to-use-client-library.md
+    - name: Trabalhar com o SDK do servidor
+      items:
+      - name: .NET backend
+        href: app-service-mobile-dotnet-backend-how-to-use-server-sdk.md
+      - name: Node.js backend
+        href: app-service-mobile-node-backend-how-to-use-server-sdk.md
+      - name: Versão do cliente e do servidor
+        href: app-service-mobile-client-and-server-versioning.md
+    - name: Ambiente do Serviço de Aplicações
+      items:
+      - name: Criar uma Aplicação Web num Ambiente de Serviço de Aplicações
+        href: ../app-service/environment/intro.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json
+      - name: Criar e utilizar um balanceador de carga interno
+        href: ../app-service/environment/create-ilb-ase.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json
+      - name: Criar um ASE com um modelo
+        href: ../app-service/environment/create-from-template.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json
+  - name: Implementação
+    items:
+    - name: Implementação de sincronização da nuvem
+      href: ../app-service/deploy-content-sync.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json
+    - name: Implementação contínua
+      href: ../app-service/deploy-continuous-deployment.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json
+    - name: Ambientes de teste
+      href: ../app-service/deploy-staging-slots.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json
+    - name: Implementação de Git local
+      href: ../app-service/deploy-local-git.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json
+    - name: Implementação do Azure Resource Manager
+      href: ../app-service/deploy-complex-application-predictably.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json
+  - name: Escala
+    items:
+    - name: Aumentar verticalmente uma aplicação
+      href: ../app-service/web-sites-scale.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json
+    - name: Ambiente do Serviço de Aplicações
+      href: ../app-service/environment/intro.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json
+      items:
+      - name: Escala Distribuída Geograficamente com Ambientes de Serviço de Aplicações
+        href: ../app-service/environment/app-service-app-service-environment-geo-distributed-scale.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json
+      - name: Dimensionar aplicações num Ambiente do Serviço de Aplicações
+        href: ../app-service/environment/app-service-web-scale-a-web-app-in-an-app-service-environment.md
+      - name: Dimensionar automaticamente num Ambiente do Serviço de Aplicações
+        href: ../app-service/environment/app-service-environment-auto-scale.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json
+  - name: Gerir
+    items:
+    - name: Configurar
+      href: ../app-service/web-sites-configure.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json
+    - name: Domínios personalizados
+      items:
+      - name: Comprar e configurar domínios personalizados
+        href: ../app-service/manage-custom-dns-buy-domain.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json
+      - name: Mapear o seu domínio personalizado
+        href: ../app-service/app-service-web-tutorial-custom-domain.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json
+      - name: Domínios personalizados com o Gestor de Tráfego
+        href: ../app-service/web-sites-traffic-manager-custom-domain-name.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json
+    - name: Clonar uma aplicação existente
+      href: ../app-service/app-service-web-app-cloning.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json
+    - name: Rede Virtual do Azure
+      href: ../app-service/web-sites-integrate-with-vnet.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json
+    - name: Grupos de recursos
+      href: ../azure-resource-manager/resource-group-move-resources.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json#app-service-limitations
+      items:
+      - name: Executar tarefas em Segundo Plano com o WebJobs
+        href: ../app-service/webjobs-create.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json
+      - name: Configurar
+        href: ../app-service/environment/app-service-web-configure-an-app-service-environment.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json
+      - name: Definições de configuração personalizada
+        href: ../app-service/environment/app-service-app-service-environment-custom-settings.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json
+      - name: Como controlar o tráfego de entrada
+        href: ../app-service/environment/app-service-app-service-environment-control-inbound-traffic.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json
+      - name: Descrição geral da arquitetura de rede
+        href: ../app-service/environment/app-service-app-service-environment-network-architecture-overview.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json
+      - name: Detalhes da configuração de rede com ExpressRoute
+        href: ../app-service/environment/app-service-app-service-environment-network-configuration-expressroute.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json
+  - name: Migrar
+    items:
+    - name: Como o Serviço de Aplicações se compara aos Serviços Móveis?
+      href: app-service-mobile-value-prop-migration-from-mobile-services.md
+    - name: Migrar um Serviço Móvel existente para o Serviço de Aplicações
+      href: app-service-mobile-migrating-from-mobile-services.md
+    - name: Atualizar um Serviço Móvel existente para o Serviço de Aplicações
+      items:
+      - name: .NET backend
+        href: app-service-mobile-net-upgrading-from-mobile-services.md
+      - name: Node.js backend
+        href: app-service-mobile-node-backend-upgrading-from-mobile-services.md
+  - name: Proteger
+    items:
+    - name: Autenticar com fornecedores de identidades
+      items:
+      - name: Autenticação do Azure Active Directory
+        href: ../app-service/configure-authentication-provider-aad.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json
+      - name: Autenticação do Facebook
+        href: ../app-service/configure-authentication-provider-facebook.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json
+      - name: Autenticação do Google
+        href: ../app-service/configure-authentication-provider-google.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json
+      - name: Autenticação da Conta Microsoft
+        href: ../app-service/configure-authentication-provider-microsoft.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json
+      - name: Autenticação do Twitter
+        href: ../app-service/configure-authentication-provider-twitter.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json
+    - name: HTTPS
+      items:
+      - name: Configurar a Autenticação Mútua de TLS
+        href: ../app-service/app-service-web-configure-tls-mutual-auth.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json
+      - name: Comprar um certificado SSL no Azure
+        href: ../app-service/web-sites-purchase-ssl-web-site.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json
+      - name: Utilizar um certificado SSL obtido noutro local
+        href: ../app-service/app-service-web-tutorial-custom-ssl.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json
+    - name: Proteger um Ambiente do Serviço de Aplicações
+      items:
+      - name: Configurar uma firewall de aplicações Web
+        href: ../app-service/environment/app-service-app-service-environment-web-application-firewall.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json
+      - name: Implementar uma arquitetura de segurança em camadas
+        href: ../app-service/environment/app-service-app-service-environment-layered-security.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json
+      - name: Ligar a Recursos Back-end com Segurança
+        href: ../app-service/environment/app-service-app-service-environment-securely-connecting-to-backend-resources.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json
+  - name: Cópia de segurança
+    items:
+    - name: Efetuar cópia de segurança da sua aplicação no Azure
+      href: ../app-service/manage-backup.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json
+    - name: Restaurar uma aplicação no Azure
+      href: ../app-service/web-sites-restore.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json
+  - name: Monitorizar
+    href: ../app-service/web-sites-monitor.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json
+    items:
+    - name: Ativar o registo de diagnósticos
+      href: ../app-service/troubleshoot-diagnostic-logs.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json
+    - name: Resolver problemas com o Visual Studio
+      href: ../app-service/troubleshoot-dotnet-visual-studio.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json
+  - name: Integrar
+    items:
+    - name: Como enviar e-mails com o SendGrid e o Azure
+      href: ../sendgrid-dotnet-how-to-send-email.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json
+    - name: Exportar para as PowerApps e Microsoft Flow
+      href: ../azure-functions/app-service-export-api-to-powerapps-and-flow.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json
+    - name: Utilizar a Identidade Gerida
+      href: ../app-service/overview-managed-identity.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json
+  - name: Resolução de problemas
+    items:
+    - name: Resolução de problemas gerais de Aplicações Móveis
+      items:
+      - name: .NET backend
+        href: app-service-mobile-dotnet-backend-how-to-use-server-sdk.md#how-to-debug-and-troubleshoot-the-net-server-sdk
+      - name: Node.JS backend
+        href: app-service-mobile-node-backend-how-to-use-server-sdk.md#Debugging
+    - name: Ativar o registo de diagnósticos
+      href: ../app-service/troubleshoot-diagnostic-logs.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json
+    - name: Resolver problemas com o Visual Studio
+      href: ../app-service/troubleshoot-dotnet-visual-studio.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json
+- name: Referência
+  items:
+  - name: .NET SDK de back-end
+    href: https://msdn.microsoft.com/library/azure/dn961176.aspx
+  - name: Node.js SDK de back-end
+    href: https://azure.github.io/azure-mobile-apps-node/
+  - name: SDK de cliente Android
+    href: https://azure.github.io/azure-mobile-apps-android-client/
+  - name: SDK de cliente iOS
+    href: https://azure.github.io/azure-mobile-apps-ios-client/
+  - name: SDK de cliente JavaScript/Cordova
+    href: https://azure.github.io/azure-mobile-apps-js-client/
+  - name: SDK de cliente Windows/Xamarin
+    href: https://msdn.microsoft.com/library/azure/mt419521.aspx
+- name: Relacionado
+  items:
+  - name: Repositórios GitHub
+    href: https://github.com/Azure/azure-mobile-apps
+- name: Recursos
+  items:
+  - name: Melhores práticas do Serviço de Aplicações
+    href: ../app-service/app-service-best-practices.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json
+  - name: Mapa do Azure
+    href: https://azure.microsoft.com/roadmap/
+  - name: Fórum do MSDN
+    href: https://social.msdn.microsoft.com/forums/azure/home?forum=azuremobile
+  - name: Preços
+    href: https://azure.microsoft.com/pricing/details/app-service/
+  - name: Calculadora de preços
+    href: https://azure.microsoft.com/pricing/calculator/
+  - name: Atualizações de serviço
+    href: https://azure.microsoft.com/updates/?product=mobile-services
+  - name: Stack Overflow
+    href: https://stackoverflow.com/questions/tagged/azure-mobile-services
+  - name: Vídeos
+    href: https://azure.microsoft.com/documentation/videos/index/?services=mobile-services
+  - name: Amostras
+    items:
+    - name: Engenheiro de campo
+      href: https://azure.microsoft.com/resources/samples/app-service-mobile-dotnet-fieldengineer/
+    - name: Sincronização de dados estruturados
+      href: https://azure.microsoft.com/resources/samples/app-service-mobile-dotnet-todo-list-files/
+    - name: Manual de Início Rápido concluído
+      items:
+      - name: .NET backend
+        href: https://azure.microsoft.com/resources/samples/app-service-mobile-dotnet-backend-quickstart/
+      - name: Node.js backend
+        href: https://azure.microsoft.com/resources/samples/app-service-mobile-nodejs-backend-quickstart/
+      - name: Windows
+        href: https://azure.microsoft.com/resources/samples/app-service-mobile-windows-quickstart/
+      - name: Xamarin.Android
+        href: https://azure.microsoft.com/resources/samples/app-service-mobile-xamarin-android-quickstart/
+ms.openlocfilehash: b7aa7664e7261233cda211b3d206432f388c4e87
+ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
+ms.translationtype: HT
+ms.contentlocale: pt-PT
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58341208"

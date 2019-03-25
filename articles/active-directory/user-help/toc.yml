@@ -94,14 +94,20 @@ items:
 - name: Ajuda do portal das Minhas Aplicações
   items:
   - name: Descrição geral
-    href: user-help-my-apps-overview.md
-  - name: O que é o portal As minhas Aplicações?
-    href: active-directory-saas-access-panel-introduction.md
+    href: my-apps-portal-end-user-overview.md
+  - name: Aceder e utilizar o portal As Minhas Aplicações
+    href: my-apps-portal-end-user-access.md
+  - name: Atualizar as suas informações de perfil e de conta
+    href: my-apps-portal-end-user-update-profile.md
+  - name: Atualizar as suas informações de grupos
+    href: my-apps-portal-end-user-groups.md
+  - name: Executar as suas próprias revisões de acesso
+    href: my-apps-portal-end-user-access-reviews.md
   - name: Resolver problemas
-    href: active-directory-saas-access-panel-user-help.md
-ms.openlocfilehash: ce88ac8f7ca81009f7c28b08408723ac5161eda1
-ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
+    href: my-apps-portal-end-user-troubleshoot.md
+ms.openlocfilehash: be7c20053ab6ee3a18f81aec9dc973a3032aa5c6
+ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57340066"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58339556"

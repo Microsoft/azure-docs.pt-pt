@@ -162,6 +162,8 @@ items:
           href: ingress-static-ip.md
     - name: Tráfego de saída
       href: egress.md
+    - name: Personalizar CoreDNS
+      href: coredns-custom.md
   - name: Segurança e autenticação
     items:
     - name: Criar um principal de serviço
@@ -318,9 +320,9 @@ items:
     href: https://azure.microsoft.com/resources/videos/index/?services=container-service&sort=newest
   - name: FAQ
     href: faq.md
-ms.openlocfilehash: 6f5b944ba1ce02d05478fa97b0376c0f42fa98e2
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 616c4de3366dd61b38187cf3134a1a6355c7a450
+ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56206536"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58403141"

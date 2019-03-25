@@ -94,8 +94,8 @@ items:
       href: how-to-transform-data.md
     - name: Escrever dados
       href: how-to-write-data.md
-  - name: Aceder a dados
-    displayName: blob get fileshare
+  - name: Obter dados num arquivo de dados
+    displayName: blob get fileshare access storage
     href: how-to-access-data.md
   - name: Preparar modelos
     items:
@@ -111,7 +111,7 @@ items:
     - name: Otimizar hiperparâmetros
       displayName: parameter
       href: how-to-tune-hyperparameters.md
-    - name: Controlar experiências e métricas
+    - name: Métricas de registo para execuções de preparações
       href: how-to-track-experiments.md
   - name: Automatizar a aprendizagem automática
     displayName: automl, auto ml
@@ -193,9 +193,9 @@ items:
   - name: Comparar os nossos produtos de ML
     href: /azure/architecture/data-guide/technology-choices/data-science-and-machine-learning
     maintainContext: true
-ms.openlocfilehash: 43d3db426fa96fca9a35250a57725cc7513a05ae
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: c022e3607466db482e37f1ace283577dad6a37b8
+ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58181015"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58338535"

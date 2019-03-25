@@ -134,8 +134,11 @@ Criámos este conteúdo para ajudá-lo a configurar e utilizar as informações 
                     <div class="cardText">
                         <h3>Ajuda do portal das Minhas Aplicações</h3>
                         <p>
-                        <a href="/azure/active-directory/user-help/active-directory-saas-access-panel-introduction">O que é o portal As minhas aplicações?</a><br/>
-                        <a href="/azure/active-directory/active-directory-saas-access-panel-user-help">Resolução de problemas</a>
+                        <a href="/azure/active-directory/user-help/my-apps-portal-end-user-access">Aceder e utilizar o portal As Minhas Aplicações</a><br/>
+                        <a href="/azure/active-directory/user-help/my-apps-portal-end-user-update-profile">Atualizar as suas informações de perfil e de conta</a><br/>
+                        <a href="/azure/active-directory/user-help/my-apps-portal-end-user-groups">Atualizar as suas informações relacionadas com o grupo</a><br/>
+                        <a href="/azure/active-directory/user-help/my-apps-portal-end-user-access-reviews">Executar as suas próprias revisões de acesso</a><br/>
+                        <a href="/azure/active-directory/user-help/my-apps-portal-end-user-troubleshoot">Resolução de problemas</a>
                         </p>
                     </div>
                 </div>

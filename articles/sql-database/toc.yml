@@ -17,8 +17,11 @@ items:
     href: sql-database-managed-instance-quickstart-guide.md
   - name: Criar
     items:
-    - name: Base de dados individual
+    - name: Base de dados individual - portal
       href: sql-database-single-database-get-started.md
+    - name: Base de dados individual - modelo
+      displayName: Azure Resource Manager template, ARM
+      href: sql-database-single-database-get-started-template.md
     - name: Instância gerida
       href: sql-database-managed-instance-get-started.md
   - name: Configurar
@@ -724,9 +727,9 @@ items:
       href: sql-database-elastic-jobs-getting-started.md
     - name: Desinstalar tarefa elástica (preterido)
       href: sql-database-elastic-jobs-uninstall.md
-ms.openlocfilehash: 41379e27d936db125261459c106687fc6c74a098
-ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
+ms.openlocfilehash: 0db2ed5be57c4ee8a523e9626fed1ed437f971b7
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58227002"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58372578"

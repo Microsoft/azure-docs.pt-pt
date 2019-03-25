@@ -1,0 +1,29 @@
+items:
+- name: Como criar um pedido de suporte do Azure
+  href: how-to-create-azure-support-request.md
+- name: Carregar ficheiros para um pedido de suporte
+  href: how-to-use-file-uploader.md
+- name: Direitos de acesso para criar e gerir pedidos de suporte
+  href: create-manage-support-requests-using-access-control.md
+- name: Pedidos de aumento de quota
+  href: resource-manager-core-quotas-request.md
+- name: Resolução de problemas de subscrição de SKU ou região
+  href: sku-series-unavailable.md
+- name: Referência
+  items:
+  - name: CLI do Azure
+    href: /cli/azure
+  - name: Azure PowerShell
+    href: /powershell/azure
+- name: Recursos
+  items:
+  - name: Mapa do Azure
+    href: https://azure.microsoft.com/roadmap/?category=monitoring-management
+  - name: Calculadora de preços
+    href: https://azure.microsoft.com/pricing/calculator/
+ms.openlocfilehash: 31120ea857d0e080bc9629d781ac2cdd73d31bc0
+ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
+ms.translationtype: HT
+ms.contentlocale: pt-PT
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58340919"

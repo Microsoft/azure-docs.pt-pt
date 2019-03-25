@@ -1,0 +1,485 @@
+items:
+- name: Documentação dos Serviços de Multimédia
+  href: index.md
+- name: Descrição geral
+  href: media-services-overview.md
+  items:
+  - name: Cenários e disponibilidade
+    href: scenarios-and-availability.md
+  - name: Conceitos
+    href: media-services-concepts.md
+- name: Introdução
+  items:
+  - name: Criar e gerir a conta
+    href: media-services-portal-create-account.md
+  - name: Configurar o ambiente de desenvolvimento
+    href: media-services-set-up-computer.md
+    items:
+    - name: .NET
+      href: media-services-dotnet-how-to-use.md
+    - name: REST
+      href: media-services-rest-how-to-use.md
+  - name: Utilizar a autenticação do Azure AD para aceder à API
+    href: media-services-use-aad-auth-to-access-ams-api.md
+    items:
+    - name: Utilizar o portal para gerir a autenticação do Azure AD
+      href: media-services-portal-get-started-with-aad.md
+    - name: Aceder à API com .NET
+      href: media-services-dotnet-get-started-with-aad.md
+    - name: Aceder à API com REST
+      href: media-services-rest-connect-with-aad.md
+    - name: Utilizar a CLI do Azure para criar e configurar uma aplicação do Azure AD
+      href: media-services-cli-create-and-configure-aad-app.md
+    - name: Utilizar o Azure PowerShell para criar e configurar uma aplicação do Azure AD
+      href: media-services-powershell-create-and-configure-aad-app.md
+  - name: Entregar vídeo a pedido
+    items:
+    - name: Portal do Azure
+      href: media-services-portal-vod-get-started.md
+    - name: SDK .NET
+      href: media-services-dotnet-get-started.md
+    - name: Java
+      href: media-services-java-how-to-use.md
+    - name: REST
+      href: media-services-rest-get-started.md
+  - name: Realizar transmissão em direto
+    items:
+    - name: Portal do Azure
+      href: media-services-portal-live-passthrough-get-started.md
+    - name: .NET
+      href: media-services-dotnet-live-encode-with-onpremises-encoders.md
+- name: Procedimento
+  items:
+  - name: Gerir
+    items:
+    - name: Entidades
+      items:
+      - name: .NET
+        href: media-services-dotnet-manage-entities.md
+      - name: REST
+        href: media-services-rest-manage-entities.md
+    - name: Pontos finais de transmissões em fluxo
+      href: media-services-streaming-endpoints-overview.md
+      items:
+      - name: Portal do Azure
+        href: media-services-portal-manage-streaming-endpoints.md
+      - name: .NET
+        href: media-services-dotnet-manage-streaming-endpoints.md
+    - name: Armazenamento
+      items:
+      - name: Atualizar Serviços de Multimédia após a implementação de chaves de acesso ao armazenamento
+        href: media-services-roll-storage-access-keys.md
+      - name: Gerir recursos entre várias contas de armazenamento
+        href: meda-services-managing-multiple-storage-accounts.md
+    - name: Quotas e limitações
+      href: media-services-quotas-and-limitations.md
+  - name: Configurar o Postman
+    href: media-rest-apis-with-postman.md
+    items:
+    - name: Coleção de transmissão em fluxo a pedido
+      href: postman-collection.md
+    - name: Coleção de transmissão em fluxo ao vivo
+      href: postman-live-streaming-collection.md
+    - name: Ambiente
+      href: postman-environment.md
+  - name: Carregar conteúdo
+    items:
+    - name: Carregar ficheiros para uma conta
+      items:
+      - name: Portal do Azure
+        href: media-services-portal-upload-files.md
+      - name: .NET
+        href: media-services-dotnet-upload-files.md
+      - name: REST
+        href: media-services-rest-upload-files.md
+    - name: Carregar ficheiros grandes com o Aspera
+      href: media-services-upload-files-with-aspera.md
+    - name: Carregar ficheiros com o StorSimple
+      href: media-services-upload-files-from-storsimple.md
+    - name: Copiar blobs existentes
+      href: media-services-copying-existing-blob.md
+  - name: Codificar conteúdo
+    href: media-services-encode-asset.md
+    items:
+    - name: Comparar codificadores
+      href: media-services-compare-encoders.md
+    - name: Gerir a velocidade e simultaneidade da codificação
+      href: media-services-manage-encoding-speed.md
+    - name: Media Encoder Standard (MES)
+      items:
+      - name: Formatos e Codecs do Codificador de Multimédia Standard
+        href: media-services-media-encoder-standard-formats.md
+      - name: Utilize o MES para gerar automaticamente uma escala de bits
+        href: media-services-autogen-bitrate-ladder-with-mes.md
+      - name: Codificar com o Media Encoder Standard
+        items:
+        - name: Portal do Azure
+          href: media-services-portal-encode.md
+        - name: .NET
+          href: media-services-dotnet-encode-with-media-encoder-standard.md
+        - name: REST
+          href: media-services-rest-encode-asset.md
+      - name: Codificação avançada com MES
+        href: media-services-advanced-encoding-with-mes.md
+        items:
+        - name: Personalizar as predefinições do Media Encoder Standard
+          href: media-services-custom-mes-presets-with-dotnet.md
+        - name: Como gerar miniaturas com o Media Encoder Standard com .NET
+          href: media-services-dotnet-generate-thumbnail-with-mes.md
+        - name: Recortar vídeos com o Media Encoder Standard
+          href: media-services-crop-video.md
+        - name: Gerar um sprite de miniatura
+          href: generate-thumbnail-sprite.md
+      - name: Esquemas MES
+        items:
+        - name: Esquema Media Encoder Standard
+          href: media-services-mes-schema.md
+        - name: Metadados de entrada
+          href: media-services-input-metadata-schema.md
+        - name: Metadados de saída
+          href: media-services-output-metadata-schema.md
+      - name: Predefinições MES
+        href: media-services-mes-presets-overview.md
+        items:
+        - name: H264 Taxas de Bits Múltiplas 1080p Audio 5.1
+          href: media-services-mes-preset-H264-Multiple-Bitrate-1080p-Audio-5.1.md
+        - name: H264 Taxas de Bits Múltiplas 1080p
+          href: media-services-mes-preset-H264-Multiple-Bitrate-1080p.md
+        - name: H264 Taxas de Bits Múltiplas 16x9 SD Audio 5.1
+          href: media-services-mes-preset-H264-Multiple-Bitrate-16x9-SD-Audio-5.1.md
+        - name: H264 Taxas de Bits Múltiplas 16x9 SD
+          href: media-services-mes-preset-H264-Multiple-Bitrate-16x9-SD.md
+        - name: H264 Taxas de Bits Múltiplas 16x9 para iOS
+          href: media-services-mes-preset-H264-Multiple-Bitrate-16x9-for-iOS.md
+        - name: H264 Taxas de Bits Múltiplas 4K Audio 5.1
+          href: media-services-mes-preset-H264-Multiple-Bitrate-4K-Audio-5.1.md
+        - name: H264 Taxas de Bits Múltiplas 4K
+          href: media-services-mes-preset-H264-Multiple-Bitrate-4K.md
+        - name: H264 Taxas de Bits Múltiplas 4x3 SD Audio 5.1
+          href: media-services-mes-preset-H264-Multiple-Bitrate-4x3-SD-Audio-5.1.md
+        - name: H264 Taxas de Bits Múltiplas 4x3 SD
+          href: media-services-mes-preset-H264-Multiple-Bitrate-4x3-SD.md
+        - name: H264 Taxas de Bits Múltiplas 4x3 para iOS
+          href: media-services-mes-preset-H264-Multiple-Bitrate-4x3-for-iOS.md
+        - name: H264 Taxas de Bits Múltiplas 720p Audio 5.1
+          href: media-services-mes-preset-H264-Multiple-Bitrate-720p-Audio-5.1.md
+        - name: H264 Taxas de Bits Múltiplas 720p
+          href: media-services-mes-preset-H264-Multiple-Bitrate-720p.md
+        - name: H264 Taxa de Bits Única 1080p Audio 5.1
+          href: media-services-mes-preset-H264-Single-Bitrate-1080p-Audio-5.1.md
+        - name: H264 Taxa de Bits Única 1080p
+          href: media-services-mes-preset-H264-Single-Bitrate-1080p.md
+        - name: H264 Taxa de Bits Única 16x9 SD Audio 5.1
+          href: media-services-mes-preset-H264-Single-Bitrate-16x9-SD-Audio-5.1.md
+        - name: H264 Taxa de Bits Única 16x9 SD
+          href: media-services-mes-preset-H264-Single-Bitrate-16x9-SD.md
+        - name: H264 Taxa de Bits Única 4K Audio 5.1
+          href: media-services-mes-preset-H264-Single-Bitrate-4K-Audio-5.1.md
+        - name: H264 Taxa de Bits Única 4K
+          href: media-services-mes-preset-H264-Single-Bitrate-4K.md
+        - name: H264 Taxa de Bits Única 4x3 SD Audio 5.1
+          href: media-services-mes-preset-H264-Single-Bitrate-4x3-SD-Audio-5.1.md
+        - name: H264 Taxa de Bits Única 4x3 SD
+          href: media-services-mes-preset-H264-Single-Bitrate-4x3-SD.md
+        - name: H264 Taxa de Bits Única 720p Audio 5.1
+          href: media-services-mes-preset-H264-Single-Bitrate-720p-Audio-5.1.md
+        - name: H264 Taxa de Bits Única 720p
+          href: media-services-mes-preset-H264-Single-Bitrate-720p.md
+        - name: H264 Taxa de Bits Única 720p para Android
+          href: media-services-mes-preset-H264-Single-Bitrate-720p-for-Android.md
+        - name: H264 Taxa de Bits Única de Alta Qualidade SD para Android
+          href: media-services-mes-preset-H264-Single-Bitrate-High-Quality-SD-for-Android.md
+        - name: H264 Taxa de Bits Única de Baixa Qualidade SD para Android
+          href: media-services-mes-preset-H264-Single-Bitrate-Low-Quality-SD-for-Android.md
+    - name: Fluxo de Trabalho Premium de Codificador de Multimédia
+      items:
+      - name: Formatos e Codecs de Fluxo de Trabalho Premium do Codificador de Multimédia
+        href: media-services-premium-workflow-encoder-formats.md
+      - name: Codificar com o Fluxo de Trabalho Premium do Codificador de Multimédia
+        items:
+        - name: Fluxo de Trabalho Premium de Codificador de Multimédia
+          href: media-services-encode-with-premium-workflow.md
+        - name: Tutoriais de Fluxo de Trabalho Premium de Codificador de Multimédia
+          href: media-services-media-encoder-premium-workflow-tutorials.md
+        - name: Criar Fluxos de Trabalho de Codificação Avançados com o Estruturador de Fluxos de Trabalho
+          href: media-services-workflow-designer.md
+        - name: Fluxo de trabalho Premium com várias entradas
+          href: media-services-media-encoder-premium-workflow-multiplefilesinput.md
+    - name: Criar uma tarefa que gera segmentos fMP4
+      href: media-services-generate-fmp4-chunks.md
+    - name: Processadores de multimédia
+      items:
+      - name: .NET
+        href: media-services-get-media-processor.md
+      - name: REST
+        href: media-services-rest-get-media-processor.md
+    - name: Códigos de erro
+      href: media-services-encoding-error-codes.md
+    - name: Preterido
+      items:
+      - name: Empacotamento e encriptação estáticas
+        href: media-services-static-packaging.md
+  - name: Transmissão em direto
+    href: media-services-manage-channels-overview.md
+    items:
+    - name: Codificadores locais
+      href: media-services-live-streaming-with-onprem-encoders.md
+      items:
+      - name: Codificadores locais recomendados
+        href: media-services-recommended-encoders.md
+      - name: Portal do Azure
+        href: media-services-portal-live-passthrough-get-started.md
+      - name: .NET
+        href: media-services-dotnet-live-encode-with-onpremises-encoders.md
+    - name: Transmissão em direto com codificador em nuvem
+      href: media-services-manage-live-encoder-enabled-channels.md
+      items:
+      - name: Portal do Azure
+        href: media-services-portal-creating-live-encoder-enabled-channel.md
+      - name: .NET
+        href: media-services-dotnet-creating-live-encoder-enabled-channel.md
+    - name: Configurar codificadores no local para utilização com codificadores em cloud
+      href: media-services-live-encoders-overview.md
+      items:
+      - name: Codificador de FMLE
+        href: media-services-configure-fmle-live-encoder.md
+      - name: Codificador Haivision KB
+        href: media-services-configure-kb-live-encoder.md
+      - name: Codificador de NewTek TriCaster
+        href: media-services-configure-tricaster-live-encoder.md
+      - name: Codificador de Wirecast
+        href: media-services-configure-wirecast-live-encoder.md
+    - name: Lidar com operações de longa duração
+      href: media-services-dotnet-long-operations.md
+    - name: Especificação de ingestão em tempo real de MP4 fragmentado
+      href: media-services-fmp4-live-ingest-overview.md
+    - name: Introdução
+      href: media-services-azure-media-clipper-getting-started.md
+    - name: Carregar vídeos
+      href: media-services-azure-media-clipper-load-assets.md
+    - name: Configurar atalhos de teclado
+      href: media-services-azure-media-clipper-keyboard-shortcuts.md
+    - name: Configurar localização
+      href: media-services-azure-media-clipper-localization.md
+    - name: Submeter tarefas de recorte
+      href: media-services-azure-media-clipper-submit-job.md
+    - name: Portal do Azure
+      href: media-services-azure-media-clipper-portal.md
+  - name: Proteger conteúdo
+    href: media-services-content-protection-overview.md
+    items:
+    - name: Encriptação do armazenamento
+      href: media-services-rest-storage-encryption.md
+    - name: Encriptação de AES-128
+      href: media-services-protect-with-aes128.md
+    - name: PlayReady/Widevine para transmissão em fluxo
+      href: media-services-protect-with-playready-widevine.md
+    - name: FairPlay para Transmissão em fluxo
+      href: media-services-protect-hls-with-fairplay.md
+    - name: Offline PlayReady para Windows 10
+      href: offline-playready-streaming-windows-10.md
+    - name: FairPlay Offline para iOS
+      href: media-services-protect-hls-with-offline-fairplay.md
+    - name: Offline Widevine para Android
+      href: offline-widevine-for-android.md
+    - name: Configurar no portal do Azure
+      href: media-services-portal-protect-content.md
+    - name: Distribuir licenças de DRM
+      href: media-services-deliver-keys-and-licenses.md
+    - name: Criar ContentKeys
+      items:
+      - name: .NET
+        href: media-services-dotnet-create-contentkey.md
+      - name: REST
+        href: media-services-rest-create-contentkey.md
+    - name: Descrições gerais do modelo de licenças
+      items:
+      - name: Modelo de licença PlayReady
+        href: media-services-playready-license-template-overview.md
+      - name: Modelo de licença do Widevine
+        href: media-services-widevine-license-template-overview.md
+    - name: Configurar políticas de entrega de ativo
+      items:
+      - name: .NET
+        href: media-services-dotnet-configure-asset-delivery-policy.md
+      - name: REST
+        href: media-services-rest-configure-asset-delivery-policy.md
+    - name: Configure a política de autorização da chave de conteúdo
+      items:
+      - name: Portal do Azure
+        href: media-services-portal-configure-content-key-auth-policy.md
+      - name: .NET
+        href: media-services-dotnet-configure-content-key-auth-policy.md
+      - name: REST
+        href: media-services-rest-configure-content-key-auth-policy.md
+    - name: Transmita os tokens de autenticação para AMS
+      href: media-services-pass-authentication-tokens.md
+    - name: Estruturas de referência
+      items:
+      - name: Estrutura de sistema de DRM híbrido
+        href: hybrid-design-drm-sybsystem.md
+      - name: Estrutura de múltiplos DRM de referência
+        href: media-services-cenc-with-multidrm-access-control.md
+  - name: Analisar
+    href: media-services-analytics-overview.md
+    items:
+    - name: Analisar multimédia através do portal do Azure
+      href: media-services-portal-analyze.md
+    - name: Processar com o Indexador 2
+      href: media-services-process-content-with-indexer2.md
+    - name: Processar com o Indexador
+      href: media-services-index-content.md
+      items:
+      - name: Predefinição de tarefas
+        href: indexer-task-preset.md
+    - name: Processar com o Hyperlapse
+      href: media-services-hyperlapse-content.md
+    - name: Processar com o Detetor de Rostos
+      href: media-services-face-and-emotion-detection.md
+    - name: Processar com o Detetor de Movimento
+      href: media-services-motion-detection.md
+    - name: Processar com o Editor de Rostos
+      href: media-services-face-redaction.md
+      items:
+      - name: Instruções de Redação de Rostos
+        href: media-services-redactor-walkthrough.md
+    - name: Processar com miniaturas de vídeos
+      href: media-services-video-summarization.md
+    - name: Processar com o OCR
+      href: media-services-video-optical-character-recognition.md
+    - name: Processar com o Content Moderator
+      href: media-services-content-moderation.md
+  - name: Configurar telemetria
+    href: media-services-telemetry-overview.md
+    items:
+    - name: .NET
+      href: media-services-dotnet-telemetry.md
+    - name: REST
+      href: media-services-rest-telemetry.md
+  - name: Escala
+    items:
+    - name: Processamento de Multimédia
+      href: media-services-scale-media-processing-overview.md
+      items:
+      - name: Portal do Azure
+        href: media-services-portal-scale-media-processing.md
+      - name: .NET
+        href: media-services-dotnet-encoding-units.md
+    - name: Pontos Finais de Transmissão em fluxo
+      items:
+      - name: Portal do Azure
+        href: media-services-portal-scale-streaming-endpoints.md
+  - name: Entregar conteúdo
+    href: media-services-deliver-content-overview.md
+    items:
+    - name: Empacotamento dinâmico
+      href: media-services-dynamic-packaging-overview.md
+    - name: Descrição geral dos filtros e dos manifestos dinâmicos
+      href: media-services-dynamic-manifest-overview.md
+      items:
+      - name: Criar filtros com .NET
+        href: media-services-dotnet-dynamic-manifest.md
+      - name: Criar filtros com REST
+        href: media-services-rest-dynamic-manifest.md
+    - name: Política de Colocação em Cache de CDN na Extensão de Serviços de Multimédia
+      href: ../../cdn/cdn-caching-policy.md?toc=%2fazure%2fmedia-services%2ftoc.json
+    - name: Publicar conteúdo
+      items:
+      - name: Portal do Azure
+        href: media-services-portal-publish.md
+      - name: .NET
+        href: media-services-deliver-streaming-content.md
+      - name: REST
+        href: media-services-rest-deliver-streaming-content.md
+    - name: Entregar por Transferência
+      href: media-services-deliver-asset-download.md
+    - name: Cenário de Transmissão de Ativação Pós-falha
+      href: media-services-implement-failover.md
+  - name: Consumir
+    items:
+    - name: Reproduzir multimédia com leitores existentes
+      href: media-services-playback-content-with-existing-players.md
+    - name: Reproduzir multimédia com Leitor de Multimédia
+      href: media-services-develop-video-players.md
+    - name: Outras opções de reprodução
+      items:
+      - name: Aplicação de transmissão em fluxo uniforme da Windows Store
+        href: media-services-build-smooth-streaming-apps.md
+      - name: Aplicação HTML5 com DASH.js
+        href: media-services-embed-mpeg-dash-in-html5.md
+      - name: Leitores de Framework de Multimédia de Código Fonte Aberto do Adobe
+        href: media-services-use-osmf-smooth-streaming-client-plugin.md
+    - name: Inserir publicidade no lado do cliente
+      href: media-services-inserting-ads-on-client-side.md
+    - name: Licenciamento do Kit de Migração de Cliente de Smooth Streaming da Microsoft
+      href: media-services-sspk.md
+  - name: Integrar
+    items:
+    - name: Utilizar as Funções do Azure com os Serviços de Multimédia
+      href: media-services-dotnet-how-to-use-azure-functions.md
+    - name: Funções do Azure com exemplos dos Serviços de Multimédia
+      href: https://github.com/Azure-Samples/media-services-dotnet-functions-integration
+  - name: Monitorizar
+    items:
+    - name: Verificar progresso da tarefa
+      items:
+      - name: REST
+        href: media-services-rest-check-job-progress.md
+      - name: Portal do Azure
+        href: media-services-portal-check-job-progress.md
+      - name: .NET
+        href: media-services-check-job-progress.md
+    - name: Monitorizar notificações de tarefas com armazenamento de filas
+      href: media-services-dotnet-check-job-progress-with-queues.md
+    - name: Monitorizar notificações de tarefas com webhooks
+      href: media-services-dotnet-check-job-progress-with-webhooks.md
+  - name: Resolução de problemas
+    items:
+    - name: Perguntas mais frequentes
+      href: media-services-frequently-asked-questions.md
+    - name: Guia de resolução de problemas de transmissão em fluxo em direto
+      href: media-services-troubleshooting-live-streaming.md
+    - name: Códigos de erro
+      href: media-services-error-codes.md
+    - name: Repetir a lógica
+      href: media-services-retry-logic-in-dotnet-sdk.md
+- name: Referência
+  items:
+  - name: Exemplos de código
+    href: https://azure.microsoft.com/resources/samples/?service=media-services
+  - name: Azure PowerShell (Resource Manager)
+    href: /powershell/module/az.media
+  - name: Azure PowerShell (Gestão de Serviço)
+    href: /powershell/module/servicemanagement/azure/?view=azuresmps-3.7.0
+  - name: .NET
+    href: /dotnet/api/microsoft.windowsazure.mediaservices.client
+  - name: REST
+    href: https://docs.microsoft.com/rest/api/media/operations/azure-media-services-rest-api-reference
+  - name: Especificações
+    items:
+    - name: Ingestão em Direto - Especificação de ingestão em tempo real de MP4 fragmentado
+      href: media-services-fmp4-live-ingest-overview.md
+    - name: Ingestão Dinâmica - Assinalar Metadados Temporizados na Transmissão em Direto
+      href: media-services-specifications-live-timed-metadata.md
+    - name: Smooth Streaming HEVC
+      href: media-services-specifications-ms-sstr-amendment-hevc.md
+- name: Recursos
+  items:
+  - name: Comunidade dos Serviços de Multimédia do Azure
+    href: media-services-community.md
+  - name: Roteiro do Azure
+    href: https://azure.microsoft.com/roadmap/?category=web-mobile
+  - name: Preços
+    href: https://azure.microsoft.com/pricing/details/media-services/
+  - name: Calculadora de preços
+    href: https://azure.microsoft.com/pricing/calculator/
+  - name: Notas de versão
+    href: media-services-release-notes.md
+  - name: Vídeos
+    href: https://azure.microsoft.com/resources/videos/index/?services=media-services
+ms.openlocfilehash: 2ce704dafdb7b3511fbb294265abdfbf42e5e6d8
+ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
+ms.translationtype: HT
+ms.contentlocale: pt-PT
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58340783"

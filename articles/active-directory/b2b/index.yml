@@ -1,15 +1,15 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: 3ef506da391ece8f4da79283e09cd137ebec5b23
-ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
+ms.openlocfilehash: 3399ed71635434bc38d0c989118afb68de9fbd4c
+ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58294676"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58338501"
 documentType: LandingData
 title: Documentação do Azure Active Directory B2B
 metadata:
   document_id: 
-  title: Documentação do Azure Active Directory B2B| Microsoft Docs
+  title: Documentação do Azure Active Directory B2B - Azure Active Directory | Microsoft Docs
   description: Utilize os nossos tutoriais, inícios rápidos e guias de instruções para saber mais sobre como utilizar o acesso do utilizador convidado B2B para partilhar e colaborar com parceiros externos.
   services: active-directory
   ms.subservice: authentication

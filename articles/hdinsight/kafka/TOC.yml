@@ -41,6 +41,8 @@ items:
     href: apache-kafka-scalability.md
   - name: Elevada disponibilidade dos dados
     href: apache-kafka-high-availability.md
+  - name: Otimização do desempenho
+    href: apache-kafka-performance-tuning.md
 - name: Procedimento
   items:
   - name: Ativar a criação automática de tópicos
@@ -250,7 +252,7 @@ items:
   - name: Exemplos de código
     href: https://azure.microsoft.com/resources/samples/?service=hdinsight
   - name: Azure PowerShell
-    href: /powershell/module/azurerm.hdinsight
+    href: /powershell/module/az.hdinsight
   - name: SDK .NET
     href: https://docs.microsoft.com/dotnet/api/overview/azure/hdinsight?view=azure-dotnet
   - name: SDK Python
@@ -281,9 +283,9 @@ items:
   - name: Ferramentas do Windows para HDInsight
     href: ../hdinsight-hadoop-windows-tools.md
     maintainContext: true
-ms.openlocfilehash: 442093602bf9eb1acf79437bf0941908df7e2219
-ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
+ms.openlocfilehash: 1806a0bd5b32b29a9eb349bea7f7b5dff5d0f99e
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56887612"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58371898"
