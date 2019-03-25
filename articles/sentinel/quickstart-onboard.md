@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 3/12/2019
 ms.author: rkarlin
-ms.openlocfilehash: 30f6d08594bdf2e5d78bc8c7881a135d6e57f397
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: b6ea852c9a1bb8ea6eb51df310aab97e9b10d48e
+ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57852228"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58399684"
 ---
 # <a name="on-board-azure-sentinel-preview"></a>Pré-visualização de acumular Sentinel do Azure
 
@@ -75,7 +75,6 @@ Por exemplo, clique em **do Azure Active Directory**. Se ligar esta origem de da
 Na parte inferior, Azure sentinela fornece recomendações para os dashboards, deve instalar para cada conector para que pode imediatamente obter interessante informações em seus dados. <br> Siga as instruções de instalação ou [consulte o guia de ligação relevantes](connect-data-sources.md) para obter mais informações. Para obter informações sobre conectores de dados, consulte [serviços do Connect Microsoft](connect-data-sources.md).
 
 Após sua estão ligadas a origens de dados, os seus dados começa a transmissão em fluxo para o Azure sentinela e estão prontos para que possa começar a trabalhar com. Pode ver os registos no [painéis internos](quickstart-get-visibility.md) e comece a criar consultas no Log Analytics para [investigar os dados](tutorial-investigate-cases.md).
-
 
 
 

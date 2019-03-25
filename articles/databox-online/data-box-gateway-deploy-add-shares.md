@@ -6,23 +6,23 @@ author: alkohli
 ms.service: databox
 ms.subservice: gateway
 ms.topic: tutorial
-ms.date: 02/21/2019
+ms.date: 03/08/2019
 ms.author: alkohli
-ms.openlocfilehash: f36e13ccf91c983c54897dcff7e1c02689fb055c
-ms.sourcegitcommit: a8948ddcbaaa22bccbb6f187b20720eba7a17edc
+ms.openlocfilehash: d930b1db48e3a5c4bda96f0b7d80a9c9f24d53d9
+ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56592660"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58400646"
 ---
-# <a name="tutorial-transfer-data-with-azure-data-box-gateway-preview"></a>Tutorial: Transferir dados com o Gateway de caixa de dados do Azure (pré-visualização)
+# <a name="tutorial-transfer-data-with-azure-data-box-gateway"></a>Tutorial: Transferir dados com o Gateway de caixa de dados do Azure
 
 
 ## <a name="introduction"></a>Introdução
 
-Este artigo descreve como adicionar e ligar a partilhas no Data Box Gateway. Assim que as partilhas forem adicionadas, o dispositivo Data Box Gateway pode transferir dados para o Azure.
+Este artigo descreve como adicionar e se conectar a compartilhamentos no seu Gateway de caixa de dados. Depois de adicionar as partilhas, o dispositivo de Gateway de caixa de dados pode transferir dados para o Azure.
 
-Este procedimento pode demorar cerca de 10 minutos a concluir. 
+Este procedimento pode demorar cerca de 10 minutos a concluir.
 
 Neste tutorial, ficará a saber como:
 
@@ -30,62 +30,63 @@ Neste tutorial, ficará a saber como:
 > * Adicionar uma partilha
 > * Ligar a uma partilha
 
-> [!IMPORTANT]
-> - O Data Box Gateway está em pré-visualização. Reveja os [Termos de serviço do Azure para pré-visualização](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) antes de encomendar e implementar esta solução. 
- 
+
 ## <a name="prerequisites"></a>Pré-requisitos
 
 Antes de adicionar partilhas ao Data Box Gateway, certifique-se de que:
 
-* Aprovisionou um dispositivo virtual e ligou ao mesmo, conforme detalhado em [Aprovisionar um Data Box Gateway no Hyper-V](data-box-gateway-deploy-provision-hyperv.md) ou [Aprovisionar um Data Box Gateway no VMware](data-box-gateway-deploy-provision-vmware.md). 
+- Tiver aprovisionado um dispositivo virtual e ligada à mesma, conforme detalhado no [aprovisionar um Gateway de caixa de dados no Hyper-V](data-box-gateway-deploy-provision-hyperv.md) ou [aprovisionar um Gateway de caixa de dados no VMware](data-box-gateway-deploy-provision-vmware.md).
 
-    O dispositivo virtual é ativado conforme detalhado em [Ligar e ativar o Data Box Gateway](data-box-gateway-deploy-connect-setup-activate.md) e está pronto para criar partilhas e transferir dados.
+- Ativar o dispositivo virtual descrito em [Connect e ativar o Gateway de caixa de dados do Azure](data-box-gateway-deploy-connect-setup-activate.md).
 
+- O dispositivo está pronto para criar partilhas e transferir dados.
 
 ## <a name="add-a-share"></a>Adicionar uma partilha
 
-Execute os seguintes passos no [portal do Azure](https://portal.azure.com/) para criar uma partilha.
+Para criar uma partilha faça o seguinte procedimento:
 
-1. Regresse ao portal do Azure. Aceda a **Todos os recursos** e procure o seu recurso Data Box Gateway.
-    
-2. Na lista filtrada de recursos, selecione o recurso Data Box Gateway e, em seguida, navegue para **Descrição Geral**. Clique em **+ Adicionar partilha** na barra de comando do dispositivo.
+1. Na [portal do Azure](https://portal.azure.com/), selecione o recurso de Gateway de caixa de dados e, em seguida, aceda à **descrição geral**. O dispositivo deve estar online. Selecione **+ Adicionar partilha** na barra de comando de dispositivo.
    
    ![Adicionar uma partilha](./media/data-box-gateway-deploy-add-shares/click-add-share.png)
 
-4. Em **Adicionar Partilha**, especifique as definições de partilha. Indique um nome exclusivo para a partilha. 
+4. Na **Adicionar partilha**, efetue o seguinte procedimento:
 
-   Os nomes das partilhas só podem conter números, letras minúsculas e hífenes. O nome da partilha tem de ter entre 3 e 63 carateres e começar com uma letra ou um número. Cada hífen tem de ser precedido e seguido de um caráter que não seja um hífen.
+    1. Indique um nome exclusivo para a partilha. Os nomes de partilha só podem ter letras minúsculas, números e hífenes. O nome da partilha tem de ter entre 3 e 63 carateres de comprimento e começar com uma letra ou um número. Cada hífen tem de ser precedido e seguido de um caráter que não seja um hífen.
     
-5. Selecione um **Tipo** para a partilha. O tipo pode ser SMB ou NFS, sendo que SMB é a predefinição. SMB é o padrão para clientes Windows, e NFS é utilizado para clientes Linux. Dependendo se escolher a partilha SMB ou NFS, as opções apresentadas são ligeiramente diferentes. 
+    2. Selecione um **Tipo** para a partilha. O tipo pode ser SMB ou NFS, sendo que SMB é a predefinição. SMB é o padrão para clientes Windows, e NFS é utilizado para clientes Linux. Dependendo se escolher a partilha SMB ou NFS, as opções apresentadas são ligeiramente diferentes.
 
-6. Tem de fornecer uma conta de armazenamento onde a partilha irá residir. É criado um contentor na conta de armazenamento com o nome da partilha, se o contentor ainda não existir. Se o contentor já existir, é utilizado o contentor existente. 
+    3. Forneça uma conta de armazenamento onde a partilha irá residir. Se ainda não existir um contentor, é criado na conta de armazenamento com o nome da partilha criada recentemente. Se o contentor já existir, é usado nesse contentor.
     
-7. Escolha o **Serviço de armazenamento** do blob de blocos, blob de páginas ou ficheiros. O tipo de serviço escolhido depende do formato no qual pretende que os dados residam no Azure. Por exemplo, neste caso, queremos que os dados residam como blobs de blocos no Azure, por conseguinte, selecionamos Blob de Blocos. Se escolher o Blob de Páginas, certifique-se de que os dados têm um alinhamento de 512 bytes. Tenha em atenção que o VHDX tem sempre um alinhamento de 512 bytes.
+    4. Escolha o **Serviço de armazenamento** do blob de blocos, blob de páginas ou ficheiros. O tipo de serviço escolhido depende do formato no qual pretende que os dados residam no Azure. Por exemplo, neste caso, queremos que os dados residam como blobs de blocos no Azure, por conseguinte, selecionamos Blob de Blocos. Se escolher o Blob de Páginas, certifique-se de que os dados têm um alinhamento de 512 bytes. Por exemplo, um VHDX tem sempre um alinhamento de 512 bytes.
    
-8. Este passo depende de estar a criar uma partilha SMB ou NFS. 
+    5. Este passo depende de estar a criar uma partilha SMB ou NFS.
      
-    - **Se criar uma partilha SMB** - no campo de utilizador local Todos os privilégios, escolha **Criar novo** ou **Utilizar existente**. Se criar um novo utilizador local, forneça o **nome de utilizador**, a **palavra-passe** e, em seguida **confirme a palavra-passe**. Esta ação atribui as permissões ao utilizador local. Depois de ter atribuído as permissões aqui, pode utilizar o Explorador de Ficheiros para modificar estas permissões.
+    - **Partilha SMB** – em **todos os usuários de locais de privilégio**, selecione **criar novo** ou **utilizar existente**. Se criar um novo utilizador local, introduza um **nome de utilizador** e **palavra-passe**e, em seguida **Confirmar palavra-passe**. Esta ação atribui as permissões para o usuário local. Depois de atribuir as permissões aqui, pode utilizar o Explorador de ficheiros para modificar estas permissões.
     
         ![Adicionar uma partilha SMB](./media/data-box-gateway-deploy-add-shares/add-share-smb-1.png)
         
-        Se marcar **permitir apenas operações de leitura** para esta partilha de dados, terá a opção de especificar utilizadores só de leitura.
+        Se selecionou **permitir apenas operações de leitura** caixa de verificação para esta partilha de dados, pode especificar os utilizadores só de leitura.
         
-    - **Se criar uma partilha NFS** - tem de fornecer os endereços IP dos clientes permitidos que podem aceder à partilha.
+    - **Partilhar de NFS** -introduza os endereços IP dos clientes permitidos que podem aceder à partilha.
 
         ![Adicionar uma partilha NFS](./media/data-box-gateway-deploy-add-shares/add-share-nfs-1.png)
    
-9. Clique em **Criar** para criar a partilha. 
+9. Selecione **criar** para criar a partilha.
     
-    Será notificado de que a criação da partilha está em curso. Depois de criar a partilha com as definições especificadas, o painel **Partilhas** é atualizado para refletir a nova partilha. 
+    Foi notificado de que a criação de partilha está em curso. Depois de criar a partilha com as definições especificadas, o **partilhas** mosaico atualizações para refletir a nova partilha.
     
-    ![Lista atualizada de partilhas](./media/data-box-gateway-deploy-add-shares/updated-list-of-shares.png) 
+    ![Peça de mosaico partilhas atualizada](./media/data-box-gateway-deploy-add-shares/updated-list-of-shares.png) 
 
 ## <a name="connect-to-the-share"></a>Ligar à partilha
 
-Efetue estes passos no cliente do Windows Server ligado ao seu Data Box Gateway para ligar às partilhas.
+Agora pode ligar a um ou mais das partilhas de que criou no último passo. Consoante a existência de SMB ou uma partilha NFS, as etapas podem variar.
+
+### <a name="connect-to-an-smb-share"></a>Ligar a uma partilha SMB
+
+No cliente do Windows Server ligada ao seu Gateway de caixa de dados, ligue-se para uma partilha SMB ao introduzir os comandos:
 
 
-1. Abra uma janela de comando. Na linha de comandos, escreva:
+1. Na janela de comando, digite:
 
     `net use \\<IP address of the device>\<share name>  /u:<user name for the share>`
 
@@ -93,17 +94,18 @@ Efetue estes passos no cliente do Windows Server ligado ao seu Data Box Gateway 
 
     ```powershell
     Microsoft Windows [Version 18.8.16299.192) 
-    (c) 2817 microsoft Corporation. All rights reserved . 
+    (c) 2017 microsoft Corporation. All rights reserved . 
     
     C: \Users\GatewayUser>net use \\10.10.10.60\newtestuser /u:Tota11yNewUser 
-    Enter the password for 'TotallyNewUser' to connect to '10.10.10.60' • 
+    Enter the password for 'TotallyNewUser' to connect to '10.10.10.60'  
     The command completed successfully. 
     
     C: \Users\GatewayUser>
     ```   
 
 
-2. Prima Windows + R. Na janela **Executar**, especifique o `\\<device IP address>`. Clique em **OK**. Esta ação abre o Explorador de Ficheiros. Agora deve conseguir ver as partilhas que criou como pastas. Selecione e faça duplo clique numa partilha (pasta) para ver o conteúdo.
+2. No seu teclado, selecione Windows + R. 
+3. Na **execute** janela, especifique a `\\<device IP address>` e, em seguida, selecione **OK**. Explorador de ficheiros é aberto. Agora deve conseguir ver as partilhas que criou como pastas. No Explorador de ficheiros, faça duplo clique num compartilhamento (pasta) para ver o conteúdo.
  
     ![Ligar a uma partilha SMB](./media/data-box-gateway-deploy-add-shares/connect-to-share2.png)-->
 
@@ -111,9 +113,9 @@ Efetue estes passos no cliente do Windows Server ligado ao seu Data Box Gateway 
 
 ### <a name="connect-to-an-nfs-share"></a>Ligar a uma partilha NFS
 
-Execute estes passos no seu cliente Linux ligado ao Data Box Edge.
+No seu cliente de Linux ligado ao seu dispositivo Edge de caixa de dados, efetue o seguinte procedimento:
 
-1. Certifique-se de que o cliente tem o cliente NFSv4 instalado. Para instalar o cliente NFS, utilize o seguinte comando:
+1. Certifique-se de que o cliente tem o cliente de NFSv4 instalado. Para instalar o cliente NFS, utilize o seguinte comando:
 
    `sudo apt-get install nfs-common`
 
@@ -130,8 +132,8 @@ Execute estes passos no seu cliente Linux ligado ao Data Box Edge.
     `sudo mount -t nfs -o sec=sys,resvport 10.10.10.60:/mylinuxshare2 /home/databoxubuntuhost/gateway`
 
 > [!NOTE] 
-> Os seguintes avisos aplicam-se à versão de pré-visualização:
-> - Depois de um ficheiro ser criado nas partilhas, mudar o nome do ficheiro não é suportado. 
+> Os seguintes avisos são aplicáveis a esta versão:
+> - Depois de um ficheiro ser criado nas partilhas, mudar o nome do ficheiro não é suportado.
 > - A eliminação de um ficheiro de uma partilha não elimina a entrada na conta de armazenamento.
 > - Se utilizar `rsync` para copiar dados, em seguida, `rsync -a` opção não é suportada.
 

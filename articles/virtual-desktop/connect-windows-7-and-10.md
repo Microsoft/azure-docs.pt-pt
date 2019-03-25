@@ -1,24 +1,24 @@
 ---
-title: Ligar com o Windows 7 e Windows 10 (pré-visualização) - Azure
-description: Como se pode ligar para o cliente de web HTML5 de ambiente de Trabalho Virtual do Windows.
+title: Ligar ao Windows Virtual Desktop pré-visualização com o Windows 7 e Windows 10 - Azure
+description: Como se pode ligar para o cliente de pré-visualização de ambiente de trabalho virtuais Windows com o Windows 7 ou Windows 10.
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: how-to
 ms.date: 03/21/2019
 ms.author: helohr
-ms.openlocfilehash: 925d762bb065567f6462fdb1614fc308e87b5247
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: 644a1d650384f151d9c43b9efa5f47532c58ce14
+ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58318243"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58399735"
 ---
-# <a name="connect-with-windows-7-and-windows-10-preview"></a>Ligar com o Windows 7 e Windows 10 (pré-visualização)
+# <a name="connect-with-windows-7-and-windows-10"></a>Ligar com o Windows 7 e Windows 10
 
 > Aplica-se a O Windows 7 e Windows 10.
 
-Está disponível um cliente disponível para download que fornece acesso a recursos de área de Trabalho Virtual do Windows (pré-visualização) dos dispositivos que executam o Windows 7 e Windows 10.
+Está disponível um cliente disponível para download que fornece acesso a recursos da demonstração de ambiente de Trabalho Virtual do Windows dos dispositivos que executam o Windows 7 e Windows 10.
 
 ## <a name="install-the-client"></a>Instalar o cliente
 

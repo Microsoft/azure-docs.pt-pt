@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: article
-ms.date: 03/11/2019
+ms.date: 03/21/2019
 ms.author: alkohli
-ms.openlocfilehash: e0aa3468bda9f904d62e9e20545ac5f990cef521
-ms.sourcegitcommit: b8f9200112cae265155b8877f7e1621c4bcc53fc
+ms.openlocfilehash: e0b8b35c654f0716fae1e6ab785f57dcf04e1a5a
+ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/14/2019
-ms.locfileid: "57902147"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58400887"
 ---
 # <a name="manage-access-power-and-connectivity-mode-for-your-azure-data-box-edge-preview"></a>Gerir o acesso, energia e modo de conectividade para o Edge de caixa de dados do Azure (pré-visualização)
 
@@ -31,11 +31,11 @@ Neste artigo, vai aprender a:
 
 ## <a name="manage-device-access"></a>Gerir o acesso do dispositivo
 
-O acesso ao seu dispositivo Edge de caixa de dados é controlado pelo uso de uma palavra-passe de administrador do dispositivo. Pode alterar a palavra-passe de administrador através da IU da web local. Também pode repor a palavra-passe de administrador do dispositivo no portal do Azure.
+O acesso ao seu dispositivo Edge de caixa de dados é controlado pelo uso de uma palavra-passe do dispositivo. Pode alterar a palavra-passe através da IU da web local. Também pode repor a palavra-passe do dispositivo no portal do Azure.
 
-### <a name="change-device-administrator-password"></a>Alterar senha de administrador do dispositivo
+### <a name="change-device-password"></a>Alterar a palavra-passe do dispositivo
 
-Siga estes passos na IU do local para alterar a palavra-passe de administrador do dispositivo.
+Siga estes passos na IU do local para alterar a palavra-passe do dispositivo.
 
 1. Na IU da web local, aceda a **manutenção > alteração de palavra-passe**.
 2. Introduza a palavra-passe atual e, em seguida, a nova palavra-passe. A palavra-passe fornecida tem de ter entre 8 e 16 carateres. A palavra-passe tem de ter 3 dos seguintes carateres: carateres em maiúsculas, minúsculas, numéricos e especiais. Certifique-se a nova palavra-passe.
@@ -44,7 +44,7 @@ Siga estes passos na IU do local para alterar a palavra-passe de administrador d
 
 3. Selecione **alterar palavra-passe**.
  
-### <a name="reset-device-administrator-password"></a>Repor palavra-passe de administrador do dispositivo
+### <a name="reset-device-password"></a>Repor palavra-passe do dispositivo
 
 O fluxo de trabalho de reposição não exige que o usuário de recuperar a palavra-passe antiga e é útil quando a palavra-passe é perdida. Este fluxo de trabalho é executado no portal do Azure.
 
@@ -63,7 +63,7 @@ Para além do modo predefinido de totalmente conectada, o dispositivo também po
 
 - **Totalmente conectada** -este é o modo padrão normal em que o dispositivo funciona. O carregamento de cloud e a transferência de dados está ativado neste modo. Pode utilizar o portal do Azure ou a IU da web local para gerir o dispositivo.
 
-- **Parcialmente desligado** – neste modo, o dispositivo não é possível carregar quaisquer dados para as partilhas no entanto podem ser gerenciados através do portal do Azure.
+- **Parcialmente desligado** – neste modo, o dispositivo não é possível carregar ou transferir qualquer partilha de dados no entanto podem ser gerenciados através do portal do Azure.
 
     Este modo é normalmente utilizado quando numa rede com tráfego limitado da satélite e o objetivo é minimizar o consumo de largura de banda de rede. Consumo de rede mínima ainda pode ocorrer para operações de monitorização de dispositivos.
 

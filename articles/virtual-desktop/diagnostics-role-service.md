@@ -1,22 +1,22 @@
 ---
-title: Identificar problemas com a funcionalidade de diagnóstico (pré-visualização) - Azure
-description: Descreve a funcionalidade de diagnóstico de área de Trabalho Virtual do Windows e como usá-lo.
+title: Identificar problemas com a funcionalidade de diagnóstico do Windows Virtual Desktop Preview - Azure
+description: Descreve a funcionalidade de diagnóstico do Windows Virtual Desktop Preview e como usá-lo.
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 03/21/2019
 ms.author: helohr
-ms.openlocfilehash: f44f4d632fa1fc607f3933be8e15eb939e20a8ae
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: a9b8be58e8dfb27fbe896cf1c8d8dc0e91e3b24c
+ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58318618"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58402852"
 ---
-# <a name="identify-issues-with-the-diagnostics-feature-preview"></a>Identificar problemas com a funcionalidade de diagnóstico (pré-visualização)
+# <a name="identify-issues-with-the-diagnostics-feature"></a>Identificar problemas com a funcionalidade de diagnóstico
 
-Área de Trabalho Virtual do Windows (pré-visualização) oferece uma funcionalidade de diagnóstico (pré-visualização) que permite ao administrador identificar problemas através de uma única interface. As funções de área de Trabalho Virtual do Windows inicie uma atividade de diagnóstico sempre que um utilizador interage com o sistema. Cada registo contém informações relevantes, como as funções de área de Trabalho Virtual do Windows envolvidas na transação, mensagens de erro, informações de inquilino e informações de utilizador. Atividades de diagnóstico são criadas pelo utilizador final e ações administrativas e podem ser categorizadas em três partições principais:
+Windows Virtual Desktop Preview oferece uma funcionalidade de diagnóstico que permite ao administrador identificar problemas através de uma única interface. As funções de área de Trabalho Virtual do Windows inicie uma atividade de diagnóstico sempre que um utilizador interage com o sistema. Cada registo contém informações relevantes, como as funções de área de Trabalho Virtual do Windows envolvidas na transação, mensagens de erro, informações de inquilino e informações de utilizador. Atividades de diagnóstico são criadas pelo utilizador final e ações administrativas e podem ser categorizadas em três partições principais:
 
 * Feed de atividades de subscrição: o utilizador final aciona essas atividades, sempre que eles tentarem aceder ao respetivo feed através de aplicações de ambiente de trabalho remoto.
 * Atividades de ligação: o utilizador final aciona essas atividades, sempre que eles tentam estabelecer ligação a uma área de trabalho ou o RemoteApp por meio de aplicativos de área de trabalho remota do Microsoft.
@@ -145,7 +145,7 @@ A tabela seguinte lista erros comuns que os administradores podem ocorrer.
 |8000|InvalidAuthorizationRoleScope|O nome de função que introduziu não corresponde a quaisquer nomes de função existentes. Reveja o nome da função para erros de digitação e tente novamente. |
 |8001|UserNotFound |O nome de utilizador que introduziu não corresponde a nenhum nome de utilizador existente. Reveja o nome para erros de digitação e tente novamente.|
 |8005|UserNotFoundInAAD |O nome de utilizador que introduziu não corresponde a nenhum nome de utilizador existente. Reveja o nome para erros de digitação e tente novamente.|
-|8008|TenantConsentRequired|Siga as instruções [aqui](tenant-setup-azure-active-directory.md#grant-azure-active-directory-permissions-to-the-windows-virtual-desktop-service) para fornecer o consentimento para o seu inquilino.|
+|8008|TenantConsentRequired|Siga as instruções [aqui](tenant-setup-azure-active-directory.md#grant-azure-active-directory-permissions-to-the-windows-virtual-desktop-preview-service) para fornecer o consentimento para o seu inquilino.|
 
 ### <a name="external-connection-error-codes"></a>Códigos de erro de ligação externa
 
@@ -164,6 +164,6 @@ A tabela seguinte lista erros comuns que os administradores podem ocorrer.
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-Para saber mais sobre as funções dentro do ambiente de Trabalho Virtual do Windows, veja [ambiente de área de Trabalho Virtual do Windows](environment-setup.md).
+Para saber mais sobre as funções dentro do ambiente de Trabalho Virtual do Windows, veja [ambiente do Windows Virtual Desktop Preview](environment-setup.md).
 
 Para ver uma lista de cmdlets do PowerShell disponíveis para a área de Trabalho Virtual do Windows, consulte a [referência do PowerShell](/powershell/windows-virtual-desktop/overview).

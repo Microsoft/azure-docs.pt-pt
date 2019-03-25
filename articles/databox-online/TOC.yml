@@ -92,6 +92,8 @@ items:
       href: data-box-edge-manage-access-power-connectivity-mode.md
     - name: Gerir através do PowerShell
       href: data-box-edge-connect-powershell-interface.md
+    - name: Resolução de problemas
+      href: data-box-edge-troubleshoot.md
 - name: Recursos
   items:
   - name: Exemplos de módulos em C# do Data Box Edge (.NET)
@@ -100,9 +102,9 @@ items:
     href: https://azure.microsoft.com/services/storage/databox/edge/
   - name: Preços
     href: https://azure.microsoft.com/pricing/details/storage/databox/edge/
-ms.openlocfilehash: e9a8ba6e284a03b4be085aa59be7fa5ae0ab65e9
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: aab87662b82d80585aad647af7905ebfad399df9
+ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57855117"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58400378"
