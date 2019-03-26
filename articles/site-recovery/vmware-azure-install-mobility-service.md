@@ -1,19 +1,19 @@
 ---
-title: Instalar o serviço de mobilidade de recuperação após desastre de VMs de VMware e servidores físicos para o Azure | Documentos da Microsoft
-description: Saiba como instalar o agente do serviço de mobilidade para recuperação após desastre de VMs de VMware e servidores físicos para o Azure com o serviço Azure Site Recovery.
+title: Preparar máquinas de origem para instalar o serviço de mobilidade através da instalação push para recuperação após desastre de VMs de VMware e servidores físicos para o Azure | Documentos da Microsoft
+description: Saiba como preparar o seu servidor para instalar o agente de mobilidade através da instalação push para recuperação após desastre de VMs de VMware e servidores físicos para o Azure com o serviço Azure Site Recovery.
 author: Rajeswari-Mamilla
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 11/27/2018
+ms.date: 03/25/2019
 ms.author: ramamill
-ms.openlocfilehash: 30b177578464653499cdcde8cacf65defa5548ef
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 628be573d03d42ec62a358071074facfe228852d
+ms.sourcegitcommit: 72cc94d92928c0354d9671172979759922865615
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52846917"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58418674"
 ---
-# <a name="install-the-mobility-service-for-disaster-recovery-of-vmware-vms-and-physical-servers"></a>Instalar o serviço de mobilidade de recuperação após desastre de VMs de VMware e servidores físicos
+# <a name="prepare-source-machine-for-push-installation-of-mobility-agent"></a>Preparar a máquina de origem da instalação push do agente de mobilidade
 
 Quando define a recuperação após desastre para VMs de VMware e servidores físicos usando [do Azure Site Recovery](site-recovery-overview.md), instalar o [serviço de mobilidade de recuperação de Site](vmware-physical-mobility-service-overview.md) em cada VM de VMware no local e o servidor físico.  O serviço de mobilidade obtém dados, escreve na máquina e reencaminha-os para o servidor de processos de recuperação de sites.
 
@@ -26,7 +26,7 @@ Em cada máquina do Windows que pretende proteger, faça o seguinte:
 2. Se não usar uma conta de domínio, desative o controlo de acesso de utilizador remoto no computador local da seguinte forma:
     - Na chave do Registro HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System, adicione um DWORD novo: **LocalAccountTokenFilterPolicy**. Defina o valor como **1**.
     -  Para fazer isso num prompt de comando, execute o seguinte comando:  
-   "REG ADD HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System /v LocalAccountTokenFilterPolicy /t REG_DWORD /d
+   `REG ADD HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System /v LocalAccountTokenFilterPolicy /t REG_DWORD /d
 3. Na Firewall do Windows no computador que pretende proteger, selecione **permitir uma aplicação ou funcionalidade através da Firewall**. Ativar **de ficheiros e partilha de impressoras** e **Windows Management Instrumentation (WMI)**. Para computadores que pertençam a um domínio, pode configurar as definições de firewall utilizando um objeto de diretiva de grupo (GPO).
 
    ![Definições de firewall](./media/vmware-azure-install-mobility-service/mobility1.png)
@@ -59,6 +59,10 @@ Em cada máquina do Linux que pretende proteger, efetue o seguinte:
 11. Sobre o **gerir contas** separador, selecione **adicionar conta**.
 12. Adicione a conta que criou.
 13. Introduza as credenciais que utiliza para ativar a replicação para um computador.
+
+## <a name="anti-virus-on-replicated-machines"></a>Software antivírus em máquinas replicadas
+
+Se as máquinas que pretende replicar tem active software de antivírus em execução, certifique-se de excluir a pasta de instalação do serviço de mobilidade de operações de software antivírus (*C:\ProgramData\ASR\agent*). Isto garante que a replicação funciona conforme esperado.
 
 ## <a name="next-steps"></a>Passos Seguintes
 
