@@ -290,6 +290,8 @@ items:
     items:
     - name: Contas de armazenamento
       items:
+      - name: Criar uma conta de armazenamento de blob de blocos
+        href: storage-blob-create-account-block-blob.md
       - name: Gerir uma conta de armazenamento
         href: ../common/storage-account-manage.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
       - name: Atualizar uma conta de armazenamento
@@ -625,9 +627,9 @@ items:
       href: https://stackoverflow.com/questions/tagged/windows-azure-storage
     - name: Vídeos
       href: https://azure.microsoft.com/documentation/videos/index/?services=storage
-ms.openlocfilehash: 394ee074b3ec107fbd4670805f1e07ae5e9ad947
-ms.sourcegitcommit: 5e4ca656baf3c7d370ab3c0fbad0278aa2c9f1e6
+ms.openlocfilehash: b3b06751950a1c14cf445c6ea7d95a18c942d7c4
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58319538"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58369603"
