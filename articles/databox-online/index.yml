@@ -1,10 +1,10 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: 44c7f6d32737fe83e80a2f2df15f0ae078a5849e
-ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
+ms.openlocfilehash: 376f2bd792cb1b3190507f5571a8b7a33daf2542
+ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58400273"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58439128"
 documentType: LandingData
 title: Documentação do Azure Data Box - Transferência Online
 metadata:
@@ -16,10 +16,10 @@ metadata:
   ms.service: databox
   ms.subservice: edge
   ms.topic: landing-page
-  ms.date: 03/22/2019
+  ms.date: 03/25/2019
   ms.author: alkohli
 abstract:
-  description: A família Azure Data Box permite-lhe transferir centenas de terabytes de dados para o Azure de forma rápida, económica e fiável. Utilizar os dispositivos do Data Box para transferências de dados de elevado de desempenho através da rede.<p>Escolha o Data Box Gateway<SUP>Pré-visualização</SUP> para enviar dados para arquivo na cloud, recuperação após desastre ou para processar dados à escala da cloud.  Utilize o Data Box Edge<SUP>Pré-visualização</SUP> para filtrar, analisar e transformar os seus dados à medida que se movem para o Azure.</p><p>Saiba como tirar partido do Data Box Gateway e do Data Box Edge para transferências baseadas na rede com os nossos tutoriais.</p>
+  description: A família Azure Data Box permite-lhe transferir centenas de terabytes de dados para o Azure de forma rápida, económica e fiável. Utilizar os dispositivos do Data Box para transferências de dados de elevado de desempenho através da rede.<p>Escolha o Data Box Gateway para enviar dados para arquivo na cloud, recuperação após desastre ou para processar dados à escala da cloud.  Utilize o Data Box Edge para filtrar, analisar e transformar os seus dados à medida que se movem para o Azure.</p><p>Saiba como tirar partido do Data Box Gateway e do Data Box Edge para transferências baseadas na rede com os nossos tutoriais.</p>
 sections:
 - title: Tutoriais
   items:

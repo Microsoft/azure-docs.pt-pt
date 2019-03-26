@@ -1,5 +1,5 @@
 ---
-title: 'Início rápido: Criar um cluster do Explorador de dados do Azure e a base de dados com a CLI'
+title: 'Início rápido: Criar um cluster do Explorador de dados do Azure e a base de dados com a CLI do Azure'
 description: Saiba como criar um cluster do Explorador de dados do Azure e a base de dados com a CLI do Azure
 services: data-explorer
 author: radennis
@@ -7,15 +7,15 @@ ms.author: radennis
 ms.reviewer: orspod
 ms.service: data-explorer
 ms.topic: quickstart
-ms.date: 2/4/2019
-ms.openlocfilehash: ca4ffce1ae966d2bb8fb187c9b04938330969641
-ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
+ms.date: 3/25/2019
+ms.openlocfilehash: 2a77671ca405a69ec87e335004a84acb2e649c2c
+ms.sourcegitcommit: 72cc94d92928c0354d9671172979759922865615
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58286334"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58418657"
 ---
-# <a name="create-an-azure-data-explorer-cluster-and-database-by-using-the-cli"></a>Criar um cluster do Explorador de dados do Azure e a base de dados com a CLI
+# <a name="create-an-azure-data-explorer-cluster-and-database-by-using-azure-cli"></a>Criar um cluster do Explorador de dados do Azure e a base de dados com a CLI do Azure
 
 > [!div class="op_single_selector"]
 > * [Portal](create-cluster-database-portal.md)
@@ -23,9 +23,9 @@ ms.locfileid: "58286334"
 > * [PowerShell](create-cluster-database-powershell.md)
 > * [C#](create-cluster-database-csharp.md)
 > * [Python](create-cluster-database-python.md)
->  
+>
 
-Este início rápido descreve como criar um cluster do Explorador de dados do Azure e a base de dados com a CLI do Azure.
+O Azure Data Explorer é um serviço de análise de dados rápido e totalmente gerido que permite realizar análises em tempo real em volumes grandes de transmissão de dados a partir de aplicações, sites, dispositivos IoT e muito mais. Para utilizar o Explorador de dados do Azure, primeiro cria um cluster e criar um ou mais bases de dados desse cluster. Em seguida, ingerir (carregar) dados numa base de dados para que pode executar consultas em relação a ele. Neste início rápido, vai criar um cluster e uma base de dados ao utilizar a CLI do Azure.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -45,7 +45,7 @@ Os passos seguintes não são necessários se estiver a executar comandos no Azu
     az login
     ```
 
-2. Defina a subscrição onde pretende que o cluster ser criado. Substitua `MyAzureSub` com o nome da subscrição do Azure que pretende utilizar:
+1. Defina a subscrição onde pretende que o cluster ser criado. Substitua `MyAzureSub` com o nome da subscrição do Azure que pretende utilizar:
 
     ```azurecli-interactive
     az account set --subscription MyAzureSub
@@ -67,7 +67,7 @@ Os passos seguintes não são necessários se estiver a executar comandos no Azu
 
     Existem parâmetros opcionais adicionais que pode utilizar, como a capacidade do cluster.
 
-2. Execute o seguinte comando para verificar se o cluster foi criado com êxito:
+1. Execute o seguinte comando para verificar se o cluster foi criado com êxito:
 
     ```azurecli-interactive
     az kusto cluster show --name azureclitest --resource-group testrg
@@ -91,7 +91,7 @@ Se o resultado contém `provisioningState` com o `Succeeded` valor, em seguida, 
    | soft-delete-period | *3650:00:00:00* | A quantidade de tempo que os dados serão mantidos disponíveis para consulta. |
    | armazenamento frequente-cache-período | *3650:00:00:00* | A quantidade de tempo que os dados serão mantidos na cache. |
 
-2. Execute o seguinte comando para ver a base de dados que criou:
+1. Execute o seguinte comando para ver a base de dados que criou:
 
     ```azurecli-interactive
     az kusto database show --name clidatabase --resource-group testrg --cluster-name azureclitest

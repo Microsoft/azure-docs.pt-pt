@@ -212,12 +212,10 @@ items:
         href: vmware-azure-set-up-replication.md
       - name: Implementar o serviço de Mobilidade
         items:
-        - name: Instalação do serviço de Mobilidade
+        - name: Descrição geral e instalação do serviço de mobilidade
           href: vmware-physical-mobility-service-overview.md
         - name: Preparar para a instalação push do serviço de Mobilidade
           href: vmware-azure-install-mobility-service.md
-        - name: Instalar o serviço de Mobilidade manualmente
-          href: vmware-physical-mobility-service-install-manual.md
         - name: Implementar o serviço de Mobilidade com o System Center Configuration Manager
           href: vmware-azure-mobility-install-configuration-mgr.md
       - name: Ativar a replicação para as VMs do VMware
@@ -244,6 +242,8 @@ items:
         href: vmware-azure-install-linux-master-target.md
     - name: Gerir
       items:
+      - name: Gerir o agente de mobilidade do VMware
+        href: vmware-physical-manage-mobility-service.md
       - name: Gerir o servidor de configuração para a recuperação do VMware
         href: vmware-azure-manage-configuration-server.md
       - name: Gerir servidores de processos
@@ -276,8 +276,6 @@ items:
           href: vmware-physical-mobility-service-overview.md
         - name: Preparar para a instalação push do serviço de Mobilidade
           href: vmware-azure-install-mobility-service.md
-        - name: Instalar o serviço de Mobilidade manualmente
-          href: vmware-physical-mobility-service-install-manual.md
         - name: Implementar o serviço de Mobilidade com o System Center Configuration Manager
           href: vmware-azure-mobility-install-configuration-mgr.md
         - name: Instruções-Configurar a recuperação após desastre
@@ -286,6 +284,8 @@ items:
       href: physical-to-azure-failover-failback.md
     - name: Gerir
       items:
+      - name: Gerir o agente de mobilidade para o servidor físico
+        href: vmware-physical-manage-mobility-service.md
       - name: Gerir o servidor de configuração para a recuperação replicação do servidor físico
         href: physical-manage-configuration-server.md
       - name: Gerir servidores de processos
@@ -468,9 +468,9 @@ items:
     href: https://azure.microsoft.com/pricing/calculator/
   - name: Atualizações de serviço
     href: https://azure.microsoft.com/updates/?product=site-recovery
-ms.openlocfilehash: 66b14ba7100b8bd8e4bb3a100e8fd10d226f555e
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: b486afff5bc65e58fc89d4b9f0bee4d9c0ff0b5c
+ms.sourcegitcommit: 72cc94d92928c0354d9671172979759922865615
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58317107"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58419001"

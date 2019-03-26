@@ -264,8 +264,8 @@ items:
   items:
   - name: Privacidade do utilizador
     href: luis-user-privacy.md
-  - name: Regiões
-    displayName: failover, fail-over, fail over, Europe, EU, Austrailia, business continuity, bcdr
+  - name: Criação e publicação de regiões
+    displayName: failover, fail-over, fail over, Europe, EU, Australia, business continuity, bcdr
     href: luis-reference-regions.md
   - name: Limites
     href: luis-boundaries.md
@@ -410,9 +410,9 @@ items:
     href: https://blog.botframework.com/category/luis/
   - name: Base de Dados de Conhecimento
     href: https://cognitive.uservoice.com/knowledgebase/topics/127872-luis-language-understanding-intelligent-service
-ms.openlocfilehash: 8e684b58a3c7106f8ceca3e225b0b904d243984b
-ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
+ms.openlocfilehash: 5e9083be98a8a27f4c7b66f6b662d9659777f0ed
+ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58337906"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58438144"

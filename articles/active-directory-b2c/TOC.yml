@@ -238,7 +238,7 @@ items:
           href: relyingparty.md
       - name: Exemplos de JavaScript
         href: javascript-samples.md
-      - name: Notas de versão
+      - name: Ferramentas do programador
         href: active-directory-b2c-developer-notes-custom.md
       - name: Definição da Arquitetura Fidedigna
         href: active-directory-b2c-reference-trustframeworks-defined-ief-custom.md
@@ -324,9 +324,9 @@ items:
     href: active-directory-b2c-support.md
   - name: Vídeos
     href: https://azure.microsoft.com/documentation/videos/index/?services=active-directory-b2c
-ms.openlocfilehash: 90e0e57b013a50d1e3840fbc378b3e016b91cc56
-ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
+ms.openlocfilehash: 81e58beb53ec818555f47c24fb21dcecf553878b
+ms.sourcegitcommit: 72cc94d92928c0354d9671172979759922865615
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56886609"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58418810"

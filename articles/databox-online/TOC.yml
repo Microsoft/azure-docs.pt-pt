@@ -46,7 +46,7 @@ items:
       href: data-box-gateway-troubleshoot.md
   - name: Notas de versão
     items:
-    - name: Pré-visualização
+    - name: Disponibilidade geral
       href: data-box-gateway-release-notes.md
 - name: Data Box Edge
   items:
@@ -94,6 +94,10 @@ items:
       href: data-box-edge-connect-powershell-interface.md
     - name: Resolução de problemas
       href: data-box-edge-troubleshoot.md
+  - name: Notas de versão
+    items:
+    - name: Disponibilidade geral
+      href: data-box-gateway-release-notes.md
 - name: Recursos
   items:
   - name: Exemplos de módulos em C# do Data Box Edge (.NET)
@@ -102,9 +106,9 @@ items:
     href: https://azure.microsoft.com/services/storage/databox/edge/
   - name: Preços
     href: https://azure.microsoft.com/pricing/details/storage/databox/edge/
-ms.openlocfilehash: aab87662b82d80585aad647af7905ebfad399df9
-ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
+ms.openlocfilehash: ae1c076d22c6dba0486e0f949820cf0cd6e0b79a
+ms.sourcegitcommit: 72cc94d92928c0354d9671172979759922865615
 ms.translationtype: HT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 03/25/2019
-ms.locfileid: "58400378"
+ms.locfileid: "58418088"
