@@ -12,12 +12,12 @@ ms.author: xiwu
 ms.reviewer: mathoma
 manager: craigg
 ms.date: 02/07/2019
-ms.openlocfilehash: 164448f2e96b796d21419e90a3965390f22d7d38
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: b20a119a69ac796bc9ea85083d335f0a7d2fdf2d
+ms.sourcegitcommit: 72cc94d92928c0354d9671172979759922865615
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57762981"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58417960"
 ---
 # <a name="configure-replication-in-an-azure-sql-database-managed-instance-database"></a>Configurar a replicação numa base de dados de instância gerida de base de dados do Azure SQL
 
@@ -45,13 +45,13 @@ Configurar uma instância gerida a funcionar como um publicador ou distribuidor 
 Suporta:
 
 - Combinação de replicação de instantâneo e transacional do SQL Server no local e instâncias geridas na base de dados do Azure SQL.
-- Os assinantes podem estar em bases de dados no local do SQL Server, bases de dados individuais na base de dados do Azure SQL ou bases de dados agrupadas em conjuntos elásticos da base de dados do Azure SQL.
+- Os assinantes podem estar no local do SQL Server bases de dados, bases de dados única/geridos instâncias na base de dados do Azure SQL ou bases de dados agrupadas em conjuntos elásticos da base de dados do Azure SQL.
 - Unidirecional ou bidirecional de replicação.
 
 As seguintes funcionalidades não são suportadas numa instância gerida na base de dados do Azure SQL:
 
 - Subscrições atualizáveis.
-- Georreplicação ativa.
+- [Georreplicação ativa](sql-database-active-geo-replication.md) e [grupos de ativação pós-falha automática](sql-database-auto-failover-group.md) não deve ser utilizada se a replicação transacional está configurada.
 
 ## <a name="configure-publishing-and-distribution-example"></a>Configurar o exemplo de publicação e distribuição
 

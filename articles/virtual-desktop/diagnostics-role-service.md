@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 03/21/2019
 ms.author: helohr
-ms.openlocfilehash: a9b8be58e8dfb27fbe896cf1c8d8dc0e91e3b24c
-ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
+ms.openlocfilehash: 6b79a26d63c02dd06b62ea6ad09941f947704dc0
+ms.sourcegitcommit: 72cc94d92928c0354d9671172979759922865615
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 03/25/2019
-ms.locfileid: "58402852"
+ms.locfileid: "58418640"
 ---
 # <a name="identify-issues-with-the-diagnostics-feature"></a>Identificar problemas com a funcionalidade de diagnóstico
 
@@ -32,20 +32,20 @@ Diagnóstico de ambiente de Trabalho Virtual do Windows usa apenas um cmdlet do 
 
 ### <a name="retrieve-diagnostic-activities-in-your-tenant"></a>Obter diagnóstico atividades no seu inquilino
 
-Pode recuperar as atividades de diagnóstico ao introduzir o **Get-RdsDiagnosticsActivities** cmdlet. O cmdlet de exemplo seguinte irá devolver uma lista de atividades de diagnóstico, ordenadas da mais para menos recente.
+Pode recuperar as atividades de diagnóstico ao introduzir o **Get-RdsDiagnosticActivities** cmdlet. O cmdlet de exemplo seguinte irá devolver uma lista de atividades de diagnóstico, ordenadas da mais para menos recente.
 
 ```powershell
-Get-RdsDiagnosticsActivities -TenantName <tenantName>
+Get-RdsDiagnosticActivities -TenantName <tenantName>
 ```
 
 Como acontece com outros cmdlets do Windows PowerShell de ambiente de Trabalho Virtual, tem de utilizar o **- TenantName** parâmetro para especificar o nome do inquilino que pretende utilizar na sua consulta. O nome do inquilino é aplicável para quase todas as consultas de atividade de diagnóstico.
 
 ### <a name="retrieve-detailed-diagnostic-activities"></a>Obter as atividades detalhadas de diagnóstico
 
-O **-detalhadas** parâmetro fornece detalhes adicionais para cada atividade de diagnóstico devolvida. O formato para cada atividade varia consoante o tipo de atividade. O **-detalhadas** parâmetro pode ser adicionado a qualquer **Get-RdsDiagnosticsActivities** consultar, conforme mostrado no exemplo a seguir.
+O **-detalhadas** parâmetro fornece detalhes adicionais para cada atividade de diagnóstico devolvida. O formato para cada atividade varia consoante o tipo de atividade. O **-detalhadas** parâmetro pode ser adicionado a qualquer **Get-RdsDiagnosticActivities** consultar, conforme mostrado no exemplo a seguir.
 
 ```powershell
-Get-RdsDiagnosticsActivities -TenantName <tenantName> -Detailed
+Get-RdsDiagnosticActivities -TenantName <tenantName> -Detailed
 ```
 
 ### <a name="retrieve-a-specific-diagnostic-activity-by-activity-id"></a>Obter um ID de atividade por atividade de diagnóstico específico

@@ -3,33 +3,33 @@ title: Configurar a filtragem geográfica num domínio para o Azure Front Door S
 description: Neste artigo, vai conhecer a política de filtragem geográfica para o Azure Front Door Service
 services: frontdoor
 documentationcenter: ''
-author: sharad4u
+author: KumudD
 editor: ''
 ms.service: frontdoor
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 10/09/2018
-ms.author: sharadag
-ms.openlocfilehash: a2ba0fb34dd34129a134aa2639d06816f3523408
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.date: 03/21/2019
+ms.author: kumud;tyao
+ms.openlocfilehash: a7b4975a81c0966e5cbff0c8b940c9231e66f32b
+ms.sourcegitcommit: 280d9348b53b16e068cf8615a15b958fccad366a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52865510"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58407645"
 ---
-# <a name="geo-filtering-geographic-based-access-control-to-azure-front-door-service-frontends"></a>Filtragem geográfica: controlo de acesso baseado na área geográfica para front-ends do Azure Front Door Service
+# <a name="what-is-geo-filtering-on-a-domain-for-azure-front-door"></a>O que é filtragem geográfica num domínio para a porta da frente do Azure?
 
-Por predefinição, o Azure Front Door Service responde aos pedidos de utilizador independentemente da localização do utilizador que efetua o pedido. No entanto, em alguns casos, talvez queira restringir o acesso às suas aplicações Web por país. A segurança de camada de aplicação do Azure Front Door permite-lhe definir uma política através de regras de proteção personalizadas para o caminho específico no seu ponto final para permitir ou bloquear o acesso de países especificados. 
+Por predefinição, o Azure Front Door Service responde aos pedidos de utilizador independentemente da localização do utilizador que efetua o pedido. No entanto, em alguns casos, talvez queira restringir o acesso às suas aplicações Web por país. Serviço da Web application firewall (WAF) desde início permite-lhe definir uma política com as regras de acesso personalizado para um caminho específico no seu ponto final para permitir ou bloquear o acesso de países especificados. 
 
-Normalmente, uma política de segurança de aplicação inclui um conjunto de regras personalizadas. Uma regra é constituída por condições de correspondência, uma ação e uma prioridade. Numa condição de correspondência, vai definir uma variável de correspondência, um operador e um valor de correspondência.  Para a regra de filtragem geográfica, a variável é REMOTE_ADDR, o operador é GeoMatch e o valor é o código de país de duas letras de interesse. Pode combinar uma condição GeoMatch e uma condição de correspondência de cadeia de carateres REQUEST_URI para criar uma regra de filtragem geográfica baseada no caminho.
+Uma política de WAF geralmente inclui um conjunto de regras personalizadas. Uma regra é constituída por condições de correspondência, uma ação e uma prioridade. Numa condição de correspondência, vai definir uma variável de correspondência, um operador e um valor de correspondência.  Para a regra de filtragem geográfica, a variável é REMOTE_ADDR, o operador é GeoMatch e o valor é o código de país de duas letras de interesse. Pode combinar uma condição GeoMatch e uma condição de correspondência de cadeia de carateres REQUEST_URI para criar uma regra de filtragem geográfica baseada no caminho.
 
-Pode configurar uma política de filtragem geográfica para o seu Front Door com o [Azure PowerShell](front-door-tutorial-geo-filtering.md) ou com o nosso [modelo de início rápido](https://github.com/Azure/azure-quickstart-templates/tree/master/101-front-door-geo-filtering).
+Pode configurar uma política de filtragem geográfica para a porta de entrada por meio [do Azure PowerShell](front-door-tutorial-geo-filtering.md) ou com o nosso [modelo de início rápido](https://github.com/Azure/azure-quickstart-templates/tree/master/101-front-door-geo-filtering).
 
-## <a name="country-code-reference"></a>Referência do Código de País
+## <a name="country-code-reference"></a>Referência de código de país
 
-|Código do País | Nome do País |
+|Indicativo do país | Nome do país |
 | ----- | ----- |
 | AD | Andorra |
 | AE | Emirados Árabes Unidos|

@@ -1,8 +1,16 @@
-      ---
-author: alkohli ms.service: databox  
-ms.topic: include ms.date: 03/21/2019 ms.author: alkohli
 ---
-
+author: alkohli
+ms.service: databox
+ms.topic: include
+ms.date: 03/25/2019
+ms.author: alkohli
+ms.openlocfilehash: 98f9e0377e560fa0bba2fd470ff01431b2ed21d9
+ms.sourcegitcommit: 72cc94d92928c0354d9671172979759922865615
+ms.translationtype: MT
+ms.contentlocale: pt-PT
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58431532"
+---
 | Porta não.| Dentro ou para fora | Âmbito de porta| Necessário|   Notas |   |
 |--------|-----|-----|-----------|----------|-----------|
 | TCP 80 (HTTP)|Saída|WAN |Não|Porta de saída é utilizada para acesso à internet para obter atualizações. <br>O proxy da web de saída é configurável de utilizador. |
@@ -15,4 +23,3 @@ ms.topic: include ms.date: 03/21/2019 ms.author: alkohli
 | TCP 443 (HTTPS)|Out/In|LAN|Sim|Esta porta é a porta de entrada para a interface do Usuário local no dispositivo para gestão local. |
 | TCP 445 (SMB)|Em|LAN|Em alguns casos<br>Consulte as notas|Esta porta é necessária apenas se estiver a ligar através de SMB. |
 | TCP 2049 (NFS)|Em|LAN|Em alguns casos<br>Consulte as notas|Esta porta é necessária apenas se estiver a ligar através do NFS. |
-

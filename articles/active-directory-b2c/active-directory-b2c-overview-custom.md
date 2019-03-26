@@ -7,15 +7,15 @@ manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 11/30/2018
+ms.date: 03/20/2019
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: 92bd57822226e683f17582bb1534b84961f61032
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 7921454cc9269278db58fcc50bc63ca49b41b1e0
+ms.sourcegitcommit: 72cc94d92928c0354d9671172979759922865615
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55187169"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58417938"
 ---
 # <a name="custom-policies-in-azure-active-directory-b2c"></a>Políticas personalizadas no Azure Active Directory B2C
 
@@ -29,10 +29,10 @@ As políticas personalizadas são ficheiros de configuração que definem o comp
 |-|-------------------|-----------------|
 | Utilizadores de destino | Todos os desenvolvedores de aplicativos com ou sem conhecimentos de identidade. | Os profissionais de identidade, integradores de sistemas, consultores e equipes internas de identidade. Eles se sente confortáveis OpenIDConnect fluxos e compreender os fornecedores de identidade e autenticação baseada em afirmações. |
 | Método de configuração | Portal do Azure com uma simples interface do usuário (IU). | Editar diretamente os arquivos XML e, em seguida, carregar para o portal do Azure. |
-| Personalização da interface do Usuário | Personalização da interface do Usuário total incluindo HTML e CSS.<br><br>Suporte a vários idiomas com cadeias de caracteres personalizado. | Mesmo |
+| Personalização da interface do Usuário | Personalização da interface do Usuário total incluindo HTML, CSS e JavaScript.<br><br>Suporte a vários idiomas com cadeias de caracteres personalizado. | Mesmo |
 | Personalização de atributo | Atributos padrão e personalizados. | Mesmo |
 | Gestão de token e de sessão | Token personalizado e várias opções de sessão. | Mesmo |
-| Fornecedores de Identidade | Provedor predefinido, local ou redes sociais. | OIDC baseada em normas, OAUTH e SAML. |
+| Fornecedores de Identidade | Fornecedor predefinido de local ou redes sociais e a maioria dos fornecedores de identidade OIDC, como o federação com inquilinos do Azure Active Directory. | OIDC baseada em normas, OAUTH e SAML.  Autenticação também é possível ao utilizar a integração com as APIs REST. |
 | Tarefas de identidade | Inscrição ou início de sessão com o local ou muitas contas de redes sociais.<br><br>Reposição de palavra-passe self-service.<br><br>Edição de perfil.<br><br>Multi-factor Authentication.<br><br>Personalize tokens e sessões.<br><br>Fluxos de token de acesso. | Conclua as mesmas tarefas, como fluxos de utilizador com fornecedores de identidade personalizado ou utilize âmbitos personalizados.<br><br>Aprovisione uma conta de utilizador em outro sistema no momento do registo.<br><br>Envie um e-mail de boas-vindos através de seu próprio fornecedor de serviços de e-mail.<br><br>Utilize um arquivo de utilizador fora do Azure AD B2C.<br><br>Valide o utilizador fornecido informações com um sistema confiável com uma API. |
 
 ## <a name="policy-files"></a>Ficheiros de política

@@ -14,22 +14,23 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 11/13/2018
 ms.author: b-juche
-ms.openlocfilehash: 6c1a6bf4e7042c28239f57af6b39c0822b63b5e8
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 1cac267be026d0e472db9a7a321f5fff6ab3e917
+ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57768081"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58434777"
 ---
 # <a name="delegate-a-subnet-to-azure-netapp-files"></a>Delegar uma sub-rede para os Azure NetApp Files 
 
 Deve delegar uma sub-rede para ficheiros de NetApp do Azure.   Quando cria um volume, tem de especificar a sub-rede do delegado.
 
-## <a name="about-this-task"></a>Informações sobre esta tarefa
+## <a name="considerations"></a>Considerações
 * O Assistente para criar uma nova sub-rede é predefinido como um /24 máscara de rede, que fornece para 251 endereços IP disponíveis. Usando/28 máscara de rede, que fornece para 16 endereços IP utilizáveis, é suficiente para o serviço.
-* Não é possível designar um grupo de segurança de rede ou a sub-rede do delegado de ponto de extremidade de serviço. Isso faz com que a delegação de sub-rede efetuar a ativação.
 * Cada rede Virtual do Azure (Vnet), apenas uma sub-rede pode ser delegada a ficheiros do Azure NetApp.
-* Acesso a um volume a partir de uma rede virtual em modo de peering não é atualmente suportado.
+* Não é possível designar um grupo de segurança de rede ou a sub-rede do delegado de ponto de extremidade de serviço. Isso faz com que a delegação de sub-rede efetuar a ativação.
+* Acesso a um volume a partir de uma rede virtual em modo de peering globalmente não é atualmente suportado.
+* Criando [rotas personalizadas definidas pelo utilizador](https://docs.microsoft.com/azure/virtual-network/virtual-networks-udr-overview#custom-routes) na sub-redes VM com o endereço de prefixo (destino) a uma sub-rede de delegado ao serviço ficheiros do Azure NetApp não é suportado e tem impacto sobre a conectividade de VMS.
 
 ## <a name="steps"></a>Passos 
 1.  Vá para o **redes virtuais** painel do portal do Azure e selecione a rede virtual que pretende utilizar para os ficheiros do Azure NetApp.    

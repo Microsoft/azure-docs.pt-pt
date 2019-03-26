@@ -14,12 +14,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 09/15/2018
 ms.author: spelluru
-ms.openlocfilehash: 7c38de9c1dbb5e8a286fa1b72d0461dd74ed6f25
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 4e1ea3d822c8b032617b7f202f1c176aeb966210
+ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57770532"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58436783"
 ---
 # <a name="azure-service-bus-to-azure-event-grid-integration-examples"></a>Exemplos de integração do Azure Service Bus no Azure Event Grid
 
@@ -27,7 +27,7 @@ Neste artigo, saiba como configurar uma função do Azure e uma aplicação lóg
  
 * Crie uma função do Azure de teste simple para depurar e ver o fluxo inicial de eventos do Event Grid. Efetue este passo, independentemente de executar os restantes.
 * Crie uma função do Azure para receber e processar mensagens do Service bus do Azure com base em eventos do Event Grid.
-* Utilize a funcionalidade de Logic Apps do App Service do Azure.
+* Utilize a funcionalidade de aplicações lógicas do serviço de aplicações do Azure.
 
 O exemplo que criar pressupõe que o tópico do Service Bus tem duas subscrições. O exemplo também pressupõe que a subscrição do Event Grid foi criada para enviar eventos apenas para uma subscrição do Service Bus. 
 

@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 02/14/2017
 ms.author: rogarana
 ms.subservice: common
-ms.openlocfilehash: 770a494e93a51fc018b2bfe803ac15ba543f35d4
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 3fc2ebe30a9be685c62e46e351e3958eefdd6ac7
+ms.sourcegitcommit: 72cc94d92928c0354d9671172979759922865615
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58011343"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58417756"
 ---
 # <a name="enabling-azure-storage-metrics-and-viewing-metrics-data"></a>Ativar as métricas de armazenamento do Azure e visualizar dados de métricas
 [!INCLUDE [storage-selector-portal-enable-and-view-metrics](../../../includes/storage-selector-portal-enable-and-view-metrics.md)]
@@ -51,7 +51,9 @@ Os cmdlets que controlam as métricas de armazenamento, utilize os seguintes par
 Por exemplo, o comando seguinte muda em métrica de minuto para o serviço Blob na sua conta de armazenamento predefinida com a período definido como cinco dias de retenção:
 
 ```powershell
-Set-AzStorageServiceMetricsProperty -MetricsType Minute -ServiceType Blob -MetricsLevel ServiceAndApi  -RetentionDays 5`
+$storagecontext = New-AzStorageContext -StorageAccountName <storageaccountname> -StorageAccountKey <storageaccountkey>
+
+Set-AzStorageServiceMetricsProperty -MetricsType Minute -ServiceType Blob -MetricsLevel ServiceAndApi  -RetentionDays 5`  -Context $storagecontext.context
 ```
 
 O comando seguinte obtém os atuais por hora métricas ao nível e retenção dias para o serviço blob na sua conta de armazenamento predefinida:

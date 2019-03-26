@@ -1,62 +1,53 @@
 ---
-title: Notas de versão de pré-visualização de Gateway de caixa de dados do Azure | Documentos da Microsoft
-description: Descreve problemas em aberto críticos e resoluções para o Gateway de caixa de dados do Azure a executar a versão de pré-visualização.
+title: Notas de versão de disponibilidade de geral do Gateway de caixa de dados do Azure | Documentos da Microsoft
+description: Descreve problemas em aberto críticos e resoluções para o Gateway de caixa de dados do Azure a executar a versão de disponibilidade geral.
 services: databox
 author: alkohli
 ms.service: databox
 ms.subservice: gateway
 ms.topic: article
-ms.date: 02/07/2019
+ms.date: 03/25/2019
 ms.author: alkohli
-ms.openlocfilehash: 0265de5b224e62d188fe6e3b9322d5c2e3f77fa1
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 3f3e07d745d83041afc9dafd64678a3ac4a65012
+ms.sourcegitcommit: 72cc94d92928c0354d9671172979759922865615
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55883139"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58418037"
 ---
-# <a name="azure-data-box-gateway-preview-release-notes"></a>Notas de versão de pré-visualização de Gateway de caixa de dados do Azure
+# <a name="azure-data-box-edgeazure-data-box-gateway-general-availability-release-notes"></a>Notas de versão de disponibilidade de dados de caixa Edge/Azure dados caixa Gateway geral do Azure
 
 ## <a name="overview"></a>Descrição geral
 
-As seguintes notas de versão identificam os problemas em aberto críticos e os problemas resolvidos para versão de pré-visualização do Microsoft Azure dados caixa Gateway.
+As seguintes notas de versão identificam os problemas em aberto críticos e os problemas resolvidos para disponibilidade geral (GA) de versão do Edge de caixa de dados do Azure e o Gateway de caixa de dados do Azure.
 
-As notas de versão são atualizadas continuamente e, à medida que são descobertos problemas críticos que requerem uma solução, eles são adicionados. Antes de implementar o Gateway de caixa de dados, reveja com atenção as informações contidas nas notas de versão.
+As notas de versão são atualizadas continuamente e, à medida que são descobertos problemas críticos que requerem uma solução, eles são adicionados. Antes de implementar o Gateway de caixa do Edge/dados de caixa de dados, reveja com atenção as informações contidas nas notas de versão.
 
-Versão de pré-visualização corresponde à versão software **2.0 de versão de pré-visualização do Data caixa Gateway**.
+Corresponde a versão de disponibilidade geral para as versões de software:
 
-## <a name="issues-fixed-in-preview-release"></a>Problemas corrigidos na versão de pré-visualização
-
-A tabela seguinte fornece um resumo dos problemas corrigidos nesta versão.
-
-| Não. | Problema |
-| --- | --- |
-| **1.** | Nesta versão, quando um ficheiro que foi carregado por outra ferramenta (AzCopy) é atualizado e, em seguida, atualizado de forma que aumenta/expande o tamanho do ficheiro, em seguida, o seguinte erro é observado: *Erro 400: InvalidBlobOrBlock (o conteúdo de blob ou de bloqueios especificado é inválido.)*|
-| **2.** |Devido a um erro nesta versão, poderá ver instâncias do código de erro 110 na *error.xml* com nomes irreconhecível item. | 
-| **3.** |Devido a um erro nesta versão, poderá ver instâncias do código de erro 2003 durante o carregamento de ficheiros específicos. | 
-| **4.** |Nesta versão, pode atualizar partilha de apenas um por vez. | 
+- **Gateway de caixa de dados 1903 (1.5.810.441)**
+- **Dados caixa Edge 1903 (1.5.810.441)**
 
 
-## <a name="known-issues-in-preview-release"></a>Problemas conhecidos da versão de pré-visualização
+## <a name="whats-new"></a>Novidades
 
-A tabela seguinte fornece um resumo dos problemas conhecidos para o Gateway de caixa de dados a executar a versão de pré-visualização.
+- **Novas imagens de disco virtual** -novo VHDX e VMDK estão agora disponíveis no portal do Azure. Baixe estas imagens para aprovisionar, configurar e implementar novos dispositivos de Gateway de caixa de dados GA. Os dispositivos de Gateway de caixa de dados criados na pré-visualização do anterior versões não podem ser atualizadas para esta versão. Para obter mais informações, aceda a [preparar a implementação de Gateway de caixa de dados do Azure](data-box-gateway-deploy-prep.md).
+- **Suporte de NFS** -suporte NFS está atualmente em pré-visualização e disponível para v3.0 e v4.1 clientes que acedem os dispositivos Edge de caixa de dados e dados de caixa de Gateway.
+- **Resiliência de armazenamento** -dispositivo de limite de caixa de dados Your possa suportar a falha de um disco de dados com a funcionalidade de resiliência de armazenamento. Esta funcionalidade encontra-se em pré-visualização. Pode ativar a resiliência de armazenamento ao selecionar o **resilientes** opção a **as definições de armazenamento** locais da interface do Usuário da web.
+
+
+## <a name="known-issues-in-ga-release"></a>Problemas conhecidos da versão GA
+
+A tabela seguinte fornece um resumo dos problemas conhecidos para o Gateway de caixa de dados a executar a versão.
 
 | Não. | Funcionalidade | Problema | Solução ou enviar comentários |
 | --- | --- | --- | --- |
-| **1.** |Atualizações |Os dispositivos de Gateway de caixa de dados criados na pré-visualização do anterior versões não podem ser atualizadas para esta versão. |Transferir as imagens de disco virtual a partir da nova versão e configure e implemente novos dispositivos. Para obter mais informações, aceda a [preparar a implementação de Gateway de caixa de dados do Azure](data-box-gateway-deploy-prep.md). |
-| **2.** |Disco de dados aprovisionados |Uma vez aprovisionou um disco de dados de um determinado tamanho especificado e criado o Gateway de caixa de dados correspondente, tem não diminuir o disco de dados. A tentar reduzir os resultados de disco numa perda de todos os dados locais no dispositivo. | |
-| **3.** |Mudar o Nome |Não é suportada a mudança de nome de objetos. |Se esta funcionalidade é crucial para seu fluxo de trabalho, contacte o Support da Microsoft. |
-| **4.** |Copiar| Se um ficheiro só de leitura é copiado para o dispositivo, a propriedade só de leitura não é preservada. | |
-| **5.** |Tipos de ficheiro | Os seguintes tipos de ficheiro do Linux não são suportados: arquivos, os ficheiros de bloco, soquetes, pipes, links simbólicos de caracteres.  |Copiar esses arquivos partilham resultados nos ficheiros de comprimento 0, que são criados no NFS. Estes ficheiros permanecem no estado de erro e também são apresentados na *error.xml*. |
-| **6.** |Eliminação | Devido a um erro nesta versão, se eliminar uma partilha NFS, em seguida, a partilha não pode ser eliminada. Apresenta o estado de partilha *a eliminação*.  |Isto ocorre apenas quando a partilha está a utilizar um nome de ficheiro não suportado. |
-| **7.** |Atualizar | Permissões e listas de controle de acesso (ACLs) não são mantidas numa operação de atualização.  | |
-| **8.** |Copiar | Cópia de dados pode falhar com o erro:  Não foi possível concluir a operação pedida devido a uma limitação do sistema de ficheiros.  |Este erro ocorre quando o alternativo dados Stream (ADS) associada ao ficheiro exceder 128 KB (limite máximo para ReFS).  |
-| **9.** |Links simbólicos |Links simbólicos não são suportados.  |Links simbólicos aos diretórios resultam em diretórios nunca introdução marcada como offline. Como resultado, não poderá ver em cinzento vários nos diretórios que indica que os diretórios estão offline e todo o conteúdo associado foi completamente carregado para o Azure. |
-| **10.** |Partilhas |Atualizar um contentor existente com Blobs de página, para uma partilha de Blob de blocos (ou vice-versa) leva a falhas na modificação do ficheiro de carregamento.  |Este comportamento é visto quando siga estes passos: <li> Crie uma partilha de Blob de blocos no dispositivo. </li><li> Associe a partilha com um contentor de cloud existente com Blobs de páginas.</li><li>Atualize esse compartilhamento. </li><li>Modificar alguns dos arquivos atualizados que já são armazenados como Blobs de páginas na cloud.</li> Carregar falhas são vistas. |
-| **11.** |Ajuda online |As ligações de ajuda no portal do Azure não podem ligar à documentação.|As ligações de ajuda irão funcionar na versão de disponibilidade geral. |
+| **1.** |Tipos de ficheiro | Não são suportados os seguintes tipos de ficheiro: arquivos, os ficheiros de bloco, soquetes, pipes, links simbólicos de caracteres.  |Copiar esses arquivos partilham resultados nos ficheiros de comprimento 0, que são criados no NFS. Estes ficheiros permanecem no estado de erro e também são apresentados na *error.xml*. <br> Links simbólicos aos diretórios resultam em diretórios nunca introdução marcada como offline. Como resultado, não poderá ver em cinzento vários nos diretórios que indica que os diretórios estão offline e todo o conteúdo associado foi completamente carregado para o Azure. |
+| **2.** |Eliminação | Devido a um erro nesta versão, se eliminar uma partilha NFS, em seguida, a partilha não pode ser eliminada. Apresenta o estado de partilha *a eliminação*.  |Isto ocorre apenas quando a partilha está a utilizar um nome de ficheiro não suportado. |
+| **3.** |Copiar | Cópia de dados pode falhar com o erro:  Não foi possível concluir a operação pedida devido a uma limitação do sistema de ficheiros.  |A alternativa dados Stream (ADS) associado a mais de 128 KB de tamanho de ficheiro não é suportada.   |
+
 
 ## <a name="next-steps"></a>Passos Seguintes
 
 - [Preparar a implementação de Gateway de caixa de dados do Azure](data-box-gateway-deploy-prep.md).
-
-
+- [Preparar a implementação de borda de caixa de dados do Azure](data-box-edge-deploy-prep.md).

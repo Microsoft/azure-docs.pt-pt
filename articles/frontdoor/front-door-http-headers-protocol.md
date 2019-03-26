@@ -1,5 +1,5 @@
 ---
-title: Serviço de porta de entrada do Azure - suporte de protocolo de cabeçalhos HTTP | Documentos da Microsoft
+title: Suportam de cabeçalhos HTTP do serviço de porta de entrada do Azure - | Documentos da Microsoft
 description: Este artigo ajuda-o a compreender os protocolos de cabeçalho HTTP suportados por porta de entrada
 services: frontdoor
 documentationcenter: ''
@@ -11,14 +11,14 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/10/2018
 ms.author: sharadag
-ms.openlocfilehash: b34ab417ab1d9ef77c3141d5aa130c338fb89188
-ms.sourcegitcommit: 235cd1c4f003a7f8459b9761a623f000dd9e50ef
+ms.openlocfilehash: 40bfdfc3837da12f62864433508482a65def291c
+ms.sourcegitcommit: 280d9348b53b16e068cf8615a15b958fccad366a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/11/2019
-ms.locfileid: "57726333"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58407322"
 ---
-# <a name="azure-front-door-service---http-headers-protocol-support"></a>Serviço de porta de entrada do Azure - suporte de protocolo de cabeçalhos HTTP
+# <a name="azure-front-door-service---http-headers-support"></a>Serviço de porta de entrada do Azure - suporte de cabeçalhos HTTP
 Este documento descreve o protocolo que suporte o serviço de porta de entrada do Azure com várias partes do caminho da chamada conforme descrito pela imagem abaixo. As seções abaixo fornecem mais informações sobre os cabeçalhos HTTP que suporta a porta de entrada.
 
 ![Protocolo de cabeçalhos de HTTP do serviço de porta de entrada do Azure][1]
@@ -36,10 +36,10 @@ Porta da frente irão incluir os cabeçalhos da solicitação recebida, a menos 
 
 | Cabeçalho  | Exemplo e uma descrição |
 | ------------- | ------------- |
-| Através de |  *Via: 1.1 azure* </br> Porta de entrada adiciona seguido de "Azure" como o valor de por meio do cabeçalho de versão do HTTP do cliente. Este valor é adicionado para indicar a versão HTTP do cliente e essa porta de entrada do Azure foi um destinatário intermediário para o pedido entre o cliente e o back-end.  |
+| Através de |  *Via: 1.1 azure* </br> Porta de entrada adiciona seguido de "Azure" como o valor de por meio do cabeçalho de versão do HTTP do cliente. Ele é adicionado para indicar a versão HTTP do cliente e essa porta de entrada do Azure foi um destinatário intermediário para o pedido entre o cliente e o back-end.  |
 | X-Azure-ClientIP | *X-Azure-ClientIP: 127.0.0.1* </br> Representa o endereço de protocolo de Internet de "cliente" associado à solicitação a ser processada. Por exemplo, um pedido proveniente de um proxy pode adicionar o cabeçalho X-reencaminhados-para indicar o endereço IP do chamador original. |
-| X-Azure-SocketIP |  *X-Azure-SocketIP: 127.0.0.1* </br> Representa o endereço de protocolo de Internet de soquete associado com a ligação de TCP, a solicitação atual originada. Endereço de IP de cliente de um pedido pode não ser igual ao respetivo endereço IP de Socket porque ele pode ser arbitrariamente substituído por um utilizador final.|
-| X-Azure-Ref |  *X-Azure-Ref: 0zxV+XAAAAABKMMOjBv2NT4TY6SQVjC0zV1NURURHRTA2MTkANDM3YzgyY2QtMzYwYS00YTU0LTk0YzMtNWZmNzA3NjQ3Nzgz* </br> Esta é uma cadeia de referência exclusivo que identifica um pedido servido por porta de entrada. É fundamental para resolução de problemas como é usada para pesquisar os registos de acesso.|
+| X-Azure-SocketIP | *X-Azure-SocketIP: 127.0.0.1* </br> Representa o endereço de protocolo de Internet de soquete associado com a ligação de TCP, a solicitação atual originada. Endereço de IP de cliente de um pedido pode não ser igual ao respetivo endereço IP de Socket porque pode ser arbitrariamente substituída por um usuário final.|
+| X-Azure-Ref | *X-Azure-Ref: 0zxV+XAAAAABKMMOjBv2NT4TY6SQVjC0zV1NURURHRTA2MTkANDM3YzgyY2QtMzYwYS00YTU0LTk0YzMtNWZmNzA3NjQ3Nzgz* </br> Esta é uma cadeia de referência exclusivo que identifica um pedido servido por porta de entrada. É fundamental para resolução de problemas como é usada para pesquisar os registos de acesso.|
 | X-Azure-RequestChain |  *X-Azure-RequestChain: hops=1* </br> Este é um cabeçalho que utiliza a porta de entrada para detetar os loops de pedido e os usuários não devem tomar uma dependência no mesmo. |
 | X-reencaminhados-para | *X-reencaminhados-para: 127.0.0.1* </br> O campo de cabeçalho de X-Forwarded-For (XFF) HTTP é um método comum de identificar o endereço IP de origem de um cliente ligar a um servidor web através de um balanceador de carga ou um proxy HTTP. Se tiver ocorrido um cabeçalho XFF existente, em seguida, a porta da frente acrescenta o IP de soquete do cliente, ao mesmo mais adiciona o cabeçalho XFF com o IP de soquete do cliente. |
 | X-reencaminhados-anfitrião | *X-Forwarded-Host: contoso.azurefd.net* </br> O campo de cabeçalho HTTP X-reencaminhados-anfitrião é um método comum de identificar o anfitrião original solicitado pelo cliente no cabeçalho de pedido HTTP de anfitrião, uma vez que o nome de anfitrião de porta de entrada pode ser diferentes para o servidor de back-end processar a solicitação. |

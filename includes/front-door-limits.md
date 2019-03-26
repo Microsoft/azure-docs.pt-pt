@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 9/17/2018
 ms.author: sharadag
 ms.custom: include file
-ms.openlocfilehash: e3fa5616518675d8475937ec63afdd8e1742e8c6
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: a3a43c56a49c243390eac964d31988b7d30fbb56
+ms.sourcegitcommit: 280d9348b53b16e068cf8615a15b958fccad366a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57553842"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58407790"
 ---
 | Recurso | Limite predefinido |
 | --- | --- |
@@ -41,4 +41,4 @@ ms.locfileid: "57553842"
 |  | Com a codificação (CTE) da transferência | Sem a segmentação de HTTP |
 | ---- | ------- | ------- |
 | **Transferência** | Não existe nenhum limite no tamanho de download. | Não existe nenhum limite no tamanho de download. |
-| **Carregar** |  Não existe nenhum limite, desde que cada carregamento CTE for inferior a 28.6 MB. | O tamanho não pode ser maior do que 28.6. MB. |
+| **Carregar** |  Não existe nenhum limite, desde que cada carregamento CTE for inferior a 2 GB. | O tamanho não pode ser maior do que 2 GB. |
