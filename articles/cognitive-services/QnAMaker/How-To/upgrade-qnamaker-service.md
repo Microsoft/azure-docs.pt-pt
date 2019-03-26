@@ -1,24 +1,38 @@
 ---
 title: Atualizar o serviço QnA Maker - QnA Maker
 titleSuffix: Azure Cognitive Services
-description: Pode optar por atualizar componentes individuais da pilha do QnA Maker após a criação inicial.
+description: Partilhe ou atualizar os seus serviços do QnA Maker para gerir os recursos melhor.
 services: cognitive-services
 author: tulasim88
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: article
-ms.date: 01/24/2019
+ms.date: 03/25/2019
 ms.author: tulasim
-ms.openlocfilehash: e37a903112f30917ff5051305bb2144981de1c9d
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: cb38fdcfa8cbbfa0b90141c2de2280ff1ef08c3b
+ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55883277"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58437992"
 ---
-# <a name="upgrade-your-qna-maker-service"></a>Atualizar o serviço Criador de FAQ
+# <a name="share-or-upgrade-your-qna-maker-service"></a>Partilhar ou atualizar o serviço QnA Maker
+Partilhe ou atualizar os seus serviços do QnA Maker para gerir os recursos melhor. 
+
 Pode optar por atualizar componentes individuais da pilha do QnA Maker após a criação inicial. Ver os detalhes dos componentes dependentes e seleção de SKU [aqui](https://aka.ms/qnamaker-docs-capacity).
+
+## <a name="share-existing-services-with-qna-maker"></a>Partilhar os serviços existentes com a ferramenta QnA Maker
+
+A ferramenta QnA Maker cria vários recursos do Azure. Para reduzir a gestão e beneficiamos do compartilhamento de custos, utilize a tabela seguinte para compreender o que pode e não é possível partilhar:
+
+|Serviço|Partilhar|
+|--|--|
+|Serviços Cognitivos|X|
+|Plano do serviço de aplicações|✔|
+|Serviço de aplicações|X|
+|Application Insights|✔|
+|Serviço de pesquisa|✔|
 
 ## <a name="upgrade-qna-maker-management-sku"></a>Atualizar a ferramenta QnA Maker gestão SKU
 

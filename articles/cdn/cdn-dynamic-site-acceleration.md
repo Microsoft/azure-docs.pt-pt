@@ -12,14 +12,14 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/01/2018
+ms.date: 03/25/2019
 ms.author: magattus
-ms.openlocfilehash: 4fa681e800197ea241ba1c6cf2180ba04b6e565b
-ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
+ms.openlocfilehash: 6bd1d24cdece91265a7355678ea2bc0b0f9e3910
+ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49092593"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58439163"
 ---
 # <a name="dynamic-site-acceleration-via-azure-cdn"></a>Aceleração de site dinâmico através da CDN do Azure
 
@@ -27,7 +27,7 @@ Com a enxurrada de mídia social, comércio eletrónico e a web hyper personaliz
 
 Capacidade de entrega de conteúdos standard de rede (CDN) inclui a capacidade de ficheiros de cache mais próximo para os utilizadores finais para acelerar a entrega de ficheiros estáticos. No entanto, com aplicativos web dinâmicos, que o conteúdo em localizações limítrofes de colocação em cache não é possível porque o servidor gera o conteúdo em resposta ao comportamento do utilizador. Acelerar a entrega do conteúdo é mais complexo do que tradicional em cache e requer uma solução de ponto-a-ponto que escalados ajusta cada elemento ao longo do caminho de dados inteiro desde o início para entrega. Com a otimização do CDN do Azure dynamic site acceleration (DSA), o desempenho das páginas da web com conteúdo dinâmico é significativamente melhorado.
 
-**A CDN do Azure da Akamai** e **CDN do Azure da Verizon** ambos oferecem otimização DSA através da **otimizado para** menu durante a criação do ponto final.
+**A CDN do Azure da Akamai** e **CDN do Azure da Verizon** ambos oferecem otimização DSA através da **otimizado para** menu durante a criação do ponto final. Aceleração de site dinâmico da Microsoft é oferecida [serviço do Azure desde início](https://docs.microsoft.com/azure/frontdoor/front-door-overview).
 
 > [!Important]
 > Para **CDN do Azure da Akamai** perfis, pode alterar a otimização de um ponto final da CDN depois de este ter sido criado.
@@ -109,9 +109,9 @@ TCP *lento início* é um algoritmo do protocolo TCP que o impede de congestiona
 
 1. Estado de funcionamento e monitorização de largura de banda é utilizada para medir a largura de banda de ligações entre os servidores de borda PoP.
     
-2. As métricas são partilhadas entre os servidores de borda PoP, para que cada servidor esteja ciente das condições de rede e estado de funcionamento do servidor dos outros PoPs em torno delas.  
+2. As métricas são partilhadas entre os servidores de borda PoP, para que cada servidor esteja ciente das condições de rede e estado de funcionamento do servidor dos outros PoPs em torno delas.  
     
-3. Os servidores de borda CDN fazem suposições sobre alguns parâmetros de transmissão, por exemplo, o que o tamanho ideal da janela deve ser ao comunicar com outros servidores edge CDN seu proximidade. Este passo significa que o tamanho da janela de congestionamento inicial pode ser aumentado se o estado de funcionamento da ligação entre os servidores de borda CDN é capaz de transferências de dados superior do pacote.  
+3. Os servidores de borda CDN fazem suposições sobre alguns parâmetros de transmissão, por exemplo, o que o tamanho ideal da janela deve ser ao comunicar com outros servidores edge CDN seu proximidade. Este passo significa que o tamanho da janela de congestionamento inicial pode ser aumentado se o estado de funcionamento da ligação entre os servidores de borda CDN é capaz de transferências de dados superior do pacote.  
 
 #### <a name="leveraging-persistent-connections"></a>Tirar partido das ligações persistentes
 
@@ -145,7 +145,7 @@ Esta funcionalidade automaticamente monitoriza a qualidade de rede e utiliza os 
 
 Compressão de imagem adaptável | Extensões de ficheiro  
 --- | ---  
-Compressão de JPEG | . jpg,. JPEG,. jpe, .jig, .jgig, .jgi
+Compressão de JPEG | .jpg, .jpeg, .jpe, .jig, .jgig, .jgi
 
 ## <a name="caching"></a>Colocação em cache
 
@@ -157,7 +157,7 @@ Para **CDN do Azure Standard da Verizon** e **CDN do Azure Standard da Akamai** 
 
 Para aceder a regras de colocação em cache:
 
-1. Partir do **perfil da CDN** página, em definições, selecione **regras de colocação em cache**.  
+1. Partir do **perfil da CDN** página, em definições, selecione **regras de colocação em cache**.  
     
     ![Botão Regras de colocação em cache da CDN](./media/cdn-dynamic-site-acceleration/cdn-caching-rules-btn.png)
 
@@ -169,7 +169,7 @@ Para **CDN do Azure Premium da Verizon** perfis, que ative a colocação em cach
 
 Para acessar o mecanismo de regras:
     
-1. Partir do **perfil da CDN** página, selecione **gerir**.  
+1. Partir do **perfil da CDN** página, selecione **gerir**.  
     
     ![Botão de gerir o perfil de CDN](./media/cdn-dynamic-site-acceleration/cdn-manage-btn.png)
 
@@ -183,7 +183,7 @@ Para acessar o mecanismo de regras:
 
 Em alternativa, pode utilizar dois pontos finais de CDN: um ponto de extremidade otimizado com DSA para fornecer recursos dinâmicos e de outro ponto final otimizado com um tipo de otimização estático, como geral entrega web, a recursos em cache de entrega. Modificar suas URLs de página Web para ligar diretamente ao elemento no ponto final da CDN que pretende utilizar. 
 
-Por exemplo: `mydynamic.azureedge.net/index.html` é uma página dinâmica e são carregados a partir do ponto de extremidade DSA.  A página html faz referência a vários recursos estáticos, como bibliotecas JavaScript ou imagens que são carregadas a partir do ponto de final de CDN estático, tal como `mystatic.azureedge.net/banner.jpg` e `mystatic.azureedge.net/scripts.js`. 
+Por exemplo: `mydynamic.azureedge.net/index.html` é uma página dinâmica e são carregados a partir do ponto de extremidade DSA.  A página html faz referência a vários recursos estáticos, como bibliotecas JavaScript ou imagens que são carregadas a partir do ponto de final de CDN estático, tal como `mystatic.azureedge.net/banner.jpg` e `mystatic.azureedge.net/scripts.js`. 
 
 
 

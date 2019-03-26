@@ -12,15 +12,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.subservice: compliance
-ms.date: 02/09/2019
+ms.date: 03/24/2019
 ms.author: rolyon
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8f2de9274e1b6c996e75148d1a1f018d73a721bb
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 3f6ac8a693e09d0efbac080d7effc6ce21c6a094
+ms.sourcegitcommit: 72cc94d92928c0354d9671172979759922865615
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57443458"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58418981"
 ---
 # <a name="azure-active-directory-terms-of-use-feature"></a>Funcionalidade Termos de utilização do Azure Active Directory
 Os Termos de utilização do Azure AD fornecem um método simples que as organizações podem utilizar para apresentar informações aos utilizadores finais. Tal disponibilização garante a visualização das exclusões de responsabilidade relevantes no que se refere a requisitos legais ou de conformidade por parte dos utilizadores. Este artigo descreve como começar com os termos de utilização.
@@ -190,11 +190,15 @@ Assim que os Termos de utilização são criados e impostos, os utilizadores, qu
 
 ![Web-sessão do utilizador](./media/active-directory-tou/user-tou.png)
 
+Os utilizadores podem ver os termos de utilização e, se necessário, utilize os botões para ampliar e reduzir.
+
+![Ver termos de utilização com botões de zoom](./media/active-directory-tou/zoom-buttons.png)
+
 O ecrã seguinte mostra o aspeto dos Termos de utilização em dispositivos móveis.
 
 ![Utilizadores móvel início de sessão](./media/active-directory-tou/mobile-tou.png)
 
-Os utilizadores só têm de aceitar os termos de utilização de uma vez e não irão ver os termos de utilização novamente no subsequentes inícios de sessão.
+Os utilizadores só têm de aceitar os termos de utilização de uma vez e não verá os termos de utilização novamente nos inícios de sessão subsequentes.
 
 ### <a name="how-users-can-review-their-terms-of-use"></a>Como os utilizadores podem rever os Termos de utilização
 Os utilizadores podem rever e ver os termos de utilização que aceitaram, utilizando o procedimento seguinte.

@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 04/25/2017
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: a51c2987781184539edfcc8be9b9f483a215a157
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 88abd3d17218f1168119a66701f1474d27244acf
+ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58122931"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58438262"
 ---
 # <a name="customize-the-ui-of-a-user-journey-with-custom-policies"></a>Personalizar a interface do Usuário de um percurso do utilizador com as políticas personalizadas
 
@@ -150,7 +150,7 @@ A tabela seguinte descreve a finalidade das páginas HTML5 anteriores.
 
 Pode adicionar uma ligação aos seus modelos de HTML5/CSS para o seu percurso do utilizador editando diretamente uma política personalizada.
 
-Os modelos de HTML5/CSS personalizados para utilizar no seu percurso do utilizador tem de ser especificado numa lista de definições de conteúdo que podem ser utilizadas nesses jornadas de utilizador. Para essa finalidade, opcional *<ContentDefinitions>* elemento XML tem de ser declarado sob o *<BuildingBlocks>* secção do seu ficheiro XML de política personalizada.
+Os modelos de HTML5/CSS personalizados para utilizar no seu percurso do utilizador tem de ser especificado numa lista de definições de conteúdo que podem ser utilizadas nesses jornadas de utilizador. Para essa finalidade, opcional  *\<ContentDefinitions >* elemento XML tem de ser declarado sob o  *\<BuildingBlocks >* secção do seu ficheiro XML de política personalizada.
 
 A tabela seguinte descreve o conjunto de conteúdo, mecanismo e o tipo de páginas que está relacionado a eles experiência de IDs de definição reconhecidos pela identidade do Azure AD B2C.
 

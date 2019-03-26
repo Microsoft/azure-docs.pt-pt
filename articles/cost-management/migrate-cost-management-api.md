@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.service: cost-management
 manager: micflan
 ms.custom: ''
-ms.openlocfilehash: 9f5ea30c458954a3e87b9575b5632fbfb0df97b8
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: 283808c0bd3f5297011b25619d6f978c99d4dc32
+ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58318603"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58439231"
 ---
 # <a name="migrate-from-enterprise-agreement-to-microsoft-customer-agreement-apis"></a>Migrar do contrato Enterprise para APIs de contrato de cliente da Microsoft
 

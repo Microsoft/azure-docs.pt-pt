@@ -12,12 +12,12 @@ ms.devlang: nodejs
 ms.topic: reference
 ms.date: 02/24/2019
 ms.author: glenga
-ms.openlocfilehash: ed91425ca56278eccf21c10db6360b4f770b0660
-ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
+ms.openlocfilehash: d9de47ad83f37fa976c3816a0cb2e3e3beaa5472
+ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58226543"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58437582"
 ---
 # <a name="azure-functions-javascript-developer-guide"></a>Guia do Programador de JavaScript de funções do Azure
 
@@ -48,7 +48,6 @@ FunctionsProject
  | - host.json
  | - package.json
  | - extensions.csproj
- | - bin
 ```
 
 Na raiz do projeto, há um partilhada [Host. JSON](functions-host-json.md) ficheiro que pode ser utilizado para configurar a aplicação de função. Cada função tem uma pasta com o seu próprio arquivo de código (. js) e o ficheiro de configuração de vinculação (Function). O nome do `function.json`do diretório principal é sempre o nome da sua função.
@@ -616,6 +615,10 @@ Quando cria uma aplicação de funções que utiliza o plano do serviço de apli
 ### <a name="cold-start"></a>Arranque a frio
 
 Quando começar a desenvolver funções do Azure no modelo de alojamento sem servidor, cold são uma realidade. *Arranque a frio* refere-se ao fato de que quando a aplicação function app é iniciado pela primeira vez após um período de inatividade, demora mais tempo a iniciar cópia de segurança. Para as funções de JavaScript com árvores de dependência de grandes dimensões em particular, a frio pode ser significativa. Para acelerar o processo de arranque a frio [executar as suas funções como um ficheiro de pacote](run-functions-from-deployment-package.md) sempre que possível. Vários métodos de implementação utilizam a execução do modelo de pacote, por predefinição, mas se estiver a ter grande arranques a frio e não estão em execução desta forma, essa alteração pode oferecer uma melhoria significativa.
+
+### <a name="connection-limits"></a>Limites de conexão
+
+Quando utiliza um cliente específico do serviço num aplicativo de funções do Azure, não crie um novo cliente com cada invocação de função. Em vez disso, crie um único cliente estático no âmbito global. Para obter mais informações, consulte [gerenciamento de conexões nas funções do Azure](manage-connections.md).
 
 ## <a name="next-steps"></a>Passos Seguintes
 

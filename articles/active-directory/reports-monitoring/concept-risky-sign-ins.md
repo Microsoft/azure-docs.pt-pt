@@ -2,7 +2,7 @@
 title: Relatório de inícios de sessão de risco no portal do Azure Active Directory | Microsoft Docs
 description: Saiba mais sobre o relatório de inícios de sessão de risco no portal do Azure Active Directory
 services: active-directory
-author: priyamohanram
+author: MarkusVi
 manager: daveba
 ms.assetid: 7728fcd7-3dd5-4b99-a0e4-949c69788c0f
 ms.service: active-directory
@@ -12,15 +12,15 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
 ms.date: 11/13/2018
-ms.author: priyamo
+ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5b294d20242c1d6fdf1c998cd61706146a3156b9
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 40e125f8e1e7909c5866a03c0571f49ec42d690a
+ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56173322"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58437939"
 ---
 # <a name="risky-sign-ins-report-in-the-azure-active-directory-portal"></a>Relatório de inícios de sessão de risco no portal do Azure Active Directory
 

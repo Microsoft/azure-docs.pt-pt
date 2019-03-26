@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 12/01/2017
 ms.author: priyamo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d05f6006476cb17cbe751caf9c830fe3e10047c9
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 09ddce0dc398a078b3a901d224f00ef41550bf89
+ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56172693"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58437668"
 ---
 # <a name="how-to-use-managed-identities-for-azure-resources-on-an-azure-vm-to-acquire-an-access-token"></a>Como utilizar identidades geridas para recursos do Azure numa VM do Azure para adquirir um token de acesso 
 
@@ -153,7 +153,7 @@ using System.Net;
 using System.Web.Script.Serialization; 
 
 // Build request to acquire managed identities for Azure resources token
-HttpWebRequest request = (HttpWebRequest)WebRequest.Create(http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=https://management.azure.com/");
+HttpWebRequest request = (HttpWebRequest)WebRequest.Create("http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=https://management.azure.com/");
 request.Headers["Metadata"] = "true";
 request.Method = "GET";
 

@@ -18,12 +18,12 @@ ms.author: celested
 ms.custom: aaddev
 ms.reviewer: hirsin
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d9cb9877015f2cfe61799a56be6490a3f4e2fb60
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: d976a43173ce4f9deee0a723a895b40678e173b3
+ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58012769"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58437888"
 ---
 # <a name="single-sign-on-saml-protocol"></a>Protocolo SAML de início de sessão único
 
@@ -158,7 +158,7 @@ O `Response` elemento inclui o resultado do pedido de autorização. Os conjunto
 
 ### <a name="issuer"></a>Emissor
 
-Os conjuntos do Azure AD a `Issuer` elemento `https://login.microsoftonline.com/<TenantIDGUID>/` onde <TenantIDGUID> é o ID de inquilino do inquilino do Azure AD.
+Os conjuntos do Azure AD a `Issuer` elemento `https://login.microsoftonline.com/<TenantIDGUID>/` onde \<TenantIDGUID > é o ID de inquilino do inquilino do Azure AD.
 
 Por exemplo, uma resposta com o elemento de emissor pode ter um aspeto semelhantes ao exemplo seguinte:
 
@@ -193,7 +193,7 @@ Para além da `ID`, `IssueInstant` e `Version`, do Azure AD define os seguintes 
 
 #### <a name="issuer"></a>Emissor
 
-Ele é definido como `https://sts.windows.net/<TenantIDGUID>/`onde <TenantIDGUID> é o ID de inquilino do inquilino do Azure AD.
+Ele é definido como `https://sts.windows.net/<TenantIDGUID>/`onde \<TenantIDGUID > é o ID de inquilino do inquilino do Azure AD.
 
 ```
 <Issuer>https://login.microsoftonline.com/82869000-6ad1-48f0-8171-272ed18796e9/</Issuer>

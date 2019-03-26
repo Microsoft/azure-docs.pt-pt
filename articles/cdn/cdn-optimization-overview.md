@@ -12,14 +12,14 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/13/2018
+ms.date: 03/25/2019
 ms.author: magattus
-ms.openlocfilehash: 5be1835de2aa1631c4ec2115dd34ea85f0267403
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: 954d19fb557540e4fdc6b17f313127e01eba97a7
+ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56870895"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58435613"
 ---
 # <a name="optimize-azure-cdn-for-the-type-of-content-delivery"></a>Otimizar a CDN do Azure para o tipo de entrega de conteúdos
 
@@ -38,6 +38,8 @@ Este artigo fornece uma descrição geral de várias funcionalidades de Otimiza�
 
 * [Entrega geral web](#general-web-delivery). Esta otimização também é utilizada para suportes de dados de transmissão em fluxo e transferência de ficheiros grandes.
 
+> [!NOTE]
+> Aceleração de site dinâmico da Microsoft é oferecida [serviço do Azure desde início](https://docs.microsoft.com/azure/frontdoor/front-door-overview).
 
 **CDN Standard do Azure da Verizon** e **CDN do Azure Premium da Verizon** perfis suportam as seguintes otimizações:
 
@@ -120,6 +122,9 @@ Para obter mais informações sobre a otimização de ficheiros grandes, veja [o
 ### <a name="dynamic-site-acceleration"></a>Aceleração de site dinâmico
 
  Aceleração de sites dinâmicos (DSA) está disponível para **CDN do Azure Standard da Akamai**, **CDN do Azure Standard da Verizon**, e **CDN do Azure Premium da Verizon** perfis. Essa otimização envolve uma taxa adicional a utilizar. Para obter mais informações, consulte [preços de rede de entrega de conteúdos](https://azure.microsoft.com/pricing/details/cdn/).
+
+> [!NOTE]
+> Aceleração de site dinâmico da Microsoft é oferecida [serviço de porta de entrada do Azure](https://docs.microsoft.com/azure/frontdoor/front-door-overview) que é um global [anycast](https://en.wikipedia.org/wiki/Anycast) aproveitando globais de rede privada da Microsoft para fornecer as suas cargas de trabalho de aplicação de serviço.
 
 DSA inclui várias técnicas que tiram partido a latência e o desempenho do conteúdo dinâmico. Técnicas incluem a Otimização da rota e da rede, a otimização de TCP e muito mais. 
 

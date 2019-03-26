@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/07/2019
 ms.author: jeedes
-ms.openlocfilehash: 3654168d5bd733c87c48d808ab4a668c5c03655e
-ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
+ms.openlocfilehash: da06b8772cbf4f9f805952e19cff03791a86e4c7
+ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58370147"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58437972"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-the-funding-portal"></a>Tutorial: Integração do Active Directory do Azure com o Portal de financiamento
 
@@ -194,7 +194,7 @@ Nesta secção, vai ativar Eduarda Almeida utilizar o Azure início de sessão �
 
 2. Na lista de aplicações, selecione **o Portal de financiamento**.
 
-    ![O link do Portal de financiamento o na lista de aplicações](common/all-applications.png)
+    ![A ligação de financiamento Portal na lista de aplicações](common/all-applications.png)
 
 3. No menu à esquerda, selecione **utilizadores e grupos**.
 
@@ -218,7 +218,7 @@ Nesta secção, vai criar um usuário chamado Eduarda Almeida no Portal de finan
 
 Nesta secção, vai testar a configuração do Azure AD única início de sessão com o painel de acesso.
 
-Quando clica no mosaico o Portal de financiamento no painel de acesso, deve ser automaticamente conectado para o Portal o financiamento para o qual configura o SSO. Para obter mais informações sobre o painel de acesso, consulte [introdução ao painel de acesso](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+Quando clica em mosaico o Portal de financiamento, no painel de acesso, deve ser automaticamente sessão iniciada no Portal o financiamento para o qual configura o SSO. Para obter mais informações sobre o painel de acesso, consulte [introdução ao painel de acesso](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 ## <a name="additional-resources"></a>Recursos Adicionais
 

@@ -11,12 +11,12 @@ ms.devlang: multiple
 ms.topic: reference
 ms.date: 11/15/2018
 ms.author: cshoe
-ms.openlocfilehash: 16899c833d996902cf7a0a3f7ab57479869fbdd9
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: e18a63892f000eff0f72656082d5e6e1f0ca159b
+ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56737795"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58437480"
 ---
 # <a name="azure-blob-storage-bindings-for-azure-functions"></a>Enlaces de armazenamento de Blobs do Azure para as funções do Azure
 
@@ -282,7 +282,7 @@ Na [bibliotecas de classes do c#](functions-dotnet-class-library.md), utilize os
   {
       ....
   }
-  ```
+   ```
 
   Para obter um exemplo completo, consulte [acionador - exemplo do c#](#trigger---c-example).
 
@@ -318,8 +318,8 @@ A tabela seguinte explica as propriedades de configuração de ligação definid
 |---------|---------|----------------------|
 |**tipo** | n/d | Tem de ser definido como `blobTrigger`. Esta propriedade é definida automaticamente ao criar o acionador no portal do Azure.|
 |**direção** | n/d | Tem de ser definido como `in`. Esta propriedade é definida automaticamente ao criar o acionador no portal do Azure. Exceções estão apontadas na [utilização](#trigger---usage) secção. |
-|**name** | n/d | O nome da variável que representa o blob no código de função. | 
-|**path** | **BlobPath** |O [contentor](../storage/blobs/storage-blobs-introduction.md#blob-storage-resources) para monitorizar.  Pode ser um [padrão de nome de blob](#trigger---blob-name-patterns). | 
+|**name** | n/d | O nome da variável que representa o blob no código de função. |
+|**path** | **BlobPath** |O [contentor](../storage/blobs/storage-blobs-introduction.md#blob-storage-resources) para monitorizar.  Pode ser um [padrão de nome de blob](#trigger---blob-name-patterns). |
 |**ligação** | **ligação** | O nome de uma definição de aplicação que contém a cadeia de ligação de armazenamento a utilizar para essa ligação. Se o nome da definição de aplicação começa com "AzureWebJobs", pode especificar apenas o restante do nome aqui. Por exemplo, se definir `connection` para "MyStorage", o runtime das funções procura uma definição de aplicação com o nome "AzureWebJobsMyStorage." Se deixar `connection` vazio, o runtime das funções utiliza a cadeia de ligação de armazenamento predefinida na definição da aplicação com o nome `AzureWebJobsStorage`.<br><br>A cadeia de ligação tem de ser para uma conta de armazenamento para fins gerais, não uma [conta de armazenamento de BLOBs](../storage/common/storage-account-overview.md#types-of-storage-accounts).|
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
@@ -450,7 +450,9 @@ As funções JavaScript e Java carregar o blob inteiro na memória, e C# funçõ
 
 ## <a name="trigger---polling"></a>Acionar - consulta
 
-Se o contentor de BLOBs a ser monitorizado contém mais de 10 000 blobs, as verificações de tempo de execução de funções ficheiros para deteção de blobs novas ou alteradas de registo. Este processo pode resultar em atrasos. Uma função pode não obter acionada por até vários minutos ou mais depois de criar o blob. Além disso, [registos de armazenamento são criados num "melhor esforço"](/rest/api/storageservices/About-Storage-Analytics-Logging) base. Não há nenhuma garantia que todos os eventos são capturados. Em algumas condições, os registos podem ser perdidos. Se necessitar de processamento de blob mais rápida ou mais fiáveis, considere criar um [mensagem de fila](../storage/queues/storage-dotnet-how-to-use-queues.md) quando cria o blob. Em seguida, utilizar um [acionador de fila](functions-bindings-storage-queue.md) em vez de um acionador de blob para processar o blob. Outra opção consiste em utilizar o Event Grid; Veja o tutorial [automatizar o redimensionamento de imagens com o Event Grid carregadas](../event-grid/resize-images-on-storage-blob-upload-event.md).
+Se o contentor de BLOBs a ser monitorizado contém mais de 10 000 blobs (em todos os contentores), as verificações de tempo de execução de funções ficheiros para deteção de blobs novas ou alteradas de registo. Este processo pode resultar em atrasos. Uma função pode não obter acionada por até vários minutos ou mais depois de criar o blob. Além disso, [registos de armazenamento são criados num "melhor esforço"](/rest/api/storageservices/About-Storage-Analytics-Logging) base. Não há nenhuma garantia que todos os eventos são capturados. Em algumas condições, os registos podem ser perdidos.
+
+Se necessitar de processamento de blob mais rápida ou mais fiáveis, considere criar um [mensagem de fila](../storage/queues/storage-dotnet-how-to-use-queues.md) quando cria o blob. Em seguida, utilizar um [acionador de fila](functions-bindings-storage-queue.md) em vez de um acionador de blob para processar o blob. Outra opção consiste em utilizar o Event Grid; Veja o tutorial [automatizar o redimensionamento de imagens com o Event Grid carregadas](../event-grid/resize-images-on-storage-blob-upload-event.md).
 
 ## <a name="input"></a>Input
 
@@ -479,7 +481,7 @@ public static void Run(
 {
     log.LogInformation($"BlobInput processed blob\n Name:{myQueueItem} \n Size: {myBlob.Length} bytes");
 }
-```        
+```
 
 ### <a name="input---c-script-example"></a>Introdução - exemplo de script do c#
 
@@ -802,7 +804,7 @@ private static Dictionary<ImageSize, (int, int)> imageDimensionsTable = new Dict
     { ImageSize.Small,      (640, 400) },
     { ImageSize.Medium,     (800, 600) }
 };
-```        
+```
 
 ### <a name="output---c-script-example"></a>Saída - exemplo de script do c#
 

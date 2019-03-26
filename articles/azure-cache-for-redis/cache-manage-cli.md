@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: yegu
-ms.openlocfilehash: 99148332a8310428cb73287d861ef71c35d59a26
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
+ms.openlocfilehash: 1d7a18f3f46cec73d70389b82eed5a85e440d340
+ms.sourcegitcommit: 72cc94d92928c0354d9671172979759922865615
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56233205"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58418606"
 ---
 # <a name="how-to-create-and-manage-azure-cache-for-redis-using-the-azure-classic-cli"></a>Como criar e gerir o Azure Cache de Redis com a CLI clássica do Azure
 > [!div class="op_single_selector"]
@@ -57,9 +57,9 @@ As seguintes propriedades são utilizadas quando criar e atualizar o Cache do Az
 | Contagem de partições horizontais |-r, --shard-count |Número de partições horizontais para criar uma Cache de Cluster Premium com clustering. |
 | Rede Virtual |-v, --virtual-network |Ao alojar a cache numa VNET, especifica o ID de recurso ARM exato, da rede virtual para implementar a Cache do Azure para Redis no. Formato de exemplo: /subscriptions/{subid}/resourceGroups/{resourceGroupName}/Microsoft.ClassicNetwork/VirtualNetworks/vnet1 |
 | Tipo de chave |-t, --key-type |Tipo de chave para renovar. Valores válidos: [primário, secundário] |
-| StaticIP |-p, --static-ip <static-ip> |Ao alojar a cache numa VNET, especifica um endereço IP exclusivo na sub-rede para a cache. Se não for indicado, um é escolhido por da sub-rede. |
-| Subrede |t, --subnet <subnet> |Ao alojar a cache numa VNET, especifica o nome da sub-rede na qual implementar a cache. |
-| VirtualNetwork |-v, --virtual-network <virtual-network> |Ao alojar a cache numa VNET, especifica o ID de recurso ARM exato, da rede virtual para implementar a Cache do Azure para Redis no. Formato de exemplo: /subscriptions/{subid}/resourceGroups/{resourceGroupName}/Microsoft.ClassicNetwork/VirtualNetworks/vnet1 |
+| StaticIP |-p, --static-ip \<static-ip\> |Ao alojar a cache numa VNET, especifica um endereço IP exclusivo na sub-rede para a cache. Se não for indicado, um é escolhido por da sub-rede. |
+| Subrede |t, --subnet \<subnet\> |Ao alojar a cache numa VNET, especifica o nome da sub-rede na qual implementar a cache. |
+| VirtualNetwork |-v, --virtual-network \<virtual-network\> |Ao alojar a cache numa VNET, especifica o ID de recurso ARM exato, da rede virtual para implementar a Cache do Azure para Redis no. Formato de exemplo: /subscriptions/{subid}/resourceGroups/{resourceGroupName}/Microsoft.ClassicNetwork/VirtualNetworks/vnet1 |
 | Subscrição |-s, – subscrição |O identificador de subscrição. |
 
 ## <a name="see-all-azure-cache-for-redis-commands"></a>Ver todo o Cache do Azure para os comandos da Redis

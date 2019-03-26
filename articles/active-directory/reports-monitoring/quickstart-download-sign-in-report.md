@@ -3,7 +3,7 @@ title: 'Início Rápido: Transferir um relatório de início de sessão no porta
 description: Aprender a transferir um relatório de início de sessão no portal do Azure
 services: active-directory
 documentationcenter: ''
-author: priyamohanram
+author: MarkusVi
 manager: daveba
 editor: ''
 ms.assetid: 9131f208-1f90-4cc1-9c29-085cacd69317
@@ -14,15 +14,15 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
 ms.date: 11/13/2018
-ms.author: priyamo
+ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 39f3f0954a271f3abd30e99e306ebfc940e20a7f
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 86bc72f69903134afa3750ad6b72486a713b6cc0
+ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57547814"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58438127"
 ---
 # <a name="quickstart-download-a-sign-in-report-using-the-azure-portal"></a>Início rápido: Transferir um relatório de início de sessão no portal do Azure
 

@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 02/28/2019
-ms.openlocfilehash: b1b5dffed0a82e3e3c91efd4024bafdc64f0d3d2
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: c5087a038e31c4819ef1ef173bb32faa41e04c97
+ms.sourcegitcommit: 72cc94d92928c0354d9671172979759922865615
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58119042"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58417775"
 ---
 # <a name="server-logs-in-azure-database-for-mysql"></a>Registos do servidor na base de dados do Azure para MySQL
 Na base de dados do Azure para MySQL, o log de consulta lenta está disponível para os utilizadores. Acesso ao registo de transação não é suportado. O log de consulta lenta pode ser utilizado para identificar afunilamentos de desempenho para resolução de problemas. 
@@ -53,31 +53,31 @@ A tabela seguinte descreve as novidades em cada registo. Dependendo do método d
 
 | **Propriedade** | **Descrição** |
 |---|---|
-| TenantId | O ID de inquilino |
-| SourceSystem | `Azure` |
-| TimeGenerated [UTC] | Carimbo de hora quando o registo foi registado em UTC |
-| Type | Tipo do registo. Sempre `AzureDiagnostics` |
-| SubscriptionId | GUID da subscrição que o servidor pertence a |
-| ResourceGroup | Nome do grupo de recursos do servidor pertence a |
-| ResourceProvider | Nome do fornecedor de recursos. Sempre `MICROSOFT.DBFORMYSQL` |
-| ResourceType | `Servers` |
-| ResourceId | URI do recurso |
-| Recurso | Nome do servidor |
-| Categoria | `MySqlSlowLogs` |
-| OperationName | `LogEvent` |
-| Logical_server_name_s | Nome do servidor |
-| start_time_t [UTC] | Tempo que começou a consulta |
-| query_time_s | A consulta demorou a executar o tempo total |
-| lock_time_s | Tempo total que a consulta foi bloqueada |
-| user_host_s | Nome de utilizador |
-| rows_sent_s | Número de linhas enviados |
-| rows_examined_s | Número de linhas examinado |
-| last_insert_id_s | [last_insert_id](https://dev.mysql.com/doc/refman/8.0/en/information-functions.html#function_last-insert-id) |
-| insert_id_s | Inserir id |
-| sql_text_s | Consulta completa |
-| server_id_s | Id do servidor |
-| thread_id_s | Id do thread |
-| \_ResourceId | URI do recurso |
+| `TenantId` | O ID de inquilino |
+| `SourceSystem` | `Azure` |
+| `TimeGenerated` [UTC] | Carimbo de hora quando o registo foi registado em UTC |
+| `Type` | Tipo do registo. Sempre `AzureDiagnostics` |
+| `SubscriptionId` | GUID da subscrição que o servidor pertence a |
+| `ResourceGroup` | Nome do grupo de recursos do servidor pertence a |
+| `ResourceProvider` | Nome do fornecedor de recursos. Sempre `MICROSOFT.DBFORMYSQL` |
+| `ResourceType` | `Servers` |
+| `ResourceId` | URI do recurso |
+| `Resource` | Nome do servidor |
+| `Category` | `MySqlSlowLogs` |
+| `OperationName` | `LogEvent` |
+| `Logical_server_name_s` | Nome do servidor |
+| `start_time_t` [UTC] | Tempo que começou a consulta |
+| `query_time_s` | A consulta demorou a executar o tempo total |
+| `lock_time_s` | Tempo total que a consulta foi bloqueada |
+| `user_host_s` | Nome de utilizador |
+| `rows_sent_s` | Número de linhas enviados |
+| `rows_examined_s` | Número de linhas examinado |
+| `last_insert_id_s` | [last_insert_id](https://dev.mysql.com/doc/refman/8.0/en/information-functions.html#function_last-insert-id) |
+| `insert_id_s` | Inserir id |
+| `sql_text_s` | Consulta completa |
+| `server_id_s` | Id do servidor |
+| `thread_id_s` | Id do thread |
+| `\_ResourceId` | URI do recurso |
 
 ## <a name="next-steps"></a>Próximos Passos
 - [Como configurar e aceder a registos do servidor a partir da CLI do Azure](howto-configure-server-logs-in-cli.md).

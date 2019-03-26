@@ -448,6 +448,12 @@ Automatizar as tarefas do Azure com scripts com o PowerShell </a>
                                             </a>
                                         </li>
                                         <li>
+                                            <a href="/azure/data-explorer">
+                                                <img src="media/index/azure_data_explorer.svg" alt="" />
+                                                <p>Azure Data Explorer</p>
+                                            </a>
+                                        </li>
+                                        <li>
                                             <a href="/azure/azure-cache-for-redis/">
                                                 <img src="media/index/RedisCache.svg" alt="" />
                                                 <p>Cache do Azure para Redis</p>
@@ -494,7 +500,7 @@ Automatizar as tarefas do Azure com scripts com o PowerShell </a>
                                                 <img src="media/index/database-migration.svg" alt="" />
                                                 <p>Azure Database Migration Service</p>
                                             </a>
-                                        </li>
+                                        </li>                                        
                                     </ul>
                                     <h3>Contentores</h3>
                                     <ul>
@@ -1158,7 +1164,7 @@ Automatizar as tarefas do Azure com scripts com o PowerShell </a>
                                         </li>
                                         <li>
                                             <a href="/azure/data-explorer/">
-                                                <img src="https://docs.microsoft.com/media/logos/logo_azure.svg" alt="" />
+                                                <img src="media/index/azure_data_explorer.svg" alt="" />
                                                 <p>Azure Data Explorer</p>
                                             </a>
                                         </li>
@@ -3086,6 +3092,25 @@ Automatizar as tarefas do Azure com scripts com o PowerShell </a>
                                 </a>
                             </li>
                             <li>
+                                <a href="/azure/data-explorer">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="media/index/azure_data_explorer.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>Azure Data Explorer</h3>
+                                                    <p>Serviço de exploração de dados rápido e altamente dimensionável para dados telemétricos e de registo.</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
                                 <a href="/azure/azure-cache-for-redis/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
@@ -3236,7 +3261,7 @@ Automatizar as tarefas do Azure com scripts com o PowerShell </a>
                                         </div>
                                     </div>
                                 </a>
-                            </li>
+                            </li>                            
                         </ul>
                     </li>
                     <li>
@@ -3325,7 +3350,7 @@ Automatizar as tarefas do Azure com scripts com o PowerShell </a>
                                             <div class="card">
                                                 <div class="cardImageOuter">
                                                     <div class="cardImage">
-                                                        <img src="https://docs.microsoft.com/media/logos/logo_azure.svg" alt="" />
+                                                        <img src="media/index/azure_data_explorer.svg" alt="" />
                                                     </div>
                                                 </div>
                                                 <div class="cardText">

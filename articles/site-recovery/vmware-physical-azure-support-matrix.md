@@ -6,14 +6,14 @@ manager: carmonm
 ms.service: site-recovery
 services: site-recovery
 ms.topic: conceptual
-ms.date: 03/20/2019
+ms.date: 03/26/2019
 ms.author: raynew
-ms.openlocfilehash: 2fe2e972d16bdb27c5d2fbd2d552dac825235b6d
-ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
+ms.openlocfilehash: 0070edf007399fff1f12f483b9ca552a755b53fb
+ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58286470"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58436596"
 ---
 # <a name="support-matrix-for-disaster-recovery--of-vmware-vms-and-physical-servers-to-azure"></a>Matriz de suporte para recuperação após desastre de VMs de VMware e servidores físicos para o Azure
 
@@ -63,7 +63,7 @@ Recuperação de sites suporta a replicação de qualquer carga de trabalho em e
 **Componente** | **Detalhes**
 --- | ---
 Definições do computador | As máquinas que replicam para o Azure tem de cumprir [requisitos do Azure](#azure-vm-requirements).
-Carga de trabalho de máquina | Recuperação de sites suporta a replicação de qualquer carga de trabalho (Digamos que o Active Directory, o SQL server, etc.) em execução numa máquina. Para obter mais informações, clique em [aqui](https://aka.ms/asr_workload)
+Carga de trabalho de máquina | Recuperação de sites suporta a replicação de qualquer carga de trabalho (Digamos que o Active Directory, o SQL server, etc.) em execução numa máquina. [Saiba mais](https://aka.ms/asr_workload).
 Sistema de operativo do Windows | 64-bit Windows Server 2016 (Server Core, servidor com experiência de área de trabalho), Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2 com em, pelo menos, SP1. </br></br>  [Windows Server 2008 com pelo menos o SP2 - 32 bits e 64 bits](migrate-tutorial-windows-server-2008.md) (apenas para migração). </br></br> O servidor Nano do Windows 2016 não é suportado.
 Arquitetura de sistema operativo Linux | Sistema de 64 bits apenas é suportado. sistema de 32 bits não é suportado
 Sistema operativo Linux | Red Hat Enterprise Linux: 5.2 para 5.11<b>\*\*</b>, 6.1 para 6.10<b>\*\*</b>, 7.0 para 7,6 <br/><br/>CentOS: 5.2 para 5.11<b>\*\*</b>, 6.1 para 6.10<b>\*\*</b>, 7.0 para 7,6 <br/><br/>Servidor de Ubuntu 14.04 LTS[ (versões de kernel de suportadas)](#ubuntu-kernel-versions)<br/><br/>Servidor de Ubuntu 16.04 LTS[ (versões de kernel de suportadas)](#ubuntu-kernel-versions)<br/><br/>Debian 7/Debian 8[ (versões de kernel de suportadas)](#debian-kernel-versions)<br/><br/>SUSE Linux Enterprise Server 12 SP1, SP2, SP3 [ (versões de kernel de suportadas)](#suse-linux-enterprise-server-12-supported-kernel-versions)<br/><br/>SUSE Linux Enterprise Server 11 SP3<b>\*\*</b>, SUSE Linux Enterprise Server 11 SP4 * </br></br>Oracle Linux 6.4, 6.5, 6.6, 6.7, 6.8, 6.9, 6.10, 7.0, 7.1, 7.2, 7.3, 7.4, 7.5 com o kernel compatível do Red Hat ou Indestrutíveis Enterprise Kernel versão 3 (UEK3) <br/><br/></br>-Atualizar máquinas replicadas do SUSE Linux Enterprise Server 11 SP3 para SP4 não é suportada. Para atualizar, desative a replicação e ativá-la novamente após a atualização.</br></br> - [Saiba mais](https://support.microsoft.com/help/2941892/support-for-linux-and-open-source-technology-in-azure) sobre o suporte para Linux e tecnologia de código aberto no Azure. Recuperação de sites orquestra a ativação pós-falha para executar servidores Linux no Azure. No entanto fornecedores do Linux podem limitar o suporte para apenas as versões de distribuição que não atingiram o fim-de-vida.<br/><br/> -Em distribuições do Linux, apenas os kernels das ações que fazem parte da versão/atualização do podverze distribuição são suportados.<br/><br/> -Atualizar máquinas protegidas em Linux principais versões de distribuição não é suportada. Para atualizar, desative a replicação, atualize o sistema operativo e, em seguida, ative novamente a replicação.<br/><br/> -Servidores a executar o Red Hat Enterprise Linux 5.2 5.11 ou CentOS 5.2 5.11 devem ter o [componentes de serviços de integração do Linux (LIS)](https://www.microsoft.com/download/details.aspx?id=55106) instalado para as máquinas efetuar o arranque no Azure.
@@ -154,7 +154,7 @@ Multi-NIC | Sim
 Endereço IP reservado | Sim
 IPv4 | Sim
 Manter o endereço IP de origem | Sim
-Pontos finais de serviço de rede Virtual do Azure<br/> (sem firewalls de armazenamento do Azure) | Sim
+Pontos finais de serviço de rede Virtual do Azure<br/> | Sim
 Redes Aceleradas | Não
 
 ## <a name="storage"></a>Armazenamento
@@ -203,7 +203,7 @@ Blobs de bloco | Não
 Encriptação em repouso (encriptação do serviço de armazenamento)| Sim
 Armazenamento Premium | Sim
 Serviço de importação/exportação | Não
-Firewalls de armazenamento do Azure para redes virtuais configuradas na conta de armazenamento de cache/armazenamento de destino (usada para armazenar dados de replicação) | Não
+Firewalls de armazenamento do Azure para redes virtuais configuradas na conta de armazenamento de cache/armazenamento de destino (usada para armazenar dados de replicação) | Sim
 Contas de armazenamento para fins gerais v2 (escalões esporádico e frequentes) | Não
 
 ## <a name="azure-compute"></a>Computação do Azure
@@ -266,11 +266,11 @@ Mover o armazenamento, rede, as VMs do Azure entre grupos de recursos<br/><br/> 
 
 **Nome** | **Descrição** | **Instruções de transferência de versão mais recente**
 --- | --- | --- 
-Servidor de configuração | Coordena as comunicações entre servidores de VMware no local e o Azure <br/><br/> Instalado em servidores de VMware no local | Para instalação de raiz, clique em [aqui](vmware-azure-deploy-configuration-server.md). Para atualizar o componente existente para a versão mais recente, clique em [aqui](vmware-azure-manage-configuration-server.md#upgrade-the-configuration-server).
-Servidor de processos|Instalado por predefinição no servidor de configuração. Recebe dados de replicação. otimiza-os com colocação em cache, compressão e encriptação; e envia-os para o armazenamento do Azure. À medida que cresça a implementação, pode adicionar servidores de processo adicionais, em separado para processar maiores volumes de tráfego de replicação.| Para instalação de raiz, clique em [aqui](vmware-azure-set-up-process-server-scale.md). Para atualizar o componente existente para a versão mais recente, clique em [aqui](vmware-azure-manage-process-server.md#upgrade-a-process-server).
-Serviço de mobilidade | Coordena a replicação entre servidores de servidores/físico de VMware no local e o site do Azure/secundária<br/><br/> Instalado na VM de VMware ou servidores físicos que pretende replicar | Para instalação de raiz, clique em [aqui](vmware-azure-install-mobility-service.md). Para atualizar o componente existente para a versão mais recente, clique em [aqui](vmware-physical-mobility-service-overview.md##update-mobility-service-from-azure-portal).
+Servidor de configuração | Coordena as comunicações entre servidores de VMware no local e o Azure <br/><br/> Instalado em servidores de VMware no local | Para obter mais informações, visite a nossa documentação de orientação sobre [instalação de raiz](vmware-azure-deploy-configuration-server.md) e [atualização de um componente existente para a versão mais recente](vmware-azure-manage-configuration-server.md#upgrade-the-configuration-server).
+Servidor de processos|Instalado por predefinição no servidor de configuração. Recebe dados de replicação. otimiza-os com colocação em cache, compressão e encriptação; e envia-os para o armazenamento do Azure. À medida que cresça a implementação, pode adicionar servidores de processo adicionais, em separado para processar maiores volumes de tráfego de replicação.| Para obter mais informações, visite a nossa documentação de orientação sobre [instalação de raiz](vmware-azure-set-up-process-server-scale.md) e [atualização de um componente existente para a versão mais recente](vmware-azure-manage-process-server.md#upgrade-a-process-server).
+Serviço de mobilidade | Coordena a replicação entre servidores de servidores/físico de VMware no local e o site do Azure/secundária<br/><br/> Instalado na VM de VMware ou servidores físicos que pretende replicar | Para obter mais informações, visite a nossa documentação de orientação sobre [instalação de raiz](vmware-azure-install-mobility-service.md) e [atualização de um componente existente para a versão mais recente](vmware-physical-manage-mobility-service.md#update-mobility-service-from-azure-portal).
 
-Para saber mais sobre as funcionalidades e correções mais recentes, clique em [aqui](https://aka.ms/ASR_latest_release_notes).
+Para saber mais sobre as funcionalidades mais recentes, visite [notas de versão mais recente](https://aka.ms/ASR_latest_release_notes).
 
 
 ## <a name="next-steps"></a>Passos Seguintes

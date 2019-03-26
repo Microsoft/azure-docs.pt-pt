@@ -3,7 +3,7 @@ title: Como resolver problemas de erros de início de sessão através de relat�
 description: Saiba como resolver erros de início de sessão a utilização de relatórios do Azure Active Directory no portal do Azure
 services: active-directory
 documentationcenter: ''
-author: priyamohanram
+author: MarkusVi
 manager: daveba
 editor: ''
 ms.service: active-directory
@@ -11,15 +11,15 @@ ms.topic: conceptual
 ms.workload: identity
 ms.subservice: report-monitor
 ms.date: 11/13/2018
-ms.author: priyamo
+ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 22126114f2d4fcb865485d9cebc69f0e35f70201
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 26a3594b00f19c2790e9dfd5f09fbdc7d73d478f
+ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56198478"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58434896"
 ---
 # <a name="how-to-troubleshoot-sign-in-errors-using-azure-active-directory-reports"></a>Como: Resolver problemas de erros de início de sessão através de relatórios do Azure Active Directory
 
@@ -37,17 +37,17 @@ Além disso, o relatório de inícios de sessão pode também ajudar a resolver 
 É necessário:
 
 * Um inquilino do Azure AD com uma licença premium (P1/P2). Ver [introdução ao Azure Active Directory Premium](../fundamentals/active-directory-get-started-premium.md) para atualizar a sua edição do Azure Active Directory.
-* Um utilizador, o que está a **administrador global**, **administrador de segurança**, **leitor de segurança** ou **leitor de relatório** função para o inquilino. Além disso, qualquer usuário pode acessar seus próprios inícios de sessão. 
+* Um utilizador, o que está a **administrador global**, **administrador de segurança**, **leitor de segurança**, ou **leitor de relatório** função para o inquilino. Além disso, qualquer usuário pode acessar seus próprios inícios de sessão. 
 
 ## <a name="troubleshoot-sign-in-errors-using-the-sign-ins-report"></a>Resolver erros de início de sessão usando o relatório de inícios de sessão
 
 1. Navegue para o [portal do Azure](https://portal.azure.com) e selecione o seu diretório.
 2. Selecione **do Azure Active Directory** e selecione **inícios de sessão** partir os **monitorização** secção. 
-3. Utilize os filtros de fornecido para restringir a falha, o identificador de nome de utilizador ou o objeto, o nome da aplicação ou a data. Além disso selecione **falha** da **estado** pendente para apresentar apenas os falhadas inícios de sessão. 
+3. Utilize os filtros de fornecido para restringir a falha, o identificador de nome de utilizador ou o objeto, o nome da aplicação ou a data. Além disso, selecione **falha** partir do **estado** pendente para apresentar apenas os falhadas inícios de sessão. 
 
     ![Filtrar os resultados](./media/howto-troubleshoot-sign-in-errors/filters.png)
         
-4. Identifique o Falha ao início de sessão que pretende investigar e selecioná-lo. Esta ação irá abrir a janela detalhes adicionais com mais informações sobre o início de sessão-in com falha. Tome nota da **início de sessão do código de erro** e **motivo da falha**. 
+4. Identifique o Falha ao início de sessão que pretende investigar. Selecione-o para abrir a janela detalhes adicionais com mais informações sobre o início de sessão-in com falha. Tome nota da **início de sessão do código de erro** e **motivo da falha**. 
 
     ![Selecione o registo](./media/howto-troubleshoot-sign-in-errors/sign-in-failures.png)
         
@@ -55,7 +55,7 @@ Além disso, o relatório de inícios de sessão pode também ajudar a resolver 
 
     ![Resolução de problemas e suporte](./media/howto-troubleshoot-sign-in-errors/troubleshooting-and-support.png)
 
-6. O motivo da falha descreve o erro. Por exemplo, no cenário acima, o motivo da falha é **nome de utilizador inválido ou palavra-passe ou nome de utilizador inválido no local ou palavra-passe**. Isso significa que o utilizador introduziu um nome de utilizador incorreta ou a palavra-passe para iniciar sessão no portal do Azure. A correção é simplesmente início de sessão novamente com o nome de utilizador correto e a palavra-passe.
+6. O motivo da falha descreve o erro. Por exemplo, no cenário acima, o motivo da falha é **nome de utilizador inválido ou palavra-passe ou nome de utilizador inválido no local ou palavra-passe**. A correção é simplesmente início de sessão novamente com o nome de utilizador correto e a palavra-passe.
 
 7. Pode obter informações adicionais, incluindo ideias para atualização, ao procurar o código de erro **50126** neste exemplo, no [referência de códigos de erro dos inícios de sessão](reference-sign-ins-error-codes.md). 
 

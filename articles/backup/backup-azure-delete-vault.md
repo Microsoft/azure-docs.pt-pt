@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 03/05/2019
 ms.author: raynew
-ms.openlocfilehash: e83698af6bb1caab1568375b726753d34a8c8467
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 1cc86470b9e45469d633d47121869b3c2dc1b052
+ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57861354"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58439010"
 ---
 # <a name="delete-a-recovery-services-vault"></a>Eliminar um cofre dos Serviços de Recuperação
 
@@ -31,7 +31,7 @@ Antes de começar, é importante compreender que não é possível eliminar um c
 - Se não pretender reter dados no cofre dos serviços de recuperação e pretende eliminar o cofre, pode eliminar o Cofre por força.
 - Se tentar eliminar um cofre, mas não é possível, o Cofre ainda está configurado para receber dados de cópia de segurança.
 
-Para saber como eliminar um cofre, consulte a secção [eliminar um cofre a partir do portal do Azure](backup-azure-delete-vault.md#delete-a-vault-from-azure-portal). Se secção, [a eliminação do cofre por força](backup-azure-delete-vault.md#delete-the-recovery-services-vault-by-force). Se não souber ao certo o que é no cofre e terá de certificar-se de que pode eliminar o cofre, consulte a secção [remover dependências de cofre e eliminar cofre](backup-azure-delete-vault.md#remove-vault-dependencies-and-delete-vault).
+Para saber como eliminar um cofre, consulte a secção [eliminar um cofre a partir do portal do Azure](#delete-a-vault-from-the-azure-portal). Se secção, [a eliminação do cofre por força](backup-azure-delete-vault.md#delete-the-recovery-services-vault-by-force). Se não souber ao certo o que é no cofre e terá de certificar-se de que pode eliminar o cofre, consulte a secção [remover dependências de cofre e eliminar cofre](backup-azure-delete-vault.md#remove-vault-dependencies-and-delete-vault).
 
 ## <a name="delete-a-vault-from-the-azure-portal"></a>Eliminar um cofre a partir do portal do Azure
 
@@ -90,7 +90,7 @@ Para eliminar um cofre dos serviços de recuperação:
    ```powershell
    ARMClient.exe delete /subscriptions/<subscriptionID>/resourceGroups/<resourcegroupname>/providers/Microsoft.RecoveryServices/vaults/<recovery services vault name>?api-version=2015-03-15
    ```
-9. Se o Cofre não 's vazio, receberá o erro "Cofre não pode ser eliminado porque existem recursos existentes dentro deste cofre". Para remover um contidos dentro de um cofre, faça o seguinte:
+9. Se o Cofre não 's vazio, receberá o erro "Cofre não pode ser eliminado porque existem recursos existentes dentro deste cofre". Para remover um contentor dentro de um cofre, faça o seguinte:
 
    ```powershell
    ARMClient.exe delete /subscriptions/<subscriptionID>/resourceGroups/<resourcegroupname>/providers/Microsoft.RecoveryServices/vaults/<recovery services vault name>/registeredIdentities/<container name>?api-version=2016-06-01

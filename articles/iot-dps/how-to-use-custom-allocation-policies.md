@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
 manager: timlt
-ms.openlocfilehash: 739780bedc701cc63747db6100242d0d6cad6085
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: b9c9973314ed0ec64504cd35daddf9a3ad945f99
+ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57542680"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58436987"
 ---
 # <a name="how-to-use-custom-allocation-policies"></a>Como utilizar políticas de alocação personalizado
 
@@ -351,22 +351,22 @@ Nesta secção, irá preparar um ambiente de programação utilizado para criar 
 
 Esta secção é orientada em relação uma estação de trabalho baseados em Windows. Para obter um exemplo de Linux, consulte a configuração das VMs no [como aprovisionar para arquitetura "multitenancy"](how-to-provision-multitenant.md).
 
+1. Transfira o [sistema de compilação CMake](https://cmake.org/download/). Verifique se o binário transferido com o valor de hash criptográfico que corresponde à versão que baixar. Os valores de hash criptográfico também estão localizados da ligação de transferência de CMake já fornecida.
 
-
-1. Transfira a versão 3.11.4 do [sistema de compilação CMake](https://cmake.org/download/). Verifique o binário transferido com o valor de hash criptográfico correspondente. O exemplo seguinte utilizou o Windows PowerShell para verificar o hash criptográfico para a versão 3.11.4 da distribuição de MSI x64:
+    O exemplo seguinte utilizado o Windows PowerShell para verificar o hash criptográfico para a versão 3.13.4 de x64 distribuição de MSI:
 
     ```PowerShell
-    PS C:\Downloads> $hash = get-filehash .\cmake-3.11.4-win64-x64.msi
-    PS C:\Downloads> $hash.Hash -eq "56e3605b8e49cd446f3487da88fcc38cb9c3e9e99a20f5d4bd63e54b7a35f869"
+    PS C:\Downloads> $hash = get-filehash .\cmake-3.13.4-win64-x64.msi
+    PS C:\Downloads> $hash.Hash -eq "64AC7DD5411B48C2717E15738B83EA0D4347CD51B940487DFF7F99A870656C09"
     True
     ```
-    
-    Os seguintes valores hash para a versão 3.11.4 foram listados no site do CMake no momento da redação deste artigo:
+
+    Os seguintes valores de hash para a versão 3.13.4 foram listados no site de CMake no momento da redação deste artigo:
 
     ```
-    6dab016a6b82082b8bcd0f4d1e53418d6372015dd983d29367b9153f1a376435  cmake-3.11.4-Linux-x86_64.tar.gz
-    72b3b82b6d2c2f3a375c0d2799c01819df8669dc55694c8b8daaf6232e873725  cmake-3.11.4-win32-x86.msi
-    56e3605b8e49cd446f3487da88fcc38cb9c3e9e99a20f5d4bd63e54b7a35f869  cmake-3.11.4-win64-x64.msi
+    563a39e0a7c7368f81bfa1c3aff8b590a0617cdfe51177ddc808f66cc0866c76  cmake-3.13.4-Linux-x86_64.tar.gz
+    7c37235ece6ce85aab2ce169106e0e729504ad64707d56e4dbfc982cb4263847  cmake-3.13.4-win32-x86.msi
+    64ac7dd5411b48c2717e15738b83ea0d4347cd51b940487dff7f99a870656c09  cmake-3.13.4-win64-x64.msi
     ```
 
     É importante que os pré-requisitos do Visual Studio (Visual Studio e a carga de trabalho "Desenvolvimento do ambiente de trabalho em C++") estejam instalados no computador, **antes** de iniciar a instalação de `CMake`. Depois de os pré-requisitos estarem assegurados e a transferência verificada, instale o sistema de compilação CMake.
@@ -527,7 +527,7 @@ A tabela seguinte mostra cenários esperados e os códigos de erro de resultados
 | O webhook devolve 200 OK com "iotHubHostName' definido como um nome de anfitrião válido do hub IoT | Estado do resultado: Atribuído  | SDK devolve PROV_DEVICE_RESULT_OK juntamente com informações de hub |
 | O webhook devolve 200 OK com 'iotHubHostName' presente na resposta, mas definida como uma cadeia vazia nem nula | Estado do resultado: Com Falhas<br><br> Código do erro: CustomAllocationIotHubNotSpecified (400208) | SDK devolve PROV_DEVICE_RESULT_HUB_NOT_SPECIFIED |
 | O webhook devolve 401 não autorizado | Estado do resultado: Com Falhas<br><br>Código do erro: CustomAllocationUnauthorizedAccess (400209) | SDK devolve PROV_DEVICE_RESULT_UNAUTHORIZED |
-| Uma inscrição Individual foi criada para desativar o dispositivo | Estado do resultado: Desactivado | SDK devolve PROV_DEVICE_RESULT_DISABLED |
+| Uma inscrição Individual foi criada para desativar o dispositivo | Estado do resultado: Desativado | SDK devolve PROV_DEVICE_RESULT_DISABLED |
 | O webhook retorna o código de erro > = 429 | Orquestração dos pontos de distribuição tentará novamente várias vezes. A política de repetição é atualmente:<br><br>&nbsp;&nbsp;-Número de tentativas: 10<br>&nbsp;&nbsp;-Intervalo de inicial: 1s<br>&nbsp;&nbsp;-Incremento: 9s | SDK irá ignorar o erro e submeta outra mensagem de estado de get no tempo especificado |
 | O webhook devolve qualquer outro código de estado | Estado do resultado: Com Falhas<br><br>Código do erro: CustomAllocationFailed (400207) | SDK returns PROV_DEVICE_RESULT_DEV_AUTH_ERROR |
 
@@ -554,7 +554,7 @@ Para eliminar o grupo de recursos por nome:
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-- Para saber mais Reprovisioning, veja [conceitos de reprovisoning de dispositivos no Hub IoT](concepts-device-reprovision.md) 
+- Para saber mais Reprovisioning, veja [reprovisionamento conceitos de dispositivos no Hub IoT](concepts-device-reprovision.md) 
 - Para saber mais desaprovisionamento, veja [como desaprovisionar os dispositivos que foram anteriormente aprovisionados](how-to-unprovision-devices.md) 
 
 

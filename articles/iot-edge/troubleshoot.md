@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: 2daaa1275d9a97bec43f277e726518ead6eca9ff
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: 92294700ac9a491bfdbfa3b3d3f781eb18d5339e
+ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56876369"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58437106"
 ---
 # <a name="common-issues-and-resolutions-for-azure-iot-edge"></a>Problemas comuns e resoluções do Azure IoT Edge
 
@@ -338,6 +338,39 @@ Embora o IoT Edge fornece uma configuração avançada para proteger o runtime d
 |AMQP|5671|BLOQUEADO (predefinição)|ABERTO (predefinição)|<ul> <li>Protocolo de comunicação padrão para o IoT Edge. <li> Tem de ser configurado para ser aberto, se o Azure IoT Edge não está configurado para outros protocolos suportados ou AMQP é o protocolo de comunicação desejada.<li>5672 para AMQP não é suportado pelo IoT Edge.<li>Bloquear esta porta, quando o protocolo de suporte do Azure IoT Edge utiliza um Hub de IoT diferentes.<li>Ligações de entrada (entrada) devem ser bloqueadas.</ul></ul>|
 |HTTPS|443|BLOQUEADO (predefinição)|ABERTO (predefinição)|<ul> <li>Configure o envio (saída) para ser aberto em 443 para o aprovisionamento do IoT Edge. Esta configuração é necessária quando usar scripts manuais ou do Azure IoT dispositivo aprovisionamento DPS (serviço). <li>Conexão de entrada (entrada) deve ser aberto apenas para cenários específicos: <ul> <li>  Se tiver um gateway transparente com dispositivos de folha que poderá enviar pedidos de método. Neste caso, porta 443 não precisa de estar abertas a redes externas para ligar ao IoTHub ou fornecer serviços de IoTHub através do Azure IoT Edge. Assim, a regra de entrada pode ser restrita para abrirem apenas de entrada (entrada) a partir da rede interna. <li> Para o cliente para cenários de dispositivo (C2D).</ul><li>80 para HTTP não é suportado pelo IoT Edge.<li>Se protocolos diferentes do HTTP (por exemplo, AMQP ou MQTT) não podem ser configurados na empresa; as mensagens podem ser enviadas por WebSockets. Porta 443 será utilizada para a comunicação WebSocket nesse caso.</ul>|
 
+## <a name="edge-agent-module-continually-reports-empty-config-file-and-no-modules-start-on-the-device"></a>Módulo de agente do Edge continuamente relatórios "vazia ficheiro de configuração' e não módulos começam no dispositivo
+
+O dispositivo tiver problemas a partir de módulos definidos na implementação. Apenas o edgeAgent está em execução, mas continuamente reporting "... ficheiro de configuração vazio".
+
+### <a name="potential-root-cause"></a>Potencial causa de raiz
+Por predefinição, o IoT Edge é iniciado módulos em sua própria rede do contentor isolado. O dispositivo pode estar a ter problemas com a resolução de nomes DNS dentro desta rede privada.
+
+### <a name="resolution"></a>Resolução
+Especifique o servidor DNS para o seu ambiente nas definições do motor de contentor. Crie um ficheiro denominado `daemon.json` especificando o servidor DNS a utilizar. Por exemplo:
+
+```
+{
+    "dns": ["1.1.1.1"]
+}
+```
+
+O exemplo acima define o servidor DNS para um serviço DNS acessível publicamente. Se o dispositivo de limite não é possível aceder a este IP do seu ambiente, substitua-o com o endereço do servidor DNS que está acessível.
+
+Local `daemon.json` na localização correta para a sua plataforma: 
+
+| Plataforma | Localização |
+| --------- | -------- |
+| Linux | `/etc/docker` |
+| Anfitrião do Windows com contentores do Windows | `C:\ProgramData\iotedge-moby-data\config` |
+
+Se já contém a localização `daemon.json` de ficheiros, adicione o **dns** da chave a ele e guarde o ficheiro.
+
+*Reinicie o motor de contentor para as atualizações entrar em vigor*
+
+| Plataforma | Comando |
+| --------- | -------- |
+| Linux | `sudo systemctl restart docker` |
+| Windows (Powershell para administradores) | `Restart-Service iotedge-moby -Force` |
 
 ## <a name="next-steps"></a>Passos Seguintes
 Encontrou um erro na plataforma do IoT Edge? [Submeter um problema](https://github.com/Azure/iotedge/issues) para que possamos continuar a melhorar. 

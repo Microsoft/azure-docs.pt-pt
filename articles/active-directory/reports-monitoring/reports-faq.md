@@ -3,7 +3,7 @@ title: FAQ de relatórios do Azure Active Directory | Documentos da Microsoft
 description: Perguntas mais frequentes quesitons em torno de relatórios do Azure Active Directory.
 services: active-directory
 documentationcenter: ''
-author: priyamohanram
+author: MarkusVi
 manager: daveba
 ms.assetid: 534da0b1-7858-4167-9986-7a62fbd10439
 ms.service: active-directory
@@ -13,15 +13,15 @@ ms.devlang: na
 ms.topic: conceptual
 ms.subservice: report-monitor
 ms.date: 11/13/2018
-ms.author: priyamo
+ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 274675c3b9f04877f5665efbcbf7951a5bbb0e27
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 6fc90d62f889bfd9f439a7e8955f049c6c979746
+ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57833185"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58437446"
 ---
 # <a name="frequently-asked-questions-around-azure-active-directory-reports"></a>Perguntas mais frequentes sobre em torno de relatórios do Azure Active Directory
 

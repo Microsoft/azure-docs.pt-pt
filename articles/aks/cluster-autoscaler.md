@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 01/29/2019
 ms.author: iainfou
-ms.openlocfilehash: dd66ac6392c0afb88d43a8814cef07ec590f6a55
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 1ab31662b55f89b23d6aba8ebe4394d1e78092dc
+ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57990758"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58437531"
 ---
 # <a name="preview---automatically-scale-a-cluster-to-meet-application-demands-on-azure-kubernetes-service-aks"></a>Pré-visualizar - Dimensionar automaticamente um cluster para atender às necessidades de aplicações no Azure Kubernetes Service (AKS)
 
@@ -38,7 +38,7 @@ az extension add --name aks-preview
 ```
 
 > [!NOTE]
-> Se tiver instalado anteriormente a *pré-visualização do aks* extensão, instale qualquer disponível atualizações com o o `az extension update --name aks-preview` comando.
+> Se tiver instalado anteriormente a *pré-visualização do aks* extensão, instale qualquer disponível atualizações com o `az extension update --name aks-preview` comando.
 
 ### <a name="register-scale-set-feature-provider"></a>Registar o fornecedor de recursos de conjunto de dimensionamento
 

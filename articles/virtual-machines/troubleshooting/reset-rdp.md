@@ -12,14 +12,14 @@ ms.service: virtual-machines-windows
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.topic: troubleshooting
-ms.date: 10/31/2018
+ms.date: 03/25/2019
 ms.author: genli
-ms.openlocfilehash: 875f2d9dbbece4e9587462c6e8bdb2b2d8536c86
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
+ms.openlocfilehash: c61e606bde4b50fa10c194c76c79a3d8a27a4b8e
+ms.sourcegitcommit: 280d9348b53b16e068cf8615a15b958fccad366a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55979892"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58407696"
 ---
 # <a name="reset-remote-desktop-services-or-its-administrator-password-in-a-windows-vm"></a>Repor os serviços de ambiente de trabalho remoto ou a respetiva palavra-passe de administrador numa VM do Windows
 Se não conseguir ligar a uma máquina virtual de Windows (VM), pode repor a palavra-passe de administrador local ou repor a configuração de serviços de ambiente de trabalho remoto (não suportada em controladores de domínio do Windows). Para repor a palavra-passe, utilize o portal do Azure ou a extensão VM Access, no Azure PowerShell. Depois de iniciar sessão na VM, reponha a palavra-passe desse administrador local.  
@@ -39,18 +39,19 @@ Primeiro, inicie sessão para o [portal do Azure](https://portal.azure.com) e, e
 
 1. Selecione a sua VM do Windows e, em seguida, selecione **Repor palavra-passe** sob **suporte + resolução de problemas**. O **Repor palavra-passe** é apresentada a janela.
 
-1. Selecione **Repor palavra-passe**, introduza um nome de utilizador e uma palavra-passe e, em seguida, selecione **atualização**. 
+2. Selecione **Repor palavra-passe**, introduza um nome de utilizador e uma palavra-passe e, em seguida, selecione **atualização**. 
 
-1. Tente ligar novamente para a VM.
+3. Tente ligar novamente para a VM.
 
 ### <a name="reset-the-remote-desktop-services-configuration"></a>**Repor a configuração de serviços de ambiente de trabalho remoto**
 
+Este processo irá ativar o serviço de ambiente de trabalho remoto na VM e criar uma regra de firewall para a porta predefinida do RDP 3389.
+
 1. Selecione a sua VM do Windows e, em seguida, selecione **Repor palavra-passe** sob **suporte + resolução de problemas**. O **Repor palavra-passe** é apresentada a janela. 
 
-1. Selecione **repor configuração apenas** e, em seguida, selecione **atualização**. 
+2. Selecione **repor configuração apenas** e, em seguida, selecione **atualização**. 
 
-1. Tente ligar novamente para a VM.
-
+3. Tente ligar novamente para a VM.
 
 ## <a name="reset-by-using-the-vmaccess-extension-and-powershell"></a>Repor ao utilizar a extensão VMAccess e o PowerShell
 

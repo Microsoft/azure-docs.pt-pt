@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b0c22d4421aa984a9862f83b9be1095d548e5841
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: e2b8d68cc348ce8e157c7d58424eaebb06940335
+ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58314490"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58436673"
 ---
 # <a name="azure-multi-factor-authentication-user-data-collection"></a>Recolha de dados de utilizador multi-factor Authentication do Azure
 
@@ -138,7 +138,7 @@ Para o servidor MFA versão 8.0 ou superior, o seguinte processo permite aos adm
 - Inicie sessão no seu servidor de MFA, navegue para o **usuários** separador, selecione o utilizador em questão e clique nas **editar** botão. Tire capturas de ecrã (Alt-PrtScn) de cada separador para fornecer ao usuário suas definições atuais do MFA.
 - Na linha de comando do servidor MFA, execute o seguinte comando alterar o caminho, de acordo com a instalação `C:\Program Files\Multi-Factor Authentication Server\MultiFactorAuthGdpr.exe export <username>` produzir um JSON arquivo formatado.
 - Os administradores também podem usar a operação de Web Service SDK GetUserGdpr como uma opção para exportar todas as informações de serviço do cloud MFA coletadas para um determinado usuário ou incorporar uma solução de relatórios maior.
-- Pesquisa `C:\Program Files\Multi-Factor Authentication Server\Logs\MultiFactorAuthSvc.log` e quaisquer cópias de segurança para "<username>" (inclua as aspas na pesquisa) para localizar todas as instâncias do registo de utilizador que está a ser adicionadas ou alteradas.
+- Pesquisa `C:\Program Files\Multi-Factor Authentication Server\Logs\MultiFactorAuthSvc.log` e quaisquer cópias de segurança para "\<nome de utilizador >" (inclua as aspas na pesquisa) para localizar todas as instâncias do registo de utilizador que está a ser adicionadas ou alteradas.
    - Podem ser limitados (mas não eliminados) estes registos ao desmarcar a opção **"Alterações do utilizador de início de sessão"** na UX de servidor MFA, a secção de registo, separador de ficheiros de registo.
    - Se estiver configurado syslog, e **"Alterações do utilizador de início de sessão"** estiver marcada na UX de servidor MFA, a secção de registo, o separador Syslog, em seguida, as entradas de registo podem ser recolhidas de syslog em vez disso.
 - Ficheiros pertencentes ao tentativas são consideradas operacional e duplicadas para as informações fornecidas através de exportação MultiFactorAuthGdpr.exe ou o SDK do serviço Web de autenticação de registo de outras ocorrências do nome de utilizador no multifactorauthsvc. log e outro servidor de MFA GetUserGdpr.

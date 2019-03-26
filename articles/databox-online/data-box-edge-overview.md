@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: overview
-ms.date: 03/22/2019
+ms.date: 03/25/2019
 ms.author: alkohli
-ms.openlocfilehash: 696f4fee95926009ebda0be3c28672838d89edda
-ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
+ms.openlocfilehash: 31a50d1dab0d5b62ab4dd549127e9092148bd88c
+ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58400441"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58438092"
 ---
 # <a name="what-is-azure-data-box-edge"></a>O que é o Azure Data Box Edge? 
 
@@ -65,22 +65,6 @@ O Data Box Edge possui as seguintes funções:
 |Resiliência     | Resiliência de rede incorporada.        |
 
 
-## <a name="features-and-specifications"></a>Funcionalidades e especificações
-
-O dispositivo físico do Data Box Edge tem as seguintes funcionalidades:
-
-| Funcionalidades/especificações                                          | Descrição              |
-|---------------------------------------------------------|--------------------------|
-| Dimensões   | Largura: 17.25" profundidade: 27.25" altura: 1.75”<br>(cabos dos auriculares e da PSU não incluídos)  |            
-| Espaço em rack|1U quando colocado no rack|
-| Cabos| 2 cabos de alimentação<br>2 cabos RJ45 de 1 Gbps<br>2 cabos de cobre SFP+ de 10 Gbps|
-| Componentes|2 unidades de alimentação de energia (PSUs) incorporadas|
-| CPU|2 processadores Intel Xeon com 10 núcleos cada  |
-| Memória| 64 GB de RAM|
-| Discos| 8 SSDs NVMe, cada disco com 1,6 TB <br> O sistema falha se uma SSD NVMe falhar. |
-| Capacidade de armazenamento local| 12.8 TB de capacidade total|
-| Interfaces de rede| 2 interfaces de 1 GbE – 1 de gestão, não configurável pelo utilizador, utilizada para a configuração inicial. A outra interface é configurável de utilizador, pode ser utilizada para transferência de dados e é DHCP por predefinição. <br>2 interfaces de 25 GbE – também podem funcionar como interfaces de 10 GbE. Estas interfaces de dados podem ser configuradas pelo utilizador como DHCP (predefinição) ou estáticas. <br> 2 interfaces de 25 GbE - estas interfaces de dados podem ser configuradas pelo utilizador como DHCP (predefinição) ou estáticas.|
-
 ## <a name="components"></a>Componentes
 
 A solução Data Box Edge inclui o recurso Data Box Edge, o dispositivo físico Data Box Edge e uma IU da Web local.
@@ -105,30 +89,16 @@ A solução Data Box Edge inclui o recurso Data Box Edge, o dispositivo físico 
 O dispositivo físico Data Box Edge, o recurso do Azure e a conta de armazenamento de destino para a qual transfere dados não têm de estar todos na mesma região.
 
 - **Disponibilidade de recursos** - nesta versão, o recurso Data Box Edge está disponível nas seguintes regiões:
-    - **Estados Unidos** - E.U.A. Oeste2 e E.U.A. Leste
+    - **Estados Unidos** -E.U.A. leste
     - **União Europeia** - Europa Ocidental
     - **Ásia Oriental** - Sudoeste Asiático
-
+    
+    Gateway de caixa de dados também podem ser implementada na Cloud do Azure Government. Para obter mais informações, consulte [o que é o Azure Government?](https://docs.microsoft.com/azure/azure-government/documentation-government-welcome).
+    
 - **Contas de Armazenamento de Destino** - as contas de armazenamento que armazenam os dados estão disponíveis em todas as regiões do Azure. 
 
     As regiões nas quais as contas de armazenamento armazenam os dados do Data Box devem estar localizadas próximo de onde estiver o dispositivo, para um desempenho ideal. Uma conta de armazenamento localizada longe do dispositivo resulta em latências longas e desempenho mais lento. 
 
-
-## <a name="sign-up"></a>Inscrever-se
-
-O Data Box Edge está em pré-visualização e precisa de inscrever-se. Execute os seguintes passos para inscrever-se no Data Box Gateway:
-
-1. Inicie sessão no Portal do Azure em: [https://aka.ms/databox-edge](https://aka.ms/databox-edge).
-
-2. Escolha a subscrição que pretende utilizar para a pré-visualização do Data Box Edge. Selecione a região onde pretende implementar o recurso Data Box Edge. Na opção Data Box Edge, clique em **Inscrever-se**.
-
-    ![Inscrever-se no Data Box Edge 3](media/data-box-edge-overview/data-box-edge-sign-up3.png)
-
-3.  Responda às perguntas sobre o tamanho dos dados, o país de residência dos dados, o período de tempo, o serviço do Azure de destino para transferência de dados, a largura de banda de rede e a frequência de transferência de dados. Reveja a **Privacidade e termos** e selecione a caixa de verificação **A Microsoft pode utilizar o seu endereço de e-mail para contactá-lo**.
-
-    ![Inscrever-se no Data Box Edge 4](media/data-box-edge-overview/data-box-edge-sign-up4.png)
-
-4. Assim que estiver inscrito e ativado para pré-visualização, pode encomendar um dispositivo periférico Data Box Edge.
 
 ## <a name="next-steps"></a>Passos Seguintes
 

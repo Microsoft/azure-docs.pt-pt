@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 03/22/2019
 ms.author: diberry
-ms.openlocfilehash: d12ea20f9f510b0e2d3d3512d8d8c71a3fb96eec
-ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
+ms.openlocfilehash: efe50533a03551a673583265e107263d79cff90a
+ms.sourcegitcommit: 72cc94d92928c0354d9671172979759922865615
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58372527"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58418691"
 ---
 # <a name="entity-types-and-their-purposes-in-luis"></a>Tipos de entidade e suas finalidades no LUIS
 
@@ -216,11 +216,20 @@ Se a entidade pré-criados é marcada com mais de texto ou tokens que a entidade
 
 #### <a name="remove-example-utterance-to-fix-tagging"></a>Remover a expressão de exemplo para corrigir a etiquetagem 
 
-Sua primeira opção consiste em eliminar a expressão de exemplo e voltar a preparar a aplicação. Adicionar novamente apenas a palavra ou frase, ou seja, a entidade como uma expressão de exemplo e, em seguida, marcar a entidade e train. Agora, adicione novamente a entidade criados previamente e a expressão de exemplo original. A entidade personalizada deve continuar a ser marcado em vez da entidade pré-criados. 
+Sua primeira opção é remover a expressão de exemplo. 
+
+1. Elimine a expressão de exemplo.
+1. Voltar a preparar a aplicação. 
+1. Adicionar novamente apenas a palavra ou frase, ou seja, a entidade, que está marcada como uma entidade pré-criados, como uma expressão de exemplo completo. A palavra ou frase continuam a ter a entidade pré-criados marcada. 
+1. Selecione a entidade na expressão de exemplo sobre o **intenção** página e alterar a sua entidade personalizada e prepare-se novamente. Isso deveria impedir o LUIS marque este texto exatamente como a entidade pré-criados em quaisquer expressões de exemplo que utilizam esse texto. 
+1. Adicione a expressão de exemplo original toda a intenção. A entidade personalizada deve continuar a ser marcado em vez da entidade pré-criados. Se a entidade personalizada não está marcada, terá de adicionar mais exemplos desse texto em expressões.
 
 #### <a name="remove-prebuilt-entity-to-fix-tagging"></a>Remover entidade criados previamente para corrigir a etiquetagem
 
-A segunda opção consiste em remover a entidade pré-concebidos a partir da aplicação, em seguida, marcar a entidade personalizada na expressão de exemplo e depois adicione a entidade pré-criados novamente para a aplicação. Esta correção pressupõe que a entidade pré-criados não faz parte de uma entidade composta. 
+1. Remova a entidade pré-concebidos a partir da aplicação. 
+1. Sobre o **intenção** página, marcar a entidade personalizada na expressão de exemplo.
+1. Prepare a aplicação.
+1. Adicionar a entidade pré-criados ao aplicativo e preparar a aplicação. Esta correção pressupõe que a entidade pré-criados não faz parte de uma entidade composta.
 
 ## <a name="regular-expression-entity"></a>Entidade de expressão regular 
 

@@ -6,12 +6,12 @@ ms.service: avere-vfxt
 ms.topic: conceptual
 ms.date: 01/29/2019
 ms.author: v-erkell
-ms.openlocfilehash: c408efa7ca01928e25ac03f5ca63d0aef7d88839
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 2a0f4a628764aaa561a5567d3435a42da804a994
+ms.sourcegitcommit: 72cc94d92928c0354d9671172979759922865615
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57770047"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58417845"
 ---
 # <a name="customized-controller-access-role"></a>Função de acesso de controlo personalizado
 
@@ -43,6 +43,7 @@ Iniciar a partir da função de protótipo disponível em <https://github.com/Az
     "Microsoft.Insights/alertRules/*",
     "Microsoft.Network/*/read",
     "Microsoft.Network/networkInterfaces/*",
+    "Microsoft.Network/virtualNetworks/read",
     "Microsoft.Network/virtualNetworks/subnets/join/action",
     "Microsoft.Network/virtualNetworks/subnets/read",
     "Microsoft.Resources/deployments/*",

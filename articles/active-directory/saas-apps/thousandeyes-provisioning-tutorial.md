@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 01/26/2018
 ms.author: asmalser-msft
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 74b9b39cfc6ac760c41b58c050cb1ebf39d3f93a
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: f008e981abb11a4927ec045c33342bbac9a05bd8
+ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56180934"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58436809"
 ---
 # <a name="tutorial-configure-thousandeyes-for-automatic-user-provisioning"></a>Tutorial: Configurar ThousandEyes para aprovisionamento automático de utilizadores
 
@@ -33,11 +33,14 @@ O objetivo deste tutorial é mostrar a os passos que necessários para executar 
 O cenário descrito neste tutorial parte do princípio de que já tem os seguintes itens:
 
 *   Um inquilino do Azure Active directory
-*   Um inquilino ThousandEyes com o [plano Standard](https://www.thousandeyes.com/pricing) ou melhor ativado 
-*   Uma conta de utilizador no ThousandEyes com permissões de administrador 
+*   Um ativo [ThousandEyes conta](https://www.thousandeyes.com/pricing)
+*   Uma conta de utilizador ThousandEyes que tenha sido atribuída uma função que inclui as seguintes permissões de 3:
+    * ver todos os utilizadores
+    * Editar utilizador
+    * Permissões de acesso de API
 
 > [!NOTE]
-> O Azure AD aprovisionamento integração depende a [ThousandEyes SCIM API](https://success.thousandeyes.com/PublicArticlePage?articleIdParam=kA044000000CnWrCAK), que está disponível para as equipes de ThousandEyes no plano Standard ou superior.
+> O Azure AD aprovisionamento integração depende da [ThousandEyes SCIM API](https://success.thousandeyes.com/PublicArticlePage?articleIdParam=kA044000000CnWrCAK_ThousandEyes-support-for-SCIM). 
 
 ## <a name="assigning-users-to-thousandeyes"></a>Atribuir utilizadores a ThousandEyes
 
@@ -51,7 +54,19 @@ Antes de configurar e ativar o serviço de aprovisionamento, precisa decidir qua
 
 *   Recomenda-se que um único utilizador do Azure AD é atribuído a ThousandEyes para testar a configuração de aprovisionamento. Os utilizadores adicionais e/ou grupos podem ser atribuídos mais tarde.
 
-*   Ao atribuir um utilizador para ThousandEyes, tem de selecionar um a **utilizador** função, ou outro válido específico do aplicativo função (se disponível) na caixa de diálogo atribuição. O **acesso predefinido** função não funciona para o aprovisionamento e estes utilizadores são ignorados.
+*   Ao atribuir um utilizador para ThousandEyes, tem de selecionar um a **utilizador** função ou outro válido específico do aplicativo função (se disponível) na caixa de diálogo de atribuição. O **acesso predefinido** função não funciona para o aprovisionamento e estes utilizadores são ignorados.
+
+## <a name="configure-auto-provisioned-user-roles-in-thousandeyes"></a>Configurar funções de utilizador aprovisionado automaticamente no ThousandEyes
+
+Para cada grupo de conta, é de aprovisionamento automático utilizadores para que podem configurar um conjunto de funções a serem aplicadas quando é criada a nova conta de utilizador. Por predefinição, o aprovisionamento automático de utilizadores são atribuídos a _utilizador normal_ função para todas as contas de grupos, a menos que configurado em contrário.
+
+1. Para especificar um novo conjunto de funções para os utilizadores aprovisionados ThousandEyes no registo e navegue para a secção de definições de SCIM **> o ícone de utilizador no canto superior direito > definições da conta > organização > segurança e autenticação.** 
+
+   ![Navegar para as definições de API SCIM](https://monosnap.com/file/kqY8Il7eysGFAiCLCQWFizzM27PiBG)
+
+2. Adicionar uma entrada para cada grupo de conta, atribua um conjunto de funções, em seguida, *guardar* as suas alterações.
+
+   ![Definir funções predefinidas e os grupos de conta para utilizadores criados através da API de SCIM](https://monosnap.com/file/16siam6U8xDQH1RTnaxnmIxvsZuNZG)
 
 
 ## <a name="configuring-user-provisioning-to-thousandeyes"></a>Configurar o aprovisionamento para ThousandEyes 
@@ -59,7 +74,7 @@ Antes de configurar e ativar o serviço de aprovisionamento, precisa decidir qua
 Esta secção orienta-o ao longo da ligação do Azure AD para a API de aprovisionamento da conta de utilizador do ThousandEyes e configurar o serviço de aprovisionamento para criar, atualizar e desativar as contas de utilizador atribuído no ThousandEyes com base na atribuição de utilizadores e grupos no Azure AD .
 
 > [!TIP]
-> Também pode optar por ativada baseado em SAML início de sessão único para ThousandEyes, seguindo as instruções fornecidas [portal do Azure](https://portal.azure.com). Início de sessão único a pode ser configurada independentemente do serviço de aprovisionamento automático, embora esses dois recursos complementar entre si.
+> Também pode optar por ativada baseado em SAML único início de sessão (SSO) para ThousandEyes, seguindo a [instruções fornecidas na base de dados de conhecimento do Azure](https://docs.microsoft.com/azure/active-directory/saas-apps/thousandeyes-tutorial) para concluir o SSO. SSO pode ser configurado independentemente do serviço de aprovisionamento automático, embora esses dois recursos complementam uma à outra.
 
 
 ### <a name="configure-automatic-user-account-provisioning-to-thousandeyes-in-azure-ad"></a>Configurar o aprovisionamento automático de utilizadores conta para ThousandEyes no Azure AD
@@ -75,7 +90,7 @@ Esta secção orienta-o ao longo da ligação do Azure AD para a API de aprovisi
 
     ![ThousandEyes aprovisionamento](./media/thousandeyes-provisioning-tutorial/ThousandEyes1.png)
 
-5. Sob o **credenciais de administrador** secção, de entrada a **Token de portador do OAuth** gerados por conta da sua ThousandEyes (pode encontrar e ou gerar um token na sua conta de ThousandEyes  **Perfil** secção).
+5. Sob o **credenciais de administrador** secção, de entrada a **Token de portador do OAuth** gerados por conta dos seus ThousandEyes (pode encontrar e ou gerar um token na sua conta de ThousandEyes  **Perfil** secção).
 
     ![ThousandEyes aprovisionamento](./media/thousandeyes-provisioning-tutorial/ThousandEyes2.png)
 

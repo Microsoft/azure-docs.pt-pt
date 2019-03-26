@@ -6,18 +6,18 @@ documentationcenter: ''
 author: alexkarcher-msft
 manager: cfowler
 editor: ''
-ms.service: functions
+ms.service: azure-functions
 ms.workload: na
 ms.devlang: na
 ms.topic: article
 ms.date: 09/05/2018
 ms.author: alkarche
-ms.openlocfilehash: bddfccaf0749bbb5eaf206e5961c713efa5eea17
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.openlocfilehash: 8fca59eeea415581cbfb340c1e5932b1e5113814
+ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57311904"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58439214"
 ---
 # <a name="how-to-troubleshoot-functions-runtime-is-unreachable"></a>Como resolver problemas de "o runtime das funções não está acessível"
 

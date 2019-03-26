@@ -18,12 +18,12 @@ ms.author: celested
 ms.custom: aaddev
 ms.reviewer: hirsin
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: aeb9c7087b8c8241d352cfa67d5d6158899fa8a1
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 35c231f043261b65baa40eff32535eeab014bee9
+ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56174015"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58437965"
 ---
 # <a name="how-azure-ad-uses-the-saml-protocol"></a>Como o Azure AD utiliza o protocolo SAML
 
@@ -37,7 +37,7 @@ Azure AD utiliza o serviço em nuvem **URI de metadados** para obter a chave de 
 
 O Azure Active Directory expõe comuns e específico de inquilino (inquilino independente) únicos início de sessão únicos fim de sessão pontos de extremidade e. Estes URLs representam os locais endereçáveis--não são apenas identificadores, para que pode ir para o ponto final para ler os metadados.
 
-* O ponto de extremidade específico de inquilino está localizado em `https://login.microsoftonline.com/<TenantDomainName>/FederationMetadata/2007-06/FederationMetadata.xml`. O *<TenantDomainName>* marcador de posição representa um nome de domínio registado ou o GUID de TenantID do inquilino do Azure AD. Por exemplo, os metadados de Federação do inquilino contoso.com são em: https://login.microsoftonline.com/contoso.com/FederationMetadata/2007-06/FederationMetadata.xml
+* O ponto de extremidade específico de inquilino está localizado em `https://login.microsoftonline.com/<TenantDomainName>/FederationMetadata/2007-06/FederationMetadata.xml`. O  *\<TenantDomainName >* marcador de posição representa um nome de domínio registado ou o GUID de TenantID do inquilino do Azure AD. Por exemplo, os metadados de Federação do inquilino contoso.com são em: https://login.microsoftonline.com/contoso.com/FederationMetadata/2007-06/FederationMetadata.xml
 
 * O ponto de extremidade independente de inquilino está localizado em `https://login.microsoftonline.com/common/FederationMetadata/2007-06/FederationMetadata.xml`. Este endereço de ponto final **comuns** aparece em vez de um nome de domínio do inquilino ou ID.
 

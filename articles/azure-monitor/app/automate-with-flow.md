@@ -11,12 +11,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 03/12/2019
 ms.author: mbullwin
-ms.openlocfilehash: cbb9cceef68febec0af991c3d8d5df3e3404f1c6
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 15299be83758c157bf3bc7d9fb27b50763b9148e
+ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57834055"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58438942"
 ---
 # <a name="automate-azure-application-insights-processes-with-the-connector-for-microsoft-flow"></a>Automatizar processos de Azure Application Insights com o conector para o Microsoft Flow
 
@@ -43,7 +43,7 @@ Neste tutorial, irá aprender como criar um fluxo que utiliza o algoritmo de clu
 
     ![Selecione agendo na compilação](./media/automate-with-flow/2schedule.png)
 
-1. Na os **intervalo** , introduza **1**e, no **frequência** caixa, selecione **dia**.
+1. Na **intervalo** , introduza **1**e, no **frequência** caixa, selecione **dia**.
 2. Clique em **novo passo**
 
     ![Configurar a periodicidade da agenda com introduzir frequências e intervalos](./media/automate-with-flow/3schedulerecurrence.png)

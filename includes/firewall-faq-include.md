@@ -5,15 +5,15 @@ services: firewall
 author: vhorne
 ms.service: ''
 ms.topic: include
-ms.date: 2/4/2019
+ms.date: 3/25/2019
 ms.author: victorh
 ms.custom: include file
-ms.openlocfilehash: 8fd8cd93015fdb5cdcf657ecbcbb9a7cc870525a
-ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
+ms.openlocfilehash: 5029fb29aecda1f1bef14dc95f6301b539c60441
+ms.sourcegitcommit: 72cc94d92928c0354d9671172979759922865615
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55747752"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58419109"
 ---
 ### <a name="what-is-azure-firewall"></a>O que é o Azure Firewall?
 
@@ -33,7 +33,7 @@ O Azure Firewall é um serviço de segurança de rede gerido e com base na cloud
 
 ### <a name="what-is-the-typical-deployment-model-for-azure-firewall"></a>O que é o modelo de implementação típica para o Firewall do Azure?
 
-Pode implantar o Firewall do Azure em qualquer rede virtual, mas os clientes normalmente implementação-la numa rede virtual central e configurar o peering entre outras redes virtuais ao mesmo num modelo de hub-and-spoke. Em seguida, pode definir a rota padrão das redes virtuais em modo de peering para apontar para esta rede virtual de central firewall.
+Pode implantar o Firewall do Azure em qualquer rede virtual, mas os clientes normalmente implementação-la numa rede virtual central e configurar o peering entre outras redes virtuais ao mesmo num modelo de hub-and-spoke. Em seguida, pode definir a rota padrão das redes virtuais em modo de peering para apontar para esta rede virtual de central firewall. Global VNet peering é suportado, mas não é recomendado devido a problemas de latência e de desempenho potencial em várias regiões. Para obter melhor desempenho, implemente uma firewall por região.
 
 A vantagem desse modelo é a capacidade de forma centralizada exercer controlo no spoke várias VNETs em subscrições diferentes. Também existem poupanças de custos que não precisa de implementar uma firewall em cada VNet separadamente. As poupanças de custos devem ser medidas versus o custo de peering associar com base nos padrões de tráfego de cliente.
 
@@ -122,7 +122,7 @@ Sim, pode utilizar a Firewall do Azure numa rede virtual para o tráfego e filtr
 
 ### <a name="can-azure-firewall-forward-and-filter-network-traffic-between-subnets-in-the-same-virtual-network-or-peered-virtual-networks"></a>Pode reencaminhar o Firewall do Azure e filtrar o tráfego de rede entre sub-redes na mesma rede virtual ou em modo de peering de redes virtuais?
 
-Sim. No entanto, configurar o UDR para redirecionar o tráfego entre sub-redes na mesma VNET necessita de atenção adicional. Ao utilizar o intervalo de endereços da VNET como um prefixo de destino para o UDR é suficiente, isso também roteia todo o tráfego de um computador para outro computador na mesma sub-rede por meio da instância de Firewall do Azure. Para evitar isto, incluir uma rota para a sub-rede no UDR com um tipo de próximo salto **VNET**. Gerir estas rotas pode ser complicado e propenso a erros. O método recomendado para segmentação de rede interna é usar os grupos de segurança de rede, que não exigem as UDRs.
+Sim. No entanto, configurar as UDRs para redirecionar o tráfego entre sub-redes na mesma VNET necessita de atenção adicional. Ao utilizar o intervalo de endereços da VNET como um prefixo de destino para o UDR é suficiente, isso também roteia todo o tráfego de um computador para outro computador na mesma sub-rede por meio da instância de Firewall do Azure. Para evitar isto, incluir uma rota para a sub-rede no UDR com um tipo de próximo salto **VNET**. Gerir estas rotas pode ser complicado e propenso a erros. O método recomendado para segmentação de rede interna é usar os grupos de segurança de rede, que não exigem as UDRs.
 
 ### <a name="are-there-any-firewall-resource-group-restrictions"></a>Existem qualquer firewall restrições do grupo de recursos?
 

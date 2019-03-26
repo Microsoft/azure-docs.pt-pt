@@ -4,14 +4,14 @@ description: Lista os tipos de recursos do Azure que podem ser movidos para um n
 author: tfitzmac
 ms.service: azure-resource-manager
 ms.topic: reference
-ms.date: 2/13/2019
+ms.date: 03/22/2019
 ms.author: tomfitz
-ms.openlocfilehash: f82c3adc0049c7386206fb4be10d3e634627a25a
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
+ms.openlocfilehash: d44b1bf778c7ec9551e2fd30f67083f8dded22d1
+ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56236894"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58438473"
 ---
 # <a name="move-operation-support-for-resources"></a>Mover o suporte de operação para recursos
 Este artigo lista se um tipo de recurso do Azure suporta a operação de movimentação. Embora um tipo de recurso suporta a operação de movimentação, poderá haver condições que impedem que o recurso a ser movido. Para obter detalhes sobre as condições que afetem as operações de movimentação, consulte [mover recursos para um novo grupo de recursos ou subscrição](resource-group-move-resources.md).
@@ -153,7 +153,7 @@ Para obter os mesmos dados como um ficheiro de valores separados por vírgulas, 
 | Tipo de recurso | Grupo de recursos | Subscrição |
 | ------------- | ----------- | ---------- |
 | availabilitysets | Sim | Sim |
-| Discos | Sim | Sim |
+| discos | Sim | Sim |
 | galerias | Não | Não |
 | galleries/images | Não | Não |
 | galleries/images/versions | Não | Não |
@@ -241,7 +241,7 @@ Para obter os mesmos dados como um ficheiro de valores separados por vírgulas, 
 ## <a name="microsoftdataexchange"></a>Microsoft.DataExchange
 | Tipo de recurso | Grupo de recursos | Subscrição |
 | ------------- | ----------- | ---------- |
-| Pacotes | Não | Não |
+| pacotes | Não | Não |
 | Planos | Não | Não |
 
 ## <a name="microsoftdatafactory"></a>Microsoft.DataFactory
@@ -422,7 +422,7 @@ Para obter os mesmos dados como um ficheiro de valores separados por vírgulas, 
 ## <a name="microsoftlabservices"></a>Microsoft.LabServices
 | Tipo de recurso | Grupo de recursos | Subscrição |
 | ------------- | ----------- | ---------- |
-| labaccounts | Sim | Sim |
+| labaccounts | Não | Não |
 
 ## <a name="microsoftlocationbasedservices"></a>Microsoft.LocationBasedServices
 | Tipo de recurso | Grupo de recursos | Subscrição |

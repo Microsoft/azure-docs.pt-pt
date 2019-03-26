@@ -57,6 +57,8 @@ items:
       href: front-door-troubleshoot-routing.md
     - name: Autoridades de certificação permitidas
       href: front-door-troubleshoot-allowed-ca.md
+- name: FAQ
+  href: front-door-faq.md
 - name: Referência
   items:
   - name: CLI do Azure
@@ -75,9 +77,9 @@ items:
     href: https://azure.microsoft.com/pricing/calculator/
   - name: Atualizações de serviço
     href: https://azure.microsoft.com/updates/?product=frontdoor
-ms.openlocfilehash: 612eb843ebdc4d26d2308dcc2ff66ad99379300b
-ms.sourcegitcommit: 5de9de61a6ba33236caabb7d61bee69d57799142
+ms.openlocfilehash: 829fd4d8d34ae85bfe3f76da348f89ee56b364a2
+ms.sourcegitcommit: 280d9348b53b16e068cf8615a15b958fccad366a
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50085619"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58407390"

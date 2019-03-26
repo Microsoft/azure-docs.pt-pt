@@ -13,12 +13,12 @@ ms.author: lizross
 ms.reviewer: elkuzmen
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9820fcae0dfb366c1722c50c95400c7de0fbeb12
-ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
+ms.openlocfilehash: fb29fb5ef2e755ff456ad177b66349792b2fa21c
+ms.sourcegitcommit: 72cc94d92928c0354d9671172979759922865615
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58285790"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58418861"
 ---
 # <a name="add-your-custom-domain-name-using-the-azure-active-directory-portal"></a>Adicionar o seu nome de domínio personalizado com o portal do Azure Active Directory
 Cada novo Azure inquilino AD vem com um nome de domínio inicial *domainname*. onmicrosoft.com. Não é possível alterar ou eliminar o nome de domínio inicial, mas pode adicionar nomes da sua organização para a lista. Adicionar nomes de domínio personalizados ajuda-o a criar nomes de utilizador que estão familiarizados para seus usuários, como *alain\@contoso.com*.
@@ -84,6 +84,8 @@ Depois de registar o seu nome de domínio personalizado, terá de certificar-se 
 4. Sobre o **Contoso** página, selecione **verificar** para se certificar-se de que o domínio personalizado está corretamente registado e é válido para o Azure AD.
 
     ![Página de contoso com informações de entrada DNS e no botão verificar](media/add-custom-domain/contoso-blade-with-dns-info-verify.png)
+
+Depois de verificar o nome de domínio personalizado, pode eliminar o ficheiro. TXT ou MX de verificação.
 
 ## <a name="common-verification-issues"></a>Problemas comuns de verificação
 - Se o Azure AD não é possível verificar um nome de domínio personalizado, experimente as sugestões seguintes:

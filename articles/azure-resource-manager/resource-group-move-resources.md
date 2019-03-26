@@ -10,14 +10,14 @@ ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 02/28/2019
+ms.date: 03/25/2019
 ms.author: tomfitz
-ms.openlocfilehash: 80577b4585a6c9e4ec83a8f21b358b7609d85268
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 98236133a90cfddfe2ea476486556318b2c88b10
+ms.sourcegitcommit: 72cc94d92928c0354d9671172979759922865615
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58081258"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58418895"
 ---
 # <a name="move-resources-to-new-resource-group-or-subscription"></a>Mover recursos para um novo grupo de recursos ou subscrição
 
@@ -49,7 +49,7 @@ Contacte [suportar](https://portal.azure.com/#blade/Microsoft_Azure_Support/Help
 
 ## <a name="services-that-can-be-moved"></a>Serviços que podem ser movidos
 
-A lista seguinte fornece um resumo geral dos serviços do Azure que podem ser movidos para um novo grupo de recursos e subscrição. Para mais detalhes, consulte [mover o suporte de operação para recursos](move-support-resources.md).
+A lista seguinte fornece um resumo geral dos serviços do Azure que podem ser movidos para um novo grupo de recursos e subscrição. Para obter uma lista da qual o recurso tipos suportam a movimentação, consulte [mover o suporte de operação para recursos](move-support-resources.md).
 
 * Analysis Services
 * Gestão de API
@@ -143,7 +143,7 @@ A lista seguinte fornece um resumo geral dos serviços do Azure que não pode se
 * Dynamics LCS
 * ExpressRoute
 * Serviço Kubernetes
-* Serviços de laboratório - mudança para o novo grupo de recursos na mesma subscrição está ativada, mas a movimentação entre subscrições não está ativada.
+* Serviços de laboratório - laboratórios de sala de aula não podem ser movidos para um novo grupo de recursos ou subscrição. DevTest Labs podem ser movidos para um novo grupo de recursos na mesma subscrição, mas não em várias subscrições.
 * Aplicações Geridas
 * Microsoft Genomics
 * SAP HANA no Azure

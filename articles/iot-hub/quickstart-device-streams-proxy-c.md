@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 03/14/2019
 ms.author: rezas
-ms.openlocfilehash: 59a84190386b554716472b4cb46c94030a66a4cb
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: e985cba1bbb70a154a1914069d47b5d7a1fd9330
+ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58077110"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58438602"
 ---
 # <a name="quickstart-sshrdp-over-iot-hub-device-streams-using-c-proxy-application-preview"></a>Início rápido: SSH/RDP sobre fluxos de dispositivo do IoT Hub com C do proxy de aplicações (pré-visualização)
 
@@ -61,7 +61,9 @@ Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure
 
 Neste início rápido, vai utilizar o [Azure IoT device SDK para C](iot-hub-device-sdk-c-intro.md). Irá preparar um ambiente de desenvolvimento usado para clonar e criar os [SDK C do Azure IoT](https://github.com/Azure/azure-iot-sdk-c) do GitHub. O SDK no GitHub inclui o código de exemplo utilizado neste início rápido. 
 
-1. Baixe a versão 3.13.4 dos [sistema de compilação CMake](https://cmake.org/download/). Verifique o binário transferido com o valor de hash criptográfico correspondente. O exemplo seguinte utilizado o Windows PowerShell para verificar o hash criptográfico para a versão 3.13.4 de x64 distribuição de MSI:
+1. Transfira o [sistema de compilação CMake](https://cmake.org/download/). Verifique se o binário transferido com o valor de hash criptográfico que corresponde à versão que baixar. Os valores de hash criptográfico também estão localizados da ligação de transferência de CMake já fornecida.
+
+    O exemplo seguinte utilizado o Windows PowerShell para verificar o hash criptográfico para a versão 3.13.4 de x64 distribuição de MSI:
 
     ```PowerShell
     PS C:\Downloads> $hash = get-filehash .\cmake-3.13.4-win64-x64.msi
@@ -77,7 +79,7 @@ Neste início rápido, vai utilizar o [Azure IoT device SDK para C](iot-hub-devi
     64ac7dd5411b48c2717e15738b83ea0d4347cd51b940487dff7f99a870656c09  cmake-3.13.4-win64-x64.msi
     ```
 
-    É importante que os pré-requisitos do Visual Studio (Visual Studio e a carga de trabalho "Ambiente de trabalho de desenvolvimento com C++") estão instalados no seu computador **antes de** a partir do `CMake` instalação. Depois dos pré-requisitos estão assegurados e o download é verificado, instale o sistema de compilação CMake.
+    É importante que os pré-requisitos do Visual Studio (Visual Studio e a carga de trabalho "Desenvolvimento do ambiente de trabalho em C++") estejam instalados no computador, **antes** de iniciar a instalação de `CMake`. Depois de os pré-requisitos estarem assegurados e a transferência verificada, instale o sistema de compilação CMake.
 
 2. Abra uma linha de comandos ou a shell do Git Bash. Execute o seguinte comando para clonar o [SDK C do Azure IoT](https://github.com/Azure/azure-iot-sdk-c) no repositório do GitHub:
     

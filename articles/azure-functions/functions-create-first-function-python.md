@@ -7,16 +7,16 @@ author: ggailey777
 ms.author: glenga
 ms.date: 08/29/2018
 ms.topic: quickstart
-ms.service: functions
+ms.service: azure-functions
 ms.custom: mvc
 ms.devlang: python
 manager: jeconnoc
-ms.openlocfilehash: 2c14cdf963d1d6c792e6101d8a2179a560dcf096
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
+ms.openlocfilehash: af684a4fcc3a70326c1a57cb10a39204b4fd12dc
+ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55731262"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58438755"
 ---
 # <a name="create-your-first-python-function-in-azure-preview"></a>Criar a sua primeira função de Python no Azure (pré-visualização)
 

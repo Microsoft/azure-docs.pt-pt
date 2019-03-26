@@ -127,9 +127,7 @@ items:
   - name: PowerShell
     href: /powershell/module/az.notificationhubs
   - name: API REST
-    href: https://docs.microsoft.com/previous-versions/azure/reference/dn223264(v%3dazure.100)
-  - name: API de Gestão
-    href: /rest/api/notificationhubs
+    href: /rest/api/notificationhubs/
   - name: Modelo do Resource Manager
     href: /azure/templates/microsoft.notificationhubs/allversions
 - name: Recursos
@@ -152,9 +150,9 @@ items:
     href: https://azure.microsoft.com/regions/services/
   - name: Opções de suporte
     href: https://azure.microsoft.com/support/options/
-ms.openlocfilehash: 537b2bdaeccd185d9df4f1f986b586c9e976847f
-ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
+ms.openlocfilehash: a618c3788c501f28d822021b35c925fcf85c7b3c
+ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58400304"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58438772"

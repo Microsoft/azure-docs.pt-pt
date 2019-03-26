@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 11/30/2018
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: 82483d8d84349a929ef4892d5e9571ea65b9a88a
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: 081adc9421a97f7cafcf7fba946ce0b901a00a0c
+ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56104843"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58439435"
 ---
 # <a name="azure-ad-b2c-single-page-app-sign-in-by-using-oauth-20-implicit-flow"></a>Azure AD B2C: Aplicação de página única início de sessão com o fluxo implícito de OAuth 2.0
 
@@ -27,7 +27,7 @@ Muitas aplicações modernas têm um aplicação de página única front-end que
 
 Para suportar estas aplicações, o Azure Active Directory B2C (Azure AD B2C) usa o fluxo implícito de OAuth 2.0. O fluxo de concessão implícita de autorização de OAuth 2.0 é descrito na [secção 4.2 da especificação de OAuth 2.0](https://tools.ietf.org/html/rfc6749). No fluxo implícito, a aplicação recebe tokens diretamente a partir do Azure Active Directory (Azure AD) autorizar o ponto de extremidade, sem qualquer troca de servidor a servidor. Todos os lógica de autenticação e sessão de processamento necessário colocar inteiramente no cliente JavaScript, sem os redirecionamentos de página adicionais.
 
-O Azure AD B2C estende o fluxo implícito de OAuth 2.0 padrão a mais do que a autenticação e autorização simples. O Azure AD B2C apresenta os [parâmetro de política](active-directory-b2c-reference-policies.md). Com o parâmetro de política, pode utilizar o OAuth 2.0 para adicionar políticas para a sua aplicação, tais como inscrição, início de sessão e os fluxos de utilizador de gestão de perfil. Neste artigo, vamos mostrar como utilizar o fluxo implícito e o Azure AD para implementar cada um destas experiências nas suas aplicações de página única. Para ajudar a começar a trabalhar, dê uma olhada em nosso [node. js](https://github.com/Azure-Samples/active-directory-b2c-javascript-singlepageapp-nodejs-webapi) e [Microsoft .NET](https://github.com/Azure-Samples/active-directory-b2c-javascript-singlepageapp-dotnet-webapi) exemplos.
+O Azure AD B2C estende o fluxo implícito de OAuth 2.0 padrão a mais do que a autenticação e autorização simples. O Azure AD B2C apresenta os [parâmetro de política](active-directory-b2c-reference-policies.md). Com o parâmetro de política, pode utilizar o OAuth 2.0 para adicionar políticas para a sua aplicação, tais como inscrição, início de sessão e os fluxos de utilizador de gestão de perfil. Neste artigo, vamos mostrar como utilizar o fluxo implícito e o Azure AD para implementar cada um destas experiências nas suas aplicações de página única.
 
 Os pedidos HTTP de exemplo neste artigo, utilizamos o nosso diretório do Azure AD B2C de exemplo, **fabrikamb2c.onmicrosoft.com**. Também utilizamos nossos próprios fluxos de utilizador e a aplicação de exemplo. Pode experimentar os pedidos utilizando estes valores, ou pode substituí-los com seus próprios valores.
 Saiba como [obter seus próprios fluxos de utilizador, aplicação e diretório do Azure AD B2C](#use-your-own-azure-ad-b2c-tenant).
@@ -275,9 +275,4 @@ Para experimentar estes pedidos por conta própria, conclua os seguintes três p
 1. [Criar um inquilino do Azure AD B2C](active-directory-b2c-get-started.md). Utilize o nome do seu inquilino nos pedidos.
 2. [Criar um aplicativo](active-directory-b2c-app-registration.md) para obter uma ID e um `redirect_uri` valor. Inclua uma aplicação web ou a web API na sua aplicação. Opcionalmente, pode criar um segredo de aplicação.
 3. [Criar os seus fluxos de utilizador](active-directory-b2c-reference-policies.md) para obter nomes de fluxo de seu usuário.
-
-## <a name="samples"></a>Amostras
-
-* [Criar uma aplicação de página única com o node. js](https://github.com/Azure-Samples/active-directory-b2c-javascript-singlepageapp-nodejs-webapi)
-* [Criar uma aplicação de página única com o .NET](https://github.com/Azure-Samples/active-directory-b2c-javascript-singlepageapp-dotnet-webapi)
 

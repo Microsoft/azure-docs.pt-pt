@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: article
-ms.date: 03/19/2019
+ms.date: 03/22/2019
 ms.author: diberry
-ms.openlocfilehash: 5f757218d29317f82339967a327f34438c62ab96
-ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
+ms.openlocfilehash: 39c1a212bee552b436ef21d208f4a20086578325
+ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58294149"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58437854"
 ---
 # <a name="install-and-run-text-analytics-containers"></a>Instalar e executar contentores de análise de texto
 
@@ -40,7 +40,7 @@ Tem de cumprir os seguintes pré-requisitos antes de utilizar contentores de an�
 
 ### <a name="the-host-computer"></a>O computador anfitrião
 
-[!INCLUDE [Request access to private preview](../../../../includes/cognitive-services-containers-host-computer.md)]
+[!INCLUDE [Host Computer requirements](../../../../includes/cognitive-services-containers-host-computer.md)]
 
 ### <a name="container-requirements-and-recommendations"></a>Requisitos do contentor e recomendações
 

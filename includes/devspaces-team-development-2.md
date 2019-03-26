@@ -10,57 +10,43 @@ ms.author: stevenry
 ms.date: 12/17/2018
 ms.topic: include
 manager: yuvalm
-ms.openlocfilehash: 5d66dcaccc6ca2e40fbd516f535ec56c1baf6b17
-ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
+ms.openlocfilehash: e0f768b876b49ec006ce98decf121d73d334b6d8
+ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57195621"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58439524"
 ---
 ### <a name="run-the-service"></a>Executar o serviço
 
-1. Prima F5 (ou escreva `azds up` na Janela do Terminal) para executar o serviço. O serviço será executada automaticamente no seu espaço de recém-selecionados _dev/scott_. 
-1. Pode confirmar se o serviço está a executar no seu próprio espaço ao executar `azds list-up` novamente. Observará que uma instância do *mywebapi* agora está em execução _dev/scott_ espaço (a versão em execução _dev_ ainda está em execução, mas não estiver na lista).
+Para executar o serviço, pressionar F5 (ou tipo `azds up` na janela de Terminal) para executar o serviço. O serviço será executada automaticamente no seu espaço de recém-selecionados _dev/scott_. Confirme que o serviço está a executar no seu próprio espaço executando `azds list-up`:
 
-    ```
-    Name                      DevSpace  Type     Updated  Status
-    mywebapi                  scott     Service  3m ago   Running
-    mywebapi-bb4f4ddd8-sbfcs  scott     Pod      3m ago   Running
-    webfrontend               dev       Service  26m ago  Running
-    ```
+```cmd
+$ azds list-up
 
-1. Execute `azds list-uris`e observe o acesso ao URL de ponto *webfrontend*.
-
-    ```
-    Uri                                                                        Status
-    -------------------------------------------------------------------------  ---------
-    http://localhost:53831 => mywebapi.scott:80                                Tunneled
-    http://scott.s.dev.webfrontend.6364744826e042319629.ce.azds.io/  Available
-    ```
-
-1. Utilize o URL com o *scott.s* prefixo para navegar para a sua aplicação. Observe que isso atualizado URL ainda resolve. Este URL é exclusivo para o _dev/scott_ espaço. O URL especial significa que os pedidos enviados para o URL"Scott" tentará primeiro rota para serviços no _dev/scott_ espaço, mas se isso falhar, irão reverter para serviços no _dev_ espaço.
-
-<!--
-TODO: replace 2 & 3 with below once bug#753164 and PR#158827 get pushed to production.
-
-You can confirm that your service is running in its own space by running `azds list-up` again. First, you'll notice an instance of *mywebapi* is now running in the _dev/scott_ space (the version running in _dev_ is still running but it is not listed). If you run `azds list-uris`, you will notice that the access point URL for *webfrontend* is prefixed with the text "scott.s.". This URL is unique to the _dev/scott_ space. The special URL signifies that requests sent to the "Scott URL" will try to first route to services in the _dev/scott_ space, but if that fails, they will fall back to services in the _dev_ space.
-
-```
 Name                      DevSpace  Type     Updated  Status
 mywebapi                  scott     Service  3m ago   Running
-mywebapi-bb4f4ddd8-sbfcs  scott     Pod      3m ago   Running
 webfrontend               dev       Service  26m ago  Running
 ```
 
-```
+Observe que uma instância do *mywebapi* agora está em execução _dev/scott_ espaço. A versão em execução _dev_ ainda está em execução, mas não estiver na lista.
+
+Lista os URLs para o atual espaço executando `azds list-uris`.
+
+```cmd
+$ azds list-uris
+
 Uri                                                                        Status
 -------------------------------------------------------------------------  ---------
 http://localhost:53831 => mywebapi.scott:80                                Tunneled
 http://scott.s.dev.webfrontend.6364744826e042319629.ce.azds.io/  Available
 ```
--->
 
-![](../articles/dev-spaces/media/common/space-routing.png)
+Tenha em atenção o URL do ponto de acesso público para *webfrontend* é o prefixo *scott.s*. Este URL é exclusivo para o _dev/scott_ espaço. Este prefixo de URL informa o controlador de entrada para encaminhar pedidos para o _dev/scott_ versão de um serviço. Quando um pedido com este URL é manipulado por espaços de desenvolvimento, o controlador de entrada tenta pela primeira vez encaminhar o pedido para o *webfrontend* serviço no _dev/scott_ espaço. Se isso falhar, o pedido será encaminhado para o *webfrontend* serviço no _dev_ espaço como fallback. Repare também que existe um URL de localhost para aceder ao serviço através de localhost através do Kubernetes *porta-forward* funcionalidade. Para obter mais informações sobre URLs e encaminhamento nos espaços de desenvolvimento do Azure, consulte [como os espaços de desenvolvimento do Azure funciona e é configurado](../articles/dev-spaces/how-dev-spaces-works.md).
+
+
+
+![Encaminhamento de espaço](../articles/dev-spaces/media/common/Space-Routing.png)
 
 Esta funcionalidade incorporada dos Espaços de Programador do Azure permite-lhe testar código num espaço partilhado sem que cada programador tenha de recriar a pilha completa de serviços no respetivo espaço. Este tipo de encaminhamento requer que o código da aplicação reencaminhe os cabeçalhos de propagação, conforme ilustrado no passo anterior deste guia.
 

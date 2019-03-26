@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 07/11/2017
 ms.author: celested
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d6e502ed1e0865aca167915493eca400ce026f0e
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 2fcb77fe257a1b99525d009a1756a473e7e61a5d
+ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58096151"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58438521"
 ---
 # <a name="how-to-configure-federated-single-sign-on-for-a-non-gallery-application"></a>Como configurar o início de sessão único federado para uma aplicação de externas à Galeria
 
@@ -140,7 +140,7 @@ Para transferir os metadados da aplicação ou o certificado do Azure AD, siga o
 
 8. Aceda a **certificado de assinatura SAML** secção, em seguida, clique em **transferir** valor da coluna. Consoante o que o aplicativo requer configurar início de sessão único, verá a opção para transferir o XML de metadados ou o certificado.
 
-O Azure AD também fornece um URL para obter os metadados. Siga este padrão para obter o URL de metadados específicas para a aplicação: https://login.microsoftonline.com/ <Directory ID>/federationmetadata/2007-06/federationmetadata.xml?appid=<Application ID>.
+O Azure AD também fornece um URL para obter os metadados. Siga este padrão para obter o URL de metadados específicas para a aplicação: `https://login.microsoftonline.com/<Directory ID>/federationmetadata/2007-06/federationmetadata.xml?appid=<Application ID>`.
 
 ## <a name="assign-users-to-the-application"></a>Atribuir utilizadores à aplicação
 

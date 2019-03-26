@@ -3,7 +3,7 @@ title: Como integrar registos do Azure Active Directory com ArcSight através do
 description: Saiba como integrar registos do Azure Active Directory com ArcSight através do Azure Monitor (pré-visualização)
 services: active-directory
 documentationcenter: ''
-author: priyamohanram
+author: MarkusVi
 manager: daveba
 editor: ''
 ms.assetid: b37bef0d-982e-4e28-86b2-6c61ca524ae1
@@ -14,15 +14,15 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
 ms.date: 12/03/2018
-ms.author: priyamo
+ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 88979d58c78f3bc44c7fa96c65fb60c0fb69726b
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 6bd7101c641cf69112975cd0431a08ec74f99aac
+ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56175273"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58438109"
 ---
 # <a name="integrate-azure-active-directory-logs-with-arcsight-using-azure-monitor-preview"></a>Integrar registos do Azure Active Directory com ArcSight através do Azure Monitor (pré-visualização)
 

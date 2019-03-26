@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 09/25/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: edc38296374538fd708a74f575d5b0c77770c005
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: da9b82b1e17a62aa9b3d606b0b16295acf04eb85
+ms.sourcegitcommit: 72cc94d92928c0354d9671172979759922865615
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57901547"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58418759"
 ---
 # <a name="source-control-integration-in-azure-automation---legacy"></a>Integração do controlo de origem na automatização do Azure - legado
 
@@ -65,17 +65,17 @@ Se já tiver uma conta do GitHub e um repositório de que pretende associar a au
      
      | **Parâmetro** | **Valor** |
      |:--- |:--- |
-     | Name |Microsoft.Azure.Automation.SourceControl.Connection |
-     | Type |String |
-     | Value |{"Ramo":\<*o nome do ramo*>, "RunbookFolderPath":\<*o caminho de pasta do Runbook*>, "ProviderType":\<*tem um valor de 1 para GitHub*>, "Repositório":\<*nome do seu repositório*>, "Nomedeutilizador":\<*nome de utilizador do Your GitHub*>} |
+     | `Name`  |Microsoft.Azure.Automation.SourceControl.Connection |
+     | `Type`  |String |
+     | `Value` |{"Ramo":\<*o nome do ramo*>, "RunbookFolderPath":\<*o caminho de pasta do Runbook*>, "ProviderType":\<*tem um valor de 1 para GitHub*>, "Repositório":\<*nome do seu repositório*>, "Nomedeutilizador":\<*nome de utilizador do Your GitHub*>} |
 
      * A variável **Microsoft.Azure.Automation.SourceControl.OAuthToken**, contém o valor encriptado seguro de sua OAuthToken.  
 
      |**Parâmetro**            |**Valor** |
      |:---|:---|
-     | Name  | Microsoft.Azure.Automation.SourceControl.OAuthToken |
-     | Type | UNKNOWN(Encrypted) |
-     | Value | <*OAuthToken encriptado*> |  
+     | `Name`  | Microsoft.Azure.Automation.SourceControl.OAuthToken |
+     | `Type`  | UNKNOWN(Encrypted) |
+     | `Value` | <*OAuthToken encriptado*> |  
 
      ![Variáveis](media/automation-source-control-integration-legacy/automation_04_Variables.png)  
 

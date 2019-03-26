@@ -10,12 +10,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 10/19/2018
 ms.author: glenga
-ms.openlocfilehash: 6f93bbceacff3731206e5f98ba9a252d6a046ac4
-ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
+ms.openlocfilehash: 44bc5a245d1bcbc8ff53991af4193ef86f7cd704
+ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58200080"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58436324"
 ---
 # <a name="hostjson-reference-for-azure-functions-1x"></a>referência de Host. JSON para as funções do Azure 1.x
 
@@ -244,7 +244,21 @@ Definições de configuração para [acionadores de fila de armazenamento e enla
 
 Definição de configuração para [do Service Bus acionadores e enlaces](functions-bindings-service-bus.md).
 
-[!INCLUDE [functions-host-json-service-bus](../../includes/functions-host-json-service-bus.md)]
+```json
+{
+    "serviceBus": {
+      "maxConcurrentCalls": 16,
+      "prefetchCount": 100,
+      "autoRenewTimeout": "00:05:00"
+    }
+}
+```
+
+|Propriedade  |Predefinição | Descrição |
+|---------|---------|---------| 
+|maxConcurrentCalls|16|O número máximo de chamadas simultâneas para o retorno de chamada que deve iniciar o bombardeamento de mensagens. Por predefinição, o runtime das funções processa várias mensagens em simultâneo. Para direcionar o tempo de execução para processar apenas uma única fila ou uma mensagem de tópico ao mesmo tempo, defina `maxConcurrentCalls` como 1. | 
+|prefetchCount|n/d|A predefinição PrefetchCount que será utilizada pelo MessageReceiver subjacente.| 
+|autoRenewTimeout|00:05:00|A duração máxima em que o bloqueio da mensagem será renovado automaticamente.| 
 
 ## <a name="singleton"></a>singleton
 

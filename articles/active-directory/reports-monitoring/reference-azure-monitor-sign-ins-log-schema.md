@@ -3,7 +3,7 @@ title: Esquema de início de sessão no registo do Azure Active Directory no Azu
 description: Descrever o início de sessão do Azure AD no esquema de registo para utilização no Azure Monitor (pré-visualização)
 services: active-directory
 documentationcenter: ''
-author: priyamohanram
+author: MarkusVi
 manager: daveba
 editor: ''
 ms.assetid: 4b18127b-d1d0-4bdc-8f9c-6a4c991c5f75
@@ -14,15 +14,15 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
 ms.date: 11/13/2018
-ms.author: priyamo
+ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0834333dbec9f8aa23092339ea41d0b6cc5aba08
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 78ce1de5b5b9ff46efcc9e7faed9aa147b53211a
+ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56169722"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58439061"
 ---
 # <a name="interpret-the-azure-ad-sign-in-logs-schema-in-azure-monitor-preview"></a>Interpretar o esquema de início de sessão de registos do Azure AD no Azure Monitor (pré-visualização)
 

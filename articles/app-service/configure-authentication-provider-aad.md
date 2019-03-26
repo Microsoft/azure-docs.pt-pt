@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 02/20/2019
 ms.author: mahender
 ms.custom: seodec18
-ms.openlocfilehash: 0c5ceda99fe35fafff23f2bcf4ea766d7dd42b75
-ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
+ms.openlocfilehash: d687e770fae6c32ee351a597e12d1aca6094e5cb
+ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58403226"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58438229"
 ---
 # <a name="configure-your-app-service-app-to-use-azure-active-directory-sign-in"></a>Configurar a sua aplicação de serviço de aplicações para utilizar o início de sessão no Azure Active Directory
 
@@ -43,8 +43,6 @@ Este artigo mostra-lhe como configurar os serviços de aplicações do Azure par
 5. (Opcional) Para restringir o acesso ao seu site para apenas os utilizadores autenticados pelo Azure Active Directory, defina **ação a tomar quando o pedido não é autenticado** ao **iniciar sessão com o Azure Active Directory**. Isto requer que todos os pedidos de ser autenticados e todos os pedidos não autenticados são redirecionados para o Azure Active Directory para autenticação.
 6. Clique em **Guardar**.
 
-Agora está pronto para utilizar o Azure Active Directory para autenticação na sua aplicação de serviço de aplicações.
-
 ## <a name="advanced"> </a>Configurar com definições avançadas
 
 Também pode fornecer as definições de configuração manualmente. Esta é a solução preferida, se o inquilino do Azure Active Directory que deseja usar é diferente do inquilino com a qual iniciar a sessão no Azure. Para concluir a configuração, primeiro tem de criar um registo no Azure Active Directory e, em seguida, tem de fornecer alguns dos detalhes de registo no serviço de aplicações.
@@ -57,8 +55,12 @@ Também pode fornecer as definições de configuração manualmente. Esta é a s
 4. Em alguns segundos, deverá ver o novo registo de aplicação que acabou de criar.
 5. Assim que o registo de aplicações tiver sido adicionado, clique no nome do registo da aplicação, clique em **configurações** na parte superior, em seguida, clique em **propriedades** 
 6. Na **URI de ID de aplicação** caixa, cole o URL de aplicação (a partir do passo 1), também na **URL da Home Page** colar o URL de aplicação (a partir do passo 1), em seguida, clique em **guardar**
-7. Agora, clique no **URLs de resposta**, edite a **URL de resposta**, cole o URL de aplicação (a partir do passo 1), e acrescentado ao fim do URL, */.auth/login/aad/callback* (para exemplo, `https://contoso.azurewebsites.net/.auth/login/aad/callback`). Clique em **Guardar**.   
-8.  Neste momento, copie os **ID da aplicação** para a aplicação. Mantenha-a para utilização posterior. Irá precisar dele para configurar a sua aplicação de serviço de aplicações.
+7. Agora, clique no **URLs de resposta**, edite a **URL de resposta**, cole o URL de aplicação (a partir do passo 1), em seguida, anexe-o para o final do URL, */.auth/login/aad/callback* (para exemplo, `https://contoso.azurewebsites.net/.auth/login/aad/callback`). Clique em **Guardar**.
+
+   > [!NOTE]
+   > Pode utilizar o mesmo registo de aplicações para vários domínios, adicionando adicionais **URLs de resposta**. Certifique-se modelar cada instância de serviço de aplicações com o seu próprio registo, para que ele tem suas próprias permissões e consentimento. Além disso, considere utilizar registos de aplicações separados para ranhuras do site separado. Isso é evitar permissões sejam partilhadas entre ambientes, para que um bug no código novo que está a testar não afeta a produção.
+    
+8. Neste momento, copie os **ID da aplicação** para a aplicação. Mantenha-a para utilização posterior. Irá precisar dele para configurar a sua aplicação de serviço de aplicações.
 9. Fechar o **aplicação registada** página. No **registos de aplicações** página, clique no **pontos de extremidade** botão na parte superior, em seguida, copie o **o ponto de extremidade do WS-FEDERATION SIGN-ON** URL mas remover o `/wsfed` terminar em da URL. O resultado final deve ser semelhante à `https://login.microsoftonline.com/00000000-0000-0000-0000-000000000000`. O nome de domínio pode ser diferente para uma cloud soberana. Isto irá servir como o URL de emissor para utilizar mais tarde.
 
 ### <a name="secrets"> </a>Adicionar informações do Active Directory do Azure à sua aplicação de serviço de aplicações

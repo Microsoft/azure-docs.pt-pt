@@ -7,12 +7,12 @@ ms.service: container-registry
 ms.topic: article
 ms.date: 02/06/2019
 ms.author: danlep
-ms.openlocfilehash: 8e9f488f194c3326e79439a65214a060ff16e6c4
-ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
+ms.openlocfilehash: b8a2280fe82e0f4be8e2812f5494150927642692
+ms.sourcegitcommit: 72cc94d92928c0354d9671172979759922865615
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55958753"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58417748"
 ---
 # <a name="import-container-images-to-a-container-registry"></a>Importar imagens de contentor para um registo de contentor
 
@@ -101,7 +101,7 @@ az acr import --name myregistry --source mysourceregistry.azurecr.io/aci-hellowo
 No exemplo a seguir *mysourceregistry* está numa subscrição diferente da *myregistry* no mesmo inquilino do Active Directory. Forneça o ID de recurso do registo de origem com o `--registry` parâmetro. Tenha em atenção que o `--source` parâmetro especifica apenas o repositório e imagem de nome de origem, não o nome do servidor do registo início de sessão.
  
 ```azurecli
-az acr import --name myregistry --source sourcerepo/aci-helloworld:latest --image aci-hello-world:latest --registry /subscriptions/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/sourceResourceGroup/providers/Microsoft.ContainerRegistry/registries/mysourceregistry
+az acr import --name myregistry --source sourcerepo/aci-helloworld:latest --image aci-hello-world:latest --registry /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/sourceResourceGroup/providers/Microsoft.ContainerRegistry/registries/mysourceregistry
 ```
 
 ### <a name="import-from-a-registry-using-service-principal-credentials"></a>Importar a partir de um registo com credenciais do principal de serviço

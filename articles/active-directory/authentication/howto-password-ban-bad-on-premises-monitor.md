@@ -11,16 +11,18 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b79e9e1a274002514561ef3f96c364bf9bc27071
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: ae2d18541788e769e4f1b44319aa1be200921b88
+ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58309610"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58437565"
 ---
 # <a name="azure-ad-password-protection-monitoring-and-logging"></a>Proteção de palavra-passe do Azure AD monitorização e registo
 
 Após a implementação de proteção de palavra-passe do Azure AD, monitorização e relatórios são tarefas essenciais. Este artigo apresenta detalhes para ajudar a que compreender o várias técnicas de monitorização, incluindo onde cada serviço regista informações e como um relatório sobre a utilização de proteção de palavra-passe do Azure AD.
+
+Monitorização e relatórios são feitas por mensagens de registo de eventos ou ao executar os cmdlets do PowerShell. Os controlador de domínio agente e o proxy de registo dos serviços de ambas as mensagens de registo de eventos. Todos os cmdlets do PowerShell descritos abaixo só estão disponíveis no servidor de proxy (consulte o módulo do AzureADPasswordProtection PowerShell). O software do agente DC não instala um módulo do PowerShell.
 
 ## <a name="dc-agent-event-logging"></a>Registo de eventos do agente DC
 

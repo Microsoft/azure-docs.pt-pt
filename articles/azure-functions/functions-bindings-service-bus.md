@@ -12,12 +12,12 @@ ms.devlang: multiple
 ms.topic: reference
 ms.date: 04/01/2017
 ms.author: cshoe
-ms.openlocfilehash: 85fdd67cd676db2a7c54c10523787b0d395de5dc
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: 9955068fbc0d6493add83c6c92390413b3975106
+ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56870793"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58437176"
 ---
 # <a name="azure-service-bus-bindings-for-azure-functions"></a>Enlaces do Service Bus do Azure para as funções do Azure
 
@@ -77,7 +77,7 @@ Este exemplo é para a versão das funções do Azure 1.x. Para fazer esse códi
 - [omita o parâmetro de direitos de acesso](#trigger---configuration)
 - alterar o tipo do parâmetro de registo de `TraceWriter` para `ILogger`
 - Alteração `log.Info` para `log.LogInformation`
- 
+
 ### <a name="trigger---c-script-example"></a>Acionador - exemplo de script do c#
 
 O exemplo seguinte mostra um acionador de barramento de serviço de enlace num *Function* ficheiro e uma [função de script do c#](functions-reference-csharp.md) que utiliza o enlace. A função lê [metadados de mensagem](#trigger---message-metadata) e regista uma mensagem de fila do Service Bus.
@@ -160,7 +160,7 @@ A seguinte função de Java utiliza a `@ServiceBusQueueTrigger` anotação do [b
  ) {
      context.getLogger().info(message);
  }
- ```
+```
 
 As funções do Java também podem ser acionadas quando uma mensagem é adicionada a um tópico do Service Bus. O exemplo seguinte utiliza o `@ServiceBusTopicTrigger` anotação para descrever a configuração do acionador.
 
@@ -177,7 +177,7 @@ As funções do Java também podem ser acionadas quando uma mensagem é adiciona
     ) {
         context.getLogger().info(message);
     }
- ```
+```
 
 ### <a name="trigger---javascript-example"></a>Acionador - exemplo de JavaScript
 
@@ -279,7 +279,7 @@ A tabela seguinte explica as propriedades de configuração de ligação definid
 |---------|---------|----------------------|
 |**tipo** | n/d | Tem de ser definido para "serviceBusTrigger". Esta propriedade é definida automaticamente ao criar o acionador no portal do Azure.|
 |**direção** | n/d | Tem de ser definido para "in". Esta propriedade é definida automaticamente ao criar o acionador no portal do Azure. |
-|**name** | n/d | O nome da variável que representa a mensagem de fila ou tópico no código de função. Definido como "$return" para referenciar o valor de retorno da função. | 
+|**name** | n/d | O nome da variável que representa a mensagem de fila ou tópico no código de função. Definido como "$return" para referenciar o valor de retorno da função. |
 |**queueName**|**QueueName**|Nome da fila para monitorizar.  Defina apenas se a monitorização de uma fila, não para um tópico.
 |**topicName**|**topicName**|Nome do tópico para monitorizar. Defina apenas se a monitorização de um tópico, não para uma fila.|
 |**subscriptionName**|**subscriptionName**|Nome da subscrição a monitorizar. Defina apenas se a monitorização de um tópico, não para uma fila.|
@@ -339,7 +339,21 @@ Ver [exemplos de código](#trigger---example) que utilizam estas propriedades no
 
 O [Host. JSON](functions-host-json.md#servicebus) ficheiro contém as definições que controlam o comportamento de Acionador do Service Bus.
 
-[!INCLUDE [functions-host-json-event-hubs](../../includes/functions-host-json-service-bus.md)]
+```json
+{
+    "serviceBus": {
+      "maxConcurrentCalls": 16,
+      "prefetchCount": 100,
+      "maxAutoRenewDuration": "00:05:00"
+    }
+}
+```
+
+|Propriedade  |Predefinição | Descrição |
+|---------|---------|---------|
+|maxConcurrentCalls|16|O número máximo de chamadas simultâneas para o retorno de chamada que deve iniciar o bombardeamento de mensagens. Por predefinição, o runtime das funções processa várias mensagens em simultâneo. Para direcionar o tempo de execução para processar apenas uma única fila ou uma mensagem de tópico ao mesmo tempo, defina `maxConcurrentCalls` como 1. |
+|prefetchCount|n/d|A predefinição PrefetchCount que será utilizada pelo MessageReceiver subjacente.|
+|maxAutoRenewDuration|00:05:00|A duração máxima em que o bloqueio da mensagem será renovado automaticamente.|
 
 ## <a name="output"></a>Saída
 
@@ -471,7 +485,7 @@ public String pushToQueue(
       result.setValue(message + " has been sent.");
       return message;
  }
- ```
+```
 
  Na [biblioteca de tempo de execução de funções do Java](/java/api/overview/azure/functions/runtime), utilize o `@QueueOutput` anotação nos parâmetros de função, seria escrito cujo valor a uma fila do Service Bus.  O tipo de parâmetro deve ser `OutputBinding<T>`, em que T é qualquer tipo de Java nativo de um POJO.
 
@@ -582,7 +596,7 @@ A tabela seguinte explica as propriedades de configuração de ligação definid
 |---------|---------|----------------------|
 |**tipo** | n/d | Tem de ser definido para "serviceBus". Esta propriedade é definida automaticamente ao criar o acionador no portal do Azure.|
 |**direção** | n/d | Tem de ser definido para "Sair". Esta propriedade é definida automaticamente ao criar o acionador no portal do Azure. |
-|**name** | n/d | O nome da variável que representa a fila ou tópico no código de função. Definido como "$return" para referenciar o valor de retorno da função. | 
+|**name** | n/d | O nome da variável que representa a fila ou tópico no código de função. Definido como "$return" para referenciar o valor de retorno da função. |
 |**queueName**|**QueueName**|Nome da fila.  Defina apenas se o envio de mensagens de fila, não para um tópico.
 |**topicName**|**topicName**|Nome do tópico para monitorizar. Defina apenas se o envio de mensagens de tópico, não para uma fila.|
 |**ligação**|**ligação**|O nome de uma definição de aplicação que contém a cadeia de ligação do Service Bus para utilizar para este enlace. Se o nome da definição de aplicação começa com "AzureWebJobs", pode especificar apenas o restante do nome. Por exemplo, se definir `connection` para "MyServiceBus", o runtime das funções procura uma definição de aplicação com o nome "AzureWebJobsMyServiceBus." Se deixar `connection` vazio, o runtime das funções utiliza a cadeia de ligação do Service Bus de predefinição na definição da aplicação com o nome "AzureWebJobsServiceBus".<br><br>Para obter uma cadeia de ligação, siga os passos apresentados na [obter as credenciais de gestão](../service-bus-messaging/service-bus-dotnet-get-started-with-queues.md#get-the-connection-string). A cadeia de ligação tem de ser para um espaço de nomes do Service Bus, que não se limitando a uma fila específica ou um tópico.|
@@ -641,11 +655,11 @@ Esta secção descreve as definições de configuração global disponíveis par
 ```
 
 |Propriedade  |Predefinição | Descrição |
-|---------|---------|---------| 
-|maxAutoRenewDuration|00:05:00|A duração máxima em que o bloqueio da mensagem será renovado automaticamente.| 
-|Preenchimento automático|true|Se o acionador imediatamente deve marcar como concluída (conclusão automática) ou aguardar o processamento para chamar completa.| 
-|maxConcurrentCalls|16|O número máximo de chamadas simultâneas para o retorno de chamada que deve iniciar o bombardeamento de mensagens. Por predefinição, o runtime das funções processa várias mensagens em simultâneo. Para direcionar o tempo de execução para processar apenas uma única fila ou uma mensagem de tópico ao mesmo tempo, defina `maxConcurrentCalls` como 1. | 
-|prefetchCount|n/d|A predefinição PrefetchCount que será utilizada pelo MessageReceiver subjacente.| 
+|---------|---------|---------|
+|maxAutoRenewDuration|00:05:00|A duração máxima em que o bloqueio da mensagem será renovado automaticamente.|
+|Preenchimento automático|true|Se o acionador imediatamente deve marcar como concluída (conclusão automática) ou aguardar o processamento para chamar completa.|
+|maxConcurrentCalls|16|O número máximo de chamadas simultâneas para o retorno de chamada que deve iniciar o bombardeamento de mensagens. Por predefinição, o runtime das funções processa várias mensagens em simultâneo. Para direcionar o tempo de execução para processar apenas uma única fila ou uma mensagem de tópico ao mesmo tempo, defina `maxConcurrentCalls` como 1. |
+|prefetchCount|n/d|A predefinição PrefetchCount que será utilizada pelo MessageReceiver subjacente.|
 
 
 ## <a name="next-steps"></a>Passos Seguintes

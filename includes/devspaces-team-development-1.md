@@ -10,12 +10,12 @@ ms.author: stevenry
 ms.date: 12/17/2018
 ms.topic: include
 manager: yuvalm
-ms.openlocfilehash: 1f6e0a8fd2cc14877b98bc12b0d2c8632edbbbb9
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
+ms.openlocfilehash: 40c1be20df845b975c023616e38cbb932c985735
+ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55664397"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58439527"
 ---
 # <a name="team-development-with-azure-dev-spaces"></a>Desenvolvimento em equipa com o Azure Dev Spaces
 
@@ -70,9 +70,11 @@ Em primeiro lugar, tem de implementar uma linha de base dos nossos serviços. Es
 >
 > ![Diagrama de CI/CD de exemplo](../articles/dev-spaces/media/common/ci-cd-complex.png)
 
-Neste ponto deve estar em execução sua linha de base. Execute o comando `azds list-up` e verá um resultado semelhante ao seguinte:
+Neste ponto deve estar em execução sua linha de base. Execute o comando `azds list-up --all` e verá um resultado semelhante ao seguinte:
 
 ```
+$ azds list-up --all
+
 Name                          DevSpace  Type     Updated  Status
 ----------------------------  --------  -------  -------  -------
 mywebapi                      dev       Service  3m ago   Running

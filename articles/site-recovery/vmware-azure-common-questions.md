@@ -8,12 +8,12 @@ services: site-recovery
 ms.date: 03/21/2019
 ms.topic: conceptual
 ms.author: raynew
-ms.openlocfilehash: 82ae36eaaf4616dbd85760a0962f301a2b1a20f5
-ms.sourcegitcommit: 5e4ca656baf3c7d370ab3c0fbad0278aa2c9f1e6
+ms.openlocfilehash: cdb8fe5deb71c014f7e0af01d070e5004d8c9994
+ms.sourcegitcommit: 72cc94d92928c0354d9671172979759922865615
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58319385"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58418798"
 ---
 # <a name="common-questions---vmware-to-azure-replication"></a>Perguntas comuns - VMware para replicação do Azure
 
@@ -57,12 +57,12 @@ Discos geridos são cobrados ligeiramente diferente de contas de armazenamento. 
 
 * Conta de armazenamento Standard Vs. Disco gerido de HDD padrão
 
-    - **Disco de armazenamento aprovisionado para ASR**: S10
+    - **Disco de armazenamento aprovisionado pelo Azure Site Recovery**: S10
     - **Conta de armazenamento Standard faturada à consumidos volume**: 5 $ por mês
     - **Disco gerido Standard cobrado no volume aprovisionado**: 5.89 us $ por mês
 
 * Conta de armazenamento Premium Vs. Premium SSD Managed Disk 
-    - **Disco de armazenamento aprovisionado para ASR**: P10
+    - **Disco de armazenamento aprovisionado pelo Azure Site Recovery**: P10
     - **Conta de armazenamento Premium é cobrada no volume aprovisionado**: 17.92 us $ por mês
     - **Disco gerido Premium cobrado no volume aprovisionado**: 17.92 us $ por mês
 
@@ -203,7 +203,7 @@ Sim, pode adicionar novas VMs a um grupo de replicação existente quando ativa 
 Para a replicação de VMware para o Azure pode modificar o tamanho do disco. Se pretender adicionar novos discos, que terá de adicionar o disco e reativar a proteção da VM.
 
 ### <a name="can-i-migrate-on-premises-machines-to-a-new-vcenter-without-impacting-ongoing-replication"></a>Posso migrar em máquinas no local para um novo Vcenter sem afetar a replicação em curso?
-Não, a alteração do Vcenter ou migração irá afetar a replicação em curso. Terá de configurar a ASR com o novo Vcenter e ativar a replicação para máquinas.
+Não, a alteração do Vcenter ou migração irá afetar a replicação em curso. Terá de configurar o Azure Site Recovery com o novo Vcenter e ativar a replicação para máquinas.
 
 ### <a name="can-i-replicate-to-cachetarget-storage-account-which-has-a-vnet-with-azure-storage-firewalls-configured-on-it"></a>Pode replicar a conta de armazenamento de cache/destino que tem uma Vnet (com firewalls de armazenamento do Azure), configurada no mesmo?
 Não, o Azure Site Recovery não suporta replicação para o armazenamento numa Vnet.
@@ -275,7 +275,7 @@ Na **Cofre de serviços de recuperação**, **gerir** > **infraestrutura do Site
 Os programas de instalação são guardados na **%ProgramData%\ASR\home\svsystems\pushinstallsvc\repository** pasta no servidor de configuração.
 
 ## <a name="how-do-i-install-the-mobility-service"></a>Como posso instalar o serviço de mobilidade?
-Instalar em cada VM que pretende replicar, com um [instalação push](vmware-azure-install-mobility-service.md), ou [instalação manual](vmware-physical-mobility-service-install-manual.md) partir da IU ou do Powershell. Em alternativa, pode implementar utilizando uma ferramenta de implantação, como [System Center Configuration Manager](vmware-azure-mobility-install-configuration-mgr.md).
+Instalar em cada VM que pretende replicar, com um [instalação push](vmware-physical-mobility-service-overview.md#push-installation), ou [instalação manual](vmware-physical-mobility-service-overview.md#install-mobility-agent-through-ui) partir da IU ou do Powershell. Em alternativa, pode implementar utilizando uma ferramenta de implantação, como [System Center Configuration Manager](vmware-azure-mobility-install-configuration-mgr.md).
 
 
 

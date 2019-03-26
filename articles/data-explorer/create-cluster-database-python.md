@@ -7,13 +7,13 @@ ms.author: oflipman
 ms.reviewer: orspodek
 ms.service: data-explorer
 ms.topic: quickstart
-ms.date: 03/17/2019
-ms.openlocfilehash: 4f87c5996ea323c26c32c1680ba6f627bf8f95c2
-ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
+ms.date: 03/25/2019
+ms.openlocfilehash: db6064feb379bf7da4f2c2e6417583c3d8b8b0d3
+ms.sourcegitcommit: 72cc94d92928c0354d9671172979759922865615
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58287525"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58417892"
 ---
 # <a name="create-an-azure-data-explorer-cluster-and-database-by-using-python"></a>Criar um cluster do Explorador de dados do Azure e a base de dados com o Python
 
@@ -25,11 +25,11 @@ ms.locfileid: "58287525"
 > * [Python](create-cluster-database-python.md)
 >  
 
-Este início rápido descreve como criar um cluster do Explorador de dados do Azure e a base de dados com o Python.
+O Azure Data Explorer é um serviço de análise de dados rápido e totalmente gerido que permite realizar análises em tempo real em volumes grandes de transmissão de dados a partir de aplicações, sites, dispositivos IoT e muito mais. Para utilizar o Explorador de dados do Azure, primeiro cria um cluster e criar um ou mais bases de dados desse cluster. Em seguida, ingerir (carregar) dados numa base de dados para que pode executar consultas em relação a ele. Neste início rápido, vai criar um cluster e uma base de dados com o Python.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Para concluir este início rápido, precisa de uma subscrição do Azure. Se não tiver uma, [crie uma conta gratuita](https://azure.microsoft.com/free/) antes de começar.
+Se não tiver uma subscrição do Azure, crie uma [conta do Azure gratuita](https://azure.microsoft.com/free/) antes de começar.
 
 ## <a name="install-python-package"></a>Instalar pacote do Python
 
@@ -53,9 +53,9 @@ pip install azure-mgmt-kusto
 
     Existem parâmetros opcionais adicionais que pode utilizar, como a capacidade do cluster.
     
-    Definir as credenciais para as suas credenciais (para obter mais informações consulte https://docs.microsoft.com/python/azure/python-sdk-azure-authenticate?view=azure-python )
+1. Definir [ *as suas credenciais*](https://docs.microsoft.com/python/azure/python-sdk-azure-authenticate?view=azure-python)
 
-2. Execute o seguinte comando para verificar se o cluster foi criado com êxito:
+1. Execute o seguinte comando para verificar se o cluster foi criado com êxito:
 
     ```Python
     cluster_operations.get(resource_group_name = resource_group_name, cluster_name= clusterName, custom_headers=None, raw=False)
@@ -91,7 +91,7 @@ Se o resultado contém `provisioningState` com o `Succeeded` valor, em seguida, 
    | soft_delete_period | *dias 3650, 0: 00:00* | A quantidade de tempo que os dados serão mantidos disponíveis para consulta. |
    | hot_cache_period | *dias 3650, 0: 00:00* | A quantidade de tempo que os dados serão mantidos na cache. |
 
-2. Execute o seguinte comando para ver a base de dados que criou:
+1. Execute o seguinte comando para ver a base de dados que criou:
 
     ```Python
     database_operations.get(resource_group_name = resource_group_name, cluster_name = clusterName, database_name = databaseName)

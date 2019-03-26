@@ -12,12 +12,12 @@ ms.author: arib
 ms.reviewer: vanto
 manager: craigg
 ms.date: 02/07/2019
-ms.openlocfilehash: ce691ec0622749f1cb7252e237dae25b2657d115
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: a98ec18f2ed38b290d04c3fdc36d9a6ff80a675a
+ms.sourcegitcommit: 280d9348b53b16e068cf8615a15b958fccad366a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58010522"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58407356"
 ---
 # <a name="get-started-with-sql-database-auditing"></a>Introdução à auditoria da base de dados SQL
 
@@ -170,7 +170,6 @@ Se optar por escrever registos de auditoria numa conta de armazenamento do Azure
   - Depois de baixar vários ficheiros ou numa subpasta que contém ficheiros de registo, é possível intercalá-los localmente conforme descrito nas instruções de ficheiros de auditoria de intercalação do SSMS descritas anteriormente.
   - Auditoria de BLOBs de modo de exibição aceder programaticamente aos registos:
 
-    - Utilize o [leitor de eventos expandidos](https://blogs.msdn.microsoft.com/extended_events/20../../introducing-the-extended-events-reader/) biblioteca do c#.
     - [Ficheiros de eventos expandidos de consulta](https://sqlscope.wordpress.com/20../../reading-extended-event-files-using-client-side-tools-only/) com o PowerShell.
 
 ## <a id="subheading-5"></a>Práticas de produção
@@ -258,8 +257,11 @@ Obter política expandida com em que suporta a cláusula para filtragem adiciona
 Pode gerenciar a auditoria de base de dados de SQL do Azure através de [do Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview) modelos, conforme mostrado nestes exemplos:
 
 - [Implementar um servidor de SQL do Azure com auditoria ativada para escrever registos de auditoria para a conta de armazenamento de Blobs do Azure](https://github.com/Azure/azure-quickstart-templates/tree/master/201-sql-auditing-server-policy-to-blob-storage)
-- [Implementar um servidor de SQL do Azure com auditoria ativada para escrever registos de auditoria nos registos do Azure Monitor](https://github.com/Azure/azure-quickstart-templates/tree/master/201-sql-auditing-server-policy-to-oms)
+- [Implementar um servidor de SQL do Azure com auditoria ativada para escrever registos de auditoria para o Log Analytics](https://github.com/Azure/azure-quickstart-templates/tree/master/201-sql-auditing-server-policy-to-oms)
 - [Implementar um servidor de SQL do Azure com auditoria ativada para escrever registos de auditoria para os Hubs de eventos](https://github.com/Azure/azure-quickstart-templates/tree/master/201-sql-auditing-server-policy-to-eventhub)
+
+> [!NOTE]
+> Os exemplos ligados estão no repositório público externo e são fornecidos "como está", sem garantias e não são suportados em qualquer Microsoft programa de suporte da Microsoft/serviço.
 
 <!--Anchors-->
 [Azure SQL Database Auditing overview]: #subheading-1
