@@ -367,9 +367,9 @@ items:
       - name: SaaS Fulfillment APIs
         href: ./cloud-partner-portal/saas-app/cpp-saas-fulfillment-apis.md
         items:
-        - name: SaaS V1 API
+        - name: SaaS API v1
           href: ./cloud-partner-portal/saas-app/cpp-saas-fulfillment-api-v1.md
-        - name: SaaS V2 API
+        - name: SaaS API v2
           href: ./cloud-partner-portal/saas-app/cpp-saas-fulfillment-api-v2.md
     - name: Oferta de máquina virtual
       href: ./cloud-partner-portal/virtual-machine/cpp-virtual-machine-offer.md
@@ -466,9 +466,9 @@ items:
       href: ./cloud-partner-portal-orig/cloud-partner-portal-api-troubleshooting-authentication-errors.md
   - name: Obter suporte
     href: ./cloud-partner-portal-orig/cloud-partner-portal-support-for-cloud-partner-portal.md
-ms.openlocfilehash: 90243803c7637e12cc1e72dc7b3e698fd3b9c273
-ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
+ms.openlocfilehash: 72166e2f797c5eaaeb2908475b18c0f8424e8804
+ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58341191"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58402801"

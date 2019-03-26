@@ -1,17 +1,17 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: 06b95c24914574a2aea59c6c597e3d9b3d5097cc
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: b9f4cd78288d1b9868a823c5e0ccd0b68b324229
+ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58318740"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58400252"
 documentType: LandingData
-title: Documentação do Windows Virtual Desktop
+title: Documentação da Pré-visualização do Windows Virtual Desktop
 metadata:
-  title: Documentação do Windows Virtual Desktop - Tutoriais, inícios rápidos, referências de API | Microsoft Docs
-  description: O Windows Virtual Desktop para o Azure é uma experiência virtualizada do Windows 10 Enterprise com vários utilizadores na cloud.
+  title: Documentação da Pré-visualização do Windows Virtual Desktop - Tutoriais, inícios rápidos, referências de API | Microsoft Docs
+  description: A Pré-visualização do Windows Virtual Desktop para o Azure é uma experiência virtualizada do Windows 10 Enterprise com vários utilizadores na cloud.
   author: Heidilohr
-  manager: dansimp
+  manager: daveba
   ms.service: virtual-desktop
   services: virtual-desktop
   ms.topic: landing-page
@@ -23,11 +23,11 @@ sections:
 - title: Descrição geral
   items:
   - type: paragraph
-    text: Saiba mais sobre o Windows Virtual Desktop e como usá-lo. Tutoriais, guias de instruções, conteúdos de referência e muito mais mostram-lhe como configurar conjuntos de anfitrião e inquilinos, bem como atribuir funções a utilizadores para o seu ambiente do Windows Virtual Desktop.
+    text: Saiba mais sobre a Pré-visualização do Windows Virtual Desktop e como usá-lo. Tutoriais, guias de instruções, conteúdos de referência e muito mais mostram-lhe como configurar conjuntos de anfitrião e inquilinos, bem como atribuir funções a utilizadores para o seu ambiente do Windows Virtual Desktop.
   - type: list
     style: unordered
     items:
-    - html: <a href="/azure/virtual-desktop/overview">O que é o Windows Virtual Desktop? (Pré-visualização)</a>
+    - html: <a href="/azure/virtual-desktop/overview">O que é a Pré-visualização do Windows Virtual Desktop?</a>
 - title: Tutoriais Passo-a-Passo
   items:
   - type: paragraph
@@ -44,4 +44,4 @@ sections:
   - type: list
     style: unordered
     items:
-    - html: <a href="/powershell/windows-virtual-desktop/overview">PowerShell (Pré-visualização)</a>
+    - html: <a href="/powershell/windows-virtual-desktop/overview">PowerShell</a>
