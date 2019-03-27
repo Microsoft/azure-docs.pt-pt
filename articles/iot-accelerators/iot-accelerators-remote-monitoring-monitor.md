@@ -97,7 +97,7 @@ Os mesmos filtros que definem o período de tempo para os alertas, e controlam o
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-Este tutorial mostrou como utilizar a página **Dashboard** no acelerador de soluções da Monitorização Remota, para filtrar e monitorizar os camiões simulados. Para saber como utilizar o acelerador de soluções para detetar problemas com os seus dispositivos ligados, avance para o próximo tutorial.
+Este tutorial mostrou como utilizar a página **Dashboard** no acelerador de soluções de Monitorização Remota, para filtrar e monitorizar os camiões simulados. Para saber como utilizar o acelerador de soluções para detetar problemas com os seus dispositivos ligados, avance para o próximo tutorial.
 
 > [!div class="nextstepaction"]
 > [Detetar problemas dos dispositivos ligados à sua solução de monitorização](iot-accelerators-remote-monitoring-automate.md)

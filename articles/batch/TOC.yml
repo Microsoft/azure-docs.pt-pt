@@ -100,6 +100,8 @@ items:
       href: batch-user-accounts.md
     - name: Submeter um grande número de tarefas
       href: large-number-tasks.md
+  - name: Criar ficheiros de recursos
+    href: resource-files.md
   - name: Manter saída de trabalhos e tarefas
     href: batch-task-output.md
     items:
@@ -222,9 +224,9 @@ items:
     href: https://stackoverflow.com/questions/tagged/azure-batch
   - name: Vídeos
     href: https://azure.microsoft.com/documentation/videos/index/?services=batch
-ms.openlocfilehash: c3a3bdf7de26fca6a7a4b4b54102621ec46ce9dc
-ms.sourcegitcommit: 1902adaa68c660bdaac46878ce2dec5473d29275
+ms.openlocfilehash: c0ddc341c525b9788cd7fe8a55bbc94c4be62f0f
+ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/11/2019
-ms.locfileid: "57729161"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58500360"

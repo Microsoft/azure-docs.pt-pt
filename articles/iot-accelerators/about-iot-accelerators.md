@@ -91,7 +91,7 @@ Para saber mais sobre a arquitetura de microsserviços, veja [introdução à ar
 
 Pode implementar os aceleradores de soluções a partir do site [Aceleradores de Soluções do Microsoft Azure IoT](https://www.azureiotsolutions.com/Accelerators#) ou com a linha de comandos.
 
-Pode implementar o acelerador de soluções Monitorização Remota nas seguintes configurações:
+Pode implementar o acelerador de soluções de Monitorização Remota nas seguintes configurações:
 
 * **Standard:** Implementação de infraestrutura expandida para desenvolver uma implementação de produção. O Azure Container Service implementa os microsserviços em várias máquinas virtuais do Azure. O Kubernetes orquestra os contentores do Docker que alojam os microsserviços individuais.
 * **Básico:** Versão de custo reduzido para demonstração ou para testar uma implementação. Todos os microsserviços são implementados numa máquina virtual do Azure individual.

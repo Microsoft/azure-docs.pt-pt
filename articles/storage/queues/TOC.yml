@@ -106,16 +106,22 @@ items:
       items:
       - name: Portal
         href: ../common/storage-access-blobs-queues-portal.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
+      - name: CLI ou PowerShell
+        href: ../common/storage-auth-aad-script.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
+    - name: Gerir direitos de acesso com RBAC
+      items:
+      - name: Portal
+        href: ../common/storage-auth-aad-rbac-portal.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
+      - name: CLI
+        href: ../common/storage-auth-aad-rbac-cli.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
+      - name: PowerShell
+        href: ../common/storage-auth-aad-rbac-powershell.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
     - name: Autenticar com o Azure AD
       items:
-      - name: Gerir direitos de acesso com RBAC
-        href: ../common/storage-auth-aad-rbac.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
       - name: Autenticar a partir de uma aplicação
         href: ../common/storage-auth-aad-app.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
       - name: Autenticar com identidades geridas
         href: ../common/storage-auth-aad-msi.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
-      - name: Utilizar uma identidade do Azure AD com a CLI ou o PowerShell
-        href: ../common/storage-auth-aad-script.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
     - name: Autorizar com a Chave Partilhada
       items:
       - name: Configurar cadeias de ligação
@@ -273,9 +279,9 @@ items:
       href: https://github.com/Azure/azure-storage-ios
   - name: Ofertas de conformidade
     href: ../common/storage-compliance-offerings.md
-ms.openlocfilehash: 9cb34df34ae2f8e5a110b83488db614818f3e3b2
-ms.sourcegitcommit: 5e4ca656baf3c7d370ab3c0fbad0278aa2c9f1e6
+ms.openlocfilehash: 70fc5b2b14aaad98a1d412a8b5a56763b4652d7d
+ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58319487"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58446301"

@@ -41,7 +41,7 @@ If this is going to be a tutorial - we need to split this include into two so th
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Para seguir este tutorial, precisa de uma instância implementada do acelerador de soluções de Monitorização Remota na sua subscrição do Azure.
+Para seguir este tutorial, precisa de uma instância implementada do acelerador de soluções de Monitorização remota na sua subscrição do Azure.
 
 Se ainda não tiver implementado o acelerador de soluções de Monitorização Remota, deverá concluir o início rápido [Implementar uma solução de monitorização remota baseada na cloud](quickstart-remote-monitoring-deploy.md).
 

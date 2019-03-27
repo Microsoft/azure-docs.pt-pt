@@ -76,7 +76,7 @@ items:
       href: howto-integrate-activity-logs-with-log-analytics.md
     - name: Analisar os registos de atividade com os registos do Azure Monitor
       href: howto-analyze-activity-logs-log-analytics.md
-    - name: Instalar e utilizar as vistas do Log Analytics para o Azure AD
+    - name: Instalar e utilizar as vistas da análise de registos para o Azure AD
       href: howto-install-use-log-analytics-views.md
     - name: Integrar registos de atividade com o SumoLogic
       href: howto-integrate-activity-logs-with-sumologic.md

@@ -199,6 +199,8 @@ items:
       items:
       - name: Especificar artefactos obrigatórios
         href: devtest-lab-mandatory-artifacts.md
+      - name: Adicionar artefactos a uma VM
+        href: add-artifact-vm.md
       - name: Criar artefacto personalizado
         href: devtest-lab-artifact-author.md
       - name: Adicionar um repositório de artefacto para um laboratório
@@ -263,9 +265,9 @@ items:
       href: https://azure.microsoft.com/resources/videos/index/?services=devtest-lab
     - name: Perguntas mais frequentes
       href: devtest-lab-faq.md
-ms.openlocfilehash: 03ae5399295c0f9fac29fb4cd88cea85130881f7
-ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
+ms.openlocfilehash: c2e32a28253e0fc38fbfa215599654a3cf751d36
+ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
 ms.translationtype: HT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 03/26/2019
-ms.locfileid: "58435639"
+ms.locfileid: "58448863"

@@ -15,7 +15,7 @@ ms.contentlocale: pt-PT
 ms.lasthandoff: 03/19/2019
 ms.locfileid: "58176141"
 ---
-# <a name="remote-monitoring-solution-accelerator-overview"></a>Descrição geral do acelerador de soluções da Monitorização Remota
+# <a name="remote-monitoring-solution-accelerator-overview"></a>Descrição geral do acelerador de soluções de Monitorização Remota
 
 A monitorização remota [acelerador de solução](../iot-accelerators/about-iot-accelerators.md) implementa uma solução de monitorização ponto a ponto para várias máquinas em localizações remotas. A solução combina serviços-chave do Azure para fornecer uma implementação genérica do cenário de negócios. Pode utilizar a solução como um ponto de partida para a sua própria implementação e [personalizar](../iot-accelerators/iot-accelerators-remote-monitoring-customize.md) para atender às suas próprias necessidades comerciais específicas.
 

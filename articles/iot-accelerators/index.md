@@ -1,23 +1,17 @@
 ---
 title: Documentação dos Aceleradores de Soluções do Azure IoT | Microsoft Docs
-description: Aprenda a utilizar os aceleradores de soluções IoT. Estes artigos mostram-lhe como utilizar os aceleradores de soluções para impulsionar a sua implementação de cenários de IoT comuns, como a monitorização remota, IoT industrial, manutenção preditiva e simulação do dispositivo.
+description: 'Aprenda a utilizar os aceleradores de soluções IoT. Estes artigos mostram-lhe como utilizar os aceleradores de soluções para impulsionar a sua implementação de cenários de IoT comuns, como a monitorização remota, IoT industrial, manutenção preditiva e simulação do dispositivo.'
 services: iot-accelerators
 author: dominicbetts
 manager: philmea
 layout: LandingPage
-ms.assetid: ''
+ms.assetid: null
 ms.service: iot-accelerators
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: landing-page
 ms.date: 12/17/2018
 ms.author: dobett
-ms.openlocfilehash: 2295ca75b7ca266506dbc45b9017a08001ce6e2a
-ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
-ms.translationtype: HT
-ms.contentlocale: pt-PT
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53560000"
 ---
 # <a name="iot-solution-accelerators-documentation"></a>Documentação dos aceleradores de soluções de IoT
 
@@ -53,7 +47,7 @@ Aprenda a utilizar os aceleradores de soluções IoT. Estes artigos mostram-lhe 
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Descrição geral do acelerador de soluções da Monitorização Remota</h3>
+                        <h3>Descrição geral do acelerador de soluções de Monitorização Remota</h3>
                     </div>
                 </div>
             </div>

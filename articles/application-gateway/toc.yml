@@ -17,15 +17,15 @@ items:
 - name: Tutoriais
   items:
   - name: Alojar um único site
-    href: tutorial-manage-web-traffic-cli.md
+    href: quick-create-portal.md
   - name: Ativar firewall de aplicações Web
-    href: tutorial-restrict-web-traffic-cli.md
+    href: application-gateway-web-application-firewall-portal.md
   - name: Proteger com SSL
-    href: tutorial-ssl-cli.md
+    href: create-ssl-portal.md
   - name: Alojar múltiplos sites
-    href: tutorial-multiple-sites-cli.md
+    href: create-multiple-sites-portal.md
   - name: Encaminhar pelo URL
-    href: tutorial-url-route-cli.md
+    href: create-url-route-portal.md
   - name: Redirecionar tráfego da web
     href: tutorial-url-redirect-cli.md
   - name: Dimensionamento automático e redundância de zona
@@ -90,8 +90,10 @@ items:
   items:
   - name: Alojar um único site
     items:
-    - name: Portal do Azure
+    - name: Azure PowerShell
       href: tutorial-manage-web-traffic-powershell.md
+    - name: CLI do Azure
+      href: tutorial-manage-web-traffic-cli.md
     - name: Modelo
       href: create-vmss-template.md
   - name: Configurar o balanceador de carga interno
@@ -104,10 +106,10 @@ items:
     items:
     - name: Terminação de SSL
       items:
-      - name: Terminação de SSL - portal
-        href: create-ssl-portal.md
       - name: Terminação de SSL - PowerShell
         href: tutorial-ssl-powershell.md
+      - name: Terminação de SSL - CLI do Azure
+        href: tutorial-ssl-cli.md
     - name: SSL de ponto a ponto
       items:
       - name: SSL de ponta a ponta - Portal
@@ -126,10 +128,10 @@ items:
         href: application-gateway-configure-ssl-policy-powershell.md
   - name: Configurar a Firewall de Aplicações Web
     items:
-    - name: Portal do Azure
-      href: application-gateway-web-application-firewall-portal.md
     - name: Azure PowerShell
       href: tutorial-restrict-web-traffic-powershell.md
+    - name: CLI do Azure
+      href: tutorial-restrict-web-traffic-cli.md
   - name: Configurar conjuntos de regras WAF
     items:
     - name: Portal do Azure
@@ -140,16 +142,16 @@ items:
       href: application-gateway-customize-waf-rules-cli.md
   - name: Encaminhar pelo URL
     items:
-    - name: Portal do Azure
-      href: create-url-route-portal.md
     - name: Azure PowerShell
       href: tutorial-url-route-powershell.md
+    - name: CLI do Azure
+      href: tutorial-url-route-cli.md
   - name: Alojar múltiplos sites
     items:
-    - name: Portal do Azure
-      href: create-multiple-sites-portal.md
     - name: Azure PowerShell
       href: tutorial-multiple-sites-powershell.md
+    - name: CLI do Azure
+      href: tutorial-multiple-sites-cli.md
   - name: Redirecionar tráfego
     items:
     - name: Tráfego externo
@@ -236,9 +238,9 @@ items:
     href: https://azure.microsoft.com/regions/services/
   - name: Stack Overflow
     href: https://stackoverflow.com/questions/tagged/azure-application-gateway
-ms.openlocfilehash: cd08a1ac880bb4242f4f57882d0e45133cf26748
-ms.sourcegitcommit: 87bd7bf35c469f84d6ca6599ac3f5ea5545159c9
+ms.openlocfilehash: b7b696b2094dc74e1a30cbd33f304aa663bf742e
+ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58350765"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58444921"

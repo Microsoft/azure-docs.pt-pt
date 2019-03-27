@@ -78,7 +78,7 @@ Enquanto arquivo seguro no Azure, Cofre de chaves foi utilizado para simplificar
 -  O [são sempre encriptados]( https://docs.microsoft.com/sql/relational-databases/security/encryption/always-encrypted-database-engine) funcionalidade no SQL server e base de dados do Azure SQL
 - [Serviço de aplicações do Azure]( https://docs.microsoft.com/azure/app-service/web-sites-purchase-ssl-web-site). 
 
-O próprio Key Vault pode ser integrado em contas de armazenamento, em hubs de eventos e no Log Analytics.
+O próprio Key Vault pode ser integrado em Contas de Armazenamento, em Hubs de Eventos e no Log Analytics.
 
 ## <a name="next-steps"></a>Passos Seguintes
 

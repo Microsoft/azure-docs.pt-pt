@@ -302,16 +302,22 @@ items:
         items:
         - name: Portal
           href: ../common/storage-access-blobs-queues-portal.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+        - name: CLI ou PowerShell
+          href: ../common/storage-auth-aad-script.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+      - name: Gerir direitos de acesso com RBAC
+        items:
+        - name: Portal
+          href: ../common/storage-auth-aad-rbac-portal.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+        - name: CLI
+          href: ../common/storage-auth-aad-rbac-cli.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+        - name: PowerShell
+          href: ../common/storage-auth-aad-rbac-powershell.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
       - name: Autenticar com o Azure AD
         items:
-        - name: Gerir os direitos de acesso no portal do Azure com RBAC
-          href: ../common/storage-auth-aad-rbac.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
         - name: Autenticar a partir de uma aplicação
           href: ../common/storage-auth-aad-app.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
         - name: Autenticar com identidades geridas
           href: ../common/storage-auth-aad-msi.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-        - name: Utilizar uma identidade do Azure AD com a CLI ou o PowerShell
-          href: ../common/storage-auth-aad-script.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
       - name: Autorizar com a Chave Partilhada
         items:
         - name: Configurar cadeias de ligação
@@ -572,7 +578,7 @@ items:
       - name: Configurar firewalls e redes virtuais
         href: ../common/storage-network-security.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
       - name: Gerir direitos de acesso com RBAC
-        href: ../common/storage-auth-aad-rbac.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+        href: ../common/storage-auth-aad-rbac-portal.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
       - name: Definir permissões ao nível do ficheiro e do diretório
         href: ../blobs/data-lake-storage-how-to-set-permissions-storage-explorer.md
     - name: Integrar nos serviços do Azure
@@ -627,9 +633,9 @@ items:
       href: https://stackoverflow.com/questions/tagged/windows-azure-storage
     - name: Vídeos
       href: https://azure.microsoft.com/documentation/videos/index/?services=storage
-ms.openlocfilehash: b3b06751950a1c14cf445c6ea7d95a18c942d7c4
-ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
+ms.openlocfilehash: 1f831e742f034d210a59c5723526442114f594ec
+ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58369603"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58446891"

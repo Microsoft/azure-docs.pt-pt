@@ -289,13 +289,13 @@ A ação [Compose](../../logic-apps/logic-apps-workflow-actions-triggers.md#comp
 A ação [Azure Log Analytics Data Collector](https://docs.microsoft.com/connectors/azureloganalyticsdatacollector/) (Coletor do Azure Log Analytics) utiliza o objeto da ação Compose e envia-o para o Log Analytics.
 
 1. Clique em **New step** (Novo passo)  > **Add an action** (Adicionar uma ação)
-2. Escreva *log analytics* como o filtro e selecione a ação **Azure Log Analytics Data Collector - Send Data** (Recoletor de Dados do Azure Log Analytics - Enviar Dados)).
+2. Escreva *log analytics* como o filtro e selecione a ação **Azure Log Analytics Data Collector - Send Data** (Recoletor de Dados do Azure Log Analytics - Enviar Dados).
 
    ![Adicionar a ação “log analytics send data” nas aplicações lógicas](media/collect-activity-logs-subscriptions/logic-apps-send-data-to-log-analytics-connector.png)
 
 3. Introduza um nome para a sua ligação e cole **Workspace ID** (ID da Área de Trabalho) e **Workspace Key** (Chave da Área de Trabalho) na sua área de trabalho do Log Analytics.  Clique em **Criar**.
 
-   ![Adicionar a ligação do log analytics nas aplicações lógicas](media/collect-activity-logs-subscriptions/logic-apps-log-analytics-add-connection.png)
+   ![Adicionar a ligação da análise de registos nas aplicações lógicas](media/collect-activity-logs-subscriptions/logic-apps-log-analytics-add-connection.png)
 
 4. Depois de criar a ligação, edite as definições da tabela abaixo. 
 

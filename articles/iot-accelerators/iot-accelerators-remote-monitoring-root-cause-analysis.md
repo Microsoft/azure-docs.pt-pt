@@ -98,7 +98,7 @@ Para saber como criar e editar regras, consulte o tutorial anterior sobre como [
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-Neste tutorial, aprendeu a utilizar o explorador do Time Series Insights com o acelerador de soluções da Monitorização Remota para diagnosticar a causa raiz de um alerta. Para saber como utilizar o acelerador de soluções para identificar e corrigir problemas com os seus dispositivos ligados, avance para o próximo tutorial.
+Neste tutorial, aprendeu a utilizar o explorador do Time Series Insights com o acelerador de soluções de Monitorização Remota para diagnosticar a causa raiz de um alerta. Para saber como utilizar o acelerador de soluções para identificar e corrigir problemas com os seus dispositivos ligados, avance para o próximo tutorial.
 
 > [!div class="nextstepaction"]
 > [Utilizar alertas de dispositivos para identificar e corrigir problemas com os dispositivos ligados à sua solução de monitorização](iot-accelerators-remote-monitoring-maintain.md)

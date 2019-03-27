@@ -1,22 +1,31 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: e4bd3de3dee3219619c0146eb0e455cd9b25c59e
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 34de58f7a3f9307714ccc4594d9ac92523c55f69
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52840975"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58482222"
 documentType: LandingData
 title: Documentação do Azure Data Explorer
 metadata:
   title: Documentação do Azure Data Explorer - Inícios rápidos, tutoriais e referências de linguagem e da API
   description: O Azure Data Explorer é uma plataforma de cloud de análise de registos otimizada para consultas de macrodados ad hoc.
-  author: mgblythe
-  ms.author: mblythe
+  author: orspod
+  ms.author: orspodek
   ms.service: data-explorer
   ms.topic: landing-page
-  ms.date: 09/24/2018
+  ms.date: 03/24/2019
 abstract:
-  description: <p>O Azure Data Explorer é um serviço de exploração de dados rápido e altamente dimensionável para dados telemétricos e de registo. Ajuda-o a processar os vários fluxos de dados emitidos por software moderno para que possa recolher, armazenar e analisar dados. O Azure Data Explorer é ideal para analisar grandes volumes de dados diversificados provenientes de qualquer origem de dados, como sites, aplicações, dispositivos IoT e muito mais.</p><p>Saiba como utilizar o Azure Data Explorer com os nossos inícios rápidos, tutoriais e conteúdos de referência.</p>
+  description: <p>O Azure Data Explorer é um serviço de análise de dados rápido e totalmente gerido que permite realizar análises em tempo real em volumes grandes de transmissão de dados a partir de aplicações, sites, dispositivos IoT e muito mais. Pode utilizar o Azure Data Explorer para recolher, armazenar e analisar dados diversos para melhorar produtos, melhorar a experiência do cliente, monitorizar dispositivos e tornar as operações mais eficientes.</p><p>Saiba como utilizar o Azure Data Explorer com os nossos inícios rápidos, tutoriais e conteúdos de referência.</p>
+  aside:
+    image:
+      alt: 
+      height: 110
+      src: media/index/video.png
+      width: 250
+    title: O que é o Azure Data Explorer? (19:47)
+    href: https://youtu.be/D_AJk2lAepw
+    width: 250
 sections:
 - title: Inícios rápidos de cinco minutos
   items:

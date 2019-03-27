@@ -1,0 +1,47 @@
+items:
+- name: Documentação do Detetor de Anomalias
+  href: index.yml
+- name: Descrição geral
+  items:
+  - name: O que é a API do Detetor de Anomalias?
+    href: overview.md
+  expanded: true
+- name: Inícios rápidos
+  items:
+  - name: Detetar Anomalias nos seus dados
+    items:
+    - name: Utilizar C#
+      href: quickstarts/detect-data-anomalies-csharp.md
+    - name: Utilizar o Java
+      href: quickstarts/detect-data-anomalies-java.md
+    - name: Utilizar o Python
+      href: quickstarts/detect-data-anomalies-python.md
+  expanded: true
+- name: Guias de procedimentos
+  items:
+  - name: Identificar anomalias nos seus dados
+    href: how-to/identify-anomalies.md
+- name: Conceitos
+  items:
+  - name: Melhores práticas da API do Detetor de Anomalias
+    href: concepts/anomaly-detection-best-practices.md
+- name: Referência
+  items:
+  - name: Referência da API REST
+    href: https://aka.ms/anomaly-detector-rest-api-ref
+  - name: SDKs
+    items:
+    - name: .NET
+      href: https://aka.ms/anomaly-detector-dotnet-ref
+- name: Recursos
+  items:
+  - name: Preços
+    href: https://aka.ms/anomaly-detector-pricing
+  - name: Disponibilidade regional
+    href: https://aka.ms/anomaly-detector-region
+ms.openlocfilehash: c752383026434ca2f8f1d3f047bb1dbc3740c7ea
+ms.sourcegitcommit: fbfe56f6069cba027b749076926317b254df65e5
+ms.translationtype: HT
+ms.contentlocale: pt-PT
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58473396"

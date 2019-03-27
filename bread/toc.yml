@@ -226,6 +226,9 @@ items:
     - name: Conhecimento Académico
       tocHref: /azure/cognitive-services/academic-knowledge/
       topicHref: /azure/cognitive-services/academic-knowledge/home
+    - name: Detetor de Anomalias
+      tocHref: /azure/cognitive-services/anomaly-detector/
+      topicHref: /azure/cognitive-services/anomaly-detector/
     - name: Sugestão Automática do Bing
       tocHref: /azure/cognitive-services/Bing-Autosuggest/
       topicHref: /azure/cognitive-services/Bing-Autosuggest/
@@ -253,6 +256,9 @@ items:
     - name: Pesquisa Web do Bing
       tocHref: /azure/cognitive-services/bing-web-search/
       topicHref: /azure/cognitive-services/bing-web-search/
+    - name: Pesquisa de Negócios Locais do Bing
+      tocHref: /azure/cognitive-services/bing-local-business-search/
+      topicHref: /azure/cognitive-services/bing-local-business-search/
     - name: Imagem Digitalizada
       tocHref: /azure/cognitive-services/computer-vision/
       topicHref: /azure/cognitive-services/computer-vision/
@@ -664,9 +670,9 @@ items:
   - name: Windows Virtual Desktop
     tocHref: /azure/virtual-desktop/
     topicHref: /azure/virtual-desktop/
-ms.openlocfilehash: e8e0481d3d8d8e9d5e7d0d784bd6d58af6229c66
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: fd8d3e3b36d5dd3f690ca30db14f7371bea28078
+ms.sourcegitcommit: fbfe56f6069cba027b749076926317b254df65e5
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58317702"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58472842"

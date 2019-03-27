@@ -89,6 +89,8 @@ items:
       href: ../sql-database/sql-database-ssms-mfa-authentication.md?toc=/azure/sql-data-warehouse/toc.json
     - name: Auditoria
       href: ../sql-database/sql-database-auditing.md?toc=/azure/sql-data-warehouse/toc.json
+    - name: Deteção e Classificação de Dados
+      href: https://docs.microsoft.com/azure/sql-database/sql-database-data-discovery-and-classification?toc=%2Fazure%2Fsql-data-warehouse%2Ftoc.json
     - name: Segurança ao nível da coluna
       href: column-level-security.md
     - name: Segurança ao Nível da Linha
@@ -283,8 +285,6 @@ items:
       href: sql-data-warehouse-reference-tsql-statements.md
   - name: Vistas de sistema
     href: sql-data-warehouse-reference-tsql-system-views.md
-  - name: Escalão de computação mais baixo de Ger2
-    href: gen2-lower-tier-regions.md
   - name: Cmdlets do PowerShell
     href: sql-data-warehouse-reference-powershell-cmdlets.md
   - name: APIs REST
@@ -317,9 +317,9 @@ items:
       href: sql-data-warehouse-partner-data-integration.md
     - name: Gestão de dados
       href: sql-data-warehouse-partner-data-management.md
-ms.openlocfilehash: e206a9a171736ac7755e670838ee4854dabcdffb
-ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
+ms.openlocfilehash: 3e5d08142ee7b7bbce721015783dd6ee10a930b2
+ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58402869"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58497572"

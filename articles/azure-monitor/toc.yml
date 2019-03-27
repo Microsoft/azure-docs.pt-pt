@@ -34,9 +34,9 @@ items:
   expanded: true
 - name: Tutoriais
   items:
-  - name: Analisar dados no Log Analytics
+  - name: Analisar dados na análise de registos
     href: learn/tutorial-viewdata.md
-  - name: Visualizar dados no Log Analytics
+  - name: Visualizar dados na análise de registos
     href: learn/tutorial-logs-dashboards.md
   - name: Arquivar métricas de plataforma e registos de dados
     href: learn/tutorial-archive-data.md

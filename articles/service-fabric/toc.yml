@@ -596,6 +596,8 @@ items:
       items:
       - name: Criar
         items:
+        - name: Planear para uma implementação de cluster
+          href: service-fabric-cluster-azure-deployment-preparation.md
         - name: Criar no portal do Azure
           href: service-fabric-cluster-creation-via-portal.md
         - name: Configurar a autenticação do Azure Active Directory
@@ -630,6 +632,10 @@ items:
           href: service-fabric-patch-orchestration-application.md
         - name: Aplicar o patch em nós de cluster (Linux)
           href: service-fabric-patch-orchestration-application-linux.md
+        - name: Ativar a encriptação de discos (Windows)
+          href: service-fabric-enable-azure-disk-encryption-windows.md
+        - name: Ativar a encriptação de discos (Linux)
+          href: service-fabric-enable-azure-disk-encryption-linux.md
         - name: Definir controlo de acesso
           href: service-fabric-cluster-security-roles.md
         - name: Abrir uma porta no balanceador de carga
@@ -839,9 +845,9 @@ items:
     href: https://azure.microsoft.com/updates/?product=service-fabric
   - name: Vídeos
     href: https://azure.microsoft.com/documentation/videos/index/?services=service-fabric
-ms.openlocfilehash: bb1cfedbaf699ff951a03adc47b93332412d1e5a
-ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
+ms.openlocfilehash: 1346468fa0f29954ca382c32f49928f7810424a4
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58225285"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58483136"
