@@ -10,12 +10,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 04/23/2018
-ms.openlocfilehash: 5b5f323e20bbaf91c151641f8dc78fbc8cde8c24
-ms.sourcegitcommit: 87bd7bf35c469f84d6ca6599ac3f5ea5545159c9
+ms.openlocfilehash: 6d667df3062112e0c805e3ba26bc6240022cab8b
+ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58351648"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58446341"
 ---
 # <a name="what-is-apache-hive-and-hiveql-on-azure-hdinsight"></a>O que é o Apache Hive e o HiveQL no HDInsight do Azure?
 
@@ -204,8 +204,6 @@ Essas instruções executam as seguintes ações:
 
 O [Apache Hive no Tez criar documentos](https://cwiki.apache.org/confluence/display/Hive/Hive+on+Tez) contém detalhes sobre as opções de implementação e configurações de otimização.
 
-Para auxiliar na depuração de tarefas foi executada com Tez, o HDInsight fornece a interface do Usuário que permite-lhe ver os detalhes das tarefas do Tez da web seguinte: [Utilize a vista do Apache Ambari Tez no HDInsight baseado em Linux](../hdinsight-debug-ambari-tez-view.md).
-
 ### <a name="low-latency-analytical-processing-llap"></a>Processamento analítico de baixa latência (LLAP)
 
 [LLAP](https://cwiki.apache.org/confluence/display/Hive/LLAP) (por vezes conhecida como Live Long and Process) é uma funcionalidade nova no 2.0 Hive, que permite a colocação em cache de memória de consultas. LLAP torna muito mais rápidas, até de consultas do Hive [26 x mais rapidamente do que o Hive 1.x em alguns casos](https://hortonworks.com/blog/announcing-apache-hive-2-1-25x-faster-queries-much/).
@@ -256,7 +254,7 @@ Agora que aprendeu o que é o Hive e como usá-lo com o Hadoop no HDInsight, uti
 [ssispack]: https://msdn.microsoft.com/library/mt146770(v=sql.120).aspx
 
 [hdinsight-use-pig]: hdinsight-use-pig.md
-[hdinsight-use-oozie]: hdinsight-use-oozie.md
+[hdinsight-use-oozie]: hdinsight-use-oozie-linux-mac.md
 [hdinsight-use-mapreduce]: hdinsight-use-mapreduce.md
 
 

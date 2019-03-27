@@ -5,14 +5,14 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: article
-ms.date: 02/28/2019
+ms.date: 03/26/2019
 ms.author: tamram
-ms.openlocfilehash: df9bc1680f20fe6264da0109cd52db1072fd9fc5
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: a1ee95ad847d20159c79af8f080cc7878e114759
+ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58311140"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58444509"
 ---
 # <a name="upgrade-to-a-general-purpose-v2-storage-account"></a>Atualizar para uma conta de armazenamento para fins gerais v2
 
@@ -21,7 +21,7 @@ Contas de armazenamento para fins gerais v2 de suportar as funcionalidades de ar
 Atualizar para uma conta de armazenamento para fins gerais v2 de sua para fins gerais v1 ou contas de armazenamento de BLOBs é simples. Pode atualizar com o portal do Azure, PowerShell ou da CLI do Azure.
 
 > [!IMPORTANT]
-> Atualizar uma conta de armazenamento v1 para fins gerais v2 é permanente e não pode ser anulada.
+> Atualizar uma para fins gerais v1 ou a conta de armazenamento do Blob storage para fins gerais v2 é permanente e não pode ser anulada.
 
 ## <a name="upgrade-using-the-azure-portal"></a>Atualizar com o portal do Azure
 
@@ -31,6 +31,8 @@ Atualizar para uma conta de armazenamento para fins gerais v2 de sua para fins g
 4. Em **Tipo de conta**, clique em **Atualizar**.
 5. Em **Confirmar atualização**, introduza o nome da sua conta.
 6. Clique em **atualizar** na parte inferior do painel.
+
+    ![Atualizar o tipo de conta](../blobs/media/storage-blob-account-upgrade/upgrade-to-gpv2-account.png)
 
 ## <a name="upgrade-with-powershell"></a>Atualizar com o PowerShell
 
@@ -116,7 +118,7 @@ Com esta opção ativada, os dados de capacidade são registados diariamente par
 Para monitorizar os padrões de acesso a dados do Armazenamento de blobs, tem de ativar as métricas de transação horária a partir da API. Com as métricas de transação horária ativadas, as transações por API são agregadas ao fim de cada hora e registadas como uma entrada que é escrita na tabela *$MetricsHourPrimaryTransactionsBlob* dentro da mesma conta de armazenamento. A tabela *$MetricsHourSecondaryTransactionsBlob* regista as transações para o ponto final secundário quando são utilizadas contas de armazenamento RA-GRS.
 
 > [!NOTE]
-> Se tiver uma conta de armazenamento de fins gerais na qual armazenou blobs de páginas e discos de máquinas virtuais ou filas, ficheiros ou tabelas, juntamente com dados de blobs de blocos e de acréscimo, este processo de estimativa não é aplicável. Os dados de capacidade não distinguem os blobs de blocos dos outros tipos e não disponibilizam dados de capacidade para outros tipos de dados. Se utilizar estes tipos, uma metodologia alternativa é ver as quantidades na sua fatura mais recente.
+> Se tiver uma conta de armazenamento para fins gerais em que tem armazenados blobs de páginas e discos de máquinas virtuais ou filas, ficheiros ou tabelas, juntamente com o bloco e de dados de BLOBs de acréscimo, este processo de estimativa não é aplicável. Os dados de capacidade não distinguem os blobs de blocos dos outros tipos e não disponibilizam dados de capacidade para outros tipos de dados. Se utilizar estes tipos, uma metodologia alternativa é ver as quantidades na sua fatura mais recente.
 
 Para obter uma boa aproximação do seu consumo de dados e padrão de acesso, recomendamos que escolha um período de retenção para as métricas que seja representativo da sua utilização normal e o utilize para tirar conclusões. Uma opção é manter os dados das métricas durante sete dias e recolher os dados todas as semanas, para análise no fim do mês. Outra opção é manter os dados das métricas para os últimos 30 dias e recolher e analisar os dados no final desse período de 30 dias.
 

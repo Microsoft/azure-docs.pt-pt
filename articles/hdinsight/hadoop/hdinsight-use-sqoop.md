@@ -9,12 +9,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/16/2018
-ms.openlocfilehash: 12868d2b8c4607e4582f9180d0428d3179fb00ee
-ms.sourcegitcommit: 223604d8b6ef20a8c115ff877981ce22ada6155a
+ms.openlocfilehash: 9351ffabd1a263de1ff262fe5f6fef48be518836
+ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58361239"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58446194"
 ---
 # <a name="use-apache-sqoop-with-hadoop-in-hdinsight"></a>Utilizar o Apache Sqoop com o Hadoop no HDInsight
 [!INCLUDE [sqoop-selector](../../../includes/hdinsight-selector-use-sqoop.md)]
@@ -630,7 +630,7 @@ Get-AzHDInsightJobOutput `
 [hdinsight-provision]: ../hdinsight-hadoop-provision-linux-clusters.md
 [hdinsight-get-started]:apache-hadoop-linux-tutorial-get-started.md
 [hdinsight-storage]: ../hdinsight-hadoop-use-blob-storage.md
-[hdinsight-use-oozie]: hdinsight-use-oozie.md
+[hdinsight-use-oozie]: hdinsight-use-oozie-linux-mac.md
 [hdinsight-upload-data]: ../hdinsight-upload-data.md
 [hdinsight-submit-jobs]:submit-apache-hadoop-jobs-programmatically.md
 

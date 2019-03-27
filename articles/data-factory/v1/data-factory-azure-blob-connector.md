@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 01/05/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: ea4cf03b368cebbfc7d1229be28014b54f2c11d0
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 9bb9954e8463617694efe2997d886a2ba4390ccb
+ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58004311"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58500292"
 ---
 # <a name="copy-data-to-or-from-azure-blob-storage-using-azure-data-factory"></a>Copiar dados de ou para armazenamento de Blobs do Azure com o Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -33,6 +33,8 @@ Este artigo explica como utilizar a atividade de cópia no Azure Data Factory pa
 
 ## <a name="overview"></a>Descrição geral
 Pode copiar dados de qualquer arquivo de dados de origem suportada para o armazenamento de Blobs do Azure ou do armazenamento de Blobs do Azure para qualquer arquivo de dados de sink suportados. A tabela seguinte fornece uma lista dos arquivos de dados suportados como origens ou coletores da atividade de cópia. Por exemplo, pode mover dados **partir** uma base de dados do SQL Server ou uma base de dados SQL do Azure **para** um armazenamento de Blobs do Azure. E, pode copiar dados **partir** armazenamento de Blobs do Azure **para** um Azure SQL Data Warehouse ou de uma coleção do Azure Cosmos DB.
+
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 ## <a name="supported-scenarios"></a>Cenários suportados
 Pode copiar dados **do armazenamento de Blobs do Azure** para os seguintes dados armazena:
@@ -84,7 +86,7 @@ O **typeProperties** secção é diferente para cada tipo de conjunto de dados e
 | --- | --- | --- |
 | folderPath |Caminho para o contentor e a pasta no armazenamento de Blobs. Exemplo: myblobcontainer\myblobfolder\ |Sim |
 | fileName |Nome do blob. nome de ficheiro é opcional e diferencia maiúsculas de minúsculas.<br/><br/>Se especificar um nome de ficheiro, a atividade (incluindo cópia) funciona no Blob específico.<br/><br/>Quando o nome de ficheiro não for especificada, a cópia inclui todos os Blobs no folderPath para conjunto de dados de entrada.<br/><br/>Quando **fileName** não está especificado para um conjunto de dados de saída e **preserveHierarchy** não está especificado no sink de atividade, o nome do ficheiro gerado seria a seguir este formato: Dados. <Guid>. txt (por exemplo:: Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt |Não |
-| partitionedBy |partitionedBy propriedade é opcional. Pode usá-lo para especificar um folderPath dinâmico e o nome do ficheiro de dados de séries de tempo. Por exemplo, pode ser parametrizado folderPath por cada hora de dados. Consulte a [usando a seção de propriedade partitionedBy](#using-partitionedBy-property) para obter detalhes e exemplos. |Não |
+| partitionedBy |partitionedBy propriedade é opcional. Pode usá-lo para especificar um folderPath dinâmico e o nome do ficheiro de dados de séries de tempo. Por exemplo, pode ser parametrizado folderPath por cada hora de dados. Consulte a [usando a seção de propriedade partitionedBy](#using-partitionedby-property) para obter detalhes e exemplos. |Não |
 | Formato | São suportados os seguintes tipos de formato: **TextFormat**, **JsonFormat**, **AvroFormat**, **OrcFormat**, **ParquetFormat**. Definir o **tipo** propriedade em formato para um dos seguintes valores. Para obter mais informações, consulte [formato de texto](data-factory-supported-file-and-compression-formats.md#text-format), [formato Json](data-factory-supported-file-and-compression-formats.md#json-format), [formato Avro](data-factory-supported-file-and-compression-formats.md#avro-format), [formato Orc](data-factory-supported-file-and-compression-formats.md#orc-format), e [formato Parquet](data-factory-supported-file-and-compression-formats.md#parquet-format) secções. <br><br> Se quiser **copiar ficheiros como-é** entre arquivos baseados em ficheiros (binário cópia), ignore a secção de formato em ambas as definições do conjunto de dados de entrada e saída. |Não |
 | Compressão | Especifica o tipo e o nível de compressão dos dados. Tipos suportados são: **GZip**, **Deflate**, **BZip2**, e **ZipDeflate**. Níveis suportados são: **Ideal** e **mais rápida**. Para obter mais informações, consulte [formatos de ficheiro e a compactação no Azure Data Factory](data-factory-supported-file-and-compression-formats.md#compression-support). |Não |
 

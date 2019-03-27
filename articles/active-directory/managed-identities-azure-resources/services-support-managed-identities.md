@@ -2,20 +2,20 @@
 title: Serviços do Azure que o suporte de identidades geridas para recursos do Azure
 description: Lista de serviços que oferecem suporte a identidades geridas para recursos do Azure e a autenticação do Azure AD
 services: active-directory
-author: priyamohanram
+author: MarkusVi
 ms.author: priyamo
 ms.date: 11/28/2018
 ms.topic: conceptual
 ms.service: active-directory
 ms.subservice: msi
-manager: daveba
+manager: markvi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1f6c511c605a98a696fb542638e86e63f0226150
-ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
+ms.openlocfilehash: 8cd0612f865b82537e914ce6b6e062038a570c98
+ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58340259"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58449117"
 ---
 # <a name="services-that-support-managed-identities-for-azure-resources"></a>Serviços que suportam identidades geridas para recursos do Azure
 

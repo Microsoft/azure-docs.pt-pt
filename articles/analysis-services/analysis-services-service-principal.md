@@ -8,14 +8,14 @@ ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: d87fe608b92dd70cb2dee78c817e0055445b7c70
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: ee4a78148c36c7838edcc36f8f76ad612ac87ab0
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56732530"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58487962"
 ---
-# <a name="automation-with-service-principals"></a>Automação com principais de serviço
+# <a name="automation-with-service-principals"></a>Automatização com principais de serviço
 
 Os principais de serviço são um recurso de aplicações do Azure Active Directory que pode criar no seu inquilino para efetuar operações automáticas de recursos e níveis de serviço. Eles são um tipo exclusivo de *identidade do usuário* com um ID de aplicação e a palavra-passe ou o certificado. Um principal de serviço tem apenas essas permissões necessárias para efetuar tarefas definidas para as funções e permissões para o qual está atribuída. 
 
@@ -51,7 +51,7 @@ Quando utilizar um principal de serviço para operações de gestão de recursos
 
 No exemplo seguinte, a appID e uma palavra-passe são utilizados para efetuar uma operação de atualização de base de dados do modelo:
 
-```PowerShell
+```powershell
 Param (
 
         [Parameter(Mandatory=$true)] [String] $AppId,

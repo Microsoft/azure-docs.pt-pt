@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 03/12/2019
 ms.author: magoedte
-ms.openlocfilehash: f9df65d143fbb0eaf6276a0f38971e19c0741786
-ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
+ms.openlocfilehash: c7031e54c354392379fee83dbf2a777ba726c5e7
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58370963"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58480062"
 ---
 # <a name="connect-windows-computers-to-azure-monitor"></a>Ligar computadores Windows para o Azure Monitor
 
@@ -138,7 +138,7 @@ Para obter o código de produto a partir do pacote de instalação do agente dir
 2.  Criar recursos de variável da automatização do Azure para *OPSINSIGHTS_WS_ID* e *OPSINSIGHTS_WS_KEY*. Definir *OPSINSIGHTS_WS_ID* para o seu ID de área de trabalho do Log Analytics e o conjunto *OPSINSIGHTS_WS_KEY* para a chave primária da sua área de trabalho.
 3.  Copie o script e guarde-o como MMAgent.ps1.
 
-    ```PowerShell
+    ```powershell
     Configuration MMAgent
     {
         $OIPackageLocalPath = "C:\Deploy\MMASetup-AMD64.exe"

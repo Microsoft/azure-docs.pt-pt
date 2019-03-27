@@ -1,20 +1,20 @@
 ---
 title: Criar uma conta dos serviços cognitivos no portal do Azure
 titlesuffix: Azure Cognitive Services
-description: Como criar uma conta de APIs serviços cognitivos da Microsoft no portal do Azure.
+description: Como criar uma conta de APIs serviços cognitivos do Azure no portal do Azure.
 services: cognitive-services
 author: garyericson
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: conceptual
-ms.date: 02/01/2018
+ms.date: 03/22/2019
 ms.author: garye
-ms.openlocfilehash: 21e1eb00f688f2e7061e876cc4375d6d780838fc
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 7df429aa848c6f9fb9abe09fbf4357db20fcde6a
+ms.sourcegitcommit: fbfe56f6069cba027b749076926317b254df65e5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57534808"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58472859"
 ---
 # <a name="quickstart-create-a-cognitive-services-account-in-the-azure-portal"></a>Início rápido: Criar uma conta dos serviços cognitivos no portal do Azure
 
@@ -29,7 +29,7 @@ Neste início rápido, aprenderá a inscrever-se os serviços cognitivos do Azur
 Antes de começar, é importante saber que existem dois tipos de subscrições de serviços cognitivos do Azure. A primeira é uma subscrição para um único serviço, como a visão do computador ou dos serviços de voz. Uma subscrição de serviço único é restrita a esse recurso. O segundo é uma assinatura múltiplos serviço para os serviços cognitivos do Azure. Esta subscrição permite-lhe utilizar uma única subscrição para a maioria dos serviços cognitivos do Azure. Esta opção também consolida a faturação. Ver [preços dos serviços cognitivos](https://azure.microsoft.com/pricing/details/cognitive-services/) para obter informações adicionais.
 
 >[!WARNING]
-> Neste momento, estes serviços **não** chaves múltiplos serviços de suporte: A ferramenta QnA Maker, serviços de voz e visão personalizada.
+> Neste momento, estes serviços **não** chaves múltiplos serviços de suporte: A ferramenta QnA Maker, serviços de voz, visão personalizada e detetor de anomalias.
 
 As secções seguintes explicam como criar uma subscrição única ou múltiplos serviço.
 

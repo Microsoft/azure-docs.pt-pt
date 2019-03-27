@@ -9,15 +9,15 @@ ms.devlang: ''
 ms.topic: conceptual
 author: allenwux
 ms.author: xiwu
-ms.reviewer: douglasl
+ms.reviewer: carlrab
 manager: craigg
 ms.date: 12/20/2018
-ms.openlocfilehash: 1417907bf9472137677a090906fa173c3d1ea571
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 6e94aac47ce5b45e700e2413d2e86d5f36596348
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57539297"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58482441"
 ---
 # <a name="monitor-sql-data-sync-with-azure-monitor-logs"></a>Monitorizar a sincronização de dados SQL com os registos do Azure Monitor 
 

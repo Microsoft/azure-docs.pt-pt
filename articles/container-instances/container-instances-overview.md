@@ -9,12 +9,12 @@ ms.topic: overview
 ms.date: 11/30/2018
 ms.author: danlep
 ms.custom: seodec18, mvc
-ms.openlocfilehash: 8362ae5e9647c023ff950a363f9ba7bfde37fdb6
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 91cf0986241a40c48430d8305849c12864d645fb
+ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57863326"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58499561"
 ---
 # <a name="what-is-azure-container-instances"></a>O que é o Azure Container Instances?
 
@@ -52,10 +52,11 @@ Algumas funcionalidades estão atualmente restritas para contentores do Linux:
 
 * Vários contentores por grupo de contentores
 * Montagem de volume ([ficheiros do Azure](container-instances-volume-azure-files.md), [emptyDir](container-instances-volume-emptydir.md), [GitRepo](container-instances-volume-gitrepo.md), [segredo](container-instances-volume-secret.md))
+* [Métricas de utilização de recursos](container-instances-monitor.md) com o Azure Monitor
 * [Implementação da rede virtual](container-instances-vnet.md) (pré-visualização)
 * [Recursos GPU](container-instances-gpu.md) (pré-visualização)
 
-O Azure Container Instances suporta imagens do Windows Server 2016 com base em versões de canal de manutenção de longo prazo (LTSC). As versões do Canal Semianual (SAC) do Windows, como 1709 e 1803, não são suportadas.
+Atualmente, o Azure Container Instances suporta imagens do Windows Server 2016 com base em versões de canal de manutenção de longo prazo (LTSC). As versões do Canal Semianual (SAC) do Windows, como 1709 e 1803, não são suportadas.
 
 ## <a name="co-scheduled-groups"></a>Grupos agendados conjuntamente
 

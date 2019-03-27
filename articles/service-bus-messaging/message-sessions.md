@@ -13,19 +13,19 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2019
 ms.author: aschhab
-ms.openlocfilehash: b45b59775abd2db7cea9d0fa9b0cc23f7ce31277
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
+ms.openlocfilehash: d6c46d6ebfa8ae44c9bfac4929d3478f6701758a
+ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54848840"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58497844"
 ---
 # <a name="message-sessions-first-in-first-out-fifo"></a>Sessões de mensagens: primeiro, primeiro out (FIFO) 
 
 Sessões do Microsoft Azure Service Bus permitem a manipulação de conjunta e ordenada de sequências não vinculadas de mensagens relacionadas. Para obter uma garantia de FIFO no Service Bus, utilize sessões. Barramento de serviço não é prescritivo sobre a natureza da relação entre as mensagens e também não define um modelo específico para determinar em que uma sequência de mensagem inicia ou termina.
 
 > [!NOTE]
-> O escalão básico do Service Bus não suporta a sessões. Os escalões standard e premium suportam sessões. Para obter mais informações, consulte [preços do Service Bus](service-bus-pricing-billing.md).
+> O escalão básico do Service Bus não suporta a sessões. Os escalões standard e premium suportam sessões. Para obter mais informações, consulte [preços do Service Bus](https://azure.microsoft.com/pricing/details/service-bus/).
 
 Qualquer remetente pode criar uma sessão quando enviar mensagens para um tópico ou fila definindo a [SessionId](/dotnet/api/microsoft.azure.servicebus.message.sessionid#Microsoft_Azure_ServiceBus_Message_SessionId) propriedade para algum identificador definida pelo aplicativo que seja exclusivo para a sessão. Ao nível do protocolo AMQP 1.0, este valor é mapeado para o *id de grupo* propriedade.
 

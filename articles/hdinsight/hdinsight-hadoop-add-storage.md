@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 04/23/2018
 ms.author: hrasheed
-ms.openlocfilehash: 5f46e7846a5b0cd9479f19d475d4604f37bead4f
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 833198f3b5dd07988bcb5fc85f815ae2c12f1197
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58168746"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58481931"
 ---
 # <a name="add-additional-storage-accounts-to-hdinsight"></a>Adicionar mais contas de armazenamento ao HDInsight
 
@@ -76,7 +76,7 @@ As informações de armazenamento não são apresentadas uma vez que o script ap
 
 Para ver informações de conta de armazenamento adicionadas ao cluster com este script, utilize a API de REST do Ambari. Utilize os seguintes comandos para obter estas informações para o seu cluster:
 
-```PowerShell
+```powershell
 $creds = Get-Credential -UserName "admin" -Message "Enter the cluster login credentials"
 $resp = Invoke-WebRequest -Uri "https://$clusterName.azurehdinsight.net/api/v1/clusters/$clusterName/configurations/service_config_versions?service_name=HDFS&service_config_version=1" `
     -Credential $creds

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/01/2017
 ms.author: TomSh
-ms.openlocfilehash: 76944d98d6a5fe7c3f83ce12bb2fdf1a34d5e234
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: c904d8306c145bad57ca7d77b139a2ad6d216b0b
+ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57839105"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58500258"
 ---
 # <a name="azure-security-technical-capabilities"></a>Capacidades técnicas de segurança do Azure
 
@@ -274,7 +274,7 @@ Pode saber mais sobre a opção de VPN do Azure ao ler o artigo [planear e conce
 
 [O Azure RMS](https://technet.microsoft.com/library/jj585026.aspx) utiliza políticas de encriptação, identidade e autorização para ajudar a proteger os ficheiros e e-mail. O Azure RMS funciona em vários dispositivos — telemóveis, tablets e PCs ao proteger tanto dentro da sua organização e fora da sua organização. Esta capacidade é possível porque o Azure RMS adiciona um nível de proteção permanece com os dados, mesmo quando sai dos limites da organização.
 
-Ao utilizar o Azure RMS para proteger os seus ficheiros, vai utilizar criptografia de norma da indústria com suporte total de [FIPS 140-2](https://csrc.nist.gov/groups/STM/cmvp/standards.html). Ao tirar partido do Azure RMS para proteção de dados, tem a garantia de que a proteção permanece com o ficheiro, mesmo que seja copiado para o armazenamento que não esteja sob o controlo de TI, tal como um serviço de armazenamento na cloud. O mesmo ocorre para ficheiros partilhados por email, o ficheiro está protegido como um anexo a uma mensagem de e-mail com instruções sobre como abrir o anexo protegido.
+Ao utilizar o Azure RMS para proteger os seus ficheiros, vai utilizar criptografia de norma da indústria com suporte total de [FIPS 140-2](https://nvlpubs.nist.gov/nistpubs/FIPS/NIST.FIPS.140-2.pdf). Ao tirar partido do Azure RMS para proteção de dados, tem a garantia de que a proteção permanece com o ficheiro, mesmo que seja copiado para o armazenamento que não esteja sob o controlo de TI, tal como um serviço de armazenamento na cloud. O mesmo ocorre para ficheiros partilhados por email, o ficheiro está protegido como um anexo a uma mensagem de e-mail com instruções sobre como abrir o anexo protegido.
 Quando planear a adoção do Azure RMS, recomendamos o seguinte:
 
 - Instalar o [aplicação de partilha RMS](https://technet.microsoft.com/library/dn339006.aspx). Esta aplicação se integra com o Office aplicações através da instalação de um escritório suplemento para que os utilizadores possam facilmente proteger ficheiros diretamente.

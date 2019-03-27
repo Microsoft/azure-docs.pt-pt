@@ -1,16 +1,16 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: 0de87f1038a7e91e5d66bb579ac7087e75a8db5f
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.openlocfilehash: 7f0a0f64b0b48a76c72970b7b1b2e248df920ec7
+ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57308079"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58447066"
 documentType: LandingData
-title: Instância Gerida da Base de Dados SQL do Azure
+title: Instância gerida de base de dados SQL do Azure
 metadata:
   document_id: 36d89c48-3646-380e-34a0-ae3ac62e2641
-  title: Base de dados SQL do Azure geridos instância documentação - tutoriais, referência da API
-  meta.description: Learn how to use Azure SQL Database Managed Instance.
+  title: Documentação de instância gerida - tutoriais, referência da API
+  meta.description: Learn how to use a managed instance in Azure SQL Database.
   services: sql-database
   author: jovanpop-msft
   manager: craigg
@@ -23,14 +23,14 @@ metadata:
   ms.date: 01/03/2019
   ms.author: jovanpop
 abstract:
-  description: Instância de gerida de base de dados de SQL do Azure é totalmente gerido da base de dados motor de instância do SQL Server alojado na cloud do Azure. Esta é a melhor opção de PaaS para migrar a sua base de dados do SQL Server para a cloud. Saiba como criar e utilizar a instância gerida com os nossos inícios rápidos, tutoriais e amostras.
+  description: Uma instância gerida na base de dados do Azure SQL é totalmente gerido da base de dados motor de instância do SQL Server alojado na cloud do Azure. Esta é a melhor opção de PaaS para migrar a sua base de dados do SQL Server para a cloud. Saiba como criar e utilizar a instância gerida com os nossos inícios rápidos, tutoriais e amostras.
   aside:
     image:
       alt: 
       height: 110
       src: media/sql-database-managed-instance-index/intro.png
       width: 250
-    title: Apresentando a base de dados SQL do Azure geridos instância (5:38)
+    title: Apresentando a instância gerida na base de dados do Azure SQL (5:38)
     href: https://www.youtube.com/watch?v=W8feSZXm2Ec
     width: 250
 sections:
@@ -42,7 +42,7 @@ sections:
     items:
     - title: Descrição geral
       href: /azure/sql-database/sql-database-managed-instance
-      html: <p>Encontre mais informações sobre o serviço de instância gerida da base de dados SQL do Azure.</p>
+      html: <p>Encontre mais informações sobre a instância gerida na base de dados do Azure SQL.</p>
     - title: Área de superfície Rica
       href: /azure/sql-database/sql-database-managed-instance#sql-features-supported
       html: <p>Perto de compatibilidade de funcionalidade SQL de 100% com a versão mais recente do motor de base de dados do SQL Server.</p>
@@ -81,7 +81,8 @@ sections:
     - html: (Pré-visualização) Uso <a href="https://aka.ms/managed-instance-failover-groups">grupos de ativação pós-falha distribuída geograficamente</a> para manter uma cópia da instância noutra região e certifique-se de que os dados estarão disponíveis até mesmo no cenário de desastre regional.
     - html: (Pré-visualização) <a href="https://aka.ms/managed-instance-tde-byok">Traga as suas próprias chaves de encriptação</a> enquanto a migração no local bases de dados que já têm ativada a encriptação de dados transparente (TDE).
     - html: Instâncias geridas estão protegidas com <a href="sql-database-managed-instance-management-endpoint-verify-built-in-firewall.md">firewall interno</a>.
-    - html: (Pré-visualização) <a href="https://blogs.msdn.microsoft.com/sqlserverstorageengine/20../../recreate-dropped-database-on-azure-sql-managed-instance/">Recrie remover bases de dados</a>.
+    - html: (Pré-visualização) <a href="https://medium.com/@jocapc/re-create-dropped-databases-in-azure-sql-managed-instance-dc369ed60266">Voltar a criar remover bases de dados com o PowerShell</a>
+    - html: Funcionalidade de restauro geográfico permite-lhe <a href="https://medium.com/@jocapc/geo-restore-your-databases-on-azure-sql-instances-1451480e90fa">restaurar a base de dados para outro Datacenter com o PowerShell</a>.
 - title: Inícios rápidos de cinco minutos
   items:
   - type: paragraph
@@ -105,14 +106,14 @@ sections:
     - title: Criar uma nova instância
       values:
       - href: /azure/sql-database/sql-database-managed-instance-get-started
-      - href: https://blogs.msdn.microsoft.com/sqlserverstorageengine/20../../create-azure-sql-managed-instance-using-azure-cli/
-      - href: https://blogs.msdn.microsoft.com/sqlserverstorageengine/20../../quick-start-script-create-azure-sql-managed-instance-using-powershell/
+      - href: https://medium.com/azure-sqldb-managed-instance/working-with-sql-managed-instance-using-azure-cli-611795fe0b44
+      - href: sql-database-managed-instance-get-started
       - href: https://github.com/Azure/azure-quickstart-templates/tree/master/101-sqlmi-new-vnet
     - title: Modificar a instância
       values:
       - href: 
-      - href: https://blogs.msdn.microsoft.com/sqlserverstorageengine/20../../modify-azure-sql-database-managed-instance-using-azure-cli/
-      - href: https://blogs.msdn.microsoft.com/sqlserverstorageengine/20../../change-size-azure-sql-managed-instance-using-powershell/
+      - href: https://medium.com/azure-sqldb-managed-instance/working-with-sql-managed-instance-using-azure-cli-611795fe0b44
+      - href: /powershell/module/az.sql/set-azsqlinstance#examples
       - href: 
     - title: Configurar o ambiente de rede do Azure
       values:
@@ -123,8 +124,8 @@ sections:
     - title: Restauro para um ponto anterior no tempo
       values:
       - href: 
-      - href: https://blogs.msdn.microsoft.com/sqlserverstorageengine/20../../cross-instance-point-in-time-restore-in-azure-sql-database-managed-instance/
-      - href: https://blogs.msdn.microsoft.com/sqlserverstorageengine/20../../point-in-time-restore-of-a-database-on-azure-sql-managed-instance-using-azurerm-sql-powershell-library
+      - href: https://medium.com/azure-sqldb-managed-instance/working-with-sql-managed-instance-using-azure-cli-611795fe0b44
+      - href: /powershell/module/az.sql/restore-azsqlinstancedatabase#examples
       - href: 
     - title: Restaurar a base de dados
       values:
@@ -135,17 +136,17 @@ sections:
 - title: Tutoriais passo a passo e material de aprendizado
   items:
   - type: paragraph
-    text: Saiba como criar, gerir e utilizar a instância gerida.
+    text: Saiba como criar, gerir e utilizar instâncias geridas.
   - type: list
     style: ordered
     items:
-    - html: Saiba como rapidamente <a href="sql-database-managed-instance-quickstart-guide.md">começar com a instância gerida</a> com os nossos guias de início rápido.
-    - html: Saiba mais sobre <a href="/azure/sql-database/sql-database-managed-instance-resource-limits">características de hardware e as limitações</a>, <a href="/azure/sql-database/sql-database-managed-instance-transact-sql-information">diferenças de linguagem do Transact-SQL</a>, e <a href="/azure/sql-database/sql-database-managed-instance-create-manage">Transact-SQL, PowerShell, API de CLI do Azure para configurar a instância gerida<a/>.
+    - html: Saiba como rapidamente <a href="sql-database-managed-instance-quickstart-guide.md">introdução à instância gerida</a> com os nossos guias de início rápido.
+    - html: Saiba mais sobre <a href="/azure/sql-database/sql-database-managed-instance-resource-limits">características de hardware e as limitações</a>, <a href="/azure/sql-database/sql-database-managed-instance-transact-sql-information">diferenças de linguagem do Transact-SQL</a>, e <a href="/azure/sql-database/sql-database-managed-instance-create-manage">geridos de Transact-SQL, PowerShell, API de CLI do Azure para a configuração de instância<a/>.
     - html: <a href="https://medium.com/azure-sqldb-managed-instance/the-ultimate-guide-for-creating-and-configuring-azure-sql-managed-instance-environment-91ff58c0be01">Configurar</a> VNet do Azure onde a instância gerida vai ser implementada.
-    - html: <a href="https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-vnet-configuration#validate-and-modify-an-existing-virtual-network">Validar</a> que a VNet do Azure existente pode ser usado para implementar as instâncias geridas.
+    - html: <a href="https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-vnet-configuration#validate-and-modify-an-existing-virtual-network">Validar</a> que a VNet do Azure existente pode ser usado para implementar instâncias geridas.
     - html: Ligar ao seu com instância <a href="https://blogs.msdn.microsoft.com/sqlserverstorageengine/20../../the-easiest-way-to-create-azure-vm-that-can-access-your-azure-sql-managed-instance/">Máquina Virtual do Azure</a> ou <a href="/azure/sql-database/sql-database-managed-instance-configure-p2s">ligaçãopontoasitede</a>, ou <a href="https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-connect-app">aplicativos</a>.
     - html: Certifique-se de que a sua base de dados pode ser migrado usando <a href="https://www.microsoft.com/download/details.aspx?id=53595">Assistente de migração de dados</a> ou <a href="https://blogs.msdn.microsoft.com/datamigration/20../../release-database-experimentation-assistant-dea-v2-6/">Assistente de experimentação de base de dados</a>.
-    - html: Dê aos seus bancos de dados utilizando a instância gerida <a href="/azure/sql-database/sql-database-managed-instance-get-started-restore">restauro nativo</a> ou <a href="/azure/dms/tutorial-sql-server-managed-instance-online">Data Migration Service</a>.
+    - html: Trazer seus bancos de dados para a instância gerida utilizando <a href="/azure/sql-database/sql-database-managed-instance-get-started-restore">restauro nativo</a> ou <a href="/azure/dms/tutorial-sql-server-managed-instance-online">Data Migration Service</a>.
     - html: Mover seus pacotes do SSIS para o <a href="/azure/data-factory/tutorial-deploy-ssis-packages-azure">do Azure Data Factory</a>, modelos de tabela do SSAS para <a href="https://azure.microsoft.com/resources/videos/azure-analysis-services-moving-models/">Azure Analysis Service</a>, e relatórios do SSRS para <a href="https://docs.microsoft.com/business-applications-release-notes/april18/power-bi/service/sql-server-reporting-services-ssrs-reports-power-bi-premium">Power BI Premium</a>.
     - html: Saiba mais sobre a camada de armazenamento no <a href="https://medium.com/azure-sqldb-managed-instance/file-layout-in-general-purpose-azure-sql-managed-instance-cf21fff9c76c">escalão fins gerais</a> e aplicar <a href="https://blogs.msdn.microsoft.com/sqlcat/20../../storage-performance-best-practices-and-considerations-for-azure-sql-db-managed-instance-general-purpose">práticas recomendadas de armazenamento e considerações sobre a camada de serviços de fins gerais</a>.
     - html: Encontre as melhores práticas e recomendações para <a href="https://www.youtube.com/watch?v=vO6k05Ox1iI">proteger a sua instância</a>.

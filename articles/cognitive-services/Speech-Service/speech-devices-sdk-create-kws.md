@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: erhopf
 ms.custom: seodec18
-ms.openlocfilehash: 22d270d9bc337b9d7ad776baf5dd35f877c05eae
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: b5ace2e741f900dd4ab7ba6518d0956284af35f6
+ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55856432"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58498236"
 ---
 # <a name="create-a-custom-wake-word-by-using-the-speech-service"></a>Criar uma palavra de reativação personalizado com o serviço de voz
 
@@ -47,25 +47,21 @@ Considere as seguintes diretrizes ao escolher uma palavra de reativação:
 
 ## <a name="create-your-wake-word"></a>Criar a sua palavra de reativação
 
-Antes de poder utilizar uma palavra de reativação personalizado com o seu dispositivo, tem de criar a palavra de reativação com o serviço de geração de reativação de Word personalizado Microsoft. Depois de fornecer uma palavra de reativação, o serviço de produz um ficheiro que pode implementar em seu kit de desenvolvimento para ativar a sua palavra de reativação no seu dispositivo.
+Antes de poder utilizar uma palavra de reativação personalizado com o seu dispositivo, tem de criar a palavra de reativação com o serviço de geração de reativação de Word personalizado Microsoft. Depois de fornecer uma palavra de reativação, o serviço de produz um ficheiro que pode implementar em seu kit de desenvolvimento para permitir que a palavra de reativação no seu dispositivo.
 
-1. Vá para o [portal do serviço de voz personalizada](https://cris.ai/).
+1. Vá para o [Portal do serviço de voz personalizada](https://cris.ai/).
 
-1. Crie uma nova conta com o endereço de e-mail em que recebeu o convite para o Azure Active Directory.
+    ![O Portal de serviço de voz personalizada](media/speech-devices-sdk/wake-word-4.png)
 
-    ![Criar uma conta nova](media/speech-devices-sdk/wake-word-1.png)
+1. Inicie sessão com o endereço de e-mail que recebeu o convite para o Azure Active Directory.
 
-1. O **Word de reativação personalizado** página não está disponível ao público, portanto, não há nenhuma ligação direta que leva-o aí. A funcionalidade de voz personalizada requer um subscrições do Azure, mas não a funcionalidade do Word de reativação personalizado. Se tem o **subscrições não encontrado.** página de erro, apenas substitua a **"subscrições? errorMessage = não 20found de % de 20Subscriptions %"** com "**customkws**" no URL e pressionar ENTER. O URL deve ser um dos seguintes: https://westus.cris.ai/customkws, https://eastasia.cris.ai/customkws ou https://northeurope.cris.ai/customkws, consoante o local em que é a sua região.
-
-    ![A página do Word de reativação personalizada está oculta](media/speech-devices-sdk/wake-word-4.png)
+1. O **Word de reativação personalizado** página não está disponível ao público, portanto, não há nenhuma ligação direta que leva-o aí. A funcionalidade de voz personalizada requer uma subscrição do Azure, mas não a funcionalidade do Word de reativação personalizado. Se tem o **subscrições não encontrado.** página de erro, apenas substitua a **"subscrições? errorMessage = não 20found de % de 20Subscriptions %"** com "**customkws**" no URL e pressionar ENTER. O URL deve ser um dos seguintes: https://westus.cris.ai/customkws, https://eastasia.cris.ai/customkws ou https://northeurope.cris.ai/customkws, consoante o local em que é a sua região.
 
 1. Escreva a palavra de reativação à sua escolha e, em seguida, selecione **submeter palavra**.
 
     ![Introduza a palavra de reativação](media/speech-devices-sdk/wake-word-5.png)
 
 1. Poderá demorar alguns minutos para que os ficheiros sejam gerados. Deverá ver um círculo a girar na janela do browser. Após alguns momentos, uma barra de informações for apresentada, que lhe pede para transferir um ficheiro. zip.
-
-    ![Receber o ficheiro. zip](media/speech-devices-sdk/wake-word-6.png)
 
 1. Guarde o ficheiro. zip para o seu computador. Precisa de ter este ficheiro para implementar a palavra de reativação personalizado para o kit de desenvolvimento. Para implementar a palavra de reativação personalizado, siga as instruções em [começar com o SDK de dispositivos de voz](speech-devices-sdk-qsg.md).
 

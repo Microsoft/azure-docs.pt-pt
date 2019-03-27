@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 1/24/2019
-ms.openlocfilehash: e5e184e6dadfa993e0b758ad32b54ea6ccfcb272
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: d79b44d0123d64d6280939767e5df7b5f64a5fcb
+ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57546539"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58445958"
 ---
 # <a name="incrementally-copy-new-and-changed-files-based-on-lastmodifieddate-by-using-the-copy-data-tool"></a>Copiar ficheiros novos e alterados com base no LastModifiedDate com a ferramenta copiar dados de forma incremental
 
@@ -49,9 +49,10 @@ Prepare seu armazenamento de BLOBs para o tutorial ao efetuar estes passos.
 
 ## <a name="create-a-data-factory"></a>Criar uma fábrica de dados
 
-1. No menu da esquerda, selecione **+ Novo** > **Dados + Análise** > **Fábrica de Dados**: 
+1. No menu da esquerda, selecione **criar um recurso** > **dados + análise** > **Data Factory**: 
    
-   ![Criação de nova fábrica de dados](./media/tutorial-copy-data-tool/new-azure-data-factory-menu.png)
+   ![Seleção do Data Factory no painel "Novo"](./media/quickstart-create-data-factory-portal/new-azure-data-factory-menu.png)
+
 2. Na página **Nova fábrica de dados**, em **Nome**, introduza **ADFTutorialDataFactory**. 
       
      ![Nova fábrica de dados](./media/tutorial-copy-data-tool/new-azure-data-factory.png)

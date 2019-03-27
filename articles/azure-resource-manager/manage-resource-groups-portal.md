@@ -9,14 +9,14 @@ ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 02/11/2019
+ms.date: 03/26/2019
 ms.author: jgao
-ms.openlocfilehash: cbbc710c9408c84c601d7b9eb9560641b5313a05
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: cb1eb5ac27c53f4c0d48fe3644febc62f848486d
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58090938"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58484700"
 ---
 # <a name="manage-azure-resource-manager-resource-groups-by-using-the-azure-portal"></a>Gerir grupos de recursos do Azure Resource Manager com o portal do Azure
 
@@ -122,7 +122,7 @@ Existem duas formas de exportar um modelo:
 
 Este método exporta os modelos para determinadas implementações. Se tiver alterado os recursos a partir do portal ou adicionadas/removidas recursos em várias implementações, veja [exportar modelos de grupos de recursos](#export-templates-from-resource-groups).
 
-1. Abra o grupo de recursos que pretende eliminar.  Ver [abrir grupos de recursos](#open-resource-groups).
+1. Abra o grupo de recursos que pretende exportar.  Ver [abrir grupos de recursos](#open-resource-groups).
 2. No painel esquerdo, selecione **implementações**, ou selecione a ligação sob **implementações**.  Na captura de ecrã seguinte, mostra **bem-sucedido 4** porque havia quatro implementações separadas com quatro nomes de implementação diferentes. Poderá ver **1 com êxito**.
 
     ![modelos de exportação do grupo de recursos do Azure](./media/manage-resource-groups-portal/manage-resource-groups-export-templates-deployment-history.png)
@@ -148,8 +148,8 @@ Este método exporta os modelos para determinadas implementações. Se tiver alt
 
 Se tiver alterado os recursos do portal ou adicionar/remover recursos em várias implementações, obter um modelo a partir do histórico de implementação não reflete o estado atual do grupo de recursos. Esta secção mostra-lhe como exportar um modelo que reflita o estado atual do grupo de recursos. Destina-se como um instantâneo do grupo de recursos, que pode utilizar para Reimplementar no mesmo grupo de recursos. Para utilizar o modelo exportado para outras soluções, tem de modificá-lo significativamente.
 
-1. Abra o grupo de recursos que pretende eliminar.  Ver [abrir grupos de recursos](#open-resource-groups).
-2. No painel esquerdo, selecione **script de automação**. O Resource Manager obtém os seguintes seis ficheiros para si:
+1. Abra o grupo de recursos que pretende exportar.  Ver [abrir grupos de recursos](#open-resource-groups).
+2. No painel esquerdo, selecione **exportar modelo**. O Resource Manager obtém os seguintes seis ficheiros para si:
 
    - **Modelo** - O modelo que define a infraestrutura para a sua solução. Quando criou a conta do Storage através do portal, o Resource Manager utilizou um modelo para a implementar e guardou esse modelo para consulta futura.
    - **Parâmetros** - Um ficheiro de parâmetros que pode utilizar para transmitir valores durante a implementação. Contém os valores que indicou durante a primeira implementação. Pode alterar qualquer um destes valores quando reimplementar o modelo.

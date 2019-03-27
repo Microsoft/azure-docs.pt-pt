@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: gateway
 ms.topic: article
-ms.date: 03/20/2019
+ms.date: 03/25/2019
 ms.author: alkohli
-ms.openlocfilehash: d46d74544181a6b9cbfd049b2f5461b20b928483
-ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
+ms.openlocfilehash: 72d3455f37d0ccef0dd5b7d8882f70670de07572
+ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58401436"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58497325"
 ---
 # <a name="manage-access-power-and-connectivity-mode-for-your-azure-data-box-gateway"></a>Gerir o acesso, energia e modo de conectividade para o Gateway de caixa de dados do Azure
 

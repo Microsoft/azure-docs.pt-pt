@@ -11,13 +11,13 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
 manager: craigg
-ms.date: 03/12/2019
-ms.openlocfilehash: cb83f0c38f6860340444c15b6c5eef0b990d0ad0
-ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
+ms.date: 03/26/2019
+ms.openlocfilehash: ca53f4bfa80d6fdead24dc7d562c2240bb3fa86d
+ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58295254"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58498490"
 ---
 # <a name="creating-and-using-active-geo-replication"></a>Criar e utilizar a georreplicação ativa
 
@@ -75,8 +75,11 @@ Para alcançar a continuidade do negócio real, a adição de redundância da ba
 
   Um aplicativo pode acessar um banco de dados secundário para operações só de leitura, usando os princípios de segurança de idêntica ou diferente usados para acessar o banco de dados primário. As bases de dados secundários operam no modo de isolamento do instantâneo para garantir a replicação das atualizações dos principais (repetição do log) não é atrasada por consultas executadas no secundário.
 
-  > [!NOTE]
-  > A repetição do log está atrasada no banco de dados secundário se existem atualizações de esquema na primária. A segunda opção requer um bloqueio de esquema na base de dados secundário.
+> [!NOTE]
+> A repetição do log está atrasada no banco de dados secundário se existem atualizações de esquema na primária. A segunda opção requer um bloqueio de esquema na base de dados secundário.
+> [!IMPORTANT]
+> Pode utilizar a georreplicação para criar uma base de dados secundário na mesma região como principal. Pode utilizar esta secundária às cargas de trabalho de balanceamento de carga um só de leitura na mesma região. No entanto, uma base de dados secundário na mesma região não fornece resistência a falhas adicionais e, portanto, não é um destino de ativação pós-falha adequado para recuperação após desastre. Ele também não garantirá avaialability isolamento de zona. Utilizar crítico para a empresa ou de camada de serviço Premium com [configurações com redundância de zona](sql-database-high-availability.md#zone-redundant-configuration) para alcançar isolamento de zona avaialability.   
+>
 
 - **Ativação pós-falha planeada**
 

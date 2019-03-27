@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 12/04/2018
 ms.author: iainfou
-ms.openlocfilehash: 691decb88188a428edfeab1ea9e99c48876b6d9f
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 7476747de31819907cf144e5a6b33cb29e1f866f
+ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53110073"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58496179"
 ---
 # <a name="best-practices-for-storage-and-backups-in-azure-kubernetes-service-aks"></a>Melhores práticas para armazenamento e cópias de segurança no Azure Kubernetes Service (AKS)
 
@@ -91,9 +91,9 @@ Para obter mais informações sobre as opções de classe de armazenamento, cons
 
 ## <a name="secure-and-back-up-your-data"></a>Proteger e fazer backup dos dados
 
-**Melhores diretrizes de práticas** - cópia de segurança os dados através de uma ferramenta adequada para seu tipo de armazenamento, como Heptio Ark ou Azure Site Recovery. Certifique-se de que a integridade e segurança, essas cópias de segurança.
+**Melhores diretrizes de práticas** - cópia de segurança os dados através de uma ferramenta adequada para seu tipo de armazenamento, como Velero ou Azure Site Recovery. Certifique-se de que a integridade e segurança, essas cópias de segurança.
 
-Quando os aplicativos armazenem e utilizem os dados mantidos nos discos ou em arquivos, que precisa de efetuar cópias de segurança regulares ou instantâneos de dados. Discos do Azure podem utilizar tecnologias de instantâneo incorporado. Se pretender um gancho para as suas aplicações descarregar escreve no disco antes de efetuar a operação de instantâneo. [Heptio Ark] [ heptio-ark] pode fazer backup de volumes persistentes, juntamente com os recursos do cluster adicional e configurações. Se não for possível [remover o estado de seus aplicativos][remove-state], fazer backup dos dados dos volumes persistentes e testar regularmente as operações de restauro para verificar a integridade dos dados e os processos necessários.
+Quando os aplicativos armazenem e utilizem os dados mantidos nos discos ou em arquivos, que precisa de efetuar cópias de segurança regulares ou instantâneos de dados. Discos do Azure podem utilizar tecnologias de instantâneo incorporado. Se pretender um gancho para as suas aplicações descarregar escreve no disco antes de efetuar a operação de instantâneo. [Velero] [ velero] pode fazer backup de volumes persistentes, juntamente com os recursos do cluster adicional e configurações. Se não for possível [remover o estado de seus aplicativos][remove-state], fazer backup dos dados dos volumes persistentes e testar regularmente as operações de restauro para verificar a integridade dos dados e os processos necessários.
 
 Compreenda as limitações das abordagens diferentes para cópias de segurança de dados e se precisa silenciar dos dados antes de instantâneo. Cópias de segurança de dados não necessariamente lhe permite restaurar o ambiente de aplicação de implementação de cluster. Para obter mais informações sobre esses cenários, consulte [melhores práticas para a recuperação de desastre e continuidade de negócio no AKS][best-practices-multi-region].
 
@@ -102,7 +102,7 @@ Compreenda as limitações das abordagens diferentes para cópias de segurança 
 Este artigo concentra-se no armazenamento de melhores práticas no AKS. Para obter mais informações sobre noções básicas do armazenamento no Kubernetes, consulte [conceitos de armazenamento para aplicações no AKS][aks-concepts-storage].
 
 <!-- LINKS - External -->
-[heptio-ark]: https://github.com/heptio/ark
+[velero]: https://github.com/heptio/velero
 [dysk]: https://github.com/Azure/kubernetes-volume-drivers/tree/master/flexvolume/dysk
 [blobfuse]: https://github.com/Azure/azure-storage-fuse
 

@@ -14,12 +14,12 @@ ms.workload: infrastructure
 ms.date: 07/06/2018
 ms.author: saghorpa
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 4e8253238bf5edb5e0ea3f89fe67d6aa39f4a2d7
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
+ms.openlocfilehash: 501c5ffa86f2360e44c187e087f7285bbf4084fd
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54855460"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58482968"
 ---
 # <a name="supported-scenarios-for-hana-large-instances"></a>Cenários suportados de instâncias grandes do HANA
 Este documento descreve os cenários suportados, juntamente com os detalhes de arquitetura para instâncias grandes HANA (HLI).
@@ -68,10 +68,10 @@ Cada servidor aprovisionado vem pré-configurado com os conjuntos de ethernet in
 | B | TIPO I | eth2.tenant | eno3.tenant | Nó para nó |
 | C | TIPO I | eth1.tenant | eno2.tenant | Nó de armazenamento |
 | D | TIPO I | eth4.tenant | eno4.tenant | STONITH |
-| A | TIPO II | vlan<tenantNo> | team0.tenant | Cliente para HLI |
-| B | TIPO II | VLAN < tenantNo + 2 > | team0.tenant+2 | Nó para nó |
-| C | TIPO II | VLAN < tenantNo + 1 > | team0.tenant+1 | Nó de armazenamento |
-| D | TIPO II | VLAN < tenantNo + 3 > | team0.tenant+3 | STONITH |
+| A | TIPO II | vlan\<tenantNo> | team0.tenant | Cliente para HLI |
+| B | TIPO II | VLAN\<tenantNo + 2 > | team0.tenant+2 | Nó para nó |
+| C | TIPO II | VLAN\<tenantNo + 1 > | team0.tenant+1 | Nó de armazenamento |
+| D | TIPO II | VLAN\<tenantNo + 3 > | team0.tenant+3 | STONITH |
 
 Utilize as interfaces com base na topologia configurada na unidade HLI. Por exemplo, a interface "B" está definida para a comunicação de nó para nó, o que é útil se tiver uma topologia de escalamento horizontal configurada. No caso de configuração de ampliação de nó único, essa interface não é utilizada. Reveja o seu necessários cenários (posteriormente neste documento) para obter mais informações sobre a utilização de interface. 
 
@@ -101,7 +101,7 @@ Para casos de implementação de HANA System Replication ou Escalamento do HANA,
 Armazenamento é pré-configurado com base na topologia do pedido. Os tamanhos de volume e o ponto de montagem variam consoante o número de servidores, SKUs e topologia configurada. Reveja o seu necessários cenários (posteriormente neste documento) para obter mais informações. Se o armazenamento mais for necessário, pode adquiri-la num incremento de TB.
 
 >[!NOTE]
->O ponto de montagem/usr/sap/<SID> é um link simbólico para o ponto de montagem/hana/partilhado.
+>O ponto de montagem/usr/sap/\<SID > é um link simbólico para o ponto de montagem/hana/partilhado.
 
 
 ## <a name="supported-scenarios"></a>Cenários suportados
@@ -142,10 +142,10 @@ As seguintes interfaces de rede estão pré-configuradas:
 | B | TIPO I | eth2.tenant | eno3.tenant | Configurado, mas não em utilização |
 | C | TIPO I | eth1.tenant | eno2.tenant | Nó de armazenamento |
 | D | TIPO I | eth4.tenant | eno4.tenant | Configurado, mas não em utilização |
-| A | TIPO II | vlan<tenantNo> | team0.tenant | Cliente para HLI |
-| B | TIPO II | VLAN < tenantNo + 2 > | team0.tenant+2 | Configurado, mas não em utilização |
-| C | TIPO II | VLAN < tenantNo + 1 > | team0.tenant+1 | Nó de armazenamento |
-| D | TIPO II | VLAN < tenantNo + 3 > | team0.tenant+3 | Configurado, mas não em utilização |
+| A | TIPO II | vlan\<tenantNo> | team0.tenant | Cliente para HLI |
+| B | TIPO II | VLAN\<tenantNo + 2 > | team0.tenant+2 | Configurado, mas não em utilização |
+| C | TIPO II | VLAN\<tenantNo + 1 > | team0.tenant+1 | Nó de armazenamento |
+| D | TIPO II | VLAN\<tenantNo + 3 > | team0.tenant+3 | Configurado, mas não em utilização |
 
 ### <a name="storage"></a>Armazenamento
 As seguintes mountpoints estão pré-configuradas:
@@ -177,10 +177,10 @@ As seguintes interfaces de rede estão pré-configuradas:
 | B | TIPO I | eth2.tenant | eno3.tenant | Configurado, mas não em utilização |
 | C | TIPO I | eth1.tenant | eno2.tenant | Nó de armazenamento |
 | D | TIPO I | eth4.tenant | eno4.tenant | Configurado, mas não em utilização |
-| A | TIPO II | vlan<tenantNo> | team0.tenant | Cliente para HLI |
-| B | TIPO II | VLAN < tenantNo + 2 > | team0.tenant+2 | Configurado, mas não em utilização |
-| C | TIPO II | VLAN < tenantNo + 1 > | team0.tenant+1 | Nó de armazenamento |
-| D | TIPO II | VLAN < tenantNo + 3 > | team0.tenant+3 | Configurado, mas não em utilização |
+| A | TIPO II | vlan\<tenantNo> | team0.tenant | Cliente para HLI |
+| B | TIPO II | VLAN\<tenantNo + 2 > | team0.tenant+2 | Configurado, mas não em utilização |
+| C | TIPO II | VLAN\<tenantNo + 1 > | team0.tenant+1 | Nó de armazenamento |
+| D | TIPO II | VLAN\<tenantNo + 3 > | team0.tenant+3 | Configurado, mas não em utilização |
 
 ### <a name="storage"></a>Armazenamento
 As seguintes mountpoints estão pré-configuradas:
@@ -217,10 +217,10 @@ As seguintes interfaces de rede estão pré-configuradas:
 | B | TIPO I | eth2.tenant | eno3.tenant | Configurado, mas não em utilização |
 | C | TIPO I | eth1.tenant | eno2.tenant | Nó de armazenamento |
 | D | TIPO I | eth4.tenant | eno4.tenant | Configurado, mas não em utilização |
-| A | TIPO II | vlan<tenantNo> | team0.tenant | Cliente para HLI |
-| B | TIPO II | VLAN < tenantNo + 2 > | team0.tenant+2 | Configurado, mas não em utilização |
-| C | TIPO II | VLAN < tenantNo + 1 > | team0.tenant+1 | Nó de armazenamento |
-| D | TIPO II | VLAN < tenantNo + 3 > | team0.tenant+3 | Configurado, mas não em utilização |
+| A | TIPO II | vlan\<tenantNo> | team0.tenant | Cliente para HLI |
+| B | TIPO II | VLAN\<tenantNo + 2 > | team0.tenant+2 | Configurado, mas não em utilização |
+| C | TIPO II | VLAN\<tenantNo + 1 > | team0.tenant+1 | Nó de armazenamento |
+| D | TIPO II | VLAN\<tenantNo + 3 > | team0.tenant+3 | Configurado, mas não em utilização |
 
 ### <a name="storage"></a>Armazenamento
 As seguintes mountpoints estão pré-configuradas:
@@ -258,10 +258,10 @@ As seguintes interfaces de rede estão pré-configuradas:
 | B | TIPO I | eth2.tenant | eno3.tenant | Configurado, mas não em utilização |
 | C | TIPO I | eth1.tenant | eno2.tenant | Nó de armazenamento |
 | D | TIPO I | eth4.tenant | eno4.tenant | Configurado, mas não em utilização |
-| A | TIPO II | vlan<tenantNo> | team0.tenant | Cliente para HLI |
-| B | TIPO II | VLAN < tenantNo + 2 > | team0.tenant+2 | Configurado, mas não em utilização |
-| C | TIPO II | VLAN < tenantNo + 1 > | team0.tenant+1 | Nó de armazenamento |
-| D | TIPO II | VLAN < tenantNo + 3 > | team0.tenant+3 | Configurado, mas não em utilização |
+| A | TIPO II | vlan\<tenantNo> | team0.tenant | Cliente para HLI |
+| B | TIPO II | VLAN\<tenantNo + 2 > | team0.tenant+2 | Configurado, mas não em utilização |
+| C | TIPO II | VLAN\<tenantNo + 1 > | team0.tenant+1 | Nó de armazenamento |
+| D | TIPO II | VLAN\<tenantNo + 3 > | team0.tenant+3 | Configurado, mas não em utilização |
 
 ### <a name="storage"></a>Armazenamento
 As seguintes mountpoints estão pré-configuradas:
@@ -312,10 +312,10 @@ As seguintes interfaces de rede estão pré-configuradas:
 | B | TIPO I | eth2.tenant | eno3.tenant | Configurado, mas não em utilização |
 | C | TIPO I | eth1.tenant | eno2.tenant | Nó de armazenamento |
 | D | TIPO I | eth4.tenant | eno4.tenant | Utilizado para STONITH |
-| A | TIPO II | vlan<tenantNo> | team0.tenant | Cliente para HLI |
-| B | TIPO II | VLAN < tenantNo + 2 > | team0.tenant+2 | Configurado, mas não em utilização |
-| C | TIPO II | VLAN < tenantNo + 1 > | team0.tenant+1 | Nó de armazenamento |
-| D | TIPO II | VLAN < tenantNo + 3 > | team0.tenant+3 | Utilizado para STONITH |
+| A | TIPO II | vlan\<tenantNo> | team0.tenant | Cliente para HLI |
+| B | TIPO II | VLAN\<tenantNo + 2 > | team0.tenant+2 | Configurado, mas não em utilização |
+| C | TIPO II | VLAN\<tenantNo + 1 > | team0.tenant+1 | Nó de armazenamento |
+| D | TIPO II | VLAN\<tenantNo + 3 > | team0.tenant+3 | Utilizado para STONITH |
 
 ### <a name="storage"></a>Armazenamento
 As seguintes mountpoints estão pré-configuradas:
@@ -360,10 +360,10 @@ As seguintes interfaces de rede estão pré-configuradas:
 | B | TIPO I | eth2.tenant | eno3.tenant | Configurado, mas não em utilização |
 | C | TIPO I | eth1.tenant | eno2.tenant | Nó de armazenamento |
 | D | TIPO I | eth4.tenant | eno4.tenant | Utilizado para STONITH |
-| A | TIPO II | vlan<tenantNo> | team0.tenant | Cliente para HLI |
-| B | TIPO II | VLAN < tenantNo + 2 > | team0.tenant+2 | Configurado, mas não em utilização |
-| C | TIPO II | VLAN < tenantNo + 1 > | team0.tenant+1 | Nó de armazenamento |
-| D | TIPO II | VLAN < tenantNo + 3 > | team0.tenant+3 | Utilizado para STONITH |
+| A | TIPO II | vlan\<tenantNo> | team0.tenant | Cliente para HLI |
+| B | TIPO II | VLAN\<tenantNo + 2 > | team0.tenant+2 | Configurado, mas não em utilização |
+| C | TIPO II | VLAN\<tenantNo + 1 > | team0.tenant+1 | Nó de armazenamento |
+| D | TIPO II | VLAN\<tenantNo + 3 > | team0.tenant+3 | Utilizado para STONITH |
 
 ### <a name="storage"></a>Armazenamento
 As seguintes mountpoints estão pré-configuradas:
@@ -419,10 +419,10 @@ As seguintes interfaces de rede estão pré-configuradas:
 | B | TIPO I | eth2.tenant | eno3.tenant | Nó para comunicação de nó |
 | C | TIPO I | eth1.tenant | eno2.tenant | Nó de armazenamento |
 | D | TIPO I | eth4.tenant | eno4.tenant | Configurado, mas não em utilização |
-| A | TIPO II | vlan<tenantNo> | team0.tenant | Cliente para HLI |
-| B | TIPO II | VLAN < tenantNo + 2 > | team0.tenant+2 | Nó para comunicação de nó |
-| C | TIPO II | VLAN < tenantNo + 1 > | team0.tenant+1 | Nó de armazenamento |
-| D | TIPO II | VLAN < tenantNo + 3 > | team0.tenant+3 | Configurado, mas não em utilização |
+| A | TIPO II | vlan\<tenantNo> | team0.tenant | Cliente para HLI |
+| B | TIPO II | VLAN\<tenantNo + 2 > | team0.tenant+2 | Nó para comunicação de nó |
+| C | TIPO II | VLAN\<tenantNo + 1 > | team0.tenant+1 | Nó de armazenamento |
+| D | TIPO II | VLAN\<tenantNo + 3 > | team0.tenant+3 | Configurado, mas não em utilização |
 
 ### <a name="storage"></a>Armazenamento
 As seguintes mountpoints estão pré-configuradas:
@@ -460,10 +460,10 @@ As seguintes interfaces de rede estão pré-configuradas:
 | B | TIPO I | eth2.tenant | eno3.tenant | Nó para comunicação de nó |
 | C | TIPO I | eth1.tenant | eno2.tenant | Nó de armazenamento |
 | D | TIPO I | eth4.tenant | eno4.tenant | Configurado, mas não em utilização |
-| A | TIPO II | vlan<tenantNo> | team0.tenant | Cliente para HLI |
-| B | TIPO II | VLAN < tenantNo + 2 > | team0.tenant+2 | Nó para comunicação de nó |
-| C | TIPO II | VLAN < tenantNo + 1 > | team0.tenant+1 | Nó de armazenamento |
-| D | TIPO II | VLAN < tenantNo + 3 > | team0.tenant+3 | Configurado, mas não em utilização |
+| A | TIPO II | vlan\<tenantNo> | team0.tenant | Cliente para HLI |
+| B | TIPO II | VLAN\<tenantNo + 2 > | team0.tenant+2 | Nó para comunicação de nó |
+| C | TIPO II | VLAN\<tenantNo + 1 > | team0.tenant+1 | Nó de armazenamento |
+| D | TIPO II | VLAN\<tenantNo + 3 > | team0.tenant+3 | Configurado, mas não em utilização |
 
 ### <a name="storage"></a>Armazenamento
 As seguintes mountpoints estão pré-configuradas:
@@ -496,10 +496,10 @@ As seguintes interfaces de rede estão pré-configuradas:
 | B | TIPO I | eth2.tenant | eno3.tenant | Nó para comunicação de nó |
 | C | TIPO I | eth1.tenant | eno2.tenant | Nó de armazenamento |
 | D | TIPO I | eth4.tenant | eno4.tenant | Configurado, mas não em utilização |
-| A | TIPO II | vlan<tenantNo> | team0.tenant | Cliente para HLI |
-| B | TIPO II | VLAN < tenantNo + 2 > | team0.tenant+2 | Nó para comunicação de nó |
-| C | TIPO II | VLAN < tenantNo + 1 > | team0.tenant+1 | Nó de armazenamento |
-| D | TIPO II | VLAN < tenantNo + 3 > | team0.tenant+3 | Configurado, mas não em utilização |
+| A | TIPO II | vlan\<tenantNo> | team0.tenant | Cliente para HLI |
+| B | TIPO II | VLAN\<tenantNo + 2 > | team0.tenant+2 | Nó para comunicação de nó |
+| C | TIPO II | VLAN\<tenantNo + 1 > | team0.tenant+1 | Nó de armazenamento |
+| D | TIPO II | VLAN\<tenantNo + 3 > | team0.tenant+3 | Configurado, mas não em utilização |
 
 ### <a name="storage"></a>Armazenamento
 As seguintes mountpoints estão pré-configuradas:
@@ -535,10 +535,10 @@ As seguintes interfaces de rede estão pré-configuradas:
 | B | TIPO I | eth2.tenant | eno3.tenant | Nó para comunicação de nó |
 | C | TIPO I | eth1.tenant | eno2.tenant | Nó de armazenamento |
 | D | TIPO I | eth4.tenant | eno4.tenant | Configurado, mas não em utilização |
-| A | TIPO II | vlan<tenantNo> | team0.tenant | Cliente para HLI |
-| B | TIPO II | VLAN < tenantNo + 2 > | team0.tenant+2 | Nó para comunicação de nó |
-| C | TIPO II | VLAN < tenantNo + 1 > | team0.tenant+1 | Nó de armazenamento |
-| D | TIPO II | VLAN < tenantNo + 3 > | team0.tenant+3 | Configurado, mas não em utilização |
+| A | TIPO II | vlan\<tenantNo> | team0.tenant | Cliente para HLI |
+| B | TIPO II | VLAN\<tenantNo + 2 > | team0.tenant+2 | Nó para comunicação de nó |
+| C | TIPO II | VLAN\<tenantNo + 1 > | team0.tenant+1 | Nó de armazenamento |
+| D | TIPO II | VLAN\<tenantNo + 3 > | team0.tenant+3 | Configurado, mas não em utilização |
 
 ### <a name="storage"></a>Armazenamento
 As seguintes mountpoints estão pré-configuradas:

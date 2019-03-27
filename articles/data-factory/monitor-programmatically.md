@@ -11,12 +11,12 @@ ms.date: 01/16/2018
 author: gauravmalhot
 ms.author: gamal
 manager: craigg
-ms.openlocfilehash: ed1d6ab96a7658880a8784c5e03c3787cf87a8ba
-ms.sourcegitcommit: 30a0007f8e584692fe03c0023fe0337f842a7070
+ms.openlocfilehash: 035e12da67d28e8e3fb46ac295717dd6b579922c
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57576315"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58486618"
 ---
 # <a name="programmatically-monitor-an-azure-data-factory"></a>Por meio de programação monitorizar uma fábrica de dados do Azure
 Este artigo descreve como monitorizar um pipeline na fábrica de dados com os kits de desenvolvimento de software diferente (SDKs). 
@@ -105,7 +105,7 @@ Para obter instruções completas de criar e monitorizar um pipeline com a REST 
     ```
 2. Execute o script seguinte para obter os detalhes da execução da atividade de cópia, como, por exemplo, o tamanho dos dados lidos/escritos.
 
-    ```PowerShell
+    ```powershell
     $request = "https://management.azure.com/subscriptions/${subsId}/resourceGroups/${resourceGroup}/providers/Microsoft.DataFactory/factories/${dataFactoryName}/pipelineruns/${runId}/activityruns?api-version=${apiVersion}&startTime="+(Get-Date).ToString('yyyy-MM-dd')+"&endTime="+(Get-Date).AddDays(1).ToString('yyyy-MM-dd')+"&pipelineName=Adfv2QuickStartPipeline"
     $response = Invoke-RestMethod -Method GET -Uri $request -Header $authHeader
     $response | ConvertTo-Json

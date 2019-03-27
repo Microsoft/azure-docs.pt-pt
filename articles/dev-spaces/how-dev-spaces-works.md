@@ -10,12 +10,12 @@ ms.date: 03/04/2019
 ms.topic: conceptual
 description: Descreve os processos que espaços de desenvolvimento do Azure power e como eles são configurados no arquivo de configuração de azds.yaml
 keywords: azds.yaml, Azure Dev Spaces, Dev Spaces, Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, containers
-ms.openlocfilehash: b6f178628961001c4022ffc86bc13ee0e529e3c4
-ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
+ms.openlocfilehash: 622a0780d74618fe694e5b9da0327490e0ec38dd
+ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58438976"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58500564"
 ---
 # <a name="how-azure-dev-spaces-works-and-is-configured"></a>Como os espaços de desenvolvimento do Azure funciona e é configurado
 
@@ -96,7 +96,7 @@ Quando os espaços de desenvolvimento do Azure está ativado no seu cluster do A
 * Remove qualquer espaço de nomes do Kubernetes com o nome *azds*, se ela existe e cria um novo.
 * Implementa um objeto do inicializador de Kubernetes.
 
-! [Preparar cluster de espaços de desenvolvimento do azure]] (media/how-dev-spaces-works/prepare-cluster.svg)
+![Preparar o cluster espaços de desenvolvimento do Azure](media/how-dev-spaces-works/prepare-cluster.svg)
 
 Para utilizar espaços de desenvolvimento do Azure, tem de existir pelo menos um espaço de desenvolvimento. Os espaços de desenvolvimento do Azure utilizam espaços de nomes do Kubernetes no seu cluster do AKS para espaços de desenvolvimento. Quando está a ser instalado um controlador, pede-lhe para criar um novo espaço de nomes do Kubernetes ou escolha um espaço de nomes existente para utilizar como seu primeiro espaço de desenvolvimento. Quando um espaço de nomes é designado como um espaço de desenvolvimento, o controlador adiciona a *azds.io/space=true* etiqueta para esse espaço de nomes para identificá-lo como um espaço de desenvolvimento. O espaço de desenvolvimento inicial cria ou designar está selecionado por predefinição, depois de preparar o seu cluster. Quando é selecionado um espaço, é utilizado por espaços de desenvolvimento do Azure para a criação de novas cargas de trabalho.
 

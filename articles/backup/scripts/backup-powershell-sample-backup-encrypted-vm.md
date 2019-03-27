@@ -10,12 +10,12 @@ ms.topic: sample
 ms.date: 03/05/2019
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 38460fc1dee3ea690b5c291f43fadf2fa9e511c6
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: bc54832b300bf7a70d067f07b9eb7cc67404f2e7
+ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57886353"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58496808"
 ---
 # <a name="back-up-an-encrypted-azure-virtual-machine-with-powershell"></a>Criar cópias de segurança encriptada máquinas virtuais do Azure com o PowerShell
 
@@ -47,7 +47,7 @@ Este script utiliza os seguintes comandos para criar a implementação. Cada ite
 | Comando | Notas | 
 |---|---| 
 | [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup) | Cria um grupo de recursos no qual todos os recursos são armazenados. | 
-| [New-AzRecoveryServicesVault](https://docs.microsoft.com/powershell/module/az.recoveryservices/new-azrecoveryservicesvaul) | Cria um cofre dos serviços de recuperação para armazenar cópias de segurança. | 
+| [New-AzRecoveryServicesVault](https://docs.microsoft.com/powershell/module/az.recoveryservices/new-azrecoveryservicesvault) | Cria um cofre dos serviços de recuperação para armazenar cópias de segurança. | 
 | [Set-AzRecoveryServicesBackupProperties](https://docs.microsoft.com/powershell/module/az.recoveryservices/set-azrecoveryservicesbackupproperties) | Conjuntos de cópia de segurança propriedades de armazenamento do cofre dos serviços de recuperação. | 
 | [New-AzRecoveryServicesBackupProtectionPolicy](https://docs.microsoft.com/powershell/module/az.recoveryservices/set-azrecoveryservicesbackupprotectionpolicy)| Cria uma política de proteção através da política de agendamento e a política de retenção no cofre dos serviços de recuperação. | 
 | [Set-AzKeyVaultAccessPolicy](/powershell/module/az.keyvault/set-azkeyvaultaccesspolicy) | Define as permissões no Key Vault para conceder ao principal do serviço acesso às chaves de encriptação. | 

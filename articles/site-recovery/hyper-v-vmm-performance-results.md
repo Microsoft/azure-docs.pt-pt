@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 12/27/2018
 ms.author: sutalasi
-ms.openlocfilehash: 62137f64f0f138ea1c2dfbdf97bde791227617db
-ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
+ms.openlocfilehash: 7e2f5c344a0fb632956ab5d5b951ee69cff528ec
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/27/2018
-ms.locfileid: "53793041"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58482805"
 ---
 # <a name="test-results-for-hyper-v-replication-to-a-secondary-site"></a>Resultados do teste para replicação de Hyper-V para um site secundário
 
@@ -108,7 +108,7 @@ Os resultados mostram claramente que o Site Recovery, juntamente com a réplica 
 
 | Servidor | RAM | Modelo | Processador | Número de processadores | NIC | Software |
 | --- | --- | --- | --- | --- | --- | --- |
-| Servidores de Hyper-V num cluster: <br />ESTLAB-HOST11<br />ESTLAB-HOST12<br />ESTLAB-HOST13<br />ESTLAB-HOST14<br />ESTLAB-HOST25 |128ESTLAB HOST25 tem 256 |R820 Dell™ PowerEdge™ |Intel (r) CPUs CPU E5-4620 0 \@ 2.20 GHz |4 |Eu Gbps x 4 |Windows Server Datacenter 2012 R2 (x64) + a função Hyper-V |
+| Servidores de Hyper-V num cluster: <br />ESTLAB-HOST11<br />ESTLAB-HOST12<br />ESTLAB-HOST13<br />ESTLAB-HOST14<br />ESTLAB-HOST25 |128ESTLAB HOST25 tem 256 |Dell ™ PowerEdge ™ R820 |Intel (r) CPUs CPU E5-4620 0 \@ 2.20 GHz |4 |Eu Gbps x 4 |Windows Server Datacenter 2012 R2 (x64) + a função Hyper-V |
 | Servidor do VMM |2 | | |2 |1 Gbps |Windows Server R2 de 2012 da base de dados (x64) + VMM 2012 R2 |
 
 ### <a name="secondary-site"></a>Site secundário
@@ -120,9 +120,9 @@ Os resultados mostram claramente que o Site Recovery, juntamente com a réplica 
 
 | Servidor | RAM | Modelo | Processador | Número de processadores | NIC | Software |
 | --- | --- | --- | --- | --- | --- | --- |
-| Servidores de Hyper-V num cluster: <br />ESTLAB-HOST07<br />ESTLAB-HOST08<br />ESTLAB-HOST09<br />ESTLAB-HOST10 |96 |R720 Dell™ PowerEdge™ |Intel (r) CPUs CPU E5-2630 0 \@ 2.30 GHz |2 |Eu Gbps x 4 |Windows Server Datacenter 2012 R2 (x64) + a função Hyper-V |
-| ESTLAB-HOST17 |128 |R820 Dell™ PowerEdge™ |Intel (r) CPUs CPU E5-4620 0 \@ 2.20 GHz |4 | |Windows Server Datacenter 2012 R2 (x64) + a função Hyper-V |
-| ESTLAB-HOST24 |256 |R820 Dell™ PowerEdge™ |Intel (r) CPUs CPU E5-4620 0 \@ 2.20 GHz |2 | |Windows Server Datacenter 2012 R2 (x64) + a função Hyper-V |
+| Servidores de Hyper-V num cluster: <br />ESTLAB-HOST07<br />ESTLAB-HOST08<br />ESTLAB-HOST09<br />ESTLAB-HOST10 |96 |Dell ™ PowerEdge ™ R720 |Intel (r) CPUs CPU E5-2630 0 \@ 2.30 GHz |2 |Eu Gbps x 4 |Windows Server Datacenter 2012 R2 (x64) + a função Hyper-V |
+| ESTLAB-HOST17 |128 |Dell ™ PowerEdge ™ R820 |Intel (r) CPUs CPU E5-4620 0 \@ 2.20 GHz |4 | |Windows Server Datacenter 2012 R2 (x64) + a função Hyper-V |
+| ESTLAB-HOST24 |256 |Dell ™ PowerEdge ™ R820 |Intel (r) CPUs CPU E5-4620 0 \@ 2.20 GHz |2 | |Windows Server Datacenter 2012 R2 (x64) + a função Hyper-V |
 | Servidor do VMM |2 | | |2 |1 Gbps |Windows Server R2 de 2012 da base de dados (x64) + VMM 2012 R2 |
 
 ### <a name="server-workloads"></a>Cargas de trabalho do servidor
@@ -131,7 +131,7 @@ Os resultados mostram claramente que o Site Recovery, juntamente com a réplica 
 * Usamos [IOMeter](http://www.iometer.org) com características de carga de trabalho resumidas na tabela da simulação.
 * Todos os perfis de IOMeter estão definidos para escrever padrões para cargas de trabalho de escrita de bytes aleatórios para simular a pior.
 
-| Carga de trabalho | Tamanho de e/s (KB) | % De acesso | % De leitura | E/s pendentes | Padrão de e/s |
+| Carga de trabalho | Tamanho de e/s (KB) | % De acesso | %Read | E/s pendentes | Padrão de e/s |
 | --- | --- | --- | --- | --- | --- |
 | Servidor de Ficheiros |48163264 |60%20%5%5%10% |80%80%80%80%80% |88888 |Todos os 100% aleatório |
 | SQL Server (volume 1) do SQL Server (volume 2) |864 |100%100% |70%0% |88 |% de 100% random100 sequencial |
@@ -175,10 +175,10 @@ A tabela resume os contadores que foram medidos na implementação e métricas d
 | CPU |\Processor(_Total)\% Processor Time |
 | Memória disponível |MBytes de \Memory\Available |
 | IOPS |\PhysicalDisk ( total) \Disk transferências/seg. |
-| VM (IOPS) operações/seg de leitura |Dispositivo de armazenamento virtual \Hyper-V (<VHD>) \Read operações/seg |
-| Operações de escrita (IOPS) de VM/seg |Dispositivo de armazenamento virtual \Hyper-V (<VHD>) \Write operações/S |
-| Débito de leitura de VM |Dispositivo de armazenamento virtual \Hyper-V (<VHD>) \Read Bytes/seg |
-| Débito de escrita da VM |Dispositivo de armazenamento virtual \Hyper-V (<VHD>) \Write Bytes/seg |
+| VM (IOPS) operações/seg de leitura |\Hyper-V Virtual Storage Device(\<VHD>)\Read Operations/Sec |
+| Operações de escrita (IOPS) de VM/seg |Dispositivo de armazenamento virtual \Hyper-V (\<VHD >) \Write operações/S |
+| Débito de leitura de VM |Dispositivo de armazenamento virtual \Hyper-V (\<VHD >) \Read Bytes/seg |
+| Débito de escrita da VM |Dispositivo de armazenamento virtual \Hyper-V (\<VHD >) \Write Bytes/seg |
 
 ## <a name="next-steps"></a>Passos Seguintes
 

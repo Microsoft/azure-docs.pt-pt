@@ -14,12 +14,12 @@ ms.tgt_pltfrm: Windows
 ms.workload: infrastructure-services
 ms.date: 05/09/2016
 ms.author: markscu
-ms.openlocfilehash: fd5ae375dff80c8b1179d2fd73566d07c5861e4a
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: a9de0f0021d92c59c44e85f0487cc9a08b6a3099
+ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58000348"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58497367"
 ---
 # <a name="create-matlab-distributed-computing-server-clusters-on-azure-vms"></a>Criar clusters de servidor de computação distribuída da MATLAB em VMs do Azure
 Utilize as máquinas virtuais do Microsoft Azure para criar um ou mais clusters de servidor de computação de Distributed MATLAB para executar intensivas de computação paralelas MATLAB cargas de trabalho. Instalar o software de servidor de computação distribuída da MATLAB numa VM para utilizar como uma imagem base e utilizar um modelo de início rápido do Azure ou o script do Azure PowerShell (disponível no [GitHub](https://github.com/Azure/azure-quickstart-templates/tree/master/matlab-cluster)) para implementar e gerir o cluster. Após a implementação, ligar ao cluster para executar cargas de trabalho.
@@ -34,7 +34,7 @@ Ao utilizar máquinas virtuais do Azure, pode criar clusters de servidor de comp
 * **O Azure PowerShell** -veja [como instalar e configurar o Azure PowerShell](/powershell/azure/overview) para instalá-lo no seu computador cliente.
 * **Subscrição do Azure** -se não tiver uma subscrição, pode criar um [conta gratuita](https://azure.microsoft.com/free/) em apenas alguns minutos. Para clusters maiores, considere uma subscrição pay as you go ou outras opções de compra.
 * **quota de vCPUs** -poderá ter de aumentar a quota de vCPU para implementar um cluster de grandes dimensões ou de mais de um cluster de servidor de computação distribuída da MATLAB. Para aumentar uma quota [abra um pedido de suporte do cliente online](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/) sem encargos.
-* **Licenças MATLAB, a caixa de ferramentas de computação paralela e o servidor de computação distribuída da MATLAB** -os scripts partem do princípio de que o [Gestor de licenças alojado MathWorks](https://www.mathworks.com/products/parallel-computing/mathworks-hosted-license-manager/) é utilizado para todas as licenças.  
+* **Licenças MATLAB, a caixa de ferramentas de computação paralela e o servidor de computação distribuída da MATLAB** -os scripts partem do princípio de que o [Gestor de licenças alojado MathWorks](https://www.mathworks.com/help/install/license-management.html) é utilizado para todas as licenças.  
 * **Software de servidor de computação distribuída da MATLAB** -serão instalados numa VM que será utilizada como a imagem VM base para as VMs do cluster.
 
 ## <a name="high-level-steps"></a>Passos de nível altos

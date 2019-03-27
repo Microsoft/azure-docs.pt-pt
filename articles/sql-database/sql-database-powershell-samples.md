@@ -11,13 +11,13 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
-ms.date: 03/12/2019
-ms.openlocfilehash: 3a22caa39dad3ce296c43015f324270b7dc55ae8
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.date: 03/25/2019
+ms.openlocfilehash: 77e7ed6b39f18f05323562865097dd0760240abf
+ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57862034"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58446374"
 ---
 # <a name="azure-powershell-samples-for-azure-sql-database"></a>Exemplos do Azure PowerShell para a Base de Dados SQL do Azure
 
@@ -65,7 +65,7 @@ A tabela seguinte inclui ligações para scripts do PowerShell do Azure de exemp
 | |  |
 |---|---|
 |**Criar e configurar instâncias geridas**||
-| [Criar e gerir uma Instância Gerida](https://blogs.msdn.microsoft.com/sqlserverstorageengine/20../../quick-start-script-create-azure-sql-managed-instance-using-powershell/) | Este script do PowerShell mostra como criar e gerir uma Instância Gerida com o Azure PowerShell |
+| [Criar e gerir uma Instância Gerida](scripts/sql-database-create-configure-managed-instance-powershell.md) | Este script do PowerShell mostra como criar e gerir uma Instância Gerida com o Azure PowerShell |
 | [Criar e gerir uma instância gerida com o modelo Azure Resource Manager](scripts/sql-managed-instance-create-powershell-azure-resource-manager-template.md?toc=%2fpowershell%2fmodule%2ftoc.json) | Este script do PowerShell mostra-lhe como criar e gerir uma instância gerida com o modelo do Azure PowerShell e do Azure Resource Manager.|
 | **Configurar a encriptação de dados transparente (TDE)**||
 | [Gerir a encriptação de dados transparente numa instância gerida com a sua própria chave de Cofre de chaves do Azure](scripts/transparent-data-encryption-byok-sql-managed-instance-powershell.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Este script do PowerShell configura encriptação de dados transparente (TDE) o cenário traga a sua própria chave para SQL instância gerida do Azure, com uma chave do Azure Key Vault|

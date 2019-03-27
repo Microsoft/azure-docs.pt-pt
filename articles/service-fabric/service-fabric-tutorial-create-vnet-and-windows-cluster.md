@@ -3,7 +3,7 @@ title: Criar um cluster do Service Fabric em execução Windows no Azure | Docum
 description: Neste tutorial, saiba como implementar um cluster do Service Fabric do Windows numa rede virtual do Azure e o grupo de segurança de rede com o PowerShell.
 services: service-fabric
 documentationcenter: .net
-author: rwike77
+author: aljo-microsoft
 manager: timlt
 editor: ''
 ms.assetid: ''
@@ -13,14 +13,14 @@ ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 03/13/2019
-ms.author: ryanwi
+ms.author: aljo
 ms.custom: mvc
-ms.openlocfilehash: aa44355ea86b42f8865d7791fec04ffad2b6f3ad
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: 28f115e356c8852174b923f4891f93ad435ce7d7
+ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58313826"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58498184"
 ---
 # <a name="tutorial-deploy-a-service-fabric-cluster-running-windows-into-an-azure-virtual-network"></a>Tutorial: Implementar um cluster do Service Fabric em execução Windows numa rede virtual do Azure
 
@@ -58,6 +58,7 @@ Antes de começar este tutorial:
 * Instalar o [módulo de PowerShell e SDK do Service Fabric](service-fabric-get-started.md).
 * Instalar o [do Azure Powershell versão 4.1 ou superior do módulo](https://docs.microsoft.com/powershell/azure/azurerm/install-azurerm-ps).
 * Reveja os conceitos chave dos [clusters do Azure](service-fabric-azure-clusters-overview.md).
+* [Planear e preparar](service-fabric-cluster-azure-deployment-preparation.md) para uma implementação de cluster de produção.
 
 Os procedimentos seguintes criam um cluster do Service Fabric de sete nós. Utilize o [Calculadora de preços Azure](https://azure.microsoft.com/pricing/calculator/) para calcular o custo incorrido pela execução de um cluster do Service Fabric no Azure.
 
@@ -181,7 +182,7 @@ Criar duas aplicações do Azure AD para controlar o acesso ao cluster: aplicaç
 
 Executar `SetupApplications.ps1`e forneça o inquilino, ID, o nome do cluster e o URL de resposta do aplicativo web, como parâmetros. Especifique nomes de utilizador e palavras-passe para os utilizadores. Por exemplo:
 
-```PowerShell
+```powershell
 $Configobj = .\SetupApplications.ps1 -TenantId '<MyTenantID>' -ClusterName 'mysfcluster123' -WebApplicationReplyUrl 'https://mysfcluster123.eastus.cloudapp.azure.com:19080/Explorer/index.html' -AddResourceAccess
 .\SetupUser.ps1 -ConfigObj $Configobj -UserName 'TestUser' -Password 'P@ssword!123'
 .\SetupUser.ps1 -ConfigObj $Configobj -UserName 'TestAdmin' -Password 'P@ssword!123' -IsAdmin

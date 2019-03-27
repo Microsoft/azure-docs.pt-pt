@@ -10,12 +10,12 @@ ms.subservice: manage
 ms.date: 03/20/2019
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: e2c3c5530ac21d97adfabfcc00a9351599646f0e
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: ce1fd1af404f5fc44bc202be08cd2c2f1b4ef909
+ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58317294"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58443835"
 ---
 # <a name="quickstart-pause-and-resume-compute-in-azure-sql-data-warehouse-with-powershell"></a>Início rápido: Colocar em pausa e retomar a computação do Azure SQL Data Warehouse com o PowerShell
 
@@ -106,7 +106,7 @@ $resultDatabase
 
 ## <a name="check-status-of-your-data-warehouse-operation"></a>Verificar o estado de sua operação do armazém de dados
 
-Para verificar o estado do seu armazém de dados, utilize o [Get-AzureRmSqlDatabaseActivity](https://docs.microsoft.com/powershell/module/azurerm.sql/Get-AzureRmSqlDatabaseActivity?view=azurermps-6.13.0#description) cmdlet.
+Para verificar o estado do seu armazém de dados, utilize o [Get-AzureRmSqlDatabaseActivity](https://docs.microsoft.com/powershell/module/azurerm.sql/Get-AzureRmSqlDatabaseActivity#description) cmdlet.
 
 ```
 Get-AzureRmSqlDatabaseActivity -ResourceGroupName "ResourceGroup01" -ServerName "Server01" -DatabaseName "Database02"

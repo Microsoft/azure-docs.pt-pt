@@ -8,18 +8,18 @@ manager: daauld
 ms.service: cognitive-services
 ms.component: custom-vision
 ms.topic: quickstart
-ms.date: 2/21/2019
+ms.date: 03/21/2019
 ms.author: areddish
-ms.openlocfilehash: 3ae3a70ff1cfdda356c99e734b7078a54ab48171
-ms.sourcegitcommit: e88188bc015525d5bead239ed562067d3fae9822
+ms.openlocfilehash: 9d9021cd3acaebe689c583281e0316b30d5892c0
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/24/2019
-ms.locfileid: "56752353"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58482458"
 ---
 # <a name="quickstart-create-an-image-classification-project-with-the-custom-vision-nodejs-sdk"></a>Início rápido: Criar um projeto de classificação de imagem com o SDK de node. js de visão personalizada
 
-Este artigo fornece informações e código de exemplo para ajudá-lo a começar a utilizar o SDK de visão personalizada com node. js para criar um modelo de classificação de imagem. Depois de criado, poderá adicionar etiquetas, carregar imagens, preparar o projeto, obter o URL de ponto final de predição predefinido do projeto e utilizar o ponto final para testar uma imagem de forma programática. Utilize este exemplo como modelo para criar a sua aplicação node. js. Se quiser percorrer o processo de compilar e utilizar um modelo de classificação _sem_ recorrer a código, veja antes as [orientações baseadas no browser](getting-started-build-a-classifier.md).
+Este artigo fornece informações e código de exemplo para ajudá-lo a começar a utilizar o SDK de visão personalizada com node. js para criar um modelo de classificação de imagem. Depois de criado, pode adicionar etiquetas, carregar imagens, preparar o projeto, obter o URL de ponto final de predição publicados do projeto e utilizar o ponto final para uma imagem de teste por meio de programação. Utilize este exemplo como modelo para criar a sua aplicação node. js. Se quiser percorrer o processo de compilar e utilizar um modelo de classificação _sem_ recorrer a código, veja antes as [orientações baseadas no browser](getting-started-build-a-classifier.md).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -30,7 +30,7 @@ Este artigo fornece informações e código de exemplo para ajudá-lo a começar
 
 Para instalar o SDK do serviço de visão personalizada para node. js, execute o seguinte comando no PowerShell:
 
-```PowerShell
+```powershell
 npm install azure-cognitiveservices-customvision-training
 npm install azure-cognitiveservices-customvision-prediction
 ```
@@ -56,9 +56,12 @@ const setTimeoutPromise = util.promisify(setTimeout);
 
 const trainingKey = "<your training key>";
 const predictionKey = "<your prediction key>";
+const predictionResourceId = "<your prediction resource id>";
 const sampleDataRoot = "<path to image files>";
 
 const endPoint = "https://southcentralus.api.cognitive.microsoft.com"
+
+const publishIterationName = "classifyModel";
 
 const trainer = new TrainingApiClient(trainingKey, endPoint);
 
@@ -102,9 +105,9 @@ Para adicionar as imagens de exemplo ao projeto, insira o seguinte código após
     await Promise.all(fileUploadPromises);
 ```
 
-### <a name="train-the-classifier"></a>Preparar o classificador
+### <a name="train-the-classifier-and-publish"></a>Treinar o classificador e publicar
 
-Este código cria a primeira iteração no projeto e marca-a como a iteração predefinida. A iteração predefinida reflete a versão do modelo que irá responder aos pedidos de predição. Deve atualizá-la sempre que voltar a preparar o modelo.
+Este código cria a primeira iteração no projeto e, em seguida, publica iteração para o ponto final de predição. O nome para a iteração publicada pode ser utilizado para enviar pedidos de predição. Uma iteração não está disponível o ponto final de predição até que seja publicada.
 
 ```javascript
     console.log("Training...");
@@ -119,12 +122,11 @@ Este código cria a primeira iteração no projeto e marca-a como a iteração p
     }
     console.log("Training status: " + trainingIteration.status);
     
-    // Update iteration to be default
-    trainingIteration.isDefault = true;
-    await trainer.updateIteration(sampleProject.id, trainingIteration.id, trainingIteration);
+    // Publish the iteration to the end point
+    await trainer.publishIteration(sampleProject.id, trainingIteration.id, publishIterationName, predictionResourceId);
 ```
 
-### <a name="get-and-use-the-default-prediction-endpoint"></a>Obter e utilizar o ponto final de predição predefinido
+### <a name="get-and-use-the-published-iteration-on-the-prediction-endpoint"></a>Obter e utilizar a iteração publicada no ponto de final de predição
 
 Para enviar uma imagem para o ponto final de predição e obter a mesma, adicione o seguinte código no fim do ficheiro:
 
@@ -132,7 +134,7 @@ Para enviar uma imagem para o ponto final de predição e obter a mesma, adicion
     const predictor = new PredictionApiClient(predictionKey, endPoint);
     const testFile = fs.readFileSync(`${sampleDataRoot}/Test/test_image.jpg`);
 
-    const results = await predictor.predictImage(sampleProject.id, testFile, { iterationId: trainingIteration.id });
+    const results = await predictor.classifyImage(sampleProject.id, publishIterationName, testFile);
 
     // Step 6. Show results
     console.log("Results:");
@@ -146,7 +148,7 @@ Para enviar uma imagem para o ponto final de predição e obter a mesma, adicion
 
 Execute *sample.js*.
 
-```PowerShell
+```powershell
 node sample.js
 ```
 

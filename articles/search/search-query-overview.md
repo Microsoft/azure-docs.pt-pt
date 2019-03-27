@@ -9,12 +9,12 @@ ms.service: search
 ms.topic: conceptual
 ms.date: 03/25/2019
 ms.custom: seodec2018
-ms.openlocfilehash: 6afc9325cb2aababb286f653323531c9ebb04b4a
-ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
+ms.openlocfilehash: cfc9b44963f6880e97859bc7ab77bff12d258471
+ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58438806"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58500173"
 ---
 # <a name="how-to-compose-a-query-in-azure-search"></a>Como compor uma consulta no Azure Search
 
@@ -76,7 +76,7 @@ Atributos de índice num campo de definir as operações permitidas - se um camp
 A captura de ecrã acima é uma lista parcial de atributos de índice para o exemplo de imóveis. Pode ver o esquema de índice completo no portal. Para obter mais informações sobre os atributos de índice, consulte [criar API REST do índice](https://docs.microsoft.com/rest/api/searchservice/create-index).
 
 > [!Note]
-> Algumas funcionalidades de consulta está ativada em todo o índice em vez de numa base por campo. Esses recursos incluem: [mapeia sinónimo](search-synonyms.md), [analisadores personalizados](index-add-custom-analyzers.md), [sugestor construções (para preenchimento automático e de sugestão automática)](index-add-suggesters.md), [lógica para de classificação resultados de classificação](index-add-scoring-profiles.md).
+> Algumas funcionalidades de consulta está ativada em todo o índice em vez de numa base por campo. Esses recursos incluem: [mapeia sinónimo](search-synonyms.md), [analisadores personalizados](index-add-custom-analyzers.md), [sugestor constrói (para preenchimento automático e consultas sugeridas)](index-add-suggesters.md), [lógica de classificação para resultados de classificação](index-add-scoring-profiles.md).
 
 ## <a name="elements-of-a-query-request"></a>Elementos de um pedido de consulta
 

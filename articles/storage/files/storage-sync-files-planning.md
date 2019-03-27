@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 2/7/2019
 ms.author: wgries
 ms.subservice: files
-ms.openlocfilehash: c032961bf89ba470a38ebccfd846659b080f9fab
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 034beeaaebb86786106f7884fc147ff15167538e
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58013233"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58480724"
 ---
 # <a name="planning-for-an-azure-file-sync-deployment"></a>Planear uma implementação da Sincronização de Ficheiros do Azure
 Utilize o Azure File Sync para centralizar as partilhas de ficheiros da sua organização nos ficheiros do Azure, mantendo a flexibilidade, desempenho e compatibilidade de um servidor de ficheiros no local. O Azure File Sync transforma o Windows Server numa cache rápida da sua partilha de ficheiros do Azure. Pode usar qualquer protocolo disponível no Windows Server para aceder aos seus dados localmente, incluindo SMB, NFS e FTPS. Pode ter o número de caches que precisar em todo o mundo.
@@ -75,7 +75,7 @@ Antes de implementar o Azure File Sync, deve avaliar se é compatível com o seu
 #### <a name="download-instructions"></a>Instruções para download
 1. Certifique-se de que tem a versão mais recente do PackageManagement, e o PowerShellGet instalado (Isto permite-lhe instalar os módulos de pré-visualização)
     
-    ```PowerShell
+    ```powershell
         Install-Module -Name PackageManagement -Repository PSGallery -Force
         Install-Module -Name PowerShellGet -Repository PSGallery -Force
     ```
@@ -83,29 +83,29 @@ Antes de implementar o Azure File Sync, deve avaliar se é compatível com o seu
 2. Reinicie o PowerShell
 3. Instalar os módulos
     
-    ```PowerShell
+    ```powershell
         Install-Module -Name Az.StorageSync -AllowPrerelease -AllowClobber -Force
     ```
 
 #### <a name="usage"></a>Utilização  
 É possível invocar a ferramenta de avaliação de algumas formas diferentes: pode efetuar as verificações do sistema, as verificações de conjunto de dados ou ambos. Para realizar verificações do sistema e o conjunto de dados: 
 
-```PowerShell
+```powershell
     Invoke-AzStorageSyncCompatibilityCheck -Path <path>
 ```
 
 Para testar apenas o conjunto de dados:
-```PowerShell
+```powershell
     Invoke-AzStorageSyncCompatibilityCheck -Path <path> -SkipSystemChecks
 ```
  
 Para testar apenas os requisitos de sistema:
-```PowerShell
+```powershell
     Invoke-AzStorageSyncCompatibilityCheck -ComputerName <computer name>
 ```
  
 Para exibir os resultados no CSV:
-```PowerShell
+```powershell
     $errors = Invoke-AzStorageSyncCompatibilityCheck […]
     $errors | Select-Object -Property Type, Path, Level, Description | Export-Csv -Path <csv path>
 ```

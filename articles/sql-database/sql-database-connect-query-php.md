@@ -11,12 +11,12 @@ ms.author: carlrab
 ms.reviewer: v-masebo
 manager: craigg
 ms.date: 02/12/2019
-ms.openlocfilehash: 710ba8b3e8b581da1db0bf7a3aeb2ee254887b7f
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 4a53d733b30c06cb48fe2a57f7be232d914dc79c
+ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58007017"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58448937"
 ---
 # <a name="quickstart-use-php-to-query-an-azure-sql-database"></a>Início rápido: Utilizar o PHP para consultar uma base de dados SQL do Azure
 
@@ -32,11 +32,11 @@ Para concluir este exemplo, certifique-se de que tem os seguintes pré-requisito
   |:--- |:--- |:---|
   | Criar| [Portal](sql-database-single-database-get-started.md) | [Portal](sql-database-managed-instance-get-started.md) |
   || [CLI](scripts/sql-database-create-and-configure-database-cli.md) | [CLI](https://medium.com/azure-sqldb-managed-instance/working-with-sql-managed-instance-using-azure-cli-611795fe0b44) |
-  || [PowerShell](scripts/sql-database-create-and-configure-database-powershell.md) | [PowerShell](https://blogs.msdn.microsoft.com/sqlserverstorageengine/2018/06/27/quick-start-script-create-azure-sql-managed-instance-using-powershell/) |
+  || [PowerShell](scripts/sql-database-create-and-configure-database-powershell.md) | [PowerShell](scripts/sql-database-create-configure-managed-instance-powershell.md) |
   | Configurar | [regra de firewall do IP ao nível do servidor](sql-database-server-level-firewall-rule.md)| [Conectividade a partir de uma VM](sql-database-managed-instance-configure-vm.md)|
   |||[Conectividade no local do](sql-database-managed-instance-configure-p2s.md)
   |Carregar dados|A Adventure Works carregados por início rápido|[Restaurar a Wide World Importers](sql-database-managed-instance-get-started-restore.md)
-  |||Restaure ou importar Adventure Works no [BACPAC](sql-database-import.md) ficheiro [github](https://github.com/Microsoft/sql-server-samples/tree/master/samples/databases/adventure-works)|
+  |||Restaure ou importar Adventure Works no [BACPAC](sql-database-import.md) ficheiro [GitHub](https://github.com/Microsoft/sql-server-samples/tree/master/samples/databases/adventure-works)|
   |||
 
   > [!IMPORTANT]

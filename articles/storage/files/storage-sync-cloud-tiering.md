@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 09/21/2018
 ms.author: sikoo
 ms.subservice: files
-ms.openlocfilehash: fe363bd6d16d7beea1c8f1e6ec17710975a80924
-ms.sourcegitcommit: a4efc1d7fc4793bbff43b30ebb4275cd5c8fec77
+ms.openlocfilehash: 871eb1663d6cba550f1403215b1d3ce5fe8278d3
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56652565"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58486109"
 ---
 # <a name="cloud-tiering-overview"></a>Descrição geral de camadas da cloud
 Na cloud em camadas são uma funcionalidade opcional do Azure File Sync em que frequentemente ficheiros acedidos são colocadas em cache localmente no servidor, enquanto todos os outros ficheiros são dispostos em camadas para ficheiros do Azure com base nas definições de política. Quando um ficheiro é em camadas, o filtro de sistema de ficheiros do Azure File Sync (StorageSync.sys) substitui o ficheiro localmente com um ponteiro, ou um ponto de reanálise. O ponto de reanálise representa um URL para o ficheiro nos ficheiros do Azure. Um ficheiro em camadas tem o atributo "offline" e o atributo FILE_ATTRIBUTE_RECALL_ON_DATA_ACCESS definido no NTFS para que aplicativos de terceiros com segurança podem identificar os ficheiros em camadas.
@@ -85,7 +85,7 @@ Existem várias formas para verificar se um ficheiro tem sido em camadas para a 
    * **Utilize `fsutil` para verificar a existência de pontos de reanálise num ficheiro.**
        Conforme descrito na opção anterior, um ficheiro em camadas sempre tem um conjunto de ponto de reanálise. Um ponteiro de reanálise é um ponteiro especial para o filtro de sistema de ficheiros do Azure File Sync (StorageSync.sys). Para verificar se um ficheiro tiver um ponto de reanálise, numa janela de Prompt de comando ou do PowerShell elevada, execute o `fsutil` utilitário:
     
-        ```PowerShell
+        ```powershell
         fsutil reparsepoint query <your-file-name>
         ```
 
@@ -101,7 +101,7 @@ A maneira mais fácil de recuperar um arquivo em disco é abrir o ficheiro. O fi
 
 Também pode utilizar o PowerShell para forçar um ficheiro a ser recolhido. Esta opção poderá ser útil se quiser Lembre-se vários ficheiros ao mesmo tempo, por exemplo, todos os ficheiros numa pasta. Abra uma sessão do PowerShell para o nó de servidor em que o Azure File Sync está instalado e, em seguida, execute os seguintes comandos do PowerShell:
     
-    ```PowerShell
+    ```powershell
     Import-Module "C:\Program Files\Azure\StorageSyncAgent\StorageSync.Management.ServerCmdlets.dll"
     Invoke-StorageSyncFileRecall -Path <file-or-directory-to-be-recalled>
     ```
@@ -114,7 +114,7 @@ Explorador de ficheiros do Windows expõe duas propriedades para representar o t
 ### <a name="how-do-i-force-a-file-or-directory-to-be-tiered"></a>Como posso forçar um ficheiro ou diretório para ser colocado em camadas?
 Quando a funcionalidade de camadas na cloud está ativada, disposição em camadas automaticamente os ficheiros de camadas de cloud com base no último acesso e modificar vezes para alcançar a percentagem de espaço livre de volume especificada no ponto final da cloud. Às vezes, no entanto, pode querer forçar manualmente um ficheiro a uma camada. Isso pode ser útil se salvar um arquivo grande que não pretende utilizar novamente durante muito tempo e pretende que o espaço livre no volume dos seus agora a utilizar para outros ficheiros e pastas. Pode forçar a disposição em camadas utilizando os seguintes comandos do PowerShell:
 
-    ```PowerShell
+    ```powershell
     Import-Module "C:\Program Files\Azure\StorageSyncAgent\StorageSync.Management.ServerCmdlets.dll"
     Invoke-StorageSyncCloudTiering -Path <file-or-directory-to-be-tiered>
     ```

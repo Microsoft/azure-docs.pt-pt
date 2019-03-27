@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/07/2019
 ms.author: ambapat
-ms.openlocfilehash: 3b302c60aefec1c4cd37a7dde82a2f11a9eeed33
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 20c58647b8a6283de4ca2b90c830fe54db927095
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57862867"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58484191"
 ---
 # <a name="secure-access-to-a-key-vault"></a>Proteger o acesso a um cofre de chaves
 
@@ -150,14 +150,14 @@ Os fragmentos de PowerShell nesta secção baseiam-se com as seguintes suposiç�
 
 O administrador da subscrição atribui as `key vault Contributor` e `User Access Administrator` funções para a equipe de segurança. Estas funções de permitir que a equipe de segurança gerir o acesso a outros recursos e os cofres de chaves, que, em ambos os **ContosoAppRG** grupo de recursos.
 
-```PowerShell
+```powershell
 New-AzRoleAssignment -ObjectId (Get-AzADGroup -SearchString 'Contoso Security Team')[0].Id -RoleDefinitionName "key vault Contributor" -ResourceGroupName ContosoAppRG
 New-AzRoleAssignment -ObjectId (Get-AzADGroup -SearchString 'Contoso Security Team')[0].Id -RoleDefinitionName "User Access Administrator" -ResourceGroupName ContosoAppRG
 ```
 
 A equipe de segurança cria um cofre de chaves e configura as permissões de acesso e de registo. Para obter detalhes sobre as permissões de política de acesso do Cofre de chaves, consulte [chaves de sobre o Azure Key Vault, segredos e certificados](about-keys-secrets-and-certificates.md).
 
-```PowerShell
+```powershell
 # Create a key vault and enable logging
 $sa = Get-AzStorageAccount -ResourceGroup ContosoAppRG -Name contosologstorage
 $kv = New-AzKeyVault -Name ContosoKeyVault -ResourceGroup ContosoAppRG -SKU premium -Location 'westus' -EnabledForDeployment

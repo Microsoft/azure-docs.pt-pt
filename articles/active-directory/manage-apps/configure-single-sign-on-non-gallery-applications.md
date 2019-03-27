@@ -12,12 +12,12 @@ ms.date: 01/08/2019
 ms.author: celested
 ms.reviewer: asmalser,luleon
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: eefde6173156ea86f210ecc196c848fd97aaa0c8
-ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
+ms.openlocfilehash: 4f003ec847ab3777a2174a1078a2d07eb012bb34
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 03/26/2019
-ms.locfileid: "58435786"
+ms.locfileid: "58484105"
 ---
 # <a name="configure-single-sign-on-to-non-gallery-applications-in-azure-active-directory"></a>Configurar o início de sessão único para aplicações externas à galeria no Azure Active Directory
 
@@ -79,7 +79,7 @@ Para configurar o Azure AD, introduza a configuração básica de SAML. Pode int
 
     Para configurar várias replyURLs pode utilizar o seguinte script do PowerShell.
 
-    ```PowerShell
+    ```powershell
     $sp = Get-AzureADServicePrincipal -SearchString "<Exact App  name>"
     $app = Get-AzureADApplication -SearchString "<Exact app name>"
     Set-AzureADApplication -ObjectId $app.ObjectId -ReplyUrls "<ReplyURLs>"

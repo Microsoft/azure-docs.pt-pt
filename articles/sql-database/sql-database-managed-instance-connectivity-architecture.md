@@ -12,12 +12,12 @@ ms.author: srbozovi
 ms.reviewer: bonova, carlrab
 manager: craigg
 ms.date: 02/26/2019
-ms.openlocfilehash: 6ef020ff1054416e2b9af5af824b9aa27f0b1e64
-ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.openlocfilehash: ad005ff879ef5e4c0fb2fb72ce3062a5dd25d99a
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/02/2019
-ms.locfileid: "57247244"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58486789"
 ---
 # <a name="connectivity-architecture-for-a-managed-instance-in-azure-sql-database"></a>Arquitetura de conectividade para uma instância gerida na base de dados do Azure SQL 
 
@@ -67,7 +67,7 @@ Vamos aprofundar na arquitetura de conectividade para instâncias geridas. O dia
 
 ![Arquitetura de conectividade do virtual cluster](./media/managed-instance-connectivity-architecture/connectivityarch003.png)
 
-Os clientes ligam a uma instância gerida por um nome de anfitrião com o formato `<mi_name>.<dns_zone>.database.windows.net`. Este nome de anfitrião é resolvido para um endereço IP privado, embora ele está registado numa zona de sistema de nomes (DNS) de domínio público e é resolvível publicamente. O `zone-id` é gerado automaticamente quando criar o cluster. Se um cluster recém-criado aloja uma instância secundária, compartilha sua identificação de zona com o cluster principal. Para obter mais informações, consulte [utilizar grupos de autofailover para ativar a ativação pós-falha transparente e coordenada de várias bases de dados](sql-database-auto-failover-group.md##enabling-geo-replication-between-managed-instances-and-their-vnets).
+Os clientes ligam a uma instância gerida por um nome de anfitrião com o formato `<mi_name>.<dns_zone>.database.windows.net`. Este nome de anfitrião é resolvido para um endereço IP privado, embora ele está registado numa zona de sistema de nomes (DNS) de domínio público e é resolvível publicamente. O `zone-id` é gerado automaticamente quando criar o cluster. Se um cluster recém-criado aloja uma instância secundária, compartilha sua identificação de zona com o cluster principal. Para obter mais informações, consulte [utilizar grupos de ativação pós-falha automática para ativar a ativação pós-falha transparente e coordenada de várias bases de dados](sql-database-auto-failover-group.md##enabling-geo-replication-between-managed-instances-and-their-vnets).
 
 Este endereço IP privado pertence ao balanceador de carga interno a instância gerida. O Balanceador de carga direciona o tráfego para o gateway a instância gerida. Uma vez que várias instâncias geridas podem ser executados dentro do mesmo cluster, o gateway utiliza o nome de anfitrião a instância gerida para redirecionar o tráfego para o serviço de motor SQL correto.
 
@@ -109,6 +109,8 @@ Implemente uma instância gerida numa sub-rede dedicada dentro da rede virtual. 
 |------------|--------------|--------|-----------------|-----------|------|
 |móveis  |80, 443, 12000|TCP     |Qualquer              |Internet   |Permitir |
 |mi_subnet   |Qualquer           |Qualquer     |Qualquer              |SUB-REDE DE MI *  |Permitir |
+
+> Certifique-se de que existe apenas uma regra de entrada para portas 9000, 9003, 1438, 1440, 1452 e uma regra de saída para as portas 80, 443, 12000. Aprovisionamento de instância gerida através de implementações de ARM poderá falhar se regras de entrada e saídas estão configuradas em separado para cada portas. 
 
 \* Sub-rede de MI refere-se para o intervalo de endereços IP para a sub-rede na 10.x.x.x/y formulário. Pode encontrar estas informações no portal do Azure, nas propriedades de sub-rede.
 
@@ -167,6 +169,6 @@ Se a rede virtual inclui um DNS personalizado, adicione uma entrada para o ender
 - [Calcular o tamanho da sub-rede](sql-database-managed-instance-determine-size-vnet-subnet.md) onde pretende implementar as instâncias geridas.
 - Saiba como criar uma instância gerida:
   - Partir do [portal do Azure](sql-database-managed-instance-get-started.md).
-  - Usando [PowerShell](https://blogs.msdn.microsoft.com/sqlserverstorageengine/2018/06/27/quick-start-script-create-azure-sql-managed-instance-using-powershell/).
+  - Usando [PowerShell](scripts/sql-database-create-configure-managed-instance-powershell.md).
   - Usando [um modelo Azure Resource Manager](https://azure.microsoft.com/resources/templates/101-sqlmi-new-vnet/).
   - Usando [um modelo do Azure Resource Manager (usando a JumpBox, com o SSMS incluídos)](https://portal.azure.com/).

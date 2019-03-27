@@ -10,16 +10,16 @@ ms.subservice: custom-vision
 ms.topic: quickstart
 ms.date: 03/21/2019
 ms.author: areddish
-ms.openlocfilehash: 43c9e155a16ab5d1cc907ecd849ef109f2507782
-ms.sourcegitcommit: 87bd7bf35c469f84d6ca6599ac3f5ea5545159c9
+ms.openlocfilehash: 47e2f2a03c08ae1e44dcba35b440880ce06f6f95
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58351699"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58484466"
 ---
 # <a name="quickstart-create-an-image-classification-project-with-the-custom-vision-python-sdk"></a>Início rápido: Criar um projeto de classificação de imagem com o SDK de Python de visão personalizada
 
-Este artigo apresenta informações e código de exemplo para o ajudar a começar a utilizar o SDK da Visão Personalizada com Python e compilar um modelo de classificação de imagens. Depois de criado, poderá adicionar etiquetas, carregar imagens, preparar o projeto, obter o URL de ponto final de predição predefinido do projeto e utilizar o ponto final para testar uma imagem de forma programática. Utilize este exemplo como um modelo para criar a sua aplicação de Python. Se quiser percorrer o processo de compilar e utilizar um modelo de classificação _sem_ recorrer a código, veja antes as [orientações baseadas no browser](getting-started-build-a-classifier.md).
+Este artigo apresenta informações e código de exemplo para o ajudar a começar a utilizar o SDK da Visão Personalizada com Python e compilar um modelo de classificação de imagens. Depois de criado, pode adicionar etiquetas, carregar imagens, preparar o projeto, obter o URL de ponto final de predição publicados do projeto e utilizar o ponto final para uma imagem de teste por meio de programação. Utilize este exemplo como um modelo para criar a sua aplicação de Python. Se quiser percorrer o processo de compilar e utilizar um modelo de classificação _sem_ recorrer a código, veja antes as [orientações baseadas no browser](getting-started-build-a-classifier.md).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -30,7 +30,7 @@ Este artigo apresenta informações e código de exemplo para o ajudar a começa
 
 Para instalar o SDK do serviço de Visão Personalizada para Python, utilize o seguinte comando no PowerShell:
 
-```PowerShell
+```powershell
 pip install azure-cognitiveservices-vision-customvision
 ```
 
@@ -56,6 +56,9 @@ ENDPOINT = "https://southcentralus.api.cognitive.microsoft.com"
 # Replace with a valid key
 training_key = "<your training key>"
 prediction_key = "<your prediction key>"
+prediction_resource_id = "<your prediction resource id>"
+
+publish_iteration_name = "classifyModel"
 
 trainer = CustomVisionTrainingClient(training_key, endpoint=ENDPOINT)
 
@@ -86,31 +89,29 @@ base_image_url = "<path to project>"
 
 print("Adding images...")
 
-image_entry = lambda image_path, tag_id: ImageFileCreateEntry(
-    name=image_path.split("/")[-1], contents=image_path, tag_ids=[tag_id]
-)
+image_list = []
 
-image_list = [
-    image_entry(
-        base_image_url + "Images/Hemlock/hemlock_{}.jpg".format(image_num),
-        hemlock_tag.id,
-    )
-    for image_num in range(1, 10)
-] + [
-    image_entry(
-        base_image_url
-        + "Images/Japanese Cherry/japanese_cherry_{}.jpg".format(image_num),
-        cherry_tag.id,
-    )
-    for image_num in range(1, 10)
-]
+for image_num in range(1, 11):
+    file_name = "hemlock_{}.jpg".format(image_num)
+    with open(base_image_url + "images/Hemlock/" + file_name, "rb") as image_contents:
+        image_list.append(ImageFileCreateEntry(name=file_name, contents=image_contents.read(), tag_ids=[hemlock_tag.id]))
 
-trainer.create_images_from_files(project.id, images=image_list)
+for image_num in range(1, 11):
+    file_name = "japanese_cherry_{}.jpg".format(image_num)
+    with open(base_image_url + "images/Japanese Cherry/" + file_name, "rb") as image_contents:
+        image_list.append(ImageFileCreateEntry(name=file_name, contents=image_contents.read(), tag_ids=[cherry_tag.id]))
+
+upload_result = trainer.create_images_from_files(project.id, images=image_list)
+if not upload_result.is_batch_successful:
+    print("Image batch upload failed.")
+    for image in upload_result.images:
+        print("Image status: ", image.status)
+    exit(-1)
 ```
 
-### <a name="train-the-classifier"></a>Preparar o classificador
+### <a name="train-the-classifier-and-publish"></a>Treinar o classificador e publicar
 
-Este código cria a primeira iteração no projeto e marca-a como a iteração predefinida. A iteração predefinida reflete a versão do modelo que irá responder aos pedidos de predição. Deve atualizá-la sempre que voltar a preparar o modelo.
+Este código cria a primeira iteração no projeto e, em seguida, publica iteração para o ponto final de predição. O nome para a iteração publicada pode ser utilizado para enviar pedidos de predição. Uma iteração não está disponível o ponto final de predição até que seja publicada.
 
 ```Python
 import time
@@ -122,12 +123,12 @@ while (iteration.status != "Completed"):
     print ("Training status: " + iteration.status)
     time.sleep(1)
 
-# The iteration is now trained. Make it the default project endpoint
-trainer.update_iteration(project.id, iteration.id, is_default=True)
+# The iteration is now trained. Publish it to the project endpoint
+trainer.publish_iteration(project.id, iteration.id, publish_iteration_name, prediction_resource_id)
 print ("Done!")
 ```
 
-### <a name="get-and-use-the-default-prediction-endpoint"></a>Obter e utilizar o ponto final de predição predefinido
+### <a name="get-and-use-the-published-iteration-on-the-prediction-endpoint"></a>Obter e utilizar a iteração publicada no ponto de final de predição
 
 Para enviar uma imagem para o ponto final de predição e obter a mesma, adicione o seguinte código no fim do ficheiro:
 
@@ -135,22 +136,21 @@ Para enviar uma imagem para o ponto final de predição e obter a mesma, adicion
 from azure.cognitiveservices.vision.customvision.prediction import CustomVisionPredictionClient
 
 # Now there is a trained endpoint that can be used to make a prediction
-
 predictor = CustomVisionPredictionClient(prediction_key, endpoint=ENDPOINT)
 
-test_img_url = base_image_url + "Images/Test/test_image.jpg"
-results = predictor.predict_image_url(project.id, iteration.id, url=test_img_url)
+with open(base_image_url + "images/Test/test_image.jpg", "rb") as image_contents:
+    results = predictor.classify_image(project.id, publish_iteration_name, image_contents.read())
 
-# Display the results.
-for prediction in results.predictions:
-    print ("\t" + prediction.tag_name + ": {0:.2f}%".format(prediction.probability * 100))
+    # Display the results.
+    for prediction in results.predictions:
+        print ("\t" + prediction.tag_name + ": {0:.2f}%".format(prediction.probability * 100))
 ```
 
 ## <a name="run-the-application"></a>Executar a aplicação
 
 Execute *sample.py*.
 
-```PowerShell
+```powershell
 python sample.py
 ```
 

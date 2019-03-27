@@ -3,7 +3,7 @@ title: Utilizar uma VM do Windows atribuídos de sistema identidade gerida para 
 description: Um tutorial que mostra-lhe como utilizar uma VM do Windows atribuídos de sistema a identidade para aceder ao armazenamento do Azure, utilizando uma credencial SAS em vez de uma chave de acesso da conta de armazenamento gerido.
 services: active-directory
 documentationcenter: ''
-author: priyamohanram
+author: MarkusVi
 manager: daveba
 editor: daveba
 ms.service: active-directory
@@ -13,14 +13,14 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 01/24/2019
-ms.author: priyamo
+ms.author: markvi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2d4d3c6ad513d67af57423de9f7b0b2c31f73460
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 23ec4d2a67beb9b5f903aa0b7f03196b47db3f78
+ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56209222"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58443519"
 ---
 # <a name="tutorial-use-a-windows-vm-system-assigned-managed-identity-to-access-azure-storage-via-a-sas-credential"></a>Tutorial: Utilizar uma VM do Windows atribuídos de sistema identidade gerida para aceder ao armazenamento do Azure através de uma credencial SAS
 

@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/21/2017
 ms.author: steveesp
-ms.openlocfilehash: b02f5011b9482481ca3fbe439061c160b3c73a1e
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: 80e8a5e5de1da2098d895e09b36fb209050743a0
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54016618"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58481405"
 ---
 # <a name="bandwidththroughput-testing-ntttcp"></a>Largura de banda/débito testes (NTTTCP)
 
@@ -73,16 +73,16 @@ netsh advfirewall firewall adicionar programa da regra = c:\\ferramentas\\ntttcp
 
 Iniciar NTTTCP no receptor (**execute a partir de CMD**, não a partir do PowerShell):
 
-ntttcp - r – m [2\*\#núm\_núcleos],\*, a.b.c.r -t 300
+ntttcp -r –m [2\*\#num\_cores],\*,a.b.c.r -t 300
 
 Se a VM tem quatro núcleos e um endereço IP de 10.0.0.4, ficaria assim:
 
-ntttcp - r – m 8,\*, 10.0.0.4 -t 300
+ntttcp -r –m 8,\*,10.0.0.4 -t 300
 
 
 Iniciar NTTTCP no remetente (**execute a partir de CMD**, não a partir do PowerShell):
 
-ntttcp -s – m 8,\*, 10.0.0.4 -t 300 
+ntttcp -s –m 8,\*,10.0.0.4 -t 300 
 
 Aguarde que os resultados.
 
@@ -132,13 +132,13 @@ Sobre este cenários devemos habilitar o modo sem sincronização para que pode 
 
 #### <a name="from-linux-to-windows"></a>Do Linux ao Windows:
 
-Recetor <Windows>:
+Receiver \<Windows>:
 
 ``` bash
 ntttcp -r -m <2 x nr cores>,*,<Windows server IP>
 ```
 
-Remetente <Linux> :
+Remetente \<Linux >:
 
 ``` bash
 ntttcp -s -m <2 x nr cores>,*,<Windows server IP> -N -t 300
@@ -146,13 +146,13 @@ ntttcp -s -m <2 x nr cores>,*,<Windows server IP> -N -t 300
 
 #### <a name="from-windows-to-linux"></a>Do Windows para Linux:
 
-Recetor <Linux>:
+Recetor \<Linux >:
 
 ``` bash
 ntttcp -r -m <2 x nr cores>,*,<Linux server IP>
 ```
 
-Remetente <Windows>:
+Remetente \<Windows >:
 
 ``` bash
 ntttcp -s -m <2 x nr cores>,*,<Linux  server IP> -ns -t 300

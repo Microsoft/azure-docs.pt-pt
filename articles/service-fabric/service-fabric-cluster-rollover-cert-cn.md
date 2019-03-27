@@ -3,7 +3,7 @@ title: Rollover de um certificado de cluster do Azure Service Fabric | Documento
 description: Saiba como efetuar um rollover um certificado de cluster do Service Fabric identificado pelo nome comum do certificado.
 services: service-fabric
 documentationcenter: .net
-author: rwike77
+author: aljo-microsoft
 manager: timlt
 editor: aljo
 ms.assetid: 5441e7e0-d842-4398-b060-8c9d34b07c48
@@ -13,13 +13,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 04/24/2018
-ms.author: ryanwi
-ms.openlocfilehash: 72640a4d917ddb2485199f0df1fead8b0bdcd1c9
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.author: aljo
+ms.openlocfilehash: 549c5fed02402bb17b85fe796fecc4b53b321a66
+ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55192978"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58497095"
 ---
 # <a name="manually-roll-over-a-service-fabric-cluster-certificate"></a>Implementar manualmente ao longo de um certificado de cluster do Service Fabric
 Quando um certificado de cluster do Service Fabric se encontra prestes a expirar, terá de atualizar o certificado.  Rollover de certificado é simples se o cluster foi [configurado para utilizar certificados com base no nome comum](service-fabric-cluster-change-cert-thumbprint-to-cn.md) (em vez de thumbprint).  Obtenha um novo certificado a partir de uma autoridade de certificação com uma nova data de expiração.  Certificados autoassinados não são suportadas para os clusters do Service Fabric de produção, para incluir certificados gerados durante o Azure portal Cluster criação fluxo de trabalho. O novo certificado tem de ter o mesmo nome comum do certificado mais antigo. 

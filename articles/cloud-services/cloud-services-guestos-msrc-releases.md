@@ -11,21 +11,17 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 3/14/2019
+ms.date: 3/26/2019
 ms.author: raiye
-ms.openlocfilehash: ec50cff2a2d3323b988632fd7ee96b73f60117b1
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 42c241ce6b14eac2f76785b7b16b537d3e88bd8d
+ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57887294"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58500615"
 ---
 # <a name="azure-guest-os"></a>SO convidado do Azure
 As tabelas seguintes mostram as atualizações do Microsoft Security Response Center (MSRC) aplicadas ao SO convidado do Azure. Pesquise este artigo para determinar se uma atualização específica se aplica ao SO convidado do que está a utilizar. Atualizações sempre transitar para o determinado [família] [ family-explain] eles foram introduzidos no.
-
->[!NOTE]
->O sistema operacional convidado de Março é implementado para VMs do serviço Cloud que estão configurados para as atualizações automáticas. Quando a implementação estiver concluída, esta versão será disponibilizada das atualizações manuais nos ficheiros de configuração e o portal do Azure. Os patches seguintes estão incluídos no SO de Março. Esta lista está sujeita a alterações.
-
 
 ## <a name="march-2019-guest-os"></a>SO de convidado de Março de 2019
 

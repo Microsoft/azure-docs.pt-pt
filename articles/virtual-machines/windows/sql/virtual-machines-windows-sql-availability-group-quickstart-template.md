@@ -15,12 +15,12 @@ ms.workload: iaas-sql-server
 ms.date: 01/04/2019
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 4b4527bfaacc592c13552e362de0cba620314cd8
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: fb09d91bb3204a1ab3dc4f9df71eabd2ee7d2bd1
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58122051"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58487537"
 ---
 # <a name="use-azure-quickstart-templates-to-configure-always-on-availability-group-for-sql-server-on-an-azure-vm"></a>Utilizar modelos de início rápido do Azure para configurar o grupo de disponibilidade Always On do SQL Server numa VM do Azure
 Este artigo descreve como utilizar os modelos de início rápido do Azure para parcialmente automatizar a implementação de uma configuração de grupo Always On disponibilidade para máquinas virtuais SQL Server no Azure. Existem dois modelos de início rápido do Azure que são utilizados neste processo. 
@@ -158,7 +158,7 @@ Se precisar de remover o serviço de escuta configurado pelo modelo mais tarde, 
 
 O fragmento de código seguinte elimina o serviço de escuta do grupo de disponibilidade do SQL a partir de ambos os o fornecedor de recursos do SQL e do seu grupo de disponibilidade: 
 
-```PowerShell
+```powershell
 # Remove the AG listener
 # example: Remove-AzResource -ResourceId '/subscriptions/a1a11a11-1a1a-aa11-aa11-1aa1a11aa11a/resourceGroups/SQLAG-RG/providers/Microsoft.SqlVirtualMachine/SqlVirtualMachineGroups/Cluster/availabilitygrouplisteners/aglistener' -Force
 Remove-AzResource -ResourceId '/subscriptions/<SubscriptionID>/resourceGroups/<resource-group-name>/providers/Microsoft.SqlVirtualMachine/SqlVirtualMachineGroups/<cluster-name>/availabilitygrouplisteners/<listener-name>' -Force

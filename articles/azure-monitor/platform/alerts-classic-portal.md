@@ -6,12 +6,12 @@ ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 09/18/2018
 ms.author: snmuvva
-ms.openlocfilehash: 65064707374ba76701566e061b77bfd6cdf520ca
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: b1259d8f15ac719db833bef5ae37a7c2e665b2fb
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57833390"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58480639"
 ---
 # <a name="create-view-and-manage-classic-metric-alerts-using-azure-monitor"></a>Criar, ver e gerir alertas de métrica clássicas com o Azure Monitor
 
@@ -93,37 +93,37 @@ Estas secções mostram como utilizar o PowerShell comandos criar, ver e gerir a
 
 2. Inicie sessão em primeiro lugar, na sua subscrição do Azure.
 
-    ```PowerShell
+    ```powershell
     Connect-AzAccount
     ```
 
 3. Verá um ecrã de início de sessão. Uma vez que iniciar sessão na sua conta, TenantID, e o padrão de ID de subscrição são apresentados. Todos os cmdlets do Azure funciona no contexto de sua assinatura padrão. Para ver a lista de subscrições que tem acesso, utilize o seguinte comando:
 
-    ```PowerShell
+    ```powershell
     Get-AzSubscription
     ```
 
 4. Para alterar o contexto de trabalho para uma subscrição diferente, utilize o seguinte comando:
 
-    ```PowerShell
+    ```powershell
     Set-AzContext -SubscriptionId <subscriptionid>
     ```
 
 5. Pode recuperar todos os clássicas métrica regras de alerta num grupo de recursos:
 
-    ```PowerShell
+    ```powershell
     Get-AzAlertRule -ResourceGroup montest
     ```
 
 6. Pode ver os detalhes de uma regra de alerta de métrica clássica
 
-    ```PowerShell
+    ```powershell
     Get-AzAlertRule -Name simpletestCPU -ResourceGroup montest -DetailedOutput
     ```
 
 7. Pode recuperar todas as regras de alerta definido para um recurso de destino. Por exemplo, todas as regras de alerta definido numa VM.
 
-    ```PowerShell
+    ```powershell
     Get-AzAlertRule -ResourceGroup montest -TargetResourceId /subscriptions/s1/resourceGroups/montest/providers/Microsoft.Compute/virtualMachines/testconfig
     ```
 

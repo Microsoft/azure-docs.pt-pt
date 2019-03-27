@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 01/31/2019
 ms.author: jeffpatt
 ms.subservice: files
-ms.openlocfilehash: eeda1ed3181b8cc8f641ed731b7f00fac2d3fad6
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: bbda2a16e57f3907ef2910b17ed3c744d2d1ec3e
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58005842"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58487860"
 ---
 # <a name="troubleshoot-azure-file-sync"></a>Resolver problemas da Sincronização de Ficheiros do Azure
 Utilize o Azure File Sync para centralizar as partilhas de ficheiros da sua organização nos ficheiros do Azure, mantendo a flexibilidade, desempenho e compatibilidade de um servidor de ficheiros no local. O Azure File Sync transforma o Windows Server numa cache rápida da sua partilha de ficheiros do Azure. Pode usar qualquer protocolo disponível no Windows Server para aceder aos seus dados localmente, incluindo SMB, NFS e FTPS. Pode ter o número de caches que precisar em todo o mundo.
@@ -58,7 +58,7 @@ Esta mensagem é apresentada se o servidor anteriormente foi registado com um se
 
 Se o servidor não está listado em **servidores registados** no serviço de sincronização de armazenamento, no servidor que pretende anular o registo, execute os seguintes comandos do PowerShell:
 
-```PowerShell
+```powershell
 Import-Module "C:\Program Files\Azure\StorageSyncAgent\StorageSync.Management.ServerCmdlets.dll"
 Reset-StorageSyncServer
 ```
@@ -113,7 +113,7 @@ Este problema ocorre se o servidor está offline ou não tem conectividade de re
 <a id="server-endpoint-provisioningfailed"></a>**Não é possível abrir a página de propriedades do ponto final de servidor ou atualizar a política de camadas de cloud**  
 Este problema pode ocorrer se uma operação de gestão, o ponto final de servidor falhar. Se a página de propriedades do ponto final de servidor não for aberto no portal do Azure, atualizar o ponto final de servidor utilizar comandos do PowerShell do servidor de pode corrigir este problema. 
 
-```PowerShell
+```powershell
 Import-Module "C:\Program Files\Azure\StorageSyncAgent\StorageSync.Management.PowerShell.Cmdlets.dll"
 # Get the server endpoint id based on the server endpoint DisplayName property
 Get-AzureRmStorageSyncServerEndpoint `
@@ -253,7 +253,7 @@ Para ver estes erros, execute o **FileSyncErrorsReport.ps1** script do PowerShel
 | 0x80c80018 | -2134376424 | ECS_E_SYNC_FILE_IN_USE | Não é possível sincronizar um ficheiro porque está a ser utilizado. O ficheiro será sincronizado quando já não está a ser utilizado. | Nenhuma ação necessária. O Azure File Sync cria um instantâneo VSS temporário vez por dia no servidor para sincronizar ficheiros com identificadores abertos. |
 | 0x80c8031d | -2134375651 | ECS_E_CONCURRENCY_CHECK_FAILED | Um ficheiro foi alterado, mas a alteração ainda não foram detectada pelo sync. Sincronização irá recuperar após esta alteração é detetada. | Nenhuma ação necessária. |
 | 0x80c8603e | -2134351810 | ECS_E_AZURE_STORAGE_SHARE_SIZE_LIMIT_REACHED | Não é possível sincronizar o ficheiro porque é atingido o limite de partilha de ficheiros do Azure. | Para resolver este problema, consulte [atingiu o limite de armazenamento da partilha de ficheiros do Azure](https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot?tabs=portal1%2Cazure-portal#-2134351810) secção no guia de resolução de problemas. |
-| 0x80070005 | -2147024891 | E_ACCESSDENIED | Este erro pode ocorrer se o ficheiro é encriptado por uma solução não suportada (como o EFS de NTFS) ou o ficheiro tem uma exclusão estado pendente. | Se o ficheiro é encriptado por uma solução não suportada, descriptografar o arquivo e usar uma solução de encriptação suportados. Para obter uma lista de soluções de suporte, consulte [soluções de encriptação](https://docs.microsoft.com/azure/storage/files/storage-sync-files-planning#encryption-solutions) secção no guia de planejamento. Se o ficheiro estiver numa exclusão estado pendente, o ficheiro será eliminado depois de todos os identificadores de ficheiros abertos são fechados. |
+| 0x80070005 | -2147024891 | E_ACCESSDENIED | Este erro pode ocorrer pelos seguintes motivos: ficheiro é encriptado por uma solução não suportada (como o EFS de NTFS), o ficheiro tem uma exclusão estado pendente ou ficheiro está localizado numa pasta de replicação só de leitura do DFS-R | Se o ficheiro é encriptado por uma solução não suportada, descriptografar o arquivo e usar uma solução de encriptação suportados. Para obter uma lista de soluções de suporte, consulte [soluções de encriptação](https://docs.microsoft.com/azure/storage/files/storage-sync-files-planning#encryption-solutions) secção no guia de planejamento. Se o ficheiro estiver numa exclusão estado pendente, o ficheiro será eliminado depois de todos os identificadores de ficheiros abertos são fechados. Se o ficheiro está localizado numa pasta de replicação só de leitura do DFS-R, sincronização de ficheiros do Azure não suporta pontos finais do servidor em pastas só de leitura de replicação de DFS-R. Ver [guia de planeamento](https://docs.microsoft.com/azure/storage/files/storage-sync-files-planning#distributed-file-system-dfs) para obter mais informações.
 | 0x20 | 32 | ERROR_SHARING_VIOLATION | Não é possível sincronizar um ficheiro porque está a ser utilizado. O ficheiro será sincronizado quando já não está a ser utilizado. | Nenhuma ação necessária. |
 | 0x80c80017 | -2134376425 | ECS_E_SYNC_OPLOCK_BROKEN | Um ficheiro foi alterado durante a sincronização, pelo que tem de ser sincronizado novamente. | Nenhuma ação necessária. |
 
@@ -331,7 +331,7 @@ Este erro ocorre porque o agente de sincronização de ficheiros do Azure não �
 
 1. Verifique o que pode resolver o nome DNS de armazenamento do servidor.
 
-    ```PowerShell
+    ```powershell
     Test-NetConnection -ComputerName <storage-account-name>.file.core.windows.net -Port 443
     ```
 2. [Certifique-se de que a conta de armazenamento existe.](#troubleshoot-storage-account)
@@ -457,13 +457,13 @@ Este erro pode acontecer se a sua organização utilizar um proxy de terminaçã
 
 1. Crie o valor de registo SkipVerifyingPinnedRootCertificate.
 
-    ```PowerShell
+    ```powershell
     New-ItemProperty -Path HKLM:\SOFTWARE\Microsoft\Azure\StorageSync -Name SkipVerifyingPinnedRootCertificate -PropertyType DWORD -Value 1
     ```
 
 2. Reinicie o serviço de sincronização no servidor registado.
 
-    ```PowerShell
+    ```powershell
     Restart-Service -Name FileSyncSvc -Force
     ```
 
@@ -503,7 +503,7 @@ Se a hora do servidor estiver correta, execute os seguintes passos para resolver
 1. Verifique se o agente do Azure File Sync versão 4.0.1.0 ou posterior está instalado.
 2. Execute os seguintes comandos do PowerShell no servidor:
 
-    ```PowerShell
+    ```powershell
     Import-Module "C:\Program Files\Azure\StorageSyncAgent\StorageSync.Management.PowerShell.Cmdlets.dll"
     Login-AzureRmStorageSync -SubscriptionID <guid> -TenantID <guid>
     Reset-AzureRmStorageSyncServerCertificate -SubscriptionId <guid> -ResourceGroupName <string> -StorageSyncServiceName <string>
@@ -616,7 +616,7 @@ Este erro ocorre devido a um problema interno com a base de dados de sincroniza�
     ![Uma captura de ecrã que mostra o painel de detalhes do ponto final de cloud com uma ligação para a conta de armazenamento.](media/storage-sync-files-troubleshoot/file-share-inaccessible-1.png)
 
 # <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
-```PowerShell
+```powershell
 # Variables for you to populate based on your configuration
 $agentPath = "C:\Program Files\Azure\StorageSyncAgent"
 $region = "<Az_Region>"
@@ -719,7 +719,7 @@ if ($storageAccount -eq $null) {
     ![Uma captura de ecrã que mostra as armazenamento conta rede regras de firewall e desativadas.](media/storage-sync-files-troubleshoot/file-share-inaccessible-2.png)
 
 # <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
-```PowerShell
+```powershell
 if ($storageAccount.NetworkRuleSet.DefaultAction -ne 
     [Microsoft.Azure.Commands.Management.Storage.Models.PSNetWorkRuleDefaultActionEnum]::Allow) {
     Write-Host ("The storage account referenced contains network " + `
@@ -735,7 +735,7 @@ if ($storageAccount.NetworkRuleSet.DefaultAction -ne
 3. Certifique-se de que a partilha de ficheiros referenciada pelo ponto final da cloud é apresentada na lista de partilhas de ficheiros (que deve ter anotou isto no passo 1 acima).
 
 # <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
-```PowerShell
+```powershell
 $fileShare = Get-AzureStorageShare -Context $storageAccount.Context | Where-Object {
     $_.Name -eq $cloudEndpoint.StorageAccountShareName -and
     $_.IsSnapshot -eq $false
@@ -762,7 +762,7 @@ if ($fileShare -eq $null) {
     - Na **selecionar** , digite **serviço de sincronização de ficheiros de híbrida**, selecione a função e clique em **guardar**.
 
 # <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
-```PowerShell    
+```powershell    
 $foundSyncPrincipal = $false
 Get-AzRoleAssignment -Scope $storageAccount.Id | ForEach-Object { 
     if ($_.DisplayName -eq "Hybrid File Sync Service") {
@@ -790,13 +790,13 @@ Pode usar [filtragens de ficheiros do Gestor de recursos do servidor de ficheiro
 
 Primeiro, crie um grupo de arquivos do FSRM, utilizar o [cmdlet New-FsrmFileGroup](https://docs.microsoft.com/powershell/module/fileserverresourcemanager/new-fsrmfilegroup). Este exemplo define o grupo que contém apenas duas dos carateres não suportados, mas pode incluir como muitos dos carateres conforme necessário no seu grupo de ficheiros.
 
-```PowerShell
+```powershell
 New-FsrmFileGroup -Name "Unsupported characters" -IncludePattern @(("*"+[char]0x00000090+"*"),("*"+[char]0x0000008F+"*"))
 ```
 
 Depois de definir um grupo de arquivos do FSRM, pode criar uma tela de arquivos do FSRM utilizando o cmdlet New-FsrmFileScreen.
 
-```PowerShell
+```powershell
 New-FsrmFileScreen -Path "E:\AFSdataset" -Description "Filter unsupported characters" -IncludeGroup "Unsupported characters"
 ```
 
@@ -893,7 +893,7 @@ Se o problema não for resolvido, execute a ferramenta de AFSDiag:
 1. Crie um diretório em que a saída de AFSDiag será guardada (por exemplo, C:\Output).
 2. Abra uma janela elevada do PowerShell e, em seguida, execute os seguintes comandos (prima Enter após cada comando):
 
-    ```PowerShell
+    ```powershell
     cd "c:\Program Files\Azure\StorageSyncAgent"
     Import-Module .\afsdiag.ps1
     Debug-Afs c:\output # Note: Use the path created in step 1.

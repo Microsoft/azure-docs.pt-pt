@@ -1,5 +1,5 @@
 ---
-title: Monitorizar os gateways de VPN com a resolução de problemas do observador de rede do Azure | Microsoft Docs
+title: Monitorizar gateways de VPN na resolução de problemas do observador de rede do Azure | Documentos da Microsoft
 description: Este artigo descreve como diagnosticar conectividade no local com a automatização do Azure e o observador de rede
 services: network-watcher
 documentationcenter: na
@@ -13,46 +13,46 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: jdial
-ms.openlocfilehash: a102916bb0626f5b110fb134a8a25c902cfaefe7
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 4995d7ae846652c374a289603f29f88f6f56dfef
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/19/2018
-ms.locfileid: "31598137"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58485498"
 ---
-# <a name="monitor-vpn-gateways-with-network-watcher-troubleshooting"></a>Monitorizar os gateways de VPN com a resolução de problemas do observador de rede
+# <a name="monitor-vpn-gateways-with-network-watcher-troubleshooting"></a>Monitorizar gateways de VPN na resolução de problemas do observador de rede
 
-Obter conhecimentos aprofundados sobre o desempenho de rede é fundamental para fornecer serviços fiáveis aos clientes. Consequentemente, é essencial detetar condições de falha de rede rápida e tomar uma ação corretiva a mitigar a condição de falha. A automatização do Azure permite-lhe implementar e executar uma tarefa de forma programática através de runbooks. Utilizar a automatização do Azure cria uma receitas perfeita para efetuar a monitorização de rede contínua e proativa e alertas.
+Obter informações aprofundadas sobre o seu desempenho de rede é essencial para oferecer serviços fiáveis aos clientes. Portanto, é fundamental detetar condições de falha de rede rápida e tomar medidas corretivas para mitigar a condição de falha. A automatização do Azure permite-lhe implementar e executar uma tarefa de forma programática através de runbooks. Utilizar a automatização do Azure cria uma receita perfeita para a execução de alertas e monitorização de rede proativa e contínuo.
 
 ## <a name="scenario"></a>Cenário
 
-O cenário na imagem seguinte é uma aplicação de várias camadas, com conectividade no local estabelecida através de um Gateway de VPN e túnel. Garantir que o Gateway de VPN está a funcionar e em execução, é fundamental para o desempenho de aplicações.
+O cenário na imagem seguinte é um aplicativo de várias camadas, na conectividade de locais estabelecida com um Gateway de VPN e túnel. Garantir que o Gateway de VPN está a funcionar e em execução são fundamental para o desempenho de aplicações.
 
-É criado um runbook com um script para verificar o estado de ligação do túnel VPN, utilizando a API de resolução de problemas de recursos para verificar a existência de estado de ligação do túnel. Se o estado não está em bom estado, um acionador de correio eletrónico é enviado aos administradores.
+Um runbook é criado com um script para verificar a existência de estado da ligação do túnel VPN, com a API de resolução de problemas de recursos para verificar a existência de estado de ligação do túnel. Se o estado não está em bom estado, um acionador de e-mail é enviado para os administradores.
 
 ![Exemplo de cenário][scenario]
 
 Neste cenário irão:
 
-- Criar uma runbook a chamar o `Start-AzureRmNetworkWatcherResourceTroubleshooting` cmdlet para resolver o estado da ligação
-- Associar um agendamento ao runbook
+- Criar um runbook de chamar o `Start-AzureRmNetworkWatcherResourceTroubleshooting` cmdlet para resolver problemas do Estado de ligação
+- Ligar uma agenda ao runbook
 
 ## <a name="before-you-begin"></a>Antes de começar
 
 Antes de começar este cenário, tem de ter os seguintes pré-requisitos:
 
-- Uma conta de automatização do Azure no Azure. Certifique-se de que a conta de automatização tem os módulos mais recentes e também tem o módulo de AzureRM.Network. O módulo de AzureRM.Network está disponível na galeria do módulo se precisar de adicioná-lo à sua conta de automatização.
+- Uma conta de automatização do Azure no Azure. Certifique-se de que a conta de automatização tem os módulos mais recentes e também tem o módulo azurerm. Network. O módulo azurerm. Network está disponível na galeria do módulo se precisar de adicioná-lo à sua conta de automatização.
 - Tem de ter um conjunto de credenciais que configurar na automatização do Azure. Saiba mais em [segurança de automatização do Azure](../automation/automation-security-overview.md)
-- Um servidor de SMTP válido (Office 365, o e-mail no local ou outra) e as credenciais definidas na automatização do Azure
+- Um servidor de SMTP válido (Office 365, o seu e-mail no local ou outro) e as credenciais definidas na automatização do Azure
 - Um configurado Gateway de rede Virtual no Azure.
 - Uma conta de armazenamento existente com um contentor existente para armazenar os registos no.
 
 > [!NOTE]
-> A infraestrutura descrita na imagem anterior é para fins de ilustração e não são criadas com os passos contidos neste artigo.
+> A infraestrutura representada na imagem anterior é para fins de ilustração e não são criados com os passos contidos neste artigo.
 
 ### <a name="create-the-runbook"></a>Criar o runbook
 
-É o primeiro passo para configurar o exemplo para criar o runbook. Este exemplo utiliza uma conta executar como. Para saber mais sobre contas Run as, visite [autenticar Runbooks com a conta Run As do Azure](../automation/automation-create-runas-account.md)
+É o primeiro passo para configurar o exemplo criar o runbook. Este exemplo utiliza uma conta run as. Para saber mais sobre contas Run as, visite [autenticar Runbooks com a conta Run As do Azure](../automation/automation-create-runas-account.md)
 
 ### <a name="step-1"></a>Passo 1
 
@@ -68,23 +68,23 @@ Clique em **adicionar um runbook** para iniciar o processo de criação do runbo
 
 ### <a name="step-3"></a>Passo 3
 
-Em **criação rápida**, clique em **criar um novo runbook** para criar o runbook.
+Sob **criação rápida**, clique em **criar um runbook novo** para criar o runbook.
 
 ![Adicionar um painel do runbook][3]
 
 ### <a name="step-4"></a>Passo 4
 
-Neste passo, vamos atribua ao runbook um nome, no exemplo é denominado **Get-VPNGatewayStatus**. É importante atribua ao runbook um nome descritivo e recomendado, atribua um nome que se segue o padrão normas de nomenclatura do PowerShell. O tipo de runbook para este exemplo é **PowerShell**, as outras opções são gráfico, fluxo de trabalho do PowerShell e o fluxo de trabalho do PowerShell gráfica.
+Neste passo, vamos atribua ao runbook um nome, o exemplo é chamado **Get-VPNGatewayStatus**. É importante atribua ao runbook um nome descritivo e recomendados, dando a ele um nome que se segue o padrão padrões de nomenclatura do PowerShell. O tipo de runbook para este exemplo é **PowerShell**, as outras opções são gráfico, fluxo de trabalho do PowerShell e o fluxo de trabalho de PowerShell gráfico.
 
 ![painel do runbook][4]
 
 ### <a name="step-5"></a>Passo 5
 
-Neste passo, que o runbook for criado, o exemplo de código seguinte fornece todos os o código necessário para o exemplo. Os itens no código que contêm \<valor\> tem de ser substituído com os valores da sua subscrição.
+Neste passo, que o runbook é criado, o seguinte exemplo de código fornece todo o código necessário para o exemplo. Os itens no código que contêm \<valor\> precisam ser substituídos pelos valores da sua subscrição.
 
 Utilize o seguinte código como clique **guardar**
 
-```PowerShell
+```powershell
 # Set these variables to the proper values for your environment
 $o365AutomationCredential = "<Office 365 account>"
 $fromEmail = "<from email address>"
@@ -146,35 +146,35 @@ else
 
 ### <a name="step-6"></a>Passo 6
 
-Depois do runbook é guardado, uma agenda têm de estar associada ao mesmo para automatizar o início do runbook. Para iniciar o processo, clique em **agenda**.
+Depois do runbook é guardado, uma agenda têm de ser associada a ele para automatizar o início do runbook. Para iniciar o processo, clique em **agenda**.
 
 ![Passo 6][6]
 
-## <a name="link-a-schedule-to-the-runbook"></a>Associar um agendamento ao runbook
+## <a name="link-a-schedule-to-the-runbook"></a>Ligar uma agenda ao runbook
 
-Tem de ser criada uma nova agenda. Clique em **associar um agendamento ao runbook**.
+Tem de ser criada uma nova agenda. Clique em **ligar uma agenda ao runbook**.
 
 ![Passo 7][7]
 
 ### <a name="step-1"></a>Passo 1
 
-No **agenda** painel, clique em **criar uma nova agenda**
+Sobre o **agenda** painel, clique em **criar uma nova agenda**
 
 ![Passo 8][8]
 
 ### <a name="step-2"></a>Passo 2
 
-No **nova agenda** painel preenchimento as informações de agenda. Os valores que podem ser definidos são na lista seguinte:
+Sobre o **nova agenda** painel, preencha as informações de agenda. Se os valores que podem ser definidos na lista seguinte:
 
 - **Nome** -o nome amigável da agenda.
 - **Descrição** -uma descrição da agenda.
-- **Inicia** -este valor é uma combinação de padrões de data, hora e fuso horário que compõem o tempo, os acionadores de agenda.
-- **Periodicidade** -este valor determina a repetição de agendas.  Os valores válidos são **uma vez** ou **periódica**.
+- **Inicia** -este valor é uma combinação de data, hora e fuso horário que compõem o tempo de acionadores de agenda.
+- **Periodicidade** -este valor determina a repetição de agendas.  Os valores válidos são **uma vez** ou **periódico**.
 - **Repetir cada** -o intervalo de periodicidade da agenda em horas, dias, semanas ou meses.
-- **Definir expiração** -o valor determina se o agendamento deve expirar ou não. Pode ser definido como **Sim** ou **não**. Uma data ou hora válida estão a ser fornecido se Sim, é escolhido.
+- **Definir expiração** -o valor determina se a agenda deve expirar ou não. Pode ser definido como **Sim** ou **não**. Uma data válida e a hora estão a ser fornecido se Sim, é escolhido.
 
 > [!NOTE]
-> Se precisar de ter um runbook execute mais frequentemente a cada hora, vários agendamentos simultâneos têm de ser criados com intervalos diferentes (ou seja, 15, 30, 45 minutos após a hora)
+> Se precisar de ter um runbook execute com mais frequência do que a cada hora, várias agendas têm de ser criadas em intervalos diferentes (ou seja, 15, 30, 45 minutos após a hora)
 
 ![Passo 9][9]
 
@@ -186,7 +186,7 @@ Clique em Guardar para guardar a agenda ao runbook.
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-Agora que tem uma compreensão sobre como integrar o observador de rede de resolução de problemas com a automatização do Azure, saiba como acionar capturas de pacotes de alertas VM, visitando [criar uma captura de pacotes accionadas alerta com o observador de rede de Azure](network-watcher-alert-triggered-packet-capture.md).
+Agora que tem uma compreensão sobre como integrar a solução de problemas de observador de rede com a automatização do Azure, saiba como acionar capturas de pacotes em alertas VM ao visitar [criar uma captura de pacotes acionadas alerta com o observador de rede do Azure](network-watcher-alert-triggered-packet-capture.md).
 
 <!-- images -->
 [scenario]: ./media/network-watcher-monitor-with-azure-automation/scenario.png

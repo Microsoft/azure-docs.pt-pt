@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: gateway
 ms.topic: overview
-ms.date: 03/20/2019
+ms.date: 03/25/2019
 ms.author: alkohli
-ms.openlocfilehash: a50091ec8878cbc8c1167c03acddaf269d697f31
-ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
+ms.openlocfilehash: 15d560698ca47c0be39e0533f264bfef211a33d0
+ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58400424"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58500411"
 ---
 # <a name="use-the-azure-portal-to-manage-bandwidth-schedules-on-your-azure-data-box-gateway"></a>Utilizar o portal do Azure para gerir as agendas de largura de banda do Azure Data Box Gateway  
 

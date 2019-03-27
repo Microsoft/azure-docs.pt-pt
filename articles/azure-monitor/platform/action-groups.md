@@ -5,15 +5,15 @@ author: dkamstra
 services: azure-monitor
 ms.service: azure-monitor
 ms.topic: conceptual
-ms.date: 1/29/2019
+ms.date: 3/26/2019
 ms.author: dukek
 ms.subservice: alerts
-ms.openlocfilehash: 29db8c8b51082016d413c66c6abfdb1c518c9329
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 695a2ff827fc5514c3a32364026bc9d47c8a2121
+ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58117970"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58500321"
 ---
 # <a name="create-and-manage-action-groups-in-the-azure-portal"></a>Criar e gerir grupos de ação no portal do Azure
 ## <a name="overview"></a>Descrição geral ##
@@ -101,6 +101,8 @@ Intervalos de endereços IP de origem
  - 13.106.38.148
  - 13.106.57.196
  - 52.244.68.117
+ - 51.4.138.199
+ - 51.5.148.86
 
 Para receber atualizações sobre as alterações a estes endereços IP, recomendamos que configure um [Service Health alerta, que monitora informativas notificações sobre o serviço de grupos de ação.
 

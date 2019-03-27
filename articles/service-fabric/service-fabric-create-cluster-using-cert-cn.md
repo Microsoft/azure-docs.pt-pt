@@ -3,7 +3,7 @@ title: Criar um cluster de Azure Service Fabric com o nome comum do certificado 
 description: Saiba como criar um cluster do Service Fabric com o nome comum do certificado de um modelo.
 services: service-fabric
 documentationcenter: .net
-author: rwike77
+author: aljo-microsoft
 manager: timlt
 editor: ''
 ms.assetid: ''
@@ -13,13 +13,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 04/24/2018
-ms.author: ryanwi
-ms.openlocfilehash: f6f4858740288facb1e206eed3a8cd4ee1854daa
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.author: aljo
+ms.openlocfilehash: 5f2ba517e68dcd37de44bd26f476442e80817086
+ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58111451"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58498031"
 ---
 # <a name="deploy-a-service-fabric-cluster-that-uses-certificate-common-name-instead-of-thumbprint"></a>Implementar um cluster do Service Fabric que utiliza o nome comum do certificado em vez de thumbprint
 Não existem dois certificados podem ter o mesmo thumbprint, o que torna difícil rollover de certificado de cluster ou de gestão. No entanto, vários certificados, podem ter o mesmo nome comum ou assunto.  Um cluster com o nome comum do certificado de faz a gestão de certificados muito mais simples. Este artigo descreve como implementar um cluster do Service Fabric para utilizar o nome comum do certificado em vez do thumbprint do certificado.

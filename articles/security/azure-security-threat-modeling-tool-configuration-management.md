@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/07/2017
 ms.author: jegeib
-ms.openlocfilehash: bd1d3c71660ae584b0aa57c7cc765fdc519f4b1b
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 284d0e888b89d340088f770af22c026a861a4685
+ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57863598"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58498388"
 ---
 # <a name="security-frame-configuration-management--mitigations"></a>Quadro de segurança: Gestão de configuração | Atenuações 
 | Produtos/serviços | Artigo |
@@ -85,7 +85,7 @@ Example: var str="alert(1)"; eval(str);
 | **Fase do SDL**               | Compilação |  
 | **Tecnologias aplicáveis** | Genérico |
 | **Atributos**              | N/A  |
-| **Referências**              | [Descrição geral de depuração do ASP.NET](https://msdn2.microsoft.com/library/ms227556.aspx), [descrição geral do rastreio de ASP.NET](https://msdn2.microsoft.com/library/bb386420.aspx), [como: Ativar o rastreio para uma aplicação ASP.NET](https://msdn2.microsoft.com/library/0x5wc973.aspx), [como: Ativar a depuração para aplicativos ASP.NET](https://msdn2.microsoft.com/library/e8z01xdh(VS.80).aspx) |
+| **Referências**              | [Descrição geral de depuração do ASP.NET](https://msdn.microsoft.com/library/ms227556.aspx), [descrição geral do rastreio de ASP.NET](https://msdn.microsoft.com/library/bb386420.aspx), [como: Ativar o rastreio para uma aplicação ASP.NET](https://msdn.microsoft.com/library/0x5wc973.aspx), [como: Ativar a depuração para aplicativos ASP.NET](https://msdn.microsoft.com/library/e8z01xdh(VS.80).aspx) |
 | **Passos** | Quando o rastreio está ativado para a página, todos os navegadores solicitando que ele também obtém as informações de rastreio que contém dados sobre o estado de servidor interno e o fluxo de trabalho. Essas informações podem ser confidencial de segurança. Quando a depuração está ativada para a página, erros acontecendo no servidor resultam num dados de rastreio de pilha completo apresentados no browser. Esses dados podem expor informações importantes de segurança sobre o fluxo de trabalho do servidor. |
 
 ## <a id="js-trusted"></a>Acesso de terceiros javascripts da apenas origens confiáveis

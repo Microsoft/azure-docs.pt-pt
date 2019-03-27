@@ -18,12 +18,12 @@ ms.author: celested
 ms.reviewer: saeeda, jmprieur, andret
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2e6ea0be84cc36ca6fa6547d01054599e37229d7
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 0aac3e40089c67cd71a2c634280e333964e47902
+ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56162939"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58499986"
 ---
 # <a name="application-types-for-v20"></a>Tipos de aplicativos para o v2.0
 
@@ -124,7 +124,7 @@ Neste fluxo, a aplicação recebe um código de autorização do ponto final v2.
 
 Aplicações que têm processos de longa execução ou que não funcionam sem a interação com um utilizador tem também de uma forma de aceder a recursos protegidos, como as APIs da Web. Estas aplicações podem autenticar e obter os tokens utilizando a identidade da aplicação, em vez de um utilizador delegado identidade, com o fluxo de credenciais de cliente OAuth 2.0. Pode comprovar a identidade da aplicação com um certificado ou um segredo do cliente. Para mais informações, veja [autenticar no Azure AD em aplicações daemon com certificados](https://azure.microsoft.com/resources/samples/active-directory-dotnet-daemon-certificate-credential/).
 
-Neste fluxo, a aplicação interage diretamente com o `/token` ponto final para obter os pontos finais:
+Neste fluxo, a aplicação interage diretamente com o `/token` ponto final para obter acesso:
 
 ![Fluxo de autenticação de aplicação de daemon](./media/v2-app-types/convergence_scenarios_daemon.png)
 

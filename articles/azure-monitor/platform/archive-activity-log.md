@@ -8,20 +8,15 @@ ms.topic: conceptual
 ms.date: 02/22/2019
 ms.author: nikiest
 ms.subservice: logs
-ms.openlocfilehash: 5328173090bce3e3adf51a1503e18c8da5532b0e
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.openlocfilehash: b6009471048232b52020e4bef6272ed8cb1bd35b
+ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57310911"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58497759"
 ---
 # <a name="archive-the-azure-activity-log"></a>Arquivar o registo de atividades do Azure
 Neste artigo, vamos mostrar como pode usar o portal do Azure, Cmdlets do PowerShell ou CLI de várias plataformas para arquivar sua [ **registo de atividades do Azure** ](../../azure-monitor/platform/activity-logs-overview.md) numa conta de armazenamento. Esta opção é útil se gostaria de manter o registo de atividades mais de 90 dias (com controlo total sobre a política de retenção) para cópia de segurança, auditoria ou análise estática. Se só precisa de manter seus eventos durante 90 dias ou menos não é necessário configurar o arquivo para uma conta de armazenamento, uma vez que os eventos de registo de Atividades são mantidos na plataforma do Azure durante 90 dias sem ativar arquivamento.
-
-> [!WARNING]
-> O formato dos dados de registo na conta de armazenamento vai ser alterado para Linhas de JSON a 1 de novembro de 2018. [Leia este artigo para obter uma descrição do impacto e saber como atualizar a sua ferramenta para trabalhar com o novo formato.](./../../azure-monitor/platform/diagnostic-logs-append-blobs.md) 
->
-> 
 
 ## <a name="prerequisites"></a>Pré-requisitos
 Antes de começar, precisa [criar uma conta de armazenamento](../../storage/common/storage-quickstart-create-account.md) ao qual pode arquivar o registo de atividades. É altamente recomendável que não use uma conta de armazenamento existente que tenha outros, não monitorizar dados armazenados na mesma, para que pode controlar melhor acesso a dados de monitorização. No entanto, se também são arquivar os registos de diagnóstico e métricas para uma conta de armazenamento, talvez faça sentido usar essa conta de armazenamento para o registo de atividades também para manter todos os dados de monitorização numa localização central. A conta de armazenamento não tem de estar na mesma subscrição que a subscrição que emite os registos, desde que o utilizador que configura a definição possui acesso RBAC adequado para ambas as subscrições.
@@ -65,7 +60,7 @@ Para arquivar o registo de atividade usando qualquer um dos métodos abaixo, def
 | --- | --- | --- |
 | StorageAccountId |Sim |ID de recurso da conta do Storage para o qual os registos de atividades devem ser salvos. |
 | Localizações |Sim |Lista separada por vírgulas de regiões para o qual pretende recolher eventos de registo de atividades. Pode ver uma lista de todas as regiões para a sua subscrição com `(Get-AzLocation).Location`. |
-| RetentionInDays |Não |Número de dias para que eventos devem ser mantidos, entre 1 e 2147483647. Um valor de zero armazena os logs de indefinidamente (Eterno). |
+| RetentionInDays |Não |Número de dias para que eventos devem ser mantidos, entre 1 e 365. Um valor de zero armazena os logs de indefinidamente (Eterno). |
 | Categorias |Não |Lista separada por vírgulas das categorias de evento que deve ser recolhidos. Valores possíveis são escrita, eliminação e ação.  Se não for indicado, em seguida, todos os valores possíveis são pressupõe-se |
 
 ## <a name="archive-the-activity-log-via-cli"></a>Arquivar o registo de atividade através da CLI
@@ -79,7 +74,7 @@ Para arquivar o registo de atividade usando qualquer um dos métodos abaixo, def
 | nome |Sim |Nome do seu perfil de registo. |
 | storage-account-id |Sim |ID de recurso da conta do Storage para o qual os registos de atividades devem ser salvos. |
 | localizações |Sim |Lista de regiões para o qual pretende recolher eventos de registo de atividades separadas por espaços. Pode ver uma lista de todas as regiões para a sua subscrição com `az account list-locations --query [].name`. |
-| dias |Sim |Número de dias para que eventos devem ser mantidos, entre 1 e 2147483647. Um valor igual a zero irá armazenar os registos indefinidamente (Eterno).  Se zero, em seguida, o parâmetro ativado deve ser definido como true. |
+| dias |Sim |Número de dias para que eventos devem ser mantidos, entre 1 e 365. Um valor igual a zero irá armazenar os registos indefinidamente (Eterno).  Se zero, em seguida, o parâmetro ativado deve ser definido como true. |
 |enabled | Sim |VERDADEIRO ou FALSO.  Utilizado para ativar ou desativar a política de retenção.  Se for VERDADEIRO, o parâmetro de dias tem de ser um valor maior que 0.
 | categories |Sim |Lista de categorias de evento que deve ser coletado separadas por espaços. Valores possíveis são escrita, eliminação e ação. |
 

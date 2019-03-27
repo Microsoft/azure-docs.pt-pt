@@ -8,12 +8,12 @@ ms.service: storage
 ms.topic: quickstart
 ms.date: 02/14/2019
 ms.author: rogarana
-ms.openlocfilehash: c3a85a668a398047e7daef8a2e07be261ff644c5
-ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
+ms.openlocfilehash: 464f3db86c2b6dc4cfe51c74b224a8da4d512103
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56447485"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58485599"
 ---
 # <a name="quickstart-upload-download-and-list-blobs-by-using-azure-powershell"></a>Início rápido: Carregar, transferir e listar os blobs com o Azure PowerShell
 
@@ -98,7 +98,7 @@ O utilitário [AzCopy](../common/storage-use-azcopy.md?toc=%2fazure%2fstorage%2f
 
 Como exemplo rápido, eis o comando do AzCopy para carregar um ficheiro denominado *myfile.txt* para o contentor *mystoragecontainer* a partir de uma janela do PowerShell.
 
-```PowerShell
+```powershell
 ./AzCopy `
     /Source:C:\myfolder `
     /Dest:https://mystorageaccount.blob.core.windows.net/mystoragecontainer `

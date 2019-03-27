@@ -9,15 +9,15 @@ ms.devlang: ''
 ms.topic: conceptual
 author: allenwux
 ms.author: xiwu
-ms.reviewer: douglasl
+ms.reviewer: carlrab
 manager: craigg
 ms.date: 12/20/2018
-ms.openlocfilehash: 4ab26891a98418fae75c3be18f17f1d8e02d8b36
-ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
+ms.openlocfilehash: 8b86103f76e2425acea1b4f7c590204f0a893510
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57216718"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58484433"
 ---
 # <a name="troubleshoot-issues-with-sql-data-sync"></a>Resolver problemas com a sincronização de dados SQL
 

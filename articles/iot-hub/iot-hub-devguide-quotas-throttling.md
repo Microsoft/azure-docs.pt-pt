@@ -8,12 +8,12 @@ ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 09/05/2018
-ms.openlocfilehash: 4656cc5a27d459c4f30f7cf23cc41b9525e79dcd
-ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
+ms.openlocfilehash: d27b1ae05205d5b9c19b99733a3fa647a7f69c58
+ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58437643"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58499197"
 ---
 # <a name="reference---iot-hub-quotas-and-throttling"></a>Referência - IoT Hub quotas e limitação
 
@@ -42,7 +42,7 @@ A tabela seguinte mostra os imposto limitadores. Valores referem-se para um hub 
 | Na cloud para o dispositivo recebe<sup>1</sup> <br/> (apenas quando dispositivo utiliza HTTPS)| 16.67/SEC/Unit (1000/min/unidade) | 16.67/SEC/Unit (1000/min/unidade) | 833.33/SEC/Unit (50000/min/unidade) |
 | Carregamento de ficheiros | ficheiro 1.67 carregamento notificações/seg/unidade (100/min/unidade) | ficheiro 1.67 carregamento notificações/seg/unidade (100/min/unidade) | ficheiro 83.33 carregamento notificações/seg/unidade (5000/min/unidade) |
 | Métodos diretos<sup>1</sup> | 160KB/seg/unidade<sup>2</sup> | 480KB/seg/unidade<sup>2</sup> | 24MB/sec/unit<sup>2</sup> | 
-| Consultas | 20/seg/unidade | 20/seg/unidade | 1000/seg/unidade |
+| Consultas | 20/min/unidade | 20/min/unidade | 1000/min/unidade |
 | Duplo (dispositivo e módulo) leituras<sup>1</sup> | 100/seg | Mais de 100/seg ou 10/seg/unidade | 500/seg/unidade |
 | Duplo atualizações (dispositivo e módulo)<sup>1</sup> | 50/seg | Mais de 50 por segundo ou 5/seg/unidade | 250/seg/unidade |
 | Tarefas de operações<sup>1,3</sup> <br/> (criar, atualizar, listar, eliminar) | 1.67/SEC/Unit (100/min/unidade) | 1.67/SEC/Unit (100/min/unidade) | 83.33/SEC/Unit (5000/min/unidade) |

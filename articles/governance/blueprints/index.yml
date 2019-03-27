@@ -1,10 +1,10 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: c4aeb25530739931a18f010a579bd8354d6fdc5a
-ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
+ms.openlocfilehash: 34e0023a00aeffc5788754062a2c11fdeea58f7f
+ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58223296"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58500071"
 documentType: LandingData
 title: Documentação do Azure Blueprints
 metadata:
@@ -15,7 +15,7 @@ metadata:
   manager: carmonm
   ms.service: blueprints
   ms.topic: landing-page
-  ms.date: 03/18/2019
+  ms.date: 03/26/2019
   ms.author: dacoulte
 abstract:
   description: O Azure Blueprints ajuda-o a implementar e atualizar os ambientes de cloud de forma repetível através de artefactos compostos, como os modelos do Azure Resource Manager, para aprovisionar recursos, controlos de acesso baseado em funções e políticas.
@@ -43,6 +43,8 @@ sections:
     style: cards
     className: cardsD
     items:
+    - title: Linha de Comandos
+      html: <p><a href="/powershell/module/az.blueprint/#blueprint">Azure PowerShell</a></p>
     - title: Linguagens
       html: <p><a href="/dotnet/api/overview/azure/blueprints/management">Azure SDK for .NET</a> (Azure SDK para .NET)</p>
     - title: REST

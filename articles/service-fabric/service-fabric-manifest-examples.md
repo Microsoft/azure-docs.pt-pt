@@ -3,7 +3,7 @@ title: Exemplos do Azure Service Fabric contentor aplicação manifestos | Docum
 description: Saiba como configurar a aplicação e serviço manifestos definições para uma aplicação do Service Fabric.
 services: service-fabric
 documentationcenter: na
-author: rwike77
+author: peterpogorski
 manager: timlt
 editor: ''
 ms.assetid: ''
@@ -13,13 +13,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.date: 06/11/2018
-ms.author: ryanwi
-ms.openlocfilehash: 8336f0a63f74aa0db176adbb3baf462c903ba2ec
-ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
+ms.author: pepogors
+ms.openlocfilehash: 552ff326ed38175f711924873daab4fcc48f0d09
+ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47095584"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58500394"
 ---
 # <a name="service-fabric-application-and-service-manifest-examples"></a>Exemplos de manifesto de aplicação do Service Fabric e serviço
 Esta seção contém exemplos de manifestos de aplicações e serviços. Estes exemplos não se destinam a mostrar cenários importantes, mas para mostrar as diferentes definições que estão disponíveis e como utilizá-los. 

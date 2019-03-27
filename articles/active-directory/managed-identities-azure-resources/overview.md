@@ -3,7 +3,7 @@ title: Identidades geridas para os recursos do Azure
 description: Descrição geral das identidades geridas para os recursos do Azure.
 services: active-directory
 documentationcenter: ''
-author: priyamohanram
+author: MarkusVi
 manager: daveba
 editor: ''
 ms.assetid: 0232041d-b8f5-4bd2-8d11-27999ad69370
@@ -13,14 +13,14 @@ ms.devlang: ''
 ms.topic: overview
 ms.custom: mvc
 ms.date: 10/23/2018
-ms.author: priyamo
+ms.author: markvi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: df2c4e447ff41e56c4d8b9862282b6fcb452a8c9
-ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
+ms.openlocfilehash: 4cbcab0d287f344d308e3ed51ae47087afae7f9e
+ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58224299"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58449275"
 ---
 # <a name="what-is-managed-identities-for-azure-resources"></a>O que são as identidades geridas para os recursos do Azure?
 

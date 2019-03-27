@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 09/24/2018
 ms.author: ancav
 ms.subservice: metrics
-ms.openlocfilehash: 64fb3acf9b134b7188d316633bc663d7dd9b14b8
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 573c205cd2e208a1cb2b526d96fb08ca21331c80
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57760227"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58481328"
 ---
 # <a name="send-guest-os-metrics-to-the-azure-monitor-metric-store-by-using-an-azure-resource-manager-template-for-a-windows-virtual-machine-scale-set"></a>Enviar métricas de SO convidado para o arquivo de métrica de Monitor do Azure com um modelo Azure Resource Manager para um conjunto de dimensionamento de máquinas virtuais do Windows
 
@@ -242,12 +242,12 @@ Para implementar o modelo do Resource Manager, utilize o Azure PowerShell:
 1. Obter a lista de subscrições com `Get-AzSubscription`.
 1. Defina a subscrição irá criar ou atualizar a máquina virtual: 
 
-   ```PowerShell
+   ```powershell
    Select-AzSubscription -SubscriptionName "<Name of the subscription>" 
    ```
 1. Crie um novo grupo de recursos para a VM que está sendo implementada. Execute o seguinte comando: 
 
-   ```PowerShell
+   ```powershell
     New-AzResourceGroup -Name "VMSSWADtestGrp" -Location "<Azure Region>" 
    ```
 
@@ -259,7 +259,7 @@ Para implementar o modelo do Resource Manager, utilize o Azure PowerShell:
    > [!NOTE]  
    > Se quiser atualizar um conjunto de dimensionamento existente, adicione **-modo Incremental** ao final do comando. 
  
-   ```PowerShell
+   ```powershell
    New-AzResourceGroupDeployment -Name "VMSSWADTest" -ResourceGroupName "VMSSWADtestGrp" -TemplateFile "<File path of your azuredeploy.JSON file>" -TemplateParameterFile "<File path of your azuredeploy.parameters.JSON file>"  
    ```
 

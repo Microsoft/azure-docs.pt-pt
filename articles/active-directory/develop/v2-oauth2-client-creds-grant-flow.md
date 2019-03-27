@@ -13,17 +13,17 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 02/07/2019
+ms.date: 03/21/2019
 ms.author: celested
 ms.reviewer: hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d25963d44960ec3ab15fdee2c264c3bf18e26c2a
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 8183ac9241ab57150717eebd85267a33912f1660
+ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57540573"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58445436"
 ---
 # <a name="azure-active-directory-v20-and-the-oauth-20-client-credentials-flow"></a>O Azure Active Directory v 2.0 e o fluxo de credenciais de cliente OAuth 2.0
 
@@ -76,10 +76,10 @@ Para utilizar permissões de aplicação na sua aplicação, siga as etapas abor
 
 #### <a name="request-the-permissions-in-the-app-registration-portal"></a>Solicitar as permissões no portal de registo de aplicação
 
-1. Registar e criar uma aplicação através da [portal de registo de aplicação](quickstart-v2-register-an-app.md) ou no novo [experiência de registos de aplicações (pré-visualização)](quickstart-register-app.md).
-1. Aceda à sua aplicação no portal do que utilizou para se registar ou criar a sua aplicação. Terá de utilizar pelo menos um segredo de aplicação, ao criar a sua aplicação.
-1. Localize a **permissões de API** secção e, em seguida, adicione o **permissões de aplicação** que a sua aplicação necessita.
-1. **Guardar** o registo de aplicações.
+1. Registre-se e criar uma aplicação através do novo [experiência de registos de aplicações (pré-visualização)](quickstart-register-app.md).
+2. Aceda ao seu aplicativo na experiência de registos (pré-visualização) de aplicação. Navegue para o **certificados e segredos** secção e adicione um **novo segredo do cliente**, porque terá de utilizar pelo menos um segredo do cliente para solicitar um token.
+3. Localize a **permissões de API** secção e, em seguida, adicione o **permissões de aplicação** que a sua aplicação necessita.
+4. **Guardar** o registo de aplicações.
 
 #### <a name="recommended-sign-the-user-in-to-your-app"></a>Recomendado: Sessão do utilizador para a sua aplicação
 
@@ -172,7 +172,7 @@ curl -X POST -H "Content-Type: application/x-www-form-urlencoded" -d 'client_id=
 | `tenant` | Necessário | O inquilino do diretório do aplicativo planos operar em relação a, no formato de nome de domínio ou de GUID. |
 | `client_id` | Necessário | O ID de aplicação que está atribuído à sua aplicação. Pode encontrar estas informações no portal onde registado a sua aplicação. |
 | `scope` | Necessário | O valor transmitido para o `scope` parâmetro neste pedido deve ser o identificador de recurso (o URI de ID da aplicação) do recurso que pretende, afixação com o `.default` sufixo. No exemplo do Microsoft Graph, o valor é `https://graph.microsoft.com/.default`. </br>Este valor indica o ponto final v2.0 que todos os aplicativos direto das permissões de que configurou para a sua aplicação, o ponto final deve emitir um token para aquelas associadas com o recurso que pretende utilizar. Para saber mais sobre o `/.default` escopo, consulte a [consentimento documentação](v2-permissions-and-consent.md#the-default-scope). |
-| `client_secret` | Necessário | O segredo de aplicação que gerou para a sua aplicação no portal de registo de aplicação. O segredo do cliente tem de ser codificados de URL antes de serem enviados. |
+| `client_secret` | Necessário | O segredo do cliente que gerou para a sua aplicação no portal de registo de aplicação. O segredo do cliente tem de ser codificados de URL antes de serem enviados. |
 | `grant_type` | Necessário | Tem de ser definido como `client_credentials`. |
 
 ### <a name="second-case-access-token-request-with-a-certificate"></a>Segundo caso: Pedido de token de acesso com um certificado

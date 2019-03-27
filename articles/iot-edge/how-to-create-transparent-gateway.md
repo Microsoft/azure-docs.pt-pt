@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: c769ae8e684a94e60f6a2e31ba404a0593f7aa78
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 9d67a87b182758e37c9e379a8f96a6540797ce3e
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58096712"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58482951"
 ---
 # <a name="configure-an-iot-edge-device-to-act-as-a-transparent-gateway"></a>Configurar um dispositivo IoT Edge para atuar como gateway transparente
 
@@ -71,7 +71,7 @@ Instale o OpenSSL para o Windows na máquina que está a utilizar para gerar os 
    
    2. Depois de vcpkg é instalado, a partir de uma linha de comandos do powershell, execute o seguinte comando para instalar o pacote de OpenSSL para o Windows x64. A instalação normalmente demora cerca de 5 minutos a ser concluída.
 
-      ```PowerShell
+      ```powershell
       .\vcpkg install openssl:x64-windows
       ```
    3. Adicionar `<VCPKGDIR>\installed\x64-windows\tools\openssl` a variável de ambiente PATH para que o arquivo de openssl.exe está disponível para invocação.
@@ -84,7 +84,7 @@ Azure IoT device SDK para C contém os scripts que pode utilizar para gerar cert
 
 2. Clone o repositório de git que contém os scripts para gerar certificados de não produção. Estes scripts ajudar a criar os certificados necessários para configurar um gateway transparente. Utilize o `git clone` comando ou [download ZIP](https://github.com/Azure/azure-iot-sdk-c/archive/master.zip). 
 
-   ```PowerShell
+   ```powershell
    git clone https://github.com/Azure/azure-iot-sdk-c.git
    ```
 
@@ -92,7 +92,7 @@ Azure IoT device SDK para C contém os scripts que pode utilizar para gerar cert
 
 4. Copie os ficheiros de configuração e script no seu diretório de trabalho. 
 
-   ```PowerShell
+   ```powershell
    copy <path>\azure-iot-sdk-c\tools\CACertificates\*.cnf .
    copy <path>\azure-iot-sdk-c\tools\CACertificates\ca-certs.ps1 .
    ```
@@ -101,25 +101,25 @@ Azure IoT device SDK para C contém os scripts que pode utilizar para gerar cert
 
 5. Defina a variável de ambiente OPENSSL_CONF para usar o arquivo de configuração openssl_root_ca.cnf.
 
-    ```PowerShell
+    ```powershell
     $env:OPENSSL_CONF = "$PWD\openssl_root_ca.cnf"
     ```
 
 6. Ative o PowerShell para executar os scripts.
 
-   ```PowerShell
+   ```powershell
    Set-ExecutionPolicy -ExecutionPolicy Unrestricted -Scope CurrentUser
    ```
 
 7. Colocar as funções, usadas pelos scripts, no espaço de nomes global do PowerShell.
    
-   ```PowerShell
+   ```powershell
    . .\ca-certs.ps1
    ```
 
 8. Certifique-se de que OpenSSL foi instalado corretamente e certifique-se de que não haja conflitos de nomes com certificados existentes. Se existirem problemas, o script deve descrever como corrigi-los no seu sistema.
 
-   ```PowerShell
+   ```powershell
    Test-CACertsPrerequisites
    ```
 
@@ -129,19 +129,19 @@ Nesta secção, crie três certificados e, em seguida, ligá-los numa cadeia. Co
 
 1. Criar o certificado de AC de proprietário e tê-lo a assinar um certificado intermédio. Os certificados são colocados num  *\<WRKDIR >*.
 
-      ```PowerShell
+      ```powershell
       New-CACertsCertChain rsa
       ```
 
 2. Crie o certificado de AC de dispositivo do Edge e a chave privada com o seguinte comando. Forneça um nome para o dispositivo de gateway, que será utilizado para nomes aos ficheiros e durante a geração do certificado. 
 
-   ```PowerShell
+   ```powershell
    New-CACertsEdgeDevice "<gateway name>"
    ```
 
 3. Crie uma cadeia de certificados a partir do certificado de AC de proprietário, certificado intermédio e certificado de AC de dispositivo de periferia com o seguinte comando. 
 
-   ```PowerShell
+   ```powershell
    Write-CACertsCertificatesForEdgeDevice "<gateway name>"
    ```
 

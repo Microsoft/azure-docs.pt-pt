@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 03/19/2019
 ms.author: hrasheed
-ms.openlocfilehash: 0f0a22ea4a24a82cb4acf7a3b20a743ee7425c72
-ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
+ms.openlocfilehash: ac1c1c4ae21ebd184b833fe4d23084f7cf324d2c
+ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58294914"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58500479"
 ---
 # <a name="manage-logs-for-an-hdinsight-cluster"></a>Gerir registos de um cluster do HDInsight
 
@@ -98,7 +98,7 @@ A próxima etapa é examinar os ficheiros de registo de execução de tarefa par
 
 ### <a name="access-the-hadoop-log-files"></a>Aceder aos ficheiros de registo do Hadoop
 
-HDInsight armazena seus arquivos de log no sistema de arquivos de cluster e no armazenamento do Azure. Pode examinar os ficheiros de registo do cluster ao abrir um [SSH](/hdinsight-hadoop-linux-use-ssh-unix.md) ligação ao cluster e o sistema de ficheiros de navegação ou ao utilizar o portal de estado de YARN do Hadoop no servidor remoto de nó principal. Pode examinar os ficheiros de registo no armazenamento do Azure através de qualquer uma das ferramentas que podem acessar e transferir dados do armazenamento do Azure. Os exemplos são [AzCopy](../storage/common/storage-use-azcopy.md), [CloudXplorer](http://clumsyleaf.com/products/cloudxplorer)e o Visual Studio Server Explorer. Também pode utilizar os SDKs do .NET do Azure e as bibliotecas de cliente de armazenamento do Azure ou do PowerShell para aceder aos dados no armazenamento de Blobs do Azure.
+HDInsight armazena seus arquivos de log no sistema de arquivos de cluster e no armazenamento do Azure. Pode examinar os ficheiros de registo do cluster ao abrir um [SSH](hdinsight-hadoop-linux-use-ssh-unix.md) ligação ao cluster e o sistema de ficheiros de navegação ou ao utilizar o portal de estado de YARN do Hadoop no servidor remoto de nó principal. Pode examinar os ficheiros de registo no armazenamento do Azure através de qualquer uma das ferramentas que podem acessar e transferir dados do armazenamento do Azure. Os exemplos são [AzCopy](../storage/common/storage-use-azcopy.md), [CloudXplorer](http://clumsyleaf.com/products/cloudxplorer)e o Visual Studio Server Explorer. Também pode utilizar os SDKs do .NET do Azure e as bibliotecas de cliente de armazenamento do Azure ou do PowerShell para aceder aos dados no armazenamento de Blobs do Azure.
 
 Executa o trabalho de tarefas como o Hadoop *tentativas de tarefas* em vários nós no cluster. HDInsight pode iniciar a tarefa especulativa tentativas, quaisquer outras tentativas de tarefas que não forem concluídas pela primeira vez a terminar. Isso gera atividade significativa que é registada para o controlador, stderr e syslog log arquivos no momento. Além disso, várias tentativas de tarefas em execução simultânea, mas um ficheiro de registo pode apresentar apenas os resultados linearmente.
 

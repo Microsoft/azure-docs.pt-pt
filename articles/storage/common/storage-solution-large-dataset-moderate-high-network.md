@@ -8,12 +8,12 @@ ms.subservice: blobs
 ms.topic: article
 ms.date: 12/07/2018
 ms.author: alkohli
-ms.openlocfilehash: 4a8a014b365974bb8c138c74197d3d89cc63e42e
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: d3326713b0fbae070d04fa0fe7ead712fbcacf84
+ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57771985"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58496898"
 ---
 # <a name="data-transfer-for-large-datasets-with-moderate-to-high-network-bandwidth"></a>Transferência de dados para grandes conjuntos de dados com moderada para elevada largura de banda
  
@@ -76,7 +76,7 @@ Se utilizar a transferência de dados offline, utilize a tabela seguinte para co
 |    Integração de parceiros              |    Alguns                         |    [Alta](https://azuremarketplace.microsoft.com/campaigns/databox/azure-data-box)                                          |    [Alta](https://azuremarketplace.microsoft.com/campaigns/databox/azure-data-box)                                  |    Alguns                                |
 |    Envio                         |    Gerida pela Microsoft            |    Gerida pela Microsoft                             |    Gerida pela Microsoft                     |    Gerida pelo cliente                    |
 | Quando move os dados de utilização         |Num limite de comércio|Num limite de comércio|Num limite de comércio|Através das fronteiras geográficas, por exemplo, da UE|
-|    Preços                          |    [Preços](https://azure.microsoft.com/pricing/details/storage/databox/disk/)                    |   [Preços](https://azure.microsoft.com/pricing/details/storage/databox/)                                      |  [Preços](https://azure.microsoft.com/pricing/details/storage/databox/heavy/)                               |   [Preços](https://azure.microsoft.com/pricing/details/storage-import-export/)                            |
+|    Preços                          |    [Preços](https://azure.microsoft.com/pricing/details/databox/disk/)                    |   [Preços](https://azure.microsoft.com/pricing/details/storage/databox/)                                      |  [Preços](https://azure.microsoft.com/pricing/details/storage/databox/heavy/)                               |   [Preços](https://azure.microsoft.com/pricing/details/storage-import-export/)                            |
 
 
 Se utilizar a transferência de dados online, utilize a tabela na secção seguinte para alta largura de banda.

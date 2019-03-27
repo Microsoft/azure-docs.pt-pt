@@ -9,19 +9,17 @@ manager: daveba
 ms.assetid: 6d42fb79-d9cf-48da-8445-f482c4c536af
 ms.service: active-directory
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
-ms.date: 03/20/2019
+ms.date: 03/26/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bbfc325d1a33db45afecf30bfa21244e3336961d
-ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
+ms.openlocfilehash: 706a826d1b256e95e459d2a44cdb13ee56c70599
+ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58295492"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58499136"
 ---
 # <a name="custom-installation-of-azure-ad-connect"></a>Instalação personalizada do Azure AD Connect
 As **Definições personalizadas** do Azure AD Connect são utilizadas quando pretende mais opções para a instalação. São utilizadas se tiver várias florestas ou se pretender configurar funcionalidades opcionais não abrangidas na instalação rápida. São utilizadas em todos os casos em que a opção [**instalação rápida**](how-to-connect-install-express.md) não satisfaz a sua implementação ou topologia.
@@ -37,11 +35,11 @@ Nesta página, clique em **Personalizar** para iniciar uma instalação de defin
 ### <a name="install-required-components"></a>Instalar os componentes necessários
 Quando instalar os serviços de sincronização, pode deixar a secção de configuração opcional desmarcada e o Azure AD Connect configura tudo automaticamente. Configura uma instância do SQL Server 2012 Express LocalDB, cria os grupos adequados e atribui permissões. Se pretender alterar as predefinições, pode utilizar a tabela seguinte para entender as opções de configuração opcionais que estão disponíveis.
 
-![Componentes necessários](./media/how-to-connect-install-custom/requiredcomponents.png)
+![Componentes necessários](./media/how-to-connect-install-custom/requiredcomponents2.png)
 
 | Configuração opcional | Descrição |
 | --- | --- |
-| Utilizar um SQL Server existente |Permite-lhe especificar o nome do SQL Server e o nome da instância. Escolha esta opção se já tiver um servidor de base de dados que pretende utilizar. Introduza o nome da instância, seguido de uma vírgula e do número de porta em **Nome da Instância**, caso o SQL Server não tenha a navegação ativada. |
+| Utilizar um SQL Server existente |Permite-lhe especificar o nome do SQL Server e o nome da instância. Escolha esta opção se já tiver um servidor de base de dados que pretende utilizar. Introduza o nome da instância, seguido de uma vírgula e do número de porta em **Nome da Instância**, caso o SQL Server não tenha a navegação ativada.  Em seguida, especifique o nome da base de dados do Azure AD Connect.  Os privilégios SQL determinam se vai ser criada uma nova base de dados ou o administrador do SQL tem de criar a base de dados com antecedência.  Se tiver permissões de SA do SQL, veja [como instalar a utilizar uma base de dados existente](how-to-connect-install-existing-database.md).  Se tiverem sido delegadas permissões (DBO) veja [instalar o Azure AD Connect com permissões de administrador do SQL delegado](how-to-connect-install-sql-delegation.md). |
 | Utilizar uma conta de serviço existente |Por predefinição, o Azure AD Connect utiliza uma conta de serviço virtual para ser utilizada pelos serviços de sincronização. Se utilizar um servidor do SQL remoto ou um proxy que exija a autenticação, tem de utilizar uma **conta de serviço gerido** ou utilizar uma conta de serviço no domínio e conhecer a palavra-passe. Nesses casos, introduza a conta a utilizar. Certifique-se de que o utilizador que está a executar a instalação é um SA no SQL Server, para possa ser criado um início sessão para a conta de serviço.  Veja [Contas e permissões do Azure AD Connect](reference-connect-accounts-permissions.md#adsync-service-account). </br></br>Com a compilação mais recente, o aprovisionamento da base de dados pode agora ser realizado fora de banda pelo administrador SQL e, em seguida, instalado pelo administrador do Azure AD Connect com direitos de proprietário da base de dados.  Para obter mais informações, veja [Instalar o Azure AD Connect com permissões de administrador do SQL delegado](how-to-connect-install-sql-delegation.md).|
 | Especificar grupos de sincronização personalizados |Por predefinição, o Azure AD Connect cria quatro grupos locais no servidor quando são instalados os serviços de sincronização. Estes grupos são: Grupo de administradores, grupo operadores, grupo procura e o grupo de reposição de palavra-passe. Pode especificar aqui os seus próprios grupos. Os grupos têm de ser locais no servidor e não podem estar localizados no domínio. |
 

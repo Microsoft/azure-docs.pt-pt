@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/08/2018
 ms.author: jdial
-ms.openlocfilehash: 41b80e3914c93a4baeb39f35c7281f8fe81ff37c
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: fee22561bb0c341ed5c6e4dc49a8d7f8aa8efaf2
+ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57835321"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58445189"
 ---
 # <a name="traffic-analytics-frequently-asked-questions"></a>Perguntas mais frequentes sobre a análise de tráfego
 
@@ -163,7 +163,7 @@ Está a ver as informações de recursos no dashboard; No entanto, não há esta
 
 ## <a name="can-i-configure-traffic-analytics-using-powershell-or-an-azure-resource-manager-template-or-client"></a>Posso configurar a análise de tráfego com o PowerShell ou um modelo Azure Resource Manager ou o cliente?
 
-Pode configurar a análise de tráfego utilizando o Windows PowerShell da versão 6.2.1 e posteriores. Para configurar o registo do fluxo e análise de tráfego para um NSG específico utilizando o cmdlet do conjunto, consulte [Set-AzureRmNetworkWatcherConfigFlowLog](https://docs.microsoft.com/powershell/module/azurerm.network/set-azurermnetworkwatcherconfigflowlog?view=azurermps-6.3.0). Para obter o registo do fluxo e o estado de análise de tráfego para um NSG específico, consulte [Get-AzureRmNetworkWatcherFlowLogStatus](https://docs.microsoft.com/powershell/module/azurerm.network/get-azurermnetworkwatcherflowlogstatus?view=azurermps-6.3.0).
+Pode configurar a análise de tráfego utilizando o Windows PowerShell da versão 6.2.1 e posteriores. Para configurar o registo do fluxo e análise de tráfego para um NSG específico utilizando o cmdlet do conjunto, consulte [Set-AzureRmNetworkWatcherConfigFlowLog](https://docs.microsoft.com/powershell/module/azurerm.network/set-azurermnetworkwatcherconfigflowlog). Para obter o registo do fluxo e o estado de análise de tráfego para um NSG específico, consulte [Get-AzureRmNetworkWatcherFlowLogStatus](https://docs.microsoft.com/powershell/module/azurerm.network/get-azurermnetworkwatcherflowlogstatus).
 
 Atualmente, não é possível utilizar um modelo Azure Resource Manager para configurar a análise de tráfego.
 

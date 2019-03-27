@@ -11,12 +11,12 @@ ms.date: 11/06/2018
 ms.topic: quickstart
 ms.custom: mvc
 manager: carmonm
-ms.openlocfilehash: 8bb035a02b8ab684bc1efb7accd785518cb151c2
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: a30f9c1a61044c0911a5afc27ad95fc758b4c83e
+ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58107615"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58449102"
 ---
 # <a name="configure-a-linux-virtual-machine-with-desired-state-configuration"></a>Configurar uma máquina virtual Linux com a Configuração do Estado Pretendido
 
@@ -143,6 +143,6 @@ Neste guia rápido integrou uma VM com Linux no DSC, criou uma configuração pa
 > [Implementação contínua para uma VM com o DSC e Chocolatey](./automation-dsc-cd-chocolatey.md)
 
 * Para saber mais sobre a Configuração de Estado Pretendido do PowerShell, veja [PowerShell Desired State Configuration Overview (Descrição Geral da Configuração de Estado Pretendido do PowerShell)](https://docs.microsoft.com/powershell/dsc/overview).
-* Para saber mais sobre a gestão do Automation DSC do PowerShell, veja [Azure PowerShell](https://docs.microsoft.com/powershell/module/azurerm.automation/?view=azurermps-5.0.0)
+* Para saber mais sobre a gestão do Automation DSC do PowerShell, veja [Azure PowerShell](https://docs.microsoft.com/powershell/module/azurerm.automation/)
 * Para saber como reencaminhar relatórios de DSC para registos do Azure Monitor para comunicação e alerta, consulte o artigo [registos de reencaminhar relatórios de DSC para o Azure Monitor](https://docs.microsoft.com/azure/automation/automation-dsc-diagnostics) 
 

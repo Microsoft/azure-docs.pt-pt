@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.date: 06/21/2018
 ms.author: jingwang
-ms.openlocfilehash: a4041d7d2cc9d3fd42a541c316d8d739b3ab733d
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 38c9c97af0be77bf9ad4bea2d24676c7448b3aea
+ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57539875"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58447568"
 ---
 # <a name="copy-data-from-azure-blob-storage-to-a-sql-database-by-using-azure-data-factory"></a>Copiar dados do Armazenamento de blobs do Azure para a base de dados SQL com o Azure Data Factory
 Neste tutorial, vai criar uma fábrica de dados com a interface de utilizador (IU) do Azure Data Factory. O pipeline nesta fábrica de dados copia os dados do Armazenamento de blobs do Azure para uma base de dados SQL. O padrão de configuração neste tutorial aplica-se à cópia a partir de um arquivo de dados baseado em ficheiros para um arquivo de dados relacional. Para obter uma lista dos arquivos de dados suportados como origens e sinks, consulte a tabela de [arquivos de dados suportados](copy-activity-overview.md#supported-data-stores-and-formats).
@@ -83,9 +83,10 @@ Agora, prepare o Armazenamento de blobs e a Base de Dados SQL para o tutorial, a
 Neste passo, vai criar uma fábrica de dados e iniciar a IU do Data Factory para criar um pipeline na fábrica de dados. 
 
 1. Open **do Microsoft Edge** ou **Google Chrome**. Atualmente, a IU do Data Factory é suportada apenas nos browsers Microsoft Edge e Google Chrome.
-2. No menu da esquerda, selecione **criar um recurso** > **análise** > **Data Factory**. 
+2. No menu da esquerda, selecione **criar um recurso** > **dados + análise** > **Data Factory**: 
   
-   ![Criação de nova fábrica de dados](./media/tutorial-copy-data-portal/new-azure-data-factory-menu.png)
+   ![Seleção do Data Factory no painel "Novo"](./media/quickstart-create-data-factory-portal/new-azure-data-factory-menu.png)
+
 3. Na página **Nova fábrica de dados**, em **Nome**, introduza **ADFTutorialDataFactory**. 
       
      ![Nova fábrica de dados](./media/tutorial-copy-data-portal/new-azure-data-factory.png)
@@ -129,7 +130,7 @@ Neste tutorial, vai começar pela criação do pipeline. Em seguida, vai criar s
 
 1. Na **atividades** ferramenta caixa, expanda o **mover andTransform** categoria e arraste e largue o **dados de cópia** atividade da caixa de ferramenta para a superfície de desenho do pipeline. Especifique **CopyFromBlobToSql** em **Nome**.
 
-    ![Copiar atividade](./media/tutorial-copy-data-portal/drag-drop-copy-activity.png)
+    ![Atividade Copiar](./media/tutorial-copy-data-portal/drag-drop-copy-activity.png)
 
 ### <a name="configure-source"></a>Configurar origem
 
@@ -205,7 +206,7 @@ Neste tutorial, vai começar pela criação do pipeline. Em seguida, vai criar s
 
 1. Em **Tabela**, selecione **[dbo].[emp]**. 
 
-    ![Tabelas](./media/tutorial-copy-data-portal/select-emp-table.png)
+    ![Tabela](./media/tutorial-copy-data-portal/select-emp-table.png)
 1. Vá para o separador **Esquema** e selecione **Importar Esquema**. 
 
     ![Selecione a importação do esquema](./media/tutorial-copy-data-portal/import-destination-schema.png)

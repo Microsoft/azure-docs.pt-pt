@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 02/15/2019
 ms.author: sukumari
 ms.reviewer: azmetadata
-ms.openlocfilehash: c38b21d860e25c0f31122e75d822257e14ca01db
-ms.sourcegitcommit: 87bd7bf35c469f84d6ca6599ac3f5ea5545159c9
+ms.openlocfilehash: 7c5e979f399a487d29138b57d1fc4ee2c77622ff
+ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58351971"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58445495"
 ---
 # <a name="azure-instance-metadata-service"></a>Serviço de metadados de instância do Azure
 
@@ -105,11 +105,14 @@ API | Formato de dados padrão | Outros formatos
 /scheduledevents | json | nenhum
 /attested | json | nenhum
 
-Para aceder a um formato de resposta não predefinido, especifique o formato de pedido como um parâmetro de cadeia de consulta no pedido. Por exemplo:
+Para aceder a um formato de resposta não predefinido, especifique o formato de pedido como um parâmetro de cadeia de caracteres de consulta no pedido. Por exemplo:
 
 ```bash
 curl -H Metadata:true "http://169.254.169.254/metadata/instance?api-version=2017-08-01&format=text"
 ```
+
+> [!NOTE]
+> Para nós de folha a `format=json` não funciona. Para estas consultas `format=text` explicitamente necessário especificar se o formato predefinido é json.
 
 ### <a name="security"></a>Segurança
 
@@ -123,8 +126,8 @@ Se houver um elemento de dados não foi encontrado ou um pedido com formato inco
 Código de estado de HTTP | Razão
 ----------------|-------
 200 OK |
-400 pedido inválido | Em falta `Metadata: true` cabeçalho
-404 Não Encontrado | O elemento solicitado não existe 
+400 pedido inválido | Em falta `Metadata: true` cabeçalho ou em falta o formato ao consultar um nó de folha
+404 Não Encontrado | O elemento solicitado não existe
 405 Método não permitido | Apenas `GET` e `POST` os pedidos são suportados
 429 demasiados pedidos | Atualmente, a API suporta um máximo de 5 consultas por segundo
 Erro de serviço 500     | Tente novamente após algum tempo

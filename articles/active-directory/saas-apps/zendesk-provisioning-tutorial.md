@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 01/31/2018
 ms.author: v-ant
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f2e05e5e430760d16d5d494a6f27ef985aafc487
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 71e9a3f614048185d9444011da3c47b88931d0c5
+ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58097996"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58499952"
 ---
 # <a name="tutorial-configure-zendesk-for-automatic-user-provisioning"></a>Tutorial: Configurar o Zendesk para aprovisionamento automático de utilizadores
 
@@ -39,7 +39,7 @@ O cenário descrito neste tutorial parte do princípio de que já tem os seguint
 *   Uma conta de utilizador no Zendesk com permissões de administrador 
 
 > [!NOTE]
-> Conta com o Azure AD, integração de aprovisionamento a [API do Rest de Zendesk](https://developer.zendesk.com/rest_api/docs/core/introduction), que está disponível para as equipes do Zendesk no plano de Enterprise ou melhor.
+> Conta com o Azure AD, integração de aprovisionamento a [API do Rest de Zendesk](https://developer.zendesk.com/rest_api/docs/zendesk-apis/resources), que está disponível para as equipes do Zendesk no plano de Enterprise ou melhor.
 
 ## <a name="adding-zendesk-from-the-gallery"></a>Adicionar Zendesk a partir da Galeria
 Antes de configurar o Zendesk para automático de utilizadores de aprovisionamento com o Azure AD, terá de adicionar Zendesk a partir da Galeria de aplicações do Azure AD à sua lista de aplicações de SaaS geridas.

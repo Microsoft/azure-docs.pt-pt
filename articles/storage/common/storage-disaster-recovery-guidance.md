@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 02/25/2019
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: e14e35cc8589bb524bae791ccd74952da90bdb04
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: f0963e7f558de7b591576a49a74750d6697d7127
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56871541"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58486071"
 ---
 # <a name="disaster-recovery-and-storage-account-failover-preview-in-azure-storage"></a>Após desastre recuperação e o armazenamento de conta ativação pós-falha (pré-visualização) no armazenamento do Azure
 
@@ -121,14 +121,14 @@ A pré-visualização destina-se apenas a utilização de não produção. Contr
 
 Para se registar na pré-visualização, execute os seguintes comandos no PowerShell. Certifique-se substituir o marcador de posição entre parênteses Retos com o seu próprio ID de subscrição:
 
-```PowerShell
+```powershell
 Connect-AzureRmAccount -SubscriptionId <subscription-id>
 Register-AzureRmProviderFeature -FeatureName CustomerControlledFailover -ProviderNamespace Microsoft.Storage
 ```
 
 Pode demorar 1 a 2 dias para receber a aprovação para a pré-visualização. Para verificar que o registo foi aprovado, execute o seguinte comando:
 
-```PowerShell
+```powershell
 Get-AzureRmProviderFeature -FeatureName CustomerControlledFailover -ProviderNamespace Microsoft.Storage
 ```
 
@@ -164,6 +164,7 @@ Os seguintes recursos ou serviços não são suportados para a ativação pós-f
 - Contas de armazenamento com espaço de nomes hierárquico de geração 2 de armazenamento do Azure Data Lake não é possível efetuar a ativação pós-falha.
 - Uma conta de armazenamento que contém blobs arquivados não é possível efetuar a ativação pós-falha. Manter blobs arquivados numa conta de armazenamento separado que não planeja fazer a ativação pós-falha.
 - Uma conta de armazenamento que contém os blobs de blocos de premium não é possível efetuar a ativação pós-falha. Contas de armazenamento que suportam blobs de blocos de premium não suportam atualmente pela georredundância.
+- Depois de concluída a ativação pós-falha as seguintes funcionalidades deixarão de funcionar se originalmente ativada: [Subscrições de eventos](https://docs.microsoft.com/azure/storage/blobs/storage-blob-event-overview), [políticas de ciclo de vida](https://docs.microsoft.com/azure/storage/blobs/storage-lifecycle-management-concepts), [registo de análise de armazenamento](https://docs.microsoft.com/rest/api/storageservices/about-storage-analytics-logging).
 
 ## <a name="copying-data-as-an-alternative-to-failover"></a>Cópia de dados como uma alternativa para ativação pós-falha
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 02/15/2019
 ms.author: aljo
-ms.openlocfilehash: 15561969e27512c4882eccc10f75aa932bcf23df
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
+ms.openlocfilehash: 74fbdbd86bc0b4f1cce06f4c4cb0c08d1f216d0c
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56338993"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58487843"
 ---
 # <a name="set-up-azure-active-directory-for-client-authentication"></a>Configurar o Azure Active Directory para autenticação de cliente
 
@@ -44,7 +44,7 @@ Criar duas aplicações do Azure AD para controlar o acesso ao cluster: aplicaç
 
 Executar `SetupApplications.ps1`e forneça o inquilino, ID, o nome do cluster e o URL de resposta do aplicativo web, como parâmetros.  Também pode especifica nomes de utilizador e palavras-passe para os utilizadores.  Por exemplo:
 
-```PowerShell
+```powershell
 $Configobj = .\SetupApplications.ps1 -TenantId '0e3d2646-78b3-4711-b8be-74a381d9890c' -ClusterName 'mysftestcluster' -WebApplicationReplyUrl 'https://mysftestcluster.eastus.cloudapp.azure.com:19080/Explorer/index.html' -AddResourceAccess
 .\SetupUser.ps1 -ConfigObj $Configobj -UserName 'TestUser' -Password 'P@ssword!123'
 .\SetupUser.ps1 -ConfigObj $Configobj -UserName 'TestAdmin' -Password 'P@ssword!123' -IsAdmin
@@ -115,7 +115,7 @@ Selecione "Registos de aplicações" na página do AAD, selecione a aplicação 
 ### <a name="connect-the-cluster-by-using-azure-ad-authentication-via-powershell"></a>Ligue o cluster utilizando a autenticação do Azure AD através do PowerShell
 Para ligar o cluster do Service Fabric, utilize o seguinte exemplo de comando do PowerShell:
 
-```PowerShell
+```powershell
 Connect-ServiceFabricCluster -ConnectionEndpoint <endpoint> -KeepAliveIntervalInSec 10 -AzureActiveDirectory -ServerCertThumbprint <thumbprint>
 ```
 

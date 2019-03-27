@@ -1,6 +1,6 @@
 ---
-title: Deteção de dados de base de dados SQL do Azure e classificação | Documentos da Microsoft
-description: Deteção de dados de base de dados SQL do Azure e classificação
+title: Deteção de dados de base de dados SQL e SQL Data Warehouse e classificação do Azure | Documentos da Microsoft
+description: Base de dados SQL e dados de deteção e classificação do Azure
 services: sql-database
 ms.service: sql-database
 ms.subservice: security
@@ -11,15 +11,15 @@ author: ronitr
 ms.author: ronitr
 ms.reviewer: vanto
 manager: craigg
-ms.date: 02/07/2019
-ms.openlocfilehash: ac52d8fa03c3c3ad1d618d014381fadfa752b7d7
-ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
+ms.date: 03/22/2019
+ms.openlocfilehash: 74bd3af3e1ffd126f8cb4f2347e4566cc4708e25
+ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58202984"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58495991"
 ---
-# <a name="azure-sql-database-data-discovery--classification"></a>Deteção de dados de base de dados SQL do Azure e classificação
+# <a name="azure-sql-database-and-sql-data-warehouse-data-discovery--classification"></a>Deteção de dados de base de dados SQL e SQL Data Warehouse e classificação do Azure
 
 Deteção de dados e classificação (atualmente em pré-visualização) fornece capacidades avançadas incorporadas na base de dados do Azure SQL para **detetar**, **classificar**, **etiquetagem**  &  **proteger** os dados confidenciais em seus bancos de dados.
 A detetar e classificar os dados mais confidenciais (comerciais, financeiros, cuidados de saúde, dados de identificação pessoal (PII) e assim por diante.) podem desempenham um papel essencial no seu escritor de proteção de informações da organização. Que possa servir como a infraestrutura para:
@@ -31,7 +31,7 @@ A detetar e classificar os dados mais confidenciais (comerciais, financeiros, cu
 Dados de deteção e classificação faz parte do [segurança de dados avançada](sql-database-advanced-data-security.md) (ADS) oferta, que é um pacote unificado para funções de segurança avançadas do SQL. dados de deteção e classificação podem ser acedidas e geridos através do portal de anúncios de SQL central.
 
 > [!NOTE]
-> Este documento está relacionado com a base de dados do Azure SQL apenas. Para o SQL Server (no local), consulte [deteção de dados SQL e classificação](https://go.microsoft.com/fwlink/?linkid=866999).
+> Este documento está relacionado com a base de dados do Azure SQL e o Azure SQL Data Warehouse. Para simplificar, a Base de Dados SQL é utilizada para referenciar a Base de Dados SQL e o SQL Data Warehouse. Para o SQL Server (no local), consulte [deteção de dados SQL e classificação](https://go.microsoft.com/fwlink/?linkid=866999).
 
 ## <a id="subheading-1"></a>O que é a deteção de dados e classificação
 

@@ -9,15 +9,15 @@ ms.devlang: ''
 ms.topic: conceptual
 author: allenwux
 ms.author: xiwu
-ms.reviewer: douglasl
+ms.reviewer: carlrab
 manager: craigg
 ms.date: 12/20/2018
-ms.openlocfilehash: 5d8b3b91771fda3a714112979b8bf9df39c4a9b3
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: adb8917605a00208b328e7fd15f96d28c7838988
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58088694"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58485209"
 ---
 # <a name="data-sync-agent-for-azure-sql-data-sync"></a>Agente de sincronização de dados para sincronização de dados SQL do Azure
 

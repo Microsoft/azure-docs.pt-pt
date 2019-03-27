@@ -3,7 +3,7 @@ title: Atualizar um cluster do Azure Service Fabric para utilizar o nome comum d
 description: Saiba como mudar de um cluster do Service Fabric da utilização de thumbprints de certificado a utilizar o nome comum do certificado.
 services: service-fabric
 documentationcenter: .net
-author: rwike77
+author: aljo-microsoft
 manager: timlt
 editor: aljo
 ms.assetid: ''
@@ -13,13 +13,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 01/01/2019
-ms.author: ryanwi
-ms.openlocfilehash: e1a52aff0890e32ae739285c0380258939f29597
-ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
+ms.author: aljo
+ms.openlocfilehash: 7280424c57e2dfab0a64794855cb522bcf69e135
+ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56312876"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58500513"
 ---
 # <a name="change-cluster-from-certificate-thumbprint-to-common-name"></a>Alterar o cluster de thumbprint do certificado para o nome comum
 Não existem dois certificados podem ter o mesmo thumbprint, o que torna difícil rollover de certificado de cluster ou de gestão. No entanto, vários certificados, podem ter o mesmo nome comum ou assunto.  Mudar de um cluster implementado da utilização de thumbprints de certificado a utilizar nomes comuns do certificado faz a gestão de certificados muito mais simples. Este artigo descreve como atualizar um cluster do Service Fabric em execução para utilizar o nome comum do certificado em vez do thumbprint do certificado.

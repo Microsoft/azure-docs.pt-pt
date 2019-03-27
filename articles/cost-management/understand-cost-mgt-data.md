@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.service: cost-management
 manager: micflan
 ms.custom: ''
-ms.openlocfilehash: 40c08f87a1711ae57ceb8b288851686d1e2ad391
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: f0632b0d6e651ba6e0b43586e60d582e29c5ce00
+ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57993944"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58500547"
 ---
 # <a name="understand-cost-management-data"></a>Compreender os dados do Cost Management
 
@@ -25,42 +25,42 @@ Este artigo ajuda-o a compreender melhor os dados que estão incluídos no Azure
 
 As seguintes informações são apresentadas suportado atualmente [o Microsoft Azure oferece](https://azure.microsoft.com/support/legal/offer-details/) no Azure Cost Management.  Uma oferta do Azure é o tipo de subscrição do Azure que tem.
 
-| Categoria  | **Nome da oferta** | **Número da oferta** |
-| --- | --- | --- |
-| **O Azure Alemanha** | [Pay as you go do Azure Alemanha](https://azure.microsoft.com/offers/ms-azr-de-0003p/) | MS-AZR-DE-0003P |
-| **Azure Government** | Azure Government Enterprise | MS-AZR-USGOV-0017P |
-| **Contrato Enterprise (EA)** | Enterprise Dev/Test | MS-AZR-0148P |
-| **Contrato Enterprise (EA)** | [Microsoft Azure Enterprise](https://azure.microsoft.com/offers/enterprise-agreement-support-upgrade/) | MS-AZR-0017P |
-| **Microsoft Developer Network (MSDN)** | [O MSDN Platforms](https://azure.microsoft.com/offers/ms-azr-0062p/) | MS-AZR-0062P |
-| **Pay as you go** | [Pay as you go](https://azure.microsoft.com/offers/ms-azr-0003p/) | MS-AZR-0003P |
-| **Pay as you go** | [Pay as you go programador/teste](https://azure.microsoft.com/offers/ms-azr-0023p/) | MS-AZR-0023P |
-| **Pay as you go** | [Microsoft Partner Network](https://azure.microsoft.com/offers/ms-azr-0025p/) | MS-AZR-0025P |
-| **Pay as you go** | [Versão de avaliação gratuita](https://azure.microsoft.com/offers/ms-azr-0044p/) | MS-AZR-0044P |
-| **Pay as you go** | [Azure no Open](https://azure.microsoft.com/offers/ms-azr-0111p/) | MS-AZR-0111P |
-| **Pay as you go** | [Azure para estudantes](https://azure.microsoft.com/offers/ms-azr-0170p/) | MS-AZR-0170P |
-| **Pay as you go** | Azure Pass | MS-AZR-0120P, MS-AZR-0122P - MS-AZR-0125P, MS-AZR-0128P - MS-AZR-0130P |
-| **Visual Studio** | [Visual Studio Enterprise – MPN](https://azure.microsoft.com/offers/ms-azr-0029p/) | MS-AZR-0029P |
-| **Visual Studio** | [Visual Studio Professional](https://azure.microsoft.com/offers/ms-azr-0059p/) | MS-AZR-0059P |
-| **Visual Studio** | [Visual Studio Test Professional](https://azure.microsoft.com/offers/ms-azr-0060p/) | MS-AZR-0060P |
-| **Visual Studio** | [Visual Studio Enterprise](https://azure.microsoft.com/offers/ms-azr-0063p/) | MS-AZR-0063P |
-| **Visual Studio** | [Visual Studio Enterprise: BizSpark](https://azure.microsoft.com/offers/ms-azr-0064p/) | MS-AZR-0064P |
+| Categoria  | **Nome da oferta** | **ID de quota** | **Número da oferta** |
+| --- | --- | --- | --- |
+| **O Azure Alemanha** | [Pay as you go do Azure Alemanha](https://azure.microsoft.com/offers/ms-azr-de-0003p)      | PayAsYouGo_2014-09-01 | MS-AZR-DE-0003P |
+| **Azure Government** | Azure Government Enterprise                                                         | EnterpriseAgreement_2014-09-01 | MS-AZR-USGOV-0017P |
+| **Contrato Enterprise (EA)** | Enterprise Dev/Test                                                        | MSDNDevTest_2014-09-01 | MS-AZR-0148P |
+| **Contrato Enterprise (EA)** | [Microsoft Azure Enterprise](https://azure.microsoft.com/offers/enterprise-agreement-support-upgrade) | EnterpriseAgreement_2014-09-01 | MS-AZR-0017P |
+| **Microsoft Developer Network (MSDN)** | [O MSDN Platforms](https://azure.microsoft.com/offers/ms-azr-0062p) | MSDN_2014-09-01 | MS-AZR-0062P |
+| **Pay as you go** | [Pay as you go](https://azure.microsoft.com/offers/ms-azr-0003p)                       | PayAsYouGo_2014-09-01 | MS-AZR-0003P |
+| **Pay as you go** | [Pay as you go programador/teste](https://azure.microsoft.com/offers/ms-azr-0023p)              | MSDNDevTest_2014-09-01 | MS-AZR-0023P |
+| **Pay as you go** | [Microsoft Partner Network](https://azure.microsoft.com/offers/ms-azr-0025p)           | MPN_2014-09-01 | MS-AZR-0025P |
+| **Pay as you go** | [Versão de avaliação gratuita](https://azure.microsoft.com/offers/ms-azr-0044p)                          | FreeTrial_2014-09-01 | MS-AZR-0044P |
+| **Pay as you go** | [Azure no Open](https://azure.microsoft.com/offers/ms-azr-0111p)                       | AzureInOpen_2014-09-01 | MS-AZR-0111P |
+| **Pay as you go** | [Azure para estudantes](https://azure.microsoft.com/offers/ms-azr-0170p)                  | AzureForStudents_2018-01-01 | MS-AZR-0170P |
+| **Pay as you go** | Azure Pass                                                                             | AzurePass_2014-09-01 | MS-AZR-0120P, MS-AZR-0122P - MS-AZR-0125P, MS-AZR-0128P - MS-AZR-0130P |
+| **Visual Studio** | [Visual Studio Enterprise – MPN](https://azure.microsoft.com/offers/ms-azr-0029p)      | MPN_2014-09-01 | MS-AZR-0029P |
+| **Visual Studio** | [Visual Studio Professional](https://azure.microsoft.com/offers/ms-azr-0059p)          | MSDN_2014-09-01 | MS-AZR-0059P |
+| **Visual Studio** | [Visual Studio Test Professional](https://azure.microsoft.com/offers/ms-azr-0060p)     | MSDNDevTest_2014-09-01 | MS-AZR-0060P |
+| **Visual Studio** | [Visual Studio Enterprise](https://azure.microsoft.com/offers/ms-azr-0063p)            | MSDN_2014-09-01 | MS-AZR-0063P |
+| **Visual Studio** | [Visual Studio Enterprise: BizSpark](https://azure.microsoft.com/offers/ms-azr-0064p)  | MSDN_2014-09-01 | MS-AZR-0064P |
 
 A tabela seguinte mostra as ofertas não suportadas.
 
-| Categoria  | **Nome da oferta** | **Número da oferta** |
-| --- | --- | --- |
-| **Fornecedor de soluções cloud (CSP)** | Microsoft Azure | MS-AZR-0145P |
-| **Fornecedor de soluções cloud (CSP)** | O Azure Government CSP | MS-AZR-USGOV-0145P |
-| **Fornecedor de soluções cloud (CSP)** | Azure Alemanha no CSP para a Microsoft Cloud Germany | MS-AZR-DE-0145P |
-| **Pay as you go** | Azure for Students Starter | MS-AZR-0144P |
-| **Pay as you go** | [Microsoft Azure Sponsorship](https://azure.microsoft.com/offers/ms-azr-0036p/) | MS-AZR-0036P |
-| **Planos de suporte** | Suporte Padrão | MS-AZR-0041P |
-| **Planos de suporte** | Suporte direto profissional | MS-AZR-0042P |
-| **Planos de suporte** | Suporte para programadores | MS-AZR-0043P |
-| **Planos de suporte** | Plano de suporte da Alemanha | MS-AZR-DE-0043P |
-| **Planos de suporte** | Suporte padrão do Azure Government | MS-AZR-USGOV-0041P |
-| **Planos de suporte** | Suporte direto profissional para o Azure Government | MS-AZR-USGOV-0042P |
-| **Planos de suporte** | Suporte para programadores do Azure Government | MS-AZR-USGOV-0043P |
+| Categoria  | **Nome da oferta** | **ID de quota** | **Número da oferta** |
+| --- | --- | --- | --- |
+| **Fornecedor de soluções cloud (CSP)** | Microsoft Azure                                    | CSP_2015-05-01 | MS-AZR-0145P |
+| **Fornecedor de soluções cloud (CSP)** | O Azure Government CSP                               | CSP_2015-05-01 | MS-AZR-USGOV-0145P |
+| **Fornecedor de soluções cloud (CSP)** | Azure Alemanha no CSP para a Microsoft Cloud Germany   | CSP_2015-05-01 | MS-AZR-DE-0145P |
+| **Pay as you go**                 | Azure for Students Starter | DreamSpark_2015-02-01 | MS-AZR-0144P |
+| **Pay as you go**                 | [Microsoft Azure Sponsorship](https://azure.microsoft.com/offers/ms-azr-0036p/) | Sponsored_2016-01-01 | MS-AZR-0036P |
+| **Planos de suporte** | Suporte Padrão                    | Default_2014-09-01 | MS-AZR-0041P |
+| **Planos de suporte** | Suporte direto profissional         | Default_2014-09-01 | MS-AZR-0042P |
+| **Planos de suporte** | Suporte para programadores                   | Default_2014-09-01 | MS-AZR-0043P |
+| **Planos de suporte** | Plano de suporte da Alemanha                | Default_2014-09-01 | MS-AZR-DE-0043P |
+| **Planos de suporte** | Suporte padrão do Azure Government   | Default_2014-09-01 | MS-AZR-USGOV-0041P |
+| **Planos de suporte** | Suporte direto profissional para o Azure Government | Default_2014-09-01 | MS-AZR-USGOV-0042P |
+| **Planos de suporte** | Suporte para programadores do Azure Government  | Default_2014-09-01 | MS-AZR-USGOV-0043P |
 
 Para os clientes com as categorias da oferta pay as you go, o MSDN e o Visual Studio, os dados estão disponíveis no Cost Management a partir de 10/02/2018. Para aceder aos dados para a sua subscrição antes de 10/02/2018, pode utilizar o [Centro de contas do Azure](https://account.azure.com/subscriptions) para transferir a sua utilização detalhes num arquivo CSV ou pode utilizar os [API de detalhes de utilização](/rest/api/consumption/usagedetails).
 

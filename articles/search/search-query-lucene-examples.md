@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 03/25/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: c7c120b9bac33f71df72650d8a9d9a72e819d227
-ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
+ms.openlocfilehash: 6f7fce7eab697f6517b351d00595cb02110d3641
+ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58439206"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58499578"
 ---
 # <a name="query-examples-using-full-lucene-search-syntax-advanced-queries-in-azure-search"></a>Exemplos de consulta usando a sintaxe de pesquisa do "completo" Lucene (consultas avançadas no Azure Search)
 
@@ -139,6 +139,7 @@ Ao especificar uma **fieldname:searchterm** construção, pode definir uma opera
 
 * business_title:(senior NOT junior)
 * Estado: ("New York" e "Nova Jérsia")
+* business_title:(senior NOT junior) AND posting_type:external
 
 Certifique-se de que colocar várias cadeias de caracteres entre aspas, se pretender que ambas as cadeias de caracteres a ser avaliada como uma única entidade, como nesse caso a procurar duas cidades diferentes no campo localização. Além disso, certifique-se o operador está em maiúsculas como pode ver com não e and.
 

@@ -11,12 +11,12 @@ author: aashishb
 ms.reviewer: larryfr
 ms.date: 12/07/2018
 ms.custom: seodec18
-ms.openlocfilehash: b9dbd644aff3a41bcf38b982ebd46396ad30edca
-ms.sourcegitcommit: 223604d8b6ef20a8c115ff877981ce22ada6155a
+ms.openlocfilehash: 370fb17e9f00d64db847e49c48c6f03cb329612d
+ms.sourcegitcommit: fbfe56f6069cba027b749076926317b254df65e5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58361970"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58472944"
 ---
 # <a name="deploy-models-with-the-azure-machine-learning-service"></a>Implementar modelos com o serviço Azure Machine Learning
 
@@ -26,7 +26,7 @@ Pode implementar modelos para os seguintes destinos de computação:
 
 | Destino de computação | Tipo de implementação | Descrição |
 | ----- | ----- | ----- |
-| [Serviço Kubernetes do Azure (AKS)](#aks) | Inferência de tipos em tempo real | Ideal para implementações de produção de grande escala. Fornece o dimensionamento automático e tempos de resposta rápidos. |
+| [Azure Kubernetes Service (AKS)](#aks) | Inferência de tipos em tempo real | Ideal para implementações de produção de grande escala. Fornece o dimensionamento automático e tempos de resposta rápidos. |
 | [Azure computação do Machine Learning (amlcompute)](#azuremlcompute) | Inferência de tipos do batch | Execute a predição de batch de computação sem servidor. Suporta VMs normais e de baixa prioridade. |
 | [Azure Container Instances (ACI)](#aci) | Testes | Bom para desenvolvimento ou teste. **Não é adequado para cargas de trabalho de produção.** |
 | [Azure IoT Edge](#iotedge) | (Pré-visualização) Módulo de IoT | Implemente modelos em dispositivos IoT. Inferência acontece no dispositivo. |
@@ -214,7 +214,7 @@ Quando chegar à implementação, o processo é ligeiramente diferente consoante
 
 | Destino de computação | Tipo de implementação | Descrição |
 | ----- | ----- | ----- |
-| [Serviço Kubernetes do Azure (AKS)](#aks) | Serviço Web (inferência de tipos em tempo real)| Ideal para implementações de produção de grande escala. Fornece o dimensionamento automático e tempos de resposta rápidos. |
+| [Azure Kubernetes Service (AKS)](#aks) | Serviço Web (inferência de tipos em tempo real)| Ideal para implementações de produção de grande escala. Fornece o dimensionamento automático e tempos de resposta rápidos. |
 | [Computação do Azure ML](#azuremlcompute) | Serviço Web (inferência de tipos do Batch)| Execute a predição de batch de computação sem servidor. Suporta VMs normais e de baixa prioridade. |
 | [Azure Container Instances (ACI)](#aci) | Serviço Web (Dev/test)| Bom para desenvolvimento ou teste. **Não é adequado para cargas de trabalho de produção.** |
 | [Azure IoT Edge](#iotedge) | (Pré-visualização) Módulo de IoT | Implemente modelos em dispositivos IoT. Inferência acontece no dispositivo. |
@@ -330,7 +330,7 @@ print(aks_target.provisioning_errors)
 
 #### <a name="use-an-existing-cluster"></a>Utilizar um cluster existente
 
-Se já tiver um cluster do AKS na sua subscrição do Azure e é a versão 1.11. # # e tem, pelo menos, 12 CPUs virtuais, pode usá-lo para implementar a imagem. O código a seguir demonstra como anexar um 1.11 existente do AKS. # # cluster para a área de trabalho:
+Se já tiver um cluster do AKS na sua subscrição do Azure e é a versão 1.12. # # e tem, pelo menos, 12 CPUs virtuais, pode usá-lo para implementar a imagem. O código a seguir demonstra como anexar um 1.12 existente do AKS. # # cluster para a área de trabalho:
 
 ```python
 from azureml.core.compute import AksCompute, ComputeTarget

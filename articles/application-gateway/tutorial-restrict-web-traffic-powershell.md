@@ -8,17 +8,25 @@ tags: azure-resource-manager
 ms.service: application-gateway
 ms.topic: tutorial
 ms.workload: infrastructure-services
-ms.date: 7/13/2018
+ms.date: 03/25/2019
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: 5ba19c5156f25c2ff4a616e1482b6dfc83cadc27
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 72d750022f9dc7005a5d20b012b47680ba69a270
+ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57894466"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58446178"
 ---
 # <a name="enable-web-application-firewall-using-azure-powershell"></a>Ativar a firewall de aplicações Web com o Azure PowerShell
+
+> [!div class="op_single_selector"]
+>
+> - [Portal do Azure](application-gateway-web-application-firewall-portal.md)
+> - [PowerShell](tutorial-restrict-web-traffic-powershell.md)
+> - [CLI do Azure](tutorial-restrict-web-traffic-cli.md)
+>
+> 
 
 Pode restringir o tráfego num [gateway de aplicação](overview.md) com uma [firewall de aplicações Web](waf-overview.md) (WAF). A WAF utiliza regras de [OWASP](https://www.owasp.org/index.php/Category:OWASP_ModSecurity_Core_Rule_Set_Project) para proteger a sua aplicação. Estas regras incluem a proteção contra ataques, tais como injeção SQL, ataques de scripts entre sites e assunção de controlo de sessão sem autorização. 
 

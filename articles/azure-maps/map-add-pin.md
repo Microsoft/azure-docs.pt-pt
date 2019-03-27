@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen
-ms.openlocfilehash: 718a679418790a6bf1207a96e5c204f7962de239
-ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
+ms.openlocfilehash: a4d1a54e94b3228c64352bf08cd8cc69820a5e2d
+ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/19/2019
-ms.locfileid: "54411259"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58500054"
 ---
 # <a name="add-a-symbol-layer-to-a-map"></a>Adicionar uma camada de símbolo para um mapa
 
@@ -35,6 +35,9 @@ O segundo bloco de código, um objeto de origem de dados é criado utilizando o 
 O terceiro bloco de código cria um [serviço de escuta de eventos](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#events) e atualizações coordenadas do ponto de após rato clique usando a classe shape [setCoordinates](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.shape?view=azure-iot-typescript-latest) método.
 
 Uma [camada de símbolo](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.symbollayer?view=azure-iot-typescript-latest) usa ou ícones de texto para processar dados com base no ponto encapsulados no [DataSource](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.source.datasource?view=azure-iot-typescript-latest) como símbolos no mapa.  A origem de dados, o serviço de escuta de eventos de clique e a camada de símbolo são criadas e adicionadas ao mapa dentro do [serviço de escuta de eventos](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#events) função para garantir que o ponto é apresentado depois que o mapa for totalmente carregada.
+
+> [!TIP]
+> Por predefinição, para desempenho, camadas de símbolo otimizam o processamento de símbolos, ocultando símbolos que se sobrepõem. Como ampliar os símbolos ocultos se tornar visível. Para desativar esta funcionalidade e processar todos os símbolos durante todo o tempo, defina o `allowOverlap` propriedade o `iconOptions` opções para `true`.
 
 ## <a name="add-a-custom-icon-to-a-symbol-layer"></a>Adicione um ícone personalizado para uma camada de símbolo
 

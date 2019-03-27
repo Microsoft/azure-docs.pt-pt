@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: how-to
 ms.date: 03/21/2019
 ms.author: helohr
-ms.openlocfilehash: bee02549d68b1dbdba3f0e62477b28bbd475ea32
-ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
+ms.openlocfilehash: 379e73c33aa4570c3e56f902b011d75944c94a8d
+ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58402495"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58497902"
 ---
 # <a name="automatically-scale-session-hosts"></a>Dimensionar automaticamente os hosts de sessão
 
@@ -81,7 +81,7 @@ Introduza os valores de relevantes para os campos seguintes para atualizar as de
 | currentAzureSubscriptionId    | O ID da subscrição do Azure onde executa o anfitrião de sessões de VMs                        |
 | tenantName                    | Nome do inquilino de área de Trabalho Virtual do Windows                                                    |
 | hostPoolName                  | Nome do conjunto de anfitrião de área de Trabalho Virtual do Windows                                                 |
-| RDBroker                      | URL para o serviço WVD, o valor predefinido <https://rdbroker.wvd.microsoft.com>             |
+| RDBroker                      | Padrão de URL para o serviço WVD, valor https:\//rdbroker.wvd.microsoft.com             |
 | Nome de utilizador                      | O ID da aplicação principal de serviço (é possível ter a mesma entidade de serviço, como no AADApplicationId) ou um usuário padrão sem multi-factor authentication |
 | isServicePrincipal            | Aceite os valores são **true** ou **falso**. Indica se o segundo conjunto de credenciais que está a ser utilizado é um principal de serviço ou uma conta standard. |
 | BeginPeakTime                 | Quando começa o tempo de utilização de pico                                                            |

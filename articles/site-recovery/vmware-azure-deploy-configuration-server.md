@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 03/06/2019
 ms.author: ramamill
-ms.openlocfilehash: ef0e29217e03b3c5d1b2880a6ce755c6cc02ceba
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: fb558644f29cd7b84156f976f525a88080f101dc
+ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58004453"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58449219"
 ---
 # <a name="deploy-a-configuration-server"></a>Implementar um servidor de configuração
 
@@ -184,7 +184,7 @@ Para evitar interrupções na replicação em curso, certifique-se de que o ende
     Na **Cofre de serviços de recuperação**, **gerir** > **infraestrutura do Site Recovery** > **deservidoresdeconfiguração**. Nos servidores, selecione **chave de registo do Download** para transferir o ficheiro de credenciais do cofre.
 10. Pode clonar um servidor de configuração existente e utilizá-lo para a orquestração da replicação?
 
-    **Não**, utilização de um componente de servidor de configuração clonado não é suportada.
+    **Não**, utilização de um componente de servidor de configuração clonado não é suportada. Clone de servidor de processos de escalamento horizontal também é um cenário não suportado. Componentes de clonagem do Site Recovery impacto sobre o replicações em curso.
 
 11. Pode alterar o IP do servidor de configuração?
 

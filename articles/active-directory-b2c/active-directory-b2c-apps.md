@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 01/11/2019
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: 116abd259d11e66be2dc158d833c569f06aaa923
-ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
+ms.openlocfilehash: 5324f1ed92ae4513dcd877853cb6fa2f4c7dd8f3
+ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56446380"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58497964"
 ---
 # <a name="applications-types-that-can-be-used-in-active-directory-b2c"></a>Tipos de aplicativos que podem ser utilizados no Active Directory B2C
 
@@ -108,7 +108,7 @@ Para saber como proteger uma API web utilizando o Azure AD B2C, consulte os tuto
 
 Aplicações instaladas em dispositivos, tais como aplicações de ambiente de trabalho e móveis, muitas vezes precisam de aceder a serviços de back-end ou APIs web em nome dos utilizadores. Pode adicionar experiências de gestão de identidade personalizada às suas aplicações nativas e chamar com segurança os serviços de back-end através da utilização do Azure AD B2C e o [fluxo de código de autorização de OAuth 2.0](active-directory-b2c-reference-oauth-code.md).  
 
-Neste fluxo, a execução do aplicativo [políticas](active-directory-b2c-reference-policies.md) e recebe um `authorization_code` do Azure AD depois do utilizador conclui a política. O `authorization_code` representa a permissão da aplicação para chamar serviços de back-end em nome de utilizador que tem atualmente sessão iniciada. O aplicativo, em seguida, pode trocar o `authorization_code` em segundo plano para um `id_token` e um `refresh_token`.  O aplicativo pode usar o `id_token` para autenticar a uma API de web de back-end em pedidos de HTTP. Também pode utilizar o `refresh_token` para obter um novo `id_token` quando o antigo expira.
+Neste fluxo, a execução do aplicativo [políticas](active-directory-b2c-reference-policies.md) e recebe um `authorization_code` do Azure AD depois do utilizador conclui a política. O `authorization_code` representa a permissão da aplicação para chamar serviços de back-end em nome de utilizador que tem atualmente sessão iniciada. O aplicativo, em seguida, pode trocar o `authorization_code` em segundo plano para um `access_token` e um `refresh_token`.  O aplicativo pode usar o `access_token` para autenticar a uma API de web de back-end em pedidos de HTTP. Também pode utilizar o `refresh_token` para obter um novo `access_token` quando o antigo expira.
 
 ## <a name="current-limitations"></a>Limitações atuais
 

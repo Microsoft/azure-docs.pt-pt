@@ -8,12 +8,12 @@ ms.reviewer: orspodek
 ms.service: data-explorer
 ms.topic: quickstart
 ms.date: 03/25/2019
-ms.openlocfilehash: ec012f85c4b4e93e9be475781e9da79f686cbf9e
-ms.sourcegitcommit: 72cc94d92928c0354d9671172979759922865615
+ms.openlocfilehash: 86fbf5801e9ff1c8bd9dead8be14aeeea1b58a29
+ms.sourcegitcommit: fbfe56f6069cba027b749076926317b254df65e5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58417722"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58472485"
 ---
 # <a name="create-an-azure-data-explorer-cluster-and-database-by-using-powershell"></a>Criar um cluster do Explorador de dados do Azure e a base de dados com o PowerShell
 
@@ -25,7 +25,7 @@ ms.locfileid: "58417722"
 > * [Python](create-cluster-database-python.md)
 >  
 
-O Azure Data Explorer é um serviço de análise de dados rápido e totalmente gerido que permite realizar análises em tempo real em volumes grandes de transmissão de dados a partir de aplicações, sites, dispositivos IoT e muito mais. Para utilizar o Explorador de dados do Azure, primeiro cria um cluster e criar um ou mais bases de dados desse cluster. Em seguida, ingerir (carregar) dados numa base de dados para que pode executar consultas em relação a ele. Neste início rápido, vai criar um cluster e uma base de dados com o Powershell. Pode executar cmdlets do PowerShell e scripts no Windows, Linux, ou num [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview) juntamente com [Az.Kusto](https://docs.microsoft.com/powershell/module/az.kusto/?view=azps-1.4.0#kusto) para criar e configurar clusters do Explorador de dados do Azure e bases de dados.
+O Azure Data Explorer é um serviço de análise de dados rápido e totalmente gerido que permite realizar análises em tempo real em volumes grandes de transmissão de dados a partir de aplicações, sites, dispositivos IoT e muito mais. Para utilizar o Explorador de dados do Azure, primeiro cria um cluster e criar um ou mais bases de dados desse cluster. Em seguida, ingerir (carregar) dados numa base de dados para que pode executar consultas em relação a ele. Neste início rápido, vai criar um cluster e uma base de dados com o Powershell. Pode executar cmdlets do PowerShell e scripts no Windows, Linux, ou num [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview) com [Az.Kusto](https://docs.microsoft.com/powershell/module/az.kusto/?view=azps-1.4.0#kusto) para criar e configurar clusters do Explorador de dados do Azure e bases de dados.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -47,12 +47,12 @@ Os passos seguintes não são necessários se estiver a executar comandos no Azu
     Connect-AzAccount
     ```
 
-2. Defina a subscrição onde pretende que o cluster ser criado:
+1. Defina a subscrição onde pretende que o cluster ser criado:
 
     ```azurepowershell-interactive
      Set-AzContext -SubscriptionId "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
     ```
-3. Ao executar a CLI do Azure localmente ou no Azure Cloud Shell, tem de instalar o módulo de Az.Kusto no seu dispositivo:
+1. Ao executar a CLI do Azure localmente ou no Azure Cloud Shell, tem de instalar o módulo de Az.Kusto no seu dispositivo:
     
     ```azurepowershell-interactive
      Install-Module -Name Az.Kusto  
@@ -74,7 +74,7 @@ Os passos seguintes não são necessários se estiver a executar comandos no Azu
 
     Existem parâmetros opcionais adicionais que pode utilizar, como a capacidade do cluster.
 
-2. Execute o seguinte comando para verificar se o cluster foi criado com êxito:
+1. Execute o seguinte comando para verificar se o cluster foi criado com êxito:
 
     ```azurepowershell-interactive
     Get-AzKustoCluster -Name mykustocluster --ResourceGroupName testrg
@@ -98,7 +98,7 @@ Se o resultado contém `provisioningState` com o `Succeeded` valor, em seguida, 
    | SoftDeletePeriod | *3650:00:00:00* | A quantidade de tempo que os dados serão mantidos disponíveis para consulta. |
    | HotCachePeriod | *3650:00:00:00* | A quantidade de tempo que os dados serão mantidos na cache. |
 
-2. Execute o seguinte comando para ver a base de dados que criou:
+1. Execute o seguinte comando para ver a base de dados que criou:
 
     ```azurepowershell-interactive
     Get-AzKustoDatabase -ClusterName mykustocluster --ResourceGroupName testrg -Name mykustodatabase

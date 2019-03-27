@@ -12,12 +12,12 @@ ms.author: danil
 ms.reviewer: jrasnik, carlrab
 manager: craigg
 ms.date: 03/12/2019
-ms.openlocfilehash: da7dfdb1217e41b7dcb7c7fb6ade55c33488e54b
-ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
+ms.openlocfilehash: c5be8af71fcbdf6f38f878c70180f38227070245
+ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58372612"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58499330"
 ---
 # <a name="azure-sql-database-metrics-and-diagnostics-logging"></a>Métricas de base de dados SQL do Azure e o registo de diagnósticos
 
@@ -88,9 +88,16 @@ Pode configurar um recurso de conjunto elástico para recolher a telemetria de d
 | :------------------- | ------------------- |
 | **Conjunto elástico** | [Todas as métricas](sql-database-metrics-diag-logging.md#all-metrics) contém a percentagem de eDTU/CPU, limite de eDTU/da CPU, físico dados lidos percentagem, log escrever percentagem, percentagem de sessões, percentagem de funções de trabalho, armazenamento, percentagem de armazenamento, limite de armazenamento e a percentagem de armazenamento do XTP. |
 
+Para configurar a transmissão em fluxo de telemetria de diagnóstico para conjuntos elásticos e bases de dados nos conjuntos elásticos, terá de configurar separadamente **ambos** dos seguintes procedimentos:
+
+- Ativar a transmissão em fluxo de telemetria de diagnóstico de um conjunto elástico, **e**
+- Ativar a transmissão em fluxo de telemetria de diagnóstico para cada base de dados num conjunto elástico
+
+Isto acontece porque o conjunto elástico é um contentor de base de dados com a sua própria telemetria a ser separado da telemetria de uma base de dados individuais.
+
 Para ativar a transmissão em fluxo de telemetria de diagnóstico para um recurso de conjunto elástico, siga estes passos:
 
-1. Vá para o recurso de conjunto elástico no portal do Azure.
+1. Vá para o **conjunto elástico** recurso no portal do Azure.
 1. Selecione **as definições de diagnóstico**.
 1. Selecione **ativar os diagnósticos** se não existem definições anteriores existe ou selecione **Editar definição** para editar uma definição anterior.
 
@@ -100,9 +107,9 @@ Para ativar a transmissão em fluxo de telemetria de diagnóstico para um recurs
 1. Selecione um recurso de destino para os dados de diagnóstico de transmissão em fluxo: **Arquivo para a conta de armazenamento**, **Stream para um hub de eventos**, ou **enviar para o Log Analytics**.
 1. Para o log analytics, selecione **configurar** e criar uma nova área de trabalho ao selecionar **+ criar nova área de trabalho**, ou selecione uma área de trabalho existente.
 1. Selecione a caixa de verificação de telemetria de diagnóstico do conjunto elástico: **AllMetrics**.
-1. Selecione **Guardar**.
-
    ![Configurar os diagnósticos para conjuntos elásticos](./media/sql-database-metrics-diag-logging/diagnostics-settings-container-elasticpool-selection.png)
+1. Selecione **Guardar**.
+1. Além disso, configure a transmissão em fluxo de telemetria de diagnóstico para cada base de dados dentro do conjunto elástico que pretende monitorizar ao seguir os passos descritos na secção seguinte.
 
 > [!IMPORTANT]
 > Além de configurar a telemetria de diagnóstico de um conjunto elástico, também tem de configurar a telemetria de diagnóstico para cada base de dados num conjunto elástico, como documentado a seguir. 
@@ -111,9 +118,9 @@ Para ativar a transmissão em fluxo de telemetria de diagnóstico para um recurs
 
    ![Ícone de base de dados SQL](./media/sql-database-metrics-diag-logging/icon-sql-database-text.png)
 
-Para ativar de transmissão em fluxo de telemetria de diagnóstico para único, agrupados, ou bases de dados de instância, siga estes passos:
+Para ativar a transmissão em fluxo de telemetria de diagnóstico para bases de dados individuais ou agrupadas, siga estes passos:
 
-1. Aceda ao seu recurso de base de dados SQL do Azure.
+1. Vá para o Azure **base de dados SQL** recursos.
 1. Selecione **as definições de diagnóstico**.
 1. Selecione **ativar os diagnósticos** se não existem definições anteriores existe ou selecione **Editar definição** para editar uma definição anterior.
    - Pode criar até três ligações paralelas a telemetria de diagnóstico do fluxo.
@@ -124,9 +131,9 @@ Para ativar de transmissão em fluxo de telemetria de diagnóstico para único, 
 1. Selecione um recurso de destino para os dados de diagnóstico de transmissão em fluxo: **Arquivo para a conta de armazenamento**, **Stream para um hub de eventos**, ou **enviar para o Log Analytics**.
 1. Para a experiência de monitorização padrão, com base em eventos, selecione as caixas de verificação seguintes para a telemetria de registo de diagnóstico de base de dados: **SQLInsights**, **AutomaticTuning**, **QueryStoreRuntimeStatistics**, **QueryStoreWaitStatistics**, **erros** , **DatabaseWaitStatistics**, **tempos limite**, **blocos**, e **Deadlocks**.
 1. Para uma experiência de monitorização avançada, de minuto-baseado num, selecione a caixa de verificação **AllMetrics**.
-1. Selecione **Guardar**.
-
    ![Configurar os diagnósticos para única, agrupada ou bases de dados de instância](./media/sql-database-metrics-diag-logging/diagnostics-settings-database-sql-selection.png)
+1. Selecione **Guardar**.
+1. Repita estes passos para cada base de dados que pretende monitorizar.
 
 > [!NOTE]
 > Não não possível ativar os registos de auditoria de segurança das definições de diagnóstico da base de dados. Para ativar a transmissão de registos de auditoria, consulte [configurar a auditoria da base de dados](sql-database-auditing.md#subheading-2), e [registos em registos de Monitor do Azure e Hubs de eventos de auditoria](https://blogs.msdn.microsoft.com/sqlsecurity/2018/09/13/sql-audit-logs-in-azure-log-analytics-and-azure-event-hubs/).
@@ -143,9 +150,16 @@ Pode configurar um recurso de instância gerida para recolher a telemetria de di
 | :------------------- | ------------------- |
 | **Instância gerida** | ResourceUsageStats contém a contagem de vCores, percentagem de CPU média, pedidos de e/s, espaço de armazenamento reservada, lidos/escritos de bytes e espaço de armazenamento utilizado. |
 
+Para configurar a transmissão em fluxo de telemetria de diagnóstico para a instância gerida e bases de dados de instância, terá de configurar separadamente **ambos** dos seguintes procedimentos:
+
+- Ativar a transmissão em fluxo de telemetria de diagnóstico para a instância gerida, **e**
+- Ativar a transmissão em fluxo de telemetria de diagnóstico para cada base de dados de instância
+
+Isto acontece porque a instância gerida é um contentor de base de dados com a sua própria telemetria a ser separado da telemetria de base de dados instância individual.
+
 Para ativar a transmissão em fluxo de telemetria de diagnóstico para um recurso de instância gerida, siga estes passos:
 
-1. Vá para o recurso de instância gerida no portal do Azure.
+1. Vá para o **instância gerida** recurso no portal do Azure.
 1. Selecione **as definições de diagnóstico**.
 1. Selecione **ativar os diagnósticos** se não existem definições anteriores existe ou selecione **Editar definição** para editar uma definição anterior.
 
@@ -155,9 +169,9 @@ Para ativar a transmissão em fluxo de telemetria de diagnóstico para um recurs
 1. Selecione um recurso de destino para os dados de diagnóstico de transmissão em fluxo: **Arquivo para a conta de armazenamento**, **Stream para um hub de eventos**, ou **enviar para o Log Analytics**.
 1. Para o log analytics, selecione **configurar** e criar uma nova área de trabalho ao selecionar **+ criar nova área de trabalho**, ou utilizar uma área de trabalho existente.
 1. Selecione a caixa de verificação de telemetria de diagnóstico por exemplo: **ResourceUsageStats**.
-1. Selecione **Guardar**.
-
    ![Configurar diagnósticos para a instância gerida](./media/sql-database-metrics-diag-logging/diagnostics-settings-container-mi-selection.png)
+1. Selecione **Guardar**.
+1. Além disso, configure a transmissão em fluxo de telemetria de diagnóstico para cada base de dados de instância dentro da instância gerida que pretende monitorizar ao seguir os passos descritos na secção seguinte.
 
 > [!IMPORTANT]
 > Além de configurar a telemetria de diagnóstico para uma instância gerida, terá também de configurar a telemetria de diagnóstico para cada instância da base de dados, como documentado a seguir. 
@@ -168,20 +182,20 @@ Para ativar a transmissão em fluxo de telemetria de diagnóstico para um recurs
 
 Para ativar a transmissão de telemetria de diagnóstico, por exemplo, bancos de dados, siga estes passos:
 
-1. Vá para a base de dados de instância na instância gerida.
-2. Selecione **as definições de diagnóstico**.
-3. Selecione **ativar os diagnósticos** se não existem definições anteriores existe ou selecione **Editar definição** para editar uma definição anterior.
+1. Aceda a **base de dados de instância** recursos dentro da instância gerida.
+1. Selecione **as definições de diagnóstico**.
+1. Selecione **ativar os diagnósticos** se não existem definições anteriores existe ou selecione **Editar definição** para editar uma definição anterior.
    - Pode criar até três (3) paralelas ligações a telemetria de diagnóstico do fluxo.
    - Selecione **+ Adicionar definição de diagnóstico** para configurar a transmissão em fluxo paralela de dados de diagnóstico para vários recursos.
 
    ![Ativar diagnósticos, por exemplo bases de dados](./media/sql-database-metrics-diag-logging/diagnostics-settings-database-mi-enable.png)
 
-4. Introduza um nome de definição para sua própria referência.
-5. Selecione um recurso de destino para os dados de diagnóstico de transmissão em fluxo: **Arquivo para a conta de armazenamento**, **Stream para um hub de eventos**, ou **enviar para o Log Analytics**.
-6. Selecione as caixas de verificação para a telemetria de diagnóstico de base de dados: **SQLInsights**, **QueryStoreRuntimeStatistics**, **QueryStoreWaitStatistics** e **erros**.
-7. Selecione **Guardar**.
-
+1. Introduza um nome de definição para sua própria referência.
+1. Selecione um recurso de destino para os dados de diagnóstico de transmissão em fluxo: **Arquivo para a conta de armazenamento**, **Stream para um hub de eventos**, ou **enviar para o Log Analytics**.
+1. Selecione as caixas de verificação para a telemetria de diagnóstico de base de dados: **SQLInsights**, **QueryStoreRuntimeStatistics**, **QueryStoreWaitStatistics** e **erros**.
    ![Configurar diagnósticos, por exemplo bases de dados](./media/sql-database-metrics-diag-logging/diagnostics-settings-database-mi-selection.png)
+1. Selecione **Guardar**.
+1. Repita estes passos para cada base de dados de instância que pretende monitorizar.
 
 > [!TIP]
 > Repita estes passos para cada base de dados de instância que pretende monitorizar.
@@ -388,7 +402,7 @@ Se estiver a utilizar a análise de SQL do Azure, pode monitorizar o consumo de 
 
 ## <a name="metrics-and-logs-available"></a>Métricas e registos disponíveis
 
-Telemetria de monitorização recolhida pode ser utilizada pelos seus próprios _análise personalizada_ e _desenvolvimento de aplicativos_ usando [idioma de análise de SQL](https://docs.microsoft.com/azure/log-analytics/query-language/get-started-queries).
+Monitorizar a telemetria disponível para a base de dados do Azure SQL, conjuntos elásticos e a instância gerida está documentado abaixo. Telemetria de monitorização recolhida dentro de análise de SQL pode ser utilizada para sua própria análise personalizada e, em seguida, desenvolvimento de aplicativo usando [consultas de registo do Azure Monitor](https://docs.microsoft.com/azure/log-analytics/query-language/get-started-queries) idioma.
 
 ## <a name="all-metrics"></a>Todas as métricas
 

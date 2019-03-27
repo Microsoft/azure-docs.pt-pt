@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 02/12/2018
 ms.author: ramamill
-ms.openlocfilehash: da7750198f76bc9e17c23b1347e9fc78262aa06c
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: d8b0d78d33c0780b05ac6f4bd8a21c6423d801f4
+ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58086960"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58445053"
 ---
 # <a name="manage-the-configuration-server-for-vmware-vm-disaster-recovery"></a>Gerir o servidor de configuração para a recuperação de desastres da VM de VMware
 
@@ -234,7 +234,7 @@ ProxyPassword="Password"
 
 Opcionalmente, pode eliminar o servidor de configuração com o PowerShell.
 
-1. [Instalar](https://docs.microsoft.com/powershell/azure/azurerm/install-azurerm-ps?view=azurermps-4.4.0) o módulo Azure PowerShell.
+1. [Instalar](https://docs.microsoft.com/powershell/azure/azurerm/install-azurerm-ps) o módulo Azure PowerShell.
 2. Inicie sessão sua conta do Azure, utilizando este comando:
 
     `Connect-AzureRmAccount`

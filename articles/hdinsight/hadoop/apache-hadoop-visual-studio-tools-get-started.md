@@ -10,12 +10,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017,seodec18
 ms.topic: conceptual
 ms.date: 02/21/2019
-ms.openlocfilehash: bb7c46548726b00c68c8e952a8e2956ad0511763
-ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
+ms.openlocfilehash: cf392bb254e38b2e07a92e87927b12e144b26f16
+ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58201777"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58447482"
 ---
 # <a name="use-data-lake-tools-for-visual-studio-to-connect-to-azure-hdinsight-and-run-apache-hive-queries"></a>Utilizar o Data Lake Tools para Visual Studio para ligar ao Azure HDInsight e executar consultas do Apache Hive
 
@@ -239,7 +239,7 @@ Gráfico da tarefa, pode selecionar **detalhes de execução de tarefa** para ob
 ### <a name="view-hive-jobs"></a>Ver tarefas do Hive
 Pode ver as consultas da tarefa, a saída da tarefa, os registos da tarefa e os registos Yarn para as tarefas do Hive.
 
-Na versão mais recente das ferramentas, pode ver o conteúdo das tarefas do Hive ao recolher e analisar registos Yarn. Um registo Yarn pode ajudar a investigar problemas de desempenho. Para obter mais informações sobre a forma como o HDInsight recolhe registos Yarn, veja [Access HDInsight application logs programmatically (Aceder programaticamente aos registos de aplicações do HDInsight)](../hdinsight-hadoop-access-yarn-app-logs.md).
+Na versão mais recente das ferramentas, pode ver o conteúdo das tarefas do Hive ao recolher e analisar registos Yarn. Um registo Yarn pode ajudar a investigar problemas de desempenho. Para obter mais informações sobre a forma como o HDInsight recolhe registos Yarn, veja [Access HDInsight application logs programmatically (Aceder programaticamente aos registos de aplicações do HDInsight)](../hdinsight-hadoop-access-yarn-app-logs-linux.md).
 
 Para ver tarefas do Hive:
 

@@ -3,7 +3,7 @@ title: FAQ e problemas conhecidos com identidades geridas para recursos do Azure
 description: Problemas conhecidos com identidades geridas para recursos do Azure.
 services: active-directory
 documentationcenter: ''
-author: priyamohanram
+author: MarkusVi
 manager: daveba
 editor: ''
 ms.assetid: 2097381a-a7ec-4e3b-b4ff-5d2fb17403b6
@@ -14,14 +14,14 @@ ms.topic: conceptual
 ms.tgt_pltfrm: ''
 ms.workload: identity
 ms.date: 12/12/2017
-ms.author: priyamo
+ms.author: markvi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9cfff565dec0d6f9d2bbea8edf39f180d4b63fd9
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: e958aa82eb1e2fbf21a44df333533c6da058a966
+ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57993176"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58448483"
 ---
 # <a name="faqs-and-known-issues-with-managed-identities-for-azure-resources"></a>FAQ e problemas conhecidos com identidades geridas para recursos do Azure
 

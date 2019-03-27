@@ -5,15 +5,15 @@ services: firewall
 author: vhorne
 ms.service: ''
 ms.topic: include
-ms.date: 3/25/2019
+ms.date: 3/26/2019
 ms.author: victorh
 ms.custom: include file
-ms.openlocfilehash: 5029fb29aecda1f1bef14dc95f6301b539c60441
-ms.sourcegitcommit: 72cc94d92928c0354d9671172979759922865615
+ms.openlocfilehash: c632989ea85033c6cbdd4188351d34345e919c49
+ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58419109"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58500666"
 ---
 ### <a name="what-is-azure-firewall"></a>O que é o Azure Firewall?
 
@@ -45,10 +45,11 @@ Pode configurar Firewall do Azure com o portal do Azure, PowerShell, REST API, o
 
 Firewall do Azure oferece suporte a regras e coleções de regras. Uma coleção de regras é um conjunto de regras que partilham a mesma ordem e a prioridade. Coleções de regras são executadas na ordem de sua prioridade. Coleções de regras de rede são de prioridade superior à coleções de regras de aplicação e todas as regras são de terminação.
 
-Existem dois tipos de coleções de regras:
+Existem três tipos de coleções de regras:
 
-* *Regras de aplicações*: Permitem-lhe configurar nomes de domínio completamente qualificado (FQDN) que podem ser acedidos a partir de uma sub-rede.
-* *Regras de rede*: Permitem-lhe configurar as regras que contêm os endereços de origem, protocolos, portas de destino e endereços de destino.
+* *Regras de aplicações*: Configure nomes de domínio completamente qualificado (FQDN) que podem ser acedidos a partir de uma sub-rede.
+* *Regras de rede*: Configure as regras que contêm os endereços de origem, protocolos, portas de destino e endereços de destino.
+* *Regras NAT*: Configure regras DNAT para permitir ligações de entrada.
 
 ### <a name="does-azure-firewall-support-inbound-traffic-filtering"></a>O Firewall do Azure suporta a filtragem de tráfego de entrada?
 
@@ -94,19 +95,19 @@ Por exemplo:
 ```azurepowershell
 # Stop an exisitng firewall
 
-$azfw = Get-AzureRmFirewall -Name "FW Name" -ResourceGroupName "RG Name"
+$azfw = Get-AzFirewall -Name "FW Name" -ResourceGroupName "RG Name"
 $azfw.Deallocate()
-Set-AzureRmFirewall -AzureFirewall $azfw
+Set-AzFirewall -AzureFirewall $azfw
 ```
 
 ```azurepowershell
 #Start a firewall
 
-$azfw = Get-AzureRmFirewall -Name "FW Name" -ResourceGroupName "RG Name"
-$vnet = Get-AzureRmVirtualNetwork -ResourceGroupName "RG Name" -Name "VNet Name"
-$publicip = Get-AzureRmPublicIpAddress -Name "Public IP Name" -ResourceGroupName " RG Name"
+$azfw = Get-AzFirewall -Name "FW Name" -ResourceGroupName "RG Name"
+$vnet = Get-AzVirtualNetwork -ResourceGroupName "RG Name" -Name "VNet Name"
+$publicip = Get-AzPublicIpAddress -Name "Public IP Name" -ResourceGroupName " RG Name"
 $azfw.Allocate($vnet,$publicip)
-Set-AzureRmFirewall -AzureFirewall $azfw
+Set-AzFirewall -AzureFirewall $azfw
 ```
 
 > [!NOTE]
@@ -124,6 +125,14 @@ Sim, pode utilizar a Firewall do Azure numa rede virtual para o tráfego e filtr
 
 Sim. No entanto, configurar as UDRs para redirecionar o tráfego entre sub-redes na mesma VNET necessita de atenção adicional. Ao utilizar o intervalo de endereços da VNET como um prefixo de destino para o UDR é suficiente, isso também roteia todo o tráfego de um computador para outro computador na mesma sub-rede por meio da instância de Firewall do Azure. Para evitar isto, incluir uma rota para a sub-rede no UDR com um tipo de próximo salto **VNET**. Gerir estas rotas pode ser complicado e propenso a erros. O método recomendado para segmentação de rede interna é usar os grupos de segurança de rede, que não exigem as UDRs.
 
+### <a name="is-forced-tunnelingchaining-to-a-network-virtual-appliance-supported"></a>Forçar túnel/encadeamento a uma aplicação Virtual de rede suportados?
+
+Sim.
+
+Firewall do Azure tem de ter conectividade à Internet direta. Por predefinição, o AzureFirewallSubnet tem uma rota de 0.0.0.0/0 com o valor de NextHopType definido como **Internet**.
+
+Se ativar o protocolo de túnel forçado para o local através do ExpressRoute ou o Gateway de VPN, terá de configurar uma rota definida pelo utilizador de 0.0.0.0/0 (UDR) com o conjunto de valor NextHopType como Internet e associá-lo a seu AzureFirewallSubnet de explicitamente. Esta ação substitui um gateway predefinido potenciais anúncio do BGP voltar à sua rede no local. Se sua organização precisar de túnel forçado para o Firewall do Azure direcionar o tráfego de gateway padrão voltar por meio de sua rede no local, contacte o suporte. Podemos lista de permissões é mantida a sua subscrição para garantir a conectividade à Internet de firewall necessárias.
+
 ### <a name="are-there-any-firewall-resource-group-restrictions"></a>Existem qualquer firewall restrições do grupo de recursos?
 
 Sim. O firewall, sub-rede, VNet e o endereço IP público, que todos têm de estar no mesmo grupo de recursos.
@@ -131,3 +140,7 @@ Sim. O firewall, sub-rede, VNet e o endereço IP público, que todos têm de est
 ### <a name="when-configuring-dnat-for-inbound-network-traffic-do-i-also-need-to-configure-a-corresponding-network-rule-to-allow-that-traffic"></a>Ao configurar DNAT para tráfego de rede de entrada, é também necessário configurar uma regra de rede correspondente para permitir que o tráfego?
 
 Não. Regras NAT implicitamente adicione uma regra de rede correspondente para permitir o tráfego traduzido. Pode substituir esse comportamento, ao adicionar explicitamente uma coleção de regras de rede com regras de negar que correspondem ao tráfego traduzido. Para saber mais sobre a lógica de processamento de regras do Azure Firewall, veja [Lógica de processamento de regras do Azure Firewall](../articles/firewall/rule-processing.md).
+
+### <a name="how-to-wildcards-work-in-an-application-rule-target-fqdn"></a>Como a carateres universais funcionar num destino de regra de aplicação FQDN?
+
+Se configurar ***. contoso.com**, permite *anyvalue*. contoso.com, mas não contoso.com (o vértice do domínio). Se pretender permitir que o vértice do domínio, deve configurá-lo explicitamente como um destino FQDN.

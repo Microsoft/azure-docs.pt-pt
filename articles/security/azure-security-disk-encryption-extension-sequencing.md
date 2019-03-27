@@ -6,12 +6,12 @@ ms.service: security
 ms.topic: article
 ms.author: mbaldwin
 ms.date: 03/21/2019
-ms.openlocfilehash: 33958eae291b03b568491e24f09abefdacb667c8
-ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
+ms.openlocfilehash: e98e501806971f3cf1bec29960ad15ef9c0024fc
+ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58405906"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58498150"
 ---
 # <a name="use-azure-disk-encryption-with-virtual-machine-scale-set-extension-sequencing"></a>Sequenciamento de extensão do conjunto de utilização do Azure Disk Encryption com o dimensionamento de máquinas virtuais
 
@@ -152,7 +152,7 @@ Eis um exemplo de uso "AzureDiskEncryption", seguido de "VMDiagnosticsSettings",
 ```
 
 Para obter mais modelos detalhados, consulte:
-* Aplicar a extensão Azure Disk Encryption depois de um script de shell personalizado que formata o suporte técnico (Linux): [deploy-extseq-linux-ADE-after-customscript.json](https://github.com/Azure-Samples/compute-automation-configurations/blob/master/ade-vmss/deploy-extseq-linux-ADE-after-customscript.json)
+* Aplicar a extensão Azure Disk Encryption depois de um script de shell personalizado que formata o disco (Linux): [deploy-extseq-linux-ADE-after-customscript.json](https://github.com/Azure-Samples/compute-automation-configurations/blob/master/ade-vmss/deploy-extseq-linux-ADE-after-customscript.json)
 * Aplicar a extensão Azure Disk Encryption depois de um script de Powershell personalizado que inicializa e formata o disco (Windows): [deploy-extseq-linux-ADE-after-customscript.json](https://github.com/Azure-Samples/compute-automation-configurations/blob/master/ade-vmss/deploy-extseq-windows-ADE-after-customscript.json)
 * Aplique a extensão Azure Disk Encryption antes de um script de Powershell personalizado que inicializa e formata o disco (Windows): [deploy-extseq-windows-CustomScript-after-ADE.json](https://github.com/Azure-Samples/compute-automation-configurations/blob/master/ade-vmss/deploy-extseq-windows-CustomScript-after-ADE.json)
 

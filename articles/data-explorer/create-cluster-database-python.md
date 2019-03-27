@@ -8,12 +8,12 @@ ms.reviewer: orspodek
 ms.service: data-explorer
 ms.topic: quickstart
 ms.date: 03/25/2019
-ms.openlocfilehash: db6064feb379bf7da4f2c2e6417583c3d8b8b0d3
-ms.sourcegitcommit: 72cc94d92928c0354d9671172979759922865615
+ms.openlocfilehash: 24e482d223fec2c1f95d7cc964f62eac81c5de05
+ms.sourcegitcommit: fbfe56f6069cba027b749076926317b254df65e5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58417892"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58472587"
 ---
 # <a name="create-an-azure-data-explorer-cluster-and-database-by-using-python"></a>Criar um cluster do Explorador de dados do Azure e a base de dados com o Python
 
@@ -33,7 +33,7 @@ Se não tiver uma subscrição do Azure, crie uma [conta do Azure gratuita](http
 
 ## <a name="install-python-package"></a>Instalar pacote do Python
 
-Para instalar o pacote do Python para o Explorador de dados do Azure (Kusto), abra um prompt de comando que tem o Python no respetivo caminho e, em seguida, execute este comando:
+Para instalar o pacote do Python para o Explorador de dados do Azure (Kusto), abra um prompt de comando que tem o Python no respetivo caminho. Execute este comando:
 
 ```
 pip install azure-mgmt-kusto
@@ -43,7 +43,26 @@ pip install azure-mgmt-kusto
 
 1. Crie o cluster utilizando o seguinte comando:
 
+    ```Python
+    from azure.mgmt.kusto.kusto_management_client import KustoManagementClient
+    from azure.mgmt.kusto.models import Cluster, AzureSku
+
+    credentials = xxxxxxxxxxxxxxx
     
+    subscription_id = 'xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxx'
+    location = 'Central US'
+    sku = 'D13_v2'
+    capacity = 5
+    resource_group_name = 'testrg'
+    cluster_name = 'mykustocluster'
+    cluster = Cluster(location=location, sku=AzureSku(name=sku, capacity=capacity))
+    
+    kustoManagementClient = KustoManagementClient(credentials, subscription_id)
+    
+    cluster_operations = kustoManagementClient.clusters
+    
+    cluster_operations.create_or_update(resource_group_name, cluster_name, cluster)
+    ```
 
    |**Definição** | **Valor sugerido** | **Descrição do campo**|
    |---|---|---|

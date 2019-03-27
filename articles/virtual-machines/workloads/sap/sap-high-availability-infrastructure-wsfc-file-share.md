@@ -17,12 +17,12 @@ ms.workload: infrastructure-services
 ms.date: 05/05/2017
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 064daa7ed8fb5be34524d9ea27cfa6c22b9c3e66
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 58cd76e93b9d0888211e8339ae17170685e71e74
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58008365"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58480015"
 ---
 # <a name="prepare-azure-infrastructure-for-sap-high-availability-by-using-a-windows-failover-cluster-and-file-share-for-sap-ascsscs-instances"></a>Preparar a infraestrutura do Azure para elevada disponibilidade SAP através de uma partilha de ficheiros e de cluster de ativação pós-falha do Windows para as instâncias do SAP ASCS/SCS
 
@@ -276,7 +276,7 @@ Para preparar a infraestrutura do Azure, execute o seguinte:
 Pode implementar o cluster de servidor de ficheiros de escalamento horizontal do Microsoft manualmente, conforme descrito no blog [espaços de armazenamento direto no Azure][ms-blog-s2d-in-azure], executando o seguinte código:  
 
 
-```PowerShell
+```powershell
 # Set an execution policy - all cluster nodes
 Set-ExecutionPolicy Unrestricted
 

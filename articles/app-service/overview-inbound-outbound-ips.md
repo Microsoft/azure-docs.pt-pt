@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 04/20/2018
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 56ca87f318aa5f1843a3b28480be834df1669c71
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: 96f580532d9ea45dd767e32c2451243e83af66ea
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54811014"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58480809"
 ---
 # <a name="inbound-and-outbound-ip-addresses-in-azure-app-service"></a>Endereços IP de entrada e saídos no serviço de aplicações do Azure
 
@@ -45,11 +45,11 @@ Independentemente do número de instâncias de escalamento horizontal, cada apli
 
 O conjunto de IP de saída endereços pela sua aplicação muda quando dimensionar a sua aplicação entre as camadas inferiores (**básica**, **padrão**, e **Premium**) e o  **O Premium V2** escalão.
 
-Pode encontrar o conjunto de todos os possíveis endereços IP de saída pode utilizar a sua aplicação, independentemente de preços escalões, procurando o `possibleOutboundIPAddresses` propriedade. Ver [encontrar IPs de saída](#find-outbound-ips).
+Pode encontrar o conjunto de todos os possíveis endereços IP de saída pode utilizar a sua aplicação, independentemente de preços escalões, procurando o `possibleOutboundIPAddresses` propriedade ou no **endereços de IP de saída adicionais** campo no **propriedades**  painel no portal do Azure. Ver [encontrar IPs de saída](#find-outbound-ips).
 
 ## <a name="find-outbound-ips"></a>Encontre os IPs de saída
 
-Para localizar os endereços IP de saída atualmente a ser utilizados pela sua aplicação no portal do Azure, clique em **propriedades** na navegação do lado esquerdo da sua aplicação. 
+Para localizar os endereços IP de saída atualmente a ser utilizados pela sua aplicação no portal do Azure, clique em **propriedades** na navegação do lado esquerdo da sua aplicação. Estes são listados no **endereços IP de saída** campo.
 
 Pode encontrar as mesmas informações ao executar o seguinte comando na [Cloud Shell](../cloud-shell/quickstart.md).
 
@@ -61,7 +61,9 @@ az webapp show --resource-group <group_name> --name <app_name> --query outboundI
 (Get-AzWebApp -ResourceGroup <group_name> -name <app_name>).OutboundIpAddresses
 ```
 
-Para localizar todas as possíveis endereços IP de saída para a sua aplicação, independentemente de preços escalões, execute o seguinte comando [Cloud Shell](../cloud-shell/quickstart.md).
+Para encontrar _todos os_ possíveis endereços IP de saída para a sua aplicação, independentemente de preços escalões, clique em **propriedades** na navegação do lado esquerdo da sua aplicação. Estes são listados no **endereços de IP de saída adicionais** campo.
+
+Pode encontrar as mesmas informações ao executar o seguinte comando na [Cloud Shell](../cloud-shell/quickstart.md).
 
 ```azurecli-interactive
 az webapp show --resource-group <group_name> --name <app_name> --query possibleOutboundIpAddresses --output tsv

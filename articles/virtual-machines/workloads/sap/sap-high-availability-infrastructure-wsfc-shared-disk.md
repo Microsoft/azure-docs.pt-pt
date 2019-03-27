@@ -17,12 +17,12 @@ ms.workload: infrastructure-services
 ms.date: 05/05/2017
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 43e4cf27d9a57db58c0f90b269e7a52622508ee1
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 130dca5efdf39936fdf2a4dc4409f8b29d15bbcd
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57998761"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58487690"
 ---
 # <a name="prepare-the-azure-infrastructure-for-sap-ha-by-using-a-windows-failover-cluster-and-shared-disk-for-sap-ascsscs"></a>Preparar a infraestrutura do Azure para SAP HA através de um cluster de ativação pós-falha do Windows e o disco partilhado para o SAP ASCS/SCS
 
@@ -235,14 +235,14 @@ Sistemas de produção SAP, implementar máquinas virtuais do Azure com [conecti
 2. Na **SUBNETID** caixa, adicione a cadeia de caracteres completa de sua ID de sub-rede de rede do Azure preparado onde planeia implementar máquinas virtuais do Azure.
 3. Para obter uma lista de todas as sub-redes de rede do Azure, execute este comando do PowerShell:
 
-   ```PowerShell
+   ```powershell
    (Get-AzureRmVirtualNetwork -Name <azureVnetName>  -ResourceGroupName <ResourceGroupOfVNET>).Subnets
    ```
 
    O **ID** campo mostra o valor para o ID de sub-rede.
 4. Para obter uma lista de todos os valores de ID de sub-rede, execute este comando do PowerShell:
 
-   ```PowerShell
+   ```powershell
    (Get-AzureRmVirtualNetwork -Name <azureVnetName>  -ResourceGroupName <ResourceGroupOfVNET>).Subnets.Id
    ```
 

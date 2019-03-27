@@ -3,7 +3,7 @@ title: Parar de utilizar a extensão VM de identidade gerida e começar a utiliz
 description: Passo a passo instruções sobre como deixar de utilizar a extensão de VM e começar a utilizar o serviço de metadados de instância do Azure (IMDS) para autenticação.
 services: active-directory
 documentationcenter: ''
-author: priyamohanram
+author: MarkusVi
 manager: daveba
 editor: ''
 ms.service: active-directory
@@ -13,13 +13,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 02/25/2018
-ms.author: priyamo
-ms.openlocfilehash: c29eb22f2606fc44cfd7d948f2c363cb51c811dd
-ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
+ms.author: markvi
+ms.openlocfilehash: 5b3c6c99b05320ee53c3ff49f5c299650c32e939
+ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58227688"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58498337"
 ---
 # <a name="how-to-stop-using-the-virtual-machine-managed-identities-extension-and-start-using-the-azure-instance-metadata-service"></a>Como parar de utilizar a máquina virtual gerido extensão de identidades e comece a utilizar o serviço de metadados de instância do Azure
 
@@ -196,7 +196,7 @@ Existem várias limitações principais para utilizar a extensão de máquina vi
 
 ## <a name="azure-instance-metadata-service"></a>Serviço de metadados de instância do Azure
 
-O [serviço de metadados de instância do Azure (IMDS)](https://docs.microsoft.com/azure/virtual-machines/instance-metadata-service) é um ponto de final do REST que fornece informações sobre as instâncias de máquina virtual que podem ser utilizadas para gerir e configurar as suas máquinas virtuais em execução. O ponto final está disponível num endereço IP bem conhecido não encaminháveis internos (`169.254.169.254`) que podem ser acedidos apenas a partir da máquina virtual.
+O [serviço de metadados de instância do Azure (IMDS)](/azure/virtual-machines/windows/instance-metadata-service) é um ponto de final do REST que fornece informações sobre as instâncias de máquina virtual que podem ser utilizadas para gerir e configurar as suas máquinas virtuais em execução. O ponto final está disponível num endereço IP bem conhecido não encaminháveis internos (`169.254.169.254`) que podem ser acedidos apenas a partir da máquina virtual.
 
 Existem diversas vantagens em usar IMDS do Azure para pedir tokens. 
 

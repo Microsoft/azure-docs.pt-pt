@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 10/12/2018
 ms.author: jonbeck
-ms.openlocfilehash: 6ace72aea22224e2df04ecfe872dafdd497b1d37
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
+ms.openlocfilehash: 58d4ced041b6f5cf767b45191e28a4b395f584b6
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55976780"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58480265"
 ---
 # <a name="high-performance-compute-vm-sizes"></a>Tamanhos de VM de computação de elevado desempenho
 
@@ -44,7 +44,7 @@ ms.locfileid: "55976780"
   
   O seguinte comando instala a extensão de HpcVMDrivers versão 1.1 mais recente numa VM com capacidade RDMA existente com o nome *myVM* implementados no grupo de recursos com o nome *myResourceGroup* no  *Oeste dos E.U.A.* região:
 
-  ```PowerShell
+  ```powershell
   Set-AzVMExtension -ResourceGroupName "myResourceGroup" -Location "westus" -VMName "myVM" -ExtensionName "HpcVmDrivers" -Publisher "Microsoft.HpcCompute" -Type "HpcVmDrivers" -TypeHandlerVersion "1.1"
   ```
   

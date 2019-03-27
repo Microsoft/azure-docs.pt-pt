@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/11/2019
 ms.author: magoedte
-ms.openlocfilehash: 26da504188a9060dbbb35330dbd8604bf5fe5e1b
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 4d3de1d0b242017f7026873ccaeba547f85981fc
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57995134"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58482104"
 ---
 # <a name="configure-service-map-in-azure"></a>Configurar o mapa de serviço no Azure
 O Mapa de Serviço deteta automaticamente componentes de aplicações em sistemas Windows e Linux e mapeia a comunicação entre serviços. Pode usá-lo para ver os servidores, como considerá-los – sistemas interconectados que fornecem serviços críticos. Mapa de serviço mostra ligações entre servidores, processos e as portas em qualquer arquitetura ligado a TCP sem qualquer configuração necessária, que não seja a instalação de um agente.
@@ -166,7 +166,7 @@ Existe uma extensão disponível para Windows (DependencyAgentWindows) e o Linux
 
 Para implementar a extensão de VM do Azure com o PowerShell, pode utilizar o exemplo seguinte:
 
-```PowerShell
+```powershell
 #
 # Deploy the Dependency agent to every VM in a Resource Group
 #
@@ -278,7 +278,7 @@ Ficheiros para o agente de dependência são colocados nos seguintes diretórios
 Para implementar facilmente o agente de dependência em vários servidores ao mesmo tempo, o exemplo de script a seguir é fornecido para transferir e instalar o agente de dependência no Windows ou Linux.
 
 ### <a name="powershell-script-for-windows"></a>Script do PowerShell para Windows
-```PowerShell
+```powershell
 Invoke-WebRequest "https://aka.ms/dependencyagentwindows" -OutFile InstallDependencyAgent-Windows.exe
 
 .\InstallDependencyAgent-Windows.exe /S

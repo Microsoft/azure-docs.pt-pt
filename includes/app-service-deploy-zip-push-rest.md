@@ -4,12 +4,12 @@ ms.service: app-service
 ms.topic: include
 ms.date: 11/03/2016
 ms.author: cephalin
-ms.openlocfilehash: 7771bbcab08fb84a941eedab402880fb7bc4232d
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.openlocfilehash: 7aa0d232cf53eef9bd28c36b66e8fdae22a28db9
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53551675"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58488064"
 ---
 ## <a name="rest"></a>Implementar o ficheiro ZIP com as APIs REST 
 
@@ -35,7 +35,7 @@ curl -u <deployment_user> https://<app_name>.scm.azurewebsites.net/api/deploymen
 
 O exemplo seguinte utiliza [Invoke-RestMethod](/powershell/module/microsoft.powershell.utility/invoke-restmethod) para enviar um pedido que contém o ficheiro. zip. Substitua os marcadores de posição `<deployment_user>`, `<deployment_password>`, `<zip_file_path>`, e `<app_name>`.
 
-```PowerShell
+```powershell
 #PowerShell
 $username = "<deployment_user>"
 $password = "<deployment_password>"

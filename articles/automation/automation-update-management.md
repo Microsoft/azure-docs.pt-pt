@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 03/15/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 5267467b2874c1cc36c8a9f5f27cc1c348eba7ac
-ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
+ms.openlocfilehash: a2adb0dbbacbec28f241ae89d1b9f763e0f00b90
+ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58369773"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58447606"
 ---
 # <a name="update-management-solution-in-azure"></a>Solução de gestão de atualizações no Azure
 
@@ -238,7 +238,7 @@ Também é possível criar implementações de atualizações por meio de progra
 
 ### <a name="multi-tenant"></a>Implementações de atualização entre inquilinos
 
-Se tiver máquinas noutro inquilino do Azure a comunicar com a gestão de atualizações que terá de aplicar o patch, terá de utilizar a solução abaixo para que eles agendada. Pode utilizar o [New-AzureRmAutomationSchedule](/powershell/module/azurerm.automation/new-azurermautomationschedule?view=azurermps-6.13.0) cmdlet com o comutador `-ForUpdate` para criar uma agenda e utilizar os [New-AzureRmAutomationSoftwareUpdateConfiguration](/powershell/module/azurerm.automation/new-azurermautomationsoftwareupdateconfiguration?view=azurermps-6.13.0
+Se tiver máquinas noutro inquilino do Azure a comunicar com a gestão de atualizações que terá de aplicar o patch, terá de utilizar a solução abaixo para que eles agendada. Pode utilizar o [New-AzureRmAutomationSchedule](/powershell/module/azurerm.automation/new-azurermautomationschedule) cmdlet com o comutador `-ForUpdate` para criar uma agenda e utilizar os [New-AzureRmAutomationSoftwareUpdateConfiguration](/powershell/module/azurerm.automation/new-azurermautomationsoftwareupdateconfiguration
 ) cmdlet e passar o as máquinas no outro inquilino para o `-NonAzureComputer` parâmetro. O exemplo seguinte mostra um exemplo sobre como fazer isso:
 
 ```azurepowershell-interactive
