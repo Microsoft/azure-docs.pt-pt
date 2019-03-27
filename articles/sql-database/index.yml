@@ -1,10 +1,10 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: f33f3384bc2b88325e34222ed1c79cb34007840e
-ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
+ms.openlocfilehash: 3217d1cd5585443534dbcc91ae3a12bb01db9a52
+ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58403059"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58444553"
 documentType: LandingData
 title: Documentação da Base de Dados SQL do Azure
 metadata:
@@ -120,7 +120,7 @@ sections:
       values:
       - href: /azure/sql-database/sql-database-managed-instance-get-started
       - href: https://medium.com/azure-sqldb-managed-instance/working-with-sql-managed-instance-using-azure-cli-611795fe0b44
-      - href: /powershell/module/az.sql/new-azsqlinstance#examples
+      - href: /azure/sql-database/scripts/sql-database-create-configure-managed-instance-powershell.md
       - href: https://github.com/Azure/azure-quickstart-templates/tree/master/101-sqlmi-new-vnet
 - title: Tutoriais Passo-a-Passo
   items:

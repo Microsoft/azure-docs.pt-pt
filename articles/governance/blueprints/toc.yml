@@ -85,6 +85,8 @@ items:
   href: ./troubleshoot/general.md
 - name: Referências
   items:
+  - name: Azure PowerShell
+    href: /powershell/module/az.blueprint/#blueprint
   - name: SDK do Azure para .NET
     href: /dotnet/api/overview/azure/blueprints/management
   - name: REST
@@ -106,9 +108,9 @@ items:
     href: https://www.youtube.com/channel/UCZZ3-oMrVI5ssheMzaWC4uQ
   - name: Azure Friday - Descrição Geral do Azure Blueprints
     href: https://channel9.msdn.com/Shows/Azure-Friday/An-overview-of-Azure-Blueprints
-ms.openlocfilehash: d01f554f918cac97b149f3ea2e1449829348e745
-ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
+ms.openlocfilehash: 2055a6cf630d8894deb04b730a65f2e143d686a8
+ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58226679"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58498776"

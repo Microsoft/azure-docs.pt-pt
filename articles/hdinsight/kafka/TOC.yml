@@ -94,21 +94,6 @@ items:
       - name: Publicar aplicações do HDInsight no Azure Marketplace
         href: ../hdinsight-apps-publish-applications.md
         maintainContext: true
-      - name: Instalar a aplicação publicada - Cask Data Application Platform (CDAP)
-        href: ../hdinsight-apps-install-cask.md
-        maintainContext: true
-      - name: Instalar a aplicação publicada - Dataiku
-        href: ../hdinsight-apps-install-dataiku.md
-        maintainContext: true
-      - name: Instalar a aplicação publicada - Datameer
-        href: ../hdinsight-apps-install-datameer.md
-        maintainContext: true
-      - name: Instalar a aplicação publicada - H2O
-        href: ../hdinsight-apps-install-h2o.md
-        maintainContext: true
-      - name: Instalar a aplicação publicada - Streamsets
-        href: ../hdinsight-apps-install-streamsets.md
-        maintainContext: true
   - name: Proteger
     items:
     - name: Utilizar SSH com o HDInsight
@@ -283,9 +268,9 @@ items:
   - name: Ferramentas do Windows para HDInsight
     href: ../hdinsight-hadoop-windows-tools.md
     maintainContext: true
-ms.openlocfilehash: 1806a0bd5b32b29a9eb349bea7f7b5dff5d0f99e
-ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
+ms.openlocfilehash: 48769b08c69bb5ee397ac61ffba09e3b8a324ca1
+ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58371898"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58442714"

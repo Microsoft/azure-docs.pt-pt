@@ -183,21 +183,6 @@ items:
       - name: Publicar aplicações do HDInsight no Azure Marketplace
         href: ../hdinsight-apps-publish-applications.md
         maintainContext: true
-      - name: Instalar a aplicação publicada - Cask Data Application Platform (CDAP)
-        href: ../hdinsight-apps-install-cask.md
-        maintainContext: true
-      - name: Instalar a aplicação publicada - Dataiku
-        href: ../hdinsight-apps-install-dataiku.md
-        maintainContext: true
-      - name: Instalar a aplicação publicada - Datameer
-        href: ../hdinsight-apps-install-datameer.md
-        maintainContext: true
-      - name: Instalar a aplicação publicada - H2O
-        href: ../hdinsight-apps-install-h2o.md
-        maintainContext: true
-      - name: Instalar a aplicação publicada - Streamsets
-        href: ../hdinsight-apps-install-streamsets.md
-        maintainContext: true
   - name: Proteger
     items:
     - name: Utilizar SSH com o HDInsight
@@ -307,9 +292,6 @@ items:
     - name: Utilizar o Apache Oozie para fluxos de trabalho
       href: ../hdinsight-use-oozie-linux-mac.md
       maintainContext: true
-    - name: Utilizar coordenadores do Apache Oozie baseados no tempo
-      href: ../hdinsight-use-oozie-coordinator-time.md
-      maintainContext: true
     - name: Portas de cluster e de serviço e URIs
       href: ../hdinsight-hadoop-port-settings-for-services.md
       maintainContext: true
@@ -365,9 +347,6 @@ items:
         maintainContext: true
       - name: As definições do Apache Hive corrigem o erro Sem Memória
         href: ../hdinsight-hadoop-hive-out-of-memory-error-oom.md
-        maintainContext: true
-      - name: Utilizar as vistas do Apache Ambari para depurar tarefas do Apache Tez
-        href: ../hdinsight-debug-ambari-tez-view.md
         maintainContext: true
       - name: Otimizar as consultas do Apache Hive
         href: ../hdinsight-hadoop-optimize-hive-query.md
@@ -461,9 +440,9 @@ items:
   - name: Ferramentas do Windows para HDInsight
     href: ../hdinsight-hadoop-windows-tools.md
     maintainContext: true
-ms.openlocfilehash: 06f432d9a80d21fe41514e899ebc31d92b50ed5d
-ms.sourcegitcommit: 223604d8b6ef20a8c115ff877981ce22ada6155a
+ms.openlocfilehash: f2a818ce9777cd28b844f584cb272ab01bce2753
+ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58360984"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58448782"
