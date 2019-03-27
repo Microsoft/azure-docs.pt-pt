@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 03/01/2019
 ms.author: vinagara
 ms.subservice: alerts
-ms.openlocfilehash: cdc3e7ec6ec55c3376aeb545e1f64079ad1f6323
-ms.sourcegitcommit: 280d9348b53b16e068cf8615a15b958fccad366a
+ms.openlocfilehash: 1706fc050fecd2e4be3a40725ec3e63a9036b3a9
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58407407"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58486635"
 ---
 # <a name="switch-api-preference-for-log-alerts"></a>Mude a preferência de API para alertas de registo
 
@@ -66,7 +66,7 @@ Com o corpo de pedido que contém o abaixo JSON.
 
 A API também pode ser acessada a partir de uma linha de comandos do PowerShell através de [ARMClient](https://github.com/projectkudu/ARMClient), uma ferramenta de linha de comandos de código-fonte aberto que simplifica a invocar a API do Azure Resource Manager. Conforme ilustrado abaixo, na chamada PUT de exemplo usando a ferramenta de ARMclient mudar todas as regras de alerta associadas com a área de trabalho do Log Analytics específica.
 
-```PowerShell
+```powershell
 $switchJSON = '{"scheduledQueryRulesEnabled": "true"}'
 armclient PUT /subscriptions/<subscriptionId>/resourceGroups/<resourceGroupName>/providers/Microsoft.OperationalInsights/workspaces/<workspaceName>/alertsversion?api-version=2017-04-26-preview $switchJSON
 ```
@@ -88,7 +88,7 @@ GET /subscriptions/<subscriptionId>/resourceGroups/<resourceGroupName>/providers
 
 Para executar o procedimento acima usando a linha de comandos do PowerShell através de [ARMClient](https://github.com/projectkudu/ARMClient) ferramenta, consulte o exemplo abaixo.
 
-```PowerShell
+```powershell
 armclient GET /subscriptions/<subscriptionId>/resourceGroups/<resourceGroupName>/providers/Microsoft.OperationalInsights/workspaces/<workspaceName>/alertsversion?api-version=2017-04-26-preview
 ```
 

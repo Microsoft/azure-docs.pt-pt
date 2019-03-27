@@ -9,12 +9,12 @@ ms.author: omidm
 ms.reviewer: jasonh
 ms.topic: conceptual
 ms.date: 02/28/2019
-ms.openlocfilehash: dfbf9a3a9b800fec5df4cf527ddd4ec8e3f55b37
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: daee7ddd0a09d43132bbcf0f4553601846d31433
+ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57853244"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58448225"
 ---
 # <a name="use-apache-oozie-with-apache-hadoop-to-define-and-run-a-workflow-on-linux-based-azure-hdinsight"></a>Utilizar o Apache Oozie com o Apache Hadoop para definir e executar um fluxo de trabalho no HDInsight do Azure baseado em Linux
 
@@ -717,7 +717,6 @@ Por exemplo, para a tarefa neste documento, usaria os seguintes passos:
 
 Neste tutorial, ficou a saber como definir um fluxo de trabalho do Oozie e como executar uma tarefa de Oozie. Para saber mais sobre como trabalhar com o HDInsight, veja os artigos seguintes:
 
-* [Utilizar o coordenador de Oozie baseados no tempo do Apache com o HDInsight][hdinsight-oozie-coordinator-time]
 * [Carregar dados para as tarefas do Apache Hadoop no HDInsight][hdinsight-upload-data]
 * [Utilizar o Apache Sqoop com o Apache Hadoop no HDInsight][hdinsight-use-sqoop]
 * [Utilizar o Apache Hive com o Apache Hadoop no HDInsight][hdinsight-use-hive]
@@ -726,7 +725,6 @@ Neste tutorial, ficou a saber como definir um fluxo de trabalho do Oozie e como 
 
 [hdinsight-cmdlets-download]: https://go.microsoft.com/fwlink/?LinkID=325563
 [azure-data-factory-pig-hive]: ../data-factory/transform-data.md
-[hdinsight-oozie-coordinator-time]: hdinsight-use-oozie-coordinator-time.md
 [hdinsight-versions]:  hdinsight-component-versioning.md
 [hdinsight-storage]: hdinsight-use-blob-storage.md
 [hdinsight-get-started]: hdinsight-get-started.md
@@ -756,8 +754,8 @@ Neste tutorial, ficou a saber como definir um fluxo de trabalho do Oozie e como 
 
 [cindygross-hive-tables]: https://blogs.msdn.com/b/cindygross/archive/2013/02/06/hdinsight-hive-internal-and-external-tables-intro.aspx
 
-[img-workflow-diagram]: ./media/hdinsight-use-oozie/HDI.UseOozie.Workflow.Diagram.png
-[img-preparation-output]: ./media/hdinsight-use-oozie/HDI.UseOozie.Preparation.Output1.png
+[img-workflow-diagram]: ./media/hdinsight-use-oozie-linux-mac/HDI.UseOozie.Workflow.Diagram.png
+[img-preparation-output]: ./media/hdinsight-use-oozie-linux-mac/HDI.UseOozie.Preparation.Output1.png
 [img-runworkflow-output]: ./media/hdinsight-use-oozie/HDI.UseOozie.RunWF.Output.png
 
 [technetwiki-hive-error]: https://social.technet.microsoft.com/wiki/contents/articles/23047.hdinsight-hive-error-unable-to-rename.aspx

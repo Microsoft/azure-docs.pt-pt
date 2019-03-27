@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: article
-ms.date: 03/12/2019
+ms.date: 03/25/2019
 ms.author: alkohli
-ms.openlocfilehash: ab3d3a13f8bfa69bd9e13dae344cfbcc3731cc77
-ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
+ms.openlocfilehash: 52fb32a8b34c62fe94ab35e2c051d996ab8bef10
+ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58402597"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58449191"
 ---
 # <a name="azure-data-box-edge-technical-specifications"></a>Especificações técnicas de borda de caixa de dados do Azure
 
@@ -57,9 +57,17 @@ A tabela seguinte lista as dimensões de inclusão em milímetros e polegadas.
 
 |     Bastidor     |     Milímetros     |     Polegadas     |
 |-------------------|---------------------|----------------|
-|    Altura         |    304.8            |    12          |
-|    Largura          |    660.4            |    26          |
-|    Profundidade          |    1041.4           |    41          |
+|    Altura         |    44.45            |    1.75"          |
+|    Largura          |    434.1           |    17.09"          |
+|    Comprimento          |    740.4           |    29.15"          |
+
+A tabela seguinte lista as dimensões do pacote de envio em milímetros e polegadas.
+
+|     Pacote     |     Milímetros     |     Polegadas     |
+|-------------------|---------------------|----------------|
+|    Altura         |    311.2            |    12.25"          |
+|    Largura          |    642.8          |    25.31"          |
+|    Comprimento          |   1,051.1          |    41.38"          |
 
 ### <a name="enclosure-weight"></a>Peso de bastidor
 
@@ -67,8 +75,8 @@ O pacote de dispositivo examina 66 lbs. e requer duas pessoas manipulá-lo. O pe
 
 |     Bastidor                                 |     Peso          |
 |-----------------------------------------------|---------------------|
-|    Peso total, incluindo o empacotamento       |    66 lbs.          |
-|    Peso do dispositivo                       |    48.3 lbs.        |
+|    Peso total, incluindo o empacotamento       |    61 lbs.          |
+|    Peso do dispositivo                       |    35 lbs.          |
 
 ## <a name="enclosure-environment-specifications"></a>Especificações de ambiente de bastidor
 

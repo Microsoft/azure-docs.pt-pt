@@ -3,7 +3,7 @@ title: Como configurar gerido identidades para recursos do Azure na VM do Azure 
 description: Instruções passo a passo instruções para configurar geridos identidades para recursos do Azure na VM do Azure com o portal do Azure.
 services: active-directory
 documentationcenter: ''
-author: priyamohanram
+author: MarkusVi
 manager: daveba
 editor: ''
 ms.service: active-directory
@@ -13,14 +13,14 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/10/2018
-ms.author: priyamo
+ms.author: markvi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: be360225de7fd4484b3d6b41480b73d93f12c4a6
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: ab0a5b021048f0f684473d3f54bbeadf870cd007
+ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56209647"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58445295"
 ---
 # <a name="configure-managed-identities-for-azure-resources-on-a-vm-using-the-azure-portal"></a>Configurar identidades geridas para recursos do Azure numa VM com o portal do Azure
 
@@ -79,7 +79,7 @@ Se tiver uma Máquina Virtual que já não tem atribuído o sistema de identidad
 
    ![Captura de ecrã de página de configuração](./media/msi-qs-configure-portal-windows-vm/create-windows-vm-portal-configuration-blade-disable.png)
 
-## <a name="user-assigned-managed-identity"></a>Atribuído ao utilizador a identidade gerida
+## <a name="user-assigned-managed-identity"></a>Identidade gerida atribuída pelo utilizador
 
  Nesta secção, saiba como adicionar e remover uma identidade gerida atribuído ao utilizador a partir de uma VM com o portal do Azure.
 

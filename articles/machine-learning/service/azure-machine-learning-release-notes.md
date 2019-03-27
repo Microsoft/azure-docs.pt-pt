@@ -10,12 +10,12 @@ ms.author: larryfr
 author: Blackmist
 ms.date: 03/25/2019
 ms.custom: seodec18
-ms.openlocfilehash: 6b9ab48ea971a5e7f5e9c72f9e729d2fcb5ed37f
-ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
+ms.openlocfilehash: c1c6e0408145ea76ad93b6dc3803fd56a01dc6d4
+ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 03/26/2019
-ms.locfileid: "58437871"
+ms.locfileid: "58444647"
 ---
 # <a name="azure-machine-learning-service-release-notes"></a>Notas de versão de serviço do Azure Machine Learning
 
@@ -29,6 +29,23 @@ Neste artigo, saiba mais sobre as versões de serviço do Azure Machine Learning
 
 + **Novos recursos**
   + O *azureml.core.Run.create_children* método permite a criação de baixa latência de vários subordinado é executado com uma única chamada.
+
+### <a name="azure-machine-learning-data-prep-sdk-v110"></a>SDK v1.1.0 de preparação de dados do Azure Machine Learning
+
++ **Alterações recentes**
+  + O conceito do pacote de preparação de dados foi preterido e já não é suportado. Em vez de manter vários fluxos de dados num único pacote, pode manter fluxos de dados individualmente.
+    + Guia de procedimentos: [Bloco de notas a abrir e salvar fluxos de dados](https://aka.ms/aml-data-prep-open-save-dataflows-nb)
+
++ **Novos recursos**
+  + Preparação de dados agora pode reconhecer colunas que correspondem a um determinado tipo de semântica e dividir em conformidade. STypes atualmente suportados incluem: endereços, coordenadas geográficas (latitude e longitude), endereços IPv4 e IPv6, o número de telefone dos EUA e CEP dos EUA do e-mail.
+    + Guia de procedimentos: [Bloco de notas de tipos semântico](https://aka.ms/aml-data-prep-semantic-types-nb)
+  + Preparação de dados agora suporta as seguintes operações para gerar uma coluna resultante de duas colunas numéricas: subtrair, multiplicar e dividir e módulo.
+  + Pode chamar `verify_has_data()` num fluxo de dados para verificar se o fluxo de dados produziria registos se executada.
+
++ **Melhorias e correções de erros**
+  + Agora pode especificar o número de discretizações para utilizar num histograma para perfis de coluna numérica.
+  + O `read_pandas_dataframe` transformação requer agora que o pacote de dados para que a cadeia de caracteres - ou byte - digitado nomes de colunas.
+  + Foi corrigido um erro no `fill_nulls` transformação, onde valores não foram corretamente preenchidos se a coluna estava em falta.
 
 ## <a name="2019-03-11"></a>2019-03-11
 

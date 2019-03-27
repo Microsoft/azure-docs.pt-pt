@@ -9,15 +9,15 @@ ms.devlang: ''
 ms.topic: conceptual
 author: allenwux
 ms.author: xiwu
-ms.reviewer: douglasl
+ms.reviewer: carlrab
 manager: craigg
 ms.date: 12/20/2018
-ms.openlocfilehash: c4e0f30f68d778b55e89b956be2c5545041c4e6f
-ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
+ms.openlocfilehash: 0b1e3b98fe5b934b712db2a5549ebdc865523bfb
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57214610"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58487724"
 ---
 # <a name="best-practices-for-sql-data-sync"></a>Melhores práticas para a Sincronização de Dados SQL 
 

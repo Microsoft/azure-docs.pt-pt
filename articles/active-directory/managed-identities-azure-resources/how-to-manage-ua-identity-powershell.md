@@ -3,7 +3,7 @@ title: Como criar, listar e eliminar uma identidade gerida atribuído ao utiliza
 description: Instruções passo a passo obter instruções sobre como criar, listar e eliminar atribuído ao utilizador gerido identidade com o Azure PowerShell.
 services: active-directory
 documentationcenter: ''
-author: priyamohanram
+author: MarkusVi
 manager: daveba
 editor: ''
 ms.service: active-directory
@@ -13,14 +13,14 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 04/16/2018
-ms.author: priyamo
+ms.author: markvi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a0d1fee9526c308f025abaf1ded1f02ee0617b2f
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 886b56de194f38fbb4b94f96b92bff11f2288b37
+ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56202598"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58448608"
 ---
 # <a name="create-list-or-delete-a-user-assigned-managed-identity-using-azure-powershell"></a>Criar, lista ou eliminar uma identidade gerida atribuído ao utilizador com o Azure PowerShell
 

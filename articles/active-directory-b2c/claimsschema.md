@@ -10,12 +10,12 @@ ms.topic: reference
 ms.date: 09/10/2018
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: 635700529007cc90c7e9b79c224f55f34b326f0f
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 5d7036f2c7301223b27c80402dace8e9ea05b7f1
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55167075"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58487826"
 ---
 # <a name="claimsschema"></a>ClaimsSchema
 
@@ -106,8 +106,8 @@ O **máscara** elemento contém os seguintes atributos:
 
 | Atributo | Necessário | Descrição |
 | --------- | -------- | ----------- |
-| Type | Sim | O tipo de máscara de afirmação. Valores possíveis: `Simple` ou `Regex`. O `Simple` valor indica que uma máscara de texto simples é aplicada à parte de uma afirmação de cadeia de caracteres à esquerda. O `Regex` valor indica que uma expressão regular é aplicada às afirmações de cadeia de caracteres como todo.  Se o `Regex` valor for especificado, um atributo opcional também tem de ser definido com a expressão regular a utilizar. |
-| RegEx | Não | Se **tipo** está definida como `Regex`, especifique a expressão regular a utilizar.
+| `Type` | Sim | O tipo de máscara de afirmação. Valores possíveis: `Simple` ou `Regex`. O `Simple` valor indica que uma máscara de texto simples é aplicada à parte de uma afirmação de cadeia de caracteres à esquerda. O `Regex` valor indica que uma expressão regular é aplicada às afirmações de cadeia de caracteres como todo.  Se o `Regex` valor for especificado, um atributo opcional também tem de ser definido com a expressão regular a utilizar. |
+| `Regex` | Não | Se **`Type`** está definido como `Regex`, especifique a expressão regular a utilizar.
 
 O exemplo seguinte configura um **PhoneNumber** a afirmação com o `Simple` máscara:
 

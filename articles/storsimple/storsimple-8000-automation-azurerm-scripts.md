@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 10/03/2017
 ms.author: alkohli
-ms.openlocfilehash: b7cc47c449b91693831dda74bf987f595fe65681
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 646b862733e8727c9c8729f1ac038fa88cfa0580
+ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57997873"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58443191"
 ---
 # <a name="use-azure-resource-manager-sdk-based-scripts-to-manage-storsimple-devices"></a>Utilizar scripts baseados no SDK do Azure Resource Manager para gerir dispositivos do StorSimple
 
@@ -62,10 +62,10 @@ Esta secção assume um script de exemplo e fornece detalhes sobre as diversas e
 Antes de começar, certifique-se de que tem:
 
 *   O Azure PowerShell instalado. Para instalar os módulos do Azure PowerShell:
-    * Num ambiente Windows, siga os passos em [instalar e configurar o Azure PowerShell](https://docs.microsoft.com/powershell/azure/azurerm/install-azurerm-ps?view=azurermps-4.4.0). Pode instalar o Azure PowerShell no seu anfitrião do Windows Server para o seu StorSimple se utilizar uma.
-    * Num ambiente Linux ou MacOS, siga os passos em [instalar e configurar o Azure PowerShell no MacOS ou Linux](https://docs.microsoft.com/powershell/azure/azurerm/install-azurermps-maclinux?view=azurermps-4.4.0).
+    * Num ambiente Windows, siga os passos em [instalar e configurar o Azure PowerShell](https://docs.microsoft.com/powershell/azure/azurerm/install-azurerm-ps). Pode instalar o Azure PowerShell no seu anfitrião do Windows Server para o seu StorSimple se utilizar uma.
+    * Num ambiente Linux ou MacOS, siga os passos em [instalar e configurar o Azure PowerShell no MacOS ou Linux](https://docs.microsoft.com/powershell/azure/azurerm/install-azurermps-maclinux).
 
-Para obter mais informações sobre como utilizar o Azure PowerShell, aceda a [introdução à utilização do Azure PowerShell](https://docs.microsoft.com/powershell/azure/get-started-azureps?view=azurermps-4.4.0).
+Para obter mais informações sobre como utilizar o Azure PowerShell, aceda a [introdução à utilização do Azure PowerShell](https://docs.microsoft.com/powershell/azure/get-started-azureps).
 
 ### <a name="run-azure-powershell-script"></a>Executar script do PowerShell do Azure
 

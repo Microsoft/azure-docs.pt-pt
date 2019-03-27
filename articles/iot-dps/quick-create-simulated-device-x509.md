@@ -9,12 +9,12 @@ ms.service: iot-dps
 services: iot-dps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: ec441835d4c409d0d8c1fad66c41cef2eb462105
-ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
+ms.openlocfilehash: 8f60cce99606b1a92cba62847b060c49cb0c2c0d
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 03/26/2019
-ms.locfileid: "58436454"
+ms.locfileid: "58485260"
 ---
 # <a name="quickstart-provision-an-x509-simulated-device-using-the-azure-iot-c-sdk"></a>Início rápido: Aprovisionar um dispositivo X.509 simulado com o SDK de C do Azure IoT
 
@@ -49,7 +49,7 @@ Nesta secção, vai preparar um ambiente de desenvolvimento utilizado para criar
 
     O exemplo seguinte utilizado o Windows PowerShell para verificar o hash criptográfico para a versão 3.13.4 de x64 distribuição de MSI:
 
-    ```PowerShell
+    ```powershell
     PS C:\Downloads> $hash = get-filehash .\cmake-3.13.4-win64-x64.msi
     PS C:\Downloads> $hash.Hash -eq "64AC7DD5411B48C2717E15738B83EA0D4347CD51B940487DFF7F99A870656C09"
     True
@@ -139,7 +139,7 @@ Vai utilizar o código de exemplo do SDK C do Azure IoT para criar o certificado
 
 3. Em **Adicionar Inscrição**, introduza as seguintes informações e clique no botão **Guardar**.
 
-    - **Mecanismo:** Selecione X.509 como o *Mecanismo* de atestado de identidades.
+    - **Mecanismo:** Selecione **X.509** como o *Mecanismo* de atestado de identidades.
     - **Ficheiro de. pem ou. cer de certificado primário:** Clique em **selecionar um ficheiro** para selecionar o ficheiro de certificado, X509testcert.pem, que criou anteriormente.
     - **ID de dispositivo do IoT Hub:** Introduza **test-docs-cert-device** para atribuir a um ID.
 

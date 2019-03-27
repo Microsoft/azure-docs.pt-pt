@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 01/02/2019
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: d558f0fa5abc421785ff6f9fcc2a6318819e3ebc
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: ae2384d0ac6773ccd362778d2913cdcaa9cb4d6c
+ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58012740"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58446711"
 ---
 # <a name="introduction-to-azure-storage"></a>Introdução ao Armazenamento do Azure
 
@@ -93,23 +93,15 @@ O Armazenamento do Azure também inclui capacidades de discos geridos e não ger
 
 Para obter mais informações sobre os tipos de conta de armazenamento, consulte [descrição geral da conta de armazenamento do Azure](storage-account-overview.md). 
 
-## <a name="accessing-your-blobs-files-and-queues"></a>Aceder a blobs, ficheiros e filas
+## <a name="securing-access-to-storage-accounts"></a>Protegendo o acesso a contas de armazenamento
 
-Cada conta de armazenamento tem duas chaves de autenticação, sendo que pode ser utilizada qualquer uma destas para realizar qualquer operação. Existem duas chaves, pelo que pode implementá-las ocasionalmente para melhorar a segurança. É fundamental que estas chaves estejam guardadas em segurança, porque estar na posso da mesma, juntamente com o nome de utilizador, permite acesso ilimitado a todos os dados da conta de armazenamento.
+Todos os pedidos ao armazenamento do Azure tem de ser autorizado. O armazenamento do Azure suporta os seguintes métodos de autorização:
 
-Esta secção mostra duas formas de proteger a conta de armazenamento e os respetivos dados. Para obter informações detalhadas sobre como proteger a sua conta de armazenamento e os seus dados, veja [manual de segurança do Armazenamento do Azure](storage-security-guide.md).
-
-### <a name="securing-access-to-storage-accounts-using-azure-ad"></a>Utilizar o Azure AD para proteger o acesso às contas de armazenamento
-
-Uma forma de proteger o acesso aos seus dados de armazenamento é controlar o acesso às chaves da conta de armazenamento. Com o Controlo de Acesso Baseado em Funções (RBAC) do Resource Manager, pode atribuir funções a utilizadores, grupos ou aplicações. Estas funções estão associadas a um conjunto específico de ações que são permitidas ou negadas. Utilizar o RBAC para conceder acesso a uma conta de armazenamento processa apenas as operações de gestão dessa conta, tal como alterar a camada de acesso. Não pode utilizar o RBAC para conceder acesso a objetos de dados, como um contentor ou uma partilha de ficheiros específica. No entanto, pode utilizar o RBAC para conceder acesso às chaves da conta de armazenamento, que podem, depois, ser utilizadas para ler os objetos de dados.
-
-### <a name="securing-access-using-shared-access-signatures"></a>Utilizar assinaturas de acesso partilhado para proteger o acesso
-
-Pode utilizar assinaturas de acesso partilhado e políticas de acesso armazenadas para proteger os seus objetos de dados. As assinaturas de acesso partilhado (SAS) são uma cadeia que contém um token de segurança que pode ser ligado ao URI de um recurso que lhe permite delegar acesso a objetos de armazenamento específicos e especificar limitações, como permissões e o intervalo de data/hora do acesso. Esta funcionalidade tem extensas capacidades. Para obter informações detalhadas, veja [Using Shared Access Signatures (SAS)](storage-dotnet-shared-access-signature-part-1.md) (Utilizar Assinaturas de Acesso Partilhado [SAS]).
-
-### <a name="public-access-to-blobs"></a>Acesso público a blobs
-
-O Serviço Blob permite-lhe fornecer acesso público a um contentor e respetivos blobs ou a um blob específico. Quando indicar que um contentor ou um blob é público, todas as pessoas podem lê-lo anonimamente. Não é necessária autenticação. Um exemplo de quando pode utilizar o acesso público é se tiver um Web site que utiliza imagens, vídeos ou documentos provenientes do Armazenamento de blobs. Para obter mais informações, veja [Manage anonymous read access to containers and blobs](../blobs/storage-manage-access-to-resources.md) (Gerir o acesso de leitura anónima a contentores e blobs).
+- **Integração do Active Directory (Azure AD) do Azure para dados de BLOBs e filas.** O armazenamento do Azure suporta a autenticação e autorização com credenciais do Azure AD para os serviços de BLOBs e filas através do controlo de acesso baseado em funções (RBAC). Autorização de solicitações com o Azure AD é recomendada para maior segurança e facilidade de utilização. Para obter mais informações, consulte [autenticar o acesso ao Azure os blobs e filas com o Azure Active Directory](storage-auth-aad.md).
+- **Azure autorização de AD através de SMB para ficheiros do Azure (pré-visualização).** Os ficheiros do Azure suporta a autorização baseada em identidade através de SMB (Server Message Block) através do Azure Active Directory Domain Services. Máquinas de virtuais de Windows (VMs) do seu associados a um domínio podem aceder a partilhas de ficheiros do Azure com credenciais do Azure AD. Para obter mais informações, consulte [autorização de descrição geral do Azure Active Directory através de SMB para ficheiros do Azure (pré-visualização)](../files/storage-files-active-directory-overview.md).
+- **Autorização com a chave partilhada.** Os serviços do Azure Storage Blob, filas e tabelas e ficheiros do Azure suportam a autorização com o cliente Key.A partilhado com autorização passa um cabeçalho com cada solicitação que esteja assinada utilizando a chave de acesso da conta de armazenamento de chave partilhada. Para obter mais informações, consulte [autorizar com a chave partilhada](https://docs.microsoft.com/rest/api/storageservices/authorize-with-shared-key).
+- **Autorização a utilizar, assinaturas de acesso (SAS) é partilhado.** Uma assinatura de acesso partilhado (SAS) é uma cadeia de caracteres que contém um token de segurança que pode ser anexado ao URI de um recurso de armazenamento. O token de segurança encapsula as restrições, como o intervalo de acesso e permissões. Para obter mais informações, consulte [usando partilhado assinaturas de acesso (SAS)](storage-dotnet-shared-access-signature-part-1.md).
+- **Acesso anónimo a contentores e blobs.** Um contentor e respetivos blobs poderão estar publicamente disponíveis. Quando especifica que um contentor ou blob é público, qualquer pessoa pode lê-lo anonimamente; Não é necessária autenticação. Para obter mais informações, veja [Manage anonymous read access to containers and blobs](../blobs/storage-manage-access-to-resources.md) (Gerir o acesso de leitura anónima a contentores e blobs).
 
 ## <a name="encryption"></a>Encriptação
 

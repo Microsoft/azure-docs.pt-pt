@@ -3,7 +3,7 @@ title: Como utilizar identidades geridas para recursos do Azure numa máquina vi
 description: Instruções passo a passo instruções e exemplos de utilização geridos identidades para recursos do Azure numa máquina virtual para adquirir um token de acesso de OAuth.
 services: active-directory
 documentationcenter: ''
-author: priyamohanram
+author: MarkusVi
 manager: daveba
 editor: ''
 ms.service: active-directory
@@ -13,14 +13,14 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 12/01/2017
-ms.author: priyamo
+ms.author: markvi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 09ddce0dc398a078b3a901d224f00ef41550bf89
-ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
+ms.openlocfilehash: c7354ed8362412c40d52a3895a9b4118eb7c1544
+ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 03/26/2019
-ms.locfileid: "58437668"
+ms.locfileid: "58449385"
 ---
 # <a name="how-to-use-managed-identities-for-azure-resources-on-an-azure-vm-to-acquire-an-access-token"></a>Como utilizar identidades geridas para recursos do Azure numa VM do Azure para adquirir um token de acesso 
 

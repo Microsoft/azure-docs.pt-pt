@@ -9,15 +9,15 @@ ms.devlang: PowerShell
 ms.topic: sample
 author: allenwux
 ms.author: xiwu
-ms.reviewer: douglasl
+ms.reviewer: carlrab
 manager: craigg
 ms.date: 03/12/2019
-ms.openlocfilehash: 189d9eb5a1ef30b71f6a215a3e0ded884e799e79
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: b3a9be13a05ac2e5c42abb4848d9933983112dc6
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57858807"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58482754"
 ---
 # <a name="use-powershell-to-sync-between-multiple-sql-databases"></a>Utilizar o PowerShell para sincronizar entre várias Bases de Dados SQL
  

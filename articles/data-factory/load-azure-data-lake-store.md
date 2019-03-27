@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/17/2018
 ms.author: jingwang
-ms.openlocfilehash: d9bce32e87984193938099b96a358cc4495fd0c9
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 522b9743af28dedb2aec5682a1ae95b9d52ad2d9
+ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58119746"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58446462"
 ---
 # <a name="load-data-into-azure-data-lake-storage-gen1-by-using-azure-data-factory"></a>Carregar dados para geração 1 de armazenamento do Azure Data Lake ao utilizar o Azure Data Factory
 
@@ -46,7 +46,8 @@ Este artigo mostra-lhe como utilizar a ferramenta copiar dados do Data Factory p
 
 1. No menu da esquerda, selecione **criar um recurso** > **análise** > **Data Factory**:
    
-   ![Criar uma nova fábrica de dados](./media/load-data-into-azure-data-lake-store/new-azure-data-factory-menu.png)
+   ![Seleção do Data Factory no painel "Novo"](./media/quickstart-create-data-factory-portal/new-azure-data-factory-menu.png)
+
 2. Na **nova fábrica de dados** página, fornecer valores para os campos que são mostrados na imagem seguinte: 
       
    ![Página Nova fábrica de dados](./media/load-data-into-azure-data-lake-store//new-azure-data-factory.png)

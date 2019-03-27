@@ -13,12 +13,12 @@ ms.topic: tutorial
 ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 647b2ae5f23ef6f94e3a56eb777053a7eb3e0097
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 8b96492c44d7a8cd8c0f1bb8fbcea8e78fc11c30
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58090445"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58484309"
 ---
 # <a name="tutorial-create-a-pipeline-with-copy-activity-using-net-api"></a>Tutorial: Criar um pipeline com atividade de cópia com a .NET API
 > [!div class="op_single_selector"]
@@ -60,17 +60,17 @@ Crie uma aplicação no Azure Active Directory, crie um principal de serviço pa
 1. Inicie o **Azure PowerShell**.
 2. Execute o comando seguinte e introduza o nome de utilizador e a palavra-passe que utiliza para iniciar sessão no portal do Azure.
 
-    ```PowerShell
+    ```powershell
     Connect-AzAccount
     ```
 3. Execute o comando seguinte para ver todas as subscrições para esta conta.
 
-    ```PowerShell
+    ```powershell
     Get-AzSubscription
     ```
 4. Execute o comando seguinte para selecionar a subscrição com a qual pretende trabalhar. Substitua **&lt;NameOfAzureSubscription**&gt; pelo nome da sua subscrição do Azure.
 
-    ```PowerShell
+    ```powershell
     Get-AzSubscription -SubscriptionName <NameOfAzureSubscription> | Set-AzContext
     ```
 
@@ -79,7 +79,7 @@ Crie uma aplicação no Azure Active Directory, crie um principal de serviço pa
 
 5. Crie um grupo de recursos do Azure com o nome **ADFTutorialResourceGroup**, executando o comando seguinte no PowerShell.
 
-    ```PowerShell
+    ```powershell
     New-AzResourceGroup -Name ADFTutorialResourceGroup  -Location "West US"
     ```
 
@@ -88,28 +88,28 @@ Crie uma aplicação no Azure Active Directory, crie um principal de serviço pa
     Se utilizar um grupo de recursos diferente, terá de utilizar o nome do grupo de recursos em vez de ADFTutorialResourceGroup neste tutorial.
 6. Crie uma aplicação do Azure Active Directory.
 
-    ```PowerShell
+    ```powershell
     $azureAdApplication = New-AzADApplication -DisplayName "ADFCopyTutotiralApp" -HomePage "https://www.contoso.org" -IdentifierUris "https://www.adfcopytutorialapp.org/example" -Password "Pass@word1"
     ```
 
     Se obtiver o seguinte erro, especifique um URL diferente e execute o comando novamente.
     
-    ```PowerShell
+    ```powershell
     Another object with the same value for property identifierUris already exists.
     ```
 7. Crie o principal de serviço do AD.
 
-    ```PowerShell
+    ```powershell
     New-AzADServicePrincipal -ApplicationId $azureAdApplication.ApplicationId
     ```
 8. Adicione o principal de serviço à função **Contribuinte do Data Factory**.
 
-    ```PowerShell
+    ```powershell
     New-AzRoleAssignment -RoleDefinitionName "Data Factory Contributor" -ServicePrincipalName $azureAdApplication.ApplicationId.Guid
     ```
 9. Obtenha o ID da aplicação.
 
-    ```PowerShell
+    ```powershell
     $azureAdApplication 
     ```
     Tome nota do ID da aplicação (applicationID) a partir do resultado.

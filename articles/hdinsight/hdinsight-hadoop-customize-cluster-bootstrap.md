@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/14/2018
 ms.author: hrasheed
-ms.openlocfilehash: a2cd6a59ffd55b826ef00f9e2b5f30808911f507
-ms.sourcegitcommit: 223604d8b6ef20a8c115ff877981ce22ada6155a
+ms.openlocfilehash: 66c3345c1387e5f1535bbe2bc9a8eafdbb7423d2
+ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58359845"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58447807"
 ---
 # <a name="customize-hdinsight-clusters-using-bootstrap"></a>Personalizar clusters do HDInsight com o arranque de
 
@@ -136,7 +136,7 @@ Pode utilizar o arranque no modelo do Resource Manager:
 * [Instalar e usar o Apache Giraph nos clusters do HDInsight](hdinsight-hadoop-giraph-install.md).
 
 [hdinsight-install-spark]: hdinsight-hadoop-spark-install.md
-[hdinsight-write-script]: hdinsight-hadoop-script-actions.md
+[hdinsight-write-script]: hdinsight-hadoop-script-actions-linux.md
 [hdinsight-provision-cluster]: hdinsight-hadoop-provision-linux-clusters.md
 [powershell-install-configure]: /powershell/azureps-cmdlets-docs
 

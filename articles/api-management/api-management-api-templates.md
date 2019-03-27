@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/09/2017
 ms.author: apimpm
-ms.openlocfilehash: ba56804431048005914a79c4cd957a8365de067a
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: a78c03537d7fb3db6afa0c4a4e84c4746146ca85
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52970897"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58486381"
 ---
 # <a name="api-templates-in-azure-api-management"></a>Modelos de API na gestão de API do Azure
 
@@ -82,15 +82,15 @@ Os modelos nesta secção permitem-lhe personalizar o conteúdo das páginas da 
 ### <a name="controls"></a>Controlos  
  O `API list` modelo pode usar o seguinte procedimento [controlos de página](api-management-page-controls.md).  
   
--   [controle de paginação](api-management-page-controls.md#paging-control)  
+-   [paging-control](api-management-page-controls.md#paging-control)  
   
--   [controle de pesquisa](api-management-page-controls.md#search-control)  
+-   [search-control](api-management-page-controls.md#search-control)  
   
 ### <a name="data-model"></a>Modelo de dados  
   
 |Propriedade|Tipo|Descrição|  
 |--------------|----------|-----------------|  
-|APIs|Coleção de [resumo de API](api-management-template-data-model-reference.md#APISummary) entidades.|As APIs visíveis ao utilizador atual.|  
+|`apis`|Coleção de [resumo de API](api-management-template-data-model-reference.md#APISummary) entidades.|As APIs visíveis ao utilizador atual.|  
   
 ### <a name="sample-template-data"></a>Dados de modelo de exemplo  
   
@@ -345,15 +345,15 @@ Os modelos nesta secção permitem-lhe personalizar o conteúdo das páginas da 
   
 |Propriedade|Tipo|Descrição|  
 |--------------|----------|-----------------|  
-|apiId|cadeia|O id da API atual.|  
-|ApiName|cadeia|O nome da API.|  
-|apiDescription|cadeia|Uma descrição da API.|  
-|api|[Resumo da API](api-management-template-data-model-reference.md#APISummary) entidade.|A API atual.|  
-|operação|[Operação](api-management-template-data-model-reference.md#Operation)|A operação atualmente exibida.|  
-|sampleUrl|cadeia|O URL para a operação atual.|  
-|operationMenu|[Menu de operação](api-management-template-data-model-reference.md#Menu)|Um menu de operações para esta API.|  
-|consoleUrl|URI|O URI para o **experimente** botão.|  
-|amostras|Coleção de [exemplo de código](api-management-template-data-model-reference.md#Sample) entidades.|Os exemplos de código para a operação atual....|  
+|`apiId`|string|O id da API atual.|  
+|`apiName`|string|O nome da API.|  
+|`apiDescription`|string|Uma descrição da API.|  
+|`api`|[Resumo da API](api-management-template-data-model-reference.md#APISummary) entidade.|A API atual.|  
+|`operation`|[Operação](api-management-template-data-model-reference.md#Operation)|A operação atualmente exibida.|  
+|`sampleUrl`|string|O URL para a operação atual.|  
+|`operationMenu`|[Menu de operação](api-management-template-data-model-reference.md#Menu)|Um menu de operações para esta API.|  
+|`consoleUrl`|URI|O URI para o **experimente** botão.|  
+|`samples`|Coleção de [exemplo de código](api-management-template-data-model-reference.md#Sample) entidades.|Os exemplos de código para a operação atual....|  
   
 ### <a name="sample-template-data"></a>Dados de modelo de exemplo  
   

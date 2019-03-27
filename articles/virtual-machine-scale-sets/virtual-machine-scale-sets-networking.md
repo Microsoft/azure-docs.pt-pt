@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 07/17/2017
 ms.author: manayar
-ms.openlocfilehash: 656645326314fec42ba909957c9dc27fe88ae338
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: a9141adfb1dd05efd73061379be89ddf27ab3832
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57773304"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58487503"
 ---
 # <a name="networking-for-azure-virtual-machine-scale-sets"></a>Trabalhar em rede em conjuntos de dimensionamento de máquinas virtuais do Azure
 
@@ -170,12 +170,12 @@ Modelo de exemplo: [201-vmss-public-ip-linux](https://github.com/Azure/azure-qui
 Para listar os endereços IP públicos atribuídos às máquinas virtuais do conjunto de dimensionamento através da CLI, utilize o comando **az vmss list-instance-public-ips**.
 
 Para listar o IP público de conjunto de dimensionamento de endereços com o PowerShell, utilize o _Get-AzPublicIpAddress_ comando. Por exemplo:
-```PowerShell
+```powershell
 Get-AzPublicIpAddress -ResourceGroupName myrg -VirtualMachineScaleSetName myvmss
 ```
 
 Também pode consultar os endereços IP públicos ao referenciar diretamente o ID de recurso da configuração desses endereços. Por exemplo:
-```PowerShell
+```powershell
 Get-AzPublicIpAddress -ResourceGroupName myrg -Name myvmsspip
 ```
 

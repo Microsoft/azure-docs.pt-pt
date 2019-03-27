@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 03/21/2019
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: a313061f89d33ee2bf5379dbd37495db06b64440
-ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
+ms.openlocfilehash: 8fdc4445e28a420b6b4f7935443d7d991d9e8a4d
+ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58369518"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58446064"
 ---
 # <a name="authenticate-with-azure-active-directory-from-an-application-for-access-to-blobs-and-queues"></a>Autenticar com o Azure Active Directory a partir de uma aplicação para o acesso para blobs e filas
 
@@ -21,11 +21,11 @@ Das principais vantagens da utilização do Azure Active Directory (Azure AD) co
 
 Este artigo mostra como configurar a sua aplicação para a autenticação com o Azure AD. O .NET de recursos de exemplo de código, mas outras linguagens usam uma abordagem semelhante.
 
-Antes de pode autenticar-se uma entidade de segurança da sua aplicação de armazenamento do Azure, configure definições de controlo (RBAC) de acesso baseado em funções para aquela entidade de segurança. O armazenamento do Azure define as funções RBAC que abranger permissões para contentores e filas. Quando a função RBAC é atribuída a uma entidade de segurança, essa entidade de segurança é concedido acesso a esse recurso. Para obter mais informações, consulte [gerir direitos de acesso aos dados de armazenamento com o RBAC](storage-auth-aad-rbac.md).
+Antes de se autenticar uma entidade de segurança a partir da sua aplicação de armazenamento do Azure, configure definições de controlo (RBAC) de acesso baseado em funções para aquela entidade de segurança. O armazenamento do Azure define as funções RBAC que abranger permissões para contentores e filas. Quando a função RBAC é atribuída a uma entidade de segurança, essa entidade de segurança é concedido acesso a esse recurso. Para obter mais informações, consulte [gerir direitos de acesso aos dados de armazenamento com o RBAC](storage-auth-aad-rbac.md).
 
 Para uma descrição geral do fluxo de concessão de código do OAuth 2.0, consulte [fluxo de concessão de acesso de autorizar a aplicações de web do Azure Active Directory usando o código de OAuth 2.0](../../active-directory/develop/v1-protocols-oauth-code.md).
 
-[!INCLUDE [storage-auth-aad-note-include](../../../includes/storage-auth-aad-note-include.md)]
+Para autorizar as operações de BLOBs e filas com um token de OAuth, tem de utilizar HTTPS.
 
 ## <a name="assign-an-rbac-role-to-an-azure-ad-security-principal"></a>Atribuir uma função RBAC para um principal de segurança do Azure AD
 
@@ -157,7 +157,7 @@ static string GetUserOAuthToken()
 
 ### <a name="create-the-block-blob"></a>Criar o blob de blocos
 
-Por fim, use o token de acesso para criar novas credenciais de armazenamento e usar as credencias para criar o blob:
+Por fim, utilize o token de acesso para criar novas credenciais de armazenamento e usar as credencias para criar o blob. Tenha em atenção que para autorizar as operações de BLOBs e filas com um token de OAuth, tem de utilizar HTTPS.:
 
 ```dotnet
 // Get the access token.

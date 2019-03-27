@@ -3,7 +3,7 @@ title: Utilizar a identidade gerida atribuída pelo sistema da VM do Linux para 
 description: Um tutorial que lhe mostra como utilizar uma identidade gerida atribuída pelo sistema da VM do Linux para aceder ao Azure Data Lake Store.
 services: active-directory
 documentationcenter: ''
-author: priyamohanram
+author: MarkusVi
 manager: daveba
 editor: ''
 ms.service: active-directory
@@ -13,14 +13,14 @@ ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/20/2017
-ms.author: priyamo
+ms.author: markvi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3bae4012f20d5f655dba014a0e71616101bc42a2
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 474165219d7740e63bb5e0a62d08069109a52c31
+ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58092060"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58445939"
 ---
 # <a name="tutorial-use-a-linux-vm-system-assigned-managed-identity-to-access-azure-data-lake-store"></a>Tutorial: Utilizar a identidade gerida atribuída pelo sistema da VM do Linux para aceder ao Azure Data Lake Store
 

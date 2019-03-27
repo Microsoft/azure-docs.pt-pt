@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 03/14/2019
 ms.author: rezas
-ms.openlocfilehash: 026e072d6e5ac65d957b272300898de3dc9099a9
-ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
+ms.openlocfilehash: 6a0fd87c787108935430ca43310a662418833c96
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 03/26/2019
-ms.locfileid: "58438279"
+ms.locfileid: "58480758"
 ---
 # <a name="quickstart-communicate-to-a-device-application-in-c-via-iot-hub-device-streams-preview"></a>Início rápido: Comunicar com um aplicativo de dispositivo em C, por meio de fluxos de dispositivo do IoT Hub (pré-visualização)
 
@@ -55,7 +55,7 @@ Neste início rápido, vai utilizar o [Azure IoT device SDK para C](iot-hub-devi
 
     O exemplo seguinte utilizado o Windows PowerShell para verificar o hash criptográfico para a versão 3.13.4 de x64 distribuição de MSI:
 
-    ```PowerShell
+    ```powershell
     PS C:\Downloads> $hash = get-filehash .\cmake-3.13.4-win64-x64.msi
     PS C:\Downloads> $hash.Hash -eq "64AC7DD5411B48C2717E15738B83EA0D4347CD51B940487DFF7F99A870656C09"
     True

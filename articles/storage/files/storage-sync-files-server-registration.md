@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 07/19/2018
 ms.author: wgries
 ms.subservice: files
-ms.openlocfilehash: 493f6f3380dee4ed70bb6e0bc9bba24f93071097
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 954cbe66bfc4a0cebf7692a90aeee637ffcb6ca3
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56165336"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58485060"
 ---
 # <a name="manage-registered-servers-with-azure-file-sync"></a>Gerir servidores registados com o Azure File Sync
 O Azure File Sync permite-lhe centralizar as partilhas de ficheiros da sua organização nos Ficheiros do Azure sem abdicar da flexibilidade, do desempenho e da compatibilidade de um servidor de ficheiros no local. Ele faz isso ao transformar os seus servidores do Windows numa cache rápida da sua partilha de ficheiros do Azure. Pode utilizar qualquer protocolo disponível no Windows Server para aceder aos seus dados localmente (incluindo SMB, NFS e FTPS) e pode ter o número de caches que precisar em todo o mundo.
@@ -101,7 +101,7 @@ Antes de um servidor de pode ser utilizado como uma *ponto final do servidor* nu
 #### <a name="register-the-server-with-powershell"></a>Registar o servidor com o PowerShell
 Também pode efetuar o registo do servidor através do PowerShell. Esta é a única forma compatível de registo do servidor para as subscrições do fornecedor de soluções Cloud (CSP):
 
-```PowerShell
+```powershell
 Import-Module "C:\Program Files\Azure\StorageSyncAgent\StorageSync.Management.PowerShell.Cmdlets.dll"
 Login-AzureRmStorageSync -SubscriptionID "<your-subscription-id>" -TenantID "<your-tenant-id>"
 Register-AzureRmStorageSyncServer -SubscriptionId "<your-subscription-id>" - ResourceGroupName "<your-resource-group-name>" - StorageSyncService "<your-storage-sync-service-name>"
@@ -116,7 +116,7 @@ Há várias etapas necessárias para anular o registo de um servidor com um serv
 #### <a name="optional-recall-all-tiered-data"></a>(Opcional) Lembre-se todos os dados em camadas
 Se gostaria de ficheiros que estão atualmente em camadas para estar disponível após a remoção do Azure File Sync (ou seja, esta é uma de produção, não um teste, ambiente), lembre-se todos os ficheiros em cada volume que contém os pontos finais do servidor. Desativar a camada para todos os pontos finais do servidor de cloud e, em seguida, execute o seguinte cmdlet do PowerShell:
 
-```PowerShell
+```powershell
 Import-Module "C:\Program Files\Azure\StorageSyncAgent\StorageSync.Management.ServerCmdlets.dll"
 Invoke-StorageSyncFileRecall -Path <a-volume-with-server-endpoints-on-it>
 ```
@@ -134,7 +134,7 @@ Antes de anular o registo do servidor no serviço de sincronização de armazena
 
 Também pode ser feito com um simple script do PowerShell:
 
-```PowerShell
+```powershell
 Import-Module "C:\Program Files\Azure\StorageSyncAgent\StorageSync.Management.PowerShell.Cmdlets.dll"
 
 $accountInfo = Connect-AzAccount
@@ -172,20 +172,20 @@ Uma vez que o Azure File Sync raramente será o único serviço em execução no
 
 Por exemplo, pode criar um novo limite de limitação para se certificar de que o Azure File Sync não usa mais de 10 Mbps entre as 09:00 e as 5 pm (17:00 h) durante a semana de trabalho: 
 
-```PowerShell
+```powershell
 Import-Module "C:\Program Files\Azure\StorageSyncAgent\StorageSync.Management.ServerCmdlets.dll"
 New-StorageSyncNetworkLimit -Day Monday, Tuesday, Wednesday, Thursday, Friday -StartHour 9 -EndHour 17 -LimitKbps 10000
 ```
 
 Pode ver o seu limite utilizando o cmdlet seguinte:
 
-```PowerShell
+```powershell
 Get-StorageSyncNetworkLimit # assumes StorageSync.Management.ServerCmdlets.dll is imported
 ```
 
 Para remover limites de rede, utilize `Remove-StorageSyncNetworkLimit`. Por exemplo, o seguinte comando remove todos os limites de rede:
 
-```PowerShell
+```powershell
 Get-StorageSyncNetworkLimit | ForEach-Object { Remove-StorageSyncNetworkLimit -Id $_.Id } # assumes StorageSync.Management.ServerCmdlets.dll is imported
 ```
 

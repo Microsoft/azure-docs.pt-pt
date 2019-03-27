@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 10/22/2018
 ms.author: jingwang
-ms.openlocfilehash: 72b2c630c514190d2c63e3dd7faa29b0b3abab19
-ms.sourcegitcommit: 9e179a577533ab3b2c0c7a4899ae13a7a0d5252b
+ms.openlocfilehash: fe3a3b673f6512856f3640b3e103db8623570a88
+ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49944566"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58445784"
 ---
 # <a name="load-data-from-office-365-by-using-azure-data-factory"></a>Carregar dados do Office 365 com o Azure Data Factory
 
@@ -24,18 +24,19 @@ Este artigo mostra-lhe como utilizar o Data Factory _carregar dados do Office 36
 
 ## <a name="create-a-data-factory"></a>Criar uma fábrica de dados
 
-1. No menu da esquerda, selecione **New** > **dados + análise** > **Data Factory**: 
+1. No menu da esquerda, selecione **criar um recurso** > **dados + análise** > **Data Factory**: 
    
-   ![Criar uma nova fábrica de dados](./media/load-office-365-data/new-azure-data-factory-menu.png)
+   ![Seleção do Data Factory no painel "Novo"](./media/quickstart-create-data-factory-portal/new-azure-data-factory-menu.png)
+
 2. Na **nova fábrica de dados** página, fornecer valores para os campos que são mostrados na imagem seguinte:
       
    ![Página Nova fábrica de dados](./media/load-office-365-data/new-azure-data-factory.png)
  
-    * **Nome**: introduza um nome globalmente exclusivo para a fábrica de dados do Azure. Se receber o erro "nome do Data factory \"LoadFromOffice365Demo\" não está disponível," insira um nome diferente para a fábrica de dados. Por exemplo, poderia usar o nome  _**yourname**_**LoadFromOffice365Demo**. Tente criar a fábrica de dados novamente. Para ter acesso às regras de nomenclatura para artefactos do Data Factory, veja [Regras de nomenclatura do Data Factory](naming-rules.md).
-    * **Subscrição**: selecione a sua subscrição do Azure na qual pretende criar a fábrica de dados. 
-    * **Grupo de recursos**: selecione um grupo de recursos existente na lista pendente ou selecione o **criar novo** opção e introduza o nome de um grupo de recursos. Para saber mais sobre os grupos de recursos, veja [Utilizar grupos de recursos para gerir os recursos do Azure](../azure-resource-manager/resource-group-overview.md).  
-    * **Versão**: selecione **V2**.
-    * **Localização**: selecione a localização da fábrica de dados. Apenas são apresentadas as localizações suportadas na lista pendente. Os arquivos de dados que são utilizados pelo data factory podem estar noutras localizações e regiões. Esses arquivos de dados incluem o Azure Data Lake Store, armazenamento do Azure, base de dados do Azure SQL e assim por diante.
+    * **Nome**: Introduza um nome globalmente exclusivo para a fábrica de dados do Azure. Se receber o erro "nome do Data factory \"LoadFromOffice365Demo\" não está disponível," insira um nome diferente para a fábrica de dados. Por exemplo, poderia usar o nome  _**yourname**_**LoadFromOffice365Demo**. Tente criar a fábrica de dados novamente. Para ter acesso às regras de nomenclatura para artefactos do Data Factory, veja [Regras de nomenclatura do Data Factory](naming-rules.md).
+    * **Subscrição**: Selecione a sua subscrição do Azure na qual pretende criar a fábrica de dados. 
+    * **Grupo de recursos**: Selecione um grupo de recursos existente na lista pendente ou selecione o **criar novo** opção e introduza o nome de um grupo de recursos. Para saber mais sobre os grupos de recursos, veja [Utilizar grupos de recursos para gerir os recursos do Azure](../azure-resource-manager/resource-group-overview.md).  
+    * **Versão**: Selecione **V2**.
+    * **Localização**: Selecione a localização da fábrica de dados. Apenas são apresentadas as localizações suportadas na lista pendente. Os arquivos de dados que são utilizados pelo data factory podem estar noutras localizações e regiões. Esses arquivos de dados incluem o Azure Data Lake Store, armazenamento do Azure, base de dados do Azure SQL e assim por diante.
 
 3. Selecione **Criar**.
 4. Depois de concluída a criação, vá para a fábrica de dados. Verá o **fábrica de dados** home page do conforme mostrado na imagem seguinte:

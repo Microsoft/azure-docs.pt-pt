@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 03/21/2019
 ms.author: tamram
 ms.custom: include file
-ms.openlocfilehash: c7fa81f6d23962eedb3dfeafdd397b62a83d130e
-ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
+ms.openlocfilehash: 4c66f35537cff87eb53a6cfe9bc0389f038f1a10
+ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58372673"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58449766"
 ---
 O Azure fornece as seguintes funções incorporadas do RBAC para o acesso a dados de armazenamento:
 
@@ -24,5 +24,8 @@ O Azure fornece as seguintes funções incorporadas do RBAC para o acesso a dado
 - [Leitor de dados de fila de armazenamento](../articles/role-based-access-control/built-in-roles.md#storage-queue-data-reader-preview): Utilize para conceder permissões só de leitura para as filas do Azure.
 - [Processador de mensagens de dados de fila de armazenamento](../articles/role-based-access-control/built-in-roles.md#storage-queue-data-message-processor-preview): Utilizar a pré-visualização de concessão, obter e permissões de eliminação de mensagens em filas de armazenamento do Azure.
 - [Remetente da mensagem de dados de fila de armazenamento](../articles/role-based-access-control/built-in-roles.md#storage-queue-data-message-sender-preview): Utilize para conceder adicionar permissões para as mensagens em filas de armazenamento do Azure.
+
+> [!IMPORTANT]
+> Atribuições de funções do RBAC podem demorar até cinco minutos para propagar.
 
 Para obter mais informações sobre como as funções incorporadas são definidas para o armazenamento do Azure, consulte [compreender as definições de função](../articles/role-based-access-control/role-definitions.md#management-and-data-operations-preview). Para obter informações sobre como criar funções RBAC personalizadas, consulte [criar funções personalizadas para controlo de acesso](../articles/role-based-access-control/custom-roles.md). 

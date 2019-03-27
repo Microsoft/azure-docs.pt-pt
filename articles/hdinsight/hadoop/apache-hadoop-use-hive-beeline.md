@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 04/20/2018
 ms.author: hrasheed
-ms.openlocfilehash: 00cf441247b9adf8547f373891bba4db29029d3f
-ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
+ms.openlocfilehash: 392c34e1896106c39b31876308084ef4fd6a7e54
+ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58336002"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58449037"
 ---
 # <a name="use-the-apache-beeline-client-with-apache-hive"></a>Utilizar o cliente do Apache Beeline com Apache Hive
 
@@ -281,8 +281,6 @@ Para obter mais informações sobre outras formas pode trabalhar com o Hadoop no
 * [Utilizar o Apache Pig com o Apache Hadoop no HDInsight](hdinsight-use-pig.md)
 * [Utilizar o MapReduce com o Apache Hadoop no HDInsight](hdinsight-use-mapreduce.md)
 
-Se estiver a utilizar com o Hive no Tez, consulte o documento seguinte: [Utilize a vista do Apache Ambari Tez no HDInsight baseado em Linux](../hdinsight-debug-ambari-tez-view.md).
-
 [azure-purchase-options]: https://azure.microsoft.com/pricing/purchase-options/
 [azure-member-offers]: https://azure.microsoft.com/pricing/member-offers/
 [azure-free-trial]: https://azure.microsoft.com/pricing/free-trial/
@@ -294,7 +292,7 @@ Se estiver a utilizar com o Hive no Tez, consulte o documento seguinte: [Utilize
 [import-to-excel]: https://azure.microsoft.com/documentation/articles/hdinsight-connect-excel-power-query/
 
 
-[hdinsight-use-oozie]: hdinsight-use-oozie.md
+[hdinsight-use-oozie]: hdinsight-use-oozie-linux-mac.md
 
 [putty]: https://www.chiark.greenend.org.uk/~sgtatham/putty/download.html
 

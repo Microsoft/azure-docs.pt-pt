@@ -13,12 +13,12 @@ ms.devlang: powershell
 ms.topic: conceptual
 ms.date: 01/19/2018
 ms.author: jingwang
-ms.openlocfilehash: ed53f9bf2e22e1d69a4e00de1e8d71291a5be46d
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: d61874a57801a6c02af885cab6a97ed38da1deb1
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58108717"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58487928"
 ---
 # <a name="invoke-an-ssis-package-using-stored-procedure-activity-in-azure-data-factory"></a>Invocar um pacote do SSIS com a atividade de procedimento armazenado no Azure Data Factory
 Este artigo descreve como invocar um pacote do SSIS de um pipeline do Azure Data Factory através de uma atividade de procedimento armazenado. 
@@ -306,13 +306,13 @@ Neste passo, vai criar um pipeline com uma atividade de procedimento armazenado.
 
 1. Execute **Get-AzDataFactorySlice** para obter detalhes sobre todos os setores da saída conjunto de dados * *, que é a tabela de saída do pipeline.
 
-    ```PowerShell
+    ```powershell
     Get-AzDataFactorySlice $df -DatasetName sprocsampleout -StartDateTime 2017-10-01T00:00:00Z
     ```
     Repare que a StartDateTime que especificar aqui é a mesma hora especificada no JSON do pipeline. 
 1. Execute **Get-AzDataFactoryRun** para obter os detalhes das execuções de atividades de um setor específico.
 
-    ```PowerShell
+    ```powershell
     Get-AzDataFactoryRun $df -DatasetName sprocsampleout -StartDateTime 2017-10-01T00:00:00Z
     ```
 

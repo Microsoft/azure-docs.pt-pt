@@ -8,18 +8,18 @@ manager: daauld
 ms.service: cognitive-services
 ms.component: custom-vision
 ms.topic: quickstart
-ms.date: 2/21/2019
+ms.date: 03/21/2019
 ms.author: areddish
-ms.openlocfilehash: 9cc1e2cd3735d8292ebca803b83351bb97de8b83
-ms.sourcegitcommit: e88188bc015525d5bead239ed562067d3fae9822
+ms.openlocfilehash: 17b6e59e121b836823b9e86d0d60b91d93ba82f9
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/24/2019
-ms.locfileid: "56752357"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58487265"
 ---
 # <a name="quickstart-create-an-object-detection-project-with-the-custom-vision-nodejs-sdk"></a>Início rápido: Criar um projeto de deteção de objeto com o SDK de node. js de visão personalizada
 
-Este artigo fornece informações e código de exemplo para ajudá-lo a começar a utilizar o SDK de visão personalizada com node. js para criar um modelo de deteção de objeto. Depois de criado, pode adicionar regiões etiquetadas, carregar imagens, preparar o projeto, obter o URL de ponto final de predição predefinido do projeto e utilizar o ponto final para testar uma imagem através de programação. Utilize este exemplo como modelo para criar a sua aplicação node. js.
+Este artigo fornece informações e código de exemplo para ajudá-lo a começar a utilizar o SDK de visão personalizada com node. js para criar um modelo de deteção de objeto. Depois de criado, pode adicionar regiões marcados, carregar imagens, preparar o projeto, obter o URL de ponto final de predição publicados do projeto e utilizar o ponto final para uma imagem de teste por meio de programação. Utilize este exemplo como modelo para criar a sua aplicação node. js.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -58,9 +58,12 @@ const setTimeoutPromise = util.promisify(setTimeout);
 
 const trainingKey = "<your training key>";
 const predictionKey = "<your prediction key>";
+const predictionResourceId = "<your prediction resource id>";
 const sampleDataRoot = "<path to image files>";
 
 const endPoint = "https://southcentralus.api.cognitive.microsoft.com"
+
+const publishIterationName = "detectModel";
 
 const trainer = new TrainingApi.TrainingAPIClient(trainingKey, endPoint);
 
@@ -181,9 +184,9 @@ Para adicionar as imagens, etiquetas e regiões ao projeto, insira o seguinte c�
     await Promise.all(fileUploadPromises);
 ```
 
-### <a name="train-the-project"></a>Preparar o projeto
+### <a name="train-the-project-and-publish"></a>O projeto de formar e publicar
 
-Este código cria a primeira iteração no projeto e marca-a como a iteração predefinida. A iteração predefinida reflete a versão do modelo que irá responder aos pedidos de predição. Deve atualizá-la sempre que voltar a preparar o modelo.
+Este código cria a primeira iteração no projeto e, em seguida, publica iteração para o ponto final de predição. O nome para a iteração publicada pode ser utilizado para enviar pedidos de predição. Uma iteração não está disponível o ponto final de predição até que seja publicada.
 
 ```javascript
     console.log("Training...");
@@ -198,11 +201,11 @@ Este código cria a primeira iteração no projeto e marca-a como a iteração p
     }
     console.log("Training status: " + trainingIteration.status);
 
-    trainingIteration.isDefault = true;
-    await trainer.updateIteration(sampleProject.id, trainingIteration.id, trainingIteration);
+    // Publish the iteration to the end point
+    await trainer.publishIteration(sampleProject.id, trainingIteration.id, publishIterationName, predictionResourceId);
 ```
 
-### <a name="get-and-use-the-default-prediction-endpoint"></a>Obter e utilizar o ponto final de predição predefinido
+### <a name="get-and-use-the-published-iteration-on-the-prediction-endpoint"></a>Obter e utilizar a iteração publicada no ponto de final de predição
 
 Para enviar uma imagem para o ponto final de predição e obter a mesma, adicione o seguinte código no fim do ficheiro:
 
@@ -210,7 +213,7 @@ Para enviar uma imagem para o ponto final de predição e obter a mesma, adicion
     const predictor = new PredictionApi.PredictionAPIClient(predictionKey, endPoint);
     const testFile = fs.readFileSync(`${sampleDataRoot}/Test/test_od_image.jpg`);
 
-    const results = await predictor.predictImage(sampleProject.id, testFile, { iterationId: trainingIteration.id })
+    const results = await predictor.detectImage(sampleProject.id, publishIterationName, testFile)
 
     // Show results
     console.log("Results:");
@@ -224,7 +227,7 @@ Para enviar uma imagem para o ponto final de predição e obter a mesma, adicion
 
 Execute *sample.js*.
 
-```PowerShell
+```powershell
 node sample.js
 ```
 

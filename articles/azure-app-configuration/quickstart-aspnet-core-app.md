@@ -14,12 +14,12 @@ ms.tgt_pltfrm: ASP.NET Core
 ms.workload: tbd
 ms.date: 02/24/2019
 ms.author: yegu
-ms.openlocfilehash: f9d21cb1b047fcc1043ca2d92f718bb5821879a3
-ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
+ms.openlocfilehash: a721cc2252619923496ee5a3a8ae590a5cda3b04
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58226067"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58487554"
 ---
 # <a name="quickstart-create-an-aspnet-core-app-with-azure-app-configuration"></a>Início rápido: Criar uma aplicação ASP.NET Core com a configuração de aplicações do Azure
 
@@ -75,7 +75,7 @@ Adicionar a [ferramenta Gerenciador de segredo](https://docs.microsoft.com/aspne
 
 1. Adicionar uma referência para o `Microsoft.Extensions.Configuration.AzureAppConfiguration` pacote NuGet ao executar o seguinte comando:
 
-        dotnet add package Microsoft.Extensions.Configuration.AzureAppConfiguration
+        dotnet add package Microsoft.Extensions.Configuration.AzureAppConfiguration --version 1.0.0-preview-007830001
 
 2. Execute o seguinte comando para restaurar pacotes para o seu projeto:
 
@@ -96,12 +96,19 @@ Adicionar a [ferramenta Gerenciador de segredo](https://docs.microsoft.com/aspne
 4. Abra o ficheiro Program.cs e atualizar o `CreateWebHostBuilder` método a utilizar a configuração de aplicações ao chamar o `config.AddAzureAppConfiguration()` método.
 
     ```csharp
+    using Microsoft.Extensions.Configuration.AzureAppConfiguration;
+
+    ...
+
     public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
         WebHost.CreateDefaultBuilder(args)
             .ConfigureAppConfiguration((hostingContext, config) =>
             {
                 var settings = config.Build();
-                config.AddAzureAppConfiguration(settings["ConnectionStrings:AppConfig"]);
+                config.AddAzureAppConfiguration(options => {
+                    options.Connect(settings["ConnectionStrings:AppConfig"])
+                           .SetOfflineCache(new OfflineFileCache());
+                });
             })
             .UseStartup<Startup>();
     ```
@@ -179,7 +186,7 @@ Adicionar a [ferramenta Gerenciador de segredo](https://docs.microsoft.com/aspne
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-Neste início rápido, criou um novo arquivo de configuração de aplicação e Use com uma aplicação web ASP.NET Core. Para saber mais sobre como utilizar a configuração de aplicações, avance para o próximo tutorial que demonstra a autenticação.
+Neste início rápido, criou um novo arquivo de configuração de aplicação e Use com uma aplicação web do ASP.NET Core através da [fornecedor de configuração de aplicação](https://go.microsoft.com/fwlink/?linkid=2074664). Para saber mais sobre como utilizar a configuração de aplicações, avance para o próximo tutorial que demonstra a autenticação.
 
 > [!div class="nextstepaction"]
 > [Identidades geridas para a integração de recursos do Azure](./integrate-azure-managed-service-identity.md)

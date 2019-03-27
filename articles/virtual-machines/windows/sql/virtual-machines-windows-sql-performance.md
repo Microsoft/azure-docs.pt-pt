@@ -16,18 +16,18 @@ ms.workload: iaas-sql-server
 ms.date: 09/26/2018
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: bb9b90ca239ff03f44b76a7ee5754eb7872caa31
-ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
+ms.openlocfilehash: 8d31f04c355b47720a1c9b0334042ba2f6654768
+ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/19/2019
-ms.locfileid: "56415906"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58448562"
 ---
 # <a name="performance-guidelines-for-sql-server-in-azure-virtual-machines"></a>Diretrizes de desempenho para o SQL Server em máquinas de virtuais do Azure
 
 ## <a name="overview"></a>Descrição geral
 
-Este artigo fornece orientações para otimizar o desempenho do SQL Server na máquina Virtual do Microsoft Azure. Ao executar o SQL Server em máquinas de virtuais do Azure, recomendamos que continua a utilizar o mesmo desempenho de base de dados, ajuste as opções que se aplicam ao SQL Server no ambiente de servidor no local. No entanto, o desempenho da base de dados relacional na cloud pública depende de vários fatores, como o tamanho de uma máquina virtual e a configuração dos discos de dados.
+Este artigo fornece orientações para otimizar o desempenho do SQL Server na máquina Virtual do Microsoft Azure. Ao executar o SQL Server em máquinas de virtuais do Azure, recomendamos que continua a utilizar o mesmo desempenho de base de dados, ajuste as opções que se aplicam ao SQL Server no ambiente de servidor no local. No entanto, o desempenho das bases de dados relacional numa cloud pública depende de muitos fatores, como o tamanho da máquina virtual e a configuração dos discos de dados.
 
 [Imagens do SQL Server aprovisionadas no portal do Azure](quickstart-sql-vm-create-portal.md) siga práticas recomendadas de configuração de armazenamento geral (para obter mais informações sobre como o armazenamento é configurado, consulte [configuração do armazenamento para VMs do SQL Server](virtual-machines-windows-sql-server-storage-configuration.md)). Após o aprovisionamento, considere a aplicar outras otimizações discutidas neste artigo. As opções de base na carga de trabalho e certifique-se por meio do teste.
 
@@ -135,7 +135,7 @@ Há uma exceção para esta recomendação: _se a utilização de TempDB está e
 
   * As recomendações anteriores aplicam-se para o premium SSDs. Se não estiver a utilizar o premium SSDs, não permitem o armazenamento em cache em qualquer discos de dados.
 
-  * Para obter instruções sobre como configurar a colocação em cache do disco, consulte os artigos seguintes. Para o clássico (ASM) Consulte modelo de implementação: [Conjunto AzureOSDisk](https://msdn.microsoft.com/library/azure/jj152847) e [conjunto AzureDataDisk](https://msdn.microsoft.com/library/azure/jj152851.aspx). Para o Azure Resource Manager deployment model, veja: [Conjunto AzOSDisk](https://docs.microsoft.com/powershell/module/az.compute/set-azvmosdisk?view=azurermps-4.4.1) e [conjunto AzVMDataDisk](https://docs.microsoft.com/powershell/module/az.compute/set-azvmdatadisk?view=azurermps-4.4.1).
+  * Para obter instruções sobre como configurar a colocação em cache do disco, consulte os artigos seguintes. Para o clássico (ASM) Consulte modelo de implementação: [Conjunto AzureOSDisk](https://msdn.microsoft.com/library/azure/jj152847) e [conjunto AzureDataDisk](https://msdn.microsoft.com/library/azure/jj152851.aspx). Para o Azure Resource Manager deployment model, veja: [Conjunto AzOSDisk](https://docs.microsoft.com/powershell/module/az.compute/set-azvmosdisk) e [conjunto AzVMDataDisk](https://docs.microsoft.com/powershell/module/az.compute/set-azvmdatadisk).
 
      > [!WARNING]
      > Pare o serviço do SQL Server quando alterar a definição de cache dos discos de VM do Azure para evitar a possibilidade de qualquer dano de base de dados.

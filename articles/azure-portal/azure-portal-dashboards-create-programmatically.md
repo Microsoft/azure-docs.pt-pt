@@ -13,12 +13,12 @@ ms.tgt_pltfrm: NA
 ms.workload: na
 ms.date: 09/01/2017
 ms.author: kfollis
-ms.openlocfilehash: 21119816477d460aa48560b8ca231f23144a901b
-ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
+ms.openlocfilehash: b24a0397a1365479907fedc6348caa54508dbbb0
+ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54888503"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58444868"
 ---
 # <a name="programmatically-create-azure-dashboards"></a>Criar programaticamente Dashboards do Azure
 
@@ -28,7 +28,7 @@ Este documento descreve o processo de criação e publicação dashboards do Azu
 
 ## <a name="overview"></a>Descrição geral
 
-Dashboards no Azure são partilhados [recursos](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview) tal como máquinas virtuais e contas de armazenamento.  Por conseguinte, podem ser geridos através de programação através do [APIs de REST do Azure Resource Manager](/rest/api/), o [CLI do Azure](https://docs.microsoft.com/cli/azure), [comandos do Azure PowerShell](https://docs.microsoft.com/powershell/azure/get-started-azureps?view=azurermps-4.2.0)e muitos [ Portal do Azure](https://portal.azure.com) recursos são criados com base essas APIs para facilitar a gestão de recursos.  
+Dashboards no Azure são partilhados [recursos](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview) tal como máquinas virtuais e contas de armazenamento.  Por conseguinte, podem ser geridos através de programação através do [APIs de REST do Azure Resource Manager](/rest/api/), o [CLI do Azure](https://docs.microsoft.com/cli/azure), [comandos do Azure PowerShell](https://docs.microsoft.com/powershell/azure/get-started-azureps)e muitos [ Portal do Azure](https://portal.azure.com) recursos são criados com base essas APIs para facilitar a gestão de recursos.  
 
 Cada uma dessas APIs e ferramentas oferece maneiras de criar, listar, obterem, modificar e eliminar recursos.  Uma vez que os dashboards são recursos, pode escolher a sua API favorita / ferramenta para utilizar.
 

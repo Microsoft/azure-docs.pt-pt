@@ -3,7 +3,7 @@ title: Exemplos do Azure Service Fabric contentor aplicação manifestos | Docum
 description: Saiba como configurar a aplicação e definições de manifestos de aplicação do Service Fabric com vários contentor do serviço.
 services: service-fabric
 documentationcenter: na
-author: rwike77
+author: peterpogorski
 manager: timlt
 editor: ''
 ms.assetid: ''
@@ -13,13 +13,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.date: 06/08/2018
-ms.author: ryanwi
-ms.openlocfilehash: f358080b3bcada5515f578ad2215fa2b135c2f2d
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.author: pepogors
+ms.openlocfilehash: 184a36b991fc49efad6f53efcaee430d8fea1ebc
+ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57878334"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58498116"
 ---
 # <a name="multi-container-application-and-service-manifest-examples"></a>Exemplos de manifesto e aplicação e serviço de múltiplos contentores
 Seguem-se exemplos de manifestos de aplicações e serviços para uma aplicação do Service Fabric com vários contentor. O objetivo destes exemplos é mostrar quais configurações estão disponíveis e como utilizá-los. Esses manifestos de aplicações e serviços são baseiam o [exemplo de contentor do Windows Server 2016](https://github.com/Azure-Samples/service-fabric-containers/tree/master/Windows) manifestos.

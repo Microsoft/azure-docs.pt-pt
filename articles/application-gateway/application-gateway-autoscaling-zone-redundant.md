@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 3/6/2019
 ms.author: victorh
-ms.openlocfilehash: 9929b09280cea56a5fadcd4d0d9aba5b851f326e
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: f7d1c5bc54d909d1a948123839d95e1ee1158a5c
+ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57544047"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58444821"
 ---
 # <a name="autoscaling-and-zone-redundant-application-gateway-public-preview"></a>Dimensionamento automático e o Gateway de aplicação com redundância de zona (pré-visualização pública)
 
@@ -29,6 +29,29 @@ Gateway de aplicação e de Firewall de aplicações Web (WAF) estão agora disp
 > O SKU do gateway de aplicação de dimensionamento automático e com redundância entre zonas está atualmente em pré-visualização pública. Esta pré-visualização é disponibilizada sem um contrato de nível de serviço e não é recomendada para cargas de trabalho de produção. Algumas funcionalidades poderão não ser suportadas ou poderão ter capacidades limitadas. Veja os [Termos Suplementares de Utilização para Pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) para obter mais informações.
 
 ![](./media/application-gateway-autoscaling-zone-redundant/application-gateway-autoscaling-zone-redundant.png)
+
+## <a name="feature-comparison-between-v1-sku-and-v2-sku"></a>Comparação de funcionalidades entre o SKU de v1 e v2 SKU
+
+A tabela seguinte compara as funcionalidades disponíveis com cada SKU.
+
+|                                                   | v1 SKU   | v2 SKU   |
+| ------------------------------------------------- | -------- | -------- |
+| Dimensionamento automático                                       |          | &#x2713; |
+| Redundância de zona                                   |          | &#x2713; |
+| &nbsp;VIP estático&nbsp;&nbsp;                      |          | &#x2713; |
+| Encaminhamento com base no URL                                 | &#x2713; | &#x2713; |
+| Alojamento de vários sites                             | &#x2713; | &#x2713; |
+| Redirecionamento de tráfego                               | &#x2713; | &#x2713; |
+| Firewall de aplicações Web (WAF)                    | &#x2713; | &#x2713; |
+| Terminação de SSL (Secure Sockets Layer)            | &#x2713; | &#x2713; |
+| Encriptação SSL ponto a ponto                         | &#x2713; | &#x2713; |
+| Afinidade de sessão                                  | &#x2713; | &#x2713; |
+| Páginas de erro personalizadas                                | &#x2713; | &#x2713; |
+| Reescreva os cabeçalhos de HTTP (S)                           |          | &#x2713; |
+| Suporte do WebSocket                                 | &#x2713; | &#x2713; |
+| Suporte HTTP/2                                    | &#x2713; | &#x2713; |
+| Drenagem de ligação                               | &#x2713; | &#x2713; |
+| Controlador do Azure Kubernetes Service (AKS) de entrada |          | &#x2713; |
 
 ## <a name="supported-regions"></a>Regiões suportadas
 
@@ -48,7 +71,7 @@ Durante a pré-visualização, não existe nenhum custo associado. Será cobrado
 |NSG para o intervalo de portas de entrada| -65200 a 65535 para Standard_v2 SKU<br>-65503 à 65534 para Standard SKU.<br>Para obter mais informações, consulte a [FAQ](application-gateway-faq.md#are-network-security-groups-supported-on-the-application-gateway-subnet).|
 |Registos de desempenho no diagnóstico do Azure|Não suportado.<br>Métricas do Azure devem ser utilizadas.|
 |Faturação|Não existe atualmente nenhum faturação.|
-|Modo FIPS, o WebSocket|Estes não são atualmente suportadas.|
+|Modo FIPS|Estes não são atualmente suportadas.|
 |Modo só de ILB|Isso não é atualmente suportado. Público e o modo ILB é suportado em conjunto.|
 |Integração de Netwatcher|Não é suportada na pré-visualização pública.|
 

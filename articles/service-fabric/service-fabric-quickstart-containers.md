@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 01/31/2019
 ms.author: aljo
 ms.custom: mvc
-ms.openlocfilehash: 4c7de6738e30cd883257f3b2ea873c933364c003
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: 0d4689e35cd308478ae0c0154761534dd834f146
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58311888"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58482339"
 ---
 # <a name="quickstart-deploy-windows-containers-to-service-fabric"></a>Início rápido: Implementar contentores do Windows no Service Fabric
 
@@ -105,7 +105,7 @@ Após fornecer seus valores para as variáveis, prima **F5** para executar o scr
 
 Depois do script é executado e o cluster for criado, localize o `ClusterEndpoint` na saída. Por exemplo:
 
-```PowerShell
+```powershell
 ...
 ClusterEndpoint : https://southcentralus.servicefabric.azure.com/runtime/clusters/b76e757d-0b97-4037-a184-9046a7c818c0
 ```

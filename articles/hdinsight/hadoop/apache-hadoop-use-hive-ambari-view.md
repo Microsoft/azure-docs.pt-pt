@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/16/2018
 ms.author: hrasheed
-ms.openlocfilehash: cb68e93553be66d0d0be0edf61e491217bfe4d48
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 92c09e7defe159818b22bc8275d011d05512aa66
+ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58091312"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58446591"
 ---
 # <a name="use-apache-ambari-hive-view-with-apache-hadoop-in-hdinsight"></a>Utilize a vista do Apache Ambari Hive com o Apache Hadoop no HDInsight
 
@@ -108,8 +108,6 @@ Para apresentar a IU do Tez para a consulta, selecione o **Tez** separador abaix
 
 > [!IMPORTANT]  
 > Tez não é utilizado para resolver todas as consultas. Pode resolver muitas consultas sem utilizar Tez. 
-
-Se Tez foi usado para resolver a consulta, é apresentado o direcionado acíclicos Graph (DAG). Se desejar exibir o DAG para consultas que já executou no passado, ou se quiser depurar o processo de Tez, utilize o [Tez vista](../hdinsight-debug-ambari-tez-view.md) em vez disso.
 
 ## <a name="view-job-history"></a>Ver histórico de tarefas
 

@@ -9,12 +9,12 @@ ms.service: iot-dps
 services: iot-dps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: 2ed42e10071e3100f285c55c7b965dfa836d6c0e
-ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
+ms.openlocfilehash: 0ec778cc349ba7c21e693437b6a20c40f2e9c173
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 03/26/2019
-ms.locfileid: "58437466"
+ms.locfileid: "58485317"
 ---
 # <a name="quickstart-provision-a-simulated-tpm-device-using-the-azure-iot-c-sdk"></a>Início rápido: Aprovisionar um dispositivo TPM simulado com o SDK de C do IoT do Azure
 
@@ -48,7 +48,7 @@ Nesta secção, vai preparar um ambiente de desenvolvimento utilizado para criar
 
     O exemplo seguinte utilizado o Windows PowerShell para verificar o hash criptográfico para a versão 3.13.4 de x64 distribuição de MSI:
 
-    ```PowerShell
+    ```powershell
     PS C:\Downloads> $hash = get-filehash .\cmake-3.13.4-win64-x64.msi
     PS C:\Downloads> $hash.Hash -eq "64AC7DD5411B48C2717E15738B83EA0D4347CD51B940487DFF7F99A870656C09"
     True
@@ -144,7 +144,7 @@ Nesta secção, vai compilar e executar um exemplo que irá ler a chave de endos
 
 3. Em **Adicionar inscrição**, introduza as seguintes informações e clique no botão **Guardar**.
 
-    - **Mecanismo:** Selecione TPM como o *Mecanismo* de atestado de identidades.
+    - **Mecanismo:** Selecione **TPM** como o *Mecanismo* de atestado de identidades.
     - **Chave de endossamento:** Introduza o *chave de endossamento* gerado para o seu dispositivo TPM ao executar o *tpm_device_provision* projeto.
     - **ID de registo:** Introduza o *ID de registo* gerado para o seu dispositivo TPM ao executar o *tpm_device_provision* projeto.
     - **Dispositivo IoT Edge:** Selecione **desativar**.
