@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 03/21/2019
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: ff543b7275ab05a83b1be1d156cbc6059a3b5430
-ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
+ms.openlocfilehash: 08fdc20df70e4a97dd0cb99468354ef2b5c51f2b
+ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58369902"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58447043"
 ---
 # <a name="authenticate-access-to-azure-blobs-and-queues-using-azure-active-directory"></a>Autenticar o acesso a blobs do Azure e filas com o Azure Active Directory
 
@@ -22,8 +22,6 @@ O armazenamento do Azure suporta a autenticação e autorização com o Azure Ac
 Autenticação de utilizadores ou aplicações que utilizam as credenciais do Azure AD fornece segurança superior e a facilidade de utilização ao longo de outros meios de autorização. Enquanto pode continuar a utilizar a autorização de chave partilhada com as suas aplicações, utilizar o Azure AD evita a necessidade de armazenar a chave de acesso da conta com o seu código. Também pode continuar a utilizar assinaturas de acesso partilhado (SAS) para conceder um acesso otimizado aos recursos na sua conta de armazenamento, mas o Azure AD oferece recursos semelhantes sem a necessidade de gerir os tokens de SAS ou se preocupar sobre revogar uma SAS comprometida. A Microsoft recomenda utilizar autenticação do Azure AD para as suas aplicações de armazenamento do Azure, sempre que possível.
 
 Autenticação e autorização com credenciais do Azure AD está disponível para todos os fins gerais v2, para fins gerais v1 e contas de armazenamento de BLOBs em todas as regiões públicas. Apenas as contas de armazenamento criada com o suporte de modelo de implementação Azure Resource Manager autorização do Azure AD.
-
-[!INCLUDE [storage-auth-aad-note-include](../../../includes/storage-auth-aad-note-include.md)]
 
 ## <a name="overview-of-azure-ad-for-blobs-and-queues"></a>Descrição geral do Azure AD para blobs e filas
 
@@ -41,7 +39,11 @@ Quando uma função RBAC é atribuída a um principal de segurança do Azure AD,
 
 [!INCLUDE [storage-auth-rbac-roles-include](../../../includes/storage-auth-rbac-roles-include.md)]
 
-Para saber como atribuir uma função incorporada no portal do Azure, veja [conceder acesso a contentores do Azure e filas com RBAC no portal do Azure](storage-auth-aad-rbac.md).
+Para saber como atribuir um RBAC incorporada para recursos de armazenamento do Azure, consulte um dos seguintes tópicos:
+
+- [Conceder acesso a dados BLOBs e filas do Azure com o RBAC no portal do Azure](storage-auth-aad-rbac-portal.md)
+- [Conceder acesso a dados de BLOBs e filas do Azure com o RBAC com a CLI do Azure](storage-auth-aad-rbac-cli.md)
+- [Conceder acesso a dados de BLOBs e filas do Azure com o RBAC com o PowerShell](storage-auth-aad-rbac-powershell.md)
 
 ### <a name="access-permissions-granted-by-rbac-roles"></a>Permissões de acesso concedidas por funções RBAC 
 
@@ -49,7 +51,6 @@ Para obter detalhes sobre as permissões necessárias para chamar operações de
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-- [Conceder acesso a contentores do Azure e filas com RBAC no portal do Azure](storage-auth-aad-rbac.md)
 - [Authenticate with Azure Active Directory from an application for access to blobs and queues](storage-auth-aad-app.md) (Autenticar com o Azure Active Directory a partir de uma aplicação para aceder a blobs e filas)
 - [Autenticar o acesso a blobs e filas com identidades geridas para recursos do Azure](storage-auth-aad-msi.md)
-- [Utilizar uma identidade do Azure AD para aceder ao armazenamento do Azure com a CLI ou o PowerShell](storage-auth-aad-script.md)
+- Os ficheiros do Azure suporta a autenticação com o Azure AD através de SMB para associados a um domínio apenas VMs (pré-visualização). Para saber mais sobre como utilizar o Azure AD através de SMB para ficheiros do Azure, veja [autenticação de descrição geral do Azure Active Directory através de SMB para ficheiros do Azure (pré-visualização)](../files/storage-files-active-directory-overview.md).

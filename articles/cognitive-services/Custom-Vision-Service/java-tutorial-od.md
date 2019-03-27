@@ -10,12 +10,12 @@ ms.subservice: custom-vision
 ms.topic: quickstart
 ms.date: 03/21/2019
 ms.author: areddish
-ms.openlocfilehash: 7e401fe099a4e18573ccfe2aacda6068c37abfb7
-ms.sourcegitcommit: 87bd7bf35c469f84d6ca6599ac3f5ea5545159c9
+ms.openlocfilehash: 00684df614771437f33655538a808468ee778d29
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58352056"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58487010"
 ---
 # <a name="quickstart-create-an-object-detection-project-with-the-custom-vision-sdk-for-java"></a>Início rápido: Criar um projeto de deteção de objeto com o SDK de visão personalizada para Java
 
@@ -43,7 +43,7 @@ Este projeto de Java cria um projeto novo de deteção de objetos da Visão Pers
 
 O programa está configurado para armazenar os seus dados mais importantes como variáveis de ambiente. Navegue para a pasta **Vision/CustomVision**, no PowerShell, para definir estas variáveis. Em seguida, introduza os comandos:
 
-```PowerShell
+```powershell
 $env:AZURE_CUSTOMVISION_TRAINING_API_KEY ="<your training api key>"
 $env:AZURE_CUSTOMVISION_PREDICTION_API_KEY ="<your prediction api key>"
 ```
@@ -76,9 +76,9 @@ O fragmento de código anterior utiliza duas funções de programa auxiliar que 
 
 [!code-java[](~/cognitive-services-java-sdk-samples/Vision/CustomVision/src/main/java/com/microsoft/azure/cognitiveservices/vision/customvision/samples/CustomVisionSamples.java?range=277-314)]
 
-### <a name="train-the-project"></a>Preparar o projeto
+### <a name="train-the-project-and-publish"></a>O projeto de formar e publicar
 
-Este código cria a primeira iteração no projeto e marca-a como a iteração predefinida. A iteração predefinida reflete a versão do modelo que irá responder aos pedidos de predição. Deve atualizá-la sempre que voltar a preparar o modelo.
+Este código cria a primeira iteração no projeto e, em seguida, publica iteração para o ponto final de predição. O nome para a iteração publicada pode ser utilizado para enviar pedidos de predição. Uma iteração não está disponível o ponto final de predição até que seja publicada.
 
 [!code-java[](~/cognitive-services-java-sdk-samples/Vision/CustomVision/src/main/java/com/microsoft/azure/cognitiveservices/vision/customvision/samples/CustomVisionSamples.java?range=233-242)]
 
@@ -92,7 +92,7 @@ O ponto final de predição, representado pelo objeto `predictor` aqui, é a ref
 
 Para compilar e executar a solução com o maven, execute o comando seguinte no diretório do projeto no PowerShell:
 
-```PowerShell
+```powershell
 mvn compile exec:java
 ```
 

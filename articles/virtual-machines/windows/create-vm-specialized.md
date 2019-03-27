@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/10/2018
 ms.author: cynthn
-ms.openlocfilehash: 364dca8d7cab3698e501e74d0c2817aac1a36f88
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: a5e891d334bc15e0b03facb1f1f5ed8a511cda55
+ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58137982"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58443896"
 ---
 # <a name="create-a-windows-vm-from-a-specialized-disk-by-using-powershell"></a>Criar uma VM do Windows a partir de um disco especializado ao utilizar o PowerShell
 
@@ -41,7 +41,7 @@ Este artigo mostra-lhe como utilizar discos geridos. Se tiver uma implementaçã
 
 ## <a name="option-1-use-an-existing-disk"></a>Opção 1: Utilizar um disco existente
 
-Se tivesse uma VM que eliminou e quiser reutilizar o disco do SO para criar uma nova VM, utilize [Get-AzDisk](https://docs.microsoft.com/powershell/module/az.compute/get-azdisk?view=azurermps-6.8.1).
+Se tivesse uma VM que eliminou e quiser reutilizar o disco do SO para criar uma nova VM, utilize [Get-AzDisk](https://docs.microsoft.com/powershell/module/az.compute/get-azdisk).
 
 ```powershell
 $resourceGroupName = 'myResourceGroup'

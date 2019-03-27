@@ -12,12 +12,12 @@ ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
 ms.date: 02/03/2019
-ms.openlocfilehash: 74d322c9e7d45a26f9e095bd7ae9f2bbe506ba49
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.openlocfilehash: e3a75acb6d591a9fdf1e632369cc2e9ae6b6099d
+ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57306940"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58447826"
 ---
 # <a name="azure-cli-samples-for-azure-sql-database"></a>Amostras do Azure CLI para a Base de Dados SQL do Azure
 
@@ -27,7 +27,7 @@ Base de dados SQL do Azure pode ser configurado usando <a href="/cli/azure">CLI 
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-Se optar por instalar e usar a CLI localmente, este tópico requer a execução da versão 2.0 ou posterior da CLI do Azure. Executar `az --version` para localizar a versão. Se precisar de instalar ou atualizar, veja [Instalar a CLI do Azure]( /cli/azure/install-azure-cli). 
+Se optar por instalar e usar a CLI localmente, este tópico requer a execução da versão 2.0 ou posterior da CLI do Azure. Executar `az --version` para localizar a versão. Se precisar de instalar ou atualizar, veja [Instalar a CLI do Azure]( /cli/azure/install-azure-cli).
 
 ## <a name="single-database--elastic-pools"></a>Base de dados e conjuntos elásticos
 

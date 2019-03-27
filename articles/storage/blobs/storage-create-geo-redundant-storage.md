@@ -9,12 +9,12 @@ ms.date: 01/03/2019
 ms.author: tamram
 ms.custom: mvc
 ms.subservice: blobs
-ms.openlocfilehash: f00f11e66d33c37ff2107cbb8282b49994fe0d3b
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: c8796c300b5163f23ad1156650f6e74b61ccdfa6
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58013578"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58486670"
 ---
 # <a name="tutorial-build-a-highly-available-application-with-blob-storage"></a>Tutorial: Criar uma aplicação de elevada disponibilidade com armazenamento de BLOBs
 
@@ -139,7 +139,7 @@ export storageconnectionstring=<yourconnectionstring>
 ```
 ### <a name="windows"></a>Windows
 
-```PowerShell
+```powershell
 setx storageconnectionstring "<yourconnectionstring>"
 ```
 
@@ -157,7 +157,7 @@ export accountkey=<youraccountkey>
 ```
 ### <a name="windows"></a>Windows
 
-```PowerShell
+```powershell
 setx accountname "<youraccountname>"
 setx accountkey "<youraccountkey>"
 ```

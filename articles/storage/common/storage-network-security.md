@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 03/21/2019
 ms.author: cbrooks
 ms.subservice: common
-ms.openlocfilehash: c34af90f946542608eaf20f4f21d4986f3c80e6b
-ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
+ms.openlocfilehash: c475fc4d958044413ae7566c027c0e796f1d699a
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58369399"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58486398"
 ---
 # <a name="configure-azure-storage-firewalls-and-virtual-networks"></a>Configurar o armazenamento do Azure firewalls e redes virtuais
 
@@ -71,19 +71,19 @@ Pode gerir as regras de acesso de rede predefinido para contas de armazenamento 
 
 1. Apresenta o estado da regra predefinida para a conta de armazenamento.
 
-    ```PowerShell
+    ```powershell
     (Get-AzStorageAccountNetworkRuleSet -ResourceGroupName "myresourcegroup" -AccountName "mystorageaccount").DefaultAction
     ```
 
 1. Defina a regra predefinida para negar o acesso à rede por predefinição.
 
-    ```PowerShell
+    ```powershell
     Update-AzStorageAccountNetworkRuleSet -ResourceGroupName "myresourcegroup" -Name "mystorageaccount" -DefaultAction Deny
     ```
 
 1. Defina a regra predefinida para permitir o acesso à rede por predefinição.
 
-    ```PowerShell
+    ```powershell
     Update-AzStorageAccountNetworkRuleSet -ResourceGroupName "myresourcegroup" -Name "mystorageaccount" -DefaultAction Allow
     ```
 
@@ -159,26 +159,26 @@ Pode gerir regras de rede virtual para contas de armazenamento através do porta
 
 1. Lista de regras de rede virtual.
 
-    ```PowerShell
+    ```powershell
     (Get-AzStorageAccountNetworkRuleSet -ResourceGroupName "myresourcegroup" -AccountName "mystorageaccount").VirtualNetworkRules
     ```
 
 1. Ative o ponto final de serviço do armazenamento do Azure numa rede virtual existente e a sub-rede.
 
-    ```PowerShell
+    ```powershell
     Get-AzVirtualNetwork -ResourceGroupName "myresourcegroup" -Name "myvnet" | Set-AzVirtualNetworkSubnetConfig -Name "mysubnet" -AddressPrefix "10.0.0.0/24" -ServiceEndpoint "Microsoft.Storage" | Set-AzVirtualNetwork
     ```
 
 1. Adicione uma regra de rede para uma rede virtual e uma sub-rede.
 
-    ```PowerShell
+    ```powershell
     $subnet = Get-AzVirtualNetwork -ResourceGroupName "myresourcegroup" -Name "myvnet" | Get-AzVirtualNetworkSubnetConfig -Name "mysubnet"
     Add-AzStorageAccountNetworkRule -ResourceGroupName "myresourcegroup" -Name "mystorageaccount" -VirtualNetworkResourceId $subnet.Id
     ```
 
 1. Remova uma regra de rede para uma rede virtual e uma sub-rede.
 
-    ```PowerShell
+    ```powershell
     $subnet = Get-AzVirtualNetwork -ResourceGroupName "myresourcegroup" -Name "myvnet" | Get-AzVirtualNetworkSubnetConfig -Name "mysubnet"
     Remove-AzStorageAccountNetworkRule -ResourceGroupName "myresourcegroup" -Name "mystorageaccount" -VirtualNetworkResourceId $subnet.Id
     ```
@@ -267,31 +267,31 @@ Pode gerir regras de rede IP para as contas de armazenamento através do portal 
 
 1. Listar regras de rede IP.
 
-    ```PowerShell
+    ```powershell
     (Get-AzStorageAccountNetworkRuleSet -ResourceGroupName "myresourcegroup" -AccountName "mystorageaccount").IPRules
     ```
 
 1. Adicione uma regra de rede para um endereço IP individual.
 
-    ```PowerShell
+    ```powershell
     Add-AzStorageAccountNetworkRule -ResourceGroupName "myresourcegroup" -AccountName "mystorageaccount" -IPAddressOrRange "16.17.18.19"
     ```
 
 1. Adicione uma regra de rede para um intervalo de endereços IP.
 
-    ```PowerShell
+    ```powershell
     Add-AzStorageAccountNetworkRule -ResourceGroupName "myresourcegroup" -AccountName "mystorageaccount" -IPAddressOrRange "16.17.18.0/24"
     ```
 
 1. Remova uma regra de rede para um endereço IP individual.
 
-    ```PowerShell
+    ```powershell
     Remove-AzStorageAccountNetworkRule -ResourceGroupName "myresourcegroup" -AccountName "mystorageaccount" -IPAddressOrRange "16.17.18.19"
     ```
 
 1. Remova uma regra de rede para um intervalo de endereços IP.
 
-    ```PowerShell
+    ```powershell
     Remove-AzStorageAccountNetworkRule -ResourceGroupName "myresourcegroup" -AccountName "mystorageaccount" -IPAddressOrRange "16.17.18.0/24"
     ```
 
@@ -385,19 +385,19 @@ Pode gerir as exceções de regra de rede através do portal do Azure, o PowerSh
 
 1. Apresente as exceções para as regras de rede da conta de armazenamento.
 
-    ```PowerShell
+    ```powershell
     (Get-AzStorageAccountNetworkRuleSet -ResourceGroupName "myresourcegroup" -Name "mystorageaccount").Bypass
     ```
 
 1. Configure as exceções às regras de rede de conta de armazenamento.
 
-    ```PowerShell
+    ```powershell
     Update-AzStorageAccountNetworkRuleSet -ResourceGroupName "myresourcegroup" -Name "mystorageaccount" -Bypass AzureServices,Metrics,Logging
     ```
 
 1. Remova as exceções às regras de rede de conta de armazenamento.
 
-    ```PowerShell
+    ```powershell
     Update-AzStorageAccountNetworkRuleSet -ResourceGroupName "myresourcegroup" -Name "mystorageaccount" -Bypass None
     ```
 

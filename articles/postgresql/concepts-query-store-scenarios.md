@@ -5,20 +5,17 @@ author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 09/26/2018
-ms.openlocfilehash: 24bd6fbcf47a340020b5ed171b84aeed9fa96fe8
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.date: 03/26/2018
+ms.openlocfilehash: 873462354b70d13e56ca108c3257031ef34873f8
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53534661"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58480859"
 ---
 # <a name="usage-scenarios-for-query-store"></a>Cenários de utilização de Store de consulta
 
 **Aplica-se a:** Base de dados do Azure para PostgreSQL 9.6 e 10
-
-> [!IMPORTANT]
-> A funcionalidade de consulta Store está em pré-visualização pública.
 
 Pode utilizar o Query Store numa ampla variedade de cenários nos quais um desempenho previsível de carga de trabalho está acompanhando e manutenção é crítico. Considere os seguintes exemplos: 
 - Identificar e ajustar as consultas dispendiosas superior 

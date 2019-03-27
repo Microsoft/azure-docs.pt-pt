@@ -12,12 +12,12 @@ ms.author: sstein
 ms.reviewer: anjangsh,billgib,genemi
 manager: craigg
 ms.date: 09/19/2018
-ms.openlocfilehash: 340c08841b7bedc9f2453617aeff111beb810961
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 0146f6ca610a25e57771fb21436a70acbdd5a5ef
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57888183"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58481387"
 ---
 # <a name="cross-tenant-analytics-using-extracted-data---multi-tenant-app"></a>Análise de entre inquilinos com dados extraídos - aplicação multi-inquilino
  
@@ -92,7 +92,7 @@ Os passos seguintes, vai implementar o armazenamento de análise, o que é chama
 2. Defina a variável de $DemoScenario no script para corresponder à sua escolha de arquivo de análise. Para efeitos de aprendizagem, recomenda-se sem columnstore de base de dados SQL.
     - Para utilizar a base de dados SQL sem columnstore, defina **$DemoScenario** = **2**
     - Para utilizar a base de dados SQL com columnstore, defina **$DemoScenario** = **3**  
-3. Prima **F5** para executar o script de demonstração (que chama o *implementar TenantAnalytics<XX>. ps1* script) que cria o arquivo de análise de inquilino. 
+3. Prima **F5** para executar o script de demonstração (que chama o *implementar TenantAnalytics\<XX >. ps1* script) que cria o arquivo de análise de inquilino. 
 
 Agora que implementou a aplicação e preenchido com dados interessantes de inquilino, utilize [SQL Server Management Studio (SSMS)](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) liguem **tenants1-mt -\<utilizador\>**  e **catálogo-mt -\<usuário\>**  servidores com início de sessão = *desenvolvedor*, palavra-passe = *P\@ssword1*.
 
@@ -121,7 +121,7 @@ Antes de continuar, certifique-se de que implementou a base de dados do conta e 
 
 1. No SSMS, ligue para o **jobaccount** base de dados no catálogo-mt -\<utilizador\>.
 2. No SSMS, abra *...\Learning Modules\Operational Analytics\Tenant Analytics\ TargetGroups.sql* 
-3. Modificar a @User variável na parte superior do script, substituindo <User> com o valor de utilizador que usou quando implementou a aplicação de base de dados do Wingtip Tickets SaaS multi-inquilino.
+3. Modificar a @User variável na parte superior do script, substituindo `<User>` com o valor de utilizador que usou quando implementou a aplicação de base de dados do Wingtip Tickets SaaS multi-inquilino.
 4. Prima **F5** para executar o script que cria os grupos de destino de duas.
 
 ### <a name="extract-raw-data-from-all-tenants"></a>Extrair dados não processados de todos os inquilinos
@@ -135,7 +135,7 @@ Cada tarefa extrai os respetivos dados e publica-o para o arquivo de análise. E
 
 1. No SSMS, ligue para o **jobaccount** base de dados no catálogo-mt -\<utilizador\> server.
 2. No SSMS, abra *...\Learning Modules\Operational Analytics\Tenant Analytics\ExtractTickets.sql*.
-3. Modificar @User na parte superior do script e substitua <User> com o nome de utilizador que usou quando implementou a aplicação de base de dados do Wingtip Tickets SaaS multi-inquilino. 
+3. Modificar @User na parte superior do script e substitua `<User>` com o nome de utilizador que usou quando implementou a aplicação de base de dados do Wingtip Tickets SaaS multi-inquilino. 
 4. Prima **F5** para executar o script que cria e executa a tarefa que extrai dados de pedidos de suporte e os clientes de cada base de dados do inquilino. A tarefa salva os dados para o arquivo de análise.
 5. Consulte a tabela de TicketsRawData na base de dados tenantanalytics, para garantir que a tabela é preenchida com as informações de bilhetes de todos os inquilinos.
 

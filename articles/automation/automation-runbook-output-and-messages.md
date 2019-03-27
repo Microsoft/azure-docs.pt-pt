@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 12/04/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: ec71f8998f7db07cafca7f8141acb9898b016328
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.openlocfilehash: 1cbf91af4e91f41fff30a7edfa869d07a21b881e
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56821358"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58487673"
 ---
 # <a name="runbook-output-and-messages-in-azure-automation"></a>Resultado do Runbook e mensagens na automatização do Azure
 A maioria dos runbooks de automatização do Azure têm alguma forma de saída. Este resultado pode ser uma mensagem de erro para o utilizador ou um objeto complexo que pretende utilizar com outro runbook. Windows PowerShell fornece [vários fluxos](/powershell/module/microsoft.powershell.core/about/about_redirection) para enviar a saída de um script ou o fluxo de trabalho. A automatização do Azure funciona com cada um desses fluxos de forma diferente. Deve seguir as melhores práticas para saber como utilizar cada quando estiver a criar um runbook.
@@ -35,7 +35,7 @@ O fluxo de saída destina-se a saída de objetos, que são criados por um script
 
 Pode escrever dados para o fluxo de saída através de [Write-Output](https://technet.microsoft.com/library/hh849921.aspx) ou ao colocar o objeto na sua própria linha no runbook.
 
-```PowerShell
+```powershell
 #The following lines both write an object to the output stream.
 Write-Output –InputObject $object
 $object
@@ -46,7 +46,7 @@ Quando escreve o fluxo de saída numa função que está incluída no seu runboo
 
 Considere o runbook de exemplo abaixo:
 
-```PowerShell
+```powershell
 Workflow Test-Runbook
 {
   Write-Verbose "Verbose outside of function" -Verbose
@@ -90,7 +90,7 @@ Aqui está uma lista de exemplo tipos de saída:
 
 O runbook de exemplo seguintes produz um objeto de cadeia de caracteres e inclui uma declaração do respetivo tipo de saída. Se o seu runbook devolve uma matriz de um determinado tipo, em seguida, ainda deverá especificar o tipo em vez de uma matriz do tipo.
 
-```PowerShell
+```powershell
 Workflow Test-Runbook
 {
   [OutputType([string])]
@@ -126,7 +126,7 @@ Os fluxos de avisos e erros destinam-se a registar problemas que ocorrem num run
 
 Criar um aviso ou erro mensagem através da [Write-Warning](https://technet.microsoft.com/library/hh849931.aspx) ou [Write-Error](https://technet.microsoft.com/library/hh849962.aspx) cmdlet. Atividades também podem escrever nestes fluxos.
 
-```PowerShell
+```powershell
 #The following lines create a warning message and then an error message that will suspend the runbook.
 
 $ErrorActionPreference = "Stop"
@@ -141,7 +141,7 @@ Quando [testar um runbook](automation-testing-runbook.md), as mensagens verbosas
 
 Criar um através de mensagens verbosas a [Write-Verbose](https://technet.microsoft.com/library/hh849951.aspx) cmdlet.
 
-```PowerShell
+```powershell
 #The following line creates a verbose message.
 
 Write-Verbose –Message "This is a verbose message."
@@ -183,7 +183,7 @@ No Windows PowerShell, pode obter resultados e mensagens de um runbook com o [Ge
 
 O exemplo seguinte inicia um runbook de exemplo e, em seguida, aguarda que este seja concluído. Depois de concluído, o seu fluxo de saída é recolhido da tarefa.
 
-```PowerShell
+```powershell
 $job = Start-AzureRmAutomationRunbook -ResourceGroupName "ResourceGroup01" `
   –AutomationAccountName "MyAutomationAccount" –Name "Test-Runbook"
 

@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: overview
-ms.date: 03/24/2019
+ms.date: 03/26/2019
 ms.author: alkohli
-ms.openlocfilehash: de8ddd0d2886cd7798160e830094b295c62e17e9
-ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
+ms.openlocfilehash: f2416bd3393ae05a74665fe7e11bd1c8c04c91d7
+ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58400688"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58499035"
 ---
 # <a name="manage-compute-on-your-azure-data-box-edge"></a>Gerir a computação no seu limite de caixa de dados do Azure
 
@@ -32,7 +32,7 @@ Neste artigo, vai aprender a:
 
 ## <a name="manage-triggers"></a>Gerir acionadores
 
-Os eventos são as coisas que acontecem dentro do seu ambiente na cloud ou no seu dispositivo que pode querer tomar medidas em. Por exemplo, quando é criado um ficheiro numa partilha, é um evento. Os acionadores são a resposta a esses eventos. Acionadores podem ajudar a executar uma função sempre que o evento é disparado. Para o seu limite de caixa de dados, os disparadores podem ser em resposta a eventos de arquivo ou uma agenda.
+Os eventos são as coisas que acontecem dentro do seu ambiente na cloud ou no seu dispositivo que pode querer tomar medidas em. Por exemplo, quando é criado um ficheiro numa partilha, é um evento. Acionadores elevar os eventos. Para o seu limite de caixa de dados, os disparadores podem ser em resposta a eventos de arquivo ou uma agenda.
 
 - **Ficheiro**: Estes acionadores são em resposta a eventos de ficheiros, tais como a criação de um arquivo, a modificação de um ficheiro.
 - **Agendado**: Estes acionadores são em resposta a uma agenda que pode definir com uma data de início, hora de início e o intervalo de repetições.

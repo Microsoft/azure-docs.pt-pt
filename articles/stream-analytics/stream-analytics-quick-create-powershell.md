@@ -8,12 +8,12 @@ ms.date: 12/20/2018
 ms.topic: quickstart
 ms.service: stream-analytics
 ms.custom: mvc
-ms.openlocfilehash: 6feeaeb71818f355c0d91d5b49b4162a33682fa0
-ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
+ms.openlocfilehash: f46f437ffd79ae9d0457606a72719ef13314aa1c
+ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57408756"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58442972"
 ---
 # <a name="quickstart-create-a-stream-analytics-job-using-azure-powershell"></a>Início rápido: Criar uma tarefa do Stream Analytics com o Azure PowerShell
 
@@ -147,7 +147,7 @@ O seguinte bloco de código do Azure PowerShell utiliza comandos para criar o ar
 
 ## <a name="create-a-stream-analytics-job"></a>Criar uma tarefa do Stream Analytics
 
-Criar uma tarefa do Stream Analytics com o [New-AzStreamAnalyticsJob](https://docs.microsoft.com/powershell/module/az.streamanalytics/new-azstreamanalyticsjob?view=azurermps-5.4.0) cmdlet. Este cmdlet utiliza o nome da tarefa, o nome do grupo de recursos e a definição de tarefa como parâmetros. O nome do trabalho pode ser qualquer nome amigável que o identifique. Ele pode ter carateres alfanuméricos, hífenes, e apenas carateres de sublinhado e tem de ter entre 3 e 63 carateres de comprimento. A definição de trabalho é um ficheiro JSON que contém as propriedades necessárias para criar um trabalho. No computador local, crie um ficheiro denominado `JobDefinition.json` e adicione os seguintes dados JSON:
+Criar uma tarefa do Stream Analytics com o [New-AzStreamAnalyticsJob](https://docs.microsoft.com/powershell/module/az.streamanalytics/new-azstreamanalyticsjob) cmdlet. Este cmdlet utiliza o nome da tarefa, o nome do grupo de recursos e a definição de tarefa como parâmetros. O nome do trabalho pode ser qualquer nome amigável que o identifique. Ele pode ter carateres alfanuméricos, hífenes, e apenas carateres de sublinhado e tem de ter entre 3 e 63 carateres de comprimento. A definição de trabalho é um ficheiro JSON que contém as propriedades necessárias para criar um trabalho. No computador local, crie um ficheiro denominado `JobDefinition.json` e adicione os seguintes dados JSON:
 
 ```json
 {
@@ -177,7 +177,7 @@ New-AzStreamAnalyticsJob `
 
 ## <a name="configure-input-to-the-job"></a>Configurar a entrada da tarefa
 
-Adicionar uma entrada para a tarefa com o [New-AzStreamAnalyticsInput](https://docs.microsoft.com/powershell/module/az.streamanalytics/new-azstreamanalyticsinput?view=azurermps-5.4.0) cmdlet. Este cmdlet utiliza o nome da tarefa, o nome da entrada da tarefa, o nome do grupo de recursos e a definição de entrada da tarefa como parâmetros. A definição da entrada do trabalho é um ficheiro JSON que contém as propriedades necessárias para configurar essa entrada. Neste exemplo, criará um armazenamento de BLOBs como entrada.
+Adicionar uma entrada para a tarefa com o [New-AzStreamAnalyticsInput](https://docs.microsoft.com/powershell/module/az.streamanalytics/new-azstreamanalyticsinput) cmdlet. Este cmdlet utiliza o nome da tarefa, o nome da entrada da tarefa, o nome do grupo de recursos e a definição de entrada da tarefa como parâmetros. A definição da entrada do trabalho é um ficheiro JSON que contém as propriedades necessárias para configurar essa entrada. Neste exemplo, criará um armazenamento de BLOBs como entrada.
 
 No computador local, crie um ficheiro denominado `JobInputDefinition.json` e adicione os seguintes dados JSON ao mesmo. Lembre-se de que substitui o valor `accesspolicykey` com o `SharedAccessKey` parte a cadeia de ligação do IoT Hub que guardou na secção anterior.
 
@@ -224,7 +224,7 @@ New-AzStreamAnalyticsInput `
 
 ## <a name="configure-output-to-the-job"></a>Configurar a saída da tarefa
 
-Adicionar uma saída para a tarefa com o [New-AzStreamAnalyticsOutput](https://docs.microsoft.com/powershell/module/az.streamanalytics/new-azstreamanalyticsoutput?view=azurermps-5.4.0) cmdlet. Este cmdlet utiliza o nome da tarefa, o nome da saída da tarefa, o nome do grupo de recursos e a definição de saída da tarefa como parâmetros. A definição da saída do trabalho é um ficheiro JSON que contém as propriedades necessárias para configurar essa saída. Este exemplo utiliza o armazenamento de blobs como saída.
+Adicionar uma saída para a tarefa com o [New-AzStreamAnalyticsOutput](https://docs.microsoft.com/powershell/module/az.streamanalytics/new-azstreamanalyticsoutput) cmdlet. Este cmdlet utiliza o nome da tarefa, o nome da saída da tarefa, o nome do grupo de recursos e a definição de saída da tarefa como parâmetros. A definição da saída do trabalho é um ficheiro JSON que contém as propriedades necessárias para configurar essa saída. Este exemplo utiliza o armazenamento de blobs como saída.
 
 No computador local, crie um ficheiro denominado `JobOutputDefinition.json` e adicione os seguintes dados JSON ao mesmo. Certifique-se de que substitui o valor de `accountKey` pela chave de acesso da conta de armazenamento, que é o valor armazenado em $storageAccountKey.
 
@@ -273,7 +273,7 @@ New-AzStreamAnalyticsOutput `
 
 ## <a name="define-the-transformation-query"></a>Definir a consulta de transformação
 
-Adicione uma transformação seu trabalho, utilizando o [New-AzStreamAnalyticsTransformation](https://docs.microsoft.com/powershell/module/az.streamanalytics/new-azstreamanalyticstransformation?view=azurermps-5.4.0) cmdlet. Este cmdlet utiliza o nome da tarefa, o nome da transformação da tarefa, o nome do grupo de recursos e a definição de transformação da tarefa como parâmetros. No computador local, crie um ficheiro denominado `JobTransformationDefinition.json` e adicione os seguintes dados JSON ao mesmo. O ficheiro JSON contém um parâmetro de consulta que define a consulta de transformação:
+Adicione uma transformação seu trabalho, utilizando o [New-AzStreamAnalyticsTransformation](https://docs.microsoft.com/powershell/module/az.streamanalytics/new-azstreamanalyticstransformation) cmdlet. Este cmdlet utiliza o nome da tarefa, o nome da transformação da tarefa, o nome do grupo de recursos e a definição de transformação da tarefa como parâmetros. No computador local, crie um ficheiro denominado `JobTransformationDefinition.json` e adicione os seguintes dados JSON ao mesmo. O ficheiro JSON contém um parâmetro de consulta que define a consulta de transformação:
 
 ```json
 {
@@ -310,7 +310,7 @@ New-AzStreamAnalyticsTransformation `
 
 ## <a name="start-the-stream-analytics-job-and-check-the-output"></a>Iniciar a tarefa do Stream Analytics e verificar a saída
 
-Iniciar a tarefa com o [Start-AzStreamAnalyticsJob](https://docs.microsoft.com/powershell/module/az.streamanalytics/start-azstreamanalyticsjob?view=azurermps-5.4.0) cmdlet. Este cmdlet utiliza o nome da tarefa, o nome do grupo de recursos, o modo de início da saída e a hora de início como parâmetros. `OutputStartMode` aceita os valores `JobStartTime` `CustomTime` ou `LastOutputEventTime`. Para obter mais informações sobre ao que cada um destes valores se refere, veja a secção [parameters](https://docs.microsoft.com/powershell/module/az.streamanalytics/start-azstreamanalyticsjob?view=azurermps-5.4.0) (parâmetros) na documentação do PowerShell.
+Iniciar a tarefa com o [Start-AzStreamAnalyticsJob](https://docs.microsoft.com/powershell/module/az.streamanalytics/start-azstreamanalyticsjob) cmdlet. Este cmdlet utiliza o nome da tarefa, o nome do grupo de recursos, o modo de início da saída e a hora de início como parâmetros. `OutputStartMode` aceita os valores `JobStartTime` `CustomTime` ou `LastOutputEventTime`. Para obter mais informações sobre ao que cada um destes valores se refere, veja a secção [parameters](https://docs.microsoft.com/powershell/module/az.streamanalytics/start-azstreamanalyticsjob) (parâmetros) na documentação do PowerShell.
 
 Depois de executar o cmdlet seguinte, devolve `True` como a saída, se o trabalho for iniciado. No contentor de armazenamento, é criada uma pasta de saída com os dados transformados.
 

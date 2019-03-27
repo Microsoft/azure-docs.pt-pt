@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: na
 ms.date: 07/02/2017
 ms.author: aljo
-ms.openlocfilehash: 5831a21225b80e613f713a516d2f000f8b33f096
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: fa883f819c53f57a8e281069b2a3db1c55efc6c6
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57853159"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58480549"
 ---
 # <a name="package-and-deploy-an-existing-executable-to-service-fabric"></a>Agrupar e implementar um executável existente para o Service Fabric
 Quando empacotar um executável existente como um [executável convidado](service-fabric-guest-executables-introduction.md), pode escolher entre utilizar um modelo de projeto do Visual Studio ou a [criar manualmente o pacote de aplicação](#manually). Com o Visual Studio, a estrutura de pacotes de aplicações e ficheiros de manifesto são criados pelo novo modelo de projeto para.
@@ -254,7 +254,7 @@ Ficheiros de registo são salvas em um dos diretórios de trabalho do serviço. 
 ## <a name="deployment"></a>Implementação
 A última etapa é [implementar a sua aplicação](service-fabric-deploy-remove-applications.md). O script do PowerShell seguinte mostra como implementar a sua aplicação para o cluster de desenvolvimento local e inicie um novo serviço do Service Fabric.
 
-```PowerShell
+```powershell
 
 Connect-ServiceFabricCluster localhost:19000
 

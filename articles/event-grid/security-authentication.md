@@ -8,12 +8,12 @@ ms.service: event-grid
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: babanisa
-ms.openlocfilehash: d66db88dd1e962acc63c960270bb5685218aa391
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: 23654dd41714314ab5c9f217d4f805d7b9d62413
+ms.sourcegitcommit: fbfe56f6069cba027b749076926317b254df65e5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58316076"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58472811"
 ---
 # <a name="event-grid-security-and-authentication"></a>Autenticação e segurança do Event Grid 
 
@@ -41,7 +41,7 @@ Se estiver a utilizar qualquer outro tipo de ponto de extremidade, como um acion
 
    A partir da versão de 2018-05-01-pré-visualização, o Event Grid suporta um handshake de validação manual. Se estiver a criar uma subscrição de evento com um SDK ou ferramenta que utiliza a versão de 2018-05-01-a pré-visualização da API ou posterior, o Event Grid envia um `validationUrl` propriedade na parte de dados do evento de validação de subscrição. Para concluir o handshake, encontrar essa URL nos dados de eventos e manualmente enviar um pedido GET para o mesmo. Pode utilizar um cliente REST ou de seu navegador da web.
 
-   O URL fornecido é válido durante 10 minutos. Durante esse tempo, o estado de aprovisionamento a subscrição de evento é `AwaitingManualAction`. Se não concluir a validação manual no prazo de 10 minutos, o estado de aprovisionamento é definido como `Failed`. Terá de criar a subscrição de evento novamente antes de iniciar a validação manual.
+   O URL fornecido é válido durante 5 minutos. Durante esse tempo, o estado de aprovisionamento a subscrição de evento é `AwaitingManualAction`. Se não concluir a validação manual no prazo de 10 minutos, o estado de aprovisionamento é definido como `Failed`. Terá de criar a subscrição de evento novamente antes de iniciar a validação manual.
 
 ### <a name="validation-details"></a>Detalhes da validação
 

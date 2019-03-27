@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/18/2018
 ms.author: delhan
-ms.openlocfilehash: a291b7640662da7ea0c205c2027fe83d6243850e
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
+ms.openlocfilehash: c6d9f46582e1c618de6bfccea9328fb35aea7875
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55980368"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58485820"
 ---
 # <a name="vm-startup-is-stuck-on-getting-windows-ready-dont-turn-off-your-computer-in-azure"></a>Inicialização VM está bloqueada no "obtendo Windows pronto. Não desativar o seu computador"no Azure
 
@@ -132,7 +132,7 @@ Depois de recolher o arquivo de despejo de memória, siga estes passos para recr
 
 **Para discos não geridos**
 
-```PowerShell
+```powershell
 # To log in to Azure Resource Manager
 Login-AzAccount
 
@@ -163,7 +163,7 @@ New-AzVM -ResourceGroupName $rgname -Location $loc -VM $vm -Verbose
 
 **Para discos geridos**
 
-```PowerShell
+```powershell
 # To log in to Azure Resource Manager
 Login-AzAccount
 

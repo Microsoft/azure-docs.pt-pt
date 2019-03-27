@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.date: 01/22/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: d5100a3da9b00f5c9a1defee1e4b9280528fd2d8
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 2d816ab2f14be8574f77491807d4dbd071487f42
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57543020"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58483070"
 ---
 # <a name="tutorial-create-a-data-factory-by-using-visual-studio"></a>Tutorial: Criar uma fábrica de dados com o Visual Studio
 > [!div class="op_single_selector" title="Tools/SDKs"]
@@ -314,8 +314,8 @@ Neste passo, publica as entidades do Data Factory (serviços ligados, conjuntos 
    5. Selecione a **região** da fábrica de dados.
    6. Clique em **Seguinte** para mudar para a página **Publicar Itens**. (Prima **Tecla de Tabulação** para sair do campo Nome se o botão **Seguinte** estiver desativado.)
 
-    > [!IMPORTANT]
-    > Se receber o erro **Nome "DataFactoryUsingVS" não disponível para a fábrica de dados** aquando da publicação, altere o nome (por exemplo, seunomeDataFactoryUsingVS). Veja o tópico [Data Factory – Naming Rules (Data Factory – Regras de Nomenclatura)](data-factory-naming-rules.md) para obter as regras de nomenclatura dos artefactos do Data Factory.   
+      > [!IMPORTANT]
+      > Se receber o erro **Nome "DataFactoryUsingVS" não disponível para a fábrica de dados** aquando da publicação, altere o nome (por exemplo, seunomeDataFactoryUsingVS). Veja o tópico [Data Factory – Naming Rules (Data Factory – Regras de Nomenclatura)](data-factory-naming-rules.md) para obter as regras de nomenclatura dos artefactos do Data Factory.   
 1. Na página **Publicar Itens**, confirme que todas as entidades dos Data Factories estão selecionadas e clique em **Seguinte** para mudar para a página **Resumo**.
 
     ![Página Publicar itens](media/data-factory-build-your-first-pipeline-using-vs/publish-items-page.png)     
@@ -328,12 +328,12 @@ Pontos importantes para ter em atenção:
 
 - Se receber o erro: **Esta subscrição não está registada para utilizar o espaço de nomes DataFactory**, efetue um dos seguintes procedimentos e tente publicar novamente:
     - No Azure PowerShell, execute o seguinte comando para registar o fornecedor do Data Factory.
-        ```PowerShell   
+        ```powershell   
         Register-AzResourceProvider -ProviderNamespace Microsoft.DataFactory
         ```
         Pode executar o seguinte comando para confirmar que o fornecedor do Data Factory está registado.
 
-        ```PowerShell
+        ```powershell
         Get-AzResourceProvider
         ```
     - Inicie sessão com a subscrição do Azure no [Portal do Azure](https://portal.azure.com) e navegue até um painel do Data Factory ou crie uma fábrica de dados no Portal do Azure. Esta ação regista automaticamente o fornecedor por si.
@@ -565,6 +565,7 @@ Pode encadear duas atividades (executar uma atividade após a outra) ao definir 
 
 
 ## <a name="see-also"></a>Consultar Também
+
 | Tópico | Descrição |
 |:--- |:--- |
 | [Pipelines](data-factory-create-pipelines.md) |Este artigo ajuda-o a compreender os pipelines e as atividades no Azure Data Factory e como os utilizar para construir fluxos de dados condicionados por dados para o seu cenário ou empresa. |

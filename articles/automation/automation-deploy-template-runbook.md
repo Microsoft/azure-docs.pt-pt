@@ -10,12 +10,12 @@ ms.date: 03/16/2018
 ms.topic: conceptual
 manager: carmonm
 keywords: powershell,  runbook, json, azure automation
-ms.openlocfilehash: ef97d4e2fd0951e30a725e8f2f9603a73c61f1ca
-ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
+ms.openlocfilehash: 2008ba697665baa0e8cf73564ec31d6267425404
+ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/19/2019
-ms.locfileid: "56416127"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58446975"
 ---
 # <a name="deploy-an-azure-resource-manager-template-in-an-azure-automation-powershell-runbook"></a>Implementar um modelo do Azure Resource Manager num runbook do PowerShell da Automatização do Azure
 
@@ -32,7 +32,7 @@ Para concluir este tutorial, precisa do seguinte:
 * Subscrição do Azure. Se ainda não tiver uma, pode [ativar os benefícios de subscritor do MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) ou [Inscreva-se numa conta gratuita](https://azure.microsoft.com/free/).
 * [Conta de automatização](automation-sec-configure-azure-runas-account.md) para manter o runbook e autenticar-se nos recursos do Azure.  Esta conta tem de ter permissão para iniciar e parar a máquina virtual.
 * [Conta de armazenamento do Azure](../storage/common/storage-create-storage-account.md) para armazenar o modelo do Resource Manager
-* O Azure Powershell instalado numa máquina local. Ver [instalar e configurar o Azure Powershell](https://docs.microsoft.com/powershell/azure/azurerm/install-azurerm-ps?view=azurermps-4.1.0) para obter informações sobre como obter o Azure PowerShell.
+* O Azure Powershell instalado numa máquina local. Ver [instalar e configurar o Azure Powershell](https://docs.microsoft.com/powershell/azure/azurerm/install-azurerm-ps) para obter informações sobre como obter o Azure PowerShell.
 
 ## <a name="create-the-resource-manager-template"></a>Criar o modelo do Resource Manager
 
@@ -203,7 +203,7 @@ Publish-AzureRmAutomationRunbook @publishParams
 
 ## <a name="start-the-runbook"></a>Iniciar o runbook
 
-Agora, vamos iniciar o runbook ao chamar o [Start-AzureRmAutomationRunbook](https://docs.microsoft.com/powershell/module/azurerm.automation/start-azurermautomationrunbook?view=azurermps-4.1.0) cmdlet.
+Agora, vamos iniciar o runbook ao chamar o [Start-AzureRmAutomationRunbook](https://docs.microsoft.com/powershell/module/azurerm.automation/start-azurermautomationrunbook) cmdlet.
 
 Para obter informações sobre como iniciar um runbook no portal do Azure, consulte [a partir de um runbook na automatização do Azure](automation-starting-a-runbook.md).
 

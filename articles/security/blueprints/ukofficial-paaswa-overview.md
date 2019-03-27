@@ -8,12 +8,12 @@ ms.service: security
 ms.topic: article
 ms.date: 07/13/2018
 ms.author: jomolesk
-ms.openlocfilehash: b30ef7d0b373f0d9a440b6649f819e429e28328c
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: 95e10f4727de239016a2e3c88571e74267e3967b
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58314931"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58482992"
 ---
 # <a name="azure-security-and-compliance-blueprint-paas-web-application-hosting-for-uk-official-workloads"></a>Azure Security and Compliance Blueprint: Aplicação Web de PaaS de alojamento para cargas de trabalho oficial do Reino Unido
 
@@ -95,7 +95,7 @@ Os dados é o trânsito de fora e entre os componentes do Azure protegidos utili
 
 [O Assistente do Azure](https://docs.microsoft.com/azure/advisor/advisor-overview) é consultor da cloud personalizado que o ajuda a seguir as melhores práticas para otimizar as suas implementações do Azure. Ele analisa a sua telemetria de configuração e utilização de recursos e, em seguida, recomenda soluções que o podem ajudar a melhorar a rentabilidade, o desempenho, a elevada disponibilidade e a segurança dos seus recursos do Azure.
 
-[O Microsoft Antimalware](https://docs.microsoft.com/azure/security/azure-security-antimalware) é uma funcionalidade de proteção em tempo real que ajuda a identificar e remover vírus, spyware e outro software malicioso. Isso por predefinição é instalado na infraestrutura subjacente para a máquina virtual de PaaS e é gerido pelo malha do Azure de forma transparente para o cliente, garantindo
+[O Microsoft Antimalware](https://docs.microsoft.com/azure/security/azure-security-antimalware) é uma funcionalidade de proteção em tempo real que ajuda a identificar e remover vírus, spyware e outro software malicioso. Isso por predefinição é instalado na infraestrutura subjacente para a máquina virtual de PaaS e é gerido pelo malha do Azure de forma transparente para o cliente.
 
 ### <a name="paas-services-in-this-blueprint"></a>Serviços de PaaS neste esquema
 

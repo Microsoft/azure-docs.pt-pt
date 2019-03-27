@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 02/25/2019
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: a72182091721dd6a1104cb8e3495aee1a3b25eb8
-ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
+ms.openlocfilehash: 67d3dcad4ec73ee09ec40282b2fbdea945daefe4
+ms.sourcegitcommit: fbfe56f6069cba027b749076926317b254df65e5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 03/26/2019
-ms.locfileid: "58439395"
+ms.locfileid: "58472774"
 ---
 # <a name="static-website-hosting-in-azure-storage"></a>Alojamento de Web site estático no armazenamento do Azure
 Contas de armazenamento GPv2 do Azure permitem-lhe servir conteúdo estático (HTML, CSS, JavaScript e arquivos de imagem) diretamente a partir de um contentor de armazenamento com o nome *$web*. Tirar partido de hospedagem no armazenamento do Azure permite utilizar arquiteturas sem servidor, incluindo [as funções do Azure](/azure/azure-functions/functions-overview) e outros serviços PaaS.
@@ -112,7 +112,7 @@ az storage blob upload-batch -s <SOURCE_PATH> -d \$web --account-name <ACCOUNT_N
 Métodos disponíveis para implementar o conteúdo para um contentor de armazenamento incluem o seguinte:
 
 - [AZCopy](../common/storage-use-azcopy.md)
-- [Explorador de armazenamento](https://azure.microsoft.com/features/storage-explorer/)
+- [Explorador do Armazenamento do Azure](https://azure.microsoft.com/features/storage-explorer/)
 - [Pipelines do Azure](https://azure.microsoft.com/services/devops/pipelines/)
 - [Extensão do Visual Studio Code](https://code.visualstudio.com/tutorials/static-website/getting-started)
 

@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 09/21/2018
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: 8d0d37b988f36e23d8bd12b5a225b1714205b3fc
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: ca96dbd2073540d47fe09caaa8a337e292445590
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55158082"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58486772"
 ---
 # <a name="set-up-sign-in-with-a-salesforce-saml-provider-by-using-custom-policies-in-azure-active-directory-b2c"></a>Configurar o início de sessão com um provedor de SAML do Salesforce ao utilizar políticas personalizadas no Azure Active Directory B2C
 
@@ -72,7 +72,7 @@ Pedidos enviados para o Salesforce tem de ser assinado pelo Azure AD B2C. Para g
 > [!NOTE]
 > Certifique-se de que Atualize o nome de inquilino e a palavra-passe nas linhas duas principais.
 
-```PowerShell
+```powershell
 $tenantName = "<YOUR TENANT NAME>.onmicrosoft.com"
 $pwdText = "<YOUR PASSWORD HERE>"
 

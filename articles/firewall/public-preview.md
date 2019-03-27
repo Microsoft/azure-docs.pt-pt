@@ -7,14 +7,16 @@ services: firewall
 ms.topic: article
 ms.date: 7/11/2018
 ms.author: victorh
-ms.openlocfilehash: 263b16a419b5ff20a9b6d62860385f92c2a18f9c
-ms.sourcegitcommit: df50934d52b0b227d7d796e2522f1fd7c6393478
+ms.openlocfilehash: fe1b8f9d56b0f4faa0baa25463b2aa29a59715cb
+ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38991454"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58499595"
 ---
 # <a name="enable-the-azure-firewall-public-preview"></a>Ativar a pré-visualização pública do Firewall do Azure
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 [!INCLUDE [firewall-preview-notice](../../includes/firewall-preview-notice.md)]
 
@@ -23,23 +25,22 @@ ms.locfileid: "38991454"
 Para ativar a pré-visualização pública do Firewall do Azure, utilize os seguintes comandos do Azure PowerShell:
 
 ```PowerShell
-Register-AzureRmProviderFeature -FeatureName AllowRegionalGatewayManagerForSecureGateway -ProviderNamespace Microsoft.Network
-
-Register-AzureRmProviderFeature -FeatureName AllowAzureFirewall -ProviderNamespace Microsoft.Network
+Register-AzProviderFeature -FeatureName AllowRegionalGatewayManagerForSecureGateway -ProviderNamespace Microsoft.Network
+Register-AzProviderFeature -FeatureName AllowAzureFirewall -ProviderNamespace Microsoft.Network
 ```
 
 Demora até 30 minutos para o registo de funcionalidade concluir. Pode verificar o estado de registo ao executar os seguintes comandos do Azure PowerShell:
 
-```PowerShell
+```powershell
 
-Get-AzureRmProviderFeature -FeatureName AllowRegionalGatewayManagerForSecureGateway -ProviderNamespace Microsoft.Network
+Get-AzProviderFeature -FeatureName AllowRegionalGatewayManagerForSecureGateway -ProviderNamespace Microsoft.Network
 
-Get-AzureRmProviderFeature -FeatureName AllowAzureFirewall -ProviderNamespace Microsoft.Network
+Get-AzProviderFeature -FeatureName AllowAzureFirewall -ProviderNamespace Microsoft.Network
 ```
 Após o registo estiver concluído, execute o seguinte comando:
 
-```PowerShell
-Register-AzureRmResourceProvider -ProviderNamespace Microsoft.Network
+```powershell
+Register-AzResourceProvider -ProviderNamespace Microsoft.Network
 ```
 
 ## <a name="next-steps"></a>Passos Seguintes

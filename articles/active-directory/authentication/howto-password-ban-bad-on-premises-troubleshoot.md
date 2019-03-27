@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 51f214688aa1e33bd58e8460baab75228d7c5d1a
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: 12cbd9bebf001eb902147175c89b5d7ce49e8449
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58317243"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58487240"
 ---
 # <a name="azure-ad-password-protection-troubleshooting"></a>Resolução de problemas de proteção de palavra-passe do AD do Azure
 
@@ -105,7 +105,7 @@ Se é decidido para desinstalar o software de proteção de palavra-passe do Azu
 2. Desinstale o software do agente de controlador de domínio de todos os controladores de domínio. Este passo **requer** um reinício.
 3. Remova manualmente todos os pontos de ligação de serviço de Proxy em cada contexto de nomenclatura de domínio. A localização desses objetos pode ser detetada com o seguinte comando do PowerShell do Active Directory:
 
-   ```PowerShell
+   ```powershell
    $scp = "serviceConnectionPoint"
    $keywords = "{ebefb703-6113-413d-9167-9f8dd4d24468}*"
    Get-ADObject -SearchScope Subtree -Filter { objectClass -eq $scp -and keywords -like $keywords }
@@ -117,7 +117,7 @@ Se é decidido para desinstalar o software de proteção de palavra-passe do Azu
 
 4. Remova manualmente todos os pontos de ligação do agente de controlador de domínio em cada contexto de nomenclatura de domínio. Pode haver um desses objetos por controlador de domínio na floresta, dependendo de quão amplamente o software foi implementado. A localização desse objeto pode ser detetada com o seguinte comando do PowerShell do Active Directory:
 
-   ```PowerShell
+   ```powershell
    $scp = "serviceConnectionPoint"
    $keywords = "{2bac71e6-a293-4d5b-ba3b-50b995237946}*"
    Get-ADObject -SearchScope Subtree -Filter { objectClass -eq $scp -and keywords -like $keywords }
@@ -129,7 +129,7 @@ Se é decidido para desinstalar o software de proteção de palavra-passe do Azu
 
 5. Remova manualmente o estado de configuração ao nível da floresta. O estado de configuração de floresta é mantido num contentor no contexto de nomenclatura de configuração do Active Directory. Pode ser detetado e eliminado da seguinte forma:
 
-   ```PowerShell
+   ```powershell
    $passwordProtectionConfigContainer = "CN=Azure AD Password Protection,CN=Services," + (Get-ADRootDSE).configurationNamingContext
    Remove-ADObject -Recursive $passwordProtectionConfigContainer
    ```

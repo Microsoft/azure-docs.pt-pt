@@ -1,6 +1,6 @@
 ---
 title: Implementação de DBMS de máquinas virtuais do Azure do Oracle para a carga de trabalho do SAP | Documentos da Microsoft
-description: Implementação de DBMS de máquinas virtuais do Azure do Oracle para a carga de trabalho do SAP
+description: Implementação em Oracle do DBMS para Máquinas Virtuais do Azure para a carga de trabalho SAP
 services: virtual-machines-linux,virtual-machines-windows
 documentationcenter: ''
 author: msjuergent
@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 12/14/2018
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 6ef8498ae1aa9be0322f508b3723778311e2cdd5
-ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
+ms.openlocfilehash: 6abfd26e63cc8001f501371fffce0a4c10f4ff85
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/16/2019
-ms.locfileid: "56327787"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58483524"
 ---
 # <a name="azure-virtual-machines-dbms-deployment-for-sap-workload"></a>Implementação de DBMS de máquinas virtuais do Azure para a carga de trabalho do SAP
 
@@ -158,7 +158,7 @@ ms.locfileid: "56327787"
 [deploy-template-portal]:../../../resource-group-template-deploy-portal.md
 [deploy-template-powershell]:../../../resource-group-template-deploy.md
 
-[dr-guide-classic]:http://go.microsoft.com/fwlink/?LinkID=521971
+[dr-guide-classic]:https://go.microsoft.com/fwlink/?LinkID=521971
 
 [getting-started]:get-started.md
 [getting-started-dbms]:get-started.md#1343ffe1-8021-4ce6-a08d-3a1553a4db82
@@ -172,7 +172,7 @@ ms.locfileid: "56327787"
 [getting-started-windows-classic-ha-sios]:../../virtual-machines-windows-classic-sap-get-started.md#4bb7512c-0fa0-4227-9853-4004281b1037
 [getting-started-windows-classic-planning]:../../virtual-machines-windows-classic-sap-get-started.md#f2a5e9d8-49e4-419e-9900-af783173481c
 
-[ha-guide-classic]:http://go.microsoft.com/fwlink/?LinkId=613056
+[ha-guide-classic]:https://go.microsoft.com/fwlink/?LinkId=613056
 
 [install-extension-cli]:virtual-machines-linux-enable-aem.md
 
@@ -314,7 +314,7 @@ Este documento aborda várias áreas diferentes a serem considerados quando esti
 Pode encontrar informações sobre versões de Oracle e versões de SO correspondentes, que são suportadas para executar o SAP no Oracle no Azure na nota SAP [2039619].
 
 Informações gerais sobre como executar o SAP Business Suite no Oracle, podem ser encontradas em [SAP no Oracle](https://www.sap.com/community/topic/oracle.html).
-Oracle software é suportado pelo Oracle para ser executado no Microsoft Azure. Para obter mais informações sobre o suporte geral para Windows. o Hyper-V e o Azure, consulte a [Oracle e perguntas frequentes do Microsoft Azure](http://www.oracle.com/technetwork/topics/cloud/faq-1963009.html). 
+Oracle software é suportado pelo Oracle para ser executado no Microsoft Azure. Para obter mais informações sobre o suporte geral para Windows. o Hyper-V e o Azure, consulte a [Oracle e perguntas frequentes do Microsoft Azure](https://www.oracle.com/technetwork/topics/cloud/faq-1963009.html). 
 
 ## <a name="sap-notes-relevant-for-oracle-sap-and-azure"></a>Notas SAP relevantes para a Oracle, SAP e o Azure 
 
@@ -405,7 +405,7 @@ A configuração de desempenho é o seguinte:
 Se mais IOPS forem necessárias, recomendamos que utilize agrupamentos de armazenamento do Windows (apenas disponível no Windows Server 2012 e posterior) para criar um dispositivo lógico grande ao longo de vários discos montados. Esta abordagem simplifica a administração sobrecarga para gerir o espaço em disco e ajuda a evitar o esforço de distribuição de arquivos manualmente em vários discos montados.
 
 
-#### <a name="write-accelerator"></a>Acelerador de escrita
+#### <a name="write-accelerator"></a>Acelerador de Escritas
 Para VMs de série M do Azure, a latência de escrita nos registos de Refazer online pode ser reduzida por fatores em comparação com o armazenamento Premium do Azure. Ative o acelerador de escrita do Azure para os discos (VHDs) com base no armazenamento Premium do Azure que são utilizados para ficheiros de registo de Refazer online. Para obter mais informações, consulte [acelerador de escrita](https://docs.microsoft.com/azure/virtual-machines/linux/how-to-enable-write-accelerator).
 
 
@@ -426,7 +426,7 @@ Para implementações do Oracle no Windows, é altamente recomendável em rede a
 [Considerações para a implementação de DBMS de máquinas virtuais do Azure para a carga de trabalho do SAP](dbms_guide_general.md) descreve outros conceitos importantes relacionados com implementações de VMs com a base de dados Oracle, incluindo conjuntos de disponibilidade do Azure e a monitorização de SAP.
 
 ## <a name="specifics-for-oracle-database-on-oracle-linux"></a>Especificações da base de dados do Oracle no Oracle Linux
-Oracle software é suportado pelo Oracle para ser executado no Microsoft Azure com o Oracle Linux como sistema operacional convidado. Para obter mais informações sobre o suporte geral para Windows. o Hyper-V e o Azure, consulte a [do Azure e o Oracle FAQ](http://www.oracle.com/technetwork/topics/cloud/faq-1963009.html). 
+Oracle software é suportado pelo Oracle para ser executado no Microsoft Azure com o Oracle Linux como sistema operacional convidado. Para obter mais informações sobre o suporte geral para Windows. o Hyper-V e o Azure, consulte a [do Azure e o Oracle FAQ](https://www.oracle.com/technetwork/topics/cloud/faq-1963009.html). 
 
 Também é suportado o cenário específico de aplicações SAP tirar partido das bases de dados Oracle. Detalhes são discutidos na próxima parte do documento.
 
@@ -463,12 +463,13 @@ Se estiver a utilizar discos com base no armazenamento de BLOBs de página do Az
 Para identificar os tipos de VM do Azure suportados, consulte a nota SAP [1928533].
 
 Configuração mínima:
+
 | Componente | Disco | Colocação em cache | Remoção * |
 | --- | ---| --- | --- |
-| /Oracle/<SID>/origlogaA & mirrlogB | Premium | Nenhuma | Não é preciso |
-| /Oracle/<SID>/origlogaB & mirrlogA | Premium | Nenhuma | Não é preciso |
-| /oracle/<SID>/sapdata1...n | Premium | Só de leitura | Pode ser utilizado |
-| /Oracle/<SID>/oraarch | Standard | Nenhuma | Não é preciso |
+| /Oracle/\<SID > / origlogaA & mirrlogB | Premium | Nenhuma | Não é preciso |
+| /Oracle/\<SID > / origlogaB & mirrlogA | Premium | Nenhuma | Não é preciso |
+| /Oracle/\<SID > / sapdata1... n | Premium | Só de leitura | Pode ser utilizado |
+| /Oracle/\<SID > / oraarch | Standard | Nenhuma | Não é preciso |
 | Página inicial do Oracle, saptrace,... | Disco do SO | | Não é preciso |
 
 * Remoção: O stripe LVM ou MDADM usando RAID0
@@ -476,15 +477,16 @@ Configuração mínima:
 A seleção de disco para o alojamento de registos de Refazer online da Oracle deve ser conduzida por requisitos de IOPS. É possível armazenar todos os sapdata1... n (tablespaces) num único disco montado, desde que o volume, IOPS e débito satisfazem os requisitos. 
 
 Configuração de desempenho:
+
 | Componente | Disco | Colocação em cache | Remoção * |
 | --- | ---| --- | --- |
-| /Oracle/<SID>/origlogaA | Premium | Nenhuma | Pode ser utilizado  |
-| /oracle/<SID>/origlogaB | Premium | Nenhuma | Pode ser utilizado |
-| /oracle/<SID>/mirrlogAB | Premium | Nenhuma | Pode ser utilizado |
-| /oracle/<SID>/mirrlogBA | Premium | Nenhuma | Pode ser utilizado |
-| /oracle/<SID>/sapdata1...n | Premium | Só de leitura | Recomendado  |
-| /oracle/SID/sapdata(n+1)* | Premium | Nenhuma | Pode ser utilizado |
-| /oracle/<SID>/oraarch* | Premium | Nenhuma | Não é preciso |
+| /Oracle/\<SID > / origlogaA | Premium | Nenhuma | Pode ser utilizado  |
+| /Oracle/\<SID > / origlogaB | Premium | Nenhuma | Pode ser utilizado |
+| /Oracle/\<SID > / mirrlogAB | Premium | Nenhuma | Pode ser utilizado |
+| /Oracle/\<SID > / mirrlogBA | Premium | Nenhuma | Pode ser utilizado |
+| /Oracle/\<SID > / sapdata1... n | Premium | Só de leitura | Recomendado  |
+| /oracle/\<SID>/sapdata(n+1)* | Premium | Nenhuma | Pode ser utilizado |
+| /oracle/\<SID>/oraarch* | Premium | Nenhuma | Não é preciso |
 | Página inicial do Oracle, saptrace,... | Disco do SO | Não é preciso |
 
 * Remoção: O stripe LVM ou MDADM usando RAID0
@@ -497,7 +499,7 @@ Configuração de desempenho:
 Se mais IOPS forem necessárias, recomendamos que utilize LVM (Gestor de volumes lógicos) ou MDADM para criar um grande volume de lógico ao longo de vários discos montados. Para obter mais informações, consulte [considerações para a implementação de DBMS de máquinas virtuais do Azure para a carga de trabalho do SAP](dbms_guide_general.md) sobre as diretrizes e ponteiros sobre como tirar partido LVM ou MDADM. Esta abordagem simplifica a sobrecarga de administração de gerir o espaço em disco e ajuda a evitar o esforço de distribuição de arquivos manualmente em vários discos montados.
 
 
-#### <a name="write-accelerator"></a>Acelerador de escrita
+#### <a name="write-accelerator"></a>Acelerador de Escritas
 Para VMs de série M do Azure, quando utiliza o acelerador de escrita de Azure, a latência de escrita nos registos de Refazer online pode ser reduzida por fatores em comparação com o desempenho de armazenamento Premium do Azure. Ative o acelerador de escrita do Azure para os discos (VHDs) com base no armazenamento Premium do Azure que são utilizados para ficheiros de registo de Refazer online. Para obter mais informações, consulte [acelerador de escrita](https://docs.microsoft.com/azure/virtual-machines/linux/how-to-enable-write-accelerator).
 
 

@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 03/12/2018
 ms.author: sngun
 Customer intent: As a developer, I want to build a .NET Core application to access and manage Azure Cosmos DB resources so that customers can utilize the global distribution, elastic scaling, multi-master, and other capabilities that Azure Cosmos DB offers.
-ms.openlocfilehash: 1aad68a3248561c86e195b55c1d509ab7a15964e
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: 52e39b705b8bd0e20c846f065702bcaf7b3a45f1
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54035683"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58487283"
 ---
 # <a name="tutorial-build-a-net-core-app-to-manage-data-stored-in-a-sql-api-account"></a>Tutorial: Criar uma aplicação .NET Core para gerir os dados armazenados numa conta SQL API
 
@@ -76,7 +76,7 @@ Utilize os seguintes passos para criar uma conta do Cosmos do Azure:
 
    ![Captura de ecrã do menu de atalho para o projeto](./media/sql-api-dotnetcore-get-started/nosql-tutorial-manage-nuget-pacakges.png)
 
-6. Sobre o **NuGet** separador, selecione **procurar** na parte superior da janela e escreva **documentdb do azure** na caixa de pesquisa.
+6. Sobre o **NuGet** separador, selecione **procurar** na parte superior da janela e escreva **documentdb do azure** na caixa de pesquisa. Certifique-se de que o **incluir pré-lançamento** caixa de verificação.
 
 7. Nos resultados, encontre **Microsoft.Azure.DocumentDB.Core** e selecione **instalar**.
 

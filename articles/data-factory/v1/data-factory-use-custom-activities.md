@@ -13,12 +13,12 @@ author: nabhishek
 ms.author: abnarain
 manager: craigg
 robots: noindex
-ms.openlocfilehash: 1341a8fce95dff0499a698fcddf8d048f3628dba
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 0ddc235064d99e9d6385ab48e78f893952eefa15
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58108244"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58487486"
 ---
 # <a name="use-custom-activities-in-an-azure-data-factory-pipeline"></a>Utilizar atividades personalizadas num pipeline do Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -48,7 +48,7 @@ A instrução a seguir fornece instruções passo a passo para criar uma ativida
 * Transferir e instalar o [SDK .NET do Azure](https://azure.microsoft.com/downloads/)
 
 ### <a name="azure-batch-prerequisites"></a>Pré-requisitos do Azure Batch
-Passo a passo, irá executar as suas atividades .NET personalizadas com o Azure Batch como um recurso de computação. **O Azure Batch** é uma plataforma de serviço para a execução de paralelas em grande escala e de alto desempenho aplicações de computação (HPC) com eficiência na cloud. O Azure Batch agenda trabalho de computação intensiva para executar numa gerida **coleção de máquinas virtuais**, e pode automaticamente Dimensionar recursos de computação para satisfazer as necessidades das suas tarefas. Ver [Noções básicas do Azure Batch] [ batch-technical-overview] artigo para uma visão geral detalhada do serviço Azure Batch.
+Passo a passo, irá executar as suas atividades .NET personalizadas com o Azure Batch como um recurso de computação. O **Azure Batch** é um serviço de plataforma que serve para executar aplicações de computação de alto desempenho (HPC) e paralelas em larga escala de forma eficaz na cloud. O Azure Batch agenda trabalho de computação intensiva para executar numa gerida **coleção de máquinas virtuais**, e pode automaticamente Dimensionar recursos de computação para satisfazer as necessidades das suas tarefas. Ver [Noções básicas do Azure Batch] [ batch-technical-overview] artigo para uma visão geral detalhada do serviço Azure Batch.
 
 Para este tutorial, crie uma conta do Azure Batch com um conjunto de VMs. Eis os passos:
 
@@ -113,12 +113,12 @@ O método retorna um dicionário que pode ser utilizado para encadear atividades
 
 3. Na consola do Gestor de pacotes, execute o seguinte comando para importar **Microsoft.Azure.Management.DataFactories**.
 
-    ```PowerShell
+    ```powershell
     Install-Package Microsoft.Azure.Management.DataFactories
     ```
 4. Importar os **armazenamento do Azure** pacote NuGet ao projeto.
 
-    ```PowerShell
+    ```powershell
     Install-Package WindowsAzure.Storage -Version 4.3.0
     ```
 
@@ -709,7 +709,7 @@ Resolução de problemas consiste em algumas técnicas básicas:
 
     Se puder usar a versão 4.3.0 versão de pacote de armazenamento do Azure, remova a referência existente ao pacote de armazenamento do Azure de versão > versão 4.3.0. Em seguida, execute o seguinte comando do NuGet Package Manager Console.
 
-    ```PowerShell
+    ```powershell
     Install-Package WindowsAzure.Storage -Version 4.3.0
     ```
 

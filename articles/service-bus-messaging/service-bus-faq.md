@@ -9,12 +9,12 @@ ms.service: service-bus-messaging
 ms.topic: article
 ms.date: 01/23/2019
 ms.author: aschhab
-ms.openlocfilehash: fce3c2975e4b82583aa09a3862f704f05a363828
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: a10b4d7fac29a6b016b5660b0430d042f2443fbd
+ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56210599"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58498082"
 ---
 # <a name="service-bus-faq"></a>Perguntas Frequentes do Service Bus
 
@@ -55,7 +55,7 @@ As seguintes propriedades de uma fila e tópico são imutáveis. Considere esta 
 ## <a name="pricing"></a>Preços
 Esta secção responde a algumas perguntas mais frequentes sobre a estrutura de preços do Service Bus.
 
-O [do Service Bus preços e faturação](service-bus-pricing-billing.md) artigo explica os medidores de faturação no Service Bus. Para obter informações específicas sobre as opções de preços do Service Bus, consulte [os detalhes dos preços do Service Bus](https://azure.microsoft.com/pricing/details/service-bus/).
+O [do Service Bus preços e faturação](https://azure.microsoft.com/pricing/details/service-bus/) artigo explica os medidores de faturação no Service Bus. Para obter informações específicas sobre as opções de preços do Service Bus, consulte [os detalhes dos preços do Service Bus](https://azure.microsoft.com/pricing/details/service-bus/).
 
 Também pode visitar o [FAQ do suporte do Azure](https://azure.microsoft.com/support/faq/) para o Azure geral informações sobre preços. 
 

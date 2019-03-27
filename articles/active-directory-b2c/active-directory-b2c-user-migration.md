@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 10/04/2017
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: 0ca35c5d7a882a67bdce5e006b94d1f16daf9130
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 4ebe77d26360776140db8e2a4b0209475d9d6367
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57893209"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58484717"
 ---
 # <a name="azure-active-directory-b2c-user-migration"></a>Azure Active Directory B2C: Migração de utilizador
 Ao migrar o fornecedor de identidade para o Azure Active Directory B2C (Azure AD B2C), também poderá ter de migrar a conta de utilizador. Este artigo explica como migrar as contas de utilizador existentes de qualquer fornecedor de identidade para o Azure AD B2C. O artigo não se destina a ser prescritivas, mas, em vez disso, ele descreve alguns cenários. O desenvolvedor é responsável pela adequação de cada abordagem.
@@ -104,7 +104,7 @@ Neste script de PowerShell, faça o seguinte:
    
 1. Utilize o **ID da aplicação** para atribuir a aplicação a função de administrador de conta de utilizador. Estas funções têm identificadores bem conhecidos, portanto, tudo o que precisa fazer é digitar seus **ID da aplicação** no script.
    
-```PowerShell
+```powershell
 Connect-AzureAD
 
 $AppId = "<Your application ID>"

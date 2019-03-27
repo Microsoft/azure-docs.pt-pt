@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 10/24/2018
 ms.author: jeking
 ms.subservice: common
-ms.openlocfilehash: 8928e59b97143038e0850132196f1ce9a1da131d
-ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
+ms.openlocfilehash: ab3984b29b3bdfac7599c68c14bd6cc5b671cdf4
+ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58337889"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58447250"
 ---
 # <a name="zone-redundant-storage-zrs-highly-available-azure-storage-applications"></a>Armazenamento com redundância de zona (ZRS): Aplicações de armazenamento do Azure de elevada disponibilidade
 [!INCLUDE [storage-common-redundancy-ZRS](../../../includes/storage-common-redundancy-zrs.md)]
@@ -50,7 +50,7 @@ Migrar para ou do LRS, GRS e RA-GRS é simples. Utilize o portal do Azure ou a A
 
 Migrar dados de ou para ZRS requerem uma estratégia diferente. A migração de ZRS envolve o movimento físico dos dados de um carimbo de armazenamento única para vários carimbos de data / dentro de uma região.
 
-Existem duas opções principais para a migração para ou a partir de ZRS: 
+Existem duas opções principais para migração para o ZRS: 
 
 - Manualmente, copiar ou mover dados para uma conta ZRS nova de uma conta existente.
 - Pedir uma migração em direto.
@@ -73,6 +73,7 @@ Tenha em atenção as seguintes restrições sobre a migração em direto:
 - Sua conta tem de conter dados.
 - Só é possível migrar os dados na mesma região. Se pretender migrar os dados para uma conta ZRS localizada numa região diferente da conta de origem, tem de efetuar uma migração manual.
 - Tipos de conta de armazenamento standard só suportam a migração em direto. Contas de armazenamento Premium têm de ser migradas manualmente.
+- Não é suportada a migração em direto de ZRS para LRS, GRS ou RA-GRS. Precisará mover manualmente os dados para um novo ou uma conta de armazenamento existente.
 
 Pode pedir uma migração em direto através da [portal de suporte do Azure](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview). No portal, selecione a conta de armazenamento que pretende converter em ZRS.
 1. Selecione **novo pedido de suporte**
@@ -120,7 +121,7 @@ Se pretender migrar os dados para uma conta ZRS localizada numa região diferent
 > [!NOTE]
 > A Microsoft irá preterir e migrar as contas ZRS Classic no dia 31 de Março de 2021. Obter mais detalhes serão fornecidos aos clientes ZRS Classic antes de preterição. 
 >
-> Assim que for ZRS [em disponibilidade geral](#support-coverage-and-regional-availability) numa região, os clientes não será possível criar as contas ZRS clássico a partir do portal nessa região. Usando o Microsoft PowerShell e CLI do Azure para criar as contas ZRS Classic é uma opção até que o ZRS Classic foi preterido.
+> Assim que for ZRS [em disponibilidade geral](#support-coverage-and-regional-availability) numa região, os clientes não será possível criar as contas ZRS clássico a partir do Portal nessa região. Usando o Microsoft PowerShell e CLI do Azure para criar as contas ZRS Classic é uma opção até que o ZRS Classic foi preterido.
 
 ZRS Classic assincronamente replica os dados em centros de dados dentro de uma ou duas regiões. Os dados replicados podem não estar disponíveis, a menos que a Microsoft inicie a ativação pós-falha para o secundário. Uma conta ZRS Classic não pode ser convertida para ou do LRS, GRS ou RA-GRS. As contas ZRS Classic também não suportam métricas ou de registo.
 
@@ -128,7 +129,19 @@ ZRS Classic só está disponível para **blobs de blocos** para fins gerais V1 (
 
 Para migrar manualmente os dados da conta ZRS para ou a partir de uma conta LRS, ZRS Classic, GRS ou RA-GRS, utilize uma das seguintes ferramentas: AzCopy, o Explorador de armazenamento do Azure, o Azure PowerShell ou o Azure CLI. Também pode criar sua própria solução de migração com uma das bibliotecas de cliente do armazenamento do Azure.
 
-Também pode atualizar sua conta ZRS Classic (s) para o ZRS no Portal ou utilizando o Azure PowerShell ou na CLI do Azure.
+Também é possível atualizar a sua conta ZRS Classic (s) no Azure PowerShell Portal ou utilizando o ZRS ou da CLI do Azure nas regiões onde o ZRS está disponível.
+
+Atualizar para o ZRS no Portal do Ir para a seção de configuração da conta e escolha atualizar:![Atualizar o ZRS clássico para o ZRS no Portal](media/storage-redundancy-zrs/portal-zrs-classic-upgrade.jpg)
+
+Para atualizar para o ZRS com o PowerShell chame o seguinte comando:
+```powershell
+Set-AzStorageAccount -ResourceGroupName <resource_group> -AccountName <storage_account> -UpgradeToStorageV2
+```
+
+Para atualizar para o ZRS com CLI chame o seguinte comando:
+```cli
+az storage account update -g <resource_group> -n <storage_account> --set kind=StorageV2
+```
 
 ## <a name="see-also"></a>Consulte também
 - [Replicação do Armazenamento do Azure](storage-redundancy.md)

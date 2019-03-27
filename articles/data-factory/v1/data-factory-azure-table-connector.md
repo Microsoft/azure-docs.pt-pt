@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 7156249e720416161cd56af7589ed85827c6034b
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: aed341c50332b424a1149c129629cd451a4e5133
+ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55812555"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58500088"
 ---
 # <a name="move-data-to-and-from-azure-table-using-azure-data-factory"></a>Mover dados de e para tabelas do Azure com o Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -31,6 +31,8 @@ ms.locfileid: "55812555"
 Este artigo explica como utilizar a atividade de cópia no Azure Data Factory para mover dados de/para o armazenamento de tabelas do Azure. Ele se baseia no [atividades de movimento de dados](data-factory-data-movement-activities.md) artigo, que apresenta uma visão geral do movimento de dados com a atividade de cópia. 
 
 Pode copiar dados a partir de qualquer arquivo de dados de origem suportada para o armazenamento de tabelas do Azure ou de armazenamento de tabelas do Azure para qualquer arquivo de dados de sink suportados. Para obter uma lista dos arquivos de dados suportados como origens ou sinks a atividade de cópia, consulte a [arquivos de dados suportados](data-factory-data-movement-activities.md#supported-data-stores-and-formats) tabela. 
+
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 ## <a name="getting-started"></a>Introdução
 Pode criar um pipeline com uma atividade de cópia que move os dados de/para um armazenamento de tabelas do Azure com ferramentas/APIs diferentes.
@@ -476,7 +478,7 @@ Ao mover dados para e a partir de tabelas do Azure, o seguinte procedimento [map
 | Tipo de dados do OData | Tipo de .NET | Detalhes |
 | --- | --- | --- |
 | Edm.Binary |byte[] |Uma matriz de bytes até 64 KB. |
-| Edm.Boolean |Bool |Um valor booleano. |
+| Edm.Boolean |booleano |Um valor booleano. |
 | Edm.DateTime |DateTime |Um valor de 64 bits, expressado como Hora Universal Coordenada (UTC). O intervalo suportado de DateTime começa de 12:00 1 de Janeiro, de 1601 a.d. (E.C.), UTC. O intervalo de termina a 31 de Dezembro, 9999. |
 | Edm.Double |double |Um valor de ponto flutuante de 64 bits. |
 | Edm.Guid |Guid |Um identificador exclusivo global de 128 bits. |

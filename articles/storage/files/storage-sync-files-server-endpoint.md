@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 07/19/2018
 ms.author: wgries
 ms.subservice: files
-ms.openlocfilehash: 68f21ef70b402fe45613fdcbda3074bac1d4eb5a
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: aa5f8aaef21967a23505c785eb8ef811cf5767cc
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55464964"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58486450"
 ---
 # <a name="addremove-an-azure-file-sync-server-endpoint"></a>Adicionar ou remover um ponto de extremidade do servidor de sincronização de ficheiros do Azure
 O Azure File Sync permite-lhe centralizar as partilhas de ficheiros da sua organização nos Ficheiros do Azure sem abdicar da flexibilidade, do desempenho e da compatibilidade de um servidor de ficheiros no local. Ele faz isso ao transformar os seus servidores do Windows numa cache rápida da sua partilha de ficheiros do Azure. Pode utilizar qualquer protocolo disponível no Windows Server para aceder aos seus dados localmente (incluindo SMB, NFS e FTPS) e pode ter o número de caches que precisar em todo o mundo.
@@ -51,7 +51,7 @@ Se desejar interromper a utilizar o Azure File Sync para um ponto de extremidade
 
 Para garantir que todos os ficheiros em camadas são removidos antes de remover o ponto final do servidor, desativar a camada do ponto final do servidor de cloud e, em seguida, execute o seguinte cmdlet do PowerShell para recuperar todos os ficheiros em camadas no seu espaço de nomes de ponto final de servidor:
 
-```PowerShell
+```powershell
 Import-Module "C:\Program Files\Azure\StorageSyncAgent\StorageSync.Management.ServerCmdlets.dll"
 Invoke-StorageSyncFileRecall -Path <path-to-to-your-server-endpoint>
 ```

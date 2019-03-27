@@ -10,12 +10,12 @@ ms.subservice: custom-vision
 ms.topic: quickstart
 ms.date: 03/21/2019
 ms.author: anroth
-ms.openlocfilehash: 829de211e99ff56ca71af6db4f7c69c5bdf2050a
-ms.sourcegitcommit: 87bd7bf35c469f84d6ca6599ac3f5ea5545159c9
+ms.openlocfilehash: 9b6d01908265791a83ee311375fa50fcca995f79
+ms.sourcegitcommit: fbfe56f6069cba027b749076926317b254df65e5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58351691"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58472740"
 ---
 # <a name="quickstart-create-an-image-classification-project-with-the-custom-vision-net-sdk"></a>Início rápido: Criar um projeto de classificação de imagem com o SDK de .NET de visão personalizada
 
@@ -66,23 +66,55 @@ As imagens para este projeto estão incluídas. São referenciadas no método **
 
 [!code-csharp[](~/cognitive-services-dotnet-sdk-samples/CustomVision/ImageClassification/Program.cs?range=40-55)]
 
-### <a name="train-the-classifier"></a>Preparar o classificador
+### <a name="train-the-classifier-and-publish"></a>Treinar o classificador e publicar
 
-Este código cria a primeira iteração no projeto e marca-a como a iteração predefinida. A iteração predefinida reflete a versão do modelo que irá responder aos pedidos de predição. Deve atualizá-la sempre que voltar a preparar o modelo.
+Este código cria a primeira iteração no projeto e, em seguida, publica iteração para o ponto final de predição. O nome para a iteração publicada pode ser utilizado para enviar pedidos de predição. Uma iteração não está disponível o ponto final de predição até que seja publicada.
 
-[!code-csharp[](~/cognitive-services-dotnet-sdk-samples/CustomVision/ImageClassification/Program.cs?range=57-73)]
+```csharp
+// The returned iteration will be in progress, and can be queried periodically to see when it has completed
+while (iteration.Status == "Training")
+{
+        Thread.Sleep(1000);
+
+        // Re-query the iteration to get it's updated status
+        iteration = trainingApi.GetIteration(project.Id, iteration.Id);
+}
+
+// The iteration is now trained. Publish it to the prediction end point.
+var publishedModelName = "treeClassModel";
+var predictionResourceId = "<target prediction resource ID>";
+trainingApi.PublishIteration(project.Id, iteration.Id, publishedModelName, predictionResourceId);
+Console.WriteLine("Done!\n");
+```
 
 ### <a name="set-the-prediction-endpoint"></a>Definir o ponto final de predição
 
 O ponto final de predição é a referência que vai servir para submeter uma imagem para o modelo atual e obter uma predição de classificação.
- 
-[!code-csharp[](~/cognitive-services-dotnet-sdk-samples/CustomVision/ImageClassification/Program.cs?range=77-82)]
- 
+
+```csharp
+// Create a prediction endpoint, passing in obtained prediction key
+CustomVisionPredictionClient endpoint = new CustomVisionPredictionClient()
+{
+        ApiKey = predictionKey,
+        Endpoint = SouthCentralUsEndpoint
+};
+```
+
 ### <a name="submit-an-image-to-the-default-prediction-endpoint"></a>Submeter uma imagem para o ponto final de predição predefinido
 
 Neste script, a imagem de teste é carregada no método **LoadImagesFromDisk** e a saída da predição do modelo vai ser apresentada na consola.
 
-[!code-csharp[](~/cognitive-services-dotnet-sdk-samples/CustomVision/ImageClassification/Program.cs?range=84-92)]
+```csharp
+// Make a prediction against the new project
+Console.WriteLine("Making a prediction:");
+var result = endpoint.ClassifyImage(project.Id, publishedModelName, testImage);
+
+// Loop over each prediction and write out the results
+foreach (var c in result.Predictions)
+{
+        Console.WriteLine($"\t{c.TagName}: {c.Probability:P1}");
+}
+```
 
 ## <a name="run-the-application"></a>Executar a aplicação
 

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/05/2018
 ms.author: spelluru
-ms.openlocfilehash: e594ace368799f85eea2e7291ead6febea0ea4b7
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: dc6e218fe048e1781f53c53935308eb193fcd094
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57543887"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58487163"
 ---
 # <a name="create-a-custom-image-from-a-vhd-file-using-powershell"></a>Criar uma imagem personalizada a partir de um ficheiro VHD com o PowerShell
 
@@ -37,20 +37,20 @@ Os seguintes passos guiá-lo através da criação de uma imagem personalizada d
 
 1. Na linha de comandos do PowerShell, inicie sessão na sua conta do Azure com a chamada seguinte para o **Connect-AzAccount** cmdlet.  
     
-    ```PowerShell
+    ```powershell
     Connect-AzAccount
     ```
 
 1.  Selecione a subscrição do Azure pretendida ao chamar o **AzSubscription selecione** cmdlet. Substitua o marcador de posição seguinte para o **$subscriptionId** variável com um ID de subscrição do Azure válida. 
 
-    ```PowerShell
+    ```powershell
     $subscriptionId = '<Specify your subscription ID here>'
     Select-AzSubscription -SubscriptionId $subscriptionId
     ```
 
 1.  Obtenha o objeto de laboratório ao chamar o **Get-AzResource** cmdlet. Substitua os marcadores de posição seguintes para o **$labRg** e **$labName** variáveis com os valores adequados para o seu ambiente. 
 
-    ```PowerShell
+    ```powershell
     $labRg = '<Specify your lab resource group name here>'
     $labName = '<Specify your lab name here>'
     $lab = Get-AzResource -ResourceId ('/subscriptions/' + $subscriptionId + '/resourceGroups/' + $labRg + '/providers/Microsoft.DevTestLab/labs/' + $labName)
@@ -58,20 +58,20 @@ Os seguintes passos guiá-lo através da criação de uma imagem personalizada d
  
 1.  Obtenha o laboratório de armazenamento conta e laboratório armazenamento conta valores de chave do objeto de laboratório. 
 
-    ```PowerShell
+    ```powershell
     $labStorageAccount = Get-AzResource -ResourceId $lab.Properties.defaultStorageAccount 
     $labStorageAccountKey = (Get-AzStorageAccountKey -ResourceGroupName $labStorageAccount.ResourceGroupName -Name $labStorageAccount.ResourceName)[0].Value
     ```
 
 1.  Substitua o marcador de posição seguinte para o **$vhdUri** variável com o URI para o ficheiro VHD carregado. Pode obter o URI do ficheiro VHD do painel de blob da conta de armazenamento no portal do Azure.
 
-    ```PowerShell
+    ```powershell
     $vhdUri = '<Specify the VHD URI here>'
     ```
 
 1.  Crie a imagem personalizada com o **New-AzResourceGroupDeployment** cmdlet. Substitua os marcadores de posição seguintes para o **$customImageName** e **$customImageDescription** variáveis para nomes significativos para o seu ambiente.
 
-    ```PowerShell
+    ```powershell
     $customImageName = '<Specify the custom image name>'
     $customImageDescription = '<Specify the custom image description>'
 
@@ -84,7 +84,7 @@ Os seguintes passos guiá-lo através da criação de uma imagem personalizada d
 
 O seguinte script do PowerShell pode ser utilizado para criar uma imagem personalizada de um ficheiro VHD. Substitua os marcadores de posição (começando e terminando com colchetes angulares) com os valores adequados para as suas necessidades. 
 
-```PowerShell
+```powershell
 # Log in to your Azure account.  
 Connect-AzAccount
 

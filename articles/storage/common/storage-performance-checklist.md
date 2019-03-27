@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 12/08/2016
 ms.author: rogarana
 ms.subservice: common
-ms.openlocfilehash: 1b6c8b1af00c2819632c60a27d61d7cf8db44885
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: d39c2414aa8299282b3896a9ceb57897fdb25ff1
+ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58012326"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58446003"
 ---
 # <a name="microsoft-azure-storage-performance-and-scalability-checklist"></a>Lista de Verificação de Desempenho e Escalabilidade do Armazenamento do Microsoft Azure
 ## <a name="overview"></a>Descrição geral
@@ -98,7 +98,7 @@ No momento da escrita, os destinos de largura de banda nos Estados Unidos para u
 Se estiver a atingir o limite de contas de armazenamento, que pode ter numa combinação de subscrição/região em particular, avaliar o aplicativo e a utilização de contas de armazenamento e determinar se alguma das seguintes condições se aplicam.
 
 * Utilizar contas de armazenamento como discos não geridos e adicionar esses discos para as máquinas virtuais. Neste cenário, recomendamos que utilize [discos geridos](../../virtual-machines/windows/managed-disks-overview.md), como eles manipulam escalabilidade de disco de armazenamento para, sem ter de voltar a criar e gerir contas de armazenamento individuais.
-* Utilizar uma conta de armazenamento numa base por cliente, para efeitos de isolamento de dados. Neste cenário, recomendamos que utilize contentores de armazenamento para cada cliente, em vez de uma conta de armazenamento completo. O armazenamento do Azure agora permite-lhe especificar o controlo de acesso baseado em funções num por [base de contentor](storage-auth-aad-rbac.md).
+* Utilizar uma conta de armazenamento numa base por cliente, para efeitos de isolamento de dados. Neste cenário, recomendamos que utilize contentores de armazenamento para cada cliente, em vez de uma conta de armazenamento completo. O armazenamento do Azure agora permite-lhe especificar o controlo de acesso baseado em funções num por [base de contentor](storage-auth-aad-rbac-portal.md).
 * Utilizar várias contas de armazenamento para partições horizontais para maior escalabilidade de entrada/saída/iops/capacidade. Neste cenário, se possível, recomendamos que aproveitar o [aumentou limites](https://azure.microsoft.com/blog/announcing-larger-higher-scale-storage-accounts/) de contas de armazenamento standard para reduzir o número de contas de armazenamento necessário para a sua carga de trabalho.
 
 Se seu aplicativo está a atingir as metas de escalabilidade para uma única conta de armazenamento, considere adotar uma das abordagens seguintes:  

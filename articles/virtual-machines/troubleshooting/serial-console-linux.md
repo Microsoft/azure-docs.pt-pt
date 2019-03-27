@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 10/31/2018
 ms.author: harijay
-ms.openlocfilehash: 4fd96aedc658833493d6fddb704104a70c01df44
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: f407d87249c44ad3a4773b2cd8fc85ee09506ceb
+ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58010987"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58445663"
 ---
 # <a name="virtual-machine-serial-console-for-linux"></a>Consola de série de máquina virtual para Linux
 
@@ -41,9 +41,9 @@ Para obter documentação de consola de série para VMs do Windows, consulte [co
 
 - Tem de ter uma conta que utiliza uma consola de série a [função de contribuinte de Máquina Virtual](../../role-based-access-control/built-in-roles.md#virtual-machine-contributor) para a VM e o [diagnósticos de arranque](boot-diagnostics.md) conta de armazenamento:
 
-    - A VM em que está a aceder à consola de série tem de ter uma conta baseada em palavra-passe. Pode criar uma com o [Repor palavra-passe](https://docs.microsoft.com/azure/virtual-machines/extensions/vmaccess#reset-password) função da extensão de acesso VM. Selecione **Repor palavra-passe** partir do **suporte + resolução de problemas** secção.
+- A VM em que está a aceder à consola de série tem de ter uma conta baseada em palavra-passe. Pode criar uma com o [Repor palavra-passe](https://docs.microsoft.com/azure/virtual-machines/extensions/vmaccess#reset-password) função da extensão de acesso VM. Selecione **Repor palavra-passe** partir do **suporte + resolução de problemas** secção.
 
-    - Para configurações específicas de distribuições do Linux, consulte [consola de série disponibilidade de distribuição de Linux](#serial-console-linux-distribution-availability).
+- Para configurações específicas de distribuições do Linux, consulte [consola de série disponibilidade de distribuição de Linux](#serial-console-linux-distribution-availability).
 
 
 
@@ -85,12 +85,11 @@ Imagens do Linux personalizadas     | Para ativar a consola de série para a sua
 
 Cenário          | Ações na consola de série
 :------------------|:-----------------------------------------
-Dividido *FSTAB* ficheiro | Prima a **Enter** tecla para continuar e utilize um editor de texto para corrigir o *FSTAB* ficheiro. Poderá ter de estar no modo de utilizador único para fazer isso. Para obter mais informações, consulte [como corrigir problemas de fstab](https://support.microsoft.com/help/3206699/azure-linux-vm-cannot-start-because-of-fstab-errors) e [consola de série de utilização para aceder a GRUB e modo de utilizador único](serial-console-grub-single-user-mode.md).
-Regras de firewall incorreta | Aceder à consola de série e corrigir iptables.
-Danos/verificação de sistema de ficheiros | Aceder à consola de série e recuperar o sistema de ficheiros.
-Problemas de configuração de SSH/RDP | Aceder à consola de série e alterar as definições.
-Bloqueio de rede para baixo do sistema| Aceda à consola de série do portal do Azure para gerir o sistema.
-Interagir com o carregador de inicialização | Reinicie a sua VM a partir do painel da consola de série para acessar o GRUB na sua VM do Linux. Para obter mais informações, consulte [consola de série de utilização para aceder a GRUB e modo de utilizador único](serial-console-grub-single-user-mode.md).
+Dividido *FSTAB* ficheiro | Prima a **Enter** tecla para continuar e utilize um editor de texto para corrigir o *FSTAB* ficheiro. Poderá ter de estar no modo de utilizador único para fazer isso. Para obter mais informações, consulte a secção consola de série [como corrigir problemas de fstab](https://support.microsoft.com/help/3206699/azure-linux-vm-cannot-start-because-of-fstab-errors) e [consola de série de utilização para aceder a GRUB e modo de utilizador único](serial-console-grub-single-user-mode.md).
+Regras de firewall incorreta |  Se tiver configurado iptables para bloquear a conectividade SSH, pode utilizar a consola de série para interagir com a VM sem a necessidade de SSH. Obter mais detalhes podem ser encontrados no [iptables cara página](https://linux.die.net/man/8/iptables). Da mesma forma, se firewalld está a bloquear o acesso SSH, pode aceder à VM através da consola de série e reconfigurar firewalld. Podem encontrar mais detalhes no [firewalld documentação](https://firewalld.org/documentation/).
+Danos/verificação de sistema de ficheiros | Consulte a secção de consola de série do [VM Linux do Azure não consegue iniciar devido a erros de sistema de ficheiros](https://support.microsoft.com/en-us/help/3213321/linux-recovery-cannot-ssh-to-linux-vm-due-to-file-system-errors-fsck) para obter mais detalhes sobre como resolver danificado sistemas de ficheiros utilizando a consola de série.
+Problemas de configuração de SSH | Aceder à consola de série e alterar as definições. Consola de série pode ser utilizada independentemente da configuração de SSH de uma VM à medida que não é necessário que a VM tem conectividade de rede a funcionar. Um guia de resolução de problemas está disponível em [resolver problemas de SSH ligações a uma VM do Linux do Azure que falhar, erros de saída, ou for recusada](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/troubleshoot-ssh-connection). Obter mais detalhes estão disponíveis em [detalhadas SSH resolução de problemas de passos para problemas de ligação a uma VM do Linux no Azure](./detailed-troubleshoot-ssh-connection.md)
+Interagir com o carregador de inicialização | Reinicie a sua VM a partir do painel da consola de série para acessar o GRUB na sua VM do Linux. Para obter mais detalhes e informações específicas de distribuição, consulte [consola de série de utilização para aceder a GRUB e modo de utilizador único](serial-console-grub-single-user-mode.md).
 
 ## <a name="disable-the-serial-console"></a>Desativar a consola de série
 Por predefinição, todas as subscrições têm acesso de consola de série ativado para todas as VMs. Pode desativar a consola de série no nível de assinatura ou o nível VM.

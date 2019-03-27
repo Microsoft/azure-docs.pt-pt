@@ -4,14 +4,14 @@ description: Fornece uma descrição geral dos problemas conhecidos no serviço 
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 03/11/2019
+ms.date: 03/13/2019
 ms.author: raynew
-ms.openlocfilehash: 2b542cc8202b75c0007686e3f0e0d9fbd1ac28c1
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 67c07169b3ff66d99ee52a0e078e0e463a42702e
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58119178"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58482917"
 ---
 # <a name="troubleshoot-azure-migrate"></a>Resolver problemas do Azure Migrate
 
@@ -61,11 +61,11 @@ Se não é possível exportar o relatório de avaliação a partir do portal, te
 
    a.    Numa janela do Windows PowerShell de administrador, execute o seguinte comando: ```armclient login```
 
-   Esta ação abre o Azure início de sessão pop-up em que precisa ao iniciar sessão no Azure.
+        This opens the Azure login pop-up where you need to sign in to Azure.
 
    b.    Na mesma janela do PowerShell, execute o seguinte comando para obter o URL de transferência para o relatório de avaliação (substitua os parâmetros do URI com os valores apropriados, a API de exemplo do pedido abaixo)
 
-      ```armclient POST https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Migrate/projects/{projectName}/groups/{groupName}/assessments/{assessmentName}/downloadUrl?api-version=2018-02-02```
+       ```armclient POST https://management.azure.com/subscriptions/{subscriptionID}/resourceGroups/{resourceGroupName}/providers/Microsoft.Migrate/projects/{projectName}/groups/{groupName}/assessments/{assessmentName}/downloadUrl?api-version=2018-02-02```
 
       Pedido de exemplo e a saída:
 
@@ -102,6 +102,9 @@ Pode ir para o **Essentials** secção a **descrição geral** página do projet
    - Clique em ficheiro > modelo implementar OVF > navegue para o OVA e concluir a implementação
 4. Se a implementação ainda falhar, contacte o suporte do Azure Migrate.
 
+### <a name="unable-to-select-the-azure-cloud-in-the-appliance"></a>Não é possível selecionar o Azure na cloud em que a aplicação
+
+Este é um problema conhecido e uma correção está disponível para o problema. Transfira o [mais recente atualização bits](https://docs.microsoft.com/azure/migrate/concepts-collector-upgrade#continuous-discovery-upgrade-versions) para a aplicação e a aplicação de modo a aplicar a correção de atualização.
 
 ### <a name="collector-is-not-able-to-connect-to-the-internet"></a>Recoletor não é possível estabelecer ligação à internet
 
@@ -330,4 +333,4 @@ Para recolher eventos de rastreio para Windows, faça o seguinte:
 | 802       | TimeSyncError                  | A hora não está sincronizada com o servidor de horas da internet.                            | A hora não está sincronizada com o servidor de horas da internet.                                                    | Certifique-se de que a hora no computador está bem definida para o fuso horário do computador e repita a operação.                                 |
 | 702       | OMSInvalidProjectKey           | Chave de projeto inválida especificada.                                                | Chave de projeto inválida especificada.                                                                        | Repita a operação com a chave de projeto correta.                                                                                              |
 | 703       | OMSHttpRequestException        | Erro ao enviar o pedido. Mensagem % Message;                                | Verifique o ID e a chave do projeto e certifique-se de que ponto final está alcançável.                                       | Repita a operação. Se o problema persistir, contacte o Suporte da Microsoft.                                                                     |
-| 704       | OMSHttpRequestTimeoutException | Pedido HTTP excedeu o tempo limite. Mensagem % Message;                                     | Verifique o id e a chave do projeto e certifique-se de que ponto final está alcançável.                                        | Repita a operação. Se o problema persistir, contacte o Suporte da Microsoft.                                                                     |
+| 704       | OMSHttpRequestTimeoutException | Pedido HTTP excedeu o tempo limite. Mensagem % Message;                                     | Verifique o ID e a chave do projeto e certifique-se de que ponto final está alcançável.                                       | Repita a operação. Se o problema persistir, contacte o Suporte da Microsoft.                                                                     |

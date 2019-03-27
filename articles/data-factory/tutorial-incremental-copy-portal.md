@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.date: 01/11/2018
 ms.author: yexu
-ms.openlocfilehash: b9e9c0b141987f8af563944c8eee216b8218846c
-ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
+ms.openlocfilehash: 1bc4bd9b95dc7e45b9b90fbe096ed71c5aa9bedf
+ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54352891"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58447242"
 ---
 # <a name="incrementally-load-data-from-an-azure-sql-database-to-azure-blob-storage"></a>Carregar dados de forma incremental de uma base de dados SQL do Azure para o armazenamento de Blobs do Azure
 Neste tutorial, vai criar uma fábrica de dados do Azure com um pipeline que carrega dados delta de uma tabela numa base de dados SQL do Azure para o armazenamento de Blobs do Azure. 
@@ -150,9 +150,10 @@ END
 ## <a name="create-a-data-factory"></a>Criar uma fábrica de dados
 
 1. Abra o browser **Microsoft Edge** ou **Google Chrome**. Atualmente, a IU do Data Factory é suportada apenas nos browsers Microsoft Edge e Google Chrome.
-1. Clique em **Novo** no menu da esquerda, clique em **Dados + Análise** e, em seguida, em **Data Factory**. 
+1. No menu da esquerda, selecione **criar um recurso** > **dados + análise** > **Data Factory**: 
    
-   ![Novo -> DataFactory](./media/tutorial-incremental-copy-portal/new-azure-data-factory-menu.png)
+   ![Seleção do Data Factory no painel "Novo"](./media/quickstart-create-data-factory-portal/new-azure-data-factory-menu.png)
+
 2. Na página **Nova fábrica de dados**, introduza **ADFIncCopyTutorialDF** no **nome**. 
       
      ![Página Nova fábrica de dados](./media/tutorial-incremental-copy-portal/new-azure-data-factory.png)

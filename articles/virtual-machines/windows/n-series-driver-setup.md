@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 09/24/2018
 ms.author: cynthn
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 756a836ff276804e9c85675c1acd5cb18aaa1258
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: d173f1f9048a46f3fb2500d225ec121157d5d960
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58008391"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58483549"
 ---
 # <a name="install-nvidia-gpu-drivers-on-n-series-vms-running-windows"></a>Instalar controladores de NVIDIA GPU em VMs de série N que executam o Windows 
 
@@ -59,7 +59,7 @@ Para consultar o estado do dispositivo GPU, execute o [nvidia smi](https://devel
 Conectividade de rede RDMA pode ser ativada em VMs de série N com capacidade RDMA, como NC24r implementadas no mesmo conjunto de disponibilidade ou num único grupo de colocação num conjunto de dimensionamento de máquina virtual. A extensão de HpcVmDrivers deve ser adicionada ao instalar controladores de dispositivo de rede do Windows que permitem a conectividade RDMA. Para adicionar a extensão de VM a uma VM de série N com RDMA ativado, utilize [do Azure PowerShell](/powershell/azure/overview) cmdlets para o Azure Resource Manager.
 
 Para instalar a versão mais recente 1.1 HpcVMDrivers extensão numa VM com capacidade RDMA existente com o nome myVM na região Oeste dos E.U.A.:
-  ```PowerShell
+  ```powershell
   Set-AzVMExtension -ResourceGroupName "myResourceGroup" -Location "westus" -VMName "myVM" -ExtensionName "HpcVmDrivers" -Publisher "Microsoft.HpcCompute" -Type "HpcVmDrivers" -TypeHandlerVersion "1.1"
   ```
   Para obter mais informações, consulte [extensões de Máquina Virtual e funcionalidades para o Windows](extensions-features.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).

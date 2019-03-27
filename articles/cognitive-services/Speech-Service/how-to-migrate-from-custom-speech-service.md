@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 10/01/2018
 ms.author: panosper
 ms.custom: seodec18
-ms.openlocfilehash: 501555c68b7b5922bbf5a74d2a7ed5e548b900c5
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 8a2c149faa0ec9d135713a123a33d7c220522496
+ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57833542"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58496008"
 ---
 # <a name="migrate-from-the-custom-speech-service-to-the-speech-service"></a>Migrar do serviço de voz personalizada para o serviço de voz
 
@@ -48,7 +48,7 @@ Migre as chaves de recurso existente para os serviços de voz no portal do servi
 > [!NOTE]
 > As chaves do recurso só podem ser migradas dentro da mesma região.
 
-1. Inicie sessão para o [cris.ai](https://www.cris.ai) portal e selecione a subscrição no menu superior direito.
+1. Inicie sessão para o [cris.ai](https://cris.ai/Home/CustomSpeech) portal e selecione a subscrição no menu superior direito.
 
 2. Selecione **migrar a subscrição selecionada**.
 

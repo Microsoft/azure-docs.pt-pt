@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/16/2018
 ms.author: hrasheed
-ms.openlocfilehash: f1515af1ef61bc40ae91e3e5b43154f92bc89ae4
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: f158e08f0f882801dc488721013e9705ea4ff738
+ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53725377"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58448320"
 ---
 # <a name="understand-and-resolve-errors-received-from-webhcat-on-hdinsight"></a>Compreender e resolver erros recebidos de WebHCat no HDInsight
 
@@ -29,7 +29,7 @@ Saiba mais sobre erros recebidos quando utiliza o WebHCat com o HDInsight e como
 > [!IMPORTANT]  
 > Vários dos erros listados neste documento ocorrerem porque foi excedido um máximo configurado. Quando o passo de resolução menciona que é possível alterar um valor, tem de utilizar um dos seguintes procedimentos para efetuar a alteração:
 
-* Para **Windows** clusters: Utilize uma ação de script para configurar o valor durante a criação do cluster. Para obter mais informações, consulte [desenvolver ações de script](hdinsight-hadoop-script-actions.md).
+* Para **Windows** clusters: Utilize uma ação de script para configurar o valor durante a criação do cluster. Para obter mais informações, consulte [desenvolver ações de script](hdinsight-hadoop-script-actions-linux.md).
 
 * Para **Linux** clusters: Utilize o Apache Ambari (web ou REST API) para modificar o valor. Para obter mais informações, consulte [gerir o HDInsight com o Apache Ambari](hdinsight-hadoop-manage-ambari.md)
 
@@ -70,7 +70,7 @@ Se os seguintes valores predefinidos são excedidos, pode degradar o desempenho 
 | --- | --- |
 | Detalhes da tarefa foram limpos pelo histórico da tarefa de limpeza |O período de retenção predefinido para o histórico de tarefas é de 7 dias. O período de retenção predefinido pode ser alterado ao modificar `mapreduce.jobhistory.max-age-ms`. Para obter mais informações, consulte [Modifying configuração](#modifying-configuration) |
 | Tarefa tiver sido terminada devido a uma ativação pós-falha |Repita a submissão da tarefa para até dois minutos |
-| Foi utilizado um id de tarefa inválida |Verifique se o id da tarefa está correto |
+| Foi utilizado um ID de tarefa inválida |Verifique se o ID da tarefa está correto |
 
 ## <a name="bad-gateway"></a>Gateway inválido
 
@@ -80,7 +80,7 @@ Se os seguintes valores predefinidos são excedidos, pode degradar o desempenho 
 | --- | --- |
 | Coleta de lixo interno que está a ocorrer dentro do processo de WebHCat |Aguarde pela coleta de lixo seja concluída ou reinicie o serviço de WebHCat |
 | Tempo limite à espera de uma resposta do serviço ResourceManager. Este erro pode ocorrer quando o número de aplicativos ativos fica o máximo configurado (predefinição 10 000) |Aguarde tarefas para concluir ou aumentar o limite de trabalhos simultâneos modificando atualmente em execução `yarn.scheduler.capacity.maximum-applications`. Para obter mais informações, consulte a [Modifying configuração](#modifying-configuration) secção. |
-| Tentar obter todas as tarefas através do [GET /jobs](https://cwiki.apache.org/confluence/display/Hive/WebHCat+Reference+Jobs) chamada ao `Fields` está definido como `*` |Não obtêm *todos os* detalhes da tarefa. Em alternativa utilize `jobid` para obter detalhes de tarefas apenas maiores do que determinados id da tarefa. Ou, não utilize `Fields` |
+| Tentar obter todas as tarefas através do [GET /jobs](https://cwiki.apache.org/confluence/display/Hive/WebHCat+Reference+Jobs) chamada ao `Fields` está definido como `*` |Não obtêm *todos os* detalhes da tarefa. Em alternativa utilize `jobid` para obter detalhes de tarefas apenas maiores do que determinados ID da tarefa. Ou, não utilize `Fields` |
 | O serviço de WebHCat está inativo durante a ativação pós-falha de nó principal |Aguardar dois minutos e repita a operação |
 | Há mais de 500 tarefas pendentes, submetidas através de WebHCat |Aguarde até que atualmente pendentes tarefas foram concluídas antes de submeter mais tarefas |
 

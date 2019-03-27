@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 03/30/2018
 ms.author: magoedte
-ms.openlocfilehash: 963fd1bfd67a20033f0712d3b447091abda40d11
-ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
+ms.openlocfilehash: de27d5c4fd65515e25319f9e7ac3eafc4110b137
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58369910"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58481572"
 ---
 # <a name="managing-and-maintaining-the-log-analytics-agent-for-windows-and-linux"></a>Gerenciando e mantendo o agente Log Analytics para Windows e Linux
 
@@ -39,7 +39,7 @@ Após a implementação inicial do Windows do Log Analytics ou agente do Linux n
 
 #### <a name="remove-a-workspace-using-powershell"></a>Remover uma área de trabalho com o PowerShell
 
-```PowerShell
+```powershell
 $workspaceId = "<Your workspace Id>"
 $mma = New-Object -ComObject 'AgentConfigManager.MgmtSvcCfg'
 $mma.RemoveCloudWorkspace($workspaceId)
@@ -48,7 +48,7 @@ $mma.ReloadConfiguration()
 
 #### <a name="add-a-workspace-in-azure-commercial-using-powershell"></a>Adicionar uma área de trabalho no Azure comercial com o PowerShell
 
-```PowerShell
+```powershell
 $workspaceId = "<Your workspace Id>"
 $workspaceKey = "<Your workspace Key>"
 $mma = New-Object -ComObject 'AgentConfigManager.MgmtSvcCfg'
@@ -58,7 +58,7 @@ $mma.ReloadConfiguration()
 
 #### <a name="add-a-workspace-in-azure-for-us-government-using-powershell"></a>Adicionar uma área de trabalho no Azure dos EUA com o PowerShell
 
-```PowerShell
+```powershell
 $workspaceId = "<Your workspace Id>"
 $workspaceKey = "<Your workspace Key>"
 $mma = New-Object -ComObject 'AgentConfigManager.MgmtSvcCfg'
@@ -117,7 +117,7 @@ Para configurar o agente para comunicar com o serviço através de um servidor p
 
 Copie o código do PowerShell de exemplo seguinte, atualize-o com informações específicas do ambiente e guarde-o com uma extensão de nome de ficheiro PS1. Execute o script em cada computador que estabelece ligação direta à área de trabalho do Log Analytics no Azure Monitor.
 
-```PowerShell
+```powershell
 param($ProxyDomainName="https://proxy.contoso.com:30443", $cred=(Get-Credential))
 
 # First we get the Health Service configuration object. We need to determine if we
