@@ -3,7 +3,7 @@ title: Utilizar uma identidade gerida atribuída pelo sistema de uma VM do Windo
 description: Um tutorial que explica o processo de utilização de uma identidade gerida atribuída pelo sistema numa VM do Windows para aceder à Graph API do Azure AD.
 services: active-directory
 documentationcenter: ''
-author: priyamohanram
+author: MarkusVi
 manager: daveba
 editor: daveba
 ms.service: active-directory
@@ -13,14 +13,14 @@ ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 08/20/2018
-ms.author: priyamo
+ms.author: markvi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 10b74b85235cc47375f6289b52371bc588105ad9
-ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
+ms.openlocfilehash: 49b0d9e4fad61195118c92c047340f2cd4d9e20f
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56890101"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58480690"
 ---
 # <a name="tutorial-use-a-windows-vm-system-assigned-managed-identity-to-access-azure-ad-graph-api"></a>Tutorial: Utilizar uma identidade gerida atribuída pelo sistema de uma VM do Windows para aceder à Graph API do Azure AD
 
@@ -85,7 +85,7 @@ Vai precisar do Azure AD PowerShell para utilizar esta opção. Se não o tiver 
    ```
    Para ligar a um específicos do Azure Active Directory, utilize o _TenantId_ parâmetro, da seguinte forma:
 
-   ```PowerShell
+   ```powershell
    Connect-AzureAD -TenantId "Object Id of the tenant"
    ```
 

@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e0a25dd3a2228f0b1b3ab33db0c9c689d7b2899d
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: 6e6623e18fa319066f121dced551dcada133ebd5
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58310562"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58479534"
 ---
 # <a name="enforce-azure-ad-password-protection-for-windows-server-active-directory"></a>Impor proteção de palavra-passe do Azure AD para o Windows Server Active Directory
 
@@ -32,8 +32,15 @@ Proteção de palavra-passe do Azure AD destina-se com esses princípios em ment
 * Nenhum Active Directory domínio ou floresta funcional nível mínimo (DFL/FFL) é necessário.
 * O software não criar ou necessitar de contas em domínios do Active Directory por ele protegidos.
 * Palavras-passe de texto não encriptado do utilizador não deixam o controlador de domínio durante as operações de validação da palavra-passe ou em qualquer outra altura.
-* Implementação incremental é suportada. Mas a política de palavra-passe é imposta apenas onde está instalado o agente de controlador de domínio (DC agente).
-* Recomendamos que instale o agente de controlador de domínio em todos os controladores de domínio para garantir a imposição de segurança de proteção de palavra-passe universal.
+* Implantação incremental for suportada, no entanto, a política de palavra-passe é imposta apenas onde está instalado o agente de controlador de domínio (DC agente). Consulte o tópico seguinte para obter mais detalhes.
+
+## <a name="incremental-deployment"></a>Implantação incremental
+
+Proteção de palavra-passe do Azure AD suporta implantação incremental entre controladores de domínio num domínio do Active Directory, mas é importante compreender o que isso realmente significa e quais são as compensações.
+
+O software de agente de proteção DC de palavra-passe do Azure AD só pode validar palavras-passe quando é instalado num controlador de domínio e apenas para alterações de palavra-passe que são enviadas para esse controlador de domínio. Não é possível controlar os controladores de domínio são escolhidos por máquinas de cliente do Windows para o processamento de alterações de palavra-passe do utilizador. Para garantir um comportamento consistente e a imposição de segurança de proteção de palavra-passe universal, o software do agente DC tem de ser instalado em todos os controladores de domínio num domínio.
+
+Muitas organizações desejarão fazer um teste cuidadoso de proteção de palavra-passe do Azure AD num subconjunto dos seus controladores de domínio antes de fazer uma implantação completa. Proteção de palavra-passe do Azure AD suportam a implementação parcial, ie o software do agente DC num determinado DC ativamente validará as palavras-passe, mesmo quando os outros controladores de domínio no domínio não tem o software do agente DC instalado. Parciais implementações deste tipo não são seguras e não são recomendados que para fins de teste.
 
 ## <a name="architectural-diagram"></a>Diagrama da arquitetura
 

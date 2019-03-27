@@ -7,15 +7,15 @@ manager: cgrounlun
 ms.service: cognitive-services
 ms.technology: anomaly-finder
 ms.topic: include
-ms.date: 11/15/2018
+ms.date: 03/21/2019
 ms.author: nitinme
 ms.custom: include file
-ms.openlocfilehash: e93b889ee3ead06c28f9fec5659a61aad2752bac
-ms.sourcegitcommit: 275eb46107b16bfb9cf34c36cd1cfb000331fbff
+ms.openlocfilehash: 1dab9b0e23b5fe574f9b4506fdcad510d378bfef
+ms.sourcegitcommit: fbfe56f6069cba027b749076926317b254df65e5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51716245"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58494626"
 ---
 > [!NOTE]
-> Explorador de anomalias está em pré-visualização privada. Para aderir à pré-visualização privada do localizador de anomalias, [contacte-nos](mailto:kenshoteam@microsoft.com). Assim que é concedido acesso, consulte o acesso controlado [documentação da pré-visualização privada do localizador de anomalias](https://aka.ms/AnomalyFinderPrivatePreview) para obter mais informações.
+> A API de detetor de anomalias (agora em pré-visualização pública) está a substituir o laboratório de Explorador de anomalias. Laboratórios existentes do Explorador de anomalias serão removidos no dia 30 de Abril de 2019. Aconselhamo-lo a migrar para o detetor de anomalias antes desta data. Consulte a [documentação da API de detetor de anomalias](../articles/cognitive-services/anomaly-detector/index.yml) para obter mais informações. 

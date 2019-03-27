@@ -13,15 +13,15 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/28/2018
 ms.author: magoedte
-ms.openlocfilehash: 143d14df3019aa0c5c5dd798f656f95c8ebde372
-ms.sourcegitcommit: 1902adaa68c660bdaac46878ce2dec5473d29275
+ms.openlocfilehash: 2abec4d9d74cf58503dec667080f478b1fec06ff
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/11/2019
-ms.locfileid: "57731088"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58485157"
 ---
 # <a name="using-service-map-solution-in-azure"></a>Utilizar a solução mapa de serviço no Azure
-O Mapa de Serviço deteta automaticamente componentes de aplicações em sistemas Windows e Linux e mapeia a comunicação entre serviços. Com o mapa de serviço, pode ver os servidores da forma que considerá-los: como sistemas interconectados que fornecem serviços críticos. Mapa de serviço mostra ligações entre servidores, processos, latência de ligação de entrada e saída e as portas em qualquer arquitetura ligado a TCP, sem qualquer configuração necessária que a instalação de um agente.
+O Mapa de Serviço deteta automaticamente componentes de aplicações em sistemas Windows e Linux e mapeia a comunicação entre serviços. Com o Mapa de Serviços, pode ver os seus servidores da mesma forma como os conceptualiza: como sistemas interligados que fornecem serviços críticos. O Mapa de Serviços mostra as ligações entre servidores, os processos, a latência da ligação de entrada e de saída e as portas em qualquer arquitetura ligada por TCP, em que a única configuração necessária é a instalação de um agente.
 
 Este artigo descreve os detalhes de integração e a utilizar o mapa de serviço. Para obter informações sobre como configurar o mapa de serviço e o carregamento de agentes, consulte [solução mapa de serviço de configuração no Azure]( service-map-configure.md).
 
@@ -29,7 +29,7 @@ Este artigo descreve os detalhes de integração e a utilizar o mapa de serviço
 >Se já tiver implementado o mapa de serviço, agora também pode ver seus mapas no Azure Monitor para as VMs, que inclui recursos adicionais para monitorizar o estado de funcionamento da VM e o desempenho. Para obter mais informações, consulte [do Azure Monitor para descrição geral de VMs](../../azure-monitor/insights/vminsights-overview.md).
 
 
-## <a name="sign-in-to-azure"></a>Inicie sessão no  Azure
+## <a name="sign-in-to-azure"></a>Iniciar sessão no Azure
 Inicie sessão no Portal do Azure em [https://portal.azure.com](https://portal.azure.com).
 
 ## <a name="enable-service-map"></a>Ativar o mapa de serviço
@@ -54,7 +54,7 @@ Mapa de serviço ajuda a eliminar as suposições de isolamento de problema, que
 ### <a name="migration-assurance"></a>Garantia de migração
 Ao utilizar o mapa de serviço, pode efetivamente planear, acelerar e validar as migrações do Azure, que ajuda a garantir que nada seja deixado e não ocorrerem falhas de surpresa. Pode descobrir todos os sistemas interdependentes, que têm de migrar em conjunto, avaliar a configuração do sistema e a capacidade e identificar se um sistema em execução ainda está a servir os utilizadores ou é uma candidata para desativar em vez de migração. Após a migração estiver concluída, pode verificar a de carga de cliente e de identidade para verificar que os clientes e sistemas de teste estão a ligar. Se as definições de firewall e de planejamento de sub-rede tem problemas, ligações falhadas no mapa de serviço maps ponto para os sistemas que necessitam de conectividade.
 
-### <a name="business-continuity"></a>Continuidade de negócio
+### <a name="business-continuity"></a>Continuidade do negócio
 Se estiver a utilizar o Azure Site Recovery e precisa de ajuda a definir a sequência de recuperação para o seu ambiente de aplicativo, o mapa de serviço pode automaticamente mostram-lhe como sistemas dependem uns dos outros para assegurar que o seu plano de recuperação é confiável. Escolhendo um servidor crítico ou de grupo e visualizar os seus clientes, é possível identificar os sistemas de front-end para recuperar após o servidor é restaurado e está disponível. Por outro lado, ao examinar as dependências de back-end de servidores críticos, pode identificar quais os sistemas para recuperar antes de seus sistemas de foco são restaurados.
 
 ### <a name="patch-management"></a>Gerenciamento de patches
@@ -91,7 +91,7 @@ Os utilizadores selecionar quais os servidores pertencem um grupo em conjunto e 
 ### <a name="creating-a-machine-group"></a>Criação de um grupo de máquina
 Para criar um grupo, selecione a máquina ou máquinas que pretende nas máquinas lista e clique em **adicionar ao grupo**.
 
-![Create Group](media/service-map/machine-groups-create.png)
+![Criar Grupo](media/service-map/machine-groups-create.png)
 
 Aqui, pode escolher **criar novo** e dê um nome de grupo.
 
@@ -174,7 +174,7 @@ Grupos de portas de servidor são caixas que representam as portas de servidor n
 
 ![Grupos de portas de servidor](media/service-map/server-port-groups.png)
 
-## <a name="context-menu"></a>Menu de contexto
+## <a name="context-menu"></a>Menu Contexto
 Ao clicar no botão de reticências (...) na parte superior direita de qualquer servidor apresenta o menu de contexto para esse servidor.
 
 ![Ligações com falhas](media/service-map/context-menu.png)
@@ -300,7 +300,7 @@ Para gerir o custo e a complexidade, registos de ligação não representam cone
 | Propriedade | Descrição |
 |:--|:--|
 |Direção |Direção da conexão, o valor é *entrada* ou *saída* |
-|Computador |O FQDN do computador |
+|Máquina |O FQDN do computador |
 |Processo |Identidade de processo ou grupos de processos, iniciar/aceitar a ligação |
 |SourceIp |Endereço IP de origem |
 |DestinationIp |Endereço IP de destino |
@@ -374,50 +374,50 @@ Registos com um tipo de *ServiceMapComputer_CL* tiver dados de inventário para 
 
 | Propriedade | Descrição |
 |:--|:--|
-| Type | *ServiceMapComputer_CL* |
-| SourceSystem | *OpsManager* |
-| ResourceId | O identificador exclusivo para o computador da área de trabalho |
-| ResourceName_s | O identificador exclusivo para o computador da área de trabalho |
-| ComputerName_s | O FQDN do computador |
-| Ipv4Addresses_s | Endereços de uma lista de IPv4 do servidor |
-| Ipv6Addresses_s | Endereços de uma lista de IPv6 do servidor |
-| DnsNames_s | Uma matriz de nomes de DNS |
-| OperatingSystemFamily_s | Windows ou Linux |
-| OperatingSystemFullName_s | O nome completo do sistema operativo  |
-| Bitness_s | O número de bits da máquina (32 bits ou 64 bits)  |
-| PhysicalMemory_d | A memória física em MB |
-| Cpus_d | O número de CPUs |
-| CpuSpeed_d | A velocidade de CPU em MHz|
-| VirtualizationState_s | *unknown*, *physical*, *virtual*, *hypervisor* |
-| VirtualMachineType_s | *Hyper-v*, *vmware*e assim por diante |
-| VirtualMachineNativeMachineId_g | O ID da VM como atribuído pelo seu hipervisor |
-| VirtualMachineName_s | O nome da VM |
-| BootTime_t | O tempo de inicialização |
+| `Type` | *ServiceMapComputer_CL* |
+| `SourceSystem` | *OpsManager* |
+| `ResourceId` | O identificador exclusivo para o computador da área de trabalho |
+| `ResourceName_s` | O identificador exclusivo para o computador da área de trabalho |
+| `ComputerName_s` | O FQDN do computador |
+| `Ipv4Addresses_s` | Endereços de uma lista de IPv4 do servidor |
+| `Ipv6Addresses_s` | Endereços de uma lista de IPv6 do servidor |
+| `DnsNames_s` | Uma matriz de nomes de DNS |
+| `OperatingSystemFamily_s` | Windows ou Linux |
+| `OperatingSystemFullName_s` | O nome completo do sistema operativo  |
+| `Bitness_s` | O número de bits da máquina (32 bits ou 64 bits)  |
+| `PhysicalMemory_d` | A memória física em MB |
+| `Cpus_d` | O número de CPUs |
+| `CpuSpeed_d` | A velocidade de CPU em MHz|
+| `VirtualizationState_s` | *unknown*, *physical*, *virtual*, *hypervisor* |
+| `VirtualMachineType_s` | *Hyper-v*, *vmware*e assim por diante |
+| `VirtualMachineNativeMachineId_g` | O ID da VM como atribuído pelo seu hipervisor |
+| `VirtualMachineName_s` | O nome da VM |
+| `BootTime_t` | O tempo de inicialização |
 
 ### <a name="servicemapprocesscl-type-records"></a>Registos do tipo de ServiceMapProcess_CL
 Registos com um tipo de *ServiceMapProcess_CL* tiver dados de inventário para processos ligados por TCP em servidores com os agentes de mapa de serviço. Estes registos têm as propriedades na tabela a seguir:
 
 | Propriedade | Descrição |
 |:--|:--|
-| Type | *ServiceMapProcess_CL* |
-| SourceSystem | *OpsManager* |
-| ResourceId | O identificador exclusivo para um processo dentro da área de trabalho |
-| ResourceName_s | O identificador exclusivo para um processo na máquina em que está em execução|
-| MachineResourceName_s | O nome do recurso da máquina |
-| ExecutableName_s | O nome do executável de processo |
-| StartTime_t | A hora de início do conjunto de processo |
-| FirstPid_d | O PID primeiro no conjunto de processos |
-| Description_s | A descrição de processo |
-| CompanyName_s | O nome da empresa |
-| InternalName_s | O nome interno |
-| ProductName_s | O nome do produto |
-| ProductVersion_s | A versão do produto |
-| FileVersion_s | A versão do ficheiro |
-| CommandLine_s | A linha de comandos |
-| ExecutablePath _s | O caminho para o ficheiro executável |
-| WorkingDirectory_s | O diretório de trabalho |
-| Nome de Utilizador | A conta sob a qual o processo está em execução |
-| UserDomain | O domínio em que o processo está em execução |
+| "Tipo | *ServiceMapProcess_CL* |
+| `SourceSystem` | *OpsManager* |
+| `ResourceId` | O identificador exclusivo para um processo dentro da área de trabalho |
+| `ResourceName_s` | O identificador exclusivo para um processo na máquina em que está em execução|
+| `MachineResourceName_s` | O nome do recurso da máquina |
+| `ExecutableName_s` | O nome do executável de processo |
+| `StartTime_t` | A hora de início do conjunto de processo |
+| `FirstPid_d` | O PID primeiro no conjunto de processos |
+| `Description_s` | A descrição de processo |
+| `CompanyName_s` | O nome da empresa |
+| `InternalName_s` | O nome interno |
+| `ProductName_s` | O nome do produto |
+| `ProductVersion_s` | A versão do produto |
+| `FileVersion_s` | A versão do ficheiro |
+| `CommandLine_s` | A linha de comandos |
+| `ExecutablePath _s` | O caminho para o ficheiro executável |
+| `WorkingDirectory_s` | O diretório de trabalho |
+| `UserName` | A conta sob a qual o processo está em execução |
+| `UserDomain` | O domínio em que o processo está em execução |
 
 ## <a name="sample-log-searches"></a>Pesquisas de registo de exemplo
 
