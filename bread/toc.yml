@@ -100,6 +100,9 @@ items:
   - name: Gateway de Aplicação
     tocHref: /azure/application-gateway/
     topicHref: /azure/application-gateway/
+  - name: ASC para IoT
+    tocHref: /azure/asc-for-iot/
+    topicHref: /azure/asc-for-iot/
   - name: Automatização
     tocHref: /azure/automation/
     topicHref: /azure/automation/
@@ -670,9 +673,9 @@ items:
   - name: Windows Virtual Desktop
     tocHref: /azure/virtual-desktop/
     topicHref: /azure/virtual-desktop/
-ms.openlocfilehash: fd8d3e3b36d5dd3f690ca30db14f7371bea28078
-ms.sourcegitcommit: fbfe56f6069cba027b749076926317b254df65e5
+ms.openlocfilehash: 662f61109113c207f73a084b3e151b6eda2a605e
+ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58472842"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58540640"

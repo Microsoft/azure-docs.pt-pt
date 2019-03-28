@@ -90,15 +90,18 @@ items:
         href: how-to-vscode-tools.md
       - name: Preparar e implementar
         href: how-to-vscode-train-deploy.md
-  - name: Preparar dados
+  - name: Trabalhar com dados
     displayName: data prep, etl, elt, data preparation
     items:
-    - name: Carregar dados
-      href: how-to-load-data.md
-    - name: Transformar dados
-      href: how-to-transform-data.md
-    - name: Escrever dados
-      href: how-to-write-data.md
+    - name: Explorar e preparar dados
+      displayName: data prep, etl, elt, data preparation
+      items:
+      - name: Carregar dados
+        href: how-to-load-data.md
+      - name: Transformar dados
+        href: how-to-transform-data.md
+      - name: Escrever dados
+        href: how-to-write-data.md
   - name: Obter dados num arquivo de dados
     displayName: blob get fileshare access storage
     href: how-to-access-data.md
@@ -198,9 +201,9 @@ items:
   - name: Comparar os nossos produtos de ML
     href: /azure/architecture/data-guide/technology-choices/data-science-and-machine-learning
     maintainContext: true
-ms.openlocfilehash: 0e40f17725cb56dbc346fffcce0f672f2394ca1d
-ms.sourcegitcommit: 223604d8b6ef20a8c115ff877981ce22ada6155a
+ms.openlocfilehash: 52bc0220f3eb2fa28d344f68fe86310eabeee47c
+ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58359981"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58540385"

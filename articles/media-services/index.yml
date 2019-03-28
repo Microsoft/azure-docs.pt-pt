@@ -1,10 +1,10 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: 3b778caed10981923d424745d820bfe10c1ce553
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 903c1153db57f7cb632fc752bb696598902f5aaa
+ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57903611"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58519719"
 documentType: LandingData
 title: Documentação dos Serviços de Multimédia do Azure
 metadata:
@@ -21,7 +21,7 @@ metadata:
   ms.date: 03/11/2019
   ms.author: juliako
 abstract:
-  description: Os Serviços de Multimédia do Azure (AMS) consistem numa plataforma baseada na cloud que lhe permite criar soluções capazes de uma codificação de vídeo em alta definição e transmitir vídeo com qualidade de difusão capaz de alcançar a sua audiência nos dispositivos mais populares. O AMS v3 também permite extrair informações dos seus ficheiros vídeo e áudio com o Video Indexer através das predefinições do analisador AMS v3. Se quiser informações mais detalhadas, utilize diretamente o Video Indexer.<br/> Para saber como gostaria de utilizar o Video Indexer em relação a predefinições do analisador dos Serviços de Multimédia, consulte o <a href="/azure/media-services/video-indexer/compare-video-indexer-with-media-services-presets">documento de comparação</a>.
+  description: Os Serviços de Multimédia do Azure são uma plataforma com base na cloud que lhe permite criar soluções capazes de uma codificação de vídeo em alta definição e transmitir vídeo com qualidade de difusão capaz de chegar à sua audiência nos dispositivos mais populares. Os Serviços de Multimédia v3 também lhe permitem extrair informações dos seus ficheiros vídeo e áudio com o Video Indexer através das predefinições do analisador dos Serviços de Multimédia v3. Se quiser informações mais detalhadas, utilize diretamente o Video Indexer.
 sections:
 - items:
   - type: list
@@ -40,7 +40,7 @@ sections:
         src: media/index/AMSIcons-media_analytics.svg
       title: Indexador de Vídeos
     - href: /azure/media-services/previous/
-      html: <p>Aprenda a codificar, transmitir sob pedido e transmitir vídeos em direto com os Serviços Multimédia v2.</p>
+      html: <p>Não serão adicionadas novas funcionalidades aos Serviços de Multimédia v2. Veja a versão v3, a versão mais recente dos Serviços de Multimédia.</p>
       image:
         src: media/index/AMSIcons-media_servicesV2.svg
       title: Serviços de Multimédia do Azure v2 (legado)
@@ -49,51 +49,3 @@ sections:
       image:
         src: /azure/cdn/media/index/cdn.svg
       title: CDN
-- title: Inícios rápidos de cinco minutos
-  items:
-  - type: paragraph
-    text: 'Saiba como codificar e transmitir com os Serviços de Multimédia v3:'
-  - type: list
-    style: icon48
-    items:
-    - image:
-        src: media/index/AMSIcons-encoding.svg
-      text: Transmitir ficheiros
-      href: /azure/media-services/latest/stream-files-dotnet-quickstart
-  - type: paragraph
-    text: 'Saiba como extrair informações dos seus vídeos com o Video Indexer:'
-  - type: list
-    style: icon48
-    items:
-    - image:
-        src: media/index/AMSIcons-media_analytics.svg
-      text: Extrair informações
-      href: ../cognitive-services/video-indexer/video-indexer-get-started.md?toc=/azure/media-services/video-indexer/toc.json&bc=/azure/media-services/video-indexer/breadcrumb/toc.json
-- title: Tutoriais Passo-a-Passo
-  items:
-  - type: paragraph
-    text: 'Saiba como transmitir em fluxo ficheiros a pedido, transmitir em direto e analisar os seus vídeos com os Serviços de Multimédia v3:'
-  - type: list
-    style: icon48
-    items:
-    - image:
-        src: media/index/AMSIcons-encoding.svg
-      text: Carregar, codificar e transmitir vídeos
-      href: /azure/media-services/latest/stream-files-tutorial-with-api
-    - image:
-        src: media/index/AMSIcons-live.svg
-      text: Transmitir em direto
-      href: /azure/media-services/latest/stream-live-tutorial-with-api
-    - image:
-        src: media/index/AMSIcons-media_analytics.svg
-      text: Analisar os seus vídeos
-      href: /azure/media-services/latest/analyze-videos-tutorial-with-api
-  - type: paragraph
-    text: 'Saiba como extrair informações dos seus vídeos com a API do Video Indexer:'
-  - type: list
-    style: icon48
-    items:
-    - image:
-        src: media/index/AMSIcons-media_analytics.svg
-      text: Extrair informações
-      href: ../cognitive-services/video-indexer/video-indexer-use-apis.md?toc=/azure/media-services/video-indexer/toc.json&bc=/azure/media-services/video-indexer/breadcrumb/toc.json

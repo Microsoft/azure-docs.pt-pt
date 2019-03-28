@@ -71,7 +71,11 @@ items:
         href: quickstart-translate-speech-java-jre.md
   - name: APIs REST
     items:
-    - name: Conversão de texto em voz
+    - name: Listar vozes suportadas por região
+      items:
+      - name: Python
+        href: quickstart-python-get-text-to-speech-voices.md
+    - name: Converter texto em voz
       items:
       - name: C# (.NET Core)
         href: quickstart-dotnet-text-to-speech.md
@@ -228,9 +232,9 @@ items:
     href: https://azure.microsoft.com/roadmap/?category=ai-machine-learning
   - name: Privacidade e cookies
     href: https://privacy.microsoft.com/privacystatement
-ms.openlocfilehash: 7ca4d35f9db9368af60971a5af66cc1d2c7faaf7
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 7483e342495f862f582b8eba847b4a47bfda3774
+ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57875809"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58517883"

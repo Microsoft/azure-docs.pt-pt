@@ -425,10 +425,14 @@ items:
       href: control-flow-set-variable-activity.md
     - name: Até a Atividade
       href: control-flow-until-activity.md
+    - name: Atividade de Validação
+      href: control-flow-validation-activity.md
     - name: Aguardar Atividade
       href: control-flow-wait-activity.md
     - name: Atividade Web
       href: control-flow-web-activity.md
+    - name: Atividade de Webhook
+      href: control-flow-webhook-activity.md
   - name: Transformações de fluxo de dados
     items:
     - name: Agregação
@@ -587,9 +591,9 @@ items:
     href: https://azure.microsoft.com/global-infrastructure/services/
   - name: Opções de suporte
     href: https://azure.microsoft.com/support/options/
-ms.openlocfilehash: ac130165fbad1b43cfef531ac6c3aa69a373d82d
-ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
+ms.openlocfilehash: 0edb3a8bab3effef2219746714e8ab1f58462fb8
+ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58337040"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58518019"

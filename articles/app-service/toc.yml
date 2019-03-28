@@ -68,6 +68,8 @@ items:
     href: app-service-how-works-readme.md
   - name: Planos do Serviço de Aplicações
     href: overview-hosting-plans.md
+  - name: Suporte para runtime Java
+    href: app-service-jre-support.md
   - name: Funcionalidade do SO
     href: operating-system-functionality.md
   - name: Segurança
@@ -259,9 +261,9 @@ items:
       href: ip-address-change-outbound.md
     - name: Endereço SSL
       href: ip-address-change-ssl.md
-ms.openlocfilehash: 0f9689e8e6da8bc58bf3cc40306a92bf4c518d5b
-ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
+ms.openlocfilehash: 205d7437b8e738211d7d85f7a85190c90ac9c56f
+ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54232843"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58522133"

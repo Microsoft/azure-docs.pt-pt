@@ -18,6 +18,8 @@ ms.author: carolz
 
 Saiba como transmitir vídeo de qualidade de emissão com os Serviços de Multimédia, uma plataforma na cloud extensível. Tutoriais, referências de API e outra documentação mostram-lhe como fornecer de forma segura transmissões em fluxo de vídeo ou áudio a pedido e live dimensionáveis para milhões de utilizadores.
 
+**NOTA:** Não serão adicionadas novas funcionalidades aos Serviços de Multimédia v2. Veja a versão mais recente, [Serviços de Multimédia v3](https://docs.microsoft.com/azure/media-services/latest/). Veja também o [guia de migração de v2 para v3](../latest/migrate-from-v2-to-v3.md).
+
 <ul class="panelContent cardsFTitle">
      <li>
         <a href="/azure/media-services/media-services-overview">
@@ -66,7 +68,7 @@ Saiba como transmitir vídeo de qualidade de emissão com os Serviços de Multim
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Introdução aos Serviços de Multimédia do Azure com o Portal do Azure</h3>
+                        <h3>Introdução aos Serviços de Multimédia do Azure com o portal do Azure</h3>
                     </div>
                 </div>
             </div>
@@ -102,7 +104,7 @@ Saiba como transmitir vídeo de qualidade de emissão com os Serviços de Multim
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Introdução à entrega de conteúdos com o Portal do Azure</h3>
+                        <h3>Introdução à entrega de conteúdos com o portal do Azure</h3>
                     </div>
                 </div>
             </div>
