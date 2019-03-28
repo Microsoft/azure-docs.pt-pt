@@ -11,12 +11,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 11/15/2018
 ms.author: glenga
-ms.openlocfilehash: e9e47eff3df941b0c1437083dc7440fab4091418
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: 0224d9ba5a430635e4675c2fb2bf354e7c975f31
+ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58317073"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58518734"
 ---
 # <a name="monitor-azure-functions"></a>Monitorizar as Funções do Azure
 
@@ -24,7 +24,7 @@ ms.locfileid: "58317073"
 
 ![Explorador de métricas do Application Insights](media/functions-monitoring/metrics-explorer.png)
 
-As funções do Azure também tem [monitorização que incorporada não utiliza o Application Insights](#monitoring-without-application-insights). Recomendamos que o Application Insights porque oferece mais dados e melhores maneiras de analisar os dados.
+As funções do Azure também tem monitorização incorporada que não use o Application Insights. Recomendamos que o Application Insights porque oferece mais dados e melhores maneiras de analisar os dados.
 
 ## <a name="application-insights-pricing-and-limits"></a>Preços do Application Insights e limites
 
@@ -77,7 +77,7 @@ A próxima etapa é [desativar o registo incorporado](#disable-built-in-logging)
 
 ## <a name="disable-built-in-logging"></a>Desativar o registo incorporado
 
-Quando ativar o Application Insights, desativar a [logs interno que utiliza o armazenamento do Azure](#logging-to-storage). O logs interno é útil para testar com cargas de trabalho leves, mas não foi concebido para utilização em produção de alta carga. Para a monitorização de produção, recomendamos que o Application Insights. Se logs interno é utilizado em produção, o registo de registo poderá estar incompleto devido à limitação no armazenamento do Azure.
+Quando ativar o Application Insights, desative o registo incorporado que utiliza o armazenamento do Azure. O logs interno é útil para testar com cargas de trabalho leves, mas não foi concebido para utilização em produção de alta carga. Para a monitorização de produção, recomendamos que o Application Insights. Se logs interno é utilizado em produção, o registo de registo poderá estar incompleto devido à limitação no armazenamento do Azure.
 
 Para desativar o registo incorporado, elimine o `AzureWebJobsDashboard` definição de aplicação. Para obter informações sobre como eliminar as definições da aplicação no portal do Azure, consulte a **as configurações do aplicativo** secção [como gerir uma aplicação de funções](functions-how-to-use-azure-function-app-settings.md#settings). Antes de eliminar a definição de aplicação, certifique-se que não existem funções existentes na mesma function app utilizam a definição para acionadores do armazenamento do Azure ou ligações.
 
@@ -125,7 +125,7 @@ Na [Explorador de métricas](../azure-monitor/app/metrics-explorer.md), pode cri
 
 ![Explorador de Métricas](media/functions-monitoring/metrics-explorer.png)
 
-Sobre o [falhas](../azure-monitor/app/asp-net-exceptions.md) separador, pode criar gráficos e alertas com base nas falhas de função e o servidor de exceções. O **nome da operação** é o nome de função. Falhas de dependências não são apresentadas, a menos que implemente [telemetria personalizada](#custom-telemetry-in-c-functions) para dependências.
+Sobre o [falhas](../azure-monitor/app/asp-net-exceptions.md) separador, pode criar gráficos e alertas com base nas falhas de função e o servidor de exceções. O **nome da operação** é o nome de função. Falhas de dependências não são apresentadas, a menos que implementar telemetria personalizada para as dependências.
 
 ![Falhas](media/functions-monitoring/failures.png)
 
@@ -423,7 +423,7 @@ No c# funções de script, pode utilizar o `LogMetric` método de extensão no `
 logger.LogMetric("TestMetric", 1234);
 ```
 
-Esse código é uma alternativa ao chamar `TrackMetric` , utilizando [a API do Application Insights para .NET](#custom-telemetry-in-c-functions).
+Esse código é uma alternativa ao chamar `TrackMetric` utilizando a API do Application Insights para .NET.
 
 ## <a name="write-logs-in-javascript-functions"></a>Escrever registos nas funções de JavaScript
 
@@ -441,7 +441,7 @@ Quando estiver a executar num [versão 1.x](functions-versions.md#creating-1x-ap
 context.log.metric("TestMetric", 1234);
 ```
 
-Esse código é uma alternativa ao chamar `trackMetric` , utilizando [o SDK de node. js do Application Insights](#custom-telemetry-in-javascript-functions).
+Esse código é uma alternativa ao chamar `trackMetric` com o SDK de node. js do Application Insights.
 
 ## <a name="log-custom-telemetry-in-c-functions"></a>Iniciar telemetria personalizada C# funções
 
@@ -632,7 +632,7 @@ O `tagOverrides` conjuntos de parâmetros a `operation_Id` para ID de invocaçã
 
 ### <a name="dependencies"></a>Dependências
 
-Dependências de que a função tem a outros serviços não aparecem automaticamente. Pode escrever código personalizado para mostrar as dependências. Para obter exemplos, consulte o código de exemplo da [ C# secção de telemetria personalizada](#custom-telemetry-in-c-functions). O código de exemplo resulta numa *mapa da aplicação* no Application Insights que se parece com a imagem seguinte:
+Dependências de que a função tem a outros serviços não aparecem automaticamente. Pode escrever código personalizado para mostrar as dependências. Para obter exemplos, consulte o código de exemplo da [ C# secção de telemetria personalizada](#log-custom-telemetry-in-c-functions). O código de exemplo resulta numa *mapa da aplicação* no Application Insights que se parece com a imagem seguinte:
 
 ![Mapeamento de aplicações](media/functions-monitoring/app-map.png)
 

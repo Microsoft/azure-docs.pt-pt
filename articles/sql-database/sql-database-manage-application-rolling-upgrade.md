@@ -12,12 +12,12 @@ ms.author: sashan
 ms.reviewer: mathoma, carlrab
 manager: craigg
 ms.date: 02/13/2019
-ms.openlocfilehash: ad971ae3157dd17ecd4af662626c986584a27fe2
-ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
+ms.openlocfilehash: 63f301b4618df9764460d0a9a133834fb72e33bb
+ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/16/2019
-ms.locfileid: "56329171"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58540589"
 ---
 # <a name="manage-rolling-upgrades-of-cloud-applications-by-using-sql-database-active-geo-replication"></a>Gerir atualizações sem interrupção das aplicações na cloud com a base de dados SQL georreplicação ativa
 
@@ -103,7 +103,21 @@ Para que seja possível reverter a atualização, tem de criar um ambiente de te
 Quando os passos de preparação estiverem concluídos, o ambiente de teste está pronto para a atualização. O diagrama seguinte ilustra estes passos de atualização:
 
 1. Defina a base de dados primária no ambiente de produção para o modo só de leitura (10). Neste modo, garante que a base de dados de produção (V1) não será alterado durante a atualização, impedindo a potencial divergência de dados entre as instâncias de base de dados V1 e V2.
-2. Desligar a base de dados secundário na mesma região utilizando o modo de terminação planeada (11). Esta ação cria uma cópia totalmente sincronizada mas independente da base de dados de produção. Esta base de dados será atualizado.
+
+```sql
+-- Set the production database to read-only mode
+ALTER DATABASE <Prod_DB>
+SET (ALLOW_CONNECTIONS = NO)
+```
+
+2. Termine a georreplicação ao desconectar secundário (11). Esta ação cria uma cópia totalmente sincronizada mas independente da base de dados de produção. Esta base de dados será atualizado. O exemplo seguinte utiliza o Transact-SQL, mas [PowerShell](/powershell/module/az.sql/remove-azsqldatabasesecondary?view=azps-1.5.0) também está disponível. 
+
+```sql
+-- Disconnect the secondary, terminating geo-replication
+ALTER DATABSE V1
+REMOVE SECONDARY ON SERVER <Partner-Server>
+```
+
 3. Execute o script de atualização em relação a `contoso-1-staging.azurewebsites.net`, `contoso-dr-staging.azurewebsites.net`e o teste principal da base de dados (12). As alterações de base de dados serão replicadas automaticamente para o teste secundário.
 
 ![Configuração de georreplicação de base de dados SQL para recuperação de desastre na nuvem.](media/sql-database-manage-application-rolling-upgrade/option2-2.png)

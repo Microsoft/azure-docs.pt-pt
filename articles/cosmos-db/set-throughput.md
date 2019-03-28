@@ -4,14 +4,14 @@ description: Saiba como configurar o débito aprovisionado para contentores do C
 author: aliuy
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 10/25/2018
+ms.date: 03/19/2019
 ms.author: andrl
-ms.openlocfilehash: 439b48c271260e9744bb9c9ca0e2b21e61cf4687
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: 8335a235de708227136400f3af8fa7b4d0a52e29
+ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56005068"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58520909"
 ---
 # <a name="provision-throughput-on-containers-and-databases"></a>Aprovisionar débito em contentores e bases de dados
 
@@ -75,6 +75,20 @@ Pode combinar os dois modelos. Aprovisionamento de débito no banco de dados e o
 * Pode configurar explicitamente "P" RUs do débito aprovisionado no contentor com o nome B.
 * O débito de RUs "K" é compartilhado entre os contentores de quatro, C, D e E. A quantidade exata de débito disponível para A, C, D ou E varia. Não há nenhum SLA para a taxa de transferência de cada contentor individuais.
 * O contentor com o nome B é garantido para obter o débito de "P" RUs o tempo todo. Ele é suportado por SLAs.
+
+## <a name="update-throughput-on-a-database-or-a-container"></a>Débito de atualização num banco de dados ou um contentor
+
+Depois de criar um contentor do Cosmos do Azure ou uma base de dados, pode atualizar o débito aprovisionado. Não existe nenhum limite no débito aprovisionado máximo que pode configurar a base de dados ou o contentor. O débito aprovisionado mínimo depende dos seguintes fatores: 
+
+* O tamanho máximo dos dados que alguma vez armazena no contentor
+* O débito máximo que Aprovisiona nunca no contentor
+* O número máximo de contentores do Azure Cosmos que nunca de criar uma base de dados com a taxa de transferência partilhada. 
+
+Pode obter o débito mínimo de um contentor ou uma base de dados por meio de programação através de SDKs ou ver o valor no portal do Azure. Ao utilizar o SDK de .NET, o [DocumentClient.ReplaceOfferAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.documents.client.documentclient.replaceofferasync?view=azure-dotnet) método permite-lhe ajustar o valor do débito aprovisionado. Ao utilizar o SDK de Java, o [RequestOptions.setOfferThroughput](sql-api-java-samples.md#offer-examples) método permite-lhe ajustar o valor do débito aprovisionado. 
+
+Ao utilizar o SDK de .NET, o [DocumentClient.ReadOfferAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.documents.client.documentclient.readofferasync?view=azure-dotnet) método permite-lhe obter o débito mínimo de um contentor ou uma base de dados. 
+
+Pode dimensionar o débito aprovisionado de um contentor ou uma base de dados em qualquer altura. Pode executar a operação de redução vertical após o período de inatividade de 4 horas. O período de inatividade é definido como o tempo de período quando não ocorreu nenhuma oferta operações de substituição (que inclui a ampliação e redução verticais) num contentor ou uma base de dados. 
 
 ## <a name="comparison-of-models"></a>Comparação dos modelos
 

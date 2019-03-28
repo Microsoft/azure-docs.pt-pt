@@ -8,12 +8,12 @@ ms.subservice: gateway
 ms.topic: overview
 ms.date: 03/25/2019
 ms.author: alkohli
-ms.openlocfilehash: d1b5125c2e3904900adb0a121d60cba8a1731d43
-ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
+ms.openlocfilehash: 105996cf72e2a96a06a4478518e68765d3d158f5
+ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 03/27/2019
-ms.locfileid: "58499646"
+ms.locfileid: "58516897"
 ---
 # <a name="use-the-azure-portal-to-manage-shares-on-your-azure-data-box-gateway"></a>Utilizar o portal do Azure para gerir as partilhas do Azure Data Box Gateway 
 
@@ -84,6 +84,9 @@ A lista de partilhas é atualizada para refletir a eliminação.
 
 O recurso de atualização permite atualizar o conteúdo de uma partilha no local. Quando atualiza uma partilha, é iniciada uma pesquisa para localizar todos os objetos do Azure, incluindo os blobs e ficheiros que foram adicionados à cloud desde a última atualização. Estes ficheiros adicionais são então utilizados para atualizar os conteúdos da partilha no local no dispositivo. 
 
+> [!NOTE]
+> Permissões e listas de controle de acesso (ACLs) não são mantidas numa operação de atualização. 
+
 Efetue os seguintes passos no portal do Azure para atualizar uma partilha.
 
 1.  No portal do Azure, aceda a **Partilhas**. Selecione e clique na partilha que pretende atualizar.
@@ -107,7 +110,7 @@ Efetue os seguintes passos no portal do Azure para atualizar uma partilha.
 Se houver uma falha, é gerado um alerta. O alerta fornece detalhes sobre a causa e a recomendação para corrigir o problema. O alerta também contém ligações para um ficheiro com o resumo completo das falhas, incluindo os ficheiros que não foi possível atualizar ou eliminar.
 
 >[!IMPORTANT]
-> Nesta versão de pré-visualização, não atualize mais do que uma única partilha ao mesmo tempo.
+> Nesta versão, não atualize mais do que uma única partilha ao mesmo tempo.
 
 ## <a name="sync-storage-keys"></a>Sincronizar chaves de armazenamento
 

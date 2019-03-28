@@ -2,7 +2,7 @@
 title: Planear políticas de acesso condicional no Azure Active Directory | Documentos da Microsoft
 description: Neste artigo, irá aprender a planear políticas de acesso condicional do Azure Active Directory.
 services: active-directory
-author: MarkusVi
+author: MicrosoftGuyJFlo
 manager: daveba
 tags: azuread
 ms.service: active-directory
@@ -10,15 +10,15 @@ ms.subservice: conditional-access
 ms.topic: conceptual
 ms.workload: identity
 ms.date: 01/25/2019
-ms.author: markvi
+ms.author: joflore
 ms.reviewer: martincoetzer
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1d43c7943eedcfdf839303a6a55d7727a8483441
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: e4832055bffa72732991cb766ce88cc48c07530e
+ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56175817"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58518716"
 ---
 # <a name="how-to-plan-your-conditional-access-deployment-in-azure-active-directory"></a>Como: Planear a implementação de acesso condicional no Azure Active Directory
 

@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: overview
-ms.date: 03/25/2019
+ms.date: 03/27/2019
 ms.author: alkohli
-ms.openlocfilehash: 31a50d1dab0d5b62ab4dd549127e9092148bd88c
-ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
+ms.openlocfilehash: 8e07678604797e7e2090f5fefcdb3f3adff40161
+ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58438092"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58521776"
 ---
 # <a name="what-is-azure-data-box-edge"></a>O que é o Azure Data Box Edge? 
 
@@ -102,9 +102,9 @@ O dispositivo físico Data Box Edge, o recurso do Azure e a conta de armazenamen
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-- Reveja os [requisitos de sistema do Data Box Edge](https://aka.ms/dbe-docs).
-- Compreenda os [Limites do Data Box Edge](https://aka.ms/dbe-docs).
-- Implemente o [Azure Data Box Edge](https://aka.ms/dbe-docs) no portal do Azure.
+- Reveja os [requisitos de sistema do Data Box Edge](data-box-edge-system-requirements.md).
+- Compreenda os [Limites do Data Box Edge](data-box-edge-limits.md).
+- Implemente o [Azure Data Box Edge](data-box-edge-deploy-prep.md) no portal do Azure.
 
 
 

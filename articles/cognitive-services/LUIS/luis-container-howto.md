@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: article
 ms.date: 03/22/2019
 ms.author: diberry
-ms.openlocfilehash: b007575c614134f298a16b32c3179f7f0dfd31e5
-ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
+ms.openlocfilehash: edd035bc95cd2e694a7cfac39e447c63fce0f7d3
+ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58436698"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58520161"
 ---
 # <a name="install-and-run-luis-docker-containers"></a>Instalar e executar o LUIS contentores do docker
  
@@ -161,7 +161,7 @@ Host: {AZURE_REGION}.api.cognitive.microsoft.com
 Ocp-Apim-Subscription-Key: {AUTHORING_KEY}
 ```
 
-| Marcador de posição | Value |
+| Marcador de posição | Valor |
 |-------------|-------|
 |{APPLICATION_ID} | O ID da aplicação LUIS publicada. |
 |{APPLICATION_ENVIRONMENT} | O ambiente da aplicação LUIS publicado. Utilize um dos seguintes valores:<br/>```PRODUCTION```<br/>```STAGING``` |
@@ -189,7 +189,7 @@ Host: {AZURE_REGION}.api.cognitive.microsoft.com
 Ocp-Apim-Subscription-Key: {AUTHORING_KEY}
 ```
 
-| Marcador de posição | Value |
+| Marcador de posição | Valor |
 |-------------|-------|
 |{APPLICATION_ID} | O ID de aplicação da aplicação LUIS treinado. |
 |{APPLICATION_VERSION} | A versão da aplicação da aplicação LUIS treinada. |
@@ -211,7 +211,7 @@ Se tiver êxito, a resposta é um ficheiro de pacote do LUIS. Guarde o ficheiro 
 
 Utilize o [docker run](https://docs.docker.com/engine/reference/commandline/run/) comando para executar o contentor. O comando utiliza os seguintes parâmetros:
 
-| Marcador de posição | Value |
+| Marcador de posição | Valor |
 |-------------|-------|
 |{ENDPOINT_KEY} | Esta chave é utilizada para iniciar o contentor. Não utilize a chave de arranque. |
 |{BILLING_ENDPOINT} | O valor de ponto final de faturação está disponível na página de descrição geral de compreensão de idioma do portal do Azure.|
@@ -309,6 +309,11 @@ No portal do LUIS, selecione a sua aplicação, em seguida, selecione **importar
 
 Após o carregamento, o registo [reveja o ponto final](https://docs.microsoft.com/azure/cognitive-services/luis/luis-concept-review-endpoint-utterances) expressões com no portal do LUIS.
 
+
+<!--  ## Validate container is running -->
+
+[!INCLUDE [Container's API documentation](../../../includes/cognitive-services-containers-api-documentation.md)]
+
 ## <a name="stop-the-container"></a>Parar o contentor
 
 Para encerrar o contentor, no ambiente de linha de comando onde o contentor está em execução, prima **Ctrl + C**.
@@ -316,10 +321,6 @@ Para encerrar o contentor, no ambiente de linha de comando onde o contentor est�
 ## <a name="troubleshooting"></a>Resolução de problemas
 
 Se executar o contentor com uma saída [montar](luis-container-configuration.md#mount-settings) e registo ativado, o contentor gera os ficheiros de registo que são úteis para resolver os problemas que ocorrem ao iniciar ou executar o contentor. 
-
-## <a name="containers-api-documentation"></a>Documentação da API do contentor
-
-[!INCLUDE [Container's API documentation](../../../includes/cognitive-services-containers-api-documentation.md)]
 
 ## <a name="billing"></a>Faturação
 

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/26/2018
 ms.author: sasolank
-ms.openlocfilehash: 46678590366021ff0f3ddb714d439c18addc578b
-ms.sourcegitcommit: 223604d8b6ef20a8c115ff877981ce22ada6155a
+ms.openlocfilehash: 4ee970f14a6da3d65849a79ff4afae68601f106f
+ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58361083"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58521929"
 ---
 # <a name="integrate-api-management-in-an-internal-vnet-with-application-gateway"></a>Integrar a gestão de API numa VNET interna com o Gateway de aplicação
 
@@ -51,7 +51,7 @@ Para seguir os passos descritos neste artigo, tem de ter:
 
 Este artigo aborda como usar um único serviço de gestão de API para consumidores internos e externos e torná-lo para atuar como um único front-end para ambos no local e na cloud APIs. Também verá como expor apenas um subconjunto das APIs (no exemplo que eles são destacados em verde) para consumo externo com a funcionalidade de encaminhamento disponível no Gateway de aplicação.
 
-No primeiro exemplo de configuração todas as suas APIs são geridas apenas a partir de dentro da sua rede Virtual. Os consumidores internos (destacado na cor de laranja) podem aceder a todas as suas APIs internos e externos. Tráfego nunca sai para Internet um elevado desempenho é entregue através de circuitos do Expressroute.
+No primeiro exemplo de configuração todas as suas APIs são geridas apenas a partir de dentro da sua rede Virtual. Os consumidores internos (destacado na cor de laranja) podem aceder a todas as suas APIs internos e externos. Tráfego nunca vai para a internet. Conectividade de alto desempenho é entregue através de circuitos do Expressroute.
 
 ![rota de URL](./media/api-management-howto-integrate-internal-vnet-appgateway/api-management-howto-integrate-internal-vnet-appgateway.png)
 

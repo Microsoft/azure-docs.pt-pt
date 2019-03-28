@@ -12,12 +12,12 @@ ms.author: xiwu
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 12/20/2018
-ms.openlocfilehash: 8b86103f76e2425acea1b4f7c590204f0a893510
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.openlocfilehash: 4e2808378834a0270586ce674e1043ca443320c5
+ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58484433"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58539637"
 ---
 # <a name="troubleshoot-issues-with-sql-data-sync"></a>Resolver problemas com a sincronização de dados SQL
 
@@ -40,7 +40,7 @@ Para obter uma descrição geral da Sincronização de Dados SQL, veja [Sincroni
 
 - [Vejo uma degradação significativa do desempenho](#sync-perf)
 
-- [Posso ver esta mensagem: "Não é possível inserir o valor NULL na coluna <column>. Coluna não permite valores NULL." O que significa isto e como posso corrigi-lo?](#sync-nulls)
+- [Posso ver esta mensagem: "Não é possível inserir o valor NULL na coluna \<coluna >. Coluna não permite valores NULL." O que significa isto e como posso corrigi-lo?](#sync-nulls)
 
 - [Como a sincronização de dados com referências circulares? Ou seja, quando os mesmos dados são sincronizados em vários grupos de sincronização e mantém a alteração assim?](#sync-circ)
 
@@ -105,7 +105,7 @@ O desempenho degrada significativamente, possivelmente ao ponto em que ainda nã
 
 - **Resolução**. A melhor correção é prevenção. Certifique-se de que não tem referências circulares nos seus grupos de sincronização. Não não possível sincronizar todas as linhas que são sincronizadas por um grupo de sincronização por outro grupo de sincronização.
 
-### <a name="sync-nulls"></a> Posso ver esta mensagem: "Não é possível inserir o valor NULL na coluna <column>. Coluna não permite valores NULL." O que significa isto e como posso corrigi-lo? 
+### <a name="sync-nulls"></a> Posso ver esta mensagem: "Não é possível inserir o valor NULL na coluna \<coluna >. Coluna não permite valores NULL." O que significa isto e como posso corrigi-lo? 
 Esta mensagem de erro indica que tenha ocorrido um dos dois problemas seguintes:
 -  Uma tabela não tem uma chave primária. Para corrigir este problema, adicione uma chave primária para todas as tabelas que se estiver a sincronizar.
 -  Há uma cláusula WHERE na instrução CREATE INDEX. Sincronização de dados não lida com esta condição. Para corrigir este problema, remova a cláusula WHERE ou manualmente, faça as alterações a todas as bases de dados. 

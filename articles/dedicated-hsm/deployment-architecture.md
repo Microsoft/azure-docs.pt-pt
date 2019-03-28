@@ -10,14 +10,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 12/07/2018
+ms.date: 03/27/2019
 ms.author: barclayn
-ms.openlocfilehash: 36de8378a7dd22cfa6ba37da921213a18670cc67
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: 1e00e1f06f2409c94174a752a799cd4c1b7b23ef
+ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56113350"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58539977"
 ---
 # <a name="azure-dedicated-hsm-deployment-architecture"></a>Arquitetura de implementação de HSM dedicados do Azure
 
@@ -37,6 +37,12 @@ Os HSMs são distribuídos em datacenters da Microsoft e podem ser facilmente ap
 * Ásia Oriental
 * Europa do Norte
 * Europa Ocidental
+* Reino Unido Sul
+* Reino Unido Oeste
+* Canadá Central
+* Leste do Canadá
+* Leste da Austrália
+* Sudeste da Austrália
 
 Cada uma dessas regiões tem racks HSM implementados em dois datacenters independentes ou, pelo menos, duas zonas de disponibilidade independentes. Sudeste asiático tem três zonas de disponibilidade e E.U.A. Leste 2 tem dois. Há um total de oito regiões na Europa, Ásia e EUA que oferecem o serviço de HSM dedicados. Para obter mais informações sobre regiões do Azure, consulte oficial [informações de regiões do Azure](https://azure.microsoft.com/global-infrastructure/regions/).
 Alguns fatores de design para qualquer solução baseada em HSM dedicados são localização/latência, elevada disponibilidade e suportam para outros aplicativos distribuídos.

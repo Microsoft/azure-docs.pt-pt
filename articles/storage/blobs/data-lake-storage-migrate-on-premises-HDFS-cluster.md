@@ -8,12 +8,12 @@ ms.date: 03/01/2019
 ms.author: normesta
 ms.topic: article
 ms.component: data-lake-storage-gen2
-ms.openlocfilehash: 1c0a04a074cfbd96423502ac92dd5821bade78e1
-ms.sourcegitcommit: aa3be9ed0b92a0ac5a29c83095a7b20dd0693463
+ms.openlocfilehash: 841193305556e3bc9e543abc47974c7b91b0cea1
+ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58258535"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58518046"
 ---
 # <a name="use-azure-data-box-to-migrate-data-from-an-on-premises-hdfs-store-to-azure-storage"></a>Utilizar o Azure Data Box para migrar dados a partir de uma loja HDFS no local para o armazenamento do Azure
 
@@ -111,7 +111,7 @@ Para melhorar a velocidade de cópia:
 
 Siga estes passos para preparar e enviar o dispositivo do Data Box para a Microsoft.
 
-1. Depois de concluída a cópia de dados, execute [preparação para envio](https://docs.microsoft.com/azure/databox/data-box-deploy-copy-data-via-rest#prepare-to-ship) em sua caixa de dados. Depois de concluída a preparação do dispositivo, transferir os ficheiros BOM. Irá utilizar estes BOM ou mais tarde para verificar os dados carregados para o Azure, os arquivos de manifesto. Encerre o dispositivo e remova os cabos. 
+1. Depois de concluída a cópia de dados, execute [preparação para envio](https://docs.microsoft.com/azure/databox/data-box-deploy-copy-data-via-rest) em sua caixa de dados. Depois de concluída a preparação do dispositivo, transferir os ficheiros BOM. Irá utilizar estes BOM ou mais tarde para verificar os dados carregados para o Azure, os arquivos de manifesto. Encerre o dispositivo e remova os cabos. 
 2.  Agendar uma recolha com Backups sejam [envie o Data Box para o Azure](https://docs.microsoft.com/azure/databox/data-box-deploy-picked-up). 
 3.  Após a Microsoft receber o seu dispositivo, está ligado ao centro de dados de rede e dados são carregados para a conta de armazenamento especificada (com espaços de nomes hierárquicos desativados) quando pediu o Data Box. Certifique-se contra os ficheiros BOM que todos os seus dados é carregado para o Azure. Agora pode aceder estes dados para uma conta de armazenamento de geração 2 de armazenamento do Data Lake.
 

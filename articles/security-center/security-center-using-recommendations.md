@@ -12,19 +12,22 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 3/24/2019
+ms.date: 3/26/2019
 ms.author: monhaber
-ms.openlocfilehash: 8c8108697e39153aef8727942c166a741cb8398c
-ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
+ms.openlocfilehash: 82a46ae9523c4c2778f86c445e35d0bec961307f
+ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58402767"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58517696"
 ---
 # <a name="use-azure-security-center-recommendations-to-enhance-security"></a>Recomendações do Centro de segurança do Azure de utilização para melhorar a segurança
 Pode reduzir as chances de um evento de segurança significativos ao configurar uma política de segurança e, em seguida, implementar as recomendações fornecidas pelo centro de segurança do Azure. Este artigo mostra-lhe como utilizar políticas de segurança e recomendações no Centro de segurança para ajudar a mitigar um ataque de segurança. 
 
-Centro de segurança é automaticamente executado análises contínuas para analisar o estado de segurança dos seus recursos do Azure. Quando o Centro de segurança identifica potenciais vulnerabilidades de segurança, cria recomendações que descreve o processo de configurar os controlos de segurança necessário. Centro de segurança atualiza as recomendações, uma vez a cada 24 horas.
+Centro de segurança é automaticamente executado análises contínuas para analisar o estado de segurança dos seus recursos do Azure. Quando o Centro de segurança identifica potenciais vulnerabilidades de segurança, cria recomendações que descreve o processo de configurar os controlos de segurança necessário. Atualizações do Centro de segurança suas recomendações de dentro de 24 horas, com as seguintes exceções:
+
+- Recomendações de configuração de segurança do sistema operativo são atualizadas no prazo de 48 horas
+- Recomendações de problemas do Endpoint Protection sejam atualizadas em 8 horas
 
 ## <a name="scenario"></a>Cenário
 Este cenário mostra como utilizar o Centro de segurança para ajudar a reduzir as chances de um incidente de segurança, recomendações do Centro de segurança de monitorização e tomar medidas. O cenário utiliza a empresa fictícia, Contoso e funções apresentadas no Centro de segurança [guia de operações e planeamento](security-center-planning-and-operations-guide.md#security-roles-and-access-controls). Neste cenário, nos concentraremos nas funções das seguintes pessoas:

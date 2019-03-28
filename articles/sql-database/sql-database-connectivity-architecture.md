@@ -12,12 +12,12 @@ ms.author: srbozovi
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 03/12/2019
-ms.openlocfilehash: cfa9f6bcb81182f4e76e995d626b207f8e130a80
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 801e3b20908c3e92693e5e800428773bf5c90539
+ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57840924"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58521470"
 ---
 # <a name="azure-sql-connectivity-architecture"></a>Arquitetura de conectividade do SQL do Azure
 
@@ -109,6 +109,7 @@ A tabela seguinte lista os IPs primário e secundário do gateway para todas as 
 | EUA Centro-Sul | 23.98.162.75 | 13.66.62.124 |
 | Sudeste Asiático | 23.100.117.95 | 104.43.15.0 |
 | Reino Unido Sul | 51.140.184.11 | |
+| Reino Unido Oeste | 51.141.8.11| |
 | EUA Centro-Oeste | 13.78.145.25 | |
 | Europa Ocidental | 191.237.232.75 | 40.68.37.158 |
 | E.U.A. oeste 1 | 23.99.34.75 | 104.42.238.205 |

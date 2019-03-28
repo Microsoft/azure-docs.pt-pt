@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 09/19/2018
 ms.reviewer: olegan
 ms.author: mbullwin
-ms.openlocfilehash: d17b1b754afc5067a885025dba83cd0fba2370d5
-ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
+ms.openlocfilehash: 1a5b6d435dcc82b59c30302f9cd711975864594c
+ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54214577"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58522252"
 ---
 # <a name="configuring-the-application-insights-sdk-with-applicationinsightsconfig-or-xml"></a>Configurar o SDK do Application Insights com ApplicationInsights.config ou .xml
 O SDK de .NET do Application Insights é composta por um número de pacotes de NuGet. O [pacote core](https://www.nuget.org/packages/Microsoft.ApplicationInsights) fornece a API para enviar telemetria para o Application Insights. [Pacotes adicionais](https://www.nuget.org/packages?q=Microsoft.ApplicationInsights) fornecer telemetria *módulos* e *inicializadores* para rastrear automaticamente telemetria da sua aplicação e de seu contexto. Ao ajustar o ficheiro de configuração, pode ativar ou desativar os módulos de telemetria e inicializadores e definir parâmetros para alguns deles.
@@ -30,7 +30,7 @@ Aqui não é um ficheiro equivalente para controlar a [SDK numa página web][cli
 Este documento descreve as secções que vir na configuração do arquivo, como elas controlam os componentes do SDK, e os pacotes de NuGet carregar esses componentes.
 
 > [!NOTE]
-> Instruções de applicationinsights. config e. xml não se aplicam para o SDK .NET Core. Para que as alterações para uma aplicação .NET Core, normalmente, podemos usar o ficheiro appSettings JSON. Um exemplo disso pode ser encontrado no [documentação de depurador de instantâneos.](https://docs.microsoft.com/azure/application-insights/app-insights-snapshot-debugger#configure-snapshot-collection-for-aspnet-core-20-applications)
+> Instruções de applicationinsights. config e. xml não se aplicam para o SDK .NET Core. Para que as alterações para uma aplicação .NET Core, normalmente, podemos usar o ficheiro appSettings JSON. Um exemplo disso pode ser encontrado no [documentação de depurador de instantâneos.](https://docs.microsoft.com/azure/application-insights/app-insights-snapshot-debugger)
 
 ## <a name="telemetry-modules-aspnet"></a>Módulos de telemetria (ASP.NET)
 Cada módulo telemetria recolhe um tipo específico de dados e utiliza a API principal para enviar os dados. Os módulos são instalados por diferentes pacotes de NuGet, que também adicionar as linhas necessárias para o arquivo. config.
@@ -67,13 +67,13 @@ O `DiagnosticsTelemetryModule` reporta erros no código de instrumentação do A
 Relatórios do [código de tempo e o resultado da resposta](../../azure-monitor/app/asp-net.md) de pedidos HTTP.
 
 * `Microsoft.ApplicationInsights.Web.RequestTrackingTelemetryModule`
-* [Applicationinsights](https://www.nuget.org/packages/Microsoft.ApplicationInsights.Web) pacote NuGet
+* [Microsoft.ApplicationInsights.Web](https://www.nuget.org/packages/Microsoft.ApplicationInsights.Web) NuGet package
 
 ### <a name="exception-tracking"></a>Controlo de exceções
 `ExceptionTrackingTelemetryModule` roteiros exceções não processadas na sua aplicação web. Ver [falhas e exceções][exceptions].
 
 * `Microsoft.ApplicationInsights.Web.ExceptionTrackingTelemetryModule`
-* [Applicationinsights](https://www.nuget.org/packages/Microsoft.ApplicationInsights.Web) pacote NuGet
+* [Microsoft.ApplicationInsights.Web](https://www.nuget.org/packages/Microsoft.ApplicationInsights.Web) NuGet package
 * `Microsoft.ApplicationInsights.WindowsServer.UnobservedExceptionTelemetryModule` -roteiros [unobserved exceções de tarefa](https://blogs.msdn.com/b/pfxteam/archive/2011/09/28/task-exception-handling-in-net-4-5.aspx).
 * `Microsoft.ApplicationInsights.WindowsServer.UnhandledExceptionTelemetryModule` -controla as exceções sem tratamento para funções de trabalho, serviços do windows e aplicativos de console.
 * [Windows Server do Application Insights](https://www.nuget.org/packages/Microsoft.ApplicationInsights.WindowsServer/) pacote NuGet.

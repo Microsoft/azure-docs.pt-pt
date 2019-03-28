@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 03/20/2019
 ms.author: absha
-ms.openlocfilehash: 18013050546cc5e204d9cc07a2f499388596164c
-ms.sourcegitcommit: 5e4ca656baf3c7d370ab3c0fbad0278aa2c9f1e6
+ms.openlocfilehash: ca4f9bf00d70f327ff756558e25315762a9a77a8
+ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58319453"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58519753"
 ---
 # <a name="application-gateway-configuration-overview"></a>Descrição geral de configuração do Gateway de aplicação
 
@@ -72,7 +72,7 @@ Pode configurar o gateway de aplicação para ter um endereço IP público ou um
 
 Apenas um endereço IP ou um endereço IP privado é suportado. Escolha o IP de front-end ao criar o Gateway de aplicação. 
 
-- Em caso de um IP público, pode optar por criar um novo IP público ou utilizar um IP público existente na mesma localização que o Gateway de aplicação. Se criar um novo endereço IP público, o tipo de endereço IP selecionado (estáticos ou dinâmicos) não é possível alterar mais tarde. Para obter mais informações, consulte [estático vs dinâmico de IP público](https://docs.microsoft.com/azure/application-gateway/application-gateway-components#static-vs-dynamic-public-ip) 
+- Em caso de um IP público, pode optar por criar um novo IP público ou utilizar um IP público existente na mesma localização que o Gateway de aplicação. Se criar um novo endereço IP público, o tipo de endereço IP selecionado (estáticos ou dinâmicos) não é possível alterar mais tarde. Para obter mais informações, consulte [estático vs dinâmico de IP público](https://docs.microsoft.com/azure/application-gateway/application-gateway-components) 
 
 - Em caso de um IP privado, pode optar por especificar um endereço IP privado da sub-rede na qual o Gateway de aplicação é criado. Se não for especificado explicitamente, um endereço IP arbitrário será selecionado automaticamente da sub-rede. Para obter mais informações, consulte [criar um gateway de aplicação com um ponto final (ILB) do Balanceador de carga interno.](https://docs.microsoft.com/azure/application-gateway/application-gateway-ilb-arm)
 
@@ -110,7 +110,7 @@ Tem de escolher entre o protocolo HTTP e HTTPS.
 
 - Se optar por HTTP, o tráfego entre o gateway de cliente e a aplicação irá fluir não encriptada.
 
-- Selecione HTTPS, se estiver interessado em [terminação de Secure Sockets Layer (SSL)](https://docs.microsoft.com/azure/application-gateway/overview#secure-sockets-layer-ssl-terminationl) ou [encriptação SSL de ponta a ponta](https://docs.microsoft.com/azure/application-gateway/ssl-overview). Se optar por HTTPS, o tráfego entre o gateway de cliente e a aplicação será encriptado e será terminada a ligação SSL no gateway de aplicação.  Se pretender que a encriptação SSL ponto a ponto, além disso terá de escolher o protocolo HTTPS durante a configuração *definição de HTTP de back-end*. Isto irá garantir que o tráfego é criptografado novamente quando ele viaja do Gateway de aplicação para o back-end.
+- Selecione HTTPS, se estiver interessado em [terminação de Secure Sockets Layer (SSL)](https://docs.microsoft.com/azure/application-gateway/overview) ou [encriptação SSL de ponta a ponta](https://docs.microsoft.com/azure/application-gateway/ssl-overview). Se optar por HTTPS, o tráfego entre o gateway de cliente e a aplicação será encriptado e será terminada a ligação SSL no gateway de aplicação.  Se pretender que a encriptação SSL ponto a ponto, além disso terá de escolher o protocolo HTTPS durante a configuração *definição de HTTP de back-end*. Isto irá garantir que o tráfego é criptografado novamente quando ele viaja do Gateway de aplicação para o back-end.
 
   Para configurar a terminação de Secure Sockets Layer (SSL) e a encriptação SSL ponto a ponto, é necessário um certificado a ser adicionado para o serviço de escuta de modo a permitir o Gateway de aplicação derivar uma chave simétrica de acordo com a especificação de protocolo SSL. A chave simétrica, em seguida, é utilizada para encriptar e desencriptar o tráfego enviado para o gateway. O certificado de gateway tem de estar no formato Personal Information Exchange (PFX). Esse formato de arquivo permite-lhe exportar a chave privada que é necessário pelo gateway de aplicação para efetuar a encriptação e desencriptação de tráfego. 
 

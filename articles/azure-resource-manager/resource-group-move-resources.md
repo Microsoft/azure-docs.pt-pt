@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/25/2019
 ms.author: tomfitz
-ms.openlocfilehash: 98236133a90cfddfe2ea476486556318b2c88b10
-ms.sourcegitcommit: 72cc94d92928c0354d9671172979759922865615
+ms.openlocfilehash: e74b9b5c8347c7348c4da27b80d00daa091b826f
+ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58418895"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58521097"
 ---
 # <a name="move-resources-to-new-resource-group-or-subscription"></a>Mover recursos para um novo grupo de recursos ou subscrição
 
@@ -104,6 +104,7 @@ A lista seguinte fornece um resumo geral dos serviços do Azure que podem ser mo
 * Power BI - tanto o Power BI Embedded e robustez com a coleção de área de trabalho de BI
 * IP público - IP público de SKU básico que podem ser movido. Não é possível mover o IP público de SKU Standard.
 * Serviços de recuperação cofre - Inscreva-se numa [pré-visualização](#recovery-services-limitations).
+* SAP HANA no Azure
 * Scheduler
 * Pesquisa - não é possível mover a vários recursos de pesquisa em regiões diferentes numa única operação. Em vez disso, movê-los em operações separadas.
 * Service Bus
@@ -146,7 +147,6 @@ A lista seguinte fornece um resumo geral dos serviços do Azure que não pode se
 * Serviços de laboratório - laboratórios de sala de aula não podem ser movidos para um novo grupo de recursos ou subscrição. DevTest Labs podem ser movidos para um novo grupo de recursos na mesma subscrição, mas não em várias subscrições.
 * Aplicações Geridas
 * Microsoft Genomics
-* SAP HANA no Azure
 * Segurança
 * Site Recovery
 * O StorSimple Device Manager

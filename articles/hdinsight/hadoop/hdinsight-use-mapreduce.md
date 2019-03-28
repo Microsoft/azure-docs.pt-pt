@@ -8,33 +8,23 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 05/16/2018
-ms.openlocfilehash: eeb548d6bd955aedf322a63c861fd23bb37c1167
-ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
+ms.date: 03/20/2019
+ms.openlocfilehash: f2baaf598be8ede69fd6e1fa49a5f5a6b64c24ff
+ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53634631"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58521205"
 ---
 # <a name="use-mapreduce-in-apache-hadoop-on-hdinsight"></a>Utilizar o MapReduce no Apache Hadoop no HDInsight
 
-Saiba como executar tarefas de MapReduce em clusters do HDInsight. Utilize a tabela seguinte para detetar as várias formas que pode ser usado MapReduce com o HDInsight:
-
-| **Utilize esta opção**... | **... recurso aleatório fazê-lo** | ... .with isso **sistema operativo do cluster** | ... .from isso **sistema operativo do cliente** |
-|:--- |:--- |:--- |:--- |
-| [SSH](apache-hadoop-use-mapreduce-ssh.md) |Utilize o comando de Hadoop por meio de **SSH** |Linux |Linux, Unix, Mac OS X ou Windows |
-| [REST](apache-hadoop-use-mapreduce-curl.md) |Submeter a tarefa remotamente usando **REST** (os exemplos utilizam cURL) |Linux ou Windows |Linux, Unix, Mac OS X ou Windows |
-| [Windows PowerShell](apache-hadoop-use-mapreduce-powershell.md) |Submeter a tarefa remotamente utilizando **Windows PowerShell** |Linux ou Windows |Windows |
-
-> [!IMPORTANT]
-> O Linux é o único sistema operativo utilizado na versão 3.4 ou superior do HDInsight. Para obter mais informações, veja [HDInsight retirement on Windows](../hdinsight-component-versioning.md#hdinsight-windows-retirement) (Desativação do HDInsight no Windows).
-
+Saiba como executar tarefas de MapReduce em clusters do HDInsight. 
 
 ## <a id="whatis"></a>O que é o MapReduce
 
 Apache Hadoop MapReduce é uma estrutura de software para a escrita de tarefas que processam grandes quantidades de dados. Dados de entrada são divididos em partes independentes. Cada segmento é processado em paralelo em todos os nós do cluster. Uma tarefa de MapReduce consiste em duas funções:
 
-* **Mapeador de**: Consome dados de entrada, analisa-(normalmente com o filtro e classificação de operações) e emite tuplas (pares chave-valor)
+* **Mapper**: Consome dados de entrada, analisa-(normalmente com o filtro e classificação de operações) e emite tuplas (pares chave-valor)
 
 * **Reducer**: Consome tuplas emitidas pelo mapeador de pontos e realiza uma operação de resumida que cria um resultado mais pequeno, combinado a partir dos dados de mapeador de pontos
 
@@ -162,9 +152,6 @@ HDInsight pode executar tarefas de HiveQL utilizando vários métodos. Utilize a
 | [SSH](apache-hadoop-use-mapreduce-ssh.md) |Utilize o comando de Hadoop por meio de **SSH** |Linux |Linux, Unix, Mac OS X ou Windows |
 | [Curl](apache-hadoop-use-mapreduce-curl.md) |Submeter a tarefa remotamente utilizando **REST** |Linux ou Windows |Linux, Unix, Mac OS X ou Windows |
 | [Windows PowerShell](apache-hadoop-use-mapreduce-powershell.md) |Submeter a tarefa remotamente utilizando **Windows PowerShell** |Linux ou Windows |Windows |
-
-> [!IMPORTANT]  
-> O Linux é o único sistema operativo utilizado na versão 3.4 ou superior do HDInsight. Para obter mais informações, veja [HDInsight retirement on Windows](../hdinsight-component-versioning.md#hdinsight-windows-retirement) (Desativação do HDInsight no Windows).
 
 ## <a id="nextsteps"></a>Passos seguintes
 

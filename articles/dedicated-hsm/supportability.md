@@ -10,14 +10,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.custom: seodec18
-ms.date: 03/18/2019
+ms.date: 03/27/2019
 ms.author: barclayn
-ms.openlocfilehash: 8e4bbe3a5e2de8ba919cf0b641ee4e6776c5e8d4
-ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
+ms.openlocfilehash: 3fd460409cab8dce0f5c4ce31f5323f19706d268
+ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58225557"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58541108"
 ---
 # <a name="azure-dedicated-hsm-supportability"></a>Capacidade de suporte do Azure de HSM dedicados
 
@@ -97,4 +97,4 @@ Recomenda-se que os conceitos-chave, como elevada disponibilidade e segurança s
 * [Elevada disponibilidade](high-availability.md)
 * [Segurança física](physical-security.md)
 * [Redes](networking.md)
-* [Monitorização](monitoring.md)
+

@@ -10,12 +10,12 @@ ms.subservice: qna-maker
 ms.topic: article
 ms.date: 03/21/2019
 ms.author: diberry
-ms.openlocfilehash: 739ae64c6b32958271260bcbd01b339c1b108f11
-ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
+ms.openlocfilehash: dbdd0165e276e5c82f8d4c15ef70d3a541d76bc0
+ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58337430"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58522201"
 ---
 # <a name="use-active-learning-to-improve-your-knowledge-base"></a>Utilizar o Active Directory de aprendizagem para melhorar a sua base de dados de conhecimento
 
@@ -208,7 +208,7 @@ Uma resposta com êxito retorna um status de 204 e nenhum corpo de resposta JSON
 
 Quando a aplicação tem a aprendizagem ativa ativada e exportar a aplicação, o `SuggestedQuestions` coluna no ficheiro tsv retém os dados de aprendizagem ativa. 
 
-O `SuggestedQuestions` coluna é um objeto JSON de informações de implícito (`autosuggested`) e explícito (`usersuggested`) [comentários](#active-learning). Um exemplo deste objeto JSON para uma utilizador submeteu pergunta de `help` é:
+O `SuggestedQuestions` coluna é um objeto JSON de informações de implícito (`autosuggested`) e explícito (`usersuggested`) comentários. Um exemplo deste objeto JSON para uma utilizador submeteu pergunta de `help` é:
 
 ```JSON
 [

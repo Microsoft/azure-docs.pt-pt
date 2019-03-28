@@ -8,12 +8,12 @@ ms.author: mattwoj
 ms.date: 02/24/2019
 ms.topic: conceptual
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: 4714ea7aa4bf55f7cbd4500977b09505788233dd
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 9e77dcd96ffa0fbd57aa0ed1b4f857279ca768a7
+ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57895809"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58520807"
 ---
 # <a name="create-an-effective-anchor-experience-by-using-azure-spatial-anchors"></a>Criar uma experiência de âncora efetiva com âncoras espaciais do Azure
 
@@ -86,7 +86,7 @@ No cenário de destino, podem ajudar a fotos. Se a mostrar os utilizadores de um
 
 No cenário de espaço, os utilizadores introduzir um espaço apenas saber que há uma âncora aqui em algum lugar. Os utilizadores analisar o espaço com o respetivo dispositivo e localize rapidamente a âncora.
 
-Esta experiência normalmente exige que criar âncoras bem organizadas, conforme discutido [várias perspectivas de visualização](#consider-various-viewing-perspectives). Se analisados a sala de muitas perspectivas quando criou a âncora, os utilizadores podem analisar praticamente qualquer lugar quando tentarem a localizá-la.
+Esta experiência normalmente requer a criar âncoras bem organizadas, conforme discutido em diversas perspectivas de visualização. Se analisados a sala de muitas perspectivas quando criou a âncora, os utilizadores podem analisar praticamente qualquer lugar quando tentarem a localizá-la.
 
 ![Ilustração de como um utilizador pode analisar um espaço para encontrar uma âncora](./media/scan-room.png)
 

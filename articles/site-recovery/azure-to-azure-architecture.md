@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 03/18/2019
 ms.author: raynew
-ms.openlocfilehash: 73def6b659676cc4fecf1d9ef499247c23888566
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: 96873b5fdefc74893929f8150230118a162f195b
+ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58310290"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58540725"
 ---
 # <a name="azure-to-azure-disaster-recovery-architecture"></a>Arquitetura da recuperação após desastre do Azure
 
@@ -144,7 +144,7 @@ Para controlar a conectividade de saída para VMs que utilizem endereços IP, pe
 
 **Regra** |  **Detalhes** | **Etiqueta de serviço**
 --- | --- | --- 
-Permitir HTTPS a saída: porta 443 | Permitir intervalos que correspondem às contas de armazenamento na região de origem | Armazenamento. < nome da região >.
+Permitir HTTPS a saída: porta 443 | Permitir intervalos que correspondem às contas de armazenamento na região de origem | Armazenamento. \<região-name >.
 Permitir HTTPS a saída: porta 443 | Permita intervalos que correspondem ao Azure Active Directory (Azure AD).<br/><br/> Se o Azure AD endereços são adicionados no futuro que tem de criar novas regras do grupo de segurança de rede (NSG).  | AzureActiveDirectory
 Permitir HTTPS a saída: porta 443 | Permitir o acesso ao [pontos de extremidade do Site Recovery](https://aka.ms/site-recovery-public-ips) que correspondem à localização de destino. 
 
@@ -152,7 +152,7 @@ Permitir HTTPS a saída: porta 443 | Permitir o acesso ao [pontos de extremidade
 
 **Regra** |  **Detalhes** | **Etiqueta de serviço**
 --- | --- | --- 
-Permitir HTTPS a saída: porta 443 | Permita intervalos que correspondem às contas de armazenamento na região de destino. | Armazenamento. < nome da região >.
+Permitir HTTPS a saída: porta 443 | Permita intervalos que correspondem às contas de armazenamento na região de destino. | Armazenamento. \<região-name >.
 Permitir HTTPS a saída: porta 443 | Permita intervalos que correspondem ao Azure AD.<br/><br/> Se os endereços do Azure AD são adicionados no futuro que tem de criar novas regras NSG.  | AzureActiveDirectory
 Permitir HTTPS a saída: porta 443 | Permitir o acesso ao [pontos de extremidade do Site Recovery](https://aka.ms/site-recovery-public-ips) que correspondem para a localização de origem. 
 

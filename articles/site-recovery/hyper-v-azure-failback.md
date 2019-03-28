@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 11/27/2018
 ms.author: rajanaki
-ms.openlocfilehash: 8f0eaf8918913836cfe724ffea4f93b62eb3bf6a
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 4030b1905f8d5b50ef6be3ffa61eda74d8a27951
+ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52841647"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58541057"
 ---
 # <a name="run-a-failback-for-hyper-v-vms"></a>Executar uma reativação pós-falha para VMs de Hyper-V
 
@@ -54,7 +54,7 @@ Se implementou a proteção entre uma [site de Hyper-V e o Azure](site-recovery-
 
 1. Se estiver a configurar novos hardwares instale o Windows Server 2012 R2 e a função Hyper-V no servidor.
 2. Crie um comutador de rede virtual com o mesmo nome que tinha no servidor original.
-3. Selecione **itens protegidos** -> **grupo de proteção**  ->  <ProtectionGroupName>  ->  <VirtualMachineName> que pretende efetuar a reativação pós-falha e selecione **planeado Ativação pós-falha**.
+3. Selecione **itens protegidos** -> **grupo de proteção** -> \<ProtectionGroupName > -> \<VirtualMachineName > que pretende efetuar a reativação pós-falha, e selecione **ativação pós-falha planeada**.
 4. Na **confirmar a ativação de pós-falha planeadas** selecionar **criar na máquina virtual local se não existir**.
 5. No nome de anfitrião, * * selecione o novo servidor de anfitrião de Hyper-V no qual pretende colocar a máquina virtual.
 6. Sincronização de dados, recomendamos que selecionar a opção para sincronizar os dados antes da ativação pós-falha. Isso minimiza o tempo de inatividade para as máquinas virtuais como sincronizá-lo sem encerrá-los. Ele faz o seguinte:
@@ -63,7 +63,7 @@ Se implementou a proteção entre uma [site de Hyper-V e o Azure](site-recovery-
     - Fase 2: Encerra a máquina virtual no Azure, para que não existem novas alterações ocorrem aqui. O conjunto final de alterações é transferido para o servidor no local e a máquina de virtual no local é iniciada.
     
 7. Clique na marca de verificação para iniciar a ativação pós-falha (reativação pós-falha).
-8. Depois de concluída a sincronização inicial e está pronto para encerrar a máquina virtual no Azure, clique em **trabalhos** > <planned failover job> > **concluir a ativação pós-falha**. Isso encerra a máquina do Azure, transfere as alterações mais recentes para a máquina de virtual no local e inicia-o.
+8. Depois de concluída a sincronização inicial e está pronto para encerrar a máquina virtual no Azure, clique em **trabalhos** > \<tarefa de ativação pós-falha planeada >> **concluir a ativação pós-falha** . Isso encerra a máquina do Azure, transfere as alterações mais recentes para a máquina de virtual no local e inicia-o.
 9. Pode iniciar sessão na máquina virtual no local para verificar se que está tudo a funcionar conforme esperado. Em seguida, clique em **consolidar** para concluir a ativação pós-falha. Consolidar elimina a máquina virtual do Azure e os respetivos discos e prepara a VM a ser protegida novamente.
 10. Clique em **inverter replicar** para começar a proteger a máquina de virtual no local.
 

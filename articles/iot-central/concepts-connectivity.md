@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: timlt
-ms.openlocfilehash: 28aef1c1b5091db75b4a1fb6786ee712b42a1ea2
-ms.sourcegitcommit: 72cc94d92928c0354d9671172979759922865615
+ms.openlocfilehash: e45960363290879af2e72211f5ef31b825461947
+ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58418776"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58522099"
 ---
 # <a name="device-connectivity-in-azure-iot-central"></a>Conectividade do dispositivo no Azure IoT Central
 
@@ -69,7 +69,7 @@ Para registar um grande número de dispositivos com a sua aplicação IoT Centra
 Para obter as informações de ligação para os dispositivos importados, [exportar um ficheiro CSV a partir da sua aplicação do Centro de IoT](howto-manage-devices.md#export-devices).
 
 > [!NOTE]
-> Para saber como pode ligar dispositivos sem Registro primeiro no Centro de IoT, veja o Connect sem o registo de dispositivos primeiro.
+> Para saber como pode ligar dispositivos sem Registro primeiro no Centro de IoT, veja [ligar sem o registo de dispositivos primeiro](#connect-without-registering-devices).
 
 ### <a name="set-up-your-devices"></a>Configurar seus dispositivos
 

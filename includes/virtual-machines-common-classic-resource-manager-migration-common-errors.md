@@ -4,15 +4,17 @@ ms.service: virtual-machines
 ms.topic: include
 ms.date: 10/26/2018
 ms.author: cynthn
-ms.openlocfilehash: 432d0d4c201d0d73e5695a1726129e7fa744bdde
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: 2a1bf160926bc2f90e326d773bf6a3e7fdc37103
+ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58319735"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58505867"
 ---
 # <a name="common-errors-during-classic-to-azure-resource-manager-migration"></a>Erros comuns durante a migração da implementação Clássica para a implementação Azure Resource Manager
 Este artigo cataloga os erros e mitigações mais comuns durante a migração de recursos de IaaS do modelo de implementação clássica do Azure para a pilha do Azure Resource Manager.
+
+[!INCLUDE [updated-for-az](./updated-for-az.md)]
 
 ## <a name="list-of-errors"></a>Lista de erros
 
@@ -22,7 +24,7 @@ Este artigo cataloga os erros e mitigações mais comuns durante a migração de
 | A migração não é suporta na Implementação {deployment-name} em HostedService {hosted-service-name}, porque é uma implementação de PaaS (função da Web/Trabalho). |Isto acontece quando uma implementação contém uma função da Web/trabalho. Uma vez que a migração só é suportada para Máquinas Virtuais, remova a função da Web/Trabalho da implementação e repita a migração. |
 | Falha na implementação de modelo {template-name}. CorrelationId={guid} |No back-end do serviço de migração, utilizamos modelos do Azure Resource Manager para criar recursos na pilha do Azure Resource Manager. Uma vez que os modelos são idempotent, pode, normalmente, repetir a operação de migração em segurança para ultrapassar este erro. Se o mesmo persistir, [contacte o suporte do Azure](../articles/azure-supportability/how-to-create-azure-support-request.md) e dê o CorrelationId ao técnico. <br><br> **NOTA:** Assim que o incidente é controlado pela equipe de suporte, não tente qualquer atenuação automática pois pode originar consequências indesejadas no seu ambiente. |
 | A rede virtual {virtual-network-name} não existe. |Isto pode acontecer se tiver criado a Rede Virtual no novo portal do Azure. O nome da Rede Virtual real segue o padrão "Grupo * <VNET name>". |
-| A VM {vm-name} em HostedService {hosted-service-name} contém a Extensão {extension-name}, que o Azure Resource Manager não suporta. Recomenda-se desinstalá-la da VM antes de continuar a migração. |O Azure Resource Manager suporta extensões XML, como BGInfo 1.*. Por conseguinte, estas extensões não podem ser migradas. Se permanecerem instaladas na máquina virtual, são desinstaladas automaticamente antes de a migração ser concluída. |
+| A VM {vm-name} em HostedService {hosted-service-name} contém a Extensão {extension-name}, que o Azure Resource Manager não suporta. Recomenda-se desinstalá-la da VM antes de continuar a migração. |Extensões XML, como BGInfo 1. \* não são suportadas no Azure Resource Manager. Por conseguinte, estas extensões não podem ser migradas. Se permanecerem instaladas na máquina virtual, são desinstaladas automaticamente antes de a migração ser concluída. |
 | A VM {vm-name} em HostedService {hosted-service-name} contém a Extensão VMSnapshot/VMSnapshotLinux, que não é suportada, atualmente, para Migração. Desinstale-a da VM e adicione-a novamente com o Azure Resource Manager após a Conclusão da Migração. |Este é o cenário em que a máquina virtual está configurada para o Azure Backup. Uma vez que esta é atualmente um cenário não suportado, siga a solução disponível em https://aka.ms/vmbackupmigration |
 | A VM {vm-name} em HostedService {hosted-service-name} contém a Extensão {extension-name}, cujo Estado não está a ser reportado a partir da VM. Por este motivo, esta VM não pode ser migrada. Verifique se o estado da Extensão é reportado ou desinstale-a da VM e repita a migração. <br><br> A VM {vm-name} em HostedService {hosted-service-name} contém a Extensão {extension-name}, que reporta o Estado do Processador: {handler-status}. Por este motivo, a VM não pode ser migrada. Verifique se o estado do processador da Extensão reportado é {handler-status} ou desinstale-a da VM e repita a migração. <br><br> O Agente da VM para a VM {vm-name} em HostedService {hosted-service-name} está a reportar o estado do agente geral como Não Pronto. Por conseguinte, a VM pode não ser migrada, se tiver uma extensão que pode ser migrada. Confirme que o estado do agente geral que o Agente da VM está a reportar é Pronto. Consulte https://aka.ms/classiciaasmigrationfaqs. |O agente convidado do Azure e as Extensões da VM precisam de acesso de saída à Internet para a conta de armazenamento do Azure para preencher o respetivo estado. As causas comuns das falhas de estado incluem <li> Um Grupo de Segurança de Rede que bloqueia o acesso de saída à Internet <li> Se a VNET tiver no local, servidores DNS e a conectividade DNS se perder <br><br> Se continuar a ver um estado não suportado, pode desinstalar as extensões para ignorar esta verificação e avançar com a migração. |
 | A migração não é suporta na Implementação {deployment-name} em HostedService {hosted-service-name}, porque tem vários Conjuntos de Disponibilidade. |Atualmente, só podem ser migrados serviços alojados que tenham um ou menos Conjuntos de Disponibilidade. Para contornar este problema, mova os Conjuntos de Disponibilidade adicionais e as Máquinas Virtuais nos mesmos para outro serviço alojado. |
@@ -44,7 +46,7 @@ Isto acontece se o tamanho lógico do Disco de Dados ficar dessincronizado com o
 
 #### <a name="verifying-the-issue"></a>Verificar o problema
 
-```PowerShell
+```powershell
 # Store the VM details in the VM object
 $vm = Get-AzureVM -ServiceName $servicename -Name $vmname
 
@@ -65,7 +67,7 @@ ExtensionData       :
 
 # Now get the properties of the blob backing the data disk above
 # NOTE the size of the blob is about 15 GB which is different from LogicalDiskSizeInGB above
-$blob = Get-AzureStorageblob -Blob "coreosvm-dd1.vhd" -Container vhds 
+$blob = Get-AzStorageblob -Blob "coreosvm-dd1.vhd" -Container vhds 
 
 $blob
 
@@ -82,7 +84,7 @@ Name              : coreosvm-dd1.vhd
 
 #### <a name="mitigating-the-issue"></a>Mitigar o problema
 
-```PowerShell
+```powershell
 # Convert the blob size in bytes to GB into a variable which we'll use later
 $newSize = [int]($blob.Length / 1GB)
 

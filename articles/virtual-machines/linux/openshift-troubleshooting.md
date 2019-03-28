@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 02/02/2019
 ms.author: haroldw
-ms.openlocfilehash: f94189e8f39771e0c3d7856ccbb8a23ba81d94aa
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: c65e76fb9453e93e856c76f397d187f9ee740fbd
+ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57447279"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58540351"
 ---
 # <a name="troubleshoot-openshift-deployment-in-azure"></a>Resolver problemas de implementação do OpenShift no Azure
 
@@ -119,5 +119,5 @@ az group update -g <openshift resource group> --set tags.sptest=test
 
 Para alguns erros, também pode utilizar os seguintes comandos para obter mais informações:
 
-1. Estado de systemctl <service>
+1. Estado de systemctl \<serviço >
 2. journalctl -xe

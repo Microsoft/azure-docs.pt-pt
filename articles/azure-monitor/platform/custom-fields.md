@@ -13,19 +13,19 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/04/2018
 ms.author: bwren
-ms.openlocfilehash: 11372894e1dbcac6a49205ff56d8b30ffb6ee976
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
+ms.openlocfilehash: d3eb0fba2b7178b8b1702d4ca89ff85a441c20d6
+ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54261269"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58541082"
 ---
-# <a name="create-custom-fields-in-log-analytics"></a>Criar campos personalizados no Log Analytics
+# <a name="create-custom-fields-in-a-log-analytics-workspace-in-azure-monitor"></a>Criar campos personalizados numa área de trabalho do Log Analytics no Azure Monitor
 
 > [!NOTE]
-> Este artigo descreve como analisar dados de texto no Log Analytics à medida que é recolhido. Há vantagens em dados de texto numa consulta de análise depois de serem recolhido conforme descrito em [analisar dados de texto no Log Analytics](../log-query/parse-text.md).
+> Este artigo descreve como analisar dados de texto numa área de trabalho do Log Analytics à medida que é recolhido. Há vantagens em dados de texto numa consulta de análise depois de serem recolhido conforme descrito em [analisar dados de texto no Azure Monitor](../log-query/parse-text.md).
 
-O **campos personalizados** recurso do Log Analytics permite-lhe expandir registos existentes no Log Analytics ao adicionar seus próprios campos pesquisáveis.  Campos personalizados são preenchidos automaticamente a partir dos dados extraídos de outras propriedades no mesmo registo.
+O **campos personalizados** funcionalidade do Azure Monitor permite-lhe expandir registos existentes na sua área de trabalho do Log Analytics ao adicionar seus próprios campos pesquisáveis.  Campos personalizados são preenchidos automaticamente a partir dos dados extraídos de outras propriedades no mesmo registo.
 
 ![Descrição geral de campos personalizado](media/custom-fields/overview.png)
 

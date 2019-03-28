@@ -12,12 +12,12 @@ ms.author: sashan
 ms.reviewer: mathoma, carlrab
 manager: craigg
 ms.date: 01/25/2019
-ms.openlocfilehash: 5fcd7f05aeb294441b16bab0aeb18ef5d0bf5c28
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.openlocfilehash: 1e1bc92c684bf6ddbb7dc4ff0f882ad61ddeb27e
+ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55749040"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58540487"
 ---
 # <a name="restore-an-azure-sql-database-or-failover-to-a-secondary"></a>Restaurar uma base de dados do Azure SQL ou a ativação pós-falha para uma secundária
 
@@ -32,6 +32,13 @@ Para saber mais sobre os cenários de continuidade de negócios e os recursos pa
 
 > [!NOTE]
 > Se estiver a utilizar ou conjuntos de bases de dados de Premium ou críticas para a empresa com redundância de zona, o processo de recuperação é automatizado e o restante deste material não se aplica.
+
+> [!NOTE]
+> Bases de dados primários e secundários têm de ter a mesma camada de serviço. É também vivamente recomendado que a base de dados secundário é criado com o mesmo tamanho de computação (DTUs ou vCores) como principal. Para obter mais informações, consulte [Upgrading ou fazer downgrade como base de dados primária](sql-database-active-geo-replication.md#upgrading-or-downgrading-a-primary-database).
+
+> [!NOTE]
+> Utilize um ou vários grupos de ativação pós-falha para gerir a ativação pós-falha de várias bases de dados.
+> Se adicionar uma relação de georreplicação existente para o grupo de ativação pós-falha, certifique-se de que GEO-secundária está configurado com o mesmo escalão de serviço e o tamanho de computação como principal. Para obter mais informações, consulte [utilizar grupos de ativação pós-falha automática para ativar a ativação pós-falha transparente e coordenada de várias bases de dados](sql-database-auto-failover-group.md).
 
 ## <a name="prepare-for-the-event-of-an-outage"></a>Preparar para o evento de um período de indisponibilidade
 
@@ -73,6 +80,7 @@ Utilize um dos seguintes guias para efetuar a ativação pós-falha para um geor
 
 - [Efetuar a ativação pós-falha num servidor secundário georreplicado com o portal do Azure](sql-database-geo-replication-portal.md)
 - [Efetuar a ativação pós-falha para o servidor secundário com o PowerShell](scripts/sql-database-setup-geodr-and-failover-database-powershell.md)
+- [Efetuar a ativação pós-falha num servidor secundário com o Transact-SQL (T-SQL)](/sql/t-sql/statements/alter-database-transact-sql?view=azuresqldb-current#e-failover-to-a-geo-replication-secondary)
 
 ## <a name="recover-using-geo-restore"></a>Recuperar ao utilizar o restauro geográfico
 

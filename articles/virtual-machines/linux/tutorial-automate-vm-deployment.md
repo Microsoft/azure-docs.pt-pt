@@ -1,6 +1,6 @@
 ---
 title: Tutorial – Personalizar uma VM do Linux com o cloud-init no Azure | Microsoft Docs
-description: Neste tutorial, vai aprender a utilizar o cloud-init e o Key Vault para personalizar as VMs do Linux na primeira vez que iniciam no Azure
+description: Neste tutorial, irá aprender a utilizar o cloud-init e o Key Vault para personalizar as VMs do Linux na primeira vez que iniciam no Azure
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: cynthn
@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 05/30/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: b71c48a86be13df51222069f6948642455bc77fc
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 2543ffb20c4e7da840201cfd3be04505515458a6
+ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58121269"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58539365"
 ---
 # <a name="tutorial---how-to-use-cloud-init-to-customize-a-linux-virtual-machine-in-azure-on-first-boot"></a>Tutorial – Como utilizar o cloud-init para personalizar uma máquina virtual do Linux no Azure no primeiro arranque
 
@@ -131,7 +131,7 @@ az vm open-port --port 80 --resource-group myResourceGroupAutomate --name myVM
 ```
 
 ## <a name="test-web-app"></a>Testar a aplicação Web
-Agora, pode abrir um browser e introduzir *http://<publicIpAddress>* na barra de endereço. Forneça o seu próprio endereço IP público a partir do processo de criação da VM. A aplicação Node.js é apresentada conforme mostrada no exemplo seguinte:
+Agora, pode abrir um browser e introduzir *http:\/\/\<publicIpAddress >* na barra de endereço. Forneça o seu próprio endereço IP público a partir do processo de criação da VM. A aplicação Node.js é apresentada conforme mostrada no exemplo seguinte:
 
 ![Ver site NGINX em execução](./media/tutorial-automate-vm-deployment/nginx.png)
 
@@ -262,7 +262,7 @@ az vm open-port \
 ```
 
 ### <a name="test-secure-web-app"></a>Testar uma aplicação Web segura
-Agora, pode abrir um browser e introduzir *https://<publicIpAddress>* na barra de endereço. Forneça o seu próprio endereço IP público conforme apresentado na saída do processo de criação da VM anterior. Aceite o aviso de segurança se utilizou um certificado autoassinado:
+Agora, pode abrir um browser e introduzir *https:\/\/\<publicIpAddress >* na barra de endereço. Forneça o seu próprio endereço IP público conforme apresentado na saída do processo de criação da VM anterior. Aceite o aviso de segurança se utilizou um certificado autoassinado:
 
 ![Aceitar o aviso de segurança do browser](./media/tutorial-automate-vm-deployment/browser-warning.png)
 

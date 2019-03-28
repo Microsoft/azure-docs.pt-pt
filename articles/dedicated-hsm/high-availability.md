@@ -10,18 +10,18 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 12/07/2018
+ms.date: 03/27/2019
 ms.author: barclayn
-ms.openlocfilehash: d8975827a17dbf5d5eda2b9eb90e99ea1c03d698
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: 8a3698232c90d0705cb97677781ad512fffab803
+ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56111814"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58539246"
 ---
 # <a name="azure-dedicated-hsm-high-availability"></a>Disponibilidade elevada de HSM dedicados do Azure
 
-HSM dedicada do Azure é underpinned por data Centers de elevada disponibilidade da Microsoft. No entanto, qualquer datacenter de elevada disponibilidade é vulnerável ao falhas localizadas e, em circunstâncias extremas, falhas regionais. A Microsoft implementa dispositivos HSM em datacenters diferentes dentro de uma região para garantir que o aprovisionamento de vários dispositivos não conduz a esses dispositivos partilha um bastidor único. Pode ser alcançado um nível adicional de elevada disponibilidade emparelhando estas HSMs centros de dados numa região. Também é possível para dispositivos de par em várias regiões para ativação pós-falha numa situação de recuperação após desastre de endereços. Com esta configuração em várias camadas de elevada disponibilidade, qualquer falha de dispositivo será automaticamente resolvida para manter as aplicações a funcionar. Todos os data Centers também têm componentes de reserva dispositivos e componentes no local para que todos os dispositivos com falha podem ser substituído no momento oportuno.
+HSM dedicada do Azure é underpinned por data Centers de elevada disponibilidade da Microsoft. No entanto, qualquer datacenter de elevada disponibilidade é vulnerável ao falhas localizadas e, em circunstâncias extremas, falhas regionais. A Microsoft implementa dispositivos HSM em datacenters diferentes dentro de uma região para garantir que o aprovisionamento de vários dispositivos não conduz a esses dispositivos partilha um bastidor único. Pode ser alcançado um nível adicional de elevada disponibilidade emparelhando estas HSMs centros de dados numa região a utilizar a funcionalidade de Gemalto HA grupo. Também é possível para dispositivos de par em várias regiões para ativação pós-falha numa situação de recuperação após desastre de endereços. Com esta configuração em várias camadas de elevada disponibilidade, qualquer falha de dispositivo será automaticamente resolvida para manter as aplicações a funcionar. Todos os data Centers também têm componentes de reserva dispositivos e componentes no local para que todos os dispositivos com falha podem ser substituído no momento oportuno.
 
 ## <a name="high-availability-example"></a>Exemplo de elevada disponibilidade
 

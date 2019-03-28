@@ -6,12 +6,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 03/13/2019
 ms.author: ramamill
-ms.openlocfilehash: efbcc0143570b3d379cf392c170f599fcc0176d4
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 9694c682f171ab715812b05fed2064c9bbcd36b3
+ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57855134"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58518087"
 ---
 # <a name="manage-vmware-vcenter-server"></a>Gerir o servidor VMware vCenter
 
@@ -108,7 +108,7 @@ Para mover algumas máquinas virtuais para um novo vCenter:
 4. Agora, proteger máquinas virtuais migradas pela [selecionando o vCenter novo quando ativar a proteção](vmware-azure-tutorial.md#enable-replication).
 
 > [!TIP]
-> Se o número de máquinas virtuais a ser migrado **superior** que o número de número de máquinas virtuais retidos no vCenter antigo, atualize o endereço IP do vCenter novo ao seguir as instruções dadas [aqui](#modify-vcenter-ip-address-port). Para algumas máquinas virtuais que são mantidas no vCenter antigo, [desative a replicação](site-recovery-manage-registration-and-protection.md#disable-protection-for-a-vmware-vm-or-physical-server-vmware-to-azure); [adicionar novos detalhes do vCenter para o servidor de configuração](#add-vmware-server-to-the-vault)e comece  **[ativar proteção](vmware-azure-tutorial.md#enable-replication)**.
+> Se o número de máquinas virtuais a ser migrado **superior** que o número de número de máquinas virtuais retidos no vCenter antigo, atualize o endereço IP do vCenter novo ao seguir as instruções aqui indicadas. Para algumas máquinas virtuais que são mantidas no vCenter antigo, [desative a replicação](site-recovery-manage-registration-and-protection.md#disable-protection-for-a-vmware-vm-or-physical-server-vmware-to-azure); [adicionar novos detalhes do vCenter para o servidor de configuração](#add-vmware-server-to-the-vault)e comece  **[ativar proteção](vmware-azure-tutorial.md#enable-replication)**.
 
 ## <a name="frequently-asked-questions"></a>Perguntas mais frequentes
 

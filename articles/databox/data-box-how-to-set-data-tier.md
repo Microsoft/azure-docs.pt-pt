@@ -8,12 +8,12 @@ ms.subservice: pod
 ms.topic: article
 ms.date: 01/10/2019
 ms.author: alkohli
-ms.openlocfilehash: dc84d5850656a0898fba328b652d86f3d8995bef
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: bb1d6c5bd51fcfe35127c2f6d8dd6a80b727c45f
+ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58118379"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58517152"
 ---
 # <a name="use-azure-data-box-to-send-data-to-appropriate-azure-storage-blob-tier"></a>Utilizar o Azure Data Box para enviar dados para a camada de blob de armazenamento do Azure adequada
 
@@ -27,7 +27,7 @@ O armazenamento do Azure permite que as três camadas diferentes armazenar dados
 
 Camada de armazenamento esporádico destina-se com pouca frequência os dados acedidos que precisam de ser armazenados durante um período mínimo de 30 dias. O custo de armazenamento para o escalão de frio é menor do que a camada de armazenamento frequente, mas os custos de acesso de dados são alto quando comparado com o escalão de acesso frequente.
 
-A camada de armazenamento do Azure está offline e oferece os custos de armazenamento mais baixos, mas também os custos de acesso a mais altos. Esta camada destina-se a dados que permanecem no armazenamento de arquivo por um mínimo de 180 dias. Para obter detalhes de cada uma dessas camadas e o modelo de preços, aceda a [comparação das camadas de armazenamento](https://docs.microsoft.com/azure/storage/blobs/storage-blob-storage-tiers#comparison-of-the-storage-tiers).
+A camada de armazenamento do Azure está offline e oferece os custos de armazenamento mais baixos, mas também os custos de acesso a mais altos. Esta camada destina-se a dados que permanecem no armazenamento de arquivo por um mínimo de 180 dias. Para obter detalhes de cada uma dessas camadas e o modelo de preços, aceda a [comparação das camadas de armazenamento](https://docs.microsoft.com/azure/storage/blobs/storage-blob-storage-tiers).
 
 Os dados da caixa de dados são carregados para uma camada de armazenamento que estão associada com a conta de armazenamento. Quando cria uma conta de armazenamento, pode especificar a camada de acesso como frequente ou esporádico. Consoante o padrão de acesso da sua carga de trabalho e o custo, pode mover estes dados da camada predefinida para uma camada de armazenamento.
 

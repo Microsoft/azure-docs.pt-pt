@@ -5,17 +5,17 @@ services: sql-data-warehouse
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.subservice: manage
-ms.date: 03/20/2019
+ms.date: 03/27/2019
 author: anumjs
 ms.author: anjangsh
 ms.reviewer: jrasnick
 manager: craigg
-ms.openlocfilehash: b208ab10568740e3e1bcadd5f072f2080a573cef
-ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
+ms.openlocfilehash: ae9f2cbdd659b7eaf3558717be19f324e803d906
+ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58369484"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58522337"
 ---
 # <a name="azure-sql-data-warehouse-release-notes"></a>Notas de versão do armazém de dados SQL do Azure
 
@@ -28,7 +28,7 @@ Este artigo resume as novas funcionalidades e melhorias nas versões recentes do
 |**Importância da carga de trabalho agora disponível para pré-visualização**|Importância da carga de trabalho fornece os engenheiros de dados a capacidade de utilizar importância para classificar pedidos. Pedidos com maior importância garantia mais rápido acesso aos recursos, que ajuda a cumprir os SLAs.  Importância da carga de trabalho permite que o trabalho de valor de negócio de elevada cumprir os SLAs num ambiente compartilhado com menos recursos.<br/><br/>Para obter mais informações sobre a importância da carga de trabalho, consulte a [classificação](sql-data-warehouse-workload-classification.md) e [importância](sql-data-warehouse-workload-importance.md) artigos de descrição geral na documentação. Veja a [CLASSIFICADOR de carga de trabalho de criar](/sql/t-sql/statements/create-workload-classifier-transact-sql?view=azure-sqldw-latest) doc também.<br/><br/>Veja a importância da carga de trabalho em ação no abaixo vídeos:<br/>[Conceitos de gestão da carga de trabalho](  https://www.youtube.com/embed/QcCRBAhoXpM)<br/>[Cenários de gestão da carga de trabalho](https://www.youtube.com/embed/_2rLMljOjw8)|
 |**AGRUPAR POR ROLLUP**|ROLLUP agora é uma opção suportada GROUP BY no armazém de dados do Azure.   GRUPO por ROLLUP cria um grupo para cada combinação de expressões de coluna. GROUP BY também "agrega" os resultados em subtotais e totais gerais. Para fazer isso, ele passa da direita para a esquerda, diminuindo o número de expressões de coluna sobre o qual cria grupos e aggregation(s).  A ordem da coluna afeta a saída de agregação e pode afetar o número de linhas no conjunto de resultados.<br/><br/>Para obter mais informações sobre a agregação por grupo, consulte o artigo, [GROUP BY (Transact-SQL)](/sql/t-sql/queries/select-group-by-transact-sql?view=azure-sqldw-latest)
 |**Maior exatidão para DWU utilizado e as métricas de portais de CPU**|O SQL Data Warehouse melhora significativamente a precisão de métrica no portal do Azure.  Esta versão inclui uma correção para a definição de métrica da CPU e DWU utilizado para refletir corretamente sua carga de trabalho de todos os nós de computação.|
-|**Suporte adicional de T-SQL**|A área de superfície de linguagem T-SQL para o SQL Data Warehouse foi expandida para incluir o suporte para:<br/>&bull; &nbsp; [FORMAT (Transact-SQL)](/sql/t-sql/functions/format-transact-sql)<br/>&bull; &nbsp;    [STRING_ESCAPE (Transact-SQL)](/sql/t-sql/functions/string-escape-transact-sql)<br/>&bull; &nbsp; [STRING_SPLIT (Transact-SQL)](/sql/t-sql/functions/string-split-transact-sql)<br/>&bull; &nbsp; [TRANSLATE (Transact-SQL)](/sql/t-sql/functions/translate-transact-sql)
+|**Suporte adicional de T-SQL**|A área de superfície de linguagem T-SQL para o SQL Data Warehouse foi expandida para incluir o suporte para:<br/>&bull; &nbsp; [FORMAT (Transact-SQL)](/sql/t-sql/functions/format-transact-sql)<br/>&bull; &nbsp;    [STRING_ESCAPE (Transact-SQL)](/sql/t-sql/functions/string-escape-transact-sql)<br/>&bull; &nbsp; [STRING_SPLIT (Transact-SQL)](/sql/t-sql/functions/string-split-transact-sql)<br/>&bull; &nbsp; [TRANSLATE (Transact-SQL)](/sql/t-sql/functions/translate-transact-sql)<br/>&bull; &nbsp; [TRIM (Transact-SQL)](/sql/t-sql/functions/trim-transact-sql)
 | | |
 
 ### <a name="documentation-improvements"></a>Melhorias de documentação

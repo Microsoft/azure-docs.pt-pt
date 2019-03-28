@@ -4,14 +4,14 @@ ms.service: container-instances
 ms.topic: include
 ms.date: 03/01/2019
 ms.author: danlep
-ms.openlocfilehash: 8b6172a9ff6e25426270a3c48786a8d4b623c2b6
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 1ab95ae5d77ce26ee7b6cd2f8e6644013b25741b
+ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57554531"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58542365"
 ---
-### <a name="supported-regions-and-resource-availability"></a>Regiões suportadas e a disponibilidade de recursos
+### <a name="regions-and-resource-availability"></a>Regiões e disponibilidade de recursos
 
 | Localização | SO | CPU | Memória (GB) |
 | -------- | :---: | :---: | :-----------: |

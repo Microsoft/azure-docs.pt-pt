@@ -7,14 +7,14 @@ author: garyericson
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: conceptual
-ms.date: 03/22/2019
+ms.date: 03/26/2019
 ms.author: garye
-ms.openlocfilehash: 7df429aa848c6f9fb9abe09fbf4357db20fcde6a
-ms.sourcegitcommit: fbfe56f6069cba027b749076926317b254df65e5
+ms.openlocfilehash: 6950cba5ac958233e7ea77c8dc783ca86cc5a386
+ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58472859"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58519906"
 ---
 # <a name="quickstart-create-a-cognitive-services-account-in-the-azure-portal"></a>Início rápido: Criar uma conta dos serviços cognitivos no portal do Azure
 
@@ -33,27 +33,6 @@ Antes de começar, é importante saber que existem dois tipos de subscrições d
 
 As secções seguintes explicam como criar uma subscrição única ou múltiplos serviço.
 
-### <a name="single-service-subscription"></a>Subscrição de serviço único
-
-1. Inicie sessão para o [portal do Azure](https://portal.azure.com)e clique em **+ criar um recurso**.
-
-    ![Selecione as APIs serviços cognitivos](media/cognitive-services-apis-create-account/azurePortalScreen.png)
-
-2. No Azure Marketplace, selecione **IA + Machine Learning**. Se não vir o serviço estiver interessado em, clique em **ver todas as** para ver todo o catálogo de APIs serviços cognitivos.
-
-    ![Selecione as APIs serviços cognitivos](media/cognitive-services-apis-create-account/azureMarketplace.png)
-
-3. Sobre o **criar** página, forneça as seguintes informações:
-
-    |    |    |
-    |--|--|
-    | **Nome** | Um nome descritivo para o seu recurso de serviços cognitivos. Recomendamos que utilize um nome descritivo, por exemplo *MyNameFaceAPIAccount*. |
-    | **Subscrição** | Selecione uma das suas subscrições do Azure disponíveis. |
-    | **Localização** | A localização da sua instância de serviço cognitivo. Localizações diferentes podem introduzir a latência, mas não tiver nenhum impacto sobre a disponibilidade de tempo de execução do seu recurso. |
-    | **Escalão de preço** | O custo da sua conta dos serviços cognitivos depende das opções que escolher e a sua utilização. Para obter mais informações, consulte a API [os detalhes dos preços](https://azure.microsoft.com/pricing/details/cognitive-services/).
-    | **Grupo de recursos** | O [grupo de recursos do Azure](https://docs.microsoft.com/azure/architecture/cloud-adoption/getting-started/azure-resource-access#what-is-an-azure-resource-group) que irá conter o seu recurso dos serviços cognitivos. Pode criar um novo grupo ou adicioná-lo a um grupo já existente. |
-
-    ![Ecrã de criação de recursos](media/cognitive-services-apis-create-account/resource_create_screen.png)
 
 ### <a name="multi-service-subscription"></a>Subscrição múltiplos serviço
 
@@ -80,6 +59,28 @@ As secções seguintes explicam como criar uma subscrição única ou múltiplos
     | **Grupo de recursos** | O [grupo de recursos do Azure](https://docs.microsoft.com/azure/architecture/cloud-adoption/getting-started/azure-resource-access#what-is-an-azure-resource-group) que irá conter o seu recurso dos serviços cognitivos. Pode criar um novo grupo ou adicioná-lo a um grupo já existente. |
 
     ![Ecrã de criação de recursos](media/cognitive-services-apis-create-account/resource_create_screen_multi.png)
+
+### <a name="single-service-subscription"></a>Subscrição de serviço único
+
+1. Inicie sessão para o [portal do Azure](https://portal.azure.com)e clique em **+ criar um recurso**.
+
+    ![Selecione as APIs serviços cognitivos](media/cognitive-services-apis-create-account/azurePortalScreen.png)
+
+2. No Azure Marketplace, selecione **IA + Machine Learning**. Se não vir o serviço estiver interessado em, clique em **ver todas as** para ver todo o catálogo de APIs serviços cognitivos.
+
+    ![Selecione as APIs serviços cognitivos](media/cognitive-services-apis-create-account/azureMarketplace.png)
+
+3. Sobre o **criar** página, forneça as seguintes informações:
+
+    |    |    |
+    |--|--|
+    | **Nome** | Um nome descritivo para o seu recurso de serviços cognitivos. Recomendamos que utilize um nome descritivo, por exemplo *MyNameFaceAPIAccount*. |
+    | **Subscrição** | Selecione uma das suas subscrições do Azure disponíveis. |
+    | **Localização** | A localização da sua instância de serviço cognitivo. Localizações diferentes podem introduzir a latência, mas não tiver nenhum impacto sobre a disponibilidade de tempo de execução do seu recurso. |
+    | **Escalão de preço** | O custo da sua conta dos serviços cognitivos depende das opções que escolher e a sua utilização. Para obter mais informações, consulte a API [os detalhes dos preços](https://azure.microsoft.com/pricing/details/cognitive-services/).
+    | **Grupo de recursos** | O [grupo de recursos do Azure](https://docs.microsoft.com/azure/architecture/cloud-adoption/getting-started/azure-resource-access#what-is-an-azure-resource-group) que irá conter o seu recurso dos serviços cognitivos. Pode criar um novo grupo ou adicioná-lo a um grupo já existente. |
+
+    ![Ecrã de criação de recursos](media/cognitive-services-apis-create-account/resource_create_screen.png)
 
 ## <a name="access-your-resource"></a>Aceder ao seu recurso
 

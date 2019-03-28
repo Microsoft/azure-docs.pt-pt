@@ -12,12 +12,12 @@ ms.author: aliceku
 ms.reviewer: vanto, carlrab, emlisa
 manager: craigg
 ms.date: 02/04/2019
-ms.openlocfilehash: 121226ad9ca1ea0c29dd192ed69797b37245da46
-ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
+ms.openlocfilehash: a4f1b26a20da3b22561538f7814105b356c4148a
+ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57213930"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58519141"
 ---
 # <a name="an-overview-of-azure-sql-database-security-capabilities"></a>Uma descrição geral das capacidades de segurança da base de dados do Azure SQL
 
@@ -100,12 +100,16 @@ Tentarem ameaças melhora a deteção de auditoria através da análise de regis
 
 Base de dados SQL protege os dados dos clientes ao encriptar os dados em movimento com [Transport Layer Security](https://support.microsoft.com/help/3135244/tls-1-2-support-for-microsoft-sql-server).
 
+SQL Server impõe a encriptação (SSL/TLS) em todos os momentos para todas as ligações. Isto garante que todos os dados são encriptados "em trânsito" entre o cliente e servidor, independentemente da definição de **Encrypt** ou **TrustServerCertificate** na cadeia de ligação.
+
+Como melhor prática, recomendamos que, na ligação da sua aplicação, cadeia de caracteres que especifique uma ligação encriptada e _**não**_ confiar no certificado de servidor. Isso força o seu aplicativo para verificar o certificado de servidor e, assim, impede que a aplicação seja vulnerável a man nos ataques de tipo intermediária.
+
+Por exemplo, ao utilizar o controlador ADO.NET Isso é feito por meio **Encrypt = True** e **TrustServerCertificate = False**. Se obter a cadeia de ligação do portal do Azure, terá as definições corretas.
+
 > [!IMPORTANT]
-> Base de dados SQL do Azure impõe a encriptação (SSL/TLS) em todos os momentos para todas as ligações, que garante que todos os dados são encriptados "em trânsito" entre a base de dados e o cliente. Este processo ocorre independentemente da definição de **Encrypt** ou **TrustServerCertificate** na cadeia de ligação.
+> Tenha em atenção que alguns drivers não-Microsoft não podem utilizar TLS por predefinição ou contar com uma versão mais antiga do TLS (< 2.0) para funcionar. Nesse caso do SQL Server ainda permite-lhe ligar à base de dados. No entanto, recomendamos que avaliar os riscos de segurança de permitir os tais drivers e aplicativos para ligar à base de dados SQL, especialmente se armazenar dados confidenciais. 
 >
-> Na cadeia de ligação da sua aplicação, certifique-se de que especifica uma ligação encriptada e _não_ confiar no certificado de servidor (controlador de para o ADO.NET é **Encrypt = True** e  **TrustServerCertificate = False**). Isto ajuda a impedir que a aplicação a partir de um homem no meio ataque, forçando o aplicativo para verificar se o servidor e impor encriptação. Se obter a cadeia de ligação do portal do Azure, terá as definições corretas.
->
-> Para obter informações sobre TLS e conectividade, consulte [considerações de TLS](sql-database-connect-query.md#tls-considerations-for-sql-database-connectivity)
+> Para obter mais informações sobre TLS e conectividade, consulte [considerações de TLS](sql-database-connect-query.md#tls-considerations-for-sql-database-connectivity)
 
 ### <a name="transparent-data-encryption-encryption-at-rest"></a>Encriptação de dados transparente (encriptação em repouso)
 

@@ -7,12 +7,12 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 02/07/2019
-ms.openlocfilehash: 204ee1b812949311258be968de387dc5b66c4fc0
-ms.sourcegitcommit: 235cd1c4f003a7f8459b9761a623f000dd9e50ef
+ms.openlocfilehash: 18f713198ef9aa45cb72a6718c0f7b086c019258
+ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/11/2019
-ms.locfileid: "57726877"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58540045"
 ---
 # <a name="mapping-data-flow-join-transformation"></a>Transformação de associação de fluxo de dados de mapeamento
 
@@ -67,6 +67,10 @@ Pode obter condições de associação automática de mensagens em fila no fluxo
 ![Associação automática](media/data-flow/selfjoin.png "associação automática")
 
 No diagrama acima, a transformação selecione é na parte superior. Todos os está fazendo é aliasing o fluxo original para "OrigSourceBatting". A transformação de associação realçada abaixo dele pode ver que utilizamos esta sequência de alias Selecione como a associação a um direita, permitindo-nos fazer referência a mesma chave no lado esquerdo & no lado direito da associação interna.
+
+## <a name="composite-and-custom-keys"></a>Chaves compostas e personalizadas
+
+Pode criar chaves personalizadas e compostas em tempo real dentro da transformação de associação. Adicione linhas para colunas de associação adicionais com o sinal de adição (+) junto a cada linha de relação. Ou um novo valor de chave no construtor de expressão para um valor de associação em tempo real de computação.
 
 ## <a name="next-steps"></a>Passos Seguintes
 

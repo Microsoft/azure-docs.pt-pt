@@ -10,12 +10,12 @@ ms.reviewer: sgilley
 ms.author: sgilley
 author: sdgilley
 ms.date: 03/21/2019
-ms.openlocfilehash: 2c3b63e671240a239dc2037ce56e56af4a8f95e7
-ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
+ms.openlocfilehash: e55c898cdbb45dc7ff3466c61e968e3ae52be0cb
+ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58369167"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58521011"
 ---
 # <a name="create-an-azure-machine-learning-service-workspace"></a>Criar uma área de trabalho do serviço do Azure Machine Learning
 
@@ -24,7 +24,7 @@ Para utilizar o serviço Azure Machine Learning, é necessário um [ **área de 
 Neste artigo, saiba como criar uma área de trabalho usando qualquer um dos seguintes métodos: 
 * O [portal do Azure](#portal) interface
 * O [do Azure Machine Learning SDK para Python](#sdk)
-* Um [modelo Azure Resource Manager](#template)
+* Um modelo Azure Resource Manager
 * O [do Azure Machine Learning CLI](#cli)
 
 A área de trabalho, criar utilizando os passos aqui em pode ser usada como um pré-requisito para outros tutoriais e artigos de instruções. 

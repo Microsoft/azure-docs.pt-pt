@@ -10,12 +10,12 @@ ms.subservice: workload management
 ms.date: 03/13/2019
 ms.author: rortloff
 ms.reviewer: jrasnick
-ms.openlocfilehash: bcc09095955a28bde3ed999f23180e08485543fc
-ms.sourcegitcommit: 4133f375862fdbdec07b70de047d70c66ac29d50
+ms.openlocfilehash: c27856da0a5131f2c0e8dfd4d929b577a0a68421
+ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/15/2019
-ms.locfileid: "57994007"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58520146"
 ---
 # <a name="sql-data-warehouse-workload-classification-preview"></a>Classificação de carga de trabalho do armazém de dados SQL (pré-visualização)
 
@@ -33,6 +33,8 @@ Classificação de gestão da carga de trabalho permite que as políticas de car
 Embora haja várias formas de classificar cargas de trabalho do armazém de dados, a classificação mais simples e mais comuns é a carga e a consulta. Carregar dados com o insert, update e delete instruções.  Consultar os dados usando o seleciona. Uma solução de armazém de dados, muitas vezes, terá uma política de carga de trabalho para a atividade de carga, tais como atribuir uma classe de recursos superior com mais recursos. É possível aplicar uma política de carga de trabalho diferente para consultas, tais como de menor importância em comparação comparada atividades de carga.
 
 Também pode subclassify suas cargas de trabalho de carga e a consulta. Subclassification dá-lhe maior controlo das suas cargas de trabalho. Por exemplo, cargas de trabalho de consulta podem incluir atualizações de cubo, consultas de dashboard ou consultas ad-hoc. Pode classificar cada uma destas cargas de trabalho de consulta com classes de recursos diferente ou definições de importância. Carga também pode se beneficiar subclassification. Transformações de grandes dimensões podem ser atribuídas a classes de recursos maiores. Maior importância pode ser utilizada para garantir que os dados de vendas principais for carregador antes dos dados meteorológicos ou um feed de dados sociais.
+
+Nem todas as declarações são classificadas como não requerem recursos ou precisar de importância para influenciar a execução.  Comandos DBCC, instruções BEGIN, consolidação e ROLLBACK TRANSACTION não são classificadas.
 
 ## <a name="classification-process"></a>Processo de classificação
 

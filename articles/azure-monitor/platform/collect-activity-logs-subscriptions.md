@@ -1,6 +1,6 @@
 ---
-title: Recolher Registos de Atividades do Azure no Log Analytics entre subscrições | Microsoft Docs
-description: Utilize os Hubs de Eventos e o Logic Apps para recolher dados a partir do Registo de Atividades do Azure e envie-os para uma área de trabalho do Azure Log Analytics noutro inquilino.
+title: Recolher registos de atividades do Azure para uma área de trabalho do Log Analytics entre subscrições | Documentos da Microsoft
+description: Utilize os Hubs de eventos e o Logic Apps para recolher dados de registo de atividades do Azure e enviá-lo para uma área de trabalho do Log Analytics no Azure Monitor num inquilino diferente.
 services: log-analytics, logic-apps, event-hubs
 documentationcenter: ''
 author: mgoedtel
@@ -12,16 +12,16 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 02/06/2019
 ms.author: magoedte
-ms.openlocfilehash: 4d336f657baef99d97568ba722e64a1f4440367f
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
+ms.openlocfilehash: 76a789bd4f9167344fcc240e3f3fdbf3a00aa5a3
+ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55984584"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58540759"
 ---
-# <a name="collect-azure-activity-logs-into-log-analytics-across-subscriptions-in-different-azure-active-directory-tenants"></a>Recolher registos de atividades do Azure para o Log Analytics entre subscrições em diferentes inquilinos do Azure Active Directory
+# <a name="collect-azure-activity-logs-into-a-log-analytics-workspace-across-subscriptions-in-different-azure-active-directory-tenants"></a>Recolher registos de atividades do Azure para uma área de trabalho do Log Analytics entre subscrições em diferentes inquilinos do Azure Active Directory
 
-Este artigo descreve um método para recolher Registos de Atividades do Azure numa área de trabalho do Log Analytics com o conector Azure Log Analytics Data Collector para o Logic Apps. Utilize o processo neste artigo quando tiver de enviar registos para uma área de trabalho noutro inquilino do Azure Active Directory. Por exemplo, se for um fornecedor de serviços geridos, poderá querer recolher registos de atividades da subscrição de um cliente e armazená-los numa área de trabalho do Log Analytics na sua própria subscrição.
+Este artigo descreve um método para recolher registos de atividades do Azure para uma área de trabalho do Log Analytics no Azure Monitor utilizando o conector Azure Log Analytics Data Collector para o Logic Apps. Utilize o processo neste artigo quando tiver de enviar registos para uma área de trabalho noutro inquilino do Azure Active Directory. Por exemplo, se for um fornecedor de serviços geridos, poderá querer recolher registos de atividades da subscrição de um cliente e armazená-los numa área de trabalho do Log Analytics na sua própria subscrição.
 
 Se a área de trabalho do Log Analytics estiver na mesma subscrição do Azure ou noutra subscrição, mas no mesmo Azure Active Directory, utilize os passos em [Azure activity log solution](collect-activity-logs.md) (Solução de registos de atividades do Azure) para recolher registos de atividades do Azure.
 
@@ -29,23 +29,23 @@ Se a área de trabalho do Log Analytics estiver na mesma subscrição do Azure o
 
 A estratégia utilizada neste cenário consiste em fazer com que o Azure Activity Log envie eventos para um [Hub de Eventos](../../event-hubs/event-hubs-about.md), onde uma [aplicação lógica](../../logic-apps/logic-apps-overview.md) os envia para a sua área de trabalho do Log Analytics. 
 
-![imagem do fluxo de dados da análise de registos para o log analytics](media/collect-activity-logs-subscriptions/data-flow-overview.png)
+![imagem do fluxo de dados do registo de atividades para a área de trabalho do Log Analytics](media/collect-activity-logs-subscriptions/data-flow-overview.png)
 
 As vantagens desta abordagem incluem:
-- Baixa latência, uma vez que o Registo de Atividades do Azure é transmitido em fluxo para o Hub de Eventos.  A aplicação lógica é, em seguida, acionada e envia os dados para o Log Analytics. 
+- Baixa latência, uma vez que o Registo de Atividades do Azure é transmitido em fluxo para o Hub de Eventos.  A aplicação lógica, em seguida, é acionada e envia os dados para a área de trabalho. 
 - Só é preciso código mínimo e não é necessário implementar infraestruturas de servidores.
 
 Este artigo descreve como:
 1. Criar um Hub de Eventos. 
 2. Exportar registos de atividades para um Hub de Eventos com o perfil de exportação do Registo de Atividades do Azure.
-3. Criar uma aplicação lógica para ler a partir do Hub de Eventos e enviar eventos para o Log Analytics.
+3. Crie uma aplicação lógica para ler a partir do Hub de eventos e enviar eventos para a área de trabalho do Log Analytics.
 
 ## <a name="requirements"></a>Requisitos
 Seguem-se os requisitos para os recursos do Azure utilizados neste cenário.
 
 - O espaço de nomes do Hub de Eventos tem de estar na mesma subscrição que a subscrição que emite os registos. O utilizador que configura a definição tem de ter permissões de acesso adequadas para ambas as subscrições. Se tiver várias subscrições no mesmo Azure Active Directory, pode enviar os registos de atividades de todas as subscrições para um hub de eventos único.
 - A aplicação lógica pode estar numa subscrição diferente do que o hub de eventos e não tem de estar no mesmo Azure Active Directory. A aplicação lógica utiliza a chave de acesso partilhado para ler a partir do Hub de Eventos.
-- A área de trabalho do Log Analytics pode estar numa subscrição e num Azure Active Directory diferentes da aplicação lógica. Contudo, para simplificar, recomendamos que estejam na mesma subscrição. Para enviar os Registos de Atividades, a aplicação lógica utiliza o ID e a chave da área de trabalho do Log Analytics.
+- A área de trabalho do Log Analytics pode estar numa subscrição e num Azure Active Directory diferentes da aplicação lógica. Contudo, para simplificar, recomendamos que estejam na mesma subscrição. A aplicação lógica envia para a área de trabalho com o ID de área de trabalho do Log Analytics e a chave.
 
 
 
@@ -96,13 +96,13 @@ Pode utilizar um espaço de nomes de hub de eventos que não esteja na mesma sub
 
 ## <a name="step-3---create-logic-app"></a>Passo 3 - Criar a Aplicação Lógica
 
-Quando os registos de atividades estiverem a ser escritos para o hub de eventos, crie uma aplicação lógica para recolhê-los do hub e escrevê-los no Log Analytics.
+Assim que estiver a escrever os registos de atividade para o hub de eventos, vai criar uma aplicação de lógica para recolher os registos do hub de eventos e escrevê-los para a área de trabalho do Log Analytics.
 
 A aplicação lógica inclui o seguinte:
 - Um acionador de [conector do Hub de Eventos](https://docs.microsoft.com/connectors/eventhubs/) para ler a partir do Hub de Eventos.
 - Uma [ação Parse JSON](../../logic-apps/logic-apps-content-type.md) (Analisar JSON) para extrair os eventos do JSON
 - Uma [ação Compose](../../logic-apps/logic-apps-workflow-actions-triggers.md#compose-action) (Compor) para converter o JSON num objeto.
-- Um [conector send data connector do Log Analytics](https://docs.microsoft.com/connectors/azureloganalyticsdatacollector/) (conector “enviar dados”) para publicar os dados no Log Analytics.
+- R [conector de dados de envio de Log Analytics](https://docs.microsoft.com/connectors/azureloganalyticsdatacollector/) para publicar os dados para a área de trabalho do Log Analytics.
 
    ![imagem da adição do acionador do hub de eventos nas aplicações lógicas.](media/collect-activity-logs-subscriptions/log-analytics-logic-apps-activity-log-overview.png)
 
@@ -132,7 +132,7 @@ Para obter o nome e a cadeia de ligação do Hub de Eventos, siga os passos em [
    | Subscrição   | Selecione a subscrição do Azure que irá conter a aplicação lógica. |
    | Grupo de Recursos | Selecione um grupo de recursos do Azure existente ou crie um novo para a aplicação lógica. |
    | Localização       | Selecione a região do datacenter para implementar a sua aplicação lógica. |
-   | Log Analytics  | Selecione se pretende registar o estado de cada execução da sua aplicação lógica no Log Analytics.  |
+   | Log Analytics  | Selecione se pretende registar o estado de cada execução da sua aplicação lógica numa área de trabalho do Log Analytics.  |
 
     
 3. Selecione **Criar**. Se for apresentada a mensagem **Implementação Concluída com Êxito**, clique em **Ir para o recurso** para abrir a aplicação lógica.
@@ -163,7 +163,7 @@ O Estruturador de Aplicações Lógicas mostra-lhe agora os conectores disponív
 
 ### <a name="add-parse-json-action"></a>Adicionar ação Parse JSON
 
-A saída do hub de eventos contém um payload JSON com uma matriz de registos. A ação [Parse JSON](../../logic-apps/logic-apps-content-type.md) é utilizada para extrair apenas a matriz de registos para enviar para o Log Analytics.
+A saída do hub de eventos contém um payload JSON com uma matriz de registos. O [Parse JSON](../../logic-apps/logic-apps-content-type.md) ação é utilizada para extrair apenas a matriz de registos para enviar para área de trabalho do Log Analytics.
 
 1. Clique em **New step** (Novo passo)  > **Add an action** (Adicionar uma ação)
 2. Na caixa de pesquisa, escreva *parse json* como o filtro. Selecione a ação **Data Operations - Parse JSON** (Operações de Dados - Analisar JSON).
@@ -286,7 +286,7 @@ A ação [Compose](../../logic-apps/logic-apps-workflow-actions-triggers.md#comp
 
 
 ### <a name="add-log-analytics-send-data-action"></a>Adicionar ação Send Data do Log Analytics
-A ação [Azure Log Analytics Data Collector](https://docs.microsoft.com/connectors/azureloganalyticsdatacollector/) (Coletor do Azure Log Analytics) utiliza o objeto da ação Compose e envia-o para o Log Analytics.
+O [do Azure Log Analytics Data Collector](https://docs.microsoft.com/connectors/azureloganalyticsdatacollector/) ação usa o objeto da ação Compose e envia-os para uma área de trabalho do Log Analytics.
 
 1. Clique em **New step** (Novo passo)  > **Add an action** (Adicionar uma ação)
 2. Escreva *log analytics* como o filtro e selecione a ação **Azure Log Analytics Data Collector - Send Data** (Recoletor de Dados do Azure Log Analytics - Enviar Dados).
@@ -304,7 +304,7 @@ A ação [Azure Log Analytics Data Collector](https://docs.microsoft.com/connect
    |Definição        | Valor           | Descrição  |
    |---------------|---------------------------|--------------|
    |JSON Request body (Corpo do pedido JSON)  | **Saída** da ação **Compose** | Obtém os registos do corpo da ação Compose. |
-   | Custom Log Name (Nome do Registo Personalizado) | AzureActivity | O nome da tabela de registos personalizada a criar no Log Analytics que vai conter os dados importados. |
+   | Custom Log Name (Nome do Registo Personalizado) | AzureActivity | Nome da tabela de registos personalizado para criar na área de trabalho do Log Analytics para armazenar os dados importados. |
    | Time-generated-field | hora | Não selecione o campo JSON relativo a **time** (hora); escreva a palavra “hora”. Se selecionar o campo JSON, o estruturador coloca a ação **Send Data** num ciclo *For Each*, que não é o que se pretende. |
 
 
@@ -329,7 +329,7 @@ O último passo é verificar a área de trabalho do Log Analytics, para confirma
 3.  Clique no mosaico **Pesquisa de Registos**, no painel Pesquisa de Registos, no tipo de campo de consulta `AzureActivity_CL` e, em seguida, prima Enter ou clique no botão de pesquisa à direita do campo de consulta. Se não tiver dado o nome *AzureActivity* ao seu registo personalizado, escreva o nome que escolheu e acrescente `_CL`.
 
 >[!NOTE]
-> Da primeira vez que for enviado um registo personalizado novo para o Log Analytics, esse registo poderá demorar uma hora até poder ser pesquisável.
+> Na primeira vez que um registo personalizado novo é enviado para a área de trabalho do Log Analytics pode demorar uma hora para o registo personalizado seja pesquisável.
 
 >[!NOTE]
 > Os registos de atividades são escritos numa tabela personalizada e não aparecem na [solução Registo de Atividades](./collect-activity-logs.md).
@@ -339,7 +339,7 @@ O último passo é verificar a área de trabalho do Log Analytics, para confirma
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-Neste artigo, criou uma aplicação lógica para ler os Registos de Atividades do Azure a partir de um hub de eventos e enviá-los para análise no Log Analytics. Para saber mais sobre como visualizar dados no Log Analytics, incluindo criar dashboards, veja o tutorial Visualize data (Visualizar dados).
+Neste artigo, criou uma aplicação lógica para ler registos de atividades do Azure a partir de um Hub de eventos e enviá-los para a área de trabalho do Log Analytics para análise. Para saber mais sobre a visualização de dados numa área de trabalho, incluindo a criação de dashboards, veja o tutorial Visualize dados.
 
 > [!div class="nextstepaction"]
 > [Visualize Log Search data tutorial](./../../azure-monitor/learn/tutorial-logs-dashboards.md) (Tutorial sobre como Visualizar dados da Pesquisa de Registos)

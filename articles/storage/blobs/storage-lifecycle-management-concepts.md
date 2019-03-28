@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 3/20/2019
 ms.author: yzheng
 ms.subservice: common
-ms.openlocfilehash: 0d52b2f59bba2270b3d36ff2499ce1e0e492b228
-ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
+ms.openlocfilehash: fe5e4b6a4f6a3da851b6e27419bff265758a1ba1
+ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 03/27/2019
-ms.locfileid: "58500428"
+ms.locfileid: "58522218"
 ---
 # <a name="manage-the-azure-blob-storage-lifecycle"></a>Gerir a ciclo de vida de armazenamento de Blobs do Azure
 
@@ -227,7 +227,7 @@ Este exemplo mostra como fazer a transição de blobs de blocos, o prefixo `cont
 
 ### <a name="archive-data-at-ingest"></a>Dados de arquivo na ingestão 
 
-Alguns dados permanecem ociosos, na cloud e é raramente, se alguma vez, uma vez a acedeu armazenados. Arquive estes dados imediatamente uma vez que é ingerido. A política de ciclo de vida seguinte está configurada para arquivar dados na ingestão. Neste exemplo blobs na conta de armazenamento dentro do contentor de blocos de transições `archivecontainer` imediatamente numa camada de arquivo. A transição imediata é conseguida ao agir em blobs de 0 dias após a hora da última modificação:
+Alguns dados permanecem ociosos, na cloud e é raramente, se alguma vez, uma vez a acedeu armazenados. A política de ciclo de vida seguinte está configurada para arquivar dados uma vez que é ingerido. Neste exemplo blobs na conta de armazenamento dentro do contentor de blocos de transições `archivecontainer` numa camada de arquivo. A transição é conseguida ao agir em blobs de 0 dias após a hora da última modificação:
 
 ```json
 {

@@ -11,13 +11,13 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
-ms.date: 02/06/2019
-ms.openlocfilehash: 36b2f3817c7e96a35c1e8f3aba22db201224ceba
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.date: 03/26/2019
+ms.openlocfilehash: 5247183f50301554a986fde474b27a9bfc67d91d
+ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58075940"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58540674"
 ---
 # <a name="faq-about-azure-sql-hyperscale-databases"></a>FAQ sobre bases de dados de Hiperescala de SQL do Azure
 
@@ -216,7 +216,7 @@ Não. Em pré-visualização pública, não é possível mover uma base de dados
 
 ### <a name="do-i-lose-any-functionality-or-capabilities-after-migration-to-the-hyperscale-service-tier"></a>Perder qualquer funcionalidade ou funcionalidades após a migração para a camada de serviços de Hiperescala
 
-Sim. Alguns dos recursos de base de dados do Azure SQL não são suportadas numa Hiperescala durante a pré-visualização pública, incluindo mas não limitado a TDE e longo prazo retenção cópia de segurança. Depois de migrar as bases de dados de grande escala, essas funcionalidades deixam de funcionar.
+Sim. Alguns dos recursos de base de dados do Azure SQL não são suportadas numa Hiperescala durante a pré-visualização pública, incluindo mas não limitado a longo prazo retenção cópia de segurança. Depois de migrar as bases de dados de grande escala, essas funcionalidades deixam de funcionar.
 
 ### <a name="can-i-move-my--on-premises-sql-server-database-or-my-sql-server-virtual-machine-database-to-hyperscale"></a>Posso mover o meu banco de dados do SQL Server no local ou o meu banco de dados de máquina virtual do SQL Server para Hiperescala
 

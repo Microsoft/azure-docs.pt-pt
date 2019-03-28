@@ -19,12 +19,12 @@ translation.priority.mt:
 - ru-ru
 - zh-cn
 - zh-tw
-ms.openlocfilehash: 06478cb3366054bd20239bf80f026562efd26232
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: f0fd93af7cba3057ad4c2224aa1298a221505645
+ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58087402"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58541065"
 ---
 # <a name="odata-expression-syntax-for-filters-and-order-by-clauses-in-azure-search"></a>Sintaxe da expressão OData para filtros e cláusulas de ordem no Azure Search
 
@@ -128,10 +128,10 @@ POST /indexes/hotels/docs/search?api-version=2017-11-11
 
 ## <a name="filter-examples"></a>Exemplos de filtro  
 
- Localize todos os hotéis com uma taxa base com menos de US $100 que são classificados igual ou superior a 4:  
+ Localize todos os hotéis com uma taxa base com menos de US $200 que são classificados igual ou superior a 4:  
 
 ```
-$filter=baseRate lt 100.0 and rating ge 4
+$filter=baseRate lt 200.0 and rating ge 4
 ```
 
  Localize hotéis todos os que não seja "Motéis Motel" que foi renovated desde 2010:  
@@ -140,10 +140,10 @@ $filter=baseRate lt 100.0 and rating ge 4
 $filter=hotelName ne 'Roach Motel' and lastRenovationDate ge 2010-01-01T00:00:00Z
 ```
 
- Localize todos os hotéis com uma taxa base menos de US $200 que tenham sido renovated desde 2012, com um literal de datetime com informações de fuso horário para hora padrão do Pacífico:  
+ Localize todos os hotéis com uma taxa base menos de US $200 que tenham sido renovated desde 2010, com um literal de datetime com informações de fuso horário para hora padrão do Pacífico:  
 
 ```
-$filter=baseRate lt 200 and lastRenovationDate ge 2012-01-01T00:00:00-08:00
+$filter=baseRate lt 200 and lastRenovationDate ge 2010-01-01T00:00:00-08:00
 ```
 
  Localize hotéis todos os que têm de estacionamento incluída e não permitir fumar:  

@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 3/22/2019
 ms.author: diberry
 ms.custom: seodec18
-ms.openlocfilehash: 84af16c156635f7f7dbfb42972e564dd21a554bb
-ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
+ms.openlocfilehash: b7e60b4fbdf076c50a7d9a29092de9ab1c32b210
+ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58436894"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58520654"
 ---
 # <a name="install-and-run-recognize-text-containers"></a>Instalar e executar contentores de reconhecer texto
 
@@ -89,7 +89,7 @@ Assim que o contentor estiver no [computador anfitrião](#the-host-computer), ut
 
 Utilize o [docker run](https://docs.docker.com/engine/reference/commandline/run/) comando para executar o contentor. O comando utiliza os seguintes parâmetros:
 
-| Marcador de posição | Value |
+| Marcador de posição | Valor |
 |-------------|-------|
 |{BILLING_KEY} | Esta chave é utilizada para iniciar o contentor e está disponível na página de chaves de texto de reconhecer o portal do Azure.  |
 |{BILLING_ENDPOINT_URI} | O ponto final faturação valor do URI.|
@@ -133,6 +133,11 @@ Pode utilizar o `POST /vision/v2.0/recognizeText` e `GET /vision/v2.0/textOperat
 
 Pode utilizar o `POST /vision/v2.0/recognizeTextDirect` operação de forma síncrona reconhecer texto impresso numa imagem. Uma vez que esta operação é síncrona, o corpo do pedido para esta operação é o mesmo que para o `POST /vision/v2.0/recognizeText` operação, mas a resposta body para esta operação é o mesmo que devolvido pelo `GET /vision/v2.0/textOperations/*{id}*` operação.
 
+<!--  ## Validate container is running -->
+
+[!INCLUDE [Container's API documentation](../../../includes/cognitive-services-containers-api-documentation.md)]
+
+
 ## <a name="stop-the-container"></a>Parar o contentor
 
 [!INCLUDE [How to stop the container](../../../includes/cognitive-services-containers-stop.md)]
@@ -141,9 +146,6 @@ Pode utilizar o `POST /vision/v2.0/recognizeTextDirect` operação de forma sín
 
 Se executar o contentor com uma saída [montar](./computer-vision-resource-container-config.md#mount-settings) e registo ativado, o contentor gera os ficheiros de registo que são úteis para resolver os problemas que ocorrem ao iniciar ou executar o contentor. 
 
-## <a name="containers-api-documentation"></a>Documentação da API do contentor
-
-[!INCLUDE [Container's API documentation](../../../includes/cognitive-services-containers-api-documentation.md)]
 
 ## <a name="billing"></a>Faturação
 

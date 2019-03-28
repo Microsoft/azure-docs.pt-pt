@@ -12,12 +12,12 @@ author: jaredmoo
 ms.reviewer: sstein
 manager: craigg
 ms.date: 01/25/2019
-ms.openlocfilehash: 057f5fcf9f050bdce9efb301db43b909893ade60
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: d2b0209f57ff5f59d59ee057db7675b2dcd071b8
+ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57769171"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58522065"
 ---
 # <a name="use-transact-sql-t-sql-to-create-and-manage-elastic-database-jobs"></a>Utilizar o Transact-SQL (T-SQL) para criar e gerir conjuntos elásticos da base de dados
 
@@ -408,19 +408,19 @@ Os seguintes procedimentos armazenados são no [base de dados de tarefas](sql-da
 
 |Procedimento armazenado  |Descrição  |
 |---------|---------|
-|[sp_add_job](#spaddjob)     |     Adiciona uma nova tarefa.    |
-|[sp_update_job](#spupdatejob)    |      Atualiza uma tarefa existente.   |
-|[sp_delete_job](#spdeletejob)     |      Elimina uma tarefa existente.   |
-|[sp_add_jobstep](#spaddjobstep)    |    Adiciona um passo a um trabalho.     |
-|[sp_update_jobstep](#spupdatejobstep)     |     Atualiza um passo de tarefa.    |
-|[sp_delete_jobstep](#spdeletejobstep)     |     Elimina um passo de tarefa.    |
-|[sp_start_job](#spstartjob)    |  Inicia uma tarefa em execução.       |
-|[sp_stop_job](#spstopjob)     |     Interrompe uma execução de tarefa.   |
-|[sp_add_target_group](#spaddtargetgroup)    |     Adiciona um grupo de destino.    |
-|[sp_delete_target_group](#spdeletetargetgroup)     |    Elimina um grupo de destino.     |
-|[sp_add_target_group_member](#spaddtargetgroupmember)     |    Adiciona uma base de dados ou grupo de bases de dados a um grupo de destino.     |
-|[sp_delete_target_group_member](#spdeletetargetgroupmember)     |     Remove um membro do grupo de destino de um grupo de destino.    |
-|[sp_purge_jobhistory](#sppurgejobhistory)    |    Remove os registos do histórico para uma tarefa.     |
+|sp_add_job     |     Adiciona uma nova tarefa.    |
+|sp_update_job    |      Atualiza uma tarefa existente.   |
+|sp_delete_job     |      Elimina uma tarefa existente.   |
+|sp_add_jobstep    |    Adiciona um passo a um trabalho.     |
+|sp_update_jobstep     |     Atualiza um passo de tarefa.    |
+|sp_delete_jobstep     |     Elimina um passo de tarefa.    |
+|sp_start_job    |  Inicia uma tarefa em execução.       |
+|sp_stop_job     |     Interrompe uma execução de tarefa.   |
+|sp_add_target_group    |     Adiciona um grupo de destino.    |
+|sp_delete_target_group     |    Elimina um grupo de destino.     |
+|sp_add_target_group_member     |    Adiciona uma base de dados ou grupo de bases de dados a um grupo de destino.     |
+|sp_delete_target_group_member     |     Remove um membro do grupo de destino de um grupo de destino.    |
+|sp_purge_jobhistory    |    Remove os registos do histórico para uma tarefa.     |
 
 
 
@@ -1195,13 +1195,13 @@ As vistas seguintes estão disponíveis no [base de dados de tarefas](sql-databa
 
 |Vista  |Descrição  |
 |---------|---------|
-|[jobs_executions](#jobsexecutions-view)     |  Mostra o histórico de execução de tarefas.      |
+|jobs_executions     |  Mostra o histórico de execução de tarefas.      |
 |[jobs](#jobs-view)     |   Mostra todas as tarefas.      |
-|[job_versions](#jobversions-view)     |   Mostra todas as versões de tarefa.      |
+|job_versions     |   Mostra todas as versões de tarefa.      |
 |[jobsteps](#jobsteps-view)     |     Mostra todos os passos na versão atual de cada tarefa.    |
-|[jobstep_versions](#jobstepversions-view)     |     Mostra todos os passos em todas as versões de cada tarefa.    |
-|[target_groups](#targetgroups-view)     |      Mostra todos os grupos de destino.   |
-|[target_group_members](#targetgroups-view)     |   Mostra todos os membros de todos os grupos de destino.      |
+|jobstep_versions     |     Mostra todos os passos em todas as versões de cada tarefa.    |
+|target_groups     |      Mostra todos os grupos de destino.   |
+|target_group_members     |   Mostra todos os membros de todos os grupos de destino.      |
 
 
 ### <a name="jobsexecutions-view"></a>jobs_executions view

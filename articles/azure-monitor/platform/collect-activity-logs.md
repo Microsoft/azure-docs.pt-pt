@@ -1,5 +1,5 @@
 ---
-title: Recolher e analisar registos de atividades do Azure no Log Analytics | Documentos da Microsoft
+title: Recolher e analisar registos de atividades do Azure na área de trabalho do Log Analytics | Documentos da Microsoft
 description: Pode utilizar a solução de registos de atividades do Azure para analisar e pesquisar o registo de atividades do Azure em todas as suas subscrições do Azure.
 services: log-analytics
 documentationcenter: ''
@@ -13,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 03/26/2018
 ms.author: magoedte
-ms.openlocfilehash: 20246cfa5904c3c89ab9a14d11f2e61883b27344
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.openlocfilehash: 2fd74262d9c1b4a751df5d836f98bf89d31dbdc2
+ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53540265"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58540436"
 ---
-# <a name="collect-and-analyze-azure-activity-logs-in-log-analytics"></a>Recolher e analisar registos de atividades do Azure no Log Analytics
+# <a name="collect-and-analyze-azure-activity-logs-in-log-analytics-workspace-in-azure-monitor"></a>Recolher e analisar registos de atividades do Azure na área de trabalho do Log Analytics no Azure Monitor
 
 ![Símbolo de registos de atividades do Azure](./media/collect-activity-logs/activity-log-analytics.png)
 
@@ -28,7 +28,7 @@ A solução Log Analytics da atividade ajuda a analisar e pesquisar os [registo 
 
 Utilizar o registo de atividades, pode determinar a *o que*, *quem*, e *quando* para quaisquer operações (PUT, POST, DELETE) efetuadas para os recursos na sua subscrição de escrita. Também é possível compreender o estado de operações e outras propriedades relevantes. O registo de Atividades não incluem operações de leitura (GET) nem operações para recursos que utilizam o modelo de implementação clássica.
 
-Ao ligar os seus registos de atividades do Azure para o Log Analytics, pode:
+Ao ligar os seus registos de atividades do Azure para uma área de trabalho do Log Analytics, pode:
 
 - Analisar os registos de atividades com exibições predefinidas
 - Analisar e registos de pesquisa e atividade de várias subscrições do Azure
@@ -40,15 +40,15 @@ Ao ligar os seus registos de atividades do Azure para o Log Analytics, pode:
 - Identificar problemas de estado de funcionamento de falha ou um serviço que afetem seus recursos
 - Pesquisa de registos de utilização para correlacionar as atividades do utilizador, as operações de dimensionamento automático, as alterações de autorização e service health para outros logs ou métricas do seu ambiente
 
-<sup>1</sup>por predefinição, do Log Analytics mantém os seus registos de atividades do Azure durante 90 dias, mesmo que esteja no escalão gratuito. Em alternativa, se tiver uma definição de retenção de área de trabalho de menos de 90 dias. Se a sua área de trabalho tem retenção com mais de 90 dias, os registos de Atividades são mantidos com base no período de retenção da sua área de trabalho.
+<sup>1</sup>por predefinição, do Azure Monitor mantém os seus registos de atividades do Azure numa área de trabalho do Log Analytics durante 90 dias, mesmo que esteja no escalão gratuito. Em alternativa, se tiver uma definição de retenção de área de trabalho de menos de 90 dias. Se a sua área de trabalho tem retenção com mais de 90 dias, os registos de Atividades são mantidos com base no período de retenção da sua área de trabalho.
 
-O log Analytics recolhe registos de atividade sem encargos e armazena os registos durante 90 dias sem encargos. Se armazenar os registos durante mais de 90 dias, incorre em custos de retenção de dados para os dados armazenados há mais de 90 dias.
+A área de trabalho do Log Analytics recolhe registos de atividade sem encargos e armazena os registos durante 90 dias sem encargos. Se armazenar os registos durante mais de 90 dias, incorre em custos de retenção de dados para os dados armazenados há mais de 90 dias.
 
 Quando estiver no escalão de preço gratuito, registos de atividades que não se aplicam ao seu consumo de dados diário.
 
 ## <a name="connected-sources"></a>Origens ligadas
 
-Ao contrário da maioria das outras soluções do Log Analytics, os dados não são recolhidos para registos de atividades por agentes. Todos os dados utilizados pela solução é fornecido diretamente a partir do Azure.
+Ao contrário da maioria das outras soluções do Azure Monitor, os dados não são recolhidos para registos de atividades por agentes. Todos os dados utilizados pela solução é fornecido diretamente a partir do Azure.
 
 | Origem Ligada | Suportadas | Descrição |
 | --- | --- | --- |

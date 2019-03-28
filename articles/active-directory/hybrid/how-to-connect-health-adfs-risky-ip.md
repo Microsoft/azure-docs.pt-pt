@@ -15,12 +15,12 @@ ms.date: 02/26/2019
 ms.author: billmath
 ms.custom: H1Hack27Feb2017
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c68e937c1c4e77a5b24b48f8b73271bf8ec9da66
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 49b93cb7852692e4dad65fcbd72cd749db1b16fb
+ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58170807"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58540912"
 ---
 # <a name="risky-ip-report-public-preview"></a>Relatório de IP arriscado (pré-visualização pública)
 Os clientes do AD FS podem expor pontos finais de autenticação de palavras-passe à Internet para disponibilizar serviços de autenticação aos utilizadores finais, para que aqueles acedam a aplicações SaaS, como o Office 365. Neste caso, é possível que um ator indevido tente inícios de sessão no seu sistema do AD FS para adivinhar a palavra-passe de um utilizador final e obter acesso aos recursos das aplicações. O AD FS proporciona a funcionalidade de bloqueio de conta de extranet para evitar estes tipos de ataques a partir do AD FS no Windows Server 2012 R2. Se tiver uma versão inferior, recomendamos vivamente que atualize o sistema do AD FS para o Windows Server 2016. <br />
@@ -38,7 +38,7 @@ Além disso, é possível que um único endereço IP tente vários inícios de s
 > 
 
 ## <a name="what-is-in-the-report"></a>O que é no relatório?
-Cada item no relatório de IP em Risco mostra informações agregadas sobre as atividades de início de sessão do AD FS falhadas que excedam o limiar designado. Ele fornece as seguintes informações: ![Portal de estado de funcionamento do Azure AD Connect](./media/how-to-connect-health-adfs/report4a.png)
+O início de sessão falhados endereços IP de cliente de atividade é agregados através de servidores de Proxy de aplicações Web. Cada item no relatório de IP em Risco mostra informações agregadas sobre as atividades de início de sessão do AD FS falhadas que excedam o limiar designado. Ele fornece as seguintes informações: ![Portal de estado de funcionamento do Azure AD Connect](./media/how-to-connect-health-adfs/report4a.png)
 
 | Item de Relatório | Descrição |
 | ------- | ----------- |

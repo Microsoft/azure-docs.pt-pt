@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/22/2019
 ms.author: tomfitz
-ms.openlocfilehash: 8005b187f300375b62c254516a61f4993675b0b9
-ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
+ms.openlocfilehash: 3b9a35cb5a37aa17a2f7803f3e996d51bede81e0
+ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58403113"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58518563"
 ---
 # <a name="deploy-resources-with-resource-manager-templates-and-azure-powershell"></a>Implementar recursos com modelos do Resource Manager e do Azure PowerShell
 
@@ -47,7 +47,7 @@ Os exemplos neste artigo utilizam implementações do grupo de recursos. Para ob
 
 Precisa de um modelo para implementar. Se ainda não tiver uma, transferir e guardar um [modelo de exemplo](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-storage-account-create/azuredeploy.json) do repositório de modelos de início rápido do Azure. O nome de ficheiro local utilizado neste artigo é **c:\MyTemplates\azuredeploy.json**.
 
-A menos que utilize o [do Azure Cloud shell](#deploy-templates-from-azure-cloud-shell) para implementar modelos, tem de instalar o Azure PowerShell e ligue-se para o Azure:
+A menos que utilize o Azure Cloud shell para implementar modelos, tem de instalar o Azure PowerShell e ligue-se para o Azure:
 
 - **Instale cmdlets Azure PowerShell no seu computador local.** Para obter mais informações, veja [Introdução ao Azure PowerShell](/powershell/azure/get-started-azureps).
 - **Ligar ao Azure, utilizando [Connect-AZAccount](/powershell/module/az.accounts/connect-azaccount)**. Se tiver várias subscrições do Azure, também poderá ter de ser executado [Set-AzContext](/powershell/module/Az.Accounts/Set-AzContext). Para obter mais informações, consulte [utilizar várias subscrições do Azure](/powershell/azure/manage-subscriptions-azureps).

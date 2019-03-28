@@ -3,7 +3,7 @@ title: Associe um novo dispositivo do Windows 10 ao Azure AD durante a primeira 
 description: Um tópico que explica como os utilizadores podem configurar a Associação do Azure AD durante a primeira experiência de execução.
 services: active-directory
 documentationcenter: ''
-author: MarkusVi
+author: MicrosoftGuyJFlo
 manager: daveba
 editor: ''
 ms.assetid: 06a149f7-4aa1-4fb9-a8ec-ac2633b031fb
@@ -14,15 +14,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.date: 02/03/2019
-ms.author: markvi
+ms.author: joflore
 ms.reviewer: jairoc
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 505ed32d405b840d6a5b8d6cee144ab7cdbe592a
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: a79c5f89b14d15ffe4f3c582ac7e1e4cabbdc611
+ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56177415"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58521555"
 ---
 # <a name="tutorial-join-a-new-windows-10-device-with-azure-ad-during-a-first-run"></a>Tutorial: Junte-se a um novo dispositivo Windows 10 com o Azure AD durante uma execução primeiro
 

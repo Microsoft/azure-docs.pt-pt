@@ -1,6 +1,6 @@
 ---
-title: Utilizar o armazenamento de BLOBs para o armazenamento IIS e a tabela de eventos no Log Analytics do Azure | Documentos da Microsoft
-description: O log Analytics pode ler os registos para serviços do Azure que escrever diagnósticos no armazenamento de tabelas ou de registos do IIS escritos para armazenamento de Blobs.
+title: Utilizar o armazenamento de BLOBs para o IIS e a tabela de armazenamento para eventos no Azure Monitor | Documentos da Microsoft
+description: O Azure Monitor pode ler os registos para serviços do Azure que escrever diagnósticos no armazenamento de tabelas ou de registos do IIS escritos para armazenamento de Blobs.
 services: log-analytics
 documentationcenter: ''
 author: mgoedtel
@@ -13,28 +13,28 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 04/12/2017
 ms.author: magoedte
-ms.openlocfilehash: 9f5948887262ae190547c96aa09318a19f64812e
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.openlocfilehash: 35befe7122f493998d0d91c2721e6013e057fed3
+ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57306634"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58540606"
 ---
-# <a name="use-azure-blob-storage-for-iis-and-azure-table-storage-for-events-with-log-analytics"></a>Utilizar o armazenamento de Blobs do Azure para armazenamento de tabelas IIS e o Azure para eventos com o Log Analytics
+# <a name="use-azure-blob-storage-for-iis-and-azure-table-storage-for-events-with-azure-monitor"></a>Utilizar o armazenamento de Blobs do Azure para armazenamento de tabelas IIS e o Azure para eventos com o Azure Monitor
 
-O log Analytics pode ler os registos para os seguintes serviços que escrever diagnósticos no armazenamento de tabelas ou de registos do IIS escritos para armazenamento de BLOBs:
+O Azure Monitor pode ler os registos para os seguintes serviços que escrever diagnósticos no armazenamento de tabelas ou de registos do IIS escritos para armazenamento de BLOBs:
 
 * Clusters do Service Fabric (pré-visualização)
 * Virtual Machines
 * Funções de trabalho/Web
 
-Antes do Log Analytics pode recolher dados para estes recursos, o diagnóstico do Azure tem de estar ativado.
+Antes do Azure Monitor pode recolher dados para uma área de trabalho do Log Analytics para estes recursos, o diagnóstico do Azure tem de estar ativado.
 
-Depois de ativar diagnósticos, pode utilizar o portal do Azure ou PowerShell configurar o Log Analytics para recolher os registos.
+Depois de ativar diagnósticos, pode utilizar o portal do Azure ou a área de trabalho para recolher os registos de configurar o PowerShell.
 
-Diagnóstico do Azure é uma extensão do Azure que permite recolher dados de diagnóstico de uma função de trabalho, a função da web ou a máquina virtual em execução no Azure. Os dados são armazenados numa conta de armazenamento do Azure e, em seguida, podem ser recolhidos pelo Log Analytics.
+Diagnóstico do Azure é uma extensão do Azure que permite recolher dados de diagnóstico de uma função de trabalho, a função da web ou a máquina virtual em execução no Azure. Os dados são armazenados numa conta de armazenamento do Azure e, em seguida, podem ser recolhidos pelo Monitor do Azure.
 
-Para o Log Analytics recolher esses registos de diagnóstico do Azure, tem de ser os registos nas seguintes localizações:
+Para o Azure Monitor recolher esses registos de diagnóstico do Azure, tem de ser os registos nas seguintes localizações:
 
 | Tipo de registo | Tipo de Recurso | Localização |
 | --- | --- | --- |
@@ -116,10 +116,10 @@ Certifique-se de que sua ConfigurationSettings Especifica uma conta de armazenam
 
 O **AccountName** e **AccountKey** valores são encontrados no portal do Azure no dashboard de conta de armazenamento, em Gerir chaves de acesso. O protocolo para a cadeia de ligação tem de ser **https**.
 
-Depois da configuração atualizada de diagnóstico é aplicada ao seu serviço cloud e é escrever diagnósticos no armazenamento do Azure, em seguida, está pronto para configurar o Log Analytics.
+Depois da configuração atualizada de diagnóstico é aplicada ao seu serviço cloud e é escrever diagnósticos no armazenamento do Azure, em seguida, está pronto para configurar a área de trabalho do Log Analytics.
 
 ## <a name="use-the-azure-portal-to-collect-logs-from-azure-storage"></a>Utilizar o portal do Azure para recolher registos de armazenamento do Azure
-Pode utilizar o portal do Azure para configurar o Log Analytics para recolher os registos para os serviços do Azure seguintes:
+Pode utilizar o portal do Azure para configurar uma área de trabalho do Log Analytics no Azure Monitor para recolher os registos para os serviços do Azure seguintes:
 
 * Clusters do Service Fabric
 * Virtual Machines
@@ -136,9 +136,9 @@ No portal do Azure, navegue até à sua área de trabalho do Log Analytics e rea
 5. O valor para a origem é preenchido automaticamente com base no tipo de dados e não pode ser alterado
 6. Clique em OK para guardar a configuração
 
-Repita os passos 2 a 6 para contas de armazenamento adicionais e tipos de dados que pretende que o Log Analytics para recolher.
+Repita os passos 2 a 6 para contas de armazenamento adicionais e tipos de dados que pretende recolher para a área de trabalho.
 
-Em aproximadamente 30 minutos, é possível ver os dados da conta de armazenamento no Log Analytics. Verá apenas dados que são escritos para o armazenamento depois da configuração é aplicada. O log Analytics não ler os dados já existentes da conta de armazenamento.
+Em aproximadamente 30 minutos, é possível ver os dados da conta de armazenamento na área de trabalho do Log Analytics. Verá apenas dados que são escritos para o armazenamento depois da configuração é aplicada. A área de trabalho não ler os dados já existentes da conta de armazenamento.
 
 > [!NOTE]
 > O portal não valida que a origem existe na conta de armazenamento ou se está a ser escritos novos dados.
@@ -149,7 +149,7 @@ Em aproximadamente 30 minutos, é possível ver os dados da conta de armazenamen
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-Utilize os passos em [configurar o Log Analytics para o diagnóstico do Azure de índice](../../azure-monitor/platform/powershell-workspace-configuration.md#configuring-log-analytics-to-collect-azure-diagnostics-from-storage) para utilizar o PowerShell para ler a partir do diagnóstico do Azure que é escrito no armazenamento de tabelas.
+Utilize os passos em [configurar o Azure Monitor para indexar o diagnóstico do Azure](powershell-workspace-configuration.md#configuring-log-analytics-workspace-to-collect-azure-diagnostics-from-storage) para utilizar o PowerShell para ler a partir do diagnóstico do Azure que é escrito no armazenamento de tabelas.
 
 Com o Azure PowerShell pode especificar mais precisamente os eventos que são escritos no armazenamento do Azure.
 Para obter mais informações, consulte [ativar diagnósticos em máquinas de virtuais do Azure](/azure/vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines).

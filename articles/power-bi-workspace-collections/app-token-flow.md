@@ -1,21 +1,19 @@
 ---
 title: Autenticação e autorização com coleções de área de trabalho do Power BI | Documentos da Microsoft
 description: Autenticação e autorização com coleções de área de trabalho do Power BI.
-services: power-bi-embedded
+services: power-bi-workspace-collections
 author: markingmyname
-ROBOTS: NOINDEX
-ms.assetid: 1c1369ea-7dfd-4b6e-978b-8f78908fd6f6
-ms.service: power-bi-embedded
+ms.author: maghan
+ms.service: power-bi-workspace-collections
 ms.topic: article
 ms.workload: powerbi
 ms.date: 09/20/2017
-ms.author: maghan
-ms.openlocfilehash: e9b240a17614593cd04280a13e006c4d06e832fd
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 5d7b5f2655fc94b9a060c30e11be66bd2eacdee8
+ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57904287"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58520620"
 ---
 # <a name="authenticating-and-authorizing-with-power-bi-workspace-collections"></a>Autenticação e autorização com coleções de área de trabalho do Power BI
 

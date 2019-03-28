@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: gateway
 ms.topic: tutorial
-ms.date: 03/22/2019
+ms.date: 03/25/2019
 ms.author: alkohli
-ms.openlocfilehash: 38c8e98d92c21e3dc7d37337466dc79c85d0a15f
-ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
+ms.openlocfilehash: 0b106e0412de972801fa8782de08269e13042191
+ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58401109"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58517917"
 ---
 # <a name="tutorial-provision-azure-data-box-gateway-in-hyper-v"></a>Tutorial: Gateway de caixa de dados do Azure de aprovisionamento no Hyper-V
 
@@ -136,7 +136,9 @@ Execute os passos seguintes para aprovisionar um dispositivo no seu hipervisor.
 18. Na página **Specify Name and Location** (Especificar Nome e Localização), indique **name** (nome) e **location** (localização, para a qual pode navegar) para o disco de dados. Clique em **Seguinte**.
 
     ![Especifique o nome e a localização de página](./media/data-box-gateway-deploy-provision-hyperv/image14.png)
-19. Na página **Configure Disk** (Configurar Disco), selecione a opção **Create a new blank virtual hard disk** (Criar um disco rígido virtual vazio novo) e especifique o tamanho como **2 TB** (ou mais). Embora 2 TB seja o requisito mínimo, pode sempre aprovisionar um disco maior. Tenha em atenção que não pode encolher o disco depois de aprovisionado.  No entanto, pode adicionar um disco de dados e expandi-lo. Clique em **Seguinte**.
+19. Na página **Configure Disk** (Configurar Disco), selecione a opção **Create a new blank virtual hard disk** (Criar um disco rígido virtual vazio novo) e especifique o tamanho como **2 TB** (ou mais). 
+    
+    Embora 2 TB seja o requisito mínimo, pode sempre aprovisionar um disco maior. Tenha em atenção que não pode encolher o disco depois de aprovisionado. A tentar reduzir os resultados de disco numa perda de todos os dados locais no dispositivo. No entanto, pode adicionar um disco de dados e expandi-lo. Clique em **Seguinte**.
 
     ![Configurar a página de disco](./media/data-box-gateway-deploy-provision-hyperv/image15.png)
 20. Na página **Summary** (Resumo), reveja os detalhes do disco de dados virtual e, se estiver satisfeito, clique em **Finish** (Concluir) para criar o disco. O assistente fecha-se e é adicionado um disco rígido virtual à sua máquina.

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: 5f6bc30c318e2f5511b352f1a52f0a5360e4b6f1
-ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
+ms.openlocfilehash: 0fb7cdaa24d139549545c93c920d60936d3c9fc1
+ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58367895"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58517237"
 ---
 # <a name="create-a-telemetry-rule-and-set-up-notifications-in-your-azure-iot-central-application"></a>Criar uma regra de telemetria e configurar notificações na sua aplicação do Azure IoT Central
 
@@ -112,4 +112,5 @@ Agora que aprendeu como criar regras na sua aplicação do Azure IoT Central, aq
 
 - [Adicionar ação do Microsoft Flow nas regras](howto-add-microsoft-flow.md)
 - [Adicionar ação do Webhook nas regras](howto-create-webhooks.md)
+- [Várias ações para executar a partir de uma ou mais regras de grupo](howto-use-action-groups.md)
 - [Como gerir os seus dispositivos](howto-manage-devices.md)

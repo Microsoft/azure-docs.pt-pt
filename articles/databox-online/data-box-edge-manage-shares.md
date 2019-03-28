@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: overview
-ms.date: 03/20/2019
+ms.date: 03/25/2019
 ms.author: alkohli
-ms.openlocfilehash: ec5fbffdf7df5ef3a952e21b79ab02f355fb8e29
-ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
+ms.openlocfilehash: e85e006a54fcb4bb677932b3e1ff9fa79352dba9
+ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58403651"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58519838"
 ---
 # <a name="use-the-azure-portal-to-manage-shares-on-your-azure-data-box-edge"></a>Utilizar o portal do Azure para gerir partilhas no seu limite de caixa de dados do Azure
 
@@ -63,7 +63,7 @@ Efetue os seguintes passos no portal do Azure para criar uma partilha.
 
         ![Adicionar uma partilha NFS](media/data-box-edge-manage-shares/add-nfs-share.png)
 
-7. Para aceder facilmente às partilhas de módulos de computação do Edge, utilize o ponto de montagem local. Selecione **utilize a partilha com a computação de borda** para que a partilha está automaticamente montado após a criação. Quando esta opção está selecionada, o módulo de borda também pode utilizar a computação com o ponto de montagem local.
+7. Para aceder facilmente às partilhas de módulos de computação do Edge, utilize o ponto de montagem local. Selecione **utilize a partilha com a computação de borda** para que a partilha é montada de automaticamente depois de criado. Quando esta opção está selecionada, o módulo de borda também pode utilizar a computação com o ponto de montagem local.
 
 8. Clique em **Criar** para criar a partilha. Será notificado de que a criação da partilha está em curso. Depois de criar a partilha com as definições especificadas, o painel **Partilhas** é atualizado para refletir a nova partilha.
 
@@ -97,6 +97,30 @@ Efetue os seguintes passos no portal do Azure para criar uma partilha.
 
     ![Ver detalhes da partilha local](media/data-box-edge-manage-shares/add-local-share-4.png)
 
+## <a name="mount-a-share"></a>Montar uma partilha
+
+Se tiver criado uma partilha antes de que configurou a computação no seu dispositivo do Edge de caixa de dados, terá de montar a partilha. Siga os passos seguintes para montar uma partilha.
+
+
+1. No portal do Azure, aceda ao seu recurso de borda de caixa de dados e, em seguida, aceda a **Gateway > partilhas**. Na lista das partilhas, selecione a partilha que pretende montar. O **utilizado para computação** coluna mostrará o estado como **desativado** para a partilha selecionada.
+
+    ![Selecionar partilha](media/data-box-edge-manage-shares/select-share-mount.png)
+
+2. Selecione **montar**.
+
+    ![Selecione a montagem](media/data-box-edge-manage-shares/select-mount.png)
+
+3. Quando lhe for pedida confirmação, selecione **Sim**. Isto irá montar a partilha.
+
+    ![Confirmar a montagem](media/data-box-edge-manage-shares/confirm-mount.png)
+
+4. Depois da partilha é montada, vá para a lista de partilhas. Verá que o **utilizado para computação** coluna mostra o estado de partilha como **ativado**.
+
+    ![Partilha montada](media/data-box-edge-manage-shares/share-mounted.png)
+
+5. Selecione a partilha novamente para ver o ponto de montagem local para a partilha. Edge de computação módulo utiliza este ponto de montagem local para a partilha.
+
+    ![Ponto de montagem local para a partilha](media/data-box-edge-manage-shares/share-mountpoint.png)
 
 ## <a name="unmount-a-share"></a>Desmonte uma partilha
 
@@ -142,7 +166,8 @@ A lista de atualizações de partilhas para refletir a eliminação.
 O recurso de atualização permite-lhe atualizar os conteúdos de uma partilha. Quando atualiza uma partilha, é iniciada uma pesquisa para localizar todos os objetos do Azure, incluindo os blobs e ficheiros que foram adicionados à cloud desde a última atualização. Esses arquivos adicionais, em seguida, são transferidos para atualizar os conteúdos da partilha no dispositivo.
 
 > [!IMPORTANT]
-> Não é possível atualizar partilhas locais.
+> - Não é possível atualizar partilhas locais.
+> - Permissões e listas de controle de acesso (ACLs) não são mantidas numa operação de atualização. 
 
 Efetue os seguintes passos no portal do Azure para atualizar uma partilha.
 

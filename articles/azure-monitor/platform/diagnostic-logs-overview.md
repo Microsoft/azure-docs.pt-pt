@@ -1,19 +1,19 @@
 ---
 title: Descrição geral dos registos de diagnóstico do Azure
 description: Saiba quais são os registos de diagnóstico do Azure e como pode usá-los para compreender os eventos que ocorrem dentro de um recurso do Azure.
-author: johnkemnetz
+author: nkiest
 services: azure-monitor
 ms.service: azure-monitor
 ms.topic: conceptual
-ms.date: 06/07/2018
-ms.author: johnkem
+ms.date: 03/26/2019
+ms.author: nikiest
 ms.subservice: logs
-ms.openlocfilehash: 07ea18a767044f0f74249859bb46d8285d52d7ab
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.openlocfilehash: 890f2224a4053ec8cad65b44b85eab0e31be3b64
+ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57310187"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58519396"
 ---
 # <a name="collect-and-consume-log-data-from-your-azure-resources"></a>Recolher e consumir dados de registo dos seus recursos do Azure
 
@@ -49,11 +49,6 @@ Pode utilizar uma conta de armazenamento ou o espaço de nomes de Hubs de evento
 > [!NOTE]
 >  Atualmente não é possível arquivar os registos de fluxo de rede para uma conta de armazenamento que está atrás de uma rede virtual protegida.
 
-> [!WARNING]
-> O formato dos dados de registo na conta de armazenamento vai ser alterado para Linhas de JSON a 1 de novembro de 2018. [Leia este artigo para obter uma descrição do impacto e saber como atualizar a sua ferramenta para trabalhar com o novo formato.](./../../azure-monitor/platform/diagnostic-logs-append-blobs.md) 
->
-> 
-
 ## <a name="diagnostic-settings"></a>Definições de diagnóstico
 
 Registos de diagnóstico de recursos são configurados com definições de diagnóstico de recursos. Os registos de diagnóstico do inquilino estão configurados ao utilizar uma definição de diagnóstico do inquilino. **Definições de diagnóstico** para um controle de serviço:
@@ -61,7 +56,7 @@ Registos de diagnóstico de recursos são configurados com definições de diagn
 * Onde os registos de diagnóstico e métricas são enviadas (conta de armazenamento, os Hubs de eventos, e/ou do Azure Monitor).
 * As categorias de registo são enviadas e se também são enviados dados métricos.
 * O tempo em que cada categoria de registo deve ser mantida numa conta de armazenamento
-    - A retenção de zero dias significa que os registos são mantidos para sempre. Caso contrário, o valor pode ser qualquer número de dias entre 1 e 2147483647.
+    - A retenção de zero dias significa que os registos são mantidos para sempre. Caso contrário, o valor pode ser qualquer número de dias entre 1 e 365.
     - Se as políticas de retenção são definidas, mas armazenamento de registos numa conta de armazenamento está desativado (por exemplo, se apenas as opções de Hubs de eventos ou o Log Analytics estão selecionadas), as políticas de retenção não têm efeito.
     - Políticas de retenção são aplicado por dia, portanto, no final do dia (UTC), registos a partir do dia em que está, agora, além de retenção de política são eliminadas. Por exemplo, se tivesse uma política de retenção de um dia, no início do dia hoje os registos de ontem de before dia serão eliminados. O processo de eliminação começa a meia-noite UTC, mas tenha em atenção que pode demorar até 24 horas para os registos para ser eliminado da sua conta de armazenamento.
 

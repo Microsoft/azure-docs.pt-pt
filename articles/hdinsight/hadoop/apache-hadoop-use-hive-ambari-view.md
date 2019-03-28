@@ -7,14 +7,14 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 05/16/2018
+ms.date: 03/21/2019
 ms.author: hrasheed
-ms.openlocfilehash: 92c09e7defe159818b22bc8275d011d05512aa66
-ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
+ms.openlocfilehash: 978b865f6dd7e3427a0139e7e71ed4b2d937fbe5
+ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58446591"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58517305"
 ---
 # <a name="use-apache-ambari-hive-view-with-apache-hadoop-in-hdinsight"></a>Utilize a vista do Apache Ambari Hive com o Apache Hadoop no HDInsight
 
@@ -24,22 +24,14 @@ Saiba como executar consultas do Hive com o Apache Ambari Hive View. A vista do 
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* Um baseado em Linux Apache Hadoop em clusters do HDInsight versão 3.4 ou superior.
-
-  > [!IMPORTANT]  
-  > O Linux é o único sistema operativo utilizado na versão 3.4 ou superior do HDInsight. Para obter mais informações, veja [HDInsight retirement on Windows](../hdinsight-component-versioning.md#hdinsight-windows-retirement) (Desativação do HDInsight no Windows).
-
+* Um cluster do Hadoop no HDInsight. Ver [introdução ao HDInsight no Linux](./apache-hadoop-linux-tutorial-get-started.md).
 * Um navegador da web
 
 ## <a name="run-a-hive-query"></a>Executar uma consulta do Hive
 
-1. Abra o [Portal do Azure](https://portal.azure.com).
+1. Partir do [portal do Azure](https://portal.azure.com/), selecione o cluster.  Ver [listar e Mostrar clusters](../hdinsight-administer-use-portal-linux.md#showClusters) para obter instruções. O cluster é aberto num novo painel do portal.
 
-2. Selecione o cluster do HDInsight e, em seguida, selecione **vistas Ambari** partir do **ligações rápidas** secção.
-
-    ![Seção links rápidos do portal](./media/apache-hadoop-use-hive-ambari-view/quicklinks.png)
-
-    Quando lhe for pedido para autenticar, utilizar o início de sessão do cluster (predefinido `admin`) da conta nome e palavra-passe que indicou quando criou o cluster.
+2. Partir **dashboards de clusters**, selecione **vistas Ambari**. Quando lhe for pedido para autenticar, utilizar o início de sessão do cluster (predefinido `admin`) da conta nome e palavra-passe que indicou quando criou o cluster.
 
 3. Na lista de vistas, selecione __vista do Hive__.
 
@@ -81,30 +73,30 @@ Saiba como executar consultas do Hive com o Apache Ambari Hive View. A vista do 
 
    * `SELECT`: Seleciona uma contagem de todas as linhas em que a coluna t4 contém o valor [erro].
 
-     > [!IMPORTANT]  
-     > Deixe o __base de dados__ seleção na __padrão__. Os exemplos neste documento utilizam a base de dados padrão incluído com o HDInsight.
+   > [!IMPORTANT]  
+   > Deixe o __base de dados__ seleção na __padrão__. Os exemplos neste documento utilizam a base de dados padrão incluído com o HDInsight.
 
-5. Para iniciar a consulta, utilize o **Execute** botão abaixo da folha de cálculo. O botão fica laranja e o texto muda para **parar**.
+5. Para iniciar a consulta, selecione **Execute** abaixo da folha de cálculo. O botão fica laranja e o texto muda para **parar**.
 
 6. Depois da consulta estiver concluída, o **resultados** guia exibe os resultados da operação. O texto seguinte é o resultado da consulta:
 
         loglevel       count
         [ERROR]        3
 
-    Pode utilizar o **registos** separador para ver as informações de registo que criou a tarefa.
+    Pode utilizar o **LOG** separador para ver as informações de registo que criou a tarefa.
 
    > [!TIP]  
-   > Baixe ou guardar resultados a partir do **guardar resultados** caixa de diálogo de lista suspensa no canto superior esquerdo do **resultados do processo de consulta** secção.
+   > Baixe ou guardar resultados a partir do **ações** caixa de diálogo de lista pendente no **resultados** separador.
 
 ### <a name="visual-explain"></a>Explicar o elemento Visual
 
 Para apresentar uma visualização do plano de consulta, selecione o **explicar Visual** separador abaixo da folha de cálculo.
 
-O **explicar Visual** vista da consulta pode ser útil na compreensão do fluxo de consultas complexas. Pode ver um equivalente textual desta vista ao utilizar o **explicativo** botão no Editor de consultas.
+O **explicar Visual** vista da consulta pode ser útil na compreensão do fluxo de consultas complexas.
 
 ### <a name="tez-ui"></a>IU do Tez
 
-Para apresentar a IU do Tez para a consulta, selecione o **Tez** separador abaixo da folha de cálculo.
+Para apresentar a IU do Tez para a consulta, selecione o **IU do Tez** separador abaixo da folha de cálculo.
 
 > [!IMPORTANT]  
 > Tez não é utilizado para resolver todas as consultas. Pode resolver muitas consultas sem utilizar Tez. 

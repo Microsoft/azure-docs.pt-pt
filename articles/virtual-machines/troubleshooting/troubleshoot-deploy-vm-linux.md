@@ -1,6 +1,6 @@
 ---
 title: Resolver problemas de implantação problemas de máquina virtual do Linux no Azure | Documentos da Microsoft
-description: Resolver problemas de implantação problemas de máquina virtual do Linux no modelo de implementação do Gestor de recursos de Azurethe.
+description: Resolver problemas de implantação problemas de máquina virtual do Linux no modelo de implementação Azure Resource Manager.
 services: virtual-machines-windows
 documentationcenter: ''
 author: genlin
@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 11/01/2018
 ms.author: genli
-ms.openlocfilehash: 56df020b7948ff41ee7710fca19d05924e118c81
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
+ms.openlocfilehash: 1317a4731d3598c5fba317167ba4a45d95823ca2
+ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55729715"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58539824"
 ---
 # <a name="troubleshoot-deploying-linux-virtual-machine-issues-in-azure"></a>Resolver problemas de implantação problemas de máquina virtual do Linux no Azure
 
@@ -32,11 +32,7 @@ Se precisar de mais ajuda a qualquer momento neste artigo, pode contactar os esp
 [!INCLUDE [virtual-machines-linux-troubleshoot-deploy-vm-top](../../../includes/virtual-machines-linux-troubleshoot-deploy-vm-top.md)]
 
 ## <a name="the-cluster-cannot-support-the-requested-vm-size"></a>O cluster não suporta o tamanho da VM pedida
-<properties
-supportTopicIds="123456789"
-resourceTags="windows"
-productPesIds="1234, 5678"
-/>
+\<properties supportTopicIds="123456789" resourceTags="windows" productPesIds="1234, 5678" />
 - Repita o pedido com um tamanho VM mais pequeno.
 - Se não é possível alterar o tamanho da VM pedida:
     - Pare todas as VMs no conjunto de disponibilidade. Clique em **grupos de recursos** > seu grupo de recursos > **recursos** > seu conjunto de disponibilidade > **máquinas virtuais** > sua máquina virtual >  **Parar**.
@@ -45,11 +41,7 @@ productPesIds="1234, 5678"
 
 
 ## <a name="the-cluster-does-not-have-free-resources"></a>O cluster não tem recursos gratuitos
-<properties
-supportTopicIds="123456789"
-resourceTags="windows"
-productPesIds="1234, 5678"
-/>
+\<properties supportTopicIds="123456789" resourceTags="windows" productPesIds="1234, 5678" />
 - Repita o pedido mais tarde.
 - Se a nova VM pode fazer parte de um conjunto de disponibilidade diferente
     - Crie uma VM num conjunto (na mesma região) de disponibilidade diferente.

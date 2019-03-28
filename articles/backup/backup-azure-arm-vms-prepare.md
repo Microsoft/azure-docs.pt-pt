@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 03/22/2019
 ms.author: raynew
-ms.openlocfilehash: 3133f22a4d9ecd8a0ee4bff9f8b0be9c1f4eb705
-ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
+ms.openlocfilehash: 7fc724f1aff40c6dedff59ce3919496a30b30337
+ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58403668"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58520178"
 ---
 # <a name="back-up-azure-vms-in-a-recovery-services-vault"></a>Fazer cópias de segurança de VMs do Azure num cofre dos serviços de recuperação
 
@@ -220,7 +220,8 @@ Depois de ativar a cópia de segurança:
 - Uma cópia de segurança inicial é executada de acordo com sua agenda de cópia de segurança.
 - O serviço de cópia de segurança instala a extensão de cópia de segurança, independentemente da VM está em execução.
     - Uma VM em execução fornece a maior possibilidade de obter um ponto de recuperação consistente com aplicações.
-    -  No entanto, a VM é uma cópia de segurança, mesmo que ele é desativado e não é possível instalar a extensão. Ele é conhecido como uma VM offline. Neste caso, o ponto de recuperação será consistentes de falhas. [Saiba mais]() tenha em atenção que o Azure Backup não suporta ajuste automático de relógio para alterações de economia de hora de Verão para cópias de segurança de VM do Azure. Modificar as políticas de cópia de segurança manualmente conforme necessário.
+    -  No entanto, a VM é uma cópia de segurança, mesmo que ele é desativado e não é possível instalar a extensão. Ele é conhecido como uma VM offline. Neste caso, o ponto de recuperação será consistentes de falhas.
+    Tenha em atenção que o Azure Backup não suporta ajuste automático de relógio para alterações de economia de hora de Verão para cópias de segurança de VM do Azure. Modificar as políticas de cópia de segurança manualmente conforme necessário.
 
 ## <a name="run-the-initial-backup"></a>Executar a cópia de segurança inicial
 

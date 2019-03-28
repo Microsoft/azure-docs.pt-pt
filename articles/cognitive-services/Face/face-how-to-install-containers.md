@@ -11,12 +11,12 @@ ms.subservice: face-api
 ms.topic: article
 ms.date: 03/22/2019
 ms.author: diberry
-ms.openlocfilehash: 3f77b7b71fa2ef4e7262656540b8562d3a2ff33c
-ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
+ms.openlocfilehash: 3e6b220e7193c5e683fc8a6c06a6e9e3dd3e3f6e
+ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58437599"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58521623"
 ---
 # <a name="install-and-run-face-containers"></a>Instalar e executar contentores de rostos
 
@@ -84,7 +84,7 @@ Assim que o contentor estiver no [computador anfitrião](#the-host-computer), ut
 
 Utilize o [docker run](https://docs.docker.com/engine/reference/commandline/run/) comando para executar qualquer um dos três contentores. O comando utiliza os seguintes parâmetros:
 
-| Marcador de posição | Value |
+| Marcador de posição | Valor |
 |-------------|-------|
 |{BILLING_KEY} | Esta chave é utilizada para iniciar o contentor e está disponível na página de chaves de API de rostos do portal do Azure.  |
 |{BILLING_ENDPOINT_URI} | O valor do URI de ponto de extremidade faturação está disponível na página de descrição geral da API de rostos do portal do Azure.|
@@ -120,6 +120,11 @@ O contêiner fornece o ponto final de predição de consulta baseado em REST API
 
 Usar o host, `https://localhost:5000`, para o contentor APIs.
 
+
+<!--  ## Validate container is running -->
+
+[!INCLUDE [Container's API documentation](../../../includes/cognitive-services-containers-api-documentation.md)]
+
 ## <a name="stop-the-container"></a>Parar o contentor
 
 [!INCLUDE [How to stop the container](../../../includes/cognitive-services-containers-stop.md)]
@@ -128,9 +133,6 @@ Usar o host, `https://localhost:5000`, para o contentor APIs.
 
 Se executar o contentor com uma saída [montar](./face-resource-container-config.md#mount-settings) e registo ativado, o contentor gera os ficheiros de registo que são úteis para resolver os problemas que ocorrem ao iniciar ou executar o contentor. 
 
-## <a name="containers-api-documentation"></a>Documentação da API do contentor
-
-[!INCLUDE [Container's API documentation](../../../includes/cognitive-services-containers-api-documentation.md)]
 
 ## <a name="billing"></a>Faturação
 

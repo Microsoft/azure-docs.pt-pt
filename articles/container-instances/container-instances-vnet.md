@@ -5,18 +5,18 @@ services: container-instances
 author: dlepow
 ms.service: container-instances
 ms.topic: article
-ms.date: 01/03/2019
+ms.date: 03/26/2019
 ms.author: danlep
-ms.openlocfilehash: c6c82ee26fdbd824bdf42720ed7fc08135a872da
-ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
+ms.openlocfilehash: a4da7a23d6dcb50164829507130fed145abeebbd
+ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58372417"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58517322"
 ---
 # <a name="deploy-container-instances-into-an-azure-virtual-network"></a>Implementar instâncias de contentor numa rede virtual do Azure
 
-[Rede Virtual do Azure](../virtual-network/virtual-networks-overview.md) fornece redes seguras e privadas, incluindo a filtragem, encaminhamento e peering para o Azure e de recursos no local. Ao implementar grupos de contentores numa rede virtual do Azure, os contentores podem comunicar de forma segura com outros recursos na rede virtual.
+[Rede Virtual do Azure](../virtual-network/virtual-networks-overview.md) fornece um sistema de rede seguro e privado para o Azure e de recursos no local. Ao implementar grupos de contentores numa rede virtual do Azure, os contentores podem comunicar de forma segura com outros recursos na rede virtual.
 
 Grupos de contentores implementados numa rede virtual do Azure ativar cenários como:
 
@@ -34,7 +34,6 @@ Grupos de contentores implementados numa rede virtual do Azure ativar cenários 
 Determinadas limitações aplicam-se ao implementar grupos de contentores a uma rede virtual.
 
 * Para implementar grupos de contentores a uma sub-rede, a sub-rede não pode conter outros tipos de recursos. Remover todos os recursos existentes de uma sub-rede existente antes de implementar grupos de contentores ao mesmo, ou criar uma nova sub-rede.
-* Grupos de contentores implementados numa rede virtual não suportam atualmente endereços IP públicos ou etiquetas de nome DNS.
 * Não é possível utilizar um [identidade gerida](container-instances-managed-identity.md) num grupo de contentores implementados numa rede virtual.
 * Devido à rede recursos adicionais envolvidos, implementar um grupo de contentores a uma rede virtual é normalmente um pouco mais lenta do que a implementação de uma instância de contentor padrão.
 
@@ -46,10 +45,14 @@ Enquanto esta funcionalidade está em pré-visualização, as seguintes limitaç
 
 Limites de recursos de contentor podem ser diferente do limites para as instâncias de contentor não estejam em rede nestas regiões. Contentores de Linux atualmente, apenas são suportados para esta funcionalidade. O suporte do Windows está previsto.
 
-### <a name="unsupported-network-resources-and-features"></a>Funcionalidades e recursos de rede não suportada
+### <a name="unsupported-networking-scenarios"></a>Cenários de redes não suportados 
 
-* Azure Load Balancer
-* Peering de rede virtual
+* **O Azure Load Balancer** -colocar um balanceador de carga do Azure à frente de instâncias de contentor num grupo de contentores em rede não é suportada
+* **Peering de rede virtual** -não é possível configurar o peering entre uma rede virtual que contém uma sub-rede de delegado para o Azure Container Instances para outra rede virtual
+* **Tabelas de rotas** -rotas definidas pelo utilizador não podem ser configuradas numa sub-rede delegada para o Azure Container Instances
+* **Grupos de segurança de rede** -regras de segurança de saída em NSGs aplicadas a uma sub-rede de delegado para o Azure Container Instances atualmente não são impostas 
+* **Etiqueta IP ou DNS pública** -grupos de contentores implementados numa rede virtual não são atualmente suportam expondo contentores diretamente na internet com um endereço IP público ou um nome de domínio completamente qualificado
+* **Resolução de nomes interna** -resolução de nomes de recursos do Azure na rede virtual através do DNS do Azure interno não é suportada
 
 **Eliminação do recurso de rede** requer [passos adicionais](#delete-network-resources) após a implantação de grupos de contentores para a rede virtual.
 

@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: overview
 ms.date: 03/13/2019
 ms.author: erhopf
-ms.openlocfilehash: d4587b5268635691d55b51a7bf88bbe01df2a0c4
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 06b2a5211c720d50a2f14e5fa56fa296cb80d41f
+ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57871654"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58519634"
 ---
 # <a name="what-are-the-speech-services"></a>O que são os Serviços de Voz?
 
@@ -39,9 +39,9 @@ Esses recursos constituem os serviços de voz do Azure. Utilize as ligações ne
 
 Saiba quais são as novidades dos serviços de voz do Azure.
 
+* De 2019 de Março - já está disponível um novo ponto final de voz que retorna uma lista completa de vozes disponíveis num regiões específicas. Para obter mais informações, consulte [referência da API de voz (REST)](rest-text-to-speech.md).
 * Fevereiro de 2019 - lançados voz SDK 1.3.0 com suporte para [Unity (beta)](quickstart-csharp-unity.md). Foi adicionado suporte para o `AudioInput` classe, que permite-lhe escolher a origem de transmissão em fluxo de áudio. Para obter uma lista completa de aprimoramentos e problemas conhecidos, consulte [notas de versão](releasenotes.md).
 * Dezembro de 2018 - lançados voz SDK 1.2.0 com suporte para [Python](quickstart-python.md) e [node. js](quickstart-js-node.md), assim como o Ubuntu 18.04 LTS. Para obter mais informações, consulte [notas de versão](releasenotes.md).
-* Dezembro de 2018 - inícios rápidos de voz adicionado para [.NET Core](quickstart-dotnet-text-to-speech.md), [Python](quickstart-python-text-to-speech.md), [node. js](quickstart-nodejs-text-to-speech.md). Exemplos adicionais estão disponíveis na [GitHub](https://github.com/Azure-Samples/Cognitive-Speech-TTS/tree/master/Samples-Http).
 
 ## <a name="try-speech-services"></a>Experimente os serviços de voz
 
