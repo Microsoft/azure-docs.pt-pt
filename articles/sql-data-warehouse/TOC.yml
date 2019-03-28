@@ -273,6 +273,10 @@ items:
         href: tutorial-elastic-query-with-sql-datababase-and-sql-data-warehouse.md
       - name: Visualizar com o Power BI
         href: sql-data-warehouse-get-started-visualize-with-power-bi.md
+  - name: Resolução de problemas
+    items:
+    - name: Conectividade
+      href: sql-data-warehouse-troubleshoot-connectivity.md
 - name: Referência
   items:
   - name: T-SQL
@@ -317,9 +321,9 @@ items:
       href: sql-data-warehouse-partner-data-integration.md
     - name: Gestão de dados
       href: sql-data-warehouse-partner-data-management.md
-ms.openlocfilehash: 3e5d08142ee7b7bbce721015783dd6ee10a930b2
-ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
+ms.openlocfilehash: 7895d71fc2db30dd12aded48da168a105dbab2d9
+ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
 ms.translationtype: HT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 03/27/2019
-ms.locfileid: "58497572"
+ms.locfileid: "58517492"

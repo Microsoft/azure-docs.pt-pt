@@ -12,16 +12,16 @@ ms.devlang: na
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 12/18/2018
+ms.date: 03/27/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7ab0e7ce1891dc3553f89f652c7dac70e66a4df0
-ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
+ms.openlocfilehash: 7ae5b58fb87aaa94e081f9cb60d063c70e5d0359
+ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 03/27/2019
-ms.locfileid: "58499918"
+ms.locfileid: "58540963"
 ---
 # <a name="azure-ad-connect-version-release-history"></a>Azure AD Connect: Histórico de versões
 A equipa do Azure Active Directory (Azure AD) atualiza regularmente o Azure AD Connect com novos recursos e funcionalidades. Nem todas as adições são aplicáveis a todos os públicos.
@@ -41,7 +41,7 @@ Transferir | [Transferir o Azure AD Connect](https://go.microsoft.com/fwlink/?Li
 >[!NOTE]
 >Nem todas as versões do Azure AD Connect serão disponibilizadas para atualização automática. O estado da versão irá indicar se uma versão for disponibilizada para atualização automática, ou apenas para download. Se a atualização automática foi ativada no seu servidor do Azure AD Connect, em seguida, esse servidor irão atualizar automaticamente para a versão mais recente do Azure AD Connect, que é fornecido para atualização automática. Tenha em atenção que nem todas as configurações do Azure AD Connect são elegíveis para atualização automática. Siga esta ligação para saber mais sobre [automaticamente a atualização](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-install-automatic-upgrade)
 
-## <a name="13900"></a>1.3.90.0 
+## <a name="13100"></a>1.3.10.0 
 
 ### <a name="release-status"></a>Estado da versão 
 
@@ -894,7 +894,7 @@ Autenticação pass-through
 * Foi corrigido um problema que faz com que o Assistente do Azure AD Connect efetuar a ativação se passar por meio de autenticação está selecionada, mas falhar o registo do seu conector.
 * Foi corrigido um problema que faz com que o Assistente do Azure AD Connect para ignorar a validação verifica no método de início de sessão selecionado quando a funcionalidade de SSO de ambiente de trabalho está ativada.
 
-Reposição de Palavra-passe
+Repor palavra-passe
 * Foi corrigido um problema que pode fazer com que o servidor do Azure AAD Connect para não tentar conectar-se novamente se a ligação foi eliminada por uma firewall ou proxy.
 
 **Recursos/melhorias novas:**
@@ -909,7 +909,7 @@ Gestão do AD FS
 * Agora pode especificar gMSA existente (grupo de conta de serviço gerida) durante a instalação do AD FS.
 * Agora, pode configurar o SHA-256 como o algoritmo de hash de assinatura para confiança da entidade confiadora do Azure AD.
 
-Reposição de Palavra-passe
+Repor palavra-passe
 * Introduziu melhorias para permitir que o produto para a função em ambientes com regras de firewall mais rigorosas.
 * Fiabilidade de ligação melhorada para o Azure Service Bus.
 

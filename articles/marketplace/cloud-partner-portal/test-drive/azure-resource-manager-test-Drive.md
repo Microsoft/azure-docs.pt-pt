@@ -14,14 +14,14 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 09/13/2018
 ms.author: pbutlerm
-ms.openlocfilehash: 615005e265f199cd6950123aa2af8b26f4fa4637
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 2fe1a1fc1ff82415a5c2f88c72ae707b12cd5283
+ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57456812"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58541167"
 ---
-# <a name="azure-resource-manager-test-drive"></a>Versão de teste de Gestor de recursos do Azure
+# <a name="azure-resource-manager-test-drive"></a>Versão de Teste do Azure Resource Manager
 
 Este artigo é para os publicadores que têm a oferta no Azure Marketplace ou que estão no AppSource, porém pretendem criar a unidade de teste com apenas os recursos do Azure.
 
@@ -51,7 +51,7 @@ Este é o processo de criação de uma versão de teste de Gestor de recursos do
 
 É a parte mais importante sobre a criação de uma unidade de teste do Azure Resource Manager definir qual ou quais cenários de seus clientes para experimentar. É que um produto de firewall e quiser bem como lidar com ataques de injeção de script de demonstração? São a que um produto de armazenamento e pretender demonstrar como rápido e fácil de sua solução compacta arquivos?
 
-Tornar surety gastar uma quantidade suficiente de tempo para avaliar quais são as melhores formas de exibir seu produto. Especificamente em torno de todos os recursos necessários seria necessário, já que isso faz empacotando o modelo do Resource Manager suficientemente mais fácil.
+Certifique-se gastar uma quantidade suficiente de tempo para avaliar quais são as melhores formas de exibir seu produto. Especificamente em torno de todos os recursos necessários seria necessário, já que isso faz empacotando o modelo do Resource Manager suficientemente mais fácil.
 
 Para continuar com nosso exemplo de firewall, a arquitetura pode ser que precisa de um URL do IP público para o seu serviço e outra URL do IP público para o site no qual está a proteger o seu firewall. Cada IP é implementado numa máquina Virtual e ligada juntamente com um grupo de segurança de rede + a interface de rede.
 

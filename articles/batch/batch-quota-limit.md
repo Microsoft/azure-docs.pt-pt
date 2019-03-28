@@ -12,15 +12,15 @@ ms.workload: big-compute
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/20/2019
+ms.date: 03/27/2019
 ms.author: lahugh
 ms.custom: seodec18
-ms.openlocfilehash: 51be74d0adbd5ce75234be2a5b7c99fcd36ca91c
-ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
+ms.openlocfilehash: e33d014bd2dddf0c7310727229f8137c9f181325
+ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58295271"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58540980"
 ---
 # <a name="batch-service-quotas-and-limits"></a>Quotas e limites do serviço Batch
 
@@ -77,14 +77,12 @@ Ver as suas quotas de conta do Batch no [portal do Azure][portal].
 1. Selecione **contas do Batch** no portal, em seguida, selecione a conta do Batch tiver interesse em.
 1. Selecione **Quotas** no menu da conta do Batch.
 1. Ver as quotas atualmente aplicadas para a conta do Batch
-   
+
     ![Quotas das contas do batch][account_quotas]
-
-
 
 ## <a name="increase-a-quota"></a>Aumentar uma quota
 
-Siga estas etapas para pedir uma quota de aumentam para sua conta do Batch ou a sua subscrição com o [portal do Azure][portal]. O tipo de aumento de quota depende do modo de alocação de conjuntos da sua conta do Batch.
+Siga estas etapas para pedir uma quota de aumentam para sua conta do Batch ou a sua subscrição com o [portal do Azure][portal]. O tipo de aumento de quota depende do modo de alocação de conjuntos da sua conta do Batch. Para pedir um aumento de quota, tem de incluir a série VM para aumentar a quota para. Quando o aumento de quota é aplicado, esta é aplicada a todas as séries de VMs.
 
 ### <a name="increase-a-batch-cores-quota"></a>Aumentar uma quota de núcleos do Batch 
 

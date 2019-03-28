@@ -103,6 +103,7 @@ items:
   - name: Azure PowerShell
     href: sql-database-powershell-samples.md
   - name: Azure Resource Manager
+    displayName: ARM template
     href: sql-database-resource-manager-samples.md
 - name: Conceitos
   items:
@@ -663,6 +664,7 @@ items:
   - name: REST
     href: /rest/api/sql/
   - name: Modelos do Resource Manager pra SQL
+    displayName: ARM
     href: /azure/templates/microsoft.sql/allversions
   - name: Ferramentas do SQL Server
     href: /sql/tools/overview-sql-tools
@@ -727,9 +729,9 @@ items:
       href: sql-database-elastic-jobs-getting-started.md
     - name: Desinstalar tarefa elástica (preterido)
       href: sql-database-elastic-jobs-uninstall.md
-ms.openlocfilehash: 0db2ed5be57c4ee8a523e9626fed1ed437f971b7
-ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
+ms.openlocfilehash: 43ed2064f7bba7799bdcbc275e255ed551d7c4a3
+ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58372578"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58540572"

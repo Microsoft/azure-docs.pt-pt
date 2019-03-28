@@ -12,12 +12,12 @@ ms.author: jovanpop
 ms.reviewer: carlrab, bonova
 manager: craigg
 ms.date: 03/13/2019
-ms.openlocfilehash: 8654899e0a6dfce8f25855eba6c5f4a88af78665
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: b044a7c2b3122fcbce44ae2e45198f57f6a87260
+ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57903135"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58541286"
 ---
 # <a name="azure-sql-database-managed-instance-t-sql-differences-from-sql-server"></a>Diferenças de SQL da base de dados geridos instância T-SQL do Azure do SQL Server
 
@@ -217,7 +217,7 @@ Para obter mais informações, consulte [ALTER DATABASE SET PARTNER e SET WITNES
 
 - Não são suportados vários ficheiros de registo.
 - Objetos em memória não são suportados na camada de serviço de fins gerais.  
-- Existe um limite de 280 ficheiros por instância, implicando 280 ficheiros máximos por base de dados. Ficheiros de registo e dados são contabilizados para este limite.  
+- Existe um limite de 280 ficheiros por instância de fins gerais, implicando 280 ficheiros máximos por base de dados. Dados e de registo em geral ficheiros finalidade escalão são computada como este limite. [Camada de negócio críticos suporta 32.767 ficheiros por base de dados](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-managed-instance-resource-limits#service-tier-characteristics).
 - Base de dados não pode conter grupos de ficheiros que contêm dados filestream.  Restauro falhará se contiver. bak `FILESTREAM` dados.  
 - Cada arquivo é colocado no armazenamento de Blobs do Azure. E/s e o débito por ficheiro dependem do tamanho de cada ficheiro individual.  
 
@@ -485,9 +485,9 @@ Não é possível restaurar a instância gerida [bases de dados contidas](https:
 
 ### <a name="exceeding-storage-space-with-small-database-files"></a>Que exceda o espaço de armazenamento com ficheiros de base de dados pequena
 
-Cada instância gerida tem para o armazenamento de 35 TB reservado para o espaço em disco do Azure Premium e cada arquivo de banco de dados é colocado no disco físico separado. Tamanhos de disco podem ser 128 GB, 256 GB, 512 GB, 1 TB ou 4 TB. Não é cobrado o espaço não utilizado no disco, mas a soma total dos tamanhos de disco do Azure Premium não pode ter mais de 35 TB. Em alguns casos, uma instância gerida que não precisa de 8 TB no total pode ter mais de 35 TB Azure limite para o tamanho de armazenamento, devido à fragmentação interna.
+Cada instância gerida de finalidade tem para o armazenamento de 35 TB reservado para o espaço em disco do Azure Premium e cada arquivo de banco de dados é colocado no disco físico separado. Tamanhos de disco podem ser 128 GB, 256 GB, 512 GB, 1 TB ou 4 TB. Não é cobrado o espaço não utilizado no disco, mas a soma total dos tamanhos de disco do Azure Premium não pode ter mais de 35 TB. Em alguns casos, uma instância gerida que não precisa de 8 TB no total pode ter mais de 35 TB Azure limite para o tamanho de armazenamento, devido à fragmentação interna.
 
-Por exemplo, uma instância gerida pode ter um ficheiro 1,2 TB de tamanho que é colocado num disco de 4 TB e 248 ficheiros (cada 1 GB de tamanho), que são colocados em discos separados de 128 GB. Neste exemplo:
+Por exemplo, uma instância gerida de finalidade o poderia ter um ficheiro 1,2 TB de tamanho que é colocado num disco de 4 TB e 248 ficheiros (cada 1 GB de tamanho), que são colocados em discos separados de 128 GB. Neste exemplo:
 
 - O tamanho de armazenamento do disco alocado total é 1 x 4 TB + GB de 248 x 128 = 35 TB.
 - total de espaço reservado para bases de dados na instância é 1 x 1.2 TB + GB de 248 1 = 1,4 TB.
@@ -495,6 +495,8 @@ Por exemplo, uma instância gerida pode ter um ficheiro 1,2 TB de tamanho que é
 Isso ilustra que, em determinadas circunstâncias, devido a uma distribuição específica de ficheiros, uma instância gerida atinja 35 TB reservado para o disco de Premium do Azure ligado quando pode esperar que ele não.
 
 Neste exemplo, bancos de dados existentes continuarão a funcionar e cresça sem qualquer problema, desde que não são adicionados novos ficheiros. No entanto novas bases de dados não foi possível ser criados ou restaurados porque não existe espaço suficiente para novas unidades de disco, mesmo que o tamanho total de todas as bases de dados não atinja o limite de tamanho de instância. Nesse caso o erro devolvido não fica claro.
+
+Pode [identificar o número de ficheiros restantes](https://medium.com/azure-sqldb-managed-instance/how-many-files-you-can-create-in-general-purpose-azure-sql-managed-instance-e1c7c32886c1) através de vistas de sistema. Se estiver a atingir este limite tentar [vazio e elimine alguns dos ficheiros mais pequenos, usando a instrução DBCC SHRINKFILE](https://docs.microsoft.com/sql/t-sql/database-console-commands/dbcc-shrinkfile-transact-sql#d-emptying-a-file) ou shitch para [escalão crítico para a empresa que não tem este limite](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-managed-instance-resource-limits#service-tier-characteristics).
 
 ### <a name="incorrect-configuration-of-sas-key-during-database-restore"></a>Restaurar a configuração incorreta da chave SAS durante a base de dados
 
