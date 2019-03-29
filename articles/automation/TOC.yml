@@ -176,7 +176,7 @@ items:
   - name: Gerir recursos partilhados
     items:
     - name: Agendas
-      href: automation-schedules.md
+      href: shared-resources/schedules.md
     - name: Módulos
       href: shared-resources/modules.md
     - name: Gerir pacotes do Python 2
@@ -287,9 +287,9 @@ items:
     href: https://stackoverflow.com/questions/tagged/azure-automation
   - name: Vídeos
     href: https://azure.microsoft.com/documentation/videos/index/?services=automation
-ms.openlocfilehash: 68b40786eefb7cb1abfb32e5042c07f6a1b5314d
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 0fdcb62d765a6bfc60102003bd16ac1984b54bc1
+ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57840533"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58620568"

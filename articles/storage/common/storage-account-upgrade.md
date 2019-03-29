@@ -7,12 +7,12 @@ ms.service: storage
 ms.topic: article
 ms.date: 03/26/2019
 ms.author: tamram
-ms.openlocfilehash: a1ee95ad847d20159c79af8f080cc7878e114759
-ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
+ms.openlocfilehash: 2d6a5c96bf99439520e26fc905668835944cee29
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58444509"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58578931"
 ---
 # <a name="upgrade-to-a-general-purpose-v2-storage-account"></a>Atualizar para uma conta de armazenamento para fins gerais v2
 
@@ -21,7 +21,7 @@ Contas de armazenamento para fins gerais v2 de suportar as funcionalidades de ar
 Atualizar para uma conta de armazenamento para fins gerais v2 de sua para fins gerais v1 ou contas de armazenamento de BLOBs é simples. Pode atualizar com o portal do Azure, PowerShell ou da CLI do Azure.
 
 > [!IMPORTANT]
-> Atualizar uma para fins gerais v1 ou a conta de armazenamento do Blob storage para fins gerais v2 é permanente e não pode ser anulada.
+> Atualizar uma para fins gerais v1 ou a conta de armazenamento de BLOBs para fins gerais v2 é permanente e não pode ser anulada.
 
 ## <a name="upgrade-using-the-azure-portal"></a>Atualizar com o portal do Azure
 

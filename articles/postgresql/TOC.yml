@@ -185,6 +185,8 @@ items:
     items:
     - name: Portal do Azure
       href: howto-restart-server-portal.md
+    - name: CLI do Azure
+      href: howto-restart-server-cli.md
   - name: Replicação
     items:
     - name: Gerir réplicas de leitura do portal do Azure
@@ -239,9 +241,9 @@ items:
     href: partners-migration-postgresql.md
   - name: Guia de Migração de Bases de Dados
     href: https://datamigration.microsoft.com/
-ms.openlocfilehash: c2d60cf82fa128b1af3a4838448b5c1bf69858fc
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 8e4f8c68e591f1ad8d26c4bd11bc2307c88c10c6
+ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57888251"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58620959"

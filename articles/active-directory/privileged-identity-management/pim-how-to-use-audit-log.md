@@ -1,6 +1,6 @@
 ---
-title: Ver histórico de auditoria para funções de diretório do Azure AD no PIM | Documentos da Microsoft
-description: Saiba como ver o histórico de auditoria para funções de diretório do Azure AD no Azure AD Privileged Identity Management (PIM).
+title: Ver histórico de auditoria para funções do Azure AD no PIM - Azure Active Directory | Documentos da Microsoft
+description: Saiba como ver o histórico de auditoria para funções do Azure AD no Azure AD Privileged Identity Management (PIM).
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -14,15 +14,15 @@ ms.date: 02/14/2017
 ms.author: rolyon
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3b91e2c15e86cdda4daab27892fa7a2b6ed0c0e0
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: c080173af8ddd31b077bb820ea19d82eb2b29300
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58008914"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58576153"
 ---
-# <a name="view-audit-history-for-azure-ad-directory-roles-in-pim"></a>Ver o histórico de auditoria para funções de diretório do Azure AD no PIM
-Pode utilizar o histórico de auditoria do Privileged Identity Management (PIM) para ver todas as atribuições de utilizador e ativações dentro de um determinado período de tempo para funções de contas com privilégios. Se pretender ver o histórico de auditoria de atividade no seu inquilino, incluindo administrador, o utilizador final e atividade de sincronização, pode utilizar o [relatórios de acesso e utilização do Azure Active Directory.](../reports-monitoring/overview-reports.md)
+# <a name="view-audit-history-for-azure-ad-roles-in-pim"></a>Ver o histórico de auditoria para funções do Azure AD no PIM
+Pode utilizar o histórico de auditoria do Azure Active Directory (Azure AD) Privileged Identity Management (PIM) para ver todas as atribuições de utilizador e ativações dentro de um determinado período de tempo para funções de contas com privilégios. Se pretender ver o histórico de auditoria de atividade no seu inquilino, incluindo administrador, o utilizador final e atividade de sincronização, pode utilizar o [relatórios de acesso e utilização do Azure Active Directory.](../reports-monitoring/overview-reports.md)
 
 ## <a name="navigate-to-audit-history"></a>Navegue para o histórico de auditorias
 Partir do [portal do Azure](https://portal.azure.com) dashboard, selecione o **Azure AD Privileged Identity Management** aplicação. A partir daí, acessar o histórico de auditoria clicando **gerir funções com privilégios** > **histórico de auditorias** no dashboard do PIM.

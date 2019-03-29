@@ -70,7 +70,7 @@ items:
 - name: Amostras
   items:
   - name: Exemplos de código
-    href: https://github.com/azure/azure-notificationhubs-samples
+    href: samples.md
   - name: PowerShell
     href: samples-powershell.md
 - name: Conceitos
@@ -164,9 +164,9 @@ items:
     href: https://azure.microsoft.com/regions/services/
   - name: Opções de suporte
     href: https://azure.microsoft.com/support/options/
-ms.openlocfilehash: a5681a615638fdd14aecb2654e2c6d46f0a7bda4
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.openlocfilehash: 56ac5e9c55cd483dd86b64e93777ee8bda8757e4
+ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58486959"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58621469"

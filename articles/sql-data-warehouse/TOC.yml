@@ -191,8 +191,6 @@ items:
     items:
     - name: Descrição geral
       href: sql-data-warehouse-overview-integrate.md
-    - name: Consulta elástica da Base de Dados SQL
-      href: how-to-use-elastic-query-with-sql-data-warehouse.md
 - name: Guias de procedimentos
   items:
   - name: Proteger
@@ -269,8 +267,6 @@ items:
         href: sql-data-warehouse-integrate-azure-stream-analytics.md
     - name: Criar dashboards e relatórios
       items:
-      - name: Configurar consulta elástica da Base de Dados SQL
-        href: tutorial-elastic-query-with-sql-datababase-and-sql-data-warehouse.md
       - name: Visualizar com o Power BI
         href: sql-data-warehouse-get-started-visualize-with-power-bi.md
   - name: Resolução de problemas
@@ -321,9 +317,9 @@ items:
       href: sql-data-warehouse-partner-data-integration.md
     - name: Gestão de dados
       href: sql-data-warehouse-partner-data-management.md
-ms.openlocfilehash: 7895d71fc2db30dd12aded48da168a105dbab2d9
-ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
+ms.openlocfilehash: 52d14867099b85b2d03cc3c536026032fc56263f
+ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58517492"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58620507"

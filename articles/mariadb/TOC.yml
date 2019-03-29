@@ -136,6 +136,8 @@ items:
     items:
     - name: Portal do Azure
       href: howto-restart-server-portal.md
+    - name: CLI do Azure
+      href: howto-restart-server-cli.md
 - name: Referência
   items:
   - name: CLI do Azure
@@ -164,9 +166,9 @@ items:
     href: https://azure.microsoft.com/regions/services/
   - name: Opções de suporte
     href: https://azure.microsoft.com/support/options/
-ms.openlocfilehash: 0d017c688fa5ff6050d43393fb55a31f4bf88c97
-ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
+ms.openlocfilehash: 1ad8ddc0cf189189b9457dabe6c2c2d665c838c3
+ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58223738"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58621130"

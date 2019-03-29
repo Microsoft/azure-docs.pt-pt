@@ -332,8 +332,6 @@ items:
       items:
       - name: Predefinição de tarefas
         href: indexer-task-preset.md
-    - name: Processar com o Hyperlapse
-      href: media-services-hyperlapse-content.md
     - name: Processar com o Detetor de Rostos
       href: media-services-face-and-emotion-detection.md
     - name: Processar com o Detetor de Movimento
@@ -449,7 +447,7 @@ items:
     href: https://azure.microsoft.com/resources/samples/?service=media-services
   - name: Azure PowerShell (Resource Manager)
     href: /powershell/module/az.media
-  - name: Azure PowerShell (Gestão de Serviço)
+  - name: Azure PowerShell
     href: /powershell/module/servicemanagement/azure/?view=azuresmps-3.7.0
   - name: .NET
     href: /dotnet/api/microsoft.windowsazure.mediaservices.client
@@ -477,9 +475,9 @@ items:
     href: media-services-release-notes.md
   - name: Vídeos
     href: https://azure.microsoft.com/resources/videos/index/?services=media-services
-ms.openlocfilehash: 2ce704dafdb7b3511fbb294265abdfbf42e5e6d8
-ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
+ms.openlocfilehash: 900902a111a7b67a2b235d3a069542e2242fac07
+ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58340783"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58621520"

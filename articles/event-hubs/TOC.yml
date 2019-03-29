@@ -53,6 +53,14 @@ items:
       href: event-hubs-node-get-started-receive.md
     - name: Apache Storm
       href: event-hubs-storm-getstarted-receive.md
+  - name: Capturar eventos
+    items:
+    - name: Utilizar o portal do Azure para ativar a Recolha dos Hubs de Eventos
+      href: event-hubs-capture-enable-through-portal.md
+    - name: Utilizar um modelo do Resource Manager para ativar a Recolha dos Hubs de Eventos
+      href: event-hubs-resource-manager-namespace-event-hub-enable-capture.md
+    - name: Recolher dados dos Hubs de Eventos através de Python
+      href: event-hubs-capture-python.md
   - name: Transmitir em fluxo para os Hubs de Eventos para o Apache Kafka
     href: event-hubs-quickstart-kafka-enabled-event-hubs.md
   expanded: true
@@ -116,14 +124,6 @@ items:
       href: event-hubs-create-kafka-enabled.md
     - name: Processar a Apache Kafka para eventos dos Hubs de Eventos através do Stream Analytics
       href: event-hubs-kafka-stream-analytics.md
-  - name: Capturar eventos
-    items:
-    - name: Utilizar o portal do Azure para ativar a Recolha dos Hubs de Eventos
-      href: event-hubs-capture-enable-through-portal.md
-    - name: Utilizar um modelo do Resource Manager para ativar a Recolha dos Hubs de Eventos
-      href: event-hubs-resource-manager-namespace-event-hub-enable-capture.md
-    - name: Recolher dados dos Hubs de Eventos através de Python
-      href: event-hubs-capture-python.md
   - name: Gerir
     items:
     - name: Monitorizar Hubs de Eventos com a Monitorização do Azure
@@ -199,9 +199,9 @@ items:
     href: https://stackoverflow.com/questions/tagged/azure-eventhub
   - name: Vídeos
     href: https://azure.microsoft.com/documentation/videos/index/?services=event-hubs
-ms.openlocfilehash: f565b8c743d8ed29b1fea4480f798dd522fcd045
-ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
+ms.openlocfilehash: 21aafbeff9aa06d890afb6282fdf10e1feac739e
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58285990"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58577285"
