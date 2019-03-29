@@ -1,5 +1,5 @@
 ---
-title: Entidade pré-criados currenty
+title: Entidade pré-criados de moeda
 titleSuffix: Azure
 description: Este artigo contém moeda informações da entidade pré-criados na compreensão de idiomas (LUIS).
 services: cognitive-services
@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: article
 ms.date: 02/28/2019
 ms.author: diberry
-ms.openlocfilehash: 76531e3ebba5519d9ddab7733abb2890003cbcd5
-ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
+ms.openlocfilehash: 9efaaa6bdd0f2b51efca398464dbf08de56d831d
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57339917"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58579279"
 ---
 # <a name="currency-prebuilt-entity-for-a-luis-app"></a>Moeda entidade criados previamente para uma aplicação LUIS
 A entidade de moeda pré-criados Deteta a moeda de diferentes denominations e países, independentemente da cultura de aplicação do LUIS. Uma vez que já está preparada esta entidade, não é necessário adicionar expressões de exemplo que contém a moeda a dos objetivos do aplicativo. Entidade de moeda é suportada no [várias culturas](luis-reference-prebuilt-entities.md). 

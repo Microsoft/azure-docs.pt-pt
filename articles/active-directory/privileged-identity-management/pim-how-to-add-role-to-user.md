@@ -1,6 +1,6 @@
 ---
-title: Atribuir funções de administrador do Azure AD - Privileged Identity Management | Documentos da Microsoft
-description: Saiba como atribuir funções de administrador do Azure Active Directory no Azure AD Privileged Identity Management (PIM).
+title: Atribuir funções do Azure AD no PIM - Azure Active Directory | Documentos da Microsoft
+description: Saiba como atribuir funções do Azure AD no Azure AD Privileged Identity Management (PIM).
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -13,14 +13,14 @@ ms.subservice: pim
 ms.date: 10/30/2018
 ms.author: rolyon
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e3c8a7fb7a94dbca7b0e63ddaf756a536fbd0600
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: dfce4c918bbc7f7e30b5cb6372d4370e305ba63e
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58000625"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58578259"
 ---
-# <a name="assign-azure-ad-administrator-roles-in-pim"></a>Atribuir funções de administrador do Azure AD no PIM
+# <a name="assign-azure-ad-roles-in-pim"></a>Atribuir funções do Azure AD no PIM
 
 Com o Azure Active Directory (Azure AD), pode tornar um Administrador Global **permanente** atribuições de funções de administrador do Azure AD. Estas atribuições de função podem ser criadas com o [portal do Azure](../users-groups-roles/directory-assign-admin-roles.md) ou a utilizar [comandos do PowerShell](/powershell/module/azuread#directory_roles).
 
@@ -38,11 +38,11 @@ Siga estes passos para tornar um utilizador elegível para uma função de admin
 
     Se ainda não começou PIM no portal do Azure, aceda a [começar a utilizar o PIM](pim-getting-started.md).
 
-1. Clique em **funções de diretório do Azure AD**.
+1. Clique em **funções do Azure AD**.
 
 1. Clique em **funções** ou **membros**.
 
-    ![Funções de diretório do Azure AD](./media/pim-how-to-add-role-to-user/pim-directory-roles.png)
+    ![Funções do Azure AD](./media/pim-how-to-add-role-to-user/pim-directory-roles.png)
 
 1. Clique em **Add member** abrir Adicionar geridos membros.
 
@@ -62,7 +62,7 @@ Siga estes passos para tornar um utilizador elegível para uma função de admin
 
     ![Utilizador elegível para uma função](./media/pim-how-to-add-role-to-user/pim-directory-role-eligible.png)
 
-1. Agora que o utilizador é elegível para a função, informá-los de que eles podem fazê-lo, de acordo com as instruções em [ativar as minhas funções de diretório do Azure AD no PIM](pim-how-to-activate-role.md).
+1. Agora que o utilizador é elegível para a função, informá-los de que eles podem fazê-lo, de acordo com as instruções em [ativar as minhas funções do Azure AD no PIM](pim-how-to-activate-role.md).
 
     Os administradores elegíveis são-lhe pedidos para se registrar para o Azure multi-factor Authentication (MFA) durante a ativação. Se um utilizador não é possível registar para MFA ou está a utilizar uma conta Microsoft (normalmente @outlook.com), precisa para torná-los permanente em todas as suas funções.
 
@@ -72,7 +72,7 @@ Por predefinição, os novos utilizadores só são elegíveis para uma função 
 
 1. Open **do Azure AD Privileged Identity Management**.
 
-1. Clique em **funções de diretório do Azure AD**.
+1. Clique em **funções do Azure AD**.
 
 1. Clique em **membros**.
 
@@ -96,7 +96,7 @@ Siga estes passos para remover um utilizador específico de uma função de admi
 
 1. Open **do Azure AD Privileged Identity Management**.
 
-1. Clique em **funções de diretório do Azure AD**.
+1. Clique em **funções do Azure AD**.
 
 1. Clique em **membros**.
 

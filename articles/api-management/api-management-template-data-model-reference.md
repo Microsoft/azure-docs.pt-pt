@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/05/2017
 ms.author: apimpm
-ms.openlocfilehash: 8fb60f36bbc7c8886c1f465177a11224a1c90659
-ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
+ms.openlocfilehash: 3c2384b536235554fed7c1cf1a08b7c665f513a8
+ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58541252"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58621928"
 ---
 # <a name="azure-api-management-template-data-model-reference"></a>Referência de modelo de dados de modelo de gestão de API do Azure
 Este tópico descreve as representações de entidade e tipo de itens comuns utilizados em modelos de dados para os modelos de portal do programador na gestão de API do Azure.  
@@ -162,7 +162,7 @@ O portal do Programador não está disponível na camada de consumo.
 ##  <a name="Header"></a> Cabeçalho  
  Esta secção descreve o `parameter` representação.  
   
-|Propriedade|Descrição|Type|  
+|Propriedade|Tipo|Descrição|  
 |--------------|-----------------|----------|  
 |`name`|string|Nome do parâmetro.|  
 |`description`|string|Descrição do parâmetro.|  
@@ -239,7 +239,7 @@ O portal do Programador não está disponível na camada de consumo.
 ##  <a name="Parameter"></a> Parâmetro  
  Esta secção descreve o `parameter` representação.  
   
-|Propriedade|Descrição|Type|  
+|Propriedade|Tipo|Descrição|  
 |--------------|-----------------|----------|  
 |`name`|string|Nome do parâmetro.|  
 |`description`|string|Descrição do parâmetro.|  

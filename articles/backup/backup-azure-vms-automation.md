@@ -7,16 +7,16 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 03/04/2019
 ms.author: raynew
-ms.openlocfilehash: 230c68b0b1de1ef452de51b7b0661a3c3786ea76
-ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
+ms.openlocfilehash: 3f64be35aca985d0374e224cc9c8940502005014
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58521708"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58578888"
 ---
 # <a name="back-up-and-restore-azure-vms-with-powershell"></a>Criar cópias de segurança e restaurar VMs do Azure com o PowerShell
 
-Este artigo explica como criar cópias de segurança e restaurar uma VM do Azure numa [Azure Backup](backup-overview.md) utilizando cmdlets do PowerShell do cofre dos serviços de recuperação. 
+Este artigo explica como criar cópias de segurança e restaurar uma VM do Azure numa [Azure Backup](backup-overview.md) utilizando cmdlets do PowerShell do cofre dos serviços de recuperação.
 
 Neste artigo, vai aprender a:
 
@@ -24,10 +24,7 @@ Neste artigo, vai aprender a:
 > * Crie um cofre dos serviços de recuperação e defina o contexto do cofre.
 > * Definir uma política de cópia de segurança
 > * Aplicar a política de cópia de segurança para proteger várias máquinas virtuais
-> * Acionar uma tarefa de cópia de segurança a pedido para as máquinas virtuais protegidas antes de pode criar cópias de segurança (ou proteger) uma máquina virtual, tem de concluir o [pré-requisitos](backup-azure-arm-vms-prepare.md) para preparar o ambiente para proteger as suas VMs. 
-
-
-
+> * Acionar uma tarefa de cópia de segurança a pedido para as máquinas virtuais protegidas antes de pode criar cópias de segurança (ou proteger) uma máquina virtual, tem de concluir o [pré-requisitos](backup-azure-arm-vms-prepare.md) para preparar o ambiente para proteger as suas VMs.
 
 ## <a name="before-you-start"></a>Antes de começar
 
@@ -44,8 +41,6 @@ A hierarquia do objeto é resumida no diagrama seguinte.
 
 Reveja os **Az.RecoveryServices** [referência de cmdlet](https://docs.microsoft.com/powershell/module/Az.RecoveryServices/?view=azps-1.4.0) referência na biblioteca do Azure.
 
-
-
 ## <a name="set-up-and-register"></a>Configurar e registar
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
@@ -58,7 +53,7 @@ Para começar:
 
     ```powershell
     Get-Command *azrecoveryservices*
-    ```   
+    ```
  
     Os cmdlets de cópia de segurança do Azure, Azure Site Recovery e o Cofre dos serviços de recuperação e aliases são apresentados. A imagem seguinte é um exemplo de como o que verá. Não é a lista completa de cmdlets.
 
@@ -147,6 +142,18 @@ Antes de ativar a proteção numa VM, utilize [Set-AzRecoveryServicesVaultContex
 Get-AzRecoveryServicesVault -Name "testvault" | Set-AzRecoveryServicesVaultContext
 ```
 
+### <a name="modifying-storage-replication-settings"></a>Modificar as definições de replicação de armazenamento
+
+Uso [Set-AzRecoveryServicesBackupProperties](https://docs.microsoft.com/powershell/module/az.recoveryservices/Set-AzRecoveryServicesBackupProperties?view=azps-1.6.0) comando para definir a configuração de replicação de armazenamento do cofre para LRS/GRS
+
+```powershell
+$vault= Get-AzRecoveryServicesVault -name "testvault"
+Set-AzRecoveryServicesBackupProperties -Vault $vault -BackupStorageRedundancy GeoRedundant/LocallyRedundant
+```
+
+> [!NOTE]
+> Redundância de armazenamento pode ser modificada apenas se não existem itens de cópia de segurança protegido para o cofre.
+
 ### <a name="create-a-protection-policy"></a>Criar uma política de proteção
 
 Quando cria um cofre dos Serviços de Recuperação, aquele inclui políticas de proteção e retenção predefinidas. A política de proteção predefinida aciona um trabalho de cópia de segurança todos os dias a uma hora especificada. A política de retenção predefinida retém o ponto de recuperação diária durante 30 dias. Pode utilizar a política predefinida para proteger sua VM rapidamente e editar a política mais tarde com detalhes diferentes.
@@ -226,7 +233,6 @@ Enable-AzRecoveryServicesBackupProtection -Policy $pol -Name "V2VM" -ResourceGro
 > Se estiver a utilizar a cloud do Azure Government, em seguida, utilize o ff281ffe-705c-4f53-9f37-a40e6f2c68f3 de valor para o parâmetro ServicePrincipalName no [Set-AzKeyVaultAccessPolicy](https://docs.microsoft.com/powershell/module/az.keyvault/set-azkeyvaultaccesspolicy) cmdlet.
 >
 
-
 ### <a name="modify-a-protection-policy"></a>Modificar uma política de proteção
 
 Para modificar a política de proteção, utilize [Set-AzRecoveryServicesBackupProtectionPolicy](https://docs.microsoft.com/powershell/module/az.recoveryservices/set-azrecoveryservicesbackupprotectionpolicy) para modificar os objetos SchedulePolicy ou RetentionPolicy.
@@ -239,6 +245,19 @@ $retPol.DailySchedule.DurationCountInDays = 365
 $pol = Get-AzRecoveryServicesBackupProtectionPolicy -Name "NewPolicy"
 Set-AzRecoveryServicesBackupProtectionPolicy -Policy $pol  -RetentionPolicy $RetPol
 ```
+
+#### <a name="configuring-instant-restore-snapshot-retention"></a>Configurar a retenção de instantâneo de restauro imediato
+
+> [!NOTE]
+> De Az PS versão 1.6.0 e posteriores, um pode atualizar o período de retenção de instantâneo de restauro imediato na política com o Powershell
+
+````powershell
+PS C:\> $bkpPol = Get-AzureRmRecoveryServicesBackupProtectionPolicy -WorkloadType "AzureVM"
+$bkpPol.SnapshotRetentionInDays=7
+PS C:\> Set-AzureRmRecoveryServicesBackupProtectionPolicy -policy $bkpPol
+````
+
+O valor predefinido será 2, o utilizador pode definir o valor com um mínimo de 1 e máximo de 5. Para as políticas de cópia de segurança semanal, o período é definido como 5 e não pode ser alterado.
 
 ## <a name="trigger-a-backup"></a>Acionar uma cópia de segurança
 
@@ -672,7 +691,7 @@ $rp[0]
 
 O resultado é semelhante ao seguinte exemplo:
 
-```
+```powershell
 RecoveryPointAdditionalInfo :
 SourceVMStorageType         : NormalStorage
 Name                        : 15260861925810
@@ -719,4 +738,4 @@ Disable-AzRecoveryServicesBackupRPMountScript -RecoveryPoint $rp[0]
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-Se preferir utilizar o PowerShell para interagir com os seus recursos do Azure, veja o artigo do PowerShell, [implementar e gerir cópias de segurança para o Windows Server](backup-client-automation.md). Se gerir cópias de segurança do DPM, consulte o artigo [implementar e gerir cópias de segurança para o DPM](backup-dpm-automation.md). 
+Se preferir utilizar o PowerShell para interagir com os seus recursos do Azure, veja o artigo do PowerShell, [implementar e gerir cópias de segurança para o Windows Server](backup-client-automation.md). Se gerir cópias de segurança do DPM, consulte o artigo [implementar e gerir cópias de segurança para o DPM](backup-dpm-automation.md).

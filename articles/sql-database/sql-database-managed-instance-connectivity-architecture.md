@@ -12,12 +12,12 @@ ms.author: srbozovi
 ms.reviewer: bonova, carlrab
 manager: craigg
 ms.date: 02/26/2019
-ms.openlocfilehash: ad005ff879ef5e4c0fb2fb72ce3062a5dd25d99a
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.openlocfilehash: c7587b6cb2b4b30e265657b9d3792c9d4acd4428
+ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58486789"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58621554"
 ---
 # <a name="connectivity-architecture-for-a-managed-instance-in-azure-sql-database"></a>Arquitetura de conectividade para uma instância gerida na base de dados do Azure SQL 
 
@@ -107,7 +107,7 @@ Implemente uma instância gerida numa sub-rede dedicada dentro da rede virtual. 
 
 | Name       |Porta          |Protocolo|Origem           |Destino|Ação|
 |------------|--------------|--------|-----------------|-----------|------|
-|móveis  |80, 443, 12000|TCP     |Qualquer              |Internet   |Permitir |
+|móveis  |80, 443, 12000|TCP     |Qualquer              |AzureCloud  |Permitir |
 |mi_subnet   |Qualquer           |Qualquer     |Qualquer              |SUB-REDE DE MI *  |Permitir |
 
 > Certifique-se de que existe apenas uma regra de entrada para portas 9000, 9003, 1438, 1440, 1452 e uma regra de saída para as portas 80, 443, 12000. Aprovisionamento de instância gerida através de implementações de ARM poderá falhar se regras de entrada e saídas estão configuradas em separado para cada portas. 

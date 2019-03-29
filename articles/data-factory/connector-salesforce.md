@@ -10,14 +10,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 10/17/2018
+ms.date: 03/28/2019
 ms.author: jingwang
-ms.openlocfilehash: f06dd47a519d992e52ac0010c0ae7d81870a4842
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 601ae4a896c4e52d8a1f4022c92a22988465369c
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57544533"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58578480"
 ---
 # <a name="copy-data-from-and-to-salesforce-by-using-azure-data-factory"></a>Copiar dados de e para Salesforce com o Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -64,7 +64,7 @@ As seguintes propriedades são suportadas para o serviço ligado do Salesforce.
 |:--- |:--- |:--- |
 | tipo |A propriedade de tipo deve ser definida como **Salesforce**. |Sim |
 | environmentUrl | Especifique o URL da instância do Salesforce. <br> -Predefinição é `"https://login.salesforce.com"`. <br> -Para copiar dados de proteção de segurança, especifique `"https://test.salesforce.com"`. <br> -Para copiar dados de domínio personalizado, especifique, por exemplo, `"https://[domain].my.salesforce.com"`. |Não |
-| nome do utilizador |Especifique um nome de utilizador para a conta de utilizador. |Sim |
+| o nome de utilizador |Especifique um nome de utilizador para a conta de utilizador. |Sim |
 | palavra-passe |Especifique uma palavra-passe da conta de utilizador.<br/><br/>Marcar esse campo como uma SecureString armazena de forma segura na fábrica de dados, ou [referenciar um segredo armazenado no Azure Key Vault](store-credentials-in-key-vault.md). |Sim |
 | securityToken |Especifique um token de segurança da conta de utilizador. Para obter instruções sobre como repor e obter um token de segurança, consulte [obter um token de segurança](https://help.salesforce.com/apex/HTViewHelpDoc?id=user_security_token.htm). Para saber mais sobre os tokens de segurança em geral, veja [segurança e a API](https://developer.salesforce.com/docs/atlas.en-us.api.meta/api/sforce_api_concepts_security.htm).<br/><br/>Marcar esse campo como uma SecureString armazena de forma segura na fábrica de dados, ou [referenciar um segredo armazenado no Azure Key Vault](store-credentials-in-key-vault.md). |Sim |
 | connectVia | O [runtime de integração](concepts-integration-runtime.md) a ser utilizado para ligar ao arquivo de dados. Se não for especificado, ele usa o padrão do Runtime de integração do Azure. | Não para a origem, Sim para sink se associada a origem de serviço não tem o runtime de integração |
@@ -305,6 +305,10 @@ Quando especificar a consulta SOQL ou SQL, preste atenção a diferença de form
 * **Exemplo SOQL**: `SELECT Id, Name, BillingCity FROM Account WHERE LastModifiedDate >= @{formatDateTime(pipeline().parameters.StartTime,'yyyy-MM-ddTHH:mm:ssZ')} AND LastModifiedDate < @{formatDateTime(pipeline().parameters.EndTime,'yyyy-MM-ddTHH:mm:ssZ')}`
 * **Exemplo SQL**: `SELECT * FROM Account WHERE LastModifiedDate >= {ts'@{formatDateTime(pipeline().parameters.StartTime,'yyyy-MM-dd HH:mm:ss')}'} AND LastModifiedDate < {ts'@{formatDateTime(pipeline().parameters.EndTime,'yyyy-MM-dd HH:mm:ss')}'}`
 
+### <a name="error-of-malformedquerytruncated"></a>Erro de MALFORMED_QUERY: truncada
+
+Se tiver atingido o erro de "MALFORMED_QUERY: Truncados", normalmente é devido a ter a coluna do tipo JunctionIdList nos dados e o Salesforce tem limitação no suporte a esses dados com grande número de linhas. Para atenuar, tentar excluir a coluna de JunctionIdList ou limitar o número de linhas para copiar (pode particionar para várias execuções de atividade de cópia).
+
 ## <a name="data-type-mapping-for-salesforce"></a>Tipo de dados de mapeamento para o Salesforce
 
 Quando copia dados do Salesforce, os seguintes mapeamentos são utilizados entre tipos de dados do Salesforce para tipos de dados intermediárias do Data Factory. Para saber mais sobre como a atividade de cópia mapeia o tipo de esquema e os dados de origem para o sink, veja [mapeamentos de tipo de esquema e dados](copy-activity-schema-and-type-mapping.md).
@@ -314,13 +318,13 @@ Quando copia dados do Salesforce, os seguintes mapeamentos são utilizados entre
 | Número de automática |String |
 | Caixa de verificação |Booleano |
 | Moeda |Decimal |
-| Data |DateTime |
+| Date |DateTime |
 | Data/Hora |DateTime |
-| E-mail |String |
-| ID |String |
+| Email |String |
+| Id |String |
 | Relação de referência |String |
 | Lista de opções de seleção múltipla |String |
-| Número |Decimal |
+| Number |Decimal |
 | Percentagem |Decimal |
 | Telefone |String |
 | Lista de opções |String |
@@ -329,7 +333,7 @@ Quando copia dados do Salesforce, os seguintes mapeamentos são utilizados entre
 | Área de texto (longa) |String |
 | Área de texto (avançado) |String |
 | Texto (encriptado) |String |
-| URL |String |
+| do IdP |String |
 
 ## <a name="next-steps"></a>Passos Seguintes
 Para obter uma lista dos arquivos de dados suportados como origens e sinks, a atividade de cópia no Data Factory, veja [arquivos de dados suportados](copy-activity-overview.md#supported-data-stores-and-formats).

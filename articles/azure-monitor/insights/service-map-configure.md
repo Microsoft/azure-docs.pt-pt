@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/11/2019
 ms.author: magoedte
-ms.openlocfilehash: 4d3de1d0b242017f7026873ccaeba547f85981fc
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.openlocfilehash: a152d9242c4d272800e2e159603c2554f1d89092
+ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58482104"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58622047"
 ---
 # <a name="configure-service-map-in-azure"></a>Configurar o mapa de serviço no Azure
 O Mapa de Serviço deteta automaticamente componentes de aplicações em sistemas Windows e Linux e mapeia a comunicação entre serviços. Pode usá-lo para ver os servidores, como considerá-los – sistemas interconectados que fornecem serviços críticos. Mapa de serviço mostra ligações entre servidores, processos e as portas em qualquer arquitetura ligado a TCP sem qualquer configuração necessária, que não seja a instalação de um agente.
@@ -57,13 +57,11 @@ A seção a seguir lista os sistemas operativos suportados para o agente de depe
 - Windows 7
 
 ## <a name="supported-linux-operating-systems"></a>Sistemas operativos Linux suportados
-A seção a seguir lista os sistemas operativos suportados para o agente de dependência no Red Hat Enterprise Linux, CentOS Linux e Oracle Linux (com o Kernel do RHEL).  
+A seção a seguir lista os sistemas operativos suportados para o agente de dependência no Linux.  
 
 - Apenas as versões de kernel padrão e SMP Linux são suportadas.
 - As versões kernel não padrão, tais como PAE e Xen, não são suportadas para qualquer distribuição de Linux. Por exemplo, um sistema com a cadeia de versão de "2.6.16.21-0.8-xen" não é suportado.
 - Kernels personalizados, incluindo recompilações de kernels padrão, não são suportados.
-- CentOSPlus kernel é suportada.
-- O Oracle Unbreakable Enterprise Kernel (UEK) é abordado numa secção posterior deste artigo.
 
 ### <a name="red-hat-linux-7"></a>Red Hat Linux 7
 

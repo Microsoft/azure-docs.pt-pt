@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/14/2019
 ms.author: juliako
-ms.openlocfilehash: aa29b1e2d0e80b3134be69d17ed5be454f8a51c3
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: fadf1aa54f525fb3d4c414161583f8a89f2e4c05
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57850365"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58576297"
 ---
 # <a name="perform-advanced-encoding-by-customizing-mes-presets"></a>Realizar a codificação avançada ao personalizar predefinições MES 
 
@@ -27,11 +27,10 @@ ms.locfileid: "57850365"
 
 Este tópico mostra como personalizar as predefinições do Media Encoder Standard. O [Encoding com Media Encoder Standard com configurações predefinidas personalizadas](media-services-custom-mes-presets-with-dotnet.md) tópico mostra como usar o .NET para criar uma tarefa de codificação e uma tarefa que executa essa tarefa. Depois de personalizar uma configuração predefinida, fornece as configurações predefinidas personalizadas para a tarefa de codificação. 
 
->[!NOTE]
->Se utilizar uma configuração predefinida XML, certifique-se preservar a ordem dos elementos, conforme mostrado nos exemplos XML abaixo (por exemplo, KeyFrameInterval deve preceda SceneChangeDetection).
->
+Se utilizar uma configuração predefinida XML, certifique-se preservar a ordem dos elementos, conforme mostrado nos exemplos XML abaixo (por exemplo, KeyFrameInterval deve preceda SceneChangeDetection).
 
-Neste tópico, as configurações predefinidas personalizadas que executam as seguintes tarefas de codificação são demonstradas.
+> [!NOTE] 
+> Muitos dos recursos avançados de v2 dos serviços de multimédia do Media Encoder Standard não estão atualmente disponíveis na v3. Para obter mais informações, consulte [lacunas de funcionalidade](https://docs.microsoft.com/azure/media-services/latest/migrate-from-v2-to-v3#feature-gaps-with-respect-to-v2-apis).
 
 ## <a name="support-for-relative-sizes"></a>Suporte para tamanhos relativos
 

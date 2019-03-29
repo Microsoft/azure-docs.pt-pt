@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: article
-ms.date: 03/04/2019
+ms.date: 03/26/2019
 ms.author: tulasim
-ms.openlocfilehash: 0e9e8456bb493ad4591c0f2a22d28bdf342f09e1
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 8fcc3ea8340a8645a1983eebb4a619904f884a19
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57433115"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58578633"
 ---
 # <a name="data-sources-for-qna-maker-content"></a>Origens de dados para o conteúdo de QnA Maker
 
@@ -32,7 +32,11 @@ A tabela abaixo resume os tipos de conteúdo e formatos de arquivo que são supo
 
 ## <a name="data-source-locations"></a>Localizações de origem de dados
 
-Apenas os URLs públicas são válidos para todas as origens de dados. Não se submeta as origens de dados que requerem autenticação. Pode transferir o ficheiro a partir do site autenticado e depois utilizar a opção de carregamento de ficheiros para extrair perguntas e respostas.
+A maioria das localizações de origem de dados tem de fornecer URLs públicas ou de arquivos, que não necessitam de autenticação. 
+
+[Localizações de origem de dados do SharePoint](../How-to/add-sharepoint-datasources.md) têm permissão para fornecer os ficheiros de autenticado. Recursos do SharePoint tem de ser ficheiros, não páginas da web. 
+
+Em seguida, se tiver um arquivo autenticado ou URL, uma opção é transferir o ficheiro a partir do site autenticado para o computador local, adicione o ficheiro do seu local computador para a base de dados de conhecimento. 
 
 ## <a name="faq-urls"></a>URLs de FAQ
 

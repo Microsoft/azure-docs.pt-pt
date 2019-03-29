@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/19/2019
 ms.author: mlottner
-ms.openlocfilehash: 591000f251d384b961569f9d7ca09ae93edea617
-ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
+ms.openlocfilehash: fa1825d6f6f6ea5e6c026791aa70dd1b37bdad90
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58541669"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58574749"
 ---
 # <a name="quickstart-create-custom-alerts"></a>Início rápido: Criar alertas personalizados
 
@@ -90,4 +90,4 @@ A tabela seguinte fornece um resumo dos alertas disponíveis para personalizaç�
 Avance para o artigo seguinte para saber como implementar um agente de segurança...
 
 > [!div class="nextstepaction"]
-> [Implementar um agente de segurança](select-deploy-agent.md)
+> [Implementar um agente de segurança](how-to-deploy-agent.md)

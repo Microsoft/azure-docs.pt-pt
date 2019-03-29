@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 02/18/2019
 ms.author: saurse
-ms.openlocfilehash: a9a445208c151a537c35fa7afafa48b19486828f
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 4bad788156b2068f24484d3b248f2091409752ad
+ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58008156"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58621622"
 ---
 # <a name="troubleshoot-microsoft-azure-recovery-services-mars-agent"></a>Resolver problemas de agente do Microsoft Azure Recovery Services (MARS)
 
@@ -60,7 +60,7 @@ Eis como resolver erros que poderá ver durante a configuração, registo, cópi
 ## <a name="backups-dont-run-according-to-the-schedule"></a>Não executam cópias de segurança, de acordo com a agenda
 Se as cópias de segurança agendadas não obter acionadas automaticamente, enquanto as cópias de segurança manuais funcionam sem problemas, tente as seguintes ações:
 
-- Certifique-se a agenda de cópia de segurança do Windows Server não entram em conflito com a agenda de cópia de segurança de ficheiros do Azure e de pastas.
+- Certifique-se a agenda de cópia de segurança do Windows Server não entram em conflito com a agenda de cópia de segurança do Azure de ficheiros e pastas.
 - Aceda a **painel de controlo** > **ferramentas administrativas** > **Programador de tarefas**. Expanda **Microsoft**e selecione **cópia de segurança Online**. Faça duplo clique em **Microsoft OnlineBackup**e vá para o **Acionadores** separador. Certifique-se de que o estado é definido como **ativado**. Se não estiver, selecione **edite**e selecione o **ativado** caixa de verificação e clique em **OK**. No **gerais** separador, aceda à **opções de segurança** e certifique-se de que a conta de utilizador selecionada para executar a tarefa é um **sistema** ou **Local Grupo de administradores** no servidor.
 
 - Veja se o PowerShell 3.0 ou posterior está instalado no servidor. Para verificar a versão do PowerShell, execute o seguinte comando e certifique-se de que o *principais* número de versão é igual ou superior a 3.

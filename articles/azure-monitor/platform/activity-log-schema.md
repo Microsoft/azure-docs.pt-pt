@@ -8,12 +8,12 @@ ms.topic: reference
 ms.date: 1/16/2019
 ms.author: dukek
 ms.subservice: logs
-ms.openlocfilehash: 63c649f0850c4ffc60ce2087e91f3f69917e4837
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: 93e74eb6aefbaeeddf7c4f15d62f4a9ee3d617d4
+ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56868549"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58622217"
 ---
 # <a name="azure-activity-log-event-schema"></a>Esquema de eventos de registo de atividades do Azure
 O **registo de atividades do Azure** é um registo que fornece informações sobre quaisquer eventos de nível de assinatura que ocorreram no Azure. Este artigo descreve o esquema de eventos por categoria de dados. O esquema dos dados é diferente dependendo se estiver lendo os dados no portal, PowerShell, CLI, ou diretamente através da API de REST versus [os dados para armazenamento ou Hubs de eventos com um perfil de registo de transmissão em fluxo](./../../azure-monitor/platform/activity-logs-overview.md#export-the-activity-log-with-a-log-profile). Os exemplos abaixo mostram o esquema, disponibilizada através do portal, PowerShell, CLI e REST API. Um mapeamento dessas propriedades para o [esquema de registos de diagnóstico do Azure](./diagnostic-logs-schema.md) é fornecido no final do artigo.
@@ -358,6 +358,7 @@ Esta categoria contém o registo de todas as ativações de alertas do Azure. Um
 | correlationId | Um GUID no formato de cadeia de caracteres. |
 | descrição |Descrição de texto estático do evento de alerta. |
 | eventDataId |Identificador exclusivo do evento de alerta. |
+| categoria | Sempre "Alert" |
 | nível |Nível do evento. Um dos seguintes valores: "Crítico", "Error", "Aviso" e "Informativo" |
 | resourceGroupName |Nome do grupo de recursos para o recurso afetado se se trata de um alerta de métrica. Para outros tipos de alerta, é o nome do grupo de recursos que contém o alerta em si. |
 | resourceProviderName |Nome do fornecedor de recursos para o recurso afetado se se trata de um alerta de métrica. Para outros tipos de alerta, é o nome do fornecedor de recursos para o alerta em si. |
@@ -556,6 +557,7 @@ Esta categoria contém o registo de todos os alertas gerados pelo centro de segu
 | descrição |Descrição de texto estático do evento de segurança. |
 | eventDataId |Identificador exclusivo do evento de segurança. |
 | eventName |Nome amigável do evento de segurança. |
+| categoria | Sempre "segurança" |
 | ID |Identificador de recurso exclusivo do evento de segurança. |
 | nível |Nível do evento. Um dos seguintes valores: "Crítico", "Error", "Aviso" ou "Informativo" |
 | resourceGroupName |Nome do grupo de recursos para o recurso. |

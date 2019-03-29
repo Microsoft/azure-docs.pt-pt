@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: tutorial
 ms.date: 03/21/2019
 ms.author: helohr
-ms.openlocfilehash: 2baabe6837d25cce5e9f5d9e1071af8417fe5f4d
-ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
+ms.openlocfilehash: da653842b09c15a5fd42bae0ed45e7b31452b972
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58401867"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58578755"
 ---
 # <a name="tutorial-manage-app-groups-for-windows-virtual-desktop-preview"></a>Tutorial: Gerir grupos de aplicações para Windows Virtual Desktop pré-visualização
 
@@ -28,13 +28,13 @@ Antes de começar, [transferir e importar o módulo do Windows PowerShell de amb
 
 ## <a name="create-a-remoteapp-group"></a>Criar um grupo do RemoteApp
 
-1. Execute o seguinte cmdlet do PowerShell para criar um novo grupo vazio do RemoteApp.
+1. Execute o seguinte cmdlet do PowerShell para criar um novo grupo de aplicação RemoteApp vazio.
 
    ```powershell
    New-RdsAppGroup <tenantname> <hostpoolname> <appgroupname> -ResourceType "RemoteApp"
    ```
 
-2. (Opcional) Para verificar que o grupo de aplicações foi criado, pode executar o cmdlet seguinte para ver uma lista de todos os grupos de aplicações para o conjunto de anfitrião.
+2. (Opcional) Para verificar se que o grupo de aplicações foi criado, pode executar o cmdlet seguinte para ver uma lista de todos os grupos de aplicações para o conjunto de anfitrião.
 
    ```powershell
    Get-RdsAppGroup <tenantname> <hostpoolname>
@@ -45,17 +45,17 @@ Antes de começar, [transferir e importar o módulo do Windows PowerShell de amb
    ```powershell
    Get-RdsStartMenuApp <tenantname> <hostpoolname> <appgroupname>
    ```
-
-4. Execute o seguinte cmdlet para publicar um novo RemoteApp para o grupo de aplicações que criou no passo 1.
+   
+4. Execute o cmdlet seguinte para instalar a aplicação com base na respetiva appalias. appalias se torna visível quando executa a saída do passo 3.
 
    ```powershell
-   New-RdsRemoteApp <tenantname> <hostpoolname> <appgroupname> <remoteappname> -Filepath <filepath>  -IconPath <iconpath> -IconIndex <iconindex>
+   New-RdsRemoteApp <tenantname> <hostpoolname> <appgroupname> -Name <remoteappname> -AppAlias <appalias>
    ```
 
-5. (Opcional) Execute o cmdlet seguinte para instalar a aplicação com base em appalias. appalias se torna visível quando executa a saída do passo 3.
+5. (Opcional) Execute o seguinte cmdlet para publicar um novo RemoteApp para o grupo de aplicações que criou no passo 1.
 
    ```powershell
-   New-RdsRemoteApp <tenantname> <hostpoolname> <appgroupname> <remoteappname> -AppAlias <appalias>
+   New-RdsRemoteApp <tenantname> <hostpoolname> <appgroupname> -Name <remoteappname> -Filepath <filepath>  -IconPath <iconpath> -IconIndex <iconindex>
    ```
 
 6. Para verificar que a aplicação foi publicada, execute o seguinte cmdlet.
@@ -76,4 +76,4 @@ Antes de começar, [transferir e importar o módulo do Windows PowerShell de amb
 Depois de criar os grupos de aplicações, pode criar principais de serviço e atribuir funções aos seus utilizadores. Para saber como fazer isso, veja o tutorial para saber como criar principais de serviço e as atribuições de funções com o PowerShell.
 
 > [!div class="nextstepaction"]
-> [Criar principais de serviço e as atribuições de funções com o PowerShell](create-service-principal-role-powershell.md)
+> [Criar principais de serviço e atribuições de funções com o PowerShell](create-service-principal-role-powershell.md)

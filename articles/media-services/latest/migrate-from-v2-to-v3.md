@@ -13,14 +13,14 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: multiple
 ms.workload: media
-ms.date: 03/20/2019
+ms.date: 03/27/2019
 ms.author: juliako
-ms.openlocfilehash: 61ebebaf61d1cbbc72f3e12b5ff516924cc9b8c7
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: b951da73006731b38b265dc3a2f542e670f9fbf6
+ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58317753"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58621741"
 ---
 # <a name="migration-guidance-for-moving-from-media-services-v2-to-v3"></a>Orientações de migração para mover de serviços de multimédia v2 para v3
 
@@ -79,12 +79,14 @@ Se tiver um serviço de vídeo desenvolvido hoje na parte superior dos [APIs de 
 A API de v3 tem os seguintes intervalos de funcionalidades em relação a API v2. Fechar as lacunas é o trabalho em curso.
 
 * O [codificador Premium](../previous/media-services-premium-workflow-encoder-formats.md) e o legado [processadores de análise de multimédia](../previous/media-services-analytics-overview.md) (pré-visualização do Azure Media Services indexador 2, Editor de rostos, etc.) não estão acessíveis por meio de v3.<br/>Os clientes que pretendem migrar a partir de 1 de indexador de multimédia ou 2 preview imediatamente podem utilizar o AudioAnalyzer predefinir na v3 API.  Esta configuração predefinida nova contém mais recursos do que o indexador 1 mais antigas do suporte de dados ou 2. 
-* Muitas das funcionalidades avançadas do Media Encoder Standard no v2 APIs não estão atualmente disponíveis na v3, tais como:
+* Muitas da [recursos avançados do Media Encoder Standard no v2](../previous/media-services-advanced-encoding-with-mes.md) APIs não estão atualmente disponíveis na v3, tais como:
     * Recorte (para cenários sob demanda e em direto)
     * Clips de ativos
     * Sobreposições
     * Corte
     * Sprites em miniatura
+    * Inserir uma faixa de áudio silenciosa quando a introdução possui sem áudio
+    * Inserir um Roteiro de vídeo de entrada quando não tem nenhum vídeo
 * Eventos em direto com transcodificação atualmente não suportam Slate inserção médio stream e o ad inserção de marcadores por meio de chamada de API. 
 
 > [!NOTE]

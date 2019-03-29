@@ -12,12 +12,12 @@ ms.author: danil
 ms.reviewer: jrasnik, carlrab
 manager: craigg
 ms.date: 03/12/2019
-ms.openlocfilehash: c5be8af71fcbdf6f38f878c70180f38227070245
-ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
+ms.openlocfilehash: bb45062697b113b676f85381f0653c14ac8c0c67
+ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58499330"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58621235"
 ---
 # <a name="azure-sql-database-metrics-and-diagnostics-logging"></a>Métricas de base de dados SQL do Azure e o registo de diagnósticos
 
@@ -148,7 +148,7 @@ Pode configurar um recurso de instância gerida para recolher a telemetria de di
 
 | Recurso | Monitorização de telemetria |
 | :------------------- | ------------------- |
-| **Instância gerida** | ResourceUsageStats contém a contagem de vCores, percentagem de CPU média, pedidos de e/s, espaço de armazenamento reservada, lidos/escritos de bytes e espaço de armazenamento utilizado. |
+| **Instância gerida** | [ResourceUsageStats](#resource-usage-stats-for-managed-instance) contém a contagem de vCores, percentagem de CPU média, pedidos de e/s, espaço de armazenamento reservada, lidos/escritos de bytes e espaço de armazenamento utilizado. |
 
 Para configurar a transmissão em fluxo de telemetria de diagnóstico para a instância gerida e bases de dados de instância, terá de configurar separadamente **ambos** dos seguintes procedimentos:
 

@@ -13,17 +13,17 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/5/2019
+ms.date: 03/24/2019
 ms.author: celested
 ms.reviewer: hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 02183abb60fe24b9ee9c769f7af696355966ab24
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 698dc61d42adb398376161480cf4d32180846c48
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57551063"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58577599"
 ---
 # <a name="v20-protocols---oauth-20-authorization-code-flow"></a>Protocolos de v2.0 - fluxo de código de autorização de OAuth 2.0
 
@@ -67,7 +67,7 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 | Parâmetro    | Obrigatório/opcional | Descrição |
 |--------------|-------------|--------------|
 | `tenant`    | obrigatório    | O `{tenant}` valor no caminho do pedido pode ser utilizado para controlar quem pode iniciar sessão na aplicação. Os valores permitidos são `common`, `organizations`, `consumers`e identificadores de inquilinos. Para obter mais detalhes, consulte [Noções básicas de protocolo](active-directory-v2-protocols.md#endpoints).  |
-| `client_id`   | obrigatório    | ID de aplicação (cliente) que o portal de registo ([apps.dev.microsoft.com](https://apps.dev.microsoft.com/?referrer=https://azure.microsoft.com/documentation/articles&deeplink=/appList)) ou **registos das aplicações (pré-visualização)** experiência no portal do Azure, atribuído a sua aplicação.  |
+| `client_id`   | obrigatório    | O **ID da aplicação (cliente)** que o [portal do Azure – registos de aplicações](https://go.microsoft.com/fwlink/?linkid=2083908) experiência atribuída à sua aplicação.  |
 | `response_type` | obrigatório    | Tem de incluir `code` para o fluxo de código de autorização.       |
 | `redirect_uri`  | Recomendado | O redirect_uri da sua aplicação, onde as respostas podem ser enviadas e recebidas pela sua aplicação. Ele deve corresponder exatamente um dos redirect_uris registado no portal, exceto pelo fato tem de ser codificados de url. Para aplicações de dispositivos móveis e nativas, deve usar o valor predefinido de `https://login.microsoftonline.com/common/oauth2/nativeclient`.   |
 | `scope`  | obrigatório    | Uma lista separada por espaço de [âmbitos](v2-permissions-and-consent.md) que pretende que o utilizador para autorizar. |
@@ -154,7 +154,7 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 | Parâmetro  | Obrigatório/opcional | Descrição     |
 |------------|-------------------|----------------|
 | `tenant`   | obrigatório   | O `{tenant}` valor no caminho do pedido pode ser utilizado para controlar quem pode iniciar sessão na aplicação. Os valores permitidos são `common`, `organizations`, `consumers`e identificadores de inquilinos. Para obter mais detalhes, consulte [Noções básicas de protocolo](active-directory-v2-protocols.md#endpoints).  |
-| `client_id` | obrigatório  | ID de aplicação que o portal de registo ([apps.dev.microsoft.com](https://apps.dev.microsoft.com/?referrer=https://azure.microsoft.com/documentation/articles&deeplink=/appList)) atribuído a sua aplicação. |
+| `client_id` | obrigatório  | ID de aplicação (cliente) que o [portal do Azure – registos de aplicações](https://go.microsoft.com/fwlink/?linkid=2083908) atribuída à sua aplicação de página. |
 | `grant_type` | obrigatório   | Tem de ser `authorization_code` para o fluxo de código de autorização.   |
 | `scope`      | obrigatório   | Uma lista de âmbitos separadas por espaços. Os âmbitos solicitados neste leg tem de ser equivalente a ou um subconjunto dos âmbitos solicitada no leg primeiro. Se os âmbitos especificados neste pedido abrangem vários servidores de recursos, o ponto final v2.0 irá devolver um token para o recurso especificado no âmbito da primeira. Para obter uma explicação mais detalhada de âmbitos, consulte [permissões e consentimento e âmbitos](v2-permissions-and-consent.md). |
 | `code`          | obrigatório  | Authorization_code que obteve no leg primeiro do fluxo. |
@@ -267,7 +267,7 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 | Parâmetro     |                | Descrição        |
 |---------------|----------------|--------------------|
 | `tenant`        | obrigatório     | O `{tenant}` valor no caminho do pedido pode ser utilizado para controlar quem pode iniciar sessão na aplicação. Os valores permitidos são `common`, `organizations`, `consumers`e identificadores de inquilinos. Para obter mais detalhes, consulte [Noções básicas de protocolo](active-directory-v2-protocols.md#endpoints).   |
-| `client_id`     | obrigatório    | O **ID da aplicação (cliente)** que o portal de registo de aplicação ([apps.dev.microsoft.com](https://apps.dev.microsoft.com/?referrer=https://azure.microsoft.com/documentation/articles&deeplink=/appList)) ou **registos de aplicações (pré-visualização)** tem experiência no portal do Azure atribuído a sua aplicação.  |
+| `client_id`     | obrigatório    | O **ID da aplicação (cliente)** que o [portal do Azure – registos de aplicações](https://go.microsoft.com/fwlink/?linkid=2083908) experiência atribuída à sua aplicação. |
 | `grant_type`    | obrigatório    | Tem de ser `refresh_token` para este vertente do fluxo de código de autorização. |
 | `scope`         | obrigatório    | Uma lista de âmbitos separadas por espaços. Os âmbitos solicitados neste leg tem de ser equivalente a ou um subconjunto dos âmbitos solicitada no leg de pedido de authorization_code original. Se os âmbitos especificados neste pedido abrangem vários servidores de recursos, o ponto final v2.0 irá devolver um token para o recurso especificado no âmbito da primeira. Para obter uma explicação mais detalhada de âmbitos, consulte [permissões e consentimento e âmbitos](v2-permissions-and-consent.md). |
 | `refresh_token` | obrigatório    | Refresh_token que obteve no segundo leg do fluxo. |

@@ -1,5 +1,5 @@
 ---
-title: Utilize as funções personalizadas para recursos do Azure no PIM | Documentos da Microsoft
+title: Utilize as funções personalizadas para recursos do Azure no PIM - Azure Active Directory | Documentos da Microsoft
 description: Saiba como utilizar funções personalizadas para recursos do Azure no Azure AD Privileged Identity Management (PIM).
 services: active-directory
 documentationcenter: ''
@@ -14,16 +14,16 @@ ms.subservice: pim
 ms.date: 03/30/2018
 ms.author: rolyon
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f2767d817d6f15d38aeef4c669b2b11c3d8a8a6b
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 13aef9b180a671a9b42bbc6319c487be36652093
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56168022"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58574880"
 ---
 # <a name="use-custom-roles-for-azure-resources-in-pim"></a>Utilize as funções personalizadas para recursos do Azure no PIM
 
-Poderá ter de aplicar definições rigorosa do Privileged Identity Management (PIM) para alguns membros de uma função, oferecendo maior autonomia para outras pessoas. Considere um cenário em que a sua organização contrata vários de contrato de associados, para ajudar no desenvolvimento de um aplicativo que serão executados numa subscrição do Azure.
+Poderá ter de aplicar definições strict do Azure Active Directory (Azure AD) Privileged Identity Management (PIM) para alguns membros de uma função, oferecendo maior autonomia para outras pessoas. Considere um cenário em que a sua organização contrata vários de contrato de associados, para ajudar no desenvolvimento de um aplicativo que serão executados numa subscrição do Azure.
 
 Enquanto administrador de recursos, quer que os funcionários sejam elegíveis para o acesso sem a necessidade de aprovação. No entanto, todos os associates do contrato devem ser aprovados quando solicitam acesso aos recursos da organização.
 

@@ -2,20 +2,20 @@
 title: 'Tutorial: Carregar dados de táxis de Nova Iorque ao Azure SQL Data Warehouse | Documentos da Microsoft'
 description: Tutorial utiliza o Azure portal e o SQL Server Management Studio para carregar dados de táxis de Nova Iorque a partir de um público do Azure blob para o Azure SQL Data Warehouse.
 services: sql-data-warehouse
-author: ckarst
+author: mlee3gsd
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.subservice: implement
-ms.date: 09/12/2018
-ms.author: cakarst
+ms.date: 03/27/2019
+ms.author: mlee3gsd
 ms.reviewer: igorstan
-ms.openlocfilehash: 979488009f7afa2ccae3993d756e92e1ae15d5a0
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 57ca749aec2a72379e92c46764eb9b6558653e29
+ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55466534"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58620194"
 ---
 # <a name="tutorial-load-new-york-taxicab-data-to-azure-sql-data-warehouse"></a>Tutorial: Carregar dados de táxis de Nova Iorque ao Azure SQL Data Warehouse
 
@@ -80,7 +80,7 @@ Siga estes passos para criar um armazém de dados SQL vazio.
 
 6. Clique em **nível de desempenho** para especificar se o armazém de dados é a geração 1 ou geração 2 e o número de dados do armazém de unidades. 
 
-7. Neste tutorial, selecione **Gen1** do SQL Data Warehouse. O controlo de deslize, por predefinição, está definido como **DW1000c**.  Experimente movê-lo para cima e para baixo para ver como funciona. 
+7. Neste tutorial, selecione **Gen2** do SQL Data Warehouse. O controlo de deslize está definido como **DW1000c** por predefinição.  Experimente movê-lo para cima e para baixo para ver como funciona. 
 
     ![configurar o desempenho](media/load-data-from-azure-blob-storage-using-polybase/configure-performance.png)
 
@@ -150,7 +150,7 @@ Esta secção utiliza o [SQL Server Management Studio](/sql/ssms/download-sql-se
     | ------------ | --------------- | ----------- | 
     | Tipo de servidor | Motor de base de dados | Este valor é obrigatório |
     | Nome do servidor | O nome de servidor completamente qualificado | O nome deve ser semelhante ao seguinte: **mynewserver-20180430.database.windows.net**. |
-    | Autenticação | Autenticação do SQL Server | A Autenticação do SQL é o único tipo de autenticação que configurámos neste tutorial. |
+    | Authentication | Autenticação do SQL Server | A Autenticação do SQL é o único tipo de autenticação que configurámos neste tutorial. |
     | Iniciar sessão | A conta de administrador do servidor | Esta é a conta que especificou quando criou o servidor. |
     | Palavra-passe | A palavra-passe da sua conta de administrador do servidor | Esta é a palavra-passe que especificou quando criou o servidor. |
 

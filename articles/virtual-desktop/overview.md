@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: overview
 ms.date: 03/21/2019
 ms.author: helohr
-ms.openlocfilehash: 4443d71d5c0b84ac7dbc18129338229c40323d2c
-ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
+ms.openlocfilehash: f922f940f6c579c8710dadec29b365e7cf4c7938
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58401042"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58577191"
 ---
 # <a name="what-is-windows-virtual-desktop-preview"></a>O que é o Windows Virtual Desktop Preview? 
 
@@ -72,7 +72,7 @@ A infraestrutura precisa dos seguintes pontos para oferecer suporte a área de T
   
 As máquinas virtuais do Azure que criar para a área de Trabalho Virtual do Windows tem de ser:
 
-* [Padrão associado a um domínio](https://docs.microsoft.com/microsoft-desktop-optimization-pack/appv-v4/domain-joined-and-non-domain-joined-clients) ou [associados ao AD híbrido](https://docs.microsoft.com/azure/active-directory/devices/hybrid-azuread-join-plan). Máquinas virtuais não pode ser associado ao AD do Azure.
+* [Padrão associado a um domínio](https://docs.microsoft.com/azure/active-directory-domain-services/active-directory-ds-comparison) ou [associados ao AD híbrido](https://docs.microsoft.com/azure/active-directory/devices/hybrid-azuread-join-plan). Máquinas virtuais não pode ser associado ao AD do Azure.
 * Executar um dos seguintes imagens de SO suportadas:
   * Windows 10 Enterprise multi-session
   * Windows Server 2016

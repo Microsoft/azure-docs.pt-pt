@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 10/05/2018
 ms.author: yijenj
-ms.openlocfilehash: 196ad39b8b2430ed060ede032f72092b9cfd3fdb
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: f776bdba88902c0b4eaa9f27ef8ed3a4700765cc
+ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56727439"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58620824"
 ---
 # <a name="support-for-the-marketplace"></a>Suporte para o Marketplace  
 Aqui está uma lista de opções de suporte para o Marketplace.  
@@ -28,7 +28,7 @@ Além disso, pode obter muitas das suas perguntas respondidas no [canal do Marke
 
 ## <a name="onboarding"></a>Inclusão
 
-Abra um pedido para com a Microsoft [suporte do publicador de marketplace](https://support.microsoft.com/getsupport?wf=0&tenant=classiccommercial&oaspworkflow=start_1.0.0.0&locale=en-us&supportregion=en-us&pesid=16230&forceorigin=esmc&ccsid=636595105151894820) para todos os problemas com a integração e começar a trabalhar.
+Abra um pedido com a Microsoft [suporte do publicador de marketplace](https://support.microsoft.com/getsupport?wf=0&tenant=classiccommercial&oaspworkflow=start_1.0.0.0&locale=en-us&supportregion=en-us&pesid=16230&forceorigin=esmc&ccsid=636595105151894820) para problemas de integração e começar a trabalhar ou com a Microsoft [suporte de parceiros](https://partner.microsoft.com/support) se tiver dúvidas sobre Microsoft Partner Network.
 
 ## <a name="cloud-partner-portal"></a>Portal de Parceiros da Cloud  
 

@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: gateway
 ms.topic: tutorial
-ms.date: 03/21/2019
+ms.date: 03/28/2019
 ms.author: alkohli
-ms.openlocfilehash: 78008357e3ea8fbfe707a7dbead19e3fce83b578
-ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
+ms.openlocfilehash: 34bc4d7cbdbb89cd9ff3f334ca32087c474735b7
+ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58403702"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58620092"
 ---
 # <a name="tutorial-prepare-to-deploy-azure-data-box-gateway"></a>Tutorial: Preparar a implementação de Gateway de caixa de dados do Azure
 
@@ -101,8 +101,11 @@ Para criar um recurso de Gateway de caixa de dados, siga os passos seguintes no 
     |Grupo de recursos  |Selecione um grupo existente ou crie um novo grupo.<br>Saiba mais sobre os [Grupos de Recursos do Azure](../azure-resource-manager/resource-group-overview.md).     |
 
 5. Introduza ou selecione as seguintes **detalhes de instância**.
-   | Nome | Um nome amigável para identificar o recurso.<br>O nome tem entre 2 e 50 carateres que contêm letras, números e hífenes.<br> O nome começa e termina com uma letra ou um número.        |   
-    | Região | Nesta versão, E.U.A. leste, Sudeste asiático e Europa estão disponíveis para implementar o seu recurso. Para o Azure Government, todas as regiões do Governo listados na [regiões do Azure](https://azure.microsoft.com/global-infrastructure/regions/) estão disponíveis. <br> Escolha uma localização mais próxima da região geográfica onde pretende implementar o dispositivo. |
+
+    |Definição  |Valor  |
+    |---------|---------|
+    |Name   | Um nome amigável para identificar o recurso.<br>O nome tem entre 2 e 50 carateres que contêm letras, números e hífenes.<br> O nome começa e termina com uma letra ou um número.        |   
+    |Região     |Nesta versão, E.U.A. leste, Sudeste asiático e Europa estão disponíveis para implementar o seu recurso. Para o Azure Government, todas as regiões do Governo listados na [regiões do Azure](https://azure.microsoft.com/global-infrastructure/regions/) estão disponíveis. <br> Escolha uma localização mais próxima da região geográfica onde pretende implementar o dispositivo.|
     
     ![Criar o recurso do Data Box Gateway](media/data-box-gateway-deploy-prep/data-box-gateway-resource.png)
     

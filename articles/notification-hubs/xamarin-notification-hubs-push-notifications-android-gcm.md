@@ -13,14 +13,14 @@ ms.tgt_pltfrm: mobile-xamarin-android
 ms.devlang: dotnet
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 1/4/2019
+ms.date: 03/28/2019
 ms.author: jowargo
-ms.openlocfilehash: f7088179f43c69fb9f72eacd6ff3703a926cabe2
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 03cfecb2faaacbe1017fb4e7acfa3c475c18a9ab
+ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57886563"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58620025"
 ---
 # <a name="tutorial-push-notifications-to-xamarinandroid-apps-using-azure-notification-hubs"></a>Tutorial: Notificações push para aplicações xamarin. Android com Notification Hubs do Azure
 
@@ -28,7 +28,7 @@ ms.locfileid: "57886563"
 
 ## <a name="overview"></a>Descrição geral
 
-Este tutorial mostra como utilizar os Notification Hubs do Azure para enviar notificações push para uma aplicação Xamarin Android. Vai criar uma aplicação Xamarin.Android em branco que recebe notificações push através do Firebase Cloud Messaging (FCM). Pode utilizar o hub de notificação para difundir notificações push para todos os dispositivos a executar a sua aplicação. O código concluído está disponível no exemplo [aplicação NotificationHubs][GitHub].
+Este tutorial mostra como utilizar os Notification Hubs do Azure para enviar notificações push para uma aplicação Xamarin Android. Vai criar uma aplicação Xamarin.Android em branco que recebe notificações push através do Firebase Cloud Messaging (FCM). Pode utilizar o hub de notificação para difundir notificações push para todos os dispositivos a executar a sua aplicação. O código concluído está disponível na [aplicação NotificationHubs](https://github.com/Azure/azure-notificationhubs-dotnet/tree/master/Samples/Xamarin/GetStartedXamarinAndroid) exemplo.
 
 Neste tutorial, siga os passos seguintes:
 
@@ -112,8 +112,15 @@ O Notification Hub está configurado para trabalhar com FCM e tem as cadeias de 
         </intent-filter>
     </receiver>
     ```
+2. Adicione as seguintes instruções **antes da aplicação** elemento. 
 
-2. Recolha as seguintes informações para a sua aplicação Android e Notification Hub:
+    ```xml
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <uses-permission android:name="android.permission.GET_ACCOUNTS"/>
+    ```
+1. Recolha as seguintes informações para a sua aplicação Android e Notification Hub:
 
    * **Escutar a cadeia de ligação**: No dashboard dos [portal do Azure], escolha **ver cadeias de ligação**. Copiar o `DefaultListenSharedAccessSignature` cadeia de ligação para este valor.
    * **Nome do hub**: Nome do seu hub a partir da [portal do Azure]. Por exemplo, *mynotificationhub2*.
@@ -131,13 +138,61 @@ O Notification Hub está configurado para trabalhar com FCM e tem as cadeias de 
 
     ```csharp
     using Android.Util;
+    using Android.Gms.Common;
     ```
-6. Adicionar uma variável de instância para `MainActivity.cs*` que será utilizado para mostrar uma caixa de diálogo de alerta quando a aplicação está em execução:
+6. Adicione as propriedades seguintes à classe MainActivity. A variável de etiqueta será utilizada para mostrar uma caixa de diálogo de alerta quando a aplicação está em execução:
 
     ```csharp
     public const string TAG = "MainActivity";
+    internal static readonly string CHANNEL_ID = "my_notification_channel";
     ```
-7. Na `MainActivity.cs`, adicione o seguinte código ao `OnCreate` depois `base.OnCreate(savedInstanceState)`:
+7. Adicione o seguinte método à classe MainActivity. Verifica se **serviços do Google Play** estão disponíveis no dispositivo. 
+
+    ```csharp
+    public bool IsPlayServicesAvailable()
+    {
+        int resultCode = GoogleApiAvailability.Instance.IsGooglePlayServicesAvailable(this);
+        if (resultCode != ConnectionResult.Success)
+        {
+            if (GoogleApiAvailability.Instance.IsUserResolvableError(resultCode))
+                Log.Debug(TAG, GoogleApiAvailability.Instance.GetErrorString(resultCode));
+            else
+            {
+                Log.Debug(TAG, "This device is not supported");
+                Finish();
+            }
+            return false;
+        }
+     
+        Log.Debug(TAG, "Google Play Services is available.");
+        return true;
+    }
+    ```
+1. Adicione o seguinte método à classe MainActivity que cria um canal de notificação.
+
+    ```csharp
+    private void CreateNotificationChannel()
+    {
+        if (Build.VERSION.SdkInt < BuildVersionCodes.O)
+        {
+            // Notification channels are new in API 26 (and not a part of the
+            // support library). There is no need to create a notification
+            // channel on older versions of Android.
+            return;
+        }
+     
+        var channelName = CHANNEL_ID;
+        var channelDescription = string.Empty;
+        var channel = new NotificationChannel(CHANNEL_ID, channelName, NotificationImportance.Default)
+        {
+            Description = channelDescription
+        };
+     
+        var notificationManager = (NotificationManager)GetSystemService(NotificationService);
+        notificationManager.CreateNotificationChannel(channel);
+    }
+    ```
+1. Na `MainActivity.cs`, adicione o seguinte código ao `OnCreate` depois `base.OnCreate(savedInstanceState)`:
 
     ```csharp
     if (Intent.Extras != null)
@@ -151,6 +206,9 @@ O Notification Hub está configurado para trabalhar com FCM e tem as cadeias de 
             }
         }
     }
+    
+    IsPlayServicesAvailable();
+    CreateNotificationChannel();
     ```
 8. Criar uma nova classe, `MyFirebaseIIDService` como criou o `Constants` classe.
 9. Adicione as seguintes instruções para using `MyFirebaseIIDService.cs`:
@@ -201,6 +259,9 @@ O Notification Hub está configurado para trabalhar com FCM e tem as cadeias de 
     using Android.App;
     using Android.Util;
     using Firebase.Messaging;
+    using Android.OS;
+    using Android.Support.V4.App;
+    using Build = Android.OS.Build;
     ```
 14. Adicione o seguinte acima da declaração de classe e que a classe de herdar de `FirebaseMessagingService`:
 
@@ -236,12 +297,18 @@ O Notification Hub está configurado para trabalhar com FCM e tem as cadeias de 
         intent.AddFlags(ActivityFlags.ClearTop);
         var pendingIntent = PendingIntent.GetActivity(this, 0, intent, PendingIntentFlags.OneShot);
 
-        var notificationBuilder = new Notification.Builder(this)
+        var notificationBuilder = new NotificationCompat.Builder(this)
                     .SetContentTitle("FCM Message")
                     .SetSmallIcon(Resource.Drawable.ic_launcher)
                     .SetContentText(messageBody)
                     .SetAutoCancel(true)
+                    .SetShowWhen(false)
                     .SetContentIntent(pendingIntent);
+
+        if (Build.VERSION.SdkInt >= BuildVersionCodes.O)
+        {
+            notificationBuilder.SetChannelId(MainActivity.CHANNEL_ID);
+        }
 
         var notificationManager = NotificationManager.FromContext(this);
 

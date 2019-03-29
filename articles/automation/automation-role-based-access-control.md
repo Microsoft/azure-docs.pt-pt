@@ -10,12 +10,12 @@ ms.author: gwallace
 ms.date: 05/17/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: b307a497e69bd6c2dcc7b415b2d94335459f7fd3
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: b929182ce1c89e7508aeae91a95b5c9b0d599774
+ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57544993"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58621384"
 ---
 # <a name="role-based-access-control-in-azure-automation"></a>Controlo de acesso baseado em funções na Automatização do Azure
 
@@ -37,7 +37,7 @@ Na Automatização do Azure, é concedido acesso ao atribuir a função RBAC ade
 | Leitor do Log Analytics | A função de leitor do Log Analytics permite-lhe ver e procurar todas as monitorização dados, bem como ver definições de monitorização. Isto inclui a visualização da configuração dos diagnósticos do Azure em todos os recursos do Azure. |
 | Contribuidor de Monitorização | A função de Contribuidor de monitorização permite-lhe ler todos os dados de monitorização e atualização de definições de monitorização.|
 | Leitor de Monitorização | A função de leitor de monitorização permite-lhe ler todos os dados de monitorização. |
-| Administrador de Acesso dos Utilizadores |A função de Administrador de Acesso de Utilizador permite-lhe gerir o acesso de utilizador para as contas de Automatização do Azure. |
+| Administrador de Acesso de Utilizador |A função de Administrador de Acesso de Utilizador permite-lhe gerir o acesso de utilizador para as contas de Automatização do Azure. |
 
 ## <a name="role-permissions"></a>Permissões de funções
 
@@ -198,7 +198,7 @@ Um leitor de monitorização pode ler todos os dados de monitorização. A tabel
 |Microsoft.OperationalInsights/workspaces/search/action|Procure áreas de trabalho do Log Analytics.|
 |Microsoft.Support/*|Criar e gerir pedidos de suporte|
 
-### <a name="user-access-administrator"></a>Administrador de Acesso dos Utilizadores
+### <a name="user-access-administrator"></a>Administrador de Acesso de Utilizador
 
 Um administrador de acesso de utilizador pode gerir o acesso dos utilizadores aos recursos do Azure. A tabela seguinte mostra as permissões concedidas para a função:
 
@@ -208,13 +208,13 @@ Um administrador de acesso de utilizador pode gerir o acesso dos utilizadores ao
 |Microsoft.Authorization/*|Gerir a autorização|
 |Microsoft.Support/*|Criar e gerir pedidos de suporte|
 
-## <a name="onboarding"></a>Carregamento
+## <a name="onboarding"></a>Inclusão
 
 As tabelas seguintes mostram as permissões necessárias mínimo necessárias para máquinas de virtuais de integração para o controlo de alterações ou atualizar soluções de gestão.
 
 ### <a name="onboarding-from-a-virtual-machine"></a>Inclusão de uma máquina virtual
 
-|**ação**  |**Permissão**  |**Âmbito mínimo**  |
+|**Ação**  |**Permissão**  |**Âmbito mínimo**  |
 |---------|---------|---------|
 |Escrever a nova implementação      | Microsoft.Resources/deployments/*          |Subscrição          |
 |Escrever o novo grupo de recursos      | Microsoft.Resources/subscriptions/resourceGroups/write        | Subscrição          |
@@ -222,19 +222,22 @@ As tabelas seguintes mostram as permissões necessárias mínimo necessárias pa
 |Criar nova conta      |  Microsoft.Automation/automationAccounts/write        |Grupo de recursos         |
 |Área de trabalho de ligação e a conta      |Microsoft.OperationalInsights/workspaces/write</br>Microsoft.Automation/automationAccounts/read|Área de trabalho</br>Conta de automatização
 |Criar solução      | Microsoft.OperationalInsights/workspaces/intelligencepacks/write |Grupo de recursos          |
-|Criar a extensão do MMA      | Microsoft.Compute/virtualMachines/write         | Virtual Machine         |
+|Criar a extensão do MMA      | Microsoft.Compute/virtualMachines/write         | Máquina Virtual         |
 |Criar pesquisa guardada      | Microsoft.OperationalInsights/workspaces/write          | Área de trabalho         |
 |Criar configuração de âmbito      | Microsoft.OperationalInsights/workspaces/write          | Área de trabalho         |
 |Solução de ligação à configuração de âmbito      | Microsoft.OperationalInsights/workspaces/intelligencepacks/write         | Solução         |
 |Verifique o estado de carregamento - área de trabalho de leitura      | Microsoft.OperationalInsights/workspaces/read         | Área de trabalho         |
 |Verificação do Estado de inclusão - leitura ligada a propriedade de área de trabalho da conta     | Microsoft.Automation/automationAccounts/read      | Conta de automatização        |
 |Verifique o estado de carregamento - solução de leitura      | Microsoft.OperationalInsights/workspaces/intelligencepacks/read          | Solução         |
-|Verificação de estado de inclusão - VM de leitura      | Microsoft.Compute/virtualMachines/read         | Virtual Machine         |
+|Verificação de estado de inclusão - VM de leitura      | Microsoft.Compute/virtualMachines/read         | Máquina Virtual         |
 |Verifique o estado de carregamento - conta de leitura      | Microsoft.Automation/automationAccounts/read  |  Conta de automatização   |
+| Verificação de área de trabalho de integração para a VM<sup>1</sup>       | Microsoft.OperationalInsights/workspaces/read         | Subscrição         |
+
+<sup>1</sup> esta permissão é necessária para carregar através da experiência de portal da VM.
 
 ### <a name="onboarding-from-automation-account"></a>Integração da conta de automatização
 
-|**ação**  |**Permissão** |**Âmbito mínimo**  |
+|**Ação**  |**Permissão** |**Âmbito mínimo**  |
 |---------|---------|---------|
 |Criar nova implementação     | Microsoft.Resources/deployments/*        | Subscrição         |
 |Criar um novo grupo de recursos     | Microsoft.Resources/subscriptions/resourceGroups/write         | Subscrição        |
@@ -244,12 +247,12 @@ As tabelas seguintes mostram as permissões necessárias mínimo necessárias pa
 |Painel de AutomationOnboarding - área de trabalho de leitura     | Microsoft.OperationalInsights/workspaces/intelligencepacks/read        | Área de trabalho        |
 |Criar ligação para a área de trabalho e conta     | Microsoft.OperationalInsights/workspaces/write        | Área de trabalho        |
 |Escrever conta para shoebox      | Microsoft.Automation/automationAccounts/write        | Conta        |
-|Criar solução      | Microsoft.OperationalInsights/workspaces/intelligencepacks/write        | Grupo de recursos         |
+|Criar solução      | Microsoft.OperationalInsights/workspaces/intelligencepacks/write        | Grupo de Recursos         |
 |Criar/editar pesquisa guardada     | Microsoft.OperationalInsights/workspaces/write        | Área de trabalho        |
 |Criar/Editar configuração de âmbito     | Microsoft.OperationalInsights/workspaces/write        | Área de trabalho        |
 |Solução de ligação à configuração de âmbito      | Microsoft.OperationalInsights/workspaces/intelligencepacks/write         | Solução         |
 |**Passo 2 - carregar várias VMs**     |         |         |
-|Painel VMOnboarding - extensão MMA criar     | Microsoft.Compute/virtualMachines/write           | Virtual Machine        |
+|Painel VMOnboarding - extensão MMA criar     | Microsoft.Compute/virtualMachines/write           | Máquina Virtual        |
 |Criar / editar pesquisa guardada     | Microsoft.OperationalInsights/workspaces/write           | Área de trabalho        |
 |Criar / Editar configuração de âmbito  | Microsoft.OperationalInsights/workspaces/write   | Área de trabalho|
 
@@ -264,7 +267,7 @@ Gestão de atualizações atinge em vários serviços para fornecer o respetivo 
 |Área de trabalho do Log Analytics     | Contribuidor do Log Analytics| Área de trabalho do Log Analytics        |
 |Área de trabalho do Log Analytics |Leitor do Log Analytics| Subscrição|
 |Solução     |Contribuidor do Log Analytics         | Solução|
-|Virtual Machine     | Contribuinte de Máquina Virtual        | Virtual Machine        |
+|Máquina Virtual     | Contribuinte de Máquina Virtual        | Máquina Virtual        |
 
 ## <a name="configure-rbac-for-your-automation-account"></a>Configurar o RBAC para a sua conta de automatização
 

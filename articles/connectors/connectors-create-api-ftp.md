@@ -1,21 +1,21 @@
 ---
-title: Ligar ao servidor FTP - Azure Logic Apps | Documentos da Microsoft
+title: Ligar ao servidor FTP - Azure Logic Apps
 description: Criar, monitorizar e gerir os ficheiros num servidor FTP no Azure Logic Apps
 services: logic-apps
 ms.service: logic-apps
 ms.suite: integration
 author: ecfan
 ms.author: estfan
-ms.reviewer: klam, LADocs
+ms.reviewer: divswa, LADocs
 ms.topic: article
 ms.date: 10/15/2018
 tags: connectors
-ms.openlocfilehash: 1e649f21758adedb069b38f64f083ccb85df874d
-ms.sourcegitcommit: 97d0dfb25ac23d07179b804719a454f25d1f0d46
+ms.openlocfilehash: e5aeaa707c7a839483484c524e982204d6fe055c
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54913364"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58576331"
 ---
 # <a name="create-monitor-and-manage-ftp-files-by-using-azure-logic-apps"></a>Criar, monitorizar e gerir ficheiros de FTP ao utilizar o Azure Logic Apps
 
@@ -28,10 +28,11 @@ Com o Azure Logic Apps e o conector FTP, pode criar tarefas automatizadas e flux
 
 Pode usar acionadores que obtém respostas a partir do seu servidor FTP e disponibilizar a saída para outras ações. Pode utilizar ações de execução nas suas aplicações lógicas para gerir ficheiros no seu servidor FTP. Pode também ter outras ações utilizar a saída de ações de FTP. Por exemplo, se regularmente obter ficheiros do seu servidor FTP, pode enviar por e-mail sobre esses arquivos e seu conteúdo com o conector do Outlook do Office 365 ou o conector do Outlook.com. Se estiver familiarizado com aplicações lógicas, reveja [o que é o Azure Logic Apps?](../logic-apps/logic-apps-overview.md)
 
-> [!NOTE]
-> O conector FTP suporta apenas os ficheiros que estão a 50 MB ou mais pequeno, a menos que utilize [mensagem de divisão na ações](../logic-apps/logic-apps-handle-large-messages.md). Atualmente, não é possível utilizar a segmentação para acionadores.
->
-> Além disso, o conector FTP suporta apenas explícita FTP sobre SSL (FTPS) e não é compatível com FTPS implícita. 
+## <a name="limits"></a>Limites
+
+* Ações de FTP suportam apenas os ficheiros que estão *50 MB ou mais pequeno* a menos que utilize [mensagem segmentação](../logic-apps/logic-apps-handle-large-messages.md), que permitem-lhe exceder este limite. Atualmente, os acionadores FTP não suportam a segmentação.
+
+* O conector FTP suporta apenas explícita FTP sobre SSL (FTPS) e não é compatível com FTPS implícita.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -51,7 +52,7 @@ Pode usar acionadores que obtém respostas a partir do seu servidor FTP e dispon
 
 1. Inicie sessão para o [portal do Azure](https://portal.azure.com)e abra a aplicação lógica no Estruturador da aplicação lógica, se não estiver já abrir.
 
-1. Para aplicações de lógica em branco, na caixa de pesquisa, introduza "ftp" como o filtro. Abaixo da lista de disparadores, selecione o acionador que pretende. 
+1. Para aplicações de lógica em branco, na caixa de pesquisa, introduza "ftp" como o filtro. Abaixo da lista de disparadores, selecione o acionador que pretende.
 
    -ou-
 
@@ -82,7 +83,7 @@ Este acionador é iniciado um fluxo de trabalho de aplicação lógica quando o 
 
 **Exemplo de Enterprise**: Pode utilizar este acionador para monitorizar uma pasta FTP para novos ficheiros que descrevem as encomendas de cliente. Em seguida, pode utilizar como uma ação de FTP **obter conteúdo do ficheiro**, para que possa obter conteúdo do pedido para processamento adicional e armazenar essa ordem numa base de dados de encomendas.
 
-Quando solicitar o conteúdo do ficheiro, acionadores não obtêm ficheiros superior a 50 MB. Para obter os ficheiros mais de 50 MB, siga este padrão: 
+Quando solicitar o conteúdo do ficheiro, os acionadores não é possível obter ficheiros superior a 50 MB. Para obter os ficheiros mais de 50 MB, siga este padrão: 
 
 * Utilizar um acionador que retorna as propriedades do ficheiro, tal como **quando um ficheiro é adicionado ou modificado (propriedades apenas)**.
 
@@ -121,7 +122,7 @@ Agora que a aplicação lógica tem um acionador, adicione as ações que preten
 
 Esta ação obtém o conteúdo de um arquivo num servidor FTP quando esse ficheiro é adicionado ou atualizado. Por exemplo, pode adicionar o acionador do exemplo anterior e uma ação que obtém o conteúdo do ficheiro após esse ficheiro é adicionado ou editado. 
 
-Quando solicitar o conteúdo do ficheiro, acionadores não obtêm ficheiros superior a 50 MB. Para obter os ficheiros mais de 50 MB, siga este padrão: 
+Quando solicitar o conteúdo do ficheiro, os acionadores não é possível obter ficheiros superior a 50 MB. Para obter os ficheiros mais de 50 MB, siga este padrão: 
 
 * Utilizar um acionador que retorna as propriedades do ficheiro, tal como **quando um ficheiro é adicionado ou modificado (propriedades apenas)**.
 
@@ -151,7 +152,7 @@ Eis um exemplo que mostra esta ação: **Obter o conteúdo**
 
 ## <a name="connector-reference"></a>Referência do conector
 
-Para obter detalhes técnicos sobre os limites, ações e acionadores, que é descrito através OpenAPI do conector (anteriormente Swagger) descrição, reveja o conector [página de referência](/connectors/ftpconnector/).
+Para obter detalhes técnicos sobre os limites, ações e acionadores, que é descrito através OpenAPI do conector (anteriormente Swagger) descrição, reveja os [página de referência do conector](/connectors/ftpconnector/).
 
 ## <a name="get-support"></a>Obter suporte
 

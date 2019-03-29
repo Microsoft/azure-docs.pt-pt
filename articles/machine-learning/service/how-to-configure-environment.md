@@ -11,12 +11,12 @@ ms.reviewer: larryfr
 ms.topic: conceptual
 ms.date: 02/24/2019
 ms.custom: seodec18
-ms.openlocfilehash: 1d4144a2a6cf41d594ee096d8802ccc5b29009a5
-ms.sourcegitcommit: 223604d8b6ef20a8c115ff877981ce22ada6155a
+ms.openlocfilehash: c4bdeb4e00a59d6ba2b415801c0689d77ed9a825
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58361800"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58577565"
 ---
 # <a name="configure-a-development-environment-for-azure-machine-learning"></a>Configurar um ambiente de desenvolvimento do Azure Machine Learning
 
@@ -280,7 +280,7 @@ Criar uma [cluster do Databricks](https://docs.microsoft.com/azure/azure-databri
 
 Utilize estas definições:
 
-| Definição |Aplica-se a| Value |
+| Definição |Aplica-se a| Valor |
 |----|---|---|
 | Nome do cluster |sempre| yourclustername |
 | Runtime do Databricks |sempre| Qualquer tempo de execução não ML (ML não 4.x, 5.x) |
@@ -315,7 +315,9 @@ Quando o cluster estiver em execução, [criar uma biblioteca](https://docs.data
    1. Sobre o **bibliotecas** separador, selecione **reiniciar**.
       
    Considere também:
-   + Alguns pacotes e, por exemplo, `psutil`, pode causar conflitos de Databricks durante a instalação. Para evitar esses erros, instalar pacotes pela versão de lib congelando, tais como `pstuil cryptography==1.5 pyopenssl==16.0.0 ipython==2.2.0`. 
+   + Na configuração de Automl, ao utilizar o Azure Databricks, adicione os seguintes parâmetros:
+    1. ```max_concurrent_iterations``` com base no número de nós de trabalho no seu cluster. 
+    2. ```spark_context=sc``` contexto de spark do #databricks/spark predefinido. 
    + Em alternativa, se tiver uma versão antiga do SDK, desmarcá-la a partir de bibliotecas de instalados do cluster e mover para o lixo. Instalar a nova versão do SDK e reinicie o cluster. Se houver um problema depois disso, desligar e voltar a anexar o cluster.
 
 Se a instalação foi concluída com êxito, a biblioteca importada deverá ser semelhante um dos seguintes:

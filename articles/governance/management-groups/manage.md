@@ -6,12 +6,12 @@ ms.service: azure-resource-manager
 ms.date: 02/20/2019
 ms.author: rithorn
 ms.topic: conceptual
-ms.openlocfilehash: 51e9d44a95a3896767caf4b3f04d17c2933e8599
-ms.sourcegitcommit: f7f4b83996640d6fa35aea889dbf9073ba4422f0
+ms.openlocfilehash: 801a37496b36be1f98408c46807f5b10db2b0282
+ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56990549"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58622064"
 ---
 # <a name="manage-your-resources-with-management-groups"></a>Gerir os recursos com grupos de gestão
 
@@ -67,9 +67,9 @@ Para eliminar um grupo de gestão, devem ser cumpridos os seguintes requisitos:
 
 1. Não há grupos de gestão subordinado ou subscrições no grupo de gestão.
 
-   - Para mover uma subscrição para fora de um grupo de gestão, consulte [mover a subscrição para outro grupo de gestão](#Move-subscriptions-in-the-hierarchy).
+   - Para mover uma subscrição para fora de um grupo de gestão, consulte [mover a subscrição para outro grupo de gestão](#move-subscriptions-in-the-hierarchy).
 
-   - Para mover um grupo de gestão para outro grupo de gestão, consulte [mover grupos de gestão na hierarquia de](#Move-management-groups-in-the-hierarchy).
+   - Para mover um grupo de gestão para outro grupo de gestão, consulte [mover grupos de gestão na hierarquia de](#move-management-groups-in-the-hierarchy).
 
 1. Tem permissões de escrita no grupo de gestão ("Proprietário", "Contribuinte" ou "Contribuinte do grupo de gestão"). Para ver quais as permissões que tem, selecione o grupo de gestão e, em seguida, selecione **IAM**. Para saber mais sobre as funções do RBAC, veja [gerir o acesso e permissões com RBAC](../../role-based-access-control/overview.md).  
 
@@ -316,11 +316,11 @@ az account management-group update --name 'Contoso' --parent-id '/providers/Micr
 
 ## <a name="audit-management-groups-using-activity-logs"></a>Auditar os grupos de gestão que utilizam registos de atividades
 
-Os grupos de gestão são suportados dentro [registo de atividades do Azure](../../azure-monitor/platform/activity-logs-overview.md). Pode consultar todos os eventos que ocorrem a um grupo de gestão na mesma localização central como outros recursos do Azure.  Por exemplo, pode ver todas as atribuições de funções ou atribuição de política as alterações efetuadas a um grupo de gestão específico.
+Os grupos de gestão são suportados no [Registo de Atividades do Azure](../../azure-monitor/platform/activity-logs-overview.md). Pode consultar todos os eventos que ocorrem a um grupo de gestão na mesma localização central como outros recursos do Azure.  Por exemplo, pode ver todas as alterações de Atribuições de Funções ou de Atribuição de Política feitas a um grupo de gestão específico.
 
-![Registos de atividades com grupos de gestão](media/al-mg.png)
+![Registos de atividades com Grupos de Gestão](media/al-mg.png)
 
-Ao ver a consulta em grupos de gestão fora do portal do Azure, o âmbito de destino para grupos de gestão é semelhante **"/ providers/Microsoft.Management/managementGroups/{yourMgID}"**.
+Quando quiser consultar Grupos de Gestão fora do portal do Azure, o âmbito de destino dos grupos de gestão é semelhante a **"/ providers/Microsoft.Management/managementGroups/{yourMgID}"**.
 
 ## <a name="referencing-management-groups-from-other-resource-providers"></a>Grupos de gestão de referenciação de outros fornecedores de recursos
 

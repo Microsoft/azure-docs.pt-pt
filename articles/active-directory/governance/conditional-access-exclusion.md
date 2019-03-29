@@ -1,5 +1,5 @@
 ---
-title: Utilizar as revisões de acesso do Azure AD para gerir utilizadores excluídos da políticas de acesso condicional | Documentos da Microsoft
+title: Utilizar as revisões de acesso para gerir utilizadores excluídos da políticas de acesso condicional - Azure Active Directory | Documentos da Microsoft
 description: Saiba como utilizar as revisões de acesso do Azure Active Directory (Azure AD) para gerir utilizadores que foram excluídos da políticas de acesso condicional
 services: active-directory
 documentationcenter: ''
@@ -16,14 +16,14 @@ ms.date: 09/25/2018
 ms.author: rolyon
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a197a6c27b337d7aa97667dc07b1059e82050549
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 7675441316e42c7f0a220abe77bc8c62158ef918
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57892727"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58577140"
 ---
-# <a name="use-azure-ad-access-reviews-to-manage-users-excluded-from-conditional-access-policies"></a>Utilize as revisões de acesso do Azure AD para gerir utilizadores excluídos da políticas de acesso condicional
+# <a name="use-azure-ad-access-reviews-to-manage-users-excluded-from-conditional-access-policies"></a>Utilize o Azure AD as revisões de acesso para gerir utilizadores excluídos da políticas de acesso condicional
 
 Num mundo ideal, todos os utilizadores seguir o acesso políticas para proteger o acesso aos recursos da sua organização. No entanto, às vezes, existem casos comerciais que exigem que crie exceções. Este artigo descreve alguns exemplos em que as exclusões poderão ser necessárias e como, como o administrador de TI, pode gerir esta tarefa, evitar supervisão de exceções da política e fornecer auditores prova que essas exceções são revistas regularmente a utilizar o Azure Revisões de acesso do Active Directory (Azure AD).
 
@@ -44,7 +44,7 @@ Outro exemplo poderá ser que tem uma política de acesso condicional que [antig
 
 ## <a name="why-are-exclusions-challenging"></a>Por que as exclusões são um desafio?
 
-No Azure AD, pode definir o âmbito uma política de acesso condicional para um conjunto de utilizadores. Também pode excluir alguns desses usuários ao selecionar funções de diretório, utilizadores individuais ou convidados de utilizadores. É importante lembrar-se de que, quando essas exclusões são configuradas, a intenção de política não pode ser imposta para esses utilizadores. Se estas exclusões foram configuradas como uma lista de utilizadores individuais ou através de um grupo de segurança legados no local, em seguida, limita a visibilidade desta lista de exclusão (talvez não saibam os usuários de sua existência) e controle o administrador de TI sobre ele (os utilizadores podem associar o grupo de segurança para ignorar a política). Além disso, os utilizadores que qualificados para a exclusão de uma só vez podem já não precisar dele ou ser elegível para o mesmo.
+No Azure AD, pode definir o âmbito uma política de acesso condicional para um conjunto de utilizadores. Também pode excluir alguns desses usuários ao selecionar as funções do Azure AD, utilizadores individuais ou convidados de utilizadores. É importante lembrar-se de que, quando essas exclusões são configuradas, a intenção de política não pode ser imposta para esses utilizadores. Se estas exclusões foram configuradas como uma lista de utilizadores individuais ou através de um grupo de segurança legados no local, em seguida, limita a visibilidade desta lista de exclusão (talvez não saibam os usuários de sua existência) e controle o administrador de TI sobre ele (os utilizadores podem associar o grupo de segurança para ignorar a política). Além disso, os utilizadores que qualificados para a exclusão de uma só vez podem já não precisar dele ou ser elegível para o mesmo.
 
 No início de uma exclusão, há uma pequena lista de utilizadores que se ignorar a política. Ao longo do tempo, mais usuários são excluídos e lista cresce. Em algum momento, há a necessidade de consultar a lista e confirme que cada um destes utilizadores ainda deve ser excluída. Gerir a lista a partir de um ponto de vista técnico, pode ser relativamente fácil, mas quem toma as decisões de negócios e como se cria-se de que está tudo auditável?
 

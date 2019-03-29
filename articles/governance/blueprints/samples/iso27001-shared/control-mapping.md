@@ -8,12 +8,12 @@ ms.date: 03/14/2019
 ms.topic: conceptual
 ms.service: blueprints
 manager: carmonm
-ms.openlocfilehash: f655db8643a16e6818f5becf25c8761fb4c9093b
-ms.sourcegitcommit: 4133f375862fdbdec07b70de047d70c66ac29d50
+ms.openlocfilehash: 34cda2f09392513b0d3f76cc5f77ea0064109410
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/15/2019
-ms.locfileid: "58009260"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58576110"
 ---
 # <a name="control-mapping-of-the-azure-blueprints-iso-27001-blueprint-sample"></a>Mapeamento de controle do exemplo de esquema do Azure esquemas ISO 27001
 
@@ -122,7 +122,7 @@ Noções básicas sobre onde os recursos do Azure podem ter configurações de c
 
 ## <a name="a1241-event-logging"></a>Registo de eventos A.12.4.1
 
-Este esquema ajuda-o a garantir que os eventos de sistema são registados através da atribuição de sete [do Azure Policy](../../../policy/overview.md) definições que auditoria definições em recursos do Azure de registo. Uma política atribuída audita também se as máquinas virtuais não estão a enviar registos para uma área de trabalho de análise de registo especificado.
+Este esquema ajuda-o a garantir que os eventos de sistema são registados através da atribuição de sete [do Azure Policy](../../../policy/overview.md) definições de auditoria definições de registo nos recursos do Azure. Uma política atribuída audita também se as máquinas virtuais não estão a enviar registos para uma área de trabalho de análise de registo especificado.
 
 - [Pré-visualização]: Implementação de agente de dependência de auditoria - imagem de VM (SO) não listados
 - [Pré-visualização]: Auditar a implementação de agente de dependência no VMSS - imagem de VM (SO) não listados

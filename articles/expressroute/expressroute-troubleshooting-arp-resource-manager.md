@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 01/30/2017
 ms.author: ganesr
 ms.custom: seodec18
-ms.openlocfilehash: 01eac27b63f9eaaf62e863cd023201c3eab4b74e
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 76e242adb07f4e6176bbdc6c03c75950e3732c2b
+ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57432146"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58622081"
 ---
 # <a name="getting-arp-tables-in-the-resource-manager-deployment-model"></a>Obter tabelas ARP no modelo de implementação do Resource Manager
 > [!div class="op_single_selector"]
@@ -59,6 +59,11 @@ Certifique-se de que tem o seguinte antes de avançar ainda mais
 * Intervalos de endereços IP utilizados para configurar os peerings (Azure privado, Azure público e Microsoft). Reveja os exemplos de atribuição de endereço ip no [página de requisitos de encaminhamento ExpressRoute](expressroute-routing.md) para obter uma compreensão de como os endereços ip são mapeados para interfaces do seu lado e no lado do ExpressRoute. Pode obter informações sobre a configuração do peering ao rever o [página de configuração de peering de ExpressRoute](expressroute-howto-routing-arm.md).
 * Informações da sua equipa de rede / fornecedor de conectividade no endereço MAC da interfaces utilizada com estes endereços IP.
 * Tem de ter o módulo do PowerShell mais recente para o Azure (versão 1.50 ou mais recente).
+
+> [!NOTE]
+> Se a camada 3 é fornecida pelo fornecedor de serviço e as tabelas de ARP estão em branco no portal/resultado abaixo, atualize a configuração do circuito com o botão de atualização no portal. Esta operação irá aplicar a configuração de encaminhamento correta no seu circuito. 
+>
+>
 
 ## <a name="getting-the-arp-tables-for-your-expressroute-circuit"></a>Obter o ARP tabelas para o seu circuito do ExpressRoute
 Esta secção fornece instruções sobre como pode ver as tabelas ARP por peering com o PowerShell. Utilizador ou o fornecedor de conectividade tem de ter configurado o peering antes de evoluir ainda mais. Cada circuito tem dois caminhos (primários e secundários). Pode verificar a tabela de ARP para cada caminho de forma independente.

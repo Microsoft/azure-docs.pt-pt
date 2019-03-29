@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/26/2019
 ms.author: mlottner
-ms.openlocfilehash: 3ba8b1a099dc204730813754fdfc4b0b8ce45303
-ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
+ms.openlocfilehash: 2a24db1124ecd9c2437eafee54d856120a77e97f
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58541660"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58576450"
 ---
 # <a name="quickstart-configure-your-iot-solution"></a>Início rápido: Configurar a sua solução de IoT
 
@@ -33,7 +33,7 @@ Este artigo fornece uma explicação de como realizar a configuração inicial d
 
 ASC para IoT fornece segurança de ponto a ponto abrangentes para soluções de IoT baseada no Azure.
 
-Com o ASC para IoT. Pode monitorizar a sua solução de IoT inteira num dashboard, através de todos os seus dispositivos IoT, plataformas de IoT e recursos de back-end no Azure.
+Com o ASC para IoT, pode monitorizar a sua solução de IoT inteira num dashboard, através de todos os seus dispositivos IoT, plataformas de IoT e recursos de back-end no Azure.
 
 Depois de ativada no seu IoT Hub, o ASC para IoT identifica automaticamente a outros serviços do Azure, também ligado ao seu hub IoT e relacionados à sua solução de IoT.
 
@@ -50,7 +50,7 @@ Ao adicionar o novo recurso à sua solução de IoT, faça o seguinte:
 2. Selecione e abra **recursos** sob **segurança** no menu à esquerda. 
 3. Selecione **adicionar recursos**.
 4. Escolha os recursos que pertencem à sua solução de IoT.
-4. Clique em **Adicionar**. 
+5. Clique em **Adicionar**. 
 
 Parabéns! Adicionar um novo recurso à sua solução de IoT.
 

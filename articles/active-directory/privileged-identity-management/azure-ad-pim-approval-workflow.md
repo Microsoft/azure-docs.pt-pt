@@ -1,6 +1,6 @@
 ---
-title: Aprovar ou recusar pedidos para funções de diretório do Azure AD no PIM | Documentos da Microsoft
-description: Saiba como aprovar ou recusar pedidos para funções de diretório do Azure AD no Azure AD Privileged Identity Management (PIM).
+title: Aprovar ou recusar pedidos para funções do Azure AD no PIM - Azure Active Directory | Documentos da Microsoft
+description: Saiba como aprovar ou recusar pedidos para funções do Azure AD no Azure AD Privileged Identity Management (PIM).
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -16,32 +16,32 @@ ms.date: 02/08/2019
 ms.author: rolyon
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 68b0dba0280ce7875e797634a5dc2254cb889ad7
-ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
+ms.openlocfilehash: 125a9864eaf53ecdf035247ba23d7c95a8daf131
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56244986"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58576799"
 ---
-# <a name="approve-or-deny-requests-for-azure-ad-directory-roles-in-pim"></a>Aprovar ou recusar pedidos para funções de diretório do Azure AD no PIM
+# <a name="approve-or-deny-requests-for-azure-ad-roles-in-pim"></a>Aprovar ou recusar pedidos para funções do Azure AD no PIM
 
-Com o Azure AD Privileged Identity Management (PIM), pode configurar funções para exigir a aprovação para a ativação e escolher um ou vários utilizadores ou grupos como aprovadores delegados. Aprovadores delegados têm 24 horas para aprovar pedidos. Se um pedido não está aprovado dentro de 24 horas, em seguida, o utilizador elegível tem novamente submeter um novo pedido. A janela de tempo de aprovação de 24 horas não é configurável.
+Com o Azure Active Directory (Azure AD) Privileged Identity Management (PIM), pode configurar funções para exigir a aprovação para a ativação e escolher um ou vários utilizadores ou grupos como aprovadores delegados. Aprovadores delegados têm 24 horas para aprovar pedidos. Se um pedido não está aprovado dentro de 24 horas, em seguida, o utilizador elegível tem novamente submeter um novo pedido. A janela de tempo de aprovação de 24 horas não é configurável.
 
-Siga os passos neste artigo para aprovar ou recusar pedidos para funções de diretório do Azure AD.
+Siga os passos neste artigo para aprovar ou recusar pedidos para funções do Azure AD.
 
 ## <a name="view-pending-requests"></a>Ver pedidos pendentes
 
-Como um aprovador de delegados, receberá uma notificação por e-mail quando uma solicitação de função de diretório do Azure AD está com aprovação pendente. Pode ver estes pedidos pendentes no PIM.
+Como um aprovador de delegados, receberá uma notificação por e-mail quando uma solicitação de função do Azure AD está com aprovação pendente. Pode ver estes pedidos pendentes no PIM.
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com/).
 
 1. Open **do Azure AD Privileged Identity Management**.
 
-1. Clique em **funções de diretório do Azure AD**.
+1. Clique em **funções do Azure AD**.
 
 1. Clique em **aprovar pedidos**.
 
-    ![Funções de diretório do Azure de PIM AD - funções](./media/azure-ad-pim-approval-workflow/pim-directory-roles-approve-requests.png)
+    ![Funções do Azure de PIM AD - funções](./media/azure-ad-pim-approval-workflow/pim-directory-roles-approve-requests.png)
 
     Verá uma lista de pedidos com aprovação pendente.
 

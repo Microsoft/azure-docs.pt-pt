@@ -5,19 +5,19 @@ services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: include
-ms.date: 02/27/2019
+ms.date: 03/27/2019
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: 485a386210458d57b87aaa0537b1c58a6adab2c7
-ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
+ms.openlocfilehash: b2549abd3a4f87de99efa9a916e39b99c6fc8747
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58342579"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58616493"
 ---
-1. Pode navegar para **Todos os serviços** e localizar as suas WANs Virtuais. Em alternativa, também pode procurar as WANs Virtuais na caixa de pesquisa na parte superior do portal do Azure. Clique em **WANs Virtuais** para abrir a página.
-2. Clique em **+Adicionar** para abrir a página **Criar WAN**.
-3. Sobre o **criar WAN** página, preencha os campos seguintes:
+1. Navegue para a página de Virtual WAN. Uma forma de navegar para a página é para ir para **todos os serviços**e, em seguida, procure Virtual WAN.
+1. Clique em **+Adicionar** para abrir a página **Criar WAN**.
+1. Sobre o **criar WAN** página, preencha os campos seguintes:
 
    * **Name** (Nome) - selecione o nome que pretende dar à WAN.
    * **Subscription** (subscrição) - selecione a subscrição que quer utilizar.

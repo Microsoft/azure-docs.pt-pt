@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 06/05/2018
 ms.author: ellacroi
-ms.openlocfilehash: 8973558e0841bfd0d6651a08d39da96b544156c9
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 223eff79d809a78d531d86d315fff80282cd29bb
+ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57842462"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58620160"
 ---
 # <a name="become-a-cloud-marketplace-publisher"></a>Se tornar um publicador de Marketplace da Cloud
 
@@ -44,6 +44,8 @@ Participação no marketplace da cloud da Microsoft requer a associação no Mic
 Após o registro, registe o ID do Microsoft Partner Network para a sua organização. Precisará isso durante o passo 3 ao submeter o formulário de Registro do marketplace.
 *   Saiba mais sobre os benefícios do [Microsoft Partner Network](https://partner.microsoft.com/commercial)
 *   Se a sua organização tiver uma subscrição existente, em seguida, se Junte a sua organização durante o registo. Se usar [Centro de parceiros](https://partnercenter.microsoft.com/partner/home), poderá ver o ID na sua conta do Centro de parceiros. Se usar [Centro de associação de parceiro (PMC)](https://partners.microsoft.com/partnerprogram/PartnerMembershipCenter.aspx), poderá vê-lo na sua conta do Centro de associação de parceiros. 
+
+Abra um pedido com a Microsoft [suporte de parceiros](https://partner.microsoft.com/support) para problemas com o registo do MPN.
 
 ---
 

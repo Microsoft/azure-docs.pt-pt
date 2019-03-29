@@ -1,6 +1,6 @@
 ---
-title: Configurar definições de função de diretório do Azure AD no PIM | Documentos da Microsoft
-description: Saiba como configurar definições de função de diretório do Azure AD no Azure AD Privileged Identity Management (PIM).
+title: Configurar definições de função do Azure AD no PIM - Azure Active Directory | Documentos da Microsoft
+description: Saiba como configurar as definições de função do Azure AD no Azure AD Privileged Identity Management (PIM).
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -14,34 +14,34 @@ ms.date: 11/30/2018
 ms.author: rolyon
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 761bb31ca51f29547f594af99f779665a255c0be
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: b14cf76ec7b8b905c41792f4dc9a56e97dc0f7ba
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56162548"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58576867"
 ---
-# <a name="configure-azure-ad-directory-role-settings-in-pim"></a>Configurar definições de função de diretório do Azure AD no PIM
+# <a name="configure-azure-ad-role-settings-in-pim"></a>Configurar definições de função do Azure AD no PIM
 
-Um administrador com função privilegiada pode personalizar o Azure AD Privileged Identity Management (PIM) na sua organização, incluindo a alteração da experiência de para um utilizador que consiste em ativar uma atribuição de função elegível.
+Um administrador com função privilegiada pode personalizar na sua organização, incluindo a alteração da experiência de para um utilizador que consiste em ativar uma atribuição de função elegível, a Azure Active Directory (Azure AD) Privileged Identity Management (PIM).
 
 ## <a name="open-role-settings"></a>Abra as definições de função
 
-Siga estes passos para abrir as definições para uma função de diretório do Azure AD.
+Siga estes passos para abrir as definições para uma função do Azure AD.
 
 1. Open **do Azure AD Privileged Identity Management**.
 
-1. Clique em **funções de diretório do Azure AD**.
+1. Clique em **funções do Azure AD**.
 
 1. Clique em **definições**.
 
-    ![Funções de diretório do Azure AD - definições](./media/pim-how-to-change-default-settings/pim-directory-roles-settings.png)
+    ![Funções do Azure AD - definições](./media/pim-how-to-change-default-settings/pim-directory-roles-settings.png)
 
 1. Clique em **funções**.
 
 1. Clique na função cujas definições pretende configurar.
 
-    ![Funções de diretório do Azure AD - definições de funções](./media/pim-how-to-change-default-settings/pim-directory-roles-settings-role.png)
+    ![Funções do Azure do AD - definições de funções](./media/pim-how-to-change-default-settings/pim-directory-roles-settings-role.png)
 
     Na página de definições para cada função, existem várias definições que pode configurar. Estas definições afetam apenas os utilizadores que estão **elegíveis** atribuições, não **permanente** atribuições.
 
@@ -98,13 +98,13 @@ Se quiser exigir aprovação para ativar uma função, siga estes passos.
 
 1. Definir o **exigem a aprovação** mudar para **ativado**. O painel expande-se com as opções para selecionar os aprovadores.
 
-    ![Funções de diretório do Azure AD - Settings - exigir a aprovação](./media/pim-how-to-change-default-settings/pim-directory-roles-settings-require-approval.png)
+    ![Funções do Azure AD, - Settings - exigir a aprovação](./media/pim-how-to-change-default-settings/pim-directory-roles-settings-require-approval.png)
 
     Se **fazer não** especificar qualquer aprovadores, os administradores de função com privilégios se tornarem aprovadores padrão. Os administradores de função com privilégios seriam necessários para aprovar **todos os** solicitações de ativação para esta função.
 
 1. Para especificar os aprovadores, clique em **selecionar aprovadores**.
 
-    ![Funções de diretório do Azure AD - Settings - exigir a aprovação](./media/pim-how-to-change-default-settings/pim-directory-roles-settings-require-approval-select-approvers.png)
+    ![Funções do Azure AD, - Settings - exigir a aprovação](./media/pim-how-to-change-default-settings/pim-directory-roles-settings-require-approval-select-approvers.png)
 
 1. Selecione um ou mais aprovadores e, em seguida, clique em **selecione**. Pode selecionar utilizadores ou grupos. Recomenda-se, pelo menos, 2 aprovadores. Aprovação automática não é permitida.
 
@@ -117,5 +117,5 @@ Se quiser exigir aprovação para ativar uma função, siga estes passos.
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-- [Atribuir funções de diretório do Azure AD no PIM](pim-how-to-add-role-to-user.md)
-- [Configurar alertas de segurança para funções de diretório do Azure AD no PIM](pim-how-to-configure-security-alerts.md)
+- [Atribuir funções do Azure AD no PIM](pim-how-to-add-role-to-user.md)
+- [Configurar alertas de segurança para funções do Azure AD no PIM](pim-how-to-configure-security-alerts.md)

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/26/2019
 ms.author: mlottner
-ms.openlocfilehash: 63d21cc5027145ab87030bd2561bc5087298f16c
-ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
+ms.openlocfilehash: d766b17c9d49792d2e8192a952e8e6e559a8acd3
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58541846"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58579381"
 ---
 # <a name="security-module"></a>Módulo de segurança
 
@@ -35,16 +35,18 @@ Para soluções de IoT criadas no Azure, os dispositivos duplos desempenham um p
 
 ASC para IoT oferece integração completa com a sua plataforma gestão de dispositivos da IoT existente, permitindo-lhe gerir o seu estado de segurança do dispositivo, bem como a marca utilizar capacidades de controle de dispositivo existentes. Integração é conseguida fazendo uso do IoT Hub duplo mecanismo.  
 
-Saiba mais sobre o conceito de [dispositivo](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-device-twins) duplos no IoT Hub do Azure. 
+Saiba mais sobre o conceito de [dispositivos duplos](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-device-twins) no IoT Hub do Azure. 
 
 ## <a name="security-module-twins"></a>Duplos de módulo de segurança
 
-ASC para IoT mantém um duplo do módulo de segurança para cada dispositivo no serviço. O duplo do módulo de segurança armazena todas as informações relevantes para a segurança do dispositivo para cada dispositivo específico na sua solução. Propriedades de segurança do dispositivo são mantidas num duplo do módulo de segurança dedicado para comunicação mais segura e para ativar as atualizações e manutenção que necessitam de menos recursos.  
+ASC para IoT mantém um duplo do módulo de segurança para cada dispositivo no serviço.
+O duplo do módulo de segurança armazena todas as informações relevantes para a segurança do dispositivo para cada dispositivo específico na sua solução.
+Propriedades de segurança do dispositivo são mantidas num duplo do módulo de segurança dedicado para comunicação mais segura e para ativar as atualizações e manutenção que necessitam de menos recursos.  
 
-Ver [duplos de módulo de segurança de Create](quickstart-create-security-twin.md) e [configurar os agentes de segurança](concept-agent-configuration.md) para saber como criar, personalizar e configurar o duplo. Ver [duplos de módulo de compreensão](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-module-twins) para saber mais sobre o conceito de duplos de módulo do IoT Hub. 
+Ver [duplos de módulo de segurança de Create](quickstart-create-security-twin.md) e [configurar os agentes de segurança](how-to-agent-configuration.md) para saber como criar, personalizar e configurar o duplo. Ver [duplos de módulo de compreensão](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-module-twins) para saber mais sobre o conceito de duplos de módulo do IoT Hub. 
  
 
 ## <a name="see-also"></a>Consulte também
 - [ASC para pré-visualização do IoT](overview.md)
-- [Implementar agentes de segurança](select-deploy-agent.md)
+- [Implementar agentes de segurança](how-to-deploy-agent.md)
 - [Métodos de autenticação do agente de segurança](concept-security-agent-authentication-methods.md)

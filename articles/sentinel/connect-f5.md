@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 3/6/2019
 ms.author: rkarlin
-ms.openlocfilehash: df36c1e8abb96862727c84877e5c24435191cd6a
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 554b732791b4a319931de41d03cf16466f00bbf8
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57863207"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58576433"
 ---
 # <a name="connect-your-f5-appliance"></a>Ligar a sua aplicação da F5
 
@@ -118,6 +118,7 @@ Pode demorar mais de 20 minutos até que os seus registos começam a aparecer no
 3. Se ambos esses comandos fornecidos resultados com êxito, verifique o Log Analytics para ver se os registos estão a chegar. Todos os eventos transmitidos em fluxo a partir destas aplicações são apresentados no formato não processado no Log Analytics em `CommonSecurityLog ` tipo.
 1. Para verificar se existem erros ou se os registos não estão a chegar, procurar em `tail /var/opt/microsoft/omsagent/<workspace id>/log/omsagent.log`
 4. Certifique-se de que o tamanho de padrão de mensagem do Syslog é limitado a 2048 bytes (2KB). Se os registos são demasiado longos, atualize o security_events utilizando este comando: `message_length_limit 4096`
+6. Para utilizar o esquema relevante no Log Analytics para os eventos de F5, procure **CommonSecurityLog**.
 
 
 

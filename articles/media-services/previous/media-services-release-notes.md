@@ -13,19 +13,19 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako
-ms.openlocfilehash: f09d18759478c6c07aa0aea82f8bd1707595aa63
-ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
+ms.openlocfilehash: ea5a6a70372571daf82e7639fc31c125d69fa44f
+ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58499085"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58621435"
 ---
 # <a name="azure-media-services-release-notes"></a>Notas de versão dos serviços de multimédia do Azure
 
 Estas notas de versão para serviços de multimédia do Azure resumir as alterações de versões anteriores e problemas conhecidos.
 
 > [!NOTE]
-> Não existem novos recursos ou funcionalidades estão a ser adicionados para serviços de multimédia v2. <br/>Verifique a versão mais recente, [serviços de multimédia v3](https://docs.microsoft.com/azure/media-services/latest/). Além disso, veja [orientação de migração da v2 para a v3](../latest/migrate-from-v2-to-v3.md)
+> Não serão adicionadas novas funcionalidades aos Serviços de Multimédia v2. <br/>Veja a versão mais recente, [Serviços de Multimédia v3](https://docs.microsoft.com/azure/media-services/latest/). Além disso, veja [orientação de migração da v2 para a v3](../latest/migrate-from-v2-to-v3.md)
 
 Queremos ouvir os nossos clientes, para que possa concentrar no corrigir problemas que afetam. Para reportar um problema ou fazer perguntas, submeter uma postagem no [Fórum MSDN dos serviços de multimédia do Azure]. 
 
@@ -42,13 +42,12 @@ Queremos ouvir os nossos clientes, para que possa concentrar no corrigir problem
 | Alguns clientes podem se deparou com um problema de repetições de etiqueta no manifesto de transmissão em fluxo uniforme. |Para obter mais informações, consulte [esta secção](media-services-deliver-content-overview.md#known-issues). |
 | Objetos de SDK .NET dos Media Services não não possível serializar e assim não funcionam com o Azure Cache de Redis. |Se tentar serializar o objeto de SDK AssetCollection para adicioná-lo para a Cache do Azure para Redis, é emitida uma exceção. |
 
-
 ## <a name="a-idrestversionhistoryrest-api-version-history"></a><a id="rest_version_history"/>Histórico de versões de REST API
 Para obter informações sobre o histórico de versões de API de REST dos serviços de suporte de dados, consulte a [Referência da API de REST dos serviços de multimédia do Azure].
 
 ## <a name="december-2018"></a>Dezembro de 2018
 
-O [Hyperlapse de suporte de dados pré-visualização](media-services-hyperlapse-content.md) em breve será retirada a funcionalidade dos serviços de multimédia do Azure. A partir de 19 de Dezembro de 2018, os serviços de multimédia já não fará alterações ou melhorias no Hyperlapse de multimédia. 29 de Março de 2019 será extinto e já não está disponível.
+Em breve, será descontinuada a funcionalidade de pré-visualização de Hyperlapse de multimédia dos serviços de multimédia do Azure. A partir de 19 de Dezembro de 2018, os serviços de multimédia já não fará alterações ou melhorias no Hyperlapse de multimédia. 29 de Março de 2019 será extinto e já não está disponível.
 
 ## <a name="october-2018"></a>Outubro de 2018
 
@@ -260,7 +259,6 @@ Os seguintes novos recursos foram anunciados:
 
 * [Uma pré-visualização da codificação em tempo real com os serviços de multimédia](media-services-manage-live-encoder-enabled-channels.md)
 * [Manifesto dinâmico](media-services-dynamic-manifest-overview.md)
-* [Uma pré-visualização do processador de multimédia Hyperlapse de multimédia do Azure](https://azure.microsoft.com/blog/?p=286281&preview=1&_ppp=61e1a0b3db)
 
 ## <a id="april_changes_15"></a>Versão de Abril de 2015
 ### <a name="general-media-services-updates"></a>As atualizações dos serviços de suporte de dados gerais

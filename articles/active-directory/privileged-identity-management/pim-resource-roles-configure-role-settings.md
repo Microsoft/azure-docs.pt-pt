@@ -1,5 +1,5 @@
 ---
-title: Configurar as definições de função de recursos do Azure no PIM | Documentos da Microsoft
+title: Configurar as definições de função de recursos do Azure no PIM - Azure Active Directory | Documentos da Microsoft
 description: Saiba como configurar as definições de função de recursos do Azure no Azure AD Privileged Identity Management (PIM).
 services: active-directory
 documentationcenter: ''
@@ -15,16 +15,16 @@ ms.date: 08/30/2018
 ms.author: rolyon
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b8f793ee22796497b96a1acbd998397dbe2ac40d
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: f9db39e67cf3ee67b7990f227dbad7e3210cd14b
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56162140"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58577157"
 ---
 # <a name="configure-azure-resource-role-settings-in-pim"></a>Configurar as definições de função de recursos do Azure no PIM
 
-Quando configurar as definições de função de recursos do Azure, define as configurações padrão que são aplicadas a atribuições de funções de recursos do Azure no Azure AD Privileged Identity Management (PIM). Utilize os procedimentos seguintes para configurar o fluxo de trabalho de aprovação e especificar quem pode aprovar ou negar pedidos.
+Quando configurar as definições de função de recursos do Azure, define as configurações padrão que são aplicadas a atribuições de funções de recursos do Azure no Azure Active Directory (Azure AD) Privileged Identity Management (PIM). Utilize os procedimentos seguintes para configurar o fluxo de trabalho de aprovação e especificar quem pode aprovar ou negar pedidos.
 
 ## <a name="open-role-settings"></a>Abra as definições de função
 

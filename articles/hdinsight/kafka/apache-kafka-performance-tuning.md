@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 02/21/2019
-ms.openlocfilehash: 903cd8921801ffb47dd73f48e507f30aa0b6dccc
-ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
+ms.openlocfilehash: 3f15f45e0543c582d70463fb9ddc7ac569ff57bc
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58373154"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58576763"
 ---
 # <a name="performance-optimization-for-apache-kafka-hdinsight-clusters"></a>Otimização de desempenho para os clusters do Apache Kafka HDInsight
 
@@ -66,7 +66,7 @@ Discos de armazenamento limitaram IOPS (entrada/saída operações por segundo) 
 
 ### <a name="number-of-topics-and-partitions"></a>Número de tópicos e partições
 
-Os produtores de Kafka escrevem tópicos. Consumidores de Kafka ler a partir de tópicos. Um tópico está associado um registo, o que é uma estrutura de dados no disco. Kafka acrescenta registos a partir de um producer(s) ao final de um registo de tópico. Um registo de tópico consiste em várias partições que estão distribuídas por vários ficheiros. Estes ficheiros são, por sua vez, distribuídos por vários nós de cluster do Kafka. Os consumidores de leem a partir de tópicos do Kafka em sua cadência e e possa escolher a respetiva posição (deslocamento) no registo de tópico.
+Os produtores de Kafka escrevem tópicos. Consumidores de Kafka ler a partir de tópicos. Um tópico está associado um registo, o que é uma estrutura de dados no disco. Kafka acrescenta registos a partir de um producer(s) ao final de um registo de tópico. Um registo de tópico consiste em várias partições que estão distribuídas por vários ficheiros. Estes ficheiros são, por sua vez, distribuídos por vários nós de cluster do Kafka. Os consumidores de leem a partir de tópicos do Kafka em sua cadência e podem escolher a respetiva posição (deslocamento) no registo de tópico.
 
 Cada partição de Kafka é um ficheiro de registo do sistema e os threads de produtor podem escrever para vários registos simultaneamente. Da mesma forma, uma vez que cada thread de consumidor lê mensagens de uma partição, consumindo de várias partições é processada em paralelo bem.
 

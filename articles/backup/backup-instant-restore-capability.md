@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 03/20/2019
 ms.author: sogup
-ms.openlocfilehash: 20f934ae418b0a5e37d3e619fabadc5cb6e23642
-ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
+ms.openlocfilehash: 21aa01ec8382341de34cca743b9e088598872659
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58285552"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58578905"
 ---
 # <a name="get-improved-backup-and-restore-performance-with-azure-backup-instant-restore-capability"></a>Obter o melhor de cópia de segurança e restaurar o desempenho com capacidade de Azure cópia de segurança instantâneas restaurar
 
@@ -67,6 +67,8 @@ Os instantâneos incrementais são armazenados na conta de armazenamento da VM, 
 No portal do Azure, pode ver um campo adicionado no **política de cópia de segurança de VM** painel sob o **restaurar instantâneas** secção. Pode alterar o período de retenção de instantâneo do **política de cópia de segurança de VM** painel para todas as VMs associadas à política de cópia de segurança específica.
 
 ![Capacidade de restauro imediato](./media/backup-azure-vms/instant-restore-capability.png)
+
+Para configurar a retenção de instantâneo com o Powershell, consulte [este documento](backup-azure-vms-automation.md#configuring-instant-restore-snapshot-retention).
 
 ## <a name="frequently-asked-questions"></a>Perguntas mais frequentes
 

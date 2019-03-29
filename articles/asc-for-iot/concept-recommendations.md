@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/24/2019
 ms.author: mlottner
-ms.openlocfilehash: 1e4582d93d1e3380ecdabdb241f27839d4da4565
-ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
+ms.openlocfilehash: dc37404e45e4efd0697b0f3b19c4927813ab56fa
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58541861"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58576207"
 ---
 # <a name="security-recommendations"></a>Recomendações de segurança
 
@@ -27,12 +27,13 @@ ms.locfileid: "58541861"
 > ASC para IoT está atualmente em pré-visualização pública.
 > Esta versão de pré-visualização é disponibiliza sem um contrato de nível de serviço e não é recomendada para cargas de trabalho de produção. Algumas funcionalidades poderão não ser suportadas ou poderão ter capacidades limitadas. Para obter mais informações, veja [Termos Suplementares de Utilização para Pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-Com base na análise de solução em curso, o ASC para IoT fornece as seguintes recomendações quando necessário para o ajudar a melhorar e proteger os seus dispositivos, o estado operacional e o ambiente geral do IoT Hub. 
+ASC para IoT analisa os seus dispositivos de IoT e de recursos do Azure e fornece recomendações de segurança para reduzir a superfície de ataque. Recomendações de segurança são passíveis de ação e têm como objetivo ajudar os clientes a respeitar os melhores práticas de segurança.
 
+Neste artigo, encontrará uma lista de recomendações que pode ser acionada no seu IoT Hub e/ou dispositivos de IoT.
 
-## <a name="device-recommendations"></a>Recomendações de dispositivo
+## <a name="recommendations-for-iot-devices"></a>Recomendações para dispositivos de IoT
 
-Recomendações de dispositivos fornecem informações e sugestões para melhorar a segurança do dispositivo e o comportamento. 
+Recomendações de dispositivos fornecem informações e sugestões para melhorar a postura de segurança do dispositivo. 
 
 | Gravidade | Name                                                      | Origem de Dados | Descrição                                                                                                                                                                                           |
 |----------|-----------------------------------------------------------|-------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -42,9 +43,9 @@ Recomendações de dispositivos fornecem informações e sugestões para melhora
 | Médio   | Foi encontrada a regra de firewall permissiva na cadeia de saída    | Agente       | Foi encontrada uma regra de firewall que contém um padrão de permissivo para uma vasta gama de endereços IP ou as portas.                                                                                   |
 | Médio   | Falha na validação de linha de base do sistema de operação           | Agente       | Dispositivo não está em conformidade com [benchmarks da CIS Linux](https://www.cisecurity.org/cis-benchmarks/)                                                                                                         |
 
-### <a name="operational-recommendation"></a>Recomendação operacional
+### <a name="operational-recommendations-for-iot-devices"></a>Recomendações operacionais para dispositivos de IoT
 
-Recomendações operacionais fornecem informações e sugestões para melhorar a configuração do agente.
+Recomendações operacionais fornecem informações e sugestões para melhorar a configuração do agente de segurança.
 
 | Gravidade | Name                                    | Origem de Dados | Descrição                                                                       |
 |----------|-----------------------------------------|-------------|-----------------------------------------------------------------------------------|
@@ -53,7 +54,7 @@ Recomendações operacionais fornecem informações e sugestões para melhorar a
 | Baixa      | Conflito de configuração de duplo de segurança    | Agente       | Conflitos foram identificados na configuração de duplo de segurança.                           |
 
 
-## <a name="iot-hub-recommendations"></a>Recomendações do IoT Hub
+## <a name="recommendations-for-iot-hub"></a>Recomendações para o IoT Hub
 
 Os alertas de recomendação fornecem informações e sugestões para ações melhorar a postura de segurança do seu ambiente.  
 

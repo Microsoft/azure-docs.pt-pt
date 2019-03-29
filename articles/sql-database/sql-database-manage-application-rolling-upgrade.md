@@ -12,12 +12,12 @@ ms.author: sashan
 ms.reviewer: mathoma, carlrab
 manager: craigg
 ms.date: 02/13/2019
-ms.openlocfilehash: 63f301b4618df9764460d0a9a133834fb72e33bb
-ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
+ms.openlocfilehash: 47fd6c1e2bb342bc1a31fb16a45a5ebc749dca69
+ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58540589"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58621452"
 ---
 # <a name="manage-rolling-upgrades-of-cloud-applications-by-using-sql-database-active-geo-replication"></a>Gerir atualizações sem interrupção das aplicações na cloud com a base de dados SQL georreplicação ativa
 
@@ -114,7 +114,7 @@ SET (ALLOW_CONNECTIONS = NO)
 
 ```sql
 -- Disconnect the secondary, terminating geo-replication
-ALTER DATABSE V1
+ALTER DATABASE <Prod_DB>
 REMOVE SECONDARY ON SERVER <Partner-Server>
 ```
 

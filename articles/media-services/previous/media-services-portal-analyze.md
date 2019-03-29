@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/19/2019
 ms.author: juliako
-ms.openlocfilehash: 7a303b9d27b3708bd4f59517452fa232cc38c923
-ms.sourcegitcommit: aa3be9ed0b92a0ac5a29c83095a7b20dd0693463
+ms.openlocfilehash: d3917f65d8be08d6355013393f6c6675ea6c7fc5
+ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58259691"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58619446"
 ---
 # <a name="analyze-your-media-using-the-azure-portal"></a>Analise a sua multimédia com o portal do Azure 
 > [!NOTE]
@@ -73,11 +73,6 @@ Um nome amigável que permita identificar a tarefa. [Isso](media-services-portal
 
 ### <a name="output-file"></a>Ficheiro de saída
 Um nome amigável que permita identificar o conteúdo de saída. 
-
-## <a name="azure-media-hyperlapse"></a>Azure Media Hyperlapse
-Hyperlapse de multimédia do Azure é um pacote de gestão que cria vídeos com time lapse uniformes de conteúdo de primeira pessoa ou ação câmara.  Para obter mais informações, veja [este](media-services-hyperlapse-content.md) tópico. Esta secção fornece alguns detalhes sobre as opções que especificar para este pacote de gestão.
-
-![Analisar vídeos](./media/media-services-portal-analyze/media-services-portal-analyze004.png)
 
 ### <a name="speed"></a>Velocidade
 Especifique a velocidade com que a acelerar o vídeo de entrada. O resultado é uma representação estabilizada e com time lapse e do vídeo de entrada.

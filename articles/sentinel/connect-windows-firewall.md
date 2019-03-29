@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 2/28/2019
+ms.date: 3/28/2019
 ms.author: rkarlin
-ms.openlocfilehash: 2356a7e5426037ffe9fc8b304ac113f4a3fe2a17
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 3839d81f70b8bc6dcb1da3c4dd77f52443294707
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58103354"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58574845"
 ---
 # <a name="connect-windows-firewall"></a>Ligar à firewall do Windows
 
@@ -39,6 +39,7 @@ O conector de firewall do Windows permite-lhe ligar facilmente os seus registos 
 1. No portal do Azure sentinela, selecione **recolha de dados** e, em seguida, clique nas **firewall do Windows** mosaico. 
 1. Selecione os tipos de dados que pretende transmitir em fluxo.
 1. Clique em **Instalar**.
+6. Para utilizar o esquema relevante no Log Analytics para o firewall do Windows, procure **SecurityEvent**.
 
 ## <a name="validate-connectivity"></a>Validar a conectividade
 

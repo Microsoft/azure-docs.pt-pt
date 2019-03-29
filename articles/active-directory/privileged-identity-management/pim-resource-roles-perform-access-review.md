@@ -1,5 +1,5 @@
 ---
-title: Realizar uma revisão de acesso de minhas funções de recursos do Azure no PIM | Documentos da Microsoft
+title: Realizar uma revisão de acesso de minhas funções de recursos do Azure no PIM - Azure Active Directory | Documentos da Microsoft
 description: Saiba como realizar uma revisão de acesso de suas funções de recursos do Azure no Azure AD Privileged Identity Management (PIM).
 services: active-directory
 documentationcenter: ''
@@ -16,15 +16,15 @@ ms.date: 03/30/2018
 ms.author: rolyon
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b2a8ef3d0ff602ce4580755db0ada97fcf7cdbbc
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: dc503e5c11f8e3a00fe9c258ad2a7cad5b6ade7e
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56208236"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58575084"
 ---
 # <a name="perform-an-access-review-of-my-azure-resource-roles-in-pim"></a>Realizar uma revisão de acesso de minhas funções de recursos do Azure no PIM
-Privileged Identity Management (PIM) para recursos do Azure simplifica como as empresas a gerir o acesso privilegiado a recursos no Azure. 
+O Azure Active Directory (Azure AD) Privileged Identity Management (PIM) simplifica como as empresas a gerir o acesso privilegiado a recursos no Azure. 
 
 Se forem atribuídos a uma função administrativa, o administrador com função privilegiada da sua organização pode pedir-lhe para confirmar regularmente que ainda tem essa função para a sua tarefa. Poderá receber um e-mail que inclui uma ligação, ou pode ir diretamente para o [portal do Azure](https://portal.azure.com). Siga os passos neste artigo para efetuar um Self-rever de suas funções atribuídas.
 
@@ -54,4 +54,4 @@ Siga estes passos para encontrar e concluir a revisão de acesso:
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-- [Efetuar uma revisão de acesso das minhas funções de diretório do Azure AD no PIM](pim-how-to-perform-security-review.md)
+- [Realizar uma revisão de acesso de minhas funções do Azure AD no PIM](pim-how-to-perform-security-review.md)

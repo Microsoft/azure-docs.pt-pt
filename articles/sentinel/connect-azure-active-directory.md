@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 1/30/2019
 ms.author: rkarlin
-ms.openlocfilehash: 315b18feb74862bbeca6ff8265ee003fbad48595
-ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.openlocfilehash: b42fb982abb916503d530d5040641ba1dcce3c92
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/02/2019
-ms.locfileid: "57242321"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58575135"
 ---
 # <a name="collect-data-from-azure-active-directory"></a>Recolher dados do Azure Active Directory
 
@@ -42,7 +42,7 @@ Sentinel do Azure permite-lhe recolher dados a partir [do Azure Active Directory
 
 2. Junto aos registos que pretende transmitir para o Azure sentinela, clique em **Connect**.
 
-
+6. Para utilizar o esquema relevante no Log Analytics para os alertas do Azure AD, procure **SigninLogs** e **AuditLogs**.
 
 
 

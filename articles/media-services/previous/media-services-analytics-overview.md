@@ -14,12 +14,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 03/14/2019
 ms.author: milanga;juliako;johndeu
-ms.openlocfilehash: 0c090499ee6ae2aaaa14af18c3c38db28ecb2f3e
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: aac9719f8d74c4b7bc283745ee2b8e01365a81f0
+ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57884732"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58620007"
 ---
 # <a name="media-analytics-on-the-media-services-platform"></a>Análise de multimédia na plataforma dos serviços de multimédia 
 
@@ -40,8 +40,6 @@ Os processadores de multimédia de Análise de Multimédia produzem ficheiros MP
 
 ### <a name="indexer"></a>Indexador
 Com o indexador de multimédia do Azure, pode tornar o conteúdo pesquisável e gerar legendagem roteiros. Em comparação com a versão anterior, a pré-visualização de 2 de indexador de multimédia do Azure tem idioma mais rapidamente mais amplo e indexação de suporte. Idiomas suportados incluem o inglês, espanhol, francês, alemão, italiano, chinês, português e árabe. Para obter informações detalhadas e exemplos, consulte [processa vídeos com o Azure Media Indexer 2](media-services-process-content-with-indexer2.md).
-### <a name="hyperlapse"></a>Hyperlapse
-Microsoft Hyperlapse combina estabilização de vídeo e capacidade com Time lapse e rápido, criar vídeos consumo por parte do seu conteúdo de forma longa. Além da criação de vídeos com Time lapse e, pode usar Hyperlapse para criar vídeos estáveis dos vídeos tremidos capturados por meio de celulares e camcorders. Para obter informações detalhadas e exemplos, consulte [Hyperlapse de ficheiros de multimédia com Hyperlapse de multimédia do Azure](media-services-hyperlapse-content.md).
 ### <a name="motion-detector"></a>Detetor de Movimento
 Pode usar o detetor de movimento para detetar movimento num vídeo tenham fundos fixos. Isto torna possível verificar a existência de falsos positivos sobre eventos de movimento detectados por câmaras de vigilância. Para obter informações detalhadas e exemplos, consulte [deteção para a análise de multimédia do Azure de movimento](media-services-motion-detection.md).
 ### <a name="face-detector"></a>Detetor de Rosto
@@ -53,7 +51,7 @@ Com o OCR de suporte de dados do Azure (reconhecimento ótico de carateres), é 
 ### <a name="scalable-face-redaction"></a>Redação de rostos dimensionável
 O Azure Media Redactor é um processador de multimédia de análise de multimédia que oferece a redação de rostos escalável na cloud. Ao utilizar a redação de rostos, pode modificar o seu vídeo para Desfoca rostos de indivíduos selecionados. Pode querer utilizar o serviço de redação de face no suporte de notícias ou quando está envolvida segurança pública. Alguns minutos de imagens que contém vários rostos de podem demorar horas a edite manualmente, mas com este serviço, a redação de rostos demora apenas alguns passos simples. Para obter mais informações, consulte a [edite rostos com análise de multimédia do Azure](media-services-face-redaction.md) artigo.
 ### <a name="content-moderation"></a>Moderação de Conteúdos
-Moderador de conteúdos do Azure permite-lhe utilizar moderação assistida por computador para os seus vídeos. Por exemplo, pode querer detetar possíveis conteúdos para adultos nos vídeos e rever o conteúdo sinalizado por suas equipes de moderação humana. Manualmente moderadores vídeos para o conteúdo indesejável é uma tarefa demorada e dispendiosa. Com este serviço e ferramentas de revisão associado, combinar moderação assistida por computador com recursos humanos em loop, para obter melhores resultados de forma eficiente e rentável. Para obter mais informações, consulte a [processar os seus vídeos com o Azure Content Moderator](media-services-content-moderation.md) artigo.
+Moderador de conteúdos do Azure permite-lhe utilizar moderação assistida por computador para os seus vídeos. Por exemplo, poderá querer detetar possível conteúdo para adultos nos vídeos e rever o conteúdo sinalizado pelas suas equipas de moderação humana. Manualmente moderadores vídeos para o conteúdo indesejável é uma tarefa demorada e dispendiosa. Com este serviço e ferramentas de revisão associado, combinar moderação assistida por computador com recursos humanos em loop, para obter melhores resultados de forma eficiente e rentável. Para obter mais informações, consulte a [processar os seus vídeos com o Azure Content Moderator](media-services-content-moderation.md) artigo.
 
 ## <a name="common-scenarios"></a>Cenários comuns
 Análise de multimédia pode ajudar as organizações e empresas obter novas informações do vídeo e muito mais capazes de gerenciar grandes volumes de conteúdo de vídeo. Seguem-se vários cenários:

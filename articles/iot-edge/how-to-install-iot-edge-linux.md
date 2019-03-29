@@ -7,15 +7,15 @@ ms.reviewer: veyalla
 ms.service: iot-edge
 services: iot-edge
 ms.topic: conceptual
-ms.date: 03/01/2019
+ms.date: 03/21/2019
 ms.author: kgremban
 ms.custom: seodec18
-ms.openlocfilehash: 1d1e0f100a90c28bd7469991dee559abcd88f9a2
-ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
+ms.openlocfilehash: 5829606f3ad226507c49f18dcc8ac4831d573b17
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58499476"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58578837"
 ---
 # <a name="install-the-azure-iot-edge-runtime-on-linux-x64"></a>Instalar o runtime do Azure IoT Edge no Linux (x64)
 
@@ -33,9 +33,9 @@ Este artigo lista os passos para instalar o runtime do Azure IoT Edge no seu Ubu
 Prepare o seu dispositivo para o IoT Edge instalação de tempo de execução.
 
 
-Instale a configuração do repositório. Escolher entre o **16.04** ou **18.04** trecho de código, conforme adequado para a sua versão do Ubuntu.
+Instale a configuração do repositório. Escolher entre o **16.04** ou **18.04** trecho de código, conforme adequado para a sua versão do Ubuntu:
 
-> [!IMPORTANT]
+> [!NOTE]
 > Certifique-se de que escolher o trecho de código na caixa de código correto para a sua versão do Ubuntu.
 
 * Para **Ubuntu 16.04**:
@@ -48,8 +48,6 @@ Instale a configuração do repositório. Escolher entre o **16.04** ou **18.04*
    curl https://packages.microsoft.com/config/ubuntu/18.04/prod.list > ./microsoft-prod.list
    ```
    
-Instale a configuração do repositório. Escolher entre o **16.04** ou **18.04** trecho de código, conforme adequado para a sua versão do Ubuntu.
-
 Copie a lista gerada.
 
    ```bash

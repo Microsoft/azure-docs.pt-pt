@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 3/6/2019
+ms.date: 3/26/2019
 ms.author: rkarlin
-ms.openlocfilehash: 7cd90b987550dc60b30d3aa0cd1016b681eec85f
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: ad501958a5f88c821e48a3e21f69a960160b3c8e
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57547038"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58574863"
 ---
 # <a name="collect-data-from-office-365-logs"></a>Recolher dados de registos do Office 365
 
@@ -33,7 +33,7 @@ Pode transmitir em fluxo registos de auditoria a partir [Office 365](https://doc
 ## <a name="prerequisites"></a>Pré-requisitos
 
 - Tem de ser um administrador global ou administrador de segurança no seu inquilino
-- Para adicionar um inquilino, abra a porta 4433 ao tráfego da web no computador do qual fazer a ligação.
+- No seu computador, a partir da qual iniciou sessão no Azure sentinela para criar a ligação, a marca suretha porta 4433 está aberta ao tráfego da web.
 
 ## <a name="connect-to-office-365"></a>Ligar ao Office 365
 

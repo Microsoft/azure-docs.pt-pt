@@ -7,19 +7,22 @@ manager: cgronlun
 tags: azure-portal
 ms.service: search
 ms.topic: conceptual
-ms.date: 03/08/2019
+ms.date: 03/22/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: d325a5dfd57bb6b69e6cf171487adfa8d374512f
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 523c99436eb49f1658a5d4c56d64248adccc5c3a
+ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57762930"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58621276"
 ---
 # <a name="choose-a-pricing-tier-for-azure-search"></a>Escolha um escalão de preço para o Azure Search
 
-No Azure Search, um [recurso é criado](search-create-service-portal.md) num escalão de preço ou SKU é fixa para o tempo de vida do serviço. Os escalões incluem **gratuito**, **básica**, ou **padrão**, onde **padrão** está disponível em várias configurações e as capacidades. Começar a maioria dos clientes com o **gratuito** escalão para avaliação e, em seguida, passar gradualmente para **padrão** para implementações de desenvolvimento e produção. Pode concluir todos os inícios rápidos e tutoriais sobre o **gratuito** escalão, inclusive os de muitos recursos de pesquisa cognitiva. 
+No Azure Search, um [recurso é criado](search-create-service-portal.md) num escalão de preço ou SKU é fixa para o tempo de vida do serviço. Os escalões incluem **gratuito**, **básica**, **padrão**, ou **otimizadas para armazenamento**.  **Standard** e **otimizadas para armazenamento** estão disponíveis em várias configurações e capacidades. Começar a maioria dos clientes com o **gratuito** camada para avaliação e, em seguida, passar gradualmente para um dos escalões pagos, superiores para implementações de desenvolvimento e produção. Pode concluir todos os inícios rápidos e tutoriais sobre o **gratuito** escalão, inclusive os de muitos recursos de pesquisa cognitiva.
+
+> [!NOTE]
+> Os escalões de serviço com otimização de armazenamento estão atualmente disponíveis como pré-visualização a um preço com desconto para fins de teste e experimentação com o objetivo de recolha de comentários. Os preços finais serão anunciado mais tarde quando estas camadas estão disponíveis em geral. Aconselhamos contra a utilização destes escalões para aplicações de produção.
 
 Camadas de refletem as características de hardware que aloja o serviço (em vez de recursos) e são diferenciadas por:
 
@@ -42,11 +45,16 @@ A tabela seguinte lista as camadas disponíveis. Outras fontes de informações 
 |-----|-------------|
 |Gratuito | Partilhado com outros subscritores. Não escaláveis, limitada até 3 índices e 50 MB de armazenamento. |
 |Básica | Recursos de computação dedicados para cargas de trabalho de produção em escala mais pequena. Uma partição de 2 GB e até três réplicas. |
-|1 Standard (S1) | De S1 em segurança de máquinas dedicadas com mais capacidade de armazenamento e processamento em todos os níveis. Tamanho da partição é 25 GB/partição (máximo de 300 GB de documentos por serviço) para S1. |
-|Standard 2 (S2) | É semelhante para S1, mas com 100 GB/partições (máximo 1,2 TB de documentos por serviço) |
-|3 padrão (S3) | 200 GB/partição (máximo 2,4 TB de documentos por serviço). |
+|1 Standard (S1) | De S1 em segurança de máquinas dedicadas com mais capacidade de armazenamento e processamento em todos os níveis. Tamanho da partição é 25 GB/partição (máximo de 300 GB por serviço) para S1. |
+|Standard 2 (S2) | É semelhante para S1, mas com 100 GB/partições (máximo 1,2 TB por serviço) |
+|3 padrão (S3) | 200 GB/partição (máximo 2,4 TB por serviço) |
 |Standard 3 alta densidade (S3-HD) | Alta densidade é uma *modo de alojamento* para S3. O hardware subjacente é otimizado para um grande número de índices menores, utilização prevista para cenários de arquitetura "multitenancy". S3 HD tem o custo por unidade mesmo como S3, mas o hardware é otimizada para leituras de rápida de ficheiros num grande número de índices menores.|
+|Armazenamento otimizado 1 (L1) | 1 TB/partição (máximo 12 TB por serviço) |
+|Armazenamento otimizado 2 (L2) | 2 TB/partição (máx. 24 TB por serviço) |
 
+> [!NOTE] 
+> Os escalões de armazenamento otimizado oferecem maior capacidade de armazenamento por um preço reduzido por TB de escalões Standard.  O compromisso principal é a mais alta latência da consulta, que deve validar para os seus requisitos de aplicação específica.  Para saber mais sobre as considerações de desempenho deste escalão, consulte [considerações sobre desempenho e otimização](search-performance-optimization.md).
+>
 
 ## <a name="how-billing-works"></a>Como funciona a faturação
 
@@ -56,7 +64,7 @@ No Azure Search, existem três formas de incorrer em custos no Azure Search e ex
 
 Para o próprio serviço, a cobrança mínima é a primeira unidade de pesquisa (partição da réplica de 1 x 1), e esta quantidade é constante para o tempo de vida do serviço porque o serviço não pode ser executado em nada menos do que esta configuração. 
 
-Captura de ecrã seguinte, por preço da unidade é indicado para gratuito, Basic e o S1 (S2 e S3 não são mostrados). Se tiver criado um serviço básico ou um serviço padrão, o custo mensal teria média o valor que é apresentado para *preço-1* e *preço-2* , respetivamente. Os custos da unidade subir para cada camada porque a capacidade computacional de energia e de armazenamento é maior em cada camadas consecutivos.
+Captura de ecrã seguinte, por preço da unidade é indicado para gratuito, Basic e o S1 (S2, S3, L1 e L2 não são mostrados). Se tiver criado uma **básica**, **padrão**, ou **otimizadas para armazenamento** serviço, o custo mensal teria média o valor que é apresentado para *preço-1*e *preço-2* , respetivamente. Os custos da unidade subir para cada camada porque a capacidade computacional de energia e de armazenamento é maior em cada camada consecutiva.
 
 ![Por preço da unidade](./media/search-sku-tier/per-unit-pricing.png "por preço da unidade")
 
@@ -117,7 +125,7 @@ No Azure Search, a capacidade está estruturada como *réplicas* e *partições*
 + As partições armazenar índices e automaticamente dividir dados pesquisáveis: dividir seu índice no meio, três partições em terços duas partições e assim por diante. Em termos de capacidade *tamanho de partição* é o recurso diferenciador principal entre camadas.
 
 > [!NOTE]
-> Todos os **padrão** camadas suporte [réplica combinações flexível e partições](search-capacity-planning.md#chart) para que possa [seu sistema de armazenamento ou de velocidade de importância](search-performance-optimization.md) alterando o saldo. **Básico** oferece segurança de três réplicas para elevada disponibilidade, mas tem apenas uma partição. **Gratuito** camadas não fornece recursos dedicados: computação recursos são partilhados por vários subscritores.
+> Todos os **padrão** e **otimizadas para armazenamento** camadas suporte [réplica combinações flexível e partições](search-capacity-planning.md#chart) para que possa [seu sistema para a velocidade de importância ou armazenamento](search-performance-optimization.md) alterando o saldo. **Básico** oferece segurança de três réplicas para elevada disponibilidade, mas tem apenas uma partição. **Gratuito** camadas não fornece recursos dedicados: computação recursos são partilhados por vários subscritores.
 
 ### <a name="more-about-service-limits"></a>Mais informações sobre limites de serviço
 
@@ -125,7 +133,7 @@ Serviços de recursos de anfitrião, como índices, indexadores e assim por dian
 
 ## <a name="consumption-patterns"></a>Padrões de consumo
 
-Começar a maioria dos clientes com o **gratuito** serviço, o que eles mantenham indefinidamente e, em seguida, escolha uma da **padrão** camadas para cargas de trabalho de desenvolvimento ou produção graves. 
+Começar a maioria dos clientes com o **gratuito** serviço, o que eles mantenham indefinidamente e, em seguida, escolha uma da **padrão** ou **otimizadas para armazenamento** escalões para o desenvolvimento grave ou cargas de trabalho de produção. 
 
 ![Escalões do Azure search](./media/search-sku-tier/tiers.png "o Azure search escalões de preço")
 
@@ -147,6 +155,15 @@ Páginas de portais e preços colocar o foco no tamanho da partição e o armaze
 > [!NOTE]
 > Anteriormente, os limites de documento eram uma consideração mas já não são aplicáveis para os novos serviços. Para obter mais informações sobre as condições sob as quais os limites de documento ainda se aplicam, consulte [limites de serviço: Documente limites](search-limits-quotas-capacity.md#document-limits).
 >
+
+Camadas de armazenamento otimizado **L1 L2**, são ideais para aplicações com requisitos de dados de grande dimensão, mas um número relativamente baixo de utilizadores finais em que a latência da consulta minimizar não é a principal prioridade.  
+
+|  | L1 | ERROS DE L2 |  |  |  |  |  |
+|--|----|----|--|--|--|--|--|
+| Tamanho da partição|  1 TB | 2 TB |  |  |  |  |  |
+| limites de índice e indexador| 10 | 10 |  |  |  |  |  |
+
+*Erros de L2* oferece duas vezes a capacidade de armazenamento geral para uma *L1*.  Escolha o escalão de com base na quantidade máxima de dados que acha que precisa de seu índice.  O *L1* escalão particiona dimensionamento cópia de segurança em incrementos de 1 TB para um máximo de 12 TB, enquanto o *L2* 2 TB para aumentar por partição até um máximo de 24 TB.
 
 ## <a name="evaluate-capacity"></a>Avaliação da capacidade
 
@@ -174,16 +191,17 @@ Partindo do princípio de que a amostra foi de representante e dez por cento da 
 
 Alguns clientes preferem começar com recursos dedicados que podem acomodar amostragem maior e tempos de processamento e, em seguida, desenvolva estimativas realistas de quantidade de índice, o tamanho e volumes de consulta durante o desenvolvimento. Inicialmente, um serviço é aprovisionado com base numa estimativa suposição e, em seguida, como o projeto de desenvolvimento amadurece, as equipes, normalmente, sabem se o serviço existente é sobre ou abaixo da capacidade para cargas de trabalho de produção prevista. 
 
-1. [Reveja os limites do serviço em cada camada](https://docs.microsoft.com/azure/search/search-limits-quotas-capacity#index-limits) para determinar se camadas inferiores podem suportar a quantidade de índices, precisa. Entre as **básica**-**S1**- **S2** escalões, limites de índice são 15-50-200, respectivamente.
+1. [Reveja os limites do serviço em cada camada](https://docs.microsoft.com/azure/search/search-limits-quotas-capacity#index-limits) para determinar se camadas inferiores podem suportar a quantidade de índices, precisa. Entre as **básica**-**S1**-**S2** escalões, limites de índice são 15-50-200, respectivamente.  O **otimizadas para armazenamento** escalão tem um limite de 10 índices, pois é designer para suportar um número reduzido de índices muito grandes.
 
 1. [Criar um serviço num escalão a cobrar](search-create-service-portal.md):
 
     + Iniciar baixa, no **básica** ou **S1** se estiver no início da sua curva de aprendizado.
     + Iniciar elevado, em **S2** ou até mesmo **S3**, se a cargas de indexação e consulta em grande escala são óbvio.
+    + Armazenamento otimizado para em **L1** ou **L2**, se estiver indexando uma grande quantidade de dados e carga de consultas é relativamente baixa, como uma aplicação empresarial interna.
 
 1. [Criar um índice inicial](search-create-index-portal.md) para determinar como os dados de origem é convertida para um índice. Esta é a única forma de estimar o tamanho do índice.
 
-1. [Monitorizar o armazenamento, limites de serviço, o volume de consulta e latência](search-monitor-usage.md) no portal. O portal mostra as consultas por segundo, limitadas consultas e latência de pesquisa; todos os quais podem ajudar a decidir se está o escalão certo. Além das métricas do portal, pode configurar a monitorização profunda, tais como análise clickthrough, ativando [a análise de tráfego de pesquisa](search-traffic-analytics.md). 
+1. [Monitorizar o armazenamento, limites de serviço, o volume de consulta e latência](search-monitor-usage.md) no portal. O portal mostra as consultas por segundo, limitadas consultas e latência de pesquisa; todos os quais podem ajudar a decidir se tiver selecionado o escalão certo. Além das métricas do portal, pode configurar a monitorização profunda, tais como análise clickthrough, ativando [a análise de tráfego de pesquisa](search-traffic-analytics.md). 
 
 Número de índice e tamanho são igualmente relevantes para sua análise porque os limites máximos são atingidos por meio da utilização total de armazenamento (partições) ou por limites máximos em recursos (índices, indexadores e assim por diante), o que ocorrer primeiro. O portal de ajuda-o a manter o controle de ambos os casos, mostrando utilização atual e os limites máximos lado a lado na página de descrição geral.
 
@@ -197,8 +215,9 @@ Consultas por segundo (QPS) é uma métrica que ganha proeminência durante a ot
 
 Os escalões standard podem fornecer um equilíbrio entre as réplicas a partições, acelerar o processo de consulta através de réplicas adicionais de suporte para o carregamento de partições de balanceamento e adicionais para processamento paralelo. Pode otimizar o desempenho depois do serviço é aprovisionado.
 
-Clientes que esperam strong sustentada consulta volumes desde o início, devem considerar escalões superiores, apoiados por um hardware mais potente. Pode, em seguida, colocar as partições e réplicas offline ou até mesmo se mudar para um serviço de camada inferior, esses volumes de consulta falharem materializar. Para obter mais informações sobre como calcular o débito de consulta, consulte [desempenho de pesquisa do Azure e a otimização de](search-performance-optimization.md).
+Os clientes que esperam volumes de consulta constante forte desde o início devem considerar superior **padrão** escalões, apoiados por um hardware mais potente. Pode, em seguida, colocar as partições e réplicas offline ou até mesmo se mudar para um serviço de camada inferior, esses volumes de consulta falharem materializar. Para obter mais informações sobre como calcular o débito de consulta, consulte [desempenho de pesquisa do Azure e a otimização de](search-performance-optimization.md).
 
+O armazenamento com otimização de camadas enxuto para cargas de trabalho de dados grandes, suporte a mais geral índice armazenamento disponível, em que os requisitos de latência da consulta são relaxados um pouco.  Réplicas adicionais ainda devem ser aproveitadas para carregar partições de balanceamento e adicionais para processamento paralelo. Pode otimizar o desempenho depois do serviço é aprovisionado.
 
 **Contratos de nível de serviço**
 
@@ -216,7 +235,7 @@ O **gratuito** não pertencem com funcionalidades de camada e pré-visualizaçã
 
 Começar com uma **gratuito** escalão e criar um índice inicial usando um subconjunto dos seus dados para compreender suas características. A estrutura de dados no Azure Search é um índice invertido, em que o tamanho e complexidade de um índice invertida é determinada pelo conteúdo. Lembre-se de que o conteúdo altamente redundante tende a resultar num índice menor do que o conteúdo altamente irregular. Como tal, é características de conteúdo em vez do tamanho do conjunto de dados que determina os requisitos de armazenamento de índice.
 
-Depois de ter uma idéia inicial do tamanho do índice, [aprovisionar um serviço sujeito a faturação](search-create-service-portal.md) em um dos escalões discutidos neste artigo, optar por **básica** ou uma **padrão** escalão. Relaxe quaisquer restrições artificiais em subconjuntos de dados e [reconstruir o índice](search-howto-reindex.md) para incluir todos os dados que pretende, na verdade, ser pesquisável.
+Depois de ter uma idéia inicial do tamanho de índice [aprovisionar um serviço sujeito a faturação](search-create-service-portal.md) em um dos escalões discutidos neste artigo, optar por **básica**, **padrão**, ou **Otimizadas para armazenamento** escalão. Relaxe quaisquer restrições artificiais relativamente ao dimensionamento de dados e [reconstruir o índice](search-howto-reindex.md) para incluir todos os dados que pretende, na verdade, ser pesquisável.
 
 [Alocar partições e réplicas](search-capacity-planning.md) conforme necessário para obter o desempenho e dimensionamento necessitar.
 

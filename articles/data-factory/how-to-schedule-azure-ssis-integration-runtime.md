@@ -13,12 +13,12 @@ author: swinarko
 ms.author: sawinark
 ms.reviewer: douglasl
 manager: craigg
-ms.openlocfilehash: 0b84f02d11e278950e4e44874e7b1af9da58f83f
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 54d7979f9fbe23e9372aa2702b46e42ca64496d2
+ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58092451"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58621639"
 ---
 # <a name="how-to-start-and-stop-azure-ssis-integration-runtime-on-a-schedule"></a>Como iniciar e parar o Runtime de integração Azure-SSIS com base numa agenda
 Este artigo descreve como agendar a iniciar e parar do Azure-SSIS Integration Runtime (IR) com o Azure Data Factory (ADF). Runtime de integração Azure-SSIS é dedicado para a execução de pacotes do SQL Server Integration Services (SSIS) de recurso de computação do ADF. Executar o IR Azure-SSIS tem um custo associado ele. Portanto, normalmente pretende executar o runtime de integração apenas quando tiver de executar pacotes do SSIS no Azure e parar o runtime de integração, quando não precisa mais. Pode usar a Interface de utilizador do ADF (IU) / aplicação ou o Azure PowerShell para [manualmente iniciar ou parar o runtime de integração](manage-azure-ssis-integration-runtime.md)).
@@ -94,7 +94,7 @@ Se cria um acionador de terceiro que esteja agendado para ser executada diariame
   
     2. Para **método**, selecione **POST**. 
     3. Para **corpo**, introduza `{"message":"Start my IR"}`. 
-    4. Para **autenticação**, selecione **MSI** para utilizar a identidade gerida para o ADF, consulte [identiy gerida do Data Factory](https://docs.microsoft.com/azure/data-factory/data-factory-service-identity) artigo para obter mais informações.
+    4. Para **autenticação**, selecione **MSI** para utilizar a identidade gerida para o ADF, consulte [identidade gerida do Data Factory](https://docs.microsoft.com/azure/data-factory/data-factory-service-identity) artigo para obter mais informações.
     5. Para **Resource**, introduza `https://management.azure.com/`.
     
        ![Agenda de atividades do ADF Web IR do SSIS](./media/how-to-schedule-azure-ssis-integration-runtime/adf-web-activity-schedule-ssis-ir.png)
@@ -348,7 +348,7 @@ A secção seguinte fornece passos para criar um runbook do PowerShell. O script
 
 ## <a name="create-schedules-for-your-runbook-to-startstop-azure-ssis-ir"></a>Criar agendas para o runbook para iniciar/parar IR Azure-SSIS
 
-Na secção anterior, criou o runbook de automatização do Azure que pode iniciar ou parar o ir Azure-SSIS. Nesta secção, irá criar duas agendas para o runbook. Ao configurar o primeiro agendamento, especifique **começar** para **operação**. Da mesma forma, quando configurar a segunda, especifique **parar** para **operação**. Para obter passos detalhados para criar agendas, consulte [criar uma agenda](../automation/automation-schedules.md#creating-a-schedule) artigo.
+Na secção anterior, criou o runbook de automatização do Azure que pode iniciar ou parar o ir Azure-SSIS. Nesta secção, irá criar duas agendas para o runbook. Ao configurar o primeiro agendamento, especifique **começar** para **operação**. Da mesma forma, quando configurar a segunda, especifique **parar** para **operação**. Para obter passos detalhados para criar agendas, consulte [criar uma agenda](../automation/shared-resources/schedules.md#creating-a-schedule) artigo.
 
 1. Na **Runbook** janela, selecione **agendas**e selecione **+ adicionar uma agenda** na barra de ferramentas. 
 

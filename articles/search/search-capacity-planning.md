@@ -6,20 +6,20 @@ manager: cgronlun
 services: search
 ms.service: search
 ms.topic: conceptual
-ms.date: 03/08/2019
+ms.date: 03/22/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 69fce34c55007daff48b2463da590ffb9cd59926
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 6879dd975f97ba2746165e87a135e5d90e8b229f
+ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57775327"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58620646"
 ---
 # <a name="scale-partitions-and-replicas-for-query-and-indexing-workloads-in-azure-search"></a>Dimensionar partições e réplicas para consulta e indexação de cargas de trabalho no Azure Search
 Depois de [escolher um escalão de preço](search-sku-tier.md) e [aprovisionar um serviço de pesquisa](search-create-service-portal.md), a próxima etapa é para, opcionalmente, aumentar o número de réplicas ou partições utilizadas pelo seu serviço. Cada escalão oferece um número fixo de unidades de faturação. Este artigo explica como alocar essas unidades para obter uma configuração ideal, que equilibra a seus requisitos para a execução da consulta, indexação e armazenamento.
 
-Configuração do recurso está disponível quando configurar um serviço à [escalão básico](https://aka.ms/azuresearchbasic) ou uma da [escalões Standard](search-limits-quotas-capacity.md). Para os serviços nestas camadas, a capacidade é comprada em incrementos de *unidades de pesquisa* (SUs) em que cada partição e réplica contam como um SU. 
+Configuração do recurso está disponível quando configurar um serviço à [escalão básico](https://aka.ms/azuresearchbasic) ou uma da [escalões Standard ou otimizadas para armazenamento](search-limits-quotas-capacity.md). Para os serviços nestas camadas, a capacidade é comprada em incrementos de *unidades de pesquisa* (SUs) em que cada partição e réplica contam como um SU. 
 
 Usando menos SUs resultados numa fatura proporcionalmente inferior. A faturação é em vigor para, desde que o serviço está configurado. Se temporariamente não estiver a utilizar um serviço, a única forma de evitar a faturação é ao eliminar o serviço e, em seguida, criá-lo novamente quando precisa dela.
 
@@ -81,7 +81,7 @@ Geralmente, procurar aplicações precisam de mais réplicas de partições, esp
 
 Um serviço básico pode ter exatamente uma partição e até três réplicas, para um máximo limite de três SUs. O recurso apenas ajustável está réplicas. É necessário um mínimo de duas réplicas para elevada disponibilidade em consultas.
 
-Todos os serviços padrão podem assumir as seguintes combinações das réplicas e partições, sujeita o limite de 36 SU. 
+Os serviços de pesquisa de todas as Standard e otimizadas para armazenamento podem assumir as seguintes combinações das réplicas e partições, sujeita o limite de 36 SU. 
 
 |   | **1 partição** | **2 partições** | **3 partições** | **4 partições** | **6 partições** | **12 partições** |
 | --- | --- | --- | --- | --- | --- | --- |
@@ -112,7 +112,7 @@ Recomendações gerais para elevada disponibilidade são:
 
 Contratos de nível de serviço (SLA) para o Azure Search são direcionados em operações de consulta e em atualizações de índice que consistem em Adicionar, atualizar ou eliminar documentos.
 
-Escalão básico anterior numa partição e três réplicas. Se pretender que a flexibilidade para imediatamente responder a flutuações que demandam para débito de indexação e consulta, considere um dos escalões Standard.
+Escalão básico anterior numa partição e três réplicas. Se pretender que a flexibilidade para imediatamente responder a flutuações que demandam para débito de indexação e consulta, considere um dos escalões Standard.  Se encontrar que os requisitos de armazenamento estão a crescer muito mais rapidamente do que o débito de consulta, considere um dos escalões de armazenamento otimizado.
 
 ### <a name="index-availability-during-a-rebuild"></a>Disponibilidade durante uma reconstrução do índice
 

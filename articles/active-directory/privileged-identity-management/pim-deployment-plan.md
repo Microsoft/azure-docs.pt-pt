@@ -1,5 +1,5 @@
 ---
-title: Implementar o Azure AD Privileged Identity Management (PIM) | Documentos da Microsoft
+title: Implementar o Privileged Identity Management (PIM) - o Azure Active Directory | Documentos da Microsoft
 description: Descreve como planear a implementação do Azure AD Privileged Identity Management (PIM).
 services: active-directory
 documentationcenter: ''
@@ -14,16 +14,16 @@ ms.date: 02/08/2019
 ms.author: rolyon
 ms.custom: ''
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 05bf125d629ffef01a645dc407c341a984805520
-ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
+ms.openlocfilehash: 1755d627473b0ae47bbc4bc74a3f0d2210e5372b
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58227036"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58578208"
 ---
 # <a name="deploy-azure-ad-privileged-identity-management-pim"></a>Implementar o Azure AD Privileged Identity Management (PIM)
 
-Este guia passo a passo descreve como planear a implementação do Azure AD Privileged Identity Management (PIM) na sua organização.
+Este guia passo a passo descreve como planear a implementação do Azure Active Directory (Azure AD) Privileged Identity Management (PIM) na sua organização.
 
 > [!TIP]
 > Neste documento, verá os itens marcados como:
@@ -79,7 +79,7 @@ Para obter mais informações, consulte [o que é o Azure AD Privileged Identity
 
 ### <a name="roles-that-can-be-managed-by-pim"></a>Funções que podem ser geridas pelo PIM
 
-**Funções do Azure AD** – estas funções são todas as funções de diretório dentro do Azure Active Directory (como Administrador Global, o administrador do Exchange e o administrador de segurança). Pode ler mais sobre as funções e a respetiva funcionalidade na [permissões da função de administrador no Azure Active Directory](../users-groups-roles/directory-assign-admin-roles.md). Para obter ajuda a determinar quais funções para atribuir aos seus administradores, consulte [menos funções privilegiadas pela tarefa](../users-groups-roles/roles-delegate-by-task.md).
+**Funções do Azure AD** – estas funções estão todos em Azure Active Directory (como Administrador Global, o administrador do Exchange e o administrador de segurança). Pode ler mais sobre as funções e a respetiva funcionalidade na [permissões da função de administrador no Azure Active Directory](../users-groups-roles/directory-assign-admin-roles.md). Para obter ajuda a determinar quais funções para atribuir aos seus administradores, consulte [menos funções privilegiadas pela tarefa](../users-groups-roles/roles-delegate-by-task.md).
 
 **Funções de recursos do Azure** – estas funções são associadas a um recurso do Azure, grupo de recursos, subscrição ou grupo de gestão. PIM fornece acesso just-in-time para ambas as funções incorporadas como proprietário, o administrador de acesso de utilizador e contribuinte, que [funções personalizadas](../../role-based-access-control/custom-roles.md). Para obter mais informações sobre as funções de recursos do Azure, consulte [controlo de acesso baseado em funções (RBAC)](../../role-based-access-control/overview.md).
 
@@ -294,7 +294,7 @@ Agora que identificou os utilizadores de teste, utilize este passo para configur
 
 #### <a name="configure-pim-for-azure-ad-roles"></a>Configurar o PIM para funções do Azure AD
 
-1. [Configurar as definições de função de diretório do Azure AD](pim-how-to-change-default-settings.md) com base em o planeado.
+1. [Configurar as definições de função do Azure AD](pim-how-to-change-default-settings.md) com base em o planeado.
 
 1. Navegue para **funções do Azure AD**, clique em **funções**e, em seguida, selecione a função que acabou de configurar.
 

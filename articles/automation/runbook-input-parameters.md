@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 02/14/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 969e0c2582ce8f72592059fbf1d58e3ebe9faa5d
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 5f190d60a059108b9763f35e2ee8cf99ae77b694
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58117205"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58578157"
 ---
 # <a name="runbook-input-parameters"></a>Parâmetros de entrada do runbook
 
@@ -30,10 +30,10 @@ Os runbooks do PowerShell e o fluxo de trabalho do PowerShell na automatização
 
 | **Propriedade** | **Descrição** |
 |:--- |:--- |
-| Type |Necessário. O tipo de dados esperado para o valor do parâmetro. Qualquer tipo .NET é válido. |
-| Name |Necessário. O nome do parâmetro. Isso tem de ser exclusivo dentro do runbook e pode conter apenas letras, números ou carateres de sublinhado. Tem de começar com uma letra. |
-| Obrigatório |Opcional. Especifica se deve ser fornecido um valor para o parâmetro. Se definir esta opção como  **\$true**, em seguida, deve ser fornecido um valor quando o runbook é iniciado. Se definir esta opção como  **\$false**, em seguida, um valor é opcional. |
-| Valor predefinido |Opcional. Especifica um valor que é utilizado para o parâmetro se um valor não é passado quando o runbook é iniciado. Um valor predefinido pode ser definido para cada parâmetro e fará automaticamente o parâmetro opcional, independentemente da definição obrigatória. |
+| `Type` |Necessário. O tipo de dados esperado para o valor do parâmetro. Qualquer tipo .NET é válido. |
+| `Name` |Necessário. O nome do parâmetro. Isso tem de ser exclusivo dentro do runbook e pode conter apenas letras, números ou carateres de sublinhado. Tem de começar com uma letra. |
+| `Mandatory` |Opcional. Especifica se deve ser fornecido um valor para o parâmetro. Se definir esta opção como  **\$true**, em seguida, deve ser fornecido um valor quando o runbook é iniciado. Se definir esta opção como  **\$false**, em seguida, um valor é opcional. |
+| `Default value` |Opcional. Especifica um valor que é utilizado para o parâmetro se um valor não é passado quando o runbook é iniciado. Um valor predefinido pode ser definido para cada parâmetro e fará automaticamente o parâmetro opcional, independentemente da definição obrigatória. |
 
 Windows PowerShell oferece suporte a mais atributos de parâmetros de entrada do que aqueles listados aqui, como validação, aliases, e define o parâmetro. No entanto, a automatização do Azure atualmente suporta apenas os parâmetros de entrada anteriores.
 
@@ -94,11 +94,11 @@ Pode utilizar o [ **Write-Output** ](/powershell/module/microsoft.powershell.uti
 
    | **Propriedade** | **Descrição** |
    |:--- |:--- |
-   | Name |Necessário. O nome do parâmetro. Isso tem de ser exclusivo dentro do runbook e pode conter apenas letras, números ou carateres de sublinhado. Tem de começar com uma letra. |
-   | Descrição |Opcional. Descrição sobre a finalidade do parâmetro de entrada. |
-   | Type |Opcional. O tipo de dados que é esperado para o valor do parâmetro. Tipos de parâmetro suportados são **cadeia de caracteres**, **Int32**, **Int64**, **Decimal**, **booleano**,  **DateTime**, e **objeto**. Se um tipo de dados não estiver selecionado, é assumida como predefinição para **cadeia de caracteres**. |
-   | Obrigatório |Opcional. Especifica se deve ser fornecido um valor para o parâmetro. Se escolher **Sim**, em seguida, deve ser fornecido um valor quando o runbook é iniciado. Se escolher **nenhuma**, em seguida, um valor não é necessário quando o runbook é iniciado e pode ser definido um valor predefinido. |
-   | Valor Predefinido |Opcional. Especifica um valor que é utilizado para o parâmetro se um valor não é passado quando o runbook é iniciado. Pode ser definido um valor predefinido para um parâmetro que não é obrigatório. Para definir um valor predefinido, escolher **personalizado**. Este valor é utilizado, a menos que outro valor é fornecido quando o runbook é iniciado. Escolher **None** se não quiser fornecer qualquer valor predefinido. |
+   | `Name` |Necessário. O nome do parâmetro. Isso tem de ser exclusivo dentro do runbook e pode conter apenas letras, números ou carateres de sublinhado. Tem de começar com uma letra. |
+   | `Description` |Opcional. Descrição sobre a finalidade do parâmetro de entrada. |
+   | `Type` |Opcional. O tipo de dados que é esperado para o valor do parâmetro. Tipos de parâmetro suportados são **cadeia de caracteres**, **Int32**, **Int64**, **Decimal**, **booleano**,  **DateTime**, e **objeto**. Se um tipo de dados não estiver selecionado, é assumida como predefinição para **cadeia de caracteres**. |
+   | `Mandatory` |Opcional. Especifica se deve ser fornecido um valor para o parâmetro. Se escolher **Sim**, em seguida, deve ser fornecido um valor quando o runbook é iniciado. Se escolher **nenhuma**, em seguida, um valor não é necessário quando o runbook é iniciado e pode ser definido um valor predefinido. |
+   | `Default Value` |Opcional. Especifica um valor que é utilizado para o parâmetro se um valor não é passado quando o runbook é iniciado. Pode ser definido um valor predefinido para um parâmetro que não é obrigatório. Para definir um valor predefinido, escolher **personalizado**. Este valor é utilizado, a menos que outro valor é fornecido quando o runbook é iniciado. Escolher **None** se não quiser fornecer qualquer valor predefinido. |
 
     ![Adicionar nova entrada](media/automation-runbook-input-parameters/automation-runbook-input-parameter-new.png)
 4. Criar dois parâmetros com as seguintes propriedades que são utilizadas pelos **Get-AzureRmVm** atividade:

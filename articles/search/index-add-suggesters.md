@@ -19,29 +19,29 @@ translation.priority.mt:
 - ru-ru
 - zh-cn
 - zh-tw
-ms.openlocfilehash: 5a46575f6e8a0b05b65dbf49c70bddb570b514b2
-ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
+ms.openlocfilehash: a629a022e332eae5c8a58e9ffc0f760f96bc24dd
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58497438"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58577127"
 ---
 # <a name="add-suggesters-to-an-index-for-typeahead-in-azure-search"></a>Adicionar sugestores para um índice para typeahead no Azure Search
 
-R **sugestor** é uma construção num [índice da Azure Search](search-what-is-an-index.md) que oferece suporte a uma experiência de "pesquisa-como--type". Ela contém uma lista de campos para o qual pretende ativar typeahead entradas de consulta. Há duas variantes de typeahead: *preenchimento automático* conclui o termo ou frase escrever, *sugestões* fornece uma lista de resultados. 
+R **sugestor** é uma construção num [índice da Azure Search](search-what-is-an-index.md) que oferece suporte a uma experiência de "pesquisa-como--type". Ela contém uma lista de campos para o qual pretende ativar typeahead entradas de consulta. Dentro de um índice, o mesmo sugestor suporta uma ou ambas estas duas variantes de typeahead: *preenchimento automático* conclui o termo ou frase escrever, *sugestões* fornece uma lista de resultados. 
 
-Na página de pesquisa nesta Xbox, os itens de preenchimento automático levá-lo para uma nova página de resultados de pesquisa para essa consulta, ao passo que as sugestões são os resultados reais que levam-o para uma página para esse jogo específico. Pode limitar o preenchimento automático para um item numa barra de pesquisa ou forneça uma lista semelhante à mostrada aqui. Para obter sugestões, podem surgir a qualquer parte de um documento que melhor descreve o resultado.
+Captura de ecrã seguinte ilustra os dois recursos typeahead. Na página de pesquisa nesta Xbox, os itens de preenchimento automático levá-lo para uma nova página de resultados de pesquisa para essa consulta, ao passo que as sugestões são os resultados reais que levam-o para uma página para esse jogo específico. Pode limitar o preenchimento automático para um item numa barra de pesquisa ou forneça uma lista semelhante à mostrada aqui. Para obter sugestões, podem surgir a qualquer parte de um documento que melhor descreve o resultado.
 
 ![Comparação visual de preenchimento automático e consultas sugeridas](./media/index-add-suggesters/visual-comparison-suggest-complete.png "comparação Visual de preenchimento automático e consultas sugeridas")
 
 Para implementar esses comportamentos no Azure Search, há um componente de índice e a consulta. 
 
-+ Num índice, adicione um sugestor. Pode utilizar o portal, a REST API ou o SDK de .NET para criar um sugestor. 
++ O componente de índice é um sugestor. Pode utilizar o portal, a REST API ou o SDK de .NET para criar um sugestor. 
 
-+ Numa consulta, especifique a ação de uma sugestão ou sutocomplete. 
++ O componente de consulta é uma ação especificada no pedido de consulta (ação uma sugestão ou a conclusão automática). 
 
 > [!Important]
-> Preenchimento automático está atualmente em pré-visualização, disponível em pré-visualização de REST APIs e SDK do .NET e não é suportada para aplicações de produção. 
+> Preenchimento automático está atualmente em pré-visualização, disponível em pré-visualização de REST APIs e SDK do .NET. Não se destina para aplicações de produção. 
 
 Suporte de pesquisa-como--type está ativado numa base por campo. Pode implementar ambos os comportamentos de typeahead dentro da mesma solução de pesquisa se pretender que uma experiência semelhante à indicado na captura de ecrã. Destino de ambos os pedidos a *documentos* coleção de índice específico e as respostas são devolvidas depois de um utilizador forneceu, pelo menos, uma cadeia de caracteres de entrada de três caracteres.
 
@@ -77,7 +77,7 @@ Depois de um sugestor é criada, adicione a [sugestões de API](https://docs.mic
 
 ### <a name="use-the-net-sdk"></a>Utilizar o .NET SDK
 
-No C#, definir um [classe de Sugestor](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.suggester?view=azure-dotnet). Sugestor é uma coleção, mas apenas pode demorar um item.
+No C#, definir um [classe de Sugestor](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.suggester?view=azure-dotnet). Um Sugestor é uma coleção que só pode aceitar um item. Certifique-se de que adicionar `using System.Collections.Generic;` para que possa criar uma lista de objetos. 
 
 ```csharp
 private static void CreateHotelsIndex(SearchServiceClient serviceClient)
@@ -137,4 +137,4 @@ Ele usa um sandbox do serviço Azure Search e um índice pré-carregados para qu
 Recomendamos que o exemplo a seguir para ver como os pedidos são formulados.
 
 > [!div class="nextstepaction"]
-> [Exemplo de consulta Autocompleted (pré-visualização)](search-autocomplete-tutorial.md) 
+> [Sugestões e exemplos de conclusão automática](search-autocomplete-tutorial.md) 

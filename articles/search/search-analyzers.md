@@ -4,17 +4,17 @@ description: Analisadores de atribuir a campos de texto pesquisável num índice
 services: search
 ms.service: search
 ms.topic: conceptual
-ms.date: 02/15/2019
+ms.date: 03/27/2019
 ms.author: heidist
 manager: cgronlun
 author: HeidiSteen
 ms.custom: seodec2018
-ms.openlocfilehash: 7306258b6a7eee66df0961b2b993d0bcc9de94b9
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
+ms.openlocfilehash: 3e6f0a2b9b935df9b12cf9146ebf05f1b1c84855
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56343277"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58578769"
 ---
 # <a name="analyzers-for-text-processing-in-azure-search"></a>Analisadores de processamento no Azure Search de texto
 
@@ -97,16 +97,18 @@ Se uma pesquisa não retornar resultados esperados, o cenário mais provável é
 
 O [demonstração do Search Analyzer](https://alice.unearth.ai/) é uma aplicação de demonstração de terceiros que mostra uma comparação lado a lado do analisador de Lucene padrão, o analisador de idioma inglês do Lucene e o processador de idioma natural da Microsoft. O índice é fixo; ela contém o texto de uma história popular. Para cada entrada de pesquisa é fornecer, resultados de cada analisador são apresentados nos painéis adjacentes, dando-lhe uma noção de como cada analisador processa a mesma cadeia de caracteres. 
 
-## <a name="examples"></a>Exemplos
+<a name="examples"></a>
+
+## <a name="rest-examples"></a>Exemplos REST
 
 Os exemplos abaixo mostram as definições do analyzer para alguns cenários essenciais.
 
-+ [Exemplo de analisador personalizado](#Example1)
-+ [Atribuir analisadores para um exemplo de campo](#Example2)
-+ [Misturar analisadores de indexação e pesquisa](#Example3)
-+ [Exemplo do analisador de idioma](#Example4)
++ [Exemplo de analisador personalizado](#Custom-analyzer-example)
++ [Atribuir analisadores para um exemplo de campo](#Per-field-analyzer-assignment-example)
++ [Misturar analisadores de indexação e pesquisa](#Mixing-analyzers-for-indexing-and-search-operations)
++ [Exemplo do analisador de idioma](#Language-analyzer-example)
 
-<a name="Example1"></a>
+<a name="Custom-analyzer-example"></a>
 
 ### <a name="custom-analyzer-example"></a>Exemplo de analisador personalizado
 
@@ -180,7 +182,7 @@ Percorrendo neste exemplo:
   }
 ~~~~
 
-<a name="Example2"></a>
+<a name="Per-field-analyzer-assignment-example"></a>
 
 ### <a name="per-field-analyzer-assignment-example"></a>Exemplo de atribuição de analisador por campo
 
@@ -213,7 +215,7 @@ O elemento "analyzer" substitui o analisador padrão numa base de campo por camp
   }
 ~~~~
 
-<a name="Example3"></a>
+<a name="Mixing-analyzers-for-indexing-and-search-operations"></a>
 
 ### <a name="mixing-analyzers-for-indexing-and-search-operations"></a>Misturar analisadores para operações de indexação e pesquisa
 
@@ -241,7 +243,7 @@ As APIs incluem os atributos de índice adicional para especificar diferentes an
   }
 ~~~~
 
-<a name="Example4"></a>
+<a name="Language-analyzer-example"></a>
 
 ### <a name="language-analyzer-example"></a>Exemplo do analisador de idioma
 
@@ -273,6 +275,69 @@ Campos que contenham as cadeias de caracteres em diferentes idiomas podem usar u
      ],
   }
 ~~~~
+
+## <a name="c-examples"></a>C#Exemplos
+
+Se estiver a utilizar os exemplos de código do SDK do .NET, pode acrescentar estes exemplos para utilizar ou configurar os analisadores.
+
++ [Atribuir um analisador de interno](#Assign-a-language-analyzer)
++ [Configurar um analisador](#Define-a-custom-analyzer)
+
+<a name="Assign-a-language-analyzer"></a>
+
+### <a name="assign-a-language-analyzer"></a>Atribuir um analisador de idioma
+
+Qualquer analisador que é utilizado como-é, sem qualquer configuração, é especificada numa definição de campo. Não existe nenhum requisito para a criação de uma construção do analyzer. 
+
+Este exemplo atribui analisadores English da Microsoft e francês aos campos de descrição. É um trecho de código obtido a partir de uma definição de maior do índice de hotéis, usando a classe de Hotel no arquivo hotels.cs de a criar o [DotNetHowTo](https://github.com/Azure-Samples/search-dotnet-getting-started/tree/master/DotNetHowTo) exemplo.
+
+Chamar [analisador](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.analyzer?view=azure-dotnet), a especificação do [AnalyzerName classe](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.analyzername?view=azure-dotnet) que fornece todos os analisadores de texto suportados no Azure Search.
+
+```csharp
+    public partial class Hotel
+    {
+       . . . 
+
+        [IsSearchable]
+        [Analyzer(AnalyzerName.AsString.EnMicrosoft)]
+        [JsonProperty("description")]
+        public string Description { get; set; }
+
+        [IsSearchable]
+        [Analyzer(AnalyzerName.AsString.FrLucene)]
+        [JsonProperty("description_fr")]
+        public string DescriptionFr { get; set; }
+
+      . . .
+    }
+```
+<a name="Define-a-custom-analyzer"></a>
+
+### <a name="define-a-custom-analyzer"></a>Definir um analisador personalizado
+
+Quando a personalização ou configuração é necessária, terá de adicionar uma construção do analyzer para um índice. Depois de defini-lo, pode adicioná-lo a definição de campo como demonstrado no exemplo anterior.
+
+Uso [CustomAnalyzer](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.customanalyzer?view=azure-dotnet) para criar o objeto. Para obter mais exemplos, consulte [CustomAnalyzerTests.cs](https://github.com/Azure/azure-sdk-for-net/blob/master/src/SDKs/Search/DataPlane/Search.Tests/Tests/CustomAnalyzerTests.cs).
+
+```csharp
+{
+   var definition = new Index()
+   {
+         Name = "hotels",
+         Fields = FieldBuilder.BuildForType<Hotel>(),
+         Analyzers = new[]
+            {
+               new CustomAnalyzer()
+               {
+                     Name = "url-analyze",
+                     Tokenizer = TokenizerName.UaxUrlEmail,
+                     TokenFilters = new[] { TokenFilterName.Lowercase }
+               }
+            },
+   };
+
+   serviceClient.Indexes.Create(definition);
+```
 
 ## <a name="next-steps"></a>Passos Seguintes
 

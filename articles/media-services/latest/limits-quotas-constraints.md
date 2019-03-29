@@ -11,12 +11,12 @@ ms.workload: ''
 ms.topic: article
 ms.date: 03/12/2019
 ms.author: juliako
-ms.openlocfilehash: 694c56cf52cb7a15230b9a2cdd34642c7820b407
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: d5fc14adab956fae23aad24fa7bc488c8c2041e3
+ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57897570"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58621690"
 ---
 # <a name="quotas-and-limitations-in-azure-media-services-v3"></a>Quotas e limitações em serviços de multimédia do Azure v3
 
@@ -24,24 +24,26 @@ Este artigo descreve as quotas e limitações em serviços de multimédia do Azu
 
 | Recurso | Limite Predefinido | 
 | --- | --- | 
-| Elementos por conta de Media Services do Azure | 1 000 000|
-| Filtros do manifesto dinâmico|100|
+| Recursos por conta dos Serviços de Multimédia do Azure | 1 000 000|
+| Filtros do Manifesto Dinâmico|100|
 | JobInputs por tarefa | 50 (fixa)|
-| JobOutputs por tarefa/TransformOutputs numa transformação | 20 (fixa) |
+| JobOutputs por tarefa | 20 (fixa) |
+| TransformOutputs numa transformação | 20 (fixa) |
 | Ficheiros por JobInput|10 (fixa)|
 | Tamanho dos ficheiros| Em alguns cenários, existe um limite no tamanho de ficheiro máximo suportado para processamento nos serviços de multimédia. <sup>(1)</sup> |
 | Tarefas por conta dos Media Services | 500 000 <sup>(2)</sup> (fixa)|
-| Listagem transformações|Paginar a resposta, com 1000 transformações por página|
-| A listagem de trabalhos|Paginar a resposta, com 500 tarefas por página|
-| Eventos em direto por conta dos Media Services |5|
+| Listar Transformações|Paginar a resposta, com 1000 Transformações por página|
+| Listar Tarefas|Paginar a resposta, com 500 Tarefas por página|
+| Eventos em Direto por conta dos Serviços de Multimédia |5|
 | Contas de serviços de multimédia numa única subscrição | 25 (fixo) |
-| Saídas em direto no estado parado por LiveEvent |3|
+| Saídas em direto no estado parado por evento em direto |3|
+| Duração de saída de Live máx. | 25 horas |
 | Contas de armazenamento | 100<sup>(4)</sup> (fixa) |
 | Pontos finais de transmissão em fluxo (parada ou em execução) por conta dos Media Services|2 (fixa)|
 | Políticas de Transmissão em Fluxo | 100 <sup>(3)</sup> |
 | Transformações por conta dos Media Services | 100 (fixa)|
 | Localizadores de transmissão em fluxo exclusivos associados um recurso de uma só vez | 100<sup>(5)</sup> (fixa) |
-| Política de chave de conteúdo |30 | 
+| Política de Chave de Conteúdo |30 | 
 
 <sup>1</sup> o tamanho máximo suportado para um único blob está atualmente até 5 TB de armazenamento de Blobs do Azure. No entanto, os limites adicionais aplicam-se nos serviços de multimédia do Azure com a base sobre os tamanhos VM que são utilizados pelo serviço. Se o ficheiro de origem for superior a 260 GB, o seu trabalho provavelmente falhará. Se tiver conteúdo de 4K, que é maior do que o limite de 260 GB, contacte-nos em amshelp@microsoft.com para possíveis atenuações suportar o seu cenário.
 

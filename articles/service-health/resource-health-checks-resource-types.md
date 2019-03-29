@@ -6,12 +6,12 @@ ms.author: stbaron
 ms.topic: conceptual
 ms.service: service-health
 ms.date: 01/29/2019
-ms.openlocfilehash: a8bc82a2717bfa6838b2331ef54ed8098422c223
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 0f79a1eed044814d6c2e27f4eadb5ba68a47303f
+ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57770351"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58620755"
 ---
 # <a name="resource-types-and-health-checks-in-azure-resource-health"></a>Tipos de recursos e o estado de funcionamento verifica-se no estado de funcionamento de recursos do Azure
 Segue-se uma lista completa de todas as verificações executadas por meio do Estado de funcionamento do recurso por tipos de recursos.
@@ -51,10 +51,15 @@ Segue-se uma lista completa de todas as verificações executadas por meio do Es
 |---|
 |<ul><li>É o servidor que aloja esta máquina virtual, cópia de segurança e em execução?</li><li>A inicialização de SO de host concluída?</li><li>O contentor de máquina virtual é aprovisionado e com tecnologia de cópia de segurança?</li><li>Existe conectividade de rede entre o anfitrião e a conta de armazenamento?</li><li>O arranque de sistema operacional convidado concluída?</li><li>Existe a manutenção planeada em curso?</li></ul>|
 
+## <a name="microsoftdatafactoryfactories"></a>Microsoft.datafactory/factories
+|Verificações executadas|
+|---|
+|<ul><li>Tem havido falhas de execução de pipeline?</li><li>O cluster está a alojar a fábrica de dados em bom estado?</li></ul>|
+
 ## <a name="microsoftdatalakeanalyticsaccounts"></a>Microsoft.datalakeanalytics/accounts
 |Verificações executadas|
 |---|
-|<ul><li>Tem problemas experientes utilizadores submeter ou listar seus trabalhos do Data Lake Analytics?</li><li>São tarefas de Data Lake Analytics não foi possível concluir a erros de sistema?</li></ul>|
+|<ul><li>Tem problemas experientes utilizadores submeter ou listar seus trabalhos do Data Lake Analytics?</li><li>São tarefas de Data Lake Analytics não foi possível concluir devido a erros de sistema?</li></ul>|
 
 
 ## <a name="microsoftdatalakestoreaccounts"></a>Microsoft.datalakestore/accounts
@@ -62,8 +67,27 @@ Segue-se uma lista completa de todas as verificações executadas por meio do Es
 |---|
 |<ul><li>Os utilizadores tiveram problemas carregar dados para o Data Lake Store?</li><li>Os utilizadores tiveram problemas de transferência de dados do Data Lake Store?</li></ul>|
 
-## <a name="microsoftdevicesiothubs"></a>Microsoft.devices/iothubs
+## <a name="microsoftdatamigrationservices"></a>Microsoft.datamigration/services
+|Verificações executadas|
+|---|
+|<ul><li>O serviço de migração de base de dados não conseguiu aprovisionar?</li><li>O serviço de migração de base de dados parou devido a inatividade ou pedido do utilizador?</li></ul>|
 
+## <a name="microsoftdbformariadbservers"></a>Microsoft.DBforMariaDB/servers
+|Verificações executadas|
+|---|
+|<ul><li>O servidor não está disponível devido a manutenção?</li><li>O servidor está indisponível devido a reconfiguração?</li></ul>|
+
+## <a name="microsoftdbformysqlservers"></a>Microsoft.DBforMySQL/servers
+|Verificações executadas|
+|---|
+|<ul><li>O servidor não está disponível devido a manutenção?</li><li>O servidor está indisponível devido a reconfiguração?</li></ul>|
+
+## <a name="microsoftdbforpostgresqlservers"></a>Microsoft.DBforPostgreSQL/servers
+|Verificações executadas|
+|---|
+|<ul><li>O servidor não está disponível devido a manutenção?</li><li>O servidor está indisponível devido a reconfiguração?</li></ul>|
+
+## <a name="microsoftdevicesiothubs"></a>Microsoft.devices/iothubs
 |Verificações executadas|
 |---|
 |<ul><li>É o hub IoT em execução?</li></ul>|
@@ -73,15 +97,40 @@ Segue-se uma lista completa de todas as verificações executadas por meio do Es
 |---|
 |<ul><li>Tem havido quaisquer solicitações de base de dados ou coleção não fornecidas por uma indisponibilidade de serviço do Azure Cosmos DB?</li><li>Tem havido quaisquer pedidos de documento não servidos por uma indisponibilidade de serviço do Azure Cosmos DB?</li></ul>|
 
+## <a name="microsofteventhubnamespaces"></a>Microsoft.eventhub/namespaces
+|Verificações executadas|
+|---|
+|<ul><li>É o espaço de nomes de Hubs de eventos com erros gerados pelo utilizador?</li><li>Está atualmente a ser atualizado o espaço de nomes de Hubs de eventos?</li></ul>|
+
+## <a name="microsofthdinsightclusters"></a>Microsoft.hdinsight/clusters
+|Verificações executadas|
+|---|
+|<ul><li>São os serviços de núcleos disponível no HDInsight cluster?</li><li>O cluster de HDInsight acesso à chave para encriptação de BYOK inativa?</li></ul>|
+
 ## <a name="microsoftkeyvaultvaults"></a>Microsoft.KeyVault/vaults
 |Verificações executadas|
 |---|
 |<ul><li>Pedidos para o Cofre de chaves falharem devido a problemas de plataforma do Cofre de chaves do Azure?</li><li>Pedidos para o Cofre de chaves estão a ser limitados devido a demasiados pedidos pelo cliente?</li></ul>|
 
+## <a name="microsoftnetworkapplicationgateways"></a>Microsoft.network/applicationgateways
+|Verificações executadas|
+|---|
+|<ul><li>É o desempenho do Gateway de aplicação degradado?</li><li>O Gateway de aplicação está disponível?</li></ul>|
+
 ## <a name="microsoftnetworkconnections"></a>Microsoft.network/connections
 |Verificações executadas|
 |---|
 |<ul><li>O túnel VPN está ligado?</li><li>Existem conflitos de configuração na ligação?</li><li>As chaves pré-partilhadas estão corretamente configuradas?</li><li>Dispositivo VPN no local é acessível?</li><li>Existem incompatibilidades na política de segurança de IPSec/IKE?</li><li>É a ligação S2S VPN corretamente aprovisionado ou num Estado de falha?</li><li>É a ligação de VNET a VNET corretamente aprovisionado ou num Estado de falha?</li></ul>|
+
+## <a name="microsoftnetworkexpressreoutecircuits"></a>Microsoft.network/expressreoutecircuits
+|Verificações executadas|
+|---|
+|<ul><li>O circuito do ExpressRoute está em bom estado?</li></ul>|
+
+## <a name="microsoftnetworkfrontdoors"></a>Microsoft.network/frontdoors
+|Verificações executadas|
+|---|
+|<ul><li>Estão back-ends de porta de entrada a responder com erros às sondas de estado de funcionamento?</li><li>Alterações de configuração seja atrasadas?</li></ul>|
 
 ## <a name="microsoftnetworkvirtualnetworkgateways"></a>Microsoft.network/virtualNetworkGateways
 |Verificações executadas|
@@ -91,7 +140,12 @@ Segue-se uma lista completa de todas as verificações executadas por meio do Es
 ## <a name="microsoftnotificationhubsnamespace"></a>Microsoft.NotificationHubs/namespace
 |Verificações executadas|
 |---|
-|<ul><li> Podem ser executadas operações de tempo de execução, como o registo, a instalação ou a enviar no espaço de nomes?</li></ul>|
+|<ul><li>Podem ser executadas operações de tempo de execução, como o registo, a instalação ou a enviar no espaço de nomes?</li></ul>|
+
+## <a name="microsoftoperationalinsightsworkspaces"></a>Microsoft.operationalinsights/workspaces
+|Verificações executadas|
+|---|
+|<ul><li>Existem atrasos à área de trabalho de indexação?</li></ul>|
 
 ## <a name="microsoftpowerbidedicatedcapacities"></a>Microsoft.PowerBIDedicated/Capacities
 |Verificações executadas|
@@ -101,7 +155,7 @@ Segue-se uma lista completa de todas as verificações executadas por meio do Es
 ## <a name="microsoftpowerbiworkspacecollections"></a>Microsoft.PowerBI/workspaceCollections
 |Verificações executadas|
 |---|
-|<ul><li>É o sistema operacional host em execução?</li><li>O workspaceCollection é acessível a partir de fora do datacenter?</li><li>O fornecedor de recursos do Power BI está disponível?</li><li>O serviço Power BI está disponível na região apropriada?</li></ul>|
+|<ul><li>É o sistema operacional host em execução?</li><li>O workspaceCollection é acessível a partir de fora do datacenter?</li><li>O fornecedor de recursos do Power BI está disponível?</li><li>O serviço do Power BI está disponível na região apropriada?</li></ul>|
 
 ## <a name="microsoftsearchsearchservices"></a>Microsoft.search/searchServices
 |Verificações executadas|

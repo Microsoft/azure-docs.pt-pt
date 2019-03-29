@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 1/30/2019
+ms.date: 3/26/2019
 ms.author: rkarlin
-ms.openlocfilehash: 154af3988084792331db082b99cae0ae06126f1b
-ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.openlocfilehash: 5254e60b9b7c38e5f4534e90f8aabe938aef99b2
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/02/2019
-ms.locfileid: "57242178"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58574948"
 ---
 # <a name="collect-data-from-azure-advanced-threat-protection-atp"></a>Recolher dados do Azure Advanced proteção contra ameaças (ATP)
 
@@ -46,6 +46,7 @@ Se o ATP do Azure é implementado e ingestão de seus dados, os alertas suspeito
 
 2. Clique em **Ligar**.
 
+6. Para utilizar o esquema relevante no Log Analytics para os alertas da ATP do Azure, procure **SecurityAlert**.
 
 ## <a name="next-steps"></a>Passos Seguintes
 Neste documento, aprendeu a ligar a proteção de ameaças avançada do Azure ao Azure sentinela. Para saber mais sobre sentinela do Azure, veja os artigos seguintes:

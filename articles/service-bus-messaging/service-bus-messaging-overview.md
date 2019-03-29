@@ -11,12 +11,12 @@ ms.topic: overview
 ms.date: 09/22/2018
 ms.custom: mvc
 ms.author: aschhab
-ms.openlocfilehash: 8217eddd6f31a30b9113b178d74b59afb94f42af
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 06f1cdccc135d8f025d6256a12d47a97c92dbee8
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57900867"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58579347"
 ---
 # <a name="what-is-azure-service-bus"></a>O que é o Azure Service Bus?
 
@@ -39,7 +39,7 @@ As mensagens são enviadas e recebidas de *filas*. As filas permitem armazenar m
 
 ![Filas](./media/service-bus-messaging-overview/about-service-bus-queue.png)
 
-As mensagens das filas são ordenadas e carimbadas com data/hora na chegada. Depois de aceite, a mensagem é mantida em segurança no armazenamento redundante. As mensagens são entregues na *pull* modo, que oferece a mensagens de pedido.
+Mensagens em filas são ordenadas e timestamped na chegada. Depois de aceite, a mensagem é guardada em segurança no armazenamento redundante. As mensagens são entregues na *pull* modo, que oferece a mensagens de pedido.
 
 ## <a name="topics"></a>Tópicos
 

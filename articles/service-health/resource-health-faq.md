@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.service: service-health
 ms.date: 01/29/2019
 ms.workload: Supportability
-ms.openlocfilehash: c0de42935c1e46fd51e82a58083f85f6cee83ce3
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: b4062b3f0bc389de4403ac81b56688508f5ea50e
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55884550"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58579568"
 ---
 # <a name="azure-resource-health-faq"></a>FAQ do Estado de funcionamento do recurso do Azure
 Aprenda as respostas a perguntas comuns sobre o Azure Resource Health.
@@ -50,7 +50,7 @@ Sim, quando um recurso não está disponível, o estado de funcionamento do recu
 No portal, as ações iniciadas pelo utilizador são apresentadas com um ícone de notificação azul, enquanto planeados e não planeados de eventos são apresentados com um ícone de aviso vermelho. Obter mais detalhes são fornecidos na [descrição geral do Estado de funcionamento do recurso](Resource-health-overview.md).  
 
 ## <a name="can-i-integrate-resource-health-with-my-monitoring-tools"></a>Posso integrar o estado de funcionamento de recursos com minhas ferramentas de monitoramento?
-Estado de funcionamento do recurso é um serviço concebido para o ajudar a diagnosticar e mitigar problemas de serviço do Azure que afetam seus recursos. Embora seja possível usar a API de estado de funcionamento do recurso para obter programaticamente o estado de funcionamento, recomendamos que utilize métricas para monitorizar os seus recursos. Quando é detetado um problema, o estado de funcionamento do recurso ajuda a determinar a causa raiz e orienta-o através de ações para resolvê-los. Visite [do Azure Monitor](https://docs.microsoft.com/azure/monitoring-and-diagnostics/) para saber mais sobre como pode utilizar métricas para verificar seus recursos.
+Estado de funcionamento do recurso [suporte de pré-visualização](resource-health-alert-arm-template-guide.md) para registo de atividades com base em alertas. Utilização de alertas de registo de atividades [grupos de ação](https://docs.microsoft.com/en-us/azure/azure-monitor/platform/action-groups) para notificar os utilizadores que foi acionado um alerta. Os grupos de ação suportam uma variedade de canais de notificação, como e-mail, SMS, webhook e ações do ITSM.
 
 ## <a name="where-do-i-find-resource-health"></a>Onde posso encontrar o Resource Health?
 Depois de iniciar sessão portal do Azure, existem várias formas de acessar o estado de funcionamento do recurso:
@@ -67,13 +67,7 @@ A lista de verificações de estado de funcionamento e os tipos de recursos ofer
 Ao verificar o estado de funcionamento de um recurso, o estado de funcionamento em pode clicar em **comunicou o estado de funcionamento incorreto**. Antes de submeter o relatório, tem a opção de fornecer detalhes adicionais sobre por que ache que o estado de funcionamento atual está incorreto.
 
 ## <a name="is-resource-health-available-for-all-azure-regions"></a>Estado de funcionamento do recurso está disponível para todas as regiões do Azure? 
-Estado de funcionamento do recurso está disponível em todas as geos do Azure, exceto as seguintes regiões:
-- Gov (US) - Virginia
-- US Gov - Iowa
-- US DoD Leste
-- US DoD Centro
-- Alemanha Central
-- Alemanha Nordeste
+Estado de funcionamento do recurso está disponível em todas as geos do Azure.
 
 ## <a name="how-is-resource-health-different-from-azure-status-or-the-service-health-dashboard"></a>Como é diferente do Estado do Azure ou o dashboard de estado de funcionamento do serviço Resource Health?
 As informações fornecidas pelo Estado de funcionamento do recurso são mais específicas do que o que é fornecido pelo Estado do Azure ou o dashboard de estado de funcionamento do serviço.

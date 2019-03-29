@@ -9,17 +9,17 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: article
-ms.date: 03/12/2019
+ms.date: 03/27/2019
 ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b62b710a7217792276392e8815013848ef607733
-ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
+ms.openlocfilehash: 48142961e4b6714090441b24e4bd6ca07afaf598
+ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58522371"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58622251"
 ---
 # <a name="administrator-role-permissions-in-azure-active-directory"></a>Permissões de função de administrador no Azure Active Directory
 
@@ -1127,13 +1127,14 @@ DisplayName de gráfico | Nome a apresentar de portal do Azure | directoryRoleTe
 ----------------- | ------------------------- | -------------------------
 Administrador de Aplicações | Administrador de aplicações | 9B895D92-2CD3-44C7-9D02-A6AC2D5EA5C3
 Programador de Aplicações | Programador de aplicações | CF1C38E5-3621-4004-A7CB-879624DCED7C
+Administrador da Autenticação | Administrador da autenticação | c4e39bd9-1100-46d3-8c65-fb160da0071f
 Administrador de Faturação | Administrador de faturação | b0f54661-2d74-4c50-afa3-1ec803f12efe
 Administrador da Análise de Computadores | Administrador da Análise de Computadores | 38a96431-2bdf-4b4c-8b6e-5d3d8abac1a4
 Administrador da Aplicação Cloud | Administrador da aplicação Cloud | 158c047a-c907-4556-b7ef-446551a6b5f7
 Administrador de Dispositivo na Cloud | Administrador de dispositivo na cloud | 7698a772-787b-4ac8-901f-60d6b08affd2
 Administrador de Empresa | Administrador global | 62e90394-69f5-4237-9190-012177145e10
 Administrador de Conformidade | Administrador de Conformidade | 17315797-102d-40b4-93e0-432062caca18
-Administrador de Acesso Condicional | Administrador de acesso condicional | b1be1c3e-b65d-4f19-8427-f6fa0d97feb9
+Administrador de Acesso Condicional | Administrador do Acesso Condicional | b1be1c3e-b65d-4f19-8427-f6fa0d97feb9
 Administrador de Serviço CRM | Administrador do Dynamics 365 | 44367163-eba1-44c3-98af-f5787879f96a
 Aprovador de Acesso ao Cofre de Cliente | Aprovador de acesso do Cofre de cliente | 5c4f9dcd-47dc-4cf7-8c9a-9e4207cbfc91
 Administradores de Dispositivo | Administradores de dispositivos | 9f06204d-73c1-4d4c-880a-6edb90606fd8
@@ -1154,6 +1155,7 @@ Leitor do Centro de Mensagens | Leitor do centro de mensagens | 790c1fb9-7f7d-4f
 Parceiro de Suporte de Escalão 1 | Suporte para parceiros do escalão 1 | 4ba39ca4-527c-499a-b93d-d9b492c50246
 Parceiro de Suporte de Escalão 2 | Suporte para parceiros do escalão 2 | e00e864a-17c5-4a4b-9c06-f5b95a8d5bd8
 Administrador do Power BI | Administrador do Power BI | a9ea8996-122f-4c74-9520-8edcd192826c
+Administrador de Autenticação Privilegiada | Administrador de autenticação privilegiada | 7be44c8a-adaf-4e2a-84d6-ab2649e08a13
 Administrador com Função Privilegiada | Administrador com Função Privilegiada | e8611ab8-c189-46e8-94e1-60213ab1f814
 Leitor de Relatórios | Leitor de relatórios | 4a5d8f65-41da-4de4-8968-e035b65339cf
 Administrador de Segurança | Administrador de segurança | 194ae4cb-b126-40b2-bd5b-6091b380977d

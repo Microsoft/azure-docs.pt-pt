@@ -1,5 +1,5 @@
 ---
-title: Assistente de segurança do AD funções do Azure no PIM | Documentos da Microsoft
+title: Assistente de segurança do AD funções do Azure no PIM - Azure Active Directory | Documentos da Microsoft
 description: Descreve o Assistente de segurança que pode utilizar para converter permanente privilegiado atribuições de funções do Azure AD para elegíveis com o Azure AD Privileged Identity Management (PIM).
 services: active-directory
 documentationcenter: ''
@@ -14,16 +14,16 @@ ms.date: 11/09/2018
 ms.author: rolyon
 ms.custom: pim ; H1Hack27Feb2017
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b66dcc834ab089f28e6bb47c2905e6a2a3907091
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 226c00dfdf651580a58a9409bc7cd22658415a56
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56208763"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58576365"
 ---
 # <a name="azure-ad-roles-security-wizard-in-pim"></a>Assistente de segurança do AD funções do Azure no PIM
 
-Se for a primeira pessoa a executar o Azure AD Privileged Identity Management (PIM) para a sua organização, será apresentado um assistente. O assistente ajuda-o a compreender os riscos de segurança de identidades privilegiadas e como utilizar o PIM para reduzir esses riscos. Não precisa de fazer alterações às atribuições de funções existente no assistente, se prefira fazê-lo mais tarde.
+Se for a primeira pessoa para ser executada para a sua organização, a Azure Active Directory (Azure AD) Privileged Identity Management (PIM), será apresentado um assistente. O assistente ajuda-o a compreender os riscos de segurança de identidades privilegiadas e como utilizar o PIM para reduzir esses riscos. Não precisa de fazer alterações às atribuições de funções existente no assistente, se prefira fazê-lo mais tarde.
 
 ## <a name="wizard-overview"></a>Descrição geral do Assistente
 
@@ -65,9 +65,9 @@ A segunda etapa do assistente fornece uma oportunidade para alterar as atribuiç
 
     ![Notificações](./media/pim-security-wizard/notification-completion.png)
 
-Se precisar de converter outras atribuições de funções privilegiadas elegível, pode executar o assistente novamente. Se quiser usar a interface PIM em vez do assistente, consulte [atribuir funções de diretório do Azure AD no PIM](pim-how-to-add-role-to-user.md).
+Se precisar de converter outras atribuições de funções privilegiadas elegível, pode executar o assistente novamente. Se quiser usar a interface PIM em vez do assistente, consulte [atribuir funções do Azure AD no PIM](pim-how-to-add-role-to-user.md).
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-- [Atribuir funções de diretório do Azure AD no PIM](pim-how-to-add-role-to-user.md)
+- [Atribuir funções do Azure AD no PIM](pim-how-to-add-role-to-user.md)
 - [Conceder acesso a outros administradores para gerir o PIM](pim-how-to-give-access-to-pim.md)

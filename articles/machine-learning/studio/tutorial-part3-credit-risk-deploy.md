@@ -10,12 +10,12 @@ ms.service: machine-learning
 ms.subservice: studio
 ms.topic: tutorial
 ms.date: 02/11/2019
-ms.openlocfilehash: 7132c2073223008cd82d0ffd54aaf266d0a630ba
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 6cdccd54546296c85864f1588b71109ed8b8f79f
+ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57839022"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58620519"
 ---
 # <a name="tutorial-3-deploy-credit-risk-model---azure-machine-learning-studio"></a>Tutorial 3: Implementar o modelo de risco de crédito - Azure Machine Learning Studio
 
@@ -172,7 +172,7 @@ Quando o serviço da web é acedido, os dados do utilizador inserem através da 
 Os resultados são devolvidos ao utilizador do serviço web através da **saída de serviço da Web** módulo.
 
 > [!TIP]
-> A forma como tem a experimentação preditiva configurada, toda a resulta dos [modelo de pontuação] [ score-model] módulo são devolvidos. Isto inclui todos os dados de entrada e o valor de risco de crédito e a probabilidade de classificação. Mas pode retornar algo diferente se pretender que, por exemplo, pode devolver apenas o valor de risco de crédito. Para tal, inserir um [colunas do projeto] [ project-columns] módulo entre [Score Model] [ score-model] e a **Web saída de serviço**para eliminar colunas não pretende que o serviço web para retornar. 
+> A forma como tem a experimentação preditiva configurada, toda a resulta dos [modelo de pontuação] [ score-model] módulo são devolvidos. Isto inclui todos os dados de entrada e o valor de risco de crédito e a probabilidade de classificação. Mas pode retornar algo diferente se pretender que, por exemplo, pode devolver apenas o valor de risco de crédito. Para fazer isso, inserir um [selecionar colunas] [ select-columns] módulo entre [Score Model] [ score-model] e a **Web saída de serviço**para eliminar colunas não pretende que o serviço web para retornar. 
 > 
 > 
 
@@ -267,4 +267,4 @@ Também pode desenvolver um aplicativo personalizado para aceder ao serviço da 
 [train-model]: https://msdn.microsoft.com/library/azure/5cc7053e-aa30-450d-96c0-dae4be720977/
 [two-class-boosted-decision-tree]: https://msdn.microsoft.com/library/azure/e3c522f8-53d9-4829-8ea4-5c6a6b75330c/
 [two-class-support-vector-machine]: https://msdn.microsoft.com/library/azure/12d8479b-74b4-4e67-b8de-d32867380e20/
-[project-columns]: https://msdn.microsoft.com/library/azure/1ec722fa-b623-4e26-a44e-a50c6d726223/
+[select-columns]: https://msdn.microsoft.com/library/azure/1ec722fa-b623-4e26-a44e-a50c6d726223/

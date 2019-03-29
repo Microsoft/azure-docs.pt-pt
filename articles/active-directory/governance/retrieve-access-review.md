@@ -1,6 +1,6 @@
 ---
-title: Obter resultados de revisão de acesso para grupos ou aplicações nas revisões de acesso do Azure AD | Documentos da Microsoft
-description: Saiba como obter resultados de revisão de acesso para membros do grupo ou de acesso da aplicação nas revisões de acesso do Azure AD.
+title: Obter resultados de revisão de acesso para grupos ou aplicações nas revisões de acesso - Azure Active Directory | Documentos da Microsoft
+description: Saiba como obter resultados de revisão de acesso para membros do grupo ou de acesso da aplicação nas revisões de acesso do Azure Active Directory.
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -16,14 +16,14 @@ ms.date: 06/21/2018
 ms.author: rolyon
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2516e61b6b86c3d2cee164cfcb80a1f938922908
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: eae4bafb3eefcee2785c784030d7be8dde66988e
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57839649"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58578718"
 ---
-# <a name="retrieve-access-review-results-for-groups-or-applications-in-azure-ad-access-reviews"></a>Obter resultados de revisão de acesso para grupos ou aplicações nas revisões de acesso do Azure AD
+# <a name="retrieve-access-review-results-for-groups-or-applications-in-azure-ad-access-reviews"></a>Revisão de acesso de obter as revisões de acesso de resultados para grupos ou aplicações no Azure AD
 
 Os administradores podem utilizar o Azure Active Directory (Azure AD) para [criar uma revisão de acesso](create-access-review.md) para membros do grupo ou os utilizadores atribuídos a uma aplicação.  Um utilizador que está a **Administrador Global**, **administrador de utilizadores**, **administrador de segurança** ou **leitor de segurança** função também pode os resultados de uma revisão de acesso de leitura.  Para atribuir utilizadores a uma destas funções, um administrador com função privilegiada pode utilizar o Azure AD PIM para tornar um utilizador elegível para ativar a função ou um Administrador Global pode permanentemente [atribuir um utilizador à função](../fundamentals/active-directory-users-assign-role-azure-portal.md).
 

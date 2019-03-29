@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 3/20/2019
 ms.author: yzheng
 ms.subservice: common
-ms.openlocfilehash: fe5e4b6a4f6a3da851b6e27419bff265758a1ba1
-ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
+ms.openlocfilehash: df38fd30c1bfba4993e9992783a130262a703370
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58522218"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58579517"
 ---
 # <a name="manage-the-azure-blob-storage-lifecycle"></a>Gerir a ciclo de vida de armazenamento de Blobs do Azure
 
@@ -72,7 +72,7 @@ $action = Add-AzStorageAccountManagementPolicyAction -InputObject $action -Snaps
 # PowerShell automatically sets BlobType as “blockblob” because it is the only available option currently
 $filter = New-AzStorageAccountManagementPolicyFilter -PrefixMatch ab,cd 
 
-#Create a new fule object
+#Create a new rule object
 #PowerShell automatically sets Type as “Lifecycle” because it is the only available option currently
 $rule1 = New-AzStorageAccountManagementPolicyRule -Name Test -Action $action -Filter $filter
 

@@ -1,5 +1,5 @@
 ---
-title: Conceder acesso a outros administradores para gerir o PIM - Azure | Documentos da Microsoft
+title: Conceder acesso a outros administradores para gerir PIM - Azure Active Directory | Documentos da Microsoft
 description: Saiba como conceder acesso a outros as administrações para gerir o Azure AD Privileged Identity Management (PIM).
 services: active-directory
 documentationcenter: ''
@@ -14,16 +14,16 @@ ms.date: 08/29/2018
 ms.author: rolyon
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c0d8cb77cda97c3141987fa8b0ea39541ace6db3
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 74b938335dbace5a827bcfa43172704dc8b09da2
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56191746"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58579619"
 ---
 # <a name="grant-access-to-other-administrators-to-manage-pim"></a>Conceder acesso a outros administradores para gerir o PIM
 
-O Administrador Global que ativa o Azure AD Privileged Identity Management (PIM) para uma organização automaticamente obter atribuições de funções e acesso ao PIM. Ninguém mais obtém acesso de escrita por predefinição, no entanto, incluindo outros administradores globais. Outros administradores globais, administradores de segurança e leitores de segurança têm acesso só de leitura ao PIM. Para conceder acesso ao PIM, o primeiro utilizador pode atribuir outras pessoas para o **administrador com função privilegiada** função.
+O Administrador Global que ativa para uma organização, a Azure Active Directory (Azure AD) Privileged Identity Management (PIM) automaticamente obter atribuições de funções e acesso ao PIM. Ninguém mais obtém acesso de escrita por predefinição, no entanto, incluindo outros administradores globais. Outros administradores globais, administradores de segurança e leitores de segurança têm acesso só de leitura ao PIM. Para conceder acesso ao PIM, o primeiro utilizador pode atribuir outras pessoas para o **administrador com função privilegiada** função.
 
 > [!NOTE]
 > Gerir PIM requer o MFA do Azure. Uma vez que as contas Microsoft não é possível registar para MFA do Azure, um utilizador que inicia sessão com uma conta Microsoft não é possível aceder PIM.
@@ -36,11 +36,11 @@ Certificar-se de que existem sempre pelo menos dois utilizadores numa função d
 
 1. Open **do Azure AD Privileged Identity Management**.
 
-1. Clique em **funções de diretório do Azure AD**.
+1. Clique em **funções do Azure AD**.
 
 1. Clique em **funções**.
 
-    ![Funções de diretório do Azure de PIM AD - funções](./media/pim-how-to-give-access-to-pim/pim-directory-roles-roles.png)
+    ![Funções do Azure de PIM AD - funções](./media/pim-how-to-give-access-to-pim/pim-directory-roles-roles.png)
 
 1. Clique nas **administrador com função privilegiada** função para abrir a página de membros.
 
@@ -74,7 +74,7 @@ Antes de remover alguém da função de administrador com função privilegiada,
 
 1. Open **do Azure AD Privileged Identity Management**.
 
-1. Clique em **funções de diretório do Azure AD**.
+1. Clique em **funções do Azure AD**.
 
 1. Clique em **funções**.
 

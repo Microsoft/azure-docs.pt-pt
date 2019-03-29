@@ -1,5 +1,5 @@
 ---
-title: Utilizar um dashboard de recursos para realizar uma revisão de acesso no PIM - Azure | Documentos da Microsoft
+title: Utilizar um dashboard de recursos para realizar uma revisão de acesso no PIM - Azure Active Directory | Documentos da Microsoft
 description: Descreve como utilizar um dashboard de recursos para realizar uma revisão de acesso no Azure AD Privileged Identity Management (PIM).
 services: active-directory
 documentationcenter: ''
@@ -16,16 +16,16 @@ ms.date: 03/30/2018
 ms.author: rolyon
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 89abf15731bd125737e7c18ab45782820a856b38
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 37057e531ea8387fbed84c9b03bbfb9c14d160ea
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58012658"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58574965"
 ---
 # <a name="use-a-resource-dashboard-to-perform-an-access-review-in-pim"></a>Utilizar um dashboard de recursos para realizar uma revisão de acesso no PIM
 
-Pode utilizar um dashboard de recursos para realizar uma revisão de acesso no Privileged Identity Management (PIM) para recursos do Azure. O dashboard de vista de administração tem três componentes principais:
+Pode utilizar um dashboard de recursos para realizar uma revisão de acesso no Azure Active Directory (Azure AD) Privileged Identity Management (PIM). O dashboard de vista de administração tem três componentes principais:
 
 - Uma representação gráfica de ativações de função de recursos.
 - Dois gráficos que exibem a distribuição de atribuições de funções por tipo de atribuição.
@@ -43,4 +43,4 @@ Abaixo dos gráficos, verá o número de utilizadores e grupos com novas atribui
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-- [Iniciar uma revisão de acesso para funções de recursos do Azure no PIM](pim-resource-roles-start-access-review.md) 
+- [Inicie uma revisão de acesso das funções de recursos no PIM](pim-resource-roles-start-access-review.md) 

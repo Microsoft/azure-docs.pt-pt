@@ -1,5 +1,5 @@
 ---
-title: Rever o acesso a grupos ou aplicações nas revisões de acesso do Azure AD | Documentos da Microsoft
+title: Rever o acesso a grupos ou aplicações nas revisões de acesso - Azure Active Directory | Documentos da Microsoft
 description: Saiba como rever o acesso dos membros do grupo ou de acesso de aplicação nas revisões de acesso do Azure Active Directory.
 services: active-directory
 author: rolyon
@@ -15,16 +15,16 @@ ms.date: 02/20/2019
 ms.author: rolyon
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 097d230e919e6d4b56e6c677364610bda6630f75
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: 02c12a8cc8163fa70008b21995ddb35aec57dfcf
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56728391"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58579687"
 ---
-# <a name="review-access-to-groups-or-applications-in-azure-ad-access-reviews"></a>Rever o acesso a grupos ou aplicações nas revisões de acesso do Azure AD
+# <a name="review-access-to-groups-or-applications-in-azure-ad-access-reviews"></a>Rever o acesso a grupos ou as revisões de acesso a aplicações no Azure AD
 
-Azure Active Directory (Azure AD) simplifica como as empresas a gerir o acesso a grupos e aplicações no Azure AD e outros serviços Online da Microsoft com um recurso chamado revisões de acesso do Azure AD.
+Azure Active Directory (Azure AD) simplifica como as empresas a gerir o acesso a grupos e aplicações no Azure AD e revisões de outros serviços Online da Microsoft com um recurso chamado acesso do Azure AD.
 
 Este artigo descreve como um revisor designado executa uma revisão de acesso para membros de um grupo ou os utilizadores com acesso a uma aplicação.
 
@@ -44,11 +44,11 @@ Se não tiver o e-mail, pode encontrar o que seu acesso pendente revisões segui
 
     ![MyApps portal](./media/perform-access-review/myapps-access-panel.png)
 
-1. No canto superior direito da página, clique no símbolo de utilizador, que exibe a sua organização nome e a predefinição. Se mais do que uma organização estiver listada, selecione a organização que solicitou uma revisão de acesso.
+1. No canto superior direito da página, clique no símbolo de utilizador, que mostra o seu nome e a sua organização predefinida. Se aparecer mais de uma organização, selecione aquela que pediu a revisão de acesso.
 
 1. No lado direito da página, clique nas **as revisões de acesso** mosaico para ver uma lista das revisões de acesso pendente.
 
-    Se o mosaico não estiver visível, existem não existem revisões de acesso para efetuar dessa organização e é necessária nenhuma ação neste momento.
+    Se o mosaico não estiver visível, não há revisões de acesso a realizar nessa organização e não é necessária nenhuma ação nesse momento.
 
     ![Lista de revisões de acesso](./media/perform-access-review/access-reviews-list.png)
 

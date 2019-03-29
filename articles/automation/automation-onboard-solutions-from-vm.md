@@ -4,17 +4,17 @@ description: Saiba como para carregar uma máquina virtual do Azure com soluçõ
 services: automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 06/06/2018
+ms.date: 03/20/2019
 ms.topic: conceptual
 ms.service: automation
 ms.custom: mvc
 manager: carmonm
-ms.openlocfilehash: 70d9957ae5f0ec43269d371c96e3722e52edb26d
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: bf81b862f978d4baab0907dc9002564062ec5228
+ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57837767"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58619735"
 ---
 # <a name="onboard-update-management-change-tracking-and-inventory-solutions-from-an-azure-virtual-machine"></a>Carregar soluções de gestão de atualizações, controlo de alterações e inventário da máquina virtual do Azure
 
@@ -26,7 +26,7 @@ Inicie sessão no portal do Azure em https://portal.azure.com.
 
 ## <a name="enable-the-solutions"></a>Ativar as soluções
 
-Ir para uma máquina virtual existente. Sob **OPERATIONS**, selecione **gestão de atualizações**, **inventário**, ou **controlo de alterações**. A máquina virtual pode existir em qualquer região, independentemente da localização da sua conta de automatização.
+Ir para uma máquina virtual existente. Sob **OPERATIONS**, selecione **gestão de atualizações**, **inventário**, ou **controlo de alterações**. A máquina virtual pode existir em qualquer região, independentemente da localização da sua conta de automatização. Quando uma solução de uma VM de inclusão tem de ter o `Microsoft.OperationalInsights/workspaces/read` permissão para determinar se a VM é carregada para uma área de trabalho. Para saber mais sobre permissões adicionais que são necessários em geral, veja [permissões necessárias para carregar máquinas](automation-role-based-access-control.md#onboarding).
 
 Para ativar a solução para apenas a VM, certifique-se de que **ativar para esta VM** está selecionada. Para carregar várias máquinas para a solução, selecione **ativar para as VMs nesta subscrição**e, em seguida, selecione **clique para selecionar máquinas para ativar**. Para saber como para carregar várias máquinas ao mesmo tempo, veja [soluções de integrar a gestão de atualizações, controlo de alterações e inventário](automation-onboard-solutions-from-automation-account.md).
 
@@ -85,13 +85,13 @@ Depois de remover estas soluções, pode executar os seguintes passos para desas
 
 1. A partir do portal do Azure, abra sua conta de automatização e na Automação de conta de página select **ligado área de trabalho** na secção **recursos relacionados** à esquerda.
 
-1. Na página de área de trabalho de desassociar, clique em **desassociar área de trabalho**.
+2. Na página de área de trabalho de desassociar, clique em **desassociar área de trabalho**.
 
    ![Desassociar a página de área de trabalho](media/automation-onboard-solutions-from-vm/automation-unlink-workspace-blade.png).
 
    Irá receber um pedido de confirmação de que pretende continuar.
 
-1. Enquanto a automatização do Azure tenta desassociar a conta de sua área de trabalho do Log Analytics, pode acompanhar o progresso em **notificações** no menu.
+3. Enquanto a automatização do Azure tenta desassociar a conta de sua área de trabalho do Log Analytics, pode acompanhar o progresso em **notificações** no menu.
 
 Se utilizou a solução de gestão de atualizações, opcionalmente, pode querer remover os seguintes itens que já não são necessários depois de remover a solução.
 

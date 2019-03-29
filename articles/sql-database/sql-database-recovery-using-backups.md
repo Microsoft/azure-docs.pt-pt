@@ -12,12 +12,12 @@ ms.author: sashan
 ms.reviewer: mathoma, carlrab
 manager: craigg
 ms.date: 03/12/2019
-ms.openlocfilehash: ff3f1e405dc7a1e69c3b1d1d20936ca78b97fcda
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: ca54ae11390b388c3158bd220ee5c7829172a5c3
+ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57855100"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58620483"
 ---
 # <a name="recover-an-azure-sql-database-using-automated-database-backups"></a>Recuperar uma base de dados SQL do Azure com cópias de segurança da base de dados automatizada
 
@@ -175,7 +175,7 @@ Para restaurar uma base de dados individual ou agrupada através da API REST:
 ### <a name="azure-cli"></a>CLI do Azure
 
 - Para restaurar uma base de dados individual ou agrupada com a CLI do Azure, consulte [restauro do az sql db](/cli/azure/sql/db#az-sql-db-restore).
-- Para restaurar uma instância gerida com a CLI do Azure, consulte [restauro de midb az sql](/cli/azure/sql/db)
+- Para restaurar uma instância gerida com a CLI do Azure, consulte [restauro de midb az sql](/cli/azure/sql/midb#az-sql-midb-restore)
 
 ## <a name="summary"></a>Resumo
 

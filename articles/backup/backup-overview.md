@@ -9,12 +9,12 @@ ms.topic: overview
 ms.date: 02/19/2019
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: d1debbcc8f225a0d4608d67b19e5e00aca580ce1
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 51191f3276a9420129f47944b47a182479719d5a
+ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58122017"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58621673"
 ---
 # <a name="what-is-azure-backup"></a>O que é o Backup do Azure?
 
@@ -26,12 +26,16 @@ O serviço de cópia de segurança do Azure faz o backup de dados para a cloud d
 O Azure Backup fornece estas principais vantagens:
 
 - **A descarga de cópia de segurança no local**: O Azure Backup oferece uma solução simple para cópia de segurança de seus recursos no local para a cloud. Obtenha cópia de segurança de curta e longo prazo, sem a necessidade de implementar complexas soluções no local cópia de segurança. 
-- **Cópia de segurança de VMs IaaS do Azure**: O Azure Backup fornece cópias de segurança de forma independentes e isoladas para proteger contra destruição acidental de dados originais. As cópias de segurança são armazenadas num cofre dos serviços de recuperação com interna gerenciada de pontos de recuperação. Configuração e a escalabilidade é simples, as cópias de segurança são otimizadas e pode facilmente restaurar conforme necessário.
+- **Cópia de segurança de VMs IaaS do Azure**: O Azure Backup fornece cópias de segurança de forma independentes e isoladas para proteger contra destruição acidental de dados originais. As cópias de segurança são armazenadas num cofre dos serviços de recuperação com interna gerenciada de pontos de recuperação. Configuração e de escalabilidade são simples, as cópias de segurança são otimizadas e pode facilmente restaurar conforme necessário.
 - **Dimensione facilmente** -cópia de segurança do Azure utiliza o poder subjacente e o dimensionamento ilimitado da nuvem do Azure para fornecer elevada disponibilidade com nenhuma manutenção ou monitorização sobrecarga. 
-- **Obter a transferência de dados ilimitada** - cópia de segurança do Azure não limita a quantidade de entrada ou dados de saída transfira ou cobra por dados que são transferidos.
+- **Obter a transferência de dados ilimitada**: O Azure Backup não limita a quantidade de dados de entrada ou saídas de transferência ou cobra por dados que são transferidos.
     - Os dados de saída são os dados transferidos a partir de um cofre dos Serviços de Recuperação durante uma operação de restauro.
     - Se efetuar uma cópia de segurança inicial offline usando o serviço importar/exportar do Azure para importar grandes quantidades de dados, há um custo associado a dados de entrada.  [Saiba mais](backup-azure-backup-import-export.md). 
-- **Manter os dados seguros**: Encriptação de dados permite a transmissão segura e o armazenamento dos seus dados na cloud pública. A frase de acesso de encriptação é armazenada por si localmente, e nunca é transmitida ou armazenada no Azure. Se for necessário restaurar quaisquer dados, é o único a ter a frase de acesso ou a chave de encriptação.
+- **Manter os dados seguros**:
+    - No local, os dados em trânsito são encriptados na máquina no local utilizando AES256. Os dados transmitidos estão protegidos por HTTPS entre o armazenamento e cópia de segurança. O protocolo iSCSI protege os dados transmitidos entre a cópia de segurança e a máquina do usuário. Túnel seguro é utilizado para proteger o canal de iSCSI.
+    - No local para o Azure backup, dados no Azure são encriptados quando Inativos utilizando a frase de acesso que fornece ao configurar a cópia de segurança. A frase de acesso ou a chave nunca é transmitida ou armazenada no Azure. Se for necessário restaurar quaisquer dados, é o único a ter a frase de acesso ou a chave de encriptação.
+    - Para as VMs do Azure, os dados são encriptados utilizando encriptação de serviço de armazenamento (SSE) na reposição. Cópia de segurança encripta automaticamente dados antes de os armazenar. O armazenamento do Azure descriptografa os dados antes de recuperá-lo.
+    - Cópia de segurança também suporta VMs do Azure encriptadas com a encriptação de disco do Azure (ADE). [Saiba mais](backup-azure-vms-introduction.md#encryption-of-azure-vm-backups).
 - **Obter cópias de segurança consistente com a aplicação**: Uma cópia de segurança consistentes com aplicações significa que um ponto de recuperação tem todos os dados necessários para restaurar a cópia de segurança. O Azure Backup fornece cópias de segurança consistentes com as aplicações, o que garante que não são necessárias correções adicionais para restaurar os dados. Restaurar dados consistentes com as aplicações reduz o tempo de restauro, permitindo-lhe voltar rapidamente a um estado de execução.
 - **Manter os dados de curtos e longo prazo**: Pode utilizar cofres dos serviços de recuperação para a retenção de dados de curto e longo prazo. O Azure não limita o período de tempo durante o qual os dados podem permanecer num cofre dos Serviços de Recuperação. Puderem mantê-lo para o tempo que pretender. O Azure Backup tem um limite de 9999 pontos de recuperação por instância protegida. [Saiba mais](backup-introduction-to-azure-backup.md#backup-and-retention)sobre como este limite afeta a suas necessidades de cópia de segurança.
 - **Gestão de armazenamento automática** - os ambientes híbridos necessitam frequentemente de armazenamento heterogéneo - alguns no local e outros na nuvem. Com o Azure Backup, não existe nenhum custo para a utilização de dispositivos de armazenamento no local. O Azure Backup atribui automaticamente e gere o armazenamento de cópia de segurança e utiliza um modelo de pay-as que use, para que só paga o armazenamento que consumir. [Saiba mais](https://azure.microsoft.com/pricing/details/backup) sobre os preços.
@@ -56,7 +60,7 @@ Utilize os pontos de tabela para ajudar a descobrir as suas necessidades BCDR.
 
 **Objetivo** | **Detalhes** | **Comparação**
 --- | --- | --- 
-**Cópia de segurança/retenção de dados** | Dados de cópia de segurança podem ser mantidos e armazenados durante dias, meses ou até anos a fio se for necessário numa perspetiva de conformidade. | Soluções de cópia de segurança, como a cópia de segurança do Azure permitem-lhe escolher os dados que pretende criar cópias de segurança e fazer um ajuste as políticas de cópia de segurança e retenção.<br/><br/> Recuperação de sites não permite a mesma ajuste fino.
+**Cópia de segurança/retenção de dados** | Dados de cópia de segurança podem ser mantidos e armazenados durante dias, meses ou até anos a fio se for necessário numa perspetiva de conformidade. | Soluções de cópia de segurança, como a cópia de segurança do Azure permitem-lhe escolher os dados que pretende criar cópias de segurança e fazer um ajuste as políticas de cópia de segurança e retenção.<br/><br/> Recuperação de sites não permite que a mesma ajuste fino.
 **Objetivo de ponto de recuperação (RPO)** | A quantidade de perda de dados aceitável se uma recuperação tiver de ser efetuada. | As cópias de segurança têm mais variável RPO.<br/><br/> Cópias de segurança VM normalmente têm um RPO de um dia, enquanto as cópias de segurança da base de dados têm RPOs tão baixos como 15 minutos.<br/><br/> Recuperação de sites fornece um RPO baixo, uma vez que a replicação é contínua ou com frequência, para que o delta entre a cópia de origem e de réplica é pequeno.
 **Objetivo de tempo de recuperação (RTO)** |A quantidade de tempo que demora a concluir uma recuperação ou um restauro. | Devido ao RPO maior, a quantidade de dados que uma solução de cópia de segurança necessita para processar é, normalmente, muito mais elevada, o que resulta em RTOs maiores. Por exemplo, pode demorar dias para restaurar dados de bandas, consoante o tempo que demora a transportar a banda a partir de uma localização fora das instalações. 
 
@@ -66,7 +70,7 @@ Cópia de segurança do Azure pode fazer uma cópia de segurança de máquinas n
 
 **Machine** | **Criar cópias de segurança cenário**
 --- | ---
-**Cópia de segurança no local** |  1) execute o agente de cópia de segurança Microsoft Azure Recovery dos serviços Azure (MARS) no local máquinas do Windows para fazer backup de arquivos individuais e o estado do sistema. <br/><br/>2) cópia de segurança de máquinas no local para um servidor de cópia de segurança (System Center Data Protection Manager (DPM) ou Microsoft Azure Backup Server (MABS)) e, em seguida, configure o servidor de backup para cópia de segurança para um cofre dos serviços de recuperação de cópia de segurança do Azure no Azure.
+**Cópia de segurança no local** |  1) execute o agente de cópia de segurança Microsoft Azure Recovery dos serviços Azure (MARS) no local máquinas do Windows para fazer backup de arquivos individuais e o estado do sistema. <br/><br/>2) cópia de segurança de máquinas no local para um servidor de cópia de segurança (System Center Data Protection Manager (DPM) ou Microsoft Azure Backup Server (MABS)) e, em seguida, configure o servidor de backup para cópia de segurança para um cofre de serviços de recuperação de cópia de segurança do Azure no Azure.
 **VMs do Azure** | 1) ative cópia de segurança para VMs do Azure individuais. Quando ativa a cópia de segurança, o Azure Backup instala uma extensão para o agente de VM do Azure que está em execução na VM. O agente faz o backup de toda a VM.<br/><br/> 2) execute o agente de MARS numa VM do Azure. Isto é útil se pretender efetuar cópias de segurança de ficheiros e pastas individuais na VM.<br/><br/> 3) cópia de segurança de uma VM do Azure para um servidor DPM ou MABS em execução no Azure. Em seguida, criar cópias de segurança do servidor DPM/MABS para um cofre de cópia de segurança do Azure a utilizar. 
 
 
@@ -78,7 +82,7 @@ Cópia de segurança do Azure pode fazer uma cópia de segurança de máquinas n
 As vantagens da cópia de segurança de máquinas e aplicações para o armazenamento do MABS/DPM e, em seguida, cópia de segurança de armazenamento do DPM/MABS para um cofre são os seguintes:
 
 - O backup em MABS/DPM fornece cópias de segurança com suporte para a aplicação otimizadas para aplicações comuns, como o SQL Server, Exchange e SharePoint, no adicionais para cópias de segurança do ficheiro/pasta/volume e backups de estado do computador (bare-metal, o estado do sistema).
-- Para máquinas no local, não terá de instalar o agente de MARS em cada máquina que pretende criar cópias de segurança. Cada máquinas executa o agente de proteção do DPM/MABS e o agente de MARS é executado no MABS/DPM apenas.
+- Para máquinas no local, não terá de instalar o agente de MARS em cada máquina que pretende criar cópias de segurança. Cada máquina executa o agente de proteção do DPM/MABS e o agente de MARS é executado no MABS/DPM apenas.
 - Tem mais flexibilidade e opções de agendamento granulares para a execução de cópias de segurança.
 - Pode gerir as cópias de segurança para várias máquinas que agrupa em grupos de proteção numa única consola. Isto é particularmente útil quando as aplicações são dispostos em camadas através de várias máquinas e pretende que o backup deles em conjunto.
 

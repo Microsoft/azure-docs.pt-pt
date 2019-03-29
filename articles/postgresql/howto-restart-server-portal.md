@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 3/18/2019
-ms.openlocfilehash: 83947571ed835c53c6cf8da6e73deb8dceabdd62
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: bf73120e462b740de5d2245f8a647896ac61f2c8
+ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58168780"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58621835"
 ---
 # <a name="restart-azure-database-for-postgresql-server-using-the-azure-portal"></a>Reinicie a base de dados do Azure para o servidor PostgreSQL no portal do Azure
 Este tópico descreve como pode reiniciar uma base de dados do Azure para o servidor PostgreSQL. Terá de reiniciar o servidor por motivos de manutenção, o que faz com que uma interrupção curta como o servidor executa a operação.
@@ -22,7 +22,7 @@ O tempo necessário para concluir um reinício depende do processo de recuperaç
 
 ## <a name="prerequisites"></a>Pré-requisitos
 Para concluir este guia de procedimentos, terá de:
-- Um [base de dados do Azure para PostgreSQL server e base de dados](quickstart-create-server-database-portal.md)
+- Um [base de dados do Azure para o servidor PostgreSQL](quickstart-create-server-database-portal.md)
 
 ## <a name="perform-server-restart"></a>Reiniciar o servidor
 

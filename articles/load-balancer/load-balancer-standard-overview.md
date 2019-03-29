@@ -12,18 +12,18 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 01/11/2019
+ms.date: 03/28/2019
 ms.author: kumud
-ms.openlocfilehash: d914242b6a29e05e5b97ad11a1bde6f894113e43
-ms.sourcegitcommit: ba9f95cf821c5af8e24425fd8ce6985b998c2982
+ms.openlocfilehash: ee0dc1b9879c8a26c7f3e48cc8daf6ae3511b27a
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54382564"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58578531"
 ---
 # <a name="azure-standard-load-balancer-overview"></a>Descrição geral do Balanceador de carga Standard do Azure
 
-O Balanceador de carga do Azure permite-lhe dimensionar as suas aplicações e criar disponibilidade elevada para os seus serviços. Balanceador de carga pode ser utilizado para cenários de entrada e de saída e fornece um débito elevado, de baixa latência e aumenta até milhões de fluxos para todas as aplicações TCP e UDP. 
+O Azure Load Balance permite-lhe dimensionar as suas aplicações e criar disponibilidade elevada para os seus serviços. Balanceador de carga pode ser utilizado para cenários de entrada e de saída e fornece um débito elevado, de baixa latência e aumenta até milhões de fluxos para todas as aplicações TCP e UDP. 
 
 Este artigo se concentra no balanceador de carga Standard.  Para obter uma descrição geral mais geral para o Balanceador de carga do Azure, reveja [descrição geral do Balanceador de carga](load-balancer-overview.md) também.
 
@@ -73,6 +73,9 @@ Além disso, quando o conjunto de back-end toda [sondas para baixo](load-balance
 Revisão [sondas de estado de funcionamento do Balanceador de carga](load-balancer-custom-probe-overview.md) para obter detalhes.
 
 ### <a name="az"></a>As zonas de disponibilidade
+
+>[!IMPORTANT]
+>Revisão [zonas de disponibilidade](../availability-zones/az-overview.md) para tópicos relacionados, incluindo quaisquer informações específicas da região.
 
 Balanceador de carga Standard suporta capacidades adicionais nas regiões onde as zonas de disponibilidade estão disponíveis.  Estas funcionalidades são incrementais para todos os Balanceador de carga Standard oferece.  Configurações de zonas de disponibilidade estão disponíveis para o Balanceador de carga Standard público e internos.
 

@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/03/2016
 ms.author: manayar
-ms.openlocfilehash: 1a8bfbe12156156944d4527ebb11fa6f1a1de544
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
+ms.openlocfilehash: c27d92a330d82cb8638a970602f2a8d0ce2e79c2
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55977240"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58579755"
 ---
 # <a name="vertical-autoscale-with-virtual-machine-scale-sets"></a>Conjuntos de dimensionamento automático vertical com dimensionamento de máquinas virtuais
 
@@ -43,16 +43,52 @@ Pode configurar dimensionamento vertical ser acionadas com base na métrica base
 4. Adicione um alerta para o seu conjunto de dimensionamento com uma notificação de webhook.
 
 > [!NOTE]
-> Dimensionamento automático vertical só pode ocorrer dentro de determinados intervalos de tamanhos de VM. Comparar as especificações de cada tamanho antes de decidir dimensione desde uma a outra (número mais alto não sempre indica maior tamanho VM). Pode optar por dimensionar entre os seguintes pares de tamanhos:
+> Devido ao tamanho da primeira Máquina Virtual, os tamanhos podem ser dimensionado, poderá ser limitado devido à disponibilidade, os outros tamanhos no cluster de que Máquina Virtual atual for implementado num. Os runbooks de automatização publicados usados neste artigo vamos lidar com esse caso e só pode reduzir dentro do abaixo pares de tamanho VM. Isso significa que uma máquina de Virtual Standard_D1v2 será não, de repente, aumentar verticalmente até Standard_G5 ou reduzidos verticalmente para Basic_A0. Também restrita máquina de Virtual tamanhos aumentar/reduzir verticalmente não é suportada. Pode optar por dimensionar entre os seguintes pares de tamanhos:
 > 
 > | Dimensionar o par de tamanhos de VM |  |
 > | --- | --- |
-> | Standard_A0 |Standard_A11 |
-> | Standard_D1 |Standard_D14 |
-> | Standard_DS1 |Standard_DS14 |
-> | Standard_D1v2 |Standard_D15v2 |
+> | Basic_A0 |Basic_A4 |
+> | Standard_A0 |Standard_A4 |
+> | Standard_A5 |Standard_A7 |
+> | Standard_A8 |Standard_A9 |
+> | Standard_A10 |Standard_A11 |
+> | Standard_A1_v2 |Standard_A8_v2 |
+> | Standard_A2m_v2 |Standard_A8m_v2  |
+> | Standard_B1s |Standard_B2s |
+> | Standard_B1ms |Standard_B8ms |
+> | Standard_D1 |Standard_D4 |
+> | Standard_D11 |Standard_D14 |
+> | Standard_DS1 |Standard_DS4 |
+> | Standard_DS11 |Standard_DS14 |
+> | Standard_D1_v2 |Standard_D5_v2 |
+> | Standard_D11_v2 |Standard_D14_v2 |
+> | Standard_DS1_v2 |Standard_DS5_v2 |
+> | Standard_DS11_v2 |Standard_DS14_v2 |
+> | Standard_D2_v3 |Standard_D64_v3 |
+> | Standard_D2s_v3 |Standard_D64s_v3 |
+> | Standard_DC2s |Standard_DC4s |
+> | Standard_E2_v3 |Standard_E64_v3 |
+> | Standard_E2s_v3 |Standard_E64s_v3 |
+> | Standard_F1 |Standard_F16 |
+> | Standard_F1s |Standard_F16s |
+> | Standard_F2sv2 |Standard_F72sv2 |
 > | Standard_G1 |Standard_G5 |
 > | Standard_GS1 |Standard_GS5 |
+> | Standard_H8 |Standard_H16 |
+> | Standard_H8m |Standard_H16m |
+> | Standard_L4s |Standard_L32s |
+> | Standard_L8s_v2 |Standard_L80s_v2 |
+> | Standard_M8ms  |Standard_M128ms |
+> | Standard_M32ls  |Standard_M64ls |
+> | Standard_M64s  |Standard_M128s |
+> | Standard_M64  |Standard_M128 |
+> | Standard_M64m  |Standard_M128m |
+> | Standard_NC6 |Standard_NC24 |
+> | Standard_NC6s_v2 |Standard_NC24s_v2 |
+> | Standard_NC6s_v3 |Standard_NC24s_v3 |
+> | Standard_ND6s |Standard_ND24s |
+> | Standard_NV6 |Standard_NV24 |
+> | Standard_NV6s_v2 |Standard_NV24s_v2 |
 > 
 > 
 
@@ -64,7 +100,7 @@ A primeira coisa que precisa fazer é criar uma conta de automatização do Azur
 ## <a name="import-azure-automation-vertical-scale-runbooks-into-your-subscription"></a>Importar runbooks do dimensionamento Vertical de automatização do Azure na sua subscrição
 Os runbooks necessários para aumentar verticalmente os seus conjuntos de dimensionamento de máquina virtual já são publicados na Galeria de Runbook da automatização do Azure. Para importá-los na sua subscrição siga os passos neste artigo:
 
-* [Galerias de módulos e Runbooks de automatização do Azure](../automation/automation-runbook-gallery.md)
+* [Runbook and module galleries for Azure Automation](../automation/automation-runbook-gallery.md) (Galerias de runbooks e módulos para a Automatização do Azure)
 
 Escolha a opção de Galeria de procura no menu de Runbooks:
 

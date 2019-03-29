@@ -13,14 +13,14 @@ ms.topic: conceptual
 ms.custom: mvc
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 3/14/2019
+ms.date: 3/28/2019
 ms.author: monhaber
-ms.openlocfilehash: d99ef6026f3605f4081393811d840ba3fe2892ba
-ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
+ms.openlocfilehash: 1931026869e930caef2ff2f92fb85dade15a9c8c
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58226118"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58578446"
 ---
 # <a name="working-with-security-policies"></a>Trabalhar com políticas de segurança
 
@@ -109,7 +109,7 @@ Para obter mais informações sobre as recomendações, veja [recomendações de
 
    ![Gestão de políticas](./media/tutorial-security-policy/policy-management.png)
 
-2. Clique a subscrição para o qual pretende desativar a recomendação.
+2. Clique no grupo de gestão ou de subscrição para o qual pretende desativar a recomendação.
 
 1. Clique em política atribuída.
 

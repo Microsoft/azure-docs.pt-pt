@@ -5,14 +5,14 @@ services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: article
-ms.date: 1/11/2019
+ms.date: 3/28/2019
 ms.author: amitsriva
-ms.openlocfilehash: 14b99f648bb1d7e1926aa9d5dd9926e267ba9709
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.openlocfilehash: 367da8a1948b9feb42bc82d85762ae314fe165a0
+ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57309133"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58620881"
 ---
 # <a name="back-end-health-diagnostic-logs-and-metrics-for-application-gateway"></a>Estado de funcionamento do back-end, registos de diagnóstico e métricas para o Gateway de aplicação
 
@@ -131,7 +131,7 @@ O registo de atividades é ativado automaticamente para todos os recursos do Res
 
 ### <a name="enable-logging-through-the-azure-portal"></a>Ativar o registo através do portal do Azure
 
-1. No portal do Azure, encontre o seu recurso e clique em **registos de diagnóstico**.
+1. No portal do Azure, localize o seu recurso e selecione **das definições de diagnóstico**.
 
    Para o Gateway de aplicação, três logs estão disponíveis:
 
@@ -139,21 +139,15 @@ O registo de atividades é ativado automaticamente para todos os recursos do Res
    * Registo de desempenho
    * Log do firewall
 
-2. Para iniciar a recolha de dados, clique em **Ativar os diagnósticos**.
+2. Para iniciar a recolha de dados, selecione **ativar os diagnósticos**.
 
    ![Ativar diagnósticos][1]
 
-3. O **as definições de diagnóstico** painel fornece as definições para os registos de diagnóstico. Neste exemplo, o Log Analytics armazena os registos. Clique em **configurar** sob **do Log Analytics** para configurar a sua área de trabalho. Também pode utilizar os hubs de eventos e uma conta de armazenamento para guardar os registos de diagnóstico.
+3. A página **Definições de diagnóstico** fornece as definições para os registos de diagnóstico. Neste exemplo, o Log Analytics armazena os registos. Também pode utilizar os hubs de eventos e uma conta de armazenamento para guardar os registos de diagnóstico.
 
    ![Iniciar o processo de configuração][2]
 
-4. Escolha uma área de trabalho do Log Analytics existente ou crie um novo. Este exemplo utiliza um já existente.
-
-   ![Opções para áreas de trabalho do Log Analytics][3]
-
-5. Confirme as definições e clique em **guardar**.
-
-   ![Painel de definições de diagnóstico com seleções][4]
+5. Escreva um nome para as definições, confirme as definições e selecione **guardar**.
 
 ### <a name="activity-log"></a>Registo de atividades
 
@@ -164,7 +158,7 @@ Azure gera o registo de atividades, por predefinição. Os registos são mantido
 O registo de acesso é gerado apenas se tiver habilitado em cada instância de Gateway de aplicação, conforme especificado nos passos anteriores. Os dados são armazenados na conta de armazenamento que especificou quando ativou o registo. Cada acesso de Gateway de aplicação é registado no formato JSON, conforme mostrado no exemplo a seguir:
 
 
-|Value  |Descrição  |
+|Valor  |Descrição  |
 |---------|---------|
 |instanceId     | Instância de Gateway de aplicação que serviu o pedido.        |
 |clientIP     | IP de origem para o pedido.        |
@@ -208,7 +202,7 @@ O registo de acesso é gerado apenas se tiver habilitado em cada instância de G
 O registo de desempenho é gerado apenas se está ativado em cada instância de Gateway de aplicação, conforme especificado nos passos anteriores. Os dados são armazenados na conta de armazenamento que especificou quando ativou o registo. Os dados de registo de desempenho são gerados em intervalos de 1 minuto. Os seguintes dados são registados:
 
 
-|Value  |Descrição  |
+|Valor  |Descrição  |
 |---------|---------|
 |instanceId     |  Instância de Gateway de aplicação para o desempenho de dados está a ser gerados. Para um gateway de aplicação de várias instâncias, existe uma linha por instância.        |
 |healthyHostCount     | Número de anfitriões em bom estado no conjunto de back-end.        |
@@ -245,7 +239,7 @@ O registo de desempenho é gerado apenas se está ativado em cada instância de 
 O log do firewall é gerado apenas se está ativado para cada gateway de aplicação, conforme especificado nos passos anteriores. Este registo também requer que a firewall de aplicações web está configurada num gateway de aplicação. Os dados são armazenados na conta de armazenamento que especificou quando ativou o registo. Os seguintes dados são registados:
 
 
-|Value  |Descrição  |
+|Valor  |Descrição  |
 |---------|---------|
 |instanceId     | Instância de Gateway de aplicação para o qual firewall dados está a ser gerados. Para um gateway de aplicação de várias instâncias, existe uma linha por instância.         |
 |clientIp     |   IP de origem para o pedido.      |
@@ -334,7 +328,7 @@ As métricas são uma funcionalidade para determinados recursos do Azure, onde p
 
    Pode filtrar um por base de conjunto de back-end para mostrar os anfitriões em bom estado/mau estado de funcionamento de um conjunto de back-end específicas.
 
-Navegue para um gateway de aplicação, em **monitorização** clique em **métricas**. Para ver os valores disponíveis, selecione a lista pendente **MÉTRICA**.
+Navegue para um gateway de aplicação, em **monitorização** selecionar **métricas**. Para ver os valores disponíveis, selecione a lista pendente **MÉTRICA**.
 
 Na imagem seguinte, verá um exemplo com três métricas apresentadas nos últimos 30 minutos:
 
@@ -348,11 +342,11 @@ Pode começar com base em métricas de um recurso de regras de alerta. Por exemp
 
 O exemplo seguinte explica como criar uma regra de alerta que envia um e-mail para um administrador após falhas de débito um limiar:
 
-1. Clique em **Adicionar alerta de métrica** para abrir o **Adicionar regra** painel. Também pode aceder este painel a partir do painel de métricas.
+1. Selecione **Adicionar alerta de métrica** para abrir o **Adicionar regra** página. Também pode aceder esta página a partir da página de métricas.
 
    ![Botão "Adicionar alerta de métrica"][6]
 
-2. Sobre o **Adicionar regra** painel, preencha o nome, a condição, notificar secções e clique em **OK**.
+2. Sobre o **Adicionar regra** página, preencha o nome, a condição e notificar secções e selecione **OK**.
 
    * Na **condição** Seletor, selecione um dos quatro valores: **Superior a**, **maior que ou igual**, **inferior**, ou **inferior ou igual a**.
 
@@ -360,7 +354,7 @@ O exemplo seguinte explica como criar uma regra de alerta que envia um e-mail pa
 
    * Se selecionou **proprietários, contribuidores e leitores do E-Mail**, a mensagem de e-mail pode ser dinâmica com base em que os utilizadores que têm acesso a esse recurso. Caso contrário, pode fornecer uma lista separada por vírgulas de utilizadores no **adicionais do administrador email(s)** caixa.
 
-   ![Adicionar o painel de regra][7]
+   ![Adicionar página de regra][7]
 
 Se o limiar é quebrado, chega uma mensagem de e-mail que é semelhante ao mostrado na imagem seguinte:
 

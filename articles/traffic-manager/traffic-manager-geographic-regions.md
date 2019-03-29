@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/22/2017
 ms.author: kumud
-ms.openlocfilehash: 26e54ba507ecab5d12ceb4169baaa52f99c20792
-ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
+ms.openlocfilehash: b6a8393a5f47d7fb85699f6828c4d08cc7afcabc
+ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54232435"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58620704"
 ---
 # <a name="countryregion-hierarchy-used-by-azure-traffic-manager-for-geographic-traffic-routing-method"></a>Hierarquia de país/região utilizada pelo Gestor de tráfego do Azure para o método de encaminhamento de tráfego geográfico
 
@@ -85,7 +85,7 @@ Este artigo apresenta uma lista de países e regiões utilizados pelas **Geograp
 
         - Je(Jersey)
 
-        - Li(Liechtenstein)
+        - LI(Liechtenstein)
 
         - LT(Lithuania)
 
@@ -97,7 +97,7 @@ Este artigo apresenta uma lista de países e regiões utilizados pelas **Geograp
 
         - MD(Moldova)
 
-        - Me(Montenegro)
+        - ME(Montenegro)
 
         - MK (República da Macedónia, FYRO)
 
@@ -128,10 +128,11 @@ Este artigo apresenta uma lista de países e regiões utilizados pelas **Geograp
         - SM (são marinho)
 
         - UA(Ukraine)
+            - Região de Crimeia
 
         - Avaliação de vulnerabilidades (cidade do Vaticano)
 
-        - XJ (Jan Mayen)
+        - XJ(Jan Mayen)
 
         - XK(Kosovo)
 
@@ -203,23 +204,23 @@ Este artigo apresenta uma lista de países e regiões utilizados pelas **Geograp
 
             - AC NT(Northwest Territories)
 
-            - CA-nu(Nunavut)
+            - CA-NU(Nunavut)
 
             - CA-on(Ontario)
 
             - AC PE(Prince Edward Island)
 
-            - CA-qc(Québec)
+            - CA-QC(Québec)
 
             - CA-SK(Saskatchewan)
 
             - AC YT(Yukon Territory)
 
-        - CR (Costa Rica)
+        - CR(Costa Rica)
 
         - Cu(cuba)
 
-        - Cw(CuraÃ§ao)
+        - CW(CuraÃ§ao)
 
         - DM(Dominica)
 
@@ -245,7 +246,7 @@ Este artigo apresenta uma lista de países e regiões utilizados pelas **Geograp
 
         - LC (Santa Lúcia)
 
-        - MF (são Martinho)
+        - MF(Saint Martin)
 
         - MQ(Martinique)
 
@@ -263,7 +264,7 @@ Este artigo apresenta uma lista de países e regiões utilizados pelas **Geograp
 
         - SV(El Salvador)
 
-        - SX (Sint Maarten)
+        - SX(Sint Maarten)
 
         - TC (Ilhas Turcas e Caicos)
 
@@ -275,21 +276,21 @@ Este artigo apresenta uma lista de países e regiões utilizados pelas **Geograp
 
             - US-AK(Alaska)
 
-            - US-Al(Alabama)
+            - US-AL(Alabama)
 
-            - US-ar(Arkansas)
+            - US-AR(Arkansas)
 
             - US-AZ(Arizona)
 
             - US-CA(California)
 
-            - US-Co(Colorado)
+            - US-CO(Colorado)
 
             - US-CT(Connecticut)
 
             - DC(District of Columbia) dos EUA
 
-            - US-de(Delaware)
+            - US-DE(Delaware)
 
             - US-FL(Florida)
 
@@ -303,15 +304,15 @@ Este artigo apresenta uma lista de países e regiões utilizados pelas **Geograp
 
             - US-il(Illinois)
 
-            - US-in(indiana)
+            - US-IN(Indiana)
 
             - US-KS(Kansas)
 
             - US-KY(Kentucky)
 
-            - US-la(Louisiana)
+            - US-LA(Louisiana)
 
-            - US-ma(Massachusetts)
+            - US-MA(Massachusetts)
 
             - US-MD(Maryland)
 
@@ -331,11 +332,11 @@ Este artigo apresenta uma lista de países e regiões utilizados pelas **Geograp
 
             - ND(North Dakota) dos EUA
 
-            - US-ne(Nebraska)
+            - US-NE(Nebraska)
 
-            - NH(New Hampshire) dos EUA
+            - US-NH(New Hampshire)
 
-            - NJ(New Jersey) dos EUA
+            - US-NJ(New Jersey)
 
             - NM(New Mexico) dos EUA
 
@@ -351,7 +352,7 @@ Este artigo apresenta uma lista de países e regiões utilizados pelas **Geograp
 
             - US-Pa(Pennsylvania)
 
-            - RI(Rhode Island) dos EUA
+            - US-RI(Rhode Island)
 
             - SC(South Carolina) dos EUA
 
@@ -369,9 +370,9 @@ Este artigo apresenta uma lista de países e regiões utilizados pelas **Geograp
 
             - US-WA(Washington)
 
-            - US-Wi(Wisconsin)
+            - US-WI(Wisconsin)
 
-            - WV(West Virginia) dos EUA
+            - US-WV(West Virginia)
 
             - US-WY(Wyoming)
 
@@ -467,7 +468,7 @@ Este artigo apresenta uma lista de países e regiões utilizados pelas **Geograp
 
         - AO(Angola)
 
-        - BF (Burquina Faso)
+        - BF(Burkina Faso)
 
         - BI(Burundi)
 
@@ -487,7 +488,7 @@ Este artigo apresenta uma lista de países e regiões utilizados pelas **Geograp
 
         - CM(Cameroon)
 
-        - CV (Cabo Verde)
+        - CV(Cabo Verde)
 
         - DJ(Djibouti)
 
@@ -583,7 +584,7 @@ Este artigo apresenta uma lista de países e regiões utilizados pelas **Geograp
 
         - ZW(Zimbabwe)
 
-    - Geo-an(Antarctica)
+    - GEO-AN(Antarctica)
 
         - AQ(Antarctica)
 
@@ -631,7 +632,7 @@ Este artigo apresenta uma lista de países e regiões utilizados pelas **Geograp
 
             - AU NT(Northern Territory)
 
-            - AU-Qld(Queensland)
+            - AU-QLD(Queensland)
 
             - AU SA(South Australia)
 

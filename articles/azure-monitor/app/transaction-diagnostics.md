@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 01/19/2018
 ms.reviewer: sdash
 ms.author: mbullwin
-ms.openlocfilehash: ba72f273724bb45418b104b1245648419ababbf0
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: c6c44525018e2115f1df8ed2d3f15432b95490c6
+ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57903628"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58619837"
 ---
 # <a name="unified-cross-component-transaction-diagnostics"></a>Diagnóstico de transação de vários componentes unificada
 
@@ -32,7 +32,7 @@ Os componentes são partes implementáveis independentemente do aplicativo/micro
 * Componentes podem ser separadas chaves de instrumentação do Application Insights (mesmo que as subscrições são diferentes) ou de diferentes funções de relatório para uma única chave de instrumentação do Application Insights. A nova experiência mostra os detalhes em todos os componentes, independentemente da forma como eles foram definidos.
 
 > [!NOTE]
-> * **Em falta as ligações de item relacionado?** Toda a telemetria relacionada estão no [top](#cross-component-transaction-chart) e [na parte inferior](#all-telemetry-with-this-Operation-Id) seções do lado esquerdo. 
+> * **Em falta as ligações de item relacionado?** Toda a telemetria relacionada estão no [top](#cross-component-transaction-chart) e [na parte inferior](#all-telemetry-with-this-operation-id) seções do lado esquerdo. 
 
 ## <a name="transaction-diagnostics-experience"></a>Experiência de diagnóstico de transação
 Esta vista tem quatro partes-chave: resulta de lista, um gráfico de transações entre componentes, uma lista da sequência de tempo de toda a telemetria relacionada com esta operação e o painel de detalhes de qualquer item de telemetria selecionado à esquerda.

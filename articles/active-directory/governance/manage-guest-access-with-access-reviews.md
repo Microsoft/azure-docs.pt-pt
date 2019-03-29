@@ -1,6 +1,6 @@
 ---
-title: Gerir o acesso de convidado com revisões de acesso do Azure AD | Documentos da Microsoft
-description: Gerir utilizadores convidados como membros de um grupo ou atribuídos a uma aplicação com revisões de acesso do Azure Active Directory
+title: Gerir o acesso de convidado com revisões de acesso - Azure Active Directory | Documentos da Microsoft
+description: Gerir utilizadores convidados como membros de um grupo ou atribuídos a uma aplicação com as revisões de acesso do Azure Active Directory
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -16,14 +16,14 @@ ms.date: 12/13/2018
 ms.author: rolyon
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3bed8a5d20b50fd90922730c958cb1a36933776f
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 967fbf460175dee303d26074426a1f90e4353407
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57881049"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58576501"
 ---
-# <a name="manage-guest-access-with-azure-ad-access-reviews"></a>Gerir o acesso de convidado com revisões de acesso do Azure AD
+# <a name="manage-guest-access-with-azure-ad-access-reviews"></a>Gerir o acesso de convidado com o Azure AD as revisões de acesso
 
 
 Com o Azure Active Directory (Azure AD), pode facilmente ativar colaboração entre fronteiras organizacionais com o [funcionalidade do Azure AD B2B](../b2b/what-is-b2b.md). Os utilizadores convidados de outros inquilinos podem ser [convidados por administradores](../b2b/add-users-administrator.md) ou pelo [outros utilizadores](../b2b/what-is-b2b.md). Esta capacidade também se aplica a identidades sociais, como contas Microsoft.

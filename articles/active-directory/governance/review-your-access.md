@@ -1,6 +1,6 @@
 ---
-title: Rever acesso para si próprio para grupos ou aplicações nas revisões de acesso do Azure AD | Documentos da Microsoft
-description: Saiba como rever o seu próprio acesso a grupos ou aplicações em revisões de acesso do Azure Active Directory.
+title: Rever acesso para si próprio para grupos ou aplicações nas revisões de acesso - Azure Active Directory | Documentos da Microsoft
+description: Saiba como rever o seu próprio acesso a grupos ou aplicações nas revisões de acesso do Azure Active Directory.
 services: active-directory
 author: rolyon
 manager: mtillman
@@ -15,16 +15,16 @@ ms.date: 02/20/2019
 ms.author: rolyon
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 76f90a5aa3f201fa5d1578ac63526be26377aedf
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: 3fe2013ff84dd0451fed7d108539606520cb9403
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56731213"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58576314"
 ---
-# <a name="review-access-for-yourself-to-groups-or-applications-in-azure-ad-access-reviews"></a>Rever acesso para si próprio para grupos ou aplicações nas revisões de acesso do Azure AD
+# <a name="review-access-for-yourself-to-groups-or-applications-in-azure-ad-access-reviews"></a>Rever acesso para si próprio para grupos ou as revisões de acesso a aplicações no Azure AD
 
-Azure Active Directory (Azure AD) simplifica a forma como as empresas gerir o acesso a grupos ou aplicações no Azure AD e outros serviços Online da Microsoft com um recurso chamado revisões de acesso do Azure AD.
+Azure Active Directory (Azure AD) simplifica como as empresas a gerir o acesso a grupos ou aplicações no Azure AD e revisões de outros serviços Online da Microsoft com um recurso chamado acesso do Azure AD.
 
 Este artigo descreve como rever o seu próprio acesso a um grupo ou uma aplicação.
 
@@ -44,11 +44,11 @@ Se não tiver o e-mail, pode encontrar o que seu acesso pendente revisões segui
 
     ![MyApps portal](./media/review-your-access/myapps-access-panel.png)
 
-1. No canto superior direito da página, clique no símbolo de utilizador, que exibe a sua organização nome e a predefinição. Se mais do que uma organização estiver listada, selecione a organização que solicitou uma revisão de acesso.
+1. No canto superior direito da página, clique no símbolo de utilizador, que mostra o seu nome e a sua organização predefinida. Se aparecer mais de uma organização, selecione aquela que pediu a revisão de acesso.
 
 1. No lado direito da página, clique nas **as revisões de acesso** mosaico para ver uma lista das revisões de acesso pendente.
 
-    Se o mosaico não estiver visível, existem não existem revisões de acesso para efetuar dessa organização e é necessária nenhuma ação neste momento.
+    Se o mosaico não estiver visível, não há revisões de acesso a realizar nessa organização e não é necessária nenhuma ação nesse momento.
 
     ![Lista de revisões de acesso](./media/review-your-access/access-reviews-list.png)
 

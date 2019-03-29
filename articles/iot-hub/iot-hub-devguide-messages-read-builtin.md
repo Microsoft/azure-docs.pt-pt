@@ -8,12 +8,12 @@ ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 02/26/2019
-ms.openlocfilehash: 52f1316b8167d2e1c3e37dbbfc0059b68e832172
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 827d7d9a3d584342703a84dd2a42e5cda9b3a656
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57538566"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58579415"
 ---
 # <a name="read-device-to-cloud-messages-from-the-built-in-endpoint"></a>Ler mensagens de dispositivo para cloud a partir do ponto final incorporado
 
@@ -24,7 +24,7 @@ Por predefinição, as mensagens são roteadas para o ponto de final de serviço
 | **Contagem de partições** | Defina esta propriedade durante a criação para definir o número de [partições](../event-hubs/event-hubs-features.md#partitions) para ingestão de eventos do dispositivo para a cloud. |
 | **Período de retenção**  | Esta propriedade especifica o período de tempo em dias as mensagens são mantidas pelo IoT Hub. A predefinição é um dia, mas ele pode ser aumentado para sete dias. |
 
-IoT Hub permite a retenção de dados em Hubs de eventos internos para um máximo de 7 dias. Pode definir o período de retenção durante a criação do IoT Hub. Tamanho de retenção de dados do IoT Hub depende do escalão do hub IoT e o tipo de unidade. Em termos de tamanho, os Hubs de eventos internos pode manter as mensagens do tamanho máximo de mensagem até pelo menos de 24 horas de quota. Por exemplo, para o IoT Hub fornece armazenamento suficiente para reter, pelo menos, 1 unidade de S1 400 mil mensagens de 4K tamanho de cada um. Se os dispositivos estão a enviar mensagens menores, eles podem ser retidos durante mais (até 7 dias) consoante a quantidade de armazenamento é consumido. Garantimos que reter os dados para o período de retenção especificado como um mínimo.
+IoT Hub permite a retenção de dados em Hubs de eventos internos para um máximo de 7 dias. Pode definir o período de retenção durante a criação do IoT Hub. Período de retenção de dados do IoT Hub depende do escalão do hub IoT e o tipo de unidade. Em termos de tamanho, os Hubs de eventos internos pode manter as mensagens do tamanho máximo de mensagem até pelo menos de 24 horas de quota. Por exemplo, para o IoT Hub fornece armazenamento suficiente para reter, pelo menos, 1 unidade de S1 400 mil mensagens de 4K tamanho de cada um. Se os dispositivos estão a enviar mensagens menores, eles podem ser retidos durante mais (até 7 dias) consoante a quantidade de armazenamento é consumido. Garantimos que reter os dados para o período de retenção especificado como um mínimo.
 
 IoT Hub também permite-lhe gerir grupos de consumidores sobre o dispositivo para cloud incorporado recebem o ponto final.
 
@@ -50,7 +50,7 @@ Quando utilizar Event Hubs SDKs ou integrações de produtos que não estão cie
 
 No portal, o campo de ponto final compatível com o Event Hub contém uma cadeia de ligação dos Hubs de eventos completa semelhante a: **Endpoint=sb://abcd1234namespace.servicebus.windows.net/;SharedAccessKeyName=iothubowner;SharedAccessKey=keykeykeykeykeykey=;EntityPath=iothub-ehub-abcd-1234-123456**. Se estiver a utilizar o SDK requer outros valores, em seguida, eles seria:
 
-| Name | Value |
+| Name | Valor |
 | ---- | ----- |
 | Ponto Final | sb://abcd1234namespace.servicebus.windows.net/ |
 | Nome de anfitrião | abcd1234namespace.servicebus.windows.net |

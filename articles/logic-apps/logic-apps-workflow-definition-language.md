@@ -10,12 +10,12 @@ ms.topic: reference
 ms.date: 04/30/2018
 ms.reviewer: klam, LADocs
 ms.suite: integration
-ms.openlocfilehash: 3c17ec2133e278b17475e4988e1e9766b1349ba4
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
+ms.openlocfilehash: d2de2a25d67da230d539156c851cca34335a01c2
+ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55734645"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58620841"
 ---
 # <a name="schema-reference-for-workflow-definition-language-in-azure-logic-apps"></a>Referência de esquema para a linguagem de definição de fluxo de trabalho no Azure Logic Apps
 
@@ -41,7 +41,7 @@ Esta é a estrutura de alto nível para uma definição de fluxo de trabalho:
 | Elemento | Necessário | Descrição |
 |---------|----------|-------------|
 | definição | Sim | O elemento de partida para a sua definição de fluxo de trabalho |
-| $schema | Apenas quando externamente que referencia uma definição de fluxo de trabalho | A localização para o ficheiro de esquema JSON que descreve a versão de linguagem de definição de fluxo de trabalho, que pode ser encontrado aqui: <p>`https://schema.management.azure.com/schemas/2016-06-01/Microsoft.Logic.json`</p> |
+| $schema | Apenas quando externamente que referencia uma definição de fluxo de trabalho | A localização para o ficheiro de esquema JSON que descreve a versão de linguagem de definição de fluxo de trabalho, que pode ser encontrado aqui: <p>`https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json`</p> |
 | contentVersion | Não | O número de versão para a sua definição de fluxo de trabalho, o que é "1.0.0.0" por predefinição. Para ajudar a identificar e confirmar a definição correta quando implementar um fluxo de trabalho, especifique um valor a utilizar. |
 | parâmetros | Não | As definições para um ou mais parâmetros que passam dados para seu fluxo de trabalho <p><p>Parâmetros máximos: 50 |
 | acionadores | Não | As definições para um ou mais disparadores que criar uma instância de seu fluxo de trabalho. Pode definir mais do que um acionador, mas apenas com a linguagem de definição de fluxo de trabalho, não visualmente por meio do Designer de aplicações lógicas. <p><p>Acionadores máximos: 10 |
@@ -72,8 +72,8 @@ Esta é a estrutura geral para uma definição de parâmetro:
 
 | Elemento | Necessário | Tipo | Descrição |
 |---------|----------|------|-------------|
-| tipo | Sim | int, número de vírgula flutuante, cadeia de caracteres, securestring, booleano, matriz, objeto JSON, secureobject <p><p>**Nota**: Para todas as palavras-passe, chaves e segredos, utilize o `securestring` e `secureobject` tipos porque o `GET` operação não retorna esses tipos. | O tipo para o parâmetro |
-| defaultValue | Não | Mesmo que `type` | O valor de parâmetro predefinido quando é especificado nenhum valor quando cria uma instância de fluxo de trabalho |
+| tipo | Sim | int, número de vírgula flutuante, cadeia de caracteres, securestring, booleano, matriz, objeto JSON, secureobject <p><p>**Nota**: Para todas as palavras-passe, chaves e segredos, utilize o `securestring` e `secureobject` tipos porque o `GET` operação não retorna esses tipos. Para obter mais informações sobre como proteger a parâmetros, consulte [proteger a sua aplicação lógica](../logic-apps/logic-apps-securing-a-logic-app.md#secure-action-parameters) | O tipo para o parâmetro |
+| defaultValue | Sim | Mesmo que `type` | O valor de parâmetro predefinido quando é especificado nenhum valor quando cria uma instância de fluxo de trabalho |
 | allowedValues | Não | Mesmo que `type` | Uma matriz com valores que pode aceitar o parâmetro |
 | do IdP | Não | Objeto JSON | Quaisquer outros detalhes de parâmetro, por exemplo, o nome ou uma descrição legível para a sua aplicação lógica ou dados de tempo de design usados pelo Visual Studio ou outras ferramentas |
 ||||

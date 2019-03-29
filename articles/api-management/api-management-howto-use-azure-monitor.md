@@ -14,12 +14,12 @@ ms.custom: mvc
 ms.topic: tutorial
 ms.date: 06/15/2018
 ms.author: apimpm
-ms.openlocfilehash: 7f2fe6fc3ba3ae515d372fb5a794e46897bad115
-ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
+ms.openlocfilehash: 6a4e9a0c33b227716227213e94948df430566065
+ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58517951"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58622200"
 ---
 # <a name="monitor-published-apis"></a>Monitorizar as APIs publicadas
 
@@ -77,21 +77,28 @@ Pode configurar a receção de alertas com base em métricas e registos de ativi
 
 Para configurar alertas:
 
-1. Selecione **Alertas (clássico)** na barra de menus junto à parte inferior da página.
+1. Selecione **alertas** na barra de menus junto à parte inferior da página.
 
-    ![alerts](./media/api-management-azure-monitor/api-management-alert-rules-blade.png)
+    ![alerts](./media/api-management-azure-monitor/alert-menu-item.png)
 
-2. Selecione **Adicionar alerta de métrica**.
-3. Introduza um **Nome** para este alerta.
-4. Selecione **Pedidos do Gateway Não Autorizados** como métrica a monitorizar.
-5. Selecione **Proprietários, contribuidores e leitores do e-mail**.
-6. Prima **OK**.
-7. Tente chamar a API da Conferência sem uma chave de API. Como proprietário deste serviço de Gestão de API, receberá um alerta por e-mail. 
+2. Clique num **nova regra de alerta** para este alerta.
+3. Clique em **adicionar condição**.
+4. Selecione **métricas** no tipo de sinal de lista pendente.
+5. Selecione **pedidos de Gateway não autorizados** como o sinal para monitorizar.
 
-    > [!TIP]
-    > A regra de alerta também pode chamar um Web Hook ou uma Aplicação Lógica do Azure quando é acionada.
+    ![alerts](./media/api-management-azure-monitor/signal-type.png)
 
-    ![set-up-alert](./media/api-management-azure-monitor/set-up-alert.png)
+6. Na **configurar lógica de sinal** ver, especifique um limiar após o qual o alerta deve ser acionada e clique em **feito**.
+
+    ![alerts](./media/api-management-azure-monitor/threshold.png)
+
+7. Selecione um grupo de ação existente ou crie um novo. No exemplo a seguir, será enviado um e-mail para os administradores. 
+
+    ![alerts](./media/api-management-azure-monitor/action-details.png)
+
+8. Forneça um nome, descrição da regra de alerta e selecione o nível de gravidade. 
+9. Prima **criar regra de alerta**.
+10. Agora, tente chamar a API da conferência sem uma chave de API. Será acionado o alerta será enviado um e-mail para os administradores. 
 
 ## <a name="activity-logs"></a>Registos de Atividade
 

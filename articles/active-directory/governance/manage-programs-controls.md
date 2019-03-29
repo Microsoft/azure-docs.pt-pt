@@ -1,6 +1,6 @@
 ---
-title: Gerir programas e controlos de revisões de acesso do Azure AD | Documentos da Microsoft
-description: Aprenda a criar programas adicionais para cada governação, gestão de riscos e iniciativa de conformidade na sua organização para recolher e organizar o Azure Active Directory revisões de acesso como controles.
+title: Gerir programas e controlos de revisões de acesso - Azure Active Directory | Documentos da Microsoft
+description: Aprenda a criar programas adicionais para cada governação, gestão de riscos e iniciativa de conformidade na sua organização para recolher e organizar as revisões de acesso do Azure Active Directory como controles.
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -16,14 +16,14 @@ ms.date: 06/21/2018
 ms.author: rolyon
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3056976ada6c0a0287eec608dbad230e8dbb2625
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 43c0f1c041bfed1b041a9926efd869d167c6f1e9
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57895185"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58577268"
 ---
-# <a name="manage-programs-and-controls-for-azure-ad-access-reviews"></a>Gerir programas e controlos de revisões de acesso do Azure AD
+# <a name="manage-programs-and-controls-for-azure-ad-access-reviews"></a>Gerir programas e as revisões de acesso de controles para o Azure AD
 
 Azure Active Directory (Azure AD) inclui as revisões de acesso de membros do grupo e o acesso à aplicação. Estes exemplos de controles Certifique-se de supervisão para quem tem acesso a aplicações e associações a grupos da sua organização. As organizações podem utilizar estes controlos para abordar com eficiência seus governação, gestão de riscos e os requisitos de conformidade.
 

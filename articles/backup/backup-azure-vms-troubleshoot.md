@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 03/04/2019
 ms.author: srinathv
-ms.openlocfilehash: 906c0ef3db530ecb4aeade449e41a866a4b09a74
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: e5e84c22285d1cdec9678c8bf33dab1568d333cd
+ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58005722"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58621588"
 ---
 # <a name="troubleshoot-azure-virtual-machine-backup"></a>Resolver problemas das cópias de segurança de máquina virtuais do Azure
 Pode resolver erros encontrados ao utilizando o Azure Backup com as informações listadas na tabela a seguir:
@@ -69,7 +69,7 @@ Pode resolver erros encontrados ao utilizando o Azure Backup com as informaçõe
 | O tipo de conta de armazenamento especificada para a operação de restauro não está online: <br>Certifique-se de que a conta de armazenamento especificada na operação de restauro está online. |Este erro pode acontecer devido a um erro transitório no armazenamento do Azure ou devido a uma falha. Escolha outra conta de armazenamento. |
 | Atingiu a quota de grupo de recursos: <br>Elimine alguns grupos de recursos do portal do Azure ou contacte o suporte do Azure para aumentar os limites. |Nenhuma |
 | A sub-rede selecionada não existe: <br>Selecione uma sub-rede existente. |Nenhuma |
-| O serviço de cópia de segurança não tem autorização para aceder aos recursos na sua subscrição. |Para resolver este erro, restaurar discos utilizando os passos em [restaurar discos de cópia de segurança](backup-azure-arm-restore-vms.md#create-new-restore-disks). Em seguida, use o PowerShell os passos em [criar uma VM a partir de discos restaurados](backup-azure-vms-automation.md#restore-an-azure-vm). |
+| O serviço de cópia de segurança não tem autorização para aceder aos recursos na sua subscrição. |Para resolver este erro, restaurar discos utilizando os passos em [restaurar discos de cópia de segurança](backup-azure-arm-restore-vms.md#restore-disks). Em seguida, use o PowerShell os passos em [criar uma VM a partir de discos restaurados](backup-azure-vms-automation.md#restore-an-azure-vm). |
 
 ## <a name="backup-or-restore-takes-time"></a>Cópia de segurança ou restauro demora algum tempo
 Se a cópia de segurança demora mais de 12 horas, ou o restauro demora mais de 6 horas, reveja [melhores práticas](backup-azure-vms-introduction.md#best-practices) e [considerações de desempenho](backup-azure-vms-introduction.md#backup-performance)

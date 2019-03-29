@@ -10,12 +10,12 @@ ms.reviewer: divswa, LADocs
 ms.topic: article
 tags: connectors
 ms.date: 01/15/2019
-ms.openlocfilehash: e196a7a0b1ad29462aa7e2fb60fcb5d07c57eea7
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 660d785baf12052bddf5206d8641116c9ac606aa
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57886680"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58575101"
 ---
 # <a name="monitor-create-and-manage-sftp-files-by-using-ssh-and-azure-logic-apps"></a>Monitorizar, criar e gerir ficheiros SFTP através do SSH e o Azure Logic Apps
 
@@ -27,10 +27,16 @@ Para automatizar as tarefas que monitorizarem, criarem, enviarem e recebem arqui
 * Obter conteúdo do ficheiro e metadados.
 * Extraia os arquivos para pastas.
 
-Em comparação com o [conector do SFTP](../connectors/connectors-create-api-sftp.md), o conector SFTP-SSH pode ler ou gravar arquivos até *1GB* de tamanho por meio do gerenciamento de dados em 50 MB peças. Para ficheiros maiores do que 1 GB, podem utilizar ações [segmentação de mensagem](../logic-apps/logic-apps-handle-large-messages.md). Para obter mais diferenças, reveja [comparar SFTP-SSH versus SFTP](#comparison) mais adiante neste artigo.
-
 Pode usar acionadores que monitorar eventos em seu servidor SFTP e disponibilizar a saída para outras ações. Pode utilizar ações que executar diversas tarefas no seu servidor SFTP. Pode também ter outras ações na sua aplicação lógica a utilizar a saída de ações de SFTP. Por exemplo, se recuperar regularmente ficheiros a partir do seu servidor SFTP, pode enviar alertas por e-mail sobre esses arquivos e seu conteúdo com o conector do Outlook do Office 365 ou o conector do Outlook.com.
 Se estiver familiarizado com aplicações lógicas, reveja [o que é o Azure Logic Apps?](../logic-apps/logic-apps-overview.md)
+
+## <a name="limits"></a>Limites
+
+* Ações SFTP-SSH podem ler ou gravar arquivos que estão *1 GB ou menor* através da gestão de dados como *50 MB partes*, não de 1 GB partes.
+
+* Para os ficheiros *superior a 1 GB*, podem utilizar ações [mensagem segmentação](../logic-apps/logic-apps-handle-large-messages.md). Atualmente, os acionadores SFTP-SSH não suportam a segmentação.
+
+Para obter mais diferenças, reveja [comparar SFTP-SSH versus SFTP](#comparison) mais adiante a seção seguinte.
 
 <a name="comparison"></a>
 
@@ -38,23 +44,23 @@ Se estiver familiarizado com aplicações lógicas, reveja [o que é o Azure Log
 
 Aqui estão outras diferenças fundamentais entre o conector SFTP-SSH e o conector do SFTP em que o conector SFTP-SSH tem estas capacidades:
 
-* Utiliza a <a href="https://github.com/sshnet/SSH.NET" target="_blank"> **SSH.NET** </a> biblioteca, o que é uma biblioteca de Secure Shell (SSH) de código-fonte aberto com suporte para .NET. 
+* Utiliza a <a href="https://github.com/sshnet/SSH.NET" target="_blank"> **SSH.NET** </a> biblioteca, o que é uma biblioteca de Secure Shell (SSH) de código-fonte aberto com suporte para .NET.
 
   > [!NOTE]
   >
   > O SFTP-SSH conector suporta *apenas* estas chaves privadas, formatos, algoritmos e as impressões digitais:
-  > 
+  >
   > * **Formatos de chave privados**: RSA (Rivest Shamir Adleman) e chaves DSA (algoritmo de Assinatura Digital) nos formatos OpenSSH e ssh.com
   > * **Algoritmos de encriptação**: DES-EDE3-CBC, EDE3-CFB de DES, DES-CBC, AES-CBC-de-128, 192-AES-CBC e 256-AES-CBC
   > * **Impressão digital**: MD5
 
-* Lê ou escreve ficheiros até *1GB* no tamanho em comparação comparado o conector do SFTP, mas processa dados em partes de 50 MB, não de 1 GB partes. Para ficheiros maiores do que 1GB, também podem utilizar ações [segmentação de mensagem](../logic-apps/logic-apps-handle-large-messages.md). Atualmente, os acionadores não suportam a segmentação.
+* Ações podem ler ou gravar arquivos *até 1 GB* em comparação com o conector do SFTP, mas os dados de identificadores em 50 MB de partes, não de 1 GB partes. Para ficheiros maiores do que 1GB, também podem utilizar ações [segmentação de mensagem](../logic-apps/logic-apps-handle-large-messages.md). Atualmente, os acionadores SFTP-SSH não suportam a segmentação.
 
 * Fornece a **criar pasta** ação, que cria uma pasta no caminho especificado no servidor SFTP.
 
 * Fornece a **mudança de nome de ficheiro** ação, o que muda o nome de um ficheiro no servidor SFTP.
 
-* Coloca em cache a ligação ao servidor SFTP *durante uma hora, até*, que melhora o desempenho e reduz o número de tentativas para ligar ao servidor. Para definir a duração para este comportamento de colocação em cache, edite a <a href="https://man.openbsd.org/sshd_config#ClientAliveInterval" target="_blank"> **ClientAliveInterval** </a> propriedade na configuração de SSH no seu servidor SFTP. 
+* Coloca em cache a ligação ao servidor SFTP *durante uma hora, até*, que melhora o desempenho e reduz o número de tentativas para ligar ao servidor. Para definir a duração para este comportamento de colocação em cache, edite a <a href="https://man.openbsd.org/sshd_config#ClientAliveInterval" target="_blank"> **ClientAliveInterval** </a> propriedade na configuração de SSH no seu servidor SFTP.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 

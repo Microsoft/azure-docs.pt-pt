@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/28/2018
+ms.date: 03/28/2019
 ms.author: rkarlin
-ms.openlocfilehash: 6d9c5b080c491d3a6f35f591c69d4c39989b22a8
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 4ed0be3178f9d5d014e9e50c11d555b586ced765
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58099802"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58579330"
 ---
 # <a name="manage-endpoint-protection-issues-with-azure-security-center"></a>Gerir problemas de proteção de ponto final com o Centro de segurança do Azure
 Centro de segurança do Azure monitoriza o estado de proteção antimalware e os relatórios isso o painel de problemas de proteção de ponto final. Centro de segurança destaca os problemas, como ameaças detetadas e proteção insuficiente, que pode tornar as máquinas virtuais (VMs) e os computadores vulneráveis a ameaças de antimalware. Ao utilizar as informações em **problemas do Endpoint protection**, pode identificar um plano para resolver quaisquer problemas identificados.
@@ -31,12 +31,12 @@ Centro de segurança reporta os seguintes problemas de proteção de ponto final
 - Estado de funcionamento do Endpoint protection:
 
   - Assinatura desatualizada – uma solução antimalware está instalada nessas VMs e computadores, mas a solução não tem as assinaturas de antimalware mais recentes.
-  - Sem proteção em tempo real – uma solução antimalware está instalada nessas VMs e computadores, mas não está configurada para proteção em tempo real.   O serviço poderá estar desabilitado ou centro de segurança pode não ser possível obter o estado, uma vez que a solução não é suportada. Ver [integração de parceiros](security-center-partner-integration.md) para obter uma lista de soluções suportadas.
+  - Sem proteção em tempo real – uma solução antimalware está instalada nessas VMs e computadores, mas não está configurada para proteção em tempo real.   O serviço poderá estar desabilitado ou centro de segurança pode não ser possível obter o estado, uma vez que a solução não é suportada. Ver [integração de parceiros](security-center-os-coverage.md#supported-endpoint-protection-solutions) para obter uma lista de soluções suportadas.
   - Relatório não — uma solução antimalware é instalada, mas não os dados de relatórios.
   - Desconhecido – uma solução antimalware está instalado mas o respetivo estado é desconhecido ou reportar um erro desconhecido.
 
     > [!NOTE]
-    > Ver [integrar soluções de segurança](security-center-partner-integration.md#integrated-azure-security-solutions) para obter uma lista de soluções de segurança de proteção de ponto final integrado com o Centro de segurança.
+    > Ver [integrar soluções de segurança](security-center-os-coverage.md#supported-endpoint-protection-solutions) para obter uma lista de soluções de segurança de proteção de ponto final integrado com o Centro de segurança.
     >
     >
 

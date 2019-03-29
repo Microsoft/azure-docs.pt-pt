@@ -18,12 +18,12 @@ ms.author: celested
 ms.reviewer: hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6cc9b2b38ae0ba97e5a29d58d1605e5452224e4b
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 5d933eaf99258a3f3322a915b418b52fad6e459f
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57445760"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58576935"
 ---
 # <a name="azure-active-directory-v20-and-oauth-20-on-behalf-of-flow"></a>Azure Active Directory v 2.0 e o fluxo do OAuth 2.0 On-Behalf-Of
 
@@ -72,8 +72,8 @@ Ao usar um segredo partilhado, um pedido de token de acesso de serviço para ser
 | Parâmetro |  | Descrição |
 | --- | --- | --- |
 | `grant_type` | Necessário | O tipo de pedido de token. Para um pedido usando um JWT, o valor tem de ser `urn:ietf:params:oauth:grant-type:jwt-bearer`. |
-| `client_id` | Necessário | ID de aplicação (cliente) que o [portal de registo de aplicação](https://apps.dev.microsoft.com/?referrer=https://azure.microsoft.com/documentation/articles&deeplink=/appList) ou no novo [portal de registos (pré-visualização) de aplicação](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RegisteredAppsPreview) tem atribuído à sua aplicação. |
-| `client_secret` | Necessário | O segredo de aplicação que gerou para a sua aplicação no portal que utilizou para registar a sua aplicação. |
+| `client_id` | Necessário | ID de aplicação (cliente), que [portal do Azure – registos de aplicações](https://go.microsoft.com/fwlink/?linkid=2083908) página tiver atribuído à sua aplicação. |
+| `client_secret` | Necessário | O segredo do cliente que gerou para a sua aplicação no portal do Azure - página de registos de aplicação. |
 | `assertion` | Necessário | O valor do token utilizado no pedido. |
 | `scope` | Necessário | Lista de âmbitos para o pedido de token separados por um espaço. Para obter mais informações, consulte [âmbitos](v2-permissions-and-consent.md). |
 | `requested_token_use` | Necessário | Especifica a forma como a solicitação deve ser processada. No fluxo OBO, o valor tem de ser definido `on_behalf_of`. |
@@ -104,7 +104,7 @@ Um pedido de token de acesso de serviço para serviço com um certificado conté
 | Parâmetro |  | Descrição |
 | --- | --- | --- |
 | `grant_type` | Necessário | O tipo de pedido de token. Para um pedido usando um JWT, o valor tem de ser `urn:ietf:params:oauth:grant-type:jwt-bearer`. |
-| `client_id` | Necessário | ID de aplicação (cliente) que o [portal de registo de aplicação](https://apps.dev.microsoft.com/?referrer=https://azure.microsoft.com/documentation/articles&deeplink=/appList) ou no novo [portal de registos (pré-visualização) de aplicação](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RegisteredAppsPreview) tem atribuído à sua aplicação. |
+| `client_id` | Necessário |  ID de aplicação (cliente), que [portal do Azure – registos de aplicações](https://go.microsoft.com/fwlink/?linkid=2083908) página tiver atribuído à sua aplicação. |
 | `client_assertion_type` | Necessário | O valor tem de ser `urn:ietf:params:oauth:client-assertion-type:jwt-bearer`. |
 | `client_assertion` | Necessário | Uma asserção (um token de web JSON) que precisa para criar e assinar com o certificado é registado como as credenciais para a sua aplicação. Para saber como registar o seu certificado e o formato da asserção, veja [credenciais de certificado](active-directory-certificate-credentials.md). |
 | `assertion` | Necessário | O valor do token utilizado no pedido. |
@@ -205,7 +205,7 @@ Neste momento, o sistema de contas Microsoft pessoa não suporta o consentimento
 
 #### <a name="pre-authorized-applications"></a>Aplicações previamente autorizadas
 
-Uma nova funcionalidade do portal de pré-visualização do aplicativo é "aplicações previamente autorizadas". Dessa forma, um recurso pode indicar que um determinado aplicativo sempre tem permissão para receber determinados âmbitos. Isto é principalmente útil para tornar as ligações entre um cliente front-end e um recurso de back-end mais integrada. Um recurso pode declarar a várias aplicações previamente autorizadas - qualquer aplicação desse tipo pode pedir estas permissões num OBO fluam e recebem-las sem que o usuário fornece o consentimento.
+Uma funcionalidade do portal do aplicativo é "aplicações previamente autorizadas". Dessa forma, um recurso pode indicar que um determinado aplicativo sempre tem permissão para receber determinados âmbitos. Isto é principalmente útil para tornar as ligações entre um cliente front-end e um recurso de back-end mais integrada. Um recurso pode declarar a várias aplicações previamente autorizadas - qualquer aplicação desse tipo pode pedir estas permissões num OBO fluam e recebem-las sem que o usuário fornece o consentimento.
 
 #### <a name="admin-consent"></a>Consentimento de admin
 

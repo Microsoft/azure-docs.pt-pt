@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/11/2019
 ms.author: tomfitz
-ms.openlocfilehash: c35352c47edb4f34100501ac791c84108fa9ac17
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 07221e5d93c004a2542adfc3a5374fd75ca34b31
+ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57762845"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58621418"
 ---
 # <a name="string-functions-for-azure-resource-manager-templates"></a>Funções de cadeia de caracteres para modelos Azure Resource Manager
 
@@ -117,11 +117,11 @@ O seguinte procedimento [modelo de exemplo](https://github.com/Azure/azure-docs-
 
 O resultado do exemplo anterior com os valores predefinidos é:
 
-| Nome | Tipo | Value |
+| Nome | Tipo | Valor |
 | ---- | ---- | ----- |
 | base64Output | String | b25lLCB0d28sIHRocmVl |
 | toStringOutput | String | um, dois, três |
-| toJsonOutput | Objeto | {"one": "a", "two": "b"} |
+| toJsonOutput | Object | {"one": "a", "two": "b"} |
 
 ## <a name="base64tojson"></a>base64ToJson
 
@@ -182,11 +182,11 @@ O seguinte procedimento [modelo de exemplo](https://github.com/Azure/azure-docs-
 
 O resultado do exemplo anterior com os valores predefinidos é:
 
-| Nome | Tipo | Value |
+| Nome | Tipo | Valor |
 | ---- | ---- | ----- |
 | base64Output | String | b25lLCB0d28sIHRocmVl |
 | toStringOutput | String | um, dois, três |
-| toJsonOutput | Objeto | {"one": "a", "two": "b"} |
+| toJsonOutput | Object | {"one": "a", "two": "b"} |
 
 ## <a name="base64tostring"></a>base64ToString
 
@@ -247,11 +247,11 @@ O seguinte procedimento [modelo de exemplo](https://github.com/Azure/azure-docs-
 
 O resultado do exemplo anterior com os valores predefinidos é:
 
-| Nome | Tipo | Value |
+| Nome | Tipo | Valor |
 | ---- | ---- | ----- |
 | base64Output | String | b25lLCB0d28sIHRocmVl |
 | toStringOutput | String | um, dois, três |
-| toJsonOutput | Objeto | {"one": "a", "two": "b"} |
+| toJsonOutput | Object | {"one": "a", "two": "b"} |
 
 ## <a name="concat"></a>concat
 
@@ -295,7 +295,7 @@ O seguinte procedimento [modelo de exemplo](https://github.com/Azure/azure-docs-
 
 O resultado do exemplo anterior com os valores predefinidos é:
 
-| Nome | Tipo | Value |
+| Nome | Tipo | Valor |
 | ---- | ---- | ----- |
 | concatOutput | String | prefix-5yj4yjf5mbg72 |
 
@@ -336,9 +336,9 @@ O seguinte procedimento [modelo de exemplo](https://github.com/Azure/azure-docs-
 
 O resultado do exemplo anterior com os valores predefinidos é:
 
-| Nome | Tipo | Value |
+| Nome | Tipo | Valor |
 | ---- | ---- | ----- |
-| devolver | Matriz | ["1-1", "1-2", "1-3", "2-1", "2-2", "2-3"] |
+| devolver | Array | ["1-1", "1-2", "1-3", "2-1", "2-2", "2-3"] |
 
 ## <a name="contains"></a>contém
 
@@ -412,14 +412,14 @@ O seguinte procedimento [modelo de exemplo](https://github.com/Azure/azure-docs-
 
 O resultado do exemplo anterior com os valores predefinidos é:
 
-| Nome | Tipo | Value |
+| Nome | Tipo | Valor |
 | ---- | ---- | ----- |
-| stringTrue | Bool | Verdadeiro |
-| stringFalse | Bool | Falso |
-| objectTrue | Bool | Verdadeiro |
-| objectFalse | Bool | Falso |
-| arrayTrue | Bool | Verdadeiro |
-| arrayFalse | Bool | Falso |
+| stringTrue | Booleano | Verdadeiro |
+| stringFalse | Booleano | Falso |
+| objectTrue | Booleano | Verdadeiro |
+| objectFalse | Booleano | Falso |
+| arrayTrue | Booleano | Verdadeiro |
+| arrayFalse | Booleano | Falso |
 
 ## <a name="datauri"></a>dataUri
 
@@ -471,7 +471,7 @@ O seguinte procedimento [modelo de exemplo](https://github.com/Azure/azure-docs-
 
 O resultado do exemplo anterior com os valores predefinidos é:
 
-| Nome | Tipo | Value |
+| Nome | Tipo | Valor |
 | ---- | ---- | ----- |
 | dataUriOutput | String | data:text/plain;charset=utf8;base64,SGVsbG8= |
 | toStringOutput | String | Olá, mundo! |
@@ -526,7 +526,7 @@ O seguinte procedimento [modelo de exemplo](https://github.com/Azure/azure-docs-
 
 O resultado do exemplo anterior com os valores predefinidos é:
 
-| Nome | Tipo | Value |
+| Nome | Tipo | Valor |
 | ---- | ---- | ----- |
 | dataUriOutput | String | data:text/plain;charset=utf8;base64,SGVsbG8= |
 | toStringOutput | String | Olá, mundo! |
@@ -590,11 +590,11 @@ O seguinte procedimento [modelo de exemplo](https://github.com/Azure/azure-docs-
 
 O resultado do exemplo anterior com os valores predefinidos é:
 
-| Nome | Tipo | Value |
+| Nome | Tipo | Valor |
 | ---- | ---- | ----- |
-| arrayEmpty | Bool | Verdadeiro |
-| objectEmpty | Bool | Verdadeiro |
-| stringEmpty | Bool | Verdadeiro |
+| arrayEmpty | Booleano | Verdadeiro |
+| objectEmpty | Booleano | Verdadeiro |
+| stringEmpty | Booleano | Verdadeiro |
 
 ## <a name="endswith"></a>endsWith
 
@@ -653,14 +653,14 @@ O seguinte procedimento [modelo de exemplo](https://github.com/Azure/azure-docs-
 
 O resultado do exemplo anterior com os valores predefinidos é:
 
-| Nome | Tipo | Value |
+| Nome | Tipo | Valor |
 | ---- | ---- | ----- |
-| startsTrue | Bool | Verdadeiro |
-| startsCapTrue | Bool | Verdadeiro |
-| startsFalse | Bool | Falso |
-| endsTrue | Bool | Verdadeiro |
-| endsCapTrue | Bool | Verdadeiro |
-| endsFalse | Bool | Falso |
+| startsTrue | Booleano | Verdadeiro |
+| startsCapTrue | Booleano | Verdadeiro |
+| startsFalse | Booleano | Falso |
+| endsTrue | Booleano | Verdadeiro |
+| endsCapTrue | Booleano | Verdadeiro |
+| endsFalse | Booleano | Falso |
 
 ## <a name="first"></a>primeiro
 
@@ -709,7 +709,7 @@ O seguinte procedimento [modelo de exemplo](https://github.com/Azure/azure-docs-
 
 O resultado do exemplo anterior com os valores predefinidos é:
 
-| Nome | Tipo | Value |
+| Nome | Tipo | Valor |
 | ---- | ---- | ----- |
 | arrayOutput | String | um |
 | stringOutput | String | O |
@@ -838,7 +838,7 @@ O seguinte procedimento [modelo de exemplo](https://github.com/Azure/azure-docs-
 
 O resultado do exemplo anterior com os valores predefinidos é:
 
-| Nome | Tipo | Value |
+| Nome | Tipo | Valor |
 | ---- | ---- | ----- |
 | firstT | Int | 0 |
 | lastT | Int | 3 |
@@ -893,7 +893,7 @@ O seguinte procedimento [modelo de exemplo](https://github.com/Azure/azure-docs-
 
 O resultado do exemplo anterior com os valores predefinidos é:
 
-| Nome | Tipo | Value |
+| Nome | Tipo | Valor |
 | ---- | ---- | ----- |
 | arrayOutput | String | três |
 | stringOutput | String | e |
@@ -951,7 +951,7 @@ O seguinte procedimento [modelo de exemplo](https://github.com/Azure/azure-docs-
 
 O resultado do exemplo anterior com os valores predefinidos é:
 
-| Nome | Tipo | Value |
+| Nome | Tipo | Valor |
 | ---- | ---- | ----- |
 | firstT | Int | 0 |
 | lastT | Int | 3 |
@@ -1013,7 +1013,7 @@ O seguinte procedimento [modelo de exemplo](https://github.com/Azure/azure-docs-
 
 O resultado do exemplo anterior com os valores predefinidos é:
 
-| Nome | Tipo | Value |
+| Nome | Tipo | Valor |
 | ---- | ---- | ----- |
 | arrayLength | Int | 3 |
 | stringLength | Int | 13 |
@@ -1067,7 +1067,7 @@ O modelo de exemplo seguinte mostra um parâmetro com um novo identificador.
 
 A saída do exemplo anterior varia para cada implementação, mas será semelhante a:
 
-| Name | Tipo | Value |
+| Name | Tipo | Valor |
 | ---- | ---- | ----- |
 | guidOutput | string | b76a51fc-bd72-4a77-b9a2-3c29e7d2e551 |
 
@@ -1110,7 +1110,7 @@ O exemplo seguinte utiliza a função de Novo_guid para criar um nome exclusivo 
 
 A saída do exemplo anterior varia para cada implementação, mas será semelhante a:
 
-| Name | Tipo | Value |
+| Name | Tipo | Valor |
 | ---- | ---- | ----- |
 | nameOutput | string | storagenziwvyru7uxie |
 
@@ -1161,7 +1161,7 @@ O seguinte procedimento [modelo de exemplo](https://github.com/Azure/azure-docs-
 
 O resultado do exemplo anterior com os valores predefinidos é:
 
-| Nome | Tipo | Value |
+| Nome | Tipo | Valor |
 | ---- | ---- | ----- |
 | stringOutput | String | 0000000123 |
 
@@ -1213,7 +1213,7 @@ O seguinte procedimento [modelo de exemplo](https://github.com/Azure/azure-docs-
 
 O resultado do exemplo anterior com os valores predefinidos é:
 
-| Nome | Tipo | Value |
+| Nome | Tipo | Valor |
 | ---- | ---- | ----- |
 | firstOutput | String | 1231231234 |
 | secodeOutput | String | 123-123-xxxx |
@@ -1281,9 +1281,9 @@ O seguinte procedimento [modelo de exemplo](https://github.com/Azure/azure-docs-
 
 O resultado do exemplo anterior com os valores predefinidos é:
 
-| Nome | Tipo | Value |
+| Nome | Tipo | Valor |
 | ---- | ---- | ----- |
-| arrayOutput | Matriz | ["three"] |
+| arrayOutput | Array | ["three"] |
 | stringOutput | String | dois três |
 
 ## <a name="split"></a>dividir
@@ -1340,10 +1340,10 @@ O seguinte procedimento [modelo de exemplo](https://github.com/Azure/azure-docs-
 
 O resultado do exemplo anterior com os valores predefinidos é:
 
-| Nome | Tipo | Value |
+| Nome | Tipo | Valor |
 | ---- | ---- | ----- |
-| firstOutput | Matriz | ["one", "two", "three"] |
-| secondOutput | Matriz | ["one", "two", "three"] |
+| firstOutput | Array | ["one", "two", "three"] |
+| secondOutput | Array | ["one", "two", "three"] |
 
 ## <a name="startswith"></a>startsWith
 
@@ -1402,14 +1402,14 @@ O seguinte procedimento [modelo de exemplo](https://github.com/Azure/azure-docs-
 
 O resultado do exemplo anterior com os valores predefinidos é:
 
-| Nome | Tipo | Value |
+| Nome | Tipo | Valor |
 | ---- | ---- | ----- |
-| startsTrue | Bool | Verdadeiro |
-| startsCapTrue | Bool | Verdadeiro |
-| startsFalse | Bool | Falso |
-| endsTrue | Bool | Verdadeiro |
-| endsCapTrue | Bool | Verdadeiro |
-| endsFalse | Bool | Falso |
+| startsTrue | Booleano | Verdadeiro |
+| startsCapTrue | Booleano | Verdadeiro |
+| startsFalse | Booleano | Falso |
+| endsTrue | Booleano | Verdadeiro |
+| endsCapTrue | Booleano | Verdadeiro |
+| endsFalse | Booleano | Falso |
 
 ## <a name="string"></a>string
 
@@ -1476,7 +1476,7 @@ O seguinte procedimento [modelo de exemplo](https://github.com/Azure/azure-docs-
 
 O resultado do exemplo anterior com os valores predefinidos é:
 
-| Nome | Tipo | Value |
+| Nome | Tipo | Valor |
 | ---- | ---- | ----- |
 | objectOutput | String | {"seus": 10, "Valorb": "Texto de exemplo"} |
 | arrayOutput | String | ["a","b","c"] |
@@ -1539,7 +1539,7 @@ O seguinte procedimento [modelo de exemplo](https://github.com/Azure/azure-docs-
 
 O resultado do exemplo anterior com os valores predefinidos é:
 
-| Nome | Tipo | Value |
+| Nome | Tipo | Valor |
 | ---- | ---- | ----- |
 | substringOutput | String | dois |
 
@@ -1606,9 +1606,9 @@ O seguinte procedimento [modelo de exemplo](https://github.com/Azure/azure-docs-
 
 O resultado do exemplo anterior com os valores predefinidos é:
 
-| Nome | Tipo | Value |
+| Nome | Tipo | Valor |
 | ---- | ---- | ----- |
-| arrayOutput | Matriz | ["one", "two"] |
+| arrayOutput | Array | ["one", "two"] |
 | stringOutput | String | em |
 
 ## <a name="tolower"></a>toLower
@@ -1657,7 +1657,7 @@ O seguinte procedimento [modelo de exemplo](https://github.com/Azure/azure-docs-
 
 O resultado do exemplo anterior com os valores predefinidos é:
 
-| Nome | Tipo | Value |
+| Nome | Tipo | Valor |
 | ---- | ---- | ----- |
 | toLowerOutput | String | um dois três |
 | toUpperOutput | String | UM DOIS TRÊS |
@@ -1708,7 +1708,7 @@ O seguinte procedimento [modelo de exemplo](https://github.com/Azure/azure-docs-
 
 O resultado do exemplo anterior com os valores predefinidos é:
 
-| Nome | Tipo | Value |
+| Nome | Tipo | Valor |
 | ---- | ---- | ----- |
 | toLowerOutput | String | um dois três |
 | toUpperOutput | String | UM DOIS TRÊS |
@@ -1755,7 +1755,7 @@ O seguinte procedimento [modelo de exemplo](https://github.com/Azure/azure-docs-
 
 O resultado do exemplo anterior com os valores predefinidos é:
 
-| Nome | Tipo | Value |
+| Nome | Tipo | Valor |
 | ---- | ---- | ----- |
 | devolver | String | um dois três |
 
@@ -1809,7 +1809,7 @@ O exemplo seguinte mostra como criar um nome exclusivo para uma conta de armazen
     ...
 ```
 
-Se precisar de criar um novo nome exclusivo sempre que implementar um modelo e não a intenção de atualizar o recurso, pode utilizar o [utcNow](#utcnow) função com uniqueString. Poderia usar essa abordagem num ambiente de teste. Por exemplo, veja [utcNow](#utcNow).
+Se precisar de criar um novo nome exclusivo sempre que implementar um modelo e não a intenção de atualizar o recurso, pode utilizar o [utcNow](#utcnow) função com uniqueString. Poderia usar essa abordagem num ambiente de teste. Por exemplo, veja [utcNow](#utcnow).
 
 ### <a name="return-value"></a>Valor de retorno
 
@@ -1895,7 +1895,7 @@ O seguinte procedimento [modelo de exemplo](https://github.com/Azure/azure-docs-
 
 O resultado do exemplo anterior com os valores predefinidos é:
 
-| Nome | Tipo | Value |
+| Nome | Tipo | Valor |
 | ---- | ---- | ----- |
 | uriOutput | String | http://contoso.com/resources/nested/azuredeploy.json |
 | componentOutput | String | http%3A%2F%2Fcontoso.com%2Fresources%2Fnested%2Fazuredeploy.json |
@@ -1950,7 +1950,7 @@ O seguinte procedimento [modelo de exemplo](https://github.com/Azure/azure-docs-
 
 O resultado do exemplo anterior com os valores predefinidos é:
 
-| Nome | Tipo | Value |
+| Nome | Tipo | Valor |
 | ---- | ---- | ----- |
 | uriOutput | String | http://contoso.com/resources/nested/azuredeploy.json |
 | componentOutput | String | http%3A%2F%2Fcontoso.com%2Fresources%2Fnested%2Fazuredeploy.json |
@@ -2005,7 +2005,7 @@ O seguinte procedimento [modelo de exemplo](https://github.com/Azure/azure-docs-
 
 O resultado do exemplo anterior com os valores predefinidos é:
 
-| Nome | Tipo | Value |
+| Nome | Tipo | Valor |
 | ---- | ---- | ----- |
 | uriOutput | String | http://contoso.com/resources/nested/azuredeploy.json |
 | componentOutput | String | http%3A%2F%2Fcontoso.com%2Fresources%2Fnested%2Fazuredeploy.json |
@@ -2078,7 +2078,7 @@ O modelo de exemplo seguinte mostra os diferentes formatos para o valor de datet
 
 A saída do exemplo anterior varia para cada implementação, mas será semelhante a:
 
-| Name | Tipo | Value |
+| Name | Tipo | Valor |
 | ---- | ---- | ----- |
 | utcOutput | string | 20190305T175318Z |
 | utcShortOutput | string | 03/05/2019 |
