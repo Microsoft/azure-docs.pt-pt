@@ -29,7 +29,7 @@ items:
     href: pim-getting-started.md
   - name: Ativar as minhas funções
     items:
-    - name: Ativar as minhas funções de diretório
+    - name: Ativar as minhas funções do Azure AD
       href: pim-how-to-activate-role.md
     - name: Ativar as minhas funções de recursos do Azure
       href: pim-resource-roles-activate-your-roles.md
@@ -43,7 +43,7 @@ items:
       href: pim-how-to-give-access-to-pim.md
     - name: Elevar acesso para gerir todas as subscrições
       href: ../../role-based-access-control/elevate-access-global-admin.md?toc=%2fazure%2factive-directory%2fprivileged-identity-management%2ftoc.json
-  - name: Gerir funções de diretório
+  - name: Gerir funções do Azure AD
     items:
     - name: Atribuir funções
       href: pim-how-to-add-role-to-user.md
@@ -75,9 +75,9 @@ items:
       href: pim-resource-roles-custom-role-policy.md
   - name: Rever acesso
     items:
-    - name: Funções de diretório
+    - name: Funções do Azure AD
       items:
-      - name: Analisar as minhas funções de diretório
+      - name: Rever as minhas funções do Azure AD
         href: pim-how-to-perform-security-review.md
       - name: Iniciar uma revisão de acesso
         href: pim-how-to-start-security-review.md
@@ -92,9 +92,9 @@ items:
       - name: Concluir uma revisão de acesso
         href: pim-resource-roles-complete-access-review.md
   expanded: true
-ms.openlocfilehash: 29eebb03aebec9dae7232df95a63e9a633ab109d
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
+ms.openlocfilehash: 6ccd7b75b356fef6f7c167873e7b00429c6f28a3
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55979484"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58575798"

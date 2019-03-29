@@ -78,7 +78,7 @@ items:
     displayName: DefaultAnswer, Default answer
     href: Concepts/confidence-score.md
   - name: Origens de dados suportadas
-    displayName: metadata, pair
+    displayName: metadata, pair, sharepoint, authentication, permissions, faq, pdf, excel, xls, rtf, html, txt, tsv, url, end of line, new line, carriage return, markdown, commonmark, format, standard
     href: Concepts/data-sources-supported.md
 - name: Guias de procedimentos
   items:
@@ -93,6 +93,9 @@ items:
     - name: Editar uma base de dados de conhecimento
       displayName: metadata, pair
       href: How-To/edit-knowledge-base.md
+    - name: Adicionar um ficheiro protegido do Sharepoint
+      displayName: Sharepoint, secure, AAD, azure directory, admin, permission, authorization, file, authentication
+      href: How-To/add-sharepoint-datasources.md
     - name: Colaborar numa base de dados de conhecimento
       href: How-To/collaborate-knowledge-base.md
     - name: Criar uma base de dados de conhecimento num idioma diferente
@@ -100,7 +103,7 @@ items:
     - name: Testar uma base de dados de conhecimento
       href: How-To/test-knowledge-base.md
     - name: Utilizar a aprendizagem ativa para melhorar a base de dados de conhecimento
-      displayName: active learning, suggestion, dialog prompt, train api, feedback loop, autolearn, auto-learn, user setting, service setting, services setting, accept, reject
+      displayName: active learning, suggestion, dialog prompt, train api, feedback loop, autolearn, auto-learn, user setting, service setting, services setting, accept, reject, filter by suggestion, filter active learning
       href: How-to/improve-knowledge-base.md
   - name: Utilizar a base de dados de conhecimento
     items:
@@ -190,9 +193,9 @@ items:
     href: https://docs.microsoft.com/search/index?search=QnAMaker
   - name: Blogue
     href: https://blog.botframework.com/category/QnAMaker/
-ms.openlocfilehash: ed9fc89f0f7b16bcdcb9cfe1b8f01078a2608f41
-ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
+ms.openlocfilehash: d1e2e6729539c2041604c795306f1a404c39d143
+ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58337668"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58621955"

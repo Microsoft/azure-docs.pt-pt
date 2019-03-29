@@ -1,10 +1,10 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: 6724c15c7cb4bf9f8f758296015a026d1d2563b8
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
+ms.openlocfilehash: f87b76c1d6629fff93ec6eba45a66f837d9737c9
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48801844"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58579670"
 documentType: LandingData
 title: Documentação do Privileged Identity Management
 metadata:
@@ -39,7 +39,7 @@ sections:
     columns:
     - image:
         src: media/index/Azure Active Directory_COLOR.svg
-      title: Funções de diretório do Azure AD
+      title: Funções do Azure AD
     - image:
         src: media/index/Cubes.svg
       title: Recursos do Azure
@@ -55,7 +55,7 @@ sections:
     columns:
     - image:
         src: media/index/Azure Active Directory_COLOR.svg
-      title: Funções de diretório do Azure AD
+      title: Funções do Azure AD
     - image:
         src: media/index/Cubes.svg
       title: Recursos do Azure

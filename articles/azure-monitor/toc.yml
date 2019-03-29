@@ -547,6 +547,8 @@ items:
           href: insights/container-insights-alerts.md
         - name: Gestão de agente
           href: insights/container-insights-manage-agent.md
+        - name: Atualizar para ativar as métricas
+          href: insights/container-insights-update-metrics.md
         - name: Resolução de problemas
           href: insights/container-insights-troubleshoot.md
       - name: Docker e monitorização do Contentor do Windows
@@ -1044,9 +1046,9 @@ items:
     href: https://stackoverflow.com/search?q=monitoring
   - name: Exemplos de código
     href: https://azure.microsoft.com/resources/samples/?service=monitor
-ms.openlocfilehash: 661ffa0c16b17186523c7b36e571a38785a2ea5c
-ms.sourcegitcommit: f331186a967d21c302a128299f60402e89035a8d
+ms.openlocfilehash: c0ef35bb91ec796e818f7b263ffe171789d986ba
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58189874"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58577060"

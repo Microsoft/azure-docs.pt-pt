@@ -1,18 +1,18 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: 1d3ad4bd85237851b1aa5ab4c6f0899e19c02c97
-ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
+ms.openlocfilehash: 1ed169d248fce28a668c1c93fe2d9796b59547bd
+ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54901501"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58619225"
 documentType: LandingData
-title: Documentação de personalização do portal do Azure
+title: Documentação do portal do Azure
 metadata:
-  description: Saiba como personalizar o portal do Azure.
+  description: Saiba como utilizar o portal do Azure e como criar dashboards personalizados.
   services: azure portal
   documentationcenter: ''
   author: kfollis
-  manager: dougeby
+  manager: mtillman
   editor: ''
   ms.assetid: 3e12c488-9c8c-4d0d-9b07-e018dec42fc6
   ms.service: azure-portal

@@ -47,16 +47,18 @@ items:
   - name: Criador de configuração do .NET Framework
     href: https://go.microsoft.com/fwlink/?linkid=2074663
   - name: Fornecedor de configuração do Java Spring
-    href: https://go.microsoft.com/fwlink/?linkid=2074659
+    href: https://github.com/Microsoft/spring-cloud-azure/tree/azure-config/spring-cloud-azure-starters/spring-cloud-starter-azure-config
+  - name: SDK do Azure em .NET
+    href: https://github.com/Azure/azure-sdk-for-net/tree/master/src/SDKs/Azure.ApplicationModel.Configuration/data-plane
   - name: REST
     href: https://go.microsoft.com/fwlink/?linkid=2078296
 - name: Recursos
   items:
   - name: Fornecer comentários sobre o produto
     href: https://github.com/Azure/AppConfiguration
-ms.openlocfilehash: 2a0c67c39a17b5a7035f569ed860cd4e6b3cd844
-ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
+ms.openlocfilehash: c4712f08112a1abaf8524677746d9c0e929ee097
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58224537"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58576416"

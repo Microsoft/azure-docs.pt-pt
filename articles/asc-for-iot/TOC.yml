@@ -8,6 +8,8 @@ items:
     href: architecture.md
   - name: Agentes de segurança
     href: security-agent-architecture.md
+  - name: Módulo de segurança do Edge
+    href: security-edge-architecture.md
   - name: Pré-requisitos do serviço
     href: service-prerequisites.md
   - name: Introdução ao ASC para IoT
@@ -23,26 +25,8 @@ items:
   - name: Criar alertas de segurança personalizados
     href: quickstart-create-custom-alerts.md
   expanded: true
-- name: Tutoriais
-  items:
-  - name: Implementar agentes de segurança
-    items:
-    - name: Implementar um agente de segurança baseado em C# num dispositivo Windows
-      href: tutorial-deploy-windows-cs.md
-    - name: Implementar um agente de segurança baseado em C# num dispositivo do Linux
-      href: tutorial-deploy-linux-cs.md
-    - name: Implementar um agente de segurança baseado em C num dispositivo do Linux
-      href: tutorial-deploy-linux-c.md
-  - name: Investigar um dispositivo
-    href: tutorial-investigate-device.md
-  - name: Enviar as suas próprias mensagens de segurança
-    href: tutorial-send-security-messages.md
 - name: Conceitos
   items:
-  - name: Que agente devo implementar?
-    href: select-deploy-agent.md
-  - name: Configurar agentes de segurança
-    href: concept-agent-configuration.md
   - name: Autenticação do agente de segurança
     href: concept-security-agent-authentication-methods.md
   - name: Módulo de segurança
@@ -51,12 +35,30 @@ items:
     href: concept-security-alerts.md
   - name: Recomendações de segurança
     href: concept-recommendations.md
+  - name: Custos associados e preços
+    href: concept-pricing.md
 - name: Guias de procedimentos
   items:
+  - name: Que agente devo implementar?
+    items:
+    - name: Selecione um agente para implementar
+      href: how-to-deploy-agent.md
+    - name: Implementar um agente de segurança baseado em C# num dispositivo Windows
+      href: how-to-deploy-windows-cs.md
+    - name: Implementar um agente de segurança baseado em C# num dispositivo do Linux
+      href: how-to-deploy-linux-cs.md
+    - name: Implementar um agente de segurança baseado em C num dispositivo do Linux
+      href: how-to-deploy-linux-c.md
+  - name: Implementar módulo de segurança do Edge
+    href: how-to-deploy-edge.md
+  - name: Configurar agentes de segurança
+    href: how-to-agent-configuration.md
+  - name: Enviar as suas próprias mensagens de segurança
+    href: how-to-send-security-messages.md
   - name: Aceder a dados de segurança não processados
     href: how-to-security-data-access.md
-  - name: Modificar um módulo duplo de segurança
-    href: how-to-modify-security-module-twin.md
+  - name: Investigar um dispositivo
+    href: how-to-investigate-device.md
 - name: Recursos
   items:
   - name: Perguntas mais frequentes
@@ -67,9 +69,9 @@ items:
     href: http://blogs.msdn.com/b/azuresecurity/
   - name: Disponibilidade regional
     href: https://azure.microsoft.com/regions/services/
-ms.openlocfilehash: 6789b87deb5c502df3541a10e9a8e4eece21a351
-ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
+ms.openlocfilehash: 17508e05a8de52e12487bf35fd3e063761abcbe2
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58541327"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58575169"

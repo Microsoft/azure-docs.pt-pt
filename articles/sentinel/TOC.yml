@@ -41,6 +41,8 @@ items:
         href: connect-azure-atp.md
       - name: Ligar ao Centro de Segurança do Azure
         href: connect-azure-security-center.md
+      - name: Ligar à firewall de aplicações web da Microsoft
+        href: connect-microsoft-waf.md
       - name: Ligar à firewall do Windows
         href: connect-windows-firewall.md
       - name: Ligar aos eventos de segurança do Windows
@@ -65,8 +67,6 @@ items:
         href: connect-cisco.md
     - name: Ligar às informações sobre ameaças
       href: connect-threat-intelligence.md
-  - name: Análise de utilizador
-    href: user-analytics.md
   - name: Investigação
     href: hunting.md
     items:
@@ -86,9 +86,9 @@ items:
     href: https://blogs.msdn.com/b/azuresecurity/
   - name: Disponibilidade regional
     href: https://azure.microsoft.com/regions/services/
-ms.openlocfilehash: 44a779cd9d4c32288470ebdcde0a206934783abe
-ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
+ms.openlocfilehash: ea4ece58615b35debf083f6d888067ae9e07d809
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58399950"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58574914"
