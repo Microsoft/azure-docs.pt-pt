@@ -16,12 +16,12 @@ ms.date: 07/12/2017
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1f2837121c84081c77176b18758dfe1a83d6a070
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: b33e993dbddc9c1567a1a6f7d3dca28af240a000
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56876913"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58650670"
 ---
 # <a name="azure-ad-connect-sync-functions-reference"></a>Sincronização do Azure AD Connect: Referência das Funções
 No Azure AD Connect, as funções são usadas para manipular um valor de atributo durante a sincronização.  
@@ -51,8 +51,9 @@ Os tipos são expressos com a seguinte sintaxe:
 As funções com os tipos **mvbin**, **mvstr**, e **mvref** funciona somente em atributos com múltiplos valores. Funciona com **bin**, **str**, e **ref** profissional em atributos de valor único e com múltiplos valores.
 
 ## <a name="functions-reference"></a>Referência das Funções
+
 | Lista de funções |  |  |  |  |
-| --- | --- | --- | --- | --- | --- |
+| --- | --- | --- | --- | --- |
 | **Certificado** | | | | |
 | [CertExtensionOids](#certextensionoids) |[CertFormat](#certformat) |[CertFriendlyName](#certfriendlyname) |[CertHashString](#certhashstring) | |
 | [CertIssuer](#certissuer) |[CertIssuerDN](#certissuerdn) |[CertIssuerOid](#certissueroid) |[CertKeyAlgorithm](#certkeyalgorithm) | |
@@ -63,7 +64,7 @@ As funções com os tipos **mvbin**, **mvstr**, e **mvref** funciona somente em 
 | **Conversão** | | | | |
 | [CBool](#cbool) |[CDate](#cdate) |[CGuid](#cguid) |[ConvertFromBase64](#convertfrombase64) | |
 | [ConvertToBase64](#converttobase64) |[ConvertFromUTF8Hex](#convertfromutf8hex) |[ConvertToUTF8Hex](#converttoutf8hex) |[CNum](#cnum) | |
-| [CRef](#cref) |[CStr](#cstr) |[StringFromGuid](#StringFromGuid) |[StringFromSid](#stringfromsid) | |
+| [CRef](#cref) |[CStr](#cstr) |[StringFromGuid](#stringfromguid) |[StringFromSid](#stringfromsid) | |
 | **Data / hora** | | | | |
 | [DateAdd](#dateadd) |[DateFromNum](#datefromnum) |[FormatDateTime](#formatdatetime) |[agora](#now) | |
 | [NumFromDate](#numfromdate) | | | | |
@@ -989,7 +990,7 @@ Os padleft modelo função esquerda-pads uma cadeia de caracteres para um compri
 **Observações:**
 
 * Se o comprimento da cadeia de caracteres for menor que o comprimento, padCharacter repetidamente é acrescentada ao início (esquerda) de cadeia de caracteres até tem um comprimento igual ao comprimento.
-* padCharacter pode ser um caractere de espaço, mas não pode ser um valor nulo.
+* PadCharacter pode ser um caractere de espaço, mas não pode ser um valor nulo.
 * Se o comprimento da cadeia de caracteres é igual ou superior ao comprimento, a cadeia de caracteres é retornada sem alterações.
 * Se a cadeia tem um comprimento maior que ou igual ao comprimento, é devolvida uma cadeia de caracteres idêntica à cadeia de caracteres.
 * Se o comprimento da cadeia de caracteres for menor que o comprimento, é devolvida uma nova cadeia de caracteres do comprimento desejado cadeia de caracteres que contêm preenchida com um padCharacter.
@@ -1245,7 +1246,7 @@ Valor também pode ser a função de erro, que irá devolver uma string personal
 Devolve o idioma falado em algumas cidades principais, caso contrário, devolve um erro.
 
 - - -
-### <a name="trim"></a>Cortar
+### <a name="trim"></a>Recortar
 **Descrição:**  
 A função de compactação remove e à direita de uma cadeia contém espaços em branco.
 

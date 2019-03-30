@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 02/20/2019
 ms.author: jeedes
-ms.openlocfilehash: d33ef63f142763d5d29c9cb1931fdd87bae5976e
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 607c18a67f7acc13ffe4d5c14131f20a2f94e8d9
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57891023"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58652047"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-netop-portal"></a>Tutorial: Integração do Active Directory do Azure com o Portal de Netop
 
@@ -128,7 +128,7 @@ Para configurar o Azure AD início de sessão único com o Portal de Netop, exec
 
     b. Na **nome** caixa de texto, escreva o nome de atributo apresentado para essa linha.
 
-    c. Deixe o **espaço de nomes** em branco.
+    c. Na **espaço de nomes** caixa de texto, tipo https://secure.netop.com.
 
     d. Selecione a origem de dado **atributo**.
 
@@ -154,7 +154,7 @@ Para configurar o Azure AD início de sessão único com o Portal de Netop, exec
 
 ### <a name="configure-netop-portal-single-sign-on"></a>Configurar Portal de Netop início de sessão único
 
-Para configurar o início de sessão único num **Netop Portal** lado, terá de enviar o transferido **XML de metadados de Federação** e adequadas copiados URLs a partir do portal do Azure para [equipa de suporte do Portal de Netop ](mailto:casemanager@netop.com). Se definir esta definição para que a ligação de SAML SSO definidas corretamente em ambos os lados.
+Para configurar o início de sessão único num **Netop Portal** lado, terá do transferido **XML de metadados de Federação** e o URL de início de sessão a partir do portal do Azure. Siga as instruções no passo 3 da documentação [aqui](https://kb.netop.com/assets/netop_portal_adfs_and_azure_ad_integration.pdf) para configurar o Portal de NetOp para autenticação do Azure AD.
 
 ### <a name="create-an-azure-ad-test-user"></a>Criar um utilizador de teste do Azure AD
 

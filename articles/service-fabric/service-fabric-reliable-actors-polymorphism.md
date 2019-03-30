@@ -1,10 +1,10 @@
 ---
-title: Que o polimorfismo no framework Reliable Actors | Microsoft Docs
-description: Crie hierarquias de interfaces de .NET e tipos no framework Reliable Actors reutilizar a funcionalidade e as definições da API.
+title: Polimorfismo no framework Reliable Actors | Documentos da Microsoft
+description: Crie hierarquias de .NET interfaces e tipos na estrutura dos Reliable Actors reutilizar a funcionalidade e as definições da API.
 services: service-fabric
 documentationcenter: .net
 author: vturecek
-manager: timlt
+manager: chackdan
 editor: vturecek
 ms.assetid: ef0eeff6-32b7-410d-ac69-87cba8b8fd46
 ms.service: service-fabric
@@ -14,22 +14,23 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/02/2017
 ms.author: vturecek
-ms.openlocfilehash: f03330bbbf2c1c7f92310211058f7ef8858f1941
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: c14b3006184f7bd6dcd1eb67be11bd0214957d72
+ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/16/2018
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58662963"
 ---
-# <a name="polymorphism-in-the-reliable-actors-framework"></a>Que o polimorfismo no framework Reliable Actors
-A estrutura de Reliable Actors permite-lhe criar atores utiliza muitos as mesmas técnicas de que pretende utilizar na estrutura orientado para objetos. Uma dessas técnicas é que o polimorfismo, que permite que os tipos e interfaces para herdar de mais generalizada principais. Herança no framework Reliable Actors geralmente segue o modelo de .NET com algumas restrições adicionais. Em caso de Java/Linux, segue o modelo de Java.
+# <a name="polymorphism-in-the-reliable-actors-framework"></a>Polimorfismo no framework Reliable Actors
+A estrutura de Reliable Actors permite-lhe criar atores utilizando muitas das técnicas que usaria no design orientado a objeto. Uma dessas técnicas é que o polimorfismo, que permite que os tipos e interfaces para herdar de mais generalizada pais. Herança do Framework de Reliable Actors em geral, segue o modelo de .NET com algumas restrições adicionais. Em caso de Java/Linux, ele segue o modelo de Java.
 
 ## <a name="interfaces"></a>Interfaces
-A estrutura de Reliable Actors requer que defina, pelo menos, uma interface para ser implementado pelo seu tipo de atores. Esta interface é utilizada para gerar uma classe proxy que pode ser utilizada pelos clientes para comunicar com os atores. Interfaces podem herdar de outras interfaces desde que cada interface que é implementado por um tipo de ator e todos os seus principais basicamente derivar IActor(C#) ou Actor(Java). IActor(C#) e Actor(Java) são respetivamente interfaces base definida por plataforma de atores em estruturas .NET e Java. Assim, o exemplo de que o polimorfismo clássico através de formas poderá algo semelhante ao seguinte:
+A estrutura de Reliable Actors exige que defina pelo menos uma interface para ser implementada por seu tipo de ator. Essa interface é usada para gerar uma classe de proxy que pode ser utilizada pelos clientes para comunicar com seus atores. Interfaces podem herdar de outras interfaces, desde que cada interface implementada por um tipo de ator e todos os seus pais, por fim, derivar de IActor (C#) ou Actor(Java). IActor (C#) e Actor(Java) são as interfaces de bases definida de plataforma para atores em estruturas .NET e Java, respectivamente. Portanto, o exemplo de polimorfismo clássico com formas poderia uma aparência semelhante a esta:
 
 ![Hierarquia de interface para os atores de forma][shapes-interface-hierarchy]
 
-## <a name="types"></a>Tipos de
-Também pode criar uma hierarquia de tipos de ator, que são derivadas da classe de Ator base que é fornecida pela plataforma. No caso de formas, poderá ter uma base `Shape`(c#) ou `ShapeImpl`tipo (Java):
+## <a name="types"></a>Tipos
+Também pode criar uma hierarquia de tipos de ator, que são derivadas da classe base do Ator que é fornecida pela plataforma. No caso de formas, poderá ter uma base `Shape`(C#) ou `ShapeImpl`tipo de (Java):
 
 ```csharp
 public abstract class Shape : Actor, IShape
@@ -48,7 +49,7 @@ public abstract class ShapeImpl extends FabricActor implements Shape
 }
 ```
 
-Subtypes de `Shape`(c#) ou `ShapeImpl`(Java) pode substituir métodos de base.
+Subtypes dos `Shape`(C#) ou `ShapeImpl`(Java) pode substituir os métodos da base.
 
 ```csharp
 [ActorService(Name = "Circle")]
@@ -91,10 +92,10 @@ public class Circle extends ShapeImpl implements Circle
 }
 ```
 
-Tenha em atenção o `ActorService` atributo no tipo de atores. Este atributo indica o framework de Ator fiável do que deve criar automaticamente um serviço para o alojamento de atores deste tipo. Em alguns casos, poderá pretender criar um tipo de base que apenas se destina a funcionalidade de partilha com subtipos e nunca será utilizado para instanciar atores concretos. Nesses casos, deve utilizar o `abstract` palavra-chave para indicar que nunca irá criar um ator com base nesse tipo.
+Tenha em atenção o `ActorService` atributo no tipo de ator. Este atributo informa a estrutura de Reliable Actor que deve criar automaticamente um serviço para o alojamento de atores desse tipo. Em alguns casos, pode pretender criar um tipo de base que destina-se exclusivamente para compartilhar a funcionalidade com subtipos e nunca será utilizado para criar uma instância de atores concretos. Nesses casos, deve usar o `abstract` palavra-chave para indicar que nunca criará um ator com base nesse tipo.
 
 ## <a name="next-steps"></a>Passos Seguintes
-* Consulte [como o framework Reliable Actors tira partido da plataforma do Service Fabric](service-fabric-reliable-actors-platform.md) para fornecer a fiabilidade, a escalabilidade e o estado consistente.
+* Ver [como o framework de Reliable Actors tira partido da plataforma do Service Fabric](service-fabric-reliable-actors-platform.md) para fornecer a fiabilidade, escalabilidade e o estado consistente.
 * Saiba mais sobre o [ciclo de vida de ator](service-fabric-reliable-actors-lifecycle.md).
 
 <!-- Image references -->

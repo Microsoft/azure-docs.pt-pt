@@ -4,7 +4,7 @@ description: Utilize registos de Azure Monitor para monitorizar contentores em e
 services: service-fabric
 documentationcenter: .net
 author: srrengar
-manager: timlt
+manager: chackdan
 editor: ''
 ms.assetid: ''
 ms.service: service-fabric
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 02/25/2019
 ms.author: srrengar
-ms.openlocfilehash: d5840db718191c9b67a8b28a2efccd55146ae510
-ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.openlocfilehash: d03d68560502821b9c343be983d9f7b5a83ed977
+ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/02/2019
-ms.locfileid: "57246938"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58663201"
 ---
 # <a name="monitor-containers-with-azure-monitor-logs"></a>Monitorizar contentores com os registos do Azure Monitor
  

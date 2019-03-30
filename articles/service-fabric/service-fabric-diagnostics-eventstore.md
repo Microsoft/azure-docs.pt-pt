@@ -4,7 +4,7 @@ description: Saiba mais sobre o Azure Service Fabric EventStore
 services: service-fabric
 documentationcenter: .net
 author: srrengar
-manager: timlt
+manager: chackdan
 editor: ''
 ms.assetid: ''
 ms.service: service-fabric
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 1/17/2019
 ms.author: srrengar
-ms.openlocfilehash: 4a23d8c1e72ec453724514e4d1638c5a223d1644
-ms.sourcegitcommit: 9f07ad84b0ff397746c63a085b757394928f6fc0
+ms.openlocfilehash: b8e1958947ced5ea2d0bd8b34667210bf935072d
+ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54389214"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58662912"
 ---
 # <a name="eventstore-service-overview"></a>Descrição geral do serviço de EventStore
 

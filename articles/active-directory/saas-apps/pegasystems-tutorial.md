@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/26/2019
 ms.author: jeedes
-ms.openlocfilehash: 44a9784e47772c5a2ae1335aa048a4d3b86073eb
-ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
+ms.openlocfilehash: 59dc9f82251e7a406e6fe1339fdb55b4880cd74d
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2019
-ms.locfileid: "58577120"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58649191"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-pega-systems"></a>Tutorial: Integração do Active Directory do Azure com sistemas de Pega
 
@@ -207,7 +207,7 @@ Para configurar o Azure AD início de sessão único com sistemas de Pega, execu
 
     a. Copiar o **identificação de entidade** valor e cole-a para **identificador** caixa de texto no **configuração básica de SAML** no portal do Azure.
 
-    b.  Copiar o **localização do serviço de consumidor de asserção (ACS)** valor e cole-a para **URL de resposta** caixa de texto de caixa de texto no **configuração básica de SAML** no portal do Azure.
+    b. Copiar o **localização do serviço de consumidor de asserção (ACS)** valor e cole-a para **URL de resposta** caixa de texto no **configuração básica de SAML** no portal do Azure.
 
     c. Selecione **desativar a solicitação de assinatura**.
 

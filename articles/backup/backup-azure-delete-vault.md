@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 03/28/2019
 ms.author: raynew
-ms.openlocfilehash: 94d66e28f8edbda6c41dcceaf427d7d7d869c90f
-ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
+ms.openlocfilehash: 23e98fd7ea3decc478fc359cec457c70b8fc99dc
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 03/29/2019
-ms.locfileid: "58620122"
+ms.locfileid: "58652226"
 ---
 # <a name="delete-a-recovery-services-vault"></a>Eliminar um cofre dos Serviços de Recuperação
 
@@ -108,7 +108,7 @@ Este procedimento fornece um exemplo que mostra como remover dados de cópia de 
 
 
 3. Na **parar cópia de segurança** > **escolha uma opção**, selecione **eliminar dados de cópia de segurança**.
-4. Escreva o nome do item e clique em **parar cópia de segurança**. 
+4. Escreva o nome do item e clique em **parar cópia de segurança**.
    - Isto verifica que pretende eliminar o item.
    - O **parar cópia de segurança** botão ativa depois de verificar.
    - Se manter e não elimine os dados, não poderá eliminar o cofre.
@@ -126,7 +126,7 @@ Este procedimento fornece um exemplo que mostra como remover dados de cópia de 
 ### <a name="remove-backup-infrastructure-servers"></a>Remover servidores de infraestrutura de cópia de segurança
 
 1. No menu do dashboard do cofre, clique em **infraestrutura de cópia de segurança**.
-2. Clique em **servidores de gestão de cópia de segurança** para visualizar os servidores. 
+2. Clique em **servidores de gestão de cópia de segurança** para visualizar os servidores.
 
     ![Selecione o cofre para abrir o dashboard](./media/backup-azure-delete-vault/delete-backup-management-servers.png)
 
@@ -135,7 +135,7 @@ Este procedimento fornece um exemplo que mostra como remover dados de cópia de 
     ![Selecione o tipo de cópia de segurança](./media/backup-azure-delete-vault/azure-storage-selected-list.png)
 
 3. . Na **parar cópia de segurança** > **escolha uma opção**, selecione **eliminar dados de cópia de segurança**.
-4. Escreva o nome do item e clique em **parar cópia de segurança**. 
+4. Escreva o nome do item e clique em **parar cópia de segurança**.
    - Isto verifica que pretende eliminar o item.
    - O **parar cópia de segurança** botão ativa depois de verificar.
    - Se manter e não elimine os dados, não poderá eliminar o cofre.

@@ -12,14 +12,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 02/07/2019
+ms.date: 03/29/2019
 ms.author: spelluru
-ms.openlocfilehash: 6816c21d30ff5340441d58aff202c271eb1c836a
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 00c32d1aaace765a1b46d5b25e82bab6e937d2ed
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58090326"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58649728"
 ---
 # <a name="tutorial-set-up-a-classroom-lab"></a>Tutorial: Configurar um laboratório de sala de aula 
 Neste tutorial, vai configurar um laboratório de sala de aula com máquinas virtuais que serão utilizadas pelos alunos na sala de aula.  
@@ -32,7 +32,7 @@ Neste tutorial, irá realizar as seguintes ações:
 > * Enviar a ligação de registo para os alunos
 
 ## <a name="prerequisites"></a>Pré-requisitos
-Para configurar um laboratório de sala de aula numa conta de laboratório, tem um membro de uma destas funções na conta de laboratório: Proprietário, criador do laboratório ou contribuinte. A conta que utilizou para criar uma conta de laboratório é automaticamente adicionada à função de proprietário.
+Para configurar um laboratório de sala de aula numa conta de laboratório, tem de ser um membro de uma destas funções na conta de laboratório: Proprietário, criador do laboratório ou contribuinte. A conta que utilizou para criar uma conta de laboratório é automaticamente adicionada à função de proprietário.
 
 Proprietário de um laboratório pode adicionar outros utilizadores para o **criador do laboratório** função. Por exemplo, o proprietário de um laboratório adiciona professores para a função de criador do laboratório. Em seguida, os professores criar laboratórios com VMs para suas classes. Os estudantes utilizam a ligação de registo que ele recebe de professores se registrar para o laboratório. Assim que estão registadas, eles podem usar as VMs nos laboratórios para fazer a classe de trabalho e trabalho doméstico. Para obter passos detalhados para adicionar utilizadores à função de criador do laboratório, consulte [adicionar um utilizador à função de criador do laboratório](tutorial-setup-lab-account.md#add-a-user-to-the-lab-creator-role).
 
@@ -48,8 +48,8 @@ Proprietário de um laboratório pode adicionar outros utilizadores para o **cri
 
         ![Criar um laboratório de sala de aula](../media/tutorial-setup-classroom-lab/new-lab-window.png)
 4. Na página **Selecionar especificações da máquina virtual**, execute os passos seguintes:
-    1. Selecione um **tamanho** para máquinas virtuais (VM) criadas no laboratório. 
-    3. Selecione a **imagem de VM** a ser utilizado para criar as VM no laboratório. 
+    1. Selecione um **tamanho** para máquinas virtuais (VM) criadas no laboratório. Atualmente, **pequeno**, **médio**, **grandes**, e **GPU** tamanhos são permitidos.
+    3. Selecione a **imagem de VM** a ser utilizado para criar as VM no laboratório. Se selecionar uma imagem do Linux, verá uma opção para ativar a ligação de ambiente de trabalho remoto para o mesmo. Para obter detalhes, consulte [ativar a ligação de ambiente de trabalho remoto para Linux](how-to-enable-remote-desktop-linux.md).
     4. Selecione **Seguinte**.
 
         ![Especificar as especificações de VM](../media/tutorial-setup-classroom-lab/select-vm-specifications.png)    
@@ -69,16 +69,16 @@ Proprietário de um laboratório pode adicionar outros utilizadores para o **cri
 
     ![Configurar a página do modelo após a conclusão](../media/tutorial-setup-classroom-lab/configure-template-after-complete.png)
 8. Sobre o **modelo de configurar** página, efetue os seguintes passos: Essas etapas são **opcional** para o tutorial.
-   1. Ligue-se à VM de modelo através da seleção de **Ligar**. 
-   1. Instalar e configurar o software na sua VM de modelo.     
-   1. Introduzir uma **descrição** do modelo
+    1. Ligue-se à VM de modelo através da seleção de **Ligar**. Se for um modelo VM do Linux, escolher se pretende ligar com SSH ou RDP (se estiver ativado RDP).
+    2. Instalar e configurar o software na sua VM de modelo.     
+    3. Introduzir uma **descrição** do modelo
 9. Selecione **Seguinte** na página do modelo. 
 10. Na página **Publicar o modelo**, execute as ações seguintes. 
-    1. Para publicar o modelo imediatamente e selecione **publicar**.  
+    1. Para publicar o modelo imediatamente, selecione **publicar**.  
 
         > [!WARNING]
         > Depois de publicar, não é possível anular a publicação. 
-    2. Para publicar mais tarde, selecione **Guardar para utilização posterior**. Pode publicar a VM de modelo depois de concluir o assistente. Para obter detalhes sobre como configurar e publicar depois de concluir o assistente, consulte a secção [Publicar o modelo](how-to-create-manage-template.md#publish-the-template-vm)no artigo [Como gerir laboratórios de sala de aula](how-to-manage-classroom-labs.md).
+    2. Para publicar mais tarde, selecione **Guardar para utilização posterior**. Pode publicar o modelo de VM depois de concluído o assistente. Para obter detalhes sobre como configurar e publicar depois de concluído o assistente, consulte [publicar o modelo](how-to-create-manage-template.md#publish-the-template-vm) secção a [como gerir laboratórios de sala de aula](how-to-manage-classroom-labs.md) artigo.
 
         ![Publicar modelo](../media/tutorial-setup-classroom-lab/publish-template.png)
 11. Verá o **progresso da publicação** do modelo. Este processo pode demorar até uma hora. 
@@ -89,10 +89,10 @@ Proprietário de um laboratório pode adicionar outros utilizadores para o **cri
     ![Publicar modelo – êxito](../media/tutorial-setup-classroom-lab/publish-success.png)
 1. Verá o **dashboard** para o seu laboratório. 
     
-     ![Dashboard de laboratório de sala de aula](../media/tutorial-setup-classroom-lab/classroom-lab-home-page.png)
+    ![Dashboard de laboratório de sala de aula](../media/tutorial-setup-classroom-lab/classroom-lab-home-page.png)
 4. Mude para o **máquinas virtuais** página ao selecionar máquinas virtuais no menu da esquerda ou ao selecionar o mosaico de máquinas virtuais. Confirme que vê as máquinas virtuais que estão na **não atribuído** estado. Estas VMs ainda não estão atribuídas a estudantes. Elas devem estar no estado **Parado**. Pode iniciar uma VM de estudante, ligar à VM, parar a VM e eliminar a VM nesta página. Pode iniciá-las nesta página ou permitir que os seus estudantes iniciem as VMs. 
 
-     ![Máquinas virtuais no estado parado](../media/tutorial-setup-classroom-lab/virtual-machines-stopped.png)
+    ![Máquinas virtuais no estado parado](../media/tutorial-setup-classroom-lab/virtual-machines-stopped.png)
 
 ## <a name="add-users-to-the-lab"></a>Adicionar utilizadores ao laboratório
 
@@ -108,15 +108,20 @@ Proprietário de um laboratório pode adicionar outros utilizadores para o **cri
     ![Lista de utilizadores](../media/how-to-configure-student-usage/users-list-new.png)
 
 
-## <a name="send-registration-link-to-students"></a>Enviar a ligação de registo para os alunos
+## <a name="send-an-email-with-the-registration-link"></a>Enviar um e-mail com a ligação de registo
 
 1. Mude para o **utilizadores** ver se ainda não está na página. 
-2. Selecione **obter a ligação de registo** na barra de ferramentas.
-1. Na caixa de diálogo **Registo de utilizador**, selecione o botão **Copiar**. A ligação é copiada para a área de transferência.
+2. Na lista, selecione específicos ou todos os utilizadores. Para selecionar utilizadores específicos, marque as caixas de seleção na primeira coluna da lista. Para selecionar todos os utilizadores, selecione a caixa de verificação na frente o título da primeira coluna (**nome**) ou selecione todas as caixas de verificação para todos os utilizadores na lista. Pode ver o estado do **estado de convite** nesta lista.  Na imagem seguinte, o estado de convite para todos os estudantes é definido como **convite não enviado**. 
 
-    ![Ligação de registo](../media/tutorial-setup-classroom-lab/registration-link.png)
-1. Na caixa de diálogo **Registo de utilizador**, selecione **Fechar**. 
-2. Partilhe a ligação de registo com um estudante, para que este possa registar-se na turma.
+    ![Selecionar estudantes](../media/tutorial-setup-classroom-lab/select-students.png)
+1. Selecione o **ícone de e-mail (envelope)** em uma das linhas (ou) select **Enviar convite** na barra de ferramentas. Também pode passar o mouse sobre um nome para estudantes na lista para ver o ícone de e-mail. 
+
+    ![Enviar ligação de registo por e-mail](../media/tutorial-setup-classroom-lab/send-email.png)
+4. Sobre o **ligação de registo de enviar por e-mail** página, siga estes passos: 
+    1. Tipo de uma **mensagem opcional** que pretende enviar para os alunos. O e-mail inclui automaticamente a ligação de registo. 
+    2. Sobre o **ligação de registo de enviar por e-mail** página, selecione **enviar**. Verá o estado de convite para a alteração **Enviar convite** e clique em **convite enviado**. 
+        
+        ![Convites enviados](../media/tutorial-setup-classroom-lab/invitations-sent.png)
 
 ## <a name="next-steps"></a>Passos Seguintes
 Neste tutorial, criou um laboratório de sala de aula e configurou o laboratório. Para saber como um aluno pode aceder a uma VM no laboratório através da ligação de registo, avance para o próximo tutorial:

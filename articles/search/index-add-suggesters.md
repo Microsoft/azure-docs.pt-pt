@@ -19,12 +19,12 @@ translation.priority.mt:
 - ru-ru
 - zh-cn
 - zh-tw
-ms.openlocfilehash: a629a022e332eae5c8a58e9ffc0f760f96bc24dd
-ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
+ms.openlocfilehash: a8bc86c2d3511fa04e595b8b2988d9a98bf084b2
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2019
-ms.locfileid: "58577127"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58650466"
 ---
 # <a name="add-suggesters-to-an-index-for-typeahead-in-azure-search"></a>Adicionar sugestores para um índice para typeahead no Azure Search
 
@@ -77,7 +77,7 @@ Depois de um sugestor é criada, adicione a [sugestões de API](https://docs.mic
 
 ### <a name="use-the-net-sdk"></a>Utilizar o .NET SDK
 
-No C#, definir um [classe de Sugestor](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.suggester?view=azure-dotnet). Um Sugestor é uma coleção que só pode aceitar um item. Certifique-se de que adicionar `using System.Collections.Generic;` para que possa criar uma lista de objetos. 
+No C#, definir um [objeto de Sugestor](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.suggester?view=azure-dotnet). `Suggesters` é uma coleção, mas apenas pode demorar um item. 
 
 ```csharp
 private static void CreateHotelsIndex(SearchServiceClient serviceClient)

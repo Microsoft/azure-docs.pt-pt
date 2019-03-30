@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 01/11/2017
 ms.author: maghan
-ms.openlocfilehash: c8b32e1d52768ea8450a2256d92d8cdb09f9fe8b
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 6339b49d0bc9c635457f305dad7b1a075327a1dd
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57445641"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58650279"
 ---
 # <a name="use-powershell-to-create-an-azure-vm-with-a-native-mode-report-server"></a>Utilizar o PowerShell para Criar uma VM do Azure com um Servidor de Relatórios no Modo Nativo
 > [!IMPORTANT] 
@@ -130,7 +130,7 @@ Um certificado autoassinado foi criado na VM quando a VM foi aprovisionada. O ce
    4. Selecione **computador Local** para gerir e, em seguida, clique em **concluir**.
    5. Clique em **Ok** e, em seguida, expanda o **certificados - pessoais** nós e clique em **certificados**. O certificado com o nome depois do nome DNS da VM e termina com **cloudapp.net**. O nome do certificado com o botão direito e clique em **cópia**.
    6. Expanda a **autoridades de certificação de raiz fidedigna** nó e, em seguida, botão direito do mouse **certificados** e, em seguida, clique em **colar**.
-   7. Para validar, faça duplo clique no nome do certificado sob **autoridades de certificação de raiz fidedigna** e verifique se não existirem erros e ver o seu certificado. Se pretender utilizar o script HTTPS, incluído com esse tópico, para configurar o servidor de relatório, o valor dos certificados **Thumbprint** é necessária como um parâmetro do script. **Para obter o valor do thumbprint**, efetue o seguinte. Também há um exemplo de PowerShell para obter o thumbprint na seção [utilizar script para configurar o servidor de relatório e o HTTPS](#use-script-to-configure-the-report-server-and-HTTPS).
+   7. Para validar, faça duplo clique no nome do certificado sob **autoridades de certificação de raiz fidedigna** e verifique se não existirem erros e ver o seu certificado. Se pretender utilizar o script HTTPS, incluído com esse tópico, para configurar o servidor de relatório, o valor dos certificados **Thumbprint** é necessária como um parâmetro do script. **Para obter o valor do thumbprint**, efetue o seguinte. Também há um exemplo de PowerShell para obter o thumbprint na seção [utilizar script para configurar o servidor de relatório e o HTTPS](#use-script-to-configure-the-report-server-and-https).
       
       1. Faça duplo clique o nome do certificado, por exemplo ssrsnativecloud.cloudapp.net.
       2. Clique no separador **Detalhes** .

@@ -10,23 +10,24 @@ ms.reviewer: klam, LADocs
 ms.topic: article
 ms.assetid: 7574cc7c-e5a1-4b7c-97f6-0cffb1a5d536
 ms.date: 10/15/2017
-ms.openlocfilehash: 5a1cae376ab9db2b0c4b5e0e5514bf7745593433
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 8ad70c5d22ca73258fa9e6501d03d5409a4e45d8
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57894585"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58652489"
 ---
 # <a name="create-and-deploy-logic-apps-with-azure-resource-manager-templates"></a>Criar e implementar aplicações lógicas com modelos Azure Resource Manager
 
-O Azure Logic Apps fornece modelos Azure Resource Manager que pode utilizar, não apenas para criar aplicações lógicas para automatizar fluxos de trabalho, mas também para definir os recursos e parâmetros que são utilizados para a implementação. Pode utilizar este modelo para os seus próprios cenários de negócios ou personalizar o modelo para satisfazer os seus requisitos. Saiba mais sobre o [modelo do Resource Manager para o logic apps](https://github.com/Azure/azure-quickstart-templates/blob/master/101-logic-app-create/azuredeploy.json) e [estrutura de modelo do Azure Resource Manager e a sintaxe](../azure-resource-manager/resource-group-authoring-templates.md). Para a sintaxe JSON e propriedades, consulte [tipos de recursos do Microsoft](/azure/templates/microsoft.logic/allversions).
+O Azure Logic Apps fornece modelos Azure Resource Manager que pode utilizar, não apenas para criar aplicações lógicas para automatizar fluxos de trabalho, mas também para definir os recursos e parâmetros que são utilizados para a implementação.
+Pode utilizar este modelo para os seus próprios cenários de negócios ou personalizar o modelo para satisfazer os seus requisitos. Saiba mais sobre o [modelo do Resource Manager para o logic apps](https://github.com/Azure/azure-quickstart-templates/blob/master/101-logic-app-create/azuredeploy.json) e [estrutura de modelo do Azure Resource Manager e a sintaxe](../azure-resource-manager/resource-group-authoring-templates.md). Para a sintaxe JSON e propriedades, consulte [tipos de recursos do Microsoft](/azure/templates/microsoft.logic/allversions).
 
 ## <a name="define-the-logic-app"></a>Definir a aplicação lógica
-
 Esta definição de aplicação de lógica de exemplo é executado uma vez por hora e ping para a localização especificada no `testUri` parâmetro.
-O modelo utiliza valores de parâmetro para o nome da aplicação lógica (```logicAppName```) e a localização para enviar um ping para fins de teste (```testUri```). Saiba mais sobre [definir estes parâmetros no seu modelo](#define-parameters). O modelo também define a localização para a aplicação lógica para a mesma localização que o grupo de recursos do Azure. 
+O modelo utiliza valores de parâmetro para o nome da aplicação lógica (```logicAppName```) e a localização para enviar um ping para fins de teste (```testUri```). Saiba mais sobre [definir estes parâmetros no seu modelo](#define-parameters).
+O modelo também define a localização para a aplicação lógica para a mesma localização que o grupo de recursos do Azure.
 
-``` json
+```json
 {
    "type": "Microsoft.Logic/workflows",
    "apiVersion": "2016-06-01",
@@ -69,7 +70,7 @@ O modelo utiliza valores de parâmetro para o nome da aplicação lógica (```lo
       "parameters": {}
    }
 }
-``` 
+```
 
 <a name="define-parameters"></a>
 
@@ -79,10 +80,10 @@ O modelo utiliza valores de parâmetro para o nome da aplicação lógica (```lo
 
 Aqui estão as descrições para os parâmetros no modelo:
 
-| Parâmetro | Descrição | Exemplo de definição de JSON | 
-| --------- | ----------- | ----------------------- | 
+| Parâmetro | Descrição | Exemplo de definição de JSON |
+| --------- | ----------- | ----------------------- |
 | `logicAppName` | Define o nome da aplicação lógica cria esse modelo. | "logicAppName": { "type": "string", "metadata": { "description": "myExampleLogicAppName" } } |
-| `testUri` | Define a localização para enviar um ping para fins de teste. | "testUri": { "type": "string", "defaultValue": "https://azure.microsoft.com/status/feed/"} | 
+| `testUri` | Define a localização para enviar um ping para fins de teste. | "testUri": { "type": "string", "defaultValue": "https://azure.microsoft.com/status/feed/"} |
 ||||
 
 Saiba mais sobre [API do REST para a definição de fluxo de trabalho do Logic Apps e propriedades](https://docs.microsoft.com/rest/api/logic/workflows) e [criação de definições de aplicação lógica com JSON](logic-apps-author-definitions.md).
@@ -93,7 +94,8 @@ Para criar e implementar automaticamente uma aplicação lógica para o Azure, e
 
 [![Implementar no Azure](./media/logic-apps-create-deploy-azure-resource-manager-templates/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-logic-app-create%2Fazuredeploy.json)
 
-Esta ação inicia sessão, no portal do Azure, onde pode fornecer a lógica de detalhes da aplicação e fazer alterações ao modelo ou de parâmetros. Por exemplo, o portal do Azure pede-lhe estes detalhes:
+Esta ação inicia sessão, no portal do Azure, onde pode fornecer a lógica de detalhes da aplicação e fazer alterações ao modelo ou de parâmetros.
+Por exemplo, o portal do Azure pede-lhe estes detalhes:
 
 * Nome da subscrição do Azure
 * Grupo de recursos que pretende utilizar
@@ -110,13 +112,13 @@ Esta ação inicia sessão, no portal do Azure, onde pode fornecer a lógica de 
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-```
+```powershell
 New-AzResourceGroupDeployment -TemplateUri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-logic-app-create/azuredeploy.json -ResourceGroupName ExampleDeployGroup
-``` 
+```
 
 ### <a name="azure-cli"></a>CLI do Azure
 
-```
+```azurecli
 azure group deployment create --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-logic-app-create/azuredeploy.json -g ExampleDeployGroup
 ```
 

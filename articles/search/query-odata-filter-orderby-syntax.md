@@ -19,12 +19,12 @@ translation.priority.mt:
 - ru-ru
 - zh-cn
 - zh-tw
-ms.openlocfilehash: 8445ab2c8797226b08519e2f186350a31416f049
-ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
+ms.openlocfilehash: ab98c3be75fb59603be66ee84e0d288de56cdc91
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2019
-ms.locfileid: "58578412"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58648508"
 ---
 # <a name="odata-expression-syntax-for-filters-and-order-by-clauses-in-azure-search"></a>Sintaxe da expressão OData para filtros e cláusulas de ordem no Azure Search
 
@@ -84,9 +84,11 @@ POST /indexes/hotels/docs/search?api-version=2017-11-11
 
 - O `search.in` função testa se um campo de determinada seqüência de caracteres é igual a uma determinada lista de valores. Também pode ser utilizado em qualquer ou todos os comparar um valor único de um campo de coleção de cadeia de caracteres com uma determinada lista de valores. Igualdade entre o campo e cada valor na lista é determinada de forma diferencia maiúsculas de minúsculas, da mesma forma como para o `eq` operador. Por conseguinte, como uma expressão `search.in(myfield, 'a, b, c')` é equivalente ao `myfield eq 'a' or myfield eq 'b' or myfield eq 'c'`, exceto pelo fato de `search.in` resulta num desempenho muito melhor. 
 
-  O primeiro parâmetro para o `search.in` função é a referência de campo de cadeia de caracteres (ou uma variável de alcance ao longo de um campo de coleção de cadeia de caracteres no caso em que `search.in` é utilizado dentro de um `any` ou `all` expressão). O segundo parâmetro é uma cadeia de caracteres que contém a lista de valores, separados por espaços e/ou vírgulas. Se precisar de utilizar os separadores que não sejam espaços e vírgulas porque os valores incluem aqueles caracteres, pode especificar um terceiro parâmetro opcional para `search.in`. 
-
-  Neste terceiro parâmetro é uma cadeia de caracteres em que cada caractere da cadeia de caracteres ou subconjunto da cadeia de caracteres é tratado como um separador ao analisar a lista de valores no segundo parâmetro.
+   O primeiro parâmetro para o `search.in` função é a referência de campo de cadeia de caracteres (ou uma variável de alcance ao longo de um campo de coleção de cadeia de caracteres no caso em que `search.in` é utilizado dentro de um `any` ou `all` expressão). 
+  
+   O segundo parâmetro é uma cadeia de caracteres que contém a lista de valores, separados por espaços e/ou vírgulas. 
+  
+   O terceiro parâmetro é uma cadeia de caracteres em que cada caractere da cadeia de caracteres ou subconjunto da cadeia de caracteres é tratado como um separador ao analisar a lista de valores no segundo parâmetro. Se precisar de utilizar os separadores que não sejam espaços e vírgulas porque os valores incluem aqueles caracteres, pode especificar um terceiro parâmetro opcional para `search.in`. 
 
   > [!NOTE]   
   > Alguns cenários requerem a comparar um campo em relação a um grande número de valores de constantes. Por exemplo, a implementação de remoção de segurança com filtros pode exigir comparando o campo de ID do documento numa lista de IDs para o qual o utilizador requerente é concedido acesso de leitura. Em cenários como isso é altamente recomendável usar o `search.in` função em vez de uma disjunção mais complicada de expressões de igualdade. Por exemplo, usar `search.in(Id, '123, 456, ...')` em vez de `Id eq 123 or Id eq 456 or ....`. 
@@ -207,7 +209,7 @@ $filter=geo.intersects(location, geography'POLYGON((-122.031577 47.578581, -122.
 $filter=description eq null
 ```
 
-Encontre todos os hotéis com nome igual a 'Motel motéis' ou "Hotel orçamento"). Frases contenham espaços, que é um delimitador de predefinição. Para especificar uma substituição de delimitador, coloque o novo delimitador plicas como parte da expressão do filtro:  
+Encontre todos os hotéis com nome igual a 'Motel motéis' ou "Hotel orçamento"). Frases contenham espaços, que é um delimitador de predefinição. Pode specicfy um delimitador alternativo plicas como o terceiro parâmetro de cadeia de caracteres:  
 
 ```
 $filter=search.in(name, 'Roach motel,Budget hotel', ',')
@@ -225,7 +227,7 @@ Localize todos os hotéis com a etiqueta "Wi-Fi" ou "agrupamento":
 $filter=tags/any(t: search.in(t, 'wifi, pool'))
 ```
 
-Encontre uma correspondência em vários etiquetas, 'toalhas exaltados racks' ou "hairdryer incluídos". Não se esqueça de especificar um delimitador alternativo quando o delimitador de espaço padrão é inexequível. 
+Encontre uma correspondência com frases dentro de uma coleção, como 'toalhas exaltados racks' ou "hairdryer incluídos" em etiquetas. 
 
 ```
 $filter=tags/any(t: search.in(t, 'heated towel racks,hairdryer included', ','))

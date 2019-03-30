@@ -14,12 +14,12 @@ ms.custom: H1Hack27Feb2017
 ms.workload: infrastructure-services
 ms.date: 12/21/2016
 ms.author: victorh
-ms.openlocfilehash: fa1f90cf0236a589d1df96658c672a555195be6b
-ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
+ms.openlocfilehash: ad9e22668d0f6d994ad0fce7b207b5849dfa27e9
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56888819"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58651248"
 ---
 # <a name="manage-dns-records-and-recordsets-in-azure-dns-using-azure-powershell"></a>Gerir registos DNS e conjuntos de registros no DNS do Azure com o Azure PowerShell
 
@@ -93,7 +93,7 @@ Depois de ter visto em detalhe como criar registos de "A", os exemplos seguintes
 
 Em cada caso, vamos mostrar como criar um conjunto que contém um único registo de registos. Os exemplos anteriores para "A" registos podem ser adaptados para criar conjuntos de registos de outros tipos que contém vários registos, com metadados, ou para criar conjuntos de registos vazios.
 
-Não podemos dar um exemplo para criar um conjunto de registos SOA, uma vez que SOAs são criados e eliminado com cada zona DNS e não pode ser criada ou eliminada separadamente. No entanto, [pode ser modificado a SOA, como mostra um exemplo posterior](#to-modify-an-SOA-record).
+Não podemos dar um exemplo para criar um conjunto de registos SOA, uma vez que SOAs são criados e eliminado com cada zona DNS e não pode ser criada ou eliminada separadamente. No entanto, [pode ser modificado a SOA, como mostra um exemplo posterior](#to-modify-an-soa-record).
 
 ### <a name="create-an-aaaa-record-set-with-a-single-record"></a>Criar um conjunto de registos AAAA com um único registo
 

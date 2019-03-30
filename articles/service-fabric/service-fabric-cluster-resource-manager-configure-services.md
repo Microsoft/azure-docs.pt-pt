@@ -4,7 +4,7 @@ description: Saiba como descrever um serviço do Service Fabric com a especifica
 services: service-fabric
 documentationcenter: .net
 author: masnider
-manager: timlt
+manager: chackdan
 editor: ''
 ms.assetid: 16e135c1-a00a-4c6f-9302-6651a090571a
 ms.service: service-fabric
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/18/2017
 ms.author: masnider
-ms.openlocfilehash: 55d75bb0bae4bf3feb370b7fdf4d80dc43bdc0ca
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: 21fcac62c9335652d0c682a6ac889be82e649464
+ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56736894"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58661552"
 ---
 # <a name="configuring-cluster-resource-manager-settings-for-service-fabric-services"></a>Configurar definições de Gestor de recursos de cluster para serviços do Service Fabric
 O Gestor de recursos de Cluster do Service Fabric permite que um controle refinado sobre as regras que regem a cada indivíduo a chamada de serviço. Cada serviço com nome, pode especificar regras para a forma como deve ser alocado no cluster. Cada serviço com nome também pode definir o conjunto de métricas que quer para o relatório, incluindo como eles são importantes para esse serviço. Configurar os serviços divide em três tarefas diferentes:

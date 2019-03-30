@@ -4,7 +4,7 @@ description: Saiba mais sobre os eventos do Service Fabric vêm prontos para o a
 services: service-fabric
 documentationcenter: .net
 author: srrengar
-manager: timlt
+manager: chackdan
 editor: ''
 ms.assetid: ''
 ms.service: service-fabric
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/21/2018
 ms.author: srrengar
-ms.openlocfilehash: c4ce8e01b1dc819453610f68d044cc268e27eed7
-ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.openlocfilehash: b4270b9438a397ec09537c9d6343515ebc21af98
+ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/02/2019
-ms.locfileid: "57242756"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58665343"
 ---
 # <a name="service-fabric-events"></a>Eventos do Service Fabric 
 

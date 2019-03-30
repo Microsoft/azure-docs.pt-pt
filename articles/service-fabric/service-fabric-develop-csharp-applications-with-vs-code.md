@@ -4,7 +4,7 @@ description: Este artigo mostra como criar, implementar e depurar aplicações d
 services: service-fabric
 documentationcenter: .net
 author: peterpogorski
-manager: timlt
+manager: chackdan
 editor: ''
 ms.assetid: 96176149-69bb-4b06-a72e-ebbfea84454b
 ms.service: service-fabric
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 06/29/2018
 ms.author: pepogors
-ms.openlocfilehash: 76efdc28c5c536c193e12a1637d2b57a2582b6bf
-ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
+ms.openlocfilehash: 680c141e32333c4747ee69919229bd9381f536a4
+ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58499396"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58664252"
 ---
 # <a name="develop-c-service-fabric-applications-with-visual-studio-code"></a>Desenvolva C# aplicações do Service Fabric com o Visual Studio Code
 

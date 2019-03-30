@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 02/02/2016
 ms.author: genli
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 4ea53048819bfdad5c45e522115aa6e493dfc8bc
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 1e47b1e548516960c6aab3c48d64255370c94a77
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46953377"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58650024"
 ---
 # <a name="create-a-vm-classic-with-multiple-nics-using-the-azure-classic-cli"></a>Criar uma VM (clássico) com vários NICs com a CLI clássica do Azure
 
@@ -30,7 +30,7 @@ ms.locfileid: "46953377"
 Pode criar máquinas virtuais (VMs) no Azure e anexar várias interfaces de rede (NICs) para cada uma das suas VMs. Várias NICs ative a separação de tipos de tráfego entre NICs. Por exemplo, uma NIC poderá comunicar com a Internet, enquanto outro comunica apenas com recursos internos não ligados à Internet. A capacidade de separar o tráfego de rede em vários NICs é necessária para muitas aplicações virtuais de rede, tais como entrega de aplicativos e soluções de otimização de WAN.
 
 > [!IMPORTANT]
-> O Azure tem dois modelos de implementação diferentes para criar e trabalhar com os recursos: [Resource Manager e clássico](../resource-manager-deployment-model.md). Este artigo cobre a utilização do modelo de implementação clássica. A Microsoft recomenda que as implementações mais novas utilizem o modelo Resource Manager. Saiba como executar estes passos com o [modelo de implementação do Resource Manager](../virtual-machines/linux/multiple-nics.md).
+> O Azure tem dois modelos de implementação diferentes para criar e trabalhar com recursos:  [Resource Manager e clássica](../resource-manager-deployment-model.md). Este artigo cobre a utilização do modelo de implementação clássica. A Microsoft recomenda que as implementações mais novas utilizem o modelo Resource Manager. Saiba como executar estes passos com o [modelo de implementação do Resource Manager](../virtual-machines/linux/multiple-nics.md).
 
 [!INCLUDE [virtual-network-deploy-multinic-scenario-include.md](../../includes/virtual-network-deploy-multinic-scenario-include.md)]
 
@@ -51,7 +51,7 @@ As VMs de back-end dependem a criação dos seguintes recursos:
 ### <a name="step-1---start-your-script"></a>Passo 1: iniciar o seu script
 Pode transferir o script de bash completo utilizado [aqui](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/IaaS-Story/11-MultiNIC/classic/virtual-network-deploy-multinic-classic-cli.sh). Conclua os seguintes passos para alterar o script funcione no seu ambiente:
 
-1. Alterar os valores das variáveis abaixo com base no seu grupo de recursos existentes implementado acima na [pré-requisitos](#Prerequisites).
+1. Alterar os valores das variáveis abaixo com base no seu grupo de recursos existentes implementado acima na [pré-requisitos](#prerequisites).
 
     ```azurecli
     location="useast2"
@@ -192,4 +192,4 @@ Agora que transferiu e alterou o script com base nas suas necessidades, execute 
 
 ### <a name="step-5---configure-routing-within-the-vms-operating-system"></a>Passo 5 - configurar o encaminhamento no sistema de operativo da VM
 
-DHCP do Azure atribui um gateway predefinido para a primeira interface de rede (principal) ligado à máquina virtual. O Azure não atribui um gateway predefinido a interfaces de rede (secundárias) adicionais ligadas a uma máquina virtual. Por conseguinte, não pode comunicar com recursos que estejam fora da sub-rede em que se encontre uma interface de rede secundária, por predefinição. Interfaces de rede secundárias podem, no entanto, comunicar com os recursos fora da sua sub-rede. Para configurar o encaminhamento para interfaces de rede secundárias, consulte [encaminhamento dentro de um sistema de operativo da máquina virtual com várias interfaces de rede](virtual-network-network-interface-vm.md).
+DHCP do Azure atribui um gateway predefinido para a primeira interface de rede (principal) ligado à máquina virtual. O Azure não atribui um gateway predefinido a interfaces de rede (secundárias) adicionais ligadas a uma máquina virtual. Por conseguinte, não pode comunicar com recursos que estejam fora da sub-rede em que se encontre uma interface de rede secundária, por predefinição. Contudo, as interfaces de rede secundárias podem comunicar com recursos fora das respetivas sub-redes. Para configurar o encaminhamento para interfaces de rede secundárias, consulte [encaminhamento dentro de um sistema de operativo da máquina virtual com várias interfaces de rede](virtual-network-network-interface-vm.md).

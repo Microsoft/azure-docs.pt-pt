@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/25/2019
 ms.author: mlottner
-ms.openlocfilehash: 7de4307f7eef95a637dc828ac1738bd0ed39c7c7
-ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
+ms.openlocfilehash: d81054e95b9f712262fe5fa46453749b54a7ac24
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2019
-ms.locfileid: "58578463"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58651402"
 ---
 # <a name="security-agent-reference-architecture"></a>Arquitetura de referência do agente de segurança
 
@@ -44,8 +44,8 @@ Agentes de segurança suportam as seguintes funcionalidades:
 
 ASC para os agentes de segurança de IoT são desenvolvidas como projetos de código-fonte aberto e estão disponível a partir do GitHub: 
 
-- [IoT-ASC-Agent-C](https://github.com/Azure/IoT-ASC-Agent-C) 
-- [IoT-ASC-Agent-CS](https://github.com/Azure/IoT-ASC-Agent-CS)
+- [ASC para o agente baseado em C do IoT](https://github.com/Azure/Azure-IoT-Security-Agent-C) 
+- [ASC para IoT C#-com base em agente](https://github.com/Azure/Azure-IoT-Security-Agent-CS)
 
 ## <a name="agent-supported-platforms"></a>Plataformas de agentes suportados
 

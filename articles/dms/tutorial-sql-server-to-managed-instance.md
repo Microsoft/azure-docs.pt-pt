@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: article
 ms.date: 03/12/2019
-ms.openlocfilehash: 450d47e4c20da1d9d9760ababf58c75eef2814b3
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 78f19fcca51bb9c14fd05013834599c3e0f12779
+ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58182375"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58662113"
 ---
 # <a name="tutorial-migrate-sql-server-to-an-azure-sql-database-managed-instance-offline-using-dms"></a>Tutorial: Migrar o SQL Server para uma instância gerida da base de dados do Azure SQL offline com o DMS
 
@@ -152,9 +152,9 @@ Após a criação de uma instância do serviço, localize-a no portal do Azure, 
 
 1. Sobre o **detalhes do destino de migração** ecrã, especifique os detalhes de ligação para o destino, o que é a pré-aprovisionado instância gerida de base de dados do Azure SQL ao qual está a migrar o **AdventureWorks2012**base de dados.
 
-    Se ainda não aprovisionou a instância gerida da base de dados do Azure SQL, selecione **não** para uma ligação para o ajudar a aprovisionar a instância. Pode continuar com a criação do projeto e, em seguida, quando a instância gerida da base de dados do Azure SQL estiver pronta, regresse a este projeto específico para executar a migração.
+    Se ainda não aprovisionou a instância gerida da base de dados do Azure SQL, selecione o [link](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-get-started) para o ajudar a aprovisionar a instância. Pode continuar com a criação do projeto e, em seguida, quando a instância gerida da base de dados do Azure SQL estiver pronta, regresse a este projeto específico para executar a migração.
 
-       ![Select Target](media/tutorial-sql-server-to-managed-instance/dms-target-details2.png)
+     ![Selecionar o Destino](media/tutorial-sql-server-to-managed-instance/dms-target-details2.png)
 
 2. Selecione **Guardar**.
 

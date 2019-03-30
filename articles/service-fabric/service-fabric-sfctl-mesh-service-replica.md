@@ -4,7 +4,7 @@ description: Descreve os comandos de réplica do serviço de malha do CLI do Ser
 services: service-fabric
 documentationcenter: na
 author: Christina-Kang
-manager: timlt
+manager: chackdan
 editor: ''
 ms.assetid: ''
 ms.service: service-fabric
@@ -14,14 +14,14 @@ ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.date: 12/06/2018
 ms.author: bikang
-ms.openlocfilehash: bcf4b8d013783a9fbdb62bcdb8737680bfce7640
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: 1e0955ef2a52a6313f0449b956229e03f0a5b5e8
+ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53285089"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58662436"
 ---
-# <a name="sfctl-mesh-service-replica"></a>serviço de malha sfctl-réplica
+# <a name="sfctl-mesh-service-replica"></a>sfctl mesh service-replica
 Obtenha os detalhes de réplica e de réplicas de lista de um determinado serviço num recurso de aplicação.
 
 ## <a name="commands"></a>Comandos
@@ -29,7 +29,7 @@ Obtenha os detalhes de réplica e de réplicas de lista de um determinado servi�
 |Comando|Descrição|
 | --- | --- |
 | list | Apresenta uma lista de todas as réplicas de um serviço. |
-| Show | Obtém a réplica especificada do serviço de um aplicativo. |
+| mostrar | Obtém a réplica especificada do serviço de um aplicativo. |
 
 ## <a name="sfctl-mesh-service-replica-list"></a>lista de réplicas do serviço de malha sfctl
 Apresenta uma lista de todas as réplicas de um serviço.
@@ -49,9 +49,9 @@ Obtém as informações sobre todas as réplicas de um serviço. As informaçõe
 | --- | --- |
 | – depuração | Aumenta a verbosidade de registo para mostrar que todos os registos de depuração. |
 | – ajudar -h | Mostre esta mensagem de ajuda e saída. |
-| --o de saída | Formato de saída.  Valores permitidos\: json, jsonc, tabela, tsv.  Predefinido\: json. |
-| – consulta | Cadeia de consulta do JMESPath. Consulte http\://jmespath.org/ para obter mais informações e exemplos. |
-| -verbose | Aumenta a verbosidade do registo. Utilize--debug para os registos de depuração completa. |
+| --output -o | Formato de saída.  Valores permitidos\: json, jsonc, tabela, tsv.  Predefinido\: json. |
+| --query | Cadeia de consulta do JMESPath. Consulte http\://jmespath.org/ para obter mais informações e exemplos. |
+| --verbose | Aumenta a verbosidade do registo. Utilize--debug para os registos de depuração completa. |
 
 ## <a name="sfctl-mesh-service-replica-show"></a>show de réplica do serviço de malha sfctl
 Obtém a réplica especificada do serviço de um aplicativo.
@@ -72,9 +72,9 @@ Obtém as informações sobre a réplica de serviço com o nome fornecido. As in
 | --- | --- |
 | – depuração | Aumenta a verbosidade de registo para mostrar que todos os registos de depuração. |
 | – ajudar -h | Mostre esta mensagem de ajuda e saída. |
-| --o de saída | Formato de saída.  Valores permitidos\: json, jsonc, tabela, tsv.  Predefinido\: json. |
-| – consulta | Cadeia de consulta do JMESPath. Consulte http\://jmespath.org/ para obter mais informações e exemplos. |
-| -verbose | Aumenta a verbosidade do registo. Utilize--debug para os registos de depuração completa. |
+| --output -o | Formato de saída.  Valores permitidos\: json, jsonc, tabela, tsv.  Predefinido\: json. |
+| --query | Cadeia de consulta do JMESPath. Consulte http\://jmespath.org/ para obter mais informações e exemplos. |
+| --verbose | Aumenta a verbosidade do registo. Utilize--debug para os registos de depuração completa. |
 
 
 ## <a name="next-steps"></a>Passos Seguintes

@@ -4,7 +4,7 @@ description: Uma introdução para o modelo, que fornece monitoramento de cluste
 services: service-fabric
 documentationcenter: .net
 author: oanapl
-manager: timlt
+manager: chackdan
 editor: ''
 ms.assetid: 1d979210-b1eb-4022-be24-799fd9d8e003
 ms.service: service-fabric
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 2/28/2018
 ms.author: oanapl
-ms.openlocfilehash: 87081398e844f1e2b085a7e12c2b7aafce330ec9
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: d0ef9f34d6b657a063e50b0f144197c41905e809
+ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56193769"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58667456"
 ---
 # <a name="introduction-to-service-fabric-health-monitoring"></a>Introdução à monitorização do estado de funcionamento do Service Fabric
 O Azure Service Fabric introduz um modelo de estado de funcionamento que fornece relatórios e de avaliação do Estado de funcionamento avançado, flexível e extensível. O modelo permite que quase em tempo real de monitorização do Estado do cluster e os serviços em execução no mesmo. Pode facilmente obter informações de estado de funcionamento e corrigir possíveis problemas antes de cascata e provocar interrupções em massa. No modelo típico, serviços enviam relatórios com base em suas exibições locais e que informações são agregadas para fornecer um geral cluster a nível de exibição.

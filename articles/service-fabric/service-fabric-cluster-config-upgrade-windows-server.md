@@ -4,7 +4,7 @@ description: Saiba como atualizar a configuração que executa um cluster autón
 services: service-fabric
 documentationcenter: .net
 author: dkkapur
-manager: timlt
+manager: chackdan
 editor: ''
 ms.assetid: 66296cc6-9524-4c6a-b0a6-57c253bdf67e
 ms.service: service-fabric
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/09/2018
 ms.author: dekapur
-ms.openlocfilehash: 88846845f1f8ffc71fb193e134a18ec38f619141
-ms.sourcegitcommit: 7804131dbe9599f7f7afa59cacc2babd19e1e4b9
+ms.openlocfilehash: f99c1ebb64bf881bcd42f15e13bb81b96ccfa064
+ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/17/2018
-ms.locfileid: "51855183"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58665617"
 ---
 # <a name="upgrade-the-configuration-of-a-standalone-cluster"></a>Atualizar a configuração de um cluster autónomo 
 
@@ -75,9 +75,9 @@ São suportadas quatro opções:
 
 * Atualização do certificado único: O caminho de atualização é o certificado de um site (primário) -> B de certificado (primário) -> C de certificado (primário) ->...
 
-* Atualização do certificado Double: O caminho de atualização é um site (primário) de certificado do certificado (primário) -> e B (secundário) -> B de certificado (primário) -> (primário) do certificado B e C (secundário) -> C de certificado (primário) ->...
+* Double atualização do certificado: O caminho de atualização é um site (primário) de certificado do certificado (primário) -> e B (secundário) -> B de certificado (primário) -> (primário) do certificado B e C (secundário) -> C de certificado (primário) ->...
 
-* Atualização do tipo de certificado: configuração de certificado com base em CommonName de configuração <> – baseado na Thumbprint do certificado. Por exemplo, o Thumbprint do certificado (primário) e Thumbprint B (secundário) -> C. CommonName do certificado
+* Atualização do tipo de certificado: Configuração de certificado com base em CommonName de configuração <> – baseado na thumbprint do certificado. Por exemplo, o Thumbprint do certificado (primário) e Thumbprint B (secundário) -> C. CommonName do certificado
 
 * Atualização de thumbprint do emissor de certificado: O caminho de atualização é o CN do certificado = A, IssuerThumbprint = IT1 (principal) -> CN do certificado = A, IssuerThumbprint = IT1, IT2 (principal) -> certificado CN = A, IssuerThumbprint = IT2 (principal).
 

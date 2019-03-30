@@ -4,7 +4,7 @@ description: Aplicativo para automatizar a aplicação de patches de sistema ope
 services: service-fabric
 documentationcenter: .net
 author: novino
-manager: timlt
+manager: chackdan
 editor: ''
 ms.assetid: de7dacf5-4038-434a-a265-5d0de80a9b1d
 ms.service: service-fabric
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 5/22/2018
 ms.author: nachandr
-ms.openlocfilehash: 27650605601a24e11d63e56343535c35c8b72f5d
-ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
+ms.openlocfilehash: 5efcc92bc2054dfb66b5fe03ae083c49f924d2ce
+ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52285157"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58668199"
 ---
 # <a name="patch-the-linux-operating-system-in-your-service-fabric-cluster"></a>Corrigir o sistema operativo do Linux no seu cluster do Service Fabric
 
@@ -41,13 +41,13 @@ A aplicação de orquestração do patch fornece as seguintes funcionalidades:
 
 A aplicação de orquestração do patch é composta pelos subcomponentes seguintes:
 
-- **Serviço de coordenador**: este serviço com monitorização de estado é responsável por:
+- **Serviço de coordenador**: Este serviço com monitorização de estado é responsável por:
     - Coordenar a tarefa de atualização de SO em todo o cluster.
     - Armazenando o resultado de operações de atualização de SO concluídos.
-- **Serviço de agente de nó**: este serviço sem estado é executado em todos os nós de cluster do Service Fabric. O serviço é responsável por:
+- **Serviço de agente de nó**: Este serviço sem estado é executado em todos os nós de cluster do Service Fabric. O serviço é responsável por:
     - O daemon de agente de nó no Linux de inicialização.
     - O serviço de daemon de monitorização.
-- **O daemon de agente de nó**: serviço de daemon de Linux este é executado num nível mais alto privilégio (raiz). Por outro lado, o serviço de agente de nó e o serviço Coordenador de ser executados num nível inferior de privilégio. O serviço é responsável por executar as seguintes tarefas de atualização em todos os nós de cluster:
+- **O daemon de agente de nó**: Este serviço de daemon de Linux é executado num nível mais alto privilégio (raiz). Por outro lado, o serviço de agente de nó e o serviço Coordenador de ser executados num nível inferior de privilégio. O serviço é responsável por executar as seguintes tarefas de atualização em todos os nós de cluster:
     - Desativar a atualização de SO automática no nó.
     - Transferir e instalar a atualização do SO, de acordo com a política do utilizador forneceu.
     - A reiniciar a instalação da atualização de SO de postagem de máquina se for necessário.
@@ -130,13 +130,13 @@ O comportamento da aplicação de orquestração do patch pode ser configurado p
 |**Parâmetro**        |**Tipo**                          | **Detalhes**|
 |:-|-|-|
 |MaxResultsToCache    |Longo                              | Número máximo de resultados de atualização, que devem ser colocados em cache. <br>Valor predefinido é 3000 assumindo a: <br> -Número de nós é 20. <br> -Número de atualizações a acontecer num nó por mês é cinco. <br> -Número de resultados por operação pode ser 10. <br> -Devem ser armazenados resultados para os últimos três meses. |
-|TaskApprovalPolicy   |Enum <br> {NodeWise, UpgradeDomainWise}                          |TaskApprovalPolicy indica a política que está a ser utilizado pelo serviço de coordenador para instalar atualizações em todos os nós de cluster do Service Fabric.<br>                         Valores permitidos são: <br>                                                           <b>NodeWise</b>. As atualizações são instalado um nó por vez. <br>                                                           <b>UpgradeDomainWise</b>. As atualizações são instalado um domínio de atualização de cada vez. (No máximo, podem ir todos os nós que pertencem a um domínio de atualização para atualização.)
+|TaskApprovalPolicy   |Enum <br> { NodeWise, UpgradeDomainWise }                          |TaskApprovalPolicy indica a política que está a ser utilizado pelo serviço de coordenador para instalar atualizações em todos os nós de cluster do Service Fabric.<br>                         Valores permitidos são: <br>                                                           <b>NodeWise</b>. As atualizações são instalado um nó por vez. <br>                                                           <b>UpgradeDomainWise</b>. As atualizações são instalado um domínio de atualização de cada vez. (No máximo, podem ir todos os nós que pertencem a um domínio de atualização para atualização.)
 | UpdateOperationTimeOutInMinutes | Int <br>(Predefinição: 180)                   | Especifica o tempo limite para qualquer operação de atualização (download ou instalação). Se não é possível concluir a operação no tempo limite especificado, é abortada.       |
-| RescheduleCount      | Int <br> (Predefinição: 5).                  | O número máximo de vezes que o serviço reagenda o sistema operacional de atualização no caso de uma operação falha de forma permanente.          |
-| RescheduleTimeInMinutes  | Int <br>(Predefinição: 30). | No caso de falha persistir de atualizar o intervalo no qual o serviço reagenda o sistema operacional. |
+| RescheduleCount      | Int <br> (Predefinição: 5)                  | O número máximo de vezes que o serviço reagenda o sistema operacional de atualização no caso de uma operação falha de forma permanente.          |
+| RescheduleTimeInMinutes  | Int <br>(Predefinição: 30) | No caso de falha persistir de atualizar o intervalo no qual o serviço reagenda o sistema operacional. |
 | UpdateFrequency           | Cadeia de caracteres separados por vírgulas (predefinição: "Semanais, quarta-feira, 7:00:00")     | A frequência para instalar atualizações do SO no cluster. Os valores de formato e possíveis são: <br>-Mensais, DD, hh: mm:, por exemplo, mensalmente, 5, 12:22:32. <br> -Semanal, dia, hh: mm:, para o exemplo, semanalmente, Terça-feira, 12:22:32.  <br> -Diárias, hh: mm:, por exemplo, diariamente, 12:22:32.  <br> -None indica que essa atualização não deve ser feita.  <br><br> Todos os tempos são em formato UTC.|
 | UpdateClassification | Cadeia de caracteres separados por vírgulas (predefinição: "securityupdates") | Tipo de atualizações que devem ser instalados em nós do cluster. Os valores aceitáveis são securityupdates, todos os. <br> -securityupdates - terá de instalar apenas as atualizações de segurança <br> -todos os - instaladas todas as atualizações disponíveis do apt.|
-| ApprovedPatches | Cadeia de caracteres separados por vírgulas (predefinição: "") | Esta é a lista de atualizações aprovadas que devem ser instalados em nós de cluster. A lista separada por vírgulas contém pacotes aprovados e a versão de destino, opcionalmente, pretendida.<br> Por exemplo: "apt utils = 1.2.10ubuntu1, python3 jwt, https apt transporte < 1.2.194, libsystemd0 > = 229 4ubuntu16" <br> O procedimento acima terá de instalar <br> -apt utils 1.2.10ubuntu1 de versão, se estiver disponível na cache de apt. Se essa versão específico não estiver disponível, em seguida, é não operacional. <br> -atualizações de python3 jwt para a versão mais recente disponível. Se o pacote não estiver presente, em seguida, é não operacional. <br> -atualizações de apt transporte https para a versão mais recente é inferior a 1.2.194. Se esta versão não estiver presente, em seguida, é não operacional. <br> -libsystemd0 atualizações para a versão mais recente é maior ou igual a 229 4ubuntu16. Se não existir uma versão desse tipo, em seguida, é não operacional.|
+| ApprovedPatches | Cadeia de caracteres separados por vírgulas (predefinição: "") | Esta é a lista de atualizações aprovadas que devem ser instalados em nós de cluster. A lista separada por vírgulas contém pacotes aprovados e a versão de destino, opcionalmente, pretendida.<br> for example: "apt-utils = 1.2.10ubuntu1, python3-jwt, apt-transport-https < 1.2.194, libsystemd0 >= 229-4ubuntu16" <br> O procedimento acima terá de instalar <br> -apt utils 1.2.10ubuntu1 de versão, se estiver disponível na cache de apt. Se essa versão específico não estiver disponível, em seguida, é não operacional. <br> -atualizações de python3 jwt para a versão mais recente disponível. Se o pacote não estiver presente, em seguida, é não operacional. <br> -atualizações de apt transporte https para a versão mais recente é inferior a 1.2.194. Se esta versão não estiver presente, em seguida, é não operacional. <br> -libsystemd0 atualizações para a versão mais recente é maior ou igual a 229 4ubuntu16. Se não existir uma versão desse tipo, em seguida, é não operacional.|
 | RejectedPatches | Cadeia de caracteres separados por vírgulas (predefinição: "") | Esta é a lista de atualizações que não deve ser instalado em nós do cluster <br> Por exemplo: "bash, sudo" <br> Anterior filtra bash, sudo da receção de todas as atualizações. |
 
 
@@ -221,7 +221,7 @@ Campos do JSON são descritos da seguinte forma:
 
 Campo | Valores | Detalhes
 -- | -- | --
-Operationresult ainda | 0 - foi concluída com êxito<br> 1 - foi concluída com êxito com erros<br> 2 - falha<br> 3 - abortada<br> 4 - abortada com tempo limite | Indica o resultado da operação geral (em geral envolvendo a instalação de atualizações de um ou mais).
+OperationResult | 0 - foi concluída com êxito<br> 1 - foi concluída com êxito com erros<br> 2 - falha<br> 3 - abortada<br> 4 - abortada com tempo limite | Indica o resultado da operação geral (em geral envolvendo a instalação de atualizações de um ou mais).
 ResultCode | Mesmo que operationresult ainda | Este campo indica o resultado da operação de instalação para a atualização individual.
 OperationType | 1 - instalação<br> 0 - pesquisa e a transferência.| A instalação é a única OperationType que poderia ser apresentada nos resultados, por predefinição.
 UpdateClassification | A predefinição é "securityupdates" | Tipo de atualizações, que é instalado durante a operação de atualização
@@ -305,7 +305,7 @@ R. O tempo necessário para a aplicação de orquestração do patch principalme
 
 P. **Como a aplicação de orquestração do patch faz decide quais atualizações são atualizações de segurança.**
 
-R. Aplicação de orquestração do patch utiliza lógica específica de distro para determinar quais são as atualizações entre as atualizações disponíveis atualizações de segurança. Por exemplo: no ubuntu, o aplicativo procura atualizações a partir de arquivos mortos $RELEASE-segurança, $RELEASE-atualizações ($RELEASE = xenial ou a versão de lançamento de base padrão do linux). 
+R. Aplicação de orquestração do patch utiliza lógica específica de distro para determinar quais são as atualizações entre as atualizações disponíveis atualizações de segurança. Por exemplo: No ubuntu o aplicativo procura atualizações a partir de arquivos mortos $RELEASE-segurança, $RELEASE-atualizações ($RELEASE = xenial ou a versão de lançamento de base padrão do linux). 
 
  
 P. **Como bloquear logon numa versão específica do pacote**

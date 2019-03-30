@@ -1,5 +1,5 @@
 ---
-title: Compreender a utilização de reservas de Azure para a subscrição pay as you go | Documentos da Microsoft
+title: Compreender a utilização de reservas do Azure para a subscrição pay as you go | Documentos da Microsoft
 description: Saiba como ler sua utilização para compreender a forma como é aplicada a reserva do Azure para a sua subscrição pay as you go.
 services: billing
 documentationcenter: ''
@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/28/2018
+ms.date: 03/13/2019
 ms.author: banders
-ms.openlocfilehash: a3bacdb19dfe16a63cf1f89ef6fb162d08cb4d32
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 14bd7b61038bf938f7d370eaf6e16d71b5da43ca
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57883785"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58652540"
 ---
 # <a name="understand-azure-reservation-usage-for-your-pay-as-you-go-subscription"></a>Compreender a utilização de reserva do Azure para a sua subscrição pay as you go
 
@@ -33,7 +33,7 @@ Este artigo pressupõe que a reserva é aplicada a uma única subscrição. Se a
 
 Para as secções seguintes, partem do princípio de que está a executar uma VM do Windows Standard_DS1_v2 na região Leste região dos EUA e sua reservado é de informações de instância VM semelhante a tabela seguinte:
 
-| Campo | Value |
+| Campo | Valor |
 |---| :---: |
 |ReservationId |8117adfb-1d94-4675-be2b-f3c1bca808b6|
 |Quantidade |1|
@@ -64,11 +64,11 @@ Filtre **informações adicionais** e escreva na sua **ID de reserva**. Captura 
 
 ## <a name="usage-for-sql-database--cosmos-db-reserved-capacity-reservations"></a>Utilização da base de dados do SQL & Cosmos DB reservado reservas de capacidade
 
-As secções seguintes utilizam o Azure SQL Database como exemplo para descrever o relatório de utilização. Pode utilizar os mesmos passos para obter a utilização do Azure Cosmos DB também. 
+As secções seguintes utilizam o Azure SQL Database como exemplo para descrever o relatório de utilização. Pode utilizar os mesmos passos para obter a utilização do Azure Cosmos DB também.
 
 Partem do princípio de que está a executar uma base de dados SQL Gen 4 na região Leste região dos EUA e suas informações de reserva parece a tabela seguinte:
 
-| Campo | Value |
+| Campo | Valor |
 |---| --- |
 |ReservationId |446ec809-423d-467c-8c5c-bbd5d22906b1|
 |Quantidade |2|
@@ -93,6 +93,10 @@ Filtre **informações adicionais** e escreva na sua **ID de reserva**. Captura 
 2. **ConsumptionMeter** é o ID do medidor para o recurso de base de dados SQL.
 3. O **Id do medidor** é o medidor de reserva. O custo deste medidor é US $0. Quaisquer recursos de base de dados SQL que se qualificar para o desconto de reserva mostra este ID de medidor no ficheiro CSV.
 
+## <a name="need-help-contact-us"></a>Precisa de ajuda? Contacte-nos.
+
+Se tiver alguma dúvida ou precisar de ajuda, [criar um pedido de suporte](https://go.microsoft.com/fwlink/?linkid=2083458).
+
 ## <a name="next-steps"></a>Passos Seguintes
 
 Para saber mais sobre as reservas do Azure, veja os artigos seguintes:
@@ -104,9 +108,3 @@ Para saber mais sobre as reservas do Azure, veja os artigos seguintes:
 - [Compreender como o desconto de reserva é aplicado](billing-understand-vm-reservation-charges.md)
 - [Compreender a utilização de reserva para inscrição da sua empresa](billing-understand-reserved-instance-usage-ea.md)
 - [Custos de software do Windows não incluídos com reservas](billing-reserved-instance-windows-software-costs.md)
-
-## <a name="need-help-contact-us"></a>Precisa de ajuda? Contacte-nos.
-
-Se tiver alguma dúvida ou precisar de ajuda, [criar um pedido de suporte](https://go.microsoft.com/fwlink/?linkid=2083458).
-
-

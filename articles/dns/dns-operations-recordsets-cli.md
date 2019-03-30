@@ -14,12 +14,12 @@ ms.custom: H1Hack27Feb2017
 ms.workload: infrastructure-services
 ms.date: 05/15/2018
 ms.author: victorh
-ms.openlocfilehash: 1f1ee4f69cc1ab656df04ed30cae6f4c3e55bfa7
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 4864a46b91b4e243ce6a2ae3d9d36df28fe74d8d
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46963820"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58650979"
 ---
 # <a name="manage-dns-records-and-recordsets-in-azure-dns-using-the-azure-cli"></a>Gerir registos DNS e conjuntos de registros no DNS do Azure com a CLI do Azure
 
@@ -92,7 +92,7 @@ Os parâmetros utilizados para especificar os dados de registo variam consoante 
 
 Em cada caso, vamos mostrar como criar um único registo. O registo é adicionado ao conjunto de registos existente ou um conjunto de registos criadas implicitamente. Para obter mais informações sobre como criar conjuntos de registos e a definição de registo defina o parâmetro explicitamente, consulte [criar um conjunto de registos de DNS](#create-a-dns-record-set).
 
-Não podemos dar um exemplo para criar um conjunto de registos SOA, uma vez que SOAs são criados e eliminado com cada zona DNS e não pode ser criada ou eliminada separadamente. No entanto, [pode ser modificado a SOA, como mostra um exemplo posterior](#to-modify-an-SOA-record).
+Não podemos dar um exemplo para criar um conjunto de registos SOA, uma vez que SOAs são criados e eliminado com cada zona DNS e não pode ser criada ou eliminada separadamente. No entanto, [pode ser modificado a SOA, como mostra um exemplo posterior](#to-modify-an-soa-record).
 
 ### <a name="create-an-aaaa-record"></a>Criar um registo AAAA
 

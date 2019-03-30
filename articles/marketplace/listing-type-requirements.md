@@ -14,18 +14,18 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 12/19/2018
 ms.author: ellacroi
-ms.openlocfilehash: f88c7b9350d104241524284950865e1f2ca6f559
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: ebe344d9f596f862fe5ffbfef083725e6527d0d3
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56729411"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58650211"
 ---
 # <a name="requirements-by-listing-type"></a>Requisitos de listando tipo  
 Os requisitos de conteúdo técnicos e marketing variam de acordo com a loja, o tipo de oferta e o tipo de lista. Reveja as seguintes especificações para verificar a sua conformidade.  
 1. Vitrine requisitos:  
-    *   [AppSource](#storefront-requirements-appSource)  
-    *   [O Azure Marketplace](#storefront-requirements-azure-marketplace)  
+    *   [AppSource](#storefront-requirements-appsource)  
+    *   [Azure Marketplace](#storefront-requirements-azure-marketplace)  
 2. Tipo de listagem e requisitos de tipo de oferta:  
     *   Para obter mais informações sobre os tipos de listagem e tipos de oferta, visite a determinar o tipo de listagem para a página de sua solução localizado em [docs.microsoft.com/azure/marketplace/determine-your-listing-type](./determine-your-listing-type.md).  
 

@@ -15,12 +15,12 @@ ms.topic: quickstart
 ms.date: 03/26/2018
 ms.author: yegu
 ms.custom: mvc
-ms.openlocfilehash: f0972e840fab3c624616ba8aa70bae74be5b1dc2
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 100d2e4cb57f2b2d0278540a0382fb845dbba53c
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58090479"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58649021"
 ---
 # <a name="quickstart-create-an-aspnet-web-app"></a>Início rápido: Criar uma aplicação Web ASP.NET 
 
@@ -97,7 +97,7 @@ Em seguida, crie a cache para a aplicação.
 
 Nesta secção, atualize a aplicação para suportar uma nova vista, que exibe um teste simples em relação Azure Cache de Redis.
 
-* [Atualizar o ficheiro web.config com uma definição de aplicação para a cache](#Update-the-webconfig-file-with-an-app-setting-for-the-cache)
+* [Atualizar o ficheiro web.config com uma definição de aplicação para a cache](#update-the-webconfig-file-with-an-app-setting-for-the-cache)
 * Configurar a aplicação para utilizar o cliente stackexchange. redis
 * Atualizar o HomeController e o Esquema
 * Adicionar uma nova vista da RedisCache

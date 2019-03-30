@@ -11,12 +11,12 @@ ms.author: amlstudiodocs
 ms.custom: seodec18
 ms.date: 05/25/2018
 ms.reviewer: jmartens, mldocs
-ms.openlocfilehash: 1b1583731f9b95bea7fe64efe628b05bb7b9a476
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 44ff2a5b723c086604acf39e9f975deb53759ae1
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58118038"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58648114"
 ---
 # <a name="view-and-delete-in-product-user-data-from-azure-ai-gallery"></a>Ver e eliminar dados de utilizador no produto da Galeria de IA do Azure
 
@@ -80,7 +80,7 @@ Devolve uma resposta, tais como:
 
 A API do catálogo armazena informações sobre entidades publicadas na Galeria de IA do Azure que também pode ver diretamente no [Web site da Galeria de IA](https://gallery.azure.ai/). 
 
-Para ver as entidades publicadas, aceda ao URL seguinte, substituindo `[AuthorId]` com o ID de autor que obteve no [obter uma ID do autor](#get-an-author-ID) acima.
+Para ver as entidades publicadas, aceda ao URL seguinte, substituindo `[AuthorId]` com o ID de autor que obteve no [obter uma ID do autor](#get-an-author-id) acima.
 
     https://catalog.cortanaanalytics.com/entities?$filter=author/id eq '[AuthorId]'
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/30/2019
 ms.author: banders
-ms.openlocfilehash: ee7c471cdd76829abc03fa4578d09b8a7303cb38
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: d500e26f5701e59dacfd5f09f6eaf88c5ced74e6
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57891438"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58648525"
 ---
 # <a name="software-costs-not-included-with-azure-reserved-vm-instances"></a>Custos de software não incluídos com instâncias de VM reservadas do Azure
 
@@ -69,15 +69,15 @@ Se não tiver um benefício de utilização híbrida do Azure nas suas instânci
 Pode obter o custo de cada um destes medidores pela API de RateCard do Azure. Para obter informações sobre como obter as taxas de para um medidor do azure, consulte [Obtenha informações sobre o preço e os metadados de recursos utilizados numa subscrição do Azure](https://msdn.microsoft.com/library/azure/mt219004).
 
 ## <a name="next-steps"></a>Passos Seguintes
-Para saber mais sobre as reservas do Azure, veja os artigos seguintes:
+Para saber mais sobre as reservas para o Azure, veja os artigos seguintes:
 
-- [Quais são as reservas do Azure?](billing-save-compute-costs-reservations.md)
+- [Quais são as reservas para o Azure?](billing-save-compute-costs-reservations.md)
 - [Efetuar o pré-pagamento de Máquinas Virtuais com o Azure Reserved VM Instances](../virtual-machines/windows/prepay-reserved-vm-instances.md)
-- [Gerir o Azure Reservations](billing-manage-reserved-vm-instance.md)
+- [Gerir reservas para o Azure](billing-manage-reserved-vm-instance.md)
 - [Compreender como o desconto de reserva é aplicado](billing-understand-vm-reservation-charges.md)
 - [Compreender a utilização de reserva para a sua subscrição pay as you go](billing-understand-reserved-instance-usage.md)
 - [Compreender a utilização de reserva para inscrição da sua empresa](billing-understand-reserved-instance-usage-ea.md)
 
-## <a name="need-help-contact-us"></a>Precisa de ajuda? Contacte-nos.
+## <a name="need-help-contact-us"></a>Precisa de ajuda? Contacte-nos
 
 Se tiver alguma dúvida ou precisar de ajuda, [criar um pedido de suporte](https://go.microsoft.com/fwlink/?linkid=2083458).

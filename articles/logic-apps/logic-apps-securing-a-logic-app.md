@@ -10,12 +10,12 @@ ms.reviewer: estfan, LADocs
 ms.assetid: 9fab1050-cfbc-4a8b-b1b3-5531bee92856
 ms.topic: article
 ms.date: 02/05/2019
-ms.openlocfilehash: 6baeb27855381ca03862f2632d31c628a088af39
-ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
+ms.openlocfilehash: 31b18e2dfbad1f572b5c9b0ae59f5e076db7cde2
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 03/29/2019
-ms.locfileid: "58620619"
+ms.locfileid: "58649293"
 ---
 # <a name="secure-access-in-azure-logic-apps"></a>Proteger o acesso no Azure Logic Apps
 
@@ -156,8 +156,9 @@ Para adicionar protocolos de autorização mais a sua aplicação lógica, consi
 
 Para permitir que apenas utilizadores específicos ou grupos de executar as operações na sua aplicação lógica, pode restringir o acesso em tarefas, como gerenciamento, edição e exibição. O Logic Apps suporta [controlo de acesso de controlo (RBAC)](../role-based-access-control/role-assignments-portal.md), que pode personalizar ou atribuir funções incorporadas para membros na sua subscrição, por exemplo:
 
-* **Contribuidor da aplicação lógica**: Os utilizadores podem ver, editar e atualizar a sua aplicação lógica. Esta função não é possível eliminar a aplicação lógica ou executar operações de administrador.
-* **Operador de aplicação lógica**: Os utilizadores podem ver a aplicação lógica e o histórico de execuções e ativar ou desativar a sua aplicação lógica. Esta função não pode editar ou atualizar a sua aplicação lógica.
+* [Contribuidor da aplicação lógica](../role-based-access-control/built-in-roles.md#logic-app-contributor): Os utilizadores podem ver, editar e atualizar a sua aplicação lógica. 
+
+* [Operador de aplicação lógica](../role-based-access-control/built-in-roles.md#logic-app-operator): Os utilizadores podem ver a aplicação lógica e o histórico de execuções e ativar ou desativar a sua aplicação lógica. Esta função não pode editar ou atualizar a sua aplicação lógica.
 
 Para impedir que outros utilizadores de alterar ou eliminar a aplicação lógica, pode utilizar [bloqueio de recursos do Azure](../azure-resource-manager/resource-group-lock-resources.md). Esta capacidade ajuda a impedir que outras pessoas de alterar ou eliminar recursos de produção.
 

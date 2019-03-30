@@ -4,7 +4,7 @@ description: Saiba mais sobre contadores de desempenho para monitorização e di
 services: service-fabric
 documentationcenter: .net
 author: srrengar
-manager: timlt
+manager: chackdan
 editor: ''
 ms.assetid: ''
 ms.service: service-fabric
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/21/2018
 ms.author: srrengar
-ms.openlocfilehash: 114d71227e3cf3d0f235fc63135534b1030d4adc
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: ee1608c40801f568b38ace4670b0d5ea7f73003c
+ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55188347"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58663082"
 ---
 # <a name="performance-metrics"></a>Métricas de desempenho
 

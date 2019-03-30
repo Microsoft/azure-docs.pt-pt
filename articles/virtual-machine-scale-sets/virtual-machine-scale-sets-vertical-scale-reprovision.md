@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/03/2016
 ms.author: manayar
-ms.openlocfilehash: c27d92a330d82cb8638a970602f2a8d0ce2e79c2
-ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
+ms.openlocfilehash: d3821f6a2bad56b46bccbcca8830be09ad1e44c7
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2019
-ms.locfileid: "58579755"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58648270"
 ---
 # <a name="vertical-autoscale-with-virtual-machine-scale-sets"></a>Conjuntos de dimensionamento automático vertical com dimensionamento de máquinas virtuais
 
@@ -98,6 +98,7 @@ A primeira coisa que precisa fazer é criar uma conta de automatização do Azur
 * [Autenticar Runbooks com a conta Run As do Azure](../automation/automation-sec-configure-azure-runas-account.md)
 
 ## <a name="import-azure-automation-vertical-scale-runbooks-into-your-subscription"></a>Importar runbooks do dimensionamento Vertical de automatização do Azure na sua subscrição
+
 Os runbooks necessários para aumentar verticalmente os seus conjuntos de dimensionamento de máquina virtual já são publicados na Galeria de Runbook da automatização do Azure. Para importá-los na sua subscrição siga os passos neste artigo:
 
 * [Runbook and module galleries for Azure Automation](../automation/automation-runbook-gallery.md) (Galerias de runbooks e módulos para a Automatização do Azure)
@@ -111,6 +112,7 @@ Os runbooks que precisavam ser importados são apresentados. Selecione o runbook
 ![Galeria de Runbooks][gallery]
 
 ## <a name="add-a-webhook-to-your-runbook"></a>Adicionar um webhook ao runbook
+
 Depois de ter importado os runbooks, adicione um webhook para o runbook para que ele pode ser acionado por um alerta a partir de um conjunto de dimensionamento de máquina virtual. Os detalhes da criação de um webhook para o seu Runbook são descritos neste artigo:
 
 * [Webhooks de automatização do Azure](../automation/automation-webhooks.md)
@@ -121,9 +123,10 @@ Depois de ter importado os runbooks, adicione um webhook para o runbook para que
 > 
 
 ## <a name="add-an-alert-to-your-virtual-machine-scale-set"></a>Adicionar um alerta ao conjunto de dimensionamento de máquina virtual
+
 Abaixo está um script do PowerShell que mostra como adicionar um alerta para um dimensionamento de máquinas virtuais definido. Consulte o artigo seguinte para obter o nome da métrica para acionar o alerta em: [Métricas comuns do Azure Monitor dimensionamento automático](../azure-monitor/platform/autoscale-common-metrics.md).
 
-```
+```powershell
 $actionEmail = New-AzAlertRuleEmail -CustomEmail user@contoso.com
 $actionWebhook = New-AzAlertRuleWebhook -ServiceUri <uri-of-the-webhook>
 $threshold = <value-of-the-threshold>
@@ -160,6 +163,7 @@ Para obter mais informações sobre como criar alertas, consulte os artigos segu
 * [Exemplos de início rápido do Azure CLI de várias plataformas do Monitor](../azure-monitor/platform/cli-samples.md)
 
 ## <a name="summary"></a>Resumo
+
 Este artigo mostrou exemplos simples de dimensionamento verticais. Com esses blocos de construção - conta de automatização, runbooks, webhooks, alertas - pode ligar várias eventos com um conjunto personalizado de ações.
 
 [runbooks]: ./media/virtual-machine-scale-sets-vertical-scale-reprovision/runbooks.png

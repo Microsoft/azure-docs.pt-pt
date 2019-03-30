@@ -4,7 +4,7 @@ description: Saiba mais sobre como atualizar a versão ou a configuração de um
 services: service-fabric
 documentationcenter: .net
 author: aljo-microsoft
-manager: timlt
+manager: chackdan
 editor: ''
 ms.assetid: 15190ace-31ed-491f-a54b-b5ff61e718db
 ms.service: service-fabric
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/12/2018
 ms.author: aljo
-ms.openlocfilehash: ed50f49b110d910a298e608f3625a3bddfe8a0a8
-ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
+ms.openlocfilehash: 1d96a2e81917af5e80bb847ea25610ccb71ad70f
+ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55963171"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58661502"
 ---
 # <a name="upgrading-and-updating-a-service-fabric-standalone-cluster"></a>A atualizar e a atualizar um cluster autónomo do Service Fabric
 

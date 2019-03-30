@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 19/02/2019
 ms.author: monhaber
-ms.openlocfilehash: d9c9a079198a8ff263c729b8e90c1fc8d0e64cd0
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: ef6b476e2c85715e86ef4c1cfe1194bb25cade28
+ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58100075"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58665496"
 ---
 # <a name="onboarding-to-azure-security-center-standard-for-enhanced-security"></a>Adesão ao Azure Security Center Standard para uma maior segurança
 Atualizar para o Centro de segurança Standard para tirar partido da gestão de segurança avançada e proteção contra ameaças para as cargas de trabalho de cloud híbrida.  Pode tentar Standard gratuita. Consulte o Centro de segurança [página de preços](https://azure.microsoft.com/pricing/details/security-center/) para obter mais informações.
@@ -33,7 +33,7 @@ Centro de segurança Standard inclui:
 ## <a name="detecting-unprotected-resources"></a>Detetar recursos desprotegidos     
 O Centro de Segurança deteta automaticamente quaisquer subscrições ou áreas de trabalho do Azure não ativadas para o Centro de Segurança Standard. Isto inclui as subscrições do Azure que utilizam o Centro de Segurança Gratuito e as áreas de trabalho que não têm a solução de Segurança ativada.
 
-Pode atualizar uma subscrição do Azure completa para o escalão Standard, que é herdado por todos os recursos dentro da subscrição, ou pode definir uma política exclusiva para atualizar apenas um grupo de recursos específico. Se as definições de política de grupo de recursos são exclusivas, o Centro de segurança não irá substituir as políticas de preços ao atualizar a subscrição para o escalão Standard. Aplicar o padrão de camada para uma subscrição se aplica a todos os recursos suportados na subscrição. Aplicar o padrão de camada para uma área de trabalho aplica-se a todos os recursos de relatórios para a área de trabalho.
+Pode atualizar uma subscrição do Azure completa para o escalão Standard, que é herdado por todos os recursos suportados dentro da subscrição. Aplicar o padrão de camada para uma área de trabalho aplica-se a todos os recursos de relatórios para a área de trabalho.
 
 > [!NOTE]
 > Poderá querer gerir os custos e limitar a quantidade de dados recolhidos para uma solução ao limitá-la para um determinado conjunto de agentes. [Filtragem da solução](../operations-management-suite/operations-management-suite-solution-targeting.md) permite-lhe aplicar um âmbito para a solução e um subconjunto de computadores na área de trabalho de destino.  Se estiver a utilizar o destino de solução, o Centro de segurança apresenta uma lista de área de trabalho como não tendo uma solução.

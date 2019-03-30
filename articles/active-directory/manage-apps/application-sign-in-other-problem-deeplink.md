@@ -16,12 +16,12 @@ ms.date: 07/11/2017
 ms.author: celested
 ms.reviewer: asteen
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3525436c61038d9cdda3a1b1da8e226ab153134f
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: d7ad6eeba09c81de33b92722992c6762a4b4327c
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58098258"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58649344"
 ---
 # <a name="problems-signing-in-to-an-application-using-a-deeplink"></a>Problemas ao iniciar sessão para uma aplicação com um deeplink
 
@@ -113,7 +113,7 @@ Também pode baixar a extensão para o Chrome e Firefox destes links diretos:
 
 Para configurar uma aplicação da galeria do Azure AD, faça o seguinte:
 
--   [Adicionar uma aplicação a partir da galeria do Azure AD](#add-an-application-from-the-Azure-AD-gallery)
+-   [Adicionar uma aplicação a partir da galeria do Azure AD](#add-an-application-from-the-azure-ad-gallery)
 
 -   [Configurar a aplicação para a palavra-passe início de sessão único](#configure-the-application-for-password-single-sign-on)
 

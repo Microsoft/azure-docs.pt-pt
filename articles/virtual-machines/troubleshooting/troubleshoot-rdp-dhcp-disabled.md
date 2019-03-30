@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 11/13/2018
 ms.author: genli
-ms.openlocfilehash: 5842c5edd0402d61f564ab15e34e8f69c0e718d7
-ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
+ms.openlocfilehash: daddb859c6bfc6309ef833c6c6c3ea43c70f1889
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54213455"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58652285"
 ---
 #  <a name="cannot-rdp-to-azure-virtual-machines-because-the-dhcp-client-service-is-disabled"></a>Não é possível RDP para máquinas de virtuais do Azure, porque o serviço de cliente DHCP é desativado
 
@@ -27,7 +27,6 @@ Este artigo descreve um problema em que não é possível o ambiente de trabalho
 [!INCLUDE [learn-about-deployment-models](../../../includes/learn-about-deployment-models-both-include.md)]
 
 ## <a name="symptoms"></a>Sintomas
-
 Não pode fazer uma ligação RDP uma VM no Azure, porque o serviço de cliente DHCP está desativado na VM. Quando dá entrada a captura de ecrã do [diagnósticos de arranque](../troubleshooting/boot-diagnostics.md) no portal do Azure, verá a VM arranca normalmente e aguarda que as credenciais no ecrã de início de sessão. Ver remotamente os registos de eventos na VM com o Visualizador de eventos. Verá que o serviço de cliente DHCP não estiver iniciado ou não conseguir iniciar. Registo de um exemplo a seguir:
 
 **Nome de registo**: Sistema </br>
@@ -98,7 +97,7 @@ Para resolver este problema, utilize o controlo Serial para ativar o DHCP ou [in
 1. Ligar à [consola de série](serial-console-windows.md) e abra uma instância do PowerShell.
 2. Transferir a ferramenta de Monitor do processo executando o seguinte script:
 
-   ```
+   ```powershell
    remove-module psreadline
    $source = "https://download.sysinternals.com/files/ProcessMonitor.zip"
    $destination = "c:\temp\ProcessMonitor.zip"
@@ -167,6 +166,7 @@ Para resolver este problema, utilize o controlo Serial para ativar o DHCP ou [in
 3. Tente ligar à VM com o ambiente de trabalho remoto.
 
 #### <a name="dhcp-client-service-crashes-or-hangs"></a>Falhas de serviço de cliente DHCP ou travamentos
+
 1. Se o estado do serviço fica preso no **inicial** ou **parar** de estado, tente parar o serviço:
 
         sc stop DHCP
@@ -205,5 +205,3 @@ Para resolver este problema, utilize o controlo Serial para ativar o DHCP ou [in
 ## <a name="next-steps"></a>Passos Seguintes
 
 Se precisar de ajuda, ainda [contacte o suporte](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) conseguir resolver o seu problema.
-
-

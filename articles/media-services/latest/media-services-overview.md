@@ -13,15 +13,15 @@ ms.devlang: multiple
 ms.topic: overview
 ms.tgt_pltfrm: multiple
 ms.workload: media
-ms.date: 03/20/2019
+ms.date: 03/29/2019
 ms.author: juliako
 ms.custom: mvc
-ms.openlocfilehash: 88113fee64251344bd84085caedc9dfccfa10933
-ms.sourcegitcommit: 87bd7bf35c469f84d6ca6599ac3f5ea5545159c9
+ms.openlocfilehash: 19e94fc65ddc1719c601397adfe77f8f9445e4fa
+ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58351461"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58662130"
 ---
 # <a name="what-is-azure-media-services-v3"></a>O que são os Serviços de Multimédia do Azure v3?
 
@@ -44,19 +44,6 @@ Os Serviços de Multimédia permitem-lhe criar uma variedade de fluxos de trabal
 * Utilizar serviços de multimédia do Azure em conjunto com [APIs serviços cognitivos do Azure](https://docs.microsoft.com/azure/#pivot=products&panel=ai) para adicionar legendas para vídeos para se adaptar a um público mais amplo (por exemplo, as pessoas portadoras de deficiências auditivas ou pessoas que desejam ler ao longo de forma diferente idioma).
 * Ative a CDN do Azure para alcançar a grande dimensionamento para processar melhor cargas elevadas instantâneas (por exemplo, o início de um evento de lançamento do produto). 
 
-## <a name="v3-capabilities"></a>Capacidades da v3
-
-A v3 baseia-se numa superfície da API unificada que expõe uma funcionalidade incorporada de gestão e de operações no Azure Resource Manager. 
-
-Esta versão fornece as capacidades seguintes:  
-
-* **Transformações** para ajudar a definir fluxos de trabalho de tarefas de análise ou de processamento de multimédia simples. A Transformação é uma receita para processar os ficheiros de áudio e de vídeo. Em seguida, pode aplicá-la repetidamente para processar todos os ficheiros na biblioteca de conteúdos, ao submeter as tarefas para Transformação.
-* **Tarefas** para processar (codificar ou analisar) os vídeos. Um conteúdo de entrada pode ser especificado numa tarefa com URLs HTTPS, URLs SAS ou caminhos de ficheiros localizados no Armazenamento de blobs do Azure. Atualmente, o AMS v3 não suporta a codificação de transferência segmentada através de URLs HTTPS.
-* **Notificações** que monitorizam o progresso da tarefa ou Estados ou eventos de erro e iniciar/parar eventos ao vivo. As notificações estão integradas no sistema de notificação do Azure Event Grid. Pode facilmente subscrever eventos em vários recursos nos Serviços de Multimédia do Azure. 
-* **Gestão de recursos do Azure** modelos podem ser utilizados para criar e implementar as transformações, pontos finais de transmissão em fluxo, os eventos em direto e muito mais.
-* **Controlo de acesso baseado em funções** pode ser definido ao nível do recurso, permitindo-lhe bloquear o acesso a recursos específicos, como as transformações, eventos ao vivo e muito mais.
-* **SDKs do Cliente** em várias linguagens: .NET, .NET core, Python, Go, Java e Node.js.
-
 ## <a name="naming-conventions"></a>Convenções de nomenclatura
 
 Os nomes de recursos dos Serviços de Multimédia do Azure v3 (por exemplo, Ativos, Tarefas, Transformações) estão sujeitos às restrições de nomenclatura do Azure Resource Manager. De acordo com o Azure Resource Manager, os nomes de recursos são sempre exclusivos. Desta forma, pode utilizar todas as cadeias de identificador exclusivo (por exemplo, GUIDs) para os nomes de recursos. 
@@ -76,6 +63,41 @@ Alguns exemplos incluem
 * não devolver a parte da cadeia de consulta do URL (para remover a assinatura) dos URLs de Entrada de Tarefas.
 
 Consulte a [obter a política de chave conteúda - .NET](get-content-key-policy-dotnet-howto.md) exemplo.
+
+
+## <a name="how-can-i-get-started-with-v3"></a>Como posso começar a utilizar a v3? 
+
+Aprenda a codificar e compactar conteúdo, transmitir vídeos sob pedido, transmitir em direto, analisar os seus vídeos com serviços de multimédia v3. Tutoriais, referências de API e outra documentação mostram-lhe como fornecer de forma segura transmissões em fluxo de vídeo ou áudio a pedido e live dimensionáveis para milhões de utilizadores.
+
+### <a name="quickstarts"></a>Inícios rápidos  
+
+Os inícios rápidos mostram instruções de 1 dia fundamentais para os novos clientes experimentar rapidamente o serviços de multimédia.
+
+* [Ficheiros de vídeo do Stream - .NET](stream-files-dotnet-quickstart.md)
+* [Ficheiros de vídeo do Stream - CLI](stream-files-cli-quickstart.md)
+* [Ficheiros de vídeo do Stream - node. js](stream-files-nodejs-quickstart.md)
+    
+### <a name="tutorials"></a>Tutoriais 
+
+Os tutoriais mostram baseados em cenários de procedimentos para algumas das tarefas principais de serviços de multimédia.
+
+* [Codificar o ficheiro remoto e o fluxo de vídeo – REST](stream-files-tutorial-with-rest.md)
+* [Codificar o ficheiro carregado e fluxo de vídeo - .NET](stream-files-tutorial-with-api.md)
+* [Stream em direto - .NET](stream-live-tutorial-with-api.md)
+* [Analisar o seu vídeo - .NET](analyze-videos-tutorial-with-api.md)
+* [Encriptação dinâmica AES-128 - .NET](protect-with-aes128.md)
+    
+### <a name="how-to-guides"></a>Guias de procedimentos
+
+Artigos contém exemplos de código que demonstrem como concluir uma tarefa. Nesta seção, encontrará muitos exemplos, aqui estão apenas algumas delas:
+
+* [Criar uma conta - CLI](create-account-cli-how-to.md)
+* [Aceder a APIs - CLI](access-api-cli-how-to.md)
+* [Comece a desenvolver com SDKs](developers-guide.md)
+* [Codificar com HTTPS como tarefa de entrada - .NET](job-input-from-http-how-to.md)  
+* [Monitor de eventos - Portal](monitor-events-portal-how-to.md)
+* [Encriptar dinamicamente com múltipla DRM - .NET](protect-with-drm.md) 
+* [Como codificar com uma transformação personalizada com a CLI](custom-preset-cli-howto.md)
 
 ## <a name="next-steps"></a>Passos Seguintes
 

@@ -3,17 +3,17 @@ title: Gerir aplicações do Azure Service Fabric com a CLI do Azure Service Fab
 description: Saiba como implementar e remover aplicações a partir de um cluster do Azure Service Fabric, utilizando a CLI do Azure Service Fabric
 services: service-fabric
 author: Christina-Kang
-manager: timlt
+manager: chackdan
 ms.service: service-fabric
 ms.topic: conceptual
 ms.date: 07/31/2018
 ms.author: bikang
-ms.openlocfilehash: 2e71996e22fee34b29139fdf19764c47616beb1d
-ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
+ms.openlocfilehash: 9b0f785a6a43f984708645084a8a8036326d3d24
+ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39492754"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58662997"
 ---
 # <a name="manage-an-azure-service-fabric-application-by-using-azure-service-fabric-cli-sfctl"></a>Gerir uma aplicação do Azure Service Fabric com a CLI do Azure Service Fabric (sfctl)
 

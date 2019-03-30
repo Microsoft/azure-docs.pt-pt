@@ -4,7 +4,7 @@ description: Aplicativo para automatizar a aplicação de patches de sistema ope
 services: service-fabric
 documentationcenter: .net
 author: khandelwalbrijeshiitr
-manager: timlt
+manager: chackdan
 editor: ''
 ms.assetid: de7dacf5-4038-434a-a265-5d0de80a9b1d
 ms.service: service-fabric
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 2/01/2019
 ms.author: brkhande
-ms.openlocfilehash: d5d7f45b4833bb535e98542ee513e9ea8bf0f9e5
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 477b31e9a821cfa43700eac5f1f61a3d45510cab
+ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57432996"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58665819"
 ---
 # <a name="patch-the-windows-operating-system-in-your-service-fabric-cluster"></a>Corrigir o sistema operativo do Windows no seu cluster do Service Fabric
 

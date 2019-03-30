@@ -8,17 +8,17 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 03/20/2019
 ms.author: sogup
-ms.openlocfilehash: 21aa01ec8382341de34cca743b9e088598872659
-ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
+ms.openlocfilehash: 1f96c47e993e9b3d123972aba8eefc54b1d5cdfa
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2019
-ms.locfileid: "58578905"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58652676"
 ---
 # <a name="get-improved-backup-and-restore-performance-with-azure-backup-instant-restore-capability"></a>Obter o melhor de cópia de segurança e restaurar o desempenho com capacidade de Azure cópia de segurança instantâneas restaurar
 
 > [!NOTE]
-> Com base nos comentários dos utilizadores, podemos mudar o nome **pilha de cópia de segurança da VM V2** ao **restaurar instantâneas** para reduzir a confusão com a funcionalidade do Azure Stack.
+> Com base nos comentários dos utilizadores, podemos mudar o nome **pilha de cópia de segurança da VM V2** ao **restaurar instantâneas** para reduzir a confusão com a funcionalidade do Azure Stack.<br/><br/> Todos os utilizadores de cópia de segurança do Azure agora foram atualizados para o **restaurar instantâneas**.
 
 O novo modelo para restaurar instantâneas fornece os seguintes aprimoramentos de recursos:
 
@@ -60,15 +60,25 @@ Os instantâneos incrementais são armazenados na conta de armazenamento da VM, 
 >[!NOTE]
 > Retenção de instantâneo é fixa para 5 dias para políticas de semanais.
 
-## <a name="configure-snapshot-retention-using-the-azure-portal"></a>Configurar a retenção de instantâneo com o portal do Azure
+## <a name="configure-snapshot-retention"></a>Configurar a retenção de instantâneo
 
-**Todos os utilizadores de cópia de segurança do Azure agora foram atualizados para o restauro imediato**.
+### <a name="using-azure-portal"></a>Com o Portal do Azure
 
 No portal do Azure, pode ver um campo adicionado no **política de cópia de segurança de VM** painel sob o **restaurar instantâneas** secção. Pode alterar o período de retenção de instantâneo do **política de cópia de segurança de VM** painel para todas as VMs associadas à política de cópia de segurança específica.
 
 ![Capacidade de restauro imediato](./media/backup-azure-vms/instant-restore-capability.png)
 
-Para configurar a retenção de instantâneo com o Powershell, consulte [este documento](backup-azure-vms-automation.md#configuring-instant-restore-snapshot-retention).
+### <a name="using-powershell"></a>Com o PowerShell
+
+>[!NOTE]
+> Do Az PowerShell versão 1.6.0 e posteriores, pode atualizar o período de retenção de instantâneo de restauro imediato na política com o PowerShell
+
+```powershell
+PS C:\> $bkpPol = Get-AzureRmRecoveryServicesBackupProtectionPolicy -WorkloadType "AzureVM"
+$bkpPol.SnapshotRetentionInDays=5
+PS C:\> Set-AzureRmRecoveryServicesBackupProtectionPolicy -policy $bkpPol
+```
+O período de retenção do instantâneo do padrão para cada política é definido como 2 dias. Utilizador pode alterar o valor para um mínimo de 1 e um máximo de 5 dias. Para as políticas de semanais, a retenção de instantâneo é fixa para 5 dias.
 
 ## <a name="frequently-asked-questions"></a>Perguntas mais frequentes
 

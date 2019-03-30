@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 12/04/2018
 ms.author: pbutlerm
-ms.openlocfilehash: e97e79ef3077431d8fc627cd634a67b0a01b6f8e
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: b12ba53f847b46479b3100c088c29372b58c1b8e
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57993100"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58649038"
 ---
 # <a name="saas-application-test-drive-tab"></a>Guia de Test-Drive do aplicativo de SaaS
 
@@ -53,7 +53,7 @@ Existem quatro tipos diferentes de versões de teste disponíveis, cada um com b
 |     Azure Resource Manager               |    Uma versão de teste de Gestor de recursos do Azure é um modelo de implementação que contém todos os recursos do Azure que compõem uma solução que está a ser criada pelo editor. Produtos de acordo com esse tipo de versão de teste são aqueles que utilizam apenas os recursos do Azure.               |       [Versão de Teste do Azure Resource Manager](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/test-drive/azure-resource-manager-test-drive)            |
 |       Alojado             |       Uma versão de teste alojado retira a complexidade da configuração pelo alojamento da Microsoft e manter o serviço que executa o utilizador de teste de unidade de aprovisionamento e desaprovisionamento.             |         [Versão de Teste Alojada](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/test-drive/hosted-test-drive)          |
 |      Aplicação Lógica              |       Uma unidade de teste da aplicação lógica é um modelo de implementação que se destina a abranger todas as arquiteturas de solução complexas. Todas as aplicações do Dynamics ou produtos personalizados, devem utilizar este tipo de versão de teste.            |      [Unidade de teste da aplicação lógica](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/test-drive/logic-app-test-drive)             |
-|       Power BI             |         Uma unidade de teste do Power BI consiste num link incorporado a um dashboard personalizados internos. Qualquer produto que pretende demonstrar que uma interactive visual do Power BI deve utilizar este tipo de versão de teste. É tudo o que precisa para carregar o URL de BI de energia incorporados.          |        [Versão de teste de BI de energia](#Power-BI-test-drive)           |
+|       Power BI             |         Uma unidade de teste do Power BI consiste num link incorporado a um dashboard personalizados internos. Qualquer produto que pretende demonstrar que uma interactive visual do Power BI deve utilizar este tipo de versão de teste. É tudo o que precisa para carregar o URL de BI de energia incorporados.          |        [Versão de teste de BI de energia](#power-bi-test-drive)           |
 
 ### <a name="power-bi-test-drive"></a>Versão de teste do Power BI
 

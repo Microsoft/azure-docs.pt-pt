@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 10/31/2018
 ms.author: genli
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 087de711fdbc70a4562045f8d774f2c6ae5a0db5
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: 087b52bd603e8aed6078ab340e84c1f6bd0e8082
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50417043"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58652200"
 ---
 # <a name="create-a-vm-classic-with-multiple-nics-using-powershell"></a>Criar uma VM (clássico) com vários NICs com o PowerShell
 
@@ -30,7 +30,7 @@ ms.locfileid: "50417043"
 Pode criar máquinas virtuais (VMs) no Azure e anexar várias interfaces de rede (NICs) para cada uma das suas VMs. Várias NICs ative a separação de tipos de tráfego entre NICs. Por exemplo, uma NIC poderá comunicar com a Internet, enquanto outro comunica apenas com recursos internos não ligados à Internet. A capacidade de separar o tráfego de rede em vários NICs é necessária para muitas aplicações virtuais de rede, tais como entrega de aplicativos e soluções de otimização de WAN.
 
 > [!IMPORTANT]
-> O Azure tem dois modelos de implementação diferentes para criar e trabalhar com os recursos: [Resource Manager e clássico](../resource-manager-deployment-model.md). Este artigo cobre a utilização do modelo de implementação clássica. A Microsoft recomenda que as implementações mais novas utilizem o modelo Resource Manager. Saiba como executar estes passos com o [modelo de implementação do Resource Manager](../virtual-machines/windows/multiple-nics.md).
+> O Azure tem dois modelos de implementação diferentes para criar e trabalhar com recursos:  [Resource Manager e clássica](../resource-manager-deployment-model.md). Este artigo cobre a utilização do modelo de implementação clássica. A Microsoft recomenda que as implementações mais novas utilizem o modelo Resource Manager. Saiba como executar estes passos com o [modelo de implementação do Resource Manager](../virtual-machines/windows/multiple-nics.md).
 
 [!INCLUDE [virtual-network-deploy-multinic-scenario-include.md](../../includes/virtual-network-deploy-multinic-scenario-include.md)]
 
@@ -52,7 +52,7 @@ As VMs de back-end dependem a criação dos seguintes recursos:
 ### <a name="step-1---start-your-script"></a>Passo 1: iniciar o seu script
 Pode transferir o script do PowerShell completo utilizado [aqui](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/IaaS-Story/11-MultiNIC/classic/virtual-network-deploy-multinic-classic-ps.ps1). Siga os passos abaixo para alterar o script funcione no seu ambiente.
 
-1. Alterar os valores das variáveis abaixo com base no seu grupo de recursos existentes implementado acima na [pré-requisitos](#Prerequisites).
+1. Alterar os valores das variáveis abaixo com base no seu grupo de recursos existentes implementado acima na [pré-requisitos](#prerequisites).
 
     ```powershell
     $location              = "West US"
@@ -199,7 +199,7 @@ Agora que transferiu e alterou o script consoante as suas necessidades, runt o s
 
 ### <a name="step-5---configure-routing-within-the-vms-operating-system"></a>Passo 5 - configurar o encaminhamento no sistema de operativo da VM
 
-DHCP do Azure atribui um gateway predefinido para a primeira interface de rede (principal) ligado à máquina virtual. O Azure não atribui um gateway predefinido a interfaces de rede (secundárias) adicionais ligadas a uma máquina virtual. Por conseguinte, não pode comunicar com recursos que estejam fora da sub-rede em que se encontre uma interface de rede secundária, por predefinição. Interfaces de rede secundárias podem, no entanto, comunicar com os recursos fora da sua sub-rede. Configurar o encaminhamento para interfaces de rede secundárias, veja os artigos seguintes:
+DHCP do Azure atribui um gateway predefinido para a primeira interface de rede (principal) ligado à máquina virtual. O Azure não atribui um gateway predefinido a interfaces de rede (secundárias) adicionais ligadas a uma máquina virtual. Por conseguinte, não pode comunicar com recursos que estejam fora da sub-rede em que se encontre uma interface de rede secundária, por predefinição. Contudo, as interfaces de rede secundárias podem comunicar com recursos fora das respetivas sub-redes. Configurar o encaminhamento para interfaces de rede secundárias, veja os artigos seguintes:
 
 - [Configurar uma VM do Windows para vários NICs](../virtual-machines/windows/multiple-nics.md#configure-guest-os-for-multiple-nics
 )

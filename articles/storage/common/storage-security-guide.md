@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 03/21/2019
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: e0c8d4883bb9183f866450477df972fc66c960c5
-ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
+ms.openlocfilehash: 329782a436924355dbdfbb5db260e88795394697
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58369756"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58650126"
 ---
 # <a name="azure-storage-security-guide"></a>Guia de segurança de armazenamento do Azure
 
@@ -46,7 +46,7 @@ Aqui estão os tópicos para serem abordadas neste artigo:
 * Usando [a análise de armazenamento](#storage-analytics) auditar o acesso do armazenamento do Azure
 
   Esta secção descreve como encontrar informações nos registos de análise de armazenamento para um pedido. Vamos dar uma olhada em análise de armazenamento real dados de registo e veja como discernir se uma solicitação é feita com a chave de conta de armazenamento, com uma assinatura de acesso partilhado, ou anonimamente e se foi concluída com êxito ou falha.
-* [Ativação baseada no Browser e clientes utilizando a CORS](#Cross-Origin-Resource-Sharing-CORS)
+* [Ativação baseada no Browser e clientes utilizando a CORS](#cross-origin-resource-sharing-cors)
 
   Esta seção fala sobre como permitir que os recursos de várias origens (CORS) de partilha. Vamos falar sobre o acesso entre domínios e como manipulá-lo com as capacidades CORS incorporadas no armazenamento do Azure.
 

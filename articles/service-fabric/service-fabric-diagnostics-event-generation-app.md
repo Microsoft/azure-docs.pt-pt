@@ -4,7 +4,7 @@ description: Saiba mais sobre os registos de aplicações e os eventos de nível
 services: service-fabric
 documentationcenter: .net
 author: srrengar
-manager: timlt
+manager: chackdan
 editor: ''
 ms.assetid: ''
 ms.service: service-fabric
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/21/2018
 ms.author: srrengar
-ms.openlocfilehash: e26dbc037c206635cfb92ea49f28d0f891e53ef8
-ms.sourcegitcommit: beb4fa5b36e1529408829603f3844e433bea46fe
+ms.openlocfilehash: 613faf5bbc9498b82bc04460d30b2e94c30340db
+ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/22/2018
-ms.locfileid: "52291271"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58661059"
 ---
 # <a name="application-logging"></a>Registo de aplicação
 

@@ -4,7 +4,7 @@ description: Descreve os comandos de cluster do Service Fabric CLI sfctl.
 services: service-fabric
 documentationcenter: na
 author: Christina-Kang
-manager: timlt
+manager: chackdan
 editor: ''
 ms.assetid: ''
 ms.service: service-fabric
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.date: 12/06/2018
 ms.author: bikang
-ms.openlocfilehash: e3aae5f7936204a7fe4fbce4102fc2727088e025
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 7bb399472d7e0ab14e6399fc8652d2eb132a866a
+ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57442036"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58663813"
 ---
 # <a name="sfctl-cluster"></a>sfctl cluster
 Selecione, gerir e operar a clusters do Service Fabric.

@@ -4,7 +4,7 @@ description: Documentação conceptual para notificações do Service Fabric Rel
 services: service-fabric
 documentationcenter: .net
 author: mcoskun
-manager: timlt
+manager: chackdan
 editor: masnider,vturecek
 ms.assetid: cdc918dd-5e81-49c8-a03d-7ddcd12a9a76
 ms.service: service-fabric
@@ -14,15 +14,15 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 6/29/2017
 ms.author: mcoskun
-ms.openlocfilehash: a13e5d74390b82888f51cfd225c54e29550354e9
-ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
+ms.openlocfilehash: a3df5f28475b03f1799dc1e245c3a7e904b49cb3
+ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47433519"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58662674"
 ---
 # <a name="reliable-services-notifications"></a>Notificações do Reliable Services
-Notificações de permitir que os clientes controlar as alterações que estão a ser efetuadas a um objeto que elas têm interesse em. Notificações de suporte a dois tipos de objetos: *Reliable State Manager* e *dicionário fiável*.
+Notificações de permitir que os clientes controlar as alterações que estão a ser efetuadas a um objeto que elas têm interesse em. Notificações de suporte a dois tipos de objetos: *Gestor de estado de Reliable* e *dicionário fiável*.
 
 Motivos comuns para usar notificações são:
 
@@ -46,9 +46,9 @@ Reliable State Manager controla as transações em utilização atual. A única 
 Reliable State Manager mantém uma coleção de Estados confiáveis, como o dicionário fiável e fila fiável. Reliable State Manager dispara notificações quando esta coleção é alterado: um Estado confiável é adicionado ou removido ou toda a coleção é reconstruída.
 A coleção do Reliable State Manager for reconstruída em três casos:
 
-* Recuperação: Quando uma réplica é iniciado, ele recupera o estado anterior do disco. No final de recuperação, ele usa **NotifyStateManagerChangedEventArgs** disparar um evento que contém o conjunto de Estados fiáveis recuperados.
-* Total de cópia: antes de uma réplica pode associar o conjunto de configuração, tem de ser criada. Às vezes, isso requer uma cópia completa de estado de Reliable Gerenciador de estado a partir da réplica primária para ser aplicadas à réplica secundária inativa. Utiliza do Reliable State Manager na réplica secundária **NotifyStateManagerChangedEventArgs** disparar um evento que contém o conjunto de Estados confiáveis que adquiriu a partir da réplica primária.
-* Restauro: Em cenários de recuperação após desastre, estado a réplica possa ser restaurado a partir de uma cópia de segurança por meio **RestoreAsync**. Nesses casos, Reliable State Manager, na réplica primária usa **NotifyStateManagerChangedEventArgs** disparar um evento que contém o conjunto de Estados confiáveis que restaurá-lo da cópia de segurança.
+* Recuperação de: Quando uma réplica é iniciado, ele recupera o estado anterior do disco. No final de recuperação, ele usa **NotifyStateManagerChangedEventArgs** disparar um evento que contém o conjunto de Estados fiáveis recuperados.
+* Cópia completa: Antes de uma réplica pode associar o conjunto de configuração, tem de ser criada. Às vezes, isso requer uma cópia completa de estado de Reliable Gerenciador de estado a partir da réplica primária para ser aplicadas à réplica secundária inativa. Utiliza do Reliable State Manager na réplica secundária **NotifyStateManagerChangedEventArgs** disparar um evento que contém o conjunto de Estados confiáveis que adquiriu a partir da réplica primária.
+* Restaure: Em cenários de recuperação após desastre, estado da réplica pode ser restaurado a partir de uma cópia de segurança por meio **RestoreAsync**. Nesses casos, Reliable State Manager, na réplica primária usa **NotifyStateManagerChangedEventArgs** disparar um evento que contém o conjunto de Estados confiáveis que restaurá-lo da cópia de segurança.
 
 Para se registar notificações de transação e/ou notificações do Gestor de estado, precisa registrar com o **TransactionChanged** ou **StateManagerChanged** eventos no Reliable State Manager. Um lugar comum para registar com esses manipuladores de eventos é o construtor do seu serviço com estado. Quando se registra no construtor, não perder qualquer notificação que seja causada por uma alteração durante a duração de **IReliableStateManager**.
 
@@ -109,11 +109,11 @@ public void OnStateManagerChangedHandler(object sender, NotifyStateManagerChange
 ## <a name="reliable-dictionary-notifications"></a>Notificações de dicionário fiáveis
 Dicionário fiável fornece notificações para os seguintes eventos:
 
-* Reconstrução: Chamada quando **ReliableDictionary** recuperou seu estado de uma cópia de segurança ou de estado local recuperado ou copiado.
-* Limpar: Chamado quando o estado do **ReliableDictionary** foi limpo por meio do **ClearAsync** método.
-* Adicione: Chamado quando um item foi adicionado ao **ReliableDictionary**.
-* Atualização: Chamado quando um item numa **IReliableDictionary** foi atualizado.
-* Remover: Chamado quando um item numa **IReliableDictionary** foi eliminado.
+* Recrie: Chamado quando **ReliableDictionary** recuperou seu estado de uma cópia de segurança ou de estado local recuperado ou copiado.
+* Clara: Chamado quando o estado da **ReliableDictionary** foi limpo por meio do **ClearAsync** método.
+* Adicionar: Chamado quando um item foi adicionado ao **ReliableDictionary**.
+* Actualização: Chamado quando um item numa **IReliableDictionary** foi atualizado.
+* Remova: Chamado quando um item numa **IReliableDictionary** foi eliminado.
 
 Para obter notificações de dicionário fiável, precisa registrar com o **DictionaryChanged** manipulador de eventos no **IReliableDictionary**. Um lugar comum para registar com esses manipuladores de eventos está no **ReliableStateManager.StateManagerChanged** adicionar notificação.
 Quando a registar **IReliableDictionary** é adicionado ao **IReliableStateManager** garante que não perder quaisquer notificações.

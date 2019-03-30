@@ -12,12 +12,12 @@ ms.author: joke
 ms.reviwer: sstein
 manager: craigg
 ms.date: 03/13/2019
-ms.openlocfilehash: f90e4281be27f4f30f4fdf0e3eb2932fa4e743ef
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: eb5066185f9301450a68276dd4b2ce2123231b34
+ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57840822"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58666797"
 ---
 # <a name="create-an-elastic-job-agent-using-powershell"></a>Criar um agente de Tarefa Elástica com o PowerShell
 
@@ -129,7 +129,7 @@ $Db2
 
 ## <a name="enable-the-elastic-jobs-preview-for-your-subscription"></a>Ativar a pré-visualização de Tarefas Elásticas para a sua subscrição
 
-Para utilizar Tarefas Elásticas, registe a funcionalidade na sua subscrição do Azure ao executar o comando seguinte (isto apenas tem de ser executado uma vez em cada subscrição em que queira utilizar Tarefas Elásticas):
+Para utilizar as tarefas elásticas, registe a funcionalidade na sua subscrição do Azure ao executar o comando seguinte. Execute este comando uma vez para a subscrição na qual pretende aprovisionar o agente de tarefa elástica. As subscrições que contêm apenas bases de dados que são os destinos de tarefa não precisam de ser registado.
 
 ```powershell
 Register-AzProviderFeature -FeatureName sqldb-JobAccounts -ProviderNamespace Microsoft.Sql

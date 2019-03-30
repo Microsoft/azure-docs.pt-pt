@@ -10,19 +10,19 @@ ms.assetid: 04b05dea-c066-44a0-9751-0774eb84c689
 ms.service: sql-data-warehouse
 ms.topic: article
 ms.date: 02/09/2019
-ms.openlocfilehash: 8f24bab531143cad1974663eb71b173a20b6f51a
-ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
+ms.openlocfilehash: 575b6384d910abac1c0a1184aef4aa72f686538c
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58287184"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58648578"
 ---
 # <a name="upgrade-your-data-warehouse-to-gen2"></a>Atualizar o seu armazém de dados para a geração 2
 
 Microsoft está ajudando a reduzir o custo ao nível da entrada de executar um armazém de dados.  Mais baixo de computação escalões capazes de processar exigentes consultas estão agora disponíveis para o Azure SQL Data Warehouse. Leia o anúncio completo [inferior computação suporte de camada para Gen2](https://azure.microsoft.com/blog/azure-sql-data-warehouse-gen2-now-supports-lower-compute-tiers/). A nova oferta está disponível nas regiões indicados na tabela abaixo. Regiões suportadas, armazéns de dados de geração 1 existentes podem ser atualizados para ger2 através de um:
 
 - **O processo de atualização automática:** As atualizações automáticas de não começam assim que o serviço está disponível numa região.  Quando as atualizações automáticas de iniciar uma região específica, as atualizações individuais do armazém de dados terá lugar durante a sua agenda de manutenção selecionado.
-- [**Self-Atualize para ger2:**](#Self-upgrade-to-Gen2) Pode controlar quando atualizar, fazendo uma atualização automática para a geração 2. Se a sua região ainda não é suportado, pode restaurar a partir de um ponto de restauro diretamente a uma instância de geração 2 numa região suportada.
+- [**Self-Atualize para ger2:**](#self-upgrade-to-gen2) Pode controlar quando atualizar, fazendo uma atualização automática para a geração 2. Se a sua região ainda não é suportado, pode restaurar a partir de um ponto de restauro diretamente a uma instância de geração 2 numa região suportada.
 
 ## <a name="automated-schedule-and-region-availability-table"></a>Agenda automatizada e tabela de disponibilidade de região
 

@@ -8,19 +8,21 @@ ms.topic: article
 ms.date: 09/19/2017
 ms.author: renashahmsft
 ms.subservice: files
-ms.openlocfilehash: a0937de97d858084433f969f1f6d4bdb2ae9e3fb
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 3432794c6b6d2323392f0b56b364400d05b10afc
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57893565"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58649713"
 ---
 # <a name="develop-for-azure-files-with-c"></a>Programar para os ficheiros do Azure com C++
+
 [!INCLUDE [storage-selector-file-include](../../../includes/storage-selector-file-include.md)]
 
 [!INCLUDE [storage-try-azure-tools-files](../../../includes/storage-try-azure-tools-files.md)]
 
 ## <a name="about-this-tutorial"></a>Acerca deste tutorial
+
 Neste tutorial, irá aprender como realizar operações básicas em ficheiros do Azure. Os exemplos escritos em C++, aprenderá a criar partilhas e diretórios, carregar, listar e eliminar ficheiros. Se estiver familiarizado com ficheiros do Azure, será útil na compreensão os exemplos de percorrer os conceitos em seções a seguir.
 
 * Criar e eliminar partilhas de ficheiros do Azure
@@ -34,6 +36,7 @@ Neste tutorial, irá aprender como realizar operações básicas em ficheiros do
 > Como ficheiros do Azure pode ser acedidos através de SMB, é possível escrever aplicações simples que acedam à partilha de ficheiros do Azure com as classes de e/s do C++ padrão e as funções. Este artigo descreve como escrever aplicações que utilizam o SDK de C++ de armazenamento do Azure, que utiliza a [API REST de ficheiros](https://docs.microsoft.com/rest/api/storageservices/file-service-rest-api) para comunicar com o serviço ficheiros do Azure.
 
 ## <a name="create-a-c-application"></a>Criar uma aplicação C++
+
 Para criar os exemplos, terá de instalar a biblioteca de cliente de armazenamento do Azure 2.4.0 para C++. Deve também ter criado uma conta de armazenamento do Azure.
 
 Para instalar o cliente de armazenamento do Azure 2.4.0 para C++, pode usar um dos seguintes métodos:
@@ -41,11 +44,13 @@ Para instalar o cliente de armazenamento do Azure 2.4.0 para C++, pode usar um d
 * **Linux:** Siga as instruções na [biblioteca de cliente de armazenamento do Azure para C++ Leiame](https://github.com/Azure/azure-storage-cpp/blob/master/README.md) página.
 * **Windows:** No Visual Studio, clique em **ferramentas &gt; Gestor de pacotes NuGet &gt; Package Manager Console**. Escreva o seguinte comando para o [consola de Gestor de pacotes NuGet](https://docs.nuget.org/docs/start-here/using-the-package-manager-console) e prima **ENTER**.
   
-```
+
+```powershell
 Install-Package wastorage
 ```
 
 ## <a name="set-up-your-application-to-use-azure-files"></a>Configurar a sua aplicação para utilizar ficheiros do Azure
+
 Adicione que declarações na parte superior do ficheiro de origem C++ para manipular os ficheiros do Azure onde pretende de incluir o seguinte:
 
 ```cpp
@@ -54,6 +59,7 @@ Adicione que declarações na parte superior do ficheiro de origem C++ para mani
 ```
 
 ## <a name="set-up-an-azure-storage-connection-string"></a>Configurar uma cadeia de ligação de armazenamento do Azure
+
 Para utilizar o armazenamento de ficheiros, terá de ligar à sua conta de armazenamento do Azure. O primeiro passo seria configurar uma cadeia de ligação, o que vamos utilizar para ligar à sua conta de armazenamento. Vamos definir uma variável estática para fazer isso.
 
 ```cpp
@@ -63,6 +69,7 @@ storage_connection_string(U("DefaultEndpointsProtocol=https;AccountName=your_sto
 ```
 
 ## <a name="connecting-to-an-azure-storage-account"></a>Ligar a uma conta de armazenamento do Azure
+
 Pode utilizar o **cloud_storage_account** classe para representar as informações da conta de armazenamento. Para obter as informações da conta de armazenamento da cadeia de ligação de armazenamento, pode utilizar o método **analisar**.
 
 ```cpp
@@ -72,6 +79,7 @@ azure::storage::cloud_storage_account storage_account =
 ```
 
 ## <a name="create-an-azure-file-share"></a>Criar uma partilha de ficheiros do Azure
+
 Todos os ficheiros e diretórios numa partilha de ficheiros do Azure residem num contêiner chamado um **partilhar**. Sua conta de armazenamento pode ter quantas partilhas como permite que a sua capacidade de conta. Para obter acesso a uma partilha e o respetivo conteúdo, terá de utilizar um cliente de ficheiros do Azure.
 
 ```cpp
@@ -99,6 +107,7 @@ if (share.create_if_not_exists()) {
 Neste momento, **partilhar** mantém uma referência para uma partilha denominada **partilha de amostra my**.
 
 ## <a name="delete-an-azure-file-share"></a>Eliminar uma partilha de ficheiros do Azure
+
 A eliminar uma partilha é feita chamando o **delete_if_exists** método num objeto de cloud_file_share. Aqui está o código de exemplo que faz isso.
 
 ```cpp
@@ -111,6 +120,7 @@ share.delete_share_if_exists();
 ```
 
 ## <a name="create-a-directory"></a>Criar um diretório
+
 Pode organizar o armazenamento ao colocar os ficheiros dentro dos subdiretórios em vez de ter todas elas no diretório de raiz. Os ficheiros do Azure permite-lhe criar os diretórios como permitirá que a sua conta. O código abaixo cria um diretório chamado **directory meu exemplo** sob o diretório de raiz, bem como um subdiretório nomeado **subdiretório meu exemplo**.
 
 ```cpp
@@ -127,6 +137,7 @@ subdirectory.create_if_not_exists();
 ```
 
 ## <a name="delete-a-directory"></a>Eliminar um diretório
+
 Eliminar um diretório é uma tarefa simple, embora é importante observar que não é possível eliminar um diretório que ainda contém arquivos ou de outros diretórios.
 
 ```cpp
@@ -149,6 +160,7 @@ directory.delete_directory_if_exists();
 ```
 
 ## <a name="enumerate-files-and-directories-in-an-azure-file-share"></a>Enumerar arquivos e diretórios numa partilha de ficheiros do Azure
+
 Obter uma lista de ficheiros e diretórios dentro de uma partilha facilmente é feito chamando **list_files_and_directories** num **cloud_file_directory** referência. Para aceder ao conjunto avançado de propriedades e métodos de um **list_file_and_directory_item**, tem de chamar os **list_file_and_directory_item.as_file** método para obter um **cloud_file**  objeto, ou o **list_file_and_directory_item.as_directory** método para obter uma **cloud_file_directory** objeto.
 
 O código a seguir demonstra como obter e apresentar o URI de cada item no diretório de raiz da partilha.
@@ -175,6 +187,7 @@ for (auto it = directory.list_files_and_directories(); it != end_of_results; ++i
 ```
 
 ## <a name="upload-a-file"></a>Carregar um ficheiro
+
 Na pior das hipóteses, uma partilha de ficheiros do Azure contém um diretório de raiz em que podem residir. Nesta secção, irá aprender como carregar um ficheiro do armazenamento local para o diretório de raiz de uma partilha.
 
 O primeiro passo para carregar um ficheiro é obter uma referência para o diretório onde devem residir. Fazê-lo ao chamar o **get_root_directory_reference** método do objeto de partilha.
@@ -207,6 +220,7 @@ file4.upload_from_file(_XPLATSTR("DataFile.txt"));
 ```
 
 ## <a name="download-a-file"></a>Transferir um ficheiro
+
 Para transferir ficheiros, primeiro obter uma referência de ficheiro e, em seguida, chamar o **download_to_stream** método para transferir o conteúdo do ficheiro para um objeto de fluxo, que, em seguida, pode manter num ficheiro local. Em alternativa, pode utilizar o **download_to_file** método para transferir o conteúdo de um ficheiro para um ficheiro local. Pode utilizar o **download_text** método para transferir o conteúdo de um ficheiro como uma cadeia de texto.
 
 O exemplo seguinte utiliza a **download_to_stream** e **download_text** métodos para demonstrar a transferir os ficheiros que foram criados nas secções anteriores.
@@ -232,6 +246,7 @@ outfile.close();
 ```
 
 ## <a name="delete-a-file"></a>Eliminar um ficheiro
+
 Outra operação de ficheiros do Azure comum é a eliminação de ficheiros. O código seguinte elimina um ficheiro denominado my-exemplo-ficheiro-3 armazenados no diretório de raiz.
 
 ```cpp
@@ -249,6 +264,7 @@ file.delete_file_if_exists();
 ```
 
 ## <a name="set-the-quota-maximum-size-for-an-azure-file-share"></a>Definir a quota (tamanho máximo) para uma partilha de ficheiros do Azure
+
 Pode definir a quota (ou o tamanho máximo) para uma partilha de ficheiros, em gigabytes. De igual modo, pode verificar a quantidade de dados atualmente armazenada na partilha.
 
 Ao definir a quota para uma partilha, pode limitar o tamanho total dos ficheiros armazenados na partilha. Se o tamanho total dos ficheiros na partilha exceder a quota definida na partilha, os clientes não poderão aumentar o tamanho dos ficheiros existentes ou criar novos ficheiros, a menos que esses ficheiros estejam vazios.
@@ -280,6 +296,7 @@ if (share.exists())
 ```
 
 ## <a name="generate-a-shared-access-signature-for-a-file-or-file-share"></a>Gerar uma assinatura de acesso partilhado para um ficheiro ou partilha de ficheiros
+
 Pode gerar uma assinatura de acesso partilhado (SAS) para uma partilha de ficheiros ou para um ficheiro individual. De igual modo, pode criar uma política de acesso partilhado numa partilha de ficheiros para gerir assinaturas de acesso partilhado. Recomenda-se a criação de uma política de acesso partilhado, uma vez que fornece um meio de revogação do SAS se este estiver comprometido.
 
 O exemplo seguinte cria uma política de acesso partilhado numa partilha e, em seguida, utiliza essa política para fornecer as restrições para um SAS num ficheiro dentro da partilha.
@@ -346,7 +363,9 @@ if (share.exists())
 
 }
 ```
+
 ## <a name="next-steps"></a>Passos Seguintes
+
 Para saber mais sobre o Storage do Azure, explore estes recursos:
 
 * [Biblioteca de Clientes de Armazenamento para C++](https://github.com/Azure/azure-storage-cpp)

@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 01/18/2019
 ms.author: rimman
 ms.reviewer: sngun
-ms.openlocfilehash: 80c35d8417fefa2873cbef9886f56ccfa3920624
-ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
+ms.openlocfilehash: 0e0d1cd98f27ef40681e37a55f7021bf102fda21
+ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57409470"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58664273"
 ---
 # <a name="optimize-cost-with-reserved-capacity-in-azure-cosmos-db"></a>Otimizar o custo com capacidade de reserva no Azure Cosmos DB
 
@@ -20,7 +20,7 @@ O Azure Cosmos DB reservado ajuda de capacidade que poupar dinheiro ao pagar pre
 
 Capacidade de Cosmos DB reservada do Azure pode reduzir significativamente os custos de Cosmos DB&mdash;até 65% em preços regulares com um compromisso inicial de um ano ou três anos. Capacidade de reserva fornece um desconto de faturação e não afeta o estado de tempo de execução dos seus recursos do Azure Cosmos DB.
 
-Capacidade de Cosmos DB reservada do Azure abrange o débito aprovisionado para os seus recursos. Não abrange a armazenamento e os encargos de rede. Assim que adquirir uma reserva, os custos de débito que correspondem a reserva atributos já não são cobrados a pay as you go taxas. Para obter mais informações sobre as reservas, consulte a [reservas Azure](../billing/billing-save-compute-costs-reservations.md) artigo. 
+Capacidade de Cosmos DB reservada do Azure abrange o débito aprovisionado para os seus recursos. Não abrange a armazenamento e os encargos de rede. Assim que adquirir uma reserva, os custos de débito que correspondem a reserva atributos já não são cobrados a pay as you go taxas. Para obter mais informações sobre as reservas, consulte a [reservas Azure](../billing/billing-save-compute-costs-reservations.md) artigo.
 
 Pode comprar o Azure Cosmos DB reservado capacidade dos [portal do Azure](https://portal.azure.com). Comprar capacidade de reserva:
 
@@ -48,7 +48,7 @@ O tamanho da reserva deve basear-se na quantidade total de débito que irão uti
 
 4. Preencha os campos obrigatórios, conforme descrito na tabela a seguir:
 
-   ![Preencha o formulário de capacidade de reserva](./media/cosmos-db-reserved-capacity/fill_reserved_capacity_form.png) 
+   ![Preencha o formulário de capacidade de reserva](./media/cosmos-db-reserved-capacity/fill_reserved_capacity_form.png)
 
    |Campo  |Descrição  |
    |---------|---------|
@@ -61,17 +61,17 @@ O tamanho da reserva deve basear-se na quantidade total de débito que irão uti
 
 5. Reveja o desconto e o preço da reserva no **custos** secção. Este preço de reserva se aplica aos recursos do Azure Cosmos DB com o débito aprovisionado em todas as regiões.  
 
-6. Selecione **Comprar**. Quando a compra for concluída com êxito, verá a seguinte página: 
+6. Selecione **Comprar**. Quando a compra for concluída com êxito, verá a seguinte página:
 
-   ![Preencha o formulário de capacidade de reserva](./media/cosmos-db-reserved-capacity/reserved_capacity_successful.png) 
+   ![Preencha o formulário de capacidade de reserva](./media/cosmos-db-reserved-capacity/reserved_capacity_successful.png)
 
-Depois de comprar uma reserva, ele é aplicado imediatamente a quaisquer recursos existentes do Azure Cosmos DB que corresponda aos termos da reserva. Se não tiver quaisquer recursos existentes do Azure Cosmos DB, a reserva aplicará ao implementar uma nova instância de Cosmos DB, que corresponde aos termos da reserva. Em ambos os casos, o período da reserva começa imediatamente após a compra ser efetuada com êxito. 
+Depois de comprar uma reserva, ele é aplicado imediatamente a quaisquer recursos existentes do Azure Cosmos DB que corresponda aos termos da reserva. Se não tiver quaisquer recursos existentes do Azure Cosmos DB, a reserva aplicará ao implementar uma nova instância de Cosmos DB, que corresponde aos termos da reserva. Em ambos os casos, o período da reserva começa imediatamente após a compra ser efetuada com êxito.
 
 Quando a reserva expirar, as instâncias do Azure Cosmos DB continuam a ser executado e são faturadas às tarifas pay as you go normais.
 
 ## <a name="cancellation-and-exchanges"></a>Cancelamento e trocas
 
-Para ajudar a identificar a capacidade de reserva certo, consulte [compreender como o desconto de reserva é aplicado ao Azure Cosmos DB](../billing/billing-understand-cosmosdb-reservation-charges.md). No caso, terá de cancelar ou trocar uma reserva de Azure Cosmos DB, contacte a equipa do Azure Cosmos DB em `AskCosmosDB@microsoft.com`.
+Para ajudar a identificar a capacidade de reserva certo, consulte [compreender como o desconto de reserva é aplicado ao Azure Cosmos DB](../billing/billing-understand-cosmosdb-reservation-charges.md). Se pretender cancelar ou trocar uma reserva de Azure Cosmos DB, veja [trocas de reserva e reembolsos](../billing/billing-azure-reservations-self-service-exchange-and-refund.md).
 
 ## <a name="next-steps"></a>Passos Seguintes
 
@@ -90,4 +90,3 @@ O desconto de reserva é aplicado automaticamente para os recursos do Azure Cosm
 ## <a name="need-help-contact-us"></a>Precisa de ajuda? Contacte-nos.
 
 Se tiver alguma dúvida ou precisar de ajuda, [criar um pedido de suporte](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).
-

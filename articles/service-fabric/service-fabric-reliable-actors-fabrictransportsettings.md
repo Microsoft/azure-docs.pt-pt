@@ -4,7 +4,7 @@ description: Saiba mais sobre como configurar definições de comunicação de a
 services: Service-Fabric
 documentationcenter: .net
 author: suchiagicha
-manager: timlt
+manager: chackdan
 editor: ''
 ms.assetid: dbed72f4-dda5-4287-bd56-da492710cd96
 ms.service: service-fabric
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 04/20/2017
 ms.author: suchiagicha
-ms.openlocfilehash: 8bfeebb882d1252e21c800f7b65120878bb3af93
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: b6cff24e5a7812a88673d80476819e51e6f5da35
+ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57834615"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58667638"
 ---
 # <a name="configure-fabrictransport-settings-for-reliable-actors"></a>Configurar as definições de FabricTransport dos Reliable Actors
 

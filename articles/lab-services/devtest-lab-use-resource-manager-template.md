@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/18/2019
 ms.author: spelluru
-ms.openlocfilehash: eaa285318a868d0ccee07d830e1cc1be18f457a2
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 533770d98b146dea01e91e1249115c4b5c074b3c
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58181559"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58648440"
 ---
 # <a name="create-virtual-machines-using-an-azure-resource-manager-template"></a>Criar máquinas virtuais com um modelo Azure Resource Manager 
 
@@ -30,7 +30,7 @@ Este artigo descreve várias VMS versus modelos do Resource Manager de VM única
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="multi-vm-vs-single-vm-resource-manager-templates"></a>Várias VMS versus modelos do Resource Manager de VM única
-Existem duas formas de criar VMs nos laboratórios DevTest através de um modelo do Resource Manager: aprovisionar o recurso de Microsoft.DevTestLab/labs/virtualmachines ou aprovisionar o recurso de Microsoft.Commpute/virtualmachines. Cada um é utilizado em cenários diferentes e deve ter permissões diferentes.
+Existem duas formas de criar VMs nos laboratórios DevTest através de um modelo do Resource Manager: aprovisionar o recurso de Microsoft.DevTestLab/labs/virtualmachines ou aprovisionar o recurso de Microsoft.Compute/virtualmachines. Cada um é utilizado em cenários diferentes e deve ter permissões diferentes.
 
 - Modelos do Resource Manager que utilizam um tipo de recurso Microsoft.DevTestLab/labs/virtualmachines (como declarado na propriedade "recurso" no modelo) podem aprovisionar VMs do laboratório individuais. Cada VM, em seguida, mostrado como um único item na lista de máquinas virtuais do DevTest Labs:
 

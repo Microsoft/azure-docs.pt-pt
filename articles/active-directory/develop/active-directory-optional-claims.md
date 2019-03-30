@@ -17,12 +17,12 @@ ms.author: celested
 ms.reviewer: paulgarn, hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2424dbf595743eacef16b7d11f208edc9cd09a41
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 592f2ef95935ce1d1f83db6c3327cab9c20015d3
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56185456"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58652574"
 ---
 # <a name="how-to-provide-optional-claims-to-your-azure-ad-app-public-preview"></a>Como: Fornecer afirmações opcionais para a sua aplicação do Azure AD (pré-visualização pública)
 
@@ -50,7 +50,7 @@ Um dos objetivos do [ponto final v2.0 do Azure AD](active-directory-appmodel-v2-
 
 ## <a name="standard-optional-claims-set"></a>Conjunto de afirmações opcionais padrão
 
-O conjunto de afirmações opcionais disponíveis por predefinição para as aplicações a utilizar estão listados abaixo. Para adicionar afirmações opcionais personalizadas para a sua aplicação, consulte [extensões de diretório](active-directory-optional-claims.md#Configuring-custom-claims-via-directory-extensions), abaixo. Tenha em atenção que quando adicionar afirmações para o **token de acesso**, isto vai aplicar aos tokens de acesso solicitados *para* a aplicação (uma API web), não as *por* o aplicativo. Isto garante que, independentemente do cliente aceder à sua API, os dados certos estão presentes no token de acesso que eles usam para autenticar a sua API.
+O conjunto de afirmações opcionais disponíveis por predefinição para as aplicações a utilizar estão listados abaixo. Para adicionar afirmações opcionais personalizadas para a sua aplicação, consulte [extensões de diretório](active-directory-optional-claims.md#configuring-custom-claims-via-directory-extensions), abaixo. Tenha em atenção que quando adicionar afirmações para o **token de acesso**, isto vai aplicar aos tokens de acesso solicitados *para* a aplicação (uma API web), não as *por* o aplicativo. Isto garante que, independentemente do cliente aceder à sua API, os dados certos estão presentes no token de acesso que eles usam para autenticar a sua API.
 
 > [!NOTE]
 > A maioria dessas declarações pode ser incluída numa JWTs para v1.0 e v2.0 tokens, mas não os tokens SAML, exceto em que anotou na coluna de tipo de Token. Além disso, embora afirmações opcionais só são suportadas para utilizadores do AAD atualmente, está a ser adicionado suporte MSA. Quando MSA tem afirmações opcionais no ponto final v2.0 de suporte, a coluna de tipo de utilizador irá indicar se uma afirmação está disponível para um utilizador do AAD ou MSA. 

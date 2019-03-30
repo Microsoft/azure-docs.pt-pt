@@ -12,12 +12,12 @@ ms.author: srbozovi
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 03/12/2019
-ms.openlocfilehash: 801e3b20908c3e92693e5e800428773bf5c90539
-ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
+ms.openlocfilehash: c5fadf5c445310534ab3001371e1b73b1f502f15
+ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58521470"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58661791"
 ---
 # <a name="azure-sql-connectivity-architecture"></a>Arquitetura de conectividade do SQL do Azure
 
@@ -39,7 +39,7 @@ Este artigo explica a base de dados do Azure SQL e SQL Data Warehouse conectivid
 >
 > Se não foi possível estabelecer ligações de ponto final de serviço para o servidor SQL do Azure e são suspecting o que são afetados por esta alteração, verifique se o tipo de ligação está explicitamente definido como `Redirect`. Se for este o caso, terá de abrir as regras de firewall VM e grupos de segurança de rede (NSG) para todos os endereços de IP do Azure na região que pertençam a Sql [etiqueta de serviço](../virtual-network/security-overview.md#service-tags) para portas 11000 12000. Se não for uma opção para, alternar servidor explicitamente como `Proxy`.
 > [!NOTE]
-> Este tópico aplica-se para os servidores de base de dados do Azure SQL que alojam bases de dados individuais e conjuntos elásticos e bases de dados do SQL Data Warehouse. Para simplificar, a Base de Dados SQL é utilizada para referenciar a Base de Dados SQL e o SQL Data Warehouse.
+> Este tópico aplica-se para os servidores de base de dados do Azure SQL que alojam bases de dados individuais e conjuntos elásticos, o SQL Data Warehouse bases de dados, base de dados do Azure para MySQL, base de dados do Azure para MariaDB e base de dados do Azure para PostgreSQL. Para simplificar, a base de dados SQL é utilizado quando nos Referimos a base de dados SQL, o SQL Data Warehouse, o banco de dados do Azure para MySQL, base de dados do Azure para MariaDB e base de dados do Azure para PostgreSQL.
 
 ## <a name="connectivity-architecture"></a>Arquitetura de conectividade
 

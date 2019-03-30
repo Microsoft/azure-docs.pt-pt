@@ -4,7 +4,7 @@ description: Descreve a relação entre as réplicas (ou instâncias) de um serv
 services: service-fabric
 documentationcenter: .net
 author: harahma
-manager: timlt
+manager: chackdan
 ms.service: service-fabric
 ms.devlang: dotnet
 ms.topic: conceptual
@@ -12,12 +12,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 04/15/2017
 ms.author: harahma
-ms.openlocfilehash: 80d9d447a86b58c8d6db5a62d3b0df997e42f673
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: d2d958a89bff40483e1cd473538f7d1a6971d266
+ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55172379"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58663286"
 ---
 # <a name="azure-service-fabric-hosting-model"></a>Modelo de hospedagem do Azure Service Fabric
 Este artigo fornece uma visão geral dos modelos fornecidos pelo Azure Service Fabric de hospedagem de aplicativos e descreve as diferenças entre o **processo partilhado** e **processo exclusivo** modelos. Ele descreve a aparência de um aplicativo implantado num nó do Service Fabric e a relação entre as réplicas (ou instâncias) do serviço e o processo de host de serviço.

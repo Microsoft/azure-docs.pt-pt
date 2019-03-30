@@ -1,6 +1,6 @@
 ---
-title: Compreender o desconto de reservas do Azure | Documentos da Microsoft
-description: Saiba como é aplicado um desconto de reserva para bases de dados SQL a executar.
+title: Compreender o desconto de reservas para bases de dados SQL do Azure | Documentos da Microsoft
+description: Saiba como um desconto de reserva é aplicado à execução de bases de dados do Azure SQL.
 services: billing
 documentationcenter: ''
 author: yashesvi
@@ -13,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/08/2018
 ms.author: banders
-ms.openlocfilehash: ff31b9be0e927cca7d272e5deaa5ecf48a52580d
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: aa4fc43efab8c168fd5351ec60def7a3d0eefada
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57845470"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58649446"
 ---
-# <a name="understand-how-an-azure-reservation-discount-is-applied-to-sql-databases"></a>Compreender a forma como um desconto de reserva do Azure é aplicado às bases de dados SQL
+# <a name="understand-how-a-reservation-discount-is-applied-to-azure-sql-databases"></a>Compreender a forma como é aplicado um desconto de reserva para bases de dados do Azure SQL
 
 Depois de comprar uma capacidade de base de dados do SQL Azure reservado, o desconto de reserva é automaticamente aplicado às bases de dados do SQL que correspondem a atributos e a quantidade da reserva. Uma reserva aborda os custos de computação de base de dados SQL. É-lhe cobrado para software, armazenamento e rede às tarifas normais. Que podem ser cobertos os custos de licenciamento para bases de dados SQL com [benefício híbrido do Azure](https://azure.microsoft.com/pricing/hybrid-benefit/).
 
@@ -54,6 +54,6 @@ Para saber mais sobre as reservas do Azure, veja os artigos seguintes:
 - [Compreender a utilização de reserva para inscrição da sua empresa](billing-understand-reserved-instance-usage-ea.md)
 - [Compreender a utilização de reserva para subscrições de CSP](https://docs.microsoft.com/partner-center/azure-reservations)
 
-## <a name="need-help-contact-us"></a>Precisa de ajuda? Contacte-nos.
+## <a name="need-help-contact-us"></a>Precisa de ajuda? Contacte-nos
 
 Se tiver alguma dúvida ou precisar de ajuda, [criar um pedido de suporte](https://go.microsoft.com/fwlink/?linkid=2083458).

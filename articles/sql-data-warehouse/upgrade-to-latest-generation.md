@@ -10,12 +10,12 @@ ms.subservice: manage
 ms.date: 02/19/2019
 ms.author: martinle
 ms.reviewer: jrasnick
-ms.openlocfilehash: 8ec6ffaba8056eacf44d8e1bd911eb1f22daad84
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.openlocfilehash: 522f1f2f24e8c8c3f68a42569d4057a7694754d1
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57314845"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58651078"
 ---
 # <a name="optimize-performance-by-upgrading-sql-data-warehouse"></a>Otimizar o desempenho ao atualizar o SQL Data Warehouse
 
@@ -34,8 +34,8 @@ Esta atualização aplica-se para armazéns de dados de escalão de computação
 ## <a name="before-you-begin"></a>Antes de começar
 
 1. Verifique se o seu [região](gen2-migration-schedule.md#automated-schedule-and-region-availability-table) é suportado para a geração 1 para a migração de geração 2. Tenha em atenção as datas de migração automática. Para evitar conflitos com o processo automatizado, planeie a migração manual antes da data de início do processo automatizado.
-2. Se estiver numa região que ainda não é suportada, continue a verificar para a sua região ser adicionado ou [atualização através de restauro](#Upgrade-from-an-Azure-geographical-region-using-restore-through-the-Azure-portal) para uma região suportada.
-3. Se tiver suporte a sua região, [atualização através do portal do Azure](#Upgrade-in-a-supported-region-using-the-Azure-portal)
+2. Se estiver numa região que ainda não é suportada, continue a verificar para a sua região ser adicionado ou [atualização através de restauro](#upgrade-from-an-azure-geographical-region-using-restore-through-the-azure-portal) para uma região suportada.
+3. Se tiver suporte a sua região, [atualização através do portal do Azure](#upgrade-in-a-supported-region-using-the-azure-portal)
 4. **Selecione o nível de desempenho sugeridos** para o armazém de dados com base no seu nível de desempenho atual na camada de computação otimizada geração 1 com o mapeamento abaixo:
 
    | Computação otimizada geração 1 camada | Computação otimizada geração 2 escalão |

@@ -4,7 +4,7 @@ description: Descreve os comandos do CLI do Service Fabric sfctl réplica.
 services: service-fabric
 documentationcenter: na
 author: Christina-Kang
-manager: timlt
+manager: chackdan
 editor: ''
 ms.assetid: ''
 ms.service: service-fabric
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.date: 12/06/2018
 ms.author: bikang
-ms.openlocfilehash: 0000e5d8bfa7da6ebe1b6702649e56262c9d9cab
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: d0a7199ff0e9cb17c3fbc179a9b37a6620f521f9
+ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53277374"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58666822"
 ---
 # <a name="sfctl-replica"></a>sfctl replica
 Gerir as réplicas que pertencem a partições de serviço.
@@ -57,9 +57,9 @@ Obtém os detalhes da réplica implementado num nó do Service Fabric. As inform
 | --- | --- |
 | – depuração | Aumenta a verbosidade de registo para mostrar que todos os registos de depuração. |
 | – ajudar -h | Mostre esta mensagem de ajuda e saída. |
-| --o de saída | Formato de saída.  Valores permitidos\: json, jsonc, tabela, tsv.  Predefinido\: json. |
-| – consulta | Cadeia de consulta do JMESPath. Consulte http\://jmespath.org/ para obter mais informações e exemplos. |
-| -verbose | Aumenta a verbosidade do registo. Utilize--debug para os registos de depuração completa. |
+| --output -o | Formato de saída.  Valores permitidos\: json, jsonc, tabela, tsv.  Predefinido\: json. |
+| --query | Cadeia de consulta do JMESPath. Consulte http\://jmespath.org/ para obter mais informações e exemplos. |
+| --verbose | Aumenta a verbosidade do registo. Utilize--debug para os registos de depuração completa. |
 
 ## <a name="sfctl-replica-deployed-list"></a>réplica de sfctl implementado-lista
 Obtém a lista de réplicas implementadas num nó do Service Fabric.
@@ -72,8 +72,8 @@ Obtém a lista que contém as informações acerca das réplicas implementadas n
 | --- | --- |
 | – id de aplicação [necessário] | A identidade da aplicação. Isso normalmente é o nome completo do aplicativo sem que o "recursos de infraestrutura\:" esquema de URI. A partir da versão 6.0, são delimitados nomes hierárquicos com o "\~" caráter. Por exemplo, se o nome da aplicação é "recursos de infraestrutura\:app1/myapp /", a identidade da aplicação seria "myapp\~app1" em 6.0 + e "myapp/app1" nas versões anteriores. |
 | --nome do nó [necessário] | O nome do nó. |
-| – id de partição | A identidade da partição. |
-| -nome do manifesto do serviço | O nome de um manifesto de serviço registado como parte de um tipo de aplicação no cluster do Service Fabric. |
+| --partition-id | A identidade da partição. |
+| --service-manifest-name | O nome de um manifesto de serviço registado como parte de um tipo de aplicação no cluster do Service Fabric. |
 | – tempo limite -t | Tempo limite do servidor em segundos.  Predefinido\: 60. |
 
 ### <a name="global-arguments"></a>Argumentos global
@@ -82,9 +82,9 @@ Obtém a lista que contém as informações acerca das réplicas implementadas n
 | --- | --- |
 | – depuração | Aumenta a verbosidade de registo para mostrar que todos os registos de depuração. |
 | – ajudar -h | Mostre esta mensagem de ajuda e saída. |
-| --o de saída | Formato de saída.  Valores permitidos\: json, jsonc, tabela, tsv.  Predefinido\: json. |
-| – consulta | Cadeia de consulta do JMESPath. Consulte http\://jmespath.org/ para obter mais informações e exemplos. |
-| -verbose | Aumenta a verbosidade do registo. Utilize--debug para os registos de depuração completa. |
+| --output -o | Formato de saída.  Valores permitidos\: json, jsonc, tabela, tsv.  Predefinido\: json. |
+| --query | Cadeia de consulta do JMESPath. Consulte http\://jmespath.org/ para obter mais informações e exemplos. |
+| --verbose | Aumenta a verbosidade do registo. Utilize--debug para os registos de depuração completa. |
 
 ## <a name="sfctl-replica-health"></a>Estado de funcionamento de réplica de sfctl
 Obtém o estado de funcionamento de uma instância de serviço sem estado ou a réplica de serviço com estado do Service Fabric.
@@ -106,9 +106,9 @@ Obtém o estado de funcionamento de uma réplica do Service Fabric. Utilize Even
 | --- | --- |
 | – depuração | Aumenta a verbosidade de registo para mostrar que todos os registos de depuração. |
 | – ajudar -h | Mostre esta mensagem de ajuda e saída. |
-| --o de saída | Formato de saída.  Valores permitidos\: json, jsonc, tabela, tsv.  Predefinido\: json. |
-| – consulta | Cadeia de consulta do JMESPath. Consulte http\://jmespath.org/ para obter mais informações e exemplos. |
-| -verbose | Aumenta a verbosidade do registo. Utilize--debug para os registos de depuração completa. |
+| --output -o | Formato de saída.  Valores permitidos\: json, jsonc, tabela, tsv.  Predefinido\: json. |
+| --query | Cadeia de consulta do JMESPath. Consulte http\://jmespath.org/ para obter mais informações e exemplos. |
+| --verbose | Aumenta a verbosidade do registo. Utilize--debug para os registos de depuração completa. |
 
 ## <a name="sfctl-replica-info"></a>informações de réplica sfctl
 Obtém as informações sobre uma réplica de uma partição do Service Fabric.
@@ -129,9 +129,9 @@ A resposta inclui o ID de função, estado, estado de funcionamento, o nome do n
 | --- | --- |
 | – depuração | Aumenta a verbosidade de registo para mostrar que todos os registos de depuração. |
 | – ajudar -h | Mostre esta mensagem de ajuda e saída. |
-| --o de saída | Formato de saída.  Valores permitidos\: json, jsonc, tabela, tsv.  Predefinido\: json. |
-| – consulta | Cadeia de consulta do JMESPath. Consulte http\://jmespath.org/ para obter mais informações e exemplos. |
-| -verbose | Aumenta a verbosidade do registo. Utilize--debug para os registos de depuração completa. |
+| --output -o | Formato de saída.  Valores permitidos\: json, jsonc, tabela, tsv.  Predefinido\: json. |
+| --query | Cadeia de consulta do JMESPath. Consulte http\://jmespath.org/ para obter mais informações e exemplos. |
+| --verbose | Aumenta a verbosidade do registo. Utilize--debug para os registos de depuração completa. |
 
 ## <a name="sfctl-replica-list"></a>lista de réplica sfctl
 Obtém as informações acerca de réplicas de uma partição de serviço do Service Fabric.
@@ -143,7 +143,7 @@ O ponto de extremidade GetReplicas devolve informações sobre as réplicas da p
 |Argumento|Descrição|
 | --- | --- |
 | – id de partição [necessário] | A identidade da partição. |
-| -token de continuação | O parâmetro de token de continuação é usado para obter o próximo conjunto de resultados. Um token de continuação com um valor não vazio está incluído na resposta da API, quando os resultados do sistema não se encaixam numa única resposta. Quando esse valor é passado para a próxima chamada de API, a API devolve o próximo conjunto de resultados. Se não existirem mais resultados, em seguida, o token de continuação não contém um valor. O valor deste parâmetro não deve ser codificada com URL. |
+| --continuation-token | O parâmetro de token de continuação é usado para obter o próximo conjunto de resultados. Um token de continuação com um valor não vazio está incluído na resposta da API, quando os resultados do sistema não se encaixam numa única resposta. Quando esse valor é passado para a próxima chamada de API, a API devolve o próximo conjunto de resultados. Se não existirem mais resultados, em seguida, o token de continuação não contém um valor. O valor deste parâmetro não deve ser codificada com URL. |
 | – tempo limite -t | Tempo limite do servidor em segundos.  Predefinido\: 60. |
 
 ### <a name="global-arguments"></a>Argumentos global
@@ -152,9 +152,9 @@ O ponto de extremidade GetReplicas devolve informações sobre as réplicas da p
 | --- | --- |
 | – depuração | Aumenta a verbosidade de registo para mostrar que todos os registos de depuração. |
 | – ajudar -h | Mostre esta mensagem de ajuda e saída. |
-| --o de saída | Formato de saída.  Valores permitidos\: json, jsonc, tabela, tsv.  Predefinido\: json. |
-| – consulta | Cadeia de consulta do JMESPath. Consulte http\://jmespath.org/ para obter mais informações e exemplos. |
-| -verbose | Aumenta a verbosidade do registo. Utilize--debug para os registos de depuração completa. |
+| --output -o | Formato de saída.  Valores permitidos\: json, jsonc, tabela, tsv.  Predefinido\: json. |
+| --query | Cadeia de consulta do JMESPath. Consulte http\://jmespath.org/ para obter mais informações e exemplos. |
+| --verbose | Aumenta a verbosidade do registo. Utilize--debug para os registos de depuração completa. |
 
 ## <a name="sfctl-replica-remove"></a>remover da réplica de sfctl
 Remove uma réplica de serviço em execução num nó.
@@ -168,7 +168,7 @@ Esta API simula uma falha de réplica do Service Fabric ao remover uma réplica 
 | --nome do nó [necessário] | O nome do nó. |
 | – id de partição [necessário] | A identidade da partição. |
 | – id de réplica [necessário] | O identificador da réplica. |
-| -force-remove | Remova uma aplicação do Service Fabric ou serviço forçadamente sem passar pela sequência de encerramento correto. Este parâmetro pode ser utilizado para forçadamente eliminar uma aplicação ou serviço para que delete é exceder o tempo limite devido a problemas com o código do serviço que impede que as anulações normal fechar das réplicas. |
+| --force-remove | Remova uma aplicação do Service Fabric ou serviço forçadamente sem passar pela sequência de encerramento correto. Este parâmetro pode ser utilizado para forçadamente eliminar uma aplicação ou serviço para que delete é exceder o tempo limite devido a problemas com o código do serviço que impede que as anulações normal fechar das réplicas. |
 | – tempo limite -t | Tempo limite do servidor em segundos.  Predefinido\: 60. |
 
 ### <a name="global-arguments"></a>Argumentos global
@@ -177,9 +177,9 @@ Esta API simula uma falha de réplica do Service Fabric ao remover uma réplica 
 | --- | --- |
 | – depuração | Aumenta a verbosidade de registo para mostrar que todos os registos de depuração. |
 | – ajudar -h | Mostre esta mensagem de ajuda e saída. |
-| --o de saída | Formato de saída.  Valores permitidos\: json, jsonc, tabela, tsv.  Predefinido\: json. |
-| – consulta | Cadeia de consulta do JMESPath. Consulte http\://jmespath.org/ para obter mais informações e exemplos. |
-| -verbose | Aumenta a verbosidade do registo. Utilize--debug para os registos de depuração completa. |
+| --output -o | Formato de saída.  Valores permitidos\: json, jsonc, tabela, tsv.  Predefinido\: json. |
+| --query | Cadeia de consulta do JMESPath. Consulte http\://jmespath.org/ para obter mais informações e exemplos. |
+| --verbose | Aumenta a verbosidade do registo. Utilize--debug para os registos de depuração completa. |
 
 ## <a name="sfctl-replica-report-health"></a>o sfctl réplica relatório de estado de funcionamento
 Envia um relatório de estado de funcionamento da réplica do Service Fabric.
@@ -195,13 +195,13 @@ Estado de funcionamento de relatórios da réplica especificada do Service Fabri
 | – id de partição [necessário] | A identidade da partição. |
 | – id de réplica [necessário] | A identidade da partição. |
 | – id de origem [necessário] | O nome de origem que identifica o componente de sistema/watchdog/cliente gerado as informações de estado de funcionamento. |
-| – Descrição | A descrição das informações de estado de funcionamento. <br><br> Ele representa o texto livre usado para adicionar informações legíveis humanas sobre o relatório. O comprimento máximo da cadeia para a descrição é 4096 carateres. Se a cadeia fornecida é mais longa, ele será automaticamente truncado. Quando truncados, os últimos carateres da descrição contêm um marcador "[truncado]" e o tamanho total da cadeia de caracteres é 4096 carateres. A presença do marcador indica aos utilizadores esse truncamento ocorreu. Observe que, quando truncados, a descrição tem menos de 4096 carateres a partir da cadeia original. |
+| --description | A descrição das informações de estado de funcionamento. <br><br> Ele representa o texto livre usado para adicionar informações legíveis humanas sobre o relatório. O comprimento máximo da cadeia para a descrição é 4096 carateres. Se a cadeia fornecida é mais longa, ele será automaticamente truncado. Quando truncados, os últimos carateres da descrição contêm um marcador "[truncado]" e o tamanho total da cadeia de caracteres é 4096 carateres. A presença do marcador indica aos utilizadores esse truncamento ocorreu. Observe que, quando truncados, a descrição tem menos de 4096 carateres a partir da cadeia original. |
 | – imediata | Um sinalizador que indica se o relatório deve ser enviado imediatamente. <br><br> Um relatório de estado de funcionamento é enviado para um aplicativo, que encaminha para o arquivo de estado de funcionamento de gateway do Service Fabric. Se Immediate estiver definido como true, o relatório será enviado imediatamente do Gateway de HTTP para o armazenamento de estado de funcionamento, independentemente das definições de cliente de recursos de infraestrutura que está a utilizar a aplicação de Gateway HTTP. Isto é útil para os relatórios críticos que devem ser enviados logo que possível. Dependendo do tempo e outras condições, enviar o relatório poderá ainda falhar, por exemplo, se o HTTP Gateway foi fechado ou a mensagem não aceder ao Gateway. Se Immediate estiver definido como false, o relatório é enviado com base nas definições de cliente do Estado de funcionamento do HTTP Gateway. Por conseguinte, irá ser loteado, de acordo com a configuração de HealthReportSendInterval. Esta é a definição recomendada porque permite que o cliente do Estado de funcionamento otimizar as mensagens para o arquivo de estado de funcionamento, bem como o processamento de relatórios de estado de funcionamento de relatórios de estado de funcionamento. Por predefinição, os relatórios não são enviados imediatamente. |
-| – remover quando expirou | Valor que indica se o relatório é removido do arquivo de estado de funcionamento, quando este expirar. <br><br> Se definido como true, o relatório for removido do arquivo de estado de funcionamento, depois de expirar. Se definido como false, o relatório é tratado como um erro quando a expirou. O valor desta propriedade é false por padrão. Quando os clientes reportem periodicamente, eles devem definir RemoveWhenExpired false (predefinição). Dessa forma, é o gerador de relatórios tem problemas (por exemplo, o deadlock) e não é possível reportar a entidade é avaliada em erro quando expira o relatório de estado de funcionamento. Este processo sinaliza a entidade como sendo num Estado de funcionamento de erro. |
-| – número de sequência | O número de sequência para este relatório de estado de funcionamento como uma cadeia numérica. <br><br> O número de sequência de relatório é utilizado pelo arquivo de estado de funcionamento para detetar relatórios obsoletos. Se não for especificado, um número de sequência é gerado automaticamente pelo cliente do Estado de funcionamento quando é adicionado um relatório. |
-| – tipo de serviço | O tipo de réplica de serviço (com ou sem estado) para o qual está a ser comunicado o estado de funcionamento. Seguem-se os valores possíveis\: "Sem monitoração de estado", "Com monitoração de estado".  Predefinido\: com monitoração de estado. |
+| --remove-when-expired | Valor que indica se o relatório é removido do arquivo de estado de funcionamento, quando este expirar. <br><br> Se definido como true, o relatório for removido do arquivo de estado de funcionamento, depois de expirar. Se definido como false, o relatório é tratado como um erro quando a expirou. O valor desta propriedade é false por padrão. Quando os clientes reportem periodicamente, eles devem definir RemoveWhenExpired false (predefinição). Dessa forma, é o gerador de relatórios tem problemas (por exemplo, o deadlock) e não é possível reportar a entidade é avaliada em erro quando expira o relatório de estado de funcionamento. Este processo sinaliza a entidade como sendo num Estado de funcionamento de erro. |
+| --sequence-number | O número de sequência para este relatório de estado de funcionamento como uma cadeia numérica. <br><br> O número de sequência de relatório é utilizado pelo arquivo de estado de funcionamento para detetar relatórios obsoletos. Se não for especificado, um número de sequência é gerado automaticamente pelo cliente do Estado de funcionamento quando é adicionado um relatório. |
+| --service-kind | O tipo de réplica de serviço (com ou sem estado) para o qual está a ser comunicado o estado de funcionamento. Seguem-se os valores possíveis\: "Sem monitoração de estado", "Com monitoração de estado".  Predefinido\: com monitoração de estado. |
 | – tempo limite -t | Tempo limite do servidor em segundos.  Predefinido\: 60. |
-| – o valor de ttl | A duração para o qual este relatório de estado de funcionamento é válido. Este campo utiliza o formato ISO8601 para especificar a duração. <br><br> Quando os clientes reportem periodicamente, eles devem enviar relatórios com freqüência mais alta do que o tempo de duração. Se os clientes comunicam na transição, eles podem definir o tempo de duração para infinito. Quando expira o TTL, o evento de estado de funcionamento que contém as informações de estado de funcionamento é seja removido do arquivo de estado de funcionamento, se RemoveWhenExpired for true, ou avaliadas no erro, se RemoveWhenExpired false. Se não for especificado, tempo de duração a predefinição é o valor de infinito. |
+| --ttl | A duração para o qual este relatório de estado de funcionamento é válido. Este campo utiliza o formato ISO8601 para especificar a duração. <br><br> Quando os clientes reportem periodicamente, eles devem enviar relatórios com freqüência mais alta do que o tempo de duração. Se os clientes comunicam na transição, eles podem definir o tempo de duração para infinito. Quando expira o TTL, o evento de estado de funcionamento que contém as informações de estado de funcionamento é seja removido do arquivo de estado de funcionamento, se RemoveWhenExpired for true, ou avaliadas no erro, se RemoveWhenExpired false. Se não for especificado, tempo de duração a predefinição é o valor de infinito. |
 
 ### <a name="global-arguments"></a>Argumentos global
 
@@ -209,9 +209,9 @@ Estado de funcionamento de relatórios da réplica especificada do Service Fabri
 | --- | --- |
 | – depuração | Aumenta a verbosidade de registo para mostrar que todos os registos de depuração. |
 | – ajudar -h | Mostre esta mensagem de ajuda e saída. |
-| --o de saída | Formato de saída.  Valores permitidos\: json, jsonc, tabela, tsv.  Predefinido\: json. |
-| – consulta | Cadeia de consulta do JMESPath. Consulte http\://jmespath.org/ para obter mais informações e exemplos. |
-| -verbose | Aumenta a verbosidade do registo. Utilize--debug para os registos de depuração completa. |
+| --output -o | Formato de saída.  Valores permitidos\: json, jsonc, tabela, tsv.  Predefinido\: json. |
+| --query | Cadeia de consulta do JMESPath. Consulte http\://jmespath.org/ para obter mais informações e exemplos. |
+| --verbose | Aumenta a verbosidade do registo. Utilize--debug para os registos de depuração completa. |
 
 ## <a name="sfctl-replica-restart"></a>reinício de réplica sfctl
 Reinicia uma réplica de serviço de um serviço persistente em execução num nó.
@@ -233,9 +233,9 @@ Reinicia uma réplica de serviço de um serviço persistente em execução num n
 | --- | --- |
 | – depuração | Aumenta a verbosidade de registo para mostrar que todos os registos de depuração. |
 | – ajudar -h | Mostre esta mensagem de ajuda e saída. |
-| --o de saída | Formato de saída.  Valores permitidos\: json, jsonc, tabela, tsv.  Predefinido\: json. |
-| – consulta | Cadeia de consulta do JMESPath. Consulte http\://jmespath.org/ para obter mais informações e exemplos. |
-| -verbose | Aumenta a verbosidade do registo. Utilize--debug para os registos de depuração completa. |
+| --output -o | Formato de saída.  Valores permitidos\: json, jsonc, tabela, tsv.  Predefinido\: json. |
+| --query | Cadeia de consulta do JMESPath. Consulte http\://jmespath.org/ para obter mais informações e exemplos. |
+| --verbose | Aumenta a verbosidade do registo. Utilize--debug para os registos de depuração completa. |
 
 
 ## <a name="next-steps"></a>Passos Seguintes

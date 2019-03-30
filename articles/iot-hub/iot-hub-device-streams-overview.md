@@ -8,12 +8,12 @@ ms.service: iot-hub
 ms.topic: conceptual
 ms.date: 01/15/2019
 ms.author: rezas
-ms.openlocfilehash: 024bb29f9d7276021888e949073f6d45aed0a249
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 672b06dda41edb18cbf31352188b0fdd2a155782
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58076280"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58649654"
 ---
 # <a name="iot-hub-device-streams-preview"></a>Fluxos de dispositivo do Hub IoT (pré-visualização)
 
@@ -101,7 +101,7 @@ O resultado é um objeto JSON de todos os pontos finais que poderão necessitar 
 
 ## <a name="whitelist-device-streaming-endpoints"></a>Pontos finais de transmissão em fluxo do dispositivo da lista de permissões
 
-Conforme mencionado [anteriores](#Overview), o dispositivo cria uma ligação de saída para o ponto final de transmissão em fluxo do IoT Hub durante transmissões de dispositivo o processo de inicialização. As firewalls na sua rede ou o dispositivo tem de permitir conectividade de saída para o gateway de transmissão em fluxo através da porta 443 (Observe que a comunicação ocorre numa conexão WebSocket, que é encriptada utilizando TLS).
+Conforme mencionado [anteriores](#overview), o dispositivo cria uma ligação de saída para o ponto final de transmissão em fluxo do IoT Hub durante transmissões de dispositivo o processo de inicialização. As firewalls na sua rede ou o dispositivo tem de permitir conectividade de saída para o gateway de transmissão em fluxo através da porta 443 (Observe que a comunicação ocorre numa conexão WebSocket, que é encriptada utilizando TLS).
 
 O nome de anfitrião do ponto final de transmissão em fluxo do dispositivo pode ser encontrado no portal do IoT Hub do Azure, no separador descrição geral. ![Texto alternativo](./media/iot-hub-device-streams-overview/device-stream-portal.PNG "pontos finais de transmissão do dispositivo")
 

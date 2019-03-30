@@ -3,8 +3,8 @@ title: Executar um script quando inicia um serviço de Azure Service Fabric | Do
 description: Saiba como configurar uma política para um ponto de entrada de configuração de serviço do Service Fabric e executar um script no início do serviço de tempo de atividade.
 services: service-fabric
 documentationcenter: .net
-author: msfussell
-manager: timlt
+author: athinanthny
+manager: chackdan
 editor: ''
 ms.assetid: ''
 ms.service: service-fabric
@@ -13,13 +13,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 03/21/2018
-ms.author: mfussell
-ms.openlocfilehash: 3ae43f7427996f8be15b22fec4406bbdfe8aa4fe
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.author: atsenthi
+ms.openlocfilehash: 76be814e0dd4c054fc3a873716dbfe395eeeb2dc
+ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57838447"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58660396"
 ---
 # <a name="run-a-service-startup-script-as-a-local-user-or-system-account"></a>Executar um script de arranque do serviço como uma conta de utilizador local ou conta de sistema
 Antes de um serviço do Service Fabric executável é iniciado poderá ser necessário executar algum trabalho de configuração ou configuração.  Por exemplo, a configurar variáveis de ambiente. Pode especificar um script para executar antes do executável do serviço é iniciado no manifesto do serviço para o serviço. Ao configurar uma política de RunAs para o ponto de entrada de configuração de serviço que pode alterar a conta, o executável de configuração é executado sob.  Um ponto de entrada de configuração individual permite-lhe executar a configuração de privilégios elevados durante um curto período de tempo para que o executável de host de serviço não tem de executar com privilégios elevados por longos períodos de tempo.

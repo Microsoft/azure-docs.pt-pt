@@ -12,12 +12,12 @@ ms.author: vanto
 ms.reviewer: sstein
 manager: craigg
 ms.date: 12/18/2018
-ms.openlocfilehash: 051aa6b6ca8571fe948fa30e1e4a4320bb564a52
-ms.sourcegitcommit: a8948ddcbaaa22bccbb6f187b20720eba7a17edc
+ms.openlocfilehash: 7ca7e653cc42323f4313ef955de40416154b4ecf
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56593323"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58651673"
 ---
 # <a name="split-merge-security-configuration"></a>Configuração de segurança de dividir / unir
 
@@ -83,17 +83,17 @@ Certificados de cliente são necessárias para autenticar pedidos para o serviç
 3. [Atualizar o certificado de AC no ficheiro de configuração de serviço](#update-ca-certificate-in-service-configuration-file)
 4. [Emitir certificados de cliente](#issue-client-certificates)
 5. [Criar ficheiros PFX para certificados de cliente](#create-pfx-files-for-client-certificates)
-6. [Importar o certificado de cliente](#Import-Client-Certificate)
+6. [Importar o certificado de cliente](#import-client-certificate)
 7. [Copie os Thumbprints de certificado de cliente](#copy-client-certificate-thumbprints)
 8. [Configurar clientes permitidos no ficheiro de configuração do serviço](#configure-allowed-clients-in-the-service-configuration-file)
 
 ### <a name="use-existing-client-certificates"></a>Utilizar certificados de cliente existentes
 1. [Localizar a chave pública de AC](#find-ca-public-key)
-2. [Carregar certificado de AC para o serviço em nuvem](#Upload-CA-certificate-to-cloud-service)
-3. [Atualizar o certificado de AC no ficheiro de configuração de serviço](#Update-CA-Certificate-in-Service-Configuration-File)
-4. [Copie os Thumbprints de certificado de cliente](#Copy-Client-Certificate-Thumbprints)
+2. [Carregar certificado de AC para o serviço em nuvem](#upload-ca-certificate-to-cloud-service)
+3. [Atualizar o certificado de AC no ficheiro de configuração de serviço](#update-ca-certificate-in-service-configuration-file)
+4. [Copie os Thumbprints de certificado de cliente](#copy-client-certificate-thumbprints)
 5. [Configurar clientes permitidos no ficheiro de configuração do serviço](#configure-allowed-clients-in-the-service-configuration-file)
-6. [Configurar a verificação de revogação de certificado de cliente](#Configure-Client-Certificate-Revocation-Check)
+6. [Configurar a verificação de revogação de certificado de cliente](#configure-client-certificate-revocation-check)
 
 ## <a name="allowed-ip-addresses"></a>Endereços IP permitidos
 Acesso aos pontos finais do serviço pode ser restringido a intervalos específicos de endereços IP.

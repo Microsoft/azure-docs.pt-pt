@@ -1,5 +1,5 @@
 ---
-title: Compreender a utilização de reservas de Azure para o Enterprise | Documentos da Microsoft
+title: Compreender a utilização de reservas do Azure para o Enterprise | Documentos da Microsoft
 description: Saiba como ler sua utilização para compreender a forma como é aplicada a reserva do Azure para a inscrição da sua empresa.
 services: billing
 documentationcenter: ''
@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/28/2018
+ms.date: 03/13/2019
 ms.author: banders
-ms.openlocfilehash: 66fd42e5aa110b4c9ef686b1d66429ff7dbaf550
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: daa7f6a116578fa8d1f2b5bf825a6f4cd48f7f64
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57857696"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58648304"
 ---
 # <a name="understand-azure-reservation-usage-for-your-enterprise-enrollment"></a>Compreender a utilização de reserva do Azure para a inscrição da sua empresa
 
@@ -31,7 +31,7 @@ Se comprasse a reserva num contexto de faturação pay as you go, consulte [comp
 
 Para as secções seguintes, partem do princípio de que está a executar uma VM do Windows Standard_D1_v2 na região Leste região dos EUA e suas informações de reserva parece a tabela seguinte:
 
-| Campo | Value |
+| Campo | Valor |
 |---| --- |
 |ReservationId |8f82d880-d33e-4e0d-bcb5-6bcb5de0c719|
 |Quantidade |1|
@@ -53,18 +53,18 @@ Pode transferir o ficheiro CSV de utilização empresarial a partir do portal da
 
 ## <a name="usage-for-sql-database--cosmos-db-reserved-capacity-reservations"></a>Utilização da base de dados do SQL & Cosmos DB reservado reservas de capacidade
 
-As secções seguintes utilizam o Azure SQL Database como exemplo para descrever o relatório de utilização. Pode utilizar os mesmos passos para obter a utilização do Azure Cosmos DB também. 
+As secções seguintes utilizam o Azure SQL Database como exemplo para descrever o relatório de utilização. Pode utilizar os mesmos passos para obter a utilização do Azure Cosmos DB também.
 
 Partem do princípio de que está a executar uma base de dados SQL Gen 4 na região Leste região dos EUA e suas informações de reserva parece a tabela seguinte:
 
-| Campo | Value |
+| Campo | Valor |
 |---| --- |
 |ReservationId |8244e673-83e9-45ad-b54b-3f5295d37cae|
 |Quantidade |2|
 |Produto| Base de dados SQL Gen 4 (2 núcleos)|
 |Região | eualeste |
 
-### <a name="usage-in-csv-file"></a>Utilização no ficheiro CSV 
+### <a name="usage-in-csv-file"></a>Utilização no ficheiro CSV
 
 Filtrar **informações adicionais** e escreva na sua **ID de reserva**e escolha o necessária **categoria do medidor** -base de dados SQL do Azure ou do Azure Cosmos DB. Captura de ecrã seguinte mostra os campos relacionados com a reserva.
 
@@ -81,19 +81,20 @@ A utilização de reserva do Azure também apresentada na secção de resumo de 
 1. Não é cobrada para o componente de hardware da VM como está abrangido por reserva. Para uma reserva de base de dados SQL, verá uma linha com **nome do serviço** como base de dados do Azure SQL reservadas utilização da capacidade.
 2. Neste exemplo, não tem o benefício híbrido do Azure, para que lhe é cobrada para o software do Windows utilizado com a VM.
 
+## <a name="need-help-contact-us"></a>Precisa de ajuda? Contacte-nos.
+
+Se tiver alguma dúvida ou precisar de ajuda, [criar um pedido de suporte](https://go.microsoft.com/fwlink/?linkid=2083458).
+
+
 ## <a name="next-steps"></a>Passos Seguintes
 
 Para saber mais sobre as reservas do Azure, veja os artigos seguintes:
 
 - [Quais são as reservas do Azure?](billing-save-compute-costs-reservations.md)
 - [Efetuar o pré-pagamento de Máquinas Virtuais com o Azure Reserved VM Instances](../virtual-machines/windows/prepay-reserved-vm-instances.md)
-- [Efetuar o pré-pagamento de recursos de computação da Base de Dados SQL com a capacidade reservada da Base de Dados SQL do Azure](../sql-database/sql-database-reserved-capacity.md) 
+- [Efetuar o pré-pagamento de recursos de computação da Base de Dados SQL com a capacidade reservada da Base de Dados SQL do Azure](../sql-database/sql-database-reserved-capacity.md)
 - [Gerir o Azure Reservations](billing-manage-reserved-vm-instance.md)
 - [Compreender como o desconto de reserva é aplicado](billing-understand-vm-reservation-charges.md)
 - [Compreender a utilização de reserva para a sua subscrição pay as you go](billing-understand-reserved-instance-usage.md)
 - [Custos de software do Windows não incluídos com reservas](billing-reserved-instance-windows-software-costs.md)
-
-## <a name="need-help-contact-us"></a>Precisa de ajuda? Contacte-nos.
-
-Se tiver alguma dúvida ou precisar de ajuda, [criar um pedido de suporte](https://go.microsoft.com/fwlink/?linkid=2083458).
 

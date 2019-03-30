@@ -4,7 +4,7 @@ description: Descreve os comandos do CLI do Service Fabric sfctl store.
 services: service-fabric
 documentationcenter: na
 author: Christina-Kang
-manager: timlt
+manager: chackdan
 editor: ''
 ms.assetid: ''
 ms.service: service-fabric
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.date: 12/06/2018
 ms.author: bikang
-ms.openlocfilehash: 034ae29b5fabae15aa2b6b96e7fefaef23c1c5a1
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: 65dcceb2e55ec0927630b32670d2f915a01903bf
+ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53275232"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58667952"
 ---
 # <a name="sfctl-store"></a>sfctl store
 Efetue operações de nível de arquivo básico no armazenamento de imagens do cluster.
@@ -29,8 +29,8 @@ Efetue operações de nível de arquivo básico no armazenamento de imagens do c
 |Comando|Descrição|
 | --- | --- |
 | delete | Elimina o conteúdo do arquivo de imagem de existente. |
-| informações de raiz | Obtém as informações dos conteúdos na raiz do arquivo de imagem. |
-| STAT | Obtém as informações de conteúdo de arquivo de imagem. |
+| root-info | Obtém as informações dos conteúdos na raiz do arquivo de imagem. |
+| stat | Obtém as informações de conteúdo de arquivo de imagem. |
 
 ## <a name="sfctl-store-delete"></a>o sfctl store delete
 Elimina o conteúdo do arquivo de imagem de existente.
@@ -50,9 +50,9 @@ Eliminações existente conteúdo de arquivo de imagem que está a ser encontrad
 | --- | --- |
 | – depuração | Aumenta a verbosidade de registo para mostrar que todos os registos de depuração. |
 | – ajudar -h | Mostre esta mensagem de ajuda e saída. |
-| --o de saída | Formato de saída.  Valores permitidos\: json, jsonc, tabela, tsv.  Predefinido\: json. |
-| – consulta | Cadeia de consulta do JMESPath. Consulte http\://jmespath.org/ para obter mais informações e exemplos. |
-| -verbose | Aumenta a verbosidade do registo. Utilize--debug para os registos de depuração completa. |
+| --output -o | Formato de saída.  Valores permitidos\: json, jsonc, tabela, tsv.  Predefinido\: json. |
+| --query | Cadeia de consulta do JMESPath. Consulte http\://jmespath.org/ para obter mais informações e exemplos. |
+| --verbose | Aumenta a verbosidade do registo. Utilize--debug para os registos de depuração completa. |
 
 ## <a name="sfctl-store-root-info"></a>informações de raiz do arquivo sfctl
 Obtém as informações dos conteúdos na raiz do arquivo de imagem.
@@ -71,9 +71,9 @@ Devolve as informações sobre armazenamento de imagens do conteúdo na raiz do 
 | --- | --- |
 | – depuração | Aumenta a verbosidade de registo para mostrar que todos os registos de depuração. |
 | – ajudar -h | Mostre esta mensagem de ajuda e saída. |
-| --o de saída | Formato de saída.  Valores permitidos\: json, jsonc, tabela, tsv.  Predefinido\: json. |
-| – consulta | Cadeia de consulta do JMESPath. Consulte http\://jmespath.org/ para obter mais informações e exemplos. |
-| -verbose | Aumenta a verbosidade do registo. Utilize--debug para os registos de depuração completa. |
+| --output -o | Formato de saída.  Valores permitidos\: json, jsonc, tabela, tsv.  Predefinido\: json. |
+| --query | Cadeia de consulta do JMESPath. Consulte http\://jmespath.org/ para obter mais informações e exemplos. |
+| --verbose | Aumenta a verbosidade do registo. Utilize--debug para os registos de depuração completa. |
 
 ## <a name="sfctl-store-stat"></a>o sfctl store stat
 Obtém as informações de conteúdo de arquivo de imagem.
@@ -93,9 +93,9 @@ Devolve as informações sobre o conteúdo do arquivo de imagem no contentPath e
 | --- | --- |
 | – depuração | Aumenta a verbosidade de registo para mostrar que todos os registos de depuração. |
 | – ajudar -h | Mostre esta mensagem de ajuda e saída. |
-| --o de saída | Formato de saída.  Valores permitidos\: json, jsonc, tabela, tsv.  Predefinido\: json. |
-| – consulta | Cadeia de consulta do JMESPath. Consulte http\://jmespath.org/ para obter mais informações e exemplos. |
-| -verbose | Aumenta a verbosidade do registo. Utilize--debug para os registos de depuração completa. |
+| --output -o | Formato de saída.  Valores permitidos\: json, jsonc, tabela, tsv.  Predefinido\: json. |
+| --query | Cadeia de consulta do JMESPath. Consulte http\://jmespath.org/ para obter mais informações e exemplos. |
+| --verbose | Aumenta a verbosidade do registo. Utilize--debug para os registos de depuração completa. |
 
 
 ## <a name="next-steps"></a>Passos Seguintes

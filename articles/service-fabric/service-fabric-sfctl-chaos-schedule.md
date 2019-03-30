@@ -4,7 +4,7 @@ description: Descreve os comandos de agendamento do CLI do Service Fabric sfctl 
 services: service-fabric
 documentationcenter: na
 author: Christina-Kang
-manager: timlt
+manager: chackdan
 editor: ''
 ms.assetid: ''
 ms.service: service-fabric
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.date: 12/06/2018
 ms.author: bikang
-ms.openlocfilehash: f955ed63af221a08313042fcc8373b179ecbc120
-ms.sourcegitcommit: dd1a9f38c69954f15ff5c166e456fda37ae1cdf2
+ms.openlocfilehash: dc3dd06b5feac1f66598cd65fa79f447a1bbd9be
+ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57569387"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58668318"
 ---
 # <a name="sfctl-chaos-schedule"></a>sfctl chaos schedule
 Obter e definir a agenda de caos.

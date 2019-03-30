@@ -4,7 +4,7 @@ description: Utilize a cópia de segurança e restaurar a funcionalidade do Serv
 services: service-fabric
 documentationcenter: .net
 author: aagup
-manager: timlt
+manager: chackdan
 editor: aagup
 ms.assetid: 02DA262A-EEF6-4F90-842E-FFC4A09003E5
 ms.service: service-fabric
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/30/2018
 ms.author: aagup
-ms.openlocfilehash: 8a276f26367e66f55b8fc10dbcba2429dc2e5450
-ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
+ms.openlocfilehash: c80a9ac30e79607d2a255debf73f6542df7c6498
+ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/07/2019
-ms.locfileid: "54062696"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58666584"
 ---
 # <a name="on-demand-backup-in-azure-service-fabric"></a>Cópia de segurança a pedido no Azure Service Fabric
 
@@ -101,7 +101,7 @@ Pedidos de cópia de segurança a pedido podem ser os seguintes Estados:
   FailureError            :
   ```
 - **Sucesso**, **falha**, ou **tempo limite**: Uma cópia de segurança a pedido pedida pode ser concluída em qualquer um dos seguintes Estados:
-  - **Êxito**: R _êxito_ cópia de segurança estado de funcionamento indica que o estado de partição tem uma cópia de segurança com êxito. A resposta fornece _BackupEpoch_ e _BackupLSN_ para a partição juntamente com a hora em UTC.
+  - **Success**: R _êxito_ cópia de segurança estado de funcionamento indica que o estado de partição tem uma cópia de segurança com êxito. A resposta fornece _BackupEpoch_ e _BackupLSN_ para a partição juntamente com a hora em UTC.
     ```
     BackupState             : Success
     TimeStampUtc            : 2018-11-21T20:00:01Z

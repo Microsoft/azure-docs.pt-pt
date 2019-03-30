@@ -4,7 +4,7 @@ description: Como proteger os seus serviços contra falhas amigável e inesperad
 services: service-fabric
 documentationcenter: .net
 author: anmolah
-manager: timlt
+manager: chackdan
 editor: ''
 ms.assetid: 44af01f0-ed73-4c31-8ac0-d9d65b4ad2d6
 ms.service: service-fabric
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 06/15/2017
 ms.author: anmola
-ms.openlocfilehash: 3c075ac9642c7d050fc45ce6164071c9c733326e
-ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
+ms.openlocfilehash: ceb6ad1a6a1182d78c473b8b0387c365eb660065
+ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44051919"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58667213"
 ---
 # <a name="simulate-failures-during-service-workloads"></a>Simular falhas durante as cargas de trabalho de serviço
 Os cenários de capacidade de teste no Azure Service Fabric permitem aos programadores não se preocupar sobre como lidar com falhas individuais. Existem cenários, no entanto, onde uma intercalação explícita de carga de trabalho do cliente e falhas pode ser necessários. A intercalação de carga de trabalho do cliente e falhas garante que o serviço é realmente executar alguma ação quando ocorre falha. Tendo em conta o nível de controle que fornece a capacidade de teste, podem ser momentos exatos da execução de carga de trabalho. Este induction de falhas em Estados diferentes do aplicativo pode encontrar bugs e melhorar a qualidade.
@@ -27,12 +27,12 @@ Os cenários de capacidade de teste no Azure Service Fabric permitem aos program
 ## <a name="sample-custom-scenario"></a>Cenário de exemplo de personalizado
 Este teste mostra um cenário que interleaves a carga de trabalho de negócios com [falhas amigável e inesperadas](service-fabric-testability-actions.md#graceful-vs-ungraceful-fault-actions). As falhas devem ser induzidas no meio de operações de serviço ou de computação para obter melhores resultados.
 
-Vamos examinar um exemplo de um serviço que expõe quatro cargas de trabalho: A, B, C e D. cada corresponde a um conjunto de fluxos de trabalho e pode ser computação, armazenamento ou uma combinação. Para simplificar, vamos será abstrair as cargas de trabalho no nosso exemplo. As falhas de diferentes executadas neste exemplo são:
+Vamos examinar um exemplo de um serviço que expõe quatro cargas de trabalho: A, B, C e D. Cada corresponde a um conjunto de fluxos de trabalho e pode ser computação, armazenamento ou uma combinação. Para simplificar, vamos será abstrair as cargas de trabalho no nosso exemplo. As falhas de diferentes executadas neste exemplo são:
 
-* RestartNode: Falhas inesperada para simular um reinício do computador.
-* RestartDeployedCodePackage: Falhas inesperada para simular o processo de host de serviço falhar.
-* RemoveReplica: Falhas anulações normais para simular a remoção de réplica.
-* MovePrimary: Falhas anulações normais para simular a réplica move acionada pelo balanceador de carga do Service Fabric.
+* RestartNode: Índice de falhas inesperado para simular um reinício do computador.
+* RestartDeployedCodePackage: Índice de falhas inesperado para simular o processo de host de serviço falha.
+* RemoveReplica: Índice de falhas normal para simular a remoção de réplica.
+* MovePrimary: Índice de falhas normal para simular a réplica move acionada pelo balanceador de carga do Service Fabric.
 
 ```csharp
 // Add a reference to System.Fabric.Testability.dll and System.Fabric.dll.

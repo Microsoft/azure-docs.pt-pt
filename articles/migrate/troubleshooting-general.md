@@ -6,12 +6,12 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 03/13/2019
 ms.author: raynew
-ms.openlocfilehash: 67c07169b3ff66d99ee52a0e078e0e463a42702e
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.openlocfilehash: dff3c96cf3ac8eea7c1160ee1834cc70390c0333
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58482917"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58652642"
 ---
 # <a name="troubleshoot-azure-migrate"></a>Resolver problemas do Azure Migrate
 
@@ -102,7 +102,7 @@ Pode ir para o **Essentials** secção a **descrição geral** página do projet
    - Clique em ficheiro > modelo implementar OVF > navegue para o OVA e concluir a implementação
 4. Se a implementação ainda falhar, contacte o suporte do Azure Migrate.
 
-### <a name="unable-to-select-the-azure-cloud-in-the-appliance"></a>Não é possível selecionar o Azure na cloud em que a aplicação
+### <a name="unable-to-select-the-azure-cloud-in-the-appliance-fails-with-error-azure-cloud-selection-failed"></a>Não é possível selecionar o Azure na cloud na aplicação, irá falhar com o erro "Falha na selecção da cloud do Azure"
 
 Este é um problema conhecido e uma correção está disponível para o problema. Transfira o [mais recente atualização bits](https://docs.microsoft.com/azure/migrate/concepts-collector-upgrade#continuous-discovery-upgrade-versions) para a aplicação e a aplicação de modo a aplicar a correção de atualização.
 

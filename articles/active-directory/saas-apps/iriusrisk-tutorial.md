@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 12/21/2017
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4aecb2850f80f0991c7466b388147ab4b21c4780
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 2c862628fb05e7518166d8e782c2e64538de785e
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58170705"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58652404"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-iriusrisk"></a>Tutorial: Integração do Active Directory do Azure com IriusRisk
 
@@ -89,7 +89,7 @@ Para configurar e testar o Azure AD início de sessão único com IriusRisk, tem
 
 1. **[Configurar o Azure AD início de sessão único](#configure-azure-ad-single-sign-on)**  - para permitir que os utilizadores utilizar esta funcionalidade.
 1. **[Criar um utilizador de teste do Azure AD](#create-an-azure-ad-test-user)**  - para testar o Azure AD início de sessão único com Eduarda Almeida.
-1. **[Criar um utilizador de teste IriusRisk](#create-a-iriusrisk-test-user)**  - para ter um equivalente da Eduarda Almeida na IriusRisk que está ligado à representação de utilizador do Azure AD.
+1. **[Criar um utilizador de teste IriusRisk](#create-an-iriusrisk-test-user)**  - para ter um equivalente da Eduarda Almeida na IriusRisk que está ligado à representação de utilizador do Azure AD.
 1. **[Atribua o utilizador de teste do Azure AD](#assign-the-azure-ad-test-user)**  - para ativar a Eduarda Almeida utilizar o Azure AD início de sessão único.
 1. **[Testar início de sessão único](#test-single-sign-on)**  - para verificar se a configuração funciona.
 

@@ -11,12 +11,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 08/03/2018
 ms.author: tomfitz
-ms.openlocfilehash: 0711743d46aaac08f8572917d91e452ee919134c
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.openlocfilehash: 7b28129a3afe9f78d0ef749fa0c7759082c5f758
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56816911"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58652455"
 ---
 # <a name="deploy-resources-with-resource-manager-templates-and-azure-portal"></a>Implementar recursos com modelos do Resource Manager e do Portal do Azure
 
@@ -134,7 +134,8 @@ O portal permite-lhe guardar um modelo para sua conta do Azure e reimplementá-l
    ![Implementar o modelo guardado](./media/resource-group-template-deploy-portal/deploy-saved-template.png)
 
 ## <a name="next-steps"></a>Passos Seguintes
-* Para ver os registos de auditoria, consulte [auditar operações com o Resource Manager](./resource-group-audit.md).
-* Para resolver erros de implementação, consulte o artigo [ver as operações de implementação](./resource-manager-deployment-operations.md).
-* Para exportar um modelo a partir de uma implementação ou o grupo de recursos, consulte [modelos Azure Resource Manager exportar](./manage-resource-groups-portal.md#export-resource-groups-to-templates).
-* Para implementação com segurança o seu serviço em várias regiões, consulte [Gestor de implementação do Azure](./deployment-manager-overview.md).
+
+- Para ver os registos de auditoria, consulte [auditar operações com o Resource Manager](./resource-group-audit.md).
+- Para resolver erros de implementação, consulte o artigo [ver as operações de implementação](./resource-manager-deployment-operations.md).
+- Para exportar um modelo a partir de uma implementação ou o grupo de recursos, consulte [modelos Azure Resource Manager exportar](./manage-resource-groups-portal.md#export-resource-groups-to-templates).
+- Para implementação com segurança o seu serviço em várias regiões, consulte [Gestor de implementação do Azure](./deployment-manager-overview.md).

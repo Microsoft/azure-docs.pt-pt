@@ -4,7 +4,7 @@ description: Remover uma aplicação de um cluster do Azure Service Fabric com a
 services: service-fabric
 documentationcenter: ''
 author: aljo-microsoft
-manager: timlt
+manager: chackdan
 editor: ''
 tags: azure-service-management
 ms.assetid: ''
@@ -15,12 +15,12 @@ ms.topic: sample
 ms.date: 12/06/2017
 ms.author: aljo
 ms.custom: mvc
-ms.openlocfilehash: 47f0636437fb903d43c0aaa439bb41309b56dcc9
-ms.sourcegitcommit: 7f7c2fe58c6cd3ba4fd2280e79dfa4f235c55ac8
+ms.openlocfilehash: 4e0f4f7f4b8bfc643f0680b7fa1d1fc5b063eb5a
+ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/25/2019
-ms.locfileid: "56804421"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58665887"
 ---
 # <a name="remove-an-application-from-a-service-fabric-cluster"></a>Remover uma aplicação de um cluster do Service Fabric Explorer
 

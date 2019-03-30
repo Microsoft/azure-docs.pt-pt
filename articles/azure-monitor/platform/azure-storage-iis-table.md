@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 04/12/2017
 ms.author: magoedte
-ms.openlocfilehash: 35befe7122f493998d0d91c2721e6013e057fed3
-ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
+ms.openlocfilehash: a4e0432260cfb9ee11ed318305fb967d160de835
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58540606"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58652563"
 ---
 # <a name="use-azure-blob-storage-for-iis-and-azure-table-storage-for-events-with-azure-monitor"></a>Utilizar o armazenamento de Blobs do Azure para armazenamento de tabelas IIS e o Azure para eventos com o Azure Monitor
 
@@ -54,9 +54,11 @@ Para o Azure Monitor recolher esses registos de diagnóstico do Azure, tem de se
 Para máquinas virtuais, tem a opção de instalar o [agente do Log Analytics](../../azure-monitor/learn/quick-collect-azurevm.md) à sua máquina virtual para ativar as informações adicionais. Além de ser capaz de analisar os registos do IIS e registos de eventos, pode executar análises adicionais, incluindo o controlo de alterações de configuração, avaliação de SQL e avaliação da atualização.
 
 ## <a name="enable-azure-diagnostics-in-a-virtual-machine-for-event-log-and-iis-log-collection"></a>Ativar o diagnóstico do Azure numa máquina virtual para o registo de eventos e o IIS de recolha de registos
+
 Utilize o procedimento seguinte para ativar o diagnóstico do Azure numa máquina virtual para a recolha de registos de registo de eventos e o IIS através do portal do Microsoft Azure.
 
 ### <a name="to-enable-azure-diagnostics-in-a-virtual-machine-with-the-azure-portal"></a>Para ativar o diagnóstico do Azure numa máquina virtual com o portal do Azure
+
 1. Instale o agente da VM quando cria uma máquina virtual. Se a máquina virtual já existir, certifique-se de que o agente da VM já está instalado.
 
    * No portal do Azure, navegue para a máquina virtual, selecione **configuração opcional**, em seguida, **diagnóstico** e defina **estado** para **no** .
@@ -72,6 +74,7 @@ Utilize o procedimento seguinte para ativar o diagnóstico do Azure numa máquin
    6. Clique em **OK**.
 
 ## <a name="enable-azure-diagnostics-in-a-web-role-for-iis-log-and-event-collection"></a>Ativar o diagnóstico do Azure numa função da Web para a recolha de registos e eventos do IIS
+
 Consulte a [como para ativar o diagnóstico num serviço Cloud](../../cloud-services/cloud-services-dotnet-diagnostics.md) para obter os passos gerais sobre como ativar o diagnóstico do Azure. As instruções abaixo, utilizam estas informações e personalizá-lo para utilização com o Log Analytics.
 
 Com o diagnóstico do Azure ativado:
@@ -80,11 +83,12 @@ Com o diagnóstico do Azure ativado:
 * Registos de eventos do Windows não são transferidos por predefinição.
 
 ### <a name="to-enable-diagnostics"></a>Para ativar o diagnóstico
+
 Para ativar registos de eventos do Windows, ou para alterar o scheduledTransferPeriod, configure o diagnóstico do Azure com o ficheiro de configuração XML (diagnostics.wadcfg), conforme mostrado na [passo 4: Crie o seu ficheiro de configuração de diagnósticos e instalar a extensão](../../cloud-services/cloud-services-dotnet-diagnostics.md)
 
 O ficheiro de configuração de exemplo seguintes recolhe registos do IIS e todos os eventos dos registos de aplicações e do sistema:
 
-```
+```xml
     <?xml version="1.0" encoding="utf-8" ?>
     <DiagnosticMonitorConfiguration xmlns="http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration"
           configurationChangePollInterval="PT1M"
@@ -108,7 +112,7 @@ O ficheiro de configuração de exemplo seguintes recolhe registos do IIS e todo
 
 Certifique-se de que sua ConfigurationSettings Especifica uma conta de armazenamento, como no exemplo seguinte:
 
-```
+```xml
     <ConfigurationSettings>
        <Setting name="Microsoft.WindowsAzure.Plugins.Diagnostics.ConnectionString" value="DefaultEndpointsProtocol=https;AccountName=<AccountName>;AccountKey=<AccountKey>"/>
     </ConfigurationSettings>
@@ -119,6 +123,7 @@ O **AccountName** e **AccountKey** valores são encontrados no portal do Azure n
 Depois da configuração atualizada de diagnóstico é aplicada ao seu serviço cloud e é escrever diagnósticos no armazenamento do Azure, em seguida, está pronto para configurar a área de trabalho do Log Analytics.
 
 ## <a name="use-the-azure-portal-to-collect-logs-from-azure-storage"></a>Utilizar o portal do Azure para recolher registos de armazenamento do Azure
+
 Pode utilizar o portal do Azure para configurar uma área de trabalho do Log Analytics no Azure Monitor para recolher os registos para os serviços do Azure seguintes:
 
 * Clusters do Service Fabric
@@ -161,7 +166,7 @@ O script utiliza os cmdlets para máquinas virtuais clássicas.
 
 Reveja o script de exemplo seguinte, copie-o, modificá-la conforme necessário, guardar o exemplo de como um ficheiro de script do PowerShell e, em seguida, execute o script.
 
-```
+```powershell
     #Connect to Azure
     Add-AzureAccount
 
@@ -194,6 +199,7 @@ Reveja o script de exemplo seguinte, copie-o, modificá-la conforme necessário,
 
 
 ## <a name="next-steps"></a>Passos Seguintes
+
 * [Recolher registos e métricas para serviços do Azure](collect-azure-metrics-logs.md) para suporte a serviços do Azure.
 * [Ativar soluções](../../azure-monitor/insights/solutions.md) para fornecer informações sobre os dados.
 * [Utilizar consultas de pesquisa](../../azure-monitor/log-query/log-query-overview.md) para analisar os dados.

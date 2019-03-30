@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 02/24/2019
 ms.author: raynew
-ms.openlocfilehash: 4b4901b0323caa8eeda6b49228e65d1f28495164
-ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
+ms.openlocfilehash: f4034a3462d7221c16464e6a2cee9aad2105a6cd
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58518495"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58649816"
 ---
 # <a name="support-matrix-for-azure-vm-backup"></a>Matriz de suporte para cópia de segurança de VM do Azure
 Pode utilizar o [serviço de cópia de segurança do Azure](backup-overview.md) para fazer uma cópia de segurança de máquinas no local e cargas de trabalho e máquinas virtuais do Azure (VMs). Este artigo resume as definições de suporte e limitações quando cria cópias de segurança de VMs do Azure com o Azure Backup.
@@ -129,7 +129,7 @@ Restaure em subscrição/região/zona. | Não suportado.
 Restaurar para uma VM existente | Utilize a opção de disco de substituição.
 Restaurar o disco com a conta de armazenamento ativada para encriptação de serviço de armazenamento do Azure (SSE) | Não suportado.<br/><br/> Restaure para uma conta que não tem o SSE ativado.
 Restaurar para contas de armazenamento misto | Não suportado.<br/><br/> Com base no tipo de conta de armazenamento, todos os discos restaurados será premium ou standard e não mistos.
-Restaurar para a conta de armazenamento ao utilizar o armazenamento com redundância de zona (ZRS) | Não suportado.
+Restaurar para a conta de armazenamento ao utilizar o armazenamento com redundância de zona (ZRS) | Suportado (para a VM que são uma cópia de segurança depois de Janeiro de 2019 e onde [zona de disponibilidade](https://azure.microsoft.com/global-infrastructure/availability-zones/) estão disponíveis)
 Restaurar VM diretamente para um conjunto de disponibilidade | Para discos geridos, pode restaurar o disco e utilize a opção de conjunto de disponibilidade no modelo.<br/><br/> Não é suportada para discos não geridos. Para discos não geridos, restaure o disco e, em seguida, crie uma VM no conjunto de disponibilidade.
 Restaurar a cópia de segurança de VMs não geridas depois de atualizar para o gerido de VM| Suportado.<br/><br/> Pode restaurar discos e, em seguida, crie uma VM gerida.
 Restaurar a VM para o ponto de restauro antes da VM foi migrada para o managed disks | Suportado.<br/><br/> Restaurar para discos não geridos (predefinição), converter de discos restaurados para o disco gerido e criar uma VM com os discos geridos.
@@ -149,6 +149,7 @@ Cópia de segurança de VMs que são implementadas num [conjunto de dimensioname
 Cópia de segurança de VMs implementadas a partir do [Azure Marketplace](https://azuremarketplace.microsoft.com/en-us/marketplace/apps?filters=virtual-machine-images)<br/><br/> (Publicada pela Microsoft, terceiros) |  Suportado.<br/><br/> A VM tem de executar um sistema operativo suportado.<br/><br/> Quando a recuperação de arquivos na VM, pode restaurar apenas a um sistema de operacional compatível (não um SO anterior ou posterior).
 Cópia de segurança de VMs que são implementadas a partir de uma imagem personalizada (de terceiros) |   Suportado.<br/><br/> A VM tem de executar um sistema operativo suportado.<br/><br/> Quando a recuperação de arquivos na VM, pode restaurar apenas a um sistema de operacional compatível (não um SO anterior ou posterior).
 Fazer uma cópia de segurança de VMs que são migradas para o Azure  | Suportado.<br/><br/> Para fazer backup da VM, o agente da VM deve ser instalado na máquina migrada.
+Criar cópias de segurança consistência de VMs | não suportado. <br/><br/>O Azure Backup não suporta a consistência de várias VMS.
 
 
 
@@ -165,6 +166,7 @@ Discos com acelerador de escrita ativados | Não suportado.<br/><br/> Se estiver
 Criar cópias de segurança com eliminação de duplicados discos | Não suportado.
 Adicionar disco à VM protegida | Suportado.
 Redimensionar disco numa VM protegida | Suportado.
+Armazenamento partilhado| Não é recomendável fazer backup de VMs através de CSV ou servidor de ficheiros de escalamento horizontal. Gravadores CSV são provável que falhem.
 
 ## <a name="vm-network-support"></a>Suporte de rede VM
 

@@ -6,14 +6,14 @@ author: sujayt
 manager: rochakm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 11/27/2018
+ms.date: 3/29/2019
 ms.author: sutalasi
-ms.openlocfilehash: 9c4576633f98d38da7086711c24def88591ab71f
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: 64b14f66e05c42581fcce6eb9879fa72d7f0d6f8
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56869416"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58652081"
 ---
 # <a name="set-up-disaster-recovery-for-azure-virtual-machines-using-azure-powershell"></a>Configurar a recuperação após desastre para máquinas virtuais do Azure com o Azure PowerShell
 
@@ -163,7 +163,7 @@ Remove-Item -Path $Vaultsettingsfile.FilePath
 
 O objeto de recursos de infraestrutura no cofre representa uma região do Azure. O objeto de recursos de infraestrutura principal é criado para representar a região do Azure que as máquinas virtuais que está a ser protegidas para o Cofre pertencem a. O exemplo neste artigo, a máquina virtual que está a ser protegida está na região E.U.A. Leste.
 
-- Objeto de apenas um dos recursos de infraestrutura pode ser criado por região. 
+- Objeto de apenas um dos recursos de infraestrutura pode ser criado por região.
 - Se ativou anteriormente a replicação para uma VM no portal do Azure Site Recovery, o Site Recovery cria automaticamente um objeto de recursos de infraestrutura. Se existir um objeto de recursos de infraestrutura para uma região, não é possível criar um novo.
 
 
@@ -588,7 +588,22 @@ Tasks            : {Prerequisite check, Commit}
 Errors           : {}
 ```
 
+## <a name="reprotect-and-failback-to-source-region"></a>Voltar a proteger e a reativação pós-falha para a região de origem
+
 Após uma ativação pós-falha, quando estiver pronto para voltar para a região original, inicie a replicação inversa para o item protegido de replicação com o cmdlet Update-AzureRmRecoveryServicesAsrProtectionDirection.
+
+```azurepowershell
+#Create Cache storage account for replication logs in the primary region
+$WestUSCacheStorageAccount = New-AzureRmStorageAccount -Name "a2acachestoragewestus" -ResourceGroupName "A2AdemoRG" -Location 'West US' -SkuName Standard_LRS -Kind Storage
+```
+
+```azurepowershell
+#Use the recovery protection container, new cache storage accountin West US and the source region VM resource group
+Update-AzureRmRecoveryServicesAsrProtectionDirection -ReplicationProtectedItem $ReplicationProtectedItem -AzureToAzure
+-ProtectionContainerMapping $RecoveryProtContainer -LogStorageAccountId $WestUSCacheStorageAccount.Id -RecoveryResourceGroupID $sourceVMResourcegroup.Id
+```
+
+Após a conclusão da nova proteção, pode iniciar a ativação pós-falha na direção inversa (E.U.A. oeste para E.U.A. Leste) e a reativação pós-falha para a região de origem.
 
 ## <a name="next-steps"></a>Passos Seguintes
 Ver os [referência do PowerShell do Azure Site Recovery](https://docs.microsoft.com/powershell/module/AzureRM.RecoveryServices.SiteRecovery) para saber como executar outras tarefas como criação de planos de recuperação e teste de ativação pós-falha dos planos de recuperação através do PowerShell.

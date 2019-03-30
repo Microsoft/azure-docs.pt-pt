@@ -9,17 +9,14 @@ ms.service: media-services
 ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako
-ms.openlocfilehash: c0eedc32ee96c94b8b3621afc0ee211ed2ff19f5
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: 05de1640fbee7799da0a14bba262ef9724686878
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58314880"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58650094"
 ---
 # <a name="examine-the-video-indexer-output-produced-by-v2-api"></a>Examine a saída do indexador de vídeo produzida pela v2 API
-
-> [!Note]
-> A API do Video Indexer V1 foi preterida no dia 1 de agosto de 2018. Agora, deve utilizar a API do Video Indexer v2. <br/>Para programar com APIs do Video Indexer v2, veja as instruções que se encontram [aqui](https://api-portal.videoindexer.ai/). 
 
 Quando chama a **índice de vídeo de introdução** API e o estado de resposta está OK, obtém uma saída JSON detalhada como o conteúdo de resposta. O conteúdo JSON contém detalhes de informações de vídeo especificadas. As informações incluem dimensões, como: transcrições, ocrs, rostos, tópicos, blocos, etc. As dimensões tem instâncias de intervalos de tempo que mostram quando cada dimensão apareceu no vídeo.  
 
@@ -163,7 +160,7 @@ Um rosto pode ter um ID, um nome, uma miniatura, outros metadados e uma lista da
 |etiquetas|O [etiquetas](#labels) dimensão.|
 |capturas de|O [capturas](#shots) dimensão.|
 |marcas|O [marcas](#brands) dimensão.|
-|audioEffects|O [audioEffects](#audioEffects) dimensão.|
+|audioEffects|O [audioEffects](#audioeffects) dimensão.|
 |sentimentos|O [sentimentos](#sentiments) dimensão.|
 |visualContentModeration|O [visualContentModeration](#visualcontentmoderation) dimensão.|
 |textualContentModeration|O [textualContentModeration](#textualcontentmoderation) dimensão.|
@@ -550,7 +547,7 @@ Negócios e produto nomes de marca detetados na conversão de voz a transcriçã
 |SpeakerLongestMonolog|Monolog de mais longo do orador. Se o orador tiver silences dentro o monolog está incluído. Silence, no início e fim do monolog é removido.| 
 |SpeakerTalkToListenRatio|O cálculo baseia-se o tempo gasto em monolog do orador (sem o silence entre) dividido pelo tempo total do vídeo. A hora é arredondada para o terceiro ponto decimal.|
 
-#### <a name="audioeffects"></a>audioEffects
+#### <a name="a-idaudioeffectsaudioeffects"></a><a id="audioEffects"/>audioEffects
 
 |Name|Descrição|
 |---|---|

@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/07/2019
 ms.author: spelluru
-ms.openlocfilehash: 4f6d94c7090c2bbb0335d46b60be320b2fc19375
-ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
+ms.openlocfilehash: c6ae28e076d14faa7c2173f3a23d92daad4bd59e
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55962830"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58651128"
 ---
 # <a name="manage-classroom-labs-in-azure-lab-services"></a>Gerir laboratórios de sala de aula no Azure Lab Services 
 Este artigo descreve como criar e eliminar um laboratório de sala de aula. Ele também mostra como ver todos os laboratórios de sala de aula numa conta de laboratório. 
@@ -37,9 +37,9 @@ Para configurar um laboratório de sala de aula numa conta do laboratório, tem 
 
         ![Criar um laboratório de sala de aula](../media/tutorial-setup-classroom-lab/new-lab-window.png)
 4. Na página **Selecionar especificações da máquina virtual**, execute os passos seguintes:
-    1. Selecione um **tamanho** para máquinas virtuais (VM) criadas no laboratório. 
+    1. Selecione um **tamanho** para máquinas virtuais (VM) criadas no laboratório. Atualmente, **pequeno**, **médio**, **grandes**, e **GPU** tamanhos são permitidos.
     2. Selecione a **região** na qual pretende que as VM sejam criadas. 
-    3. Selecione a **imagem de VM** a ser utilizado para criar as VM no laboratório. 
+    3. Selecione a **imagem de VM** a ser utilizado para criar as VM no laboratório. Se selecionar uma imagem do Linux, verá uma opção para ativar a ligação de ambiente de trabalho remoto para o mesmo. Para obter detalhes, consulte [ativar a ligação de ambiente de trabalho remoto para Linux](how-to-enable-remote-desktop-linux.md).
     4. Selecione **Seguinte**.
 
         ![Especificar as especificações de VM](../media/tutorial-setup-classroom-lab/select-vm-specifications.png)    
@@ -60,7 +60,7 @@ Para configurar um laboratório de sala de aula numa conta do laboratório, tem 
     ![Configurar a página do modelo após a conclusão](../media/tutorial-setup-classroom-lab/configure-template-after-complete.png)
 8. Os passos seguintes são opcionais neste tutorial: 
     1. Inicie a VM de modelo através da seleção de **Iniciar**.
-    2. Ligue-se à VM de modelo através da seleção de **Ligar**. 
+    2. Ligue-se à VM de modelo através da seleção de **Ligar**. Se for um modelo VM do Linux, escolher se pretende ligar com SSH ou RDP (se estiver ativado RDP).
     3. Instalar e configurar o software na sua VM de modelo. 
     4. **Parar** a VM.  
     5. Introduzir uma **descrição** do modelo

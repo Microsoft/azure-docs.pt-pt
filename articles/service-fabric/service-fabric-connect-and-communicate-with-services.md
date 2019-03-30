@@ -4,7 +4,7 @@ description: Saiba como resolver, conectar e se comunicar com serviços no Servi
 services: service-fabric
 documentationcenter: .net
 author: vturecek
-manager: timlt
+manager: chackdan
 editor: msfussell
 ms.assetid: 7d1052ec-2c9f-443d-8b99-b75c97266e6c
 ms.service: service-fabric
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/01/2017
 ms.author: vturecek
-ms.openlocfilehash: c4516e86e25bb31b113b495a239c9eae9df8c9f8
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 55a0a1a8097ea46c7a3407b5f42824973edcf1a2
+ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58094774"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58666125"
 ---
 # <a name="connect-and-communicate-with-services-in-service-fabric"></a>Ligue-se e se comunicar com serviços no Service Fabric
 No Service Fabric, um serviço é executado em algum lugar no cluster do Service Fabric, geralmente distribuído por várias VMs. Ele pode ser movido de um lugar para outro, o proprietário do serviço, tanto pelo automaticamente pelo Service Fabric. Os serviços não estão estaticamente vinculados a uma máquina específica ou o endereço.

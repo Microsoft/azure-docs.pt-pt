@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 05/23/2017
 ms.author: lizross
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8a29da9e87c09ad157babf1e1a391fb967859d73
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 433c2d712ca4867a5ec59f86c333511070b6d507
+ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56210514"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58665054"
 ---
 # <a name="manage-your-settings-for-two-step-verification"></a>Gerir as definições de verificação de dois passos
 Este artigo responde a perguntas sobre como atualizar as definições de verificação ou multifator a autenticação de dois passos. Se estiver a ter problemas ao iniciar sessão para a sua conta, consulte [dificuldades com verificação de dois passos](multi-factor-authentication-end-user-troubleshoot.md) para resolução de problemas de ajuda.
@@ -50,7 +50,7 @@ Se clicar no link não funcionar para, também pode obter para o **verificação
     ![Proofup](./media/multi-factor-authentication-end-user-manage-settings/proofup.png)
 
 ## <a name="i-want-to-change-my-phone-number-or-add-a-secondary-number"></a>Quero alterar meu número de telefone ou adicionar um número secundário
-É importante configurar um número de telefone de autenticação secundária.  Como o número de telefone principal e a sua aplicação móvel são provavelmente no telefone mesmo, o número de telefone secundário é a única forma, poderá voltar à sua conta se o seu telefone for perdido ou roubado.
+É importante configurar um número de telefone de autenticação secundária.  Uma vez que o número de telefone principal e a sua aplicação móvel são provavelmente no telefone mesmo, o número de telefone secundário é a forma mais rápida, poderá voltar à sua conta se o seu telefone for perdido ou roubado.
 
 > [!NOTE]
 > Se não tiver acesso para o seu número de telefone principal e precisar de ajuda para obter sua conta, consulte a [dificuldades com verificação de dois passos](multi-factor-authentication-end-user-troubleshoot.md) artigo para obter mais ajuda.  

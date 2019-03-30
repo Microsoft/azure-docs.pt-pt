@@ -6,14 +6,14 @@ author: sujayt
 manager: rochakm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 11/27/2018
+ms.date: 3/29/2019
 ms.author: sujayt
-ms.openlocfilehash: 0e28792e49d588bfec8d1f09dec68ead7e9dfa49
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 42db22d39a7c87363cf97f874c85955a09cbe653
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58001090"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58651548"
 ---
 # <a name="about-networking-in-azure-to-azure-replication"></a>Sobre o funcionamento em rede no Azure para replicação
 
@@ -48,10 +48,10 @@ Se estiver a utilizar um proxy de firewall baseado em URL para controlar a conec
 
 **URL** | **Detalhes**  
 --- | ---
-*.blob.core.windows.net | É necessário para que os dados podem ser escritos para a conta de armazenamento de cache na região de origem da VM.
+*.blob.core.windows.net | É necessário para que os dados podem ser escritos para a conta de armazenamento de cache na região de origem da VM. Se souber a cache de contas de armazenamento para as suas VMs, pode a lista de permissões os URLs de conta de armazenamento removeu (Ex: cache1.blob.core.windows.net e cache2.blob.core.windows.net) em vez de *. blob.core.windows.net
 login.microsoftonline.com | Necessário para autorização e autenticação para os URLs do serviço Site Recovery.
-*.hypervrecoverymanager.windowsazure.com | É necessário para que a comunicação de serviço de recuperação de Site pode ocorrer a partir da VM.
-*.servicebus.windows.net | É necessário para que os dados de monitorização e diagnóstico do Site Recovery podem ser escritos da VM.
+*.hypervrecoverymanager.windowsazure.com | É necessário para que a comunicação de serviço de recuperação de Site pode ocorrer a partir da VM. Pode usar o "Site Recovery IP correspondente' se o proxy de firewall oferece suporte a IPs.
+*.servicebus.windows.net | É necessário para que os dados de monitorização e diagnóstico do Site Recovery podem ser escritos da VM. Pode usar o "Site Recovery monitorização IP correspondente' se o proxy de firewall oferece suporte a IPs.
 
 ## <a name="outbound-connectivity-for-ip-address-ranges"></a>Conectividade de saída para intervalos de endereços IP
 

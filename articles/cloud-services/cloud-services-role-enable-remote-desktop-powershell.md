@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/18/2017
 ms.author: jeconnoc
-ms.openlocfilehash: c5b70d40ed43cfc5d1c7a826c639d00d394733fb
-ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
+ms.openlocfilehash: 43ccc8e53c30219630ad10ee66a4db38656818e6
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/10/2018
-ms.locfileid: "42060869"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58651010"
 ---
 # <a name="enable-remote-desktop-connection-for-a-role-in-azure-cloud-services-using-powershell"></a>Ativar a ligação de ambiente de trabalho remoto para uma função nos serviços Cloud do Azure com o PowerShell
 
@@ -33,12 +33,11 @@ Ambiente de trabalho remoto permite-lhe aceder a área de trabalho de uma funç�
 Este artigo descreve como ativar o ambiente de trabalho remoto em suas funções de serviço em nuvem com o PowerShell. Ver [como instalar e configurar o Azure PowerShell](/powershell/azure/overview) para os pré-requisitos necessários para este artigo. PowerShell utiliza a extensão de ambiente de trabalho remoto para que possa permitir o ambiente de trabalho remoto após a aplicação é implementada.
 
 ## <a name="configure-remote-desktop-from-powershell"></a>Configurar o ambiente de trabalho remoto do PowerShell
-
 O [Set-AzureServiceRemoteDesktopExtension](/powershell/module/servicemanagement/azure/set-azureserviceremotedesktopextension?view=azuresmps-3.7.0) cmdlet permite-lhe ativar o ambiente de trabalho remoto em funções especificadas ou todas as funções da sua implementação do serviço de nuvem. O cmdlet permite-lhe especificar o nome de utilizador e palavra-passe para o usuário de área de trabalho remoto através da *credencial* parâmetro que aceita um objeto PSCredential.
 
 Se estiver a utilizar PowerShell interativamente, é possível definir facilmente o objeto PSCredential ao chamar o [Get-Credentials](https://technet.microsoft.com/library/hh849815.aspx) cmdlet.
 
-```
+```powershell
 $remoteusercredentials = Get-Credential
 ```
 
@@ -48,7 +47,7 @@ Uma vez que a ajuda do PowerShell em cenários de automação, também pode conf
 
 Também pode criar um ficheiro de palavra-passe segura para que não precisa escrever a palavra-passe sempre. Além disso, um arquivo de palavra-passe segura é melhor do que um ficheiro de texto sem formatação. Utilize o PowerShell seguinte para criar um ficheiro de palavra-passe segura:
 
-```
+```powershell
 ConvertTo-SecureString -String "Password123" -AsPlainText -Force | ConvertFrom-SecureString | Set-Content "password.txt"
 ```
 
@@ -61,7 +60,7 @@ O [Set-AzureServiceRemoteDesktopExtension](/powershell/module/servicemanagement/
 
 Este exemplo do PowerShell mostra como definir a extensão de ambiente de trabalho remoto num serviço em nuvem:
 
-```
+```powershell
 $servicename = "cloudservice"
 $username = "RemoteDesktopUser"
 $securepassword = Get-Content -Path "password.txt" | ConvertTo-SecureString
@@ -77,7 +76,7 @@ A extensão de ambiente de trabalho remoto está associada uma implementação. 
 
 O [Get-AzureRemoteDesktopFile](/powershell/module/servicemanagement/azure/get-azureremotedesktopfile?view=azuresmps-3.7.0) cmdlet seja utilizado remota para ambiente de trabalho numa instância de função específica do seu serviço cloud. Pode utilizar o *LocalPath* parâmetro para transferir o RDP de ficheiros localmente. Ou pode utilizar o *inicie* parâmetro para iniciar diretamente a caixa de diálogo de conexão de área de trabalho remoto para acessar a instância de função do serviço de nuvem.
 
-```
+```powershell
 Get-AzureRemoteDesktopFile -ServiceName $servicename -Name "WorkerRole1_IN_0" -Launch
 ```
 
@@ -85,7 +84,7 @@ Get-AzureRemoteDesktopFile -ServiceName $servicename -Name "WorkerRole1_IN_0" -L
 
 O [Get-AzureServiceRemoteDesktopExtension](/powershell/module/servicemanagement/azure/get-azureremotedesktopfile?view=azuresmps-3.7.0) cmdlet apresenta que ambiente de trabalho remoto está ativado ou desativado na implementação de serviço. O cmdlet devolve o nome de utilizador para o usuário de área de trabalho remoto e as funções que a extensão de área de trabalho remota está ativada para. Por predefinição, isto acontece na ranhura de implementação e pode optar por utilizar o bloco de teste em vez disso.
 
-```
+```powershell
 Get-AzureServiceRemoteDesktopExtension -ServiceName $servicename
 ```
 
@@ -95,7 +94,7 @@ Se já tiver ativado a extensão de área de trabalho remota numa implementaçã
 
 Para remover a extensão de área de trabalho remota da implementação, pode utilizar o [Remove-AzureServiceRemoteDesktopExtension](/powershell/module/servicemanagement/azure/remove-azureserviceremotedesktopextension?view=azuresmps-3.7.0) cmdlet. Opcionalmente, também pode especificar o bloco de implementação e a função a partir do qual pretende remover a extensão de área de trabalho remota.
 
-```
+```powershell
 Remove-AzureServiceRemoteDesktopExtension -ServiceName $servicename -UninstallConfiguration
 ```
 

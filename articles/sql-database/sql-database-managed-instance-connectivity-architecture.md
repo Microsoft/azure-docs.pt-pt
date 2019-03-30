@@ -4,7 +4,7 @@ description: Saiba mais sobre a comunicação de instância de base de dados do 
 services: sql-database
 ms.service: sql-database
 ms.subservice: managed-instance
-ms.custom: ''
+ms.custom: fasttrack-edit
 ms.devlang: ''
 ms.topic: conceptual
 author: srdan-bozovic-msft
@@ -12,12 +12,12 @@ ms.author: srbozovi
 ms.reviewer: bonova, carlrab
 manager: craigg
 ms.date: 02/26/2019
-ms.openlocfilehash: c7587b6cb2b4b30e265657b9d3792c9d4acd4428
-ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
+ms.openlocfilehash: f08b22f24dfde41646f56dc1ecd9777f267620ee
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 03/29/2019
-ms.locfileid: "58621554"
+ms.locfileid: "58651317"
 ---
 # <a name="connectivity-architecture-for-a-managed-instance-in-azure-sql-database"></a>Arquitetura de conectividade para uma instância gerida na base de dados do Azure SQL 
 
@@ -110,7 +110,8 @@ Implemente uma instância gerida numa sub-rede dedicada dentro da rede virtual. 
 |móveis  |80, 443, 12000|TCP     |Qualquer              |AzureCloud  |Permitir |
 |mi_subnet   |Qualquer           |Qualquer     |Qualquer              |SUB-REDE DE MI *  |Permitir |
 
-> Certifique-se de que existe apenas uma regra de entrada para portas 9000, 9003, 1438, 1440, 1452 e uma regra de saída para as portas 80, 443, 12000. Aprovisionamento de instância gerida através de implementações de ARM poderá falhar se regras de entrada e saídas estão configuradas em separado para cada portas. 
+> [!IMPORTANT]
+> Certifique-se de que existe apenas uma regra de entrada para portas 9000, 9003, 1438, 1440, 1452 e uma regra de saída para as portas 80, 443, 12000. Aprovisionamento de instância gerida através de implementações de ARM irá falhar se regras de entrada e saídas estão configuradas em separado para cada porta. Se estas portas são nas regras separadas, a implementação irá falhar com o código de erro `VnetSubnetConflictWithIntendedPolicy`
 
 \* Sub-rede de MI refere-se para o intervalo de endereços IP para a sub-rede na 10.x.x.x/y formulário. Pode encontrar estas informações no portal do Azure, nas propriedades de sub-rede.
 

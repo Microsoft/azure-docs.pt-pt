@@ -1,10 +1,10 @@
 ---
-title: Reliable Actors notas sobre ator escreva serialização | Microsoft Docs
-description: Descreve os requisitos básicos para definir serializáveis classes que podem ser utilizadas para definir interfaces e Estados de Service Fabric Reliable Actors
+title: Notas dos Reliable Actors no ator a serialização do tipo | Documentos da Microsoft
+description: Aborda os requisitos básicos para a definição de classes serializáveis que podem ser usados para definir interfaces e Estados dos Reliable Actors do Service Fabric
 services: service-fabric
 documentationcenter: .net
 author: vturecek
-manager: timlt
+manager: chackdan
 editor: ''
 ms.assetid: 6e50e4dc-969a-4a1c-b36c-b292d964c7e3
 ms.service: service-fabric
@@ -14,17 +14,18 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/02/2017
 ms.author: vturecek
-ms.openlocfilehash: 4539351738d423704961eed6e616bd8ac5d682d1
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: c8eeeb0ade6ca002adf3211cbf49127be9b76edb
+ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/16/2018
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58667520"
 ---
-# <a name="notes-on-service-fabric-reliable-actors-type-serialization"></a>Notas sobre o serviço de recursos de infraestrutura Reliable Actors escreva serialização
-Os argumentos de todos os métodos, tipos de resultados das tarefas devolvido por cada método numa interface ator e objetos armazenados no Gestor de estado de um ator tem de ser [contrato de dados serializáveis](/dotnet/framework/wcf/feature-details/types-supported-by-the-data-contract-serializer). Isto também se aplica aos argumentos dos métodos definidos no [interfaces de eventos de ator](service-fabric-reliable-actors-events.md). (Métodos de interface de eventos de ator sempre devolvem void.)
+# <a name="notes-on-service-fabric-reliable-actors-type-serialization"></a>Serialização do tipo de notas no Service Fabric Reliable Actors
+Os argumentos de todos os métodos, tipos de resultado das tarefas devolvido por cada método numa interface de ator e objetos armazenados no Gestor de estado de um ator tem de ser [contrato de dados serializáveis](/dotnet/framework/wcf/feature-details/types-supported-by-the-data-contract-serializer). Isto também se aplica aos argumentos dos métodos definidos na [interfaces de evento de ator](service-fabric-reliable-actors-events.md). (Métodos de interface de eventos de ator sempre retornam void.)
 
-## <a name="custom-data-types"></a>Tipos de dados personalizada
-Neste exemplo, a interface de ator seguinte define um método que devolve um tipo de dados personalizado denominado `VoicemailBox`:
+## <a name="custom-data-types"></a>Tipos de dados personalizados
+Neste exemplo, a seguinte interface de ator define um método que retorna um tipo de dados personalizado chamado `VoicemailBox`:
 
 ```csharp
 public interface IVoiceMailBoxActor : IActor
@@ -76,12 +77,12 @@ public class VoiceMailBoxActorImpl extends FabricActor implements VoicemailBoxAc
 
 ```
 
-Neste exemplo, o `VoicemailBox` objeto está a ser serializado quando:
+Neste exemplo, o `VoicemailBox` objeto é serializado quando:
 
-* O objeto é transmitido entre uma instância de ator e um autor da chamada.
-* O objeto é guardado no Gestor de estado em que é transferido para o disco e replicado para outros nós.
+* O objeto é transmitido entre uma instância de ator e um chamador.
+* O objeto é salvo no Gestor de estado em que é persistido no disco e replicado para outros nós.
 
-A estrutura de Ator fiável utiliza serialização de DataContract. Por conseguinte, os objetos de dados personalizados e os respetivos membros tem de ser anotados com o **DataContract** e **DataMember** atributos, respetivamente.
+A estrutura de Reliable Actor usa serialização DataContract. Por conseguinte, os objetos de dados personalizados e seus membros devem ser anotados com o **DataContract** e **DataMember** atributos, respectivamente.
 
 ```csharp
 [DataContract]
@@ -146,8 +147,8 @@ public class VoicemailBox implements Serializable
 
 ## <a name="next-steps"></a>Passos Seguintes
 * [Coleção de ciclo de vida e libertação da memória de ator](service-fabric-reliable-actors-lifecycle.md)
-* [Os temporizadores de ator e lembretes](service-fabric-reliable-actors-timers-reminders.md)
+* [Lembretes e temporizadores de ator](service-fabric-reliable-actors-timers-reminders.md)
 * [Eventos de ator](service-fabric-reliable-actors-events.md)
-* [Reentrancy ator](service-fabric-reliable-actors-reentrancy.md)
-* [Que o polimorfismo ator e padrões de conceção e orientado para objetos](service-fabric-reliable-actors-polymorphism.md)
+* [Reentrada de ator](service-fabric-reliable-actors-reentrancy.md)
+* [Polimorfismo de ator e padrões de design orientado a objeto](service-fabric-reliable-actors-polymorphism.md)
 * [Monitorização de desempenho e diagnóstico de ator](service-fabric-reliable-actors-diagnostics.md)

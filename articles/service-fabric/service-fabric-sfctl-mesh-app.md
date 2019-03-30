@@ -4,7 +4,7 @@ description: Descreve os comandos de aplicação do Service Fabric CLI sfctl mal
 services: service-fabric
 documentationcenter: na
 author: Christina-Kang
-manager: timlt
+manager: chackdan
 editor: ''
 ms.assetid: ''
 ms.service: service-fabric
@@ -14,14 +14,14 @@ ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.date: 12/06/2018
 ms.author: bikang
-ms.openlocfilehash: 3c2194f6a001e4fc49dcf1694f8a9cda41550ace
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: fb812412c7dd07800c1e2231c9472a122ab7d7d4
+ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53284837"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58661841"
 ---
-# <a name="sfctl-mesh-app"></a>aplicação de malha sfctl
+# <a name="sfctl-mesh-app"></a>sfctl mesh app
 Obter e eliminar recursos de aplicação.
 
 ## <a name="commands"></a>Comandos
@@ -30,7 +30,7 @@ Obter e eliminar recursos de aplicação.
 | --- | --- |
 | delete | Elimina o recurso de aplicação. |
 | list | Apresenta uma lista de todos os recursos do aplicativo. |
-| Show | Obtém o recurso de aplicação com o nome fornecido. |
+| mostrar | Obtém o recurso de aplicação com o nome fornecido. |
 
 ## <a name="sfctl-mesh-app-delete"></a>o sfctl malha app delete
 Elimina o recurso de aplicação.
@@ -49,9 +49,9 @@ Elimina o recurso de aplicação identificado pelo nome.
 | --- | --- |
 | – depuração | Aumenta a verbosidade de registo para mostrar que todos os registos de depuração. |
 | – ajudar -h | Mostre esta mensagem de ajuda e saída. |
-| --o de saída | Formato de saída.  Valores permitidos\: json, jsonc, tabela, tsv.  Predefinido\: json. |
-| – consulta | Cadeia de consulta do JMESPath. Consulte http\://jmespath.org/ para obter mais informações e exemplos. |
-| -verbose | Aumenta a verbosidade do registo. Utilize--debug para os registos de depuração completa. |
+| --output -o | Formato de saída.  Valores permitidos\: json, jsonc, tabela, tsv.  Predefinido\: json. |
+| --query | Cadeia de consulta do JMESPath. Consulte http\://jmespath.org/ para obter mais informações e exemplos. |
+| --verbose | Aumenta a verbosidade do registo. Utilize--debug para os registos de depuração completa. |
 
 ## <a name="sfctl-mesh-app-list"></a>lista de aplicações de malha sfctl
 Apresenta uma lista de todos os recursos do aplicativo.
@@ -64,9 +64,9 @@ Obtém as informações sobre todos os recursos de aplicativo num grupo de recur
 | --- | --- |
 | – depuração | Aumenta a verbosidade de registo para mostrar que todos os registos de depuração. |
 | – ajudar -h | Mostre esta mensagem de ajuda e saída. |
-| --o de saída | Formato de saída.  Valores permitidos\: json, jsonc, tabela, tsv.  Predefinido\: json. |
-| – consulta | Cadeia de consulta do JMESPath. Consulte http\://jmespath.org/ para obter mais informações e exemplos. |
-| -verbose | Aumenta a verbosidade do registo. Utilize--debug para os registos de depuração completa. |
+| --output -o | Formato de saída.  Valores permitidos\: json, jsonc, tabela, tsv.  Predefinido\: json. |
+| --query | Cadeia de consulta do JMESPath. Consulte http\://jmespath.org/ para obter mais informações e exemplos. |
+| --verbose | Aumenta a verbosidade do registo. Utilize--debug para os registos de depuração completa. |
 
 ## <a name="sfctl-mesh-app-show"></a>o sfctl malha app show
 Obtém o recurso de aplicação com o nome fornecido.
@@ -85,9 +85,9 @@ Obtém as informações sobre o recurso de aplicação com o nome fornecido. As 
 | --- | --- |
 | – depuração | Aumenta a verbosidade de registo para mostrar que todos os registos de depuração. |
 | – ajudar -h | Mostre esta mensagem de ajuda e saída. |
-| --o de saída | Formato de saída.  Valores permitidos\: json, jsonc, tabela, tsv.  Predefinido\: json. |
-| – consulta | Cadeia de consulta do JMESPath. Consulte http\://jmespath.org/ para obter mais informações e exemplos. |
-| -verbose | Aumenta a verbosidade do registo. Utilize--debug para os registos de depuração completa. |
+| --output -o | Formato de saída.  Valores permitidos\: json, jsonc, tabela, tsv.  Predefinido\: json. |
+| --query | Cadeia de consulta do JMESPath. Consulte http\://jmespath.org/ para obter mais informações e exemplos. |
+| --verbose | Aumenta a verbosidade do registo. Utilize--debug para os registos de depuração completa. |
 
 
 ## <a name="next-steps"></a>Passos Seguintes

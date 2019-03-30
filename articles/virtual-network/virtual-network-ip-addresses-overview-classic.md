@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/11/2016
 ms.author: genli
-ms.openlocfilehash: 3a295a5c8a202b2f3186e696bb281002090fcad4
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 9e7a5772dd1e10abf43eddf0548833d625ecfb24
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58112607"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58652172"
 ---
 # <a name="ip-address-types-and-allocation-methods-classic-in-azure"></a>Tipos de endereços IP e métodos de alocação no Azure (clássicos)
 Pode atribuir endereços IP a recursos do Azure para comunicar com outros recursos do Azure, a rede no local e a Internet. Existem dois tipos de endereços IP, pode utilizar no Azure: públicas e privadas.
@@ -41,7 +41,7 @@ Um endereço IP público é associado com os seguintes tipos de recurso:
 * Gateways de aplicação
 
 ### <a name="allocation-method"></a>Método de alocação
-Quando um endereço IP público tem de ser atribuídos a um recurso do Azure, é *dinamicamente* alocados a partir de um conjunto de endereço IP público disponível na localização do recurso é criado. Este endereço IP é libertado quando o recurso está parado. Com o serviço em nuvem, isto acontece quando todas as instâncias de função são paradas, o que pode ser evitada, utilizando um *estático* endereço IP (reservado) (consulte [serviços Cloud](#Cloud-services)).
+Quando um endereço IP público tem de ser atribuídos a um recurso do Azure, é *dinamicamente* alocados a partir de um conjunto de endereço IP público disponível na localização do recurso é criado. Este endereço IP é libertado quando o recurso está parado. Com o serviço em nuvem, isto acontece quando todas as instâncias de função são paradas, o que pode ser evitada, utilizando um *estático* endereço IP (reservado) (consulte [serviços Cloud](#cloud-services)).
 
 > [!NOTE]
 > A lista de intervalos de IP a partir do qual os endereços IP públicos são alocados a recursos do Azure está publicada em [intervalos de IP de Datacenter do Azure](https://www.microsoft.com/download/details.aspx?id=41653).

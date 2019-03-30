@@ -4,7 +4,7 @@ description: Saiba como utilizar o ASP.NET Core no Reliable Services com e sem e
 services: service-fabric
 documentationcenter: .net
 author: vturecek
-manager: timlt
+manager: chackdan
 editor: ''
 ms.assetid: 8aa4668d-cbb6-4225-bd2d-ab5925a868f2
 ms.service: service-fabric
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: required
 ms.date: 10/12/2018
 ms.author: vturecek
-ms.openlocfilehash: d74cee712b33f8d8d9924b9b8906ccd97e0b1756
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 98cc6ee2428523b93b42fca73daadc118103b7d7
+ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57902999"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58667487"
 ---
 # <a name="aspnet-core-in-service-fabric-reliable-services"></a>ASP.NET Core no Service Fabric Reliable Services
 

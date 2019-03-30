@@ -4,17 +4,21 @@ description: Fornece informações sobre as atualizações para a aplicação de
 author: musa-57
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 03/13/2019
+ms.date: 03/29/2019
 ms.author: hamusa
 services: azure-migrate
-ms.openlocfilehash: f9f2ef25a2054d92cdcc3ab33ea9234883e352d6
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.openlocfilehash: 7cd44318716200d665ece9ffecc45225bdfb85eb
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58484513"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58648678"
 ---
 # <a name="collector-appliance-updates"></a>Atualizações da aplicação de recoletor
+
+Este artigo resume as informações de atualização para a aplicação de Recoletor na [do Azure Migrate](migrate-overview.md).
+
+Recoletor do Azure Migrate é uma aplicação simples que é utilizada para detetar um ambiente no local do vCenter, para fins de avaliação antes da migração para o Azure. [Saiba mais](concepts-collector.md).
 
 ## <a name="how-to-upgrade-the-appliance"></a>Como atualizar a aplicação
 
@@ -33,11 +37,19 @@ Pode atualizar o Recoletor para a versão mais recente sem baixar o OVA novament
 
 ## <a name="collector-update-release-history"></a>Histórico de lançamento de atualização do recoletor
 
-Este artigo resume as informações de atualização para a aplicação de Recoletor na [do Azure Migrate](migrate-overview.md).
-
-Recoletor do Azure Migrate é uma aplicação simples que é utilizada para detetar um ambiente no local do vCenter, para fins de avaliação antes da migração para o Azure. [Saiba mais](concepts-collector.md).
-
 ### <a name="continuous-discovery-upgrade-versions"></a>Deteção contínua: Versões de atualização
+
+#### <a name="version-101014-released-on-03292019"></a>Versão 1.0.10.14 (lançado em 03/29/2019)
+
+Contém alguns aprimoramentos da interface do Usuário.
+
+Valores para a atualização de hash [1.0.10.14 do pacote](https://aka.ms/migrate/col/upgrade_10_14)
+
+**Algoritmo** | **Valor de hash**
+--- | ---
+MD5 | 846b1eb29ef2806bcf388d10519d78e6
+SHA1 | 6243239fa49c6b3f5305f77e9fd4426a392d33a0
+SHA256 | fb058205c945a83cc4a31842b9377428ff79b08247f3fb8bb4ff30c125aa47ad
 
 #### <a name="version-101012-released-on-03132019"></a>Versão 1.0.10.12 (lançado em 03/13/2019)
 

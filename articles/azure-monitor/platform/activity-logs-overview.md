@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 05/30/2018
 ms.author: johnkem
 ms.subservice: logs
-ms.openlocfilehash: fb3ed970b7f92e1cc06a9d1023e01f5888915e94
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 94465e95dbf5f2eb381c124349bf8fda6622a6c2
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58088677"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58650296"
 ---
 # <a name="monitor-subscription-activity-with-the-azure-activity-log"></a>Monitorizar a atividade de subscrição com o registo de atividades do Azure
 
@@ -35,7 +35,6 @@ Pode obter eventos de seu registo de atividades no portal do Azure, CLI, cmdlets
 > [!NOTE]
 > [Os alertas mais recentes](../../azure-monitor/platform/alerts-overview.md) oferecem uma experiência aprimorada, ao criar e gerir atividade regras de alerta de registo.  [Saiba mais](../../azure-monitor/platform/alerts-activity-log.md).
 
-
 ## <a name="categories-in-the-activity-log"></a>Categorias no registo de atividades
 O registo de atividade contém várias categorias de dados. Para obter detalhes completos sobre esquemas uma destas categorias [veja este artigo](../../azure-monitor/platform/activity-log-schema.md). Estas incluem:
 * **Administrativas** -nesta categoria contém o registo de todos os criar, operações de atualização, eliminação e ação executada através do Resource Manager. Os exemplos dos tipos de eventos que veria nesta categoria incluem "Criar máquina virtual" e "Eliminar grupo de segurança rede" todas as ações executadas por um utilizador ou aplicação com o Resource Manager é modelada como uma operação num tipo de recurso específico. Se o tipo de operação de escrita, eliminação ou ação, os registos de início e de êxito ou falha dessa operação é registada na categoria administrativa. A categoria administrativa também inclui todas as alterações ao controlo de acesso baseado em funções numa subscrição.
@@ -48,9 +47,11 @@ O registo de atividade contém várias categorias de dados. Para obter detalhes 
 * **Política** -nesta categoria contém registos de todas as operações de ação de efeito efetuadas pelo Azure Policy. Os tipos de eventos que veria nesta categoria exemplos de auditoria e negar. Cada ação tomada pela política é modelada como uma operação num recurso.
 
 ## <a name="event-schema-per-category"></a>Esquema de eventos por categoria
+
 [Consulte este artigo para compreender o esquema de eventos de registo de atividades por categoria.](../../azure-monitor/platform/activity-log-schema.md)
 
 ## <a name="what-you-can-do-with-the-activity-log"></a>O que pode fazer com o registo de atividades
+
 Aqui estão algumas das coisas que pode fazer com o registo de atividades:
 
 ![Registo de atividades do Azure](./media/activity-logs-overview/Activity_Log_Overview_v3.png)
@@ -58,12 +59,13 @@ Aqui estão algumas das coisas que pode fazer com o registo de atividades:
 
 * Consultar e vê-la na **portal do Azure**.
 * [Crie um alerta num evento do registo de atividade.](../../azure-monitor/platform/activity-log-alerts.md)
-* [Stream-lo para um **Hub de eventos** ](../../azure-monitor/platform/activity-logs-stream-event-hubs.md) para ingestão por um serviço de terceiros ou de uma solução de análise personalizada, como o Power BI.
+* [Stream-lo para um **Hub de eventos** ](../../azure-monitor/platform/activity-logs-stream-event-hubs.md) para ingestão por um serviço de terceiros ou de uma solução de análise personalizada como o Power BI.
 * Analise-o no Power BI com o [ **pacote de conteúdos do Power BI**](https://powerbi.microsoft.com/documentation/powerbi-content-pack-azure-audit-logs/).
 * [Guardá-lo para um **conta de armazenamento** para inspeção de arquivamento ou manual](../../azure-monitor/platform/archive-activity-log.md). Pode especificar o tempo (em dias) de retenção utilizando o **perfil de registo**.
 * Consultá-los através do Cmdlet do PowerShell, CLI ou REST API.
 
 ## <a name="query-the-activity-log-in-the-azure-portal"></a>Consultar o registo de atividades no portal do Azure
+
 No portal do Azure, pode ver o registo de atividades em vários locais:
 * O **registo de atividades** que pode aceder ao procurar o registo de atividade em **todos os serviços** no painel de navegação esquerdo.
 * **Monitor** aparece por predefinição no painel de navegação esquerdo. O registo de atividade é uma seção do Azure Monitor.
@@ -86,6 +88,7 @@ Depois de definir um conjunto de filtros, pode afixar uma consulta ao dashboard 
 Para ainda mais potência, pode clicar a **Logs** ícone, que exibe os dados de registo de atividades no [recolher e analisar a solução de registos de atividades](../../azure-monitor/platform/collect-activity-logs.md). O painel de registo de atividades oferece uma experiência de pesquisa/filtro básico em registos, mas o Azure Monitor registos funcionalidade permite dinâmico, consultar e visualize os seus dados de formas mais eficientes.
 
 ## <a name="export-the-activity-log-with-a-log-profile"></a>Exportar o registo de atividades com um perfil de registo
+
 R **perfil de registo** controla a forma como o registo de atividades é exportado. Utilizar um perfil de registo, pode configurar:
 
 * Em que o registo de atividades devem ser enviado (conta de armazenamento ou Hubs de eventos)
@@ -102,13 +105,14 @@ Pode usar um armazenamento conta ou event hub espaço de nomes que não esteja n
 >  Atualmente não é possível arquivar dados para uma conta de armazenamento que está atrás de uma rede virtual protegida.
 
 > [!WARNING]
-> O formato dos dados de registo na conta de armazenamento foi alterado para linhas de JSON no dia 1 de Novembro de 2018. [Leia este artigo para obter uma descrição do impacto e saber como atualizar a sua ferramenta para trabalhar com o novo formato.](./../../azure-monitor/platform/diagnostic-logs-append-blobs.md) 
+> O formato dos dados de registo na conta de armazenamento foi alterado para linhas de JSON no dia 1 de Novembro de 2018. [Leia este artigo para obter uma descrição do impacto e saber como atualizar a sua ferramenta para trabalhar com o novo formato.](./../../azure-monitor/platform/diagnostic-logs-append-blobs.md)
 >
-> 
+>
 
 Estas definições podem ser configuradas através da opção de "Exportação" no painel do registo de atividades no portal do. Eles também podem ser configurados por meio de programação [utilizando a API de REST do Azure Monitor](https://msdn.microsoft.com/library/azure/dn931927.aspx), cmdlets do PowerShell, ou a CLI. Uma subscrição só pode ter um perfil de registo.
 
 ### <a name="configure-log-profiles-using-the-azure-portal"></a>Configurar perfis de registo no portal do Azure
+
 Pode transmitir o registo de atividade para um Hub de eventos ou armazená-los numa conta de armazenamento ao utilizar a opção de "Exportar para Hub de eventos" no portal do Azure.
 
 1. Navegue para **registo de atividades** utilizando o menu no lado esquerdo do portal.
@@ -117,7 +121,7 @@ Pode transmitir o registo de atividade para um Hub de eventos ou armazená-los n
 2. Clique nas **exportar para o Hub de eventos** botão na parte superior do painel.
 
     ![Botão de exportação no portal](./media/activity-logs-overview/activity-logs-portal-export-v2.png)
-3. No painel que aparece, pode selecionar:  
+3. No painel que aparece, pode selecionar:
    * regiões para o qual pretende exportar eventos
    * a conta de armazenamento para o qual pretende guardar os eventos
    * o número de dias que pretenda manter esses eventos em armazenamento. Uma definição de 0 dias retém os registos para sempre.
@@ -132,13 +136,13 @@ Pode transmitir o registo de atividade para um Hub de eventos ou armazená-los n
 
 #### <a name="get-existing-log-profile"></a>Obter perfil de registo existente
 
-```
+```powershell
 Get-AzLogProfile
 ```
 
 #### <a name="add-a-log-profile"></a>Adicionar um perfil de registo
 
-```
+```powershell
 Add-AzLogProfile -Name my_log_profile -StorageAccountId /subscriptions/s1/resourceGroups/myrg1/providers/Microsoft.Storage/storageAccounts/my_storage -serviceBusRuleId /subscriptions/s1/resourceGroups/Default-ServiceBus-EastUS/providers/Microsoft.ServiceBus/namespaces/mytestSB/authorizationrules/RootManageSharedAccessKey -Location global,westus,eastus -RetentionInDays 90 -Category Write,Delete,Action
 ```
 
@@ -152,7 +156,8 @@ Add-AzLogProfile -Name my_log_profile -StorageAccountId /subscriptions/s1/resour
 | Categoria |Não |Lista separada por vírgulas das categorias de evento que deve ser recolhidos. Valores possíveis são escrita, eliminação e ação. |
 
 #### <a name="remove-a-log-profile"></a>Remover um perfil de registo
-```
+
+```powershell
 Remove-AzLogProfile -name my_log_profile
 ```
 
@@ -185,6 +190,6 @@ az monitor log-profiles delete --name <profile name>
 ```
 
 ## <a name="next-steps"></a>Próximos Passos
+
 * [Saiba mais sobre o registo de Atividades (anteriormente conhecido como registos de auditoria)](../../azure-resource-manager/resource-group-audit.md)
 * [O registo de atividades do Azure para os Hubs de eventos do Stream](../../azure-monitor/platform/activity-logs-stream-event-hubs.md)
-

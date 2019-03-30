@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 07/19/2018
 ms.author: jlian
-ms.openlocfilehash: 9057245c108e4a1b9af2549bc87f98258da50535
-ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.openlocfilehash: 6cc5e45ab28a1c83125a37cefb289b1662096eb0
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/02/2019
-ms.locfileid: "57240172"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58648824"
 ---
 # <a name="detect-and-troubleshoot-disconnects-with-azure-iot-hub"></a>Detetar e resolver problemas se desliga hub IoT do Azure
 
@@ -32,7 +32,7 @@ Para iniciar sessão erros e eventos de ligação de dispositivos, ative os diag
 1. Selecione **as definições de diagnóstico**.
 1. Selecione **ativar os diagnósticos**.
 1. Ativar **ligações** registos serão recolhidos.
-1. Para facilitar a análise, ativassem **enviar para o Log Analytics** ([Ver preços](https://azure.microsoft.com/pricing/details/log-analytics/)). Veja o exemplo sob [resolver erros de conectividade](#Resolve-connectivity-errors).
+1. Para facilitar a análise, ativassem **enviar para o Log Analytics** ([Ver preços](https://azure.microsoft.com/pricing/details/log-analytics/)). Veja o exemplo sob [resolver erros de conectividade](#resolve-connectivity-errors).
 
    ![Definições recomendadas][2]
 
@@ -40,15 +40,14 @@ Para obter mais informações, consulte [monitorizar o estado de funcionamento d
 
 ### <a name="set-up-alerts-for-the-connected-devices-count-metric"></a>Configurar alertas para o _dispositivos ligados_ contagem de métrica
 
-Para obter alertas quando desligar de dispositivos, configurar alertas na **dispositivos ligados** métrica.
+Para obter alertas quando desligar de dispositivos, configurar alertas na **dispositivos (pré-visualização) ligados** métrica.
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com).
 1. Navegue para o seu hub IoT.
-1. Selecione **alertas (clássico)**.
-1. Selecione **Adicionar alerta de métrica (clássico)**.
-1. Preencha o formulário e selecione **OK**.
-
-   ![Alerta de métrica recomendada][3]
+1. Selecione **alertas**.
+1. Selecione **nova regra de alerta**.
+1. Selecione **adicionar condição**, em seguida, selecione "Ligar os dispositivos (pré-visualização)".
+1. Conclua a configuração de seu limiares pretendidos e os alertas opções por seguintes prompts.
 
 Para obter mais informações, consulte [o que são alertas Clássicos no Microsoft Azure?](../azure-monitor/platform/alerts-overview.md).
 

@@ -14,17 +14,16 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 01/23/2018
 ms.author: pbutlerm
-ms.openlocfilehash: 8dc0a003a12eb0aca28c6a3238e2119dc449d661
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: 6cfe9b61d9bbb088e827386b2195bba21333937e
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58309423"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58649091"
 ---
 # <a name="create-a-self-test-client-to-pre-validate-an-azure-virtual-machine-image"></a>Criar um cliente de autoteste de mensagens em fila para pré-validar uma imagem de máquina virtual do Azure
 
 Utilize este artigo como um guia para a criação de um serviço de cliente que consome a API de autoteste. Pode utilizar a API de autoteste previamente validar uma máquina virtual (VM) para garantir que cumpre os requisitos de publicação mais recentes do Azure Marketplace. Este serviço de cliente permite-lhe testar uma VM antes de submeter a sua oferta para a certificação Microsoft.
-
 
 ## <a name="development-and-testing-overview"></a>Desenvolvimento e a descrição geral do teste
 
@@ -41,13 +40,11 @@ Os passos de alto nível para a criação de um cliente autoteste são:
 
 Depois de criar o cliente, pode testá-lo em sua VM.
 
-
 ### <a name="self-test-client-authorization"></a>Autoteste autorização de cliente
 
 O diagrama seguinte mostra como funciona a autorização para chamadas de serviço para serviço com as credenciais de cliente (segredo partilhado ou certificado).
 
 ![Processo de autorização de cliente](./media/stclient-dev-process.png)
-
 
 ## <a name="the-self-test-client-api"></a>A API do cliente autoteste
 
@@ -67,7 +64,6 @@ Request body:    The Request body parameters should use the following JSON forma
                    "PortNo":"22",
                    "CompanyName":"ABCD",
                  }
-
 ```
 
 A tabela seguinte descreve os campos de API.
@@ -83,11 +79,9 @@ A tabela seguinte descreve os campos de API.
 |  PortNo            |  Abra o número de porta para ligar à VM. O número de porta é normalmente `22` para Linux e `5986` para Windows.          |
 |  |  |
 
-
 ## <a name="consuming-the-api"></a>A API de consumo
 
 Pode consumir a API de autoteste de mensagens em fila com o PowerShell ou o cURL.
-
 
 ### <a name="use-powershell-to-consume-the-api-on-the-linux-os"></a>Utilize o PowerShell para consumir a API no SO Linux
 
@@ -112,7 +106,7 @@ $Body = @{
     "CompanyName" = "ABCD"
 
 } | ConvertTo-Json
-$res = Invoke-WebRequest -Method "Post" -Uri $uri -Body $Body -ContentType "application/json" –Headers $headers; 
+$res = Invoke-WebRequest -Method "Post" -Uri $uri -Body $Body -ContentType "application/json" –Headers $headers;
 $Content = $res | ConvertFrom-Json
 ```
 Captura de ecrã seguinte mostra um exemplo para chamar a API no PowerShell.
@@ -128,7 +122,7 @@ $testresult = ConvertFrom-Json –InputObject (ConvertFrom-Json –InputObject $
   Write-Host "OSVersion: $($testresult.OSVersion)"
   Write-Host "Overall Test Result: $($testresult.TestResult)"
 
-For ($i=0; $i -lt $testresult.Tests.Length; $i++) 
+For ($i=0; $i -lt $testresult.Tests.Length; $i++)
 {
     Write-Host "TestID: $($testresult.Tests[$i].TestID)"
     Write-Host "TestCaseName: $($testresult.Tests[$i].TestCaseName)"
@@ -186,7 +180,7 @@ $testresult = ConvertFrom-Json –InputObject (ConvertFrom-Json –InputObject $
   Write-Host "OSVersion: $($testresult.OSVersion)"
   Write-Host "Overall Test Result: $($testresult.TestResult)"
 
-For ($i=0; $i -lt $testresult.Tests.Length; $i++) 
+For ($i=0; $i -lt $testresult.Tests.Length; $i++)
 {
     Write-Host "TestID: $($testresult.Tests[$i].TestID)"
     Write-Host "TestCaseName: $($testresult.Tests[$i].TestCaseName)"
@@ -213,12 +207,12 @@ Para chamar a API com o cURL, siga estes passos:
 2. O método é Post e o tipo de conteúdo é um JSON, conforme mostrado no seguinte fragmento de código.
 
 ```
-CURL POST -H "Content-Type:application/json" 
+CURL POST -H "Content-Type:application/json"
 -H "Authorization: Bearer XXXXXX-Token-XXXXXXXX”
-https://isvapp.azurewebsites.net/selftest-vm 
+https://isvapp.azurewebsites.net/selftest-vm
 -d '{ "DNSName":"XXXX.westus.cloudapp.azure.com", "User":"XXX", "Password":"XXXX@123456", "OS":"Linux", "PortNo":"22", "CompanyName":"ABCD"}'
-
 ```
+
 O ecrã seguinte mostra um exemplo de como utilizar curl para chamar a API.
 
 ![Chame a API com o comando curl](./media/stclient-consume-api-curl.png)
@@ -242,7 +236,7 @@ Utilize os seguintes passos para escolher o inquilino do Azure AD onde pretende 
    Nos passos seguintes, poderá ter o nome do inquilino (ou o nome de diretório) ou o ID de inquilino (ou ID de diretório).
 
    **Para obter informações do inquilino:**
-  
+
    Na **descrição geral de diretório Active Directory do Azure**, procure "Propriedades" e, em seguida, selecione **propriedades**. Utilizando a seguinte captura de tela como exemplo:
 
    - **Nome** -o nome do inquilino ou nome de diretório
@@ -284,7 +278,7 @@ Utilize os seguintes passos para registar a aplicação de cliente.
 14. Clique em **Selecionar**.
 15. Selecione **Done** (Concluído).
 16. Sob **configurações**, selecione **propriedades**.
-17. Sob **propriedades**, desloque para baixo até **vários inquilinos**. Selecione **Sim**.  
+17. Sob **propriedades**, desloque para baixo até **vários inquilinos**. Selecione **Sim**.
 
     ![Configurar o multi-inquilino para a aplicação](./media/stclient-yes-multitenant.png)
 
@@ -319,6 +313,7 @@ Pode usar qualquer uma das seguintes programas para criar e obter um token com a
 Method Type : POST
 Base Url: https://login.microsoftonline.com/common/oauth2/token
 ```
+
 Passe os seguintes parâmetros no corpo do pedido:
 
 ```
@@ -364,7 +359,7 @@ Captura de ecrã seguinte mostra um exemplo de como utilizar o comando curl para
 
 Para solicitar Auth0 tokens para as suas aplicações autorizadas, execute uma operação POST para o [ https://soamtenant.auth0.com/oauth/token ](https://soamtenant.auth0.com/oauth/token) ponto final com um payload no seguinte formato:
 
-```
+```csharp
 string clientId = "Your Application Id";
 string clientSecret = "Your Application Secret";
 string audience = "https://management.core.windows.net";
@@ -387,7 +382,7 @@ var token = JObject.Parse(content)["access_token"];
 
 Para solicitar Auth0 tokens para as suas aplicações autorizadas, execute uma operação POST para o [ https://soamtenant.auth0.com/oauth/token ](https://soamtenant.auth0.com/oauth/token) ponto final com um payload no seguinte formato:
 
-```
+```powershell
 $clientId = "Application Id of AD Client APP";
 $clientSecret = "Secret Key of AD Client APP “
 $audience = "https://management.core.windows.net";
@@ -402,14 +397,13 @@ resp = Invoke-WebRequest -Method Post -Uri $authority -Headers $headers -Content
 
 $token = $resp.Content | ConvertFrom-Json
 $token.AccessToken
-
 ```
 
 ## <a name="pass-the-client-app-token-to-the-api"></a>Passar o cliente do token da aplicação para a API
 
 Transmita o token para a API de autoteste de mensagens em fila usando o seguinte código no cabeçalho de autorização:
 
-```
+```powershell
 $redirectUri = ‘https://isvapp.azurewebsites.net/selftest-vm’
 $accesstoken = ‘place your token here’
 
@@ -426,9 +420,8 @@ $Body =
 
 $result=Invoke-WebRequest -Method Post -Uri $redirectUri -Headers $headers -ContentType 'application/json' -Body $Body
 $result
-echo 'Test Results:'
+Write-Output 'Test Results:'
 $result.Content
-
 ```
 
 ## <a name="test-your-self-test-client"></a>Testar o seu cliente autoteste
@@ -445,7 +438,7 @@ Os fragmentos seguintes mostram os resultados do teste no formato JSON.
 
 **Resultados do teste para uma VM do Windows:**
 
-```
+```json
 {
   "SchemaVersion": 1,
   "AppCertificationCategory": "Microsoft Single VM Certification",
@@ -484,7 +477,7 @@ Os fragmentos seguintes mostram os resultados do teste no formato JSON.
 
 **Resultados do teste para uma VM do Linux:**
 
-```
+```json
 {
   "SchemaVersion": 1,
   "AppCertificationCategory": "Microsoft Single VM Certification",

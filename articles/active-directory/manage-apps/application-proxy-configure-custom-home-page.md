@@ -16,12 +16,12 @@ ms.author: celested
 ms.reviewer: harshja
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e8017049218bed5a1b1bd86b68dc4342b4044723
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: f0880ad2ab02fad574f5204741b0fa03e4ef0338
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58109785"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58648068"
 ---
 # <a name="set-a-custom-home-page-for-published-apps-by-using-azure-ad-application-proxy"></a>Definir uma página inicial personalizada para aplicações publicadas com o Proxy de aplicações do Azure AD
 
@@ -69,9 +69,10 @@ Para instalar o pacote, siga estes passos:
 
 1. Abra uma janela do PowerShell padrão e, em seguida, execute o seguinte comando:
 
-    ```
+    ```powershell
      Install-Module -Name AzureAD
     ```
+
     Se estiver a executar o comando como um não-administrador, utilize o `-scope currentuser` opção.
 2. Durante a instalação, selecione **Y** para instalar dois pacotes de Nuget.org. Ambos os pacotes são necessários. 
 
@@ -81,20 +82,22 @@ Obtenha o ObjectID da aplicação e, em seguida, procure a aplicação pela sua 
 
 1. Na mesma janela do PowerShell, importe o módulo do Azure AD.
 
-    ```
+    ```powershell
     Import-Module AzureAD
     ```
 
 2. Inicie sessão no módulo do Azure AD como o administrador de inquilino.
 
-    ```
+    ```powershell
     Connect-AzureAD
     ```
+
 3. Localize a aplicação com base no seu URL da home page. Pode encontrar o URL no portal, acedendo a **do Azure Active Directory** > **aplicações empresariais** > **todas as aplicações**. Este exemplo utiliza *sharepoint iddemo*.
 
+    ```powershell
+    Get-AzureADApplication | Where-Object { $_.Homepage -like "sharepoint-iddemo" } | Format-List DisplayName, Homepage, ObjectID
     ```
-    Get-AzureADApplication | where { $_.Homepage -like "sharepoint-iddemo" } | fl DisplayName, Homepage, ObjectID
-    ```
+
 4. Deve obter um resultado semelhante à mostrada aqui. Copie o GUID de ObjectID para utilizar na secção seguinte.
 
     ```
@@ -109,7 +112,7 @@ Crie o URL da home page e atualizar a sua aplicação com esse valor. Continue a
 
 1. Confirme que a aplicação correta e substitua *8af89bfa-eac6-40b0-8a13-c2c4e3ee22a4* com o ObjectID que copiou na secção anterior.
 
-    ```
+    ```powershell
     Get-AzureADApplication -ObjectId 8af89bfa-eac6-40b0-8a13-c2c4e3ee22a4.
     ```
 
@@ -117,23 +120,25 @@ Crie o URL da home page e atualizar a sua aplicação com esse valor. Continue a
 
 2. Crie um objeto de aplicativo em branco para manter as alterações que deseja fazer. Esta variável contém os valores que pretende atualizar. Nada é criado neste passo.
 
-    ```
+    ```powershell
     $appnew = New-Object "Microsoft.Open.AzureAD.Model.Application"
     ```
 
 3. Defina o URL da home page para o valor que pretende. O valor tem de ser um caminho de subdomínio da aplicação publicada. Por exemplo, se alterar o URL da home page da `https://sharepoint-iddemo.msappproxy.net/` para `https://sharepoint-iddemo.msappproxy.net/hybrid/`, os utilizadores da aplicação vão diretamente para a home page personalizada.
 
-    ```
+    ```powershell
     $homepage = "https://sharepoint-iddemo.msappproxy.net/hybrid/"
     ```
+
 4. Faça a atualização com o GUID (ObjectID) que copiou no "passo 1: Localizar o ObjectID da aplicação."
 
-    ```
+    ```powershell
     Set-AzureADApplication -ObjectId 8af89bfa-eac6-40b0-8a13-c2c4e3ee22a4 -Homepage $homepage
     ```
+
 5. Para confirmar que a alteração foi efetuada com êxito, reinicie a aplicação.
 
-    ```
+    ```powershell
     Get-AzureADApplication -ObjectId 8af89bfa-eac6-40b0-8a13-c2c4e3ee22a4
     ```
 

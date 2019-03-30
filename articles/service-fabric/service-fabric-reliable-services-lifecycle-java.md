@@ -4,7 +4,7 @@ description: Saiba mais sobre os eventos de ciclo de vida no Service Fabric Reli
 services: service-fabric
 documentationcenter: java
 author: PavanKunapareddyMSFT
-manager: timlt
+manager: chackdan
 ms.assetid: ''
 ms.service: service-fabric
 ms.devlang: java
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 06/30/2017
 ms.author: pakunapa
-ms.openlocfilehash: 4d97803117a875514fb36f770d551204ece0e55c
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 36c1ff2ace944d84120bf456060c7504170a814c
+ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57448956"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58667417"
 ---
 # <a name="reliable-services-lifecycle"></a>Ciclo de vida dos Reliable Services
 > [!div class="op_single_selector"]

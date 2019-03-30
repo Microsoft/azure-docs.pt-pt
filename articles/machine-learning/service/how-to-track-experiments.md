@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 12/04/2018
 ms.custom: seodec18
-ms.openlocfilehash: 50cd5969ce02ee5eea0637c950069d684d67b5d3
-ms.sourcegitcommit: 223604d8b6ef20a8c115ff877981ce22ada6155a
+ms.openlocfilehash: 7ef3cfe1df792721db3fe3657c08f58ca82e3c91
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58361460"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58652319"
 ---
 # <a name="log-metrics-during-training-runs-in-azure-machine-learning"></a>Métricas de registo durante o treinamento é executado no Azure Machine Learning
 
@@ -351,7 +351,7 @@ Saiba mais sobre:
 Para cada modelo de classificação que cria através da utilização de recursos do Azure Machine Learning de aprendizagem automatizada, pode ver os gráficos seguintes: 
 + [Matriz de confusão](#confusion-matrix)
 + [Gráfico de Recolhimento de precisão](#precision-recall-chart)
-+ [Recetor operacional características (ou ROC)](#ROC)
++ [Recetor operacional características (ou ROC)](#roc)
 + [Curva de comparação de precisão](#lift-curve)
 + [Curva de ganhos](#gains-curve)
 + [Desenho de calibragem](#calibration-plot)

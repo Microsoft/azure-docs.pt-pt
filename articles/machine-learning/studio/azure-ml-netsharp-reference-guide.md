@@ -10,12 +10,12 @@ author: xiaoharper
 ms.author: amlstudiodocs
 ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 03/01/2018
-ms.openlocfilehash: d667dadeb2e7c9d0005ab8d1a565017973038aaa
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 891b2988d04a3cf2f7c6676a837bc1ee199f4d16
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57905159"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58651496"
 ---
 # <a name="guide-to-net-neural-network-specification-language-for-azure-machine-learning-studio"></a>Guia para a linguagem de especificação Net # rede neural para o Azure Machine Learning Studio
 
@@ -63,9 +63,9 @@ A arquitetura de modelos de rede neural que criar no Azure Machine Learning Stud
 + Defina as estruturas de conectividade especiais, como convolutions e peso da partilha de pacotes.
 + Especifique as funções de ativação diferentes.
 
-Para obter detalhes sobre a sintaxe de linguagem de especificação, consulte [especificação da estrutura](#Structure-specifications).
+Para obter detalhes sobre a sintaxe de linguagem de especificação, consulte [especificação da estrutura](#structure-specifications).
 
-Para obter exemplos de definição de redes neurais para algumas tarefas, desde a simplex para complexos, de aprendizagem comuns, consulte [exemplos](#Examples-of-Net#-usage).
+Para obter exemplos de definição de redes neurais para algumas tarefas, desde a simplex para complexos, de aprendizagem comuns, consulte [exemplos](#examples-of-net-usage).
 
 ## <a name="general-requirements"></a>Requisitos gerais
 

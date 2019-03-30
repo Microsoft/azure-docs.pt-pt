@@ -4,7 +4,7 @@ description: Introdução a eventos do Reliable Actors do Service Fabric.
 services: service-fabric
 documentationcenter: .net
 author: vturecek
-manager: timlt
+manager: chackdan
 editor: ''
 ms.assetid: aa01b0f7-8f88-403a-bfe1-5aba00312c24
 ms.service: service-fabric
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 10/06/2017
 ms.author: amanbha
-ms.openlocfilehash: fead1cf639a379fc288122e39629909786aa3f14
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 9075fc8391e8afa21e3963c1eff6a630c586d647
+ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57844805"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58659393"
 ---
 # <a name="actor-events"></a>Eventos de ator
 Os eventos de ator fornecem uma forma de enviar notificações de melhor esforço de ator para os clientes. Eventos de ator foram concebidos para a comunicação de cliente a ator e não devem ser utilizados para comunicação de ator-ator.

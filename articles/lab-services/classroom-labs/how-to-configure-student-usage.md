@@ -11,14 +11,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/18/2019
+ms.date: 03/28/2019
 ms.author: spelluru
-ms.openlocfilehash: eadbaacd4bb860cd09997775b8d77cbcf0ff17f2
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 494c285f1c096a84925d9d9a4fb98409960e5230
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58181627"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58650099"
 ---
 # <a name="configure-usage-settings-and-policies"></a>Configurar as políticas e definições de utilização
 Este artigo descreve como adicionar utilizadores ao laboratório, obtê-los registado com o laboratório, controlar o número de horas que podem utilizar a VM e muito mais. 
@@ -44,14 +44,20 @@ Para enviar a ligação de registo para estudantes, utilize um dos seguintes mé
 Se o **restringir o acesso** está ativada para o laboratório, apenas os utilizadores da lista de utilizadores podem utilizar a ligação de registo se registrar para o laboratório. Esta opção está ativada por predefinição. 
 
 ### <a name="send-email-to-users"></a>Enviar e-mail para utilizadores
+O Azure Lab Services permite professores enviar um e-mail convites de laboratório para todos ou selecionados estudantes sem ter de utilizar outro cliente de e-mail. Professores podem pairar o rato sobre aluno na lista para ver o ícone de e-mail para cada aluno ou estudantes de um ou mais selecionados e utilize **Enviar convite** na barra de ferramentas. Esta funcionalidade envia um e-mail com uma ligação de registo e uma mensagem (se existirem) adicionados pelo professor. Depois do convite é enviado, o estado de convite é alterado para **convite enviado** para que os professores podem manter o controle de quais estudantes já recebeu a ligação de registo e a data em que foi enviado.
+
 1. Mude para o **utilizadores** ver se ainda não está na página. 
-2. Na lista, selecione específicos ou todos os utilizadores. Para selecionar utilizadores específicos, marque as caixas de seleção na primeira coluna da lista. Para selecionar todos os utilizadores, selecione a caixa de verificação na frente o título da primeira coluna (**nome**) ou selecione todas as caixas de verificação para todos os utilizadores na lista.
-3. Selecione **Enviar convite** na barra de ferramentas. Também pode passar o mouse sobre um nome para estudantes na lista e enviar o ícone de e-mail. 
+2. Na lista, selecione específicos ou todos os utilizadores. Para selecionar utilizadores específicos, marque as caixas de seleção na primeira coluna da lista. Para selecionar todos os utilizadores, selecione a caixa de verificação na frente o título da primeira coluna (**nome**) ou selecione todas as caixas de verificação para todos os utilizadores na lista. Pode ver o estado do **estado de convite** nesta lista.  Na imagem seguinte, o estado de convite para todos os estudantes é definido como **convite não enviado**. 
+
+    ![Selecionar estudantes](../media/tutorial-setup-classroom-lab/select-students.png)
+1. Selecione o **ícone de e-mail (envelope)** em uma das linhas (ou) select **Enviar convite** na barra de ferramentas. Também pode passar o mouse sobre um nome para estudantes na lista para ver o ícone de e-mail. 
 
     ![Enviar ligação de registo por e-mail](../media/tutorial-setup-classroom-lab/send-email.png)
 4. Sobre o **ligação de registo de enviar por e-mail** página, siga estes passos: 
     1. Tipo de uma **mensagem opcional** que pretende enviar para os alunos. O e-mail inclui automaticamente a ligação de registo. 
-    2. Sobre o **ligação de registo de enviar por e-mail** página, selecione **enviar**. 
+    2. Sobre o **ligação de registo de enviar por e-mail** página, selecione **enviar**. Verá o estado de convite para a alteração **Enviar convite** e clique em **convite enviado**. 
+        
+        ![Convites enviados](../media/tutorial-setup-classroom-lab/invitations-sent.png)
 
 ## <a name="get-registration-link"></a>Obter ligação de registo
 1. Mude para o **usuários** vista ao selecionar **utilizadores** no menu da esquerda. 

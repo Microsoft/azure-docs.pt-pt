@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/19/2019
 ms.author: banders
-ms.openlocfilehash: 6b82c0d2d4a5e22094bf0a408d6a42f17bb3bea4
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 82755f01cc881703eeefb6415b2e8e87e50fba60
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57839819"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58652387"
 ---
 # <a name="view-and-download-your-microsoft-azure-invoice"></a>Ver e transferir a fatura do Microsoft Azure
 
@@ -28,7 +28,7 @@ Para a maioria das subscrições, pode transferir a fatura do [portal do Azure](
 
 Apenas determinadas funções do utilizador tem permissão para ver as notas fiscais, como o administrador de conta ou administrador de empresa. Para saber mais sobre como obter acesso a informações de faturação, veja [Gerir acesso às funções de utilização de faturação do Azure](billing-manage-access.md).
 
-Se tiver um [contrato de cliente da Microsoft](#Check-your-access-to-a-Microsoft-Customer-Agreement), tem de ser um perfil de faturação proprietário, Contribuidor, leitor, ou criar uma fatura do gestor para as faturas. Para saber mais sobre as funções de faturas para contratos de cliente da Microsoft, consulte [funções de perfis e tarefas de faturação](billing-understand-mca-roles.md#billing-profile-roles-and-tasks).
+Se tiver um [contrato de cliente da Microsoft](#check-your-access-to-a-microsoft-customer-agreement), tem de ser um perfil de faturação proprietário, Contribuidor, leitor, ou criar uma fatura do gestor para as faturas. Para saber mais sobre as funções de faturas para contratos de cliente da Microsoft, consulte [funções de perfis e tarefas de faturação](billing-understand-mca-roles.md#billing-profile-roles-and-tasks).
 
 ## <a name="download-your-azure-invoices-pdf"></a>Transferir as faturas do Azure (. pdf)
 

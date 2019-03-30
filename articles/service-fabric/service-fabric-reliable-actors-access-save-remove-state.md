@@ -1,10 +1,10 @@
 ---
-title: Gerir o estado do Service Fabric do Azure | Microsoft Docs
-description: Saiba como aceder, guardar e remover o estado do serviço Fabric Reliable Actors.
+title: Gerir o estado do Azure Service Fabric | Documentos da Microsoft
+description: Saiba como aceder, guardar e remover o estado de Reliable Actors do Service Fabric.
 services: service-fabric
 documentationcenter: .net
 author: vturecek
-manager: timlt
+manager: chackdan
 editor: ''
 ms.assetid: 37cf466a-5293-44c0-a4e0-037e5d292214
 ms.service: service-fabric
@@ -14,30 +14,30 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 03/19/2018
 ms.author: vturecek
-ms.openlocfilehash: ac3afe144b9cf9e2fb307087edb175a603ffe4e9
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 7c10d00916ef65767c98616c7337bfa444c339a9
+ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34206752"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58664731"
 ---
 # <a name="access-save-and-remove-reliable-actors-state"></a>Aceder, guardar e remover o estado de Reliable Actors
-[Reliable Actors](service-fabric-reliable-actors-introduction.md) single-threaded objetos que pode encapsular a lógica e o estado e manter o estado de forma fiável. Todas as instâncias de ator tem o seu próprio [Gestor de estado](service-fabric-reliable-actors-state-management.md): pares chave/valor uma estrutura semelhante de dicionário de dados que armazena de forma fiável. O Gestor de estado é um wrapper em torno de um fornecedor de estado. Pode utilizá-lo para armazenar dados, independentemente da que [definição persistência](service-fabric-reliable-actors-state-management.md#state-persistence-and-replication) é utilizado.
+[Reliable Actors](service-fabric-reliable-actors-introduction.md) são objetos de thread único de mensagens em fila que podem encapsular a lógica e o estado e manter o estado de forma fiável. Todas as instâncias de ator tem a sua própria [Gestor de estado](service-fabric-reliable-actors-state-management.md): pares chave/valor uma estrutura de dicionário de dados que armazena de forma fiável. O Gestor de estado é um wrapper em torno de um fornecedor de estado. Pode usá-lo para armazenar dados, independentemente de qual [definição de persistência](service-fabric-reliable-actors-state-management.md#state-persistence-and-replication) é utilizado.
 
-Chaves de Gestor de estado têm de ser cadeias. Os valores são genéricos e pode ser qualquer tipo, incluindo tipos personalizados. Valores armazenados no Gestor de estado tem de ser serializável de contrato de dados porque que podem ser transmitidas através da rede para outros nós durante a replicação e podem ser gravados no disco, consoante a definição de persistência de estado de um ator.
+Chaves de Gestor de estado tem de ser cadeias de caracteres. Valores são genéricos e pode ser qualquer tipo, incluindo tipos personalizados. Valores armazenados no Gestor de estado tem de ser serializável de contrato de dados porque eles podem ser transmitidos pela rede a outros nós durante a replicação e podem ser gravados em disco, consoante a definição de persistência do Estado de um ator.
 
-O Gestor de estado expõe métodos de dicionário comuns para gerir o estado, semelhante às foi encontrado no dicionário fiável.
+O Gestor de estado expõe métodos de dicionário comuns para gerir o estado, semelhante àquelas encontradas no dicionário fiável.
 
-Para informações, consulte [melhores práticas na gestão de estado de ator](service-fabric-reliable-actors-state-management.md#best-practices).
+Para obter informações, consulte [melhores práticas no gerenciamento de estado do ator](service-fabric-reliable-actors-state-management.md#best-practices).
 
 ## <a name="access-state"></a>Estado de acesso
-Estado é acedido através do Gestor de estado por chave. Métodos de Gestor de estado são todos os assíncronos porque poderá necessitam de e/s de disco quando atores tem persistente estado. Após a primeira acesso, os objetos de estado são colocadas em cache na memória. Repita a objetos de acesso de operações de acesso diretamente a partir da memória e devolver de forma síncrona sem incorrer em e/s de disco ou assíncrona contexto-mudar sobrecarga. Um objeto de estado é removido da cache de nos seguintes casos:
+Estado é acedido através do Gestor de estado por chave. Os métodos de Gestor de estado são assíncronos porque possam ser necessárias e/s de disco quando atores tem mantido o estado. No primeiro acesso, os objetos de estado são colocadas em cache na memória. Repita os objetos de acesso de operações de acesso diretamente da memória e retornar de forma síncrona sem incorrer em e/s de disco ou assíncrona de alternância de contexto sobrecarga. Um objeto de estado é removido do cache nos seguintes casos:
 
-* Um método de ator emite uma exceção não processada depois obtém um objecto do Gestor de estado.
-* Um ator for reativado, após a ser desativada ou após a falha.
-* O fornecedor de estado de páginas de estado para o disco. Este comportamento depende a implementação do fornecedor de estado. O fornecedor de estado predefinido para o `Persisted` definição tem este comportamento.
+* Um método de ator lança uma exceção não processada depois que ele recupera um objeto do Gestor de estado.
+* Um ator é reativado, após a ser desativada ou após falha.
+* O fornecedor de estado de páginas de estado para o disco. Este comportamento depende a implementação do Provedor de estado. O fornecedor de estado predefinido para o `Persisted` definição tem esse comportamento.
 
-Pode obter o estado utilizando um padrão *obter* operação que emite `KeyNotFoundException`(c#) ou `NoSuchElementException`(Java) se não existir uma entrada para a chave:
+Pode obter o estado ao utilizar uma norma *Obtenha* operação que lança `KeyNotFoundException`(C#) ou `NoSuchElementException`(Java), se não existir uma entrada para a chave:
 
 ```csharp
 [StatePersistence(StatePersistence.Persisted)]
@@ -70,7 +70,7 @@ class MyActorImpl extends FabricActor implements  MyActor
 }
 ```
 
-Também pode obter o estado utilizando um *TryGet* método que inicia se não existir uma entrada para uma chave:
+Também pode obter o estado utilizando um *TryGet* método que não inicia se não existir uma entrada para uma chave:
 
 ```csharp
 class MyActor : Actor, IMyActor
@@ -112,10 +112,10 @@ class MyActorImpl extends FabricActor implements  MyActor
 }
 ```
 
-## <a name="save-state"></a>Guardar o Estado
-Os métodos de obtenção do Gestor de estado devolvem uma referência a um objeto na memória local. Este objeto no memória local relativos a modificar não irá causar que sejam guardados de forma durável. Quando um objeto é obtido a partir do Gestor de Estados e modificado, tem de ser voltar para o Gestor de estado sejam guardados de forma durável.
+## <a name="save-state"></a>Guardar Estado
+Os métodos de recuperação do Gestor de estado devolvem uma referência a um objeto na memória local. Modificar este objeto na memória local sozinho não causa ser guardadas de maneira duradoura. Quando um objeto é obtido a partir do Gestor de estado e modificado, tem de ser reinserido no Gerenciador de estado para serem salvos de maneira duradoura.
 
-Pode inserir o estado utilizando um incondicional *definir*, que é o equivalente a `dictionary["key"] = value` sintaxe:
+Pode inserir o estado, utilizando um incondicional *definir*, que é o equivalente a `dictionary["key"] = value` sintaxe:
 
 ```csharp
 [StatePersistence(StatePersistence.Persisted)]
@@ -148,7 +148,7 @@ class MyActorImpl extends FabricActor implements  MyActor
 }
 ```
 
-Pode adicionar o estado utilizando um *adicionar* método. Este método emite `InvalidOperationException`(c#) ou `IllegalStateException`(Java) ao tentar adicionar uma chave que já existe.
+Pode adicionar o estado, utilizando uma *adicionar* método. Esse método lança `InvalidOperationException`(C#) ou `IllegalStateException`(Java), quando tentar adicionar uma chave que já existe.
 
 ```csharp
 [StatePersistence(StatePersistence.Persisted)]
@@ -181,7 +181,7 @@ class MyActorImpl extends FabricActor implements  MyActor
 }
 ```
 
-Também pode adicionar o estado utilizando um *TryAdd* método. Este método não inicia quando tentar adicionar uma chave que já existe.
+Também pode adicionar o estado ao utilizar um *TryAdd* método. Este método não gerar quando tentar adicionar uma chave que já existe.
 
 ```csharp
 [StatePersistence(StatePersistence.Persisted)]
@@ -224,9 +224,9 @@ class MyActorImpl extends FabricActor implements  MyActor
 }
 ```
 
-No final de um método de ator, o Gestor de estado guarda automaticamente quaisquer valores que foram adicionados ou modificados por uma operação de inserção ou atualização. "Guardar" pode incluir a persistência para o disco e a replicação, consoante as definições utilizadas. Os valores que não foram modificados não são persistentes ou replicados. Se não existem valores foram modificados, a guardar operação faz nada. Se guardar falhar, o estado modificado é ignorado e o estado original é recarregar.
+No final de um método de ator, o Gerenciador de estado guarda automaticamente quaisquer valores que foram adicionados ou modificados por uma operação de inserção ou atualização. Um "Guardar" pode incluir a persistência para o disco e a replicação, consoante as definições utilizadas. Os valores que não foram modificados não são persistentes ou replicados. Se não existem valores tiverem sido modificados, o salvamento operação não faz nada. Se a guardar falhar, o estado modificado é descartado e o estado original é recarregado.
 
-Pode também guardar estado manualmente ao chamar o `SaveStateAsync` método na base de ator:
+Também pode guardar estado manualmente, chamando o `SaveStateAsync` método na base de ator:
 
 ```csharp
 async Task IMyActor.SetCountAsync(int count)
@@ -247,8 +247,8 @@ interface MyActor {
 }
 ```
 
-## <a name="remove-state"></a>Remover o Estado
-Pode remover estado permanentemente a partir do Gestor de estado de um ator ao chamar o *remover* método. Este método emite `KeyNotFoundException`(c#) ou `NoSuchElementException`(Java) ao tentar remover uma chave que não existe.
+## <a name="remove-state"></a>Remover Estado
+Pode remover estado permanentemente do Gestor de estado de um ator ao chamar o *remover* método. Esse método lança `KeyNotFoundException`(C#) ou `NoSuchElementException`(Java) ao tentar remover uma chave que não existe.
 
 ```csharp
 [StatePersistence(StatePersistence.Persisted)]
@@ -281,7 +281,7 @@ class MyActorImpl extends FabricActor implements  MyActor
 }
 ```
 
-Pode também remover estado permanentemente utilizando o *TryRemove* método. Este método não throw ao tentar remover uma chave que não existe.
+Pode também remover estado permanentemente com o *TryRemove* método. Este método não gerar ao tentar remover uma chave que não existe.
 
 ```csharp
 [StatePersistence(StatePersistence.Persisted)]
@@ -326,6 +326,6 @@ class MyActorImpl extends FabricActor implements  MyActor
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-Estado que é armazenado em Reliable Actors deve ser serializado antes do respetivo escrito no disco e replicados para elevada disponibilidade. Saiba mais sobre [serialização do tipo de Ator](service-fabric-reliable-actors-notes-on-actor-type-serialization.md).
+Estado que é armazenado no Reliable Actors deve ser serializado antes de sua gravada em disco e replicados para elevada disponibilidade. Saiba mais sobre [serialização do tipo de Ator](service-fabric-reliable-actors-notes-on-actor-type-serialization.md).
 
 Em seguida, saiba mais sobre [monitorização de desempenho e diagnóstico de Ator](service-fabric-reliable-actors-diagnostics.md).

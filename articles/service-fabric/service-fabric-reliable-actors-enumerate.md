@@ -4,7 +4,7 @@ description: Saiba como enumerar os Reliable Actors e os respetivos metadados.
 services: service-fabric
 documentationcenter: .net
 author: vturecek
-manager: timlt
+manager: chackdan
 editor: amanbha
 ms.assetid: 45839a7f-0536-46f1-ae2b-8ba3556407fb
 ms.service: service-fabric
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 03/19/2018
 ms.author: vturecek
-ms.openlocfilehash: 300ab4f73fdae0224d2de5e1e1dea6cc6cfa7438
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 04e2c32b18e6897d6443fea68587aba9ae294be5
+ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57864376"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58664503"
 ---
 # <a name="enumerate-service-fabric-reliable-actors"></a>Enumerar Atores fiáveis do Service Fabric
 O serviço do Reliable Actors permite que um cliente enumerar os metadados sobre os atores que aloja o serviço. Uma vez que o serviço de ator é um serviço com estado particionado, enumeração é realizada por partição. Uma vez que cada partição pode conter vários atores, a enumeração é retornada como um conjunto de resultados paginados. As páginas são executado um loop sobre até que todas as páginas são lidas. O exemplo seguinte mostra como criar uma lista de todos os atores de Active Directory de uma partição de um serviço de ator:

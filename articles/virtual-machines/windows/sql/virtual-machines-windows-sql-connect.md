@@ -15,12 +15,12 @@ ms.workload: iaas-sql-server
 ms.date: 12/12/2017
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 3baa4a9b91e76b9072714229b6a46e9fca69bcdd
-ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
+ms.openlocfilehash: a33525e44b2e294b7ce85c7081864dbef0856588
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54331389"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58650858"
 ---
 # <a name="connect-to-a-sql-server-virtual-machine-on-azure"></a>Ligar a uma Máquina Virtual do SQL Server no Azure
 
@@ -138,7 +138,7 @@ A tabela seguinte lista os requisitos para ligar ao SQL Server em execução num
 |---|---|
 | [Ativar o modo de autenticação do SQL Server](https://docs.microsoft.com/sql/database-engine/configure-windows/change-server-authentication-mode#SSMSProcedure) | Autenticação do SQL Server é necessária para ligar à VM remotamente, a menos que tiver configurado o Active Directory numa rede Virtual. |
 | [Criar um início de sessão SQL](https://docs.microsoft.com/sql/relational-databases/security/authentication-access/create-a-login) | Se estiver a utilizar autenticação do SQL, tem um início de sessão de SQL com um nome de utilizador e palavra-passe que também tem permissões para a base de dados de destino. |
-| [Ativar o protocolo TCP/IP](#manualTCP) | SQL Server tem de permitir ligações através de TCP. |
+| [Ativar o protocolo TCP/IP](#manualtcp) | SQL Server tem de permitir ligações através de TCP. |
 | [Ativar regra de firewall para a porta do SQL Server](https://docs.microsoft.com/sql/database-engine/configure-windows/configure-a-windows-firewall-for-database-engine-access) | A firewall na VM tem de permitir tráfego de entrada na porta do SQL Server (padrão é 1433). |
 | [Criar uma regra de grupo de segurança de rede para TCP 1433](../../../virtual-network/manage-network-security-group.md#create-a-security-rule) | Tem de permitir a VM receber o tráfego na porta do SQL Server (padrão é 1433) se pretender ligar através da internet. Ligações de locais e virtuais rede-só não exigem isso. Este é o único passo obrigatório no portal do Azure. |
 

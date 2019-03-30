@@ -8,12 +8,12 @@ ms.devlang: java
 ms.topic: reference
 ms.date: 03/13/2019
 ms.author: sngun
-ms.openlocfilehash: c2b0c52ca78f2b9c4273280aa9da16a5ef1bbc00
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 298f4d8cb62ce1d71ed8922483115606f8876d79
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58003241"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58648561"
 ---
 # <a name="azure-cosmos-db-java-sdk-for-sql-api-release-notes-and-resources"></a>Azure Cosmos DB Java SDK para a API de SQL: Notas de versão e recursos
 > [!div class="op_single_selector"]
@@ -43,15 +43,15 @@ O SDK de Java API do SQL oferece suporte a operações síncronas. Para obter su
 
 ## <a name="release-notes"></a>Notas de versão
 
-### <a name="a-name210213"></a><a name="2.1.0"/>2.1.3
+### <a name="a-name213213"></a><a name="2.1.3"/>2.1.3
 * Foi corrigido o erro no PartitionKey para V2 de Hash.
 
-### <a name="a-name210212"></a><a name="2.1.0"/>2.1.2
+### <a name="a-name212212"></a><a name="2.1.2"/>2.1.2
 * Foi adicionado suporte para índices compostos.
 * Foi corrigido o erro no Gestor de ponto final global para forçar a atualização.
 * Foi corrigido o erro para upserts com condições anteriores no modo direto.
 
-### <a name="a-name210211"></a><a name="2.1.0"/>2.1.1
+### <a name="a-name211211"></a><a name="2.1.1"/>2.1.1
 * Foi corrigido o erro na cache do endereço de gateway.
 
 ### <a name="a-name210210"></a><a name="2.1.0"/>2.1.0

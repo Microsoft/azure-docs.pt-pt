@@ -1,10 +1,10 @@
 ---
-title: Os temporizadores de Atores fiáveis e lembretes | Microsoft Docs
-description: Introdução ao temporizadores e lembretes dos Reliable Actors do serviço de recursos de infraestrutura.
+title: Reliable Actors temporizadores e lembretes | Documentos da Microsoft
+description: Introdução ao lembretes e temporizadores dos Reliable Actors do Service Fabric.
 services: service-fabric
 documentationcenter: .net
 author: vturecek
-manager: timlt
+manager: chackdan
 editor: amanbha
 ms.assetid: 00c48716-569e-4a64-bd6c-25234c85ff4f
 ms.service: service-fabric
@@ -14,19 +14,20 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/02/2017
 ms.author: vturecek
-ms.openlocfilehash: e43aec6630a4a688ffd6c52a5e5bd711243fa662
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 323de842645cced3c6f490e98112fcbcd184aa64
+ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/16/2018
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58667434"
 ---
-# <a name="actor-timers-and-reminders"></a>Os temporizadores de ator e lembretes
-Atores podem agendar trabalho periódico em si próprios registando temporizadores ou lembretes. Este artigo mostra como utilizar os temporizadores e lembretes e explica as diferenças entre os mesmos.
+# <a name="actor-timers-and-reminders"></a>Lembretes e temporizadores de ator
+Actors podem agendar trabalho periódico nos próprios registrando temporizadores e lembretes. Este artigo mostra como usar temporizadores e lembretes e explica as diferenças entre eles.
 
 ## <a name="actor-timers"></a>Temporizadores de ator
-Os temporizadores de ator fornecem um simple wrapper em torno de um temporizador .NET ou Java para se certificar de que os métodos de chamada de retorno respeitem a concorrência com base em ative garante que o tempo de execução de Atores fornece.
+Os temporizadores de ator fornecem um wrapper simple em torno de um temporizador de .NET ou Java para se certificar de que os métodos de retorno de chamada respeitam a simultaneidade turnos garante que fornece o tempo de execução de Atores.
 
-Podem utilizar atores a `RegisterTimer`(c#) ou `registerTimer`(Java) e `UnregisterTimer`(c#) ou `unregisterTimer`métodos (Java) na sua classe base para registar e anular o registo os temporizadores. O exemplo abaixo mostra a utilização de temporizador APIs. As APIs são muito semelhantes para o temporizador de .NET ou o temporizador de Java. Neste exemplo, quando o temporizador é devido, o tempo de execução de Atores irá chamar o `MoveObject`(c#) ou `moveObject`método (Java). O método é garantido Respeitamos a concorrência com base em ativar. Isto significa que não existem outros métodos de ator ou chamadas de retorno de temporizador/lembrete será em curso até que esta chamada de retorno de conclusão da execução.
+Actors podem utilizar o `RegisterTimer`(C#) ou `registerTimer`(Java) e `UnregisterTimer`(C#) ou `unregisterTimer`métodos (Java) em sua classe base para se registrar e cancelar o registro de suas temporizadores. O exemplo abaixo mostra a utilização de APIs do temporizador. As APIs são muito semelhantes para o temporizador de .NET ou o temporizador de Java. Neste exemplo, quando o temporizador é concluído, o tempo de execução de Atores chamará o `MoveObject`(C#) ou `moveObject`método (Java). O método é garantido que respeite a simultaneidade turnos. Isso significa que não existem outros métodos de ator ou retornos de chamada do timer/lembrete será em curso até que esse retorno de chamada seja concluída a execução.
 
 ```csharp
 class VisualObjectActor : Actor, IVisualObject
@@ -126,16 +127,16 @@ public class VisualObjectActorImpl extends FabricActor implements VisualObjectAc
 }
 ```
 
-O próximo período do temporizador é iniciado após a chamada de retorno de conclusão da execução. Isto implica que o temporizador é parou durante a chamada de retorno está a executar e é iniciada quando termina a chamada de retorno.
+O período seguinte do temporizador inicia após o retorno de chamada de conclusão da execução. Isso implica que o temporizador é parado, enquanto o retorno de chamada está em execução e é iniciado quando o retorno de chamada é concluída.
 
-O tempo de execução de Atores guarda as alterações efetuadas ao Gestor de estado do ator quando termina a chamada de retorno. Se ocorrer um erro ao guardar o estado, esse objeto de ator vai ser desativado e uma nova instância irá ser ativada.
+O tempo de execução de Atores guarda as alterações feitas ao Gestor de estado do ator após a conclusão de retorno de chamada. Se ocorrer um erro ao guardar o estado, esse objeto de ator será desativado e uma nova instância será ativada.
 
-Todos os temporizadores são interrompidos quando o ator está desativado como parte da recolha de lixo. Chamadas de retorno não temporizador são invocadas depois disso. Além disso, o tempo de execução de Atores não mantém qualquer informação sobre os temporizadores que estavam em execução antes de Desativação. Trata-se até o ator para registar os temporizadores de que necessita quando é reativado-la no futuro. Para obter mais informações, consulte a secção sobre [recolha de lixo de ator](service-fabric-reliable-actors-lifecycle.md).
+Todos os temporizadores são paradas quando o ator é desativado como parte da coleta de lixo. Nenhum retorno de chamada do timer é chamados depois disso. Além disso, o tempo de execução de Atores não mantém qualquer informação sobre os timers que estavam em execução antes da desativação. É até o ator para registar a existirem outros timers que ela precisa quando ele for reativado no futuro. Para obter mais informações, consulte a secção sobre [coleta de lixo de ator](service-fabric-reliable-actors-lifecycle.md).
 
 ## <a name="actor-reminders"></a>Lembretes de ator
-Lembretes são um mecanismo para acionar as chamadas de retorno persistentes num ator em especificado vezes. As suas funcionalidades é semelhante à temporizadores. Mas, ao contrário temporizadores, lembretes são acionados em todas as circunstâncias até o ator explicitamente anula o registo-los ou o ator explicitamente é eliminado. Especificamente, lembretes são acionados em deactivations ator e as ativações pós-falha porque o tempo de execução de Atores persiste informações sobre lembretes de ator utilizando o fornecedor de estado de ator. Tenha em atenção que a fiabilidade de lembretes está associada ao garantias de fiabilidade Estado fornecidas pelo fornecedor de estado de ator. Isto significa que para os atores cuja persistência do estado é definida como nenhum, os lembretes não serão acionados após uma ativação pós-falha. 
+Lembretes são um mecanismo para acionar chamadas de retorno persistentes num ator em determinados horários. Sua funcionalidade é semelhante a temporizadores. Mas, ao contrário de temporizadores, lembretes são acionados em todas as circunstâncias até que o ator explicitamente anula o registo-los ou eliminar explicitamente o ator. Especificamente, os lembretes são acionados em desativações de ator e ativações pós-falha porque o tempo de execução de Atores persistir informações sobre lembretes de ator com o fornecedor de estado do ator. Tenha em atenção que a confiabilidade de lembretes está ligada às garantias de confiabilidade de estado fornecidas pelo fornecedor de estado de ator. Isso significa que para atores cuja persistência de estado é definida como None, os lembretes não serão disparado após uma ativação pós-falha. 
 
-Para registar um lembrete, um ator chama o `RegisterReminderAsync` método fornecido na classe base, conforme mostrado no exemplo seguinte:
+Para registar um lembrete, um ator chama o `RegisterReminderAsync` método fornecido na classe base, conforme mostrado no exemplo a seguir:
 
 ```csharp
 protected override async Task OnActivateAsync()
@@ -166,7 +167,7 @@ protected CompletableFuture onActivateAsync()
 }
 ```
 
-Neste exemplo, `"Pay cell phone bill"` é o nome de lembretes. Esta é uma cadeia com o ator utiliza para identificar exclusivamente um lembrete. `BitConverter.GetBytes(amountInDollars)`(C#) é o contexto que estão associado com o lembrete. -Será transmitida novamente para o ator como um argumento para a chamada de retorno lembrete, ou seja, `IRemindable.ReceiveReminderAsync`(c#) ou `Remindable.receiveReminderAsync`(Java).
+Neste exemplo, `"Pay cell phone bill"` é o nome de lembrete. Esta é uma cadeia de caracteres que o ator utiliza para identificar exclusivamente um lembrete. `BitConverter.GetBytes(amountInDollars)`(C#) é o contexto que estão associado com o lembrete. Ela será transmitida para o ator como um argumento para o retorno de chamada de lembrete, ou seja `IRemindable.ReceiveReminderAsync`(C#) ou `Remindable.receiveReminderAsync`(Java).
 
 Atores que utilizam lembretes tem de implementar o `IRemindable` interface, conforme mostrado no exemplo abaixo.
 
@@ -209,11 +210,11 @@ public class ToDoListActorImpl extends FabricActor implements ToDoListActor, Rem
 
 ```
 
-Quando um lembrete é acionado, o tempo de execução Reliable Actors serão invocados a `ReceiveReminderAsync`(c#) ou `receiveReminderAsync`método de Ator (Java). Um ator pode registar lembretes vários e o `ReceiveReminderAsync`(c#) ou `receiveReminderAsync`método (Java) é invocado quando qualquer um desses lembretes é acionada. O ator pode utilizar o nome de lembrete que é transmitido para o `ReceiveReminderAsync`(c#) ou `receiveReminderAsync`método (Java) para descobrir qual lembrete foi acionado.
+Quando for acionado um lembrete, o tempo de execução do Reliable Actors invocará o `ReceiveReminderAsync`(C#) ou `receiveReminderAsync`método de (Java) no Ator. Um ator pode registar várias lembretes e o `ReceiveReminderAsync`(C#) ou `receiveReminderAsync`(Java) método é invocado quando qualquer um desses lembretes é acionado. O ator pode utilizar o nome de lembrete que é passado para o `ReceiveReminderAsync`(C#) ou `receiveReminderAsync`método de (Java) para descobrir qual lembrete foi acionada.
 
-Os runtime guarda o actor de Atores de estado quando o `ReceiveReminderAsync`(c#) ou `receiveReminderAsync`conclusão de chamada (Java). Se ocorrer um erro ao guardar o estado, esse objeto de ator vai ser desativado e uma nova instância irá ser ativada.
+Os Atores guarda de tempo de execução do ator de estado quando o `ReceiveReminderAsync`(C#) ou `receiveReminderAsync`conclusão da chamada (Java). Se ocorrer um erro ao guardar o estado, esse objeto de ator será desativado e uma nova instância será ativada.
 
-Ao anular o registo um lembrete, um ator chama o `UnregisterReminderAsync`(c#) ou `unregisterReminderAsync`método (Java), conforme ilustrado nos exemplos abaixo.
+Para anular o registo de um lembrete, um ator chama o `UnregisterReminderAsync`(C#) ou `unregisterReminderAsync`método (Java), conforme mostrado nos exemplos abaixo.
 
 ```csharp
 IActorReminder reminder = GetReminder("Pay cell phone bill");
@@ -224,9 +225,9 @@ ActorReminder reminder = getReminder("Pay cell phone bill");
 CompletableFuture reminderUnregistration = unregisterReminderAsync(reminder);
 ```
 
-Conforme mostrado acima, o `UnregisterReminderAsync`(c#) ou `unregisterReminderAsync`método (Java) aceita um `IActorReminder`(c#) ou `ActorReminder`interface (Java). O suporta de classe base ator um `GetReminder`(c#) ou `getReminder`método (Java) que pode ser utilizado para obter o `IActorReminder`(c#) ou `ActorReminder`interface (Java) mediante a transmissão no nome do lembrete. Este é conveniente porque o ator têm de manter o `IActorReminder`(c#) ou `ActorReminder`interface (Java) que foi devolvida a `RegisterReminder`(c#) ou `registerReminder`chamada de método (Java).
+Conforme mostrado acima, o `UnregisterReminderAsync`(C#) ou `unregisterReminderAsync`(Java) método aceita um `IActorReminder`(C#) ou `ActorReminder`interface (Java). O suporte de classe base do ator uma `GetReminder`(C#) ou `getReminder`método de (Java) que pode ser usado para recuperar o `IActorReminder`(C#) ou `ActorReminder`interface (Java) ao transmitir o nome de lembrete. Isso é conveniente porque o ator não precisa de manter os `IActorReminder`(C#) ou `ActorReminder`interface (Java) que foi devolvido do `RegisterReminder`(C#) ou `registerReminder`chamada de método (Java).
 
 ## <a name="next-steps"></a>Próximos Passos
-Saiba mais sobre eventos de Ator fiável e reentrancy:
+Saiba mais sobre eventos de Reliable Actor e reentrância:
 * [Eventos de ator](service-fabric-reliable-actors-events.md)
-* [Reentrancy ator](service-fabric-reliable-actors-reentrancy.md)
+* [Reentrada de ator](service-fabric-reliable-actors-reentrancy.md)

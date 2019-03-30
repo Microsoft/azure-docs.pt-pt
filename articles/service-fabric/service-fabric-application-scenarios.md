@@ -3,8 +3,8 @@ title: Cenários da aplicação e design | Documentos da Microsoft
 description: Descrição geral das categorias de aplicações na cloud no Service Fabric. Aborda o design do aplicativo que utiliza os serviços com e sem estado.
 services: service-fabric
 documentationcenter: .net
-author: msfussell
-manager: timlt
+author: athinanthny
+manager: chackdan
 editor: ''
 ms.assetid: 3a8ca6ea-b8e9-4bc3-9e20-262437d2528e
 ms.service: service-fabric
@@ -13,13 +13,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 7/02/2017
-ms.author: mfussell
-ms.openlocfilehash: a84d8fead42f8314decc144f01d8de1dac30bbdf
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.author: atsenthi
+ms.openlocfilehash: c9b2f9ac131e71b7c6b37ed85568adc0c3978dc2
+ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56199481"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58668250"
 ---
 # <a name="service-fabric-application-scenarios"></a>Cenários de aplicações do Service Fabric
 O Azure Service Fabric oferece uma plataforma fiável e flexível que lhe permite escrever e executar muitos tipos de aplicações e serviços empresariais. Estas aplicações e os microsserviços podem ser com ou sem estado, e são com balanceamento de recurso em máquinas virtuais para maximizar a eficiência. A arquitetura única do Service Fabric permite-lhe efetuar perto de análise de dados em tempo real, computação dentro da memória, transações paralelas e em seus aplicativos de processamento de eventos. Pode facilmente dimensionar as suas aplicações ou reduzir verticalmente (realmente a entrada ou saída), dependendo dos requisitos de recursos de alteração.

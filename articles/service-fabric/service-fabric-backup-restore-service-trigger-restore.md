@@ -4,7 +4,7 @@ description: Utilize a cópia de segurança periódica e restaurar a funcionalid
 services: service-fabric
 documentationcenter: .net
 author: aagup
-manager: timlt
+manager: chackdan
 editor: aagup
 ms.assetid: 802F55B6-6575-4AE1-8A8E-C9B03512FF88
 ms.service: service-fabric
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/30/2018
 ms.author: aagup
-ms.openlocfilehash: 66df926eaaf771fdde4d2eb59772b9d38a87edf0
-ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
+ms.openlocfilehash: a82004fdd6bbb4eda0842670f210f846f9446384
+ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56313233"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58667179"
 ---
 # <a name="restoring-backup-in-azure-service-fabric"></a>Restaurar cópia de segurança no Azure Service Fabric
 
@@ -229,7 +229,7 @@ O andamento de pedido de restauro na seguinte ordem:
     ```
     
 3. **Sucesso**, **falha**, ou **tempo limite**: Um pedido de restauro pode ser concluído em qualquer um dos seguintes Estados. Cada Estado possui os seguintes detalhes de significado e a resposta:
-    - **Êxito**: R _êxito_ restaurar estado indica um Estado de partição voltou a ter. Os relatórios de partição _RestoredEpoch_ e _RestoredLSN_ Estados juntamente com a hora em UTC.
+    - **Success**: R _êxito_ restaurar estado indica um Estado de partição voltou a ter. Os relatórios de partição _RestoredEpoch_ e _RestoredLSN_ Estados juntamente com a hora em UTC.
 
         ```
         RestoreState  : Success

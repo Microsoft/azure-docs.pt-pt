@@ -9,12 +9,12 @@ ms.author: heidist
 manager: cgronlun
 author: HeidiSteen
 ms.custom: seodec2018
-ms.openlocfilehash: 3e6f0a2b9b935df9b12cf9146ebf05f1b1c84855
-ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
+ms.openlocfilehash: e3738980206277587ca367339d75da4f3faa643a
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2019
-ms.locfileid: "58578769"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58651826"
 ---
 # <a name="analyzers-for-text-processing-in-azure-search"></a>Analisadores de processamento no Azure Search de texto
 
@@ -291,7 +291,7 @@ Qualquer analisador que é utilizado como-é, sem qualquer configuração, é es
 
 Este exemplo atribui analisadores English da Microsoft e francês aos campos de descrição. É um trecho de código obtido a partir de uma definição de maior do índice de hotéis, usando a classe de Hotel no arquivo hotels.cs de a criar o [DotNetHowTo](https://github.com/Azure-Samples/search-dotnet-getting-started/tree/master/DotNetHowTo) exemplo.
 
-Chamar [analisador](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.analyzer?view=azure-dotnet), a especificação do [AnalyzerName classe](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.analyzername?view=azure-dotnet) que fornece todos os analisadores de texto suportados no Azure Search.
+Chamar [analisador](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.analyzer?view=azure-dotnet), a especificação do [AnalyzerName](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.analyzername?view=azure-dotnet) tipo fornecendo um analisador de texto suportado no Azure Search.
 
 ```csharp
     public partial class Hotel
@@ -317,7 +317,7 @@ Chamar [analisador](https://docs.microsoft.com/dotnet/api/microsoft.azure.search
 
 Quando a personalização ou configuração é necessária, terá de adicionar uma construção do analyzer para um índice. Depois de defini-lo, pode adicioná-lo a definição de campo como demonstrado no exemplo anterior.
 
-Uso [CustomAnalyzer](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.customanalyzer?view=azure-dotnet) para criar o objeto. Para obter mais exemplos, consulte [CustomAnalyzerTests.cs](https://github.com/Azure/azure-sdk-for-net/blob/master/src/SDKs/Search/DataPlane/Search.Tests/Tests/CustomAnalyzerTests.cs).
+Criar uma [CustomAnalyzer](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.customanalyzer?view=azure-dotnet) objeto. Para obter mais exemplos, consulte [CustomAnalyzerTests.cs](https://github.com/Azure/azure-sdk-for-net/blob/master/src/SDKs/Search/DataPlane/Search.Tests/Tests/CustomAnalyzerTests.cs).
 
 ```csharp
 {

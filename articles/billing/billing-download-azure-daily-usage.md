@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/19/2019
 ms.author: banders
-ms.openlocfilehash: 20404cea2aca984ef35472fa94d37c04eb8080e4
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 520d3f6a45b44ba2023dee34642f796689f48221
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57872659"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58648851"
 ---
 # <a name="view-and-download-your-azure-usage-and-charges"></a>Ver e transferir a sua utilização do Azure e os encargos
 
@@ -28,7 +28,7 @@ Se estiver num cliente EA ou têm um [contrato de cliente do Microsoft](#check-y
 
 Apenas determinadas funções do utilizador tem permissão para obter informações de utilização do Azure, como o administrador de conta ou administrador de empresa. Para saber mais sobre como obter acesso a informações de faturação, veja [Gerir acesso às funções de utilização de faturação do Azure](billing-manage-access.md).
 
-Se tiver um [contrato de cliente da Microsoft](#Check-your-access-to-a-Microsoft-Customer-Agreement), tem de ser um perfil de faturação proprietário, Contribuidor, leitor, ou manager para ver a sua utilização do Azure e a cobrança de nota fiscal. Para saber mais sobre as funções de faturas para contratos de cliente da Microsoft, consulte [funções de perfis e tarefas de faturação](billing-understand-mca-roles.md#billing-profile-roles-and-tasks).
+Se tiver um [contrato de cliente da Microsoft](#check-your-access-to-a-microsoft-customer-agreement), tem de ser um perfil de faturação proprietário, Contribuidor, leitor, ou manager para ver a sua utilização do Azure e a cobrança de nota fiscal. Para saber mais sobre as funções de faturas para contratos de cliente da Microsoft, consulte [funções de perfis e tarefas de faturação](billing-understand-mca-roles.md#billing-profile-roles-and-tasks).
 
 ## <a name="download-usage-from-the-account-center-csv"></a>Transferir utilização a partir do Centro de contas (. csv)
 

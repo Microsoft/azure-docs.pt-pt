@@ -4,7 +4,7 @@ description: ReliableConcurrentQueue é uma fila de alto débito, que permite qu
 services: service-fabric
 documentationcenter: .net
 author: aljo-microsoft
-manager: timlt
+manager: chackdan
 editor: raja,tyadam,masnider,vturecek
 ms.assetid: 62857523-604b-434e-bd1c-2141ea4b00d1
 ms.service: service-fabric
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: required
 ms.date: 5/1/2017
 ms.author: aljo
-ms.openlocfilehash: 6fefbd21a5c301111afdc27ec1d332d713c669ad
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: dbdfa4686c047fa7cf5d74cd9aca768447f9db93
+ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58119654"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58663654"
 ---
 # <a name="introduction-to-reliableconcurrentqueue-in-azure-service-fabric"></a>Introdução ao ReliableConcurrentQueue nos recursos de infraestrutura do serviço do Azure
 Fila do Reliable Concurrent é uma fila assíncrona, transacional e replicada qual simultaneidade de alto de funcionalidades para colocar em fila e tirar da fila de operações. Ele foi projetado para fornecer alto débito e baixa latência ao simplificar a ordenação de FIFO strict fornecida pela [fila do Reliable](https://msdn.microsoft.com/library/azure/dn971527.aspx) e em vez disso, fornece uma ordem de melhor esforço.

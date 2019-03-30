@@ -4,15 +4,15 @@ description: Este artigo resume as perguntas mais comuns ao configurar a recuper
 author: asgang
 manager: rochakm
 ms.service: site-recovery
-ms.date: 03/18/2019
+ms.date: 03/29/2019
 ms.topic: conceptual
 ms.author: asgang
-ms.openlocfilehash: 2c1890570f153de68d187c37dc0a7bca156c2d47
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: 66d57677b216130316c6a3ddd9a6cff993540808
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58312058"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58649888"
 ---
 # <a name="common-questions-azure-to-azure-replication"></a>Perguntas mais comuns: Replicação do Azure para o Azure
 
@@ -34,6 +34,9 @@ Sim, embora o Azure Site Recovery seja gratuito durante os primeiros 31 dias de 
 3. [Configurar a recuperação após desastre para VMs do Azure](azure-to-azure-how-to-enable-replication.md)
 4. [Executar uma ativação pós-falha de teste](azure-to-azure-tutorial-dr-drill.md)
 5. [Ativação pós-falha e reativação pós-falha para a região primária](azure-to-azure-tutorial-failover-failback.md)
+
+### <a name="how-is-capacity-guaranteed-in-target-region-for-azure-vms"></a>Como é capacidade garantida na região de destino para VMs do Azure?
+A equipa do Azure Site Recovery (ASR) funciona com a equipa de gestão de capacidade do Azure para planear a capacidade de infra-estrutura suficiente, numa tentativa de se certificar de que as VMs protegidas por ASR para o desastre recovery com êxito de ser implementado na região de recuperação (DR) após desastre, Sempre que são iniciadas operações de ativação pós-falha do ASR.
 
 ## <a name="replication"></a>Replicação
 
@@ -79,7 +82,7 @@ Define as definições para o histórico de retenção de pontos de recuperaçã
 [Saiba mais](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-tutorial-enable-replication#configure-replication-settings).
 
 ### <a name="what-is-a-crash-consistent-recovery-point"></a>O que é um ponto de recuperação consistentes com falhas?
-Um ponto de recuperação consistentes com falhas representa os dados no disco, como se a VM falhou ou o cabo de alimentação foi obtido a partir do servidor no momento do instantâneo foi tirado. Ele não inclui tudo o que estava na memória, quando o instantâneo foi tirado. 
+Um ponto de recuperação consistentes com falhas representa os dados no disco, como se a VM falhou ou o cabo de alimentação foi obtido a partir do servidor no momento do instantâneo foi tirado. Ele não inclui tudo o que estava na memória, quando o instantâneo foi tirado.
 
 Hoje em dia, a maioria dos aplicativos pode recuperar bem a partir de instantâneos consistentes com falhas. Um ponto de recuperação consistentes com falhas geralmente é suficiente para sistemas de operativos de não-base de dados e aplicações, como servidores de arquivos, servidores DHCP e servidores de impressão.
 
@@ -87,9 +90,7 @@ Hoje em dia, a maioria dos aplicativos pode recuperar bem a partir de instantân
 Site Recovery cria um ponto de recuperação consistentes com falhas, a cada 5 minutos.
 
 ### <a name="what-is-an-application-consistent-recovery-point"></a>O que é um ponto de recuperação consistentes com aplicações? 
-Pontos de recuperação consistentes com a aplicação são criados a partir de instantâneos consistentes com aplicações. Pontos de recuperação consistentes com aplicações capturam os mesmos dados como instantâneos consistentes com falhas, com a adição de todos os dados na memória e todas as transações no processo. 
-
-Devido aos conteúdos adicionais, os instantâneos consistentes com aplicações mais estejam e segue há mais tempo para executar. Recomendamos que os pontos de recuperação consistentes com aplicações de sistemas operacionais de base de dados e aplicações como o SQL Server.
+Pontos de recuperação consistentes com a aplicação são criados a partir de instantâneos consistentes com aplicações. Pontos de recuperação consistentes com aplicações capturam os mesmos dados como instantâneos consistentes com falhas, com a adição de todos os dados na memória e todas as transações no processo. Devido aos conteúdos adicionais, os instantâneos consistentes com aplicações mais estejam e segue há mais tempo para executar. Recomendamos que os pontos de recuperação consistentes com aplicações de sistemas operacionais de base de dados e aplicações como o SQL Server.
 
 ### <a name="what-is-the-impact-of-application-consistent-recovery-points-on-application-performance"></a>O que é o impacto de pontos de recuperação consistentes com aplicações no desempenho de aplicações?
 Considerando a pontos de recuperação consistentes com aplicações captura todos os dados na memória e no processo requer o framework, como o VSS no windows para silenciar o aplicativo. Isso, caso sejam feitas com bastante freqüência pode ter impacto no desempenho se a carga de trabalho já está muito ocupada. Normalmente, recomenda-se para não utilizar baixa frequência para pontos de recuperação consistente com a aplicação para cargas de trabalho não base de dados e para a carga de trabalho de base de dados de 1 hora é suficiente. 
@@ -116,8 +117,8 @@ O ponto de recuperação mais antigo que pode usar é 72 horas.
 ### <a name="what-will-happen-if-i-have-a-replication-policy-of-24-hours-and-a-problem-prevents-site-recovery-from-generating-recovery-points-for-more-than-24-hours-will-my-previous-recovery-points-be-lost"></a>O que acontecerá se eu tiver uma política de replicação de 24 horas e um problema impede que o Site Recovery da geração de pontos de recuperação durante mais de 24 horas? Meus pontos de recuperação anteriores serão perdidos?
 Não, o Site Recovery irá manter todos os pontos de recuperação anterior. Dependendo da janela de retenção de pontos de recuperação, 24 horas neste caso, a recuperação de Site substitui o ponto mais antigo apenas se existir uma geração de pontos de nova. Neste caso, pois não haverá qualquer novo ponto de recuperação gerado devido a algum problema, todos os pontos de antigos permanecerão intactos uma vez que aceder a janela de retenção.
 
-### <a name="after-replication-is-enabled-on-a-vm-how-do-i-change-the-replication-policy"></a>Após a replicação estiver ativada numa VM, como posso alterar a política de replicação? 
-Aceda a **Cofre de recuperação de sites** > **infraestrutura do Site Recovery** > **políticas de replicação**. Selecione a política que pretende editar e guardar as alterações. Qualquer alteração será aplicada a todas as replicações existentes também. 
+### <a name="after-replication-is-enabled-on-a-vm-how-do-i-change-the-replication-policy"></a>Após a replicação estiver ativada numa VM, como posso alterar a política de replicação?
+Aceda a **Cofre de recuperação de sites** > **infraestrutura do Site Recovery** > **políticas de replicação**. Selecione a política que pretende editar e guardar as alterações. Qualquer alteração será aplicada a todas as replicações existentes também.
 
 ### <a name="are-all-the-recovery-points-a-complete-copy-of-the-vm-or-a-differential"></a>São todos os pontos de recuperação de uma cópia completa de VM ou um valor diferencial?
 O primeiro ponto de recuperação que é gerado tem a cópia completa. Pontos de recuperação sucessivas tem alterações delta.
@@ -125,7 +126,7 @@ O primeiro ponto de recuperação que é gerado tem a cópia completa. Pontos de
 ### <a name="does-increasing-the-retention-period-of-recovery-points-increase-the-storage-cost"></a>Aumentar o período de retenção de pontos de recuperação aumenta o custo de armazenamento?
 Sim. Se aumentar o período de retenção de 24 horas para 72 horas, o Site Recovery irá guardar os pontos de recuperação para um adicional de 48 horas. O tempo extra incorre em custos de armazenamento. Por exemplo, se um ponto de recuperação de único tem alterações de delta de 10 GB e o custo por GB é de US $0.16 por mês, os encargos adicionais seria US $1.6 * 48 por mês.
 
-## <a name="multi-vm-consistency"></a>Consistência de multi-VMs 
+## <a name="multi-vm-consistency"></a>Consistência de multi-VMs
 
 ### <a name="what-is-multi-vm-consistency"></a>O que é a consistência multi-VM?
 Isso significa certificar-se de que o ponto de recuperação é consistente em todas as máquinas virtuais replicadas.
@@ -134,7 +135,7 @@ Todas as máquinas virtuais irão partilhar pontos de recuperação consistentes
 Avance para o tutorial para [ativar a consistência multi-VM](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-tutorial-enable-replication#enable-replication).
 
 ### <a name="can-i-failover-single-virtual-machine-within-a-multi-vm-consistency-replication-group"></a>Posso ativação pós-falha única máquina virtual dentro de um grupo de replicação de consistência de multi-VMS?
-Ao selecionar a opção "Consistência de multi-VMS", estão a indicar que a aplicação tem uma dependência em todas as máquinas virtuais dentro de um grupo. Por conseguinte, a ativação pós-falha da máquina virtual individual não é permitida. 
+Ao selecionar a opção "Consistência de multi-VMS", estão a indicar que a aplicação tem uma dependência em todas as máquinas virtuais dentro de um grupo. Por conseguinte, a ativação pós-falha da máquina virtual individual não é permitida.
 
 ### <a name="how-many-virtual-machines-can-i-replicate-as-a-part-of-a-multi-vm-consistency-replication-group"></a>Número de máquinas virtuais pode replicar como parte de um grupo de replicação de consistência de multi-VMS
 Pode replicar 16 máquinas de virtuais em conjunto num grupo de replicação.
@@ -145,9 +146,12 @@ Como é exigente em termos de CPU, a ativar a consistência multi-VM pode afetar
 
 ## <a name="failover"></a>Ativação pós-falha
 
+### <a name="how-is-capacity-guaranteed-in-target-region-for-azure-vms"></a>Como é capacidade garantida na região de destino para VMs do Azure?
+A equipa do Azure Site Recovery (ASR) funciona com a equipa de gestão de capacidade do Azure para planear a capacidade de infra-estrutura suficiente, numa tentativa de se certificar de que as VMs protegidas por ASR para o desastre recovery com êxito de ser implementado na região de recuperação (DR) após desastre, Sempre que são iniciadas operações de ativação pós-falha do ASR.
+
 ### <a name="is-failover-automatic"></a>A ativação pós-falha é automática?
 
-A ativação pós-falha não é automática. Iniciar ativações pós-falha com um único clique no portal ou pode utilizar [PowerShell](azure-to-azure-powershell.md) para acionar uma ativação pós-falha. 
+A ativação pós-falha não é automática. Iniciar ativações pós-falha com um único clique no portal ou pode utilizar [PowerShell](azure-to-azure-powershell.md) para acionar uma ativação pós-falha.
 
 ### <a name="can-i-retain-a-public-ip-address-after-failover"></a>Pode manter um endereço IP público após a ativação pós-falha?
 
@@ -158,7 +162,8 @@ Sim, pode manter um endereço IP privado. Por predefinição, ao ativar a DR par
 
 ### <a name="after-failover-the-server-doesnt-have-the-same-ip-address-as-the-source-vm-why-is-it-assigned-a-new-ip-address"></a>Após a ativação pós-falha, o servidor não tem o mesmo endereço IP da VM de origem. Por que ele está atribuído um novo endereço IP?
 
-Recuperação de site tenta fornecer o endereço IP no momento da ativação pós-falha. Se outra máquina virtual está a demorar esse endereço, o Site Recovery define o endereço IP disponível seguinte como o destino. Para obter uma explicação completa de como o Site Recovery trata endereçamento de mensagens em fila, consulte [configurar o mapeamento da rede e endereçamento IP para redes virtuais](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-network-mapping#set-up-ip-addressing-for-target-vms).
+Recuperação de site tenta fornecer o endereço IP no momento da ativação pós-falha. Se outra máquina virtual está a demorar esse endereço, o Site Recovery define o endereço IP disponível seguinte como o destino.
+Para obter uma explicação completa de como o Site Recovery trata endereçamento de mensagens em fila, consulte [configurar o mapeamento da rede e endereçamento IP para redes virtuais](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-network-mapping#set-up-ip-addressing-for-target-vms).
 
 ### <a name="what-are-latest-lowest-rpo-recovery-points"></a>O que são **mais recente (RPO mais baixo)** pontos de recuperação?
 O **mais recente (RPO mais baixo)** opção processa primeiro todos os dados que tenham sido enviados para o serviço Site Recovery, para criar um ponto de recuperação para cada VM antes de realizar a ativação pós-falha para o mesmo. Esta opção fornece o objetivo de ponto de recuperação (RPO), mais baixo, porque a VM criada após a ativação pós-falha tem todos os dados replicados para o Site Recovery quando a ativação pós-falha foi acionada.
@@ -173,7 +178,7 @@ O **processada pela última vez** esse Site Recovery processados do ponto de fal
 Pode acionar uma ativação pós-falha após a falha. Recuperação de sites não necessita de conectividade da região primária para efetuar a ativação pós-falha.
 
 ### <a name="what-is-a-rto-of-a-virtual-machine-failover-"></a>O que é um RTO de uma ativação pós-falha de máquinas virtuais?
-Site Recovery tem um [RTO SLA de 2 horas](https://azure.microsoft.com/support/legal/sla/site-recovery/v1_2/). No entanto, a maioria das vezes, a recuperação de Site a ativação pós-falha máquinas virtuais em minutos. Pode calcular o RTO indo para a ativação pós-falha de tarefas que mostra o tempo que levou para criar a VM. Para a recuperação planear RTO, consulte abaixo de secção. 
+Site Recovery tem um [RTO SLA de 2 horas](https://azure.microsoft.com/support/legal/sla/site-recovery/v1_2/). No entanto, a maioria das vezes, a recuperação de Site a ativação pós-falha máquinas virtuais em minutos. Pode calcular o RTO indo para a ativação pós-falha de tarefas que mostra o tempo que levou para criar a VM. Para a recuperação planear RTO, consulte abaixo de secção.
 
 ## <a name="recovery-plans"></a>Planos de recuperação
 
@@ -188,7 +193,7 @@ Um plano de recuperação no Site Recovery organiza a recuperação de ativaçã
 
 ### <a name="how-is-sequencing-achieved-in-a-recovery-plan"></a>Como o sequenciamento é obtido num plano de recuperação?
 
-Num plano de recuperação, pode criar vários grupos para alcançar a sequenciação. Cada grupo faz a ativação pós-falha de uma só vez. VMs que fazem parte do mesmo falhe de grupo ao longo em conjunto, seguido de outro grupo. Para saber como modelar um aplicativo usando um plano de recuperação, veja [sobre os planos de recuperação](recovery-plan-overview.md#model-apps). 
+Num plano de recuperação, pode criar vários grupos para alcançar a sequenciação. Cada grupo faz a ativação pós-falha de uma só vez. VMs que fazem parte do mesmo falhe de grupo ao longo em conjunto, seguido de outro grupo. Para saber como modelar um aplicativo usando um plano de recuperação, veja [sobre os planos de recuperação](recovery-plan-overview.md#model-apps).
 
 ### <a name="how-can-i-find-the-rto-of-a-recovery-plan"></a>Como posso encontrar o RTO de um plano de recuperação?
 Para verificar o RTO de um plano de recuperação, fazer uma ativação pós-falha de teste para o plano de recuperação e aceda a **tarefas de recuperação de Site**.
@@ -199,7 +204,7 @@ No exemplo seguinte, a tarefa denominada SAPTestRecoveryPlan demorou 8 minutos e
 ### <a name="can-i-add-automation-runbooks-to-the-recovery-plan"></a>Pode adicionar runbooks de automatização ao plano de recuperação?
 Sim, pode integrar os runbooks de automatização do Azure no seu plano de recuperação. [Saiba mais](site-recovery-runbook-automation.md).
 
-## <a name="reprotection-and-failback"></a>Reproteção e reativação pós-falha 
+## <a name="reprotection-and-failback"></a>Reproteção e reativação pós-falha
 
 ### <a name="after-a-failover-from-the-primary-region-to-a-disaster-recovery-region-are-vms-in-a-dr-region-protected-automatically"></a>Após uma ativação pós-falha da região primária para uma região de recuperação após desastre, são VMs numa região de DR protegida automaticamente?
 Não. Quando [efetuar a ativação pós-falha](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-tutorial-failover-failback) as VMs do Azure de uma região para outra, as VMs arrancar na região DR num estado desprotegido. Para efetuar a reativação pós-falha de VMs para a região primária, precisa [voltar a proteger](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-how-to-reprotect) as VMs na região secundária.
@@ -208,7 +213,7 @@ Não. Quando [efetuar a ativação pós-falha](https://docs.microsoft.com/azure/
 Depende da situação. Por exemplo, se a região de origem VM existir, apenas as alterações entre o disco de origem e o disco de destino são sincronizadas. Recuperação de site calcula os diferenciais ao comparar os discos e, em seguida, transferir os dados. Este processo normalmente demora algumas horas. Para obter mais informações sobre o que acontece durante a nova proteção, consulte [Reproteção efetuar a ativação pós-falha de VMs do Azure para a região primária]( https://docs.microsoft.com/azure/site-recovery/azure-to-azure-how-to-reprotect#what-happens-during-reprotection).
 
 ### <a name="how-much-time-does-it-take-to-fail-back"></a>Quanto tempo isso take para a reativação pós-falha?
-Após a nova proteção, a quantidade de tempo para a reativação pós-falha é, normalmente, semelhante a hora de ativação pós-falha da região primária para uma região secundária. 
+Após a nova proteção, a quantidade de tempo para a reativação pós-falha é, normalmente, semelhante a hora de ativação pós-falha da região primária para uma região secundária.
 
 ## <a name="capacity"></a>Capacidade
 ### <a name="does-site-recovery-work-with-reserved-instance"></a>Site Recovery funciona com a instância reservada?

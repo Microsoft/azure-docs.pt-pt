@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 11/27/2018
 ms.author: rajanaki
-ms.openlocfilehash: b1676f53125694eeff3a39adf51dc854c197d756
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: bd65b1479ace1a51087836eb8032f16fd10dc119
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58110499"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58648907"
 ---
 # <a name="reprotect-failed-over-azure-vms-to-the-primary-region"></a>Voltar a proteger efetuar a ativação pós-falha de VMs do Azure para a região primária
 
@@ -22,10 +22,6 @@ Quando [efetuar a ativação pós-falha](site-recovery-failover.md) VMs do Azure
 
 - Voltar a proteger as VMs na região secundária, para que comecem a replicar para a região primária.
 - Após a conclusão de nova proteção e as VMs estão a replicar, pode realizar a ativação-los ao longo do secundário para a região primária.
-
-> [!WARNING]
-> Se tiver [migrados](migrate-overview.md#what-do-we-mean-by-migration) máquinas dos principais para a região secundária, movida a VM para outro grupo de recursos ou eliminado a VM do Azure, não é possível voltar a proteger a VM ou realizar a ativação pós-falha.
-
 
 ## <a name="prerequisites"></a>Pré-requisitos
 1. A ativação pós-falha da VM dos principais para a região secundária tem de ser consolidada.

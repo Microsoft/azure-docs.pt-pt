@@ -1,10 +1,10 @@
 ---
-title: Proteger as comunicações de comunicação remota do serviço com o Java no Azure Service Fabric | Microsoft Docs
-description: Saiba como proteger a comunicação de sistema de interação remota com base do serviço para os serviços de fiáveis do Java que estão a executar um cluster do Service Fabric do Azure.
+title: Proteger as comunicações de comunicação remota do serviço com Java no Azure Service Fabric | Documentos da Microsoft
+description: Saiba como proteger a comunicação do serviço de comunicação remota com base para reliable services do Java que estão em execução num cluster do Azure Service Fabric.
 services: service-fabric
 documentationcenter: java
 author: PavanKunapareddyMSFT
-manager: timlt
+manager: chackdan
 ms.assetid: ''
 ms.service: service-fabric
 ms.devlang: java
@@ -13,25 +13,25 @@ ms.tgt_pltfrm: na
 ms.workload: required
 ms.date: 06/30/2017
 ms.author: pakunapa
-ms.openlocfilehash: cbefb3ede6d0d1fe21065b49c84db9f4db5dd39c
-ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
+ms.openlocfilehash: b465ab602a14285f8cf40b24ce1dfa9c763fecb8
+ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37020818"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58667009"
 ---
-# <a name="secure-service-remoting-communications-in-a-java-service"></a>Proteger as comunicações de comunicação remota do serviço no serviço de Java
+# <a name="secure-service-remoting-communications-in-a-java-service"></a>Proteger as comunicações de comunicação remota do serviço num serviço Java
 > [!div class="op_single_selector"]
 > * [C# no Windows](service-fabric-reliable-services-secure-communication.md)
 > * [Java em Linux](service-fabric-reliable-services-secure-communication-java.md)
 >
 >
 
-A segurança é um dos aspetos mais importantes de comunicação. A estrutura da aplicação Reliable Services fornece alguns pilhas de comunicação prebuilt e ferramentas que pode utilizar para melhorar a segurança. Este artigo descreve como melhorar a segurança quando estiver a utilizar a comunicação remota do serviço no serviço de Java. Baseia-se no existente [exemplo](service-fabric-reliable-services-communication-remoting-java.md) que explica como configurar a gestão remota para serviços fiáveis escrita em Java. 
+A segurança é um dos aspectos mais importantes de comunicação. A estrutura da aplicação de Reliable Services fornece algumas ferramentas que pode utilizar para melhorar a segurança e pilhas de comunicação pré-criados. Este artigo discute como melhorar a segurança, quando estiver usando a comunicação remota do serviço num serviço Java. Ele se baseia no existente [exemplo](service-fabric-reliable-services-communication-remoting-java.md) que explica como configurar a comunicação remota de serviços fiáveis escritos em Java. 
 
-Para ajudar a proteger um serviço quando estiver a utilizar a comunicação remota do serviço com os serviços de Java, siga estes passos:
+Para ajudar a proteger um serviço, quando estiver usando a comunicação remota do serviço com os serviços de Java, siga estes passos:
 
-1. Criar uma interface, `HelloWorldStateless`, que define os métodos que estarão disponíveis para uma chamada de procedimento remoto do seu serviço. O serviço irá utilizar `FabricTransportServiceRemotingListener`, que está declarada no `microsoft.serviceFabric.services.remoting.fabricTransport.runtime` pacote. Este é um `CommunicationListener` implementação que oferece funções de sistema de interação remota.
+1. Criar uma interface, `HelloWorldStateless`, que define os métodos que estarão disponíveis para uma chamada de procedimento remoto no seu serviço. O serviço irá utilizar `FabricTransportServiceRemotingListener`, que é declarado no `microsoft.serviceFabric.services.remoting.fabricTransport.runtime` pacote. Este é um `CommunicationListener` implementação que fornece capacidades de comunicação remota.
 
     ```java
     public interface HelloWorldStateless extends Service {
@@ -53,15 +53,15 @@ Para ajudar a proteger um serviço quando estiver a utilizar a comunicação rem
         }
     }
     ```
-2. Adicione as definições de escuta e credenciais de segurança.
+2. Adicione credenciais de segurança e as definições de escuta.
 
-    Certifique-se de que o certificado que pretende utilizar para ajudar a proteger a comunicação de serviço é instalado em todos os nós do cluster. Para serviços em execução no Linux, o certificado tem de estar disponível como um ficheiro PEM formmatted; é um `.pem` ficheiro que contém o certificado e chave privada ou um `.crt` ficheiro que contém o certificado e um `.key` ficheiro que contém a chave privada. Para obter mais informações, consulte [localização e o formato de certificados x. 509 em nós do Linux](./service-fabric-configure-certificates-linux.md#location-and-format-of-x509-certificates-on-linux-nodes).
+    Certificar-se de que o certificado que pretende utilizar para ajudar a proteger a comunicação de serviço está instalado em todos os nós do cluster. Para os serviços em execução no Linux, o certificado tem de estar disponível como um ficheiro PEM formmatted; de qualquer um `.pem` ficheiro que contém o certificado e chave privada ou uma `.crt` ficheiro que contém o certificado e um `.key` ficheiro que contém a chave privada. Para obter mais informações, consulte [local e o formato de certificados X.509 em nós do Linux](./service-fabric-configure-certificates-linux.md#location-and-format-of-x509-certificates-on-linux-nodes).
     
-    Existem duas formas que pode fornecer as definições de escuta e credenciais de segurança:
+    Há duas maneiras que pode fornecer as definições de escuta e credenciais de segurança:
 
-   1. Fornecê-los utilizando um [o pacote de configuração](service-fabric-application-and-service-manifests.md):
+   1. Disponibilizar-lhes através de um [pacote de configuração](service-fabric-application-and-service-manifests.md):
 
-       Adicionar um nomeado `TransportSettings` secção no ficheiro settings.xml.
+       Adicionar uma determinada `TransportSettings` seção no arquivo Settings.
 
        ```xml
        <!--Section name should always end with "TransportSettings".-->
@@ -76,7 +76,7 @@ Para ajudar a proteger um serviço quando estiver a utilizar a comunicação rem
 
        ```
 
-       Neste caso, o `createServiceInstanceListeners` método terá este aspeto:
+       Neste caso, o `createServiceInstanceListeners` método terá esta aparência:
 
        ```java
         protected List<ServiceInstanceListener> createServiceInstanceListeners() {
@@ -88,7 +88,7 @@ Para ajudar a proteger um serviço quando estiver a utilizar a comunicação rem
         }
        ```
 
-        Se adicionar um `TransportSettings` secção no ficheiro settings.xml sem um prefixo `FabricTransportListenerSettings` carregará todas as definições desta secção por predefinição.
+        Se adicionar um `TransportSettings` secção do arquivo Settings XML sem qualquer prefixo `FabricTransportListenerSettings` carregará todas as definições nesta seção por predefinição.
 
         ```xml
         <!--"TransportSettings" section without any prefix.-->
@@ -96,7 +96,7 @@ Para ajudar a proteger um serviço quando estiver a utilizar a comunicação rem
             ...
         </Section>
         ```
-        Neste caso, o `CreateServiceInstanceListeners` método terá este aspeto:
+        Neste caso, o `CreateServiceInstanceListeners` método terá esta aparência:
 
         ```java
         protected List<ServiceInstanceListener> createServiceInstanceListeners() {
@@ -107,9 +107,9 @@ Para ajudar a proteger um serviço quando estiver a utilizar a comunicação rem
             return listeners;
         }
        ```
-3. Quando chamar métodos num serviço protegido através da pilha do sistema de interação remota, em vez de utilizar o `microsoft.serviceFabric.services.remoting.client.ServiceProxyBase` classe para criar um proxy de serviço, utilize `microsoft.serviceFabric.services.remoting.client.FabricServiceProxyFactory`.
+3. Quando chamar métodos num serviço protegido utilizando a pilha de comunicação remota, em vez de utilizar o `microsoft.serviceFabric.services.remoting.client.ServiceProxyBase` classe para criar um proxy de serviço, utilize `microsoft.serviceFabric.services.remoting.client.FabricServiceProxyFactory`.
 
-    Se o código de cliente está a ser executado como parte de um serviço, pode carregar `FabricTransportSettings` do ficheiro settings.xml. Crie uma secção de TransportSettings que é semelhante ao código do serviço, conforme mostrado anteriormente. Efetue as seguintes alterações ao código de cliente:
+    Se estiver a executar o código de cliente como parte de um serviço, pode carregar `FabricTransportSettings` do arquivo Settings. Crie uma seção de TransportSettings é semelhante ao código de serviço, conforme mostrado anteriormente. Efetue as seguintes alterações para o código de cliente:
 
     ```java
 

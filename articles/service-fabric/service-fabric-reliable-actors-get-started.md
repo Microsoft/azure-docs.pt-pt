@@ -4,7 +4,7 @@ description: Saiba como criar, depurar e implantar o seu primeiro serviço de at
 services: service-fabric
 documentationcenter: .net
 author: vturecek
-manager: timlt
+manager: chackdan
 editor: ''
 ms.assetid: d4aebe72-1551-4062-b1eb-54d83297f139
 ms.service: service-fabric
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 03/16/2018
 ms.author: vturecek
-ms.openlocfilehash: 5c21f1c9345fcf1b89afc3e1ee6b7f61ee79ddbe
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: b6ca4810d86bb3c8413f0a740ac4483a848b8e10
+ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58168107"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58661093"
 ---
 # <a name="getting-started-with-reliable-actors"></a>Introdução ao Reliable Actors
 > [!div class="op_single_selector"]

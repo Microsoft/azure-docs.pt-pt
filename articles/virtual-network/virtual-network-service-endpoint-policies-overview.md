@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/18/2018
 ms.author: sumeet.mittal
-ms.openlocfilehash: 619b9b68a5c4e897642e1f84c25c2822d8291400
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 2d65d51ae8148e2e55d57d39e306ded0f75da687
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58104493"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58652591"
 ---
 # <a name="virtual-network-service-endpoint-policies-preview"></a>Políticas de ponto final de serviço de rede virtual (pré-visualização)
 
@@ -145,7 +145,7 @@ As políticas de ponto final de serviço da rede virtual oferecem as seguintes v
 - **Em modo de peering, ligadas ou várias redes virtuais**: Para filtrar o tráfego nas redes virtuais em modo de peering, as políticas de ponto final devem ser aplicadas individualmente a estas redes virtuais.
 - **Filtragem de tráfego de Internet com aplicações de rede ou Firewall do Azure**: Filtrar o tráfego de serviço do Azure com as políticas, através de pontos de extremidade e filtrar o restante do tráfego de Internet ou do Azure através de aplicações ou de Firewall do Azure. 
 - **Filtragem de tráfego em serviços do Azure implementadas em redes virtuais**: Durante a pré-visualização, as políticas de ponto final de serviço não são suportadas para quaisquer serviços do Azure geridos que são implementados na sua rede virtual. 
- Relativamente a serviços específicos, veja as [limitações.](#Limitations)
+ Relativamente a serviços específicos, veja as [limitações.](#limitations)
 - **Filtragem de tráfego para serviços do Azure no local**: Políticas de ponto final de serviço aplicam-se apenas ao tráfego de sub-redes associadas às políticas. Para permitir o acesso a recursos de serviços do Azure no local, o tráfego deve ser filtrado mediante a utilização de dispositivos de rede virtual ou de firewalls.
 
 ## <a name="logging-and-troubleshooting"></a>Registo e resolução de problemas
