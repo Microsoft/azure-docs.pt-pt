@@ -4,7 +4,7 @@ description: Exemplo do Script do Azure PowerShell - Adicionar o certificado de 
 services: service-fabric
 documentationcenter: ''
 author: aljo-microsoft
-manager: timlt
+manager: chackdan
 editor: ''
 tags: azure-service-management
 ms.assetid: ''
@@ -15,12 +15,12 @@ ms.topic: sample
 ms.date: 01/18/2018
 ms.author: aljo
 ms.custom: mvc
-ms.openlocfilehash: d5e1540a347bb14e7479bc445afa98e220b5475a
-ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
+ms.openlocfilehash: 3d2ab7339a641164a628854c00e22f437b21c3df
+ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58497066"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58670460"
 ---
 # <a name="add-an-application-certificate-to-a-service-fabric-cluster"></a>Adicionar um certificado de aplicação a um cluster do Service Fabric
 

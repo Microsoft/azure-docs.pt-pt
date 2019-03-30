@@ -4,7 +4,7 @@ description: Utilize a cópia de segurança periódica do Service Fabric e resta
 services: service-fabric
 documentationcenter: .net
 author: hrushib
-manager: timlt
+manager: chackdan
 editor: hrushib
 ms.assetid: FAADBCAB-F0CF-4CBC-B663-4A6DCCB4DEE1
 ms.service: service-fabric
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/29/2018
 ms.author: hrushib
-ms.openlocfilehash: f3a0651d3641a547722528fb33f688cce1913e6a
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 1a1c1bafd0a575b01e9774e79a98515d34646f7c
+ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57886648"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58670675"
 ---
 # <a name="periodic-backup-and-restore-in-azure-service-fabric"></a>Cópia de segurança periódica e restauro no Azure Service Fabric
 > [!div class="op_single_selector"]

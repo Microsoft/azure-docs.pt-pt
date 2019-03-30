@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: quickstart
-ms.date: 03/11/2019
+ms.date: 03/27/2019
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: 0b6430a31f31f85f01f67994f6b6fa0f30af9575
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 20a438f4eb932596647002bf9d3072c651ac969c
+ms.sourcegitcommit: 956749f17569a55bcafba95aef9abcbb345eb929
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57879927"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58630659"
 ---
 # <a name="quickstart-generate-a-thumbnail-using-the-rest-api-and-curl-in-computer-vision"></a>Início rápido: Gerar uma miniatura com a API REST e cURL na visão do computador
 
@@ -65,7 +65,7 @@ Para criar e executar o exemplo, siga os seguintes passos:
 
 ## <a name="examine-the-response"></a>Examinar a resposta
 
-Uma resposta de êxito escreve a imagem em miniatura para o ficheiro especificado em `<thumbnailFile>`. Se o pedido falhar, a resposta contém um código de erro e uma mensagem para ajudar a determinar o que correu mal.
+Uma resposta de êxito escreve a imagem em miniatura para o ficheiro especificado em `<thumbnailFile>`. Se o pedido falhar, a resposta contém um código de erro e uma mensagem para ajudar a determinar o que correu mal. Se o pedido parece ter êxito, mas a miniatura criada não é um ficheiro de imagem válido, pode ser que a chave de subscrição não é válida.
 
 ## <a name="next-steps"></a>Passos Seguintes
 

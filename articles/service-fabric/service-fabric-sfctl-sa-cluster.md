@@ -4,7 +4,7 @@ description: Descreve os comandos de cluster do Service Fabric CLI sfctl autóno
 services: service-fabric
 documentationcenter: na
 author: Christina-Kang
-manager: timlt
+manager: chackdan
 editor: ''
 ms.assetid: ''
 ms.service: service-fabric
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.date: 12/06/2018
 ms.author: bikang
-ms.openlocfilehash: ce10e2c24e89140357df3fa6b724a1f89f389a50
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: a652439729e538b3ce2545ab3b09284e6645ce9d
+ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53275487"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58668522"
 ---
 # <a name="sfctl-sa-cluster"></a>sfctl sa-cluster
 Gerir clusters autónomos do Service Fabric.
@@ -28,9 +28,9 @@ Gerir clusters autónomos do Service Fabric.
 
 |Comando|Descrição|
 | --- | --- |
-| Config | Obter a configuração de cluster autónomo do Service Fabric. |
-| atualização de configuração | Começar a atualizar a configuração de um cluster autónomo do Service Fabric. |
-| Estado de atualização | Obter o estado de atualização de configuração de cluster de um cluster autónomo do Service Fabric. |
+| config | Obter a configuração de cluster autónomo do Service Fabric. |
+| config-upgrade | Começar a atualizar a configuração de um cluster autónomo do Service Fabric. |
+| upgrade-status | Obter o estado de atualização de configuração de cluster de um cluster autónomo do Service Fabric. |
 
 ## <a name="sfctl-sa-cluster-config"></a>configuração de cluster de sa de sfctl
 Obter a configuração de cluster autónomo do Service Fabric.
@@ -50,9 +50,9 @@ A configuração de cluster contém as propriedades do cluster, que incluem os t
 | --- | --- |
 | – depuração | Aumenta a verbosidade de registo para mostrar que todos os registos de depuração. |
 | – ajudar -h | Mostre esta mensagem de ajuda e saída. |
-| --o de saída | Formato de saída.  Valores permitidos\: json, jsonc, tabela, tsv.  Predefinido\: json. |
-| – consulta | Cadeia de consulta do JMESPath. Consulte http\://jmespath.org/ para obter mais informações e exemplos. |
-| -verbose | Aumenta a verbosidade do registo. Utilize--debug para os registos de depuração completa. |
+| --output -o | Formato de saída.  Valores permitidos\: json, jsonc, tabela, tsv.  Predefinido\: json. |
+| --query | Cadeia de consulta do JMESPath. Consulte http\://jmespath.org/ para obter mais informações e exemplos. |
+| --verbose | Aumenta a verbosidade do registo. Utilize--debug para os registos de depuração completa. |
 
 ## <a name="sfctl-sa-cluster-config-upgrade"></a>atualização de configuração do sa-cluster sfctl
 Começar a atualizar a configuração de um cluster autónomo do Service Fabric.
@@ -63,18 +63,18 @@ Valide os parâmetros de atualização de configuração fornecidos e começar a
 
 |Argumento|Descrição|
 | --- | --- |
-| -cluster-config [necessário] | A configuração do cluster. |
+| --cluster-config            [Required] | A configuração do cluster. |
 | – políticas de estado de funcionamento de aplicações | JSON com a codificação de dicionário de pares de nome de tipo de aplicação e a percentagem máxima em mau estado de funcionamento antes de gerar o erro. |
 | --delta-unhealthy-nodes | O máximo permitido de percentagem de degradação de estado de funcionamento de delta durante a atualização. Valores permitidos são valores de número inteiro entre zero e 100. |
-| --health-check-retry | O período de tempo entre tentativas para realizar verificações de estado de funcionamento se o aplicativo ou o cluster não está em bom estado.  Predefinido\: PT0H0M0S. |
-| -verificação de estado de funcionamento-estável | A quantidade de tempo que a aplicação ou o cluster deve permanecer em bom estado antes que a atualização prossiga para o domínio de atualização seguinte.  Predefinido\: PT0H0M0S. <br><br> Em primeiro lugar será interpretado como uma cadeia que representa uma duração ISO 8601. Se isso falhar, ela é interpretada como um número que representa o número total de milissegundos. |
-| – espera de verificação de estado de funcionamento | O período de tempo de espera após a conclusão de um domínio de atualização antes de iniciar o estado de funcionamento verifica o processo.  Predefinido\: PT0H0M0S. |
+| --health-check-retry | O período de tempo entre tentativas para realizar verificações de estado de funcionamento se o aplicativo ou o cluster não está em bom estado.  Default\: PT0H0M0S. |
+| --health-check-stable | A quantidade de tempo que a aplicação ou o cluster deve permanecer em bom estado antes que a atualização prossiga para o domínio de atualização seguinte.  Default\: PT0H0M0S. <br><br> Em primeiro lugar será interpretado como uma cadeia que representa uma duração ISO 8601. Se isso falhar, ela é interpretada como um número que representa o número total de milissegundos. |
+| --health-check-wait | O período de tempo de espera após a conclusão de um domínio de atualização antes de iniciar o estado de funcionamento verifica o processo.  Default\: PT0H0M0S. |
 | – tempo limite -t | Tempo limite do servidor em segundos.  Predefinido\: 60. |
-| – mau estado de funcionamento de aplicações | O máximo permitido porcentagem de aplicativos com problemas durante a atualização. Valores permitidos são valores de número inteiro entre zero e 100. |
-| – mau estado de funcionamento de nós | O máximo permitido de percentagem de nós de mau estado de funcionamento durante a atualização. Valores permitidos são valores de número inteiro entre zero e 100. |
+| --unhealthy-applications | O máximo permitido porcentagem de aplicativos com problemas durante a atualização. Valores permitidos são valores de número inteiro entre zero e 100. |
+| --unhealthy-nodes | O máximo permitido de percentagem de nós de mau estado de funcionamento durante a atualização. Valores permitidos são valores de número inteiro entre zero e 100. |
 | --upgrade-domain-delta-unhealthy-nodes | O máximo permitido de percentagem de degradação de estado de funcionamento de delta do domínio de atualização durante a atualização. Valores permitidos são valores de número inteiro entre zero e 100. |
-| – atualização-domínio-tempo limite | A quantidade de tempo de cada domínio de atualização tem de concluir antes de ser executada FailureAction.  Predefinido\: PT0H0M0S. <br><br> Em primeiro lugar será interpretado como uma cadeia que representa uma duração ISO 8601. Se isso falhar, ela é interpretada como um número que representa o número total de milissegundos. |
-| – tempo limite da atualização | A quantidade de tempo a atualização global tem de concluir antes de ser executada FailureAction.  Predefinido\: PT0H0M0S. <br><br> Em primeiro lugar será interpretado como uma cadeia que representa uma duração ISO 8601. Se isso falhar, ela é interpretada como um número que representa o número total de milissegundos. |
+| --upgrade-domain-timeout | A quantidade de tempo de cada domínio de atualização tem de concluir antes de ser executada FailureAction.  Default\: PT0H0M0S. <br><br> Em primeiro lugar será interpretado como uma cadeia que representa uma duração ISO 8601. Se isso falhar, ela é interpretada como um número que representa o número total de milissegundos. |
+| --upgrade-timeout | A quantidade de tempo a atualização global tem de concluir antes de ser executada FailureAction.  Default\: PT0H0M0S. <br><br> Em primeiro lugar será interpretado como uma cadeia que representa uma duração ISO 8601. Se isso falhar, ela é interpretada como um número que representa o número total de milissegundos. |
 
 ### <a name="global-arguments"></a>Argumentos global
 
@@ -82,9 +82,9 @@ Valide os parâmetros de atualização de configuração fornecidos e começar a
 | --- | --- |
 | – depuração | Aumenta a verbosidade de registo para mostrar que todos os registos de depuração. |
 | – ajudar -h | Mostre esta mensagem de ajuda e saída. |
-| --o de saída | Formato de saída.  Valores permitidos\: json, jsonc, tabela, tsv.  Predefinido\: json. |
-| – consulta | Cadeia de consulta do JMESPath. Consulte http\://jmespath.org/ para obter mais informações e exemplos. |
-| -verbose | Aumenta a verbosidade do registo. Utilize--debug para os registos de depuração completa. |
+| --output -o | Formato de saída.  Valores permitidos\: json, jsonc, tabela, tsv.  Predefinido\: json. |
+| --query | Cadeia de consulta do JMESPath. Consulte http\://jmespath.org/ para obter mais informações e exemplos. |
+| --verbose | Aumenta a verbosidade do registo. Utilize--debug para os registos de depuração completa. |
 
 ### <a name="examples"></a>Exemplos
 
@@ -112,9 +112,9 @@ Obter a configuração de cluster detalhes de estado de atualização de um clus
 | --- | --- |
 | – depuração | Aumenta a verbosidade de registo para mostrar que todos os registos de depuração. |
 | – ajudar -h | Mostre esta mensagem de ajuda e saída. |
-| --o de saída | Formato de saída.  Valores permitidos\: json, jsonc, tabela, tsv.  Predefinido\: json. |
-| – consulta | Cadeia de consulta do JMESPath. Consulte http\://jmespath.org/ para obter mais informações e exemplos. |
-| -verbose | Aumenta a verbosidade do registo. Utilize--debug para os registos de depuração completa. |
+| --output -o | Formato de saída.  Valores permitidos\: json, jsonc, tabela, tsv.  Predefinido\: json. |
+| --query | Cadeia de consulta do JMESPath. Consulte http\://jmespath.org/ para obter mais informações e exemplos. |
+| --verbose | Aumenta a verbosidade do registo. Utilize--debug para os registos de depuração completa. |
 
 
 ## <a name="next-steps"></a>Passos Seguintes

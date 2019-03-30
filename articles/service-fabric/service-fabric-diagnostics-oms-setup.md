@@ -4,7 +4,7 @@ description: Saiba como configurar registos de Azure Monitor para visualizar e a
 services: service-fabric
 documentationcenter: .net
 author: srrengar
-manager: timlt
+manager: chackdan
 editor: ''
 ms.assetid: ''
 ms.service: service-fabric
@@ -14,19 +14,19 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 02/20/2019
 ms.author: srrengar
-ms.openlocfilehash: ca5dd4a7c12a68a549f081ad62db1736c9c68837
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.openlocfilehash: 3523a2df413740f644151c548e403c39c9be1f03
+ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58483170"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58670511"
 ---
 # <a name="set-up-azure-monitor-logs-for-a-cluster"></a>Configurar os registos do Azure Monitor para um cluster
 
 Registos de Monitor do Azure é a nossa recomendação para monitorizar os eventos de nível de cluster. Pode configurar a área de trabalho do Log Analytics através do Azure Resource Manager, o PowerShell ou o Azure Marketplace. Se mantiver um modelo do Resource Manager atualizada da sua implementação para uso futuro, utilize o mesmo modelo para configurar o ambiente de registos do Azure Monitor. Implantação por meio de mercado é mais fácil se já tiver um cluster implementado com o diagnóstico ativado. Se não tiver acesso ao nível da subscrição na conta para a qual estiver a implementar, implemente com o PowerShell ou o modelo do Resource Manager.
 
 > [!NOTE]
-> Para configurar os registos do Azure Monitor para monitorizar o seu cluster, terá de ter o diagnóstico ativado para ver eventos de nível de cluster ou ao nível da plataforma. Consulte a [como configurar diagnósticos em clusters do Windows](service-fabric-diagnostics-event-aggregation-wad.md) e [como configurar diagnósticos em clusters do Linux](service-fabric-diagnostics-event-aggregation-lad.md) para obter mais informações
+> Para configurar os registos do Azure Monitor para monitorizar o seu cluster, terá de ter o diagnóstico ativado para ver eventos de nível de cluster ou ao nível da plataforma. Consulte a [como configurar diagnósticos em clusters do Windows](service-fabric-diagnostics-event-aggregation-wad.md) e [como configurar diagnósticos em clusters do Linux](service-fabric-diagnostics-oms-syslog.md) para obter mais informações
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
 
@@ -49,7 +49,7 @@ Se pretender adicionar uma área de trabalho do Log Analytics depois de implemen
 Se estiver a utilizar o Windows, continue com os seguintes passos para ligar os registos do Azure Monitor para a conta de armazenamento onde os eventos de cluster são armazenados. 
 
 >[!NOTE]
->Ativar esta experiência para os clusters do Linux ainda não está disponível. 
+>A solução de análise do Service Fabric só é suportada para clusters do Windows. Para clusters do Linux, consulte nosso artigo sobre [como configurar registos de Azure Monitor para clusters do Linux](service-fabric-diagnostics-oms-syslog.md).  
 
 ### <a name="connect-the-log-analytics-workspace-to-your-cluster"></a>Ligar a área de trabalho do Log Analytics ao seu cluster 
 

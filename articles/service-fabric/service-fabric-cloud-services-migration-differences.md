@@ -1,10 +1,10 @@
 ---
-title: Diferenças entre os serviços em nuvem e de recursos de infraestrutura de serviço | Microsoft Docs
-description: Uma descrição geral conceptual para migrar as aplicações nos serviços de nuvem do Service Fabric.
+title: Diferenças entre serviços em nuvem e o Service Fabric | Documentos da Microsoft
+description: Uma descrição geral conceptual para migrar aplicações dos serviços Cloud para o Service Fabric.
 services: service-fabric
 documentationcenter: .net
 author: vturecek
-manager: timlt
+manager: chackdan
 editor: ''
 ms.assetid: 0b87b1d3-88ad-4658-a465-9f05a3376dee
 ms.service: service-fabric
@@ -14,85 +14,85 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/02/2017
 ms.author: vturecek
-ms.openlocfilehash: 35ab4a9bdd66bf3571e7f189191550f88e17cee2
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 4682e47e664384a6869e1a74e3de6d9083db082b
+ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34206487"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58669457"
 ---
-# <a name="learn-about-the-differences-between-cloud-services-and-service-fabric-before-migrating-applications"></a>Saiba mais sobre as diferenças entre os serviços em nuvem e de Service Fabric antes de migrar as aplicações.
-Microsoft Azure Service Fabric é a plataforma de aplicação de nuvem de próxima geração para aplicações distribuídas altamente dimensionáveis e de elevada disponibilidade fiáveis. Introduz muitas funcionalidades novas para empacotamento, implementar, atualizar e gestão de aplicações distribuídas em nuvem. 
+# <a name="learn-about-the-differences-between-cloud-services-and-service-fabric-before-migrating-applications"></a>Saiba mais sobre as diferenças entre serviços em nuvem e o Service Fabric antes de migrar aplicações.
+Microsoft Azure Service Fabric é a plataforma de aplicativos de nuvem de última geração para aplicações distribuídas altamente escalonáveis, altamente confiáveis. Ele introduz muitas funcionalidades novas para o empacotamento, implementar, atualizar e gerir aplicações na cloud distribuídas. 
 
-Este é um guia introdutórias para migrar as aplicações nos serviços de nuvem do Service Fabric. Concentra-se principalmente da arquitetura e as diferenças entre os serviços em nuvem e de recursos de infraestrutura do serviço de design.
+Este é um guia introdutório para migrar aplicações dos serviços Cloud para o Service Fabric. Ele se concentra principalmente na arquitetura e diferenças de design entre serviços em nuvem e o Service Fabric.
 
-## <a name="applications-and-infrastructure"></a>Aplicações e infraestruturas
-Uma diferença fundamental entre serviços em nuvem e de Service Fabric é a relação entre as VMs, cargas de trabalho e aplicações. Aqui uma carga de trabalho é definida como o código de escrita para executar uma tarefa específica ou fornecer um serviço.
+## <a name="applications-and-infrastructure"></a>Aplicações e infraestrutura
+Uma diferença fundamental entre serviços em nuvem e o Service Fabric é a relação entre as VMs, cargas de trabalho e aplicações. Uma carga de trabalho aqui é definida como o código de escrita para executar uma tarefa específica ou fornecer um serviço.
 
-* **Serviços cloud é sobre a implementação de aplicações que as VMs.** O código de escrita é fortemente conjugado para uma instância VM, como uma função de trabalho ou Web. Para implementar uma carga de trabalho nos serviços em nuvem está a implementar um ou mais instâncias VM que executam a carga de trabalho. Não há nenhum separação das aplicações e as VMs e por isso, não há nenhuma definição formal de uma aplicação. Uma aplicação pode considerar como um conjunto de instâncias de Web ou função de trabalho dentro de uma implementação de serviços em nuvem ou como uma implementação de serviços em nuvem completa. Neste exemplo, uma aplicação é apresentada como um conjunto de instâncias de função.
+* **Serviços cloud é sobre a implementação de aplicações que as VMs.** O código de escrita é rigidamente acoplado a uma instância VM, como uma função de trabalho ou Web. Para implementar uma carga de trabalho nos serviços Cloud é implementar um ou mais instâncias VM que executam a carga de trabalho. Não existe nenhuma separação de aplicativos e as VMs e, portanto, não existe nenhuma definição formal de uma aplicação. Um aplicativo pode ser considerado como um conjunto de instâncias de função de trabalho ou Web dentro de uma implantação de serviços em nuvem ou como toda a implementação de serviços Cloud. Neste exemplo, um aplicativo é mostrado como um conjunto de instâncias de função.
 
-![Aplicações de serviços em nuvem e a topologia][1]
+![Aplicações de serviços na cloud e a topologia][1]
 
-* **Service Fabric é sobre como implementar aplicações para VMs existentes ou máquinas com o Service Fabric no Windows ou Linux.** Os serviços de escrita estão completamente desassociados da infraestrutura subjacente, que é abstracted ausente pela plataforma de aplicação do Service Fabric, pelo que uma aplicação pode ser implementada em vários ambientes. Uma carga de trabalho no Service Fabric é denominada um "serviço" e um ou mais serviços são agrupados de uma aplicação formally definido, que é executada na plataforma de aplicação de Service Fabric. Várias aplicações podem ser implementadas para um único cluster de Service Fabric.
+* **O Service Fabric é sobre a implementação de aplicações para as VMs existentes ou computadores que executam o Service Fabric no Windows ou Linux.** Os serviços que escreve são totalmente separados da infraestrutura subjacente, que é abstraída pela plataforma de aplicação do Service Fabric, para que um aplicativo pode ser implementado em vários ambientes. Uma carga de trabalho no Service Fabric é chamada de "serviço" e um ou mais serviços são agrupados num aplicativo definido formalmente, que é executada na plataforma de aplicação do Service Fabric. Vários aplicativos podem ser implementados para um único cluster de Service Fabric.
 
 ![Topologia e de aplicações do Service Fabric][2]
 
-Service Fabric em si é uma camada de plataforma de aplicação que é executado no Windows ou Linux, enquanto que os serviços em nuvem é um sistema de implementação de VMs geridas do Azure com cargas de trabalho anexadas.
-O modelo de aplicação de Service Fabric tem várias vantagens:
+Service Fabric em si é uma camada de plataforma de aplicativo que é executado no Windows ou Linux, ao passo que os serviços em nuvem é um sistema para a implementação de VMs geridas do Azure com cargas de trabalho anexadas.
+O modelo de aplicação do Service Fabric tem várias vantagens:
 
-* Tempos de implementação rápida. Criar instâncias de VM pode ser demorado. No Service Fabric, as VMs só são implementadas depois para formar um cluster que aloja a plataforma de aplicação de Service Fabric. Partir desse ponto, pacotes de aplicações podem ser implementados para o cluster muito rapidamente.
-* Alojamento high-density. Nos serviços em nuvem, uma VM de função de trabalho aloja uma carga de trabalho. No Service Fabric, as aplicações são separadas das VMs que executá-los, que significa que pode implementar um grande número de aplicações para um pequeno número de VMs, que pode reduzir o custo global para implementações maiores.
-* O Service Fabric plataforma pode ser executado em qualquer local que tem máquinas Windows Server ou Linux, quer seja Azure ou no local. A plataforma fornece uma camada de abstração através da infraestrutura subjacente para a aplicação pode ser executado em ambientes diferentes. 
-* Gestão de aplicações distribuídas. Service Fabric é uma plataforma que não só anfitriões de aplicações distribuídas, mas também ajuda a gerir o ciclo de vida independentemente a VM de alojamento ou máquina ciclo de vida.
+* Tempos de implementação rápida. Criação de instâncias VM pode ser demorado. No Service Fabric, os VMs são implementadas apenas uma vez para formar um cluster que aloja a plataforma de aplicações do Service Fabric. Daí em diante, pacotes de aplicações podem ser implementados no cluster muito rapidamente.
+* Alojamento de alta densidade. Nos serviços Cloud, uma VM de função de trabalho aloja uma carga de trabalho. No Service Fabric, os aplicativos são separados das VMs que execução-los, que significa que pode implementar um grande número de aplicativos para um pequeno número de VMs, que pode reduzir o custo geral para Implantações maiores.
+* Recursos de infraestrutura do serviço de plataforma pode ser executados em qualquer lugar que tem máquinas do Windows Server ou Linux, quer se trate de Azure ou no local. A plataforma fornece uma camada de abstração sobre a infraestrutura subjacente para que seu aplicativo pode ser executado em diferentes ambientes. 
+* Gestão de aplicações distribuídas. O Service Fabric é uma plataforma que não apenas aplicações distribuídas de anfitriões, mas também ajuda a gerir o ciclo de vida independentemente da VM de alojamento ou o ciclo de vida da máquina.
 
 ## <a name="application-architecture"></a>Arquitetura da aplicação
-A arquitetura de uma aplicação de serviços em nuvem normalmente inclui várias dependências de serviço externo, como o Service Bus, tabelas do Azure e armazenamento de BLOBs, SQL, Redis e outras pessoas para gerir o estado e os dados de uma aplicação e a comunicação entre Web e funções de trabalho numa implementação de serviços em nuvem. Um exemplo de uma aplicação de serviços em nuvem concluída poderá ter o seguinte aspeto:  
+A arquitetura de um aplicativo de serviços Cloud normalmente inclui várias dependências de serviço externo, como do Service Bus, tabelas do Azure e armazenamento de BLOBs, SQL, Redis e outras pessoas para gerenciar o estado e os dados de um aplicativo e a comunicação entre Web e Funções de trabalho numa implantação de serviços Cloud. Um exemplo de um aplicativo completo de serviços em nuvem pode ser assim:  
 
 ![Arquitetura de serviços cloud][9]
 
-Aplicações de Service Fabric também podem optar por utilizar os mesmos serviços externos numa aplicação completa. Com este exemplo arquitetura dos serviços de nuvem, é o caminho de migração mais simples de serviços em nuvem para o Service Fabric substituir apenas a implementação de serviços em nuvem com uma aplicação de Service Fabric, mantendo a arquitetura geral da mesma. O Web e funções de trabalho podem ser convertidos para serem serviços sem monitorização de estado do Service Fabric com alterações de código mínimas.
+Aplicações do Service Fabric também podem optar por utilizar os mesmos serviços externos num aplicativo completo. Com este exemplo de arquitetura de serviços Cloud, é o caminho de migração mais simples dos serviços Cloud para o Service Fabric substituir a implementação de serviços Cloud com uma aplicação do Service Fabric, manter a arquitetura geral da mesma. A Web e funções de trabalho podem ser PORTADAS para serviços sem monitoração de estado do Service Fabric com alterações mínimas ao código.
 
 ![Arquitetura do Service Fabric após a migração simple][10]
 
-Nesta fase, o sistema deve continuar a funcionar o mesmo que antes. Pode ser internalized tendo partido das funcionalidades de monitorização de estado do Service Fabric, arquivos de estado externo, como serviços de monitorização de Estado onde for aplicável. Este é o mais envolvida que uma migração simple da Web e funções de trabalho para serviços sem monitorização de estado do Service Fabric, porque requer escrever serviços personalizados que fornecem funcionalidade equivalente à sua aplicação, como os serviços externos anteriormente. Os benefícios de fazê-lo incluem: 
+Nesta fase, o sistema deve continuar a trabalhar com as mesmas de antes. Pode ser internalizado e tirar partido das funcionalidades de com monitoração de estado do Service Fabric, arquivos de estado externo, como com monitoração de estado dos serviços onde for aplicável. Isso é mais envolvido que uma migração simple da Web e funções de trabalho para serviços sem monitoração de estado do Service Fabric, porque requer serviços personalizados que fornecem funcionalidade equivalente à sua aplicação, como os serviços externos fizeram antes de escrever. Os benefícios de se fazer isso: 
 
-* Remover as dependências externas 
-* Unificá a implementação, gestão e modelos de atualização. 
+* Remover dependências externas 
+* Unificando a implantação, gerenciamento e modelos de actualização. 
 
-Uma arquitetura de resultante de exemplo de internalizing estes serviços pode ter o seguinte aspeto:
+Uma arquitetura de exemplo resultante de internalizing estes serviços poderia ter esta aparência:
 
-![Arquitetura do Service Fabric após migração completa][11]
+![Arquitetura do Service Fabric após a migração completa][11]
 
-## <a name="communication-and-workflow"></a>Fluxo de trabalho e comunicação
-A maioria das aplicações de serviço em nuvem é constituída por mais do que uma camada. Da mesma forma, uma aplicação de Service Fabric é composta por mais do que um serviço (normalmente, muitos serviços). Dois modelos de comunicações comuns são comunicação direta e através de um armazenamento externo durável.
+## <a name="communication-and-workflow"></a>Comunicação e o fluxo de trabalho
+A maioria dos aplicativos de serviço em nuvem são compostos por mais de uma camada. Da mesma forma, uma aplicação do Service Fabric é constituído por mais de um serviço (normalmente, muitos serviços). Dois modelos comuns de comunicação são comunicação direta e por meio de um armazenamento durável externo.
 
 ### <a name="direct-communication"></a>Comunicação direta
-Com comunicação direta, camadas podem comunicar diretamente através do ponto final exposta por cada camada. Em ambientes sem monitorização de estado como serviços em nuvem, esta significa selecionar uma instância de uma função VM, quer aleatoriamente ou round-robin carregar saldo e ligar diretamente ao respetivo ponto final.
+Com comunicação direta, as camadas podem comunicar diretamente através de ponto final exposto por cada escalão. Em ambientes sem monitoração de estado, como serviços Cloud, este significa selecionar uma instância de uma função de VM, optar por aleatoriamente ou round robin para carga de saldo e a ligar ao seu ponto de extremidade diretamente.
 
-![Serviços cloud direcionam comunicação][5]
+![Comunicação direta de serviços da cloud][5]
 
- Comunicação direta é um modelo comum de comunicação no Service Fabric. A principal diferença entre o Service Fabric e serviços em nuvem é que serviços em nuvem em se ligar a uma VM, enquanto no Service Fabric ligar a um serviço. Esta é uma distinção importante por alguns motivos:
+ Comunicação direta é um modelo comum de comunicação no Service Fabric. A principal diferença entre o Service Fabric e serviços em nuvem é que os serviços Cloud em ligar a uma VM, ao passo que o Service Fabric vai ligar a um serviço. Esta é uma distinção importante por dois motivos:
 
-* Serviços no Service Fabric não estão vinculados às VMs que alojar; serviços podem mover-se no cluster e, na verdade, espera-se mover-se por vários motivos: recursos balanceamento, ativação pós-falha, as atualizações de aplicações e a infraestrutura e restrições de posicionamento ou de carregamento. Isto significa que pode alterar o endereço de uma instância de serviço em qualquer altura. 
-* Uma VM com o Service Fabric pode alojar vários serviços, cada um com pontos finais exclusivos.
+* Serviços no Service Fabric não estão vinculados às VMs que alojam; serviços podem mover-se no cluster e, na verdade, espera-se para mover-se por vários motivos: Balanceamento de recurso, ativação pós-falha, as atualizações de aplicação e a infraestrutura e as restrições de posicionamento ou de carga. Isso significa que o endereço de uma instância de serviço pode alterar em qualquer altura. 
+* Uma VM nos recursos de infraestrutura do serviço pode alojar vários serviços, cada um com pontos de extremidade exclusivos.
 
-O Service Fabric fornece um mecanismo de deteção do serviço, chamado o serviço de nomenclatura, que pode ser utilizado para resolver endereços de ponto final dos serviços. 
+O Service Fabric fornece um mecanismo de deteção do serviço, chamado o serviço de nomenclatura, que pode ser utilizado para resolver os endereços de ponto de extremidade de serviços. 
 
 ![Comunicação direta do Service Fabric][6]
 
 ### <a name="queues"></a>Filas
-Um mecanismo de comunicação comuns entre camadas em ambientes sem monitorização de estado como serviços em nuvem está a utilizar uma fila de armazenamento externo para armazenar forma durável tarefas de trabalho de um escalão para outro. Um cenário comum é uma camada web que envia tarefas para uma fila do Azure ou o Service Bus em que as instâncias de função de trabalho podem anular e processar as tarefas.
+Um mecanismo de comunicação comum entre camadas em ambientes sem monitoração de estado, como os serviços Cloud é usar uma fila de armazenamento externo de maneira duradoura armazenar tarefas de trabalho de um escalão para outro. Um cenário comum é uma camada web que envia tarefas a uma fila do Azure ou do Service Bus em que as instâncias de função de trabalho podem remover da fila e processar as tarefas.
 
-![Comunicação de fila de serviços de nuvem][7]
+![Comunicação de fila de serviços da cloud][7]
 
-O mesmo modelo de comunicação pode ser utilizado no Service Fabric. Isto pode ser útil quando migrar uma aplicação de serviços em nuvem existente no Service Fabric. 
+O mesmo modelo de comunicação pode ser utilizado no Service Fabric. Isso pode ser útil ao migrar um aplicativo de serviços Cloud existente para o Service Fabric. 
 
 ![Comunicação direta do Service Fabric][8]
 
 ## <a name="next-steps"></a>Próximos Passos
-O caminho de migração mais simples de serviços em nuvem para o Service Fabric é substitua apenas a implementação de serviços em nuvem uma aplicação de Service Fabric, mantendo a arquitetura geral da sua aplicação aproximadamente os mesmos. O artigo seguinte fornece um guia para ajudar a converter um Web ou função de trabalho a um serviço sem monitorização de estado de Service Fabric.
+O caminho de migração mais simples dos serviços Cloud para o Service Fabric é substituir a implementação de serviços Cloud com uma aplicação do Service Fabric, manter a arquitetura geral do seu aplicativo aproximadamente o mesmo. O artigo seguinte disponibiliza um guia para ajudar a converter um Web ou a função de trabalho para um serviço sem estado do Service Fabric.
 
-* [Migração Simple: um Web ou função de trabalho converter de um serviço sem monitorização de estado de Service Fabric](service-fabric-cloud-services-migration-worker-role-stateless-service.md)
+* [Migração Simple: converter um Web ou a função de trabalho para um serviço sem estado do Service Fabric](service-fabric-cloud-services-migration-worker-role-stateless-service.md)
 
 <!--Image references-->
 [1]: ./media/service-fabric-cloud-services-migration-differences/topology-cloud-services.png

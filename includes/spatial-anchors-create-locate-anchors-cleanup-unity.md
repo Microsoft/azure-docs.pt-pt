@@ -1,9 +1,9 @@
 ---
-ms.openlocfilehash: 0bab537bad291c0a1ed352c86ad77de3f35a75f1
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 9d94e43d649608297a97a4392d44f789ba384e14
+ms.sourcegitcommit: 956749f17569a55bcafba95aef9abcbb345eb929
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58015472"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58632468"
 ---
-Para limpar corretamente depois de uma sessão, invoca Dispose ().
+Para limpar corretamente depois de uma sessão, invocar `Dispose()`.

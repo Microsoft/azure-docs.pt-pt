@@ -9,12 +9,12 @@ ms.date: 09/11/2018
 ms.topic: conceptual
 description: Desenvolvimento rápido da Kubernetes com contentores e microsserviços no Azure
 keywords: 'Docker, o Kubernetes, o Azure, o AKS, o serviço Kubernetes do Azure, contentores, Helm, a malha de serviço, roteamento de malha do serviço, kubectl, k8s '
-ms.openlocfilehash: eff7f88ec6cbf8064df42fa3b22d61bb44baa451
-ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
+ms.openlocfilehash: 5dd77d85e06a821d8dd359174bb5de6bca8b4d61
+ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58339589"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58669781"
 ---
 # <a name="troubleshooting-guide"></a>Guia de resolução de problemas
 
@@ -316,3 +316,12 @@ configurations:
     build:
       dockerfile: Dockerfile.develop
 ```
+
+## <a name="error-internal-watch-failed-watch-enospc-when-attaching-debugging-to-a-nodejs-application"></a>Erro de "watch interno falhou: Assista ENOSPC" ao anexar a depuração para uma aplicação node. js
+
+### <a name="reason"></a>Razão
+
+O nó a executar o pod com a aplicação node. js que está a tentar anexar a, com um depurador foi excedido o *fs.inotify.max_user_watches* valor. Em alguns casos, [o valor predefinido *fs.inotify.max_user_watches* pode ser demasiado pequena para lidar com conectar um depurador diretamente a um pod](https://github.com/Azure/AKS/issues/772).
+
+### <a name="try"></a>Experimente
+Uma solução temporária para este problema é aumentar o valor de *fs.inotify.max_user_watches* em cada nó do cluster e reiniciar esse nó para que as alterações entrem em vigor.

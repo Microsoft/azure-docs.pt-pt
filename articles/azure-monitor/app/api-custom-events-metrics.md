@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 03/27/2019
 ms.author: mbullwin
-ms.openlocfilehash: 8c1ff4d2ca9ab7257b28a2b14aaf5a796183a286
-ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
+ms.openlocfilehash: 6e2803590740d84bc99327ce78886f41f3c600df
+ms.sourcegitcommit: 956749f17569a55bcafba95aef9abcbb345eb929
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2019
-ms.locfileid: "58576276"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58630450"
 ---
 # <a name="application-insights-api-for-custom-events-and-metrics"></a>API do Application Insights para métricas e eventos personalizados
 
@@ -1138,6 +1138,15 @@ var appInsights = window.appInsights || function(config){ ...
     @Microsoft.ApplicationInsights.Extensibility.
         TelemetryConfiguration.Active.InstrumentationKey;
 }) // ...
+```
+
+```java
+    String instrumentationKey = "00000000-0000-0000-0000-000000000000";
+
+    if (instrumentationKey != null)
+    {
+        TelemetryConfiguration.getActive().setInstrumentationKey(instrumentationKey);
+    }
 ```
 
 ## <a name="telemetrycontext"></a>TelemetryContext

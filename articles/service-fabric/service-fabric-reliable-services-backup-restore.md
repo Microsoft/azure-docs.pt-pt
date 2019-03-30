@@ -4,7 +4,7 @@ description: Documentação conceptual para o restauro e cópia de segurança do
 services: service-fabric
 documentationcenter: .net
 author: mcoskun
-manager: timlt
+manager: chackdan
 editor: subramar,zhol
 ms.assetid: 91ea6ca4-cc2a-4155-9823-dcbd0b996349
 ms.service: service-fabric
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/29/2018
 ms.author: mcoskun
-ms.openlocfilehash: d01d2f18ed35d1752f97f405ae7f7bfb4708ca0d
-ms.sourcegitcommit: dd1a9f38c69954f15ff5c166e456fda37ae1cdf2
+ms.openlocfilehash: cd40f59cfa7846911c68206c3bc1e85a770b0fcc
+ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57570050"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58670133"
 ---
 # <a name="backup-and-restore-reliable-services-and-reliable-actors"></a>Cópia de segurança e restaurar Reliable Services e Reliable Actors
 O Azure Service Fabric é uma plataforma de elevada disponibilidade que replica o estado em vários nós para manter este elevada disponibilidade.  Assim, mesmo que um nó no cluster falhar, os serviços continuam disponíveis. Embora esta redundância incorporados fornecida pela plataforma pode ser suficiente para alguns, em certos casos é desejável para o serviço de cópia de segurança de dados (para um repositório externo).
@@ -246,7 +246,7 @@ Ao efetuar o restauro a partir de uma cadeia de cópia de segurança, semelhante
 ## <a name="under-the-hood-more-details-on-backup-and-restore"></a>Nos bastidores: obter mais detalhes sobre a cópia de segurança e restauro
 Eis mais alguns detalhes sobre a cópia de segurança e restauro.
 
-### <a name="backup"></a>Backup
+### <a name="backup"></a>Cópia de segurança
 O Reliable State Manager fornece a capacidade de criar cópias de segurança sem bloquear qualquer leitura ou operações de escrita. Para fazer isso, ele utiliza um mecanismo de persistência de registo e ponto de verificação.  O Gestor de estado de Reliable demora difusas pontos de verificação (leves) em determinados pontos para liberar a pressão do registo transacional e melhorar os tempos de recuperação.  Quando `BackupAsync` é chamado, o Gerenciador de estado fiável instruirá todos os objetos confiáveis para copiar seus arquivos de ponto de verificação mais recente para uma pasta de cópia de segurança local.  Em seguida, o Gestor de estado de Reliable copia todos os registros de log, começando com o ponteiro"start" para o registro de log mais recente para a pasta de cópia de segurança.  Uma vez que todos os registros de log até o registo mais recente do registo estão incluídos na cópia de segurança e o Gestor de estado de Reliable preserva o registo de escrita-ahead, o Gestor de estado confiável garante que todas as transações que são confirmadas (`CommitAsync` devolveu com êxito ) estão incluídas na cópia de segurança.
 
 Qualquer transação que se compromete após `BackupAsync` foi chamado Maio ou não estar na cópia de segurança.  Assim que a pasta de cópia de segurança local que tiverem sido povoada pela plataforma (ou seja, cópia de segurança local é concluída pelo tempo de execução), retorno de chamada de cópia de segurança do serviço é invocado.  Esse retorno de chamada é responsável por mover a pasta de cópia de segurança para uma localização externa, como o armazenamento do Azure.

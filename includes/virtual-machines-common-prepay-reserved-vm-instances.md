@@ -4,12 +4,12 @@ ms.author: banders
 ms.service: virtual-machines-windows
 ms.topic: include
 ms.date: 03/22/2019
-ms.openlocfilehash: f7fbbb421a01b268b784a6d6c875cd959a5d1d42
-ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
+ms.openlocfilehash: 32d5d0d25c843be1cba1916e7679faa930e8e645
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58407788"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58671692"
 ---
 # <a name="prepay-for-virtual-machines-with-azure-reserved-vm-instances"></a>Efetue o pré-pagamento de máquinas virtuais com instâncias de VM reservadas do Azure
 
@@ -107,6 +107,8 @@ No entanto, pode *exchange* uma reserva se pretender efetuar alterações.
 Se precisar de cancelar a sua reserva, pode ser cobrada uma taxa de cessação antecipada de 12%. Os reembolsos baseiam-se no preço mais baixo do preço de compra ou do preço atual da reserva. Os reembolsos estão limitados a 50 000 $ por ano. O reembolso que receber corresponde ao saldo rateado restante menos a taxa de cessação antecipada de 12%. Para pedir um cancelamento, vá para a reserva no portal do Azure e selecione **reembolsar** para criar um pedido de suporte.
 
 Se precisar de alterar a sua reserva de Instâncias de VM Reservadas para outra região, grupo de tamanho de VM ou período, pode trocá-la por outra reserva de valor igual ou superior. A data de início do período da nova reserva não transita da reserva trocada. O termo de 1 ou 3 anos começa a partir ao criar a nova reserva. Para pedir uma troca, vá para a reserva no portal do Azure e selecione **Exchange** para criar um pedido de suporte.
+
+Para obter mais informações sobre como as reservas de exchange ou o reembolso, consulte [trocas de reserva e reembolsos](../articles/billing/billing-azure-reservations-self-service-exchange-and-refund.md).
 
 ## <a name="need-help-contact-us"></a>Precisa de ajuda? Contacte-nos.
 

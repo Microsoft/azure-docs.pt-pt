@@ -4,7 +4,7 @@ description: Descreve os padrões comuns de redes para o Service Fabric e como c
 services: service-fabric
 documentationcenter: .net
 author: aljo-microsoft
-manager: timlt
+manager: chackdan
 editor: ''
 ms.assetid: ''
 ms.service: service-fabric
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 01/19/2018
 ms.author: aljo
-ms.openlocfilehash: d54585e0218cc900f981f0c924fe8c5762baeaa2
-ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
+ms.openlocfilehash: feea57122d805ae065278458f90afbc960221a9d
+ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58500343"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58670256"
 ---
 # <a name="service-fabric-networking-patterns"></a>Padrões de redes do Service Fabric
 Pode integrar o seu cluster do Azure Service Fabric com outras funcionalidades de rede do Azure. Neste artigo, vamos mostrar como criar clusters que utilizam as seguintes funcionalidades:

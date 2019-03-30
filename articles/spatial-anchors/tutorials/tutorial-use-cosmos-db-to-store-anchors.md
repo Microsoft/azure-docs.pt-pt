@@ -1,5 +1,5 @@
 ---
-title: Tutorial - partilha entre sessões e dispositivos com as âncoras espaciais do Azure e um back-end do Azure Cosmos DB | Documentos da Microsoft
+title: Tutorial - partilha Azure geográficos âncoras nas sessões e dispositivos com o Azure Cosmos DB back-end | Documentos da Microsoft
 description: Neste tutorial, saiba como partilhar os identificadores de âncoras espaciais do Azure em todos os dispositivos Android/iOS no Unity com um serviço de back-end e o Azure Cosmos DB.
 author: ramonarguelles
 manager: vicenterivera
@@ -8,19 +8,16 @@ ms.author: rgarcia
 ms.date: 02/24/2019
 ms.topic: tutorial
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: 0e7011b9778221869940b137a2b87239f2d8db9b
-ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
+ms.openlocfilehash: 17e9d19b755c1d3ac455d9fef8406e00de3a376d
+ms.sourcegitcommit: 956749f17569a55bcafba95aef9abcbb345eb929
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58286402"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58628929"
 ---
-# <a name="tutorial-sharing-across-sessions-and-devices-with-azure-spatial-anchors-and-an-azure-cosmos-db-back-end"></a>Tutorial: Partilha entre sessões e dispositivos com as âncoras espaciais do Azure e um back-end do Azure Cosmos DB
+# <a name="tutorial-share-azure-spatial-anchors-across-sessions-and-devices-with-an-azure-cosmos-db-back-end"></a>Tutorial: Partilha Azure geográficos âncoras nas sessões e dispositivos com o Azure Cosmos DB back-end
 
-Neste tutorial, irá aprender a utilizar [âncoras geográficos de Azure](../overview.md) para:
-
-- Criar âncoras durante uma sessão e, em seguida, localize-los durante a sessão de outro, no mesmo dispositivo ou em outro. Por exemplo, a segunda sessão pode ser em outro dia.
-- Crie âncoras, que podem ser localizadas por vários dispositivos no mesmo local e ao mesmo tempo.
+Neste tutorial, irá aprender a utilizar [âncoras geográficos de Azure](../overview.md) criar âncoras durante uma sessão e, em seguida, localize-los durante a sessão de outro, no mesmo dispositivo ou em outro. Por exemplo, a segunda sessão pode ser em outro dia. Também foi possível localizar estas âncoras mesmo por vários dispositivos no mesmo local e ao mesmo tempo.
 
 ![Persistência de objeto que ilustram GIF](./media/persistence.gif)
 

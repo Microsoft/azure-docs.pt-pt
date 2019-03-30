@@ -4,17 +4,17 @@ description: Saiba mais sobre as opções de bloqueios para proteger recursos, a
 services: blueprints
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 01/23/2019
+ms.date: 03/28/2019
 ms.topic: conceptual
 ms.service: blueprints
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: 799e496fd9dd8a405e5fc356e13cf6c05883e1ae
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 16ec3428138361726d69eb9b45943b20129e32ed
+ms.sourcegitcommit: 956749f17569a55bcafba95aef9abcbb345eb929
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57855416"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58630726"
 ---
 # <a name="understand-resource-locking-in-azure-blueprints"></a>Compreender o recurso de bloqueio em esquemas do Azure
 
@@ -56,11 +56,56 @@ Um RBAC [negar atribuições](../../../role-based-access-control/deny-assignment
 > [!IMPORTANT]
 > O Azure Resource Manager coloca em cache os detalhes de atribuição de função durante até 30 minutos. Assim, negar atribuições negar a ação nos recursos de esquema pode não ser imediatamente em vigor completa. Durante este período de tempo, é possível eliminar um recurso que se destina a ser protegidos por bloqueios de esquema.
 
+## <a name="exclude-a-principal-from-a-deny-assignment"></a>Excluir uma entidade de segurança de uma atribuição de negação
+
+Em alguns cenários de design ou da segurança, poderá ser necessário excluir uma entidade de segurança a partir do [negar a atribuição](../../../role-based-access-control/deny-assignments.md) cria a atribuição do esquema. Isso é feito na REST API através da adição de até cinco valores para o **excludedPrincipals** obsahuje pole a **bloqueios** propriedade quando [criar a atribuição](/rest/api/blueprints/assignments/createorupdate).
+Este é um exemplo de um corpo de pedido que inclui **excludedPrincipals**:
+
+```json
+{
+  "identity": {
+    "type": "SystemAssigned"
+  },
+  "location": "eastus",
+  "properties": {
+    "description": "enforce pre-defined simpleBlueprint to this XXXXXXXX subscription.",
+    "blueprintId": "/providers/Microsoft.Management/managementGroups/{mgId}/providers/Microsoft.Blueprint/blueprints/simpleBlueprint",
+    "locks": {
+        "mode": "AllResourcesDoNotDelete",
+        "excludedPrincipals": [
+            "7be2f100-3af5-4c15-bcb7-27ee43784a1f",
+            "38833b56-194d-420b-90ce-cff578296714"
+        ]
+    },
+    "parameters": {
+      "storageAccountType": {
+        "value": "Standard_LRS"
+      },
+      "costCenter": {
+        "value": "Contoso/Online/Shopping/Production"
+      },
+      "owners": {
+        "value": [
+          "johnDoe@contoso.com",
+          "johnsteam@contoso.com"
+        ]
+      }
+    },
+    "resourceGroups": {
+      "storageRG": {
+        "name": "defaultRG",
+        "location": "eastus"
+      }
+    }
+  }
+}
+```
+
 ## <a name="next-steps"></a>Passos Seguintes
 
 - Siga os [proteger os recursos novos](../tutorials/protect-new-resources.md) tutorial.
-- Saiba mais sobre o [ciclo de vida de esquema](lifecycle.md).
-- Compreender como usar [parâmetros estáticos e dinâmicos](parameters.md).
-- Aprenda a personalizar a [esquema de ordem de sequenciamento](sequencing-order.md).
-- Saiba como [atualizar atribuições existentes](../how-to/update-existing-assignments.md).
-- Resolver problemas durante a atribuição de um plano gráfico com [resolução de problemas gerais](../troubleshoot/general.md).
+- Saiba mais sobre o [ciclo de vida de um esquema](lifecycle.md).
+- Compreenda como utilizar [parâmetros estáticos e dinâmicos](parameters.md).
+- Aprenda a personalizar a [ordem de sequenciação do esquema](sequencing-order.md).
+- Saiba como [atualizar as atribuições existentes](../how-to/update-existing-assignments.md).
+- Resolva problemas durante a atribuição de um esquema com a [resolução de problemas gerais](../troubleshoot/general.md).

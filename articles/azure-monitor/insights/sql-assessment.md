@@ -1,6 +1,6 @@
 ---
-title: Otimizar seu ambiente do SQL Server com o Azure Log Analytics | Documentos da Microsoft
-description: Com o Azure Log Analytics, pode utilizar a solução de verificação de estado de funcionamento do SQL para avaliar o risco e estado de funcionamento dos seus ambientes num intervalo regular.
+title: Otimizar seu ambiente do SQL Server com o Azure Monitor | Documentos da Microsoft
+description: Com o Azure Monitor, pode utilizar a solução de verificação de estado de funcionamento do SQL para avaliar o risco e estado de funcionamento dos seus ambientes num intervalo regular.
 services: log-analytics
 documentationcenter: ''
 author: mgoedtel
@@ -11,16 +11,16 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 01/19/2018
+ms.date: 03/28/2019
 ms.author: magoedte
-ms.openlocfilehash: e8c06f0a3a33133c7b1595db52204d15b03d6aab
-ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
+ms.openlocfilehash: 94b23bc29c3c986e6a0cd74e0805b5d47ce35849
+ms.sourcegitcommit: 956749f17569a55bcafba95aef9abcbb345eb929
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58372476"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58629128"
 ---
-# <a name="optimize-your-sql-environment-with-the-sql-server-health-check-solution-in-log-analytics"></a>Otimizar seu ambiente de SQL com a solução de verificação de estado de funcionamento do SQL Server no Log Analytics
+# <a name="optimize-your-sql-environment-with-the-sql-server-health-check-solution-in-azure-monitor"></a>Otimizar seu ambiente de SQL com a solução de verificação de estado de funcionamento do SQL Server no Azure Monitor
 
 ![Símbolo de verificação de estado de funcionamento do SQL](./media/sql-assessment/sql-assessment-symbol.png)
 
@@ -40,24 +40,24 @@ Depois de adicionar a solução e uma avaliação é concluído, resumo informa�
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* A solução de verificação de estado de funcionamento do SQL requer uma versão suportada do .NET Framework 4 instalado em cada computador que tenha o Microsoft Monitoring Agent (MMA) instalado.  O agente MMA é utilizado pelo System Center 2016 - Operations Manager e Operations Manager 2012 R2 e o serviço Log Analytics.  
+* A solução de verificação de estado de funcionamento do SQL requer uma versão suportada do .NET Framework 4 instalado em cada computador que tenha o Microsoft Monitoring Agent (MMA) instalado.  O agente MMA é utilizado pelo System Center 2016 - Operations Manager e o Operations Manager 2012 R2 e o Azure Monitor.  
 * A solução suporta a versão 2012, 2014 e 2016 do SQL Server.
 * Uma área de trabalho do Log Analytics para adicionar a solução de verificação de estado de funcionamento do SQL no Azure marketplace no portal do Azure.  Para instalar a solução, tem de ser um administrador ou contribuinte na subscrição do Azure.
 
   > [!NOTE]
-  > Depois de adicionar a solução, o ficheiro de AdvisorAssessment.exe é adicionado aos servidores com os agentes. Leia e, em seguida, enviados para o serviço de Log Analytics na cloud para processamento de dados de configuração. Lógica é aplicada para os dados recebidos e o serviço em nuvem regista os dados.
+  > Depois de adicionar a solução, o ficheiro de AdvisorAssessment.exe é adicionado aos servidores com os agentes. Leia e, em seguida, enviados para o Azure Monitor na cloud para processamento de dados de configuração. Lógica é aplicada para os dados recebidos e o serviço em nuvem regista os dados.
   >
   >
 
-Para efetuar a verificação de estado de funcionamento em relação a seus servidores do SQL Server, necessitam de um agente e a conectividade para o Log Analytics através de um dos seguintes métodos suportados:
+Para efetuar a verificação de estado de funcionamento em relação a seus servidores do SQL Server, necessitam de um agente e a conectividade para o Azure Monitor utilizando um dos seguintes métodos suportados:
 
 1. Instalar o [Microsoft Monitoring Agent (MMA)](../../azure-monitor/platform/agent-windows.md) se o servidor já não é monitorizado pelo System Center 2016 - Operations Manager ou do Operations Manager 2012 R2.
-2. Se está a ser monitorizado com o System Center 2016 - Operations Manager ou do Operations Manager 2012 R2 e o grupo de gestão não estiver integrado com o serviço Log Analytics, o servidor pode ser multihomed com o Log Analytics para recolher dados e reencaminhar para o serviço e ainda monitorizados pelo Operations Manager.  
+2. Se está a ser monitorizado com o System Center 2016 - Operations Manager ou do Operations Manager 2012 R2 e o grupo de gestão não está integrado com o Azure Monitor, o servidor pode ser multihomed com o Log Analytics para recolher dados e reencaminhar para o serviço e ainda ser monitorizados pelo Operations Manager.  
 3. Caso contrário, se o grupo de gestão do Operations Manager está integrado com o serviço, terá de adicionar os controladores de domínio para a recolha de dados pelo serviço de seguir os passos em [adicionar computadores geridos por agente](../../azure-monitor/platform/om-agents.md#connecting-operations-manager-to-azure-monitor) depois de ativar a solução na sua área de trabalho.  
 
-O agente no seu servidor SQL, os relatórios a um grupo de gestão do Operations Manager, recolhe os dados, por sua vez encaminha para o respetivo servidor de gestão atribuído e, em seguida, é enviado diretamente a partir de um servidor de gestão para o serviço Log Analytics.  Os dados não são gravados para as bases de dados do Operations Manager.  
+O agente no seu servidor SQL, os relatórios a um grupo de gestão do Operations Manager, recolhe os dados, por sua vez encaminha para o respetivo servidor de gestão atribuído e, em seguida, é enviado diretamente a partir de um servidor de gestão para o Azure Monitor.  Os dados não são gravados para as bases de dados do Operations Manager.  
 
-Se o SQL Server é monitorizado pelo Operations Manager, terá de configurar uma Operations Manager conta Run As. Ver [contas do Operations Manager Run para o Log Analytics](#operations-manager-run-as-accounts-for-log-analytics) abaixo para obter mais informações.
+Se o SQL Server é monitorizado pelo Operations Manager, terá de configurar uma Operations Manager conta Run As. Ver [Operations Manager Run as contas do Azure Monitor](#operations-manager-run-as-accounts-for-log-analytics) abaixo para obter mais informações.
 
 ## <a name="sql-health-check-data-collection-details"></a>Detalhes de recolha de dados SQL de verificação de estado de funcionamento
 Verificação de estado de funcionamento do SQL recolhe dados das seguintes origens a utilizar o agente que tiver ativado:
@@ -157,43 +157,37 @@ Não necessariamente. As recomendações baseiam-se o conhecimento e experiênci
 Cada recomendação inclui documentação de orientação sobre por que é importante. Deve usar essa orientação para avaliar se implementar a recomendação é adequada para si, tendo em conta a natureza de seus serviços de TI e as necessidades de negócio da sua organização.
 
 ## <a name="use-health-check-focus-area-recommendations"></a>Utilize recomendações de área de foco verificar o estado de funcionamento
-Antes de poder utilizar uma solução de avaliação do Log Analytics, tem de ter a solução instalada.  Depois de ser instalado, pode ver o resumo de recomendações utilizando o mosaico de verificação de estado de funcionamento do SQL na página da solução no portal do Azure.
+Antes de poder utilizar uma solução de avaliação no Azure Monitor, tem de ter a solução instalada.  Depois de ser instalado, pode ver o resumo de recomendações com o mosaico de verificação de estado de funcionamento do SQL no **descrição geral** página para o Monitor do Azure no portal do Azure.
 
 Ver as avaliações de conformidade resumidos para sua infraestrutura e, em seguida, no teste de recomendações.
 
 ### <a name="to-view-recommendations-for-a-focus-area-and-take-corrective-action"></a>Para ver as recomendações para uma área de foco e tomar medidas corretivas
-1. Inicie sessão no portal do Azure em [https://portal.azure.com](https://portal.azure.com).
-2. No portal do Azure, clique em **Mais serviços**, que se encontra no canto inferior esquerdo. Na lista de recursos, escreva **Log Analytics**. À medida que começa a escrever, a lista filtra com base na sua entrada. Selecione **Log Analytics**.
-3. No painel de subscrições do Log Analytics, selecione uma área de trabalho e, em seguida, clique nas **descrição geral** mosaico.  
+1. Inicie sessão no Portal do Azure em [https://portal.azure.com](https://portal.azure.com).
+2. No portal do Azure, clique em **Mais serviços**, que se encontra no canto inferior esquerdo. Na lista de recursos, escreva **Monitorizar**. À medida que começa a escrever, a lista filtra com base na sua entrada. Selecione **Monitorizar**.
+3. Na **Insights** secção do menu, selecione **mais**.  
 4. Sobre o **descrição geral** página, clique no **verificação de estado de funcionamento do SQL** mosaico.
 5. Sobre o **verificar o estado de funcionamento** página, reveja as informações de resumo em um dos painéis de área de foco e, em seguida, clique num para ver as recomendações para essa área de foco.
 6. Em qualquer uma das páginas de área de foco, pode ver as fez para o seu ambiente de recomendações ordenadas por prioridade. Clique numa recomendação em **Objetos afetados** para ver detalhes sobre por que motivo a recomendação é feita.<br><br> ![imagem de recomendações de verificação de estado de funcionamento do SQL](./media/sql-assessment/sql-healthcheck-dashboard-02.png)<br>
 7. Pode efetuar ações corretivas sugeridas na **ações sugeridas**. Quando o item tiver sido resolvido, avaliações posteriores gravará que recomenda ações foram executadas e irão aumentar a sua pontuação de conformidade. Itens corrigidos aparecem como **objetos transmitidos**.
 
 ## <a name="ignore-recommendations"></a>Ignorar recomendações
-Se tiver recomendações que deseja ignorar, pode criar um arquivo de texto que o Log Analytics irá utilizar para impedir que as recomendações de aparecer no seu os resultados da avaliação.
+Se tiver recomendações que deseja ignorar, pode criar um arquivo de texto que o Azure Monitor irá utilizar para impedir que as recomendações de aparecer no seu os resultados da avaliação.
 
 ### <a name="to-identify-recommendations-that-you-will-ignore"></a>Para identificar as recomendações que irá ignorar
-1. No portal do Azure na página de área de trabalho do Log Analytics para a sua área de trabalho selecionada, clique nas **pesquisa de registos** mosaico.
+1. No menu do Azure Monitor, clique em **registos**.
 2. Utilize a seguinte consulta para recomendações de lista que tenham falhado para computadores no seu ambiente.
 
     ```
-    Type=SQLAssessmentRecommendation RecommendationResult=Failed | select Computer, RecommendationId, Recommendation | sort Computer
+    SQLAssessmentRecommendation | where RecommendationResult == "Failed" | sort by Computer asc | project Computer, RecommendationId, Recommendation
     ```
-
-    >[!NOTE]
-    > Se a sua área de trabalho tiver sido atualizada para o [linguagem de consulta do Log Analytics de novas](../../azure-monitor/log-query/log-query-overview.md), em seguida, a consulta acima serão alteradas para o seguinte.
-    >
-    > `SQLAssessmentRecommendation | where RecommendationResult == "Failed" | sort by Computer asc | project Computer, RecommendationId, Recommendation`
-
-    Eis uma captura de ecrã que mostra a consulta de pesquisa de registos:<br><br> ![recomendações com falhas](./media/sql-assessment/sql-assess-failed-recommendations.png)<br>
+    Eis uma captura de ecrã que mostra a consulta de registo:<br><br> ![recomendações com falhas](./media/sql-assessment/sql-assess-failed-recommendations.png)<br>
 
 3. Escolha as recomendações que pretende ignorar. Vai utilizar os valores para RecommendationId no próximo procedimento.
 
 ### <a name="to-create-and-use-an-ignorerecommendationstxt-text-file"></a>Para criar e utilizar um ficheiro de texto IgnoreRecommendations.txt
 1. Crie um ficheiro denominado IgnoreRecommendations.txt.
-2. Cole ou introduza cada RecommendationId para cada recomendação que pretende que o Log Analytics para ignorar numa linha separada e, em seguida, guarde e feche o ficheiro.
-3. Coloca o ficheiro na pasta em cada computador onde pretende que o Log Analytics para ignorar recomendações.
+2. Cole ou introduza cada RecommendationId para cada recomendação que pretende que o Azure Monitor para ignorar numa linha separada e, em seguida, guarde e feche o ficheiro.
+3. Coloca o ficheiro na pasta em cada computador onde pretende que o Azure Monitor para ignorar recomendações.
    * Em computadores com o Microsoft Monitoring Agent (conectado diretamente ou através do Operations Manager) - *SystemDrive*: \Programas\Microsoft Agent\Agent de monitorização
    * No servidor de gestão do Operations Manager - *SystemDrive*: \Programas\Microsoft System Center 2012 R2\Operations Manager\Server
    * No servidor de gestão do Operations Manager 2016 - *SystemDrive*: \Programas\Microsoft System Center 2016\Operations Manager\Server
@@ -203,14 +197,8 @@ Se tiver recomendações que deseja ignorar, pode criar um arquivo de texto que 
 2. Pode utilizar as seguintes consultas de pesquisa de registos para listar todas as recomendações ignoradas.
 
     ```
-    Type=SQLAssessmentRecommendation RecommendationResult=Ignored | select Computer, RecommendationId, Recommendation | sort Computer
+    SQLAssessmentRecommendation | where RecommendationResult == "Ignored" | sort by Computer asc | project Computer, RecommendationId, Recommendation
     ```
-
-    >[!NOTE]
-    > Se a sua área de trabalho tiver sido atualizada para o [linguagem de consulta do Log Analytics de novas](../../azure-monitor/log-query/log-query-overview.md), em seguida, a consulta acima serão alteradas para o seguinte.
-    >
-    > `SQLAssessmentRecommendation | where RecommendationResult == "Ignored" | sort by Computer asc | project Computer, RecommendationId, Recommendation`
-
 3. Se decidir posteriormente que pretende ver recomendações ignoradas, remova todos os ficheiros IgnoreRecommendations.txt ou pode remover RecommendationIDs dos mesmos.
 
 ## <a name="sql-health-check-solution-faq"></a>Solução de verificação de estado de funcionamento do SQL FAQ
@@ -263,4 +251,4 @@ Se tiver recomendações que deseja ignorar, pode criar um arquivo de texto que 
 * Sim, consulte [ignorar recomendações](#ignore-recommendations) secção acima.
 
 ## <a name="next-steps"></a>Passos Seguintes
-* [Pesquisar registos](../../azure-monitor/log-query/log-query-overview.md) para saber como analisar dados de verificação de estado de funcionamento do SQL detalhados e recomendações.
+* [Registar as consultas](../log-query/log-query-overview.md) para saber como analisar dados de verificação de estado de funcionamento do SQL detalhados e recomendações.

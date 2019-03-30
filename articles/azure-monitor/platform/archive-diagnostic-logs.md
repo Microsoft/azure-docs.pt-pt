@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 07/18/2018
 ms.author: johnkem
 ms.subservice: logs
-ms.openlocfilehash: 0d23509d4efb0385770811e004bb2599c3866847
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.openlocfilehash: 82aaa573c55748daf62b620cdd82561bae6af492
+ms.sourcegitcommit: 956749f17569a55bcafba95aef9abcbb345eb929
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57313349"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58629366"
 ---
 # <a name="archive-azure-diagnostic-logs"></a>Arquivar registos de diagnóstico do Azure
 
@@ -33,7 +33,7 @@ Antes de começar, precisa [criar uma conta de armazenamento](../../storage/comm
 
 ## <a name="diagnostic-settings"></a>Definições de diagnóstico
 
-Para arquivar os registos de diagnósticos usando qualquer um dos métodos abaixo, define um **definição de diagnóstico** para um recurso em particular. Uma definição de diagnóstico para um recurso define as categorias de registos e métricos dados enviados para um destino (conta de armazenamento, espaço de nomes de Hubs de eventos ou do Log Analytics). Também define a política de retenção (número de dias a manter) para eventos de cada categoria de registo e dados métricos armazenados numa conta de armazenamento. Se uma política de retenção é definida como zero, eventos dessa categoria de registo são armazenados indefinidamente (ou seja dizer que, para sempre). Uma política de retenção caso contrário, pode ser qualquer número de dias entre 1 e 2147483647. [Pode ler mais sobre as definições de diagnóstico aqui](../../azure-monitor/platform/diagnostic-logs-overview.md#diagnostic-settings). Políticas de retenção são aplicado por dia, portanto, no final do dia (UTC), registos a partir do dia em que está, agora, além do período de retenção política será eliminada. Por exemplo, se tivesse uma política de retenção de um dia, no início do dia hoje os registos de ontem de before dia serão eliminados. O processo de eliminação começa a meia-noite UTC, mas tenha em atenção que pode demorar até 24 horas para os registos para ser eliminado da sua conta de armazenamento. 
+Para arquivar os registos de diagnósticos usando qualquer um dos métodos abaixo, define um **definição de diagnóstico** para um recurso em particular. Uma definição de diagnóstico para um recurso define as categorias de registos e métricos dados enviados para um destino (conta de armazenamento, espaço de nomes de Hubs de eventos ou área de trabalho do Log Analytics). Também define a política de retenção (número de dias a manter) para eventos de cada categoria de registo e dados métricos armazenados numa conta de armazenamento. Se uma política de retenção é definida como zero, eventos dessa categoria de registo são armazenados indefinidamente (ou seja dizer que, para sempre). Uma política de retenção caso contrário, pode ser qualquer número de dias entre 1 e 2147483647. [Pode ler mais sobre as definições de diagnóstico aqui](../../azure-monitor/platform/diagnostic-logs-overview.md#diagnostic-settings). Políticas de retenção são aplicado por dia, portanto, no final do dia (UTC), registos a partir do dia em que está, agora, além do período de retenção política será eliminada. Por exemplo, se tivesse uma política de retenção de um dia, no início do dia hoje os registos de ontem de before dia serão eliminados. O processo de eliminação começa a meia-noite UTC, mas tenha em atenção que pode demorar até 24 horas para os registos para ser eliminado da sua conta de armazenamento. 
 
 > [!NOTE]
 > Atualmente, o envio de métricas multidimensionais através das definições de diagnóstico não é suportado. As métricas com dimensões são exportadas como métricas dimensionais simples e agregadas em valores de dimensões.

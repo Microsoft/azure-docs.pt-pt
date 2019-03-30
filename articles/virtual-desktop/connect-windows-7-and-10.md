@@ -1,24 +1,27 @@
 ---
 title: Ligar ao Windows Virtual Desktop pré-visualização com o Windows 7 e Windows 10 - Azure
-description: Como se pode ligar para o cliente de pré-visualização de ambiente de trabalho virtuais Windows com o Windows 7 ou Windows 10.
+description: Como se pode ligar para o serviço de pré-visualização de ambiente de trabalho virtuais Windows com o Windows 7 ou Windows 10.
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: how-to
-ms.date: 03/21/2019
+ms.date: 03/27/2019
 ms.author: helohr
-ms.openlocfilehash: 644a1d650384f151d9c43b9efa5f47532c58ce14
-ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
+ms.openlocfilehash: 8b5a649d767dae9ae9c0fb077f550451a7f83601
+ms.sourcegitcommit: 956749f17569a55bcafba95aef9abcbb345eb929
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58399735"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58630386"
 ---
 # <a name="connect-with-windows-7-and-windows-10"></a>Ligar com o Windows 7 e Windows 10
 
 > Aplica-se a O Windows 7 e Windows 10.
 
 Está disponível um cliente disponível para download que fornece acesso a recursos da demonstração de ambiente de Trabalho Virtual do Windows dos dispositivos que executam o Windows 7 e Windows 10.
+
+> [!IMPORTANT]
+> Não utilize **RemoteApp e ligações de ambiente de trabalho (RADC)** ou **ligação de ambiente de trabalho remoto (MSTSC)** para aceder aos recursos de área de Trabalho Virtual do Windows, porque a área de Trabalho Virtual do Windows não oferece suporte a qualquer cliente.
 
 ## <a name="install-the-client"></a>Instalar o cliente
 
@@ -30,21 +33,17 @@ Obter a lista de recursos disponíveis para do seu PC local ao subscrever o feed
 
 Para subscrever um feed:
 
-1. Iniciar o cliente da lista de todas as aplicações, procure a área de trabalho remota.
-2. Selecione uma conta escolar ou profissional na página principal. Isto irá subscrever com o padrão de URL do feed.
-   - Também pode fornecer um URL diferente se for necessário com o **em alternativa, utilize um URL** opção.
-3. Inicie sessão com a sua conta de utilizador.
-
-> [!NOTE]
-> Se o administrador tiver configurado a deteção de e-mail, o cliente irá pesquisar automaticamente seu feed URL ao introduzir o seu endereço de e-mail.
+1. Iniciar o cliente da lista de todas as aplicações, procure para **ambiente de trabalho remoto**.
+1. Selecione **Subscribe** na página principal para se ligar ao serviço e recuperar os seus recursos.
+1. **Inicie sessão no** com a sua conta de utilizador quando lhe for pedido.
 
 Após a autenticação bem-sucedida, agora deve ver uma lista de recursos disponíveis para.
 
 Pode iniciar recursos por um dos dois métodos.
 
-- Aceda à página do cliente de principal e selecione um recurso.
+- Na página de principal do cliente, faça duplo clique num recurso para iniciá-lo.
 - Inicie um recurso, tal como faria normalmente de outras aplicações do Menu Iniciar.
-  -  Também pode procurar as aplicações na barra de pesquisa.
+  - Também pode procurar as aplicações na barra de pesquisa.
 
 ## <a name="update-the-client"></a>Atualizar o cliente
 

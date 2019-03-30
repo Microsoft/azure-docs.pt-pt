@@ -4,7 +4,7 @@ description: Clusters do Service Fabric executados no Windows Server e Linux, qu
 services: service-fabric
 documentationcenter: .net
 author: dkkapur
-manager: timlt
+manager: chackdan
 editor: ''
 ms.assetid: ''
 ms.service: service-fabric
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 02/01/2019
 ms.author: dekapur
-ms.openlocfilehash: a968b173357bf8bcb83990b891f38306895b4ca8
-ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
+ms.openlocfilehash: d1681aee9dc11f0dbd3133bced0b919a8c1623b8
+ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55967430"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58670477"
 ---
 # <a name="overview-of-service-fabric-clusters-on-azure"></a>Descrição geral do Service Fabric clusters no Azure
 Um cluster do Service Fabric é um conjunto ligado à rede de máquinas virtuais ou físicas, no qual os microsserviços são implementados e geridos. Uma máquina ou VM que faça parte de um cluster é chamado de um nó de cluster. Clusters podem ser dimensionados para milhares de nós. Se adicionar novos nós ao cluster, o Service Fabric rebalances as réplicas de partição de serviço e as instâncias em aumento do número de nós. Em geral melhora o desempenho do aplicativo e reduz a contenção de acesso à memória. Se os nós do cluster não estão a ser utilizados com eficiência, pode diminuir o número de nós do cluster. Service Fabric rebalances novamente as instâncias e réplicas de partição entre o menor número de nós para garantir uma melhor utilização do hardware em cada nó.
@@ -31,9 +31,9 @@ Um cluster do Service Fabric no Azure é um recurso do Azure que utiliza e inter
 * VMs e placas de rede virtual
 * conjuntos de dimensionamento de máquinas virtuais
 * redes virtuais
-* Balanceadores de carga
+* balanceadores de carga
 * contas de armazenamento
-* Endereços IP públicos
+* endereços IP públicos
 
 ![Cluster do Service Fabric][Image]
 

@@ -4,7 +4,7 @@ description: Clusters do Service Fabric executados no Windows Server e Linux, qu
 services: service-fabric
 documentationcenter: .net
 author: dkkapur
-manager: timlt
+manager: chackdan
 editor: ''
 ms.assetid: ''
 ms.service: service-fabric
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 02/01/2019
 ms.author: dekapur
-ms.openlocfilehash: 5d3421c4d48a6bf8416a774c4b4e5e7852a83f06
-ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
+ms.openlocfilehash: b4b7759d1dc23c1a1b3a9b5aeb2a181923e14d40
+ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55967568"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58670715"
 ---
 # <a name="overview-of-service-fabric-standalone-clusters"></a>Descrição geral de clusters autónomos do Service Fabric
 

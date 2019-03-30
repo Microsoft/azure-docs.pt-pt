@@ -4,7 +4,7 @@ description: Saiba como configurar os limitadores fornecidos pelo Service Fabric
 services: service-fabric
 documentationcenter: .net
 author: masnider
-manager: timlt
+manager: chackdan
 editor: ''
 ms.assetid: 4a44678b-a5aa-4d30-958f-dc4332ebfb63
 ms.service: service-fabric
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/18/2017
 ms.author: masnider
-ms.openlocfilehash: b1824fc5f93bafb26650d28277054869a3659099
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: 4abc3e4a28b8b98070affe19b7b7ca38f904c45b
+ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56731757"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58669831"
 ---
 # <a name="throttling-the-service-fabric-cluster-resource-manager"></a>O Gestor de recursos de Cluster do Service Fabric de limitação
 Mesmo se tiver configurado o Gestor de recursos de Cluster corretamente, o cluster pode obter interrompido. Por exemplo, pode haver falhas simultâneas de nó e com falha domínio - o que aconteceria se de que ocorreu durante uma atualização? O Gestor de recursos de Cluster sempre tenta corrigir tudo, consumindo recursos do cluster tentando reorganizar e corrigir o cluster. Limitações do ajudar a fornecer uma opção para que o cluster pode utilizar os recursos para estabilizar - os nós voltam atrás, as partições de rede tratá-lo, bits corrigidos implementados.

@@ -7,18 +7,18 @@ ms.service: virtual-desktop
 ms.topic: how-to
 ms.date: 03/21/2019
 ms.author: helohr
-ms.openlocfilehash: c9c2ca2cc27c5fa757b8ff6846e0a6a8f7087875
-ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
+ms.openlocfilehash: af4147de06f9fb7c856dfd93dc186f1a6e83ffff
+ms.sourcegitcommit: 956749f17569a55bcafba95aef9abcbb345eb929
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58403719"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58628989"
 ---
-# <a name="set-up-a-user-profile-share-for-a-host-pool"></a>Configurar uma partilha do perfil de utilizador para um conjunto de anfitrião
+# <a name="set-up-a-user-profile-share-for-a-host-pool"></a>Configurar uma partilha do perfil de utilizador para um conjunto de anfitriões
 
 O serviço de pré-visualização de ambiente de Trabalho Virtual do Windows oferece FSLogix contentores de perfil, como a solução de perfil do usuário recomendada. Não é recomendado utilizar a solução de disco de perfil de utilizador (UDP), e vão ser preterida em versões futuras do ambiente de Trabalho Virtual do Windows.
 
-Esta secção irá dizer como configurar uma partilha de contentor do perfil de FSLogix para um conjunto de anfitrião.
+Esta secção irá dizer como configurar uma partilha de contentor do perfil de FSLogix para um conjunto de anfitrião. Para obter documentação geral sobre FSLogix, consulte a [FSLogix site](https://docs.fslogix.com/).
 
 ## <a name="create-a-new-virtual-machine-that-will-act-as-a-file-share"></a>Criar uma nova máquina virtual que funcionará como uma partilha de ficheiros
 
@@ -48,14 +48,14 @@ Seguem-se instruções gerais sobre como preparar uma máquina virtual para agir
 6. Procure o grupo de segurança ao qual adicionou as máquinas de virtuais de anfitrião de sessão, em seguida, certificar-se de que esse grupo tem **controlo total**.
 7. Depois de adicionar o grupo de segurança, clique com botão direito na pasta, selecione **propriedades**, selecione **partilha**, em seguida, copie o **caminho de rede** a utilizar para utilizar mais tarde.
 
-Para melhores práticas em permissões, consulte o seguinte procedimento [FSLogix documentação](https://support.fslogix.com/index.php/forum-main/faqs/84-best-practices#120).
+Para obter mais informações sobre as permissões, consulte a [FSLogix documentação](https://docs.fslogix.com/display/20170529/Requirements%2B-%2BProfile%2BContainers).
 
 ## <a name="configure-the-fslogix-profile-container"></a>Configurar o contentor de perfil FSLogix
 
 Para configurar as máquinas virtuais com o software de FSLogix, efetue o seguinte procedimento em cada máquina registrado para o conjunto de anfitrião:
 
 1. [Ligar à máquina virtual](https://docs.microsoft.com/azure/virtual-machines/windows/quick-create-portal#connect-to-virtual-machine) com as credenciais que forneceu ao criar a máquina virtual.
-2. Inicie um browser e navegue para o seguinte [link](https://go.microsoft.com/fwlink/?linkid=2084562) para transferir o agente de FSLogix. Como parte da pré-visualização pública da área de Trabalho Virtual do Windows, obterá uma chave de licença para ativar o software de FSLogix. A chave é o arquivo de LicenseKey.txt incluído no ficheiro. zip de agente de FSLogix.
+2. Inicie um browser e navegue para [esta ligação](https://go.microsoft.com/fwlink/?linkid=2084562) para transferir o agente de FSLogix. Como parte da pré-visualização pública da área de Trabalho Virtual do Windows, obterá uma chave de licença para ativar o software de FSLogix. A chave é o arquivo de LicenseKey.txt incluído no ficheiro. zip de agente de FSLogix.
 3. Instale o agente de FSLogix.
 4. Navegue para **Program Files** > **FSLogix** > **aplicações** para confirmar se o agente instalado.
 5. A partir do menu Iniciar, execute **RegEdit** como administrador. Navegue para **computador\\HKEY_LOCAL_MACHINE\\software\\FSLogix\\perfis**

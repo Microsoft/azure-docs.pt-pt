@@ -4,7 +4,7 @@ description: Descreve os comandos de implementação de malha do CLI do Service 
 services: service-fabric
 documentationcenter: na
 author: Christina-Kang
-manager: timlt
+manager: chackdan
 editor: ''
 ms.assetid: ''
 ms.service: service-fabric
@@ -14,14 +14,14 @@ ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.date: 12/06/2018
 ms.author: bikang
-ms.openlocfilehash: b25384d8f3c6e41b6c5cca723d41b79f00b17494
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: e6b484dabd77a142961db2d97242896790fa3d8b
+ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53285446"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58668471"
 ---
-# <a name="sfctl-mesh-deployment"></a>implementação de malha sfctl
+# <a name="sfctl-mesh-deployment"></a>sfctl mesh deployment
 Crie recursos de malha do Service Fabric.
 
 ## <a name="commands"></a>Comandos
@@ -46,9 +46,9 @@ Cria uma implementação de recursos de malha do Service Fabric.
 | --- | --- |
 | – depuração | Aumenta a verbosidade de registo para mostrar que todos os registos de depuração. |
 | – ajudar -h | Mostre esta mensagem de ajuda e saída. |
-| --o de saída | Formato de saída.  Valores permitidos\: json, jsonc, tabela, tsv.  Predefinido\: json. |
-| – consulta | Cadeia de consulta do JMESPath. Consulte http\://jmespath.org/ para obter mais informações e exemplos. |
-| -verbose | Aumenta a verbosidade do registo. Utilize--debug para os registos de depuração completa. |
+| --output -o | Formato de saída.  Valores permitidos\: json, jsonc, tabela, tsv.  Predefinido\: json. |
+| --query | Cadeia de consulta do JMESPath. Consulte http\://jmespath.org/ para obter mais informações e exemplos. |
+| --verbose | Aumenta a verbosidade do registo. Utilize--debug para os registos de depuração completa. |
 
 ### <a name="examples"></a>Exemplos
 

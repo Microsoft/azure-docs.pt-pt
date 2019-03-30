@@ -4,7 +4,7 @@ description: O Azure Service Fabric oferece as capacidades necessárias para lid
 services: service-fabric
 documentationcenter: .net
 author: masnider
-manager: timlt
+manager: chackdan
 editor: ''
 ms.assetid: ab49c4b9-74a8-4907-b75b-8d2ee84c6d90
 ms.service: service-fabric
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/18/2017
 ms.author: masnider
-ms.openlocfilehash: a95187cf00b92596e3674ad4cf4f0f578e47bd9c
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 0804095a9e12e91d6b0fa88b626b006b78bdf3a5
+ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58098156"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58670817"
 ---
 # <a name="disaster-recovery-in-azure-service-fabric"></a>Recuperação após desastre no Azure Service Fabric
 Uma parte crítica do fornecimento de elevada disponibilidade é garantir que os serviços podem sobreviver todos os diferentes tipos de falhas. Isto é especialmente importante para as falhas são não planeadas e fora do seu controlo. Este artigo descreve alguns modos de falha comuns que podem ser desastres se não for modelados e gerida corretamente. Como Abordaremos atenuações e ações de caso de qualquer forma, um desastre. O objetivo é limitar ou eliminar o risco de tempo de inatividade ou perda de dados quando estes ocorrerem falhas planeadas ou caso contrário, ocorrer.

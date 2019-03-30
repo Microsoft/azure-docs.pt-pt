@@ -29,27 +29,29 @@ items:
     href: tutorials/tutorial-share-anchors-across-devices.md
   - name: Partilhar no Unity com o Azure Cosmos DB
     href: tutorials/tutorial-use-cosmos-db-to-store-anchors.md
+- name: Procedimentos
+  items:
+  - name: Criar e localizar âncoras
+    href: create-locate-anchors-overview.md
+    items:
+    - name: Em Unity
+      href: how-tos/create-locate-anchors-unity.md
+    - name: Em Objective-C
+      href: how-tos/create-locate-anchors-objc.md
+    - name: Em Swift
+      href: how-tos/create-locate-anchors-swift.md
+    - name: Em Java
+      href: how-tos/create-locate-anchors-java.md
+    - name: Em C++ /NDK
+      href: how-tos/create-locate-anchors-cpp-ndk.md
+    - name: Em C++ /WinRT
+      href: how-tos/create-locate-anchors-cpp-winrt.md
 - name: Amostras
   items:
   - name: Exemplos do Spatial Anchors do Azure (GitHub)
     href: https://github.com/Azure/azure-spatial-anchors-samples
 - name: Conceitos
   items:
-  - name: Criar e localizar âncoras
-    href: create-locate-anchors-overview.md
-    items:
-    - name: Em Unity
-      href: concepts/create-locate-anchors-unity.md
-    - name: Em Objective-C
-      href: concepts/create-locate-anchors-objc.md
-    - name: Em Swift
-      href: concepts/create-locate-anchors-swift.md
-    - name: Em Java
-      href: concepts/create-locate-anchors-java.md
-    - name: Em C++ /NDK
-      href: concepts/create-locate-anchors-cpp-ndk.md
-    - name: Em C++ /WinRT
-      href: concepts/create-locate-anchors-cpp-winrt.md
   - name: Relações de âncora
     href: concepts/anchor-relationships-way-finding.md
   - name: Diretrizes de experiência
@@ -78,9 +80,9 @@ items:
     href: https://stackoverflow.com/questions/tagged/azure-spatial-anchors
   - name: Suporte
     href: spatial-anchor-support.md
-ms.openlocfilehash: c3d27c3c8f13d97fd416b37fc153e8c81e81d866
-ms.sourcegitcommit: e88188bc015525d5bead239ed562067d3fae9822
+ms.openlocfilehash: 9723bcbe3605907ddd1c40f0c680dc931e6e96b1
+ms.sourcegitcommit: 956749f17569a55bcafba95aef9abcbb345eb929
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/24/2019
-ms.locfileid: "56753387"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58629805"

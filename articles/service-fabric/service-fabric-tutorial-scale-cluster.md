@@ -4,7 +4,7 @@ description: Neste tutorial, saiba como dimensionar um cluster do Service Fabric
 services: service-fabric
 documentationcenter: .net
 author: aljo-microsoft
-manager: timlt
+manager: chackdan
 editor: ''
 ms.assetid: ''
 ms.service: service-fabric
@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 03/19/2019
 ms.author: aljo
 ms.custom: mvc
-ms.openlocfilehash: 8b5051787855413e16de984cb5d26a24e305b00c
-ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
+ms.openlocfilehash: 40e372b779d06656b111ad3d7de435b99c401dc3
+ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58498405"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58669508"
 ---
 # <a name="tutorial-scale-a-service-fabric-cluster-in-azure"></a>Tutorial: Dimensionar um cluster do Service Fabric no Azure
 

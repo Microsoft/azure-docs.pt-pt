@@ -4,7 +4,7 @@ description: O Azure Service Fabric permite-lhe especificar os limites de recurs
 services: service-fabric
 documentationcenter: .net
 author: aljo-microsoft
-manager: timlt
+manager: chackdan
 editor: ''
 ms.assetid: ab49c4b9-74a8-4907-b75b-8d2ee84c6d90
 ms.service: service-fabric
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 8/9/2017
 ms.author: aljo, subramar
-ms.openlocfilehash: 985d31ea5fff7989b70443848effb616eca47ae2
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: e011554e61411fddca034f024c30c2270593e07b
+ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57844114"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58669253"
 ---
 # <a name="resource-governance"></a>Governação de recursos
 

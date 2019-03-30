@@ -9,19 +9,19 @@ editor: ''
 ms.service: active-directory
 ms.subservice: develop
 ms.devlang: na
-ms.topic: article
+ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 03/20/2019
 ms.author: dadobali
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 293e1b97ff140916f7df11efd5b569ba24d759ec
-ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
+ms.openlocfilehash: 0c4dc5089616971713eab15bd2048674f82d6619
+ms.sourcegitcommit: 956749f17569a55bcafba95aef9abcbb345eb929
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58200757"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58630539"
 ---
 [!INCLUDE [1. Introduction](../../../includes/active-directory-develop-guidedsetup-ios-introduction.md)]
 [!INCLUDE [2. Setup](../../../includes/active-directory-develop-guidedsetup-ios-setup.md)]

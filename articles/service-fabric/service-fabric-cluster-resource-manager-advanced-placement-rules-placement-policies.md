@@ -4,7 +4,7 @@ description: Descrição geral das políticas de posicionamento adicionais e reg
 services: service-fabric
 documentationcenter: .net
 author: masnider
-manager: timlt
+manager: chackdan
 editor: ''
 ms.assetid: 5c2d19c6-dd40-4c4b-abd3-5c5ec0abed38
 ms.service: service-fabric
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/18/2017
 ms.author: masnider
-ms.openlocfilehash: 985d41d3a00974e25c9abc4709c5bf5e662f7a50
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: d5aea441f15cbf7a2a444439c06cd5f74a559d3f
+ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58086042"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58670341"
 ---
 # <a name="placement-policies-for-service-fabric-services"></a>Políticas de colocação para serviços do service fabric
 As políticas de colocação são regras adicionais que podem ser utilizadas para regular o posicionamento do serviço em alguns cenários específicos e menos comuns. Alguns exemplos desses cenários são:

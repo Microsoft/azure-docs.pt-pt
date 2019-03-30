@@ -1,19 +1,19 @@
 ---
-title: Proteger os recursos novos com bloqueios de recursos de esquema
+title: Proteger recursos novos com bloqueios de recursos de esquema
 description: Aprenda a usar os bloqueios de recursos de esquemas do Azure só de leitura e não elimine recentemente a proteger os recursos implementados.
 services: blueprints
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 03/13/2018
+ms.date: 03/28/2019
 ms.topic: tutorial
 ms.service: blueprints
 manager: carmonm
-ms.openlocfilehash: e3a05329ea247dbf5baa23ae9b3d32f909c0d1bb
-ms.sourcegitcommit: b8f9200112cae265155b8877f7e1621c4bcc53fc
+ms.openlocfilehash: f39d59ef7ab3f555637aef69b301a0e77c00fc24
+ms.sourcegitcommit: 956749f17569a55bcafba95aef9abcbb345eb929
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/14/2019
-ms.locfileid: "57858401"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58629222"
 ---
 # <a name="protect-new-resources-with-azure-blueprints-resource-locks"></a>Proteger os recursos novos com bloqueios de recursos de esquemas do Azure
 
@@ -40,7 +40,7 @@ Primeiro, crie a nova definição de esquema.
 
 1. Do **introdução** página à esquerda, selecione a **Create** botão sob _criar um plano gráfico_.
 
-1. Encontrar o **exemplo em branco** exemplo de plano gráfico na parte superior da página e selecione **utilizar este exemplo**.
+1. Encontrar o **esquema em branco** exemplo de plano gráfico na parte superior da página e selecione **começar com o esquema em branco**.
 
 1. Introduza o _Noções básicas_ do exemplo de esquema:
 
@@ -81,7 +81,7 @@ Primeiro, crie a nova definição de esquema.
        "resources": [{
            "type": "Microsoft.Storage/storageAccounts",
            "name": "[variables('storageAccountName')]",
-           "location": "[resourceGroups('RGtoLock').location]",
+           "location": "[resourceGroup().location]",
            "apiVersion": "2018-07-01",
            "sku": {
                "name": "[parameters('storageAccountType')]"
@@ -150,7 +150,7 @@ Assim que a definição do esquema foi com êxito **publicado**, podem ser atrib
 
      Os parâmetros definidos nesta secção aplicam-se para o artefacto sob a qual está definido. Esses parâmetros são [parâmetros dinâmicos](../concepts/parameters.md#dynamic-parameters) , uma vez que estão definidos durante a atribuição do esquema. Para cada artefato, defina o valor de parâmetro para o que é definido no **valor** coluna.
 
-     |Nome do artefacto|Tipo de artefacto|Nome do parâmetro|Value|Descrição|
+     |Nome do artefacto|Tipo de artefacto|Nome do parâmetro|Valor|Descrição|
      |-|-|-|-|-|
      |Grupo de recursos de RGtoLock|Grupo de recursos|Name|TestingBPLocks|Define o nome do novo grupo de recursos para aplicar o esquema de bloqueios para.|
      |Grupo de recursos de RGtoLock|Grupo de recursos|Localização|EUA Oeste 2|Define a localização do novo grupo de recursos para aplicar o esquema de bloqueios para.|
@@ -181,6 +181,8 @@ A atribuição de criado o grupo de recursos _TestingBPLocks_ e a conta de armaz
 1. Selecione o **negar atribuições** separador.
 
    A atribuição do esquema de criar um [negar a atribuição](../../../role-based-access-control/deny-assignments.md) no grupo de recursos implementados para impor a _só de leitura_ modo de bloqueio de esquema. A atribuição de negar impede que uma pessoa com direitos adequados no _atribuições de funções_ separador de realizar ações específicas. A atribuição de negar afeta _todos os principais_.
+
+   Para obter informações sobre excluindo um principal de uma atribuição de negar, consulte [esquemas de bloqueio do recurso](../concepts/resource-locking.md#exclude-a-principal-from-a-deny-assignment).
 
 1. Selecione a atribuição de negar, em seguida, selecione o **negado permissões** página à esquerda.
 
@@ -221,9 +223,9 @@ Quando terminar com este tutorial, elimine os seguintes recursos:
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-- Saber mais sobre o [ciclo de vida do esquema](../concepts/lifecycle.md)
-- Compreender como utilizar [parâmetros estáticos e dinâmicos](../concepts/parameters.md)
-- Saber como utilizar o [bloqueio de recursos de esquema](../concepts/resource-locking.md)
-- Aprender a personalizar a [ordem de sequenciação do esquema](../concepts/sequencing-order.md)
-- Saber como [atualizar as atribuições existentes](../how-to/update-existing-assignments.md)
-- Resolver problemas durante a atribuição de um esquema com [resolução de problemas gerais](../troubleshoot/general.md)
+- Saiba mais sobre o [ciclo de vida de um esquema](../concepts/lifecycle.md).
+- Compreenda como utilizar [parâmetros estáticos e dinâmicos](../concepts/parameters.md).
+- Saiba como utilizar o [bloqueio de recursos de esquema](../concepts/resource-locking.md).
+- Aprenda a personalizar a [ordem de sequenciação do esquema](../concepts/sequencing-order.md).
+- Saiba como [atualizar as atribuições existentes](../how-to/update-existing-assignments.md).
+- Resolva problemas durante a atribuição de um esquema com a [resolução de problemas gerais](../troubleshoot/general.md).

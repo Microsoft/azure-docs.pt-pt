@@ -4,7 +4,7 @@ description: Saiba como empacotar uma aplicação existente como convidado execu
 services: service-fabric
 documentationcenter: .net
 author: aljo-microsoft
-manager: timlt
+manager: chackdan
 editor: ''
 ms.assetid: d799c1c6-75eb-4b8a-9f94-bf4f3dadf4c3
 ms.service: service-fabric
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: na
 ms.date: 07/02/2017
 ms.author: aljo
-ms.openlocfilehash: fa883f819c53f57a8e281069b2a3db1c55efc6c6
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.openlocfilehash: bfac14c598b405a398cad916787aa3312589bfd1
+ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58480549"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58669950"
 ---
 # <a name="package-and-deploy-an-existing-executable-to-service-fabric"></a>Agrupar e implementar um executável existente para o Service Fabric
 Quando empacotar um executável existente como um [executável convidado](service-fabric-guest-executables-introduction.md), pode escolher entre utilizar um modelo de projeto do Visual Studio ou a [criar manualmente o pacote de aplicação](#manually). Com o Visual Studio, a estrutura de pacotes de aplicações e ficheiros de manifesto são criados pelo novo modelo de projeto para.

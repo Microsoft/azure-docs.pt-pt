@@ -12,13 +12,13 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
-ms.date: 02/07/2019
-ms.openlocfilehash: 29a0d0679adc51cf1493d241273e3b572a7fd57d
-ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
+ms.date: 03/29/2019
+ms.openlocfilehash: e71039c84c79c27a372a378144b21f6f724d08d8
+ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57214304"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58670840"
 ---
 # <a name="what-is-azure-sql-database-service"></a>O que é o serviço de base de dados do Azure SQL?
 
@@ -149,11 +149,14 @@ Estão disponíveis dois aspetos de otimização automática na [Base de Dados S
 
 ### <a name="adaptive-query-processing"></a>Processamento de consultas adaptável
 
-Também adicionámos o conjunto de funcionalidades de [processamento de consultas adaptável](/sql/relational-databases/performance/adaptive-query-processing) à Base de Dados SQL, incluindo a execução intercalada para funções de valor de tabela com múltiplas instruções, feedback de concessão de memória no modo de lote e associações adaptativas no modo de lote. Todas estas funcionalidades de processamento de consultas adaptativo aplica técnicas de “aprendizagem e adaptação” semelhantes, o que ajuda a ir ainda mais longe na resolução de problemas de desempenho relacionados com questões de otimização de consultas historicamente complicadas.
+Também adicionámos o conjunto de funcionalidades de [processamento de consultas adaptável](/sql/relational-databases/performance/intelligent-query-processing) à Base de Dados SQL, incluindo a execução intercalada para funções de valor de tabela com múltiplas instruções, feedback de concessão de memória no modo de lote e associações adaptativas no modo de lote. Todas estas funcionalidades de processamento de consultas adaptativo aplica técnicas de “aprendizagem e adaptação” semelhantes, o que ajuda a ir ainda mais longe na resolução de problemas de desempenho relacionados com questões de otimização de consultas historicamente complicadas.
 
 ## <a name="advanced-security-and-compliance"></a>Segurança e conformidade avançadas
 
 A Base de Dados SQL proporciona um conjunto de [funcionalidades de segurança e conformidade incorporadas](sql-database-security-overview.md), para ajudar a sua aplicação a cumprir diversos requisitos de segurança e conformidade.
+
+> [!IMPORTANT]
+> Base de dados SQL do Azure (todas as opções de implantação), foi certificada por uma série de normas de conformidade. Para obter mais informações, veja o [Centro de Fidedignidade do Microsoft Azure](https://azure.microsoft.com/support/trust-center/), onde pode encontrar a lista mais recente de [certificações de conformidade da Base de Dados SQL](https://www.microsoft.com/trustcenter/compliance/complianceofferings).
 
 ### <a name="advance-threat-protection"></a>Proteção Avançada Contra Ameaças
 
@@ -242,7 +245,7 @@ Os clientes da base de dados SQL terão os seguintes direitos associados com o b
 ## <a name="engage-with-the-sql-server-engineering-team"></a>Envolver a equipa de engenharia do SQL Server
 
 - [DBA Stack Exchange](https://dba.stackexchange.com/questions/tagged/sql-server): Faça perguntas de administração de banco de dados
-- [Stack Overflow](http://stackoverflow.com/questions/tagged/sql-server): Colocar questões de desenvolvimento
+- [Stack Overflow](https://stackoverflow.com/questions/tagged/sql-server): Colocar questões de desenvolvimento
 - [Fóruns do MSDN](https://social.msdn.microsoft.com/Forums/home?category=sqlserver): Faça perguntas técnicas
 - [Comentários](https://aka.ms/sqlfeedback): Relatório de erros e pedir funcionalidades
 - [Reddit](https://www.reddit.com/r/SQLServer/): Discuta o SQL Server

@@ -9,19 +9,19 @@ editor: ''
 ms.service: active-directory
 ms.subservice: develop
 ms.devlang: na
-ms.topic: article
+ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 03/20/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 220ce0091d6db0505b6cd6a5530d2de3a93a77d5
-ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
+ms.openlocfilehash: 4ff2d492b8d6a854297fb47ebec1aaa67f7c3ee0
+ms.sourcegitcommit: 956749f17569a55bcafba95aef9abcbb345eb929
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58201148"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58629151"
 ---
 [!INCLUDE [1. Introduction](../../../includes/active-directory-develop-guidedsetup-aspnetwebapp-introduction.md)]
 [!INCLUDE [2. Setup](../../../includes/active-directory-develop-guidedsetup-aspnetwebapp-setup.md)]

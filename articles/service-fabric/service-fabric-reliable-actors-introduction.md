@@ -4,7 +4,7 @@ description: Introdução ao modelo de programação dos Reliable Actors do Serv
 services: service-fabric
 documentationcenter: .net
 author: vturecek
-manager: timlt
+manager: chackdan
 editor: ''
 ms.assetid: 7fdad07f-f2d6-4c74-804d-e0d56131f060
 ms.service: service-fabric
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/01/2017
 ms.author: vturecek
-ms.openlocfilehash: 363cba145ed4d5bcf138cf3f7130763891c51e8b
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 5a237e23dffed76e6122e17b59c85d20ca7e1baf
+ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51258066"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58668675"
 ---
 # <a name="introduction-to-service-fabric-reliable-actors"></a>Introdução aos Reliable Actors do Service Fabric
 Reliable Actors é uma estrutura de aplicação do Service Fabric com base na [Ator Virtual](https://research.microsoft.com/en-us/projects/orleans/) padrão. A API de Atores fiáveis fornece um thread único modelo de programação criado sobre as garantias de escalabilidade e confiabilidade fornecidas pelo Service Fabric.
@@ -37,7 +37,7 @@ Embora o padrão de design de ator pode ser uma boa ajustar a uma série de prob
 * As instâncias de ator não bloquear chamadores com atrasos imprevisíveis através da emissão de operações de e/s.
 
 ## <a name="actors-in-service-fabric"></a>Actors no Service Fabric
-No Service Fabric, atores são implementados no framework Reliable Actors: uma estrutura de aplicações com base padrão de ator embutida no início da [Service Fabric Reliable Services](service-fabric-reliable-services-introduction.md). Cada serviço Reliable Actor que escrever é, na verdade, um particionado e com monitorização de estado Reliable Service.
+No Service Fabric, atores são implementados no framework Reliable Actors: Uma estrutura de aplicações com base padrão de ator embutida no início da [Service Fabric Reliable Services](service-fabric-reliable-services-introduction.md). Cada serviço Reliable Actor que escrever é, na verdade, um particionado e com monitorização de estado Reliable Service.
 
 Cada ator é definido como uma instância de um tipo de ator, idêntica à forma como um objeto .NET é uma instância de um tipo .NET. Por exemplo, pode haver um tipo de ator implementa a funcionalidade de uma calculadora e pode haver vários atores desse tipo que são distribuídas em vários nós num cluster. Cada tal ator é exclusivamente identificado por um ID de ator.
 

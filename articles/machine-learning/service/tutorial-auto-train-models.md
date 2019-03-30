@@ -9,14 +9,14 @@ ms.topic: tutorial
 author: nacharya1
 ms.author: nilesha
 ms.reviewer: trbye
-ms.date: 02/05/2019
+ms.date: 03/29/2019
 ms.custom: seodec18
-ms.openlocfilehash: 8fa77409f1f5c32bc1e8f8644111c38f6115a92d
-ms.sourcegitcommit: 223604d8b6ef20a8c115ff877981ce22ada6155a
+ms.openlocfilehash: 990991eb1ceb5d74c042b42cfa265c75a073e5ef
+ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58362055"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58670902"
 ---
 # <a name="tutorial-use-automated-machine-learning-to-build-your-regression-model"></a>Tutorial: Utilizar automatizada de machine learning para criar o seu modelo de regressão
 

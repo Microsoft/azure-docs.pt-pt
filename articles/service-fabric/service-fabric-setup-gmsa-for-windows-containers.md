@@ -4,7 +4,7 @@ description: Saiba como configurar o gMSA para um contentor em execução no Azu
 services: service-fabric
 documentationcenter: .net
 author: aljo-microsoft
-manager: timlt
+manager: chackdan
 editor: ''
 ms.assetid: ab49c4b9-74a8-4907-b75b-8d2ee84c6d90
 ms.service: service-fabric
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 03/20/2019
 ms.author: aljo, subramar
-ms.openlocfilehash: 8f0c569495775dcda6dec189d223067435368249
-ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
+ms.openlocfilehash: ae8c5c8ec1e16669b3cbdde8b3eaa3d5dbb7c4de
+ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58370215"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58668556"
 ---
 # <a name="set-up-gmsa-for-windows-containers-running-on-service-fabric"></a>Configurar o gMSA para contentores do Windows em execução no Service Fabric
 

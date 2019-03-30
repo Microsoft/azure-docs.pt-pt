@@ -7,53 +7,65 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
-ms.date: 02/15/2019
+ms.date: 03/21/2019
 ms.author: hrasheed
-ms.openlocfilehash: 94e9a70707472eb94109ebcc404fd7a1a3074135
-ms.sourcegitcommit: 30a0007f8e584692fe03c0023fe0337f842a7070
+ms.openlocfilehash: b8417fe4c15259a7fd485254cf9edd2c8c082e92
+ms.sourcegitcommit: 956749f17569a55bcafba95aef9abcbb345eb929
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57575751"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58629703"
 ---
 # <a name="use-a-java-udf-with-apache-hive-in-hdinsight"></a>Utilizar um Java UDF com o Apache Hive no HDInsight
 
 Saiba como criar uma com base em Java definidas pelo utilizador função (UDF) que funciona com o Apache Hive. O Java UDF neste exemplo converte uma tabela de cadeias de caracteres de texto em minúsculas carateres.
 
-## <a name="requirements"></a>Requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 
-* Um cluster do HDInsight 
-
-    > [!IMPORTANT]
-    > O Linux é o único sistema operativo utilizado na versão 3.4 ou superior do HDInsight. Para obter mais informações, veja [HDInsight retirement on Windows](../hdinsight-component-versioning.md#hdinsight-windows-retirement) (Desativação do HDInsight no Windows).
-
-    A maioria dos passos neste documento funcionam em ambos os clusters baseados em Windows e Linux. No entanto, os passos utilizados para carregar a UDF compilada para o cluster e executá-la são específicos para clusters baseados em Linux. São fornecidas hiperligações para informações que podem ser utilizadas com clusters baseados em Windows.
-
-* [Java JDK](https://www.oracle.com/technetwork/java/javase/downloads/) 8 ou posterior (ou um equivalente, como OpenJDK)
-
-* [Apache Maven](https://maven.apache.org/)
+* Um cluster do Hadoop no HDInsight. Ver [introdução ao HDInsight no Linux](./apache-hadoop-linux-tutorial-get-started.md).
+* [Kit de desenvolvimento Java (JDK) versão 8](https://aka.ms/azure-jdks)
+* [Apache Maven](https://maven.apache.org/download.cgi) corretamente [instalado](https://maven.apache.org/install.html) , de acordo com o Apache.  A maven é um projeto de criar o sistema de projetos de Java.
+* O [esquema de URI](../hdinsight-hadoop-linux-information.md#URI-and-scheme) para seu armazenamento primário de clusters. Isto poderá ser wasb: / / para o armazenamento do Azure, abfs: / / para a geração 2 de armazenamento do Azure Data Lake ou adl: / / para a geração 1 de armazenamento do Azure Data Lake. Se a transferência segura é ativada para o armazenamento do Azure ou de geração 2 de armazenamento do Data Lake, o URI seria wasbs: / / ou abfss: / /, respectivamente Consulte também [transferência segura](../../storage/common/storage-require-secure-transfer.md).
 
 * Um editor de texto ou o Java IDE
 
-    > [!IMPORTANT]
-    > Se criar os ficheiros de Python num cliente Windows, tem de utilizar um editor que utiliza LF como um fim da linha. Se não tiver a certeza se o seu editor utiliza LF ou CRLF, consulte a secção de resolução de problemas para obter os passos sobre a remover o caráter de CR.
+    > [!IMPORTANT]  
+    > Se criar os ficheiros de Python num cliente Windows, tem de utilizar um editor que utiliza LF como um fim da linha. Se não tiver a certeza se o seu editor utiliza LF ou CRLF, consulte a [resolução de problemas](#troubleshooting) secção para obter passos sobre como remover o caráter de CR.
 
-## <a name="create-an-example-java-udf"></a>Criar um exemplo de Java UDF 
+## <a name="test-environment"></a>Ambiente de teste
+O ambiente utilizado para este artigo foi um computador com Windows 10.  Os comandos foram executados numa linha de comandos e os diversos arquivos foram editados com o bloco de notas. Modificar em conformidade para o seu ambiente.
 
-1. A partir de uma linha de comandos, utilize o seguinte para criar um novo projeto Maven:
+Num prompt de comando, introduza os comandos abaixo para criar um ambiente de trabalho:
 
-    ```bash
+```cmd
+IF NOT EXIST C:\HDI MKDIR C:\HDI
+cd C:\HDI
+```
+
+## <a name="create-an-example-java-udf"></a>Criar um exemplo de Java UDF
+
+1. Crie um novo projeto Maven ao introduzir o seguinte comando:
+
+    ```cmd
     mvn archetype:generate -DgroupId=com.microsoft.examples -DartifactId=ExampleUDF -DarchetypeArtifactId=maven-archetype-quickstart -DinteractiveMode=false
     ```
 
-   > [!NOTE]
-   > Se estiver a utilizar o PowerShell, tem de colocar os parâmetros entre aspas. Por exemplo, `mvn archetype:generate "-DgroupId=com.microsoft.examples" "-DartifactId=ExampleUDF" "-DarchetypeArtifactId=maven-archetype-quickstart" "-DinteractiveMode=false"`.
+    Este comando cria um diretório chamado `exampleudf`, que contém o projeto Maven.
 
-    Este comando cria um diretório chamado **exampleudf**, que contém o projeto Maven.
+2. Depois do projeto ter sido criado, eliminar o `exampleudf/src/test` diretório que foi criado como parte do projeto, introduzindo o seguinte comando:
 
-2. Depois do projeto ter sido criado, eliminar a **exampleudf/src/teste** diretório que foi criado como parte do projeto.
+    ```cmd
+    cd ExampleUDF
+    rmdir /S /Q "src/test"
+    ```
 
-3. Abra o **exampleudf/pom.xml**e substituir o existente `<dependencies>` entrada com o seguinte XML:
+3. Abra `pom.xml` introduzindo o comando abaixo:
+
+    ```cmd
+    notepad pom.xml
+    ```
+
+    Em seguida, substitua o existente `<dependencies>` entrada com o seguinte XML:
 
     ```xml
     <dependencies>
@@ -93,7 +105,7 @@ Saiba como criar uma com base em Java definidas pelo utilizador função (UDF) q
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-shade-plugin</artifactId>
-                <version>2.3</version>
+                <version>3.2.1</version>
                 <configuration>
                     <!-- Keep us from getting a can't overwrite file error -->
                     <transformers>
@@ -132,9 +144,13 @@ Saiba como criar uma com base em Java definidas pelo utilizador função (UDF) q
 
     Guarde o ficheiro depois das alterações foram feitas.
 
-4. Mudar o nome **exampleudf/src/main/java/com/microsoft/examples/App.java** ao **ExampleUDF.java**e, em seguida, abra o ficheiro no seu editor.
+4. Introduza o comando abaixo para criar e abrir um novo ficheiro `ExampleUDF.java`:
 
-5. Substitua os conteúdos do **ExampleUDF.java** de ficheiros com o seguinte, em seguida, guarde o ficheiro.
+    ```cmd
+    notepad src/main/java/com/microsoft/examples/ExampleUDF.java
+    ```
+
+    Em seguida, copie e cole o código de java abaixo para o novo ficheiro. Em seguida, feche o ficheiro.
 
     ```java
     package com.microsoft.examples;
@@ -165,31 +181,29 @@ Saiba como criar uma com base em Java definidas pelo utilizador função (UDF) q
 
 ## <a name="build-and-install-the-udf"></a>Compilar e instalar a UDF
 
-1. Utilize o seguinte comando para compilar e empacotar a UDF:
+Os comandos abaixo, substitua `sshuser` com o nome de utilizador real, se for diferente. Substitua `mycluster` com o nome de cluster real.
 
-    ```bash
+1. Compilar e empacotar a UDF, introduzindo o seguinte comando:
+
+    ```cmd
     mvn compile package
     ```
 
     Este comando cria e empacota a UDF no `exampleudf/target/ExampleUDF-1.0-SNAPSHOT.jar` ficheiro.
 
-2. Utilize o `scp` comandos para copiar o ficheiro para o cluster do HDInsight.
+2. Utilize o `scp` comandos para copiar o ficheiro para o cluster do HDInsight, introduzindo o seguinte comando:
 
-    ```bash
-    scp ./target/ExampleUDF-1.0-SNAPSHOT.jar myuser@mycluster-ssh.azurehdinsight.net
+    ```cmd
+    scp ./target/ExampleUDF-1.0-SNAPSHOT.jar sshuser@mycluster-ssh.azurehdinsight.net:
     ```
 
-    Substitua `myuser` com a conta de utilizador SSH para o seu cluster. Substitua `mycluster` com o nome do cluster. Se utilizou uma palavra-passe para proteger a conta SSH, lhe for pedido para introduzir a palavra-passe. Se utilizou um certificado, poderá ter de utilizar o `-i` parâmetro para especificar o ficheiro de chave privada.
+3. Ligar ao cluster através de SSH ao introduzir o seguinte comando:
 
-3. Ligar ao cluster através de SSH.
-
-    ```bash
-    ssh myuser@mycluster-ssh.azurehdinsight.net
+    ```cmd
+    ssh sshuser@mycluster-ssh.azurehdinsight.net
     ```
 
-    Para obter mais informações, veja [Utilizar SSH com o HDInsight](../hdinsight-hadoop-linux-use-ssh-unix.md).
-
-4. A partir da sessão SSH, copie o ficheiro jar para o armazenamento do HDInsight.
+4. Abrir sessão de SSH, copie o ficheiro jar para o armazenamento do HDInsight.
 
     ```bash
     hdfs dfs -put ExampleUDF-1.0-SNAPSHOT.jar /example/jars
@@ -197,7 +211,7 @@ Saiba como criar uma com base em Java definidas pelo utilizador função (UDF) q
 
 ## <a name="use-the-udf-from-hive"></a>Utilizar a UDF do Hive
 
-1. Utilize o seguinte para iniciar o cliente de Beeline da sessão SSH.
+1. Inicie o cliente de Beeline da sessão SSH, introduzindo o seguinte comando:
 
     ```bash
     beeline -u 'jdbc:hive2://localhost:10001/;transportMode=http'
@@ -208,35 +222,48 @@ Saiba como criar uma com base em Java definidas pelo utilizador função (UDF) q
 2. Assim que chegam ao `jdbc:hive2://localhost:10001/>` , introduza o seguinte para adicionar a UDF Hive e expô-la como uma função.
 
     ```hiveql
-    ADD JAR wasb:///example/jars/ExampleUDF-1.0-SNAPSHOT.jar;
+    ADD JAR wasbs:///example/jars/ExampleUDF-1.0-SNAPSHOT.jar;
     CREATE TEMPORARY FUNCTION tolower as 'com.microsoft.examples.ExampleUDF';
     ```
-
-    > [!NOTE]
-    > Este exemplo assume que o armazenamento do Azure é armazenamento predefinido para o cluster. Se o cluster utiliza a geração 2 de armazenamento do Data Lake em vez disso, altere a `wasb:///` valor a `abfs:///`. Se o cluster utiliza Gen1 de armazenamento do Data Lake, altere a `wasb:///` valor a `adl:///`.
 
 3. Utilize a UDF para converter valores obtidos a partir de uma tabela de cadeias de caracteres em minúsculas.
 
     ```hiveql
-    SELECT tolower(deviceplatform) FROM hivesampletable LIMIT 10;
+    SELECT tolower(state) AS ExampleUDF, state FROM hivesampletable LIMIT 10;
     ```
 
-    Esta consulta seleciona a plataforma do dispositivo (Android, Windows, iOS, etc.) da tabela, converter a cadeia de caracteres para o caso mais baixo e, em seguida, exibi-los. A saída será semelhante ao seguinte texto:
+    Esta consulta seleciona o estado da tabela, converter a cadeia de caracteres para o caso e, em seguida, exibi-los junto com o nome sem modificações. A saída será semelhante ao seguinte texto:
 
-        +----------+--+
-        |   _c0    |
-        +----------+--+
-        | android  |
-        | android  |
-        | android  |
-        | android  |
-        | android  |
-        | android  |
-        | android  |
-        | android  |
-        | android  |
-        | android  |
-        +----------+--+
+        +---------------+---------------+--+
+        |  exampleudf   |     state     |
+        +---------------+---------------+--+
+        | california    | California    |
+        | pennsylvania  | Pennsylvania  |
+        | pennsylvania  | Pennsylvania  |
+        | pennsylvania  | Pennsylvania  |
+        | colorado      | Colorado      |
+        | colorado      | Colorado      |
+        | colorado      | Colorado      |
+        | utah          | Utah          |
+        | utah          | Utah          |
+        | colorado      | Colorado      |
+        +---------------+---------------+--+
+
+## <a name="troubleshooting"></a>Resolução de problemas
+
+Durante a execução da tarefa do hive, pode encontrar um erro semelhante ao seguinte texto:
+
+    Caused by: org.apache.hadoop.hive.ql.metadata.HiveException: [Error 20001]: An error occurred while reading or writing to your custom script. It may have crashed with an error.
+
+Esse problema pode dever-se se a fins de linha no ficheiro de Python. Muitos padrão de editores de Windows para utilizar CRLF como o fim da linha, mas as aplicações do Linux normalmente esperam LF.
+
+Pode utilizar as seguintes declarações de PowerShell para remover os carateres de CR antes de carregar o ficheiro para o HDInsight:
+
+```PowerShell
+# Set $original_file to the python file path
+$text = [IO.File]::ReadAllText($original_file) -replace "`r`n", "`n"
+[IO.File]::WriteAllText($original_file, $text)
+```
 
 ## <a name="next-steps"></a>Passos Seguintes
 

@@ -10,12 +10,12 @@ manager: jeconnoc
 ms.topic: tutorial
 ms.custom: mvc
 ms.date: 07/20/2018
-ms.openlocfilehash: aa534ca4fb29237de6377c7225a11f4758f39c55
-ms.sourcegitcommit: 7723b13601429fe8ce101395b7e47831043b970b
+ms.openlocfilehash: 518a9009ad7a3cca13679f9a410fd36dd874261f
+ms.sourcegitcommit: 956749f17569a55bcafba95aef9abcbb345eb929
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56588386"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58630774"
 ---
 # <a name="tutorial-automate-handling-emails-and-attachments-with-azure-logic-apps"></a>Tutorial: Automatizar a manipulação de e-mails e anexos com o Azure Logic Apps
 
@@ -144,6 +144,7 @@ Agora, utilize o fragmento de código fornecido nestes passos para criar uma fun
    | **Grupo de Recursos** | LA-Tutorial-RG | O mesmo grupo de recursos do Azure que utilizou anteriormente | 
    | **Plano de Alojamento** | Plano de Consumo | Esta definição determina como alocar e dimensionar os recursos, como o poder de computação, para executar a aplicação de funções. Veja [Hosting plans comparison](../azure-functions/functions-scale.md) (Comparação dos planos de alojamento). | 
    | **Localização** | EUA Oeste | A mesma região que utilizou anteriormente | 
+   | **Pilha de tempo de execução** | Linguagem preferencial | Escolha um tempo de execução que suporte a sua linguagem de programação de funções favorita. Escolha .NET para o C# e F# as funções. |
    | **Armazenamento** | cleantextfunctionstorageacct | Crie uma conta de armazenamento para a sua aplicação de funções. Utilize apenas letras minúsculas e números. <p>**Nota:** Esta conta de armazenamento contém as suas aplicações function App e é diferente da sua conta de armazenamento criado anteriormente para anexos de e-mail. | 
    | **Application Insights** | Desativado | Ativa a monitorização de aplicações com o [Application Insights](../azure-monitor/app/app-insights-overview.md); contudo, neste tutorial, escolha a definição **Desativado**. | 
    |||| 
@@ -600,7 +601,7 @@ Em seguida, adicione uma ação para que a sua aplicação lógica envia um e-ma
 
    Se não encontrar um campo esperado na lista de conteúdo dinâmico, escolha **Ver mais**, junto a **Quando é recebido um novo e-mail**. 
 
-   | Definição | Value | Notas | 
+   | Definição | Valor | Notas | 
    | ------- | ----- | ----- | 
    | **Corpo** | ```Please review new applicant:``` <p>```Applicant name: ``` **From** <p>```Application file location: ``` **Path** <p>```Application email content: ``` **Body** | O conteúdo do corpo do e-mail. Clique no interior desta caixa, introduza o texto de exemplo e, na lista de conteúdo dinâmico, selecione estes campos: <p>- **From**, em **When a new email arrives** </br>- **Path**, em **Create blob for email body** </br>- **Body**, em **Call RemoveHTMLFunction to clean email body** | 
    | **Assunto**  | ```ASAP - Review applicant for position: ``` **Subject** | O assunto do e-mail que pretende incluir. Clique no interior desta caixa, introduza o texto de exemplo e, na lista de conteúdo dinâmico, selecione o campo **Assunto** em **Quando é recebido um novo e-mail**. | 

@@ -12,20 +12,20 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 12/05/2018
+ms.date: 03/28/2018
 ms.author: genli
-ms.openlocfilehash: 9f600dbf27fec036b9a80a5a6fb11c5bc50cc915
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.openlocfilehash: 7990a98e0e2d688456db054e3cdfa447e1ed1043
+ms.sourcegitcommit: 956749f17569a55bcafba95aef9abcbb345eb929
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52994186"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58630458"
 ---
 # <a name="troubleshooting-azure-point-to-site-connection-problems"></a>Resolução de problemas: Problemas de ligação de ponto a site do Azure
 
 Este artigo lista problemas de ligação de ponto a site comuns que podem ocorrer. Ele também aborda possíveis causas e soluções para esses problemas.
 
-## <a name="vpn-client-error-a-certificate-could-not-be-found"></a>Erro de cliente VPN: não foi possível encontrar um certificado
+## <a name="vpn-client-error-a-certificate-could-not-be-found"></a>Erro de cliente VPN: Não foi possível encontrar um certificado
 
 ### <a name="symptom"></a>Sintoma
 
@@ -41,7 +41,7 @@ Este problema ocorre se o certificado de cliente está em falta **Certificates -
 
 Para resolver este problema, siga estes passos:
 
-1. Abra o Gestor de certificados: clique em **começar**, tipo **gerir os certificados de computador**e, em seguida, clique em **gerir certificados de computador** no resultado da pesquisa.
+1. Abra o Gestor de certificados: Clique em **começar**, tipo **gerir os certificados de computador**e, em seguida, clique em **gerir certificados de computador** no resultado da pesquisa.
 
 2. Certifique-se de que os seguintes certificados estão no local correto:
 
@@ -81,7 +81,7 @@ Para resolver este problema, siga estes passos:
 1. Remova o UDR na sub-rede de Gateway. Certifique-se de que UDR encaminha todo o tráfego corretamente.
 2. Verificar o estado do certificado de raiz no portal do Azure para ver se ele foi revogado. Se não tiver sido revogado, tente eliminar o certificado de raiz e reupload. Para obter mais informações, consulte [criar certificados](vpn-gateway-howto-point-to-site-classic-azure-portal.md#generatecerts).
 
-## <a name="vpn-client-error-a-certificate-chain-processed-but-terminated"></a>Erro de cliente VPN: uma cadeia de certificados processado, mas terminada 
+## <a name="vpn-client-error-a-certificate-chain-processed-but-terminated"></a>Erro de cliente VPN: Uma cadeia de certificados processado, mas terminada 
 
 ### <a name="symptom"></a>Sintoma 
 
@@ -101,7 +101,7 @@ Ao tentar ligar a uma rede virtual do Azure com o cliente VPN, receberá a segui
 
 2. Se os certificados já estão na localização, tente eliminar os certificados e reinstalá-los. O **azuregateway -*GUID*. cloudapp.net** certificado está no pacote de configuração de cliente VPN que transferiu a partir do portal do Azure. Pode usar archivers de ficheiro para extrair os ficheiros do pacote.
 
-## <a name="file-download-error-target-uri-is-not-specified"></a>Erro de transferência de ficheiro: não foi especificado o URI de destino
+## <a name="file-download-error-target-uri-is-not-specified"></a>Erro de transferência de ficheiro: URI de destino não especificado
 
 ### <a name="symptom"></a>Sintoma
 
@@ -117,7 +117,7 @@ Este problema ocorre devido a um tipo de gateway incorreto.
 
 O tipo de gateway VPN tem de ser **VPN**, e o tipo de VPN tem de ser **RouteBased**.
 
-## <a name="vpn-client-error-azure-vpn-custom-script-failed"></a>Erro de cliente VPN: falha no script personalizado VPN do Azure 
+## <a name="vpn-client-error-azure-vpn-custom-script-failed"></a>Erro de cliente VPN: Script personalizado de VPN do Azure falhou 
 
 ### <a name="symptom"></a>Sintoma
 
@@ -197,7 +197,7 @@ Quando tentar guardar as alterações para o gateway VPN no portal do Azure, rec
 
 Este problema ocorre porque o nome do certificado contém um caráter inválido, por exemplo, um espaço. 
 
-## <a name="azure-portal-error-vpn-package-file-download-error-503"></a>Erro de portal do Azure: erro de transferência de ficheiros de pacotes VPN 503
+## <a name="azure-portal-error-vpn-package-file-download-error-503"></a>Erro de portal do Azure: Erro de transferência de ficheiros de pacotes VPN 503
 
 ### <a name="symptom"></a>Sintoma
 
@@ -209,7 +209,7 @@ Ao tentar transferir o pacote de configuração de cliente VPN, receberá a segu
 
 Este erro pode ser causado por um problema de rede temporário. Tente transferir o pacote de VPN novamente após alguns minutos.
 
-## <a name="azure-vpn-gateway-upgrade-all-point-to-site-clients-are-unable-to-connect"></a>Atualização de Gateway de VPN do Azure: ponto de todos os clientes do Site são não é possível ligar
+## <a name="azure-vpn-gateway-upgrade-all-point-to-site-clients-are-unable-to-connect"></a>Atualização de Gateway de VPN do Azure: Todos os ponto a Site os clientes não conseguem ligar
 
 ### <a name="cause"></a>Causa
 
@@ -217,7 +217,7 @@ Se o certificado for mais de 50 por cento por meio de sua vida, será transferid
 
 ### <a name="solution"></a>Solução
 
-Para resolver este problema, reimplemente o ponto de pacote de Site em todos os clientes.
+Para resolver este problema, transfira novamente e voltar a implementar o ponto de pacote de Site em todos os clientes.
 
 ## <a name="too-many-vpn-clients-connected-at-once"></a>Muitos clientes VPN ligado ao mesmo tempo
 
@@ -302,7 +302,7 @@ Esse problema pode ocorrer se o cliente VPN não obter as rotas do gateway de VP
 
 Para resolver este problema, [repor o gateway de VPN do Azure](vpn-gateway-resetgw-classic.md). Para certificar-se de que as rotas novo estão a ser utilizadas, os clientes VPN ponto a Site tem de ser transferidos novamente depois de peering de rede virtual tiver sido configurado com êxito.
 
-## <a name="error-the-revocation-function-was-unable-to-check-revocation-because-the-revocation-server-was-offlineerror-0x80092013"></a>Erro: "a função de revogação não foi possível verificar revogação porque o servidor de revogação estava offline. (Erro 0x80092013)"
+## <a name="error-the-revocation-function-was-unable-to-check-revocation-because-the-revocation-server-was-offlineerror-0x80092013"></a>Erro: "A função de revogação não foi possível verificar revogação porque o servidor de revogação estava offline. (Erro 0x80092013)"
 
 ### <a name="causes"></a>Causas
 Esta mensagem de erro ocorre se o cliente não conseguir aceder http://crl3.digicert.com/ssca-sha2-g1.crl e http://crl4.digicert.com/ssca-sha2-g1.crl.  A verificação de revogação requer acesso a estes dois sites.  Este problema ocorre normalmente no cliente que tenha o servidor proxy configurado. Em alguns ambientes, se os pedidos serão através do servidor de proxy, ele será negado na Firewall de limite.
@@ -343,7 +343,7 @@ Atualize o driver NIC:
 4. Se o Windows não encontrar um novo driver, pode tentar procurar um no site do fabricante do dispositivo e siga as instruções.
 5. Reinicie o computador e tente novamente a ligação.
 
-## <a name="error-file-download-error-target-uri-is-not-specified"></a>Erro: "erro de transferência, que o URI de destino não for especificado o ficheiro"
+## <a name="error-file-download-error-target-uri-is-not-specified"></a>Erro: URI de destino não for especificado de erro de transferência de ficheiros
 
 ### <a name="cause"></a>Causa
 

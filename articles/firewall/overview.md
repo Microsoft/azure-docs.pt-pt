@@ -6,15 +6,15 @@ ms.service: firewall
 services: firewall
 ms.topic: overview
 ms.custom: mvc
-ms.date: 3/25/2019
+ms.date: 3/29/2019
 ms.author: victorh
 Customer intent: As an administrator, I want to evaluate Azure Firewall so I can determine if I want to use it.
-ms.openlocfilehash: be490299d09e396e4bc589ebf777f64ce084d320
-ms.sourcegitcommit: 72cc94d92928c0354d9671172979759922865615
+ms.openlocfilehash: 7f313af75e78db8a60fe6864c41cd8e6c5a3ad9b
+ms.sourcegitcommit: 956749f17569a55bcafba95aef9abcbb345eb929
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58418725"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58629955"
 ---
 # <a name="what-is-azure-firewall"></a>O que é o Azure Firewall?
 
@@ -81,7 +81,7 @@ As regras de filtragem de rede para protocolos não TCP/UDP (por exemplo, ICMP) 
 |Não é suportada a mudança de uma firewall para um grupo de recursos diferente ou uma subscrição|Não é suportada a mudança de uma firewall para um grupo de recursos ou uma subscrição diferente.|Suporte a essa funcionalidade é no nosso mapa da estrada. Para mover uma firewall para um grupo de recursos ou uma subscrição diferente, tem de eliminar a instância atual e recriá-la no novo grupo de recursos ou subscrição.|
 |Intervalo de portas nas regras de rede e da aplicação|As portas estão limitadas a 64.000 como portas de elevada estão reservadas para gestão e o estado de funcionamento sondas. |Estamos a trabalhar para reduzir esta limitação.|
 |Podem obter mascarados alertas de inteligência de ameaças|Alertas de inteligência quando configurado para o modo só de alerta de ameaças de regras de rede com o destino 80/443 para máscaras de filtragem de saída.|Crie a filtragem de saída para 80/443 usando regras de aplicações. Em alternativa, altere o modo de inteligência de ameaças **alertar e negar**.|
-
+|Firewall do Azure utiliza o DNS do Azure apenas para resolução de nomes|Firewall do Azure resolve FQDNs apenas a utilizar o DNS do Azure. Um servidor DNS personalizado não é suportado. Não existe nenhum impacto na resolução DNS em outras sub-redes.|Estamos a trabalhar para reduzir esta limitação.
 ## <a name="next-steps"></a>Passos Seguintes
 
 - [Tutorial: Implementar e configurar a Firewall do Azure no portal do Azure](tutorial-firewall-deploy-portal.md)

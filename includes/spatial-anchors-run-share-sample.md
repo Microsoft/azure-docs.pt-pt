@@ -4,14 +4,18 @@ ms.service: spatial-anchors
 ms.topic: include
 ms.date: 1/30/2019
 ms.author: rgarcia
-ms.openlocfilehash: 563c2bd561328561d30acee6910b70d53ef64c6b
-ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
+ms.openlocfilehash: 397a8a9b07b4d7a88d0345399ac4abcc3e738a82
+ms.sourcegitcommit: 956749f17569a55bcafba95aef9abcbb345eb929
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58305386"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58631159"
 ---
 ## <a name="set-up-your-device"></a>Configurar o dispositivo
+
+No Unity, abra o projeto no `Unity` pasta.
+
+![Janela do Unity](./media/spatial-anchors-unity/unity-window.png)
 
 ### <a name="set-up-an-android-device"></a>Configurar um dispositivo Android
 
@@ -31,7 +35,9 @@ Na **Inspetor** painel, introduza o `Sharing Anchors Service url` (da aplicaçã
 
 Salve a cena selecionando **arquivo** > **guardar**.
 
-## <a name="to-deploy-the-app-to-an-android-device"></a>Para implementar a aplicação num dispositivo Android
+## <a name="deploy-to-your-device"></a>Implementar no seu novo dispositivo
+
+### <a name="deploy-to-android-device"></a>Implementar em dispositivos Android
 
 Inicie sessão no seu dispositivo Android e ligá-la para o seu computador com um cabo USB.
 
@@ -41,9 +47,9 @@ Sob **plano na compilação**, coloque uma marca de verificação junto ao `Azur
 
 Certifique-se **projeto exportar** não tem uma marca de verificação. Selecione **compilar e executar**. Será solicitado a salvar sua `.apk` ficheiro. Pode escolher qualquer nome para o mesmo.
 
-Siga as instruções na aplicação. Pode selecionar **Criar & partilha de âncora** ou **localizar âncora partilhado**. A primeira opção permite-lhe criar uma âncora que pode ser localizada mais tarde no mesmo dispositivo ou na outra. A segunda opção, se já tiver executado a aplicação, no mesmo dispositivo ou em outra, permite-lhe localizar âncoras partilhadas anteriormente.
+Siga as instruções na aplicação. Pode selecionar **Criar & partilha de âncora** ou **localizar âncora partilhado**. O primeiro cenário permite-lhe criar uma âncora que pode ser localizada mais tarde no mesmo dispositivo ou na outra. O segundo cenário, se já tiver executado a aplicação, no mesmo dispositivo ou em outra, permite-lhe localizar âncoras partilhadas anteriormente. Depois de escolher o seu cenário, a aplicação irá guiá-lo com mais instruções sobre o que fazer para. Por exemplo, deverá mover em torno do seu dispositivo para recolher informações do ambiente. Mais tarde no, irá colocar uma âncora do mundo, irá aguardar enquanto carrega e assim por diante.
 
-## <a name="to-deploy-the-app-to-an-ios-device"></a>Para implementar a aplicação num dispositivo iOS
+### <a name="deploy-to-an-ios-device"></a>Implementar num dispositivo iOS
 
 Open **definições de criação** ao selecionar **ficheiro** > **definições de criação**.
 
@@ -51,6 +57,6 @@ Sob **plano na compilação**, coloque uma marca de verificação junto ao `Azur
 
 [!INCLUDE [Configure Xcode](spatial-anchors-unity-ios-xcode.md)]
 
-Siga as instruções na aplicação. Pode selecionar **Criar & partilha de âncora** ou **localizar âncora partilhado**. A primeira opção permite-lhe criar uma âncora que pode ser localizada mais tarde no mesmo dispositivo ou na outra. A segunda opção, se já tiver executado a aplicação, no mesmo dispositivo ou em outra, permite-lhe localizar âncoras partilhadas anteriormente.
+Siga as instruções na aplicação. Pode selecionar **Criar & partilha de âncora** ou **localizar âncora partilhado**. O primeiro cenário permite-lhe criar uma âncora que pode ser localizada mais tarde no mesmo dispositivo ou na outra. O segundo cenário, se já tiver executado a aplicação, no mesmo dispositivo ou em outra, permite-lhe localizar âncoras partilhadas anteriormente. Depois de escolher o seu cenário, a aplicação irá guiá-lo com mais instruções sobre o que fazer para. Por exemplo, deverá mover em torno do seu dispositivo para recolher informações do ambiente. Mais tarde no, irá colocar uma âncora do mundo, irá aguardar enquanto carrega e assim por diante.
 
 No Xcode, pare a aplicação, selecionando **parar**.

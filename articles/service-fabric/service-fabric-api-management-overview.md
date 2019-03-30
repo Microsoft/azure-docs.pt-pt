@@ -4,7 +4,7 @@ description: Este artigo é uma introdução à utilização de API Management d
 services: service-fabric
 documentationcenter: .net
 author: vturecek
-manager: timlt
+manager: chackdan
 editor: ''
 ms.assetid: 96176149-69bb-4b06-a72e-ebbfea84454b
 ms.service: service-fabric
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 06/22/2017
 ms.author: vturecek
-ms.openlocfilehash: 60466f0c3c0e674dcbfa287a0368462fd5a1d18f
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 0dac2730bcc13b979de6a8faaaa53c0aaf15e902
+ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58120317"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58669355"
 ---
 # <a name="service-fabric-with-azure-api-management-overview"></a>Service Fabric com a descrição geral da gestão de API do Azure
 

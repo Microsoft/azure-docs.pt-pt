@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: quickstart
-ms.date: 02/08/2019
+ms.date: 03/27/2019
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: 98eb2574ab427f2d5727d74a077628d3a7f829bc
-ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
+ms.openlocfilehash: 213b227c4ab3f97d9f8787f4e84348e36c43a6e6
+ms.sourcegitcommit: 956749f17569a55bcafba95aef9abcbb345eb929
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56311466"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58630511"
 ---
 # <a name="quickstart-analyze-a-remote-image-using-the-computer-vision-rest-api-and-java"></a>Início rápido: Analisar uma imagem remota usando a API REST de imagem digitalizada e Java
 
@@ -57,8 +57,6 @@ Para criar e executar o exemplo, siga os seguintes passos:
    1. Substitua o valor de `subscriptionKey` pela chave de subscrição.
    1. Substitua o valor de `uriBase` pelo URL de ponto final do método [Analyze Image](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa) (Analisar Imagem) da região do Azure onde obteve as chaves de subscrição, se necessário.
    1. Opcionalmente, substitua o valor de `imageToAnalyze` pelo URL de uma imagem diferente que pretende analisar.
-1. Guarde e, em seguida, crie o projeto Java.
-1. Se estiver a utilizar um IDE, execute `Main`. Caso contrário, abra uma janela da linha de comandos e, em seguida, utilize o comando `java` para executar a classe compilada. Por exemplo, `java Main`.
 
 ```java
 public class Main {
@@ -125,6 +123,25 @@ public class Main {
     }
 }
 ```
+
+## <a name="compile-and-run-the-program"></a>Compilar e executar o programa
+
+1. Guarde e, em seguida, crie o projeto Java.
+1. Se estiver a utilizar um IDE, execute `Main`.
+
+Em alternativa, se estiver executando o programa a partir de uma janela de linha de comandos, execute os seguintes comandos. Estes comandos presumem suas bibliotecas estão numa pasta denominada `libs` que está na mesma pasta que `Main.java`; se não, precisará substituir `libs` com o caminho para suas bibliotecas.
+
+1. Compilar o arquivo `Main.java`.
+
+    ```bash
+    javac -cp ".;libs/*" Main.java
+    ```
+
+1. Execute o programa. Enviará o pedido à API do Criador de FAQ para criar a KB e, em seguida, irá consultar para obter os resultados a cada 30 segundos. Cada resposta é impresso para a janela de linha de comandos.
+
+    ```bash
+    java -cp ".;libs/*" Main
+    ```
 
 ## <a name="examine-the-response"></a>Examinar a resposta
 

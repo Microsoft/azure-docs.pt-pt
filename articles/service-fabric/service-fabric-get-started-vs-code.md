@@ -4,7 +4,7 @@ description: Este artigo é uma descrição geral da criação de aplicações d
 services: service-fabric
 documentationcenter: .net
 author: peterpogorski
-manager: timlt
+manager: chackdan
 editor: ''
 ms.assetid: ''
 ms.service: service-fabric
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 06/29/2018
 ms.author: pepogors
-ms.openlocfilehash: 1053bde5eb76a9e2731d9663dec97d51c321e907
-ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
+ms.openlocfilehash: a0405e6c699192839f72b290d0466ab5062ac584
+ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58500224"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58670140"
 ---
 # <a name="service-fabric-for-visual-studio-code"></a>O Service Fabric para Visual Studio Code
 

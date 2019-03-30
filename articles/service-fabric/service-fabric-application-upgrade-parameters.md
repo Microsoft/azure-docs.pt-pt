@@ -4,7 +4,7 @@ description: Descreve os parâmetros relacionados à atualização de uma aplica
 services: service-fabric
 documentationcenter: .net
 author: mani-ramaswamy
-manager: timlt
+manager: chackdan
 editor: ''
 ms.assetid: a4170ac6-192e-44a8-b93d-7e39c92a347e
 ms.service: service-fabric
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/08/2018
 ms.author: subramar
-ms.openlocfilehash: 73b48525566f9bf0107ba3b029c516ca294ca141
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.openlocfilehash: 9a93c0993ee45e72b11b023982dfbbe8c6528272
+ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55099197"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58670622"
 ---
 # <a name="application-upgrade-parameters"></a>Parâmetros da atualização da aplicação
 Este artigo descreve os vários parâmetros que se aplicam durante a atualização de uma aplicação do Azure Service Fabric. Parâmetros de atualização de aplicativo controlam os tempos limite e verificações de estado de funcionamento que são aplicadas durante a atualização, e eles especificam as políticas que devem ser aplicadas quando ocorre uma falha de uma atualização. Parâmetros da aplicação se aplicam a atualizações com:
@@ -29,7 +29,7 @@ Este artigo descreve os vários parâmetros que se aplicam durante a atualizaç�
 - [REST](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-startapplicationupgrade)
 
 As atualizações de aplicações são iniciadas por meio de um dos três modos de atualização selecionáveis pelo utilizador. Cada modo tem seu próprio conjunto de parâmetros da aplicação:
-- Monitorizada
+- Monitorizado
 - Automática não monitorizada
 - Manual não monitorizado
 
@@ -49,7 +49,7 @@ Parâmetros de atualização Visual Studio Service Fabric application são defin
 ApplicationName |PS| Nome da aplicação que está a ser atualizado. Exemplos: fabric: / VisualObjects, fabric: / ClusterMonitor. |
 ApplicationTypeVersion|PS|Tipo de versão do aplicativo que os destinos de atualização. |
 FailureAction |PS, VS|Valores permitidos são **reversão**, **Manual**, e **inválido**. A compensação ação a executar quando uma *monitorizados* encontros monitorização as violações de políticas ou de estado de funcionamento da política de atualização. <br>**Reversão** Especifica que a atualização será automaticamente revertida para a versão de pré-atualização. <br>**Manual** indica que a atualização irá mudar para o *UnmonitoredManual* o modo de atualização. <br>**Inválido** indica que a ação de falha é inválida.|
-Monitorizada |PS|Indica que o modo de atualização está a ser monitorizado. Quando o cmdlet termina uma atualização para um domínio de atualização, se o estado de funcionamento do cluster e o domínio de atualização cumprir as políticas de estado de funcionamento que definir, o Service Fabric atualiza o domínio de atualização seguinte. Se o domínio de atualização ou o cluster não cumprir as políticas de estado de funcionamento, a atualização falhar e o Service Fabric reverte a atualização para o domínio de atualização ou reverte para o modo manual pela política especificada. Este é o modo recomendado para as atualizações de aplicações num ambiente de produção. |
+Monitorizado |PS|Indica que o modo de atualização está a ser monitorizado. Quando o cmdlet termina uma atualização para um domínio de atualização, se o estado de funcionamento do cluster e o domínio de atualização cumprir as políticas de estado de funcionamento que definir, o Service Fabric atualiza o domínio de atualização seguinte. Se o domínio de atualização ou o cluster não cumprir as políticas de estado de funcionamento, a atualização falhar e o Service Fabric reverte a atualização para o domínio de atualização ou reverte para o modo manual pela política especificada. Este é o modo recomendado para as atualizações de aplicações num ambiente de produção. |
 UpgradeMode | VS | Valores permitidos são **monitorizados** (predefinição), **UnmonitoredAuto**, ou **UnmonitoredManual**. Veja os parâmetros de PowerShell para cada modo neste artigo para obter detalhes. |
 UnmonitoredAuto | PS | Indica que o modo de atualização é automático não monitorizado. Após um domínio de atualização de atualização do Service Fabric, o Service Fabric atualiza o próximo domínio de atualização, independentemente do Estado de funcionamento da aplicação. Este modo não é recomendado para produção e só é útil durante o desenvolvimento de um aplicativo. |
 UnmonitoredManual | PS | Indica que o modo de atualização é manual não monitorizado. Após um domínio de atualização de atualização do Service Fabric, ele aguarda a atualizar o domínio de atualização seguinte ao utilizar o *retomar ServiceFabricApplicationUpgrade* cmdlet. |
@@ -94,11 +94,12 @@ As atualizações de aplicações do Service Fabric com a utilização da CLI do
 
 | Parâmetro | Descrição |
 | --- | --- |
-| id da aplicação  |ID da aplicação que está a ser atualizada. <br> Isso normalmente é o nome completo do aplicativo sem que o "recursos de infraestrutura:" Esquema URI. A partir da versão 6.0, são delimitados nomes hierárquicos com o "~" caráter. Por exemplo, se o nome da aplicação é "fabric: / myapp/app1 ', seria a identidade da aplicação" myapp ~ app1' em 6.0 + e "myapp/app1" nas versões anteriores.|
+| id da aplicação  |ID da aplicação que está a ser atualizada. <br> Isso normalmente é o nome completo do aplicativo sem que o "recursos de infraestrutura:" Esquema URI. A partir da versão 6.0, são delimitados nomes hierárquicos com o '\~"caráter. Por exemplo, se o nome da aplicação é "fabric: / myapp/app1 ', seria a identidade da aplicação" myapp\~app1' em 6.0 + e "myapp/app1" nas versões anteriores.|
 a versão de aplicação |Tipo de versão do aplicativo que os destinos de atualização.|
 parâmetros  |Uma lista JSON codificado do parâmetro de aplicação substitui a ser aplicado ao atualizar a aplicação.|
 
 ### <a name="optional-parameters"></a>Parâmetros opcionais
+
 | Parâmetro | Descrição |
 | --- | --- |
 default-service-health-policy | [JSON](https://docs.microsoft.com/rest/api/servicefabric/sfclient-model-servicetypehealthpolicy) codificado especificação da política de estado de funcionamento usada por padrão para avaliar o estado de funcionamento de um tipo de serviço. O mapa está vazio por padrão. |

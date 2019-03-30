@@ -7,12 +7,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 03/04/2019
 ms.author: raynew
-ms.openlocfilehash: 3f64be35aca985d0374e224cc9c8940502005014
-ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
+ms.openlocfilehash: f0959ff8b8ea5ce8d5516d25fdf0faf29dbcd994
+ms.sourcegitcommit: 956749f17569a55bcafba95aef9abcbb345eb929
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2019
-ms.locfileid: "58578888"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58629600"
 ---
 # <a name="back-up-and-restore-azure-vms-with-powershell"></a>Criar cópias de segurança e restaurar VMs do Azure com o PowerShell
 
@@ -184,10 +184,18 @@ Uma política de proteção de cópia de segurança está associada a pelo menos
 - O [New-AzRecoveryServicesBackupProtectionPolicy](https://docs.microsoft.com/powershell/module/az.recoveryservices/get-azrecoveryservicesbackupprotectionpolicy) cmdlet cria um objeto do PowerShell que contém as informações de política de cópia de segurança.
 - Os objetos de política de agendamento e retenção são utilizados como entradas para o cmdlet New-AzRecoveryServicesBackupProtectionPolicy.
 
-O exemplo seguinte armazena a política de agendamento e a política de retenção em variáveis. O exemplo utiliza essas variáveis para definir os parâmetros ao criar uma política de proteção *NewPolicy*.
+Por predefinição, uma hora de início está definida no objeto de política de agendamento. Utilize o exemplo a seguir para alterar a hora de início para a hora de início pretendida. A hora de início pretendida também deve estar em formato UTC. O exemplo abaixo pressupõe que a hora de início pretendida é UTC de 01 da Manhã para cópias de segurança diárias.
 
 ```powershell
 $schPol = Get-AzRecoveryServicesBackupSchedulePolicyObject -WorkloadType "AzureVM"
+$UtcTime = Get-Date -Date "2019-03-20 01:00:00Z"
+$UtcTime = $UtcTime.ToUniversalTime()
+$schpol.ScheduleRunTimes[0] = $UtcTime
+```
+
+O exemplo seguinte armazena a política de agendamento e a política de retenção em variáveis. O exemplo utiliza essas variáveis para definir os parâmetros ao criar uma política de proteção *NewPolicy*.
+
+```powershell
 $retPol = Get-AzRecoveryServicesBackupRetentionPolicyObject -WorkloadType "AzureVM"
 New-AzRecoveryServicesBackupProtectionPolicy -Name "NewPolicy" -WorkloadType "AzureVM" -RetentionPolicy $retPol -SchedulePolicy $schPol
 ```

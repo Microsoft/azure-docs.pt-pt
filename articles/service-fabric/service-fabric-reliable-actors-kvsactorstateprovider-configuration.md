@@ -4,7 +4,7 @@ description: Saiba mais sobre a configuração de atores com monitoração de es
 services: Service-Fabric
 documentationcenter: .net
 author: sumukhs
-manager: timlt
+manager: chackdan
 editor: ''
 ms.assetid: dbed72f4-dda5-4287-bd56-da492710cd96
 ms.service: service-fabric
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 10/2/2017
 ms.author: sumukhs
-ms.openlocfilehash: a512bb4adc4e410ef2300811ffa4142348d5ee33
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 8b10ef18fd389179a4f5422783606c45fa2e0d32
+ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57871823"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58669203"
 ---
 # <a name="configuring-reliable-actors--kvsactorstateprovider"></a>Configuração dos Reliable Actors – KVSActorStateProvider
 Pode modificar a configuração predefinida de KVSActorStateProvider alterando o arquivo Settings XML que é gerado na raiz do pacote do Microsoft Visual Studio sob a pasta de configuração para o ator especificado.

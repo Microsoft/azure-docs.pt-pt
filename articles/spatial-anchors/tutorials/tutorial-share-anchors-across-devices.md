@@ -1,5 +1,5 @@
 ---
-title: Tutorial - partilha entre sessões e dispositivos com as âncoras espaciais do Azure | Documentos da Microsoft
+title: Tutorial - partilha Azure geográficos âncoras, entre as sessões e dispositivos | Documentos da Microsoft
 description: Neste tutorial, saiba como partilhar os identificadores de âncora espaciais do Azure entre os dispositivos Android/iOS no Unity com um serviço de back-end.
 author: ramonarguelles
 manager: vicenterivera
@@ -8,19 +8,16 @@ ms.author: rgarcia
 ms.date: 02/24/2019
 ms.topic: tutorial
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: 7d9fe58b7db60513eed81aae628ebd7ca754a53a
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: ff9868dd7347812eb6ef566288ec364bc89b6955
+ms.sourcegitcommit: 956749f17569a55bcafba95aef9abcbb345eb929
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57901309"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58629311"
 ---
-# <a name="tutorial-sharing-across-sessions-and-devices-with-azure-spatial-anchors"></a>Tutorial: Partilha entre sessões e dispositivos com as âncoras espaciais do Azure
+# <a name="tutorial-share-azure-spatial-anchors-across-sessions-and-devices"></a>Tutorial: Partilhar as âncoras espaciais do Azure em sessões e dispositivos
 
-Este tutorial mostra-lhe como utilizar [âncoras geográficos de Azure](../overview.md) para:
-
-1. Criar âncoras numa sessão e, em seguida, localize-los em outra sessão no dispositivo idêntica ou diferente. Por exemplo, em outro dia.
-2. Crie âncoras que podem estar localizadas por vários dispositivos no mesmo local, ao mesmo tempo.
+Neste tutorial, irá aprender a utilizar [âncoras geográficos de Azure](../overview.md) criar âncoras durante uma sessão e, em seguida, localize-los, no mesmo dispositivo ou em outro. Também foi possível localizar estas âncoras mesmo por vários dispositivos no mesmo local e ao mesmo tempo.
 
 ![Persistência](./media/persistence.gif)
 
@@ -51,10 +48,6 @@ Abra o Visual Studio e abra o projeto no `Sharing\SharingServiceSample` pasta.
 
 [!INCLUDE [Publish Azure](../../../includes/spatial-anchors-publish-azure.md)]
 
-## <a name="open-the-sample-project-in-unity"></a>Abra o projeto de exemplo no Unity
-
-[!INCLUDE [Clone Sample Repo](../../../includes/spatial-anchors-clone-sample-repository.md)]
-
 [!INCLUDE [Run Share Anchors Sample](../../../includes/spatial-anchors-run-share-sample.md)]
 
 [!INCLUDE [Clean-up section](../../../includes/clean-up-section-portal.md)]
@@ -63,7 +56,7 @@ Abra o Visual Studio e abra o projeto no `Sharing\SharingServiceSample` pasta.
 
 Neste tutorial, implementou uma aplicação Web do ASP.NET Core no Azure e, em seguida, configurado e implementado uma aplicação Unity. Criou âncoras geográficos com a aplicação e partilhou-los com outros dispositivos com a aplicação de Web do ASP.NET Core.
 
-Para saber mais sobre como melhorar a sua aplicação Web do ASP.NET Core, para que ele use o Azure Cosmos DB para armazenar seu âncoras geográficos partilhado, avance para o próximo tutorial.
+Para saber mais sobre como melhorar a sua aplicação Web do ASP.NET Core, para que ele use o Azure Cosmos DB para armazenar seus identificadores de âncora geográficos partilhados, avance para o próximo tutorial. O Azure Cosmos DB proporciona persistência a sua aplicação Web do ASP.NET Core. Ao fazê-lo por isso, irá permitir que a aplicação crie hoje uma âncora e volte dias mais tarde possa localizá-la novamente, utilizando o identificador de âncora armazenado na sua aplicação web.
 
 > [!div class="nextstepaction"]
 > [Tutorial: Utilizar o Azure Cosmos DB a Store âncoras](./tutorial-use-cosmos-db-to-store-anchors.md)

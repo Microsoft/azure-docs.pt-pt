@@ -4,7 +4,7 @@ description: Melhore a fiabilidade e desempenho dos seus serviços ao desenvolve
 services: service-fabric
 documentationcenter: .net
 author: suhuruli
-manager: timlt
+manager: chackdan
 editor: ''
 ms.assetid: cb888532-bcdb-4e47-95e4-bfbb1f644da4
 ms.service: service-fabric
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/02/2017
 ms.author: suhuruli
-ms.openlocfilehash: 78483a5a5d78b539415aeeb0e28c1dbaf3680173
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 8f0470b10589ecbbc9e2c98e8d3445435e7f8ed4
+ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38619345"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58668828"
 ---
 # <a name="debug-your-java-service-fabric-application-using-eclipse"></a>Depurar a sua aplicação Java do Service Fabric com o Eclipse
 > [!div class="op_single_selector"]

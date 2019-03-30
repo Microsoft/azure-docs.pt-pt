@@ -12,12 +12,12 @@ ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: d8790eac93b288d5d5254f188fe5c901b5d5df14
-ms.sourcegitcommit: 87bd7bf35c469f84d6ca6599ac3f5ea5545159c9
+ms.openlocfilehash: 8f21374ae5da76c9954acc5227f593ab4be19ce9
+ms.sourcegitcommit: 956749f17569a55bcafba95aef9abcbb345eb929
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58351495"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58630543"
 ---
 # <a name="media-services-concepts"></a>Conceitos de serviços de multimédia
 
@@ -30,7 +30,7 @@ Este tópico fornece uma breve descrição geral dos conceitos de Media Services
 
 Para começar a gerir, encriptar, codificar, analisar e transmissão em fluxo conteúdo de multimédia do Azure, terá de criar uma conta de Media Services e carregar os ficheiros digitais num **ativos**.
 
-- [Carregamento na cloud e armazenamento](storage-account-concept.md)
+- [Carregamento e armazenamento na cloud](storage-account-concept.md)
 - [Conceito de ativos](assets-concept.md)
 
 ## <a name="encoding"></a>Codificação
@@ -75,24 +75,24 @@ Pode utilizar os serviços de multimédia **manifestos dinâmica** transmitir ap
 ![Filtragem de representação](./media/filters-dynamic-manifest-overview/media-services-rendition-filter.png)
 
 - [Empacotamento dinâmico](dynamic-packaging-overview.md)
-- [Pontos finais de transmissão em fluxo](streaming-endpoint-concept.md)
-- [Localizadores de transmissão em fluxo](streaming-locators-concept.md)
-- [Políticas de transmissão em fluxo](streaming-policy-concept.md)
-- [Diretivas de chave de conteúdo](content-key-policy-concept.md)
+- [Streaming Endpoints](streaming-endpoint-concept.md) (Pontos Finais de Transmissão em Fluxo)
+- [Streaming Locators](streaming-locators-concept.md) (Localizadores de Transmissão em Fluxo)
+- [Streaming Policies](streaming-policy-concept.md) (Políticas de Transmissão em Fluxo)
+- [Content Key Policies](content-key-policy-concept.md) (Políticas de Chaves de Conteúdos)
 - [Proteção de conteúdo](content-protection-overview.md)
-- [Manifestos dinâmicos](filters-dynamic-manifest-overview.md)
+- [Dynamic manifests](filters-dynamic-manifest-overview.md) (Manifestos dinâmicos)
 - [Filtros](filters-concept.md)
 
 ## <a name="live-streaming"></a>Transmissão em direto
 
-Serviços de multimédia do Azure permite-lhe fornecer eventos em direto aos seus clientes na cloud do Azure. **Eventos em direto** são responsáveis por ingerir e processar os feeds de vídeo em direto. Quando cria um **evento em direto**, é criado um ponto de final de entrada que pode utilizar para enviar um sinal ao vivo a partir de um codificador remoto. Assim que tiver o fluxo a ser encaminhados para o **evento em direto**, pode começar o evento de transmissão em fluxo através da criação de um **Asset**, **Live saída**, e **localizador de transmissão em fluxo** . **Live saída** irá arquivar a transmissão no **Asset** e disponibilizá-la para os espetadores através da **ponto final de transmissão em fluxo**. R **evento em direto** pode ser um dos dois tipos: **pass-through** e **codificação em direto**.
+Serviços de multimédia do Azure permite-lhe fornecer eventos em direto aos seus clientes na cloud do Azure. Os **Eventos em Direto** são responsáveis pela ingestão e o processamento dos feeds de vídeos em direto. Quando cria um **evento em direto**, é criado um ponto de final de entrada que pode utilizar para enviar um sinal ao vivo a partir de um codificador remoto. Assim que tiver o fluxo a ser encaminhados para o **evento em direto**, pode começar o evento de transmissão em fluxo através da criação de um **Asset**, **Live saída**, e **localizador de transmissão em fluxo** . **Live saída** irá arquivar a transmissão no **Asset** e disponibilizá-la para os espetadores através da **ponto final de transmissão em fluxo**. R **evento em direto** pode ser um dos dois tipos: **pass-through** e **codificação em direto**.
 
 A imagem seguinte ilustra o fluxo de trabalho do tipo de pass-through:
 
 ![pass-through](./media/live-streaming/pass-through.svg)
 
 - [Descrição geral de transmissão em fluxo em direto](live-streaming-overview.md)
-- [Eventos em direto e saídas em direto](live-events-outputs-concept.md)
+- [Live Events and Live Outputs](live-events-outputs-concept.md) (Eventos em Direto e Saídas em Direto)
 
 ## <a name="monitoring"></a>Monitorização
 
@@ -102,6 +102,11 @@ Para ver o progresso da tarefa, deve usar **Event Grid**. Serviços de multiméd
 
 - [Processamento de eventos do Event Grid](reacting-to-media-services-events.md)
 - [Schemas](media-services-event-schemas.md)
+
+### <a name="azure-monitor"></a>Azure Monitor
+
+Monitorizar as métricas e registos de diagnóstico que o ajudam a compreender o desempenho das suas aplicações com o Azure Monitor.
+
 - [Métricas e registos de diagnóstico](media-services-metrics-diagnostic-logs.md)
 - [Esquemas de registos de diagnóstico](media-services-diagnostic-logs-schema.md)
 
@@ -109,8 +114,13 @@ Para ver o progresso da tarefa, deve usar **Event Grid**. Serviços de multiméd
 
 Pode utilizar o leitor de multimédia do Azure para reproduzir conteúdo de multimédia em fluxo dos serviços de multimédia numa grande variedade de navegadores e dispositivos. O leitor de multimédia do Azure utiliza padrões da indústria, como HTML5, extensões de origem de mídia (MSE) e Encrypted Media Extensions (EME) para fornecer uma experiência plena de transmissão em fluxo adaptativa. 
 
-- [Descrição geral de leitor de multimédia do Azure](use-azure-media-player.md)
+- [Azure Media Player overview](use-azure-media-player.md) (Descrição geral do Leitor de Multimédia do Azure)
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-[Carregar, codificar e transmitir em fluxo através dos Media Services](stream-files-tutorial-with-api.md)
+* [Codificar o ficheiro remoto e o fluxo de vídeo – REST](stream-files-tutorial-with-rest.md)
+* [Codificar o ficheiro carregado e fluxo de vídeo - .NET](stream-files-tutorial-with-api.md)
+* [Stream em direto - .NET](stream-live-tutorial-with-api.md)
+* [Analisar o seu vídeo - .NET](analyze-videos-tutorial-with-api.md)
+* [Encriptação dinâmica AES-128 - .NET](protect-with-aes128.md)
+* [Encriptar dinamicamente com múltipla DRM - .NET](protect-with-drm.md) 

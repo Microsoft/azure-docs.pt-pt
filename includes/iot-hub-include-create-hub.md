@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 11/02/2018
 ms.author: robinsh
 ms.custom: include file
-ms.openlocfilehash: e22acc697e837bab91c8b9c32c1fe35f1a7bce1c
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.openlocfilehash: d373bc188a4d93c122cdf2cffbc4323aca16b4a4
+ms.sourcegitcommit: 956749f17569a55bcafba95aef9abcbb345eb929
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56824526"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58632844"
 ---
 Esta secção descreve como criar um hub IoT com o [portal do Azure](https://portal.azure.com).
 
@@ -23,7 +23,7 @@ Esta secção descreve como criar um hub IoT com o [portal do Azure](https://por
 
 3. Clique em **Iot Hub** da lista à direita. Veja a primeira tela para criar um hub IoT.
 
-   ![Captura de ecrã que mostra a criação de um hub no portal do Azure](./media/iot-hub-include-create-hub/iot-hub-create-screen-basics.png)
+   ![Criar um hub no portal do Azure](./media/iot-hub-include-create-hub/iot-hub-create-screen-basics.png)
 
    Preencha os campos.
 
@@ -39,7 +39,7 @@ Esta secção descreve como criar um hub IoT com o [portal do Azure](https://por
 
 4. Clique em **seguinte: Tamanho e a escala** para continuar a criar o hub IoT.
 
-   ![Captura de ecrã que mostra o tamanho de definição e a escala para um novo hub IoT no portal do Azure](./media/iot-hub-include-create-hub/iot-hub-create-screen-size-scale.png)
+   ![Definir o tamanho e escala para um novo hub IoT no portal do Azure](./media/iot-hub-include-create-hub/iot-hub-create-screen-size-scale.png)
 
    Neste ecrã, pode obter os padrões e basta clicar **rever + criar** na parte inferior. 
 
@@ -53,6 +53,6 @@ Esta secção descreve como criar um hub IoT com o [portal do Azure](https://por
 
 5. Clique em **rever + criar** para rever as opções. Verá algo semelhante a este ecrã.
 
-   ![Captura de ecrã rever informações para a criação de novo hub IoT](./media/iot-hub-include-create-hub/iot-hub-create-review.png)
+   ![Rever as informações para a criação de novo hub IoT](./media/iot-hub-include-create-hub/iot-hub-create-review.png)
 
 6. Clique em **criar** para criar o seu hub IoT novo. A criar o hub demora alguns minutos.

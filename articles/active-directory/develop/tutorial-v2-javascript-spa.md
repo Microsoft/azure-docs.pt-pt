@@ -9,19 +9,19 @@ editor: ''
 ms.service: active-directory
 ms.subservice: develop
 ms.devlang: na
-ms.topic: article
+ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 03/20/2019
 ms.author: nacanuma
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6b0a33a21836895bbe793aa0776888802736e7db
-ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
+ms.openlocfilehash: 2a791cbe805a573567671f455a0729008f7dbaba
+ms.sourcegitcommit: 956749f17569a55bcafba95aef9abcbb345eb929
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58201828"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58630255"
 ---
 [!INCLUDE [1. Introduction](../../../includes/active-directory-develop-guidedsetup-javascriptspa-introduction.md)]
 [!INCLUDE [2. Setup](../../../includes/active-directory-develop-guidedsetup-javascriptspa-setup.md)]

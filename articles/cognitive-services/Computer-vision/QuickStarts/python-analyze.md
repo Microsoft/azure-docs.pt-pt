@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: quickstart
-ms.date: 02/21/2019
+ms.date: 03/27/2019
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: e63ce8a7c047ecdede9ce72527f590f5fec7c5b4
-ms.sourcegitcommit: a4efc1d7fc4793bbff43b30ebb4275cd5c8fec77
+ms.openlocfilehash: 23a85a84cfd2f938bd32e42925c07177203bf636
+ms.sourcegitcommit: 956749f17569a55bcafba95aef9abcbb345eb929
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56652837"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58630232"
 ---
 # <a name="quickstart-analyze-a-remote-image-using-the-rest-api-and-python-in-computer-vision"></a>Início rápido: Analisar uma imagem remota usando a REST API e Python em de imagem digitalizada
 
@@ -32,6 +32,10 @@ Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure
 
 - Tem de ter o [Python](https://www.python.org/downloads/) instalado se quiser executar o exemplo localmente.
 - Tem de ter uma chave de subscrição da Imagem Digitalizada. Para obter uma chave de subscrição, veja [Obter Chaves de Subscrição](../Vision-API-How-to-Topics/HowToSubscribe.md).
+- Tem de ter os seguintes pacotes de Python instalados. Pode usar [pip](https://packaging.python.org/tutorials/installing-packages/) para instalar pacotes de Python.
+    - [Pedidos](http://docs.python-requests.org/en/master/)
+    - [matplotlib](https://matplotlib.org/)
+    - [pillow](https://python-pillow.org/)
 
 ## <a name="create-and-run-the-sample"></a>Criar e executar o exemplo
 
