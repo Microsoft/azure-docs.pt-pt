@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 03/15/2019
 ms.author: sedusch
-ms.openlocfilehash: f0bac9d50e73ed703905545261e86796ede214e2
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 2121cd661f5f1c2c14dc32eb2a4cbf717c966c67
+ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58180845"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58668962"
 ---
 # <a name="high-availability-of-sap-hana-on-azure-vms-on-suse-linux-enterprise-server"></a>Elevada disponibilidade do SAP HANA em VMs do Azure no SUSE Linux Enterprise Server
 
@@ -195,7 +195,7 @@ Para obter mais informações sobre as portas necessárias para o SAP HANA, leia
 
 > [!IMPORTANT]
 > Não ative carimbos de data / TCP em VMs do Azure colocadas atrás do Balanceador de carga do Azure. Ativar TCP carimbos fará com que as sondas de estado de funcionamento efetuar a ativação. Defina o parâmetro **net.ipv4.tcp_timestamps** ao **0**. Para obter detalhes, consulte [sondas de estado de funcionamento do Balanceador de carga](https://docs.microsoft.com/en-us/azure/load-balancer/load-balancer-custom-probe-overview).
-> A nota SAP [2382421](https://launchpad.support.sap.com/#/notes/2382421) atualmente contém uma instrução contraditórios, aconselhá-lhe definir net.ipv4.tcp_timestamps como 1. Para as VMs do Azure colocadas atrás do Balanceador de carga do Azure, defina o parâmetro **net.ipv4.tcp_timestamps** ao **0**. 
+> Consulte também a SAP note [2382421](https://launchpad.support.sap.com/#/notes/2382421). 
 
 ## <a name="create-a-pacemaker-cluster"></a>Criar um cluster de Pacemaker
 
@@ -364,14 +364,14 @@ Os passos nesta secção, utilize os prefixos seguintes:
 
    Se estiver a utilizar o SAP HANA 2.0 ou MDC, crie uma base de dados do inquilino para o seu sistema SAP NetWeaver. Substitua **NW1** com o SID do seu sistema SAP.
 
-   Inicie sessão como \<hanasid > adm e execute o seguinte comando:
+   Execute o seguinte comando como < hanasid\>adm:
 
    <pre><code>hdbsql -u SYSTEM -p "<b>passwd</b>" -i <b>03</b> -d SYSTEMDB 'CREATE DATABASE <b>NW1</b> SYSTEM USER PASSWORD "<b>passwd</b>"'
    </code></pre>
 
 1. **[1]**  Configurar replicação do sistema no primeiro nó:
 
-   Inicie sessão como \<hanasid > adm e criar cópias de segurança de bases de dados:
+   Cópia de segurança de bases de dados como < hanasid\>adm:
 
    <pre><code>hdbsql -d SYSTEMDB -u SYSTEM -p "<b>passwd</b>" -i <b>03</b> "BACKUP DATA USING FILE ('<b>initialbackupSYS</b>')"
    hdbsql -d <b>HN1</b> -u SYSTEM -p "<b>passwd</b>" -i <b>03</b> "BACKUP DATA USING FILE ('<b>initialbackupHN1</b>')"
@@ -391,7 +391,7 @@ Os passos nesta secção, utilize os prefixos seguintes:
 
 1. **[2]**  Configurar replicação do sistema no segundo nó:
     
-   Registre-se o segundo nó para iniciar a replicação de sistema. Inicie sessão como \<hanasid > adm e execute o seguinte comando:
+   Registre-se o segundo nó para iniciar a replicação de sistema. Execute o seguinte comando como < hanasid\>adm:
 
    <pre><code>sapcontrol -nr <b>03</b> -function StopWait 600 10
    hdbnsutil -sr_register --remoteHost=<b>hn1-db-0</b> --remoteInstance=<b>03</b> --replicationMode=sync --name=<b>SITE2</b> 
@@ -407,7 +407,7 @@ Os passos nesta secção, utilize os prefixos seguintes:
 
 1. **[1]**  Criar usuários necessários.
 
-   Inicie sessão como raiz e execute o seguinte comando. Certifique-se substituir as cadeias de caracteres em negrito (ID de sistema HANA **HN1** e o número de instâncias **03**) com os valores da sua instalação do SAP HANA:
+   Execute o seguinte comando como raiz. Certifique-se substituir as cadeias de caracteres em negrito (ID de sistema HANA **HN1** e o número de instâncias **03**) com os valores da sua instalação do SAP HANA:
 
    <pre><code>PATH="$PATH:/usr/sap/<b>HN1</b>/HDB<b>03</b>/exe"
    hdbsql -u system -i <b>03</b> 'CREATE USER <b>hdb</b>hasync PASSWORD "<b>passwd</b>"'
@@ -417,7 +417,7 @@ Os passos nesta secção, utilize os prefixos seguintes:
 
 1. **[A]**  Criar a entrada de keystore.
 
-   Inicie sessão como raiz e execute o seguinte comando para criar uma nova entrada de keystore:
+   Execute o seguinte comando como raiz para criar uma nova entrada de keystore:
 
    <pre><code>PATH="$PATH:/usr/sap/<b>HN1</b>/HDB<b>03</b>/exe"
    hdbuserstore SET <b>hdb</b>haloc localhost:3<b>03</b>15 <b>hdb</b>hasync <b>passwd</b>
@@ -425,7 +425,7 @@ Os passos nesta secção, utilize os prefixos seguintes:
 
 1. **[1]**  Cópia de segurança da base de dados.
 
-   Inicie sessão como raiz e criar cópias de segurança de bases de dados:
+   Cópia de segurança de bases de dados como raiz:
 
    <pre><code>PATH="$PATH:/usr/sap/<b>HN1</b>/HDB<b>03</b>/exe"
    hdbsql -d SYSTEMDB -u system -i <b>03</b> "BACKUP DATA USING FILE ('<b>initialbackup</b>')"
@@ -438,7 +438,7 @@ Os passos nesta secção, utilize os prefixos seguintes:
 
 1. **[1]**  Configurar replicação do sistema no primeiro nó.
 
-   Inicie sessão como \<hanasid > adm e criar o site primário:
+   Criar o site primário como < hanasid\>adm:
 
    <pre><code>su - <b>hdb</b>adm
    hdbnsutil -sr_enable –-name=<b>SITE1</b>
@@ -446,7 +446,7 @@ Os passos nesta secção, utilize os prefixos seguintes:
 
 1. **[2]**  Configurar replicação do sistema no nó secundário.
 
-   Inicie sessão como \<hanasid > adm e registe o site secundário:
+   Registe o site secundário como < hanasid\>adm:
 
    <pre><code>sapcontrol -nr <b>03</b> -function StopWait 600 10
    hdbnsutil -sr_register --remoteHost=<b>hn1-db-0</b> --remoteInstance=<b>03</b> --replicationMode=sync --name=<b>SITE2</b> 
@@ -709,7 +709,7 @@ NOTA: Os seguintes testes foram concebidos para ser executadas em seqüência e 
       rsc_nc_HN1_HDB03   (ocf::heartbeat:anything):      Started hn1-db-0
    </code></pre>
 
-   Execute os seguintes comandos como \<hanasid > adm no nó hn1-db-0:
+   Execute os seguintes comandos como < hanasid\>adm no nó hn1-db-0:
 
    <pre><code>hn1adm@hn1-db-0:/usr/sap/HN1/HDB03> HDB stop
    </code></pre>
@@ -750,7 +750,7 @@ NOTA: Os seguintes testes foram concebidos para ser executadas em seqüência e 
       rsc_nc_HN1_HDB03   (ocf::heartbeat:anything):      Started hn1-db-1
    </code></pre>
 
-   Execute os seguintes comandos como \<hanasid > adm no nó hn1-db-1:
+   Execute os seguintes comandos como < hanasid\>adm no nó hn1-db-1:
 
    <pre><code>hn1adm@hn1-db-1:/usr/sap/HN1/HDB03> HDB stop
    </code></pre>
@@ -791,7 +791,7 @@ NOTA: Os seguintes testes foram concebidos para ser executadas em seqüência e 
       rsc_nc_HN1_HDB03   (ocf::heartbeat:anything):      Started hn1-db-0
    </code></pre>
 
-   Execute os seguintes comandos como \<hanasid > adm no nó hn1-db-0:
+   Execute os seguintes comandos como < hanasid\>adm no nó hn1-db-0:
 
    <pre><code>hn1adm@hn1-db-0:/usr/sap/HN1/HDB03> HDB kill-9
    </code></pre>
@@ -832,7 +832,7 @@ NOTA: Os seguintes testes foram concebidos para ser executadas em seqüência e 
       rsc_nc_HN1_HDB03   (ocf::heartbeat:anything):      Started hn1-db-1
    </code></pre>
 
-   Execute os seguintes comandos como \<hanasid > adm no nó hn1-db-1:
+   Execute os seguintes comandos como < hanasid\>adm no nó hn1-db-1:
 
    <pre><code>hn1adm@hn1-db-1:/usr/sap/HN1/HDB03> HDB kill-9
    </code></pre>
@@ -975,7 +975,7 @@ NOTA: Os seguintes testes foram concebidos para ser executadas em seqüência e 
       rsc_nc_HN1_HDB03   (ocf::heartbeat:anything):      Started hn1-db-0
    </code></pre>
 
-   Execute os seguintes comandos como \<hanasid > adm no nó hn1-db-1:
+   Execute os seguintes comandos como < hanasid\>adm no nó hn1-db-1:
 
    <pre><code>hn1adm@hn1-db-1:/usr/sap/HN1/HDB03> HDB stop
    </code></pre>
@@ -1012,7 +1012,7 @@ NOTA: Os seguintes testes foram concebidos para ser executadas em seqüência e 
       rsc_nc_HN1_HDB03   (ocf::heartbeat:anything):      Started hn1-db-0
    </code></pre>
 
-   Execute os seguintes comandos como \<hanasid > adm no nó hn1-db-1:
+   Execute os seguintes comandos como < hanasid\>adm no nó hn1-db-1:
 
    <pre><code>hn1adm@hn1-db-1:/usr/sap/HN1/HDB03> HDB kill-9
    </code></pre>
