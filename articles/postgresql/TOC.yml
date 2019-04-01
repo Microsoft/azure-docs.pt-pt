@@ -191,6 +191,8 @@ items:
     items:
     - name: Gerir réplicas de leitura do portal do Azure
       href: howto-read-replicas-portal.md
+    - name: Gerir réplicas de leitura da CLI do Azure
+      href: howto-read-replicas-cli.md
 - name: Referência
   items:
   - name: CLI do Azure
@@ -241,9 +243,9 @@ items:
     href: partners-migration-postgresql.md
   - name: Guia de Migração de Bases de Dados
     href: https://datamigration.microsoft.com/
-ms.openlocfilehash: 8e4f8c68e591f1ad8d26c4bd11bc2307c88c10c6
-ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
+ms.openlocfilehash: 5958953a879a84a3a0b78b91ca276ad4bf48fc00
+ms.sourcegitcommit: 956749f17569a55bcafba95aef9abcbb345eb929
 ms.translationtype: HT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 03/29/2019
-ms.locfileid: "58620959"
+ms.locfileid: "58629197"

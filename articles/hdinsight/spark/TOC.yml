@@ -36,6 +36,8 @@ items:
     href: apache-spark-ipython-notebook-machine-learning.md
   - name: Criar uma aplicação do Apache Spark no IntelliJ
     href: apache-spark-create-standalone-application.md
+  - name: Monitorizar a disponibilidade do cluster com os registos do Ambari e do Azure Monitor
+    href: ../hdinsight-cluster-availability.md
 - name: Procedimento
   items:
   - name: Utilizar o armazenamento de cluster
@@ -440,9 +442,9 @@ items:
   - name: Ferramentas do Windows para HDInsight
     href: ../hdinsight-hadoop-windows-tools.md
     maintainContext: true
-ms.openlocfilehash: f2a818ce9777cd28b844f584cb272ab01bce2753
-ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
+ms.openlocfilehash: 9775c1da15b5ac5e675e84487006339b1c9701ce
+ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58448782"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58670175"

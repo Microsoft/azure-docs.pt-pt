@@ -90,7 +90,7 @@ items:
           href: widevine-license-template-overview.md
         - name: Requisitos de licença do FairPlay
           href: fairplay-license-overview.md
-    - name: Pontos Finais de Transmissão em fluxo
+    - name: Pontos Finais de Transmissão em Fluxo/Origem
       displayName: origins, cdn
       href: streaming-endpoint-concept.md
     - name: Localizadores de Transmissão em Fluxo
@@ -131,10 +131,8 @@ items:
     items:
     - name: Media Player do Azure
       href: use-azure-media-player.md
-  - name: Entidades dos Serviços de Multimédia
-    items:
-    - name: Ordenação, filtragem, paginação de entidades
-      href: entities-overview.md
+  - name: Desenvolver com APIs v3
+    href: entities-overview.md
   - name: Guia de migração de v2 para v3
     href: migrate-from-v2-to-v3.md
 - name: Guias de procedimentos
@@ -147,10 +145,17 @@ items:
       href: access-api-cli-how-to.md
     - name: Dimensionar Unidades Reservadas de Multimédia – CLI
       href: media-reserved-units-cli-how-to.md
-    - name: Começar a desenvolver
+    - name: Desenvolver com REST
+      items:
+      - name: Ligar com Postman
+        href: media-rest-apis-with-postman.md
+    - name: Desenvolver com SDKs
       href: developers-guide.md
-    - name: Configurar o Postman
-      href: media-rest-apis-with-postman.md
+      items:
+      - name: Ligar com .NET
+        href: configure-connect-dotnet-howto.md
+      - name: Ligar com Node.js
+        href: configure-connect-nodejs-howto.md
   - name: Carregar conteúdo
     items:
     - name: De HTTPS - .NET
@@ -260,9 +265,9 @@ items:
     href: frequently-asked-questions.md
   - name: Regiões e clouds do Azure
     href: azure-clouds-regions.md
-ms.openlocfilehash: 6b4d60510fa285290d92d7e9d6a7c5c2166bcd3f
-ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
+ms.openlocfilehash: 4f40fc3241dd0df881c7777d3e47a8976a364dc5
+ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2019
-ms.locfileid: "58578710"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58755430"

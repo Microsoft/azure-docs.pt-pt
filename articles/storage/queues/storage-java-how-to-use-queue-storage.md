@@ -10,12 +10,12 @@ ms.topic: article
 ms.date: 12/08/2016
 ms.author: rogarana
 ms.subservice: queues
-ms.openlocfilehash: 7e422825c6aa66b14f07f1e52bdd828971ad5eb8
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 7c2fbc168c663cc4dc5981071d40540cfc4797ca
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58012367"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58648491"
 ---
 # <a name="how-to-use-queue-storage-from-java"></a>Como utilizar o Armazenamento de filas do Java
 [!INCLUDE [storage-selector-queue-include](../../../includes/storage-selector-queue-include.md)]
@@ -23,7 +23,7 @@ ms.locfileid: "58012367"
 [!INCLUDE [storage-check-out-samples-java](../../../includes/storage-check-out-samples-java.md)]
 
 ## <a name="overview"></a>Descrição geral
-Este guia irá mostrar como realizar cenários comuns utilizando o serviço de armazenamento de filas do Azure. Os exemplos são escritos em Java e utilizam [Azure Storage SDK for Java][Azure Storage SDK for Java] (SDK do Armazenamento do Azure para Java). Os cenários abrangidos incluem **inserindo**, **observação**, **introdução**, e **a eliminar** fila de mensagens, que  **criando** e **eliminar** filas. Para obter mais informações sobre as filas, consulte a [próximos passos](#Next-Steps) secção.
+Este guia irá mostrar como realizar cenários comuns utilizando o serviço de armazenamento de filas do Azure. Os exemplos são escritos em Java e utilizam [Azure Storage SDK for Java][Azure Storage SDK for Java] (SDK do Armazenamento do Azure para Java). Os cenários abrangidos incluem **inserindo**, **observação**, **introdução**, e **a eliminar** fila de mensagens, que  **criando** e **eliminar** filas. Para obter mais informações sobre as filas, consulte a [próximos passos](#next-steps) secção.
 
 Nota: Está disponível um SDK para os programadores que utilizem o Armazenamento do Azure em dispositivos Android. Para obter mais informações, veja o [SDK do Armazenamento do Azure para Android][Azure Storage SDK for Android].
 

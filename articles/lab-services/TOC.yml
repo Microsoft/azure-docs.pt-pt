@@ -77,6 +77,12 @@ items:
       href: classroom-labs/how-to-create-schedules.md
     - name: Criar um ambiente com várias VMs dentro de uma VM de modelo
       href: classroom-labs/how-to-enable-multi-vm-environment.md
+    - name: Ligar os seus laboratórios a uma rede virtual de peering
+      href: classroom-labs/how-to-connect-peer-virtual-network.md
+    - name: Anexar e utilizar uma galeria de imagens partilhadas
+      href: classroom-labs/how-to-use-shared-image-gallery.md
+    - name: Ativar a ligação de ambiente de trabalho remoto para Linux
+      href: classroom-labs/how-to-enable-remote-desktop-linux.md
   - name: DevTest Labs
     items:
     - name: Especificar o grupo de recursos para as máquinas virtuais de laboratório
@@ -94,7 +100,7 @@ items:
     - name: Criar uma fábrica de imagens
       href: image-factory-create.md
       items:
-      - name: Executar uma fábrica de imagens a partir do AzureDevOps
+      - name: Executar uma fábrica de imagens a partir do Azure DevOps
         href: image-factory-set-up-devops-lab.md
       - name: Guardar imagens personalizadas e distribuir para vários laboratórios
         href: image-factory-save-distribute-custom-images.md
@@ -265,9 +271,9 @@ items:
       href: https://azure.microsoft.com/resources/videos/index/?services=devtest-lab
     - name: Perguntas mais frequentes
       href: devtest-lab-faq.md
-ms.openlocfilehash: c2e32a28253e0fc38fbfa215599654a3cf751d36
-ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
+ms.openlocfilehash: 4c96945c5e7a0aed52d3148c7dbf084a8d8b9f29
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58448863"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58651178"

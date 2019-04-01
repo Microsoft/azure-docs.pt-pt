@@ -1,10 +1,10 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: d4e80fd18de40c7df806f0a72612cec7bb71e2d2
-ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
+ms.openlocfilehash: 9408134fa020a143a1b32d5b3600f6e19de7008e
+ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58339186"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58663657"
 documentType: LandingData
 title: Documentação dos Serviços de Multimédia do Azure v3
 metadata:
@@ -21,24 +21,18 @@ metadata:
   ms.date: 03/20/2019
   ms.author: juliako
 abstract:
-  description: Aprenda a transmitir vídeos sob pedido, transmitir em direto e analisar os seus vídeos com os Serviços de Multimédia v3. Tutoriais, referências de API e outra documentação mostram-lhe como fornecer de forma segura transmissões em fluxo de vídeo ou áudio a pedido e live dimensionáveis para milhões de utilizadores. <br/> Os SDKs são baseados na <a href="https://aka.ms/ams-v3-rest-sdk">Especificação do OpenAPI dos Serviços de Multimédia v3 (Swagger)</a>.
+  description: Saiba como codificar e criar pacotes de conteúdos, transmitir vídeos em fluxo a pedido, transmitir em direto e analisar os seus vídeos com os Serviços de Multimédia v3. Tutoriais, referências de API e outra documentação mostram-lhe como fornecer de forma segura transmissões em fluxo de vídeo ou áudio a pedido e live dimensionáveis para milhões de utilizadores. <br/> Os SDKs são baseados na <a href="https://aka.ms/ams-v3-rest-sdk">Especificação do OpenAPI dos Serviços de Multimédia v3 (Swagger)</a>.
 sections:
-- items:
+- title: 
+  items:
   - type: list
     style: cards
-    className: cardsM
-    columns: 2
+    className: cardsD
     items:
-    - image:
-        src: 
-      html: <p>Saiba mais sobre os conceitos fundamentais dos Serviços de Multimédia.</p>
-      href: /azure/media-services/latest/concepts-overview/
-      title: Aprenda conceitos
-    - image:
-        src: 
-      html: <p>Atualmente, não é possível gerir recursos v3 com o portal do Azure. Utilize a API REST, CLI ou um dos SDKs suportados.</p>
-      href: /azure/media-services/latest/developers-guide/
-      title: Desenvolver com a API v3
+    - title: Aprenda conceitos
+      html: <p><a href="https://docs.microsoft.com/azure/media-services/latest/storage-account-concept">Carregamento e armazenamento na cloud</a></p><p><a href="https://docs.microsoft.com/azure/media-services/latest/encoding-concept">Codificação</a></p><p><a href="https://docs.microsoft.com/azure/media-services/latest/analyzing-video-audio-files-concept">Análise de multimédia</a></p><p><a href="https://docs.microsoft.com/azure/media-services/latest/dynamic-packaging-overview">Empacotamento</a></p><p><a href="https://docs.microsoft.com/azure/media-services/latest/content-protection-overview">Proteção</a></p><p><a href="https://docs.microsoft.com/azure/media-services/latest/live-streaming-overview">Transmissão em direto</a></p><p><a href="https://docs.microsoft.com/azure/media-services/latest/use-azure-media-player">Clientes de leitores</a></p>
+    - title: Desenvolver com a API v3
+      html: <p><a href="https://docs.microsoft.com/azure/media-services/latest/developers-guide">Começar a desenvolver com SDKs</a></p><p><a href="https://docs.microsoft.com/azure/media-services/latest/media-rest-apis-with-postman">Desenvolver com REST</a></p>
 - title: Inícios rápidos de cinco minutos
   items:
   - type: paragraph
@@ -47,32 +41,60 @@ sections:
     style: icon48
     items:
     - image:
-        src: media/index/AMSIcons-encoding.svg
-      text: Transmitir ficheiros de vídeo
+        src: media/index/dotnet.svg
+      text: Codificar e transmitir em fluxo com .NET
       href: /azure/media-services/latest/stream-files-dotnet-quickstart
+    - image:
+        src: media/index/cli.svg
+      text: Codificar e transmitir em fluxo com a CLI
+      href: /azure/media-services/latest/stream-files-cli-quickstart
+    - image:
+        src: media/index/logo_nodejs.svg
+      text: Codificar e transmitir em fluxo com Node.js
+      href: /azure/media-services/latest/stream-files-nodejs-quickstart
 - title: Tutoriais Passo-a-Passo
   items:
   - type: paragraph
     text: 'Saiba como transmitir em fluxo ficheiros a pedido, transmitir em direto e analisar os seus vídeos com os Serviços de Multimédia v3:'
   - type: list
-    style: icon48
+    style: cards
+    className: cardsM
+    columns: 1
     items:
     - image:
-        src: media/index/AMSIcons-encoding.svg
-      text: Carregar, codificar e transmitir vídeos
+        src: media/index/dotnet.svg
+      html: <p>O tutorial carrega um ficheiro de vídeo local, codifica o ficheiro e transmite o conteúdo codificado.<p/>
       href: /azure/media-services/latest/stream-files-tutorial-with-api
+      title: Codificar o ficheiro carregado e transmitir o vídeo
     - image:
-        src: media/index/AMSIcons-live.svg
-      text: Transmitir em direto
+        src: media/index/dotnet.svg
+      html: <p>O tutorial explica como configurar um evento em direto. Em seguida, mostra como utilizar o .NET para criar um evento em direto do tipo pass-through.</p>
       href: /azure/media-services/latest/stream-live-tutorial-with-api
+      title: Transmitir em direto
     - image:
-        src: media/index/AMSIcons-media_analytics.svg
-      text: Analisar os seus vídeos
+        src: media/index/dotnet.svg
+      html: <p>Este tutorial mostra-lhe como analisar vídeos com a API dos Serviços de Multimédia do Azure.</p>
       href: /azure/media-services/latest/analyze-videos-tutorial-with-api
+      title: Analisar o seu vídeo
+    - image:
+        src: media/index/dotnet.svg
+      html: <p>Saiba como configurar e utilizar as APIs dos Serviços de Multimédia para encriptar o seu conteúdo de forma dinâmica com AES-128.</p>
+      href: /azure/media-services/latest/protect-with-aes128
+      title: Encriptar de forma dinâmica com AES-128
+    - image:
+        src: media/index/dotnet.svg
+      html: <p>Saiba como configurar e utilizar as APIs dos Serviços de Multimédia para encriptar o seu conteúdo de forma dinâmica com multi-DRM (PlayReady, Widevine e FairPlay).</p>
+      href: /azure/media-services/latest/protect-with-drm
+      title: Encriptar de forma dinâmica com multi-DRM
+    - image:
+        src: media/index/rest.svg
+      html: <p>Este tutorial mostra-lhe como codificar um ficheiro remoto com base no URL e transmitir o vídeo.</p>
+      href: /azure/media-services/latest/stream-files-tutorial-with-rest
+      title: Codificar um ficheiro remoto e transmitir o vídeo
 - title: Amostras
   items:
   - type: paragraph
-    text: 'Exemplos que mostram como utilizar APIs para transmitir em fluxo vídeos, transmitir em direto e analisar os seus vídeos com os Serviços de Multimédia v3:'
+    text: 'Os seguintes exemplos do GitHub mostram como utilizar APIs para transmitir vídeos em fluxo, transmitir em direto e analisar os seus vídeos com os Serviços de Multimédia v3:'
   - type: list
     style: icon48
     items:

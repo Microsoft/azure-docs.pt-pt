@@ -63,6 +63,12 @@ items:
       href: oms-linux.md
     - name: Windows
       href: oms-windows.md
+  - name: Azure Monitor para VMs
+    items:
+    - name: Agente de dependência do Linux
+      href: agent-dependency-linux.md
+    - name: Agente de dependência do Windows
+      href: agent-dependency-windows.md
   - name: PowerShell DSC
     href: dsc-overview.md
     items:
@@ -112,9 +118,9 @@ items:
     href: export-templates.md
   - name: Resolução de problemas
     href: troubleshoot.md
-ms.openlocfilehash: 61069b7530cd2c35cbf8b33f5999bc21a3f35a05
-ms.sourcegitcommit: 7b0778a1488e8fd70ee57e55bde783a69521c912
+ms.openlocfilehash: e4df9a9d6c15253d2893b0a69e49312a2e5003ff
+ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49066688"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58665446"

@@ -1,15 +1,15 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: fad8ecd0658b2a00f249e8b218bab1dbdaf83187
-ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
+ms.openlocfilehash: 6a2d2825e382a6cda8a1fc04fd223e700cf8d284
+ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2019
-ms.locfileid: "58578225"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58757328"
 documentType: LandingData
-title: Documentação da Pré-visualização do ASC para IoT
+title: Documentação da Pré-visualização do Centro de Segurança do Azure para IoT
 metadata:
-  title: Documentação da Pré-visualização do ASC para IoT - Tutoriais, Inícios rápidos | Microsoft Doc
-  meta.description: ASC for IoT unifies your security management and enables advanced threat protection across your IoT solution.
+  title: Documentação da Pré-visualização do Centro de Segurança do Azure para IoT - Tutoriais, Inícios Rápidos | Microsoft Docs
+  meta.description: Azure Security Center for IoT unifies your security management and enables advanced threat protection across your IoT solution.
   services: ascforiot
   author: mlottner
   manager: barbkess
@@ -20,7 +20,7 @@ metadata:
   ms.date: 03/26/19
   ms.author: barbkess
 abstract:
-  description: Utilize a Pré-visualização do ASC para IoT para expandir a sua vista de cibersegurança existente a toda a sua solução de IoT. Obtenha uma vista verdadeiramente panorâmica sobre a segurança de todos os seus recursos relacionados com o Azure. As opções de implementação rápida e a integração completa com os módulos duplos do Hub IoT dão-lhe uma grande variedade de opções de personalização e integração simples com as suas atuais ferramentas de gestão de dispositivos. 
+  description: Utilize a Pré-visualização do Centro de Segurança do Azure (ASC) para IoT para expandir a sua vista de cibersegurança existente a toda a sua solução de IoT. Obtenha uma vista verdadeiramente panorâmica sobre a segurança de todos os seus recursos relacionados com o Azure. As opções de implementação rápida e a integração completa com os módulos duplos do Hub IoT dão-lhe uma grande variedade de opções de personalização e integração simples com as suas atuais ferramentas de gestão de dispositivos. 
 sections:
 - title: Inícios rápidos de cinco minutos
   items:

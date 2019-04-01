@@ -128,29 +128,64 @@ items:
       href: https://github.com/Azure/azure-iot-pcs-remote-monitoring-java
     - name: FAQ de Monitorização Remota
       href: iot-accelerators-faq-rm-v2.md
-- name: Fábrica Ligada
+- name: IoT Industrial
   items:
   - name: Descrição geral
-    href: iot-accelerators-connected-factory-features.md
     items:
-    - name: Arquitetura
-      href: iot-accelerators-connected-factory-sample-walkthrough.md
+    - name: O que é a IoT Industrial
+      href: overview-iot-industrial.md
+    - name: Duplo OPC
+      items:
+      - name: O que é o Duplo OPC
+        href: overview-opc-twin.md
+      - name: Arquitetura do Duplo OPC
+        href: overview-opc-twin-architecture.md
+    - name: Cofre OPC
+      items:
+      - name: O que é o Cofre OPC
+        href: overview-opc-vault.md
+    - name: Fábrica Ligada
+      items:
+      - name: Descrição Geral da Fábrica Ligada
+        href: iot-accelerators-connected-factory-features.md
+      - name: Arquitetura da Fábrica Ligada
+        href: iot-accelerators-connected-factory-sample-walkthrough.md
   - name: Inícios rápidos
     items:
     - name: Tentar uma solução de fábrica ligada
       href: quickstart-connected-factory-deploy.md
   - name: Guias de procedimentos
     items:
-    - name: Utilizar o dashboard
-      href: iot-accelerators-connected-factory-dashboard.md
-    - name: Implementar um gateway
-      href: iot-accelerators-connected-factory-gateway-deployment.md
-    - name: Utilizar o publicador OPC
-      href: https://github.com/Azure/iot-edge-opc-publisher/blob/master/README.md
-    - name: Configurar o acelerador de soluções
-      href: iot-accelerators-connected-factory-configure.md
-    - name: Personalizar o acelerador de soluções
-      href: iot-accelerators-connected-factory-customize.md
+    - name: Fábrica Ligada
+      items:
+      - name: Utilizar o dashboard
+        href: iot-accelerators-connected-factory-dashboard.md
+      - name: Implementar um gateway
+        href: iot-accelerators-connected-factory-gateway-deployment.md
+      - name: Utilizar o publicador OPC
+        href: https://github.com/Azure/iot-edge-opc-publisher/blob/master/README.md
+      - name: Configurar o acelerador de soluções
+        href: iot-accelerators-connected-factory-configure.md
+      - name: Personalizar o acelerador de soluções
+        href: iot-accelerators-connected-factory-customize.md
+    - name: Duplo OPC
+      items:
+      - name: Implementar serviços do Duplo OPC
+        href: howto-opc-twin-deploy-existing.md
+      - name: Implementar o módulo do Duplo OPC para o IoT Edge
+        href: howto-opc-twin-deploy-modules.md
+      - name: Implementar apenas as dependências do Duplo OPC
+        href: howto-opc-twin-deploy-dependencies.md
+    - name: Cofre OPC
+      items:
+      - name: Implementar o Cofre OPC num projeto existente
+        items:
+        - name: Proteger a comunicação do Cliente OPC e OPC PLC
+          href: howto-opc-vault-deploy-existing-client-plc-communication.md
+        - name: Proteger o Cliente OPC UA e a Aplicação de Servidor OPC UA
+          href: howto-opc-vault-deploy-existing-client-server-communication.md
+      - name: Implementar o Cofre OPC de raiz
+        href: howto-opc-vault-deploy-scratch.md
   - name: Recursos
     items:
     - name: Repositório do GitHub
@@ -257,9 +292,9 @@ items:
     href: https://stackoverflow.com/questions/tagged/azure-iot-suite
   - name: Monitorização Remota V1
     href: https://docs.microsoft.com/previous-versions/azure/iot-suite/
-ms.openlocfilehash: 5b2067facd27e94735aba63bb1c54c15e1511c64
-ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
+ms.openlocfilehash: 02c728f7acef1bcc1436d87dd0c0d9509db8ec97
+ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57342042"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58757190"

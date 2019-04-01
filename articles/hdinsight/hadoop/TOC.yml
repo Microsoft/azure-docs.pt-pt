@@ -29,6 +29,9 @@ items:
   - name: Criar clusters a pedido
     href: ../hdinsight-hadoop-create-linux-clusters-adf.md
     maintainContext: true
+  - name: Monitorizar a disponibilidade do cluster com os registos do Ambari e do Azure Monitor
+    href: ../hdinsight-cluster-availability.md
+    maintainContext: true
 - name: Conceitos
   items:
   - name: Planeamento da capacidade do cluster
@@ -414,6 +417,9 @@ items:
     maintainContext: true
   - name: Acesso à rede
     items:
+    - name: Arquitetura da rede virtual do HDInsight
+      href: ../hdinsight-virtual-network-architecture.md
+      maintainContext: true
     - name: HDInsight em VNet do Azure
       href: ../hdinsight-extend-hadoop-virtual-network.md
       maintainContext: true
@@ -488,9 +494,9 @@ items:
   - name: Ferramentas do Windows para HDInsight
     href: ../hdinsight-hadoop-windows-tools.md
     maintainContext: true
-ms.openlocfilehash: 3dfbd1844f463efa9d99aa39dde86391ec773408
-ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
+ms.openlocfilehash: 21390f78e30bf6d26b98b0d7ab9d3f005d5fbf77
+ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58449397"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58758442"
