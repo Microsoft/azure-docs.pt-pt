@@ -1,6 +1,6 @@
 ---
-title: Compreender o ASC para pré-visualização do IoT custos | Documentos da Microsoft
-description: Saiba mais sobre os custos associados com ASC para IoT e como controlá-las.
+title: Compreender a pré-visualização de custos do Centro de segurança do Azure para IoT | Documentos da Microsoft
+description: Saiba mais sobre os custos associados com o Centro de segurança do Azure para IoT e como controlá-las.
 services: ascforiot
 documentationcenter: na
 author: mlottner
@@ -14,20 +14,20 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/27/2019
 ms.author: mlottner
-ms.openlocfilehash: e694bb1a121b172fe67fbde0bd956700a75dfe12
-ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
+ms.openlocfilehash: e2822b0f2f665220f215b85800081fa2fa7943f9
+ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2019
-ms.locfileid: "58580662"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58758046"
 ---
 # <a name="pricing-and-associated-costs"></a>Custos associados e preços
 
 > [!IMPORTANT]
-> ASC para IoT está atualmente em pré-visualização pública.
+> Centro de segurança do Azure para IoT está atualmente em pré-visualização pública.
 > Esta versão de pré-visualização é disponibiliza sem um contrato de nível de serviço e não é recomendada para cargas de trabalho de produção. Algumas funcionalidades poderão não ser suportadas ou poderão ter capacidades limitadas. Para obter mais informações, veja [Termos Suplementares de Utilização para Pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-Este artigo explica o ASC para IoT, modelo de preços, resume todos os custos associados e explica como geri-los.
+Este artigo explica o Centro de segurança do Azure (ASC) para o modelo de preços de IoT, resume todos os custos associados e explica como geri-los.
 
 ## <a name="pricing"></a>Preços
 

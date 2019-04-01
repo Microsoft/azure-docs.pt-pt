@@ -1,6 +1,6 @@
 ---
-title: ASC para a pré-visualização do IoT pré-requisitos | Documentos da Microsoft
-description: Detalhes de todo o necessário para começar a utilizar o ASC para pré-requisitos de serviço de IoT.
+title: Centro de segurança do Azure para a pré-visualização do IoT pré-requisitos | Documentos da Microsoft
+description: Detalhes de todo o necessário para começar a utilizar o Centro de segurança do Azure para pré-requisitos de serviço de IoT.
 services: ascforiot
 documentationcenter: na
 author: mlottner
@@ -14,20 +14,20 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/26/2019
 ms.author: mlottner
-ms.openlocfilehash: 0188dace0e666d4abfe31ac1c6c14d63c947c566
-ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
+ms.openlocfilehash: 5293fe6a8d4a8a44a89890af1c259e2b4b2b7827
+ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2019
-ms.locfileid: "58574757"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58755097"
 ---
-# <a name="asc-for-iot-prerequisites"></a>ASC para pré-requisitos de IoT
+# <a name="azure-security-center-for-iot-prerequisites"></a>Centro de segurança do Azure para pré-requisitos de IoT
 
 > [!IMPORTANT]
-> ASC para IoT está atualmente em pré-visualização pública.
+> Centro de segurança do Azure para IoT está atualmente em pré-visualização pública.
 > Esta versão de pré-visualização é fornecido sem um contrato de nível de serviço e não é recomendada para cargas de trabalho de produção. Algumas funcionalidades poderão não ser suportadas ou poderão ter capacidades limitadas. Para obter mais informações, veja [Termos Suplementares de Utilização para Pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-Este artigo fornece uma explicação dos blocos de construção diferentes do ASC para IoT serviço, o que precisa para começar e conceitos básicos para ajudar a compreender o serviço. 
+Este artigo fornece uma explicação sobre os diferentes blocos de construção do Azure Security Center (ASC) para IoT serviço, o que precisa para começar e conceitos básicos para ajudar a compreender o serviço. 
 
 ## <a name="minimum-requirements"></a>Requisitos mínimos
 

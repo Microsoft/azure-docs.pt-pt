@@ -3,17 +3,17 @@ title: 'Tutorial: Atividade de diagnóstico e dados de registo no Explorador de 
 description: Neste tutorial, irá aprender ingerir dados para o Explorador de dados do Azure sem uma linha de código e consultar dados.
 services: data-explorer
 author: orspod
-ms.author: v-orspod
+ms.author: orspodek
 ms.reviewer: jasonh
 ms.service: data-explorer
 ms.topic: tutorial
 ms.date: 3/14/2019
-ms.openlocfilehash: 422813c1ddb77aa11195d3021484744839c4e3bf
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 5d6b595b442b645f57454e317e6535645f643598
+ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57994344"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58756847"
 ---
 # <a name="tutorial-ingest-data-in-azure-data-explorer-without-one-line-of-code"></a>Tutorial: Ingestão de dados no Explorador de dados do Azure sem uma linha de código
 

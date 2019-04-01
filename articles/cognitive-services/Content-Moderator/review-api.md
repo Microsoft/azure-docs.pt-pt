@@ -1,186 +1,76 @@
 ---
-title: Tarefas de moderação e avaliações de humanos em loop - Content Moderator
+title: As revisões, fluxos de trabalho e conceitos de tarefas - Content Moderator
 titlesuffix: Azure Cognitive Services
-description: Combine moderação assistida por computador com recursos humanos em loop usando a API do Azure Content Moderator revisão para obter os melhores resultados para a sua empresa.
+description: Saiba mais sobre as revisões de fluxos de trabalho e tarefas
 services: cognitive-services
 author: sanjeev3
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: content-moderator
 ms.topic: conceptual
-ms.date: 01/10/2019
+ms.date: 03/14/2019
 ms.author: sajagtap
-ms.openlocfilehash: 21d71110853c5f18b0b5f0b51d30110eb45ff54a
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: c1d4ef640e2ae072dacba7a665b6689e3224c55c
+ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55862705"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58756301"
 ---
-# <a name="content-moderation-jobs-and-reviews"></a>Tarefas de moderação de conteúdos e revisões
+# <a name="content-moderation-reviews-workflows-and-jobs"></a>Revisões de moderação de conteúdos, os fluxos de trabalho e tarefas
 
-Combinar moderação assistida por computador com recursos humanos em loop através da utilização do Azure Content Moderator [revisão de API](https://westus.dev.cognitive.microsoft.com/docs/services/580519463f9b070e5c591178/operations/580519483f9b0709fc47f9c5) para obter os melhores resultados para a sua empresa.
+O Content Moderator combina moderação assistida por computador com recursos humanos em loop para criar um processo de moderação ideal para cenários do mundo real. Ele faz isso por meio de baseado na nuvem [ferramenta de revisão](https://contentmoderator.cognitive.microsoft.com). Neste guia, aprenderá sobre os conceitos principais da ferramenta de revisão: revisões, fluxos de trabalho e tarefas.
 
-A revisão de API oferece as seguintes opções para incluir a supervisão humana em seu processo de moderação de conteúdos:
+## <a name="reviews"></a>Revisões
 
-* `Job` operações são utilizadas para iniciar o moderação assistida por computador e a criação de revisão humana como uma etapa.
-* `Review` operações são utilizadas para a criação de revisão humana, fora a etapa de moderação.
-* `Workflow` operações são utilizadas para gerir fluxos de trabalho que automatizam a verificação com limiares para a criação de revisão.
+Numa revisão, o conteúdo é carregado para a ferramenta de revisão e aparece sob o **rever** separador. Aqui, os utilizadores podem alterar as etiquetas aplicadas e aplicar a suas próprias etiquetas personalizadas conforme apropriado. Quando um usuário envia uma revisão, os resultados são enviados para um ponto de extremidade do retorno de chamada especificado e o conteúdo é removido do site.
 
-O `Job` e `Review` operações de aceitam os pontos de extremidade do retorno de chamada para o recebimento de status e os resultados.
+![Abra o Web site de ferramenta de revisão num browser, na guia revisão](./Review-Tool-user-Guide/images/image-workflow-review.png)
 
-Este artigo aborda os `Job` e `Review` operações. Leitura a [descrição geral de fluxos de trabalho](workflow-api.md) para obter informações sobre como criar, editar e obtém as definições de fluxo de trabalho.
+Consulte a [guia de ferramenta de revisão](./review-tool-user-guide/review-moderated-images.md) para começar a criar análises, ou consulte a [guia de REST API](./try-review-api-review.md) para saber como fazê-lo por meio de programação.
 
-## <a name="job-operations"></a>Operações de tarefa
+## <a name="workflows"></a>Fluxos de trabalho
 
-### <a name="start-a-job"></a>Iniciar uma tarefa
-Utilize o `Job.Create` operação para iniciar uma moderação e a tarefa de criação de revisão humana. O Content Moderator analisa o conteúdo e avalia o fluxo de trabalho designado. Com base nos resultados de fluxo de trabalho, ele o cria revisões ou ignora o passo. Submete também as etiquetas de pós- moderação de e pós-revisão para o ponto final de retorno de chamada.
+Um fluxo de trabalho é um filtro personalizado com base na cloud para o conteúdo. Fluxos de trabalho podem ligar a uma variedade de serviços para filtrar o conteúdo de formas diferentes e, em seguida, execute as ações apropriadas. Com o conector do Content Moderator, um fluxo de trabalho automaticamente pode aplicar etiquetas de moderação e crie revisões com conteúdo submetido.
 
-As entradas incluem as seguintes informações:
+### <a name="view-workflows"></a>Ver fluxos de trabalho
 
-- O ID de equipa de revisão.
-- O conteúdo para ser moderado.
-- O nome do fluxo de trabalho. (A predefinição é o fluxo de trabalho de "predefinição".)
-- Seu retorno de chamada de API ponto para notificações.
- 
-A seguinte resposta mostra o identificador da tarefa que foi iniciado. Utilize o identificador de tarefa para obter o estado da tarefa e receber informações detalhadas.
+Para ver os seus fluxos de trabalho existentes, vá para o [ferramenta de revisão](https://contentmoderator.cognitive.microsoft.com/) e selecione **definições** > **fluxos de trabalho**.
 
-    {
-        "JobId": "2018014caceddebfe9446fab29056fd8d31ffe"
-    }
+![Fluxo de trabalho predefinida](images/default-workflow-listed.PNG)
 
-### <a name="get-job-status"></a>Obter estado da tarefa
+Fluxos de trabalho podem ser completamente descritos como cadeias de caracteres do JSON, que as torna acessível por meio de programação. Se selecionar a **edite** opção para seu fluxo de trabalho e, em seguida, selecione a **JSON** guia, verá uma expressão de JSON semelhante ao seguinte:
 
-Utilize o `Job.Get` operação e o identificador de tarefa para obter os detalhes de uma tarefa em execução ou concluído. A operação devolve imediatamente enquanto a tarefa de moderação é executada de forma assíncrona. Os resultados são devolvidos através do ponto final de retorno de chamada.
-
-Suas entradas incluem as seguintes informações:
-
-- O ID da equipa de revisão: O identificador de tarefa devolvido pela operação anterior
-
-A resposta inclui as seguintes informações:
-
-- O identificador de revisão criada. (Utilizar este ID para obter os resultados de revisão final).
-- O estado da tarefa (conclusão ou em curso): As etiquetas de moderação atribuído (pares chave-valor).
-- O relatório de execução de tarefa.
- 
- 
-        {
-            "Id": "2018014caceddebfe9446fab29056fd8d31ffe",
-            "TeamName": "some team name",
-            "Status": "Complete",
-            "WorkflowId": "OCR",
-            "Type": "Image",
-            "CallBackEndpoint": "",
-            "ReviewId": "201801i28fc0f7cbf424447846e509af853ea54",
-            "ResultMetaData":[
-            {
-            "Key": "hasText",
-            "Value": "True"
-            },
-            {
-            "Key": "ocrText",
-            "Value": "IF WE DID \r\nALL \r\nTHE THINGS \r\nWE ARE \r\nCAPABLE \r\nOF DOING, \r\nWE WOULD \r\nLITERALLY \r\nASTOUND \r\nOURSELVE \r\n"
-            }
-            ],
-            "JobExecutionReport": [
-            {
-                "Ts": "2018-01-07T00:38:29.3238715",
-                "Msg": "Posted results to the Callbackendpoint: https://requestb.in/vxke1mvx"
-                },
-                {
-                "Ts": "2018-01-07T00:38:29.2928416",
-                "Msg": "Job marked completed and job content has been removed"
-                },
-                {
-                "Ts": "2018-01-07T00:38:29.0856472",
-                "Msg": "Execution Complete"
-                },
-            {
-                "Ts": "2018-01-07T00:38:26.7714671",
-                "Msg": "Successfully got hasText response from Moderator"
-                },
-                {
-                "Ts": "2018-01-07T00:38:26.4181346",
-                "Msg": "Getting hasText from Moderator"
-                },
-                {
-                "Ts": "2018-01-07T00:38:25.5122828",
-                "Msg": "Starting Execution - Try 1"
-                }
-            ]
-        }
- 
-![Revisão de imagem para moderadores humanos](images/ocr-sample-image.PNG)
-
-## <a name="review-operations"></a>Operações de revisão
-
-### <a name="create-reviews"></a>Criar as revisões
-
-Utilize o `Review.Create` operação para criar as revisões de realizadas por pessoas. Moderá-los em outro lugar ou usar lógica personalizada para atribuir as etiquetas de moderação.
-
-Suas entradas para esta operação incluem:
-
-- O conteúdo a ser revisto.
-- As etiquetas (pares chave-valor) atribuídas para revisão por moderadores humanos.
-
-A seguinte resposta mostra o identificador de revisão:
-
-    [
-        "201712i46950138c61a4740b118a43cac33f434",
-    ]
-
-
-### <a name="get-review-status"></a>Obter estado da revisão
-Utilize o `Review.Get` operação para obter os resultados após a conclusão de uma revisão de segurança da imagem moderada. Seja notificado através de ponto final da chamada de retorno fornecida. 
-
-A operação retorna dois conjuntos de etiquetas: 
-
-* As etiquetas atribuídas pelo serviço de moderação
-* As marcas de revisão humana foi concluída
-
-Suas entradas incluem-se no mínimo:
-
-- O nome da equipa de revisão
-- O identificador de revisão devolvido pela operação anterior
-
-A resposta inclui as seguintes informações:
-
-- O estado de revisão
-- As etiquetas (pares chave-valor) confirmadas pelo revisor humano
-- As etiquetas (pares chave-valor) atribuídas pelo serviço de moderação
-
-Ver ambas as etiquetas atribuídas revisor (**reviewerResultTags**) e as etiquetas iniciais (**metadados**) na resposta de exemplo seguinte:
-
-    {
-        "reviewId": "201712i46950138c61a4740b118a43cac33f434",
-        "subTeam": "public",
-        "status": "Complete",
-        "reviewerResultTags": [
-        {
-            "key": "a",
-            "value": "False"
+```json
+{
+    "Type": "Logic",
+    "If": {
+        "ConnectorName": "moderator",
+        "OutputName": "isAdult",
+        "Operator": "eq",
+        "Value": "true",
+        "Type": "Condition"
         },
-        {
-            "key": "r",
-            "value": "True"
-        },
-        {
-            "key": "sc",
-            "value": "True"
-        }
-        ],
-        "createdBy": "{teamname}",
-        "metadata": [
-        {
-            "key": "sc",
-            "value": "true"
-        }
-        ],
-        "type": "Image",
-        "content": "https://reviewcontentprod.blob.core.windows.net/{teamname}/IMG_201712i46950138c61a4740b118a43cac33f434",
-        "contentId": "0",
-        "callbackEndpoint": "{callbackUrl}"
+    "Then": {
+    "Perform": [
+    {
+        "Name": "createreview",
+        "CallbackEndpoint": null,
+        "Tags": []
     }
+    ],
+    "Type": "Actions"
+    }
+}
+```
+
+Consulte a [guia de ferramenta de revisão](./review-tool-user-guide/workflows.md) para começar a criar e utilizar fluxos de trabalho, ou consulte a [guia de REST API](./try-review-api-workflow.md) para saber como fazê-lo por meio de programação.
+
+## <a name="jobs"></a>Tarefas
+
+Uma tarefa de moderação serve como uma espécie de invólucro para a funcionalidade de moderação de conteúdos, os fluxos de trabalho e revisões. A tarefa analisa o conteúdo usando a moderação de imagens de Content Moderator, API ou a API de moderação de texto e, em seguida, verifica-lo contra o fluxo de trabalho designado. Com base nos resultados de fluxo de trabalho, pode ou não pode criar uma revisão para o conteúdo do [ferramenta de revisão](./review-tool-user-guide/human-in-the-loop.md). Embora as revisões e fluxos de trabalho podem ser criados e configurados com seus respectivos APIs, a tarefa de API permite-lhe obter um relatório detalhado de todo o processo (que pode ser enviado para um ponto de extremidade do retorno de chamada especificado).
+
+Consulte a [guia de REST API](./try-review-api-job.md) para começar a utilizar as tarefas.
 
 ## <a name="next-steps"></a>Passos Seguintes
 

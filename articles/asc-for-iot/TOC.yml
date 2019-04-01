@@ -1,5 +1,5 @@
 items:
-- name: Documentação da Pré-visualização do ASC para IoT
+- name: Documentação da Pré-visualização do Centro de Segurança do Azure (ASC) para IoT
   href: index.yml
 - name: Descrição geral
   href: overview.md
@@ -69,9 +69,9 @@ items:
     href: http://blogs.msdn.com/b/azuresecurity/
   - name: Disponibilidade regional
     href: https://azure.microsoft.com/regions/services/
-ms.openlocfilehash: 17508e05a8de52e12487bf35fd3e063761abcbe2
-ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
+ms.openlocfilehash: 1d9d2b51fb1a07081c4ac2f4b115363c74cca6d0
+ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2019
-ms.locfileid: "58575169"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58754588"

@@ -9,18 +9,18 @@ ms.date: 08/11/2018
 ms.author: mbullwin
 ms.reviewer: Dale.Koetke
 ms.subservice: ''
-ms.openlocfilehash: 7911bd398b6760fb4f83382868f040382b86cd1f
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.openlocfilehash: 2e59699b667215d4b09e4d87c1776431631348e8
+ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58480552"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58754254"
 ---
-# <a name="monitoring-usage-and-estimated-costs"></a>Monitorizar a utilização e custos estimados
+# <a name="monitoring-usage-and-estimated-costs-in-azure-monitor"></a>Monitorizar a utilização e custos estimados no Azure Monitor
 
 > [!NOTE]
 > Este artigo descreve como ver a utilização e custos estimados entre várias funcionalidades de monitorização do Azure para diferentes modelos de preços.  Veja os artigos seguintes para obter informações relacionadas.
-> - [Gerir os custos ao controlar o volume de dados e a retenção do Log Analytics](../../azure-monitor/platform/manage-cost-storage.md) descreve como controlar os custos ao alterar o período de retenção de dados.
+> - [Gerir os custos ao controlar o volume de dados e a retenção do Log Analytics](manage-cost-storage.md) descreve como controlar os custos ao alterar o período de retenção de dados.
 > - [Analisar a utilização de dados do Log Analytics](../../azure-monitor/platform/data-usage.md) descreve como analisar e alerta sobre a utilização de dados.
 > - [Gerir preços e volumes de dados no Application Insights](../../azure-monitor/app/pricing.md) descreve como analisar a utilização de dados do Application Insights.
 
@@ -184,7 +184,7 @@ Se, em seguida, execute novamente o script anterior que tenha ``-Action listmigr
 Se tiver várias subscrições, o que deseja migrar que estão alojados no mesmo inquilino, pode criar seu próprio variante usando partes dos seguintes scripts:
 
 ```powershell
-#Query tenant and create an array comprised of all of your tenants subscription ids
+#Query tenant and create an array comprised of all of your tenants subscription IDs
 $TenantId = <Your-tenant-id>
 $Tenant =Get-AzSubscription -TenantId $TenantId
 $Subscriptions = $Tenant.Id
@@ -204,7 +204,7 @@ Invoke-AzResourceAction `
 }
 ```
 
-O script poderia ser refinado adicional através da criação de um script que gera três matrizes. Uma matriz consistirá em todos os id de subscrição que ter ```isGrandFatherableSubscription``` definida como True e optedInDate não tem atualmente um valor. Uma segunda matriz de quaisquer subscrições atualmente no novo modelo de preços. E uma matriz de terceiro preenchida apenas com ids de subscrição no seu inquilino, que não são elegíveis para o novo modelo de preços:
+O script poderia ser refinado adicional através da criação de um script que gera três matrizes. Uma matriz consistirá em subscrição todos os IDs tenham ```isGrandFatherableSubscription``` definida como True e optedInDate não tem atualmente um valor. Uma segunda matriz de quaisquer subscrições atualmente no novo modelo de preços. E uma matriz de terceiro preenchida apenas com IDs de subscrição no seu inquilino que não são elegíveis para o novo modelo de preços:
 
 ```powershell
 [System.Collections.ArrayList]$Eligible= @{}

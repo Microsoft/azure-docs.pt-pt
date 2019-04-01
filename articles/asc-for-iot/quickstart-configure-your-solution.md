@@ -1,6 +1,6 @@
 ---
-title: Configurar o ASC para solução de IoT pré-visualização | Documentos da Microsoft
-description: Saiba como configurar a sua solução de IoT ponto a ponto com o ASC para IoT.
+title: Configurar o seu centro de segurança do Azure para a solução de IoT pré-visualização | Documentos da Microsoft
+description: Saiba como configurar a sua solução de IoT ponto a ponto com o Centro de segurança do Azure para IoT.
 services: ascforiot
 documentationcenter: na
 author: mlottner
@@ -14,22 +14,22 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/26/2019
 ms.author: mlottner
-ms.openlocfilehash: 2a24db1124ecd9c2437eafee54d856120a77e97f
-ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
+ms.openlocfilehash: 0fc67f77e907bd0bc939bf95b34ed4daaab29a2d
+ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2019
-ms.locfileid: "58576450"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58756790"
 ---
 # <a name="quickstart-configure-your-iot-solution"></a>Início rápido: Configurar a sua solução de IoT
 
 > [!IMPORTANT]
-> ASC para IoT está atualmente em pré-visualização pública.
+> Centro de segurança do Azure para IoT está atualmente em pré-visualização pública.
 > Esta versão de pré-visualização é disponibiliza sem um contrato de nível de serviço e não é recomendada para cargas de trabalho de produção. Algumas funcionalidades poderão não ser suportadas ou poderão ter capacidades limitadas. Para obter mais informações, veja [Termos Suplementares de Utilização para Pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 Este artigo fornece uma explicação de como realizar a configuração inicial da sua solução de segurança de IoT com o ASC para IoT. 
 
-## <a name="asc-for-iot"></a>ASC para IoT
+## <a name="azure-security-center-asc-for-iot"></a>O Centro de segurança do Azure (ASC) para IoT
 
 ASC para IoT fornece segurança de ponto a ponto abrangentes para soluções de IoT baseada no Azure.
 

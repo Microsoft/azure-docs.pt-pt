@@ -10,14 +10,14 @@ ms.subservice: content-moderator
 ms.topic: quickstart
 ms.date: 02/07/2019
 ms.author: sajagtap
-ms.openlocfilehash: cc8cbc19f416e6e80d2d0fdfb4862536da7f0ce2
-ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
+ms.openlocfilehash: 09fd58fa33873c06ac5dab4970af199bc3030479
+ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56312247"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58756537"
 ---
-# <a name="quickstart-analyze-text-content-for-objectionable-material-in-c"></a>Início rápido: Analisar o conteúdo de texto para objetáveis material doC# 
+# <a name="quickstart-analyze-text-content-for-objectionable-material-in-c"></a>Início rápido: Analisar o conteúdo de texto para objetáveis material doC#
 
 Este artigo apresenta informações e exemplos de código para o ajudara começar a utilizar o [SDK Content Moderator para .NET](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.ContentModerator/). Vai aprender a executar a filtragem baseada em termos e a classificação de conteúdos de texto com o objetivo de moderar materiais potencialmente censuráveis.
 
@@ -74,7 +74,7 @@ These are all UK phone numbers, the last two being Microsoft UK support numbers:
 Adicione o seguinte código ao método **Principal**. O método **ScreenText** é a operação essencial. Os parâmetros do método especificam que operações de moderação de conteúdos vão ser feitas. Neste exemplo, o método está configurado para:
 - Detetar potencial linguagem obscena no texto.
 - Normalizar o texto e corrigir automaticamente erros ortográficos.
-- Detetar informação pessoal, como números de telefone e endereços de e-mail dos EUA e do Reino Unido e moradas postais dos EUA.
+- Detete dados pessoais, como dos EUA e no Reino Unido phone números, endereços de e-mail e endereços de correio postal dos EUA.
 - Utilizar modelos baseados em machine learning para classificar o texto em três categorias.
 
 Se quiser saber mais sobre o que estas operações fazem, siga a ligação na secção [Passos seguintes](#next-steps).

@@ -1,5 +1,5 @@
 ---
-title: Transmitir em fluxo com codificadores no local com o portal do Azure | Microsoft Docs
+title: Transmissão em direto com codificadores no local através do portal do Azure | Documentos da Microsoft
 description: Este tutorial explica os passos para criar um Canal configurado para uma entrega pass-through.
 services: media-services
 documentationcenter: ''
@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/19/2019
 ms.author: juliako
-ms.openlocfilehash: d86151b436ec3cc5ea3d4b687f5c8692b2ca4efa
-ms.sourcegitcommit: aa3be9ed0b92a0ac5a29c83095a7b20dd0693463
+ms.openlocfilehash: 48906a12cd113ef613151bb802e757f218bce425
+ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58258715"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58758508"
 ---
-# <a name="how-to-perform-live-streaming-with-on-premises-encoders-using-the-azure-portal"></a>Como realizar uma transmissão em fluxo em direto com codificadores no local através do Portal do Azure
+# <a name="perform-live-streaming-with-on-premises-encoders-using-azure-portal"></a>Realizar a transmissão em fluxo em direto com codificadores no local através do portal do Azure
 > [!div class="op_single_selector"]
 > * [Portal](media-services-portal-live-passthrough-get-started.md)
 > * [.NET](media-services-dotnet-live-encode-with-onpremises-encoders.md)
@@ -45,29 +45,31 @@ O seguinte é necessário para concluir o tutorial:
 * [Transmissão em fluxo em direto com codificadores no local que criam transmissões com velocidade de transmissão múltipla](media-services-live-streaming-with-onprem-encoders.md)
 
 ## <a id="scenario"></a>Cenário comum de transmissão em fluxo em direto
+
 Os passos seguintes descrevem as tarefas envolvidas na criação de aplicações de transmissão em fluxo em direto comuns que utilizam canais que estão configurados para entrega pass-through. Este tutorial mostra como criar e gerir um canal pass-through e eventos em direto.
 
->[!NOTE]
->Certifique-se de que o ponto final de transmissão em fluxo a partir do qual quer transmitir conteúdo está no estado **Em execução**. 
+> [!NOTE]
+> Certifique-se de que o ponto final de transmissão em fluxo a partir do qual quer transmitir conteúdo está no estado **Em execução**. 
     
-1. Ligue uma câmara de vídeo a um computador. Iniciar e configurar um codificador em direto no local que produza um RTMP com velocidade de transmissão múltipla ou uma transmissão em fluxo MP4 fragmentada. Para obter mais informações, consulte [Suporte RTMP dos Media Services do Azure e Codificadores em Direto](https://go.microsoft.com/fwlink/?LinkId=532824).
+1. Ligue uma câmara de vídeo a um computador. <br/>Para obter ideias de configuração, confira [programa de configuração de engrenagem de vídeo de evento simples e portátil]( https://link.medium.com/KNTtiN6IeT).
+1. Iniciar e configurar um codificador em direto no local que produza um RTMP com velocidade de transmissão múltipla ou uma transmissão em fluxo MP4 fragmentada. Para obter mais informações, consulte [Suporte RTMP dos Media Services do Azure e Codificadores em Direto](https://go.microsoft.com/fwlink/?LinkId=532824).<br/>Além disso, consulte este blogue: [Transmissão em fluxo em direto em produção com OBS](https://link.medium.com/ttuwHpaJeT).
    
     Este passo também pode ser realizado depois de criar o Canal.
-2. Criar e iniciar um Canal pass-through.
-3. Obtenha o URL de inserção do Canal. 
+1. Criar e iniciar um Canal pass-through.
+1. Obtenha o URL de inserção do Canal. 
    
     O URL de inserção é utilizado pelo codificador em direto para enviar a transmissão para o Canal.
-4. Obtenha o URL de pré-visualização do Canal. 
+1. Obtenha o URL de pré-visualização do Canal. 
    
     Utilize este URL para verificar se o canal está a receber corretamente a transmissão em fluxo em direto.
-5. Crie um evento/programa em direto. 
+1. Crie um evento/programa em direto. 
    
     Quando utilizar o Portal do Azure, ao criar um evento em direto também cria um elemento. 
 
-6. Inicie o evento/programa quando estiver pronto para começar a transmissão em fluxo e o arquivamento.
-7. Opcionalmente, o codificador em direto pode ser indicado para iniciar um anúncio. O anúncio é inserido na transmissão de saída.
-8. Pare o evento/programa sempre que pretender interromper a transmissão em fluxo e arquivar o evento.
-9. Elimine o evento/programa (e, opcionalmente, elimine o elemento).     
+1. Inicie o evento/programa quando estiver pronto para começar a transmissão em fluxo e o arquivamento.
+1. Opcionalmente, o codificador em direto pode ser indicado para iniciar um anúncio. O anúncio é inserido na transmissão de saída.
+1. Pare o evento/programa sempre que pretender interromper a transmissão em fluxo e arquivar o evento.
+1. Elimine o evento/programa (e, opcionalmente, elimine o elemento).     
 
 > [!IMPORTANT]
 > Reveja a [Transmissão em fluxo em direto com codificadores no local que criam transmissões em fluxo com velocidade de transmissão múltipla](media-services-live-streaming-with-onprem-encoders.md) para saber mais sobre os conceitos e as considerações relacionadas com a transmissão em fluxo em direto com codificadores no local e canais pass-through.

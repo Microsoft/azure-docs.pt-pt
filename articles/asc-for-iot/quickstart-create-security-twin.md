@@ -1,6 +1,6 @@
 ---
-title: Criar um duplo do módulo de segurança para ASC para pré-visualização do IoT | Documentos da Microsoft
-description: Saiba como criar um ASC para duplo do módulo de IoT para utilização com o ASC para IoT.
+title: Criar um duplo do módulo de segurança para o Centro de segurança do Azure para pré-visualização do IoT | Documentos da Microsoft
+description: Saiba como criar um centro de segurança do Azure para IoT módulo duplo para utilização com o ASC para IoT.
 services: ascforiot
 documentationcenter: na
 author: mlottner
@@ -14,17 +14,17 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/26/2019
 ms.author: mlottner
-ms.openlocfilehash: cd085333f0ddc8a9d49637a2d7156b34c6e5cc72
-ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
+ms.openlocfilehash: 93b6aa6fe133953025cd504e0486a51c4a3d5e04
+ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2019
-ms.locfileid: "58579432"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58758371"
 ---
 # <a name="quickstart-create-an-azureiotsecurity-module-twin"></a>Início rápido: Criar um módulo duplo de azureiotsecurity
 
 > [!IMPORTANT]
-> ASC para IoT está atualmente em pré-visualização pública. Esta versão de pré-visualização é disponibiliza sem um contrato de nível de serviço e não é recomendada para cargas de trabalho de produção. Algumas funcionalidades poderão não ser suportadas ou poderão ter capacidades limitadas. Para obter mais informações, veja [Termos Suplementares de Utilização para Pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+> Centro de segurança do Azure para IoT está atualmente em pré-visualização pública. Esta versão de pré-visualização é disponibiliza sem um contrato de nível de serviço e não é recomendada para cargas de trabalho de produção. Algumas funcionalidades poderão não ser suportadas ou poderão ter capacidades limitadas. Para obter mais informações, veja [Termos Suplementares de Utilização para Pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 Este início rápido explicações sobre como criar individuais _azureiotsecurity_ duplos de módulo para novos dispositivos ou lote criar duplos de módulo para todos os dispositivos num IoT Hub.  
 
@@ -32,7 +32,7 @@ Este início rápido explicações sobre como criar individuais _azureiotsecurit
 
 Para soluções de IoT criadas no Azure, os dispositivos duplos desempenham um papel fundamental na gestão de dispositivos e automatização de processos. 
 
-ASC para IoT oferece integração completa com a sua plataforma gestão de dispositivos da IoT existente, permitindo-lhe gerir o seu estado de segurança do dispositivo, bem como a marca utilizar capacidades de controle de dispositivo existentes.
+Centro de segurança do Azure (ASC) para IoT oferece integração completa com a sua plataforma gestão de dispositivos da IoT existente, permitindo-lhe gerir o seu estado de segurança do dispositivo, bem como a marca utilizar capacidades de controle de dispositivo existentes.
 ASC para integração de IoT é conseguido fazendo uso do IoT Hub duplo mecanismo.  
 
 Ver [duplos de módulo do IoT Hub](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-module-twins) para saber mais sobre o conceito geral de duplos de módulo no IoT Hub do Azure. 

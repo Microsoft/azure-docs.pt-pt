@@ -1,6 +1,6 @@
 ---
-title: Acesso a dados com o ASC para pré-visualização do IoT | Documentos da Microsoft
-description: Saiba mais sobre como aceder aos seus dados de alerta e as recomendações de segurança ao utilizar o ASC para IoT.
+title: Acesso a dados com o Centro de segurança do Azure para pré-visualização do IoT | Documentos da Microsoft
+description: Saiba mais sobre como aceder aos seus dados de alerta e as recomendações de segurança ao utilizar o Centro de segurança do Azure para IoT.
 services: ascforiot
 documentationcenter: na
 author: mlottner
@@ -14,20 +14,20 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/25/2019
 ms.author: mlottner
-ms.openlocfilehash: d81a8973772879f4f4b143701a1f4be3ecad95d9
-ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
+ms.openlocfilehash: 510ee9bdefe87c1fab40e58bb715f2a8cce936b7
+ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2019
-ms.locfileid: "58576644"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58758527"
 ---
 # <a name="access-your-security-data"></a>Aceder aos seus dados de segurança 
 
 > [!IMPORTANT]
-> ASC para IoT está atualmente em pré-visualização pública.
+> Centro de segurança do Azure para IoT está atualmente em pré-visualização pública.
 > Esta versão de pré-visualização é fornecido sem um contrato de nível de serviço e não é recomendada para cargas de trabalho de produção. Algumas funcionalidades poderão não ser suportadas ou poderão ter capacidades limitadas. Para obter mais informações, veja [Termos Suplementares de Utilização para Pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-ASC para IoT armazena dados de segurança bruto, recomendações e alertas de segurança (caso pretenda guardá-lo) na sua área de trabalho do Log Analytics.
+O Centro de segurança do Azure (ASC) para IoT armazena dados de segurança bruto, recomendações e alertas de segurança (caso pretenda guardá-lo) na sua área de trabalho do Log Analytics.
 
 ## <a name="log-analytics"></a>Log Analytics
 

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/09/2017
 ms.author: apimpm
-ms.openlocfilehash: c52565403c7fbc80eacbf65428863db07d634030
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 673dcbeb630899eebc328cd4fae16f7fe8f47a55
+ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57897287"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58757607"
 ---
 # <a name="azure-api-management-template-resources"></a>Recursos de modelo de gestão de API do Azure
 Gestão de API do Azure fornece os seguintes tipos de recursos para utilização em que o desenvolvedor modelos de portais.  
@@ -45,6 +45,29 @@ Gestão de API do Azure fornece os seguintes tipos de recursos para utilização
   
 ```  
   
+São suportadas as seguintes opções de localização:
+
+| Região    | Idioma               |
+|-----------|------------------------|
+| "en"      | "Inglês"              |
+| "cs"      | "Čeština"              |
+| "de"      | "Deutsch"              |
+| "es"      | "Español"              |
+| "fr"      | "Français"             |
+| "hu"      | "Magyar"               |
+| "it"      | "Italiano"             |
+| "ja-JP"   | "日本語"                |
+| "ko."      | "한국어"                |
+| "nl"      | "Nederlands"           |
+| "pl"      | "Polski"               |
+| "pt-br"   | "Português (Brasil)"   |
+| "pt-pt"   | "Português (Portugal)" |
+| "ru"      | "Русский"              |
+| "sv"      | "Svenska"              |
+| "tr"      | "Türkçe"               |
+| "zh-hans" | "中文(简体)"           |
+| "zh-hant" | "中文(繁體)"           |
+
  Consulte as tabelas seguintes para os recursos de cadeia de caracteres disponíveis para utilização nos seus modelos de portal do desenvolvedor. Utilize o nome da tabela como o prefixo para os recursos de cadeia de caracteres dessa tabela.  
   
 -   [ApisStrings](#ApisStrings)  

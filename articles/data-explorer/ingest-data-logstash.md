@@ -4,16 +4,16 @@ description: Neste início rápido, irá aprender a ingerir dados de (carga) no 
 services: data-explorer
 author: tamirkamara
 ms.author: takamara
-ms.reviewer: orspod
+ms.reviewer: orspodek
 ms.service: data-explorer
 ms.topic: quickstart
 ms.date: 1/14/2019
-ms.openlocfilehash: 01115524ae3890c1d6a0220bcf89e86090d148cd
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: a5b4917e0d73378b908739a8fc8c0744c70dd1e9
+ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58078878"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58754670"
 ---
 # <a name="quickstart-ingest-data-from-logstash-to-azure-data-explorer"></a>Início rápido: Ingestão de dados do Logstash para o Explorador de dados do Azure
 

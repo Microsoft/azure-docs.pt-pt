@@ -3,17 +3,17 @@ title: Análise de série de tempo de Explorador de dados do Azure
 description: 'Saiba mais sobre análise de série de tempo no Explorador de dados do Azure '
 services: data-explorer
 author: orspod
-ms.author: v-orspod
+ms.author: orspodek
 ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 10/30/2018
-ms.openlocfilehash: b7d498b34fa3e247d5d4688f8d87213e7707fd86
-ms.sourcegitcommit: 4bf542eeb2dcdf60dcdccb331e0a336a39ce7ab3
+ms.openlocfilehash: 6a77e399e4de6ec41e74d1e5b9f9f518126958c2
+ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/19/2019
-ms.locfileid: "56408787"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58756774"
 ---
 # <a name="time-series-analysis-in-azure-data-explorer"></a>Análise de série de tempo no Explorador de dados do Azure
 
@@ -181,7 +181,7 @@ demo_many_series1
 
 |   |   |   |   |   |   |
 | --- | --- | --- | --- | --- | --- |
-|   | TIMESTAMP | Loc | anonOp | DB | DataRead |
+|   | CARIMBO DE DATA/HORA | Loc | anonOp | DB | DataRead |
 |   | 2016-09-11 21:00:00.0000000 | 9 de Loc | 5117853934049630089 | 262 | 0 |
 |   | 2016-09-11 21:00:00.0000000 | 9 de Loc | 5117853934049630089 | 241 | 0 |
 |   | 2016-09-11 21:00:00.0000000 | 9 de Loc | -865998331941149874 | 262 | 279862 |

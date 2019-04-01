@@ -1,6 +1,6 @@
 ---
-title: Guia para instalar e implantar o Linux C# agente do ASC para pré-visualização do IoT | Documentos da Microsoft
-description: Saiba como instalar o ASC para o agente de IoT em Linux de 32 bits e 64 bits.
+title: Guia para instalar e implantar o Linux C# agente do Centro de segurança do Azure para pré-visualização do IoT | Documentos da Microsoft
+description: Saiba como instalar o agente do IoT no Centro de segurança do Azure no Linux de 32 bits e 64 bits.
 services: ascforiot
 documentationcenter: na
 author: mlottner
@@ -14,20 +14,20 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/27/2019
 ms.author: mlottner
-ms.openlocfilehash: d6b4e6065b0ef198ad583b3760124730e658fe0b
-ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
+ms.openlocfilehash: be4c663d3a1e99ef67cbbbc2f39b315f1080125c
+ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58619913"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58758337"
 ---
-# <a name="deploy-asc-for-iot-c-based-security-agent-for-linux"></a>Implementar o ASC para IoT C#-com base em agente de segurança para Linux
+# <a name="deploy-azure-security-center-for-iot-c-based-security-agent-for-linux"></a>Implementar o Centro de segurança do Azure para IoT C#-com base em agente de segurança para Linux
 
 > [!IMPORTANT]
-> ASC para IoT está atualmente em pré-visualização pública.
+> Centro de segurança do Azure para IoT está atualmente em pré-visualização pública.
 > Esta versão de pré-visualização é disponibiliza sem um contrato de nível de serviço e não é recomendada para cargas de trabalho de produção. Algumas funcionalidades poderão não ser suportadas ou poderão ter capacidades limitadas. Para obter mais informações, veja [Termos Suplementares de Utilização para Pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-Este guia explica como instalar e implementar o ASC para IoT C#-com base em agente de segurança no Linux.
+Este guia explica como instalar e implementar o Centro de segurança do Azure (ASC) para IoT C#-com base em agente de segurança no Linux.
 
 Neste guia, ficará a saber como: 
 > [!div class="checklist"]

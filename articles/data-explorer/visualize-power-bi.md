@@ -1,21 +1,21 @@
 ---
-title: 'Tutorial: Visualizar dados do Azure Data Explorer no Power BI'
+title: 'Tutorial: Visualize os dados a partir do Explorador de dados do Azure no Power BI'
 description: Neste tutorial, vai aprender a ligar ao Azure Data Explorer com o Power BI e a visualizar os seus dados.
 services: data-explorer
 author: orspod
-ms.author: v-orspod
+ms.author: orspodek
 ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: tutorial
 ms.date: 09/24/2018
-ms.openlocfilehash: c04c9d9618cfc507ebdba170e0697aeaeecb1e99
-ms.sourcegitcommit: 7804131dbe9599f7f7afa59cacc2babd19e1e4b9
+ms.openlocfilehash: f253911c1830e606dd47b64aaea1f17cb3478cd5
+ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/17/2018
-ms.locfileid: "51854106"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58757745"
 ---
-# <a name="tutorial-visualize-data-from-azure-data-explorer-in-power-bi"></a>Tutorial: Visualizar dados do Azure Data Explorer no Power BI
+# <a name="tutorial-visualize-data-from-azure-data-explorer-in-power-bi"></a>Tutorial: Visualize os dados a partir do Explorador de dados do Azure no Power BI
 
 O Azure Data Explorer é um serviço de exploração de dados rápido e altamente dimensionável para dados telemétricos e de registo. O Power BI é uma solução de análise de negócios que lhe permite visualizar os seus dados e partilhar os resultados na sua organização. Neste tutorial, vai aprender primeiro a compor elementos visuais no Azure Data Explorer. Depois, vai ligar ao Azure Data Explorer com o Power BI, criar um relatório com base nos dados de exemplo e publicar o relatório no serviço Power BI.
 

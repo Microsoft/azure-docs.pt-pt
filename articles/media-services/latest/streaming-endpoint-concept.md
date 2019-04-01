@@ -9,14 +9,14 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 02/25/2019
+ms.date: 03/30/2019
 ms.author: juliako
-ms.openlocfilehash: eb7f368100269c4e47076bb6b78bafc23e7a6089
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 8cd6a68f6593a5b746a19e42e4835deb05e112b6
+ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57845608"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58757164"
 ---
 # <a name="streaming-endpoints"></a>Pontos Finais de Transmissão em fluxo
 
@@ -33,18 +33,38 @@ Para pontos finais adicionais: `{EndpointName}-{AccountName}-{DatacenterAbbrevia
 
 ## <a name="types"></a>Tipos  
 
-Existem duas **ponto final de transmissão em fluxo** tipos: **Standard** e **Premium**. O tipo é definido pelo número de unidades de escala (`scaleUnits`) alocar para o ponto final de transmissão em fluxo. 
+Existem dois tipos de **Ponto Final de Transmissão em Fluxo**: **Standard** e **Premium**. O tipo é definido pelo número de unidades de escala (`scaleUnits`) alocar para o ponto final de transmissão em fluxo. 
 
 A tabela descreve os tipos:  
 
 |Type|Unidades de escala|Descrição|
 |--------|--------|--------|  
-|**Ponto final de transmissão em fluxo Standard** (recomendado)|0|O **padrão** tipo é a opção recomendada para praticamente todos os cenários de transmissão em fluxo e tamanhos de audiência. O **padrão** tipo dimensiona a largura de banda de saída automaticamente. <br/>Para clientes com extremamente exigentes requisitos de serviços de multimédia oferecem **Premium** transmissão em fluxo de pontos de extremidade, que podem ser utilizados para ampliar a capacidade para o maior público de internet. Se espera grandes públicos e visualizadores em simultâneo, contacte-nos em amsstreaming\@microsoft.com para obter orientações sobre a necessidade de mover para o **Premium** tipo. |
-|**Ponto final de transmissão em fluxo Premium**|>0|Os pontos finais de transmissão em fluxo **Premium** são adequadas para cargas de trabalho avançadas, ao fornecer uma capacidade de largura de banda dimensionável e dedicada. Mover para uma **Premium** tipo ao ajustar `scaleUnits`. `scaleUnits` Fornece capacidade de saída dedicada que pode ser comprada em incrementos de 200 Mbps. Ao utilizar o **Premium** tipo, cada unidade ativada fornece capacidade de largura de banda adicional à aplicação. |
+|**Ponto Final de Transmissão em Fluxo Standard** (recomendado)|0|A predefinição é o ponto final de transmissão em fluxo uma **padrão** tipo, mas pode ser alterada para o tipo Premium.<br/> O tipo de padrão é a opção recomendada para praticamente todos os cenários de transmissão em fluxo e tamanhos de audiência. O tipo **Standard** dimensiona a largura de banda de saída automaticamente. O débito deste tipo de ponto final de transmissão em fluxo é até 600 Mbps. Fragmentos de vídeo colocado em cache no CDN, não utilize a largura de banda do ponto final de transmissão em fluxo.<br/>Para clientes com requisitos extremamente exigentes, os Serviços de Multimédia oferecem pontos finais de transmissão em fluxo **Premium**, que podem ser utilizados para ampliar a capacidade para as maiores audiências de internet. Se espera grandes públicos e visualizadores em simultâneo, contacte-nos em amsstreaming\@microsoft.com para obter orientações sobre a necessidade de mover para o **Premium** tipo. |
+|**Ponto Final de Transmissão em Fluxo Premium**|>0|Os pontos finais de transmissão em fluxo **Premium** são adequadas para cargas de trabalho avançadas, ao fornecer uma capacidade de largura de banda dimensionável e dedicada. Mover para uma **Premium** tipo ao ajustar `scaleUnits`. `scaleUnits` Fornece capacidade de saída dedicada que pode ser comprada em incrementos de 200 Mbps. Ao utilizar o tipo **Premium**, cada unidade ativada fornece capacidade de largura de banda adicional à aplicação. |
+ 
+## <a name="comparing-streaming-types"></a>Comparar tipos de transmissão em fluxo
+
+### <a name="features"></a>Funcionalidades
+
+Funcionalidade|Standard|Premium
+---|---|---
+Gratuitos primeiros 15 dias| Sim |Não
+Débito |Até 600 Mbps quando não for utilizada o CDN do Azure. Dimensiona com CDN.|200 Mbps por unidade (SU) de transmissão em fluxo. Dimensiona com CDN.
+SLA | 99.9|99,9 (200 Mbps por SU).
+CDN|A CDN do Azure, terceiros CDN ou não CDN.|A CDN do Azure, terceiros CDN ou não CDN.
+A faturação é calculada| Diariamente|Diariamente
+Encriptação dinâmica|Sim|Sim
+Empacotamento dinâmico|Sim|Sim
+Escala|Automática se aumentar verticalmente para a taxa de transferência de destino.|Unidades de transmissão em fluxo adicionais
+Anfitrião de filtragem/G20/personalizado IP <sup>1</sup>|Sim|Sim
+Transferência progressiva|Sim|Sim
+Uso recomendado |Recomendado para a grande maioria dos cenários de transmissão em fluxo.|Utilização profissional.<br/>Se acha que podem ter necessidades além padrão. Contacte-nos (amsstreaming@microsoft.com) se espera que um tamanho de audiência em simultâneo maior do que 50.000 visualizadores.
+
+<sup>1</sup> usado diretamente no ponto final de transmissão em fluxo apenas quando a CDN não estiver ativada no ponto final.
 
 ## <a name="working-with-cdn"></a>Trabalhar com CDN
 
-Na maioria dos casos, deve ter a CDN ativada. No entanto, se são prevendo inferior a 500 visualizadores de simultaneidade máxima, em seguida, recomenda-se ao desativar a CDN, já que a CDN dimensiona melhor com simultaneidade.
+Na maioria dos casos, deve ter a CDN ativada. No entanto, se estiver a prever uma simultaneidade máxima inferior a 500 visualizadores, recomendamos que desative a CDN, uma vez que a CDN dimensiona melhor com simultaneidade.
 
 > [!NOTE]
 > O ponto final de transmissão em fluxo `hostname` e o URL de transmissão em fluxo permanece o mesmo se ou não ativar a CDN.
@@ -70,7 +90,7 @@ Esta secção fornece detalhes sobre algumas das propriedades de transmissão em
     Se obtiver este erro, o Centro de dados não o suporta. Deve tentar outro centro de dados.
 - `cdnProfile` -Quando `cdnEnabled` está definido como true, também é possível passar `cdnProfile` valores. `cdnProfile` é o nome do perfil da CDN de onde será criado o ponto de ponto final CDN. Pode fornecer um cdnProfile existente ou utilizar um novo. Se o valor é NULL e `cdnEnabled` é true, o valor predefinido "AzureMediaStreamingPlatformCdnProfile" é utilizado. Se o fornecido `cdnProfile` já existir, é criado um ponto final sob a mesma. Se o perfil não existir, é criado um novo perfil automaticamente.
 - `cdnProvider` -Quando a CDN estiver ativada, pode também passar `cdnProvider` valores. `cdnProvider` controla qual o fornecedor será utilizado. Atualmente, são suportados os três valores: "StandardVerizon", "PremiumVerizon" e "StandardAkamai". Se não for fornecido nenhum valor e `cdnEnabled` for VERDADEIRO, "StandardVerizon" é utilizado (ou seja, o valor predefinido).
-- `crossSiteAccessPolicies` -Utilizado para especificar políticas de acesso entre sites para vários clientes. Para obter mais informações, consulte [especificação de ficheiro de política entre domínios](https://www.adobe.com/devnet/articles/crossdomain_policy_file_spec.html) e [fazendo um serviço disponível em domínio limites](https://msdn.microsoft.com/library/cc197955\(v=vs.95\).aspx).
+- `crossSiteAccessPolicies` -Utilizado para especificar políticas de acesso entre sites para vários clientes. Para obter mais informações, consulte [especificação de ficheiro de política entre domínios](https://www.adobe.com/devnet/articles/crossdomain_policy_file_spec.html) e [fazendo um serviço disponível em domínio limites](https://msdn.microsoft.com/library/cc197955\(v=vs.95\).aspx).<br/>As definições só se aplicam a transmissão em fluxo uniforme.
 - `customHostNames` -Utilizado para configurar um ponto final de transmissão em fluxo para aceitar o tráfego direcionado para um nome de anfitrião personalizado.  Esta propriedade é válida para o Standard e os pontos finais de transmissão em fluxo Premium e pode ser definida quando `cdnEnabled`: FALSO.
     
     A propriedade de nome de domínio tem de ser confirmada pelos serviços de multimédia. Serviços de multimédia verifica a propriedade de nome de domínio, exigindo que um `CName` registo que contém o ID de conta de Media Services como um componente ser adicionado ao domínio em utilização. Por exemplo, para "sports.contoso.com" ser utilizado como um nome de anfitrião personalizado para o ponto final de transmissão, um registo para `<accountId>.contoso.com` deve ser configurado para apontar para um dos nomes de anfitrião de verificação de serviços de multimédia. O nome de anfitrião de verificação é composta por verifydns. \<zona de dns de mediaservices >. 

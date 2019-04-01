@@ -1,6 +1,6 @@
 ---
-title: Ativar o ASC para o serviço de IoT em pré-visualização do IoT Hub | Documentos da Microsoft
-description: Saiba como ativar o ASC para serviço de IoT no seu IoT Hub.
+title: Ative o Centro de segurança do Azure para o serviço de IoT em pré-visualização do IoT Hub | Documentos da Microsoft
+description: Saiba como ativar o Centro de segurança do Azure para o serviço de IoT no seu IoT Hub.
 services: ascforiot
 documentationcenter: na
 author: mlottner
@@ -14,24 +14,24 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/25/2019
 ms.author: mlottner
-ms.openlocfilehash: cea7517a99358d41a8ba60a78b4e2bfdbdeaf0e8
-ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
+ms.openlocfilehash: cb89bb4316b1cd62b3b42a6a0fa05a9fa4513e54
+ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2019
-ms.locfileid: "58576229"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58754319"
 ---
 # <a name="quickstart-enable-service-in-iot-hub"></a>Início rápido: Ativar o serviço no IoT Hub
 
 > [!IMPORTANT]
-> ASC para IoT está atualmente em pré-visualização pública.
+> Centro de segurança do Azure para IoT está atualmente em pré-visualização pública.
 > Esta versão de pré-visualização é disponibiliza sem um contrato de nível de serviço e não é recomendada para cargas de trabalho de produção. Algumas funcionalidades poderão não ser suportadas ou poderão ter capacidades limitadas. Para obter mais informações, veja [Termos Suplementares de Utilização para Pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-Este artigo fornece uma explicação de como ativar o ASC para o serviço de pré-visualização do IoT no seu IoT Hub.  
+Este artigo fornece uma explicação de como ativar o Centro de segurança do Azure (ASC) para o serviço de pré-visualização do IoT no seu IoT Hub.  
 
 > [!NOTE]
-> ASC para IoT atualmente suporta apenas o escalão standard e superiores os IoT Hubs.
->ASC para IoT é uma solução de hub único. Se necessitar de vários hubs, várias soluções são necessárias. 
+> Centro de segurança do Azure para IoT atualmente suporta apenas o escalão standard e superiores os IoT Hubs.
+> Centro de segurança do Azure para IoT é uma solução de hub único. Se necessitar de vários hubs, várias soluções são necessárias. 
 
 ## <a name="prerequisites-for-enabling-the-service"></a>Pré-requisitos para ativar o serviço
 

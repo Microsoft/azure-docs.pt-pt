@@ -1,6 +1,6 @@
 ---
-title: ASC para o guia de investigação de dispositivo do IoT pré-visualização | Documentos da Microsoft
-description: Isso como guia explica como usar o ASC para IoT para investigar um dispositivo de IoT suspeito com o Log Analytics.
+title: Centro de segurança do Azure para o guia de investigação de dispositivo do IoT pré-visualização | Documentos da Microsoft
+description: Isso como guia explica como utilizar o Centro de segurança do Azure para IoT para investigar um dispositivo de IoT suspeito com o Log Analytics.
 services: ascforiot
 documentationcenter: na
 author: mlottner
@@ -14,20 +14,20 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/27/2019
 ms.author: mlottner
-ms.openlocfilehash: 032315d1b618b9716e23c8433c6ec1bf64b7e77d
-ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
+ms.openlocfilehash: 6097954e09d5fd62c45f59b009d974d277bafc57
+ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2019
-ms.locfileid: "58580542"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58755247"
 ---
 # <a name="investigate-a-suspicious-iot-device"></a>Investigar um dispositivo de IoT suspeito
 
 > [!IMPORTANT]
-> ASC para IoT está atualmente em pré-visualização pública.
+> Centro de segurança do Azure para IoT está atualmente em pré-visualização pública.
 > Esta versão de pré-visualização é fornecido sem um contrato de nível de serviço e não é recomendada para cargas de trabalho de produção. Algumas funcionalidades poderão não ser suportadas ou poderão ter capacidades limitadas. Para obter mais informações, veja [Termos Suplementares de Utilização para Pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-ASC para os alertas de serviço de IoT e evidências fornecem indicações claras quando os dispositivos IoT suspeitas de envolvimento em atividades suspeitas ou quando indicações existem que um dispositivo estiver comprometido. 
+Centro de segurança do Azure (ASC) para os alertas de serviço de IoT e evidências fornecem indicações claras quando os dispositivos IoT suspeitas de envolvimento em atividades suspeitas ou quando indicações existem que um dispositivo estiver comprometido. 
 
 Neste guia, utilize as sugestões de investigação fornecidas para o ajudar a determinar os riscos potenciais para a sua organização, decida como pretende remediar e descubra melhores formas de impedir ataques semelhantes no futuro.  
 

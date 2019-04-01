@@ -1,19 +1,18 @@
 ---
-title: Introdução ao Apache Kafka – Início Rápido do Azure HDInsight
+title: Configurar o Apache Kafka no HDInsight com o Azure Resource Manager - início rápido
 description: Neste guia de início rápido, irá saber como criar um cluster do Apache Kafka no Azure HDInsight através do portal do Azure. Também irá saber mais sobre tópicos, subscritores e consumidores do Kafka.
-services: hdinsight
 ms.service: hdinsight
 author: hrasheed-msft
 ms.author: hrasheed
-ms.custom: mvc,hdinsightactive
+ms.custom: mvc
 ms.topic: quickstart
 ms.date: 04/16/2018
-ms.openlocfilehash: b359716db5a30f8a77b9f54c2b0bc7b4d00a7f39
-ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
+ms.openlocfilehash: c1b8f711a6984a6134e6df0ae6ae12bf0b62cc0d
+ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58225761"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58757676"
 ---
 # <a name="quickstart-create-an-apache-kafka-on-hdinsight-cluster"></a>Início rápido: Criar um Apache Kafka no cluster do HDInsight
 
@@ -53,7 +52,7 @@ Neste guia de início rápido, irá saber como criar um cluster do [Apache Kafka
 
 2. Para criar o cluster do Kafka, utilize os seguintes valores:
 
-    | Propriedade | Value |
+    | Propriedade | Valor |
     | --- | --- |
     | Subscrição | A sua subscrição do Azure. |
     | Grupo de recursos | O grupo de recursos em que o cluster é criado. |

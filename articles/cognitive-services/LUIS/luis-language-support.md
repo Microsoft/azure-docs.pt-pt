@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: article
 ms.date: 03/19/2019
 ms.author: diberry
-ms.openlocfilehash: 735835d16eb14c3847f36ecb6f46c08c0a8928ef
-ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
+ms.openlocfilehash: 10fe5d90e7a7a59a1b543209a37b998376fdda1e
+ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58339521"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58757662"
 ---
 # <a name="language-and-region-support-for-luis"></a>Suporte de idioma e região para LUIS
 
@@ -105,10 +105,10 @@ As culturas seguintes têm versões atomizador personalizado:
 |Alemão<br>`de-de`|1.0.1|Divide as palavras, dividindo-los em espaços.<br> Se um usuário insere `Ich fahre einen krankenwagen` como uma expressão, continua a ser um único token. Assim, `krankenwagen` está marcado como uma única entidade. |
 
 ### <a name="migrating-between-tokenizer-versions"></a>Migrar entre versões atomizador
+<!--
+Your first choice is to change the tokenizer version in the app file, then import the version. This action changes how the utterances are tokenized but allows you to keep the same app ID. 
 
-Sua primeira opção é alterar a versão de atomizador no ficheiro de aplicação, em seguida, importe a versão. Esta ação altera a forma como as expressões são indexadas, mas permite-lhe manter o mesmo ID de aplicação. 
-
-Atomizador JSON para 1.0.0. Tenha em atenção o valor da propriedade para `tokenizerVersion`. 
+Tokenizer JSON for 1.0.0. Notice the property value for  `tokenizerVersion`. 
 
 ```JSON
 {
@@ -157,7 +157,7 @@ Atomizador JSON para 1.0.0. Tenha em atenção o valor da propriedade para `toke
 }
 ```
 
-Atomizador JSON para a versão 1.0.1. Tenha em atenção o valor da propriedade para `tokenizerVersion`. 
+Tokenizer JSON for version 1.0.1. Notice the property value for  `tokenizerVersion`. 
 
 ```JSON
 {
@@ -205,5 +205,8 @@ Atomizador JSON para a versão 1.0.1. Tenha em atenção o valor da propriedade 
     "settings": []
 }
 ```
+-->
 
-A segunda opção é [importe o ficheiro como uma nova aplicação](luis-how-to-start-new-app.md#import-an-app-from-file), em vez de uma versão. Esta ação significa que a nova aplicação tem um ID de aplicação diferente, mas utiliza a versão de atomizador especificada no ficheiro. 
+Atomização ocorre ao nível da aplicação. Não há suporte para atomização de nível de versão. 
+
+[Importar o ficheiro como uma nova aplicação](luis-how-to-start-new-app.md#import-an-app-from-file), em vez de uma versão. Esta ação significa que a nova aplicação tem um ID de aplicação diferente, mas utiliza a versão de atomizador especificada no ficheiro. 

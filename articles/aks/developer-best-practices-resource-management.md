@@ -2,17 +2,17 @@
 title: Desenvolvedor melhores práticas - gestão de recursos dos serviços de Kubernetes no Azure (AKS)
 description: Conheça as práticas recomendadas de Programador de aplicações para gestão de recursos no Azure Kubernetes Service (AKS)
 services: container-service
-author: iainfoulds
+author: zr-msft
 ms.service: container-service
 ms.topic: conceptual
 ms.date: 11/26/2018
-ms.author: iainfou
-ms.openlocfilehash: b45c5abb66d927f247f62692f12bd9207958a3e3
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.author: zarhoads
+ms.openlocfilehash: aebade14f3a8a1095925d17325ce99b78031dc32
+ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58181287"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58757250"
 ---
 # <a name="best-practices-for-application-developers-to-manage-resources-in-azure-kubernetes-service-aks"></a>Melhores práticas para os desenvolvedores de aplicativos gerir os recursos no Azure Kubernetes Service (AKS)
 

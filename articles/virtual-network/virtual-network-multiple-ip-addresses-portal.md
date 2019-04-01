@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/30/2016
 ms.author: annahar
-ms.openlocfilehash: 0f36ab9ab7703dd9677b6c2989eddb91593af79f
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: b1873b770a6b4280b7098c68ecb75cc1411fe453
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58105112"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58650569"
 ---
 # <a name="assign-multiple-ip-addresses-to-virtual-machines-using-the-azure-portal"></a>Atribuir vários endereços IP para máquinas virtuais no portal do Azure
 
@@ -36,7 +36,7 @@ Se quiser criar uma VM com vários endereços IP ou um endereço IP privado est�
 
 ## <a name="add"></a>Adicionar endereços IP a uma VM
 
-Pode adicionar endereços IP públicos e privados a uma interface de rede do Azure, concluindo os passos que se seguem. Os exemplos nas secções seguintes partem do princípio de que já tem uma VM com as três configurações de IP descritas a [cenário](#Scenario), mas não seja necessário.
+Pode adicionar endereços IP públicos e privados a uma interface de rede do Azure, concluindo os passos que se seguem. Os exemplos nas secções seguintes partem do princípio de que já tem uma VM com as três configurações de IP descritas a [cenário](#scenario), mas não seja necessário.
 
 ### <a name="coreadd"></a>Passos de núcleo
 

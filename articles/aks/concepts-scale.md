@@ -2,17 +2,17 @@
 title: Conceitos - aplicações à escala dos serviços de Kubernetes no Azure (AKS)
 description: Saiba mais sobre dimensionamento no Azure Kubernetes Service (AKS), incluindo o dimensionamento automático de horizontal de pods, dimensionamento automático de cluster e o conector do Azure Container Instances.
 services: container-service
-author: iainfoulds
+author: zr-msft
 ms.service: container-service
 ms.topic: conceptual
 ms.date: 02/28/2019
-ms.author: iainfou
-ms.openlocfilehash: 20f9655e1c3e7cce652802957f5eef1f333870e9
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.author: zarhoads
+ms.openlocfilehash: d7df4d2c7e824f143201e2c6af220730bcd38fb2
+ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58176502"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58755966"
 ---
 # <a name="scaling-options-for-applications-in-azure-kubernetes-service-aks"></a>Opções de dimensionamento para aplicações no Azure Kubernetes Service (AKS)
 

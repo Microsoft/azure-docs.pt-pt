@@ -1,6 +1,6 @@
 ---
 title: Introdução ao centro de segurança do Azure (ASC) para pré-visualização do IoT | Documentos da Microsoft
-description: Comece a utilizar em compreender o fluxo de trabalho básico do ASC para recursos de IoT e o serviço.
+description: Comece a utilizar em compreender o fluxo de trabalho básico do Centro de segurança do Azure para recursos de IoT e o serviço.
 services: ascforiot
 documentationcenter: na
 author: mlottner
@@ -14,20 +14,20 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/26/2019
 ms.author: mlottner
-ms.openlocfilehash: 37815c1f1afe3e4c99e2fe171b21857a2018f709
-ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
+ms.openlocfilehash: 23b15b92c844af85f2e1279e531c38ac7d517423
+ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58648321"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58755119"
 ---
-# <a name="get-started-with-azure-security-center-asc-for-iot"></a>Começar com o Centro de segurança do Azure (ASC) de IoT 
+# <a name="get-started-with-azure-security-center-for-iot"></a>Introdução ao centro de segurança do Azure para IoT 
 
 > [!IMPORTANT]
-> ASC para IoT está atualmente em pré-visualização pública.
+> Centro de segurança do Azure para IoT está atualmente em pré-visualização pública.
 > Esta versão de pré-visualização é disponibiliza sem um contrato de nível de serviço e não é recomendada para cargas de trabalho de produção. Algumas funcionalidades poderão não ser suportadas ou poderão ter capacidades limitadas. Para obter mais informações, veja [Termos Suplementares de Utilização para Pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-Este artigo fornece uma explicação dos blocos de construção diferentes do ASC para o serviço de IoT e explica como começar com [ativar o serviço](quickstart-onboard-iot-hub.md). 
+Este artigo fornece uma explicação dos blocos de construção do Centro de segurança do Azure (ASC) diferentes para o serviço de IoT e explica como começar com [ativar o serviço](quickstart-onboard-iot-hub.md). 
 
 ASC para IoT pode ser perfeitamente integrado no seu IoT Hub para fornecer análise de segurança de configuração do hub IoT, identidade de dispositivo e dispositivo de hub padrões de comunicação.
 Para recursos de segurança avançada, o ASC para IoT fornece com base em agente de recolha de dados de segurança dos seus dispositivos IoT.

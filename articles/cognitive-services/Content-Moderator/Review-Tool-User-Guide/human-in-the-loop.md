@@ -1,36 +1,52 @@
 ---
-title: Incorporar revisões realizadas por pessoas a moderação de conteúdos - Content Moderator
+title: Aprenda os conceitos de ferramenta de revisão - Content Moderator
 titlesuffix: Azure Cognitive Services
-description: Como as máquinas e humanos juntos oferecem os melhores resultados de moderação de conteúdos
+description: Saiba mais sobre a ferramenta de revisão de moderador de conteúdos, um Web site que coordena uma IA combinada e o esforço de moderação de revisão humana.
 services: cognitive-services
 author: sanjeev3
 manager: mikemcca
-ms.date: 01/10/2019
+ms.date: 03/15/2019
 ms.service: cognitive-services
 ms.subservice: content-moderator
-ms.topic: article
+ms.topic: conceptual
 ms.author: sajagtap
-ms.openlocfilehash: 4a8f27a94c5e14c34c2a6500dc555c4281d0ecd7
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: b7ec997fd3e9bfe294050893d80fd57a96a47aae
+ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55224535"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58755887"
 ---
-# <a name="learn-about-the-review-tool"></a>Saiba mais sobre a ferramenta de revisão
+# <a name="content-moderator-review-tool"></a>Ferramenta de análise do moderador de conteúdo
 
-Obter os melhores resultados quando pessoas e máquinas que trabalham em conjunto em moderação de conteúdos. Máquinas efetivamente aumentam revisões realizadas por pessoas, em que a confiança da previsão tem auxiliado ou ser moderadas dentro de um contexto do mundo real. O resultado é um processo de moderação de conteúdos de híbrido que tem um desempenho melhor do que se os humanos ou máquinas foram trabalhando sozinho.
+O Azure Content Moderator fornece serviços para combinar a moderação de conteúdos de aprendizagem de máquina com revisões realizadas por pessoas e o [ferramenta de revisão](https://contentmoderator.cognitive.microsoft.com) Web site é um front-end amigável que permita o acesso detalhado para estes serviços.
+
+![O dashboard de ferramenta de revisão num browser](./images/0-dashboard.png)
 
 ## <a name="what-it-does"></a>O que faz
 
-A ferramenta de revisão humana, quando utilizado em conjunto com as APIs, de moderação assistida permite-lhe realizar estas tarefas importantes em relação ao ciclo de vida de moderação de conteúdos.
+O [ferramenta de revisão](https://contentmoderator.cognitive.microsoft.com), quando utilizado em conjunto com as APIs, de moderação assistida por computador, pode realizar as seguintes tarefas no processo de moderação de conteúdos:
 
-1. Automatizar a criação de revisões realizadas por pessoas subjacente resultados da API de moderação
-2. Usar uma ferramenta (ferramenta de revisão e API) a moderadas vários formatos (texto, imagem e vídeo)
-3. Atribuir ou escalar revisões de conteúdo a várias de revisão de equipes, organizados por nível de categoria ou a experiência de conteúdo.
-4. Usar fluxos de trabalho padrão ou definir fluxos de trabalho personalizados com regras flexíveis e sem escrever nenhum código.
-5. Adicionar revisão humana para qualquer API ou business processos ao simplesmente criar um conector.
-6. Utilize os conectores padrão para rever os resultados da Microsoft PhotoDNA, análise de texto e APIs de rostos.
-7. Obter métricas chave de desempenho em seus processos de moderação de conteúdos.
+- Utilize um conjunto de ferramentas para moderar conteúdo em vários formatos (texto, imagem e vídeo).
+- Automatizar a criação de humanos [revisões](../review-api.md#reviews) quando a API de moderação resulta vêm em.
+- Atribuir ou escalar revisões de conteúdo a várias equipes de revisão, organizadas por nível de categoria ou a experiência de conteúdo.
+- Utilizar predefinição ou filtros de lógica personalizada ([fluxos de trabalho](../review-api.md#workflows)) para classificar e controlar o conteúdo, sem ter de escrever qualquer código.
+- Uso [conectores](./configure.md#connectors) para processar o conteúdo com o Microsoft PhotoDNA, análise de texto e APIs de rostos, além das APIs de moderador de conteúdo.
+- Criar seu próprio conector para criar fluxos de trabalho para qualquer API ou processo comercial.
+- Obter métricas chave de desempenho em seus processos de moderação de conteúdos.
 
-![Ferramenta de revisão de vídeo do Content Moderator](../images/video-review-default-view.png)
+## <a name="review-tool-dashboard"></a>Dashboard de ferramenta de revisão
+
+Sobre o **Dashboard** guia, pode ver as principais métricas para análises de conteúdos feitas dentro da ferramenta. Ver o número de total, concluído e pendentes as revisões de imagem, texto e conteúdo de vídeo. Também pode ver a divisão de utilizadores e as equipes que foram concluídos, revisões, bem como as etiquetas de moderação que foram aplicadas.
+
+![Ver Dashboard](images/0-dashboard.png)
+
+## <a name="review-tool-credentials"></a>Credenciais da ferramenta de revisão
+
+Quando se inscreve com o [ferramenta de revisão](https://contentmoderator.cognitive.microsoft.com), será solicitado a selecionar uma região do Azure para tem em conta. Isto acontece porque o [ferramenta de revisão](https://contentmoderator.cognitive.microsoft.com) gera uma chave de avaliação gratuita para os serviços do Azure Content Moderator; precisará esta chave para aceder a qualquer um dos serviços de uma chamada REST ou o SDK de cliente. Pode ver o URL de ponto final e a chave de API, selecionando **configurações** > **credenciais**.
+
+![O Content Moderator credenciais](images/settings-6-credentials.png)
+
+## <a name="next-steps"></a>Passos Seguintes
+
+Ver [configurar a ferramenta de revisão](./configure.md) para aprender a aceder aos recursos da ferramenta de revisão e alterar as definições.

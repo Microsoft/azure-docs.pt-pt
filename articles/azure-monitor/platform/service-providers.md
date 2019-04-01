@@ -1,6 +1,6 @@
 ---
-title: Log Analytics para fornecedores de serviços | Documentos da Microsoft
-description: O log Analytics pode ajudar a fornecedores de serviços geridos (MSPs), grandes empresas, fornecedores independentes de Software (ISVs) e fornecedores de serviços de alojamento, gerirem e monitorizar os servidores no local do cliente ou na infraestrutura de nuvem.
+title: O Azure Monitor para fornecedores de serviços | Documentos da Microsoft
+description: Monitor do Azure pode ajudar a fornecedores de serviços geridos (MSPs), grandes empresas, fornecedores independentes de Software (ISVs) e fornecedores de serviços de alojamento, gerirem e monitorizar os servidores no local do cliente ou na infraestrutura de nuvem.
 services: log-analytics
 documentationcenter: ''
 author: MeirMen
@@ -13,19 +13,19 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 07/11/2018
 ms.author: meirm
-ms.openlocfilehash: 294dd56a7eb62510c30f4fbb0dbeeafc81b790f2
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
+ms.openlocfilehash: 97d8d6fac93ebabac8fb319ce2f1ab8719f5f86b
+ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54264777"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58756567"
 ---
-# <a name="log-analytics-for-service-providers"></a>O log Analytics para fornecedores de serviços
-O log Analytics pode ajudar a fornecedores de serviços geridos (MSPs), grandes empresas, fornecedores independentes de software (ISVs) e alojamento fornecedores de serviços, gerir e monitorizar os servidores no local do cliente ou na infraestrutura de nuvem. 
+# <a name="azure-monitor-for-service-providers"></a>O Azure Monitor para fornecedores de serviços
+Áreas de trabalho do log Analytics no Azure Monitor podem ajudar a fornecedores de serviços geridos (MSPs), grandes empresas, fornecedores independentes de software (ISVs) e alojamento fornecedores de serviços, gerir e monitorizar os servidores no local do cliente ou na infraestrutura de nuvem. 
 
 As grandes empresas compartilham diversas semelhanças com fornecedores de serviços, especialmente quando existe uma equipa de TI centralizada, que é responsável por gerenciar IT para muitas unidades de negócios diferentes. Para simplificar, este documento utiliza o termo *fornecedor de serviços* , mas a mesma funcionalidade também está disponível para empresas e outros clientes.
 
-Para parceiros e fornecedores de serviços que fazem parte do [fornecedor de soluções Cloud (CSP)](https://partner.microsoft.com/Solutions/cloud-reseller-overview) programa, o Log Analytics é um dos serviços do Azure disponíveis em [subscrições do Azure CSP](https://docs.microsoft.com/azure/cloud-solution-provider/overview/azure-csp-overview). 
+Para parceiros e fornecedores de serviços que fazem parte do [fornecedor de soluções Cloud (CSP)](https://partner.microsoft.com/Solutions/cloud-reseller-overview) programa, o Log Analytics no Azure Monitor é um dos serviços do Azure disponíveis em [subscrições do Azure CSP](https://docs.microsoft.com/azure/cloud-solution-provider/overview/azure-csp-overview). 
 
 ## <a name="architectures-for-service-providers"></a>Arquiteturas para fornecedores de serviços
 
@@ -70,11 +70,11 @@ As desvantagens dessa arquitetura são:
 
 A terceira mistura de arquitetura entre as duas opções. Baseia-se na arquitetura distribuída primeiro onde os registos são locais para cada cliente, mas usando algum mecanismo para criar um repositório central de registos. Uma parte dos registos é extraída para uma localização central para relatórios e análises. Essa parte pode ser pequeno número de tipos de dados ou um resumo da atividade como estatísticas diárias.
 
-Existem duas opções para implementar o local central no Log Analytics:
+Existem duas opções para implementar os registos numa localização central:
 
 1. Área de trabalho central: O fornecedor de serviços pode criar uma área de trabalho no seu inquilino e utilizar um script que utiliza a [API de consulta](https://dev.loganalytics.io/) com o [API de recolha de dados](../../azure-monitor/platform/data-collector-api.md) para colocar os dados de vários espaços de trabalho para esse local central. Outra opção, que não seja um script, é usar [do Azure Logic Apps](https://docs.microsoft.com/azure/logic-apps/logic-apps-overview).
 
-2. Power BI, como um local central: Power BI pode atuar como o local central quando vários espaços de trabalho exportar dados utilizando a integração entre o Log Analytics e [Power BI](../../azure-monitor/platform/powerbi.md). 
+2. Power BI, como um local central: Power BI pode atuar como o local central quando vários espaços de trabalho exportar dados, ao mesmo através da integração entre a área de trabalho do Log Analytics e [Power BI](../../azure-monitor/platform/powerbi.md). 
 
 
 ## <a name="next-steps"></a>Próximos Passos

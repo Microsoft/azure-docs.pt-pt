@@ -5,17 +5,17 @@ services: application-insights
 keywords: ''
 author: mrbullwinkle
 ms.author: mbullwin
-ms.date: 10/11/2018
+ms.date: 03/29/2019
 ms.service: application-insights
 ms.custom: mvc
 ms.topic: quickstart
 manager: carmonm
-ms.openlocfilehash: 37fad0769753f462859809ff8600f5b15c7eaa1f
-ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
+ms.openlocfilehash: 13fce896c4d83f628bdb7e12e696e32e343fb689
+ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58437514"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58754945"
 ---
 # <a name="start-monitoring-your-aspnet-web-application"></a>Iniciar a Monitorização de uma Aplicação Web ASP.NET
 
@@ -61,21 +61,21 @@ O Application Insights recolhe dados de telemetria da sua aplicação, independe
 
 Agora, pode abrir o Application Insights no portal do Azure para ver os vários detalhes sobre a sua aplicação em execução.
 
-1. Clique com o botão direito na pasta **Application Insights para Serviços Ligados** no Explorador de Soluções e clique em **Abril Portal do Application Insights**.  São apresentadas algumas informações sobre a sua aplicação e uma variedade de opções.
+1. Expanda a **serviços ligados** pasta (ícone de nuvem e plug) no Solution Explorer, em seguida, clique com botão direito no **Application Insights** pasta e clique em **abrir Portal do Application Insights** .  São apresentadas algumas informações sobre a sua aplicação e uma variedade de opções.
 
-    ![Mapeamento de Aplicações](media/quick-monitor-portal/overview-001.png)
+    ![Mapeamento de Aplicações](media/quick-monitor-portal/4overview.png)
 
 2. Clique em **Mapa da Aplicação** para obter um esquema visual das relações de dependência entre os componentes da aplicação.  Cada componente mostra KPIs, tais como carga, desempenho, falhas e alertas.
 
-    ![Mapeamento de Aplicações](media/quick-monitor-portal/application-map-001.png)
+    ![Mapeamento de Aplicações](media/quick-monitor-portal/5appmap.png)
 
-3. Clique no ícone **Análise da Aplicação** ![Mapeamento de Aplicações](media/quick-monitor-portal/app-analytics-icon.png) num dos componentes da aplicação.  Esta ação abre o **Application Insights Analytics**, que fornece uma linguagem de consulta avançada para analisar todos os dados recolhidos pelo Application Insights.  Neste caso, é gerada uma consulta que compõe a contagem de pedidos como um gráfico.  Pode escrever as suas próprias consultas para analisar outros dados.
+3. Clique nas **análise da aplicação** ícone ![mapa da aplicação](media/quick-monitor-portal/app-analytics-icon.png) **ver na análise** em um dos componentes da aplicação. Esta ação abre o **Application Insights Analytics**, que fornece uma linguagem de consulta avançada para analisar todos os dados recolhidos pelo Application Insights.  Neste caso, é gerada uma consulta que compõe a contagem de pedidos como um gráfico. Pode escrever as suas próprias consultas para analisar outros dados.
 
-    ![Análise](media/quick-monitor-portal/analytics.png)
+    ![Análise](media/quick-monitor-portal/6viewanalytics.png)
 
-4. Volte à página **Descrição geral** página e clique em **Live Stream**.  Isto mostra estatísticas em direto sobre a sua aplicação em execução.  Inclui informações como o número de pedidos recebidos, a duração desses pedidos e quaisquer falhas que ocorram.  Também pode inspecionar métricas críticas de desempenho, tais como processador e memória.
+4. Clique em **Stream de métricas em direto** à esquerda em investigar. Isto mostra estatísticas em direto sobre a sua aplicação em execução. Inclui informações como o número de pedidos recebidos, a duração desses pedidos e quaisquer falhas que ocorram. Também pode inspecionar métricas críticas de desempenho, tais como processador e memória.
 
-    ![Live Stream](media/quick-monitor-portal/live-stream.png)
+    ![Live Stream](media/quick-monitor-portal/7livemetrics.png)
 
     Se está pronto para alojar a sua aplicação no Azure, pode publicá-la agora. Siga os passos descritos em [Início Rápido para Criar uma Aplicação Web ASP.NET](../../app-service/app-service-web-get-started-dotnet.md#update-the-app-and-redeploy).
 

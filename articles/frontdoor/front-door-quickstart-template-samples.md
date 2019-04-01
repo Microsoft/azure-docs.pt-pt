@@ -10,12 +10,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/13/2018
 ms.author: sharadag
-ms.openlocfilehash: c0dccdd38f4b945df3702178e7351db58687bf82
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: 1d1f7eeb6f55fa19b94a1eb4d05520c76352a414
+ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56883901"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58756550"
 ---
 # <a name="azure-resource-manager-deployment-model-templates-for-front-door"></a>Modelos de implementação do Azure Resource Manager para o Front Door
 
@@ -31,7 +31,6 @@ A tabela seguinte inclui ligações para modelos de implementação do Azure Res
 | [Create Front Door with Active/Standby backend configuration](https://github.com/Azure/azure-quickstart-templates/tree/master/201-front-door-priority-lb) (Criar o Front Door com a configuração de back-end Ativa/Inativa)| Cria um Front Door que demonstra um encaminhamento com base na prioridade para a topologia de aplicação Ativa/Inativa, ou seja, por predefinição, envia todo o tráfego para o back-end principal (com a prioridade mais alta) até se tornar indisponível. |
 | [Create Front Door with caching enabled for certain routes](https://github.com/Azure/azure-quickstart-templates/tree/master/201-front-door-create-caching) (Criar o Front Door com a colocação em cache ativada para determinadas rotas)| Cria um Front Door com colocação em cache ativada para a configuração de encaminhamento definida, portanto, coloca em cache todos os recursos estáticos da carga de trabalho. |
 | [Configure Session Affinity for your Front Door host names](https://github.com/Azure/azure-quickstart-templates/tree/master/201-front-door-session-affinity) (Configurar a Afinidade de Sessão para os nomes de anfitrião do Front Door) | Atualiza um Front Door para ativar a afinidade de sessão para o anfitrião de front-end e envia assim o tráfego subsequente da mesma sessão do utilizador para o mesmo back-end. |
-| [Onboard a custom domain with custom SSL certificate (for HTTPS) for your Front Door](https://github.com/Azure/azure-quickstart-templates/tree/master/201-front-door-custom-byoc) (Carregar um domínio personalizado com o certificado SSL personalizado (para HTTPS) para o Front Door) | Carrega um domínio personalizado para um Front Door com o certificado SSL personalizado, também denominado de cenário Traga o seu Próprio Certificado. |
 | [Configure Front Door for client IP whitelisting or blacklisting](https://github.com/Azure/azure-quickstart-templates/tree/master/201-front-door-waf-clientip) (Configurar o Front Door para a lista de bloqueio ou a lista de permissões de IPs do cliente)| Configura um Front Door para restringir o tráfego de determinados IPs do cliente através do controlo de acesso personalizado com IPs de cliente. |
 | [Configurar a porta de entrada para tomar medidas com parâmetros específicos de http](https://github.com/Azure/azure-quickstart-templates/tree/master/201-front-door-waf-http-params)| Configura um Front Door para permitir ou bloquear determinado tráfego com base nos parâmetros http no pedido recebido com regras personalizadas para o controlo de acesso através de parâmetros http. |
 | [Configurar a limitação de velocidade de porta de entrada](https://github.com/Azure/azure-quickstart-templates/tree/master/201-front-door-rate-limiting)| Configura um Front Door para limitar as taxas do tráfego recebido para um anfitrião de front-end especificado. |

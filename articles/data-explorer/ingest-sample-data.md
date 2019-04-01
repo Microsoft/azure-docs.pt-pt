@@ -3,17 +3,17 @@ title: Ingerir dados de exemplo no Explorador de dados do Azure
 description: Saiba mais sobre como ingerir dados de exemplo relacionados com Meteorologia (carga) no Explorador de dados do Azure.
 services: data-explorer
 author: orspod
-ms.author: v-orspod
+ms.author: orspodek
 ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.openlocfilehash: ebe362b89eb6ffcde006ff824fbee40b1a9175d3
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
+ms.openlocfilehash: 2ebbe3434f032b38c33ec7b82e445532836f78c9
+ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55733404"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58758466"
 ---
 # <a name="ingest-sample-data-into-azure-data-explorer"></a>Ingerir dados de exemplo no Explorador de dados do Azure
 

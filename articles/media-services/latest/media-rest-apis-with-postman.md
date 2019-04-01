@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/18/2018
 ms.author: juliako
-ms.openlocfilehash: 24ee0083ec79265f0ac4dfc0a2e235bc72522831
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: cecfd0fafd17e9c463e0c0a74f1e30290a53d82f
+ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55813896"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58758194"
 ---
 # <a name="configure-postman-for-media-services-rest-api-calls"></a>Configurar o Postman para chamadas de API de REST dos serviços de multimédia
 
@@ -89,6 +89,13 @@ Antes de começar a manipulação de recursos do AMS v3 terá de obter e definir
 
     ![Obter token do AAD](./media/develop-with-postman/postman-get-aad-auth-token.png)
 
+## <a name="see-also"></a>Consulte também
+
+- [Carregar ficheiros para uma conta de Media Services - REST](upload-files-rest-how-to.md)
+- [Criar filtros com serviços de multimédia - REST](filters-dynamic-manifest-rest-howto.md)
+- [API REST baseada no Azure Resource Manager](https://github.com/Azure-Samples/media-services-v3-arm-templates)
+
 ## <a name="next-steps"></a>Passos Seguintes
 
-[Stream ficheiros com REST](stream-files-tutorial-with-rest.md).  
+- [Stream ficheiros com REST](stream-files-tutorial-with-rest.md).  
+- [Tutorial: Encode a remote file based on URL and stream the video - REST](stream-files-tutorial-with-rest.md) (Codificar ficheiros remotos com base no URL e transmitir o vídeo em fluxo - REST)

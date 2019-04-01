@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: 32b9a00aa943813bec3c518c3c9dbf0e37a9bc63
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 5a05b8f0f9484ea49fbfb0bbe8818aa9cd0d66ee
+ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57445930"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58757139"
 ---
 # <a name="connect-a-downstream-device-to-an-azure-iot-edge-gateway"></a>Ligar um dispositivo jusante a um gateway do Azure IoT Edge
 
@@ -43,7 +43,7 @@ Antes de seguir os passos neste artigo, deve ter dois dispositivos prontos a uti
     Atualmente, apenas os dispositivos jusante com autenticação de chave simétrica podem ligar através de gateways de IoT Edge. Autoridades de certificação X.509 e X.509 os certificados autoassinados não são atualmente suportados.
     
 > [!NOTE]
-> O "nome de gateway" utilizado para criar os certificados nessa instrução, tem de ser o mesmo nome que é utilizado como nome de anfitrião em seu arquivo de config.yaml do IoT Edge e como GatewayHostName na cadeia de ligação do dispositivo downstream. O "nome de gateway" tem de ser resolvido para um endereço IP, usando DNS ou uma entrada de ficheiro host. Comunicação com base no protocolo utilizado (MQTTS:8883 / AMQPS:5671 / HTTPS:433) tem de ser possível entre o dispositivo jusante e o transparant do IoT Edge. Se uma firewall entre, a respetiva porta tem de ser aberto.
+> O "nome de gateway" usado neste artigo deve ter o mesmo nome como utilizado como nome de anfitrião em seu arquivo de config.yaml do IoT Edge. O nome do gateway tem de ser resolvido para um endereço IP, usando DNS ou uma entrada de ficheiro host. Comunicação com base no protocolo utilizado (MQTTS:8883 / AMQPS:5671 / HTTPS:433) tem de ser possível entre o dispositivo jusante e o transparant do IoT Edge. Se uma firewall entre, a respetiva porta tem de ser aberto.
 
 ## <a name="prepare-a-downstream-device"></a>Preparar um dispositivo de downstream
 
@@ -197,6 +197,14 @@ Este é um comando de exemplo que testes que tudo o que foi configurado corretam
 ```cmd/sh
 openssl s_client -connect mygateway.contoso.com:8883 -CAfile <CERTDIR>/certs/azure-iot-test-only.root.ca.cert.pem -showcerts
 ```
+
+## <a name="troubleshoot-the-gateway-connection"></a>Resolver problemas relacionados com a ligação de gateway
+
+Se o seu dispositivo de folha tem uma ligação intermitente para o seu dispositivo de gateway, tente os seguintes passos para a resolução. 
+
+1. É o nome do gateway acrescentado para a ligação de cadeias de caracteres o mesmo que o nome de anfitrião no ficheiro de config.yaml do IoT Edge no dispositivo de gateway?
+2. O nome do gateway pode ser resolvido para um endereço IP? Pode resolver intenmittent ligações através de DNS ou adicionando uma entrada do arquivo host do dispositivo de folha.
+3. São portas de comunicação aberta na firewall? Comunicação com base no protocolo utilizado (MQTTS:8883 / AMQPS:5671 / HTTPS:433) tem de ser possível entre o dispositivo jusante e o transparant do IoT Edge.
 
 ## <a name="next-steps"></a>Passos Seguintes
 

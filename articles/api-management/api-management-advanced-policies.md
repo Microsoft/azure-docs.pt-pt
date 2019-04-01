@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/28/2017
 ms.author: apimpm
-ms.openlocfilehash: 9d3bc50e1578704de029d53c0b1eaa21e74182cf
-ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
+ms.openlocfilehash: 43cbeea554f43e4db7d5440af83a9b414741d2f6
+ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58401924"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58756601"
 ---
 # <a name="api-management-advanced-policies"></a>Políticas avançadas de gestão de API
 
@@ -253,7 +253,7 @@ Esta política de nível de operação não encaminha pedidos para o serviço de
 
 | Atributo                               | Descrição                                                                                                      | Necessário | Predefinição     |
 | --------------------------------------- | ---------------------------------------------------------------------------------------------------------------- | -------- | ----------- |
-| timeout="integer"                       | O intervalo de tempo limite em segundos antes da chamada para o serviço de back-end falhará. Valor mínimo é de 0 segundos. Valores máximos é 240 segundos.| Não       | 240 segundos |
+| timeout="integer"                       | A quantidade de tempo em segundos a aguardar para os cabeçalhos de resposta HTTP a serem retornados pelo serviço de back-end antes de um erro de tempo limite é gerada. Valor mínimo é de 0 segundos. Valores superiores a 240 segundos pode não ser cumpridos como a infraestrutura de rede subjacente podem remover as ligações inativas após esta hora. | Não       | Nenhuma |
 | follow-redirects="true &#124; false"    | Especifica se os redirecionamentos do serviço de back-end são seguidos pelo gateway ou retornados ao chamador.      | Não       | false       |
 | buffer-request-body="true &#124; false" | Quando definido como "true" pedido é armazenado em buffer e irá ser reutilizado [repita](api-management-advanced-policies.md#Retry). | Não       | false       |
 

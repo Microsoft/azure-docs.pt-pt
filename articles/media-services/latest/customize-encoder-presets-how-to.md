@@ -12,14 +12,14 @@ ms.topic: article
 ms.custom: seodec18
 ms.date: 03/11/2019
 ms.author: juliako
-ms.openlocfilehash: 848da2996b71b137c6112225c9bef7e93b457c7d
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: ed2ae50aa9d7a26ed6e0569264ee981f7be35525
+ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57837240"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58754564"
 ---
-# <a name="how-to-encode-with-a-custom-transform-by-using-net"></a>Como codificar com uma transformação personalizados com o .NET
+# <a name="how-to-encode-with-a-custom-transform---net"></a>Como codificar com uma transformação personalizados - .NET
 
 Ao codificar com os serviços de multimédia do Azure, pode começar a utilizar rapidamente com um dos pré-visualizando incorporada recomendado com base nas práticas recomendadas do setor, como demonstrado na [ficheiros de transmissão em fluxo](stream-files-tutorial-with-api.md) tutorial. Também pode criar um personalizado predefinido para seus requisitos específicos de cenário ou dispositivo de destino.
 

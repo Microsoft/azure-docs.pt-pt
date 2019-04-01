@@ -3,17 +3,17 @@ title: 'Início rápido: Visualizar dados utilizando uma consulta SQL no Power B
 description: 'Neste início rápido, irá aprender a utilizar uma das três opções para visualizar dados no Power BI: uma consulta SQL em relação a um cluster do Explorador de dados do Azure.'
 services: data-explorer
 author: orspod
-ms.author: v-orspod
+ms.author: orspodek
 ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: quickstart
 ms.date: 11/14/2018
-ms.openlocfilehash: 4eb6fdd5b5a78f0afb00265ebd957231464a9083
-ms.sourcegitcommit: 8314421d78cd83b2e7d86f128bde94857134d8e1
+ms.openlocfilehash: f41bd1dcd354d75788569f5c1f24a50c604b5737
+ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/19/2018
-ms.locfileid: "51977289"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58756342"
 ---
 # <a name="quickstart-visualize-data-using-the-azure-data-explorer-connector-for-power-bi"></a>Início rápido: Visualizar dados utilizando o conector do Explorador de dados do Azure para o Power BI
 
@@ -51,7 +51,7 @@ Geralmente usa a linguagem de consulta nativa com o Explorador de dados do Azure
 
     **Definição** | **Valor** | **Descrição do campo**
     |---|---|---|
-    | Servidor | *Help.kusto.Windows.NET* | O URL para o cluster de ajuda (sem *https://*). Para outros clusters, o URL está no formato  *\<ClusterName\>.\< Região\>. kusto.windows.net*. |
+    | Servidor | *help.kusto.windows.net* | O URL para o cluster de ajuda (sem *https://*). Para outros clusters, o URL está no formato  *\<ClusterName\>.\< Região\>. kusto.windows.net*. |
     | Base de Dados | *Amostras* | A base de dados de exemplo que está alojado no cluster que está a ligar. |
     | Modo de conectividade de dados | *Importar* | Determina se o Power BI importa os dados ou ligar diretamente à origem de dados. Pode usar qualquer uma das opções com este conector. |
     | Tempo limite do comando | Deixar em branco | O tempo que a consulta é executada antes de ele emite um erro de tempo limite. |
@@ -69,7 +69,7 @@ Geralmente usa a linguagem de consulta nativa com o Explorador de dados do Azure
 
     ![Iniciar sessão](media/power-bi-sql-query/sign-in.png)
 
-1. Sobre o **help.kusto.windows.net: exemplos** ecrã, selecione **carga**.
+1. Sobre o **help.kusto.windows.net: Exemplos** ecrã, selecione **carga**.
 
     ![Carregar dados](media/power-bi-sql-query/load-data.png)
 
@@ -86,4 +86,4 @@ Se já não precisar do relatório que criou para este início rápido, elimine 
 ## <a name="next-steps"></a>Passos Seguintes
 
 > [!div class="nextstepaction"]
-> [Início rápido: Visualizar dados utilizando uma consulta importada no Power BI](power-bi-connector.md)
+> [Quickstart: Visualizar dados utilizando uma consulta importada no Power BI](power-bi-connector.md)

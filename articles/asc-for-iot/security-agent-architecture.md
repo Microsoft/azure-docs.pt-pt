@@ -1,6 +1,6 @@
 ---
-title: Compreender o ASC para arquitetura de agente de segurança de IoT pré-visualização | Documentos da Microsoft
-description: Compreenda a arquitetura de agente de segurança para os agentes utilizados no ASC para o serviço de IoT.
+title: Noções básicas sobre o Centro de segurança do Azure para a arquitetura de agente de segurança de IoT pré-visualização | Documentos da Microsoft
+description: Compreenda a arquitetura de agente de segurança para os agentes utilizados no Centro de segurança do Azure para o serviço de IoT.
 services: ascforiot
 documentationcenter: na
 author: mlottner
@@ -14,21 +14,21 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/25/2019
 ms.author: mlottner
-ms.openlocfilehash: d81054e95b9f712262fe5fa46453749b54a7ac24
-ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
+ms.openlocfilehash: 83ac2fd1d322dc3fb3c04cdf44d560c392320f91
+ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58651402"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58754165"
 ---
 # <a name="security-agent-reference-architecture"></a>Arquitetura de referência do agente de segurança
 
 > [!IMPORTANT]
-> ASC para IoT está atualmente em pré-visualização pública.
+> Centro de segurança do Azure para IoT está atualmente em pré-visualização pública.
 > Esta versão de pré-visualização é fornecido sem um contrato de nível de serviço e não é recomendada para cargas de trabalho de produção. Algumas funcionalidades poderão não ser suportadas ou poderão ter capacidades limitadas. Para obter mais informações, veja [Termos Suplementares de Utilização para Pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 
-ASC para IoT fornece uma arquitetura de referência para os agentes de segurança que iniciar sessão, processam, agregam e enviam dados de segurança através do IoT hub.
+O Centro de segurança do Azure (ASC) para IoT fornece uma arquitetura de referência para os agentes de segurança que iniciar sessão, processam, agregam e enviam dados de segurança através do IoT hub.
 
 Agentes de segurança foram concebidas para funcionar num ambiente de IoT restrito e são altamente personalizáveis em termos de valores fornecem em comparação com os recursos que consumirem.
 

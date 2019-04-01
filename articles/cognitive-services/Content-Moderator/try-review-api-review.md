@@ -1,68 +1,195 @@
 ---
-title: Moderar conteúdo com revisões realizadas por pessoas com a consola de API - Content Moderator
+title: Criar as revisões de moderação com a consola de REST API - Content Moderator
 titlesuffix: Azure Cognitive Services
-description: Utilize da revisão de operações de API rever para criar as revisões de imagem ou texto de moderação humana.
+description: Utilize as APIs de revisão de moderador conteúdos do Azure para criar as revisões de imagem ou texto de moderação humana.
 services: cognitive-services
 author: sanjeev3
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: content-moderator
-ms.topic: conceptual
-ms.date: 01/10/2019
+ms.topic: article
+ms.date: 03/18/2019
 ms.author: sajagtap
-ms.openlocfilehash: 2e40165bde7f3ce2eabd91b55c5bbc8139282b60
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: beadbfc09526f738ba90252787b5b0910a2f7163
+ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58101470"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58755369"
 ---
-# <a name="create-reviews-from-the-api-console"></a>Criar análises a partir da consola de API
+# <a name="create-human-reviews-rest"></a>Criar revisões realizadas por pessoas (REST)
 
-Utilizar a API rever [rever operações](https://westus.dev.cognitive.microsoft.com/docs/services/580519463f9b070e5c591178/operations/580519483f9b0709fc47f9c4) para criar as revisões de imagem ou texto de moderação humana. Os moderadores humanos utilizam a ferramenta de revisão para rever o conteúdo. Use essa operação com base na lógica de negócio de pós-moderação. Utilizá-lo após a ter análise seu conteúdo ao utilizar qualquer uma das outras APIs serviços cognitivos ou APIs de texto ou a imagem do moderador de conteúdo. 
+[Revisões](./review-api.md#reviews) armazenar e exibir o conteúdo de moderadores humanos avaliar. Quando um utilizador é concluída uma revisão, os resultados são enviados para um ponto de extremidade do retorno de chamada especificado. Neste guia, aprenderá como configurar a revisões usando as APIs de REST de revisão através da consola de API. Assim que compreender a estrutura das APIs, poderá transportar facilmente essas chamadas para qualquer plataforma compatível com REST.
 
-Depois de um moderador humano revisa o atribuída automaticamente etiquetas e dados de predição e envia uma decisão de moderação final, a API de revisão envia todas as informações para o ponto final de API.
+## <a name="prerequisites"></a>Pré-requisitos
 
-## <a name="use-the-api-console"></a>Utilizar a consola de API
-Para testar a API utilizando a consola online, terá de alguns valores para celebrar o console:
+- Inicie sessão ou crie uma conta no Content Moderator [ferramenta de revisão](https://contentmoderator.cognitive.microsoft.com/) site.
 
-- **teamName**: O nome da equipa que criou quando configurou a sua conta da ferramenta de revisão. 
-- **ContentId**: Essa cadeia de caracteres é passada para a API e devolvida pelo retorno de chamada. O ContentId é útil para associar os resultados de uma tarefa de moderação identificadores internos ou de metadados.
-- **Metadados**: Pares de chave-valor personalizados devolvidos ao seu ponto final da API durante o retorno de chamada. Se a chave é um código pequeno que é definido na ferramenta de revisão, ele aparece como uma etiqueta.
-- **Ocp-Apim-Subscription-Key**: Localizado no **definições** separador. Para obter mais informações, veja [Descrição geral](overview.md).
+## <a name="create-a-review"></a>Criar uma revisão
 
-A forma mais simples para aceder a uma consola de teste é a partir da **credenciais** janela.
+Para criar uma revisão, vá para o **[examine - criar](https://westus2.dev.cognitive.microsoft.com/docs/services/580519463f9b070e5c591178/operations/580519483f9b0709fc47f9c4)** API página e selecione o botão para a sua região de chave (pode encontrar estas informações no URL do ponto final no **credenciais** página do [ferramenta de revisão](https://contentmoderator.cognitive.microsoft.com/)). Esta ação inicia a consola de API, onde pode facilmente criar e executar chamadas de REST API.
 
-1. Na **credenciais** janela, selecione [referência da API de revisão](https://westus.dev.cognitive.microsoft.com/docs/services/580519463f9b070e5c591178/operations/580519483f9b0709fc47f9c4).
+![Examine - seleção de região de Get](images/test-drive-region.png)
 
-   O **reveja - criar** é aberta a página.
+### <a name="enter-rest-call-parameters"></a>Introduza os parâmetros da chamada REST
 
-2. Para **consola de teste de API aberta**, selecione a região que melhor descreve sua localização.
+Introduza os valores para **teamName**, e **Ocp-Apim-Subscription-Key**:
 
-   ![Examine - criar página seleção de região](images/test-drive-region.png)
+- **teamName**: O ID da equipa que criou quando configurou seu [ferramenta de revisão](https://contentmoderator.cognitive.microsoft.com/) conta (encontrada no **Id** campo no ecrã de credenciais da sua ferramenta de revisão).
+- **Ocp-Apim-Subscription-Key**: A chave do Content Moderator. Pode encontrar isto na **definições** separador da [ferramenta de revisão](https://contentmoderator.cognitive.microsoft.com).
 
-   O **reveja - criar** é aberta a consola de API.
+### <a name="enter-a-review-definition"></a>Introduza uma definição de revisão
+
+Editar a **corpo do pedido** caixa para introduzir o pedido do JSON com os seguintes campos:
+
+- **Metadados**: Pares chave-valor personalizados a serem retornados para o ponto final de retorno de chamada. Se a chave é um código curto definido na [ferramenta de revisão](https://contentmoderator.cognitive.microsoft.com), é apresentado como uma etiqueta.
+- **Conteúdo**: No caso de conteúdo de imagem e vídeo, esta é uma cadeia de URL que aponta para o conteúdo. Para conteúdo de texto, esta é a cadeia de texto real.
+- **ContentId**: Uma cadeia de caracteres de identificador personalizado. Essa cadeia de caracteres é passada para a API e devolvida pelo retorno de chamada. É útil para associar os resultados de uma tarefa de moderação identificadores internos ou de metadados.
+- **CallbackEndpoint**: (Opcional) O URL para receber informações de retorno de chamada quando a revisão é concluída.
+
+O corpo do pedido de predefinição mostra exemplos dos tipos diferentes de revisões que pode criar:
+
+```json
+[Image]
+[
+  {
+    "Metadata": [
+      {
+        "Key": "string",
+        "Value": "string"
+      }
+    ],
+    "Type": "Image",
+    "Content": "<Content Url>",
+    "ContentId": "<Your identifier for this content>",
+    "CallbackEndpoint": "<Url where you would receive callbacks>"
+  }
+]
+[Text]
+[
+  {
+    "Metadata": [
+      {
+        "Key": "string",
+        "Value": "string"
+      }
+    ],
+    "Type": "Text",
+    "Content": "<Your Text Content>",
+    "ContentId": "<Your identifier for this content>",
+    "CallbackEndpoint": "<Url where you would receive callbacks>"
+  }
+]
+[Video]
+[
+  {
+    "VideoFrames":[
+      {
+          "Id": "<Frame Id>",
+          "Timestamp": "<Frame Timestamp",
+          "FrameImage":"<Frame Image URL",
+          "Metadata": [
+            {
+              "Key": "<Key>",
+              "Value": "<Value"
+            }
+          ],
+          "ReviewerResultTags": [
+          ]
+    ], 
+    "Metadata": [
+      {
+        "Key": "string",
+        "Value": "string"
+      },
+      //For encrypted Videos
+        {
+          "Key": "protectedType",
+          "Value": "AES or FairPlay or Widevine or Playready"
+        },
+        {
+          "Key": "authenticationToken",
+          "Value": "your viewtoken(In case of Video Indexer AES encryption type, this value is viewtoken from breakdown json)"
+        },
+      //For FairPlay encrypted type video include certificateUrl as well
+        {
+          "Key": "certificateUrl",
+          "Value": "your certificate url"
+        }
+    ],
+    "Type": "Video",
+    "Content": "<Stream Url>",
+    "ContentId": "<Your identifier for this content>",
+    "CallbackEndpoint": "<Url where you would receive callbacks>",
+    [Optional]
+    "Timescale": "<Timescale of the video>
+  }
+]
+```
+
+### <a name="submit-your-request"></a>Submeter o pedido
   
-3. Introduza valores para os parâmetros de consulta necessário, tipo de conteúdo e a chave de subscrição. Na **corpo do pedido** caixa, especifique o conteúdo (por exemplo, a localização de imagem), metadados e outras informações associadas com o conteúdo.
+Selecione **Enviar**. Se a operação for bem-sucedida, o **estado de resposta** é `200 OK`e o **conteúdo da resposta** caixa apresenta um ID para a revisão. Copie este ID para utilizar nos passos seguintes.
 
-   ![Examine - criar parâmetros de consulta da consola, cabeçalhos e caixa de corpo de pedido](images/test-drive-review-1.PNG)
+![Examine - criar console caixa apresenta o ID da revisão de conteúdo de resposta](images/test-drive-review-2.PNG)
+
+### <a name="examine-the-new-review"></a>Examine a nova revisão
+
+Na [ferramenta de revisão](https://contentmoderator.cognitive.microsoft.com), selecione **revisão** > **imagem**/**texto** / **Vídeo** (consoante o conteúdo que utilizou). Deve aparecer o conteúdo que carregou, pronta para revisão humana.
+
+![Imagem de ferramenta de revisão de uma bola de futebol](images/test-drive-review-5.PNG)
+
+## <a name="get-review-details"></a>Obter os detalhes de revisão
+
+Para obter detalhes sobre uma revisão de existente, vá para o [examine - obter](https://westus2.dev.cognitive.microsoft.com/docs/services/580519463f9b070e5c591178/operations/580519483f9b0709fc47f9c2) página de referência de API e selecione o botão para a sua região (a região em que a chave é administrada).
+
+![Fluxo de trabalho - seleção de região de Get](images/test-drive-region.png)
+
+Introduza os parâmetros da chamada REST como na seção acima. Para este passo, **reviewId** é a cadeia de ID exclusiva que recebeu quando criou a revisão.
+
+![Examine - criar console resultados de Get](images/test-drive-review-3.PNG)
   
-4. Selecione **Enviar**. É criado um ID de revisão. Copie este ID para utilizar nos passos seguintes.
+Selecione **Enviar**. Se a operação for bem-sucedida, o **estado de resposta** é `200 OK`e o **conteúdo da resposta** caixa apresenta o os detalhes de revisão no formato JSON, como a seguir:
 
-   ![Examine - criar console caixa apresenta o ID da revisão de conteúdo de resposta](images/test-drive-review-2.PNG)
-  
-5. Selecione **obter**e, em seguida, abra a API ao selecionar o botão que corresponde à sua região. Na página resultante, introduza os valores para **teamName**, **ReviewID**, e **chave de subscrição**. Selecione o **enviar** botão na página. 
+```json
+{  
+  "reviewId":"201712i46950138c61a4740b118a43cac33f434",
+  "subTeam":"public",
+  "status":"Complete",
+  "reviewerResultTags":[  
+    {  
+      "key":"a",
+      "value":"False"
+    },
+    {  
+      "key":"r",
+      "value":"True"
+    },
+    {  
+      "key":"sc",
+      "value":"True"
+    }
+  ],
+  "createdBy":"<teamname>",
+  "metadata":[  
+    {  
+      "key":"sc",
+      "value":"true"
+    }
+  ],
+  "type":"Image",
+  "content":"https://reviewcontentprod.blob.core.windows.net/<teamname>/IMG_201712i46950138c61a4740b118a43cac33f434",
+  "contentId":"0",
+  "callbackEndpoint":"<callbackUrl>"
+}
+```
 
-   ![Examine - criar console resultados de Get](images/test-drive-review-3.PNG)
-  
-6. Verá os resultados da análise.
+Tome nota dos seguintes campos na resposta:
 
-   ![Examine - criar a caixa de conteúdo de resposta de consola](images/test-drive-review-4.PNG)
-  
-7. No Dashboard de moderador de conteúdo, selecione **revisão** > **imagem**. A imagem que analisados aparece, pronta para revisão humana.
-
-   ![Imagem de ferramenta de revisão de uma bola de futebol](images/test-drive-review-5.PNG)
+- **status**
+- **reviewerResultTags**: Esta opção é apresentada se as etiquetas que foram adicionadas manualmente pela equipa de revisão humana (mostrada a **createdBy** campo).
+- **metadata**: Isso mostra as marcas que foram adicionadas inicialmente da revisão, antes das alterações feita de equipa de revisão humana.
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-Utilizar a API REST no seu código ou começar com o [guia de introdução do .NET de revisões](moderation-reviews-quickstart-dotnet.md) para integrar com a sua aplicação.
+Neste guia, aprendeu a criar as revisões de moderação de conteúdos através da API REST. Em seguida, integrar, como revisões num cenário de moderação de ponto-a-ponto, o [moderação de comércio eletrônico](./ecommerce-retail-catalog-moderation.md) tutorial.

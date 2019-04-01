@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 08/16/2018
 ms.author: sedusch
-ms.openlocfilehash: a2e03a548b403262dca7e7a76b84cc99661242c6
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.openlocfilehash: 51db372b288ce388f58ca0e7fdcb2e1b97e511de
+ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58487369"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58755725"
 ---
 # <a name="setting-up-pacemaker-on-suse-linux-enterprise-server-in-azure"></a>Como configurar Pacemaker no SUSE Linux Enterprise Server no Azure
 
@@ -84,7 +84,7 @@ Execute os seguintes comandos em todos os **máquinas de virtuais de destino iSC
 
 Execute os seguintes comandos em todos os **máquinas de virtuais de destino iSCSI** para criar os discos iSCSI para os clusters utilizados pelos seus sistemas SAP. No exemplo a seguir, são criados dispositivos SBD para múltiplos clusters. Ele mostra como usaria um servidor de destino iSCSI para múltiplos clusters. Os dispositivos SBD são colocados no disco do SO. Certifique-se de que tem espaço suficiente.
 
-**NFS** é utilizado para identificar o cluster NFS **ascsnw1** é utilizado para identificar o cluster do ASCS de **NW1**, **dbnw1** é utilizado para identificar o cluster de base de dados do **NW1**, **nfs-0** e **nfs-1** são os nomes de anfitrião de nós de cluster NFS, **nw1-xscs-0** e  **nw1-xscs-1** são os nomes de anfitrião do **NW1** nós, de cluster do ASCS e **nw1-db-0** e **nw1-db-1** são os nomes de anfitrião da base de dados nós de cluster. Substituí-los com os nomes de anfitrião dos nós do cluster e o SID do seu sistema SAP.
+**` nfs`** é utilizado para identificar o cluster NFS **ascsnw1** é utilizado para identificar o cluster do ASCS de **NW1**, **dbnw1** é utilizado para identificar o cluster de base de dados de **NW1** , **nfs-0** e **nfs-1** são os nomes de anfitrião de nós de cluster NFS, **nw1-xscs-0** e **nw1-xscs-1**são os nomes de anfitrião das **NW1** nós, de cluster do ASCS e **nw1-db-0** e **nw1-db-1** são os nomes de anfitrião da base de dados de nós de cluster. Substituí-los com os nomes de anfitrião dos nós do cluster e o SID do seu sistema SAP.
 
 <pre><code># Create the root folder for all SBD devices
 sudo mkdir /sbd
@@ -302,7 +302,7 @@ Os seguintes itens são prefixados com ambos **[A]** - aplicáveis a todos os n�
    <b>SBD_WATCHDOG="yes"</b>
    </code></pre>
 
-   Criar o ficheiro de configuração softdog
+   Criar o ` softdog` ficheiro de configuração
 
    <pre><code>echo softdog | sudo tee /etc/modules-load.d/softdog.conf
    </code></pre>
@@ -321,7 +321,7 @@ Os seguintes itens são prefixados com ambos **[A]** - aplicáveis a todos os n�
    <pre><code>sudo zypper update
    </code></pre>
 
-1. **[A]**  Configurar sistema operativo
+1. **[A]**  Configurar o sistema operacional
 
    Em alguns casos, o Pacemaker cria muitos processos e, deste modo, esgotar o número permitido de processos. Nesse caso, um heartbeat entre os nós de cluster poderá falhar e levar a ativação pós-falha dos seus recursos. Recomendamos que aumente os processos de permitido máximos definindo o parâmetro seguinte.
 
@@ -346,6 +346,18 @@ Os seguintes itens são prefixados com ambos **[A]** - aplicáveis a todos os n�
    # Change/set the following settings
    vm.dirty_bytes = 629145600
    vm.dirty_background_bytes = 314572800
+   </code></pre>
+
+1. **[A]**  Configurar netconfig o cloud-azure para o Cluster do HA
+
+   Altere o ficheiro de configuração para a interface de rede, conforme mostrado abaixo, para impedir que o plug-in de rede de nuvem de remover o endereço IP virtual (Pacemaker deve controlar a atribuição de VIP). Para obter mais informações, consulte [SUSE KB 7023633](https://www.suse.com/support/kb/doc/?id=7023633). 
+
+   <pre><code># Edit the configuration file
+   sudo vi /etc/sysconfig/network/ifcfg-eth0 
+   
+   # Change CLOUD_NETCONFIG_MANAGE
+   # CLOUD_NETCONFIG_MANAGE="yes"
+   CLOUD_NETCONFIG_MANAGE="no"
    </code></pre>
 
 1. **[1]**  Ativar o ssh acesso

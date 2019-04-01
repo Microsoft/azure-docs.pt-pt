@@ -13,15 +13,15 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 03/19/2017
 ms.author: magoedte
-ms.openlocfilehash: cca234340526b732067adac3c6725f8aa5acc47c
-ms.sourcegitcommit: 1afd2e835dd507259cf7bb798b1b130adbb21840
+ms.openlocfilehash: 294695cceaed39a66a57dcd3a165ca276b6801c6
+ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56983389"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58757972"
 ---
-#  <a name="agent-health-solution-in-azure"></a>Solução de estado de funcionamento de agente no Azure
-A solução de estado de funcionamento do agente no Azure ajuda-o a compreender, de todos os agentes que reportam diretamente para a área de trabalho do Log Analytics ou um grupo de gestão do System Center Operations Manager ligado para o Azure Monitor, que não respondem e submeter operacional dados.  Também pode controlar a quantidade de agentes que estão implementados, onde estão distribuídos geograficamente e fazer outras consultas, para estar a par da distribuição dos agentes implementados no Azure, noutros ambientes na cloud ou no local.    
+#  <a name="agent-health-solution-in-azure-monitor"></a>Solução de estado de funcionamento de agente no Azure Monitor
+A solução de estado de funcionamento do agente no Azure ajuda-o a compreender, de todos os agentes que reportam diretamente para a área de trabalho do Log Analytics no Azure Monitor ou um grupo de gestão do System Center Operations Manager ligado ao Azure Monitor, que são sem resposta e a submeter dados operacionais.  Também pode controlar a quantidade de agentes que estão implementados, onde estão distribuídos geograficamente e fazer outras consultas, para estar a par da distribuição dos agentes implementados no Azure, noutros ambientes na cloud ou no local.    
 
 ## <a name="prerequisites"></a>Pré-requisitos
 Antes de implementar esta solução, confirme que tem atualmente suportada [agentes do Windows](../../log-analytics/log-analytics-windows-agent.md) de relatórios para a área de trabalho do Log Analytics ou a um [grupo de gestão do Operations Manager](../../azure-monitor/platform/om-agents.md) integrado a área de trabalho.
@@ -62,7 +62,7 @@ Clique no mosaico **Funcionamento de Agente** para abrir o dashboard **Funcionam
 | Distribuição por Tipo de SO | Uma partição do número de agentes do Windows e do Linux que tem no seu ambiente.|
 | Distribuição por Versão de Agente | Uma partição das diferentes versões de agentes instaladas no seu ambiente e uma contagem de cada uma das versões.|
 | Distribuição por Categoria de Agente | Uma partição das diferentes categorias de agentes que estão a enviar eventos de heartbeat: agentes diretos, agentes do OpsMgr ou o Servidor de Gestão do OpsMgr.|
-| Distribuição por Grupo de Gestão | Uma partição dos diferentes Grupos de gestão do SCOM no seu ambiente.|
+| Distribuição por Grupo de Gestão | Uma partição dos diferentes grupos de gestão do Operations Manager no seu ambiente.|
 | Localização Geográfica dos Agentes | Uma partição dos diferentes países em que tem agentes e uma contagem total do número de agentes que foram instalados em cada país.|
 | Contagem de Gateways Instalados | O número de servidores que têm instalado o gateway do Log Analytics e uma lista desses servidores.|
 
@@ -117,4 +117,4 @@ A tabela seguinte disponibiliza pesquisas de registos de exemplo para registos q
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-* Saiba mais sobre [alertas no Azure Monitor](../platform/alerts-overview.md) para obter detalhes sobre a geração de alertas do Log Analytics. 
+* Saiba mais sobre [alertas no Azure Monitor](../platform/alerts-overview.md) para obter detalhes sobre a geração de alertas do consultas de registo. 
