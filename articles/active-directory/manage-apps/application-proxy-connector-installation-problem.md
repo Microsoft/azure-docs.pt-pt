@@ -16,12 +16,12 @@ ms.date: 05/21/2018
 ms.author: celested
 ms.reviewer: japere
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 645ba6e8306b063892babe25fde41d8dd3144fee
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 87d828e596c42b786d1c54a7158e1151f374c560
+ms.sourcegitcommit: ad3e63af10cd2b24bf4ebb9cc630b998290af467
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57444295"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58793044"
 ---
 # <a name="problem-installing-the-application-proxy-agent-connector"></a>Problema ao instalar o Conector do Agente do Proxy de Aplicações
 
@@ -64,13 +64,13 @@ Quando a instalação de um conector falhar, a causa raiz é normalmente uma das
 
 ## <a name="verify-admin-is-used-to-install-the-connector"></a>Verifique se o administrador é utilizado para instalar o conector
 
-**Objetivo:** Certifique-se de que o utilizador que tenta instalar o conector é um administrador com as credenciais corretas. Atualmente, o utilizador tem de ser um administrador da aplicação ou um administrador global para a instalação com êxito.
+**Objetivo:** Certifique-se de que o utilizador que tenta instalar o conector é um administrador com as credenciais corretas. Atualmente, o utilizador tem de ser, pelo menos, um administrador da aplicação para a instalação com êxito.
 
 **Para verificar que as credenciais estão corretas:**
 
 Ligar ao <https://login.microsoftonline.com> e utilizar as mesmas credenciais. Certifique-se de que o início de sessão é efetuada com êxito. Pode verificar a função de utilizador ao aceder **do Azure Active Directory**  - &gt; **utilizadores e grupos**  - &gt; **todos os utilizadores**. 
 
-Selecione a sua conta de utilizador, em seguida, "função de diretório" no menu resultante. Certifique-se de que a função selecionada é "administrador da aplicação" ou "Administrador Global". Se não conseguir aceder a qualquer uma das páginas ao longo destes passos, não tem a função necessária.
+Selecione a sua conta de utilizador, em seguida, "função de diretório" no menu resultante. Certifique-se de que a função selecionada é "Administrador da aplicação". Se não conseguir aceder a qualquer uma das páginas ao longo destes passos, não tem a função necessária.
 
 ## <a name="next-steps"></a>Passos Seguintes
 [Compreender os conectores de Proxy de aplicações do Azure AD](application-proxy-connectors.md)

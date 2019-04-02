@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 03/19/2019
 ms.author: erhopf
 ms.custom: seodec18
-ms.openlocfilehash: 3188b5acc00f7f0463ae1154346447bee463e09c
-ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
+ms.openlocfilehash: 0a82c2ba8bdf3d01041aa06f55eaaecab29817b2
+ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58225438"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58803110"
 ---
 # <a name="language-and-region-support-for-the-speech-services"></a>Suporte de idioma e região para os serviços de voz
 
@@ -55,7 +55,7 @@ A API de reconhecimento de voz de Microsoft suporta os seguintes idiomas. Estão
  ru-RU | Russo (Rússia) | Sim | Sim | Não
  SV-SE | Sueco (Suécia) | Não | Não | Não
  zh-CN | Chinês (simplificado Mandarim) | Sim | Sim | Não
- zh-HK | Chinês (Mandarim, tradicional) | Não | Sim | Não
+ zh-HK | Chinês (Cantonês, tradicional) | Não | Sim | Não
  zh-TW | Chinês (Taiwanês Mandarim) | Não | Sim | Não
  th-TH | Tailandês (Tailândia) | Não | Não | Não
 

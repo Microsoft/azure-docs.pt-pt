@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/11/2019
 ms.author: apimpm
-ms.openlocfilehash: d8cea95fbfb76f1dd1891045309a35aa1d0a8ab0
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: da27c772a0650a923068b3c519ef39494573f96a
+ms.sourcegitcommit: ad3e63af10cd2b24bf4ebb9cc630b998290af467
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58099489"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58793123"
 ---
 # <a name="using-azure-api-management-service-with-an-internal-virtual-network"></a>Utilizar o serviço de gestão de API do Azure com uma rede virtual interna
 Com as redes virtuais do Azure, gestão de API do Azure pode gerir APIs não está acessíveis na internet. Um número de tecnologias VPN está disponível para fazer a conexão. Gestão de API pode ser implementada em dois modos principais dentro de uma rede virtual:
@@ -124,7 +124,7 @@ Se utilizar um servidor DNS personalizado numa rede virtual, também pode criar 
 Para obter mais informações, consulte os artigos seguintes:
 * [Problemas comuns de configuração de rede ao configurar a gestão de API do Azure numa rede virtual][Common network configuration problems]
 * [FAQs de rede virtual](../virtual-network/virtual-networks-faq.md)
-* [Criar um registo no DNS](https://msdn.microsoft.com/library/bb727018.aspx)
+* [Criar um registo no DNS](/previous-versions/windows/it-pro/windows-2000-server/bb727018(v=technet.10))
 
 [api-management-using-internal-vnet-menu]: ./media/api-management-using-with-internal-vnet/api-management-using-with-internal-vnet.png
 [api-management-internal-vnet-dashboard]: ./media/api-management-using-with-internal-vnet/api-management-internal-vnet-dashboard.png

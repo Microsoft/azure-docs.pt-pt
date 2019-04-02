@@ -16,12 +16,12 @@ ms.date: 05/21/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e9c7b1f737d0331ecd40ab318cec0c082a3f7ddd
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 9311c1060b953e87f163cb482db14cdd43f50d3d
+ms.sourcegitcommit: ad3e63af10cd2b24bf4ebb9cc630b998290af467
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56181342"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58791555"
 ---
 # <a name="user-privacy-and-azure-ad-seamless-single-sign-on"></a>Privacidade do utilizador e do Azure AD totalmente integrada início de sessão único
 
@@ -50,7 +50,7 @@ Verifique o conteúdo do **%ProgramData%\AADConnect** conteúdo de registo de pa
 
 Pode rever e eliminar estes ficheiros de registo de rastreio com o Explorador do Windows ou pode utilizar o seguinte script do PowerShell para efetuar as ações necessárias:
 
-```
+```powershell
 $Files = ((Get-Item -Path "$env:programdata\aadconnect\trace-*.log").VersionInfo).FileName 
  
 Foreach ($file in $Files) { 
@@ -67,6 +67,7 @@ Para saber mais sobre relacionados com os requisitos do Azure AD Connect com o G
 Se o registo de auditoria é ativado, este produto pode gerar registos de segurança para os controladores de domínio. Para saber mais sobre como configurar políticas de auditoria, leia isto [artigo](https://technet.microsoft.com/library/dd277403.aspx).
 
 ## <a name="next-steps"></a>Passos Seguintes
+
 * [Rever a política de Privacy da Microsoft no Centro de fidedignidade](https://www.microsoft.com/trustcenter)
   - [**Resolução de problemas** ](tshoot-connect-sso.md) -Saiba como resolver problemas comuns com a funcionalidade.
   - [**UserVoice** ](https://feedback.azure.com/forums/169401-azure-active-directory/category/160611-directory-synchronization-aad-connect) – para preenchimento de pedidos de novas funcionalidades.

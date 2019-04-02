@@ -9,14 +9,15 @@ ms.reviewer: jasonwhowell
 ms.assetid: 8a4e901e-9656-4a60-90d0-d78ff2f00656
 ms.topic: conceptual
 ms.date: 05/04/2017
-ms.openlocfilehash: f74ebb4e36f9648b2f78e968877a9ef861888af8
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: ad0a8ea4d06b5085179d4fd3c162114c00518ce1
+ms.sourcegitcommit: ad3e63af10cd2b24bf4ebb9cc630b998290af467
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58133446"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58792540"
 ---
 # <a name="get-started-with-azure-data-lake-analytics-using-azure-powershell"></a>Introdução ao Azure Data Lake Analytics com o Azure PowerShell
+
 [!INCLUDE [get-started-selector](../../includes/data-lake-analytics-selector-get-started.md)]
 
 Saiba como utilizar o Azure PowerShell para criar contas do Azure Data Lake Analytics e, em seguida, submeter e executar tarefas de U-SQL. Para mais informações sobre a Data Lake Analytics, consulte [Descrição geral da Análise do Azure Data Lake](data-lake-analytics-overview.md).
@@ -36,13 +37,13 @@ Este tutorial pressupõe que já esteja familiarizado com a utilização do Azur
 
 Iniciar sessão com um nome de subscrição:
 
-```
+```powershell
 Connect-AzAccount -SubscriptionName "ContosoSubscription"
 ```
 
 Em vez do nome de subscrição, também pode utilizar um D de subscrição para iniciar sessão:
 
-```
+```powershell
 Connect-AzAccount -SubscriptionId "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
 ```
 
@@ -61,7 +62,7 @@ CurrentStorageAccount :
 
 Os fragmentos de código do PowerShell neste tutorial utilizam estas variáveis para armazenar estas informações:
 
-```
+```powershell
 $rg = "<ResourceGroupName>"
 $adls = "<DataLakeStoreAccountName>"
 $adla = "<DataLakeAnalyticsAccountName>"
@@ -70,7 +71,7 @@ $location = "East US 2"
 
 ## <a name="get-information-about-a-data-lake-analytics-account"></a>Obter informações sobre uma conta do Data Lake Analytics
 
-```
+```powershell
 Get-AdlAnalyticsAccount -ResourceGroupName $rg -Name $adla  
 ```
 
@@ -78,7 +79,7 @@ Get-AdlAnalyticsAccount -ResourceGroupName $rg -Name $adla
 
 Crie uma variável do PowerShell para manter o script U-SQL.
 
-```
+```powershell
 $script = @"
 @a  = 
     SELECT * FROM 
@@ -96,13 +97,13 @@ OUTPUT @a
 
 Submeta o texto do script com o cmdlet `Submit-AdlJob` e os parâmetros `-Script`.
 
-```
+```powershell
 $job = Submit-AdlJob -Account $adla -Name "My Job" -Script $script
 ```
 
 Como alternativa, pode submeter um ficheiro de script com o parâmetro `-ScriptPath`:
 
-```
+```powershell
 $filename = "d:\test.usql"
 $script | out-File $filename
 $job = Submit-AdlJob -Account $adla -Name "My Job" -ScriptPath $filename
@@ -110,23 +111,24 @@ $job = Submit-AdlJob -Account $adla -Name "My Job" -ScriptPath $filename
 
 Obtenha o estado de uma tarefa com `Get-AdlJob`. 
 
-```
+```powershell
 $job = Get-AdlJob -Account $adla -JobId $job.JobId
 ```
 
 Em vez de chamar Get-AdlJob repetidamente até que uma tarefa seja concluída, utilize o cmdlet `Wait-AdlJob`.
 
-```
+```powershell
 Wait-AdlJob -Account $adla -JobId $job.JobId
 ```
 
 Transfira o ficheiro de saída com `Export-AdlStoreItem`.
 
-```
+```powershell
 Export-AdlStoreItem -Account $adls -Path "/data.csv" -Destination "C:\data.csv"
 ```
 
 ## <a name="see-also"></a>Consulte também
+
 * Para ver o mesmo tutorial, utilizando outras ferramentas, clique nos seletores de separador no topo da página.
 * Para saber mais sobre U-SQL, consulte [Introdução à linguagem U-SQL da Análise do Azure Data Lake](data-lake-analytics-u-sql-get-started.md).
 * Para tarefas de gestão, veja [Manage Azure Data Lake Analytics using Azure portal (Gerir o Azure Data Lake Analytics com o Portal do Azure)](data-lake-analytics-manage-use-portal.md).

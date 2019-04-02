@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/19/2019
 ms.author: hrasheed
-ms.openlocfilehash: 45b34d12fbcecbf5f6bf1225c5bb82c5385224ed
-ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
+ms.openlocfilehash: 186a9bafe70ab9644666868f11d5ddd865a66b8d
+ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58338399"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58802546"
 ---
 # <a name="use-azure-data-lake-storage-gen2-with-azure-hdinsight-clusters"></a>Utilize a geração 2 de armazenamento do Azure Data Lake com clusters do HDInsight do Azure
 
@@ -44,7 +44,7 @@ Crie uma conta de armazenamento de geração 2 de armazenamento do Azure Data La
 
 ### <a name="setup-permissions-for-the-managed-identity-on-the-data-lake-storage-gen2-account"></a>Configurar permissões para a identidade gerida na conta de geração 2 de armazenamento do Data Lake
 
-Atribuir a identidade gerida para o **proprietário de dados de Blob de armazenamento (pré-visualização)** função na conta de armazenamento. Para obter mais informações, consulte [gerir direitos de acesso aos dados de Blobs do Azure e a fila com o RBAC (pré-visualização)](../storage/common/storage-auth-aad-rbac.md).
+Atribuir a identidade gerida para o **proprietário de dados de Blob de armazenamento** função na conta de armazenamento. Para obter mais informações, consulte [gerir direitos de acesso aos dados de Blobs do Azure e a fila com o RBAC (pré-visualização)](../storage/common/storage-auth-aad-rbac.md).
 
 1. Na [portal do Azure](https://portal.azure.com), aceda à sua conta de armazenamento.
 1. Selecione a sua conta de armazenamento, em seguida, selecione **controlo de acesso (IAM)** para apresentar as definições de controlo de acesso para a conta. Selecione o **atribuições de funções** separador para ver a lista de atribuições de funções.
@@ -52,7 +52,7 @@ Atribuir a identidade gerida para o **proprietário de dados de Blob de armazena
     ![Captura de ecrã que mostra as definições de controlo de acesso de armazenamento](./media/hdinsight-hadoop-data-lake-storage-gen2/portal-access-control.png)
     
 1. Selecione o **+ adicionar atribuição de função** botão para adicionar uma nova função.
-1. Na **adicionar atribuição de função** janela, selecione a **proprietário de dados de Blob de armazenamento (pré-visualização)** função. Em seguida, selecione a subscrição que tem a conta de armazenamento e de identidade gerida. Em seguida, procure para localizar a identidade de gerido atribuído ao utilizador que criou anteriormente. Por fim, selecione a identidade gerida e serão listada sob **membros selecionados**.
+1. Na **adicionar atribuição de função** janela, selecione a **proprietário de dados de Blob de armazenamento** função. Em seguida, selecione a subscrição que tem a conta de armazenamento e de identidade gerida. Em seguida, procure para localizar a identidade de gerido atribuído ao utilizador que criou anteriormente. Por fim, selecione a identidade gerida e serão listada sob **membros selecionados**.
     
     ![Captura de ecrã que mostra como atribuir uma função RBAC](./media/hdinsight-hadoop-data-lake-storage-gen2/add-rbac-role3.png)
     
@@ -102,7 +102,7 @@ az storage account create --name hdinsightadlsgen2 \
     --kind StorageV2 --hierarchical-namespace true
 ```
 
-Em seguida, inicie sessão no portal. Adicionar a novo utilizador atribuído identidade gerida para o **contribuinte de dados de Blob de armazenamento (pré-visualização)** função na conta de armazenamento, conforme descrito no passo 3 sob [com o portal do Azure](hdinsight-hadoop-use-data-lake-storage-gen2.md).
+Em seguida, inicie sessão no portal. Adicionar a novo utilizador atribuído identidade gerida para o **contribuinte de dados de Blob de armazenamento** função na conta de armazenamento, conforme descrito no passo 3 sob [com o portal do Azure](hdinsight-hadoop-use-data-lake-storage-gen2.md).
 
 Depois de atribuir a função para a identidade gerida atribuído ao utilizador, implemente o modelo ao utilizar o seguinte trecho de código.
 

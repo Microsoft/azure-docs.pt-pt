@@ -15,12 +15,12 @@ ms.date: 02/09/2019
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: ''
-ms.openlocfilehash: b7f4ce9508928ccc6ab766e7164c674511bcaa37
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
+ms.openlocfilehash: 7855c2bd45ba35ecb0ede5c60268e6446f37ed5a
+ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56342784"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58804535"
 ---
 # <a name="understand-role-definitions-for-azure-resources"></a>Compreender as definições de funções para recursos do Azure
 
@@ -97,11 +97,11 @@ Para suportar operações de dados, foram adicionadas novas propriedades de dado
 - Escrever um blob de armazenamento num contentor
 - Eliminar uma mensagem numa fila
 
-Aqui está o [leitor de dados de Blob de armazenamento (pré-visualização)](built-in-roles.md#storage-blob-data-reader-preview) definição de função, que inclui operações em ambos os `Actions` e `DataActions` propriedades. Esta função permite-lhe ler o contentor de BLOBs e também os dados de blob subjacente.
+Aqui está o [leitor de dados de Blob de armazenamento](built-in-roles.md#storage-blob-data-reader) definição de função, que inclui operações em ambos os `Actions` e `DataActions` propriedades. Esta função permite-lhe ler o contentor de BLOBs e também os dados de blob subjacente.
 
 ```json
 {
-  "Name": "Storage Blob Data Reader (Preview)",
+  "Name": "Storage Blob Data Reader",
   "Id": "2a2b9908-6ea1-4ae2-8e65-a410df84e7d1",
   "IsCustom": false,
   "Description": "Allows for read access to Azure Storage blob containers and data",
@@ -125,18 +125,18 @@ Autorização para todas as chamadas de API de operação de gestão é processa
 
 ### <a name="data-operations-example"></a>Exemplo de operações de dados
 
-Para compreender melhor como funcionam as operações de gestão e os dados, vamos considerar um exemplo específico. Alice foi atribuída a [proprietário](built-in-roles.md#owner) função no âmbito da subscrição. BOB foi atribuído a [contribuinte de dados de Blob de armazenamento (pré-visualização)](built-in-roles.md#storage-blob-data-contributor-preview) função num âmbito de conta de armazenamento. O diagrama seguinte mostra este exemplo.
+Para compreender melhor como funcionam as operações de gestão e os dados, vamos considerar um exemplo específico. Alice foi atribuída a [proprietário](built-in-roles.md#owner) função no âmbito da subscrição. BOB foi atribuído a [contribuinte de dados de Blob de armazenamento](built-in-roles.md#storage-blob-data-contributor) função num âmbito de conta de armazenamento. O diagrama seguinte mostra este exemplo.
 
 ![Controlo de acesso baseado em funções foi expandido para suportar a gestão e operações de dados](./media/role-definitions/rbac-management-data.png)
 
-O [proprietário](built-in-roles.md#owner) função para Alice e o [contribuinte de dados de Blob de armazenamento (pré-visualização)](built-in-roles.md#storage-blob-data-contributor-preview) função para o Bernardo tem as seguintes ações:
+O [proprietário](built-in-roles.md#owner) função para Alice e o [contribuinte de dados de Blob de armazenamento](built-in-roles.md#storage-blob-data-contributor) função para o Bernardo tem as seguintes ações:
 
 Proprietário
 
 &nbsp;&nbsp;&nbsp;&nbsp;Ações<br>
 &nbsp;&nbsp;&nbsp;&nbsp;`*`
 
-Contribuinte de Dados do Armazenamento de Blobs (Pré-visualização)
+Contribuinte de Dados do Armazenamento de Blobs
 
 &nbsp;&nbsp;&nbsp;&nbsp;Ações<br>
 &nbsp;&nbsp;&nbsp;&nbsp;`Microsoft.Storage/storageAccounts/blobServices/containers/delete`<br>
@@ -149,7 +149,7 @@ Contribuinte de Dados do Armazenamento de Blobs (Pré-visualização)
 
 Uma vez que a Alice tem um caráter universal (`*`) ação num âmbito de subscrição, suas permissões herdam para permitir-lhe efetuar todas as ações de gestão. Alice pode ler, escrever e eliminar contentores. No entanto, Alice não é possível efetuar operações de dados sem colocar os passos adicionais. Por exemplo, por predefinição, Alice não é possível ler os blobs num contentor. Para ler os blobs, Alice teria-se obter as chaves de acesso de armazenamento e usá-los para aceder aos blobs.
 
-Permissões de Bob estão limitadas a apenas o `Actions` e `DataActions` especificado na [contribuinte de dados de Blob de armazenamento (pré-visualização)](built-in-roles.md#storage-blob-data-contributor-preview) função. Com base na função, Bob pode executar gerenciamento e operações de dados. Por exemplo, Bob poderá ler, escrever e eliminar os contentores na conta de armazenamento especificada e também ele pode ler, escrever e eliminar os blobs.
+Permissões de Bob estão limitadas a apenas o `Actions` e `DataActions` especificado na [contribuinte de dados de Blob de armazenamento](built-in-roles.md#storage-blob-data-contributor) função. Com base na função, Bob pode executar gerenciamento e operações de dados. Por exemplo, Bob poderá ler, escrever e eliminar os contentores na conta de armazenamento especificada e também ele pode ler, escrever e eliminar os blobs.
 
 Para obter mais informações sobre a gestão e segurança de plano de dados de armazenamento, consulte a [guia de segurança do armazenamento do Azure](../storage/common/storage-security-guide.md).
 

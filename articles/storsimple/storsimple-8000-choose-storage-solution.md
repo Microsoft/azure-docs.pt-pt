@@ -5,26 +5,26 @@ services: storsimple
 author: alkohli
 ms.service: storsimple
 ms.topic: article
-ms.date: 11/12/2018
+ms.date: 04/01/2019
 ms.author: alkohli
-ms.openlocfilehash: b5ced2814aff51317304cd44c41b04ab9a954844
-ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
+ms.openlocfilehash: d727ed62f5a869f6eb67400281d2660607756abf
+ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54213200"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58802699"
 ---
 # <a name="compare-storsimple-with-azure-file-sync-and-data-box-edge-data-transfer-options"></a>Comparar o StorSimple com opções de transferência de dados do Azure File Sync e o limite de caixa de dados 
  
 Este documento fornece uma descrição geral das opções para transferência de dados no local para o Azure, comparando: Vs de borda de caixa de dados. Azure File Sync vs. Série StorSimple 8000.
 
-- **[Dados caixa Edge](/azure/databox-online/data-box-edge-overview)**  – Edge de caixa de dados é um dispositivo de rede no local move os dados para dentro e fora do Azure e com a computação de extremidade habilitados para IA para processar previamente os dados durante o carregamento. Ele foi anunciado na Ignite 2018 e está em pré-visualização pública. Gateway de caixa de dados é uma versão virtual do dispositivo com as mesmas capacidades de transferência de dados.
+- **[Dados caixa Edge](/azure/databox-online/data-box-edge-overview)**  – Edge de caixa de dados é um dispositivo de rede no local move os dados para dentro e fora do Azure e com a computação de extremidade habilitados para IA para processar previamente os dados durante o carregamento. Gateway de caixa de dados é uma versão virtual do dispositivo com as mesmas capacidades de transferência de dados.
 - **[O Azure File Sync](/azure/storage/files/storage-sync-files-deployment-guide)**  – Azure File Sync pode ser usado para centralizar as partilhas de ficheiros da sua organização nos ficheiros do Azure, mantendo a flexibilidade, desempenho e compatibilidade de um servidor de ficheiros no local. O Azure File Sync transforma o Windows Server numa cache rápida da sua partilha de ficheiros do Azure. Disponibilidade geral do Azure File Sync foi anunciada anteriormente em 2018.
 - **[StorSimple](/azure/storsimple/storsimple-overview)**  – StorSimple é um dispositivo de híbrida que ajuda as empresas a consolidar sua infra-estrutura de armazenamento para armazenamento primário, proteção de dados, arquivamento e recuperação de desastres numa única solução integrando rigidamente Armazenamento do Azure. O ciclo de vida do produto para o StorSimple pode ser encontrado [aqui](https://support.microsoft.com/lifecycle/search?alpha=Azure%20StorSimple%208000%20Series).
 
 ## <a name="comparison-summary"></a>Resumida de comparação
 
-|                           |StorSimple 8000   |Azure File Sync   |Edge de caixa de dados (pré-visualização)           |
+|                           |StorSimple 8000   |Azure File Sync   |Data Box Edge           |
 |---------------------------|----------------------------------------|-------------------------------|-----------------------------------------|
 |Descrição geral         |Camadas de armazenamento híbrido e o arquivo|Armazenamento de servidor de ficheiros gerais com disposição em camadas e vários sites da sincronização da cloud.  |Solução de armazenamento para processar previamente os dados e enviar por meio de rede para o Azure.        |
 |Cenários        |Servidor de ficheiros de destino de arquivo, cópia de segurança |Servidor de ficheiros, arquivamento (vários sites)   |Transferência de dados, dados pré-processamento incluindo ML inferência, IoT, arquivamento    |
@@ -33,7 +33,7 @@ Este documento fornece uma descrição geral das opções para transferência de
 |Hardware         |Dispositivo físico fornecido pela Microsoft como parte do serviço | Pelo cliente |Dispositivo físico fornecido pela Microsoft como parte do serviço  |
 |Formato de dados      |Formato personalizado   |Ficheiros         |BLOBs ou ficheiros    |
 |Suporte de protocolo |iSCSI          |SMB, NFS    | SMB ou NFS      |
-|Preços          |[StorSimple](https://azure.microsoft.com/pricing/details/storsimple/) |[Sincronização de ficheiros do Azure](https://azure.microsoft.com/pricing/details/storage/files/)  |[Edge de caixa de dados](https://azure.microsoft.com/pricing/details/storage/databox/edge/)  |
+|Preços          |[StorSimple](https://azure.microsoft.com/pricing/details/storsimple/) |[Azure File Sync](https://azure.microsoft.com/pricing/details/storage/files/)  |[Edge de caixa de dados](https://azure.microsoft.com/pricing/details/storage/databox/edge/)  |
 
 ## <a name="next-steps"></a>Passos Seguintes
 

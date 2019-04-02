@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 01/11/2019
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 287ae3b8122dd2a1e43c31055ac0ea5b04dddb07
-ms.sourcegitcommit: f331186a967d21c302a128299f60402e89035a8d
+ms.openlocfilehash: dfd91caf67592b349bd16bab673a3e45397ad282
+ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58190697"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58807851"
 ---
 ## <a name="benefits-of-managed-disks"></a>Benefícios dos discos geridos
 
@@ -43,7 +43,7 @@ Pode usar [controlo de acesso baseado em função do Azure (RBAC)](../articles/r
 
 ### <a name="data-disks"></a>Discos de dados
 
-Um disco de dados é um disco gerido, que está ligado a uma máquina virtual para armazenar dados de aplicação ou outros dados que precisa para manter. Discos de dados estão registados como unidades SCSI e são rotulados com uma letra que escolher. Cada disco de dados tem a capacidade máxima de 4095 gibibytes (GiB). O tamanho da máquina virtual determina quantos discos de dados, pode anexar a ele e o tipo de armazenamento pode utilizar para alojar os discos.
+Um disco de dados é um disco gerido, que está ligado a uma máquina virtual para armazenar dados de aplicação ou outros dados que precisa para manter. Discos de dados estão registados como unidades SCSI e são rotulados com uma letra que escolher. Cada disco de dados tem a capacidade máxima de 32.767 gibibytes (GiB). O tamanho da máquina virtual determina quantos discos de dados, pode anexar a ele e o tipo de armazenamento pode utilizar para alojar os discos.
 
 ### <a name="os-disks"></a>Discos de SO
 
@@ -53,7 +53,7 @@ Este disco tem a capacidade máxima de 2048 GiB.
 
 ### <a name="temporary-disk"></a>Disco temporário
 
-Cada VM contém um disco temporário, que não é um disco gerido. O disco temporário fornece armazenamento de curto prazo para aplicações e processos e destina-se para armazenar apenas os dados, tais como ficheiros de paginação ou de troca. Dados do disco temporário podem ser perdidos durante uma [evento de manutenção](../articles/virtual-machines/windows/manage-availability.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json#understand-vm-reboots---maintenance-vs-downtime) eventos ou quando [Reimplementar uma VM](../articles/virtual-machines/troubleshooting/redeploy-to-new-node-windows.md?toc=%2Fazure%2Fvirtual-machines%2Fwindows%2Ftoc.json). Durante uma reinicialização bem sucedida padrão da VM, irão manter os dados na unidade temporária. 
+Cada VM contém um disco temporário, que não é um disco gerido. O disco temporário fornece armazenamento de curto prazo para aplicações e processos e destina-se para armazenar apenas os dados, tais como ficheiros de paginação ou de troca. Dados do disco temporário podem ser perdidos durante uma [evento de manutenção](../articles/virtual-machines/windows/manage-availability.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json#understand-vm-reboots---maintenance-vs-downtime) eventos ou quando [Reimplementar uma VM](../articles/virtual-machines/troubleshooting/redeploy-to-new-node-windows.md?toc=%2Fazure%2Fvirtual-machines%2Fwindows%2Ftoc.json). Durante uma reinicialização bem sucedida padrão da VM, irão manter os dados na unidade temporária.
 
 ## <a name="managed-disk-snapshots"></a>Instantâneos de disco gerido
 
@@ -62,7 +62,7 @@ Um instantâneo do disco gerido é uma cópia completa só de leitura de um disc
 Para saber mais sobre como criar instantâneos com discos geridos, consulte os seguintes recursos:
 
 * [Criar cópia de VHD armazenado como um disco gerido com os instantâneos no Windows](../articles/virtual-machines/windows/snapshot-copy-managed-disk.md)
-* [Criar cópia de VHD armazenado como um disco gerido com os instantâneos no Linux](../articles/virtual-machines/linux/snapshot-copy-managed-disk.md)
+* [Create copy of VHD stored as a managed disk using snapshots in Linux](../articles/virtual-machines/linux/snapshot-copy-managed-disk.md) (Criar uma cópia de um VHD armazenado como disco gerido com os instantâneos no Linux)
 
 ### <a name="images"></a>Imagens
 
@@ -71,7 +71,7 @@ Discos geridos também suportam a criação de uma imagem personalizada gerida. 
 Para obter informações sobre a criação de imagens, consulte os artigos seguintes:
 
 * [Como capturar uma imagem gerida de uma VM generalizada no Azure](../articles/virtual-machines/windows/capture-image-resource.md)
-* [Como generalizar e capturar uma máquina virtual do Linux com a CLI do Azure](../articles/virtual-machines/linux/capture-image.md)
+* [How to generalize and capture a Linux virtual machine using the Azure CLI](../articles/virtual-machines/linux/capture-image.md) (Como generalizar e capturar uma máquina virtual do Linux com a CLI do Azure)
 
 #### <a name="images-versus-snapshots"></a>Imagens com instantâneos
 

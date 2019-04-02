@@ -7,14 +7,14 @@ ms.service: governance
 ms.topic: article
 ms.date: 12/06/2018
 ms.author: dacoulte
-ms.openlocfilehash: c38d19b8528399ae09d92e48ed7dfc17c18938b7
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
+ms.openlocfilehash: f94cec7919edc6cf6ebb6618d38b8591feb1278b
+ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56338075"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58804144"
 ---
-# <a name="management-in-azure"></a>Gestão no Azure
+# <a name="overview-of-management-services-in-azure"></a>Descrição geral dos serviços de gestão no Azure
 
 Governação no Azure é um aspecto de gestão do Azure. Este artigo aborda as diferentes áreas de gestão para implementar e manter os seus recursos no Azure.
 
@@ -22,7 +22,7 @@ Gestão refere-se aos processos e tarefas necessários para manter as suas aplic
 
 O diagrama seguinte ilustra as diferentes áreas de gestão necessárias para manter qualquer aplicação ou recurso. Essas áreas diferentes podem ser consideradas como um ciclo de vida. Cada área é necessário em sucessão contínua ao longo do tempo de vida de um recurso. Este ciclo de vida do recurso começa com a implementação inicial, por meio de operação continuada e, finalmente, quando extinto.
 
-![Disciplinas de gerenciamento](../monitoring/media/management-overview/management-capabilities.png)
+![Disciplinas de gerenciamento no Azure](../monitoring/media/management-overview/management-capabilities.png)
 
 Nenhum serviço do Azure individual preenche completamente os requisitos de uma área de gestão específico. Em vez disso, cada um é realizado por vários serviços, trabalhando em conjunto. Alguns serviços, como o Application Insights, fornecem funcionalidade direcionada de monitorização para aplicações web. Outros, como registos do Azure Monitor, armazenam dados de gestão para outros serviços. Esta funcionalidade permite-lhe analisar os dados de vários tipos recolhidos por diferentes serviços.
 

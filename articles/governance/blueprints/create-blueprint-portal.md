@@ -1,6 +1,6 @@
 ---
 title: Criar um plano gráfico no portal
-description: Utilize planos gráficos do Azure para criar, definir e implementar artefactos através do Portal do Azure.
+description: Utilize planos gráficos do Azure para criar, definir e implementar artefactos através do portal do Azure.
 services: blueprints
 author: DCtheGeek
 ms.author: dacoulte
@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.service: blueprints
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: fdf87bff026dee4969b3995b37c31de3ead7714b
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 0b27514dfa34963901fb94be37d8fe330a3c65ce
+ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58004912"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58804399"
 ---
 # <a name="define-and-assign-an-azure-blueprint-in-the-portal"></a>Definir e atribuir um esquema de Azure no portal
 
@@ -40,7 +40,7 @@ O primeiro passo na definição de um padrão de conformidade é compor um esque
 
    - Em alternativa, clique em **Criar** na página **Introdução** para ir diretamente para a criação de um esquema.
 
-   ![Criar esquema](./media/create-blueprint-portal/create-blueprint-button.png)
+   ![Criar o esquema da página de definições de esquema](./media/create-blueprint-portal/create-blueprint-button.png)
 
 1. Fornecer um **nome do esquema** como "MyBlueprint' (letras e números – até 48 carateres, mas sem espaços ou carateres especiais) para o plano gráfico, mas deixe **esquema Descrição** em branco por agora. Na **localização da definição** caixa, clique nas reticências à direita, selecione a [grupo de gestão](../management-groups/overview.md) ou uma subscrição onde pretende guardar o plano gráfico e clique em **selecionar**.
 
@@ -48,7 +48,7 @@ O primeiro passo na definição de um padrão de conformidade é compor um esque
 
 1. Adicione atribuição de função na subscrição: LEFT-click no **+ adicionar artefacto...**  linha sob **subscrição** e a janela de "Adicionar artefacto" abre no lado direito do browser. Selecione a atribuição de função para _tipo de Artefato_. Sob _função_, selecione "Contribuinte" e deixe o _adicionar utilizador, aplicação ou grupo_ campo com a caixa de verificação indicar uma **parâmetro dinâmico**. Clique em **Adicionar** para adicionar este artefacto ao esquema.
 
-   ![Artefacto – Atribuição de Função](./media/create-blueprint-portal/add-role-assignment.png)
+   ![Artefacto de esquema - atribuição de função](./media/create-blueprint-portal/add-role-assignment.png)
 
    > [!NOTE]
    > A maioria dos _artefactos_ suporta parâmetros. Um parâmetro com um valor atribuído durante a criação do esquema é um **parâmetro estático**. Se o parâmetro for atribuído durante a atribuição do esquema, será um **parâmetro dinâmico**. Para obter mais informações, veja [Parâmetros de esquema](./concepts/parameters.md).
@@ -113,11 +113,11 @@ O primeiro passo na definição de um padrão de conformidade é compor um esque
    }
    ```
 
-   ![Artefacto – Modelo do Resource Manager](./media/create-blueprint-portal/add-resource-manager-template.png)
+   ![Artefacto de esquema - modelo do Resource Manager](./media/create-blueprint-portal/add-resource-manager-template.png)
 
 1. O esquema concluído deve ter um aspeto semelhante ao seguinte. Repare que cada artefacto tem “_x_ de _y_ parâmetros preenchidos” na coluna _Parâmetros_. Os **parâmetros dinâmicos** são definidos durante cada atribuição do esquema.
 
-   ![Esquema concluído](./media/create-blueprint-portal/completed-blueprint.png)
+   ![Definição do esquema concluída](./media/create-blueprint-portal/completed-blueprint.png)
 
 1. Agora que todos os artefactos planeados foram adicionados, clique em **Guardar Rascunho** na parte inferior da página.
 
@@ -135,11 +135,11 @@ Em [Criar um esquema](#create-a-blueprint), não foi fornecida uma Descrição n
 
 1. Adicione atribuição de função no grupo de recursos: LEFT-click no **+ adicionar artefacto...**  linha diretamente sob o **ResourceGroup** entrada. Selecione a atribuição de função para _tipo de Artefato_. Sob _função_, selecione "Owner" e remover a verificação para o _adicionar utilizador, aplicação ou grupo_ campo e procure e selecione um utilizador, aplicação ou grupo a adicionar. Este artefacto utiliza um **parâmetro estático** que é o mesmo em cada atribuição deste esquema. Clique em **Adicionar** para adicionar este artefacto ao esquema.
 
-   ![Artefacto – Atribuição de Função 2](./media/create-blueprint-portal/add-role-assignment-2.png)
+   ![Artefacto de esquema - n. º 2 atribuição de função](./media/create-blueprint-portal/add-role-assignment-2.png)
 
 1. O esquema concluído deve ter um aspeto semelhante ao seguinte. Repare que a atribuição de função recém-adicionada mostra **1 de 1 parâmetros preenchidos**, o que significa que é um **parâmetro estático**.
 
-   ![Esquema 2 concluído](./media/create-blueprint-portal/completed-blueprint-2.png)
+   ![#2 da definição do esquema concluída](./media/create-blueprint-portal/completed-blueprint-2.png)
 
 1. Clique em **Guardar Rascunho** agora que foi atualizado.
 
@@ -224,7 +224,7 @@ Agora que o esquema foi atribuído a uma subscrição, verifique o progresso da 
 
 1. Na lista de esquemas, faça duplo clique num atribuído anteriormente e selecione **ver os detalhes de atribuição**.
 
-   ![Ver detalhes de atribuição](./media/create-blueprint-portal/view-assignment-details.png)
+   ![Ver detalhes de atribuição da página de planos gráficos atribuído](./media/create-blueprint-portal/view-assignment-details.png)
 
 1. Sobre o **esquema atribuição** página, confirme que todos os artefactos foram implementados com êxito e que não foram sem erros durante a implantação. Se tiver ocorrido algum erro, veja a [resolução de problemas de esquemas](./troubleshoot/general.md) para obter os passos que determinam o que correu mal.
 
@@ -249,9 +249,9 @@ Se já não precisar de um esquema, remova a atribuição do mesmo de uma subscr
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-- Saiba mais sobre o [ciclo de vida de esquema](./concepts/lifecycle.md).
-- Compreender como usar [parâmetros estáticos e dinâmicos](./concepts/parameters.md).
-- Aprenda a personalizar a [esquema de ordem de sequenciamento](./concepts/sequencing-order.md).
-- Descubra como tornar a usar [esquema de bloqueio do recurso](./concepts/resource-locking.md).
-- Saiba como [atualizar atribuições existentes](./how-to/update-existing-assignments.md).
-- Resolver problemas durante a atribuição de um plano gráfico com [resolução de problemas gerais](./troubleshoot/general.md).
+- Saiba mais sobre o [ciclo de vida de um esquema](./concepts/lifecycle.md).
+- Compreenda como utilizar [parâmetros estáticos e dinâmicos](./concepts/parameters.md).
+- Aprenda a personalizar a [ordem de sequenciação do esquema](./concepts/sequencing-order.md).
+- Saiba como utilizar o [bloqueio de recursos de esquema](./concepts/resource-locking.md).
+- Saiba como [atualizar as atribuições existentes](./how-to/update-existing-assignments.md).
+- Resolva problemas durante a atribuição de um esquema com a [resolução de problemas gerais](./troubleshoot/general.md).

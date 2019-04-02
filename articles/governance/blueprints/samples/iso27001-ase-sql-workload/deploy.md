@@ -1,5 +1,5 @@
 ---
-title: Exemplo - esquema de carga de trabalho de base de dados do ISO 27001 aplicação serviço ambiente/SQL - implementar passos
+title: Exemplo - esquema de carga de trabalho da ISO 27001 ASE/SQL - implementar passos
 description: Implemente os passos para o exemplo de plano gráfico de carga de trabalho de base de dados do ISO 27001 aplicação serviço ambiente/SQL.
 services: blueprints
 author: DCtheGeek
@@ -8,14 +8,14 @@ ms.date: 03/14/2019
 ms.topic: conceptual
 ms.service: blueprints
 manager: carmonm
-ms.openlocfilehash: 80c98170fc136c20d8489cec5d145f96e207bc9f
-ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
+ms.openlocfilehash: 4ed51ee5f8cbdc50fa65a189d8f468bd7713a74b
+ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58201913"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58804161"
 ---
-# <a name="deploy-the-azure-blueprints-iso-27001-app-service-environmentsql-database-workload-blueprint-sample"></a>Implementar o exemplo de plano gráfico de carga de trabalho do Azure esquemas ISO 27001 aplicação serviço ambiente/base de dados SQL
+# <a name="deploy-the-iso-27001-app-service-environmentsql-database-workload-blueprint-sample"></a>Implementar o exemplo de plano gráfico de carga de trabalho de base de dados do ISO 27001 aplicação serviço ambiente/SQL
 
 Para implementar o exemplo de plano gráfico de carga de trabalho do Azure esquemas ISO 27001 aplicação serviço ambiente/base de dados SQL, é necessário os seguintes passos:
 
@@ -157,10 +157,10 @@ Agora que reviu os passos para implementar o exemplo de plano gráfico de carga 
 > [Esquema de carga de trabalho de base de dados do ISO 27001 aplicação serviço ambiente/SQL - descrição geral](./index.md)
 > [esquema da carga de trabalho de base de dados do ISO 27001 aplicação serviço ambiente/SQL - mapeamento de controlo](./control-mapping.md)
 
-Artigos de adição sobre esquemas e como utilizá-los:
+Artigos adicionais sobre esquemas e como utilizá-los:
 
-- Saiba mais sobre o [ciclo de vida de esquema](../../concepts/lifecycle.md).
-- Compreender como usar [parâmetros estáticos e dinâmicos](../../concepts/parameters.md).
-- Aprenda a personalizar a [esquema de ordem de sequenciamento](../../concepts/sequencing-order.md).
-- Descubra como tornar a usar [esquema de bloqueio do recurso](../../concepts/resource-locking.md).
-- Saiba como [atualizar atribuições existentes](../../how-to/update-existing-assignments.md).
+- Saiba mais sobre o [ciclo de vida de um esquema](../../concepts/lifecycle.md).
+- Compreenda como utilizar [parâmetros estáticos e dinâmicos](../../concepts/parameters.md).
+- Aprenda a personalizar a [ordem de sequenciação do esquema](../../concepts/sequencing-order.md).
+- Saiba como utilizar o [bloqueio de recursos de esquema](../../concepts/resource-locking.md).
+- Saiba como [atualizar as atribuições existentes](../../how-to/update-existing-assignments.md).

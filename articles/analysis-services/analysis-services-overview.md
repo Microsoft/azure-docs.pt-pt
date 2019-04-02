@@ -5,15 +5,15 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: overview
-ms.date: 02/14/2019
+ms.date: 04/01/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: a908b00022351b9a91f9381229c773d063390744
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 340f121f64cb01803401a972038677448849e94f
+ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57444162"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58803520"
 ---
 # <a name="what-is-azure-analysis-services"></a>O que é o Azure Analysis Services?
 
@@ -144,6 +144,11 @@ O modo DirectQuery* tira partido da base de dados relacional de back-end para ar
 
 Os modelos em tabela no Azure Analysis Services suportam uma grande variedade de origens de dados, desde ficheiros de texto simples a Macrodados no Azure Data Lake Store. Para saber mais, veja [Data sources supported in Azure Analysis Services](analysis-services-datasource.md) (Origens de dados suportadas no Azure Analysis Services).
 
+## <a name="compatibility-level"></a>Nível de compatibilidade
+
+Nível de compatibilidade refere-se para comportamentos específicos da versão no motor do Analysis Services. O Azure Analysis Services suporta modelos em tabela nos níveis de compatibilidade 1200 e superior. Para obter mais informações, consulte [nível de compatibilidade para modelos em tabela do Analysis Services](analysis-services-compat-level.md).
+
+
 ## <a name="your-data-is-secure"></a>Os dados estão seguros
 
 O Azure Analysis Services proporciona segurança para os seus dados confidenciais a diversos níveis. Como um serviço do Azure, o Analysis Services fornece **básica** ao nível do Distributed ataques denial of service (DDoS) ativada automaticamente como parte da plataforma do Azure. Para obter mais informações, consulte [descrição geral do padrão do Azure DDoS Protection](../virtual-network/ddos-protection-overview.md). 
@@ -225,7 +230,7 @@ O Azure Analysis Services também suporta a utilização de [Vistas de Gestão D
 
 Esta secção inclui documentação específica do Azure Analysis Services. Utilize o índice no lado esquerdo do ecrã do browser para localizar artigos. 
 
-Uma vez que os modelos em tabela do Azure Analysis Services são idênticos aos modelos em tabela no SQL Server Analysis Services, existe uma biblioteca alargada de artigos partilhados de conceitos, procedimentos, programadores e de referência na [SQL Server Analysis Services Documentation](https://docs.microsoft.com/sql/analysis-services/analysis-services) (Documentação do SQL Server Analysis Services). Os artigos na documentação do SQL Server Analysis Services mostram se também se aplicam ao Azure Analysis Services através de uma faixa com a indicação "APLICA-SE A" abaixo do título.
+Como modelos em tabela do Azure Analysis Services são muito semelhante a modelos em tabela no SQL Server Analysis Services, existe uma biblioteca abrangente de desenvolvedor de conceitos, procedimento, compartilhado e artigos de referência no [SQL Server Analysis Services Documentação](https://docs.microsoft.com/sql/analysis-services/analysis-services). Os artigos na documentação do SQL Server Analysis Services mostram se também se aplicam ao Azure Analysis Services através de uma faixa com a indicação "APLICA-SE A" abaixo do título.
 
 ![Documentação partilhada](./media/analysis-services-overview/aas-overview-applies-to.png)
 

@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 03/28/2019
 ms.author: jingwang
-ms.openlocfilehash: 01d00b33a4575f17cffb7ba878372367046271a1
-ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
+ms.openlocfilehash: ee47f464c59bd9deed98671f19cfcc6d2c3c1b39
+ms.sourcegitcommit: 09bb15a76ceaad58517c8fa3b53e1d8fec5f3db7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2019
-ms.locfileid: "58578429"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58762485"
 ---
 # <a name="copy-data-from-a-rest-endpoint-by-using-azure-data-factory"></a>Copiar dados de um ponto final REST através do Azure Data Factory
 
@@ -55,7 +55,7 @@ As seguintes propriedades são suportadas para o serviço REST ligado:
 
 | Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
-| tipo | O **tipo** propriedade tem de ser definida como **HttpServer**. | Sim |
+| tipo | O **tipo** propriedade tem de ser definida como **RestService**. | Sim |
 | url | O URL de base do serviço REST. | Sim |
 | enableServerCertificateValidation | Se é necessário validar o certificado SSL de lado do servidor ao ligar-se para o ponto final. | Não<br /> (a predefinição é **true**) |
 | authenticationType | Tipo de autenticação utilizado para ligar ao serviço REST. Valores permitidos são **anónimo**, **básica**, **AadServicePrincipal** e **ManagedServiceIdentity**. Consulte as secções correspondentes abaixo sobre mais propriedades e exemplos, respetivamente. | Sim |

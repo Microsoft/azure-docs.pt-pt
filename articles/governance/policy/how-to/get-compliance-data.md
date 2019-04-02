@@ -9,14 +9,14 @@ ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: df5b6268a2ecd7062969aac9d663ee751eeab130
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: da027e492633ba3e4da912c2c45b2432fd217576
+ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57535217"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58802963"
 ---
-# <a name="getting-compliance-data"></a>Obter dados de conformidade
+# <a name="get-compliance-data-of-azure-resources"></a>Obter dados de compatibilidade dos recursos do Azure
 
 Um dos maiores benefícios do Azure Policy é as informações e os controles fornece sobre os recursos numa subscrição ou [grupo de gestão](../../management-groups/overview.md) das subscrições. Esse controle pode ser realizado em muitas formas diferentes, tais como impedir os recursos a ser criados no lugar errado, impor a utilização de etiqueta comum e consistente, ou apropriado de auditorias recursos existentes para configurações e definições. Em todos os casos, os dados são gerados pela política para que possa compreender o estado de conformidade do seu ambiente.
 
@@ -120,27 +120,27 @@ Política utiliza o **tipo** e **nome** campos na definição para determinar se
 A percentagem de conformidade é determinada pela divisão **compatível** recursos por _total de recursos_.
 _Total de recursos_ é definido como a soma do **compatível**, **em não conformidade**, e **em conflito** recursos. Os números de conformidade geral são a soma dos recursos distintos que sejam **compatível** dividido pela soma de todos os recursos distintos. Na imagem abaixo, existem 20 recursos distintos que são aplicáveis e é apenas um **em não conformidade**. Conformidade geral do recurso é 95% (19 de 20).
 
-![Exemplo de conformidade simples](../media/getting-compliance-data/simple-compliance.png)
+![Exemplo de conformidade com a política da página de conformidade](../media/getting-compliance-data/simple-compliance.png)
 
 ## <a name="portal"></a>Portal
 
 O portal do Azure apresenta uma experiência gráfica de visualizar e compreender o estado de conformidade no seu ambiente. Sobre o **política** página, o **descrição geral** opção fornece detalhes para âmbitos disponíveis na conformidade das políticas e iniciativas. Juntamente com o estado de conformidade e a contagem por atribuição, contém um gráfico que mostra a conformidade nos últimos sete dias.
 O **conformidade** página contém grande parte essas mesmas informações (exceto o gráfico), mas fornecem opções de ordenação e filtragem adicionais.
 
-![Página de política de conformidade](../media/getting-compliance-data/compliance-page.png)
+![Exemplo de página de política de conformidade](../media/getting-compliance-data/compliance-page.png)
 
 Uma vez que uma política ou iniciativa pode ser atribuída a âmbitos diferentes, a tabela inclui o âmbito para cada atribuição e o tipo de definição de que foi atribuída. O número de recursos em não conformidade e políticas de conformidade para cada atribuição também é fornecido. Clicar numa política ou iniciativa na tabela fornece uma análise mais profunda a conformidade para essa atribuição particular.
 
-![Detalhes da conformidade de política](../media/getting-compliance-data/compliance-details.png)
+![Exemplo de página de detalhes de conformidade de política](../media/getting-compliance-data/compliance-details.png)
 
 A lista de recursos sobre o **conformidade do recurso** separador mostra o estado de avaliação dos recursos existentes para a atribuição atual. A guia assume a predefinição **em não conformidade**, mas pode ser filtrada.
 Eventos (acrescentar, auditoria, negar, implementar) acionada pelo pedido para criar um recurso são apresentados sob a **eventos** separador.
 
-![Eventos de política de conformidade](../media/getting-compliance-data/compliance-events.png)
+![Exemplo de eventos de conformidade de política](../media/getting-compliance-data/compliance-events.png)
 
 Com o botão direito na linha do evento que pretende recolher mais detalhes sobre e selecione **Mostrar registos de atividades**. Página de registo de atividade é aberto e é previamente filtrada para a pesquisa que mostra os detalhes para a atribuição e os eventos. O registo de atividades fornece o contexto adicional e informações sobre esses eventos.
 
-![Registo de atividades de conformidade de política](../media/getting-compliance-data/compliance-activitylog.png)
+![Exemplo de registo de atividades de conformidade de política](../media/getting-compliance-data/compliance-activitylog.png)
 
 ### <a name="understand-non-compliance"></a>Compreender a não conformidade
 
@@ -414,7 +414,7 @@ PS> (Get-AzADUser -ObjectId {principalOid}).DisplayName
 Trent Baker
 ```
 
-## <a name="azure-monitor-logs"></a>Registos de Monitor do Azure
+## <a name="azure-monitor-logs"></a>Registos do Azure Monitor
 
 Se tiver um [área de trabalho do Log Analytics](../../../log-analytics/log-analytics-overview.md) com `AzureActivity` da [solução Log Analytics da atividade](../../../azure-monitor/platform/collect-activity-logs.md) vinculado à sua subscrição, pode também ver resultados de não conformidade da utilização de ciclo de avaliação consultas de Kusto simples e o `AzureActivity` tabela. Com detalhes nos registos do Azure Monitor, os alertas podem ser configurados para ver a de não conformidade.
 

@@ -12,14 +12,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/08/2019
+ms.date: 04/01/2019
 ms.author: juliako
-ms.openlocfilehash: d2651bc47f262a45a05217585eb00cbc721c01a1
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: a686465b0006c2e9aac6e06cb4ab12d30921e8c5
+ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58165782"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58802682"
 ---
 # <a name="managing-assets-and-related-entities-with-media-services-net-sdk"></a>Gerenciamento de ativos e entidades relacionadas com os serviços de multimédia .NET SDK
 > [!div class="op_single_selector"]
@@ -28,10 +28,12 @@ ms.locfileid: "58165782"
 > 
 > 
 
+> [!NOTE]
+> Não serão adicionadas novas funcionalidades aos Serviços de Multimédia v2. <br/>Veja a versão mais recente, [Serviços de Multimédia v3](https://docs.microsoft.com/azure/media-services/latest/). Além disso, veja [orientação de migração da v2 para a v3](../latest/migrate-from-v2-to-v3.md)
+
 Este tópico mostra como gerir entidades de serviços de multimédia do Azure com .NET.
 
->[!NOTE]
-> A partir de 1 de abril de 2017, qualquer Registo de tarefa na sua conta com mais de 90 dias será eliminado automaticamente, juntamente com os seus registos de Tarefas associados, mesmo se o número total de registos for inferior à quota máxima. Por exemplo, 1 de Abril de 2017, qualquer registo de tarefa na sua conta com mais de 31 de Dezembro de 2016, serão automaticamente eliminado. Se precisar de arquivar as informações de tarefas, pode usar o código descrito neste tópico.
+A partir de 1 de abril de 2017, qualquer Registo de tarefa na sua conta com mais de 90 dias será eliminado automaticamente, juntamente com os seus registos de Tarefas associados, mesmo se o número total de registos for inferior à quota máxima. Por exemplo, 1 de Abril de 2017, qualquer registo de tarefa na sua conta com mais de 31 de Dezembro de 2016, serão automaticamente eliminado. Se precisar de arquivar as informações de tarefas, pode usar o código descrito neste tópico.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 

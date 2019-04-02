@@ -12,12 +12,12 @@ ms.author: moslake
 ms.reviewer: vanto, genemi
 manager: craigg
 ms.date: 03/12/2019
-ms.openlocfilehash: 4af27ad4fb5096f3ccac5de901c76e8d7464e1f4
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 8c33cd7fe702f46f9c88643895b96445a9aa6a78
+ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57887124"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58805198"
 ---
 # <a name="use-virtual-network-service-endpoints-and-rules-for-database-servers"></a>Utilizar pontos finais de serviço de rede virtual e regras para servidores de base de dados
 
@@ -197,7 +197,7 @@ Normalmente é utilizar o PolyBase para carregar dados para o Azure SQL Data War
    > - Se tiver uma conta de armazenamento para fins gerais v1 ou BLOBs, tem **atualizar primeiro para v2** usando essa [guia](https://docs.microsoft.com/azure/storage/common/storage-account-upgrade).
    > - Para problemas conhecidos com geração 2 de armazenamento do Azure Data Lake, consulte este [guia](https://docs.microsoft.com/azure/storage/data-lake-storage/known-issues).
     
-1. Na sua conta de armazenamento, navegue até **controlo de acesso (IAM)** e clique em **adicionar atribuição de função**. Atribua **contribuinte de dados de Blob de armazenamento (pré-visualização)** função RBAC para o seu servidor de base de dados SQL.
+1. Na sua conta de armazenamento, navegue até **controlo de acesso (IAM)** e clique em **adicionar atribuição de função**. Atribua **contribuinte de dados de Blob de armazenamento** função RBAC para o seu servidor de base de dados SQL.
 
    > [!NOTE] 
    > Apenas os membros com privilégios de proprietário podem efetuar este passo. Para várias funções incorporadas para recursos do Azure, consulte este [guia](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles).

@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.service: azure-policy
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: af14b242ae7578e1f9797895bd18c37231959ac9
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
+ms.openlocfilehash: 99c9caa167b1615705adc29193bc395b0c9e2a66
+ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56342716"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58803991"
 ---
 # <a name="create-a-policy-assignment-to-identify-non-compliant-resources"></a>Criar uma atribuição de política para identificar recursos incompatíveis
 
@@ -31,15 +31,15 @@ Neste início rápido, pode criar uma atribuição de política e atribuir a *VM
 
 1. Inicie o serviço Azure Policy no portal do Azure ao clicar em **Todos os serviços** e, em seguida, ao pesquisar e selecionar **Policy**.
 
-   ![Pesquisar política](./media/assign-policy-portal/search-policy.png)
+   ![Pesquisar política em todos os serviços](./media/assign-policy-portal/search-policy.png)
 
 1. Selecione **Atribuições** no lado esquerdo da página Azure Policy. Uma atribuição é uma política que foi atribuída para ter lugar num âmbito específico.
 
-   ![Selecionar atribuições](./media/assign-policy-portal/select-assignments.png)
+   ![Selecione a página de atribuições da página de descrição geral da política](./media/assign-policy-portal/select-assignments.png)
 
 1. Selecione **Atribuir Política** na parte superior da página **Política - Atribuições**.
 
-   ![Atribuir uma definição de política](./media/assign-policy-portal/select-assign-policy.png)
+   ![Atribuir uma definição de política a partir da página de atribuições](./media/assign-policy-portal/select-assign-policy.png)
 
 1. Na página **Atribuir Política**, selecione **Âmbito** ao clicar no botão de reticências e ao selecionar um grupo de gestão ou uma subscrição. Opcionalmente, selecione um grupo de recursos. Um âmbito determina que recursos ou agrupamento de recursos em que a atribuição de política é imposta.  Em seguida, clique em **Selecionar** na parte inferior da página **Âmbito**.
 
@@ -71,7 +71,7 @@ Agora, está pronto para identificar recursos incompatíveis para compreender o 
 
 Selecione **conformidade** no lado esquerdo da página. Em seguida, localize a **VMs de auditoria que não utilizam discos geridos** atribuição de política que criou.
 
-![Conformidade com a política](./media/assign-policy-portal/policy-compliance.png)
+![Detalhes de conformidade na página de política de conformidade](./media/assign-policy-portal/policy-compliance.png)
 
 Se existirem quaisquer recursos existentes que não estão em conformidade com esta nova atribuição, aparecem em **recursos não compatíveis**.
 
@@ -94,7 +94,7 @@ Para remover a atribuição de criado, siga estes passos:
 
 1. Clique com o botão direito do rato na atribuição de política **Auditar VMs que não utilizam discos geridos** e selecione **Eliminar atribuição**
 
-   ![Eliminar uma atribuição](./media/assign-policy-portal/delete-assignment.png)
+   ![Eliminar uma atribuição a partir da página de conformidade](./media/assign-policy-portal/delete-assignment.png)
 
 ## <a name="next-steps"></a>Passos Seguintes
 

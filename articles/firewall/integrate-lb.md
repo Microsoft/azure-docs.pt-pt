@@ -5,18 +5,20 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: article
-ms.date: 1/14/2019
+ms.date: 4/1/2019
 ms.author: victorh
-ms.openlocfilehash: 079790952263ae2ef68abc8e426b0330fef1c53f
-ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
+ms.openlocfilehash: 7ee92a7508918635849caafab4632bbba81ee628
+ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54321777"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58805249"
 ---
 # <a name="integrate-azure-firewall-with-azure-standard-load-balancer"></a>Integrar o Firewall do Azure com o Balanceador de carga Standard do Azure
 
-Pode integrar um Firewall do Azure uma rede virtual do Azure Standard Balanceador de carga com (públicos ou internos). No entanto, precisa estar atento um problema de encaminhamento assimétrico que pode interromper a funcionalidade com o cenário de Balanceador de carga público.
+Pode integrar um Firewall do Azure uma rede virtual do Azure Standard Balanceador de carga com (públicos ou internos). 
+
+A conceção preferida é integrar o Balanceador de carga interno com a firewall do Azure, como se trata de um design muito mais simples. Pode utilizar um balanceador de carga público se já tiver um implementado e pretender mantê-lo no local. No entanto, precisa estar atento um problema de encaminhamento assimétrico que pode interromper a funcionalidade com o cenário de Balanceador de carga público.
 
 Para obter mais informações sobre o Balanceador de carga do Azure, consulte [o que é o Balanceador de carga do Azure?](../load-balancer/load-balancer-overview.md)
 
@@ -34,6 +36,8 @@ Ao implementar uma Firewall do Azure numa sub-rede, uma etapa é criar uma rota 
 
 Quando introduz a firewall para o seu cenário de Balanceador de carga, pode entrar através do endereço IP público do seu firewall seu tráfego de Internet. A partir daí, que aplica suas regras de firewall e NATs os pacotes para o endereço IP público do seu Balanceador de carga. Isso é onde o problema ocorre. Pacotes chegam no endereço IP público do firewall, mas retornam para o firewall através do endereço IP privado (usando a rota predefinida).
 Para evitar este problema, crie uma rota de anfitrião adicionais para o endereço IP público do firewall. Pacotes vai para o endereço IP público do firewall são encaminhados através da Internet. Isso evita a demorar a rota padrão para o endereço IP privado da firewall.
+
+![Encaminhamento assimétrico](media/integrate-lb/Firewall-LB-asymmetric.png)
 
 Por exemplo, as rotas seguintes destinam-se uma firewall no endereço IP público 13.86.122.41 e endereço IP privado 10.3.1.4.
 

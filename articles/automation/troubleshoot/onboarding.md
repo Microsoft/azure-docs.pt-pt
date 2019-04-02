@@ -4,16 +4,16 @@ description: Saiba como resolver erros de integração com a gestão de atualiza
 services: automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 01/25/2019
+ms.date: 03/20/2019
 ms.topic: conceptual
 ms.service: automation
 manager: carmonm
-ms.openlocfilehash: ac11b1a2b625d1fc7b62130580d1f188ead21051
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
+ms.openlocfilehash: eaafee304f606ae4d511a6cea1824c26db838635
+ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56342733"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58802036"
 ---
 # <a name="troubleshoot-errors-when-onboarding-solutions"></a>Resolver erros quando soluções de integração
 
@@ -25,19 +25,23 @@ Pode encontrar erros quando soluções de integração como gestão de atualiza�
 
 #### <a name="issue"></a>Problema
 
-Recebe a seguinte mensagem quando está tentando carregar uma máquina virtual para uma solução:
+Receber uma das duas mensagens seguintes quando está tentando carregar uma máquina virtual para uma solução:
 
-```
+```error
 The solution cannot be enabled due to missing permissions for the virtual machine or deployments
+```
+
+```error
+The solution cannot be enabled on this VM because the permission to read the workspace is missing
 ```
 
 #### <a name="cause"></a>Causa
 
-Este erro é causado por permissões incorretas ou ausentes na máquina virtual ou para o utilizador.
+Este erro é causado por permissões incorretas ou ausentes na máquina virtual, a área de trabalho, ou para o utilizador.
 
 #### <a name="resolution"></a>Resolução
 
-Certifique-se de que tem permissões corretas para carregar a máquina virtual. Reveja os [permissões necessárias para carregar máquinas](../automation-role-based-access-control.md#onboarding) e repita para integrar a solução.
+Certifique-se de que tem permissões corretas para carregar a máquina virtual. Reveja os [permissões necessárias para carregar máquinas](../automation-role-based-access-control.md#onboarding) e repita para integrar a solução. Se receber o erro `The solution cannot be enabled on this VM because the permission to read the workspace is missing`, certifique-se de que tem o `Microsoft.OperationalInsights/workspaces/read` permissão para ser capaz de determinar se a VM está incluído para uma área de trabalho.
 
 ### <a name="computer-group-query-format-error"></a>Cenário: ComputerGroupQueryFormatError
 
@@ -79,11 +83,11 @@ Verifique as notificações no canto superior direito do portal do Azure ou nave
 
 [!INCLUDE [log-analytics-agent-note](../../../includes/log-analytics-agent-note.md)] 
 
-Ao implementar uma solução, uma variedade de recursos relacionados são implementadas. Um destes recursos é o agente de extensão de agente de monitorização da Microsoft ou o Log Analytics para Linux. Estes são instalados pelo agente convidado da máquina virtual que é responsável por comunicar com a Log Analytics área de trabalho configurada, para efeitos de coordenação posterior de transferência de binários de extensões de máquinas virtuais e outros ficheiros que o solução estiver a integrar dependem de uma vez que ele inicia a execução.
+Ao implementar uma solução, uma variedade de recursos relacionados são implementadas. Um destes recursos é o agente de extensão de agente de monitorização da Microsoft ou o Log Analytics para Linux. Estes são instalados pelo agente convidado da máquina virtual que é responsável por comunicar com a Log Analytics área de trabalho configurada, para efeitos de coordenação posterior de transferência de binários de extensões de máquinas virtuais e outros ficheiros que o solução estiver integração dependem assim que ele inicia a execução.
 Normalmente primeiro ficar ciente do agente MMA ou o Log Analytics para Linux de falhas de instalação de uma notificação que aparece no Hub de notificações. Clicar em que a notificação fornece ainda mais informações sobre a falha específica. Navegação para o recurso de grupos de recursos e, em seguida, o elemento de implementações que ele fornece também detalhes sobre as falhas de implementação que ocorreram.
 Instalação do agente MMA ou o Log Analytics para Linux pode falhar por vários motivos e os passos para resolver essas falhas variam, dependendo do problema. Siga os passos de resolução de problemas específicos.
 
-A seguinte secção descreve vários problemas que pode encontrar ao integração que causar uma falha na implementação da extensão do MMA.
+A seguinte secção descreve vários problemas que podem resultar em quando integração que causar uma falha na implementação da extensão do MMA.
 
 ### <a name="webclient-exception"></a>Cenário: Ocorreu uma exceção durante uma solicitação WebClient
 
@@ -113,7 +117,7 @@ Algumas causas possíveis para este erro são:
 
 Certifique-se de que tem as portas apropriadas e endereços abrir para a comunicação. Para obter uma lista de endereços e portas, consulte [planear a sua rede](../automation-hybrid-runbook-worker.md#network-planning).
 
-### <a name="transient-environment-issue"></a>Cenário: A instalação falhou devido a problemas de ambiente transitório
+### <a name="transient-environment-issue"></a>Cenário: A instalação falhou devido a problemas de um ambiente transitório
 
 A instalação da extensão do Microsoft Monitoring Agent falhou durante a implementação devido a outra instalação ou ação bloqueando a instalação
 
@@ -138,7 +142,7 @@ The Microsoft Monitoring Agent failed to install on this machine. Please try to 
 Algumas causas possíveis para este erro são:
 
 * Está em curso outra instalação
-* O sistema é foi acionada para reiniciar o computador durante a implementação de modelo
+* O sistema é acionado para reiniciar o computador durante a implementação de modelo
 
 #### <a name="resolution"></a>Resolução
 
@@ -150,7 +154,7 @@ A instalação da extensão do MMA não foi concluída devido a um tempo limite.
 
 #### <a name="issue"></a>Problema
 
-Segue-se um exemplo de uma mensagem de erro que pode ser devolvido:
+O exemplo seguinte é de uma mensagem de erro que pode ser devolvida:
 
 ```error
 Install failed for plugin (name: Microsoft.EnterpriseCloud.Monitoring.MicrosoftMonitoringAgent, version 1.0.11081.4) with exception Command C:\Packages\Plugins\Microsoft.EnterpriseCloud.Monitoring.MicrosoftMonitoringAgent\1.0.11081.4\MMAExtensionInstall.exe of Microsoft.EnterpriseCloud.Monitoring.MicrosoftMonitoringAgent has exited with Exit code: 15614
@@ -158,7 +162,7 @@ Install failed for plugin (name: Microsoft.EnterpriseCloud.Monitoring.MicrosoftM
 
 #### <a name="cause"></a>Causa
 
-Este erro ocorre devido a máquina virtual a ser sob uma pesada carga durante a instalação.
+Este erro ocorre porque a máquina virtual a ser sob uma pesada carga durante a instalação.
 
 ### <a name="resolution"></a>Resolução
 
@@ -166,7 +170,7 @@ Tente instalar a extensão MMA quando a VM está sob uma carga menor.
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-Se não VI o seu problema ou não é possível resolver o problema, visite um dos seguintes canais de suporte mais:
+Se não vir o seu problema ou não é possível resolver o problema, visite um dos seguintes canais de suporte mais:
 
 * Obtenha respostas de especialistas do Azure através dos [fóruns do Azure](https://azure.microsoft.com/support/forums/)
 * Ligue-se a [@AzureSupport](https://twitter.com/azuresupport) – a conta oficial do Microsoft Azure para melhorar a experiência do cliente ao ligar a comunidade do Azure aos recursos certos: respostas, suporte e especialistas.

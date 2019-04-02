@@ -1,19 +1,19 @@
 ---
 title: Otimizar as configurações de cluster com o Apache Ambari - Azure HDInsight
 description: Utilize a IU web do Apache Ambari para configurar e otimizar clusters do HDInsight.
-author: ashishthaps
+author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 07/09/2018
-ms.author: ashish
-ms.openlocfilehash: 14b634e610fb0da71c5f0d742a250b18cea70dc7
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.date: 03/26/2019
+ms.author: hrasheed
+ms.openlocfilehash: f0db36fa380d0d1bb7f2b581c4bf8fa1abfaadaf
+ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53722928"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58805385"
 ---
 # <a name="use-apache-ambari-to-optimize-hdinsight-cluster-configurations"></a>Utilizar o Apache Ambari para otimizar as configurações de cluster do HDInsight
 
@@ -51,7 +51,7 @@ Para modificar o tamanho da pilha NameNode Java:
 
     ![Editar o tamanho do heap NameNode Java](./media/hdinsight-changing-configs-via-ambari/java-heap-size-edit.png)
 
-1. O tamanho da pilha NameNode Java é alterado para 2 GB de 1 GB.
+1. O tamanho da pilha NameNode Java é alterado para 1 GB de 2 GB.
 
     ![Editar o tamanho do heap NameNode Java](./media/hdinsight-changing-configs-via-ambari/java-heap-size-edited.png)
 
@@ -125,7 +125,7 @@ Uma consulta do Hive for executada nas fases de um ou mais. Se as fases independ
 
 1.  Para ativar a execução paralela da consulta, navegue para a colmeia **Config** separador e procure o `hive.exec.parallel` propriedade. O valor predefinido é false. Altere o valor como true e, em seguida, prima **Enter** para guardar o valor.
  
-1.  Para limitar o número de tarefas para serem executados em paralelo, modifique o `hive.exec.parallel.thread.number` propriedade. O valor predefinido é 8.
+1.  Para limitar o número de tarefas para executar em paralelo, modifique o `hive.exec.parallel.thread.number` propriedade. O valor predefinido é 8.
 
     ![Hive paralelo exec](./media/hdinsight-changing-configs-via-ambari/hive-exec-parallel.png)
 
@@ -178,7 +178,7 @@ Os tipos de compactação disponíveis são:
 
 | Formato | Ferramenta | Algoritmo | Extensão de ficheiro | Divisível? |
 | -- | -- | -- | -- | -- |
-| Gzip | Gzip | DEFLATE | .GZ | Não |
+| Gzip | Gzip | DEFLATE | .gz | Não |
 | Bzip2 | Bzip2 | Bzip2 |.bz2 | Sim |
 | LZO | Lzop | LZO | .lzo | Sim, se indexada |
 | Snappy | N/A | Snappy | Snappy | Não |
@@ -295,7 +295,7 @@ Recomendações adicionais para otimizar o motor de execução do Hive:
 
 1. Localizar, anule os comentários e altere o valor da propriedade que pretende modificar.
 
-1. Selecione **guardar** no canto superior direito da janela para salvar o novo valor. Algumas propriedades podem exigir um reinício do serviço.
+1. Selecione **guardar** no lado superior direito da janela para salvar o novo valor. Algumas propriedades podem exigir um reinício do serviço.
 
     ![Propriedades avançadas do pig](./media/hdinsight-changing-configs-via-ambari/advanced-pig-properties.png)
  
@@ -365,7 +365,7 @@ O número de redutores é calculado com base no parâmetro `pig.exec.reducers.by
 
 [Apache HBase](https://hbase.apache.org/) configuração seja alterada a partir de **configurações de HBase** separador. As secções seguintes descrevem algumas das definições de configuração importantes que afetam o desempenho de HBase.
 
-### <a name="set-hbaseheapsize"></a>Definir HBASE_HEAPSIZE
+### <a name="set-hbaseheapsize"></a>Set HBASE_HEAPSIZE
 
 O tamanho da pilha de HBase Especifica a quantidade máxima de heap a ser utilizada em megabytes por *região* e *mestre* servidores. O valor predefinido é 1000 MB. Isso deve ser ajustado para a carga de trabalho do cluster.
 

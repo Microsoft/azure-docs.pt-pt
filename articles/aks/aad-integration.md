@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 08/09/2018
 ms.author: iainfou
-ms.openlocfilehash: 0cf83180647c142c9db2a1229674de96fec6a6bb
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: c2ed053479b11bada4cfc0ec808ad148f024dee6
+ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58087538"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58803253"
 ---
 # <a name="integrate-azure-active-directory-with-azure-kubernetes-service"></a>Integrar o Azure Active Directory com o serviço Kubernetes do Azure
 
@@ -149,7 +149,15 @@ Em primeiro lugar, utilize o [az aks get-credentials] [ az-aks-get-credentials] 
 az aks get-credentials --resource-group myResourceGroup --name myAKSCluster --admin
 ```
 
-Em seguida, utilize o seguinte manifesto para criar um ClusterRoleBinding para uma conta do Azure AD. Neste exemplo dá à conta de acesso completo a todos os espaços de nomes do cluster. Crie um ficheiro, tal como *rbac-aad-user.yaml*e cole o seguinte conteúdo. Atualize o nome de utilizador com uma do inquilino do Azure AD:
+Em seguida, utilize o seguinte manifesto para criar um ClusterRoleBinding para uma conta do Azure AD. Neste exemplo dá à conta de acesso completo a todos os espaços de nomes do cluster. 
+
+Obter o *objectId* do utilizador necessário contas utilizando o [show de utilizador do ad az] [ az-ad-user-show] comando. Forneça o nome principal de utilizador (UPN) da conta necessária:
+
+```azurecli-interactive
+az ad user show --upn-or-object-id user@contoso.com --query objectId -o tsv
+```
+
+Crie um ficheiro, tal como *rbac-aad-user.yaml*e cole o seguinte conteúdo. Atualize o nome de utilizador com o ID de objeto da sua conta de utilizador do Azure AD que obteve no passo anterior:
 
 ```yaml
 apiVersion: rbac.authorization.k8s.io/v1
@@ -163,7 +171,7 @@ roleRef:
 subjects:
 - apiGroup: rbac.authorization.k8s.io
   kind: User
-  name: "user@contoso.com"
+  name: "947026ec-9463-4193-c08d-4c516e1f9f52"
 ```
 
 Aplicam-se de que a ligação utilizando o [aplicam-se de kubectl] [ kubectl-apply] comando conforme mostrado no exemplo a seguir:
@@ -242,3 +250,4 @@ Saiba mais sobre como proteger clusters de Kubernetes com o RBAC com o [utilizan
 [az-aks-get-credentials]: /cli/azure/aks?view=azure-cli-latest#az-aks-get-credentials
 [az-group-create]: /cli/azure/group#az-group-create
 [open-id-connect]:../active-directory/develop/v1-protocols-openid-connect-code.md
+[az-ad-user-show]: /cli/azure/ad/user#az-ad-user-show

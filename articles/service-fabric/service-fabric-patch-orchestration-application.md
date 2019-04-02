@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 2/01/2019
 ms.author: brkhande
-ms.openlocfilehash: 477b31e9a821cfa43700eac5f1f61a3d45510cab
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.openlocfilehash: bce4946b62e3678f7fa8d5f7f6431441cc00b252
+ms.sourcegitcommit: 09bb15a76ceaad58517c8fa3b53e1d8fec5f3db7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58665819"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58762842"
 ---
 # <a name="patch-the-windows-operating-system-in-your-service-fabric-cluster"></a>Corrigir o sistema operativo do Windows no seu cluster do Service Fabric
 
@@ -28,6 +28,12 @@ ms.locfileid: "58665819"
 > * [Linux](service-fabric-patch-orchestration-application-linux.md)
 >
 >
+
+
+> 
+> [!IMPORTANT]
+> Versão 1.2 da aplicação. * vai sem suporte, 30 de Abril de 2019. Atualize para a versão mais recente.
+
 
 [Atualizações automáticas da imagem de SO do conjunto de dimensionamento de máquina virtual do Azure](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-automatic-upgrade) é a melhor prática para manter seus sistemas de operativos corrigidos no Azure e o Patch Orchestration Application (POA) é um wrapper em torno do serviço de sistemas de RepairManager de recursos de infraestrutura do serviço Isso permite a configuração baseada o agendamento de patch de SO para clusters de alojado não pertencente ao Azure. POA não é necessária para clusters de alojado não pertencente ao Azure, mas agendamento da instalação de patch por domínios de atualização, é necessário para corrigir o Service Fabric clusters anfitriões sem tempo de inatividade.
 

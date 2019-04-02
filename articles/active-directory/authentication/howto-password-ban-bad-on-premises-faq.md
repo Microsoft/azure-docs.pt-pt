@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 30ed127d6be6966baba7d6f862624ef7bca16f40
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: 50ab4d3c9134e94b60c4dd3eeb5603f450b036c3
+ms.sourcegitcommit: ad3e63af10cd2b24bf4ebb9cc630b998290af467
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58309560"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58794041"
 ---
 # <a name="azure-ad-password-protection-on-premises---frequently-asked-questions"></a>Azure proteção de palavra-passe do AD no local - perguntas mais frequentes
 
@@ -109,6 +109,10 @@ Em resumo, a implementação do serviço de agente do Azure AD palavra-passe DC 
 **P: Um pacote de gestão do System Center Operations Manager está disponível para a proteção de palavra-passe do Azure AD?**
 
 Não.
+
+**P: Por que motivo está Azure ainda a rejeitar senhas fracas, apesar de eu configurei a política estar no modo de auditoria?**
+
+Modo de auditoria é suportado apenas no ambiente do Active Directory no local. Azure é implicitamente sempre no modo "impor" quando ele avalia as palavras-passe.
 
 ## <a name="additional-content"></a>Conteúdo adicional
 

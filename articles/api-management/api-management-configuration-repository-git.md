@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/12/2019
 ms.author: apimpm
-ms.openlocfilehash: 36b60b3784739a884b887a29f3dd53c61c44cd6f
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: adf4d8d5cfcef2dde8193ce1b7f2805a44e2d93d
+ms.sourcegitcommit: ad3e63af10cd2b24bf4ebb9cc630b998290af467
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57851351"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58793276"
 ---
 # <a name="how-to-save-and-configure-your-api-management-service-configuration-using-git"></a>Para guardar e configurar a sua configuração do serviço de gestão de API com o Git
 
@@ -57,7 +57,7 @@ Para ver e configurar as definições de configuração do Git, pode clicar a **
 >
 >
 
-Para informações sobre como ativar ou desativar o acesso ao Git com a API REST, consulte [ativar ou desativar o acesso ao Git com a API REST](https://msdn.microsoft.com/library/dn781420.aspx#EnableGit).
+Para informações sobre como ativar ou desativar o acesso ao Git com a API REST, consulte [ativar ou desativar o acesso ao Git com a API REST](/rest/api/apimanagement/tenantaccess?EnableGit).
 
 ## <a name="to-save-the-service-configuration-to-the-git-repository"></a>Para guardar a configuração de serviço para o repositório de Git
 
@@ -69,7 +69,7 @@ Após alguns instantes é guardada a configuração e o estado de configuração
 
 Depois da configuração é guardada no repositório, pode ser clonado.
 
-Para informações sobre como efetuar esta operação através da API REST, consulte [com a API REST do instantâneo de configuração de consolidação](https://msdn.microsoft.com/library/dn781420.aspx#CommitSnapshot).
+Para informações sobre como efetuar esta operação através da API REST, consulte [com a API REST do instantâneo de configuração de consolidação](/rest/api/apimanagement/tenantaccess?CommitSnapshot).
 
 ## <a name="to-clone-the-repository-to-your-local-machine"></a>Para clonar o repositório no seu computador local
 
@@ -266,7 +266,7 @@ Para obter informações sobre outras formas de gerir a sua instância de servi�
   * [Referência do cmdlet do Powershell de implementação do serviço](https://docs.microsoft.com/powershell/module/wds)
   * [Referência de cmdlets do PowerShell da gestão de serviço](https://docs.microsoft.com/powershell/azure/servicemanagement/overview)
 * Gerir a sua instância de serviço com a API REST
-  * [Referência da API de REST de gestão de API](https://msdn.microsoft.com/library/azure/dn776326.aspx)
+  * [Referência da API de REST de gestão de API](/rest/api/apimanagement/)
 
 
 [api-management-enable-git]: ./media/api-management-configuration-repository-git/api-management-enable-git.png

@@ -12,14 +12,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/19/2019
+ms.date: 04/01/2019
 ms.author: juliako
-ms.openlocfilehash: 7ff2e89c116ee74665c0e3a74505476972af5d9c
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: 8516035705ad9dfb2ff37592f9381c4f905bb67f
+ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58317158"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58802835"
 ---
 # <a name="use-aes-128-dynamic-encryption-and-the-key-delivery-service"></a>Utilizar a encriptação dinâmica de AES-128 e o serviço de entrega de chave
 > [!div class="op_single_selector"]
@@ -29,23 +29,18 @@ ms.locfileid: "58317158"
 >  
 
 > [!NOTE]
-> Para obter a versão mais recente do Java SDK e começar a programar com o Java, veja [Introdução ao SDK de cliente Java para os Serviços de Multimédia](https://docs.microsoft.com/azure/media-services/media-services-java-how-to-use). <br/>
-> Para transferir o SDK mais recente do PHP para os Serviços de Multimédia, procure a versão 0.5.7 do pacote Microsoft/WindowsAzure no [repositório do Packagist](https://packagist.org/packages/microsoft/windowsazure#v0.5.7).  
+> Não serão adicionadas novas funcionalidades aos Serviços de Multimédia v2. <br/>Veja a versão mais recente, [Serviços de Multimédia v3](https://docs.microsoft.com/azure/media-services/latest/). Além disso, veja [orientação de migração da v2 para a v3](../latest/migrate-from-v2-to-v3.md)
 
-## <a name="overview"></a>Descrição geral
-> [!NOTE]
-> Para obter informações sobre como encriptar o conteúdo com o AES Advanced Encryption Standard () para entrega para o Safari no macOS, veja [nesta mensagem de blogue](https://azure.microsoft.com/blog/how-to-make-token-authorized-aes-encrypted-hls-stream-working-in-safari/).
-> Para uma descrição geral de como proteger o seu conteúdo multimédia com encriptação AES, consulte [este vídeo](https://channel9.msdn.com/Shows/Azure-Friday/Azure-Media-Services-Protecting-your-Media-Content-with-AES-Encryption).
-> 
-> 
-
- Pode utilizar os serviços de multimédia para entregar HTTP Live Streaming (HLS) e transmissão em fluxo uniforme encriptado com o AES com chaves de encriptação de 128 bits. Serviços de multimédia também fornecem o serviço de entrega de chave que fornece as chaves de encriptação para os utilizadores autorizados. Se pretender que os serviços de multimédia para encriptar um elemento, associe a uma chave de encriptação com o elemento e também configurar políticas de autorização da chave. Quando um fluxo é solicitado por um jogador, serviços de multimédia utiliza a chave especificada para encriptar dinamicamente o seu conteúdo através de encriptação AES. Para desencriptar a transmissão em fluxo, o leitor solicita a chave ao serviço de entrega de chaves. Para determinar se o utilizador está autorizado a obter a chave, o serviço avalia as políticas de autorização que especificou para a chave.
+Pode utilizar os serviços de multimédia para entregar HTTP Live Streaming (HLS) e transmissão em fluxo uniforme encriptado com o AES com chaves de encriptação de 128 bits. Serviços de multimédia também fornecem o serviço de entrega de chave que fornece as chaves de encriptação para os utilizadores autorizados. Se pretender que os serviços de multimédia para encriptar um elemento, associe a uma chave de encriptação com o elemento e também configurar políticas de autorização da chave. Quando um fluxo é solicitado por um jogador, serviços de multimédia utiliza a chave especificada para encriptar dinamicamente o seu conteúdo através de encriptação AES. Para desencriptar a transmissão em fluxo, o leitor solicita a chave ao serviço de entrega de chaves. Para determinar se o utilizador está autorizado a obter a chave, o serviço avalia as políticas de autorização que especificou para a chave.
 
 Os Media Services suportam várias formas de autenticar utilizadores que efetuam pedidos de chave. A política de autorização da chave de conteúdo pode ter uma ou mais restrições de autorização, quer sejam restrições abertas ou de token. A política de token restrito tem de ser acompanhada por um token emitido por um serviço de tokens seguro (STS). Os Serviços de Multimédia suportam tokens no formato [simple web tokens](https://msdn.microsoft.com/library/gg185950.aspx#BKMK_2) (SWT) e [JSON Web Token](https://msdn.microsoft.com/library/gg185950.aspx#BKMK_3) (JWT). Para obter mais informações, veja [Configure the content key's authorization policy](media-services-protect-with-aes128.md#configure_key_auth_policy) (Configurar a política de autorização da chave de conteúdo).
 
 Para tirar partido da encriptação dinâmica, tem de ter um elemento que contenha um conjunto de ficheiros MP4 com velocidade de transmissão múltipla ou ficheiros de origem de Transmissão em Fluxo Uniforme de múltipla transmissão. Terá também de configurar a política de entrega para o elemento (descrito mais adiante neste artigo). Em seguida, com base no formato especificado no URL de transmissão em fluxo, o servidor de transmissão em fluxo a pedido irá garantir que a transmissão é entregue no protocolo que selecionou. Como resultado, precisa armazenar e pagar apenas pelos ficheiros num único formato de armazenamento. Os Serviços de Multimédia criam e entregam a resposta adequada com base nos pedidos de um cliente.
 
 Este artigo é útil para os programadores que trabalham com aplicações que entregam multimédia protegida. O artigo mostra-lhe como configurar o serviço de entrega de chave com políticas de autorização para que apenas os clientes autorizados podem receber as chaves de encriptação. Ele também mostra como utilizar a encriptação dinâmica.
+
+Para obter informações sobre como encriptar o conteúdo com o AES Advanced Encryption Standard () para entrega para o Safari no macOS, veja [nesta mensagem de blogue](https://azure.microsoft.com/blog/how-to-make-token-authorized-aes-encrypted-hls-stream-working-in-safari/).
+Para uma descrição geral de como proteger o seu conteúdo multimédia com encriptação AES, consulte [este vídeo](https://channel9.msdn.com/Shows/Azure-Friday/Azure-Media-Services-Protecting-your-Media-Content-with-AES-Encryption).
 
 
 ## <a name="aes-128-dynamic-encryption-and-key-delivery-service-workflow"></a>A encriptação dinâmica AES-128 e fluxo de trabalho de serviço de entrega de chave

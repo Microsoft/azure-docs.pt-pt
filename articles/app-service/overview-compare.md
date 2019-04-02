@@ -14,12 +14,12 @@ ms.topic: overview
 ms.date: 07/07/2016
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 05afbd9a621752b8b665c7d2f68cd8cfcc8a1d1a
-ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
+ms.openlocfilehash: aac2a0b102d50c8d3f0506c2cc1469a838706703
+ms.sourcegitcommit: ad3e63af10cd2b24bf4ebb9cc630b998290af467
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54322032"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58793860"
 ---
 # <a name="azure-app-service-virtual-machines-service-fabric-and-cloud-services-comparison"></a>Comparação do Serviço de Aplicações do Azure, das Máquinas Virtuais, do Service Fabric e dos Serviços Cloud
 
@@ -29,7 +29,7 @@ O Serviço de Aplicações do Azure é a melhor escolha para a maioria das aplic
 
 O Service Fabric é uma boa opção se pretender criar uma aplicação nova ou reescrever uma já existente para utilizar uma arquitetura de microsserviço. As aplicações, que são executadas num conjunto partilhado de máquinas, podem começar por ser pequenas e dimensionar-se para escalas massivas com centenas ou milhares de máquinas, consoante as suas necessidades. Com os serviços com estado, é fácil armazenar de forma consistente e fiável o estado das aplicações e o Service Fabric gere automaticamente a criação de partições, o dimensionamento e a disponibilidade do serviço.  O Service Fabric também suporta WebAPI com Open Web Interface para .NET (OWIN) e ASP.NET Core.  Comparando com o Serviço de Aplicações, o Service Fabric também proporciona acesso direto ou mais controlo sobre a infraestrutura subjacente. Pode aceder remotamente aos seus servidores ou configurar tarefas de arranque de servidores. Os Serviços Cloud são semelhantes ao Service Fabric quanto ao nível de controlo versus facilidade de utilização, mas são agora um serviço legado, sendo que se recomenda o Service Fabric para implementações novas.
 
-Se tiver uma aplicação existente que precise de alterações substanciais para ser executada no Serviço de Aplicações ou no Service Fabric, pode escolher as Máquinas Virtuais para simplificar a migração para a cloud. No entanto, configurar, proteger e manter VMs corretamente exige muito mais tempo e conhecimentos de TI em comparação com o Serviço de Aplicações do Azure e o Service Fabric. Se estiver a considerar as Máquinas Virtuais do Azure, é muito importante ter em conta os esforços de manutenção contínuos necessários para aplicar correções, atualizar e gerir o seu ambiente de VMs. As Máquinas Virtuais do Azure são uma Infraestrutura como Serviço (IaaS), ao passo que o Serviço de Aplicações e o Service Fabric são Plataforma como Serviço (PaaS). 
+Se tiver uma aplicação existente que precise de alterações substanciais para ser executada no Serviço de Aplicações ou no Service Fabric, pode escolher as Máquinas Virtuais para simplificar a migração para a cloud. No entanto, configurar, proteger e manter VMs corretamente exige muito mais tempo e conhecimentos de TI em comparação com o Serviço de Aplicações do Azure e o Service Fabric. Se estiver a considerar as Máquinas Virtuais do Azure, é muito importante ter em conta os esforços de manutenção contínuos necessários para aplicar correções, atualizar e gerir o seu ambiente de VMs. As Máquinas Virtuais do Azure são uma Infraestrutura como Serviço (IaaS), ao passo que o Serviço de Aplicações e o Service Fabric são Plataforma como Serviço (PaaS).
 
 ## <a name="features"></a>Comparação de Funcionalidades
 A tabela seguinte compara as capacidades do Serviço de Aplicações, dos Serviços Cloud, das Máquinas Virtuais e do Service Fabric para o ajudar a tomar a melhor decisão. Para obter informações atuais sobre o SLA de cada opção, veja [Contratos de Nível de Serviço do Azure](https://azure.microsoft.com/support/legal/sla/).
@@ -78,7 +78,7 @@ Eis alguns cenários de aplicações comuns com recomendações sobre qual a op�
 * [Quero alojar uma API REST ou um serviço Web para clientes móveis.](#mobile)
 
 ### <a id="onprem"></a>Preciso de um front-end da Web com processamento em segundo plano e de um back-end de base de dados para executar aplicações empresariais integradas em recursos no local.
-O Serviço de Aplicações do Azure é uma ótima solução para aplicações empresariais complexas. Permite-lhe desenvolver aplicações que se dimensionam automaticamente numa plataforma com balanceamento de carga, que são protegidas com o Active Directory e que se ligam aos seus recursos no local. Faz com que gerir estas aplicações seja fácil através de um portal e de APIs de qualidade superior e permite-lhe obter informações sobre de que forma é que os clientes as estão a utilizar mediante a utilização de ferramentas de informações de aplicações. A funcionalidade [Webjobs][Webjobs] possibilita-lhe executar processos e tarefas em segundo plano como parte da sua camada da Web, ao passo que as funcionalidades de conectividade híbrida e de VNET simplificam a ligação de volta aos recursos no local. O Serviço de Aplicações do Azure oferece SLAs com garantia de 99,9% de tempo de atividade para as aplicações Web e permite-lhe:
+O Serviço de Aplicações do Azure é uma ótima solução para aplicações empresariais complexas. Permite-lhe desenvolver aplicações que se dimensionam automaticamente numa plataforma com balanceamento de carga, que são protegidas com o Active Directory e que se ligam aos seus recursos no local. Faz com que gerir estas aplicações seja fácil através de um portal e de APIs de qualidade superior e permite-lhe obter informações sobre de que forma é que os clientes as estão a utilizar mediante a utilização de ferramentas de informações de aplicações. O [Webjobs] [ Webjobs] funcionalidade permite-lhe executar processos em segundo plano e fazer uma cópia de tarefas como parte da sua camada da web, embora a conectividade híbrida e funcionalidades de VNet simplificam a ligar a recursos no local. O Serviço de Aplicações do Azure oferece SLAs com garantia de 99,9% de tempo de atividade para as aplicações Web e permite-lhe:
 
 * Executar as aplicações de forma fiável numa plataforma cloud de recuperação e aplicação de correções automáticas.
 * Dimensionar automaticamente numa rede global de datacenters.
@@ -145,7 +145,7 @@ Se a sua arquitetura de código aberto for suportada no Serviço de Aplicações
 Se o Serviço de Aplicações não suportar a sua arquitetura de código aberto, pode recorrer a uma das outras opções de alojamento Web do Azure. Com as Máquinas Virtuais, o software é instalado e configurado na imagem da máquina, que pode ser baseada no Windows ou no Linux.
 
 ### <a id="lob"></a>Tenho uma aplicação de linha de negócio que tem de se ligar à rede empresarial.
-Se pretender criar uma aplicação de linha de negócio, o seu site poderá precisar de acesso direto aos serviços ou dados na rede empresarial. Isto é possível no Serviço de Aplicações, no Service Fabric e nas Máquinas Virtuais mediante a utilização do [serviço de Rede Virtual do Azure](/azure/virtual-network/). No Serviço de Aplicações, pode utilizar a [funcionalidade de integração de VNET](https://azure.microsoft.com/blog/2014/09/15/azure-websites-virtual-network-integration/), que permite que as aplicações do Azure sejam executadas como se estivessem na sua rede empresarial.
+Se pretender criar uma aplicação de linha de negócio, o seu site poderá precisar de acesso direto aos serviços ou dados na rede empresarial. Isto é possível no Serviço de Aplicações, no Service Fabric e nas Máquinas Virtuais mediante a utilização do [serviço de Rede Virtual do Azure](/azure/virtual-network/). No serviço de aplicações, pode utilizar o [funcionalidade de integração de VNet](/azure/app-service/web-sites-integrate-with-vnet), que permite que as aplicações do Azure ser executado como se estivessem na sua rede empresarial.
 
 ### <a id="mobile"></a>Quero alojar uma API REST ou um serviço Web para clientes móveis.
 Com os serviços Web baseados em HTTP, pode suportar uma grande variedade de clientes, incluindo clientes móveis. Algumas arquiteturas, como a API Web ASP.NET, integram-se no Visual Studio para permitir criar e consumir serviços REST mais facilmente.  Estes serviços são expostos a partir de um ponto final da Web, pelo que é possível utilizar qualquer técnica de alojamento Web no Azure, de modo a suportar este cenário. No entanto, o Serviço de Aplicações é uma escolha ideal para alojar APIs REST. Com o Serviço de aplicações, pode:
@@ -157,8 +157,6 @@ Com os serviços Web baseados em HTTP, pode suportar uma grande variedade de cli
 
 > [!NOTE]
 > Se quiser começar a utilizar o Serviço de Aplicações do Azure antes de se inscrever numa conta, aceda a<a href="https://trywebsites.azurewebsites.net/">https://trywebsites.azurewebsites.net</a>, onde pode criar imediatamente uma aplicação de início de curta duração grátis no Serviço de Aplicações do Azure. Sem necessidade de cartões de crédito, sem compromissos.
-> 
-> 
 
 ## <a id="nextsteps"></a>Passos Seguintes
 Para obter mais informações sobre as três opções de alojamento Web, veja [Introducing Azure](../fundamentals-introduction-to-azure.md) (Introdução ao Azure).

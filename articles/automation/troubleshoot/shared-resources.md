@@ -8,12 +8,12 @@ ms.date: 03/12/2019
 ms.topic: conceptual
 ms.service: automation
 manager: carmonm
-ms.openlocfilehash: 35e39a070a4c976655296d2ea141478d13e43bbc
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 66165a196c8b934df948f1d88b09a5859d3e792f
+ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57902829"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58804501"
 ---
 # <a name="troubleshoot-errors-with-shared-resources"></a>Resolver problemas de erros com recursos partilhados
 
@@ -45,7 +45,7 @@ Remove-AzureRmAutomationModule -Name ModuleName -ResourceGroupName ExampleResour
 
 Uma faixa com a seguinte mensagem permanece na sua conta depois de tentar atualizar os módulos AzureRM:
 
-```
+```error
 Azure modules are being updated
 ```
 

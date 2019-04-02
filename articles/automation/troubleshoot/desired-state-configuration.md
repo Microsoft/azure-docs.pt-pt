@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 06/19/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: a2ec36a99b2940fa662b0d9bd16b06777684db2f
-ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
+ms.openlocfilehash: c8afa671a323e37a99be8b5a43d0a4823fe1877a
+ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58448060"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58800881"
 ---
 # <a name="troubleshoot-desired-state-configuration-dsc"></a>Resolver problemas de Desired State Configuration (DSC)
 
@@ -28,18 +28,18 @@ Este artigo fornece informações sobre como resolver problemas com o Desired St
 
 Ao tentar eliminar uma configuração de DSC a partir do portal, verá o seguinte erro:
 
-```
+```error
 An error occured while deleteing the DSC configuration '<name>'.  Error-details: The arguement configurationName with the value <name> is not valid.  Valid configuration names can contain only letters,  numbers, and underscores.  The name must start with a letter.  The length of the name must be between 1 and 64 characters.
 ```
 
 #### <a name="cause"></a>Causa
 
-Este é um problema temporário que está previsto que seja resolvido.
+Este erro é um problema temporário que está previsto que seja resolvido.
 
 #### <a name="resolution"></a>Resolução
 
 * Utilize o Cmdlet de Az "Remove-AzAutomationDscConfiguration" para eliminar a configuração.
-* A documentação para este cmdlet ainda não foi atualizada.  Até lá, consulte a documentação para o módulo AzureRM.
+* A documentação para este cmdlet não foi atualizada ainda.  Até lá, consulte a documentação para o módulo AzureRM.
   * [Remove-AzureRmAutomationDSCConfiguration](/powershell/module/azurerm.automation/Remove-AzureRmAutomationDscConfiguration)
 
 ### <a name="failed-not-found"></a>Cenário: Nó está no Estado com falhas com um erro "Não encontrado"
@@ -48,7 +48,7 @@ Este é um problema temporário que está previsto que seja resolvido.
 
 O nó tem um relatório com **falhada** estado e que contém o erro:
 
-```
+```error
 The attempt to get the action from server https://<url>//accounts/<account-id>/Nodes(AgentId=<agent-id>)/GetDscAction failed because a valid configuration <guid> cannot be found.
 ```
 
@@ -70,7 +70,7 @@ Esse erro ocorre normalmente quando o nó for atribuído um nome de configuraç�
 
 Suspende a tarefa de compilação de DSC com o erro:
 
-```
+```error
 Compilation completed successfully, but no node configuration.mofs were generated.
 ```
 
@@ -91,7 +91,7 @@ Qualquer uma das seguintes soluções resolver o problema:
 
 As saídas de agente DSC:
 
-```
+```error
 No instance found with given property values
 ```
 
@@ -101,7 +101,7 @@ Atualizar sua versão do WMF e ter danificado WMI.
 
 #### <a name="resolution"></a>Resolução
 
-Para corrigir a problema siga as instruções a [conhecido limitações e problemas de DSC](https://msdn.microsoft.com/powershell/wmf/5.0/limitation_dsc) artigo.
+Para corrigir o problema, siga as instruções no [conhecido limitações e problemas de DSC](https://msdn.microsoft.com/powershell/wmf/5.0/limitation_dsc) artigo.
 
 ### <a name="issue-using-credential"></a>Cenário: Não é possível utilizar uma credencial numa configuração de DSC
 
@@ -109,21 +109,21 @@ Para corrigir a problema siga as instruções a [conhecido limitações e proble
 
 A tarefa de compilação de DSC foi suspenso com o erro:
 
-```
+```error
 System.InvalidOperationException error processing property 'Credential' of type <some resource name>: Converting and storing an encrypted password as plaintext is allowed only if PSDscAllowPlainTextPassword is set to true.
 ```
 
 #### <a name="cause"></a>Causa
 
-Utilizou uma credencial numa configuração, mas não forneceu adequada **ConfigurationData** definir **PSDscAllowPlainTextPassword** como true para cada configuração de nó.
+Já utilizou uma credencial numa configuração, mas não forneceu adequada **ConfigurationData** definir **PSDscAllowPlainTextPassword** como true para cada configuração de nó.
 
 #### <a name="resolution"></a>Resolução
 
-* Certifique-se passar o elemento adequado **ConfigurationData** definir **PSDscAllowPlainTextPassword** como true para cada configuração de nó mencionada na configuração. Para obter mais informações, consulte [ativos no DSC de automatização do Azure](../automation-dsc-compile.md#assets).
+* Certifique-se passar o elemento adequado **ConfigurationData** definir **PSDscAllowPlainTextPassword** como true para cada configuração de nó que é mencionada na configuração. Para obter mais informações, consulte [ativos no DSC de automatização do Azure](../automation-dsc-compile.md#assets).
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-Se não VI o seu problema ou não é possível resolver o problema, visite um dos seguintes canais de suporte mais:
+Se não vir o seu problema ou não é possível resolver o problema, visite um dos seguintes canais de suporte mais:
 
 * Obtenha respostas de especialistas do Azure através dos [fóruns do Azure](https://azure.microsoft.com/support/forums/)
 * Ligue-se a [@AzureSupport](https://twitter.com/azuresupport) – a conta oficial do Microsoft Azure para melhorar a experiência do cliente ao ligar a comunidade do Azure aos recursos certos: respostas, suporte e especialistas.

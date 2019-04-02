@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.service: azure-policy
 ms.custom: mvc
 manager: carmonm
-ms.openlocfilehash: 32962e6d40103c23a0ec7fd1116aec8820f513bd
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: ae4be75a4030db9afb02c5696a427b321f9f16b3
+ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57780291"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58802614"
 ---
 # <a name="create-and-manage-policies-to-enforce-compliance"></a>Criar e gerir políticas para impor a conformidade
 
@@ -34,15 +34,15 @@ O primeiro passo para impor a conformidade com o Azure Policy consiste em atribu
 
 1. Inicie o serviço Azure Policy no portal do Azure ao clicar em **Todos os serviços** e, em seguida, ao pesquisar e selecionar **Policy**.
 
-   ![Pesquisar política](../media/create-and-manage/search-policy.png)
+   ![Pesquisar política em todos os serviços](../media/create-and-manage/search-policy.png)
 
 1. Selecione **Atribuições** no lado esquerdo da página Azure Policy. Uma atribuição é uma política que foi atribuída para ter lugar num âmbito específico.
 
-   ![Selecionar atribuições](../media/create-and-manage/select-assignments.png)
+   ![Selecione as atribuições da página de descrição geral da política](../media/create-and-manage/select-assignments.png)
 
 1. Selecione **Atribuir Política** na parte superior da página **Política - Atribuições**.
 
-   ![Atribuir uma definição de política](../media/create-and-manage/select-assign-policy.png)
+   ![Atribuir uma definição de política a partir da página de atribuições](../media/create-and-manage/select-assign-policy.png)
 
 1. Na página **Atribuir Política**, selecione **Âmbito** ao clicar no botão de reticências e ao selecionar um grupo de gestão ou uma subscrição. Opcionalmente, selecione um grupo de recursos. Um âmbito determina que recursos ou agrupamento de recursos em que a atribuição de política é imposta.  Em seguida, clique em **Selecionar** na parte inferior da página **Âmbito**.
 
@@ -54,7 +54,7 @@ O primeiro passo para impor a conformidade com o Azure Policy consiste em atribu
 
 1. Selecione **Requer a versão do SQL Server 12.0**. Se não é possível encontrá-lo imediatamente, escreva **necessita do sql server** para a pesquisa caixa e, em seguida, prima ENTER ou clicar fora da caixa de pesquisa. Clique em **Selecionar** na parte inferior da página **Definições Disponíveis** depois de ter encontrado e selecionado a definição de política.
 
-   ![Localizar uma política](../media/create-and-manage/select-available-definition.png)
+   ![Utilize o filtro de pesquisa para localizar uma política](../media/create-and-manage/select-available-definition.png)
 
 1. O **Nome da atribuição** é automaticamente preenchido com o nome da política que selecionou, mas pode alterá-lo. Para este exemplo, deixe *Requer a versão do SQL Server 12.0*. Também pode adicionar uma **Descrição** opcional. A descrição fornece detalhes sobre esta atribuição de política.  **Atribuído por** é preenchida automaticamente com base em quem está conectado. Este campo é opcional e, por isso, podem ser introduzidos valores personalizados.
 
@@ -68,7 +68,7 @@ Agora que atribuiu uma definição de política incorporada, pode fazer mais com
 
 1. Selecione **Definições** em **Criação** no lado esquerdo da página Azure Policy.
 
-   ![Definição em criação](../media/create-and-manage/definition-under-authoring.png)
+   ![Página de definição no grupo de criação de conteúdos](../media/create-and-manage/definition-under-authoring.png)
 
 1. Selecione **+ Definição de política** na parte superior da página. Este botão abre-se para o **definição de política** página.
 
@@ -158,7 +158,7 @@ Incluir um corpo de pedido semelhante ao exemplo seguinte:
 
 ## <a name="create-a-policy-definition-with-powershell"></a>Criar uma definição de política com o PowerShell
 
-Antes de continuar com o exemplo do PowerShell, certifique-se de que instalou a versão mais recente do Azure PowerShell. Os parâmetros de política foram adicionados na versão 3.6.0. Se tiver uma versão anterior, os exemplos podem devolver um erro que indica que o parâmetro não pode ser encontrado.
+Antes de continuar com o exemplo do PowerShell, certifique-se de que instalou a versão mais recente do módulo Azure PowerShell Az. 
 
 Pode criar uma definição de política ao utilizar o cmdlet `New-AzPolicyDefinition`.
 
@@ -328,11 +328,11 @@ Com uma definição de iniciativa, pode agrupar várias definições de polític
 
 1. Selecione **Definições** em **Criação** no lado esquerdo da página Azure Policy.
 
-   ![Selecione as definições](../media/create-and-manage/definition-under-authoring.png)
+   ![Selecione a definição da página de definições](../media/create-and-manage/definition-under-authoring.png)
 
 1. Selecione **+ Definição de Iniciativa** na parte superior da página para abrir a página **Definição de iniciativa**.
 
-   ![Definição de iniciativa](../media/create-and-manage/initiative-definition.png)
+   ![Página de definição de iniciativa de revisão](../media/create-and-manage/initiative-definition.png)
 
 1. Utilize as reticências de **Localização da definição** para selecionar um grupo de gestão ou uma subscrição na qual armazenar a definição. Se a página anterior se destinava a um único grupo de gestão ou subscrição, a **Localização da definição** será automaticamente preenchida.
 
@@ -352,11 +352,11 @@ Com uma definição de iniciativa, pode agrupar várias definições de polític
 
    Depois de selecionar a definição de política na lista, é adicionada sob **políticas e parâmetros**.
 
-   ![Definições de iniciativa](../media/create-and-manage/initiative-definition-2.png)
+   ![Reveja os parâmetros de definição de iniciativa](../media/create-and-manage/initiative-definition-2.png)
 
 1. Se uma definição de política que está a ser adicionada a iniciativa tiver parâmetros, estão mostrados sob o nome da política no **políticas e parâmetros** área. O _valor_ pode ser definido como "Definir o valor' (hard-coded para todas as atribuições dessa iniciativa) ou "Usar parâmetro de iniciativa" (definido durante cada atribuição de iniciativa). Se "Definir o valor" estiver selecionado, na lista pendente à direita da _valores_ permite introduzir ou ao selecionar o valor (es). Se “Usar Parâmetro de Iniciativa” estiver selecionado, será apresentada uma nova secção **Parâmetros de iniciativa** que lhe permite definir o parâmetro que será definido durante a atribuição de iniciativa. Os valores permitidos neste parâmetro de iniciativa podem restringir mais o que pode ser definido durante a atribuição de iniciativa.
 
-   ![Parâmetros de definição de iniciativa](../media/create-and-manage/initiative-definition-3.png)
+   ![Alterar parâmetros de definição de iniciativa de valores permitidos](../media/create-and-manage/initiative-definition-3.png)
 
    > [!NOTE]
    > No caso de alguns parâmetros `strongType`, a lista de valores não pode ser determinada automaticamente. Nestes casos, um botão de reticências será apresentado à direita da linha do parâmetro. Ao clicar nele, abrirá a página “Âmbito do parâmetro (&lt;nome do parâmetro&gt;)”. Nesta página, selecione a subscrição a utilizar para fornecer as opções de valor. Este âmbito de parâmetro só é utilizado durante a criação da definição de iniciativa e não tem qualquer impacto na avaliação de políticas nem no âmbito da iniciativa quando atribuído.
@@ -369,11 +369,11 @@ Com uma definição de iniciativa, pode agrupar várias definições de polític
 
 1. Localize a definição de iniciativa **Proteger-se** que criou anteriormente e clique nela. Selecione **atribua** na parte superior da página para abrir o **proteger: Atribuir iniciativa** página.
 
-   ![Atribuir uma definição](../media/create-and-manage/assign-definition.png)
+   ![Atribuir uma definição de página de definição de iniciativa](../media/create-and-manage/assign-definition.png)
 
    Pode também com o botão direito na linha selecionada ou left-click nas reticências no final da linha para um menu contextual.  Em seguida, selecione **Atribuir**.
 
-   ![Fazer clique com o botão direito do rato numa linha](../media/create-and-manage/select-right-click.png)
+   ![Opções alternativas para uma iniciativa](../media/create-and-manage/select-right-click.png)
 
 1. Preencha o **proteger: Atribuir iniciativa** página ao introduzir as seguintes informações de exemplo. Pode utilizar as suas próprias informações.
 
@@ -393,11 +393,11 @@ Com uma definição de iniciativa, pode agrupar várias definições de polític
 
 1. Localize a iniciativa **Obter Origem**. É provável que ainda na _estado de conformidade_ dos **não iniciado**. Clique na iniciativa para obter todos os detalhes sobre o progresso da atribuição.
 
-   ![Conformidade – não iniciada](../media/create-and-manage/compliance-status-not-started.png)
+   ![Página de conformidade de iniciativa - avaliações não iniciados](../media/create-and-manage/compliance-status-not-started.png)
 
 1. Depois de concluir a atribuição da iniciativa, a página de conformidade é atualizada com o _Estado de conformidade_ de **Conforme**.
 
-   ![Conformidade – conforme](../media/create-and-manage/compliance-status-compliant.png)
+   ![Conformidade de iniciativa-recursos da página em conformidade](../media/create-and-manage/compliance-status-compliant.png)
 
 1. Se clicar em qualquer política na página de conformidade da iniciativa, será apresentada a página dos detalhes de conformidade referentes à política. Esta página apresenta os detalhes de conformidade ao nível dos recursos.
 
@@ -426,7 +426,7 @@ Neste exemplo, Trent Baker, um dos especialistas de Virtualização sênior da C
 
 1. Defina a **Exclusão**, clicando nas reticências e selecionando o grupo de recursos a excluir, *SQLServers_Excluded* neste exemplo.
 
-   ![Pedir exclusão](../media/create-and-manage/request-exclusion.png)
+   ![Adicionar um grupo de recursos excluídos para a atribuição de política](../media/create-and-manage/request-exclusion.png)
 
    > [!NOTE]
    > Consoante a política e o respetivo efeito, a exclusão também pode ser concedida a recursos específicos dentro de um grupo de recursos no âmbito da atribuição. Como neste tutorial foi utilizado um efeito **Negar**, não faria sentido definir a exclusão num recurso específico já existente.

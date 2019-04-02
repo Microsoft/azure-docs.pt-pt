@@ -9,12 +9,12 @@ ms.date: 01/03/2019
 ms.author: tamram
 ms.custom: mvc
 ms.subservice: blobs
-ms.openlocfilehash: 703256206a6626222013f4e502545c5c1f8cfab7
-ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
+ms.openlocfilehash: c4e81d9be09855cde986bfd21f8f688fa7d1341e
+ms.sourcegitcommit: ad3e63af10cd2b24bf4ebb9cc630b998290af467
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58648695"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58793722"
 ---
 # <a name="tutorial-build-a-highly-available-application-with-blob-storage"></a>Tutorial: Criar uma aplicação de elevada disponibilidade com armazenamento de BLOBs
 
@@ -49,7 +49,7 @@ Para concluir este tutorial:
 * Instalar o [Python](https://www.python.org/downloads/)
 * Transfira e instale o [SDK de Armazenamento do Azure para Python](https://github.com/Azure/azure-storage-python).
 
-# <a name="java-v7-sdk-tabjava-v7"></a>[V7 do Java SDK ](#tab/java-v7)
+# <a name="java-v7-sdktabjava-v7"></a>[Java V7 SDK](#tab/java-v7)
 
 * Instale e configure o [Maven](https://maven.apache.org/download.cgi) para funcionar a partir da linha de comandos
 * instalar e configurar um [JDK](https://www.oracle.com/technetwork/java/javase/downloads/index.html)
@@ -107,7 +107,7 @@ git clone https://github.com/Azure-Samples/storage-dotnet-circuit-breaker-patter
 git clone https://github.com/Azure-Samples/storage-python-circuit-breaker-pattern-ha-apps-using-ra-grs.git
 ```
 
-# <a name="java-v7-sdk-tabjava-v7"></a>[V7 do Java SDK ](#tab/java-v7)
+# <a name="java-v7-sdktabjava-v7"></a>[Java V7 SDK](#tab/java-v7)
 
 [Transferir o projeto de exemplo](https://github.com/Azure-Samples/storage-java-ha-ra-grs) e extrair o ficheiro storage-java-ragrs.zip. Também pode utilizar o [git](https://git-scm.com/) para transferir uma cópia da aplicação para o seu ambiente de desenvolvimento. O projeto de exemplo contém uma aplicação Java básica.
 
@@ -161,7 +161,7 @@ export storageconnectionstring=\<yourconnectionstring\>
 setx storageconnectionstring "\<yourconnectionstring\>"
 ```
 
-# <a name="java-v7-sdk-tabjava-v7"></a>[V7 do Java SDK ](#tab/java-v7)
+# <a name="java-v7-sdktabjava-v7"></a>[Java V7 SDK](#tab/java-v7)
 
 Na aplicação, tem de indicar a cadeia de ligação da sua conta de armazenamento. Recomenda-se que armazenar esta cadeia de ligação numa variável de ambiente no computador local executando o aplicativo. Siga um dos exemplos abaixo, consoante o Sistema Operativo para criar a variável de ambiente.
 
@@ -370,7 +370,7 @@ def response_callback(response):
             secondary_read_count = 0
 ```
 
-# <a name="java-v7-sdk-tabjava-v7"></a>[V7 do Java SDK ](#tab/java-v7)
+# <a name="java-v7-sdktabjava-v7"></a>[Java V7 SDK](#tab/java-v7)
 
 Com o Java, a definição de processadores de chamada de retorno é desnecessária se a propriedade **LocationMode** das **BlobRequestOptions** estiver definida como **PRIMARY\_THEN\_SECONDARY**. Isto permite que a aplicação mude automaticamente para a localização secundária se não conseguir alcançar a localização primária ao tentar transferir **HelloWorld.png**.
 

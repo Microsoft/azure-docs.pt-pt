@@ -13,22 +13,22 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/13/2018
 ms.author: apimpm
-ms.openlocfilehash: 827f8eb7491c6f64b275dee83345c29d51c0933d
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.openlocfilehash: d56e2da00e60b9daa44e040db6796215dd03436b
+ms.sourcegitcommit: ad3e63af10cd2b24bf4ebb9cc630b998290af467
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52442500"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58793089"
 ---
 # <a name="how-to-manage-user-accounts-in-azure-api-management"></a>Como gerir contas de utilizador na gestão de API do Azure
 
-Na gestão de API, os desenvolvedores são os utilizadores das APIs que expõem a utilizar a API Management. Este guia mostra como criar e convidar desenvolvedores para utilizar as APIs e os produtos que disponibilizar-lhes com a instância de gestão de API. Para obter informações sobre como gerir contas de usuário por meio de programação, consulte a [entidade User](https://docs.microsoft.com/rest/api/apimanagement/apimanagementrest/azure-api-management-rest-api-user-entity) documentação na [REST de gestão de API](https://msdn.microsoft.com/library/azure/dn776326.aspx) referência.
+Na gestão de API, os desenvolvedores são os utilizadores das APIs que expõem a utilizar a API Management. Este guia mostra como criar e convidar desenvolvedores para utilizar as APIs e os produtos que disponibilizar-lhes com a instância de gestão de API. Para obter informações sobre como gerir contas de usuário por meio de programação, consulte a [entidade User](https://docs.microsoft.com/rest/api/apimanagement/apimanagementrest/azure-api-management-rest-api-user-entity) documentação na [REST de gestão de API](/rest/api/apimanagement/) referência.
 
 [!INCLUDE [premium-dev-standard-basic.md](../../includes/api-management-availability-premium-dev-standard-basic.md)]
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Concluir tarefas neste artigo: [criar uma instância de gestão de API do Azure](get-started-create-service-instance.md).
+Concluir as tarefas neste artigo: [Criar uma instância de gestão de API do Azure](get-started-create-service-instance.md).
 
 [!INCLUDE [api-management-navigate-to-instance.md](../../includes/api-management-navigate-to-instance.md)]
 
@@ -69,7 +69,7 @@ Para impedir um utilizador, siga os passos seguintes.
 
 ## <a name="reset-a-user-password"></a>Repor uma palavra-passe do utilizador
 
-Para trabalhar programaticamente com contas de utilizador, consulte a [entidade User](https://docs.microsoft.com/rest/api/apimanagement/apimanagementrest/azure-api-management-rest-api-user-entity) documentação na [REST de gestão de API](https://msdn.microsoft.com/library/azure/dn776326.aspx) referência. Para repor uma palavra-passe da conta de utilizador para um valor específico, pode utilizar o [atualizar um utilizador](https://docs.microsoft.com/rest/api/apimanagement/apimanagementrest/azure-api-management-rest-api-user-entity#UpdateUser) operação e especifique a palavra-passe pretendida.
+Para trabalhar programaticamente com contas de utilizador, consulte a [entidade User](https://docs.microsoft.com/rest/api/apimanagement/apimanagementrest/azure-api-management-rest-api-user-entity) documentação na [REST de gestão de API](/rest/api/apimanagement/) referência. Para repor uma palavra-passe da conta de utilizador para um valor específico, pode utilizar o [atualizar um utilizador](https://docs.microsoft.com/rest/api/apimanagement/apimanagementrest/azure-api-management-rest-api-user-entity#UpdateUser) operação e especifique a palavra-passe pretendida.
 
 ## <a name="next-steps"> </a>Passos seguintes
 Depois de criar uma conta de programador, pode associá-la com funções e subscrever produtos e APIs. Para obter mais informações, consulte [como criar e utilizar grupos][How to create and use groups].

@@ -5,24 +5,24 @@ author: markjbrown
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: conceptual
-ms.date: 12/07/2018
+ms.date: 03/31/2019
 ms.author: mjbrown
 ms.custom: seodec18
-ms.openlocfilehash: 6664c3d5fde487b7add7c38dc602915d19adb767
-ms.sourcegitcommit: 223604d8b6ef20a8c115ff877981ce22ada6155a
+ms.openlocfilehash: f04fa5f43844080638c70c44410d233fbe6ad325
+ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58361987"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58805470"
 ---
 # <a name="sql-language-reference-for-azure-cosmos-db"></a>Referência de linguagem SQL para o Azure Cosmos DB 
 
-Azure Cosmos DB suporta consultas de documentos através de uma consulta de SQL (Structured Query Language), como gramática através de documentos JSON hierárquicos sem a necessidade de esquema explícito ou criação de índices secundários. Este artigo fornece documentação para a sintaxe de linguagem de consulta SQL, que é compatível com contas da API de SQL. Para obter instruções de consultas SQL de exemplo, consulte [consultas SQL no Cosmos DB](how-to-sql-query.md).  
+Azure Cosmos DB suporta consultas de documentos através de uma consulta de SQL (Structured Query Language), como gramática através de documentos JSON hierárquicos sem a necessidade de esquema explícito ou criação de índices secundários. Este artigo fornece documentação para a sintaxe de linguagem de consulta SQL utilizada nas contas de API de SQL. Para obter instruções de consultas SQL de exemplo, consulte [exemplos de consulta SQL no Cosmos DB](how-to-sql-query.md).  
   
-Visite o [recreio de consultas](https://www.documentdb.com/sql/demo) onde pode experimentar o Cosmos DB e executar consultas SQL no nosso conjunto de dados.  
+Visite o [recreio de consultas](https://www.documentdb.com/sql/demo), onde pode experimentar o Cosmos DB e executar consultas de SQL num conjunto de dados de exemplo.  
   
 ## <a name="select-query"></a>Consulta SELECT  
-Cada consulta é composta por uma cláusula SELECT e FROM opcional e cláusulas WHERE por padrões ANSI SQL. Normalmente, para cada consulta, a origem na cláusula FROM é enumerada. Em seguida, o filtro na cláusula WHERE é aplicado na origem para obter um subconjunto de documentos JSON. Por fim, a cláusula SELECT é utilizada para os valores JSON de pedidos na lista de seleção do projeto. As convenções usadas para descrever as instruções SELECT são apresentadas na secção de convenções de sintaxe. Para obter exemplos, consulte [exemplos de consulta SELECT](how-to-sql-query.md#SelectClause)
+Cada consulta é composta por uma cláusula SELECT e FROM opcional e cláusulas WHERE por padrões ANSI SQL. Normalmente, para cada consulta, a origem na cláusula FROM é enumerada, em seguida, o filtro na cláusula WHERE é aplicado na origem para obter um subconjunto de documentos JSON. Por fim, a cláusula SELECT é utilizada para os valores JSON de pedidos na lista de seleção do projeto. Para obter exemplos, consulte [exemplos de consulta SELECT](how-to-sql-query.md#SelectClause)
   
 **Sintaxe**  
   
@@ -2342,7 +2342,7 @@ StringToArray(<expr>)
   
 - `expr`  
   
-   É qualquer expressão de matriz JSON válido. Tenha em atenção que os valores de cadeia de caracteres devem ser escritas com aspas duplas para ser válida. Para obter detalhes sobre o formato JSON, veja [json.org](https://json.org/)
+   É qualquer expressão escalar válida para ser avaliada como uma expressão de matriz JSON. Tenha em atenção que os valores de cadeia de caracteres aninhados têm de ser escritos com aspas duplas para ser válida. Para obter detalhes sobre o formato JSON, veja [json.org](https://json.org/)
   
   **Tipos de retorno**  
   
@@ -2352,26 +2352,57 @@ StringToArray(<expr>)
   
   O exemplo seguinte mostra como StringToArray se comporta vários tipos diferentes. 
   
-```  
+ Seguem-se exemplos com uma entrada válida.
+
+```
 SELECT 
-StringToArray('[]'), 
-StringToArray("[1,2,3]"),
-StringToArray("[\"str\",2,3]"),
-IS_ARRAY(StringToArray("[['5','6','7'],['8'],['9']]")), 
-IS_ARRAY(StringToArray('[["5","6","7"],["8"],["9"]]')),
-StringToArray('[1,2,3, "[4,5,6]",[7,8]]'),
-StringToArray("[1,2,3, '[4,5,6]',[7,8]]"),
-StringToArray(false), 
-StringToArray(undefined),
-StringToArray(NaN), 
-StringToArray("[")
-```  
-  
- Aqui está o conjunto de resultados.  
-  
-```  
-[{"$1": [], "$2": [1,2,3], "$3": ["str",2,3], "$4": false, "$5": true, "$6": [1,2,3,"[4,5,6]",[7,8]]}]
-```  
+    StringToArray('[]') AS a1, 
+    StringToArray("[1,2,3]") AS a2,
+    StringToArray("[\"str\",2,3]") AS a3,
+    StringToArray('[["5","6","7"],["8"],["9"]]') AS a4,
+    StringToArray('[1,2,3, "[4,5,6]",[7,8]]') AS a5
+```
+
+ Aqui está o conjunto de resultados.
+
+```
+[{"a1": [], "a2": [1,2,3], "a3": ["str",2,3], "a4": [["5","6","7"],["8"],["9"]], "a5": [1,2,3,"[4,5,6]",[7,8]]}]
+```
+
+ Segue-se um exemplo de entrada inválida. 
+   
+ As aspas simples dentro da matriz não são um JSON válido.
+Mesmo que sejam válidas dentro de uma consulta, não irá analisar a matrizes válidas. Também devem ser escritas cadeias de caracteres dentro da cadeia de matriz "[\"\"]" ou a citação ao redor tem de ser única "[" "]".
+
+```
+SELECT
+    StringToArray("['5','6','7']")
+```
+
+ Aqui está o conjunto de resultados.
+
+```
+[{}]
+```
+
+ Seguem-se exemplos de entrada inválido.
+   
+ A expressão passada será analisada como uma matriz JSON; o seguinte não avalia para o tipo de matriz e, portanto, retornar indefinido.
+   
+```
+SELECT
+    StringToArray("["),
+    StringToArray("1"),
+    StringToArray(NaN),
+    StringToArray(false),
+    StringToArray(undefined)
+```
+
+ Aqui está o conjunto de resultados.
+
+```
+[{}]
+```
 
 ####  <a name="bk_stringtoboolean"></a> StringToBoolean  
  Devolve a expressão convertido para booleano. Se a expressão não pode ser convertida, retornará indefinida.  
@@ -2386,7 +2417,7 @@ StringToBoolean(<expr>)
   
 - `expr`  
   
-   É qualquer expressão válida.  
+   É qualquer expressão escalar válida para ser avaliada como uma expressão booleana.  
   
   **Tipos de retorno**  
   
@@ -2395,25 +2426,55 @@ StringToBoolean(<expr>)
   **Exemplos**  
   
   O exemplo seguinte mostra como StringToBoolean se comporta vários tipos diferentes. 
-  
+ 
+ Seguem-se exemplos com uma entrada válida.
+
+ Espaço em branco é permitido apenas antes ou depois de "true"/ "false".
+
 ```  
 SELECT 
-StringToBoolean("true"), 
-StringToBoolean("    false"),
-IS_BOOL(StringToBoolean("false")), 
-StringToBoolean("null"),
-StringToBoolean(undefined),
-StringToBoolean(NaN), 
-StringToBoolean(false), 
-StringToBoolean(true), 
-StringToBoolean("TRUE"),
-StringToBoolean("False")
+    StringToBoolean("true") AS b1, 
+    StringToBoolean("    false") AS b2,
+    StringToBoolean("false    ") AS b3
 ```  
   
  Aqui está o conjunto de resultados.  
   
 ```  
-[{"$1": true, "$2": false, "$3": true}]
+[{"b1": true, "b2": false, "b3": false}]
+```  
+
+ Seguem-se exemplos com entrada inválida.
+ 
+ Booleanos são sensíveis a maiúsculas e minúsculas e têm de ser escritos com todos os carateres em minúsculas, ou seja, "true" e "falsos".
+
+```  
+SELECT 
+    StringToBoolean("TRUE"),
+    StringToBoolean("False")
+```  
+
+ Aqui está o conjunto de resultados.  
+  
+```  
+[{}]
+``` 
+
+ A expressão passada será analisada como uma expressão booleana; Estas entradas não avaliam tipo Booleano e, portanto, retornar indefinido.
+
+ ```  
+SELECT 
+    StringToBoolean("null"),
+    StringToBoolean(undefined),
+    StringToBoolean(NaN), 
+    StringToBoolean(false), 
+    StringToBoolean(true)
+```  
+
+ Aqui está o conjunto de resultados.  
+  
+```  
+[{}]
 ```  
 
 ####  <a name="bk_stringtonull"></a> StringToNull  
@@ -2429,7 +2490,7 @@ StringToNull(<expr>)
   
 - `expr`  
   
-   É qualquer expressão válida.  
+   É qualquer expressão escalar válida para ser avaliada como uma expressão nulo.
   
   **Tipos de retorno**  
   
@@ -2438,24 +2499,54 @@ StringToNull(<expr>)
   **Exemplos**  
   
   O exemplo seguinte mostra como StringToNull se comporta vários tipos diferentes. 
-  
+
+ Seguem-se exemplos com uma entrada válida.
+ 
+ Espaço em branco é permitido apenas antes ou depois de "null".
+
 ```  
 SELECT 
-StringToNull("null"), 
-StringToNull("  null "),
-IS_NULL(StringToNull("null")), 
-StringToNull("true"), 
-StringToNull(false), 
-StringToNull(undefined),
-StringToNull(NaN), 
-StringToNull("NULL"),
-StringToNull("Null")
+    StringToNull("null") AS n1, 
+    StringToNull("  null ") AS n2,
+    IS_NULL(StringToNull("null   ")) AS n3
 ```  
   
  Aqui está o conjunto de resultados.  
   
 ```  
-[{"$1": null, "$2": null, "$3": true}]
+[{"n1": null, "n2": null, "n3": true}]
+```  
+
+ Seguem-se exemplos com entrada inválida.
+
+ NULL diferencia maiúsculas de minúsculas e têm de ser escrito com todos os carateres em minúsculas, ou seja, "nulos".
+
+```  
+SELECT    
+    StringToNull("NULL"),
+    StringToNull("Null")
+```  
+  
+ Aqui está o conjunto de resultados.  
+  
+```  
+[{}]
+```  
+
+ A expressão passada será analisada como uma expressão nulo; Estas entradas não avaliam escreva nulo e, portanto, retornar indefinido.
+
+```  
+SELECT    
+    StringToNull("true"), 
+    StringToNull(false), 
+    StringToNull(undefined),
+    StringToNull(NaN) 
+```  
+  
+ Aqui está o conjunto de resultados.  
+  
+```  
+[{}]
 ```  
 
 ####  <a name="bk_stringtonumber"></a> StringToNumber  
@@ -2471,7 +2562,7 @@ StringToNumber(<expr>)
   
 - `expr`  
   
-   É qualquer expressão de número de JSON válido. Números no JSON tem de ser um número inteiro ou um ponto flutuante. Para obter detalhes sobre o formato JSON, veja [json.org](https://json.org/)  
+   É qualquer expressão escalar válida para ser avaliada como uma expressão de número de JSON. Números no JSON tem de ser um número inteiro ou um ponto flutuante. Para obter detalhes sobre o formato JSON, veja [json.org](https://json.org/)  
   
   **Tipos de retorno**  
   
@@ -2480,27 +2571,52 @@ StringToNumber(<expr>)
   **Exemplos**  
   
   O exemplo seguinte mostra como StringToNumber se comporta vários tipos diferentes. 
-  
+
+ Espaço em branco é permitido apenas antes ou depois do número.
+ 
 ```  
 SELECT 
-StringToNumber("1.000000"), 
-StringToNumber("3.14"),
-IS_NUMBER(StringToNumber("   60   ")), 
-StringToNumber("0xF"),
-StringToNumber("-1.79769e+308"),
-IS_STRING(StringToNumber("2")),
-StringToNumber(undefined),
-StringToNumber("99     54"), 
-StringToNumber("false"), 
-StringToNumber(false),
-StringToNumber(" "),
-StringToNumber(NaN)
+    StringToNumber("1.000000") AS num1, 
+    StringToNumber("3.14") AS num2,
+    StringToNumber("   60   ") AS num3, 
+    StringToNumber("-1.79769e+308") AS num4
 ```  
   
  Aqui está o conjunto de resultados.  
   
 ```  
-{{"$1": 1, "$2": 3.14, "$3": true, "$5": -1.79769e+308, "$6": false}}
+{{"num1": 1, "num2": 3.14, "num3": 60, "num4": -1.79769e+308}}
+```  
+
+ Em JSON, um número válido tem de ser optar por ser um número inteiro ou flutuante ponto número.
+ 
+```  
+SELECT   
+    StringToNumber("0xF")
+```  
+  
+ Aqui está o conjunto de resultados.  
+  
+```  
+{{}}
+```  
+
+ A expressão passada será analisada como uma expressão numérica; Estas entradas não avaliam escreva o número e, portanto, retornar indefinido. 
+
+```  
+SELECT 
+    StringToNumber("99     54"),   
+    StringToNumber(undefined),
+    StringToNumber("false"),
+    StringToNumber(false),
+    StringToNumber(" "),
+    StringToNumber(NaN)
+```  
+  
+ Aqui está o conjunto de resultados.  
+  
+```  
+{{}}
 ```  
 
 ####  <a name="bk_stringtoobject"></a> StringToObject  
@@ -2516,7 +2632,7 @@ StringToObject(<expr>)
   
 - `expr`  
   
-   É qualquer expressão de objeto JSON válido. Tenha em atenção que os valores de cadeia de caracteres devem ser escritas com aspas duplas para ser válida. Para obter detalhes sobre o formato JSON, veja [json.org](https://json.org/)  
+   É qualquer expressão escalar válida para ser avaliada como uma expressão de objeto JSON. Tenha em atenção que os valores de cadeia de caracteres aninhados têm de ser escritos com aspas duplas para ser válida. Para obter detalhes sobre o formato JSON, veja [json.org](https://json.org/)  
   
   **Tipos de retorno**  
   
@@ -2526,26 +2642,73 @@ StringToObject(<expr>)
   
   O exemplo seguinte mostra como StringToObject se comporta vários tipos diferentes. 
   
-```  
+ Seguem-se exemplos com uma entrada válida.
+ 
+``` 
 SELECT 
-StringToObject("{}"), 
-StringToObject('{"a":[1,2,3]}'),
-StringToObject("{'a':[1,2,3]}"),
-StringToObject("{a:[1,2,3]}"),
-IS_OBJECT(StringToObject('{"obj":[{"b":[5,6,7]},{"c":8},{"d":9}]}')), 
-IS_OBJECT(StringToObject("{\"obj\":[{\"b\":[5,6,7]},{\"c\":8},{\"d\":9}]}")), 
-IS_OBJECT(StringToObject("{'obj':[{'b':[5,6,7]},{'c':8},{'d':9}]}")), 
-StringToObject(false), 
-StringToObject(undefined),
-StringToObject(NaN), 
-StringToObject("{")
+    StringToObject("{}") AS obj1, 
+    StringToObject('{"A":[1,2,3]}') AS obj2,
+    StringToObject('{"B":[{"b1":[5,6,7]},{"b2":8},{"b3":9}]}') AS obj3, 
+    StringToObject("{\"C\":[{\"c1\":[5,6,7]},{\"c2\":8},{\"c3\":9}]}") AS obj4
+``` 
+
+ Aqui está o conjunto de resultados.
+
+```
+[{"obj1": {}, 
+  "obj2": {"A": [1,2,3]}, 
+  "obj3": {"B":[{"b1":[5,6,7]},{"b2":8},{"b3":9}]},
+  "obj4": {"C":[{"c1":[5,6,7]},{"c2":8},{"c3":9}]}}]
+```
+ 
+ Seguem-se exemplos com entrada inválida.
+Mesmo que sejam válidas dentro de uma consulta, não irá analisar a objetos válidos. Também devem ser escritas cadeias de caracteres na cadeia do objeto "{\"um\":\"str\"}" ou a citação ao redor tem de ser única "{"a":"str"}".
+
+ Aspas simples ao redor de nomes de propriedades não são um JSON válido.
+
+``` 
+SELECT 
+    StringToObject("{'a':[1,2,3]}")
+```
+
+ Aqui está o conjunto de resultados.
+
 ```  
-  
- Aqui está o conjunto de resultados.  
-  
+[{}]
 ```  
-[{"$1": {}, "$2": {"a": [1,2,3]}, "$5": true, "$6": true, "$7": false}]
+
+ Nomes de propriedade sem aspas ao redor não são um JSON válido.
+
+``` 
+SELECT 
+    StringToObject("{a:[1,2,3]}")
+```
+
+ Aqui está o conjunto de resultados.
+
 ```  
+[{}]
+``` 
+
+ Seguem-se exemplos com entrada inválida.
+ 
+ A expressão passada será analisada como um objeto JSON; Estas entradas não avaliam para o tipo de objeto e, portanto, retornar indefinido.
+ 
+``` 
+SELECT 
+    StringToObject("}"),
+    StringToObject("{"),
+    StringToObject("1"),
+    StringToObject(NaN), 
+    StringToObject(false), 
+    StringToObject(undefined)
+``` 
+ 
+ Aqui está o conjunto de resultados.
+
+```
+[{}]
+```
 
 ####  <a name="bk_substring"></a> SUBCADEIA  
  Devolve a parte de uma expressão de cadeia de caracteres a partir da posição caractere especificado baseado em zero e continua ao comprimento especificado, ou ao fim da cadeia de caracteres.  

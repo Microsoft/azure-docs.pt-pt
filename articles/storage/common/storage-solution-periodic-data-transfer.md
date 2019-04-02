@@ -6,14 +6,14 @@ author: alkohli
 ms.service: storage
 ms.subservice: blobs
 ms.topic: article
-ms.date: 12/05/2018
+ms.date: 04/01/2019
 ms.author: alkohli
-ms.openlocfilehash: ba6d5e20f0d6a004fd85d7e9dc57584547d52ba3
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 8f106674c1b1ec90477c7c030dc55085fcf10656
+ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57772862"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58801986"
 ---
 # <a name="solutions-for-periodic-data-transfer"></a>Soluções para a transferência de dados periódica
  
@@ -52,10 +52,10 @@ A tabela seguinte resume as diferenças nas capacidades principais.
 
 ### <a name="continuous-data-ingestion-over-network"></a>Ingestão de dados contínua através de rede
 
-| Funcionalidade                                       | Gateway de caixa de dados (pré-visualização) | Edge de caixa de dados (pré-visualização)  | Azure Data Factory        |
+| Funcionalidade                                       | Data Box Gateway | Data Box Edge   | Azure Data Factory        |
 |----------------------------------|-----------------------------------------|--------------------------|---------------------------|
 | Fator de formulário                                   | Dispositivo virtual             | Dispositivo físico          | Serviço no portal do Azure, o agente no local                                                            |
-| Hardware                                      | O hipervisor            | Fornecido pela Microsoft    | N/D                                                            |
+| Hardware                                      | O hipervisor            | Fornecido pela Microsoft    | ND                                                            |
 | Esforço de configuração inicial                          | Baixa (< 30 min.)            | Moderado (~ acoplar horas) | Grande (~ dias)                                                 |
 | Formato de dados                                   | Blobs do Azure, os ficheiros do Azure   | Blobs do Azure, os ficheiros do Azure | [Suporta 70 conectores de dados para arquivos de dados e formatos](https://docs.microsoft.com/azure/data-factory/copy-activity-overview#supported-data-stores-and-formats)|
 | Processamento prévio de dados                           | Não                         | Sim, através de computação do Edge    | Sim                                                           |

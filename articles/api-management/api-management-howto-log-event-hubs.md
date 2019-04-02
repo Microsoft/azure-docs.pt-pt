@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/29/2018
 ms.author: apimpm
-ms.openlocfilehash: 028b36cc442ccef8af4aa401846cbacdaaab35bf
-ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
+ms.openlocfilehash: 14f84b5380a1c106114cdab425de7f69f4e19825
+ms.sourcegitcommit: ad3e63af10cd2b24bf4ebb9cc630b998290af467
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56428487"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58793565"
 ---
 # <a name="how-to-log-events-to-azure-event-hubs-in-azure-api-management"></a>Como registar eventos nos Hubs de eventos do Azure na gestão de API do Azure
 Os Event Hubs do Azure são um serviço de entrada de dados altamente dimensionável, que pode ingerir milhões de eventos por segundo para que possa processar e analisar os quantidades enormes de dados produzidos pelos dispositivos e aplicações ligados. Os Event Hubs atuam como a "porta de entrada" para um pipeline de eventos, e quando dados são recolhidos para um hub de eventos, podem ser transformado e armazenados em qualquer fornecedor de análises em tempo real ou adaptadores de criação de batches/armazenamento. Os Event Hubs desacoplam a produção de um fluxo de eventos do consumo desses eventos, para que os consumidores de eventos possam aceder aos eventos de acordo com seu próprio agendamento.
@@ -40,7 +40,7 @@ Para criar um agente de log, fazer um pedido HTTP PUT enviado utilizando o model
 `https://{your service}.management.azure-api.net/loggers/{new logger name}?api-version=2017-03-01`
 
 * Substitua `{your service}` com o nome da sua instância do serviço de gestão de API.
-* Substitua `{new logger name}` com o nome pretendido para o seu novo logger. Referenciar este nome quando configurar o [log-para-eventhub](https://msdn.microsoft.com/library/azure/dn894085.aspx#log-to-eventhub) política
+* Substitua `{new logger name}` com o nome pretendido para o seu novo logger. Referenciar este nome quando configurar o [log-para-eventhub](/azure/api-management/api-management-advanced-policies#log-to-eventhub) política
 
 Adicione os seguintes cabeçalhos à solicitação:
 

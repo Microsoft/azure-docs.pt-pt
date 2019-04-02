@@ -12,22 +12,25 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 03/19/2019
+ms.date: 04/01/2019
 ms.author: juliako
-ms.openlocfilehash: 3e754d81a18b683e601608b856bbc9da1b790dbd
-ms.sourcegitcommit: aa3be9ed0b92a0ac5a29c83095a7b20dd0693463
+ms.openlocfilehash: ddc1c7f2dd207cba18a8c080c8b14cc53c149a39
+ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58259385"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58804180"
 ---
 # <a name="create-a-media-services-account-using-the-azure-portal"></a>Criar uma conta de serviços de multimédia com o portal do Azure
+
+> [!NOTE]
+> Não serão adicionadas novas funcionalidades aos Serviços de Multimédia v2. <br/>Veja a versão mais recente, [Serviços de Multimédia v3](https://docs.microsoft.com/azure/media-services/latest/). Além disso, veja [orientação de migração da v2 para a v3](../latest/migrate-from-v2-to-v3.md)
 
 O portal do Azure proporciona uma forma para criar rapidamente uma conta dos Serviços de Multimédia do Azure (AMS). Pode utilizar a sua conta para aceder aos Media Services que permitem armazenar, encriptar, codificar, gerir e transmitir conteúdo no Azure. No momento em que cria uma conta de Media Services, também criar uma conta do storage associada (ou utilize um já existente). Se eliminar uma conta de Media Services, os blobs na sua conta do Storage relacionada não são eliminados.
 
 Pode ter Fins Gerais v1 ou Fins Gerais v2 como a sua conta de armazenamento primária. Atualmente, o portal do Azure permite escolher apenas o v1, mas pode adicionar o v2, ao criar a conta com a API ou o Powershell. Para obter mais informações sobre as contas de armazenamento, veja [Acerca das contas de armazenamento do Azure](https://docs.microsoft.com/azure/storage/common/storage-create-storage-account).
 
-A conta de Media Services e todas as contas de armazenamento associado tem de ser na mesma subscrição do Azure. É vivamente recomendado para utilizar contas de armazenamento na mesma localização que a conta de serviços de multimédia para evitar custos de saída de latência e dados adicionais.
+A conta dos Serviços de Multimédia e todas as contas de armazenamento associadas têm de estar na mesma subscrição do Azure. Recomendamos vivamente que utilize as contas de armazenamento na mesma localização que a conta dos Serviços de Multimédia para evitar custos de saída de dados e latência adicionais.
 
 Este artigo mostra como criar uma conta de serviços de multimédia no portal do Azure.
 

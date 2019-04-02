@@ -11,12 +11,12 @@ ms.author: larryfr
 author: Blackmist
 ms.date: 2/20/2019
 ms.custom: seodec18
-ms.openlocfilehash: b40edf705ba61713f4b695dd55a6a20028936c82
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 56813d9a075e1c327fb5612c50ea72f067ec505d
+ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57993822"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58805606"
 ---
 # <a name="manage-access-to-an-azure-machine-learning-workspace"></a>Gerir o acesso a uma área de trabalho do Azure Machine Learning
 
@@ -33,7 +33,7 @@ Uma área de trabalho do Azure Machine Learning é um recurso do Azure. Como os 
 | **Proprietário** | Acesso total a área de trabalho, incluindo a capacidade de ver, criar, editar ou eliminar (quando aplicável) ativos numa área de trabalho. Além disso, pode alterar as atribuições de funções. |
 
 > [!IMPORTANT]
-> Acesso de função pode ser confinado a vários níveis no Azure. Por exemplo, alguém com acesso de proprietário para um grupo de trabalho pode não ter acesso de proprietário para o grupo de recursos que contém o grupo de trabalho. Para obter mais informações, consulte [funciona como o RBAC](/azure/role-based-access-control/overview#how-rbac-works).
+> Acesso de função pode ser confinado a vários níveis no Azure. Por exemplo, alguém com acesso de proprietário a uma área de trabalho pode não ter acesso de proprietário para o grupo de recursos que contém a área de trabalho. Para obter mais informações, consulte [funciona como o RBAC](/azure/role-based-access-control/overview#how-rbac-works).
 
 Para obter mais informações sobre as funções incorporadas específicas, consulte [funções incorporadas para o Azure](/azure/role-based-access-control/built-in-roles).
 

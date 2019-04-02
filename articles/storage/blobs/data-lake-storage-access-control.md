@@ -8,12 +8,12 @@ ms.service: storage
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: jamesbak
-ms.openlocfilehash: a102216a6a2a7dec471678e14f7050cb4ef41d77
-ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
+ms.openlocfilehash: 4ba8977180e33256bfdc6652811495a02a9ef19c
+ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58370113"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58802966"
 ---
 # <a name="access-control-in-azure-data-lake-storage-gen2"></a>Controlo de acesso na geração 2 de armazenamento do Azure Data Lake
 
@@ -27,9 +27,9 @@ Utilizar atribuições de funções do RBAC é um poderoso mecanismo para permis
 
 O armazenamento do Azure fornece três funções incorporadas do RBAC para o armazenamento de BLOBs: 
 
-- [Proprietário de dados de Blob de armazenamento](../../role-based-access-control/built-in-roles.md#storage-blob-data-owner-preview)
-- [Contribuinte de dados de Blob de armazenamento](../../role-based-access-control/built-in-roles.md#storage-blob-data-contributor-preview)
-- [Leitor de dados de Blob de armazenamento](../../role-based-access-control/built-in-roles.md#storage-blob-data-reader-preview)
+- [Proprietário de dados de Blob de armazenamento](../../role-based-access-control/built-in-roles.md#storage-blob-data-owner)
+- [Contribuinte de dados de Blob de armazenamento](../../role-based-access-control/built-in-roles.md#storage-blob-data-contributor)
+- [Leitor de dados de Blob de armazenamento](../../role-based-access-control/built-in-roles.md#storage-blob-data-reader)
 
 Quando um utilizador ou principal de serviço é concedido as permissões RBAC de dados por meio de uma destas funções incorporadas ou por meio de uma função personalizada, estas permissões são avaliadas pela primeira vez após a autorização de um pedido. Se a operação pedida é autorizada pelas atribuições de RBAC do chamador, em seguida, a autorização é resolvido imediatamente e não adicionais são executadas verificações ACL. Em alternativa, se o chamador não tem uma atribuição de RBAC ou operação do pedido não coincide com a permissão atribuída, em seguida, ACL são executadas verificações para determinar se o chamador está autorizado a efetuar a operação pedida.
 
@@ -285,7 +285,7 @@ Se a entrada representa um utilizador e que o utilizador não existe no Azure AD
 
 Quando define ACLs para principais de serviço, é importante usar o ID de objeto (OID) do *principal de serviço* para o registo da aplicação que criou. É importante observar que aplicações registadas tem um principal de serviço separado no específico inquilino do Azure AD. Aplicações registadas tem um OID que está visível no portal do Azure, mas a *principal de serviço* tem outra OID (diferente).
 
-Para obter o OID para o principal de serviço que corresonds para um registo de aplicações, pode utilizar o `az ad sp show` comando. Especifique o ID da aplicação como o parâmetro. Eis um exemplo sobre como obter o OID para o principal de serviço que corresponde a um registo de aplicação com o Id da aplicação = 18218b12-1895-43e9-ad80-6e8fc1ea88ce. Execute o seguinte comando na CLI do Azure:
+Para obter o OID para o principal de serviço que corresponde a um registo de aplicações, pode utilizar o `az ad sp show` comando. Especifique o ID da aplicação como o parâmetro. Eis um exemplo sobre como obter o OID para o principal de serviço que corresponde a um registo de aplicação com o Id da aplicação = 18218b12-1895-43e9-ad80-6e8fc1ea88ce. Execute o seguinte comando na CLI do Azure:
 
 `az ad sp show --id 18218b12-1895-43e9-ad80-6e8fc1ea88ce --query objectId
 <<OID will be displayed>>`

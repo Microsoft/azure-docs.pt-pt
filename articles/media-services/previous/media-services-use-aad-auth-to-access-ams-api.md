@@ -11,25 +11,28 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/20/2019
+ms.date: 04/01/2019
 ms.author: juliako
-ms.openlocfilehash: b6071bef4e4bbd9aaca3f587e5dfa584831d082e
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: d80a58f1886ecc1ca2a735881fc5822f2fc0c53b
+ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58316879"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58802495"
 ---
 # <a name="access-the-azure-media-services-api-with-azure-ad-authentication"></a>Acesso à API de serviços de multimédia do Azure com a autenticação do Azure AD  
- 
+
+> [!NOTE]
+> Não serão adicionadas novas funcionalidades aos Serviços de Multimédia v2. <br/>Veja a versão mais recente, [Serviços de Multimédia v3](https://docs.microsoft.com/azure/media-services/latest/). Além disso, veja [orientação de migração da v2 para a v3](../latest/migrate-from-v2-to-v3.md)
+
 API de serviços de multimédia do Azure é uma API RESTful. Pode usá-lo para realizar operações nos recursos de suporte de dados com uma API REST ou através de SDKs de cliente disponíveis. Serviços de multimédia do Azure oferece um SDK do cliente de serviços de multimédia para o Microsoft .NET. Para ficar autorizada a aceder a recursos de serviços de multimédia e a API de serviços de suporte de dados, tem primeiro de ser autenticado. 
 
 Serviços de multimédia suportam [do Azure Active Directory (Azure AD)-autenticação baseada em](../../active-directory/fundamentals/active-directory-whatis.md). O serviço de REST de suporte de dados do Azure requer que o utilizador ou aplicação que faz a API REST pedidos de ter o **contribuinte** ou **proprietário** função para acessar os recursos. Para obter mais informações, consulte [introdução ao controlo de acesso baseado em funções no portal do Azure](../../role-based-access-control/overview.md).  
 
-> [!IMPORTANT]
-> Atualmente, os Media Services suportam o modelo de autenticação do serviço de controlo de acesso do Azure. No entanto, a autorização de controlo de acesso vai ser preterida no dia 1 de Junho de 2018. Recomendamos que migre para o modelo de autenticação do Azure AD assim que for possível.
-
 Este documento oferece uma visão geral de como acessar a API de serviços de multimédia com REST ou de APIs do .NET.
+
+> [!NOTE]
+> Autorização de controlo de acesso foi preterida a partir de 1 de Junho de 2018.
 
 ## <a name="access-control"></a>Controlo de acesso
 

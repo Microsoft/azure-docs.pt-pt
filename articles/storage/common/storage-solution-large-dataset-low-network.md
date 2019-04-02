@@ -6,14 +6,14 @@ author: alkohli
 ms.service: storage
 ms.subservice: blobs
 ms.topic: article
-ms.date: 12/10/2018
+ms.date: 04/01/2019
 ms.author: alkohli
-ms.openlocfilehash: a6505232066d7a2e63c3e9508cb16cb9a31f8e35
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 6922d49affdde86728b41ef1d3d0c6a2da5c323e
+ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57776670"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58805096"
 ---
 # <a name="data-transfer-for-large-datasets-with-low-or-no-network-bandwidth"></a>Transferência de dados para grandes conjuntos de dados com baixa ou não largura de banda de rede
  
@@ -45,12 +45,12 @@ As opções disponíveis neste cenário são dispositivos para transferência of
 
 A tabela seguinte resume as diferenças nas capacidades principais.
 
-|                                     |    Disco do Data Box (pré-visualização)    |    Data Box                                      |    Dados caixa pesadas (pré-visualização)              |    Importação/Exportação                       |
+|                                     |    Data Box Disk      |    Data Box                                      |    Data Box Heavy              |    Importação/Exportação                       |
 |-------------------------------------|---------------------------------|--------------------------------------------------|------------------------------------------|----------------------------------------|
 |    Tamanho dos dados                        |    Até 35 TB                 |    Até 80 TB por dispositivo                       |    Até 800 TB por dispositivo               |    Variável                            |
 |    Tipo de dados                        |    Blobs do Azure                  |    Blobs do Azure<br>Ficheiros do Azure                    |    Blobs do Azure<br>Ficheiros do Azure            |    Blobs do Azure<br>Ficheiros do Azure          |
 |    Fator de formulário                      |    5 SSDs por ordem             |    1 x 50-lbs. dispositivo de porte no ambiente de trabalho de mensagens em fila por ordem    |    1 X ~ 500-lbs. dispositivo grandes por ordem    |    Até 10 HDDs/SSDs por ordem        |
-|    Tempo de configuração inicial               |    Baixo <br>(15 min)            |    Baixo a moderado <br> (< 30 minutos)               |    Moderado<br>(1 a 2 horas)               |    Moderar a difícil<br>(variável) |
+|    Tempo de configuração inicial               |    Baixa <br>(15 min)            |    Baixo a moderado <br> (< 30 minutos)               |    Moderado<br>(1 a 2 horas)               |    Moderar a difícil<br>(variável) |
 |    Enviar dados para o Azure               |    Sim                          |    Sim                                           |    Sim                                   |    Sim                                 |
 |    Exportar dados do Azure           |    Não                           |    Não                                            |    Não                                    |    Sim                                 |
 |    Encriptação                       |    AES 128 bits                  |    AES de 256 bits                                   |    AES de 256 bits                           |    AES 128 bits                         |

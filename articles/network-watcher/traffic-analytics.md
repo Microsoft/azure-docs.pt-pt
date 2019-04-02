@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/15/2018
 ms.author: yagup;jdial
-ms.openlocfilehash: d4c3ab7e33d3d4bd8d5d5ee15c8264d1d41c858e
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: ac4351bd2e125c922cb3044c1d06298b3ad6de97
+ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58081071"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58805062"
 ---
 # <a name="traffic-analytics"></a>Análise de Tráfego
 
@@ -64,6 +64,7 @@ Pode utilizar a análise de tráfego para NSGs em qualquer uma das seguintes reg
 * EUA Central
 * EUA Oeste
 * EUA Oeste 2
+* França Central
 * Europa Ocidental
 * Europa do Norte
 * Sul do Brasil
@@ -71,20 +72,26 @@ Pode utilizar a análise de tráfego para NSGs em qualquer uma das seguintes reg
 * Reino Unido Sul
 * Leste da Austrália
 * Sudeste da Austrália
+* Ásia Oriental
 * Sudeste Asiático
+* Coreia do Sul Central
 * Índia Central
 * Sul da Índia
 * Leste do Japão 
+* Oeste do Japão
 * Gov (US) - Virginia
 
 A área de trabalho do Log Analytics têm de existir nas seguintes regiões:
 * Canadá Central
 * EUA Centro-Oeste
+* EUA Oeste 2
 * EUA Leste
+* França Central
 * Europa Ocidental
 * Reino Unido Sul
 * Sudeste da Austrália
 * Sudeste Asiático
+* Coreia do Sul Central
 * Índia Central
 * Leste do Japão
 * Gov (US) - Virginia

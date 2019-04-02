@@ -8,12 +8,12 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.date: 03/08/2019
 ms.topic: conceptual
-ms.openlocfilehash: a1e65466bb409007a2f112422f393eee786d7b3c
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: ea96b2b996ea79efacdcda50c6370f25e26e0aa2
+ms.sourcegitcommit: ad3e63af10cd2b24bf4ebb9cc630b998290af467
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58182137"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58793781"
 ---
 # <a name="deploy-the-remote-monitoring-solution-accelerator-using-the-cli"></a>Implementar o acelerador de solução de monitorização remota com a CLI
 
@@ -62,6 +62,8 @@ Esta secção resume as principais diferenças entre uma implementação de bás
 
 ### <a name="basic"></a>Básica
 
+Pode fazer uma implementação básica do [azureiotsolutions.com](https://www.azureiotsolutions.com/Accelerators) ou com a CLI.
+
 A implementação Básica destina-se a demonstrar a solução. Para reduzir os custos, todos os microsserviços são implementados numa única máquina virtual. Esta implementação não usa uma arquitetura de prontos para produção.
 
 Uma implementação básica cria os seguintes serviços na sua subscrição do Azure:
@@ -80,6 +82,8 @@ Uma implementação básica cria os seguintes serviços na sua subscrição do A
 | 1     | [Azure Time Series Insights](https://azure.microsoft.com/services/time-series-insights/)        |   S1 – 1 unidade              | Armazenamento para análise de telemetria profunda de dados e permite que as mensagens |
 
 ### <a name="standard"></a>Standard
+
+Pode fazer uma implementação padrão apenas com a CLI.
 
 Uma implementação padrão é uma implementação de prontos para produção que um desenvolvedor pode personalizar e expandir. Utilize a opção de implementação standard quando estiver pronto para personalizar uma arquitetura de prontos para produção, criada para dimensionamento e extensibilidade. Microsserviços de aplicação são criados como contentores do Docker e implementados com o Azure Kubernetes Service. O orquestrador Kubernetes implementa, dimensiona e gere os microsserviços.
 

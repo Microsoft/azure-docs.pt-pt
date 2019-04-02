@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 01/24/2019
 ms.author: bwren
-ms.openlocfilehash: 6a13988af7a46ff6fafe352e850ee238cda79c08
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: da9e322f74433df7066ec574db7a49123f96d76b
+ms.sourcegitcommit: ad3e63af10cd2b24bf4ebb9cc630b998290af467
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57996711"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58794024"
 ---
 # <a name="office-365-management-solution-in-azure-preview"></a>Solução de gestão do Office 365 no Azure (pré-visualização)
 
@@ -34,6 +34,7 @@ A solução de gestão do Office 365 permite-lhe monitorizar o seu ambiente do O
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 ## <a name="prerequisites"></a>Pré-requisitos
+
 É necessário o seguinte antes desta solução a ser instalado e configurado.
 
 - Subscrição do Office 365 organizacional.
@@ -42,12 +43,16 @@ A solução de gestão do Office 365 permite-lhe monitorizar o seu ambiente do O
  
 
 ## <a name="management-packs"></a>Pacotes de gestão
+
 Esta solução não instala os pacotes de gestão no [ligadas a grupos de gestão](../platform/om-agents.md).
   
+
 ## <a name="install-and-configure"></a>Instalar e configurar
+
 Comece por adicionar o [solução do Office 365 à sua subscrição](solutions.md#install-a-monitoring-solution). Assim que for adicionado, tem de efetuar os passos de configuração nesta secção para fornecer acesso à sua subscrição do Office 365.
 
 ### <a name="required-information"></a>Informações necessárias
+
 Antes de iniciar este procedimento, recolha as seguintes informações.
 
 Na área de trabalho do Log Analytics:
@@ -64,6 +69,7 @@ Da sua subscrição do Office 365:
 - Segredo do cliente: Cadeia encriptada necessária para autenticação.
 
 ### <a name="create-an-office-365-application-in-azure-active-directory"></a>Criar uma aplicação do Office 365 no Azure Active Directory
+
 A primeira etapa é criar uma aplicação no Azure Active Directory que a solução de gestão irá utilizar para aceder à sua solução do Office 365.
 
 1. Inicie sessão no portal do Azure em [https://portal.azure.com](https://portal.azure.com/).
@@ -111,11 +117,12 @@ A primeira etapa é criar uma aplicação no Azure Active Directory que a soluç
     ![Chaves](media/solution-office-365/keys.png)
 
 ### <a name="add-admin-consent"></a>Adicionar o consentimento de administrador
+
 Para ativar a conta administrativa pela primeira vez, tem de fornecer consentimento administrativo para o aplicativo. Pode fazê-lo com um script do PowerShell. 
 
 1. Guarde o seguinte script como *office365_consent.ps1*.
 
-    ```
+    ```powershell
     param (
         [Parameter(Mandatory=$True)][string]$WorkspaceName,     
         [Parameter(Mandatory=$True)][string]$ResourceGroupName,
@@ -161,9 +168,11 @@ Para ativar a conta administrativa pela primeira vez, tem de fornecer consentime
     ```
 
 2. Execute o script com o seguinte comando. Será solicitado duas vezes para credenciais. Forneça as credenciais para a área de trabalho do Log Analytics primeiro e, em seguida, as credenciais de administrador global do Office 365 para o inquilino.
+
     ```
     .\office365_consent.ps1 -WorkspaceName <Workspace name> -ResourceGroupName <Resource group name> -SubscriptionId <Subscription ID>
     ```
+
     Exemplo:
 
     ```
@@ -175,11 +184,12 @@ Para ativar a conta administrativa pela primeira vez, tem de fornecer consentime
     ![Consentimento de admin](media/solution-office-365/admin-consent.png)
 
 ### <a name="subscribe-to-log-analytics-workspace"></a>Subscrever a área de trabalho do Log Analytics
+
 A última etapa é assinar a aplicação à sua área de trabalho do Log Analytics. Também fazer isso com um script do PowerShell.
 
 1. Guarde o seguinte script como *office365_subscription.ps1*.
 
-    ```
+    ```powershell
     param (
         [Parameter(Mandatory=$True)][string]$WorkspaceName,
         [Parameter(Mandatory=$True)][string]$ResourceGroupName,
@@ -342,12 +352,14 @@ A última etapa é assinar a aplicação à sua área de trabalho do Log Analyti
     ```
 
 2. Execute o script com o seguinte comando:
+
     ```
     .\office365_subscription.ps1 -WorkspaceName <Log Analytics workspace name> -ResourceGroupName <Resource Group name> -SubscriptionId <Subscription ID> -OfficeUsername <OfficeUsername> -OfficeTennantID <Tenant ID> -OfficeClientId <Client ID> -OfficeClientSecret <Client secret>
     ```
+
     Exemplo:
 
-    ```
+    ```powershell
     .\office365_subscription.ps1 -WorkspaceName MyWorkspace -ResourceGroupName MyResourceGroup -SubscriptionId '60b79d74-f4e4-4867-b631-yyyyyyyyyyyy' -OfficeUsername 'admin@contoso.com' -OfficeTennantID 'ce4464f8-a172-4dcf-b675-xxxxxxxxxxxx' -OfficeClientId 'f8f14c50-5438-4c51-8956-zzzzzzzzzzzz' -OfficeClientSecret 'y5Lrwthu6n5QgLOWlqhvKqtVUZXX0exrA2KRHmtHgQb='
     ```
 
@@ -355,7 +367,7 @@ A última etapa é assinar a aplicação à sua área de trabalho do Log Analyti
 
 Poderá ver o seguinte erro se o seu aplicativo já está subscrita para esta área de trabalho ou se este inquilino está subscrita em outra área de trabalho.
 
-```
+```Output
 Invoke-WebRequest : {"Message":"An error has occurred."}
 At C:\Users\v-tanmah\Desktop\ps scripts\office365_subscription.ps1:161 char:19
 + $officeresponse = Invoke-WebRequest @Officeparams
@@ -366,7 +378,7 @@ At C:\Users\v-tanmah\Desktop\ps scripts\office365_subscription.ps1:161 char:19
 
 Poderá ver o seguinte erro se forem fornecidos valores de parâmetro inválido.
 
-```
+```Output
 Select-AzSubscription : Please provide a valid tenant or a valid subscription.
 At line:12 char:18
 + ... cription = (Select-AzSubscription -SubscriptionId $($Subscriptio ...
@@ -377,11 +389,12 @@ At line:12 char:18
 ```
 
 ## <a name="uninstall"></a>Desinstalar
+
 Pode remover a solução de gestão do Office 365 usando o processo em [remover uma solução de gestão](solutions.md#remove-a-monitoring-solution). Isso não interromperá os dados que está a ser recolhidos a partir do Office 365 no Azure Monitor entanto. Siga o procedimento abaixo para anular a subscrição do Office 365 e parar a recolha de dados.
 
 1. Guarde o seguinte script como *office365_unsubscribe.ps1*.
 
-    ```
+    ```powershell
     param (
         [Parameter(Mandatory=$True)][string]$WorkspaceName,
         [Parameter(Mandatory=$True)][string]$ResourceGroupName,
@@ -472,15 +485,18 @@ Pode remover a solução de gestão do Office 365 usando o processo em [remover 
 
     Exemplo:
 
-    ```
+    ```powershell
     .\office365_unsubscribe.ps1 -WorkspaceName MyWorkspace -ResourceGroupName MyResourceGroup -SubscriptionId '60b79d74-f4e4-4867-b631-yyyyyyyyyyyy' -OfficeTennantID 'ce4464f8-a172-4dcf-b675-xxxxxxxxxxxx'
     ```
 
 ## <a name="data-collection"></a>Recolha de dados
+
 ### <a name="supported-agents"></a>Agentes suportados
+
 A solução do Office 365 não obter dados a partir de qualquer um da [agentes do Log Analytics](../platform/agent-data-sources.md).  Obtém dados diretamente a partir do Office 365.
 
 ### <a name="collection-frequency"></a>Frequência da recolha
+
 Poderá demorar algumas horas para dados que inicialmente serão coletados. Assim que for iniciada a recolher, do Office 365, envia uma [webhook notificação](https://msdn.microsoft.com/office-365/office-365-management-activity-api-reference#receiving-notifications) com dados detalhados para o Azure Monitor sempre que é criado um registo. Este registo está disponível no Azure Monitor dentro de alguns minutos após a ser recebidos.
 
 ## <a name="using-the-solution"></a>Utilizar a solução
@@ -511,6 +527,7 @@ O dashboard inclui as colunas da tabela seguinte. Cada coluna apresenta os alert
 Todos os registos criados na área de trabalho do Log Analytics no Azure Monitor pela solução do Office 365 tem um **tipo** dos **OfficeActivity**.  O **OfficeWorkload** propriedade determina qual serviço do Office 365, o registo refere-se para - Exchange, o AzureActiveDirectory, o SharePoint ou o OneDrive.  O **RecordType** propriedade especifica o tipo de operação.  As propriedades irão variar para cada tipo de operação e são apresentadas nas tabelas abaixo.
 
 ### <a name="common-properties"></a>Propriedades comuns
+
 As seguintes propriedades são comuns a todos os registos do Office 365.
 
 | Propriedade | Descrição |
@@ -528,6 +545,7 @@ As seguintes propriedades são comuns a todos os registos do Office 365.
 
 
 ### <a name="azure-active-directory-base"></a>Base do Azure Active Directory
+
 As seguintes propriedades são comuns a todos os registos do Azure Active Directory.
 
 | Propriedade | Descrição |
@@ -539,6 +557,7 @@ As seguintes propriedades são comuns a todos os registos do Azure Active Direct
 
 
 ### <a name="azure-active-directory-account-logon"></a>Início de sessão de conta do Active Directory do Azure
+
 Estes registos são criados quando um utilizador do Active Directory tenta fazer logon.
 
 | Propriedade | Descrição |
@@ -552,6 +571,7 @@ Estes registos são criados quando um utilizador do Active Directory tenta fazer
 
 
 ### <a name="azure-active-directory"></a>Azure Active Directory
+
 Estes registos são criados quando forem feitas alterações ou adições de objetos do Active Directory do Azure.
 
 | Propriedade | Descrição |
@@ -569,6 +589,7 @@ Estes registos são criados quando forem feitas alterações ou adições de obj
 
 
 ### <a name="data-center-security"></a>Segurança do Centro de dados
+
 Estes registos são criados a partir dos dados de auditoria de segurança do Centro de dados.  
 
 | Propriedade | Descrição |
@@ -584,6 +605,7 @@ Estes registos são criados a partir dos dados de auditoria de segurança do Cen
 
 
 ### <a name="exchange-admin"></a>Administrador do Exchange
+
 Estes registos são criados quando forem feitas alterações à configuração do Exchange.
 
 | Propriedade | Descrição |
@@ -598,6 +620,7 @@ Estes registos são criados quando forem feitas alterações à configuração d
 
 
 ### <a name="exchange-mailbox"></a>Caixa de correio do Exchange
+
 Estes registos são criados quando forem feitas alterações ou adições de caixas de correio do Exchange.
 
 | Propriedade | Descrição |
@@ -620,6 +643,7 @@ Estes registos são criados quando forem feitas alterações ou adições de cai
 
 
 ### <a name="exchange-mailbox-audit"></a>Auditoria de caixa de correio do Exchange
+
 Estes registos são criados quando é criada uma entrada de auditoria da caixa de correio.
 
 | Propriedade | Descrição |
@@ -634,6 +658,7 @@ Estes registos são criados quando é criada uma entrada de auditoria da caixa d
 
 
 ### <a name="exchange-mailbox-audit-group"></a>Grupo de auditoria de caixa de correio do Exchange
+
 Estes registos são criados quando forem feitas alterações ou adições de grupos do Exchange.
 
 | Propriedade | Descrição |
@@ -652,6 +677,7 @@ Estes registos são criados quando forem feitas alterações ou adições de gru
 
 
 ### <a name="sharepoint-base"></a>Base do SharePoint
+
 Estas propriedades são comuns a todos os registos do SharePoint.
 
 | Propriedade | Descrição |
@@ -668,6 +694,7 @@ Estas propriedades são comuns a todos os registos do SharePoint.
 
 
 ### <a name="sharepoint-schema"></a>SharePoint Schema
+
 Estes registos são criados quando forem feitas alterações de configuração para o SharePoint.
 
 | Propriedade | Descrição |
@@ -680,6 +707,7 @@ Estes registos são criados quando forem feitas alterações de configuração p
 
 
 ### <a name="sharepoint-file-operations"></a>Operações de ficheiros do SharePoint
+
 Estes registos são criados em resposta às operações de ficheiro no SharePoint.
 
 | Propriedade | Descrição |
@@ -700,6 +728,7 @@ Estes registos são criados em resposta às operações de ficheiro no SharePoin
 
 
 ## <a name="sample-log-searches"></a>Pesquisas de registo de exemplo
+
 A tabela seguinte disponibiliza pesquisas de registos de exemplo para registos de atualizações que esta solução recolhe.
 
 | Consulta | Descrição |
@@ -713,6 +742,7 @@ A tabela seguinte disponibiliza pesquisas de registos de exemplo para registos d
 
 
 ## <a name="next-steps"></a>Passos Seguintes
+
 * Uso [registar as consultas no Azure Monitor](../log-query/log-query-overview.md) para ver os dados de atualizações detalhados.
 * [Criar seus próprios dashboards](../learn/tutorial-logs-dashboards.md) para exibir suas consultas de pesquisa favoritas do Office 365.
 * [Criar alertas](../platform/alerts-overview.md) para ser notificado proativamente das atividades do Office 365 importantes.  

@@ -16,12 +16,12 @@ ms.topic: overview
 ms.date: 1/11/2019
 ms.author: msangapu;yili
 ms.custom: seodec18
-ms.openlocfilehash: 161b2054d690a2e609085852aa7caf2f02366f69
-ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
+ms.openlocfilehash: 22c4096711bbc1d47ff6684e38ac829d77681a9f
+ms.sourcegitcommit: ad3e63af10cd2b24bf4ebb9cc630b998290af467
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57215664"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58793446"
 ---
 # <a name="introduction-to-azure-app-service-on-linux"></a>Introdução ao Serviço de Aplicações do Azure no Linux
 
@@ -73,7 +73,7 @@ O portal do Azure mostra apenas as funcionalidades que funcionam atualmente para
 
 O Serviço de Aplicações no Linux é suportado apenas com os planos do Serviço de Aplicações [Básico, Standard e Premium](https://azure.microsoft.com/pricing/details/app-service/plans/) e não tem um escalão [Gratuito ou Partilhado](https://azure.microsoft.com/pricing/details/app-service/plans/). Não pode criar a Aplicação Web para Contentores num plano do Serviço de Aplicações que já aloja Aplicações Web que não são do Linux.  
 
-Além disso, com base numa limitação atual, não misture as aplicações Windows e Linux no mesmo grupo de recursos.
+Com base numa limitação atual, não é possível misturar aplicações Windows e Linux no mesmo grupo de recursos.
 
 ## <a name="troubleshooting"></a>Resolução de problemas
 

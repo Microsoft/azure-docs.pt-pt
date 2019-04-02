@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/15/2016
 ms.author: apimpm
-ms.openlocfilehash: bfb08cb3bb81917414e4d34afe47964b738980e7
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: adb7329249570750002f04fb72465698f869afdc
+ms.sourcegitcommit: ad3e63af10cd2b24bf4ebb9cc630b998290af467
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52970183"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58792489"
 ---
 # <a name="using-external-services-from-the-azure-api-management-service"></a>Utilizar serviços externos do serviço de gestão de API do Azure
 As políticas disponíveis no serviço de gestão de API do Azure podem fazer uma grande variedade de trabalho úteis com base exclusivamente na solicitação de entrada, a resposta de saída e informações básicas de configuração. No entanto, a capacidade de interagir com serviços externos da gestão de API políticas abre muitas oportunidades de mais.
@@ -27,7 +27,7 @@ As políticas disponíveis no serviço de gestão de API do Azure podem fazer um
 Viu anteriormente como interagir com o [serviço do Hub de eventos do Azure para o registo, monitorização e análise](api-management-log-to-eventhub-sample.md). Este artigo demonstra as políticas que permitem-lhe interagir com qualquer serviço de acesso baseado em HTTP externo. Estas políticas podem ser utilizadas para acionar eventos remotos ou para recuperação das informações que são utilizadas para manipular a solicitação original e a resposta de alguma forma.
 
 ## <a name="send-one-way-request"></a>Forma-pedido de envio-um
-Possivelmente a interação externa mais simples é o estilo de disparar e esquecer de mensagens em fila de pedido que permite que um serviço externo ser notificado de algum tipo de evento importante. A política de controlo de fluxo `choose` pode ser utilizado para detetar qualquer tipo de condição que está interessado.  Se a condição for satisfeita, pode fazer um externo através de pedido HTTP a [forma-pedido de envio-um](https://msdn.microsoft.com/library/azure/dn894085.aspx#SendOneWayRequest) política. Isto pode ser um pedido para um sistema de mensagens, como o Hipchat ou Slack ou um API de correio como o SendGrid ou o MailChimp, ou para incidentes de suporte críticos algo como o PagerDuty. Todos estes sistemas de mensagens têm as APIs de HTTP simples que podem ser invocadas.
+Possivelmente a interação externa mais simples é o estilo de disparar e esquecer de mensagens em fila de pedido que permite que um serviço externo ser notificado de algum tipo de evento importante. A política de controlo de fluxo `choose` pode ser utilizado para detetar qualquer tipo de condição que está interessado.  Se a condição for satisfeita, pode fazer um externo através de pedido HTTP a [forma-pedido de envio-um](/azure/api-management/api-management-advanced-policies#SendOneWayRequest) política. Isto pode ser um pedido para um sistema de mensagens, como o Hipchat ou Slack ou um API de correio como o SendGrid ou o MailChimp, ou para incidentes de suporte críticos algo como o PagerDuty. Todos estes sistemas de mensagens têm as APIs de HTTP simples que podem ser invocadas.
 
 ### <a name="alerting-with-slack"></a>Alertas com Slack
 O exemplo seguinte demonstra como enviar uma mensagem para uma sala de bate-papo Slack se o código de estado de resposta HTTP é maior que ou igual a 500. Um erro de intervalo de 500 indica um problema com o back-end API que o cliente da API não é possível resolver si próprios. Normalmente requer algum tipo de intervenção da parte da gestão de API.  
@@ -62,7 +62,7 @@ Slack tem a noção de webhooks de entrada. Quando configurar um hook de web de 
 ![Hook de Slack Web](./media/api-management-sample-send-request/api-management-slack-webhook.png)
 
 ### <a name="is-fire-and-forget-good-enough"></a>É disparar e esquecer suficientemente bem?
-Existem determinadas vantagens e desvantagens em usar um estilo de disparar e esquecer de mensagens em fila de pedido. Se, por algum motivo, o pedido falhar, em seguida, a falha não é será possível reportar. Nesta situação específica, a complexidade de ter uma falha secundária reporting system e o custo de desempenho adicionais de aguardar a resposta não é garantida. Para cenários em que é essencial para verificar a resposta, o [pedido de envio](https://msdn.microsoft.com/library/azure/dn894085.aspx#SendRequest) política é uma opção melhor.
+Existem determinadas vantagens e desvantagens em usar um estilo de disparar e esquecer de mensagens em fila de pedido. Se, por algum motivo, o pedido falhar, em seguida, a falha não é será possível reportar. Nesta situação específica, a complexidade de ter uma falha secundária reporting system e o custo de desempenho adicionais de aguardar a resposta não é garantida. Para cenários em que é essencial para verificar a resposta, o [pedido de envio](/azure/api-management/api-management-advanced-policies#SendRequest) política é uma opção melhor.
 
 ## <a name="send-request"></a>Pedido de envio
 O `send-request` ativa de política com um serviço externo para realizar funções de processamento complexo e retornar dados para a gestão de API de serviço que pode ser utilizada para processamento adicional da política.
@@ -209,7 +209,7 @@ Assim que tiver estas informações, pode fazer pedidos para todos os sistemas d
 Estes pedidos são executadas em seqüência, o que não é ideal. 
 
 ### <a name="responding"></a>A responder
-Para construir a resposta composta, pode utilizar o [resposta de retorno](https://msdn.microsoft.com/library/azure/dn894085.aspx#ReturnResponse) política. O `set-body` elemento pode utilizar uma expressão para construir um novo `JObject` com todas as representações de componente incorporadas como propriedades.
+Para construir a resposta composta, pode utilizar o [resposta de retorno](/azure/api-management/api-management-advanced-policies#ReturnResponse) política. O `set-body` elemento pode utilizar uma expressão para construir um novo `JObject` com todas as representações de componente incorporadas como propriedades.
 
 ```xml
 <return-response response-variable-name="existing response variable">

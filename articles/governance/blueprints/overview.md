@@ -1,6 +1,6 @@
 ---
 title: Descrição Geral do Azure Blueprints
-description: O Azure Blueprints é um serviço no Azure que serve para criar, definir e implementar artefactos no ambiente do Azure.
+description: Compreenda como o serviço de esquemas do Azure permite-lhe criar, definir e implementar artefactos no ambiente do Azure.
 services: blueprints
 author: DCtheGeek
 ms.author: dacoulte
@@ -9,14 +9,14 @@ ms.topic: overview
 ms.service: blueprints
 manager: carmonm
 ms.custom: mvc
-ms.openlocfilehash: cf3801381359bb973d126e2ee946cdb51e5aecb7
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.openlocfilehash: 29c58abb3a69da0886d512767cbc301621943f07
+ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56823098"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58802580"
 ---
-# <a name="what-is-azure-blueprints"></a>O que é o Azure Blueprints?
+# <a name="overview-of-the-azure-blueprints-service"></a>Descrição geral do serviço Azure esquemas
 
 Da mesma forma que um esquema permite que um engenheiro ou um arquiteto crie um esboço dos parâmetros de design de um projeto, o Azure Blueprints permite que os arquitetos da cloud e os grupos de tecnologias de informação definam um conjunto repetível de recursos do Azure que implemente e adira às normas, padrões e requisitos de uma organização. O Azure Blueprints permite que as equipas de desenvolvimento criem e edifiquem rapidamente novos ambientes, com a confiança de que estão a ser criados no âmbito da conformidade organizacional com um conjunto de componentes incorporados, tais como rede, para acelerar o desenvolvimento e a entrega.
 

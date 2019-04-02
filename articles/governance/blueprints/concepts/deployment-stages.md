@@ -1,6 +1,6 @@
 ---
 title: Fases da implementação de um esquema
-description: Conheça as etapas que os serviços de plano gráfico atravessa durante uma implantação.
+description: Conheça as etapas que os serviços do Azure esquema atravessa durante uma implantação.
 services: blueprints
 author: DCtheGeek
 ms.author: dacoulte
@@ -8,12 +8,12 @@ ms.date: 03/14/2019
 ms.topic: conceptual
 ms.service: blueprints
 manager: carmonm
-ms.openlocfilehash: a3ab5589cd327b73f2e66540da5c49343c4449cd
-ms.sourcegitcommit: 4133f375862fdbdec07b70de047d70c66ac29d50
+ms.openlocfilehash: ced8c8ab2e65fb1d3f8a976f122a387fe9161750
+ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/15/2019
-ms.locfileid: "57999181"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58801969"
 ---
 # <a name="stages-of-a-blueprint-deployment"></a>Fases da implementação de um esquema
 

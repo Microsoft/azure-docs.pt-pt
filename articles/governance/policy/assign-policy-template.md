@@ -1,5 +1,5 @@
 ---
-title: Criar uma atribuição de política para os recursos em não conformidades com um modelo do Resource Manager
+title: Criar uma atribuição de política com um modelo do Resource Manager
 description: Este artigo orienta-o pelos passos para utilizar um modelo do Resource Manager para criar uma atribuição de política para identificar recursos incompatíveis.
 services: azure-policy
 author: DCtheGeek
@@ -8,12 +8,12 @@ ms.date: 03/13/2019
 ms.topic: quickstart
 ms.service: azure-policy
 manager: carmonm
-ms.openlocfilehash: 6ff76a66eba42fd87e88846f9ec2378bd63893f2
-ms.sourcegitcommit: 4133f375862fdbdec07b70de047d70c66ac29d50
+ms.openlocfilehash: 354d5aa250449b87345cef17778befddc761fa19
+ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/15/2019
-ms.locfileid: "58008614"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58802512"
 ---
 # <a name="create-a-policy-assignment-to-identify-non-compliant-resources-by-using-a-resource-manager-template"></a>Criar uma atribuição de política para identificar recursos incompatíveis com um modelo do Resource Manager
 
@@ -31,24 +31,24 @@ Neste início rápido, criar uma atribuição de política e atribuir uma defini
 Existem vários métodos para a criação de atribuições de política. Neste início rápido, vai utilizar um [modelo de início rápido](https://azure.microsoft.com/resources/templates/101-azurepolicy-assign-builtinpolicy-resourcegroup/).
 Esta é uma cópia do modelo:
 
-[!code-json[policy-assingment](~/quickstart-templates/101-azurepolicy-assign-builtinpolicy-resourcegroup/azuredeploy.json)]
+[!code-json[policy-assignment](~/quickstart-templates/101-azurepolicy-assign-builtinpolicy-resourcegroup/azuredeploy.json)]
 
 > [!NOTE]
 > Serviço de política do Azure é gratuito.  Para obter mais informações, consulte [descrição geral do Azure Policy](./overview.md).
 
 1. Selecione a imagem seguinte para iniciar sessão no portal do Azure e abrir o modelo:
 
-   <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-azurepolicy-assign-builtinpolicy-resourcegroup%2Fazuredeploy.json"><img src="./media/assign-policy-template/deploy-to-azure.png" alt="deploy to azure"/></a>
+   [![Implementar o modelo de política para o Azure](./media/assign-policy-template/deploy-to-azure.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-azurepolicy-assign-builtinpolicy-resourcegroup%2Fazuredeploy.json)
 
 1. Selecione ou introduza os seguintes valores:
 
-   | Name | Value |
+   | Name | Valor |
    |------|-------|
    | Subscrição | Selecione a sua subscrição do Azure. |
    | Grupo de recursos | Selecione **criar novo**, especifique um nome e, em seguida, selecione **OK**. Na captura de ecrã, é o nome do grupo de recursos *mypolicyquickstart<Date in MMDD>rg*. |
    | Localização | Selecione uma região. Por exemplo, **E.U.A. Central**. |
    | Nome da atribuição de política | Especifique um nome de atribuição de política. Se desejar, pode usar a exibição de definição de política. Por exemplo, **VMs de auditoria que não utilizam discos geridos**. |
-   | Nome de RG | Especifique um nome de grupo de recursos em que pretende atribuir a política. Neste início rápido, utilize o valor predefinido **[resourceGroup () name]**. **[resourceGroup()](/azure/azure-resource-manager/resource-group-template-functions-resource#resourcegroup)**  é uma função de modelo que obtém o grupo de recursos. |
+   | Nome de RG | Especifique um nome de grupo de recursos em que pretende atribuir a política. Neste início rápido, utilize o valor predefinido **[resourceGroup () name]**. **[resourceGroup()](../../azure-resource-manager/resource-group-template-functions-resource.md#resourcegroup)**  é uma função de modelo que obtém o grupo de recursos. |
    | ID de definição de política | Especifique **/providers/Microsoft.Authorization/policyDefinitions/0a914e76-4921-4c19-b460-a2d36003525a**. |
    | Aceito os termos e condições acima apresentados | (Selecionar) |
 
@@ -65,7 +65,7 @@ Alguns recursos adicionais:
 
 Selecione **conformidade** no lado esquerdo da página. Em seguida, localize a **VMs de auditoria que não utilizam discos geridos** atribuição de política que criou.
 
-![Conformidade com a política](./media/assign-policy-template/policy-compliance.png)
+![Página de descrição geral de conformidade de política](./media/assign-policy-template/policy-compliance.png)
 
 Se existirem quaisquer recursos existentes que não estão em conformidade com esta nova atribuição, aparecem em **recursos não compatíveis**.
 
@@ -79,7 +79,7 @@ Para remover a atribuição de criado, siga estes passos:
 
 1. Com o botão direito a **VMs de auditoria que não utilizam discos geridos** atribuição de política e selecione **eliminar atribuição**.
 
-   ![Eliminar uma atribuição](./media/assign-policy-template/delete-assignment.png)
+   ![Eliminar uma atribuição a partir da página de descrição geral de conformidade](./media/assign-policy-template/delete-assignment.png)
 
 ## <a name="next-steps"></a>Passos Seguintes
 

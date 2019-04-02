@@ -12,12 +12,12 @@ ms.author: danil
 ms.reviewer: jrasnik
 manager: craigg
 ms.date: 12/19/2018
-ms.openlocfilehash: 6dd404ec0ab9e88c9e5bc4af4b939b3aa1f2e675
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
+ms.openlocfilehash: 348183e1a164dd0a0f5f9672346423b95c27eba4
+ms.sourcegitcommit: ad3e63af10cd2b24bf4ebb9cc630b998290af467
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55560877"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58793707"
 ---
 # <a name="performance-recommendations-for-sql-database"></a>Recomendações de desempenho para a base de dados SQL
 
@@ -85,6 +85,10 @@ A recomendação "Corrigir o problema de esquema" é apresentada quando o servi�
 | 213 |Nome de coluna ou o número de valores fornecidos não corresponde a definição da tabela. |
 | 2812 |Não foi possível encontrar o procedimento armazenado ' *'. |
 | 8144 |Função ou procedimento * tem demasiados argumentos especificados. |
+
+## <a name="custom-applications"></a>Aplicações personalizadas
+
+Os desenvolvedores podem optar por desenvolver aplicações personalizadas com recomendações de desempenho para a base de dados do Azure SQL. Todas as recomendações apresentadas no portal para uma base de dados pode ser acedido através de [Get-AzureRmSqlDatabaseRecommendedAction](https://docs.microsoft.com/en-us/powershell/module/AzureRM.Sql/Get-AzureRmSqlDatabaseRecommendedAction) API.
 
 ## <a name="next-steps"></a>Passos Seguintes
 Monitorizar as suas recomendações e continuar a aplicá-las para refinar o desempenho. Cargas de trabalho de base de dados são dinâmicas e altera-se continuamente. SQL Database Advisor continua a monitorizar e facultar recomendações que podem melhorar potencialmente o desempenho da sua base de dados. 
