@@ -8,14 +8,14 @@ ms.date: 03/14/2019
 ms.topic: conceptual
 ms.service: blueprints
 manager: carmonm
-ms.openlocfilehash: 7fea9b0d00d92c63bb4c8bbdadada9e8eb6a05fe
-ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
+ms.openlocfilehash: f49951d0a2ec738df9946edc7f44820c2cde975f
+ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58202508"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58804337"
 ---
-# <a name="deploy-the-azure-blueprints-iso-27001-shared-services-blueprint-sample"></a>Implementar o exemplo de plano gráfico de planos gráficos ISO 27001 partilhado dos serviços do Azure
+# <a name="deploy-the-iso-27001-shared-services-blueprint-sample"></a>Implementar o exemplo de esquema de serviços de compartilhados do ISO 27001
 
 Para implementar o exemplo de plano gráfico de planos gráficos ISO 27001 partilhado dos serviços do Azure, é necessário os seguintes passos:
 

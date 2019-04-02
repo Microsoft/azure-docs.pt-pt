@@ -112,6 +112,8 @@ items:
     - name: Processar eventos do Kafka
       href: ../event-hubs/event-hubs-kafka-stream-analytics.md
       maintainContext: true
+    - name: Cenários geoespaciais
+      href: geospatial-scenarios.md
   - name: Monitorizar
     items:
     - name: Monitorizar tarefas - Portal do Azure
@@ -440,9 +442,9 @@ items:
     href: https://azure.microsoft.com/case-studies/?service=stream-analytics
   - name: Documento técnico - Processamento de eventos em tempo real
     href: stream-analytics-real-time-event-processing-reference-architecture.md
-ms.openlocfilehash: e9ef3d7ed841dd5bb2a9ad21f0dd4f71e528c374
-ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
+ms.openlocfilehash: 83e5f3f9edd1fb58c0b79566c4bb764e7b430bcd
+ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58286062"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58803651"

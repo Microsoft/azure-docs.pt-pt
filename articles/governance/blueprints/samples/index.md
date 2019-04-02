@@ -1,6 +1,6 @@
 ---
 title: Índice de exemplos de Esquema
-description: Índice de exemplos do Azure Blueprints
+description: Índice de conformidade e de exemplos de ambiente standard para a implementação com o Azure Blueprints.
 services: blueprints
 author: DCtheGeek
 manager: carmonm

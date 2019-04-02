@@ -1,5 +1,5 @@
 ---
-title: Exemplo - esquema de carga de trabalho da Base de Dados SQL/Ambiente do Serviço de Aplicações ISO 27001 - Descrição geral
+title: Exemplo - Esquema de carga de trabalho ASE/SQL ISO 27001 - Descrição geral
 description: Descrição geral e arquitetura do exemplo de esquema de carga de trabalho da Base de Dados SQL/Ambiente do Serviço de Aplicações ISO 27001.
 services: blueprints
 author: DCtheGeek
@@ -9,7 +9,7 @@ ms.topic: conceptual
 ms.service: blueprints
 manager: carmonm
 ---
-# <a name="overview-of-the-azure-blueprints-iso-27001-app-service-environmentsql-database-workload-blueprint-sample"></a>Descrição geral do exemplo de esquema de carga de trabalho da Base de Dados SQL/Ambiente do Serviço de Aplicações ISO 27001 do Azure Blueprints
+# <a name="overview-of-the-iso-27001-app-service-environmentsql-database-workload-blueprint-sample"></a>Descrição geral do exemplo de esquema de carga de trabalho da Base de Dados SQL/Ambiente do Serviço de Aplicações ISO 27001
 
 O exemplo do esquema de carga de trabalho da Base de Dados SQL/Ambiente do Serviço de Aplicações ISO 27001 fornece uma infraestrutura adicional para o exemplo de esquema [Serviços Partilhados ISO 27001](../iso27001-shared/index.md).
 Este esquema ajuda os clientes a implementarem arquiteturas com base na cloud que oferecem soluções para cenários que têm requisitos de acreditação ou conformidade.
@@ -23,7 +23,7 @@ Existem dois exemplos de esquema ISO 27001: este exemplo e o exemplo de esquema 
 
 O exemplo de esquema de carga de trabalho da Base de Dados SQL/Ambiente do Serviço de Aplicações ISO 27001 implementa uma plataforma como um ambiente Web baseado num serviço. O ambiente pode ser utilizado para alojar várias aplicações Web, APIs Web e instâncias da Base de Dados SQL que seguem as normas ISO 27001. Este exemplo de esquema depende do exemplo de esquema [Serviços Partilhados ISO 27001](../iso27001-shared/index.md).
 
-![Estrutura do exemplo de esquema de carga de trabalho da Base de Dados SQL/Ambiente do Serviço de Aplicações ISO 27001](../../media/sample-iso27001-ase-sql-workload/iso27001-ase-sql-workload-blueprint-sample-design.png)
+![Design de exemplo de esquema de carga de trabalho ASE/SQL ISO 27001](../../media/sample-iso27001-ase-sql-workload/iso27001-ase-sql-workload-blueprint-sample-design.png)
 
 Este ambiente é composto por vários serviços do Azure utilizados para fornecer uma infraestrutura de carga de trabalho segura, completamente monitorizada e preparada para empresas, com base nas normas ISO 27001. Este ambiente é composto por:
 

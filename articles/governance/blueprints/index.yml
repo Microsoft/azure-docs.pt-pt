@@ -1,12 +1,12 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: 34e0023a00aeffc5788754062a2c11fdeea58f7f
-ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
+ms.openlocfilehash: bc646bd1c1e2ada45971359b9a17d71d66e301d4
+ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58500071"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58800442"
 documentType: LandingData
-title: Documentação do Azure Blueprints
+title: Documentação para o serviço Azure Blueprints
 metadata:
   title: Documentação do Azure Blueprints - Tutoriais, Referência da API
   description: O Azure Blueprints é um serviço no Azure que serve para criar, definir e implementar artefactos no ambiente do Azure.

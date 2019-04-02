@@ -54,6 +54,8 @@ items:
     href: Face-API-How-to-Topics/HowtoIdentifyFacesinImage.md
   - name: Adicionar rostos
     href: Face-API-How-to-Topics/how-to-add-faces.md
+  - name: Especifique um modelo de reconhecimento facial
+    href: Face-API-How-to-Topics/specify-recognition-model.md
   - name: Utilizar a funcionalidade de grande escala
     href: Face-API-How-to-Topics/how-to-use-large-scale.md
   - name: Analisar vídeos em tempo real
@@ -108,9 +110,9 @@ items:
     href: https://azure.microsoft.com/global-infrastructure/services/?products=cognitive-services
   - name: Notas de versão
     href: ReleaseNotes.md
-ms.openlocfilehash: ecba696054854c1b624471a6923d91cbef3c81ea
-ms.sourcegitcommit: 89b5e63945d0c325c1bf9e70ba3d9be6888da681
+ms.openlocfilehash: 1c03cba2c6f318c87a8a060558e2f851b72f70fe
+ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/08/2019
-ms.locfileid: "57588691"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58804791"

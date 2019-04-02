@@ -18,7 +18,7 @@ Por exemplo, pode aplicar políticas a um grupo de gestão que limita as regiõe
 
 Pode criar uma estrutura flexível de grupos de gestão e de subscrições para organizar os seus recursos numa hierarquia para assegurar uma gestão unificada de acesso e política. O diagrama seguinte mostra um exemplo de criação de uma hierarquia de governação com grupos de gestão.
 
-![árvore](./media/tree.png)
+![Exemplo de uma árvore hierárquica do grupo de gestão](./media/tree.png)
 
 Crie uma hierarquia para poder aplicar uma política. Por exemplo, pode limitar as localizações das VMs à Região E.U.A. Oeste no grupo "Produção". Esta política será herdada por ambas as subscrições EA existentes nesse grupo de gestão e será aplicada a todas as VMs nessas subscrições. Esta política de segurança não pode ser alterada pelo proprietário do recurso ou da subscrição, o que permite uma melhor governação.
 
