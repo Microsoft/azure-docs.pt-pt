@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 12/20/2018
 ms.author: absha
-ms.openlocfilehash: 67603e326583400e8fc250ea6120297e7a94d101
-ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
+ms.openlocfilehash: e89fe10768331f5b4099ce9a9e2204dd72aa0bff
+ms.sourcegitcommit: ad3e63af10cd2b24bf4ebb9cc630b998290af467
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58520926"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58793469"
 ---
 # <a name="rewrite-http-headers-with-application-gateway-public-preview"></a>Reescreva os cabeçalhos HTTP com o Gateway de aplicação (pré-visualização pública)
 
@@ -96,7 +96,7 @@ Esse recurso oferece suporte a reconfiguração de cabeçalhos para as seguintes
 | -------------------------- | :----------------------------------------------------------- |
 | ciphers_supported          | Devolve a lista de cifras suportados pelo cliente do          |
 | ciphers_used               | Devolve a cadeia de caracteres de cifras utilizadas para uma ligação SSL estabelecida |
-| client_ip                  | Endereço IP do cliente a partir do qual o gateway de aplicação recebeu o pedido. Se existir um proxy inverso antes do gateway de aplicação e o cliente de origem, em seguida, *client_ip* irá devolver o endereço IP do proxy inverso. variável de tjsi é particularmente útil em cenários em que os clientes a intenção de reescrever o cabeçalho X-reencaminhados-para definido pelo Gateway de aplicação, para que o cabeçalho contém apenas o endereço IP sem as informações da porta. |
+| client_ip                  | Endereço IP do cliente a partir do qual o gateway de aplicação recebeu o pedido. Se existir um proxy inverso antes do gateway de aplicação e o cliente de origem, em seguida, *client_ip* irá devolver o endereço IP do proxy inverso. Esta variável é particularmente útil em cenários em que os clientes a intenção de reescrever o cabeçalho X-reencaminhados-para definido pelo Gateway de aplicação, para que o cabeçalho contém apenas o endereço IP sem as informações da porta. |
 | client_port                | porta de cliente                                                  |
 | client_tcp_rtt             | informações sobre o cliente de conexão TCP; disponível em sistemas que suportam a opção de soquete TCP_INFO |
 | client_user                | Quando utilizar a autenticação HTTP, o nome de utilizador fornecido para a autenticação |

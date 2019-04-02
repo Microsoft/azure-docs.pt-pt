@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 03/26/2019
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: d1fdafaaecd448fd09fc40cf5f6173ce600ac4f9
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.openlocfilehash: a0972beff48e07b6ce8afdcec10581300f59ed41
+ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58483210"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58803583"
 ---
 # <a name="use-an-azure-ad-identity-to-access-blob-and-queue-data-with-cli-or-powershell"></a>Utilizar uma identidade do Azure AD para aceder a dados de BLOBs e filas com a CLI ou o PowerShell
 
@@ -61,7 +61,7 @@ O exemplo seguinte mostra como criar um contentor numa nova conta de armazenamen
         --encryption-services blob
     ```
     
-1. Antes de criar o contentor, atribuir os [contribuinte de dados de Blob de armazenamento](../../role-based-access-control/built-in-roles.md#storage-blob-data-contributor-preview) função a próprio. Mesmo que seja o proprietário da conta, precisa de permissões explícitas para realizar operações de dados em relação à conta de armazenamento. Para obter mais informações sobre a atribuição de funções RBAC, veja [conceder acesso a dados BLOBs e filas do Azure com o RBAC no portal do Azure](storage-auth-aad-rbac.md).
+1. Antes de criar o contentor, atribuir os [contribuinte de dados de Blob de armazenamento](../../role-based-access-control/built-in-roles.md#storage-blob-data-contributor) função a próprio. Mesmo que seja o proprietário da conta, precisa de permissões explícitas para realizar operações de dados em relação à conta de armazenamento. Para obter mais informações sobre a atribuição de funções RBAC, veja [conceder acesso a dados BLOBs e filas do Azure com o RBAC no portal do Azure](storage-auth-aad-rbac.md).
 
     > [!IMPORTANT]
     > Atribuições de funções do RBAC podem demorar alguns minutos para propagar.
@@ -114,7 +114,7 @@ O exemplo seguinte mostra como criar um contentor numa nova conta de armazenamen
     $ctx = New-AzStorageContext -StorageAccountName "<storage-account>" -UseConnectedAccount
     ```
 
-1. Antes de criar o contentor, atribuir os [contribuinte de dados de Blob de armazenamento](../../role-based-access-control/built-in-roles.md#storage-blob-data-contributor-preview) função a próprio. Mesmo que seja o proprietário da conta, precisa de permissões explícitas para realizar operações de dados em relação à conta de armazenamento. Para obter mais informações sobre a atribuição de funções RBAC, veja [conceder acesso a dados BLOBs e filas do Azure com o RBAC no portal do Azure](storage-auth-aad-rbac.md).
+1. Antes de criar o contentor, atribuir os [contribuinte de dados de Blob de armazenamento](../../role-based-access-control/built-in-roles.md#storage-blob-data-contributor) função a próprio. Mesmo que seja o proprietário da conta, precisa de permissões explícitas para realizar operações de dados em relação à conta de armazenamento. Para obter mais informações sobre a atribuição de funções RBAC, veja [conceder acesso a dados BLOBs e filas do Azure com o RBAC no portal do Azure](storage-auth-aad-rbac.md).
 
     > [!IMPORTANT]
     > Atribuições de funções do RBAC podem demorar alguns minutos para propagar.

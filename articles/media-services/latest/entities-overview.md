@@ -9,15 +9,15 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 01/24/2019
+ms.date: 03/30/2019
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: 9a02030cb2b785b027bb78bad5ef636dff9dd8f3
-ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
+ms.openlocfilehash: 6bf0efd6994315d56e7b1b2447ffed9154cf5ee5
+ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 04/01/2019
-ms.locfileid: "58758539"
+ms.locfileid: "58804875"
 ---
 # <a name="developing-with-media-services-v3-apis"></a>Desenvolvimento com os serviços de multimédia de v3 APIs
 
@@ -42,6 +42,30 @@ Exemplos de incluem:
 * Não, retornando a parte da cadeia de caracteres de consulta do URL (para remover a assinatura) de URLs de entrada de HTTP das tarefas.
 
 Consulte a [obter a política de chave conteúda - .NET](get-content-key-policy-dotnet-howto.md) exemplo.
+
+## <a name="long-running-operations"></a>Operações de longa execução
+
+As operações marcadas com `x-ms-long-running-operation` nos serviços de multimédia do Azure [swagger ficheiros](https://github.com/Azure/azure-rest-api-specs/blob/master/specification/mediaservices/resource-manager/Microsoft.Media/stable/2018-07-01/streamingservice.json) são longos em execução de operações. 
+
+Para obter detalhes sobre como controlar as operações assíncronas do Azure, consulte [operações assíncronas](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-async-operations#monitor-status-of-operation)
+
+Serviços de multimédia têm as seguintes operações de longa execução:
+
+* Criar LiveEvent
+* Atualizar LiveEvent
+* Delete LiveEvent
+* Iniciar LiveEvent
+* Parar LiveEvent
+* Reset LiveEvent
+* Criar LiveOutput
+* Delete LiveOutput
+* Criar StreamingEndpoint
+* Atualizar StreamingEndpoint
+* Eliminar StreamingEndpoint
+* Iniciar StreamingEndpoint
+* Parar StreamingEndpoint
+* Dimensionamento StreamingEndpoint
+
 
 ## <a name="filtering-ordering-paging-of-media-services-entities"></a>Filtragem, ordenação, paginação de entidades de serviços de multimédia
 

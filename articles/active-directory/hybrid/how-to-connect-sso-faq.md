@@ -16,12 +16,12 @@ ms.date: 11/14/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4822de6f6470547b47ecaa3874bed0df4ad20cf6
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: 709fb3be37850be37d6378652921ce26f4ff15fe
+ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58309593"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58804382"
 ---
 # <a name="azure-active-directory-seamless-single-sign-on-frequently-asked-questions"></a>O Azure Active Directory totalmente integrada início de sessão único: Perguntas mais frequentes
 
@@ -89,7 +89,7 @@ Siga estes passos no servidor no local onde está a executar o Azure AD Connect:
 2. Navegue para a pasta `%programfiles%\Microsoft Azure Active Directory Connect`.
 3. Importe o módulo do PowerShell do SSO totalmente integrado com o comando: `Import-Module .\AzureADSSO.psd1`.
 4. Execute o PowerShell como administrador. No PowerShell, chamar `New-AzureADSSOAuthenticationContext`. Este comando deverá dar-lhe um pop-up para introduzir as credenciais de Administrador Global do seu inquilino.
-5. Chamar `Get-AzureADSSOStatus`. Este comando apresenta a lista de florestas do AD (consulte a lista de "Domínios") em que esta funcionalidade foi ativada.
+5. Chamar `Get-AzureADSSOStatus | ConvertFrom-Json`. Este comando apresenta a lista de florestas do AD (consulte a lista de "Domínios") em que esta funcionalidade foi ativada.
 
 ### <a name="step-2-update-the-kerberos-decryption-key-on-each-ad-forest-that-it-was-set-it-up-on"></a>Passo 2. Atualizar a chave de desencriptação do Kerberos em cada floresta do AD que ele foi configurá-lo no
 
@@ -140,7 +140,7 @@ Se tiver desativado SSO totalmente integrado com o Azure AD Connect, siga tarefa
 2. Navegue para a pasta `%programfiles%\Microsoft Azure Active Directory Connect`.
 3. Importe o módulo do PowerShell do SSO totalmente integrado com o comando: `Import-Module .\AzureADSSO.psd1`.
 4. Execute o PowerShell como administrador. No PowerShell, chamar `New-AzureADSSOAuthenticationContext`. Este comando deverá dar-lhe um pop-up para introduzir as credenciais de Administrador Global do seu inquilino.
-5. Chamar `Get-AzureADSSOStatus`. Este comando apresenta a lista de florestas do AD (consulte a lista de "Domínios") em que esta funcionalidade foi ativada.
+5. Chamar `Get-AzureADSSOStatus | ConvertFrom-Json`. Este comando apresenta a lista de florestas do AD (consulte a lista de "Domínios") em que esta funcionalidade foi ativada.
 
 ### <a name="step-3-manually-delete-the-azureadssoacct-computer-account-from-each-ad-forest-that-you-see-listed"></a>Passo 3. Elimine manualmente o `AZUREADSSOACCT` conta de computador de cada floresta do AD que vê listados.
 

@@ -13,16 +13,30 @@ ms.topic: conceptual
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 2/13/2019
-ms.openlocfilehash: d5c003b2588813f8e8a1dfc2923b9d4c8d8c6cc8
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.openlocfilehash: c46e2d4e2aa79d1d62d0361763911660349cfbb0
+ms.sourcegitcommit: 09bb15a76ceaad58517c8fa3b53e1d8fec5f3db7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56820438"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58762327"
 ---
 # <a name="sql-server-on-azure-virtual-machine-release-notes"></a>SQL Server nas notas de versão da Máquina Virtual do Azure
 
 Azure permite-lhe implementar uma máquina virtual com uma imagem do SQL Server incorporado. Este artigo resume as novas funcionalidades e melhorias nas versões recentes do [SQL Server em máquinas virtuais do Azure](https://azure.microsoft.com/services/virtual-machines/sql-server/). O artigo também apresenta uma lista de atualizações de conteúdo relevantes não diretamente relacionadas com o lançamento, mas publicadas no mesmo intervalo de tempo. Para aprimoramentos a outros serviços do Azure, consulte [as atualizações de serviço](https://azure.microsoft.com/updates)
+
+## <a name="march-2019"></a>Março de 2019
+
+### <a name="service-improvements"></a>Melhorias de serviço
+
+| Melhorias de serviço | Detalhes |
+| --- | --- |
+| **Capacidade de suporte de imagem personalizada** | Agora pode instalar o [extensão SQL IaaS](virtual-machines-windows-sql-server-agent-extension.md#installation) para imagens de sistema operacional e SQL personalizadas, que oferece a funcionalidade limitada do [licenciamento flexível](virtual-machines-windows-sql-ahb.md). Quando registar a sua imagem personalizada com o fornecedor de recursos do SQL, especifique o tipo de licença como 'AHUB' como caso contrário, o registo falhará. Capacidade de gestão através do painel no portal do Azure do SQL Config não é suportada para imagens personalizadas.   | 
+| **Capacidade de suporte de instância com nome** | Agora pode utilizar o [extensão SQL IaaS](virtual-machines-windows-sql-server-agent-extension.md#installation) com uma instância nomeada, se a instância predefinida tiver sido desinstalada corretamente. | 
+| &nbsp; | &nbsp; |
+
+### <a name="documentation-improvements"></a>Melhorias de documentação
+
+Nenhuma
 
 
 ## <a name="february-2019"></a>Fevereiro de 2019
@@ -32,15 +46,9 @@ Azure permite-lhe implementar uma máquina virtual com uma imagem do SQL Server 
 | Melhorias de serviço | Detalhes |
 | --- | --- |
 | **Melhoria do portal** | Agora, é possível alterar o modelo de licenciamento de uma VM do SQL Server de pay as you go para bring-your-own-license utilizando o [portal do Azure](virtual-machines-windows-sql-ahb.md#with-the-azure-portal-1).|
-|**Simplificação de implementação de AG com a CLI de VM de SQL do Azure** | Agora é mais fácil do que nunca para implementar um grupo de disponibilidade para uma VM do SQL Server no Azure. CLI da VM do SQL do Azure permite-lhe criar o serviço de escuta do WSFC, o ILB e AG, tudo a partir da linha de comandos e, em tempo Recorde! Para obter mais informações, consulte [utilização CLI na VM de SQL do Azure para configurar o grupo de disponibilidade Always On do SQL Server numa VM do Azure](virtual-machines-windows-sql-availability-group-cli.md). | 
+|**Simplificação de implementação de AG com a CLI de VM de SQL do Azure** | Agora é mais fácil do que nunca para implementar um grupo de disponibilidade para uma VM do SQL Server no Azure. [CLI da VM do SQL do Azure](/cli/azure/sql/vm?view=azure-cli-2018-03-01-hybrid) permite-lhe criar o serviço de escuta do WSFC, o ILB e AG, tudo a partir da linha de comandos e, em tempo Recorde! Para obter mais informações, consulte [utilização CLI na VM de SQL do Azure para configurar o grupo de disponibilidade Always On do SQL Server numa VM do Azure](virtual-machines-windows-sql-availability-group-cli.md). | 
 | &nbsp; | &nbsp; |
 
-### <a name="documentation-improvements"></a>Melhorias de documentação
-
-| Melhorias de documentação | Detalhes |
-| --- | --- |
-|nenhum | |
-| | |
 
 ## <a name="december-2018"></a>Dezembro de 2018
 

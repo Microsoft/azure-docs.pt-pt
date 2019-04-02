@@ -6,14 +6,14 @@ author: alkohli
 ms.service: storage
 ms.subservice: blobs
 ms.topic: article
-ms.date: 12/07/2018
+ms.date: 04/01/2019
 ms.author: alkohli
-ms.openlocfilehash: d3326713b0fbae070d04fa0fe7ead712fbcacf84
-ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
+ms.openlocfilehash: 8dd55032c933cdc31b848addfdac991550376dcf
+ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58496898"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58805589"
 ---
 # <a name="data-transfer-for-large-datasets-with-moderate-to-high-network-bandwidth"></a>Transferência de dados para grandes conjuntos de dados com moderada para elevada largura de banda
  
@@ -62,7 +62,7 @@ As tabelas seguintes resumem as diferenças nos principais capacidades para as o
 
 Se utilizar a transferência de dados offline, utilize a tabela seguinte para compreender as diferenças nos recursos de chave.
 
-|                                     |    Disco do Data Box (pré-visualização)    |    Data Box                                      |    Dados caixa pesadas (pré-visualização)              |    Importação/Exportação                       |
+|                                     |    Data Box Disk      |    Data Box                                      |    Data Box Heavy            |    Importação/Exportação                       |
 |-------------------------------------|---------------------------------|--------------------------------------------------|------------------------------------------|----------------------------------------|
 |    Tamanho dos dados                        |    Até 35 TB                 |    Até 80 TB por dispositivo                       |    Até 800 TB por dispositivo               |    Variável                            |
 |    Tipo de dados                        |    Blobs do Azure                  |    Blobs do Azure<br>Ficheiros do Azure                    |    Blobs do Azure<br>Ficheiros do Azure            |    Blobs do Azure<br>Ficheiros do Azure          |
@@ -83,7 +83,7 @@ Se utilizar a transferência de dados online, utilize a tabela na secção segui
 
 ### <a name="high-network-bandwidth"></a>Largura de banda de rede elevada
 
-|                                     |    AzCopy de ferramentas, <br>Azure PowerShell, <br>CLI do Azure             |    REST APIs, SDKs de armazenamento do Azure                   |    Gateway de caixa de dados ou de extremidade de caixa de dados (pré-visualização)           |    Azure Data Factory                                            |
+|                                     |    AzCopy de ferramentas, <br>Azure PowerShell, <br>CLI do Azure             |    REST APIs, SDKs de armazenamento do Azure                   |    Gateway de caixa de dados ou de extremidade de caixa de dados          |    Azure Data Factory                                            |
 |-------------------------------------|------------------------------------|----------------------------------------------|----------------------------------|-----------------------------------------------------------------------|
 |    Tipo de dados                  |    Blobs do Azure, os ficheiros do Azure, as tabelas do Azure    |    Blobs do Azure, os ficheiros do Azure, as tabelas do Azure    |    Blobs do Azure, os ficheiros do Azure                           |   Suporta 70 conectores de dados para arquivos de dados e formatos    |
 |    Fator de formulário                |    Ferramentas de linha de comandos                        |    Interface programática                    |    Microsoft fornece um virtual <br>ou o dispositivo físico     |    Serviço no portal do Azure                                            |

@@ -4,17 +4,17 @@ description: Definição de política do Azure tem vários efeitos que determina
 services: azure-policy
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 02/01/2019
+ms.date: 03/29/2019
 ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: 6c6fbde8ff803a053f8c34765ce95d3981a57c52
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: ae9c9c5ed8b951760ddac3034c617a13ebe35006
+ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57551268"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58802648"
 ---
 # <a name="understand-azure-policy-effects"></a>Compreenda os efeitos de política do Azure
 
@@ -180,9 +180,10 @@ O **detalhes** propriedade dos efeitos AuditIfNotExists tem todos os subproperti
 
 - **Tipo de** [necessário]
   - Especifica o tipo de recurso relacionado para corresponder.
-  - Começa ao tentar obter um recurso por baixo da **se** recursos de condição, em seguida, consultas dentro do mesmo grupo de recursos como o **se** recursos de condição.
+  - Se **details.type** é um tipo de recurso por baixo da **se** condição recurso, a política de consulta para os recursos desta **tipo** dentro do escopo do recurso avaliado. Caso contrário, consultas de política dentro do mesmo grupo de recursos que o recurso avaliado.
 - **Nome** (opcional)
   - Especifica o nome exato do recurso para corresponder e faz com que a política para obter um recurso específico em vez de todos os recursos do tipo especificado.
+  - Quando a condição de valores para **if.field.type** e **then.details.type** corresponderem, em seguida, **nome** torna-se _necessário_ e tem de ser `[field('name')]`. No entanto, uma [auditar](#audit) efeito deve ser considerado em vez disso.
 - **ResourceGroupName** (opcional)
   - Permite a correspondência do recurso relacionado provenientes de um grupo de recursos diferente.
   - Não se aplica se **tipo** é um recurso que seria por baixo da **se** recursos de condição.
@@ -253,6 +254,7 @@ O **detalhes** propriedade dos efeitos DeployIfNotExists tem todos os subpropert
   - Começa ao tentar obter um recurso por baixo da **se** recursos de condição, em seguida, consultas dentro do mesmo grupo de recursos como o **se** recursos de condição.
 - **Nome** (opcional)
   - Especifica o nome exato do recurso para corresponder e faz com que a política para obter um recurso específico em vez de todos os recursos do tipo especificado.
+  - Quando a condição de valores para **if.field.type** e **then.details.type** corresponderem, em seguida, **nome** torna-se _necessário_ e tem de ser `[field('name')]`.
 - **ResourceGroupName** (opcional)
   - Permite a correspondência do recurso relacionado provenientes de um grupo de recursos diferente.
   - Não se aplica se **tipo** é um recurso que seria por baixo da **se** recursos de condição.

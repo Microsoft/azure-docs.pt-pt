@@ -1,6 +1,6 @@
 ---
-title: Campos personalizados no Azure Log Analytics | Documentos da Microsoft
-description: A funcionalidade de campos personalizados do Log Analytics permite-lhe criar seus próprios campos pesquisáveis a partir de registos do Log Analytics que adicionar às propriedades de um registo recolhida.  Este artigo descreve o processo de criação de um campo personalizado e fornece instruções detalhadas com um evento de exemplo.
+title: Campos personalizados no Azure Monitor | Documentos da Microsoft
+description: A funcionalidade de campos personalizados do Azure Monitor permite-lhe criar seus próprios campos pesquisáveis a partir de registos numa área de trabalho do Log Analytics que adicionar às propriedades de um registo recolhida.  Este artigo descreve o processo de criação de um campo personalizado e fornece instruções detalhadas com um evento de exemplo.
 services: log-analytics
 documentationcenter: ''
 author: bwren
@@ -11,14 +11,14 @@ ms.service: log-analytics
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 12/04/2018
+ms.date: 03/29/2019
 ms.author: bwren
-ms.openlocfilehash: d3eb0fba2b7178b8b1702d4ca89ff85a441c20d6
-ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
+ms.openlocfilehash: eebf3709657382eb403041e6637e32e5f5d43b15
+ms.sourcegitcommit: ad3e63af10cd2b24bf4ebb9cc630b998290af467
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58541082"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58793350"
 ---
 # <a name="create-custom-fields-in-a-log-analytics-workspace-in-azure-monitor"></a>Criar campos personalizados numa área de trabalho do Log Analytics no Azure Monitor
 
@@ -27,39 +27,37 @@ ms.locfileid: "58541082"
 
 O **campos personalizados** funcionalidade do Azure Monitor permite-lhe expandir registos existentes na sua área de trabalho do Log Analytics ao adicionar seus próprios campos pesquisáveis.  Campos personalizados são preenchidos automaticamente a partir dos dados extraídos de outras propriedades no mesmo registo.
 
-![Descrição geral de campos personalizado](media/custom-fields/overview.png)
+![Descrição geral](media/custom-fields/overview.png)
 
-Por exemplo, o registo de exemplo abaixo tem dados úteis em da descrição do evento.  Extrair estes dados para propriedades separadas disponibiliza-o para ações como classificação e filtragem.
+Por exemplo, o registo de exemplo abaixo tem dados úteis em da descrição do evento. Extrair estes dados numa propriedade separada disponibiliza-o para ações como classificação e filtragem.
 
-![Botão pesquisa de registos](media/custom-fields/sample-extract.png)
+![Extração de exemplo](media/custom-fields/sample-extract.png)
 
 > [!NOTE]
 > Na pré-visualização, está limitado a 100 campos personalizados na sua área de trabalho.  Esse limite será expandido quando esta funcionalidade atinge disponibilidade geral.
-> 
-> 
 
 ## <a name="creating-a-custom-field"></a>Criar um campo personalizado
-Quando cria um campo personalizado, do Log Analytics tem de compreender os dados a utilizar para preencher o seu valor.  Utiliza uma tecnologia da Microsoft Research chamado FlashExtract para identificar rapidamente estes dados.  Em vez de exigir que forneça instruções explícitas, o Log Analytics aprende sobre os dados que pretende extrair a partir dos exemplos que fornecer.
+Quando cria um campo personalizado, do Log Analytics tem de compreender os dados a utilizar para preencher o seu valor.  Utiliza uma tecnologia da Microsoft Research chamado FlashExtract para identificar rapidamente estes dados.  Em vez de exigir que forneça instruções explícitas, o Azure Monitor aprende sobre os dados que pretende extrair a partir dos exemplos que fornecer.
 
 As secções seguintes fornecem o procedimento para criar um campo personalizado.  Na parte inferior deste artigo é um passo a passo de uma extração de exemplo.
 
 > [!NOTE]
-> O campo personalizado é preenchido registos que correspondem aos critérios especificados são adicionadas ao Log Analytics, para que esta apenas será apresentada no registos recolhidos depois do campo personalizado é criado.  O campo personalizado não será adicionado aos registros que já estão no arquivo de dados quando é criado.
+> O campo personalizado é preenchido registos que correspondem aos critérios especificados são adicionadas à área de trabalho do Log Analytics, para que esta apenas será apresentada no registos recolhidos depois do campo personalizado é criado.  O campo personalizado não será adicionado aos registros que já estão no arquivo de dados quando é criado.
 > 
 
 ### <a name="step-1--identify-records-that-will-have-the-custom-field"></a>Passo 1 – identificar registos com o campo personalizado
-A primeira etapa é identificar os registos que obterão o campo personalizado.  Começar com uma [consulta de registo padrão](../log-query/log-query-overview.md) e, em seguida, selecione um registo para atuar como o modelo que aprende do Log Analytics.  Quando especifica que vai extrair dados para um campo personalizado, o **Assistente de extração de campo** é aberto, onde valida e refine os critérios.
+A primeira etapa é identificar os registos que obterão o campo personalizado.  Começar com uma [consulta de registo padrão](../log-query/log-query-overview.md) e, em seguida, selecione um registo para atuar como o modelo que aprende do Azure Monitor.  Quando especifica que vai extrair dados para um campo personalizado, o **Assistente de extração de campo** é aberto, onde valida e refine os critérios.
 
-1. Aceda a **pesquisa de registos** e utilizar um [consulta para obter os registos](../log-query/log-query-overview.md) que farão com que o campo personalizado.
+1. Aceda a **Logs** e utilizar um [consulta para obter os registos](../log-query/log-query-overview.md) que farão com que o campo personalizado.
 2. Selecione um registo que o Log Analytics irá utilizar para atuar como um modelo de extração de dados para preencher o campo personalizado.  Irá identificar os dados que pretende extrair este registo e do Log Analytics irá utilizar estas informações para determinar a lógica para preencher o campo personalizado para todos os registos semelhantes.
-3. Clique no botão à esquerda de qualquer propriedade de texto do registo e selecione **extrair os campos de**.
-4. O **é aberto o Assistente de extração de campos**, e o registo que selecionou é apresentado na **exemplo principal** coluna.  O campo personalizado será definido para esses registos com os mesmos valores das propriedades selecionadas.  
+3. Expanda as propriedades de registo, clique nas reticências para a esquerda da propriedade principal do registo e selecione **extrair os campos de**.
+4. O **Assistente de extração de campos** é aberto, e o registo que selecionou é apresentado na **exemplo principal** coluna.  O campo personalizado será definido para esses registos com os mesmos valores das propriedades selecionadas.  
 5. Se a seleção não é exatamente o que deseja, selecione os campos adicionais para restringir os critérios.  Para alterar os valores dos campos para os critérios, tem de cancelar e selecione um registo diferente correspondentes aos critérios de que pretende.
 
 ### <a name="step-2---perform-initial-extract"></a>Passo 2 - executar extração inicial.
 Depois de identificar os registos que terão o campo personalizado, basta identificar os dados que pretende extrair.  O log Analytics irá utilizar estas informações para identificar padrões semelhantes nos registos semelhantes.  No passo após este será capaz de validar os resultados e fornecem mais detalhes para o Log Analytics a utilizar na sua análise.
 
-1. Realce o texto no registo de exemplo que deseja preencher o campo personalizado.  , Em seguida, será apresentada uma caixa de diálogo para fornecer um nome para o campo de e para realizar a extração inicial.  Os carateres  **\_CF** será automaticamente anexado.
+1. Realce o texto no registo de exemplo que deseja preencher o campo personalizado.  , Em seguida, será apresentada uma caixa de diálogo para fornecer um nome e tipo de dados para o campo de e para realizar a extração inicial.  Os carateres  **\_CF** será automaticamente anexado.
 2. Clique em **extrair** para efetuar uma análise de registos recolhidos.  
 3. O **resumo** e **resultados da pesquisa** secções exibem os resultados da extração, para que pode inspecionar sua precisão.  **Resumo** apresenta os critérios utilizados para identificar registos e uma contagem de cada um dos valores de dados identificados.  **Os resultados da pesquisa** fornece uma lista detalhada de registos que correspondam os critérios.
 
@@ -83,17 +81,17 @@ Pode ver uma lista de todos os campos personalizados no seu grupo de gestão a p
 Existem duas formas de remover um campo personalizado.  A primeira é o **remover** opção para cada campo ao visualizar a lista completa, conforme descrito acima.  O outro método é obter um registo e clique no botão à esquerda do campo.  O menu terá uma opção para remover o campo personalizado.
 
 ## <a name="sample-walkthrough"></a>Instruções de exemplo
-A secção seguinte descreve um exemplo completo de criação de um campo personalizado.  Neste exemplo extrai o nome do serviço nos eventos do Windows que indicam um serviço de alterar o estado.  Baseia-se nos eventos criados pelo Gestor de controlo de serviços no registo do sistema em computadores Windows.  Se quiser siga este exemplo, tem de ser [recolha de eventos de informações para o registo do sistema](data-sources-windows-events.md).
+A secção seguinte descreve um exemplo completo de criação de um campo personalizado.  Neste exemplo extrai o nome do serviço nos eventos do Windows que indicam um serviço de alterar o estado.  Baseia-se nos eventos criados pelo Gestor de controlo de serviços no início de sessão do sistema em computadores Windows.  Se quiser siga este exemplo, tem de ser [recolha de eventos de informações para o registo do sistema](data-sources-windows-events.md).
 
 Introduza a seguinte consulta para devolver todos os eventos do Gestor de controlo de serviço que tenha um ID de evento de 7036 que é o evento que indica um serviço de início ou paragem.
 
 ![Consulta](media/custom-fields/query.png)
 
-Podemos, em seguida, selecione qualquer registo com o evento ID 7036.
+Podemos, em seguida, selecione e expanda qualquer registo com o evento ID 7036.
 
 ![Registo de origem](media/custom-fields/source-record.png)
 
-Queremos que o nome do serviço que aparece no **RenderedDescription** propriedade e selecione o botão junto a esta propriedade.
+Podemos definir campos personalizados ao clicar na elipse junto à propriedade superior.
 
 ![Extrair campos](media/custom-fields/extract-fields.png)
 
@@ -101,11 +99,11 @@ O **Assistente de extração de campos** é aberto e o **registo de eventos** e 
 
 ![Exemplo principal](media/custom-fields/main-example.png)
 
-Nós destacamos o nome do serviço no **RenderedDescription** propriedade e a utilização **serviço** para identificar o nome do serviço.  O campo personalizado será chamado **Service_CF**.
+Nós destacamos o nome do serviço no **RenderedDescription** propriedade e a utilização **serviço** para identificar o nome do serviço.  O campo personalizado será chamado **Service_CF**. Nesse caso, o tipo de campo é uma cadeia de caracteres, portanto, podemos deixar que inalterados.
 
 ![Título do campo](media/custom-fields/field-title.png)
 
-Podemos ver que o nome do serviço é identificado corretamente para alguns registos, mas não para outras pessoas.   O **resultados de pesquisa** mostrar essa parte do nome para o **adaptador de desempenho de WMI** não foi selecionado.  O **resumo** mostra quatro regista com **DPRMA** serviço incluído incorretamente uma palavra extra e dois registos identificados **instalador de módulos** em vez de **Instalador de módulos do Windows**.  
+Podemos ver que o nome do serviço é identificado corretamente para alguns registos, mas não para outras pessoas.   O **resultados de pesquisa** mostrar essa parte do nome para o **adaptador de desempenho de WMI** não foi selecionado.  O **resumo** mostra que um registo identificado **instalador de módulos** em vez de **instalador de módulos do Windows**.  
 
 ![Resultados da pesquisa](media/custom-fields/search-results-01.png)
 
@@ -117,19 +115,11 @@ Vamos aumentar o destaque para incluir a palavra **WMI** e, em seguida, volte a 
 
 ![Exemplo de adicional](media/custom-fields/additional-example-01.png)
 
-Podemos ver que as entradas para **adaptador de desempenho de WMI** ter sido corrigido, e também utilizado o Log Analytics essas informações para corrigir os registos para **instalador de módulo do Windows**.  Podemos ver na **resumo** secção entanto que **DPMRA** ainda não for a ser identificado corretamente.
+Podemos ver que as entradas para **adaptador de desempenho de WMI** ter sido corrigido, e também utilizado o Log Analytics essas informações para corrigir os registos para **instalador de módulo do Windows**.
 
 ![Resultados da pesquisa](media/custom-fields/search-results-02.png)
 
-Podemos rolar para a um registo com o serviço DPMRA e usar o mesmo processo para corrigir esse registo.
-
-![Exemplo de adicional](media/custom-fields/additional-example-02.png)
-
- Quando executamos a extração, podemos ver que todos os resultados são precisos.
-
-![Resultados da pesquisa](media/custom-fields/search-results-03.png)
-
-Podemos ver que **Service_CF** é criado, mas ainda não é adicionada para quaisquer registos.
+Agora podemos executar uma consulta que verifica **Service_CF** é criado, mas ainda não é adicionada para quaisquer registos. Isso ocorre porque o campo personalizado não funciona em relação a registos existentes, pelo que precisamos esperar para novos registros a recolher.
 
 ![Contagem inicial](media/custom-fields/initial-count.png)
 
@@ -142,6 +132,6 @@ Agora podemos usar o campo personalizado, como qualquer outra propriedade de reg
 ![Agrupar por consulta](media/custom-fields/query-group.png)
 
 ## <a name="next-steps"></a>Passos Seguintes
-* Saiba mais sobre [pesquisas de registos](../log-query/log-query-overview.md) para criar consultas com campos personalizados para critérios.
+* Saiba mais sobre [registar as consultas](../log-query/log-query-overview.md) para criar consultas com campos personalizados para critérios.
 * Monitor [ficheiros de registo personalizado](data-sources-custom-logs.md) que analisar com campos personalizados.
 

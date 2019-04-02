@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 02/25/2019
 ms.author: jaredro
 ms.custom: include file
-ms.openlocfilehash: eb807082443da495cd89e1dd624058c89d3ee65b
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.openlocfilehash: 6a0d84a2aaf4b52c7fb0163231574eaea63c18c3
+ms.sourcegitcommit: ad3e63af10cd2b24bf4ebb9cc630b998290af467
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56825459"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58807826"
 ---
 ### <a name="what-is-expressroute-direct"></a>O que é direta do ExpressRoute?
 
@@ -52,6 +52,6 @@ ExpressRoute Direct fornece aos clientes diretos 100 pares de portas de Gbps na 
 
 Será faturada direta do ExpressRoute para o par de porta numa quantidade fixa. Circuitos padrão serão incluídos em nenhuma horas adicionais e premium terão um custo de complemento pequeno. Saída é cobrada de forma por circuito, com base na zona da localização do peering.
 
-### <a name="when-does-billing-state-for-the-expressroute-direct-port-pairs"></a>Quando o estado de cobrança para os pares de porta Direct do ExpressRoute?
+### <a name="when-does-billing-start-for-the-expressroute-direct-port-pairs"></a>Quando faz o início de faturação para os pares de porta Direct do ExpressRoute?
 
 Pares de portas do ExpressRoute diretos são faturadas a 45 dias para a criação do recurso direto do ExpressRoute ou quando 1 ou ambas as ligações estão ativadas, o que ocorrer primeiro. O período de tolerância de 45 dias é concedido para permitir que os clientes concluir o processo de ligação cruzada com o fornecedor de colocalização.

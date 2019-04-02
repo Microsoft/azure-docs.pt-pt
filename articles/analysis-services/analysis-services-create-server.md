@@ -5,15 +5,15 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: quickstart
-ms.date: 01/09/2019
+ms.date: 04/01/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 4e9080cfc863b4253a4eb4d427f21df74bb08874
-ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
+ms.openlocfilehash: e54c18eb405ffa36260e9980705784130bc0ca4c
+ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54186741"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58803013"
 ---
 # <a name="quickstart-create-a-server---portal"></a>Início rápido: Criar um servidor - Portal
 
@@ -22,7 +22,7 @@ Este início rápido descreve como criar um recurso de servidor do Analysis Serv
 ## <a name="prerequisites"></a>Pré-requisitos 
 
 * **Subscrição do Azure**: Visite [avaliação gratuita do Azure](https://azure.microsoft.com/offers/ms-azr-0044p/) para criar uma conta.
-* **O Azure Active Directory**: A sua subscrição tem de ser associada a um inquilino do Azure Active Directory. E tem de ter sessão iniciada no Azure com uma conta nesse Azure Active Directory. Para saber mais,v eja [Authentication and user permissions](analysis-services-manage-users.md) (Autenticação e permissões de utilizador).
+* **Azure Active Directory**: A sua subscrição tem de ser associada a um inquilino do Azure Active Directory. E tem de ter sessão iniciada no Azure com uma conta nesse Azure Active Directory. Para saber mais,v eja [Authentication and user permissions](analysis-services-manage-users.md) (Autenticação e permissões de utilizador).
 
 ## <a name="sign-in-to-the-azure-portal"></a>Iniciar sessão no portal do Azure 
 
@@ -46,7 +46,7 @@ Este início rápido descreve como criar um recurso de servidor do Analysis Serv
    * **Definição de armazenamento de cópia de segurança**: Opcional. Se já tiver uma [conta de armazenamento](../storage/common/storage-introduction.md), pode especificá-la como a predefinição para a cópia de segurança de base de dados modelo. Também pode especificar as definições da [cópia de segurança e restauro](analysis-services-backup.md) mais tarde.
    * **Expiração da chave de armazenamento**: Opcional. Especifique um período de expiração da chave de armazenamento.
 
-Criar o servidor, normalmente, demora menos de um minuto. Se tiver selecionado **Adicionar ao Portal**, navegue até ao seu portal para ver o seu novo servidor. Ou navegue até **Todos os serviços** > **Analysis Services** para ver se o servidor está pronto.
+Criar o servidor, normalmente, demora menos de um minuto. Se tiver selecionado **Adicionar ao Portal**, navegue até ao seu portal para ver o seu novo servidor. Ou navegue até **Todos os serviços** > **Analysis Services** para ver se o servidor está pronto. Servidores suportam modelos em tabela nos níveis de compatibilidade 1200 e superior. Nível de compatibilidade do modelo é especificado no SSDT ou SSMS.
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 
@@ -59,6 +59,6 @@ Quando já não precisar, elimine o seu servidor. Na **Descrição Geral** do se
 Neste início rápido, aprendeu a criar um servidor na sua subscrição do Azure. Agora que tem o servidor, pode ajudar a protegê-lo ao configurar uma firewall do servidor (opcional). Também pode adicionar um modelo de dados de exemplo básico ao seu servidor diretamente a partir do portal. Ter um modelo de exemplo é útil para saber como configurar as funções de base de dados do modelo e testar as ligações de cliente. Para obter mais informações, avance para o tutorial para adicionar um modelo de exemplo.
 
 > [!div class="nextstepaction"]
-> [Início rápido: Configurar a firewall do servidor - Portal](analysis-services-qs-firewall.md)   
+> [Quickstart: Configurar a firewall do servidor - Portal](analysis-services-qs-firewall.md)   
 > [!div class="nextstepaction"]
 > [Tutorial: Adicionar um modelo de exemplo ao seu servidor](analysis-services-create-sample-model.md)

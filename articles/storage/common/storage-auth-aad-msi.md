@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 03/21/2019
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: 76bf36f63051f02d6c37261799342f424609f9b2
-ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
+ms.openlocfilehash: dfdb419a5c06dc50717c0a8a3bdaffb302db52d0
+ms.sourcegitcommit: ad3e63af10cd2b24bf4ebb9cc630b998290af467
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58442290"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58793021"
 ---
 # <a name="authenticate-access-to-blobs-and-queues-with-managed-identities-for-azure-resources"></a>Autenticar o acesso a blobs e filas com identidades geridas para recursos do Azure
 
@@ -51,7 +51,7 @@ O exemplo de código parte do princípio de que tem um token de acesso de identi
 
 No Visual Studio, instale a biblioteca de cliente de armazenamento do Azure. Do **ferramentas** menu, selecione **Gestor de pacotes Nuget**, em seguida, **Package Manager Console**. Escreva o seguinte comando na consola:
 
-```
+```powershell
 Install-Package https://www.nuget.org/packages/WindowsAzure.Storage  
 ```
 

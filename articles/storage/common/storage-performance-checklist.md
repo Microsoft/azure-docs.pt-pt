@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 12/08/2016
 ms.author: rogarana
 ms.subservice: common
-ms.openlocfilehash: d39c2414aa8299282b3896a9ceb57897fdb25ff1
-ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
+ms.openlocfilehash: b8451a1195ab64d3cd7afda074d786a3209ce785
+ms.sourcegitcommit: ad3e63af10cd2b24bf4ebb9cc630b998290af467
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58446003"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58793973"
 ---
 # <a name="microsoft-azure-storage-performance-and-scalability-checklist"></a>Lista de Verificação de Desempenho e Escalabilidade do Armazenamento do Microsoft Azure
 ## <a name="overview"></a>Descrição geral
@@ -269,7 +269,7 @@ Para carregar um único blob grandes rapidamente, a aplicação cliente deverá 
 * C++: Use o método blob_request_options::set_parallelism_factor.
 
 #### <a name="subheading22"></a>Carregar os blobs rapidamente
-Para carregar rapidamente os blobs, carregar blobs em paralelo. Isso é mais rápido do que carregar blobs únicas cada vez com carregamentos de bloco paralelo, porque ele propaga o carregamento em várias partições do serviço de armazenamento. Um único blob só suporta um débito de 60 MB por segundo (aproximadamente 480 Mbps). No momento da escrita, uma conta LRS baseadas nos E.U.A. suporta um máximo de 20 Gbps entrada que é muito mais do que o débito suportado por um blob individual.  [AzCopy](#subheading18) executa carregamentos em paralelo, por predefinição e é recomendado para este cenário.  
+Para carregar rapidamente os blobs, carregar blobs em paralelo. Isso é mais rápido do que carregar blobs únicas cada vez com carregamentos de bloco paralelo, porque ele propaga o carregamento em várias partições do serviço de armazenamento. Um único blob só suporta um débito de 60 MB por segundo (aproximadamente 480 Mbps). No momento da escrita, uma conta LRS baseadas nos E.U.A. suporta um máximo de 20 Gbps entrada, que é muito mais do que o débito suportado por um blob individual.  [AzCopy](#subheading18) executa carregamentos em paralelo, por predefinição e é recomendado para este cenário.  
 
 ### <a name="subheading23"></a>Escolher o tipo correto de blob
 O armazenamento do Azure suporta dois tipos de BLOBs: *página* blobs e *bloco* blobs. Para um cenário de uso determinado, à sua escolha do tipo de blob irá afetar o desempenho e escalabilidade da sua solução. Os blobs de blocos são adequados para carregar grandes quantidades de dados de forma eficiente: por exemplo, um aplicativo cliente talvez seja necessário carregar fotos ou vídeo ao armazenamento de Blobs. Blobs de páginas são adequados se a aplicação tem de realizar as gravações aleatórias nos dados: por exemplo, os VHDs do Azure são armazenadas como blobs de página.  
@@ -297,9 +297,7 @@ A partir da versão de serviço de armazenamento 08-2013-15, o serviço de tabel
 Para obter mais informações, consulte a postagem [tabelas do Microsoft Azure: Introdução ao JSON](https://blogs.msdn.com/b/windowsazurestorage/archive/2013/12/05/windows-azure-tables-introducing-json.aspx) e [formato de Payload para operações de serviço de tabela](https://msdn.microsoft.com/library/azure/dn535600.aspx).
 
 #### <a name="subheading26"></a>Nagle desativado
-Algoritmo do Nagle amplamente é implementado através de redes de TCP/IP como um meio para melhorar o desempenho de rede. No entanto, não é ideal em todas as circunstâncias (por exemplo, ambientes altamente interativas). Armazenamento do Azure, algoritmo do Nagle tem um impacto negativo no desempenho de pedidos para os serviços de tabela e fila e deve desabilitá-la se possível.  
-
-Para obter mais informações, consulte nossa mensagem de blogue [algoritmo do Nagle não é amigável em direção de pequenos pedidos](https://blogs.msdn.com/b/windowsazurestorage/archive/2010/06/25/nagle-s-algorithm-is-not-friendly-towards-small-requests.aspx), que explica por que o algoritmo do Nagle mal interage com os pedidos de tabela e fila e mostra como desabilitá-lo no seu cliente aplicação.  
+Algoritmo do Nagle amplamente é implementado através de redes de TCP/IP como um meio para melhorar o desempenho de rede. No entanto, não é ideal em todas as circunstâncias (por exemplo, ambientes altamente interativas). Armazenamento do Azure, algoritmo do Nagle tem um impacto negativo no desempenho de pedidos para os serviços de tabela e fila e deve desabilitá-la se possível.
 
 ### <a name="schema"></a>Esquema
 Como representar e consultar os seus dados é o único fator maior que afeta o desempenho do serviço tabela. Embora cada aplicativo é diferente, esta secção descreve algumas práticas comprovadas gerais que se relacionam com:  
@@ -373,7 +371,7 @@ Tabela de utilização **Upsert** operações sempre que possível. Existem dois
 ##### <a name="subheading37"></a>Armazenamento de série de dados numa única entidade
 Às vezes, um aplicativo armazena uma série de dados que com freqüência precisar de obter ao mesmo tempo: por exemplo, uma aplicação pode controlar a utilização da CPU ao longo do tempo para desenhar um gráfico sem interrupção dos dados das últimas 24 horas. Uma abordagem é ter uma entidade de tabela por hora, com cada entidade que representa uma hora específica e armazenar a utilização da CPU durante essa hora. Para representar estes dados, a aplicação tem de obter as entidades que contém os dados a partir das 24 horas mais recentes.  
 
-Em alternativa, o seu aplicativo pode armazenar a utilização da CPU para cada hora, como uma propriedade separada de uma entidade única: para atualizar a cada hora, seu aplicativo pode usar uma única **InsertOrMerge Upsert** chamada para atualizar o valor para o mais recente hora. Para representar os dados, o aplicativo só precisa obter uma única entidade em vez de 24, tornando-se para uma consulta eficiente (veja acima a discussão sobre [âmbito de consulta](#subheading30)).
+Em alternativa, o seu aplicativo pode armazenar a utilização da CPU para cada hora, como uma propriedade separada de uma entidade única: para atualizar a cada hora, seu aplicativo pode usar uma única **InsertOrMerge Upsert** chamada para atualizar o valor para o mais recente hora. Para representar os dados, o aplicativo só precisa obter uma única entidade em vez de 24, tornando-se de uma consulta eficiente (veja acima a discussão sobre [âmbito de consulta](#subheading30)).
 
 ##### <a name="subheading38"></a>Armazenar dados estruturados em blobs
 Dados estruturados, às vezes, parece que ela deve ir em tabelas, mas intervalos de entidades sempre são obtidos em conjunto e pode ser inserido batch.  Um bom exemplo disso é um ficheiro de registo.  Neste caso, pode vários minutos de registos do batch, inseri-las e, em seguida, sempre estará recuperando vários minutos de registos ao mesmo tempo também.  Neste caso, para desempenho, é melhor utilizar blobs, em vez de tabelas, uma vez que pode reduzir significativamente o número de objetos gravados/retornados, bem como normalmente o número de pedidos que necessitam de feitas.  
@@ -390,7 +388,7 @@ Ver destinos de escalabilidade atuais em [metas de desempenho e escalabilidade d
 Consulte a seção sobre configuração de tabela que discute o algoritmo de Nagle — o algoritmo de Nagle é geralmente útil para o desempenho de pedidos de fila, e deve desabilitá-la.  
 
 ### <a name="subheading41"></a>Tamanho da mensagem
-Fila de desempenho e escalabilidade diminui à medida que aumenta de tamanho de mensagem. Deve colocar apenas as informações que precisa do recetor numa mensagem.  
+Fila de desempenho e escalabilidade diminuir à medida que aumenta de tamanho de mensagem. Deve colocar apenas as informações que precisa do recetor numa mensagem.  
 
 ### <a name="subheading42"></a>Obtenção de batch
 Pode recuperar até 32 mensagens da fila numa única operação. Isso pode reduzir o número de idas e voltas da aplicação cliente, que é especialmente útil para ambientes, como dispositivos móveis, com latência elevada.  
@@ -401,7 +399,7 @@ A maioria dos aplicativos consultar mensagens de uma fila, que pode ser uma das 
 Para informações de custo atualizado, consulte [preços de armazenamento do Azure](https://azure.microsoft.com/pricing/details/storage/).  
 
 ### <a name="subheading44"></a>UpdateMessage
-Pode usar **UpdateMessage** para aumentar o tempo limite de invisibilidade ou para atualizar informações de estado de uma mensagem. Embora isso seja eficiente, lembre-se de que cada **UpdateMessage** operação conta para o destino de escalabilidade. No entanto, isso pode ser uma abordagem muito mais eficiente do que um fluxo de trabalho que passa um trabalho de uma fila para o próximo, como cada passo da tarefa é concluído. Utilizar o **UpdateMessage** operação permite que seu aplicativo guardar o estado da tarefa para a mensagem e, em seguida, continuar a trabalhar, em vez de voltar colocação em fila a mensagem para a próxima etapa do trabalho sempre que uma etapa de conclusão.  
+Pode usar **UpdateMessage** para aumentar o tempo limite de invisibilidade ou para atualizar informações de estado de uma mensagem. Embora isso seja eficiente, lembre-se de que cada **UpdateMessage** operação conta para o destino de escalabilidade. No entanto, isso pode ser uma abordagem muito mais eficiente do que um fluxo de trabalho que passa um trabalho de uma fila para o próximo, como cada passo da tarefa é concluído. Utilizar o **UpdateMessage** operação permite que seu aplicativo guardar o estado da tarefa para a mensagem e, em seguida, continuar a trabalhar, em vez de requeuing a mensagem para a próxima etapa do trabalho sempre que uma etapa de conclusão.  
 
 Para obter mais informações, consulte o artigo [como: Alterar os conteúdos de uma mensagem em fila](../queues/storage-dotnet-how-to-use-queues.md#change-the-contents-of-a-queued-message).  
 

@@ -5,17 +5,17 @@ services: application-insights
 keywords: ''
 author: mrbullwinkle
 ms.author: mbullwin
-ms.date: 03/29/2019
+ms.date: 04/01/2019
 ms.service: application-insights
 ms.custom: mvc
 ms.topic: quickstart
 manager: carmonm
-ms.openlocfilehash: 13fce896c4d83f628bdb7e12e696e32e343fb689
-ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
+ms.openlocfilehash: a43ad92181415593b309b9fafb20f9934a997924
+ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 04/01/2019
-ms.locfileid: "58754945"
+ms.locfileid: "58805351"
 ---
 # <a name="start-monitoring-your-aspnet-web-application"></a>Iniciar a Monitorização de uma Aplicação Web ASP.NET
 
@@ -105,6 +105,11 @@ Para saber mais, visite o repositório do GitHub para o nosso [SDK de JavaScript
 ## <a name="video"></a>Vídeo
 
 * Externo vídeo passo a passo sobre [configuração do Application Insights com uma aplicação .NET do zero](https://www.youtube.com/watch?v=blnGAVgMAfA).
+
+## <a name="clean-up-resources"></a>Limpar recursos
+Quando tiver terminado, teste, pode eliminar o grupo de recursos e todos os recursos relacionados. Para tal, siga os passos abaixo.
+1. No menu do lado esquerdo no portal do Azure, clique em **Grupos de recursos** e, em seguida, clique em **myResourceGroup**.
+2. Na página do grupo de recursos, clique em **Eliminar**, escreva **myResourceGroup** na caixa de texto e, em seguida, clique em **Eliminar**.
 
 ## <a name="next-steps"></a>Passos Seguintes
 Neste início rápido, ativou a aplicação para monitorização pelo Azure Application Insights.  Continue para os tutoriais para saber como utilizá-lo para monitorizar as estatísticas e detetar problemas na sua aplicação.

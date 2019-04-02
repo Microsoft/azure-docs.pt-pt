@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 02/25/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 81ce9cb2667ce9f21d7c18a92e417e47768d7efb
-ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
+ms.openlocfilehash: b53e07d6086f2a02fd1bbd158ffc09dc95b0c377
+ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57407955"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58801288"
 ---
 # <a name="manage-python-2-packages-in-azure-automation"></a>Gerir pacotes de Python 2 na automatização do Azure
 
@@ -42,7 +42,7 @@ A automatização do Azure não resolve as dependências de pacotes python duran
 
 No Windows de 64 bits do computador com [python2.7](https://www.python.org/downloads/release/latest/python2) e [pip](https://pip.pypa.io/en/stable/) instalado, execute o seguinte comando para transferir um pacote e todas as suas dependências:
 
-```
+```cmd
 C:\Python27\Scripts\pip2.7.exe download -d <output dir> <package name>
 ```
 

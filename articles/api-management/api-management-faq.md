@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/19/2017
 ms.author: apimpm
-ms.openlocfilehash: 99b54a5fe5c28eb66a61fad61d23b94f0955f126
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: 9c0c8adca9d99c00e32127e02a3d68ff668a235e
+ms.sourcegitcommit: ad3e63af10cd2b24bf4ebb9cc630b998290af467
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56728573"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58793310"
 ---
 # <a name="azure-api-management-faqs"></a>Perguntas frequentes de gestão de API do Azure
 Obtenha respostas para perguntas comuns, padrões e práticas recomendadas para a gestão de API do Azure.
@@ -32,9 +32,9 @@ Obtenha respostas para perguntas comuns, padrões e práticas recomendadas para 
 ## <a name="frequently-asked-questions"></a>Perguntas mais frequentes
 * [O que significa quando um recurso está em pré-visualização?](#what-does-it-mean-when-a-feature-is-in-preview)
 * [Como posso proteger a ligação entre o gateway de Gestão de API e os meus serviços de back-end?](#how-can-i-secure-the-connection-between-the-api-management-gateway-and-my-back-end-services)
-* [Como eu copio minha instância de serviço de gestão de API para uma nova instância?](#how-do-i-copy-my-api-management-service-instance-to-a-new-instance)
+* [Como copio a minha instância de serviço de Gestão de API para uma nova instância?](#how-do-i-copy-my-api-management-service-instance-to-a-new-instance)
 * [Posso gerir a minha instância de gestão de API por meio de programação?](#can-i-manage-my-api-management-instance-programmatically)
-* [Como posso adicionar um utilizador ao grupo de administradores?](#how-do-i-add-a-user-to-the-administrators-group)
+* [Como posso adicionar um utilizador ao grupo de Administradores?](#how-do-i-add-a-user-to-the-administrators-group)
 * [Por que é a política que eu quero adicionar indisponível no editor de políticas?](#why-is-the-policy-that-i-want-to-add-unavailable-in-the-policy-editor)
 * [Como posso configurar vários ambientes numa única API?](#how-do-i-set-up-multiple-environments-in-a-single-api)
 * [Pode usar SOAP com a gestão de API?](#can-i-use-soap-with-api-management)
@@ -42,12 +42,12 @@ Obtenha respostas para perguntas comuns, padrões e práticas recomendadas para 
 * Pode configurar um servidor de autorização de OAuth 2.0 com segurança do AD FS?
 * [Que método de encaminhamento de gestão de API o usa em implementações em várias localizações geográficas?](#what-routing-method-does-api-management-use-in-deployments-to-multiple-geographic-locations)
 * [Pode utilizar um modelo Azure Resource Manager para criar uma instância de serviço de gestão de API?](#can-i-use-an-azure-resource-manager-template-to-create-an-api-management-service-instance)
-* [Pode utilizar um certificado SSL autoassinado para um back-end?](#can-i-use-a-self-signed-ssl-certificate-for-a-back-end)
+* [Can I use a self-signed SSL certificate for a back end?](#can-i-use-a-self-signed-ssl-certificate-for-a-back-end)(Posso utilizar um certificado SSL autoassinado para um back-end?)
 * [Por que motivo recebo uma falha de autenticação ao tentar clonar um repositório GIT?](#why-do-i-get-an-authentication-failure-when-i-try-to-clone-a-git-repository)
 * [Gestão de API funciona com o Azure ExpressRoute?](#does-api-management-work-with-azure-expressroute)
 * [Por que motivo é necessário quando a gestão de API é implementada numa sub-rede dedicada em VNETs do Resource Manager estilo?](#why-do-we-require-a-dedicated-subnet-in-resource-manager-style-vnets-when-api-management-is-deployed-into-them)
 * [O que é o tamanho da sub-rede mínimo necessário ao implementar a gestão de API numa VNET?](#what-is-the-minimum-subnet-size-needed-when-deploying-api-management-into-a-vnet)
-* [Posso mover um serviço de gestão de API de uma subscrição para outra?](#can-i-move-an-api-management-service-from-one-subscription-to-another)
+* [Posso mover um serviço da Gestão de API de uma subscrição para outra?](#can-i-move-an-api-management-service-from-one-subscription-to-another)
 * [Existem restrições ou problemas conhecidos relacionados com a importação de minha API?](#are-there-restrictions-on-or-known-issues-with-importing-my-api)
 
 ### <a name="how-can-i-ask-the-microsoft-azure-api-management-team-a-question"></a>Como posso fazer a equipe de gestão de API do Microsoft Azure uma pergunta?
@@ -72,13 +72,13 @@ Tem várias opções para proteger a ligação entre o gateway de gestão de API
 Tem várias opções para copiar uma instância de gestão de API para uma nova instância. Pode:
 
 * Utilize a cópia de segurança e restaurar a função na gestão de API. Para obter mais informações, consulte [como implementar a recuperação após desastre com o serviço backup e restaurar na gestão de API do Azure](api-management-howto-disaster-recovery-backup-restore.md).
-* Criar sua própria cópia de segurança e restaurar a funcionalidade utilizando o [API do REST de gestão de API](https://msdn.microsoft.com/library/azure/dn776326.aspx). Utilize a API REST para salvar e restaurar as entidades a partir da instância de serviço que pretende.
+* Criar sua própria cópia de segurança e restaurar a funcionalidade utilizando o [API do REST de gestão de API](/rest/api/apimanagement/). Utilize a API REST para salvar e restaurar as entidades a partir da instância de serviço que pretende.
 * Transferir a configuração do serviço utilizando o Git e, em seguida, carregue-o para uma nova instância. Para obter mais informações, consulte [para guardar e configurar a configuração do serviço de gestão de API com Git](api-management-configuration-repository-git.md).
 
 ### <a name="can-i-manage-my-api-management-instance-programmatically"></a>Posso gerir a minha instância de gestão de API por meio de programação?
 Sim, pode gerir a gestão de API por meio de programação com:
 
-* O [REST API de gestão de API](https://msdn.microsoft.com/library/azure/dn776326.aspx).
+* O [REST API de gestão de API](/rest/api/apimanagement/).
 * O [biblioteca de gestão de serviços de ApiManagement do Microsoft Azure SDK](https://aka.ms/apimsdk).
 * O [implementação de serviços](https://docs.microsoft.com/powershell/module/wds) e [gestão de serviço](https://docs.microsoft.com/powershell/azure/servicemanagement/overview) cmdlets do PowerShell.
 
@@ -97,7 +97,7 @@ Agora, o colaborador adicionado recentemente pode utilizar o Azure PowerShell [c
 4. Utilize o URL para aceder ao portal de administração.
 
 ### <a name="why-is-the-policy-that-i-want-to-add-unavailable-in-the-policy-editor"></a>Por que é a política que eu quero adicionar indisponível no editor de políticas?
-Se a política que pretende adicionar aparece desativado ou sombreados no editor de políticas, não se esqueça de que está no âmbito correto para a política. Cada declaração de política foi concebida para a utilização de âmbitos específicos e seções de política. Para rever as secções de política e os âmbitos para uma política, consulte a secção utilização da política [políticas de gestão de API](https://msdn.microsoft.com/library/azure/dn894080.aspx).
+Se a política que pretende adicionar aparece desativado ou sombreados no editor de políticas, não se esqueça de que está no âmbito correto para a política. Cada declaração de política foi concebida para a utilização de âmbitos específicos e seções de política. Para rever as secções de política e os âmbitos para uma política, consulte a secção utilização da política [políticas de gestão de API](/azure/api-management/api-management-policies).
 
 ### <a name="how-do-i-set-up-multiple-environments-in-a-single-api"></a>Como posso configurar vários ambientes numa única API?
 Para configurar a vários ambientes, por exemplo, um ambiente de teste e ambiente de produção, numa única API, tem duas opções. Pode:
@@ -142,7 +142,7 @@ New-AzApiManagementBackend -Context  $context -Url 'https://contoso.com/myapi' -
 ```
 
 #### <a name="direct-api-update-method"></a>Método direto de atualização de API ####
-1. Criar uma [back-end](https://msdn.microsoft.com/library/azure/dn935030.aspx) entidade utilizando a gestão de API.       
+1. Criar uma [back-end](/rest/api/apimanagement/) entidade utilizando a gestão de API.     
 2. Definir o **skipCertificateChainValidation** propriedade **verdadeiro**.     
 3. Se já não pretender permitir que os certificados autoassinados, eliminar a entidade de back-end ou definir o **skipCertificateChainValidation** propriedade **falso**.
 

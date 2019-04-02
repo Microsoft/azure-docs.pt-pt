@@ -11,12 +11,12 @@ ms.author: jordane
 author: jpe316
 ms.date: 12/04/2018
 ms.custom: seodec18
-ms.openlocfilehash: 4b7cd15b1746bac6f61ef46108ade6cf1fb3b7ff
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 2504ca9cb785529a9eab321c2521db46390632b7
+ms.sourcegitcommit: ad3e63af10cd2b24bf4ebb9cc630b998290af467
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57894653"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58793208"
 ---
 # <a name="use-the-cli-extension-for-azure-machine-learning-service"></a>Utilizar a extensão da CLI para o serviço Azure Machine Learning
 
@@ -192,7 +192,7 @@ environment:
 # Set True to perform this run inside a Docker container.
     enabled: true
 # Base image used for Docker-based runs.
-    baseImage: mcr.microsoft.com/azureml/base:0.2.1
+    baseImage: mcr.microsoft.com/azureml/base:0.2.4
 # Set False if necessary to work around shared volume bugs.
     sharedVolumes: true
 # Run with NVidia Docker extension to support GPUs.

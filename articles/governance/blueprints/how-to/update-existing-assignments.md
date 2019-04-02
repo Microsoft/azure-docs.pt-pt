@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: blueprints
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: 572a962e98332fc70c276346f497ed2e67e3c329
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 78b2f98b61306c22eaba59b9be7259b3a24d7bbe
+ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57999843"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58805759"
 ---
 # <a name="how-to-update-an-existing-blueprint-assignment"></a>Como atualizar uma existente da atribuição do esquema
 
@@ -32,17 +32,17 @@ Quando lhe for atribuído um plano gráfico, a atribuição pode ser atualizada.
 
 1. Na lista de esquemas, left-click a atribuição do esquema. Em seguida, clique no **atualizar atribuição** ou a atribuição do esquema com o botão direito e selecione **atualizar atribuição**.
 
-   ![Atualize a atribuição](../media/update-existing-assignments/update-assignment.png)
+   ![Atualizar uma existente da atribuição do esquema](../media/update-existing-assignments/update-assignment.png)
 
 1. O **esquema de atribuir** página será carregada previamente preenchido com todos os valores da atribuição original. Pode alterar o **versão da definição do esquema**, o **atribuição de bloqueio** estado e qualquer um dos parâmetros dinâmicos que existem na definição do esquema. Clique em **atribuir** quando terminar de efetuar alterações.
 
 1. Na página de detalhes de atribuição atualizada, ver o estado de novo. Neste exemplo, adicionamos **bloqueio** para a atribuição.
 
-   ![Atribuição atualizada - bloqueada](../media/update-existing-assignments/updated-assignment.png)
+   ![Atualizar uma atribuição de esquema existentes - alterado de modo de bloqueio](../media/update-existing-assignments/updated-assignment.png)
 
 1. Para explorar detalhes sobre outras **operações de atribuição** usando a menu pendente. A tabela da **recursos gerenciados** atualizações por operação de atribuição selecionado.
 
-   ![Operações de atribuição](../media/update-existing-assignments/assignment-operations.png)
+   ![Operações de atribuição de uma atribuição do esquema](../media/update-existing-assignments/assignment-operations.png)
 
 ## <a name="rules-for-updating-assignments"></a>Regras para atualizar as atribuições
 

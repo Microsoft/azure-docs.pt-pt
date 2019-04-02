@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/23/2019
 ms.author: tomfitz
-ms.openlocfilehash: e7bcfce4e9d23839c623be3b54e97d931e6454cb
-ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
+ms.openlocfilehash: 8348099d778a9ec65e907bb3d21ae995041b9fb6
+ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56268299"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58802292"
 ---
 # <a name="view-activity-logs-to-audit-actions-on-resources"></a>Ver registos de atividades para auditar as ações em recursos
 
@@ -167,7 +167,7 @@ Pode recuperar informações de registos de atividade através do portal, PowerS
 
 ## <a name="rest-api"></a>API REST
 
-As operações REST para trabalhar com o registo de atividade fazem parte dos [API do REST Insights](https://msdn.microsoft.com/library/azure/dn931943.aspx). Para obter eventos de registo de atividade, veja [listar os eventos de gestão numa subscrição](https://msdn.microsoft.com/library/azure/dn931934.aspx).
+As operações REST para trabalhar com o registo de atividade fazem parte dos [API do REST Insights](/rest/api/monitor/). Para obter eventos de registo de atividade, veja [listar os eventos de gestão numa subscrição](/rest/api/monitor/activitylogs).
 
 ## <a name="next-steps"></a>Passos Seguintes
 

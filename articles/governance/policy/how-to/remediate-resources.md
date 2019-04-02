@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: f0c05ddbc53d08334aded48ccb3a3ece547b4143
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.openlocfilehash: e86553e789fc9879ea4a6326b08d893fe24c8ac8
+ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56816573"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58802563"
 ---
 # <a name="remediate-non-compliant-resources-with-azure-policy"></a>Remediar recursos não compatíveis com o Azure Policy
 
@@ -139,11 +139,11 @@ Para criar uma **tarefas de remediação**, siga estes passos:
 
 1. Inicie o serviço Azure Policy no portal do Azure ao clicar em **Todos os serviços** e, em seguida, ao pesquisar e selecionar **Policy**.
 
-   ![Pesquisar política](../media/remediate-resources/search-policy.png)
+   ![Pesquisar política em todos os serviços](../media/remediate-resources/search-policy.png)
 
 1. Selecione **remediação** no lado esquerdo da página política do Azure.
 
-   ![Selecione a remediação](../media/remediate-resources/select-remediation.png)
+   ![Selecione a remediação na página de política](../media/remediate-resources/select-remediation.png)
 
 1. Todos os **deployIfNotExists** atribuições de política com recursos não compatíveis estão incluídas no **políticas para remediar** separador e os dados de tabela. Clique numa política com recursos que são incompatíveis. O **nova tarefa de remediação** é aberta a página.
 
@@ -152,11 +152,11 @@ Para criar uma **tarefas de remediação**, siga estes passos:
 
 1. Na **nova tarefa de remediação** página, filtrar os recursos necessários para remediar utilizando o **âmbito** reticências e escolha os recursos subordinados de onde a política é atribuída (incluindo para baixo para o recurso individual objetos). Além disso, utilizar o **localizações** pendente para filtrar ainda mais os recursos. Apenas os recursos listados na tabela serão remediados.
 
-   ![Remediar - selecionar recursos](../media/remediate-resources/select-resources.png)
+   ![Remediar - selecionar quais os recursos a remediação](../media/remediate-resources/select-resources.png)
 
 1. Iniciar a tarefa de remediação assim que os recursos foram filtrados clicando **Remedeie**. A página de política de conformidade será aberta para o **tarefas de atualização** separador para mostrar o estado do progresso de tarefas.
 
-   ![Remediar – progresso da tarefa](../media/remediate-resources/task-progress.png)
+   ![Remediar - progresso das tarefas de atualização](../media/remediate-resources/task-progress.png)
 
 1. Clique nas **tarefas de remediação** da página de conformidade da política para obter detalhes sobre o progresso. A filtragem utilizado para a tarefa é apresentada juntamente com uma lista dos recursos a ser corrigida.
 

@@ -1,6 +1,6 @@
 ---
 title: Descrição geral do Azure Resource Graph
-description: O Azure Resource Graph é um serviço no Azure que permite uma consulta complexa de recursos à escala.
+description: Compreenda como o serviço de gráfico de recursos do Azure permite consultas complexas de recursos em escala.
 services: resource-graph
 author: DCtheGeek
 ms.author: dacoulte
@@ -8,14 +8,14 @@ ms.date: 02/06/2019
 ms.topic: overview
 ms.service: resource-graph
 manager: carmonm
-ms.openlocfilehash: b5062dd4edf43fbb348a6de57f534096a8c922de
-ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
+ms.openlocfilehash: 15cfdc87fafa25e9f37c63c8159289b25a547817
+ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57193573"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58802327"
 ---
-# <a name="what-is-azure-resource-graph"></a>O que é o Azure Resource Graph
+# <a name="overview-of-the-azure-resource-graph-service"></a>Descrição geral do serviço de gráfico de recursos do Azure
 
 O Azure Resource Graph é um serviço no Azure que foi desenvolvido para ampliar o Azure Resource Management, ao fornecer exploração de recursos eficiente e de alto desempenho, com a capacidade de consultar à escala todas as subscrições e grupos de gestão para que possa controlar de forma eficiente o seu ambiente. Estas consultas fornecem as seguintes funcionalidades:
 

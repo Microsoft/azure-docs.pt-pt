@@ -1,6 +1,6 @@
 ---
-title: A colocação em cache personalizada na API Management do Azure
-description: Saiba como colocar em cache itens por chave na API Management do Azure
+title: A colocação em cache personalizada na gestão de API do Azure
+description: Saiba como colocar em cache itens por chave na gestão de API do Azure
 services: api-management
 documentationcenter: ''
 author: vladvino
@@ -14,21 +14,21 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/15/2016
 ms.author: apimpm
-ms.openlocfilehash: 838850d38c9df51fabcf620831371bed401e9492
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 922ab731ccd76e6a1336d61abe4b0251e358beb7
+ms.sourcegitcommit: ad3e63af10cd2b24bf4ebb9cc630b998290af467
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/21/2018
-ms.locfileid: "29376036"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58793548"
 ---
-# <a name="custom-caching-in-azure-api-management"></a>A colocação em cache personalizada na API Management do Azure
-Serviço de API Management do Azure têm suporte incorporado para [colocação em cache de resposta HTTP](api-management-howto-cache.md) utilizando o URL de recurso como a chave. A chave pode ser modificada por cabeçalhos de pedido utilizando o `vary-by` propriedades. Isto é útil para colocar em cache as respostas HTTP completos (aka representações), mas por vezes, é útil para colocar em cache apenas uma parte de uma representação. A nova [valor de pesquisa de cache](https://msdn.microsoft.com/library/azure/dn894086.aspx#GetFromCacheByKey) e [valor de arquivo de cache](https://msdn.microsoft.com/library/azure/dn894086.aspx#StoreToCacheByKey) políticas fornecem a capacidade de armazenar e obter arbitrários peças de dados a partir de definições de política. Esta capacidade também adiciona valor introduzidas anteriormente [pedido de envio](https://msdn.microsoft.com/library/azure/dn894085.aspx#SendRequest) política porque agora pode colocar em cache as respostas de serviços externos.
+# <a name="custom-caching-in-azure-api-management"></a>A colocação em cache personalizada na gestão de API do Azure
+O serviço de gestão de API do Azure tem suporte incorporado para [colocação em cache de resposta HTTP](api-management-howto-cache.md) usando o URL de recurso como chave. A chave pode ser modificada por cabeçalhos de solicitação usando o `vary-by` propriedades. Isto é útil para a colocação em cache as respostas HTTP inteiras (também conhecido como representações), mas às vezes é útil para a cache de apenas uma parte de uma representação. A nova [valor de pesquisa de cache](/azure/api-management/api-management-caching-policies#GetFromCacheByKey) e [valor do arquivo do cache](/azure/api-management/api-management-caching-policies#StoreToCacheByKey) políticas oferecem a capacidade de armazenar e obter partes arbitrárias de dados a partir de definições de política. Esta capacidade também adiciona valor ao anteriormente introduzido [pedido de envio](/azure/api-management/api-management-advanced-policies#SendRequest) política porque agora pode colocar em cache as respostas dos serviços externos.
 
 ## <a name="architecture"></a>Arquitetura
-Dados em cache utiliza de serviço de API Management um dados partilhados por inquilino colocados em cache para que, como escala até várias unidades ainda obtiver acesso ao mesmo. No entanto, ao trabalhar com uma implementação de multirregião existem caches independentes em cada uma das regiões. É importante tratar não a cache como um arquivo de dados, onde é a única origem de algumas peça de informações. Se e mais tarde decidir tirar partido da implementação multirregião, os clientes com utilizadores que viajam poderão perder acesso a dados em cache.
+Dados em cache usos de serviço de gestão de API um dados por inquilino partilhado em cache para que, como aumente verticalmente para várias unidades ainda obter acesso às mesmas. No entanto, ao trabalhar com uma implementação em várias regiões existem caches independentes dentro de cada uma das regiões. É importante não tratar o cache como um arquivo de dados, em que é a única fonte de alguma parte das informações. Se fez e decidir posteriormente tirar partido da implementação de várias regiões, em seguida, os clientes com os utilizadores que viajam podem perder o acesso a esses dados em cache.
 
-## <a name="fragment-caching"></a>A colocação em cache de fragmento
-Existem alguns casos em que as respostas a ser devolvidas contenham uma parte de dados é dispendioso determinar e ainda permanecem raiz para um período de tempo razoável. Por exemplo, considere um serviço criado por uma companhia aérea que fornece informações relacionadas com reservas de voo, estado de voo, etc. Se o utilizador for um membro do programa de pontos airlines, estes também teria informações relacionadas com o respetivo estado atual e acumulados mileage. Estas informações relacionadas com o utilizador poderão ser armazenadas num sistema diferente, mas pode ser preferível incluí-la no devolvido sobre o estado de trânsito e reservas de respostas. Isto pode ser feito utilizando um processo denominado fragmento a colocação em cache. A representação primária pode ser devolvida a partir do servidor de origem utilizar algum tipo de token para indicar onde as informações relacionadas com o utilizador estão a ser inserido. 
+## <a name="fragment-caching"></a>Cache fragmentado
+Há determinados casos em que as respostas serem devolvidas contenham uma parte dos dados que é Caro para determinar e ainda permanecem atualizados durante um período de tempo razoável. Por exemplo, considere um serviço criado por uma companhia aérea que fornece informações relacionadas com reservas de voo, estado de voos, etc. Se o utilizador é membro do programa de pontos de companhias aéreas, eles também teria de obter informações relacionadas com o respetivo estado atual e acumulados quantidade. Estas informações relacionadas ao usuário podem ser armazenadas num sistema diferente, mas, talvez seja desejável para incluí-la na resposta retornada sobre reservas e estado de voo. Isso pode ser feito através de um processo chamado de cache fragmentado. A representação principal pode ser devolvida a partir do servidor de origem usando algum tipo de token para indicar onde as informações relacionadas com o utilizador estão a ser inserido. 
 
 Considere a seguinte resposta JSON de uma API de back-end.
 
@@ -43,13 +43,13 @@ Considere a seguinte resposta JSON de uma API de back-end.
 }  
 ```
 
-E recurso secundário em `/userprofile/{userid}` parecido,
+E de recursos secundários em `/userprofile/{userid}` que se parece com,
 
 ```json
 { "username" : "Bob Smith", "Status" : "Gold" }
 ```
 
-Para determinar as informações de utilizador adequada para incluir, a API Management tem de identificar quem é o utilizador final. Este mecanismo é dependente de implementação. Por exemplo, estiver a utilizar o `Subject` de afirmações de um `JWT` token. 
+Para determinar as informações de utilizador adequada para incluir, gestão de API tem de identificar quem é o utilizador final. Esse mecanismo é dependente de implementação. Por exemplo, estou usando o `Subject` de afirmação de um `JWT` token. 
 
 ```xml
 <set-variable
@@ -57,7 +57,7 @@ Para determinar as informações de utilizador adequada para incluir, a API Mana
   value="@(context.Request.Headers.GetValueOrDefault("Authorization","").Split(' ')[1].AsJwt()?.Subject)" />
 ```
 
-Arquivos de API Management do `enduserid` valor de uma variável de contexto para utilização posterior. O passo seguinte consiste em determinar se um pedido de anterior tiver já obteve as informações de utilizador e guardá-la na cache. Para tal, utiliza a API Management do `cache-lookup-value` política.
+Arquivos de gestão de API a `enduserid` valor numa variável de contexto para utilização posterior. A próxima etapa é determinar se um pedido anterior já tem obter as informações de utilizador e guardá-la no cache. Para isso, a gestão de API utiliza o `cache-lookup-value` política.
 
 ```xml
 <cache-lookup-value
@@ -65,7 +65,7 @@ key="@("userprofile-" + context.Variables["enduserid"])"
 variable-name="userprofile" />
 ```
 
-Se não houver nenhuma entrada na cache que corresponde ao valor da chave de, em seguida, não `userprofile` variável de contexto é criada. API Management verifica a taxa de êxito de utilizar a pesquisa de `choose` política de fluxo de controlo.
+Se não houver nenhuma entrada na cache que corresponde ao valor da chave, em seguida, não `userprofile` variável de contexto é criada. Gestão de API verifica o êxito de utilizar a pesquisa a `choose` diretiva de fluxo de controle.
 
 ```xml
 <choose>
@@ -75,7 +75,7 @@ Se não houver nenhuma entrada na cache que corresponde ao valor da chave de, em
 </choose>
 ```
 
-Se o `userprofile` variável de contexto não existe, em seguida, API de gestão vai ter de efetuar um pedido HTTP para obtê-lo.
+Se o `userprofile` variável de contexto não existe, em seguida, a gestão de API vai fazer uma solicitação HTTP para recuperá-la.
 
 ```xml
 <send-request
@@ -92,7 +92,7 @@ Se o `userprofile` variável de contexto não existe, em seguida, API de gestão
 </send-request>
 ```
 
-API Management utiliza o `enduserid` para construir o URL para o recurso de perfil de utilizador. Assim que a API Management tem de resposta, obtém o texto de corpo fora da resposta e armazena-a novamente para uma variável de contexto.
+Gestão de API utiliza o `enduserid` para construir o URL para o recurso de perfil do usuário. Assim que a gestão de API tem a resposta, ele extrai o texto de corpo de resposta e armazena-a novamente para uma variável de contexto.
 
 ```xml
 <set-variable
@@ -100,7 +100,7 @@ API Management utiliza o `enduserid` para construir o URL para o recurso de perf
     value="@(((IResponse)context.Variables["userprofileresponse"]).Body.As<string>())" />
 ```
 
-Para evitar a gestão de API de efetuar este pedido HTTP novamente, quando o mesmo utilizador fizer outro pedido, pode especificar para armazenar o perfil de utilizador na cache.
+Para evitar a gestão de API de efetuar este pedido HTTP mais uma vez, quando o mesmo utilizador fizer outro pedido, pode especificar para armazenar o perfil de utilizador na cache.
 
 ```xml
 <cache-store-value
@@ -108,11 +108,11 @@ Para evitar a gestão de API de efetuar este pedido HTTP novamente, quando o mes
     value="@((string)context.Variables["userprofile"])" duration="100000" />
 ```
 
-Gestão de API armazena o valor na cache com a mesma chave exata que API Management originalmente foi efetuada uma tentativa para obtê-lo com. A duração API Management optar por armazenar o valor deve basear-se no como muitas vezes, as alterações de informações e tolerância a falhas como utilizadores são informações a desatualizados. 
+Gestão de API armazena o valor no cache usando a mesma chave exata que a gestão de API tentou originalmente recuperá-la com. O período em que a gestão de API escolhe para armazenar o valor deve basear-se sobre como muitas vezes, as alterações de informações e os utilizadores de como a tolerância a falhas são informações de Desatualizadas. 
 
-É importante compreender que a obter a partir da cache ainda está a ser um fora do processo, o pedido de rede e, potencialmente, pode ainda adicionar dezenas de milissegundos para o pedido. As vantagens vêm ao determinar que as informações de perfil de utilizador demora mais que que devido à necessidade de base de dados consultas ou agregam informações de back-ends de vários.
+É importante perceber que a obtenção da cache ainda é uma fora do processo, o pedido de rede e potencialmente pode ainda adicionar dezenas de milissegundos para o pedido. Os benefícios são fornecidos ao determinar que as informações de perfil do usuário demora mais tempo do que isso devido a necessidade de bases de dados consultas ou agregar informações de vários back-ends.
 
-É o último passo no processo de atualizar a resposta devolvida com as informações de perfil de utilizador.
+A etapa final do processo é atualizar a resposta retornada com as informações de perfil do usuário.
 
 ```xml
 <!-- Update response body with user profile-->
@@ -121,9 +121,9 @@ Gestão de API armazena o valor na cache com a mesma chave exata que API Managem
     to="@((string)context.Variables["userprofile"])" />
 ```
 
-Pode optar por incluir as aspas como parte do token de forma a que, mesmo quando a substituição não ocorre, a resposta ainda um JSON válido.  
+Pode optar por incluir as aspas como parte do token, para que, mesmo quando a substituição não ocorre, a resposta ainda é um JSON válido.  
 
-Depois de combinar todos estes passos em conjunto, o resultado final é uma política que se assemelha o um seguinte.
+Depois de combinar todas essas etapas juntos, o resultado final é uma política que se parece com o seguinte.
 
 ```xml
 <policies>
@@ -177,22 +177,22 @@ Depois de combinar todos estes passos em conjunto, o resultado final é uma pol�
 </policies>
 ```
 
-Esta abordagem de colocação em cache é principalmente utilizada em web sites em HTML é composto no lado do servidor para que pode ser composto como uma única página. Também pode ser útil em APIs onde os clientes não é possível efetuar a cache do lado do cliente HTTP ou é desejável não colocar em espera que responsabilidade no cliente.
+Essa abordagem de colocação em cache é usada principalmente em web sites em que o HTML é composto no lado do servidor para que ele pode ser composto como uma única página. Também pode ser útil em APIs em que os clientes não é possível fazer a cache do lado do cliente HTTP ou é desejável não colocar essa responsabilidade no cliente.
 
-Este tipo de fragmento a colocação em cache mesmo também pode ser feito os servidores de web de back-end através de um servidor de colocação em cache de Redis, no entanto, utilizando o serviço de API Management para efetuar este trabalho é útil quando os fragmentos em cache provenientes de back-ends diferentes que as respostas primárias.
+Esse tipo de cache fragmentado também pode ser feito nos servidores de web de back-end com um servidor de colocação em cache de Redis, no entanto, utilizar o serviço de gestão de API para realizar esse trabalho é útil, quando os fragmentos em cache são provenientes de back-ends diferentes do que o primário respostas.
 
 ## <a name="transparent-versioning"></a>Controlo de versões transparente
-É prática comum para várias versões de implementação diferente de uma API para ser suportado num dado momento. Por exemplo, para suportar ambientes diferentes (desenvolvimento, teste, produção, etc.) ou para suportar as versões mais antigas da API para dar tempo para consumidores de API migrar para as versões mais recentes. 
+É prática comum para várias versões de implementação diferente de uma API de suporte ao mesmo tempo. Por exemplo, para suportar ambientes diferentes (desenvolvimento, teste, produção, etc.) ou para suporte às versões anteriores da API para dar tempo para os consumidores de APIS migrar para as versões mais recentes. 
 
-Uma abordagem para lidar com isto, em vez de exigir os programadores de cliente alterar os URLs de `/v1/customers` para `/v2/customers` é para armazenar dados de perfil do consumidor qual é a versão da API atualmente pretenderem utilizar e chame o URL de back-end adequado. Para determinar o URL de back-end correto para chamar um cliente específico, é necessário consultar alguns dados de configuração. Ao colocar em cache estes dados de configuração, gestão de API pode minimizar a penalidade de desempenho de fazer esta pesquisa.
+Uma abordagem para lidar com isso, em vez de exigir que os desenvolvedores de cliente alterar os URLs de `/v1/customers` para `/v2/customers` é armazenar dados de perfil do consumidor, qual é a versão da API atualmente que desejam usar e chamar o URL de back-end adequado. Para determinar o URL de back-end corretos para chamar para um cliente específico, é necessário consultar alguns dados de configuração. Ao colocar em cache estes dados de configuração, gestão de API pode minimizar a penalidade de desempenho de fazer esta pesquisa.
 
-O primeiro passo consiste em determinar o identificador utilizado para configurar a versão pretendida. Neste exemplo, posso optar por associar a versão para a chave de subscrição do produto. 
+A primeira etapa é determinar o identificador utilizado para configurar a versão pretendida. Neste exemplo, optei por associar a versão para a chave de subscrição do produto. 
 
 ```xml
 <set-variable name="clientid" value="@(context.Subscription.Key)" />
 ```
 
-Gestão de API, em seguida, efetua uma pesquisa de cache para ver se já obter a versão de cliente pretendidos.
+Gestão de API, em seguida, realiza uma pesquisa de cache para ver se já obter a versão de cliente pretendido.
 
 ```xml
 <cache-lookup-value
@@ -200,14 +200,14 @@ key="@("clientversion-" + context.Variables["clientid"])"
 variable-name="clientversion" />
 ```
 
-Em seguida, gestão de API verifica se este não foi possível localizá-lo na cache.
+Em seguida, a gestão de API verifica para ver se ele não encontrou-lo na cache.
 
 ```xml
 <choose>
     <when condition="@(!context.Variables.ContainsKey("clientversion"))">
 ```
 
-Se a gestão de API não encontrá-lo, a API Management obtém-lo.
+Se não encontrar a gestão de API, gestão de API obtém os mesmos.
 
 ```xml
 <send-request
@@ -228,7 +228,7 @@ Extraia o texto de corpo de resposta da resposta.
       value="@(((IResponse)context.Variables["clientconfiguresponse"]).Body.As<string>())" />
 ```
 
-Armazene-o novamente na cache para utilização futura.
+Store-lo em cache para utilização futura.
 
 ```xml
 <cache-store-value
@@ -237,7 +237,7 @@ Armazene-o novamente na cache para utilização futura.
       duration="100000" />
 ```
 
-E por fim, atualize o URL de back-end para selecionar a versão do serviço pretendido pelo cliente.
+E, por fim, atualize o URL de back-end para selecionar a versão do serviço pretendido pelo cliente.
 
 ```xml
 <set-backend-service
@@ -269,12 +269,12 @@ A política de conclua é o seguinte:
 </inbound>
 ```
 
-Ativar os consumidores de API controlar a versão back-end está a ser acedido por clientes, sem ter de atualizar e voltar a implementar clientes transparente é uma solução elegante que endereços muitos preocupações de controlo de versões de API.
+Permitindo que os consumidores de APIS de forma transparente controlar qual versão de back-end está sendo acessado por clientes, sem ter de atualizar e Reimplementar os clientes é uma solução elegante que aborda muitas questões de controle de versão de API.
 
-## <a name="tenant-isolation"></a>Isolamento de inquilinos
-Em implementações maiores, a multi-inquilinos algumas empresas criar grupos separados de inquilinos em diferentes implementações do hardware de back-end. Isto minimiza o número de clientes que são afetadas por um problema de hardware no back-end. Também permite novas versões de software ser implementado em fases. Idealmente, esta arquitetura de back-end deve ser transparente para os consumidores de API. Isto pode ser conseguido de forma semelhante para controlo de versões transparente porque se baseia na mesma técnica de manipular o URL de back-end com o estado de configuração por chave de API.  
+## <a name="tenant-isolation"></a>Isolamento de inquilino
+Em Implantações maiores e multi-inquilinos algumas empresas, crie grupos separados de inquilinos em diferentes implementações de hardware de back-end. Isso minimiza o número de clientes que são afetadas por um problema de hardware no back-end. Também permite que novas versões de software ser implementada em fases. O ideal é que esta arquitetura de back-end deve ser transparente para os consumidores de APIS. Isso pode ser obtido de forma semelhante ao controle de versão transparente porque baseia-se a mesma técnica de manipular o URL de back-end com estado de configuração por chave de API.  
 
-Em vez de devolver uma versão da API para cada chave de subscrição preferencial, iria devolver um identificador que está relacionada com um inquilino para o grupo de hardware atribuído. Este identificador pode ser utilizado para construir o URL de back-end adequado.
+Em vez de retornar uma versão preferencial da API para cada chave de assinatura, retornará um identificador que está relacionado com um inquilino para o grupo de hardware atribuídos. Esse identificador pode ser utilizado para construir o URL de back-end adequado.
 
 ## <a name="summary"></a>Resumo
-A liberdade para utilizar a cache de gestão de API do Azure para armazenar qualquer tipo de dados permite eficiente acesso aos dados de configuração que podem afetar a forma de que um pedido de entrada é processado. Também pode ser utilizado para armazenar os fragmentos de dados que podem aumentar respostas, devolvidas por um API de back-end.
+A liberdade de utilizar a cache da gestão de API do Azure para armazenar qualquer tipo de dados permite acesso eficiente aos dados de configuração que podem afetar a forma como uma solicitação de entrada é processada. Também pode ser utilizado para armazenar fragmentos de dados que podem aumentar as respostas, retornadas de um API de back-end.

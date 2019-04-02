@@ -12,16 +12,20 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/20/2019
+ms.date: 04/01/2019
 ms.author: juliako
-ms.openlocfilehash: 5f33249496c9a4fc8a094e64f15c8d95da69194b
-ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
+ms.openlocfilehash: 8e8b493881662483e66dd835d1cc68a471b18454
+ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58294880"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58803313"
 ---
 # <a name="azure-media-services-telemetry"></a>Telemetria de serviços de multimédia do Azure  
+
+
+> [!NOTE]
+> Não serão adicionadas novas funcionalidades aos Serviços de Multimédia v2. <br/>Veja a versão mais recente, [Serviços de Multimédia v3](https://docs.microsoft.com/azure/media-services/latest/). Além disso, veja [orientação de migração da v2 para a v3](../latest/migrate-from-v2-to-v3.md)
 
 Serviços de multimédia do Azure (AMS) permite-lhe aceder aos dados de telemetria/métricas para seus serviços. A versão atual do AMS permite-lhe recolher dados telemétricos para em direto **canal**, **StreamingEndpoint**e ao vivo **arquivo** entidades. 
 
@@ -70,7 +74,7 @@ Isso deve permitir que muitas das consultas comuns para ser eficiente:
 
 Dados de telemetria são armazenados no agregado numa tabela, "TelemetryMetrics20160321" onde "20160321" é a data de tabela criada. Sistema de telemetria cria uma tabela separada para cada dia de novo com base 00:00 UTC. A tabela é utilizada para armazenar valores recorrentes, tais como ingestão de velocidade de transmissão dentro de uma determinada janela de tempo, bytes enviados, etc. 
 
-Propriedade|Value|Exemplos/notas
+Propriedade|Valor|Exemplos/notas
 ---|---|---
 PartitionKey|{account ID}_{entity ID}|e49bef329c29495f9b9570989682069d_64435281c50a4dd8ab7011cb0f4cdf66<br/<br/>O ID da conta está incluído na chave de partição para simplificar os fluxos de trabalho em que várias contas de serviços de multimédia estiver a escrever para a mesma conta de armazenamento.
 RowKey|{seconds meia-noite} _ {valor aleatório}|01688_00199<br/><br/>A chave de linha começa com o número de segundos a meia-noite para permitir consultas de estilo de n principais dentro de uma partição. Para obter mais informações, veja [este](../../cosmos-db/table-storage-design-guide.md#log-tail-pattern) artigo. 
@@ -91,7 +95,7 @@ Existem três tipos de entradas de dados de telemetria de específicas de entida
 
 **Ponto final de transmissão em fluxo**
 
-Propriedade|Value|Exemplos
+Propriedade|Valor|Exemplos
 ---|---|---
 PartitionKey|PartitionKey|e49bef329c29495f9b9570989682069d_64435281c50a4dd8ab7011cb0f4cdf66
 RowKey|RowKey|01688_00199
@@ -110,7 +114,7 @@ E2ELatency|Latência de ponto-a-ponto média|250
 
 **Canais em direto**
 
-Propriedade|Value|Exemplos/notas
+Propriedade|Valor|Exemplos/notas
 ---|---|---
 PartitionKey|PartitionKey|e49bef329c29495f9b9570989682069d_64435281c50a4dd8ab7011cb0f4cdf66
 RowKey|RowKey|01688_00199
@@ -135,7 +139,7 @@ Bom estado de funcionamento|Se VERDADEIRO, <br/>overlapCount, <br/>Discontinuity
 
 **Arquivo Live**
 
-Propriedade|Value|Exemplos/notas
+Propriedade|Valor|Exemplos/notas
 ---|---|---
 PartitionKey|PartitionKey|e49bef329c29495f9b9570989682069d_64435281c50a4dd8ab7011cb0f4cdf66
 RowKey|RowKey|01688_00199

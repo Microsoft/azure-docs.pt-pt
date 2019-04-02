@@ -7,20 +7,22 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.topic: quickstart
 ms.custom: mvc
-ms.date: 03/08/2019
+ms.date: 03/25/2019
 ms.author: dobett
-ms.openlocfilehash: befef76e19640683ba3219374702a049bdecb43b
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 32e2d3f9e8bbd63944188355774558ca5ea7bd9d
+ms.sourcegitcommit: ad3e63af10cd2b24bf4ebb9cc630b998290af467
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58184177"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58792506"
 ---
 # <a name="quickstart-try-a-cloud-based-remote-monitoring-solution"></a>Início rápido: Tente uma solução de monitorização remota com base na cloud
 
 Este início rápido mostra como implementar o acelerador de soluções de Monitorização Remota de IoT do Azure. Nesta solução baseada na cloud, utilize a página **Dashboard** da solução para visualizar os dispositivos simulados num mapa e a página **Manutenção** para responder a um alerta de pressão de um dispositivo chiller simulado. Pode utilizar este acelerador de soluções como o ponto de partida para a sua própria implementação ou como uma ferramenta de aprendizagem.
 
 A implementação inicial configura o acelerador de soluções para uma empresa denominada Contoso. Enquanto operador na Contoso gere uma seleção de diferentes tipos de dispositivos, como chillers, implementados em ambientes físicos diferentes. Um dispositivo chiller envia telemetria de temperatura, humidade e pressão para o acelerador de soluções de Monitorização Remota.
+
+Este guia de introdução implementa um **básica** versão do solution accelerator para fins de teste e demonstração que minimiza os custos. Para obter mais informações sobre as diferentes versões podem implementar, veja [implementações de básicas e standard](iot-accelerators-remote-monitoring-deploy-cli.md#basic-and-standard-deployments).
 
 Para concluir este início rápido, precisa de uma subscrição ativa do Azure.
 
@@ -36,9 +38,7 @@ Clique nas **monitorização remota** mosaico. Sobre o **monitorização remota*
 
 ![Selecionar a Monitorização Remota](./media/quickstart-remote-monitoring-deploy/remotemonitoring.png)
 
-Na página **Criar solução de Monitorização Remota**, selecione uma implementação **Básica**. Se estiver a implementar o acelerador de soluções para saber como funciona ou executar uma demonstração, selecione a opção **Básica** para minimizar os custos.
-
-Selecione **.NET** como linguagem. As implementações de Java e .NET têm as mesmas funcionalidades.
+Escolher  **C# Microsserviços** como o **opções de implementação**. O Java e C# implementações têm os mesmos recursos.
 
 Introduza um **Nome da solução** exclusivo para o acelerador de soluções de Monitorização Remota. Neste início rápido, estamos a telefonar para nosso **contoso-rm**.
 
@@ -111,7 +111,7 @@ Para agir sobre o chiller, desloque-se para baixo para **Informações relaciona
 
 No painel **Trabalhos**, escolha **Executar método** e, em seguida, o método **EmergencyValveRelease**. Adicionar o nome do trabalho **ChillerPressureRelease**e clique em **Aplicar**. Estas definições criam uma tarefa para si executada imediatamente.
 
-Para ver o estado da tarefa, volte à página **Manutenção** e veja a lista de tarefas na vista **Tarefas**. Pode ter de aguardar alguns segundos antes de poder ver que a tarefa foi executada para libertar a pressão da válvula no chiller:
+Para ver o estado da tarefa, volte à página **Manutenção** e veja a lista de tarefas na vista **Tarefas**. Poderá ter de aguardar alguns segundos antes de pode ver que a tarefa foi executada:
 
 [![O estado das tarefas na vista Tarefas](./media/quickstart-remote-monitoring-deploy/maintenancerunningjob-inline.png)](./media/quickstart-remote-monitoring-deploy/maintenancerunningjob-expanded.png#lightbox)
 

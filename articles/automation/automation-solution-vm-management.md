@@ -6,19 +6,22 @@ ms.service: automation
 ms.subservice: process-automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 02/26/2019
+ms.date: 03/31/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 6b5ef0f165433e2dd0685aa0e4f64bd04bf5c823
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 6d7b99da3e8e81973c51bbd68a15517828c9736d
+ms.sourcegitcommit: 09bb15a76ceaad58517c8fa3b53e1d8fec5f3db7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57902251"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58762944"
 ---
 # <a name="startstop-vms-during-off-hours-solution-in-azure-automation"></a>Iniciar/parar VMs durante a solução de horário comercial na automatização do Azure
 
 A iniciar/parar VMs fora do horário comercial solução inicia e interrompe as máquinas virtuais do Azure em agendas definidas pelo utilizador, fornece informações através de registos do Azure Monitor e envia e-mails opcionais ao utilizar [grupos de ação](../azure-monitor/platform/action-groups.md). Ele oferece suporte do Azure Resource Manager e as VMs clássicas na maioria dos cenários.
+
+> [!NOTE]
+> A iniciar/parar VMs fora do horário comercial solução foi testada com os módulos do Azure que são importados para a sua conta de automatização ao implementar a solução. A solução atualmente não funciona com versões mais recentes do módulo do Azure. Esta ação afeta apenas a conta de automatização que utiliza para executar a iniciar/parar VMs durante a solução de horário comercial. Pode continuar a utilizar as versões mais recentes do módulo do Azure nas suas outras contas de automatização, conforme descrito em [como atualizar módulos do Azure PowerShell na automatização do Azure](automation-update-azure-modules.md)
 
 Esta solução fornece uma opção de automatização descentralizada de baixo custo para os utilizadores que queiram otimizar seus custos VM. Com esta solução, pode:
 

@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: blueprints
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: 16ec3428138361726d69eb9b45943b20129e32ed
-ms.sourcegitcommit: 956749f17569a55bcafba95aef9abcbb345eb929
+ms.openlocfilehash: 5409de8aabb52a531551abbc28ae9e873b262eba
+ms.sourcegitcommit: 09bb15a76ceaad58517c8fa3b53e1d8fec5f3db7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58630726"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58762434"
 ---
 # <a name="understand-resource-locking-in-azure-blueprints"></a>Compreender o recurso de bloqueio em esquemas do Azure
 
@@ -52,6 +52,8 @@ Quando a atribuição ser removida, os bloqueios criados por esquemas são remov
 ## <a name="how-blueprint-locks-work"></a>Como o esquema bloqueia a trabalho
 
 Um RBAC [negar atribuições](../../../role-based-access-control/deny-assignments.md) negar a ação é aplicada a recursos de artefacto durante a atribuição de um plano gráfico se a atribuição selecionado a **só de leitura** ou **não elimine** opção. A ação de negação é adicionada pela identidade gerida de atribuição do esquema e só pode ser removida dos recursos de artefacto pela mesma identidade gerida. Esta medida de segurança impõe o mecanismo de bloqueio e impede a remover o bloqueio de esquema fora de esquemas.
+
+![Atribuição de grupo de recursos de negação de esquema](../media/resource-locking/blueprint-deny-assignment.png)
 
 > [!IMPORTANT]
 > O Azure Resource Manager coloca em cache os detalhes de atribuição de função durante até 30 minutos. Assim, negar atribuições negar a ação nos recursos de esquema pode não ser imediatamente em vigor completa. Durante este período de tempo, é possível eliminar um recurso que se destina a ser protegidos por bloqueios de esquema.

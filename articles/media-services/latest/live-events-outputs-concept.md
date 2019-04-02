@@ -11,30 +11,22 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 03/01/2019
+ms.date: 03/30/2019
 ms.author: juliako
-ms.openlocfilehash: c446a71a363a9a81eeb7d0dddcdbd90ccee08b7d
-ms.sourcegitcommit: f331186a967d21c302a128299f60402e89035a8d
+ms.openlocfilehash: 1d28701dd35b9d80fd52a1f102c53f2d59d63b09
+ms.sourcegitcommit: 09bb15a76ceaad58517c8fa3b53e1d8fec5f3db7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58189364"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58762359"
 ---
 # <a name="live-events-and-live-outputs"></a>Eventos em Direto e Saídas em Direto
 
-Serviços de multimédia do Azure permite-lhe fornecer eventos em direto aos seus clientes na cloud do Azure. Para configurar seus eventos de transmissão em fluxo em direto dos serviços de multimédia v3, precisa entender os conceitos discutidos neste artigo:
-
-* [Eventos em direto](#live-events)
-* Tipos de evento em direto
-* Comparação de tipos de evento em direto
-* [Opções de criação de evento em direto](#live-event-creation-options)
-* [URLs de inserção de evento em direto](#live-event-ingest-urls)
-* [URL de pré-visualização de eventos em direto](#live-event-preview-url)
-* [Live saídas](#live-outputs).
+Serviços de multimédia do Azure permite-lhe fornecer eventos em direto aos seus clientes na cloud do Azure. Para configurar seus eventos de transmissão em fluxo em direto dos serviços de multimédia v3, terá de compreender os conceitos discutidos neste artigo. <br/>A lista das secções é apresentada no lado direito da página.
 
 ## <a name="live-events"></a>Eventos em Direto
 
-[Eventos em direto](https://docs.microsoft.com/rest/api/media/liveevents) são responsáveis por ingerir e processar os feeds de vídeo em direto. Quando cria um evento em direto, um ponto de final de entrada é criado a que pode utilizar para enviar um sinal ao vivo a partir de um codificador remoto. O codificador em direto remoto envia a contribuição do feed que o ponto final através de entrada a [RTMP](https://www.adobe.com/devnet/rtmp.html) ou [Smooth Streaming](https://msdn.microsoft.com/library/ff469518.aspx) protocol (MP4 fragmentado). Para a transmissão em fluxo uniforme de protocolo de ingestão, os esquemas de URL suportados são `http://` ou `https://`. Para o RTMP de protocolo de ingestão, os esquemas de URL suportados são `rtmp://` ou `rtmps://`. 
+Os [Eventos em Direto](https://docs.microsoft.com/rest/api/media/liveevents) são responsáveis pela ingestão e o processamento dos feeds de vídeos em direto. Quando cria um Evento em Direto, é estabelecido um ponto final de entrada que pode ser utilizado para enviar um sinal em direto a partir de um codificador remoto. O codificador em direto remoto envia o feed de contribuição para esse ponto final de entrada através do [protocolo RTMP](https://www.adobe.com/devnet/rtmp.html) ou do [protocolo Smooth Streaming](https://msdn.microsoft.com/library/ff469518.aspx) (MP4 fragmentado). Para a transmissão em fluxo uniforme de protocolo de ingestão, os esquemas de URL suportados são `http://` ou `https://`. Para o RTMP de protocolo de ingestão, os esquemas de URL suportados são `rtmp://` ou `rtmps://`. 
 
 ## <a name="live-event-types"></a>Tipos de evento em direto
 
@@ -44,9 +36,9 @@ R [evento em direto](https://docs.microsoft.com/rest/api/media/liveevents) pode 
 
 ![pass-through](./media/live-streaming/pass-through.svg)
 
-Ao utilizar o pass-through **evento em direto**, contar com o codificador em direto de locais para gerar um fluxo de vídeo de velocidade de transmissão múltiplas e enviar como a contribuição feed para o evento em direto (usando o protocolo RTMP ou MP4 fragmentado). O evento em direto, em seguida, continua até os fluxos de vídeo de entrada sem qualquer processamento adicional. Tal um LiveEvent pass-through está otimizado para eventos em direto de longa execução ou transmissão em direto lineares 24 x 365. Ao criar este tipo de evento em direto, especifique nenhum (LiveEventEncodingType.None).
+Quando utilizar o pass-through **Evento em Direto**, conta com o codificador em direto no local para gerar uma transmissão em fluxo de vídeo de velocidade múltipla e enviá-la como um feed de contribuição para o Evento em Direto (através do protocolo RTMP ou MP4 fragmentado). O Evento em Direto realiza as transmissões em fluxo de vídeo de entrada sem qualquer processamento adicional. Um Evento em Direto de pass-through está otimizado para eventos em direto de longa duração ou transmissão em fluxo em direto linear 24 x 365. Quando criar este tipo de Evento em Direto, especifique None (LiveEventEncodingType.None).
 
-Pode enviar a contribuição de feed em resoluções até 4 K e num quadro de taxa de 60 quadros por segundo, com H.264/AVC ou H.265/HEVC codecs de vídeo e AAC (AAC-LC, HE-AACv1 ou HE-AACv2) codec de áudio.  Consulte a [comparação de tipos de evento em direto](live-event-types-comparison.md) artigo para obter mais detalhes.
+Pode enviar o feed de contribuição em resoluções até 4 K e a uma velocidade de 60 fotogramas/segundo, com os codecs de vídeo H.264/AVC ou H.265/HEVC e o codec de áudio AAC (AAC-LC, HE-AACv1 ou HE-AACv2).  Veja o artigo [Live Event types comparison](live-event-types-comparison.md) (Comparação de tipos de Eventos em Direto) para obter mais detalhes.
 
 > [!NOTE]
 > A utilização de um método pass-through é a forma mais económica de realizar uma transmissão em fluxo em direto quando estiver a realizar vários eventos durante um longo período de tempo e já investiu em codificadores no local. Consulte os detalhes dos [preços](https://azure.microsoft.com/pricing/details/media-services/).
@@ -58,14 +50,14 @@ Ver um exemplo de código do .NET no [MediaV3LiveApp](https://github.com/Azure-S
 
 ![codificação do Live](./media/live-streaming/live-encoding.svg)
 
-Ao utilizar o live encoding com Media Services, poderia configurar a seu codificador em direto de locais para enviar uma velocidade de transmissão única vídeo como a contribuição de feed para o evento em direto (usando o protocolo RTMP ou Mp4 fragmentado). O evento Live codifica essa entrada velocidade de transmissão única transmitir para um [vários transmissão em fluxo vídeo](https://en.wikipedia.org/wiki/Adaptive_bitrate_streaming), torna-o disponível para entrega ao reproduzir os dispositivos através de protocolos como MPEG-DASH, HLS e Smooth Streaming. Ao criar este tipo de evento em direto, especifique o tipo de codificação **padrão** (LiveEventEncodingType.Standard).
+Ao utilizar a codificação em direto com os Serviços de Multimédia, configuraria o codificador em direto no local para enviar um vídeo de velocidade de transmissão única como o feed de contribuição para o Evento em Direto (através dos protocolos RTMP ou Fragmented-Mp4.) O Evento em Direto codifica essa transmissão em fluxo de velocidade única recebia numa [transmissão de vídeo em fluxo de velocidade múltipla](https://en.wikipedia.org/wiki/Adaptive_bitrate_streaming) e disponibiliza-a para entrega nos dispositivos de reprodução através de protocolos como MPEG-DASH, HLS e Smooth Streaming. Ao criar este tipo de Evento em Direto, especifique o tipo de codificação como **Standard** (LiveEventEncodingType.Standard).
 
-Pode enviar a contribuição de feed de cada até 1080 resolução numa taxa de quadros de 30 quadros/segundo, com o codec de vídeo H.264/AVC e AAC (AAC-LC, HE-AACv1 ou HE-AACv2) codec de áudio. Consulte a [comparação de tipos de evento em direto](live-event-types-comparison.md) artigo para obter mais detalhes.
+Pode enviar o feed de contribuição em resoluções até 1080p a uma velocidade de 30 fotogramas/segundo, com o codec de vídeo H.264/AVC e o codec de áudio AAC (AAC-LC, HE-AACv1 ou HE-AACv2). Veja o artigo [Live Event types comparison](live-event-types-comparison.md) (Comparação de tipos de Eventos em Direto) para obter mais detalhes.
 
-Ao usar a codificação em tempo real (evento em direto é definido como **padrão**), a predefinição de codificação define como o fluxo de entrada é codificado em várias velocidades de transmissão ou camadas. Para obter informações, consulte [predefinições do sistema](live-event-types-comparison.md#system-presets).
+Ao utilizar a codificação em direto (com o Evento em Direto definido como **Standard**), a predefinição da codificação define a forma como a transmissão em fluxo recebida é codificada em múltiplas velocidades de transmissão ou camadas. Para obter informações, veja [System presets](live-event-types-comparison.md#system-presets) (Predefinições do sistema).
 
 > [!NOTE]
-> Atualmente, o único permitido valor predefinido para o tipo de padrão de evento em direto é *Default720p*. Se precisar de utilizar uma predefinição de codificação em direto personalizada, entre em contato com amshelp@microsoft.com. Deve especificar a tabela desejada de resolução e velocidades de transmissão. Certifique-se de que existe apenas uma camada em 720p e no máximo, 6 camadas.
+> Atualmente, o único valor de predefinição permitido para o tipo Standard do Evento em Direto é *Default720p*. Se precisar de utilizar uma predefinição de codificação em direto personalizada, contacte amshelp@microsoft.com. Deve especificar a tabela de resolução e velocidades de transmissão pretendida. Confirme que há apenas uma camada a 720p e seis camadas no máximo.
 
 ## <a name="live-event-creation-options"></a>Opções de criação de evento em direto
 
@@ -79,24 +71,24 @@ Ao criar um evento em direto, pode especificar as seguintes opções:
 
 ## <a name="live-event-ingest-urls"></a>URLs de inserção de evento em direto
 
-Depois de criar o evento em direto, pode obter URLs de inserção que fornecerá ao codificador em direto no local. O codificador em direto utiliza estes URLs para uma transmissão em direto de entrada. Para obter mais informações, consulte [recomendado codificadores em direto no local](recommended-on-premises-live-encoders.md). 
+Quando o Evento em Direto estiver criado, pode obter os URLs de ingestão que vai fornecer ao codificador em direto no local. O codificador em direto utiliza esses URLs para introduzir uma transmissão um fluxo direto. Para obter mais informações, consulte [recomendado codificadores em direto no local](recommended-on-premises-live-encoders.md). 
 
-Pode utilizar URLs não intuitivos ou URLs intuitivos. 
+Pode utilizar URLs intuitivos ou não intuitivos. 
 
 * URL de não intuitivos
 
-    URL personalizado não é o modo predefinido da v3 de AMS. Obter o evento Live rapidamente mas URL de ingestão potencialmente é conhecida apenas quando o evento em direto for iniciado. O URL será alterado se iniciar/parar o evento em direto. <br/>Não intuitivos é útil em cenários, quando um usuário final quer transmitir a utilizar uma aplicação, onde quer que a aplicação obter um evento ao vivo urgente e ter um URL de ingestão de dinâmico não é um problema.
+    Os URLs não intuitivos são o modo predefinido no AMS v3. Potencialmente, recebe o Evento em Direto mais depressa, embora o URL de ingestão só seja conhecido quando esse evento é iniciado. Se parar/iniciar o Evento em Direto, o URL mudará. <br/>Os URLs não intuitivos são úteis em cenários nos quais o utilizador final quer utilizar uma aplicação para transmitir em fluxo e essa aplicação pretende receber um evento em direto depressa e em que ter um URL de ingestão dinâmica não é problema.
 * URL personalizado
 
-    Modo de intuitivos é preferível pelo suporte de dados grandes emissores que utilizam o hardware codificadores de difusão e não quiser configurar novamente os seus codificadores durante o arranque do evento em direto. Eles querem uma previsão ingerir URL, que não se altera ao longo do tempo.
+    O modo intuitivo é o preferido das grandes empresas de transmissão que utilizam codificadores de transmissão de hardware e não querem reconfigurar os codificadores quando iniciam o Evento em Direto. Essas empresas querem um URL de ingestão preditivo, que não mude ao longo do tempo.
 
 > [!NOTE] 
 > Para um URL de inserção ser preditiva, terá de utilizar o modo de "personalizado" e transmitir o seu token de acesso (para evitar um token aleatório no URL).
 
 ### <a name="live-ingest-url-naming-rules"></a>Regras de nomenclatura de URL de ingestão em direto
 
-O *aleatório* abaixo da cadeia de caracteres é um número hexadecimal de 128 bits (que é composto de 32 carateres de 0 a 9-f).<br/>
-O *token de acesso* segue-se o que precisa especificar para URL fixo. Também é número hexadecimal de 128 bits.
+A cadeia *aleatória* abaixo é um número hexadecimal de 128 bits (que é composto por 32 carateres de 0-9 e a-f).<br/>
+O *token de acesso* abaixo é o que tem de especificar para o URL fixo. Também é um número hexadecimal de 128 bits.
 
 #### <a name="non-vanity-url"></a>URL de não intuitivos
 
@@ -133,6 +125,10 @@ Uma vez a **evento em direto** começa a receber a contribuição de feed, pode 
 > [!IMPORTANT]
 > Certifique-se de que o vídeo está a ser encaminhados para o URL de pré-visualização antes de continuar!
 
+## <a name="live-event-long-running-operations"></a>Operações de longa execução em direto do evento
+
+Para obter detalhes, consulte [operações de longa execução](entities-overview.md#long-running-operations)
+
 ## <a name="live-outputs"></a>Saídas em Direto
 
 Assim que tiver o fluxo a ser encaminhados para o evento em direto, pode começar o evento de transmissão em fluxo através da criação de um [Asset](https://docs.microsoft.com/rest/api/media/assets), [Live saída](https://docs.microsoft.com/rest/api/media/liveoutputs), e [localizador de transmissão em fluxo](https://docs.microsoft.com/rest/api/media/streaminglocators). Saída em direto irá arquivar a transmissão e disponibilizá-la para os espetadores através da [ponto final de transmissão em fluxo](https://docs.microsoft.com/rest/api/media/streamingendpoints).  
@@ -140,7 +136,7 @@ Assim que tiver o fluxo a ser encaminhados para o evento em direto, pode começa
 > [!NOTE]
 > Início de saídas após a criação do Live e param quando eliminado. Ao eliminar a saída em direto, não serão eliminados os ativos e conteúdo no elemento subjacente. 
 
-A relação entre um **evento em direto** e a respetiva **Live saídas** é semelhante a tradicional de televisão de difusão, no qual um canal (**evento em direto**) representa uma constante fluxo de vídeo e uma gravação (**Live saída**) tem um âmbito para um segmento de tempo específico (por exemplo, noite notícias da 6 17:30, para as 19:00: 00). Pode gravar programas de televisão com um gravador de vídeo Digital (DVR) – a funcionalidade equivalente nos eventos em direto é gerenciada através da **ArchiveWindowLength** propriedade. É uma duração de período de tempo de ISO-8601 (por exemplo, PTHH:MM:SS), que especifica a capacidade do DVR e pode ser definida a partir de um mínimo de 3 minutos até um máximo de 25 horas.
+A relação entre um **evento em direto** e a respetiva **Live saídas** é semelhante a tradicional de televisão de difusão, no qual um canal (**evento em direto**) representa uma constante fluxo de vídeo e uma gravação (**Live saída**) tem um âmbito para um segmento de tempo específico (por exemplo, noite notícias da 6 17:30, para as 19:00: 00). Pode gravar programas de televisão com um Videogravador Digital (DVR) – a funcionalidade equivalente nos Eventos em Direto é gerida através da propriedade **ArchiveWindowLength**. É uma duração de período de tempo de ISO-8601 (por exemplo, PTHH:MM:SS), que especifica a capacidade do DVR e pode ser definida a partir de um mínimo de 3 minutos até um máximo de 25 horas.
 
 O **Live saída** objeto é como um gravador de banda que irá capturar e registrar a transmissão em direto para um elemento na sua conta de Media Services. O conteúdo gravado será persistido para a conta de armazenamento do Azure anexada à sua conta, no contêiner definido pelo recurso do recurso. O **Live saída** também permite-lhe controlar algumas propriedades do fluxo em direto saída, como o quanto da transmissão em fluxo é mantido na gravação do arquivo (por exemplo, a capacidade de DVR na cloud) e, se é ou não podem começar a visualizadores assistir à transmissão em direto. O arquivo no disco é um arquivo circular "janela" que contém apenas a quantidade de conteúdo especificado na **archiveWindowLength** propriedade da **Live saída**. Conteúdo que se encontre fora essa janela é descartado automaticamente do contentor de armazenamento e não é recuperável. Pode criar várias **saídas Live** (até três máximo) num **evento em direto** com definições e comprimentos de arquivo diferente.  
 

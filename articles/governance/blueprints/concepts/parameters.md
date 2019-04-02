@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: blueprints
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: 42a70f7ea21a58f40f7786d6c6f1a51093923f83
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 538015f3cd26d451285f1fd66853366f814f3b0a
+ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57838022"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58805577"
 ---
 # <a name="creating-dynamic-blueprints-through-parameters"></a>Criação de esquemas dinâmicas através de parâmetros
 
@@ -67,11 +67,11 @@ Um valor de parâmetro definido na definição de um plano gráfico é chamado u
 
 1. Artefatos adicionados ao esquema, que tem opções de parâmetro exibir **parâmetros de X de Y preenchidos** no **parâmetros** coluna. Clique na linha de artefacto para editar os parâmetros de artefacto.
 
-   ![Parâmetros de esquema](../media/parameters/parameter-column.png)
+   ![Parâmetros de esquema numa definição de esquema](../media/parameters/parameter-column.png)
 
 1. O **artefacto editar** página apresenta as opções de valor apropriadas para o artefacto clicado. Cada parâmetro no artefacto tem um título, uma caixa de valor e uma caixa de verificação. Definir a caixa desmarcada para torná-lo um **parâmetro estático**. No exemplo abaixo, apenas _localização_ é um **parâmetro estático** porque esta tem desmarcada e _nome do grupo de recursos_ está marcada.
 
-   ![Parâmetros de esquema estáticos](../media/parameters/static-parameter.png)
+   ![Parâmetros estáticos do esquema num artefacto de esquema](../media/parameters/static-parameter.png)
 
 #### <a name="setting-static-parameters-from-rest-api"></a>Definir parâmetros estáticos a partir da API REST
 
@@ -182,7 +182,7 @@ O oposto de um parâmetro estático é um **parâmetro dinâmico**. Este parâme
 
 1. Sobre o **atribuir esquema** página, encontre o **parâmetros de artefacto** secção. Cada artefato com, pelo menos, um **parâmetro dinâmico** apresenta o artefacto e as opções de configuração. Forneça os valores necessários para os parâmetros antes de atribuir o plano gráfico. No exemplo abaixo, _Name_ é um **parâmetro dinâmico** que tem de ser definido para concluir a atribuição do esquema.
 
-   ![Parâmetro de esquema dinâmico](../media/parameters/dynamic-parameter.png)
+   ![Parâmetro dinâmico de esquema durante a atribuição do esquema](../media/parameters/dynamic-parameter.png)
 
 #### <a name="setting-dynamic-parameters-from-rest-api"></a>Definir parâmetros dinâmicos a partir da API REST
 
@@ -241,8 +241,8 @@ Artefactos para um grupo de recursos são definidos com um "nome de modelo," **n
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-- Saiba mais sobre o [ciclo de vida de esquema](lifecycle.md).
-- Aprenda a personalizar a [esquema de ordem de sequenciamento](sequencing-order.md).
-- Descubra como tornar a usar [esquema de bloqueio do recurso](resource-locking.md).
-- Saiba como [atualizar atribuições existentes](../how-to/update-existing-assignments.md).
-- Resolver problemas durante a atribuição de um plano gráfico com [resolução de problemas gerais](../troubleshoot/general.md).
+- Saiba mais sobre o [ciclo de vida de um esquema](lifecycle.md).
+- Aprenda a personalizar a [ordem de sequenciação do esquema](sequencing-order.md).
+- Saiba como utilizar o [bloqueio de recursos de esquema](resource-locking.md).
+- Saiba como [atualizar as atribuições existentes](../how-to/update-existing-assignments.md).
+- Resolva problemas durante a atribuição de um esquema com a [resolução de problemas gerais](../troubleshoot/general.md).

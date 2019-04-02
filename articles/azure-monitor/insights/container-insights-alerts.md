@@ -11,26 +11,28 @@ ms.service: azure-monitor
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 02/26/2019
+ms.date: 04/01/2019
 ms.author: magoedte
-ms.openlocfilehash: e6fdb0d57a44578647c1f16dc76c557296f20ddb
-ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
+ms.openlocfilehash: 5bb0a727adcfb35b5d840a063b6fdb478d150953
+ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56886783"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58804829"
 ---
 # <a name="how-to-set-up-alerts-for-performance-problems-in-azure-monitor-for-containers"></a>Como posso configurar alertas para problemas de desempenho no Azure Monitor para contentores
 O Azure Monitor para monitores de contentores o desempenho de cargas de trabalho do contentor implementada em qualquer uma das instâncias de contentor do Azure ou geridos clusters do Kubernetes alojados no Azure Kubernetes Service (AKS). 
 
 Este artigo descreve como ativar os alertas nas seguintes situações:
 
-* Quando utilização de CPU e memória em nós do cluster ou excede o limite definido.
+* Quando a utilização de CPU ou memória em nós do cluster excede o limite definido.
 * Quando a utilização de CPU ou memória em qualquer um dos contentores dentro de um controlador excede o limiar definido em comparação com o limite definido no recurso correspondente.
+* **NotReady** contagens de nó de estado
+* Fase de pod contagens de **falhada**, **pendente**, **desconhecido**, **executar**, ou **com êxito**
 
-Para o alertar quando a utilização de CPU ou memória é alta para um cluster ou um controlador, crie uma regra de alerta de medida da métrica baseada em consultas de registo fornecidas. As consultas comparar um datetime ao presente usando o operador de agora e retorna uma hora. Todas as datas armazenadas pelo Monitor do Azure para contentores são em formato UTC.
+Para o alertar quando a CPU ou memória utilização é alta em nós do cluster, pode cria um alerta de métrica ou uma regra de alerta de medida da métrica usando as consultas de registo fornecidas. Embora a alertas de métricas tenham uma latência inferior à alertas de registo, um alerta de registo fornece consulta avançada e a sofisticação de um alerta de métrica. Para os alertas de registo, as consultas comparar um datetime ao presente usando o operador de agora e retorna uma hora. Todas as datas armazenadas pelo Monitor do Azure para contentores são em formato UTC.
 
-Antes de iniciar, se não estiver familiarizado com alertas no Azure Monitor, consulte [descrição geral dos alertas no Microsoft Azure](../platform/alerts-overview.md). Para obter mais informações sobre alertas através de consultas de registo, consulte [alertas de registo no Azure Monitor](../platform/alerts-unified-log.md)
+Antes de iniciar, se não estiver familiarizado com alertas no Azure Monitor, consulte [descrição geral dos alertas no Microsoft Azure](../platform/alerts-overview.md). Para obter mais informações sobre alertas através de consultas de registo, veja [alertas de registo no Azure Monitor](../platform/alerts-unified-log.md). Para saber mais sobre alertas de métricas, veja [alertas de métricas no Azure Monitor](../platform/alerts-metric-overview.md).
 
 ## <a name="resource-utilization-log-search-queries"></a>Consultas de pesquisa de registo de utilização de recursos
 As consultas nesta secção são fornecidas para oferecer suporte a cada cenário de alerta. As consultas são necessárias para o passo 7 sob o [criar alerta](#create-alert-rule) secção abaixo.  
@@ -187,6 +189,72 @@ KubePodInventory
 | project Computer, ContainerName, TimeGenerated, UsagePercent = UsageValue * 100.0 / LimitValue
 | summarize AggregatedValue = avg(UsagePercent) by bin(TimeGenerated, trendBinSize) , ContainerName
 ```
+
+A seguinte consulta devolve todos os nós e contagem com o estado dos **pronto** e **NotReady**.
+
+```kusto
+let endDateTime = now();
+let startDateTime = ago(1h);
+let trendBinSize = 1m;
+let clusterName = '<your-cluster-name>';
+KubeNodeInventory
+| where TimeGenerated < endDateTime
+| where TimeGenerated >= startDateTime
+| distinct ClusterName, Computer, TimeGenerated
+| summarize ClusterSnapshotCount = count() by bin(TimeGenerated, trendBinSize), ClusterName, Computer
+| join hint.strategy=broadcast kind=inner (
+    KubeNodeInventory
+    | where TimeGenerated < endDateTime
+    | where TimeGenerated >= startDateTime
+    | summarize TotalCount = count(), ReadyCount = sumif(1, Status contains ('Ready'))
+                by ClusterName, Computer,  bin(TimeGenerated, trendBinSize)
+    | extend NotReadyCount = TotalCount - ReadyCount
+) on ClusterName, Computer, TimeGenerated
+| project   TimeGenerated,
+            ClusterName,
+            Computer,
+            ReadyCount = todouble(ReadyCount) / ClusterSnapshotCount,
+            NotReadyCount = todouble(NotReadyCount) / ClusterSnapshotCount
+| order by ClusterName asc, Computer asc, TimeGenerated desc
+```
+A seguinte consulta volta contagens de fase de pod com base em todas as fases - **falhada**, **pendente**, **desconhecido**, **executar**, ou **Foi concluída com êxito**.  
+
+```kusto
+let endDateTime = now();
+    let startDateTime = ago(1h);
+    let trendBinSize = 1m;
+    let clusterName = '<your-cluster-name>';
+    KubePodInventory
+    | where TimeGenerated < endDateTime
+    | where TimeGenerated >= startDateTime
+    | where ClusterName == clusterName
+    | distinct ClusterName, TimeGenerated
+    | summarize ClusterSnapshotCount = count() by bin(TimeGenerated, trendBinSize), ClusterName
+    | join hint.strategy=broadcast (
+        KubePodInventory
+        | where TimeGenerated < endDateTime
+        | where TimeGenerated >= startDateTime
+        | distinct ClusterName, Computer, PodUid, TimeGenerated, PodStatus
+        | summarize TotalCount = count(),
+                    PendingCount = sumif(1, PodStatus =~ 'Pending'),
+                    RunningCount = sumif(1, PodStatus =~ 'Running'),
+                    SucceededCount = sumif(1, PodStatus =~ 'Succeeded'),
+                    FailedCount = sumif(1, PodStatus =~ 'Failed')
+                 by ClusterName, bin(TimeGenerated, trendBinSize)
+    ) on ClusterName, TimeGenerated
+    | extend UnknownCount = TotalCount - PendingCount - RunningCount - SucceededCount - FailedCount
+    | project TimeGenerated,
+              TotalCount = todouble(TotalCount) / ClusterSnapshotCount,
+              PendingCount = todouble(PendingCount) / ClusterSnapshotCount,
+              RunningCount = todouble(RunningCount) / ClusterSnapshotCount,
+              SucceededCount = todouble(SucceededCount) / ClusterSnapshotCount,
+              FailedCount = todouble(FailedCount) / ClusterSnapshotCount,
+              UnknownCount = todouble(UnknownCount) / ClusterSnapshotCount
+| summarize AggregatedValue = avg(PendingCount) by bin(TimeGenerated, trendBinSize)
+```
+
+>[!NOTE]
+>Para o alertar sobre determinadas fases de pod, tal como **pendente**, **com falhas**, ou **desconhecido**, precisa modificar a última linha da consulta. Por exemplo, para alertar relativamente *FailedCount* `| summarize AggregatedValue = avg(FailedCount) by bin(TimeGenerated, trendBinSize)`.  
 
 ## <a name="create-alert-rule"></a>Criar regra de alerta
 Execute os seguintes passos para criar um alerta de registo no Azure Monitor com as regras de pesquisa de registo fornecido anteriormente.  
