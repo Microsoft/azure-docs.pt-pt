@@ -8,12 +8,12 @@ ms.service: azure-policy
 ms.topic: sample
 ms.date: 01/23/2019
 ms.author: dacoulte
-ms.openlocfilehash: 3964d75aa87fe76432af6b28e74a48fd1f2b49ef
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 13a9dd86e83099e25f7688ddb8ecc04793d3bb27
+ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57543837"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58801774"
 ---
 # <a name="sample---billing-tags-policy-initiative"></a>Exemplo - iniciativa de política de etiquetas de faturação
 
@@ -29,9 +29,9 @@ Pode implementar este modelo com o [portal do Azure](#deploy-with-the-portal) ou
 
 ## <a name="deploy-with-the-portal"></a>Implementar com o portal
 
-[![Implementar no Azure](https://azuredeploy.net/deploybutton.png)](https://aka.ms/getpolicy)
+[![Implementar a política de exemplo para o Azure](https://azuredeploy.net/deploybutton.png)](https://aka.ms/getpolicy)
 
-## <a name="deploy-with-powershell"></a>Implementar com o Powershell
+## <a name="deploy-with-powershell"></a>Implementar com o PowerShell
 
 [!INCLUDE [sample-powershell-install](../../../../includes/sample-powershell-install-no-ssh-az.md)]
 

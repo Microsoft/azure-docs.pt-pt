@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/25/2018
 ms.author: apimpm
-ms.openlocfilehash: f7c52b7ab8aaad917eb03455800df6d8ba4cbc88
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 478b80b021b4df36e2eccc37ac9c74f75e43a5bb
+ms.sourcegitcommit: ad3e63af10cd2b24bf4ebb9cc630b998290af467
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58082709"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58791631"
 ---
 # <a name="how-to-use-named-values-in-azure-api-management-policies"></a>Como utilizar os valores com o nome nas políticas de gestão de API do Azure
 As políticas de gestão de API são uma funcionalidade poderosa do sistema que permitem que o portal do Azure alterar o comportamento da API através da configuração. As políticas são uma coleção de instruções que são executadas sequencialmente no pedido ou na resposta de uma API. Declarações de política podem ser construídas usando valores de texto literal, expressões de política e valores nomeados. 
@@ -28,15 +28,15 @@ Cada instância de serviço de gestão de API tem uma coleção de propriedades 
 | Atributo | Type | Descrição |
 | --- | --- | --- |
 | Nome a apresentar |string |Cadeia alfanumérica utilizada para referenciar a propriedade nas políticas. |
-| Value |string |O valor da propriedade. Não pode estar vazio ou consistir apenas de espaços em branco. |
+| Valor |string |O valor da propriedade. Não pode estar vazio ou consistir apenas de espaços em branco. |
 |Segredo|boolean|Determina se o valor é um segredo e deve ser encriptado ou não.|
 | Etiquetas |matriz da cadeia |Opcional etiquetas que, quando fornecidas podem ser utilizadas para filtrar a lista de propriedades. |
 
 ![Valores com nome](./media/api-management-howto-properties/named-values.png)
 
-Valores de propriedade podem conter cadeias de caracteres literais e [expressões de política](https://msdn.microsoft.com/library/azure/dn910913.aspx). Por exemplo, o valor de `ExpressionProperty` é uma expressão de política que devolve uma cadeia de caracteres que contém a data e hora atuais. A propriedade `ContosoHeaderValue` está marcado como um segredo, para que o respetivo valor não é apresentado.
+Valores de propriedade podem conter cadeias de caracteres literais e [expressões de política](/azure/api-management/api-management-policy-expressions). Por exemplo, o valor de `ExpressionProperty` é uma expressão de política que devolve uma cadeia de caracteres que contém a data e hora atuais. A propriedade `ContosoHeaderValue` está marcado como um segredo, para que o respetivo valor não é apresentado.
 
-| Name | Value | Segredo | Etiquetas |
+| Name | Valor | Segredo | Etiquetas |
 | --- | --- | --- | --- |
 | ContosoHeader |TrackingId |Falso |Contoso |
 | ContosoHeaderValue |•••••••••••••••••••••• |Verdadeiro |Contoso |
@@ -55,7 +55,7 @@ Valores de propriedade podem conter cadeias de caracteres literais e [expressõe
 
 Assim que a propriedade for criada, pode editá-lo ao clicar na propriedade. Se alterar o nome da propriedade, todas as políticas que fazem referência a essa propriedade são automaticamente atualizadas para utilizar o novo nome.
 
-Para obter informações sobre a edição de uma propriedade com a API REST, consulte [editar uma propriedade com a API REST](https://msdn.microsoft.com/library/azure/mt651775.aspx#Patch).
+Para obter informações sobre a edição de uma propriedade com a API REST, consulte [editar uma propriedade com a API REST](/rest/api/apimanagement/property?Patch).
 
 ## <a name="to-delete-a-property"></a>Para eliminar uma propriedade
 
@@ -66,7 +66,7 @@ Para eliminar uma propriedade, clique em **eliminar** ao lado da propriedade par
 > 
 > 
 
-Para obter informações sobre como eliminar uma propriedade com a API REST, consulte [eliminar uma propriedade com a API REST](https://msdn.microsoft.com/library/azure/mt651775.aspx#Delete).
+Para obter informações sobre como eliminar uma propriedade com a API REST, consulte [eliminar uma propriedade com a API REST](/rest/api/apimanagement/property?Delete).
 
 ## <a name="to-search-and-filter-named-values"></a>Para procurar e filtrar valores com o nome
 
@@ -111,8 +111,8 @@ Enquanto os valores de propriedade podem conter expressões de política, os val
 ## <a name="next-steps"></a>Passos Seguintes
 * Saiba mais sobre como trabalhar com políticas
   * [Políticas de gestão de API](api-management-howto-policies.md)
-  * [Referência de políticas](https://msdn.microsoft.com/library/azure/dn894081.aspx)
-  * [Expressões de política](https://msdn.microsoft.com/library/azure/dn910913.aspx)
+  * [Referência de políticas](/azure/api-management/api-management-policies)
+  * [Expressões de política](/azure/api-management/api-management-policy-expressions)
 
 [api-management-send-results]: ./media/api-management-howto-properties/api-management-send-results.png
 [api-management-properties-filter]: ./media/api-management-howto-properties/api-management-properties-filter.png

@@ -13,27 +13,31 @@ ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0594d99874ea9bb83673013a9a03272edcd8ce0b
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 0eededcc180d7652fd52c79b85ca3c34f65a22a4
+ms.sourcegitcommit: ad3e63af10cd2b24bf4ebb9cc630b998290af467
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57897678"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58791562"
 ---
 # <a name="troubleshoot-and-resolve-groups-issues"></a>Resolver problemas de grupos
 
 ## <a name="troubleshooting-group-creation-issues"></a>Resolução de problemas de criação de grupo
+
 **Eu desativado a criação do grupo de segurança no portal do Azure, mas ainda podem ser criados grupos através do Powershell** a **utilizador pode criar grupos de segurança nos portais do Azure** definição os controlos do portal do Azure ou não não-administrador os utilizadores podem criar grupos de segurança no painel de acesso ou o portal do Azure. Ele não controla a criação do grupo de segurança através do Powershell.
 
 Para desativar a criação do grupo de usuários não-administradores no Powershell:
 1. Certifique-se de que os usuários não-administradores têm permissão para criar grupos:
    
+
+   ```powershell
+   Get-MsolCompanyInformation | Format-List UsersPermissionToCreateGroupsEnabled
    ```
-   PS C:\> Get-MsolCompanyInformation | fl UsersPermissionToCreateGroupsEnabled
-   ```
+
   
 2. Se ele retorna `UsersPermissionToCreateGroupsEnabled : True`, em seguida, os usuários não-administradores podem criar grupos. Para desativar esta funcionalidade:
   
+
    ``` 
    Set-MsolCompanySettings -UsersPermissionToCreateGroupsEnabled $False
    ```

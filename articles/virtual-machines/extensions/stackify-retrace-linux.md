@@ -14,16 +14,17 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 04/12/2018
 ms.author: roiyz
-ms.openlocfilehash: e80134729c33741aa3007deb2d93a2de3e3fe697
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
+ms.openlocfilehash: b9c035c1c9088957f59550bf6564cc02bc7972f4
+ms.sourcegitcommit: ad3e63af10cd2b24bf4ebb9cc630b998290af467
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55979722"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58792426"
 ---
 # <a name="stackify-retrace-linux-agent-extension"></a>O stackify Retrace extensão de agente do Linux
 
 ## <a name="overview"></a>Descrição geral
+
 O stackify fornece produtos que controlam detalhes sobre a sua aplicação para ajudar a encontrar e corrigir os problemas rapidamente. Para equipes de desenvolvimento, Retrace é uma potência de superutilizadores de desempenho de aplicações totalmente integradas, ambiente de vários. Ele combina várias ferramentas que precisam de todas as equipes de desenvolvimento.
 
 Retrace é a ferramenta de apenas que fornece todas as capacidades seguintes em todos os ambientes numa única plataforma.
@@ -40,6 +41,7 @@ Esta extensão fornece um caminho de instalação para o agente do Linux para Re
 ## <a name="prerequisites"></a>Pré-requisitos
 
 ### <a name="operating-system"></a>Sistema operativo 
+
 O agente de Retrace pode ser executado nessas distribuições de Linux
 
 | Distribuição | Versão |
@@ -50,12 +52,14 @@ O agente de Retrace pode ser executado nessas distribuições de Linux
 | CentOS | 6.3+, 7.0+ |
 
 ### <a name="internet-connectivity"></a>Conectividade Internet
+
 A extensão de agente stackify analisa para o Linux requer que a máquina virtual de destino está ligada à internet. 
 
 Poderá ter de ajustar a configuração da rede para permitir ligações para o Stackify, consulte https://support.stackify.com/hc/en-us/articles/207891903-Adding-Exceptions-to-a-Firewall. 
 
 
 ## <a name="extension-schema"></a>Esquema de extensão
+
 ---
 
 O JSON seguinte mostra o esquema para a extensão do agente de Retrace Stackify. A extensão requer o `environment` e `activationKey`.
@@ -151,7 +155,7 @@ O `Set-AzVMExtension` comando pode ser utilizado para implementar a extensão de
 
 A extensão requer o `environment` e `activationKey`.
 
-```
+```powershell
 $PublicSettings = @{"environment" = "myEnvironment"}
 $ProtectedSettings = @{"activationKey" = "myActivationKey"}
 

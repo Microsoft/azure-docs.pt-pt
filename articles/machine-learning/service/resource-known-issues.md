@@ -11,12 +11,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.date: 03/29/2019
 ms.custom: seodec18
-ms.openlocfilehash: fd518ad8c5ea13c4eeaa017417332744cecd328e
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.openlocfilehash: d7542909df336555e17aea9b0e680879b25dc17f
+ms.sourcegitcommit: ad3e63af10cd2b24bf4ebb9cc630b998290af467
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58661229"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58791750"
 ---
 # <a name="known-issues-and-troubleshooting-azure-machine-learning-service"></a>Problemas conhecidos e resolução de problemas serviço do Azure Machine Learning
 
@@ -104,8 +104,7 @@ Se vá diretamente para ver a sua área de trabalho a partir de uma ligação de
 
 ## <a name="diagnostic-logs"></a>Registos de diagnósticos
 
-Por vezes, pode ser útil se pode fornecer informações de diagnóstico quando pedir ajuda.
-É aqui onde residem os ficheiros de registo:
+Por vezes, pode ser útil se pode fornecer informações de diagnóstico quando pedir ajuda. Para ver alguns registos, visite [portal do Azure](https://portal.azure.com) e aceda à sua área de trabalho e selecione **área de trabalho > experimentação > executar > registos**.
 
 ## <a name="resource-quotas"></a>Quotas de recursos
 

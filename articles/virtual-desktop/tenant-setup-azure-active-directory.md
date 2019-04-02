@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: tutorial
 ms.date: 03/21/2019
 ms.author: helohr
-ms.openlocfilehash: 8ab1f31d61b7a6a1637cd274cc5ac7fc4f5dc2f1
-ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
+ms.openlocfilehash: 1c66b3de9e18cb74c43f20499e4065c7ec7ae5ca
+ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58622166"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58801684"
 ---
 # <a name="tutorial-create-a-tenant-in-windows-virtual-desktop-preview"></a>Tutorial: Criar um inquilino na pré-visualização de ambiente de Trabalho Virtual do Windows
 
@@ -30,6 +30,8 @@ Eis o que precisa de configurar o seu inquilino de área de Trabalho Virtual do 
 * O [do Azure Active Directory](https://azure.microsoft.com/services/active-directory/) ID for Windows Virtual Desktop utilizadores de inquilino.
 * Uma conta de administrador global no inquilino do Azure Active Directory.
    * Isto também se aplica a organizações de fornecedor de soluções Cloud (CSP), criação de um inquilino de área de Trabalho Virtual do Windows para seus clientes. Se uma organização de CSP, tem de ser capaz de iniciar sessão como administrador global do Azure Active Directory do cliente.
+   * A conta de administrador tem de ser originária a partir do inquilino do Azure Active Directory no qual está a tentar criar o inquilino de área de Trabalho Virtual do Windows. Este processo não suporta o Azure Active Directory B2B contas (convidado).
+   * A conta de administrador tem de ser uma conta escolar ou profissional.
 * Um ID de subscrição do Azure
 
 ## <a name="grant-azure-active-directory-permissions-to-the-windows-virtual-desktop-preview-service"></a>Permissões de concessão do Azure Active Directory para o serviço de pré-visualização de ambiente de Trabalho Virtual do Windows

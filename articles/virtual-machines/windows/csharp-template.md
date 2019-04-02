@@ -15,14 +15,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/14/2017
 ms.author: cynthn
-ms.openlocfilehash: 005b0e74084325606a9a07df6b36b9100cad1750
-ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
+ms.openlocfilehash: 50d0d78e9dc0c7f51fcd82dd16eab5a180eae073
+ms.sourcegitcommit: ad3e63af10cd2b24bf4ebb9cc630b998290af467
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54885953"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58792472"
 ---
 # <a name="deploy-an-azure-virtual-machine-using-c-and-a-resource-manager-template"></a>Implementar a Máquina Virtual do Azure com c# e um modelo do Resource Manager
+
 Este artigo mostra-lhe como implementar um modelo do Azure Resource Manager com c#. O modelo criado por si implementa uma única máquina virtual com o Windows Server numa rede virtual nova com uma única sub-rede.
 
 Para obter uma descrição detalhada do recurso de máquina virtual, consulte [máquinas virtuais num modelo Azure Resource Manager](template-description.md). Para obter mais informações sobre todos os recursos num modelo, consulte [instruções do modelo do Azure Resource Manager](../../azure-resource-manager/resource-manager-template-walkthrough.md).
@@ -44,7 +45,7 @@ Os pacotes de NuGet são a forma mais fácil de instalar as bibliotecas de que p
 1. Clique em **ferramentas** > **Gestor de pacotes Nuget**e, em seguida, clique em **Package Manager Console**.
 2. Escreva os comandos seguintes na consola do:
 
-    ```
+    ```powershell
     Install-Package Microsoft.Azure.Management.Fluent
     Install-Package WindowsAzure.Storage
     ```
@@ -206,15 +207,17 @@ Antes de poder implementar um modelo, certifique-se de que tem acesso a uma [pri
 3. Guarde o ficheiro de azureauth.properties.
 4. Defina uma variável de ambiente no Windows com o nome AZURE_AUTH_LOCATION com o caminho completo para o ficheiro de autorização que criou, por exemplo o PowerShell seguinte pode ser utilizado o comando:
 
-    ```
+    ```powershell
     [Environment]::SetEnvironmentVariable("AZURE_AUTH_LOCATION", "C:\Visual Studio 2017\Projects\myDotnetProject\myDotnetProject\azureauth.properties", "User")
     ```
+
     
+
 ## <a name="create-the-management-client"></a>Criar o cliente de gestão
 
 1. Abra o ficheiro Program.cs para o projeto que criou e, em seguida, a adicioná-las com instruções para as instruções existentes na parte superior do ficheiro:
 
-    ```
+    ```csharp
     using Microsoft.Azure.Management.Compute.Fluent;
     using Microsoft.Azure.Management.Compute.Fluent.Models;
     using Microsoft.Azure.Management.Fluent;
@@ -226,7 +229,7 @@ Antes de poder implementar um modelo, certifique-se de que tem acesso a uma [pri
 
 2. Para criar o cliente de gestão, adicione este código ao método Main:
 
-    ```
+    ```csharp
     var credentials = SdkContext.AzureCredentialsFactory
         .FromFile(Environment.GetEnvironmentVariable("AZURE_AUTH_LOCATION"));
 
@@ -241,7 +244,7 @@ Antes de poder implementar um modelo, certifique-se de que tem acesso a uma [pri
 
 Para especificar valores para a aplicação, adicione código ao método Main:
 
-```
+```csharp
 var groupName = "myResourceGroup";
 var location = Region.USWest;
 
@@ -256,7 +259,7 @@ O modelo e parâmetros são implementados a partir de uma conta de armazenamento
 
 Para criar a conta, adicione este código ao método Main:
 
-```
+```csharp
 string storageAccountName = SdkContext.RandomResourceName("st", 10);
 
 Console.WriteLine("Creating storage account...");
@@ -296,7 +299,7 @@ Implemente o modelo e parâmetros da conta de armazenamento que foi criado.
 
 Para implementar o modelo, adicione este código ao método Main:
 
-```
+```csharp
 var templatePath = "https://" + storageAccountName + ".blob.core.windows.net/templates/CreateVMTemplate.json";
 var paramPath = "https://" + storageAccountName + ".blob.core.windows.net/templates/Parameters.json";
 var deployment = azure.Deployments.Define("myDeployment")
@@ -315,7 +318,7 @@ Uma vez que lhe é cobrados os recursos utilizados no Azure, é sempre boa prát
 
 Para eliminar o grupo de recursos, adicione este código ao método Main:
 
-```
+```csharp
 azure.ResourceGroups.DeleteByName(groupName);
 ```
 
@@ -328,5 +331,6 @@ Deve demorar cerca de cinco minutos para esta aplicação de consola executar to
 2. Antes de premir **Enter** para iniciar a eliminação de recursos, pode demorar alguns minutos para verificar a criação de recursos no portal do Azure. Clique no estado de implementação para ver informações sobre a implementação.
 
 ## <a name="next-steps"></a>Passos Seguintes
+
 * Se ocorreram problemas com a implementação, o passo seguinte seria examinar [resolver erros comuns de implementação do Azure com o Azure Resource Manager](../../resource-manager-common-deployment-errors.md).
 * Saiba como implementar uma máquina virtual e os respetivos recursos de suporte ao rever [implementar uma Azure Virtual Machine Using c#](csharp.md).

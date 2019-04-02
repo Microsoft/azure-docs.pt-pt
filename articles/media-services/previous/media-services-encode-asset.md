@@ -12,18 +12,22 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/18/2019
+ms.date: 04/01/2019
 ms.author: juliako
-ms.openlocfilehash: a1b6fe38087975838d99ca4fe45ee0d0638c56c3
-ms.sourcegitcommit: f331186a967d21c302a128299f60402e89035a8d
+ms.openlocfilehash: a976b7c1f697c09082ca0f7978bb23bb4e467e5d
+ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58187749"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58801701"
 ---
 # <a name="overview-and-comparison-of-azure-on-demand-media-encoders"></a>Descrição geral e comparação do Azure no codificadores de multimédia a pedido 
 
 ## <a name="encoding-overview"></a>Descrição geral da codificação
+
+> [!NOTE]
+> Não serão adicionadas novas funcionalidades aos Serviços de Multimédia v2. <br/>Veja a versão mais recente, [Serviços de Multimédia v3](https://docs.microsoft.com/azure/media-services/latest/). Além disso, veja [orientação de migração da v2 para a v3](../latest/migrate-from-v2-to-v3.md)
+
 Serviços de multimédia do Azure fornece várias opções para a codificação de multimédia na cloud.
 
 Quando a começar a utilizar os serviços de multimédia, é importante compreender a diferença entre codecs e formatos de arquivo.
@@ -31,8 +35,7 @@ Codecs são o software que implementa os algoritmos de compactação/descompacta
 
 Os Media Services fornecem um empacotamento dinâmico permite-lhe fornecer o conteúdo de velocidade de transmissão adaptável MP4 ou Smooth Streaming com codificação de transmissão em fluxo em formatos suportados pelos Media Services (MPEG DASH, HLS, Smooth Streaming) sem ter de voltar o pacote para estes formatos de transmissão em fluxo.
 
-> [!NOTE]
-> Quando a sua conta AMS é criada, é adicionado um ponto final de transmissão em fluxo **predefinido** à sua conta no estado **Parado**. Para começar a transmitir o seu conteúdo em fluxo e a tirar partido do empacotamento e encriptação dinâmicos, o ponto final de transmissão em fluxo a partir do qual quer transmitir conteúdo tem de estar no estado **Em execução**. 
+Quando a sua conta AMS é criada, é adicionado um ponto final de transmissão em fluxo **predefinido** à sua conta no estado **Parado**. Para começar a transmitir o seu conteúdo em fluxo e a tirar partido do empacotamento e encriptação dinâmicos, o ponto final de transmissão em fluxo a partir do qual quer transmitir conteúdo tem de estar no estado **Em execução**. 
 
 Serviços de multimédia suportam o seguinte no codificadores a pedido que são descritos neste artigo:
 
@@ -41,8 +44,7 @@ Serviços de multimédia suportam o seguinte no codificadores a pedido que são 
 
 Este artigo fornece uma breve descrição geral de demanda codificadores de multimédia e fornece ligações para artigos que fornecem informações mais detalhadas. O tópico também fornece a comparação dos codificadores.
 
->[!NOTE]
->Por predefinição, cada conta de Media Services pode ter uma tarefa de codificação Active Directory ao mesmo tempo. Pode reservar as unidades de codificação que permitem que tenha várias tarefas de codificação em execução em simultâneo, um para cada unidade reservada codificação de que compra. Para obter informações, consulte [dimensionamento de unidades de codificação](media-services-scale-media-processing-overview.md).
+Por predefinição, cada conta de Media Services pode ter uma tarefa de codificação Active Directory ao mesmo tempo. Pode reservar as unidades de codificação que permitem que tenha várias tarefas de codificação em execução em simultâneo, um para cada unidade reservada codificação de que compra. Para obter informações, consulte [dimensionamento de unidades de codificação](media-services-scale-media-processing-overview.md).
 
 ## <a name="media-encoder-standard"></a>Media Encoder Standard
 ### <a name="how-to-use"></a>Como utilizar
