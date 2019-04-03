@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 11/15/2018
 ms.author: mjbrown
-ms.openlocfilehash: 822c4631c08da27ef7b92af2df5e5e0d04f063b0
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: f2ad46e7738582f82edcef6b54ac8234901c887d
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58013893"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58885337"
 ---
 # <a name="sql-query-examples-for-azure-cosmos-db"></a>Exemplos de consulta SQL para o Azure Cosmos DB
 
@@ -53,7 +53,7 @@ Vamos criar dois itens JSON simples e a consulta em relação a esses dados. Con
 
 Aqui está um segundo item com uma diferença sutil – `givenName` e `familyName` são utilizados em vez de `firstName` e `lastName`.
 
-**Item de 2**
+**Item 2**
 
 ```json
 {
@@ -403,15 +403,15 @@ Além de operadores binários e de unário, também são permitidas referências
 
 A tabela seguinte mostra o resultado de comparações de igualdade na API do SQL entre quaisquer dois tipos JSON.
 
-| **OP** | **Não definido** | **Nulo** | **valor booleano** | **Número** | **Cadeia de caracteres** | **Objeto** | **Matriz** |
+| **OP** | **Não definido** | **Null** | **Booleano** | **Number** | **String** | **Object** | **Array** |
 |---|---|---|---|---|---|---|---|
 | **Não definido** | Não definido | Não definido | Não definido | Não definido | Não definido | Não definido | Não definido |
-| **Nulo** | Não definido | **OK** | Não definido | Não definido | Não definido | Não definido | Não definido |
-| **valor booleano** | Não definido | Não definido | **OK** | Não definido | Não definido | Não definido | Não definido |
-| **Número** | Não definido | Não definido | Não definido | **OK** | Não definido | Não definido | Não definido |
-| **Cadeia de caracteres** | Não definido | Não definido | Não definido | Não definido | **OK** | Não definido | Não definido |
-| **Objeto** | Não definido | Não definido | Não definido | Não definido | Não definido | **OK** | Não definido |
-| **Matriz** | Não definido | Não definido | Não definido | Não definido | Não definido | Não definido | **OK** |
+| **Null** | Não definido | **Ok** | Não definido | Não definido | Não definido | Não definido | Não definido |
+| **Booleano** | Não definido | Não definido | **Ok** | Não definido | Não definido | Não definido | Não definido |
+| **Number** | Não definido | Não definido | Não definido | **Ok** | Não definido | Não definido | Não definido |
+| **String** | Não definido | Não definido | Não definido | Não definido | **Ok** | Não definido | Não definido |
+| **Object** | Não definido | Não definido | Não definido | Não definido | Não definido | **Ok** | Não definido |
+| **Array** | Não definido | Não definido | Não definido | Não definido | Não definido | Não definido | **Ok** |
 
 Para outros operadores de comparação, tais como >, > =,! =, <, e < =, as seguintes regras aplicam-se:
 
@@ -1448,7 +1448,7 @@ As seguintes funções escalares realizar uma operação num valor de entrada de
 | [CONTAINS (str_expr, str_expr)](sql-api-query-reference.md#bk_contains) | Retorna um Booleano indicando se a primeira cadeia de expressão contém o segundo. |
 | [INDEX_OF (str_expr, str_expr)](sql-api-query-reference.md#bk_index_of) | Devolve a posição inicial da primeira ocorrência da segunda cadeia de expressão dentro da primeira expressão de cadeia especificada ou -1 se a cadeia de caracteres não foi encontrada. |
 | [LEFT (str_expr, num_expr)](sql-api-query-reference.md#bk_left) | Devolve a parte esquerda de uma cadeia com o número especificado de carateres. |
-| [DIREITA (str_expr, num_expr)](sql-api-query-reference.md#bk_right) | Devolve a parte direita de uma cadeia de caracteres com o número especificado de carateres. |
+| [RIGHT (str_expr, num_expr)](sql-api-query-reference.md#bk_right) | Devolve a parte direita de uma cadeia de caracteres com o número especificado de carateres. |
 | [LTRIM (str_expr)](sql-api-query-reference.md#bk_ltrim) | Devolve uma expressão de cadeia de caracteres depois que ele remove espaços em branco à esquerda. |
 | [RTRIM (str_expr)](sql-api-query-reference.md#bk_rtrim) | Devolve uma expressão de cadeia de caracteres depois truncar todos os espaços em branco de à direita. |
 | [LOWER (str_expr)](sql-api-query-reference.md#bk_lower) | Devolve uma expressão de cadeia de caracteres após a conversão de dados de caráter em maiúsculas em minúsculas. |
@@ -1757,7 +1757,7 @@ Aqui estão alguns exemplos que ilustram como alguns dos operadores de consulta 
 
 A sintaxe é `input.Select(x => f(x))`, onde `f` é uma expressão escalar.
 
-**Expressão lambda do LINQ**
+**LINQ lambda expression**
 
 ```csharp
     input.Select(family => family.parents[0].familyName);
@@ -1770,7 +1770,7 @@ A sintaxe é `input.Select(x => f(x))`, onde `f` é uma expressão escalar.
     FROM Families f
 ```
 
-**Expressão lambda do LINQ**
+**LINQ lambda expression**
 
 ```csharp
     input.Select(family => family.children[0].grade + c); // c is an int variable
@@ -1783,7 +1783,7 @@ A sintaxe é `input.Select(x => f(x))`, onde `f` é uma expressão escalar.
     FROM Families f
 ```
 
-**Expressão lambda do LINQ**
+**LINQ lambda expression**
 
 ```csharp
     input.Select(family => new
@@ -1806,7 +1806,7 @@ A sintaxe é `input.Select(x => f(x))`, onde `f` é uma expressão escalar.
 
 A sintaxe é `input.SelectMany(x => f(x))`, onde `f` é uma expressão escalar, que retorna um tipo de contentor.
 
-**Expressão lambda do LINQ**
+**LINQ lambda expression**
 
 ```csharp
     input.SelectMany(family => family.children);
@@ -1823,7 +1823,7 @@ A sintaxe é `input.SelectMany(x => f(x))`, onde `f` é uma expressão escalar, 
 
 A sintaxe é `input.Where(x => f(x))`, onde `f` é uma expressão escalar, que retorna um valor booleano.
 
-**Expressão lambda do LINQ**
+**LINQ lambda expression**
 
 ```csharp
     input.Where(family=> family.parents[0].familyName == "Smith");
@@ -1837,7 +1837,7 @@ A sintaxe é `input.Where(x => f(x))`, onde `f` é uma expressão escalar, que r
     WHERE f.parents[0].familyName = "Smith"
 ```
 
-**Expressão lambda do LINQ**
+**LINQ lambda expression**
 
 ```csharp
     input.Where(
@@ -1862,7 +1862,7 @@ Os operadores acima podem ser compostos para formar a consultas mais potentes. U
 
 A sintaxe é `input(.|.SelectMany())(.Select()|.Where())*`. Uma consulta concatenada pode começar com um opcional `SelectMany` consulta seguido por vários `Select` ou `Where` operadores.
 
-**Expressão lambda do LINQ**
+**LINQ lambda expression**
 
 ```csharp
     input.Select(family=>family.parents[0])
@@ -1877,7 +1877,7 @@ A sintaxe é `input(.|.SelectMany())(.Select()|.Where())*`. Uma consulta concate
     WHERE f.parents[0].familyName = "Smith"
 ```
 
-**Expressão lambda do LINQ**
+**LINQ lambda expression**
 
 ```csharp
     input.Where(family => family.children[0].grade > 3)
@@ -1892,7 +1892,7 @@ A sintaxe é `input(.|.SelectMany())(.Select()|.Where())*`. Uma consulta concate
     WHERE f.children[0].grade > 3
 ```
 
-**Expressão lambda do LINQ**
+**LINQ lambda expression**
 
 ```csharp
     input.Select(family => new { grade=family.children[0].grade}).
@@ -1907,7 +1907,7 @@ A sintaxe é `input(.|.SelectMany())(.Select()|.Where())*`. Uma consulta concate
     WHERE ({grade: f.children[0].grade}.grade > 3)
 ```
 
-**Expressão lambda do LINQ**
+**LINQ lambda expression**
 
 ```csharp
     input.SelectMany(family => family.parents)
@@ -1928,7 +1928,7 @@ A sintaxe é `input.SelectMany(x=>x.Q())` em que as perguntas e é um `Select`, 
 
 Numa consulta aninhada, a consulta interna é aplicada a cada elemento do contêiner externo. Um recurso importante é que a consulta interna pode se referir aos campos dos elementos no contentor externo, como associações automáticas.
 
-**Expressão lambda do LINQ**
+**LINQ lambda expression**
 
 ```csharp
     input.SelectMany(family=>
@@ -1943,7 +1943,7 @@ Numa consulta aninhada, a consulta interna é aplicada a cada elemento do contê
     JOIN p IN f.parents
 ```
 
-**Expressão lambda do LINQ**
+**LINQ lambda expression**
 
 ```csharp
     input.SelectMany(family =>
@@ -1959,7 +1959,7 @@ Numa consulta aninhada, a consulta interna é aplicada a cada elemento do contê
     WHERE c.familyName = "Jeff"
 ```
 
-**Expressão lambda do LINQ**
+**LINQ lambda expression**
 
 ```csharp
     input.SelectMany(family => family.children.Where(
@@ -1989,7 +1989,7 @@ O modelo de interação básicas com estes recursos é por meio dos verbos HTTP 
 
 Os exemplos seguintes mostram uma POSTAGEM para uma consulta de SQL API feita relativamente de um contentor que contém os dois itens de exemplo que revemos até agora. A consulta tem um filtro simple na propriedade de nome de JSON. Observe o uso do `x-ms-documentdb-isquery` e Content-Type: `application/query+json` cabeçalhos para indicar que a operação é uma consulta.
 
-**Pedido**
+**Pedir**
 ```
     POST https://<REST URI>/docs HTTP/1.1
     ...
@@ -2058,7 +2058,7 @@ Os exemplos seguintes mostram uma POSTAGEM para uma consulta de SQL API feita re
 
 O segundo exemplo mostra uma consulta mais complexa que retorna vários resultados da junção.
 
-**Pedido**
+**Pedir**
 ```
     POST https://<REST URI>/docs HTTP/1.1
     ...
@@ -2208,7 +2208,7 @@ O exemplo seguinte mostra as associações, expressadas por meio de LINQ SelectM
 
 O cliente .NET automaticamente itera em todas as páginas de resultados da consulta nos blocos de foreach, conforme mostrado acima. As opções de consulta apresentadas na secção de REST API também estão disponíveis no SDK do .NET com o `FeedOptions` e `FeedResponse` classes no método CreateDocumentQuery. O número de páginas pode ser controlado com a `MaxItemCount` definição.
 
-Explicitamente também pode controlar a paginação, criando `IDocumentQueryable` utilizando o `IQueryable` objeto, em seguida, ao ler o` ResponseContinuationToken` valores e passá-los de volta como `RequestContinuationToken` no `FeedOptions`. `EnableScanInQuery` pode ser definido para ativar a análise, quando a consulta não pode ser suportada pela política de indexação configurada. Para contentores particionadas, pode usar `PartitionKey` para executar a consulta em relação a uma única partição (embora o Azure Cosmos DB pode automaticamente extrair isso do texto da consulta), e `EnableCrossPartitionQuery` para executar consultas que poderão ter de ser executado em várias partições.
+Explicitamente também pode controlar a paginação, criando `IDocumentQueryable` utilizando o `IQueryable` objeto, em seguida, ao ler o `ResponseContinuationToken` valores e passá-los de volta como `RequestContinuationToken` no `FeedOptions`. `EnableScanInQuery` pode ser definido para ativar a análise, quando a consulta não pode ser suportada pela política de indexação configurada. Para contentores particionadas, pode usar `PartitionKey` para executar a consulta em relação a uma única partição (embora o Azure Cosmos DB pode automaticamente extrair isso do texto da consulta), e `EnableCrossPartitionQuery` para executar consultas que poderão ter de ser executado em várias partições.
 
 Consulte a [exemplos de .NET do Azure Cosmos DB](https://github.com/Azure/azure-cosmosdb-dotnet) para obter mais amostras que contêm consultas.
 

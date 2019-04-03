@@ -3,27 +3,27 @@ title: 'Autenticação de utilizador final: Java com Gen1 de armazenamento do Az
 description: Saiba como conseguir a autenticação de utilizador final com Gen1 de armazenamento do Azure Data Lake com o Azure Active Directory com o Java
 services: data-lake-store
 documentationcenter: ''
-author: nitinme
-manager: jhubbard
+author: twooley
+manager: mtillman
 editor: cgronlun
 ms.service: data-lake-store
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/29/2018
-ms.author: nitinme
-ms.openlocfilehash: d2c0cc277b2115f50455a1caa825306cc173d94c
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.author: twooley
+ms.openlocfilehash: 8b558fca964f33d47d331e007329d1bae2626877
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57538991"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58881261"
 ---
 # <a name="end-user-authentication-with-azure-data-lake-storage-gen1-using-java"></a>Autenticação de utilizador final com Gen1 de armazenamento do Azure Data Lake com Java
 > [!div class="op_single_selector"]
 > * [Utilizar o Java](data-lake-store-end-user-authenticate-java-sdk.md)
-> * [Utilizar o SDK .NET](data-lake-store-end-user-authenticate-net-sdk.md)
+> * [Com o .NET SDK](data-lake-store-end-user-authenticate-net-sdk.md)
 > * [Utilizar o Python](data-lake-store-end-user-authenticate-python.md)
-> * [Utilizar a API REST](data-lake-store-end-user-authenticate-rest-api.md)
+> * [Com a API REST](data-lake-store-end-user-authenticate-rest-api.md)
 > 
 >   
 

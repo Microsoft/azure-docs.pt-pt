@@ -6,15 +6,15 @@ ms.service: automation
 ms.subservice: update-management
 author: georgewallace
 ms.author: gwallace
-ms.date: 03/15/2019
+ms.date: 04/02/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 42a7ae0e6ca5239aa83d20655817973e8f185d02
-ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
+ms.openlocfilehash: 1af2117b1d12c98182434705181462fd7c9bebf4
+ms.sourcegitcommit: d83fa82d6fec451c0cb957a76cfba8d072b72f4f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58805402"
+ms.lasthandoff: 04/02/2019
+ms.locfileid: "58862952"
 ---
 # <a name="update-management-solution-in-azure"></a>Solução de gestão de atualizações no Azure
 
@@ -52,9 +52,9 @@ A solução de relatórios como atualizados, o computador baseia-se a origem com
 > [!NOTE]
 > Para comunicar corretamente para o serviço, o gerenciamento de atualizações requer determinadas portas e URLs para ser ativada. Para saber mais sobre estes requisitos, consulte [planear funções de trabalho híbridas de rede](automation-hybrid-runbook-worker.md#network-planning).
 
-Pode criar uma implementação agendada para implementar e instalar atualizações de software em computadores que precisam das atualizações. As atualizações classificadas como *opcional* não estão incluídos no âmbito da implementação para computadores Windows. Apenas as atualizações necessárias estão incluídas no âmbito da implementação. 
+Pode criar uma implementação agendada para implementar e instalar atualizações de software em computadores que precisam das atualizações. As atualizações classificadas como *opcional* não estão incluídos no âmbito da implementação para computadores Windows. Apenas as atualizações necessárias estão incluídas no âmbito da implementação.
 
-A implementação agendada define que computadores de destino recebem as atualizações aplicáveis, ao especificar explicitamente os computadores ou ao selecionar uma [grupo de computadores](../azure-monitor/platform/computer-groups.md) que se baseia em pesquisas de registos de um conjunto específico de computadores. Também especificar uma agenda para aprovar e definir um período de tempo durante o qual as atualizações podem ser instaladas.
+A implementação agendada define que computadores de destino recebem as atualizações aplicáveis, ao especificar explicitamente os computadores ou ao selecionar uma [grupo de computadores](../azure-monitor/platform/computer-groups.md) que se baseia em pesquisas de registos de um conjunto específico de computadores. Também especificar uma agenda para aprovar e definir um período de tempo durante o qual as atualizações podem ser instaladas. Este período de tempo denomina-se a janela de manutenção. Dez minutos da janela de manutenção está reservado para reinícios, se é necessária uma reinicialização e tiver selecionado a opção de reinício apropriado. Se a aplicação de patches demora mais tempo do que o esperado e há menos de dez minutos na janela de manutenção, não irá ocorrer uma reinicialização.
 
 As atualizações são instaladas por runbooks na Automatização do Azure. Não é possível ver estes runbooks e os runbooks não requerem nenhuma configuração. Quando é criada uma implementação de atualização, a implementação da atualização cria uma agenda que inicia um runbook de atualização principal num momento especificado nos computadores incluídos. O runbook principal inicia um runbook subordinado em cada agente para instalar as atualizações necessárias.
 
@@ -628,7 +628,7 @@ Para remover uma VM de gestão de atualizações:
 Avance para o tutorial para saber como gerir atualizações para as suas máquinas virtuais do Windows.
 
 > [!div class="nextstepaction"]
-> [Gerir atualizações e correções para as VMs do Windows Azure](automation-tutorial-update-management.md)
+> [Gerir atualizações e correções para as VMs Windows do Azure](automation-tutorial-update-management.md)
 
 * Utilizar as pesquisas de registos no [registos do Azure Monitor](../log-analytics/log-analytics-log-searches.md) para ver os dados de atualizações detalhados.
 * [Criar alertas](automation-tutorial-update-management.md#configure-alerts) para obter o estado de implementação de atualização.

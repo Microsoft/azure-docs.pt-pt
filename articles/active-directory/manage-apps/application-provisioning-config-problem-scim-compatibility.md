@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 12/03/2018
 ms.author: asmalser
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8fc326c1ba529bc394a5ce5a059e3fe91baa7a9a
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: c2a2c1c415d0862b2631fa749241a9ae07df3b98
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58124088"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58880156"
 ---
 # <a name="known-issues-and-resolutions-with-scim-20-protocol-compliance-of-the-azure-ad-user-provisioning-service"></a>Problemas conhecidos e resoluções com SCIM 2.0 compatibilidade de protocolo do serviço aprovisionamento de utilizador do Azure AD
 
@@ -82,13 +82,13 @@ Sim. Se já estiver a utilizar esta instância da aplicação para início de se
 
 10. Execute o comando abaixo para criar uma nova tarefa de aprovisionamento que tem as correções mais recentes do serviço.
 
-    `POST https://graph.microsoft.com/beta/servicePrincipals/[object-id]/synchronization/jobs `
-    `{   templateId: "scim"   } `
+ `POST https://graph.microsoft.com/beta/servicePrincipals/[object-id]/synchronization/jobs`
+ `{   templateId: "scim"   }`
    
 11. Nos resultados da última etapa, copie a cadeia de caracteres completa "ID" que começa com "scim". Opcionalmente, volte a aplicar seus mapeamentos de atributos antigos ao executar o comando abaixo, substituindo [novo--id da tarefa] com o novo ID de tarefa que acabou de ser copiada e introduzir que o JSON de saída do passo 7 de # como o corpo do pedido.
 
-    `POST https://graph.microsoft.com/beta/servicePrincipals/[object-id]/synchronization/jobs/[new-job-id]/schema `
-    `{   <your-schema-json-here>   }`
+ `POST https://graph.microsoft.com/beta/servicePrincipals/[object-id]/synchronization/jobs/[new-job-id]/schema`
+ `{   <your-schema-json-here>   }`
 
 12. Devolver a primeira janela do browser e selecione o **aprovisionamento** separador para a sua aplicação.
 13. Verificar a configuração e, em seguida, iniciar a tarefa de aprovisionamento. 

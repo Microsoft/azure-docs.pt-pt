@@ -10,12 +10,12 @@ ms.author: vanto
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 02/20/2019
-ms.openlocfilehash: 7511b85384c2c64c823d93df4369b0fea3e64b51
-ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
+ms.openlocfilehash: 5d168264cbc392e1ba426707429f47dea70d1ea8
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58226220"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58882060"
 ---
 # <a name="tutorial-managed-instance-security-in-azure-sql-database-using-azure-ad-server-principals-logins"></a>Tutorial: Segurança de instância gerida na base de dados do SQL Azure utilização de principais de servidor do Azure AD (inícios de sessão)
 
@@ -56,7 +56,7 @@ Para concluir o tutorial, certifique-se de que tem os seguintes pré-requisitos:
 
 ## <a name="limiting-access-to-your-managed-instance"></a>Limitar o acesso à sua instância gerida
 
-Instâncias geridas só podem ser acedidas através de um endereço IP privado. Não existem não existem pontos finais de serviço que estão disponíveis para ligar a uma instância gerida de fora da rede de instância gerida. Muito como um ambiente no local do SQL Server isolado, aplicativos ou usuários precisam de acesso à rede da instância gerida (VNet) antes de pode ser estabelecida uma ligação. Para obter mais informações, consulte o seguinte artigo [ligar a sua aplicação para uma instância gerida](sql-database-managed-instance-connect-app.md).
+Instâncias geridas só podem ser acedidas através de um endereço IP privado. Não existem não existem pontos finais de serviço que estão disponíveis para ligar a uma instância gerida de fora da rede de instância gerida. À semelhança de como um isolado do SQL Server no local ambiente, aplicações ou utilizadores precisa de acesso à rede da instância gerida (VNet) antes de uma ligação pode ser estabelecido. Para obter mais informações, consulte o seguinte artigo [ligar a sua aplicação para uma instância gerida](sql-database-managed-instance-connect-app.md).
 
 > [!NOTE] 
 > Uma vez que as instâncias geridas só podem ser acessadas dentro da sua VNET [regras de firewall da base de dados SQL](sql-database-firewall-configure.md) não se aplicam. A instância gerida tem seu próprio [firewall interno](sql-database-managed-instance-management-endpoint-verify-built-in-firewall.md).
@@ -65,8 +65,8 @@ Instâncias geridas só podem ser acedidas através de um endereço IP privado. 
 
 O primeiro principal do servidor do Azure AD (início de sessão) tem de ser criado pela conta do SQL Server standard (não pertencente ao azure AD) é um `sysadmin`. Veja os artigos seguintes para obter exemplos de ligar à sua instância gerida:
 
-- [Quickstart: Configurar a VM do Azure para ligar a uma instância gerida](sql-database-managed-instance-configure-vm.md)
-- [Quickstart: Configurar uma ligação de ponto a site para uma instância gerida do local](sql-database-managed-instance-configure-p2s.md)
+- [Início rápido: Configurar a VM do Azure para ligar a uma instância gerida](sql-database-managed-instance-configure-vm.md)
+- [Início rápido: Configurar uma ligação de ponto a site para uma instância gerida do local](sql-database-managed-instance-configure-p2s.md)
 
 > [!IMPORTANT]
 > O administrador do Azure AD utilizado para configurar a instância gerida não pode ser utilizado para criar um Azure AD principal do servidor (início de sessão) dentro da instância gerida. Tem de criar o primeiro Azure principal do servidor AD (início de sessão) a utilizar uma conta do SQL Server que é um `sysadmin`. Esta é uma limitação temporária que será removida depois de principais de servidor do Azure AD (inícios de sessão) tornam-se em GA. Verá o seguinte erro se tentar utilizar uma conta de administrador do Azure AD para criar o início de sessão: `Msg 15247, Level 16, State 1, Line 1 User does not have permission to perform this action.`
@@ -442,10 +442,10 @@ Consultas entre bases de dados são suportadas para contas do Azure AD com entid
 Consulte o seguinte [geridos recursos de segurança de recursos de instância](sql-database-managed-instance.md#azure-sql-database-security-features) artigo para obter uma lista abrangente de formas de proteger a sua base de dados. As seguintes funcionalidades de segurança são discutidas:
 
 - [Auditoria de instância gerida](sql-database-managed-instance-auditing.md) 
-- [Sempre encriptado](/sql/relational-databases/security/encryption/always-encrypted-database-engine)
+- [Always Encrypted](/sql/relational-databases/security/encryption/always-encrypted-database-engine)
 - [Deteção de ameaças](sql-database-managed-instance-threat-detection.md) 
 - [Máscara de dados dinâmica](/sql/relational-databases/security/dynamic-data-masking)
-- [Segurança ao nível da linha](/sql/relational-databases/security/row-level-security) 
+- [Segurança ao Nível da Linha](/sql/relational-databases/security/row-level-security) 
 - [Encriptação de dados transparente (TDE)](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql)
 
 ### <a name="managed-instance-capabilities"></a>Funcionalidades de instância gerida
@@ -453,4 +453,4 @@ Consulte o seguinte [geridos recursos de segurança de recursos de instância](s
 Para uma visão geral das funcionalidades de instância gerida, consulte:
 
 > [!div class="nextstepaction"]
-> [Capacidades de instância gerida](sql-database-managed-instance.md)
+> [Funcionalidades de instância gerida](sql-database-managed-instance.md)

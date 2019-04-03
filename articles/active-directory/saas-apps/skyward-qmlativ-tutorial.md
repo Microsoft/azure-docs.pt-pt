@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 01/25/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3b6481b490182b874161a79390cc61b140c58bec
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 9faf5068f6007cc357bcd22480c08af4223ba906
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57872805"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58883031"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-skyward-qmlativ"></a>Tutorial: Integração do Active Directory do Azure com Skyward Qmlativ
 
@@ -105,7 +105,7 @@ Para configurar o Azure AD início de sessão único com Skyward Qmlativ, execut
 
     ![Informações de início de sessão de único skyward Qmlativ domínio e URLs](common/sp-identifier.png)
 
-    a. Na **iniciar sessão no URL** caixa de texto, escreva um URL com o seguinte padrão: ` https://<SUBDOMAIN>.skyward.com/<CUSTOMERIDENTIFIERSTS>`
+    a. Na **iniciar sessão no URL** caixa de texto, escreva um URL com o seguinte padrão: `https://<SUBDOMAIN>.skyward.com/<CUSTOMERIDENTIFIERSTS>`
 
     b. Na **identificador (ID de entidade)** caixa de texto, escreva um URL com o seguinte padrão: `https://<BASEURL>/customeridentifierSTS`
 
@@ -185,7 +185,7 @@ Quando clica no mosaico Skyward Qmlativ no painel de acesso, deve ser automatica
 
 - [Lista de tutoriais sobre como integrar aplicações SaaS com o Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis) (O que é o acesso a aplicações e o início de sessão único com o Azure Active Directory?)
+- [O que é o acesso a aplicações e início de sessão único com o Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

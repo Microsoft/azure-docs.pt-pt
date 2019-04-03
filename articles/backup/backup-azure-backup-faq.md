@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 01/08/2019
 ms.author: raynew
-ms.openlocfilehash: 420c81f6206c777efc303924d81763f5984aba4c
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 0981f4d5d9d5fcb243fc7ead6f4b529c096935d0
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57993397"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58885881"
 ---
 # <a name="azure-backup---frequently-asked-questions"></a>Cópia de segurança do Azure - perguntas mais frequentes
 Este artigo responde a perguntas comuns sobre o serviço de cópia de segurança do Azure.
@@ -40,7 +40,7 @@ Não. Um cofre dos serviços de recuperação só pode alterar as opções de ar
 
 ### <a name="can-i-do-an-item-level-restore-ilr-for-vms-backed-up-to-a-recovery-services-vault"></a>Pode fazer um Item de nível de restaurar (ILR) para cópia de segurança para um cofre dos serviços de recuperação de VMs?
 - ILR é suportada para VMs do Azure, cópias de segurança de cópia de segurança de VM do Azure. Para obter mais informações, consulte [artigo](backup-azure-restore-files-from-vm.md)
-- ILR não é suportada para pontos de recuperação online de VMs no local, uma cópia de segurança do Azure backup Server ou o System Center DPM.
+- ILR não é suportada para pontos de recuperação online das VMs no local cópias de segurança no servidor de cópia de segurança do Azure ou o System Center DPM.
 
 
 ## <a name="azure-backup-agent"></a>Agente do Backup do Azure
@@ -93,7 +93,7 @@ Sim.
 ### <a name="what-operating-systems-are-supported-for-backup"></a>Que sistemas operativos são suportados para cópia de segurança?
 O Azure Backup suporta estes sistemas operativos para criar cópias de segurança de ficheiros e pastas e aplicações protegidas pelo servidor de cópia de segurança do Azure e o DPM.
 
-**OS** | **SKU** | **Detalhes**
+**SO** | **SKU** | **Detalhes**
 --- | --- | ---
 Estação de trabalho | |
 Windows 10 64 bit | Enterprise, Pro, Home | Máquinas devem estar a executar os pacotes de serviços mais recentes e as atualizações.

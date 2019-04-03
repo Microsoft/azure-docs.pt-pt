@@ -13,18 +13,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/05/2019
 ms.author: juliako
-ms.openlocfilehash: 4252b0f26ef3c02216a41dde5d2e1cb5ea0efd6a
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 23c87ae92a0f22b4a1a31c054df730af2efc07d1
+ms.sourcegitcommit: 04716e13cc2ab69da57d61819da6cd5508f8c422
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57555070"
+ms.lasthandoff: 04/02/2019
+ms.locfileid: "58848067"
 ---
 # <a name="monitor-media-services-metrics-and-diagnostic-logs"></a>Monitorizar métricas de serviços de multimédia e registos de diagnóstico
 
 [O Azure Monitor](../../azure-monitor/overview.md) permite-lhe monitorizar as métricas e registos de diagnóstico que o ajudam a compreende o desempenho das suas aplicações. Todos os dados recolhidos pelo Monitor do Azure se encaixa em um dos dois tipos fundamentais, métricas e registo. Pode monitorizar os registos de diagnóstico de serviços de multimédia e criar alertas e notificações para os registos e métricas recolhidas. Pode visualizar e analisar os dados de métricas com [Explorador de métricas](../../azure-monitor/platform/metrics-getting-started.md). Pode enviar registos para [armazenamento do Azure](https://azure.microsoft.com/services/storage/), transmiti-los para [Event Hubs do Azure](https://azure.microsoft.com/services/event-hubs/)e exportá-las para [do Log Analytics](https://azure.microsoft.com/services/log-analytics/), ou utilize o 3º serviços de terceiros.
 
-Para uma visão geral detalhada, consulte [monitorizar as métricas do Azure](../../azure-monitor/platform/data-collection.md) e [registos de diagnóstico do Azure Monitor](../../azure-monitor/platform/diagnostic-logs-overview.md).
+Para uma visão geral detalhada, consulte [monitorizar as métricas do Azure](../../azure-monitor/platform/data-platform.md) e [registos de diagnóstico do Azure Monitor](../../azure-monitor/platform/diagnostic-logs-overview.md).
 
 Este tópico aborda atualmente disponíveis [métricas de serviços de multimédia](#media-services-metrics) e [registos de diagnóstico de serviços de multimédia](#media-services-diagnostic-logs).
 

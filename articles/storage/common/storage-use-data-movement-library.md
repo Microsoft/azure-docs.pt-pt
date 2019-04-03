@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 09/27/2017
 ms.author: seguler
 ms.subservice: common
-ms.openlocfilehash: 966518f17392e6158089cb5b6df96f41674fed41
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 0641a097761530285c2dd9aa176ddd8c2c159001
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57996144"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58878745"
 ---
 # <a name="transfer-data-with-the-microsoft-azure-storage-data-movement-library"></a>Transferir dados com a biblioteca de movimento de dados de armazenamento do Microsoft Azure
 
@@ -49,7 +49,7 @@ Este documento demonstra como criar uma aplicação de consola .NET Core que é 
 3. Abra este diretório no Visual Studio Code. Este passo pode ser feito rapidamente através da linha de comando digitando `code .` no Windows.
 4. Instalar o [extensão c#](https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp) do mercado de código do Visual Studio. Reinicie o Visual Studio Code.
 5. Neste ponto, verá dois pedidos. Um é para adicionar "recursos necessários para compilar e depurar." Clique em "Sim". É outro prompt para restaurar as dependências não resolvidas. Clique em "restaurar".
-6. Modificar `launch.json` em `.vscode` para utilizar o terminal externo como uma consola. Esta definição deve ler como ` "console": "externalTerminal"`
+6. Modificar `launch.json` em `.vscode` para utilizar o terminal externo como uma consola. Esta definição deve ler como `"console": "externalTerminal"`
 7. Código do Visual Studio permite depurar aplicativos do .NET Core. Pressionar `F5` para executar a sua aplicação e certifique-se de que a configuração está a funcionar. Deverá ver "Hello World!" impresso no console.
 
 ## <a name="add-data-movement-library-to-your-project"></a>Adicionar a biblioteca de movimento de dados ao seu projeto

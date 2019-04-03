@@ -16,12 +16,12 @@ ms.author: celested
 ms.reviewer: harshja
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f236c6a78edeb04a69685bf27c99997ed470f498
-ms.sourcegitcommit: ad3e63af10cd2b24bf4ebb9cc630b998290af467
+ms.openlocfilehash: 8eef15098eed8959655ae2904bf41a8c3dffc9f4
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58791528"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58882795"
 ---
 # <a name="header-based-authentication-for-single-sign-on-with-application-proxy-and-pingaccess"></a>Autenticação baseada em cabeçalho para início de sessão único com o Proxy de aplicações e o PingAccess
 
@@ -115,7 +115,7 @@ Siga estes passos para publicar a aplicação. Para um mais detalhadas passo a p
     ![Selecionar permissões](./media/application-proxy-configure-single-sign-on-with-ping-access/select-permissions.png)
 
 17. Conceder permissões antes de fechar o ecrã de permissões. 
-    ![Conceder permissões](./media/application-proxy-configure-single-sign-on-with-ping-access/grantperms.png)
+    ![Conceder Permissões](./media/application-proxy-configure-single-sign-on-with-ping-access/grantperms.png)
 
 ### <a name="collect-information-for-the-pingaccess-steps"></a>Recolher informações para obter os passos do PingAccess
 
@@ -163,7 +163,7 @@ Este exemplo utiliza a [portal do Azure](https://portal.azure.com) para atualiza
 >[!NOTE]
 >Para utilizar uma declaração personalizada, também tem de ter uma política personalizada definida e atribuída à aplicação.  Esta política deve incluir todos os atributos personalizados necessários.
 >
->Definição de política e a atribuição podem ser feitos através do PowerShell, do Azure AD Graph ou MS Graph.  Se estiver fazendo isso no PowerShell, poderá ter de utilizar pela primeira vez `New-AzureADPolicy `e, em seguida, atribua-o para a aplicação com `Set-AzureADServicePrincipalPolicy`.  Para obter mais informações, consulte a [documentação de política do Azure AD](../develop/active-directory-claims-mapping.md#claims-mapping-policy-assignment).
+>Definição de política e a atribuição podem ser feitos através do PowerShell, do Azure AD Graph ou MS Graph.  Se estiver fazendo isso no PowerShell, poderá ter de utilizar pela primeira vez `New-AzureADPolicy` e, em seguida, atribua-o para a aplicação com `Set-AzureADServicePrincipalPolicy`.  Para obter mais informações, consulte a [documentação de política do Azure AD](../develop/active-directory-claims-mapping.md#claims-mapping-policy-assignment).
 
 ### <a name="optional---use-a-custom-claim"></a>Opcional – utilize uma declaração personalizada
 Para tornar a sua aplicação utilizar uma declaração personalizada e incluir campos adicionais, não se esqueça de que tem também [criou uma política de mapeamento de afirmações personalizadas e Atribuímos à aplicação](../develop/active-directory-claims-mapping.md#claims-mapping-policy-assignment).

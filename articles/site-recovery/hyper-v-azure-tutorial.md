@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 03/18/2019
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 5a7161d05b153a556cce20ec4f4d0cbbfdf1d2d1
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: 2201a8017f82517f287cc0b73346a90eaa2408a4
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58315509"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58877725"
 ---
 # <a name="set-up-disaster-recovery-of-on-premises-hyper-v-vms-to-azure"></a>Configurar a recuperação após desastre de VMs de Hyper-V no local para o Azure
 
@@ -30,7 +30,7 @@ Este tutorial mostra como configurar a recuperação após desastre de VMs de Hy
 Este é o terceiro tutorial de uma série. Este tutorial parte do princípio de que já concluiu as tarefas nos tutoriais anteriores:
 
 1. [Preparar o Azure](tutorial-prepare-azure.md)
-2. [Prepara Hyper-V no local](tutorial-prepare-on-premises-hyper-v.md)
+2. [Preparar Hyper-V no local](tutorial-prepare-on-premises-hyper-v.md)
 
 Antes de começar, é útil [rever a arquitetura](concepts-hyper-v-to-azure-architecture.md) deste cenário de recuperação após desastre.
 
@@ -87,17 +87,17 @@ No caso de estiver usando um server core do Hyper-V, siga os passos depois de ba
 
 1. Extraia os ficheiros do AzureSiteRecoveryProvider.exe através da execução
 
-    ``AzureSiteRecoveryProvider.exe /x:. /q``
+    `AzureSiteRecoveryProvider.exe /x:. /q`
  
     Isto irá extrair os ficheiros no diretório local.
  
-2.  Execute ``.\setupdr.exe /i ``
+2.  Executar `.\setupdr.exe /i`
 
     Os resultados serão registados para %Programdata%\ASRLogs\DRASetupWizard.log
 
 3.  Registre-se o servidor com o comando:
 
-``cd  C:\Program Files\Microsoft Azure Site Recovery Provider\DRConfigurator.exe" /r /Friendlyname "FriendlyName of the Server" /Credentials "path to where the credential file is saved" ``
+`cd  C:\Program Files\Microsoft Azure Site Recovery Provider\DRConfigurator.exe" /r /Friendlyname "FriendlyName of the Server" /Credentials "path to where the credential file is saved"`
  
 
 ## <a name="set-up-the-target-environment"></a>Configurar o ambiente de destino

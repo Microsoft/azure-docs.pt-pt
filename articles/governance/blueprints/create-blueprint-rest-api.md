@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.service: blueprints
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: 9dada3c6f0718db41a24368aca594bbd3215fec5
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 06ee97cff08804093d3ee77ee11eca1b4e84bb0f
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57994868"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58885966"
 ---
 # <a name="define-and-assign-an-azure-blueprint-with-rest-api"></a>Definir e Atribuir um Azure Blueprint com a API REST
 
@@ -40,10 +40,10 @@ Para as especificações de Esquema, veja [API REST de Esquemas do Azure](/rest/
 
 Se ainda não tem uma ferramenta para fazer chamadas à API REST, considere utilizar o PowerShell para estas instruções. Segue-se um cabeçalho de exemplo para fazer a autenticação com o Azure. Gere um cabeçalho de autenticação, por vezes denominado **Token de portador**, e forneça o URI da API REST para ligar a parâmetros ou um **Corpo do Pedido**:
 
-```powershell-interactive
-# Login first with Connect-AzureRmAccount if not using Cloud Shell
+```azurepowershell-interactive
+# Log in first with Connect-AzAccount if not using Cloud Shell
 
-$azContext = Get-AzureRmContext
+$azContext = Get-AzContext
 $azProfile = [Microsoft.Azure.Commands.Common.Authentication.Abstractions.AzureRmProfileProvider]::Instance.Profile
 $profileClient = New-Object -TypeName Microsoft.Azure.Commands.ResourceManager.Common.RMProfileClient -ArgumentList ($azProfile)
 $token = $profileClient.AcquireAccessToken($azContext.Subscription.TenantId)
@@ -69,7 +69,7 @@ O primeiro passo na definição de um padrão de conformidade é compor um esque
 Em cada URI da API REST, existem variáveis que são utilizadas que precisa de substituir pelos seus próprios valores:
 
 - `{YourMG}` -Substituir com o ID do seu grupo de gestão
-- `{subscriptionId}` - substituir pelo ID da subscrição
+- `{subscriptionId}` -Substituir pelo seu ID de subscrição
 
 > [!NOTE]
 > Esquemas também podem ser criadas ao nível da subscrição. Para ver um exemplo, consulte [criar o esquema no exemplo de subscrição](/rest/api/blueprints/blueprints/createorupdate#subscriptionblueprint).
@@ -336,7 +336,7 @@ Em cada URI da API REST, existem variáveis que são utilizadas que precisa de s
 
 - `{tenantId}` -Substituir pelo seu ID de inquilino
 - `{YourMG}` -Substituir com o ID do seu grupo de gestão
-- `{subscriptionId}` - substituir pelo ID da subscrição
+- `{subscriptionId}` -Substituir pelo seu ID de subscrição
 
 1. Forneça ao principal de serviço do Azure Blueprint a função **Proprietário** na subscrição de destino. O AppId é estático (`f71766dc-90d9-4b7d-bd9d-4499c4331c3f`), mas o ID de principal de serviço varia por inquilino. Pode pedir detalhes para o seu inquilino através da API REST seguinte. Utiliza a [Graph API do Azure Active Directory](../../active-directory/develop/active-directory-graph-api.md) que tem uma autorização diferente.
 

@@ -10,13 +10,13 @@ ms.service: dms
 ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: article
-ms.date: 03/12/2019
-ms.openlocfilehash: 5b91e3082dba2ac8ea19606f4269e65a0f537ce1
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.date: 04/03/2019
+ms.openlocfilehash: 4990b5f42291856c3695b4bf0eb6ec4084e9214e
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58183140"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58886408"
 ---
 # <a name="tutorial-migrate-rds-sql-server-to-azure-sql-database-or-an-azure-sql-database-managed-instance-online-using-dms"></a>Tutorial: Migrar o servidor de SQL de RDS para a base de dados do Azure SQL ou uma base de dados do Azure SQL instância gerida online com o DMS
 Pode utilizar o serviço de migração de base de dados do Azure para migrar as bases de dados a partir de uma instância de servidor de SQL de RDS para [Azure SQL Database](https://docs.microsoft.com/azure/sql-database/) ou uma [instância gerida de base de dados do Azure SQL](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-index) com período de indisponibilidade mínimo. Neste tutorial, migra os **Adventureworks2012** base de dados restaurada para um servidor de SQL de RDS instância do SQL Server 2012 (ou posterior) para a base de dados do Azure SQL ou uma base de dados do SQL Azure instância gerida utilizando a migração de base de dados do Azure Serviço.
@@ -61,7 +61,7 @@ Para concluir este tutorial, precisa de:
     >
     > Esta configuração é necessária porque o serviço de migração de base de dados do Azure não tem conectividade à internet. 
  
-- Certifique-se de que as regras do grupo de segurança de rede de VNET não bloqueiam as seguintes portas de comunicação 443, 53, 9354, 445, 12000. Para obter mais detalhes sobre a filtragem de tráfego dos NSGs das VNETs do Azure, veja o artigo [Filter network traffic with network security groups](https://docs.microsoft.com/azure/virtual-network/virtual-networks-nsg) (Filtrar tráfego de rede com grupos de segurança de rede).
+- Certifique-se de que as regras do grupo de segurança de rede de VNET não bloqueiam as seguintes portas de comunicação de entrada para o Azure Database Migration Service: 443, 53, 9354, 445, 12000. Para obter mais detalhes sobre a filtragem de tráfego dos NSGs das VNETs do Azure, veja o artigo [Filter network traffic with network security groups](https://docs.microsoft.com/azure/virtual-network/virtual-networks-nsg) (Filtrar tráfego de rede com grupos de segurança de rede).
 - Configurar a sua [Firewall do Windows para acesso ao motor de bases de dados](https://docs.microsoft.com/sql/database-engine/configure-windows/configure-a-windows-firewall-for-database-engine-access).
 - Abrir a firewall do Windows para permitir ao Azure Database Migration Service aceder ao SQL Server de origem, que, por predefinição, é a porta TCP 1433.
 - Criar uma [regra de firewall](https://docs.microsoft.com/azure/sql-database/sql-database-firewall-configure) ao nível do servidor para o servidor da Base de Dados SQL do Azure para permitir que o Azure Database Migration Service aceda às bases de dados de destino. Fornecer o intervalo de sub-redes da VNET utilizada no Azure Database Migration Service.
@@ -237,7 +237,7 @@ Após a criação do serviço, localize-o no portal do Azure, abra-o e crie um p
     | ------------- | ------------- |
     | **Número máximo de tabelas para carregar em paralelo** | Especifica o número de tabelas que o DMS é executado em paralelo durante a migração. O valor predefinido é 5, mas pode ser definido como um valor ideal para atender às necessidades específicas de migração com base em qualquer migrações de prova de conceito. |
     | **Quando a tabela de origem é truncada** | Especifica se o DMS trunca a tabela de destino durante a migração. Esta definição pode ser útil se uma ou mais tabelas são truncadas como parte do processo de migração. |
-    | **Configurar as definições para os dados de objetos grandes (LOB)** | Especifica se o DMS efetua a migração de dados ilimitados de LOB ou limites dos dados LOB migrado para um tamanho específico.  Quando existe um limite nos dados LOB migrados, todos os dados LOB além esse limite são truncados. Para migrações de produção, é recomendado que selecione **permitir que o tamanho LOB ilimitado** para evitar a perda de dados. Ao especificar para permitir que o tamanho ilimitado de LOB, selecione o **LOB do departamento de migrar os dados num único bloco quando o tamanho LOB é inferior a (KB) especificados** caixa de verificação para melhorar o desempenho. |
+    | **Configurar definições de dados de objetos grandes (LOB)** | Especifica se o DMS efetua a migração de dados ilimitados de LOB ou limites dos dados LOB migrado para um tamanho específico.  Quando existe um limite nos dados LOB migrados, todos os dados LOB além esse limite são truncados. Para migrações de produção, é recomendado que selecione **permitir que o tamanho LOB ilimitado** para evitar a perda de dados. Ao especificar para permitir que o tamanho ilimitado de LOB, selecione o **LOB do departamento de migrar os dados num único bloco quando o tamanho LOB é inferior a (KB) especificados** caixa de verificação para melhorar o desempenho. |
     
     ![Configurar definições avançadas de migração online](media/tutorial-rds-sql-to-azure-sql-and-managed-instance/dms-advanced-online-migration-settings.png)
 

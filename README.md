@@ -1,10 +1,10 @@
 ---
-ms.openlocfilehash: 2b1d75b4b32ebfffbddfaddf45b0c08fb1132995
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: d4e9e26f2c6764cc179826266891d861514e23f6
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58168558"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58882213"
 ---
 # <a name="microsoft-azure-documentation"></a>Documentação do Microsoft Azure
 
@@ -12,7 +12,7 @@ Bem-vindo à [documentação](https://docs.microsoft.com/azure) em código abert
 
 ## <a name="getting-started"></a>Introdução
 
-Contribuir para o código aberto é mais que apenas fazer atualizações, passa também por nos avisar quando houver um problema. Leia as nossas [Diretrizes de contribuição](.github/CONTRIBUTING.md) para descobrir mais.
+Contribuir para o código aberto é mais que apenas fazer atualizações, passa também por nos avisar quando houver um problema. Leia as nossas [Diretrizes de contribuição](CONTRIBUTING.md) para descobrir mais.
 
 ### <a name="prerequisites"></a>Pré-requisitos
 

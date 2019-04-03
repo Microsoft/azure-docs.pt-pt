@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/26/2019
 ms.author: bwren
-ms.openlocfilehash: d0902c0e0b4c669f3918155f8416f064485abbea
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: 0485f8e3b377ce94ec23a4a1a94eb7e189b0232b
+ms.sourcegitcommit: 04716e13cc2ab69da57d61819da6cd5508f8c422
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56874907"
+ms.lasthandoff: 04/02/2019
+ms.locfileid: "58850825"
 ---
 # <a name="azure-monitor-overview"></a>Descrição geral do Azure Monitor
 
@@ -26,7 +26,7 @@ O Azure Monitor maximiza a disponibilidade e desempenho das suas aplicações, f
 > [!VIDEO https://www.youtube.com/embed/_hGff5bVtkM]
 
 ## <a name="overview"></a>Descrição geral
-O diagrama seguinte fornece uma visão geral do Azure Monitor. No centro do diagrama são arquivos de dados de métricas e registos, os quais são os dois tipos fundamentais de utilização de dados pelo Azure Monitor. No lado esquerdo são os [origens de dados de monitorização](platform/data-sources.md) que preencher estes [arquivos de dados](platform/data-collection.md). À direita são as diferentes funções do Azure Monitor executa com estes dados recolhidos, tais como análise, alertas e transmissão em fluxo a sistemas externos.
+O diagrama seguinte fornece uma visão geral do Azure Monitor. No centro do diagrama são arquivos de dados de métricas e registos, os quais são os dois tipos fundamentais de utilização de dados pelo Azure Monitor. No lado esquerdo são os [origens de dados de monitorização](platform/data-sources.md) que preencher estes [arquivos de dados](platform/data-platform.md). À direita são as diferentes funções do Azure Monitor executa com estes dados recolhidos, tais como análise, alertas e transmissão em fluxo a sistemas externos.
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
 
@@ -34,7 +34,7 @@ O diagrama seguinte fornece uma visão geral do Azure Monitor. No centro do diag
 
 
 ## <a name="monitoring-data-platform"></a>Plataforma de dados de monitorização
-Todos os dados recolhidos pelo Monitor do Azure se encaixa em um dos dois tipos fundamentais, [métricas e registos](platform/data-collection.md). [Métricas](platform/data-collection.md#metrics) são valores numéricos que descrevem algum aspeto de um sistema num momento específico no tempo. Elas são simples e capaz de oferecer suporte a cenários em tempo real em tempo quase. [Registos](platform/data-collection.md#logs) contêm diferentes tipos de dados organizados em registos com diferentes conjuntos de propriedades de cada tipo. Telemetria, como eventos e rastreios são armazenadas como registos além do mais dados de desempenho para que ele possível combinar tudo para análise.
+Todos os dados recolhidos pelo Monitor do Azure se encaixa em um dos dois tipos fundamentais, [métricas e registos](platform/data-platform.md). [Métricas](platform/data-platform-metrics.md) são valores numéricos que descrevem algum aspeto de um sistema num momento específico no tempo. Elas são simples e capaz de oferecer suporte a cenários em tempo real em tempo quase. [Registos](platform/data-platform-logs.md) contêm diferentes tipos de dados organizados em registos com diferentes conjuntos de propriedades de cada tipo. Telemetria, como eventos e rastreios são armazenadas como registos além do mais dados de desempenho para que ele possível combinar tudo para análise.
 
 Para muitos recursos do Azure, verá os dados recolhidos pelo direito de Monitor do Azure na sua página de descrição geral no portal do Azure. Dê uma olhada em qualquer máquina virtual por exemplo, e verá vários gráficos de métricas de desempenho a apresentar. Clique em qualquer um dos gráficos para abrir os dados no [Explorador de métricas](platform/metrics-charts.md) no portal do Azure, que permite-lhe os valores de várias métricas do gráfico ao longo do tempo.  Pode ver os gráficos interativamente ou afixá-los a um dashboard para visualizá-los com outras visualizações.
 
@@ -55,7 +55,7 @@ O Azure Monitor pode recolher dados de várias origens. Pode considerar os dados
 - **Subscrição do Azure, os dados de monitorização**: Dados sobre a operação e a gestão de uma subscrição do Azure, bem como dados sobre o estado de funcionamento e a operação do Azure em si. 
 - **Inquilino do Azure, os dados de monitorização**: Dados sobre o funcionamento dos serviços do Azure ao nível do inquilino, como o Azure Active Directory.
 
-Assim que criar uma subscrição do Azure e comece a adicionar recursos, tais como máquinas virtuais e aplicações web, o Azure Monitor inicia a recolha de dados.  [Registos de atividades](platform/activity-logs-overview.md) gravar quando os recursos são criados ou modificados. [Métricas](platform/data-collection.md) informá-lo como o recurso está sendo executada e os recursos que ele está a consumir. 
+Assim que criar uma subscrição do Azure e comece a adicionar recursos, tais como máquinas virtuais e aplicações web, o Azure Monitor inicia a recolha de dados.  [Registos de atividades](platform/activity-logs-overview.md) gravar quando os recursos são criados ou modificados. [Métricas](platform/data-platform.md) informá-lo como o recurso está sendo executada e os recursos que ele está a consumir. 
 
 Expandir os dados que está a recolher sobre o funcionamento real dos recursos por [ativar os diagnósticos](platform/diagnostic-logs-overview.md) e [adicionando um agente](platform/agent-windows.md) para recursos de computação. Esta ação irá recolher telemetria para o funcionamento interno de recurso e permitem-lhe configurar diferente [origens de dados](platform/agent-data-sources.md) para recolher registos e métricas de sistema de operativo de convidado do Windows e Linux. 
 
@@ -143,6 +143,6 @@ Várias APIs estão disponíveis para ler e escrever métricas e registos de e p
 ## <a name="next-steps"></a>Passos Seguintes
 Saiba mais sobre:
 
-* [Métricas e registos](platform/data-collection.md) para os dados recolhidos pelo Monitor do Azure.
+* [Métricas e registos](platform/data-platform.md) para os dados recolhidos pelo Monitor do Azure.
 * [Origens de dados](platform/data-sources.md) para como os diferentes componentes da sua aplicação enviam telemetria.
 * [Registar as consultas](log-query/log-query-overview.md) para analisar os dados recolhidos.

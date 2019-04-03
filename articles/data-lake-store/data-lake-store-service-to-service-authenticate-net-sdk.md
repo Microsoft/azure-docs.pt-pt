@@ -3,27 +3,27 @@ title: 'Autenticação serviço a serviço: SDK do .NET com a geração 1 de arm
 description: Saiba como conseguir a autenticação do serviço para serviço com Gen1 de armazenamento do Azure Data Lake com o Azure Active Directory com o .NET SDK
 services: data-lake-store
 documentationcenter: ''
-author: nitinme
+author: twooley
 manager: cgronlun
 editor: cgronlun
 ms.service: data-lake-store
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/29/2018
-ms.author: nitinme
-ms.openlocfilehash: 5ec6325f3fae21e62fe4a3fb6452aa11158047a4
-ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
+ms.author: twooley
+ms.openlocfilehash: be8d4172476ca0613e80e62739b9ab36f8ab4c3b
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57340240"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58881159"
 ---
 # <a name="service-to-service-authentication-with-azure-data-lake-storage-gen1-using-net-sdk"></a>Autenticação do serviço para serviço com Gen1 de armazenamento do Azure Data Lake com o .NET SDK
 > [!div class="op_single_selector"]
 > * [Utilizar o Java](data-lake-store-service-to-service-authenticate-java.md)
-> * [Utilizar o SDK .NET](data-lake-store-service-to-service-authenticate-net-sdk.md)
+> * [Com o .NET SDK](data-lake-store-service-to-service-authenticate-net-sdk.md)
 > * [Utilizar o Python](data-lake-store-service-to-service-authenticate-python.md)
-> * [Utilizar a API REST](data-lake-store-service-to-service-authenticate-rest-api.md)
+> * [Com a API REST](data-lake-store-service-to-service-authenticate-rest-api.md)
 >
 >
 
@@ -41,7 +41,7 @@ Neste artigo, saiba como utilizar o SDK .NET para efetuar autenticação serviç
 2. No menu **Ficheiro**, clique em **Novo** e, em seguida, clique em **Projeto**.
 3. A partir de **Novo Projeto**, escreva ou selecione os seguintes valores:
 
-   | Propriedade | Value |
+   | Propriedade | Valor |
    | --- | --- |
    | Categoria |Templates/Visual C#/Windows |
    | Modelo |Aplicação de Consola |
@@ -54,8 +54,8 @@ Neste artigo, saiba como utilizar o SDK .NET para efetuar autenticação serviç
    2. No separador **Gestor de Pacotes NuGet**, certifique-se de que a **Origem do pacote** está definida como **nuget.org** e que a caixa de verificação **Incluir pré-lançamento** está selecionada.
    3. Procure e instale os seguintes pacotes NuGet:
 
-      * `Microsoft.Azure.Management.DataLake.Store` - Este tutorial utiliza a v2.1.3-preview.
-      * `Microsoft.Rest.ClientRuntime.Azure.Authentication` - Este tutorial utiliza a v2.2.12.
+      * `Microsoft.Azure.Management.DataLake.Store` -Este tutorial utiliza a v2.1.3-preview.
+      * `Microsoft.Rest.ClientRuntime.Azure.Authentication` -Este tutorial utiliza a v2.2.12.
 
         ![Adicionar uma origem NuGet](./media/data-lake-store-get-started-net-sdk/data-lake-store-install-nuget-package.png "Criar uma nova conta do Azure Data Lake")
    4. Feche o **Gestor de Pacotes NuGet**.

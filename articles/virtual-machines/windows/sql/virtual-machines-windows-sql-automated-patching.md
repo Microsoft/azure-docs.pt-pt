@@ -16,24 +16,24 @@ ms.workload: iaas-sql-server
 ms.date: 03/07/2018
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: a7c6bea1c45cfe704bcff9ad2d4e47a30a9780cb
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 210043eaaf09fb601fe01c33cc1a53c9146bf859
+ms.sourcegitcommit: 04716e13cc2ab69da57d61819da6cd5508f8c422
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57439626"
+ms.lasthandoff: 04/02/2019
+ms.locfileid: "58848259"
 ---
 # <a name="automated-patching-for-sql-server-in-azure-virtual-machines-resource-manager"></a>Aplicação de Patches Automatizada para o SQL Server nas Máquinas Virtuais do Azure (Resource Manager)
 > [!div class="op_single_selector"]
 > * [Resource Manager](virtual-machines-windows-sql-automated-patching.md)
 > * [Clássico](../sqlclassic/virtual-machines-windows-classic-sql-automated-patching.md)
 
-A aplicação de patches automatizada estabelece uma janela de manutenção para uma Máquina Virtual do Azure com o SQL Server. Atualizações automáticas só podem ser instaladas durante esta janela de manutenção. Para o SQL Server, esta restrição garante que as atualizações do sistema e os reinícios de associados ocorrerem no momento melhor possível para a base de dados. 
+A aplicação de patches automatizada estabelece uma janela de manutenção para uma Máquina Virtual do Azure com o SQL Server. As Atualizações Automáticas só podem ser instaladas durante essa janela de manutenção. No SQL Server, esta restrição assegura que as atualizações do sistema e eventuais reinícios associados ocorrem na melhor altura para a base de dados. 
 
 > [!IMPORTANT]
-> Apenas as atualizações Windows marcadas **importante** estão instalados. Outras atualizações do SQL Server, tais como atualizações cumulativas, tem de ser instaladas manualmente. 
+> Só são instaladas as atualizações do Windows assinaladas como **Importantes**. As outras atualizações do SQL Server, como as Atualizações Cumulativas, têm de ser instaladas manualmente. 
 
-A aplicação de patches automatizada depende da [extensão de agente IaaS do SQL Server](virtual-machines-windows-sql-server-agent-extension.md).
+A Colocação de Patches Automática depende da [Extensão Agente IaaS do SQL Server](virtual-machines-windows-sql-server-agent-extension.md).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 Para utilizar a aplicação de patches automatizada, considere os seguintes pré-requisitos:
@@ -105,11 +105,11 @@ Se pretende ativar a aplicação de patches automatizada pela primeira vez, o Az
 ## <a name="configuration-with-powershell"></a>Configuração com o PowerShell
 Depois de aprovisionar a VM do SQL, utilize o PowerShell para configurar a aplicação de patches automatizada.
 
-No exemplo a seguir, o PowerShell é utilizado para configurar a aplicação de patches automatizada de mensagens em fila numa VM existente do SQL Server. O **AzureRM.Compute\New AzVMSqlServerAutoPatchingConfig** comando configura uma nova janela de manutenção para atualizações automáticas.
+No exemplo a seguir, o PowerShell é utilizado para configurar a aplicação de patches automatizada de mensagens em fila numa VM existente do SQL Server. O **New-AzVMSqlServerAutoPatchingConfig** comando configura uma nova janela de manutenção para atualizações automáticas.
 
     $vmname = "vmname"
     $resourcegroupname = "resourcegroupname"
-    $aps = AzureRM.Compute\New-AzVMSqlServerAutoPatchingConfig -Enable -DayOfWeek "Thursday" -MaintenanceWindowStartingHour 11 -MaintenanceWindowDuration 120  -PatchCategory "Important"
+    $aps = New-AzVMSqlServerAutoPatchingConfig -Enable -DayOfWeek "Thursday" -MaintenanceWindowStartingHour 11 -MaintenanceWindowDuration 120  -PatchCategory "Important"
 
     Set-AzVMSqlServerExtension -AutoPatchingSettings $aps -VMName $vmname -ResourceGroupName $resourcegroupname
 
@@ -127,7 +127,7 @@ Com base neste exemplo, a tabela seguinte descreve o efeito prático na VM do Az
 
 Pode demorar vários minutos para instalar e configurar o agente IaaS do SQL Server.
 
-Para desativar a aplicação de patches automatizada, execute o mesmo script sem o **-ative** parâmetro para o **AzureRM.Compute\New AzVMSqlServerAutoPatchingConfig**. A ausência do **-ative** parâmetro sinaliza o comando para desabilitar o recurso.
+Para desativar a aplicação de patches automatizada, execute o mesmo script sem o **-ative** parâmetro para o **New-AzVMSqlServerAutoPatchingConfig**. A ausência do **-ative** parâmetro sinaliza o comando para desabilitar o recurso.
 
 ## <a name="next-steps"></a>Passos Seguintes
 Para obter informações sobre outras tarefas de automação disponíveis, consulte [extensão de agente IaaS do SQL Server](virtual-machines-windows-sql-server-agent-extension.md).

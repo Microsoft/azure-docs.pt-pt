@@ -13,12 +13,12 @@ ms.topic: article
 ms.date: 08/29/2018
 ms.author: routlaw
 ms.custom: seodec18
-ms.openlocfilehash: 98e00eb382962d2364adda93b1a5b24fdef832eb
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 8db65fd9a1f271aea4ceb345f4d9dfbb6b9ff8a6
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58101776"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58877385"
 ---
 # <a name="java-enterprise-guide-for-app-service-on-linux"></a>Guia de Java Enterprise para o serviço de aplicações no Linux
 
@@ -119,4 +119,5 @@ Serviço de aplicações fornece ferramentas para ajudar a resolver problemas co
 
 -   Ativar o registo ao clicar em **registos de diagnóstico** no painel de navegação esquerdo. Clique em **sistema de ficheiros** para definir o período de retenção e a quota de armazenamento e guardar as alterações. Pode encontrar estes registos em `/home/LogFiles/`.
 -   [Utilizar o SSH para ligar à instância do aplicativo](app-service-linux-ssh-support.md) para ver os registos para a execução de aplicativos.
--   Registos de diagnóstico de verificação **registos de diagnóstico** painel do Portal ou através do comando da CLI do Azure: ` az webapp log tail --name <your-app-name> --resource-group <your-apps-resource-group> `
+-   Registos de diagnóstico de verificação **registos de diagnóstico** painel do Portal ou através do comando da CLI do Azure:
+`az webapp log tail --name <your-app-name> --resource-group <your-apps-resource-group>`

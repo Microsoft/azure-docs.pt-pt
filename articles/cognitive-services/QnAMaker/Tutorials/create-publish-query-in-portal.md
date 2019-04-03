@@ -11,12 +11,12 @@ ms.subservice: qna-maker
 ms.topic: tutorial
 ms.date: 12/17/2018
 ms.author: diberry
-ms.openlocfilehash: 5635e0f669cec64bdbbf947099f980066a4aebc1
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 6f79614e4b1ec660d2ec5c8aee40924908cf8f5c
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58121422"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58884130"
 ---
 # <a name="tutorial-create-a-knowledge-base-then-answer-question-via-the-qna-maker-portal"></a>Tutorial: Criar uma base de dados de conhecimento, em seguida, responder a perguntas através do portal do QnA Maker
 
@@ -66,7 +66,7 @@ Este tutorial requer um [serviço Criador de FAQ](../How-To/set-up-qnamaker-serv
     |Nome da definição|Valor da definição|Objetivo|
     |--|--|--|
     |do IdP|`https://docs.microsoft.com/azure/cognitive-services/qnamaker/faqs` |Os conteúdos de FAQ nesse URL estão formatados com uma pergunta, seguida de uma resposta. O Criador de FAQ consegue interpretar este formato para extrair perguntas e as respostas associadas.|
-    |Ficheiro |_não utilizado neste tutorial_|Esta definição carrega ficheiros para perguntas e respostas. |
+    |Ficheiro |_Não é utilizado neste tutorial_|Esta definição carrega ficheiros para perguntas e respostas. |
     |Personalidade de Chit-chat|O amigo|Esta definição dá uma personalidade informal e amigável a perguntas e respostas comuns. Pode editar estas perguntas e respostas mais tarde. |
 
     ![Passo 4 do processo de criação da BDC](../media/qnamaker-tutorial-create-publish-query-in-portal/create-kb-step-4.png)
@@ -105,7 +105,7 @@ Após a publicação da BDC, o ponto final é apresentado
 
     ![Comando Curl](../media/qnamaker-tutorial-create-publish-query-in-portal/publish-3-curl.png)
 
-1. Copie o texto do separador **Curl** e execute num terminal preparado para Curl ou numa linha de comandos. O valor do cabeçalho de autorização inclui o texto `Endpoint ` com um espaço à direita, seguido da chave.
+1. Copie o texto do separador **Curl** e execute num terminal preparado para Curl ou numa linha de comandos. O valor do cabeçalho de autorização inclui o texto `Endpoint` com um espaço à direita, seguido da chave.
 
 1. Substitua `<Your question>` por `How large can my KB be?`. Esta pergunta é parecida com a pergunta `How large a knowledge base can I create?`, mas não é exatamente igual. O Criador de FAQ aplica o processamento de linguagem natural para determinar que as duas perguntas são idênticas.     
 
@@ -208,4 +208,4 @@ Saiba mais sobre as [personalidades](../Concepts/best-practices.md#chit-chat) Ch
 Para obter mais informações sobre a resposta predefinida, veja [Nenhuma correspondência encontrada](../Concepts/confidence-score.md#no-match-found). 
 
 > [!div class="nextstepaction"]
-> [Conceitos da base de dados de conhecimento](../Concepts/knowledge-base.md)
+> [Conceitos de base de dados de conhecimento](../Concepts/knowledge-base.md)

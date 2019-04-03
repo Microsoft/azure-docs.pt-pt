@@ -1,25 +1,25 @@
 ---
 title: Compreender duplos de centro de segurança do Azure para o módulo de segurança de IoT pré-visualização | Documentos da Microsoft
 description: Saiba mais sobre o conceito de duplos de módulo de segurança e como elas são usadas no Centro de segurança do Azure para IoT.
-services: ascforiot
+services: asc-for-iot
+ms.service: ascforiot
 documentationcenter: na
 author: mlottner
 manager: barbkess
 editor: ''
 ms.assetid: a5c25cba-59a4-488b-abbe-c37ff9b151f9
-ms.service: ascforiot
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/26/2019
 ms.author: mlottner
-ms.openlocfilehash: 56bc93973bd2c080b13b97f1344cc165f742e757
-ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
+ms.openlocfilehash: c5814b188c73ea03094d7dae565e40ca09e705c2
+ms.sourcegitcommit: d83fa82d6fec451c0cb957a76cfba8d072b72f4f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58758412"
+ms.lasthandoff: 04/02/2019
+ms.locfileid: "58862442"
 ---
 # <a name="security-module"></a>Módulo de segurança
 

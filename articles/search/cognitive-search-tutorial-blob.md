@@ -10,12 +10,12 @@ ms.topic: tutorial
 ms.date: 03/18/2019
 ms.author: luisca
 ms.custom: seodec2018
-ms.openlocfilehash: c888c134054f50bc8ab17d17524a4f89d5081dfc
-ms.sourcegitcommit: aa3be9ed0b92a0ac5a29c83095a7b20dd0693463
+ms.openlocfilehash: f60b9002f939cbf4c3a0ecfb78b358598713ea1c
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58259623"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58881635"
 ---
 # <a name="tutorial-call-cognitive-services-apis-in-an-azure-search-indexing-pipeline-preview"></a>Tutorial: Chamar APIs serviços cognitivos num Azure Search, indexação do pipeline (pré-visualização)
 
@@ -129,9 +129,6 @@ Uma vez que este é o seu primeiro pedido, verifique o portal do Azure para conf
   ![Mosaico Origens de dados no portal](./media/cognitive-search-tutorial-blob/data-source-tile.png "Mosaico Origens de dados no portal")
 
 Se obtiver um erro 403 ou 404, verifique a construção do pedido: `api-version=2017-11-11-Preview` deve estar no ponto final, `api-key` deve estar no Cabeçalho após `Content-Type` e o valor deve ser válido para um serviço de pesquisa. Pode reutilizar o cabeçalho para os restantes passos neste tutorial.
-
-> [!TIP]
-> Agora, antes de fazer muito trabalho, é um bom momento para verificar se o serviço de pesquisa está em execução em uma das localizações suportadas fornecendo a funcionalidade de pré-visualização: Centro-Sul dos E.U.A. ou Europa Ocidental.
 
 ## <a name="create-a-skillset"></a>Criar um conjunto de competências
 
@@ -554,4 +551,4 @@ A forma mais rápida de os limpar no final do tutorial passa por eliminar o grup
 Personalize ou expanda o pipeline com competências personalizadas. A criação de uma competência personalizada e a sua adição a um conjunto de competências permite-lhe carregar análises de texto ou imagem que escreveu. 
 
 > [!div class="nextstepaction"]
-> [Exemplo: criar uma competência personalizada](cognitive-search-create-custom-skill-example.md)
+> [Exemplo: criar uma habilidade personalizada](cognitive-search-create-custom-skill-example.md)

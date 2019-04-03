@@ -4,7 +4,7 @@ description: Ligar ao Azure Data Lake Storage Gen1 de VNETs do Azure
 services: data-lake-store,data-catalog
 documentationcenter: ''
 author: esung22
-manager: jhubbard
+manager: mtillman
 editor: cgronlun
 ms.assetid: 683fcfdc-cf93-46c3-b2d2-5cb79f5e9ea5
 ms.service: data-lake-store
@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/31/2018
 ms.author: elsung
-ms.openlocfilehash: a2367eff3095df82662f7b56571ecdbd966609fd
-ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
+ms.openlocfilehash: c8d028a981d7811ed2c864db5750afc83ab93b2b
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52284017"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58878065"
 ---
 # <a name="access-azure-data-lake-storage-gen1-from-vms-within-an-azure-vnet"></a>Acesso do Azure Data Lake Storage Gen1 de VMs dentro de uma VNET do Azure
 Geração de armazenamento 1 do Azure Data Lake é um serviço de PaaS que é executado em endereços de IP de Internet públicos. Qualquer servidor que pode ligar-se para a Internet pública, normalmente, pode ligar a pontos finais de geração 1 de armazenamento do Azure Data Lake também. Por predefinição, todas as VMs em VNETs do Azure podem aceder à Internet e, por conseguinte, podem aceder a geração 1 de armazenamento do Azure Data Lake. No entanto, é possível configurar as VMs numa VNET não ter acesso à Internet. Para essas VMs, acesso a geração 1 de armazenamento do Azure Data Lake é restrito também. Bloquear o acesso público à Internet para VMs em VNETs do Azure pode ser feito através de qualquer uma das seguintes abordagens:

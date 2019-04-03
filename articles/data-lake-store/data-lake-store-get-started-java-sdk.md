@@ -3,25 +3,25 @@ title: 'Java SDK: Operações de sistema de ficheiros em Gen1 de armazenamento d
 description: Utilização do Azure Storage Gen1 Java SDK do Data Lake para executar operações de sistema de ficheiros no Data Lake Storage Gen1, como criar pastas, etc.
 services: data-lake-store
 documentationcenter: ''
-author: nitinme
-manager: jhubbard
+author: twooley
+manager: mtillman
 editor: cgronlun
 ms.assetid: d10e09db-5232-4e84-bb50-52efc2c21887
 ms.service: data-lake-store
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/29/2018
-ms.author: nitinme
-ms.openlocfilehash: e84e84aac3aca0458dea4f30f6b0e222aafd9d44
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.author: twooley
+ms.openlocfilehash: bc6e0718cdc4ccb18480dc760279da9c177db4cb
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57530301"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58883552"
 ---
 # <a name="filesystem-operations-on-azure-data-lake-storage-gen1-using-java-sdk"></a>Operações do sistema de ficheiros em Gen1 de armazenamento do Azure Data Lake com o SDK de Java
 > [!div class="op_single_selector"]
-> * [SDK do .NET](data-lake-store-data-operations-net-sdk.md)
+> * [SDK .NET](data-lake-store-data-operations-net-sdk.md)
 > * [SDK Java](data-lake-store-get-started-java-sdk.md)
 > * [API REST](data-lake-store-data-operations-rest-api.md)
 > * [Python](data-lake-store-data-operations-python.md)
@@ -195,7 +195,7 @@ O fragmento seguinte lista o conteúdo de um diretório, em modo recursivo.
 
 A definição da função `printDirectoryInfo` utilizada no fragmento anterior está disponível como parte do exemplo [no GitHub](https://azure.microsoft.com/documentation/samples/data-lake-store-java-upload-download-get-started/).
 
-## <a name="delete-files-and-folders"></a>Elimine ficheiros e pastas
+## <a name="delete-files-and-folders"></a>Eliminar ficheiros e pastas
 
 O fragmento seguinte elimina os ficheiros e pastas especificados numa conta do Data Lake Storage Gen1, recursivamente.
 
@@ -209,7 +209,7 @@ O fragmento seguinte elimina os ficheiros e pastas especificados numa conta do D
 2. Para produzir um jar autónomo que pode executar a partir da linha de comandos, compile um jar com todas as dependências incluídas com o [plug-in de montagem do Maven](https://maven.apache.org/plugins/maven-assembly-plugin/usage.html). O pom. XML no [código de fonte de exemplo no GitHub](https://github.com/Azure-Samples/data-lake-store-java-upload-download-get-started/blob/master/pom.xml) tem um exemplo.
 
 ## <a name="next-steps"></a>Passos Seguintes
-* [Explorar JavaDoc para o SDK Java](https://azure.github.io/azure-data-lake-store-java/javadoc/)
-* [Proteger dados no Armazenamento do Data Lake Ger1](data-lake-store-secure-data.md)
+* [Explorar JavaDoc para o Java SDK](https://azure.github.io/azure-data-lake-store-java/javadoc/)
+* [Proteger os dados na geração 1 de armazenamento do Data Lake](data-lake-store-secure-data.md)
 
 

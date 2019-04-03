@@ -3,27 +3,27 @@ title: 'Autenticação de utilizador final: SDK do .NET com a geração 1 de arm
 description: Saiba como conseguir a autenticação de utilizador final com Gen1 de armazenamento do Azure Data Lake com o Azure Active Directory com o .NET SDK
 services: data-lake-store
 documentationcenter: ''
-author: nitinme
+author: twooley
 manager: cgronlun
 editor: cgronlun
 ms.service: data-lake-store
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/29/2018
-ms.author: nitinme
-ms.openlocfilehash: 62b7e293468a8b92f22ee1a5fd5b38cd15cfafbf
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.author: twooley
+ms.openlocfilehash: 78a290d8136f8804e853d36a9bc95571625ed89c
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53261539"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58876773"
 ---
 # <a name="end-user-authentication-with-azure-data-lake-storage-gen1-using-net-sdk"></a>Autenticação de utilizador final com Gen1 de armazenamento do Azure Data Lake com o .NET SDK
 > [!div class="op_single_selector"]
 > * [Utilizar o Java](data-lake-store-end-user-authenticate-java-sdk.md)
-> * [Utilizar o SDK .NET](data-lake-store-end-user-authenticate-net-sdk.md)
+> * [Com o .NET SDK](data-lake-store-end-user-authenticate-net-sdk.md)
 > * [Utilizar o Python](data-lake-store-end-user-authenticate-python.md)
-> * [Utilizar a API REST](data-lake-store-end-user-authenticate-rest-api.md)
+> * [Com a API REST](data-lake-store-end-user-authenticate-rest-api.md)
 > 
 >  
 
@@ -45,7 +45,7 @@ Neste artigo, saiba como utilizar o SDK de .NET para fazer a autenticação de u
    | --- | --- |
    | Categoria |Templates/Visual C#/Windows |
    | Modelo |Aplicação de Consola |
-   | Nome |CreateADLApplication |
+   | Name |CreateADLApplication |
 
 4. Clique em **OK** para criar o projeto.
 
@@ -55,8 +55,8 @@ Neste artigo, saiba como utilizar o SDK de .NET para fazer a autenticação de u
    2. No separador **Gestor de Pacotes NuGet**, certifique-se de que a **Origem do pacote** está definida como **nuget.org** e que a caixa de verificação **Incluir pré-lançamento** está selecionada.
    3. Procure e instale os seguintes pacotes NuGet:
 
-      * `Microsoft.Azure.Management.DataLake.Store` - Este tutorial utiliza a v2.1.3-preview.
-      * `Microsoft.Rest.ClientRuntime.Azure.Authentication` - Este tutorial utiliza a v2.2.12.
+      * `Microsoft.Azure.Management.DataLake.Store` -Este tutorial utiliza a v2.1.3-preview.
+      * `Microsoft.Rest.ClientRuntime.Azure.Authentication` -Este tutorial utiliza a v2.2.12.
 
         ![Adicionar uma origem NuGet](./media/data-lake-store-get-started-net-sdk/data-lake-store-install-nuget-package.png "Criar uma nova conta do Azure Data Lake")
    4. Feche o **Gestor de Pacotes NuGet**.

@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.service: container-service
 ms.date: 12/03/2018
 ms.author: iainfou
-ms.openlocfilehash: 841e00825b243d883303121022918efd51397f04
-ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
+ms.openlocfilehash: 54c8e44685bb69e845c819b0c2846b188a771d71
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58757422"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58878235"
 ---
 # <a name="preview---create-and-configure-an-azure-kubernetes-services-aks-cluster-to-use-virtual-nodes-using-the-azure-cli"></a>Pré-visualizar - criar e configurar um cluster de serviços de Kubernetes do Azure (AKS) para utilizar nós virtuais com a CLI do Azure
 
@@ -47,7 +47,7 @@ Se o fornecedor é apresentado como *NotRegistered*, registar o fornecedor a uti
 az provider register --namespace Microsoft.ContainerInstance
 ```
 
-## <a name="regional-availability-limitations"></a>Limitações de disponibilidade regional
+## <a name="regional-availability"></a>Disponibilidade regional
 
 As seguintes regiões são suportadas para implementações de nó virtual:
 
@@ -162,13 +162,7 @@ az aks create \
 
 Ao fim de vários minutos, o comando é concluído e devolve informações sobre o cluster no formato JSON.
 
-## <a name="enable-virtual-nodes"></a>Ativar nós virtuais
-
-Para fornecer funcionalidade adicional, o conector de nós virtuais utiliza uma extensão de CLI do Azure. Antes de poder ativar o conector de virtual de nós, primeiro de instalar a extensão com o [Adicionar extensão az] [ az-extension-add] comando:
-
-```azurecli-interactive
-az extension add --source https://aksvnodeextension.blob.core.windows.net/aks-virtual-node/aks_virtual_node-0.2.0-py2.py3-none-any.whl
-```
+## <a name="enable-virtual-nodes-addon"></a>Ativar o suplemento de nós virtuais
 
 Para ativar a nós virtuais, agora utilizar o [enable-complementos de az aks] [ az-aks-enable-addons] comando. O exemplo seguinte utiliza a sub-rede denominada *myVirtualNodeSubnet* criado num passo anterior:
 
@@ -179,6 +173,11 @@ az aks enable-addons \
     --addons virtual-node \
     --subnet-name myVirtualNodeSubnet
 ```
+> [!NOTE]
+> Se receber um erro sobre nó virtual não foi encontrado, terá de instalar a extensão CLI 
+> ```azurecli-interactive
+> az extension add --source https://aksvnodeextension.blob.core.windows.net/aks-virtual-node/aks_virtual_node-0.2.0-py2.py3-none-any.whl
+> ```
 
 ## <a name="connect-to-the-cluster"></a>Ligar ao cluster
 

@@ -5,20 +5,17 @@ author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 02/19/2019
-ms.openlocfilehash: 40b31f166ea97cfce67d3cc386062e32338ffd45
-ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
+ms.date: 04/01/2019
+ms.openlocfilehash: f340f1e42b6993a1f834ab05570c669d4241222b
+ms.sourcegitcommit: 04716e13cc2ab69da57d61819da6cd5508f8c422
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56455522"
+ms.lasthandoff: 04/02/2019
+ms.locfileid: "58847186"
 ---
 # <a name="read-replicas-in-azure-database-for-postgresql"></a>Réplicas de leitura na Base de Dados do Azure para PostgreSQL
 
 A funcionalidade de réplica de leitura permite-lhe replicar dados de uma base de dados do Azure para o servidor PostgreSQL para um servidor de só de leitura. Pode replicar do servidor mestre para até cinco réplicas dentro da mesma região do Azure. As réplicas são atualizadas de forma assíncrona com a tecnologia de replicação nativo do motor de PostgreSQL.
-
-> [!IMPORTANT]
-> A funcionalidade de réplica de leitura está em pré-visualização pública.
 
 Réplicas são novos servidores que gerencie semelhante regular a base de dados do Azure para servidores PostgreSQL. Para cada réplica, leia, é-lhe cobrada a computação aprovisionada em vCores e o armazenamento em GB / mês.
 

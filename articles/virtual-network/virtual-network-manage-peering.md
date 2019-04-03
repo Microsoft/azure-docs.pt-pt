@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/21/2019
 ms.author: jdial;anavin
-ms.openlocfilehash: 28783b61a9361d97c151294140819249c9a100c2
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: e0a5674d434d997d04bfd42ca0e0863c11046d69
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57875223"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58882908"
 ---
 # <a name="create-change-or-delete-a-virtual-network-peering"></a>Criar, alterar ou eliminar um peering de rede virtual
 
@@ -45,17 +45,16 @@ Antes de criar um peering, familiarize-se com os requisitos e restrições e [as
 
 1. Na caixa de pesquisa na parte superior do portal do Azure, introduza *redes virtuais* na caixa de pesquisa. Quando **redes virtuais** aparecer nos resultados da pesquisa, selecione-o. Não selecione **redes virtuais (clássico)** se aparece na lista, como não é possível criar um peering de uma rede virtual implementada por meio do modelo de implementação clássica.
 2. Selecione a rede virtual na lista que pretende criar como peering.
-3. Na lista de redes virtuais, selecione a rede virtual que pretende criar como peering.
-4. Sob **configurações**, selecione **Peerings**.
-5. Selecione **+ Adicionar**. 
-6. <a name="add-peering"></a>Introduza ou selecione os valores para as seguintes definições:
+3. Sob **configurações**, selecione **Peerings**.
+4. Selecione **+ Adicionar**. 
+5. <a name="add-peering"></a>Introduza ou selecione os valores para as seguintes definições:
     - **Nome:** O nome para o peering tem de ser exclusivo dentro da rede virtual.
     - **Modelo de implementação de rede virtual:** Selecione a rede virtual que pretende fazer peer foi implementada por meio de qual modelo de implementação.
     - **Eu sei o ID de recurso:** Se tiver acesso de leitura para a rede virtual que pretende fazer peer, deixe esta caixa de verificação desmarcada. Se não tiver acesso de leitura para a rede virtual ou a subscrição que pretende configurar o peering com, esta caixa de verificação. Introduza o ID de recurso completo da rede virtual que pretende configurar o peering no **ID de recurso** caixa que apareceu quando tiver selecionado a caixa. O recurso ID introduzir tem de ser para uma rede virtual que existe no mesmo, ou [suportados diferentes](#requirements-and-constraints) Azure [região](https://azure.microsoft.com/regions) como esta rede virtual. O ID do recurso completo é semelhante a /subscriptions/<Id>/resourceGroups/ < nome de grupo de recursos > /providers/Microsoft.Network/virtualNetworks/ < virtual-network-name >. Pode obter o ID de recurso para uma rede virtual ao visualizar as propriedades de uma rede virtual. Para saber como ver as propriedades de uma rede virtual, veja [gerir redes virtuais](manage-virtual-network.md#view-virtual-networks-and-settings). Se a subscrição está associada a um inquilino do Azure Active Directory diferente do que a subscrição com a rede virtual que está a criar o peering de, primeiro adicione um utilizador de cada inquilino como um [utilizador convidado](../active-directory/b2b/add-users-administrator.md?toc=%2fazure%2fvirtual-network%2ftoc.json#add-guest-users-to-the-directory) no inquilino oposto.
     - **Subscrição:** Selecione o [subscrição](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#subscription) da rede virtual que pretende fazer peer. Uma ou mais subscrições estão listadas, dependendo do número de subscrições a sua conta tem acesso de leitura. Se tiver selecionado o **ID de recurso** caixa de verificação, esta definição não está disponível.
     - **Rede virtual:** Selecione a rede virtual que pretende fazer peer. Pode selecionar uma rede virtual criada através de qualquer modelo de implementação do Azure. Se pretender selecionar uma rede virtual numa região diferente, tem de selecionar uma rede virtual de um [suportada região](#cross-region). Tem de ter acesso de leitura para a rede virtual para que ele ficasse visível na lista. Se uma rede virtual está listada, mas a cinzento, poderá ser porque o espaço de endereços da rede virtual sobrepõe-se o espaço de endereços para esta rede virtual. Se a sobreposição de espaços de endereços de rede virtual, não podem ser agrupadas. Se tiver selecionado o **ID de recurso** caixa de verificação, esta definição não está disponível.
     - **Permitir o acesso de rede virtual:** Selecione **ativado** (predefinição), se pretender permitir a comunicação entre as duas redes virtuais. Ativar a comunicação entre redes virtuais permite que os recursos ligados a qualquer rede virtual para comunicar entre si com o mesmo da largura de banda e latência, como se estivessem conectados à mesma rede virtual. Todas as comunicações entre os recursos em duas redes virtuais é através da rede privada do Azure. O **VirtualNetwork** etiqueta de serviço para grupos de segurança de rede abrange a rede virtual e a rede virtual em modo de peering. Para obter mais informações sobre etiquetas de serviço de grupo de segurança de rede, consulte [descrição geral dos grupos de segurança de rede](security-overview.md#service-tags). Selecione **desativado** se não pretender que o tráfego flua para a rede virtual em modo de peering. Poderá selecionar **desativado** se tiver uma rede virtual com outra rede virtual em modo de peering, mas, ocasionalmente, pretende desativar o fluxo de tráfego entre as duas redes virtuais. Pode achar a ativação/desativação é mais conveniente para a eliminar e voltar a criar peerings. Quando esta definição estiver desativada, o tráfego não flui entre as redes virtuais em modo de peering.
-    - **Permitir tráfego reencaminhado:** Selecione esta caixa para permitir o tráfego *reencaminhados* por uma aplicação virtual de rede numa rede virtual (que não se originam da rede virtual) para o fluxo para esta rede virtual por meio de um peering. Por exemplo, considere as três redes virtuais com o nome Spoke1 Spoke2 e Hub. Um peering existe entre cada rede virtual do spoke e rede virtual do concentrador, mas os peerings não existem entre as redes virtuais indicadas. Uma aplicação virtual de rede está implementada na rede virtual do concentrador e rotas definidas pelo utilizador são aplicadas a cada rede virtual do spoke que encaminham o tráfego entre sub-redes através do dispositivo virtual de rede. Se esta caixa de verificação não estiver marcada para o peering entre cada rede virtual do spoke e rede virtual do concentrador, tráfego não flui entre as redes virtuais "spoke", porque o hub é reencaminhar o tráfego entre as redes virtuais. Enquanto o ativar essa capacidade permite o tráfego reencaminhado através do peering, não cria quaisquer rotas definidas pelo utilizador ou dispositivos de rede virtual. Rotas definidas pelo utilizador e dispositivos de rede virtual são criados em separado. Saiba mais sobre [rotas definidas pelo utilizador](virtual-networks-udr-overview.md#user-defined). Não precisa verificar esta definição se o tráfego é encaminhado entre redes virtuais através de um Gateway de VPN do Azure.
+    - **Permitir tráfego reencaminhado:** Selecione esta caixa para permitir o tráfego *reencaminhados* por uma aplicação virtual de rede numa rede virtual (que não se originam da rede virtual) para o fluxo para esta rede virtual por meio de um peering. Por exemplo, considere as três redes virtuais com o nome Spoke1 Spoke2 e Hub. Um peering existe entre cada rede virtual do spoke e rede virtual do concentrador, mas os peerings não existem entre as redes virtuais indicadas. Uma aplicação virtual de rede está implementada na rede virtual do concentrador e rotas definidas pelo utilizador são aplicadas a cada rede virtual do spoke que encaminham o tráfego entre sub-redes através do dispositivo virtual de rede. Se esta caixa de verificação não estiver marcada para o peering entre cada rede virtual do spoke e rede virtual do concentrador, tráfego não flui entre as redes virtuais "spoke", porque o hub é não reencaminhar o tráfego entre as redes virtuais. Enquanto o ativar essa capacidade permite o tráfego reencaminhado através do peering, não cria quaisquer rotas definidas pelo utilizador ou dispositivos de rede virtual. Rotas definidas pelo utilizador e dispositivos de rede virtual são criados em separado. Saiba mais sobre [rotas definidas pelo utilizador](virtual-networks-udr-overview.md#user-defined). Não precisa verificar esta definição se o tráfego é encaminhado entre redes virtuais através de um Gateway de VPN do Azure.
     - **Permitir trânsito de gateway:** Selecione esta caixa se tiver um gateway de rede virtual ligado a esta rede virtual e pretende permitir o tráfego da rede virtual em modo de peering para o fluxo através do gateway. Por exemplo, esta rede virtual pode ser anexada a uma rede no local através de um gateway de rede virtual. O gateway pode ser um gateway de VPN ou ExpressRoute. Selecionar esta caixa permite o tráfego da rede virtual em modo de peering para o fluxo através do gateway anexado a esta rede virtual à rede no local. Se selecionar esta caixa, a rede virtual em modo de peering não pode ter um gateway configurado. A rede virtual em modo de peering tem de ter o **utilizar gateways remotos** caixa de seleção marcada quando configurar o peering da rede virtual para esta rede virtual. Se deixar esta caixa desmarcada (predefinição), o tráfego de rede virtual em modo de peering ainda fluxos a esta rede virtual, mas não pode fluir por um gateway de rede virtual ligado a esta rede virtual. Se o peering entre uma rede virtual (Resource Manager) e uma rede virtual (clássica), o gateway tem de ser na rede virtual (Resource Manager). Não é possível ativar esta opção se estiver peering de redes virtuais em regiões diferentes.
 
        Para além de encaminhar o tráfego para uma rede no local, um gateway de VPN pode reencaminhar o tráfego de rede entre redes virtuais em modo de peering com a rede virtual, que o gateway está, sem as redes virtuais que precisem de ser executado o peering entre si. Utilizar um gateway VPN para encaminhar o tráfego é útil quando pretender utilizar um gateway de VPN num hub (veja o exemplo de hub- and -spoke descrito para **permitir tráfego reencaminhado**) a rede virtual para encaminhar o tráfego entre redes virtuais "spoke" que não são configurar o peering entre si. Para saber mais sobre o que permite a utilização de um gateway para o trânsito, veja [configurar um gateway de VPN que o trânsito no peering de rede virtual](../vpn-gateway/vpn-gateway-peering-gateway-transit.md?toc=%2fazure%2fvirtual-network%2ftoc.json). Este cenário requer a implementação de rotas definidas pelo utilizador que especificam o gateway de rede virtual como o tipo de salto seguinte. Saiba mais sobre [rotas definidas pelo utilizador](virtual-networks-udr-overview.md#user-defined). Apenas pode especificar um gateway de VPN como um tipo de próximo salto numa rota definida pelo utilizador, não é possível especificar um gateway ExpressRoute como o tipo de próximo salto numa rota definida pelo utilizador. Não é possível ativar esta opção se estiver peering de redes virtuais em regiões diferentes.
@@ -65,7 +64,7 @@ Antes de criar um peering, familiarize-se com os requisitos e restrições e [as
 
         Não é possível utilizar gateways remotos se já tiver um gateway configurado na sua rede virtual. Não é possível ativar esta opção se estiver peering de redes virtuais em regiões diferentes. Para saber mais sobre como utilizar um gateway para o trânsito, veja [configurar um gateway de VPN que o trânsito no peering de rede virtual](../vpn-gateway/vpn-gateway-peering-gateway-transit.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
 
-7. Selecione **OK** para adicionar o peering para a rede virtual que selecionou.
+6. Selecione **OK** para adicionar o peering para a rede virtual que selecionou.
 
 Para obter instruções passo a passo para implementar o peering entre redes virtuais em diferentes subscrições e modelos de implementação, consulte [passos seguintes](#next-steps).
 
@@ -80,11 +79,10 @@ Antes de alterar um peering, familiarize-se com os requisitos e restrições e [
 
 1. Na caixa de pesquisa na parte superior do portal, introduza *redes virtuais* na caixa de pesquisa. Quando **redes virtuais** aparecer nos resultados da pesquisa, selecione-o. Não selecione **redes virtuais (clássico)** se aparece na lista, como não é possível criar um peering de uma rede virtual implementada por meio do modelo de implementação clássica.
 2. Na lista que pretende alterar as definições de peering para, selecione a rede virtual.
-3. Na lista de redes virtuais, selecione a rede virtual que pretende alterar as definições de peering para.
-4. Sob **configurações**, selecione **Peerings**.
-5. Selecione o que pretende ver ou alterar as definições de peering.
-6. Altere a definição adequada. Leia sobre as opções para cada definição em [passo 6](#add-peering) de criar um peering.
-7. Selecione **Guardar**.
+3. Sob **configurações**, selecione **Peerings**.
+4. Selecione o que pretende ver ou alterar as definições de peering.
+5. Altere a definição adequada. Leia sobre as opções para cada definição em [passo 5](#add-peering) de criar um peering.
+6. Selecione **Guardar**.
 
 **Comandos**
 
@@ -101,10 +99,9 @@ Se pretender que as redes virtuais para comunicar-se por vezes, mas nem sempre, 
 
 1. Na caixa de pesquisa na parte superior do portal, introduza *redes virtuais* na caixa de pesquisa. Quando **redes virtuais** aparecer nos resultados da pesquisa, selecione-o. Não selecione **redes virtuais (clássico)** se aparece na lista, como não é possível criar um peering de uma rede virtual implementada por meio do modelo de implementação clássica.
 2. Selecione a rede virtual na lista que pretende eliminar o peering.
-3. Na lista de redes virtuais, selecione a rede virtual que pretende eliminar o peering.
-4. Sob **configurações**, selecione **Peerings**.
-5. No lado direito do peering que pretende eliminar, selecione **...** , selecione **eliminar**, em seguida, selecione **Sim** para eliminar o peering a partir da primeira rede virtual.
-6. Conclua os passos anteriores para eliminar o peering a partir de outra rede virtual no peering.
+3. Sob **configurações**, selecione **Peerings**.
+4. No lado direito do peering que pretende eliminar, selecione **...** , selecione **eliminar**, em seguida, selecione **Sim** para eliminar o peering a partir da primeira rede virtual.
+5. Conclua os passos anteriores para eliminar o peering a partir de outra rede virtual no peering.
 
 **Comandos**
 
@@ -159,9 +156,9 @@ Se a sua conta não está atribuída a uma das funções do anteriores, tem de s
 
   |Modelo de implementação do Azure             | Subscrição  |
   |---------                          |---------|
-  |Ambas com Resource Manager              |[Mesma](tutorial-connect-virtual-networks-portal.md)|
+  |Ambas com Resource Manager              |[Mesmo](tutorial-connect-virtual-networks-portal.md)|
   |                                   |[Diferente](create-peering-different-subscriptions.md)|
-  |Uma com Resource Manager, outra com clássica  |[Mesma](create-peering-different-deployment-models.md)|
+  |Uma com Resource Manager, outra com clássica  |[Mesmo](create-peering-different-deployment-models.md)|
   |                                   |[Diferente](create-peering-different-deployment-models-subscriptions.md)|
 
 - Saiba como criar uma [topologia de rede hub and spoke](/azure/architecture/reference-architectures/hybrid-networking/hub-spoke?toc=%2fazure%2fvirtual-network%2ftoc.json)

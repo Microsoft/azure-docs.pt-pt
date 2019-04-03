@@ -3,24 +3,24 @@ title: '.NET SDK: Operações de sistema de ficheiros em Gen1 de armazenamento d
 description: Utilização do Azure Data Lake Gen1 SDK .NET do armazenamento para executar operações de sistema de ficheiros no Data Lake Storage Gen1, como criar pastas, etc.
 services: data-lake-store
 documentationcenter: ''
-author: nitinme
-manager: jhubbard
+author: twooley
+manager: mtillman
 editor: cgronlun
 ms.service: data-lake-store
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/29/2018
-ms.author: nitinme
-ms.openlocfilehash: 0a6cfc5ca9a0b788075f4472649a6e1bcdf87637
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.author: twooley
+ms.openlocfilehash: 02091f1b650e3e9932f9924bf36a5841861d3b1e
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58119501"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58876960"
 ---
 # <a name="filesystem-operations-on-azure-data-lake-storage-gen1-using-net-sdk"></a>Operações do sistema de ficheiros em Gen1 de armazenamento do Azure Data Lake com o .NET SDK
 > [!div class="op_single_selector"]
-> * [SDK do .NET](data-lake-store-data-operations-net-sdk.md)
+> * [SDK .NET](data-lake-store-data-operations-net-sdk.md)
 > * [SDK Java](data-lake-store-get-started-java-sdk.md)
 > * [API REST](data-lake-store-data-operations-rest-api.md)
 > * [Python](data-lake-store-data-operations-python.md)
@@ -45,7 +45,7 @@ O exemplo de código disponível no [GitHub](https://github.com/Azure-Samples/da
 2. No menu **Ficheiro**, clique em **Novo** e, em seguida, clique em **Projeto**.
 3. A partir de **Novo Projeto**, escreva ou selecione os seguintes valores:
 
-   | Propriedade | Value |
+   | Propriedade | Valor |
    | --- | --- |
    | Categoria |Templates/Visual C#/Windows |
    | Modelo |Aplicação de Consola |
@@ -59,8 +59,8 @@ O exemplo de código disponível no [GitHub](https://github.com/Azure-Samples/da
    2. No separador **Gestor de Pacotes NuGet**, certifique-se de que a **Origem do pacote** está definida como **nuget.org** e que a caixa de verificação **Incluir pré-lançamento** está selecionada.
    3. Procure e instale os seguintes pacotes NuGet:
 
-      * `Microsoft.Azure.DataLake.Store` - este tutorial utiliza a v1.0.0.
-      * `Microsoft.Rest.ClientRuntime.Azure.Authentication` - este tutorial utiliza a v2.3.1.
+      * `Microsoft.Azure.DataLake.Store` -Este tutorial utiliza a v1.0.0.
+      * `Microsoft.Rest.ClientRuntime.Azure.Authentication` -Este tutorial utiliza a v2.3.1.
     
       Feche o **Gestor de Pacotes NuGet**.
 
@@ -182,4 +182,4 @@ Aqui estão alguns exemplos sobre como utilizar o SDK de sistema de ficheiros de
 * [Referência do SDK de .NET do Data Lake Storage Gen1](https://docs.microsoft.com/dotnet/api/overview/azure/data-lake-store?view=azure-dotnet)
 
 ## <a name="next-steps"></a>Passos Seguintes
-* [Proteger dados no Armazenamento do Data Lake Ger1](data-lake-store-secure-data.md)
+* [Proteger os dados na geração 1 de armazenamento do Data Lake](data-lake-store-secure-data.md)

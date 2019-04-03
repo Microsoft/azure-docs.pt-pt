@@ -12,12 +12,12 @@ ms.topic: tutorial
 ms.date: 01/02/2019
 ms.author: pryerram
 ms.custom: mvc
-ms.openlocfilehash: c66a7d7af2a73e26878b92f34e0f42ce0b3ae7f2
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: fb17afa4bfe8c00c91cc8fb33ab3326452065a9e
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57437502"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58885422"
 ---
 # <a name="tutorial-use-azure-key-vault-with-a-windows-virtual-machine-in-net"></a>Tutorial: Utilizar o Azure Key Vault com uma máquina virtual do Windows no .NET
 
@@ -148,7 +148,7 @@ Abra uma linha de comandos.
 
 Pode imprimir "Hello World" para a consola ao executar os comandos seguintes:
 
-```
+```batch
 dotnet new console -o helloworldapp
 cd helloworldapp
 dotnet run
@@ -158,7 +158,7 @@ dotnet run
 
 Abra o *Program.cs* de ficheiros e adicionar estes pacotes:
 
-```
+```csharp
 using System;
 using System.IO;
 using System.Net;
@@ -172,7 +172,7 @@ Edite o arquivo de classe para conter o código no processo de dois passos segui
 1. Obter um token a partir do ponto de final MSI local na VM. Também se o fizer, obtém um token do Azure AD.
 1. Transmitir o token para o seu Cofre de chaves e, em seguida, obter o seu segredo. 
 
-```
+```csharp
  class Program
     {
         static void Main(string[] args)

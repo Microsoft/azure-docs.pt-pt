@@ -2,29 +2,29 @@
 title: 'PowerShell: Cluster HDInsight do Azure com o Azure Data Lake Storage Gen1 como armazenamento adicional | Documentos da Microsoft'
 services: data-lake-store,hdinsight
 documentationcenter: ''
-author: nitinme
-manager: jhubbard
+author: twooley
+manager: mtillman
 editor: cgronlun
 ms.assetid: 164ada5a-222e-4be2-bd32-e51dbe993bc0
 ms.service: data-lake-store
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/29/2018
-ms.author: nitinme
-ms.openlocfilehash: 4187557ef9a38f55465547f83d7bc4c3bcad9ba7
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
+ms.author: twooley
+ms.openlocfilehash: f78ad8d58bb1bc760a31b792b44a4a39ed25e1f3
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56236942"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58880105"
 ---
 # <a name="use-azure-powershell-to-create-an-hdinsight-cluster-with-azure-data-lake-storage-gen1-as-additional-storage"></a>Utilizar o Azure PowerShell para criar um cluster do HDInsight com o Azure Data Lake Storage Gen1 (como armazenamento adicional)
 
 > [!div class="op_single_selector"]
-> * [Utilizar o Portal](data-lake-store-hdinsight-hadoop-use-portal.md)
+> * [Utilizar o portal](data-lake-store-hdinsight-hadoop-use-portal.md)
 > * [Com o PowerShell (para o armazenamento predefinido)](data-lake-store-hdinsight-hadoop-use-powershell-for-default-storage.md)
 > * [Com o PowerShell (para armazenamento adicional)](data-lake-store-hdinsight-hadoop-use-powershell.md)
-> * [Com o Resource Manager](data-lake-store-hdinsight-hadoop-use-resource-manager-template.md)
+> * [Utilizar o Gestor de Recursos](data-lake-store-hdinsight-hadoop-use-resource-manager-template.md)
 >
 >
 

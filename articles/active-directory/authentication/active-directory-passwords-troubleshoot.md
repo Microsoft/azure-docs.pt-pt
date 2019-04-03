@@ -12,12 +12,12 @@ manager: daveba
 ms.reviewer: sahenry
 ms.custom: seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 81519a9452bf578c2640b547b2102b8e162e2878
-ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
+ms.openlocfilehash: 8f4f13a8b03f3ddba91fb4c4b69f550e1e88a491
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58369790"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58885082"
 ---
 # <a name="troubleshoot-self-service-password-reset"></a>Resolver problemas de reposição de palavra-passe self-service
 
@@ -75,7 +75,7 @@ Está a ter um problema com a reposição de palavra-passe self-service (SSPR) d
 | O utilizador verá um erro ao validar o respetivo número de telefone. | Este erro ocorre quando o número de telefone introduzido não corresponde ao número de telefone no ficheiro. Certifique-se de que o usuário estiver inserindo o número de telefone completo, incluindo o código de área e o país, quando tentam utilizar um método baseado no telefone para a reposição de palavra-passe. |
 | Existe um erro ao processar o pedido. | Isto pode ser causado por vários problemas, mas em geral, este erro é causado por uma indisponibilidade do serviço ou um problema de configuração. Se vir este erro e afeta a sua empresa, contacte o suporte da Microsoft para obter mais ajuda. |
 | Violação de política no local | A palavra-passe não cumpre a política de palavra-passe do Active Directory no local. |
-| Palavra-passe não cumpre a política difusa | A palavra-passe que foi utilizada é apresentado na lista de palavra-passe banidas e não pode ser utilizada. |
+| Palavra-passe não cumpre a política difusa | A palavra-passe que foi utilizada é apresentado na [banida a lista de palavra-passe](https://docs.microsoft.com/azure/active-directory/authentication/concept-password-ban-bad#how-are-passwords-evaluated) e não pode ser utilizado. |
 
 ## <a name="troubleshoot-password-writeback"></a>Resolver problemas de repetição de escrita de palavra-passe
 
@@ -289,10 +289,10 @@ Os seguintes artigos fornecem informações adicionais sobre a palavra-passe, re
 * [Repor ou alterar a palavra-passe](../user-help/active-directory-passwords-update-your-own-password.md)
 * [Registar-se na reposição personalizada de palavra-passe](../user-help/active-directory-passwords-reset-register.md)
 * [Tem alguma pergunta sobre licenciamento?](concept-sspr-licensing.md)
-* [Que dados são utilizados pela SSPR e que dados devem ser preenchidos por si para os seus utilizadores?](howto-sspr-authenticationdata.md)
-* [Que métodos de autenticação estão disponíveis para os utilizadores?](concept-sspr-howitworks.md#authentication-methods)
-* [Quais são as opções de política da SSPR?](concept-sspr-policy.md)
-* [O que é a repetição de escrita de palavras-passe e por que me deve interessar?](howto-sspr-writeback.md)
+* [Os dados que são utilizados pela SSPR e quais dados devem ser preenchidos para os seus utilizadores?](howto-sspr-authenticationdata.md)
+* [Os métodos de autenticação estão disponíveis para os utilizadores?](concept-sspr-howitworks.md#authentication-methods)
+* [Quais são as opções de política com SSPR?](concept-sspr-policy.md)
+* [O que é a repetição de escrita de palavra-passe e por que me importo-lo?](howto-sspr-writeback.md)
 * [Como posso comunicar a atividade da SSPR?](howto-sspr-reporting.md)
-* [Quais são todas as opções na SSPR e o que significam?](concept-sspr-howitworks.md)
-* [Tenho uma pergunta que ainda não foi abordada](active-directory-passwords-faq.md)
+* [Quais são todas as opções na SSPR e o que fazer que significam?](concept-sspr-howitworks.md)
+* [Tenho uma pergunta que não foi abordada](active-directory-passwords-faq.md)

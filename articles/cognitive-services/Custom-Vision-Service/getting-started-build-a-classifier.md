@@ -10,12 +10,12 @@ ms.subservice: custom-vision
 ms.topic: conceptual
 ms.date: 01/10/2019
 ms.author: anroth
-ms.openlocfilehash: f2cd8f5074f815e84caaedb01335406657f29088
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
-ms.translationtype: MT
+ms.openlocfilehash: cf8a36145ebf5d5dabf8c539d4f245e1d4b209f0
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58088014"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58886442"
 ---
 # <a name="how-to-build-a-classifier-with-custom-vision"></a>Como criar um classificador com visão personalizada
 
@@ -27,12 +27,12 @@ Para utilizar o serviço de visão personalizada para classificação de imagens
 - Um conjunto de imagens com a qual treinar o classificador. Veja abaixo para obter dicas sobre a escolha de imagens.
 
 
-## <a name="create-custom-vision-resources-in-the-azure-portal"></a>Criar recursos de visão personalizada no Portal do Azure
+## <a name="create-custom-vision-resources-in-the-azure-portal"></a>Criar recursos de visão personalizada no portal do Azure
 Para utilizar o serviço de visão personalizada, terá de criar recursos de formação de visão personalizada e predição no do [portal do Azure](https://portal.azure.com/?microsoft_azure_marketplace_ItemHideKey=microsoft_azure_cognitiveservices_customvision#create/Microsoft.CognitiveServicesCustomVision). Esta ação irá criar recursos de formação e predição. 
 
 ## <a name="create-a-new-project"></a>Criar um novo projeto
 
-No seu browser, navegue para o [página da web de visão personalizada](https://customvision.ai) e selecione __iniciar sessão__. Inicie sessão com a mesma conta utilizada para iniciar sessão no Portal do Azure.
+No seu browser, navegue para o [página da web de visão personalizada](https://customvision.ai) e selecione __iniciar sessão__. Inicie sessão com a mesma conta utilizada para iniciar sessão no portal do Azure.
 
 ![Imagem da página de início de sessão](./media/browser-home.png)
 
@@ -43,8 +43,8 @@ No seu browser, navegue para o [página da web de visão personalizada](https://
 
 1. Introduza um nome e uma descrição para o projeto. Em seguida, selecione um grupo de recursos. Se a sua conta com sessão iniciada estiver associada uma conta do Azure, a lista pendente do grupo de recursos irá apresentar todos os grupos de recursos do Azure que incluem um recurso de serviço de visão personalizada. 
 
-> [!NOTE]
-> Se nenhum grupo de recursos estiver disponível, confirme que iniciou sessão na [customvision.ai](https://customvision.ai) com a mesma conta que utilizou para iniciar sessão para o [Portal do Azure](https://portal.azure.com/). Além disso, confirme que selecionou o mesmo "diretório" no portal de visão personalizada como o diretório no portal do Azure, onde se encontram os seus recursos de visão personalizada. Em ambos os sites, pode selecionar o seu diretório no menu pendente menu da conta no canto superior direito da tela. 
+   > [!NOTE]
+   > Se nenhum grupo de recursos estiver disponível, confirme que iniciou sessão na [customvision.ai](https://customvision.ai) com a mesma conta que utilizou para iniciar sessão para o [portal do Azure](https://portal.azure.com/). Além disso, confirme que selecionou o mesmo "diretório" no portal de visão personalizada como o diretório no portal do Azure, onde se encontram os seus recursos de visão personalizada. Em ambos os sites, pode selecionar o seu diretório no menu pendente menu da conta no canto superior direito da tela. 
 
 1. Selecione __classificação__ sob __tipos de projetos__. Em seguida, em __tipos de classificação__, escolha o **Multilabel** ou **várias classes**, dependendo do seu caso de utilização. Classificação multilabel aplica-se um número qualquer de suas marcas para uma imagem (zero ou mais), enquanto a classificação multiclasses ordena imagens em únicas categorias (cada imagem que submeter serão também ser ordenada a marca mais provável). Será capaz de alterar o tipo de classificação mais tarde se desejar.
 
@@ -55,7 +55,7 @@ No seu browser, navegue para o [página da web de visão personalizada](https://
     |__Genérico__| Otimizado para uma ampla variedade de tarefas de classificação de imagens. Se nenhum dos outros domínios são adequadas ou se tiver a certeza de qual escolher o domínio, selecione o domínio genérico. |
     |__Comida__|Otimizado para fotos de pratos conforme os veria num menu do restaurante. Se quiser classificar fotografias de frutas individuais ou vegetables, utilize o domínio de alimento.|
     |__Pontos de referência__|Otimizado para pontos de referência reconhecíveis, naturais e artificiais. Este domínio funciona melhor quando o ponto de referência é claramente visível na fotografia. Este domínio funciona mesmo que o ponto de referência é um pouco obstructed por pessoas na sua frente.|
-    |__Revenda__|Otimizado para imagens que se encontram num catálogo de compra ou o Web site de compra. Se pretender que o serviço de alta precisão classificar entre dresses, intuição e shirts, utilize este domínio.|
+    |__Retalho__|Otimizado para imagens que se encontram num catálogo de compra ou o Web site de compra. Se pretender que o serviço de alta precisão classificar entre dresses, intuição e shirts, utilize este domínio.|
     |__Adulto__|Otimizado para definir melhor o conteúdo para adultos e conteúdo não adulto. Por exemplo, se deseja bloquear imagens de pessoas em bathing de encriptação, este domínio permite-lhe criar um classificador personalizado para fazer isso.|
     |__Domínios compactos__| Otimizado para as restrições de classificação em tempo real em dispositivos móveis. Os modelos de gerados por domínios compactos podem ser exportados para executar localmente.|
     
@@ -96,12 +96,7 @@ Nesta secção irá carregar e marque manualmente as imagens para ajudar a trein
 
     ![A barra de progresso mostra todas as tarefas concluídas.](./media/getting-started-build-a-classifier/add-images04.png)
 
-Para carregar outro conjunto de imagens, regresse à parte superior desta secção e repita os passos. Em algum momento no seu projeto, poderá ter de adicionar _negativo exemplos_ para ajudar a tornar o seu classificador mais precisas. Exemplos negativos são aqueles que não correspondam a qualquer uma das outras etiquetas. Ao carregar estas imagens, aplicam-se especial **negativo** Etiquetar às mesmas.
-
-> [!NOTE]
-> O serviço de visão personalizada oferece suporte a alguns manipulação de imagem negativo automática. Por exemplo, se estiver criando um grape versus classificador banana e enviar uma imagem de um calçado para predição, o classificador deve classificar essa imagem como próximo de 0% para grape e banana.
-> 
-> Por outro lado, nos casos em que as imagens negativas são apenas uma variação das imagens utilizadas na formação, é provável que o modelo classifica as imagens negativas como uma classe etiquetada devido às semelhanças excelentes. Por exemplo, se tiver uma cor de laranja versus classificador grapefruit e alimentar numa imagem de um clementine, ele pode classificar o clementine como uma cor de laranja porque muitos recursos do clementine assemelhar-se do laranjas. Se as imagens negativas dessa natureza, é recomendável criar uma ou mais etiquetas adicionais (como **outros**) e identificar as imagens negativas com esta etiqueta durante o treinamento para permitir que o modelo para melhor distinção entre essas classes .
+Para carregar outro conjunto de imagens, regresse à parte superior desta secção e repita os passos.
 
 ## <a name="train-the-classifier"></a>Preparar o classificador
 
@@ -138,5 +133,5 @@ No painel esquerdo irá também encontrar os **eliminar** botão, que pode utili
 
 Neste guia, aprendeu a criar e formar um modelo de classificação de imagem usando o Web site de visão personalizada. Em seguida, obter mais informações sobre o processo interativo de melhorar o seu modelo.
 
-[Test and retrain a model](test-your-model.md) (Testar e voltar a preparar um modelo)
+[Testar e voltar a preparar um modelo](test-your-model.md)
 

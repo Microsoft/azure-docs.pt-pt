@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/19/2019
 ms.author: banders
-ms.openlocfilehash: e5dc8ac0716e194dd0949e2e270346ee338a792a
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: ee6317f61f95b19effd64308b88f53c027582b63
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57839734"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58883014"
 ---
 # <a name="understand-terms-on-your-microsoft-customer-agreement-invoice"></a>Compreender os termos na sua fatura de contrato de cliente da Microsoft
 
@@ -49,7 +49,7 @@ O **resumo da fatura** está no topo da página de primeiro e mostra informaçõ
 | P.O. número |Um número de ordem de compra opcional, atribuído por si para o controlo de |
 | Número da nota fiscal |Um número de nota fiscal exclusivo, gerados pelo Microsoft utilizado para efeitos de controlo |
 | Data da fatura |Data em que a nota fiscal é gerada, normalmente, cinco a 12 dias após o final do ciclo de faturação. Pode verificar a data da nota fiscal nas propriedades do perfil de faturação.|
-| Condições de pagamento |Como pagar à sua fatura da Microsoft. *Líquido 30 dias* significa que paga pela verificação ou conectar transferência dentro de 30 dias após a data da nota fiscal. |
+| Condições de pagamento |Como pagar à sua fatura da Microsoft. *Líquido 30 dias* paga dentro de 30 dias após a data da nota fiscal. |
 
 ### <a name="billing-summary"></a>Resumo de faturação
 
@@ -110,6 +110,6 @@ Se tiver alguma dúvida ou precisar de ajuda, [criar um pedido de suporte](https
 ## <a name="next-steps"></a>Passos Seguintes
 
 - [Compreender os encargos na fatura de seu perfil de faturação](billing-mca-understand-your-bill.md)
-- [Como obter a faturação e os dados de utilização diária do Azure](billing-download-azure-invoice-daily-usage-date.md)
+- [Como obter a faturação da nota fiscal e diário de dados de utilização do Azure](billing-download-azure-invoice-daily-usage-date.md)
 - [Veja os preços do Azure da sua organização](billing-ea-pricing.md)
 - [Ver documentos de imposto para o seu perfil de faturação](billing-mca-download-tax-document.md)

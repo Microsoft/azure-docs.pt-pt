@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 04/19/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5e18c58aafd4aa56a27f5e4a97c9dcc9dcd0fdbd
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 9167a5ed72e6fec2ca03cc97d1d41dd6cd4aaba6
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56199787"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58885847"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-secret-server-on-premises"></a>Tutorial: Integração do Active Directory do Azure com o segredo do servidor (no local)
 
@@ -111,7 +111,7 @@ Nesta secção, pode ativar o Azure AD início de sessão único no portal do Az
 
     a. Na **identificador** caixa de texto, introduza o utilizador escolhido o valor como um exemplo: `https://secretserveronpremises.azure`
 
-    b. Na **URL de resposta** caixa de texto, escreva um URL com o seguinte padrão: `https://<SecretServerURL>/SAML/AssertionConsumerService.aspx `
+    b. Na **URL de resposta** caixa de texto, escreva um URL com o seguinte padrão: `https://<SecretServerURL>/SAML/AssertionConsumerService.aspx`
 
     > [!NOTE]
     > O ID de entidade mostrado acima é apenas um exemplo e é livre para escolher qualquer valor exclusivo que identifica a instância do servidor de segredo no Azure AD. Terá de enviar este ID de entidade ao [equipa de suporte de cliente de segredo de servidor (no local)](https://thycotic.force.com/support/s/) e eles configurá-lo no seu lado. Para obter mais detalhes, leia [este artigo](https://thycotic.force.com/support/s/article/Configuring-SAML-in-Secret-Server).
@@ -219,7 +219,7 @@ Para obter mais informações sobre o painel de acesso, consulte [introdução a
 ## <a name="additional-resources"></a>Recursos adicionais
 
 * [Lista de tutoriais sobre como integrar aplicações SaaS com o Azure Active Directory](tutorial-list.md)
-* [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md) (O que é o acesso a aplicações e o início de sessão único com o Azure Active Directory?)
+* [O que é o acesso a aplicações e início de sessão único com o Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 
 <!--Image references-->
 

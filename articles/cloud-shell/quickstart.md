@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/12/2018
 ms.author: damaerte
-ms.openlocfilehash: 1b6419feef96b57bafd0831531bd8cfa56142cc4
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: b8f96de7214a46c9e38182c141343a46c0e28139
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58089153"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58882094"
 ---
 # <a name="quickstart-for-bash-in-azure-cloud-shell"></a>Início rápido para o Bash no Azure Cloud Shell
 
@@ -49,9 +49,9 @@ Verifique se o ambiente de baixo no lado esquerdo da janela do shell diz `Bash`.
    ```
 
 2. Defina a sua subscrição preferencial: <br>
-   ```azurecli-interactive
-   az account set --subscription my-subscription-name`
-   ```
+```azurecli-interactive
+az account set --subscription 'my-subscription-name'
+```
 
 > [!TIP]
 > A sua subscrição vai ser memorizada para futuras sessões usando `/home/<user>/.azure/azureProfile.json`.

@@ -14,40 +14,41 @@ ms.topic: conceptual
 ms.date: 02/26/2018
 ms.author: zhiweiw
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 16794dfdcdc6ed9c2effe412237d2681fca4f394
-ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
+ms.openlocfilehash: 3ffd783ec41b1b0c4a11ee426648c1e36fbbbf75
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58803299"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58883705"
 ---
 # <a name="health-service-data-is-not-up-to-date-alert"></a>Dados de estado de funcionamento do serviço não são atualizada alerta
 
 ## <a name="overview"></a>Descrição geral
-Os agentes nas máquinas no local que o Azure AD Connect Health monitorize periodicamente carrega dados para o serviço do Azure AD Connect Health. Se o serviço não receber dados de um agente, as informações apresentadas no portal será obsoletas. Para realçar o problema, o serviço irá gerar **dados de estado de funcionamento do serviço não estão atualizados** alerta. Este é gerado quando o serviço não recebeu dados concluídos nas últimas duas horas.  
 
-* O **aviso** alerta de estado é acionado se o serviço de estado de funcionamento recebeu apenas **parcial** tipos de dados enviados do servidor nas últimas duas horas. Alerta de estado de aviso não acionar notificações por e-mail aos destinatários configurados. 
-* O **erro** alerta de estado é acionado se o serviço de estado de funcionamento não recebeu quaisquer tipos de dados do servidor nas últimas duas horas. Acionadores de alerta de estado de erro notificações por correio eletrónico aos destinatários configurados.
+Os agentes nas máquinas no local que o Azure AD Connect Health monitorize periodicamente carregar dados para o serviço do Azure AD Connect Health. Se o serviço não receber dados de um agente, as informações que o portal apresenta será obsoletas. Para realçar o problema, o serviço irá elevar o **dados de estado de funcionamento do serviço não estão atualizados** alerta. Este alerta é gerado quando o serviço não recebeu completa de dados nas últimas duas horas.  
 
-O serviço obtém os dados de agentes que estão em execução nas máquinas no local. Dependendo do tipo de serviço, a tabela seguinte lista os agentes que são executados na máquina, o que fazem, bem como os tipos de dados que são gerados pelo serviço. Em alguns casos, há vários serviços envolvidos no processo, por isso, um deles podem ser o culpado. 
+- O **aviso** alerta de estado é acionado se o serviço de estado de funcionamento recebeu apenas **parcial** tipos de dados enviados do servidor nas últimas duas horas. O alerta de estado de aviso não acionar notificações por e-mail aos destinatários configurados. 
+- O **erro** alerta de estado é acionado se o serviço de estado de funcionamento não recebeu quaisquer tipos de dados do servidor nas últimas duas horas. Os acionadores de alerta de estado de erro notificações por correio eletrónico aos destinatários configurados.
+
+O serviço obtém os dados de agentes que estão em execução nas máquinas no local, dependendo do tipo de serviço. A tabela seguinte lista os agentes em execução a máquina, o que fazer e os tipos de dados que o serviço gera. Em alguns casos, existem vários serviços envolvidos no processo, para que qualquer um deles pode ser o culpado. 
 
 ## <a name="understanding-the-alert"></a>Noções básicas sobre o alerta
-O painel de detalhes do alerta indica a hora quando o alerta é gerado e última deteção. O alerta é gerado/voltar-evaluated por um processo em segundo plano, que é executado a cada duas horas. No exemplo abaixo, foi gerado o alerta inicial em 03/10 às 9h: 59. Ele continua a existir até mesmo em 03/12 10:00 quando o alerta foi avaliado novamente.
-O painel também fornece detalhes sobre a hora quando um determinado tipo de dados pela última vez foi recebido pelo serviço de integridade. 
+
+O **detalhes do alerta** painel mostra quando o alerta ocorreu e foi detectado pela última vez. Um processo em segundo plano que executa a cada duas horas gera e reavalia o alerta. No exemplo a seguir, o alerta inicial ocorreu no 03/10 às 9h: 59. O alerta ainda existisse na 03/12 às 10h, quando o alerta foi avaliado novamente. O painel também detalha o tempo que o serviço de estado de funcionamento recebeu pela última vez um tipo de dados específico. 
  
  ![Detalhes do alerta do Azure AD Connect Health](./media/how-to-connect-health-data-freshness/data-freshness-details.png)
  
-Segue-se o mapa de tipos de serviço e tipo de dados necessários correspondente.
+A tabela seguinte mapeia tipos de serviço para tipos de dados necessários correspondentes:
 
-| Tipo de Serviço | Agente (nome de serviço do Windows) | Objetivo | Tipo de dados gerado  |
+| Tipo de serviço | Agente (nome de serviço do Windows) | Objetivo | Tipo de dados gerado  |
 | --- | --- | --- | --- |  
-| O Azure AD Connect (sincronização) | Serviço de Informações do Azure AD Connect Health Sincronização | Recolher informações específicas AAD Connect (conectores, sincronização de regras etc.) | - AadSyncService-SynchronizationRules <br />  - AadSyncService-Connectors <br /> - AadSyncService-GlobalConfigurations  <br />  - AadSyncService-RunProfileResults <br /> - AadSyncService-ServiceConfigurations <br /> - AadSyncService-ServiceStatus   |
-|  | Serviço de Monitorização do Azure AD Connect Health Sincronização | Recolher ficheiros de contadores de desempenho (o AAD Connect específico), rastreios ETW, | Contador de Desempenho |
+| O Azure AD Connect (sincronização) | Serviço de Informações do Azure AD Connect Health Sincronização | Recolher informações específicas do AAD Connect (conectores, regras de sincronização, etc.) | - AadSyncService-SynchronizationRules <br />  - AadSyncService-Connectors <br /> - AadSyncService-GlobalConfigurations  <br />  - AadSyncService-RunProfileResults <br /> - AadSyncService-ServiceConfigurations <br /> - AadSyncService-ServiceStatus   |
+|  | Serviço de Monitorização do Azure AD Connect Health Sincronização | Recolher contadores de desempenho específicas do AAD Connect, rastreios ETW, ficheiros | Contador de desempenho |
 | AD DS | Serviço de Informações do Azure AD Connect Health AD DS | Executar testes de sintéticas, recolher informações de topologia, metadados de replicação |  -Adiciona-TopologyInfo-Json <br /> -Comum-TestData-Json (cria os resultados do teste)   | 
-|  | Serviço de Monitorização do Azure AD Connect Health AD DS | Recolher ficheiros de contadores, rastreios ETW, de desempenho (ADDS específicos) | -Contador de desempenho  <br /> -Comum-TestData-Json (carrega os resultados do teste)  |
+|  | Serviço de Monitorização do Azure AD Connect Health AD DS | Recolher contadores de desempenho do ADDS específicos, rastreios ETW, ficheiros | -Contador de desempenho  <br /> -Comum-TestData-Json (carrega os resultados do teste)  |
 | AD FS | Serviço de Diagnóstico do Azure AD Connect Health AD FS | Executar testes de sintéticos | TestResult (cria os resultados do teste) | 
 | | Serviço de Informações do Azure AD Connect Health AD FS  | Recolher métricas de utilização do AD FS | Adfs-UsageMetrics |
-| | Serviço de Monitorização do Azure AD Connect Health AD FS | Recolher ficheiros de contadores, rastreios ETW, de desempenho (específicos do AD FS) | TestResult (carrega os resultados do teste) |
+| | Serviço de Monitorização do Azure AD Connect Health AD FS | Recolher contadores de desempenho do AD FS específicos, rastreios ETW, ficheiros | TestResult (carrega os resultados do teste) |
 
 ## <a name="troubleshooting-steps"></a>Passos de resolução de problemas 
 

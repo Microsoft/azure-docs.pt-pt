@@ -16,12 +16,12 @@ ms.date: 10/20/2017
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fae036a0860ddb5ee2776f7ed4734492741907f7
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: d98a1aabef2de505e66b2127226b9e89cd791e20
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58177726"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58883450"
 ---
 # <a name="renew-federation-certificates-for-office-365-and-azure-active-directory"></a>Renovar certificados de Federação para o Office 365 e Azure Active Directory
 ## <a name="overview"></a>Descrição geral
@@ -118,7 +118,7 @@ Verifique o seguinte para confirmar que o certificado pode ser atualizado automa
 
 https://(your_FS_name)/federationmetadata/2007-06/federationmetadata.xml
 
-onde `(your_FS_name) `é substituído com o nome de anfitrião do serviço de Federação utiliza a sua organização, por exemplo, fs.contoso.com.  Se for capaz de verificar as duas destas definições com êxito, não tem a fazer mais nada.  
+onde `(your_FS_name)` é substituído com o nome de anfitrião do serviço de Federação utiliza a sua organização, por exemplo, fs.contoso.com.  Se for capaz de verificar as duas destas definições com êxito, não tem a fazer mais nada.  
 
 Exemplo: https://fs.contoso.com/federationmetadata/2007-06/federationmetadata.xml
 ## Renovar o token manualmente o certificado de assinatura <a name="manualrenew"></a>

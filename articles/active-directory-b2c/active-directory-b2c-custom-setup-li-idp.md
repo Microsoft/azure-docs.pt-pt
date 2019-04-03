@@ -1,21 +1,21 @@
 ---
-title: Configurar o início de sessão com uma conta do LinkedIn, no Azure Active Directory B2C, com as políticas personalizadas | Documentos da Microsoft
-description: Configure o início de sessão com uma conta do Google com as políticas personalizadas no Azure Active Directory B2C.
+title: Configurar o início de sessão com uma conta do LinkedIn com as políticas personalizadas - Azure Active Directory B2C | Documentos da Microsoft
+description: Configure o início de sessão com uma conta do LinkedIn, no Azure Active Directory B2C, com as políticas personalizadas.
 services: active-directory-b2c
 author: davidmu1
 manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 09/20/2018
+ms.date: 04/01/2019
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: 7700ef24deb82afcb2093c8fd27bcbe7f6f6420c
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 5dad12596dde13cfa7e0c2031d58f605061b0e20
+ms.sourcegitcommit: d83fa82d6fec451c0cb957a76cfba8d072b72f4f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55190348"
+ms.lasthandoff: 04/02/2019
+ms.locfileid: "58862799"
 ---
 # <a name="set-up-sign-in-with-a-linkedin-account-using-custom-policies-in-azure-active-directory-b2c"></a>Configurar o início de sessão com uma conta do LinkedIn com as políticas personalizadas no Azure Active Directory B2C
 
@@ -42,7 +42,7 @@ Para utilizar o LinkedIn como um fornecedor de identidade no Azure AD B2C, terá
 7. Introduza o seu **E-Mail empresariais** endereço e **telefone da empresa** número.
 8. Na parte inferior da página, leia e aceite os termos de utilização e, em seguida, selecione **submeter**.
 9. Selecione **autenticação**e, em seguida, registe o **ID de cliente** e **segredo do cliente** valores a utilizar mais tarde.
-10. Na **autorizado URLs de redirecionamento**, introduza `https://your-tenant.b2clogin.com/your-tenant.onmicrosoft.com/oauth2/authresp`. Substitua `your-tenant-name` com o nome do seu inquilino. Tem de utilizar todas as letras minúsculas, ao introduzir o nome do seu inquilino, mesmo que o inquilino está definido com letras maiúsculas no Azure AD B2C. 
+10. Na **autorizado URLs de redirecionamento**, introduza `https://your-tenant.b2clogin.com/your-tenant.onmicrosoft.com/oauth2/authresp`. Substitua `your-tenant` com o nome do seu inquilino. Tem de utilizar todas as letras minúsculas, ao introduzir o nome do seu inquilino, mesmo que o inquilino está definido com letras maiúsculas no Azure AD B2C. 
 11. Selecione **atualização**.
 12. Selecione **definições**, altere a **estado da aplicação** para **Live**e, em seguida, selecione **atualização**.
 
@@ -53,7 +53,7 @@ Tem de armazenar o segredo do cliente que registou anteriormente no seu inquilin
 1. Inicie sessão no [portal do Azure](https://portal.azure.com/).
 2. Certifique-se de que está a utilizar o diretório que contém o seu inquilino do Azure AD B2C, clicando no **filtro de diretório e subscrição** no menu superior e escolher o diretório que contém o seu inquilino.
 3. Escolher **todos os serviços** no canto superior esquerdo do portal do Azure e, em seguida, procure e selecione **do Azure AD B2C**.
-4. Na página de descrição geral, selecione **arquitetura de experiências de identidade - pré-visualização**.
+4. Na página de descrição geral, selecione **arquitetura de experiências de identidade**.
 5. Selecione **chaves de política** e, em seguida, selecione **Add**.
 6. Para **opções**, escolha `Manual`.
 7. Introduza um **nome** para a chave de política. Por exemplo, `LinkedInSecret`. O prefixo `B2C_1A_` é adicionado automaticamente o nome da sua chave.
@@ -83,12 +83,10 @@ Pode definir uma conta do LinkedIn como um fornecedor de afirmações ao adicion
             <Item Key="ProviderName">linkedin</Item>
             <Item Key="authorization_endpoint">https://www.linkedin.com/oauth/v2/authorization</Item>
             <Item Key="AccessTokenEndpoint">https://www.linkedin.com/oauth/v2/accessToken</Item>
-            <Item Key="ClaimsEndpoint">https://api.linkedin.com/v1/people/~:(id,first-name,last-name,email-address,headline)</Item>
-            <Item Key="ClaimsEndpointAccessTokenName">oauth2_access_token</Item>
-            <Item Key="ClaimsEndpointFormatName">format</Item>
-            <Item Key="ClaimsEndpointFormat">json</Item>
-            <Item Key="scope">r_emailaddress r_basicprofile</Item>
-            <Item Key="HttpBinding">POST</Item>
+            <Item Key="ClaimsEndpoint">https://api.linkedin.com/v2/me</Item>
+            <Item Key="external_user_identity_claim_id">id</Item>
+            <Item Key="BearerTokenTransmissionMethod">AuthorizationHeader</Item>
+            <Item Key="ResolveJsonPathsInJsonTokens">true</Item>
             <Item Key="UsePolicyInRedirectUri">0</Item>
             <Item Key="client_id">Your LinkedIn application client ID</Item>
           </Metadata>
@@ -99,12 +97,12 @@ Pode definir uma conta do LinkedIn como um fornecedor de afirmações ao adicion
             <OutputClaim ClaimTypeReferenceId="socialIdpUserId" PartnerClaimType="id" />
             <OutputClaim ClaimTypeReferenceId="givenName" PartnerClaimType="firstName" />
             <OutputClaim ClaimTypeReferenceId="surname" PartnerClaimType="lastName" />
-            <OutputClaim ClaimTypeReferenceId="email" PartnerClaimType="emailAddress" />
-            <!--<OutputClaim ClaimTypeReferenceId="jobTitle" PartnerClaimType="headline" />-->
             <OutputClaim ClaimTypeReferenceId="identityProvider" DefaultValue="linkedin.com" />
             <OutputClaim ClaimTypeReferenceId="authenticationSource" DefaultValue="socialIdpAuthentication" />
           </OutputClaims>
           <OutputClaimsTransformations>
+            <OutputClaimsTransformation ReferenceId="ExtractGivenNameFromLinkedInResponse" />
+            <OutputClaimsTransformation ReferenceId="ExtractSurNameFromLinkedInResponse" />
             <OutputClaimsTransformation ReferenceId="CreateRandomUPNUserName" />
             <OutputClaimsTransformation ReferenceId="CreateUserPrincipalName" />
             <OutputClaimsTransformation ReferenceId="CreateAlternativeSecurityId" />
@@ -119,6 +117,47 @@ Pode definir uma conta do LinkedIn como um fornecedor de afirmações ao adicion
 4. Substitua o valor de **client_id** com o ID de cliente que registou anteriormente.
 5. Guarde o ficheiro.
 
+### <a name="add-the-claims-transformations"></a>Adicionar as transformações de afirmações
+
+O perfil técnico do LinkedIn requer o **ExtractGivenNameFromLinkedInResponse** e **ExtractSurNameFromLinkedInResponse** afirmações transformações a ser adicionado à lista de ClaimsTransformations. Se não tiver uma **ClaimsTransformations** elemento definido no seu ficheiro, adicione os elementos XML principal, conforme mostrado abaixo. As transformações de declarações também necessidade definido um novo tipo de afirmação com o nome **nullStringClaim**. 
+
+O **BuildingBlocks** elemento deve ser adicionado perto da parte superior do ficheiro. Consulte a *TrustframeworkBase.xml* como exemplo.
+
+```XML
+<BuildingBlocks>
+  <ClaimsSchema>
+    <!-- Claim type needed for LinkedIn claims transformations -->
+    <ClaimType Id="nullStringClaim">
+      <DisplayName>nullClaim</DisplayName>
+      <DataType>string</DataType>
+      <AdminHelpText>A policy claim to store output values from ClaimsTransformations that aren't useful. This claim should not be used in TechnicalProfiles.</AdminHelpText>
+      <UserHelpText>A policy claim to store output values from ClaimsTransformations that aren't useful. This claim should not be used in TechnicalProfiles.</UserHelpText>
+    </ClaimType>
+  </ClaimsSchema>
+
+  <ClaimsTransformations>
+    <!-- Claim transformations needed for LinkedIn technical profile -->
+    <ClaimsTransformation Id="ExtractGivenNameFromLinkedInResponse" TransformationMethod="GetSingleItemFromJson">
+      <InputClaims>
+        <InputClaim ClaimTypeReferenceId="givenName" TransformationClaimType="inputJson" />
+      </InputClaims>
+      <OutputClaims>
+        <OutputClaim ClaimTypeReferenceId="nullStringClaim" TransformationClaimType="key" />
+        <OutputClaim ClaimTypeReferenceId="givenName" TransformationClaimType="value" />
+      </OutputClaims>
+    </ClaimsTransformation>
+    <ClaimsTransformation Id="ExtractSurNameFromLinkedInResponse" TransformationMethod="GetSingleItemFromJson">
+      <InputClaims>
+        <InputClaim ClaimTypeReferenceId="surname" TransformationClaimType="inputJson" />
+      </InputClaims>
+      <OutputClaims>
+        <OutputClaim ClaimTypeReferenceId="nullStringClaim" TransformationClaimType="key" />
+        <OutputClaim ClaimTypeReferenceId="surname" TransformationClaimType="value" />
+      </OutputClaims>
+    </ClaimsTransformation>
+  </ClaimsTransformations>
+</BuildingBlocks>
+```
 ### <a name="upload-the-extension-file-for-verification"></a>Carregar o ficheiro de extensão de verificação
 
 Agora, configurou sua política para que o Azure AD B2C sabe como se comunicar com a sua conta do LinkedIn. Tente carregar o ficheiro de extensão da sua política só para confirmar que ele não tem quaisquer problemas até agora.
@@ -185,3 +224,175 @@ Atualize o ficheiro da entidade confiadora de terceiros (RP) que inicia o percur
 4. Atualize o valor do **ReferenceId** atributo **DefaultUserJourney** de acordo com o ID do percurso do utilizador novo que criou (SignUpSignLinkedIn).
 5. Guardar as alterações, carregue o ficheiro e, em seguida, selecione a nova política na lista.
 6. Certifique-se de que a aplicação do Azure AD B2C que criou está selecionada na **selecione aplicativo** campo e, em seguida, testá-lo ao clicar em **executar agora**.
+
+
+## <a name="register-the-claims-provider"></a>Registar o fornecedor de afirmações
+
+Neste momento, o fornecedor de identidade tiver sido configurado, mas não está disponível em qualquer um dos ecrãs de inscrição ou início de sessão. Para tornar disponível, pode criar um duplicado de um percurso do utilizador modelo existente e, em seguida, modificá-lo para que ele também tem o fornecedor de identidade do LinkedIn.
+
+1. Abra o *TrustFrameworkBase.xml* ficheiro do pacote de iniciante.
+2. Localize e copie o conteúdo inteiro dos **UserJourney** elemento que inclui `Id="SignUpOrSignIn"`.
+3. Abra o *TrustFrameworkExtensions.xml* e localize a **UserJourneys** elemento. Se o elemento não existir, adicione um.
+4. Colar o conteúdo inteiro do **UserJourney** elemento que copiou como subordinado da **UserJourneys** elemento.
+5. Mudar o nome o ID do percurso do utilizador. Por exemplo, `SignUpSignInLinkedIn`.
+
+### <a name="display-the-button"></a>Exibir o botão
+
+O **ClaimsProviderSelection** elemento é semelhante a um botão do fornecedor de identidade numa tela de inscrição ou início de sessão. Se adicionar um **ClaimsProviderSelection** elemento de uma conta do LinkedIn, um novo botão exibido quando um utilizador que chegam na página.
+
+1. Encontrar o **OrchestrationStep** elemento que inclui `Order="1"` no percurso do utilizador que criou.
+2. Sob **ClaimsProviderSelects**, adicione o seguinte elemento. Defina o valor da **TargetClaimsExchangeId** para um valor adequado, por exemplo `LinkedInExchange`:
+
+    ```XML
+    <ClaimsProviderSelection TargetClaimsExchangeId="LinkedInExchange" />
+    ```
+
+### <a name="link-the-button-to-an-action"></a>Ligar o botão para uma ação
+
+Agora que tem um botão no local, terá de ligá-lo a uma ação. A ação, neste caso, é para o Azure AD B2C comunicar com uma conta do LinkedIn para receber um token.
+
+1. Encontrar o **OrchestrationStep** que inclua `Order="2"` no percurso do utilizador.
+2. Adicione as seguintes **ClaimsExchange** elemento certificar-se de que usar o mesmo valor para **Id** que utilizou para **TargetClaimsExchangeId**:
+
+    ```XML
+    <ClaimsExchange Id="LinkedInExchange" TechnicalProfileReferenceId="LinkedIn-OAUTH" />
+    ```
+    
+    Atualize o valor de **TechnicalProfileReferenceId** para o **Id** do perfil técnico que criou anteriormente. Por exemplo, `LinkedIn-OAUTH`.
+
+3. Guardar a *TrustFrameworkExtensions.xml* de ficheiro e carregá-lo novamente para a verificação.
+
+## <a name="create-an-azure-ad-b2c-application"></a>Criar uma aplicação do Azure AD B2C
+
+Comunicação com o Azure AD B2c ocorre por meio de um aplicativo que criar no seu inquilino. Esta secção lista os passos opcionais que pode seguir para criar uma aplicação de teste, se ainda não o tiver feito.
+
+1. Inicie sessão no [portal do Azure](https://portal.azure.com).
+2. Certifique-se de que está a utilizar o diretório que contém o seu inquilino do Azure AD B2C, clicando no **filtro de diretório e subscrição** no menu superior e escolher o diretório que contém o seu inquilino.
+3. Escolher **todos os serviços** no canto superior esquerdo do portal do Azure e, em seguida, procure e selecione **do Azure AD B2C**.
+4. Selecione **aplicativos**e, em seguida, selecione **Add**.
+5. Introduza um nome para o aplicativo, por exemplo *testapp1*.
+6. Para **aplicação Web / Web API**, selecione `Yes`e, em seguida, introduza `https://jwt.ms` para o **URL de resposta**.
+7. Clique em **Criar**.
+
+## <a name="update-and-test-the-relying-party-file"></a>Atualizar e testar o ficheiro da entidade confiadora de terceiros
+
+Atualize o ficheiro da entidade confiadora de terceiros (RP) que inicia o percurso do utilizador que criou.
+
+1. Faça uma cópia deles *SignUpOrSignIn.xml* no diretório de trabalho e renomeá-lo. Por exemplo, mude o nome para *SignUpSignInLinkedIn.xml*.
+2. Abra o ficheiro novo e atualize o valor do **PolicyId** atributo **TrustFrameworkPolicy** com um valor exclusivo. Por exemplo, `SignUpSignInLinkedIn`.
+3. Atualize o valor de **PublicPolicyUri** com o URI para a política. Por exemplo,`http://contoso.com/B2C_1A_signup_signin_linkedin`
+4. Atualize o valor do **ReferenceId** atributo **DefaultUserJourney** de acordo com o ID do percurso do utilizador novo que criou (SignUpSignLinkedIn).
+5. Guardar as alterações, carregue o ficheiro e, em seguida, selecione a nova política na lista.
+6. Certifique-se de que a aplicação do Azure AD B2C que criou está selecionada na **selecione aplicativo** campo e, em seguida, testá-lo ao clicar em **executar agora**.
+
+
+## <a name="migration-from-v10-to-v20"></a>Migração de versões 1.0 para v2.0
+
+LinkedIn recentemente [atualizado seus da API de v1.0 para v2.0](https://engineering.linkedin.com/blog/2018/12/developer-program-updates). Para migrar a sua configuração existente para a nova configuração, utilize as informações nas secções seguintes para atualizar os elementos no perfil técnico.
+
+### <a name="replace-items-in-the-metadata"></a>Substituir itens nos metadados
+
+No existente **metadados** elemento da **TechnicalProfile**, o seguinte procedimento de atualização **Item** elementos de:
+
+```XML
+<Item Key="ClaimsEndpoint">https://api.linkedin.com/v1/people/~:(id,first-name,last-name,email-address,headline)</Item>
+<Item Key="scope">r_emailaddress r_basicprofile</Item>
+```
+
+Para:
+
+```XML
+<Item Key="ClaimsEndpoint">https://api.linkedin.com/v2/me</Item>
+<Item Key="scope">r_emailaddress r_liteprofile</Item>
+```
+
+### <a name="add-items-to-the-metadata"></a>Adicionar itens para os metadados
+
+Na **metadados** da **TechnicalProfile**, adicione as seguintes **Item** elementos:
+
+```XML
+<Item Key="external_user_identity_claim_id">id</Item>
+<Item Key="BearerTokenTransmissionMethod">AuthorizationHeader</Item>
+<Item Key="ResolveJsonPathsInJsonTokens">true</Item>
+```
+
+### <a name="update-the-outputclaims"></a>Atualizar o OutputClaims
+
+No existente **OutputClaims** da **TechnicalProfile**, o seguinte procedimento de atualização **OutputClaim** elementos de:
+
+```XML
+<OutputClaim ClaimTypeReferenceId="givenName" PartnerClaimType="firstName" />
+<OutputClaim ClaimTypeReferenceId="surname" PartnerClaimType="lastName" />
+```
+
+Para:
+
+```XML
+<OutputClaim ClaimTypeReferenceId="givenName" PartnerClaimType="firstName.localized" />
+<OutputClaim ClaimTypeReferenceId="surname" PartnerClaimType="lastName.localized" />
+```
+
+### <a name="add-new-outputclaimstransformation-elements"></a>Adicionar novos elementos OutputClaimsTransformation
+
+Na **OutputClaimsTransformations** da **TechnicalProfile**, adicione as seguintes **OutputClaimsTransformation** elementos:
+
+```XML
+<OutputClaimsTransformation ReferenceId="ExtractGivenNameFromLinkedInResponse" />
+<OutputClaimsTransformation ReferenceId="ExtractSurNameFromLinkedInResponse" />
+```
+
+### <a name="define-the-new-claims-transformations-and-claim-type"></a>Definir novas transformações de afirmações e tipo de afirmação
+
+No último passo, adicionou novas transformações de afirmações que têm de ser definidos. Para definir as transformações de afirmações, adicione-o à lista de **ClaimsTransformations**. Se não tiver uma **ClaimsTransformations** elemento definido no seu ficheiro, adicione os elementos XML principal, conforme mostrado abaixo. As transformações de declarações também necessidade definido um novo tipo de afirmação com o nome **nullStringClaim**. 
+
+O **BuildingBlocks** elemento deve ser adicionado perto da parte superior do ficheiro. Consulte a *TrustframeworkBase.xml* como exemplo.
+
+```XML
+<BuildingBlocks>
+  <ClaimsSchema>
+    <!-- Claim type needed for LinkedIn claims transformations -->
+    <ClaimType Id="nullStringClaim">
+      <DisplayName>nullClaim</DisplayName>
+      <DataType>string</DataType>
+      <AdminHelpText>A policy claim to store unuseful output values from ClaimsTransformations. This claim should not be used in a TechnicalProfiles.</AdminHelpText>
+      <UserHelpText>A policy claim to store unuseful output values from ClaimsTransformations. This claim should not be used in a TechnicalProfiles.</UserHelpText>
+    </ClaimType>
+  </ClaimsSchema>
+
+  <ClaimsTransformations>
+    <!-- Claim transformations needed for LinkedIn technical profile -->
+    <ClaimsTransformation Id="ExtractGivenNameFromLinkedInResponse" TransformationMethod="GetSingleItemFromJson">
+      <InputClaims>
+        <InputClaim ClaimTypeReferenceId="givenName" TransformationClaimType="inputJson" />
+      </InputClaims>
+      <OutputClaims>
+        <OutputClaim ClaimTypeReferenceId="nullStringClaim" TransformationClaimType="key" />
+        <OutputClaim ClaimTypeReferenceId="givenName" TransformationClaimType="value" />
+      </OutputClaims>
+    </ClaimsTransformation>
+    <ClaimsTransformation Id="ExtractSurNameFromLinkedInResponse" TransformationMethod="GetSingleItemFromJson">
+      <InputClaims>
+        <InputClaim ClaimTypeReferenceId="surname" TransformationClaimType="inputJson" />
+      </InputClaims>
+      <OutputClaims>
+        <OutputClaim ClaimTypeReferenceId="nullStringClaim" TransformationClaimType="key" />
+        <OutputClaim ClaimTypeReferenceId="surname" TransformationClaimType="value" />
+      </OutputClaims>
+    </ClaimsTransformation>
+  </ClaimsTransformations>
+</BuildingBlocks>
+```
+
+### <a name="obtain-an-email-address"></a>Obter um endereço de e-mail
+
+Como parte da migração LinkedIn da versão 1.0 para a versão 2.0, uma chamada extra para outra API é necessário para obter o endereço de e-mail. Se precisar de obter o endereço de e-mail durante a inscrição, efetue o seguinte:
+
+1. Ter o Azure AD B2C federar com o LinkedIn para permitir que o utilizador iniciar sessão. Quando isto acontecer, o token de acesso é enviado do LinkedIn para o Azure AD B2C.
+2. Guarde o token de acesso do LinkedIn numa afirmação. [Veja as instruções aqui](idp-pass-through-custom.md).
+3. Chamar uma função do Azure e passar a função o token de acesso recolhido no passo anterior. [Veja as instruções aqui](active-directory-b2c-rest-api-step-custom.md)
+    1. A função do Azure deve demorar o token de acesso e fazer uma chamada à API do LinkedIn (`https://api.linkedin.com/v2/emailAddress?q=members&projection=(elements*(handle~))`).
+    2. A função do Azure usa a resposta e analisa o endereço de e-mail.
+    3. O endereço de e-mail é retornado para a política.
+4. O endereço de e-mail é armazenado na afirmação de e-mail e o percurso do utilizador continua.
+
+Obter o endereço de e-mail do LinkedIn durante a inscrição é opcional. Se optar por não obter a mensagem de e-mail, o utilizador é necessário introduzir o endereço de e-mail e validá-la manualmente.

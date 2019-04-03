@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: article
 ms.date: 03/22/2019
 ms.author: diberry
-ms.openlocfilehash: edd035bc95cd2e694a7cfac39e447c63fce0f7d3
-ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
-ms.translationtype: MT
+ms.openlocfilehash: b7788cc6854b477e8aab9e9df82ed2b54a3bdfe2
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58520161"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58884572"
 ---
 # <a name="install-and-run-luis-docker-containers"></a>Instalar e executar o LUIS contentores do docker
  
@@ -24,7 +24,7 @@ O contentor de compreensão de idiomas (LUIS) carrega o modelo de compreensão d
 
 O vídeo seguinte demonstra como utilizar este contentor.
 
-[![Demonstração de contentor para os serviços cognitivos](./media/luis-container-how-to/luis-containers-demo-video-still.png)](https://aka.ms/luis-container-demo)
+[![Cdemonstração de ontainer para os serviços cognitivos](./media/luis-container-how-to/luis-containers-demo-video-still.png)](https://aka.ms/luis-container-demo)
 
 Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
@@ -299,9 +299,9 @@ O nome da versão tem um máximo de 10 carateres e contém apenas carateres perm
 Se for uma montagem de saída é especificada para o contentor de LUIS, arquivos de log de consulta de aplicação são guardados no diretório de saída, em que {INSTANCE_ID} é o ID de contentor. O registo de consulta de aplicação contém a consulta, resposta e carimbos de data / para cada consulta de predição submetida para o contentor de LUIS. 
 
 A localização seguinte mostra a estrutura de diretório aninhado para ficheiros de registo do contentor.
-`
+```
 /output/luis/{INSTANCE_ID}/
-`
+```
  
 No portal do LUIS, selecione a sua aplicação, em seguida, selecione **importar registos de ponto final** para carregar estes registos. 
 

@@ -10,12 +10,12 @@ ms.reviewer: klam, LADocs
 ms.topic: tutorial
 ms.custom: mvc
 ms.date: 01/12/2018
-ms.openlocfilehash: 8a8c8c7abf5b6f0f2a870f6983c7e855db1e0192
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
-ms.translationtype: HT
+ms.openlocfilehash: ebc6388f1ebc7546ffda07095ead50797bde4e8b
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50231819"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58884691"
 ---
 # <a name="check-traffic-on-a-schedule-with-azure-logic-apps"></a>Verificar o tráfego com base numa agenda com o Azure Logic Apps
 
@@ -59,7 +59,7 @@ Inicie sessão no <a href="https://portal.azure.com" target="_blank">portal do A
 
    | Definição | Valor | Descrição | 
    | ------- | ----- | ----------- | 
-   | **Nome** | LA-TravelTime | O nome para a aplicação lógica | 
+   | **Name** | LA-TravelTime | O nome para a aplicação lógica | 
    | **Subscrição** | <*your-Azure-subscription-name*> | O nome para a subscrição do Azure | 
    | **Grupo de recursos** | LA-TravelTime-RG | O nome para o [grupo de recursos do Azure](../azure-resource-manager/resource-group-overview.md) utilizado para organizar os recursos relacionados | 
    | **Localização** | EUA Leste 2 | A região onde pretende armazenar as informações da aplicação lógica | 
@@ -74,11 +74,12 @@ Em seguida, adicione o [acionador](../logic-apps/logic-apps-overview.md#logic-ap
 
 ## <a name="add-scheduler-trigger"></a>Adicionar o acionador do agendador
 
-1. No estruturador, introduza "recurrence" ("periodicidade") na caixa de pesquisa. Selecione o acionador **Schedule - Recurrence**
+1. No estruturador, introduza "recurrence" ("periodicidade") na caixa de pesquisa. Selecione este acionador: **Agendamento - periodicidade**
 
    ![Localizar e adicione o acionador "Schedule-Recurrence"](./media/tutorial-build-scheduled-recurring-logic-app-workflow/add-schedule-recurrence-trigger.png)
 
-2. Na forma **Recurrence**, escolha o botão de **reticências** (**...**) e escolha **Mudar o nome**. Mude o nome do acionador com a descrição ```Check travel time every weekday morning```
+2. Na forma **Recurrence**, escolha o botão de **reticências** (**...**) e escolha **Mudar o nome**. Mudar o nome do acionador com a descrição:
+```Check travel time every weekday morning```
 
    ![Mudar o nome do acionador](./media/tutorial-build-scheduled-recurring-logic-app-workflow/rename-recurrence-schedule-trigger.png)
 
@@ -92,11 +93,11 @@ Em seguida, adicione o [acionador](../logic-apps/logic-apps-overview.md#logic-ap
    | ------- | ----- | ----------- | 
    | **Intervalo** | 1 | O número de intervalos de espera entre verificações | 
    | **Frequência** | Week (Semana) | A unidade de tempo a utilizar para a periodicidade | 
-   | **Time zone** (Fuso horário) | Nenhuma | Aplica-se apenas se especificar uma hora de início. É útil para especificar um fuso horário não local. | 
-   | **Start time** (Hora de início) | Nenhuma | Atrasar a periodicidade até uma data e hora específicas. Para obter mais informações, veja [Schedule tasks and workflows that run regularly](../connectors/connectors-native-recurrence.md) (Agendar tarefas e fluxos de trabalho que são executados regularmente). | 
-   | **On these days** (Nestes dias) | Monday,Tuesday,Wednesday,Thursday,Friday | Disponível apenas se **Frequency** (Frequência) estiver definida como "Week" | 
-   | **At these hours** (A estas horas) | 7,8,9 | Disponível apenas se **Frequency** estiver definida como "Week" ou “Day”. Selecionar as horas do dia para executar esta periodicidade. Este exemplo é executado nas marcas das 7, 8 e 9 horas. | 
-   | **At these minutes** (A estes minutos) | 0,15,30,45 | Disponível apenas se **Frequency** estiver definida como "Week" ou “Day”. Selecionar os minutos do dia para executar esta periodicidade. Este exemplo é executado a cada 15 minutos, começando na marca de hora zero. | 
+   | **Fuso horário** | Nenhuma | Aplica-se apenas se especificar uma hora de início. É útil para especificar um fuso horário não local. | 
+   | **Hora de início** | Nenhuma | Atrasar a periodicidade até uma data e hora específicas. Para obter mais informações, veja [Schedule tasks and workflows that run regularly](../connectors/connectors-native-recurrence.md) (Agendar tarefas e fluxos de trabalho que são executados regularmente). | 
+   | **Nestes dias** | Monday,Tuesday,Wednesday,Thursday,Friday | Disponível apenas se **Frequency** (Frequência) estiver definida como "Week" | 
+   | **A estas horas** | 7,8,9 | Disponível apenas se **Frequency** estiver definida como "Week" ou “Day”. Selecionar as horas do dia para executar esta periodicidade. Este exemplo é executado nas marcas das 7, 8 e 9 horas. | 
+   | **A estes minutos** | 0,15,30,45 | Disponível apenas se **Frequency** estiver definida como "Week" ou “Day”. Selecionar os minutos do dia para executar esta periodicidade. Este exemplo é executado a cada 15 minutos, começando na marca de hora zero. | 
    ||||
 
    Este acionador é acionado todos os dias úteis, a cada 15 minutos a partir das 7:00 até às 9:45. 
@@ -129,7 +130,8 @@ Agora que tem um acionador, adicione uma [ação](../logic-apps/logic-apps-overv
    | **Chave de API** | <*your-Bing-Maps-key*> | Introduza a chave do Mapas Bing que recebeu anteriormente. Se não tiver uma chave do Mapas Bing, saiba <a href="https://msdn.microsoft.com/library/ff428642.aspx" target="_blank">como obtê-la</a>. | 
    | | | |  
 
-4. Mude o nome da ação com a descrição ```Get route and travel time with traffic```
+4. Mude o nome da ação com a descrição:
+```Get route and travel time with traffic```
 
 5. Indique os detalhes para a ação **Get route**, conforme mostrado e descrito aqui, como, por exemplo:
 
@@ -137,14 +139,14 @@ Agora que tem um acionador, adicione uma [ação](../logic-apps/logic-apps-overv
 
    | Definição | Valor | Descrição |
    | ------- | ----- | ----------- |
-   | **Waypoint 1** | <*start-location*> | A origem do percurso | 
-   | **Waypoint 2** | <*end-location*> | O destino do percurso | 
-   | **Avoid** | Nenhuma | Todos os elementos a evitar no percurso, como autoestradas, portagens, etc. | 
-   | **Optimize** | timeWithTraffic | Um parâmetro para otimizar o percurso, por exemplo, a distância, o tempo de deslocação com o tráfego atual e assim sucessivamente. Selecione o parâmetro "timeWithTraffic" | 
-   | **Distance unit** | <*your-preference*> | A unidade de distância do percurso. Este artigo utiliza a unidade "Milha"  | 
-   | **Travel mode** | Driving | O modo de deslocação para o percurso. Selecione o modo "Driving" | 
-   | **Transit Date-Time** | Nenhuma | Aplica-se apenas ao modo de tráfego | 
-   | **Date-Time Type** | Nenhuma | Aplica-se apenas ao modo de tráfego | 
+   | **Marco 1** | <*start-location*> | A origem do percurso | 
+   | **Marco 2** | <*end-location*> | O destino do percurso | 
+   | **Evitar** | Nenhuma | Todos os elementos a evitar no percurso, como autoestradas, portagens, etc. | 
+   | **Otimizar** | timeWithTraffic | Um parâmetro para otimizar o percurso, por exemplo, a distância, o tempo de deslocação com o tráfego atual e assim sucessivamente. Selecione o parâmetro "timeWithTraffic" | 
+   | **Unidade de distância** | <*your-preference*> | A unidade de distância do percurso. Este artigo utiliza a unidade: "Milha"  | 
+   | **Modo de deslocação** | Driving | O modo de deslocação para o percurso. Selecione o modo: "Driving" | 
+   | **Data e hora de trânsito** | Nenhuma | Aplica-se apenas ao modo de tráfego | 
+   | **Tipo de data e hora** | Nenhuma | Aplica-se apenas ao modo de tráfego | 
    |||| 
 
    Para obter mais informações sobre estes parâmetros, veja [Calculate a route](https://msdn.microsoft.com/library/ff701717.aspx) (Calcular um percurso).
@@ -161,18 +163,19 @@ Por predefinição, a ação **Get route** anterior devolve o tempo de deslocaç
 
 1. Na ação **Get route**, escolha **+ Novo passo** > **Adicionar uma ação**.
 
-2. Procure "variables" e selecione a ação **Variables - Initialize variable**
+2. Procure "variables" e selecione a ação: **Variables - Initialize variable**
 
    ![Selecionar a ação "Variables - Initialize variable"](./media/tutorial-build-scheduled-recurring-logic-app-workflow/select-initialize-variable-action.png)
 
-3. Mude o nome desta ação com a descrição ```Create variable to store travel time```
+3. Esta ação com a descrição de mudar o nome:
+```Create variable to store travel time```
 
 4. Indique os detalhes da variável, conforme descrito aqui:
 
    | Definição | Valor | Descrição | 
    | ------- | ----- | ----------- | 
-   | **Nome** | travelTime | O nome da variável | 
-   | **Tipo** | Número inteiro | O tipo de dados da variável | 
+   | **Name** | travelTime | O nome da variável | 
+   | **Type** | Número inteiro | O tipo de dados da variável | 
    | **Valor** | Uma expressão que converte o tempo de deslocação atual de segundos em minutos (ver os passos nesta tabela). | O valor iniciar da variável | 
    |||| 
 
@@ -190,7 +193,7 @@ Por predefinição, a ação **Get route** anterior devolve o tempo de deslocaç
       Se o browser for largo, é apresentada a lista de conteúdo dinâmico. 
       Se for estreito, aparece uma lista de parâmetros inline abaixo da caixa de edição que tem o foco neste exemplo.
 
-   2. No editor de expressões, introduza a expressão ```div(,60)```
+   2. No editor de expressões, introduza esta expressão: ```div(,60)```
 
       ![Introduzir a expressão "div(,60)"](./media/tutorial-build-scheduled-recurring-logic-app-workflow/initialize-variable-action-settings-2.png)
 
@@ -219,7 +222,7 @@ Em seguida, adicione uma condição que verifica se o tempo de deslocação atua
 
 1. Na ação anterior, escolha **+ Novo passo** > **Adicionar uma condição**. 
 
-2. Mude o nome da condição com a descrição ```If travel time exceeds limit```
+2. Mudar o nome da condição com a descrição: ```If travel time exceeds limit```
 
 3. Crie uma condição que verifica se **travelTime** excede o limite que especificou, conforme descrito e mostrado aqui:
 
@@ -256,13 +259,14 @@ Agora, adicione uma ação que envia um e-mail quando o tempo de deslocação ex
 
    O Logic Apps cria uma ligação para a sua conta de e-mail.
 
-4. Mude o nome da ação com a descrição ```Send email with travel time```
+4. Mude o nome da ação com a descrição:
+```Send email with travel time```
 
 5. Na caixa **Para**, introduza o endereço de e-mail do destinatário. Para fins de teste, utilize o seu endereço de e-mail.
 
 6. Na caixa **Assunto**, especifique o assunto do e-mail e inclua a variável **travelTime**.
 
-   1. Introduza o texto ```Current travel time (minutes): ``` com um espaço à direita. 
+   1. Introduza o texto ```Current travel time (minutes):``` com um espaço à direita. 
    
    2. Na lista de parâmetros ou na lista de conteúdo dinâmico, selecione **travelTime** em **Variáveis**. 
    
@@ -272,7 +276,7 @@ Agora, adicione uma ação que envia um e-mail quando o tempo de deslocação ex
 
 7. Na caixa **Corpo**, especifique o conteúdo do corpo do e-mail. 
 
-   1. Introduza o texto ```Add extra travel time (minutes): ``` com um espaço à direita. 
+   1. Introduza o texto ```Add extra travel time (minutes):``` com um espaço à direita. 
    
    2. Se necessário, alargue o browser até que a lista de conteúdo dinâmico apareça. 
    Na lista de conteúdo dinâmico, escolha **Expressão**.
@@ -333,9 +337,9 @@ Quando já não for necessário, elimine o grupo de recursos que contém a aplic
 * Relativamente a dúvidas, visite o [fórum do Azure Logic Apps](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps).
 * Para submeter ou votar em ideias para funcionalidades, visite o [site de comentários dos utilizadores do Logic Apps](https://aka.ms/logicapps-wish).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Neste tutorial, criou uma aplicação lógica que verifica o tráfego com base numa agenda específica (nos dias úteis de manhã) e realiza uma ação (envia e-mails) se o tempo de deslocação exceder um limite especificado. Agora, saiba como compilar uma aplicação lógica que envia pedidos de listas de correio para aprovação através da integração de serviços do Azure, de serviços Microsoft e de outras aplicações de SaaS.
 
 > [!div class="nextstepaction"]
-> [Manage mailing list requests](../logic-apps/tutorial-process-mailing-list-subscriptions-workflow.md) (Gerir pedidos de listas de correio)
+> [Gerir pedidos de lista de correio](../logic-apps/tutorial-process-mailing-list-subscriptions-workflow.md)

@@ -11,12 +11,12 @@ ms.topic: article
 ms.workload: na
 ms.date: 04/05/2018
 ms.author: lahugh
-ms.openlocfilehash: a04161d80a6dd3f9db2a95a8556eaac466407047
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: b0243b37f725fc977337b72998d610e9bda71a86
+ms.sourcegitcommit: 04716e13cc2ab69da57d61819da6cd5508f8c422
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55470081"
+ms.lasthandoff: 04/02/2019
+ms.locfileid: "58848024"
 ---
 # <a name="monitor-batch-solutions"></a>Monitorizar soluções do Batch
 
@@ -34,7 +34,7 @@ Uma forma de obter eventos a partir do seu registo de atividades é utilizar o p
 
 ## <a name="batch-account-level-monitoring"></a>Monitorização de nível de conta do batch
 
-Monitorizar cada conta do Batch utilizar funcionalidades do [do Azure Monitor](../azure-monitor/overview.md). Monitor do Azure recolhe [métricas](../azure-monitor/platform/data-collection.md#metrics) e, opcionalmente [registos de diagnóstico](../azure-monitor/platform/diagnostic-logs-overview.md) para recursos no âmbito no nível de uma conta do Batch, como conjuntos, trabalhos e tarefas. Recolher e consumir estes dados manualmente ou através de programação para monitorizar atividades na sua conta do Batch e para diagnosticar problemas. Para obter detalhes, consulte [métricas, alertas e registos para a avaliação de diagnóstico e monitorização do Batch](batch-diagnostics.md).
+Monitorizar cada conta do Batch utilizar funcionalidades do [do Azure Monitor](../azure-monitor/overview.md). Monitor do Azure recolhe [métricas](../azure-monitor/platform/data-platform-metrics.md) e, opcionalmente [registos de diagnóstico](../azure-monitor/platform/diagnostic-logs-overview.md) para recursos no âmbito no nível de uma conta do Batch, como conjuntos, trabalhos e tarefas. Recolher e consumir estes dados manualmente ou através de programação para monitorizar atividades na sua conta do Batch e para diagnosticar problemas. Para obter detalhes, consulte [métricas, alertas e registos para a avaliação de diagnóstico e monitorização do Batch](batch-diagnostics.md).
  
 > [!NOTE]
 > As métricas estão disponíveis por predefinição na sua conta do Batch sem configuração adicional e têm um histórico de sem interrupção de 30 dias. Tem de ativar o registo de diagnósticos para uma conta do Batch e pode implicar custos adicionais para armazenar ou processar os dados de registo de diagnóstico. 

@@ -19,12 +19,12 @@ translation.priority.mt:
 - ru-ru
 - zh-cn
 - zh-tw
-ms.openlocfilehash: f1eba2da1404f5b47d137b3c4f7b4cb9ceab43ea
-ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
+ms.openlocfilehash: 64a688df3b6ed8602bb440d72e7f061c5f5893d1
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58438058"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58885609"
 ---
 # <a name="lucene-query-syntax-in-azure-search"></a>Sintaxe de consulta Lucene no Azure Search
 Pode escrever consultas no Azure Search com base na avançada [analisador de consultas de Lucene](https://lucene.apache.org/core/4_10_2/queryparser/org/apache/lucene/queryparser/classic/package-summary.html) sintaxe para formulários de consulta especializadas: carateres universais, a pesquisa difusa, pesquisa de proximidade, expressões regulares são alguns exemplos. Grande parte da sintaxe do analisador de consultas de Lucene é [implementado intacto no Azure Search](search-lucene-query-architecture.md), com exceção do *pesquisas de intervalo* que é construído no Azure Search através de `$filter` expressões. 
@@ -85,7 +85,7 @@ O exemplo acima é til (~), mas o mesmo princípio aplica-se a cada operador.
 
  Certifique-se de que todos os carateres não seguros e reservados são codificados numa URL. Por exemplo, '#' é um caráter não seguro porque é um identificador de fragement/âncora num URL. O caráter tem de ser codificado para `%23` se for utilizado num URL. ' &' e '=' são exemplos de carateres reservados, tal como delimitar os parâmetros e especifique os valores no Azure Search. Consulte [RFC1738: Uniforme localizadores (URL de recurso)](https://www.ietf.org/rfc/rfc1738.txt) para obter mais detalhes.
 
- Carateres não seguros são ``" ` < > # % { } | \ ^ ~ [ ] ``. Os carateres reservados são `; / ? : @ = + &`.
+ Carateres não seguros são ``" ` < > # % { } | \ ^ ~ [ ]``. Os carateres reservados são `; / ? : @ = + &`.
 
 ### <a name="precedence-operators-grouping-and-field-grouping"></a>Operadores de precedência: agrupamento e o agrupamento de campo  
  Pode utilizar parênteses para criar as subconsultas, incluindo os operadores dentro da instrução aninhamentos. Por exemplo, `motel+(wifi||luxury)` irá procurar documentos que contenham o termo "motel" e "Wi-Fi" ou "luxo" (ou ambos).

@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 11/20/2018
 ms.author: rimman
 ms.reviewer: sngun
-ms.openlocfilehash: df0dd3f54fb645590ff6e5b30a7ccc42f5ddd2eb
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: c3a3305197802906077dab330a6b51c1195c6c36
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54036278"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58879476"
 ---
 # <a name="total-cost-of-ownershiptco-with-azure-cosmos-db"></a>Custo total de Ownership(TCO) com o Azure Cosmos DB
 
@@ -20,7 +20,7 @@ O Azure Cosmos DB foi concebido com a governação de recursos e vários inquili
 
 As soluções de base de dados NoSQL de sistemas operacionais, como o Apache Cassandra, MongoDB, HBase, mecanismos foram projetadas para no local. Quando oferecido como um serviço gerido que são equivalentes a um modelo do Resource Manager com uma base de dados de inquilinos para gerir os clusters de aprovisionamento e ao suporte de monitoramento. Arquiteturas de sistemas operacionais NoSQL exigem significativa sobrecarga operacional e os conhecimentos podem ser difícil e dispendioso para encontrar. Por outro lado, o Azure Cosmos DB é um serviço cloud totalmente gerido, que permite aos desenvolvedores concentrar-se na inovação de negócios, em vez de em gerenciamento e manutenção de infraestrutura de base de dados. 
 
-Ao contrário de um serviço de base de dados nativas da cloud do Azure Cosmos DB, motores de base de dados NoSQL de sistemas operacionais não foram concebidos e criados com a governação de recursos ou multi-inquilinos refinado, como os princípios fundamentais de arquitetura. Motores de base de dados de OSS NoSQL como Cassandra e MongoDB faz uma suposição fundamental que todos os recursos da máquina virtual no qual estão a executar estão disponíveis para utilização. Muitos desses mecanismos de banco de dados não podem funcionar se a quantidade de recursos cair abaixo de um determinado limiar. Por exemplo, para VM pequena instâncias e elas estão disponíveis com configurações recomendadas de fornecedor sugerindo VMs, normalmente, em grande escala com custo mais elevado. Portanto, não é possível hospedar um NoSQL de sistemas operacionais ou qualquer outro motor de base de dados no local e disponibilizá-lo utilizando um modelo charging baseado no consumo, como pedidos por segundo ou consumido de armazenamento.
+Ao contrário de um serviço de base de dados nativas da cloud do Azure Cosmos DB, motores de base de dados NoSQL de sistemas operacionais não foram concebidos e criados com a governação de recursos ou multi-inquilinos refinado, como os princípios fundamentais de arquitetura. Motores de base de dados de OSS NoSQL como Cassandra e MongoDB faz uma suposição fundamental que todos os recursos da máquina virtual no qual estão a executar estão disponíveis para utilização. Muitos desses mecanismos de banco de dados não podem funcionar se a quantidade de recursos cair abaixo de um determinado limiar. Por exemplo, para VM pequena instâncias e elas estão disponíveis com configurações recomendadas de fornecedor sugerindo VMs, normalmente, em grande escala com custo mais elevado. Portanto, não é possível hospedar um NoSQL de sistemas operacionais ou quaisquer outros locais motor de base de dados e disponibilizá-lo utilizando um modelo charging baseado no consumo, como pedidos por segundo ou consumido de armazenamento.
 
 ## <a name="total-cost-of-ownership-of-azure-cosmos-db"></a>Custo total de propriedade do Azure Cosmos DB 
 
@@ -38,7 +38,7 @@ O modelo de aprovisionamento sem servidor do Azure Cosmos DB elimina a necessida
 
 * **Otimizado para a cloud:** O Azure Cosmos DB foi concebido desde o início com o isolamento de vários inquilinos e de desempenho detalhado. Isto permite colocar ideal, a execução e a milhares de inquilinos e as cargas de trabalho de balanceamento em clusters e datacenters. Por outro lado, a geração atual de bases de dados NoSQL de OSS opere no local com toda a máquina virtual pressupõe-se para executar a carga de trabalho de um único inquilino. Esses bancos de dados são também não foi concebidos para tirar partido de infraestrutura e o hardware para a totalidade de um fornecedor de cloud. Por exemplo, atualizar de uma imagem de rotina um NoSQL de OSS motor de base de dados não conhece as diferenças entre uma máquina virtual para baixo do Vs ou o fato desse disco premium já está a ser trilateral replicados. Ele não é possível tirar partido destes benefícios e passar sobre os benefícios e economia para os clientes.
 
-* **Paga por hora:** Para cargas de trabalho em grande escala, que precisam para dimensionar em qualquer ponto no tempo, apenas são cobradas por hora. As cargas de trabalho num aplicativo normalmente variem nos tempos do ano e pelos dados que são consultados. Com o Azure Cosmos DB, pode aumentar ou reduzir verticalmente à medida que precisa e paga apenas aquilo de que precisa. Com sistemas no local ou alojado no IaaS, não pode corresponder a esse modelo, porque não existe uma forma de descomissionar o hardware a cada hora. Nesses casos, pode potencialmente salvar entre 10 a 14 vezes numa média com o Azure Cosmos DB.
+* **Paga por hora:** Para cargas de trabalho em grande escala, que precisam para dimensionar em qualquer ponto no tempo, apenas são cobradas por hora. As cargas de trabalho num aplicativo normalmente variem nos tempos do ano e pelos dados que são consultados. Com o Azure Cosmos DB, pode aumentar ou reduzir verticalmente à medida que precisa e paga apenas aquilo de que precisa. Com sistemas IaaS alojado ou no local, não pode corresponder a esse modelo, porque não existe uma forma de descomissionar o hardware a cada hora. Nesses casos, pode potencialmente salvar entre 10 a 14 vezes numa média com o Azure Cosmos DB.
 
 * **Obtenha gratuitamente o inúmeros recursos:** No Azure Cosmos DB, escreva cargas de trabalho são substancialmente barato em comparação com serviços de banco de dados alternativa. Além disso, do Azure Cosmos DB oferece recursos, como por exemplo, [indexação automática](indexing-policies.md), [Live (TTL) do tempo](time-to-live.md), [de Feed de alterações](change-feed.md) e outros sem quaisquer custos adicionais, algo que outros serviços de base de dados cobram habitualmente.
 

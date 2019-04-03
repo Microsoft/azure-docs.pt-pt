@@ -12,12 +12,12 @@ ms.author: danil
 ms.reviewer: jrasnik, carlrab
 manager: craigg
 ms.date: 03/12/2019
-ms.openlocfilehash: bb45062697b113b676f85381f0653c14ac8c0c67
-ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
+ms.openlocfilehash: 785948c78b2b8205c4bebe2d68b62f6de7254d94
+ms.sourcegitcommit: d83fa82d6fec451c0cb957a76cfba8d072b72f4f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58621235"
+ms.lasthandoff: 04/02/2019
+ms.locfileid: "58863139"
 ---
 # <a name="azure-sql-database-metrics-and-diagnostics-logging"></a>Métricas de base de dados SQL do Azure e o registo de diagnósticos
 
@@ -69,10 +69,15 @@ Pode configurar bases de dados SQL do Azure e bases de dados de instância para 
 | [DatabaseWaitStatistics](#database-wait-statistics-dataset): Contém informações sobre quanto tempo a base de dados gasto aguardando tipos diferentes de espera. | Sim | Não |
 | [Tempos limite](#time-outs-dataset): Contém informações sobre tempos limite na base de dados. | Sim | Não |
 | [Blocos](#blockings-dataset): Contém informações sobre o bloqueio de eventos na base de dados. | Sim | Não |
+| [Os deadlocks](#deadlocks-dataset): Contém informações sobre eventos de deadlock no banco de dados. | Sim | Não |
+| [AutomaticTuning](#automatic-tuning-dataset): Contém informações sobre as recomendações de otimização automática na base de dados. | Sim | Não |
 | [SQLInsights](#intelligent-insights-dataset): Contém informações inteligentes sobre o desempenho. Para obter mais informações, consulte [informações inteligentes](sql-database-intelligent-insights.md). | Sim | Sim |
 
 > [!IMPORTANT]
 > Conjuntos elásticos e as instâncias geridas que a sua própria telemetria de diagnóstico separado dos bancos de dados que contêm. Isso é importante observar que a telemetria de diagnóstico está configurada em separado para cada um destes recursos, como documentado a seguir.
+
+> [!NOTE]
+> Não não possível ativar os registos de auditoria de segurança e SQLSecurityAuditEvents das definições de diagnóstico da base de dados. Para ativar a transmissão de registos de auditoria, consulte [configurar a auditoria da base de dados](sql-database-auditing.md#subheading-2), e [registos em registos de Monitor do Azure e Hubs de eventos de auditoria](https://blogs.msdn.microsoft.com/sqlsecurity/2018/09/13/sql-audit-logs-in-azure-log-analytics-and-azure-event-hubs/).
 
 ## <a name="azure-portal"></a>Portal do Azure
 
@@ -136,7 +141,7 @@ Para ativar a transmissão em fluxo de telemetria de diagnóstico para bases de 
 1. Repita estes passos para cada base de dados que pretende monitorizar.
 
 > [!NOTE]
-> Não não possível ativar os registos de auditoria de segurança das definições de diagnóstico da base de dados. Para ativar a transmissão de registos de auditoria, consulte [configurar a auditoria da base de dados](sql-database-auditing.md#subheading-2), e [registos em registos de Monitor do Azure e Hubs de eventos de auditoria](https://blogs.msdn.microsoft.com/sqlsecurity/2018/09/13/sql-audit-logs-in-azure-log-analytics-and-azure-event-hubs/).
+> Não não possível ativar os registos de auditoria de segurança e SQLSecurityAuditEvents das definições de diagnóstico da base de dados. Para ativar a transmissão de registos de auditoria, consulte [configurar a auditoria da base de dados](sql-database-auditing.md#subheading-2), e [registos em registos de Monitor do Azure e Hubs de eventos de auditoria](https://blogs.msdn.microsoft.com/sqlsecurity/2018/09/13/sql-audit-logs-in-azure-log-analytics-and-azure-event-hubs/).
 > [!TIP]
 > Repita estes passos para cada base de dados de SQL do Azure que pretende monitorizar.
 
@@ -434,7 +439,7 @@ Detalhes de telemetria disponível para todos os registos são divulgadas em tab
 |Type|Sempre: AzureDiagnostics |
 |ResourceProvider|Nome do fornecedor de recursos. Sempre: MICROSOFT.SQL |
 |Categoria|Nome da categoria. Sempre: ResourceUsageStats |
-|Recurso|Nome do recurso |
+|Recurso|O nome do recurso |
 |ResourceType|Nome do tipo de recurso. Sempre: MANAGEDINSTANCES |
 |SubscriptionId|GUID da subscrição para a base de dados |
 |ResourceGroup|Nome do grupo de recursos para a base de dados |
@@ -460,7 +465,7 @@ Detalhes de telemetria disponível para todos os registos são divulgadas em tab
 |ResourceProvider|Nome do fornecedor de recursos. Sempre: MICROSOFT.SQL |
 |Categoria|Nome da categoria. Sempre: QueryStoreRuntimeStatistics |
 |OperationName|Nome da operação. Sempre: QueryStoreRuntimeStatisticsEvent |
-|Recurso|Nome do recurso |
+|Recurso|O nome do recurso |
 |ResourceType|Nome do tipo de recurso. Sempre: SERVERS/DATABASES |
 |SubscriptionId|GUID da subscrição para a base de dados |
 |ResourceGroup|Nome do grupo de recursos para a base de dados |
@@ -511,7 +516,7 @@ Saiba mais sobre [dados de estatísticas de tempo de execução de consulta Stor
 |ResourceProvider|Nome do fornecedor de recursos. Sempre: MICROSOFT.SQL |
 |Categoria|Nome da categoria. Sempre: QueryStoreWaitStatistics |
 |OperationName|Nome da operação. Sempre: QueryStoreWaitStatisticsEvent |
-|Recurso|Nome do recurso |
+|Recurso|O nome do recurso |
 |ResourceType|Nome do tipo de recurso. Sempre: SERVERS/DATABASES |
 |SubscriptionId|GUID da subscrição para a base de dados |
 |ResourceGroup|Nome do grupo de recursos para a base de dados |
@@ -549,7 +554,7 @@ Saiba mais sobre [dados de estatísticas de espera de consulta Store](https://do
 |ResourceProvider|Nome do fornecedor de recursos. Sempre: MICROSOFT.SQ |
 |Categoria|Nome da categoria. Sempre: Erros |
 |OperationName|Nome da operação. Sempre: ErrorEvent |
-|Recurso|Nome do recurso |
+|Recurso|O nome do recurso |
 |ResourceType|Nome do tipo de recurso. Sempre: SERVERS/DATABASES |
 |SubscriptionId|GUID da subscrição para a base de dados |
 |ResourceGroup|Nome do grupo de recursos para a base de dados |
@@ -578,7 +583,7 @@ Saiba mais sobre [mensagens de erro do SQL Server](https://msdn.microsoft.com/li
 |ResourceProvider|Nome do fornecedor de recursos. Sempre: MICROSOFT.SQL |
 |Categoria|Nome da categoria. Sempre: DatabaseWaitStatistics |
 |OperationName|Nome da operação. Sempre: DatabaseWaitStatisticsEvent |
-|Recurso|Nome do recurso |
+|Recurso|O nome do recurso |
 |ResourceType|Nome do tipo de recurso. Sempre: SERVERS/DATABASES |
 |SubscriptionId|GUID da subscrição para a base de dados |
 |ResourceGroup|Nome do grupo de recursos para a base de dados |
@@ -607,7 +612,7 @@ Saiba mais sobre [estatísticas de espera de base de dados](https://docs.microso
 |ResourceProvider|Nome do fornecedor de recursos. Sempre: MICROSOFT.SQL |
 |Categoria|Nome da categoria. Sempre: Tempos limite |
 |OperationName|Nome da operação. Sempre: TimeoutEvent |
-|Recurso|Nome do recurso |
+|Recurso|O nome do recurso |
 |ResourceType|Nome do tipo de recurso. Sempre: SERVERS/DATABASES |
 |SubscriptionId|GUID da subscrição para a base de dados |
 |ResourceGroup|Nome do grupo de recursos para a base de dados |
@@ -630,7 +635,7 @@ Saiba mais sobre [estatísticas de espera de base de dados](https://docs.microso
 |ResourceProvider|Nome do fornecedor de recursos. Sempre: MICROSOFT.SQL |
 |Categoria|Nome da categoria. Sempre: blocos |
 |OperationName|Nome da operação. Sempre: BlockEvent |
-|Recurso|Nome do recurso |
+|Recurso|O nome do recurso |
 |ResourceType|Nome do tipo de recurso. Sempre: SERVERS/DATABASES |
 |SubscriptionId|GUID da subscrição para a base de dados |
 |ResourceGroup|Nome do grupo de recursos para a base de dados |
@@ -654,7 +659,7 @@ Saiba mais sobre [estatísticas de espera de base de dados](https://docs.microso
 |ResourceProvider|Nome do fornecedor de recursos. Sempre: MICROSOFT.SQL |
 |Categoria|Nome da categoria. Sempre: Impasses |
 |OperationName|Nome da operação. Sempre: DeadlockEvent |
-|Recurso|Nome do recurso |
+|Recurso|O nome do recurso |
 |ResourceType|Nome do tipo de recurso. Sempre: SERVERS/DATABASES |
 |SubscriptionId|GUID da subscrição para a base de dados |
 |ResourceGroup|Nome do grupo de recursos para a base de dados |
@@ -674,7 +679,7 @@ Saiba mais sobre [estatísticas de espera de base de dados](https://docs.microso
 |Type|Sempre: AzureDiagnostics |
 |ResourceProvider|Nome do fornecedor de recursos. Sempre: MICROSOFT.SQL |
 |Categoria|Nome da categoria. Sempre: AutomaticTuning |
-|Recurso|Nome do recurso |
+|Recurso|O nome do recurso |
 |ResourceType|Nome do tipo de recurso. Sempre: SERVERS/DATABASES |
 |SubscriptionId|GUID da subscrição para a base de dados |
 |ResourceGroup|Nome do grupo de recursos para a base de dados |
@@ -707,7 +712,7 @@ Para saber como ativar o registo e compreender as métricas e registo categorias
 
 Para saber mais sobre os Hubs de eventos, leia:
 
-- [O que é o Event Hubs do Azure?](../event-hubs/event-hubs-what-is-event-hubs.md)
+- [O que são os Hubs de Eventos do Azure?](../event-hubs/event-hubs-what-is-event-hubs.md)
 - [Introdução ao Event Hubs](../event-hubs/event-hubs-csharp-ephcs-getstarted.md)
 
 Para saber mais sobre o armazenamento do Azure, veja [como transferir os registos de diagnóstico e métricas do armazenamento](../storage/blobs/storage-quickstart-blobs-dotnet.md#download-the-sample-application).

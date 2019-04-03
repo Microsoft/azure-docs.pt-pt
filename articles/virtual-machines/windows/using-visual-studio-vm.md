@@ -13,15 +13,15 @@ ms.workload: azure-vs
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
-ms.date: 03/28/2019
+ms.date: 04/02/2019
 ms.author: phillee
 keywords: visualstudio
-ms.openlocfilehash: b9bfa49a94bca7f80cacedea0a08b1c0a6128ef8
-ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
+ms.openlocfilehash: df91ba12c1ee74b8e28f75344a5cd55af018d3cd
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58619565"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58884878"
 ---
 # <a name="visual-studio-images-on-azure"></a>Imagens do Visual Studio no Azure
 Com o Visual Studio numa máquina de virtual do Azure (VM) pré-configurada é uma maneira rápida e fácil para ir de nada para um ambiente de desenvolvimento de segurança e execução. Imagens do sistema com configurações diferentes do Visual Studio estão disponíveis no [do Azure Marketplace](https://azuremarketplace.microsoft.com/en-us/marketplace/apps?search=visual%20studio&page=1).
@@ -29,11 +29,11 @@ Com o Visual Studio numa máquina de virtual do Azure (VM) pré-configurada é u
 Novo no Azure? [Crie uma conta gratuita](https://azure.microsoft.com/free).
 
 ## <a name="what-configurations-and-versions-are-available"></a>Quais versões e configurações estão disponíveis?
-Imagens para as versões mais recentes principais para Visual Studio 2017 e o Visual Studio 2015, podem ser encontradas no Azure Marketplace.  Recentemente, adicionámos suporte para pré-visualizações a próxima versão principal - Visual Studio 2019.  Para cada versão de lançamento principais, consulte a versão (RTW) originalmente lançada e as mais recentes versões atualizadas.  Cada uma dessas versões oferece o Visual Studio Enterprise e as edições do Visual Studio Community.  Estas imagens são atualizadas, pelo menos, todos os meses para incluir as atualizações mais recentes do Visual Studio e do Windows.  Enquanto os nomes das imagens permanecem os mesmos, a descrição de cada imagem inclui a versão de produto instalado e "a partir de" data da imagem.
+Imagens para as versões principais mais recentes, 2019 do Visual Studio, o Visual Studio 2017 e o Visual Studio 2015, podem ser encontradas no Azure Marketplace.  Para cada lançamento de versão principal, verá o originalmente "lançado na web" versão (RTW) e as mais recentes versões atualizadas.  Cada uma dessas versões oferece o Visual Studio Enterprise e as edições do Visual Studio Community.  Estas imagens são atualizadas, pelo menos, todos os meses para incluir as atualizações mais recentes do Visual Studio e do Windows.  Enquanto os nomes das imagens permanecem os mesmos, a descrição de cada imagem inclui a versão de produto instalado e "a partir de" data da imagem.
 
 | Versão de lançamento                                              | Edições                     |     Versão do produto      |
 |:------------------------------------------------------------:|:----------------------------:|:------------------------:|
-|     Visual Studio 2019: Pré-visualização (RC4)                        |           Enterprise         |    Versão 16.0.0 RC4    |
+|     Visual Studio 2019: RTW                                  |    Enterprise, da Comunidade     |      Versão 16.0.0      |
 | Visual Studio 2017: Versão mais recente (versão 15.9)                    |    Enterprise, da Comunidade     |      Versão 15.9.10     |
 |         Visual Studio 2017: RTW                              |    Enterprise, da Comunidade     |      Versão 15.0.22     |
 |   Visual Studio 2015: Versão mais recente (atualização 3)                      |    Enterprise, da Comunidade     |  Versão 14.0.25431.01   |

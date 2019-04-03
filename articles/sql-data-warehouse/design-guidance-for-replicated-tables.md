@@ -10,12 +10,12 @@ ms.subservice: implement
 ms.date: 03/19/2019
 ms.author: rortloff
 ms.reviewer: igorstan
-ms.openlocfilehash: 031abcb9133663f39375560a06b0770c89eafb27
-ms.sourcegitcommit: aa3be9ed0b92a0ac5a29c83095a7b20dd0693463
+ms.openlocfilehash: acea42f7f4ab986e9828000ab7cfc9e302ed92a3
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58259572"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58885462"
 ---
 # <a name="design-guidance-for-using-replicated-tables-in-azure-sql-data-warehouse"></a>Documentação de orientação para uso tabelas replicadas no Azure SQL Data Warehouse
 Este artigo fornece recomendações para a criação de tabelas replicadas no seu esquema do SQL Data Warehouse. Utilize estas recomendações para melhorar o desempenho de consulta, reduzindo a complexidade de movimento e a consulta de dados.
@@ -95,8 +95,8 @@ DROP TABLE [dbo].[DimSalesTerritory_old];
 
 Tabelas replicadas não requerem qualquer movimento de dados para associações de porque a tabela inteira já está presente em cada nó de computação. Se as tabelas de dimensões são distribuída round robin, uma associação copia a tabela de dimensão completa para cada nó de computação. Para mover os dados, o plano de consulta contém uma operação chamada BroadcastMoveOperation. Esse tipo de operação de movimento de dados abrandar o desempenho da consulta e é eliminado usando tabelas replicadas. Para visualizar as etapas do plano de consulta, utilize o [pdw_request_steps](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-request-steps-transact-sql) vista de catálogo do sistema. 
 
-Por exemplo, na seguinte consulta no esquema de AdventureWorks, o ` FactInternetSales` tabela é distribuída por hash. O `DimDate` e `DimSalesTerritory` as tabelas são tabelas de dimensão mais pequenas. Esta consulta devolve o total de vendas na América do Norte para o ano fiscal de 2004:
- 
+Por exemplo, na seguinte consulta no esquema de AdventureWorks, o `FactInternetSales` tabela é distribuída por hash. O `DimDate` e `DimSalesTerritory` as tabelas são tabelas de dimensão mais pequenas. Esta consulta devolve o total de vendas na América do Norte para o ano fiscal de 2004:
+
 ```sql
 SELECT [TotalSalesAmount] = SUM(SalesAmount)
 FROM dbo.FactInternetSales s

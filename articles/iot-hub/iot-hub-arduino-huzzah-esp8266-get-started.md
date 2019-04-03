@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.tgt_pltfrm: arduino
 ms.date: 04/11/2018
 ms.author: rangv
-ms.openlocfilehash: 65f9b392f3ae57c1eaad7454434b4870954f36f8
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 82e31c498c6148454a5790a6eb4b82e3a2300a92
+ms.sourcegitcommit: 04716e13cc2ab69da57d61819da6cd5508f8c422
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58085104"
+ms.lasthandoff: 04/02/2019
+ms.locfileid: "58847053"
 ---
 # <a name="connect-adafruit-feather-huzzah-esp8266-to-azure-iot-hub-in-the-cloud"></a>Ligar o Adafruit Feather HUZZAH ESP8266 ao IoT Hub do Azure na cloud
 
@@ -168,10 +168,10 @@ O aplicativo de exemplo está alojado no GitHub. Clone o repositório de exemplo
 
 9. Na **definições de utilizador** janela, copie e cole o seguinte no final do ficheiro
 
-   ```
+   ```json
    "arduino.additionalUrls": "http://arduino.esp8266.com/stable/package_esp8266com_index.json"
    ```
-   
+
    ![Configurar o URL do pacote Arduino no VS Code](media/iot-hub-arduino-huzzah-esp8266-get-started/12_vscode-package-url.png)
 
 10. Salve o arquivo e feche o **definições de utilizador** separador.
@@ -213,7 +213,7 @@ O aplicativo de exemplo pode simular dados de temperatura e humidade no caso de 
    ```c
    define SIMULATED_DATA true
    ```
-   
+
    ![Configurar a aplicação de exemplo para utilizar dados simulados](media/iot-hub-arduino-huzzah-esp8266-get-started/15_vscode-configure-app-use-simulated-data.png)
 
 3. Guarde o ficheiro.
@@ -251,8 +251,14 @@ Se vir o seguinte resultado da janela de serial monitor e o LED piscando no Feat
 
 ![Saída final no Arduino IDE](media/iot-hub-arduino-huzzah-esp8266-get-started/16_arduino-ide-final-output.png)
 
+## <a name="read-the-messages-received-by-your-hub"></a>Ler as mensagens recebidas pelo hub
+
+Uma forma para monitorizar mensagens recebidas pelo hub IoT partir do seu dispositivo é usar as ferramentas de IoT do Azure para Visual Studio Code. Para obter mais informações, consulte [Utilize ferramentas de IoT do Azure para Visual Studio Code para enviar e receber mensagens entre o seu dispositivo e o IoT Hub](iot-hub-vscode-iot-toolkit-cloud-device-messaging.md).
+
+Para obter mais formas de processar os dados enviados pelo seu dispositivo, avance para a secção seguinte.
+
 ## <a name="next-steps"></a>Passos Seguintes
 
-Com êxito ligado um Feather HUZZAH ESP8266 ao seu hub IoT e enviados os dados de sensor capturada ao seu hub IoT. 
+Com êxito ligado um Feather HUZZAH ESP8266 ao seu hub IoT e enviados os dados de sensor capturada ao seu hub IoT.
 
 [!INCLUDE [iot-hub-get-started-next-steps](../../includes/iot-hub-get-started-next-steps.md)]

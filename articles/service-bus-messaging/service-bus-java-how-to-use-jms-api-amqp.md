@@ -1,5 +1,5 @@
 ---
-title: Como utilizar o AMQP 1.0 com a API de barramento de serviço de Java | Documentos da Microsoft
+title: Como utilizar o AMQP 1.0 com a API do Java JMS para o Service Bus | Documentos da Microsoft
 description: Como utilizar o Java Message Service (JMS) com o Azure Service Bus e o Advanced Message Queuing Protocol (AMQP) 1.0.
 services: service-bus-messaging
 documentationcenter: java
@@ -14,12 +14,12 @@ ms.devlang: Java
 ms.topic: article
 ms.date: 03/05/2019
 ms.author: aschhab
-ms.openlocfilehash: 2cba3744180a257638aca202d44fa433a5e1a2bc
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: a7e4282a176794fe885049173ba56ce2461cd6fa
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57453410"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58885558"
 ---
 # <a name="how-to-use-the-java-message-service-jms-api-with-service-bus-and-amqp-10"></a>Como utilizar o Java Message Service (JMS) API com do Service Bus e AMQP 1.0
 O Advanced Message colocação Protocol (AMQP) 1.0 é um protocolo de mensagens eficiente, fiável e ao nível da transmissão que pode utilizar para criar aplicativos de mensagens robustos e para várias plataformas.
@@ -381,7 +381,7 @@ Este guia de procedimentos mostrou como utilizar mediadas do Service Bus funcion
 Também pode utilizar o Service Bus AMQP 1.0 de outras linguagens, incluindo .NET, C, Python e PHP. Componentes criados com essas linguagens diferentes podem trocar mensagens de forma fiável e em fidelidade total usando o AMQP 1.0 suporte no Service Bus.
 
 ## <a name="next-steps"></a>Passos Seguintes
-* [Suporte de AMQP 1.0 no Azure Service Bus](service-bus-amqp-overview.md)
+* [Suporte do AMQP 1.0 no Azure Service Bus](service-bus-amqp-overview.md)
 * [Como utilizar o AMQP 1.0 com a API .NET do Service Bus](service-bus-dotnet-advanced-message-queuing.md)
 * [AMQP 1.0 no Service Bus guia para programadores](service-bus-amqp-dotnet.md)
 * [Introdução às filas do Service Bus](service-bus-dotnet-get-started-with-queues.md)

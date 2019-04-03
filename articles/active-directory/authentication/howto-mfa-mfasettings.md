@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f622be53297a9d091a62a1239f022bbd4fb71347
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: 3f1dbd4b6635d615cc7bed4cf5cc38234ec0c3f1
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58311769"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58886000"
 ---
 # <a name="configure-azure-multi-factor-authentication-settings"></a>Configurar as definições de multi-factor Authentication do Azure
 
@@ -34,9 +34,9 @@ Algumas destas definições aplicam-se para o servidor de MFA, MFA do Azure ou a
 | ------- | ----------- |
 | Bloqueio de conta | Temporariamente bloquear contas no serviço de autenticação multifator se existirem demasiados negado tentativas de autenticação numa linha. Esta funcionalidade aplica-se apenas a utilizadores que introduziram um PIN para autenticar. (Servidor MFA) |
 | [Bloquear/desbloquear utilizadores](#block-and-unblock-users) | Utilizado para bloquear utilizadores específicos no servidor de MFA (no local) a capacidade receber pedidos de multi-factor Authentication. Qualquer tentativa de autenticação aos utilizadores bloqueados é rejeitada automaticamente. Os utilizadores ficam bloqueados durante 90 dias a partir do momento em que são bloqueados. |
-| [Alerta de fraude](#fraud-alert) | Configure definições relacionadas com a capacidade dos utilizadores de relatório de pedidos de verificação fraudulenta do servidor de MFA. |
+| [Alerta de fraudes](#fraud-alert) | Configurar definições relacionadas com a capacidade dos utilizadores de pedidos de verificação fraudulenta de relatório |
 | Notificações | Ative as notificações de eventos do servidor MFA. |
-| [OATH tokens](concept-authentication-methods.md#oath-hardware-tokens-public-preview) | Utilizado em ambientes de MFA do Azure baseado na nuvem para gerir os tokens OATH para os utilizadores. |
+| [Tokens OATH](concept-authentication-methods.md#oath-hardware-tokens-public-preview) | Utilizado em ambientes de MFA do Azure baseado na nuvem para gerir os tokens OATH para os utilizadores. |
 | [Definições de chamada telefónica](#phone-call-settings) | Configure definições relacionadas com chamadas telefónicas e saudações para ambientes de cloud e no local. |
 | Fornecedores | Isto irá mostrar quaisquer fornecedores de autenticação existentes que podem ter associado sua conta. Novos fornecedores de autenticação não podem ser criados a partir de 1 de Setembro de 2018 |
 
@@ -57,7 +57,7 @@ Os relatórios disponíveis aqui são específico para o servidor de MFA (no loc
 
 ## <a name="block-and-unblock-users"></a>Bloquear e desbloquear utilizadores
 
-Utilize o _bloquear e desbloquear utilizadores_ funcionalidade para impedir que os utilizadores da receção de pedidos de autenticação. Qualquer tentativa de autenticação aos utilizadores bloqueados é rejeitada automaticamente. Os utilizadores ficam bloqueados durante 90 dias a partir do momento em que são bloqueados. Esta funcionalidade é específica para o servidor de MFA (no local).
+Utilize o _bloquear e desbloquear utilizadores_ funcionalidade para impedir que os utilizadores da receção de pedidos de autenticação. Qualquer tentativa de autenticação aos utilizadores bloqueados é rejeitada automaticamente. Os utilizadores ficam bloqueados durante 90 dias a partir do momento em que são bloqueados.
 
 ### <a name="block-a-user"></a>Bloquear um utilizador
 
@@ -77,7 +77,7 @@ Utilize o _bloquear e desbloquear utilizadores_ funcionalidade para impedir que 
 
 ## <a name="fraud-alert"></a>Alerta de fraudes
 
-Configurar o _alerta de fraude_ de recursos para que os usuários podem relatar fraudulentas tentativas para aceder aos respetivos recursos. Os utilizadores podem comunicar fraude tentativas com a aplicação móvel ou por meio de seu telefone. Esta funcionalidade é específica para o servidor de MFA (no local).
+Configurar o _alerta de fraude_ de recursos para que os usuários podem relatar fraudulentas tentativas para aceder aos respetivos recursos. Os utilizadores podem comunicar fraude tentativas com a aplicação móvel ou por meio de seu telefone.
 
 ### <a name="turn-on-fraud-alerts"></a>Ativar alertas de fraude
 

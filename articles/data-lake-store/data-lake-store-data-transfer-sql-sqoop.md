@@ -3,21 +3,21 @@ title: Copiar dados entre Gen1 de armazenamento do Azure Data Lake e base de dad
 description: Utilize o Sqoop para copiar dados entre a base de dados do Azure SQL e de geração 1 de armazenamento do Azure Data Lake
 services: data-lake-store
 documentationcenter: ''
-author: nitinme
-manager: jhubbard
+author: twooley
+manager: mtillman
 editor: cgronlun
 ms.assetid: 3f914b2a-83cc-4950-b3f7-69c921851683
 ms.service: data-lake-store
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/29/2018
-ms.author: nitinme
-ms.openlocfilehash: 958171a8d1091254588aef250406b968009eb968
-ms.sourcegitcommit: 794bfae2ae34263772d1f214a5a62ac29dcec3d2
+ms.author: twooley
+ms.openlocfilehash: 7d3283b03d15278d1f7fd42a72b154dab1a442b4
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44391747"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58878537"
 ---
 # <a name="copy-data-between-azure-data-lake-storage-gen1-and-azure-sql-database-using-sqoop"></a>Copiar dados entre Gen1 de armazenamento do Azure Data Lake e base de dados SQL do Azure com o Sqoop
 Saiba como utilizar o Apache Sqoop para importar e exportar dados entre a base de dados do Azure SQL e de geração 1 de armazenamento do Azure Data Lake.
@@ -92,7 +92,7 @@ Um cluster do HDInsight já tem os pacotes de Sqoop disponíveis. Se tiver confi
     Por exemplo,
 
 
-        sqoop-import --connect "jdbc:sqlserver://mysqoopserver.database.windows.net:1433;username=nitinme@mysqoopserver;password=<password>;database=mysqoopdatabase" --table Table1 --target-dir adl://myadlsg1store.azuredatalakestore.net/Sqoop/SqoopImportTable1
+        sqoop-import --connect "jdbc:sqlserver://mysqoopserver.database.windows.net:1433;username=twooley@mysqoopserver;password=<password>;database=mysqoopdatabase" --table Table1 --target-dir adl://myadlsg1store.azuredatalakestore.net/Sqoop/SqoopImportTable1
 
 1. Certifique-se de que os dados foi transferidos para a conta de geração 1 de armazenamento do Data Lake. Execute o seguinte comando:
 
@@ -118,7 +118,7 @@ Um cluster do HDInsight já tem os pacotes de Sqoop disponíveis. Se tiver confi
     Por exemplo,
 
 
-        sqoop-export --connect "jdbc:sqlserver://mysqoopserver.database.windows.net:1433;username=nitinme@mysqoopserver;password=<password>;database=mysqoopdatabase" --table Table2 --export-dir adl://myadlsg1store.azuredatalakestore.net/Sqoop/SqoopImportTable1 --input-fields-terminated-by ","
+        sqoop-export --connect "jdbc:sqlserver://mysqoopserver.database.windows.net:1433;username=twooley@mysqoopserver;password=<password>;database=mysqoopdatabase" --table Table2 --export-dir adl://myadlsg1store.azuredatalakestore.net/Sqoop/SqoopImportTable1 --input-fields-terminated-by ","
 
 1. Certifique-se de que os dados foi carregados para a tabela de base de dados SQL. Uso [SQL Server Management Studio](../sql-database/sql-database-connect-query-ssms.md) ou o Visual Studio para ligar à base de dados SQL do Azure e, em seguida, execute a seguinte consulta.
 
@@ -139,6 +139,6 @@ Para o seu trabalho Sqoop para copiar dados para a geração 1 de armazenamento 
 
 ## <a name="see-also"></a>Consulte também
 * [Copiar dados dos Blobs de armazenamento do Azure para a geração 1 de armazenamento do Data Lake](data-lake-store-copy-data-azure-storage-blob.md)
-* [Proteger dados no Armazenamento do Data Lake Ger1](data-lake-store-secure-data.md)
+* [Proteger os dados na geração 1 de armazenamento do Data Lake](data-lake-store-secure-data.md)
 * [Utilizar o Azure Data Lake Analytics com o Data Lake Storage Gen1](../data-lake-analytics/data-lake-analytics-get-started-portal.md)
 * [Utilizar o Azure HDInsight com Data Lake Storage Gen1](data-lake-store-hdinsight-hadoop-use-portal.md)

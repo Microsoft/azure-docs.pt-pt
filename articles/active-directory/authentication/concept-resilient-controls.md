@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 12/19/2018
 ms.author: martincoetzer
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3c7a61d8c1b9ec15327836f7d31e9e299c57cb21
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: 6e1fa72f8c7edf76ec46663fd62ee40a3a16e8cd
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58316342"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58886085"
 ---
 # <a name="create-a-resilient-access-control-management-strategy-with-azure-active-directory"></a>Criar uma estratégia de gestão de controlo de acesso resilientes no Azure Active Directory
 
@@ -131,9 +131,9 @@ Uma política de acesso condicional de contingência é uma **desativado políti
   
 Este padrão de nomenclatura para as políticas de contingência será da seguinte forma: 
 
-`
+```
 EMnnn - ENABLE IN EMERGENCY: [Disruption][i/n] - [Apps] - [Controls] [Conditions]
-`
+```
 
 O exemplo seguinte: **O exemplo A - política de AC de contingência para restaurar o acesso a aplicações de colaboração de missão crítica**, é uma contingência empresarial típica. Neste cenário, a organização normalmente requer MFA para todos os acessos de Exchange Online e SharePoint Online e, nesse caso, a interrupção é que o fornecedor do MFA para o cliente tem um período de indisponibilidade (quer a MFA do Azure, no local fornecedor do MFA, ou MFA de terceiros). Esta política atenua este período de inatividade, permitindo que os utilizadores de destinados específicos acesso a estas aplicações de dispositivos fidedignos do Windows apenas quando estão a aceder a aplicação a partir da respetiva rede empresarial fidedigno. Ele irá também excluir contas de emergência e administradores de núcleo essas restrições. Os utilizadores de destinados, em seguida, irão obter acesso ao Exchange Online e SharePoint Online, enquanto outros utilizadores ainda não terão acesso às aplicações devido a falha. Esse exemplo exigirá uma localização de rede nomeado **CorpNetwork** e um grupo de segurança **ContingencyAccess** com os utilizadores de destino, um grupo chamado **CoreAdmins** com o Os administradores de núcleos e um grupo chamado **EmergencyAccess** com as contas de acesso de emergência. A contingência requer quatro políticas para fornecer o acesso desejado. 
 
@@ -261,12 +261,12 @@ Se a sua organização utilizar políticas de legado de MFA por utilizador, em s
 
 ## <a name="learn-more"></a>Saiba mais
 
-* [Documentação de autenticação do Azure AD](https://docs.microsoft.com/azure/active-directory/authentication/howto-mfaserver-iis)
+* [Documentação da Autenticação do Azure AD](https://docs.microsoft.com/azure/active-directory/authentication/howto-mfaserver-iis)
 * [Gerir o acesso de emergência de contas administrativas no Azure AD](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-emergency-access)
 * [Configurar localizações com nome no Azure Active Directory](https://docs.microsoft.com/azure/active-directory/reports-monitoring/quickstart-configure-named-locations)
   * [Set-MsolDomainFederationSettings](https://docs.microsoft.com/powershell/module/msonline/set-msoldomainfederationsettings?view=azureadps-1.0)
 * [Como configurar híbrida do Azure Active Directory associados a um dispositivos](https://docs.microsoft.com/azure/active-directory/devices/hybrid-azuread-join-plan)
-* [Guia de Implementação do Windows Hello para Empresas](https://docs.microsoft.com/windows/security/identity-protection/hello-for-business/hello-deployment-guide)
+* [Windows Hello para o guia de implementação de negócios](https://docs.microsoft.com/windows/security/identity-protection/hello-for-business/hello-deployment-guide)
   * [Documentação de orientação de palavra-passe - Microsoft Research](https://research.microsoft.com/pubs/265143/microsoft_password_guidance.pdf)
 * [Quais são condições no acesso condicional do Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/conditions)
 * [Quais são os controles de acesso no acesso condicional do Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/controls)

@@ -9,12 +9,12 @@ ms.date: 11/06/2017
 ms.topic: conceptual
 ms.service: azure-monitor
 ms.subservice: ''
-ms.openlocfilehash: 64a7a52d39fcac87bdc49b9d36e80d453557bc5b
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 6ea8f4e591399e23b103871da115dbb937227ca9
+ms.sourcegitcommit: 04716e13cc2ab69da57d61819da6cd5508f8c422
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58002268"
+ms.lasthandoff: 04/02/2019
+ms.locfileid: "58850682"
 ---
 # <a name="monitor-your-azure-services-in-grafana"></a>Monitorizar os serviços do Azure no Grafana
 Agora pode monitorizar serviços do Azure e aplicações a partir [Grafana](https://grafana.com/) utilizando o [Plug-in de origem de dados do Azure Monitor](https://grafana.com/plugins/grafana-azure-monitor-datasource). O plug-in reúne dados de desempenho de aplicativo recolhidos pelo Monitor do Azure, incluindo vários registos e métricas. Em seguida, pode exibir esses dados no seu dashboard da Grafana.
@@ -47,7 +47,7 @@ Para configurar um servidor o Grafana local, [transfira e instale o Grafana no s
 
 7. Obtenha o endereço IP público do seu servidor Grafana - voltar à lista de recursos e selecione **endereço IP público**.
 
-## <a name="log-in-to-grafana"></a>Inicie sessão para o Grafana
+## <a name="sign-in-to-grafana"></a>Inicie sessão para o Grafana
 
 1. Com o endereço IP do seu servidor, abra a página de início de sessão no *http://\<endereço IP\>: 3000* ou o  *\<DNSName >\:3000* no seu browser. Embora 3000 é a porta predefinida, tenha em atenção de que poderá ter selecionado uma porta diferente durante a configuração. Deverá ver uma página de início de sessão do servidor o Grafana que criou.
 
@@ -167,5 +167,5 @@ Se configurou um ambiente de Grafana no Azure, é cobrado quando as VMs estão e
 2. Na página do grupo de recursos, clique em **elimine**, tipo **Grafana** na caixa de texto e, em seguida, clique **eliminar**.
 
 ## <a name="next-steps"></a>Passos Seguintes
-* [Descrição geral das métricas de Monitor do Azure](../../azure-monitor/platform/data-collection.md)
+* [Descrição geral das métricas de Monitor do Azure](data-platform.md)
 

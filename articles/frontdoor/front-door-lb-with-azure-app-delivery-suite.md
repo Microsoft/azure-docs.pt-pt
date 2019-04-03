@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/10/2018
 ms.author: sharadag
-ms.openlocfilehash: a89043f814bc97aeb081789e92d9e4488712a465
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 3d5c0ac068a6644f3499da6c3b642a4a04408370
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57439031"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58879664"
 ---
 # <a name="load-balancing-with-azures-application-delivery-suite"></a>Balanceamento de carga com o conjunto de entrega de aplicações do Azure
 
@@ -26,7 +26,7 @@ O Microsoft Azure fornece vários serviços globais e regionais para gerir a for
 ![Conjunto de entrega de aplicativos ][1]
  
 Estes serviços são divididos em duas categorias:
-1. **Serviços de balanceamento de carga global** , como o Gestor de tráfego e a porta da frente distribuem o tráfego dos seus utilizadores finais em sua back-ends regionais, entre nuvens ou até mesmo seus serviços do híbrida no local. Balanceamento de carga global encaminha o tráfego para o back-end de serviço mais próximo e reagirá as alterações na fiabilidade do serviço ou de desempenho para manter o desempenho de sempre ativa, máximo para os seus utilizadores. 
+1. **Serviços de balanceamento de carga global** como Gestor de tráfego e a porta da frente distribuem o tráfego dos seus utilizadores finais por seu back-ends regionais, entre nuvens ou até mesmo seu híbrido serviços no local. Balanceamento de carga global encaminha o tráfego para o back-end de serviço mais próximo e reagirá as alterações na fiabilidade do serviço ou de desempenho para manter o desempenho de sempre ativa, máximo para os seus utilizadores. 
 2. **Serviços de balanceamento de carga de regional** , como o Gateway de aplicação ou Balanceador de carga Standard oferecem a capacidade de distribuir o tráfego nas redes virtuais (VNETs) por suas máquinas virtuais (VMs) ou pontos finais de serviço zonal dentro de uma região.
 
 A combinação de serviços global e regionais em seu aplicativo fornece um desempenho fiável e de ponto-a-ponto e forma segura para encaminhar o tráfego de e para os seus utilizadores para o IaaS, PaaS ou serviços no local. Na próxima seção, descrevemos de cada um desses serviços.

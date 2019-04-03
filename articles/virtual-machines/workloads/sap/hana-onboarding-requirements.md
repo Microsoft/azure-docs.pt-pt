@@ -14,12 +14,12 @@ ms.workload: infrastructure
 ms.date: 01/31/2019
 ms.author: saghorpa
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 8cfcf9c2f008abb571347e32f2be190dc51901e3
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
+ms.openlocfilehash: 252c84bce2b70f6931593fe9410abe6cc146b5bb
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55563835"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58880700"
 ---
 # <a name="onboarding-requirements"></a>Requisitos de integração
 
@@ -71,7 +71,7 @@ Para a matriz de compatibilidade do sistema operativo e versões de firmware/con
 - Contratos do suporte de licenças e componentes de instalação de software para todas as aplicações SAP que liguem ao SAP HANA e SAP relacionado.
 - Licenças e componentes de instalação de software para todos os aplicativos não pertencentes à SAP utilizado com o SAP HANA em ambientes do Azure (instâncias grandes) e relacionadas com contratos de suporte.
 
-**Habilidades**
+**Competências**
 
 - Experiência com e conhecimento do IaaS do Azure e os respetivos componentes.
 - Experiência com e o conhecimento de como implementar uma carga de trabalho SAP no Azure.
@@ -83,5 +83,5 @@ Para a matriz de compatibilidade do sistema operativo e versões de firmware/con
 - Expectativa é que for um cliente do SAP e têm suporte para um contrato com o SAP.
 - Especialmente para implementações da classe de tipo II de SKUs de instância grande do HANA, consulte o SAP em versões do SAP HANA e as configurações eventual no hardware de ampliação de grande dimensão.
 
-**Passos seguintes?**
+**Passos Seguintes**
 - Consulte [arquitetura do SAP HANA (instâncias grandes) no Azure](hana-architecture.md)

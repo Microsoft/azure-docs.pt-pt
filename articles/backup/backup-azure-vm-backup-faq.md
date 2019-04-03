@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 03/22/2019
 ms.author: sogup
-ms.openlocfilehash: ef46c37fec3e5438aeb4f9309201d45365a96fdc
-ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
+ms.openlocfilehash: 9f233af316bd6022b93a7208bf3fae37e913e6af
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58402070"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58885269"
 ---
 # <a name="frequently-asked-questions-back-up-azure-vms"></a>Perguntas mais frequentes perguntas-cópia de segurança de VMs do Azure
 
@@ -68,7 +68,7 @@ Sim. Executam cópias de segurança quando uma máquina é encerrada. O ponto de
 ### <a name="can-i-cancel-an-in-progress-backup-job"></a>Pode cancelar uma tarefa de cópia de segurança em curso?
 Sim. Pode cancelar a tarefa de cópia de segurança num **tirar instantâneo** estado. Não é possível cancelar uma tarefa, se a transferência de dados a partir do instantâneo está em curso.
 
-### <a name="i-enabled-lock-on-resource-group-created-by-azure-backup-service-ie--azurebackuprggeonumber-will-my-backups-continue-to-work"></a>Eu habilitei o bloqueio no grupo de recursos criado pelo serviço de cópia de segurança do Azure (ou seja ` AzureBackupRG_<geo>_<number>`), minhas cópias de segurança continuarão a funcionar?
+### <a name="i-enabled-lock-on-resource-group-created-by-azure-backup-service-ie-azurebackuprggeonumber-will-my-backups-continue-to-work"></a>Eu habilitei o bloqueio no grupo de recursos criado pelo serviço de cópia de segurança do Azure (ou seja `AzureBackupRG_<geo>_<number>`), minhas cópias de segurança continuarão a funcionar?
 Se bloquear o grupo de recursos criado pelo serviço de cópia de segurança do Azure, cópias de segurança irão começar a falhar, uma vez que existe um limite máximo de 18 pontos de restauro.
 
 O utilizador tem de remover o bloqueio e desmarque a coleção de ponto de restauro do grupo de recursos para fazer cópias de segurança futuras com êxito, [siga estes passos](backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout.md#clean-up-restore-point-collection-from-azure-portal) para remover a coleção de ponto de restauro.
@@ -88,7 +88,7 @@ Não não possível efetuar instantâneos no disco habilitados para WA. No entan
 ### <a name="i-have-a-vm-with-write-accelerator-wa-disks-and-sap-hana-installed-how-do-i-back-up"></a>Tenho uma VM com discos de acelerador de escrita (WA) e SAP HANA instalado. Como posso fazer cópia de segurança?
 O Azure Backup não é possível criar cópias de segurança do disco habilitados para WA, mas pode excluir da cópia de segurança. No entanto, a cópia de segurança não fornece consistência da base de dados porque as informações no disco WA-ativada não não uma cópia de segurança. Pode fazer backup de discos com esta configuração se pretender que o disco do sistema de operativo cópia de segurança e a cópia de segurança de discos que não são habilitados para WA.
 
-Estamos executando pré-visualização privada para uma cópia de segurança do SAP HANA com um RPO de 15 minutos. Baseia-se de forma semelhante, a cópia de segurança de BD SQL e utiliza a interface de backInt para soluções de terceiros certificadas pelo SAP HANA. Se estiver interessado, envie um e-mail para ` AskAzureBackupTeam@microsoft.com ` com o assunto **Inscreva-se para a pré-visualização privada para cópia de segurança do SAP HANA em VMs do Azure**.
+Estamos executando pré-visualização privada para uma cópia de segurança do SAP HANA com um RPO de 15 minutos. Baseia-se de forma semelhante, a cópia de segurança de BD SQL e utiliza a interface de backInt para soluções de terceiros certificadas pelo SAP HANA. Se estiver interessado, envie um e-mail para `AskAzureBackupTeam@microsoft.com` com o assunto **Inscreva-se para a pré-visualização privada para cópia de segurança do SAP HANA em VMs do Azure**.
 
 
 ## <a name="restore"></a>Restauro

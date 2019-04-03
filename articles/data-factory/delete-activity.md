@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/25/2019
-ms.openlocfilehash: 64829cad24d7f436b8539659dc1f0c6ef6ed4da4
-ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
+ms.openlocfilehash: 00658b650cdc0b1752bb9f2f205420018c1d6edd
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57404778"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58881788"
 ---
 # <a name="delete-activity-in-azure-data-factory"></a>Eliminar a atividade de Azure Data Factory
 
@@ -43,7 +43,7 @@ Seguem-se algumas recomendações para usar a atividade de eliminação:
 
 -   [Armazenamento de Blobs do Azure](connector-azure-blob-storage.md)
 -   [Armazenamento do Azure Data Lake Ger1](connector-azure-data-lake-store.md)
--   [Geração 2 Lake armazenamento de dados do Azure](connector-azure-data-lake-storage.md)
+-   [Armazenamento do Azure Data Lake Ger2](connector-azure-data-lake-storage.md)
 
 ### <a name="file-system-data-stores"></a>Arquivos de dados do sistema de ficheiros
 

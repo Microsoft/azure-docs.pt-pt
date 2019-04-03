@@ -10,12 +10,12 @@ ms.subservice: text-analytics
 ms.topic: overview
 ms.date: 03/01/2019
 ms.author: aahi
-ms.openlocfilehash: 1e6aea792666447141e504f45a3ff55cb70f6261
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: f79700d3b57623693bf1d0d62dd9ab171df464fb
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57533243"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58882520"
 ---
 # <a name="what-is-text-analytics-api"></a>O que é a API de análise de texto?
 
@@ -61,7 +61,7 @@ Os dados não são armazenados na sua conta. As operações realizadas pela API 
 
 <a name="supported-languages"></a>
 
-## <a name="supported-languages"></a>Idiomas suportados
+## <a name="supported-languages"></a>Linguagens suportadas
 
 Esta secção foi movida para um artigo separado para melhor deteção. Consulte os [idiomas suportados na API de Análise de Texto](text-analytics-supported-languages.md) para este conteúdo.
 
@@ -71,13 +71,13 @@ Esta secção foi movida para um artigo separado para melhor deteção. Consulte
 
 Todos os pontos finais da API de Análise de Texto aceitam dados de texto não processados. O limite atual é 5,120 carateres para cada documento; Se precisar de analisar documentos maiores, poderá dividi-las em segmentos mais pequenos. Se necessitar de um limite maior, [contacte-nos](https://azure.microsoft.com/overview/sales-number/), para que possamos analisar os seus requisitos.
 
-| Limite | Value |
+| Limite | Valor |
 |------------------------|---------------|
 | Tamanho máximo de um documento único | 5,120 carateres como medido pelas [ `StringInfo.LengthInTextElements` ](https://docs.microsoft.com/dotnet/api/system.globalization.stringinfo.lengthintextelements). |
 | Tamanho máximo do pedido completo | 1 MB |
 | Número máximo de documentos num pedido | 1000 documentos |
 
-O limite de velocidade é de 100 chamadas por minuto. Tenha em atenção que pode submeter uma grande quantidade de documentos numa única chamada (até 1000 documentos).
+O limite de taxa é de 100 chamadas por segunda e 1000 chamadas por minuto. Tenha em atenção que pode submeter uma grande quantidade de documentos numa única chamada (até 1000 documentos).
 
 ## <a name="unicode-encoding"></a>Codificação Unicode
 

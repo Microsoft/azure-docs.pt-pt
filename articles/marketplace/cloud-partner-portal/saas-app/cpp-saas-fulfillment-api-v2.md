@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 02/27/2019
 ms.author: pbutlerm
-ms.openlocfilehash: 81213d1f7cfeb7ea10cdadfb124047ecb76aa7d4
-ms.sourcegitcommit: 87bd7bf35c469f84d6ca6599ac3f5ea5545159c9
+ms.openlocfilehash: 6d18adfaec965d858bdcb1f74ebcea89f57eea39
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58352090"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58878031"
 ---
 # <a name="saas-fulfillment-api"></a>Preenchimento de SaaS API
 
@@ -86,7 +86,7 @@ A API de subscrição suporta as seguintes operações de HTTPS: **Obtenha**, **
 
 Apresenta uma lista de todas as subscrições de SaaS para um publicador.
 
-**Get:<br>`https://marketplaceapi.microsoft.com/api/saas/subscriptions?api-version=<ApiVersion>`**
+**Obter:<br>`https://marketplaceapi.microsoft.com/api/saas/subscriptions?api-version=<ApiVersion>`**
 
 *Parâmetros de consulta:*
 
@@ -153,7 +153,7 @@ Código: 500 Erro de Servidor Interno
 
 Obtém a subscrição especificada de SaaS. Utilize esta chamada para obter informações de licença e informações do plano.
 
-**Get:<br> `https://marketplaceapi.microsoft.com/api/saas/subscriptions/<subscriptionId?api-version=<ApiVersion>`**
+**Obter:<br> `https://marketplaceapi.microsoft.com/api/saas/subscriptions/<subscriptionId?api-version=<ApiVersion>`**
 
 *Parâmetros de consulta:*
 
@@ -218,7 +218,7 @@ Erro Interno do Servidor<br>
 
 Utilize esta chamada para saber se existem quaisquer ofertas de pública/privada para o utilizador atual.
 
-**Get:<br> `https://marketplaceapi.microsoft.com/api/saas/subscriptions/<subscriptionId>/listAvailablePlans?api-version=<ApiVersion>`**
+**Obter:<br> `https://marketplaceapi.microsoft.com/api/saas/subscriptions/<subscriptionId>/listAvailablePlans?api-version=<ApiVersion>`**
 
 *Parâmetros de consulta:*
 
@@ -457,7 +457,7 @@ Erro Interno do Servidor
 
 Anular a subscrição e eliminar a subscrição especificada.
 
-**Delete:<br> `https://marketplaceapi.microsoft.com/api/saas/subscriptions/<subscriptionId> ?api-version=<ApiVersion>`**
+**Elimine:<br> `https://marketplaceapi.microsoft.com/api/saas/subscriptions/<subscriptionId> ?api-version=<ApiVersion>`**
 
 *Parâmetros de consulta:*
 
@@ -572,7 +572,7 @@ Código: 500<br> Erro Interno do Servidor
 
 Lista as operações pendentes para o utilizador atual. 
 
-**Get:<br> `https://marketplaceapi.microsoft.com/api/saas/subscriptions/<subscriptionId>/operations?api-version=<ApiVersion>`**
+**Obter:<br> `https://marketplaceapi.microsoft.com/api/saas/subscriptions/<subscriptionId>/operations?api-version=<ApiVersion>`**
 
 *Parâmetros de consulta:*
 
@@ -636,7 +636,7 @@ Erro Interno do Servidor
 
 Permite ao utilizador controlar o estado de uma operação de async acionadas (subscrever/anular a subscrição/alterar plano).
 
-**Get:<br> `https://marketplaceapi.microsoft.com/api/saas/subscriptions/<subscriptionId>/operations/<operationId>?api-version=<ApiVersion>`**
+**Obter:<br> `https://marketplaceapi.microsoft.com/api/saas/subscriptions/<subscriptionId>/operations/<operationId>?api-version=<ApiVersion>`**
 
 *Parâmetros de consulta:*
 
@@ -648,7 +648,7 @@ Permite ao utilizador controlar o estado de uma operação de async acionadas (s
 
 |                    |                   |
 |  ---------------   |  ---------------  |
-|  Content-Type      |  ` application/json`   |
+|  Content-Type      |  `application/json`   |
 |  x-ms-requestid    |   Um valor de cadeia de caracteres exclusivo para o pedido de controlo do cliente, preferencialmente, um GUID. Se este valor não for fornecido, um será gerado e fornecido nos cabeçalhos de resposta.  |
 |  x-ms-correlationid |  Um valor de cadeia de caracteres exclusivo para a operação no cliente. Este parâmetro correlaciona todos os eventos da operação de cliente com eventos do lado do servidor. Se este valor não for fornecido, um será gerado e fornecido nos cabeçalhos de resposta.  |
 |  Autorização     | O JSON web token (JWT) token de portador.  |

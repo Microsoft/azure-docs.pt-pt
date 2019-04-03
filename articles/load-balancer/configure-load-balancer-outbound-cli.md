@@ -11,20 +11,20 @@ ms.topic: article
 ms.custom: seodec18
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/24/2018
+ms.date: 04/01/2019
 ms.author: kumud
-ms.openlocfilehash: bd40278015bf4580759c1b7b9522400b3dae31d6
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: 0b46cbdec6d0ffe2a614a976f70b833726fb0e8a
+ms.sourcegitcommit: 04716e13cc2ab69da57d61819da6cd5508f8c422
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54475667"
+ms.lasthandoff: 04/02/2019
+ms.locfileid: "58849954"
 ---
 # <a name="configure-load-balancing-and-outbound-rules-in-standard-load-balancer-using-azure-cli"></a>Configurar o balanceamento de carga e regras de saída no balanceador de carga Standard com a CLI do Azure
 
 Este guia de introdução mostra-lhe como configurar regras de saída no balanceador de carga Standard com a CLI do Azure.  
 
-Quando tiver terminado, o recurso do Balanceador de carga contém dois front-ends e regras associadas a eles: um para entrada e outro para saída.  Cada front-end tem uma referência para um endereço IP público e esta utiliza de cenário um endereço IP público diferente para entrada e saída.   A regra de balanceamento de carga fornece balanceamento de carga entrada única e a regra de saída controla o NAT de saída fornecido para a VM.
+Quando tiver terminado, o recurso do Balanceador de carga contém dois front-ends e regras associadas a eles: um para entrada e outro para saída.  Cada front-end tem uma referência para um endereço IP público e esta utiliza de cenário um endereço IP público diferente para entrada e saída.   A regra de balanceamento de carga fornece balanceamento de carga entrada única e a regra de saída controla o NAT de saída fornecido para a VM.  Este início rápido utiliza dois separado conjuntos back-end, um para de entrada e outro para saída, para ilustrar a capacidade e permitem a flexibilidade para este cenário.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)] 
 
@@ -69,30 +69,41 @@ Criar um endereço IP padrão para a configuração de saída de front-end do Ba
   az network public-ip create --resource-group myresourcegroupoutbound --name mypublicipoutbound --sku standard
 ```
 
-
 ## <a name="create-azure-load-balancer"></a>Criar Balanceador de carga do Azure
 
 Esta secção descreve como pode criar e configurar os seguintes componentes do balanceador de carga:
   - Um IP de front-end que recebe o tráfego de rede de entrada no balanceador de carga.
   - Tráfego de rede com balanceamento de um conjunto de back-end onde o IP de front-end envia a carga.
+  - Um conjunto de back-end para conectividade de saída. 
   - uma sonda de estado de funcionamento que determina o estado de funcionamento das instâncias de VM de back-end.
   - Uma entrada Balanceador de carga que define como o tráfego é distribuído pelas VMS.
   - Uma saída Balanceador de carga que define como o tráfego é distribuído das VMs.
 
 ### <a name="create-load-balancer"></a>Criar Balanceador de carga
 
-Criar um balanceador de carga com a entrada através de endereços IP [criar az rede lb](https://docs.microsoft.com/cli/azure/network/lb?view=azure-cli-latest) com o nome *lb* que inclui uma configuração de IP de entrada de front-end e um conjunto de back-end que estão associado com o endereço IP público *mypublicipinbound* que criou no passo anterior.
+Criar um balanceador de carga com a entrada através de endereços IP [criar az rede lb](https://docs.microsoft.com/cli/azure/network/lb?view=azure-cli-latest) com o nome *lb* que inclui uma configuração de IP de entrada de front-end e um conjunto de back-end *bepoolinbound*que está associado com o endereço IP público *mypublicipinbound* que criou no passo anterior.
 
 ```azurecli-interactive
   az network lb create \
     --resource-group myresourcegroupoutbound \
     --name lb \
     --sku standard \
-    --backend-pool-name bepool \
+    --backend-pool-name bepoolinbound \
     --frontend-ip-name myfrontendinbound \
     --location eastus2 \
     --public-ip-address mypublicipinbound   
   ```
+
+### <a name="create-outbound-pool"></a>Criar o agrupamento de saída
+
+Criar um conjunto de endereços de back-end adicionais para definir a conectividade de saída para um conjunto de VMs com [criar az rede lb-conjunto de endereços](https://docs.microsoft.com/cli/azure/network/lb?view=azure-cli-latest) com o nome *bepooloutbound*.  Criar um agrupamento de saída separado fornece a máxima flexibilidade, mas pode omitir este passo e utilizar apenas a entrada *bepoolinbound* também.
+
+```azurecli-interactive
+  az network lb address-pool \
+    --resource-group myresourcegroupoutbound \
+    --lb-name lb \
+    --name bepooloutbound
+```
 
 ### <a name="create-outbound-frontend-ip"></a>Criar endereço IP de front-end saída
 Criar a configuração de IP de saída de front-end do Balanceador de carga com [criar az rede lb frontend-ip](https://docs.microsoft.com/cli/azure/network/lb?view=azure-cli-latest) que inclui e o nome de configuração de IP de front-end saída *myfrontendoutbound* ou seja associados para o endereço IP público *mypublicipoutbound*
@@ -136,7 +147,7 @@ az network lb rule create \
 --backend-port 80 \
 --probe http \
 --frontend-ip-name myfrontendinbound \
---backend-pool-name bepool \
+--backend-pool-name bepoolinbound \
 --disable-outbound-snat
 ```
 
@@ -153,10 +164,12 @@ az network lb outbound-rule create \
  --protocol All \
  --idle-timeout 15 \
  --outbound-ports 10000 \
- --address-pool bepool
+ --address-pool bepooloutbound
 ```
 
-Neste momento, pode continuar com a adição da VM ao agrupamento de back-end *bepool* ao atualizar a configuração de IP os respectivos recursos de NIC.
+Se não pretender utilizar um conjunto de saída separado, pode alterar o argumento de conjunto de endereços no comando anterior para especificar *bepoolinbound* em vez disso.  Recomendamos utilizar conjuntos separados para flexibilidade e facilitar a leitura da configuração resultante.
+
+Neste momento, pode continuar com a adição da VM ao agrupamento de back-end *bepoolinbound* __e__ *bepooloutbound* ao atualizar a configuração de IP da NIC respectivo recursos usando [adicionar az rede nic ip-config-conjunto de endereços](https://docs.microsoft.com/cli/azure/network/lb/rule?view=azure-cli-latest).
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 
@@ -171,4 +184,3 @@ Neste artigo, criou o Balanceador de carga Standard, configuradas regras de trá
 
 > [!div class="nextstepaction"]
 > [Tutoriais do Balanceador de Carga do Azure](tutorial-load-balancer-standard-public-zone-redundant-portal.md)
-

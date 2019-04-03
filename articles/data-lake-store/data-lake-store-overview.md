@@ -3,19 +3,19 @@ title: Descrição geral do Azure Data Lake Storage Gen1 | Documentos da Microso
 description: Compreender o que Gen1 de armazenamento do Data Lake é (anteriormente conhecido como Azure Data Lake Store) e sua importância em relação a outros arquivos de dados
 services: data-lake-store
 documentationcenter: ''
-author: nitinme
-manager: jhubbard
+author: twooley
+manager: mtillman
 ms.service: data-lake-store
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/27/2018
-ms.author: nitinme
-ms.openlocfilehash: b733a0bec20c7abae5df41acd74284bdf75bca2c
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.author: twooley
+ms.openlocfilehash: 438eab091fac103b66f0789beca0098b87ee44cd
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46124138"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58885660"
 ---
 # <a name="overview-of-azure-data-lake-storage-gen1"></a>Descrição geral do Azure Data Lake Storage Gen1
 
@@ -45,7 +45,7 @@ Geração 1 de armazenamento do Data Lake fornece armazenamento ilimitado e é a
 ### <a name="performance-tuned-for-big-data-analytics"></a>Desempenho otimizado para análise de macrodados
 Geração 1 de armazenamento do Data Lake foi concebido para executar sistemas de análise que requeiram débito em massa para consultar e analisar grandes quantidades de dados de grande escala. O data lake propaga partes de um ficheiro ao longo de um número de servidores de armazenamento individuais. Isto melhora o débito de leitura ao ler o ficheiro em paralelo para efetuar análise de dados.
 
-### <a name="enterprise-ready-highly-available-and-secure"></a>Pronto para empresas: elevada disponibilidade e segurança
+### <a name="enterprise-ready-highly-available-and-secure"></a>Pronto para empresas: Elevada disponibilidade e seguro
 Geração 1 de armazenamento do Data Lake fornece disponibilidade de norma da indústria e fiabilidade. Os recursos de dados são armazenados de maneira duradoura, ao fazer cópias redundantes para proteger contra quaisquer falhas inesperadas. As empresas podem utilizar a geração 1 de armazenamento do Data Lake nas respetivas soluções como uma parte importante da respetiva plataforma de dados.
 
 Geração 1 de armazenamento do Data Lake também fornece segurança de nível empresarial para os dados armazenados. Para obter mais informações, consulte [proteger dados no Azure Data Lake Storage Gen1](#DataLakeStoreSecurity).
@@ -60,7 +60,7 @@ Utiliza o Data Lake Gen1 de armazenamento do Azure Active Directory para autenti
 
 | Funcionalidade | Descrição |
 | --- | --- |
-| Autenticação |Gen1 de armazenamento do Data Lake está integrado com o Azure Active Directory (AAD) para a gestão de identidades e acessos para todos os dados armazenados no Data Lake Storage Gen1. Como resultado de integração, benefícios de geração 1 de armazenamento do Data Lake com todas as funcionalidades do AAD incluindo autenticação multifator, acesso condicional, controlo de acesso baseado em funções, monitorização da utilização de aplicações, segurança de monitorização e alertas, etc. Geração 1 de armazenamento do Data Lake suporta o protocolo de OAuth 2.0 para a autenticação com na REST interface. Consulte [autenticação de geração 1 de armazenamento do Data Lake](data-lakes-store-authentication-using-azure-active-directory.md)|
+| Authentication |Gen1 de armazenamento do Data Lake está integrado com o Azure Active Directory (AAD) para a gestão de identidades e acessos para todos os dados armazenados no Data Lake Storage Gen1. Como resultado de integração, benefícios de geração 1 de armazenamento do Data Lake com todas as funcionalidades do AAD incluindo autenticação multifator, acesso condicional, controlo de acesso baseado em funções, monitorização da utilização de aplicações, segurança de monitorização e alertas, etc. Geração 1 de armazenamento do Data Lake suporta o protocolo de OAuth 2.0 para a autenticação com na REST interface. Consulte [autenticação de geração 1 de armazenamento do Data Lake](data-lakes-store-authentication-using-azure-active-directory.md)|
 | Controlo de acesso |Geração 1 de armazenamento do Data Lake fornece controlo de acesso ao suportar permissões do estilo POSIX expostas pelo protocolo WebHDFS. As ACLs podem ser ativadas na pasta raiz, nas subpastas e nos ficheiros individuais. Para obter mais informações sobre como as ACLs funcionam no contexto da geração 1 de armazenamento do Data Lake, veja [controlo de acesso no Data Lake Storage Gen1](data-lake-store-access-control.md). |
 | Encriptação |Geração 1 de armazenamento do Data Lake também fornece encriptação para dados armazenados na conta. Especifique as definições de encriptação durante a criação de uma conta de geração 1 de armazenamento do Data Lake. Pode optar por encriptar os seus dados ou por não utilizar encriptação. Para obter mais informações, consulte [encriptação no Data Lake Storage Gen1](data-lake-store-encryption.md). Para obter instruções sobre como fornecer configuração relacionada com encriptação, consulte [introdução ao Azure Data Lake Storage Gen1 através do Portal do Azure](data-lake-store-get-started-portal.md). |
 

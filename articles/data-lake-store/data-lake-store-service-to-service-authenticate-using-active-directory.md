@@ -1,22 +1,22 @@
 ---
-title: 'Autenticação serviço a serviço: Gen1 de armazenamento do Azure Data Lake com o Azure Active Directory | Documentos da Microsoft'
+title: 'Autenticação serviço a serviço: Geração 1 Lake armazenamento de dados do Azure com o Azure Active Directory | Documentos da Microsoft'
 description: Saiba como conseguir a autenticação do serviço para serviço com Gen1 de armazenamento do Azure Data Lake com o Azure Active Directory
 services: data-lake-store
 documentationcenter: ''
-author: nitinme
-manager: jhubbard
+author: twooley
+manager: mtillman
 editor: cgronlun
 ms.service: data-lake-store
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/29/2018
-ms.author: nitinme
-ms.openlocfilehash: 2ec5d469ba0708288881be3d905b492aa8aa4da6
-ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
+ms.author: twooley
+ms.openlocfilehash: a7fdcf396f586a65efa17e489d002f1c8847a193
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49956619"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58884997"
 ---
 # <a name="service-to-service-authentication-with-azure-data-lake-storage-gen1-using-azure-active-directory"></a>Autenticação do serviço para serviço com Gen1 de armazenamento do Azure Data Lake com o Azure Active Directory
 > [!div class="op_single_selector"]
@@ -45,7 +45,7 @@ Ao seguir as instruções na ligação anterior, certifique-se de que seleciona 
 
 ![Criar aplicação web](./media/data-lake-store-authenticate-using-active-directory/azure-active-directory-create-web-app.png "Criar aplicação web")
 
-## <a name="step-2-get-application-id-authentication-key-and-tenant-id"></a>Passo 2: Obter o ID da aplicação, a chave de autenticação e o ID do inquilino
+## <a name="step-2-get-application-id-authentication-key-and-tenant-id"></a>Passo 2: Obter ID da aplicação, a chave de autenticação e o ID do inquilino
 Quando iniciar sessão programaticamente, precisa do ID para a sua aplicação. Se o aplicativo for executado sob suas próprias credenciais, também precisa de uma chave de autenticação.
 
 * Para obter instruções sobre como obter a chave de autenticação e o ID de aplicação (também denominada o segredo do cliente) para a sua aplicação, consulte [chave de ID e a autenticação da aplicação Get](../active-directory/develop/howto-create-service-principal-portal.md#get-application-id-and-authentication-key).

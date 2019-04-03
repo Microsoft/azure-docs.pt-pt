@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/25/2019
 ms.author: juliako
-ms.openlocfilehash: 77cbc73c6c6aef40c482b0cfe456dcbd4b7e85d0
-ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
+ms.openlocfilehash: c9254c8dd629230a549dd95aba9afbd932746007
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58435317"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58886459"
 ---
 # <a name="dynamic-packaging"></a>Empacotamento dinâmico
 
@@ -26,7 +26,7 @@ Serviços de multimédia do Microsoft Azure podem ser utilizados para disponibil
 
 [Pontos finais de transmissão em fluxo](streaming-endpoint-concept.md) é o serviço de empacotamento dinâmico dos serviços de multimédia utilizadas para disponibilizar conteúdo multimédia para jogadores do cliente. Empacotamento dinâmico é uma funcionalidade que vem padrão em todos os **pontos finais de transmissão em fluxo** (Standard ou Premium). 
 
-Para tirar partido das **empacotamento dinâmico**, tem de ter um **Asset** com um conjunto de ficheiros MP4 de velocidade de transmissão adaptável e ficheiros de configuração de transmissão em fluxo necessários pelo empacotamento dinâmico de serviços de multimédia. É uma forma de obter os ficheiros codificar o (origem) mezanino com os Media Services. Para disponibilizar vídeos no elemento codificado para os clientes para a reprodução, tem de criar uma **localizador de transmissão em fluxo** e criar URLs de transmissão em fluxo. Em seguida, com base no formato especificado no manifesto cliente streaming (HLS, TRAÇO ou uniforme), receberá o fluxo no protocolo que escolheu.
+Para tirar partido das **empacotamento dinâmico**, tem de ter um **Asset** com um conjunto de ficheiros MP4 de velocidade de transmissão adaptável e ficheiros de configuração de transmissão em fluxo necessários pelo empacotamento dinâmico de serviços de multimédia. Uma forma de obter os ficheiros é codificar o ficheiro mezzanine (de origem) com os Serviços de Multimédia. Para disponibilizar vídeos no elemento codificado para os clientes para a reprodução, tem de criar uma **localizador de transmissão em fluxo** e criar URLs de transmissão em fluxo. Em seguida, com base no formato especificado no manifesto cliente streaming (HLS, TRAÇO ou uniforme), receberá o fluxo no protocolo que escolheu.
 
 Como resultado, só tem de armazenar e pagar pelos ficheiros num único formato de armazenamento e os Media Services irão compilar e disponibilizar a resposta adequada com base nos pedidos de um cliente. 
 
@@ -196,7 +196,7 @@ Eis um exemplo de um manifesto de transmissão em fluxo uniforme:
 Filtragem dinâmica é utilizado para controlar o número de faixas, formatos, velocidades de transmissão e janelas de tempo de apresentação que são enviadas para os jogadores. Para obter mais informações, consulte [filtros e dos manifestos dinâmicos](filters-dynamic-manifest-overview.md).
 
 > [!NOTE]
-> Atualmente, não é possível utilizar o portal do Azure para gerir os recursos de v3. Utilize o [REST API](https://aka.ms/ams-v3-rest-ref), [CLI](https://aka.ms/ams-v3-cli-ref), ou um suportadas [SDKs](developers-guide.md).
+> Atualmente, não pode utilizar o portal do Azure para gerir recursos v3. Utilize a [API REST](https://aka.ms/ams-v3-rest-ref), a [CLI](https://aka.ms/ams-v3-cli-ref) ou um dos [SDKs](developers-guide.md) suportados.
 
 ## <a name="next-steps"></a>Passos Seguintes
 

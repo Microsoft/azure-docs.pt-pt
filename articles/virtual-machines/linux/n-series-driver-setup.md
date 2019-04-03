@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 01/09/2019
 ms.author: cynthn
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: cb597edc676fbb7b63c6a07849551cc21f69b354
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 7c80b821d6bd0263473ba0178eea148f7a2d5773
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58015009"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58879051"
 ---
 # <a name="install-nvidia-gpu-drivers-on-n-series-vms-running-linux"></a>Instalar controladores NVIDIA GPU em VMs de série N que executem o Linux
 
@@ -187,9 +187,9 @@ Para instalar controladores de GRID da NVIDIA em NV ou VMs da série NVv2, efetu
 
    sudo apt-get dist-upgrade -y
 
-   sudo apt-get install build-essential ubuntu-desktop -y
-   ```
-3. Desabilite o driver do kernel Nouveau, que é incompatível com o driver da NVIDIA. (Utilize apenas os controladores NVIDIA no NV ou NVv2 VMs.) Para tal, crie um ficheiro na `/etc/modprobe.d `com o nome `nouveau.conf` com o seguinte conteúdo:
+  sudo apt-get install build-essential ubuntu-desktop -y
+  ```
+3. Desabilite o driver do kernel Nouveau, que é incompatível com o driver da NVIDIA. (Utilize apenas os controladores NVIDIA no NV ou NVv2 VMs.) Para tal, crie um ficheiro na `/etc/modprobe.d` com o nome `nouveau.conf` com o seguinte conteúdo:
 
    ```
    blacklist nouveau
@@ -244,7 +244,7 @@ Para instalar controladores de GRID da NVIDIA em NV ou VMs da série NVv2, efetu
    sudo yum install dkms
    ```
 
-2. Desabilite o driver do kernel Nouveau, que é incompatível com o driver da NVIDIA. (Utilize apenas os controladores NVIDIA no NV ou NV2 VMs.) Para tal, crie um ficheiro na `/etc/modprobe.d `com o nome `nouveau.conf` com o seguinte conteúdo:
+2. Desabilite o driver do kernel Nouveau, que é incompatível com o driver da NVIDIA. (Utilize apenas os controladores NVIDIA no NV ou NV2 VMs.) Para tal, crie um ficheiro na `/etc/modprobe.d` com o nome `nouveau.conf` com o seguinte conteúdo:
 
    ```
    blacklist nouveau

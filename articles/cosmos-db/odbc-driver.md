@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 03/22/2018
 ms.author: sngun
-ms.openlocfilehash: 95811459ff51b71153fb5ceef804a64c8b6a9be6
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: a4cf3a9c19497057d7799be3bec78ad0de97e71a
+ms.sourcegitcommit: 04716e13cc2ab69da57d61819da6cd5508f8c422
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55816633"
+ms.lasthandoff: 04/02/2019
+ms.locfileid: "58851053"
 ---
 # <a name="connect-to-azure-cosmos-db-using-bi-analytics-tools-with-the-odbc-driver"></a>Ligar ao Azure Cosmos DB com ferramentas de análise de BI com o controlador ODBC
 
@@ -97,7 +97,7 @@ Existem dois tipos de métodos de amostragem, que pode utilizar: **mapeamento da
 
 1. Assim que tiver concluído a definição do esquema, clique em **arquivo** | **guardar**, navegue para o diretório para guardar o esquema e, em seguida, clique em **guardar**.
 
-    Se no futuro que pretende utilizar este esquema com um DSN, abra a janela de configuração do Azure Cosmos DB ODBC Driver DSN (através da origem de administrador de dados ODBC), clique em Advanced Options e, em seguida, na caixa de ficheiro de esquema, navegue para o esquema guardado. Guardar um ficheiro de esquema um DSN existente modifica a ligação de DSN ao âmbito para os dados e uma estrutura definida pelo esquema.
+1. Para usar esse esquema com um DSN, abra a **janela de configuração do Azure Cosmos DB ODBC Driver DSN** (via a origem de administrador de dados ODBC), clique em **opções avançadas**e, em seguida, no **doficheirodeesquema** caixa, navegue para o esquema guardado. Guardar um ficheiro de esquema um DSN existente modifica a ligação de DSN ao âmbito para os dados e uma estrutura definida pelo esquema.
 
 ## <a id="table-mapping"></a>Passo 4: Criar uma definição de esquema com os delimitadores de tabela de mapeamento de método
 

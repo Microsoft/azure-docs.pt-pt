@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 09/05/2017
 ms.author: fryu
 ms.subservice: common
-ms.openlocfilehash: a5ebd50b3a5fe3b611bae28db98979eee40f9490
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 4be52fbc6d9fb01ac3cd3c0954042c35b45bbf23
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57899031"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58884368"
 ---
 # <a name="azure-storage-metrics-in-azure-monitor"></a>Métricas do Armazenamento do Azure no Azure Monitor
 
@@ -284,9 +284,9 @@ O exemplo seguinte mostra como ler dados de métrica a métrica multidimensional
 
 ID de recurso é um identificador exclusivo de um recurso no Azure. Quando utiliza a API de REST do Azure Monitor para ler definições das métricas ou valores, tem de utilizar o ID de recurso para o recurso no qual pretende operar. O modelo de ID de recurso segue este formato:
 
-`
+```
 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
-`
+```
 
 O armazenamento fornece as métricas ao nível da conta de armazenamento e o nível de serviço com o Azure Monitor. Por exemplo, pode obter métricas para o armazenamento de BLOBs apenas. Cada nível tem seu próprio ID de recurso, o que é utilizada para obter as métricas para apenas esse nível.
 
@@ -294,34 +294,38 @@ O armazenamento fornece as métricas ao nível da conta de armazenamento e o ní
 
 O código a seguir mostra o formato para especificar o ID de recurso para uma conta de armazenamento.
 
-`
+```
 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Storage/storageAccounts/{storageAccountName}
-`
+```
 
 ### <a name="resource-id-for-the-storage-services"></a>ID de recurso para os serviços de armazenamento
 
 O código a seguir mostra o formato para especificar o ID de recurso para cada um dos serviços de armazenamento.
 
-* ID de recurso do serviço de BLOBs `
+* ID de recurso do serviço de BLOBs
+```
 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Storage/storageAccounts/{storageAccountName}/blobServices/default
-`
-* ID de recurso do serviço de tabela `
+```
+* ID de recurso do serviço de tabela
+```
 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Storage/storageAccounts/{storageAccountName}/tableServices/default
-`
-* ID de recurso do serviço de fila `
+```
+* ID de recurso do serviço de fila
+```
 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Storage/storageAccounts/{storageAccountName}/queueServices/default
-`
-* ID de recurso de serviço do ficheiro `
+```
+* ID de recurso de serviço do ficheiro
+```
 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Storage/storageAccounts/{storageAccountName}/fileServices/default
-`
+```
 
 ### <a name="resource-id-in-azure-monitor-rest-api"></a>ID de recurso no Azure Monitor REST API
 
 O código a seguir mostra o padrão utilizado quando chamar a API de REST do Azure Monitor.
 
-`
+```
 GET {resourceId}/providers/microsoft.insights/metrics?{parameters}
-`
+```
 
 ## <a name="capacity-metrics"></a>Métricas de capacidade
 Valores de métricas de capacidade são enviadas para o Azure Monitor, a cada hora. Os valores são atualizados diariamente. O intervalo de agregação define o intervalo de tempo para o qual os valores das métricas são apresentados. O intervalo de agregação suportado para todas as métricas de capacidade é uma hora (PT1H).

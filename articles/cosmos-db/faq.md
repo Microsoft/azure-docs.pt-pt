@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: sngun
 ms.custom: seodec18
-ms.openlocfilehash: c344e8c2d0ad62b394792201ab52bb37413012f8
-ms.sourcegitcommit: aa3be9ed0b92a0ac5a29c83095a7b20dd0693463
+ms.openlocfilehash: 40e2baaeaae933e8ff6a88eff2e2d86f645ad37b
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58259912"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58881046"
 ---
 # <a name="frequently-asked-questions-about-different-apis-in-azure-cosmos-db"></a>Perguntas mais frequentes sobre as diferentes APIs no Azure Cosmos DB
 
@@ -201,7 +201,7 @@ Sim. O [emulador do Azure Cosmos DB](local-emulator.md) fornece uma emulação d
 
 ### <a name="why-are-long-floating-point-values-in-a-document-rounded-when-viewed-from-data-explorer-in-the-portal"></a>Por que são valores longa vírgula flutuante num documento arredondado quando visualizado a partir do Explorador de dados no portal.
 
-Esta é a limitação do JavaScript. JavaScript usa números de formato de vírgula flutuante de dupla precisão, conforme especificado na IEEE 754 e com segurança que pode conter números entre-(253 - 1) e 253-1 (ou seja, 9007199254740991) apenas.
+Esta é a limitação do JavaScript. JavaScript usa números de formato de vírgula flutuante de dupla precisão, conforme especificado na IEEE 754 e com segurança que pode conter números entre-(2<sup>53</sup> -1) e 2<sup>53</sup>-1 (ou seja, 9007199254740991) apenas.
 
 ### <a name="where-are-permissions-allowed-in-the-object-hierarchy"></a>Em que as permissões são permitidas na hierarquia do objeto?
 
@@ -292,7 +292,7 @@ Se qualquer uma dessas diferenças são um problema para o seu projeto, contacte
 
 Pode partilhar os seus comentários em qualquer uma das seguintes formas:
 
-* [Voz do utilizador](https://feedback.azure.com/forums/263030-azure-cosmos-db)
+* [Opinião do Utilizador](https://feedback.azure.com/forums/263030-azure-cosmos-db)
 * [Fórum do MSDN](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurecosmosdb)
 * [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-cosmosdb). Estouro de pilha é melhor para questões de programação. Certifique-se de que é a sua pergunta [no tópico](https://stackoverflow.com/help/on-topic) e [fornecer tantos detalhes quanto possível, fazer a pergunta clara e answerable](https://stackoverflow.com/help/how-to-ask).
 

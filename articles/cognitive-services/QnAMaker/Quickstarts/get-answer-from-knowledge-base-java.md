@@ -10,12 +10,12 @@ ms.subservice: qna-maker
 ms.topic: quickstart
 ms.date: 02/28/2019
 ms.author: diberry
-ms.openlocfilehash: 9b80222acfc1104c184fc9cfb4711c16e7bb8dd2
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.openlocfilehash: a8e51534fec3dacb577ef9b79bb42c48557dc15b
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57312992"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58884946"
 ---
 # <a name="get-answers-to-a-question-from-a-knowledge-base-with-java"></a>Obtenha respostas a uma pergunta de uma base de dados de conhecimento com Java
 
@@ -70,7 +70,7 @@ O código a seguir faz um pedido HTTPS para a API do QnA Maker para enviar a per
 
 [!code-java[Add a POST request to send question to knowledge base](~/samples-qnamaker-java/documentation-samples/quickstarts/get-answer/GetAnswer.java?range=44-72 "Add a POST request to send question to knowledge base")]
 
-O `Authorization` valor do cabeçalho inclui a cadeia de caracteres `EndpointKey `. 
+O `Authorization` valor do cabeçalho inclui a cadeia de caracteres `EndpointKey`. 
 
 Saiba mais sobre o [solicitação](../how-to/metadata-generateanswer-usage.md#generateanswer-request) e [resposta](../how-to/metadata-generateanswer-usage.md#generateanswer-response).
 
@@ -98,4 +98,4 @@ Crie e execute o programa a partir da linha de comando. Ele enviará automaticam
 ## <a name="next-steps"></a>Passos Seguintes
 
 > [!div class="nextstepaction"]
-> [Referência à API REST do Criador de FAQ](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da75ff)
+> [Referência da API REST do criador de FAQ (V4)](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da75ff)

@@ -12,10 +12,10 @@ ms.topic: reference
 ms.date: 09/12/2018
 ms.author: glenga
 ms.openlocfilehash: 55b4cf6e621bc1e5bd3d8ba4718e5714ea652c27
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
-ms.translationtype: MT
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2019
+ms.lasthandoff: 04/03/2019
 ms.locfileid: "58111485"
 ---
 # <a name="azure-functions-c-developer-reference"></a>Referência do Azure funções c# para programadores
@@ -158,7 +158,7 @@ O *Function* geração de ficheiros é efetuada pelo pacote NuGet [Microsoft\.NE
 
 O mesmo pacote é utilizado para as versões 1.x e 2.x do runtime das funções. A estrutura de destino é o que diferencia um projeto de 1.x de um projeto de 2.x. Aqui estão as partes relevantes *. csproj* unidades de destino em ficheiros, que mostra diferentes estruturas e o mesmo `Sdk` pacote:
 
-**As funções 1.x**
+**Funções 1.x**
 
 ```xml
 <PropertyGroup>
@@ -169,7 +169,7 @@ O mesmo pacote é utilizado para as versões 1.x e 2.x do runtime das funções.
 </ItemGroup>
 ```
 
-**As funções 2.x**
+**Funções 2.x**
 
 ```xml
 <PropertyGroup>

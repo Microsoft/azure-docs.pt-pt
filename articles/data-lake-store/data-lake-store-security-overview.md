@@ -3,21 +3,21 @@ title: Descrição geral da segurança na geração 1 de armazenamento do Azure 
 description: Compreender como Gen1 de armazenamento do Azure Data Lake é um armazenamento de grandes volumes de dados mais seguro
 services: data-lake-store
 documentationcenter: ''
-author: nitinme
-manager: jhubbard
+author: twooley
+manager: mtillman
 editor: cgronlun
 ms.assetid: ebd5b2ac-c5cc-46d4-9cfd-1a1ee70024c2
 ms.service: data-lake-store
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/26/2018
-ms.author: nitinme
-ms.openlocfilehash: a310851819f70d138a4980b1ab61891fb0b2c311
-ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
+ms.author: twooley
+ms.openlocfilehash: 63e538ab43eaf4a34226b0084cf55334e2cc782b
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56959617"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58883309"
 ---
 # <a name="security-in-azure-data-lake-storage-gen1"></a>Segurança no Azure Data Lake Storage Gen1
 Muitas empresas estão a tirar partido da análise de macrodados para as informações de negócio para os ajudar a tomar decisões inteligentes. Uma organização pode ter um ambiente complexo e regulado, com um número crescente de diversos usuários. É fundamental para uma empresa para se certificar de que a dados empresariais críticos são armazenados de forma mais segura, com o nível correto de acesso concedido a utilizadores individuais. Geração de armazenamento 1 do Azure Data Lake foi concebido para ajudar a satisfazer esses requisitos de segurança. Neste artigo, saiba mais sobre as capacidades de segurança de geração 1 de armazenamento do Data Lake, incluindo:
@@ -112,5 +112,5 @@ Se quiser ver os novos recursos do Data Lake Storage Gen1, envie-nos seus coment
 ## <a name="see-also"></a>Consulte também
 * [Descrição geral do Azure Data Lake Storage Gen1](data-lake-store-overview.md)
 * [Introdução ao Data Lake Storage Gen1](data-lake-store-get-started-portal.md)
-* [Proteger dados no Armazenamento do Data Lake Ger1](data-lake-store-secure-data.md)
+* [Proteger os dados na geração 1 de armazenamento do Data Lake](data-lake-store-secure-data.md)
 

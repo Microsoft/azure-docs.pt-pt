@@ -4,12 +4,12 @@ ms.service: storsimple
 ms.topic: include
 ms.date: 10/26/2018
 ms.author: alkohli
-ms.openlocfilehash: 1ebbce89c7a977dd9620bd8be67da647c107eadc
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: b2dec95e0258933b50d4437f1cb317639b62883d
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55889230"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58887003"
 ---
 ### <a name="upgrade-sharepoint-2010-to-sharepoint-2013-and-then-install-the-storsomple-adapter-for-sharepoint"></a>Atualizar o SharePoint 2010 para SharePoint 2013 e, em seguida, instalar o adaptador de StorSomple para SharePoint
 > [!IMPORTANT]
@@ -29,7 +29,7 @@ ms.locfileid: "55889230"
 > Deve agendar esta atualização para ocorrer durante uma janela de manutenção planeada pelos seguintes motivos:
 > 
 > * Anteriormente conteúdo externalized não estarão disponível até que o adaptador é reinstalado.
-> * Qualquer conteúdo carregado para o site depois de desinstalar a versão anterior do StorSimple Adapter para SharePoint, mas antes de instalar a nova versão, será armazenado na base de dados do conteúdo. Precisará mover esse conteúdo para o dispositivo StorSimple, depois de instalar o novo adaptador. Pode utilizar o Microsoft` RBS Migrate()` cmdlet do PowerShell incluído com o SharePoint para migrar o conteúdo. Para obter mais informações, consulte [migrar o conteúdo dentro ou fora do RBS](https://technet.microsoft.com/library/ff628255.aspx). 
+> * Qualquer conteúdo carregado para o site depois de desinstalar a versão anterior do StorSimple Adapter para SharePoint, mas antes de instalar a nova versão, será armazenado na base de dados do conteúdo. Precisará mover esse conteúdo para o dispositivo StorSimple, depois de instalar o novo adaptador. Pode utilizar o Microsoft `RBS Migrate()` cmdlet do PowerShell incluído com o SharePoint para migrar o conteúdo. Para obter mais informações, consulte [migrar o conteúdo dentro ou fora do RBS](https://technet.microsoft.com/library/ff628255.aspx). 
 > 
 > 
 

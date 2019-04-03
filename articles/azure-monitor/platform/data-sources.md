@@ -12,15 +12,15 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/13/2018
 ms.author: bwren
-ms.openlocfilehash: 4ae8ae43d8c245270b64611bed0ac4930aa0ecc3
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 6d03c219025c8cd39214bd8ab6807125709f9742
+ms.sourcegitcommit: 04716e13cc2ab69da57d61819da6cd5508f8c422
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57763432"
+ms.lasthandoff: 04/02/2019
+ms.locfileid: "58849686"
 ---
 # <a name="sources-of-data-in-azure-monitor"></a>Origens de dados no Azure Monitor
-Este artigo descreve as origens de dados recolhidos pelo Azure Monitor para monitorizar o estado de funcionamento e desempenho dos seus recursos e as aplicações em execução nos mesmos. Esses recursos podem ser no Azure, no noutra cloud ou no local.  Ver [dados recolhidos pelo Azure Monitor](data-collection.md) para obter detalhes sobre como estes dados são armazenados e como pode vê-lo.
+Este artigo descreve as origens de dados recolhidos pelo Azure Monitor para monitorizar o estado de funcionamento e desempenho dos seus recursos e as aplicações em execução nos mesmos. Esses recursos podem ser no Azure, no noutra cloud ou no local.  Ver [dados recolhidos pelo Azure Monitor](data-platform.md) para obter detalhes sobre como estes dados são armazenados e como pode vê-lo.
 
 A monitorização dos dados no Azure provém de uma variedade de origens que podem ser organizadas em camadas, as camadas mais altos a ser a sua aplicação e todos os sistemas operativos e as camadas inferiores a ser componentes da plataforma do Azure. Isso está ilustrado no diagrama seguinte com cada camada descrita detalhadamente nas seções a seguir.
 
@@ -59,7 +59,7 @@ Registos de diagnóstico ao nível métricas e recursos fornecem informações s
 
 
 ### <a name="metrics"></a>Métricas
-Serviços do Azure mais irão gerar [métricas de plataforma](data-collection.md#metrics) que refletem o desempenho e operação. As específicas [métricas irão variar para cada tipo de recurso](metrics-supported.md).  Eles estão acessíveis a partir de análise de métricas e podem ser copiados para os registos para análise de tendência e outro com o Log Analytics.
+Serviços do Azure mais irão gerar [métricas de plataforma](data-platform-metrics.md) que refletem o desempenho e operação. As específicas [métricas irão variar para cada tipo de recurso](metrics-supported.md).  Eles estão acessíveis a partir de análise de métricas e podem ser copiados para os registos para análise de tendência e outro com o Log Analytics.
 
 
 ### <a name="resource-diagnostic-logs"></a>Registos de diagnóstico de recursos
@@ -116,4 +116,4 @@ O Azure Monitor pode recolher dados de registo de qualquer cliente REST utilizan
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-- Saiba mais sobre o [tipos de dados recolhidos pelo Azure Monitor](data-collection.md) e como visualizar e analisar estes dados.
+- Saiba mais sobre o [tipos de dados recolhidos pelo Azure Monitor](data-platform.md) e como visualizar e analisar estes dados.

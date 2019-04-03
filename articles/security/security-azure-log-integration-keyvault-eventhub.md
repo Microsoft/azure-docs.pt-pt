@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 01/14/2019
 ms.author: Barclayn
 ms.custom: AzLog
-ms.openlocfilehash: c199adb9ee1d9e5fbc879441da7395efa16f0d40
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 7e70920e806b3d9838d693ff1fc74a3e9371319d
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58094665"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58883926"
 ---
 # <a name="azure-log-integration-tutorial-process-azure-key-vault-events-by-using-event-hubs"></a>Tutorial de integração de registos do Azure: Processar os eventos do Azure Key Vault através dos Hubs de eventos
 
@@ -43,7 +43,7 @@ Informações fornecidas ao longo do processo ajudam-o a compreender as razões 
 
 Para obter mais informações sobre os serviços que menciona neste tutorial, veja: 
 
-- [Cofre de Chaves do Azure](../key-vault/key-vault-whatis.md)
+- [Azure Key Vault](../key-vault/key-vault-whatis.md)
 - [Azure Event Hubs](../event-hubs/event-hubs-what-is-event-hubs.md)
 - [Integração de registos do Azure](security-azure-log-integration-overview.md)
 
@@ -92,10 +92,10 @@ Antes de concluir os passos neste artigo, precisa do seguinte:
     - ```$subscriptionName = 'Visual Studio Ultimate with MSDN'``` (O nome da sua subscrição pode ser diferente. Para ver isso como parte da saída do comando anterior.)
     - ```$location = 'West US'``` (Essa variável será usada para passar a localização onde os recursos devem ser criados. Pode alterar essa variável para ser de qualquer local de sua escolha.)
     - ```$random = Get-Random```
-    - ``` $name = 'azlogtest' + $random``` (O nome pode ser qualquer coisa, mas deve incluir apenas letras minúsculas e números.)
-    - ``` $storageName = $name``` (Essa variável será utilizada para o nome da conta de armazenamento).
-    - ```$rgname = $name ``` (Essa variável será utilizada para o nome do grupo de recursos).
-    - ``` $eventHubNameSpaceName = $name``` (Este é o nome do espaço de nomes do hub de eventos.)
+    - ```$name = 'azlogtest' + $random``` (O nome pode ser qualquer coisa, mas deve incluir apenas letras minúsculas e números.)
+    - ```$storageName = $name``` (Essa variável será utilizada para o nome da conta de armazenamento).
+    - ```$rgname = $name``` (Essa variável será utilizada para o nome do grupo de recursos).
+    - ```$eventHubNameSpaceName = $name``` (Este é o nome do espaço de nomes do hub de eventos.)
 1. Especifique a subscrição que trabalhar com:
     
     ```Select-AzSubscription -SubscriptionName $subscriptionName```
@@ -114,7 +114,7 @@ Antes de concluir os passos neste artigo, precisa do seguinte:
     ```$eventHubNameSpace = New-AzEventHubNamespace -ResourceGroupName $rgname -NamespaceName $eventHubnamespaceName -Location $location```
 1. Obtenha o ID da regra que será utilizado com o fornecedor de informações:
     
-    ```$sbruleid = $eventHubNameSpace.Id +'/authorizationrules/RootManageSharedAccessKey' ```
+    ```$sbruleid = $eventHubNameSpace.Id +'/authorizationrules/RootManageSharedAccessKey'```
 1. Obter todas as localizações do Azure possíveis e adicione os nomes a uma variável que pode ser utilizada num passo posterior:
     
     a. ```$locationObjects = Get-AzLocation```    
@@ -128,7 +128,7 @@ Antes de concluir os passos neste artigo, precisa do seguinte:
     Para obter mais informações sobre o perfil de registo do Azure, consulte [descrição geral do registo de atividades do Azure](../azure-monitor/platform/activity-logs-overview.md).
 
 > [!NOTE]
-> Poderá receber uma mensagem de erro quando tenta criar um perfil de registo. Em seguida, pode rever a documentação para Get-AzLogProfile e Remove-AzLogProfile. Se executar Get-AzLogProfile, verá informações sobre o perfil de registo. Pode eliminar o perfil de registo existente ao introduzir o ```Remove-AzLogProfile -name 'Log Profile Name' ``` comando.
+> Poderá receber uma mensagem de erro quando tenta criar um perfil de registo. Em seguida, pode rever a documentação para Get-AzLogProfile e Remove-AzLogProfile. Se executar Get-AzLogProfile, verá informações sobre o perfil de registo. Pode eliminar o perfil de registo existente ao introduzir o ```Remove-AzLogProfile -name 'Log Profile Name'``` comando.
 >
 >![Erro de perfil do Gestor de recursos](./media/security-azure-log-integration-keyvault-eventhub/rm-profile-error.png)
 
@@ -136,11 +136,11 @@ Antes de concluir os passos neste artigo, precisa do seguinte:
 
 1. Crie o Cofre de chaves:
 
-   ```$kv = New-AzKeyVault -VaultName $name -ResourceGroupName $rgname -Location $location ```
+   ```$kv = New-AzKeyVault -VaultName $name -ResourceGroupName $rgname -Location $location```
 
 1. Configure o registo para o Cofre de chaves:
 
-   ```Set-AzDiagnosticSetting -ResourceId $kv.ResourceId -ServiceBusRuleId $sbruleid -Enabled $true ```
+   ```Set-AzDiagnosticSetting -ResourceId $kv.ResourceId -ServiceBusRuleId $sbruleid -Enabled $true```
 
 ## <a name="generate-log-activity"></a>Gerar registos de atividade
 
@@ -157,7 +157,8 @@ Pedidos têm de ser enviados para o Key Vault para gerar atividade de registo. A
    ```Get-AzStorageAccountKey -Name $storagename -ResourceGroupName $rgname  | ft -a```
 1. Definir e ler um segredo para gerar entradas de registo adicionais:
     
-   a. ```Set-AzKeyVaultSecret -VaultName $name -Name TestSecret -SecretValue (ConvertTo-SecureString -String 'Hi There!' -AsPlainText -Force)``` b. ```(Get-AzKeyVaultSecret -VaultName $name -Name TestSecret).SecretValueText```
+   a. ```Set-AzKeyVaultSecret -VaultName $name -Name TestSecret -SecretValue (ConvertTo-SecureString -String 'Hi There!' -AsPlainText -Force)```
+   b. ```(Get-AzKeyVaultSecret -VaultName $name -Name TestSecret).SecretValueText```
 
    ![Devolvido secreta](./media/security-azure-log-integration-keyvault-eventhub/keyvaultsecret.png)
 
@@ -169,7 +170,7 @@ Agora que configurou todos os elementos necessários para que o Cofre de chaves 
 1. ```$storage = Get-AzStorageAccount -ResourceGroupName $rgname -Name $storagename```
 1. ```$eventHubKey = Get-AzEventHubNamespaceKey -ResourceGroupName $rgname -NamespaceName $eventHubNamespace.name -AuthorizationRuleName RootManageSharedAccessKey```
 1. ```$storagekeys = Get-AzStorageAccountKey -ResourceGroupName $rgname -Name $storagename```
-1. ``` $storagekey = $storagekeys[0].Value```
+1. ```$storagekey = $storagekeys[0].Value```
 
 Execute o comando AzLog para cada hub de eventos:
 

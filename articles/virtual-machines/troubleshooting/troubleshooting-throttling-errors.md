@@ -13,12 +13,12 @@ ms.topic: troubleshooting
 ms.workload: infrastructure-services
 ms.date: 09/18/2018
 ms.author: vashan, rajraj, changov
-ms.openlocfilehash: 401bd3badc555ee001fbc355c7bdb77786c2d053
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
+ms.openlocfilehash: fa65b108f3aea79d4417e65d706d42f0bd819f54
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55977821"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58880717"
 ---
 # <a name="troubleshooting-api-throttling-errors"></a>Resolução de problemas de erros de limitação de API 
 
@@ -35,7 +35,7 @@ Quando um cliente de API do Azure obtém um erro de limitação, o estado HTTP �
 | Cabeçalho                            | Formato do valor                           | Exemplo                               | Descrição                                                                                                                                                                                               |
 |-----------------------------------|----------------------------------------|---------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | x-ms-ratelimit-remaining-resource |```<source RP>/<policy or bucket>;<count>```| Microsoft.Compute/HighCostGet3Min;159 | Contagem de chamadas de API restante para a política de limitação que abrangem o grupo de bucket ou operação de recursos incluindo o destino deste pedido                                                                   |
-| x-ms-request-charge               | ```<count>   ```                             | 1                                     | O número de chamada de conta "cobrado" para este pedido HTTP na direção de limite da política aplicável. Isso normalmente é 1. Pedidos de lote, como para dimensionar um conjunto de dimensionamento de máquina virtual, podem cobrar contagens vários. |
+| x-ms-request-charge               | ```<count>```                             | 1                                     | O número de chamada de conta "cobrado" para este pedido HTTP na direção de limite da política aplicável. Isso normalmente é 1. Pedidos de lote, como para dimensionar um conjunto de dimensionamento de máquina virtual, podem cobrar contagens vários. |
 
 
 Tenha em atenção que um pedido de API pode estar sujeitos a múltiplas políticas de limitação. Haverá um separado `x-ms-ratelimit-remaining-resource` cabeçalho para cada política. 

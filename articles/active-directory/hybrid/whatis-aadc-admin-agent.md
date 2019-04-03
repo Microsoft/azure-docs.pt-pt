@@ -7,18 +7,18 @@ manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 03/26/2019
+ms.date: 04/03/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 17b99b7b03898ad72b4d9c7cc2ba9154855475ef
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.openlocfilehash: 49234472481e30cf74efa3e72ac0e4f31466fada
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58488406"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58884895"
 ---
-# <a name="what-is-the-azure-ad-connect-admin-agent"></a>O que é o agente do Azure AD Connect administrador? 
+# <a name="what-is-the-azure-ad-connect-admin-agent"></a>O que é o Agente de Administração do Azure AD Connect? 
 O agente do Azure AD Connect administração é um componente novo do Azure Active Directory Connect que está instalado num servidor do Azure Active Directory Connect. É utilizado para recolher dados específicos do seu ambiente do Active Directory que o ajuda a um engenheiro para resolver problemas ao abrir um incidente de suporte de suporte da Microsoft.
 
 Quando instalado, as esperas de agente do Azure AD Connect administração para pedidos específicos de dados do Azure Active Directory, obtém os dados solicitados do ambiente de sincronização e envia-os para o Azure Active Directory, onde é apresentada para a Microsoft suporta engenheiro.
@@ -39,7 +39,7 @@ O engenheiro de suporte da Microsoft não é possível alterar a todos os dados 
 
 ## <a name="what-if-i-dont-want-the-microsoft-support-engineer-to-access-my-data"></a>E se eu não quero o engenheiro de suporte da Microsoft para aceder aos meus dados? 
  
-Se, não quiser chamar o engenheiro de serviços da Microsoft para aceder aos seus dados para uma chamada de suporte pode indicar isto ao abrir um suporte no portal do: 
+Se pretender que o engenheiro de serviços da Microsoft para aceder aos seus dados para uma chamada de suporte não é possível desabilitar isso modificando o ficheiro de configuração de serviço, conforme descrito abaixo: 
 
   1.    Open **C:\Program Files\Microsoft Azure AD Connect administração Agent\AzureADConnectAdministrationAgentService.exe.config** no bloco de notas.
   2.    Desativar **UserDataEnabled** definição conforme mostrado abaixo. Se **UserDataEnabled** definição existe e está definida como true, em seguida, defino como false. Se a definição não existir, adicione a definição conforme mostrado abaixo.    

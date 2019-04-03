@@ -1,5 +1,5 @@
 ---
-title: Implementar modelos como serviços da web
+title: Como e onde implementar modelos
 titleSuffix: Azure Machine Learning service
 description: 'Saiba como e onde implementar os seus modelos de serviço do Azure Machine Learning, incluindo: Matrizes de porta do Container Instances, serviço Kubernetes do Azure, Azure IoT Edge e campos programáveis do Azure.'
 services: machine-learning
@@ -9,28 +9,32 @@ ms.topic: conceptual
 ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
-ms.date: 12/07/2018
-ms.custom: seodec18
-ms.openlocfilehash: ea2986ea2b2f561288773a7d187101f90f3e9fa9
-ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
+ms.date: 04/02/2019
+ms.custom: seoapril2019
+ms.openlocfilehash: 1528b5e92e1952bf85799afd71bd5dac16aedcf4
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58622132"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58878303"
 ---
 # <a name="deploy-models-with-the-azure-machine-learning-service"></a>Implementar modelos com o serviço Azure Machine Learning
 
-O SDK do Azure Machine Learning fornece várias formas que pode implementar o modelo preparado. Neste documento, saiba como implementar o seu modelo como um serviço web na cloud do Azure ou para dispositivos do IoT Edge.
+Neste documento, saiba como implementar o seu modelo como um serviço web na cloud do Azure ou para dispositivos do IoT Edge. 
 
-Pode implementar modelos para os seguintes destinos de computação:
+## <a name="compute-targets-for-deployment"></a>Destinos de computação para a implementação
+
+Utilize o SDK do Azure Machine Learning para implementar o modelo preparado nas seguintes localizações:
 
 | Destino de computação | Tipo de implementação | Descrição |
 | ----- | ----- | ----- |
-| [Azure Kubernetes Service (AKS)](#aks) | Inferência de tipos em tempo real | Ideal para implementações de produção de grande escala. Fornece o dimensionamento automático e tempos de resposta rápidos. |
+| [Serviço de Kubernetes do Azure (AKS)](#aks) | Inferência de tipos em tempo real | Ideal para implementações de produção de grande escala. Fornece o dimensionamento automático e tempos de resposta rápidos. |
 | [Azure computação do Machine Learning (amlcompute)](#azuremlcompute) | Inferência de tipos do batch | Execute a predição de batch de computação sem servidor. Suporta VMs normais e de baixa prioridade. |
 | [Azure Container Instances (ACI)](#aci) | Testes | Bom para desenvolvimento ou teste. **Não é adequado para cargas de trabalho de produção.** |
 | [Azure IoT Edge](#iotedge) | (Pré-visualização) Módulo de IoT | Implemente modelos em dispositivos IoT. Inferência acontece no dispositivo. |
 | [Matriz de porta de campos programáveis (FPGA)](#fpga) | (Pré-visualização) Serviço Web | Latência ultrabaixa para inferência em tempo real. |
+
+## <a name="deployment-workflow"></a>Fluxo de trabalho de implantação
 
 O processo de implantação de um modelo é semelhante para todos os destinos de computação:
 
@@ -46,7 +50,7 @@ O vídeo seguinte demonstra a implementar no Azure Container Instances:
 
 Para obter mais informações sobre os conceitos envolvidos no fluxo de trabalho de implantação, consulte [gerir, implementar e monitorizar os modelos de serviço do Azure Machine Learning](concept-model-management-and-deployment.md).
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites-for-deployment"></a>Pré-requisitos para implementação
 
 [!INCLUDE [aml-prereq](../../../includes/aml-prereq.md)]
 
@@ -212,7 +216,7 @@ Quando chegar à implementação, o processo é ligeiramente diferente consoante
 
 | Destino de computação | Tipo de implementação | Descrição |
 | ----- | ----- | ----- |
-| [Azure Kubernetes Service (AKS)](#aks) | Serviço Web (inferência de tipos em tempo real)| Ideal para implementações de produção de grande escala. Fornece o dimensionamento automático e tempos de resposta rápidos. |
+| [Serviço de Kubernetes do Azure (AKS)](#aks) | Serviço Web (inferência de tipos em tempo real)| Ideal para implementações de produção de grande escala. Fornece o dimensionamento automático e tempos de resposta rápidos. |
 | [Computação do Azure ML](#azuremlcompute) | Serviço Web (inferência de tipos do Batch)| Execute a predição de batch de computação sem servidor. Suporta VMs normais e de baixa prioridade. |
 | [Azure Container Instances (ACI)](#aci) | Serviço Web (Dev/test)| Bom para desenvolvimento ou teste. **Não é adequado para cargas de trabalho de produção.** |
 | [Azure IoT Edge](#iotedge) | (Pré-visualização) Módulo de IoT | Implemente modelos em dispositivos IoT. Inferência acontece no dispositivo. |
@@ -349,7 +353,7 @@ aks_target.wait_for_completion(True)
 
 Para obter mais informações sobre como criar um cluster do AKS fora do SDK do Azure Machine Learning, consulte os artigos seguintes:
 
-* [Criar um cluster do AKS](https://docs.microsoft.com/cli/azure/aks?toc=%2Fen-us%2Fazure%2Faks%2FTOC.json&bc=%2Fen-us%2Fazure%2Fbread%2Ftoc.json&view=azure-cli-latest#az-aks-create)
+* [Criar um cluster do AKS (Create an AKS cluster)](https://docs.microsoft.com/cli/azure/aks?toc=%2Fen-us%2Fazure%2Faks%2FTOC.json&bc=%2Fen-us%2Fazure%2Fbread%2Ftoc.json&view=azure-cli-latest#az-aks-create)
 * [Criar um cluster do AKS (portal)](https://docs.microsoft.com/azure/aks/kubernetes-walkthrough-portal?view=azure-cli-latest)
 
 #### <a name="deploy-the-image"></a>Implementar a imagem

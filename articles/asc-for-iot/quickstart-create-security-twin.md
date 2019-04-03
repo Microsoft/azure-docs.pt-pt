@@ -1,25 +1,25 @@
 ---
 title: Criar um duplo do módulo de segurança para o Centro de segurança do Azure para pré-visualização do IoT | Documentos da Microsoft
 description: Saiba como criar um centro de segurança do Azure para IoT módulo duplo para utilização com o ASC para IoT.
-services: ascforiot
+services: asc-for-iot
+ms.service: ascforiot
 documentationcenter: na
 author: mlottner
 manager: barbkess
 editor: ''
 ms.assetid: c782692e-1284-4c54-9d76-567bc13787cc
-ms.service: ascforiot
 ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/26/2019
 ms.author: mlottner
-ms.openlocfilehash: 93b6aa6fe133953025cd504e0486a51c4a3d5e04
-ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
+ms.openlocfilehash: 16b5525973b93bc6b073c50c0c657dcbb4679040
+ms.sourcegitcommit: d83fa82d6fec451c0cb957a76cfba8d072b72f4f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58758371"
+ms.lasthandoff: 04/02/2019
+ms.locfileid: "58862221"
 ---
 # <a name="quickstart-create-an-azureiotsecurity-module-twin"></a>Início rápido: Criar um módulo duplo de azureiotsecurity
 
@@ -67,7 +67,7 @@ Para verificar se um duplo do módulo de segurança existe para um dispositivo e
 
 1. No seu IoT Hub do Azure, selecione **dispositivos IoT** partir a **exploradores** menu.    
 1. Introduza o ID de dispositivo ou selecione uma opção no **campo de dispositivo de consulta** e clique em **consultar dispositivos**. 
-    ![Dispositivos de consulta](./media/quickstart/verify-security-module-twin.png)
+    ![Consultar dispositivos](./media/quickstart/verify-security-module-twin.png)
 1. Selecione o dispositivo ou faça duplo clique para abrir a página de detalhes do dispositivo. 
 1. Selecione o **identidades de módulo** menu e confirme a existência da **azureiotsecurity** módulo na lista de identidades de módulo associados ao dispositivo. 
     ![Módulos associados a um dispositivo](./media/quickstart/verify-security-module-twin-3.png)

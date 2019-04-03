@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 11/24/2018
 ms.author: bwren
-ms.openlocfilehash: 55aed5d1133756789c3ed8979f0a9599f465e5d9
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.openlocfilehash: 4e9bb9bd86e22efa5dd514e742481911b09c5e17
+ms.sourcegitcommit: 04716e13cc2ab69da57d61819da6cd5508f8c422
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57315100"
+ms.lasthandoff: 04/02/2019
+ms.locfileid: "58848772"
 ---
 # <a name="visualizing-data-from-azure-monitor"></a>Visualização de dados do Azure Monitor
 Este artigo fornece um resumo dos métodos disponíveis para visualizar a métrica dados armazenados no Azure Monitor e de registo.
@@ -137,7 +137,7 @@ Pode aceder a dados no registo e dados de métrica no Azure Monitor através da 
 
 
 ## <a name="next-steps"></a>Passos Seguintes
-- Saiba mais sobre o [dados recolhidos pelo Azure Monitor](platform/data-collection.md).
+- Saiba mais sobre o [dados recolhidos pelo Azure Monitor](platform/data-platform.md).
 - Saiba mais sobre [dashboards do Azure](../azure-portal/azure-portal-dashboards.md).
 - Saiba mais sobre [modos de exibição no Azure Monitor](platform/view-designer.md).
 - Saiba mais sobre [livros](../azure-monitor/app/usage-workbooks.md).

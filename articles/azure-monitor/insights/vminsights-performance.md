@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2019
 ms.author: magoedte
-ms.openlocfilehash: 7032fabd022b55bc8946a48568bbd799d4a0a5e9
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: 4fa2553622d5ef2d08ec148b6a70aab6de257407
+ms.sourcegitcommit: 04716e13cc2ab69da57d61819da6cd5508f8c422
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56731383"
+ms.lasthandoff: 04/02/2019
+ms.locfileid: "58848358"
 ---
 # <a name="how-to-chart-performance-with-azure-monitor-for-vms-preview"></a>Como desempenho gráfico com o Azure Monitor para VMs (pré-visualização)
 Monitor do Azure para VMs inclui um conjunto de gráficos de desempenho que visam vários indicadores chave de desempenho (KPIs) para ajudar a determinar a forma como uma máquina virtual está a efetuar. Os gráficos mostram a utilização de recursos durante um período de tempo para que possa identificar estrangulamentos de anomalias, ou mudar para um ponto de vista listagem cada máquina para ver a utilização de recursos com base na métrica selecionada. Embora haja vários elementos a serem considerados ao lidar com desempenho, relacionados com o Azure Monitor para a indicadores de desempenho de importantes do sistema operativo de monitores de VMs para processador, memória, adaptador de rede e utilização do disco. Complementa a funcionalidade de monitorização de estado de funcionamento de desempenho e ajuda a expor problemas que indiquem uma falha de componente do sistema possíveis, ajuste de suporte e a otimização para alcançar a eficiência ou suportar o planeamento de capacidade.  
@@ -111,7 +111,7 @@ Métricas de desempenho ativadas como parte do Azure Monitor para VMs não inclu
 
 No entanto, podemos pode apenas recolher e armazenar um subconjunto das métricas de desempenho que necessita na área de trabalho do Log Analytics. Se a sua estratégia de monitorização requer a análise ou alertas que incluem outras métricas de desempenho para avaliar efetivamente capacidade ou estado de funcionamento da máquina virtual, ou tem a flexibilidade para especificar seus próprios critérios ou lógica de alerta, pode configurar [coleção dos contadores de desempenho](../platform/data-sources-performance-counters.md) no Log Analytics e definir [alertas de registo](../platform/alerts-log.md). Embora o Log Analytics permite-lhe efetuar análises complexas com outros tipos de dados e fornecer uma retenção mais longa para suportar a análise de tendências, métricas por outro lado, são leves e com capacidade de oferecer suporte a cenários em tempo real em tempo quase. Eles são coletados pela [agente do diagnóstico do Azure](../../virtual-machines/windows/monitor.md) e armazenado no arquivo de métricas do Azure Monitor, permitindo-lhe criar alertas com menor latência e a um custo menor.
 
-Reveja a descrição geral dos [coleção de métricas e registos com o Azure Monitor](../platform/data-collection.md) para compreender melhor as diferenças fundamentais e outras considerações antes de configurar a coleção destas métricas adicionais e regras de alerta.  
+Reveja a descrição geral dos [coleção de métricas e registos com o Azure Monitor](../platform/data-platform.md) para compreender melhor as diferenças fundamentais e outras considerações antes de configurar a coleção destas métricas adicionais e regras de alerta.  
 
 ## <a name="next-steps"></a>Passos Seguintes
 Para saber como utilizar a funcionalidade de estado de funcionamento, veja [vista do Azure Monitor de estado de funcionamento de VMs](vminsights-health.md), ou para ver dependências de aplicações detetadas, consulte [vista de Azure Monitor para o mapa de VMs](vminsights-maps.md). 

@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.reviewer: mbullwin
 ms.date: 08/06/2018
 ms.author: cweining
-ms.openlocfilehash: 8c9fba14bd3f7d3b55a245f8e647f0eae1f8ef83
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 9603c45443c6339a127f977600eeff2ba57a283f
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58118430"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58884164"
 ---
 # <a name="configure-application-insights-profiler"></a>Configurar Application Insights Profiler
 
@@ -39,6 +39,9 @@ O **configurar o Application Insights Profiler** painel contém quatro recursos:
 Dependendo da configuração do ambiente de serviço de aplicações do Azure, a chamada para verificar o estado do agente poderá ser bloqueada. O painel pode apresentar uma mensagem que o agente não está em execução mesmo quando está em execução. Para certificar-se de que é, verifique o webjob em seu aplicativo. Se todos os valores de definições de aplicação estão corretos e a extensão de site do Application Insights está instalada no seu aplicativo, Profiler está em execução. Se a sua aplicação está a receber suficiente tráfego, recentes sessões de criação de perfis devem ser exibidos numa lista.
 
 ## <a id="profileondemand"></a> Acionar manualmente o Profiler
+
+### <a name="minimum-requirements"></a>Requisitos mínimos 
+Um utilizador pode acionar manualmente uma sessão de criador de perfil exigem no mínimo "acesso de escrita" nas respetivas funções para o componente do Application Insights. Na maioria dos casos, obtém este acesso automaticamente e nenhum trabalho adicional é necessária. Se estiver a ter problemas, a função de âmbito de subscrição para adicionar seria a função de "Contribuinte de componente do Application Insights". [Ver mais informações sobre o controlo de acesso de função com a monitorização do Azure](https://docs.microsoft.com/en-us/azure/azure-monitor/app/resources-roles-access-control).
 
 Pode acionar manualmente Profiler com um único clique. Suponha que está a executar um teste de desempenho da web. Precisará rastreios para ajudar a compreender sobre a execução da sua aplicação web sob carga. Ter controlo sobre o quando os rastreios são capturados é crucial, porque sabe quando o teste de carga será executado. Mas o intervalo de amostragem aleatória pode perdê-lo.
 

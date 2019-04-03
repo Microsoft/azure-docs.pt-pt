@@ -9,12 +9,12 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.custom: seodec18
-ms.openlocfilehash: 84f74392b93212558851f89dab924ae3db5620ed
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: a13d3b24cd7845de144183d9f2ea825e0e24219f
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57995117"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58883722"
 ---
 # <a name="get-started-using-azure-stream-analytics-real-time-fraud-detection"></a>Comece a utilizar o Azure Stream Analytics: Deteção de fraudes em tempo real
 
@@ -147,7 +147,7 @@ Antes de iniciar a aplicação TelcoGenerator, deve configurá-lo para que ele i
 
 Alguns dos campos de chave, que irá utilizar neste aplicativo de deteção de fraudes em tempo real são os seguintes:
 
-|**Registo**|**Definição**|
+|**Record**|**Definição**|
 |----------|--------------|
 |`CallrecTime`|O carimbo de data/hora da hora de início da chamada. |
 |`SwitchNum`|O comutador de telefone utilizado para estabelecer a chamada. Neste exemplo, os comutadores são cadeias que representam o país de origem (E.U.A., China, Reino Unido, Alemanha ou Austrália). |
@@ -292,7 +292,7 @@ Para essa transformação, pretende uma seqüência de temporais windows que nã
 
     Inclui a projeção `System.Timestamp`, que retorna um carimbo para o final de cada janela. 
 
-    Para especificar que pretende utilizar uma janela em cascata, utilize o [TUMBLINGWINDOW](https://msdn.microsoft.com/library/dn835055.aspx) funcionar o `GROUP BY `cláusula. Na função, especifique uma unidade de tempo (em qualquer lugar a partir de um microssegundo para um dia) e um tamanho de janela (quantas unidades). Neste exemplo, a janela em cascata consiste em intervalos de 5 segundos, então obterá uma contagem por país para o valor de cada 5 segundos de chamadas.
+    Para especificar que pretende utilizar uma janela em cascata, utilize o [TUMBLINGWINDOW](https://msdn.microsoft.com/library/dn835055.aspx) funcionar o `GROUP BY` cláusula. Na função, especifique uma unidade de tempo (em qualquer lugar a partir de um microssegundo para um dia) e um tamanho de janela (quantas unidades). Neste exemplo, a janela em cascata consiste em intervalos de 5 segundos, então obterá uma contagem por país para o valor de cada 5 segundos de chamadas.
 
 2. Clique em **teste** novamente. Nos resultados, tenha em atenção que os carimbos de data / sob **WindowEnd** são em incrementos de 5 segundos.
 

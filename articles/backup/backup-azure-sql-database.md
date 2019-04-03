@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: tutorial
 ms.date: 03/19/2019
 ms.author: raynew
-ms.openlocfilehash: 4eaaff859811e4d97cbd4f73231d702285792064
-ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
+ms.openlocfilehash: d99a3d23959cfdd9bd068fbde3a882eb1bc9b4ae
+ms.sourcegitcommit: 04716e13cc2ab69da57d61819da6cd5508f8c422
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58285450"
+ms.lasthandoff: 04/02/2019
+ms.locfileid: "58847305"
 ---
 # <a name="about-sql-server-backup-in-azure-vms"></a>Sobre a Cópia de Segurança do SQL Server em VMs do Azure
 
@@ -55,7 +55,7 @@ Antes de começar, verifique o seguinte:
 
 - Cópia de segurança do SQL Server pode ser configurada no portal do Azure ou **PowerShell**. Não suportamos a CLI.
 - VM com o SQL Server necessita de conectividade de internet para acessar os endereços IP públicos do Azure.
-- SQL Server sempre na **instâncias de Cluster de ativação pós-falha (FCIs)** não são suportados.
+- SQL Server **instância de Cluster de ativação pós-falha (FCI)** e SQL Server sempre na instância de Cluster de ativação pós-falha não são suportadas.
 - Operações de cópia de segurança e restauro de bases de dados de espelhamento e instantâneos de base de dados não são suportadas.
 - Com mais de um soluções de cópia de segurança a cópia de segurança do SQL Server autónomo instância ou SQL sempre no grupo de disponibilidade pode levar a falhas de cópia de segurança; Evite impedidos de o fazer.
 - Fazer backup de dois nós de um grupo de disponibilidade individualmente com as soluções idêntica ou diferentes, também pode levar a falhas de cópia de segurança. Cópia de segurança do Azure pode detetar e proteger todos os nós que estão na mesma região que o cofre. Se o SQL Server sempre no grupo de disponibilidade se estende por várias regiões do Azure, configure a cópia de segurança da região que tem o nó principal. Cópia de segurança do Azure pode detetar e proteger todas as bases de dados no grupo de disponibilidade, de acordo com sua preferência de cópia de segurança.  

@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 12/11/2018
 ms.author: alkohli
 ms.subservice: common
-ms.openlocfilehash: e826c7a3fc12e819fd6f145d42b7381087d5970c
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: c7e78f89883e5cfc3fc8b9088c3ac0b3166682c7
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58000240"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58878184"
 ---
 # <a name="use-the-azure-importexport-service-to-import-data-to-azure-blob-storage"></a>Utilize o serviço importar/exportar do Azure para importar dados para armazenamento de Blobs do Azure
 
@@ -54,7 +54,7 @@ Execute os seguintes passos para preparar as unidades.
     `cd C:\WaImportExportV1`
 5.  Para obter a chave do BitLocker da unidade, execute o seguinte comando:
     
-    ` manage-bde -protectors -get <DriveLetter>: `
+    `manage-bde -protectors -get <DriveLetter>:`
 6.  Para preparar o disco, execute o seguinte comando. **Dependendo do tamanho de dados, isto pode demorar várias horas a dias.** 
 
     ```
@@ -70,7 +70,7 @@ Execute os seguintes passos para preparar as unidades.
     |/id:     |O ID de sessão. Utilize um número de sessão exclusiva para cada instância do comando.      |
     |/sk:     |A chave de conta de armazenamento do Azure.         |
     |/t:     |A letra de unidade de disco para ser enviado. Por exemplo, unidade `D`.         |
-    |/bk:     |A chave do BitLocker para a unidade. A palavra-passe numérica da saída de ` manage-bde -protectors -get D: `      |
+    |/bk:     |A chave do BitLocker para a unidade. A palavra-passe numérica da saída de `manage-bde -protectors -get D:`      |
     |/srcdir:     |A letra de unidade de disco para ser enviado seguido `:\`. Por exemplo, `D:\`.         |
     |/dstdir:     |O nome do contentor de destino no armazenamento do Azure.         |
     |/skipwrite:     |É a opção que especifica que não existe nenhum novos dados devem ser copiados e dados existentes no disco para estar preparado.          |

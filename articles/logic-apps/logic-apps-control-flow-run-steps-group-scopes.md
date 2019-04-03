@@ -10,12 +10,12 @@ manager: jeconnoc
 ms.reviewer: klam, LADocs
 ms.date: 10/03/2018
 ms.topic: article
-ms.openlocfilehash: d73a43aedde9a88e009ddca1f0363dbcd92e1379
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 48fb2d14cd4cf99510fff88b25b9ae45814a92a8
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58080459"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58882417"
 ---
 # <a name="run-actions-based-on-group-status-with-scopes-in-azure-logic-apps"></a>Executar ações com base no estado de grupo com âmbitos no Azure Logic Apps
 
@@ -79,13 +79,13 @@ Pode guardar a aplicação lógica em qualquer altura, por isso, muitas vezes a 
 
       | Definição | Valor | Descrição |
       | ------- | ----- | ----------- |
-      | **Waypoint 1** | <*start*> | Introduza a origem do percurso. | 
-      | **Waypoint 2** | <*end*> | Introduza o destino do percurso. | 
-      | **Avoid** | Nenhuma | Introduza os itens para evitar no percurso, como autoestradas, portagens e assim por diante. Para os valores possíveis, consulte [calcular uma rota](https://msdn.microsoft.com/library/ff701717.aspx). | 
-      | **Optimize** | timeWithTraffic | Selecione um parâmetro para otimizar o percurso, como a distância, tempo com informações de tráfego atuais e assim por diante. Este exemplo utiliza este valor: "timeWithTraffic" | 
-      | **Distance unit** | <*your-preference*> | Introduza a unidade de distância para calcular a rota. Este exemplo utiliza este valor: "Milha" | 
-      | **Travel mode** | Driving | Introduza o modo de viagem para a sua rota. Este exemplo utiliza este valor "Driving" | 
-      | **Transit Date-Time** | Nenhuma | Aplica-se ao modo de tráfego apenas. | 
+      | **Marco 1** | <*start*> | Introduza a origem do percurso. | 
+      | **Marco 2** | <*end*> | Introduza o destino do percurso. | 
+      | **Evitar** | Nenhuma | Introduza os itens para evitar no percurso, como autoestradas, portagens e assim por diante. Para os valores possíveis, consulte [calcular uma rota](https://msdn.microsoft.com/library/ff701717.aspx). | 
+      | **Otimizar** | timeWithTraffic | Selecione um parâmetro para otimizar o percurso, como a distância, tempo com informações de tráfego atuais e assim por diante. Este exemplo utiliza este valor: "timeWithTraffic" | 
+      | **Unidade de distância** | <*your-preference*> | Introduza a unidade de distância para calcular a rota. Este exemplo utiliza este valor: "Milha" | 
+      | **Modo de deslocação** | Driving | Introduza o modo de viagem para a sua rota. Este exemplo utiliza este valor "Driving" | 
+      | **Data e hora de trânsito** | Nenhuma | Aplica-se ao modo de tráfego apenas. | 
       | **Tipo de Data-Type de trânsito** | Nenhuma | Aplica-se ao modo de tráfego apenas. | 
       ||||  
 
@@ -119,7 +119,7 @@ Pode guardar a aplicação lógica em qualquer altura, por isso, muitas vezes a 
 
    1. Na **corpo** campo, introduza este texto com um espaço à direita: 
 
-      ```Travel time: ```
+      ```Travel time:```
 
       Enquanto o cursor é apresentado na **corpo** campo, a lista de conteúdo dinâmico permanece aberta para que possa selecionar todos os parâmetros que estão disponíveis neste momento.
 
@@ -146,11 +146,13 @@ Pode guardar a aplicação lógica em qualquer altura, por isso, muitas vezes a 
 
    1. Quando tiver terminado, escolha **OK**.
 
+   <!-- markdownlint-disable MD038 -->
    1. Depois da expressão é resolvido, adicione este texto com um espaço à esquerda: ``` minutes```
   
        Sua **corpo** campo agora este aspeto:
 
        ![Campo de "Corpo" concluído](./media/logic-apps-control-flow-run-steps-group-scopes/send-email-4.png)
+   <!-- markdownlint-enable MD038 -->
 
 1. Guarde a aplicação lógica.
 

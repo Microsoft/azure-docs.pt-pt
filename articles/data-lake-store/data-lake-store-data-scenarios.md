@@ -3,19 +3,19 @@ title: Cenários de dados que envolvem Gen1 de armazenamento do Data Lake | Docu
 description: Compreender os diferentes cenários e as ferramentas com que os dados podem ingeridos, processados, transferidas e visualizados no Data Lake Storage Gen1 (anteriormente conhecido como o Azure Data Lake Store)
 services: data-lake-store
 documentationcenter: ''
-author: nitinme
-manager: jhubbard
+author: twooley
+manager: mtillman
 ms.service: data-lake-store
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/27/2018
-ms.author: nitinme
-ms.openlocfilehash: 64c7985508ed7f03b32340cbb2c78de61242f7e1
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.author: twooley
+ms.openlocfilehash: 0b16154edbda4bedfd4e9b680ba4311e7a235212
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46984284"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58878762"
 ---
 # <a name="using-azure-data-lake-storage-gen1-for-big-data-requirements"></a>Usando Gen1 de armazenamento do Azure Data Lake para requisitos de grandes volumes de dados
 
@@ -55,7 +55,7 @@ Seguem-se as ferramentas que pode utilizar:
 ### <a name="relational-data"></a>Dados relacionais
 Também pode da origem de dados de bases de dados relacionais. Durante um período de tempo, bases de dados relacionais recolhem enormes quantidades de dados que podem fornecer informações de chaves se processada através de um pipeline de grandes volumes de dados. Pode utilizar as seguintes ferramentas para mover esses dados para a geração 1 de armazenamento do Data Lake.
 
-* [O Apache Sqoop](data-lake-store-data-transfer-sql-sqoop.md)
+* [Apache Sqoop](data-lake-store-data-transfer-sql-sqoop.md)
 * [Azure Data Factory](../data-factory/copy-activity-overview.md)
 
 ### <a name="web-server-log-data-upload-using-custom-applications"></a>Dados de registo do servidor Web (carregamento com aplicativos personalizados)
@@ -115,7 +115,7 @@ Pode também querer transferir ou mover dados de geração 1 de armazenamento do
 
 Nesses casos, pode usar qualquer uma das seguintes opções:
 
-* [O Apache Sqoop](data-lake-store-data-transfer-sql-sqoop.md)
+* [Apache Sqoop](data-lake-store-data-transfer-sql-sqoop.md)
 * [Azure Data Factory](../data-factory/copy-activity-overview.md)
 * [Apache DistCp](data-lake-store-copy-data-wasb-distcp.md)
 

@@ -14,12 +14,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 09/24/2018
 ms.author: crdun
-ms.openlocfilehash: 469c6802879707a3cf16b3e17876cb1f5e3854fa
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 8f014f1cb40e1a629d1989f00805fc91015a3ae9
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58093012"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58886017"
 ---
 # <a name="how-to-use-the-managed-client-for-azure-mobile-apps"></a>Como utilizar o cliente gerido para Mobile Apps do Azure
 [!INCLUDE [app-service-mobile-selector-client-library](../../includes/app-service-mobile-selector-client-library.md)]
@@ -68,7 +68,7 @@ Para saber como criar tabelas no seu back-end de aplicações móveis, consulte 
 Utilize um dos seguintes métodos para instalar o pacote SDK de cliente gerido para Mobile Apps a partir [NuGet][9]:
 
 * **Visual Studio** seu projeto com o botão direito, clique em **gerir pacotes NuGet**, procure o `Microsoft.Azure.Mobile.Client` empacotar, em seguida, clique em **instalar**.
-* **Xamarin Studio** seu projeto com o botão direito, clique em **Add** > **adicionar pacotes de NuGet**, procure o `Microsoft.Azure.Mobile.Client `empacotamento e, em seguida, clique em **Add Package** .
+* **Xamarin Studio** seu projeto com o botão direito, clique em **Add** > **adicionar pacotes de NuGet**, procure o `Microsoft.Azure.Mobile.Client` empacotamento e, em seguida, clique em **Add Package** .
 
 No seu ficheiro de atividade principal, não se esqueça de adicionar o seguinte procedimento **usando** instrução:
 
@@ -138,7 +138,7 @@ Esta secção descreve como emitir consultas para o back-end aplicação móvel,
 > Um tamanho de página baseadas em servidor é imposto para impedir que todas as linhas que está a ser devolvido.  Paginação impede a afetar negativamente o serviço de pedidos de padrão para grandes conjuntos de dados.  Para devolver mais do que 50 linhas, utilize o `Skip` e `Take` método, conforme descrito na [devolve os dados nas páginas](#paging).
 
 ### <a name="filtering"></a>Como: Filtrar dados devolvidos
-O código a seguir ilustra como filtrar dados, incluindo um `Where` cláusula numa consulta. Devolve todos os itens a partir `todoTable` cujo `Complete` propriedade é igual a `false`. O [Where] função aplica-se uma linha de filtragem de predicado para a consulta com base na tabela.
+O código a seguir ilustra como filtrar dados, incluindo um `Where` cláusula numa consulta. Devolve todos os itens a partir `todoTable` cujo `Complete` propriedade é igual a `false`. O [onde] função aplica-se uma linha de filtragem de predicado para a consulta com base na tabela.
 
 ```csharp
 // This query filters out completed TodoItems and items without a timestamp.
@@ -200,7 +200,7 @@ O `Where` cláusula oferece suporte a operações que ser traduzida para o subco
 * Aceder às propriedades de um objeto, e
 * Expressões de combinar qualquer uma destas operações.
 
-Ao considerar o que suporta o SDK de servidor, pode considerar a [Documentação do OData v3].
+Ao considerar o que suporta o SDK de servidor, pode considerar a [OData v3 documentação].
 
 ### <a name="sorting"></a>Como: Ordenar dados devolvido
 O código a seguir ilustra como classificar dados, incluindo uma [OrderBy] ou [OrderByDescending] função na consulta. Devolve itens a partir `todoTable` ordenação ascendente pelo `Text` campo.
@@ -218,7 +218,7 @@ List<TodoItem> items = await query.ToListAsync();
 ```
 
 ### <a name="paging"></a>Como: Devolve os dados nas páginas
-Por predefinição, o back-end devolve apenas as 50 primeiras linhas. Pode aumentar o número de linhas retornados ao chamar o [Take] método. Uso `Take` juntamente com o [ignorar] método para pedir um específico "page" do conjunto total de dados devolvido pela consulta. A consulta seguinte, quando executada, devolve os itens de três principais na tabela.
+Por predefinição, o back-end devolve apenas as 50 primeiras linhas. Pode aumentar o número de linhas retornados ao chamar o [tirar] método. Uso `Take` juntamente com o [ignorar] método para pedir um específico "page" do conjunto total de dados devolvido pela consulta. A consulta seguinte, quando executada, devolve os itens de três principais na tabela.
 
 ```csharp
 // Define a filtered query that returns the top 3 items.
@@ -249,7 +249,7 @@ Num aplicativo do mundo real, pode utilizar consultas semelhantes ao exemplo ant
 
 
 ### <a name="selecting"></a>Como: Selecionar colunas específicas
-É possível especificar qual conjunto de propriedades para incluir nos resultados, adicionando um [Selecionar] cláusula à sua consulta. Por exemplo, o código seguinte mostra como selecionar apenas um campo e também como selecionar e formatar a vários campos:
+É possível especificar qual conjunto de propriedades para incluir nos resultados, adicionando um [selecione] cláusula à sua consulta. Por exemplo, o código seguinte mostra como selecionar apenas um campo e também como selecionar e formatar a vários campos:
 
 ```csharp
 // Select one field -- just the Text
@@ -624,14 +624,14 @@ Por exemplo:
 Pode usar InvokeApiAsync para chamar qualquer WebAPI, incluindo essas WebAPIs que não estão definidas com aplicações móveis do Azure.  Quando utiliza InvokeApiAsync(), os cabeçalhos apropriados, incluindo os cabeçalhos de autenticação, são enviados com o pedido.
 
 ## <a name="authentication"></a>Autenticar os utilizadores
-Aplicações móveis oferece suporte a autenticar e autorizar utilizadores da aplicação com vários fornecedores de identidade externo: Do Facebook, Google, conta Microsoft, Twitter e o Azure Active Directory. Pode definir permissões em tabelas para restringir o acesso para operações específicas para apenas os utilizadores autenticados. Também pode utilizar a identidade de usuários autenticados para implementar regras de autorização em scripts de servidor. Para obter mais informações, consulte o tutorial [Adicionar autenticação à aplicação].
+Aplicações móveis oferece suporte a autenticar e autorizar utilizadores da aplicação com vários fornecedores de identidade externo: Do Facebook, Google, conta Microsoft, Twitter e o Azure Active Directory. Pode definir permissões em tabelas para restringir o acesso para operações específicas para apenas os utilizadores autenticados. Também pode utilizar a identidade de usuários autenticados para implementar regras de autorização em scripts de servidor. Para obter mais informações, consulte o tutorial [Adicionar autenticação à sua aplicação].
 
 Dois fluxos de autenticação são suportados: *gerida pelo cliente* e *servidor gerido* fluxo. O fluxo de servidor gerido fornece a experiência de autenticação mais simples, pois depende de interface de autenticação de web do fornecedor. O fluxo gerido pelo cliente permite uma integração mais profunda com recursos específicos do dispositivo como ele conta com SDKs de dispositivo específicos de específica do fornecedor.
 
 > [!NOTE]
 > Recomendamos que utilize um fluxo gerido pelo cliente nas suas aplicações de produção.
 
-Para configurar a autenticação, tem de registar a sua aplicação com um ou mais fornecedores de identidade.  O fornecedor de identidade gera um ID de cliente e um segredo do cliente para a sua aplicação.  Estes valores, em seguida, estão definidos no seu back-end para ativar a autenticação/autorização do App Service do Azure.  Para obter mais informações, siga as instruções detalhadas no tutorial [Adicionar autenticação à aplicação].
+Para configurar a autenticação, tem de registar a sua aplicação com um ou mais fornecedores de identidade.  O fornecedor de identidade gera um ID de cliente e um segredo do cliente para a sua aplicação.  Estes valores, em seguida, estão definidos no seu back-end para ativar a autenticação/autorização do App Service do Azure.  Para obter mais informações, siga as instruções detalhadas no tutorial [Adicionar autenticação à sua aplicação].
 
 Os seguintes tópicos são abordados nesta seção:
 
@@ -645,7 +645,7 @@ A aplicação pode de forma independente, contacte o fornecedor de identidade e,
 São fornecidos exemplos para os seguintes padrões de autenticação de fluxo de cliente:
 
 * [Biblioteca de autenticação do Active Directory](#adal)
-* [Facebook ou do Google](#client-facebook)
+* [Facebook or Google](#client-facebook)
 
 #### <a name="adal"></a>Autenticar utilizadores com o Active Directory Authentication Library
 Pode utilizar o Active Directory Authentication Library (ADAL) para autenticação de utilizador de início do cliente utilizando a autenticação do Azure Active Directory.
@@ -827,7 +827,7 @@ private async System.Threading.Tasks.Task Authenticate()
 
 Se estiver a utilizar um fornecedor de identidade que não seja o Facebook, altere o valor de [MobileServiceAuthenticationProvider] para o valor para o seu fornecedor.
 
-Num fluxo de servidor, o serviço de aplicações do Azure gere o fluxo de autenticação OAuth, exibindo a página de início de sessão do fornecedor selecionado.  Assim que o retorna de fornecedor de identidade, o serviço de aplicações do Azure gera um token de autenticação do serviço de aplicações. O [LoginAsync] método devolve um [MobileServiceUser], que fornece o [UserId] do usuário autenticado e a [MobileServiceAuthenticationToken], como um token de web JSON (JWT). Este token pode ser colocado em cache e reutilizado até expirar. Para obter mais informações, consulte [colocação em cache o token de autenticação](#caching).
+Num fluxo de servidor, o serviço de aplicações do Azure gere o fluxo de autenticação OAuth, exibindo a página de início de sessão do fornecedor selecionado.  Assim que o retorna de fornecedor de identidade, o serviço de aplicações do Azure gera um token de autenticação do serviço de aplicações. O [LoginAsync] método devolve um [MobileServiceUser], que fornece o [UserId] do usuário autenticado e a [ MobileServiceAuthenticationToken], como um token de web JSON (JWT). Este token pode ser colocado em cache e reutilizado até expirar. Para obter mais informações, consulte [colocação em cache o token de autenticação](#caching).
 
 ### <a name="caching"></a>Colocação em cache o token de autenticação
 Em alguns casos, a chamada para o método de início de sessão pode ser evitada após a primeira autenticação com êxito ao armazenar o token de autenticação do fornecedor.  Podem utilizar aplicações da Microsoft Store e UWP [PasswordVault] para colocar em cache o token de autenticação atual depois de um sessão com êxito-, da seguinte forma:
@@ -912,7 +912,7 @@ Para obter este valor:
 1. No Explorador de soluções do Visual Studio, clique com botão direito do projeto de aplicação da Microsoft Store, clique em **Store** > **associar aplicação a Store...** .
 2. No assistente, clique em **próxima**, inicie sessão com a sua conta Microsoft, escreva um nome para a sua aplicação na **reservar um novo nome de aplicação**, em seguida, clique em **reserva**.
 3. Quando o registo da aplicação é criado com êxito, selecione o nome da aplicação, clique em **próxima**e, em seguida, clique em **associar**.
-4. Inicie sessão para o [Centro de desenvolvimento do Windows] com a Account Microsoft. Sob **as minhas aplicações**, clique no registo de aplicação que criou.
+4. Inicie sessão para o [Windows Dev Center] com a Account Microsoft. Sob **as minhas aplicações**, clique no registo de aplicação que criou.
 5. Clique em **gestão de aplicações** > **identidade da aplicação**e, em seguida, desloque para baixo para localizar seu **SID do pacote**.
 
 Muitos usos do pacote de SID de tratá-lo como um URI, caso em que precisa usar *ms-app: / /* como o esquema. Tome nota da versão do seu SID formado pela concatenação este valor como um prefixo do pacote.
@@ -1040,7 +1040,7 @@ public class MyHandler : DelegatingHandler
 [12]: https://msdn.microsoft.com/library/azure/microsoft.windowsazure.mobileservices.mobileserviceclient(v=azure.10).aspx
 
 [Adicionar autenticação à aplicação]: app-service-mobile-windows-store-dotnet-get-started-users.md
-[Sincronização de Dados Offline em Aplicações Móveis do Azure]: app-service-mobile-offline-data-sync.md
+[Sincronização de Dados Offline nas Aplicações Móveis do Azure]: app-service-mobile-offline-data-sync.md
 [Adicionar notificações push à aplicação]: app-service-mobile-windows-store-dotnet-get-started-push.md
 [Register your app to use a Microsoft account login]: ../app-service/configure-authentication-provider-microsoft.md
 [Como configurar o serviço de aplicações para início de sessão do Active Directory]: ../app-service/configure-authentication-provider-aad.md
@@ -1062,12 +1062,12 @@ public class MyHandler : DelegatingHandler
 [OrderBy]: https://msdn.microsoft.com/library/azure/dn250572(v=azure.10).aspx
 [OrderByDescending]: https://msdn.microsoft.com/library/azure/dn250568(v=azure.10).aspx
 [ReadAsync]: https://msdn.microsoft.com/library/azure/mt691741(v=azure.10).aspx
-[Take]: https://msdn.microsoft.com/library/azure/dn250574(v=azure.10).aspx
-[Selecionar]: https://msdn.microsoft.com/library/azure/dn250569(v=azure.10).aspx
+[tirar]: https://msdn.microsoft.com/library/azure/dn250574(v=azure.10).aspx
+[Selecione]: https://msdn.microsoft.com/library/azure/dn250569(v=azure.10).aspx
 [Ignorar]: https://msdn.microsoft.com/library/azure/dn250573(v=azure.10).aspx
 [UpdateAsync]: https://msdn.microsoft.com/library/azure/dn250536.(v=azure.10)aspx
-[UserID]: https://msdn.microsoft.com/library/windowsazure/microsoft.windowsazure.mobileservices.mobileserviceuser.userid(v=azure.10).aspx
-[Where]: https://msdn.microsoft.com/library/azure/dn250579(v=azure.10).aspx
+[ID de utilizador]: https://msdn.microsoft.com/library/windowsazure/microsoft.windowsazure.mobileservices.mobileserviceuser.userid(v=azure.10).aspx
+[Onde]: https://msdn.microsoft.com/library/azure/dn250579(v=azure.10).aspx
 [Portal do Azure]: https://portal.azure.com/
 [EnableQueryAttribute]: https://msdn.microsoft.com/library/system.web.http.odata.enablequeryattribute.aspx
 [Guid.NewGuid]: https://msdn.microsoft.com/library/system.guid.newguid(v=vs.110).aspx

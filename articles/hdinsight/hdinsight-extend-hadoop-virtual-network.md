@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 03/29/2019
-ms.openlocfilehash: 6661ed7e8950c1658ef89858140e2d196999d543
-ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
+ms.openlocfilehash: a2d06cdbcc6ce995c55c858cb7a50a93ef6b3fb1
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58803090"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58883569"
 ---
 # <a name="extend-azure-hdinsight-using-an-azure-virtual-network"></a>Expandir HDInsight do Azure com uma rede Virtual do Azure
 
@@ -111,8 +111,8 @@ Utilize os passos nesta secção para saber como adicionar um novo HDInsight par
 
 4. Criar um cluster do HDInsight e selecione a rede Virtual do Azure durante a configuração. Utilize os passos nos seguintes documentos para compreender o processo de criação do cluster:
 
-    * [Create HDInsight using the Azure portal (Criar o HDInsight com o portal do Azure)](hdinsight-hadoop-create-linux-clusters-portal.md)
-    * [Create HDInsight using Azure PowerShell (Criar o HDInsight com o Azure PowerShell)](hdinsight-hadoop-create-linux-clusters-azure-powershell.md)
+    * [Criar o HDInsight com o portal do Azure](hdinsight-hadoop-create-linux-clusters-portal.md)
+    * [Criar o HDInsight com o Azure PowerShell](hdinsight-hadoop-create-linux-clusters-azure-powershell.md)
     * [Criar o HDInsight com a CLI clássica do Azure](hdinsight-hadoop-create-linux-clusters-azure-cli.md)
     * [Criar o HDInsight com um modelo Azure Resource Manager](hdinsight-hadoop-create-linux-clusters-arm-templates.md)
 

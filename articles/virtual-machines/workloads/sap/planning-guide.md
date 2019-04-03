@@ -17,12 +17,12 @@ ms.workload: infrastructure-services
 ms.date: 02/05/2019
 ms.author: sedusch
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: b2ca3d42fd5facb226fd3ddea8c48decaafade85
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 839f77df88314c95df1056b60c3612de27421ca0
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58009498"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58886136"
 ---
 # <a name="azure-virtual-machines-planning-and-implementation-for-sap-netweaver"></a>Máquinas de virtuais de planeamento e implementação para o SAP NetWeaver do Azure
 
@@ -177,7 +177,7 @@ ms.locfileid: "58009498"
 [Logo_Linux]:media/virtual-machines-shared-sap-shared/Linux.png
 [Logo_Windows]:media/virtual-machines-shared-sap-shared/Windows.png
 
-[msdn-set-azurermvmaemextension]:https://msdn.microsoft.com/library/azure/mt670598.aspx
+[msdn-set-Azvmaemextension]:https://msdn.microsoft.com/library/azure/mt670598.aspx
 
 [planning-guide]:planning-guide.md  
 [planning-guide-1.2]:planning-guide.md#e55d1e22-c2c8-460b-9897-64622a34fdff
@@ -234,7 +234,7 @@ ms.locfileid: "58009498"
 [planning-guide-microsoft-azure-networking]:planning-guide.md#61678387-8868-435d-9f8c-450b2424f5bd
 [planning-guide-storage-microsoft-azure-storage-and-data-disks]:planning-guide.md#a72afa26-4bf4-4a25-8cf7-855d6032157f
 
-[powershell-install-configure]:https://docs.microsoft.com/powershell/azure/azurerm/install-azurerm-ps
+[powershell-install-configure]:https://docs.microsoft.com/powershell/azure/install-az-ps
 [resource-group-authoring-templates]:../../../resource-group-authoring-templates.md
 [resource-group-overview]:../../../azure-resource-manager/resource-group-overview.md
 [resource-groups-networking]:../../../networking/networking-overview.md
@@ -257,7 +257,7 @@ ms.locfileid: "58009498"
 [templates-101-vm-from-user-image]:https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-from-user-image
 [virtual-machines-linux-attach-disk-portal]:../../linux/attach-disk-portal.md
 [virtual-machines-azure-resource-manager-architecture]:../../../resource-manager-deployment-model.md
-[virtual-machines-azurerm-versus-azuresm]:virtual-machines-linux-compare-deployment-models.md
+[virtual-machines-Az-versus-azuresm]:virtual-machines-linux-compare-deployment-models.md
 [virtual-machines-windows-classic-configure-oracle-data-guard]:../../virtual-machines-windows-classic-configure-oracle-data-guard.md
 [virtual-machines-linux-cli-deploy-templates]:../../linux/cli-deploy-templates.md
 [virtual-machines-deploy-rmtemplates-powershell]:../../virtual-machines-windows-ps-manage.md
@@ -317,6 +317,8 @@ ms.locfileid: "58009498"
 Microsoft Azure permite às empresas a adquirir recursos de computação e armazenamento no tempo mínimo sem ciclos de aprovisionamento demorada. O serviço de Máquina Virtual do Azure permite às empresas implementar aplicações clássicas, como o SAP NetWeaver, com base em aplicações para o Azure e ampliar sua confiabilidade e disponibilidade sem ter ainda mais recursos disponíveis no local. Serviços de Máquina Virtual do Azure também suporta a conectividade em vários locais, que permite às empresas a integrar ativamente máquinas virtuais do Azure em seus domínios no local, suas nuvens privadas e seu ambiente de sistema SAP.
 Este white paper descreve os conceitos básicos da Máquina Virtual do Microsoft Azure e fornece uma orientação de considerações de planeamento e implementação para instalações do SAP NetWeaver no Azure e como tal, deve ser o documento para ler antes de iniciar real implementações do SAP NetWeaver no Azure.
 O documento complementa a documentação de instalação de SAP e SAP Notes, que representam os recursos principais para instalações e implementações de SAP software em determinadas plataformas.
+
+[!INCLUDE [updated-for-az](../../../../includes/updated-for-az.md)]
 
 ## <a name="summary"></a>Resumo
 Informática em nuvem é um termo bastante utilizado, o que está a ganhar cada vez mais importância no setor de TI, de pequenas empresas até multinacionais e grandes corporações.
@@ -626,7 +628,7 @@ O Microsoft Azure fornece uma infraestrutura de rede, que permite o mapeamento d
 * Conectividade em vários locais entre a rede no local de um cliente e a rede do Azure
 * Cruzar a região do Azure ou de conectividade do Centro de dados entre sites do Azure
 
-Pode encontrar mais informações aqui: <https://azure.microsoft.com/documentation/services/virtual-network/>
+Podem encontrar mais informações aqui: <https://azure.microsoft.com/documentation/services/virtual-network/>
 
 Há muitas possibilidades diferentes para configurar o nome e a resolução IP no Azure. Também é um serviço de DNS do Azure, que pode ser utilizado em vez de definir seu próprio servidor DNS. Podem encontrar mais informações em [este artigo] [ virtual-networks-manage-dns-in-vnet] e, na [esta página](https://azure.microsoft.com/services/dns/).
 
@@ -689,7 +691,7 @@ A figura acima mostra duas subscrições do Azure têm subintervalos de endereç
 VPN Point-to-site requer que todas as máquinas de cliente para estabelecer ligação com o seu próprio VPN para o Azure. Para os cenários SAP, está a visualizar, conectividade de ponto a site não é prática. Por conseguinte, sem referências adicionais são fornecidas para a conectividade VPN ponto a site.
 
 Podem encontrar mais informações aqui
-* [Configurar uma ligação de Ponto a Site a uma VNet com o portal do Azure](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-howto-point-to-site-resource-manager-portal)
+* [Configurar uma ligação Ponto a Site a uma VNet com o portal do Azure](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-howto-point-to-site-resource-manager-portal)
 * [Configurar uma ligação de Ponto a Site a uma VNet com o PowerShell](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-howto-point-to-site-rm-ps)
 
 #### <a name="multi-site-vpn"></a>VPN multilocal
@@ -720,7 +722,8 @@ Expressroute permite várias subscrições do Azure através de um circuito do E
 #### <a name="forced-tunneling-in-case-of-cross-premises"></a>Imposição de túnel em caso de em vários locais
 Para VMs a associar domínios no local através do site a site, ponto a site ou ExpressRoute, terá de certificar-se de que as definições de proxy de Internet são introdução implementadas para todos os utilizadores também essas VMs. Por predefinição, o software em execução nas VMs ou os utilizadores a utilizar um browser para aceder à internet não iria através do proxy da empresa, mas deve ligar diretamente através do Azure para a internet. Mas, até mesmo a definição de proxy não é uma solução de 100% para direcionar o tráfego através do proxy da empresa, uma vez que é responsabilidade do software e serviços para procurar o proxy. Se não está a ser fazendo que software em execução na VM ou um administrador manipula as definições, o tráfego para a Internet pode ser detoured novamente diretamente através do Azure para a Internet.
 
-Para evitar essa uma conectividade direta à internet, pode configurar o túnel forçado com conectividade de site a site entre no local e o Azure. A descrição detalhada da funcionalidade de túnel forçado é publicada aqui <https://azure.microsoft.com/documentation/articles/vpn-gateway-forced-tunneling-rm/>
+Para evitar essa uma conectividade direta à internet, pode configurar o túnel forçado com conectividade de site a site entre no local e o Azure. A descrição detalhada da funcionalidade de túnel forçado é publicada aqui
+<https://azure.microsoft.com/documentation/articles/vpn-gateway-forced-tunneling-rm/>
 
 Túnel forçado com o ExpressRoute está ativado por clientes anunciar uma rota predefinida por meio de sessões de peering de BGP de ExpressRoute.
 
@@ -751,7 +754,8 @@ Como uma árvore de decisão estimada para decidir se um sistema SAP se encaixa 
 
 **Passo 1**: As informações mais importantes para começar são o requisito de SAPS para um determinado sistema SAP. Os requisitos de SAPS precisam ser separado no DBMS e parte de aplicação SAP, mesmo que o sistema SAP já está a ser implementado no local numa configuração de camada 2. Para os sistemas existentes, SAPS relacionados com o hardware em utilização, muitas vezes, podem ser determinados ou estimadas com base em parâmetros de comparação SAP existentes. Os resultados podem ser encontrados aqui: <https://sap.com/about/benchmark.html>.
 Para sistemas SAP recentemente implementados, deve passar por um exercício de dimensionamento, o que deve determinar os requisitos de SAPS do sistema.
-Consulte também este blogue e o documento anexado para o dimensionamento de SAP no Azure: <https://blogs.msdn.com/b/saponsqlserver/archive/2015/12/01/new-white-paper-on-sizing-sap-solutions-on-azure-public-cloud.aspx>
+Consulte também este blogue e o documento anexado para o dimensionamento de SAP no Azure:
+<https://blogs.msdn.com/b/saponsqlserver/archive/2015/12/01/new-white-paper-on-sizing-sap-solutions-on-azure-public-cloud.aspx>
 
 **Passo 2**: Para os sistemas existentes, o volume de e/s e operações de e/s por segundo no servidor do DBMS devem ser medidas. Para sistemas recentemente planeados, o exercício de dimensionamento para o novo sistema também deve dar idéias aproximadas dos requisitos de e/s no lado do DBMS. Se não souber, eventualmente, terá de realizar uma prova de conceito.
 
@@ -801,10 +805,12 @@ Obter passos sobre como instalar, atualizar e configurar o Azure PowerShell cmdl
 
 Experiência do cliente até aqui foi que o PowerShell (PS), certamente, é a ferramenta mais potente para implementar VMs e criar passos personalizados na implementação de VMs. Todos os clientes a executar instâncias do SAP no Azure estão a utilizar os cmdlets de PS para complementar as tarefas de gestão que fazer no portal do Azure ou até mesmo estiver a utilizar os cmdlets de PS exclusivamente para gerir as respetivas implementações no Azure. Como os cmdlets específicos do Azure compartilham a mesma Convenção de nomenclatura, como os cmdlets relacionados com o Windows mais de 2000, é uma tarefa fácil para os administradores do Windows aproveitar esses cmdlets.
 
-Veja o exemplo aqui: <https://blogs.technet.com/b/keithmayer/archive/2015/07/07/18-steps-for-end-to-end-iaas-provisioning-in-the-cloud-with-azure-resource-manager-arm-powershell-and-desired-state-configuration-dsc.aspx>
+Veja o exemplo aqui:
+<https://blogs.technet.com/b/keithmayer/archive/2015/07/07/18-steps-for-end-to-end-iaas-provisioning-in-the-cloud-with-azure-resource-manager-arm-powershell-and-desired-state-configuration-dsc.aspx>
 
 [comment]: <> (Lista de tarefas MShermannd descrevem novo comando da CLI quando testado )
-Implementação da extensão de monitorização do Azure para SAP (consulte o capítulo [solução de monitorização do Azure para SAP] [ planning-guide-9.1] neste documento) só é possível através do PowerShell ou CLI. Por isso é obrigatório para definir e configurar o PowerShell ou a CLI ao implementar ou administrar um sistema SAP NetWeaver no Azure.  
+Implementação da extensão de monitorização do Azure para SAP (consulte o capítulo [solução de monitorização do Azure para SAP] [ planning-guide-9.1] neste documento) só é possível através do PowerShell ou CLI. Por isso é obrigatório para definir e configurar o PowerShell ou a CLI ao implementar ou administrar um sistema SAP NetWeaver no Azure.
+  
 
 Como o Azure fornece mais funcionalidade, novos cmdlets de PS vai ser adicionado requer uma atualização dos cmdlets. Por isso faz sentido para verificar o site de Download do Azure, pelo menos, uma vez, o mês <https://azure.microsoft.com/downloads/> para uma nova versão dos cmdlets. A nova versão é instalada sobre a versão mais antiga.
 
@@ -948,13 +954,13 @@ Neste caso, queremos carregar um VHD, com ou sem um sistema operacional e montá
 
 **PowerShell**
 
-* Inicie sessão na sua subscrição com *Connect-AzureRmAccount*
-* Definir a subscrição do seu contexto com *Set-AzureRmContext* e parâmetro SubscriptionId ou SubscriptionName - veja <https://docs.microsoft.com/powershell/module/azurerm.profile/set-azurermcontext>
-* Carregar o VHD com o *Add-AzureRmVhd* para uma conta de armazenamento do Azure - veja <https://docs.microsoft.com/powershell/module/azurerm.compute/add-azurermvhd>
-* (Opcional) Criar um disco gerido a partir de VHD com o *New-AzureRmDisk* -veja <https://docs.microsoft.com/powershell/module/azurerm.compute/new-azurermdisk>
-* Definir o disco do SO de uma nova configuração VM para o VHD ou um disco gerido com *Set-AzureRmVMOSDisk* -veja <https://docs.microsoft.com/powershell/module/azurerm.compute/set-azurermvmosdisk>
-* Criar uma nova VM a partir da configuração VM com *New-AzureRmVM* -veja <https://docs.microsoft.com/powershell/module/azurerm.compute/new-azurermvm>
-* Adicionar um disco de dados a uma VM nova com *Add-AzureRmVMDataDisk* -veja <https://docs.microsoft.com/powershell/module/azurerm.compute/add-azurermvmdatadisk>
+* Inicie sessão na sua subscrição com *AzAccount do Connect*
+* Definir a subscrição do seu contexto com *Set-AzContext* e parâmetro SubscriptionId ou SubscriptionName - veja <https://docs.microsoft.com/powershell/module/az.accounts/set-Azcontext>
+* Carregar o VHD com o *Add-AzVhd* para uma conta de armazenamento do Azure - veja <https://docs.microsoft.com/powershell/module/az.compute/add-Azvhd>
+* (Opcional) Criar um disco gerido a partir de VHD com o *New-AzDisk* -veja <https://docs.microsoft.com/powershell/module/az.compute/new-Azdisk>
+* Definir o disco do SO de uma nova configuração VM para o VHD ou um disco gerido com *Set-AzVMOSDisk* -veja <https://docs.microsoft.com/powershell/module/az.compute/set-Azvmosdisk>
+* Criar uma nova VM a partir da configuração VM com *New-AzVM* -veja <https://docs.microsoft.com/powershell/module/az.compute/new-Azvm>
+* Adicionar um disco de dados a uma VM nova com *Add-AzVMDataDisk* -veja <https://docs.microsoft.com/powershell/module/az.compute/add-Azvmdatadisk>
 
 **CLI do Azure**
 
@@ -975,14 +981,14 @@ Neste caso, queremos carregar um VHD, com ou sem um sistema operacional e montá
 Para carregar uma VM existente ou VHD a partir da rede no local, para usá-lo como uma imagem de VM do Azure VM ou VHD tem de cumprir os requisitos listados no capítulo [preparação para implementar uma VM com uma imagem de específicas do cliente para o SAP] [ planning-guide-5.2.2] deste documento.
 
 * Uso *sysprep* no Windows ou *waagent-desaprovisionamento* no Linux para generalizar a VM - veja [referência técnica de Sysprep](https://technet.microsoft.com/library/cc766049.aspx) para Windows ou [como capturar um Máquina virtual do Linux para utilizar como um modelo do Resource Manager] [ capture-image-linux-step-2-create-vm-image] para Linux
-* Inicie sessão na sua subscrição com *Connect-AzureRmAccount*
-* Definir a subscrição do seu contexto com *Set-AzureRmContext* e parâmetro SubscriptionId ou SubscriptionName - veja <https://docs.microsoft.com/powershell/module/azurerm.profile/set-azurermcontext>
-* Carregar o VHD com o *Add-AzureRmVhd* para uma conta de armazenamento do Azure - veja <https://docs.microsoft.com/powershell/module/azurerm.compute/add-azurermvhd>
-* (Opcional) Criar uma imagem de disco gerido a partir de VHD com o *New-AzureRmImage* -veja <https://docs.microsoft.com/powershell/module/azurerm.compute/new-azurermimage>
+* Inicie sessão na sua subscrição com *AzAccount do Connect*
+* Definir a subscrição do seu contexto com *Set-AzContext* e parâmetro SubscriptionId ou SubscriptionName - veja <https://docs.microsoft.com/powershell/module/az.accounts/set-Azcontext>
+* Carregar o VHD com o *Add-AzVhd* para uma conta de armazenamento do Azure - veja <https://docs.microsoft.com/powershell/module/az.compute/add-Azvhd>
+* (Opcional) Criar uma imagem de disco gerido a partir de VHD com o *New-AzImage* -veja <https://docs.microsoft.com/powershell/module/az.compute/new-Azimage>
 * Configurar o disco do SO de uma nova configuração VM para o
-  * VHD com o *Set-AzureRmVMOSDisk - SourceImageUri - CreateOption fromImage* -veja <https://docs.microsoft.com/powershell/module/azurerm.compute/set-azurermvmosdisk>
-  * Geridos a imagem de disco *Set-AzureRmVMSourceImage* -veja <https://docs.microsoft.com/powershell/module/azurerm.compute/set-azurermvmsourceimage>
-* Criar uma nova VM a partir da configuração VM com *New-AzureRmVM* -veja <https://docs.microsoft.com/powershell/module/azurerm.compute/new-azurermvm>
+  * VHD com o *Set-AzVMOSDisk - SourceImageUri - CreateOption fromImage* -veja <https://docs.microsoft.com/powershell/module/az.compute/set-Azvmosdisk>
+  * Geridos a imagem de disco *Set-AzVMSourceImage* -veja <https://docs.microsoft.com/powershell/module/az.compute/set-Azvmsourceimage>
+* Criar uma nova VM a partir da configuração VM com *New-AzVM* -veja <https://docs.microsoft.com/powershell/module/az.compute/new-Azvm>
 
 **CLI do Azure**
 
@@ -1011,27 +1017,27 @@ Durante o período de tempo da transferência os VHDs ou os discos geridos não 
   Tem primeiro de obter acesso ao blob subjacente do disco gerido. Em seguida, pode copiar o blob subjacente para uma nova conta de armazenamento e transferir o blob a partir desta conta de armazenamento.
 
   ```powershell
-  $access = Grant-AzureRmDiskAccess -ResourceGroupName <resource group> -DiskName <disk name> -Access Read -DurationInSecond 3600
-  $key = (Get-AzureRmStorageAccountKey -ResourceGroupName <resource group> -Name <storage account name>)[0].Value
-  $destContext = (New-AzureStorageContext -StorageAccountName <storage account name -StorageAccountKey $key)
-  Start-AzureStorageBlobCopy -AbsoluteUri $access.AccessSAS -DestContainer <container name> -DestBlob <blob name> -DestContext $destContext
+  $access = Grant-AzDiskAccess -ResourceGroupName <resource group> -DiskName <disk name> -Access Read -DurationInSecond 3600
+  $key = (Get-AzStorageAccountKey -ResourceGroupName <resource group> -Name <storage account name>)[0].Value
+  $destContext = (New-AzStorageContext -StorageAccountName <storage account name -StorageAccountKey $key)
+  Start-AzStorageBlobCopy -AbsoluteUri $access.AccessSAS -DestContainer <container name> -DestBlob <blob name> -DestContext $destContext
   # Wait for blob copy to finish
-  Get-AzureStorageBlobCopyState -Container <container name> -Blob <blob name> -Context $destContext
-  Save-AzureRmVhd -SourceUri <blob in new storage account> -LocalFilePath <local file path> -StorageKey $key
+  Get-AzStorageBlobCopyState -Container <container name> -Blob <blob name> -Context $destContext
+  Save-AzVhd -SourceUri <blob in new storage account> -LocalFilePath <local file path> -StorageKey $key
   # Wait for download to finish
-  Revoke-AzureRmDiskAccess -ResourceGroupName <resource group> -DiskName <disk name>
+  Revoke-AzDiskAccess -ResourceGroupName <resource group> -DiskName <disk name>
   ```
 
 * Transferir um VHD  
-  Depois do sistema SAP está parado e a VM é encerrada, pode utilizar o cmdlet do PowerShell Save-AzureRmVhd no destino no local para transferir os discos VHD para o mundo no local. Para fazer isso, é necessário o URL do VHD, que pode ser encontrado na "secção armazenamento" do portal do Azure (é necessário navegar para a conta de armazenamento e o contentor de armazenamento onde o VHD foi criado) e precisa saber onde o VHD deve ser copiado para.
+  Depois do sistema SAP está parado e a VM é encerrada, pode utilizar o cmdlet do PowerShell Save AzVhd no destino no local para transferir os discos VHD para o mundo no local. Para fazer isso, é necessário o URL do VHD, que pode ser encontrado na "secção armazenamento" do portal do Azure (é necessário navegar para a conta de armazenamento e o contentor de armazenamento onde o VHD foi criado) e precisa saber onde o VHD deve ser copiado para.
 
   Em seguida, pode aproveitar o comando, definindo o parâmetro SourceUri como o URL de VHD para transferir e a LocalFilePath como a localização física do VHD (incluindo o respetivo nome). O comando foi o seguinte aspeto:
 
   ```powerhell
-  Save-AzureRmVhd -ResourceGroupName <resource group name of storage account> -SourceUri http://<storage account name>.blob.core.windows.net/<container name>/sapidedata.vhd -LocalFilePath E:\Azure_downloads\sapidesdata.vhd
+  Save-AzVhd -ResourceGroupName <resource group name of storage account> -SourceUri http://<storage account name>.blob.core.windows.net/<container name>/sapidedata.vhd -LocalFilePath E:\Azure_downloads\sapidesdata.vhd
   ```
 
-  Para obter mais detalhes sobre o cmdlet Save-AzureRmVhd, verifique aqui <https://docs.microsoft.com/powershell/module/azurerm.compute/save-azurermvhd>.
+  Para obter mais detalhes do cmdlet Save-AzVhd, verifique aqui <https://docs.microsoft.com/powershell/module/az.compute/save-Azvhd>.
 
 #### <a name="azure-cli"></a>CLI do Azure
 * Transferir um disco gerido  
@@ -1067,11 +1073,11 @@ Discos de dados também podem ser discos geridos. Neste caso, o disco gerido é 
 
 ##### <a name="powershell"></a>PowerShell
 
-Pode utilizar os cmdlets do Azure PowerShell para copiar um VHD, conforme mostrado na [este artigo][storage-powershell-guide-full-copy-vhd]. Para criar um novo disco gerido, utilize New-AzureRmDiskConfig e New-AzureRmDisk, conforme mostrado no exemplo a seguir.
+Pode utilizar os cmdlets do Azure PowerShell para copiar um VHD, conforme mostrado na [este artigo][storage-powershell-guide-full-copy-vhd]. Para criar um novo disco gerido, utilize New-AzDiskConfig e New-AzDisk, conforme mostrado no exemplo a seguir.
 
 ```powershell
-$config = New-AzureRmDiskConfig -CreateOption Copy -SourceUri "/subscriptions/<subscription id>/resourceGroups/<resource group>/providers/Microsoft.Compute/disks/<disk name>" -Location <location>
-New-AzureRmDisk -ResourceGroupName <resource group name> -DiskName <disk name> -Disk $config
+$config = New-AzDiskConfig -CreateOption Copy -SourceUri "/subscriptions/<subscription id>/resourceGroups/<resource group>/providers/Microsoft.Compute/disks/<disk name>" -Location <location>
+New-AzDisk -ResourceGroupName <resource group name> -DiskName <disk name> -Disk $config
 ```
 
 ##### <a name="azure-cli"></a>CLI do Azure
@@ -1097,26 +1103,26 @@ A cópia de um VHD numa conta de armazenamento em si é um processo, o que leva 
 
 ```powershell
 # attach a vhd to a vm
-$vm = Get-AzureRmVM -ResourceGroupName <resource group name> -Name <vm name>
-$vm = Add-AzureRmVMDataDisk -VM $vm -Name newdatadisk -VhdUri <path to vhd> -Caching <caching option> -DiskSizeInGB $null -Lun <lun, for example 0> -CreateOption attach
-$vm | Update-AzureRmVM
+$vm = Get-AzVM -ResourceGroupName <resource group name> -Name <vm name>
+$vm = Add-AzVMDataDisk -VM $vm -Name newdatadisk -VhdUri <path to vhd> -Caching <caching option> -DiskSizeInGB $null -Lun <lun, for example 0> -CreateOption attach
+$vm | Update-AzVM
 
 # attach a managed disk to a vm
-$vm = Get-AzureRmVM -ResourceGroupName <resource group name> -Name <vm name>
-$vm = Add-AzureRmVMDataDisk -VM $vm -Name newdatadisk -ManagedDiskId <managed disk id> -Caching <caching option> -DiskSizeInGB $null -Lun <lun, for example 0> -CreateOption attach
-$vm | Update-AzureRmVM
+$vm = Get-AzVM -ResourceGroupName <resource group name> -Name <vm name>
+$vm = Add-AzVMDataDisk -VM $vm -Name newdatadisk -ManagedDiskId <managed disk id> -Caching <caching option> -DiskSizeInGB $null -Lun <lun, for example 0> -CreateOption attach
+$vm | Update-AzVM
 
 # attach a copy of the vhd to a vm
-$vm = Get-AzureRmVM -ResourceGroupName <resource group name> -Name <vm name>
-$vm = Add-AzureRmVMDataDisk -VM $vm -Name <disk name> -VhdUri <new path of vhd> -SourceImageUri <path to image vhd> -Caching <caching option> -DiskSizeInGB $null -Lun <lun, for example 0> -CreateOption fromImage
-$vm | Update-AzureRmVM
+$vm = Get-AzVM -ResourceGroupName <resource group name> -Name <vm name>
+$vm = Add-AzVMDataDisk -VM $vm -Name <disk name> -VhdUri <new path of vhd> -SourceImageUri <path to image vhd> -Caching <caching option> -DiskSizeInGB $null -Lun <lun, for example 0> -CreateOption fromImage
+$vm | Update-AzVM
 
 # attach a copy of the managed disk to a vm
-$vm = Get-AzureRmVM -ResourceGroupName <resource group name> -Name <vm name>
-$diskConfig = New-AzureRmDiskConfig -Location $vm.Location -CreateOption Copy -SourceUri <source managed disk id>
-$disk = New-AzureRmDisk -DiskName <disk name> -Disk $diskConfig -ResourceGroupName <resource group name>
-$vm = Add-AzureRmVMDataDisk -VM $vm -Caching <caching option> -Lun <lun, for example 0> -CreateOption attach -ManagedDiskId $disk.Id
-$vm | Update-AzureRmVM
+$vm = Get-AzVM -ResourceGroupName <resource group name> -Name <vm name>
+$diskConfig = New-AzDiskConfig -Location $vm.Location -CreateOption Copy -SourceUri <source managed disk id>
+$disk = New-AzDisk -DiskName <disk name> -Disk $diskConfig -ResourceGroupName <resource group name>
+$vm = Add-AzVMDataDisk -VM $vm -Caching <caching option> -Lun <lun, for example 0> -CreateOption attach -ManagedDiskId $disk.Id
+$vm | Update-AzVM
 ```
 ##### <a name="azure-cli"></a>CLI do Azure
 
@@ -1144,18 +1150,18 @@ Também pode copiar VHDs entre subscrições. Para obter mais informações, lei
 
 O fluxo básico de lógica de cmdlet PS tem esta aparência:
 
-* Criar um contexto de conta de armazenamento para o **origem** conta de armazenamento com *New-AzureStorageContext* -veja <https://docs.microsoft.com/powershell/module/azure.storage/new-azurestoragecontext>
-* Criar um contexto de conta de armazenamento para o **destino** conta de armazenamento com *New-AzureStorageContext* -veja <https://docs.microsoft.com/powershell/module/azure.storage/new-azurestoragecontext>
+* Criar um contexto de conta de armazenamento para o **origem** conta de armazenamento com *New-AzStorageContext* -veja <https://docs.microsoft.com/powershell/module/azure.storage/new-AzStoragecontext>
+* Criar um contexto de conta de armazenamento para o **destino** conta de armazenamento com *New-AzStorageContext* -veja <https://docs.microsoft.com/powershell/module/azure.storage/new-AzStoragecontext>
 * Iniciar a cópia com
 
 ```powershell
-Start-AzureStorageBlobCopy -SrcBlob <source blob name> -SrcContainer <source container name> -SrcContext <variable containing context of source storage account> -DestBlob <target blob name> -DestContainer <target container name> -DestContext <variable containing context of target storage account>
+Start-AzStorageBlobCopy -SrcBlob <source blob name> -SrcContainer <source container name> -SrcContext <variable containing context of source storage account> -DestBlob <target blob name> -DestContainer <target container name> -DestContext <variable containing context of target storage account>
 ```
 
 * Verificar o estado da cópia num loop com
 
 ```powershell
-Get-AzureStorageBlobCopyState -Blob <target blob name> -Container <target container name> -Context <variable containing context of target storage account>
+Get-AzStorageBlobCopyState -Blob <target blob name> -Container <target container name> -Context <variable containing context of target storage account>
 ```
 
 * Anexe novo VHD para uma máquina virtual, conforme descrito acima.
@@ -1326,7 +1332,8 @@ Ver a diferença de arquitetura entre ARM e o modelo clássico, conforme descrit
 
 #### <a name="configuration-of-the-sap-system-and-sap-gui-connectivity-over-the-internet"></a>Configuração da conetividade sistema SAP e SAP GUI através da internet
 
-Consulte este artigo, que descreve os detalhes a esse tópico: <https://blogs.msdn.com/b/saponsqlserver/archive/2014/06/24/sap-gui-connection-closed-when-connecting-to-sap-system-in-azure.aspx>
+Consulte este artigo, que descreve os detalhes a esse tópico:
+<https://blogs.msdn.com/b/saponsqlserver/archive/2014/06/24/sap-gui-connection-closed-when-connecting-to-sap-system-in-azure.aspx>
 
 #### <a name="changing-firewall-settings-within-vm"></a>Alterar as definições da Firewall na VM
 
@@ -1384,39 +1391,39 @@ A sequência de eventos para implementar o cenário tem esta aparência:
 
 ```powershell
 $rgName = "SAPERPDemo1"
-New-AzureRmResourceGroup -Name $rgName -Location "North Europe"
+New-AzResourceGroup -Name $rgName -Location "North Europe"
 ```
 * Criar uma nova conta de armazenamento, se não pretender utilizar os Managed Disks
 
 ```powershell
 $suffix = Get-Random -Minimum 100000 -Maximum 999999
-$account = New-AzureRmStorageAccount -ResourceGroupName $rgName -Name "saperpdemo$suffix" -SkuName Standard_LRS -Kind "Storage" -Location "North Europe"
+$account = New-AzStorageAccount -ResourceGroupName $rgName -Name "saperpdemo$suffix" -SkuName Standard_LRS -Kind "Storage" -Location "North Europe"
 ```
 
 * Crie uma nova rede virtual para cada cenário de treinamento/demonstração ativar a utilização de endereços IP e o mesmo nome de anfitrião. A rede virtual está protegida por um grupo de segurança de rede que só permite o tráfego para a porta 3389 para ativar o acesso de ambiente de trabalho remoto e a porta 22 para SSH.
 
 ```powershell
 # Create a new Virtual Network
-$rdpRule = New-AzureRmNetworkSecurityRuleConfig -Name SAPERPDemoNSGRDP -Protocol * -SourcePortRange * -DestinationPortRange 3389 -Access Allow -Direction Inbound -SourceAddressPrefix * -DestinationAddressPrefix * -Priority 100
-$sshRule = New-AzureRmNetworkSecurityRuleConfig -Name SAPERPDemoNSGSSH -Protocol * -SourcePortRange * -DestinationPortRange 22 -Access Allow -Direction Inbound -SourceAddressPrefix * -DestinationAddressPrefix * -Priority 101
-$nsg = New-AzureRmNetworkSecurityGroup -Name SAPERPDemoNSG -ResourceGroupName $rgName -Location  "North Europe" -SecurityRules $rdpRule,$sshRule
+$rdpRule = New-AzNetworkSecurityRuleConfig -Name SAPERPDemoNSGRDP -Protocol * -SourcePortRange * -DestinationPortRange 3389 -Access Allow -Direction Inbound -SourceAddressPrefix * -DestinationAddressPrefix * -Priority 100
+$sshRule = New-AzNetworkSecurityRuleConfig -Name SAPERPDemoNSGSSH -Protocol * -SourcePortRange * -DestinationPortRange 22 -Access Allow -Direction Inbound -SourceAddressPrefix * -DestinationAddressPrefix * -Priority 101
+$nsg = New-AzNetworkSecurityGroup -Name SAPERPDemoNSG -ResourceGroupName $rgName -Location  "North Europe" -SecurityRules $rdpRule,$sshRule
 
-$subnetConfig = New-AzureRmVirtualNetworkSubnetConfig -Name Subnet1 -AddressPrefix  10.0.1.0/24 -NetworkSecurityGroup $nsg
-$vnet = New-AzureRmVirtualNetwork -Name SAPERPDemoVNet -ResourceGroupName $rgName -Location "North Europe"  -AddressPrefix 10.0.1.0/24 -Subnet $subnetConfig
+$subnetConfig = New-AzVirtualNetworkSubnetConfig -Name Subnet1 -AddressPrefix  10.0.1.0/24 -NetworkSecurityGroup $nsg
+$vnet = New-AzVirtualNetwork -Name SAPERPDemoVNet -ResourceGroupName $rgName -Location "North Europe"  -AddressPrefix 10.0.1.0/24 -Subnet $subnetConfig
 ```
 
 * Criar um novo endereço IP público que pode ser utilizado para aceder à máquina virtual a partir da internet
 
 ```powershell
 # Create a public IP address with a DNS name
-$pip = New-AzureRmPublicIpAddress -Name SAPERPDemoPIP -ResourceGroupName $rgName -Location "North Europe" -DomainNameLabel $rgName.ToLower() -AllocationMethod Dynamic
+$pip = New-AzPublicIpAddress -Name SAPERPDemoPIP -ResourceGroupName $rgName -Location "North Europe" -DomainNameLabel $rgName.ToLower() -AllocationMethod Dynamic
 ```
 
 * Criar uma nova interface de rede para a máquina virtual
 
 ```powershell
 # Create a new Network Interface
-$nic = New-AzureRmNetworkInterface -Name SAPERPDemoNIC -ResourceGroupName $rgName -Location "North Europe" -Subnet $vnet.Subnets[0] -PublicIpAddress $pip
+$nic = New-AzNetworkInterface -Name SAPERPDemoNIC -ResourceGroupName $rgName -Location "North Europe" -Subnet $vnet.Subnets[0] -PublicIpAddress $pip
 ```
 
 * Cria uma máquina virtual. Para este cenário, todas as VMS terão o mesmo nome. O SID SAP das instâncias do SAP NetWeaver nessas VMs serão os mesmos também. Dentro do grupo de recursos do Azure, o nome da VM tem de ser exclusivo, mas em diferentes grupos de recursos do Azure podem executar as VMs com o mesmo nome. A conta de "Administrador" predefinidas do Windows ou de raiz para Linux não são válidos. Por conseguinte, um novo nome de utilizador de administrador tem de ser definido, juntamente com uma palavra-passe. O tamanho da VM também tem de ser definido.
@@ -1426,20 +1433,20 @@ $nic = New-AzureRmNetworkInterface -Name SAPERPDemoNIC -ResourceGroupName $rgNam
 # Create a new virtual machine with an official image from the Azure Marketplace
 #####
 $cred=Get-Credential -Message "Type the name and password of the local administrator account."
-$vmconfig = New-AzureRmVMConfig -VMName SAPERPDemo -VMSize Standard_D11
+$vmconfig = New-AzVMConfig -VMName SAPERPDemo -VMSize Standard_D11
 
 # select image
-$vmconfig = Set-AzureRmVMSourceImage -VM $vmconfig -PublisherName "MicrosoftWindowsServer" -Offer "WindowsServer" -Skus "2012-R2-Datacenter" -Version "latest"
-$vmconfig = Set-AzureRmVMOperatingSystem -VM $vmconfig -Windows -ComputerName "SAPERPDemo" -Credential $cred -ProvisionVMAgent -EnableAutoUpdate
-# $vmconfig = Set-AzureRmVMSourceImage -VM $vmconfig -PublisherName "SUSE" -Offer "SLES-SAP" -Skus "12-SP1" -Version "latest"
-# $vmconfig = Set-AzureRmVMSourceImage -VM $vmconfig -PublisherName "RedHat" -Offer "RHEL" -Skus "7.2" -Version "latest"
-# $vmconfig = Set-AzureRmVMSourceImage -VM $vmconfig -PublisherName "Oracle" -Offer "Oracle-Linux" -Skus "7.2" -Version "latest"
-# $vmconfig = Set-AzureRmVMOperatingSystem -VM $vmconfig -Linux -ComputerName "SAPERPDemo" -Credential $cred
+$vmconfig = Set-AzVMSourceImage -VM $vmconfig -PublisherName "MicrosoftWindowsServer" -Offer "WindowsServer" -Skus "2012-R2-Datacenter" -Version "latest"
+$vmconfig = Set-AzVMOperatingSystem -VM $vmconfig -Windows -ComputerName "SAPERPDemo" -Credential $cred -ProvisionVMAgent -EnableAutoUpdate
+# $vmconfig = Set-AzVMSourceImage -VM $vmconfig -PublisherName "SUSE" -Offer "SLES-SAP" -Skus "12-SP1" -Version "latest"
+# $vmconfig = Set-AzVMSourceImage -VM $vmconfig -PublisherName "RedHat" -Offer "RHEL" -Skus "7.2" -Version "latest"
+# $vmconfig = Set-AzVMSourceImage -VM $vmconfig -PublisherName "Oracle" -Offer "Oracle-Linux" -Skus "7.2" -Version "latest"
+# $vmconfig = Set-AzVMOperatingSystem -VM $vmconfig -Linux -ComputerName "SAPERPDemo" -Credential $cred
 
-$vmconfig = Add-AzureRmVMNetworkInterface -VM $vmconfig -Id $nic.Id
+$vmconfig = Add-AzVMNetworkInterface -VM $vmconfig -Id $nic.Id
 
-$vmconfig = Set-AzureRmVMBootDiagnostics -Disable -VM $vmconfig
-$vm = New-AzureRmVM -ResourceGroupName $rgName -Location "North Europe" -VM $vmconfig
+$vmconfig = Set-AzVMBootDiagnostics -Disable -VM $vmconfig
+$vm = New-AzVM -ResourceGroupName $rgName -Location "North Europe" -VM $vmconfig
 ```
 
 ```powershell
@@ -1447,20 +1454,20 @@ $vm = New-AzureRmVM -ResourceGroupName $rgName -Location "North Europe" -VM $vmc
 # Create a new virtual machine with a VHD that contains the private image that you want to use
 #####
 $cred=Get-Credential -Message "Type the name and password of the local administrator account."
-$vmconfig = New-AzureRmVMConfig -VMName SAPERPDemo -VMSize Standard_D11
+$vmconfig = New-AzVMConfig -VMName SAPERPDemo -VMSize Standard_D11
 
-$vmconfig = Add-AzureRmVMNetworkInterface -VM $vmconfig -Id $nic.Id
+$vmconfig = Add-AzVMNetworkInterface -VM $vmconfig -Id $nic.Id
 
 $diskName="osfromimage"
 $osDiskUri=$account.PrimaryEndpoints.Blob.ToString() + "vhds/" + $diskName  + ".vhd"
 
-$vmconfig = Set-AzureRmVMOSDisk -VM $vmconfig -Name $diskName -VhdUri $osDiskUri -CreateOption fromImage -SourceImageUri <path to VHD that contains the OS image> -Windows
-$vmconfig = Set-AzureRmVMOperatingSystem -VM $vmconfig -Windows -ComputerName "SAPERPDemo" -Credential $cred
-#$vmconfig = Set-AzureRmVMOSDisk -VM $vmconfig -Name $diskName -VhdUri $osDiskUri -CreateOption fromImage -SourceImageUri <path to VHD that contains the OS image> -Linux
-#$vmconfig = Set-AzureRmVMOperatingSystem -VM $vmconfig -Linux -ComputerName "SAPERPDemo" -Credential $cred
+$vmconfig = Set-AzVMOSDisk -VM $vmconfig -Name $diskName -VhdUri $osDiskUri -CreateOption fromImage -SourceImageUri <path to VHD that contains the OS image> -Windows
+$vmconfig = Set-AzVMOperatingSystem -VM $vmconfig -Windows -ComputerName "SAPERPDemo" -Credential $cred
+#$vmconfig = Set-AzVMOSDisk -VM $vmconfig -Name $diskName -VhdUri $osDiskUri -CreateOption fromImage -SourceImageUri <path to VHD that contains the OS image> -Linux
+#$vmconfig = Set-AzVMOperatingSystem -VM $vmconfig -Linux -ComputerName "SAPERPDemo" -Credential $cred
 
-$vmconfig = Set-AzureRmVMBootDiagnostics -Disable -VM $vmconfig
-$vm = New-AzureRmVM -ResourceGroupName $rgName -Location "North Europe" -VM $vmconfig
+$vmconfig = Set-AzVMBootDiagnostics -Disable -VM $vmconfig
+$vm = New-AzVM -ResourceGroupName $rgName -Location "North Europe" -VM $vmconfig
 ```
 
 ```powershell
@@ -1468,29 +1475,29 @@ $vm = New-AzureRmVM -ResourceGroupName $rgName -Location "North Europe" -VM $vmc
 # Create a new virtual machine with a Managed Disk Image
 #####
 $cred=Get-Credential -Message "Type the name and password of the local administrator account."
-$vmconfig = New-AzureRmVMConfig -VMName SAPERPDemo -VMSize Standard_D11
+$vmconfig = New-AzVMConfig -VMName SAPERPDemo -VMSize Standard_D11
 
-$vmconfig = Add-AzureRmVMNetworkInterface -VM $vmconfig -Id $nic.Id
+$vmconfig = Add-AzVMNetworkInterface -VM $vmconfig -Id $nic.Id
 
-$vmconfig = Set-AzureRmVMSourceImage -VM $vmconfig -Id <Id of Managed Disk Image>
-$vmconfig = Set-AzureRmVMOperatingSystem -VM $vmconfig -Windows -ComputerName "SAPERPDemo" -Credential $cred
-#$vmconfig = Set-AzureRmVMOperatingSystem -VM $vmconfig -Linux -ComputerName "SAPERPDemo" -Credential $cred
+$vmconfig = Set-AzVMSourceImage -VM $vmconfig -Id <Id of Managed Disk Image>
+$vmconfig = Set-AzVMOperatingSystem -VM $vmconfig -Windows -ComputerName "SAPERPDemo" -Credential $cred
+#$vmconfig = Set-AzVMOperatingSystem -VM $vmconfig -Linux -ComputerName "SAPERPDemo" -Credential $cred
 
-$vmconfig = Set-AzureRmVMBootDiagnostics -Disable -VM $vmconfig
-$vm = New-AzureRmVM -ResourceGroupName $rgName -Location "North Europe" -VM $vmconfig
+$vmconfig = Set-AzVMBootDiagnostics -Disable -VM $vmconfig
+$vm = New-AzVM -ResourceGroupName $rgName -Location "North Europe" -VM $vmconfig
 ```
 
 * Opcionalmente, adicione discos adicionais e restaurar o conteúdo necessário. Todos os nomes de BLOBs (URLs para os blobs) tem de ser exclusivos no Azure.
 
 ```powershell
 # Optional: Attach additional VHD data disks
-$vm = Get-AzureRmVM -ResourceGroupName $rgName -Name SAPERPDemo
+$vm = Get-AzVM -ResourceGroupName $rgName -Name SAPERPDemo
 $dataDiskUri = $account.PrimaryEndpoints.Blob.ToString() + "vhds/datadisk.vhd"
-Add-AzureRmVMDataDisk -VM $vm -Name datadisk -VhdUri $dataDiskUri -DiskSizeInGB 1023 -CreateOption empty | Update-AzureRmVM
+Add-AzVMDataDisk -VM $vm -Name datadisk -VhdUri $dataDiskUri -DiskSizeInGB 1023 -CreateOption empty | Update-AzVM
 
 # Optional: Attach additional Managed Disks
-$vm = Get-AzureRmVM -ResourceGroupName $rgName -Name SAPERPDemo
-Add-AzureRmVMDataDisk -VM $vm -Name datadisk -DiskSizeInGB 1023 -CreateOption empty -Lun 0 | Update-AzureRmVM
+$vm = Get-AzVM -ResourceGroupName $rgName -Name SAPERPDemo
+Add-AzVMDataDisk -VM $vm -Name datadisk -DiskSizeInGB 1023 -CreateOption empty -Lun 0 | Update-AzVM
 ```
 
 ##### <a name="cli"></a>CLI
@@ -2020,10 +2027,12 @@ No entanto, ao longo do ano passado parceiros desenvolvidos conjunta localizaç�
 Dependendo da configuração de SAP escolhido lá (camada 2 ou 3 camadas) pode ser uma necessidade de fazer cópias de segurança. O conteúdo do próprio adição VM ter uma cópia de segurança da base de dados. As cópias de segurança relacionados com o DBMS devem ser feito com métodos de base de dados. Uma descrição detalhada das bases de dados diferentes, pode ser encontrado na [Guia do DBMS][dbms-guide]. Por outro lado, os dados do SAP podem ser copiados de um modo offline (incluindo o conteúdo de base de dados também) conforme descrito nesta secção ou online, tal como descrito na secção seguinte.
 
 A cópia de segurança offline basicamente exigiria um encerramento da VM através do portal do Azure e uma cópia do disco VM base além discos todos ligados à VM. Isso seria preservar um ponto na imagem no tempo da VM e o respetivo disco associado. Recomenda-se para copiar as cópias de segurança para uma conta de armazenamento do Azure diferente. Por conseguinte, o procedimento descrito no capítulo [copiar discos entre contas de armazenamento do Azure] [ planning-guide-5.4.2] deste documento seriam aplicáveis.
-Além do encerramento com o portal do Azure, um pode também fazê-lo através do Powershell ou CLI, conforme descrito aqui: <https://azure.microsoft.com/documentation/articles/virtual-machines-deploy-rmtemplates-powershell/>
+Além do encerramento com o portal do Azure, um pode também fazê-lo através do Powershell ou CLI, conforme descrito aqui:
+<https://azure.microsoft.com/documentation/articles/virtual-machines-deploy-rmtemplates-powershell/>
 
 Uma restauração de estado consistiria a eliminar a VM base, bem como os discos originais da base VM e montado discos, copiar os discos guardados de volta para o grupo de conta de armazenamento ou o recurso original para discos geridos e, em seguida, voltar a implementar o sistema.
-Este artigo mostra um exemplo de como criar um script este processo no Powershell: <http://www.westerndevs.com/azure-snapshots/>
+Este artigo mostra um exemplo de como criar um script este processo no Powershell:
+<http://www.westerndevs.com/azure-snapshots/>
 
 Certifique-se instalar uma nova licença do SAP, uma vez que o restauro de uma cópia de segurança VM, tal como descrito acima cria uma nova chave de hardware.
 
@@ -2047,7 +2056,8 @@ Outras VMs no sistema SAP podem ser copiadas de uso da funcionalidade de Backup 
 >
 > ![Linux][Logo_Linux] Linux
 >
-> Não existe nenhum equivalente para o Windows VSS no Linux. Por isso apenas as cópias de segurança consistente com ficheiros são cópias de segurança possíveis, mas não consistentes. A cópia de segurança do SAP DBMS deve ser feita usando a funcionalidade do DBMS. O sistema de ficheiros que inclui os dados relacionados com o SAP pode ser guardado, por exemplo, usando tar conforme descrito aqui: <https://help.sap.com/saphelp_nw70ehp2/helpdata/en/d3/c0da3ccbb04d35b186041ba6ac301f/content.htm>
+> Não existe nenhum equivalente para o Windows VSS no Linux. Por isso apenas as cópias de segurança consistente com ficheiros são cópias de segurança possíveis, mas não consistentes. A cópia de segurança do SAP DBMS deve ser feita usando a funcionalidade do DBMS. O sistema de ficheiros que inclui os dados relacionados com o SAP pode ser guardado, por exemplo, usando tar conforme descrito aqui:
+> <https://help.sap.com/saphelp_nw70ehp2/helpdata/en/d3/c0da3ccbb04d35b186041ba6ac301f/content.htm>
 >
 >
 

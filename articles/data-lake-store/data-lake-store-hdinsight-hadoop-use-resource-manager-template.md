@@ -3,28 +3,28 @@ title: Utilizar modelos do Azure para criar o HDInsight com Gen1 de armazenament
 description: Utilizar modelos Azure Resource Manager para criar e utilizar clusters do HDInsight com Gen1 de armazenamento do Azure Data Lake
 services: data-lake-store,hdinsight
 documentationcenter: ''
-author: nitinme
-manager: jhubbard
+author: twooley
+manager: mtillman
 editor: cgronlun
 ms.assetid: 8ef8152f-2121-461e-956c-51c55144919d
 ms.service: data-lake-store
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/29/2018
-ms.author: nitinme
-ms.openlocfilehash: 5694f8eead2b0fd4be75ee858c3c124dd8c53e03
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.author: twooley
+ms.openlocfilehash: b09ca2cc358107c5f95fe3426351d380380db3c2
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57540417"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58880139"
 ---
 # <a name="create-an-hdinsight-cluster-with-azure-data-lake-storage-gen1-using-azure-resource-manager-template"></a>Criar um cluster do HDInsight com a geração 1 de armazenamento do Azure Data Lake com o modelo Azure Resource Manager
 > [!div class="op_single_selector"]
-> * [Utilizar o Portal](data-lake-store-hdinsight-hadoop-use-portal.md)
+> * [Utilizar o portal](data-lake-store-hdinsight-hadoop-use-portal.md)
 > * [Com o PowerShell (para o armazenamento predefinido)](data-lake-store-hdinsight-hadoop-use-powershell-for-default-storage.md)
 > * [Com o PowerShell (para armazenamento adicional)](data-lake-store-hdinsight-hadoop-use-powershell.md)
-> * [Com o Resource Manager](data-lake-store-hdinsight-hadoop-use-resource-manager-template.md)
+> * [Utilizar o Gestor de Recursos](data-lake-store-hdinsight-hadoop-use-resource-manager-template.md)
 >
 >
 

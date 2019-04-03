@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 795abcadb1cee7599665f7bc3b8e0d3e08a3da05
-ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
+ms.openlocfilehash: cc2c125df2e3455b0e90919dbca92fe497a4b1b7
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58369076"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58884351"
 ---
 # <a name="eliminate-bad-passwords-in-your-organization"></a>Eliminar palavras-passe incorretas na sua organização
 
@@ -106,8 +106,11 @@ Depois de normalização, esta palavra-passe, torna-se "contosoblankf9!". O proc
 
 |   | Proteção de palavra-passe do Azure AD com a lista de palavra-passe banidas global | Proteção de palavra-passe do Azure AD com a lista de palavras-passe banidas personalizado|
 | --- | --- | --- |
-| Utilizadores apenas na cloud | Azure AD Gratuito | Azure AD Básico |
+| Utilizadores apenas na cloud | Azure AD Gratuito | O Azure AD Premium P1 ou P2 |
 | Os utilizadores sincronizados no local Windows Server Active Directory | O Azure AD Premium P1 ou P2 | O Azure AD Premium P1 ou P2 |
+
+> [!NOTE]
+> Utilizadores do Windows Server Active Directory no local que não sincronizado ao Azure Active Directory também aproveitar os benefícios da proteção de palavra-passe do Azure AD com base no licenciamento existentes para os utilizadores sincronizados.
 
 Informações de licenciamento adicionais, incluindo os custos, podem ser encontradas no [do Azure Active Directory preços site](https://azure.microsoft.com/pricing/details/active-directory/).
 

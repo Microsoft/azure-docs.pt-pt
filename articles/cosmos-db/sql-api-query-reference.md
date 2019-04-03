@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 03/31/2019
 ms.author: mjbrown
 ms.custom: seodec18
-ms.openlocfilehash: f04fa5f43844080638c70c44410d233fbe6ad325
-ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
+ms.openlocfilehash: 9625cb75bcae60f7f6eb2bae61e73066520037fc
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58805470"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58878282"
 ---
 # <a name="sql-language-reference-for-azure-cosmos-db"></a>Referência de linguagem SQL para o Azure Cosmos DB 
 
@@ -124,7 +124,7 @@ Ambos `SELECT <select_list>` e `SELECT *` são "açúcar sintático" e pode ser 
   
    `SELECT VALUE { p1: <expr1>, p2: <expr2>, ..., pN: <exprN> }[other clauses...]`  
   
-**Consulte também**  
+**Consultar Também**  
   
 [Expressões escalares](#bk_scalar_expressions)  
 [Cláusula SELECT](#bk_select_query)  
@@ -166,7 +166,7 @@ FROM <from_specification>
   
   Especifica que o `input_alias` é um conjunto de valores devolvidos pela expressão de contentor subjacente.  
  
-- `input_alias` ÍNDIA  
+- `input_alias` IN  
   
   Especifica que o `input_alias` deve representar o conjunto de valores obtidos com a iteração sobre todos os elementos de matriz de cada matriz devolvida pela expressão de contentor subjacente. Qualquer valor devolvido pela expressão subjacente do contentor que não seja uma matriz é ignorada.  
   
@@ -475,13 +475,13 @@ ORDER BY <sort_specification>
 |-|-|  
 |**Operações aritméticas**|Operador espera input(s) ser número (s). Saída também é um número. Se qualquer uma das entradas estiver **indefinido** ou o tipo que não seja o número, em seguida, o resultado é **indefinido**.|  
 |**bit a bit**|Operador espera input(s) como inteiro de 32 bits assinado número (s). Saída também é inteiro de 32 bits assinado número.<br /><br /> Qualquer valor não inteiro será arredondado. Um valor positivo será arredondado para baixo, negativos valores arredondados.<br /><br /> Qualquer valor que está fora do intervalo de número inteiro de 32 bits será convertido, efetuando os últimos 32-bits da notação de complemento do suas duas.<br /><br /> Se qualquer uma das entradas estiver **indefinido** ou escreva outro número, em seguida, o resultado é **indefinido**.<br /><br /> **Nota:** O comportamento acima é compatível com o comportamento do operador bit a bit de JavaScript.|  
-|**logical**|Operador espera input(s) ser Boolean(s). Saída também é um booleano.<br />Se qualquer uma das entradas estiver **indefinido** ou escreva senão Boolean, em seguida, o resultado será **indefinido**.|  
-|**comparison**|Operador espera input(s) para ter o mesmo tipo e não será definida. O resultado é um booleano.<br /><br /> Se qualquer uma das entradas estiver **indefinido** ou as entradas têm diferentes tipos, em seguida, o resultado é **indefinido**.<br /><br /> Ver **ordenação de valores para comparação** tabela para ordenação detalhes de valor.|  
+|**Lógica**|Operador espera input(s) ser Boolean(s). Saída também é um booleano.<br />Se qualquer uma das entradas estiver **indefinido** ou escreva senão Boolean, em seguida, o resultado será **indefinido**.|  
+|**Comparação**|Operador espera input(s) para ter o mesmo tipo e não será definida. O resultado é um booleano.<br /><br /> Se qualquer uma das entradas estiver **indefinido** ou as entradas têm diferentes tipos, em seguida, o resultado é **indefinido**.<br /><br /> Ver **ordenação de valores para comparação** tabela para ordenação detalhes de valor.|  
 |**string**|Operador espera input(s) ser String(s). Saída também é uma cadeia de caracteres.<br />Se qualquer uma das entradas estiver **indefinido** ou escreva senão a cadeia de caracteres, em seguida, o resultado é **indefinido**.|  
   
  **Operadores unários:**  
   
-|**Nome**|**Operador**|**Detalhes**|  
+|**Name**|**Operador**|**Detalhes**|  
 |-|-|-|  
 |**Operações aritméticas**|+<br /><br /> -|Devolve o valor numérico.<br /><br /> Negação bit a bit. Valor de número devolve negadas.|  
 |**bit a bit**|~|Complemento dos recursos. Devolve um complemento de um valor numérico.|  
@@ -489,31 +489,31 @@ ORDER BY <sort_specification>
   
  **Operadores binários:**  
   
-|**Nome**|**Operador**|**Detalhes**|  
+|**Name**|**Operador**|**Detalhes**|  
 |-|-|-|  
 |**Operações aritméticas**|+<br /><br /> -<br /><br /> *<br /><br /> /<br /><br /> %|Adição.<br /><br /> Subtração.<br /><br /> Multiplicação.<br /><br /> Divisão.<br /><br /> Modulação.|  
 |**bit a bit**|&#124;<br /><br /> &<br /><br /> ^<br /><br /> <<<br /><br /> >><br /><br /> >>>|OR bit a bit.<br /><br /> E bit a bit<br /><br /> XOR bit a bit.<br /><br /> Esquerda Shift.<br /><br /> Shift certo.<br /><br /> Mudança de direito de preenchimento de zero.|  
-|**logical**|**E**<br /><br /> **OR**|Conjunção lógica. Devolve **true** se ambos os argumentos forem **true**, devolve **false** caso contrário.<br /><br /> Disjunção lógica. Devolve **true** se quaisquer argumentos forem **true**, devolve **false** caso contrário.|  
-|**comparison**|**=**<br /><br /> **!=, <>**<br /><br /> **>**<br /><br /> **>=**<br /><br /> **<**<br /><br /> **<=**<br /><br /> **??**|É igual a. Devolve **true** se argumentos forem iguais, devolve **falso** caso contrário.<br /><br /> Não é igual a. Devolve **true** se argumentos não forem iguais, devolve **falso** caso contrário.<br /><br /> Maior que. Devolve **true** se o primeiro argumento for maior que o segundo, devolver **falso** caso contrário.<br /><br /> Maior que ou igual a. Devolve **true** se o primeiro argumento for maior ou igual a segunda, devolver **falso** caso contrário.<br /><br /> Menor que. Devolve **true** se o primeiro argumento for menor do que o segundo ponto, retorno **falso** caso contrário.<br /><br /> Menor ou igual a. Devolve **true** se o primeiro argumento for menor ou igual a segunda, devolver **falso** caso contrário.<br /><br /> Coalesce. Devolve o segundo argumento, se o primeiro argumento é um **indefinido** valor.|  
-|**Cadeia de caracteres**|**&#124;&#124;**|Concatenação. Devolve uma concatenação de ambos os argumentos.|  
+|**Lógica**|**E**<br /><br /> **OU**|Conjunção lógica. Devolve **true** se ambos os argumentos forem **true**, devolve **false** caso contrário.<br /><br /> Disjunção lógica. Devolve **true** se quaisquer argumentos forem **true**, devolve **false** caso contrário.|  
+|**Comparação**|**=**<br /><br /> **!=, <>**<br /><br /> **>**<br /><br /> **>=**<br /><br /> **<**<br /><br /> **<=**<br /><br /> **??**|É igual a. Devolve **true** se argumentos forem iguais, devolve **falso** caso contrário.<br /><br /> Não é igual a. Devolve **true** se argumentos não forem iguais, devolve **falso** caso contrário.<br /><br /> Maior que. Devolve **true** se o primeiro argumento for maior que o segundo, devolver **falso** caso contrário.<br /><br /> Maior que ou igual a. Devolve **true** se o primeiro argumento for maior ou igual a segunda, devolver **falso** caso contrário.<br /><br /> Menor que. Devolve **true** se o primeiro argumento for menor do que o segundo ponto, retorno **falso** caso contrário.<br /><br /> Menor ou igual a. Devolve **true** se o primeiro argumento for menor ou igual a segunda, devolver **falso** caso contrário.<br /><br /> Coalesce. Devolve o segundo argumento, se o primeiro argumento é um **indefinido** valor.|  
+|**String**|**&#124;&#124;**|Concatenação. Devolve uma concatenação de ambos os argumentos.|  
   
  **Operadores ternária:**  
 
-|**Nome**|**Operador**|**Detalhes**| 
+|**Name**|**Operador**|**Detalhes**| 
 |-|-|-|  
 |Operador Ternário|?|Devolve o segundo argumento, se o primeiro argumento for avaliada como **true**; caso contrário, a devolver o terceiro argumento.|  
 
   
  **Ordenação de valores de comparação**  
   
-|**Tipo**|**Ordem de valores**|  
+|**Type**|**Ordem de valores**|  
 |-|-|  
 |**Não definido**|Não é comparável.|  
-|**Nulo**|Único valor: **nulo**|  
-|**Número**|Número de real natural.<br /><br /> Valor de infinito negativo é menor do que qualquer outro valor numérico.<br /><br /> Valor de infinito positivo é maior do que qualquer outro valor numérico. **NaN** valor não é comparável. Comparar com **NaN** resultará na **indefinido** valor.|  
-|**Cadeia de caracteres**|Ordem lexicográficas.|  
-|**Matriz**|Não existem ordenação, mas equitable.|  
-|**Objeto**|Não existem ordenação, mas equitable.|  
+|**Null**|Único valor: **nulo**|  
+|**Number**|Número de real natural.<br /><br /> Valor de infinito negativo é menor do que qualquer outro valor numérico.<br /><br /> Valor de infinito positivo é maior do que qualquer outro valor numérico. **NaN** valor não é comparável. Comparar com **NaN** resultará na **indefinido** valor.|  
+|**String**|Ordem lexicográficas.|  
+|**Array**|Não existem ordenação, mas equitable.|  
+|**Object**|Não existem ordenação, mas equitable.|  
   
  **Observações**  
   
@@ -534,15 +534,15 @@ ORDER BY <sort_specification>
   
  **Tipos de dados escalares suportados:**  
   
-|**Tipo**|**Ordem de valores**|  
+|**Type**|**Ordem de valores**|  
 |-|-|  
 |**Não definido**|Único valor: **indefinido**|  
-|**Nulo**|Único valor: **nulo**|  
-|**valor booleano**|Valores: **false**, **verdadeiro**.|  
-|**Número**|Um precisão dupla número de vírgula flutuante, padrão IEEE 754.|  
-|**Cadeia de caracteres**|Uma seqüência de caracteres Unicode de zero ou mais. Cadeias de caracteres devem estar entre aspas simples ou duplas.|  
-|**Matriz**|Uma seqüência de elementos de zero ou mais. Cada elemento pode ser um valor de qualquer tipo de dados escalares, exceto indefinido.|  
-|**Objeto**|Um conjunto fora de ordem de zero ou mais pares de nome/valor. Nome é uma cadeia de caracteres Unicode, o valor pode ser de qualquer tipo de dados escalares, exceto **indefinido**.|  
+|**Null**|Único valor: **nulo**|  
+|**Booleano**|Valores: **false**, **verdadeiro**.|  
+|**Number**|Um precisão dupla número de vírgula flutuante, padrão IEEE 754.|  
+|**String**|Uma seqüência de caracteres Unicode de zero ou mais. Cadeias de caracteres devem estar entre aspas simples ou duplas.|  
+|**Array**|Uma seqüência de elementos de zero ou mais. Cada elemento pode ser um valor de qualquer tipo de dados escalares, exceto indefinido.|  
+|**Object**|Um conjunto fora de ordem de zero ou mais pares de nome/valor. Nome é uma cadeia de caracteres Unicode, o valor pode ser de qualquer tipo de dados escalares, exceto **indefinido**.|  
   
  **Sintaxe**  
   
@@ -690,12 +690,12 @@ ORDER BY <sort_specification>
 ||||  
 |-|-|-|  
 |[ABS](#bk_abs)|[ACOS](#bk_acos)|[ASIN](#bk_asin)|  
-|[ATAN](#bk_atan)|[ATN2](#bk_atn2)|[LIMITE](#bk_ceiling)|  
+|[ATAN](#bk_atan)|[ATN2](#bk_atn2)|[CEILING](#bk_ceiling)|  
 |[COS](#bk_cos)|[COT](#bk_cot)|[GRAUS](#bk_degrees)|  
-|[EXP](#bk_exp)|[FLOOR](#bk_floor)|[LOG](#bk_log)|  
+|[EXP](#bk_exp)|[FLOOR](#bk_floor)|[REGISTO](#bk_log)|  
 |[LOG10](#bk_log10)|[PI](#bk_pi)|[POWER](#bk_power)|  
 |[RADIANOS](#bk_radians)|[ARREDONDAR](#bk_round)|[SIN](#bk_sin)|  
-|[SQRT](#bk_sqrt)|[SQUARE](#bk_square)|[INÍCIO DE SESSÃO](#bk_sign)|  
+|[SQRT](#bk_sqrt)|[SQUARE](#bk_square)|[SIGN](#bk_sign)|  
 |[TAN](#bk_tan)|[TRUNC](#bk_trunc)||  
   
 ####  <a name="bk_abs"></a> ABS  
@@ -1843,13 +1843,13 @@ SELECT
 ||||  
 |-|-|-|  
 |[CONCAT](#bk_concat)|[CONTÉM](#bk_contains)|[ENDSWITH](#bk_endswith)|  
-|[INDEX_OF](#bk_index_of)|[À ESQUERDA](#bk_left)|[LENGTH](#bk_length)|  
-|[INFERIOR](#bk_lower)|[LTRIM](#bk_ltrim)|[SUBSTITUIR](#bk_replace)|  
+|[INDEX_OF](#bk_index_of)|[À ESQUERDA](#bk_left)|[COMPRIMENTO](#bk_length)|  
+|[LOWER](#bk_lower)|[LTRIM](#bk_ltrim)|[SUBSTITUIR](#bk_replace)|  
 |[REPLICAR](#bk_replicate)|[INVERTER](#bk_reverse)|[DIREITA](#bk_right)|  
 |[RTRIM](#bk_rtrim)|[STARTSWITH](#bk_startswith)|[StringToArray](#bk_stringtoarray)|
 |[StringToBoolean](#bk_stringtoboolean)|[StringToNull](#bk_stringtonull)|[StringToNumber](#bk_stringtonumber)|
-|[StringToObject](#bk_stringtoobject)|[SUBCADEIA](#bk_substring)|[ToString](#bk_tostring)|
-|[TRIM](#bk_trim)|[SUPERIOR](#bk_upper)||
+|[StringToObject](#bk_stringtoobject)|[SUBSTRING](#bk_substring)|[ToString](#bk_tostring)|
+|[TRIM](#bk_trim)|[UPPER](#bk_upper)||
   
 ####  <a name="bk_concat"></a> CONCAT  
  Devolve uma cadeia que é o resultado da concatenação de dois ou mais valores de cadeia de caracteres.  
@@ -2372,7 +2372,7 @@ SELECT
  Segue-se um exemplo de entrada inválida. 
    
  As aspas simples dentro da matriz não são um JSON válido.
-Mesmo que sejam válidas dentro de uma consulta, não irá analisar a matrizes válidas. Também devem ser escritas cadeias de caracteres dentro da cadeia de matriz "[\"\"]" ou a citação ao redor tem de ser única "[" "]".
+Mesmo que sejam válidas dentro de uma consulta, não irá analisar a matrizes válidas. Também devem ser escritas cadeias de caracteres dentro da cadeia de matriz "[\\"\\"]" ou a citação ao redor tem de ser única "[" "]".
 
 ```
 SELECT
@@ -2662,7 +2662,7 @@ SELECT
 ```
  
  Seguem-se exemplos com entrada inválida.
-Mesmo que sejam válidas dentro de uma consulta, não irá analisar a objetos válidos. Também devem ser escritas cadeias de caracteres na cadeia do objeto "{\"um\":\"str\"}" ou a citação ao redor tem de ser única "{"a":"str"}".
+Mesmo que sejam válidas dentro de uma consulta, não irá analisar a objetos válidos. Também devem ser escritas cadeias de caracteres na cadeia do objeto "{\\" uma\\":\\" str\\"}" ou a citação ao redor tem de ser única "{"a":"str"}".
 
  Aspas simples ao redor de nomes de propriedades não são um JSON válido.
 
