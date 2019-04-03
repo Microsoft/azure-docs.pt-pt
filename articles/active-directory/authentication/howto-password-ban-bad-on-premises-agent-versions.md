@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b9a1bb630c14ef504cb60a6847643a60f1cc90a1
-ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
+ms.openlocfilehash: 60ce66b079942944176540826c7f3e7a91b070d2
+ms.sourcegitcommit: d83fa82d6fec451c0cb957a76cfba8d072b72f4f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58368652"
+ms.lasthandoff: 04/02/2019
+ms.locfileid: "58861867"
 ---
 # <a name="azure-ad-password-protection-agent-version-history"></a>Histórico de versão do agente de proteção de palavra-passe do AD do Azure
 
@@ -26,6 +26,9 @@ Data de lançamento: 3/22/2019
 
 * Corrija os erros de digitação nas pequenas nas mensagens de registo de eventos
 * Atualizar o contrato EULA para a versão final da disponibilidade geral
+
+> [!NOTE]
+> Compilação 1.2.125.0 é a compilação de disponibilidade geral. Obrigado novamente para todas as pessoas forneceu comentários sobre o produto!
 
 ## <a name="121160"></a>1.2.116.0
 

@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 05/22/2017
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ad9a0d832bed2f4e67f4a87d72b773eaa587e700
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 2e8b334998983684d50c4faddceb03a0f30fd257
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56208384"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58878167"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-workpath"></a>Tutorial: Integração do Active Directory do Azure com Workpath
 
@@ -121,7 +121,7 @@ Nesta secção, pode ativar o Azure AD início de sessão único no portal do Az
 
     ![Configurar o início de sessão único](./media/workpath-tutorial/tutorial_workpath_url1.png)
 
-    Na **URL de início de sessão** caixa de texto, escreva um URL com o seguinte padrão: `https://<subdomain>.workpath.com/ `
+    Na **URL de início de sessão** caixa de texto, escreva um URL com o seguinte padrão: `https://<subdomain>.workpath.com/`
 
     > [!NOTE] 
     > Estes valores não são reais. Atualize estes valores com o URL de início de sessão, identificador e o URL de resposta real. Contacte [equipa de suporte de Workpath](https://help.workpath.com) obter esses valores.
@@ -132,7 +132,7 @@ Nesta secção, pode ativar o Azure AD início de sessão único no portal do Az
     
 1. No **atributos de utilizador** secção sobre o **início de sessão único** caixa de diálogo, configurar o atributo de token de SAML conforme mostrado na imagem e execute os seguintes passos:
     
-    | Nome do Atributo | Valor do Atributo |
+    | Nome de atributo | Valor do atributo |
     | ------------------- | -------------------- |    
     | first_name | user.givenname |
     | last_name | user.surname |
@@ -246,7 +246,7 @@ Para obter mais informações sobre o painel de acesso, consulte [introdução a
 ## <a name="additional-resources"></a>Recursos adicionais
 
 * [Lista de tutoriais sobre como integrar aplicações SaaS com o Azure Active Directory](tutorial-list.md)
-* [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md) (O que é o acesso a aplicações e o início de sessão único com o Azure Active Directory?)
+* [O que é o acesso a aplicações e início de sessão único com o Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 
 
 

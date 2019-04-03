@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6e6623e18fa319066f121dced551dcada133ebd5
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.openlocfilehash: 9cd9f6112cbca78b323e0a14818b06f891a3f673
+ms.sourcegitcommit: d83fa82d6fec451c0cb957a76cfba8d072b72f4f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58479534"
+ms.lasthandoff: 04/02/2019
+ms.locfileid: "58862892"
 ---
 # <a name="enforce-azure-ad-password-protection-for-windows-server-active-directory"></a>Impor proteção de palavra-passe do Azure AD para o Windows Server Active Directory
 
@@ -83,16 +83,6 @@ Proteção de palavra-passe do Azure AD não é um motor de aplicação de polí
 Implementação de proteção de palavra-passe do Azure AD numa floresta do Active Directory requer o registo de nessa floresta com o Azure AD. Cada serviço de proxy que é implementado também tem de ser registado com o Azure AD. Esses registros de floresta e de proxy estão associados a específicas de uma inquilino do Azure AD, o que é identificado implicitamente pelas credenciais que são utilizadas durante o registo.
 
 Floresta do Active Directory e todos os serviços de proxy implementado dentro de uma floresta tem de ser registados com o mesmo inquilino. Não é suportado para ter uma floresta do Active Directory ou de quaisquer serviços de proxy, em que floresta que está a ser registrada no Azure AD diferentes inquilinos. Os sintomas de tipo de implementação configurado incorretamente incluem a impossibilidade de transferir as políticas de palavra-passe.
-
-## <a name="license-requirements"></a>Requisitos de licença
-
-Os benefícios da lista de palavra-passe banidas global aplicam-se a todos os utilizadores do Azure AD.
-
-A lista de banida de palavra-passe personalizada requer licenças do Azure AD básico.
-
-Proteção de palavra-passe do Azure AD para o Windows Server Active Directory requer licenças do Azure AD Premium.
-
-Para obter informações de licenciamento adicionais, consulte [preços do Azure Active Directory](https://azure.microsoft.com/pricing/details/active-directory/).
 
 ## <a name="download"></a>Transferência
 

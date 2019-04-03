@@ -14,12 +14,12 @@ ms.date: 07/13/2017
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8b5eb46b845bebbb81dce6aadb9d97af08955df3
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: a1870137505b3d00ee6ed31595050908c970c444
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58096950"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58878099"
 ---
 #  <a name="use-a-saml-20-identity-provider-idp-for-single-sign-on"></a>Utilize um fornecedor de identidade 2.0 (IdP) para início de sessão único no
 
@@ -209,15 +209,18 @@ Este procedimento mostra como adicionar um único utilizador para o Azure AD.
 
 
 1. Ligar ao diretório do Azure AD como um administrador de inquilino: Connect-MsolService.
-2.  Crie um novo principal de utilizador: ` New-MsolUser
-        -UserPrincipalName elwoodf1@contoso.com
-        -ImmutableId ABCDEFG1234567890
-        -DisplayName "Elwood Folk"
-        -FirstName Elwood 
-        -LastName Folk 
-        -AlternateEmailAddresses "Elwood.Folk@contoso.com" 
-        -LicenseAssignment "samlp2test:ENTERPRISEPACK" 
-        -UsageLocation "US" ` 
+2.  Crie um novo principal de utilizador:
+    ```powershell
+    New-MsolUser
+      -UserPrincipalName elwoodf1@contoso.com
+      -ImmutableId ABCDEFG1234567890
+      -DisplayName "Elwood Folk"
+      -FirstName Elwood 
+      -LastName Folk 
+      -AlternateEmailAddresses "Elwood.Folk@contoso.com" 
+      -LicenseAssignment "samlp2test:ENTERPRISEPACK" 
+      -UsageLocation "US" 
+    ```
 
 Para obter mais informações sobre o Check-out de "New-MsolUser", [https://technet.microsoft.com/library/dn194096.aspx](https://technet.microsoft.com/library/dn194096.aspx)
 

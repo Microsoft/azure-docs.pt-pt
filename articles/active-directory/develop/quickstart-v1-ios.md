@@ -18,12 +18,12 @@ ms.author: celested
 ms.custom: aaddev
 ms.reviewer: brandwe
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 53efe44f17f174073ea5ed39f94c9dc8078a9779
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 9d986ccbf92192c1fb7375e9db1fb398ed86a829
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56206774"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58879969"
 ---
 # <a name="quickstart-sign-in-users-and-call-the-microsoft-graph-api-from-an-ios-app"></a>Início rápido: Iniciar sessão dos utilizadores e chamar a API do Microsoft Graph a partir de uma aplicação iOS
 
@@ -112,13 +112,13 @@ Agora que já tem uma aplicação no Azure AD, pode instalar a ADAL e escrever o
 
 1. No projeto QuickStart, abra o ficheiro plist `settings.plist`.
 1. Substitua os valores dos elementos na secção para utilizar os mesmos valores que introduziu no portal do Azure. O seu código faz referência a estes valores sempre que utilizar a ADAL.
-    * `tenant` é o domínio do inquilino do Azure AD, por exemplo, contoso.onmicrosoft.com.
+    * `tenant` é o domínio de inquilino do Azure AD, por exemplo, contoso.onmicrosoft.com.
     * `clientId` é o ID de cliente da sua aplicação que copiou do portal.
     * `redirectUri` é o URL de redirecionamento que registou no portal.
 
 ## <a name="step-4-use-adal-to-get-tokens-from-azure-ad"></a>Passo 4: Utilizar a ADAL para obter os tokens do Azure AD
 
-O princípio básico subjacente à ADAL é o de que, sempre que a sua aplicação precisar de um token de acesso, basta chamar um completionBlock `+(void) getToken : ` e a ADAL trata do resto.
+O princípio básico subjacente à ADAL é o de que, sempre que a sua aplicação precisar de um token de acesso, basta chamar um completionBlock `+(void) getToken :` e a ADAL trata do resto.
 
 1. No projeto `QuickStart`, abra `GraphAPICaller.m` e localize o comentário `// TODO: getToken for generic Web API flows. Returns a token with no additional parameters provided.` perto do início.
 
@@ -259,5 +259,5 @@ Para sua referência, o exemplo concluído (sem os valores de configuração) é
 
 Agora, pode avançar para cenários adicionais. Sugerimos que experimente estes em seguida:
 
-* [Proteger uma API Web Node.JS com o Azure AD](quickstart-v1-nodejs-webapi.md)
+* [Proteger uma API com o Azure AD da Web de node. js](quickstart-v1-nodejs-webapi.md)
 * Saiba [como ativar o SSO entre várias aplicações em iOS com a ADAL](howto-v1-enable-sso-ios.md)  

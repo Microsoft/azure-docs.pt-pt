@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 05/16/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 09fd6c94fe32d683e61aacba5300b130fa6f416a
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 24f4983f2ba1567241a6dfc6231a4925805947cd
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56187411"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58878439"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-reviewsnap"></a>Tutorial: Integração do Active Directory do Azure com Reviewsnap
 
@@ -111,8 +111,7 @@ Nesta secção, pode ativar o Azure AD início de sessão único no portal do Az
 
     a. Na **identificador** caixa de texto, escreva um URL: `https://app.reviewsnap.com`
 
-    b. Na **URL de resposta** caixa de texto, escreva um URL com o seguinte padrão: `https://app.reviewsnap.com/auth/saml/callback?namespace=<CUSTOMER_NAMESPACE>
-`
+    b. Na **URL de resposta** caixa de texto, escreva um URL com o seguinte padrão: `https://app.reviewsnap.com/auth/saml/callback?namespace=<CUSTOMER_NAMESPACE>`
 
 1. Verifique **Mostrar definições de URL avançadas** e executar o passo seguinte, se desejar configurar a aplicação na **SP** iniciada pelo modo:
 
@@ -213,7 +212,7 @@ Para obter mais informações sobre o painel de acesso, consulte [introdução a
 ## <a name="additional-resources"></a>Recursos adicionais
 
 * [Lista de tutoriais sobre como integrar aplicações SaaS com o Azure Active Directory](tutorial-list.md)
-* [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md) (O que é o acesso a aplicações e o início de sessão único com o Azure Active Directory?)
+* [O que é o acesso a aplicações e início de sessão único com o Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 
 
 

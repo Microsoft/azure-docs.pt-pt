@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 12/24/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 77d2312c5a20aa6b90586d47ee120593e807295e
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 93990a11860e8b8181bee0ba67351b095d940878
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57893582"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58880003"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-ultipro"></a>Tutorial: Integração do Active Directory do Azure com UltiPro
 
@@ -111,7 +111,7 @@ Para configurar o Azure AD início de sessão único com UltiPro, execute os seg
     |--|
     | `https://<companyname>.ultipro.com/`|
     | `https://<companyname>.ultiproworkplace.com?cpi=AZUREADISSSUERURL`|
-    | ` https://<companyname>.ultipro.ca`|
+    | `https://<companyname>.ultipro.ca`|
     
     b. Na **identificador** caixa de texto, escreva um URL com o seguinte padrão:
 
@@ -215,7 +215,7 @@ Quando clica no mosaico UltiPro no painel de acesso, deve ser automaticamente se
 
 - [Lista de tutoriais sobre como integrar aplicações SaaS com o Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis) (O que é o acesso a aplicações e o início de sessão único com o Azure Active Directory?)
+- [O que é o acesso a aplicações e início de sessão único com o Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

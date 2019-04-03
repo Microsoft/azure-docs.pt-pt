@@ -14,12 +14,12 @@ ms.date: 11/13/2018
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 26a3594b00f19c2790e9dfd5f09fbdc7d73d478f
-ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
+ms.openlocfilehash: db68ad2a29dcaa53d219b679b9e0f24a50a6f576
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58434896"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58877062"
 ---
 # <a name="how-to-troubleshoot-sign-in-errors-using-azure-active-directory-reports"></a>Como: Resolver problemas de erros de início de sessão através de relatórios do Azure Active Directory
 

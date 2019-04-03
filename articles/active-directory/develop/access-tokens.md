@@ -15,14 +15,14 @@ ms.topic: conceptual
 ms.date: 03/15/2019
 ms.author: celested
 ms.reviewer: hirsin
-ms.custom: aaddev
+ms.custom: fasttrack-edit
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e960e06cc51cc4540a8360cefe90ce68fc7e1f17
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 17c9ef471ca1536f928ca5ae2fe4f55e8e2b3424
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58009914"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58878422"
 ---
 # <a name="azure-active-directory-access-tokens"></a>Tokens de acesso do Azure Active Directory
 
@@ -107,7 +107,7 @@ Afirmações estão presentes somente se um valor existe para preenchê-lo. Port
 | `oid` | Cadeia de caracteres, um GUID | O identificador imutável para um objeto no Microsoft identity platform, neste caso, uma conta de utilizador. Também pode ser utilizado para realizar verificações de autorização com segurança e como uma chave nas tabelas de base de dados. Este ID identifica exclusivamente o utilizador em todas as aplicações – dois aplicativos diferentes, iniciar sessão no mesmo utilizador irão receber o mesmo valor no `oid` de afirmação. Portanto, `oid` podem ser utilizados quando a tomada de consulta para o Microsoft online services, como o Microsoft Graph. O Microsoft Graph irá devolver este ID como o `id` propriedade para uma determinada conta de utilizador. Uma vez que o `oid` permite que várias aplicações correlacionar os utilizadores, o `profile` âmbito é necessário para receber esta afirmação. Tenha em atenção que, se existir um único utilizador em vários inquilinos, o utilizador irá conter um ID de objeto diferentes em cada inquilino - que são consideradas diferentes contas, mesmo que o usuário faz logon em cada conta com as mesmas credenciais. |
 | `rh` | Cadeia opaca | Uma afirmação interna utilizada pelo Azure para revalide tokens. Recursos não devem utilizar esta afirmação. |
 | `scp` | Cadeia de caracteres, um espaço separados por lista de âmbitos | O conjunto de âmbitos exposto pela sua aplicação para o qual o aplicativo cliente do pedido (e recebidos) de consentimento. Seu aplicativo deve verificar que esses âmbitos são aqueles válido expostos pela sua aplicação e tomar decisões de autorização com base no valor de nestes âmbitos. Incluído apenas para [tokens de utilizador](#user-and-application-tokens). |
-| `roles` | Cadeia de caracteres, um espaço separados por lista de permissões | O conjunto de permissões exposto pela sua aplicação que a aplicação requerente, deu permissão para chamar. Isto é utilizado durante a [credenciais de cliente](v1-oauth2-client-creds-grant-flow.md) fluxo no lugar de âmbitos de utilizador e está presente apenas no [tokens de aplicação](#user-and-application-tokens). |
+| `roles` | Matriz de cadeias de caracteres, uma lista de permissões | O conjunto de permissões exposto pela sua aplicação que a aplicação requerente, deu permissão para chamar. Para [tokens de aplicação](#user-and-application-tokens), isto é utilizado durante a [credenciais de cliente](v1-oauth2-client-creds-grant-flow.md) fluxo no lugar de âmbitos de utilizador.  Para [tokens de utilizador](#user-and-application-tokens) isso é preenchido com as funções de utilizador foi atribuído a na aplicação de destino. |
 | `sub` | Cadeia de caracteres, um GUID | O principal sobre o qual o token declara informações, como o utilizador de uma aplicação. Este valor é imutável e não pode ser reatribuído ou reutilizado. Ele pode ser utilizado para realizar verificações de autorização com segurança, por exemplo, quando o token é utilizado para aceder a um recurso e pode ser utilizado como uma chave em tabelas de base de dados. Uma vez que o assunto é sempre presente os tokens que problemas do Azure AD, recomendamos que utilize este valor num sistema de autorização para fins gerais. O assunto é, no entanto, um identificador pairwise - é exclusivo para um ID de aplicação em particular. Por conseguinte, se um único utilizador se inscreve para duas aplicações diferentes com dois IDs de cliente diferentes, essas aplicações irão receber dois valores diferentes para a afirmação do requerente. Isto pode ou não pode ser desejável dependendo dos requisitos de arquitetura e a privacidade. |
 | `tid` | Cadeia de caracteres, um GUID | Representa o que o utilizador é de inquilino do Azure AD. Para contas profissionais e escolares, o GUID é o ID de inquilino imutável da organização que o utilizador pertence. Contas pessoais, o valor é `9188040d-6c67-4c5b-b112-36a304b66dad`. O `profile` âmbito é necessário para receber esta afirmação. |
 | `unique_name` | String | Apresente apenas nos tokens de v1.0. Fornece um valor legível por humanos que identifica o requerente do token. Este valor não é garantido de ser exclusivo dentro de um inquilino e deve ser utilizado apenas para fins de exibição. |
@@ -134,7 +134,7 @@ As seguintes declarações serão incluídas na v1.0 tokens se aplicável, mas n
 
 As identidades da Microsoft podem autenticar numa variedade de formas, que podem ser relevantes ao seu aplicativo. O `amr` afirmação é uma matriz que pode conter vários itens, tais como `["mfa", "rsa", "pwd"]`, para uma autenticação que utilizou uma palavra-passe e a aplicação de autenticador.
 
-| Value | Descrição |
+| Valor | Descrição |
 |-----|-------------|
 | `pwd` | Autenticação de palavra-passe, a palavra-passe da Microsoft de um utilizador ou o segredo do cliente de uma aplicação. |
 | `rsa` | Autenticação tiveram como base a prova de uma chave RSA, por exemplo com o [aplicação Microsoft Authenticator](https://aka.ms/AA2kvvu). Isto inclui se a autenticação foi realizada por um JWT autoassinado com um serviço pertencentes à empresa X509 certificado. |
