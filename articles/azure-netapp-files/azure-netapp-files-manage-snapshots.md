@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/15/2019
 ms.author: b-juche
-ms.openlocfilehash: 9154add96084142ca1f93ad61c6418e3b487fb83
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 01387d0c219c86f33762b9c3fbf9f81cf04b4455
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58090921"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58880819"
 ---
 # <a name="manage-snapshots-by-using-azure-netapp-files"></a>Gerir instantâneos com ficheiros de NetApp do Azure
 
@@ -53,7 +53,7 @@ Atualmente, pode restaurar um instantâneo apenas para um novo volume.
     ![Restaurar o instantâneo para o novo volume](../media/azure-netapp-files/azure-netapp-files-snapshot-restore-to-new-volume.png)
 
 4. Na janela do novo Volume, fornecem informações para o novo volume:  
-    * **Nome**   
+    * **Name**   
         Especifique o nome do volume que está a criar.  
         
         O nome tem de ser exclusivo dentro de um grupo de recursos. Tem de ser, pelo menos, três carateres de comprimento.  Pode utilizar carateres alfanuméricos.
@@ -74,7 +74,7 @@ Atualmente, pode restaurar um instantâneo apenas para um novo volume.
         Especifique a rede virtual do Azure (Vnet) a partir da qual pretende aceder ao volume.  
         A Vnet que especificar tem de ter uma sub-rede de delegado ao serviço ficheiros do Azure NetApp. Pode aceder a ficheiros do Azure NetApp apenas a partir da mesma Vnet ou de uma Vnet que está na mesma região que o volume através de Vnet peering. Pode acessar o volume a partir da rede no local através de Express Route. 
 
-    * **Sub-rede**  
+    * **Subrede**  
         Especifique a sub-rede que pretende utilizar para o volume.  
         A sub-rede que especificar deve ser delegada para o serviço de ficheiros do Azure NetApp. Pode criar uma nova sub-rede, selecionando **criar novo** sob o campo de sub-rede.  
    <!--
@@ -86,4 +86,4 @@ Atualmente, pode restaurar um instantâneo apenas para um novo volume.
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-[Compreender a hierarquia de armazenamento de ficheiros do Azure NetApp](azure-netapp-files-understand-storage-hierarchy.md)
+[Compreender a hierarquia de armazenamento do Azure NetApp Files](azure-netapp-files-understand-storage-hierarchy.md)

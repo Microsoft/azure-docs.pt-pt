@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 11/27/2018
 ms.author: sujayt
-ms.openlocfilehash: 09ccc938f6b09b9f0d5c5849770fe8b49b4b0e55
-ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
+ms.openlocfilehash: 34f207b3c82ada0cb20152bb71ae900f5de132cb
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58541196"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58878320"
 ---
 # <a name="troubleshoot-azure-to-azure-vm-replication-issues"></a>Resolver problemas de replicação de VMS do Azure para o Azure
 
@@ -40,7 +40,7 @@ Se a localização de destino tem uma restrição de capacidade, desative a repl
 
 Se todos os certificados de raiz fidedigna mais recentes não estão presentes na VM, poderá falhar a tarefa "ativar replicação". Sem os certificados, a autenticação e autorização de chamadas de serviço de recuperação de sites da VM falharem. É apresentada a mensagem de erro para a tarefa de recuperação de sites "ativar replicação" falhada:
 
-**Código de erro** | **Causa possível** | **Recommendations (Recomendações)**
+**Código de erro** | **Causa possível** | **Recomendações**
 --- | --- | ---
 151066<br></br>**Mensagem**: Configuração de recuperação de sites falhou. | Necessários fidedignos utilizados certificados de raiz para autorização e autenticação não estão presentes na máquina. | -Para uma VM com o sistema operativo do Windows, certifique-se de que os certificados de raiz fidedigna estão presentes na máquina. Para obter informações, consulte [configurar raízes confiáveis e não são permitidas certificados](https://technet.microsoft.com/library/dn265983.aspx).<br></br>-Para uma VM a executar o sistema operativo Linux, siga as orientações para certificados de raiz fidedigna publicada pelo distribuidor de versão do sistema operativo Linux.
 
@@ -157,7 +157,7 @@ Para replicação do Site Recovery para o trabalho, a conectividade de saída pa
 ### <a name="issue-1-failed-to-register-azure-virtual-machine-with-site-recovery-151195-br"></a>Problema 1: Falha ao registar a máquina virtual do Azure com o Site Recovery (151195) </br>
 - **Causa possível** </br>
   - Não é possível estabelecer ligação a pontos finais de recuperação do site devido uma falha de resolução DNS.
-  - Isso é mais frequentemente visto durante a reavaliação de proteção, quando tem a ativação pós-falha da máquina virtual, mas o servidor DNS não está acessível a partir da região de DR.
+  - Esta situação é observada com maior frequência durante reaplicação da proteção, quando é efetuada a ativação pós-falha da máquina virtual, mas o servidor DNS não está acessível a partir da região de RD.
 
 - **Resolução**
    - Se estiver a utilizar o DNS personalizado, certifique-se de que o servidor DNS está acessível a partir da região de recuperação após desastre. Para verificar se tem um DNS personalizado, vá para a VM > rede de recuperação após desastre > servidores DNS. Tente acessar o servidor DNS da máquina virtual. Se não estiver acessível, em seguida, torná-lo acessível ao efetuar a ativação pós-falha do servidor DNS ou ao criar a linha de site entre a rede de DR e DNS.
@@ -185,7 +185,7 @@ Para replicação do Site Recovery para o trabalho, a conectividade de saída pa
   - O Azure Site Recovery precisavam acessá [intervalos de IP de recuperação de Site](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-about-networking#outbound-connectivity-for-ip-address-ranges) consoante a região. Certifique-se de que necessária intervalos ip estão acessíveis a partir da máquina virtual.
 
 
-### <a name="issue-4-a2a-replication-failed-when-the-network-traffic-goes-through-on-premise-proxy-server-151072"></a>Problema 4: A replicação A2A falha quando o tráfego de rede atravessa o servidor de proxy no local (151072)
+### <a name="issue-4-a2a-replication-failed-when-the-network-traffic-goes-through-on-premises-proxy-server-151072"></a>Problema 4: A replicação A2A falha quando o tráfego de rede passa pelo servidor de proxy no local (151072)
 - **Causa possível** </br>
   - As definições de proxy personalizado são inválidas e agente do serviço de mobilidade de ASR detetar automaticamente as definições de proxy do IE
 
@@ -193,12 +193,12 @@ Para replicação do Site Recovery para o trabalho, a conectividade de saída pa
 - **Resolução**
   1. Agente do serviço de mobilidade Deteta as definições de proxy do IE no Windows e /etc/environment no Linux.
   2. Se preferir definir proxy apenas para o serviço de mobilidade de ASR, em seguida, pode fornecer os detalhes do proxy no ProxyInfo.conf localizado em:</br>
-     - ``/usr/local/InMage/config/`` no ***Linux***
+     - ``/usr/local/InMage/config/`` on ***Linux***
      - ``C:\ProgramData\Microsoft Azure Site Recovery\Config`` no ***Windows***
   3. O ProxyInfo.conf deve ter as definições de proxy no seguinte formato INI.</br>
                 *[proxy]*</br>
-                *Endereço =http://1.2.3.4*</br>
-                *Porta = 567*</br>
+                *Address=http://1.2.3.4*</br>
+                *Port=567*</br>
   4. Agente do serviço de mobilidade de ASR só suporta ***proxies utenticados***.
 
 
@@ -209,7 +209,7 @@ A lista aprovada [os URLs necessários](azure-to-azure-about-networking.md#outbo
 
 Um disco novo anexado à VM tem de ser inicializado.
 
-**Código de erro** | **Causas possíveis** | **Recommendations (Recomendações)**
+**Código de erro** | **Causas possíveis** | **Recomendações**
 --- | --- | ---
 150039<br></br>**Mensagem**: O disco de dados do Azure (DiskName) (DiskURI) com o número de unidade lógica (LUN) (LUNValue) não foi mapeado para um disco correspondente a ser comunicado pela dentro da VM que tenha o mesmo valor LUN. | -Um novo disco de dados foi anexado à VM, mas ele não foi inicializado.</br></br>-O disco de dados dentro da VM não está corretamente a comunicar o valor LUN em que o disco foi anexado à VM.| Certifique-se de que os discos de dados são inicializados e, em seguida, repita a operação.</br></br>Para Windows: [Anexar e inicializar um novo disco](https://docs.microsoft.com/azure/virtual-machines/windows/attach-managed-disk-portal).</br></br>Para Linux: [Inicializar um novo disco de dados no Linux](https://docs.microsoft.com/azure/virtual-machines/linux/add-disk).
 
@@ -282,7 +282,7 @@ Para ativar a replicação da VM, deve ser o estado de aprovisionamento **bem-su
 
 ## <a name="comvolume-shadow-copy-service-error-error-code-151025"></a>COM c++ /CLI erro de serviço de cópia sombra de volumes (código de erro 151025)
 
-**Código de erro** | **Causas possíveis** | **Recommendations (Recomendações)**
+**Código de erro** | **Causas possíveis** | **Recomendações**
 --- | --- | ---
 151025<br></br>**Mensagem**: Extensão de recuperação de site falha ao instalar | -Serviço de "sistema aplicação COM+" desativado.</br></br>-O serviço de "Cópia de sombra de volume" está desativado.| Definir serviços "sistema aplicação COM+" e "Cópia de sombra de volumes" para o modo de arranque automático ou manual.
 
@@ -294,7 +294,7 @@ Pode abrir a consola de "Serviços" e certifique-se o "sistema aplicação COM+"
 ## <a name="unsupported-managed-disk-size-error-code-150172"></a>Não suportado geridos pelo tamanho do disco (código de erro 150172)
 
 
-**Código de erro** | **Causas possíveis** | **Recommendations (Recomendações)**
+**Código de erro** | **Causas possíveis** | **Recomendações**
 --- | --- | ---
 150172<br></br>**Mensagem**: Não foi possível ativar a proteção para a máquina virtual porque esta tem (DiskName) com o tamanho (DiskSize), que é inferior ao mínimo suportado 1024 MB de tamanho. | -O disco é inferior ao tamanho suportado de 1024 MB| Certifique-se de que os tamanhos de disco estão dentro do intervalo de tamanho suportado e repita a operação. 
 

@@ -1,22 +1,22 @@
 ---
-title: 'Autenticação de utilizador final: Gen1 de armazenamento do Data Lake do Azure com o Azure Active Directory | Documentos da Microsoft'
+title: 'Autenticação de utilizador final: Geração 1 Lake armazenamento de dados do Azure com o Azure Active Directory | Documentos da Microsoft'
 description: Saiba como conseguir a autenticação de utilizador final com Gen1 de armazenamento do Azure Data Lake com o Azure Active Directory
 services: data-lake-store
 documentationcenter: ''
-author: nitinme
-manager: jhubbard
+author: twooley
+manager: mtillman
 editor: cgronlun
 ms.service: data-lake-store
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/29/2018
-ms.author: nitinme
-ms.openlocfilehash: 6f7b812f32eda0c671b1ad1101b13a1290df0482
-ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
+ms.author: twooley
+ms.openlocfilehash: c0fe63e395ee08cb65e9bbbadc4ce1f03032ce95
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49954787"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58880088"
 ---
 # <a name="end-user-authentication-with-azure-data-lake-storage-gen1-using-azure-active-directory"></a>Autenticação de utilizador final com Gen1 de armazenamento do Azure Data Lake com o Azure Active Directory
 > [!div class="op_single_selector"]
@@ -80,7 +80,7 @@ Ao seguir as instruções na ligação, certifique-se de que seleciona **nativo*
 
 ![Criar aplicação web](./media/data-lake-store-end-user-authenticate-using-active-directory/azure-active-directory-create-native-app.png "Criar aplicação nativa")
 
-## <a name="step-2-get-application-id-and-redirect-uri"></a>Passo 2: Obter o ID da aplicação e URI de redirecionamento
+## <a name="step-2-get-application-id-and-redirect-uri"></a>Passo 2: Obtenha o ID da aplicação e URI de redirecionamento
 
 Ver [obter o ID da aplicação](../active-directory/develop/howto-create-service-principal-portal.md#get-application-id-and-authentication-key) para obter o ID da aplicação.
 

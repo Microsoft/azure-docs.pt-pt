@@ -9,12 +9,12 @@ ms.service: application-insights
 ms.topic: conceptual
 ms.date: 04/01/2019
 ms.author: mbullwin
-ms.openlocfilehash: 7386f6bd92143cf3fb7b37725900425f99371cd0
-ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
+ms.openlocfilehash: 9d121146924eb153227e35d608a3c6c33aae31a1
+ms.sourcegitcommit: d83fa82d6fec451c0cb957a76cfba8d072b72f4f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58804997"
+ms.lasthandoff: 04/02/2019
+ms.locfileid: "58862612"
 ---
 # <a name="monitor-azure-app-service-performance"></a>Monitorizar o desempenho do serviço de aplicações do Azure
 
@@ -101,7 +101,7 @@ Monitorização do lado do cliente é uma opção para o ASP.NET. Para ativar a 
 
      Nome: `APPINSIGHTS_JAVASCRIPT_ENABLED`
 
-     Valor:`true`
+     Valor: `true`
 
    * **Guarde** as definições e **reinicie** a aplicação.
 
@@ -120,7 +120,7 @@ Se por algum motivo desejar desativar a monitorização do lado do cliente:
 
      name: `APPINSIGHTS_JAVASCRIPT_ENABLED`
 
-     Valor:`false`
+     Valor: `false`
 
    * **Guarde** as definições e **reinicie** a aplicação.
 
@@ -137,7 +137,7 @@ Para ativar a recolha de telemetria com o Application Insights, apenas as defini
 |Nome da definição de aplicação |  Definição | Valor |
 |-----------------|:------------|-------------:|
 |ApplicationInsightsAgent_EXTENSION_VERSION | Extensão principal, que controla a monitorização do tempo de execução. | `~2` |
-|XDT_MicrosoftApplicationInsights_Mode |  Em default funcionalidades em modo apenas, essencial estão ativadas e assim garantir um desempenho ideal. | `default` ou `recommended`. |
+|XDT_MicrosoftApplicationInsights_Mode |  Em default funcionalidades em modo apenas, essencial estão ativadas e assim garantir um desempenho ideal. | `default` Ou `recommended`. |
 |InstrumentationEngine_EXTENSION_VERSION | Controla se o motor de reescrita de binário `InstrumentationEngine` será ativado. Esta definição tem implicações de desempenho e tem impacto sobre a hora de início/inicialização a frio. | `~1` |
 |XDT_MicrosoftApplicationInsights_BaseExtensions | Controles se o texto de tabela SQL e no Azure serão capturados, juntamente com as chamadas de dependência. Aviso de desempenho: esta definição exige que o `InstrumentationEngine`. | `~1` |
 
@@ -322,9 +322,9 @@ Segue-se nosso guia de resolução de problemas passo a passo para monitorizar/a
 > Aplicações de Java e node. js só são suportadas nos serviços de aplicações do Azure através de instrumentação do SDK com base em manual e, portanto, os passos abaixo não se aplicam a esses cenários.
 
 1. Verifique se a aplicação é monitorizada por meio de `ApplicationInsightsAgent`.
-    * Verifique se "definição de aplicação de ApplicationInsightsAgent_EXTENSION_AGENT está definida como um valor de"~ 2".
+    * Verifique se `ApplicationInsightsAgent_EXTENSION_VERSION` definição de aplicação está definida como um valor de "~ 2".
 2. Certifique-se de que a aplicação cumpre os requisitos a serem monitoradas.
-    * Navegue para `https://yoursitename.scm.azurewebsites.net/ApplicationInsights`
+    * Navegar para `https://yoursitename.scm.azurewebsites.net/ApplicationInsights`
 
     ![Captura de ecrã do https://yoursitename.scm.azurewebsites/applicationinsights página de resultados](./media/azure-web-apps/app-insights-sdk-status.png)
 
@@ -353,10 +353,10 @@ A tabela abaixo fornece uma explicação mais detalhada sobre o que significa qu
 Para as últimas informações sobre o Application Insights/extensão do agente, consulte a [notas de versão](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/app-insights-web-app-extensions-releasenotes.md).
 
 ## <a name="next-steps"></a>Passos Seguintes
-
-* [Run the profiler on your live app](../../azure-monitor/app/profiler.md) (Executar o gerador de perfis na sua aplicação publicada).
+* [Run the profiler on your live app](../app/profiler.md) (Executar o gerador de perfis na sua aplicação publicada).
 * [Funções do Azure](https://github.com/christopheranderson/azure-functions-app-insights-sample) - monitorize Funções do Azure com o Application Insights
-* [Ativar os diagnósticos do Azure](../../azure-monitor/platform/diagnostics-extension-to-application-insights.md) para serem enviados para o Application Insights.
-* [Monitorizar as métricas de estado de funcionamento de serviço](../../azure-monitor/platform/data-collection.md) para se certificar de que o serviço está disponível e a responder.
-* [Receber notificações de alertas](../../azure-monitor/platform/alerts-overview.md) sempre que ocorrem eventos operacionais ou quando as métricas ultrapassam um determinado limiar.
-* [Configurar os Testes Web de disponibilidade](../../azure-monitor/app/monitor-web-app-availability.md) para ser alertado se o seu site estiver em baixo.
+* [Ativar os diagnósticos do Azure](../platform/diagnostics-extension-to-application-insights.md) para serem enviados para o Application Insights.
+* [Monitorizar as métricas de estado de funcionamento de serviço](../platform/data-platform.md) para se certificar de que o serviço está disponível e a responder.
+* [Receber notificações de alertas](../platform/alerts-overview.md) sempre que ocorrem eventos operacionais ou quando as métricas ultrapassam um determinado limiar.
+* Utilizar o [Application Insights para aplicações JavaScript e páginas Web](javascript.md) para obter telemetria de clientes a partir dos browsers que visitam as páginas Web.
+* [Configurar os Testes Web de disponibilidade](monitor-web-app-availability.md) para ser alertado se o seu site estiver em baixo.

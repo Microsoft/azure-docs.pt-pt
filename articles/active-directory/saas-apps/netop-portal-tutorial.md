@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 02/20/2019
 ms.author: jeedes
-ms.openlocfilehash: 607c18a67f7acc13ffe4d5c14131f20a2f94e8d9
-ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
+ms.openlocfilehash: 17c5e568bbdbdd9aa07db0ee10438cb7d05bd56c
+ms.sourcegitcommit: 04716e13cc2ab69da57d61819da6cd5508f8c422
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58652047"
+ms.lasthandoff: 04/02/2019
+ms.locfileid: "58849234"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-netop-portal"></a>Tutorial: Integração do Active Directory do Azure com o Portal de Netop
 
@@ -128,7 +128,7 @@ Para configurar o Azure AD início de sessão único com o Portal de Netop, exec
 
     b. Na **nome** caixa de texto, escreva o nome de atributo apresentado para essa linha.
 
-    c. Na **espaço de nomes** caixa de texto, tipo https://secure.netop.com.
+    c. Na **espaço de nomes** caixa de texto, tipo https:\//secure.netop.com.
 
     d. Selecione a origem de dado **atributo**.
 

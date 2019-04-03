@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 02/06/2019
 ms.author: mikeray
-ms.openlocfilehash: 822dce08d4555d9039ce310464ba49b6e3d4849c
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.openlocfilehash: 5b647af7925ceb81c524deb0accf90f9e895080e
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58480656"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58876994"
 ---
 # <a name="configure-one-or-more-always-on-availability-group-listeners---resource-manager"></a>Configurar um ou mais Always On grupo serviços de escuta disponibilidade - Resource Manager
 Este tópico mostra como:
@@ -35,8 +35,8 @@ Este tópico requer que os seus grupos de disponibilidade já estão configurado
 
 Tópicos relacionados incluem:
 
-* [Configurar grupos de Disponibilidade AlwaysOn em VMS do Azure (GUI)](virtual-machines-windows-portal-sql-availability-group-tutorial.md)   
-* [Configurar uma ligação VNet a VNet com o Azure Resource Manager e PowerShell](../../../vpn-gateway/vpn-gateway-vnet-vnet-rm-ps.md)
+* [Configurar Grupos de Disponibilidade AlwaysOn em VMs do Azure (GUI)](virtual-machines-windows-portal-sql-availability-group-tutorial.md)   
+* [Configurar uma ligação VNet a VNet com o Azure Resource Manager e o PowerShell](../../../vpn-gateway/vpn-gateway-vnet-vnet-rm-ps.md)
 
 [!INCLUDE [updated-for-az.md](../../../../includes/updated-for-az.md)]
 
@@ -65,13 +65,13 @@ O atual [modelo de Microsoft](virtual-machines-windows-portal-sql-alwayson-avail
 Os exemplos neste artigo, especifique um balanceador de carga standard. Nos exemplos, o script inclui `-sku Standard`.
 
 ```powershell
-$ILB= New-AzureRmLoadBalancer -Location $Location -Name $ILBName -ResourceGroupName $ResourceGroupName -FrontendIpConfiguration $FEConfig -BackendAddressPool $BEConfig -LoadBalancingRule $ILBRule -Probe $SQLHealthProbe -sku Standard
+$ILB= New-AzLoadBalancer -Location $Location -Name $ILBName -ResourceGroupName $ResourceGroupName -FrontendIpConfiguration $FEConfig -BackendAddressPool $BEConfig -LoadBalancingRule $ILBRule -Probe $SQLHealthProbe -sku Standard
 ```
 
 Para criar um balanceador de carga básico, remover `-sku Standard` partir da linha que cria o Balanceador de carga. Por exemplo:
 
 ```powershell
-$ILB= New-AzureRmLoadBalancer -Location $Location -Name $ILBName -ResourceGroupName $ResourceGroupName -FrontendIpConfiguration $FEConfig -BackendAddressPool $BEConfig -LoadBalancingRule $ILBRule -Probe $SQLHealthProbe
+$ILB= New-AzLoadBalancer -Location $Location -Name $ILBName -ResourceGroupName $ResourceGroupName -FrontendIpConfiguration $FEConfig -BackendAddressPool $BEConfig -LoadBalancingRule $ILBRule -Probe $SQLHealthProbe
 ```
 
 ## <a name="example-script-create-an-internal-load-balancer-with-powershell"></a>Script de exemplo: Criar um balanceador de carga interno com o PowerShell
@@ -79,7 +79,7 @@ $ILB= New-AzureRmLoadBalancer -Location $Location -Name $ILBName -ResourceGroupN
 > [!NOTE]
 > Se tiver criado o seu grupo de disponibilidade com o [modelo de Microsoft](virtual-machines-windows-portal-sql-alwayson-availability-groups.md), o Balanceador de carga interno já foi criado.
 
-O seguinte script do PowerShell cria um balanceador de carga interno, configura a regras de balanceamento de carga e define um endereço IP do Balanceador de carga. Para executar o script, abra o ISE do Windows PowerShell e cole o script no painel de Script. Utilize `Connect-AzAccount` para iniciar sessão no PowerShell. Se tiver várias subscrições do Azure, utilize `Select-AzSubscription ` para definir a subscrição. 
+O seguinte script do PowerShell cria um balanceador de carga interno, configura a regras de balanceamento de carga e define um endereço IP do Balanceador de carga. Para executar o script, abra o ISE do Windows PowerShell e cole o script no painel de Script. Utilize `Connect-AzAccount` para iniciar sessão no PowerShell. Se tiver várias subscrições do Azure, utilize `Select-AzSubscription` para definir a subscrição. 
 
 ```powershell
 # Connect-AzAccount

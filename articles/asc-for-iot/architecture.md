@@ -1,25 +1,25 @@
 ---
 title: Noções básicas sobre o Centro de segurança do Azure para a arquitetura de solução de IoT pré-visualização | Documentos da Microsoft
 description: Saiba mais sobre o fluxo de informações no Centro de segurança do Azure para o serviço de IoT.
-services: ascforiot
+services: asc-for-iot
+ms.service: ascforiot
 documentationcenter: na
 author: mlottner
 manager: barbkess
 editor: ''
 ms.assetid: 2cf6a49b-5d35-491f-abc3-63ec24eb4bc2
-ms.service: ascforiot
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/24/2019
 ms.author: mlottner
-ms.openlocfilehash: d70be919fa829401b4a415db626a3cee0713753b
-ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
+ms.openlocfilehash: a0eb459391da65f8d0e2ae251809805924d07ad1
+ms.sourcegitcommit: d83fa82d6fec451c0cb957a76cfba8d072b72f4f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58754990"
+ms.lasthandoff: 04/02/2019
+ms.locfileid: "58862370"
 ---
 # <a name="azure-security-center-for-iot-architecture"></a>Centro de segurança do Azure para uma arquitetura de IoT
 

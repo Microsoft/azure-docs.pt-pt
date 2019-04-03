@@ -12,12 +12,12 @@ ms.author: sashan
 ms.reviewer: mathoma, carlrab
 manager: craigg
 ms.date: 03/12/2019
-ms.openlocfilehash: 203d81f3d4872b249103429dde3fcac365fa5753
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.openlocfilehash: cf163b2b01b4205a4a3d2123263988998130c42a
+ms.sourcegitcommit: 04716e13cc2ab69da57d61819da6cd5508f8c422
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58483391"
+ms.lasthandoff: 04/02/2019
+ms.locfileid: "58848391"
 ---
 # <a name="use-auto-failover-groups-to-enable-transparent-and-coordinated-failover-of-multiple-databases"></a>Utilizar grupos de ativação pós-falha automática para ativar a ativação pós-falha transparente e coordenada de várias bases de dados
 
@@ -343,11 +343,11 @@ Como discutido anteriormente, grupos de ativação pós-falha automática e o Ac
 
 | API | Descrição |
 | --- | --- |
-| New-AzSqlDatabaseInstanceFailoverGroup |Este comando cria um grupo de ativação pós-falha e regista-o nos servidores primário e secundários|
-| Set-AzSqlDatabaseInstanceFailoverGroup |Modifica a configuração do grupo de ativação pós-falha|
-| Get-AzSqlDatabaseInstanceFailoverGroup |Obtém a configuração do grupo de ativação pós-falha|
-| Switch-AzSqlDatabaseInstanceFailoverGroup |Ativação pós-falha de acionadores de grupo de ativação pós-falha para o servidor secundário|
-| Remove-AzSqlDatabaseInstanceFailoverGroup | Remove um grupo de ativação pós-falha|
+| New-AzureRmSqlDatabaseInstanceFailoverGroup |Este comando cria um grupo de ativação pós-falha e regista-o nos servidores primário e secundários|
+| Set-AzureRmSqlDatabaseInstanceFailoverGroup |Modifica a configuração do grupo de ativação pós-falha|
+| Get-AzureRmSqlDatabaseInstanceFailoverGroup |Obtém a configuração do grupo de ativação pós-falha|
+| Switch-AzureRmSqlDatabaseInstanceFailoverGroup |Ativação pós-falha de acionadores de grupo de ativação pós-falha para o servidor secundário|
+| Remove-AzureRmSqlDatabaseInstanceFailoverGroup | Remove um grupo de ativação pós-falha|
 
 ### <a name="rest-api-manage-sql-database-failover-groups-with-single-and-pooled-databases"></a>REST API: Gerir grupos de ativação pós-falha de base de dados SQL com bases de dados únicos e em pool
 

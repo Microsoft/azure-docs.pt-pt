@@ -1,27 +1,27 @@
 ---
-title: '.NET SDK: Conta operações de gestão no Gen1 de armazenamento do Azure Data Lake | Documentos da Microsoft'
+title: '.NET SDK: Conta de gestão de operações em Gen1 de armazenamento do Azure Data Lake | Documentos da Microsoft'
 description: Utilizar o SDK .NET de geração 1 armazenamento do Azure Data Lake para efetuar operações de gestão de contas no Data Lake Storage Gen1
 services: data-lake-store
 documentationcenter: ''
-author: nitinme
-manager: jhubbard
+author: twooley
+manager: mtillman
 editor: cgronlun
 ms.assetid: ea57d5a9-2929-4473-9d30-08227912aba7
 ms.service: data-lake-store
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/29/2018
-ms.author: nitinme
-ms.openlocfilehash: 2ed9f534c0eb27601243428f8e4b9d95db5d16b0
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.author: twooley
+ms.openlocfilehash: 8ab051d49e7ed67e642ef656dfb382ed07763ed2
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46123917"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58879714"
 ---
 # <a name="account-management-operations-on-azure-data-lake-storage-gen1-using-net-sdk"></a>Operações de gestão de conta na geração 1 de armazenamento do Azure Data Lake com o .NET SDK
 > [!div class="op_single_selector"]
-> * [SDK do .NET](data-lake-store-get-started-net-sdk.md)
+> * [SDK .NET](data-lake-store-get-started-net-sdk.md)
 > * [API REST](data-lake-store-get-started-rest-api.md)
 > * [Python](data-lake-store-get-started-python.md)
 >
@@ -45,7 +45,7 @@ Para obter instruções sobre como efetuar operações de gestão de dados na ge
    | --- | --- |
    | Categoria |Templates/Visual C#/Windows |
    | Modelo |Aplicação de Consola |
-   | Nome |CreateADLApplication |
+   | Name |CreateADLApplication |
 4. Clique em **OK** para criar o projeto.
 5. Adicione os pacotes NuGet ao seu projeto.
 
@@ -53,8 +53,8 @@ Para obter instruções sobre como efetuar operações de gestão de dados na ge
    2. No separador **Gestor de Pacotes NuGet**, certifique-se de que a **Origem do pacote** está definida como **nuget.org** e que a caixa de verificação **Incluir pré-lançamento** está selecionada.
    3. Procure e instale os seguintes pacotes NuGet:
 
-      * `Microsoft.Azure.Management.DataLake.Store` - Este tutorial utiliza a v2.1.3-preview.
-      * `Microsoft.Rest.ClientRuntime.Azure.Authentication` - Este tutorial utiliza a v2.2.12.
+      * `Microsoft.Azure.Management.DataLake.Store` -Este tutorial utiliza a v2.1.3-preview.
+      * `Microsoft.Rest.ClientRuntime.Azure.Authentication` -Este tutorial utiliza a v2.2.12.
 
         ![Adicionar uma origem NuGet](./media/data-lake-store-get-started-net-sdk/data-lake-store-install-nuget-package.png "Criar uma nova conta do Azure Data Lake")
    4. Feche o **Gestor de Pacotes NuGet**.
@@ -99,7 +99,7 @@ Para obter instruções sobre como efetuar operações de gestão de dados na ge
 
 Nas restantes secções do artigo, pode ver como utilizar os métodos .NET disponíveis para executar operações, como a autenticação, carregamento de ficheiros, etc.
 
-## <a name="authentication"></a>Autenticação
+## <a name="authentication"></a>Authentication
 
 * Para a autenticação de utilizador final para a sua aplicação, veja [autenticação de utilizador final com geração 1 de armazenamento do Data Lake com o .NET SDK](data-lake-store-end-user-authenticate-net-sdk.md).
 * Para a autenticação de serviço a serviço para a sua aplicação, veja [autenticação de serviço para serviço com geração 1 de armazenamento do Data Lake com o .NET SDK](data-lake-store-service-to-service-authenticate-net-sdk.md).
@@ -146,4 +146,4 @@ O fragmento seguinte elimina a conta de geração 1 do Data Lake armazenamento q
 * [Referência do SDK de .NET do Data Lake Storage Gen1](https://docs.microsoft.com/dotnet/api/overview/azure/data-lake-store?view=azure-dotnet)
 
 ## <a name="next-steps"></a>Passos Seguintes
-* [Proteger dados no Armazenamento do Data Lake Ger1](data-lake-store-secure-data.md)
+* [Proteger os dados na geração 1 de armazenamento do Data Lake](data-lake-store-secure-data.md)

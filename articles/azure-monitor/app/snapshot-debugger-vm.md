@@ -12,16 +12,16 @@ ms.topic: conceptual
 ms.reviewer: mbullwin
 ms.date: 03/07/2019
 ms.author: brahmnes
-ms.openlocfilehash: 4041bee71a41cee06243d53de128bcceecda5618
-ms.sourcegitcommit: 4133f375862fdbdec07b70de047d70c66ac29d50
+ms.openlocfilehash: ac937ddb1bcaed6813a0de4d631f820eff01e26f
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/15/2019
-ms.locfileid: "58001820"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58877743"
 ---
 # <a name="enable-snapshot-debugger-for-net-apps-in-azure-service-fabric-cloud-service-and-virtual-machines"></a>Ativar o depurador de instantâneos para aplicações de .NET no Azure Service Fabric, serviço Cloud e máquinas virtuais
 
-Se o ASP.NET ou ASP.NET core a execução da aplicação no serviço de aplicações do Azure, as instruções abaixo também podem ser utilizadas. A menos que seu aplicativo requer uma configuração personalizada de depurador de instantâneos, é altamente recomendado [ativar o Snapshot Debugger por meio da página do portal do Application Insights](snapshot-debugger-appservice.md?toc=/azure/azure-monitor/toc.json). Se a sua aplicação é executada no Azure Service Fabric, serviço Cloud, máquinas virtuais ou máquinas no local, as instruções seguintes devem ser utilizadas. 
+Se o ASP.NET ou ASP.NET core a execução da aplicação no serviço de aplicações do Azure, as instruções abaixo também podem ser utilizadas. A menos que seu aplicativo requer uma configuração personalizada de depurador de instantâneos, é altamente recomendado [ativar o Snapshot Debugger por meio da página do portal do Application Insights](snapshot-debugger-appservice.md?toc=/azure/azure-monitor/toc.json). Se seu aplicativo é executado no Azure Service Fabric, serviço Cloud, máquinas virtuais, ou máquinas no local, as instruções seguintes devem ser utilizadas. 
     
 ## <a name="configure-snapshot-collection-for-aspnet-applications"></a>Configurar a recolha de instantâneos para aplicativos ASP.NET
 

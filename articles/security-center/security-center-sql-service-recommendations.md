@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 1/15/2019
 ms.author: rkarlin
-ms.openlocfilehash: 86d50092ccffd5ab958df5d54ea49cd56d815e2e
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 479e6d222c9fc7d007252bab12e807ec337ea9e6
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58082165"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58880785"
 ---
 # <a name="protecting-azure-sql-service-and-data-in-azure-security-center"></a>Proteger o serviço SQL do Azure e os dados no Centro de segurança do Azure
 Centro de segurança do Azure analisa o estado de segurança dos seus recursos do Azure. Quando o Centro de segurança identifica potenciais vulnerabilidades de segurança, cria recomendações que descreve o processo de configuração de controlos necessários.  Recomendações se aplicam a tipos de recursos do Azure: máquinas virtuais (VMs), redes, SQL e dados e aplicações.
@@ -64,17 +64,15 @@ Para ativar a auditoria, selecione **ATIVAR**, na opção **Auditoria**.
 |Arquivo do Data lake|5|Ativar os registos de diagnóstico no Data Lake Store do Azure|Ativar os registos e retenha-los até um ano. Isto permite-lhe recriar os registos de atividade para efeitos de investigação quando ocorrer um incidente de segurança ou a rede estiver comprometida. |
 |SQL|30|Remediar vulnerabilidades nas suas bases de dados SQL|Avaliação de vulnerabilidades do SQL analisa a sua base de dados para vulnerabilidades de segurança e expõe qualquer desvios das melhores práticas, como configurações incorretas, permissões excessivas e dados confidenciais não protegidos. Resolver as vulnerabilidades encontradas pode melhorar muito o escritor de segurança da base de dados.|
 |SQL|20|Aprovisionar um administrador do Azure AD para o SQL Server|Aprovisione um administrador do Azure AD para o servidor SQL para ativar a autenticação do Azure AD. Autenticação do Azure AD permite a gestão de permissões simplificado e o gerenciamento centralizado de identidades de utilizadores de base de dados e outros serviços Microsoft.|
-|Conta de armazenamento|15|Desativar acesso de rede sem restrições à conta de armazenamento|Auditar o acesso de rede sem restrições nas definições de firewall da conta de armazenamento. Em vez disso, configure regras de rede para que apenas aplicativos de redes permitidas podem acessar a conta de armazenamento. Para permitir ligações a partir da Internet específico ou os clientes locais, o acesso pode ser concedido para tráfego a partir de redes virtuais do Azure específicos ou para intervalos de endereços IP de Internet públicos.|
-|Conta de armazenamento|1|Migrar as contas de armazenamento para os novos recursos do AzureRM|Utilizar o novo Azure Resource Manager v2, para as suas contas de armazenamento fornecer aprimoramentos de segurança, tais como: aceder a mais forte controlo de acesso (RBAC), a auditoria melhor, a implantação baseada no Resource Manager e a governação de identidades geridas, acesso ao Cofre de chaves para segredos, autenticação baseada no AD do Azure e o suporte para etiquetas e grupos de recursos para facilitar a gestão segurança.|
-
-
+|Conta de armazenamento|15|Desativar o acesso irrestrito à rede para a conta de armazenamento|Auditar o acesso de rede sem restrições nas definições de firewall da conta de armazenamento. Em vez disso, configure regras de rede para que apenas aplicativos de redes permitidas podem acessar a conta de armazenamento. Para permitir ligações de Internet específico ou de clientes no local, pode conceder acesso para o tráfego a partir de redes virtuais do Azure específicos ou para intervalos de endereços IP de Internet públicos.|
+|Conta de armazenamento|1|Migrar contas de armazenamento para recursos de modelo do Azure Resource Manager|Utilizar o novo Azure Resource Manager v2 para as suas contas de armazenamento para fornecer aprimoramentos de segurança, tais como: aceder a mais forte controlo de acesso (RBAC), a auditoria melhor, a implantação baseada no Resource Manager e a governação de identidades geridas, acesso ao Cofre de chaves para segredos e a autenticação baseada no AD do Azure e o suporte para etiquetas e grupos de recursos para facilitar a gestão segurança.|
 
 ## <a name="see-also"></a>Consulte também
 Para saber mais sobre as recomendações que se aplicam a outros tipos de recursos do Azure, consulte o seguinte:
 
-* [Proteger as máquinas virtuais no Centro de Segurança do Azure](security-center-virtual-machine-recommendations.md)
-* [Proteger as aplicações no Centro de Segurança do Azure](security-center-application-recommendations.md)
-* [Proteger a sua rede no Centro de Segurança do Azure](security-center-network-recommendations.md)
+* [Proteger as máquinas virtuais no Centro de segurança do Azure](security-center-virtual-machine-recommendations.md)
+* [Proteger as aplicações no Centro de segurança do Azure](security-center-application-recommendations.md)
+* [Protegendo sua rede no Centro de segurança do Azure](security-center-network-recommendations.md)
 
 Para saber mais acerca do Centro de Segurança, consulte o seguinte:
 

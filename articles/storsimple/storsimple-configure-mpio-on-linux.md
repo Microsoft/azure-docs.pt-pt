@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/09/2018
 ms.author: alkohli
-ms.openlocfilehash: d1188b40021fbb221bc19af6d4a5397f7ba8f800
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: bc1e8a5abc85af95448570497177030f17649d87
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39439877"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58877589"
 ---
 # <a name="configure-mpio-on-a-storsimple-host-running-centos"></a>Configurar o MPIO num anfitrião StorSimple em execução no CentOS
 Este artigo explica os passos necessários para configurar o Multipathing e/s (MPIO) no seu servidor de anfitrião do Centos 6.6. O servidor de anfitrião está ligado ao seu dispositivo do Microsoft Azure StorSimple para elevada disponibilidade através de iniciadores iSCSI. Ele descreve detalhadamente a deteção automática de dispositivos multipath e o programa de configuração específico apenas para os volumes do StorSimple.
@@ -35,15 +35,15 @@ A funcionalidade de multipathing permite-lhe configurar vários caminhos de e/s 
 
 A finalidade de multipathing tem duas fases:
 
-* **Elevada disponibilidade**: Fornece um caminho alternativo se falhar de qualquer elemento do caminho de e/s (por exemplo, um cabo, comutador, interface de rede ou controlador).
-* **O balanceamento de carga**: dependendo da configuração do seu dispositivo de armazenamento, pode melhorar o desempenho, detectando cargas nos caminhos de e/s e dinamicamente reequilibrar essas cargas.
+* **Elevada disponibilidade**: Ele fornece um caminho alternativo se falhar de qualquer elemento do caminho de e/s (por exemplo, um cabo, comutador, interface de rede ou controlador).
+* **O balanceamento de carga**: Dependendo da configuração do seu dispositivo de armazenamento, ele pode melhorar o desempenho, detectando cargas nos caminhos de e/s e dinamicamente reequilibrar essas cargas.
 
 ### <a name="about-multipathing-components"></a>Sobre os componentes de multipathing
 Multipathing no Linux é constituído por componentes de kernel e componentes de espaço do usuário como apresentadas abaixo.
 
 * **Kernel**: O componente principal é o *mapeador de dispositivo* que redireciona a e/s e suporta a ativação pós-falha para caminhos e grupos de caminho.
 
-* **Espaço do usuário**: estes são *ferramentas de Multipath i* que gerenciam dispositivos multipathed por instruindo o módulo de Multipath i do mapeador de dispositivo, o que fazer. As ferramentas consistem em:
+* **Espaço do usuário**: Estes são *ferramentas de Multipath i* que gerenciam dispositivos multipathed por instruindo o módulo de Multipath i do mapeador de dispositivo, o que fazer. As ferramentas consistem em:
    
    * **Multipath i**: apresenta uma lista e configura os dispositivos multipathed.
    * **Multipathd**: daemon que executa o Multipath i e monitoriza os caminhos.
@@ -56,11 +56,11 @@ O ficheiro de configuração `/etc/multipath.conf` torna muitos dos recursos de 
 
 O multipath.conf tem cinco seções:
 
-- **Predefinições ao nível do sistema** *(predefinições)*: pode substituir as predefinições ao nível do sistema.
-- **Bloqueado de dispositivos** *(lista de bloqueios)*: pode especificar a lista de dispositivos que não devem ser controlados por mapeador de dispositivo.
-- **Lista de exceções de bloqueio** *(blacklist_exceptions)*: pode identificar dispositivos específicos sejam tratados como dispositivos multipath, mesmo se listados na lista de bloqueios.
-- **As definições específicas do controlador de armazenamento** *(dispositivos)*: pode especificar definições de configuração que serão aplicadas a dispositivos que tenham informações do fornecedor e o produto.
-- **As definições específicas do dispositivo** *(multipaths)*: pode utilizar esta secção para ajustar as definições de configuração para os LUNs individuais.
+- **Predefinições ao nível do sistema** *(predefinições)*: Pode substituir as predefinições ao nível do sistema.
+- **Bloqueado de dispositivos** *(lista de bloqueios)*: Pode especificar a lista de dispositivos que não devem ser controlados por mapeador de dispositivo.
+- **Lista de exceções de bloqueio** *(blacklist_exceptions)*: Pode identificar dispositivos específicos sejam tratados como dispositivos multipath, mesmo se listados na lista de bloqueios.
+- **As definições específicas do controlador de armazenamento** *(dispositivos)*: Pode especificar definições de configuração que serão aplicadas a dispositivos que tenham informações do fornecedor e o produto.
+- **As definições específicas do dispositivo** *(multipaths)*: Pode utilizar esta secção para ajustar as definições de configuração para os LUNs individuais.
 
 ## <a name="configure-multipathing-on-storsimple-connected-to-linux-host"></a>Configurar o multipathing no StorSimple ligado ao anfitrião Linux
 Um dispositivo StorSimple ligado ao anfitrião Linux pode ser configurado para elevada disponibilidade e balanceamento de carga. Por exemplo, se o anfitrião Linux possui duas interfaces ligados à SAN e o dispositivo tiver duas interfaces ligados à SAN que essas interfaces são na mesma sub-rede, em seguida, haverá 4 caminhos disponíveis. No entanto, se cada interface de dados na interface de dispositivo e o anfitrião estiver numa sub-rede IP diferente (e não encaminháveis), em seguida, apenas 2 caminhos estarão disponíveis. Pode configurar multipathing automaticamente detetar todos os caminhos disponíveis, escolher um algoritmo de balanceamento de carga para esses caminhos, aplicar definições de configuração específicas para volumes de só de StorSimple e, em seguida, ativar e certifique-se de multipathing.
@@ -183,7 +183,7 @@ A configuração acima resultará em 4 caminhos separados entre o dispositivo e 
 ## <a name="configuration-steps"></a>Passos de configuração
 Os passos de configuração para multipathing envolvem a configuração os caminhos disponíveis para a deteção automática, especificando o algoritmo de balanceamento de carga para utilizar, permitindo multipathing e, finalmente, verificar a configuração. Cada uma dessas etapas é descrita detalhadamente nas seções a seguir.
 
-### <a name="step-1-configure-multipathing-for-automatic-discovery"></a>Passo 1: Configurar multipathing para a deteção automática
+### <a name="step-1-configure-multipathing-for-automatic-discovery"></a>Passo 1: Configurar o multipathing para a deteção automática
 Os dispositivos multipath i com suporte podem ser automaticamente detetados e configurados.
 
 1. Inicializar `/etc/multipath.conf` ficheiro. Escreva:
@@ -210,7 +210,7 @@ Os dispositivos multipath i com suporte podem ser automaticamente detetados e co
         path_grouping_policy multibus
         }
 
-### <a name="step-2-configure-multipathing-for-storsimple-volumes"></a>Passo 2: Configurar multipathing para volumes do StorSimple
+### <a name="step-2-configure-multipathing-for-storsimple-volumes"></a>Passo 2: Configurar o multipathing para volumes do StorSimple
 Por predefinição, todos os dispositivos ficam em pretas listados no arquivo de multipath.conf e serão ignorados. Terá de criar exceções de lista de bloqueios para permitir que o multipathing para volumes a partir de dispositivos do StorSimple.
 
 1. Editar o `/etc/mulitpath.conf` ficheiro. Escreva:
@@ -229,7 +229,7 @@ Por predefinição, todos os dispositivos ficam em pretas listados no arquivo de
             }
            }
 
-### <a name="step-3-configure-round-robin-multipathing"></a>Passo 3: Configurar multipathing round robin
+### <a name="step-3-configure-round-robin-multipathing"></a>Passo 3: Configurar o multipathing round robin
 Esse algoritmo de balanceamento de carga utiliza todos os multipaths disponíveis para o controlador ativo, de forma equilibrada, round robin.
 
 1. Editar o `/etc/multipath.conf` ficheiro. Escreva:
@@ -259,7 +259,7 @@ Esse algoritmo de balanceamento de carga utiliza todos os multipaths disponívei
         [root@centosSS ~]# service multipathd start
         Starting multipathd daemon:  [OK]
 
-### <a name="step-5-verify-multipathing"></a>Passo 5: Verificar multipathing
+### <a name="step-5-verify-multipathing"></a>Passo 5: Certifique-se de multipathing
 1. Primeiro, certifique-se de que o iSCSI é estabelecer ligação com o dispositivo StorSimple da seguinte forma:
    
    a. Detete o dispositivo StorSimple. Escreva:
@@ -298,7 +298,7 @@ Esse algoritmo de balanceamento de carga utiliza todos os multipaths disponívei
 
     Se vir a interface de anfitrião apenas um e dois caminhos aqui, em seguida, tem de ativar ambas as interfaces no anfitrião para iSCSI. Pode seguir a [instruções na documentação do Linux detalhadas](https://access.redhat.com/documentation/Red_Hat_Enterprise_Linux/5/html/Online_Storage_Reconfiguration_Guide/iscsioffloadmain.html).
 
-1. Um volume é exposto para o servidor de CentOS do dispositivo StorSimple. Para obter mais informações, consulte [passo 6: criar um volume](storsimple-8000-deployment-walkthrough-u2.md#step-6-create-a-volume) através do portal do Azure no seu dispositivo StorSimple.
+1. Um volume é exposto para o servidor de CentOS do dispositivo StorSimple. Para obter mais informações, consulte [passo 6: Criar um volume](storsimple-8000-deployment-walkthrough-u2.md#step-6-create-a-volume) através do portal do Azure no seu dispositivo StorSimple.
 
 1. Verifique se os caminhos disponíveis. Escreva:
 
@@ -335,23 +335,23 @@ Esta seção fornece algumas dicas úteis, caso se depare com quaisquer problema
 
 P. Não vejo as alterações no `multipath.conf` ficheiros entrarem em vigor.
 
-A. Se tiver efectuado alterações para o `multipath.conf` ficheiro, terá de reiniciar o serviço de multipathing. Escreva o seguinte comando:
+R. Se tiver efectuado alterações para o `multipath.conf` ficheiro, terá de reiniciar o serviço de multipathing. Escreva o seguinte comando:
 
     service multipathd restart
 
 P. Eu tiver ativado a duas interfaces de rede no dispositivo StorSimple e duas interfaces de rede no anfitrião. Quando eu listar os caminhos disponíveis, vejo apenas dois caminhos. Eu esperava ver quatro caminhos disponíveis.
 
-A. Certifique-se de que os dois caminhos estão na mesma sub-rede e encaminhável. Se as interfaces de rede estiverem em diferentes vLANs e não encaminháveis internos, verá apenas dois caminhos. Uma forma para verificar esta situação é certificar-se de que pode entrar ambas as interfaces de anfitrião de uma interface de rede no dispositivo StorSimple. Precisará [contacte o Microsoft Support](storsimple-8000-contact-microsoft-support.md) como esta verificação só pode ser feita por meio de uma sessão de suporte.
+R. Certifique-se de que os dois caminhos estão na mesma sub-rede e encaminhável. Se as interfaces de rede estiverem em diferentes vLANs e não encaminháveis internos, verá apenas dois caminhos. Uma forma para verificar esta situação é certificar-se de que pode entrar ambas as interfaces de anfitrião de uma interface de rede no dispositivo StorSimple. Precisará [contacte o Microsoft Support](storsimple-8000-contact-microsoft-support.md) como esta verificação só pode ser feita por meio de uma sessão de suporte.
 
 P. Quando eu listar os caminhos disponíveis, não vejo qualquer saída.
 
-A. Normalmente, não a ver caminhos multipathed indica um problema com o daemon de multipathing e é mais provável que qualquer problema aqui está no `multipath.conf` ficheiro.
+R. Normalmente, não a ver caminhos multipathed indica um problema com o daemon de multipathing e é mais provável que qualquer problema aqui está no `multipath.conf` ficheiro.
 
 Também seria a pena verificar o que realmente pode ver alguns discos depois de ligar para o destino, como nenhuma resposta das listagens de Multipath i pode também significar que não tem quaisquer discos.
 
 * Utilize o seguinte comando para reanalisar o barramento SCSI:
   
-    `$ rescan-scsi-bus.sh `(parte do pacote de sg3_utils)
+    `$ rescan-scsi-bus.sh` (parte do pacote de sg3_utils)
 * Escreva os seguintes comandos:
   
     `$ dmesg | grep sd*`
@@ -378,7 +378,7 @@ Repita este comando para todas as interfaces de rede ligada no destino iSCSI, qu
 
 P. Não tenho a certeza de que se meu dispositivo estiver na lista de permissões.
 
-A. Para verificar se o seu dispositivo está na lista de permissões, utilize o seguinte comando interativo de resolução de problemas:
+R. Para verificar se o seu dispositivo está na lista de permissões, utilize o seguinte comando interativo de resolução de problemas:
 
     multipathd –k
     multipathd> show devices
@@ -420,7 +420,7 @@ A. Para verificar se o seu dispositivo está na lista de permissões, utilize o 
 Para obter mais informações, aceda a [utilizar a resolução de problemas de comando interativo para multipathing](http://www.centos.org/docs/5/html/5.1/DM_Multipath/multipath_config_confirm.html).
 
 ## <a name="list-of-useful-commands"></a>Lista de comandos úteis
-| Tipo | Comando | Descrição |
+| Type | Comando | Descrição |
 | --- | --- | --- |
 | **iSCSI** |`service iscsid start` |Iniciar o serviço iSCSI |
 | &nbsp; |`service iscsid stop` |Parar o serviço iSCSI |

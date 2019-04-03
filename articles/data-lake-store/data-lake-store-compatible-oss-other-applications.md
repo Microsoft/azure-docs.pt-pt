@@ -3,19 +3,19 @@ title: Aplicações de grandes volumes de dados compatíveis com o Data Lake Sto
 description: Lista de aplicações de código-fonte aberto que funcionam com o Azure Data Lake Storage Gen1 (anteriormente conhecido como o Azure Data Lake Store)
 services: data-lake-store
 documentationcenter: ''
-author: nitinme
-manager: jhubbard
+author: twooley
+manager: mtillman
 ms.service: data-lake-store
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/27/2018
-ms.author: nitinme
-ms.openlocfilehash: 2960e8f438480f3e0ba2dcc26f5fc82e69f55427
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.author: twooley
+ms.openlocfilehash: 37bf26db5f7ae08734410d36a892aaeb2380bd9f
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57541881"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58880293"
 ---
 # <a name="open-source-big-data-applications-that-work-with-azure-data-lake-storage-gen1"></a>Aplicações de macrodados de código abertas que funcionam com Gen1 de armazenamento do Azure Data Lake
 

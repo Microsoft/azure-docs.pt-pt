@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: article
 ms.date: 03/13/2019
 ms.author: anuragm
-ms.openlocfilehash: e5565e257e511203043c84e499712cc6a0a78c3f
-ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
+ms.openlocfilehash: d8cbae679552cce8df29410ad8a477801abd4ff1
+ms.sourcegitcommit: 04716e13cc2ab69da57d61819da6cd5508f8c422
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58286019"
+ms.lasthandoff: 04/02/2019
+ms.locfileid: "58847460"
 ---
 # <a name="troubleshoot-back-up-sql-server-on-azure"></a>Resolver problemas de cópia de segurança do SQL Server no Azure
 
@@ -98,12 +98,18 @@ Os seguintes códigos de erro são apresentados quando tarefas de restauro.
 |---|---|---|
 | Restauro falhou uma vez que não foi possível colocar offline a base de dados. | Ao fazer uma restauração, a base de dados de destino tem de ser colocados offline. O Azure Backup não é possível trazer esses dados offline. | Utilize os detalhes adicionais no menu do erro portal do Azure para restringir as causas de raiz. Para obter mais informações, consulte a [documentação do SQL](https://docs.microsoft.com/sql/relational-databases/backup-restore/restore-a-database-backup-using-ssms). |
 
-
 ###  <a name="usererrorcannotfindservercertificatewiththumbprint"></a>UserErrorCannotFindServerCertificateWithThumbprint
 
 | Mensagem de erro | Causas possíveis | Ação recomendada |
 |---|---|---|
 | Não é possível localizar o certificado de servidor com o thumbprint no destino. | O mestre de base de dados na instância de destino não tem um thumbprint de encriptação válido. | Importe o thumbprint de certificado válido utilizado na instância de origem, para a instância de destino. |
+
+### <a name="usererrorrestorenotpossiblebecauselogbackupcontainsbulkloggedchanges"></a>UserErrorRestoreNotPossibleBecauseLogBackupContainsBulkLoggedChanges
+
+| Mensagem de erro | Causas possíveis | Ação recomendada |
+|---|---|---|
+| A cópia de segurança do registo utilizada para recuperação contém alterações registadas em massa. Ele não pode ser usado para parar um ponto anterior no tempo de acordo com as diretrizes SQL. | Quando uma base de dados está no modo de recuperação com sessão iniciada em massa, não não possível recuperar os dados entre uma transação de registadas em massa e próxima de log de transação. | Escolha outro ponto no tempo de recuperação. [Saiba mais](https://docs.microsoft.com/previous-versions/sql/sql-server-2008-r2/ms186229(v=sql.105))
+
 
 ## <a name="registration-failures"></a>Falhas de registo
 

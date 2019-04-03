@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 03/29/2018
 ms.author: magoedte
 ms.subservice: ''
-ms.openlocfilehash: 599b1d3f522a0f287736808cce88163f1ef7f28f
-ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
+ms.openlocfilehash: a2f90c52823664df5fdc71c55220cc660c2f68e3
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58755803"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58878150"
 ---
 # <a name="manage-usage-and-costs-for-log-analytics-in-azure-monitor"></a>Gerir a utilização e custos para o Log Analytics no Azure Monitor
 
@@ -122,7 +122,7 @@ Se pretender mover a sua área de trabalho para o escalão de preço atual, ter�
 ## <a name="troubleshooting-why-log-analytics-is-no-longer-collecting-data"></a>Por isso que o Log Analytics já não está a recolher dados de resolução de problemas
 Se estiver no escalão de preço gratuito herdado e ter enviado a mais de 500 MB de dados num dia, deixa de recolha de dados para o resto do dia. Atingir o limite diário é um motivo comum que o Log Analytics interrompe a recolha de dados ou dados parecem estar em falta.  O log Analytics cria um evento do tipo operação quando a recolha de dados é iniciada e interrompida. Execute a seguinte consulta na pesquisa para verificar se estiver a atingir o limite diário e dados em falta: 
 
-`Operation | where OperationCategory == 'Data Collection Status' `
+`Operation | where OperationCategory == 'Data Collection Status'`
 
 Quando parar a recolha de dados, o OperationStatus indica um aviso. Quando inicia a recolha de dados, o OperationStatus é concluído com êxito. A tabela seguinte descreve as razões que pára de recolha de dados e uma ação sugerida para retomar a recolha de dados:  
 
@@ -186,9 +186,11 @@ Pode explorar mais a ver as tendências de dados para tipos de dados específico
 
 Para ver os **tamanho** de eventos a cobrar ingeridos por computador, utilize o `_BilledSize` propriedade ([propriedades de registo padrão #_billedsize.md](learn more)) que fornece o tamanho em bytes:
 
-`union withsource = tt * 
+```
+union withsource = tt * 
 | where _IsBillable == true 
-| summarize Bytes=sum(_BilledSize) by  Computer | sort by Bytes nulls last `
+| summarize Bytes=sum(_BilledSize) by  Computer | sort by Bytes nulls last
+```
 
 O `_IsBillable` propriedade especifica se os dados ingeridos incorrerá em encargos ([log-padrão-properties.md #_isbillable](Learn more).)
 
@@ -205,26 +207,32 @@ Para ver a contagem de eventos a cobrar ingeridos por computador, utilize
 
 Se quiser ver contagens para tipos de dados cobrar estão a enviar dados para um computador específico, utilize:
 
-`union withsource = tt *
+```
+union withsource = tt *
 | where Computer == "computer name"
 | where _IsBillable == true 
-| summarize count() by tt | sort by count_ nulls last `
+| summarize count() by tt | sort by count_ nulls last
+```
 
 ### <a name="data-volume-by-azure-resource-resource-group-or-subscription"></a>Volume de dados por recursos do Azure, o grupo de recursos ou subscrição
 
 Por dados a partir de nós que estão alojados no Azure, pode obter o **tamanho** de eventos a cobrar ingeridos __por computador__, utilize o `_ResourceId` propriedade que fornece o caminho completo para o recurso ([ registo-padrão-properties.md #_resourceid](learn more)):
 
-`union withsource = tt * 
+```
+union withsource = tt * 
 | where _IsBillable == true 
-| summarize Bytes=sum(_BilledSize) by _ResourceId | sort by Bytes nulls last `
+| summarize Bytes=sum(_BilledSize) by _ResourceId | sort by Bytes nulls last
+```
 
 Por dados a partir de nós que estão alojados no Azure, pode obter o **tamanho** de eventos a cobrar ingeridos __por subscrição do Azure__, analisar o `_ResourceId` propriedade como:
 
-`union withsource = tt * 
+```
+union withsource = tt * 
 | where _IsBillable == true 
 | parse tolower(_ResourceId) with "/subscriptions/" subscriptionId "/resourcegroups/" 
     resourceGroup "/providers/" provider "/" resourceType "/" resourceName   
-| summarize Bytes=sum(_BilledSize) by subscriptionId | sort by Bytes nulls last `
+| summarize Bytes=sum(_BilledSize) by subscriptionId | sort by Bytes nulls last
+```
 
 A alteração `subscriptionId` para `resourceGroup` mostrará o volume de dados ingeridos cobrar por grupo de resouurce do Azure. 
 
@@ -295,7 +303,8 @@ Para ver o número de nós de segurança distintas, pode utilizar a consulta:
 
 Para ver o número de nós de automatização distintos, utilize a consulta:
 
-` ConfigurationData 
+```
+ ConfigurationData 
  | where (ConfigDataType == "WindowsServices" or ConfigDataType == "Software" or ConfigDataType =="Daemons") 
  | extend lowComputer = tolower(Computer) | summarize by lowComputer 
  | join (
@@ -303,7 +312,8 @@ Para ver o número de nós de automatização distintos, utilize a consulta:
        | where SCAgentChannel == "Direct"
        | extend lowComputer = tolower(Computer) | summarize by lowComputer, ComputerEnvironment
  ) on lowComputer
- | summarize count() by ComputerEnvironment | sort by ComputerEnvironment asc`
+ | summarize count() by ComputerEnvironment | sort by ComputerEnvironment asc
+```
 
 ## <a name="create-an-alert-when-data-collection-is-higher-than-expected"></a>Criar um alerta quando a recolha de dados for superior ao esperado
 
@@ -330,7 +340,7 @@ Quando criar o alerta para a primeira consulta – quando existem mais de 100 GB
 - **Definir condição de alerta** especifique a sua área de trabalho do Log Analytics como o destino de recursos.
 - **Critérios de alerta** especifique o seguinte:
    - **Nome do Sinal** selecione **Pesquisa de registos personalizada**
-   - A **consulta de pesquisa** como `union withsource = $table Usage | where QuantityUnit == "MBytes" and iff(isnotnull(toint(IsBillable)), IsBillable == true, IsBillable == "true") == true | extend Type = $table | summarize DataGB = sum((Quantity / 1024)) by Type | where DataGB > 100`
+   - **Consulta de pesquisa** para `union withsource = $table Usage | where QuantityUnit == "MBytes" and iff(isnotnull(toint(IsBillable)), IsBillable == true, IsBillable == "true") == true | extend Type = $table | summarize DataGB = sum((Quantity / 1024)) by Type | where DataGB > 100`
    - A **Lógica de alerta** é **Baseada no** *número de resultados* e a **Condição** é *Maior do que* um **Limiar** de *0*
    - **Período de tempo** de *1440* minutos e **Frequência de alertas** a cada *60* minutos, uma vez que os dados de utilização são atualizados apenas uma vez por hora.
 - **Definir detalhes do alerta** especifique o seguinte:
@@ -344,7 +354,7 @@ Quando criar o alerta para a segunda consulta – quando se previr que vai haver
 - **Definir condição de alerta** especifique a sua área de trabalho do Log Analytics como o destino de recursos.
 - **Critérios de alerta** especifique o seguinte:
    - **Nome do Sinal** selecione **Pesquisa de registos personalizada**
-   - A **consulta de pesquisa** como `union withsource = $table Usage | where QuantityUnit == "MBytes" and iff(isnotnull(toint(IsBillable)), IsBillable == true, IsBillable == "true") == true | extend Type = $table | summarize EstimatedGB = sum(((Quantity * 8) / 1024)) by Type | where EstimatedGB > 100`
+   - **Consulta de pesquisa** para `union withsource = $table Usage | where QuantityUnit == "MBytes" and iff(isnotnull(toint(IsBillable)), IsBillable == true, IsBillable == "true") == true | extend Type = $table | summarize EstimatedGB = sum(((Quantity * 8) / 1024)) by Type | where EstimatedGB > 100`
    - A **Lógica de alerta** é **Baseada no** *número de resultados* e a **Condição** é *Maior do que* um **Limiar** de *0*
    - **Período de tempo** de *180* minutos e **Frequência de alertas** a cada *60* minutos, uma vez que os dados de utilização são atualizados apenas uma vez por hora.
 - **Definir detalhes do alerta** especifique o seguinte:

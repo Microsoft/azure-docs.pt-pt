@@ -1,25 +1,25 @@
 ---
 title: Métodos de autenticação para o Centro de segurança do Azure para pré-visualização do IoT | Documentos da Microsoft
 description: Saiba mais sobre os métodos de autenticação diferentes disponíveis ao utilizar o Centro de segurança do Azure para o serviço de IoT.
-services: ascforiot
+services: asc-for-iot
+ms.service: ascforiot
 documentationcenter: na
 author: mlottner
 manager: barbkess
 editor: ''
 ms.assetid: 10b38f20-b755-48cc-8a88-69828c17a108
-ms.service: ascforiot
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/26/2019
 ms.author: mlottner
-ms.openlocfilehash: ec87c2b65728d8ac29daa90de36271e24cd85c0e
-ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
+ms.openlocfilehash: d1f9d77d1f87e8d201e2cb034401bb3cae14f41b
+ms.sourcegitcommit: d83fa82d6fec451c0cb957a76cfba8d072b72f4f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58758385"
+ms.lasthandoff: 04/02/2019
+ms.locfileid: "58862918"
 ---
 # <a name="security-agent-authentication-methods"></a>Métodos de autenticação do agente de segurança 
 
@@ -63,7 +63,7 @@ Estes argumentos estão documentados na tabela seguinte.
 
 |Parâmetro|Descrição|Opções|
 |---------|---------------|---------------|
-|**identity**|Modo de autenticação| **Módulo** ou **dispositivo**|
+|**identidade**|Modo de autenticação| **Módulo** ou **dispositivo**|
 |**tipo**|Tipo de autenticação|**SymmetricKey** ou **SelfSignedCertificate**|
 |**filePath**|Caminho completo do absoluto para o ficheiro que contém o certificado ou a chave simétrica| |
 |**gatewayHostname**|FQDN do IoT Hub|Exemplo: ContosoIotHub.azure-devices.net|
@@ -114,4 +114,4 @@ Editar _LocalConfiguration.json_ com os seguintes parâmetros:
 ## <a name="see-also"></a>Consulte também
 - [Descrição geral de agentes de segurança](security-agent-architecture.md)
 - [Implementar o agente de segurança](how-to-deploy-agent.md)
-- [Aceder a dados não processados de segurança](how-to-security-data-access.md)
+- [Aceder a dados de segurança não processados](how-to-security-data-access.md)

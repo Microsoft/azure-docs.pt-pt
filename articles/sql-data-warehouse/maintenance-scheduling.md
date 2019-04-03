@@ -10,18 +10,18 @@ ms.subservice: design
 ms.date: 03/13/2019
 ms.author: anvang
 ms.reviewer: jrasnick
-ms.openlocfilehash: 2f76b0a6565e5ba7c34d88a271e9770f809669dd
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: b97e27b86ecad1f7f87a6de4d43b09d69c167c6f
+ms.sourcegitcommit: 04716e13cc2ab69da57d61819da6cd5508f8c422
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58007785"
+ms.lasthandoff: 04/02/2019
+ms.locfileid: "58846914"
 ---
 # <a name="use-maintenance-schedules-to-manage-service-updates-and-maintenance"></a>Use planos de manutenção para gerir atualizações de serviço e manutenção
 
 Agendamentos de manutenção estão agora disponíveis em todas as regiões do Azure SQL Data Warehouse. Esta funcionalidade integra-se as notificações de manutenção planeada do serviço de estado de funcionamento do Monitor de verificação de estado de funcionamento de recursos e o serviço de agendamento de manutenção do Azure SQL Data Warehouse.
 
-Utilize para escolher uma janela de tempo quando é conveniente receber as novas funcionalidades, atualizações e patches de agendamento de manutenção. Escolha um servidor principal e uma janela de manutenção secundário dentro de um período de sete dias. Um exemplo é uma janela principal do Sábado 22:00 para Domingo 01:00 e uma janela secundária de quarta-feira 19: a 22 00:00. Se o SQL Data Warehouse não é possível efetuar a manutenção durante a janela de manutenção primário, tentará a manutenção novamente durante a janela de manutenção secundário. Manutenção do serviço pode ocorrer durante a primária e os windows secundários.
+Utilize para escolher uma janela de tempo quando é conveniente receber as novas funcionalidades, atualizações e patches de agendamento de manutenção. Escolha um servidor principal e uma janela de manutenção secundário dentro de um período de sete dias. Um exemplo é uma janela principal do Sábado 22:00 para Domingo 01:00 e uma janela secundária de quarta-feira 19: a 22 00:00. Se o SQL Data Warehouse não é possível efetuar a manutenção durante a janela de manutenção primário, tentará a manutenção novamente durante a janela de manutenção secundário. Manutenção do serviço pode ocorrer durante a primária e os windows secundários. Para garantir a rápida conclusão de todas as operações de manutenção, DW400(c) e camadas inferiores de armazém de dados foi possível concluir manutenção fora da janela de manutenção designada.
 
 Todos os recentemente criado Azure SQL Data Warehouse instâncias terá uma agenda de manutenção definidas pelo sistema aplicada durante a implementação. O agendamento pode ser editado, assim como a implementação estiver concluída.
 
@@ -33,7 +33,7 @@ Para utilizar esta funcionalidade que tem de identificar uma janela primária e 
 
 Integração com notificações de estado de funcionamento do serviço e o Monitor de verificação de estado de funcionamento de recursos permite aos clientes para se manter informado da atividade de manutenção iminente. A nova automação tira partido do Azure Monitor. Pode decidir como pretende ser notificado sobre eventos de manutenção iminente. Também pode decida quais fluxos automatizados podem ajudá-lo a gerenciar o tempo de inatividade e minimizar o impacto para as suas operações.
 
-Uma notificação de avanço de 24 horas precede todos os eventos de manutenção. Para minimizar o período de indisponibilidade de instância, certifique-se de que o seu armazém de dados não tem nenhuma transação de longa execução antes do período de manutenção escolhido. Quando é iniciado a manutenção, serão canceladas todas as sessões ativas. Reversão de não será revertida e o armazém de dados terão uma pequena perda de conectividade. Será notificado imediatamente após a conclusão da manutenção no seu armazém de dados.
+Uma notificação de avanço de 24 horas precede todos os eventos de manutenção, com a exceção atual de DW400c e camadas inferiores. Para minimizar o período de indisponibilidade de instância, certifique-se de que o seu armazém de dados não tem nenhuma transação de longa execução antes do período de manutenção escolhido. Quando é iniciado a manutenção, serão canceladas todas as sessões ativas. Reversão de não será revertida e o armazém de dados terão uma pequena perda de conectividade. Será notificado imediatamente após a conclusão da manutenção no seu armazém de dados.
 
 Se tiver recebido uma notificação antecipada que manutenção ocorrerá, mas o SQL Data Warehouse não é possível efetuar a manutenção durante esse período, receberá uma notificação de cancelamento. Em seguida, retoma-se manutenção durante o período de manutenção agendada seguinte.
 

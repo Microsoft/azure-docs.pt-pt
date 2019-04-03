@@ -1,19 +1,19 @@
 ---
-title: Comandos personalizados para gerir os dados armazenados na API do Azure Cosmos DB para o MongoDB
-description: Este artigo descreve como utilizar comandos personalizados para gerir os dados armazenados na API do Azure Cosmos DB para o MongoDB.
+title: Comandos de extensão do MongoDB para gerir os dados armazenados na API do Azure Cosmos DB para o MongoDB
+description: Este artigo descreve como utilizar comandos de extensão do MongoDB para gerir os dados armazenados na API do Azure Cosmos DB para o MongoDB.
 author: SnehaGunda
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 03/26/2019
 ms.author: sngun
-ms.openlocfilehash: 238ba2722fef52d4607a7832113c03c097ef90b3
-ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
+ms.openlocfilehash: aef77f121f20d867c8ec5e764d8c9639c961713d
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58807057"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58876893"
 ---
-# <a name="use-custom-commands-to-manage-data-stored-in-azure-cosmos-dbs-api-for-mongodb"></a>Utilizar comandos personalizados para gerir os dados armazenados na API do Azure Cosmos DB para o MongoDB 
+# <a name="use-mongodb-extension-commands-to-manage-data-stored-in-azure-cosmos-dbs-api-for-mongodb"></a>Utilizar os comandos de extensão do MongoDB para gerir os dados armazenados na API do Azure Cosmos DB para o MongoDB 
 
 O Azure Cosmos DB é um serviço de bases de dados com vários modelos e distribuído globalmente da Microsoft. Pode comunicar com a API do Azure Cosmos DB para o MongoDB por meio de um código-fonte aberto [controladores de cliente da MongoDB](https://docs.mongodb.org/ecosystem/drivers). API do Azure Cosmos DB do MongoDB permite a utilização de controladores existentes do cliente através do respetivo a [protocolo de MongoDB](https://docs.mongodb.org/manual/reference/mongodb-wire-protocol).
 
@@ -21,7 +21,7 @@ Ao utilizar a API do Azure Cosmos DB para o MongoDB, pode desfrutar dos benefíc
 
 ## <a name="mongodb-protocol-support"></a>Suporte de protocolo do MongoDB
 
-Por predefinição, o Azure Cosmos DB API do MongoDB é compatível com o MongoDB a versão de servidor 3.2, para obter mais detalhes, consulte [funcionalidades e sintaxe suportados](mongodb-feature-support.md). Os recursos ou operadores de consulta, adicionados no MongoDB versão 3.4 estão atualmente disponíveis como pré-visualização na API do Azure Cosmos DB para o MongoDB. Os seguintes comandos personalizados suportam a funcionalidade específica do Azure Cosmos DB ao realizar operações de CRUD em dados armazenados na API do Azure Cosmos DB para o MongoDB:
+Por predefinição, o Azure Cosmos DB API do MongoDB é compatível com o MongoDB a versão de servidor 3.2, para obter mais detalhes, consulte [funcionalidades e sintaxe suportados](mongodb-feature-support.md). Os recursos ou operadores de consulta, adicionados no MongoDB versão 3.4 estão atualmente disponíveis como pré-visualização na API do Azure Cosmos DB para o MongoDB. Os seguintes comandos de extensão suportam a funcionalidade específica do Azure Cosmos DB ao realizar operações de CRUD em dados armazenados na API do Azure Cosmos DB para o MongoDB:
 
 * [Criar base de dados](#create-database)
 * [Atualizar base de dados](#update-database)
@@ -32,7 +32,7 @@ Por predefinição, o Azure Cosmos DB API do MongoDB é compatível com o MongoD
 
 ## <a id="create-database"></a> Criar base de dados
 
-O comando personalizado de base de dados create Cria uma nova base de dados do MongoDB. O nome de base de dados é utilizado a partir do contexto de bases de dados em relação ao qual o comando for executado. O formato do comando CreateDatabase é o seguinte:
+O comando de extensão de base de dados create Cria uma nova base de dados do MongoDB. O nome de base de dados é utilizado a partir do contexto de bases de dados em relação ao qual o comando for executado. O formato do comando CreateDatabase é o seguinte:
 
 ```
 {
@@ -43,7 +43,7 @@ O comando personalizado de base de dados create Cria uma nova base de dados do M
 
 A tabela seguinte descreve os parâmetros no comando:
 
-|**Campo**|**Tipo** |**Descrição** |
+|**Campo**|**Type** |**Descrição** |
 |---------|---------|---------|
 | customAction   |  string  |   Nome do comando personalizado, tem de ser "CreateDatabase".      |
 | offerThroughput | int  | Débito aprovisionado que definiu na base de dados. Este parâmetro é opcional. |
@@ -74,7 +74,7 @@ db.runCommand({customAction: "CreateDatabase", offerThroughput: 1000 });
 
 ## <a id="update-database"></a> Atualizar base de dados
 
-O comando personalizado da base de dados de atualização atualiza as propriedades associadas a base de dados especificada. Atualmente, só é possível atualizar a propriedade de "offerThroughput".
+O comando de extensão de base de dados de atualização atualiza as propriedades associadas a base de dados especificada. Atualmente, só é possível atualizar a propriedade de "offerThroughput".
 
 ```
 {
@@ -85,7 +85,7 @@ O comando personalizado da base de dados de atualização atualiza as propriedad
 
 A tabela seguinte descreve os parâmetros no comando:
 
-|**Campo**|**Tipo** |**Descrição** |
+|**Campo**|**Type** |**Descrição** |
 |---------|---------|---------|
 | customAction    |    string     |   Nome do comando personalizado. Tem de ser "UpdateDatabase".      |
 |  offerThroughput   |  int       |     Débito aprovisionado novos que queira definir na base de dados.    |
@@ -107,7 +107,7 @@ db.runCommand({customAction: "UpdateDatabase", offerThroughput: 1200 });
 
 ## <a id="get-database"></a> Obter a base de dados
 
-O comando personalizado da base de dados de get retorna o objeto de base de dados. O nome de base de dados é utilizado a partir do contexto de base de dados em relação ao qual o comando for executado.
+O comando de extensão de base de dados de get retorna o objeto de base de dados. O nome de base de dados é utilizado a partir do contexto de base de dados em relação ao qual o comando for executado.
 
 ```
 {
@@ -118,7 +118,7 @@ O comando personalizado da base de dados de get retorna o objeto de base de dado
 A tabela seguinte descreve os parâmetros no comando:
 
 
-|**Campo**|**Tipo** |**Descrição** |
+|**Campo**|**Type** |**Descrição** |
 |---------|---------|---------|
 |  customAction   |   string      |   Nome do comando personalizado. Tem de ser "GetDatabase"|
         
@@ -126,7 +126,7 @@ A tabela seguinte descreve os parâmetros no comando:
 
 Se o comando for bem-sucedida, a resposta contém um documento com os seguintes campos:
 
-|**Campo**|**Tipo** |**Descrição** |
+|**Campo**|**Type** |**Descrição** |
 |---------|---------|---------|
 |  `ok`   |   `int`     |   Estado da resposta. 1 = = êxito. 0 = = falha.      |
 | `database`    |    `string`        |   Nome da base de dados.      |
@@ -147,7 +147,7 @@ db.runCommand({customAction: "GetDatabase"});
 
 ## <a id="create-collection"></a> Criar coleção
 
-O comando personalizado da coleção de criar cria uma nova coleção do MongoDB. O nome de base de dados é utilizado a partir do contexto de bases de dados em relação ao qual o comando for executado. O formato do comando CreateCollection é o seguinte:
+O comando de extensão de coleção de criar cria uma nova coleção MongoDB. O nome de base de dados é utilizado a partir do contexto de bases de dados em relação ao qual o comando for executado. O formato do comando CreateCollection é o seguinte:
 
 ```
 {
@@ -160,7 +160,7 @@ O comando personalizado da coleção de criar cria uma nova coleção do MongoDB
 
 A tabela seguinte descreve os parâmetros no comando:
 
-|**Campo**|**Tipo** |**Descrição** |
+|**Campo**|**Type** |**Descrição** |
 |---------|---------|---------|
 | customAction    | string | Nome do comando personalizado. Tem de ser "CreateDatabase"     |
 | coleção      | string | Nome da coleção                                   |
@@ -193,7 +193,7 @@ db.runCommand({customAction: "CreateCollection", collection: "testCollection", o
 
 ## <a id="update-collection"></a> Atualizar a coleção
 
-O comando personalizado da coleção de atualização atualiza as propriedades associadas a coleção especificada.
+O comando de extensão de coleção de atualização atualiza as propriedades associadas a coleção especificada.
 
 ```
 {
@@ -205,7 +205,7 @@ O comando personalizado da coleção de atualização atualiza as propriedades a
 
 A tabela seguinte descreve os parâmetros no comando:
 
-|**Campo**|**Tipo** |**Descrição** |
+|**Campo**|**Type** |**Descrição** |
 |---------|---------|---------|
 |  customAction   |   string      |   Nome do comando personalizado. Tem de ser "UpdateCollection".      |
 |  coleção   |   string      |   Nome da coleção.       |
@@ -240,7 +240,7 @@ O comando personalizado da coleção de get retorna o objeto de coleção.
 A tabela seguinte descreve os parâmetros no comando:
 
 
-|**Campo**|**Tipo** |**Descrição** |
+|**Campo**|**Type** |**Descrição** |
 |---------|---------|---------|
 | customAction    |   string      |   Nome do comando personalizado. Tem de ser "GetCollection".      |
 | coleção    |    string     |    Nome da coleção.     |
@@ -250,7 +250,7 @@ A tabela seguinte descreve os parâmetros no comando:
 Se o comando for bem-sucedida, a resposta contém um documento com os seguintes campos
 
 
-|**Campo**|**Tipo** |**Descrição** |
+|**Campo**|**Type** |**Descrição** |
 |---------|---------|---------|
 |  `ok`   |    `int`     |   Estado da resposta. 1 = = êxito. 0 = = falha.      |
 | `database`    |    `string`     |   Nome da base de dados.      |
@@ -275,7 +275,7 @@ db.runCommand({customAction: "GetCollection", collection: "testCollection"});
 
 Se não for especificado, uma resposta personalizada contém um documento com os seguintes campos:
 
-|**Campo**|**Tipo** |**Descrição** |
+|**Campo**|**Type** |**Descrição** |
 |---------|---------|---------|
 |  `ok`   |    `int`     |   Estado da resposta. 1 = = êxito. 0 = = falha.      |
 | `code`    |   `int`      |   Só devolvido quando a falha do comando (ou seja, ok = = 0). Contém o código de erro do MongoDB. Este é um parâmetro opcional de resposta.      |

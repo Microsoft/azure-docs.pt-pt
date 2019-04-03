@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 03/19/2019
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: 3a0d10f373b045058c6df242c4d98f78d04c4490
-ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
+ms.openlocfilehash: b56cbfbc9dfde8b1a7d43d55ee85c34fde385902
+ms.sourcegitcommit: 04716e13cc2ab69da57d61819da6cd5508f8c422
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58801140"
+ms.lasthandoff: 04/02/2019
+ms.locfileid: "58846385"
 ---
 # <a name="use-the-azure-portal-to-access-blob-or-queue-data"></a>Utilizar o portal do Azure para aceder a dados de BLOBs ou filas
 

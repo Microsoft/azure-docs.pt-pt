@@ -6,18 +6,18 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: rimman
-ms.openlocfilehash: 1bf65883ecf23f726aefd2cd889a2bcb08e9b6a6
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 012eacb172acfdeb0b82343c484c664a3f75310e
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55457654"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58876745"
 ---
 # <a name="optimize-multi-region-cost-in-azure-cosmos-db"></a>Otimizar o custo de várias regiões do Azure Cosmos DB
 
 Pode adicionar e remover regiões à sua conta do Cosmos do Azure em qualquer altura. O débito que configurar para vários bancos de dados do Cosmos do Azure e contentores está reservado em cada região associada à sua conta. Se o débito aprovisionado por hora, que é a soma de RU/s configurado em todos os bancos de dados e contentores para a sua conta do Cosmos do Azure é `T` e o número de regiões do Azure associado à conta de base de dados é `N`, em seguida, o total débito aprovisionado para a sua conta do Cosmos, para uma determinada hora é igual a:
 
-1. ` T x N RU/s` Se a sua conta do Cosmos do Azure está configurada com uma região de escrita única. 
+1. `T x N RU/s` Se a sua conta do Cosmos do Azure está configurada com uma região de escrita única. 
 
 1. `T x (N+1) RU/s` Se a sua conta do Cosmos do Azure está configurada com todas as regiões capazes de processar escritas. 
 
@@ -25,13 +25,13 @@ Débito aprovisionado com a região de escrita única custa US $0.008/ hora por 
 
 ## <a name="costs-for-multiple-write-regions"></a>Custos de várias regiões de escrita
 
-Num sistema de vários mestre, o net RUs disponível para escrever os aumentos de operações `N` vezes onde `N` é o número de regiões de escrita. Ao contrário de escritas de região única, a cada região agora é gravável e deve dar suporte a resolução de conflitos. A quantidade de carga de trabalho para escritores de aumentou. Do custo planear o ponto de vista, para efetuar` M` valor de RU/s de escritas em todo o mundo, será necessário aprovisionar M `RUs` num nível de contêiner ou base de dados. Em seguida, pode adicionar tantas regiões à medida que pretende e usá-los para escritas para realizar `M` valor de RU de escritas em todo o mundo. 
+Num sistema de vários mestre, o net RUs disponível para escrever os aumentos de operações `N` vezes onde `N` é o número de regiões de escrita. Ao contrário de escritas de região única, a cada região agora é gravável e deve dar suporte a resolução de conflitos. A quantidade de carga de trabalho para escritores de aumentou. Do custo planear o ponto de vista, para efetuar `M` valor de RU/s de escritas em todo o mundo, será necessário aprovisionar M `RUs` num nível de contêiner ou base de dados. Em seguida, pode adicionar tantas regiões à medida que pretende e usá-los para escritas para realizar `M` valor de RU de escritas em todo o mundo. 
 
 ### <a name="example"></a>Exemplo
 
 Considere tem um contentor em E.U.A. oeste aprovisionado com um débito de 10 mil RU/s e armazena 1 TB de dados deste mês. Suponhamos que adiciona três regiões - E.U.A. leste, Europa do Norte e Ásia Oriental, cada um com o mesmo armazenamento e débito e quiser ter a capacidade para escrever os contentores em todas as quatro regiões da sua aplicação distribuída globalmente. A fatura de mensal total (assumindo 31 dias) num mês é o seguinte:
 
-|**Item**|**Utilização (mensal)**|**Taxa de**|**Custo mensal**|
+|**Item**|**Utilização (mensal)**|**Tarifa**|**Custo Mensal**|
 |----|----|----|----|
 |Conta de débito para o contentor em E.U.A. oeste (várias regiões de escrita) |10K RU/s * 24 * 31 |US $0.016 por 100 RU/s por hora |$1,190.40 |
 |Conta de débito para 3 regiões adicionais – E.U. a leste, Europa do Norte e Ásia Oriental (várias regiões de escrita) |(3 + 1) * 10K RU/s * 24 * 31 |US $0.016 por 100 RU/s por hora |$4,761.60 |

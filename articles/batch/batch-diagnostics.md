@@ -15,17 +15,17 @@ ms.workload: big-compute
 ms.date: 12/05/2018
 ms.author: lahugh
 ms.custom: seodec18
-ms.openlocfilehash: 368e1f6b9501c677eca1cf80d24a06c0a6533e86
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.openlocfilehash: 349896a7114fba83d852b8bc066f4f7eb0a070ba
+ms.sourcegitcommit: 04716e13cc2ab69da57d61819da6cd5508f8c422
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56817359"
+ms.lasthandoff: 04/02/2019
+ms.locfileid: "58850316"
 ---
 # <a name="batch-metrics-alerts-and-logs-for-diagnostic-evaluation-and-monitoring"></a>Métricas de lote, alertas e registos para a avaliação de diagnóstico e monitorização
 
  
-Este artigo explica como monitorizar uma conta do Batch utilizar funcionalidades do [do Azure Monitor](../azure-monitor/overview.md). Monitor do Azure recolhe [métricas](../azure-monitor/platform/data-collection.md#metrics) e [registos de diagnóstico](../azure-monitor/platform/diagnostic-logs-overview.md) para recursos na sua conta do Batch. Recolha e consumir estes dados de diversas formas de monitorizar a sua conta do Batch e diagnosticar problemas. Também pode configurar [alertas de métricas](../azure-monitor/platform/alerts-overview.md) , para receber notificações quando uma métrica de atinge um valor especificado. 
+Este artigo explica como monitorizar uma conta do Batch utilizar funcionalidades do [do Azure Monitor](../azure-monitor/overview.md). Monitor do Azure recolhe [métricas](../azure-monitor/platform/data-platform-metrics.md) e [registos de diagnóstico](../azure-monitor/platform/diagnostic-logs-overview.md) para recursos na sua conta do Batch. Recolha e consumir estes dados de diversas formas de monitorizar a sua conta do Batch e diagnosticar problemas. Também pode configurar [alertas de métricas](../azure-monitor/platform/alerts-overview.md) , para receber notificações quando uma métrica de atinge um valor especificado. 
 
 ## <a name="batch-metrics"></a>Métricas de batch
 

@@ -10,12 +10,12 @@ ms.topic: overview
 ms.date: 03/17/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 3c2567564e015ef19adf9f8c776e1f377a9cdf30
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 187e40716bc55f71623ef758722eb58d27651d4d
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58133064"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58882507"
 ---
 # <a name="what-is-cognitive-search-in-azure-search"></a>O que é "pesquisa cognitiva" no Azure Search?
 
@@ -38,7 +38,7 @@ Linguagem natural e processamento de imagens é aplicada durante a fase de inges
 
 ## <a name="components-of-cognitive-search"></a>Componentes de pesquisa cognitiva
 
-Pesquisa cognitiva é uma funcionalidade de pré-visualização do [Azure Search](search-what-is-azure-search.md)suporte na [nestas regiões](#where-do-i-start). 
+Pesquisa cognitiva é uma funcionalidade de pré-visualização do [Azure Search](search-what-is-azure-search.md).
 
 O pipeline de pesquisa cognitiva baseia [Azure Search *indexadores* ](search-indexer-overview.md) que pesquisam origens de dados e fornecer o processamento de índice de ponto-a-ponto. Habilidades estão agora ligadas ao indexadores, interceptando e enriquecer os documentos de acordo com o conjunto de capacidades que definir. Depois de indexada, pode aceder a conteúdo através de pedidos de pesquisa através de todos os [consultar os tipos suportados pelo Azure Search](search-query-overview.md).  Se estiver familiarizado com indexadores, esta secção descreve os passos.
 
@@ -106,9 +106,9 @@ Atualmente, são fornecidas apenas as APIs de REST. Utilize `api-version=2017-11
 
 | API REST | Descrição |
 |-----|-------------|
-| [Criar Origem de Dados](https://docs.microsoft.com/rest/api/searchservice/create-data-source)  | Um recurso de identificação de uma origem de dados externa a fornecer os dados de origem utilizados para criar documentos plena.  |
+| [Criar origem de dados](https://docs.microsoft.com/rest/api/searchservice/create-data-source)  | Um recurso de identificação de uma origem de dados externa a fornecer os dados de origem utilizados para criar documentos plena.  |
 | [Criar conjunto de capacidades (api-version = 2017-11-11-pré-visualização)](https://docs.microsoft.com/rest/api/searchservice/create-skillset)  | Um recurso de coordenar o uso de [predefinidos habilidades](cognitive-search-predefined-skills.md) e [personalizadas capacidades cognitivas](cognitive-search-custom-skill-interface.md) usado num pipeline de enriquecimento durante a indexação. |
-| [Criar índice](https://docs.microsoft.com/rest/api/searchservice/create-index)  | Um esquema de expressar um índice da Azure Search. Campos no índice mapeiam para campos numa origem de dados ou para campos fabricados durante a fase de melhoria (por exemplo, um campo para nomes de organização criado pelo reconhecimento de entidades). |
+| [Criar Índice](https://docs.microsoft.com/rest/api/searchservice/create-index)  | Um esquema de expressar um índice da Azure Search. Campos no índice mapeiam para campos numa origem de dados ou para campos fabricados durante a fase de melhoria (por exemplo, um campo para nomes de organização criado pelo reconhecimento de entidades). |
 | [Criar indexador (api-version = 2017-11-11-pré-visualização)](https://docs.microsoft.com/rest/api/searchservice/create-skillset)  | Um recurso definindo componentes utilizados durante a indexação: incluindo uma origem de dados, um conjunto de capacidades, associações de campo da origem e de estruturas de dados intermédios ao índice de destino e o índice em si. É o acionador para ingestão de dados e enriquecimento de executar o indexador. O resultado é um corpo de pesquisa com base no esquema de índice, preenchido com dados de origem, enriquecidos através de conjuntos de competências.  |
 
 **Lista de verificação: Um fluxo de trabalho típico**
@@ -135,6 +135,6 @@ Para obter mais informações sobre problemas ou perguntas específicas, consult
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-+ [Documentação de pesquisa cognitiva](cognitive-search-resources-documentation.md)
-+ [Quickstart: Experimentar a pesquisa cognitiva numa instruções do portal](cognitive-search-quickstart-blob.md)
++ [Documentação da pesquisa cognitiva](cognitive-search-resources-documentation.md)
++ [Início rápido: Experimentar a pesquisa cognitiva numa instruções do portal](cognitive-search-quickstart-blob.md)
 + [Tutorial: Saiba a APIs de pesquisa cognitiva](cognitive-search-tutorial-blob.md)

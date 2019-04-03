@@ -3,21 +3,21 @@ title: Visualizar registos de diagnóstico para a geração 1 de armazenamento d
 description: 'Aprenda a configurar e aceder aos registos de diagnóstico para a geração 1 de armazenamento do Azure Data Lake '
 services: data-lake-store
 documentationcenter: ''
-author: nitinme
-manager: jhubbard
+author: twooley
+manager: mtillman
 editor: cgronlun
 ms.assetid: f6e75eb1-d0ae-47cf-bdb8-06684b7c0a94
 ms.service: data-lake-store
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/26/2018
-ms.author: nitinme
-ms.openlocfilehash: a0bb320abb31b38461102e0e9a062ea0c2af51fb
-ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
+ms.author: twooley
+ms.openlocfilehash: d200f72b3c0e5634c3dca8f60a4754a14351110a
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56959583"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58877963"
 ---
 # <a name="accessing-diagnostic-logs-for-azure-data-lake-storage-gen1"></a>Aceder a registos de diagnóstico para a geração 1 de armazenamento do Azure Data Lake
 Aprenda a ativar o diagnóstico de registo para a sua conta de geração 1 de armazenamento do Azure Data Lake e ver os registos recolhidos para a sua conta.
@@ -191,5 +191,5 @@ Geração de armazenamento 1 do Azure Data Lake fornece um exemplo sobre como pr
 
 ## <a name="see-also"></a>Consulte também
 * [Descrição geral do Azure Data Lake Storage Gen1](data-lake-store-overview.md)
-* [Proteger dados no Armazenamento do Data Lake Ger1](data-lake-store-secure-data.md)
+* [Proteger os dados na geração 1 de armazenamento do Data Lake](data-lake-store-secure-data.md)
 

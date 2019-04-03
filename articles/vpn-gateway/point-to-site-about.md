@@ -7,12 +7,12 @@ ms.service: vpn-gateway
 ms.topic: conceptual
 ms.date: 01/18/2019
 ms.author: cherylmc
-ms.openlocfilehash: 8fc952af011231a9cc12f96e3db9ebb088c237a2
-ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
+ms.openlocfilehash: 8f444cebac6ee60fbe65399e3f9c8e05eb033843
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/19/2019
-ms.locfileid: "54413333"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58878218"
 ---
 # <a name="about-point-to-site-vpn"></a>Acerca da VPN ponto a Site
 
@@ -22,7 +22,7 @@ Uma ligação de gateway de VPN Ponto a Site (P2S) permite-lhe criar uma ligaç�
 
 VPN Point-to-site pode utilizar um dos seguintes protocolos:
 
-* OpenVPN, um SSL/TLS com base em protocolo VPN. Uma solução de SSL VPN consegue penetrar firewalls, uma vez que a maioria das firewalls abre a porta TCP 443, que usa SSL. OpenVPN pode ser utilizado para ligar a partir do Android, iOS (versões 11.0 e posterior), dispositivos de Linux e Mac (versões OSX 10.13 e acima).
+* OpenVPN, um SSL/TLS com base em protocolo VPN. Uma solução de SSL VPN consegue penetrar firewalls, uma vez que a maioria das firewalls abre a porta TCP 443, que usa SSL. OpenVPN pode ser utilizado para ligar a partir do Android, iOS (versões 11.0 e posterior), dispositivos Windows, Linux e Mac (versões OSX 10.13 e acima).
 
 * Secure Socket Tunneling Protocol (SSTP), um protocolo proprietário de VPN baseado em SSL. Uma solução de SSL VPN consegue penetrar firewalls, uma vez que a maioria das firewalls abre a porta TCP 443, que usa SSL. O SSTP só é suportado em dispositivos Windows. O Azure suporta todas as versões do Windows que têm de SSTP (Windows 7 e posterior).
 
@@ -94,7 +94,7 @@ Uma configuração P2S requer algumas etapas específicas. Os artigos seguintes 
 
 * [Configurar uma ligação de P2S - autenticação de certificados nativa do Azure](vpn-gateway-howto-point-to-site-rm-ps.md)
 
-* [Configurar OpenVPN](vpn-gateway-howto-openvpn.md)
+* [Configurar o OpenVPN](vpn-gateway-howto-openvpn.md)
 
 ## <a name="faqcert"></a>FAQ sobre a autenticação de certificados nativa do Azure
 

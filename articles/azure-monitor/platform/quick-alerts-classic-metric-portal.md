@@ -9,18 +9,18 @@ ms.date: 02/08/2018
 ms.author: ancav
 ms.custom: mvc
 ms.subservice: alerts
-ms.openlocfilehash: dcce5e424a5f14cb8f36582635383b0a8ba86caa
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: f8b9db47684a6dd78302f094d8e670da4a61ab2c
+ms.sourcegitcommit: 04716e13cc2ab69da57d61819da6cd5508f8c422
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54472267"
+ms.lasthandoff: 04/02/2019
+ms.locfileid: "58849821"
 ---
 # <a name="receive-a-notification-when-a-metric-value-meets-a-condition"></a>Receber uma notificação quando um valor métrico cumpre uma condição
 
 O Azure Monitor disponibiliza métricas para diversos recursos do Azure. Estas métricas são indicadoras do desempenho e do estado de funcionamento desses recursos. Em muitos casos, as métricas identificam um problema com um recurso. Pode criar alertas de métricas para monitorizar comportamento anormal e ser notificado se tal ocorrer. Este Início Rápido descreve a criação de uma Aplicação Lógica, a criação de uma tarefa e a visualização das métricas da aplicação lógica. Em seguida, aborda a criação de um alerta e a receção de uma notificação para uma métrica para o recurso da Aplicação Lógica.
 
-Para obter mais informações sobre as métricas e os alertas de métricas, consulte [Descrição geral das métricas do Azure Monitor](../../azure-monitor/platform/data-collection.md) e [Descrição geral dos alertas do Azure Monitor](./alerts-overview.md). 
+Para obter mais informações sobre as métricas e os alertas de métricas, consulte [Descrição geral das métricas do Azure Monitor](data-platform.md) e [Descrição geral dos alertas do Azure Monitor](alerts-overview.md). 
 
 Se não tiver uma subscrição do Azure, crie uma conta [gratuita](https://azure.microsoft.com/free/) antes de começar.
 

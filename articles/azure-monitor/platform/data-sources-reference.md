@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 06/12/2018
 ms.author: johnkem
 ms.subservice: ''
-ms.openlocfilehash: 02b4b2efb447e3ba8c45caa378268ec402b5c3e7
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: c703f735f59a8425c2a14641781f482a6e2d1c78
+ms.sourcegitcommit: 04716e13cc2ab69da57d61819da6cd5508f8c422
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56002007"
+ms.lasthandoff: 04/02/2019
+ms.locfileid: "58848532"
 ---
 # <a name="consume-monitoring-data-from-azure"></a>Consumir dados de monitorização do Azure
 
@@ -42,13 +42,13 @@ Nas plataformas do Azure, estamos a juntar dados de monitorização num único l
 | Alertas de métricas de Monitor do Azure | Notificações | [Ver lista aqui](metrics-supported.md) | <ul><li>**Webhook:** [Alertas de métricas do Azure](alerts-webhooks.md)</li></ul> |
 | Alertas de registo de atividade do Monitor do Azure | Notificações | Todos os serviços do Azure | <ul><li>**Webhook:** Alertas de registo de atividades do Azure</li></ul> |
 | Notificações de dimensionamento automático | Notificações | [Ver lista aqui](autoscale-overview.md#supported-services-for-autoscale) | <ul><li>**Webhook:** [Esquema de payload de webhook de notificação de dimensionamento automático](autoscale-webhook-email.md#autoscale-notification-webhook-payload-schema)</li></ul> |
-| Alertas de consulta de pesquisa de registo | Notificações | Registos de Monitor do Azure | <ul><li>**Webhook:** [Ação do Webhook para regras de alerta de registo](alerts-log-webhook.md)</li></ul> |
+| Alertas de consulta de pesquisa de registo | Notificações | Registos do Azure Monitor | <ul><li>**Webhook:** [Ação do Webhook para regras de alerta de registo](alerts-log-webhook.md)</li></ul> |
 | Alertas de métricas do Application Insights | Notificações | Application Insights | <ul><li>**Webhook:** [Alertas das informações de aplicação](../../azure-monitor/app/alerts.md)</li></ul> |
 | Testes web do Application Insights | Notificações | Application Insights | <ul><li>**Webhook:** [Alertas das informações de aplicação](../../azure-monitor/app/alerts.md)</li></ul> |
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-- Saiba mais sobre [métricas do Azure Monitor](data-collection.md)
+- Saiba mais sobre [métricas do Azure Monitor](data-platform.md)
 - Saiba mais sobre [o registo de atividades do Azure](activity-logs-overview.md)
 - Saiba mais sobre [registos de diagnóstico do Azure](diagnostic-logs-overview.md)
 

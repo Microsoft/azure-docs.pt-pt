@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/26/2017
 ms.author: victorh
-ms.openlocfilehash: 17893a37bbaf67014c9b34dd446af204b907ff24
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 01c1768f60da98206f0dfd041745428256f545fc
+ms.sourcegitcommit: d83fa82d6fec451c0cb957a76cfba8d072b72f4f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58004981"
+ms.lasthandoff: 04/02/2019
+ms.locfileid: "58861884"
 ---
 # <a name="create-a-custom-probe-for-azure-application-gateway-classic-by-using-powershell"></a>Criar uma sonda personalizada para o Gateway de aplicação do Azure (clássico) com o PowerShell
 
@@ -150,11 +150,11 @@ Os parâmetros de configuração são:
 
 |Parâmetro|Descrição|
 |---|---|
-|**Nome** |Nome de referência para a sonda personalizada. |
+|**Name** |Nome de referência para a sonda personalizada. |
 | **Protocolo** | Protocolo utilizado (os valores possíveis são HTTP ou HTTPS).|
-| **Host** e **caminho** | Caminho do URL completo que é invocado por gateway de aplicação para determinar o estado de funcionamento da instância. Por exemplo, se tiver um Web site http://contoso.com/, a sonda personalizada pode ser configurada para "http://contoso.com/path/custompath.htm" para a sonda verifica para ter uma resposta HTTP com êxito.|
+| **Host** e **caminho** | Caminho do URL completo que é invocado por gateway de aplicação para determinar o estado de funcionamento da instância. Por exemplo, se tiver um pedido de http do Web site:\//contoso.com/, em seguida, a sonda personalizada pode ser configurado para "http:\//contoso.com/path/custompath.htm" para a sonda verifica para ter uma resposta HTTP com êxito.|
 | **Intervalo** | Configura as verificações de intervalo de sonda em segundos.|
-| **Tempo limite** | Define o limite de tempo de pesquisa para uma verificação de resposta HTTP.|
+| **Tempo Limite (excedido)** | Define o limite de tempo de pesquisa para uma verificação de resposta HTTP.|
 | **UnhealthyThreshold** | O número de respostas HTTP falhados necessários para sinalizar a instância de back-end como *mau estado de funcionamento*.|
 
 O nome da sonda é referenciado no \<BackendHttpSettings\> configuração para atribuir o conjunto de back-end utiliza as definições de sonda personalizada.

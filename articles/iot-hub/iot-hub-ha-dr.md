@@ -7,12 +7,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 08/07/2018
 ms.author: rkmanda
-ms.openlocfilehash: ac47ad10f394eaf31a9f7c12d7a2a03ea23283f6
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 192966eef20ac59ac3a6eb14d7d450357989b851
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58092655"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58879697"
 ---
 # <a name="iot-hub-high-availability-and-disaster-recovery"></a>IoT Hub elevada disponibilidade e recuperação após desastre
 
@@ -32,7 +32,7 @@ Consoante os objetivos de tempo de atividade que definir para as suas soluções
 
 ## <a name="intra-region-ha"></a>HA intra-região
 
-O serviço IoT Hub fornece intra-região HA implementando redundâncias em quase todas as camadas do serviço. O [SLA publicados pelo serviço do IoT Hub](https://azure.microsoft.com/support/legal/sla/iot-hub) é conseguido fazendo uso destes redundâncias. Nenhum trabalho adicional é necessária para os desenvolvedores de uma solução de IoT para tirar partido destas funcionalidades de HA. Embora o IoT Hub oferece uma garantia de tempo de atividade razoavelmente alto, as falhas transitórias ainda podem ser esperadas tal como acontece com qualquer plataforma de computação distribuída. Se estiver apenas começando com migrar suas soluções para a cloud de uma solução no local, o foco precisa mudar de otimizar o "tempo médio entre falhas" para "tempo médio para recuperar". Em outras palavras, as falhas transitórias devem ser consideradas normal durante a operação com a cloud em sua composição. Apropriado [políticas de repetição](iot-hub-reliability-features-in-sdks.md) deve ser criado para os componentes de interagir com uma aplicação na cloud para lidar com falhas transitórias.
+O serviço IoT Hub fornece intra-região HA implementando redundâncias em quase todas as camadas do serviço. O [SLA publicados pelo serviço do IoT Hub](https://azure.microsoft.com/support/legal/sla/iot-hub) é conseguido fazendo uso destes redundâncias. Nenhum trabalho adicional é necessária para os desenvolvedores de uma solução de IoT para tirar partido destas funcionalidades de HA. Embora o IoT Hub oferece uma garantia de tempo de atividade razoavelmente alto, as falhas transitórias ainda podem ser esperadas tal como acontece com qualquer plataforma de computação distribuída. Se estiver apenas começando com migrar suas soluções para a cloud a partir de uma solução no local, o foco precisa mudar de otimizar o "tempo médio entre falhas" para "tempo médio para recuperar". Em outras palavras, as falhas transitórias devem ser consideradas normal durante a operação com a cloud em sua composição. Apropriado [políticas de repetição](iot-hub-reliability-features-in-sdks.md) deve ser criado para os componentes de interagir com uma aplicação na cloud para lidar com falhas transitórias.
 
 > [!NOTE]
 > Alguns serviços do Azure também fornecem camadas adicionais de disponibilidade numa região integrando [zonas de disponibilidade (AZs)](../availability-zones/az-overview.md). AZs não são atualmente suportadas pelo serviço do IoT Hub.
@@ -138,4 +138,4 @@ Aqui está um resumo das opções de HA/DR apresentado neste artigo que pode ser
 Siga estas ligações para saber mais sobre o IoT Hub do Azure:
 
 * [Introdução aos Hubs de IoT (início rápido)](quickstart-send-telemetry-dotnet.md)
-* [O que é o Hub IoT do Azure?](about-iot-hub.md)
+* [O que é o IoT Hub do Azure?](about-iot-hub.md)

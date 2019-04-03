@@ -10,12 +10,12 @@ ms.reviewer: sgilley
 ms.author: sgilley
 author: sdgilley
 ms.date: 03/21/2019
-ms.openlocfilehash: e55c898cdbb45dc7ff3466c61e968e3ae52be0cb
-ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
+ms.openlocfilehash: f417aef1fd1cc48a37399ff7a157a0e658bbbb02
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58521011"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58879289"
 ---
 # <a name="create-an-azure-machine-learning-service-workspace"></a>Criar uma área de trabalho do serviço do Azure Machine Learning
 
@@ -31,17 +31,17 @@ A área de trabalho, criar utilizando os passos aqui em pode ser usada como um p
 
 Quando cria uma área de trabalho os seguintes recursos do Azure são adicionados automaticamente (se estiverem disponíveis regional):
  
-- [Azure Container Registry](https://azure.microsoft.com/services/container-registry/)
-- [Armazenamento do Azure](https://azure.microsoft.com/services/storage/)
+- [Registo de Contentores do Azure](https://azure.microsoft.com/services/container-registry/)
+- [Storage do Azure](https://azure.microsoft.com/services/storage/)
 - [Azure Application Insights](https://azure.microsoft.com/services/application-insights/) 
-- [Cofre de Chaves do Azure](https://azure.microsoft.com/services/key-vault/)
+- [Azure Key Vault](https://azure.microsoft.com/services/key-vault/)
 
 >[!Note]
->Tal como acontece com outros serviços do Azure, determinados limites e quotas estão associadas com Machine Learning. [Saiba mais sobre quotas e como pedir mais.](how-to-manage-quotas.md)
+>Tal como acontece com outros serviços do Azure, determinados limites e quotas estão associadas com Machine Learning. [Saiba mais sobre quotas e como pedir muito mais.](how-to-manage-quotas.md)
 
 
 ## <a name="prerequisites"></a>Pré-requisitos
-Para criar uma área de trabalho, precisa de uma subscrição do Azure. Se não tiver uma subscrição do Azure, crie uma conta gratuita antes de começar. Experimente o [uma versão gratuita ou paga do serviço Azure Machine Learning](http://aka.ms/AMLFree) hoje mesmo.
+Para criar uma área de trabalho, precisa de uma subscrição do Azure. Se não tiver uma subscrição do Azure, crie uma conta gratuita antes de começar. Experimente o [uma versão gratuita ou paga do serviço Azure Machine Learning](https://aka.ms/AMLFree) hoje mesmo.
 
 ## <a name="portal"></a> Portal do Azure
 
@@ -139,7 +139,7 @@ Crie a sua área de trabalho num bloco de notas do Jupyter com o SDK de Python.
 
    [!code-python[](~/aml-sdk-samples/ignore/doc-qa/quickstart-create-workspace-with-python/quickstart.py?name=import)]
 
-1. Encontrar um valor para o `<azure-subscription-id>` parâmetro na [lista de subscrições no portal do Azure](https://ms.portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade). Utilize qualquer subscrição em que a sua função seja proprietário ou contribuidor.
+1. Encontrar um valor para o `<azure-subscription-id>` parâmetro na [lista de subscrições no portal do Azure](https://ms.portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade). Utilize qualquer subscrição em que a sua função seja proprietário ou contribuidor. Para obter mais informações sobre as funções, consulte [gerir o acesso a uma área de trabalho do Azure Machine Learning](how-to-assign-roles.md) artigo.
 
    ```python
    from azureml.core import Workspace

@@ -6,12 +6,12 @@ ms.service: azure-resource-manager
 ms.date: 02/20/2019
 ms.author: rithorn
 ms.topic: conceptual
-ms.openlocfilehash: f9e9bf51d50863f2e37a2f579c2db0edcfeca634
-ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
+ms.openlocfilehash: f75686d19a468983a6b0ce68eb4a456e00c90eeb
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58801779"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58881057"
 ---
 # <a name="manage-your-resources-with-management-groups"></a>Gerir os recursos com grupos de gestão
 
@@ -330,7 +330,7 @@ Ao fazer referência a grupos de gestão de ações de outros fornecedor de recu
 
 Um exemplo de uso esse caminho é quando atribui uma nova atribuição de função a um grupo de gestão do PowerShell
 
-```powershell-interactive
+```azurepowershell-interactive
 New-AzRoleAssignment -Scope "/providers/Microsoft.Management/managementGroups/Contoso"
 ```
 
@@ -346,6 +346,6 @@ Para saber mais sobre os grupos de gestão, veja:
 
 - [Criar grupos de gestão para organizar recursos do Azure](create.md)
 - [Como alterar, eliminar ou gerir os seus grupos de gestão](manage.md)
-- [Rever os grupos de gestão no Módulo de Recursos do Azure PowerShell](/powershell/module/az.resources#resources)
-- [Rever os grupos de gestão na API REST](/rest/api/resources/managementgroups)
-- [Rever os grupos de gestão na CLI do Azure](/cli/azure/account/management-group)
+- [Reveja os grupos de gestão no módulo de recursos do Azure PowerShell](/powershell/module/az.resources#resources)
+- [Reveja os grupos de gestão na REST API](/rest/api/resources/managementgroups)
+- [Reveja os grupos de gestão na CLI do Azure](/cli/azure/account/management-group)

@@ -6,12 +6,12 @@ ms.author: sngun
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 10/07/2018
-ms.openlocfilehash: 3126be88e272ab3891caa94ee15b622b0dfbdbdf
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: f3b744f676dd352bb38e5cbca6e532c650617816
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57860504"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58880615"
 ---
 # <a name="azure-cosmos-db-nosql-migration-and-application-development-partners"></a>Parceiros do Azure Cosmos DB NoSQL migração e aplicação de desenvolvimento
 
@@ -19,14 +19,14 @@ Da migração do NoSQL para desenvolvimento de aplicativos, pode escolher entre 
 
 ## <a name="migration-tools"></a>Ferramentas de migração
 
-|**Parceiro**  |**Capacidades e experiência**  |**Países suportados**  |**Contact**  |
+|**Parceiro**  |**Capacidades e experiência**  |**Países suportados**  |**Contacto**  |
 |---------|---------|---------|---------|
 |![ImanisData][1]   | [Migração de dados](https://www.imanisdata.com/wp-content/uploads/2018/02/Imanis_DS_MongoDB_Azure_FINAL.pdf) do MongoDB ao Azure Cosmos DB. <br/> Dados Imanis permite às empresas globais rápida e facilmente migrar suas instalações ou na cloud bases de dados do MongoDB ao Azure Cosmos DB. Dados de Imanis fornece uma abordagem de migração da cloud sem agente e incremental sempre para arquivos de dados do MongoDB que simplifica a migração e reduz significativamente o tempo de inatividade.|  EUA  |   [Web site](http://www.imanisdata.com/)      |
 |![Striim][2]    |  [Mover dados em tempo real para o Azure Cosmos DB](https://www.striim.com/striim-for-azure-cosmos-db/) de uma ampla variedade de origens de dados. <br/> Striim simplifica a coleção em tempo real e o movimento de dados a partir de uma grande variedade de origens no local, incluindo o documento de enterprise e bases de dados relacionais, sensores e ficheiros de registo para o Azure Cosmos DB. |   EUA   |  [Web site](https://www.striim.com/)       |
 
 ## <a name="systems-integrator-partners"></a>Parceiros integradores de sistemas
 
-|**Parceiro**  |**Capacidades e experiência**  |**Países suportados**  |**Contact**  |
+|**Parceiro**  |**Capacidades e experiência**  |**Países suportados**  |**Contacto**  |
 |---------|---------|---------|---------|
 | ![10thMagnitude][13] | Migração de NoSQL; Desenvolver novos aplicativos | EUA | [Web site](https://www.10thmagnitude.com/)|
 |![Desenvolvimento de Altoros LLC][3]    |  Migração de NoSQL, <br/> Inovação das aplicações (aplicações existentes), <br/> Desenvolver novos aplicativos |   Dos E.U.A., Noruega, Finlândia, Bielorrússia, Argentina |  [Web site](https://www.altoros.com/)     |

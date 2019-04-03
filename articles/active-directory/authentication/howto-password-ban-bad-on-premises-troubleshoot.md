@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 12cbd9bebf001eb902147175c89b5d7ce49e8449
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.openlocfilehash: 108ead982529d2ac6549cceffd9d2177ab6456bf
+ms.sourcegitcommit: d83fa82d6fec451c0cb957a76cfba8d072b72f4f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58487240"
+ms.lasthandoff: 04/02/2019
+ms.locfileid: "58863186"
 ---
 # <a name="azure-ad-password-protection-troubleshooting"></a>Resolução de problemas de proteção de palavra-passe do AD do Azure
 
@@ -44,7 +44,13 @@ O sintoma principal deste problema é 30018 eventos no registo de eventos de adm
 
 ## <a name="the-proxy-service-can-receive-calls-from-dc-agents-in-the-domain-but-is-unable-to-communicate-with-azure"></a>O serviço de Proxy pode receber chamadas de agentes do DC no domínio, mas não consegue comunicar com o Azure
 
-Certifique-se de que a máquina de proxy tem conectividade aos pontos finais listados na [requisitos de implementação](howto-password-ban-bad-on-premises-deploy.md).
+1. Certifique-se de que a máquina de proxy tem conectividade aos pontos finais listados na [requisitos de implementação](howto-password-ban-bad-on-premises-deploy.md).
+
+1. Certifique-se de que a floresta e o proxy de todos os servidores registados em relação ao mesmo inquilino do Azure.
+
+   Pode verificar isto ao executar o `Get-AzureADPasswordProtectionProxy` e `Get-AzureADPasswordProtectionDCAgent` cmdlets do PowerShell, em seguida, compare o `AzureTenant` propriedade de cada item devolvido. Operação correta estes tem de ser o mesmo dentro de uma floresta, em todos os agentes do controlador de domínio e servidores proxy.
+
+   Se existir uma condição de erro de correspondência de registo do inquilino do Azure, isto pode ser reparado ao executar o `Register-AzureADPasswordProtectionProxy` e/ou `Register-AzureADPasswordProtectionForest` cmdlets do PowerShell, conforme necessário, certificar-se de que a utilizar as credenciais a partir do mesmo inquilino do Azure para todos os registos.
 
 ## <a name="the-dc-agent-is-unable-to-encrypt-or-decrypt-password-policy-files-and-other-state"></a>O agente de controlador de domínio não é possível ao encriptar ou desencriptar ficheiros de política de palavra-passe e outro Estado
 

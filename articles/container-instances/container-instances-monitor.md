@@ -7,12 +7,12 @@ ms.service: container-instances
 ms.topic: overview
 ms.date: 04/24/2018
 ms.author: danlep
-ms.openlocfilehash: c4834d7f9c63735fe08ddc8d023ad9bf34b891cc
-ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
+ms.openlocfilehash: 950d8b4b5ec1a55e2054039a01d6807915b5c714
+ms.sourcegitcommit: 04716e13cc2ab69da57d61819da6cd5508f8c422
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/16/2018
-ms.locfileid: "51822505"
+ms.lasthandoff: 04/02/2019
+ms.locfileid: "58848227"
 ---
 # <a name="monitor-container-resources-in-azure-container-instances"></a>Monitorizar recursos de contentores no Azure Container Instances
 
@@ -143,4 +143,4 @@ Saiba mais sobre o Azure Monitor na [Descrição geral do Azure Monitor][azure-m
 
 <!-- LINKS - Internal -->
 [azure-monitoring]: ../monitoring-and-diagnostics/monitoring-overview.md
-[monitor-dimension]: ../azure-monitor/platform/data-collection.md#multi-dimensional-metrics
+[monitor-dimension]: ../azure-monitor/platform/data-platform-metrics.md#multi-dimensional-metrics

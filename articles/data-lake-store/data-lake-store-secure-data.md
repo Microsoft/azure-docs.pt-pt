@@ -3,21 +3,21 @@ title: Proteger dados armazenados na geração 1 de armazenamento do Azure Data 
 description: Saiba como proteger os dados na geração 1 de armazenamento do Azure Data Lake através de grupos e listas de controlo de acesso
 services: data-lake-store
 documentationcenter: ''
-author: nitinme
-manager: jhubbard
+author: twooley
+manager: mtillman
 editor: cgronlun
 ms.assetid: ca35e65f-3986-4f1b-bf93-9af6066bb716
 ms.service: data-lake-store
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/26/2018
-ms.author: nitinme
-ms.openlocfilehash: 15ef1e1b96a0da24714b4ddbda6b24f1f6f33ae0
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.author: twooley
+ms.openlocfilehash: cebdff5ed233516683df3330e8fd3332ded664e5
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46296741"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58885677"
 ---
 # <a name="securing-data-stored-in-azure-data-lake-storage-gen1"></a>Proteger dados armazenados na geração 1 de armazenamento do Azure Data Lake
 Proteger dados no Gen1 de armazenamento do Azure Data Lake é uma abordagem de três passos.  Ambos baseada em funções (RBAC) de controlo de acesso e listas de controlo de acesso (ACLs) tem de ser definidas para habilitar completamente o acesso a dados para os utilizadores e grupos de segurança.
@@ -152,7 +152,7 @@ Quando remover o grupo de segurança de ACLs de um sistema de ficheiros de gera�
 * [Copiar dados dos Blobs de armazenamento do Azure para a geração 1 de armazenamento do Data Lake](data-lake-store-copy-data-azure-storage-blob.md)
 * [Utilizar o Azure Data Lake Analytics com o Data Lake Storage Gen1](../data-lake-analytics/data-lake-analytics-get-started-portal.md)
 * [Utilizar o Azure HDInsight com Data Lake Storage Gen1](data-lake-store-hdinsight-hadoop-use-portal.md)
-* [Introdução ao Data Lake Storage Gen1 com o PowerShell](data-lake-store-get-started-powershell.md)
+* [Introdução ao Armazenamento do Data Lake Ger1 através do PowerShell](data-lake-store-get-started-powershell.md)
 * [Introdução ao Data Lake Storage Gen1 com o .NET SDK](data-lake-store-get-started-net-sdk.md)
 * [Aceder aos registos de diagnóstico para a geração 1 de armazenamento do Data Lake](data-lake-store-diagnostic-logs.md)
 

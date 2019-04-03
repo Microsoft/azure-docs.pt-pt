@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/08/2018
 ms.author: magoedte
-ms.openlocfilehash: 17a52cf17c62c930dc3922ded48d659f56016688
-ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
+ms.openlocfilehash: 40f0705cfa7f0e9bb45d300a629adebd0cc5be47
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58370504"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58883678"
 ---
 # <a name="troubleshooting-the-log-analytics-vm-extension-in-azure-monitor"></a>Resolução de problemas a extensão de VM do Log Analytics no Azure Monitor
 Este artigo disponibiliza ajuda a resolver problemas de erros que poderá deparar-se com a extensão de VM do Log Analytics para Windows e Linux máquinas de virtuais em execução no Microsoft Azure e sugere possíveis soluções para resolvê-los.
@@ -53,7 +53,7 @@ Se o *Microsoft Monitoring Agent* extensão de VM não está a instalar ou relat
 3. Reveja os ficheiros de registo da extensão de VM de agente de monitorização da Microsoft em `C:\Packages\Plugins\Microsoft.EnterpriseCloud.Monitoring.MicrosoftMonitoringAgent`
 4. Certifique-se de que a máquina virtual pode executar scripts do PowerShell
 5. Certifique-se de que as permissões no C:\Windows\temp ainda não foram alteradas
-6. Ver o estado do Microsoft Monitoring Agent, escrevendo o seguinte numa janela elevada do PowerShell na máquina virtual `  (New-Object -ComObject 'AgentConfigManager.MgmtSvcCfg').GetCloudWorkspaces() | Format-List`
+6. Ver o estado do Microsoft Monitoring Agent, escrevendo o seguinte numa janela elevada do PowerShell na máquina virtual `(New-Object -ComObject 'AgentConfigManager.MgmtSvcCfg').GetCloudWorkspaces() | Format-List`
 7. Reveja os ficheiros de registo de configuração do Microsoft Monitoring Agent no `C:\Windows\System32\config\systemprofile\AppData\Local\SCOM\Logs`
 
 Para obter mais informações, consulte [resolução de problemas de extensões do Windows](../../virtual-machines/extensions/oms-windows.md).

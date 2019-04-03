@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: reference
 ms.date: 02/21/2019
 ms.author: v-jansko
-ms.openlocfilehash: 4f5c7696e711db7c128317f7ed17dc051e8fd18a
-ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
+ms.openlocfilehash: d98922937781fd169d34881fa67a6b5746d06df7
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58803124"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58882469"
 ---
 # <a name="language-and-region-support-for-the-translator-text-api"></a>Suporte de idioma e região para a API de texto do tradutor
 
@@ -110,23 +110,23 @@ O método Transliterate suporta os seguintes idiomas. Na "para/de", "<> –" ind
 |:----------- |:-------------:|:-------------:|:-------------:|:-------------:|
 | Árabe | `ar` | Árabe `Arab` | <--> | Latim `Latn` |
 |Bangla  | `bn` | Bengali `Beng` | <--> | Latim `Latn` |
-| Chinês (Simplificado) | `zh-Hans` | Chinês simplificado `Hans`| <--> | Latim `Latn` |
-| Chinês (Simplificado) | `zh-Hans` | Chinês simplificado `Hans`| <--> | Chinês tradicional `Hant`|
-| Chinês (Tradicional) | `zh-Hant` | Chinês tradicional `Hant`| <--> | Latim `Latn` |
-| Chinês (Tradicional) | `zh-Hant` | Chinês tradicional `Hant`| <--> | Chinês simplificado `Hans` |
-| Guzarate | `gu`  | Gujarati `Gujr` | --> | Latim `Latn` |
+| Chinês (Simplificado) | `zh-Hans` | Chinês Simplificado `Hans`| <--> | Latim `Latn` |
+| Chinês (Simplificado) | `zh-Hans` | Chinês Simplificado `Hans`| <--> | Chinês Tradicional `Hant`|
+| Chinês (Tradicional) | `zh-Hant` | Chinês Tradicional `Hant`| <--> | Latim `Latn` |
+| Chinês (Tradicional) | `zh-Hant` | Chinês Tradicional `Hant`| <--> | Chinês Simplificado `Hans` |
+| Guzarate | `gu`  | Guzarate `Gujr` | --> | Latim `Latn` |
 | Hebraico | `he` | Hebraico `Hebr` | <--> | Latim `Latn` |
 | Hindi | `hi` | Devanagari `Deva` | <--> | Latim `Latn` |
 | Japonês | `ja` | Japonês `Jpan` | <--> | Latim `Latn` |
-| Canarim | `kn` | Kannada `Knda` | --> | Latim `Latn` |
-| Malayalam | `ml` | Malaiala `Mlym` | --> | Latim `Latn` |
+| Canarim | `kn` | Canarim `Knda` | --> | Latim `Latn` |
+| Malayalam | `ml` | Malayalam `Mlym` | --> | Latim `Latn` |
 | Marata | `mr` | Devanagari `Deva` | --> | Latim `Latn` |
-| Odia | `or` | Oriya `Orya` | <--> | Latim `Latn` |
+| Odia | `or` | Odia `Orya` | <--> | Latim `Latn` |
 | Punjabi | `pa` | Gurmukhi `Guru`  | <--> | Latim `Latn`  |
 | Sérvio (Cirílico) | `sr-Cyrl` | Cirílico `Cyrl`  | --> | Latim `Latn` |
 | Sérvio (Latim) | `sr-Latn` | Latim `Latn` | --> | Cirílico `Cyrl`|
 | Tamil | `ta` | Tamil `Taml` | --> | Latim `Latn` |
-| Télego | `te` | Télugo `Telu` | --> | Latim `Latn` |
+| Télego | `te` | Télego `Telu` | --> | Latim `Latn` |
 | Tailandês | `th` | Tailandês `Thai` | <--> | Latim `Latn` |
 
 ## <a name="dictionary"></a>Dicionário
@@ -268,7 +268,7 @@ Pode obter uma lista de idiomas suportados para o v3.0 de API de texto do Transl
 
 ## <a name="customization"></a>Personalização
 
-Os seguintes idiomas estão disponíveis para a personalização de ou para utilizar em inglês [Translator personalizado](http://aka.ms/CustomTranslator).
+Os seguintes idiomas estão disponíveis para a personalização de ou para utilizar em inglês [Translator personalizado](https://aka.ms/CustomTranslator).
 
 | Idioma    | Código do idioma |
 |:----------- |:-------------:|

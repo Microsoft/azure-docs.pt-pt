@@ -1,25 +1,25 @@
 ---
 title: Centro de segurança do Azure para a pré-visualização do IoT pré-requisitos | Documentos da Microsoft
 description: Detalhes de todo o necessário para começar a utilizar o Centro de segurança do Azure para pré-requisitos de serviço de IoT.
-services: ascforiot
+services: asc-for-iot
+ms.service: ascforiot
 documentationcenter: na
 author: mlottner
 manager: barbkess
 editor: ''
 ms.assetid: 790cbcb7-1340-4cc1-9509-7b262e7c3181
-ms.service: ascforiot
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/26/2019
 ms.author: mlottner
-ms.openlocfilehash: 5293fe6a8d4a8a44a89890af1c259e2b4b2b7827
-ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
+ms.openlocfilehash: f09d768c0c6c1d351f737b053da9fd3282867099
+ms.sourcegitcommit: d83fa82d6fec451c0cb957a76cfba8d072b72f4f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58755097"
+ms.lasthandoff: 04/02/2019
+ms.locfileid: "58861694"
 ---
 # <a name="azure-security-center-for-iot-prerequisites"></a>Centro de segurança do Azure para pré-requisitos de IoT
 
@@ -33,7 +33,7 @@ Este artigo fornece uma explicação sobre os diferentes blocos de construção 
 
 - Escalão Standard de Hub do IoT
     - Função RBAC **proprietário** privilégios do nível 
-- [Área de trabalho do log Analytics](https://docs.microsoft.com/azure/azure-monitor/learn/quick-create-workspace) 
+- [Área de trabalho do Log Analytics](https://docs.microsoft.com/azure/azure-monitor/learn/quick-create-workspace) 
 - Centro de segurança do Azure (recomendado)
     - Embora o uso do Centro de segurança do Azure é apenas uma recomendação e não um requisito, sem ele, não será capaz de exibir os outros recursos dentro do IoT Hub do Azure. 
  

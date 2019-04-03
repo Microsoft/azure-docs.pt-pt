@@ -1,25 +1,25 @@
 ---
 title: Guia para instalar e implantar o Linux C# agente do Centro de segurança do Azure para pré-visualização do IoT | Documentos da Microsoft
 description: Saiba como instalar o agente do IoT no Centro de segurança do Azure no Linux de 32 bits e 64 bits.
-services: ascforiot
+services: asc-for-iot
+ms.service: ascforiot
 documentationcenter: na
 author: mlottner
 manager: barbkess
 editor: ''
 ms.assetid: b0982203-c3c8-4a0b-8717-5b5ac4038d8c
-ms.service: ascforiot
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/27/2019
 ms.author: mlottner
-ms.openlocfilehash: be4c663d3a1e99ef67cbbbc2f39b315f1080125c
-ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
+ms.openlocfilehash: 4a53bcf77696d3aa53a4a404bfacd6f6d468885b
+ms.sourcegitcommit: d83fa82d6fec451c0cb957a76cfba8d072b72f4f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58758337"
+ms.lasthandoff: 04/02/2019
+ms.locfileid: "58862107"
 ---
 # <a name="deploy-azure-security-center-for-iot-c-based-security-agent-for-linux"></a>Implementar o Centro de segurança do Azure para IoT C#-com base em agente de segurança para Linux
 

@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 12/07/2017
 ms.author: sngun
 ms.custom: seodec18
-ms.openlocfilehash: e709aa25a8fa0a8ff6c94bf2e813151e5ecbae65
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: a0d2927024dff78021d433b965bb6c0149236ddd
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58006238"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58876822"
 ---
 # <a name="migrate-your-data-to-azure-cosmos-db-table-api-account"></a>Migre os dados para a conta da API de Tabela do Azure Cosmos DB
 
@@ -43,7 +43,7 @@ Para efetuar uma migração dos dados da tabela, faça as seguintes tarefas:
 
    ```bash
     dt.exe [/<option>:<value>] /s:<source-name> [/s.<source-option>:<value>] /t:<target-name> [/t.<target-option>:<value>] 
-```
+   ```
 
 As opções do comando são:
 
@@ -74,9 +74,9 @@ Para obter a cadeia da ligação de origem ao importar de uma conta API de Tabel
 
 ![Captura de ecrã das opções de origem do HBase](./media/table-import/cosmos-connection-string.png)
 
-[Comando de Armazenamento de Tabelas do Azure](#azure-table-storage)
+[Comando de armazenamento de tabelas do Azure de exemplo](#azure-table-storage)
 
-[Comando API de Tabelas do Azure Cosmos DB (pré-visualização)](#table-api-preview)
+[Comando da API de tabela do Azure Cosmos DB (pré-visualização) de exemplo](#table-api-preview)
 
 ### <a name="command-line-target-settings"></a>Definições de destino da linha de comandos
 

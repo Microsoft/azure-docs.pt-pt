@@ -16,13 +16,14 @@ ms.date: 10/05/2018
 ms.author: celested
 ms.reviewer: hirsin
 ms.custom: aaddev
+ms:custom: fasttrack-edit
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 687b25ea5d792edf2f582c9929a0ae5f0c2426db
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: b00dd8de47422cf849d97e66698be3300b96ff83
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57442078"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58884555"
 ---
 # <a name="id-tokens"></a>Tokens de ID
 
@@ -79,6 +80,7 @@ Ver este token de v2.0 de exemplo na [jwt.ms](https://jwt.ms/#id_token=eyJ0eXAiO
 |`name` | String | O `name` afirmação fornece um valor legível por humanos que identifica o assunto do token. O valor não é garantido para que seja exclusivo, é mutável e foi concebido para ser utilizado apenas para fins de exibição. O `profile` âmbito é necessário para receber esta afirmação. |
 |`nonce`| String | O valor de uso único corresponde ao parâmetro incluído no original / autorizar a solicitação para o IDP. Se não houver, seu aplicativo deve rejeitar o token. |
 |`oid` | Cadeia de caracteres, um GUID | O identificador imutável para um objeto no Microsoft identity system, neste caso, uma conta de utilizador. Este ID identifica exclusivamente o utilizador em todas as aplicações – dois aplicativos diferentes, iniciar sessão no mesmo utilizador irão receber o mesmo valor no `oid` de afirmação. O Microsoft Graph irá devolver este ID como o `id` propriedade para uma determinada conta de utilizador. Uma vez que o `oid` permite que várias aplicações correlacionar os utilizadores, o `profile` âmbito é necessário para receber esta afirmação. Tenha em atenção que, se existir um único utilizador em vários inquilinos, o utilizador irá conter um ID de objeto diferentes em cada inquilino - que são consideradas diferentes contas, mesmo que o usuário faz logon em cada conta com as mesmas credenciais. |
+|`roles`| matriz de cadeias de caracteres | O conjunto de funções que foram atribuídos ao utilizador que está a iniciar sessão. |
 |`rh` | Cadeia opaca |Uma afirmação interna utilizada pelo Azure para revalide tokens. Devem ser ignorados. |
 |`sub` | Cadeia de caracteres, um GUID | O principal sobre o qual o token declara informações, como o utilizador de uma aplicação. Este valor é imutável e não pode ser reatribuído ou reutilizado. O assunto é um identificador de pairwise - é exclusivo para um ID de aplicação em particular. Por conseguinte, se um único utilizador se inscreve para duas aplicações diferentes com dois IDs de cliente diferentes, essas aplicações irão receber dois valores diferentes para a afirmação do requerente. Isto pode ou não pode ser desejável dependendo dos requisitos de arquitetura e a privacidade. |
 |`tid` | Cadeia de caracteres, um GUID | Um GUID que representa o que o utilizador é de inquilino do Azure AD. Para contas profissionais e escolares, o GUID é o ID de inquilino imutável da organização que o utilizador pertence. Contas pessoais, o valor é `9188040d-6c67-4c5b-b112-36a304b66dad`. O `profile` âmbito é necessário para receber esta afirmação. |

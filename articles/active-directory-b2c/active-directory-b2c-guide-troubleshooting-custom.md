@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 05/07/2017
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: 15924f2da72318603d11b2d4aadff72cb14ad5f7
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: b33b76175558c71720c15a2a4e206e26a60f1f95
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55156960"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58880649"
 ---
 # <a name="troubleshoot-azure-ad-b2c-custom-policies-and-identity-experience-framework"></a>Resolver problemas de políticas personalizadas do Azure AD B2C e arquitetura de experiências de identidade
 
@@ -44,7 +44,7 @@ Pode achar uma revisão das regras XML útil. O Azure AD B2C rejeita qualquer XM
 Trecho de código de erro: `... makes a reference to ClaimType with id "displaName" but neither the policy nor any of its base policies contain such an element`
 * O valor de ClaimType pode estar mal escrito ou não existe no esquema.
 * ClaimType valores tem de ser definidos em, pelo menos, um dos ficheiros na política. 
-    Por exemplo: ` <ClaimType Id="socialIdpUserId">`
+    Por exemplo: `<ClaimType Id="socialIdpUserId">`
 * Se ClaimType é definido no arquivo de extensões, mas também é utilizado um valor de TechnicalProfile no ficheiro de base, carregar o ficheiro de base resulta num erro.
 
 Trecho de código de erro: `...makes a reference to a ClaimsTransformation with id...`

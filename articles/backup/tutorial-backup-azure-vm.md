@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 03/05/2019
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 85e5fc7e1c8a4561b51afaf0d665fedb6d9cde1f
-ms.sourcegitcommit: aa3be9ed0b92a0ac5a29c83095a7b20dd0693463
+ms.openlocfilehash: 2a35435f56a4bb09a8a1958fbc175ef7c889c380
+ms.sourcegitcommit: d83fa82d6fec451c0cb957a76cfba8d072b72f4f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58258382"
+ms.lasthandoff: 04/02/2019
+ms.locfileid: "58863020"
 ---
 # <a name="back-up-azure-vms-with-powershell"></a>Fazer uma cópia de segurança de VMs do Azure com o PowerShell
 
@@ -82,7 +82,7 @@ Crie o Cofre da seguinte forma:
 
 Executam cópias de segurança em conformidade com a agenda especificada na política de cópia de segurança. Quando cria um cofre dos Serviços de Recuperação, aquele inclui políticas de proteção e retenção predefinidas.
 
-- A política de proteção predefinida aciona uma tarefa de cópia de segurança um dia a uma hora especificada.
+- A política de proteção predefinida aciona uma tarefa de cópia de segurança, uma vez por dia a um tempo especificado.
 - A política de retenção predefinida retém o ponto de recuperação diária durante 30 dias. 
 
 Para ativar e de cópia de segurança a VM do Azure neste tutorial, vamos fazer o seguinte:
@@ -123,4 +123,4 @@ Remove-AzRecoveryServicesVault -Vault $vault1
 
 - [Revisão](backup-azure-vms-automation.md) instruções mais detalhadas da cópia de segurança e restaurar VMs do Azure com o PowerShell. 
 - [Gerir e monitorizar VMs do Azure](backup-azure-manage-vms.md)
-- [Restaurar VMs do Azure](backup-azure-arm-restore-vms.md)
+- [Restaurar as VMs do Azure](backup-azure-arm-restore-vms.md)

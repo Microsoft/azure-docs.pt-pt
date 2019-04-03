@@ -5,20 +5,17 @@ author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 03/29/2019
-ms.openlocfilehash: 4c8502aad40662766b038205eb19dd3302f601b7
-ms.sourcegitcommit: 956749f17569a55bcafba95aef9abcbb345eb929
+ms.date: 04/01/2019
+ms.openlocfilehash: 21408f87c4446ebad4092cb982179c7d78ea9e32
+ms.sourcegitcommit: 04716e13cc2ab69da57d61819da6cd5508f8c422
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58632508"
+ms.lasthandoff: 04/02/2019
+ms.locfileid: "58847762"
 ---
 # <a name="create-and-manage-read-replicas-from-the-azure-cli"></a>Criar e gerir réplicas de leitura a partir da CLI do Azure
 
 Neste artigo, saiba como criar e gerir réplicas de leitura na base de dados do Azure para PostgreSQL a partir da CLI do Azure. Para saber mais acerca das réplicas de leitura, veja a [descrição geral](concepts-read-replicas.md).
-
-> [!IMPORTANT]
-> A funcionalidade de réplica de leitura está em pré-visualização pública.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 - Uma [base de dados do Azure para o servidor PostgreSQL](quickstart-create-server-up-azure-cli.md) deve ser o servidor principal.
@@ -49,9 +46,9 @@ O `azure.replication_support` parâmetro deve ser definido como **RÉPLICA** no 
 
 O `az mysql server replica create` comando requer os seguintes parâmetros:
 
-| Definição | Valor de exemplo | Descrição  |
+| Definição | Valor de exemplo | Descrição  |
 | --- | --- | --- |
-| resource-group | myResourceGroup |  O grupo de recursos onde o servidor de réplica será criado.  |
+| resource-group | myResourceGroup |  O grupo de recursos onde o servidor de réplica será criado.  |
 | nome | mydemoserver-replica | O nome do novo servidor de réplica, que é criado. |
 | source-server | mydemoserver | O nome ou o recurso ID do servidor mestre existente para replicar a partir do. |
 

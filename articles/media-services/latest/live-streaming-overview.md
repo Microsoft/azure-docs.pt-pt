@@ -13,12 +13,12 @@ ms.devlang: ne
 ms.topic: article
 ms.date: 03/25/2019
 ms.author: juliako
-ms.openlocfilehash: b8725dfcb2a337750c6e2a78ba7571114b8e3cd3
-ms.sourcegitcommit: 280d9348b53b16e068cf8615a15b958fccad366a
+ms.openlocfilehash: ab8d4fb9b46573d58fd93fc5121a4fc1918cc69d
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58407188"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58879391"
 ---
 # <a name="live-streaming-with-azure-media-services-v3"></a>Transmissão em direto com Media Services do Azure v3
 
@@ -31,7 +31,7 @@ Serviços de multimédia do Azure permite-lhe fornecer eventos em direto aos seu
 Este artigo fornece uma descrição geral e a documentação de orientação de transmissão em fluxo em direto com serviços de multimédia e links para outros artigos relevantes.
 
 > [!NOTE]
-> Atualmente, não é possível utilizar o portal do Azure para gerir os recursos de v3. Utilize o [REST API](https://aka.ms/ams-v3-rest-ref), [CLI](https://aka.ms/ams-v3-cli-ref), ou um suportadas [SDKs](developers-guide.md).
+> Atualmente, não pode utilizar o portal do Azure para gerir recursos v3. Utilize a [API REST](https://aka.ms/ams-v3-rest-ref), a [CLI](https://aka.ms/ams-v3-cli-ref) ou um dos [SDKs](developers-guide.md) suportados.
 
 ## <a name="dynamic-packaging"></a>Empacotamento dinâmico
 
@@ -53,21 +53,21 @@ Um evento em direto pode ser um dos dois tipos: codificação de pass-through e 
 
 ![pass-through](./media/live-streaming/pass-through.svg)
 
-Ao utilizar o pass-through **evento em direto**, contar com o codificador em direto de locais para gerar um fluxo de vídeo de velocidade de transmissão múltiplas e enviar como a contribuição feed para o evento em direto (usando o protocolo RTMP ou MP4 fragmentado). O evento em direto, em seguida, continua até os fluxos de vídeo de entrada sem qualquer processamento adicional. Tal um pass-through evento em direto é otimizado para eventos em direto de longa execução ou transmissão em direto lineares 24 x 365. 
+Quando utilizar o pass-through **Evento em Direto**, conta com o codificador em direto no local para gerar uma transmissão em fluxo de vídeo de velocidade múltipla e enviá-la como um feed de contribuição para o Evento em Direto (através do protocolo RTMP ou MP4 fragmentado). O Evento em Direto realiza as transmissões em fluxo de vídeo de entrada sem qualquer processamento adicional. Tal um pass-through evento em direto é otimizado para eventos em direto de longa execução ou transmissão em direto lineares 24 x 365. 
 
 ### <a name="live-encoding"></a>Live Encoding  
 
 ![codificação do Live](./media/live-streaming/live-encoding.svg)
 
-Ao utilizar o live encoding com Media Services, poderia configurar a seu codificador em direto de locais para enviar uma velocidade de transmissão única vídeo como a contribuição de feed para o evento em direto (usando o protocolo RTMP ou Mp4 fragmentado). O evento Live codifica essa entrada velocidade de transmissão única transmitir para um [vários transmissão em fluxo vídeo](https://en.wikipedia.org/wiki/Adaptive_bitrate_streaming), torna-o disponível para entrega ao reproduzir os dispositivos através de protocolos como MPEG-DASH, HLS e Smooth Streaming. 
+Ao utilizar a codificação em direto com os Serviços de Multimédia, configuraria o codificador em direto no local para enviar um vídeo de velocidade de transmissão única como o feed de contribuição para o Evento em Direto (através dos protocolos RTMP ou Fragmented-Mp4.) O Evento em Direto codifica essa transmissão em fluxo de velocidade única recebia numa [transmissão de vídeo em fluxo de velocidade múltipla](https://en.wikipedia.org/wiki/Adaptive_bitrate_streaming) e disponibiliza-a para entrega nos dispositivos de reprodução através de protocolos como MPEG-DASH, HLS e Smooth Streaming. 
 
 ## <a name="live-streaming-workflow"></a>Fluxo de trabalho de transmissão em fluxo em direto
 
 Para compreender o fluxo de trabalho de transmissão em fluxo em direto em serviços de multimédia v3, tem de primeira revisão e compreender os seguintes conceitos: 
 
-- [Pontos finais de transmissão em fluxo](streaming-endpoint-concept.md)
-- [Eventos em direto e saídas em direto](live-events-outputs-concept.md)
-- [Localizadores de transmissão em fluxo](streaming-locators-concept.md)
+- [Pontos Finais de Transmissão em fluxo](streaming-endpoint-concept.md)
+- [Eventos em Direto e Saídas em Direto](live-events-outputs-concept.md)
+- [Localizadores de Transmissão em Fluxo](streaming-locators-concept.md)
 
 ### <a name="general-steps"></a>Passos gerais
 
@@ -85,8 +85,8 @@ Para compreender o fluxo de trabalho de transmissão em fluxo em direto em servi
 
 ## <a name="other-important-articles"></a>Outros artigos importantes
 
-- [Recomendado codificadores em direto](recommended-on-premises-live-encoders.md)
-- [Usando um DVR na cloud](live-event-cloud-dvr.md)
+- [Codificadores em direto recomendados](recommended-on-premises-live-encoders.md)
+- [Utilizar um DVR na cloud](live-event-cloud-dvr.md)
 - [Comparação de recursos de tipos de evento em direto](live-event-types-comparison.md)
 - [Estados e faturação](live-event-states-billing.md)
 - [Latência](live-event-latency.md)

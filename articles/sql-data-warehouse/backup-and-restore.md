@@ -10,12 +10,12 @@ ms.subservice: manage
 ms.date: 03/01/2019
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: 55874d261ac453d559975f25b2272319cdc6a7db
-ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
+ms.openlocfilehash: 14e7d8cfdaa9ac59a5a43881283fac6e2c9ee08f
+ms.sourcegitcommit: 04716e13cc2ab69da57d61819da6cd5508f8c422
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58447998"
+ms.lasthandoff: 04/02/2019
+ms.locfileid: "58846999"
 ---
 # <a name="backup-and-restore-in-azure-sql-data-warehouse"></a>Cópia de segurança e restauro no Azure SQL Data Warehouse
 
@@ -44,7 +44,7 @@ order by run_id desc
 
 ## <a name="user-defined-restore-points"></a>Pontos de Restauro Definidos pelo Utilizador
 
-Esta funcionalidade permite-lhe manualmente os instantâneos de Acionador para criar pontos de restauração do seu armazém de dados antes e depois grandes modificações. Esta capacidade assegura que os pontos de restauração estão logicamente consistentes, que fornece proteção de dados adicional em caso de quaisquer interrupções de carga de trabalho ou erros de utilizador para o tempo de recuperação rápida. Pontos de restauro definidas pelo utilizador estão disponíveis durante sete dias e são automaticamente eliminados em seu nome. Não é possível alterar o período de retenção de pontos de restauro definidas pelo utilizador. **pontos de restauro de 42 definidas pelo utilizador** são garantidas em qualquer ponto no tempo para que estes têm de estar [eliminado](https://go.microsoft.com/fwlink/?linkid=875299) antes de criar outro ponto de restauro. Pode acionar instantâneos para criar pontos de restauro definidas pelo utilizador através da [PowerShell](https://docs.microsoft.com/powershell/module/azurerm.sql/new-azurermsqldatabaserestorepoint#examples) ou o portal do Azure.
+Esta funcionalidade permite-lhe manualmente os instantâneos de Acionador para criar pontos de restauração do seu armazém de dados antes e depois grandes modificações. Esta capacidade assegura que os pontos de restauração estão logicamente consistentes, que fornece proteção de dados adicional em caso de quaisquer interrupções de carga de trabalho ou erros de utilizador para o tempo de recuperação rápida. Pontos de restauro definidas pelo utilizador estão disponíveis durante sete dias e são automaticamente eliminados em seu nome. Não é possível alterar o período de retenção de pontos de restauro definidas pelo utilizador. **pontos de restauro de 42 definidas pelo utilizador** são garantidas em qualquer ponto no tempo para que estes têm de estar [eliminado](https://go.microsoft.com/fwlink/?linkid=875299) antes de criar outro ponto de restauro. Pode acionar instantâneos para criar pontos de restauro definidas pelo utilizador através da [PowerShell](https://docs.microsoft.com/powershell/module/az.sql/new-azsqldatabaserestorepoint#examples) ou o portal do Azure.
 
 > [!NOTE]
 > Se necessitar de mais de 7 dias de pontos de restauração, votar, para esta capacidade [aqui](https://feedback.azure.com/forums/307516-sql-data-warehouse/suggestions/35114410-user-defined-retention-periods-for-restore-points). Também pode criar um ponto de restauro definidas pelo utilizador e restaurar a partir do ponto de restauro recentemente criado para um novo armazém de dados. Depois de ter restaurado, ter o armazém de dados online e pode colocar em pausa indefinidamente para reduzir os custos de computação. A base de dados em pausa leva a custos de armazenamento à tarifa de armazenamento Premium do Azure. Se precisar de uma cópia ativa do armazém de dados restaurada, pode retomar o que deverá demorar apenas alguns minutos.

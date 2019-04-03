@@ -1,6 +1,6 @@
 ---
-title: Suportam de cabeçalhos HTTP do serviço de porta de entrada do Azure - | Documentos da Microsoft
-description: Este artigo ajuda-o a compreender os protocolos de cabeçalho HTTP suportados por porta de entrada
+title: Protocolo de suporte para cabeçalhos HTTP no serviço de porta de entrada do Azure | Documentos da Microsoft
+description: Este artigo descreve os protocolos de cabeçalho HTTP que suporta o serviço de porta de entrada.
 services: frontdoor
 documentationcenter: ''
 author: sharad4u
@@ -11,52 +11,51 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/10/2018
 ms.author: sharadag
-ms.openlocfilehash: 40bfdfc3837da12f62864433508482a65def291c
-ms.sourcegitcommit: 280d9348b53b16e068cf8615a15b958fccad366a
+ms.openlocfilehash: 92e8435e4336c68982e4becc2a95f99b2c776c0e
+ms.sourcegitcommit: d83fa82d6fec451c0cb957a76cfba8d072b72f4f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58407322"
+ms.lasthandoff: 04/02/2019
+ms.locfileid: "58861847"
 ---
-# <a name="azure-front-door-service---http-headers-support"></a>Serviço de porta de entrada do Azure - suporte de cabeçalhos HTTP
-Este documento descreve o protocolo que suporte o serviço de porta de entrada do Azure com várias partes do caminho da chamada conforme descrito pela imagem abaixo. As seções abaixo fornecem mais informações sobre os cabeçalhos HTTP que suporta a porta de entrada.
+# <a name="protocol-support-for-http-headers-in-azure-front-door-service"></a>Suporte de protocolo para cabeçalhos HTTP no serviço de porta de entrada do Azure
+Este artigo descreve o protocolo que suporte o serviço de porta de entrada com partes do caminho da chamada (veja a imagem). As secções seguintes fornecem mais informações sobre cabeçalhos HTTP suportados pelo serviço de porta de entrada.
 
 ![Protocolo de cabeçalhos de HTTP do serviço de porta de entrada do Azure][1]
 
->[!WARNING]
->O serviço de porta de entrada do Azure não fornece garantias em qualquer cabeçalho HTTP que não está documentado aqui.
+>[!IMPORTANT]
+>Serviço de porta de entrada não certificar qualquer cabeçalho HTTP que não é documentado aqui.
 
-## <a name="1-client-to-front-door"></a>1. Cliente para a porta de entrada
-Porta de entrada aceita a maioria dos cabeçalhos da solicitação recebida (sem modificá-los), no entanto, existem alguns cabeçalhos reservados que serão removidos da solicitação recebida se eles são enviados. Isto inclui cabeçalhos com os prefixos seguintes:
- - X-FD-*
+## <a name="client-to-front-door-service"></a>Cliente ao serviço de porta de entrada
+Serviço de porta de entrada aceita a maioria dos cabeçalhos da solicitação recebida sem modificá-los. Alguns cabeçalhos reservados são removidos da solicitação recebida se enviado, incluindo cabeçalhos com o X - FD-* prefixo.
 
-## <a name="2-front-door-to-backend"></a>2. Porta de entrada para o back-end
+## <a name="front-door-service-to-backend"></a>Serviço de porta de entrada para o back-end
 
-Porta da frente irão incluir os cabeçalhos da solicitação recebida, a menos que eles foram removidos devido a restrições mencionadas acima. Porta de entrada também adicionará os cabeçalhos seguintes:
+Serviço de porta de entrada inclui cabeçalhos a partir de uma solicitação de entrada, a menos que removido devido a restrições. Porta de entrada também adiciona os seguintes cabeçalhos:
 
 | Cabeçalho  | Exemplo e uma descrição |
 | ------------- | ------------- |
-| Através de |  *Via: 1.1 azure* </br> Porta de entrada adiciona seguido de "Azure" como o valor de por meio do cabeçalho de versão do HTTP do cliente. Ele é adicionado para indicar a versão HTTP do cliente e essa porta de entrada do Azure foi um destinatário intermediário para o pedido entre o cliente e o back-end.  |
-| X-Azure-ClientIP | *X-Azure-ClientIP: 127.0.0.1* </br> Representa o endereço de protocolo de Internet de "cliente" associado à solicitação a ser processada. Por exemplo, um pedido proveniente de um proxy pode adicionar o cabeçalho X-reencaminhados-para indicar o endereço IP do chamador original. |
-| X-Azure-SocketIP | *X-Azure-SocketIP: 127.0.0.1* </br> Representa o endereço de protocolo de Internet de soquete associado com a ligação de TCP, a solicitação atual originada. Endereço de IP de cliente de um pedido pode não ser igual ao respetivo endereço IP de Socket porque pode ser arbitrariamente substituída por um usuário final.|
-| X-Azure-Ref | *X-Azure-Ref: 0zxV+XAAAAABKMMOjBv2NT4TY6SQVjC0zV1NURURHRTA2MTkANDM3YzgyY2QtMzYwYS00YTU0LTk0YzMtNWZmNzA3NjQ3Nzgz* </br> Esta é uma cadeia de referência exclusivo que identifica um pedido servido por porta de entrada. É fundamental para resolução de problemas como é usada para pesquisar os registos de acesso.|
-| X-Azure-RequestChain |  *X-Azure-RequestChain: hops=1* </br> Este é um cabeçalho que utiliza a porta de entrada para detetar os loops de pedido e os usuários não devem tomar uma dependência no mesmo. |
-| X-reencaminhados-para | *X-reencaminhados-para: 127.0.0.1* </br> O campo de cabeçalho de X-Forwarded-For (XFF) HTTP é um método comum de identificar o endereço IP de origem de um cliente ligar a um servidor web através de um balanceador de carga ou um proxy HTTP. Se tiver ocorrido um cabeçalho XFF existente, em seguida, a porta da frente acrescenta o IP de soquete do cliente, ao mesmo mais adiciona o cabeçalho XFF com o IP de soquete do cliente. |
-| X-reencaminhados-anfitrião | *X-Forwarded-Host: contoso.azurefd.net* </br> O campo de cabeçalho HTTP X-reencaminhados-anfitrião é um método comum de identificar o anfitrião original solicitado pelo cliente no cabeçalho de pedido HTTP de anfitrião, uma vez que o nome de anfitrião de porta de entrada pode ser diferentes para o servidor de back-end processar a solicitação. |
-| Proto X reencaminhados | *Proto X reencaminhados: http* </br> O campo de cabeçalho HTTP X-reencaminhados-Proto é um método comum de identificar o protocolo de origem de uma solicitação HTTP, uma vez que, dependendo da configuração da porta de entrada podem se comunicar com o back-end através de HTTPS, mesmo que o pedido para o proxy inverso é HTTP. |
+| Através de |  Via: 1.1 azure </br> Porta de entrada adiciona a versão HTTP do cliente seguido *Azure* como o valor para o cabeçalho de Via. Isto indica a versão HTTP do cliente e essa porta de entrada foi um destinatário intermediário para o pedido entre o cliente e o back-end.  |
+| X-Azure-ClientIP | X-Azure-ClientIP: 127.0.0.1 </br> Representa o endereço IP do cliente associado à solicitação a ser processada. Por exemplo, um pedido proveniente de um proxy poderá adicionar o cabeçalho X-reencaminhados-para indicar o endereço IP do chamador original. |
+| X-Azure-SocketIP |  X-Azure-SocketIP: 127.0.0.1 </br> Representa o endereço IP de soquete associado com a ligação de TCP que originou a solicitação atual. Endereço IP do cliente de um pedido pode não ser igual ao respetivo endereço IP de socket porque pode ser arbitrariamente substituída por um utilizador.|
+| X-Azure-Ref |  X-Azure-Ref: 0zxV+XAAAAABKMMOjBv2NT4TY6SQVjC0zV1NURURHRTA2MTkANDM3YzgyY2QtMzYwYS00YTU0LTk0YzMtNWZmNzA3NjQ3Nzgz </br> Uma cadeia de referência exclusivo que identifica um pedido servido por porta de entrada. É utilizado para aceder aos registos de pesquisa e críticas para resolução de problemas.|
+| X-Azure-RequestChain |  X-Azure-RequestChain: hops=1 </br> Um cabeçalho que utiliza a porta de entrada para detetar os loops de pedido e os usuários não devem tomar uma dependência no mesmo. |
+| X-reencaminhados-para | X-reencaminhados-para: 127.0.0.1 </br> O campo de cabeçalho X-Forwarded-For (XFF) HTTP identifica, muitas vezes, o endereço IP de origem de um cliente ligar a um servidor web através de um balanceador de carga ou um proxy HTTP. Se houver um cabeçalho XFF existente, em seguida, porta da frente acrescenta o IP de soquete do cliente para o mesmo ou adiciona o cabeçalho XFF com o IP de soquete do cliente. |
+| X-reencaminhados-anfitrião | X-Forwarded-Host: contoso.azurefd.net </br> O campo de cabeçalho HTTP X-reencaminhados-anfitrião é um método comum usado para identificar o anfitrião original solicitado pelo cliente no cabeçalho do pedido de HTTP de anfitrião. Isto acontece porque o nome de anfitrião de porta de entrada pode ser diferentes para o servidor de back-end processar a solicitação. |
+| Proto X reencaminhados | Proto X reencaminhados: http </br> O campo de cabeçalho HTTP X-reencaminhados-Proto, muitas vezes, é utilizado para identificar o protocolo de origem de uma solicitação HTTP, porque a porta de entrada, com base na configuração, poderá comunicar com o back-end através de HTTPS. Isso vale mesmo que o pedido para o proxy inverso é HTTP. |
 
-## <a name="3-front-door-to-client"></a>3. Porta de entrada para o cliente
+## <a name="front-door-service-to-client"></a>Serviço de porta de entrada para cliente
 
-Seguem-se os cabeçalhos que são enviados do porta de entrada para os clientes. Os cabeçalhos enviados para a porta da frente do back-end são transmitidos para o cliente também.
+Os cabeçalhos enviados para a porta da frente do back-end também são transmitidos para o cliente. Seguem-se os cabeçalhos enviados a partir de porta de entrada para os clientes.
 
 | Cabeçalho  | Exemplo |
 | ------------- | ------------- |
-| X-Azure-Ref |  *X-Azure-Ref: 0zxV+XAAAAABKMMOjBv2NT4TY6SQVjC0zV1NURURHRTA2MTkANDM3YzgyY2QtMzYwYS00YTU0LTk0YzMtNWZmNzA3NjQ3Nzgz* </br> Esta é uma cadeia de referência exclusivo que identifica um pedido servido por porta de entrada. É fundamental para resolução de problemas como é usada para pesquisar os registos de acesso.|
+| X-Azure-Ref |  *X-Azure-Ref: 0zxV+XAAAAABKMMOjBv2NT4TY6SQVjC0zV1NURURHRTA2MTkANDM3YzgyY2QtMzYwYS00YTU0LTk0YzMtNWZmNzA3NjQ3Nzgz* </br> Esta é uma cadeia de referência exclusivo que identifica um pedido servido por porta de entrada. Isto é fundamental para resolução de problemas de como ele é utilizado para aceder aos registos de pesquisa.|
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-- Saiba como [criar um Front Door](quickstart-create-front-door.md).
-- Saiba [como funciona o Front Door](front-door-routing-architecture.md).
+- [Criar uma Porta de Entrada](quickstart-create-front-door.md)
+- [Como funciona a porta de entrada](front-door-routing-architecture.md)
 
 <!--Image references-->
 [1]: ./media/front-door-http-headers-protocol/front-door-protocol-summary.png

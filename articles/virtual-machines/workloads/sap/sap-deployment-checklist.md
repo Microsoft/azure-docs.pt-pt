@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 04/01/2019
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 4ba866ddf79a9970ef3f5c4ff3b7085242a1cdcd
-ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
+ms.openlocfilehash: fef2d42282291bb0ea6afeea03e60234d3d47a4d
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58802801"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58878728"
 ---
 # <a name="sap-workload-on-azure-planning-and-deployment-checklist"></a>Carga de trabalho SAP na lista de verificação de planejamento e implantação do Azure 
 
@@ -39,7 +39,7 @@ Nesta fase, estiver planeada uma migração da carga de trabalho SAP na cloud p�
     2. Criar e trabalhar com uma matriz de atribuição de responsabilidade (RACI) que define as responsabilidades e atribuições das diferentes partes envolvidas. Começar em alto nível e for para o débito de níveis mais granular, as implementações de planejamento e a primeira
     2. Uma arquitetura de solução de alto nível
     3. Decisão sobre regiões do Azure para implementar numa. Para obter uma lista de regiões do Azure, consulte a [regiões do Azure](https://azure.microsoft.com/global-infrastructure/regions/). Para os serviços disponíveis em cada uma das regiões do Azure, consulte o artigo [produtos disponíveis por região](https://azure.microsoft.com/global-infrastructure/services/)
-    4. Arquitetura para ligar a partir do local para o Azure de rede. Começar a se tornar familiarizado com o [esquema do Virtual Datacenter do Azure](https://docs.microsoft.com/azure/architecture/vdc/)
+    4. Arquitetura para se ligar no local para o Azure de rede. Começar a se tornar familiarizado com o [esquema do Virtual Datacenter do Azure](https://docs.microsoft.com/azure/architecture/vdc/)
     5. Princípios de segurança para a execução de dados de impacto comercial de elevada no Azure. Para a leitura de início de material com [documentação de segurança do Azure](https://docs.microsoft.com/azure/security/)
 2.  Documento técnico de Design – que contém:
     1.  Um diagrama de bloco de solução 
@@ -60,7 +60,7 @@ Nesta fase, estiver planeada uma migração da carga de trabalho SAP na cloud p�
         2.  Para elevada disponibilidade na mesma zona, verifique que o DBMS pretendido tem a oferecer no Azure. A maioria dos DBMS oferecer métodos síncronos, de um síncrono modo de espera ativo, que recomendamos para sistemas de produção. Também verificação do SAP relacionados com a documentação para as diferentes bases de dados a partir [considerações para a implementação de DBMS de máquinas virtuais do Azure para a carga de trabalho do SAP](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/dbms_guide_general) e relacionados a documentos
             1.  Utilizar o serviço de Cluster de ativação pós-falha do Windows com a configuração de disco partilhado para a camada do DBMS como, por exemplo, descrito para o SQL Server [aqui](https://docs.microsoft.com/sql/sql-server/failover-clusters/windows/always-on-failover-cluster-instances-sql-server?view=sql-server-2017) é **não** suportado. Em vez disso, soluções como:
                 1.  [SQL Server AlwaysOn](https://docs.microsoft.com/azure/virtual-machines/windows/sqlclassic/virtual-machines-windows-classic-ps-sql-alwayson-availability-groups) 
-                2.  [Proteção de dados Oracle](https://docs.microsoft.com/azure/virtual-machines/workloads/oracle/configure-oracle-dataguard)
+                2.  [Proteção de Dados Oracle](https://docs.microsoft.com/azure/virtual-machines/workloads/oracle/configure-oracle-dataguard)
                 3.  [Replicação do sistema HANA](https://help.sap.com/viewer/6b94445c94ae495c83a19646e7c3fd56/2.0.01/en-US/b74e16a9e09541749a745f41246a065e.html)
         3.  Recuperação de desastres em diferentes regiões do Azure, verifique as possibilidades são oferecidas por fornecedores diferentes DBMS. A maioria dos editores suporta replicação assíncrona ou envio de log
         4.  Para a camada de aplicação SAP, defina se, deverá executar seu regressão comerciais a sistemas de teste, que são o ideal é que as réplicas das suas implementações de produção, na mesma região do Azure ou sua região de DR. No último caso, pode direcionar desse sistema de regressão de negócio como destino de DR para a produção
@@ -87,7 +87,7 @@ Nesta fase, estiver planeada uma migração da carga de trabalho SAP na cloud p�
  
 O piloto pode ser executado antes ou em paralelo para planejamento de projetos e preparação. A fase também pode ser utilizada para testar abordagens e design feitas na fase de planejamento e preparação. A fase piloto pode ser transferida para uma verdadeira prova de conceitos. Recomenda-se para configurar e validar uma solução completa de HA/DR, bem como o design de segurança durante uma implantação piloto. Em alguns casos de cliente, testes de escalabilidade também podem ser conduzidos de nesta fase. Outros clientes utilizam a implementação de sistemas de proteção de segurança do SAP como fase piloto. Portanto, partimos do princípio de que identificou um sistema que pretende migrar para o Azure com o objetivo de executar um piloto.
 
-1. Otimize a transferência de dados para o Azure. Altamente dependente de transferência de casos de clientes por meio [Azure ExpressRoute](https://azure.microsoft.com/services/expressroute/) do local foi mais rápida, se tivesse do circuito de largura de banda suficiente. Com outros clientes, vai através da internet percebeu para ser mais rápida
+1. Otimize a transferência de dados para o Azure. Altamente dependente de transferência de casos de clientes por meio [Azure ExpressRoute](https://azure.microsoft.com/services/expressroute/) locais era mais rápido se tivesse do circuito de largura de banda suficiente. Com outros clientes, vai através da internet percebeu para ser mais rápida
 2. Em caso de uma migração de plataforma heterogêneos do SAP, que envolve uma exportação e importação de banco de dados, testar e otimizar a exportar e importar fases. Para grandes migrações entre o SQL Server como a plataforma de destino, recomendações podem ser encontradas [aqui](https://techcommunity.microsoft.com/t5/Running-SAP-Applications-on-the/SAP-OS-DB-Migration-to-SQL-Server-8211-FAQ-v6-2-April-2017/ba-p/368070). Pode demorar a abordagem de migração de Monitor/SWPM no caso de não precisar de uma atualização de versão combinada ou [SAP DMO](https://blogs.sap.com/2013/11/29/database-migration-option-dmo-of-sum-introduction/) processar ao combinar a migração com uma atualização de versão do SAP e satisfazer determinada plataforma DBMS de origem e destino combinações como documentado, por exemplo, no [opção de migração da base de dados (DMO) de soma 2.0 SP03](https://launchpad.support.sap.com/#/notes/2631152). 
    1.  Exportar a origem, de carregamento de ficheiros de exportação para o desempenho do Azure e importar.  Maximizar a sobreposição entre exportação e importação
    2.  Avalie o volume da base de dados entre a plataforma de destino e de destino de modo a refletirem ao dimensionamento de infraestrutura    
@@ -159,7 +159,7 @@ O piloto pode ser executado antes ou em paralelo para planejamento de projetos e
 6. Testes de Desempenho
    1.  No SAP com base nas medições e de rastreio de SAP, comparar relatórios online de 10 principais para a implementação atual, quando aplicável 
    2.  No SAP com base nas medições e de rastreio de SAP, comparar tarefas de lote de 10 principais para a implementação atual, quando aplicável 
-   3.  No SAP com base nas medições e de rastreio de SAP, compare as transferências de dados por meio de interfaces no sistema SAP. Concentre-se nas interfaces em que sabe que a transferência será agora entre diferentes localizações, como a mudança a partir do local para o Azure 
+   3.  No SAP com base nas medições e de rastreio de SAP, compare as transferências de dados por meio de interfaces no sistema SAP. Concentre-se nas interfaces em que sabe que a transferência será agora entre diferentes localizações, como a mudança do local para o Azure 
 
 
 ## <a name="non-production-phase"></a>Fase de não produção 

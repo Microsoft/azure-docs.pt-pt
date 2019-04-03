@@ -15,12 +15,12 @@ ms.devlang: powershell
 ms.topic: sample
 ms.date: 11/07/2017
 ms.author: fryu
-ms.openlocfilehash: 805abec84b26a6b2b9af3dfe318f877f4edb9547
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 02b4cfcc6d88430701f653665269532a4eb7092f
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58080901"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58880768"
 ---
 # <a name="calculate-the-total-billing-size-of-a-blob-container"></a>Calcular o tamanho total de faturação de um contentor de BLOBs
 
@@ -43,11 +43,11 @@ As seções a seguir descreve como a capacidade de armazenamento é calculada pa
 
 O cálculo seguinte descreve como estimar a quantidade de armazenamento é consumido por contentor de BLOBs:
 
-`
+```
 48 bytes + Len(ContainerName) * 2 bytes +
 For-Each Metadata[3 bytes + Len(MetadataName) + Len(Value)] +
 For-Each Signed Identifier[512 bytes]
-`
+```
 
 Segue-se a análise detalhada:
 * 48 bytes de overhead para cada contentor inclui a hora da última modificação, permissões, as definições de público e alguns metadados do sistema.
@@ -64,22 +64,22 @@ Os cálculos seguintes mostram como estimar a quantidade de armazenamento consum
 
 * Blob de blocos (ou instantâneo de blob de base):
 
-   `
+   ```
    124 bytes + Len(BlobName) * 2 bytes +
    For-Each Metadata[3 bytes + Len(MetadataName) + Len(Value)] +
    8 bytes + number of committed and uncommitted blocks * Block ID Size in bytes +
    SizeInBytes(data in unique committed data blocks stored) +
    SizeInBytes(data in uncommitted data blocks)
-   `
+   ```
 
 * Blob de página (blob de base ou instantâneo):
 
-   `
+   ```
    124 bytes + Len(BlobName) * 2 bytes +
    For-Each Metadata[3 bytes + Len(MetadataName) + Len(Value)] +
    number of nonconsecutive page ranges with data * 12 bytes +
    SizeInBytes(data in unique pages stored)
-   `
+   ```
 
 Segue-se a análise detalhada:
 

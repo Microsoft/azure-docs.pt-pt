@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 01/03/2019
 ms.author: seguler
 ms.subservice: common
-ms.openlocfilehash: d28ea2972b8b73921bb078d8570afe9a6dffce8f
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 6ae3ec566c05d2460747439d61c87c995a90b19c
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55461782"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58881737"
 ---
 # <a name="transfer-data-with-the-azcopy-on-windows"></a>Transferir dados com o AzCopy no Windows
 O AzCopy é um utilitário de linha de comandos concebido para copiar dados de/para armazenamento de Blobs do Microsoft Azure, arquivo e tabela, usando comandos concebidos para otimizar o desempenho. Pode copiar dados entre um sistema de ficheiros e uma conta de armazenamento ou entre contas de armazenamento.  
@@ -57,7 +57,7 @@ Vamos dar uma olhada em várias formas para transferir blobs com o AzCopy.
 AzCopy /Source:https://myaccount.blob.core.windows.net/mycontainer /Dest:C:\myfolder /SourceKey:key /Pattern:"abc.txt"
 ```
 
-Tenha em atenção que, se a pasta `C:\myfolder` não existir, o AzCopy cria-lo e a transferência `abc.txt ` na nova pasta.
+Tenha em atenção que, se a pasta `C:\myfolder` não existir, o AzCopy cria-lo e a transferência `abc.txt` na nova pasta.
 
 ### <a name="download-a-single-blob-from-the-secondary-region"></a>Transferir um blob único da região secundária
 
@@ -851,7 +851,7 @@ Atributos disponíveis incluem:
 
 Indica o caractere de delimitador usado para delimitar os diretórios virtuais num nome de blob.
 
-Por predefinição, utiliza AzCopy / como caráter delimitador. No entanto, o AzCopy suporta a utilização de qualquer caractere comuns (por exemplo, @, # ou %) como delimitador. Se tiver de incluir um destes carateres especiais na linha de comando, coloque o nome de ficheiro com aspas duplas.
+Por predefinição, utiliza AzCopy / como caráter delimitador. No entanto, o AzCopy suporta a utilização de qualquer caractere comuns (por exemplo, @, #, ou %) como um delimitador. Se tiver de incluir um destes carateres especiais na linha de comando, coloque o nome de ficheiro com aspas duplas.
 
 Esta opção só é aplicável para transferir blobs.
 
@@ -993,7 +993,7 @@ Para obter mais informações sobre o Armazenamento do Azure e o AzCopy, veja os
 * [Como utilizar o armazenamento de ficheiros do .NET](../storage-dotnet-how-to-use-files.md)
 * [Como utilizar o armazenamento de tabelas do .NET](../../cosmos-db/table-storage-how-to-use-dotnet.md)
 * [Como criar, gerir ou eliminar uma conta de armazenamento](../storage-create-storage-account.md)
-* [Transferir dados com o AzCopy no Linux](storage-use-azcopy-linux.md)
+* [Transferir dados com AzCopy no Linux](storage-use-azcopy-linux.md)
 
 ### <a name="azure-storage-blog-posts"></a>Postagens de blog de armazenamento do Azure:
 * [Introdução ao pré-visualização de biblioteca do movimento de dados de armazenamento do Azure](https://azure.microsoft.com/blog/introducing-azure-storage-data-movement-library-preview-2/)

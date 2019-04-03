@@ -9,20 +9,20 @@ ms.reviewer: jasonwhowell
 ms.assetid: c1c74e5e-3e4a-41ab-9e3f-e9085da1d315
 ms.topic: conceptual
 ms.date: 06/20/2017
-ms.openlocfilehash: 5d10d4d603312b3c75760a5d7c17a9028ddecea8
-ms.sourcegitcommit: c31a2dd686ea1b0824e7e695157adbc219d9074f
+ms.openlocfilehash: 59a52b2aeb83732a608f1fcf5bc4de907d25dfd1
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/18/2019
-ms.locfileid: "54401220"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58885031"
 ---
 # <a name="extend-u-sql-scripts-with-r-code-in-azure-data-lake-analytics"></a>Expandir scripts U-SQL com o código de R no Azure Data Lake Analytics
 
 O exemplo seguinte ilustra as etapas básicas para implementar o código R:
 * Utilize o `REFERENCE ASSEMBLY` instrução para ativar extensões R para o Script de U-SQL.
-* Utilize o` REDUCE` operação para os dados de entrada numa chave de partição.
+* Utilize o `REDUCE` operação para os dados de entrada numa chave de partição.
 * As extensões de R do U-SQL incluem um reducer incorporada (`Extension.R.Reducer`) que executa o código de R em cada vértice atribuído para o reducer. 
-* Utilização de dedicado com o nome quadros de dados chamados `inputFromUSQL` e `outputToUSQL `, respetivamente, para passar dados entre o U-SQL e R. entrada e saída foram corrigidos os nomes de identificador de pacote de dados (ou seja, os utilizadores não podem alterar esses nomes predefinidos de entrada e saída DataFrame identificadores).
+* Utilização de dedicado com o nome quadros de dados chamados `inputFromUSQL` e `outputToUSQL` , respetivamente, para passar dados entre o U-SQL e R. entrada e saída foram corrigidos os nomes de identificador de pacote de dados (ou seja, os utilizadores não podem alterar esses nomes predefinidos de entrada e saída DataFrame identificadores).
 
 ## <a name="embedding-r-code-in-the-u-sql-script"></a>Incorporar o código R no script de U-SQL
 
@@ -208,5 +208,5 @@ Em primeiro lugar, crie um módulo personalizado de R e zip-lo e, em seguida, ca
 
 ## <a name="next-steps"></a>Próximos Passos
 * [Descrição geral do Microsoft Azure Data Lake Analytics](data-lake-analytics-overview.md)
-* [Desenvolver scripts U-SQL com as Ferramentas do Data Lake para Visual Studio](data-lake-analytics-data-lake-tools-get-started.md)
+* [Desenvolver scripts U-SQL com as Ferramentas do Data Lake para Visual Studio | Azure](data-lake-analytics-data-lake-tools-get-started.md)
 * [Usando as funções de janela de U-SQL para tarefas de Azure Data Lake Analytics](data-lake-analytics-use-window-functions.md)

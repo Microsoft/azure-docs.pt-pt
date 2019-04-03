@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: pbutlerm
-ms.openlocfilehash: 31a800e851eb8a2f533cc8170856b16cd43c21cf
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 2a8ae3ab71b258d92d9761cc813b168717e44d82
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57850722"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58878014"
 ---
 # <a name="lead-management-instructions-for-azure-table"></a>Levar as instruções de gestão para a tabela do Azure
 
@@ -34,7 +34,7 @@ Este artigo descreve como configurar tabelas do Azure para armazenar oportunidad
 
     ![Passos para criar uma conta de armazenamento do Azure](./media/cloud-partner-portal-lead-management-instructions-azure-table/azurestoragecreate.png)
 
-4.  Copie a cadeia de ligação de conta de armazenamento para a chave e cole-o para o **cadeia de ligação de conta de armazenamento** campo no Portal de parceiros de nuvem. É um exemplo de um sting de ligação `DefaultEndpointsProtocol=https;AccountName=myAccountName;AccountKey=myAccountKey;EndpointSuffix=core.windows.net `
+4.  Copie a cadeia de ligação de conta de armazenamento para a chave e cole-o para o **cadeia de ligação de conta de armazenamento** campo no Portal de parceiros de nuvem. É um exemplo de um sting de ligação `DefaultEndpointsProtocol=https;AccountName=myAccountName;AccountKey=myAccountKey;EndpointSuffix=core.windows.net`
     
     ![Chave de armazenamento do Azure](./media/cloud-partner-portal-lead-management-instructions-azure-table/azurestoragekeys.png)
 

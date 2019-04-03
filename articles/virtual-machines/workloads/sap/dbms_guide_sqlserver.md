@@ -1,6 +1,6 @@
 ---
 title: Implementação de DBMS de máquinas virtuais do SQL Server do Azure para a carga de trabalho do SAP | Documentos da Microsoft
-description: Implementação de DBMS de máquinas virtuais do SQL Server do Azure para a carga de trabalho do SAP
+description: Implementação em SQL Server do DBMS para Máquinas Virtuais do Azure para a carga de trabalho SAP
 services: virtual-machines-linux,virtual-machines-windows
 documentationcenter: ''
 author: msjuergent
@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 09/26/2018
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: aac7ca7aa67143f89d9247da879a6fad2cfbb7b5
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 0c12c75bd5c357613d55e04aed67c0cc901135e6
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57992482"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58881091"
 ---
 # <a name="sql-server-azure-virtual-machines-dbms-deployment-for-sap-netweaver"></a>Implementação de DBMS de máquinas virtuais do SQL Server do Azure para SAP NetWeaver
 
@@ -235,7 +235,6 @@ ms.locfileid: "57992482"
 [planning-guide-microsoft-azure-networking]:planning-guide.md#61678387-8868-435d-9f8c-450b2424f5bd 
 [planning-guide-storage-microsoft-azure-storage-and-data-disks]:planning-guide.md#a72afa26-4bf4-4a25-8cf7-855d6032157f 
 
-[powershell-install-configure]:https://docs.microsoft.com/powershell/azure/azurerm/install-azurerm-ps
 [resource-group-authoring-templates]:../../../resource-group-authoring-templates.md
 [resource-group-overview]:../../../azure-resource-manager/resource-group-overview.md
 [resource-groups-networking]:../../../networking/networking-overview.md
@@ -316,7 +315,7 @@ Este documento aborda várias áreas diferentes a serem considerados ao implemen
 
 
 > [!IMPORTANT]
-> O âmbito deste documento é a versão do Windows no SQL Server. SAP não está a suportar a versão do Linux do SQL Server com qualquer uma do software SAP. O documento não ensina base de dados do SQL do Azure de Microsoft, que é uma plataforma como uma oferta de serviço da plataforma Microsoft Azure. A discussão neste artigo é sobre a execução do produto SQL Server que é conhecido por implementações no local nas máquinas virtuais do Azure, tirando partido da infraestrutura como um recurso de serviço do Azure. Capacidades de base de dados e de funcionalidades entre estas duas ofertas são diferentes e não devem misturar entre si. Consulte também: <https://azure.microsoft.com/services/sql-database/>
+> O âmbito deste documento é a versão do Windows no SQL Server. SAP não está a suportar a versão do Linux do SQL Server com qualquer uma do software SAP. O documento não ensina base de dados do SQL do Azure de Microsoft, que é uma plataforma como uma oferta de serviço da plataforma Microsoft Azure. A discussão neste artigo é sobre a execução do produto SQL Server que é conhecido por implementações no local nas máquinas virtuais do Azure, tirando partido da infraestrutura como um recurso de serviço do Azure. Capacidades de base de dados e de funcionalidades entre estas duas ofertas são diferentes e não devem misturar entre si. Veja também: <https://azure.microsoft.com/services/sql-database/>
 > 
 >
 
@@ -477,7 +476,7 @@ Um dos métodos de elevada disponibilidade (HA) é o envio de registo do SQL Ser
 Funcionalidade de envio de registos do SQL Server foi mal utilizado no Azure para assegurar elevada disponibilidade numa região do Azure. No entanto nos seguintes cenários os clientes SAP estavam usando o envio de log com êxito em conjunto com o Azure:
 
 - Cenários de recuperação após desastre de uma região do Azure para outra região do Azure
-- Configuração de recuperação após desastre do local para uma região do Azure
+- Configuração de recuperação após desastre no local para uma região do Azure
 - Cenários de cortar a ativação pós-falha do local para o Azure. Nesses casos, o envio de log é usado para sincronizar a nova implementação de DBMS no Azure com o produção em curso sistema no local. No momento da cutting sobre, produção é desligada e ela se torna-se de que os backups de log de transação de última e mais recente foi transferidos para a implementação de DBMS de Azure. Em seguida, a implementação de DBMS do Azure é aberta para produção.  
 
 
@@ -525,13 +524,13 @@ Existe um número de clientes que estão a utilizar o SQL Server [encriptação 
 ### <a name="applying-sql-server-tde"></a>Aplicar a TDE do SQL Server
 Em casos onde efetuar uma migração heterogênea do outro DBMS, em execução no local, para Windows e do SQL Server em execução no Azure, deve criar sua base de dados vazio de destino no SQL Server antes do tempo. Como passo seguinte, aplicaria funcionalidade do SQL Server TDE. Enquanto ainda estão em execução em sua produção sistema no local. Motivo que deseja realizar nesta sequência é que o processo de criptografar o banco de dados vazio pode demorar um pouco. Os processos da importação SAP seriam, em seguida, importar os dados no banco de dados encriptado durante a fase de tempo de inatividade. A sobrecarga da importação para uma base de dados encriptado tem um impacto de tempo nisso mais baixo que a encriptação da base de dados após a fase de exportação na para baixo a fase de tempo. Negativo experiências onde feitas ao tentar aplicar a TDE com carga de trabalho SAP em execução na parte superior da base de dados. Por conseguinte, a recomendação está tratando a implementação de TDE como uma atividade que precisa ser feito sem carga de trabalho SAP na base de dados específico.
 
-Em casos onde mover bases de dados SAP SQL Server do local para o Azure, recomendamos que teste na infraestrutura de que pode obter a criptografia aplicada mais rápida. Para isso ter esses fatos em mente:
+Em casos onde mover bases de dados SAP SQL Server no local para o Azure, recomendamos que teste na infraestrutura de que pode obter a criptografia aplicada mais rápida. Para isso ter esses fatos em mente:
 
 - Não é possível definir o número de threads são utilizados para aplicar a encriptação de dados na base de dados. O número de threads é majorly depende do número de volumes de disco, que os arquivos de dados e de registo do SQL Server são distribuídos por. Significa que os volumes distintos (letras de unidade), mais threads serão envolvidos em paralelo para efetuar a encriptação. Essa configuração menos forte contradiz um pouco com a sugestão de configuração do disco anterior sobre a criação de um ou um número menor de espaços de armazenamento para os ficheiros de base de dados do SQL Server em VMs do Azure. Uma configuração com um pequeno número de volumes poderia levar a um pequeno número de threads executando a encriptação. Encriptar um único thread está lendo as extensões de 64KB, encripta-lo e, em seguida, escreve um registo no ficheiro de registo de transação, informando que a extensão foi encriptada. Como resultado, a carga no log de transação é moderada.
 - Em versões mais antigas do SQL Server, compactação de backup não obtiveram eficiência mais quando criptografou a sua base de dados do SQL Server. Esse comportamento poderia desenvolver num problema quando o seu plano foi encriptar o seu SQL Server da base de dados no local e, em seguida, copie uma cópia de segurança para o Azure para restaurar a base de dados no Azure. Compressão de cópias de segurança do SQL Server, normalmente, atinge uma taxa de compressão de fator de 4.
 - Com o SQL Server 2016, o SQL Server introduziu novas funcionalidades que permite a compactação de bases de dados encriptadas também de uma forma eficiente. Ver [este blogs](https://blogs.msdn.microsoft.com/sqlcat/2016/06/20/sqlsweet16-episode-1-backup-compression-for-tde-enabled-databases/) para alguns detalhes.
  
-Tratar o aplicativo da encriptação TDE sem nenhum pouco SAP carga de trabalho apenas, deve testar em sua configuração específica de se é melhor para aplicar a TDE para seu SAP da base de dados no local ou para fazê-lo no Azure. No Azure, certamente terá mais flexibilidade em termos de infraestrutura de excesso de aprovisionamento e diminuir a infraestrutura após TDE foi aplicada.
+Tratar o aplicativo da encriptação TDE sem nenhum pouco SAP carga de trabalho apenas, deve testar em sua configuração específica de se é melhor para aplicar a TDE para SAP da base de dados no local ou para fazê-lo no Azure. No Azure, certamente terá mais flexibilidade em termos de infraestrutura de excesso de aprovisionamento e diminuir a infraestrutura após TDE foi aplicada.
 
 ### <a name="using-azure-key-vault"></a>Com o Azure Key Vault
 O Azure oferece o serviço de um [Key Vault](https://azure.microsoft.com/services/key-vault/) para armazenar chaves de encriptação. SQL Server no outro lado oferecem um conector para tirar partido do Cofre de chaves do Azure como armazenamento para certificados TDE.

@@ -3,21 +3,21 @@ title: Copiar dados dos Blobs de armazenamento do Azure para a geração 1 de ar
 description: Utilize a ferramenta de AdlCopy para copiar dados dos Blobs de armazenamento do Azure para geração 1 de armazenamento do Azure Data Lake
 services: data-lake-store
 documentationcenter: ''
-author: nitinme
-manager: jhubbard
+author: twooley
+manager: mtillman
 editor: cgronlun
 ms.assetid: dc273ef8-96ef-47a6-b831-98e8a777a5c1
 ms.service: data-lake-store
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/29/2018
-ms.author: nitinme
-ms.openlocfilehash: 5049e280b65a9f223ea577ee4fde973657682b4c
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.author: twooley
+ms.openlocfilehash: be66fd51b37c0e62b2b757a88ee1db9319b2093a
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57544651"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58879816"
 ---
 # <a name="copy-data-from-azure-storage-blobs-to-azure-data-lake-storage-gen1"></a>Copiar dados dos Blobs de armazenamento do Azure para a geração 1 de armazenamento do Azure Data Lake
 > [!div class="op_single_selector"]
@@ -179,6 +179,6 @@ AdlCopy suporta a cópia de dados que contêm milhares de arquivos e pastas. No 
 * 1.0.13 - se estiver a copiar dados para a mesma conta de geração 1 de armazenamento do Azure Data Lake em vários comandos de adlcopy, não terá de reintroduzir as suas credenciais para cada execução deixa de poder. Adlcopy agora colocará em cache essas informações nas várias execuções.
 
 ## <a name="next-steps"></a>Passos Seguintes
-* [Proteger dados no Armazenamento do Data Lake Ger1](data-lake-store-secure-data.md)
+* [Proteger os dados na geração 1 de armazenamento do Data Lake](data-lake-store-secure-data.md)
 * [Utilizar o Azure Data Lake Analytics com o Data Lake Storage Gen1](../data-lake-analytics/data-lake-analytics-get-started-portal.md)
 * [Utilizar o Azure HDInsight com Data Lake Storage Gen1](data-lake-store-hdinsight-hadoop-use-portal.md)

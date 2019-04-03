@@ -7,12 +7,12 @@ ms.service: firewall
 ms.topic: tutorial
 ms.date: 10/24/2018
 ms.author: victorh
-ms.openlocfilehash: 2befbf66733430e6077f5e5ff3044c30a77b7e5c
-ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
+ms.openlocfilehash: 10837730bea17f98083f456ec4c9fb0d7567af57
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56958988"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58877266"
 ---
 # <a name="tutorial-monitor-azure-firewall-logs-and-metrics"></a>Tutorial: Monitorizar métricas e registos de Firewall do Azure
 
@@ -41,7 +41,7 @@ Antes de iniciar este tutorial, deve ler as [métricas e registos do Azure Firew
 Pode demorar alguns minutos até que os dados sejam apresentados nos seus registos, depois de concluir este procedimento para ativar o registo de diagnósticos. Se não vir nada inicialmente, verifique novamente passado alguns minutos.
 
 1. No portal do Azure, abra o grupo de recursos da firewall e clique na firewall.
-2. Em **Monitorização**, clique em **Registos de diagnóstico**.
+2. Sob **monitorização**, clique em **das definições de diagnóstico**.
 
    No Azure Firewall, estão disponíveis dois registos específicos do serviço:
 
@@ -57,7 +57,7 @@ Pode demorar alguns minutos até que os dados sejam apresentados nos seus regist
 9. Na página **Área de trabalho do Log Analytics**, escreva **firewall-oms** como o novo nome da **Área de trabalho do Log Analytics**.
 10. Selecione a sua subscrição, utilize o grupo de recursos de firewall existente (**Test-FW-RG**), selecione **E.U.A. Leste** como localização e selecione o escalão de preço **Gratuito**.
 11. Clique em **OK**.
-   ![Iniciar o processo de configuração][1] As áreas de trabalho do OMS são agora referidas como áreas de trabalho do Log Analytics.  
+   ![Iniciar o processo de configuração][1] áreas de trabalho do OMS são agora referidas como áreas de trabalho do Log Analytics.  
 12. Em **Registo**, clique em **AzureFirewallApplicationRule** e **AzureFirewallNetworkRule** para recolher registos para as regras de aplicação e de rede.
    ![Guardar as definições de diagnóstico][2]
 13. Clique em **Guardar**.

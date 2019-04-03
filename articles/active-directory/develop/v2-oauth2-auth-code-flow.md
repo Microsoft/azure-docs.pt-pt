@@ -18,12 +18,12 @@ ms.author: celested
 ms.reviewer: hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 698dc61d42adb398376161480cf4d32180846c48
-ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
+ms.openlocfilehash: 0350db37e13101d315937840fdcf3d9900e214d5
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2019
-ms.locfileid: "58577599"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58880270"
 ---
 # <a name="v20-protocols---oauth-20-authorization-code-flow"></a>Protocolos de v2.0 - fluxo de código de autorização de OAuth 2.0
 
@@ -181,7 +181,7 @@ Uma resposta com êxito de token terá o seguinte aspeto:
 |---------------|------------------------------|
 | `access_token`  | O token de acesso solicitado. A aplicação pode utilizar este token para autenticar para o recurso protegido, como uma API web.  |
 | `token_type`    | Indica o valor de tipo de token. O único tipo que o Azure AD suporta é portador |
-|` expires_in`    | O tempo que o token de acesso é válido (em segundos). |
+| `expires_in`    | O tempo que o token de acesso é válido (em segundos). |
 | `scope`         | Os âmbitos que o access_token é válido para. |
 | `refresh_token` | Um token de atualização de OAuth 2.0. A aplicação pode utilizar este token adquirir os tokens de acesso adicionais depois do token de acesso atual expira. Refresh_tokens são vida longa e pode ser utilizado para manter o acesso aos recursos por longos períodos de tempo. Para obter mais detalhes sobre como atualizar um token de acesso, consulte a [secção abaixo](#refresh-the-access-token). <br> **Nota:** Só será fornecido se `offline_access` âmbito foi pedido. |
 | `id_token`      | Um JSON Web tokens (JWT). A aplicação pode decodificar os segmentos deste token solicite informações sobre o utilizador que iniciou sessão. A aplicação pode armazenar em cache os valores e exibi-los, mas não deverá confiar nos mesmos para qualquer autorização ou limites de segurança. Para obter mais informações sobre id_tokens, consulte a [ `id_token reference` ](id-tokens.md). <br> **Nota:** Só será fornecido se `openid` âmbito foi pedido. |

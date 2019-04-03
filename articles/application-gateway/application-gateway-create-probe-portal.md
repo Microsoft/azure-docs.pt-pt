@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/26/2017
 ms.author: victorh
-ms.openlocfilehash: 8e98b50e936ba97881e2937a50eb474d57a24a05
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 90d576fd00a39f7e871cbe0922ce131dfbe38ff0
+ms.sourcegitcommit: d83fa82d6fec451c0cb957a76cfba8d072b72f4f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58107768"
+ms.lasthandoff: 04/02/2019
+ms.locfileid: "58862170"
 ---
 # <a name="create-a-custom-probe-for-application-gateway-by-using-the-portal"></a>Criar uma sonda personalizada para o Gateway de aplicação com o portal
 
@@ -51,13 +51,13 @@ As pesquisas são configuradas num processo de dois passos através do portal. A
 
    |**Definição** | **Valor** | **Detalhes**|
    |---|---|---|
-   |**Nome**|customProbe|Este valor é um nome amigável para a sonda que seja acessível no portal.|
+   |**Name**|customProbe|Este valor é um nome amigável para a sonda que seja acessível no portal.|
    |**Protocolo**|HTTP ou HTTPS | O protocolo que usa a sonda de estado de funcionamento.|
    |**Anfitrião**|ou seja contoso.com|Este valor é o nome de anfitrião que é utilizado para a sonda. Aplicável apenas quando vários sites está configurada no Gateway de aplicação, caso contrário, utilize "127.0.0.1". Este valor é diferente do nome de anfitrião VM.|
-   |**Caminho**|/ ou outro caminho|O restante do url completo para a sonda personalizada. Um caminho válido começa com "/". Para o caminho predefinido de http://contoso.com simplesmente usar '/' |
+   |**Caminho**|/ ou outro caminho|O restante do url completo para a sonda personalizada. Um caminho válido começa com "/". Para o caminho predefinido de http:\//contoso.com simplesmente usar '/' |
    |**Intervalo (seg)**|30|A frequência com que a sonda é executada para verificar a existência de estado de funcionamento. Não é recomendado para definir o inferior a 30 segundos.|
    |**Tempo limite (segundos)**|30|A quantidade de tempo que a sonda tem de aguardar que o tempo limite. O intervalo de tempo limite tem de ser suficientemente alto para que uma chamada http pode ser feita para garantir que a página de estado de funcionamento do back-end está disponível.|
-   |**Limiar de mau estado de funcionamento**|3|Número de tentativas falhadas para ser considerado em mau estado de funcionamento. Limiar de 0 significa que se uma verificação de estado de funcionamento falhar back-end é determinado mau estado de funcionamento imediatamente.|
+   |**Limiar com funcionamento incorreto**|3|Número de tentativas falhadas para ser considerado em mau estado de funcionamento. Limiar de 0 significa que se uma verificação de estado de funcionamento falhar back-end é determinado mau estado de funcionamento imediatamente.|
 
    > [!IMPORTANT]
    > O nome do anfitrião não é o mesmo nome de servidor. Este valor é o nome do anfitrião virtual em execução no servidor de aplicativos. A sonda é enviada para http://(host name):(port from httpsetting)/urlPath

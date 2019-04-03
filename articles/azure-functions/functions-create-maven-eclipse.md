@@ -12,17 +12,14 @@ ms.topic: conceptual
 ms.date: 07/01/2018
 ms.author: jehollan
 ms.custom: mvc, devcenter
-ms.openlocfilehash: 3cab94744a2ab87dce0a145665e957e1fed0dd2f
-ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
+ms.openlocfilehash: 123a24eb13de584d8e3b70d0d8b1173f583867c1
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/12/2018
-ms.locfileid: "49167550"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58881431"
 ---
-# <a name="create-your-first-function-with-java-and-eclipse-preview"></a>Criar a primeira função com o Java e Eclipse (pré-visualização)
-
-> [!NOTE] 
-> O Java para as Funções do Azure encontra-se atualmente em pré-visualização.
+# <a name="create-your-first-function-with-java-and-eclipse"></a>Criar a primeira função com o Java e o Eclipse 
 
 Este artigo mostra-lhe como criar uma [sem servidor](https://azure.microsoft.com/solutions/serverless/) projeto de função com o IDE do Eclipse e o Apache Maven, testar e depurá-lo, em seguida, implementá-la para as funções do Azure. 
 
@@ -52,7 +49,7 @@ Para desenvolver uma aplicação de funções do Azure com Java e o Eclipse, tem
 1. Selecione **adicionar Mvn** e adicione as entradas para o [do azure-funções-mvn](https://mvnrepository.com/artifact/com.microsoft.azure/azure-functions-archetype).
     - ID do grupo de mvn: com.microsoft.azure
     - ID do artefacto mvn: azure-funções-mvn
-    - Versão: Versão mais recente com uma utilização partir [o repositório central](https://mvnrepository.com/artifact/com.microsoft.azure/azure-functions-archetype)
+    - Versão: Utilizar a versão mais recente do [o repositório central](https://mvnrepository.com/artifact/com.microsoft.azure/azure-functions-archetype)
     ![criar Eclipse Maven](media/functions-create-first-java-eclipse/functions-create-eclipse.png)  
 1. Clique em **OK** e introduza os detalhes do projeto atual e, eventualmente, **concluir**.
 

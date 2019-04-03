@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 03/19/2019
 ms.author: sachdevaswati
-ms.openlocfilehash: 48a0400a471e06f65c1d548b7c1c419a1cb198bd
-ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
+ms.openlocfilehash: 8d6323c73e5313a29b7b0df09ebdd24a190879f5
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58284583"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58876433"
 ---
 # <a name="faq-about-sql-server-databases-that-are-running-on-an-azure-vm-backup"></a>FAQ sobre bases de dados do SQL Server em execução numa cópia de segurança de VM do Azure
 
@@ -42,7 +42,7 @@ Auto-tratá-lo como um recurso está ativado para todos os utilizadores por padr
 Sim. Pode limitar a taxa em que a política de cópia de segurança é executado para minimizar o impacto numa instância do SQL Server. Para alterar a definição:
 1. Na instância do SQL Server, na *C:\Program c:\programas\azure carga de trabalho Backup\bin* pasta, criar o *ExtensionSettingsOverrides.json* ficheiro.
 2. Na *ExtensionSettingsOverrides.json* de ficheiros, alterar a **DefaultBackupTasksThreshold** na definição de um valor inferior (por exemplo, 5). <br>
-  ` {"DefaultBackupTasksThreshold": 5}`
+  `{"DefaultBackupTasksThreshold": 5}`
 
 3. Guardar as alterações e feche o ficheiro.
 4. Na instância do SQL Server, abra **Gerenciador de tarefas**. Reinicie o **AzureWLBackupCoordinatorSvc** serviço.

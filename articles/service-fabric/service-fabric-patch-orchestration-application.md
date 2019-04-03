@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 2/01/2019
 ms.author: brkhande
-ms.openlocfilehash: bce4946b62e3678f7fa8d5f7f6431441cc00b252
-ms.sourcegitcommit: 09bb15a76ceaad58517c8fa3b53e1d8fec5f3db7
+ms.openlocfilehash: 6c0aa42cc22d22431d7d0270aca52e089046cb01
+ms.sourcegitcommit: 04716e13cc2ab69da57d61819da6cd5508f8c422
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58762842"
+ms.lasthandoff: 04/02/2019
+ms.locfileid: "58847733"
 ---
 # <a name="patch-the-windows-operating-system-in-your-service-fabric-cluster"></a>Corrigir o sistema operativo do Windows no seu cluster do Service Fabric
 
@@ -325,7 +325,7 @@ Se o seu cluster pode tolerar em execução num número de n-1 de domínios de a
 
 P. **Quanto tempo isso take para corrigir um nó?**
 
-R. Aplicação de patches de um nó pode demorar minutos (por exemplo: [Atualizações de definições do Windows Defender](https://www.microsoft.com/wdsi/definitions)) para horas (por exemplo: [As atualizações cumulativas do Windows](https://www.catalog.update.microsoft.com/Search.aspx?q=windows%20server%20cumulative%20update)). Tempo necessário para corrigir um nó depende principalmente no 
+R. Aplicação de patches de um nó pode demorar minutos (por exemplo: [Atualizações de definições do Windows Defender](https://www.microsoft.com/en-us/wdsi/definitions)) para horas (por exemplo: [As atualizações cumulativas do Windows](https://www.catalog.update.microsoft.com/Search.aspx?q=windows%20server%20cumulative%20update)). Tempo necessário para corrigir um nó depende principalmente no 
  - O tamanho de atualizações
  - Número de atualizações, que têm de ser aplicados a uma janela da aplicação de patches
  - Tempo necessário para instalar as atualizações, reiniciar o nó (se necessário) e concluir os passos de instalação de pós-reinício.

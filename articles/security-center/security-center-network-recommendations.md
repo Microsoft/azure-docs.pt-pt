@@ -3,7 +3,7 @@ title: Proteger os seus recursos de rede no Centro de segurança do Azure | Docu
 description: Este documento trata recomendações no Centro de segurança do Azure que o ajudam a proteger os seus recursos de rede do Azure e mantenha-se em conformidade com as políticas de segurança.
 services: security-center
 documentationcenter: na
-author: rkarlin
+author: monhaber
 manager: barbkess
 editor: ''
 ms.assetid: 96c55a02-afd6-478b-9c1f-039528f3dea0
@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/28/2018
-ms.author: rkarlin
-ms.openlocfilehash: 55318f40918833688e0c516924642c781141438c
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.date: 04/02/2019
+ms.author: monhaber
+ms.openlocfilehash: cca1962e5146300cc376fab4bcb1bf0876acec6c
+ms.sourcegitcommit: d83fa82d6fec451c0cb957a76cfba8d072b72f4f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56118008"
+ms.lasthandoff: 04/02/2019
+ms.locfileid: "58863156"
 ---
 # <a name="protect-your-network-resources-in-azure-security-center"></a>Proteger os seus recursos de rede no Centro de segurança do Azure
 Centro de segurança do Azure analisa continuamente o estado de segurança dos seus recursos do Azure para práticas recomendadas de segurança de rede. Quando o Centro de segurança identifica potenciais vulnerabilidades de segurança, cria recomendações que o guiar ao longo do processo de configuração de controlos necessários para proteger e proteger os seus recursos.
@@ -30,10 +30,9 @@ Este artigo aborda recomendações que se aplicam aos recursos do Azure a partir
 > O **redes** página permite-lhe mergulhar no seu estado de funcionamento de recursos do Azure de uma perspectiva de rede. O mapa de rede e adaptável controlos de rede estão disponíveis para o escalão standard do Centro de segurança do Azure apenas. [Se utilizar o escalão gratuito, pode clicar no botão para **exibir rede legado** e receba recomendações de recursos de rede](#legacy-networking).
 >
 
-O **redes** página fornece uma descrição geral das seções profunda pode aprofundar para obter mais informações sobre o estado de funcionamento dos seus recursos de rede:
+O **redes** painel fornece uma descrição geral das seções profunda pode aprofundar para obter mais informações sobre o estado de funcionamento dos seus recursos de rede:
 
 - Mapa de rede (apenas no escalão Standard de centro de segurança do Azure)
-- NSG, o sistema de proteção (disponível em breve. Registre-se para a pré-visualização)
 - Recomendações de segurança de rede.
 - Legado **redes** painel (o painel rede anterior) 
  
@@ -49,7 +48,8 @@ Para abrir o mapa de rede:
  
 Apresenta a vista predefinida do mapa de topologia:
 - Assinaturas que selecionou no Azure. O map oferece suporte a várias subscrições.
-- As VMs, sub-redes e Vnets do tipo de recurso do Resource Manager (Azure clássico recursos não são suportados)
+- As VMs, sub-redes e VNets do tipo de recurso do Resource Manager (Azure clássico recursos não são suportados)
+- VNets em modo de peering
 - Apenas os recursos que tenham [recomendações de rede](security-center-recommendations.md) com uma gravidade média ou alta  
 - Recursos com acesso à Internet
 - O mapa está otimizado para subscrições selecionadas no Azure. Se modificar a seleção, o mapa é recalculado e novamente otimizado com base em suas novas definições.  
@@ -98,7 +98,7 @@ Por exemplo, pode detetar duas máquinas que não ciente foi possível comunicar
 
 Para desagregar um recurso:
 1. Quando seleciona um recurso específico no mapa, o painel da direita é aberto e fornece informações gerais sobre o recurso, soluções de segurança ligadas se existirem e as recomendações relevantes para o recurso. É o mesmo tipo de comportamento para cada tipo de recurso que selecionar. 
-2. Clique em **tráfego** para ver a lista de possíveis tráfego de saída e entrada do recurso - esta é uma lista abrangente de que consegue comunicar com o recurso e que este possa comunicar com e através das quais protocolos e portas.
+2. Clique em **tráfego** para ver a lista de possíveis tráfego de saída e entrada do recurso - esta é uma lista abrangente de que consegue comunicar com o recurso e que este possa comunicar com e através das quais protocolos e portas. Por exemplo, quando seleciona uma VM, todas as VMs que consiga comunicar com são apresentados e ao selecionar uma sub-rede, todas as sub-redes que este possa comunicar com são apresentadas.
 
 **Estes dados baseia-se na análise de grupos de segurança de rede, bem como algoritmos que analisam várias regras para compreender suas crossovers e interações de aprendizagem automática avançada.** 
 
@@ -143,8 +143,8 @@ Vnet|5|Ativar a norma de proteção DDoS|Aplicações com endereços IP público
 ## <a name="see-also"></a>Consulte também
 Para saber mais sobre as recomendações que se aplicam a outros tipos de recursos do Azure, consulte o seguinte:
 
-* [Proteger as máquinas virtuais no Centro de Segurança do Azure](security-center-virtual-machine-recommendations.md)
-* [Proteger as aplicações no Centro de Segurança do Azure](security-center-application-recommendations.md)
+* [Proteger as máquinas virtuais no Centro de segurança do Azure](security-center-virtual-machine-recommendations.md)
+* [Proteger as aplicações no Centro de segurança do Azure](security-center-application-recommendations.md)
 * [Proteger o seu serviço do SQL do Azure no Centro de segurança do Azure](security-center-sql-service-recommendations.md)
 
 Para saber mais acerca do Centro de Segurança, consulte o seguinte:
