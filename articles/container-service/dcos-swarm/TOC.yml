@@ -71,7 +71,7 @@ items:
   - name: CLI do Azure
     href: /cli/azure/acs
   - name: PowerShell
-    href: /powershell/module/azurerm.compute
+    href: /powershell/module/az.compute
   - name: REST
     href: /rest/api/container-service
 - name: Recursos
@@ -90,9 +90,9 @@ items:
     href: https://stackoverflow.com/questions/tagged/azure-container-service
   - name: Vídeos
     href: https://azure.microsoft.com/resources/videos/index/?services=container-service&sort=newest
-ms.openlocfilehash: e692dba1603f91ae82e0d3c4dcbf9643edacdec8
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 52376d4cfff4fe96f07b38a2b9eb09e896769617
+ms.sourcegitcommit: 04716e13cc2ab69da57d61819da6cd5508f8c422
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57532631"
+ms.lasthandoff: 04/02/2019
+ms.locfileid: "58848113"

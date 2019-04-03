@@ -1,16 +1,10 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: b03a95c4a603ecf59aaaa8c831842117425ebf0a
-ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
-ms.translationtype: HT
-ms.contentlocale: pt-PT
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58448463"
 documentType: LandingData
 title: Gestor de Tráfego
 metadata:
-  document_id: 
+  document_id: null
   title: Gestor de Tráfego
-  meta.description: Learn how to use Traffic Manager to route incoming traffic for optimal application performance and reliability. Quickstarts, tutorials, samples, and more, show how to manage traffic to Azure or external service endpoints.
+  meta.description: 'Learn how to use Traffic Manager to route incoming traffic for optimal application performance and reliability. Quickstarts, tutorials, samples, and more, show how to manage traffic to Azure or external service endpoints.'
   services: traffic-manager
   author: KumudD
   manager: twooley
@@ -22,76 +16,76 @@ metadata:
   ms.date: 02/28/2019
   ms.author: kumud
 abstract:
-  description: Saiba como utilizar o Gestor de Tráfego do Azure. Inícios rápidos, tutoriais, exemplos e mais, mostram-lhe como gerir o tráfego de entrada para um desempenho de aplicações ideal, bem como distribuir o tráfego para o Azure ou para pontos finais de serviço externos.
+  description: 'Saiba como utilizar o Gestor de Tráfego do Azure. Inícios rápidos, tutoriais, exemplos e mais, mostram-lhe como gerir o tráfego de entrada para um desempenho de aplicações ideal, bem como distribuir o tráfego para o Azure ou para pontos finais de serviço externos.'
 sections:
-- title: Inícios rápidos de cinco minutos
-  items:
-  - type: paragraph
-    text: Aprenda a gerir o tráfego web para os seus pontos finais de serviço ao utilizar o Gestor de Tráfego.
-  - type: list
-    style: icon48
+  - title: Inícios rápidos de cinco minutos
     items:
-    - image:
-        src: https://docs.microsoft.com/media/common/i_portal.svg
-      text: Portal do Azure
-      href: /azure/traffic-manager/quickstart-create-traffic-manager-profile
-    - image:
-        src: https://docs.microsoft.com/media/logos/logo_powershell.svg
-      text: Azure PowerShell
-      href: /azure/traffic-manager/quickstart-create-traffic-manager-profile-powershell
-- title: Tutoriais Passo-a-Passo
-  items:
-  - type: paragraph
-    text: Aprenda a encaminhar tráfego com base nos diferentes métodos de encaminhamento disponíveis no Gestor de Tráfego.
-  - type: list
-    style: unordered
+      - type: paragraph
+        text: Aprenda a gerir o tráfego web para os seus pontos finais de serviço ao utilizar o Gestor de Tráfego.
+      - type: list
+        style: icon48
+        items:
+          - image:
+              src: 'https://docs.microsoft.com/media/common/i_portal.svg'
+            text: Portal do Azure
+            href: /azure/traffic-manager/quickstart-create-traffic-manager-profile
+          - image:
+              src: 'https://docs.microsoft.com/media/logos/logo_powershell.svg'
+            text: Azure PowerShell
+            href: /azure/traffic-manager/quickstart-create-traffic-manager-profile-powershell
+  - title: Tutoriais Passo-a-Passo
     items:
-    - html: <a href="/azure/traffic-manager/traffic-manager-configure-geographic-routing-method">Encaminhar o tráfego com base na localização geográfica do ponto final</a>
-    - html: <a href="/azure/traffic-manager/tutorial-traffic-manager-improve-website-response">Encaminhar o tráfego de baixa latência</a>
-    - html: <a href="/azure/traffic-manager/traffic-manager-configure-weighted-routing-method">Distribuir o tráfego para um conjunto de pontos finais</a>
-    - html: <a href="/azure/traffic-manager/traffic-manager-configure-priority-routing-method">Encaminhar o tráfego para um ponto final prioritário</a>
-    - html: <a href="/azure/traffic-manager/tutorial-traffic-manager-weighted-endpoint-routing">Controlar o tráfego com pontos de extremidade ponderados</a>
-    - html: <a href="/azure/traffic-manager/tutorial-traffic-manager-subnet-routing">Encaminhar tráfego com base na sub-rede do utilizador</a>
-- title: Vídeo de Formação Gratuita da PluralSight
-  items:
-  - type: list
-    style: cards
-    className: cardsFTitle
+      - type: paragraph
+        text: Aprenda a encaminhar tráfego com base nos diferentes métodos de encaminhamento disponíveis no Gestor de Tráfego.
+      - type: list
+        style: unordered
+        items:
+          - html: <a href="/azure/traffic-manager/traffic-manager-configure-geographic-routing-method">Encaminhar o tráfego com base na localização geográfica do ponto final</a>
+          - html: <a href="/azure/traffic-manager/tutorial-traffic-manager-improve-website-response">Encaminhar o tráfego de baixa latência</a>
+          - html: <a href="/azure/traffic-manager/traffic-manager-configure-weighted-routing-method">Distribuir o tráfego para um conjunto de pontos finais</a>
+          - html: <a href="/azure/traffic-manager/traffic-manager-configure-priority-routing-method">Encaminhar o tráfego para um ponto final prioritário</a>
+          - html: <a href="/azure/traffic-manager/tutorial-traffic-manager-weighted-endpoint-routing">Controlar o tráfego com pontos de extremidade ponderados</a>
+          - html: <a href="/azure/traffic-manager/tutorial-traffic-manager-subnet-routing">Encaminhar tráfego com base na sub-rede do utilizador</a>
+  - title: Vídeo de Formação Gratuita da PluralSight
     items:
-    - title: Administrador do Azure
-      href: https://go.microsoft.com/fwlink/?linkid=2012827
-      image:
-        src: https://docs.microsoft.com/media/logos/logo_pluralsight.svg
-        href: https://go.microsoft.com/fwlink/?linkid=2012827
-    - title: Arquiteto de Soluções do Azure
-      href: https://go.microsoft.com/fwlink/?linkid=2012824
-      image:
-        src: https://docs.microsoft.com/media/logos/logo_pluralsight.svg
-        href: https://go.microsoft.com/fwlink/?linkid=2012824
-    - title: Administração do Azure para Administradores AWS
-      href: https://app.pluralsight.com/library/courses/azure-administration-aws-administrators/table-of-contents
-      image:
-        src: https://docs.microsoft.com/media/logos/logo_pluralsight.svg
-        href: https://app.pluralsight.com/library/courses/azure-administration-aws-administrators/table-of-contents
-- title: Amostras
-  items:
-  - type: paragraph
-    text: Exemplos de script para tarefas comuns.
-  - type: list
-    style: unordered
-    className: spaced noBullet
+      - type: list
+        style: cards
+        className: cardsFTitle
+        items:
+          - title: Administrador do Azure
+            href: 'https://go.microsoft.com/fwlink/?linkid=2012827'
+            image:
+              src: 'https://docs.microsoft.com/media/logos/logo_pluralsight.svg'
+              href: 'https://go.microsoft.com/fwlink/?linkid=2012827'
+          - title: Arquiteto de Soluções do Azure
+            href: 'https://go.microsoft.com/fwlink/?linkid=2012824'
+            image:
+              src: 'https://docs.microsoft.com/media/logos/logo_pluralsight.svg'
+              href: 'https://go.microsoft.com/fwlink/?linkid=2012824'
+          - title: Administração do Azure para Administradores AWS
+            href: 'https://app.pluralsight.com/library/courses/azure-administration-aws-administrators/table-of-contents'
+            image:
+              src: 'https://docs.microsoft.com/media/logos/logo_pluralsight.svg'
+              href: 'https://app.pluralsight.com/library/courses/azure-administration-aws-administrators/table-of-contents'
+  - title: Amostras
     items:
-    - html: <a href="/azure/traffic-manager/cli-samples">CLI do Azure</a>
-    - html: <a href="/azure/traffic-manager/powershell-samples">PowerShell</a>
-- title: Referência
-  items:
-  - type: list
-    style: cards
-    className: cardsD
+      - type: paragraph
+        text: Exemplos de script para tarefas comuns.
+      - type: list
+        style: unordered
+        className: spaced noBullet
+        items:
+          - html: <a href="/azure/traffic-manager/cli-samples">CLI do Azure</a>
+          - html: <a href="/azure/traffic-manager/powershell-samples">PowerShell</a>
+  - title: Referência
     items:
-    - title: Linha de Comandos
-      html: <p><a href="https://docs.microsoft.com/powershell/module/azurerm.trafficmanager/#traffic_manager">PowerShell</a></p><p><a href="/cli/azure/network/traffic-manager">CLI do Azure</a></p>
-    - title: Linguagens
-      html: <p><a href="https://docs.microsoft.com/dotnet/api/overview/azure/virtual-network?view=azure-dotnet">.NET</a></p><p><a href="/java/api/com.microsoft.azure.management.trafficmanager">Java</a></p><p><a href="https://azure.github.io/azure-sdk-for-node/azure-arm-trafficmanager/latest/">Node.js</a></p><p><a href="https://docs.microsoft.com/python/api/overview/azure/traffic-manager">Python</a></p>
-    - title: REST
-      html: <p><a href="/rest/api/trafficmanager/">Referência da API REST</a></p>
+      - type: list
+        style: cards
+        className: cardsD
+        items:
+          - title: Linha de Comandos
+            html: '<p><a href="https://docs.microsoft.com/powershell/module/az.trafficmanager/#traffic_manager">PowerShell</a></p><p><a href="/cli/azure/network/traffic-manager">CLI do Azure</a></p>'
+          - title: Linguagens
+            html: '<p><a href="https://docs.microsoft.com/dotnet/api/overview/azure/virtual-network?view=azure-dotnet">.NET</a></p><p><a href="/java/api/com.microsoft.azure.management.trafficmanager">Java</a></p><p><a href="https://azure.github.io/azure-sdk-for-node/azure-arm-trafficmanager/latest/">Node.js</a></p><p><a href="https://docs.microsoft.com/python/api/overview/azure/traffic-manager">Python</a></p>'
+          - title: REST
+            html: <p><a href="/rest/api/trafficmanager/">Referência da API REST</a></p>

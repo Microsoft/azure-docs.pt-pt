@@ -63,6 +63,8 @@ items:
     - name: Descrição geral da segurança empresarial
       displayName: authorization authentication encryption
       href: concept-enterprise-security.md
+    - name: Gerir utilizadores e funções
+      href: how-to-assign-roles.md
     - name: Utilizar redes virtuais
       displayName: vnet
       href: how-to-enable-virtual-network.md
@@ -76,8 +78,6 @@ items:
       href: how-to-manage-workspace.md
     - name: Utilizar um modelo do Resource Manager
       href: how-to-create-workspace-template.md
-    - name: Gerir utilizadores e funções
-      href: how-to-assign-roles.md
   - name: Configurar o ambiente de desenvolvimento 
     items:
     - name: Configurar ambientes de desenvolvimento
@@ -201,9 +201,9 @@ items:
   - name: Comparar os nossos produtos de ML
     href: /azure/architecture/data-guide/technology-choices/data-science-and-machine-learning
     maintainContext: true
-ms.openlocfilehash: 52bc0220f3eb2fa28d344f68fe86310eabeee47c
-ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
+ms.openlocfilehash: 4b38742208ad88b8dd1eeff8cce0d0055294ec12
+ms.sourcegitcommit: d83fa82d6fec451c0cb957a76cfba8d072b72f4f
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58540385"
+ms.lasthandoff: 04/02/2019
+ms.locfileid: "58862935"

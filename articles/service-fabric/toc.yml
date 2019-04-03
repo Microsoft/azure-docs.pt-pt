@@ -725,7 +725,7 @@ items:
 - name: Referência
   items:
   - name: Azure PowerShell
-    href: /powershell/module/azurerm.servicefabric/
+    href: /powershell/module/az.servicefabric/
   - name: PowerShell
     href: /powershell/module/servicefabric/?view=azureservicefabricps
   - name: CLI do Azure (az sf)
@@ -845,9 +845,9 @@ items:
     href: https://azure.microsoft.com/updates/?product=service-fabric
   - name: Vídeos
     href: https://azure.microsoft.com/documentation/videos/index/?services=service-fabric
-ms.openlocfilehash: 1346468fa0f29954ca382c32f49928f7810424a4
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.openlocfilehash: de46010e1123b34c84731e97951bb67edc43f0b2
+ms.sourcegitcommit: 04716e13cc2ab69da57d61819da6cd5508f8c422
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58483136"
+ms.lasthandoff: 04/02/2019
+ms.locfileid: "58847560"

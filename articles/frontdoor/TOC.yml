@@ -64,7 +64,7 @@ items:
   - name: CLI do Azure
     href: /cli/azure/ext/front-door/
   - name: Azure PowerShell
-    href: /powershell/module/azurerm.frontdoor
+    href: /powershell/module/az.frontdoor
   - name: API REST
     href: /rest/api/frontdoor
 - name: Recursos
@@ -77,9 +77,9 @@ items:
     href: https://azure.microsoft.com/pricing/calculator/
   - name: Atualizações de serviço
     href: https://azure.microsoft.com/updates/?product=frontdoor
-ms.openlocfilehash: 829fd4d8d34ae85bfe3f76da348f89ee56b364a2
-ms.sourcegitcommit: 280d9348b53b16e068cf8615a15b958fccad366a
+ms.openlocfilehash: 98a5d50b8dc8195a0943379c2570711d01db268a
+ms.sourcegitcommit: 04716e13cc2ab69da57d61819da6cd5508f8c422
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58407390"
+ms.lasthandoff: 04/02/2019
+ms.locfileid: "58850101"

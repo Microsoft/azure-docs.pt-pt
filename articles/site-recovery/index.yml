@@ -1,14 +1,8 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: bed37d98b988ce81ffcb8c18f2289a9e6ff880c5
-ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
-ms.translationtype: HT
-ms.contentlocale: pt-PT
-ms.lasthandoff: 12/20/2018
-ms.locfileid: "53651933"
 documentType: LandingData
 title: Documentação do Site Recovery
 metadata:
-  title: Documentação do Azure Site Recovery - Tutoriais, Referência da API | Microsoft Docs
+  title: 'Documentação do Azure Site Recovery - Tutoriais, Referência da API | Microsoft Docs'
   meta.description: Learn how to set up cloud disaster recovery and business continuity for physical servers and virtual machines by deploying and managing replication.
   services: site-recovery
   author: czeumault
@@ -19,66 +13,66 @@ metadata:
   ms.date: 11/27/2018
   ms.author: carolz
 abstract:
-  description: O Azure Site Recovery orquestra e gere a recuperação após desastre para VMs do Azure, VMs no local e servidores físicos. Saiba como replicar e fazer a ativação e reativação pós-falha com os nossos inícios rápidos e tutoriais.
+  description: 'O Azure Site Recovery orquestra e gere a recuperação após desastre para VMs do Azure, VMs no local e servidores físicos. Saiba como replicar e fazer a ativação e reativação pós-falha com os nossos inícios rápidos e tutoriais.'
 sections:
-- title: Inícios rápidos de cinco minutos
-  items:
-  - type: paragraph
-    text: Configurar rapidamente a recuperação após desastre para uma VM do Azure
-  - type: list
-    style: icon48
+  - title: Inícios rápidos de cinco minutos
     items:
-    - image:
-        src: /azure/site-recovery/media/index/portal.svg
-      text: Portal do Azure
-      href: /azure/site-recovery/azure-to-azure-quickstart
-- title: Tutoriais passo a passo
-  items:
-  - type: paragraph
-    text: Saiba como configurar a recuperação após desastre para VMs e servidores físicos.
-  - type: text
-    html: <h3>Azure para o Azure</h3>
-  - type: list
-    style: ordered
+      - type: paragraph
+        text: Configurar rapidamente a recuperação após desastre para uma VM do Azure
+      - type: list
+        style: icon48
+        items:
+          - image:
+              src: /azure/site-recovery/media/index/portal.svg
+            text: Portal do Azure
+            href: /azure/site-recovery/azure-to-azure-quickstart
+  - title: Tutoriais passo a passo
     items:
-    - html: <a href="azure-to-azure-tutorial-enable-replication">Configurar a recuperação após desastre</a>
-    - html: <a href="azure-to-azure-tutorial-dr-drill">Executar um teste de recuperação após desastre</a>
-    - html: <a href="azure-to-azure-tutorial-failover-failback">Ativar a ativação pós-falha e a reativação pós-falha</a>
-  - type: text
-    html: <h3>VMware</h3>
-  - type: list
-    style: ordered
+      - type: paragraph
+        text: Saiba como configurar a recuperação após desastre para VMs e servidores físicos.
+      - type: text
+        html: <h3>Azure para o Azure</h3>
+      - type: list
+        style: ordered
+        items:
+          - html: <a href="azure-to-azure-tutorial-enable-replication">Configurar a recuperação após desastre</a>
+          - html: <a href="azure-to-azure-tutorial-dr-drill">Executar um teste de recuperação após desastre</a>
+          - html: <a href="azure-to-azure-tutorial-failover-failback">Ativar a ativação pós-falha e a reativação pós-falha</a>
+      - type: text
+        html: <h3>VMware</h3>
+      - type: list
+        style: ordered
+        items:
+          - html: <a href="tutorial-prepare-azure">Preparar o Azure</a>
+          - html: <a href="tutorial-prepare-on-premises-vmware">Preparar o VMware no local</a>
+          - html: <a href="tutorial-vmware-to-azure">Configurar a recuperação após desastre</a>
+          - html: <a href="tutorial-dr-drill-azure">Executar um teste de recuperação após desastre</a>
+          - html: <a href="vmware-azure-tutorial-failover-failback">Executar uma ativação pós-falha e uma reativação pós-falha</a>
+      - type: text
+        html: <h3>Hyper-V</h3>
+      - type: list
+        style: ordered
+        items:
+          - html: <a href="tutorial-prepare-azure">Preparar o Azure</a>
+          - html: <a href="tutorial-prepare-on-premises-hyper-v">Prepara Hyper-V no local</a>
+          - html: <a href="tutorial-hyper-v-to-azure">Configurar a recuperação após desastre em VMs do Hyper-V</a>
+          - html: <a href="tutorial-hyper-v-vmm-to-azure">Configurar recuperação após desastre para as VMs de Hyper-V geridas pelo System Center VMM</a>
+          - html: <a href="tutorial-dr-drill-azure">Executar um teste de recuperação após desastre</a>
+          - html: <a href="tutorial-hyper-v-to-azure-failover-failback">Executar uma ativação pós-falha e uma reativação pós-falha</a>
+      - type: text
+        html: <h3>Migrar para o Azure</h3>
+      - type: list
+        style: ordered
+        items:
+          - html: <a href="tutorial-prepare-azure">Preparar o Azure</a>
+          - html: <a href="tutorial-migrate-on-premises-to-azure">Migrar máquinas no local</a> ou <a href="tutorial-migrate-aws-to-azure">Instâncias do AWS para o Azure</a>
+  - title: Referência
     items:
-    - html: <a href="tutorial-prepare-azure">Preparar o Azure</a>
-    - html: <a href="tutorial-prepare-on-premises-vmware">Preparar o VMware no local</a>
-    - html: <a href="tutorial-vmware-to-azure">Configurar a recuperação após desastre</a>
-    - html: <a href="tutorial-dr-drill-azure">Executar um teste de recuperação após desastre</a>
-    - html: <a href="vmware-azure-tutorial-failover-failback">Executar uma ativação pós-falha e uma reativação pós-falha</a>
-  - type: text
-    html: <h3>Hyper-V</h3>
-  - type: list
-    style: ordered
-    items:
-    - html: <a href="tutorial-prepare-azure">Preparar o Azure</a>
-    - html: <a href="tutorial-prepare-on-premises-hyper-v">Prepara Hyper-V no local</a>
-    - html: <a href="tutorial-hyper-v-to-azure">Configurar a recuperação após desastre em VMs do Hyper-V</a>
-    - html: <a href="tutorial-hyper-v-vmm-to-azure">Configurar recuperação após desastre para as VMs de Hyper-V geridas pelo System Center VMM</a>
-    - html: <a href="tutorial-dr-drill-azure">Executar um teste de recuperação após desastre</a>
-    - html: <a href="tutorial-hyper-v-to-azure-failover-failback">Executar uma ativação pós-falha e uma reativação pós-falha</a>
-  - type: text
-    html: <h3>Migrar para o Azure</h3>
-  - type: list
-    style: ordered
-    items:
-    - html: <a href="tutorial-prepare-azure">Preparar o Azure</a>
-    - html: <a href="tutorial-migrate-on-premises-to-azure">Migrar máquinas no local</a> ou <a href="tutorial-migrate-aws-to-azure">Instâncias do AWS para o Azure</a>
-- title: Referência
-  items:
-  - type: list
-    style: cards
-    className: cardsD
-    items:
-    - title: Linha de Comandos
-      html: <p><a href="/powershell/module/azurerm.siterecovery/">Azure PowerShell</a></p>
-    - title: REST
-      html: <p><a href="/rest/api/site-recovery/">Referência da API REST</a></p>
+      - type: list
+        style: cards
+        className: cardsD
+        items:
+          - title: Linha de Comandos
+            html: <p><a href="/powershell/module/az.recoveryservices/">Azure PowerShell</a></p>
+          - title: REST
+            html: <p><a href="/rest/api/site-recovery/">Referência da API REST</a></p>

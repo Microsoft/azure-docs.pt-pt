@@ -138,9 +138,6 @@ items:
         href: ../hdinsight-hadoop-manage-ambari-rest-api.md
         maintainContext: true
       maintainContext: true
-    - name: Escritas Avançadas
-      href: ../hbase/apache-hbase-enhanced-writes.md
-      maintainContext: true
     - name: Dimensionar um cluster do HDInsight
       href: ../hdinsight-scaling-best-practices.md
       maintainContext: true
@@ -310,9 +307,9 @@ items:
   - name: Ferramentas do Windows para HDInsight
     href: ../hdinsight-hadoop-windows-tools.md
     maintainContext: true
-ms.openlocfilehash: 0dedc6c931c58e9528a5f315396aeb99a02e0111
-ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
+ms.openlocfilehash: 39bc984d593f9026a3f6db85da8b8d1b80038335
+ms.sourcegitcommit: 04716e13cc2ab69da57d61819da6cd5508f8c422
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58758221"
+ms.lasthandoff: 04/02/2019
+ms.locfileid: "58847032"

@@ -197,7 +197,7 @@ items:
   - name: Ir
     href: https://github.com/Azure/azure-service-bus-go
   - name: Azure PowerShell
-    href: /powershell/module/azurerm.servicebus
+    href: /powershell/module/az.servicebus
   - name: REST
     href: /rest/api/servicebus
   - name: Modelo do Resource Manager
@@ -234,9 +234,9 @@ items:
     href: https://stackoverflow.com/questions/tagged/azureservicebus
   - name: Vídeos
     href: https://azure.microsoft.com/documentation/videos/index/?services=service-bus
-ms.openlocfilehash: 35f2c03243229b4e7d4a741bc2a5a86cadca3105
-ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
+ms.openlocfilehash: 09a7759c89411d53b374552a969f7aefdb89ee98
+ms.sourcegitcommit: 04716e13cc2ab69da57d61819da6cd5508f8c422
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58496691"
+ms.lasthandoff: 04/02/2019
+ms.locfileid: "58848090"

@@ -156,7 +156,7 @@ items:
   - name: CLI do Azure
     href: /cli/azure/network/watcher
   - name: Azure PowerShell
-    href: /powershell/module/azurerm.network/#network_watcher
+    href: /powershell/module/az.network/#network_watcher
   - name: Java
     href: /java/api/com.microsoft.azure.management.network
   - name: Ruby
@@ -183,9 +183,9 @@ items:
     href: https://azure.microsoft.com/support/legal/sla/
   - name: Stack Overflow
     href: http://stackoverflow.com/questions/tagged/network-watcher
-ms.openlocfilehash: 7f79116e7638cc1c4e6b5263cf61ff064d443fbb
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 586e0cc03a5e2aa23346bf805347bb9eda21c42f
+ms.sourcegitcommit: 04716e13cc2ab69da57d61819da6cd5508f8c422
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58012165"
+ms.lasthandoff: 04/02/2019
+ms.locfileid: "58847044"

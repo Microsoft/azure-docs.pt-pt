@@ -114,7 +114,7 @@ items:
   - name: CLI do Azure
     href: https://docs.microsoft.com/cli/azure/network
   - name: Azure PowerShell
-    href: https://docs.microsoft.com/powershell/module/azurerm.network/
+    href: https://docs.microsoft.com/powershell/module/az.network/
   - name: .Net
     href: https://docs.microsoft.com/dotnet/api/microsoft.azure.management.network?view=azuremgmtnetwork-9.1.0-preview
   - name: Node.js
@@ -141,9 +141,9 @@ items:
     href: https://stackoverflow.com/questions/tagged/azure-virtual-network
   - name: Vídeos
     href: https://azure.microsoft.com/resources/videos/index/?services=virtual-network
-ms.openlocfilehash: 6a420d40eb408ddbc65c8d7d9b420f5724225885
-ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
+ms.openlocfilehash: 294586f5a007cc76951d0f73ca49db9bcfa51134
+ms.sourcegitcommit: 04716e13cc2ab69da57d61819da6cd5508f8c422
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58443642"
+ms.lasthandoff: 04/02/2019
+ms.locfileid: "58846954"

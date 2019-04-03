@@ -232,7 +232,7 @@ items:
   - name: REST - Gestor de Implementação
     href: /rest/api/deploymentmanager/
   - name: Azure PowerShell
-    href: /powershell/module/azurerm.resources
+    href: /powershell/module/az.resources
   - name: CLI do Azure
     href: /cli/azure/resource
   - name: .NET
@@ -255,9 +255,9 @@ items:
     href: resource-manager-personal-data.md
   - name: Vídeos
     href: https://azure.microsoft.com/documentation/videos/index/?services=azure-resource-manager
-ms.openlocfilehash: 90218638e4d4a11c0ab6f3a6a1b6513bc1f7b5e6
-ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
+ms.openlocfilehash: 1f2fc6e493096e77cdbe377426a41537aa0efb61
+ms.sourcegitcommit: 04716e13cc2ab69da57d61819da6cd5508f8c422
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58648627"
+ms.lasthandoff: 04/02/2019
+ms.locfileid: "58846855"

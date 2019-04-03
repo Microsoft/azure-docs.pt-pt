@@ -108,7 +108,7 @@ items:
   - name: REST
     href: /rest/api/containerregistry
   - name: PowerShell
-    href: /powershell/module/azurerm.containerregistry#container_registry
+    href: /powershell/module/az.containerregistry
   - name: .NET
     href: /dotnet/api/overview/azure/containerregistry
   - name: Python
@@ -140,9 +140,9 @@ items:
     href: https://stackoverflow.com/questions/tagged/azure-container-registry
   - name: Vídeos
     href: https://azure.microsoft.com/resources/videos/index/?services=container-registry&sort=newest
-ms.openlocfilehash: 732c0f878df9b5d722571bf45e4afd76a3180ebb
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 3b5c8cc63db967fd582d15765f2fd1ca1c7bbb3e
+ms.sourcegitcommit: 04716e13cc2ab69da57d61819da6cd5508f8c422
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58137999"
+ms.lasthandoff: 04/02/2019
+ms.locfileid: "58847673"

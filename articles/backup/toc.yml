@@ -257,7 +257,7 @@ items:
   - name: CLI do Azure
     href: /cli/azure/backup?view=azure-cli-latest
   - name: PowerShell
-    href: /powershell/module/azurerm.recoveryservices.backup
+    href: /powershell/module/az.recoveryservices
   - name: REST - Backup
     href: /rest/api/backup/
   - name: REST - cofre dos Serviços de Recuperação
@@ -280,9 +280,9 @@ items:
     href: https://azure.microsoft.com/updates/?product=backup
   - name: Vídeos
     href: https://azure.microsoft.com/documentation/videos/index/?services=backup
-ms.openlocfilehash: eb58460b2331ab867e064235d5a2536809b28021
-ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
+ms.openlocfilehash: 6c11bfcedc01bfc3c1dfcdc16b04ddccfdaf4bb9
+ms.sourcegitcommit: 04716e13cc2ab69da57d61819da6cd5508f8c422
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58284974"
+ms.lasthandoff: 04/02/2019
+ms.locfileid: "58851147"

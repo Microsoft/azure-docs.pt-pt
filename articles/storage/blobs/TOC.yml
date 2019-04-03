@@ -576,9 +576,15 @@ items:
       - name: Configurar firewalls e redes virtuais
         href: ../common/storage-network-security.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
       - name: Gerir chaves personalizadas da encriptação do Armazenamento do Azure
-        href: ../common/storage-service-encryption-customer-managed-keys.md
+        href: ../common/storage-service-encryption-customer-managed-keys.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
       - name: Gerir direitos de acesso com RBAC
-        href: ../common/storage-auth-aad-rbac-portal.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+        items:
+        - name: Portal
+          href: ../common/storage-auth-aad-rbac-portal.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+        - name: CLI
+          href: ../common/storage-auth-aad-rbac-cli.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+        - name: PowerShell
+          href: ../common/storage-auth-aad-rbac-powershell.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
       - name: Definir permissões ao nível do ficheiro e do diretório
         href: ../blobs/data-lake-storage-how-to-set-permissions-storage-explorer.md
     - name: Integrar nos serviços do Azure
@@ -633,9 +639,9 @@ items:
       href: https://stackoverflow.com/questions/tagged/windows-azure-storage
     - name: Vídeos
       href: https://azure.microsoft.com/documentation/videos/index/?services=storage
-ms.openlocfilehash: 78f3ab4e007f5da8986d5e59fdf78905e172d0aa
-ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
+ms.openlocfilehash: 07631af7efdd8eafb6095145bed877e68e1f7cbe
+ms.sourcegitcommit: 04716e13cc2ab69da57d61819da6cd5508f8c422
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58758353"
+ms.lasthandoff: 04/02/2019
+ms.locfileid: "58849824"

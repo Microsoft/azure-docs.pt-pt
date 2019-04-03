@@ -99,7 +99,7 @@ items:
   - name: REST
     href: /rest/api/container-instances
   - name: PowerShell
-    href: /powershell/module/azurerm.containerinstance#container_instances
+    href: /powershell/module/az.containerinstance
   - name: .NET
     href: /dotnet/api/overview/azure/containerinstance
   - name: Python
@@ -126,9 +126,9 @@ items:
     href: https://stackoverflow.com/questions/tagged/azure-container-instances
   - name: Vídeos
     href: https://azure.microsoft.com/resources/videos/index/?services=container-instances&sort=newest
-ms.openlocfilehash: fcee083f7d98aba1856cf204f5c2d559d1b5925b
-ms.sourcegitcommit: 1902adaa68c660bdaac46878ce2dec5473d29275
+ms.openlocfilehash: 94d16ad208cbe5c5cffbcab9e09cf62a05a399ce
+ms.sourcegitcommit: 04716e13cc2ab69da57d61819da6cd5508f8c422
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/11/2019
-ms.locfileid: "57731190"
+ms.lasthandoff: 04/02/2019
+ms.locfileid: "58851215"

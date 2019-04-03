@@ -156,7 +156,7 @@ items:
   - name: Exemplos de código
     href: https://azure.microsoft.com/resources/samples/?service=data-lake-store
   - name: Azure PowerShell
-    href: /powershell/module/azurerm.datalakestore
+    href: /powershell/module/az.datalakestore
   - name: .NET
     href: https://docs.microsoft.com/dotnet/api/overview/azure/data-lake-store?view=azure-dotnet
   - name: Java
@@ -191,9 +191,9 @@ items:
     href: https://stackoverflow.com/questions/tagged/azure-data-lake
   - name: Vídeos
     href: https://azure.microsoft.com/documentation/videos/index/?services=data-lake-store
-ms.openlocfilehash: 8112eab2dc35ba7ff80cd9f1591d999c1d7d6980
-ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
+ms.openlocfilehash: 23fde084214b28fb763743ad3f26c259ad8aa07f
+ms.sourcegitcommit: 04716e13cc2ab69da57d61819da6cd5508f8c422
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58341225"
+ms.lasthandoff: 04/02/2019
+ms.locfileid: "58846441"
